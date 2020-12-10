@@ -53,26 +53,26 @@ $sortLink = \dash\data::sortLink();
   <table class="tbl1 v6 fs12 txtC">
     <thead>
       <tr class="fs08">
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'customer', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a></th>
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'item', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'item', 'link'); ?>"><?php echo T_("Items"); ?></a></th>
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'qty', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'qty', 'link'); ?>"><?php echo T_("Qty"); ?></a></th>
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subprice', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subprice', 'link'); ?>"><?php echo T_("Price"); ?></a></th>
-        <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subdiscount', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subdiscount', 'link'); ?>"><?php echo T_("Discount"); ?></a></th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'customer', 'order'); ?>"><a href="<?php echo a($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a></th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'item', 'order'); ?>"><a href="<?php echo a($sortLink, 'item', 'link'); ?>"><?php echo T_("Items"); ?></a></th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'qty', 'order'); ?>"><a href="<?php echo a($sortLink, 'qty', 'link'); ?>"><?php echo T_("Qty"); ?></a></th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'subprice', 'order'); ?>"><a href="<?php echo a($sortLink, 'subprice', 'link'); ?>"><?php echo T_("Price"); ?></a></th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'subdiscount', 'order'); ?>"><a href="<?php echo a($sortLink, 'subdiscount', 'link'); ?>"><?php echo T_("Discount"); ?></a></th>
 
         <?php if(!\dash\data::hideSubvat()) {?>
-          <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'subvat', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subvat', 'link'); ?>"><?php echo T_("VAT"); ?></a></th>
+          <th class="s0" data-sort="<?php echo a($sortLink, 'subvat', 'order'); ?>"><a href="<?php echo a($sortLink, 'subvat', 'link'); ?>"><?php echo T_("VAT"); ?></a></th>
         <?php } //endif ?>
 
         <?php if(!\dash\data::hideShipping()) {?>
-          <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'shipping', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'shipping', 'link'); ?>"><?php echo T_("Shipping"); ?></a></th>
+          <th class="s0" data-sort="<?php echo a($sortLink, 'shipping', 'order'); ?>"><a href="<?php echo a($sortLink, 'shipping', 'link'); ?>"><?php echo T_("Shipping"); ?></a></th>
         <?php } //endif ?>
 
-        <th data-sort="<?php echo \dash\get::index($sortLink, 'subtotal', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'subtotal', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
-        <th data-sort="<?php echo \dash\get::index($sortLink, 'date', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a></th>
+        <th data-sort="<?php echo a($sortLink, 'subtotal', 'order'); ?>"><a href="<?php echo a($sortLink, 'subtotal', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
+        <th data-sort="<?php echo a($sortLink, 'date', 'order'); ?>"><a href="<?php echo a($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a></th>
 
         <th class=""><?php echo T_("Pay status"); ?></th>
         <?php if(!\dash\request::get('type')) {?>
-          <th class="s0" data-sort="<?php echo \dash\get::index($sortLink, 'type', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
+          <th class="s0" data-sort="<?php echo a($sortLink, 'type', 'order'); ?>"><a href="<?php echo a($sortLink, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
         <?php } //endif ?>
 
         <th><?php echo T_("Operation"); ?></th>
@@ -84,14 +84,14 @@ $sortLink = \dash\data::sortLink();
         <tr>
           <td class="s0">
             <?php if(isset($value['customer'])) {?>
-            <a href="<?php echo \dash\url::this(); ?>?customer=<?php echo \dash\get::index($value, 'customer'); ?>">
+            <a href="<?php echo \dash\url::this(); ?>?customer=<?php echo a($value, 'customer'); ?>">
               <?php if(isset($value['avatar'])) {?>
                 <img src="<?php echo $value['avatar']; ?>" class="avatar">
               <?php } ?>
               <?php if(isset($value['firstname']) || isset($value['lastname'])) {?>
-              <?php echo \dash\get::index($value, 'firstname'); ?> <b><?php echo \dash\get::index($value, 'lastname'); ?></b>
+              <?php echo a($value, 'firstname'); ?> <b><?php echo a($value, 'lastname'); ?></b>
             <?php }elseif(isset($value['displayname'])) { ?>
-               <b><?php echo \dash\get::index($value, 'displayname'); ?></b>
+               <b><?php echo a($value, 'displayname'); ?></b>
             <?php }else{ ?>
               <small><?php echo T_("Without name"); ?></small>
             <?php } // endif ?>
@@ -105,32 +105,32 @@ $sortLink = \dash\data::sortLink();
           <?php } //endif ?>
 
           </td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?itemequal=<?php echo \dash\get::index($value, 'item'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'item')); ?></a></td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo \dash\get::index($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'qty')); ?></a></td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo \dash\get::index($value, 'subprice'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subprice')); ?></a></td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subdiscountequal=<?php echo \dash\get::index($value, 'subdiscount'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subdiscount')); ?></a></td>
+          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?itemequal=<?php echo a($value, 'item'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'item')); ?></a></td>
+          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo a($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'qty')); ?></a></td>
+          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo a($value, 'subprice'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'subprice')); ?></a></td>
+          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subdiscountequal=<?php echo a($value, 'subdiscount'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'subdiscount')); ?></a></td>
 
           <?php if(!\dash\data::hideSubvat()) {?>
-            <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo \dash\get::index($value, 'subvat'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subvat')); ?></a></td>
+            <td class="s0"><a href="<?php echo \dash\url::this(); ?>?subpriceequal=<?php echo a($value, 'subvat'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'subvat')); ?></a></td>
           <?php } //endif ?>
 
           <?php if(!\dash\data::hideShipping()) {?>
-            <td class="s0"><a href="<?php echo \dash\url::this(); ?>?shipping=<?php echo \dash\get::index($value, 'shipping'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'shipping')); ?></a></td>
+            <td class="s0"><a href="<?php echo \dash\url::this(); ?>?shipping=<?php echo a($value, 'shipping'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'shipping')); ?></a></td>
           <?php } //endif ?>
-          <td ><a href="<?php echo \dash\url::this(); ?>?total=<?php echo \dash\get::index($value, 'total'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'total')); ?></a></td>
+          <td ><a href="<?php echo \dash\url::this(); ?>?total=<?php echo a($value, 'total'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'total')); ?></a></td>
           <td class="collapsing">
             <div class="f">
-              <div class="c s0 fs09"><?php echo \dash\fit::date_time(\dash\get::index($value, 'date')); ?></div>
-              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></div>
+              <div class="c s0 fs09"><?php echo \dash\fit::date_time(a($value, 'date')); ?></div>
+              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(a($value, 'date')); ?></div>
 
           </td>
-          <td><?php echo \dash\get::index($value, 't_paystatus') ?></td>
+          <td><?php echo a($value, 't_paystatus') ?></td>
           <?php if(!\dash\request::get('type')) {?>
 
-          <td class="s0" ><a class="badge" href="<?php echo \dash\url::this(); ?>?type=<?php echo \dash\get::index($value, 'type'); ?>"><?php echo T_(ucfirst(\dash\get::index($value, 'type'))); ?></a></td>
+          <td class="s0" ><a class="badge" href="<?php echo \dash\url::this(); ?>?type=<?php echo a($value, 'type'); ?>"><?php echo T_(ucfirst(a($value, 'type'))); ?></a></td>
           <?php } //endif ?>
           <td>
-            <a href="<?php echo \dash\url::this(); ?>/detail?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn link"><?php echo T_("View"); ?></a>
+            <a href="<?php echo \dash\url::this(); ?>/detail?id=<?php echo a($value, 'id'); ?>" class="btn link"><?php echo T_("View"); ?></a>
           </td>
         </tr>
         <tr>
@@ -153,14 +153,14 @@ $sortLink = \dash\data::sortLink();
               <?php $counterI++; ?>
               <?php if($counterI == 7) {?>
                 <?php $needMore = true; ?>
-                <a data-kerkere='.openDetailFactor_<?php echo \dash\get::index($value, 'id'); ?>' class="badge primary outline"><?php echo T_("More"); ?> ... <span class="mLR5">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
+                <a data-kerkere='.openDetailFactor_<?php echo a($value, 'id'); ?>' class="badge primary outline"><?php echo T_("More"); ?> ... <span class="mLR5">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
               <?php } //endif ?>
               <?php if($needMore) {?>
                 <?php $openKerkere = true;  ?>
                 <?php $needMore = false;  ?>
-                <div class="openDetailFactor_<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+                <div class="openDetailFactor_<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
               <?php } //endif ?>
-                <a class="badge <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary';}else{ echo 'secondary outline';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo \dash\get::index($myValue, 'id'); ?>"><?php echo \dash\get::index($myValue, 'title'); ?> <span class="mLR5"><?php echo \dash\fit::number(\dash\get::index($myValue, 'count')); ?></span></a>
+                <a class="badge <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary';}else{ echo 'secondary outline';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo a($myValue, 'id'); ?>"><?php echo a($myValue, 'title'); ?> <span class="mLR5"><?php echo \dash\fit::number(a($myValue, 'count')); ?></span></a>
             <?php } //endfor ?>
               <?php if($openKerkere) {?>
                 </div>

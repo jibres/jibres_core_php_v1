@@ -19,8 +19,8 @@ if(!is_array($dataTable))
 <form method="post" data-sortable data-willy class="ltr row">
 <?php foreach ($dataTable as $key => $value) {?>
  <div class="c-xs-6 c-sm-6 c-md-4 c-xl-3 c-xxl-2">
- 	<input type="hidden" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
-  <div class="sortItem" data-handle><?php echo \dash\fit::number($key+1). '. '. \dash\get::index($value, 'title'); ?></div>
+ 	<input type="hidden" name="sort[]" value="<?php echo a($value, 'id'); ?>">
+  <div class="sortItem" data-handle><?php echo \dash\fit::number($key+1). '. '. a($value, 'title'); ?></div>
  </div>
 <?php } //endfor ?>
 </form>

@@ -90,15 +90,15 @@
  <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
       <li>
-        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
-          <i class="<?php echo \dash\get::index($value, 'status_class') ?>"></i>
+        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">
+          <i class="<?php echo a($value, 'status_class') ?>"></i>
 
           <div class="key">
-            <div class="line1"><?php echo \dash\get::index($value, 'title');?></div>
+            <div class="line1"><?php echo a($value, 'title');?></div>
             <div class="line2 f">
-              <div class="cauto"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
+              <div class="cauto"><?php echo \dash\fit::number(a($value, 'item_count')). ' '. T_("Question"); ?></div>
               <div class="c"></div>
-              <div class="cauto"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
+              <div class="cauto"><?php echo \dash\fit::number(a($value, 'answer_count')). ' '. T_("Answer"); ?></div>
             </div>
           </div>
         </a>
@@ -112,11 +112,11 @@
  <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
       <li>
-        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">
-          <i class="<?php echo \dash\get::index($value, 'status_class') ?>"></i>
-          <div class="value s0"><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')). ' '. T_("Question"); ?></div>
-          <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'answer_count')). ' '. T_("Answer"); ?></div>
+        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">
+          <i class="<?php echo a($value, 'status_class') ?>"></i>
+          <div class="value s0"><?php echo \dash\fit::number(a($value, 'item_count')). ' '. T_("Question"); ?></div>
+          <div class="key"><?php echo a($value, 'title');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($value, 'answer_count')). ' '. T_("Answer"); ?></div>
           <div class="go s0"></div>
         </a>
       </li>

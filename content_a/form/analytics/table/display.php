@@ -65,10 +65,10 @@
     <thead>
       <tr>
         <?php foreach ($fields as $key => $value) {?>
-          <?php if(\dash\get::index($value, 'field') === 'f_answer_id') {?>
+          <?php if(a($value, 'field') === 'f_answer_id') {?>
             <th class="collapsing"><?php echo T_("Show") ?></th>
             <?php }else{ if(array_key_exists('visible', $value) && !$value['visible']) {continue;} ?>
-            <th class="collapsing"><?php echo \dash\get::index($value, 'title') ?></th>
+            <th class="collapsing"><?php echo a($value, 'title') ?></th>
             <?php }//endif ?>
         <?php } //endif ?>
       </tr>
@@ -77,10 +77,10 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
           <?php foreach ($fields as $field) {?>
-            <?php if(\dash\get::index($field, 'field') === 'f_answer_id') {?>
+            <?php if(a($field, 'field') === 'f_answer_id') {?>
               <td><a class="btn primary2 xs" href="<?php echo \dash\url::that(). '/answer?'. \dash\request::fix_get(['aid' => $value['f_answer_id']]);  ?>"><?php echo T_("Show") ?></a></td>
             <?php }else{ if(array_key_exists('visible', $field) && !$field['visible']) {continue;} ?>
-              <td class="collapsing"><?php echo \dash\get::index($value, \dash\get::index($field, 'field')) ?></td>
+              <td class="collapsing"><?php echo a($value, a($field, 'field')) ?></td>
             <?php }//endif ?>
         <?php } //endif ?>
         </tr>

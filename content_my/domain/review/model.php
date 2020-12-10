@@ -88,21 +88,21 @@ class model
 			'usebudget'    => \dash\request::post('usebudget'),
 
 				// .com request
-			'fullname'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fullname'),
-			'org'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'org'),
-			'nationalcode' => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'nationalcode'),
-			'country'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'country'),
-			'province'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'province'),
-			'city'         => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'city'),
-			'address'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'address'),
-			'postcode'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'postcode'),
+			'fullname'     => a(\dash\data::dataRowAction(), 'detail', 'fullname'),
+			'org'          => a(\dash\data::dataRowAction(), 'detail', 'org'),
+			'nationalcode' => a(\dash\data::dataRowAction(), 'detail', 'nationalcode'),
+			'country'      => a(\dash\data::dataRowAction(), 'detail', 'country'),
+			'province'     => a(\dash\data::dataRowAction(), 'detail', 'province'),
+			'city'         => a(\dash\data::dataRowAction(), 'detail', 'city'),
+			'address'      => a(\dash\data::dataRowAction(), 'detail', 'address'),
+			'postcode'     => a(\dash\data::dataRowAction(), 'detail', 'postcode'),
 
-			'phonecc'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'phonecc'),
-			'phone'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'phone'),
-			'faxcc'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'faxcc'),
-			'fax'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fax'),
+			'phonecc'      => a(\dash\data::dataRowAction(), 'detail', 'phonecc'),
+			'phone'        => a(\dash\data::dataRowAction(), 'detail', 'phone'),
+			'faxcc'        => a(\dash\data::dataRowAction(), 'detail', 'faxcc'),
+			'fax'          => a(\dash\data::dataRowAction(), 'detail', 'fax'),
 
-			'email'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'email'),
+			'email'        => a(\dash\data::dataRowAction(), 'detail', 'email'),
 		];
 
 
@@ -134,10 +134,10 @@ class model
 	{
 		$post =
 		[
-			'domain'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'domain'),
-			'nic_id'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'irnicid'),
-			'irnic_new' => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'irnic_new'),
-			'pin'       => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'pin'),
+			'domain'    => a(\dash\data::dataRowAction(), 'detail', 'domain'),
+			'nic_id'    => a(\dash\data::dataRowAction(), 'detail', 'irnicid'),
+			'irnic_new' => a(\dash\data::dataRowAction(), 'detail', 'irnic_new'),
+			'pin'       => a(\dash\data::dataRowAction(), 'detail', 'pin'),
 
 
 			'agree'     => true,
@@ -146,22 +146,22 @@ class model
 			'usebudget'    => \dash\request::post('usebudget'),
 
 			// .com request
-			'fullname'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fullname'),
-			'org'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'org'),
-			'nationalcode' => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'nationalcode'),
-			'country'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'country'),
-			'province'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'province'),
-			'city'         => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'city'),
-			'address'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'address'),
-			'postcode'     => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'postcode'),
+			'fullname'     => a(\dash\data::dataRowAction(), 'detail', 'fullname'),
+			'org'          => a(\dash\data::dataRowAction(), 'detail', 'org'),
+			'nationalcode' => a(\dash\data::dataRowAction(), 'detail', 'nationalcode'),
+			'country'      => a(\dash\data::dataRowAction(), 'detail', 'country'),
+			'province'     => a(\dash\data::dataRowAction(), 'detail', 'province'),
+			'city'         => a(\dash\data::dataRowAction(), 'detail', 'city'),
+			'address'      => a(\dash\data::dataRowAction(), 'detail', 'address'),
+			'postcode'     => a(\dash\data::dataRowAction(), 'detail', 'postcode'),
 
-			'phonecc'      => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'phonecc'),
-			'phone'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'phone'),
-			'faxcc'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'faxcc'),
-			'fax'          => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'fax'),
+			'phonecc'      => a(\dash\data::dataRowAction(), 'detail', 'phonecc'),
+			'phone'        => a(\dash\data::dataRowAction(), 'detail', 'phone'),
+			'faxcc'        => a(\dash\data::dataRowAction(), 'detail', 'faxcc'),
+			'fax'          => a(\dash\data::dataRowAction(), 'detail', 'fax'),
 
-			'email'        => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'email'),
-			// 'whoistype'    => \dash\get::index(\dash\data::dataRowAction(), 'detail', 'whoistype'),
+			'email'        => a(\dash\data::dataRowAction(), 'detail', 'email'),
+			// 'whoistype'    => a(\dash\data::dataRowAction(), 'detail', 'whoistype'),
 
 
 		];

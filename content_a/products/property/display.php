@@ -14,14 +14,14 @@ $productDataRow = \dash\data::productDataRow();
           <div class="c-xs-12 c-sm-12 c-lg-4 mB5">
             <?php if(!\dash\data::catList()) {?>
               <div class="input">
-                <input type="text" name="cat" placeholder="<?php echo T_("Group"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'cat'); ?>">
+                <input type="text" name="cat" placeholder="<?php echo T_("Group"); ?>" id="title" maxlength="100" value="<?php echo a(\dash\data::dataRow(), 'cat'); ?>">
               </div>
             <?php }else{ ?>
               <div>
                 <select name="cat" class="select22" data-model='tag' data-placeholder="<?php echo T_("Group"); ?>" >
                   <option></option>
                   <?php foreach (\dash\data::catList() as $key => $value) {?>
-                    <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index(\dash\data::dataRow(), 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                    <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
                   <?php } //endfor ?>
                 </select>
               </div>
@@ -30,14 +30,14 @@ $productDataRow = \dash\data::productDataRow();
           <div class="c-xs-12 c-sm-12 c-lg-4 mB5">
             <?php if(!\dash\data::keyList()) {?>
               <div class="input">
-                <input type="text" name="key" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'key'); ?>">
+                <input type="text" name="key" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo a(\dash\data::dataRow(), 'key'); ?>">
               </div>
             <?php }else{ ?>
               <div>
                 <select name="key" class="select22" data-model='tag' data-placeholder="<?php echo T_("Type"); ?>" >
                   <option></option>
                   <?php foreach (\dash\data::keyList() as $key => $value) {?>
-                    <option value="<?php echo $value; ?>" <?php if($value == \dash\get::index(\dash\data::dataRow(), 'key')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                    <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'key')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
                   <?php } //endfor ?>
                 </select>
               </div>
@@ -45,7 +45,7 @@ $productDataRow = \dash\data::productDataRow();
           </div>
           <div class="c-xs-12 c-sm-12 c-lg-4 mB5">
             <div class="input">
-              <input type="text" name="value" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo \dash\get::index(\dash\data::dataRow(), 'value'); ?>">
+              <input type="text" name="value" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo a(\dash\data::dataRow(), 'value'); ?>">
             </div>
           </div>
         </div>
@@ -82,27 +82,27 @@ if(\dash\data::propertyList_saved())
 <?php foreach ($cat['list'] as $key => $value) {?>
       <tr>
          <td class="collapsing">
-          <?php if(\dash\get::index($value, 'id') && !\dash\get::index($value, 'outstanding')) {?><div class="" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "set", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i title="<?php echo T_("Set as outstanding property") ?>" class="sf-check-circle fc-mute fs12"></i></div><?php } //endif ?>
+          <?php if(a($value, 'id') && !a($value, 'outstanding')) {?><div class="" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "set", "pid": "<?php echo a($value, 'id'); ?>"}'><i title="<?php echo T_("Set as outstanding property") ?>" class="sf-check-circle fc-mute fs12"></i></div><?php } //endif ?>
 
-          <?php if(\dash\get::index($value, 'id') && \dash\get::index($value, 'outstanding')) {?><div class="lin" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "unset", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i title="<?php echo T_("Unset from outstanding property") ?>" class="sf-check-circle fc-green fs12"></i></div><?php } //endif ?>
+          <?php if(a($value, 'id') && a($value, 'outstanding')) {?><div class="lin" data-ajaxify data-action="<?php echo \dash\url::pwd(); ?>" data-method='post' data-data='{"outstanding": "outstanding", "type": "unset", "pid": "<?php echo a($value, 'id'); ?>"}'><i title="<?php echo T_("Unset from outstanding property") ?>" class="sf-check-circle fc-green fs12"></i></div><?php } //endif ?>
         </td>
         <th><?php echo $value['key']; ?></th>
         <td>
-          <?php if(\dash\get::index($value, 'link')) {?>
-            <a href="<?php echo \dash\get::index($value, 'link') ?>"><?php echo $value['value']; ?></a>
+          <?php if(a($value, 'link')) {?>
+            <a href="<?php echo a($value, 'link') ?>"><?php echo $value['value']; ?></a>
           <?php }else{ ?>
           <?php echo $value['value']; ?>
           <?php } //endif ?>
         </td>
 
          <td class="collapsing">
-          <?php if(\dash\get::index($value, 'id') && \dash\request::get('pid') && \dash\request::get('pid') == \dash\get::index($value, 'id')) {?>
+          <?php if(a($value, 'id') && \dash\request::get('pid') && \dash\request::get('pid') == a($value, 'id')) {?>
             <small class="fc-mute"><?php echo T_("Please fill the top input and click on Edit to save it") ?></small>
           <?php }else{ ?>
-            <?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. \dash\get::index($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
+            <?php if(a($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. a($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
           <?php } //endif ?>
         </td>
-         <td class="collapsing"><?php if(\dash\get::index($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
+         <td class="collapsing"><?php if(a($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo a($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
       </tr>
   <?php  } // endfor ?>
 <?php  } // end for category ?>
@@ -136,12 +136,12 @@ if(\dash\data::propertyList_saved())
             <?php foreach ($cat['list'] as $key => $value) { $randKey = rand(1, 99999); ?>
             <tr>
               <td class="collapsing">
-                  <input type="hidden" name="cat_<?php echo $randKey; ?>" value="<?php echo \dash\get::index($cat, 'title') ?>">
-                  <?php echo \dash\get::index($cat, 'title') ?>
+                  <input type="hidden" name="cat_<?php echo $randKey; ?>" value="<?php echo a($cat, 'title') ?>">
+                  <?php echo a($cat, 'title') ?>
               </td>
               <td class="collapsing">
-                <input type="hidden" name="key_<?php echo $randKey; ?>" value="<?php echo \dash\get::index($value, 'key') ?>">
-                <?php echo \dash\get::index($value, 'key') ?>
+                <input type="hidden" name="key_<?php echo $randKey; ?>" value="<?php echo a($value, 'key') ?>">
+                <?php echo a($value, 'key') ?>
               </td>
               <td>
                 <div class="input">

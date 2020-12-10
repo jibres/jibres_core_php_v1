@@ -25,11 +25,11 @@ class generate
      		foreach ($website['menu'][$website[$customized_key][$_key]]['list'] as $menuValue)
      		{
       			echo '<a ';
-      			if(\dash\get::index($menuValue, 'target'))
+      			if(a($menuValue, 'target'))
       			{
       				echo 'target="_blank" data-direct ';
       			}
-      			echo ' href="'. \dash\get::index($menuValue, 'url'). '">'. \dash\get::index($menuValue, 'title'). '</a>';
+      			echo ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
      		}
   			echo '</nav>';
 		}
@@ -63,11 +63,11 @@ class generate
         {
             echo '<li>';
               echo '<a ';
-              if(\dash\get::index($menuValue, 'target'))
+              if(a($menuValue, 'target'))
               {
                 echo 'target="_blank" data-direct ';
               }
-              echo ' href="'. \dash\get::index($menuValue, 'url'). '">'. \dash\get::index($menuValue, 'title'). '</a>';
+              echo ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
             echo '</li>';
         }
         echo '</ul>';

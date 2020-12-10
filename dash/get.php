@@ -4,7 +4,7 @@ namespace dash;
 /**
  * Get index of array
  * use in display.php
- * @example \dash\get::index($value, 'index1', 'index2', 'index3');
+ * @example a($value, 'index1', 'index2', 'index3');
  * @return  $value['index1']['index2']['index3'];
  */
 class get

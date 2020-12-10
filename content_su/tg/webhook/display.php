@@ -31,10 +31,10 @@ $tg = \dash\data::tg();
 <div class="cbox">
   <h2><?php echo T_("Last request"); ?></h2>
   <div class="msg info2">
-    <pre><?php echo \dash\get::index($tg, 'send'); ?></pre>
+    <pre><?php echo a($tg, 'send'); ?></pre>
   </div>
   <div class="msg">
-    <pre><?php echo \dash\get::index($tg, 'response'); ?></pre>
+    <pre><?php echo a($tg, 'response'); ?></pre>
   </div>
 </div>
 <?php } ?>

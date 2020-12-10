@@ -16,12 +16,12 @@
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
-                    <td><?php echo \dash\get::index($value, 'title'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'bank'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'merchantIban'); ?></td>
+                    <td><?php echo a($value, 'title'); ?></td>
+                    <td><?php echo a($value, 'bank'); ?></td>
+                    <td><?php echo a($value, 'merchantIban'); ?></td>
 
 
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
                 </tr>
               <?php }// endfor ?>
             </tbody>

@@ -15,7 +15,7 @@ $propertyList = \dash\data::propertyList();
 
             <form method="post" autocomplete="off">
 
-               <textarea name="sharetext"  class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Share text"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'sharetext'); ?></textarea>
+               <textarea name="sharetext"  class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
 
               <div class="txtRa">
 

@@ -58,7 +58,7 @@ class check
 
 		if(($data['year_id'] && $data['date']) || (isset($_option['year_id']) && $data['date']))
 		{
-			$year_id = $data['year_id'] ? $data['year_id'] : \dash\get::index($_option, 'year_id');
+			$year_id = $data['year_id'] ? $data['year_id'] : a($_option, 'year_id');
 
 			$load_year = \lib\app\tax\year\get::get($year_id);
 			if(!isset($load_year['id']) || !isset($load_year['startdate']) || !isset($load_year['enddate']))

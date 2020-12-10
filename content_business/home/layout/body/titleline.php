@@ -10,7 +10,7 @@ if(isset($line_detail['value']['titleline']) && is_array($line_detail['value']['
 if($titleline)
 {
 	echo '<h2 class="jTitle1">';
-	echo \dash\get::index($titleline, 'titleline');
+	echo a($titleline, 'titleline');
 	echo '</h2>';
 }
 

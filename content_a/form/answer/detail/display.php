@@ -21,7 +21,7 @@
       <?php  if($i % 2) { ?>
         <tr>
       <?php } //endif ?>
-          <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
+          <th class=""><?php echo a($value, 'item_title'); ?></th>
           <td class="">
             <?php  HTMLshowDetaiRecrod($value) ?>
           </td>
@@ -55,7 +55,7 @@
     <tbody class="font-12">
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <th class=""><?php echo \dash\get::index($value, 'item_title'); ?></th>
+          <th class=""><?php echo a($value, 'item_title'); ?></th>
           <td class="">
             <?php  HTMLshowDetaiRecrod($value) ?>
             </td>
@@ -145,10 +145,10 @@
 
               <?php foreach (\dash\data::commentList() as $key => $value) {?>
                   <tr>
-                    <td><?php echo \dash\get::index($value, 'content'); ?></td>
-                    <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'privacy'))); ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated'));?></td>
-                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
+                    <td><?php echo a($value, 'content'); ?></td>
+                    <td class="collapsing"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></td>
+                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
                   </tr>
               <?php } //endfor ?>
 
@@ -170,10 +170,10 @@
 <?php
 function HTMLshowDetaiRecrod($value)
 {
-   if(\dash\get::index($value, 'province_name') || \dash\get::index($value, 'city_name'))
+   if(a($value, 'province_name') || a($value, 'city_name'))
   {
-    echo \dash\get::index($value, 'province_name');
-    echo \dash\get::index($value, 'city_name');
+    echo a($value, 'province_name');
+    echo a($value, 'city_name');
   }
   elseif(isset($value['item_type']) && $value['item_type'] === 'file')
   {
@@ -181,9 +181,9 @@ function HTMLshowDetaiRecrod($value)
   }
   else
   {
-    echo \dash\get::index($value, 'answer');
+    echo a($value, 'answer');
     echo ' ';
-    echo \dash\get::index($value, 'textarea');
+    echo a($value, 'textarea');
   }
 }
 ?>

@@ -43,6 +43,7 @@ function cronjob_server()
 	}
 }
 
+
 /**
  * Find $_SERVER !
  */
@@ -91,6 +92,12 @@ else
 if(file_exists(root .'config.me.php'))
 {
 	require_once(root .'config.me.php');
+}
+
+// define a to check array and
+function a()
+{
+	return \dash\get::index(...func_get_args());
 }
 
 ?>

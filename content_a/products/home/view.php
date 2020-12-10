@@ -68,7 +68,7 @@ class view
 		// set back link
 		\lib\backlink::set_products();
 
-		if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
+		if(a(\dash\data::productSettingSaved(), 'default_pirce_list'))
 		{
 			$myProductList = \lib\app\product\search::price_list($search_string, $args);
 		}

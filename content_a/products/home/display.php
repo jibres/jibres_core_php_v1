@@ -50,7 +50,7 @@ else
 
 <?php
 
-if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
+if(a(\dash\data::productSettingSaved(), 'default_pirce_list'))
 {
   htmlTablePrice();
   return;
@@ -62,10 +62,10 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
-        <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
+        <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title'); ?>">
         <div class="key">
-          <div class="line1"><?php echo \dash\get::index($value, 'title'); ?></div>
+          <div class="line1"><?php echo a($value, 'title'); ?></div>
           <div class="line2 f">
           <?php if(isset($value['variants_detail']['stock'])) {?>
             <div class="cauto stockCount"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
@@ -74,7 +74,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
           <?php if(isset($value['variants_detail']['count'])) {?>
             <div class="c variantCount"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
           <?php } //endif ?>
-          <div class="cauto os"><?php echo \dash\get::index($value, 'variant_price'); ?></div>
+          <div class="cauto os"><?php echo a($value, 'variant_price'); ?></div>
           </div>
         </div>
       </a>
@@ -87,13 +87,13 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
-        <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-        <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
+        <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title'); ?>">
+        <div class="key"><?php echo a($value, 'title'); ?></div>
 
             <?php if(isset($value['variants_detail']['stock'])) {?>
               <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-            <?php }elseif(\dash\get::index($value, 'stock')){ ?>
+            <?php }elseif(a($value, 'stock')){ ?>
               <div class="key"><b><?php echo \dash\fit::number($value['stock']); ?></b> <?php echo T_("in stock"); ?></div>
             <?php } //endif ?>
 
@@ -101,7 +101,7 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
               <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
             <?php } //endif ?>
 
-        <div class="value"><?php echo \dash\get::index($value, 'variant_price'); ?></div>
+        <div class="value"><?php echo a($value, 'variant_price'); ?></div>
         <div class="go"></div>
       </a>
      </li>
@@ -127,9 +127,9 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
       <tr>
-        <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar" alt="<?php echo \dash\get::index($value, 'title'); ?>"></td>
-        <td><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></td>
-        <td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'variant_price')); ?></td>
+        <td class="collapsing"><img src="<?php echo a($value, 'thumb'); ?>" class="avatar" alt="<?php echo a($value, 'title'); ?>"></td>
+        <td><a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>"><i class="sf-edit mRa10"></i><?php echo a($value, 'title'); ?></a></td>
+        <td class=""><?php echo \dash\fit::number(a($value, 'variant_price')); ?></td>
 
         <td>
           <?php if(isset($value['variants_detail']['stock'])) {?>
@@ -182,28 +182,28 @@ if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list'))
 
 
       <tr>
-        <td class="collapsing"><img src="<?php echo \dash\get::index($value, 'thumb'); ?>" class="avatar fs14"></td>
+        <td class="collapsing"><img src="<?php echo a($value, 'thumb'); ?>" class="avatar fs14"></td>
         <td class="collapsing">
-          <div><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>"><i class="sf-edit mRa10"></i><?php echo \dash\get::index($value, 'title'); ?></a></div>
+          <div><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo a($value, 'id'); ?>"><i class="sf-edit mRa10"></i><?php echo a($value, 'title'); ?></a></div>
           <?php if(isset($value['optionvalue1']) && $value['optionvalue1']) {?>
-            <div><?php echo \dash\get::index($value, 'optionname1'); ?> <b><?php echo \dash\get::index($value, 'optionvalue1'); ?></b></div>
+            <div><?php echo a($value, 'optionname1'); ?> <b><?php echo a($value, 'optionvalue1'); ?></b></div>
           <?php } //endif ?>
 
           <?php if(isset($value['optionvalue2']) && $value['optionvalue2']) {?>
-            <div><?php echo \dash\get::index($value, 'optionname2'); ?> <b><?php echo \dash\get::index($value, 'optionvalue2'); ?></b></div>
+            <div><?php echo a($value, 'optionname2'); ?> <b><?php echo a($value, 'optionvalue2'); ?></b></div>
           <?php } //endif ?>
 
           <?php if(isset($value['optionvalue3']) && $value['optionvalue3']) {?>
-            <div><?php echo \dash\get::index($value, 'optionname3'); ?> <b><?php echo \dash\get::index($value, 'optionvalue3'); ?></b></div>
+            <div><?php echo a($value, 'optionname3'); ?> <b><?php echo a($value, 'optionvalue3'); ?></b></div>
           <?php } //endif ?>
         </td>
 
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'buyprice')); ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'discountpercent')); ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'buyprice')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'price')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'discount')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'discountpercent')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'finalprice')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'stock')); ?></td>
 
       </tr>
       <?php } //endfor ?>

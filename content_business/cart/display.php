@@ -9,47 +9,47 @@
     <div class="cartItem">
      <div class="row align-center">
       <div class="c-auto">
-       <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
+       <img src="<?php echo a($value, 'thumb') ?>" alt="<?php echo a($value, 'title') ?>">
       </div>
       <div class="c">
-       <h3 class="title"><a href="<?php echo \dash\get::index($value, 'url'); ?>"><?php echo \dash\get::index($value, 'title') ?></a></h3>
+       <h3 class="title"><a href="<?php echo a($value, 'url'); ?>"><?php echo a($value, 'title') ?></a></h3>
 
-        <?php if(!\dash\get::index($value, 'view')) {?>
+        <?php if(!a($value, 'view')) {?>
           <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
         <?php } // endif ?>
 
-        <?php if(\dash\get::index($value, 'trackquantity')) {?>
+        <?php if(a($value, 'trackquantity')) {?>
 
-        <?php $stock = floatval(\dash\get::index($value, 'stock')); ?>
+        <?php $stock = floatval(a($value, 'stock')); ?>
           <?php if($stock >= 10) {?>
             <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
           <?php }elseif($stock > 0) {?>
-            <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val :unit left in stock - order soon.", ['val' => \dash\fit::number($stock), 'unit' => \dash\get::index($value, 'unit')]); ?></div>
+            <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val :unit left in stock - order soon.", ['val' => \dash\fit::number($stock), 'unit' => a($value, 'unit')]); ?></div>
           <?php }elseif ($stock <= 0) {?>
             <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
           <?php } // endif ?>
         <?php } //endif ?>
 
          <div class="priceShow" data-cart>
-          <span class="price"><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span>
+          <span class="price"><?php echo \dash\fit::number(a($value, 'price')); ?></span>
           <span class="unit"><?php echo \lib\store::currency(); ?></span>
          </div>
       </div>
       <div class="c-auto c-xs-12">
-        <?php if(!\dash\get::index($value, 'allow_shop')) {?>
+        <?php if(!a($value, 'allow_shop')) {?>
           <div class="availability" data-red data-type='view'><?php echo T_("This product was removed from your cart"); ?></div>
         <?php }else{ ?>
          <div class="itemOperation">
           <div class="productCount">
            <div class="input">
-            <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>+</label>
-            <input type="number" name="count" value="<?php echo \dash\get::index($value, 'count'); ?>" readonly data-format='int'>
-            <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}'>-</label>
+            <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>+</label>
+            <input type="number" name="count" value="<?php echo a($value, 'count'); ?>" readonly data-format='int'>
+            <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>-</label>
            </div>
 
           </div>
 
-           <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo \dash\get::index($value, 'product_id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
+           <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo a($value, 'product_id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
 
          </div>
         <?php } // endif ?>

@@ -33,27 +33,27 @@ $propertyList = \dash\data::propertyList();
 
               ?></p>
 
-              <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'sharetext'); ?></textarea>
+              <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
 
               <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
             </div>
 
             <?php $social = \lib\store::social(); ?>
-            <?php if(\dash\get::index($social, 'telegram')) {?>
+            <?php if(a($social, 'telegram')) {?>
               <footer>
-                <a class="btn block mB5" target="_blank" href='<?php echo \dash\get::index($social, 'telegram', 'link'); ?>'><?php echo T_("Register a new order"); ?></a>
+                <a class="btn block mB5" target="_blank" href='<?php echo a($social, 'telegram', 'link'); ?>'><?php echo T_("Register a new order"); ?></a>
               </footer>
             <?php } //endif ?>
             <footer class="row">
 
-              <?php $telegrambtn = \dash\get::index(\dash\data::telegramSetting(), 'telegrambtn'); ?>
+              <?php $telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn'); ?>
 
               <?php if(empty($social) || !$telegrambtn) {?>
                 <a class="btn link" href="<?php echo \dash\url::here() ?>/setting/social"><?php echo T_("Manage your social network"); ?></a>
               <?php }else{ ?>
                 <?php foreach ($social as $key => $value) {?>
-                  <?php if(\dash\get::index($social, $key) && \dash\get::index($telegrambtn, $key)) {?>
-                    <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo \dash\get::index($social, 'instagram', 'link'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a></div>
+                  <?php if(a($social, $key) && a($telegrambtn, $key)) {?>
+                    <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo a($social, 'instagram', 'link'); ?>"><?php echo a($value, 'title'); ?></a></div>
                   <?php } //endif ?>
 
                 <?php } //endfor ?>

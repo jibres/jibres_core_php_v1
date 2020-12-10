@@ -53,12 +53,12 @@ else
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <td class="collapsing"><?php echo \dash\get::index($value, 'item_title'); ?></td>
+          <td class="collapsing"><?php echo a($value, 'item_title'); ?></td>
           <td class="">
-            <?php echo \dash\get::index($value, 'answer'); ?>
-            <?php echo \dash\get::index($value, 'textarea'); ?>
+            <?php echo a($value, 'answer'); ?>
+            <?php echo a($value, 'textarea'); ?>
           </td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/answer/detail?id='. \dash\request::get('id'). '&aid='. \dash\get::index($value, 'answer_id') ?>"><?php echo T_("Other answer") ?></a></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/answer/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'answer_id') ?>"><?php echo T_("Other answer") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

@@ -194,7 +194,7 @@ class login
 			self::$error[] = 'Status of login is not active';
 			self::$error[] = 'used in place  :' . self::where_am_i();
 			self::$error[] = 'current url is :' . \dash\url::current();
-			self::$error[] = 'the status is :' . \dash\get::index($_detail, 'status');
+			self::$error[] = 'the status is :' . a($_detail, 'status');
 			return false;
 		}
 

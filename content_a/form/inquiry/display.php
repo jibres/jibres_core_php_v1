@@ -20,12 +20,12 @@
 							<div class="msg warn2"><?php echo T_("You have not any inquiry question in your form. Questions that are mobile or national code can be used in the inquiry process") ?></div>
 						<?php }else{ ?>
 							<p class="mB0-f"><?php echo T_("Which question to ask?") ?></p>
-							<?php foreach (\dash\data::formItems() as $key => $value) { $myId =  \dash\get::index($value, 'id'); ?>
+							<?php foreach (\dash\data::formItems() as $key => $value) { $myId =  a($value, 'id'); ?>
 
 								<div class="switch1">
-									<input type="checkbox" name="question[]" value="<?php echo \dash\get::index($value, 'id') ?>" id="<?php echo $myId ?>" <?php if(is_array(\dash\get::index($inquerySetting, 'question')) && in_array($myId, $inquerySetting['question'])) {echo 'checked';} ?>>
+									<input type="checkbox" name="question[]" value="<?php echo a($value, 'id') ?>" id="<?php echo $myId ?>" <?php if(is_array(a($inquerySetting, 'question')) && in_array($myId, $inquerySetting['question'])) {echo 'checked';} ?>>
 									<label for="<?php echo $myId ?>"></label>
-									<label for="<?php echo $myId ?>"><?php echo \dash\get::index($value, 'title') ?></label>
+									<label for="<?php echo $myId ?>"><?php echo a($value, 'title') ?></label>
 								</div>
 
 							<?php } //endif ?>
@@ -36,12 +36,12 @@
 
 						<label for="messagef"><?php echo T_("Message if result founded") ?></label>
 						<div class="input">
-							<input type="text" id="messagef" name="inquiry_msg_founded" value="<?php echo \dash\get::index($inquerySetting, 'inquiry_msg_founded'); ?>">
+							<input type="text" id="messagef" name="inquiry_msg_founded" value="<?php echo a($inquerySetting, 'inquiry_msg_founded'); ?>">
 						</div>
 
 						<label for="messagenf"><?php echo T_("Message if result not founded") ?></label>
 						<div class="input">
-							<input type="text" id="messagenf" name="inquiry_msg_not_founded" value="<?php echo \dash\get::index($inquerySetting, 'inquiry_msg_not_founded'); ?>">
+							<input type="text" id="messagenf" name="inquiry_msg_not_founded" value="<?php echo a($inquerySetting, 'inquiry_msg_not_founded'); ?>">
 						</div>
 
 						<div class="mB10">

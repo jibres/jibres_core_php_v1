@@ -31,7 +31,7 @@
     <nav class="items ShowMyDomainJibres" data-kerkere-content='hide'>
       <ul>
         <?php foreach (\dash\data::myDomainList() as $key => $value) {?>
-          <li><a class="f" href="<?php echo \dash\url::that(). '/existdomain?domain='. \dash\get::index($value, 'name'); ?>"><div class="key"><?php echo \dash\get::index($value, 'name'); ?></div><div class="go"></div></a></li>
+          <li><a class="f" href="<?php echo \dash\url::that(). '/existdomain?domain='. a($value, 'name'); ?>"><div class="key"><?php echo a($value, 'name'); ?></div><div class="go"></div></a></li>
         <?php } //endfor ?>
       </ul>
     </nav>

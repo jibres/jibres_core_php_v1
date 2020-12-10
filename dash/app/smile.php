@@ -62,7 +62,7 @@ class smile
 		}
 
 		$db_name = \dash\engine\store::make_database_name($store_id);
-		$fuel    = \dash\get::index($store_detail, 'fuel');
+		$fuel    = a($store_detail, 'fuel');
 
 		if(!$db_name || !$fuel)
 		{

@@ -9,7 +9,7 @@ class view
 		\content_a\order\view::master_order_view();
 
 		$orderDetail  = \dash\data::orderDetail();
-		$action       = \dash\get::index($orderDetail, 'action');
+		$action       = a($orderDetail, 'action');
 		if(!is_array($action))
 		{
 			$action = [];

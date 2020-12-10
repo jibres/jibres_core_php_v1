@@ -30,8 +30,8 @@ if(!is_array($formItems))
 
 					<?php if(\dash\data::tagList()) {?>
 						<?php foreach (\dash\data::tagList() as $key => $value) {?>
-							<div class="msg minimal <?php echo \dash\get::index($value, 'class') ?>">
-								<?php if(\dash\get::index($value, 'desc')) {?><p><?php echo \dash\get::index($value, 'desc') ?></p><?php } //endif ?>
+							<div class="msg minimal <?php echo a($value, 'class') ?>">
+								<?php if(a($value, 'desc')) {?><p><?php echo a($value, 'desc') ?></p><?php } //endif ?>
 							</div>
 						<?php } //endfor ?>
 					<?php } //endif ?>
@@ -39,8 +39,8 @@ if(!is_array($formItems))
 					<?php if(\dash\data::commentList()) {?>
 						<?php foreach (\dash\data::commentList() as $key => $value) {?>
 							<div class="msg f">
-								<div class="c"><?php echo \dash\get::index($value, 'content') ?></div>
-								<div class="cauto"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?></div>
+								<div class="c"><?php echo a($value, 'content') ?></div>
+								<div class="cauto"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></div>
 
 							</div>
 						<?php } //endfor ?>

@@ -16,13 +16,13 @@
             <div class="intro<?php echo $i; ?>" >
             <label for="title<?php echo $i; ?>"><?php echo T_("Title"); ?></label>
             <div class="input">
-              <input type="text" name="title<?php echo $i; ?>" id="title<?php echo $i; ?>" value="<?php echo \dash\get::index($introSaved, $i, 'title'); ?>" maxlength="50">
+              <input type="text" name="title<?php echo $i; ?>" id="title<?php echo $i; ?>" value="<?php echo a($introSaved, $i, 'title'); ?>" maxlength="50">
             </div>
 
 
             <label for="desc<?php echo $i; ?>"><?php echo T_("Description"); ?></label>
             <div class="input">
-              <input type="text" name="desc<?php echo $i; ?>" id="desc<?php echo $i; ?>" value="<?php echo \dash\get::index($introSaved, $i, 'desc'); ?>" maxlength="100">
+              <input type="text" name="desc<?php echo $i; ?>" id="desc<?php echo $i; ?>" value="<?php echo a($introSaved, $i, 'desc'); ?>" maxlength="100">
             </div>
 
             <label for="file<?php echo $i; ?>"><?php echo T_("Image"); ?></label>
@@ -42,10 +42,10 @@
        <section class="mobileFrame" data-intro>
         <div class="screen">
           <div class="imgBox">
-            <img src="<?php echo \dash\get::index($introSaved, $i, 'image'); ?>" alt='<?php echo \dash\get::index($introSaved, $i, 'title'); ?>'>
+            <img src="<?php echo a($introSaved, $i, 'image'); ?>" alt='<?php echo a($introSaved, $i, 'title'); ?>'>
           </div>
-          <h2><?php echo \dash\get::index($introSaved, $i, 'title'); ?></h2>
-          <p><?php echo \dash\get::index($introSaved, $i, 'desc'); ?></p>
+          <h2><?php echo a($introSaved, $i, 'title'); ?></h2>
+          <p><?php echo a($introSaved, $i, 'desc'); ?></p>
           <nav class="f align-center">
             <?php if ($i === 1) {?>
             <div class="c4 prev txtLa"><?php echo T_("Skip"); ?></div>

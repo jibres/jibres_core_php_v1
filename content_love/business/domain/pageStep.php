@@ -9,13 +9,13 @@
   <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '/dns?id='. \dash\request::get('id'); ?>" class="stat x70">
       <h3><?php echo T_("DNS Record");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'dns_count'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'dns_count'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="<?php echo \dash\url::that(). '/log?id='. \dash\request::get('id'); ?>" class="stat x70">
       <h3><?php echo T_("Log");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'action_count'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'action_count'));?></div>
     </a>
   </div>
   <div class="c pRa10">

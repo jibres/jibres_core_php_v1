@@ -93,65 +93,65 @@ if(!is_array($dataTable))
   <table class="tbl1 v2 fs12">
     <thead>
       <tr class="primary ">
-        <th data-sort="<?php echo \dash\get::index($value, 'title', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
-        <th data-sort="<?php echo \dash\get::index($value, 'slug', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'slug', 'link'); ?>"><?php echo T_("Slug"); ?></a></th>
+        <th data-sort="<?php echo a($value, 'title', 'order'); ?>"><a href="<?php echo a($value, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
+        <th data-sort="<?php echo a($value, 'slug', 'order'); ?>"><a href="<?php echo a($value, 'slug', 'link'); ?>"><?php echo T_("Slug"); ?></a></th>
 
         <?php if(!\dash\request::get('type')) {?>
 
-          <th data-sort="<?php echo \dash\get::index($value, 'type', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
+          <th data-sort="<?php echo a($value, 'type', 'order'); ?>"><a href="<?php echo a($value, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
 
         <?php } //endif?>
 
         <th><?php echo T_("Description"); ?></th>
-        <th data-sort="<?php echo \dash\get::index($value, 'count', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'count', 'link'); ?>"><?php echo T_("Used"); ?></a></th>
-        <th data-sort="<?php echo \dash\get::index($value, 'status', 'order'); ?>"><a href="<?php echo \dash\get::index($value, 'status', 'link'); ?>"><?php echo T_("Status"); ?></a></th>
+        <th data-sort="<?php echo a($value, 'count', 'order'); ?>"><a href="<?php echo a($value, 'count', 'link'); ?>"><?php echo T_("Used"); ?></a></th>
+        <th data-sort="<?php echo a($value, 'status', 'order'); ?>"><a href="<?php echo a($value, 'status', 'link'); ?>"><?php echo T_("Status"); ?></a></th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($dataTable as $key => $value) {?>
 
         <tr class="">
-          <td><a href="<?php echo \dash\url::this(); ?>?type=<?php echo \dash\get::index($value, 'type'); ?>&edit=<?php echo \dash\get::index($value, 'id'); ?>">
+          <td><a href="<?php echo \dash\url::this(); ?>?type=<?php echo a($value, 'type'); ?>&edit=<?php echo a($value, 'id'); ?>">
             <?php if(isset($value['meta']['color'])) {?>
-              <span title=" <?php echo \dash\get::index($value, 'meta')['color']; ?>" class="mA3 floatRa badge rounded  <?php echo \dash\get::index($value, 'meta')['color']; ?>">&nbsp;</span>
+              <span title=" <?php echo a($value, 'meta')['color']; ?>" class="mA3 floatRa badge rounded  <?php echo a($value, 'meta')['color']; ?>">&nbsp;</span>
             <?php } // endif ?>
 
             <?php if(isset($value['meta']['icon'])) {?>
 
-              <span title="sf-<?php echo \dash\get::index($value, 'meta')['icon']; ?>" class="mA3 floatRa sf-<?php echo \dash\get::index($value, 'meta')['icon']; ?>"></span>
+              <span title="sf-<?php echo a($value, 'meta')['icon']; ?>" class="mA3 floatRa sf-<?php echo a($value, 'meta')['icon']; ?>"></span>
             <?php } // endif ?>
-          <?php echo \dash\get::index($value, 'title'); ?></a></td>
+          <?php echo a($value, 'title'); ?></a></td>
 
           <?php if(isset($value['type']) && $value['type'] === 'help_tag') {?>
 
-            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/support/tag/<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
+            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/support/tag/<?php echo a($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo a($value, 'slug'); ?></a></td>
           <?php }elseif(isset($value['type']) && $value['type'] === 'support_tag') {?>
 
-            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo \dash\get::index($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
+            <td class="fs08"><a href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo a($value, 'slug'); ?>" target="_blank"><span class="sf-share"></span> <?php echo a($value, 'slug'); ?></a></td>
 
           <?php }else{ ?>
 
-            <td class="fs08"><a href="<?php echo \dash\get::index($value, 'link'); ?>" target="_blank"><span class="sf-share"></span> <?php echo \dash\get::index($value, 'slug'); ?></a></td>
+            <td class="fs08"><a href="<?php echo a($value, 'link'); ?>" target="_blank"><span class="sf-share"></span> <?php echo a($value, 'slug'); ?></a></td>
           <?php } //endif ?>
 
           <?php if(!\dash\request::get('type')) {?>
 
-            <td><a href="<?php echo \dash\url::this(); ?>?type=<?php echo \dash\get::index($value, 'type'); ?>"><?php echo T_(\dash\get::index($value, 'type')); ?></a></td>
+            <td><a href="<?php echo \dash\url::this(); ?>?type=<?php echo a($value, 'type'); ?>"><?php echo T_(a($value, 'type')); ?></a></td>
 
           <?php } // endif ?>
 
-          <td><?php echo \dash\get::index($value, 'desc'); ?></td>
+          <td><?php echo a($value, 'desc'); ?></td>
           <?php if(isset($value['type']) && $value['type'] === 'help_tag') {?>
 
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?type=help&term=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?type=help&term=<?php echo a($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
 
           <?php }elseif(isset($value['type']) && $value['type'] === 'support_tag') {?>
 
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::kingdom(); ?>/support/ticket?tag=<?php echo a($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
           <?php }else{ ?>
-            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?term=<?php echo \dash\get::index($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
+            <td class="collapsing txtC"><?php if(isset($value['count']) && $value['count']) {?><a target="_blank" href="<?php echo \dash\url::here(); ?>/posts?term=<?php echo a($value, 'slug'); ?>"><?php echo \dash\fit::number($value['count']); ?></a><?php }else{ echo '-';} ?></td>
           <?php } //endif ?>
-          <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
+          <td class="collapsing txtC"><?php echo T_(a($value, 'status')); ?></td>
         </tr>
       <?php } //endfor ?>
     </tbody>
@@ -200,7 +200,7 @@ if(!is_array($dataTable))
   <?php foreach (\dash\data::dataTable() as $key => $item) {?>
   <?php if(isset($item['id']) && $item['id'] == \dash\request::get("edit")) {}else{?>
 
-    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::dataRow_parent() == $item['id']) {echo 'selected';} ?>><?php echo \dash\get::index($item, 'title'); ?></option>
+    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::dataRow_parent() == $item['id']) {echo 'selected';} ?>><?php echo a($item, 'title'); ?></option>
   <?php }//endif ?>
   <?php } //endfor ?>
 </select>

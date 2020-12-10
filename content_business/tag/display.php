@@ -6,11 +6,11 @@
 
       <?php foreach (\dash\data::myProductList() as $key => $value) { ?>
         <div class="c3 s12 pRa10">
-          <a class="jProduct1" href="<?php echo \dash\get::index($value, 'url'); ?>">
-            <img src="<?php echo \dash\get::index($value, 'thumb') ?>" alt="<?php echo \dash\get::index($value, 'title') ?>">
+          <a class="jProduct1" href="<?php echo a($value, 'url'); ?>">
+            <img src="<?php echo a($value, 'thumb') ?>" alt="<?php echo a($value, 'title') ?>">
             <footer>
-              <div class="title"><?php echo \dash\get::index($value, 'title') ?></div>
-              <div class="price"><span><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></span> <span class="unit"><?php echo \dash\get::index($value, 'currency'); ?></span></div>
+              <div class="title"><?php echo a($value, 'title') ?></div>
+              <div class="price"><span><?php echo \dash\fit::number(a($value, 'price')); ?></span> <span class="unit"><?php echo a($value, 'currency'); ?></span></div>
             </footer>
           </a>
         </div>

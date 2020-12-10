@@ -58,11 +58,11 @@
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <td class="collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'id')) ?></td>
-          <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'startdate')); ?></td>
-          <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'enddate')); ?></td>
-          <td><?php echo \dash\fit::number(\dash\get::index($value, 'count_answer')); ?></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
+          <td class="collapsing"><?php echo \dash\fit::number(a($value, 'id')) ?></td>
+          <td><?php echo \dash\fit::date_time(a($value, 'startdate')); ?></td>
+          <td><?php echo \dash\fit::date_time(a($value, 'enddate')); ?></td>
+          <td><?php echo \dash\fit::number(a($value, 'count_answer')); ?></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

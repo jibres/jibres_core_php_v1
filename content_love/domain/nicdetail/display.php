@@ -22,30 +22,30 @@
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
 
-                    <td><code><?php echo \dash\get::index($value, 'nic_id'); ?></code></td>
-                    <td><?php echo \dash\get::index($value, 'person'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'email'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'address'); ?></td>
+                    <td><code><?php echo a($value, 'nic_id'); ?></code></td>
+                    <td><?php echo a($value, 'person'); ?></td>
+                    <td><?php echo a($value, 'email'); ?></td>
+                    <td><?php echo a($value, 'address'); ?></td>
 
-                    <td><?php echo \dash\get::index($value, 'org'); ?></td>
+                    <td><?php echo a($value, 'org'); ?></td>
 
                     <td class="collapsing">
                         <div>
-                            <?php echo \dash\get::index($value, 'phone'); ?>
+                            <?php echo a($value, 'phone'); ?>
                         </div>
                         <div>
-                            <?php echo \dash\get::index($value, 'mobile'); ?>
+                            <?php echo a($value, 'mobile'); ?>
                         </div>
                         <div>
-                            <?php echo \dash\get::index($value, 'fax'); ?>
+                            <?php echo a($value, 'fax'); ?>
                         </div>
                     </td>
                     <td class="collapsing">
                         <div>
-                            <?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>
+                            <?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>
                         </div>
                         <div>
-                            <?php echo \dash\fit::date_human(\dash\get::index($value, 'datemodified')); ?>
+                            <?php echo \dash\fit::date_human(a($value, 'datemodified')); ?>
                         </div>
                     </td>
 

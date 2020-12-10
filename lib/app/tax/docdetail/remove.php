@@ -21,7 +21,7 @@ class remove
 			return false;
 		}
 
-		$tax_document_id = \dash\get::index($load, 'tax_document_id');
+		$tax_document_id = a($load, 'tax_document_id');
 
 		$check_doc_status = \lib\app\tax\doc\check::check_doc_status($tax_document_id);
 		if(!$check_doc_status)

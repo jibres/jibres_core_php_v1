@@ -3,19 +3,19 @@
         <div class="c-1"><h2 class="txtC"><?php echo T_("Seller Details"); ?></h2></div>
         <div class="c-11">
           <div class="row padMore">
-            <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo \dash\get::index($storeData,'title');} ?></div>
+            <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
             <div class="c-3">
-              <span><?php echo \dash\get::index($storeData, 'companyeconomiccode') ? T_("VAT Number") : null ; ?></span>
-              <code><?php echo \dash\get::index($storeData, 'companyeconomiccode') ?></code>
+              <span><?php echo a($storeData, 'companyeconomiccode') ? T_("VAT Number") : null ; ?></span>
+              <code><?php echo a($storeData, 'companyeconomiccode') ?></code>
             </div>
             <div class="c-3">
-              <span><?php echo \dash\get::index($storeData, 'companynationalid') ? T_("Company ID Number") : null; ?></span>
-              <code><?php echo \dash\get::index($storeData, 'companynationalid') ?></code>
+              <span><?php echo a($storeData, 'companynationalid') ? T_("Company ID Number") : null; ?></span>
+              <code><?php echo a($storeData, 'companynationalid') ?></code>
             </div>
           </div>
           <div class="row padMore">
             <div class="c-6"><?php
-$country = \dash\get::index($storeData,'country_detail', 'name');
+$country = a($storeData,'country_detail', 'name');
 if($country)
 {
   echo '<span>';
@@ -23,7 +23,7 @@ if($country)
   echo '</span>';
 }
 
-$province = \dash\get::index($storeData,'province_detail', 'name');
+$province = a($storeData,'province_detail', 'name');
 if($province)
 {
   echo T_(', ');
@@ -33,7 +33,7 @@ if($province)
   echo '</span>';
 }
 
-$city = \dash\get::index($storeData,'city_detail', 'name');
+$city = a($storeData,'city_detail', 'name');
 if($city)
 {
   echo T_(', ');
@@ -44,18 +44,18 @@ if($city)
 }
 ?></div>
             <div class="c-3">
-              <span><?php echo \dash\get::index($storeData, 'postcode') ? T_("Postal Code") : null ; ?></span>
-              <code><?php echo \dash\get::index($storeData, 'postcode'); ?></code>
+              <span><?php echo a($storeData, 'postcode') ? T_("Postal Code") : null ; ?></span>
+              <code><?php echo a($storeData, 'postcode'); ?></code>
             </div>
             <div class="c-3">
-              <span><?php echo \dash\get::index($storeData, 'companyregisternumber') ? T_("Company Registration Number") : null; ?></span>
-              <code><?php echo \dash\get::index($storeData, 'companyregisternumber') ?></code>
+              <span><?php echo a($storeData, 'companyregisternumber') ? T_("Company Registration Number") : null; ?></span>
+              <code><?php echo a($storeData, 'companyregisternumber') ?></code>
             </div>
           </div>
 
           <div class="row padMore">
             <div class="c-6"><?php
-$address = \dash\get::index($storeData,'address');
+$address = a($storeData,'address');
 if($address)
 {
   // echo '<span>'. T_('Address'). '</span>'. ' ';
@@ -65,8 +65,8 @@ if($address)
 }
 ?></div>
             <div class="c-3"><?php
-$phone = \dash\get::index($storeData,'phone');
-$fax = \dash\get::index($storeData,'fax');
+$phone = a($storeData,'phone');
+$fax = a($storeData,'fax');
 if($phone)
 {
   echo '<span>'. T_('Phone'). '</span>'. ' ';

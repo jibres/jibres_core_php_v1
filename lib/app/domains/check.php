@@ -141,7 +141,7 @@ class check
 			$my_domain_master = (isset($check_nic_domain[$domain. '.ir'])) ? $check_nic_domain[$domain. '.ir'] : null;
 
 
-			if(!\dash\get::index($my_domain_master, 'domain_name_valid'))
+			if(!a($my_domain_master, 'domain_name_valid'))
 			{
 				// domain is not valid
 			}

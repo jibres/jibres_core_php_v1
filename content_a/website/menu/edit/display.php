@@ -51,7 +51,7 @@
           <?php if(\dash\data::usageList()) {?>
             <p><?php echo T_("Usage menu list") ?></p>
             <?php foreach (\dash\data::usageList() as $key => $value) {?>
-              <a href="<?php echo \dash\url::this(). \dash\get::index($value, 'link'); ?>" class="badge pA20 fs11"><?php echo \dash\get::index($value, 'title') ?></a>
+              <a href="<?php echo \dash\url::this(). a($value, 'link'); ?>" class="badge pA20 fs11"><?php echo a($value, 'title') ?></a>
             <?php } //endforeach ?>
           <?php }else{ ?>
             <p class="mT20">
@@ -79,9 +79,9 @@
 
     <?php foreach (\dash\data::menuDetailList() as $key => $value) {?>
        <li>
-        <a class="f item" href2="<?php echo \dash\get::index($value, 'url');?>" data-kerkere='.showMenuItem_<?php echo $key; ?>' data-kerkere-single>
-          <div class="key"><?php echo \dash\get::index($value, 'title');?>
-            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
+        <a class="f item" href2="<?php echo a($value, 'url');?>" data-kerkere='.showMenuItem_<?php echo $key; ?>' data-kerkere-single>
+          <div class="key"><?php echo a($value, 'title');?>
+            <?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
           </div>
           <div class="go"></div>
         </a>
@@ -93,17 +93,17 @@
 
               <input type="hidden" name="itemkey" value="<?php echo $key; ?>">
               <div class="input mB10">
-                <input type="text" name="title" id="title" value="<?php echo \dash\get::index($value, 'title'); ?>" maxlength="50" required>
+                <input type="text" name="title" id="title" value="<?php echo a($value, 'title'); ?>" maxlength="50" required>
               </div>
 
 
               <div class="input mB10 ltr">
-                <input type="text" name="url" id="url" value="<?php echo \dash\get::index($value, 'url'); ?>"  required>
+                <input type="text" name="url" id="url" value="<?php echo a($value, 'url'); ?>"  required>
               </div>
 
 
               <div class="check1 mB5">
-                <input type="checkbox" name="target" id="target_<?php echo $key; ?>" <?php if(\dash\get::index($value, 'target')) { echo 'checked'; } ?>>
+                <input type="checkbox" name="target" id="target_<?php echo $key; ?>" <?php if(a($value, 'target')) { echo 'checked'; } ?>>
                 <label for="target_<?php echo $key; ?>"><?php echo T_("Open in New tab"); ?><small></small></label>
               </div>
 

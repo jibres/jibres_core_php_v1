@@ -59,7 +59,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/products">
           <i class="sf-tags"></i>
           <div class="key"><?php echo T_('Products');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'product_count')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardData, 'product_count')); ?></div>
           <div class="go search"></div>
         </a>
       </li>
@@ -90,7 +90,7 @@
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/member">
           <i class="sf-users"></i>
           <div class="key"><?php echo T_('Customers');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'customer_count')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardData, 'customer_count')); ?></div>
           <div class="go search"></div>
         </a>
        </li>
@@ -100,7 +100,7 @@
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/staff">
           <i class="sf-user-close-security"></i>
           <div class="key"><?php echo T_('Staffs');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardData, 'staff_count')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardData, 'staff_count')); ?></div>
           <div class="go search"></div>
         </a>
        </li>
@@ -168,9 +168,9 @@
 
 
 <div class="hide">
-  <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardData(), 'chart', 'categories'); ?></div>
-  <div id="chartsum"><?php echo \dash\get::index(\dash\data::dashboardData(), 'chart', 'sum'); ?></div>
-  <div id="chartcount"><?php echo \dash\get::index(\dash\data::dashboardData(), 'chart', 'count'); ?></div>
+  <div id="chartcategory"><?php echo a(\dash\data::dashboardData(), 'chart', 'categories'); ?></div>
+  <div id="chartsum"><?php echo a(\dash\data::dashboardData(), 'chart', 'sum'); ?></div>
+  <div id="chartcount"><?php echo a(\dash\data::dashboardData(), 'chart', 'count'); ?></div>
   <div id="charttitle"><?php echo T_("Sum factor price and count of it group by hours"); ?></div>
   <div id="charttitlesum"><?php echo T_("Sum price"); ?></div>
   <div id="charttitlecount"><?php echo T_("Count"); ?></div>

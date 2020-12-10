@@ -122,8 +122,8 @@ class property
 
 		$result = [];
 
-		$length_name = \dash\get::index(\lib\store::detail('store_data') ,'length_detail','name');
-		$mass_name = \dash\get::index(\lib\store::detail('store_data') ,'mass_detail','name');
+		$length_name = a(\lib\store::detail('store_data') ,'length_detail','name');
+		$mass_name = a(\lib\store::detail('store_data') ,'mass_detail','name');
 		$store_currency = \lib\store::currency();
 
 
@@ -137,19 +137,19 @@ class property
 			]
 		];
 
-		if(\dash\get::index($load, 'title'))
+		if(a($load, 'title'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Title"), 'value' => \dash\get::index($load, 'title')]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Title"), 'value' => a($load, 'title')]);
 		}
 
 
-		if(\dash\get::index($load, 'title2'))
+		if(a($load, 'title2'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load, 'title2')]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => a($load, 'title2')]);
 		}
-		elseif(\dash\get::index($load_parent, 'title2'))
+		elseif(a($load_parent, 'title2'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => \dash\get::index($load_parent, 'title2')]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => a($load_parent, 'title2')]);
 		}
 
 		if(isset($load['variant_child']) && $load['variant_child'])
@@ -158,39 +158,39 @@ class property
 		}
 		else
 		{
-			if(\dash\get::index($load, 'price') && \dash\get::index($load, 'discount'))
+			if(a($load, 'price') && a($load, 'discount'))
 			{
-				if(\dash\get::index($load, 'price'))
+				if(a($load, 'price'))
 				{
-					array_push($result[T_("General property")]['list'], ['key' => T_("List Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'price')). ' '. $store_currency]);
+					array_push($result[T_("General property")]['list'], ['key' => T_("List Price"), 'value' => \dash\fit::number(a($load, 'price')). ' '. $store_currency]);
 				}
 
-				if(\dash\get::index($load, 'discount'))
+				if(a($load, 'discount'))
 				{
-					array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(\dash\get::index($load, 'discount')). ' '. $store_currency]);
+					array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(a($load, 'discount')). ' '. $store_currency]);
 				}
 			}
 
-			if(\dash\get::index($load, 'finalprice'))
+			if(a($load, 'finalprice'))
 			{
-				array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(\dash\get::index($load, 'finalprice')). ' '. $store_currency, 'bold' => true]);
+				array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(a($load, 'finalprice')). ' '. $store_currency, 'bold' => true]);
 			}
 		}
 
 
-		if(\dash\get::index($load, 'optionvalue1') && \dash\get::index($load, 'optionname1'))
+		if(a($load, 'optionvalue1') && a($load, 'optionname1'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => \dash\get::index($load, 'optionname1'), 'value' => \dash\fit::number(\dash\get::index($load, 'optionvalue1'))]);
+			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname1'), 'value' => \dash\fit::number(a($load, 'optionvalue1'))]);
 		}
 
-		if(\dash\get::index($load, 'optionvalue2') && \dash\get::index($load, 'optionname2'))
+		if(a($load, 'optionvalue2') && a($load, 'optionname2'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => \dash\get::index($load, 'optionname2'), 'value' => \dash\fit::number(\dash\get::index($load, 'optionvalue2'))]);
+			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname2'), 'value' => \dash\fit::number(a($load, 'optionvalue2'))]);
 		}
 
-		if(\dash\get::index($load, 'optionvalue3') && \dash\get::index($load, 'optionname3'))
+		if(a($load, 'optionvalue3') && a($load, 'optionname3'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => \dash\get::index($load, 'optionname3'), 'value' => \dash\fit::number(\dash\get::index($load, 'optionvalue3'))]);
+			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname3'), 'value' => \dash\fit::number(a($load, 'optionvalue3'))]);
 		}
 
 
@@ -203,7 +203,7 @@ class property
 		}
 		else
 		{
-			if(\dash\get::index($load_parent, 'id'))
+			if(a($load_parent, 'id'))
 			{
 				$cat_list = \lib\app\category\get::product_cat($load_parent['id']);
 				if(is_array($cat_list) && $cat_list)
@@ -231,7 +231,7 @@ class property
 			{
 				if(\dash\url::content() === 'a')
 				{
-					$cat_url = \dash\url::here(). '/category/edit?id='. \dash\get::index($category, 'productcategory_id');
+					$cat_url = \dash\url::here(). '/category/edit?id='. a($category, 'productcategory_id');
 				}
 				else
 				{
@@ -249,43 +249,43 @@ class property
 		}
 
 
-		if(\dash\get::index($load, 'weight'))
+		if(a($load, 'weight'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(\dash\get::index($load, 'weight'))) . ' '. $mass_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load, 'weight'))) . ' '. $mass_name]);
 		}
-		elseif(\dash\get::index($load_parent, 'weight'))
+		elseif(a($load_parent, 'weight'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(\dash\get::index($load_parent, 'weight'))) . ' '. $mass_name]);
-		}
-
-
-		if(\dash\get::index($load, 'length'))
-		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(\dash\get::index($load, 'length')) . ' '. $length_name]);
-		}
-		elseif(\dash\get::index($load_parent, 'length'))
-		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'length')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load_parent, 'weight'))) . ' '. $mass_name]);
 		}
 
 
-		if(\dash\get::index($load, 'width'))
+		if(a($load, 'length'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(\dash\get::index($load, 'width')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(a($load, 'length')) . ' '. $length_name]);
 		}
-		elseif(\dash\get::index($load_parent, 'width'))
+		elseif(a($load_parent, 'length'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'width')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(a($load_parent, 'length')) . ' '. $length_name]);
 		}
 
 
-		if(\dash\get::index($load, 'height'))
+		if(a($load, 'width'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load, 'height')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(a($load, 'width')) . ' '. $length_name]);
 		}
-		elseif(\dash\get::index($load_parent, 'height'))
+		elseif(a($load_parent, 'width'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(\dash\get::index($load_parent, 'height')) . ' '. $length_name]);
+			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(a($load_parent, 'width')) . ' '. $length_name]);
+		}
+
+
+		if(a($load, 'height'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(a($load, 'height')) . ' '. $length_name]);
+		}
+		elseif(a($load_parent, 'height'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(a($load_parent, 'height')) . ' '. $length_name]);
 		}
 
 		$tag_list = \lib\app\tag\get::product_tag($id);
@@ -427,7 +427,7 @@ class property
 
 				foreach ($value['list'] as $k => $v)
 				{
-					if(\dash\get::index($v, 'input'))
+					if(a($v, 'input'))
 					{
 						if(!isset($input_result[$key]['list']))
 						{

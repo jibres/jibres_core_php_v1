@@ -7,7 +7,7 @@ class website
 
 	public static function logo()
 	{
-		$logo = \dash\get::index(\dash\data::website(), 'header', 'header_logo');
+		$logo = a(\dash\data::website(), 'header', 'header_logo');
 		if($logo)
 		{
 			return \lib\filepath::fix($logo);

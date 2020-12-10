@@ -7,10 +7,10 @@
 		<form method="post" autocomplete="off" class="mA5">
 
 			<input type="hidden" name="formSubmitType" value="iban">
-			<input type="hidden" name="ibanid" value="<?php echo \dash\get::index($value, 'id'); ?>">
+			<input type="hidden" name="ibanid" value="<?php echo a($value, 'id'); ?>">
 			<div class="input">
-				<div data-confirm data-data='{"formSubmitType" : "removeIban", "ibanidremove" : "<?php echo \dash\get::index($value, 'id'); ?>"}'  class="addon btn danger2"><?php echo T_("Remove"); ?></div>
-				<input type="text" name="merchantIban" value="<?php echo \dash\get::index($value, 'merchantIban'); ?>">
+				<div data-confirm data-data='{"formSubmitType" : "removeIban", "ibanidremove" : "<?php echo a($value, 'id'); ?>"}'  class="addon btn danger2"><?php echo T_("Remove"); ?></div>
+				<input type="text" name="merchantIban" value="<?php echo a($value, 'merchantIban'); ?>">
 				<button class="addon btn primary"><?php echo T_("Update"); ?></button>
 			</div>
 		</form>

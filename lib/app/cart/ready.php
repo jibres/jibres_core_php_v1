@@ -109,16 +109,16 @@ class ready
 			$get_from_product = \lib\app\product\ready::row($get_from_product);
 
 
-			$result['oversale']      = \dash\get::index($get_from_product, 'oversale');
-			$result['minsale']       = \dash\get::index($get_from_product, 'minsale');
-			$result['maxsale']       = \dash\get::index($get_from_product, 'maxsale');
-			$result['url']           = \dash\get::index($get_from_product, 'url');
-			$result['edit_url']      = \dash\get::index($get_from_product, 'edit_url');
-			$result['trackquantity'] = \dash\get::index($get_from_product, 'trackquantity');
-			$result['instock']       = \dash\get::index($get_from_product, 'instock');
-			$result['title']         = \dash\get::index($get_from_product, 'title');
-			$result['status']        = \dash\get::index($get_from_product, 'status');
-			$result['allow_shop']    = \dash\get::index($get_from_product, 'allow_shop');
+			$result['oversale']      = a($get_from_product, 'oversale');
+			$result['minsale']       = a($get_from_product, 'minsale');
+			$result['maxsale']       = a($get_from_product, 'maxsale');
+			$result['url']           = a($get_from_product, 'url');
+			$result['edit_url']      = a($get_from_product, 'edit_url');
+			$result['trackquantity'] = a($get_from_product, 'trackquantity');
+			$result['instock']       = a($get_from_product, 'instock');
+			$result['title']         = a($get_from_product, 'title');
+			$result['status']        = a($get_from_product, 'status');
+			$result['allow_shop']    = a($get_from_product, 'allow_shop');
 
 
 

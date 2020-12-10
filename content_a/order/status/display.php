@@ -1,7 +1,7 @@
 <?php
 $orderDetail = \dash\data::orderDetail();
-$orderStatus = \dash\get::index($orderDetail, 'factor', 'status');
-$orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
+$orderStatus = a($orderDetail, 'factor', 'status');
+$orderPayStatus = a($orderDetail, 'factor', 'paystatus');
 ?>
 
 <div class="row">
@@ -131,11 +131,11 @@ $orderPayStatus = \dash\get::index($orderDetail, 'factor', 'paystatus');
       <tbody>
         <?php foreach (\dash\data::myActionList() as $key => $value) { ?>
           <tr>
-            <td class=""><?php echo \dash\get::index($value, 't_action') ?></td>
+            <td class=""><?php echo a($value, 't_action') ?></td>
             <td>
-              <?php echo \dash\get::index($value, 'desc') ?>
+              <?php echo a($value, 'desc') ?>
             </td>
-            <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?></td>
+            <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></td>
           </tr>
         <?php } //endfor ?>
       </tbody>

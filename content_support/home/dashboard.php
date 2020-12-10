@@ -30,9 +30,9 @@
 
     <div class="msg">
       <span class="sf-info mRa10"></span>
-      <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value, 'slug'); ?>"><?php echo \dash\get::index($value, 'title'); ?> <small><?php echo \dash\get::index($value, 'excerpt'); ?></small></a>
+      <a href="<?php echo \dash\url::this(). '/'. a($value, 'slug'); ?>"><?php echo a($value, 'title'); ?> <small><?php echo a($value, 'excerpt'); ?></small></a>
       <?php if(isset($value['parent_detail']['title'])) {?>
-      <a href="<?php echo \dash\url::here(). '/'. \dash\get::index($value, 'url'); ?>" class="floatRa"><?php echo $value['parent_detail']['title'] ?></a>
+      <a href="<?php echo \dash\url::here(). '/'. a($value, 'url'); ?>" class="floatRa"><?php echo $value['parent_detail']['title'] ?></a>
       <?php } //endif ?>
     </div>
     <?php }//endfor ?>
@@ -56,8 +56,8 @@
 
         <div class="c4 m6 s12 pA10">
           <span class="<?php if(isset($value['meta']['icon'])) { echo 'sf-'. $value['meta']['icon']; }else{ echo 'sf-info'; }?> fs20 mRa10 mT10 floatLa"></span>
-          <h2 class="simple"><a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value, 'slug'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a></h2>
-          <p><?php echo \dash\get::index($value, 'excerpt'); ?></p>
+          <h2 class="simple"><a href="<?php echo \dash\url::this(). '/'. a($value, 'slug'); ?>"><?php echo a($value, 'title'); ?></a></h2>
+          <p><?php echo a($value, 'excerpt'); ?></p>
         </div>
 
         <?php }//endfor ?>
@@ -80,9 +80,9 @@
 
             <div class="msg">
               <span class="<?php if(isset($value['meta']['icon'])) { echo 'sf-'. $value['meta']['icon']; }else{ echo 'sf-info'; }?> mRa10"></span>
-              <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value, 'slug'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
-<?php if(\dash\get::index($value, 'cat')) { ?>
-              <a href="#" class="floatRa"><?php echo \dash\get::index($value, 'cat'); ?></a>
+              <a href="<?php echo \dash\url::this(). '/'. a($value, 'slug'); ?>"><?php echo a($value, 'title'); ?></a>
+<?php if(a($value, 'cat')) { ?>
+              <a href="#" class="floatRa"><?php echo a($value, 'cat'); ?></a>
 <?php } ?>
             </div>
 
@@ -107,9 +107,9 @@
 
             <div class="msg">
               <span class="<?php if(isset($value['meta']['icon'])) { echo 'sf-'. $value['meta']['icon']; }else{ echo 'sf-info'; }?> mRa10"></span>
-              <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value, 'slug'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
+              <a href="<?php echo \dash\url::this(). '/'. a($value, 'slug'); ?>"><?php echo a($value, 'title'); ?></a>
               <?php if(isset($value['parent_detail']['title'])) {?>
-              <a href="<?php echo \dash\url::here(). '/'. \dash\get::index($value, 'url'); ?>" class="floatRa"><?php echo $value['parent_detail']['title'] ?></a>
+              <a href="<?php echo \dash\url::here(). '/'. a($value, 'url'); ?>" class="floatRa"><?php echo $value['parent_detail']['title'] ?></a>
             <?php } //endif ?>
             </div>
             <?php } //endfor ?>

@@ -88,9 +88,9 @@ class export
 
 
 
-		$answer       = \dash\get::index($_result, 'answer');
-		$answerdetail = \dash\get::index($_result, 'answerdetail');
-		$items        = \dash\get::index($_result, 'items');
+		$answer       = a($_result, 'answer');
+		$answerdetail = a($_result, 'answerdetail');
+		$items        = a($_result, 'items');
 
 		if(!is_array($answerdetail))
 		{
@@ -112,7 +112,7 @@ class export
 			$items = [];
 		}
 
-		$all_choice_raw = \dash\get::index($_result, 'choice');
+		$all_choice_raw = a($_result, 'choice');
 		$allChoice     = [];
 
 		if(!is_array($all_choice_raw))

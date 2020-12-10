@@ -46,20 +46,20 @@ $myFirstURL = '';
         <?php if(\dash\data::dataRow_gallery_array()) {?>
           <div class="previewList">
             <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
-                <div class="fileItem" data-removeElement data-type='<?php echo \dash\get::index($value, 'type'); ?>'>
-                  <?php if(\dash\get::index($value, 'type') === 'video') {?>
+                <div class="fileItem" data-removeElement data-type='<?php echo a($value, 'type'); ?>'>
+                  <?php if(a($value, 'type') === 'video') {?>
                     <video controls>
-                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="<?php echo \dash\get::index($value, 'mime'); ?>">
+                      <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
                     </video>
                   <?php } else { ?>
-                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index(\dash\data::dataRow(), 'title'); ?>">
+                  <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
                     <?php if($key === 0) {?>
                     <?php }else{ ?>
-                      <div class='setFeatureImg' data-ajaxify data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></div>
+                      <div class='setFeatureImg' data-ajaxify data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo a($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></div>
                     <?php }// endid ?>
                   <?php } ?>
                   <div>
-                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
+                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
                   </div>
                 </div>
             <?php } //endfor ?>
@@ -80,7 +80,7 @@ $myFirstURL = '';
             <div class="f">
               <div class="c s12 pLa10">
                 <h3><?php echo \dash\data::dataRow_title();  ?> | <?php echo \dash\face::site(); ?></h3>
-                <p class="desc"><?php echo \dash\get::index($dataRow,'excerpt'); ?></p>
+                <p class="desc"><?php echo a($dataRow,'excerpt'); ?></p>
               </div>
               <div class="cauto os s12">
                 <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>

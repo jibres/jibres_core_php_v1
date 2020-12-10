@@ -136,9 +136,9 @@ class ready
 		if(!empty($product_ready))
 		{
 			$product_ready           = \lib\app\product\ready::row($product_ready, ['check_allow_shop' => false, 'check_cart_limit' => false]);
-			$result['edit_url']      = \dash\get::index($product_ready, 'edit_url');
-			$result['thumb']         = \dash\get::index($product_ready, 'thumb');
-			$result['thumb_default'] = \dash\get::index($product_ready, 'thumb_default');
+			$result['edit_url']      = a($product_ready, 'edit_url');
+			$result['thumb']         = a($product_ready, 'thumb');
+			$result['thumb_default'] = a($product_ready, 'thumb_default');
 		}
 
 		return $result;
@@ -215,10 +215,10 @@ class ready
 		if(!empty($product_ready))
 		{
 			$product_ready           = \lib\app\product\ready::row($product_ready, ['check_allow_shop' => false, 'check_cart_limit' => false]);
-			$result['title']      = \dash\get::index($product_ready, 'title');
-			$result['edit_url']      = \dash\get::index($product_ready, 'edit_url');
-			$result['thumb']         = \dash\get::index($product_ready, 'thumb');
-			$result['thumb_default'] = \dash\get::index($product_ready, 'thumb_default');
+			$result['title']      = a($product_ready, 'title');
+			$result['edit_url']      = a($product_ready, 'edit_url');
+			$result['thumb']         = a($product_ready, 'thumb');
+			$result['thumb_default'] = a($product_ready, 'thumb_default');
 		}
 
 		return $result;

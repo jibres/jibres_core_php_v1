@@ -23,9 +23,9 @@
                   <thead>
                     <tr>
                       <th class="collapsing"></th>
-                      <th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option1', 'name'); ?></th>
-                      <?php if(isset($variantsList['variants']['option2']['value']) && $variantsList['variants']['option2']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option2', 'name'); ?></th><?php } //endif ?>
-                      <?php if(isset($variantsList['variants']['option3']['value']) && $variantsList['variants']['option3']['value']) {?><th class="collapsing"><?php echo \dash\get::index($variantsList, 'variants', 'option3', 'name'); ?></th><?php } //endif ?>
+                      <th class="collapsing"><?php echo a($variantsList, 'variants', 'option1', 'name'); ?></th>
+                      <?php if(isset($variantsList['variants']['option2']['value']) && $variantsList['variants']['option2']['value']) {?><th class="collapsing"><?php echo a($variantsList, 'variants', 'option2', 'name'); ?></th><?php } //endif ?>
+                      <?php if(isset($variantsList['variants']['option3']['value']) && $variantsList['variants']['option3']['value']) {?><th class="collapsing"><?php echo a($variantsList, 'variants', 'option3', 'name'); ?></th><?php } //endif ?>
                       <th><?php echo T_("Stock"); ?></th>
                       <th><?php echo T_("Price"); ?></th>
                       <th><?php echo T_("Discount"); ?></th>

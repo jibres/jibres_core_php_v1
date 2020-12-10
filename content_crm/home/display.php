@@ -8,9 +8,9 @@
         <div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
 
         <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
-        <div id="chartcategory"><?php echo \dash\get::index($dashboardDetail, 'chart', 'category') ?></div>
-        <div id="chartverify"><?php echo \dash\get::index($dashboardDetail, 'chart', 'verify') ?></div>
-        <div id="chartunverify"><?php echo \dash\get::index($dashboardDetail, 'chart', 'unverify') ?></div>
+        <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
+        <div id="chartverify"><?php echo a($dashboardDetail, 'chart', 'verify') ?></div>
+        <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/member">
           <i class="sf-users"></i>
           <div class="key"><?php echo T_('Customers');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'users')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'users')); ?></div>
           <div class="go search"></div>
         </a>
       </li>
@@ -48,7 +48,7 @@
        <a class="item f" href="<?php echo \dash\url::here();?>/permission">
         <i class="sf-unlock-alt"></i>
         <div class="key"><?php echo T_('Permissions');?></div>
-        <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'permissions')); ?></div>
+        <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'permissions')); ?></div>
         <div class="go"></div>
        </a>
       </li>
@@ -63,7 +63,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
         <i class="sf-money"></i>
           <div class="key"><?php echo T_('Successful payments');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'transactions')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'transactions')); ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -88,7 +88,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/ticket">
           <i class="sf-chat-alt-fill"></i>
           <div class="key"><?php echo T_('Tickets');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\get::index($dashboardDetail, 'tickets')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'tickets')); ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -131,20 +131,20 @@
 <section class="row">
  <div class="c-xs-12 c-sm-6 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
-   <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+   <?php $myPercent= a($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Success Payments - Today");?></h3>
   </a>
  </div>
  <div class="c-xs-12 c-sm-6 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
-   <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+   <?php $myPercent= a($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Success Payments - This month");?></h3>
   </a>
  </div>
 
  <div class="c-xs-12 c-sm-12 c-md-4">
   <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
-   <?php $myPercent= \dash\get::index($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+   <?php $myPercent= a($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
    <h3><?php echo T_("Total Success transactions percent");?></h3>
   </a>
  </div>
@@ -159,7 +159,7 @@
   <?php foreach (\dash\data::dashboardDetail_latestMember() as $key => $value) {?>
          <li>
           <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
-            <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
+            <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
             <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
           </a>
@@ -180,7 +180,7 @@
   <?php foreach (\dash\data::dashboardDetail_latestLogs() as $key => $value) { ?>
          <li>
           <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo \dash\coding::encode($value['from']); ?>">
-            <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt="Avatar - <?php echo \dash\get::index($value, 'displayname'); ?>">
+            <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
             <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
           </a>
@@ -203,8 +203,8 @@
         <li>
           <a class="f align-center" href="<?php echo \dash\url::here(). '/ticket/view?id='. $value['id'] ?>">
             <div class="key"><?php echo T_("Ticket"). ' #'. $value['id'];  ?></div>
-            <div class="value s0"><?php echo \dash\fit::mobile(\dash\get::index($value, 'displayname')); ?></div>
-            <div class="value txtB s0"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
+            <div class="value s0"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
+            <div class="value txtB s0"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
             <div class="go"></div>
           </a>

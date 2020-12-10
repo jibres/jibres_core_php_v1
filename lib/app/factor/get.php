@@ -393,12 +393,12 @@ class get
 
 
 
-		if(!\dash\get::index($factor_address, 'name') && \dash\get::index($factor, 'customer_displayname'))
+		if(!a($factor_address, 'name') && a($factor, 'customer_displayname'))
 		{
 			$factor_address['name'] = $factor['customer_displayname'];
 		}
 
-		if(!\dash\get::index($factor_address, 'mobile') && \dash\get::index($factor, 'customer_mobile'))
+		if(!a($factor_address, 'mobile') && a($factor, 'customer_mobile'))
 		{
 			$factor_address['mobile'] = $factor['customer_mobile'];
 		}

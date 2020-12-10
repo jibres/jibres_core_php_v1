@@ -20,20 +20,20 @@
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
 
-                    <td><?php echo \dash\fit::number(\dash\get::index($value, 'sum_price')); ?></td>
-                    <td><?php echo \dash\fit::number(\dash\get::index($value, 'sum_discount')); ?></td>
-                    <td><?php echo \dash\fit::number(\dash\get::index($value, 'sum_finalprice')); ?></td>
-                    <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'first_pay')); ?></td>
-                    <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'last_pay')); ?></td>
-                    <td><?php echo \dash\fit::number(\dash\get::index($value, 'domain_count')); ?></td>
+                    <td><?php echo \dash\fit::number(a($value, 'sum_price')); ?></td>
+                    <td><?php echo \dash\fit::number(a($value, 'sum_discount')); ?></td>
+                    <td><?php echo \dash\fit::number(a($value, 'sum_finalprice')); ?></td>
+                    <td><?php echo \dash\fit::date_time(a($value, 'first_pay')); ?></td>
+                    <td><?php echo \dash\fit::date_time(a($value, 'last_pay')); ?></td>
+                    <td><?php echo \dash\fit::number(a($value, 'domain_count')); ?></td>
 
                     <td class="collapsing">
-                      <a href="<?php echo \dash\url::this(). '/log?user='. \dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+                      <a href="<?php echo \dash\url::this(). '/log?user='. a($value, 'user_id'); ?>" class="f align-center userPack">
                         <div class="c pRa10">
-                          <div class="mobile"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-                          <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
+                          <div class="mobile"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+                          <div class="name"><?php echo a($value, 'user_detail', 'displayname'); ?></div>
                         </div>
-                        <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
+                        <img class="cauto" src="<?php echo a($value, 'user_detail', 'avatar'); ?>">
                       </a>
                     </td>
                 </tr>

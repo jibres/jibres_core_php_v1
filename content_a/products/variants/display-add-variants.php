@@ -9,7 +9,7 @@
           <div class="c-xs-12 c-sm-12 c-md-4">
             <label><?php echo T_("Property #1"); ?></label>
             <div class="input">
-              <input type="text" name="optionname1" value="<?php echo \dash\get::index($variantsList, 'variants', 'option1', 'name'); ?>" placeholder="<?php echo T_("Like Size") ?>">
+              <input type="text" name="optionname1" value="<?php echo a($variantsList, 'variants', 'option1', 'name'); ?>" placeholder="<?php echo T_("Like Size") ?>">
             </div>
           </div>
 
@@ -30,7 +30,7 @@
           <div class="c-xs-12 c-sm-12 c-md-4">
             <label><?php echo T_("Property #2"); ?></label>
             <div class="input">
-              <input type="text" name="optionname2" value="<?php echo \dash\get::index($variantsList, 'variants', 'option2', 'name'); ?>" placeholder="<?php echo T_("Like Color") ?>">
+              <input type="text" name="optionname2" value="<?php echo a($variantsList, 'variants', 'option2', 'name'); ?>" placeholder="<?php echo T_("Like Color") ?>">
             </div>
           </div>
 
@@ -51,7 +51,7 @@
           <div class="c-xs-12 c-sm-12 c-md-4">
             <label><?php echo T_("Property #3"); ?></label>
             <div class="input">
-              <input type="text" name="optionname3" value="<?php echo \dash\get::index($variantsList, 'variants', 'option3', 'name'); ?>" placeholder="<?php echo T_("Like Material") ?>">
+              <input type="text" name="optionname3" value="<?php echo a($variantsList, 'variants', 'option3', 'name'); ?>" placeholder="<?php echo T_("Like Material") ?>">
             </div>
           </div>
 

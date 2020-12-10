@@ -32,32 +32,32 @@
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
     <tr>
-      <td><code><?php echo \dash\get::index($value, 'id'); ?></code></td>
-      <td><a href="<?php echo \dash\url::kingdom(). '/'.\dash\store_coding::encode(\dash\get::index($value, 'id'));?>"><code><?php echo \dash\store_coding::encode(\dash\get::index($value, 'id')); ?></code></a></td>
-      <td><div class=""><a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'subdomain'). '.jibres.'. \dash\url::tld(); ?>"><?php echo \dash\get::index($value, 'subdomain'); ?></a></div></td>
+      <td><code><?php echo a($value, 'id'); ?></code></td>
+      <td><a href="<?php echo \dash\url::kingdom(). '/'.\dash\store_coding::encode(a($value, 'id'));?>"><code><?php echo \dash\store_coding::encode(a($value, 'id')); ?></code></a></td>
+      <td><div class=""><a target="_blank" href="<?php echo \dash\url::protocol(). '://'. a($value, 'subdomain'). '.jibres.'. \dash\url::tld(); ?>"><?php echo a($value, 'subdomain'); ?></a></div></td>
       <td>
-        <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
-        <?php echo \dash\get::index($value, 'title'); ?>
+        <img src="<?php echo a($value, 'logo'); ?>" class="avatar">
+        <?php echo a($value, 'title'); ?>
 
       </td>
       <td>
-        <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
-          <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
+        <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
+          <?php echo a($value, 'user_detail', 'displayname'); ?>
           <br>
-          <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-          <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(\dash\get::index($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
+          <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+          <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(a($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
       </td>
 
 
-      <td><?php echo \dash\get::index($value, 't_plan'); ?></td>
-      <td title="<?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>">
+      <td><?php echo a($value, 't_plan'); ?></td>
+      <td title="<?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>">
 
 
-        <?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?>
+        <?php echo \dash\fit::date_human(a($value, 'datecreated')); ?>
 
       </td>
       <td class="collapsing">
-        <a href="<?php echo \dash\url::this(). '/setting?id='. \dash\get::index($value, 'id') ?>" class="link btn"><?php echo T_("Setting") ?></a>
+        <a href="<?php echo \dash\url::this(). '/setting?id='. a($value, 'id') ?>" class="link btn"><?php echo T_("Setting") ?></a>
       </td>
 
     </tr>

@@ -112,7 +112,7 @@
           <select name="defaultcontact" class="select22" data-placeholder='<?php echo T_("Choose one item") ?>'>
             <option value=""></option>
             <?php foreach (\dash\data::contactList() as $key => $value) {?>
-                <option value="<?php echo \dash\get::index($value, 'nic_id'); ?>" <?php if(\dash\get::index($value, 'isdefault')) { echo "selected";} ?>><?php echo \dash\get::index($value, 'nic_id') ?></option>
+                <option value="<?php echo a($value, 'nic_id'); ?>" <?php if(a($value, 'isdefault')) { echo "selected";} ?>><?php echo a($value, 'nic_id') ?></option>
             <?php } ?>
           </select>
         <?php }else{ ?>

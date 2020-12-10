@@ -10,7 +10,7 @@ if(isset($line_detail['value']['text']) && is_array($line_detail['value']['text'
 if($text)
 {
 	echo '<div class="avand">';
-	echo \dash\get::index($text, 'text');
+	echo a($text, 'text');
 	echo '</div>';
 }
 

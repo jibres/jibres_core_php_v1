@@ -17,7 +17,7 @@ $storeData = \dash\data::store_store_data();
       <div class="action">
         <input type="hidden" name="runaction_defaultpricelist" value="1">
         <div class="switch1">
-          <input type="checkbox" name="defaultpricelist" id="defaultpricelist" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'default_pirce_list')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="defaultpricelist" id="defaultpricelist" <?php if(a(\dash\data::productSettingSaved(), 'default_pirce_list')) { echo 'checked'; } ?>>
           <label for="defaultpricelist" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
         </div>
       </div>
@@ -41,7 +41,7 @@ $storeData = \dash\data::store_store_data();
       <div class="action">
         <input type="hidden" name="runaction_variant_product" value="1">
         <div class="switch1">
-          <input type="checkbox" name="variant_product" id="variant_product" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="variant_product" id="variant_product" <?php if(a(\dash\data::productSettingSaved(), 'variant_product')) { echo 'checked'; } ?>>
           <label for="variant_product" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
         </div>
       </div>
@@ -64,7 +64,7 @@ $storeData = \dash\data::store_store_data();
       <div class="action">
         <input type="hidden" name="runaction_defaulttracking" value="1">
         <div class="switch1">
-          <input type="checkbox" name="defaulttracking" id="defaulttracking" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'defaulttracking')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="defaulttracking" id="defaulttracking" <?php if(a(\dash\data::productSettingSaved(), 'defaulttracking')) { echo 'checked'; } ?>>
           <label for="defaulttracking" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
         </div>
       </div>
@@ -87,7 +87,7 @@ $storeData = \dash\data::store_store_data();
       <div class="action">
         <input type="hidden" name="runaction_comment" value="1">
         <div class="switch1">
-          <input type="checkbox" name="comment" id="comment" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'comment')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="comment" id="comment" <?php if(a(\dash\data::productSettingSaved(), 'comment')) { echo 'checked'; } ?>>
           <label for="comment" data-on="<?php echo T_("Open"); ?>" data-off="<?php echo T_("Lock") ?>"></label>
         </div>
       </div>
@@ -161,7 +161,7 @@ $storeData = \dash\data::store_store_data();
       <div class="action">
         <input type="hidden" name="runaction_product_suggestion" value="1">
         <div class="switch1">
-          <input type="checkbox" name="product_suggestion" id="product_suggestion" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="product_suggestion" id="product_suggestion" <?php if(a(\dash\data::productSettingSaved(), 'product_suggestion')) { echo 'checked'; } ?>>
           <label for="product_suggestion" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
         </div>
       </div>

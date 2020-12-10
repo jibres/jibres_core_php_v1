@@ -15,19 +15,19 @@
 				<tbody>
 					<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 						<tr>
-							<td class="collapsing"><?php echo \dash\get::index($value, 'title') ?></td>
-							<td class="collapsing"><?php echo \dash\fit::date(\dash\get::index($value, 'startdate')) ?></td>
-							<td class="collapsing"><?php echo \dash\fit::date(\dash\get::index($value, 'enddate')) ?></td>
-							<td class="collapsing"><?php echo T_(\dash\get::index($value, 'status')) ?></td>
+							<td class="collapsing"><?php echo a($value, 'title') ?></td>
+							<td class="collapsing"><?php echo \dash\fit::date(a($value, 'startdate')) ?></td>
+							<td class="collapsing"><?php echo \dash\fit::date(a($value, 'enddate')) ?></td>
+							<td class="collapsing"><?php echo T_(a($value, 'status')) ?></td>
 							<td>
-								<?php if(\dash\get::index($value, 'isdefault')) {?>
+								<?php if(a($value, 'isdefault')) {?>
 									<div class="badge success"><?php echo T_("Current accounting year") ?></div>
 								<?php }else{ ?>
-									<div class="btn link" data-confirm data-data='{"setdefault": "setdefault", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}'><?php echo T_("Set as default year") ?></div>
+									<div class="btn link" data-confirm data-data='{"setdefault": "setdefault", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Set as default year") ?></div>
 								<?php } //endif ?>
 							</td>
-							<td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
-							<td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/manage?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Manage") ?></a></td>
+							<td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
+							<td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/manage?id='. a($value, 'id'); ?>"><?php echo T_("Manage") ?></a></td>
 						</tr>
 					<?php } //endif ?>
 				</tbody>

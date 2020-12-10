@@ -1,21 +1,21 @@
 <?php
 $header = \dash\data::website_header();
 
-if(\dash\get::index($header, 'topline', 'status') && \dash\get::index($header, 'topline', 'text'))
+if(a($header, 'topline', 'status') && a($header, 'topline', 'text'))
 {
 	echo '<div class="topLine">';
-	if(\dash\get::index($header, 'topline', 'url'))
+	if(a($header, 'topline', 'url'))
 	{
 		echo '<a ';
-		if(\dash\get::index($header, 'topline', 'target'))
+		if(a($header, 'topline', 'target'))
 		{
 			echo 'target="_blank" ';
 		}
-		echo 'href="'. \dash\get::index($header, 'topline', 'url'). '" >';
+		echo 'href="'. a($header, 'topline', 'url'). '" >';
 	}
-	echo \dash\get::index($header, 'topline', 'text');
+	echo a($header, 'topline', 'text');
 
-	if(\dash\get::index($header, 'topline', 'url'))
+	if(a($header, 'topline', 'url'))
 	{
 		echo '</a>';
 	}

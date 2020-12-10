@@ -4,7 +4,7 @@ if(\dash\data::infoResult())
     foreach (\dash\data::infoResult() as $key => $value)
     {
         $hideClass = null;
-        if(isset($value['tld']) && $value['tld'] === 'ایران' && !\dash\get::index($value, 'available'))
+        if(isset($value['tld']) && $value['tld'] === 'ایران' && !a($value, 'available'))
         {
             $hideClass = ' hide';
         }

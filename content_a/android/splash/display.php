@@ -7,8 +7,8 @@
           <div class="colors mB20">
 <?php foreach (\dash\data::themeColor() as $key => $value) {?>
             <div class="radio3 colored">
-              <input type="radio" name="theme" value="<?php echo \dash\get::index($value, 'start').'_'. \dash\get::index($value, 'end'). '_'. \dash\get::index($value, 'text_color'). '_'. \dash\get::index($value, 'meta_color'); ?>" <?php if(\dash\data::splashSaved_key() == \dash\get::index($value, 'key')) { echo 'checked';} ?>  id="<?php echo 'splash_'. $key; ?>">
-              <label for="<?php echo 'splash_'. $key; ?>" style="background: linear-gradient(0deg, <?php echo \dash\get::index($value, 'start') ?>, <?php echo \dash\get::index($value, 'end'); ?>); color:<?php echo \dash\get::index($value, 'text_color'); ?> ;"></label>
+              <input type="radio" name="theme" value="<?php echo a($value, 'start').'_'. a($value, 'end'). '_'. a($value, 'text_color'). '_'. a($value, 'meta_color'); ?>" <?php if(\dash\data::splashSaved_key() == a($value, 'key')) { echo 'checked';} ?>  id="<?php echo 'splash_'. $key; ?>">
+              <label for="<?php echo 'splash_'. $key; ?>" style="background: linear-gradient(0deg, <?php echo a($value, 'start') ?>, <?php echo a($value, 'end'); ?>); color:<?php echo a($value, 'text_color'); ?> ;"></label>
             </div>
 <?php }//endfor ?>
           </div>

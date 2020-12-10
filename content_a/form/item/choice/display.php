@@ -20,16 +20,16 @@
         <table class="tbl1 v4">
           <tbody data-sortable>
             <?php foreach (\dash\data::choiceList() as $key => $value) {?>
-              <tr <?php if(\dash\get::index($value, 'id') === \dash\request::get('cid')) { echo 'class="active"'; }?>>
+              <tr <?php if(a($value, 'id') === \dash\request::get('cid')) { echo 'class="active"'; }?>>
                 <td class="collapsing" data-handle ><i class="sf-sort"></i>
-                  <input type="hidden" name="sort[]" value="<?php echo \dash\get::index($value, 'id') ?>">
+                  <input type="hidden" name="sort[]" value="<?php echo a($value, 'id') ?>">
                 </td>
-                <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => \dash\get::index($value, 'id')]) ?>"><i class="sf-edit"></i> <?php echo \dash\get::index($value, 'title') ?></a></td>
+                <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => a($value, 'id')]) ?>"><i class="sf-edit"></i> <?php echo a($value, 'title') ?></a></td>
                 <td class="collapsing">
-                  <?php if(\dash\get::index($value, 'id') === \dash\request::get('cid')) {?>
+                  <?php if(a($value, 'id') === \dash\request::get('cid')) {?>
                     <div class="fc-mute"><i><?php echo T_("Editing...") ?></i></div>
                   <?php }else{ ?>
-                    <div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
+                    <div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
                   <?php } //endif ?>
                 </td>
               </tr>

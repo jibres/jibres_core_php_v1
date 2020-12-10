@@ -10,33 +10,33 @@
     <div class="c">
       <a href="<?php echo \dash\url::current(); ?>" class="stat <?php if(!\dash\request::get('type')) { echo 'active';} ?>">
         <h3><?php echo T_("All");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'all'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'all'));?></div>
       </a>
     </div>
 
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=group'; ?>" class="stat <?php if(\dash\request::get('type') === 'group') { echo 'active';} ?>">
         <h3><?php echo T_("Group");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'group'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'group'));?></div>
       </a>
     </div>
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=total'; ?>" class="stat <?php if(\dash\request::get('type') === 'total') { echo 'active';} ?>">
         <h3><?php echo T_("Accounting total");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'total'));?></div>
       </a>
     </div>
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=assistant'; ?>" class="stat <?php if(\dash\request::get('type') === 'assistant') { echo 'active';} ?>">
         <h3><?php echo T_("Accounting assistant");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'assistant'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'assistant'));?></div>
       </a>
     </div>
 
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=details'; ?>" class="stat <?php if(\dash\request::get('type') === 'details') { echo 'active';} ?>">
         <h3><?php echo T_("Accounting details");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'details'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'details'));?></div>
       </a>
     </div>
   </section>
@@ -115,13 +115,13 @@
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(\dash\get::index($value, 'id')) ?></span></td>
+          <td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(a($value, 'id')) ?></span></td>
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
-          <td><?php echo \dash\get::index($value, 'title') ?></td>
-          <td><?php echo \dash\get::index($value, 'nature') ?></td>
-          <td><?php if(\dash\get::index($value, 'detailable')){?><i class="sf-check fc-red"></i><?php }// endif ?></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
+          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
+          <td><?php echo a($value, 'title') ?></td>
+          <td><?php echo a($value, 'nature') ?></td>
+          <td><?php if(a($value, 'detailable')){?><i class="sf-check fc-red"></i><?php }// endif ?></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

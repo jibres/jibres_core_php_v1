@@ -32,17 +32,17 @@
       <tr>
         <td class="ltr txtL">
           <div class="">
-            <a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'domain'); ?>">
-              <code><?php echo \dash\get::index($value, 'domain'); ?></code><i class="sf-external-link"></i>
+            <a target="_blank" href="<?php echo \dash\url::protocol(). '://'. a($value, 'domain'); ?>">
+              <code><?php echo a($value, 'domain'); ?></code><i class="sf-external-link"></i>
             </a>
           </div>
         </td>
-        <td><?php echo \dash\get::index($value, 'tstatus'); ?></td>
-        <td><?php echo \dash\get::index($value, 'type') ?></td>
-        <td><?php echo \dash\get::index($value, 'key') ?></td>
-        <td><?php echo \dash\get::index($value, 'value') ?></td>
+        <td><?php echo a($value, 'tstatus'); ?></td>
+        <td><?php echo a($value, 'type') ?></td>
+        <td><?php echo a($value, 'key') ?></td>
+        <td><?php echo a($value, 'value') ?></td>
 
-        <td><div><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></div><div><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?></div></td>
+        <td><div><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></div><div><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></div></td>
       </tr>
     <?php } //endfor ?>
     </tbody>

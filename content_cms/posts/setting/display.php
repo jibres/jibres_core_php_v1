@@ -70,7 +70,7 @@ $isPost = ($type === 'post');
       <div class="action">
         <input type="hidden" name="runaction_redirect" value="1">
         <div class="input">
-          <input type="url" name="redirecturl"  id="redirect" value="<?php echo \dash\get::index(\dash\data::dataRow_meta(), 'redirect'); ?>">
+          <input type="url" name="redirecturl"  id="redirect" value="<?php echo a(\dash\data::dataRow_meta(), 'redirect'); ?>">
           <button class="addon btn master"><?php echo T_("Save") ?></button>
         </div>
       </div>
@@ -133,7 +133,7 @@ $isPost = ($type === 'post');
           <option value="0"><?php echo T_("Change post writer") ?></option>
           <?php foreach (\dash\data::postWriter() as $key => $value) {?>
             <option <?php if(\dash\data::dataRow_user_id() == $value['id']) { echo 'selected';}  ?> value="<?php echo $value['id']; ?>">
-              <?php echo \dash\get::index($value, 'displayname'); ?> - <?php echo \dash\fit::text(\dash\get::index($value, 'mobile')); ?>
+              <?php echo a($value, 'displayname'); ?> - <?php echo \dash\fit::text(a($value, 'mobile')); ?>
             </option>
           <?php } //endfor ?>
         </select>

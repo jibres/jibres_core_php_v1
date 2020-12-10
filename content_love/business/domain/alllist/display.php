@@ -35,24 +35,24 @@
       <tr>
         <td class="ltr txtL">
           <div class="">
-            <a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'domain'); ?>">
-              <code><?php echo \dash\get::index($value, 'domain'); ?></code><i class="sf-external-link"></i>
+            <a target="_blank" href="<?php echo \dash\url::protocol(). '://'. a($value, 'domain'); ?>">
+              <code><?php echo a($value, 'domain'); ?></code><i class="sf-external-link"></i>
             </a>
           </div>
         </td>
-        <td><?php echo \dash\get::index($value, 'tstatus'); ?></td>
+        <td><?php echo a($value, 'tstatus'); ?></td>
 
 
-        <td><?php if(\dash\get::index($value, 'dnsok')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-        <td><?php if(\dash\get::index($value, 'cdnpanel')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
-        <td><?php if(\dash\get::index($value, 'httpsverify')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
+        <td><?php if(a($value, 'dnsok')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
+        <td><?php if(a($value, 'cdnpanel')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
+        <td><?php if(a($value, 'httpsverify')) {?><i class="sf-check fc-green fs14"></i><?php }else{ ?><i class="sf-times fc-red fs14"></i><?php } //endif ?></td>
 
-        <td><div><?php echo \dash\fit::date_time(\dash\get::index($value, 'last_log_time')); ?></div><div><?php echo \dash\fit::date_human(\dash\get::index($value, 'last_log_time')); ?></div></td>
-        <td><a href="<?php echo \dash\url::that(). '/log?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_log')); ?></a></td>
-        <td><a href="<?php echo \dash\url::that(). '/dns?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'count_dns')); ?></a></td>
+        <td><div><?php echo \dash\fit::date_time(a($value, 'last_log_time')); ?></div><div><?php echo \dash\fit::date_human(a($value, 'last_log_time')); ?></div></td>
+        <td><a href="<?php echo \dash\url::that(). '/log?id='. a($value, 'id'); ?>"><?php echo \dash\fit::number(a($value, 'count_log')); ?></a></td>
+        <td><a href="<?php echo \dash\url::that(). '/dns?id='. a($value, 'id'); ?>"><?php echo \dash\fit::number(a($value, 'count_dns')); ?></a></td>
 
 
-        <td class="collapsing"><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
+        <td class="collapsing"><a class="btn primary" href="<?php echo \dash\url::that(). '/detail?id='. a($value, 'id'); ?>"><?php echo T_("Show detail") ?></a></td>
       </tr>
     <?php } //endfor ?>
     </tbody>

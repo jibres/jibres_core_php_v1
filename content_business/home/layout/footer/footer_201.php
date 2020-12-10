@@ -4,7 +4,7 @@
 		<div class="top">
 			<div class="row align-end">
 				<div class="c-xs-12 c-sm-12 c-md">
-					<h3><a href="<?php echo \dash\url::kingdom(); ?>" target="_blank"><?php echo \dash\get::index(\lib\store::detail(), 'store_data', 'title'); ?></a></h3>
+					<h3><a href="<?php echo \dash\url::kingdom(); ?>" target="_blank"><?php echo a(\lib\store::detail(), 'store_data', 'title'); ?></a></h3>
 					<p><?php echo \lib\store::desc(); ?></p>
 				</div>
 				<div class="c-xs-12 c-sm-12 c-md-auto">
@@ -40,7 +40,7 @@
 		<hr>
 	<?php } //endif ?>
 		<div class="bottom ltr">
-			<p><?php echo \dash\get::index($website, 'footer', 'maintext', 'text') ?></p>
+			<p><?php echo a($website, 'footer', 'maintext', 'text') ?></p>
 		</div>
 	</div>
 </div>

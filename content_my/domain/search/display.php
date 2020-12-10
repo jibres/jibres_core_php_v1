@@ -149,8 +149,8 @@ else
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-       <a class="item f" href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>">
-        <div class="key"><code><?php echo \dash\get::index($value, 'name'); ?></code></div>
+       <a class="item f" href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo a($value, 'name'); ?>">
+        <div class="key"><code><?php echo a($value, 'name'); ?></code></div>
         <div class="go"></div>
       </a>
      </li>
@@ -175,35 +175,35 @@ else
 
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-            <tr <?php  if(\dash\get::index($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
+            <tr <?php  if(a($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
                 <td>
-                    <!-- <a target="_blank" href="http://<?php echo \dash\get::index($value, 'name'); ?>"><i class="sf-link"></i></a> -->
-                    <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link flex"> <i class="sf-edit"></i> <code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+                    <!-- <a target="_blank" href="http://<?php echo a($value, 'name'); ?>"><i class="sf-link"></i></a> -->
+                    <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo a($value, 'name'); ?>" class="link flex"> <i class="sf-edit"></i> <code><?php echo a($value, 'name'); ?></code></a>
                 </td>
                 <td class="collapsing">
 
-                    <a <?php if(\dash\get::index($value, 'verify')) {?> href="<?php echo \dash\url::this(). '/setting/transfer?domain='. \dash\get::index($value, 'name'); ?>" <?php } //endif ?>>
+                    <a <?php if(a($value, 'verify')) {?> href="<?php echo \dash\url::this(). '/setting/transfer?domain='. a($value, 'name'); ?>" <?php } //endif ?>>
                         <div class="ibtn x30 wide">
                             <?php if(isset($value['lock']) && $value['lock'] == 1 ) { echo '<span>'.T_("Lock"). '</span>'; echo '<i class="sf-lock fc-green"></i>'; } elseif(isset($value['lock']) && $value['lock'] == 0){ echo '<span>'.T_("Lock"). '</span>'; echo '<i class="sf-unlock fc-red"></i>'; }else{echo '<span>'.T_("Unknown"). '</span>'; echo '<i class="sf-lock"></i>';}?>
                         </div>
                     </a>
 
-                    <a href="<?php echo \dash\url::this(). '/setting?domain='. \dash\get::index($value, 'name'); ?>">
+                    <a href="<?php echo \dash\url::this(). '/setting?domain='. a($value, 'name'); ?>">
                     <div class="ibtn x30 wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
                     </a>
                 </td>
                 <td class="txtC">
-                  <?php echo \dash\get::index($value, 'status_html'); ?>
+                  <?php echo a($value, 'status_html'); ?>
                 </td>
-                <td class="collapsing txtL fs09"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
+                <td class="collapsing txtL fs09"><?php echo \dash\fit::date(a($value, 'dateexpire')); ?></td>
                 <td class="collapsing txtL fs09">
-                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></div>
-                  <div><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></div>
+                  <div><?php echo \dash\fit::date(a($value, 'dateregister')); ?></div>
+                  <div><?php echo \dash\fit::date(a($value, 'dateupdate')); ?></div>
                 </td>
                 <td class="collapsing ltr txtL">
-                    <code><?php echo \dash\get::index($value, 'ns1'); ?></code>
+                    <code><?php echo a($value, 'ns1'); ?></code>
                     <br>
-                    <code><?php echo \dash\get::index($value, 'ns2'); ?></code>
+                    <code><?php echo a($value, 'ns2'); ?></code>
                 </td>
 
             </tr>

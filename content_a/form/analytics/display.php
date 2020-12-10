@@ -23,7 +23,7 @@
   <nav class="items">
  <ul>
   <?php foreach (\dash\data::allFilter() as $key => $value) {?>
-      <li><a class="f item" href="<?php echo \dash\url::that(). '/filter?id='. \dash\request::get('id'). '&fid='. \dash\get::index($value, 'id'); ?>"><i class="sf-filter"></i><div class="key"><?php echo \dash\get::index($value, 'title');?></div><div class="go"></div></a></li>
+      <li><a class="f item" href="<?php echo \dash\url::that(). '/filter?id='. \dash\request::get('id'). '&fid='. a($value, 'id'); ?>"><i class="sf-filter"></i><div class="key"><?php echo a($value, 'title');?></div><div class="go"></div></a></li>
     <?php } //endif ?>
  </ul>
 </nav>

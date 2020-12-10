@@ -105,7 +105,7 @@ class add
 				$is_required = true;
 				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)) || (is_array($my_answer) && empty(array_filter($my_answer))))
 				{
-					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => \dash\get::index($item_detail, 'title')]), 'element' => 'a_'. $item_id];
+					$requred_not_answer[] = ['message' => T_(":val is required", ['val' => a($item_detail, 'title')]), 'element' => 'a_'. $item_id];
 					continue;
 				}
 
@@ -180,7 +180,7 @@ class add
 					{
 						if(count($multiple_choice_answer) < $min)
 						{
-							\dash\notif::error(T_("You must select at least :min options", ['min' => \dash\fit::number($min)]), ['title' => \dash\get::index($item_detail, 'title')]);
+							\dash\notif::error(T_("You must select at least :min options", ['min' => \dash\fit::number($min)]), ['title' => a($item_detail, 'title')]);
 							return false;
 						}
 					}
@@ -189,7 +189,7 @@ class add
 					{
 						if(count($multiple_choice_answer) > $max)
 						{
-							\dash\notif::error(T_("You can choose up to :max options", ['max' => \dash\fit::number($max)]), ['title' => \dash\get::index($item_detail, 'title')]);
+							\dash\notif::error(T_("You can choose up to :max options", ['max' => \dash\fit::number($max)]), ['title' => a($item_detail, 'title')]);
 							return false;
 						}
 					}
@@ -534,7 +534,7 @@ class add
 							'answer_id'   => null, // fill after this foreach
 							'item_id'     => $item_id,
 							'answer'      => $my_answer_one['answer'],
-							'choice_id'   => \dash\get::index($my_answer_one, 'choice_id'),
+							'choice_id'   => a($my_answer_one, 'choice_id'),
 							'textarea'    => null,
 							'datecreated' => date("Y-m-d H:i:s"),
 						];
@@ -569,7 +569,7 @@ class add
 						'answer_id'   => null, // fill after this foreach
 						'item_id'     => $item_id,
 						'answer'      => $new_answer,
-						'choice_id'   => \dash\get::index($my_answer, 'choice_id'),
+						'choice_id'   => a($my_answer, 'choice_id'),
 						'textarea'    => $new_textarea,
 						'datecreated' => date("Y-m-d H:i:s"),
 					];

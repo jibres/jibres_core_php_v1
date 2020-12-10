@@ -11,7 +11,7 @@
       <div class="box">
         <div class="pad">
           <label for='idesc'><?php echo T_("Description") ?> <small><?php echo T_("This is the text that the customer has registered in the order.") ?></small></label>
-          <textarea name="desc" class="txt" id="idesc" rows="3"><?php echo \dash\get::index($orderDetail, 'factor', 'desc'); ?></textarea>
+          <textarea name="desc" class="txt" id="idesc" rows="3"><?php echo a($orderDetail, 'factor', 'desc'); ?></textarea>
         </div>
         <footer class="txtRa">
           <button class="btn master"><?php echo T_("Save") ?></button>
@@ -49,24 +49,24 @@
       </div>
     </form>
 
-    <?php  if(\dash\get::index($orderDetail, 'action')) {?>
+    <?php  if(a($orderDetail, 'action')) {?>
       <div class="tblBox font-12">
         <table class="tbl1 v4">
           <tbody>
-          <?php foreach (\dash\get::index($orderDetail, 'action') as $key => $value) { if(\dash\get::index($value, 'category') !== 'notes') {continue;} ?>
+          <?php foreach (a($orderDetail, 'action') as $key => $value) { if(a($value, 'category') !== 'notes') {continue;} ?>
             <tr>
               <td>
-                <?php echo \dash\get::index($value, 'desc') ?>
+                <?php echo a($value, 'desc') ?>
               </td>
               <td class="">
-                <?php if(\dash\get::index($value, 'file')) {?>
-                  <a target="_blank" class="" href="<?php echo \dash\get::index($value, 'file') ?>"> <i class="sf-attach"></i> <?php echo T_("Attachment") ?></a>
+                <?php if(a($value, 'file')) {?>
+                  <a target="_blank" class="" href="<?php echo a($value, 'file') ?>"> <i class="sf-attach"></i> <?php echo T_("Attachment") ?></a>
                 <?php } //endif ?>
 
               </td>
-              <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?></td>
+              <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></td>
               <td class="collapsing">
-                  <div class="productDel font-14" data-confirm data-data='{"removeaction": "removeaction", "actionid" : "<?php echo \dash\get::index($value, 'id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
+                  <div class="productDel font-14" data-confirm data-data='{"removeaction": "removeaction", "actionid" : "<?php echo a($value, 'id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
               </td>
             </tr>
           <?php } //endfor ?>

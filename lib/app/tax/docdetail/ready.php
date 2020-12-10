@@ -48,14 +48,14 @@ class ready
 		}
 
 
-		if(isset($result['debtor']) && $result['debtor'] && !\dash\get::index($result, 'creditor'))
+		if(isset($result['debtor']) && $result['debtor'] && !a($result, 'creditor'))
 		{
 			$result['type'] = 'debtor';
 			$result['value'] = $result['debtor'];
 			$result['creditor'] = 0;
 		}
 
-		if(isset($result['creditor']) && $result['creditor'] && !\dash\get::index($result, 'debtor'))
+		if(isset($result['creditor']) && $result['creditor'] && !a($result, 'debtor'))
 		{
 			$result['type'] = 'creditor';
 			$result['value'] = $result['creditor'];
@@ -67,7 +67,7 @@ class ready
 			$result['value'] = round($result['value']);
 		}
 
-		$result['remain'] = floatval(\dash\get::index($result, 'debtor')) - floatval(\dash\get::index($result, 'creditor'));
+		$result['remain'] = floatval(a($result, 'debtor')) - floatval(a($result, 'creditor'));
 
 		return $result;
 	}

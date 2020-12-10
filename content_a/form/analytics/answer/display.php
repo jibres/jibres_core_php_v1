@@ -14,20 +14,20 @@
         <?php $i=0; foreach ($value as $k => $v) { $extra = in_array($v['item_type'], ['descriptive_answer']); if(isset($items[$v['item_id']]['visible']) && $items[$v['item_id']]['visible']) {}else{continue;} $i++;  ?>
         <?php  if(($i % 2) || ($extra)) { echo '<tr>';} ?>
 
-        <th <?php if($extra) { echo 'colspan=""'; }else{echo 'class="w25p"'; } ?>><?php echo \dash\get::index($v, 'item_title'); ?></th>
+        <th <?php if($extra) { echo 'colspan=""'; }else{echo 'class="w25p"'; } ?>><?php echo a($v, 'item_title'); ?></th>
         <td <?php if($extra) { echo 'colspan="3"'; }else{echo 'class="w25p"'; } ?>>
           <?php
-            if(\dash\get::index($v, 'province_name') || \dash\get::index($v, 'city_name'))
+            if(a($v, 'province_name') || a($v, 'city_name'))
             {
-              echo \dash\get::index($v, 'province_name');
+              echo a($v, 'province_name');
               echo ' ';
-              echo \dash\get::index($v, 'city_name');
+              echo a($v, 'city_name');
             }
             else
             {
-              echo \dash\get::index($v, 'answer');
+              echo a($v, 'answer');
               echo ' ';
-              echo \dash\get::index($v, 'textarea');
+              echo a($v, 'textarea');
             }
           ?>
           </td>
@@ -122,10 +122,10 @@
 
               <?php foreach (\dash\data::commentList() as $key => $value) {?>
                   <tr>
-                    <td><?php echo \dash\get::index($value, 'content'); ?></td>
-                    <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'privacy'))); ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated'));?></td>
-                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo \dash\get::index($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
+                    <td><?php echo a($value, 'content'); ?></td>
+                    <td class="collapsing"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></td>
+                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
                   </tr>
               <?php } //endfor ?>
 

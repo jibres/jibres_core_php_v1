@@ -5,7 +5,7 @@
       <li>
         <a class="f item">
           <div class="key"><?php echo T_("Average Creating time"); ?></div>
-          <div class="value"><?php echo \dash\fit::text(\dash\get::index($store_time_line, 'avg'));?> <small><?php echo T_("second") ?></small></div>
+          <div class="value"><?php echo \dash\fit::text(a($store_time_line, 'avg'));?> <small><?php echo T_("second") ?></small></div>
           <div class="go"></div>
         </a>
       </li>
@@ -13,7 +13,7 @@
       <li>
         <a class="f item">
           <div class="key"><?php echo T_("Maximum Creating time"); ?></div>
-          <div class="value"><?php echo \dash\fit::text(\dash\get::index($store_time_line, 'max'));?> <small><?php echo T_("second") ?></small></div>
+          <div class="value"><?php echo \dash\fit::text(a($store_time_line, 'max'));?> <small><?php echo T_("second") ?></small></div>
           <div class="go"></div>
         </a>
       </li>
@@ -21,7 +21,7 @@
       <li>
         <a class="f item">
           <div class="key"><?php echo T_("Minimum Creating time"); ?></div>
-          <div class="value"><?php echo \dash\fit::text(\dash\get::index($store_time_line, 'min'));?> <small><?php echo T_("second") ?></small></div>
+          <div class="value"><?php echo \dash\fit::text(a($store_time_line, 'min'));?> <small><?php echo T_("second") ?></small></div>
           <div class="go"></div>
         </a>
       </li>
@@ -41,13 +41,13 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach (\dash\data::storeAnalytics() as $key => $value) { if(!\dash\get::index($value, 'important')) { continue; } ?>
+        <?php foreach (\dash\data::storeAnalytics() as $key => $value) { if(!a($value, 'important')) { continue; } ?>
           <tr>
-            <td><?php echo \dash\get::index($value, 'title'); ?></td>
-            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'sum')); ?></td>
-            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'max')); ?></td>
-            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'min')); ?></td>
-            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'avg')); ?></td>
+            <td><?php echo a($value, 'title'); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(a($value, 'sum')); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(a($value, 'max')); ?></td>
+            <td><?php echo \dash\fit::number_en(a($value, 'min')); ?></td>
+            <td><?php echo \dash\fit::number_en(a($value, 'avg')); ?></td>
             <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
           </tr>
         <?php } //endfor ?>
@@ -70,21 +70,21 @@
       <tbody>
         <?php $last_group = null; ?>
         <?php foreach (\dash\data::storeAnalytics() as $key => $value) {?>
-          <?php if($last_group !== \dash\get::index($value, 'group')) { $last_group = \dash\get::index($value, 'group') ?>
+          <?php if($last_group !== a($value, 'group')) { $last_group = a($value, 'group') ?>
             <tr class="active">
               <td colspan="6" class="txtC txtB">
                 <?php echo str_repeat(' - ', 20); ?>
-                <?php echo \dash\get::index($value, 'group'); ?>
+                <?php echo a($value, 'group'); ?>
                 <?php echo str_repeat(' - ', 20); ?>
               </td>
             </tr>
           <?php } //endif ?>
           <tr>
-            <td><?php echo \dash\get::index($value, 'title'); ?></td>
-            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'sum')); ?></td>
-            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, 'max')); ?></td>
-            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'min')); ?></td>
-            <td><?php echo \dash\fit::number_en(\dash\get::index($value, 'avg')); ?></td>
+            <td><?php echo a($value, 'title'); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(a($value, 'sum')); ?></td>
+            <td class="txtB fc-blue"><?php echo \dash\fit::number_en(a($value, 'max')); ?></td>
+            <td><?php echo \dash\fit::number_en(a($value, 'min')); ?></td>
+            <td><?php echo \dash\fit::number_en(a($value, 'avg')); ?></td>
             <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
           </tr>
         <?php } //endfor ?>

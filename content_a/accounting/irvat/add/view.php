@@ -21,16 +21,16 @@ class view
 
 	public static function static_var()
 	{
-		if(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'accounting_details_id'))
+		if(a(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'accounting_details_id'))
 		{
-			$load = \lib\app\tax\coding\get::get(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'accounting_details_id'));
+			$load = \lib\app\tax\coding\get::get(a(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'accounting_details_id'));
 
 			\dash\data::accountingDetailsId($load);
 		}
 
-		if(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'accounting_details_id'))
+		if(a(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'accounting_details_id'))
 		{
-			$load = \lib\app\tax\coding\get::get(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'accounting_details_id'));
+			$load = \lib\app\tax\coding\get::get(a(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'accounting_details_id'));
 
 			\dash\data::accountingDetailsId($load);
 		}

@@ -227,8 +227,8 @@ class get
 
 		$load_answer   = \lib\db\form_answer\get::user_answer($_answer_id);
 
-		$answer        = \dash\get::index($load_answer, 'answer');
-		$answer_detail = \dash\get::index($load_answer, 'answer_detail');
+		$answer        = a($load_answer, 'answer');
+		$answer_detail = a($load_answer, 'answer_detail');
 
 		if(!is_array($answer_detail))
 		{

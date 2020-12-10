@@ -21,20 +21,20 @@
         <?php if(\dash\data::productDataRow_gallery_array()) {?>
           <div class="previewList">
             <?php foreach (\dash\data::productDataRow_gallery_array() as $key => $value) {?>
-                <div class="fileItem" data-removeElement data-type='<?php echo \dash\get::index($value, 'type'); ?>'>
-                  <?php if(\dash\get::index($value, 'type') === 'video') {?>
+                <div class="fileItem" data-removeElement data-type='<?php echo a($value, 'type'); ?>'>
+                  <?php if(a($value, 'type') === 'video') {?>
                     <video controls>
-                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="<?php echo \dash\get::index($value, 'mime'); ?>">
+                      <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
                     </video>
                   <?php } else { ?>
-                  <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($productDataRow, 'title'); ?>">
+                  <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a($productDataRow, 'title'); ?>">
                     <?php if($key === 0) {?>
                     <?php }else{ ?>
-                      <div class='setFeatureImg' data-ajaxify data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></div>
+                      <div class='setFeatureImg' data-ajaxify data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo a($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></div>
                     <?php }// endid ?>
                   <?php } ?>
                   <div>
-                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
+                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
                   </div>
                 </div>
             <?php } //endfor ?>
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-<?php if(\dash\get::index(\dash\data::productSettingSaved(), 'product_suggestion')) {?>
+<?php if(a(\dash\data::productSettingSaved(), 'product_suggestion')) {?>
   <?php if(\dash\data::productDataRow_title()) { // if have not product title not suggest product image. for example in add product module?>
       <div class="row" data-digikala-crawl='<?php echo \dash\data::productDataRow_title(); ?>'></div>
   <?php } //endif ?>

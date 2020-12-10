@@ -12,7 +12,7 @@
           </li>
         <?php } //endif ?>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+          <a class="item f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo a($productDataRow,'id'); ?>">
             <i class="sf-database"></i>
             <div class="key"><?php echo T_("Product Properties"); ?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::propertyCount()); ?></div>
@@ -20,16 +20,16 @@
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/shipping?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+          <a class="item f" href="<?php echo \dash\url::this(); ?>/shipping?id=<?php echo a($productDataRow,'id'); ?>">
             <i class="sf-flight"></i>
             <div class="key"><?php echo T_("Shipping"); ?></div>
-            <div class="value"><?php if(\dash\get::index($productDataRow,'weight')) { echo \dash\fit::number(\dash\get::index($productDataRow,'weight')). ' '. \dash\get::index($storData,'mass_detail','name'); }?></div>
+            <div class="value"><?php if(a($productDataRow,'weight')) { echo \dash\fit::number(a($productDataRow,'weight')). ' '. a($storData,'mass_detail','name'); }?></div>
             <div class="go"></div>
           </a>
         </li>
 
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+          <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo a($productDataRow,'id'); ?>">
             <?php if(\dash\data::productDataRow_trackquantity()) {?>
             <i class="sf-exchange fc-green"></i>
             <div class="key"><?php echo T_("Inventory"); ?></div>
@@ -44,7 +44,7 @@
         </li>
 
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+          <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo a($productDataRow,'id'); ?>">
             <i class="sf-package"></i>
             <div class="key"><?php echo T_("Organize"); ?></div>
             <div class="value"><?php echo T_("Type, vendor, tags"); ?></div>
@@ -98,11 +98,11 @@
     </nav>
 
         <?php if(!\dash\data::productFamily()) {?>
-    <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'variant_product') && !$have_variant_child) {?>
+    <?php if(a(\dash\data::productSettingSaved(), 'variant_product') && !$have_variant_child) {?>
         <nav class="items long">
           <ul>
             <li>
-              <a class="item f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+              <a class="item f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo a($productDataRow,'id'); ?>">
                 <i class="sf-picture"></i>
                 <div class="key"><?php echo T_("Make product variants"); ?></div>
                 <div class="value"><?php echo \dash\fit::number(count($child_list)); ?></div>
@@ -116,7 +116,7 @@
           <nav class="items long">
           <ul>
             <li>
-              <a class="item f" href="<?php echo \dash\url::this(); ?>/child?id=<?php echo \dash\get::index($productDataRow,'id'); ?>">
+              <a class="item f" href="<?php echo \dash\url::this(); ?>/child?id=<?php echo a($productDataRow,'id'); ?>">
                 <i class="sf-picture"></i>
                 <div class="key"><?php echo T_("Manage variants"); ?></div>
                 <div class="value"><?php echo \dash\fit::number(count($child_list)); ?></div>

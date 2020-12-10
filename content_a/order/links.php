@@ -23,13 +23,13 @@
 
 <nav class="items">
   <ul>
-    <?php if(\dash\get::index(\dash\data::orderDetail(), 'factor', 'total')) {?>
+    <?php if(a(\dash\data::orderDetail(), 'factor', 'total')) {?>
     <li>
       <a class="f item" href="<?php echo \dash\url::this(). '/discount?id='. \dash\request::get('id'); ?>">
         <i class="sf-money-banknote"></i>
         <div class="key"><?php echo T_("Total"); ?></div>
         <div class="value">
-          <span class="fc-blue txtB"><?php echo \dash\fit::number(\dash\get::index(\dash\data::orderDetail(), 'factor', 'total')); ?></span>
+          <span class="fc-blue txtB"><?php echo \dash\fit::number(a(\dash\data::orderDetail(), 'factor', 'total')); ?></span>
           <small class="fc-mute"><?php echo \lib\store::currency() ?></small>
         </div>
       </a>

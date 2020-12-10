@@ -47,36 +47,36 @@ if($myChildList)
                   <tbody>
                     <?php foreach ($myChildList as $key => $value) {?>
 
-                    <?php $myId = \dash\get::index($value, 'id'); ?>
+                    <?php $myId = a($value, 'id'); ?>
 
                       <tr data-removeElement>
                         <td class="collapsing"><?php echo \dash\fit::number($key + 1); ?></td>
-                        <?php if(\dash\get::index($value, 'optionname1')) {?>
+                        <?php if(a($value, 'optionname1')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon small" for="whole_optionvalue1_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname1'); ?></label>
-                            <input type="text" name="whole_optionvalue1_<?php echo $myId; ?>" id="whole_optionvalue1_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'optionvalue1'); ?>" >
+                            <label class="addon small" for="whole_optionvalue1_<?php echo $myId; ?>"><?php echo a($value, 'optionname1'); ?></label>
+                            <input type="text" name="whole_optionvalue1_<?php echo $myId; ?>" id="whole_optionvalue1_<?php echo $myId; ?>"  value="<?php echo a($value, 'optionvalue1'); ?>" >
                           </div>
 
                           </td>
                         <?php } //endif ?>
 
-                        <?php if(\dash\get::index($value, 'optionname2')) {?>
+                        <?php if(a($value, 'optionname2')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon small" for="whole_optionvalue2_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname2'); ?></label>
-                            <input type="text" name="whole_optionvalue2_<?php echo $myId; ?>" id="whole_optionvalue2_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'optionvalue2'); ?>" >
+                            <label class="addon small" for="whole_optionvalue2_<?php echo $myId; ?>"><?php echo a($value, 'optionname2'); ?></label>
+                            <input type="text" name="whole_optionvalue2_<?php echo $myId; ?>" id="whole_optionvalue2_<?php echo $myId; ?>"  value="<?php echo a($value, 'optionvalue2'); ?>" >
                           </div>
 
                           </td>
 
                         <?php } //endif ?>
 
-                        <?php if(\dash\get::index($value, 'optionname3')) {?>
+                        <?php if(a($value, 'optionname3')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon small" for="whole_optionvalue3_<?php echo $myId; ?>"><?php echo \dash\get::index($value, 'optionname3'); ?></label>
-                            <input type="text" name="whole_optionvalue3_<?php echo $myId; ?>" id="whole_optionvalue3_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'optionvalue3'); ?>" >
+                            <label class="addon small" for="whole_optionvalue3_<?php echo $myId; ?>"><?php echo a($value, 'optionname3'); ?></label>
+                            <input type="text" name="whole_optionvalue3_<?php echo $myId; ?>" id="whole_optionvalue3_<?php echo $myId; ?>"  value="<?php echo a($value, 'optionvalue3'); ?>" >
                           </div>
 
                           </td>
@@ -85,33 +85,33 @@ if($myChildList)
                         <td>
                           <div class="input">
                             <label class="addon small" for="whole_buyprice_<?php echo $myId; ?>"><?php echo T_("Buy price"); ?></label>
-                            <input type="tel" name="whole_buyprice_<?php echo $myId; ?>" id="whole_buyprice_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'buyprice'); ?>" data-format='price' minlength="0" maxlength="15">
+                            <input type="tel" name="whole_buyprice_<?php echo $myId; ?>" id="whole_buyprice_<?php echo $myId; ?>"  value="<?php echo a($value, 'buyprice'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
                             <label class="addon small" for="whole_price_<?php echo $myId; ?>"><?php echo T_("Price"); ?></label>
-                            <input type="tel" name="whole_price_<?php echo $myId; ?>" id="whole_price_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'price'); ?>" data-format='price' minlength="0" maxlength="15">
+                            <input type="tel" name="whole_price_<?php echo $myId; ?>" id="whole_price_<?php echo $myId; ?>"  value="<?php echo a($value, 'price'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
                             <label class="addon small" for="whole_discount_<?php echo $myId; ?>"><?php echo T_("Discount"); ?></label>
-                            <input type="tel" name="whole_discount_<?php echo $myId; ?>" id="whole_discount_<?php echo $myId; ?>"  value="<?php echo \dash\get::index($value, 'discount'); ?>" data-format='price' minlength="0" maxlength="15">
+                            <input type="tel" name="whole_discount_<?php echo $myId; ?>" id="whole_discount_<?php echo $myId; ?>"  value="<?php echo a($value, 'discount'); ?>" data-format='price' minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
                           <div class="input">
                           <label class="addon small" for="whole_stock_<?php echo $myId; ?>"><?php echo T_("Stock"); ?></label>
-                            <input type="tel" name="whole_stock_<?php echo $myId; ?>" id="whole_stock_<?php echo $myId; ?>" placeholder='<?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?>' data-format minlength="0" maxlength="15">
+                            <input type="tel" name="whole_stock_<?php echo $myId; ?>" id="whole_stock_<?php echo $myId; ?>" placeholder='<?php echo \dash\fit::number(a($value, 'stock')); ?>' data-format minlength="0" maxlength="15">
                           </div>
                         </td>
 
                         <td>
-                          <div data-confirm data-data='{"remove": "remove", "id": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red fs12"></i></div>
+                          <div data-confirm data-data='{"remove": "remove", "id": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red fs12"></i></div>
                         </td>
 
                       </tr>
@@ -121,20 +121,20 @@ if($myChildList)
 
                      <tr class="addNewLine" data-kerkere-content='hide'>
                         <td class="collapsing"><i class="sf-asterisk fc-red"></i></td>
-                        <?php if(\dash\get::index($value, 'optionname1')) {?>
+                        <?php if(a($value, 'optionname1')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon small" for="new_optionvalue1"><?php echo \dash\get::index($value, 'optionname1'); ?></label>
+                            <label class="addon small" for="new_optionvalue1"><?php echo a($value, 'optionname1'); ?></label>
                             <input type="text" name="new_optionvalue1" id="new_optionvalue1"   >
                           </div>
 
                           </td>
                         <?php } //endif ?>
 
-                        <?php if(\dash\get::index($value, 'optionname2')) {?>
+                        <?php if(a($value, 'optionname2')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon small" for="new_optionvalue2"><?php echo \dash\get::index($value, 'optionname2'); ?></label>
+                            <label class="addon small" for="new_optionvalue2"><?php echo a($value, 'optionname2'); ?></label>
                             <input type="text" name="new_optionvalue2" id="new_optionvalue2"   >
                           </div>
 
@@ -142,10 +142,10 @@ if($myChildList)
 
                         <?php } //endif ?>
 
-                        <?php if(\dash\get::index($value, 'optionname3')) {?>
+                        <?php if(a($value, 'optionname3')) {?>
                           <td>
                           <div class="input">
-                            <label class="addon small" for="new_optionvalue3"><?php echo \dash\get::index($value, 'optionname3'); ?></label>
+                            <label class="addon small" for="new_optionvalue3"><?php echo a($value, 'optionname3'); ?></label>
                             <input type="text" name="new_optionvalue3" id="new_optionvalue3"   >
                           </div>
 

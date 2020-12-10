@@ -17,19 +17,19 @@
     <div class="box mB25-f">
       <header class="f align-center">
         <div class="c">
-          <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
+          <h2><?php echo a($value, 'title'); ?></h2>
         </div>
-        <small class="cauto"><?php echo T_("version"). ' '. \dash\fit::number(\dash\get::index($value, 'version')) ?></small>
+        <small class="cauto"><?php echo T_("version"). ' '. \dash\fit::number(a($value, 'version')) ?></small>
         <div class="cauto pLa10">
-<?php if(\dash\get::index($value, 'key') === \dash\data::issetHeader()) {?>
+<?php if(a($value, 'key') === \dash\data::issetHeader()) {?>
           <a href="<?php echo \dash\url::that(); ?>" class="btn success"><?php echo T_("Current Template"); ?></a>
 <?php }else{ ?>
-          <div data-confirm data-data='{"header" : "<?php echo \dash\get::index($value, 'key'); ?>"}' class="btn secondary outline"><?php echo T_("Choose this template"); ?></div>
+          <div data-confirm data-data='{"header" : "<?php echo a($value, 'key'); ?>"}' class="btn secondary outline"><?php echo T_("Choose this template"); ?></div>
 <?php } //endif ?>
         </div>
       </header>
       <div class="body zeroPad">
-        <img class="block" src="<?php echo \dash\get::index($value, 'sample_image'); ?>" alt='<?php echo \dash\get::index($value, 'title'); ?>'>
+        <img class="block" src="<?php echo a($value, 'sample_image'); ?>" alt='<?php echo a($value, 'title'); ?>'>
       </div>
     </div>
   <?php } // endfor ?>

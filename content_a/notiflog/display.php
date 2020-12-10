@@ -14,8 +14,8 @@
 
 <?php foreach (\dash\data::messgeGroupBy() as $key => $value) {?>
   <tr>
-    <td><?php echo \dash\get::index($value, 'message') ?></td>
-    <td><?php echo \dash\fit::number(\dash\get::index($value, 'count')) ?></td>
+    <td><?php echo a($value, 'message') ?></td>
+    <td><?php echo \dash\fit::number(a($value, 'count')) ?></td>
   </tr>
 <?php } //endif ?>
       </tbody>
@@ -105,16 +105,16 @@
         <tr>
 
 
-          <td><?php echo \dash\get::index($value, 'id') ?></td>
-          <td><?php echo \dash\get::index($value, 'type') ?></td>
-          <td><?php echo \dash\get::index($value, 'method') ?></td>
-          <td><?php echo \dash\get::index($value, 'message') ?></td>
+          <td><?php echo a($value, 'id') ?></td>
+          <td><?php echo a($value, 'type') ?></td>
+          <td><?php echo a($value, 'method') ?></td>
+          <td><?php echo a($value, 'message') ?></td>
 
-          <td><?php echo \dash\get::index($value, 'user_id') ?></td>
-          <td><?php echo \dash\get::index($value, 'urlkingdom') ?></td>
-          <td><?php echo \dash\get::index($value, 'urldir') ?></td>
-          <td><?php echo \dash\get::index($value, 'urlquery') ?></td>
-          <td><?php echo \dash\get::index($value, 'datecreated') ?></td>
+          <td><?php echo a($value, 'user_id') ?></td>
+          <td><?php echo a($value, 'urlkingdom') ?></td>
+          <td><?php echo a($value, 'urldir') ?></td>
+          <td><?php echo a($value, 'urlquery') ?></td>
+          <td><?php echo a($value, 'datecreated') ?></td>
 
 
         </tr>

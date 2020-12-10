@@ -12,7 +12,7 @@ $storeData = \dash\data::store_store_data();
           <p class="mB0-f"><?php echo T_("If you want to have live chat in your website, enter your raychat token code here. \nTo do this, you need to register on raychat.to and get the code from there"); ?></p>
             <label for="iraychat"><?php echo T_("Raychat code"); ?> <span class="fc-red">*</span></label>
             <div class="input ltr">
-            <input type="text" name="addon_raychat" id="iraychat" value="<?php echo \dash\get::index($storeData, 'addon_raychat'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
+            <input type="text" name="addon_raychat" id="iraychat" value="<?php echo a($storeData, 'addon_raychat'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
             </div>
         </div>
         <footer class="txtRa">

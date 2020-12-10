@@ -5,17 +5,17 @@
     <?php if(\dash\data::dataTable()) {?>
      	<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-     		<div class="f msg <?php echo \dash\get::index($value, 'class'); ?>">
-     			<div class="cauto mRa10"><?php echo \dash\get::index($value, 'icon'); ?></div>
-     			<div class="cauto"><?php echo \dash\get::index($value, 'taction'); ?><br><b><?php echo \dash\get::index($value, 'meta'); ?></b></div>
+     		<div class="f msg <?php echo a($value, 'class'); ?>">
+     			<div class="cauto mRa10"><?php echo a($value, 'icon'); ?></div>
+     			<div class="cauto"><?php echo a($value, 'taction'); ?><br><b><?php echo a($value, 'meta'); ?></b></div>
      			<div class="c"></div>
      			<div class="cauto mLR10">
      				<small>
-     				<?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?>
+     				<?php echo \dash\fit::date_human(a($value, 'datecreated')); ?>
      				</small>
      			</div>
      			<div class="cauto">
-     				<?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>
+     				<?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>
      			</div>
      		</div>
 

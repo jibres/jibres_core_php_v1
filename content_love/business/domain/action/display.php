@@ -30,20 +30,20 @@
 
           <?php foreach (\dash\data::dataTable() as $key => $value) {?>
             <tr>
-              <td class="collapsing"><code><?php echo \dash\get::index($value, 'id'); ?></code></td>
-              <td><a href="<?php echo \dash\url::that(). '/detail?id='. \dash\get::index($value, 'business_domain_id'); ?>"><?php echo \dash\get::index($value, 'domain'); ?></a></td>
-              <td><?php echo \dash\get::index($value, 'action'); ?></td>
-              <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+              <td class="collapsing"><code><?php echo a($value, 'id'); ?></code></td>
+              <td><a href="<?php echo \dash\url::that(). '/detail?id='. a($value, 'business_domain_id'); ?>"><?php echo a($value, 'domain'); ?></a></td>
+              <td><?php echo a($value, 'action'); ?></td>
+              <td><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
               <td class="collapsing">
-                <?php if(\dash\get::index($value, 'meta')) {?>
-                <span data-kerkere=".showDetail<?php echo \dash\get::index($value, 'id'); ?>">
+                <?php if(a($value, 'meta')) {?>
+                <span data-kerkere=".showDetail<?php echo a($value, 'id'); ?>">
                   <i class="sf-list-ul"></i>
                 </span>
               <?php } //endif ?>
               </td>
             </tr>
-            <?php if(\dash\get::index($value, 'meta')) {?>
-            <tr class="fs08 showDetail<?php echo \dash\get::index($value, 'id'); ?>" data-kerkere-content='hide'>
+            <?php if(a($value, 'meta')) {?>
+            <tr class="fs08 showDetail<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
               <td colspan="4" class="txtL"><pre><?php if(is_array($value['meta'])){ echo json_encode($value['meta'], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); }else{ echo htmlspecialchars($value['meta']);} ?></pre></td>
             </tr>
             <?php } //endif ?>

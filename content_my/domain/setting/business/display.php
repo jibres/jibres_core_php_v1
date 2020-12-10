@@ -9,9 +9,9 @@
 
               <div class="dcard grShadow grGreen2 grBlue2 x2 op100">
                 <div><?php echo T_("Your domain was conncted to") ?></div>
-                <a class="mB25 fcWhite900 fs20"><?php echo \dash\get::index(\dash\data::domainConnectedToMyBusiness(), 'detail', 'title') ?></a>
+                <a class="mB25 fcWhite900 fs20"><?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'title') ?></a>
                 <div class="f">
-                  <div class="pA5"><a href="<?php echo \dash\get::index(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link"><div class="grShadow pA10 txtC"><?php echo T_("Manage Domain") ?></div></a></div>
+                  <div class="pA5"><a href="<?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link"><div class="grShadow pA10 txtC"><?php echo T_("Manage Domain") ?></div></a></div>
                 </div>
               </div>
 
@@ -37,10 +37,10 @@
       <ul>
       <?php foreach (\dash\data::myBusinessList() as $key => $value) {?>
          <li>
-          <a class="f" href="<?php echo \dash\get::index($value, 'url'). '/a/setting/domain/existdomain?domain='. \dash\data::domainDetail_name(); ?>">
-           <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-           <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
-           <div class="value"><?php echo \dash\get::index($value, 'subdomain'); ?></div>
+          <a class="f" href="<?php echo a($value, 'url'). '/a/setting/domain/existdomain?domain='. \dash\data::domainDetail_name(); ?>">
+           <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
+           <div class="key"><?php echo a($value, 'title'); ?></div>
+           <div class="value"><?php echo a($value, 'subdomain'); ?></div>
            <div class="go next"></div>
           </a>
          </li>

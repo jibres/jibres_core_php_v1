@@ -19,10 +19,10 @@
         <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
             <td class="collapsing"><?php echo \dash\fit::number($count); ?></td>
-            <td class="ltr"><?php echo \dash\get::index($value, 'tld') ?></td>
-            <td class="txtB"><?php echo \dash\fit::number(\dash\get::index($value, 'price')) ?></td>
+            <td class="ltr"><?php echo a($value, 'tld') ?></td>
+            <td class="txtB"><?php echo \dash\fit::number(a($value, 'price')) ?></td>
             <?php if(\dash\permission::supervisor()) {?>
-              <td class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'dollar')) ?></td>
+              <td class="txtB"><?php echo \dash\fit::text(a($value, 'dollar')) ?></td>
             <?php } //endif ?>
 
           </tr>

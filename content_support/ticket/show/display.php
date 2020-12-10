@@ -241,7 +241,7 @@
                 {
                   foreach ($myTag as $key => $value)
                   {
-                    echo '<option value="'. \dash\get::index($value, 'title'). '">';
+                    echo '<option value="'. a($value, 'title'). '">';
                   }
                 }
                 ?>

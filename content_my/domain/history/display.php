@@ -16,31 +16,31 @@
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
-                    <td class="collapsing"><?php echo \dash\get::index($value, 'icon'); ?></td>
+                    <td class="collapsing"><?php echo a($value, 'icon'); ?></td>
                     <td>
-                        <?php echo \dash\get::index($value, 'title'); ?>
+                        <?php echo a($value, 'title'); ?>
                     </td>
                     <td class="collapsing">
-                        <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
+                        <?php if(a($value, 'domain') && a($value, 'domain_id')) {?>
                             <div>
-                                <?php if(\dash\get::index($value, 'verify')) {?>
+                                <?php if(a($value, 'verify')) {?>
                                 <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
-                                    <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                                    <code><?php echo a($value, 'domain') ?></code>
                                 </a>
                                 <?php }else{ ?>
-                                    <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                                    <code><?php echo a($value, 'domain') ?></code>
                                 <?php } // endif ?>
                             </div>
                         <?php } // endif ?>
                     </td>
                     <td class="collapsing">
-                        <?php if(\dash\get::index($value, 'detail', 'pay_link')) {?>
-                            <a href="<?php echo \dash\get::index($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
+                        <?php if(a($value, 'detail', 'pay_link')) {?>
+                            <a href="<?php echo a($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
                         <?php } // endif ?>
-                        <?php echo \dash\get::index($value, 'desc'); ?>
+                        <?php echo a($value, 'desc'); ?>
 
                     </td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
                 </tr>
               <?php }// endfor ?>
             </tbody>

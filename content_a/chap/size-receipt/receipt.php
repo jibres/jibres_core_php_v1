@@ -14,21 +14,21 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
   <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
 
   <div class="logo txtC midSize">
-   <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo \dash\get::index($storeData,'title'); ?>">
+   <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
   </div>
 <?php } //endif ?>
 
  <div class="f storeDetail fs12 txtC">
   <div class="c">
-   <h1><?php echo \dash\get::index($storeData,'title'); ?></h1>
+   <h1><?php echo a($storeData,'title'); ?></h1>
    <address>
-    <div class="address"><?php echo \dash\get::index($storeData,'address'); ?></div>
+    <div class="address"><?php echo a($storeData,'address'); ?></div>
     <div class="f">
-     <div class="phone"><?php echo \dash\fit::text(\dash\get::index($storeData,'phone')); ?></div>
-     <div class="website"><?php echo \dash\get::index($storeData,'website'); ?></div>
+     <div class="phone"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
+     <div class="website"><?php echo a($storeData,'website'); ?></div>
     </div>
    </address>
-   <div class="desc mB5"><?php echo \dash\get::index($storeData,'desc'); ?></div>
+   <div class="desc mB5"><?php echo a($storeData,'desc'); ?></div>
   </div>
  </div>
 
@@ -38,7 +38,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <hr>
 <p class="factorHeader fs12 txtC">
-<?php echo \dash\get::index($storeData,'factorheader'); ?>
+<?php echo a($storeData,'factorheader'); ?>
 </p>
 
 <?php } //endif ?>
@@ -88,8 +88,8 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
  <div class="f factorDetail fs12 mB10 txtC">
   <div class="c12">
-   <div class="datetime"><?php echo \dash\fit::date(\dash\get::index($factorDetail, 'factor', 'date')); ?></div>
-   <div><?php echo T_("Factor Number"); ?> <code id='barcode' data-val='<?php echo \dash\get::index($factorDetail, 'factor', 'id_code'); ?>'><?php echo \dash\get::index($factorDetail, 'factor', 'id_code'); ?></code></div>
+   <div class="datetime"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></div>
+   <div><?php echo T_("Factor Number"); ?> <code id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
   </div>
  </div>
 
@@ -110,21 +110,21 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 
   <tr>
-   <td class="txtLa productTitle"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. \dash\get::index($dataRow, 'title');?></td>
-   <td><?php echo \dash\fit::text(\dash\get::index($dataRow, 'count')); ?> <small><?php echo \dash\get::index($dataRow, 'unit'); ?></small></td>
+   <td class="txtLa productTitle"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. a($dataRow, 'title');?></td>
+   <td><?php echo \dash\fit::text(a($dataRow, 'count')); ?> <small><?php echo a($dataRow, 'unit'); ?></small></td>
    <td><?php
 if(isset($dataRow['discount']) && $dataRow['discount'])
 {
-  echo '<del>'. \dash\fit::number(\dash\get::index($dataRow, 'price')). '</del>';
-  echo '<br>'. \dash\fit::number(\dash\get::index($dataRow, 'finalprice'));
+  echo '<del>'. \dash\fit::number(a($dataRow, 'price')). '</del>';
+  echo '<br>'. \dash\fit::number(a($dataRow, 'finalprice'));
   // echo '<br>'. \dash\fit::number($dataRow['discount']);
 }
 else
 {
-  echo \dash\fit::number(\dash\get::index($dataRow, 'price'));
+  echo \dash\fit::number(a($dataRow, 'price'));
 }
 ?></td>
-   <td><?php echo \dash\fit::number(\dash\get::index($dataRow, 'sum')); ?></td>
+   <td><?php echo \dash\fit::number(a($dataRow, 'sum')); ?></td>
   </tr>
  <?php } //endfor ?>
   </tbody>
@@ -142,13 +142,13 @@ else
 
    <tr>
      <th class="txtRa fs08"><?php echo T_("Invoice amount"); ?></th>
-     <td class="collapsing txtLa"><?php echo \dash\fit::number(\dash\get::index($factorDetail, 'factor', 'subprice')); ?></td>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'subprice')); ?></td>
    </tr>
    <?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) {?>
 
    <tr>
      <th class="txtRa fs08"><?php echo T_("Your total discount and profits"); ?></th>
-     <td class="collapsing txtLa"><?php echo \dash\fit::number(\dash\get::index($factorDetail, 'factor', 'subdiscount')); ?></td>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'subdiscount')); ?></td>
    </tr>
    <?php } //endif ?>
 
@@ -156,14 +156,14 @@ else
 
    <tr>
      <th class="txtRa fs08">* <?php echo T_("VAT"); ?></th>
-     <td class="collapsing txtLa"><?php echo \dash\fit::number(\dash\get::index($factorDetail, 'factor', 'subvat')); ?></td>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'subvat')); ?></td>
    </tr>
    <?php } //endif ?>
 
 <?php } //endif ?>
    <tr class="msg info2 factorSum">
      <th class="txtRa fs08"><?php echo T_("Total payable"); ?></th>
-     <td class="collapsing txtLa"><?php echo \dash\fit::number(\dash\get::index($factorDetail, 'factor', 'total')); ?> <small class="fs05"><?php echo \lib\currency::unit(); ?></small></td>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'total')); ?> <small class="fs05"><?php echo \lib\currency::unit(); ?></small></td>
    </tr>
   </tbody>
 
@@ -178,7 +178,7 @@ else
 
 <hr>
 <p class="factorFooter fs14 txtC">
-<?php echo \dash\get::index($storeData,'factorfooter'); ?>
+<?php echo a($storeData,'factorfooter'); ?>
 </p>
 <?php } //endif ?>
 

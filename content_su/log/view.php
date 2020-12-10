@@ -71,7 +71,7 @@ class view
 
 				$list[] =
 				[
-					'ext'         => \dash\get::index($pathinfo, 'extension'),
+					'ext'         => a($pathinfo, 'extension'),
 					'size_raw'    => $filesize,
 					'name'        => $name,
 					'mtime'       => filemtime($value),

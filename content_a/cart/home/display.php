@@ -4,28 +4,28 @@
   <div class="c-xs-6 c-sm-6 c-md-3">
     <a class="stat x70">
       <h3><?php echo T_("Cart count");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'count'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'count'));?></div>
     </a>
   </div>
 
   <div class="c-xs-6 c-sm-6 c-md-3">
     <a class="stat x70">
       <h3><?php echo T_("Total price");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'price'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'price'));?></div>
     </a>
   </div>
 
   <div class="c-xs-6 c-sm-6 c-md-3">
     <a class="stat x70">
       <h3><?php echo T_("Product count");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'product'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'product'));?></div>
     </a>
   </div>
 
   <div class="c-xs-6 c-sm-6 c-md-3">
     <a class="stat x70">
       <h3><?php echo T_("Item count");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'item'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'item'));?></div>
     </a>
   </div>
 </section>
@@ -139,16 +139,16 @@ if(!is_array($dataTable))
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
       <a class="f" href="<?php echo \dash\url::this(). '/add?'. \dash\request::fix_get(['user' => $value['user_id'], 'guestid' => $value['guestid']]); ?>">
-        <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" alt="<?php echo T_("Cart") ?>">
+        <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" alt="<?php echo T_("Cart") ?>">
         <div class="key">
-          <div class="line1"> <?php echo \dash\fit::number(\dash\get::index($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small></div>
+          <div class="line1"> <?php echo \dash\fit::number(a($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small></div>
           <div class="line2 f">
             <div class="cauto">
-              <?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
+              <?php echo \dash\fit::number(a($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
             </div>
             <div class="c"></div>
             <div class="cauto">
-              <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
+              <?php echo a($value, 'user_detail', 'displayname'); ?>
             </div>
           </div>
         </div>
@@ -180,20 +180,20 @@ if(!is_array($dataTable))
         <td class="collapsing"><a href="<?php echo \dash\url::this(). '/add?'. \dash\request::fix_get(['user' => $value['user_id'], 'guestid' => $value['guestid']]); ?>"><i class="sf-list-ul"></i> <span class="s0"><?php echo T_("Detail"); ?></span></a></td>
 
         <td>
-          <?php echo \dash\fit::number(\dash\get::index($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small>
+          <?php echo \dash\fit::number(a($value, 'product_count')); ?> <small><?php echo T_("Product"); ?></small>
         </td>
         <td>
-          <?php echo \dash\fit::number(\dash\get::index($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
+          <?php echo \dash\fit::number(a($value, 'item_count')); ?> <small><?php echo T_("Item"); ?></small>
         </td>
-        <td class="s0"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+        <td class="s0"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
 
         <td class="collapsing">
-            <a <?php if(\dash\get::index($value, 'user_id')) {?> href="<?php echo \dash\url::kingdom(). '/crm/member/general?id='. \dash\get::index($value, 'user_id'); ?>" <?php } // endif ?> class="f align-center userPack">
+            <a <?php if(a($value, 'user_id')) {?> href="<?php echo \dash\url::kingdom(). '/crm/member/general?id='. a($value, 'user_id'); ?>" <?php } // endif ?> class="f align-center userPack">
               <div class="c pRa10">
-                <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-                <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
+                <div class="mobile" data-copy="<?php echo a($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+                <div class="name"><?php echo a($value, 'user_detail', 'displayname'); ?></div>
               </div>
-              <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
+              <img class="cauto" src="<?php echo a($value, 'user_detail', 'avatar'); ?>">
             </a>
           </td>
       </tr>

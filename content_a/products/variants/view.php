@@ -107,34 +107,34 @@ class view
 
 			foreach (\dash\data::productDataRow_child() as $key => $value)
 			{
-				if(\dash\get::index($value, 'optionname1') && !isset($currentVariants[\dash\get::index($value, 'optionname1')]))
+				if(a($value, 'optionname1') && !isset($currentVariants[a($value, 'optionname1')]))
 				{
-					$currentVariants[\dash\get::index($value, 'optionname1')]  = [];
+					$currentVariants[a($value, 'optionname1')]  = [];
 				}
 
-				if(\dash\get::index($value, 'optionvalue1'))
+				if(a($value, 'optionvalue1'))
 				{
-					$currentVariants[\dash\get::index($value, 'optionname1')][]  = \dash\get::index($value, 'optionvalue1');
+					$currentVariants[a($value, 'optionname1')][]  = a($value, 'optionvalue1');
 				}
 
-				if(\dash\get::index($value, 'optionname2') && !isset($currentVariants[\dash\get::index($value, 'optionname2')]))
+				if(a($value, 'optionname2') && !isset($currentVariants[a($value, 'optionname2')]))
 				{
-					$currentVariants[\dash\get::index($value, 'optionname2')]  = [];
+					$currentVariants[a($value, 'optionname2')]  = [];
 				}
 
-				if(\dash\get::index($value, 'optionvalue2'))
+				if(a($value, 'optionvalue2'))
 				{
-					$currentVariants[\dash\get::index($value, 'optionname2')][]  = \dash\get::index($value, 'optionvalue2');
+					$currentVariants[a($value, 'optionname2')][]  = a($value, 'optionvalue2');
 				}
 
-				if(\dash\get::index($value, 'optionname3') && !isset($currentVariants[\dash\get::index($value, 'optionname3')]))
+				if(a($value, 'optionname3') && !isset($currentVariants[a($value, 'optionname3')]))
 				{
-					$currentVariants[\dash\get::index($value, 'optionname3')]  = [];
+					$currentVariants[a($value, 'optionname3')]  = [];
 				}
 
-				if(\dash\get::index($value, 'optionvalue3'))
+				if(a($value, 'optionvalue3'))
 				{
-					$currentVariants[\dash\get::index($value, 'optionname3')][]  = \dash\get::index($value, 'optionvalue3');
+					$currentVariants[a($value, 'optionname3')][]  = a($value, 'optionvalue3');
 				}
 
 			}

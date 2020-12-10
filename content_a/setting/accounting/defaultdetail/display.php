@@ -73,7 +73,7 @@ function show_assistant_list_html($_index)
   $showCat = null;
   foreach (\dash\data::assistantList() as $key => $value)
   {
-    if($lastCat !== \dash\get::index($value, 'total_title'))
+    if($lastCat !== a($value, 'total_title'))
     {
       $showCat = true;
     }
@@ -82,26 +82,26 @@ function show_assistant_list_html($_index)
       $showCat = false;
     }
     // set lastCat for next loop
-    $lastCat = \dash\get::index($value, 'total_title');
+    $lastCat = a($value, 'total_title');
 
     if($showCat)
     {
       echo '<optgroup label="';
-      echo \dash\get::index($value, 'total_title');
+      echo a($value, 'total_title');
       echo '">';
     }
     {
       echo '<option value="';
-      echo \dash\get::index($value, 'id');
+      echo a($value, 'id');
       echo '"';
-      if(\dash\get::index($savedValue, $_index) === \dash\get::index($value, 'id'))
+      if(a($savedValue, $_index) === a($value, 'id'))
       {
         echo ' selected';
       }
       echo '>';
-      echo \dash\get::index($value, 'code');
+      echo a($value, 'code');
       echo ' - ';
-      echo \dash\get::index($value, 'title');
+      echo a($value, 'title');
       echo '</option>';
     }
     if($showCat)

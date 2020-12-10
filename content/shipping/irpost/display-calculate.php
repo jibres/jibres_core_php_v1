@@ -73,24 +73,24 @@
 
 	</form>
 </div>
-		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) { $currency = \dash\get::index($result, 'currency'); ?>
+		<?php $result = \dash\data::irpostResult(); if($result && is_array($result)) { $currency = a($result, 'currency'); ?>
 <div class="avand-md">
 				<nav class="items">
 					<ul>
-						<?php if(\dash\get::index($result, 'basic')) {?>
+						<?php if(a($result, 'basic')) {?>
 							<li>
 								<a class="f">
 									<div class="key">
 										<?php echo T_("Basic price"); ?>
 									</div>
 									<div class="value">
-										<?php echo \dash\fit::number(\dash\get::index($result, 'basic')) ?> <small><?php echo $currency ?></small>
+										<?php echo \dash\fit::number(a($result, 'basic')) ?> <small><?php echo $currency ?></small>
 									</div>
 								</a>
 							</li>
 						<?php } //endif ?>
 
-						<?php if(\dash\get::index($result, 'province_center')) {?>
+						<?php if(a($result, 'province_center')) {?>
 
 							<li>
 								<a class="f">
@@ -98,26 +98,26 @@
 										<?php echo T_("Send from province center"). ' '. T_("10%"); ?>
 									</div>
 									<div class="value">
-										<?php echo \dash\fit::number(\dash\get::index($result, 'province_center')) ?> <small><?php echo $currency ?></small>
+										<?php echo \dash\fit::number(a($result, 'province_center')) ?> <small><?php echo $currency ?></small>
 									</div>
 								</a>
 							</li>
 						<?php } //endif ?>
-						<?php if(\dash\get::index($result, 'insurance')) {?>
+						<?php if(a($result, 'insurance')) {?>
 							<li>
 								<a class="f">
 									<div class="key">
 										<?php echo T_("Insurance"); ?>
 									</div>
 									<div class="value">
-										<?php echo \dash\fit::number(\dash\get::index($result, 'insurance')) ?> <small><?php echo $currency ?></small>
+										<?php echo \dash\fit::number(a($result, 'insurance')) ?> <small><?php echo $currency ?></small>
 									</div>
 								</a>
 							</li>
 						<?php } //endif ?>
 
 
-						<?php if(\dash\get::index($result, 'vat')) {?>
+						<?php if(a($result, 'vat')) {?>
 
 							<li>
 								<a class="f">
@@ -125,20 +125,20 @@
 										<?php echo T_("Vat"). ' '. T_("9%"); ?>
 									</div>
 									<div class="value">
-										<?php echo \dash\fit::number(\dash\get::index($result, 'vat')) ?> <small><?php echo $currency ?></small>
+										<?php echo \dash\fit::number(a($result, 'vat')) ?> <small><?php echo $currency ?></small>
 									</div>
 								</a>
 							</li>
 						<?php } //endif ?>
 
-							<?php if(\dash\get::index($result, 'price')) {?>
+							<?php if(a($result, 'price')) {?>
 							<li>
 								<a class="f">
 									<div class="key">
 										<?php echo T_("Total"); ?>
 									</div>
 									<div class="value txtB">
-										<?php echo \dash\fit::number(\dash\get::index($result, 'price')) ?> <small><?php echo $currency ?></small>
+										<?php echo \dash\fit::number(a($result, 'price')) ?> <small><?php echo $currency ?></small>
 									</div>
 								</a>
 							</li>
@@ -149,10 +149,10 @@
 					</ul>
 				</nav>
 
-				<?php if(\dash\get::index($result, 'price')) {?>
+				<?php if(a($result, 'price')) {?>
 					<div class="txtC">
 						<div class="btn txtC mT20 master xl font-20" data-copy='https://jibres.ir/shipping/irpost?<?php echo \dash\request::fix_get(); ?>'>
-							<?php echo \dash\fit::number(\dash\get::index($result, 'price')) ?> <small><?php echo $currency ?></small>
+							<?php echo \dash\fit::number(a($result, 'price')) ?> <small><?php echo $currency ?></small>
 						</div>
 					</div>
 				<?php } //endif ?>

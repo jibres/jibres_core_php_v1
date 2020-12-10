@@ -88,7 +88,7 @@ class model
 		];
 
 
-		$telegrambtn = \dash\get::index(\dash\data::telegramSetting(), 'telegrambtn');
+		$telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
 
 		if(empty($social) || !$telegrambtn)
 		{
@@ -98,12 +98,12 @@ class model
 		{
 			foreach ($social as $key => $value)
 			{
-				if(\dash\get::index($social, $key) && \dash\get::index($telegrambtn, $key))
+				if(a($social, $key) && a($telegrambtn, $key))
 				{
 					$reply_markup[] =
 					[
-						'text' => \dash\get::index($value, 'title'),
-						'url'  => \dash\get::index($social, $key, 'link'),
+						'text' => a($value, 'title'),
+						'url'  => a($social, $key, 'link'),
 					];
 				}
 			}

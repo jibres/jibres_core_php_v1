@@ -66,19 +66,19 @@ class ready
 
 				case 'title':
 					$result['title'] = isset($value) ? (string) $value : null;
-					if(\dash\get::index($_data, 'optionname1') && \dash\get::index($_data, 'optionvalue1'))
+					if(a($_data, 'optionname1') && a($_data, 'optionvalue1'))
 					{
-						$result['title'] .= ' - '. \dash\get::index($_data, 'optionname1'). ' '. \dash\get::index($_data, 'optionvalue1');
+						$result['title'] .= ' - '. a($_data, 'optionname1'). ' '. a($_data, 'optionvalue1');
 					}
 
-					if(\dash\get::index($_data, 'optionname2') && \dash\get::index($_data, 'optionvalue2'))
+					if(a($_data, 'optionname2') && a($_data, 'optionvalue2'))
 					{
-						$result['title'] .= ' - '. \dash\get::index($_data, 'optionname2'). ' '. \dash\get::index($_data, 'optionvalue2');
+						$result['title'] .= ' - '. a($_data, 'optionname2'). ' '. a($_data, 'optionvalue2');
 					}
 
-					if(\dash\get::index($_data, 'optionname3') && \dash\get::index($_data, 'optionvalue3'))
+					if(a($_data, 'optionname3') && a($_data, 'optionvalue3'))
 					{
-						$result['title'] .= ' - '. \dash\get::index($_data, 'optionname3'). ' '. \dash\get::index($_data, 'optionvalue3');
+						$result['title'] .= ' - '. a($_data, 'optionname3'). ' '. a($_data, 'optionvalue3');
 					}
 					break;
 

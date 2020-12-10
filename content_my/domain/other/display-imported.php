@@ -7,8 +7,8 @@
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-       <a class="item f" href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>">
-        <div class="key"><code><?php echo \dash\get::index($value, 'name'); ?></code></div>
+       <a class="item f" href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo a($value, 'name'); ?>">
+        <div class="key"><code><?php echo a($value, 'name'); ?></code></div>
         <div class="go"></div>
       </a>
      </li>
@@ -30,12 +30,12 @@
 
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
-            <tr <?php  if(\dash\get::index($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
+            <tr <?php  if(a($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
                 <td>
-                    <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo \dash\get::index($value, 'name'); ?>" class="link flex"><code><?php echo \dash\get::index($value, 'name'); ?></code></a>
+                    <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo a($value, 'name'); ?>" class="link flex"><code><?php echo a($value, 'name'); ?></code></a>
                 </td>
                 <td>
-                	<?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')) ?>
+                	<?php echo \dash\fit::date_time(a($value, 'datecreated')) ?>
                 </td>
 
 

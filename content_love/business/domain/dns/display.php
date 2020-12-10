@@ -79,12 +79,12 @@
       <tbody>
         <?php foreach (\dash\data::dnsList() as $key => $value) {?>
           <tr>
-            <td class="collapsing"><?php if(\dash\get::index($value, 'verify')) {?><i title="<?php echo T_("Verified") ?>" class="sf-check fc-green"></i><?php }else{ ?><i title="<?php echo T_("Not verify") ?>" class="sf-exclamation-triangle fc-orange"></i><?php } //endif ?></td>
-            <td><?php echo \dash\get::index($value, 'type'); ?></td>
-            <td><?php echo \dash\get::index($value, 'key'); ?></td>
-            <td><?php echo \dash\get::index($value, 'value'); ?></td>
-            <td><?php echo \dash\get::index($value, 'status'); ?></td>
-            <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
+            <td class="collapsing"><?php if(a($value, 'verify')) {?><i title="<?php echo T_("Verified") ?>" class="sf-check fc-green"></i><?php }else{ ?><i title="<?php echo T_("Not verify") ?>" class="sf-exclamation-triangle fc-orange"></i><?php } //endif ?></td>
+            <td><?php echo a($value, 'type'); ?></td>
+            <td><?php echo a($value, 'key'); ?></td>
+            <td><?php echo a($value, 'value'); ?></td>
+            <td><?php echo a($value, 'status'); ?></td>
+            <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
           </tr>
         <?php } // endif ?>
       </tbody>

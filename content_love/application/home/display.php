@@ -89,30 +89,30 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
             <tr>
-                <td class=""><a class="btn" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><i class="sf-edit"></i></a></td>
+                <td class=""><a class="btn" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><i class="sf-edit"></i></a></td>
                 <td>
-                    <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
-                    <?php echo \dash\get::index($value, 'title'); ?>
+                    <img src="<?php echo a($value, 'logo'); ?>" class="avatar">
+                    <?php echo a($value, 'title'); ?>
                 </td>
                 <td>
 
-                  <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
-                    <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
-                    <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
+                  <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
+                    <?php echo a($value, 'user_detail', 'displayname'); ?>
+                    <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
                 </td>
 
-                <td class=" "><code><?php echo T_(ucfirst(\dash\get::index($value, 'status'))); ?></code></td>
-                <td class=" "><code><?php echo \dash\fit::number(\dash\get::index($value, 'version')); ?></code></td>
-                <td class=" "><code><?php echo \dash\fit::number(\dash\get::index($value, 'build')); ?></code></td>
+                <td class=" "><code><?php echo T_(ucfirst(a($value, 'status'))); ?></code></td>
+                <td class=" "><code><?php echo \dash\fit::number(a($value, 'version')); ?></code></td>
+                <td class=" "><code><?php echo \dash\fit::number(a($value, 'build')); ?></code></td>
 
 
-                <td class=" "><?php echo \dash\fit::date_human(\dash\get::index($value, 'daterequest')); ?></td>
-                <td class=" "><?php echo \dash\fit::date_human(\dash\get::index($value, 'datequeue')); ?></td>
-                <td class=" "><?php echo \dash\fit::date_human(\dash\get::index($value, 'datedone')); ?></td>
-                <td class=" " title='<?php echo \dash\get::index($value, 'path'); ?>'><?php if(\dash\get::index($value, 'path')) { echo '<a href="https://app.talambar.ir/'. $value['path'].'" class="btn">'.T_("Download").'</a>'; }?></td>
+                <td class=" "><?php echo \dash\fit::date_human(a($value, 'daterequest')); ?></td>
+                <td class=" "><?php echo \dash\fit::date_human(a($value, 'datequeue')); ?></td>
+                <td class=" "><?php echo \dash\fit::date_human(a($value, 'datedone')); ?></td>
+                <td class=" " title='<?php echo a($value, 'path'); ?>'><?php if(a($value, 'path')) { echo '<a href="https://app.talambar.ir/'. $value['path'].'" class="btn">'.T_("Download").'</a>'; }?></td>
             </tr>
             <tr>
-                <td colspan="10" class="ltr txtL pTB5-f"><?php echo \dash\get::index($value, 'meta'); ?></td>
+                <td colspan="10" class="ltr txtL pTB5-f"><?php echo a($value, 'meta'); ?></td>
             </tr>
             <?php } //endfor ?>
         </tbody>

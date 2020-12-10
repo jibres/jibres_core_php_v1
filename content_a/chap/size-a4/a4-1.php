@@ -14,13 +14,13 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="c-3">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
         <div class="logo">
-         <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo \dash\get::index($storeData,'title'); ?>">
+         <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
         </div>
 <?php } //endif ?>
 
       </div>
       <div class="c-6 txtC">
-        <?php $country = \dash\get::index($storeData,'country'); if($country === 'IR') {?>
+        <?php $country = a($storeData,'country'); if($country === 'IR') {?>
         <h1><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
         <h1><?php echo T_("Invoice"); ?></h1>
@@ -29,11 +29,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="c-3 txtRa">
         <div>
           <span class="compact pRa5"><?php echo T_("Serial Number"); ?></span>
-          <span class="printEmptyBox" id="factorid" data-val="<?php echo \dash\get::index($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(\dash\get::index($factorDetail, 'factor', 'id')) ?></span>
+          <span class="printEmptyBox" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
         </div>
         <div>
           <span class="compact pRa5"><?php echo T_("Date"); ?></span>
-          <span class="printEmptyBox"><?php echo \dash\fit::date(\dash\get::index($factorDetail, 'factor', 'date')); ?></span>
+          <span class="printEmptyBox"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
         </div>
       </div>
     </header>
@@ -68,11 +68,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 ?>
 <?php foreach ($factor_detail as $key => $dataRow) {?>
 <?php
-$totalPrice = \dash\get::index($dataRow, 'price') * \dash\get::index($dataRow, 'count');
-$totalDiscount = \dash\get::index($dataRow, 'discount') * \dash\get::index($dataRow, 'count');
+$totalPrice = a($dataRow, 'price') * a($dataRow, 'count');
+$totalDiscount = a($dataRow, 'discount') * a($dataRow, 'count');
 $totalPriceAfterDiscount = $totalPrice - $totalDiscount;
-$totalVAT = \dash\get::index($dataRow, 'vat');
-$FinalPrice = \dash\get::index($dataRow, 'sum');
+$totalVAT = a($dataRow, 'vat');
+$FinalPrice = a($dataRow, 'sum');
 
 $tableTotal['totalPrice'] += $totalPrice;
 $tableTotal['totalDiscount'] += $totalDiscount;
@@ -82,10 +82,10 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 ?>
       <tr>
        <td><?php echo \dash\fit::number($key + 1); ?></td>
-       <td class="txtLa productTitle"><?php echo \dash\get::index($dataRow, 'title');?></td>
-       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($dataRow, 'count')); ?></td>
-       <td><?php echo \dash\get::index($dataRow, 'unit'); ?></td>
-       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($dataRow, 'price')); ?></td>
+       <td class="txtLa productTitle"><?php echo a($dataRow, 'title');?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
+       <td><?php echo a($dataRow, 'unit'); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
@@ -114,8 +114,8 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 
   </div>
 
-<?php if(\dash\get::index($factorDetail, 'factor', 'desc')) {?>
-<p class="msg font-14"><?php echo nl2br(\dash\get::index($factorDetail, 'factor', 'desc')) ?></p>
+<?php if(a($factorDetail, 'factor', 'desc')) {?>
+<p class="msg font-14"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
 <?php } //endif ?>
 <div class="txtC">
   <div class="barcodeBox">

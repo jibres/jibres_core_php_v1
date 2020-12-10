@@ -22,7 +22,7 @@ $propertyList = \dash\data::propertyList();
             </form>
             <?php foreach (\dash\data::productDataRow_bullet() as $key => $value) {?>
               <div class="msg f">
-                <div class="c"><?php echo \dash\get::index($value, 'text') ?></div>
+                <div class="c"><?php echo a($value, 'text') ?></div>
                 <div class="cauto">
                   <a class="btn link" href="<?php echo \dash\url::this() . '/bullet?id='. \dash\request::get('id'). '&index='. $key; ?>"><?php echo T_("Edit"); ?></a>
                   <span data-confirm data-data='{"type": "remove", "index": "<?php echo $key ?>"}' class="linkDel"><?php echo T_("Remove") ?></span>

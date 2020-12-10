@@ -14,9 +14,9 @@ class dashboard
 		$count_cart = intval(\lib\db\cart\get::count_cart());
 
 		$result['count']   = $count_cart;
-		$result['price']   = \lib\price::down(intval(\dash\get::index($result_raw, 'price')));
-		$result['item']    = intval(\dash\get::index($result_raw, 'item'));
-		$result['product'] = intval(\dash\get::index($result_raw, 'product'));
+		$result['price']   = \lib\price::down(intval(a($result_raw, 'price')));
+		$result['item']    = intval(a($result_raw, 'item'));
+		$result['product'] = intval(a($result_raw, 'product'));
 
 
 		return $result;

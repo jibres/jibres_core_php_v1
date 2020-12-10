@@ -17,34 +17,34 @@
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
-                    <td class="collapsing"><?php echo \dash\get::index($value, 'icon'); ?></td>
+                    <td class="collapsing"><?php echo a($value, 'icon'); ?></td>
                     <td>
-                        <?php echo \dash\get::index($value, 'title'); ?>
+                        <?php echo a($value, 'title'); ?>
                     </td>
                     <td>
-                        <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
+                        <?php if(a($value, 'domain') && a($value, 'domain_id')) {?>
                             <div>
                                 <a class="link" href="<?php echo \dash\url::this(). '/setting?id='. $value['domain_id']; ?>">
-                                    <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                                    <code><?php echo a($value, 'domain') ?></code>
                                 </a>
                             </div>
                         <?php } // endif ?>
                     </td>
                     <td>
-                        <?php if(\dash\get::index($value, 'detail', 'pay_link')) {?>
-                            <a href="<?php echo \dash\get::index($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
+                        <?php if(a($value, 'detail', 'pay_link')) {?>
+                            <a href="<?php echo a($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
                         <?php } // endif ?>
-                        <?php echo \dash\get::index($value, 'desc'); ?>
+                        <?php echo a($value, 'desc'); ?>
 
                     </td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
                     <td class="collapsing">
-                      <a href="<?php echo \dash\url::that(). '?user='. \dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+                      <a href="<?php echo \dash\url::that(). '?user='. a($value, 'user_id'); ?>" class="f align-center userPack">
                         <div class="c pRa10">
-                          <div class="mobile"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-                          <div class="name"><?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?></div>
+                          <div class="mobile"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+                          <div class="name"><?php echo a($value, 'user_detail', 'displayname'); ?></div>
                         </div>
-                        <img class="cauto" src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>">
+                        <img class="cauto" src="<?php echo a($value, 'user_detail', 'avatar'); ?>">
                       </a>
                     </td>
                 </tr>

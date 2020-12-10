@@ -37,6 +37,6 @@
 
 <div class="box">
   <div class="pad">
-      <p><?php echo nl2br(\dash\get::index($data, 'message')); ?></p>
+      <p><?php echo nl2br(a($data, 'message')); ?></p>
   </div>
 </div>

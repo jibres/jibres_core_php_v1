@@ -52,8 +52,8 @@ $awaitingImport = \dash\data::awaitingImport();
 
 			<div class="msg danger2">
 				<div class="f">
-					<div class="c s12"><small><?php echo T_("Error"); ?></small>: <?php echo \dash\get::index($value, 'msg'); ?></div>
-					<div class="c s12"><small><?php echo T_("Count error"); ?></small> <b><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></b></div>
+					<div class="c s12"><small><?php echo T_("Error"); ?></small>: <?php echo a($value, 'msg'); ?></div>
+					<div class="c s12"><small><?php echo T_("Count error"); ?></small> <b><?php echo \dash\fit::number(a($value, 'count')); ?></b></div>
 					<?php if(isset($value['index']) && is_array($value['index']) && count($value['index']) > 5) {?>
 
 						<div class="c s12"><small data-copy="#error<?php echo $key; ?>"><?php echo T_("Error in index records"); ?></small>
@@ -62,7 +62,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 					<?php }else{ ?>
 
-						<div class="c s12"><small><?php echo T_("Error in index record"); ?></small> <b><?php echo @implode(',', \dash\get::index($value, 'index')); ?></b></div>
+						<div class="c s12"><small><?php echo T_("Error in index record"); ?></small> <b><?php echo @implode(',', a($value, 'index')); ?></b></div>
 
 					<?php } //endif ?>
 				</div>
@@ -82,7 +82,7 @@ $awaitingImport = \dash\data::awaitingImport();
 			<?php echo T_("Count record have ID"); ?> <b><?php echo \dash\fit::number($awaitingImport['meta']['overwrite_count']); ?></b>
 			<br>
 			<small data-copy="#haveId"><?php echo T_("Founded id"); ?></small>
-			<textarea class="txt" rows="2" id="haveId"><?php @implode(',', \dash\get::index($awaitingImport, 'meta', 'overwrite')); ?></textarea>
+			<textarea class="txt" rows="2" id="haveId"><?php @implode(',', a($awaitingImport, 'meta', 'overwrite')); ?></textarea>
 
 		</div>
 	<?php } //endif ?>
@@ -90,10 +90,10 @@ $awaitingImport = \dash\data::awaitingImport();
 	<div class="txtRa">
 
 	<div class="btn secondary" data-ajaxify data-data='{"cancel": "cancel"}' data-method='post'><?php echo T_("Never mind"); ?></div>
-	<?php if(!\dash\get::index($awaitingImport, 'meta', 'allErrorCount')) {?>
+	<?php if(!a($awaitingImport, 'meta', 'allErrorCount')) {?>
 
 
-		<?php if(\dash\get::index($awaitingImport, 'meta', 'overwrite_count')) {?>
+		<?php if(a($awaitingImport, 'meta', 'overwrite_count')) {?>
 
 			<div class="btn warn" data-confirm data-data='{"import": "ok"}'><?php echo T_("I sure. I want to overwrite that products"); ?></div>
 		<?php }else{ ?>

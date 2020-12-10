@@ -122,13 +122,13 @@
           </td>
           <td class="txtB pRa10">
 
-          <span ><?php echo \dash\get::index($value, 'title'); ?></span>
+          <span ><?php echo a($value, 'title'); ?></span>
           </td>
           <td class="pRa10"><?php if(isset($value['country']) && $value['country']) {?><i class="flag <?php echo mb_strtolower($value['country']); ?>"></i><?php } //endif ?></td>
           <td class="pRa10">
-            <span ><?php echo \dash\get::index($value, 'location_string'); ?></span>
+            <span ><?php echo a($value, 'location_string'); ?></span>
             <div>
-              <span><?php echo \dash\get::index($value, 'address'); ?></span>
+              <span><?php echo a($value, 'address'); ?></span>
 
               <?php if(isset($value['postcode']) && $value['postcode']) {?>
 
@@ -139,7 +139,7 @@
             </div>
 
           </td>
-          <td class="pRa10"><?php echo \dash\get::index($value, 'name'); ?></td>
+          <td class="pRa10"><?php echo a($value, 'name'); ?></td>
           <td class="collapsing pRa10">
             <?php if(isset($value['phone']) && $value['phone']) {?>
 
@@ -153,7 +153,7 @@
 
           </td>
           <td class="pRa10">
-            <a class="badge light" href="<?php echo \dash\data::myUrlAddress(). '?addressid='. \dash\get::index($value, 'id'); if(\dash\request::get('id')) { echo '&id='. \dash\request::get('id'); }?>"><i class="sf-pencil-square-o fs16"></i> <?php echo T_("Edit"); ?></a>
+            <a class="badge light" href="<?php echo \dash\data::myUrlAddress(). '?addressid='. a($value, 'id'); if(\dash\request::get('id')) { echo '&id='. \dash\request::get('id'); }?>"><i class="sf-pencil-square-o fs16"></i> <?php echo T_("Edit"); ?></a>
           </td>
         </tr>
       <?php } //endfor ?>

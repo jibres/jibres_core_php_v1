@@ -33,7 +33,7 @@ if($all_get)
   foreach (\dash\data::sortList() as $key => $value)
   {
 ?>
-          <option value="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == \dash\get::index($value, 'query')['sort'] && \dash\request::get('order') == \dash\get::index($value, 'query')['order']) { echo 'selected'; }?> ><?php echo \dash\get::index($value, 'title'); ?></option>
+          <option value="<?php echo \dash\url::that(). '?'. a($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == a($value, 'query')['sort'] && \dash\request::get('order') == a($value, 'query')['order']) { echo 'selected'; }?> ><?php echo a($value, 'title'); ?></option>
 <?php
   }
 ?>
@@ -58,7 +58,7 @@ function BoxProductFilter()
 
     <?php $first = true; $myClass = null; $lastGroup = null; foreach (\dash\data::productFilterList() as $key => $value) {?>
     <?php if($lastGroup !== $value['group']) { $lastGroup = $value['group']; if(!$first) { if(\dash\request::is_pwa()) { $myClass = null; echo '<div class="block"></div>'; }else{ $myClass = 'mLa10'; } } } //endif ?>
-      <a class='btn <?php echo $myClass; ?>  <?php if(\dash\get::index($value, 'is_active')) { echo 'primary2'; }else{ echo 'light';}?>  mB10 ' href="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a>
+      <a class='btn <?php echo $myClass; ?>  <?php if(a($value, 'is_active')) { echo 'primary2'; }else{ echo 'light';}?>  mB10 ' href="<?php echo \dash\url::that(). '?'. a($value, 'query_string'); ?>"><?php echo a($value, 'title'); ?></a>
       <?php $myClass = null; $first = false; ?>
     <?php } //endfor ?>
     </div>

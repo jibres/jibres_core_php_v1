@@ -15,10 +15,10 @@ class add
 
 		$add =
 		[
-			'number'  => \dash\get::index($_args, 'number'),
-			'desc'    => \dash\get::index($load, 'desc'),
-			'date'    => \dash\get::index($_args, 'date'),
-			'year_id' => \dash\get::index($load, 'year_id'),
+			'number'  => a($_args, 'number'),
+			'desc'    => a($load, 'desc'),
+			'date'    => a($_args, 'date'),
+			'year_id' => a($load, 'year_id'),
 		];
 
 		$new_doc = self::add($add);

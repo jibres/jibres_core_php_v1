@@ -26,7 +26,7 @@
             <div>
               <select name="period" class="select22">
                 <?php foreach (\dash\data::internationalPriceList() as $key => $value) {?>
-                  <option value="<?php echo \dash\get::index($value, 'period') ?>"><?php echo \dash\get::index($value, 'title'). ' ('. \dash\fit::number(\dash\get::index($value, 'price')). ' '. T_("Toman"). ')'; ?> </option>
+                  <option value="<?php echo a($value, 'period') ?>"><?php echo a($value, 'title'). ' ('. \dash\fit::number(a($value, 'price')). ' '. T_("Toman"). ')'; ?> </option>
                 <?php } //endfor ?>
               </select>
             </div>

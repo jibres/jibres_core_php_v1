@@ -79,7 +79,7 @@ else
 
       <tr>
         <td><?php echo @$value[\dash\request::get('duplicate')]; ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'count')); ?></td>
         <td><a href="<?php echo \dash\url::this(); ?>?find<?php echo \dash\request::get('duplicate'); ?>=<?php echo @$value[\dash\request::get('duplicate')]; ?>&showlog=1" class="badge warn"><?php echo T_("Detail"); ?></a></td>
       </tr>
       <?php } //endfor ?>
@@ -110,32 +110,32 @@ if(\dash\request::get('status'))
 <table class="tbl1 v1 cbox fs12">
     <thead>
       <tr class="fs07">
-        <th data-sort="<?php echo \dash\get::index($value, 'username', 'order'); ?>">
-          <a href='<?php echo \dash\get::index($value, 'username', 'link'); ?>'><?php echo T_("Username"); ?></a>
+        <th data-sort="<?php echo a($value, 'username', 'order'); ?>">
+          <a href='<?php echo a($value, 'username', 'link'); ?>'><?php echo T_("Username"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'displayname', 'order'); ?>">
-          <a href='<?php echo \dash\get::index($value, 'displayname', 'link'); ?>'><?php echo T_("Display Name"); ?></a>
+        <th data-sort="<?php echo a($value, 'displayname', 'order'); ?>">
+          <a href='<?php echo a($value, 'displayname', 'link'); ?>'><?php echo T_("Display Name"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'mobile', 'order'); ?>" class="collapsing">
-          <a href='<?php echo \dash\get::index($value, 'mobile', 'link'); ?>'><?php echo T_("Mobile"); ?></a>
+        <th data-sort="<?php echo a($value, 'mobile', 'order'); ?>" class="collapsing">
+          <a href='<?php echo a($value, 'mobile', 'link'); ?>'><?php echo T_("Mobile"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'email', 'order'); ?>" class="collapsing s0 m0">
-          <a href='<?php echo \dash\get::index($value, 'email', 'link'); ?>'><?php echo T_("Email"); ?></a>
+        <th data-sort="<?php echo a($value, 'email', 'order'); ?>" class="collapsing s0 m0">
+          <a href='<?php echo a($value, 'email', 'link'); ?>'><?php echo T_("Email"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'password', 'order'); ?>" class="collapsing s0">
-          <a href='<?php echo \dash\get::index($value, 'password', 'link'); ?>'><?php echo T_("Password"); ?></a>
+        <th data-sort="<?php echo a($value, 'password', 'order'); ?>" class="collapsing s0">
+          <a href='<?php echo a($value, 'password', 'link'); ?>'><?php echo T_("Password"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'status', 'order'); ?>" class="collapsing s0">
-          <a href='<?php echo \dash\get::index($value, 'status', 'link'); ?>'><?php echo T_("Status"); ?></a>
+        <th data-sort="<?php echo a($value, 'status', 'order'); ?>" class="collapsing s0">
+          <a href='<?php echo a($value, 'status', 'link'); ?>'><?php echo T_("Status"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'permission', 'order'); ?>" class="collapsing s0 m0">
-          <a href='<?php echo \dash\get::index($value, 'permission', 'link'); ?>'><?php echo T_("Permission"); ?></a>
+        <th data-sort="<?php echo a($value, 'permission', 'order'); ?>" class="collapsing s0 m0">
+          <a href='<?php echo a($value, 'permission', 'link'); ?>'><?php echo T_("Permission"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'datecreated', 'order'); ?>" class="collapsing s0 m0">
-          <a href='<?php echo \dash\get::index($value, 'datecreated', 'link'); ?>'><?php echo T_("Created date"); ?></a>
+        <th data-sort="<?php echo a($value, 'datecreated', 'order'); ?>" class="collapsing s0 m0">
+          <a href='<?php echo a($value, 'datecreated', 'link'); ?>'><?php echo T_("Created date"); ?></a>
         </th>
-        <th data-sort="<?php echo \dash\get::index($value, 'datemodified', 'order'); ?>" class="collapsing s0 m0">
-          <a href='<?php echo \dash\get::index($value, 'datemodified', 'link'); ?>'><?php echo T_("Last Modified"); ?></a>
+        <th data-sort="<?php echo a($value, 'datemodified', 'order'); ?>" class="collapsing s0 m0">
+          <a href='<?php echo a($value, 'datemodified', 'link'); ?>'><?php echo T_("Last Modified"); ?></a>
         </th>
         <th>
           <?php echo T_("Edit"); ?>

@@ -6,7 +6,7 @@
 
         <div class="key"><?php echo T_($value['message']); ?></div>
 
-        <div class="value txtB s0"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
+        <div class="value txtB s0"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
         <div class="value datetime s0"><?php echo \dash\fit::date_time($value['datesend']) ?></div>
         <div class="go"></div>
       </a>

@@ -13,7 +13,7 @@
 						<select class="select22" name="year_id">
 							<option value=""><?php echo T_("Please choose year") ?></option>
 							<?php foreach (\dash\data::accountingYear() as $key => $value) {?>
-								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if((!\dash\request::get('year_id') && \dash\get::index($value, 'isdefault')) || (\dash\get::index($value, 'id') === \dash\request::get('year_id'))) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
+								<option value="<?php echo a($value, 'id') ?>" <?php if((!\dash\request::get('year_id') && a($value, 'isdefault')) || (a($value, 'id') === \dash\request::get('year_id'))) { echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
 							<?php } // endfor ?>
 						</select>
 					<?php } // endif ?>
@@ -39,7 +39,7 @@
 						<select class="select22" name="group">
 							<option value=""><?php echo T_("Please choose group") ?></option>
 							<?php foreach (\dash\data::groupList() as $key => $value) {?>
-								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('group')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
+								<option value="<?php echo a($value, 'id') ?>" <?php if(a($value, 'id') === \dash\request::get('group')) { echo 'selected';} ?>><?php echo a($value, 'full_title'); ?></option>
 							<?php } // endfor ?>
 						</select>
 					<?php } // endif ?>
@@ -52,7 +52,7 @@
 						<select class="select22" name="total">
 							<option value=""><?php echo T_("Please choose total") ?></option>
 							<?php foreach (\dash\data::totalList() as $key => $value) {?>
-								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('total')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
+								<option value="<?php echo a($value, 'id') ?>" <?php if(a($value, 'id') === \dash\request::get('total')) { echo 'selected';} ?>><?php echo a($value, 'full_title'); ?></option>
 							<?php } // endfor ?>
 						</select>
 					<?php } // endif ?>
@@ -64,7 +64,7 @@
 						<select class="select22" name="assistant">
 							<option value=""><?php echo T_("Please choose assistant") ?></option>
 							<?php foreach (\dash\data::assistantList() as $key => $value) {?>
-								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('assistant')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
+								<option value="<?php echo a($value, 'id') ?>" <?php if(a($value, 'id') === \dash\request::get('assistant')) { echo 'selected';} ?>><?php echo a($value, 'full_title'); ?></option>
 							<?php } // endfor ?>
 						</select>
 					<?php } // endif ?>
@@ -76,7 +76,7 @@
 						<select class="select22" name="details">
 							<option value=""><?php echo T_("Please choose details") ?></option>
 							<?php foreach (\dash\data::detailsList() as $key => $value) {?>
-								<option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') == \dash\request::get('details')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
+								<option value="<?php echo a($value, 'id') ?>" <?php if(a($value, 'id') == \dash\request::get('details')) { echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
 							<?php } // endfor ?>
 						</select>
 					<?php } // endif ?>
@@ -171,46 +171,46 @@
 				<?php foreach ($myDataTable as $key => $value) {?>
 				<tr class="font-12">
 					<td class="font-14">
-						<a class="link" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\get::index($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
+						<a class="link" href="<?php echo \dash\url::this(). '/doc/edit?id='. a($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
 					</td>
 
 
 					<?php if(\dash\request::get('group')) {}else{?>
 						<td>
-							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => null, 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'group_title'); ?></a>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => a($value, 'group_id'), 'total' => null, 'assistant' => null]); ?>"><?php echo a($value, 'group_title'); ?></a>
 						</td>
 					<?php } //endif ?>
 					<?php if(\dash\request::get('total')) {}else{?>
 						<td>
-							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => null]); ?>"><?php echo \dash\get::index($value, 'total_title'); ?></a>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => null]); ?>"><?php echo a($value, 'total_title'); ?></a>
 						</td>
 						<?php } //endif ?>
 					<?php if(\dash\request::get('assistant')) {}else{?>
 						<td>
-							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id')]); ?>"><?php echo \dash\get::index($value, 'assistant_title'); ?></a>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>"><?php echo a($value, 'assistant_title'); ?></a>
 						</td>
 					<?php } //endif	 ?>
 					<?php if(\dash\request::get('details')) {}else{?>
 						<td>
-							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => \dash\get::index($value, 'group_id'), 'total' => \dash\get::index($value, 'total_id'), 'assistant' => \dash\get::index($value, 'assistant_id'), 'details' => \dash\get::index($value, 'details_id')]); ?>"><?php echo \dash\get::index($value, 'details_title'); ?></a>
+							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id'), 'details' => a($value, 'details_id')]); ?>"><?php echo a($value, 'details_title'); ?></a>
 						</td>
 					<?php } //endif ?>
-					<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
+					<td class="txtB"><?php echo \dash\fit::date(a($value, 'date')) ?></td>
 
 					<?php if(\dash\request::get('status') === 'draft') { ?>
-						<td><?php echo \dash\get::index($value, 'tstatus') ?></td>
+						<td><?php echo a($value, 'tstatus') ?></td>
 					<?php } // endif ?>
 
 
-					<td data-copy='<?php echo \dash\get::index($value, 'debtor') ?>' class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></td>
-					<td data-copy='<?php echo \dash\get::index($value, 'creditor') ?>' class="txtR ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></td>
+					<td data-copy='<?php echo a($value, 'debtor') ?>' class="txtR ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></td>
+					<td data-copy='<?php echo a($value, 'creditor') ?>' class="txtR ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></td>
 					<?php if(\dash\url::subchild() === 'detail' or true) {?>
-					<td data-copy='<?php echo \dash\get::index($value, 'balance_now') ?>' class="txtR ltr font-14 txtB <?php if(\dash\get::index($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'balance_now'), 'en') ?></td>
+					<td data-copy='<?php echo a($value, 'balance_now') ?>' class="txtR ltr font-14 txtB <?php if(a($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(a($value, 'balance_now'), 'en') ?></td>
 					<?php } //endif ?>
 
 				</tr>
 				<tr>
-					<td class="pTB5-f" colspan="12"><?php echo \dash\get::index($value, 'desc'). ' '. \dash\get::index($value, 'doc_desc'); ?></td>
+					<td class="pTB5-f" colspan="12"><?php echo a($value, 'desc'). ' '. a($value, 'doc_desc'); ?></td>
 				</tr>
 			<?php } //endif ?>
 		</tbody>

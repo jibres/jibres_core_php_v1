@@ -83,20 +83,20 @@ else
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
                   <td class="collapsing">
-                      <code><?php echo \dash\get::index($value, 'id'); ?></code>
+                      <code><?php echo a($value, 'id'); ?></code>
                   </td>
                     <td class="fc-blue">
-                      <code><?php echo \dash\get::index($value, 'ipv4'); ?></code>
-                      <code><?php echo \dash\get::index($value, 'ipv6'); ?></code>
+                      <code><?php echo a($value, 'ipv4'); ?></code>
+                      <code><?php echo a($value, 'ipv6'); ?></code>
                     </td>
                     <td>
-                      <code><?php echo \dash\get::index($value, 'block'); ?></code>
+                      <code><?php echo a($value, 'block'); ?></code>
                     </td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?>
-                      <?php echo \dash\fit::date_time(\dash\get::index($value, 'datemodified')); ?>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>
+                      <?php echo \dash\fit::date_time(a($value, 'datemodified')); ?>
                     </td>
                     <td>
-                      <?php echo \dash\fit::number(\dash\get::index($value, 'countblock')); ?>
+                      <?php echo \dash\fit::number(a($value, 'countblock')); ?>
                     </td>
 
                 </tr>

@@ -79,26 +79,26 @@ else
       <hr>
 
 
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'title')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Title"). ' '. T_("Intro page #1"); ?></a>
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_1', 'title')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Title"). ' '. T_("Intro page #1"); ?></a>
 
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'desc')) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Description"). ' '. T_("Intro page #1"); ?></a>
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_1', 'desc')) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Description"). ' '. T_("Intro page #1"); ?></a>
 
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_1', 'file')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("File"). ' '. T_("Intro page #1"); ?></a>
-
-
-
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'title')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Title"). ' '. T_("Intro page #2"); ?></a>
-
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'desc')) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Description"). ' '. T_("Intro page #2"); ?></a>
-
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_2', 'file')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("File"). ' '. T_("Intro page #2"); ?></a>
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_1', 'file')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("File"). ' '. T_("Intro page #1"); ?></a>
 
 
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'title')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Title"). ' '. T_("Intro page #3"); ?></a>
 
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'desc')) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Description"). ' '. T_("Intro page #3"); ?></a>
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_2', 'title')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Title"). ' '. T_("Intro page #2"); ?></a>
 
-      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(\dash\get::index(\dash\data::appDetail(), 'page_3', 'file')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("File"). ' '. T_("Intro page #3"); ?></a>
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_2', 'desc')) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Description"). ' '. T_("Intro page #2"); ?></a>
+
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_2', 'file')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("File"). ' '. T_("Intro page #2"); ?></a>
+
+
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_3', 'title')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Title"). ' '. T_("Intro page #3"); ?></a>
+
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_3', 'desc')) { echo 'data-okay';}else{echo '';} ?>><?php echo T_("Description"). ' '. T_("Intro page #3"); ?></a>
+
+      <a href="<?php echo \dash\url::this(). '/intro'; ?>" class="checklist fc-black" <?php if(a(\dash\data::appDetail(), 'page_3', 'file')) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("File"). ' '. T_("Intro page #3"); ?></a>
     </div>
 
   </div>

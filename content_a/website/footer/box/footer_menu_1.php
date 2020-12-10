@@ -3,10 +3,10 @@
 <section class="f" data-option='website-header-menu-1'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo \dash\get::index($box_detail, 'title');?></h3>
+      <h3><?php echo a($box_detail, 'title');?></h3>
       <div class="body">
         <p><?php
-$desc = \dash\get::index($box_detail, 'desc');
+$desc = a($box_detail, 'desc');
 if($desc)
 {
   echo $desc;
@@ -24,13 +24,13 @@ else
       <?php if(\dash\data::allMenu()) {?>
 
         <select name="<?php echo $box; ?>" id="idmenu<?php echo $box; ?>" class="select22">
-          <?php if(\dash\get::index($footer_detail, 'saved', $box)) {?>
+          <?php if(a($footer_detail, 'saved', $box)) {?>
             <option value="0"><?php echo T_("Without menu"); ?></option>
           <?php }else{ ?>
             <option></option>
           <?php } //endif ?>
           <?php foreach (\dash\data::allMenu() as $key => $value) {?>
-            <option value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if(\dash\get::index($footer_detail, 'saved', $box) == \dash\get::index($value, 'key')) { echo 'selected'; $currentMenuID = \dash\get::index($value, 'id'); $currentMenuName = \dash\get::index($value, 'title');} ?>><?php echo \dash\get::index($value, 'title'); ?></option>
+            <option value="<?php echo a($value, 'key'); ?>" <?php if(a($footer_detail, 'saved', $box) == a($value, 'key')) { echo 'selected'; $currentMenuID = a($value, 'id'); $currentMenuName = a($value, 'title');} ?>><?php echo a($value, 'title'); ?></option>
           <?php } //endfor ?>
         </select>
 

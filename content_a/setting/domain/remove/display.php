@@ -13,7 +13,7 @@
             <select name="masterdomain" class="select22" data-placeholder='<?php echo T_("Please choose one domain as master") ?>'>
               <option value="" readonly><?php echo T_("Please choose one domain as master") ?></option>
               <?php foreach (\dash\data::domainList() as $key => $value) {?>
-                <option value="<?php echo \dash\get::index($value, 'domain'); ?>" <?php if(\dash\get::index($value, 'master')) { echo "selected";} ?>><?php echo \dash\get::index($value, 'domain') ?></option>
+                <option value="<?php echo a($value, 'domain'); ?>" <?php if(a($value, 'master')) { echo "selected";} ?>><?php echo a($value, 'domain') ?></option>
               <?php } ?>
             </select>
           </div>

@@ -59,11 +59,11 @@
       </td>
       <td class="collapsing">
         <?php if($value['user_id']) {?>
-        <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
-          <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
+        <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
+          <?php echo a($value, 'user_detail', 'displayname'); ?>
           <br>
-          <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-          <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(\dash\get::index($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
+          <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+          <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(a($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
         <?php }else{ ?>
           <i>-</i>
         <?php } //endif ?>

@@ -60,21 +60,21 @@ else
             <tbody>
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
-                    <td class="collapsing"><?php echo \dash\get::index($value, 'id'); ?></td>
-                    <td><code><a href="<?php echo \dash\url::current(). '?q='. \dash\get::index($value, 'domain'); ?>"><?php echo \dash\get::index($value, 'domain'); ?></a></code></td>
-                    <td><?php echo \dash\get::index($value, 'nic_id'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'notif_count'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'index'); ?></td>
-                    <td><?php echo \dash\get::index($value, 'note'); ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+                    <td class="collapsing"><?php echo a($value, 'id'); ?></td>
+                    <td><code><a href="<?php echo \dash\url::current(). '?q='. a($value, 'domain'); ?>"><?php echo a($value, 'domain'); ?></a></code></td>
+                    <td><?php echo a($value, 'nic_id'); ?></td>
+                    <td><?php echo a($value, 'notif_count'); ?></td>
+                    <td><?php echo a($value, 'index'); ?></td>
+                    <td><?php echo a($value, 'note'); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
                     <td class="collapsing">
-                        <i class="sf-thumbnails" data-kerkere=".showDetail<?php echo \dash\get::index($value, 'id') ?>"></i>
+                        <i class="sf-thumbnails" data-kerkere=".showDetail<?php echo a($value, 'id') ?>"></i>
                     </td>
                 </tr>
 
-                <tr data-kerkere-content='hide' class="showDetail<?php echo \dash\get::index($value, 'id') ?>">
+                <tr data-kerkere-content='hide' class="showDetail<?php echo a($value, 'id') ?>">
                     <td colspan="8">
-<pre class="txtL ltr"><?php echo \dash\get::index($value, 'detail_pretty') ?></pre>
+<pre class="txtL ltr"><?php echo a($value, 'detail_pretty') ?></pre>
                     </td>
                 </tr>
               <?php }// endfor ?>

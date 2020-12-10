@@ -11,19 +11,19 @@
                 <?php foreach (\dash\data::addressDataTable() as $key => $value) {?>
                  <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3">
                   <div class="radio4">
-                    <input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(count(\dash\data::addressDataTable()) === 1) {echo 'checked';} ?>>
+                    <input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo a($value, 'id'); ?>" <?php if(count(\dash\data::addressDataTable()) === 1) {echo 'checked';} ?>>
                     <label for="address<?php echo $key; ?>">
                       <address>
-                        <div class="title"><?php echo \dash\get::index($value, 'name'); ?></div>
-                        <?php if(\dash\get::index($value, 'mobile')) {?>
-                          <div class="mobile"><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></b></div>
+                        <div class="title"><?php echo a($value, 'name'); ?></div>
+                        <?php if(a($value, 'mobile')) {?>
+                          <div class="mobile"><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></b></div>
                         <?php } //endif ?>
-                        <div class="addr"><?php echo \dash\get::index($value, 'address'); ?></div>
-                        <?php if(\dash\get::index($value, 'postcode')) {?>
-                          <div class="postalcode"><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'postcode')); ?></b></div>
+                        <div class="addr"><?php echo a($value, 'address'); ?></div>
+                        <?php if(a($value, 'postcode')) {?>
+                          <div class="postalcode"><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(a($value, 'postcode')); ?></b></div>
                         <?php } //endif ?>
-                        <?php if(\dash\get::index($value, 'phone')) {?>
-                          <div class="phone"><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'phone')); ?></b></div>
+                        <?php if(a($value, 'phone')) {?>
+                          <div class="phone"><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(a($value, 'phone')); ?></b></div>
                         <?php } //endif ?>
                       </address>
                     </label>
@@ -48,8 +48,8 @@
             <?php if(\dash\data::paymentWay()) {?>
               <?php foreach (\dash\data::paymentWay() as $key => $value) {?>
                 <div class="radio3 mB10">
-                  <input  id="payway<?php echo $key; ?>" type="radio" name="payway" value="<?php echo \dash\get::index($value, 'key'); ?>" <?php if($key === 'online') { echo 'checked';} ?>>
-                  <label for="payway<?php echo $key; ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
+                  <input  id="payway<?php echo $key; ?>" type="radio" name="payway" value="<?php echo a($value, 'key'); ?>" <?php if($key === 'online') { echo 'checked';} ?>>
+                  <label for="payway<?php echo $key; ?>"><?php echo a($value, 'title'); ?></label>
                 </div>
               <?php } //endfor ?>
             <?php } // endif ?>
@@ -67,10 +67,10 @@
                  <ul>
                   <?php foreach (\dash\data::myCart() as $key => $value) {?>
                    <li>
-                    <a class="f" href="<?php echo \dash\get::index($value, 'url'); ?>">
-                      <img src="<?php echo \dash\get::index($value, 'thumb'); ?>" alt="<?php echo \dash\get::index($value, 'title');?>">
-                      <div class="key"><?php echo \dash\get::index($value, 'title');?></div>
-                      <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')). ' '. \dash\get::index($value, 'unit'); ?></div>
+                    <a class="f" href="<?php echo a($value, 'url'); ?>">
+                      <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title');?>">
+                      <div class="key"><?php echo a($value, 'title');?></div>
+                      <div class="value"><?php echo \dash\fit::number(a($value, 'count')). ' '. a($value, 'unit'); ?></div>
                     </a>
                    </li>
                  <?php } //endfor ?>

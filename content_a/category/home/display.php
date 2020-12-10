@@ -62,9 +62,9 @@ if(!is_array($dataTable))
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo \dash\get::index($value, 'id'); ?>">
-        <img src="<?php echo \dash\get::index($value, 'file'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>" data-size='16x9'>
-        <div class="key" title='<?php echo \dash\get::index($value, 'full_slug'); ?>'><?php echo \dash\get::index($value, 'title'); ?></div>
+      <a class="f" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
+        <img src="<?php echo a($value, 'file'); ?>" alt="<?php echo a($value, 'title'); ?>" data-size='16x9'>
+        <div class="key" title='<?php echo a($value, 'full_slug'); ?>'><?php echo a($value, 'title'); ?></div>
 
             <?php if(isset($value['variants_detail']['stock'])) {?>
               <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
@@ -74,7 +74,7 @@ if(!is_array($dataTable))
               <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
             <?php } //endif ?>
 
-        <div class="value"><?php echo \dash\fit::number(\dash\get::index($value, 'count')); ?> <small><?php echo T_("Product"); ?></small></div>
+        <div class="value"><?php echo \dash\fit::number(a($value, 'count')); ?> <small><?php echo T_("Product"); ?></small></div>
         <div class="go"></div>
       </a>
      </li>

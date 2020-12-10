@@ -108,7 +108,7 @@
 					</div>
 				</div>
 
-				<?php if(isset($detail['file1'])) {?><a href="<?php echo \dash\get::index($detail, 'file1'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo \dash\get::index($detail, 'file1'); ?>"></a><?php } // endif ?>
+				<?php if(isset($detail['file1'])) {?><a href="<?php echo a($detail, 'file1'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo a($detail, 'file1'); ?>"></a><?php } // endif ?>
 
 
 				<div class="mB10">
@@ -120,7 +120,7 @@
 					</div>
 				</div>
 
-				<?php if(isset($detail['file2'])) {?><a href="<?php echo \dash\get::index($detail, 'file2'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo \dash\get::index($detail, 'file2'); ?>"></a><?php } // endif ?>
+				<?php if(isset($detail['file2'])) {?><a href="<?php echo a($detail, 'file2'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo a($detail, 'file2'); ?>"></a><?php } // endif ?>
 
 			<?php } //endif ?>
 

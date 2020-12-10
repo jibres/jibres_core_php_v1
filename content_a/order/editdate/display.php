@@ -16,13 +16,13 @@
               <tr>
                 <td class="collapsing fc-mute"><?php echo T_("Order date") ?></td>
                 <td>
-                  <?php echo \dash\fit::date_time(\dash\get::index($orderDetail, 'factor', 'date')); ?>
+                  <?php echo \dash\fit::date_time(a($orderDetail, 'factor', 'date')); ?>
                 </td>
               </tr>
               <tr>
                 <td class="collapsing fc-mute"><?php echo T_("Last date modified") ?></td>
                 <td>
-                  <?php echo \dash\fit::date_time(\dash\get::index($orderDetail, 'factor', 'datemodified')); ?>
+                  <?php echo \dash\fit::date_time(a($orderDetail, 'factor', 'datemodified')); ?>
                 </td>
               </tr>
             </tbody>
@@ -30,14 +30,14 @@
           <p><?php echo T_("Change factor date") ?></p>
           <label for='date'><?php echo T_("Date") ?></label>
           <div class="input">
-            <input type="tel" data-format='date' name="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\get::index($orderDetail, 'factor', 'date'))) ?>">
+            <input type="tel" data-format='date' name="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($orderDetail, 'factor', 'date'))) ?>">
           </div>
 
 
 
           <label for='time'><?php echo T_("Time") ?></label>
           <div class="input">
-            <input type="tel" data-format='time' name="time" value="<?php echo date("H:i", strtotime(\dash\get::index($orderDetail, 'factor', 'date'))) ?>">
+            <input type="tel" data-format='time' name="time" value="<?php echo date("H:i", strtotime(a($orderDetail, 'factor', 'date'))) ?>">
           </div>
 
 

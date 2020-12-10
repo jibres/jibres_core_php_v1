@@ -5,7 +5,7 @@
      <li>
       <a class="f align-center">
         <div class="key">
-          <?php echo \dash\get::index($value, 'title'); ?>
+          <?php echo a($value, 'title'); ?>
         </div>
 
         <div class="value datetime s0"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>

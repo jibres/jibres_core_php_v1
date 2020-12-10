@@ -71,20 +71,20 @@ else
 
             <tr>
 
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'transaction_id')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'discountpercent')); ?></td>
-                <td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
-                <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+                <td><?php echo \dash\fit::number(a($value, 'transaction_id')); ?></td>
+                <td><?php echo \dash\fit::number(a($value, 'price')); ?></td>
+                <td><?php echo \dash\fit::number(a($value, 'discount')); ?></td>
+                <td><?php echo \dash\fit::number(a($value, 'discountpercent')); ?></td>
+                <td><?php echo \dash\fit::number(a($value, 'finalprice')); ?></td>
+                <td><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
 
                 <td class="collapsing">
-                  <a href="<?php echo \dash\url::that(). '?user='. \dash\get::index($value, 'user_id'); ?>" class="f align-center userPack">
+                  <a href="<?php echo \dash\url::that(). '?user='. a($value, 'user_id'); ?>" class="f align-center userPack">
                     <div class="c pRa10">
-                      <div class="mobile" data-copy="<?php echo \dash\get::index($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(\dash\get::index($value, 'mobile')); ?></div>
-                      <div class="name"><?php echo \dash\get::index($value, 'displayname'); ?></div>
+                      <div class="mobile" data-copy="<?php echo a($value, 'mobile'); ?>"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
+                      <div class="name"><?php echo a($value, 'displayname'); ?></div>
                     </div>
-                    <img class="cauto" src="<?php echo \dash\get::index($value, 'avatar'); ?>">
+                    <img class="cauto" src="<?php echo a($value, 'avatar'); ?>">
                   </a>
                 </td>
 

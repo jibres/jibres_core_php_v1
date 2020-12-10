@@ -21,7 +21,7 @@
                 foreach (\dash\data::sortList() as $key => $value)
                 {
                   ?>
-                  <option value="<?php echo \dash\url::that(). '?'. \dash\get::index($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == \dash\get::index($value, 'query')['sort'] && \dash\request::get('order') == \dash\get::index($value, 'query')['order']) { echo 'selected'; }?> ><?php echo \dash\get::index($value, 'title'); ?></option>
+                  <option value="<?php echo \dash\url::that(). '?'. a($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == a($value, 'query')['sort'] && \dash\request::get('order') == a($value, 'query')['order']) { echo 'selected'; }?> ><?php echo a($value, 'title'); ?></option>
                   <?php
                 }
                 ?>

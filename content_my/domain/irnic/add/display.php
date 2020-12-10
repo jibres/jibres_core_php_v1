@@ -56,7 +56,7 @@
       <select class="select22" name="country" id="country" data-model='country'>
         <option value=""><?php echo T_("Choose your country"); ?></option>
         <?php foreach (\dash\data::countryList() as $key => $value) {?>
-          <option value="<?php echo $key; ?>" > <?php echo \dash\get::index($value, 'name'); if(\dash\language::current() !== 'en') { echo ' - '. T_(ucfirst(\dash\get::index($value, 'name'))); } ?></option>
+          <option value="<?php echo $key; ?>" > <?php echo a($value, 'name'); if(\dash\language::current() !== 'en') { echo ' - '. T_(ucfirst(a($value, 'name'))); } ?></option>
      <?php } //endif ?>
       </select>
     </div>

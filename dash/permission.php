@@ -70,8 +70,8 @@ class permission
 		{
 			if(isset($value['group']))
 			{
-				$myJibres   = \dash\get::index($value, 'jibres');
-				$myBusiness = \dash\get::index($value, 'business');
+				$myJibres   = a($value, 'jibres');
+				$myBusiness = a($value, 'business');
 
 				// access to load permissin caller
 				$access     = false;

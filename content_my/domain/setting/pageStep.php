@@ -41,7 +41,7 @@
 		</a>
 	</div>
 
-	<?php if(\dash\get::index(\dash\data::domainDetail(), 'jibres_dns')) {?>
+	<?php if(a(\dash\data::domainDetail(), 'jibres_dns')) {?>
 	<div class="c s6">
 		<a href="<?php echo \dash\url::that(). '/business?domain='. \dash\request::get('domain'); ?>" class="dcard x1 <?php if(\dash\url::subchild() == 'business') { echo ' active';} ?>" >
 		 <div class="statistic teal">

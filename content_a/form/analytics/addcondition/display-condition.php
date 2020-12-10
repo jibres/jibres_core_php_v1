@@ -1,4 +1,4 @@
-<?php $myType = \dash\get::index(\dash\data::itemDetail(), 'type_detail') ?>
+<?php $myType = a(\dash\data::itemDetail(), 'type_detail') ?>
   <form method="post" autocomplete="off">
     <input type="hidden" name="field" value="<?php echo \dash\request::get('field') ?>">
     <div class="box">

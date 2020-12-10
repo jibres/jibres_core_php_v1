@@ -9,7 +9,7 @@ $storeData = \dash\data::store_store_data();
     <div  class="box impact mB25-f">
       <header><h2><?php echo T_("Set Enamad script code here");?></h2></header>
         <div class="body">
-          <?php if(\dash\get::index($storeData, 'enamad')) {?>
+          <?php if(a($storeData, 'enamad')) {?>
             <div class="msg success2 minimal"><?php echo T_("Your enamad detail was saved") ?></div>
             <?php if(\dash\data::enamadID()) {?>
               <div class="msg minimal">
@@ -30,14 +30,14 @@ $storeData = \dash\data::store_store_data();
               </div>
             <?php } //endif ?>
           <?php } //endif ?>
-          <?php if(!\dash\get::index($storeData, 'enamad')) {?>
+          <?php if(!a($storeData, 'enamad')) {?>
 
             <label for="ienamad"><?php echo T_("Enamad code"); ?> <span class="fc-red">*</span></label>
             <textarea class="txt ltr txtL" rows="5" name="enamad" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]"  required></textarea>
           <?php } //endif ?>
         </div>
         <footer class="txtRa">
-          <?php if(!\dash\get::index($storeData, 'enamad')) {?>
+          <?php if(!a($storeData, 'enamad')) {?>
           <button  class="btn success" ><?php echo T_("Save"); ?></div>
           <?php }else{ ?>
             <button class="btn linkDel" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove enamad setting") ?></button>

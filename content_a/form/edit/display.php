@@ -20,9 +20,9 @@
 			<nav class="items long">
 			 <ul>
 			<?php foreach (\dash\data::formItems() as $key => $value) { ?>
-				      <li><a class="f" href="<?php echo \dash\url::this(). '/item?id='. \dash\request::get('id'). '&item='. \dash\get::index($value, 'id') ?>"><div class="key">
-			      	<?php if(\dash\get::index($value, 'require')) {?><span class="fc-red">*</span><?php } ?>
-			      	<?php echo \dash\get::index($value, 'title'); ?></div><div class="value"><?php echo \dash\get::index($value, 'type_detail', 'title'); ?></div><div class="go"></div></a></li>
+				      <li><a class="f" href="<?php echo \dash\url::this(). '/item?id='. \dash\request::get('id'). '&item='. a($value, 'id') ?>"><div class="key">
+			      	<?php if(a($value, 'require')) {?><span class="fc-red">*</span><?php } ?>
+			      	<?php echo a($value, 'title'); ?></div><div class="value"><?php echo a($value, 'type_detail', 'title'); ?></div><div class="go"></div></a></li>
 
 			<?php } //endif ?>
 			 </ul>

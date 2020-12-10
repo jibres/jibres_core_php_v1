@@ -67,67 +67,67 @@ else
       <tr>
         <td>
 
-          <div><a href="<?php echo \dash\url::here(); ?>/shop/dashboard?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn success"><?php echo T_("Dashboard"); ?></a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/shop/dashboard?id=<?php echo a($value, 'id'); ?>" class="btn success"><?php echo T_("Dashboard"); ?></a></div>
 
-          <div><a href="<?php echo \dash\url::here(); ?>/shop/edit?id=<?php echo \dash\get::index($value, 'id'); ?>" class="badge">Edit <?php echo \dash\get::index($value, 'id'); ?></a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/shop/edit?id=<?php echo a($value, 'id'); ?>" class="badge">Edit <?php echo a($value, 'id'); ?></a></div>
 
-          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo \dash\get::index($value, 'id'); ?>&table=shop&requestType=13" class="badge success">Add</a></div>
-          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo \dash\get::index($value, 'id'); ?>&table=shop&fetch=1&trackingNumber=<?php echo \dash\get::index($value, 'trackingNumber'); ?>" class="badge primary">Check</a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo a($value, 'id'); ?>&table=shop&requestType=13" class="badge success">Add</a></div>
+          <div><a href="<?php echo \dash\url::here(); ?>/check?id=<?php echo a($value, 'id'); ?>&table=shop&fetch=1&trackingNumber=<?php echo a($value, 'trackingNumber'); ?>" class="badge primary">Check</a></div>
 
-          <div class="btn" data-confirm data-data='{"id" : "<?php echo \dash\get::index($value, 'id'); ?>", "table" : "shop", "requestType" : 13}'>Add request</div>
-          <div class="btn" data-confirm data-data='{"id" : "<?php echo \dash\get::index($value, 'id'); ?>", "table" : "shop", "fetch" : 1, "trackingNumber" : "<?php echo \dash\get::index($value, 'trackingNumber'); ?>"}'>Fetch</div>
-          <div><a href="<?php echo \dash\url::here(); ?>/shop/shop?id=<?php echo \dash\get::index($value, 'id'); ?>" class="badge info">Shop</a></div>
+          <div class="btn" data-confirm data-data='{"id" : "<?php echo a($value, 'id'); ?>", "table" : "shop", "requestType" : 13}'>Add request</div>
+          <div class="btn" data-confirm data-data='{"id" : "<?php echo a($value, 'id'); ?>", "table" : "shop", "fetch" : 1, "trackingNumber" : "<?php echo a($value, 'trackingNumber'); ?>"}'>Fetch</div>
+          <div><a href="<?php echo \dash\url::here(); ?>/shop/shop?id=<?php echo a($value, 'id'); ?>" class="badge info">Shop</a></div>
 
 
         </td>
         <td>
-          <div><small><?php echo T_("trackingNumber"); ?></small> <b><?php echo \dash\get::index($value, 'trackingNumber'); ?></b></div>
+          <div><small><?php echo T_("trackingNumber"); ?></small> <b><?php echo a($value, 'trackingNumber'); ?></b></div>
 
-            <div><small><?php echo T_("trackingNumberPsp"); ?></small> <b><?php echo \dash\get::index($value, 'trackingNumberPsp'); ?></b></div>
-            <div><small><?php echo T_("requestType"); ?></small> <b><?php echo \dash\get::index($value, 'requestType'); ?></b></div>
+            <div><small><?php echo T_("trackingNumberPsp"); ?></small> <b><?php echo a($value, 'trackingNumberPsp'); ?></b></div>
+            <div><small><?php echo T_("requestType"); ?></small> <b><?php echo a($value, 'requestType'); ?></b></div>
 
-          <div><small><?php echo T_("status"); ?></small> <b><?php echo \dash\get::index($value, 'status'); ?></b></div>
-          <div><small><?php echo T_("merchantType"); ?></small> <b><?php echo \dash\get::index($value, 'merchantType_title'); ?></b></div>
-          <div><small><?php echo T_("residencyType"); ?></small> <b><?php echo \dash\get::index($value, 'residencyType_title'); ?></b></div>
-          <div><small><?php echo T_("vitalStatus"); ?></small> <b><?php echo \dash\get::index($value, 'vitalStatus_title'); ?></b></div>
+          <div><small><?php echo T_("status"); ?></small> <b><?php echo a($value, 'status'); ?></b></div>
+          <div><small><?php echo T_("merchantType"); ?></small> <b><?php echo a($value, 'merchantType_title'); ?></b></div>
+          <div><small><?php echo T_("residencyType"); ?></small> <b><?php echo a($value, 'residencyType_title'); ?></b></div>
+          <div><small><?php echo T_("vitalStatus"); ?></small> <b><?php echo a($value, 'vitalStatus_title'); ?></b></div>
         </td>
 
         <td>
-          <div><small><?php echo T_("firstNameFa"); ?></small> <b><?php echo \dash\get::index($value, 'firstNameFa'); ?></b></div>
-          <div><small><?php echo T_("lastNameFa"); ?></small> <b><?php echo \dash\get::index($value, 'lastNameFa'); ?></b></div>
-          <div><small><?php echo T_("fatherNameFa"); ?></small> <b><?php echo \dash\get::index($value, 'fatherNameFa'); ?></b></div>
-          <div><small><?php echo T_("firstNameEn"); ?></small> <b><?php echo \dash\get::index($value, 'firstNameEn'); ?></b></div>
-          <div><small><?php echo T_("lastNameEn"); ?></small> <b><?php echo \dash\get::index($value, 'lastNameEn'); ?></b></div>
-          <div><small><?php echo T_("fatherNameEn"); ?></small> <b><?php echo \dash\get::index($value, 'fatherNameEn'); ?></b></div>
-          <div><small><?php echo T_("birthCrtfctNumber"); ?></small> <b><?php echo \dash\get::index($value, 'birthCrtfctNumber'); ?></b></div>
-          <div><small><?php echo T_("birthDate"); ?></small> <b><?php echo \dash\get::index($value, 'birthDate_title'); ?></b></div>
-          <div><small><?php echo T_("gender"); ?></small> <b><?php echo \dash\get::index($value, 'gender_title'); ?></b></div>
-          <div><small><?php echo T_("birthCrtfctSeriesLetter"); ?></small> <b><?php echo \dash\get::index($value, 'birthCrtfctSeriesLetter'); ?></b></div>
-          <div><small><?php echo T_("birthCrtfctSeriesNumber"); ?></small> <b><?php echo \dash\get::index($value, 'birthCrtfctSeriesNumber'); ?></b></div>
-          <div><small><?php echo T_("nationalCode"); ?></small> <b><?php echo \dash\get::index($value, 'nationalCode'); ?></b></div>
-          <div><small><?php echo T_("birthCrtfctSerial"); ?></small> <b><?php echo \dash\get::index($value, 'birthCrtfctSerial'); ?></b></div>
+          <div><small><?php echo T_("firstNameFa"); ?></small> <b><?php echo a($value, 'firstNameFa'); ?></b></div>
+          <div><small><?php echo T_("lastNameFa"); ?></small> <b><?php echo a($value, 'lastNameFa'); ?></b></div>
+          <div><small><?php echo T_("fatherNameFa"); ?></small> <b><?php echo a($value, 'fatherNameFa'); ?></b></div>
+          <div><small><?php echo T_("firstNameEn"); ?></small> <b><?php echo a($value, 'firstNameEn'); ?></b></div>
+          <div><small><?php echo T_("lastNameEn"); ?></small> <b><?php echo a($value, 'lastNameEn'); ?></b></div>
+          <div><small><?php echo T_("fatherNameEn"); ?></small> <b><?php echo a($value, 'fatherNameEn'); ?></b></div>
+          <div><small><?php echo T_("birthCrtfctNumber"); ?></small> <b><?php echo a($value, 'birthCrtfctNumber'); ?></b></div>
+          <div><small><?php echo T_("birthDate"); ?></small> <b><?php echo a($value, 'birthDate_title'); ?></b></div>
+          <div><small><?php echo T_("gender"); ?></small> <b><?php echo a($value, 'gender_title'); ?></b></div>
+          <div><small><?php echo T_("birthCrtfctSeriesLetter"); ?></small> <b><?php echo a($value, 'birthCrtfctSeriesLetter'); ?></b></div>
+          <div><small><?php echo T_("birthCrtfctSeriesNumber"); ?></small> <b><?php echo a($value, 'birthCrtfctSeriesNumber'); ?></b></div>
+          <div><small><?php echo T_("nationalCode"); ?></small> <b><?php echo a($value, 'nationalCode'); ?></b></div>
+          <div><small><?php echo T_("birthCrtfctSerial"); ?></small> <b><?php echo a($value, 'birthCrtfctSerial'); ?></b></div>
         </td>
         <td>
-          <div><small><?php echo T_("telephoneNumber"); ?></small> <b><?php echo \dash\get::index($value, 'telephoneNumber'); ?></b></div>
-          <div><small><?php echo T_("emailAddress"); ?></small> <b><?php echo \dash\get::index($value, 'emailAddress'); ?></b></div>
-          <div><small><?php echo T_("webSite"); ?></small> <b><?php echo \dash\get::index($value, 'webSite'); ?></b></div>
-          <div><small><?php echo T_("fax"); ?></small> <b><?php echo \dash\get::index($value, 'fax'); ?></b></div>
-          <div><small><?php echo T_("cellPhoneNumber"); ?></small> <b><?php echo \dash\get::index($value, 'cellPhoneNumber'); ?></b></div>
-          <div><small><?php echo T_("Description"); ?></small> <b><?php echo \dash\get::index($value, 'Description'); ?></b></div>
+          <div><small><?php echo T_("telephoneNumber"); ?></small> <b><?php echo a($value, 'telephoneNumber'); ?></b></div>
+          <div><small><?php echo T_("emailAddress"); ?></small> <b><?php echo a($value, 'emailAddress'); ?></b></div>
+          <div><small><?php echo T_("webSite"); ?></small> <b><?php echo a($value, 'webSite'); ?></b></div>
+          <div><small><?php echo T_("fax"); ?></small> <b><?php echo a($value, 'fax'); ?></b></div>
+          <div><small><?php echo T_("cellPhoneNumber"); ?></small> <b><?php echo a($value, 'cellPhoneNumber'); ?></b></div>
+          <div><small><?php echo T_("Description"); ?></small> <b><?php echo a($value, 'Description'); ?></b></div>
         </td>
         <td>
-          <div><small><?php echo T_("foreignPervasiveCode"); ?></small> <b><?php echo \dash\get::index($value, 'foreignPervasiveCode'); ?></b></div>
-          <div><small><?php echo T_("passportNumber"); ?></small> <b><?php echo \dash\get::index($value, 'passportNumber'); ?></b></div>
-          <div><small><?php echo T_("passportExpireDate"); ?></small> <b><?php echo \dash\get::index($value, 'passportExpireDate'); ?></b></div>
-          <div><small><?php echo T_("countryCode"); ?></small> <b><?php echo \dash\get::index($value, 'countryCode'); ?></b></div>
+          <div><small><?php echo T_("foreignPervasiveCode"); ?></small> <b><?php echo a($value, 'foreignPervasiveCode'); ?></b></div>
+          <div><small><?php echo T_("passportNumber"); ?></small> <b><?php echo a($value, 'passportNumber'); ?></b></div>
+          <div><small><?php echo T_("passportExpireDate"); ?></small> <b><?php echo a($value, 'passportExpireDate'); ?></b></div>
+          <div><small><?php echo T_("countryCode"); ?></small> <b><?php echo a($value, 'countryCode'); ?></b></div>
         </td>
         <td>
-          <div><small><?php echo T_("registerNumber"); ?></small> <b><?php echo \dash\get::index($value, 'registerNumber'); ?></b></div>
-          <div><small><?php echo T_("comNameFa"); ?></small> <b><?php echo \dash\get::index($value, 'comNameFa'); ?></b></div>
-          <div><small><?php echo T_("comNameEn"); ?></small> <b><?php echo \dash\get::index($value, 'comNameEn'); ?></b></div>
-          <div><small><?php echo T_("commercialCode"); ?></small> <b><?php echo \dash\get::index($value, 'commercialCode'); ?></b></div>
-          <div><small><?php echo T_("registerDate"); ?></small> <b><?php echo \dash\get::index($value, 'registerDate'); ?></b></div>
-          <div><small><?php echo T_("nationalLegalCode"); ?></small> <b><?php echo \dash\get::index($value, 'nationalLegalCode'); ?></b></div>
+          <div><small><?php echo T_("registerNumber"); ?></small> <b><?php echo a($value, 'registerNumber'); ?></b></div>
+          <div><small><?php echo T_("comNameFa"); ?></small> <b><?php echo a($value, 'comNameFa'); ?></b></div>
+          <div><small><?php echo T_("comNameEn"); ?></small> <b><?php echo a($value, 'comNameEn'); ?></b></div>
+          <div><small><?php echo T_("commercialCode"); ?></small> <b><?php echo a($value, 'commercialCode'); ?></b></div>
+          <div><small><?php echo T_("registerDate"); ?></small> <b><?php echo a($value, 'registerDate'); ?></b></div>
+          <div><small><?php echo T_("nationalLegalCode"); ?></small> <b><?php echo a($value, 'nationalLegalCode'); ?></b></div>
         </td>
 
       </tr>

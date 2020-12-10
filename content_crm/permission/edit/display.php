@@ -32,10 +32,10 @@ if(!is_array($permissionList))
 <section class="f" data-option='setting-permission-<?php echo $key; ?>'>
   <div class="c8 s12">
     <div class="data">
-        <h3><?php echo \dash\get::index($value, 'title');?></h3>
-        <p><?php echo \dash\get::index($value, 'desc') ?></p>
+        <h3><?php echo a($value, 'title');?></h3>
+        <p><?php echo a($value, 'desc') ?></p>
 
-      <?php if(\dash\get::index($savedPerm, $key, 'status')) { ?>
+      <?php if(a($savedPerm, $key, 'status')) { ?>
 
         <?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'customized') {?>
           <?php if(isset($savedPerm[$key]['allow_access_title']) && $savedPerm[$key]['allow_access_title']) { ?>
@@ -66,7 +66,7 @@ if(!is_array($permissionList))
       <div class="action">
         <input type="hidden" name="runaction_<?php echo $key; ?>" value="1">
         <div class="switch1">
-          <input type="checkbox" name="<?php echo $key; ?>" id="<?php echo $key; ?>"  <?php if(\dash\get::index($savedPerm, $key, 'status')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="<?php echo $key; ?>" id="<?php echo $key; ?>"  <?php if(a($savedPerm, $key, 'status')) { echo 'checked'; } ?>>
           <label for="<?php echo $key; ?>" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
         </div>
       </div>
@@ -74,7 +74,7 @@ if(!is_array($permissionList))
   </form>
   <footer class="f align-center">
     <div class="c">
-<?php if(\dash\get::index($savedPerm, $key, 'status')) { ?>
+<?php if(a($savedPerm, $key, 'status')) { ?>
 <?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'full') {?>
         <div class="mLa25 badge success2 "><?php echo T_("Full access") ?></div>
 <?php } //endif ?>

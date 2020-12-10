@@ -33,16 +33,16 @@ foreach ($dataTable as $key => $value)
 {
 ?>
 
-    <tr class="<?php echo \dash\get::index($value, 'rowColor'); ?>">
+    <tr class="<?php echo a($value, 'rowColor'); ?>">
       <td class=" txtB">
         <?php if(isset($value['parent'])) {?>
 
-        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'parent');  echo \dash\data::accessGetAnd(); ?>#<?php echo \dash\get::index($value, 'id');  if(!\dash\user::id()) {?>&guest=<?php echo \dash\get::index($value, 'code');  } //endif ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'parent')); ?></span>
-          <?php echo substr(\dash\get::index($value, 'content'), 0, 60); if(mb_strlen(\dash\get::index($value, 'content')) > 60) { echo '...' ;} ?>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo a($value, 'parent');  echo \dash\data::accessGetAnd(); ?>#<?php echo a($value, 'id');  if(!\dash\user::id()) {?>&guest=<?php echo a($value, 'code');  } //endif ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(a($value, 'parent')); ?></span>
+          <?php echo substr(a($value, 'content'), 0, 60); if(mb_strlen(a($value, 'content')) > 60) { echo '...' ;} ?>
         </a>
 
         <?php }else{ ?>
-        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id');  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'code');} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(\dash\get::index($value, 'id')); ?></span> <?php echo substr(\dash\get::index($value, 'content'), 0, 60); if(mb_strlen(\dash\get::index($value, 'content')) > 60) { echo '...' ;} ?></a>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo a($value, 'id');  echo \dash\data::accessGetAnd(); if(!\dash\user::id()) { echo '&guest='. a($value, 'code');} ?>"><span class="badge light mRa5"><?php echo \dash\fit::number(a($value, 'id')); ?></span> <?php echo substr(a($value, 'content'), 0, 60); if(mb_strlen(a($value, 'content')) > 60) { echo '...' ;} ?></a>
         <?php } // endif ?>
 
         <?php if(isset($value['tag']) && $value['tag'] && is_array($value['tag'])) {?>
@@ -62,7 +62,7 @@ foreach ($dataTable as $key => $value)
       </td>
 
       <?php if(false) {?>
-      <td class="s0 m0 pRa10"><a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo \dash\get::index($value, 'id'); echo \dash\data::accessGetAnd(); ?><?php if(!\dash\user::id()) { echo '&guest='. \dash\get::index($value, 'code'); } ?>"><?php echo substr(strip_tags(\dash\get::index($value, 'content')), 0, 60); ?></a>
+      <td class="s0 m0 pRa10"><a href="<?php echo \dash\url::here(). '/ticket'; ?>/show?id=<?php echo a($value, 'id'); echo \dash\data::accessGetAnd(); ?><?php if(!\dash\user::id()) { echo '&guest='. a($value, 'code'); } ?>"><?php echo substr(strip_tags(a($value, 'content')), 0, 60); ?></a>
       </td>
       <?php } //endif ?>
 
@@ -81,16 +81,16 @@ foreach ($dataTable as $key => $value)
 
       <td class="collapsing s0"><?php if(isset($value['plus']) && $value['plus']) { echo \dash\fit::number($value['plus']); ?> <i class="compact sf-chat-alt-fill"></i><?php } //endif ?></td>
 
-      <td class="collapsing fs08"><span title='<?php echo T_("Created on"). ' '. \dash\fit::date(\dash\get::index($value, 'datecreated')); ?> <?php if(isset($value['datemodified']) && $value['datemodified']) {?><br><?php echo T_("Last modified on"); ?> <?php echo \dash\fit::date($value['datemodified']); }//endif?>'><?php if(isset($value['datemodified']) && $value['datemodified']) { echo \dash\fit::date_human($value['datemodified']); } else { echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); }?></span></td>
+      <td class="collapsing fs08"><span title='<?php echo T_("Created on"). ' '. \dash\fit::date(a($value, 'datecreated')); ?> <?php if(isset($value['datemodified']) && $value['datemodified']) {?><br><?php echo T_("Last modified on"); ?> <?php echo \dash\fit::date($value['datemodified']); }//endif?>'><?php if(isset($value['datemodified']) && $value['datemodified']) { echo \dash\fit::date_human($value['datemodified']); } else { echo \dash\fit::date_human(a($value, 'datecreated')); }?></span></td>
 
-      <td class="collapsing fs08 s0 m0"><?php if(isset($value['status']) && $value['status'] != 'awaiting') {?><i class="compact mRa5 sf-spin-alt fc-green"></i><?php }else{ ?><i class="compact mRa5 sf-asterisk spiny fc-red"></i><?php }  echo T_(ucfirst(\dash\get::index($value, 'status')));  ?></td>
+      <td class="collapsing fs08 s0 m0"><?php if(isset($value['status']) && $value['status'] != 'awaiting') {?><i class="compact mRa5 sf-spin-alt fc-green"></i><?php }else{ ?><i class="compact mRa5 sf-asterisk spiny fc-red"></i><?php }  echo T_(ucfirst(a($value, 'status')));  ?></td>
 
       <?php if(\dash\data::accessMode() !== 'mine') {?>
 
       <td class="collapsing fs08 txtRa s0">
-        <a href="<?php echo \dash\url::here(). '/ticket'; ?>?user=<?php echo \dash\get::index($value, 'user_id'); ?><?php echo \dash\data::accessGetAnd(); ?>">
-        <span class="txtB s0"><?php echo \dash\get::index($value, 'displayname'); ?></span>
-        <img src="<?php echo \dash\get::index($value, 'avatar'); ?>" class="avatar mLa10" alt="<?php echo \dash\get::index($value, 'displayname'); if(isset($value['displayname']) && $value['displayname']) {?>"  title="<?php echo $value['displayname']; ?>" <?php } //endif ?>>
+        <a href="<?php echo \dash\url::here(). '/ticket'; ?>?user=<?php echo a($value, 'user_id'); ?><?php echo \dash\data::accessGetAnd(); ?>">
+        <span class="txtB s0"><?php echo a($value, 'displayname'); ?></span>
+        <img src="<?php echo a($value, 'avatar'); ?>" class="avatar mLa10" alt="<?php echo a($value, 'displayname'); if(isset($value['displayname']) && $value['displayname']) {?>"  title="<?php echo $value['displayname']; ?>" <?php } //endif ?>>
         </a>
       </td>
 
@@ -99,7 +99,7 @@ foreach ($dataTable as $key => $value)
     <td class="collapsing fs08 s0" title2='<?php echo T_("Active in this ticket"); ?>'>
       <?php if(isset($value['user_in_ticket_detail']) && is_array($value['user_in_ticket_detail'])) {?>
         <?php  foreach ($value['user_in_ticket_detail'] as $myvalue)  {?>
-          <img src="<?php echo \dash\get::index($myvalue, 'avatar'); ?>" class="avatar mRa5" alt="<?php echo \dash\get::index($myvalue, 'displayname'); ?>" <?php if(isset($myvalue['displayname']) && $value['displayname']) {?> title="<?php echo $myvalue['displayname']; ?>" <?php } //endif ?>>
+          <img src="<?php echo a($myvalue, 'avatar'); ?>" class="avatar mRa5" alt="<?php echo a($myvalue, 'displayname'); ?>" <?php if(isset($myvalue['displayname']) && $value['displayname']) {?> title="<?php echo $myvalue['displayname']; ?>" <?php } //endif ?>>
         <?php } //endfor ?>
       <?php } //endif ?>
       </td>
@@ -176,9 +176,9 @@ foreach ($dataTable as $key => $value)
         {
       ?>
           <li>
-            <a href="<?php echo \dash\url::here(); ?>/ticket?tag=<?php echo \dash\get::index($value, 'slug'); ?><?php echo \dash\data::accessGetAnd(); ?>">
-            <span class="floatLa mRa10 badge fc-mute"> <?php echo \dash\fit::number(\dash\get::index($value, 'usage_count')); ?></span>
-            <span class="mRa10 badge rounded <?php if(isset($value['meta']['color'])) {echo $value['meta']['color']; } ?>">&nbsp;</span><?php echo \dash\get::index($value, 'title'); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/ticket?tag=<?php echo a($value, 'slug'); ?><?php echo \dash\data::accessGetAnd(); ?>">
+            <span class="floatLa mRa10 badge fc-mute"> <?php echo \dash\fit::number(a($value, 'usage_count')); ?></span>
+            <span class="mRa10 badge rounded <?php if(isset($value['meta']['color'])) {echo $value['meta']['color']; } ?>">&nbsp;</span><?php echo a($value, 'title'); ?></a>
           </li>
       <?php } // endif ?>
     <?php } // endfor ?>

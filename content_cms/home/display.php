@@ -70,9 +70,9 @@
           <?php if(is_array(\dash\data::dashboardDetail_latesPost())) {?>
             <?php foreach (\dash\data::dashboardDetail_latesPost() as $key => $value) {?>
 
-            <a class="msg f" href="<?php echo \dash\url::kingdom(); ?>/<?php echo \dash\get::index($value, 'url'); ?>">
+            <a class="msg f" href="<?php echo \dash\url::kingdom(); ?>/<?php echo a($value, 'url'); ?>">
               <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; } else { echo T_("Without title");} ?></div>
-              <div class="cauto"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?></div>
+              <div class="cauto"><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></div>
             </a>
 
         <?php }//endfor ?>
@@ -92,10 +92,10 @@
           <?php if(is_array(\dash\data::dashboardDetail_comment())) {?>
             <?php foreach (\dash\data::dashboardDetail_comment() as $key => $value) {?>
 
-            <a class="msg f" href="<?php echo \dash\url::kingdom(); ?>/comment/<?php echo \dash\get::index($value, 'url'); ?>">
+            <a class="msg f" href="<?php echo \dash\url::kingdom(); ?>/comment/<?php echo a($value, 'url'); ?>">
 
               <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; } else { echo T_("Without title");} ?></div>
-              <div class="cauto"><?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?></div>
+              <div class="cauto"><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></div>
             </a>
           <?php }//endfor ?>
 

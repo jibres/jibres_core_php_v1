@@ -10,7 +10,7 @@
 
       <label for="title"><?php echo T_("Line title"); ?></label>
       <div class="input">
-        <input type="text" name="title" id="title" value="<?php if(!\dash\get::index(\dash\data::lineSetting(), 'title') && \dash\get::index(\dash\data::lineSetting(), 'title') !== '0'){ echo \dash\data::productlineNameSuggestion(); }else{ echo \dash\get::index(\dash\data::lineSetting(), 'title'); } ?>"  maxlength="200"  >
+        <input type="text" name="title" id="title" value="<?php if(!a(\dash\data::lineSetting(), 'title') && a(\dash\data::lineSetting(), 'title') !== '0'){ echo \dash\data::productlineNameSuggestion(); }else{ echo a(\dash\data::lineSetting(), 'title'); } ?>"  maxlength="200"  >
       </div>
 
 
@@ -19,9 +19,9 @@
       <div>
         <select class="select22" name="type">
           <option value=""><?php echo \dash\data::defaultProductLineType(); ?></option>
-          <option value="latestproduct" <?php if(\dash\get::index(\dash\data::lineSetting_productline(), 'type') === 'latestproduct') {echo 'selected';} ?>><?php echo T_("Latest product") ?></option>
-          <option value="randomproduct" <?php if(\dash\get::index(\dash\data::lineSetting_productline(), 'type') === 'randomproduct') {echo 'selected';} ?>><?php echo T_("Random product") ?></option>
-          <option value="bestselling" <?php if(\dash\get::index(\dash\data::lineSetting_productline(), 'type') === 'bestselling') {echo 'selected';} ?>><?php echo T_("Best-selling product") ?></option>
+          <option value="latestproduct" <?php if(a(\dash\data::lineSetting_productline(), 'type') === 'latestproduct') {echo 'selected';} ?>><?php echo T_("Latest product") ?></option>
+          <option value="randomproduct" <?php if(a(\dash\data::lineSetting_productline(), 'type') === 'randomproduct') {echo 'selected';} ?>><?php echo T_("Random product") ?></option>
+          <option value="bestselling" <?php if(a(\dash\data::lineSetting_productline(), 'type') === 'bestselling') {echo 'selected';} ?>><?php echo T_("Best-selling product") ?></option>
         </select>
       </div>
 
@@ -32,7 +32,7 @@
 
           <?php foreach (\dash\data::listCategory() as $key => $value) {?>
 
-            <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index(\dash\data::lineSetting(), 'productline', 'cat_id') == $value['id']) { echo 'selected'; } ?> ><?php echo \dash\get::index($value, 'full_title'); ?></option>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(), 'productline', 'cat_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'full_title'); ?></option>
 
           <?php } //endfor ?>
 

@@ -48,12 +48,12 @@
           <?php foreach (\dash\data::listStore_owner() as $key => $value) {?>
 
           <div class="" >
-            <div href='<?php echo \dash\get::index($value, 'url'); ?>/a' class="scard">
-              <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+            <div href='<?php echo a($value, 'url'); ?>/a' class="scard">
+              <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
               <div class="body">
-                <h2><?php echo \dash\get::index($value, 'title'); ?></h2>
+                <h2><?php echo a($value, 'title'); ?></h2>
                 <div class="position txtRa">
-                  <code class="ltr"><?php echo \dash\get::index($value, 'store_code'); ?></code>
+                  <code class="ltr"><?php echo a($value, 'store_code'); ?></code>
                 </div>
 
               </div>

@@ -45,12 +45,12 @@
 			<?php foreach (\dash\data::specialDate() as $key => $value) {?>
 
 				<tr>
-					<td><?php echo \dash\fit::date(\dash\get::index($value, 'startdate')); ?></td>
-					<td><?php echo \dash\fit::date(\dash\get::index($value, 'enddate')); ?></td>
-					<td><?php echo \dash\fit::number(\dash\get::index($value, 'buyprice')); ?></td>
-					<td><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?></td>
-					<td><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?></td>
-					<td><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?></td>
+					<td><?php echo \dash\fit::date(a($value, 'startdate')); ?></td>
+					<td><?php echo \dash\fit::date(a($value, 'enddate')); ?></td>
+					<td><?php echo \dash\fit::number(a($value, 'buyprice')); ?></td>
+					<td><?php echo \dash\fit::number(a($value, 'price')); ?></td>
+					<td><?php echo \dash\fit::number(a($value, 'discount')); ?></td>
+					<td><?php echo \dash\fit::number(a($value, 'finalprice')); ?></td>
 				</tr>
 			<?php } //endfor ?>
 		</tbody>

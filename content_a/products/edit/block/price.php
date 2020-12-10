@@ -6,7 +6,7 @@
       <div class="f">
         <div class="cauto">
           <div class="check1">
-            <input type="checkbox" name="wholeeditequalprice" id="wholeeditequalprice" <?php if(\dash\get::index(\dash\data::productDataRow(), 'allPriceIsEqual')) { echo 'checked'; }else{$showPriceWholeEdit = false; } ?>>
+            <input type="checkbox" name="wholeeditequalprice" id="wholeeditequalprice" <?php if(a(\dash\data::productDataRow(), 'allPriceIsEqual')) { echo 'checked'; }else{$showPriceWholeEdit = false; } ?>>
             <label for="wholeeditequalprice"><?php echo T_("Change all child price") ?></label>
           </div>
         </div>
@@ -28,7 +28,7 @@
           <div class="c s12 pRa5">
             <label for='buyprice'><?php echo T_("Buy cost"); ?></label>
             <div class="input fix ltr">
-              <input type="tel" name="buyprice" id="buyprice" data-format='price' value="<?php echo \dash\get::index($productDataRow,'buyprice'); ?>" maxlength="18" data-run-input='calcProductMargin'>
+              <input type="tel" name="buyprice" id="buyprice" data-format='price' value="<?php echo a($productDataRow,'buyprice'); ?>" maxlength="18" data-run-input='calcProductMargin'>
             </div>
           </div>
           <div class="c s12">
@@ -47,13 +47,13 @@
           <div class="c s12 pRa5">
             <label for='price'><?php echo T_("Sale Price"); ?></label>
             <div class="input fix ltr mB5-f">
-              <input type="tel" name="price" id="price" data-format='price' value="<?php echo \dash\get::index($productDataRow,'price'); ?>" maxlength="18" data-run-input='calcProductMargin'>
+              <input type="tel" name="price" id="price" data-format='price' value="<?php echo a($productDataRow,'price'); ?>" maxlength="18" data-run-input='calcProductMargin'>
             </div>
           </div>
           <div class="c s12">
             <label for='discount'><?php echo T_("Discount"); ?></label>
             <div class="input fix ltr mB5-f">
-              <input type="tel" name="discount" id="discount" data-format='price' value="<?php echo \dash\get::index($productDataRow,'discount'); ?>" maxlength="18" data-run-input='calcProductMargin'>
+              <input type="tel" name="discount" id="discount" data-format='price' value="<?php echo a($productDataRow,'discount'); ?>" maxlength="18" data-run-input='calcProductMargin'>
               <div class="addon fs09" id='discountRate'></div>
             </div>
           </div>
@@ -70,7 +70,7 @@
               </div>
               <div class="cauto"><?php echo T_("VAT"); ?></div>
               <div class="cauto ltr txtL pLR5" id="vatCost"></div>
-              <div class="cauto"><?php echo \dash\get::index($storData,'currency_detail','symbol_native'); ?></div>
+              <div class="cauto"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
         <?php } //endif ?>
@@ -78,8 +78,8 @@
           <div class="msg mT10 mB0 minimal">
             <div class="f align-center">
               <div class="cauto"><?php echo T_("Final Price"); ?></div>
-              <div class="c ltr txtRa pLR5 fs16" id="finalPrice"><?php echo \dash\get::index($productDataRow,'finalprice'); ?></div>
-              <div class="cauto" id="moneyUnit"><?php echo \dash\get::index($storData,'currency_detail','symbol_native'); ?></div>
+              <div class="c ltr txtRa pLR5 fs16" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
+              <div class="cauto" id="moneyUnit"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
           <?php if(\dash\language::current() === 'fa') {?>

@@ -21,21 +21,21 @@
 					<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 						<tr class="font-12">
 							<td class="font-14">
-								<a class="link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>">#<?php echo \dash\fit::number(\dash\get::index($value, 'number'), true, 'en'); ?></a>
+								<a class="link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
 							</td>
-							<td class="txtB"><?php echo \dash\fit::date(\dash\get::index($value, 'date')) ?></td>
+							<td class="txtB"><?php echo \dash\fit::date(a($value, 'date')) ?></td>
 							<td class="">
-								<?php if(\dash\get::index($value, 'status') === 'lock') { echo '<i class="compact sf-lock fc-red mRa10"></i>';} else { echo '<i class="compact sf-unlock fc-green mRa10"></i>';}  ?>
-								<a href="<?php echo \dash\url::that(). '?status='. \dash\get::index($value, 'status'); ?>"><?php echo T_(\dash\get::index($value, 'tstatus')) ?></a>
-								<?php if(\dash\get::index($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
+								<?php if(a($value, 'status') === 'lock') { echo '<i class="compact sf-lock fc-red mRa10"></i>';} else { echo '<i class="compact sf-unlock fc-green mRa10"></i>';}  ?>
+								<a href="<?php echo \dash\url::that(). '?status='. a($value, 'status'); ?>"><?php echo T_(a($value, 'tstatus')) ?></a>
+								<?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
 							</td>
-							<td class=""><?php echo \dash\fit::number(\dash\get::index($value, 'item_count')) ?></td>
+							<td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
 
-							<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'sum_debtor'), 'en') ?></span></td>
-							<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'sum_creditor'), 'en') ?></span></td>
+							<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_debtor'), 'en') ?></span></td>
+							<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_creditor'), 'en') ?></span></td>
 						</tr>
 						<tr>
-							<td class="pTB5-f" colspan="7"><?php if(\dash\get::index($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo \dash\get::index($value, 'desc') ?></td>
+							<td class="pTB5-f" colspan="7"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
 						</tr>
 					<?php } //endif ?>
 				</tbody>

@@ -78,28 +78,28 @@ else
 
       <tr >
         <td class="collapsing">
-          <a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo \dash\get::index($value, 'id'); ?>" class="btn danger xs">Show detail</a>
-          <small class="block"><?php echo \dash\get::index($value, 'response_txt'); ?></small>
+          <a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo a($value, 'id'); ?>" class="btn danger xs">Show detail</a>
+          <small class="block"><?php echo a($value, 'response_txt'); ?></small>
         </td>
         <td>
-          <?php echo \dash\fit::date_human(\dash\get::index($value, 'datecreated')); ?>
-	        <div><small><?php echo T_("trackingNumber"); ?></small> <b><?php echo \dash\get::index($value, 'trackingNumber'); ?></b></div>
-	        <div><small><?php echo T_("trackingNumberPsp"); ?></small> <b><?php echo \dash\get::index($value, 'trackingNumberPsp'); ?></b></div>
+          <?php echo \dash\fit::date_human(a($value, 'datecreated')); ?>
+	        <div><small><?php echo T_("trackingNumber"); ?></small> <b><?php echo a($value, 'trackingNumber'); ?></b></div>
+	        <div><small><?php echo T_("trackingNumberPsp"); ?></small> <b><?php echo a($value, 'trackingNumberPsp'); ?></b></div>
         </td>
 
         <td>
-          <div><small><?php echo T_("requestType"); ?></small> <b><?php echo \dash\get::index($value, 'requestType'); ?></b></div>
+          <div><small><?php echo T_("requestType"); ?></small> <b><?php echo a($value, 'requestType'); ?></b></div>
         </td>
         <td>
-			    <div><small><?php echo T_("request_id"); ?></small> <b><?php echo \dash\get::index($value, 'request_id'); ?></b></div>
-	        <div><small><?php echo T_("user_id"); ?></small> <b><?php echo \dash\get::index($value, 'user_id'); ?></b></div>
+			    <div><small><?php echo T_("request_id"); ?></small> <b><?php echo a($value, 'request_id'); ?></b></div>
+	        <div><small><?php echo T_("user_id"); ?></small> <b><?php echo a($value, 'user_id'); ?></b></div>
         </td>
         <td>
-	        <div><small><?php echo T_("sendtime"); ?></small> <b><?php echo \dash\get::index($value, 'sendtime'); ?></b></div>
-	        <div><small><?php echo T_("responsetime"); ?></small> <b><?php echo \dash\get::index($value, 'responsetime'); ?></b></div>
-	        <div><small><?php echo T_("diff"); ?></small> <b><?php echo \dash\get::index($value, 'diff'); ?></b></div>
-	        <div><small><?php echo T_("datecreated"); ?></small> <b><?php echo \dash\get::index($value, 'datecreated'); ?></b></div>
-	        <div><small><?php echo T_("datemodified"); ?></small> <b><?php echo \dash\get::index($value, 'datemodified'); ?></b></div>
+	        <div><small><?php echo T_("sendtime"); ?></small> <b><?php echo a($value, 'sendtime'); ?></b></div>
+	        <div><small><?php echo T_("responsetime"); ?></small> <b><?php echo a($value, 'responsetime'); ?></b></div>
+	        <div><small><?php echo T_("diff"); ?></small> <b><?php echo a($value, 'diff'); ?></b></div>
+	        <div><small><?php echo T_("datecreated"); ?></small> <b><?php echo a($value, 'datecreated'); ?></b></div>
+	        <div><small><?php echo T_("datemodified"); ?></small> <b><?php echo a($value, 'datemodified'); ?></b></div>
         </td>
 
       </tr>

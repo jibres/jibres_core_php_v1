@@ -56,7 +56,7 @@ class edit
 		}
 
 		// $data = \dash\cleanse::patch_mode($_args, $args);
-		$tax_document_id = \dash\get::index($args, 'tax_document_id');
+		$tax_document_id = a($args, 'tax_document_id');
 		unset($args['tax_document_id']);
 		unset($args['year_id']);
 

@@ -63,12 +63,12 @@ class edit
 			return false;
 		}
 
-		if(!\dash\get::index($load, 'status'))
+		if(!a($load, 'status'))
 		{
 			\lib\app\tax\doc\balance::set($load['id']);
 			$load = \lib\app\tax\doc\get::get($_id);
 
-			if(!\dash\get::index($load, 'status'))
+			if(!a($load, 'status'))
 			{
 				\dash\notif::error(T_("Can not set document status"));
 				return false;

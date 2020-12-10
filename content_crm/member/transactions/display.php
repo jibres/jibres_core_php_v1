@@ -3,8 +3,8 @@
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\url::that(). '/detail'. \dash\request::full_get(['tid' => \dash\get::index($value, 'id')]) ?>">
-        <div class="spay-32-<?php echo \dash\get::index($value, 'payment'); ?> key cauto"></div>
+      <a class="f align-center" href="<?php echo \dash\url::that(). '/detail'. \dash\request::full_get(['tid' => a($value, 'id')]) ?>">
+        <div class="spay-32-<?php echo a($value, 'payment'); ?> key cauto"></div>
         <div class="key txtB ltr"><?php if(isset($value['plus']) && $value['plus']) {?><b>+<?php echo \dash\fit::price($value['plus']); ?></b><?php }?><?php if(isset($value['minus']) && $value['minus']) {?><b>-<?php echo \dash\fit::price($value['minus']); ?></b><?php }?></div>
 <?php if(isset($value['verify']) && $value['verify']) {?>
         <div class="go check ok"></div>

@@ -7,9 +7,9 @@
    <ul>
     <?php foreach ($listStore_owner as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\get::index($value, 'url'); ?>/a">
-       <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-       <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+      <a class="f align-center" href="<?php echo a($value, 'url'); ?>/a">
+       <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
+       <div class="key"><?php echo a($value, 'title'); ?></div>
        <div class="go"></div>
       </a>
      </li>
@@ -23,9 +23,9 @@
    <ul>
     <?php foreach (\dash\data::listStore_staff() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\get::index($value, 'url'); ?>/a">
-       <img src="<?php echo \dash\get::index($value, 'logo'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-       <div class="key"><?php echo \dash\get::index($value, 'title'); ?></div>
+      <a class="f align-center" href="<?php echo a($value, 'url'); ?>/a">
+       <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
+       <div class="key"><?php echo a($value, 'title'); ?></div>
        <div class="go"></div>
       </a>
      </li>

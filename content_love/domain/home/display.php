@@ -6,31 +6,31 @@ $myData = \dash\data::dashboardDetail();
   <div class="c pRa10">
     <a href="<?php echo \dash\url::this(). '/billing?filter=today'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Today");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_today'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'sale_count_today'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="<?php echo \dash\url::this(). '/billing?filter=yesterday'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Yesterday");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_yesterday'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'sale_count_yesterday'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="<?php echo \dash\url::this(). '/billing?filter=week'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Last Week");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_last_week'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'sale_count_last_week'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="<?php echo \dash\url::this(). '/billing?filter=month'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Last Month");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_last_month'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'sale_count_last_month'));?></div>
     </a>
   </div>
   <div class="c3 s12">
     <a href="<?php echo \dash\url::this(). '/billing'; ?>" class="stat">
       <h3><?php echo T_("Sale Count - Total");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'sale_count_total'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'sale_count_total'));?></div>
     </a>
   </div>
 </section>
@@ -42,11 +42,11 @@ $myData = \dash\data::dashboardDetail();
   <div class="c3 s12">
     <a href="<?php echo \dash\url::this(). '/buyers'; ?>" class="stat">
       <h3><?php echo T_("Total Buyers");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_buyers'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'total_buyers'));?></div>
     </a>
     <a href="<?php echo \dash\url::this(). '/log'; ?>" class="stat">
       <h3><?php echo T_("Total Log");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_log'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'total_log'));?></div>
     </a>
   </div>
 </section>
@@ -58,25 +58,25 @@ $myData = \dash\data::dashboardDetail();
   <div class="c3 s6 pRa10">
     <a href="<?php echo \dash\url::this() ?>/billing?action=register" class="stat">
       <h3><?php echo T_("Total Domain Buy");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_buy'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'total_domain_buy'));?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
     <a href="<?php echo \dash\url::this() ?>/billing?action=renew" class="stat">
       <h3><?php echo T_("Total Domain Renew");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_renew'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'total_domain_renew'));?></div>
     </a>
   </div>
   <div class="c3 s6 pRa10">
     <a href="<?php echo \dash\url::this() ?>/billing?action=transfer" class="stat">
       <h3><?php echo T_("Total Domain Transfer");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_transfer'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'total_domain_transfer'));?></div>
     </a>
   </div>
   <div class="c3 s6">
     <a href="<?php echo \dash\url::this(). '/fetch'; ?>" class="stat">
       <h3><?php echo T_("Total Whois");?></h3>
-      <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total_domain_whois'));?></div>
+      <div class="val"><?php echo \dash\fit::stats(a($myData, 'total_domain_whois'));?></div>
     </a>
   </div>
 </section>
@@ -208,10 +208,10 @@ $myData = \dash\data::dashboardDetail();
 
 <div class="hide">
   <div id="chartdomaintitle"><?php echo T_("Domain buy & renew & transfer & whois & total buy in lasy 30 days"); ?></div>
-  <div id="chartdomaincategory"><?php echo \dash\get::index($myData, 'domain_action_chart', 'categories'); ?></div>
-  <div id="chartdomaincountregister"><?php echo \dash\get::index($myData, 'domain_action_chart', 'register'); ?></div>
-  <div id="chartdomaincountrenew"><?php echo \dash\get::index($myData, 'domain_action_chart', 'renew'); ?></div>
-  <div id="chartdomaincounttransfer"><?php echo \dash\get::index($myData, 'domain_action_chart', 'transfer'); ?></div>
+  <div id="chartdomaincategory"><?php echo a($myData, 'domain_action_chart', 'categories'); ?></div>
+  <div id="chartdomaincountregister"><?php echo a($myData, 'domain_action_chart', 'register'); ?></div>
+  <div id="chartdomaincountrenew"><?php echo a($myData, 'domain_action_chart', 'renew'); ?></div>
+  <div id="chartdomaincounttransfer"><?php echo a($myData, 'domain_action_chart', 'transfer'); ?></div>
   <div id="charttitletransfer"><?php echo T_("Transfer"); ?></div>
   <div id="charttitlerenew"><?php echo T_("Renew"); ?></div>
   <div id="charttitleregister"><?php echo T_("Register"); ?></div>
@@ -219,14 +219,14 @@ $myData = \dash\data::dashboardDetail();
   <div id="charttitlecount"><?php echo T_("Count"); ?></div>
 
   <div id="chartlogtitle"><?php echo T_("All API request in 60 last days"); ?></div>
-  <div id="chartlogcategory"><?php echo \dash\get::index($myData, 'domain_log_chart', 'categories'); ?></div>
-  <div id="chartlogcount"><?php echo \dash\get::index($myData, 'domain_log_chart', 'count'); ?></div>
+  <div id="chartlogcategory"><?php echo a($myData, 'domain_log_chart', 'categories'); ?></div>
+  <div id="chartlogcount"><?php echo a($myData, 'domain_log_chart', 'count'); ?></div>
   <div id="charttitlelog"><?php echo T_("Log"); ?></div>
 
 
   <div id="chartonlineniclogtitle"><?php echo T_("All API request in 60 last days By Onlinenic"); ?></div>
-  <div id="chartonlineniclogcategory"><?php echo \dash\get::index($myData, 'domain_onlinenic_log_chart', 'categories'); ?></div>
-  <div id="chartonlineniclogcount"><?php echo \dash\get::index($myData, 'domain_onlinenic_log_chart', 'count'); ?></div>
+  <div id="chartonlineniclogcategory"><?php echo a($myData, 'domain_onlinenic_log_chart', 'categories'); ?></div>
+  <div id="chartonlineniclogcount"><?php echo a($myData, 'domain_onlinenic_log_chart', 'count'); ?></div>
 
 
 </div>

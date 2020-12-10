@@ -15,7 +15,7 @@ $propertyList = \dash\data::propertyList();
 
             <form method="post" autocomplete="off">
 
-               <textarea name="desc" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Description"); ?>'><?php echo \dash\get::index(\dash\data::productDataRow(),'desc'); ?></textarea>
+               <textarea name="desc" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Description"); ?>'><?php echo a(\dash\data::productDataRow(),'desc'); ?></textarea>
 
               <div class="txtRa">
 

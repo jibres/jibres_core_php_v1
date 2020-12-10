@@ -34,7 +34,7 @@ class add
 		}
 		else
 		{
-			if(\dash\get::index($_option, 'mode') === 'customer')
+			if(a($_option, 'mode') === 'customer')
 			{
 				$shipping = \lib\app\setting\get::shipping_setting();
 

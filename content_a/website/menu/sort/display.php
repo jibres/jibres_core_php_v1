@@ -13,8 +13,8 @@
           <i class="sf-sort" >
             <input type="hidden" name="sort[]" value="<?php echo $key; ?>">
           </i>
-          <div class="key"><?php echo \dash\get::index($value, 'title');?>
-            <?php if(\dash\get::index($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
+          <div class="key"><?php echo a($value, 'title');?>
+            <?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
           </div>
 
         </a>

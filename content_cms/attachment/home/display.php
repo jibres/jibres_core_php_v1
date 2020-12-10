@@ -76,10 +76,10 @@ if(!is_array($dataTable))
     <thead>
       <tr>
         <th></th>
-        <th data-sort="<?php echo \dash\get::index($sortLink, 'title', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'title', 'link'); ?>'><?php echo T_("File Name"); ?></a></th>
-        <th class="max-w200 s0 m0" data-sort="<?php echo \dash\get::index($sortLink, 'type', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'type', 'link'); ?>'><?php echo T_("Type"); ?></a></th>
-        <th class="max-w200" data-sort="<?php echo \dash\get::index($sortLink, 'size', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'size', 'link'); ?>'><?php echo T_("Size"); ?></a></th>
-        <th class="max-w200 s0" data-sort="<?php echo \dash\get::index($sortLink, 'date', 'order'); ?>"><a href='<?php echo \dash\get::index($sortLink, 'date', 'link'); ?>'><?php echo T_("Date"); ?></a></th>
+        <th data-sort="<?php echo a($sortLink, 'title', 'order'); ?>"><a href='<?php echo a($sortLink, 'title', 'link'); ?>'><?php echo T_("File Name"); ?></a></th>
+        <th class="max-w200 s0 m0" data-sort="<?php echo a($sortLink, 'type', 'order'); ?>"><a href='<?php echo a($sortLink, 'type', 'link'); ?>'><?php echo T_("Type"); ?></a></th>
+        <th class="max-w200" data-sort="<?php echo a($sortLink, 'size', 'order'); ?>"><a href='<?php echo a($sortLink, 'size', 'link'); ?>'><?php echo T_("Size"); ?></a></th>
+        <th class="max-w200 s0" data-sort="<?php echo a($sortLink, 'date', 'order'); ?>"><a href='<?php echo a($sortLink, 'date', 'link'); ?>'><?php echo T_("Date"); ?></a></th>
       </tr>
     </thead>
 
@@ -92,28 +92,28 @@ if(!is_array($dataTable))
           <a href="<?php echo $value['path']; ?>" target="_blank">
             <?php if(isset($value['type']) && $value['type'] === 'image') {?>
 
-            <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
+            <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a($value, 'title'); ?>">
 
             <?php }else{ ?>
 
-            <div><span>.<?php echo \dash\get::index($value, 'ext'); ?></span></div>
+            <div><span>.<?php echo a($value, 'ext'); ?></span></div>
 
             <?php } //endif ?>
 
           </a>
         </td>
         <td>
-            <div class="fileName" title="<?php echo \dash\get::index($value, 'title'); ?>"><?php echo substr(\dash\get::index($value, 'title'), 0, 70); ?></div>
+            <div class="fileName" title="<?php echo a($value, 'title'); ?>"><?php echo substr(a($value, 'title'), 0, 70); ?></div>
             <div class="f">
               <div class="c">
-                <a class="badge primary" href="<?php echo \dash\get::index($value, 'path'); ?>" target="_blank"><?php echo T_("View"); ?></a>
+                <a class="badge primary" href="<?php echo a($value, 'path'); ?>" target="_blank"><?php echo T_("View"); ?></a>
               </div>
 
             </div>
         </td>
-        <td class="s0 m0 ltr txtL collapsing"><i class="sf-file-<?php echo \dash\get::index($value, 'type'); ?>-o fs16 mR5"></i> <?php echo \dash\get::index($value, 'mime'); ?></td>
-        <td><?php echo \dash\fit::number(\dash\get::index($value, 'size')); ?></td>
-        <td class="s0 ltr txtL collapsing"><div><?php echo \dash\fit::date(\dash\get::index($value, 'datecreated')); ?></div></td>
+        <td class="s0 m0 ltr txtL collapsing"><i class="sf-file-<?php echo a($value, 'type'); ?>-o fs16 mR5"></i> <?php echo a($value, 'mime'); ?></td>
+        <td><?php echo \dash\fit::number(a($value, 'size')); ?></td>
+        <td class="s0 ltr txtL collapsing"><div><?php echo \dash\fit::date(a($value, 'datecreated')); ?></div></td>
       </tr>
       <?php }//endfor ?>
     </tbody>

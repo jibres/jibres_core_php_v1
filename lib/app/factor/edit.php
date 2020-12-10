@@ -60,7 +60,7 @@ class edit
 		// }
 		\dash\db::transaction();
 
-		$current_count = floatval(\dash\get::index($check_ok, 'count'));
+		$current_count = floatval(a($check_ok, 'count'));
 
 		switch ($_type)
 		{
@@ -277,7 +277,7 @@ class edit
 
 			\lib\db\factors\update::record($args, $load_factor['id']);
 
-			$ok = \lib\app\factor\calculate::again($load_factor['id'], ['shipping_value' => \dash\get::index($args, 'shipping')]);
+			$ok = \lib\app\factor\calculate::again($load_factor['id'], ['shipping_value' => a($args, 'shipping')]);
 
 			if($ok)
 			{

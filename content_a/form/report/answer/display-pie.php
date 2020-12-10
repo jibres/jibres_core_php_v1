@@ -10,7 +10,7 @@
 </div>
 
 
-<?php if(\dash\get::index($myData, 'data_table')) {?>
+<?php if(a($myData, 'data_table')) {?>
 
 <div class="tblBox font-14">
 	<table class="tbl1 v6 minimal">
@@ -24,9 +24,9 @@
 		<tbody>
 			<?php foreach ($myData['data_table'] as $key => $value) {?>
 				<tr>
-					<td><?php echo \dash\get::index($value, 'name') ?></td>
-					<td class="ltr txtL collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'count')) ?></td>
-					<td class="ltr txtL collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'percent')); ?></b></td>
+					<td><?php echo a($value, 'name') ?></td>
+					<td class="ltr txtL collapsing"><?php echo \dash\fit::number(a($value, 'count')) ?></td>
+					<td class="ltr txtL collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(a($value, 'percent')); ?></b></td>
 				</tr>
 			<?php } //endfor ?>
 		</tbody>

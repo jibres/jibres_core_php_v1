@@ -7,14 +7,14 @@
   <?php foreach (\dash\data::bodyLineList() as $key => $value) {?>
 
      <li>
-        <a href="<?php echo \dash\url::this(). '/'. \dash\get::index($value,'type') .'?id='. \dash\get::index($value, 'id'); ?>" class="f">
-        <input type="hidden" class="hide" name="bodyline[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
+        <a href="<?php echo \dash\url::this(). '/'. a($value,'type') .'?id='. a($value, 'id'); ?>" class="f">
+        <input type="hidden" class="hide" name="bodyline[]" value="<?php echo a($value, 'id'); ?>">
           <div class="key">
             <div class="f">
               <div data-handle class="c1 handle"><i class="sf-sort"></i></div>
-              <div class="c2"><?php echo \dash\get::index($value, 'title')?></div>
+              <div class="c2"><?php echo a($value, 'title')?></div>
               <div class="c1">
-                <?php if(\dash\get::index($value, 'publish')) {?>
+                <?php if(a($value, 'publish')) {?>
                   <i title="<?php echo T_("Published") ?>" class="sf-check fc-green"></i>
                 <?php }else{ ?>
                   <i title="<?php echo T_("Draft") ?>" class="sf-refresh fc-red"></i>

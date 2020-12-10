@@ -21,7 +21,7 @@
             <?php foreach (\dash\data::currencyList() as $key => $value) {?>
 
 
-                <option value="<?php echo $key; ?>" <?php if(\dash\data::accountingSettingSaved_currency() == $key) { echo 'selected';}elseif(\dash\data::dataRow_country() == 'IR' && $key == 'IRT' && !\dash\data::dataRow_currency()) {echo 'selected';} ?> ><?php echo \dash\get::index($value, 'name'); ?> - <?php echo \dash\get::index($value, 'symbol_native'); ?></option>
+                <option value="<?php echo $key; ?>" <?php if(\dash\data::accountingSettingSaved_currency() == $key) { echo 'selected';}elseif(\dash\data::dataRow_country() == 'IR' && $key == 'IRT' && !\dash\data::dataRow_currency()) {echo 'selected';} ?> ><?php echo a($value, 'name'); ?> - <?php echo a($value, 'symbol_native'); ?></option>
 
               <?php } //endfor ?>
           </select>

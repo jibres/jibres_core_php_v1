@@ -357,7 +357,7 @@ class add
 		$store_analytics                 = [];
 		$store_analytics['id']           = $_id;
 
-		if(\dash\get::index($_args, 'Q1'))
+		if(a($_args, 'Q1'))
 		{
 			$Q1 = $_args['Q1'];
 			$Q1 = \dash\validate::smallint($Q1, false);
@@ -367,7 +367,7 @@ class add
 			}
 		}
 
-		if(\dash\get::index($_args, 'Q2'))
+		if(a($_args, 'Q2'))
 		{
 			$Q2 = $_args['Q2'];
 			$Q2 = \dash\validate::smallint($Q2, false);
@@ -377,7 +377,7 @@ class add
 			}
 		}
 
-		if(\dash\get::index($_args, 'Q3'))
+		if(a($_args, 'Q3'))
 		{
 			$Q3 = $_args['Q3'];
 			$Q3 = \dash\validate::smallint($Q3, false);
@@ -397,7 +397,7 @@ class add
 		$store_timeline = [];
 		$store_timeline['store_id'] = $_id;
 
-		if(\dash\get::index($_args, 'st1'))
+		if(a($_args, 'st1'))
 		{
 			$st1 = $_args['st1'];
 			$st1 = \dash\validate::bigint($st1, false);
@@ -412,7 +412,7 @@ class add
 		}
 
 
-		if(\dash\get::index($_args, 'st2'))
+		if(a($_args, 'st2'))
 		{
 			$st2 = $_args['st2'];
 			$st2 = \dash\validate::bigint($st2, false);
@@ -427,7 +427,7 @@ class add
 		}
 
 
-		if(\dash\get::index($_args, 'st3'))
+		if(a($_args, 'st3'))
 		{
 			$st3 = $_args['st3'];
 			$st3 = \dash\validate::bigint($st3, false);
@@ -441,7 +441,7 @@ class add
 			}
 		}
 
-		if(\dash\get::index($_args, 'st4'))
+		if(a($_args, 'st4'))
 		{
 			$st4 = $_args['st4'];
 			$st4 = \dash\validate::bigint($st4, false);

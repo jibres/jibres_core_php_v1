@@ -5,7 +5,7 @@
       <div class="msg info"><?php echo \dash\data::dataRow_content(); ?></div>
       <?php if(\dash\data::answerList()) {?>
         <?php foreach (\dash\data::answerList() as $key => $value) {?>
-          <div class="msg"><?php echo \dash\get::index($value, 'content'); ?></div>
+          <div class="msg"><?php echo a($value, 'content'); ?></div>
         <?php } //endfor ?>
       <?php } //endif ?>
 

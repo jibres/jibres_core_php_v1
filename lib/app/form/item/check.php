@@ -46,22 +46,22 @@ class check
 			$setting = $_current_detail['setting'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'placeholder'))
+		if(a($_current_detail, 'type_detail', 'placeholder'))
 		{
 			$setting[$data['type']]['placeholder'] = $data['placeholder'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'maxlen2'))
+		if(a($_current_detail, 'type_detail', 'maxlen2'))
 		{
 			$setting[$data['type']]['maxlen2'] = $data['maxlen2'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'min'))
+		if(a($_current_detail, 'type_detail', 'min'))
 		{
 			$setting[$data['type']]['min'] = $data['min'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'max'))
+		if(a($_current_detail, 'type_detail', 'max'))
 		{
 			$setting[$data['type']]['max'] = $data['max'];
 		}
@@ -81,49 +81,49 @@ class check
 		}
 
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'choiceinline'))
+		if(a($_current_detail, 'type_detail', 'choiceinline'))
 		{
 			$setting[$data['type']]['choiceinline'] = $data['choiceinline'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'random'))
+		if(a($_current_detail, 'type_detail', 'random'))
 		{
 			$setting[$data['type']]['random'] = $data['random'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'check_unique'))
+		if(a($_current_detail, 'type_detail', 'check_unique'))
 		{
 			$setting[$data['type']]['check_unique'] = $data['check_unique'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'color'))
+		if(a($_current_detail, 'type_detail', 'color'))
 		{
 			$setting[$data['type']]['color'] = $data['color'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'send_sms'))
+		if(a($_current_detail, 'type_detail', 'send_sms'))
 		{
 			$setting[$data['type']]['send_sms'] = $data['send_sms'];
 			$setting[$data['type']]['sms_text'] = $data['sms_text'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'link'))
+		if(a($_current_detail, 'type_detail', 'link'))
 		{
 			$setting[$data['type']]['link']        = $data['link'];
 			$setting[$data['type']]['targetblank'] = $data['targetblank'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'signup'))
+		if(a($_current_detail, 'type_detail', 'signup'))
 		{
 			$setting[$data['type']]['signup'] = $data['signup'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'defaultvalue'))
+		if(a($_current_detail, 'type_detail', 'defaultvalue'))
 		{
 			$setting[$data['type']]['defaultvalue'] = $data['defaultvalue'];
 		}
 
-		if(\dash\get::index($_current_detail, 'type_detail', 'filetype'))
+		if(a($_current_detail, 'type_detail', 'filetype'))
 		{
 			$filetype = \dash\upload\extentions::get_all_allow_ext();
 			$filetype = array_keys($filetype);
@@ -146,7 +146,7 @@ class check
 
 
 		$choice = null;
-		if(\dash\get::index($_current_detail, 'type_detail', 'choice'))
+		if(a($_current_detail, 'type_detail', 'choice'))
 		{
 			$choice = [];
 			if($data['choice'])

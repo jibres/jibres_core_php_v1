@@ -15,7 +15,7 @@ $storeData = \dash\data::store_store_data();
             <div class="c12 mB5">
               <label for="instagram"><?php echo T_("Instagram"); ?></label>
               <div class="input ltr">
-                <input type="text" name="instagram" id="instagram" maxlength="50" value="<?php echo \dash\get::index($storeData, 'instagram'); ?>">
+                <input type="text" name="instagram" id="instagram" maxlength="50" value="<?php echo a($storeData, 'instagram'); ?>">
               </div>
             </div>
             <div class="c12 mB5">
@@ -29,7 +29,7 @@ $storeData = \dash\data::store_store_data();
                 <div class="c-xs-12 c-sm-6">
                   <label for="telegram"><?php echo T_("Telegram Admin user"); ?></label>
                   <div class="input ltr">
-                    <input type="text" name="telegram" id="telegram" maxlength="50" value="<?php echo \dash\get::index($storeData, 'telegram'); ?>">
+                    <input type="text" name="telegram" id="telegram" maxlength="50" value="<?php echo a($storeData, 'telegram'); ?>">
                   </div>
                 </div>
               </div>
@@ -37,56 +37,56 @@ $storeData = \dash\data::store_store_data();
             <div class="c12 mB5">
               <label for="youtube"><?php echo T_("Youtube"); ?></label>
               <div class="input ltr">
-                <input type="text" name="youtube" id="youtube" maxlength="50" value="<?php echo \dash\get::index($storeData, 'youtube'); ?>">
+                <input type="text" name="youtube" id="youtube" maxlength="50" value="<?php echo a($storeData, 'youtube'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="twitter"><?php echo T_("Twitter"); ?></label>
               <div class="input ltr">
-                <input type="text" name="twitter" id="twitter" maxlength="50" value="<?php echo \dash\get::index($storeData, 'twitter'); ?>">
+                <input type="text" name="twitter" id="twitter" maxlength="50" value="<?php echo a($storeData, 'twitter'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="linkedin"><?php echo T_("Linkedin"); ?></label>
               <div class="input ltr">
-                <input type="text" name="linkedin" id="linkedin" maxlength="50" value="<?php echo \dash\get::index($storeData, 'linkedin'); ?>">
+                <input type="text" name="linkedin" id="linkedin" maxlength="50" value="<?php echo a($storeData, 'linkedin'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="github"><?php echo T_("Github"); ?></label>
               <div class="input ltr">
-                <input type="text" name="github" id="github" maxlength="50" value="<?php echo \dash\get::index($storeData, 'github'); ?>">
+                <input type="text" name="github" id="github" maxlength="50" value="<?php echo a($storeData, 'github'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="facebook"><?php echo T_("Facebook"); ?></label>
               <div class="input ltr">
-                <input type="text" name="facebook" id="facebook" maxlength="50" value="<?php echo \dash\get::index($storeData, 'facebook'); ?>">
+                <input type="text" name="facebook" id="facebook" maxlength="50" value="<?php echo a($storeData, 'facebook'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="email"><?php echo T_("Email"); ?></label>
               <div class="input ltr">
-                <input type="text" name="email" id="email" maxlength="50" value="<?php echo \dash\get::index($storeData, 'email'); ?>">
+                <input type="text" name="email" id="email" maxlength="50" value="<?php echo a($storeData, 'email'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="aparat"><?php echo T_("Aparat"); ?></label>
               <div class="input ltr">
-                <input type="text" name="aparat" id="aparat" maxlength="50" value="<?php echo \dash\get::index($storeData, 'aparat'); ?>">
+                <input type="text" name="aparat" id="aparat" maxlength="50" value="<?php echo a($storeData, 'aparat'); ?>">
               </div>
             </div>
 
             <div class="c12 mB5">
               <label for="eitaa"><?php echo T_("Eitaa"); ?></label>
               <div class="input ltr">
-                <input type="text" name="eitaa" id="eitaa" maxlength="50" value="<?php echo \dash\get::index($storeData, 'eitaa'); ?>">
+                <input type="text" name="eitaa" id="eitaa" maxlength="50" value="<?php echo a($storeData, 'eitaa'); ?>">
               </div>
             </div>
 

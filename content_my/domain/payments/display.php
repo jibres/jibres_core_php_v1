@@ -17,19 +17,19 @@
      	      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
                     <td>
-                    <?php if(\dash\get::index($value, 'domain') && \dash\get::index($value, 'domain_id')) {?>
+                    <?php if(a($value, 'domain') && a($value, 'domain_id')) {?>
                         <div>
                             <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
-                                <code><?php echo \dash\get::index($value, 'domain') ?></code>
+                                <code><?php echo a($value, 'domain') ?></code>
                             </a>
                         </div>
                     <?php } // endif ?>
                     </td>
-                    <td><?php echo \dash\get::index($value, 'period_title'); ?></td>
-                    <td><?php if(\dash\get::index($value, 'price')) {?><?php echo \dash\fit::number(\dash\get::index($value, 'price')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
-                    <td><?php if(\dash\get::index($value, 'discount')) {?><?php echo \dash\fit::number(\dash\get::index($value, 'discount')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
-                    <td><?php if(\dash\get::index($value, 'finalprice')) {?><?php echo \dash\fit::number(\dash\get::index($value, 'finalprice')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
+                    <td><?php echo a($value, 'period_title'); ?></td>
+                    <td><?php if(a($value, 'price')) {?><?php echo \dash\fit::number(a($value, 'price')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
+                    <td><?php if(a($value, 'discount')) {?><?php echo \dash\fit::number(a($value, 'discount')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
+                    <td><?php if(a($value, 'finalprice')) {?><?php echo \dash\fit::number(a($value, 'finalprice')); ?> <small><?php echo \lib\currency::unit(); ?></small><?php }//endif ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
                 </tr>
               <?php }// endfor ?>
             </tbody>

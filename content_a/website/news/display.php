@@ -10,7 +10,7 @@
 
       <label for="title"><?php echo T_("Line title"); ?></label>
       <div class="input">
-        <input type="text" name="title" id="title" value="<?php if(!\dash\get::index(\dash\data::lineSetting(), 'title') && \dash\get::index(\dash\data::lineSetting(), 'title') !== '0'){ echo \dash\data::newsNameSuggestion(); }else{ echo \dash\get::index(\dash\data::lineSetting(), 'title'); } ?>"  maxlength="200"  >
+        <input type="text" name="title" id="title" value="<?php if(!a(\dash\data::lineSetting(), 'title') && a(\dash\data::lineSetting(), 'title') !== '0'){ echo \dash\data::newsNameSuggestion(); }else{ echo a(\dash\data::lineSetting(), 'title'); } ?>"  maxlength="200"  >
       </div>
 
 
@@ -22,7 +22,7 @@
 
           <?php foreach (\dash\data::listCategory() as $key => $value) {?>
 
-            <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(\dash\get::index(\dash\data::lineSetting(), 'news', 'cat_id') == $value['id']) { echo 'selected'; } ?> ><?php echo \dash\get::index($value, 'title'); ?></option>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(), 'news', 'cat_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'title'); ?></option>
 
           <?php } //endfor ?>
 
@@ -33,8 +33,8 @@
         <label for='template'><?php echo T_("Template view"); ?></label>
         <select name="template" class="select22" id="template">
           <option value="0"><?php echo T_("Default") ?></option>
-          <option value="simple" <?php if(\dash\get::index(\dash\data::lineSetting(), 'news', 'template') == 'simple') { echo 'selected'; } ?> ><?php echo T_("Simple") ?></option>
-          <option value="special" <?php if(\dash\get::index(\dash\data::lineSetting(), 'news', 'template') == 'special') { echo 'selected'; } ?> ><?php echo T_("Special") ?></option>
+          <option value="simple" <?php if(a(\dash\data::lineSetting(), 'news', 'template') == 'simple') { echo 'selected'; } ?> ><?php echo T_("Simple") ?></option>
+          <option value="special" <?php if(a(\dash\data::lineSetting(), 'news', 'template') == 'special') { echo 'selected'; } ?> ><?php echo T_("Special") ?></option>
         </select>
       </div>
 

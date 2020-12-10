@@ -126,7 +126,7 @@ class check
 			return false;
 		}
 
-		$data['year_id'] = \dash\get::index($load_doc, 'year_id');
+		$data['year_id'] = a($load_doc, 'year_id');
 
 
 

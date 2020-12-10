@@ -1,5 +1,5 @@
 <?php
-$master_domain = \dash\get::index($master, 'full');
+$master_domain = a($master, 'full');
 
     echo '<div class="box result ltr mB25-f mLR5-f">';
     echo '<div class="msg fs12 mB0';

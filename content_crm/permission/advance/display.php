@@ -52,9 +52,9 @@ if(!is_array($permissionList))
 <section class="f" data-option='setting-permission-<?php echo $myGroup; ?>'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo \dash\get::index($permissionList, $myGroup, 'title');?></h3>
+      <h3><?php echo a($permissionList, $myGroup, 'title');?></h3>
       <div class="body">
-        <p><?php echo \dash\get::index($permissionList, $myGroup, 'desc') ?></p>
+        <p><?php echo a($permissionList, $myGroup, 'desc') ?></p>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@ if(!is_array($permissionList))
       <div class="action">
         <input type="hidden" name="runaction_<?php echo $myGroup; ?>" value="1">
         <div class="switch1">
-          <input type="checkbox" name="<?php echo $myGroup; ?>" id="<?php echo $myGroup; ?>"  <?php if(\dash\get::index($savedPerm, $myGroup, 'status')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="<?php echo $myGroup; ?>" id="<?php echo $myGroup; ?>"  <?php if(a($savedPerm, $myGroup, 'status')) { echo 'checked'; } ?>>
           <label for="<?php echo $myGroup; ?>" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
         </div>
       </div>

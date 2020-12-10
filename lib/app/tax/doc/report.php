@@ -46,9 +46,9 @@ class report
 			$result = [];
 		}
 
-		$coding  = \dash\get::index($result, 'coding');
-		$normal  = \dash\get::index($result, 'normal');
-		$opening = \dash\get::index($result, 'opening');
+		$coding  = a($result, 'coding');
+		$normal  = a($result, 'normal');
+		$opening = a($result, 'opening');
 
 		$coding = array_combine(array_column($coding, 'id'), $coding);
 
@@ -247,9 +247,9 @@ class report
 			$result = [];
 		}
 
-		$coding  = \dash\get::index($result, 'coding');
-		$normal  = \dash\get::index($result, 'normal');
-		$opening = \dash\get::index($result, 'opening');
+		$coding  = a($result, 'coding');
+		$normal  = a($result, 'normal');
+		$opening = a($result, 'opening');
 
 		$coding = array_combine(array_column($coding, 'id'), $coding);
 
@@ -438,9 +438,9 @@ class report
 			$result = [];
 		}
 
-		$coding  = \dash\get::index($result, 'coding');
-		$normal  = \dash\get::index($result, 'normal');
-		$opening = \dash\get::index($result, 'opening');
+		$coding  = a($result, 'coding');
+		$normal  = a($result, 'normal');
+		$opening = a($result, 'opening');
 
 		$coding = array_combine(array_column($coding, 'id'), $coding);
 
@@ -630,9 +630,9 @@ class report
 		}
 
 
-		$normal  = \dash\get::index($result, 'normal');
-		$opening = \dash\get::index($result, 'opening');
-		$coding = \dash\get::index($result, 'coding');
+		$normal  = a($result, 'normal');
+		$opening = a($result, 'opening');
+		$coding = a($result, 'coding');
 
 		if(!is_array($normal))
 		{
@@ -810,9 +810,9 @@ class report
 		}
 
 
-		$normal  = \dash\get::index($result, 'normal');
-		$opening = \dash\get::index($result, 'opening');
-		$coding = \dash\get::index($result, 'coding');
+		$normal  = a($result, 'normal');
+		$opening = a($result, 'opening');
+		$coding = a($result, 'coding');
 
 		if(!is_array($normal))
 		{
@@ -1000,7 +1000,7 @@ class report
 				$group_id = $value['group_id'];
 				if(!isset($pretty[$group_id]))
 				{
-					$detail = ['group_id' => $group_id, 'title' => \dash\get::index($value, 'group_title')];
+					$detail = ['group_id' => $group_id, 'title' => a($value, 'group_title')];
 					$pretty[$group_id] = ['detail' => $detail, 'list' => [], 'sum' => []];
 				}
 

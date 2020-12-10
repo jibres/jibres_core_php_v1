@@ -16,14 +16,14 @@
 			<tbody>
 				<?php foreach (\dash\data::processlist() as $key => $value) {?>
 					<tr>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'Id') ?></td>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'User') ?></td>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'Host') ?></td>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'db') ?></td>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'Command') ?></td>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'Time') ?></td>
-						<td class="collapsing"><?php echo \dash\get::index($value, 'State') ?></td>
-						<td><?php echo \dash\get::index($value, 'Info') ?></td>
+						<td class="collapsing"><?php echo a($value, 'Id') ?></td>
+						<td class="collapsing"><?php echo a($value, 'User') ?></td>
+						<td class="collapsing"><?php echo a($value, 'Host') ?></td>
+						<td class="collapsing"><?php echo a($value, 'db') ?></td>
+						<td class="collapsing"><?php echo a($value, 'Command') ?></td>
+						<td class="collapsing"><?php echo a($value, 'Time') ?></td>
+						<td class="collapsing"><?php echo a($value, 'State') ?></td>
+						<td><?php echo a($value, 'Info') ?></td>
 					</tr>
 				<?php } //endfor ?>
 			</tbody>

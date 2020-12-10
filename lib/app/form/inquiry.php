@@ -6,12 +6,12 @@ class inquiry
 {
 	public static function items($_form_detail, $_items)
 	{
-		if(!\dash\get::index($_form_detail, 'inquiry'))
+		if(!a($_form_detail, 'inquiry'))
 		{
 			return false;
 		}
 
-		$question = \dash\get::index($_form_detail, 'inquirysetting', 'question');
+		$question = a($_form_detail, 'inquirysetting', 'question');
 		if(!$question || !is_array($question))
 		{
 			return false;
@@ -69,12 +69,12 @@ class inquiry
 		}
 
 
-		if(!\dash\get::index($_form_detail, 'inquiry'))
+		if(!a($_form_detail, 'inquiry'))
 		{
 			return false;
 		}
 
-		$question = \dash\get::index($_form_detail, 'inquirysetting', 'question');
+		$question = a($_form_detail, 'inquirysetting', 'question');
 
 		if(!$question || !is_array($question))
 		{

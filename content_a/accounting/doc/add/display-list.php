@@ -29,35 +29,35 @@
          </thead>
          <tbody class="sortable" data-sortable>
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
-            <tr title="<?php echo ($key + 1); ?>" <?php if(\dash\request::get('did') == \dash\get::index($value, 'id')) { echo " class='negative' ";} ?>>
+            <tr title="<?php echo ($key + 1); ?>" <?php if(\dash\request::get('did') == a($value, 'id')) { echo " class='negative' ";} ?>>
               <td class="collapsing">
              <?php if(\dash\data::dataRow_status() === 'lock') {?>
                 <span><?php echo \dash\fit::number($key + 1) ?></span>
              <?php }else{?>
                 <i data-handle class="sf-sort p0"></i>
-                <input type="hidden" class="hide" name="sort[]" value="<?php echo \dash\get::index($value, 'id'); ?>">
+                <input type="hidden" class="hide" name="sort[]" value="<?php echo a($value, 'id'); ?>">
                 <?php }// endif ?>
               </td>
               <td>
                 <div class="font-12">
-                  <a href="<?php echo \dash\url::this(). '/coding?view='. \dash\get::index($value, 'assistant_id') ?>"><code><?php echo \dash\get::index($value, 'assistant_code'); ?></code></a>
-                  <span class="compact"><?php echo \dash\get::index($value, 'assistant_title'); ?></span>
+                  <a href="<?php echo \dash\url::this(). '/coding?view='. a($value, 'assistant_id') ?>"><code><?php echo a($value, 'assistant_code'); ?></code></a>
+                  <span class="compact"><?php echo a($value, 'assistant_title'); ?></span>
                 </div>
-                <div class="font-11 pLa10"><?php echo \dash\get::index($value, 'details_title'); ?></div>
+                <div class="font-11 pLa10"><?php echo a($value, 'details_title'); ?></div>
               </td>
 
                <?php if(!\dash\data::descEmpty()) {?>
-                  <td class="collapsing"><?php echo \dash\get::index($value, 'desc') ?></td>
+                  <td class="collapsing"><?php echo a($value, 'desc') ?></td>
                <?php } //endif ?>
-              <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'debtor'), 'en') ?></code></td>
-              <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\get::index($value, 'creditor'), 'en') ?></code></td>
+              <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
+              <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
               <td class="p0 txtRa">
-                <?php if(\dash\request::get('did') == \dash\get::index($value, 'id')) {?>
+                <?php if(\dash\request::get('did') == a($value, 'id')) {?>
                   <span class="fc-mute"><i><?php echo T_("Editing") ?>...</i></span>
                 <?php }else{ ?>
-                <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. \dash\get::index($value, 'id') ?>"><?php echo T_("Edit") ?></a>
-                <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo \dash\get::index($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
+                <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a>
+                <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
               <?php } //endif ?>
               </td>
               <?php } //endif ?>
@@ -123,18 +123,18 @@
         <?php if(\dash\data::dataRow_gallery_array()) {?>
           <div class="previewList">
             <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
-                <div class="fileItem" data-removeElement data-type='<?php echo \dash\get::index($value, 'type'); ?>'>
-                  <?php if(\dash\get::index($value, 'type') === 'video') {?>
+                <div class="fileItem" data-removeElement data-type='<?php echo a($value, 'type'); ?>'>
+                  <?php if(a($value, 'type') === 'video') {?>
                     <video controls>
-                      <source src="<?php echo \dash\get::index($value, 'path'); ?>" type="<?php echo \dash\get::index($value, 'mime'); ?>">
+                      <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
                     </video>
-                  <?php }elseif(\dash\get::index($value, 'type') === 'image') {?>
-                    <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index(\dash\data::dataRow(), 'title'); ?>">
+                  <?php }elseif(a($value, 'type') === 'image') {?>
+                    <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
                   <?php } else { ?>
-                    <a target="_blank" class="btn xl" href="<?php echo \dash\get::index($value, 'path'); ?>" ><?php echo \dash\get::index($value, 'ext'); ?></a>
+                    <a target="_blank" class="btn xl" href="<?php echo a($value, 'path'); ?>" ><?php echo a($value, 'ext'); ?></a>
                   <?php } ?>
                   <div>
-                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'></div>
+                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
                   </div>
                 </div>
             <?php } //endfor ?>

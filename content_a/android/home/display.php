@@ -113,12 +113,12 @@
 
 <div class="hide">
   <div id="chart1title"><?php echo T_("Total new download application per day"); ?></div>
-  <div id="chart1category"><?php echo \dash\get::index(\dash\data::dashboardData(), 'categories'); ?></div>
+  <div id="chart1category"><?php echo a(\dash\data::dashboardData(), 'categories'); ?></div>
   <div id="charttitlecount"><?php echo T_("Count"); ?></div>
-  <div id="chart1count"><?php echo \dash\get::index(\dash\data::dashboardData(), 'count'); ?></div>
+  <div id="chart1count"><?php echo a(\dash\data::dashboardData(), 'count'); ?></div>
 
   <div id="chart2title"><?php echo T_("Total Download application per day"); ?></div>
-  <div id="chart2category"><?php echo \dash\get::index(\dash\data::dashboardData(), 'categories'); ?></div>
-  <div id="chart2countall"><?php echo \dash\get::index(\dash\data::dashboardData(), 'count_all'); ?></div>
+  <div id="chart2category"><?php echo a(\dash\data::dashboardData(), 'categories'); ?></div>
+  <div id="chart2countall"><?php echo a(\dash\data::dashboardData(), 'count_all'); ?></div>
 </div>
 

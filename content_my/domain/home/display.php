@@ -8,19 +8,19 @@
      <div class="c s12 pRa10">
       <a href="<?php echo \dash\url::this() ?>/search" class="stat">
        <h3><?php echo T_("Your Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'my_domain'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(a($myData, 'my_domain'));?></div>
       </a>
      </div>
      <div class="c s0 pRa10">
-      <a href="<?php if(!\dash\get::index($myData, 'maybe_my_domain')){ echo \dash\url::this(). '/renew'; }else{ echo \dash\url::this(). '/search?list=renew'; } ?>" class="stat">
+      <a href="<?php if(!a($myData, 'maybe_my_domain')){ echo \dash\url::this(). '/renew'; }else{ echo \dash\url::this(). '/search?list=renew'; } ?>" class="stat">
        <h3><?php echo T_("Renew Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'maybe_my_domain'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(a($myData, 'maybe_my_domain'));?></div>
       </a>
      </div>
      <div class="c s0">
-      <a href="<?php if(!\dash\get::index($myData, 'available_domain')){ echo \dash\url::this(). '/buy'; }else{ echo \dash\url::this(). '/search?list=available'; } ?>" class="stat">
+      <a href="<?php if(!a($myData, 'available_domain')){ echo \dash\url::this(). '/buy'; }else{ echo \dash\url::this(). '/search?list=available'; } ?>" class="stat">
        <h3><?php echo T_("Available domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'available_domain'));?></div>
+       <div class="val"><?php echo \dash\fit::stats(a($myData, 'available_domain'));?></div>
       </a>
      </div>
     </section>
@@ -30,28 +30,28 @@
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
        <h3><?php echo T_("Total Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
-       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'total_payment'));?></div>
+       <div class="val"><?php echo \dash\fit::number(a($myData, 'total_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10 s0">
       <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
        <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
-       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'last_year_payment'));?></div>
+       <div class="val"><?php echo \dash\fit::number(a($myData, 'last_year_payment'));?></div>
       </a>
      </div>
 
      <div class="c pRa10">
-      <a href="<?php echo \dash\url::kingdom(); ?>/account/billing?from=domain" class="stat<?php if(\dash\get::index($myData, 'user_budget')>0) echo " green"; ?>">
+      <a href="<?php echo \dash\url::kingdom(); ?>/account/billing?from=domain" class="stat<?php if(a($myData, 'user_budget')>0) echo " green"; ?>">
        <h3><?php echo T_("Your Current Balance");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
-       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'user_budget'));?></div>
+       <div class="val"><?php echo \dash\fit::number(a($myData, 'user_budget'));?></div>
       </a>
      </div>
 
      <div class="c s0">
       <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
        <h3><?php echo T_("Predict Late Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
-       <div class="val"><?php echo \dash\fit::number(\dash\get::index($myData, 'predict_late_payment'));?></div>
+       <div class="val"><?php echo \dash\fit::number(a($myData, 'predict_late_payment'));?></div>
       </a>
      </div>
     </section>
@@ -64,20 +64,20 @@
     <section class="f s0">
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent=\dash\get::index($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <?php $myPercent=a($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain with Auto Renew");?></h3>
       </a>
      </div>
      <div class="c pRa10">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent=\dash\get::index($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <?php $myPercent=a($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain Locked");?></h3>
       </a>
      </div>
 
      <div class="c">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
-       <?php $myPercent=\dash\get::index($myData, 'domain_active_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <?php $myPercent=a($myData, 'domain_active_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Active domain");?></h3>
       </a>
      </div>
@@ -102,7 +102,7 @@
         <div class="go next"></div>
        </a>
       </li>
-      <?php if(\dash\get::index($myData, 'maybe_my_domain') || \dash\get::index($myData, 'available_domain')) {?>
+      <?php if(a($myData, 'maybe_my_domain') || a($myData, 'available_domain')) {?>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/other">
         <div class="key"><?php echo T_('Other domain');?></div>
@@ -192,8 +192,8 @@
 
 <div class="hide">
   <div id="charttitle"><?php echo T_("Total pay per day"); ?></div>
-  <div id="chartcategory"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'categories'); ?></div>
-  <div id="chartprice"><?php echo \dash\get::index(\dash\data::dashboardDetail(), 'domain_pay_chart', 'price'); ?></div>
+  <div id="chartcategory"><?php echo a(\dash\data::dashboardDetail(), 'domain_pay_chart', 'categories'); ?></div>
+  <div id="chartprice"><?php echo a(\dash\data::dashboardDetail(), 'domain_pay_chart', 'price'); ?></div>
   <div id="charttitleprice"><?php echo \lib\currency::unit(); ?></div>
   <div id="charttitlepayed"><?php echo T_("Payed"); ?></div>
 

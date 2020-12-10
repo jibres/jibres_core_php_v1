@@ -19,8 +19,8 @@
             <?php foreach ($social as $key => $value) { if($key === 'email') {continue;}?>
               <div class="c6">
                 <div class="check1">
-                  <input type="checkbox" name="<?php echo $key; ?>" id="myid<?php echo $key; ?>" <?php if(\dash\get::index(\dash\data::telegramSettingSaved(), 'telegrambtn', $key)) { echo 'checked';} ?>>
-                  <label for="myid<?php echo $key; ?>"><?php echo \dash\get::index($value, 'title'); ?></label>
+                  <input type="checkbox" name="<?php echo $key; ?>" id="myid<?php echo $key; ?>" <?php if(a(\dash\data::telegramSettingSaved(), 'telegrambtn', $key)) { echo 'checked';} ?>>
+                  <label for="myid<?php echo $key; ?>"><?php echo a($value, 'title'); ?></label>
                 </div>
               </div>
             <?php } //endfor ?>

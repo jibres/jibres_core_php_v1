@@ -14,27 +14,27 @@
           <?php if($have_variant_child) {?>
             <?php foreach (\dash\data::productDataRow_child() as $key => $value) {?>
               <li>
-                <a class="item f" href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>">
+                <a class="item f" href="<?php echo \dash\url::that(); ?>?id=<?php echo a($value, 'id'); ?>">
                   <div class="key">
-                    <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-blank"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
-                    <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-blank"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
-                    <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blank"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
+                    <small class="fc-mute"><?php echo a($value, 'optionname1'); ?></small> <b class="fc-blank"><?php echo a($value, 'optionvalue1'); ?></b>
+                    <small class="fc-mute"><?php echo a($value, 'optionname2'); ?></small> <b class="fc-blank"><?php echo a($value, 'optionvalue2'); ?></b>
+                    <small class="fc-mute"><?php echo a($value, 'optionname3'); ?></small> <b class="fc-blank"><?php echo a($value, 'optionvalue3'); ?></b>
                   </div>
-                  <div class="go"><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></div>
+                  <div class="go"><?php echo \dash\fit::number(a($value, 'stock')); ?></div>
                 </a>
               </li>
             <?php } //endfor ?>
           <?php }elseif(\dash\data::productFamily()) {?>
             <?php foreach (\dash\data::productFamily() as $key => $value) {?>
               <li>
-                <a class="item f" href="<?php echo \dash\url::that(); ?>?id=<?php echo \dash\get::index($value, 'id'); ?>">
-                    <?php if(\dash\get::index($value, 'id') === \dash\request::get('id')) {?><i class="sf-edit mRa5"></i><?php } //endif ?>
+                <a class="item f" href="<?php echo \dash\url::that(); ?>?id=<?php echo a($value, 'id'); ?>">
+                    <?php if(a($value, 'id') === \dash\request::get('id')) {?><i class="sf-edit mRa5"></i><?php } //endif ?>
                   <div class="key">
-                    <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname1'); ?></small> <b class="fc-blank"><?php echo \dash\get::index($value, 'optionvalue1'); ?></b>
-                    <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname2'); ?></small> <b class="fc-blank"><?php echo \dash\get::index($value, 'optionvalue2'); ?></b>
-                    <small class="fc-mute"><?php echo \dash\get::index($value, 'optionname3'); ?></small> <b class="fc-blank"><?php echo \dash\get::index($value, 'optionvalue3'); ?></b>
+                    <small class="fc-mute"><?php echo a($value, 'optionname1'); ?></small> <b class="fc-blank"><?php echo a($value, 'optionvalue1'); ?></b>
+                    <small class="fc-mute"><?php echo a($value, 'optionname2'); ?></small> <b class="fc-blank"><?php echo a($value, 'optionvalue2'); ?></b>
+                    <small class="fc-mute"><?php echo a($value, 'optionname3'); ?></small> <b class="fc-blank"><?php echo a($value, 'optionvalue3'); ?></b>
                   </div>
-                  <div class="go"><?php echo \dash\fit::number(\dash\get::index($value, 'stock')); ?></div>
+                  <div class="go"><?php echo \dash\fit::number(a($value, 'stock')); ?></div>
                 </a>
               </li>
               <?php if(\dash\request::get('id') == $value['id']) {?><?php }else{ ?><?php } //endif ?>

@@ -38,14 +38,14 @@ class report
 			return null;
 		}
 
-		$item_id = \dash\get::index($_item, 'id');
+		$item_id = a($_item, 'id');
 
 		if(!$item_id)
 		{
 			return null;
 		}
 
-		$form_id = \dash\get::index($_item, 'form_id');
+		$form_id = a($_item, 'form_id');
 
 		if(!$form_id)
 		{
@@ -729,7 +729,7 @@ class report
 		$q2_id = $_q2['id'];
 		$q3_id = isset($_q3['id']) ? $_q3['id'] : null;
 
-		$choice1 = \dash\get::index($_q1, 'choice');
+		$choice1 = a($_q1, 'choice');
 		if(!is_array($choice1))
 		{
 			$choice1 = [];
@@ -737,7 +737,7 @@ class report
 
 		$choice1 = self::fix_choice($choice1, 4);
 
-		$choice2 = \dash\get::index($_q2, 'choice');
+		$choice2 = a($_q2, 'choice');
 		if(!is_array($choice2))
 		{
 			$choice2 = [];
@@ -745,7 +745,7 @@ class report
 
 		$choice2 = self::fix_choice($choice2, 5);
 
-		$choice3 = \dash\get::index($_q3, 'choice');
+		$choice3 = a($_q3, 'choice');
 		if(!is_array($choice3))
 		{
 			$choice3 = [];

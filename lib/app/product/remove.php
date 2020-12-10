@@ -94,17 +94,17 @@ class remove
 			$current_optionvalue3 = array_filter($current_optionvalue3);
 			$current_optionvalue3 = array_unique($current_optionvalue3);
 
-			if($_optionname === \dash\get::index($current_optionname1, 0))
+			if($_optionname === a($current_optionname1, 0))
 			{
 				$i = 1;
 				$value = $current_optionvalue1;
 			}
-			elseif($_optionname === \dash\get::index($current_optionname2, 0))
+			elseif($_optionname === a($current_optionname2, 0))
 			{
 				$i = 2;
 				$value = $current_optionvalue2;
 			}
-			elseif($_optionname === \dash\get::index($current_optionname3, 0))
+			elseif($_optionname === a($current_optionname3, 0))
 			{
 				$i = 3;
 				$value = $current_optionvalue3;

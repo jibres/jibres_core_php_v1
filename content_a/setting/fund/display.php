@@ -25,7 +25,7 @@
         <div>
           <select name="pos[]"  class="select22" data-model="tag" multiple="multiple">
             <?php foreach (\dash\data::posDataTable() as $value) {?>
-              <option value="<?php echo \dash\get::index($value, 'id'); ?>" <?php if(is_array(\dash\data::dataRow_pos()) && in_array(\dash\get::index($value, 'id'), \dash\data::dataRow_pos())){echo 'selected';} ?>><?php echo T_(ucfirst(\dash\get::index($value, 'slug'))); ?> <?php if(\dash\get::index($value, 'title')) { echo ' - '. \dash\get::index($value, 'title');} ?></option>
+              <option value="<?php echo a($value, 'id'); ?>" <?php if(is_array(\dash\data::dataRow_pos()) && in_array(a($value, 'id'), \dash\data::dataRow_pos())){echo 'selected';} ?>><?php echo T_(ucfirst(a($value, 'slug'))); ?> <?php if(a($value, 'title')) { echo ' - '. a($value, 'title');} ?></option>
             <?php } //endfor //endif  ?>
           </select>
         </div>
@@ -66,18 +66,18 @@
         <tbody>
           <?php foreach (\dash\data::dataTable() as $key => $value) {?>
             <tr>
-              <td><a class="link" href="<?php echo \dash\url::that(). '?id='. \dash\get::index($value, 'id'); ?>"><?php echo \dash\get::index($value, 'title'); ?></a></td>
-              <td><?php echo \dash\get::index($value, 'desc'); ?></td>
+              <td><a class="link" href="<?php echo \dash\url::that(). '?id='. a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></a></td>
+              <td><?php echo a($value, 'desc'); ?></td>
               <td>
               <?php
-                if(\dash\get::Index($value, 'pos') && is_array(\dash\get::Index($value, 'pos')))
+                if(a($value, 'pos') && is_array(a($value, 'pos')))
                 {
                   $pos = \dash\data::posDataTable();
-                  foreach (\dash\get::Index($value, 'pos') as $key => $value)
+                  foreach (a($value, 'pos') as $key => $value)
                   {
                     if(array_key_exists($value, $pos))
                     {
-                      echo '<div class="btn mA5">'. T_(ucfirst(\dash\get::index($pos, $value, 'slug'))). (\dash\get::index($pos, $value, 'title') ? ' - '. \dash\get::index($pos, $value, 'title'): null).'</div>';
+                      echo '<div class="btn mA5">'. T_(ucfirst(a($pos, $value, 'slug'))). (a($pos, $value, 'title') ? ' - '. a($pos, $value, 'title'): null).'</div>';
                     }
                   }
                 } //endif

@@ -78,34 +78,34 @@ else
   <tbody>
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
   <tr>
-    <td><a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo \dash\get::index($value, 'id'); ?>&table=check" class="btn"><?php echo \dash\get::index($value, 'id'); ?></a></td>
+    <td><a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo a($value, 'id'); ?>&table=check" class="btn"><?php echo a($value, 'id'); ?></a></td>
 
-    <td><?php echo \dash\get::index($value, 'requestDate'); ?></td>
-    <td><?php echo \dash\get::index($value, 'description'); ?></td>
-    <td><?php echo \dash\get::index($value, 'requestType'); ?></td>
-    <td><?php echo \dash\get::index($value, 'merchant'); ?></td>
-    <td><?php echo \dash\get::index($value, 'relatedMerchants'); ?></td>
-    <td><?php echo \dash\get::index($value, 'requestRejectionReasons'); ?></td>
-    <td><?php echo \dash\get::index($value, 'requestDetails'); ?></td>
-    <td><?php echo \dash\get::index($value, 'status'); ?></td>
+    <td><?php echo a($value, 'requestDate'); ?></td>
+    <td><?php echo a($value, 'description'); ?></td>
+    <td><?php echo a($value, 'requestType'); ?></td>
+    <td><?php echo a($value, 'merchant'); ?></td>
+    <td><?php echo a($value, 'relatedMerchants'); ?></td>
+    <td><?php echo a($value, 'requestRejectionReasons'); ?></td>
+    <td><?php echo a($value, 'requestDetails'); ?></td>
+    <td><?php echo a($value, 'status'); ?></td>
 
-    <td><?php echo \dash\get::index($value, 'trackingNumber'); ?></td>
-    <td><?php echo \dash\get::index($value, 'trackingNumberPsp'); ?></td>
-    <td><?php echo \dash\get::index($value, 'requestRejectionReasons'); ?></td>
-    <td><?php echo \dash\get::index($value, 'success'); ?></td>
+    <td><?php echo a($value, 'trackingNumber'); ?></td>
+    <td><?php echo a($value, 'trackingNumberPsp'); ?></td>
+    <td><?php echo a($value, 'requestRejectionReasons'); ?></td>
+    <td><?php echo a($value, 'success'); ?></td>
     <td>
-      <div><?php echo \dash\get::index($value, 'datecreated'); ?></div>
-      <div><?php echo \dash\get::index($value, 'datemodified'); ?></div>
+      <div><?php echo a($value, 'datecreated'); ?></div>
+      <div><?php echo a($value, 'datemodified'); ?></div>
     </td>
 
-    <td><?php if(\dash\get::index($value, 'send')) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></td>
-    <td><?php if(\dash\get::index($value, 'response')) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></td>
-    <td><?php echo \dash\get::index($value, 'url'); ?></td>
+    <td><?php if(a($value, 'send')) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></td>
+    <td><?php if(a($value, 'response')) {?><i class="sf-check fc-green"></i> <?php }else{ ?> <i class="sf-times fc-red"></i> <?php } //endif ?></td>
+    <td><?php echo a($value, 'url'); ?></td>
     <td>
-      <div><?php echo \dash\get::index($value, 'sendtime'); ?></div>
-      <div><?php echo \dash\get::index($value, 'responsetime'); ?></div>
+      <div><?php echo a($value, 'sendtime'); ?></div>
+      <div><?php echo a($value, 'responsetime'); ?></div>
     </td>
-    <td><?php echo \dash\get::index($value, 'diff'); ?></td>
+    <td><?php echo a($value, 'diff'); ?></td>
   </tr>
 
 <?php } //endif ?>

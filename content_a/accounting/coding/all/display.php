@@ -6,33 +6,33 @@
     <div class="c">
       <a href="<?php echo \dash\url::current(); ?>" class="stat <?php if(!\dash\request::get('type')) { echo 'active';} ?>">
         <h3><?php echo T_("All");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'all'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'all'));?></div>
       </a>
     </div>
 
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=group'; ?>" class="stat <?php if(\dash\request::get('type') === 'group') { echo 'active';} ?>">
         <h3><?php echo T_("Group");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'group'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'group'));?></div>
       </a>
     </div>
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=total'; ?>" class="stat <?php if(\dash\request::get('type') === 'total') { echo 'active';} ?>">
         <h3><?php echo T_("Accounting total");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'total'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'total'));?></div>
       </a>
     </div>
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=assistant'; ?>" class="stat <?php if(\dash\request::get('type') === 'assistant') { echo 'active';} ?>">
         <h3><?php echo T_("Accounting assistant");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'assistant'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'assistant'));?></div>
       </a>
     </div>
 
     <div class="c">
       <a href="<?php echo \dash\url::current(). '?type=details'; ?>" class="stat <?php if(\dash\request::get('type') === 'details') { echo 'active';} ?>">
         <h3><?php echo T_("Accounting details");?></h3>
-        <div class="val"><?php echo \dash\fit::stats(\dash\get::index($myData, 'details'));?></div>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'details'));?></div>
       </a>
     </div>
   </section>
@@ -111,10 +111,10 @@
         <tr>
 
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(\dash\get::index($value, 'code')) ?></span></td>
-          <td class="collapsing"><?php echo \dash\get::index($value, 'title') ?></td>
-          <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'naturegroup'))); ?></td>
-          <td class="collapsing"><?php echo T_(ucfirst(\dash\get::index($value, 'balancetype'))); ?></td>
+          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
+          <td class="collapsing"><?php echo a($value, 'title') ?></td>
+          <td class="collapsing"><?php echo T_(ucfirst(a($value, 'naturegroup'))); ?></td>
+          <td class="collapsing"><?php echo T_(ucfirst(a($value, 'balancetype'))); ?></td>
           <td class="fs08">
               <div class="ibtn mT5"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
                       <div class="ibtn mT5"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
@@ -122,7 +122,7 @@
                       <div class="ibtn mT5"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
                       <div class="ibtn mT5"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
           </td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. \dash\get::index($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

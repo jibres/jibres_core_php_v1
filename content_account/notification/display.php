@@ -9,7 +9,7 @@ if(\dash\data::dataTable())
     ?>
 
     <li class="multiLine">
-      <div class="f item" <?php if(\dash\permission::supervisor()){echo 'title="'. \dash\get::index($value, 'caller'). '"';}?>>
+      <div class="f item" <?php if(\dash\permission::supervisor()){echo 'title="'. a($value, 'caller'). '"';}?>>
 
         <?php if(!isset($value['readdate'])) {?><i class="sf-new-sign"><?php echo T_("New"); ?></i><?php }?>
 

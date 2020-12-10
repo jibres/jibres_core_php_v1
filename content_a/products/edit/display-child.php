@@ -13,20 +13,20 @@
 
       <div class="input">
         <label for="optionvalue1"><?php echo \dash\data::productDataRow_optionname1(); ?></label>
-        <input type="text" name="optionvalue1" id="optionvalue1"  value="<?php echo \dash\get::index($productDataRow,'optionvalue1'); ?>" maxlength='200' <?php \dash\layout\autofocus::html() ?> >
+        <input type="text" name="optionvalue1" id="optionvalue1"  value="<?php echo a($productDataRow,'optionvalue1'); ?>" maxlength='200' <?php \dash\layout\autofocus::html() ?> >
       </div>
 
       <?php if(\dash\data::productDataRow_optionname2()) {?>
       <div class="input">
         <label for="optionvalue2"><?php echo \dash\data::productDataRow_optionname2(); ?></label>
-        <input type="text" name="optionvalue2" id="optionvalue2"  value="<?php echo \dash\get::index($productDataRow,'optionvalue2'); ?>" maxlength='200'>
+        <input type="text" name="optionvalue2" id="optionvalue2"  value="<?php echo a($productDataRow,'optionvalue2'); ?>" maxlength='200'>
       </div>
     <?php } //endif ?>
 
     <?php if(\dash\data::productDataRow_optionname3()) {?>
       <div class="input">
         <label for="optionvalue3"><?php echo \dash\data::productDataRow_optionname3(); ?></label>
-        <input type="text" name="optionvalue3" id="optionvalue3"  value="<?php echo \dash\get::index($productDataRow,'optionvalue3'); ?>" maxlength='200'>
+        <input type="text" name="optionvalue3" id="optionvalue3"  value="<?php echo a($productDataRow,'optionvalue3'); ?>" maxlength='200'>
       </div>
     <?php } //endif ?>
 

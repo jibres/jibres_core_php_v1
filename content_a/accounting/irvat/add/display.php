@@ -157,7 +157,7 @@
               <select class="select22" name="assistant_id">
                 <option value=""><?php echo T_("Please choose assistant_id") ?></option>
                 <?php foreach (\dash\data::assistantList() as $key => $value) {?>
-                  <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
+                  <option value="<?php echo a($value, 'id') ?>"><?php echo a($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             <?php } // endif ?>
@@ -167,7 +167,7 @@
               <select class="select22" name="assistant_id">
                 <option value=""><?php echo T_("Please choose assistant_id") ?></option>
                 <?php foreach (\dash\data::assistantList() as $key => $value) {?>
-                  <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'full_title'); ?></option>
+                  <option value="<?php echo a($value, 'id') ?>"><?php echo a($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             <?php } // endif ?>
@@ -191,22 +191,22 @@
               </div>
 
 
-              <?php if(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user')) {?>
+              <?php if(a(\dash\data::dataRow(), 'customer_detail', 'user')) {?>
                 <nav class="items long mT10">
                <ul>
                 <li>
-                    <a class="f" href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'id') ?>">
+                    <a class="f" href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. a(\dash\data::dataRow(), 'customer_detail', 'user', 'id') ?>">
                       <div class="key">
-                        <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'avatar'); ?>" class="avatar">
+                        <img src="<?php echo a(\dash\data::dataRow(), 'customer_detail', 'user', 'avatar'); ?>" class="avatar">
                       </div>
                     <div class="go">
-                      <?php echo \dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'displayname'); ?>
+                      <?php echo a(\dash\data::dataRow(), 'customer_detail', 'user', 'displayname'); ?>
                     </div>
                   </a>
                 </li>
                 </ul>
               </nav>
-                <?php \dash\data::dataRowLegal(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'legal_detail')); \dash\data::dataRowLegalUserID(\dash\get::index(\dash\data::dataRow(), 'customer_detail', 'user', 'id')); ?>
+                <?php \dash\data::dataRowLegal(a(\dash\data::dataRow(), 'customer_detail', 'legal_detail')); \dash\data::dataRowLegalUserID(a(\dash\data::dataRow(), 'customer_detail', 'user', 'id')); ?>
 
               <?php } //endif ?>
             <?php } // endif ?>
@@ -221,22 +221,22 @@
                 <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5 pLR10"></i></div>
               </div>
 
-              <?php if(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user')) {?>
+              <?php if(a(\dash\data::dataRow(), 'seller_detail', 'user')) {?>
               <nav class="items long mT10">
                <ul>
                 <li>
-                    <a class="f" href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'id') ?>">
+                    <a class="f" href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. a(\dash\data::dataRow(), 'seller_detail', 'user', 'id') ?>">
                       <div class="key">
-                        <img src="<?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
+                        <img src="<?php echo a(\dash\data::dataRow(), 'seller_detail', 'user', 'avatar'); ?>" class="avatar">
                       </div>
                     <div class="go">
-                      <?php echo \dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'displayname'); ?>
+                      <?php echo a(\dash\data::dataRow(), 'seller_detail', 'user', 'displayname'); ?>
                     </div>
                   </a>
                 </li>
                 </ul>
               </nav>
-                <?php \dash\data::dataRowLegal(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'legal_detail')); \dash\data::dataRowLegalUserID(\dash\get::index(\dash\data::dataRow(), 'seller_detail', 'user', 'id')); ?>
+                <?php \dash\data::dataRowLegal(a(\dash\data::dataRow(), 'seller_detail', 'legal_detail')); \dash\data::dataRowLegalUserID(a(\dash\data::dataRow(), 'seller_detail', 'user', 'id')); ?>
 
 
               <?php } //endif ?>
@@ -275,7 +275,7 @@
              </nav>
             <?php } //endif ?>
 
-            <?php if(\dash\get::index(\dash\data::dataRow(), 'seller') || \dash\get::index(\dash\data::dataRow(), 'customer')) {?>
+            <?php if(a(\dash\data::dataRow(), 'seller') || a(\dash\data::dataRow(), 'customer')) {?>
               <dir class="btn link" data-kerkere='.editLegalInformation'><?php echo T_("Edit legal information") ?></dir>
             <div class="editLegalInformation" data-kerkere-content='hide'>
               <input type="hidden" name="legal_user" value="<?php echo \dash\data::dataRowLegalUserID(); ?>">
@@ -404,16 +404,16 @@
                 <div class="f">
 
                   <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
-                    <?php if(\dash\get::index($value, 'path')){ ?>
+                    <?php if(a($value, 'path')){ ?>
                     <div class="cauto pA5 pB10">
-                        <?php if(in_array(substr(\dash\get::index($value, 'path'), -3), ['jpg', 'png'])) {?>
+                        <?php if(in_array(substr(a($value, 'path'), -3), ['jpg', 'png'])) {?>
                       <div class="w150">
-                        <img src="<?php echo \dash\get::index($value, 'path'); ?>" alt="<?php echo \dash\get::index($value, 'id'); ?>">
+                        <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a($value, 'id'); ?>">
                       </div>
                       <?php }else{ ?>
-                        <a class="link btn" target="_blank" href="<?php echo \dash\get::index($value, 'path'); ?>"><?php echo substr(\dash\get::index($value, 'path'), -3) ?></a>
+                        <a class="link btn" target="_blank" href="<?php echo a($value, 'path'); ?>"><?php echo substr(a($value, 'path'), -3) ?></a>
                         <?php } // endif ?>
-                          <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo \dash\get::index($value, 'id'); ?>"}'><i class="sf-times fc-green"></i></a>
+                          <a data-ajaxify data-method='post' data-refresh data-autoScroll2=".jboxGallery" data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'><i class="sf-times fc-green"></i></a>
                     </div>
                   <?php } //endif ?>
                   <?php } //endfor ?>

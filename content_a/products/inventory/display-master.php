@@ -17,7 +17,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
          <div>
         <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
         <div class="input">
-          <input type="text" name="sku" id="sku" value="<?php echo \dash\get::index($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
+          <input type="text" name="sku" id="sku" value="<?php echo a($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
         </div>
       </div>
 
@@ -50,13 +50,13 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
               <div class="c s12 pRa10">
                 <label for='minstock'><?php echo T_("Min stock"); ?></label>
                 <div class="input">
-                  <input type="text" name="minstock" id="minstock" data-format='number' value="<?php echo \dash\get::index($productDataRow,'minstock'); ?>" maxlength="7">
+                  <input type="text" name="minstock" id="minstock" data-format='number' value="<?php echo a($productDataRow,'minstock'); ?>" maxlength="7">
                 </div>
               </div>
               <div class="c s12">
                 <label for='maxstock'><?php echo T_("Max stock"); ?></label>
                 <div class="input">
-                  <input type="text" name="maxstock" id="maxstock" data-format='number' value="<?php echo \dash\get::index($productDataRow,'maxstock'); ?>" maxlength="11">
+                  <input type="text" name="maxstock" id="maxstock" data-format='number' value="<?php echo a($productDataRow,'maxstock'); ?>" maxlength="11">
                 </div>
               </div>
             </div>

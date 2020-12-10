@@ -51,7 +51,7 @@ class search
 
 		foreach ($list_tree as $key => $value)
 		{
-			if(!\dash\get::index($value, 'parent1') && !\dash\get::index($value, 'parent2') && !\dash\get::index($value, 'parent3'))
+			if(!a($value, 'parent1') && !a($value, 'parent2') && !a($value, 'parent3'))
 			{
 				if(!isset($group[$value['id']]))
 				{
@@ -59,7 +59,7 @@ class search
 				}
 			}
 
-			if(\dash\get::index($value, 'parent1') && !\dash\get::index($value, 'parent2') && !\dash\get::index($value, 'parent3'))
+			if(a($value, 'parent1') && !a($value, 'parent2') && !a($value, 'parent3'))
 			{
 				if(!isset($total[$value['parent1']. '_'. $value['id']]))
 				{
@@ -67,7 +67,7 @@ class search
 				}
 			}
 
-			if(\dash\get::index($value, 'parent1') && \dash\get::index($value, 'parent2') && !\dash\get::index($value, 'parent3'))
+			if(a($value, 'parent1') && a($value, 'parent2') && !a($value, 'parent3'))
 			{
 				if(!isset($assistant[$value['parent1']. '_'. $value['parent2']. '_'. $value['id']]))
 				{
@@ -75,7 +75,7 @@ class search
 				}
 			}
 
-			if(\dash\get::index($value, 'parent1') && \dash\get::index($value, 'parent2') && \dash\get::index($value, 'parent3'))
+			if(a($value, 'parent1') && a($value, 'parent2') && a($value, 'parent3'))
 			{
 				if(!isset($details[$value['parent1']. '_'. $value['parent2']. '_'. $value['parent3']. '_'. $value['id']]))
 				{
@@ -100,25 +100,25 @@ class search
 		{
 			$load = \lib\app\tax\coding\get::get($view_id);
 
-			if(\dash\get::index($load, 'parent1') && \dash\get::index($load, 'parent2') && \dash\get::index($load, 'parent3'))
+			if(a($load, 'parent1') && a($load, 'parent2') && a($load, 'parent3'))
 			{
 				$view_id_detail['group']     = $load['parent1'];
 				$view_id_detail['total']     = $load['parent2'];
 				$view_id_detail['assistant'] = $load['parent3'];
 				$view_id_detail['details']   = $load['id'];
 			}
-			elseif(\dash\get::index($load, 'parent1') && \dash\get::index($load, 'parent2') && !\dash\get::index($load, 'parent3'))
+			elseif(a($load, 'parent1') && a($load, 'parent2') && !a($load, 'parent3'))
 			{
 				$view_id_detail['group']     = $load['parent1'];
 				$view_id_detail['total']     = $load['parent2'];
 				$view_id_detail['assistant'] = $load['id'];
 			}
-			elseif(\dash\get::index($load, 'parent1') && !\dash\get::index($load, 'parent2') && !\dash\get::index($load, 'parent3'))
+			elseif(a($load, 'parent1') && !a($load, 'parent2') && !a($load, 'parent3'))
 			{
 				$view_id_detail['group']     = $load['parent1'];
 				$view_id_detail['total']     = $load['id'];
 			}
-			elseif(!\dash\get::index($load, 'parent1') && !\dash\get::index($load, 'parent2') && !\dash\get::index($load, 'parent3'))
+			elseif(!a($load, 'parent1') && !a($load, 'parent2') && !a($load, 'parent3'))
 			{
 				$view_id_detail['group']     = $load['id'];
 			}
@@ -211,7 +211,7 @@ class search
 		{
 			if(isset($view_id_detail['group']))
 			{
-				if(intval($_data['id']) === intval($view_id_detail['group']) && \dash\get::index($view_id_detail, 'type') === $type)
+				if(intval($_data['id']) === intval($view_id_detail['group']) && a($view_id_detail, 'type') === $type)
 				{
 					$jsTree['selected'] = true;
 					$jsTree['opened'] = true;
@@ -228,7 +228,7 @@ class search
 					$jsTree["opened"] = true;
 				}
 
-				if(intval($_data['id']) === intval($view_id_detail['total'])  && \dash\get::index($view_id_detail, 'type') === $type)
+				if(intval($_data['id']) === intval($view_id_detail['total'])  && a($view_id_detail, 'type') === $type)
 				{
 					$jsTree['selected'] = true;
 					$jsTree['opened'] = true;
@@ -250,7 +250,7 @@ class search
 					$jsTree["opened"] = true;
 				}
 
-				if(intval($_data['id']) === intval($view_id_detail['assistant']) && \dash\get::index($view_id_detail, 'type') === $type)
+				if(intval($_data['id']) === intval($view_id_detail['assistant']) && a($view_id_detail, 'type') === $type)
 				{
 					$jsTree['selected'] = true;
 					$jsTree['opened'] = true;
@@ -449,24 +449,24 @@ class search
 		foreach ($list as $key => $value)
 		{
 			$sort_key = '';
-			if(\dash\get::index($value, 'parent1'))
+			if(a($value, 'parent1'))
 			{
-				$sort_key .= \dash\get::index($value, 'parent1'). '_';
+				$sort_key .= a($value, 'parent1'). '_';
 			}
 
-			if(\dash\get::index($value, 'parent2'))
+			if(a($value, 'parent2'))
 			{
-				$sort_key .= \dash\get::index($value, 'parent2'). '_';
+				$sort_key .= a($value, 'parent2'). '_';
 			}
 
-			if(\dash\get::index($value, 'parent3'))
+			if(a($value, 'parent3'))
 			{
-				$sort_key .= \dash\get::index($value, 'parent3'). '_';
+				$sort_key .= a($value, 'parent3'). '_';
 			}
 
-			if(\dash\get::index($value, 'id'))
+			if(a($value, 'id'))
 			{
-				$sort_key .= \dash\get::index($value, 'id');
+				$sort_key .= a($value, 'id');
 			}
 
 

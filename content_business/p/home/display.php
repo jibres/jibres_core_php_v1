@@ -7,7 +7,7 @@
               <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
             </a>
           </div>
-<?php $myGallery = \dash\get::index(\dash\data::dataRow(), 'gallery_array');
+<?php $myGallery = a(\dash\data::dataRow(), 'gallery_array');
 if(!is_array($myGallery))
 {
   $myGallery = [];
@@ -92,7 +92,7 @@ if(count($myGallery) > 1)
                <?php /* --------------- vARIANT CHILD --------------- */
             $child = \dash\data::dataRow_child();
             if($child && is_array($child)){}else{$child = [];}
-            $count_child = 0;foreach ($child as $key => $value) {if(\dash\get::index($value, 'parent')) {$count_child++;}}
+            $count_child = 0;foreach ($child as $key => $value) {if(a($value, 'parent')) {$count_child++;}}
             if($child && $count_child > 1)
             {
                 echo '<div>';
@@ -101,22 +101,22 @@ if(count($myGallery) > 1)
               foreach ($child as $key => $value)
               {
 
-                if(!\dash\get::index($value, 'parent'))
+                if(!a($value, 'parent'))
                 {
-                  echo '<option value="'. \dash\get::index($value, 'url').'" >';
-                  echo '<span>'. \dash\get::index($value, 'title').'</span></option>';
+                  echo '<option value="'. a($value, 'url').'" >';
+                  echo '<span>'. a($value, 'title').'</span></option>';
                 }
                 else
                 {
-                  echo '<option value="'. \dash\get::index($value, 'url').'" ';
-                  if(\dash\data::dataRow_id() == \dash\get::index($value, 'id'))
+                  echo '<option value="'. a($value, 'url').'" ';
+                  if(\dash\data::dataRow_id() == a($value, 'id'))
                   {
                     echo ' selected ';
                   }
                   echo '>';
-                  if(\dash\get::index($value, 'optionname1')){echo  ' '. \dash\get::index($value, 'optionname1'). " ". \dash\get::index($value, 'optionvalue1'); }
-                  if(\dash\get::index($value, 'optionname2')){echo  ' '. \dash\get::index($value, 'optionname2'). " ". \dash\get::index($value, 'optionvalue2'); }
-                  if(\dash\get::index($value, 'optionname3')){echo  ' '. \dash\get::index($value, 'optionname3'). " ". \dash\get::index($value, 'optionvalue3'); }
+                  if(a($value, 'optionname1')){echo  ' '. a($value, 'optionname1'). " ". a($value, 'optionvalue1'); }
+                  if(a($value, 'optionname2')){echo  ' '. a($value, 'optionname2'). " ". a($value, 'optionvalue2'); }
+                  if(a($value, 'optionname3')){echo  ' '. a($value, 'optionname3'). " ". a($value, 'optionvalue3'); }
                   echo '</option>';
                 }
 
@@ -129,7 +129,7 @@ if(count($myGallery) > 1)
 
 
               <div>
-                <?php if(\dash\get::index(\dash\data::dataRow(), 'allow_shop')) {?>
+                <?php if(a(\dash\data::dataRow(), 'allow_shop')) {?>
 
                   <?php if(\dash\data::productInCart()) {?><div data-option='product-update-cart'><?php } //endif ?>
 
@@ -137,19 +137,19 @@ if(count($myGallery) > 1)
 
                     <input type="hidden" name="product_id" value="<?php echo \dash\data::dataRow_id() ?>">
                     <div class="productQty">
-                        <?php if(\dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_list')) {?>
+                        <?php if(a(\dash\data::dataRow(), 'cart_limit', 'sale_step_list')) {?>
                       <select class="select22" name="count" data-model="productItem">
                         <?php if(\dash\data::productInCart()) { ?>
-                          <?php if(!in_array(\dash\data::productInCartCount(), \dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_list'))) {?>
+                          <?php if(!in_array(\dash\data::productInCartCount(), a(\dash\data::dataRow(), 'cart_limit', 'sale_step_list'))) {?>
                             <option value="<?php echo \dash\data::productInCartCount() ?>" selected><?php echo \dash\fit::number(\dash\data::productInCartCount()); ?></option>
                           <?php } //endif ?>
                           <option value="0" <?php if(\dash\data::productInCartCount() == '0') {echo 'selected';} ?>><?php echo T_("Remove"); ?></option>
                         <?php } //endif ?>
-                          <?php foreach (\dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_list') as $item_count) {?>
+                          <?php foreach (a(\dash\data::dataRow(), 'cart_limit', 'sale_step_list') as $item_count) {?>
                             <option value="<?php echo $item_count ?>" <?php if(\dash\data::productInCartCount() == $item_count) {echo 'selected';} ?>><?php echo \dash\fit::number($item_count); ?></option>
                         <?php } //endfor ?>
                       </select>
-                        <?php }elseif(\dash\get::index(\dash\data::dataRow(), 'cart_limit', 'sale_step_input')){ ?>
+                        <?php }elseif(a(\dash\data::dataRow(), 'cart_limit', 'sale_step_input')){ ?>
                           <div class="input">
                             <input type="text" name="count" value="<?php echo \dash\data::productInCartCount() ?>" placeholder="<?php echo T_("Qty") ?>" minlength="0" maxlength="4" data-format='pirce'>
                           </div>
@@ -167,7 +167,7 @@ if(count($myGallery) > 1)
                   </form>
                   <?php if(\dash\data::productInCart()) {?></div><?php } //data-option div ?>
                   <?php }else{ // can not shop?>
-                      <div class="txtB mTB10"><?php echo \dash\get::index(\dash\data::dataRow(), 'shop_message'); ?></div>
+                      <div class="txtB mTB10"><?php echo a(\dash\data::dataRow(), 'shop_message'); ?></div>
                   <?php } //endif ?>
               </div>
 
@@ -177,8 +177,8 @@ if(count($myGallery) > 1)
               <ul class="featureBullets">
                 <?php foreach (\dash\data::propertyList() as $property => $property_detail) {?>
                   <?php foreach ($property_detail['list'] as $cat) {?>
-                    <?php if(\dash\get::index($cat, 'outstanding')) {?>
-                <li><span><?php echo \dash\get::index($cat, 'key') ?></span> <span class="txtB"><?php echo \dash\get::index($cat, 'value'); ?></span></li>
+                    <?php if(a($cat, 'outstanding')) {?>
+                <li><span><?php echo a($cat, 'key') ?></span> <span class="txtB"><?php echo a($cat, 'value'); ?></span></li>
                     <?php } //endif ?>
                   <?php } // endfor ?>
                 <?php } // endfor ?>
@@ -238,14 +238,14 @@ if(count($myGallery) > 1)
       <tr>
         <th><?php echo $value['key']; ?></th>
         <td>
-          <?php if(\dash\get::index($value, 'link')) {?>
-            <a href="<?php echo \dash\get::index($value, 'link') ?>"><?php echo $value['value']; ?></a>
+          <?php if(a($value, 'link')) {?>
+            <a href="<?php echo a($value, 'link') ?>"><?php echo $value['value']; ?></a>
           <?php }else{ ?>
-            <?php if(\dash\get::index($value, 'bold')) {?>
+            <?php if(a($value, 'bold')) {?>
               <div class="txtB">
             <?php } //endif ?>
               <?php echo $value['value']; ?>
-            <?php if(\dash\get::index($value, 'bold')) {?>
+            <?php if(a($value, 'bold')) {?>
               </div>
             <?php } //endif ?>
           <?php } //endif ?>
@@ -276,28 +276,28 @@ if(count($myGallery) > 1)
     <div class="c c-xs-12 rating">
       <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("5"); ?></span></div>
-        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_5_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_5_percent')). ' '. T_("%"); ?></span></div>
+        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_5_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_5_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("4"); ?></span></div>
-        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_4_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_4_percent')). ' '. T_("%"); ?></span></div>
+        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_4_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_4_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("3"); ?></span></div>
-        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_3_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_3_percent')). ' '. T_("%"); ?></span></div>
+        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_3_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_3_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("2"); ?></span></div>
-        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_2_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_2_percent')). ' '. T_("%"); ?></span></div>
+        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_2_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_2_percent')). ' '. T_("%"); ?></span></div>
       </div>
       <div class="row">
         <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("1"); ?></span></div>
-        <div class="c"><progress value="<?php echo \dash\get::index(\dash\data::customerReview(),'star_1_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(\dash\get::index(\dash\data::customerReview(),'star_1_percent')). ' '. T_("%"); ?></span></div>
+        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_1_percent'); ?>" max="100"></progress></div>
+        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_1_percent')). ' '. T_("%"); ?></span></div>
       </div>
     </div>
   </div>
@@ -310,7 +310,7 @@ if(count($myGallery) > 1)
     <div class="msg">
       <div class="row align-center">
         <div class="c-auto c-xs-12">
-          <img class="customerImg" src="<?php echo \dash\get::index($value, 'avatar'); ?>" alt='<?php echo \dash\get::index($value, 'displayname'); ?>'>
+          <img class="customerImg" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
         </div>
         <div class="c c-xs-12">
           <div class="msg minimal row">
@@ -319,7 +319,7 @@ if(count($myGallery) > 1)
                 <i></i><i></i><i></i><i></i><i></i>
               </div>
             </div>
-            <div class="c"><?php echo \dash\get::index($value, 'displayname'); ?></div>
+            <div class="c"><?php echo a($value, 'displayname'); ?></div>
             <div class="c-auto ltr txtRa"><?php echo \dash\fit::date($value['datecreated']); ?></div>
           </div>
 

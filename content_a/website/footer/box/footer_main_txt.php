@@ -3,10 +3,10 @@
 <section class="f" data-option='website-footer-main-txt'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo \dash\get::index($box_detail, 'title');?></h3>
+      <h3><?php echo a($box_detail, 'title');?></h3>
       <div class="body">
         <p><?php
-$desc = \dash\get::index($box_detail, 'desc');
+$desc = a($box_detail, 'desc');
 if($desc)
 {
   echo $desc;

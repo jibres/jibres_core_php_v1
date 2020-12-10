@@ -22,9 +22,9 @@
             <label for="iq2"><?php echo T_("Compare with") ?></label>
             <select class="select22" name="q2">
               <option value=""><?php echo T_("Without item") ?></option>
-              <?php foreach (\dash\data::formItems() as $key => $value) { $item_id = \dash\get::index($value, 'id'); ?>
+              <?php foreach (\dash\data::formItems() as $key => $value) { $item_id = a($value, 'id'); ?>
               <?php if($item_id != \dash\request::get('q1')) {?>
-                <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'title') ?></option>
+                <option value="<?php echo a($value, 'id') ?>"><?php echo a($value, 'title') ?></option>
               <?php } //endif ?>
             <?php } //endif ?>
           </select>
@@ -45,9 +45,9 @@
           <label for="iq3"><?php echo T_("Compare with") ?></label>
           <select class="select22" name="q3">
             <option value=""><?php echo T_("Without item") ?></option>
-            <?php foreach (\dash\data::formItems() as $key => $value) { $item_id = \dash\get::index($value, 'id'); ?>
+            <?php foreach (\dash\data::formItems() as $key => $value) { $item_id = a($value, 'id'); ?>
             <?php if($item_id != \dash\request::get('q1') && $item_id != \dash\request::get('q2')) {?>
-              <option value="<?php echo \dash\get::index($value, 'id') ?>"><?php echo \dash\get::index($value, 'title') ?></option>
+              <option value="<?php echo a($value, 'id') ?>"><?php echo a($value, 'title') ?></option>
             <?php } //endif ?>
           <?php } //endif ?>
         </select>
@@ -56,18 +56,18 @@
   <?php } //endif ?>
 </div>
 <footer class="txtRa">
-  <?php if(\dash\get::index($myData, 'chart')) {?>
+  <?php if(a($myData, 'chart')) {?>
     <a class="btn outline secondary" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&q1='. \dash\request::get('q1'); ?>"><?php echo T_("Try by another item") ?></a>
   <?php }//endif ?>
   <button class="btn master"><?php echo T_("Compare") ?></button>
 </footer>
 </div>
 </form>
-<?php if(\dash\get::index($myData, 'chart')) {?>
+<?php if(a($myData, 'chart')) {?>
   <div id="chartdivcompare" class="box chart x600 notActive" data-abc='a/form_compare'></div>
 <?php } //endif ?>
 
-<?php if(\dash\get::index($myData, 'data_table')) {?>
+<?php if(a($myData, 'data_table')) {?>
   <div class="tblBox font-14">
     <table class="tbl1 v6 minimal">
       <thead class="font-10">
@@ -84,13 +84,13 @@
       <tbody>
         <?php foreach ($myData['data_table'] as $key => $value) {?>
           <tr>
-            <td><?php echo \dash\get::index($value, 'q1') ?></td>
-            <td><?php echo \dash\get::index($value, 'q2') ?></td>
+            <td><?php echo a($value, 'q1') ?></td>
+            <td><?php echo a($value, 'q2') ?></td>
             <?php if(\dash\data::itemDetailQ3_title()) {?>
-              <td><?php echo \dash\get::index($value, 'q3') ?></td>
+              <td><?php echo a($value, 'q3') ?></td>
             <?php } //endif ?>
-            <td class="ltr txtL collapsing"><?php echo \dash\fit::number(\dash\get::index($value, 'count')) ?></td>
-            <td class="ltr txtL collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(\dash\get::index($value, 'percent')); ?></b></td>
+            <td class="ltr txtL collapsing"><?php echo \dash\fit::number(a($value, 'count')) ?></td>
+            <td class="ltr txtL collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(a($value, 'percent')); ?></b></td>
           </tr>
         <?php } //endfor ?>
       </tbody>

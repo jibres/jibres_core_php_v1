@@ -27,24 +27,24 @@ class product_type2
 
 	private static function create_element_product_2($_item)
 	{
-		$id              = \dash\get::index($_item, 'id');
-		$title           = \dash\get::index($_item, 'title');
-		$image           = \dash\get::index($_item, 'thumb');
-		$imageIsDefault  = \dash\get::index($_item, 'thumb_default');
+		$id              = a($_item, 'id');
+		$title           = a($_item, 'title');
+		$image           = a($_item, 'thumb');
+		$imageIsDefault  = a($_item, 'thumb_default');
 
 
-		$price           = \dash\fit::number(\dash\get::index($_item, 'finalprice'));
-		$discount        = \dash\get::index($_item, 'discount');
-		$discountpercent = \dash\get::index($_item, 'discountpercent');
-		$compareAtPrice = \dash\get::index($_item, 'price');
+		$price           = \dash\fit::number(a($_item, 'finalprice'));
+		$discount        = a($_item, 'discount');
+		$discountpercent = a($_item, 'discountpercent');
+		$compareAtPrice = a($_item, 'price');
 		$compareAtPrice = \dash\fit::number($compareAtPrice);
 
 
-		$unit            = \dash\get::index($_item, 'unit');
-		$allow_shop      = \dash\get::index($_item, 'allow_shop');
+		$unit            = a($_item, 'unit');
+		$allow_shop      = a($_item, 'allow_shop');
 		$currency        = \lib\store::currency();
 
-		echo '<a class="jProduct2" href="'. \dash\get::index($_item, 'url'). '">';
+		echo '<a class="jProduct2" href="'. a($_item, 'url'). '">';
 		{
 			echo '<figure class="overlay"';
 			if($imageIsDefault)

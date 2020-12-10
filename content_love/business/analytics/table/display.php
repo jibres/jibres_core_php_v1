@@ -17,23 +17,23 @@
       <tbody>
         <?php foreach (\dash\data::dataTable() as $key => $value) {?>
           <tr>
-            <td><a href="<?php echo \dash\url::kingdom(). '/'.\dash\store_coding::encode(\dash\get::index($value, 'id'));?>"><code><?php echo \dash\store_coding::encode(\dash\get::index($value, 'id')); ?></code></a></td>
-            <td><div class=""><a target="_blank" href="<?php echo \dash\url::protocol(). '://'. \dash\get::index($value, 'subdomain'). '.jibres.'. \dash\url::tld(); ?>"><?php echo \dash\get::index($value, 'subdomain'); ?></a></div></td>
+            <td><a href="<?php echo \dash\url::kingdom(). '/'.\dash\store_coding::encode(a($value, 'id'));?>"><code><?php echo \dash\store_coding::encode(a($value, 'id')); ?></code></a></td>
+            <td><div class=""><a target="_blank" href="<?php echo \dash\url::protocol(). '://'. a($value, 'subdomain'). '.jibres.'. \dash\url::tld(); ?>"><?php echo a($value, 'subdomain'); ?></a></div></td>
             <td>
-              <img src="<?php echo \dash\get::index($value, 'logo'); ?>" class="avatar">
-              <?php echo \dash\get::index($value, 'title'); ?>
+              <img src="<?php echo a($value, 'logo'); ?>" class="avatar">
+              <?php echo a($value, 'title'); ?>
 
             </td>
             <td>
-              <img src="<?php echo \dash\get::index($value, 'user_detail', 'avatar'); ?>" class="avatar">
-              <?php echo \dash\get::index($value, 'user_detail', 'displayname'); ?>
+              <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
+              <?php echo a($value, 'user_detail', 'displayname'); ?>
               <br>
-              <div class="badge light"><?php echo \dash\fit::mobile(\dash\get::index($value, 'user_detail', 'mobile')); ?></div>
-              <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(\dash\get::index($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
+              <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+              <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(a($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
             </td>
 
 
-            <td class="collapsing txtB fc-blue"><?php echo \dash\fit::number_en(\dash\get::index($value, \dash\request::get('f'))); ?></td>
+            <td class="collapsing txtB fc-blue"><?php echo \dash\fit::number_en(a($value, \dash\request::get('f'))); ?></td>
 
           </tr>
 

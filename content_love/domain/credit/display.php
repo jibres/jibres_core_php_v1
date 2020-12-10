@@ -2,13 +2,13 @@
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Last amount");?></h3>
-      <div class="val"><?php echo \dash\fit::text(\dash\get::index(\dash\data::lastCredit(), 'amount'));?></div>
+      <div class="val"><?php echo \dash\fit::text(a(\dash\data::lastCredit(), 'amount'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a href="" class="stat">
       <h3><?php echo T_("Balance");?></h3>
-      <div class="val"><?php echo \dash\fit::text(\dash\get::index(\dash\data::lastCredit(), 'balance'));?></div>
+      <div class="val"><?php echo \dash\fit::text(a(\dash\data::lastCredit(), 'balance'));?></div>
     </a>
   </div>
 </section>
@@ -35,10 +35,10 @@
               <?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
 
-                    <td class="collapsing"><?php echo \dash\fit::date_time(\dash\get::index($value, 'date')); ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::text(\dash\get::index($value, 'balance')); ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::text(\dash\get::index($value, 'amount')); ?></td>
-                    <td class="txtL"><?php echo \dash\get::index($value, 'description'); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'date')); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::text(a($value, 'balance')); ?></td>
+                    <td class="collapsing"><?php echo \dash\fit::text(a($value, 'amount')); ?></td>
+                    <td class="txtL"><?php echo a($value, 'description'); ?></td>
 
                 </tr>
               <?php }// endfor ?>

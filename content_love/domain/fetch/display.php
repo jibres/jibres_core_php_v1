@@ -57,11 +57,11 @@ else
         <thead>
             <tr class="fs09">
 
-                <th data-sort="<?php echo \dash\get::index($sortLink, 'domain', 'order'); ?>" ><a href="<?php echo \dash\get::index($sortLink, 'domain', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
+                <th data-sort="<?php echo a($sortLink, 'domain', 'order'); ?>" ><a href="<?php echo a($sortLink, 'domain', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
 
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateregister', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateregister', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo \dash\get::index($sortLink, 'dateupdate', 'order'); ?>"><a href="<?php echo \dash\get::index($sortLink, 'dateupdate', 'link'); ?>"><?php echo T_("Date modified"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo a($sortLink, 'dateexpire', 'order'); ?>"><a href="<?php echo a($sortLink, 'dateexpire', 'link'); ?>"><?php echo T_("Expire date"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo a($sortLink, 'dateregister', 'order'); ?>"><a href="<?php echo a($sortLink, 'dateregister', 'link'); ?>"><?php echo T_("Create date"); ?></a></th>
+                <th class="txtL" data-sort="<?php echo a($sortLink, 'dateupdate', 'order'); ?>"><a href="<?php echo a($sortLink, 'dateupdate', 'link'); ?>"><?php echo T_("Date modified"); ?></a></th>
                 <th class="txtC"><?php echo T_("Status"); ?></th>
                 <th class="txtL"><?php echo T_("DNS"); ?></th>
             </tr>
@@ -71,17 +71,17 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
             <tr>
                <td>
-                    <a href="<?php echo \dash\url::that(); ?>/detail?id=<?php echo \dash\get::index($value, 'id'); ?>" class="link"><code><?php echo \dash\get::index($value, 'domain'); ?></code></a>
+                    <a href="<?php echo \dash\url::that(); ?>/detail?id=<?php echo a($value, 'id'); ?>" class="link"><code><?php echo a($value, 'domain'); ?></code></a>
                 </td>
 
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateregister')); ?></td>
-                <td class="collapsing txtL"><?php echo \dash\fit::date(\dash\get::index($value, 'dateupdate')); ?></td>
-                <td class="collapsing txtC"><?php echo T_(\dash\get::index($value, 'status')); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\fit::date(a($value, 'dateexpire')); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\fit::date(a($value, 'dateregister')); ?></td>
+                <td class="collapsing txtL"><?php echo \dash\fit::date(a($value, 'dateupdate')); ?></td>
+                <td class="collapsing txtC"><?php echo T_(a($value, 'status')); ?></td>
                 <td class="collapsing ltr txtL">
-                    <code><?php echo \dash\get::index($value, 'ns1'); ?></code>
+                    <code><?php echo a($value, 'ns1'); ?></code>
                     <br>
-                    <code><?php echo \dash\get::index($value, 'ns2'); ?></code>
+                    <code><?php echo a($value, 'ns2'); ?></code>
                 </td>
 
             </tr>

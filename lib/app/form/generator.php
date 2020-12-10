@@ -80,7 +80,7 @@ class generator
 
 	private static function isRequired($value, $_html = false)
 	{
-		if(\dash\get::index($value, 'require'))
+		if(a($value, 'require'))
 		{
 			if($_html)
 			{
@@ -96,16 +96,16 @@ class generator
 
 	private static function HtmlDesc($value)
 	{
-		if(\dash\get::index($value, 'desc'))
+		if(a($value, 'desc'))
 		{
-		 	echo ' <div class="fc-mute mB20 fs09">'.  \dash\get::index($value, 'desc'). '</div> ';
+		 	echo ' <div class="fc-mute mB20 fs09">'.  a($value, 'desc'). '</div> ';
 		}
 	}
 
 
 	private static function myName($value, $_return = false)
 	{
-		$myName = 'a_'. \dash\get::index($value, 'id');
+		$myName = 'a_'. a($value, 'id');
 
 		if($_return)
 		{
@@ -120,7 +120,7 @@ class generator
 
 	private static function myID($value, $_return = false)
 	{
-		$myID = 'id_answer_'. \dash\get::index($value, 'id');
+		$myID = 'id_answer_'. a($value, 'id');
 
 		if($_return)
 		{
@@ -221,7 +221,7 @@ class generator
 			}
 			else
 			{
-				echo \dash\get::index($value, 'title');
+				echo a($value, 'title');
 			}
 			self::isRequired($value, true);
 		}
@@ -235,12 +235,12 @@ class generator
 		if($_bold)
 		{
 			echo '<span class="txtB">';
-			echo \dash\get::index($value, 'title');
+			echo a($value, 'title');
 			echo '</span>';
 		}
 		else
 		{
-			echo \dash\get::index($value, 'title');
+			echo a($value, 'title');
 		}
 
 		self::isRequired($value, true);
@@ -267,7 +267,7 @@ class generator
 			}
 			else
 			{
-				echo \dash\get::index($value, 'title');
+				echo a($value, 'title');
 			}
 		}
 		echo '</label>';
@@ -414,8 +414,8 @@ class generator
 							{
 								self::div('radio3');
 								{
-									self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). $k, ' value="'. \dash\get::index($v, 'title'). '" ');
-									self::label_checkbox($value, \dash\get::index($v, 'title'), self::myID($value, true). $k);
+									self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). $k, ' value="'. a($v, 'title'). '" ');
+									self::label_checkbox($value, a($v, 'title'), self::myID($value, true). $k);
 								}
 								self::_div();
 							}
@@ -453,8 +453,8 @@ class generator
 							{
 								self::div('check1');
 								{
-									self::input_raw('checkbox', $value, self::myName($value, true). '[]', self::myID($value, true). $k, ' value="'. \dash\get::index($v, 'title'). '" ');
-									self::label_checkbox($value, \dash\get::index($v, 'title'), self::myID($value, true). $k);
+									self::input_raw('checkbox', $value, self::myName($value, true). '[]', self::myID($value, true). $k, ' value="'. a($v, 'title'). '" ');
+									self::label_checkbox($value, a($v, 'title'), self::myID($value, true). $k);
 								}
 								self::_div();
 							}
@@ -488,7 +488,7 @@ class generator
 					{
 						foreach ($value['choice'] as $k => $v)
 						{
-							echo '<option value="'. \dash\get::index($v, 'title'). '">'. \dash\get::index($v, 'title'). '</option>';
+							echo '<option value="'. a($v, 'title'). '">'. a($v, 'title'). '</option>';
 						}
 					}
 				}

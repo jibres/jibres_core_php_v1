@@ -472,14 +472,14 @@ class variants
 			return false;
 		}
 
-		if(!\dash\get::index($product_detail, 'variant_child'))
+		if(!a($product_detail, 'variant_child'))
 		{
 			\dash\notif::error(T_("This product have not child!"));
 			return false;
 		}
 
 
-		$child = \dash\get::index($product_detail, 'child');
+		$child = a($product_detail, 'child');
 		if(!is_array($child))
 		{
 			$child = [];
@@ -598,14 +598,14 @@ class variants
 			return false;
 		}
 
-		if(!\dash\get::index($product_detail, 'variant_child'))
+		if(!a($product_detail, 'variant_child'))
 		{
 			\dash\notif::error(T_("This product have not child!"));
 			return false;
 		}
 
 
-		$child = \dash\get::index($product_detail, 'child');
+		$child = a($product_detail, 'child');
 		if(!is_array($child))
 		{
 			$child = [];

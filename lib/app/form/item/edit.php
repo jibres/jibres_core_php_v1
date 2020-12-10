@@ -89,7 +89,7 @@ class edit
 
 		foreach ($args as $key => $value)
 		{
-			if(\dash\validate::is_equal(\dash\get::index($load, $key), $value))
+			if(\dash\validate::is_equal(a($load, $key), $value))
 			{
 				unset($args[$key]);
 			}

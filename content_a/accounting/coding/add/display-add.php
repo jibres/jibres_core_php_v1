@@ -28,7 +28,7 @@
               <select class="select22" name="parent" <?php if(\dash\request::get('parent')) {echo 'disabled';} ?>>
                 <option value=""><?php echo T_("Please choose parent") ?></option>
                 <?php foreach (\dash\data::parentList() as $key => $value) {?>
-                  <option value="<?php echo \dash\get::index($value, 'id') ?>" <?php if(\dash\get::index($value, 'id') === \dash\request::get('parent')) { echo 'selected';} ?>><?php echo \dash\get::index($value, 'full_title'); ?></option>
+                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($value, 'id') === \dash\request::get('parent')) { echo 'selected';} ?>><?php echo a($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             <?php } // endif ?>
@@ -162,8 +162,8 @@
               <div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
             </div>
           <?php } //endif ?>
-          <?php if(\dash\get::index(\dash\data::loadDetail(), 'add_child_link')) {?>
-            <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo \dash\get::index(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
+          <?php if(a(\dash\data::loadDetail(), 'add_child_link')) {?>
+            <div class="cauto"><a class="btn secondary outline" href="<?php echo a(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo a(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
           <?php } //endif ?>
           <div class="c"></div>
           <div class="cauto">

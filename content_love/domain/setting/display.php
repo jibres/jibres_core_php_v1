@@ -308,11 +308,11 @@ else
         </thead>
         <tbody>
           <?php foreach (\dash\data::NICdomainStatus() as $key => $value) {?>
-            <tr <?php if(\dash\get::index($value, 'active')) {echo 'class="positive"';}else{echo 'class="negative"';} ?>>
-              <td><?php if(\dash\get::index($value, 'active')) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } ?></td>
-              <td><?php echo \dash\get::index($value, 'status'); ?></td>
-              <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datecreated')); ?></td>
-              <td><?php echo \dash\fit::date_time(\dash\get::index($value, 'datemodified')); ?></td>
+            <tr <?php if(a($value, 'active')) {echo 'class="positive"';}else{echo 'class="negative"';} ?>>
+              <td><?php if(a($value, 'active')) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } ?></td>
+              <td><?php echo a($value, 'status'); ?></td>
+              <td><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
+              <td><?php echo \dash\fit::date_time(a($value, 'datemodified')); ?></td>
             </tr>
           <?php } // endfor ?>
 

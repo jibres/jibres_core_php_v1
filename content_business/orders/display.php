@@ -28,18 +28,18 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
         <tr>
-          <th class="collapsing"><a href="<?php echo \dash\url::this(). '/view?id='. \dash\get::index($value, 'id_code'); ?>"><code class="btn link"><?php echo \dash\get::index($value, 'id_code') ?></code></a></th>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?itemequal=<?php echo \dash\get::index($value, 'item'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'item')); ?></a></td>
-          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo \dash\get::index($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'qty')); ?></a></td>
+          <th class="collapsing"><a href="<?php echo \dash\url::this(). '/view?id='. a($value, 'id_code'); ?>"><code class="btn link"><?php echo a($value, 'id_code') ?></code></a></th>
+          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?itemequal=<?php echo a($value, 'item'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'item')); ?></a></td>
+          <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo a($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'qty')); ?></a></td>
 
-          <td ><a href="<?php echo \dash\url::this(); ?>?subtotal=<?php echo \dash\get::index($value, 'subtotal'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(\dash\get::index($value, 'subtotal')); ?></a></td>
+          <td ><a href="<?php echo \dash\url::this(); ?>?subtotal=<?php echo a($value, 'subtotal'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'subtotal')); ?></a></td>
           <td class="collapsing">
             <div class="f">
-              <div class="c fs09"><?php echo \dash\fit::date_time(\dash\get::index($value, 'date')); ?>
-              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(\dash\get::index($value, 'date')); ?></div>
+              <div class="c fs09"><?php echo \dash\fit::date_time(a($value, 'date')); ?>
+              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(a($value, 'date')); ?></div>
             </div>
           </td>
-          <td><?php echo T_(\dash\get::index($value, 'status')); ?></td>
+          <td><?php echo T_(a($value, 'status')); ?></td>
         </tr>
       <?php } //endfor ?>
     </tbody>
