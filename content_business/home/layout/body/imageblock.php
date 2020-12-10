@@ -8,6 +8,7 @@ if(isset($line_detail['value']['imageblock']) && is_array($line_detail['value'][
 if($imageblock)
 {
 	$myItemClass = 'c';
+	$myPadSize = '';
 	switch (count($imageblock))
 	{
 		case 1:
@@ -22,7 +23,8 @@ if($imageblock)
 			break;
 
 		case 6:
-			$myItemClass = 'c-xs-12 c-sm-4';
+			$myItemClass = 'c-xs-6 c-sm-4';
+			$myPadSize = ' padMore';
 			break;
 
 		default:
@@ -32,15 +34,34 @@ if($imageblock)
 
 
 <div class="avand imgLine">
-  <div class="row">
-  	<?php $count = count($imageblock); ?>
-	<?php foreach ($imageblock as $key => $value) {?>
-    	<div class="<?php echo $myItemClass; ?>">
-			 <a<?php if(\dash\get::index($value, 'url')) { echo ' href="'.  \dash\get::index($value, 'url'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
-				<img src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'image')); ?>" alt="<?php echo \dash\get::index($value, 'alt'); ?>">
-			</a>
-		</div>
-	<?php } //endif ?>
+  <div class="row<?php echo $myPadSize; ?>">
+<?php foreach ($imageblock as $key => $value)
+{
+	echo '<div class="'. $myItemClass. '">';
+	{
+		echo '<a';
+		if(\dash\get::index($value, 'target'))
+		{
+			echo ' target="_blank"';
+		}
+		if(\dash\get::index($value, 'url'))
+		{
+			echo ' href="'.  \dash\get::index($value, 'url'). '"';
+		}
+		echo '>';
+		{
+			echo '<img src="'. \lib\filepath::fix(\dash\get::index($value, 'image')). '"';
+
+			echo 'alt="'. \dash\get::index($value, 'alt'). '"';
+			echo '>';
+
+		}
+		echo '</a> ';
+	}
+	echo '</div> ';
+
+	?>
+<?php } //endfor ?>
   </div>
 </div>
 <?php } //endif ?>
