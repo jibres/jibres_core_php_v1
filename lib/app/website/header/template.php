@@ -74,8 +74,8 @@ class template
 
 
 		$list             = [];
-		$list['header_100'] = self::header_100();
-		$list['header_300'] = self::header_300();
+		$list['header_100'] = \lib\app\website\header\template\header_100::get();
+		$list['header_300'] = \lib\app\website\header\template\header_300::get();
 
 
 		if($data['tag'])
@@ -97,77 +97,5 @@ class template
 
 		return $list;
 	}
-
-
-	private static function header_100()
-	{
-		$myHeader =
-		[
-			'key'          => 'header_100',
-			'title'        => T_("Header #1"),
-			'desc'         => T_("A modern and beautiful header"),
-			'sample_image' => \dash\url::cdn(). '/img/template/header/header100.jpg',
-			'version'      => 3,
-			'tag'          =>
-			[
-				'store'  => T_('#Shop_mode'),
-				'modern' => T_('#modern'),
-				'cart'   => T_('#cart_manager'),
-				'search' => T_('#search_button'),
-				'login'  => T_('#login_link'),
-				'logo'   => T_('#logo'),
-			],
-			'contain'      =>
-			[
-				'header_logo' =>
-				[
-				],
-
-				'header_menu_1' =>
-				[
-					"title" => T_("Header Primary Menu"),
-				],
-
-				'header_menu_2' =>
-				[
-					"title" => T_("Header Secondary Menu"),
-					"desc"  => T_("This menu is shown on left side of header menu bar.")
-				],
-			],
-		];
-
-		return $myHeader;
-	}
-
-
-	private static function header_300()
-	{
-		$myHeader =
-		[
-			'key'          => 'header_300',
-			'title'        => T_("Header #2"),
-			'desc'         => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
-			'sample_image' => \dash\url::cdn(). '/img/template/header/header300.jpg',
-			'version'      => 2,
-			'tag'          =>
-			[
-				'news'   => T_('#news'),
-				'modern' => T_('#modern'),
-				'menu'   => T_('#menu'),
-			],
-			'contain'      =>
-			[
-				'header_menu_1' =>
-				[
-					"title" => T_("Header Primary Menu"),
-				],
-			],
-
-		];
-
-		return $myHeader;
-	}
-
-
 }
 ?>
