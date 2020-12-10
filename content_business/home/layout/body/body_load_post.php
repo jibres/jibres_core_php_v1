@@ -22,33 +22,29 @@ else
 <?php
 function loadPostTemplate()
 {
+  $datarow = \dash\data::datarow();
+
+  $meta = \dash\data::datarow_meta();
+
 ?>
 
 
 <article>
   <section>
 
-  <?php
-  $meta = \dash\data::datarow_meta();
-  if(isset($meta['thumb']))
-  {
-  ?>
 
   <a href="<?php echo \dash\data::datarow_link(); ?>" class="thumb">
-      <img src="<?php echo $meta['thumb']; ?>" alt="<?php echo \dash\data::datarow_title(); ?>">
+      <img src="<?php echo \dash\data::datarow_thumb(); ?>" alt="<?php echo \dash\data::datarow_title(); ?>">
   </a>
 
-  <?php
-  }  // endif
-  ?>
 
   <div><?php echo \dash\data::datarow_content(); ?></div>
 
   <?php
-  if(isset($meta['gallery']['files']) && is_array($meta['gallery']['files']))
+  if(isset($datarow['gallery_array']) && is_array($datarow['gallery_array']))
   {
     echo '<div class="gallery" id="lightgallery">';
-    foreach ($meta['gallery']['files'] as $key => $myUrl)
+    foreach ($datarow['gallery_array'] as $key => $myUrl)
     {
       if(isset($myUrl['path']))
       {
@@ -62,7 +58,7 @@ function loadPostTemplate()
     echo '</div>';
 
     echo '<div class="gallery2">';
-    foreach ($meta['gallery']['files'] as $key => $myUrl)
+    foreach ($datarow['gallery_array'] as $key => $myUrl)
     {
       if(isset($myUrl['path']))
       {
@@ -107,7 +103,7 @@ function loadPostTemplate()
     <div class="msg"><?php //require_once ('shareBox.php');?></div>
 
     <?php
-      $myPostSimilar = \dash\app\posts::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
+      $myPostSimilar = []; // \dash\app\posts::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
       if($myPostSimilar)
       {
         echo '<nav class="msg">';
