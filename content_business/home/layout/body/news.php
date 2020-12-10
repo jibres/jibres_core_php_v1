@@ -13,7 +13,7 @@ if(isset($line_detail['news']['cat_id']) && $line_detail['news']['cat_id'] && is
   $cat_id = intval($line_detail['news']['cat_id']);
 }
 
-$postList = \dash\app\posts::get_post_list(['limit' => 5, 'cat_id' => $cat_id]);
+$postList = \dash\app\posts\get::get_post_list(['limit' => 5, 'cat_id' => $cat_id]);
 
 if($postList && is_array($postList))
 {
