@@ -5,7 +5,7 @@
 
         <p class="msg"><?php echo T_("You can differentiate your product in terms of three features"); ?></p>
 
-        <div class="row">
+        <div class="row msg minimal">
           <div class="c-xs-12 c-sm-12 c-md-4">
             <label><?php echo T_("Property #1"); ?></label>
             <div class="input">
@@ -26,7 +26,7 @@
 
         </div>
 
-        <div class="row">
+        <div class="row msg minimal">
           <div class="c-xs-12 c-sm-12 c-md-4">
             <label><?php echo T_("Property #2"); ?></label>
             <div class="input">
@@ -47,7 +47,7 @@
 
         </div>
 
-        <div class="row">
+        <div class="row msg minimal">
           <div class="c-xs-12 c-sm-12 c-md-4">
             <label><?php echo T_("Property #3"); ?></label>
             <div class="input">
