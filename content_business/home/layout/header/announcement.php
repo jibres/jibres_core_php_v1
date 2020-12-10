@@ -22,6 +22,4 @@ if(\dash\get::index($header, 'topline', 'status') && \dash\get::index($header, '
 
 	echo '</div>';
 }
-
-
 ?>
