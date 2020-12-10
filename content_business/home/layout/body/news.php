@@ -29,14 +29,14 @@ if($postList && is_array($postList))
 
 <article>
   <header>
-    <h2><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo \dash\get::index($post, 'title'); ?></a></h2>
+    <h2><a href="<?php echo a($post, 'link'); ?>"><?php echo a($post, 'title'); ?></a></h2>
     <div class="meta txtRa">
-      <time datetime="<?php echo \dash\get::index($post, 'publishdate'); ?>"><?php echo \dash\fit::date_human(\dash\get::index($post, 'publishdate')); ?></time>
+      <time datetime="<?php echo a($post, 'publishdate'); ?>"><?php echo \dash\fit::date_human(a($post, 'publishdate')); ?></time>
     </div>
   </header>
   <section>
-    <p><?php echo \dash\get::index($post, 'excerpt'); ?></p>
-    <div class="more"><a href="<?php echo \dash\get::index($post, 'link'); ?>"><?php echo T_("Keep Reading"); ?> <span class="sf-angle-double-left"></span></a></div>
+    <p><?php echo a($post, 'excerpt'); ?></p>
+    <div class="more"><a href="<?php echo a($post, 'link'); ?>"><?php echo T_("Keep Reading"); ?> <span class="sf-angle-double-left"></span></a></div>
   </section>
 </article>
 
@@ -51,10 +51,10 @@ if($postList && is_array($postList))
 
 <div class="avand-md">
   <?php foreach ($postList as $key => $value) {?>
-      <a class="overlay"<?php if(\dash\get::index($value, 'link')) { echo ' href="'.  \dash\get::index($value, 'link'). '"'; if(\dash\get::index($value, 'target')) { echo ' target="_blank"'; }} ?>>
+      <a class="overlay"<?php if(a($value, 'link')) { echo ' href="'.  a($value, 'link'). '"'; if(a($value, 'target')) { echo ' target="_blank"'; }} ?>>
         <figure>
-          <img src="<?php echo \lib\filepath::fix(\dash\get::index($value, 'meta','thumb')); ?>" alt="<?php echo \dash\get::index($value, 'title'); ?>">
-          <figcaption><h2><?php echo \dash\get::index($value, 'title'); ?></h2></figcaption>
+          <img src="<?php echo \lib\filepath::fix(a($value, 'meta','thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
+          <figcaption><h2><?php echo a($value, 'title'); ?></h2></figcaption>
         </figure>
       </a>
   <?php } //endfor ?>

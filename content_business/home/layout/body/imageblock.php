@@ -40,18 +40,18 @@ if($imageblock)
 	echo '<div class="'. $myItemClass. '">';
 	{
 		echo '<a';
-		if(\dash\get::index($value, 'target'))
+		if(a($value, 'target'))
 		{
 			echo ' target="_blank"';
 		}
-		if(\dash\get::index($value, 'url'))
+		if(a($value, 'url'))
 		{
-			echo ' href="'. \dash\get::index($value, 'url'). '"';
+			echo ' href="'. a($value, 'url'). '"';
 		}
 		echo '>';
 		{
-			echo '<img src="'. \lib\filepath::fix(\dash\get::index($value, 'image')). '"';
-			echo 'alt="'. \dash\get::index($value, 'alt'). '"';
+			echo '<img src="'. \lib\filepath::fix(a($value, 'image')). '"';
+			echo 'alt="'. a($value, 'alt'). '"';
 			echo '>';
 		}
 		echo '</a> ';
