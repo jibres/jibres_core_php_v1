@@ -14,11 +14,11 @@ class edit
 
 		if(!$id)
 		{
-			\dash\notif::error(T_("Can not access to edit posta"), 'posta');
+			\dash\notif::error(T_("Post id not set"));
 			return false;
 		}
 
-		$load_posts = \dash\db\posts::get(['id' => $id, 'limit' => 1]);
+		$load_posts = \dash\db\posts\get::by_id($id);
 
 		if(!isset($load_posts['id']))
 		{
@@ -76,22 +76,10 @@ class edit
 			$args['excerpt'] = substr($args['excerpt'], 0, 299);
 		}
 
-		if(in_array($args['type'], ['post', 'help', 'mag']))
+		if(in_array($args['type'], ['post', 'help']))
 		{
-			if($args['type'] === 'help')
-			{
-				if(\dash\permission::check('cpTagHelpAdd'))
-				{
-					\dash\app\posts\terms::set_post_term($id, 'help_tag', 'posts', $tag);
-				}
-			}
-			else
-			{
-				if(\dash\permission::check('cpTagAdd'))
-				{
-					\dash\app\posts\terms::set_post_term($id, 'tag', 'posts', $tag);
-				}
-			}
+
+			\dash\app\posts\terms::set_post_term($id, 'tag', 'posts', $tag);
 
 			$post_url = \dash\app\posts\terms::set_post_term($id, 'cat', 'posts', $cat);
 
@@ -108,18 +96,31 @@ class edit
 			}
 		}
 
-		$_args['meta'] = 'need - meta :/ ';
+		if(isset($_args['redirecturl']))
+		{
+			$_args['meta'] = 'need - meta :/ ';
+		}
+
+		if(isset($_args['creator']) && $_args['creator'])
+		{
+			$_args['user_id'] = 'need - user_id :/ ';
+		}
 
 		if($args['slug'])
 		{
 			$_args['url'] = 'need - url :/ ';
 		}
 
+		if($args['status'])
+		{
+			$_args['publishdate'] = 'need - url :/ ';
+		}
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
 		{
-			\dash\log::set('editPost', ['code' => $id, 'datalink' => \dash\coding::encode($id)]);
+			\dash\log::set('editPost', ['code' => $id]);
 
 			\dash\db\posts::update($args, $id);
 

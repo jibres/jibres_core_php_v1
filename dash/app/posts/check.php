@@ -27,10 +27,7 @@ class check
 			'redirecturl' => 'url',
 			'creator'     => 'code',
 			'tag'         => 'tag',
-
-
 		];
-
 
 		$require = ['title'];
 

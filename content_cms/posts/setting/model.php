@@ -5,26 +5,6 @@ class model
 {
 	public static function post()
 	{
-		$posts = self::getPost();
-
-		if(!$posts || !\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		$post_detail = \dash\app\posts\edit::edit($posts, \dash\request::get('id'));
-
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::pwd();
-		}
-	}
-
-
-
-
-	public static function getPost()
-	{
 		$post = [];
 
 		if(\dash\request::post('runaction_theme'))
@@ -58,9 +38,17 @@ class model
 			$post['icon'] = \dash\request::post('icon');
 		}
 
+		if(!$post || !\dash\engine\process::status())
+		{
+			return false;
+		}
 
-		return $post;
+		$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'));
 
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
 	}
 }
 ?>

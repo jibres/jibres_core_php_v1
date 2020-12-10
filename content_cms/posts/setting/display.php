@@ -13,7 +13,7 @@ $isPost = ($type === 'post');
     <div class="data">
       <h3><?php echo T_("Theme");?></h3>
       <div class="body">
-        <p><?php echo T_("You can change your post theme");?></p>
+        <p><?php echo T_("Templates are used to distinguish between posts. You can use it to categorize content on the site");?></p>
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@ $isPost = ($type === 'post');
     <div class="data">
       <h3><?php echo T_("Redirect");?></h3>
       <div class="body">
-        <p><?php echo T_("Reirect post to new address");?></p>
+        <p><?php echo T_("If you want your post to be moved to a new page after opening, enter the URL of the new page here");?></p>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@ $isPost = ($type === 'post');
       <div class="action">
         <input type="hidden" name="runaction_redirect" value="1">
         <div class="input">
-          <input type="url" name="redirect" data-format='url'  id="redirect" value="<?php echo \dash\get::index(\dash\data::dataRow_meta(), 'redirect'); ?>">
+          <input type="url" name="redirecturl"  id="redirect" value="<?php echo \dash\get::index(\dash\data::dataRow_meta(), 'redirect'); ?>">
           <button class="addon btn master"><?php echo T_("Save") ?></button>
         </div>
       </div>
@@ -80,14 +80,12 @@ $isPost = ($type === 'post');
 <?php } // endif ?>
 
 
-
-
 <section class="f" data-option='cms-post-publishdate'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Publish date");?></h3>
       <div class="body">
-        <p><?php echo T_("You can set the publishdate of this post");?></p>
+        <p><?php echo T_("By default, the publish time is saved when you set post status publish, and you can manually change the publication date in this section.");?></p>
       </div>
     </div>
   </div>
@@ -95,9 +93,18 @@ $isPost = ($type === 'post');
 
       <div class="action">
         <input type="hidden" name="runaction_publishdate" value="1">
-        <div class="input">
-          <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\data::dataRow_publishdate(); ?>" id="publishdate" >
-          <button class="addon btn master"><?php echo T_("Save") ?></button>
+        <div class="f">
+          <div class="c s12">
+              <div class="input">
+                <input type="text" name="publishtime" data-format='time' value="<?php echo date("H:i", strtotime(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
+              </div>
+          </div>
+          <div class="c s12">
+            <div class="input">
+                <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
+                <button class="addon btn master"><?php echo T_("Save") ?></button>
+              </div>
+          </div>
         </div>
       </div>
 
@@ -109,7 +116,13 @@ $isPost = ($type === 'post');
     <div class="data">
       <h3><?php echo T_("Change post writer"); ?></h3>
       <div class="body">
-        <p><?php echo T_("You can change the post writer");?></p>
+        <p><?php echo T_("You can change the author of the post manually");?></p>
+        <?php if(\dash\data::postWriterOld()) {?>
+          <div class="mB10"><?php echo T_("Post writed by") ?></div>
+          <div class="mB10 txtB"><?php echo \dash\data::postWriterOld_displayname(); ?></div>
+          <div><?php echo \dash\fit::mobile(\dash\data::postWriterOld_mobile()); ?></div>
+
+        <?php } //endif ?>
       </div>
     </div>
   </div>
@@ -117,10 +130,10 @@ $isPost = ($type === 'post');
       <div class="action">
         <input type="hidden" name="runaction_postwriter" value="1">
         <select name="creator" class="select22">
-          <?php \dash\data::postAdder([]); ?>
-          <?php foreach (\dash\data::postAdder() as $key => $value) {?>
+          <option value="0"><?php echo T_("Change post writer") ?></option>
+          <?php foreach (\dash\data::postWriter() as $key => $value) {?>
             <option <?php if(\dash\data::dataRow_user_id() == $value['id']) { echo 'selected';}  ?> value="<?php echo $value['id']; ?>">
-              <?php echo \dash\get::index($value, 'displayname'); ?> - <?php echo \dash\get::index($value, 'mobile'); ?>
+              <?php echo \dash\get::index($value, 'displayname'); ?> - <?php echo \dash\fit::text(\dash\get::index($value, 'mobile')); ?>
             </option>
           <?php } //endfor ?>
         </select>

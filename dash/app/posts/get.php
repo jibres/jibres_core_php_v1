@@ -4,6 +4,18 @@ namespace dash\app\posts;
 
 class get
 {
+	public static function post_writer_list()
+	{
+		$list = \dash\app\posts\check::get_user_can_write_post('post');
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		return $list;
+	}
+
 	public static function get_category_tag($_post_id, $_type, $_related = 'posts')
 	{
 		$_post_id = \dash\validate::code($_post_id);
