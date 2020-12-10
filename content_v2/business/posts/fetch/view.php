@@ -16,7 +16,7 @@ class view
 			$args['limit'] = intval($limit);
 		}
 
-		$posts  = \dash\app\posts::get_post_list($args);
+		$posts  = \dash\app\posts\get::get_post_list$args);
 
 		if(!$posts)
 		{

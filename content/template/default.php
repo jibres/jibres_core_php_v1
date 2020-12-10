@@ -135,11 +135,11 @@ function loadTermsTemplate()
 {
   if(\dash\data::datarow_type() === 'cat')
   {
-    $myPostByThisCat = \dash\app\posts::get_post_list(['cat' => \dash\data::datarow_slug()]);
+    $myPostByThisCat = \dash\app\posts\get::get_post_list['cat' => \dash\data::datarow_slug()]);
   }
   elseif(\dash\data::datarow_type() === 'tag')
   {
-    $myPostByThisCat = \dash\app\posts::get_post_list(['tag' => \dash\data::datarow_slug()]);
+    $myPostByThisCat = \dash\app\posts\get::get_post_list['tag' => \dash\data::datarow_slug()]);
   }
 
   if($myPostByThisCat)

@@ -25,7 +25,7 @@ class view
 
 		if(\dash\data::dataRow_post_id())
 		{
-			$post_detail = \dash\app\posts::get(\dash\data::dataRow_post_id());
+			$post_detail = \dash\app\posts\get::get(\dash\data::dataRow_post_id());
 			\dash\data::dataRowPost($post_detail);
 		}
 	}

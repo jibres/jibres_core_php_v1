@@ -29,7 +29,7 @@ class view
 		{
 			$myTitle = T_('Add new page');
 			$pageList = \dash\db\posts::get(['type' => 'page', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
-			$pageList = array_map(['\dash\app\posts', 'ready'], $pageList);
+			$pageList = array_map(['\\dash\\app\\posts\\ready', 'row'], $pageList);
 			\dash\data::pageList($pageList);
 		}
 

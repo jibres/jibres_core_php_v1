@@ -126,7 +126,7 @@ class model
 			if($uploaded_file)
 			{
 				// save uploaded file
-				\dash\app\posts::post_gallery(\dash\request::get('id'), $uploaded_file, 'add');
+				\dash\app\posts\gallery::gallery(\dash\request::get('id'), $uploaded_file, 'add');
 			}
 
 			$result             = [];

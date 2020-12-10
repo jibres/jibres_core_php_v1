@@ -103,7 +103,7 @@ function loadPostTemplate()
     <div class="msg"><?php //require_once ('shareBox.php');?></div>
 
     <?php
-      $myPostSimilar = []; // \dash\app\posts::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
+      $myPostSimilar = []; // \dash\app\posts\get::get_post_list['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
       if($myPostSimilar)
       {
         echo '<nav class="msg">';
@@ -143,11 +143,11 @@ function loadTermsTemplate()
   $myPostByThisCat = null;
   if(\dash\data::datarow_type() === 'cat')
   {
-    $myPostByThisCat = \dash\app\posts::get_post_list(['cat' => \dash\data::datarow_slug()]);
+    $myPostByThisCat = \dash\app\posts\get::get_post_list['cat' => \dash\data::datarow_slug()]);
   }
   elseif(\dash\data::datarow_type() === 'tag')
   {
-    $myPostByThisCat = \dash\app\posts::get_post_list(['tag' => \dash\data::datarow_slug()]);
+    $myPostByThisCat = \dash\app\posts\get::get_post_list['tag' => \dash\data::datarow_slug()]);
   }
 
   if($myPostByThisCat)

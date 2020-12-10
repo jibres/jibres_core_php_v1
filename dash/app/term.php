@@ -57,7 +57,7 @@ class term
 		// get category
 		if(isset($args['post_id']))
 		{
-			$category = \dash\app\posts::get_category_tag($args['post_id'], $type);
+			$category = []; //\dash\app\posts\get::get_category_tag($args['post_id'], $type);
 		}
 
 		if(isset($args['id']) && $args['id'] && is_array($category))
