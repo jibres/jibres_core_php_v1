@@ -4,4 +4,5 @@
    <img src="<?php echo \dash\url::cdn(); ?>/enterprise/rafiei/header/rafiei-header-v1.png" alt="<?php echo \dash\face::site(); ?>">
   </a>
   <?php \lib\website::menu('header_menu_1'); ?>
+  <div id="headerEffect"></div>
 </div>
