@@ -26,7 +26,7 @@ class view
 			// if have permission show edit link
 			if(\dash\permission::check('cpHelpCenterEdit'))
 			{
-				\dash\face::btnSetting(\dash\url::kingdom(). '/cms/posts/edit?id='. \dash\data::datarow_id());
+				\dash\face::btnSetting(\dash\url::kingdom(). '/cms/posts/edit?id='. \dash\data::dataRow_id());
 			}
 
 		}
@@ -58,7 +58,7 @@ class view
 
 		$master = \dash\app\posts\ready::row($master);
 
-		\dash\data::datarow($master);
+		\dash\data::dataRow($master);
 
 		if(isset($master['url']))
 		{

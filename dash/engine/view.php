@@ -148,7 +148,7 @@ class view
 
 	public static function set_cms_titles()
 	{
-		if(!\dash\data::get('datarow'))
+		if(!\dash\data::get('dataRow'))
 		{
 			if(\dash\url::module() === 'blog')
 			{
@@ -157,32 +157,32 @@ class view
 		}
 
 		// set title
-		if(\dash\data::datarow_title())
+		if(\dash\data::dataRow_title())
 		{
-			\dash\face::title(\dash\data::datarow_title());
+			\dash\face::title(\dash\data::dataRow_title());
 		}
 		// set seo title
-		if(\dash\data::datarow_seotitle())
+		if(\dash\data::dataRow_seotitle())
 		{
-			\dash\face::seo(\dash\data::datarow_seotitle());
+			\dash\face::seo(\dash\data::dataRow_seotitle());
 		}
 
 		// set desc
-		if(\dash\data::datarow_excerpt())
+		if(\dash\data::dataRow_excerpt())
 		{
-			\dash\face::desc(\dash\data::datarow_excerpt());
+			\dash\face::desc(\dash\data::dataRow_excerpt());
 		}
-		elseif(\dash\data::datarow_content())
+		elseif(\dash\data::dataRow_content())
 		{
-			\dash\face::desc(\dash\utility\excerpt::extractRelevant(\dash\data::datarow_content()));
+			\dash\face::desc(\dash\utility\excerpt::extractRelevant(\dash\data::dataRow_content()));
 		}
-		elseif(\dash\data::datarow_desc())
+		elseif(\dash\data::dataRow_desc())
 		{
-			\dash\face::desc(\dash\utility\excerpt::extractRelevant(\dash\data::datarow_desc()));
+			\dash\face::desc(\dash\utility\excerpt::extractRelevant(\dash\data::dataRow_desc()));
 		}
 
 		// set page cover
-		$meta = \dash\data::datarow_meta();
+		$meta = \dash\data::dataRow_meta();
 		if(isset($meta['thumb']))
 		{
 			\dash\face::cover($meta['thumb']);

@@ -106,25 +106,25 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
    </tr>
   </thead>
   <tbody>
-  <?php foreach ($factor_detail as $key => $datarow) {?>
+  <?php foreach ($factor_detail as $key => $dataRow) {?>
 
 
   <tr>
-   <td class="txtLa productTitle"><?php if(isset($datarow['vat']) && $datarow['vat']) {echo ' * ';} echo ' '. \dash\get::index($datarow, 'title');?></td>
-   <td><?php echo \dash\fit::text(\dash\get::index($datarow, 'count')); ?> <small><?php echo \dash\get::index($datarow, 'unit'); ?></small></td>
+   <td class="txtLa productTitle"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. \dash\get::index($dataRow, 'title');?></td>
+   <td><?php echo \dash\fit::text(\dash\get::index($dataRow, 'count')); ?> <small><?php echo \dash\get::index($dataRow, 'unit'); ?></small></td>
    <td><?php
-if(isset($datarow['discount']) && $datarow['discount'])
+if(isset($dataRow['discount']) && $dataRow['discount'])
 {
-  echo '<del>'. \dash\fit::number(\dash\get::index($datarow, 'price')). '</del>';
-  echo '<br>'. \dash\fit::number(\dash\get::index($datarow, 'finalprice'));
-  // echo '<br>'. \dash\fit::number($datarow['discount']);
+  echo '<del>'. \dash\fit::number(\dash\get::index($dataRow, 'price')). '</del>';
+  echo '<br>'. \dash\fit::number(\dash\get::index($dataRow, 'finalprice'));
+  // echo '<br>'. \dash\fit::number($dataRow['discount']);
 }
 else
 {
-  echo \dash\fit::number(\dash\get::index($datarow, 'price'));
+  echo \dash\fit::number(\dash\get::index($dataRow, 'price'));
 }
 ?></td>
-   <td><?php echo \dash\fit::number(\dash\get::index($datarow, 'sum')); ?></td>
+   <td><?php echo \dash\fit::number(\dash\get::index($dataRow, 'sum')); ?></td>
   </tr>
  <?php } //endfor ?>
   </tbody>

@@ -120,10 +120,10 @@ class view
 		// 	\dash\data::editMode(true);
 
 		// 	$id = \dash\request::get('edit');
-		// 	$datarow = \dash\app\term::get($id);
-		// 	\dash\data::datarow($datarow);
+		// 	$dataRow = \dash\app\term::get($id);
+		// 	\dash\data::dataRow($dataRow);
 
-		// 	if(!$datarow)
+		// 	if(!$dataRow)
 		// 	{
 		// 		\dash\header::status(404, T_("Id not found"));
 		// 	}

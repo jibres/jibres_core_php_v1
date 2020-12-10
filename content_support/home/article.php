@@ -4,17 +4,17 @@
 
 
   <div class="cms cbox">
-      <div class="show <?php echo \dash\data::datarow_type(); ?>">
-        <h2 class="txtB txtC mB10"><a href="<?php echo \dash\url::current(); ?>"><?php echo \dash\data::datarow_title(); ?></a></h2>
+      <div class="show <?php echo \dash\data::dataRow_type(); ?>">
+        <h2 class="txtB txtC mB10"><a href="<?php echo \dash\url::current(); ?>"><?php echo \dash\data::dataRow_title(); ?></a></h2>
         <div class="ovh">
         <?php
-          $meta = \dash\data::datarow_meta();
+          $meta = \dash\data::dataRow_meta();
           if(isset($meta['thumb']))
           {
-            echo "<img src='". $meta['thumb'] ."' alt='". \dash\data::datarow_title(). "' class='wide'>";
+            echo "<img src='". $meta['thumb'] ."' alt='". \dash\data::dataRow_title(). "' class='wide'>";
           }
 
-          echo \dash\data::datarow_content();
+          echo \dash\data::dataRow_content();
 
           if(isset($meta['gallery']) && is_array($meta['gallery']))
           {
@@ -24,7 +24,7 @@
               $ends_with = substr($value, -4);
               if(in_array($ends_with, ['.jpg', '.png', '.gif']))
               {
-                echo "<a data-action href='$value'><img src='$value' alt='". \dash\data::datarow_title()."'></a>";
+                echo "<a data-action href='$value'><img src='$value' alt='". \dash\data::dataRow_title()."'></a>";
               }
             }
             echo '</div>';
@@ -80,12 +80,12 @@
 
 
 
-      <?php if(\dash\data::datarow_datemodified()) {?>
+      <?php if(\dash\data::dataRow_datemodified()) {?>
 
 
       <div class='msg simple f mT20'>
-        <div class="c"><time datetime="<?php echo \dash\data::datarow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::datarow_publishdate()); ?></time></div>
-        <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::datarow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::datarow_id(); ?></span></a></div>
+        <div class="c"><time datetime="<?php echo \dash\data::dataRow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::dataRow_publishdate()); ?></time></div>
+        <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::dataRow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::dataRow_id(); ?></span></a></div>
       </div>
 
       <?php } //endif ?>

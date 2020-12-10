@@ -1,12 +1,15 @@
 <?php
-$dataRow = \dash\data::dataRow();
-$myFirstURL = '';
+
+$type   = \dash\data::dataRow_type();
+
+$isPage = ($type === 'page');
+$isPost = ($type === 'post');
+
 ?>
 
 
 
-
-
+<?php if($isPost) {?>
 <section class="f" data-option='cms-post-status'>
   <div class="c8 s12">
     <div class="data">
@@ -30,6 +33,7 @@ $myFirstURL = '';
       </div>
   </form>
 </section>
+<?php } // endif ?>
 
 
 

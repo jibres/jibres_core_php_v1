@@ -3,7 +3,7 @@
 
 <div class="blogEx">
 <?php
-if(\dash\data::datarow_type() === 'post' || \dash\data::datarow_type() === 'page')
+if(\dash\data::dataRow_type() === 'post' || \dash\data::dataRow_type() === 'page')
 {
   loadPostTemplate();
 }
@@ -25,20 +25,20 @@ function loadPostTemplate()
   <section>
 
   <?php
-  $meta = \dash\data::datarow_meta();
+  $meta = \dash\data::dataRow_meta();
   if(isset($meta['thumb']))
   {
   ?>
 
-  <a href="<?php echo \dash\data::datarow_link(); ?>" class="thumb">
-      <img src="<?php echo $meta['thumb']; ?>" alt="<?php echo \dash\data::datarow_title(); ?>">
+  <a href="<?php echo \dash\data::dataRow_link(); ?>" class="thumb">
+      <img src="<?php echo $meta['thumb']; ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
   </a>
 
   <?php
   }  // endif
   ?>
 
-  <div><?php echo \dash\data::datarow_content(); ?></div>
+  <div><?php echo \dash\data::dataRow_content(); ?></div>
 
   <?php
   if(isset($meta['gallery']) && is_array($meta['gallery']))
@@ -49,7 +49,7 @@ function loadPostTemplate()
       $endUrl = substr($myUrl, -4);
       if(in_array($endUrl, ['.jpg', '.png', '.gif']))
       {
-        echo '<a data-action href="'. $myUrl.'"><img src="'. $myUrl. '" alt="'. \dash\data::datarow_title(). '"></a>';
+        echo '<a data-action href="'. $myUrl.'"><img src="'. $myUrl. '" alt="'. \dash\data::dataRow_title(). '"></a>';
       }
     }
     echo '</div>';
@@ -77,12 +77,12 @@ function loadPostTemplate()
 
 
   <?php
-  if(\dash\data::datarow_type() === 'post' && \dash\data::datarow_datemodified())
+  if(\dash\data::dataRow_type() === 'post' && \dash\data::dataRow_datemodified())
   {
   ?>
   <div class='msg simple f mT20'>
-    <div class="c"><time datetime="<?php echo \dash\data::datarow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::datarow_publishdate()); ?></time></div>
-    <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::datarow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::datarow_id(); ?></span></a></div>
+    <div class="c"><time datetime="<?php echo \dash\data::dataRow_datemodified(); ?>"><?php echo \dash\fit::date(\dash\data::dataRow_publishdate()); ?></time></div>
+    <div class="cauto os"><a href="<?php echo \dash\url::base(). '/n/'. \dash\data::dataRow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::dataRow_id(); ?></span></a></div>
   </div>
 
   <?php
@@ -96,14 +96,14 @@ function loadPostTemplate()
     <div class="msg"><?php require_once ('shareBox.php');?></div>
 
     <?php
-      $myPostSimilar = \dash\app\posts\get::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
+      $myPostSimilar = \dash\app\posts\get::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::dataRow_id()]);
       if($myPostSimilar)
       {
         echo '<nav class="msg">';
         echo '<h4 class="mB20-f">'. T_("Recommended for you"). '</h4>';
         foreach ($myPostSimilar as $key => $value)
         {
-          echo '<a class="block" href="'. \dash\url::kingdom().'/n/'. \dash\data::datarow_id().'">'. $value['title']. '</a>';
+          echo '<a class="block" href="'. \dash\url::kingdom().'/n/'. \dash\data::dataRow_id().'">'. $value['title']. '</a>';
         }
         echo '</nav>';
       }
@@ -111,7 +111,7 @@ function loadPostTemplate()
 
 
 <?php
-if(\dash\data::datarow_comment() === 'open')
+if(\dash\data::dataRow_comment() === 'open')
 {
   addNewComment();
 }
@@ -133,13 +133,13 @@ if(\dash\data::datarow_comment() === 'open')
 <?php
 function loadTermsTemplate()
 {
-  if(\dash\data::datarow_type() === 'cat')
+  if(\dash\data::dataRow_type() === 'cat')
   {
-    $myPostByThisCat = \dash\app\posts\get::get_post_list['cat' => \dash\data::datarow_slug()]);
+    $myPostByThisCat = \dash\app\posts\get::get_post_list['cat' => \dash\data::dataRow_slug()]);
   }
-  elseif(\dash\data::datarow_type() === 'tag')
+  elseif(\dash\data::dataRow_type() === 'tag')
   {
-    $myPostByThisCat = \dash\app\posts\get::get_post_list['tag' => \dash\data::datarow_slug()]);
+    $myPostByThisCat = \dash\app\posts\get::get_post_list['tag' => \dash\data::dataRow_slug()]);
   }
 
   if($myPostByThisCat)
@@ -187,7 +187,7 @@ function addNewComment()
 
 <form  method="post" data-clear autocomplete="off" action="<?php echo \dash\url::kingdom(); ?>/api/comment/add">
 
-  <input type="hidden" name="post_id" class="hide" value="<?php echo \dash\data::datarow_id(); ?>">
+  <input type="hidden" name="post_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
   <?php
   if(!\dash\user::id())
   {

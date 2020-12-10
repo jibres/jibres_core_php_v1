@@ -20,7 +20,7 @@ class view
 
 		\dash\face::btnSave('formEditPost');
 
-		// \dash\face::btnSetting(\dash\url::this(). '/setting'. \dash\request::full_get());
+		\dash\face::btnSetting(\dash\url::this(). '/setting'. \dash\request::full_get());
 
 		\dash\face::btnView(\dash\data::dataRow_link());
 

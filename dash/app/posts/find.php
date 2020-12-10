@@ -4,7 +4,7 @@ namespace dash\app\posts;
 
 class find
 {
-	public static $datarow = [];
+	public static $dataRow = [];
 
 
 	public static function post()
@@ -34,14 +34,14 @@ class find
 		// load attachments
 		// if(substr($url, 0, 6) === 'image/' || substr($url, 0, 6) === 'video/' )
 		// {
-		// 	$datarow = \dash\db\posts::get(['url' => $url, 'limit' => 1]);
+		// 	$dataRow = \dash\db\posts::get(['url' => $url, 'limit' => 1]);
 		// }
 		// else
 		// {
-			$datarow = \dash\db\posts::get(['language' => $language, 'url' => $url, 'limit' => 1]);
+			$dataRow = \dash\db\posts::get(['language' => $language, 'url' => $url, 'limit' => 1]);
 		// }
 
-		if(isset($datarow['user_id']) && (int) $datarow['user_id'] === (int) \dash\user::id())
+		if(isset($dataRow['user_id']) && (int) $dataRow['user_id'] === (int) \dash\user::id())
 		{
 			// no problem to load this post
 		}
@@ -53,41 +53,41 @@ class find
 			}
 			else
 			{
-				if(isset($datarow['status']) && $datarow['status'] == 'publish')
+				if(isset($dataRow['status']) && $dataRow['status'] == 'publish')
 				{
 					// no problem to load this poll
 				}
 				else
 				{
-					$datarow = false;
+					$dataRow = false;
 				}
 			}
 		}
 
 		// we have more than one record
-		if(isset($datarow[0]))
+		if(isset($dataRow[0]))
 		{
-			$datarow = false;
+			$dataRow = false;
 		}
 
-		if(isset($datarow['id']))
+		if(isset($dataRow['id']))
 		{
-			$id = $datarow['id'];
+			$id = $dataRow['id'];
 		}
 		else
 		{
-			$datarow = false;
+			$dataRow = false;
 			$id  = 0;
 		}
 
-		if(is_array($datarow))
+		if(is_array($dataRow))
 		{
-			$datarow = \dash\app\posts\ready::row($datarow);
+			$dataRow = \dash\app\posts\ready::row($dataRow);
 		}
 
-		self::$datarow = $datarow;
+		self::$dataRow = $dataRow;
 
-		return $datarow;
+		return $dataRow;
 	}
 }
 ?>

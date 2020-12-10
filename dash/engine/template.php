@@ -5,7 +5,7 @@ class template
 {
 	public static $display_name    = null;
 	public static $finded_template = null;
-	public static $datarow         = null;
+	public static $dataRow         = null;
 	public static $file_ext        = '.html';
 	public static $display_prefix  = true;
 
@@ -208,7 +208,7 @@ class template
 
 		if($finded_template)
 		{
-			self::$datarow         = $data;
+			self::$dataRow         = $data;
 			self::$finded_template = $finded_template;
 		}
 	}

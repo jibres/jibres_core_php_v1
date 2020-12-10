@@ -265,7 +265,7 @@ class mvc
 			// combine two type of set title into one
 			if(\dash\url::content() === null)
 			{
-				\dash\data::datarow(\dash\engine\template::$datarow);
+				\dash\data::dataRow(\dash\engine\template::$dataRow);
 				\dash\engine\view::set_cms_titles();
 			}
 			else

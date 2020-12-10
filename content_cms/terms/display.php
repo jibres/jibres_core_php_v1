@@ -178,7 +178,7 @@ if(!is_array($dataTable))
 <?php function iTitle() {?>
 <label for='ftitle'><?php echo T_("Title"); ?> <small class="fc-red">* <?php echo T_("Require"); ?></small></label>
 <div class="input">
- <input type="text" name="title" placeholder='<?php echo T_("Title"); ?> *' value="<?php echo \dash\data::datarow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='100' minlength="1" pattern=".{1,100}" title='<?php echo T_("Title is used to show on website"); ?>' id='ftitle' required>
+ <input type="text" name="title" placeholder='<?php echo T_("Title"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='100' minlength="1" pattern=".{1,100}" title='<?php echo T_("Title is used to show on website"); ?>' id='ftitle' required>
 </div>
 <?php }// endfunction ?>
 
@@ -186,7 +186,7 @@ if(!is_array($dataTable))
 <?php function iSlug() {?>
 <label for='fslug'><?php echo T_("Slug"); ?> <small><?php echo T_("Used for url"); ?></small></label>
 <div class="input ltr">
- <input type="text" name="slug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo \dash\data::datarow_slug(); ?>" maxlength='50' minlength="1" pattern=".{1,50}" title='<?php echo T_("Used in url for categorize addresses"); ?>' id='fslug'>
+ <input type="text" name="slug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo \dash\data::dataRow_slug(); ?>" maxlength='50' minlength="1" pattern=".{1,50}" title='<?php echo T_("Used in url for categorize addresses"); ?>' id='fslug'>
 </div>
 <?php }// endfunction ?>
 
@@ -200,7 +200,7 @@ if(!is_array($dataTable))
   <?php foreach (\dash\data::dataTable() as $key => $item) {?>
   <?php if(isset($item['id']) && $item['id'] == \dash\request::get("edit")) {}else{?>
 
-    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::datarow_parent() == $item['id']) {echo 'selected';} ?>><?php echo \dash\get::index($item, 'title'); ?></option>
+    <option value="<?php echo $item['id']; ?>" <?php if(\dash\data::dataRow_parent() == $item['id']) {echo 'selected';} ?>><?php echo \dash\get::index($item, 'title'); ?></option>
   <?php }//endif ?>
   <?php } //endfor ?>
 </select>
@@ -210,7 +210,7 @@ if(!is_array($dataTable))
 <?php function iDescription() {?>
 <div class="mB10">
   <label for='fdesc'><?php echo T_("Description"); ?></label>
-  <textarea class="txt" name="desc" rows="7" placeholder='<?php echo T_("Description"); ?>' id='fdesc'><?php echo \dash\data::datarow_desc(); ?></textarea>
+  <textarea class="txt" name="desc" rows="7" placeholder='<?php echo T_("Description"); ?>' id='fdesc'><?php echo \dash\data::dataRow_desc(); ?></textarea>
 </div>
 <?php }// endfunction ?>
 
@@ -222,16 +222,16 @@ if(!is_array($dataTable))
 <label for="status"><?php echo T_("Status"); ?></label>
 <select name="status" class="input select">
   <option value=""><?php echo T_("Please select one itme"); ?></option>
-  <option value="enable" <?php if(\dash\data::datarow_status() == 'enable') { echo 'selected';} ?>><?php echo T_("Enable"); ?></option>
-  <option value="disable" <?php if(\dash\data::datarow_status() == 'disable') { echo 'selected';} ?>><?php echo T_("Disable"); ?></option>
-  <option value="expired" <?php if(\dash\data::datarow_status() == 'expired') { echo 'selected';} ?>><?php echo T_("Expired"); ?></option>
-  <option value="awaiting" <?php if(\dash\data::datarow_status() == 'awaiting') { echo 'selected';} ?>><?php echo T_("Awaiting"); ?></option>
-  <option value="filtered" <?php if(\dash\data::datarow_status() == 'filtered') { echo 'selected';} ?>><?php echo T_("Filtered"); ?></option>
-  <option value="blocked" <?php if(\dash\data::datarow_status() == 'blocked') { echo 'selected';} ?>><?php echo T_("Blocked"); ?></option>
-  <option value="spam" <?php if(\dash\data::datarow_status() == 'spam') { echo 'selected';} ?>><?php echo T_("Spam"); ?></option>
-  <option value="violence" <?php if(\dash\data::datarow_status() == 'violence') { echo 'selected';} ?>><?php echo T_("Violence"); ?></option>
-  <option value="pornography" <?php if(\dash\data::datarow_status() == 'pornography') { echo 'selected';} ?>><?php echo T_("Pornography"); ?></option>
-  <option value="other" <?php if(\dash\data::datarow_status() == 'other') { echo 'selected';} ?>><?php echo T_("Other"); ?></option>
+  <option value="enable" <?php if(\dash\data::dataRow_status() == 'enable') { echo 'selected';} ?>><?php echo T_("Enable"); ?></option>
+  <option value="disable" <?php if(\dash\data::dataRow_status() == 'disable') { echo 'selected';} ?>><?php echo T_("Disable"); ?></option>
+  <option value="expired" <?php if(\dash\data::dataRow_status() == 'expired') { echo 'selected';} ?>><?php echo T_("Expired"); ?></option>
+  <option value="awaiting" <?php if(\dash\data::dataRow_status() == 'awaiting') { echo 'selected';} ?>><?php echo T_("Awaiting"); ?></option>
+  <option value="filtered" <?php if(\dash\data::dataRow_status() == 'filtered') { echo 'selected';} ?>><?php echo T_("Filtered"); ?></option>
+  <option value="blocked" <?php if(\dash\data::dataRow_status() == 'blocked') { echo 'selected';} ?>><?php echo T_("Blocked"); ?></option>
+  <option value="spam" <?php if(\dash\data::dataRow_status() == 'spam') { echo 'selected';} ?>><?php echo T_("Spam"); ?></option>
+  <option value="violence" <?php if(\dash\data::dataRow_status() == 'violence') { echo 'selected';} ?>><?php echo T_("Violence"); ?></option>
+  <option value="pornography" <?php if(\dash\data::dataRow_status() == 'pornography') { echo 'selected';} ?>><?php echo T_("Pornography"); ?></option>
+  <option value="other" <?php if(\dash\data::dataRow_status() == 'other') { echo 'selected';} ?>><?php echo T_("Other"); ?></option>
 </select>
 
 <?php }else{ ?>
@@ -239,8 +239,8 @@ if(!is_array($dataTable))
 <label for="status"><?php echo T_("Status"); ?></label>
 <select name="status" class="input select">
   <option value=""><?php echo T_("Please select one itme"); ?></option>
-  <option value="enable" <?php if(\dash\data::datarow_status() == 'enable') { echo 'selected';} ?>><?php echo T_("Enable"); ?></option>
-  <option value="disable" <?php if(\dash\data::datarow_status() == 'disable') { echo 'selected';} ?>><?php echo T_("Disable"); ?></option>
+  <option value="enable" <?php if(\dash\data::dataRow_status() == 'enable') { echo 'selected';} ?>><?php echo T_("Enable"); ?></option>
+  <option value="disable" <?php if(\dash\data::dataRow_status() == 'disable') { echo 'selected';} ?>><?php echo T_("Disable"); ?></option>
 </select>
 
 <?php }//endif ?>
@@ -251,7 +251,7 @@ if(!is_array($dataTable))
 
 <?php function iexcerpt() {?>
 <label for='excerpt'><?php echo T_("Excerpt"); ?></label>
-<textarea class="txt" name="excerpt" rows="7" placeholder='<?php echo T_("Description"); ?>' id='excerpt'><?php echo \dash\data::datarow_excerpt(); ?></textarea>
+<textarea class="txt" name="excerpt" rows="7" placeholder='<?php echo T_("Description"); ?>' id='excerpt'><?php echo \dash\data::dataRow_excerpt(); ?></textarea>
 <?php }// endfunction ?>
 
 
@@ -286,7 +286,7 @@ if(!is_array($dataTable))
     <?php foreach (\dash\language::all(true) as $key => $value) {?>
 
 
-      <option value="<?php echo $key; ?>" <?php if(\dash\data::datarow_language() == $key || (!\dash\data::datarow_language() && \dash\language::currentAll() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
+      <option value="<?php echo $key; ?>" <?php if(\dash\data::dataRow_language() == $key || (!\dash\data::dataRow_language() && \dash\language::currentAll() == $key)) {echo 'selected';} ?>><?php echo $value; ?></option>
 
     <?php } //endfor ?>
 

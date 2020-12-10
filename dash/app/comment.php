@@ -28,9 +28,9 @@ class comment
 		// get post id
 		if(!isset($args['post_id']))
 		{
-			if(\dash\data::datarow_id())
+			if(\dash\data::dataRow_id())
 			{
-				$args['post_id'] = \dash\data::datarow_id();
+				$args['post_id'] = \dash\data::dataRow_id();
 			}
 		}
 		// count of show comments

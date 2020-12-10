@@ -66,13 +66,13 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
  'FinalPrice'              => 0,
 ];
 ?>
-<?php foreach ($factor_detail as $key => $datarow) {?>
+<?php foreach ($factor_detail as $key => $dataRow) {?>
 <?php
-$totalPrice = \dash\get::index($datarow, 'price') * \dash\get::index($datarow, 'count');
-$totalDiscount = \dash\get::index($datarow, 'discount') * \dash\get::index($datarow, 'count');
+$totalPrice = \dash\get::index($dataRow, 'price') * \dash\get::index($dataRow, 'count');
+$totalDiscount = \dash\get::index($dataRow, 'discount') * \dash\get::index($dataRow, 'count');
 $totalPriceAfterDiscount = $totalPrice - $totalDiscount;
-$totalVAT = \dash\get::index($datarow, 'vat');
-$FinalPrice = \dash\get::index($datarow, 'sum');
+$totalVAT = \dash\get::index($dataRow, 'vat');
+$FinalPrice = \dash\get::index($dataRow, 'sum');
 
 $tableTotal['totalPrice'] += $totalPrice;
 $tableTotal['totalDiscount'] += $totalDiscount;
@@ -82,10 +82,10 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 ?>
       <tr>
        <td><?php echo \dash\fit::number($key + 1); ?></td>
-       <td class="txtLa productTitle"><?php echo \dash\get::index($datarow, 'title');?></td>
-       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($datarow, 'count')); ?></td>
-       <td><?php echo \dash\get::index($datarow, 'unit'); ?></td>
-       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($datarow, 'price')); ?></td>
+       <td class="txtLa productTitle"><?php echo \dash\get::index($dataRow, 'title');?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($dataRow, 'count')); ?></td>
+       <td><?php echo \dash\get::index($dataRow, 'unit'); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(\dash\get::index($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
