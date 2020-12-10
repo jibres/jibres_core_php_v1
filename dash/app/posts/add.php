@@ -16,7 +16,7 @@ class add
 		\dash\permission::access('cmsAddNewPost');
 
 		// check args
-		$args = \dash\app\posts::check($_args);
+		$args = \dash\app\posts\check::variable($_args);
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -54,30 +54,13 @@ class add
 		if(in_array($args['type'], ['post', 'help', 'mag']))
 		{
 
-			if($args['type'] === 'help')
+			if(\dash\permission::check('cpTagAdd'))
 			{
-				if(\dash\permission::check('cpTagHelpAdd'))
-				{
-					\dash\app\posts::set_post_term($post_id, 'help_tag', 'posts', $tag);
-				}
-			}
-			else
-			{
-				if(\dash\permission::check('cpTagAdd'))
-				{
-					\dash\app\posts::set_post_term($post_id, 'tag', 'posts', $tag);
-				}
+				\dash\app\posts\terms::set_post_term($post_id, 'tag', 'posts', $tag);
 			}
 
 
-			if($args['type'] === 'mag')
-			{
-				$post_url = \dash\app\posts::set_post_term($post_id, 'mag', 'posts', $cat);
-			}
-			else
-			{
-				$post_url = \dash\app\posts::set_post_term($post_id, 'cat', 'posts', $cat);
-			}
+			$post_url = \dash\app\posts\terms::set_post_term($post_id, 'cat', 'posts', $cat);
 
 
 			if($post_url !== false)

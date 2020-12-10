@@ -5,26 +5,35 @@ class model
 {
 	public static function post()
 	{
+
+		$id = \dash\request::get('id');
+
 		if(self::upload_editor())
 		{
 			return false;
 		}
 
-		if(self::upload_gallery())
+		if(self::upload_gallery($id))
 		{
 			return false;
 		}
 
-		if(\dash\request::post('type') === 'remove_gallery')
+
+		if(\dash\request::post('fileaction') === 'remove')
 		{
-			self::remove_gallery();
+			self::remove_gallery($id);
 			return false;
 		}
 
-		if(self::remove_thumb())
+
+
+		if(\dash\request::post('fileaction') === 'setthumb')
 		{
+			self::setthumb($id);
 			return false;
 		}
+
+
 
 
 		$posts = self::getPost();
@@ -34,7 +43,7 @@ class model
 			return false;
 		}
 
-		$post_detail = \dash\app\posts::edit($posts, \dash\request::get('id'));
+		$post_detail = \dash\app\posts\edit::edit($posts, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
@@ -42,26 +51,61 @@ class model
 		}
 	}
 
-	public static function upload_gallery()
+
+	public static function remove_gallery($_id)
+	{
+		$fileid = \dash\request::post('fileid');
+		\dash\app\posts\gallery::gallery($_id, $fileid, 'remove');
+		\dash\notif::ok(T_("File removed"));
+		// \dash\redirect::pwd();
+	}
+
+
+	public static function setthumb($_id)
+	{
+		$fileid = \dash\request::post('fileid');
+		\dash\app\posts\gallery::setthumb($_id, $fileid);
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("Product thumb set"));
+			\dash\redirect::pwd();
+		}
+
+	}
+
+
+
+	/**
+	 * Uploads a gallery.
+	 * Use this function in api
+	 */
+	public static function upload_gallery($_id)
 	{
 		if(\dash\request::files('gallery'))
 		{
-			$uploaded_file = \dash\upload\cms::set_post_gallery(\dash\coding::decode(\dash\request::get('id')));
+			$uploaded_file = \dash\upload\cms::set_post_gallery(\dash\coding::decode($_id));
 
-			if($uploaded_file)
+			if(isset($uploaded_file['id']))
 			{
 				// save uploaded file
-				\dash\app\posts::post_gallery(\dash\request::get('id'), $uploaded_file, 'add');
+				\dash\app\posts\gallery::gallery($_id, $uploaded_file, 'add');
 			}
 
 			if(!\dash\engine\process::status())
 			{
-				\dash\notif::error(T_("Can not upload file"));
+				// \dash\notif::error(T_("Can not upload file"));
 			}
 			else
 			{
-				\dash\notif::ok(T_("File successfully uploaded"));
-				\dash\redirect::pwd();
+				if(\dash\url::child() === 'add')
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::ok(T_("File successfully uploaded"));
+	 				\dash\redirect::pwd();
+				}
 			}
 
 			return true;
@@ -69,6 +113,8 @@ class model
 		return false;
 
 	}
+
+
 
 
 	public static function upload_editor()
@@ -101,37 +147,6 @@ class model
 
 	}
 
-	public static function remove_gallery()
-	{
-		$fileid = \dash\request::post('fileid');
-		if(!$fileid || !is_numeric($fileid))
-		{
-			return false;
-		}
-
-		\dash\app\posts::post_gallery(\dash\request::get('id'), $fileid, 'remove');
-
-		\dash\upload\cms::remove_post_gallery(\dash\coding::decode(\dash\request::get('id')), $fileid);
-
-		\dash\redirect::pwd();
-	}
-
-
-	private static function remove_thumb()
-	{
-		if(\dash\request::post('deleteThumb'))
-		{
-			$id = \dash\request::get('id');
-
-			\dash\app\posts::remove_thumb(\dash\request::get('id'));
-
-			\dash\redirect::pwd();
-
-			return true;
-		}
-
-		return false;
-	}
 
 
 	public static function getPost()

@@ -56,7 +56,7 @@ class view
 			\dash\data::subchildPost($subchildPost);
 		}
 
-		$master = \dash\app\posts::ready($master);
+		$master = \dash\app\posts\ready::row($master);
 
 		\dash\data::datarow($master);
 

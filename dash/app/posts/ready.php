@@ -70,6 +70,21 @@ class ready
 
 					break;
 
+				case 'gallery':
+					if($value)
+					{
+						$result['gallery_array'] = json_decode($value, true);
+						if(is_array($result['gallery_array']) && $result['gallery_array'])
+						{
+							$result['gallery_array'] = \dash\app\posts\gallery::load_detail($result['gallery_array']);
+						}
+					}
+					else
+					{
+						$result['gallery_array'] = null;
+					}
+					break;
+
 				case 'slug':
 					$result[$key] = $value;
 					$split = explode('/', $value);

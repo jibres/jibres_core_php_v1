@@ -2,7 +2,7 @@
 namespace dash\app\posts;
 
 
-trait edit
+class edit
 {
 
 	public static function edit($_args, $_id)
@@ -47,7 +47,7 @@ trait edit
 		$_option['raw_args'] = $_args;
 
 		// check args
-		$args = self::check($_args, $id, $_option);
+		$args = \dash\app\posts\check::variable($_args, $id, $_option);
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
@@ -82,18 +82,18 @@ trait edit
 			{
 				if(\dash\permission::check('cpTagHelpAdd'))
 				{
-					self::set_post_term($id, 'help_tag', 'posts', $tag);
+					\dash\app\posts\terms::set_post_term($id, 'help_tag', 'posts', $tag);
 				}
 			}
 			else
 			{
 				if(\dash\permission::check('cpTagAdd'))
 				{
-					self::set_post_term($id, 'tag', 'posts', $tag);
+					\dash\app\posts\terms::set_post_term($id, 'tag', 'posts', $tag);
 				}
 			}
 
-			$post_url = self::set_post_term($id, 'cat', 'posts', $cat);
+			$post_url = \dash\app\posts\terms::set_post_term($id, 'cat', 'posts', $cat);
 
 			if($post_url !== false)
 			{

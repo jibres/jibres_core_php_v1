@@ -428,7 +428,7 @@ class template
 
 	public static function find_post()
 	{
-		$post_detail = \dash\app\posts::find_post();
+		$post_detail = \dash\app\posts\find::post();
 		if($post_detail)
 		{
 			return $post_detail;

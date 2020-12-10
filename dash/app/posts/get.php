@@ -2,7 +2,7 @@
 namespace dash\app\posts;
 
 
-trait get
+class get
 {
 	public static function get_category_tag($_post_id, $_type, $_related = 'posts')
 	{
@@ -20,7 +20,7 @@ trait get
 		{
 			foreach ($result as $key => $value)
 			{
-				$temp[] = self::ready($value);
+				$temp[] = \dash\app\posts\ready::row($value);
 			}
 		}
 
@@ -72,10 +72,33 @@ trait get
 
 		if(is_array($detail))
 		{
-			$temp = self::ready($detail);
+			$temp = \dash\app\posts\ready::row($detail);
 		}
 
 		return $temp;
+	}
+
+
+	public static function inline_get($_id)
+	{
+
+		$id = \dash\validate::code($_id);
+		$id = \dash\coding::decode($id);
+
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid posts id"));
+			return false;
+		}
+
+		$detail = \dash\db\posts::get(['id' => $id, 'limit' => 1]);
+
+		if(!is_array($detail))
+		{
+			$detail = [];
+		}
+
+		return $detail;
 	}
 
 
@@ -96,7 +119,7 @@ trait get
 			return false;
 		}
 
-		$load = self::ready($load);
+		$load = \dash\app\posts\ready::row($load);
 
 		$tag = self::get_post_tag($id);
 		$load['tags'] = $tag;
@@ -201,7 +224,7 @@ trait get
 		{
 			foreach ($get_last_posts as $key => $value)
 			{
-				$temp[] = self::ready($value);
+				$temp[] = \dash\app\posts\ready::row($value);
 			}
 		}
 		return $temp;

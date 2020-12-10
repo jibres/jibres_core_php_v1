@@ -8,7 +8,7 @@ class controller
 	{
 
 		$id = \dash\request::get('id');
-		$detail = \dash\app\posts::load_post($id);
+		$detail = \dash\app\posts\get::load_post($id);
 		if(!$detail)
 		{
 			\dash\header::status(403, T_("Invalid id"));
