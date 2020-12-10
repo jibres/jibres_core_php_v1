@@ -7,23 +7,21 @@ $isPost = ($type === 'post');
 
 ?>
 
-
-
-<?php if($isPost) {?>
-<section class="f" data-option='cms-post-status'>
+<?php if($isPost) { ?>
+<section class="f" data-option='cms-post-theme'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Theme");?></h3>
       <div class="body">
-        <p><?php echo T_("You can change your post status");?></p>
+        <p><?php echo T_("You can change your post theme");?></p>
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
+  <form autocomplete="off" class="c4 s12" method="post" data-patch>
       <div class="action">
-        <input type="hidden" name="runaction_defaultpricelist" value="1">
+        <input type="hidden" name="runaction_theme" value="1">
            <select class="select22" name="subtype">
-            <option value=""><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("Non") ?></option>
               <option value="standard" <?php if(\dash\data::dataRow_subtype() == 'standard') { echo 'selected'; } ?> ><?php echo T_("Standard"); ?></option>
               <option value="image" <?php if(\dash\data::dataRow_subtype() == 'image') { echo 'selected'; } ?> > <?php echo T_("Image"); ?></option>
               <option value="gallery" <?php if(\dash\data::dataRow_subtype() == 'gallery') { echo 'selected'; } ?> ><?php echo T_("Gallery"); ?></option>
@@ -33,25 +31,23 @@ $isPost = ($type === 'post');
       </div>
   </form>
 </section>
-<?php } // endif ?>
 
 
-
-<section class="f" data-option='product-setting-default-comment'>
+<section class="f" data-option='cms-post-comment'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Comment");?></h3>
       <div class="body">
-        <p><?php echo T_("Is it possible to receive comment from customers for each product?");?></p>
+        <p><?php echo T_("Is it possible to receive comment from customers for this post?");?></p>
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
+  <form autocomplete="off" class="c4 s12" method="post" data-patch>
 
       <div class="action">
         <input type="hidden" name="runaction_comment" value="1">
         <div class="switch1">
-          <input type="checkbox" name="comment" id="comment" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'comment')) { echo 'checked'; } ?>>
+          <input type="checkbox" name="comment" id="comment" <?php if(\dash\data::dataRow_comment() === 'open') { echo 'checked'; } ?>>
           <label for="comment" data-on="<?php echo T_("Open"); ?>" data-off="<?php echo T_("Lock") ?>"></label>
         </div>
       </div>
@@ -60,49 +56,47 @@ $isPost = ($type === 'post');
 </section>
 
 
-
-
-
-<section class="f" data-option='product-setting-default-comment'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Publish date");?></h3>
-      <div class="body">
-        <p><?php echo T_("Is it possible to receive comment from customers for each product?");?></p>
-      </div>
-    </div>
-  </div>
-  <form class="c4 s12" method="post" data-patch>
-
-      <div class="action">
-        <input type="hidden" name="runaction_comment" value="1">
-        <div class="input">
-          <input type="text" name="publishdate" data-format='date' value="13990101" id="publishdate" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'comment')) { echo 'checked'; } ?>>
-          <button class="addon btn master"><?php echo T_("Save") ?></button>
-        </div>
-      </div>
-
-  </form>
-</section>
-
-
-
-
-<section class="f" data-option='product-setting-default-comment'>
+<section class="f" data-option='cms-post-redirect'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Redirect");?></h3>
       <div class="body">
-        <p><?php echo T_("Is it possible to receive comment from customers for each product?");?></p>
+        <p><?php echo T_("Reirect post to new address");?></p>
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
+  <form autocomplete="off" class="c4 s12" method="post" data-patch>
 
       <div class="action">
-        <input type="hidden" name="runaction_comment" value="1">
+        <input type="hidden" name="runaction_redirect" value="1">
         <div class="input">
-          <input type="url" name="comment" data-format='url'  id="comment" <?php if(\dash\get::index(\dash\data::productSettingSaved(), 'comment')) { echo 'checked'; } ?>>
+          <input type="url" name="redirect" data-format='url'  id="redirect" value="<?php echo \dash\get::index(\dash\data::dataRow_meta(), 'redirect'); ?>">
+          <button class="addon btn master"><?php echo T_("Save") ?></button>
+        </div>
+      </div>
+
+  </form>
+</section>
+<?php } // endif ?>
+
+
+
+
+<section class="f" data-option='cms-post-publishdate'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Publish date");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can set the publishdate of this post");?></p>
+      </div>
+    </div>
+  </div>
+  <form autocomplete="off" class="c4 s12" method="post" data-patch>
+
+      <div class="action">
+        <input type="hidden" name="runaction_publishdate" value="1">
+        <div class="input">
+          <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\data::dataRow_publishdate(); ?>" id="publishdate" >
           <button class="addon btn master"><?php echo T_("Save") ?></button>
         </div>
       </div>
@@ -110,22 +104,19 @@ $isPost = ($type === 'post');
   </form>
 </section>
 
-
-
-<section class="f" data-option='cms-post-status'>
+<section class="f" data-option='cms-post-writer'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Change post writer"); ?></h3>
       <div class="body">
-        <p><?php echo T_("You can change your post status");?></p>
+        <p><?php echo T_("You can change the post writer");?></p>
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
+  <form autocomplete="off" class="c4 s12" method="post" data-patch>
       <div class="action">
-        <input type="hidden" name="runaction_defaultpricelist" value="1">
+        <input type="hidden" name="runaction_postwriter" value="1">
         <select name="creator" class="select22">
-          <option><?php echo T_("Reza Mohiti") ?></option>
           <?php \dash\data::postAdder([]); ?>
           <?php foreach (\dash\data::postAdder() as $key => $value) {?>
             <option <?php if(\dash\data::dataRow_user_id() == $value['id']) { echo 'selected';}  ?> value="<?php echo $value['id']; ?>">

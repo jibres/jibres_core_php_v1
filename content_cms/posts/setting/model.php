@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\posts\edit;
+namespace content_cms\posts\setting;
 
 class model
 {
@@ -25,37 +25,33 @@ class model
 
 	public static function getPost()
 	{
+		$post = [];
 
+		if(\dash\request::post('runaction_theme'))
+		{
+			$post['subtype'] = \dash\request::post('subtype');
+		}
 
-		$post =
-		[
+		if(\dash\request::post('runaction_comment'))
+		{
+			$post['comment'] = \dash\request::post('comment');
+		}
 
-			'subtitle'    => \dash\request::post('subtitle'),
-			'excerpt'     => \dash\request::post('excerpt'),
-			'title'       => \dash\request::post('title'),
-			'tag'         => \dash\request::post('tag'),
-			'slug'        => \dash\request::post('slug'),
-			'content'     => \dash\request::post_raw('content'),
-			'publishdate' => \dash\request::post('publishdate'),
-			'publishtime' => \dash\request::post('publishtime'),
-			'status'      => \dash\request::post('status'),
-			'comment'     => \dash\request::post('comment'),
-			'language'    => \dash\request::post('language') ? \dash\request::post('language') : \dash\language::current(),
-			'parent'      => \dash\request::post('parent'),
-			'special'     => \dash\request::post('special'),
-			'creator'     => \dash\request::post('creator'),
-			'seotitle'    => \dash\request::post('seotitle'),
-			'subtype'     => \dash\request::post('subtype'),
-			'btntitle'    => \dash\request::post('btntitle'),
-			'btnurl'      => \dash\request::post_raw('btnurl'),
-			'btntarget'   => \dash\request::post('btntarget'),
-			'btncolor'    => \dash\request::post('btncolor'),
-			'srctitle'    => \dash\request::post('srctitle'),
-			'srcurl'      => \dash\request::post_raw('srcurl'),
-			'redirecturl' => \dash\request::post_raw('redirecturl'),
+		if(\dash\request::post('runaction_redirect'))
+		{
+			$post['redirecturl'] = \dash\request::post_raw('redirecturl');
+		}
 
-		];
+		if(\dash\request::post('runaction_publishdate'))
+		{
+			$post['publishdate'] = \dash\request::post('publishdate');
+			$post['publishtime'] = \dash\request::post('publishtime');
+		}
 
+		if(\dash\request::post('runaction_postwriter'))
+		{
+			$post['creator'] = \dash\request::post('creator');
+		}
 
 		if(\dash\request::post('icon'))
 		{

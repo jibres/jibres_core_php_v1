@@ -4,9 +4,6 @@ namespace dash\app\posts;
 
 class check
 {
-
-
-
 	public static function variable($_args, $_id = null, $_option = [])
 	{
 		$condition =
@@ -20,27 +17,16 @@ class check
 			'url'         => 'url',
 			'content'     => 'html',
 			'type'        => ['enum' => ['post', 'page', 'help', 'mag']],
+			'subtype'     => ['enum' => ['standard','image', 'gallery', 'video', 'audio']],
 			'comment'     => 'bit',
-			'count'       => 'int',
-			'order'       => 'int',
-			'special'     => 'string',
 			'status'      => ['enum' => ['publish','draft','schedule','deleted','expire']],
 			'parent'      => 'code',
 			'publishdate' => 'date',
 			'publishtime' => 'time',
-			'thumb'       => 'string',
-
 			'icon'        => 'string_50',
-			'btntitle'    => 'string_50',
-			'btnurl'      => 'url',
-			'btntarget'   => 'bit',
-			'btncolor'    => ['enum' => ['primary','primary2','secondary','secondary2','success','success2','danger','danger2','warning','warning2','info','info2','light','dark','pain']],
-			'srctitle'    => 'title',
-			'srcurl'      => 'url',
 			'redirecturl' => 'url',
 			'creator'     => 'code',
 			'tag'         => 'tag',
-			'subtype'     => ['enum' => ['standard','image', 'gallery', 'video', 'audio']],
 
 
 		];
@@ -83,7 +69,8 @@ class check
 		if($_id)
 		{
 
-			$current_post_detail = \dash\db\posts::get(['id' => $_id, 'limit' => 1]);
+			$current_post_detail = \dash\db\posts\get::by_id($_id);
+
 			if(!isset($current_post_detail['user_id']) || !isset($current_post_detail['status']) || !isset($current_post_detail['type']))
 			{
 				\dash\notif::error(T_("Invalid id"));
@@ -92,51 +79,20 @@ class check
 
 			if($current_post_detail['status'] === 'publish')
 			{
-				switch ($current_post_detail['type'])
+				if(!\dash\permission::check('cmsPostPublisher'))
 				{
-					case 'help':
-						if(!\dash\permission::check('cpHelpCenterEditPublished'))
-						{
-							\dash\notif::error(T_("This help center is published. And you can not edit it!"));
-							return false;
-						}
-						break;
-
-					case 'post':
-					case 'page':
-					default:
-						if(!\dash\permission::check('cpPostsEditPublished'))
-						{
-							\dash\notif::error(T_("This post is published. And you can not edit it!"));
-							return false;
-						}
-
-						break;
+					\dash\notif::error(T_("This post is published. And you can not edit it!"));
+					return false;
 				}
 			}
 
 
 			if(floatval($current_post_detail['user_id']) !== floatval(\dash\user::id()))
 			{
-				switch ($current_post_detail['type'])
+				if(!\dash\permission::check('cmsManageAllPost'))
 				{
-					case 'help':
-						if(!\dash\permission::check('cpHelpCenterEditForOthers'))
-						{
-							\dash\notif::error(T_("This is not your post. And you can not edit it!"));
-							return false;
-						}
-						break;
-
-					case 'post':
-					case 'page':
-					default:
-						if(!\dash\permission::check('cpPostsEditForOthers'))
-						{
-							\dash\notif::error(T_("This is not your post. And you can not edit it!"));
-							return false;
-						}
-						break;
+					\dash\notif::error(T_("This is not your post. And you can not edit it!"));
+					return false;
 				}
 			}
 		}
@@ -158,7 +114,7 @@ class check
 		$check_duplicate_args = ['slug' => $data['slug'], 'language' => $data['language'], 'limit' => 1];
 
 
-		$check_duplicate_slug = \dash\db\posts::get($check_duplicate_args);
+		$check_duplicate_slug = \dash\db\posts\get::check_duplicate($data['slug'], $data['language']);
 		if(isset($check_duplicate_slug['id']))
 		{
 			if(floatval($check_duplicate_slug['id']) === floatval($_id))
@@ -167,7 +123,7 @@ class check
 			}
 			else
 			{
-				\dash\notif::error(T_("Duplicate slug"), 'slug');
+				\dash\notif::error(T_("Duplicate title, You have a post with this title"), 'slug');
 				return false;
 			}
 		}
@@ -185,71 +141,6 @@ class check
 		$comment = $data['comment'];
 		$comment = $comment ? 'open' : 'closed';
 
-		$special = $data['special'];
-
-		if($special && !\dash\app\posts\special::check($special))
-		{
-			\dash\notif::error(T_("Invalid parameter special"), 'special');
-			return false;
-		}
-
-		$status = $data['status'];
-
-		if($status === 'deleted')
-		{
-			switch ($current_post_detail['type'])
-			{
-				case 'help':
-					if(!\dash\permission::check('cpHelpCenterDelete'))
-					{
-						\dash\notif::error(T_("You can not delete help center"));
-						return false;
-					}
-					break;
-
-				case 'page':
-					if(!\dash\permission::check('cpPageDelete'))
-					{
-						\dash\notif::error(T_("You can not delete page"));
-						return false;
-					}
-
-
-				case 'post':
-				default:
-					if(!\dash\permission::check('cpPostsDelete'))
-					{
-						\dash\notif::error(T_("You can not delete post"));
-						return false;
-					}
-					break;
-			}
-
-			if(floatval($current_post_detail['user_id']) !== floatval(\dash\user::id()))
-			{
-				switch ($current_post_detail['type'])
-				{
-					case 'help':
-						if(!\dash\permission::check('cpHelpCenterDeleteForOthers'))
-						{
-							\dash\notif::error(T_("This is not your help center. And you can not delete it!"));
-							return false;
-						}
-						break;
-
-					case 'post':
-					case 'page':
-					default:
-						if(!\dash\permission::check('cpPostsDeleteForOthers'))
-						{
-							\dash\notif::error(T_("This is not your post. And you can not delete it!"));
-							return false;
-						}
-						break;
-				}
-			}
-
-		}
 
 		$parent_url  = null;
 		$parent_slug = null;
@@ -266,7 +157,8 @@ class check
 			}
 			$data['parent'] = $parent;
 
-			$parent_detail = \dash\db\posts::get(['id' => $parent, 'limit' => 1]);
+			$parent_detail = \dash\db\posts\get::by_id($parent);
+
 			if(!isset($parent_detail['slug']) || !isset($parent_detail['url']))
 			{
 				\dash\notif::error(T_("Parent post not found"), 'parent');
@@ -283,7 +175,7 @@ class check
 
 				if(isset($current_post_detail['parent']) && floatval($current_post_detail['parent']) !== floatval($parent))
 				{
-					$current_post_parent_detail = \dash\db\posts::get(['id' => $current_post_detail['parent'], 'limit' => 1]);
+					$current_post_parent_detail = \dash\db\posts\get::by_id($current_post_detail['parent']);
 
 					if(isset($current_post_parent_detail['slug']) && isset($current_post_parent_detail['url']))
 					{
@@ -320,6 +212,7 @@ class check
 			$data['url'] = $parent_url . '/'. $data['url'];
 		}
 
+
 		$publishdate = $data['publishdate'];
 
 		if(!$publishdate && $data['status'] === 'publish')
@@ -329,7 +222,7 @@ class check
 
 		$publishtime = $data['publishtime'];
 
-		if($data['status'] === 'publish' && !$publishtime)
+		if(!$publishtime && $data['status'] === 'publish')
 		{
 			$publishtime = date("H:i:s");
 		}
@@ -338,11 +231,6 @@ class check
 
 		$meta = $_option['meta'];
 
-		if($data['thumb'])
-		{
-			$meta['thumb'] = $data['thumb'];
-		}
-
 		if(isset($current_post_detail['type']))
 		{
 			$data['type'] = $current_post_detail['type'];
@@ -350,7 +238,7 @@ class check
 
 		if(in_array($data['type'], ['post']))
 		{
-			if(!$cat)
+			if(!$cat && $_id && $data['title'])
 			{
 				\dash\notif::warn(T_("Category setting for better access is suggested"));
 			}
@@ -363,42 +251,13 @@ class check
 			$meta['icon'] = $icon;
 		}
 
-		$btntitle    = $data['btntitle'];
-		$btnurl      = $data['btnurl'];
-		$btntarget   = $data['btntarget'] ? true : false;
-		$btncolor    = $data['btncolor'];
-		$srctitle    = $data['srctitle'];
-		$srcurl      = $data['srcurl'];
-		$redirecturl = $data['redirecturl'];
-
-		$meta['download'] =
-		[
-			'title'  => $btntitle,
-			'url'    => $btnurl,
-			'target' => $btntarget,
-			'color'  => $btncolor,
-		];
-
-		$meta['source'] =
-		[
-			'title' => $srctitle,
-			'url'   => $srcurl,
-		];
-
-		$meta['redirect'] = $redirecturl;
-
+		$meta['redirect'] = $data['redirecturl'];
 
 		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
 
 		$data['meta'] = $meta;
-		if(!$data['slug'])
-		{
-			\dash\notif::error(T_("Invalid slug"), 'slug');
-			return false;
-		}
 
-
-		if(\dash\permission::check('cpChangePostCreator'))
+		if(\dash\permission::check('cmsManageAllPost'))
 		{
 			$creator = $data['creator'];
 
@@ -436,22 +295,9 @@ class check
 		}
 
 
-		// check status
-		switch ($current_post_detail['type'])
+		if(!\dash\permission::check('cmsPostPublisher'))
 		{
-			case 'help':
-				if(!\dash\permission::check('cpHelpCenterEditStatus'))
-				{
-					unset($data['status']);
-				}
-				break;
-
-			default:
-				if(!\dash\permission::check('cpPostsEditStatus'))
-				{
-					unset($data['status']);
-				}
-				break;
+			unset($data['status']);
 		}
 
 		if(!$data['excerpt'])
@@ -488,25 +334,10 @@ class check
 
 	}
 
+
 	public static function get_user_can_write_post($_type)
 	{
-		switch ($_type)
-		{
-			case 'page':
-				$permission = 'cpPageAdd';
-				break;
-
-			case 'help':
-				$permission = 'cpHelpCenterAdd';
-				break;
-
-			case 'post':
-			default:
-				$permission = 'cpPostsAdd';
-				break;
-		}
-
-		$who_have = \dash\permission::who_have($permission);
+		$who_have = \dash\permission::who_have('cmsAddNewPost');
 		if(\dash\permission::supervisor())
 		{
 			$who_have[] = 'supervisor';

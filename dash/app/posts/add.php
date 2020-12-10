@@ -25,9 +25,6 @@ class add
 
 		$args['user_id'] = \dash\user::id();
 
-
-
-
 		$return         = [];
 
 		$post_id = \dash\db\posts::insert($args);
@@ -51,21 +48,15 @@ class add
 		}
 
 
-		if(in_array($args['type'], ['post', 'help', 'mag']))
+		if(in_array($args['type'], ['post', 'help']))
 		{
 
-			if(\dash\permission::check('cpTagAdd'))
-			{
-				\dash\app\posts\terms::set_post_term($post_id, 'tag', 'posts', $tag);
-			}
-
+			\dash\app\posts\terms::set_post_term($post_id, 'tag', 'posts', $tag);
 
 			$post_url = \dash\app\posts\terms::set_post_term($post_id, 'cat', 'posts', $cat);
 
-
 			if($post_url !== false)
 			{
-
 				if($post_url)
 				{
 					\dash\db\posts::update(['url' => ltrim($post_url. '/'. $args['slug'], '/')], $post_id);
@@ -78,6 +69,7 @@ class add
 		}
 
 		$return['post_id'] = \dash\coding::encode($post_id);
+
 		\dash\log::set('addNewPost', ['code' => $post_id, 'datalink' => $return['post_id']]);
 
 		if(\dash\engine\process::status())
