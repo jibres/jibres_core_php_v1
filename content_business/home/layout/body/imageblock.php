@@ -24,7 +24,7 @@ if($imageblock)
 
 		case 6:
 			$myItemClass = 'c-xs-6 c-sm-4';
-			$myPadSize = ' padMore';
+			$myPadSize = ' padMore2';
 			break;
 
 		default:
@@ -51,17 +51,14 @@ if($imageblock)
 		echo '>';
 		{
 			echo '<img src="'. \lib\filepath::fix(\dash\get::index($value, 'image')). '"';
-
 			echo 'alt="'. \dash\get::index($value, 'alt'). '"';
 			echo '>';
-
 		}
 		echo '</a> ';
 	}
 	echo '</div> ';
-
-	?>
-<?php } //endfor ?>
+}
+?>
   </div>
 </div>
 <?php } //endif ?>
