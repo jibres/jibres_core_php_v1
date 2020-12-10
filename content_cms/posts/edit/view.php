@@ -56,10 +56,21 @@ class view
 		// }
 		\dash\data::productImageRatioHtml($productImageRatioHtml);
 		\dash\data::allTagList(\dash\app\term::get_all_tag());
-		\dash\data::tagsSavedTitle(array_column(\dash\data::dataRow_tags(), 'title'));
-
 		\dash\data::listCategory(\dash\app\term::cat_list());
-		\dash\data::listSavedCat(array_column(\dash\data::dataRow_category(), 'term_id'));
+
+		\dash\data::tagsSavedTitle([]);
+		\dash\data::listSavedCat([]);
+
+		if(is_array(\dash\data::dataRow_tags()))
+		{
+			\dash\data::tagsSavedTitle(array_column(\dash\data::dataRow_tags(), 'title'));
+		}
+
+
+		if(is_array(\dash\data::dataRow_category()))
+		{
+			\dash\data::listSavedCat(array_column(\dash\data::dataRow_category(), 'term_id'));
+		}
 
 	}
 }

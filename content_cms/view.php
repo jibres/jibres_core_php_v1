@@ -13,7 +13,12 @@ class view
 		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
 	}
 
-
+	/**
+	 * Use in atthcament
+	 * term
+	 * ticket
+	 *  @check must be check
+	 */
 	public static function make_sort_link($_field, $_url)
 	{
 		$get = \dash\request::get();

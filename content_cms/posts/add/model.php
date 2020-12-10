@@ -6,10 +6,21 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\url::module() === 'pages')
+		{
+			$type    = 'page';
+		}
+		else
+		{
+			$type    = 'post';
+		}
+
+
 		$post =
 		[
 			'title'   => \dash\request::post('title'),
 			'content' => \dash\request::post_raw('content'),
+			'type'    => $type,
 		];
 
 		$post_detail = \dash\app\posts\add::add($post);

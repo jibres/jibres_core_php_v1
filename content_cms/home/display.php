@@ -11,6 +11,16 @@
       </li>
   <?php }// endif ?>
 
+<?php if(\dash\permission::check('cpPageView')) {?>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/pages">
+          <div class="key"><?php echo T_('Pages');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_pages()); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+  <?php }// endif ?>
+
   <?php if(\dash\permission::check('cpCategoryView')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/terms?type=cat">
@@ -31,33 +41,12 @@
   <?php }// endif ?>
 
 
-<?php if(\dash\permission::check('cpPageView')) {?>
-       <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/posts?type=page">
-          <div class="key"><?php echo T_('Pages');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_pages()); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-  <?php }// endif ?>
-
-
-  <?php if(\dash\permission::check('cpHelpCenterView')) {?>
-       <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/posts?type=help">
-          <div class="key"><?php echo T_('Help Center Article');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_helpcenter()); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-  <?php }// endif ?>
-
 
    <?php if(\dash\permission::check('cpCommentsEdit')) {?>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/comment">
           <div class="key"><?php echo T_('Comments');?></div>
-          <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_commentcount()); ?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
           <div class="go"></div>
         </a>
       </li>

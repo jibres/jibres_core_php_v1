@@ -6,34 +6,24 @@ class view
 {
 	public static function config()
 	{
-		$moduleTypeTxt = \dash\request::get('type');
-		$moduleType    = '';
 
-		if(\dash\request::get('type'))
+		if(\dash\url::module() === 'pages')
 		{
-			$moduleType = '?type='. \dash\request::get('type');
-		}
+			$type    = 'page';
+			$myTitle = T_("Pages");
 
-		\dash\data::moduleTypeTxt($moduleTypeTxt);
-		\dash\data::moduleType($moduleType);
-
-		$myType = \dash\request::get('type');
-
-		$myTitle = T_("Posts");
-		\dash\data::action_text(T_('Add new post'));
-		\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
-
-		if($myType === 'page')
-		{
-			$myTitle = T_('Pages');
 			\dash\data::action_text(T_('Add new page'));
-			\dash\data::action_link(\dash\url::this(). '/add'. $moduleType);
+			\dash\data::action_link(\dash\url::this(). '/add');
+		}
+		else
+		{
+			$type    = 'post';
+			$myTitle = T_("Posts");
 
+			\dash\data::action_text(T_('Add new post'));
+			\dash\data::action_link(\dash\url::this(). '/add');
 		}
 
-
-		// \dash\data::listSpecial(\dash\app\posts\special::list());
-		// add back level to summary link
 
 		\dash\face::title($myTitle);
 
@@ -56,9 +46,10 @@ class view
 
 		$args =
 		[
-			'order'     => \dash\request::get('order'),
-			'sort'      => \dash\request::get('sort'),
-			'status'    => \dash\request::get('status'),
+			'order'  => \dash\request::get('order'),
+			'sort'   => \dash\request::get('sort'),
+			'status' => \dash\request::get('status'),
+			'type'   => $type,
 
 		];
 
