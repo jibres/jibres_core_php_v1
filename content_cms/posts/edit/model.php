@@ -34,16 +34,34 @@ class model
 		}
 
 
+		$post =
+		[
 
+			'subtitle'    => \dash\request::post('subtitle'),
+			'excerpt'     => \dash\request::post('excerpt'),
+			'title'       => \dash\request::post('title'),
+			'tag'         => \dash\request::post('tag'),
+			'slug'        => \dash\request::post('slug'),
+			'content'     => \dash\request::post_raw('content'),
+			'status'      => \dash\request::post('status'),
+			'parent'      => \dash\request::post('parent'),
+			'seotitle'    => \dash\request::post('seotitle'),
+			'subtype'     => \dash\request::post('subtype'),
+			'cat'         => \dash\request::post('cat'),
 
-		$posts = self::getPost();
+		];
 
-		if(!$posts || !\dash\engine\process::status())
+		if(\dash\request::post('runaction_editstatus'))
+		{
+			$post = ['status' => \dash\request::post('status')];
+		}
+
+		if(!$post || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$post_detail = \dash\app\posts\edit::edit($posts, \dash\request::get('id'));
+		$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
@@ -144,67 +162,6 @@ class model
 			return true;
 		}
 		return false;
-
-	}
-
-
-
-	public static function getPost()
-	{
-
-
-		$post =
-		[
-
-			'subtitle'    => \dash\request::post('subtitle'),
-			'excerpt'     => \dash\request::post('excerpt'),
-			'title'       => \dash\request::post('title'),
-			'tag'         => \dash\request::post('tag'),
-			'slug'        => \dash\request::post('slug'),
-			'content'     => \dash\request::post_raw('content'),
-			'status'      => \dash\request::post('status'),
-			'parent'      => \dash\request::post('parent'),
-			'seotitle'    => \dash\request::post('seotitle'),
-			'subtype'     => \dash\request::post('subtype'),
-			'cat'         => \dash\request::post_raw('cat'),
-
-		];
-
-
-		if(!$post['status'])
-		{
-			$post['status'] = 'draft';
-		}
-
-		if(\dash\request::post('publishBtn') === 'publish')
-		{
-			$post['status'] = 'publish';
-		}
-
-		// if(!\dash\permission::check('cpPostsEditStatus'))
-		// {
-		// 	unset($post['status']);
-		// }
-
-		if(\dash\request::get('type'))
-		{
-			$post['type'] = \dash\request::get('type');
-		}
-
-		if(\dash\request::post('icon'))
-		{
-			$post['icon'] = \dash\request::post('icon');
-		}
-
-
-		$uploaded_file = \dash\upload\cms::set_post_thumb(\dash\coding::decode(\dash\request::get('id')));
-
-		if($uploaded_file)
-		{
-			$post['thumb'] = $uploaded_file;
-		}
-
-		return $post;
 
 	}
 }

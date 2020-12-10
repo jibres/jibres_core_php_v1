@@ -35,38 +35,6 @@ class add
 			return false;
 		}
 
-		$cat = [];
-		if(isset($_args['cat']) && is_array($_args['cat']))
-		{
-			$cat = $_args['cat'];
-		}
-
-		$tag = [];
-		if(isset($_args['tag']))
-		{
-			$tag = $_args['tag'];
-		}
-
-
-		if(in_array($args['type'], ['post', 'help']))
-		{
-
-			\dash\app\posts\terms::set_post_term($post_id, 'tag', 'posts', $tag);
-
-			$post_url = \dash\app\posts\terms::set_post_term($post_id, 'cat', 'posts', $cat);
-
-			if($post_url !== false)
-			{
-				if($post_url)
-				{
-					\dash\db\posts::update(['url' => ltrim($post_url. '/'. $args['slug'], '/')], $post_id);
-				}
-				else
-				{
-					\dash\db\posts::update(['url' => $args['slug']], $post_id);
-				}
-			}
-		}
 
 		$return['post_id'] = \dash\coding::encode($post_id);
 

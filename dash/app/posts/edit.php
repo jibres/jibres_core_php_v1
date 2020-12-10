@@ -53,49 +53,6 @@ class edit
 			return false;
 		}
 
-		$cat = [];
-		if(isset($_args['cat']) && is_array($_args['cat']))
-		{
-			$cat = $_args['cat'];
-		}
-
-		$tag = [];
-		if(isset($_args['tag']))
-		{
-			$tag = $_args['tag'];
-		}
-
-
-		if(!$args['excerpt'])
-		{
-			$args['excerpt'] = \dash\utility\excerpt::extractRelevant($args['content']);
-		}
-
-		if(mb_strlen($args['excerpt']) >= 300)
-		{
-			$args['excerpt'] = substr($args['excerpt'], 0, 299);
-		}
-
-		if(in_array($args['type'], ['post', 'help']))
-		{
-
-			\dash\app\posts\terms::set_post_term($id, 'tag', 'posts', $tag);
-
-			$post_url = \dash\app\posts\terms::set_post_term($id, 'cat', 'posts', $cat);
-
-			if($post_url !== false)
-			{
-				if($post_url)
-				{
-					$args['url'] = ltrim($post_url. '/'. $args['slug'], '/');
-				}
-				else
-				{
-					$args['url'] = $args['slug'];
-				}
-			}
-		}
-
 		if(isset($_args['redirecturl']))
 		{
 			$_args['meta'] = 'need - meta :/ ';
@@ -126,6 +83,39 @@ class edit
 
 			if(\dash\engine\process::status())
 			{
+				$cat = [];
+				if(isset($_args['cat']) && is_array($_args['cat']))
+				{
+					$cat = $_args['cat'];
+				}
+
+				$tag = [];
+				if(isset($_args['tag']))
+				{
+					$tag = $_args['tag'];
+				}
+
+
+				if(in_array($load_posts['type'], ['post', 'help']))
+				{
+
+					\dash\app\posts\terms::set_post_term($load_posts['id'], 'tag', 'posts', $tag);
+
+					$post_url = \dash\app\posts\terms::set_post_term($load_posts['id'], 'cat', 'posts', $cat);
+
+					if($post_url !== false)
+					{
+						if($post_url)
+						{
+							\dash\db\posts::update(['url' => ltrim($post_url. '/'. $load_posts['slug'], '/')], $load_posts['id']);
+						}
+						else
+						{
+							\dash\db\posts::update(['url' => $load_posts['slug']], $load_posts['id']);
+						}
+					}
+				}
+
 				\dash\notif::ok(T_("Post successfully updated"));
 			}
 		}
