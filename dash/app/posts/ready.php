@@ -167,10 +167,17 @@ class ready
 			{
 				$my_link = \dash\url::kingdom(). '/';
 			}
+
+			if(isset($result['language']) && $result['language'] && !\dash\url::lang())
+			{
+				$my_link .=  $result['language']. '/';
+			}
+
 			if(isset($result['type']) && $result['type'] === 'help')
 			{
 				$my_link .= 'support/';
 			}
+
 
 			$my_link .= $result['url'];
 

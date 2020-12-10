@@ -19,8 +19,13 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'status'    => ['enum' => ['sale', 'buy', 'saleorder']],
+			'status'    => ['enum' => ['publish', 'draft', 'removed']],
 			'user_code' => 'code',
+			'type'      => ['enum' => ['post', 'page', 'help']],
+			'parent'    => 'string_100',
+			'language'  => 'language',
+			'limit'     => 'int',
+
 		];
 
 		$require = [];
@@ -34,12 +39,25 @@ class search
 		$order_sort    = null;
 		$meta['limit'] = 15;
 
-
-		if($data['user_code'])
+		if($data['limit'])
 		{
-			$user_id = \dash\coding::decode($data['user_code']);
-			$and[] = " posts.user_id =  $user_id ";
+			$meta['limit'] = $data['limit'];
+		}
 
+
+		if($data['type'])
+		{
+			$and[] = " posts.type =  '$data[type]' ";
+		}
+
+		if($data['language'])
+		{
+			$and[] = " posts.language =  '$data[language]' ";
+		}
+
+		if($data['status'])
+		{
+			$and[] = " posts.status =  '$data[status]' ";
 		}
 
 
@@ -48,8 +66,6 @@ class search
 		if($query_string)
 		{
 			$or[] = " posts.title LIKE '%$query_string%' ";
-			$or[] = " users.mobile LIKE '%$query_string%' ";
-			$or[] = " users.displayname LIKE '%$query_string%' ";
 
 			self::$is_filtered = true;
 		}
@@ -79,6 +95,19 @@ class search
 		return $list;
 	}
 
+
+	public static function random_help_center()
+	{
+		$list = \dash\db\posts\search::random_help_center();
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+		$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
+
+		return $list;
+
+	}
 
 
 	public static function lates_post($_args = [])

@@ -19,7 +19,8 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
-		$load_post = \dash\app\posts::get(\dash\url::module(), ['check_login' => false]);
+		$load_post = \dash\app\posts\get::get(\dash\url::module(), ['check_login' => false]);
+
 
 		if(!isset($load_post['type']) || !isset($load_post['status']) || !isset($load_post['url']) || !isset($load_post['language']))
 		{

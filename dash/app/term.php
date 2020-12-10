@@ -165,8 +165,9 @@ class term
 			}
 			else
 			{
-				$tags = \dash\app\posts::get_category_tag($args['post_id'], $type, $related);
-				\dash\temp::set($cache_key, $tags);
+				$tags = null;
+				// $tags = \dash\app\posts::get_category_tag($args['post_id'], $type, $related);
+				// \dash\temp::set($cache_key, $tags);
 			}
 		}
 

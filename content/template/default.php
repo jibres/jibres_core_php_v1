@@ -96,7 +96,7 @@ function loadPostTemplate()
     <div class="msg"><?php require_once ('shareBox.php');?></div>
 
     <?php
-      $myPostSimilar = \dash\app\posts::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
+      $myPostSimilar = \dash\app\posts\get::get_post_list(['mode' => 'similar', 'post_id' => \dash\data::datarow_id()]);
       if($myPostSimilar)
       {
         echo '<nav class="msg">';

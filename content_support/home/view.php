@@ -52,7 +52,7 @@ class view
 		$subchildPost = \dash\db\posts::get(['type' => 'help', 'parent' => $master['id'], 'status' => 'publish']);
 		if(is_array($subchildPost))
 		{
-			$subchildPost = array_map(['\dash\app\posts', 'ready'], $subchildPost);
+			$subchildPost = array_map(['\\dash\\app\\posts\\ready', 'row'], $subchildPost);
 			\dash\data::subchildPost($subchildPost);
 		}
 
@@ -137,16 +137,16 @@ class view
 
 			$get_search = $get_posts_term;
 			unset($get_search['parent']);
-			$dataTable = \dash\app\posts::list($search, $get_search);
+			$dataTable = \dash\app\posts\search::list($search, $get_search);
 			\dash\data::dataTable($dataTable);
 		}
 
 		$pageList = \dash\db\posts::get($get_posts_term);
-		$pageList = array_map(['\dash\app\posts', 'ready'], $pageList);
+		$pageList = array_map(['\\dash\\app\\posts\\ready', 'row'], $pageList);
 
 		\dash\data::listCats($pageList);
 
-		$randomArticles = \dash\app\posts::random_post($random_post_arg);
+		$randomArticles = \dash\app\posts\search::random_help_center();
 
 		\dash\data::randomArticles($randomArticles);
 
