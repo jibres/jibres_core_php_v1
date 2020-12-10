@@ -10,7 +10,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Website Builder'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::here());
 		// preview
 		\dash\face::btnPreview(\lib\store::url());
 

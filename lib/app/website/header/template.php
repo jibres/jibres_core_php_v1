@@ -73,10 +73,10 @@ class template
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		$list             = [];
-		$list['header_100'] = \lib\app\website\header\template\header_100::get();
-		$list['header_300'] = \lib\app\website\header\template\header_300::get();
-
+		$list                  = [];
+		$list['header_100']    = \lib\app\website\header\template\header_100::get();
+		$list['header_300']    = \lib\app\website\header\template\header_300::get();
+		$list['header_private_rafiei'] = \lib\app\website\header\template\header_private_rafiei::get();
 
 		if($data['tag'])
 		{

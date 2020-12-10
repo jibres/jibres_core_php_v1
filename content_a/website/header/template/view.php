@@ -10,7 +10,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Header'));
-		\dash\data::back_link(\dash\url::that());
+		\dash\data::back_link(\dash\url::this());
 
 		$args =
 		[
