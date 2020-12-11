@@ -28,6 +28,7 @@ class check
 			'creator'     => 'code',
 			'tag'         => 'tag',
 			'cat'         => 'tag',
+			'set_publishdate' => 'bit',
 		];
 
 		$require = ['title'];
@@ -221,6 +222,16 @@ class check
 		}
 
 		$data['publishdate'] = trim($publishdate. ' '. $publishtime);
+
+		if(isset($current_post_detail['publishdate']) && $current_post_detail['publishdate'])
+		{
+			if(!$data['set_publishdate'])
+			{
+				unset($data['publishdate']);
+			}
+		}
+
+		unset($data['set_publishdate']);
 
 		$meta = $_option['meta'];
 

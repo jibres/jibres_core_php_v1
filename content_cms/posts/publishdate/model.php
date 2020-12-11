@@ -8,16 +8,18 @@ class model
 
 		$post =
 		[
-			'publishdate'  => \dash\request::post('publishdate'),
-			'publishtime' => \dash\request::post('publishtime'),
+			'publishdate'     => \dash\request::post('publishdate'),
+			'publishtime'     => \dash\request::post('publishtime'),
+			'set_publishdate' => 1,
 		];
 
 		if(\dash\request::post('PDT') === 'publishdatetypeonpublish')
 		{
 			$post =
 			[
-				'publishdate' => null,
-				'publishtime' => null,
+				'publishdate'     => null,
+				'publishtime'     => null,
+				'set_publishdate' => 1,
 			];
 		}
 
