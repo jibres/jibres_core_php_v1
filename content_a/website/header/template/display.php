@@ -14,6 +14,7 @@
     <?php } // endif ?>
   </div>
   <?php foreach (\dash\data::headerTemplate() as $key => $value) {?>
+<?php if(a($value, 'private')) {continue;}?>
     <div class="box mB25-f">
       <header class="f align-center">
         <div class="c">
