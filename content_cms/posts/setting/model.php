@@ -28,6 +28,13 @@ class model
 			$post['publishtime'] = \dash\request::post('publishtime');
 		}
 
+		if(\dash\request::post('runaction_editstatus'))
+		{
+			$post['status'] = \dash\request::post_raw('status');
+		}
+
+
+
 		if(\dash\request::post('runaction_postwriter'))
 		{
 			$post['creator'] = \dash\request::post('creator');

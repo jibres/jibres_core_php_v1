@@ -1,7 +1,31 @@
 <?php
 $dataRow = \dash\data::dataRow();
 $myFirstURL = '';
+
+
+$myIcon = 'check';
+
+switch (\dash\data::dataRow_status())
+{
+  case 'publish' :  $myIcon = 'check ok'; break;
+  case 'draft' :    $myIcon = 'detail'; break;
+  case 'deleted' :  $myIcon = 'stop nok'; break;
+}
 ?>
+  <nav class="items long">
+    <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/setting'. \dash\request::full_get();?>">
+          <div class="key"><?php echo T_("To change post status Click here") ?></div>
+          <div class="value"><?php echo T_(\dash\data::dataRow_status());?></div>
+          <div class="go <?php echo $myIcon ?>"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+
 <form method="post" autocomplete="off" id="formEditPost">
   <div class="box">
     <div class="pad">
@@ -124,23 +148,3 @@ $myFirstURL = '';
       </div>
 </form>
 
-
-<section class="f" data-option='cms-post-status'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Change status");?></h3>
-      <div class="body">
-        <p><?php echo T_("You can change your post status");?></p>
-      </div>
-    </div>
-  </div>
-  <form method="post" class="c4 s12" data-patch>
-      <div class="action">
-        <input type="hidden" name="runaction_editstatus" value="1">
-        <select name="status" class="select22">
-          <option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') { echo 'selected';} ?>><?php echo T_("Draft") ?></option>
-          <option value="publish" <?php if(\dash\data::dataRow_status() === 'publish') { echo 'selected';} ?>><?php echo T_("Publish") ?></option>
-        </select>
-      </div>
-  </form>
-</section>
