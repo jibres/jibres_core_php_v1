@@ -12,6 +12,7 @@ class header_private_rafiei
 			'desc'         => T_("An enterprise theme for rafiei"),
 			// 'sample_image' => \dash\url::cdn(). '/img/template/header/header100.jpg',
 			'version'      => 1,
+			'private'      => true,
 			'tag'          =>
 			[
 				'store'  => T_('#Shop_mode'),
