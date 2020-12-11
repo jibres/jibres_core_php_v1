@@ -19,13 +19,6 @@ class posts
 	}
 
 
-	public static function load_one_post($_id)
-	{
-		$query = "SELECT * FROM posts WHERE posts.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
-		return $result;
-	}
-
 
 	public static function get_post_counter($_args)
 	{

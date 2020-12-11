@@ -105,7 +105,7 @@ $myFirstURL = '';
             </div>
             <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
               <?php foreach (\dash\data::listCategory() as $key => $value) {?>
-                <option value="<?php echo $value['id']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['id'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
+                <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['id'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
               <?php } //endfor ?>
             </select>
           </div>

@@ -27,16 +27,12 @@ class check
 			'redirecturl' => 'url',
 			'creator'     => 'code',
 			'tag'         => 'tag',
+			'cat'         => 'tag',
 		];
 
 		$require = ['title'];
 
 		$meta =	[];
-
-
-		$cat = isset($_args['cat']) ? $_args['cat'] : [];
-
-		unset($_args['cat']);
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -235,7 +231,7 @@ class check
 
 		if(in_array($data['type'], ['post']))
 		{
-			if(!$cat && $_id && $data['title'])
+			if(!$data['cat'] && $_id && $data['title'])
 			{
 				\dash\notif::warn(T_("Category setting for better access is suggested"));
 			}
@@ -323,7 +319,6 @@ class check
 		unset($data['redirecturl']);
 		unset($data['publishtime']);
 		unset($data['creator']);
-		unset($data['tag']);
 		unset($data['icon']);
 		unset($data['thumb']);
 

@@ -20,6 +20,7 @@ class model
 		[
 			'title'   => \dash\request::post('title'),
 			'content' => \dash\request::post_raw('content'),
+			'language' => \dash\language::current(),
 			'type'    => $type,
 		];
 

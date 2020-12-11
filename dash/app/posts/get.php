@@ -16,7 +16,7 @@ class get
 		return $list;
 	}
 
-	public static function get_category_tag($_post_id, $_type, $_related = 'posts')
+	public static function get_category_tag($_post_id, $_type)
 	{
 		$_post_id = \dash\validate::code($_post_id);
 		$post_id = \dash\coding::decode($_post_id);
@@ -25,7 +25,7 @@ class get
 			return false;
 		}
 
-		$result = \dash\db\termusages::usage($post_id, $_type, $_related);
+		$result = \dash\db\termusages::usage($post_id, $_type);
 
 		$temp = [];
 		if(is_array($result))
@@ -78,7 +78,7 @@ class get
 			return false;
 		}
 
-		$detail = \dash\db\posts::get(['id' => $id, 'limit' => 1]);
+		$detail = \dash\db\posts\get::by_id($id);
 
 		$temp = [];
 
@@ -103,7 +103,7 @@ class get
 			return false;
 		}
 
-		$detail = \dash\db\posts::get(['id' => $id, 'limit' => 1]);
+		$detail = \dash\db\posts\get::by_id($id);
 
 		if(!is_array($detail))
 		{
@@ -124,7 +124,7 @@ class get
 			return false;
 		}
 
-		$load = \dash\db\posts::load_one_post($id);
+		$load = \dash\db\posts\get::by_id($id);
 
 		if(!$load || !isset($load['user_id']) || !isset($load['type']))
 		{
@@ -139,13 +139,14 @@ class get
 		$category = self::get_post_category($id);
 		$load['category'] = $category;
 
+		// var_dump($load);exit();
 		return $load;
 	}
 
 
 	private static function get_post_category($_id)
 	{
-		$load_category = \dash\db\termusages::usage($_id, 'cat', 'posts');
+		$load_category = \dash\db\termusages\get::usage($_id, 'cat');
 		if(!is_array($load_category))
 		{
 			$load_category = [];
@@ -158,7 +159,7 @@ class get
 
 	private static function get_post_tag($_id)
 	{
-		$load_tag = \dash\db\termusages::usage($_id, 'tag', 'posts');
+		$load_tag = \dash\db\termusages\get::usage($_id, 'tag');
 		if(!is_array($load_tag))
 		{
 			$load_tag = [];

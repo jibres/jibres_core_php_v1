@@ -9,6 +9,30 @@ class terms
 	 * v1.0
 	 */
 
+
+	public static function mulit_title($_titles, $_type)
+	{
+		if(!is_array($_titles) || !$_titles)
+		{
+			return false;
+		}
+
+		$_titles = implode("','", $_titles);
+
+		$query =
+		"
+			SELECT *
+			FROM terms
+			WHERE
+				terms.type = '$_type' AND
+				terms.title IN ('$_titles')
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 	public static function get_all_tag()
 	{
 		$query = "SELECT * FROM terms WHERE terms.type = 'tag' ";

@@ -73,6 +73,23 @@ class edit
 			$_args['publishdate'] = 'need - url :/ ';
 		}
 
+
+		$tag = [];
+		if($args['tag'])
+		{
+			$tag = $args['tag'];
+		}
+
+		$cat = [];
+		if($args['cat'])
+		{
+			$cat = $args['cat'];
+		}
+
+		unset($args['cat']);
+		unset($args['tag']);
+
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		if(!empty($args))
@@ -83,25 +100,11 @@ class edit
 
 			if(\dash\engine\process::status())
 			{
-				$cat = [];
-				if(isset($_args['cat']) && is_array($_args['cat']))
-				{
-					$cat = $_args['cat'];
-				}
-
-				$tag = [];
-				if(isset($_args['tag']))
-				{
-					$tag = $_args['tag'];
-				}
-
-
 				if(in_array($load_posts['type'], ['post', 'help']))
 				{
+					\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
 
-					\dash\app\posts\terms::set_post_term($load_posts['id'], 'tag', 'posts', $tag);
-
-					$post_url = \dash\app\posts\terms::set_post_term($load_posts['id'], 'cat', 'posts', $cat);
+					$post_url = \dash\app\posts\terms::save_post_term($cat, $load_posts['id'], 'cat');
 
 					if($post_url !== false)
 					{

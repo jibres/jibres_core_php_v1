@@ -23,6 +23,9 @@ class add
 			return false;
 		}
 
+		unset($args['cat']);
+		unset($args['tag']);
+
 		$args['user_id'] = \dash\user::id();
 
 		$return         = [];

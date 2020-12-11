@@ -6,30 +6,28 @@ class terms
 
 
 
-	public static function set_post_cat($_cat, $_product_id)
+	public static function save_post_term($_data, $_post_id, $_type)
 	{
-
-		if(!$_cat)
+		if(!$_data)
 		{
-			$have_old_cat = \lib\db\productcategoryusage\get::usage($_product_id);
+			$have_old_cat = \dash\db\termusages\get::usage($_post_id, $_type);
 			if($have_old_cat)
 			{
-				\dash\temp::set('productHasChange', true);
-				\lib\db\productcategoryusage\delete::hard_delete_all_product_cat($_product_id);
+				\dash\db\termusages\delete::hard_delete_all_cat($_post_id);
 			}
 			return false;
 		}
 
 		$have_term_to_save_log = false;
 
-		if(is_string($_cat))
+		if(is_string($_data))
 		{
-			$cat = $_cat;
+			$cat = $_data;
 			$cat = explode(',', $cat);
 		}
-		elseif(is_array($_cat))
+		elseif(is_array($_data))
 		{
-			$cat = $_cat;
+			$cat = $_data;
 		}
 		else
 		{
@@ -53,7 +51,7 @@ class terms
 		}
 
 
-		$check_exist_cat = \lib\db\productcategory\get::mulit_title($cat);
+		$check_exist_cat = \dash\db\terms::mulit_title($cat, $_type);
 
 		$all_cats_id = [];
 
@@ -88,7 +86,7 @@ class terms
 			{
 				if(mb_strlen($value) > 50)
 				{
-					\dash\notif::error(T_("Category is too long!"), 'cat');
+					\dash\notif::error(T_("Tag or Category is too long!"), 'cat');
 					return false;
 				}
 
@@ -96,33 +94,34 @@ class terms
 
 				$multi_insert_cat[] =
 				[
-					'title'         => $value,
-					'slug'          => $slug,
-					'status'        => 'enable',
-					'showonwebsite' => 1,
-					// 'creator'  => \dash\user::id(),
-					// 'language' => \dash\language::current(),
+					'title'    => $value,
+					'slug'     => $slug,
+					'type'     => $_type,
+					'status'   => 'enable',
+					'user_id'  => \dash\user::id(),
+					'language' => \dash\language::current(),
 				];
 			}
 			$have_term_to_save_log = true;
-			$first_id    = \lib\db\productcategory\insert::multi_insert($multi_insert_cat);
+			$first_id    = \dash\db\terms::multi_insert($multi_insert_cat);
 			$all_cats_id = array_merge($all_cats_id, \dash\db\config::multi_insert_id($multi_insert_cat, $first_id));
 		}
 
 		$category_id = $all_cats_id;
 
-		$get_old_product_cat = \lib\db\productcategoryusage\get::usage($_product_id);
+		$get_old_post_cat = \dash\db\termusages\get::usage($_post_id, $_type);
+
 
 		$must_insert = [];
 		$must_remove = [];
 
-		if(empty($get_old_product_cat))
+		if(empty($get_old_post_cat))
 		{
 			$must_insert = $category_id;
 		}
 		else
 		{
-			$old_category_id = array_column($get_old_product_cat, 'productcategory_id');
+			$old_category_id = array_column($get_old_post_cat, 'term_id');
 			$old_category_id = array_map('floatval', $old_category_id);
 			$must_insert = array_diff($category_id, $old_category_id);
 			$must_remove = array_diff($old_category_id, $category_id);
@@ -132,7 +131,7 @@ class terms
 		{
 			if(count($must_insert) > 20)
 			{
-				\dash\notif::error(T_("You can set maximum 20 cat to product"), 'cat');
+				\dash\notif::error(T_("You can set maximum 20 cat to post"), 'cat');
 				return false;
 			}
 
@@ -141,15 +140,16 @@ class terms
 			{
 				$insert_multi[] =
 				[
-					'productcategory_id' => $value,
-					'product_id'    => $_product_id,
+					'term_id' => $value,
+					'type'    => $_type,
+					'post_id' => $_post_id,
 
 				];
 			}
 			if(!empty($insert_multi))
 			{
 				$have_term_to_save_log = true;
-				\lib\db\productcategoryusage\insert::multi_insert($insert_multi);
+				\dash\db\termusages\insert::multi_insert($insert_multi);
 			}
 		}
 
@@ -160,13 +160,7 @@ class terms
 			$must_remove = array_unique($must_remove);
 
 			$must_remove = implode(',', $must_remove);
-			\lib\db\productcategoryusage\delete::hard_delete_product_category($must_remove, $_product_id);
-		}
-
-
-		if($have_term_to_save_log)
-		{
-			\dash\temp::set('productHasChange', true);
+			\dash\db\termusages\delete::hard_delete_category($must_remove, $_post_id);
 		}
 
 		return true;

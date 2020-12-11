@@ -39,7 +39,6 @@ class termusages
 			SELECT
 				terms.id AS `term_id`,
 				terms.*,
-				termusages.status AS `termusage_status`,
 				termusages.type AS `termusage_type`
 			FROM
 				termusages

@@ -162,10 +162,6 @@ class codes
 		// check status if need
 		$status_query = null;
 
-		if($_args['status'] && is_string($_args['status']))
-		{
-			$status_query = " AND termusages.status = '$_args[status]' ";
-		}
 
 		// check type if need
 		$type_query = null;
