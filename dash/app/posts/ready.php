@@ -188,6 +188,17 @@ class ready
 			$result['link'] = null;
 		}
 
+
+		if(isset($result['publishdate']) && $result['publishdate'])
+		{
+			$myTime = time() - strtotime($result['publishdate']);
+
+			if($myTime < 0)
+			{
+				$result['will_be_published_on_future'] = ['message' => T_("will be published on future"), 'time' => abs($myTime), 'time_human' => \dash\utility\human::time(abs($myTime))];
+			}
+		}
+
 		return $result;
 
 	}

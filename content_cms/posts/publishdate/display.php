@@ -1,7 +1,3 @@
-<?php
-$dataRow = \dash\data::dataRow();
-$myFirstURL = '';
-?>
 <div class="avand-md">
   <form method="post" autocomplete="off" id="formPublishdate">
     <div class="box">
@@ -10,16 +6,39 @@ $myFirstURL = '';
           <?php echo T_("By default, the publish date of the post is saved at the moment the status changes to the publish. You can change it and put it in the future. By doing this, your post will not be visible on the website until it is published until the specified time, at which time it will be automatically displayed to the customers."); ?>
         </p>
 
+        <?php if(\dash\data::dataRow_status() !== 'publish'){?>
+          <div class="row mB10">
+            <div class="c-xs-12 c-sm-6">
+              <div class="radio3">
+                <input type="radio" name="PDT" id="publishdatetypeonpublish" value="publishdatetypeonpublish" <?php if(!\dash\data::dataRow_publishdate()){ echo 'checked'; } ?>>
+                <label for="publishdatetypeonpublish"><?php echo T_("When post published") ?></label>
+              </div>
 
-            <label for="publishdate"><?php echo T_("Publish date") ?></label>
-            <div class="input">
-              <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
             </div>
+            <div class="c-xs-12 c-sm-6">
+              <div class="radio3">
+                <input type="radio" name="PDT" id="publishdatetypecustomized" value="publishdatetypecustomized" <?php if(\dash\data::dataRow_publishdate()){ echo 'checked'; } ?>>
+                <label for="publishdatetypecustomized"><?php echo T_("In special date") ?></label>
+              </div>
+            </div>
+          </div>
 
-            <label for="publishtime"><?php echo T_("Publish time") ?></label>
-            <div class="input">
-              <input type="text" name="publishtime" data-format='time' value="<?php echo date("H:i", strtotime(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
-            </div>
+          <div data-response='PDT' data-response-where='publishdatetypecustomized' <?php if(!\dash\data::dataRow_publishdate()){ echo 'data-response-hide';} ?>>
+          <?php } //endif ?>
+
+
+          <label for="publishdate"><?php echo T_("Publish date") ?></label>
+          <div class="input">
+            <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
+          </div>
+
+          <label for="publishtime"><?php echo T_("Publish time") ?></label>
+          <div class="input">
+            <input type="text" name="publishtime" data-format='time' value="<?php if(\dash\data::dataRow_publishdate()) { echo date("H:i", strtotime(\dash\data::dataRow_publishdate())); } ?>" id="publishtime" >
+          </div>
+          <?php if(\dash\data::dataRow_status() !== 'publish'){?>
+          </div>
+        <?php  }//endif ?>
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Save") ?></button>

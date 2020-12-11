@@ -29,6 +29,17 @@ switch (\dash\data::dataRow_status())
         </a>
       </li>
 
+      <?php if(a(\dash\data::dataRow(), 'will_be_published_on_future')) {?>
+             <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/publishdate'. \dash\request::full_get();?>">
+          <div class="key s0"><?php echo T_("Time left until published") ?></div>
+          <div class="value"><?php echo a(\dash\data::dataRow(), 'will_be_published_on_future', 'time_human') ?></div>
+
+          <div class="go detail"></div>
+        </a>
+      </li>
+      <?php } //endif ?>
+
       <?php if(a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
         <li>
         <a class="item f" href="<?php echo \dash\url::this(). '/redirecturl'. \dash\request::full_get();?>">

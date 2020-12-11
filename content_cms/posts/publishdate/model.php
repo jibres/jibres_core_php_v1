@@ -12,6 +12,15 @@ class model
 			'publishtime' => \dash\request::post('publishtime'),
 		];
 
+		if(\dash\request::post('PDT') === 'publishdatetypeonpublish')
+		{
+			$post =
+			[
+				'publishdate' => null,
+				'publishtime' => null,
+			];
+		}
+
 
 		if(!$post || !\dash\engine\process::status())
 		{
