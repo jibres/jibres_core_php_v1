@@ -2,26 +2,28 @@
 $dataRow = \dash\data::dataRow();
 $myFirstURL = '';
 ?>
+<div class="box">
+  <div class="pad">
+    <div class="seoPreview">
+      <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
+        <cite><?php echo \dash\data::dataRow_link(); ?></cite>
+      </a>
+      <div class="f">
+        <div class="c s12 pLa10">
+          <h3><?php echo \dash\data::dataRow_title();  ?> | <?php echo \dash\face::site(); ?></h3>
+          <p class="desc"><?php echo a($dataRow,'excerpt'); ?></p>
+        </div>
+        <div class="cauto os s12">
+          <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
 <form method="post" autocomplete="off" id="editFormSEO">
   <div class="box">
     <div class="pad">
-      <div class="seoPreview">
-        <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
-          <cite><?php echo \dash\data::dataRow_link(); ?></cite>
-        </a>
-        <div class="f">
-          <div class="c s12 pLa10">
-            <h3><?php echo \dash\data::dataRow_title();  ?> | <?php echo \dash\face::site(); ?></h3>
-            <p class="desc"><?php echo a($dataRow,'excerpt'); ?></p>
-          </div>
-          <div class="cauto os s12">
-            <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-
       <div>
         <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
         <div class="input ltr mB10">
@@ -33,5 +35,8 @@ $myFirstURL = '';
         <textarea class="txt" name="excerpt" id="excerpt" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo a($dataRow,'excerpt'); ?></textarea>
       </div>
     </div>
+    <footer class="txtRa">
+      <button class="btn master"><?php echo T_("Save") ?></button>
+    </footer>
   </div>
 </form>

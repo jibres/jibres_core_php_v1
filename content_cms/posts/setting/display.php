@@ -2,6 +2,8 @@
 
 $type   = \dash\data::dataRow_type();
 
+$myID = '?id='. \dash\request::get('id');
+
 $isPage = ($type === 'page');
 $isPost = ($type === 'post');
 
@@ -86,17 +88,11 @@ $isPost = ($type === 'post');
       </div>
     </div>
   </div>
-  <form autocomplete="off" class="c4 s12" method="post" data-patch>
-
+  <div class="c4 s12">
       <div class="action">
-        <input type="hidden" name="runaction_redirect" value="1">
-        <div class="input">
-          <input type="url" name="redirecturl"  id="redirect" value="<?php echo a(\dash\data::dataRow_meta(), 'redirect'); ?>">
-          <button class="addon btn master"><?php echo T_("Save") ?></button>
-        </div>
+        <a href="<?php echo \dash\url::this(). '/redirecturl'. $myID; ?>" class="btn master"><?php echo T_("Set post redirect url") ?></a>
       </div>
-
-  </form>
+  </div>
 </section>
 <?php } // endif ?>
 
@@ -110,26 +106,11 @@ $isPost = ($type === 'post');
       </div>
     </div>
   </div>
-  <form autocomplete="off" class="c4 s12" method="post" data-patch>
-
+  <div class="c4 s12">
       <div class="action">
-        <input type="hidden" name="runaction_publishdate" value="1">
-        <div class="f">
-          <div class="c s12">
-              <div class="input">
-                <input type="text" name="publishtime" data-format='time' value="<?php echo date("H:i", strtotime(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
-              </div>
-          </div>
-          <div class="c s12">
-            <div class="input">
-                <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
-                <button class="addon btn master"><?php echo T_("Save") ?></button>
-              </div>
-          </div>
-        </div>
+        <a href="<?php echo \dash\url::this(). '/publishdate'. $myID; ?>" class="btn master"><?php echo T_("Edit publish date") ?></a>
       </div>
-
-  </form>
+  </div>
 </section>
 
 <section class="f" data-option='cms-post-writer'>
@@ -138,28 +119,14 @@ $isPost = ($type === 'post');
       <h3><?php echo T_("Change post writer"); ?></h3>
       <div class="body">
         <p><?php echo T_("You can change the author of the post manually");?></p>
-        <?php if(\dash\data::postWriterOld()) {?>
-          <div class="mB10"><?php echo T_("Post writed by") ?></div>
-          <div class="mB10 txtB"><?php echo \dash\data::postWriterOld_displayname(); ?></div>
-          <div><?php echo \dash\fit::mobile(\dash\data::postWriterOld_mobile()); ?></div>
-
-        <?php } //endif ?>
       </div>
     </div>
   </div>
-  <form autocomplete="off" class="c4 s12" method="post" data-patch>
+  <div class="c4 s12">
       <div class="action">
-        <input type="hidden" name="runaction_postwriter" value="1">
-        <select name="creator" class="select22">
-          <option value="0"><?php echo T_("Change post writer") ?></option>
-          <?php foreach (\dash\data::postWriter() as $key => $value) {?>
-            <option <?php if(\dash\data::dataRow_user_id() == $value['id']) { echo 'selected';}  ?> value="<?php echo $value['id']; ?>">
-              <?php echo a($value, 'displayname'); ?> - <?php echo \dash\fit::text(a($value, 'mobile')); ?>
-            </option>
-          <?php } //endfor ?>
-        </select>
+        <a href="<?php echo \dash\url::this(). '/writer'. $myID; ?>" class="btn master"><?php echo T_("Edit post writer") ?></a>
       </div>
-  </form>
+  </div>
 </section>
 
 

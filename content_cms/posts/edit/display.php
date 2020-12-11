@@ -21,6 +21,16 @@ switch (\dash\data::dataRow_status())
           <div class="go <?php echo $myIcon ?>"></div>
         </a>
       </li>
+
+      <?php if(a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
+        <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/redirecturl'. \dash\request::full_get();?>">
+          <div class="key"><?php echo T_("This post automatically redirected to new page") ?></div>
+          <div class="value s0"><?php echo a(\dash\data::dataRow(), 'meta', 'redirect');?></div>
+          <div class="go detail"></div>
+        </a>
+      </li>
+      <?php } //endif ?>
     </ul>
   </nav>
 
@@ -32,7 +42,7 @@ switch (\dash\data::dataRow_status())
       <div class="input mB10">
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
         <?php if(\dash\data::dataRow_type() === 'post') {?>
-          <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::dataRow_subtitle()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><?php echo T_("Add Subtitle"); ?></span>
+          <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::dataRow_subtitle()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><span class="s0"><?php echo T_("Add Subtitle"); ?></span></span>
         <?php } //endif ?>
       </div>
       <?php if(\dash\data::dataRow_type() === 'post') {?>
