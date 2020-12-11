@@ -17,27 +17,9 @@ class model
 			$post['comment'] = \dash\request::post('comment');
 		}
 
-		if(\dash\request::post('runaction_redirect'))
-		{
-			$post['redirecturl'] = \dash\request::post_raw('redirecturl');
-		}
-
-		if(\dash\request::post('runaction_publishdate'))
-		{
-			$post['publishdate'] = \dash\request::post('publishdate');
-			$post['publishtime'] = \dash\request::post('publishtime');
-		}
-
 		if(\dash\request::post('runaction_editstatus'))
 		{
 			$post['status'] = \dash\request::post_raw('status');
-		}
-
-
-
-		if(\dash\request::post('runaction_postwriter'))
-		{
-			$post['creator'] = \dash\request::post('creator');
 		}
 
 		if(\dash\request::post('icon'))

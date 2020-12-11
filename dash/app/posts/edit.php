@@ -102,19 +102,25 @@ class edit
 			{
 				if(in_array($load_posts['type'], ['post', 'help']))
 				{
-					\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
-
-					$post_url = \dash\app\posts\terms::save_post_term($cat, $load_posts['id'], 'cat');
-
-					if($post_url !== false)
+					if(isset($_args['tag']))
 					{
-						if($post_url)
+						\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
+					}
+
+					if(isset($_args['cat']))
+					{
+						$post_url = \dash\app\posts\terms::save_post_term($cat, $load_posts['id'], 'cat');
+
+						if($post_url !== false)
 						{
-							\dash\db\posts::update(['url' => ltrim($post_url. '/'. $load_posts['slug'], '/')], $load_posts['id']);
-						}
-						else
-						{
-							\dash\db\posts::update(['url' => $load_posts['slug']], $load_posts['id']);
+							if($post_url)
+							{
+								\dash\db\posts::update(['url' => ltrim($post_url. '/'. $load_posts['slug'], '/')], $load_posts['id']);
+							}
+							else
+							{
+								\dash\db\posts::update(['url' => $load_posts['slug']], $load_posts['id']);
+							}
 						}
 					}
 				}

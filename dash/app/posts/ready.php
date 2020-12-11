@@ -189,7 +189,7 @@ class ready
 		}
 
 
-		if(isset($result['publishdate']) && $result['publishdate'])
+		if(isset($result['publishdate']) && $result['publishdate'] && isset($result['status']) && $result['status'] === 'publish')
 		{
 			$myTime = time() - strtotime($result['publishdate']);
 

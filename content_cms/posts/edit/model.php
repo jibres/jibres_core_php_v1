@@ -38,23 +38,13 @@ class model
 		[
 
 			'subtitle'    => \dash\request::post('subtitle'),
-			'excerpt'     => \dash\request::post('excerpt'),
 			'title'       => \dash\request::post('title'),
-			'tag'         => \dash\request::post('tag'),
-			'slug'        => \dash\request::post('slug'),
 			'content'     => \dash\request::post_raw('content'),
-			'status'      => \dash\request::post('status'),
-			'parent'      => \dash\request::post('parent'),
-			'seotitle'    => \dash\request::post('seotitle'),
-			'subtype'     => \dash\request::post('subtype'),
+			// 'parent'      => \dash\request::post('parent'),
+			'tag'         => \dash\request::post('tag'),
 			'cat'         => \dash\request::post('cat'),
 
 		];
-
-		if(\dash\request::post('runaction_editstatus'))
-		{
-			$post = ['status' => \dash\request::post('status')];
-		}
 
 		if(!$post || !\dash\engine\process::status())
 		{
