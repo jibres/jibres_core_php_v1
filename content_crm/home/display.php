@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcrmhome" class="box chart x450" data-abc='crm/homepage' data-hint='123'>
+    <div id="chartdivcrmhome" class="box chart x280" data-abc='crm/homepage'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
@@ -13,6 +13,29 @@
         <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
       </div>
     </div>
+
+    <section class="row">
+     <div class="c-xs-0 c-sm-4 c-md-4">
+      <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
+       <?php $myPercent= a($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Success Payments - Today");?></h3>
+      </a>
+     </div>
+     <div class="c-xs-6 c-sm-4 c-md-4">
+      <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
+       <?php $myPercent= a($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Success Payments - This month");?></h3>
+      </a>
+     </div>
+
+     <div class="c-xs-6 c-sm-4 c-md-4">
+      <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
+       <?php $myPercent= a($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Total Success transactions percent");?></h3>
+      </a>
+     </div>
+    </section>
+
   </div>
   <div class="c-xs-12 c-sm-12 c-md-4">
     <nav class="items long">
@@ -128,28 +151,6 @@
   </div>
 </div>
 
-<section class="row">
- <div class="c-xs-12 c-sm-6 c-md-4">
-  <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
-   <?php $myPercent= a($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-   <h3><?php echo T_("Success Payments - Today");?></h3>
-  </a>
- </div>
- <div class="c-xs-12 c-sm-6 c-md-4">
-  <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
-   <?php $myPercent= a($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-   <h3><?php echo T_("Success Payments - This month");?></h3>
-  </a>
- </div>
-
- <div class="c-xs-12 c-sm-12 c-md-4">
-  <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
-   <?php $myPercent= a($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-   <h3><?php echo T_("Total Success transactions percent");?></h3>
-  </a>
- </div>
-</section>
-
 <div class="row font-14 mT5">
   <div class="c-xs-12 c-sm-12 c-md-4">
     <p class="mB5-f font-14"><?php echo T_("Last customers") ?></p>
@@ -172,7 +173,7 @@
 <?php } //endif ?>
   </div>
 
-  <div class="c-xs-12 c-sm-6 c-md-4">
+  <div class="c-xs-12 c-sm-12 c-md-4">
     <p class="mB5-f font-14"><?php echo T_("Last login") ?></p>
     <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
     <nav class="items long">
@@ -188,13 +189,12 @@
   <?php } //endfor ?>
        </ul>
      </nav>
-
-  </div>
 <?php } else { ?>
   <p class="msg"><?php echo T_("No entries have been made so far"); ?></p>
 <?php } //endif ?>
+  </div>
 
-  <div class="c-xs-12 c-sm-6 c-md-4">
+  <div class="c-xs-12 c-sm-12 c-md-4">
     <p class="mB5-f font-14"><?php echo T_("Last tickets") ?></p>
     <?php if(\dash\data::dashboardDetail_latestTicket()) {?>
     <nav class="items long">
@@ -212,10 +212,10 @@
   <?php } //endfor ?>
        </ul>
      </nav>
-
-  </div>
 <?php } else { ?>
   <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
 <?php } //endif ?>
+
+  </div>
 
 </div>
