@@ -396,14 +396,14 @@ class posts
 				posts.id IN
 				(
 					SELECT
-						termusages.related_id
+						termusages.post_id
 					FROM
 						termusages
 					INNER JOIN terms ON terms.id = termusages.term_id
 					WHERE
 						terms.type = '$_type' AND
 						$my_query
-						termusages.related_id = posts.id
+						termusages.post_id = posts.id
 				) AND
 				posts.status            = 'publish' AND
 				posts.type              = '$_options[type]' AND
@@ -433,7 +433,7 @@ class posts
 				terms.id AS `id`
 			FROM
 				posts
-			INNER JOIN termusages ON termusages.related_id = posts.id AND termusages.related = 'posts'
+			INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.related = 'posts'
 			INNER JOIN terms ON terms.id = termusages.term_id
 			WHERE
 				posts.id = $_post_id
@@ -457,10 +457,10 @@ class posts
 				posts.id
 			FROM
 				posts
-			INNER JOIN termusages ON termusages.related_id = posts.id AND termusages.related = 'posts'
+			INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.related = 'posts'
 			INNER JOIN terms ON terms.id = termusages.term_id
 			WHERE
-				termusages.related_id             != $_post_id AND
+				termusages.post_id             != $_post_id AND
 				termusages.term_id IN ($post_term) AND
 				termusages.related                = 'posts' AND
 				posts.status                      = 'publish' AND
@@ -590,13 +590,13 @@ class posts
 				posts.id IN
 				(
 					SELECT
-						termusages.related_id
+						termusages.post_id
 					FROM
 						termusages
 					INNER JOIN terms ON terms.id = termusages.term_id
 					WHERE
 						terms.slug = '$_options[term]' AND
-						termusages.related_id = posts.id
+						termusages.post_id = posts.id
 				)
 			";
 		}
