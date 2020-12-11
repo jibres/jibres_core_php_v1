@@ -3,6 +3,13 @@ $dataRow = \dash\data::dataRow();
 $myFirstURL = '';
 
 
+$type   = \dash\data::dataRow_type();
+
+$myID = '?id='. \dash\request::get('id');
+
+$isPage = ($type === 'page');
+$isPost = ($type === 'post');
+
 $myIcon = 'check';
 
 switch (\dash\data::dataRow_status())
@@ -129,7 +136,7 @@ switch (\dash\data::dataRow_status())
       </div>
 
 
-
+      <?php if($isPost) {?>
       <div class="box">
         <div class="pad">
           <div class="mB10">
@@ -156,5 +163,6 @@ switch (\dash\data::dataRow_status())
           </div>
         </div>
       </div>
+    <?php } //endif ?>
 </form>
 

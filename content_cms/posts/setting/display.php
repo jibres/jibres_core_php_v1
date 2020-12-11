@@ -79,6 +79,7 @@ $isPost = ($type === 'post');
 </section>
 
 
+<?php } // endif ?>
 <section class="f" data-option='cms-post-redirect'>
   <div class="c8 s12">
     <div class="data">
@@ -94,7 +95,6 @@ $isPost = ($type === 'post');
       </div>
   </div>
 </section>
-<?php } // endif ?>
 
 
 <section class="f" data-option='cms-post-publishdate'>
