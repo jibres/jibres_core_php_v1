@@ -3,14 +3,14 @@
 	<form method="post" autocomplete="off">
 		<div class="box">
 			<div class="body">
-				<div class="f">
-					<div class="c pRa5">
+				<div class="row">
+					<div class="c-xs-12 c-sm-6">
 						<label for="name"><?php echo T_("Name"); ?></label>
 						<div class="input">
 							<input type="text" name="name" id="name" placeholder='<?php echo T_("Name"); ?>' value="<?php echo \dash\data::dataRowMember_firstname(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='40' minlength="1" pattern=".{1,40}" >
 						</div>
 					</div>
-					<div class="c">
+					<div class="c-xs-12 c-sm-6">
 						<label for="lastName"><?php echo T_("Last name"); ?></label>
 						<div class="input">
 							<input type="text" name="lastName" id="lastName" placeholder='<?php echo T_("Last name"); ?>' value="<?php echo \dash\data::dataRowMember_lastname(); ?>" maxlength='60'>
@@ -18,24 +18,24 @@
 					</div>
 				</div>
 
-				<div class="f">
-					<div class="c pRa5">
+				<div class="row">
+					<div class="c-xs-12 c-sm-6">
 						<label for="father"><?php echo T_("Father name"); ?></label>
 						<div class="input">
 							<input type="text" name="father" id="father" placeholder='<?php echo T_("Father name"); ?>' value="<?php echo \dash\data::dataRowMember_father(); ?>" maxlength='50'>
 						</div>
 					</div>
-					<div class="c">
+					<div class="c-xs-12 c-sm-6">
 						<label for="birthday"><?php echo T_("Birthday"); ?></label>
 						<div class="input ltr">
-							<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date"  name="birthday" id="birthday"  value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRowMember_birthday())); ?>"  autocomplete='off'>
+							<input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date"  name="birthday" id="birthday" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRowMember_birthday())); ?>" autocomplete='off'>
 						</div>
 					</div>
 				</div>
 
-				<div class="f mB20">
-					<div class="c mRa10">
-						<div class="mT10">
+				<div class="row">
+					<div class="c-xs-12 c-sm-6">
+						<div class="mB10">
 							<label for="gender"><?php echo T_("Gender"); ?></label>
 							<select name="gender" class="select22">
 								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
@@ -44,8 +44,8 @@
 							</select>
 						</div>
 					</div>
-					<div class="c">
-						<div class="mT10">
+					<div class="c-xs-12 c-sm-6">
+						<div class="mB10">
 							<label for="marital"><?php echo T_("Marital"); ?></label>
 							<select name="marital" class="select22">
 								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
@@ -70,8 +70,7 @@
 				</div>
 
 
-				<div class="f" data-response='nationality' data-response-where='IR' data-response-effect='slide' <?php if(\dash\data::dataRowMember_nationality() && \dash\data::dataRowMember_nationality() !== 'IR') { echo 'data-response-hide';}?>>
-
+				<div class="row">
 					<div class="c s12 pRa5">
 						<label for='nationalcode'><?php echo T_("National Id"); ?></label>
 						<div class="input">
@@ -79,17 +78,18 @@
 						</div>
 					</div>
 				</div>
-				<div class="f" data-response='nationality' data-response-where-not='IR' data-response-effect='slide' <?php if(\dash\data::dataRowMember_nationality() && \dash\data::dataRowMember_nationality() == 'IR') { echo 'data-response-hide';}?>>
-					<div class="c s12 pRa5">
-						<label for='passport'><?php echo T_("Passport id"); ?> <small class="fc-red">* <?php echo T_("Require"); ?></small></label>
+
+				<div class="row">
+					<div class="c-xs-12 c-sm-6">
+						<label for='passport'><?php echo T_("Passport id"); ?></label>
 						<div class="input ltr">
-							<input name='pasportcode' id='passport' value="<?php echo \dash\data::dataRowMember_pasportcode(); ?>" placeholder='<?php echo T_("Passport id"); ?> *'   />
+							<input name='pasportcode' id='passport' value="<?php echo \dash\data::dataRowMember_pasportcode(); ?>" placeholder='<?php echo T_("Passport id"); ?>' maxlength='40'/>
 						</div>
 					</div>
-					<div class="c s12 pRa5">
-						<label for='passportdate'><?php echo T_("Passport expire date"); ?> <small class="fc-red">* <?php echo T_("Require"); ?></small></label>
+					<div class="c-xs-12 c-sm-6">
+						<label for='passportdate'><?php echo T_("Passport expire date"); ?></label>
 						<div class="input ltr">
-							<input data-format='date' type="text" name="passportdate" id="passportdate"  value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRowMember_pasportdate())); ?>" maxlength='20' autocomplete='off' >
+							<input data-format='date' type="text" name="passportdate" id="passportdate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRowMember_pasportdate())); ?>" maxlength='20' autocomplete='off' >
 						</div>
 					</div>
 				</div>
