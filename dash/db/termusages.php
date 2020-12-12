@@ -44,8 +44,7 @@ class termusages
 				termusages
 			INNER JOIN terms ON terms.id = termusages.term_id
 			WHERE
-				termusages.related_id = $_related_id AND
-				termusages.related    = '$_related' AND
+				termusages.post_id = $_related_id AND
 				terms.type            = '$_type'
 		";
 		$result = \dash\db::get($query);

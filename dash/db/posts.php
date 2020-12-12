@@ -433,7 +433,7 @@ class posts
 				terms.id AS `id`
 			FROM
 				posts
-			INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.related = 'posts'
+			INNER JOIN termusages ON termusages.post_id = posts.id
 			INNER JOIN terms ON terms.id = termusages.term_id
 			WHERE
 				posts.id = $_post_id
@@ -457,7 +457,7 @@ class posts
 				posts.id
 			FROM
 				posts
-			INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.related = 'posts'
+			INNER JOIN termusages ON termusages.post_id = posts.id
 			INNER JOIN terms ON terms.id = termusages.term_id
 			WHERE
 				termusages.post_id             != $_post_id AND

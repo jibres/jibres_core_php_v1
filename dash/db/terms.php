@@ -232,11 +232,11 @@ class terms
 				terms.url
 			FROM terms
 			INNER JOIN termusages ON termusages.term_id = terms.id
-			INNER JOIN posts ON posts.id = termusages.related_id
+			INNER JOIN posts ON posts.id = termusages.post_id
 			WHERE
 				terms.language     = '$_lang' AND
 				terms.type         = 'cat' AND
-				termusages.related = 'posts' AND
+				termusages.post_id = 'posts' AND
 				posts.status       = 'publish' AND
 				posts.type         = 'post'
 			GROUP BY

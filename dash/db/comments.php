@@ -301,7 +301,6 @@ class comments
 				$_options['master_join'] =
 				"
 					LEFT JOIN users ON users.id = comments.user_id
-					INNER JOIN termusages ON termusages.related_id = comments.id AND termusages.related = 'comments'
 					INNER JOIN terms ON terms.id  = termusages.term_id
 				";
 

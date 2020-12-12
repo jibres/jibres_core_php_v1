@@ -316,8 +316,7 @@ class tickets
 						SELECT GROUP_CONCAT(terms.title)
 						FROM terms
 						INNER JOIN termusages ON termusages.term_id = terms.id
-						WHERE termusages.related = 'tickets'
-						AND termusages.related_id = tickets.id
+						WHERE termusages.post_id = tickets.id
 					) AS `tag`
 				 ";
 			}
@@ -354,7 +353,7 @@ class tickets
 				$_options['master_join'] =
 				"
 					LEFT JOIN users ON users.id = tickets.user_id
-					INNER JOIN termusages ON termusages.related_id = tickets.id AND termusages.related = 'tickets'
+					INNER JOIN termusages ON termusages.post_id = tickets.id
 					INNER JOIN terms ON terms.id  = termusages.term_id
 				";
 
@@ -414,9 +413,9 @@ class tickets
 				FROM
 					terms
 				INNER JOIN termusages ON termusages.term_id  = terms.id
-				INNER JOIN tickets ON tickets.id  = termusages.related_id
+				INNER JOIN tickets ON tickets.id  = termusages.post_id
 				WHERE
-					termusages.related = 'tickets' AND
+					1 AND
 					$where
 				GROUP BY
 					terms.id,
