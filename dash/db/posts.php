@@ -462,7 +462,6 @@ class posts
 			WHERE
 				termusages.post_id             != $_post_id AND
 				termusages.term_id IN ($post_term) AND
-				termusages.related                = 'posts' AND
 				posts.status                      = 'publish' AND
 				posts.type                        = 'post' AND
 				posts.language                    = '$_lang' AND
