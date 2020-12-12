@@ -188,7 +188,7 @@ class view
 		// read file data
 		$fileData = @file_get_contents($filepath, FILE_USE_INCLUDE_PATH, null, $page, $lenght);
 		$myURL    = \dash\url::cdn(). '/';
-		$myCommon = \dash\url::cdn(). '/js/siftal.min.js';
+		$myCommon = \dash\url::cdn(). '/js/jibres.min.js?v=1';
 		$myCode   = \dash\url::cdn(). '/';
 
 		$output .= "<head>";
