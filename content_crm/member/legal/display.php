@@ -2,13 +2,13 @@
 <form class="box" method="post" autocomplete="off">
 	<div class="body">
 		<div class="row mB10">
-			<div class="c-xs-6 c-sm-6">
+			<div class="c-xs-12 c-sm-6">
 				<div class="radio3">
 					<input type="radio" name="accounttype" value="real" id="accounttypereal" <?php if(\dash\data::dataRowMember_accounttype() === 'real') { echo 'checked'; } ?>>
 					<label for="accounttypereal"><?php echo T_("Real account") ?></label>
 				</div>
 			</div>
-			<div class="c-xs-6 c-sm-6">
+			<div class="c-xs-12 c-sm-6">
 				<div class="radio3">
 					<input type="radio" name="accounttype" value="legal" id="accounttypelegal" <?php if(\dash\data::dataRowMember_accounttype() === 'legal') { echo 'checked'; } ?>>
 					<label for="accounttypelegal"><?php echo T_("Legal account") ?></label>
