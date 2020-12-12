@@ -8,19 +8,19 @@ $dashboardDetail = \dash\data::dashboardDetail();
   <div class="c-xs-12 c-sm-12 c-md-8">
 
     <section class="row">
-     <div class="c-4">
+     <div class="c-xs-6 c-sm-4">
       <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
        <h3><?php echo T_("Active Order");?></h3>
        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'active_order'));?></div>
       </a>
      </div>
-     <div class="c-4">
+     <div class="c-xs-6 c-sm-4">
       <a href="<?php echo \dash\url::kingdom(). '/support/ticket?user='. \dash\request::get('id') ?>" class="stat">
        <h3><?php echo T_("Active Ticket");?></h3>
        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'active_ticket'));?></div>
       </a>
      </div>
-     <div class="c-4">
+     <div class="c-xs-12 c-sm-4">
       <a href="<?php echo \dash\url::this(). '/transactions'. $myID ?>" class="stat <?php if(a($dashboardDetail, 'balance')>0) echo " green"; ?>">
        <h3><?php echo T_("Account Balance");?> <small><?php echo \lib\store::currency() ?></small></h3>
        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'balance'));?></div>
@@ -35,7 +35,7 @@ $dashboardDetail = \dash\data::dashboardDetail();
           <ul>
             <li>
               <a class="item f">
-                <div class="key"><?php echo T_('Account Create Date');?></div>
+                <div class="key"><?php echo T_('Registration Date');?></div>
                 <div class="value datetime"><?php echo \dash\fit::date_time(\dash\data::dataRowMember_datecreated());?></div>
                 <div class="go detail"></div>
               </a>
@@ -109,29 +109,31 @@ $dashboardDetail = \dash\data::dashboardDetail();
     </div>
 
 
-    <div class="row">
+    <div class="row font-14">
       <div class="c-xs-12 c-sm-12 c-md-6">
-        <?php if(a($dashboardDetail, 'last_5_order')) {?>
         <p class="mB0-f"><?php echo T_("Last orders"); ?></p>
+        <?php if(a($dashboardDetail, 'last_5_order')) {?>
         <nav class="items long">
           <ul>
-          <?php  foreach (a($dashboardDetail, 'last_5_order') as $key => $value) { ?>
+          <?php foreach (a($dashboardDetail, 'last_5_order') as $key => $value) { ?>
              <li>
               <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/order/detail?id='. $value['id']; ?>">
-                <div class="key username">#<?php echo \dash\fit::text(a($value, 'id'));?></div>
-                <div class="key"><?php echo \dash\fit::number(a($value, 'total')) . ' '. \lib\store::currency();?></div>
-                <div class="value"><?php echo \dash\fit::date_human(a($value, 'datecreated'));?></div>
+                <div class="key">#<?php echo \dash\fit::text(a($value, 'id'));?></div>
+                <div class="value"><?php echo \dash\fit::number(a($value, 'total')) . ' '. \lib\store::currency();?></div>
+                <div class="value s0"><?php echo \dash\fit::date_human(a($value, 'datecreated'));?></div>
                 <div class="go"></div>
               </a>
             </li>
           <?php } //endfor ?>
          </ul>
         </nav>
+        <?php } else { ?>
+          <p class="msg"><?php echo T_("Not yet ordered."); ?></p>
         <?php } // endif ?>
       </div>
       <div class="c-xs-12 c-sm-12 c-md-6">
-        <?php if(a($dashboardDetail, 'last_5_ticket')) {?>
         <p class="mB0-f"><?php echo T_("Last tickets"); ?></p>
+        <?php if(a($dashboardDetail, 'last_5_ticket')) {?>
         <nav class="items long">
           <ul>
           <?php  foreach (a($dashboardDetail, 'last_5_ticket') as $key => $value) { ?>
@@ -139,13 +141,14 @@ $dashboardDetail = \dash\data::dashboardDetail();
               <a class="item f" href="<?php echo \dash\url::kingdom(). '/support/ticket/show?id='. $value['id'] ?>">
                 <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::number(a($value, 'id'));?></div>
                 <div class="value"><?php echo \dash\fit::date_human(a($value, 'datecreated'));?></div>
-
                 <div class="go"></div>
               </a>
             </li>
           <?php } //endfor ?>
          </ul>
         </nav>
+        <?php } else { ?>
+          <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
         <?php } // endif ?>
       </div>
     </div>
