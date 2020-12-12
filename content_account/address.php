@@ -38,25 +38,18 @@
         <input type="text" name="postcode" id="postcode" value="<?php echo \dash\data::dataRowAddress_postcode(); ?>" data-format="postalCode" >
       </div>
 
-    <div class="f">
-      <div class="c pRa5">
-
-
-
+    <div class="row">
+      <div class="c-xs-12 c-sm-6">
           <label for="iphone"><?php echo T_("Phone"); ?></label>
           <div class="input">
             <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="phone-12">
           </div>
-
       </div>
-      <div class="c">
-
+      <div class="c-xs-12 c-sm-6">
         <label for="iMobile"><?php echo T_("Mobile"); ?></label>
         <div class="input">
           <input type="tel" name="mobile" id="iMobile" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" data-format="phone-14">
         </div>
-
-
       </div>
     </div>
 
