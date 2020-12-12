@@ -242,6 +242,7 @@ class cites
 	'dargaz'                  => ['country' => 'IR', 'province' => 'IR-30', 'name' => 'dargaz', 'localname' => 'درگز', 'population' => 74326, 'width' => '37°444444', 'length' => '59°108056', 'province_phone_code' => 51,],
 	'bardsir'                 => ['country' => 'IR', 'province' => 'IR-15', 'name' => 'bardsir', 'localname' => 'بردسیر', 'population' => 73738, 'width' => '29°9275', 'length' => '56°572222', 'province_phone_code' => 34,],
 	'juybar'                  => ['country' => 'IR', 'province' => 'IR-21', 'name' => 'juybar', 'localname' => 'جویبار', 'population' => 73554, 'width' => '36°641111', 'length' => '52°9125', 'province_phone_code' => 11,],
+	'simorgh'                 => ['country' => 'IR', 'province' => 'IR-21', 'name' => 'simorgh', 'localname' => 'سیمرغ', 'population' => 8040, 'width' => '36°4656', 'length' => '52°8598', 'province_phone_code' => 11,],
 	'sib and suran'           => ['country' => 'IR', 'province' => 'IR-13', 'name' => 'sib and suran', 'localname' => 'سیب و سوران', 'population' => 73189, 'width' => '27٫287711', 'length' => '62٫000086', 'province_phone_code' => 54,],
 	'selseleh'                => ['country' => 'IR', 'province' => 'IR-20', 'name' => 'selseleh', 'localname' => 'سلسله', 'population' => 73154, 'width' => '32°045776', 'length' => '34°751639', 'province_phone_code' => 66,],
 	'torkaman'                => ['country' => 'IR', 'province' => 'IR-27', 'name' => 'torkaman ', 'localname' => 'ترکمن', 'population' => 72803, 'width' => '36°901667', 'length' => '54°070833', 'province_phone_code' => 17,],
