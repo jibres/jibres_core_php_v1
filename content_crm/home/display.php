@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcrmhome" class="box chart x280" data-abc='crm/homepage'>
+    <div id="chartdivcrmhome" class="box chart x280 s0" data-abc='crm/homepage'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
@@ -202,9 +202,10 @@
   <?php foreach (\dash\data::dashboardDetail_latestTicket() as $key => $value) { ?>
         <li>
           <a class="f align-center" href="<?php echo \dash\url::here(). '/ticket/view?id='. $value['id'] ?>">
-            <div class="key"><?php echo T_("Ticket"). ' #'. $value['id'];  ?></div>
-            <div class="value s0"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
-            <div class="value txtB s0"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
+            <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+            <div class="key"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
+
+            <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::text($value['id']);  ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
             <div class="go"></div>
           </a>
