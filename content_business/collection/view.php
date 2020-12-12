@@ -8,7 +8,10 @@ class view
 	{
 		\dash\face::title(T_("Category"));
 
+		\dash\data::categoryDataTable([]);
+
 		\dash\data::search_link(\dash\url::kingdom().'/search');
+
 		if(!\dash\data::dataRow())
 		{
 			$myCategoryList = \lib\app\category\search::list(null, ['showonwebsite' => 1]);
