@@ -45,7 +45,7 @@
 
           <label for="iphone"><?php echo T_("Phone"); ?></label>
           <div class="input">
-            <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="tel">
+            <input type="text" name="phone" id="iphone" value="<?php echo \dash\data::dataRowAddress_phone(); ?>" data-format="phone-12">
           </div>
 
       </div>
