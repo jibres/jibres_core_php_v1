@@ -32,7 +32,7 @@
 			<div class="c-xs-12 c-sm-6 c-md-4">
 				<label for="iwebsite"><?php echo T_("Website"); ?></label>
 				<div class="input">
-					<input type="url" name="website" id="iwebsite" value="<?php echo \dash\data::dataRowMember_website(); ?>" >
+					<input type="url" name="website" id="iwebsite" value="<?php echo \dash\data::dataRowMember_website(); ?>" maxlength='63'>
 				</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 				<div class="c-xs-12 c-sm-4">
 					<label for="icompanyname"><?php echo T_("Company name"); ?></label>
 					<div class="input">
-						<input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRowMember_companyname(); ?>" maxlength="100">
+						<input type="text" name="companyname" id="icompanyname" value="<?php echo \dash\data::dataRowMember_companyname(); ?>" maxlength="60">
 					</div>
 				</div>
 				<div class="c-xs-12 c-sm-4">

@@ -4,8 +4,8 @@
 
 <?php if(\dash\data::addNewAddress()) {?>
 <form method="post" enctype="multipart/form-data" autocomplete="off">
-	<div class="f justify-center">
-		<div class="x5 c6 m8 s10">
+	<div class="row justify-center">
+		<div class="c-xs-12 c-sm-10 c-lg-8 c-xl-6">
 			<?php bAddressAdd(); ?>
 		</div>
 	</div>
