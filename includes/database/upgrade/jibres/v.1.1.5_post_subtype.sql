@@ -4,3 +4,6 @@ ALTER TABLE jibres.posts ADD INDEX `search_index_subtype` (`subtype`);
 
 
 UPDATE jibres.posts SET posts.subtype = 'help_center', posts.type = 'post' WHERE posts.type = 'help';
+
+
+ALTER TABLE jibres.posts ADD `cover` varchar(500) NULL DEFAULT NULL AFTER `thumb`;
