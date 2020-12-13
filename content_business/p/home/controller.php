@@ -15,6 +15,11 @@ class controller
 			return false;
 		}
 
+		if(a($load_product, 'status') === 'deleted')
+		{
+			\dash\header::status(404, T_("Product not found"));
+		}
+
 		\dash\data::dataRow($load_product);
 
 		$allow = false;
