@@ -19,39 +19,44 @@ switch (\dash\data::dataRow_status())
   case 'deleted' :  $myIcon = 'stop nok'; break;
 }
 ?>
+<?php if(\dash\data::dataRow_status() !== 'publish' || a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
   <nav class="items long">
     <ul>
-      <li>
-        <a class="item f" href="<?php echo \dash\url::this(). '/setting'. \dash\request::full_get();?>">
-          <div class="key"><?php echo T_("To change post status Click here") ?></div>
-          <div class="value"><?php echo T_(\dash\data::dataRow_status());?></div>
-          <div class="go <?php echo $myIcon ?>"></div>
-        </a>
-      </li>
+
+      <?php if(\dash\data::dataRow_status() !== 'publish') {?>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/setting'. \dash\request::full_get();?>">
+            <div class="key"><?php echo T_("To change post status Click here") ?></div>
+            <div class="value"><?php echo T_(\dash\data::dataRow_status());?></div>
+            <div class="go <?php echo $myIcon ?>"></div>
+          </a>
+        </li>
+      <?php } //endif ?>
 
       <?php if(a(\dash\data::dataRow(), 'will_be_published_on_future')) {?>
-             <li>
-        <a class="item f" href="<?php echo \dash\url::this(). '/publishdate'. \dash\request::full_get();?>">
-          <div class="key s0"><?php echo T_("Time left until published") ?></div>
-          <div class="value"><?php echo a(\dash\data::dataRow(), 'will_be_published_on_future', 'time_human') ?></div>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/publishdate'. \dash\request::full_get();?>">
+            <div class="key s0"><?php echo T_("Time left until published") ?></div>
+            <div class="value"><?php echo a(\dash\data::dataRow(), 'will_be_published_on_future', 'time_human') ?></div>
 
-          <div class="go detail"></div>
-        </a>
-      </li>
+            <div class="go detail"></div>
+          </a>
+        </li>
       <?php } //endif ?>
 
       <?php if(a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
         <li>
-        <a class="item f" href="<?php echo \dash\url::this(). '/redirecturl'. \dash\request::full_get();?>">
-          <div class="key"><?php echo T_("This post automatically redirected to new page") ?></div>
-          <div class="value s0"><?php echo a(\dash\data::dataRow(), 'meta', 'redirect');?></div>
-          <div class="go detail"></div>
-        </a>
-      </li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/redirecturl'. \dash\request::full_get();?>">
+            <div class="key"><?php echo T_("This post automatically redirected to new page") ?></div>
+            <div class="value s0"><?php echo a(\dash\data::dataRow(), 'meta', 'redirect');?></div>
+            <div class="go detail"></div>
+          </a>
+        </li>
       <?php } //endif ?>
     </ul>
   </nav>
 
+<?php } //endif ?>
 
 
 <form method="post" autocomplete="off" id="formEditPost">
