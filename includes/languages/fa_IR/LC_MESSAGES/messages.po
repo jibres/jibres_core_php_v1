@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-11 19:28+0330\n"
-"PO-Revision-Date: 2020-12-11 19:43+0330\n"
+"POT-Creation-Date: 2020-12-13 13:11+0330\n"
+"PO-Revision-Date: 2020-12-13 13:12+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -963,14 +963,14 @@ msgstr "نام کامل"
 #: content_a/cart/user/display.php:19 content_a/chap/size-receipt/receipt.php:79
 #: content_a/order/address/display.php:25 content_a/order/address/display.php:57
 #: content_a/order/address/display.php:168 content_a/order/detail/display.php:61
-#: content_a/sale/display.php:44 content_account/address.php:54
-#: content_account/address.php:151 content_account/my/home/display.php:46
+#: content_a/sale/display.php:44 content_account/address.php:49
+#: content_account/address.php:144 content_account/my/home/display.php:46
 #: content_business/home/layout/body/body_load_post.php:214
 #: content_business/home/layout/body/body_load_post.php:215
 #: content_business/orders/view/display.php:39 content_business/p/home/display.php:371
 #: content_business/p/home/display.php:372 content_business/shipping/display.php:19
 #: content_business/shipping/display.php:107 content_cms/comments/edit/display.php:13
-#: content_crm/member/add/display.php:9 content_crm/member/glance/display.php:167
+#: content_crm/member/add/display.php:9 content_crm/member/glance/display.php:170
 #: content_crm/member/home/display-old.php:120 content_crm/member/mobile/display.php:6
 #: content_crm/sms/view/display.php:14 content_enter/app/display.php:32
 #: content_enter/home/display.php:20 content_enter/pass/change/display.php:6
@@ -1003,7 +1003,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_account/my/email/view.php:10 content_account/my/home/display.php:52
 #: content_business/home/layout/template/visitcard.php:40
 #: content_cms/comments/edit/display.php:17 content_crm/member/email/display.php:6
-#: content_crm/member/glance/display.php:174 content_crm/member/home/display-old.php:123
+#: content_crm/member/glance/display.php:177 content_crm/member/home/display-old.php:123
 #: content_love/domain/nicdetail/display.php:13
 #: content_love/domain/setting/display.php:202 content_love/log/home/logTable.php:62
 #: content_my/domain/whoisdetail/whoisDetailForm.php:355
@@ -4634,7 +4634,7 @@ msgstr "غیرفعال"
 #: content_business/orders/display.php:21 content_cms/comments/edit/display.php:41
 #: content_cms/comments/home/display.php:84 content_cms/terms/display.php:107
 #: content_cms/terms/display.php:222 content_cms/terms/display.php:239
-#: content_crm/member/glance/display.php:188 content_crm/member/home/display-old.php:129
+#: content_crm/member/glance/display.php:191 content_crm/member/home/display-old.php:129
 #: content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
 #: content_love/business/domain/alllist/display.php:23
@@ -4673,7 +4673,7 @@ msgstr "وضعیت"
 #: content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/add/display.php:18 content_a/website/menu/edit/display.php:30
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
-#: content_a/website/specialslider/add/display.php:51 content_account/address.php:86
+#: content_a/website/specialslider/add/display.php:51 content_account/address.php:79
 #: content_cms/terms/display.php:166 content_crm/member/add/display.php:15
 #: content_crm/permission/add/display.php:11
 #: content_love/business/domain/add/display.php:18 content_my/ipg/iban/add/display.php:21
@@ -4706,7 +4706,7 @@ msgstr "افزودن"
 #: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:44
 #: content_a/website/quote/add/display.php:61 content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
-#: content_a/website/specialslider/display.php:28 content_account/address.php:156
+#: content_a/website/specialslider/display.php:28 content_account/address.php:149
 #: content_cms/comments/home/display.php:149 content_cms/terms/display.php:170
 #: content_crm/member/home/display-old.php:141
 #: content_crm/permission/setting/display.php:11
@@ -5223,13 +5223,13 @@ msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
 #: content_a/accounting/doc/edit/model.php:147
 #: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:264
-#: content_cms/attachment/add/model.php:34 content_cms/posts/edit/model.php:124
+#: content_cms/attachment/add/model.php:34 content_cms/posts/edit/model.php:114
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
 #: content_a/accounting/doc/edit/model.php:166
 #: content_a/accounting/irvat/edit/model.php:95 content_a/products/edit/model.php:280
-#: content_cms/posts/edit/model.php:77 dash/utility/sitemap.php:65
+#: content_cms/posts/edit/model.php:67 dash/utility/sitemap.php:65
 #: lib/app/staticfile/remove.php:37
 msgid "File removed"
 msgstr "فایل حذف شد"
@@ -5246,7 +5246,7 @@ msgstr "بستن اسناد"
 
 #: content_a/accounting/doc/edit/view.php:33
 #: content_a/setting/product/setting/display.php:91
-#: content_cms/posts/setting/display.php:74 content_my/domain/predict/display.php:95
+#: content_cms/posts/setting/display.php:73 content_my/domain/predict/display.php:95
 #: content_my/domain/search/display.php:187 content_su/update/display.php:14
 #: includes/languages/trans_static.php:632 lib/app/nic_domain/search.php:185
 #: lib/app/nic_domain/search.php:191 lib/app/nic_domain/search.php:197
@@ -5585,7 +5585,7 @@ msgstr "کدپستی"
 #: content_a/chap/size-a4/oneSide-buyer.php:82
 #: content_a/chap/size-a4/oneSide-seller.php:72 content_a/order/address/display.php:161
 #: content_a/order/detail/display.php:64 content_a/setup/address/display.php:47
-#: content_account/address.php:46 content_account/address.php:146
+#: content_account/address.php:43 content_account/address.php:139
 #: content_business/orders/view/display.php:36 content_business/shipping/display.php:26
 #: content_business/shipping/display.php:153 content_love/domain/nicdetail/display.php:16
 #: content_my/domain/whoisdetail/whoisDetailForm.php:341
@@ -6222,7 +6222,7 @@ msgstr "مایکت"
 #: content_a/website/quote/setting/display.php:40
 #: content_a/website/specialslider/setting/display.php:53
 #: content_a/website/status/display.php:27 content_a/website/text/display.php:33
-#: content_a/website/titleline/display.php:33 content_account/address.php:76
+#: content_a/website/titleline/display.php:33 content_account/address.php:69
 #: content_account/my/email/display.php:14 content_account/my/profile/display.php:48
 #: content_account/my/social/display.php:50 content_account/my/username/display.php:19
 #: content_account/personalization/language/display.php:22
@@ -6373,8 +6373,7 @@ msgstr "بعدی"
 msgid "Get Started"
 msgstr "بزن بریم"
 
-#: content_a/android/intro/display.php:28 content_cms/posts/setting/display.php:49
-#: lib/app/website/body/line/imageblock.php:12
+#: content_a/android/intro/display.php:28 lib/app/website/body/line/imageblock.php:12
 msgid "Image"
 msgstr "تصویر"
 
@@ -6676,7 +6675,7 @@ msgid "This product was removed from your cart"
 msgstr "این محصول از سبد خرید شما حذف شد"
 
 #: content_a/cart/add/display.php:211 content_a/order/comment/display.php:69
-#: content_a/order/productList.php:76 content_account/address.php:80
+#: content_a/order/productList.php:76 content_account/address.php:73
 #: content_business/cart/display.php:52 includes/languages/trans_static.php:541
 #: includes/languages/trans_static_public.php:88
 msgid "Delete"
@@ -6738,7 +6737,7 @@ msgstr "کاربر مهمان سبد خرید اضافه کرده"
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
 #: content_a/home/display.php:37 content_a/setting/home/display.php:133
 #: content_business/home/layout/header/header_100.php:23
-#: content_crm/member/glance/display.php:233 dash/layout/pwa/pwa_menu.php:254
+#: content_crm/member/glance/display.php:236 dash/layout/pwa/pwa_menu.php:254
 #: lib/app/store/analytics.php:86
 msgid "Cart"
 msgstr "سبد خرید"
@@ -6859,7 +6858,7 @@ msgstr "شناسه دسته‌بندی اشتباه است"
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
 #: content_a/setting/product/setting/display.php:68
-#: content_a/setting/product/setting/display.php:165 content_account/address.php:65
+#: content_a/setting/product/setting/display.php:165 content_account/address.php:58
 #: content_crm/member/transactions/detail/display.php:54
 #: content_crm/transactions/detail/display.php:51
 #: content_love/domain/setting/display.php:103
@@ -6878,7 +6877,7 @@ msgstr "بله"
 #: content_a/setting/product/setting/display.php:21
 #: content_a/setting/product/setting/display.php:45
 #: content_a/setting/product/setting/display.php:68
-#: content_a/setting/product/setting/display.php:165 content_account/address.php:65
+#: content_a/setting/product/setting/display.php:165 content_account/address.php:58
 #: content_crm/member/transactions/detail/display.php:54
 #: content_crm/transactions/detail/display.php:51
 #: content_love/domain/setting/display.php:107
@@ -7160,12 +7159,12 @@ msgstr "لطفا یک دسته را انتخاب کنید"
 #: content_a/products/home/filter.php:74 content_a/products/home/filter.php:92
 #: content_a/products/home/filter.php:109 content_a/products/home/filter.php:126
 #: content_a/products/home/filter.php:141 content_a/tag/remove/display.php:37
-#: content_cms/posts/setting/display.php:47 content_crm/member/home/display-old.php:385
-#: content_crm/member/home/display-old.php:411 content_crm/member/home/display-old.php:431
-#: content_crm/member/home/display-old.php:457 content_crm/member/home/display-old.php:483
-#: content_crm/member/home/display-old.php:510 content_crm/member/home/display-old.php:537
-#: content_crm/member/home/display-old.php:564 content_crm/member/home/display-old.php:590
-#: content_crm/member/home/display-old.php:616 content_crm/member/home/display-old.php:644
+#: content_crm/member/home/display-old.php:385 content_crm/member/home/display-old.php:411
+#: content_crm/member/home/display-old.php:431 content_crm/member/home/display-old.php:457
+#: content_crm/member/home/display-old.php:483 content_crm/member/home/display-old.php:510
+#: content_crm/member/home/display-old.php:537 content_crm/member/home/display-old.php:564
+#: content_crm/member/home/display-old.php:590 content_crm/member/home/display-old.php:616
+#: content_crm/member/home/display-old.php:644
 msgid "Non"
 msgstr "هیچ"
 
@@ -7752,7 +7751,7 @@ msgstr "دیدگاه‌ها"
 
 #: content_a/form/analytics/answer/display.php:115
 #: content_a/form/answer/detail/display.php:138 content_a/products/comment/display.php:84
-#: content_cms/comments/home/display.php:83 content_cms/posts/setting/display.php:62
+#: content_cms/comments/home/display.php:83 content_cms/posts/setting/display.php:61
 #: lib/app/store/analytics.php:29
 msgid "Comment"
 msgstr "دیدگاه"
@@ -8665,7 +8664,7 @@ msgstr "افزودن محصول جدید"
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: content_a/home/display.php:92 content_crm/home/display.php:23
+#: content_a/home/display.php:92 content_crm/home/display.php:46
 #: content_crm/member/add/view.php:12 content_crm/member/glance/view.php:12
 #: content_developers/docs/001-intro.php:17
 #: content_pardakhtyar/customer/dashboard/view.php:14
@@ -8673,7 +8672,7 @@ msgstr "مدیریت ارتباط با مشتریان"
 msgid "Customers"
 msgstr "مشتریان"
 
-#: content_a/home/display.php:102 content_crm/home/display.php:43
+#: content_a/home/display.php:102 content_crm/home/display.php:66
 #: includes/languages/trans_static.php:66
 msgid "Staffs"
 msgstr "کارمندان"
@@ -8801,9 +8800,7 @@ msgstr "نام شخصی که در این آدرس حضور دارد"
 
 #: content_a/order/address/display.php:151 content_account/address.php:33
 #: content_business/shipping/display.php:107 content_business/shipping/display.php:141
-#: content_cms/terms/display.php:179 content_crm/member/identification/display.php:84
-#: content_crm/member/identification/display.php:90
-#: content_love/transactions/add/display.php:67
+#: content_cms/terms/display.php:179 content_love/transactions/add/display.php:67
 #: content_love/transactions/minus/display.php:67 content_support/ticket/addForm.php:14
 #: content_support/ticket/addForm.php:18
 msgid "Require"
@@ -8897,8 +8894,8 @@ msgstr "عملیات"
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/shipping/view.php:15 content_a/products/status/view.php:15
 #: content_a/products/variants/view.php:15 content_cms/comments/home/display.php:118
-#: content_cms/comments/home/display.php:125 content_crm/home/display.php:163
-#: content_crm/home/display.php:184 content_support/ticket/show/display.php:179
+#: content_cms/comments/home/display.php:125 content_crm/home/display.php:164
+#: content_crm/home/display.php:185 content_support/ticket/show/display.php:179
 #: dash/app.php:89 dash/app.php:187 dash/app.php:193 dash/app/log.php:139
 #: dash/app/transaction.php:51 dash/user.php:188 lib/app/product/comment.php:781
 msgid "Without name"
@@ -9291,7 +9288,7 @@ msgid "Subdiscount"
 msgstr "جمع تخفیف‌ها"
 
 #: content_a/order/view.php:9 content_a/setting/home/display.php:143
-#: content_crm/member/glance/display.php:227 dash/layout/admin/admin-header.php:21
+#: content_crm/member/glance/display.php:230 dash/layout/admin/admin-header.php:21
 #: dash/layout/pwa/pwa_menu.php:189 dash/panel.php:293 dash/plan_list.php:52
 msgid "Orders"
 msgstr "سفارشات"
@@ -9734,7 +9731,7 @@ msgid "Category"
 msgstr "دسته بندی"
 
 #: content_a/products/edit/model.php:291 content_b1/product/gallery/thumb/model.php:26
-#: content_cms/posts/edit/model.php:88
+#: content_cms/posts/edit/model.php:78
 msgid "Product thumb set"
 msgstr "تصویر شاخص محصول تنظیم شد"
 
@@ -11084,7 +11081,7 @@ msgstr "سفارشی‌سازی روند پرداخت آنلاین"
 
 #: content_a/setting/home/display.php:104 content_account/home/display.php:88
 #: content_account/home/display.php:92 content_account/notification/view.php:9
-#: content_business/profile/display-menu.php:7 content_crm/home/display.php:99
+#: content_business/profile/display-menu.php:7 content_crm/home/display.php:122
 #: content_crm/notification/home/view.php:9 dash/layout/admin/admin-header.php:22
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
@@ -11628,7 +11625,7 @@ msgstr ""
 "آیا می‌خواهید امکان دریافت نظرات مشتریان در صفحه هر محصول در وب‌سایت وجود داشته باشد؟"
 
 #: content_a/setting/product/setting/display.php:91
-#: content_cms/posts/setting/display.php:74 includes/languages/trans_static.php:580
+#: content_cms/posts/setting/display.php:73 includes/languages/trans_static.php:580
 msgid "Open"
 msgstr "باز"
 
@@ -13316,15 +13313,15 @@ msgstr "افزودن آدرس جدید"
 msgid "Title of address"
 msgstr "عنوان آدرس"
 
-#: content_account/address.php:66
+#: content_account/address.php:59
 msgid "Is this a company's address?"
 msgstr "این آدرس شرکت است؟"
 
-#: content_account/address.php:103
+#: content_account/address.php:96
 msgid "Saved address"
 msgstr "آدرس‌های ذخیره شده"
 
-#: content_account/address.php:135 content_business/orders/view/display.php:32
+#: content_account/address.php:128 content_business/orders/view/display.php:32
 msgid "Postal code"
 msgstr "کد پستی"
 
@@ -13661,7 +13658,7 @@ msgstr "آدرس با موفقیت به‌روزرسانی شد"
 msgid "Address successfully added"
 msgstr "آدرس با موفقیت اضافه شد"
 
-#: content_account/my/address/view.php:10 content_crm/member/glance/display.php:216
+#: content_account/my/address/view.php:10 content_crm/member/glance/display.php:219
 msgid "Addresses"
 msgstr "آدرس‌ها"
 
@@ -13719,7 +13716,7 @@ msgstr "پروفایل"
 msgid "Username"
 msgstr "نام‌کاربری"
 
-#: content_account/my/home/display.php:60 content_crm/member/glance/display.php:181
+#: content_account/my/home/display.php:60 content_crm/member/glance/display.php:184
 #: content_crm/member/home/display-old.php:132 content_su/home/display.php:189
 #: dash/layout/admin/sidebar/sidebar-su.php:23
 msgid "Permission"
@@ -14077,7 +14074,7 @@ msgstr "بررسی تمام نشست‌های فعال"
 
 #: content_account/security/display.php:104 content_account/security/display.php:143
 #: content_account/security/sessions/display.php:5
-#: content_crm/member/glance/display.php:293 content_crm/member/sessions/view.php:12
+#: content_crm/member/glance/display.php:296 content_crm/member/sessions/view.php:12
 #: includes/languages/trans_static_public.php:1124
 msgid "Sessions"
 msgstr "نشست‌ها"
@@ -14387,6 +14384,10 @@ msgstr "با تشکر از خرید شما"
 msgid "Payment unsuccessfull"
 msgstr "پرداخت ناموفق بود"
 
+#: content_business/p/home/controller.php:20 lib/app/product/comment.php:64
+msgid "Product not found"
+msgstr "محصول یافت نشد"
+
 #: content_business/p/home/display.php:51
 msgid "Estimated Delivery on"
 msgstr "زمان تقریبی تحویل"
@@ -14681,7 +14682,7 @@ msgstr "در زمان انتشار مطلب"
 msgid "In special date"
 msgstr "در تاریخ خاص"
 
-#: content_cms/posts/publishdate/display.php:30 content_cms/posts/setting/display.php:103
+#: content_cms/posts/publishdate/display.php:30 content_cms/posts/setting/display.php:102
 msgid "Publish date"
 msgstr "تاریخ انتشار"
 
@@ -14737,36 +14738,42 @@ msgstr ""
 "قالب‌ها برای دسته بندی‌ مطالب استفاده می‌شوند. شما می‌توانید از این قالب‌ها در دسته بندی و "
 "چینش صفحه اول سایت خود استفاده کنید"
 
-#: content_cms/posts/setting/display.php:48
+#: content_cms/posts/setting/display.php:47
 msgid "Standard"
 msgstr "استاندارد"
 
-#: content_cms/posts/setting/display.php:50 lib/app/product/filter.php:235
+#: content_cms/posts/setting/display.php:48 lib/app/product/filter.php:235
 #: lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
 
-#: content_cms/posts/setting/display.php:51
+#: content_cms/posts/setting/display.php:49
 msgid "Video"
 msgstr "ویدیو"
 
-#: content_cms/posts/setting/display.php:52
+#: content_cms/posts/setting/display.php:50
 msgid "Audio"
 msgstr "صوتی"
 
-#: content_cms/posts/setting/display.php:64
+#: content_cms/posts/setting/display.php:51 content_support/faq/view.php:26
+#: content_support/home/view.php:9 content_support/home/view.php:21
+#: content_support/tag/view.php:24 content_support/ticket/home/view.php:25
+msgid "Help center"
+msgstr "مرکز راهنمایی"
+
+#: content_cms/posts/setting/display.php:63
 msgid "Is it possible to receive comment from customers for this post?"
 msgstr ""
 "آیا می‌خواهید امکان دریافت نظرات مشتریان در صفحه این مطلب در وب‌سایت وجود داشته باشد؟"
 
-#: content_cms/posts/setting/display.php:86 dash/redirect_html.php:5
+#: content_cms/posts/setting/display.php:85 dash/redirect_html.php:5
 #: dash/utility/pay/api/asanpardakht/go.php:79 dash/utility/pay/api/irkish/go.php:74
 #: dash/utility/pay/api/mellat/go.php:89 dash/utility/pay/api/sep/go.php:68
 #: includes/languages/trans_static.php:619
 msgid "Redirect"
 msgstr "انتقال"
 
-#: content_cms/posts/setting/display.php:88
+#: content_cms/posts/setting/display.php:87
 msgid ""
 "If you want your post to be moved to a new page after opening, enter the URL of the new "
 "page here"
@@ -14774,11 +14781,11 @@ msgstr ""
 "اگر می‌خواهید مطلب بعد از باز شدن به صفحه جدیدی هدایت شود آدرس صفحه جدید را در این قسمت "
 "وارد کنید"
 
-#: content_cms/posts/setting/display.php:94
+#: content_cms/posts/setting/display.php:93
 msgid "Set post redirect url"
 msgstr "تنظیم آدرس انتقال مطلب"
 
-#: content_cms/posts/setting/display.php:105
+#: content_cms/posts/setting/display.php:104
 msgid ""
 "By default, the publish time is saved when you set post status publish, and you can "
 "manually change the publication date in this section."
@@ -14786,19 +14793,19 @@ msgstr ""
 "به صورت پیش‌فرض، زمان انتشار در لحظه تغییر وضعیت مطلب به منتشر شده ثبت خواهد شد. شما "
 "می‌توانید زمان انتشار مطلب را به صورت دستی تغییر دهید."
 
-#: content_cms/posts/setting/display.php:111
+#: content_cms/posts/setting/display.php:110
 msgid "Edit publish date"
 msgstr "ویرایش زمان انتشار"
 
-#: content_cms/posts/setting/display.php:119 content_cms/posts/writer/display.php:17
+#: content_cms/posts/setting/display.php:118 content_cms/posts/writer/display.php:17
 msgid "Change post writer"
 msgstr "تغییر نویسنده مطلب"
 
-#: content_cms/posts/setting/display.php:121 content_cms/posts/writer/display.php:15
+#: content_cms/posts/setting/display.php:120 content_cms/posts/writer/display.php:15
 msgid "You can change the author of the post manually"
 msgstr "شما می‌توانید نویسنده این مطلب را به صورت دستی تغییر دهید"
 
-#: content_cms/posts/setting/display.php:127 content_cms/posts/writer/view.php:8
+#: content_cms/posts/setting/display.php:126 content_cms/posts/writer/view.php:8
 msgid "Edit post writer"
 msgstr "ویرایش نویسنده مطلب"
 
@@ -14952,25 +14959,37 @@ msgstr "تراکنش‌های ناموفق"
 msgid "Chart transactions per day in last 3 month"
 msgstr "نمودار تراکنش‌ها به تفکیک روز در سه ماه گذشته"
 
-#: content_crm/home/display.php:31
+#: content_crm/home/display.php:21
+msgid "Success Payments - Today"
+msgstr "تراکنش های موفق - امروز"
+
+#: content_crm/home/display.php:27
+msgid "Success Payments - This month"
+msgstr "تراکنش های موفق - این ماه"
+
+#: content_crm/home/display.php:34
+msgid "Total Success transactions percent"
+msgstr "درصد موفقیت تمامی تراکنش‌ها"
+
+#: content_crm/home/display.php:54
 msgid "Add new Customer"
 msgstr "افزودن مشتری جدید"
 
-#: content_crm/home/display.php:50 content_crm/permission/view.php:9
+#: content_crm/home/display.php:73 content_crm/permission/view.php:9
 #: includes/languages/trans_static_public.php:205
 #: includes/languages/trans_static_public.php:981
 msgid "Permissions"
 msgstr "سطوح‌دسترسی"
 
-#: content_crm/home/display.php:65
+#: content_crm/home/display.php:88
 msgid "Successful payments"
 msgstr "پرداختی‌های موفق"
 
-#: content_crm/home/display.php:74
+#: content_crm/home/display.php:97
 msgid "All payments"
 msgstr "همه پرداختی‌ها"
 
-#: content_crm/home/display.php:90 content_crm/member/glance/display.php:280
+#: content_crm/home/display.php:113 content_crm/member/glance/display.php:283
 #: content_crm/ticket/home/view.php:9 content_support/faq/view.php:14
 #: content_support/home/view.php:13 content_support/message/view.php:35
 #: content_support/tag/view.php:14 content_support/ticket/home/display.php:99
@@ -14980,47 +14999,35 @@ msgstr "همه پرداختی‌ها"
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
-#: content_crm/home/display.php:113
+#: content_crm/home/display.php:136
 msgid "Sended SMS list"
 msgstr "پیامک‌های ارسال شده"
 
-#: content_crm/home/display.php:120
+#: content_crm/home/display.php:143
 msgid "Users Action Log"
 msgstr "ردپای عملیات‌ کاربران"
 
-#: content_crm/home/display.php:135
-msgid "Success Payments - Today"
-msgstr "تراکنش های موفق - امروز"
-
-#: content_crm/home/display.php:141
-msgid "Success Payments - This month"
-msgstr "تراکنش های موفق - این ماه"
-
-#: content_crm/home/display.php:148
-msgid "Total Success transactions percent"
-msgstr "درصد موفقیت تمامی تراکنش‌ها"
-
-#: content_crm/home/display.php:155
+#: content_crm/home/display.php:156
 msgid "Last customers"
 msgstr "آخرین مشتریان"
 
-#: content_crm/home/display.php:171
+#: content_crm/home/display.php:172
 msgid "No customers have been registered yet"
 msgstr "هنوز هیچ مشتری ثبت‌نام نکرده است"
 
-#: content_crm/home/display.php:176
+#: content_crm/home/display.php:177
 msgid "Last login"
 msgstr "آخرین ورود‌ها"
 
-#: content_crm/home/display.php:194
+#: content_crm/home/display.php:193
 msgid "No entries have been made so far"
 msgstr "تاکنون هیچ ورودی انجام نشده است."
 
-#: content_crm/home/display.php:198 content_crm/member/glance/display.php:134
+#: content_crm/home/display.php:198 content_crm/member/glance/display.php:135
 msgid "Last tickets"
 msgstr "آخرین تیکت‌ها"
 
-#: content_crm/home/display.php:205 content_crm/member/glance/display.php:140
+#: content_crm/home/display.php:208 content_crm/member/glance/display.php:142
 #: content_crm/ticket/home/display.php:6 content_support/ticket/add/view.php:15
 #: content_support/ticket/report/view.php:16 content_support/ticket/tags/view.php:52
 #: content_support/view.php:54 dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31
@@ -15028,7 +15035,7 @@ msgstr "آخرین تیکت‌ها"
 msgid "Ticket"
 msgstr "تیکت"
 
-#: content_crm/home/display.php:218
+#: content_crm/home/display.php:217 content_crm/member/glance/display.php:151
 msgid "No ticket have been received so far"
 msgstr "تاکنون هیچ تیکتی دریافت نشده است"
 
@@ -15132,8 +15139,10 @@ msgid "Account Balance"
 msgstr "موجودی حساب"
 
 #: content_crm/member/glance/display.php:38
-msgid "Account Create Date"
-msgstr "تاریخ ایجاد حساب کاربری"
+#, fuzzy
+#| msgid "Registration failed!"
+msgid "Registration Date"
+msgstr "ثبت‌نام ناموفق!"
 
 #: content_crm/member/glance/display.php:45
 msgid "Last Updated"
@@ -15167,50 +15176,54 @@ msgstr "مجموع خرید"
 msgid "Average order pay"
 msgstr "میانگین مبلغ سفارش"
 
-#: content_crm/member/glance/display.php:115
+#: content_crm/member/glance/display.php:114
 msgid "Last orders"
 msgstr "آخرین سفارشات"
 
-#: content_crm/member/glance/display.php:182 content_love/domain/irnic/display.php:65
+#: content_crm/member/glance/display.php:131
+msgid "Not yet ordered."
+msgstr ""
+
+#: content_crm/member/glance/display.php:185 content_love/domain/irnic/display.php:65
 #: content_my/domain/irnic/display.php:65 content_my/domain/irnic/edit/display.php:62
 #: includes/languages/trans_static_public.php:150
 #: includes/languages/trans_static_public.php:464 lib/app/nic_contact/search.php:79
 msgid "Admin"
 msgstr "مدیریت"
 
-#: content_crm/member/glance/display.php:199
+#: content_crm/member/glance/display.php:202
 msgid "Identification detail"
 msgstr "جزئیات شناسنامه‌ای"
 
-#: content_crm/member/glance/display.php:205
+#: content_crm/member/glance/display.php:208
 msgid "Legal information"
 msgstr "اطلاعات حقوقی"
 
-#: content_crm/member/glance/display.php:246 lib/app/factor/action.php:59
+#: content_crm/member/glance/display.php:249 lib/app/factor/action.php:59
 msgid "Notes"
 msgstr "یادداشت‌ها"
 
-#: content_crm/member/glance/display.php:257 content_love/domain/home/display.php:125
+#: content_crm/member/glance/display.php:260 content_love/domain/home/display.php:125
 #: content_my/domain/payments/view.php:9 content_my/ipg/home/display.php:90
 msgid "Payments"
 msgstr "پرداختی‌ها"
 
-#: content_crm/member/glance/display.php:263
+#: content_crm/member/glance/display.php:266
 #: content_crm/member/transactions/plus/view.php:12
 msgid "Increase account recharge"
 msgstr "افزایش شارژ حساب مشتری"
 
-#: content_crm/member/glance/display.php:269
+#: content_crm/member/glance/display.php:272
 #: content_crm/member/transactions/minus/view.php:12
 msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
-#: content_crm/member/glance/display.php:287 content_love/gift/create/stepGuide.php:98
+#: content_crm/member/glance/display.php:290 content_love/gift/create/stepGuide.php:98
 #: dash/layout/pwa/pwa_menu.php:108
 msgid "Messages"
 msgstr "پیام‌ها"
 
-#: content_crm/member/glance/display.php:300
+#: content_crm/member/glance/display.php:303
 msgid "Customer Logs History"
 msgstr "تاریخچه ردپای مشتری"
 
@@ -15455,11 +15468,11 @@ msgstr "متاهل"
 msgid "Nationality"
 msgstr "ملیت"
 
-#: content_crm/member/identification/display.php:76
+#: content_crm/member/identification/display.php:75
 msgid "National Id"
 msgstr "کد ملی"
 
-#: content_crm/member/identification/display.php:78
+#: content_crm/member/identification/display.php:77
 msgid "10 digit national code"
 msgstr "کدملی ده رقمی"
 
@@ -21336,12 +21349,6 @@ msgstr ""
 "به‌سادگی تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ برای رفع "
 "مشکل خود برسید"
 
-#: content_support/faq/view.php:26 content_support/home/view.php:9
-#: content_support/home/view.php:21 content_support/tag/view.php:24
-#: content_support/ticket/home/view.php:25
-msgid "Help center"
-msgstr "مرکز راهنمایی"
-
 #: content_support/home/article.php:56
 msgid "Download PDF"
 msgstr "دانلود پی‌دی‌اف"
@@ -22568,11 +22575,11 @@ msgstr "شناسه مطلب تنظیم نشده است"
 msgid "Invalid posts id"
 msgstr "شناسه مطلب اشتباه است"
 
-#: dash/app/posts/edit.php:122
+#: dash/app/posts/edit.php:128
 msgid "Post successfully updated"
 msgstr "مطلب با موفقیت به روز رسانی شد"
 
-#: dash/app/posts/edit.php:127
+#: dash/app/posts/edit.php:133
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
 
@@ -34150,10 +34157,6 @@ msgstr "لطفا متنی را یادداشت کنید یا به این محصو
 msgid "Product id not found"
 msgstr "شناسه محصول یافت نشد"
 
-#: lib/app/product/comment.php:64
-msgid "Product not found"
-msgstr "هیچ محصولی یافت نشد"
-
 #: lib/app/product/comment.php:337
 msgid "Comment successfully added"
 msgstr "دیدگاه با موفقیت اضافه شد"
@@ -34588,7 +34591,7 @@ msgstr "بدون تگ"
 
 #: lib/app/product/site_list.php:21
 msgid "Product not found."
-msgstr "کالا یافت نشد."
+msgstr "محصول یافت نشد."
 
 #: lib/app/product/site_list.php:50
 msgid "add as new product"
@@ -36973,6 +36976,9 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Account Create Date"
+#~ msgstr "تاریخ ایجاد حساب کاربری"
 
 #~ msgid "For example: Color"
 #~ msgstr "برای مثال:‌ رنگ"
