@@ -48,7 +48,6 @@ $isPost = ($type === 'post');
               <option value="gallery" <?php if(\dash\data::dataRow_subtype() == 'gallery') { echo 'selected'; } ?> ><?php echo T_("Gallery"); ?></option>
               <option value="video" <?php if(\dash\data::dataRow_subtype() == 'video') { echo 'selected'; } ?> ><?php echo T_("Video"); ?></option>
               <option value="audio" <?php if(\dash\data::dataRow_subtype() == 'audio') { echo 'selected'; } ?> > <?php echo T_("Audio"); ?></option>
-              <option value="help_center" <?php if(\dash\data::dataRow_subtype() == 'help_center') { echo 'selected'; } ?> > <?php echo T_("Help center"); ?></option>
           </select>
       </div>
   </form>

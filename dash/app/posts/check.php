@@ -17,7 +17,7 @@ class check
 			'url'         => 'url',
 			'content'     => 'html',
 			'type'        => ['enum' => ['post', 'page', 'help', 'mag']],
-			'subtype'     => ['enum' => ['standard','image', 'gallery', 'video', 'audio', 'help_center']],
+			'subtype'     => ['enum' => ['standard','image', 'gallery', 'video', 'audio']],
 			'comment'     => 'bit',
 			'status'      => ['enum' => ['publish','draft','schedule','deleted','expire']],
 			'parent'      => 'code',
