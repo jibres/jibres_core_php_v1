@@ -40,7 +40,7 @@ class model
 			'subtitle'    => \dash\request::post('subtitle'),
 			'title'       => \dash\request::post('title'),
 			'content'     => \dash\request::post_raw('content'),
-			// 'parent'      => \dash\request::post('parent'),
+			'parent'      => \dash\request::post('parent') ? \dash\request::post('parent') : null,
 			'tag'         => \dash\request::post('tag'),
 			'cat'         => \dash\request::post('cat'),
 

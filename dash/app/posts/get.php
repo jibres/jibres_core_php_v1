@@ -4,6 +4,27 @@ namespace dash\app\posts;
 
 class get
 {
+
+	public static function load_all_parent($_id)
+	{
+		$id = \dash\coding::decode($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$list = \dash\db\posts\get::list_all_of_pages($id);
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
+
+		return $list;
+	}
+
+
 	public static function post_writer_list()
 	{
 		$list = \dash\app\posts\check::get_user_can_write_post('post');

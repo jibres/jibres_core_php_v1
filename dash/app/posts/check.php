@@ -141,6 +141,29 @@ class check
 
 		$parent = $data['parent'];
 
+		$isPage = false;
+		$isHelp = false;
+		$isPost = false;
+
+		if(isset($current_post_detail['type']))
+		{
+			switch ($current_post_detail['type'])
+			{
+				case 'page': $isPage = true; break;
+				case 'post': $isPost = true; break;
+				case 'help': $isHelp = true; break;
+			}
+		}
+		elseif($data['type'])
+		{
+			switch ($data['type'])
+			{
+				case 'page': $isPage = true; break;
+				case 'post': $isPost = true; break;
+				case 'help': $isHelp = true; break;
+			}
+		}
+
 		if($parent)
 		{
 			$parent = \dash\coding::decode($parent);
@@ -150,6 +173,10 @@ class check
 				return false;
 			}
 			$data['parent'] = $parent;
+		}
+
+		if($parent && ($isPage || $isHelp))
+		{
 
 			$parent_detail = \dash\db\posts\get::by_id($parent);
 
@@ -193,6 +220,11 @@ class check
 				$parent_slug = $parent_detail['slug'];
 				$parent_url = $parent_detail['url'];
 			}
+		}
+		else
+		{
+			// unset parent for post record
+			$data['parent'] = null;
 		}
 
 

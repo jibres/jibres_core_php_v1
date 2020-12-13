@@ -23,6 +23,7 @@ class ready
 			{
 				case 'id':
 				case 'user_id':
+				case 'parent':
 				case 'term_id':
 					if(isset($value))
 					{
