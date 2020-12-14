@@ -1,4 +1,4 @@
-<nav class="items">
+<nav class="items long">
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>

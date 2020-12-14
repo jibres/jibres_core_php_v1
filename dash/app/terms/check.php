@@ -52,7 +52,19 @@ class check
 			}
 			else
 			{
-				\dash\notif::error(T_("Duplicate term"), ['type', 'slug', 'language', 'title']);
+				if($data['type'] === 'tag')
+				{
+					\dash\notif::error(T_("Duplicate tag. This tag is already added to your list"), 'title');
+				}
+				elseif($data['type'] === 'cat')
+				{
+					\dash\notif::error(T_("Duplicate category. This category is already added to your list"), 'title');
+				}
+				else
+				{
+					\dash\notif::error(T_("Duplicate term"), 'title');
+				}
+
 				if($data['multiple_insert'])
 				{
 					return $check_duplicate['id'];
