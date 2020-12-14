@@ -12,15 +12,35 @@ class get
 			return false;
 		}
 
-		$args = ['id' => $id, 'limit' => 1];
+		$result = self::inline_get($id);
 
-		$result = \dash\db\terms::get($args);
-		$temp = [];
-		if(is_array($result))
+		if(!$result)
 		{
-			$temp = \dash\app\terms\ready::row($result);
+			\dash\notif::error(T_("Terms not founded"));
+			return false;
 		}
-		return $temp;
+
+		$result = \dash\app\terms\ready::row($result);
+
+		return $result;
+	}
+
+
+	public static function inline_get($_id)
+	{
+
+		if(!$_id || !is_numeric($_id))
+		{
+			return false;
+		}
+
+		$result = \dash\db\terms\get::by_id($_id);
+		if(!$result || !is_array($result))
+		{
+			return false;
+		}
+
+		return $result;
 	}
 
 

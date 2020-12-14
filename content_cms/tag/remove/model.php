@@ -12,14 +12,14 @@ class model
 
 		if(!\dash\data::dataRow_count())
 		{
-			\dash\app\tag\remove::remove($id);
+			\dash\app\terms\remove::remove($id);
 		}
 		else
 		{
 			$wd = \dash\validate::enum($wd, false, ['enum' => ['wdn', 'wde']]);
 			if(!$wd)
 			{
-				\dash\notif::error(T_("This tag used in some product. Please specify what you want to do with these products. Do you want to delete this tag from them or select a new tag for them?"), ['alerty' => true]);
+				\dash\notif::error(T_("This tag used in some post. Please specify what you want to do with these posts. Do you want to delete this tag from them or select a new tag for them?"), ['alerty' => true]);
 				return false;
 			}
 
@@ -28,7 +28,7 @@ class model
 			{
 				$type = 'select_new_tag';
 
-				$tag_id = \dash\validate::id($tag_id, false);
+				$tag_id = \dash\validate::code($tag_id, false);
 				if(!$tag_id)
 				{
 					\dash\notif::error(T_("Please choose new tag"), 'tagid');
@@ -37,7 +37,7 @@ class model
 			}
 			else
 			{
-				$type = 'delete_from_product';
+				$type = 'delete_from_post';
 			}
 
 			$action =
@@ -46,7 +46,7 @@ class model
 				'new_tag_id' => $tag_id,
 			];
 
-			\dash\app\tag\remove::remove_action($id, $action);
+			\dash\app\terms\remove::remove_action($id, $action);
 		}
 
 		if(\dash\engine\process::status())

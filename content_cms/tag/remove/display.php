@@ -1,23 +1,23 @@
 <form method="post" autocomplete="off" >
   <div class="avand-lg">
     <section class="box">
-      <header><h2><?php echo T_("Remove tag"); ?></h2></header>
+      <header><h2><?php echo T_("Remove tag"). ' '. \dash\data::dataRow_title(); ?> </h2></header>
       <div class="body">
         <div class="msg">
-          <?php echo T_(":val products by this tag founded", ['val' => \dash\fit::number(\dash\data::dataRow_count())]) ?>
+          <?php echo T_(":val post by this tag founded", ['val' => \dash\fit::number(\dash\data::dataRow_count())]) ?>
         <br>
-          <a class="link" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show products by this tag"); ?></a>
+          <a class="link" href="<?php echo \dash\url::here(); ?>/post?tagid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show post by this tag"); ?></a>
         </div>
 
         <p>
-          <?php echo T_("You can remove this tag from all product or change it to another tag"); ?>
+          <?php echo T_("You can remove this tag from all post or change it to another tag"); ?>
         </p>
 
         <div class="row mB10">
           <div class="c-xs-12 c-sm-6">
             <div class="radio3">
               <input type="radio" name="wd" value="wde" id="wde">
-              <label for="wde"><?php echo T_("Remove this tag from all products") ?></label>
+              <label for="wde"><?php echo T_("Remove this tag from all post") ?></label>
             </div>
           </div>
           <div class="c-xs-12 c-sm-6">
