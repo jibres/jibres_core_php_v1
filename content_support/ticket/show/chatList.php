@@ -9,7 +9,7 @@ if(!is_array($dataTable))
 }
 
 $myID             = \dash\coding::encode(\dash\request::get('id'));
-$myTag            = \dash\app\term::load_tag_html(["post_id" => $myID ,  "format" => 'array', "type" => "support_tag", "related" => "tickets"]);
+$myTag            = \dash\app\terms\get::load_tag_html(["post_id" => $myID ,  "format" => 'array', "type" => "support_tag", "related" => "tickets"]);
 $cpTagSupportEdit = \dash\permission::check('cpTagSupportEdit');
 $urlThis = \dash\url::this();
 ?>

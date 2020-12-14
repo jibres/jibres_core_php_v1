@@ -65,8 +65,8 @@ class view
 		// 	$productImageRatioHtml = 'data-ratio='. $productSettingSaved['ratio_detail']['ratio'];
 		// }
 		\dash\data::productImageRatioHtml($productImageRatioHtml);
-		\dash\data::allTagList(\dash\app\term::get_all_tag());
-		\dash\data::listCategory(\dash\app\term::cat_list());
+		\dash\data::allTagList(\dash\app\terms\get::get_all_tag());
+		\dash\data::listCategory(\dash\app\terms\get::cat_list());
 
 		\dash\data::tagsSavedTitle([]);
 		\dash\data::listSavedCat([]);

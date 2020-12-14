@@ -96,7 +96,7 @@ function loadPostTemplate()
   ?>
 <?php if(false) {?>
   <div class="tagBox msg simple">
-    <?php \dash\app\term::load_tag_html(['format' => 'html']); ?>
+    <?php \dash\app\terms\get::load_tag_html(['format' => 'html']); ?>
   </div>
 <?php } //endif ?>
 

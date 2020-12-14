@@ -66,7 +66,7 @@
 
 
       <?php
-      $tag = \dash\app\term::load_tag_html(['type' => 'help_tag']);
+      $tag = \dash\app\terms\get::load_tag_html(['type' => 'help_tag']);
       if($tag)
       {
           echo '<div class="tagBox msg">';

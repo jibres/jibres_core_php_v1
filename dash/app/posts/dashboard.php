@@ -14,7 +14,7 @@ class dashboard
 		$dashboard_detail['tags']      = \dash\db\terms::get_count(['type' => 'tag']);
 		$dashboard_detail['comments']  = \dash\db\comments::get_count();
 		$dashboard_detail['latesPost'] = \dash\app\posts\search::lates_post(['type' => 'post']);
-		$dashboard_detail['latesTag']  = \dash\app\term::lates_term(['type' => 'tag']);
+		$dashboard_detail['latesTag']  = \dash\app\terms\get::lates_tag();
 
 		return $dashboard_detail;
 

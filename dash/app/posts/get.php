@@ -173,7 +173,7 @@ class get
 			$load_category = [];
 		}
 
-		$load_category = array_map(['\\dash\\app\\term', 'ready'], $load_category);
+		$load_category = array_map(['\\dash\\app\\terms\\ready', 'row'], $load_category);
 
 		return $load_category;
 	}
@@ -186,7 +186,7 @@ class get
 			$load_tag = [];
 		}
 
-		$load_tag = array_map(['\\dash\\app\\term', 'ready'], $load_tag);
+		$load_tag = array_map(['\\dash\\app\\terms\\ready', 'row'], $load_tag);
 
 		return $load_tag;
 	}

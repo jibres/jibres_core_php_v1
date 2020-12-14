@@ -220,7 +220,7 @@
             <?php
 
             $myID             = \dash\coding::encode(\dash\request::get('id'));
-            $myTag            = \dash\app\term::load_tag_html(["post_id" => $myID , "title" => true,  "type" => "support_tag", "related" => "tickets"]);
+            $myTag            = \dash\app\terms\get::load_tag_html(["post_id" => $myID , "title" => true,  "type" => "support_tag", "related" => "tickets"]);
 
             ?>
 

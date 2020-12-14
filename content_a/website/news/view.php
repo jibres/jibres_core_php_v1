@@ -23,7 +23,7 @@ class view
 
 		\dash\data::newsNameSuggestion(\lib\app\website\body\line\news::suggest_new_name());
 
-		\dash\data::listCategory(\dash\app\term::cat_list());
+		\dash\data::listCategory(\dash\app\terms\get::cat_list());
 
 
 	}
