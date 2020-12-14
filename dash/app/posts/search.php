@@ -59,6 +59,10 @@ class search
 		{
 			$and[] = " posts.status =  '$data[status]' ";
 		}
+		else
+		{
+			$and[] = " posts.status != 'deleted' ";
+		}
 
 
 		$query_string = \dash\validate::search($_query_string, false);

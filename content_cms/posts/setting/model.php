@@ -5,6 +5,18 @@ class model
 {
 	public static function post()
 	{
+
+		if(\dash\request::post('remove') === 'remove')
+		{
+			\dash\app\posts\remove::remove(\dash\request::get('id'));
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return;
+		}
+
+
 		$post = [];
 
 		if(\dash\request::post('runaction_theme'))
