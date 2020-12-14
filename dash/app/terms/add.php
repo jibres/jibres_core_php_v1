@@ -9,9 +9,18 @@ class add
 		$ids = [];
 		foreach ($_args as $key => $value)
 		{
+
+			$value['multiple_insert'] = true;
+
 			$id = self::add($value);
 
-			if(!\dash\engine\process::status())
+			if($id && !\dash\engine\process::status())
+			{
+				$ids[] = $id;
+				\dash\notif::clean();
+				\dash\engine\process::continue();
+			}
+			elseif(!\dash\engine\process::status())
 			{
 				return false;
 			}
@@ -36,7 +45,7 @@ class add
 
 		if($args === false || !\dash\engine\process::status())
 		{
-			return false;
+			return $args;
 		}
 
 		$return  = [];

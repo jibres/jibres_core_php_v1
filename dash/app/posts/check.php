@@ -27,7 +27,7 @@ class check
 			'redirecturl' => 'url',
 			'creator'     => 'code',
 			'tag'         => 'tag',
-			'cat'         => 'tag',
+			'cat'         => 'cat',
 			'set_publishdate' => 'bit',
 		];
 

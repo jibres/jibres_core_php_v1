@@ -260,7 +260,7 @@ class url
 	}
 
 
-	public static function allow_post_url($_url, $_table, $_id)
+	public static function allow_post_url($_url, $_type, $_id)
 	{
 		// remove / from fist or end of url
 		$raw_url = str_replace('/', '', $_url);
@@ -271,10 +271,17 @@ class url
 			return false;
 		}
 
-		if(mb_strlen($raw_url) === 2 || mb_strlen($_url) === 2)
+		if($_type = 'tag')
 		{
-			\dash\notif::error(T_("You cannot select one or two character addresses"), ['element' => ['url', 'slug', 'title']]);
-			return false;
+			/* no problem to use tag with 2 url*/
+		}
+		else
+		{
+			if(mb_strlen($raw_url) === 2 || mb_strlen($_url) === 2)
+			{
+				\dash\notif::error(T_("You cannot select one or two character addresses"), ['element' => ['url', 'slug', 'title']]);
+				return false;
+			}
 		}
 
 		if(substr_count($_url, '/') > 1)

@@ -345,7 +345,7 @@ class posts
 				{
 					return false;
 				}
-				$my_query = " terms.slug = '$_options[cat]' AND ";
+				$my_query = " terms.url = '$_options[cat]' AND ";
 				break;
 
 			case 'tag':
@@ -354,7 +354,7 @@ class posts
 				{
 					return false;
 				}
-				$my_query = " terms.slug = '$_options[tag]' AND ";
+				$my_query = " terms.url = '$_options[tag]' AND ";
 				break;
 
 			case 'term':
@@ -594,7 +594,7 @@ class posts
 						termusages
 					INNER JOIN terms ON terms.id = termusages.term_id
 					WHERE
-						terms.slug = '$_options[term]' AND
+						terms.url = '$_options[term]' AND
 						termusages.post_id = posts.id
 				)
 			";

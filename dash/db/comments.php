@@ -304,7 +304,7 @@ class comments
 					INNER JOIN terms ON terms.id  = termusages.term_id
 				";
 
-				$_options['terms.slug'] = $_options['search_tag'];
+				$_options['terms.url'] = $_options['search_tag'];
 			}
 
 			unset($_options['search_tag']);
@@ -352,7 +352,7 @@ class comments
 			"
 				SELECT
 					terms.id,
-					terms.slug,
+					terms.url,
 					terms.title,
 					terms.meta,
 					terms.status,
@@ -366,7 +366,7 @@ class comments
 					$where
 				GROUP BY
 					terms.id,
-					terms.slug,
+					terms.url,
 					terms.title,
 					terms.meta,
 					terms.status

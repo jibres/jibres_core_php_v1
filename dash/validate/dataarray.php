@@ -120,16 +120,18 @@ class dataarray
 		foreach ($data as $tag)
 		{
 			$count++;
+			if($count > 20)
+			{
+				\dash\notif::warn(T_("You can set maximum 20 tag"));
+				break;
+			}
+
 			$temp = \dash\validate::string_30($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
 			if(isset($temp))
 			{
 				$new_tag[] = $temp;
 			}
 
-			if($count > 20)
-			{
-				break;
-			}
 		}
 
 		$new_tag = array_unique($new_tag);
@@ -163,16 +165,63 @@ class dataarray
 		foreach ($data as $tag)
 		{
 			$count++;
+			if($count > 100)
+			{
+				\dash\notif::warn(T_("You can set maximum 100 tag"));
+				break;
+			}
+
 			$temp = \dash\validate::string_300($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
 			if(isset($temp))
 			{
 				$new_tag[] = $temp;
 			}
 
-			if($count > 100)
+		}
+
+		$new_tag = array_unique($new_tag);
+		$new_tag = array_filter($new_tag);
+
+		return $new_tag;
+	}
+
+
+	public static function cat($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = $_data;
+
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
+		if(!is_array($data))
+		{
+			if($_notif)
 			{
+				\dash\notif::error(T_("Field :val must be array", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		$new_tag = [];
+		$count = 0;
+		foreach ($data as $tag)
+		{
+			$count++;
+			if($count > 5)
+			{
+				\dash\notif::warn(T_("You can set maximum 5 cat"));
 				break;
 			}
+
+			$temp = \dash\validate::string_50($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
+			if(isset($temp))
+			{
+				$new_tag[] = $temp;
+			}
+
 		}
 
 		$new_tag = array_unique($new_tag);

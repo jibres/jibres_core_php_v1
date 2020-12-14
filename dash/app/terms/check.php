@@ -9,14 +9,12 @@ class check
 
 		$condition =
 		[
-			'title'    => 'title',
-			// 'parent'   => 'code',
-			// 'desc'     => 'desc',
-			'status'   => ['enum' => ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']],
-			// 'slug'     => 'slug',
-			'url'      => 'slug',
-			'type'     => ['enum' => ['tag', 'cat', 'code', 'other', 'help', 'term', 'support_tag', 'help_tag', 'category']],
-			'language' => 'language',
+			'title'           => 'title',
+			'status'          => ['enum' => ['enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other']],
+			'url'             => 'slug',
+			'type'            => ['enum' => ['tag', 'cat', 'code', 'other', 'help', 'term', 'support_tag', 'help_tag', 'category']],
+			'language'        => 'language',
+			'multiple_insert' => 'bit',
 
 		];
 
@@ -55,19 +53,26 @@ class check
 			else
 			{
 				\dash\notif::error(T_("Duplicate term"), ['type', 'slug', 'language', 'title']);
-				return false;
+				if($data['multiple_insert'])
+				{
+					return $check_duplicate['id'];
+				}
+				else
+				{
+					return false;
+				}
 			}
 		}
 
 		if($data['url'])
 		{
-			if(!\dash\validate\url::allow_post_url($data['url'], 'terms', $_id))
+			if(!\dash\validate\url::allow_post_url($data['url'], $data['type'], $_id))
 			{
 				return false;
 			}
 		}
 
-		$data['slug'] = $data['url'];
+		unset($data['multiple_insert']);
 
 		return $data;
 	}

@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.terms DROP `slug`;

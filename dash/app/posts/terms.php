@@ -128,12 +128,6 @@ class terms
 
 		if(!empty($must_insert))
 		{
-			if(count($must_insert) > 20)
-			{
-				\dash\notif::error(T_("You can set maximum 20 cat to post"), 'cat');
-				return false;
-			}
-
 			$insert_multi = [];
 			foreach ($must_insert as $key => $value)
 			{

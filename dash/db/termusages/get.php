@@ -38,7 +38,7 @@ class get
 			SELECT
 				terms.id AS `term_id`,
 				terms.title,
-				terms.slug
+				terms.url
 			FROM
 				termusages
 			INNER JOIN terms ON terms.id = termusages.term_id

@@ -595,6 +595,7 @@ class cleanse
 			case 'id_code': 			$data = \dash\validate\identify::id_code(...$fn_args); 				break;
 			case 'enum': 				$data = \dash\validate\dataarray::enum(...$fn_args); 				break;
 			case 'tag': 				$data = \dash\validate\dataarray::tag(...$fn_args); 				break;
+			case 'cat': 				$data = \dash\validate\dataarray::cat(...$fn_args); 				break;
 			case 'tag_long': 			$data = \dash\validate\dataarray::tag_long(...$fn_args); 			break;
 			case 'nationalcode': 		$data = \dash\validate\nationalcode::nationalcode(...$fn_args); 	break;
 			case 'number': 				$data = \dash\validate\number::number(...$fn_args); 				break;
