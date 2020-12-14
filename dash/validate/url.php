@@ -260,6 +260,78 @@ class url
 	}
 
 
+	public static function allow_post_url($_url, $_table, $_id)
+	{
+		// remove / from fist or end of url
+		$raw_url = str_replace('/', '', $_url);
+
+		if(mb_strlen($raw_url) === 1 || mb_strlen($_url) === 1)
+		{
+			\dash\notif::error(T_("You cannot select one or two character addresses"), ['element' => ['url', 'slug', 'title']]);
+			return false;
+		}
+
+		if(mb_strlen($raw_url) === 2 || mb_strlen($_url) === 2)
+		{
+			\dash\notif::error(T_("You cannot select one or two character addresses"), ['element' => ['url', 'slug', 'title']]);
+			return false;
+		}
+
+		if(substr_count($_url, '/') > 1)
+		{
+			\dash\notif::error(T_("You cannot use more than one slash in url"), ['element' => ['url', 'slug', 'title']]);
+			return false;
+		}
+
+		$first_url = $_url;
+
+		if(strpos($_url, '/') !== false)
+		{
+			$first_url = strtok($_url, '/');
+		}
+
+		$disallow =
+		[
+			'cat',
+			'tag',
+			'term',
+			'file',
+			'files',
+			'static',
+			'sitemap',
+			/* this item exist in content_business as a module*/
+			'category',
+			'collection',
+			'apk',
+			'app',
+			'home',
+			'comment',
+			'orders',
+			'order',
+			'profile',
+			'search',
+			'shipping',
+			'audio',
+			'podcast',
+			'gallery',
+			'image',
+			'images',
+			'video',
+
+		];
+
+		$disallow = array_merge($disallow, \dash\engine\content::content_list());
+
+		if(in_array($raw_url, $disallow) || in_array($_url, $disallow) || in_array($first_url, $disallow))
+		{
+			\dash\notif::error(T_("This address is a system keyword and cannot be selected"), ['element' => ['url', 'slug', 'title']]);
+			return false;
+		}
+
+		return true;
+	}
+
+
 
 	/**
 	 * This function tested by this domain

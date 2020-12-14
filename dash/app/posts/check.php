@@ -31,7 +31,7 @@ class check
 			'set_publishdate' => 'bit',
 		];
 
-		$require = ['title'];
+		$require = ['title', 'slug'];
 
 		$meta =	[];
 
@@ -324,7 +324,7 @@ class check
 
 		if($data['url'])
 		{
-			if(!\dash\app\url::check($data['url']))
+			if(!\dash\validate\url::allow_post_url($data['url'], 'posts', $_id))
 			{
 				return false;
 			}

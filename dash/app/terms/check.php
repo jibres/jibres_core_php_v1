@@ -61,11 +61,13 @@ class check
 
 		if($data['url'])
 		{
-			if(!\dash\app\url::check($data['url']))
+			if(!\dash\validate\url::allow_post_url($data['url'], 'terms', $_id))
 			{
 				return false;
 			}
 		}
+
+		$data['slug'] = $data['url'];
 
 		return $data;
 	}

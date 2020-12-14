@@ -32,9 +32,9 @@ class delete
 	}
 
 
-	public static function hard_delete_all_cat($_post_id)
+	public static function hard_delete_all_cat($_post_id, $_type)
 	{
-		$query = "DELETE FROM termusages WHERE termusages.post_id = $_post_id ";
+		$query = "DELETE FROM termusages WHERE termusages.post_id = $_post_id AND termusages.type = '$_type' ";
 		return \dash\db::query($query);
 	}
 

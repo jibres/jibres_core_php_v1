@@ -100,27 +100,43 @@ class edit
 
 			if(\dash\engine\process::status())
 			{
-				if(isset($_args['tag']))
+				if(array_key_exists('tag', $_args))
 				{
 					\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
 				}
 
 				if(in_array($load_posts['type'], ['post', 'help']))
 				{
-					if(isset($_args['cat']))
+					if(array_key_exists('cat', $_args))
 					{
 						$post_url = \dash\app\posts\terms::save_post_term($cat, $load_posts['id'], 'cat');
 
-						if($post_url !== false)
+						if($post_url === false)
 						{
-							if($post_url)
-							{
-								\dash\db\posts::update(['url' => ltrim($post_url. '/'. $load_posts['slug'], '/')], $load_posts['id']);
-							}
-							else
-							{
-								\dash\db\posts::update(['url' => $load_posts['slug']], $load_posts['id']);
-							}
+							return false;
+						}
+
+						if($post_url)
+						{
+							\dash\db\posts::update(['url' => ltrim($post_url. '/'. $load_posts['slug'], '/')], $load_posts['id']);
+						}
+						else
+						{
+							\dash\db\posts::update(['url' => $load_posts['slug']], $load_posts['id']);
+						}
+
+					}
+					elseif(isset($args['slug']))
+					{
+						$url = \dash\db\termusages\get::first_category_url($load_posts['id']);
+
+						if($url && is_string($url))
+						{
+							\dash\db\posts::update(['url' => ltrim($url. '/'. $args['slug'], '/')], $load_posts['id']);
+						}
+						else
+						{
+							\dash\db\posts::update(['url' => $args['slug']], $load_posts['id']);
 						}
 					}
 				}

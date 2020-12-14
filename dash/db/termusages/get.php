@@ -4,6 +4,26 @@ namespace dash\db\termusages;
 
 class get
 {
+	public static function first_category_url($_post_id)
+	{
+		$query =
+		"
+			SELECT
+				terms.url AS `url`
+			FROM
+				termusages
+			INNER JOIN terms ON terms.id = termusages.term_id
+			WHERE
+				termusages.post_id = $_post_id AND
+				termusages.type = 'cat'
+			ORDER BY termusages.id ASC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, 'url', true);
+
+		return $result;
+	}
 
 
 	public static function usage($_post_id, $_type)

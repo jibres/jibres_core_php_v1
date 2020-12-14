@@ -4,6 +4,29 @@ namespace dash\app\terms;
 
 class add
 {
+	public static function multiple($_args)
+	{
+		$ids = [];
+		foreach ($_args as $key => $value)
+		{
+			$id = self::add($value);
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			if(isset($id['id']))
+			{
+				$ids[] = \dash\coding::decode($id['id']);
+			}
+
+		}
+
+		return $ids;
+	}
+
+
 	public static function add($_args)
 	{
 
