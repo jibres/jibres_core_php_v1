@@ -100,13 +100,14 @@ class edit
 
 			if(\dash\engine\process::status())
 			{
-				if(array_key_exists('tag', $_args))
-				{
-					\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
-				}
 
 				if(in_array($load_posts['type'], ['post', 'help']))
 				{
+					if(array_key_exists('tag', $_args))
+					{
+						\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
+					}
+
 					if(array_key_exists('cat', $_args))
 					{
 						$post_url = \dash\app\posts\terms::save_post_term($cat, $load_posts['id'], 'cat');
