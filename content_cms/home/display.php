@@ -23,7 +23,7 @@
 
   <?php if(\dash\permission::check('cpCategoryView')) {?>
        <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/terms?type=cat">
+        <a class="item f" href="<?php echo \dash\url::here();?>/category">
           <div class="key"><?php echo T_('Category');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_cats()); ?></div>
           <div class="go"></div>
@@ -32,7 +32,7 @@
   <?php }// endif ?>
 <?php if(\dash\permission::check('cpTagView')) {?>
        <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/terms?type=tag">
+        <a class="item f" href="<?php echo \dash\url::here();?>/tag">
           <div class="key"><?php echo T_('Tags');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
           <div class="go"></div>
