@@ -25,6 +25,8 @@ class search
 			'parent'    => 'string_100',
 			'language'  => 'language',
 			'limit'     => 'int',
+			'cat_id'    => 'code',
+			'tag_id'    => 'code',
 
 		];
 
@@ -35,6 +37,7 @@ class search
 
 		$and           = [];
 		$meta          = [];
+		$meta['join']  = [];
 		$or            = [];
 		$order_sort    = null;
 		$meta['limit'] = 15;
@@ -62,6 +65,29 @@ class search
 		else
 		{
 			$and[] = " posts.status != 'deleted' ";
+		}
+
+
+		if($data['tag_id'])
+		{
+			$data['tag_id'] = \dash\coding::decode($data['tag_id']);
+
+			if($data['tag_id'])
+			{
+				$and[]   = " termusages.term_id =  $data[tag_id] ";
+				$meta['join'][] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'tag' ";
+			}
+		}
+
+		if($data['cat_id'])
+		{
+			$data['cat_id'] = \dash\coding::decode($data['cat_id']);
+
+			if($data['cat_id'])
+			{
+				$and[]   = " termusages.term_id =  $data[cat_id] ";
+				$meta['join'][] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'cat' ";
+			}
 		}
 
 

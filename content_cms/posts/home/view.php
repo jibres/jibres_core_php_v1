@@ -50,6 +50,8 @@ class view
 			'sort'   => \dash\request::get('sort'),
 			'status' => \dash\request::get('status'),
 			'type'   => $type,
+			'cat_id' => \dash\request::get('categoryid'),
+			'tag_id' => \dash\request::get('tagid'),
 
 		];
 
