@@ -65,7 +65,7 @@ switch (\dash\data::dataRow_status())
  <?php if(\dash\data::parentList()) {?>
   <div class="box">
     <div class="pad">
-      <p><?php echo T_("You can set this page as parent of another page") ?></p>
+      <p><?php echo T_("You can set this page as a subset of another page") ?></p>
       <div>
         <label for="parent"><?php echo T_("Parent") ?></label>
         <select class="select22" name="parent" id="parent">

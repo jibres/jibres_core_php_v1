@@ -58,7 +58,7 @@
           <div class="c-xs-12 c-sm-12 c-md-8">
             <label><?php echo T_("Value"); ?></label>
             <div>
-              <select name="optionvalue3[]" id="optionvalue3" class="select22" data-model="tag" multiple="multiple" data-placeholder="<?php echo T_("Like Wood, Bamboo, xlarge") ?>">
+              <select name="optionvalue3[]" id="optionvalue3" class="select22" data-model="tag" multiple="multiple" data-placeholder="<?php echo T_("Like Wood, Bamboo, iron") ?>">
                 <?php if(isset($variantsList['variants']['option3']['value']) && is_array($variantsList['variants']['option3']['value'])) { foreach ($variantsList['variants']['option3']['value'] as $key => $value) {?>
                   <option value="<?php echo $value; ?>" selected><?php echo $value; ?></option>
                 <?php } } //endfor //endif  ?>
