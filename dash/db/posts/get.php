@@ -4,6 +4,18 @@ namespace dash\db\posts;
 
 class get
 {
+	public static function check_duplicate_url_in_posts($_url, $_id = null)
+	{
+		$check_id = null;
+		if($_id)
+		{
+			$check_id = " AND posts.id != $_id ";
+		}
+
+		$query  = "SELECT * FROM posts WHERE posts.url = '$_url' $check_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 	public static function list_all_of_pages($_current_id)
 	{

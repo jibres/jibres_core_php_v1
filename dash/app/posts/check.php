@@ -103,25 +103,6 @@ class check
 			$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 		}
 
-
-
-		$check_duplicate_args = ['slug' => $data['slug'], 'language' => $data['language'], 'limit' => 1];
-
-
-		$check_duplicate_slug = \dash\db\posts\get::check_duplicate($data['slug'], $data['language']);
-		if(isset($check_duplicate_slug['id']))
-		{
-			if(floatval($check_duplicate_slug['id']) === floatval($_id))
-			{
-				// no problem to edit it
-			}
-			else
-			{
-				\dash\notif::error(T_("Duplicate title, You have a post with this title"), 'slug');
-				return false;
-			}
-		}
-
 		if(!$data['url'])
 		{
 			$data['url'] = $data['slug'];
@@ -236,6 +217,13 @@ class check
 		if($parent_url)
 		{
 			$data['url'] = $parent_url . '/'. $data['url'];
+		}
+
+		$check_duplicate_url = self::check_duplicate_post_and_term($data['url'], $_id, 'in_post');
+
+		if(!$check_duplicate_url)
+		{
+			return false;
 		}
 
 
@@ -391,6 +379,51 @@ class check
 		}
 
 		return $load_user;
+	}
+
+
+	public static function check_duplicate_post_and_term($_url, $_id, $_type)
+	{
+		if($_type === 'in_post')
+		{
+			$check_duplicate_url_in_posts = \dash\db\posts\get::check_duplicate_url_in_posts($_url, $_id);
+			if(isset($check_duplicate_url_in_posts['id']))
+			{
+				\dash\notif::error(T_("Duplicate post url. This post url is already exists in your post list"));
+				return false;
+			}
+
+			$check_duplicate_url_in_terms = \dash\db\terms\get::check_duplicate_url_in_terms($_url);
+
+			if(isset($check_duplicate_url_in_terms['id']))
+			{
+				\dash\notif::error(T_("Duplicate url. You have a category by this url and can not set this url for post"));
+				return false;
+			}
+
+
+		}
+		else
+		{
+			// in category
+
+			$check_duplicate_url_in_terms = \dash\db\terms\get::check_duplicate_url_in_terms($_url, $_id);
+			if(isset($check_duplicate_url_in_terms['id']))
+			{
+				\dash\notif::error(T_("Duplicate category url. This category url is already exists in your category list"));
+				return false;
+			}
+
+			$check_duplicate_url_in_posts = \dash\db\posts\get::check_duplicate_url_in_posts($_url);
+
+			if(isset($check_duplicate_url_in_posts['id']))
+			{
+				\dash\notif::error(T_("Duplicate url. You have a post by this url and can not set this url for category"));
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 }
