@@ -24,6 +24,11 @@ class ready
 					$result[$key] = $value ? true : false;
 					break;
 
+				case 'desc':
+					$result[$key] = \lib\shortcode::analyze_desc_html($value);
+					break;
+
+
 				case 'count':
 					$result[$key] = floatval($value);
 					$result['have_product'] = $value ? true : false;

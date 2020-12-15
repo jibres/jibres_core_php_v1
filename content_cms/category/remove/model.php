@@ -31,7 +31,7 @@ class model
 				$category_id = \dash\validate::code($category_id, false);
 				if(!$category_id)
 				{
-					\dash\notif::error(T_("Please choose new category"), 'categoryid');
+					\dash\notif::error(T_("You must select one category from you list"), 'categoryid');
 					return false;
 				}
 			}
