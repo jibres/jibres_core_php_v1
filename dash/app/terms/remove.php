@@ -25,11 +25,11 @@ class remove
 			return self::remove($_id);
 		}
 
-		if(isset($_action['type']) && $_action['type'] === 'select_new_tag')
+		if(isset($_action['type']) && $_action['type'] === 'select_new')
 		{
-			if(isset($_action['new_tag_id']))
+			if(isset($_action['new_id']))
 			{
-				$load_new = \dash\app\terms\get::get($_action['new_tag_id']);
+				$load_new = \dash\app\terms\get::get($_action['new_id']);
 
 				if(!isset($load_new['id']))
 				{

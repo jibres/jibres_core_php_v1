@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\tag\remove;
+namespace content_cms\category\remove;
 
 
 class model
@@ -8,7 +8,7 @@ class model
 	{
 		$id     = \dash\request::get('id');
 		$wd     = \dash\request::post('wd');
-		$tag_id = \dash\request::post('tagid');
+		$category_id = \dash\request::post('categoryid');
 
 		if(!\dash\data::dataRow_count())
 		{
@@ -19,7 +19,7 @@ class model
 			$wd = \dash\validate::enum($wd, false, ['enum' => ['wdn', 'wde']]);
 			if(!$wd)
 			{
-				\dash\notif::error(T_("This tag used in some post. Please specify what you want to do with these posts. Do you want to delete this tag from them or select a new tag for them?"), ['alerty' => true]);
+				\dash\notif::error(T_("This category used in some post. Please specify what you want to do with these posts. Do you want to delete this category from them or select a new category for them?"), ['alerty' => true]);
 				return false;
 			}
 
@@ -28,10 +28,10 @@ class model
 			{
 				$type = 'select_new';
 
-				$tag_id = \dash\validate::code($tag_id, false);
-				if(!$tag_id)
+				$category_id = \dash\validate::code($category_id, false);
+				if(!$category_id)
 				{
-					\dash\notif::error(T_("Please choose new tag"), 'tagid');
+					\dash\notif::error(T_("Please choose new category"), 'categoryid');
 					return false;
 				}
 			}
@@ -43,7 +43,7 @@ class model
 			$action =
 			[
 				'type'       => $type,
-				'new_id' => $tag_id,
+				'new_id' => $category_id,
 			];
 
 			\dash\app\terms\remove::remove_action($id, $action);

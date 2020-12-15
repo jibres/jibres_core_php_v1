@@ -267,11 +267,11 @@ class url
 
 		if(mb_strlen($raw_url) === 1 || mb_strlen($_url) === 1)
 		{
-			\dash\notif::error(T_("You cannot select one or two character addresses"), ['element' => ['url', 'slug', 'title']]);
+			\dash\notif::error(T_("You cannot select one character for addresses"), ['element' => ['url', 'slug', 'title']]);
 			return false;
 		}
 
-		if($_type = 'tag')
+		if($_type === 'tag')
 		{
 			/* no problem to use tag with 2 url*/
 		}
@@ -279,7 +279,7 @@ class url
 		{
 			if(mb_strlen($raw_url) === 2 || mb_strlen($_url) === 2)
 			{
-				\dash\notif::error(T_("You cannot select one or two character addresses"), ['element' => ['url', 'slug', 'title']]);
+				\dash\notif::error(T_("You cannot select two character for addresses"), ['element' => ['url', 'slug', 'title']]);
 				return false;
 			}
 		}

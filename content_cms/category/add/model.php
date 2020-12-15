@@ -7,7 +7,7 @@ class model
 	public static function post()
 	{
 		$args          = [];
-		$args['title'] = \dash\request::post('cat');
+		$args['title'] = \dash\request::post('title');
 		$args['type']  = 'cat';
 
 		$result = \dash\app\terms\add::add($args);
