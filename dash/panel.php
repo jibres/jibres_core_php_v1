@@ -13,7 +13,8 @@ class panel
 		}
 		if(\dash\url::content() === 'cms')
 		{
-			return self::sidebar_jibres_cms();
+			return self::sidebar_businsess();
+			// return self::sidebar_jibres_cms();
 		}
 		if(\dash\url::content() === 'crm')
 		{
