@@ -32,10 +32,11 @@ function loadPostTemplate()
 <article>
   <section>
 
-
+<?php if(\dash\data::dataRow_thumb()) {?>
   <a href="<?php echo \dash\data::dataRow_link(); ?>" class="thumb">
       <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
   </a>
+<?php } //endif ?>
 
 
   <div><?php echo \dash\data::dataRow_content(); ?></div>

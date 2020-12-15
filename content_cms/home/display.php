@@ -43,7 +43,7 @@
 
 
    <?php if(\dash\permission::check('cpCommentsEdit')) {?>
-       <li>
+       <li class="hide">
         <a class="item f" href="<?php echo \dash\url::here();?>/comment">
           <div class="key"><?php echo T_('Comments');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
@@ -70,7 +70,7 @@
           <?php if(is_array(\dash\data::dashboardDetail_latesPost())) {?>
             <?php foreach (\dash\data::dashboardDetail_latesPost() as $key => $value) {?>
 
-            <a class="msg f" href="<?php echo \dash\url::kingdom(); ?>/<?php echo a($value, 'url'); ?>">
+            <a class="msg f" target="_blank" href="<?php echo a($value, 'link'); ?>">
               <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; } else { echo T_("Without title");} ?></div>
               <div class="cauto"><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></div>
             </a>
