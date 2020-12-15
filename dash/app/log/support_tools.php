@@ -14,7 +14,7 @@ class support_tools
 		}
 		else
 		{
-			$link .= \dash\url::domain();
+			$link .= \dash\url::kingdom();
 		}
 
 		$link .= '/!'. $_id;
