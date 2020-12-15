@@ -19,6 +19,15 @@ class model
 
 		$post = [];
 
+
+
+
+		if(\dash\request::post('runaction_editlanguage'))
+		{
+			$post['language'] = \dash\request::post('language');
+		}
+
+
 		if(\dash\request::post('runaction_theme'))
 		{
 			$post['subtype'] = \dash\request::post('subtype');

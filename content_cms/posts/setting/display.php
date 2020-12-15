@@ -16,9 +16,6 @@ $isPost = ($type === 'post');
       <h3><?php echo T_("Change status");?></h3>
       <div class="body">
         <p><?php echo T_("You can change your post status");?></p>
-        <?php if(\dash\data::dataRow_status() === 'deleted') {?>
-        <p class="fc-red"><?php echo T_("This post was removed.");?></p>
-      <?php } //end if ?>
       </div>
     </div>
   </div>
@@ -26,9 +23,6 @@ $isPost = ($type === 'post');
     <div class="action">
       <input type="hidden" name="runaction_editstatus" value="1">
       <select name="status" class="select22">
-        <?php if(\dash\data::dataRow_status() === 'deleted') {?>
-          <option value="deleted" <?php if(\dash\data::dataRow_status() === 'deleted') { echo 'selected';} ?>><?php echo T_("Deleted") ?></option>
-        <?php } //endif ?>
         <option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') { echo 'selected';} ?>><?php echo T_("Draft") ?></option>
         <option value="publish" <?php if(\dash\data::dataRow_status() === 'publish') { echo 'selected';} ?>><?php echo T_("Publish") ?></option>
       </select>
@@ -130,8 +124,30 @@ $isPost = ($type === 'post');
   </section>
 <?php } // endif ?>
 
+<?php if(!\dash\engine\store::inStore()) {?>
+<section class="f" data-option='cms-post-language'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Change post language");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can change your post language");?></p>
+      </div>
+    </div>
+  </div>
+  <form method="post" class="c4 s12" data-patch>
+    <div class="action">
+      <input type="hidden" name="runaction_editlanguage" value="1">
+      <select name="language" class="select22">
+        <?php foreach (\dash\language::all() as $key => $value) {?>
+        <option value="<?php echo $key ?>" <?php if(\dash\data::dataRow_language() === $key) { echo 'selected';} ?>><?php echo a($value, 'localname'); ?></option>
+      <?php } //endfor ?>
+      </select>
+    </div>
+  </form>
+</section>
+<?php } // endif ?>
 
-<?php if(\dash\data::dataRow_status() !== 'deleted') {?>
+
 <section class="f" data-option='cms-post-remove'>
     <div class="c8 s12">
       <div class="data">
@@ -155,4 +171,3 @@ $isPost = ($type === 'post');
       </div>
     </div>
   </section>
-<?php } //endif ?>
