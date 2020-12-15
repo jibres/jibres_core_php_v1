@@ -336,10 +336,16 @@ class check
 			unset($data['status']);
 		}
 
-		if(!$data['excerpt'])
+		if(!$data['excerpt'] && $data['content'])
 		{
-			$data['excerpt'] = \dash\utility\excerpt::extractRelevant($data['content']);
-
+			if(isset($current_post_detail['excerpt']) && $current_post_detail['excerpt'])
+			{
+				$data['excerpt'] = $current_post_detail['excerpt'];
+			}
+			else
+			{
+				$data['excerpt'] = \dash\utility\excerpt::extractRelevant($data['content']);
+			}
 		}
 
 		if(mb_strlen($data['excerpt']) > 300)

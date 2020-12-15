@@ -31,7 +31,7 @@ class view
 		}
 		else
 		{
-			\dash\face::btnPreview(\dash\data::dataRow_link());
+			\dash\face::btnPreview(\dash\data::dataRow_link(). '?preview=yes');
 		}
 
 

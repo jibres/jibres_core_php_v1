@@ -63,6 +63,11 @@ class edit
 			$_args['user_id'] = 'need - user_id :/ ';
 		}
 
+		if(isset($_args['content']) && $_args['content'])
+		{
+			$_args['excerpt'] = 'need - excerpt :/ ';
+		}
+
 		if($args['slug'])
 		{
 			$_args['url'] = 'need - url :/ ';
