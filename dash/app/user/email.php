@@ -165,7 +165,7 @@ class email
 		$body = '';
 		$body .= '<p>';
 		$body .= T_("To confirm your email in Jibres"). ' ';
-		$body .= '<a href="'.$url.'" target="_blank">'. T_("Click here"). '</a>';
+		$body .= '<a href="'.$url.'" target="_blank" clicktracking=off >'. T_("Click here"). '</a>';
 		$body .= '</p>';
 
 		$email =
