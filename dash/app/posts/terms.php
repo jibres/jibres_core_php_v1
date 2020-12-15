@@ -15,7 +15,7 @@ class terms
 			{
 				\dash\db\termusages\delete::hard_delete_all_cat($_post_id, $_type);
 			}
-			return false;
+			return null;
 		}
 
 
@@ -30,14 +30,14 @@ class terms
 		}
 		else
 		{
-			return false;
+			return null;
 		}
 
 		$cat = array_filter($cat);
 		$cat = array_unique($cat);
 		if(!$cat)
 		{
-			return false;
+			return null;
 		}
 
 		foreach ($cat as $key => $value)
