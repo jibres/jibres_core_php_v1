@@ -105,12 +105,12 @@ class text
 		else
 		{
 			$data = strip_tags($data);
+			$data = str_replace('"',   '', $data);
+			$data = str_replace("'",   '', $data);
 		}
 
 		$data_before = $data;
 
-		$data = str_replace('"',   '', $data);
-		$data = str_replace("'",   '', $data);
 		$data = str_replace("\\",  '', $data);
 		$data = str_replace("`",   '', $data);
 		$data = str_replace('<?',  '', $data);
