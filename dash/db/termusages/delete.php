@@ -5,6 +5,14 @@ namespace dash\db\termusages;
 class delete
 {
 
+	public static function by_post_id($_post_id)
+	{
+		$query  = "DELETE FROM termusages WHERE termusages.post_id = $_post_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function category_usage_cat_id($_id)
 	{
 		$query  = "DELETE FROM termusages WHERE termusages.term_id = $_id ";

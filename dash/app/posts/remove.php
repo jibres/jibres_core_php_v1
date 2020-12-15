@@ -28,11 +28,13 @@ class remove
 				\dash\notif::error(T_("This post was already removed"));
 				return false;
 			}
-
-
 		}
 
-		\dash\db\posts::update(['status' => 'deleted'], $load['id']);
+		\dash\db\termusages\delete::by_post_id($load['id']);
+		// \dash\db\comments\delete::by_post_id($load['id']);
+		\dash\db\posts\delete::record($load['id']);
+
+		\dash\log::set('postRemoved', ['my_title' => a($load, 'title')]);
 
 		\dash\notif::ok(T_("Post removed"));
 
