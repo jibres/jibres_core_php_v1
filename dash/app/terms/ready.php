@@ -59,6 +59,11 @@ class ready
 				$my_link = \dash\url::kingdom(). '/';
 			}
 
+			if(isset($result['type']) && $result['type'] === 'tag')
+			{
+				$my_link.= 'tag/';
+			}
+
 			$my_link.= $result['url'];
 			$result['link'] = $my_link;
 		}
