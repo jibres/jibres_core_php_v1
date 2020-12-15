@@ -62,10 +62,6 @@ class search
 		{
 			$and[] = " posts.status =  '$data[status]' ";
 		}
-		else
-		{
-			$and[] = " posts.status != 'deleted' ";
-		}
 
 
 		if($data['tag_id'])
