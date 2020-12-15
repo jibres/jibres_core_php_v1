@@ -35,8 +35,5 @@ $myFirstURL = '';
         <textarea class="txt" name="excerpt" id="excerpt" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo a($dataRow,'excerpt'); ?></textarea>
       </div>
     </div>
-    <footer class="txtRa">
-      <button class="btn master"><?php echo T_("Save") ?></button>
-    </footer>
   </div>
 </form>
