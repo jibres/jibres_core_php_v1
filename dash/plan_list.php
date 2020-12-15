@@ -179,9 +179,9 @@ class plan_list
 
 		$master['cmsAddNewPost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAddNewPost', 				'title' => T_('Add New Post'), 'require' => []];
 		$master['cmsPostRemove']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostRemove', 				'title' => T_('Remove post'), 'require' => []];
-		$master['cmsPostPublisher']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostPublisher', 				'title' => T_('Publish post'), 'require' => []];
-		$master['cmsManageAllPost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAllPost', 				'title' => T_('Manage All Post'), 'require' => []];
-		$master['cmsAddNewCategory']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAddNewCategory', 				'title' => T_('Add New Category'), 'require' => []];
+		$master['cmsPostPublisher']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostPublisher', 				'title' => T_('Publish post'), 'require' => []];
+		$master['cmsManageAllPost']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAllPost', 				'title' => T_('Manage All Post'), 'require' => []];
+		$master['cmsAddNewCategory']            = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAddNewCategory', 				'title' => T_('Add New Category'), 'require' => []];
 
 		$master['contentCp']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'contentCp', 					'title' => T_('contentCp'), 'require' => []];
 		$master['cpSMS']                        = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpSMS', 						'title' => T_('cpSMS'), 'require' => []];
