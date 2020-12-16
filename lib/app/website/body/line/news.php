@@ -98,10 +98,11 @@ class news
 	{
 		$condition =
 		[
-			'title'   => 'string_200',
-			'template'   => ['enum' => ['simple', 'special']],
-			'cat_id'  => 'code',
-			'publish' => 'bit'
+			'title'    => 'string_200',
+			'template' => ['enum' => ['simple', 'special']],
+			'subtype'  => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'cat_id'   => 'code',
+			'publish'  => 'bit',
 		];
 
 		$require   = [];
@@ -139,6 +140,7 @@ class news
 		[
 			'cat_id'   => $data['cat_id'],
 			'template' => $data['template'],
+			'subtype'  => $data['subtype'],
 		];
 
 
@@ -198,6 +200,7 @@ class news
 		[
 			'cat_id'   => $data['cat_id'],
 			'template' => $data['template'],
+			'subtype'  => $data['subtype'],
 		];
 
 
