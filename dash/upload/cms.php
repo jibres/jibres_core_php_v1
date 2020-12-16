@@ -98,7 +98,9 @@ class cms
 			'allow_size' => \dash\upload\size::cms_file_size(),
 			'ext' =>
 			[
-				'gif','jpeg','jpg','png',			// image
+				'mp3','wav','ogg','wma','m4a','aac', 	// audio
+				'bmp','gif','jpeg','jpg','png',			// image
+				'mpeg','mpg','mp4','mov','avi',			// video
 			],
 		];
 
