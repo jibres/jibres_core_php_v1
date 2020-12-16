@@ -85,7 +85,7 @@ class search
 			if($data['tag_id'])
 			{
 				$and[]   = " termusages.term_id =  $data[tag_id] ";
-				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'tag' ";
+				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id ";
 			}
 		}
 
@@ -96,7 +96,7 @@ class search
 			if($data['cat_id'])
 			{
 				$and[]   = " termusages.term_id =  $data[cat_id] ";
-				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'cat' ";
+				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id ";
 			}
 		}
 
