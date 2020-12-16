@@ -54,6 +54,12 @@
         </select>
       </div>
 
+      <label for="limit"><?php echo T_("Count show post"); ?></label>
+      <div class="input">
+        <input type="tel" name="limit" id="limit" placeholder="<?php echo \dash\fit::number(5); ?>" value="<?php echo a(\dash\data::lineSetting(), 'news', 'limit'); ?>" data-format='int' >
+      </div>
+
+
     </div>
 
     <footer class="txtRa">

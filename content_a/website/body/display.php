@@ -11,20 +11,11 @@
         <input type="hidden" class="hide" name="bodyline[]" value="<?php echo a($value, 'id'); ?>">
           <div class="key">
             <div class="f">
-              <div data-handle class="c1 handle"><i class="sf-sort"></i></div>
-              <div class="c2"><?php echo a($value, 'title')?></div>
-              <div class="c1">
-                <?php if(a($value, 'publish')) {?>
-                  <i title="<?php echo T_("Published") ?>" class="sf-check fc-green"></i>
-                <?php }else{ ?>
-                  <i title="<?php echo T_("Draft") ?>" class="sf-refresh fc-red"></i>
-                <?php } //endif ?>
-              </div>
-
-
+              <div data-handle class="cauto handle"><i class="sf-sort"></i></div>
+              <div class="c mLa10"><?php echo a($value, 'title')?></div>
             </div>
           </div>
-          <div class="go"></div>
+          <div class="go <?php if(a($value, 'publish')) {echo 'check ok';}else{ echo 'info nok';}?>"></div>
         </a>
      </li>
   <?php } //endfor ?>

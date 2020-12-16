@@ -17,16 +17,19 @@ class search
 	{
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'status'    => ['enum' => ['publish', 'draft', 'removed']],
-			'user_code' => 'code',
-			'type'      => ['enum' => ['post', 'page', 'help']],
-			'parent'    => 'string_100',
-			'language'  => 'language',
-			'limit'     => 'int',
-			'cat_id'    => 'code',
-			'tag_id'    => 'code',
+			'order'        => 'order',
+			'sort'         => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
+			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'status'       => ['enum' => ['publish', 'draft', 'removed']],
+			'user_code'    => 'code',
+			'type'         => ['enum' => ['post', 'page', 'help']],
+			'parent'       => 'string_100',
+			'language'     => 'language',
+			'limit'        => 'int',
+			'cat_id'       => 'code',
+			'tag_id'       => 'code',
+			'website_mode' => 'bit',
+			'pagination'   => 'y_n',
 
 		];
 
@@ -42,6 +45,11 @@ class search
 		$order_sort    = null;
 		$meta['limit'] = 15;
 
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
+		}
+
 		if($data['limit'])
 		{
 			$meta['limit'] = $data['limit'];
@@ -51,6 +59,12 @@ class search
 		if($data['type'])
 		{
 			$and[] = " posts.type =  '$data[type]' ";
+		}
+
+
+		if($data['subtype'])
+		{
+			$and[] = " posts.subtype =  '$data[subtype]' ";
 		}
 
 		if($data['language'])
@@ -71,7 +85,7 @@ class search
 			if($data['tag_id'])
 			{
 				$and[]   = " termusages.term_id =  $data[tag_id] ";
-				$meta['join'][] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'tag' ";
+				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'tag' ";
 			}
 		}
 
@@ -82,8 +96,14 @@ class search
 			if($data['cat_id'])
 			{
 				$and[]   = " termusages.term_id =  $data[cat_id] ";
-				$meta['join'][] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'cat' ";
+				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id AND termusages.type = 'cat' ";
 			}
+		}
+
+		if($data['website_mode'])
+		{
+			$time = time();
+			$and[] = " UNIX_TIMESTAMP(posts.publishdate) <= $time ";
 		}
 
 

@@ -104,6 +104,7 @@ class news
 			'cat_id'   => 'code',
 			'tag_id'   => 'code',
 			'publish'  => 'bit',
+			'limit'    => 'tinyint',
 		];
 
 		$require   = [];
@@ -143,6 +144,7 @@ class news
 			'tag_id'   => $data['tag_id'],
 			'template' => $data['template'],
 			'subtype'  => $data['subtype'],
+			'limit'    => $data['limit'],
 		];
 
 
@@ -204,6 +206,7 @@ class news
 			'tag_id'   => $data['tag_id'],
 			'template' => $data['template'],
 			'subtype'  => $data['subtype'],
+			'limit'    => $data['limit'],
 		];
 
 
