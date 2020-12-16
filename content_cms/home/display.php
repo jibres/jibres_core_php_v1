@@ -43,7 +43,7 @@
 
 
    <?php if(\dash\permission::check('crmAttachmentView')) {?>
-       <li class="hide">
+       <li class="">
         <a class="item f" href="<?php echo \dash\url::here();?>/attachment">
           <div class="key"><?php echo T_('Attachments');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>

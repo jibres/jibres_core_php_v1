@@ -1,20 +1,13 @@
-
-<form class="f justify-center" method="post" autocomplete="off">
- <div class="c9 s12 pRa20">
-
-
-<div class="dropzone">
-  <h4><?php echo T_("Add file"); ?></h4>
-  <label for='gallery' class="btn light"><?php echo T_("To add image gallery drop file here or"); ?></label>
-  <input id="gallery" type="file" name="file" multiple>
-  <div class="progress shadow" data-percent='30'>
-    <div class="bar"></div>
-    <div class="detail"></div>
-  </div>
-  <small><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxUploadSize(); ?></b></small>
-</div>
-
- </div>
+<form method="post">
+	<div class="avand-md">
+		<section class="box">
+			<div data-uploader data-name='file' data-ratio=1 data-ratio-free data-final='#finalImage' data-autoSend>
+				<input type="file" accept="*/*" id="image1">
+				<label for="image1">
+					<small><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxUploadSize(); ?></b></small>
+					<?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+				<label for="image1"><img id="finalImage"></label>
+			</div>
+		</section>
+	</div>
 </form>
-
-

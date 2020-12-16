@@ -12,10 +12,12 @@ class view
 		\dash\data::action_text(T_('Add new attachment'));
 		\dash\data::action_link(\dash\url::this(). '/add');
 
+		\dash\data::back_text(T_('CMS'));
+		\dash\data::back_link(\dash\url::here());
+
 
 
 		\dash\data::listEngine_start(true);
-		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(false);
 		\dash\data::listEngine_sort(false);
 
@@ -26,8 +28,8 @@ class view
 		];
 
 
-		$search_string = \dash\validate::search(\dash\request::get('q'));
-		$postList      = \dash\app\files\search::list($search_string, $args);
+
+		$postList      = \dash\app\files\search::list(null, $args);
 
 		\dash\data::dataTable($postList);
 
