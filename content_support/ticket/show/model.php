@@ -106,22 +106,22 @@ class model
 			$getTagArgs = ['type' => 'support_tag'];
 
 
-			$current_tag = \dash\db\terms::get($getTagArgs);
+			// $current_tag = \dash\db\terms::get($getTagArgs);
 
-			if(is_array($current_tag))
-			{
-				$tag_titles = array_column($current_tag, 'title');
-				$new_tag    = $_tag;
-				$new_tag    = explode(',', $new_tag);
-				foreach ($new_tag as $key => $value)
-				{
-					if(!in_array($value, $tag_titles))
-					{
-						\dash\notif::error(T_("Please select tag from list"), 'tag');
-						return false;
-					}
-				}
-			}
+			// if(is_array($current_tag))
+			// {
+			// 	$tag_titles = array_column($current_tag, 'title');
+			// 	$new_tag    = $_tag;
+			// 	$new_tag    = explode(',', $new_tag);
+			// 	foreach ($new_tag as $key => $value)
+			// 	{
+			// 		if(!in_array($value, $tag_titles))
+			// 		{
+			// 			\dash\notif::error(T_("Please select tag from list"), 'tag');
+			// 			return false;
+			// 		}
+			// 	}
+			// }
 		}
 
 		// \dash\app\posts\terms::set_post_term($_id, 'support_tag', 'tickets', $_tag);

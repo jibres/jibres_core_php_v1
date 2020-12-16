@@ -50,7 +50,7 @@ class terms
 		}
 
 
-		$check_exist_cat = \dash\db\terms::mulit_title($cat, $_type);
+		$check_exist_cat = \dash\db\terms\get::mulit_title($cat, $_type);
 
 		$all_cats_id = [];
 

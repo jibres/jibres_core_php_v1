@@ -138,12 +138,12 @@ class view
 			$getTagArgs = ['type' => 'support_tag'];
 
 
-			$all_tag = \dash\db\terms::get($getTagArgs);
-			if(is_array($all_tag))
-			{
-				$all_tag = array_map(['\dash\app\terms\ready', 'row'], $all_tag);
-			}
-			\dash\data::tagList($all_tag);
+			// $all_tag = \dash\db\terms::get($getTagArgs);
+			// if(is_array($all_tag))
+			// {
+			// 	$all_tag = array_map(['\dash\app\terms\ready', 'row'], $all_tag);
+			// }
+			// \dash\data::tagList($all_tag);
 		}
 		\content_support\ticket\home\view::sidebarDetail(true);
 

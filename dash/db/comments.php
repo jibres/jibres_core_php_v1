@@ -177,7 +177,7 @@ class comments
 				$q = "WHERE ";
 			}
 
-			$_string = \dash\db\safe::value($_string);
+			$_string = \dash\safe::safe($_string);
 			$q       .= "AND comments.content LIKE '%$_string%' ";
 		}
 

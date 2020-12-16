@@ -80,13 +80,13 @@ class statistics
 		$result['attachment']          = floatval(\dash\db\posts::get_count(['type' => 'attachment']));
 		$result['post']                = floatval(\dash\db\posts::get_count(['type' => ['NOT IN ',"('post', 'page', 'help', 'attachment')"]]));
 
-		$result['term']                = floatval(\dash\db\terms::get_count());
-		$result['tag']                 = floatval(\dash\db\terms::get_count(['type' => 'tag']));
-		$result['cat']                 = floatval(\dash\db\terms::get_count(['type' => 'cat']));
-		$result['support_tag']         = floatval(\dash\db\terms::get_count(['type' => 'support_tag']));
-		$result['help_tag']            = floatval(\dash\db\terms::get_count(['type' => 'help_tag']));
+		$result['term']                = floatval(\dash\db\terms\get::get_count());
+		$result['tag']                 = floatval(\dash\db\terms\get::get_count(['type' => 'tag']));
+		$result['cat']                 = floatval(\dash\db\terms\get::get_count(['type' => 'cat']));
+		$result['support_tag']         = floatval(\dash\db\terms\get::get_count(['type' => 'support_tag']));
+		$result['help_tag']            = floatval(\dash\db\terms\get::get_count(['type' => 'help_tag']));
 
-		$result['termusages']          = floatval(\dash\db\termusages::get_count());
+		$result['termusages']          = floatval(\dash\db\termusages\get::get_count_all());
 
 		$result['user_chatid']         = floatval(\dash\db\user_telegram::get_count());
 		$result['user_android']        = floatval(\dash\db\user_android::get_count());

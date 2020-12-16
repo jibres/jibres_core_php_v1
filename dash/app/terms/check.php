@@ -80,7 +80,7 @@ class check
 			$check_duplicate_args = ['type' => $data['type'], 'url' => $data['url'], 'language' => $data['language'], 'limit' => 1];
 			// check duplicate
 			// type+lang+slug
-			$check_duplicate = \dash\db\terms::get($check_duplicate_args);
+			$check_duplicate = \dash\db\terms\get::get_raw($check_duplicate_args);
 
 			if(isset($check_duplicate['id']))
 			{

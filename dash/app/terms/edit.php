@@ -26,7 +26,7 @@ class edit
 
 		if(!empty($args))
 		{
-			\dash\db\terms::update($args, $id);
+			\dash\db\terms\update::update($args, $id);
 
 			\dash\notif::ok(T_("Category successfully updated"));
 		}

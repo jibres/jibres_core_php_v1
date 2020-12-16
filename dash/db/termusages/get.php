@@ -4,6 +4,15 @@ namespace dash\db\termusages;
 
 class get
 {
+
+	public static function get_count_all()
+	{
+		$query = "SELECT COUNT(*) AS `termusages` ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function first_category_url($_post_id)
 	{
 		$query =

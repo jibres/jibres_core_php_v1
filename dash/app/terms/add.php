@@ -50,7 +50,7 @@ class add
 
 		$return  = [];
 
-		$term_id = \dash\db\terms::insert($args);
+		$term_id = \dash\db\terms\insert::new_record($args);
 
 		if(!$term_id)
 		{

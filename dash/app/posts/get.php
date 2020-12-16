@@ -46,7 +46,7 @@ class get
 			return false;
 		}
 
-		$result = \dash\db\termusages::usage($post_id, $_type);
+		$result = \dash\db\termusages\get::usage($post_id, $_type);
 
 		$temp = [];
 		if(is_array($result))

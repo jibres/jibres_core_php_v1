@@ -73,13 +73,13 @@ class dayevent
 
 		$result['transaction']            = floatval(\dash\db\transactions::get_count());
 
-		$result['term']                   = floatval(\dash\db\terms::get_count());
-		$result['tag']                    = floatval(\dash\db\terms::get_count(['type' => 'tag']));
-		$result['cat']                    = floatval(\dash\db\terms::get_count(['type' => 'cat']));
-		$result['support_tag']            = floatval(\dash\db\terms::get_count(['type' => 'support_tag']));
-		$result['help_tag']               = floatval(\dash\db\terms::get_count(['type' => 'help_tag']));
+		$result['term']                   = floatval(\dash\db\terms\get::get_count());
+		$result['tag']                    = floatval(\dash\db\terms\get::get_count(['type' => 'tag']));
+		$result['cat']                    = floatval(\dash\db\terms\get::get_count(['type' => 'cat']));
+		$result['support_tag']            = floatval(\dash\db\terms\get::get_count(['type' => 'support_tag']));
+		$result['help_tag']               = floatval(\dash\db\terms\get::get_count(['type' => 'help_tag']));
 
-		$result['termusages']             = floatval(\dash\db\termusages::get_count());
+		$result['termusages']             = floatval(\dash\db\termusages\get::get_count_all());
 
 		$result['user_mobile']            = floatval(\dash\db\users::get_count(['mobile' => ['IS NOT', 'NULL']]));
 		$result['user_email']             = floatval(\dash\db\users::get_count(['email' => ['IS NOT', 'NULL']]));

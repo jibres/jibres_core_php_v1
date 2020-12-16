@@ -1,76 +1,20 @@
+<nav class="items">
+  <ul>
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+     <li>
+      <a class="f align-center" href="<?php echo \dash\url::this(). '/edit?id='.  a($value, 'id') ?>">
+        <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo T_("Post image") ?>">
+        <div class="key"><?php echo a($value, 'title'); ?></div>
+        <div class="value ltr"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></div>
+        <div class="go <?php echo $value['icon_list'] ?>"></div>
+      </a>
+     </li>
+    <?php } //endfor ?>
+  </ul>
+</nav>
 
-<?php
-if(\dash\data::dataTable())
-{
-  if(\dash\data::dataFilter())
-  {
+<?php \dash\utility\pagination::html(); ?>
 
-    htmlSearchBox();
-    htmlTable();
-    htmlFilter();
-
-  }
-  else
-  {
-    htmlSearchBox();
-    htmlTable();
-  }
-}
-else
-{
-  if(\dash\data::dataFilter())
-  {
-
-    htmlSearchBox();
-    htmlFilterNoResult();
-
-
-  }
-  else
-  {
-    htmlStartAddNew();
-
-  }
-
-}
-?>
-
-
-
-
-
-
-<?php function htmlSearchBox() {?>
-<div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' >
-    <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-
-      <?php if(\dash\request::get('type')) {?>
-
-      <input type="hidden" name="type" value="<?php echo \dash\request::get('type'); ?>">
-
-      <?php } // endif ?>
-
-      <button class="addon btn "><?php echo T_("Search"); ?></button>
-    </div>
-  </form>
-</div>
-<?php } //endfunction ?>
-
-
-<?php function htmlTable() {?>
-
-
-<?php
-$sortLink = \dash\data::sortLink();
-$dataTable = \dash\data::dataTable();
-if(!is_array($dataTable))
-{
-  $dataTable = [];
-}
-
-?>
 
   <table class="tbl1 v1 fs11 tblFiles">
     <thead>
@@ -120,30 +64,4 @@ if(!is_array($dataTable))
   </table>
 
 <?php \dash\utility\pagination::html(); ?>
-
-<?php } //endfunction ?>
-
-
-<?php function htmlFilter() {?>
-<p class="f fs14 msg info2">
-  <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
-</p>
-<?php } //endfunction ?>
-
-
-<?php function htmlFilterNoResult() {?>
-<p class="f fs14 msg warn2">
-  <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
-</p>
-<?php } //endfunction ?>
-
-
-<?php function htmlStartAddNew() {?>
-<p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?> <a href="<?php echo \dash\url::this(); ?>/add"><?php echo T_("Try to start with add new record!"); ?></a></p>
-<?php } //endfunction ?>
-
-
-
 

@@ -229,7 +229,7 @@ class tickets
 
 		if(isset($_string))
 		{
-			$_string = \dash\db\safe::value($_string);
+			$_string = \dash\safe::safe($_string);
 			$q       .= "AND tickets.content LIKE '%$_string%' ";
 		}
 

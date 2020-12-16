@@ -14,7 +14,7 @@ class controller
 			\dash\redirect::to(\dash\url::here());
 		}
 
-		$check = \dash\db\terms::get(['url' => $child, 'type' => 'help_tag', 'limit' => 1]);
+		$check = null; // \dash\db\terms::get(['url' => $child, 'type' => 'help_tag', 'limit' => 1]);
 		if(!$check)
 		{
 			\dash\header::status(404, T_("Invalid tag"));

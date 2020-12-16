@@ -131,7 +131,7 @@ class get
 		$q = null;
 		if(isset($_string))
 		{
-			$_string = \dash\db\safe::value($_string);
+			$_string = \dash\safe::safe($_string);
 			$q       = "AND productcomment.content LIKE '%$_string%' ";
 		}
 

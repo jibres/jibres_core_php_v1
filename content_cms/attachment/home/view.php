@@ -12,43 +12,32 @@ class view
 		\dash\data::action_text(T_('Add new attachment'));
 		\dash\data::action_link(\dash\url::this(). '/add');
 
-		$search_string = \dash\request::get('q');
-		if($search_string)
-		{
-			$myTitle .= ' | '. T_('Search for :search', ['search' => $search_string]);
-		}
+
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(false);
+		\dash\data::listEngine_sort(false);
 
 		$args =
 		[
-			'sort'  => \dash\request::get('sort'),
-			'order' => \dash\request::get('order'),
+			'order'  => \dash\request::get('order'),
+			'sort'   => \dash\request::get('sort'),
 		];
 
-		if(\dash\request::get('status'))
+
+		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$postList      = \dash\app\files\search::list($search_string, $args);
+
+		\dash\data::dataTable($postList);
+
+		$isFiltered = \dash\app\files\search::is_filtered();
+		\dash\data::isFiltered($isFiltered);
+
+		if($isFiltered)
 		{
-			$args['status'] = \dash\request::get('status');
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
-
-
-		if(!$args['order'])
-		{
-			$args['order'] = 'DESC';
-		}
-
-
-		if(!$args['sort'])
-		{
-			$args['sort'] = 'id';
-		}
-
-		\dash\data::sortLink(\content_cms\view::make_sort_link(\dash\app\file::$sort_field, \dash\url::this()) );
-		$dataTable = \dash\app\file::list(\dash\request::get('q'), $args);
-
-		\dash\data::dataTable($dataTable );
-
-		// set dataFilter
-		// $dataFilter = \dash\app\sort::createFilterMsg($search_string, $filterArray);
-		// \dash\data::dataFilter($dataFilter);
 	}
 }
 ?>
