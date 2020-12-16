@@ -100,6 +100,13 @@ class log
 		return $temp;
 	}
 
+
+	public static function check_caller_code($_caller, $_code)
+	{
+		$load = \dash\db\logs\get::by_caller_code($_caller, $_code);
+		return $load;
+	}
+
 	public static function ready($_data)
 	{
 		if(!is_array($_data))

@@ -163,14 +163,32 @@ class controller
 
 		if(is_file($sqlError))
 		{
-			\dash\log::set('su_sqlError');
+			$file_mtime = filemtime($sqlError);
+
+			if(\dash\app\log::check_caller_code('su_sqlError', $file_mtime))
+			{
+				/*nothing*/
+			}
+			else
+			{
+				\dash\log::set('su_sqlError', ['code' => $file_mtime]);
+			}
 		}
 
 		$phpBug = YARD. 'jibres_log/php/exception.log';
 
 		if(is_file($phpBug))
 		{
-			\dash\log::set('su_phpBug');
+			$file_mtime = filemtime($phpBug);
+
+			if(\dash\app\log::check_caller_code('su_phpBug', $file_mtime))
+			{
+				/*nothing*/
+			}
+			else
+			{
+				\dash\log::set('su_phpBug', ['code' => $file_mtime]);
+			}
 		}
 	}
 

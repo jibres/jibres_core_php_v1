@@ -56,6 +56,16 @@ class su_sqlError
 		$tg_msg = '';
 		$tg_msg .= "🥁#SQLERROR\n";
 
+		$code = isset($_args['code']) ? $_args['code'] : null;
+		if($code)
+		{
+			$code = \dash\fit::date_human(date("Y-m-d H:i:s", $code));
+			$tg_msg .= "\n";
+			$tg_msg .= T_("Last error time: "). $code;
+			$tg_msg .= "\n";
+		}
+
+
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];

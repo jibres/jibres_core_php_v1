@@ -825,7 +825,10 @@ class log
 			}
 		}
 
-		self::to_supervisor('Auto archive file: '. $basename);
+		if(!\dash\engine\store::inStore())
+		{
+			self::to_supervisor('Auto archive file: '. $basename);
+		}
 	}
 }
 ?>
