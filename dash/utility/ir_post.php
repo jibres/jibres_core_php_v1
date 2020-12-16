@@ -196,9 +196,36 @@ class ir_post
 				'country'  => 95000,
 			];
 		}
+		elseif($_weight <= 3000)
+		{
+			$rate =
+			[
+				'province' => 66700,
+				'neighbor' => 108000,
+				'country'  => 116000,
+			];
+		}
+		elseif($_weight <= 4000)
+		{
+			$rate =
+			[
+				'province' => 66700,
+				'neighbor' => 118000,
+				'country'  => 126000,
+			];
+		}
+		elseif($_weight <= 5000)
+		{
+			$rate =
+			[
+				'province' => 66700,
+				'neighbor' => 128000,
+				'country'  => 136000,
+			];
+		}
 		else
 		{
-			self::$error[] = T_("Can not send package more than 3 Kg By sefareshi post");
+			self::$error[] = T_("Can not send package more than 5 Kg By sefareshi post");
 			$rate =
 			[
 				'province' => 0,
