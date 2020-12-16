@@ -703,6 +703,13 @@ class cleanse
 				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'tinyint':
+				$meta['min']   = 0;
+				$meta['max']   = 255;
+				$meta['round'] = true;
+				$data = \dash\validate\number::number($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'count':
 			case 'shipping_price':
 				// count is DECIMAL(13, 4)
