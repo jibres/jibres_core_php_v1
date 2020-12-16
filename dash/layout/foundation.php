@@ -136,7 +136,6 @@ if (\dash\url::root() === 'jibres')
   }
 ?>
 </head>
-
 <body<?php
 // subdomain
 if (\dash\url::subdomain())
