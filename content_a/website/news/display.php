@@ -25,6 +25,16 @@
         </select>
       </div>
 
+        <div class="mB10">
+        <label for='tag'><?php echo T_("Special tag"); ?></label>
+        <select name="tag_id" id="tag" class="select22"  data-placeholder='<?php echo T_("Select tag"); ?>' >
+          <option></option>
+           <?php foreach (\dash\data::listTag() as $key => $value) {?>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(), 'news', 'tag_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'title'); ?></option>
+          <?php } //endfor ?>
+        </select>
+      </div>
+
       <div class="mB10">
         <label for='subtype'><?php echo T_("Post template"); ?></label>
         <select class="select22" name="subtype">

@@ -13,6 +13,7 @@ class model
 			'template' => \dash\request::post('template') ? \dash\request::post('template') : null,
 			'publish'  => 1,
 			'cat_id'   => \dash\request::post('cat_id'),
+			'tag_id'   => \dash\request::post('tag_id'),
 			'subtype'  => \dash\request::post('subtype'),
 		];
 

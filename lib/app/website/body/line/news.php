@@ -102,6 +102,7 @@ class news
 			'template' => ['enum' => ['simple', 'special']],
 			'subtype'  => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'cat_id'   => 'code',
+			'tag_id'   => 'code',
 			'publish'  => 'bit',
 		];
 
@@ -139,6 +140,7 @@ class news
 		$saved_option['news'] =
 		[
 			'cat_id'   => $data['cat_id'],
+			'tag_id'   => $data['tag_id'],
 			'template' => $data['template'],
 			'subtype'  => $data['subtype'],
 		];
@@ -199,6 +201,7 @@ class news
 		$ready_to_save =
 		[
 			'cat_id'   => $data['cat_id'],
+			'tag_id'   => $data['tag_id'],
 			'template' => $data['template'],
 			'subtype'  => $data['subtype'],
 		];
