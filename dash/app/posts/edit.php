@@ -73,7 +73,7 @@ class edit
 			$_args['url'] = 'need - url :/ ';
 		}
 
-		if($args['status'])
+		if(isset($_args['status']))
 		{
 			$_args['publishdate'] = 'need - url :/ ';
 		}
@@ -93,7 +93,6 @@ class edit
 
 		unset($args['cat']);
 		unset($args['tag']);
-
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 

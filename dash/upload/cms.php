@@ -62,6 +62,60 @@ class cms
 
 
 
+	public static function set_post_cover($_post_id = null)
+	{
+		if(!$_post_id)
+		{
+			\dash\notif::error(T_("Post not found"));
+			return false;
+		}
+
+		$meta =
+		[
+			'allow_size' => \dash\upload\size::cms_file_size(),
+			'ext' =>
+			[
+				'jpeg','jpg','png',			// image
+			],
+		];
+
+
+		$file_detail = \dash\upload\file::upload('cover', $meta);
+
+		if(!$file_detail)
+		{
+			return false;
+		}
+
+		$fileusage =
+		[
+			'file_id'     => $file_detail['id'],
+			'user_id'     => \dash\user::id(),
+			'title'       => null,
+			'alt'         => null,
+			'desc'        => null,
+			'related'     => 'post_cover',
+			'related_id'  => $_post_id,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$check_duplicate_usage = \dash\db\fileusage::duplicate('post_cover', $_post_id);
+
+		if(isset($check_duplicate_usage['id']))
+		{
+			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
+		}
+		else
+		{
+			\dash\db\fileusage::insert($fileusage);
+		}
+
+		return $file_detail['path'];
+	}
+
+
+
+
 	/**
 	 * Removes a post gallery.
 	 * @param      <type>   $_post_id  The post identifier

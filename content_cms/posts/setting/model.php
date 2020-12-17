@@ -22,6 +22,25 @@ class model
 
 
 
+
+		if(\dash\request::post('remove_cover') === 'remove_cover')
+		{
+			$post['cover'] = null;
+		}
+
+		if(\dash\request::post('runaction_setcover'))
+		{
+			$file_cover = \dash\upload\cms::set_post_cover(\dash\coding::decode(\dash\request::get('id')));
+			if(!$file_cover)
+			{
+				\dash\notif::error(T_("Please upload a photo"));
+				return false;
+			}
+			$post['cover'] = $file_cover;
+		}
+
+
+
 		if(\dash\request::post('runaction_editlanguage'))
 		{
 			$post['language'] = \dash\request::post('language');

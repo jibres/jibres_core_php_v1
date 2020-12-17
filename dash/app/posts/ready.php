@@ -123,6 +123,7 @@ class ready
 					break;
 
 				case 'thumb':
+				case 'cover':
 					if($value)
 					{
 						$value = \lib\filepath::fix($value);

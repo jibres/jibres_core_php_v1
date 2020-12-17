@@ -8,26 +8,27 @@ class check
 	{
 		$condition =
 		[
-			'language'    => 'language',
-			'title'       => 'string_100',
-			'seotitle'    => 'seotitle',
-			'excerpt'     => 'string_300',
-			'subtitle'    => 'string_500',
-			'slug'        => 'string_100',
-			'url'         => 'url',
-			'content'     => 'html',
-			'type'        => ['enum' => ['post', 'page', 'help', 'mag']],
-			'subtype'     => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'comment'     => 'bit',
-			'status'      => ['enum' => ['publish','draft']],
-			'parent'      => 'code',
-			'publishdate' => 'date',
-			'publishtime' => 'time',
-			'icon'        => 'string_50',
-			'redirecturl' => 'url',
-			'creator'     => 'code',
-			'tag'         => 'tag',
-			'cat'         => 'cat',
+			'language'        => 'language',
+			'cover'           => 'string_500', // path
+			'title'           => 'string_100',
+			'seotitle'        => 'seotitle',
+			'excerpt'         => 'string_300',
+			'subtitle'        => 'string_500',
+			'slug'            => 'string_100',
+			'url'             => 'url',
+			'content'         => 'html',
+			'type'            => ['enum' => ['post', 'page', 'help', 'mag']],
+			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'comment'         => 'bit',
+			'status'          => ['enum' => ['publish','draft']],
+			'parent'          => 'code',
+			'publishdate'     => 'date',
+			'publishtime'     => 'time',
+			'icon'            => 'string_50',
+			'redirecturl'     => 'url',
+			'creator'         => 'code',
+			'tag'             => 'tag',
+			'cat'             => 'cat',
 			'set_publishdate' => 'bit',
 		];
 
@@ -219,11 +220,14 @@ class check
 			$data['url'] = $parent_url . '/'. $data['url'];
 		}
 
-		$check_duplicate_url = self::check_duplicate_post_and_term($data['url'], $_id, 'in_post');
-
-		if(!$check_duplicate_url)
+		if(isset($data['url']))
 		{
-			return false;
+			$check_duplicate_url = self::check_duplicate_post_and_term($data['url'], $_id, 'in_post');
+
+			if(!$check_duplicate_url)
+			{
+				return false;
+			}
 		}
 
 
