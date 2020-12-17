@@ -6,73 +6,49 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('cpCommentsView');
-
 		\dash\face::title(T_("Comments"));
 
-
-		// add back level to summary link
-		\dash\data::badge2_text(T_('Back to dashboard'));
-		\dash\data::badge2_link(\dash\url::here());
+		\dash\data::back_text(T_('CMS'));
+		\dash\data::back_link(\dash\url::here());
 
 
-		$search_string            = \dash\request::get('q');
+
+		$search_string = \dash\request::get('q');
 		if($search_string)
 		{
-			\dash\face::title(\dash\face::title(). ' | '. T_('Search for :search', ['search' => $search_string]));
+			$myTitle .= ' | '. T_('Search for :search', ['search' => $search_string]);
 		}
+
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(false);
+		\dash\data::listEngine_sort(false);
 
 		$args =
 		[
-			'sort'  => \dash\request::get('sort'),
-			'order' => \dash\request::get('order'),
+			'order'  => \dash\request::get('order'),
+			'sort'   => \dash\request::get('sort'),
+			'status' => \dash\request::get('status'),
+			'cat_id' => \dash\request::get('categoryid'),
+			'tag_id' => \dash\request::get('tagid'),
+
 		];
 
-		if(\dash\request::get('status'))
+
+		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$postList      = \dash\app\posts\search::list($search_string, $args);
+
+		\dash\data::dataTable($postList);
+
+		$isFiltered = \dash\app\posts\search::is_filtered();
+		\dash\data::isFiltered($isFiltered);
+
+		if($isFiltered)
 		{
-			$args['comments.status'] = \dash\request::get('status');
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
-		if(\dash\request::get('post_id'))
-		{
-			$args['comments.post_id'] = \dash\coding::decode(\dash\request::get('post_id'));
-			if(!$args['comments.post_id'])
-			{
-				unset($args['post_id']);
-			}
-		}
-
-
-		$get_comment_counter_args         = [];
-
-		if(!$args['order'])
-		{
-			$args['order'] = 'DESC';
-		}
-
-		if(!$args['sort'])
-		{
-			$args['sort'] = 'id';
-		}
-
-		\dash\data::sortLink(\content_cms\view::make_sort_link(\dash\app\comment::$sort_field, \dash\url::this()));
-		\dash\data::dataTable(\dash\app\comment::list(\dash\request::get('q'), $args));
-
-		$filterArray = $args;
-
-		unset($filterArray['comments.status']);
-		if(isset($filterArray['post_id']))
-		{
-			$filterArray['post_id'] = \dash\coding::encode($filterArray['post_id']);
-		}
-
-		// set dataFilter
-		$dataFilter = \dash\app\sort::createFilterMsg($search_string, $filterArray);
-		\dash\data::dataFilter($dataFilter);
-
-		// get post count group by status
-		$postCounter = \dash\app\comment::get_comment_counter($get_comment_counter_args);
-		\dash\data::commentCounter($postCounter);
 
 	}
 }
