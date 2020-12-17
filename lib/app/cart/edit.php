@@ -13,7 +13,7 @@ class edit
 
 		if(!\dash\user::id())
 		{
-			$user_guest = \dash\user::get_user_guest();
+			$user_guest = \dash\user::get_user_guest(true);
 			if(!$user_guest)
 			{
 				\dash\notif::error(T_("Please login to continue"));

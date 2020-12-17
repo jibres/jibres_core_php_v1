@@ -232,12 +232,13 @@ class get
 			return false;
 		}
 
+		$guest = \dash\user::get_user_guest();
+
 		if(!\dash\user::id())
 		{
-			if(!\dash\user::get_user_guest())
+			if(!$guest)
 			{
-				\dash\notif::error(T_("Please login to continue"));
-				return false;
+				return null;
 			}
 		}
 
@@ -252,7 +253,7 @@ class get
 		}
 		else
 		{
-			$factor = \lib\db\factors\get::load_my_order_guestid($_id, \dash\user::get_user_guest());
+			$factor = \lib\db\factors\get::load_my_order_guestid($_id, $guest);
 		}
 
 		if(!isset($factor['id']))

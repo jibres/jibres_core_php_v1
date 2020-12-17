@@ -506,8 +506,7 @@ class search
 		{
 			if(!\dash\user::get_user_guest())
 			{
-				\dash\notif::error(T_("Please login to continue"));
-				return false;
+				return null;
 			}
 		}
 

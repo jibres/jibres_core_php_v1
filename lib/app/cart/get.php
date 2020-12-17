@@ -6,12 +6,13 @@ class get
 {
 	public static function my_cart_count()
 	{
+		$guest = \dash\user::get_user_guest();
 		if(!\dash\user::id())
 		{
-			if(!\dash\user::get_user_guest())
+			if(!$guest)
 			{
-				\dash\notif::error(T_("Please login to continue"));
-				return false;
+				// user not login and not have guest id
+				return 0;
 			}
 		}
 
@@ -19,9 +20,13 @@ class get
 		{
 			$user_cart_count = \lib\db\cart\get::user_cart_count(\dash\user::id());
 		}
+		elseif($guest)
+		{
+			$user_cart_count = \lib\db\cart\get::user_cart_count_guest($guest);
+		}
 		else
 		{
-			$user_cart_count = \lib\db\cart\get::user_cart_count_guest(\dash\user::get_user_guest());
+			return 0;
 		}
 
 
@@ -33,12 +38,14 @@ class get
 
 	public static function my_cart_list()
 	{
+		$guest = \dash\user::get_user_guest();
+
 		if(!\dash\user::id())
 		{
-			if(!\dash\user::get_user_guest())
+			if(!$guest)
 			{
-				\dash\notif::error(T_("Please login to continue"));
-				return false;
+
+				return null;
 			}
 		}
 
@@ -46,9 +53,13 @@ class get
 		{
 			$user_cart = \lib\db\cart\get::user_cart(\dash\user::id());
 		}
+		elseif($guest)
+		{
+			$user_cart = \lib\db\cart\get::user_cart_guest($guest);
+		}
 		else
 		{
-			$user_cart = \lib\db\cart\get::user_cart_guest(\dash\user::get_user_guest());
+			return null;
 		}
 
 

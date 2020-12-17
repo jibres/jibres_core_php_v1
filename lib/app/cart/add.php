@@ -54,7 +54,7 @@ class add
 		}
 		else
 		{
-			$user_guest = \dash\user::get_user_guest();
+			$user_guest = \dash\user::get_user_guest(true);
 			if($user_guest)
 			{
 				return self::new_cart($_product_id, $_count, null, $user_guest, 'website');

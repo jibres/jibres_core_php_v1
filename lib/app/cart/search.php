@@ -208,12 +208,12 @@ class search
 
 	public static function my_detail()
 	{
+		$guest = \dash\user::get_user_guest();
 		if(!\dash\user::id())
 		{
-			if(!\dash\user::get_user_guest())
+			if(!$guest)
 			{
-				\dash\notif::error(T_("Please login to continue"));
-				return false;
+				return null;
 			}
 		}
 
@@ -221,9 +221,13 @@ class search
 		{
 			return self::detail(\dash\user::code());
 		}
+		elseif($guest)
+		{
+			return self::detail(null, $guest);
+		}
 		else
 		{
-			return self::detail(null, \dash\user::get_user_guest());
+			return null;
 		}
 	}
 
