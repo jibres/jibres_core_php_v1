@@ -63,6 +63,16 @@
       </li>
   <?php }// endif ?>
 
+     <?php if(!\dash\engine\store::inStore() && \dash\permission::check('manageHelpCenter')) {?>
+       <li class="">
+        <a class="item f" href="<?php echo \dash\url::here();?>/help">
+          <div class="key"><?php echo T_('Help center');?></div>
+          <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_help()); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+  <?php }// endif ?>
+
 
      </ul>
    </nav>

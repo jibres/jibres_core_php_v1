@@ -24,7 +24,7 @@ class controller
 			\dash\header::status(404, T_("This item is not a page!"));
 		}
 
-		if(a($detail, 'type') === 'help' && \dash\url::module() !== 'helps')
+		if(a($detail, 'type') === 'help' && \dash\url::module() !== 'help')
 		{
 			\dash\header::status(404, T_("This item is not a help!"));
 		}

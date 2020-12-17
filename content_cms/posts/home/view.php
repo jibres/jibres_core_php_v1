@@ -6,8 +6,15 @@ class view
 {
 	public static function config()
 	{
+		if(\dash\url::module() === 'help')
+		{
+			$type    = 'help';
+			$myTitle = T_("Help center");
 
-		if(\dash\url::module() === 'pages')
+			\dash\data::action_text(T_('Add new article'));
+			\dash\data::action_link(\dash\url::this(). '/add');
+		}
+		elseif(\dash\url::module() === 'pages')
 		{
 			$type    = 'page';
 			$myTitle = T_("Pages");

@@ -1,0 +1,1 @@
+<?php require_once(root. '/content_cms/posts/edit/display.php') ?>
