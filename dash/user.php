@@ -362,7 +362,7 @@ class user
 	public static function delete_user_guest()
 	{
 		$guest = \dash\utility\cookie::read('user_guest_id');
-		if($guest && \dash\validate::md5($user_guest_id, false))
+		if($guest && \dash\validate::md5($guest, false))
 		{
 			$code = self::code();
 
