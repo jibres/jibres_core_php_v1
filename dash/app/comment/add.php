@@ -14,45 +14,16 @@ class add
 			return false;
 		}
 
-		// check duplicate comment
-		// if login check by content
-		// if not login check by ip and agent
-		if(isset($args['user_id']) && is_numeric($args['user_id']))
-		{
-			$check_duplicate =
-			[
-				'user_id' => $args['user_id'],
-				'content' => $args['content'],
-				'limit'   => 1,
-			];
-
-			if(isset($args['post_id']) && $args['post_id'])
-			{
-				$check_duplicate['post_id'] = $args['post_id'];
-			}
-
-			if(isset($args['post_id']) && $args['post_id'])
-			{
-				$check_duplicate['post_id'] = $args['post_id'];
-			}
-
-			if(isset($args['parent']) && $args['parent'])
-			{
-				$check_duplicate['parent'] = $args['parent'];
-			}
-
-			$check_duplicate = \dash\db\comments::get($check_duplicate);
-
-			if(isset($check_duplicate['id']))
-			{
-				\dash\notif::error(T_("This text is duplicate and you are sended something like this before!"), 'content');
-				return false;
-			}
-		}
-
+		$args['user_id']     = \dash\user::id();
 		$args['ip']          = \dash\server::ip(true);
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
+
+		$is_duplicate = self::is_duplicate($args);
+		if($is_duplicate)
+		{
+			return false;
+		}
 
  		$comment_id = \dash\db\comments\insert::new_record($args);
 
@@ -69,6 +40,44 @@ class add
 		$return['id'] = \dash\coding::encode($comment_id);
 
 		return $return;
+
+	}
+
+
+	private static function is_duplicate($args)
+	{
+		$check_duplicate = [];
+
+		if(isset($args['user_id']) && is_numeric($args['user_id']) && $args['user_id'])
+		{
+			$check_duplicate['user_id'] = $args['user_id'];
+			$check_duplicate['content'] = $args['content'];
+		}
+		else
+		{
+			$check_duplicate['agent_id'] = $args['agent_id'];
+			$check_duplicate['ip']       = $args['ip'];
+		}
+
+		if(isset($args['post_id']) && $args['post_id'])
+		{
+			$check_duplicate['post_id'] = $args['post_id'];
+		}
+
+		if(isset($args['product_id']) && $args['product_id'])
+		{
+			$check_duplicate['product_id'] = $args['product_id'];
+		}
+
+		$check_duplicate = \dash\db\comments\get::get_one($check_duplicate);
+
+		if(isset($check_duplicate['id']))
+		{
+			\dash\notif::error(T_("This text is duplicate and you are sended something like this before!"), 'content');
+			return true; // yes, Is duplicate
+		}
+
+		return false;
 
 	}
 }

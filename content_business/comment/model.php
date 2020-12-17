@@ -11,17 +11,9 @@ class model
 		$post['content']    = \dash\request::post('content');
 		$post['title']      = \dash\request::post('title');
 		$post['mobile']     = \dash\request::post('mobile');
+		$post['post_id']    = \dash\request::post('post_id');
+		$result             = \dash\app\comment\add::add($post);
 
-
-		if($post['product_id'])
-		{
-			$result = \lib\app\product\comment::add($post);
-		}
-		else
-		{
-			$post['post_id'] = \dash\request::post('post_id');
-			$result          = \dash\app\comment\add::add($post);
-		}
 	}
 }
 ?>

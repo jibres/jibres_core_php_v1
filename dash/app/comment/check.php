@@ -24,21 +24,25 @@ class check
 			'email'       => 'email',
 		];
 
-		$require = ['content'];
+		$require = [];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
-		if(!$data['user_id'] && $data['mobile'])
+		if($data['star'])
 		{
-			$get_user = \dash\db\users::get_by_mobile($data['mobile']);
-			if(isset($get_user['id']))
+			// nothing is required
+		}
+		else
+		{
+			if(!$data['content'])
 			{
-				$data['user_id'] = $get_user['id'];
+				\dash\notif::error(T_("Please write your comment or set start"));
+				return false;
 			}
 		}
+
 
 		if($data['post_id'])
 		{
@@ -74,6 +78,23 @@ class check
 
 		if($data['product_id'])
 		{
+
+			$load_product = \lib\db\products\get::by_id($data['product_id']);
+
+			if(!$load_product)
+			{
+				\dash\notif::error(T_("Product id not found"));
+				return false;
+			}
+
+			$product_setting = \lib\app\setting\get::product_setting();
+
+			if(!a($product_setting, 'comment'))
+			{
+				\dash\notif::error(T_("Can not add comment to product in this business"));
+				return false;
+			}
+
 			$data['for'] = 'product';
 		}
 
