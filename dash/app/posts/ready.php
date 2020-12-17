@@ -170,9 +170,14 @@ class ready
 				$my_link = \dash\url::kingdom(). '/';
 			}
 
-			if(isset($result['language']) && $result['language'] && !\dash\url::lang())
+			// only jibres have post language
+			// all business have not any lanuage
+			if(!\dash\engine\store::inStore())
 			{
-				$my_link .=  $result['language']. '/';
+				if(isset($result['language']) && $result['language'] && !\dash\url::lang())
+				{
+					$my_link .=  $result['language']. '/';
+				}
 			}
 
 			if(isset($result['type']) && $result['type'] === 'help')

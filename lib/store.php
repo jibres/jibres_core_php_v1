@@ -598,6 +598,12 @@ class store
 		return \dash\url::protocol(). '://jibres.'.$tld. $lang. '/'. self::code();
 	}
 
+
+	/**
+	 * Retrun the store url
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	public static function url()
 	{
 		$store_domain = null;
