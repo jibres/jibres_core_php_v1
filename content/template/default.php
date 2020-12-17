@@ -249,7 +249,7 @@ function addNewComment()
 <?php
 function showCommentList()
 {
-  $commentList = \dash\app\comment::get_post_comment();
+  $commentList = null;
   if($commentList)
   {
     foreach ($commentList as $key => $value)
