@@ -24,24 +24,11 @@ class check
 			'email'       => 'email',
 		];
 
-		$require = [];
+		$require = ['content'];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-		if($data['star'])
-		{
-			// nothing is required
-		}
-		else
-		{
-			if(!$data['content'])
-			{
-				\dash\notif::error(T_("Please write your comment or set start"));
-				return false;
-			}
-		}
 
 
 		if($data['post_id'])
