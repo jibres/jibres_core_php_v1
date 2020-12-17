@@ -159,6 +159,23 @@ class ready
 			}
 		}
 
+		if(a($result, 'content') && !a($result, 'excerpt'))
+		{
+			$result['excerpt'] = \dash\utility\excerpt::extractRelevant($result['content']);
+			$result['auto_excerpt'] = true;
+		}
+
+		if(\dash\url::content() === 'cms')
+		{
+			if(!a($result, 'auto_excerpt') && a($result, 'content'))
+			{
+				if(\dash\utility\excerpt::extractRelevant($result['content']) == a($result, 'excerpt'))
+				{
+					$result['auto_excerpt'] = true;
+				}
+			}
+		}
+
 		if(isset($result['url']))
 		{
 			if(\dash\engine\store::inStore())

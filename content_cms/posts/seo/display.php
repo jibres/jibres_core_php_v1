@@ -32,7 +32,7 @@ $myFirstURL = '';
       </div>
       <div>
         <label for='excerpt'><?php echo T_("SEO Description"); ?> <small><?php echo T_("If leave it empty we are generate it automatically"); ?></small></label>
-        <textarea class="txt" name="excerpt" id="excerpt" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php echo a($dataRow,'excerpt'); ?></textarea>
+        <textarea class="txt" name="excerpt" id="excerpt" maxlength='300' rows='3' placeholder='<?php echo T_("Excerpt used for social media and search engines"); ?>'><?php if(a($dataRow, 'auto_excerpt')){ echo null;}else{ echo a($dataRow,'excerpt'); }; ?></textarea>
       </div>
     </div>
   </div>
