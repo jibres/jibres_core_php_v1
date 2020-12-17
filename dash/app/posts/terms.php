@@ -4,8 +4,6 @@ namespace dash\app\posts;
 class terms
 {
 
-
-
 	public static function save_post_term($_data, $_post_id, $_type)
 	{
 		if(!$_data)
@@ -136,7 +134,6 @@ class terms
 					'term_id' => $value,
 					'type'    => $_type,
 					'post_id' => $_post_id,
-
 				];
 			}
 			if(!empty($insert_multi))

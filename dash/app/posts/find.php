@@ -28,62 +28,51 @@ class find
 		$url = str_replace('`', '', $url);
 		$url = str_replace('%', '', $url);
 
-		$language = \dash\language::current();
-		$preview  = \dash\request::get('preview');
+		$preview  = \dash\request::get('preview') ? true : false;
 
-		// load attachments
-		// if(substr($url, 0, 6) === 'image/' || substr($url, 0, 6) === 'video/' )
-		// {
-		// 	$dataRow = \dash\db\posts::get(['url' => $url, 'limit' => 1]);
-		// }
-		// else
-		// {
-			$dataRow = \dash\db\posts::get(['language' => $language, 'url' => $url, 'limit' => 1]);
-		// }
+		$user_id = \dash\user::id();
 
-		if(isset($dataRow['user_id']) && (int) $dataRow['user_id'] === (int) \dash\user::id())
+		if(\dash\engine\store::inStore())
 		{
-			// no problem to load this post
+			// not check language
+			$language = null;
 		}
 		else
 		{
-			if($preview)
-			{
-				// no problem to load this post
-			}
-			else
-			{
-				if(isset($dataRow['status']) && $dataRow['status'] == 'publish')
-				{
-					// no problem to load this poll
-				}
-				else
-				{
-					$dataRow = false;
-				}
-			}
+			$language = \dash\language::current();
 		}
 
-		// we have more than one record
-		if(isset($dataRow[0]))
+		$get_post =
+		[
+			'url'      => $url,
+		];
+
+		if($language)
 		{
-			$dataRow = false;
+			$get_post['language'] = $language;
 		}
 
-		if(isset($dataRow['id']))
+		if(!$preview)
 		{
-			$id = $dataRow['id'];
-		}
-		else
-		{
-			$dataRow = false;
-			$id  = 0;
+			$get_post['status'] = 'publish';
 		}
 
-		if(is_array($dataRow))
+		$dataRow = \dash\db\posts\get::get_one($get_post);
+
+		// post not founded
+		if(!$dataRow || !is_array($dataRow))
 		{
-			$dataRow = \dash\app\posts\ready::row($dataRow);
+			return false;
 		}
+
+		$dataRow             = \dash\app\posts\ready::row($dataRow);
+		$id                  = \dash\coding::decode($dataRow['id']);
+
+		$tag                 = \dash\app\posts\get::get_post_tag($id);
+		$dataRow['tags']     = $tag;
+
+		$category            = \dash\app\posts\get::get_post_category($id);
+		$dataRow['category'] = $category;
 
 		self::$dataRow = $dataRow;
 

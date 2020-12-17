@@ -165,7 +165,7 @@ class get
 	}
 
 
-	private static function get_post_category($_id)
+	public static function get_post_category($_id)
 	{
 		$load_category = \dash\db\termusages\get::usage($_id, 'cat');
 		if(!is_array($load_category))
@@ -178,7 +178,7 @@ class get
 		return $load_category;
 	}
 
-	private static function get_post_tag($_id)
+	public static function get_post_tag($_id)
 	{
 		$load_tag = \dash\db\termusages\get::usage($_id, 'tag');
 		if(!is_array($load_tag))

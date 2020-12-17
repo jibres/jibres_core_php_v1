@@ -38,5 +38,15 @@ class get
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
+
+
+	public static function get_one($_args)
+	{
+		$where  = \dash\db\config::make_where($_args);
+		$query  = "SELECT * FROM posts WHERE $where LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 }
 ?>

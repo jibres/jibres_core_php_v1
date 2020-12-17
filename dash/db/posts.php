@@ -113,25 +113,6 @@ class posts
 	}
 
 
-	/**
-	 * Gets one record of post
-	 *
-	 * @param      <type>  $_post_id  The post identifier
-	 *
-	 * @return     <type>  One.
-	 */
-	public static function get_one($_post_id)
-	{
-		$query = "SELECT * FROM posts WHERE id = $_post_id LIMIT 1";
-		$result = \dash\db::get($query);
-
-		if(isset($result[0]))
-		{
-			$result = $result[0];
-		}
-		return $result;
-	}
-
 
 	/**
 	 * Gets some identifier.
