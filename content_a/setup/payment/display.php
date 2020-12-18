@@ -17,14 +17,14 @@
         <div class="switch1 fs12">
          <input type="checkbox" name="payment_check" id="payment_check" <?php if(\dash\data::dataRow_payment_check()) { echo 'checked';}  ?> >
          <label for="payment_check"></label>
-         <label for="payment_check"><?php echo T_("Check Payments"); ?></label>
+         <label for="payment_check"><?php echo T_("Check Payments"); ?> <small class="fc-red"><?php echo T_("Soon") ?></small></label>
         </div>
         <p class="fc-mute"><?php echo T_("Check Payments is a payment gateway that doesn't require payment to be made online."); ?></p>
 
         <div class="switch1 fs12">
          <input type="checkbox" name="payment_bank" id="payment_bank" <?php if(\dash\data::dataRow_payment_bank()) { echo 'checked';}  ?> >
          <label for="payment_bank"></label>
-         <label for="payment_bank"><?php echo T_("Direct Bank Transfer"); ?></label>
+         <label for="payment_bank"><?php echo T_("Direct Bank Transfer"); ?> <small class="fc-red"><?php echo T_("Soon") ?></small></label>
         </div>
         <p class="fc-mute"><?php echo T_("Direct Bank Transfer, or Bank Account Clearing System (BACS), is a gateway that require no payment be made online."); ?></p>
 

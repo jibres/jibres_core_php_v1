@@ -122,6 +122,35 @@ class cart
 			return null;
 		}
 
+
+		if($data['payway'] === 'on_deliver')
+		{
+			$first_desc = null;
+			switch ($data['payway'])
+			{
+				case 'bank':
+					$first_desc = T_("Bank");
+					break;
+				case 'check':
+					$first_desc = T_("Cheque");
+					break;
+				case 'on_deliver':
+					$first_desc = T_("On deliver");
+					break;
+				case 'online':
+					$first_desc = T_("Online");
+					break;
+
+				default:
+					// nothing
+					break;
+			}
+			if($first_desc)
+			{
+				$data['desc'] = $first_desc . ' - '. $data['desc'] ;
+			}
+		}
+
 		$factor             = [];
 		$factor['customer'] = $user_id ? \dash\coding::encode($user_id): null;
 		$factor['guestid']  = $user_guest;
