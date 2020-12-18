@@ -77,7 +77,11 @@ class template
 		$list['footer_100'] = \lib\app\website\footer\template\footer_100::get();
 		$list['footer_201'] = \lib\app\website\footer\template\footer_201::get();
 		$list['footer_300'] = \lib\app\website\footer\template\footer_300::get();
-		$list['footer_private_rafiei'] = \lib\app\website\footer\template\footer_private_rafiei::get();
+
+		if(\lib\store::enterprise() === 'rafiei')
+		{
+			$list['footer_private_rafiei'] = \lib\app\website\footer\template\footer_private_rafiei::get();
+		}
 
 
 		if($data['tag'])
