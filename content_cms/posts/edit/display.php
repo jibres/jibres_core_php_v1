@@ -173,9 +173,10 @@ switch (\dash\data::dataRow_status())
       </div>
 
 
-      <?php if($isPost) {?>
+      <?php if($isPost || $isHelp) {?>
       <div class="box">
         <div class="pad">
+          <?php if($isPost) {?>
           <div class="mB10">
             <div class="row align-center">
               <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
@@ -187,6 +188,7 @@ switch (\dash\data::dataRow_status())
               <?php } //endfor ?>
             </select>
           </div>
+        <?php } //endif ?>
           <div>
             <div class="row align-center">
               <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
