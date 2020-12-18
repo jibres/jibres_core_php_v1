@@ -2,7 +2,7 @@
   <ul>
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo $value['id']; ?>">
+      <a class="f align-center" href2="<?php echo \dash\url::this(); ?>/edit?id=<?php echo $value['id']; ?>">
         <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
         <div class="key"><?php echo substr(a($value, 'content'), 0, 70); ?></div>
         <div class="value status s0"><?php echo T_($value['status']); ?></div>
