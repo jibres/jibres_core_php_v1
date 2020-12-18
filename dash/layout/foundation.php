@@ -161,6 +161,10 @@ if(\dash\data::include_adminPanel())
     echo " data-panel";
   }
 }
+if(\dash\engine\store::inBusinessWebsite() && \lib\store::enterprise())
+{
+    echo " data-enterprise='". \lib\store::enterprise(). "'";
+}
 // set iframe
 if(\dash\request::get('iframe'))
 {
