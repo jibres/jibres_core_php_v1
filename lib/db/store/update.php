@@ -21,5 +21,23 @@ class update
 		return $result;
 
 	}
+
+
+	public static function enterprise($_enterprise, $_id)
+	{
+		$date = date("Y-m-d H:i:s");
+		if($_enterprise)
+		{
+			$enterprise = " store_data.enterprise = '$_enterprise' ";
+		}
+		else
+		{
+			$enterprise = " store_data.enterprise = NULL ";
+		}
+		$query = "UPDATE store_data SET $enterprise, store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+
+	}
 }
 ?>

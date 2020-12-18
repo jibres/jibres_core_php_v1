@@ -1,4 +1,3 @@
-DROP TABLE jibres.comments;
 
 CREATE TABLE IF NOT EXISTS jibres.comments (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,

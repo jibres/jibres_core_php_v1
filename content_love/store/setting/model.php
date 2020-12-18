@@ -6,6 +6,13 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('setenterprise'))
+		{
+			$enterprise = \dash\request::post('enterprise');
+
+			\lib\app\store\edit::change_enterprise($enterprise, \dash\request::get('id'));
+		}
+
 		if(\dash\request::post('subdomain'))
 		{
 			$subdomain = \dash\request::post('subdomain');

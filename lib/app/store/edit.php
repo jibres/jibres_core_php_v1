@@ -55,6 +55,53 @@ class edit
 		return true;
 	}
 
+
+	public static function change_enterprise($_enterprise, $_id)
+	{
+		$_enterprise = \dash\validate::string_100($_enterprise);
+
+		if($_enterprise && !in_array($_enterprise, ['rafiei']))
+		{
+			\dash\notif::error(T_("Invalid enterprise"));
+			return false;
+		}
+
+		if(!$_enterprise)
+		{
+			$_enterprise = null;
+		}
+
+
+		$load_store = \lib\db\store\get::by_id($_id);
+		if(!isset($load_store['id']))
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\lib\db\store\update::enterprise($_enterprise, $load_store['id']);
+
+		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
+
+		\lib\db\setting\update::overwirte_cat_key_fuel($_enterprise, 'store_setting', 'enterprise', $load_store['fuel'], $my_store_db);
+
+		\lib\store::reset_cache($load_store['id']);
+
+		$addr = \dash\engine\store::subdomain_addr(). $load_store['subdomain']. \dash\engine\store::$ext;
+		if(is_file($addr))
+		{
+			\dash\file::delete($addr);
+		}
+
+		$current_store_data = \lib\db\store\get::data($_id);
+
+		\dash\log::set('businessEnterpriceUpdated', ['old_enterprise' => a($current_store_data, 'enterprise'), 'new_enterprise' => $_enterprise ]);
+
+		\dash\notif::ok(T_("Enterprice was changed"));
+
+		return true;
+	}
+
 	public static function social($_args)
 	{
 		$condition =

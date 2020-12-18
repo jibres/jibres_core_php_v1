@@ -1,39 +1,61 @@
 <?php $dataRow = \dash\data::dataRow(); ?>
 <div class="avand-md">
-  <div class="box">
-    <div class="body">
-      <div class="tblBox">
-      	<table class="tbl1 v4">
-      		<tbody>
-      			<tr>
-      				<td><?php echo T_("ID") ?></td>
-      				<td><?php echo $dataRow['id'] ?></td>
-      			</tr>
+  <nav class="items ltr">
+    <ul>
+            <li>
+        			<a class="f item">
+        				<div class="key">ID</div>
+        				<div class="value txtB"><?php echo $dataRow['id'] ?></div>
+        			</a>
+            </li>
+            <li>
+   				   <a class="f item">
+        				<div class="key">Subdomain</div>
+        				<div class="value txtB"><?php echo $dataRow['subdomain'] ?></div>
+        			</a>
+            </li>
+            <li>
+        			<a class="f item">
+        				<div class="key">Fuel</div>
+        				<div class="value txtB"><?php echo $dataRow['fuel'] ?></div>
+        			</a>
+            </li>
+            <li>
 
- 				<tr>
-      				<td><?php echo T_("subdomain") ?></td>
-      				<td><?php echo $dataRow['subdomain'] ?></td>
-      			</tr>
+      			<a class="f item">
+      				<div class="key">IP</div>
+      				<div class="value txtB"><?php echo long2ip($dataRow['ip']) ?></div>
+      			</a>
+            </li>
+            <li>
 
-      			<tr>
-      				<td><?php echo T_("Fuel") ?></td>
-      				<td><?php echo $dataRow['fuel'] ?></td>
-      			</tr>
+      			<a class="f item">
+      				<div class="key">Date created</div>
+      				<div class="value txtB"><?php echo \dash\fit::date_time($dataRow['datecreated']) ?></div>
+      			</a>
+            </li>
+    </ul>
+  </nav>
 
-      			<tr>
-      				<td><?php echo T_("IP") ?></td>
-      				<td><?php echo $dataRow['ip'] ?></td>
-      			</tr>
-
-      			<tr>
-      				<td><?php echo T_("datecreated") ?></td>
-      				<td><?php echo \dash\fit::date_time($dataRow['datecreated']) ?></td>
-      			</tr>
-      		</tbody>
-      	</table>
+  <form method="post" autocomplete="off">
+    <input type="hidden" name="setenterprise" value="1">
+    <div class="box">
+      <div class="body">
+        <label for="enterprise"><?php echo T_("Chage business enterprise") ?></label>
+        <div>
+          <select class="select22" name="enterprise" id="enterprise">
+            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="rafiei" <?php if(\dash\data::dataRowData_enterprise() === 'rafiei') { echo 'selected'; } ?>><?php echo T_("Rafiei") ?></option>
+          </select>
+        </div>
       </div>
+      <footer class="txtRa">
+        <button class="btn master"><?php echo T_("Save") ?></button>
+      </footer>
     </div>
-  </div>
+  </form>
+
+
 
   <form method="post" autocomplete="off">
 	  <div class="box">

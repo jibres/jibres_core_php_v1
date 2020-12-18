@@ -16,6 +16,9 @@ class controller
 
 		\dash\data::dataRow($load);
 
+		$data = \lib\app\store\get::data_by_id($id);
+		\dash\data::dataRowData($data);
+
 	}
 }
 ?>

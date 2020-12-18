@@ -150,7 +150,6 @@ class update
 
 			$insert =
 			[
-				'platform' => $_platform,
 				'cat'      => $_cat,
 				'key'      => $_key,
 				'value'    => $_value,

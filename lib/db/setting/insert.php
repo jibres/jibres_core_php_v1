@@ -36,9 +36,8 @@ class insert
 
 	public static function insert_fuel($_set, $_fuel, $_database)
 	{
-		$set_setting = \dash\db\config::make_multi_insert($_set);
-
-		$query = "INSERT INTO `$_database`.`setting` $set_setting";
+		$set_setting = \dash\db\config::make_set($_set);
+		$query = "INSERT INTO `$_database`.`setting` SET $set_setting";
 		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
 	}
 

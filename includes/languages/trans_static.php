@@ -75,12 +75,6 @@ class TransStatic
 	echo T_("Thirdparties");
 	echo T_("thirdparties");
 
-
-	echo T_("thirdpartyLogView");
-	echo T_("thirdpartyTagView");
-	echo T_("thirdpartyIdentifyView");
-	echo T_("thirdpartyCompanyDetailView");
-
 	echo T_("factorSaleView");
 	echo T_("factorMySaleView");
 	echo T_("factorSaleAdd");
@@ -131,38 +125,6 @@ class TransStatic
 	echo T_("staffExport");
 	echo T_("customerExport");
 	echo T_("supplierExport");
-	echo T_("thirdPartyPermissionChange");
-	echo T_("thirdpartyAssignTag");
-	echo T_("thirdpartyNoteAdd");
-	echo T_("thirdpartyNoteView");
-	echo T_("thirdpartyPermissionEdit");
-	echo T_("thirdpartyManageView");
-	echo T_("thirdpartyTypeEdit");
-	echo T_("thirdpartyAvatarDelete");
-	echo T_("thirdpartyAvatarSet");
-	echo T_("thirdpartyMobileEdit");
-	echo T_("thirdpartyContactEdit");
-	echo T_("thirdpartyCompanyDetailView");
-	echo T_("thirdpartyCompanyDetailEdit");
-	echo T_("thirdpartyAddressEdit");
-	echo T_("thirdpartyAddressView");
-	echo T_("thirdpartyAddressDelete");
-	echo T_("thirdpartyAddressAdd");
-	echo T_("thirdpartyElectronicDocumentEdit");
-	echo T_("thirdpartyIdentifyView");
-	echo T_("thirdpartyIdentifyEdit");
-	echo T_("thirdpartyTagView");
-	echo T_("thirdpartyGlance");
-	echo T_("thirdpartyBudgetView");
-	echo T_("thirdpartyCreditView");
-	echo T_("thirdpartyDashboardVariableView");
-	echo T_("thirdpartyTransactionView");
-	echo T_("thirdpartyTransactionPlus");
-	echo T_("thirdpartyTransactionMinus");
-	echo T_("thirdpartyTransactionCreditView");
-	echo T_("thirdpartyTransactionCreditEdit");
-	echo T_("thirdpartyMobileView");
-	echo T_("cpThirdpartyTagAdd");
 	echo T_("settingEdit");
 	echo T_("settingView");
 	echo T_("reportDaily");
