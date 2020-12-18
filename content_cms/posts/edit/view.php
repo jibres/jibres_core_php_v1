@@ -82,14 +82,6 @@ class view
 			\dash\data::listSavedCat(array_column(\dash\data::dataRow_category(), 'term_id'));
 		}
 
-
-
-		// if(a($dataRow, 'type') === 'page' || a($dataRow, 'type') === 'help')
-		{
-			$load_parent = \dash\app\posts\get::load_all_parent($id);
-			\dash\data::parentList($load_parent);
-		}
-
 	}
 }
 ?>

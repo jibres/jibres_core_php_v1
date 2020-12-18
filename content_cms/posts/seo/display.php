@@ -1,6 +1,14 @@
 <?php
 $dataRow = \dash\data::dataRow();
-$myFirstURL = '';
+
+$type   = \dash\data::dataRow_type();
+
+
+
+$isPage = ($type === 'page');
+$isPost = ($type === 'post');
+$isHelp = ($type === 'help');
+
 ?>
 <div class="box">
   <div class="pad">
@@ -22,8 +30,22 @@ $myFirstURL = '';
   </div>
 
 <form method="post" autocomplete="off" id="editFormSEO">
+
   <div class="box">
     <div class="pad">
+  <?php if($isPage || $isHelp) {?>
+ <?php if(\dash\data::parentList()) {?>
+      <p><?php echo T_("You can set this page as a subset of another page") ?></p>
+      <div class="mB10">
+        <select class="select22" name="parent" id="parent">
+          <option value="0"><?php echo T_("Nothing. Independent page") ?></option>
+          <?php foreach (\dash\data::parentList() as $key => $value) {?>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(\dash\data::dataRow_parent() === a($value, 'id')) {echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
+          <?php } //endfor ?>
+        </select>
+      </div>
+ <?php } //endif ?>
+<?php } //endif ?>
       <div>
         <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
         <div class="input ltr mB10">

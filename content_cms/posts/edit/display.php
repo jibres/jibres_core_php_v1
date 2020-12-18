@@ -61,24 +61,6 @@ switch (\dash\data::dataRow_status())
 
 
 <form method="post" autocomplete="off" id="formEditPost">
-<?php if($isPage || $isHelp) {?>
- <?php if(\dash\data::parentList()) {?>
-  <div class="box">
-    <div class="pad">
-      <p><?php echo T_("You can set this page as a subset of another page") ?></p>
-      <div>
-        <label for="parent"><?php echo T_("Parent") ?></label>
-        <select class="select22" name="parent" id="parent">
-          <option value="0"><?php echo T_("Without parent") ?></option>
-          <?php foreach (\dash\data::parentList() as $key => $value) {?>
-            <option value="<?php echo a($value, 'id'); ?>" <?php if(\dash\data::dataRow_parent() === a($value, 'id')) {echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
-          <?php } //endfor ?>
-        </select>
-      </div>
-    </div>
-  </div>
- <?php } //endif ?>
-<?php } //endif ?>
 
 
   <div class="box">

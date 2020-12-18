@@ -12,6 +12,13 @@ class view
 
 		\dash\face::btnSave('editFormSEO');
 
+		$dataRow = \dash\data::dataRow();
+		if(a($dataRow, 'type') === 'page' || a($dataRow, 'type') === 'help')
+		{
+			$load_parent = \dash\app\posts\get::load_all_parent(\dash\request::get('id'));
+			\dash\data::parentList($load_parent);
+		}
+
 	}
 }
 ?>

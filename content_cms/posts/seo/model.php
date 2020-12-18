@@ -11,6 +11,7 @@ class model
 			'slug'     => \dash\request::post('slug'),
 			'excerpt'  => \dash\request::post('excerpt'),
 			'seotitle' => \dash\request::post('seotitle'),
+			'parent'      => \dash\request::post('parent') ? \dash\request::post('parent') : null,
 		];
 
 
