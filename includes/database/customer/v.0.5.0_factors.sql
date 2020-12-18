@@ -24,7 +24,7 @@ CREATE TABLE `jibres_XXXXXXX`.`factors` (
 `desc` text CHARACTER SET utf8mb4,
 `guestid` varchar(50) CHARACTER SET utf8mb4 NULL DEFAULT NULL,
 `mode` ENUM('admin', 'customer', 'auto') DEFAULT NULL,
-`paystatus` ENUM('awaiting_payment','awaiting_verify_payment','unsuccessful_payment','payment_unverified','successful_payment') CHARACTER SET utf8mb4 NULL DEFAULT NULL,
+`paystatus` ENUM('awaiting_payment','awaiting_verify_payment','unsuccessful_payment','payment_unverified','successful_payment','unpaid') CHARACTER SET utf8mb4 NULL DEFAULT NULL,
 PRIMARY KEY (`id`),
 KEY `factors_index_qty` (`qty`),
 KEY `factors_index_total` (`total`),

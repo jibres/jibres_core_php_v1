@@ -1,20 +1,13 @@
 CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`termusages` (
-  `term_id` int(10) UNSIGNED NOT NULL,
-  `related_id` bigint(20) UNSIGNED NOT NULL,
-  `related` enum('posts','products','attachments','files','comments','users','tickets') DEFAULT NULL,
-  `order` smallint(5) UNSIGNED DEFAULT NULL,
-  `status` enum('enable','disable','expired','awaiting','filtered','blocked','spam','violence','pornography','other','deleted') NOT NULL DEFAULT 'enable',
-  `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `type` enum('cat','tag','term','code','other','support_tag','mag','mag_tag','help','help_tag','barcode1','barcode2','barcode3','qrcode1','qrcode2','qrcode3','rfid1','rfid2','rfid3','fingerprint1','fingerprint2','fingerprint3','fingerprint4','fingerprint5','fingerprint6','fingerprint7','fingerprint8','fingerprint9','fingerprint10') DEFAULT NULL,
-  KEY `termusages_related_id` (`related_id`),
-  KEY `termusages_related` (`related`),
-  KEY `termusages_status` (`status`),
-  KEY `termusages_related_id_search_index` (`related_id`),
-  KEY `termusages_related_search_index` (`related`),
-  KEY `termusages_type_search_index` (`type`)
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`term_id` int(10) UNSIGNED NOT NULL,
+`post_id` bigint(20) UNSIGNED NOT NULL,
+`type` enum('cat','tag') DEFAULT NULL,
+`sort` smallint(5) UNSIGNED DEFAULT NULL,
+`datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`),
+KEY `termusages_type_search_index` (`type`),
+KEY `termusages_index_post_id` (`post_id`),
+KEY `termusages_index_term_id` (`term_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-

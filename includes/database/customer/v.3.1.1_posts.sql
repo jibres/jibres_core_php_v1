@@ -6,10 +6,13 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`posts` (
   `slug` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `url` varchar(190) CHARACTER SET utf8mb4 DEFAULT NULL,
   `content` mediumtext CHARACTER SET utf8mb4,
+  `thumb` varchar(500) NULL DEFAULT NULL,
+  `cover` varchar(500) NULL DEFAULT NULL,
+  `gallery` TEXT NULL DEFAULT NULL,
   `subtitle` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `excerpt` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `meta` mediumtext CHARACTER SET utf8mb4,
-  `subtype` varchar(100) CHARACTER SET utf8mb4 NULL,
+  `subtype` enum('standard', 'gallery','video','audio') NULL DEFAULT 'standard',
   `type` varchar(100) CHARACTER SET utf8mb4 NOT NULL DEFAULT 'post',
   `special` varchar(100) DEFAULT NULL,
   `comment` enum('open','closed') DEFAULT NULL,
@@ -26,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`posts` (
   KEY `index_search_type` (`type`),
   KEY `index_search_language` (`language`),
   KEY `index_search_publishdate` (`publishdate`),
+  KEY `search_index_subtype` (`subtype`),
   KEY `index_search_url` (`url`),
   KEY `index_search_slug` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
