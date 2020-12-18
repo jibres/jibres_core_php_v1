@@ -656,6 +656,12 @@ class store
 	}
 
 
+	public static function enterprise()
+	{
+		return self::detail('enterprise');
+	}
+
+
 	public static function payment_detail()
 	{
 		$detail = \lib\app\setting\get::bank_payment_setting();
