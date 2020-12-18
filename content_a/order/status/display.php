@@ -85,6 +85,10 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
           <div class="c-auto">
             <div class="btn mB5 <?php if($orderPayStatus === 'successful_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "successful_payment"}'><?php echo T_('Successful payment') ?></div>
           </div>
+
+          <div class="c-auto">
+            <div class="btn mB5 <?php if($orderPayStatus === 'unpaid') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "unpaid"}'><?php echo T_('Unpaid') ?></div>
+          </div>
         </div>
 
       </div>

@@ -284,16 +284,15 @@ class cart
 		}
 		elseif($data['payway'] === 'on_deliver')
 		{
-			\lib\app\factor\action::set('awaiting_payment', $factor_id);
-
+			\lib\app\factor\action::set('unpaid', $factor_id);
 		}
 		elseif($data['payway'] === 'bank')
 		{
-			\lib\app\factor\action::set('awaiting_payment', $factor_id);
+			\lib\app\factor\action::set('awaiting_verify_payment', $factor_id);
 		}
 		elseif($data['payway'] === 'check')
 		{
-			\lib\app\factor\action::set('awaiting_payment', $factor_id);
+			\lib\app\factor\action::set('awaiting_verify_payment', $factor_id);
 		}
 
 		if(\dash\user::id())

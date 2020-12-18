@@ -44,8 +44,9 @@
 
         <div class="box">
           <input type="hidden" name="payway" value="online">
-          <?php if(false) {?>
+
             <?php if(\dash\data::paymentWay()) {?>
+              <div class="mB10"><?php echo T_("Choose Payment") ?></div>
               <?php foreach (\dash\data::paymentWay() as $key => $value) {?>
                 <div class="radio3 mB10">
                   <input  id="payway<?php echo $key; ?>" type="radio" name="payway" value="<?php echo a($value, 'key'); ?>" <?php if($key === 'online') { echo 'checked';} ?>>
@@ -53,7 +54,7 @@
                 </div>
               <?php } //endfor ?>
             <?php } // endif ?>
-            <?php } // endif ?>
+
             <label for="desc"><?php echo T_("Order descripion"); ?></label>
             <textarea class="txt" name="desc" maxlength='300' rows="2" placeholder="<?php echo T_("If you have note about this order enter it here") ?>"></textarea>
         </div>

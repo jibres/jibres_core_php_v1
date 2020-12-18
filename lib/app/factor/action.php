@@ -55,6 +55,7 @@ class action
 
 					switch ($value)
 					{
+						case 'unpaid': 						$t_action = T_("Unpaid"); break;
 						case 'tracking': 					$t_action = T_('Tracking'); break;
 						case 'notes': 						$t_action = T_('Notes'); break;
 						case 'draft': 						$t_action = T_('Draft'); break;
@@ -160,6 +161,7 @@ class action
 			[
 				'enum' =>
 				[
+					'unpaid',
 					'tracking',
 					'notes',
 					'draft',
@@ -272,6 +274,7 @@ class action
 			case 'unsuccessful_payment':
 			case 'payment_unverified':
 			case 'successful_payment':
+			case 'unpaid':
 				$category = 'paystatus';
 
 				if(isset($load_factor['paystatus']) && $load_factor['paystatus'] === $data['action'])
@@ -379,6 +382,7 @@ class action
 			case 'awaiting_verify_payment':
 			case 'unsuccessful_payment':
 			case 'payment_unverified':
+			case 'unpaid':
 				$update_factor['paystatus'] = $data['action'];
 				break;
 		}

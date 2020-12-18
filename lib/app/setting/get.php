@@ -49,12 +49,17 @@ class get
 						break;
 				}
 
-				$result[$myPaymentKey] =
-				[
-					'key'   => $myPaymentKey,
-					'title' => $myPaymentKeyTrans,
-					'desc'  => null,
-				];
+				if(isset($value['value']) && $value['value'])
+				{
+					$result[$myPaymentKey] =
+					[
+						'key'   => $myPaymentKey,
+						'title' => $myPaymentKeyTrans,
+						'desc'  => null,
+					];
+
+				}
+
 
 			}
 		}
