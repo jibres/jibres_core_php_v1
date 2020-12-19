@@ -16,8 +16,8 @@
               <tr>
                 <td class="collapsing fc-mute"><?php echo T_("Customer") ?></td>
                 <td>
-                    <?php echo a($orderDetail, 'factor', 'customer_displayname'); ?>
-                    <span class="ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_mobile')); ?></span>
+                    <?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname'); ?>
+                    <span class="ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
                 </td>
               </tr>
               <?php } // endif ?>

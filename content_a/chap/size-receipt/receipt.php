@@ -52,9 +52,9 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <hr>
 <div class="customerDetail fs12 txtC">
   <div class="fs14"><?php echo T_("Customer Detail"); ?></div>
-<?php if(isset($address['name']) && $address['name']) {?>
-  <div class="pA10"><span class="txtB"><?php echo $address['name']; ?></span></div>
-<?php } //endif ?>
+
+  <div class="pA10"><span class="txtB"><?php echo a($factorDetail, 'factor', 'customer_detail', 'displayname'); ?></span></div>
+
 
 <?php if(isset($address['address']) && $address['address']) {?>
   <div class="pA10">

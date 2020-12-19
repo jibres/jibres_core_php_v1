@@ -328,30 +328,39 @@ class get
 			$customer_id = \dash\coding::decode($factor['customer']);
 			$load_customer = \dash\db\users::get_by_id($customer_id);
 
-			if(isset($load_customer['displayname']))
+			$isLegalCustomer = false;
+
+			if(a($load_customer, 'accounttype') === 'legal')
 			{
-				$factor['customer_displayname'] = $load_customer['displayname'];
+				$isLegalCustomer = true;
 			}
 
-			if(isset($load_customer['phone']))
-			{
-				$factor['customer_phone'] = $load_customer['phone'];
-			}
+			$customer_detail = [];
 
-			if(isset($load_customer['mobile']))
+			$customer_detail['displayname'] = a($load_customer, 'displayname');
+			if($isLegalCustomer)
 			{
-				$factor['customer_mobile'] = $load_customer['mobile'];
+				if(a($load_customer, 'companyname'))
+				{
+					$customer_detail['displayname'] = a($load_customer, 'companyname');
+				}
 			}
 
 			if(isset($load_customer['avatar']))
 			{
-				$factor['customer_avatar'] = \lib\filepath::fix_avatar($load_customer['avatar']);
+				$customer_detail['avatar'] = \lib\filepath::fix_avatar($load_customer['avatar']);
 			}
 
+			$customer_detail['phone']                 = a($load_customer, 'phone');
+			$customer_detail['mobile']                = a($load_customer, 'mobile');
 
-			// $load_user_legal = \dash\app\user\legal::get($factor['customer']);
-			$factor['customer_legal'] = [];
 
+			$customer_detail['companyeconomiccode']   = a($load_customer, 'companyeconomiccode');
+			$customer_detail['companyname']           = a($load_customer, 'companyname');
+			$customer_detail['companynationalid']     = a($load_customer, 'companynationalid');
+			$customer_detail['companyregisternumber'] = a($load_customer, 'companyregisternumber');
+
+			$factor['customer_detail'] = $customer_detail;
 		}
 
 		// load address saved on this factor
