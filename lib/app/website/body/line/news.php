@@ -105,8 +105,8 @@ class news
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
 			'limit'             => 'tinyint',
-			'first_line_count'  => ['enum' => [1, 2, 3, 4]],
-			'second_line_count' => ['enum' => [1, 2, 3]],
+			'first_line_count'  => ['enum' => [1, 2, 3]],
+			'second_line_count' => ['enum' => [1, 2, 3, 4]],
 			'play_item'         => ['enum' => ['none', 'first', 'all']],
 		];
 
@@ -141,16 +141,17 @@ class news
 
 		$saved_option = self::inline_get($line_id);
 
+		$saved_option['first_line_count']  = $data['first_line_count'];
+		$saved_option['second_line_count'] = $data['second_line_count'];
+		$saved_option['play_item']         = $data['play_item'];
+		$saved_option['limit']             = $data['limit'];
+
 		$saved_option['news'] =
 		[
-			'cat_id'            => $data['cat_id'],
-			'tag_id'            => $data['tag_id'],
-			'template'          => $data['template'],
-			'subtype'           => $data['subtype'],
-			'limit'             => $data['limit'],
-			'first_line_count'  => $data['first_line_count'],
-			'second_line_count' => $data['second_line_count'],
-			'play_item'         => $data['play_item'],
+			'cat_id'   => $data['cat_id'],
+			'tag_id'   => $data['tag_id'],
+			'template' => $data['template'],
+			'subtype'  => $data['subtype'],
 		];
 
 
@@ -200,22 +201,19 @@ class news
 			return false;
 		}
 
-		$saved_value['title']   = $data['title'];
-		$saved_value['publish'] = $data['publish'];
-
-		$saved_news = $saved_value['news'];
-
+		$saved_value['title']             = $data['title'];
+		$saved_value['publish']           = $data['publish'];
+		$saved_value['first_line_count']  = $data['first_line_count'];
+		$saved_value['second_line_count'] = $data['second_line_count'];
+		$saved_value['play_item']         = $data['play_item'];
+		$saved_value['limit']             = $data['limit'];
 
 		$ready_to_save =
 		[
-			'cat_id'            => $data['cat_id'],
-			'tag_id'            => $data['tag_id'],
-			'template'          => $data['template'],
-			'subtype'           => $data['subtype'],
-			'limit'             => $data['limit'],
-			'first_line_count'  => $data['first_line_count'],
-			'second_line_count' => $data['second_line_count'],
-			'play_item'         => $data['play_item'],
+			'cat_id'   => $data['cat_id'],
+			'tag_id'   => $data['tag_id'],
+			'template' => $data['template'],
+			'subtype'  => $data['subtype'],
 		];
 
 

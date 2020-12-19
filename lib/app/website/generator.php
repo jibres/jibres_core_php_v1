@@ -262,5 +262,73 @@ class generator
 	}
 
 
+
+	public static function fc_class($_loop_index, $_line_detail)
+	{
+
+		// show the default value
+		$class = 'c-xs-12 c-sm-12';
+		$first_line_count  = a($_line_detail, 'value', 'first_line_count');
+		$second_line_count = a($_line_detail, 'value', 'second_line_count');
+
+		switch ((string) $first_line_count)
+		{
+
+			case '1':
+				if($_loop_index == 0)
+				{
+					$class = 'c-xs-12 c-sm-12';
+				}
+				break;
+
+			case '2':
+				if($_loop_index <= 1)
+				{
+					$class = 'c-xs-12 c-sm-6';
+				}
+				break;
+
+			case '3':
+				if($_loop_index <= 2)
+				{
+					$class = 'c-xs-12 c-sm-12 c-md-4';
+				}
+				break;
+
+			default:
+				/* nothing */
+				break;
+		}
+
+		if(floatval($_loop_index) > floatval($first_line_count) - 1)
+		{
+			switch ((string) $second_line_count)
+			{
+
+				case '2':
+					$class = 'c-xs-12 c-sm-6';
+					break;
+
+				case '3':
+					$class = 'c-xs-12 c-sm-4 c-md-4';
+					break;
+
+				case '4':
+					$class = 'c-xs-12 c-sm-4 c-md-3';
+					break;
+
+				case '1':
+				default:
+					$class = 'c-xs-12 c-sm-12';
+					break;
+			}
+		}
+
+
+		return 'class="'. $class. '"';
+
+	}
+
+
 }
 ?>

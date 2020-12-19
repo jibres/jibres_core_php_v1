@@ -16,7 +16,7 @@ class load
 		$cat_id     = a($_detail, 'value', 'news', 'cat_id');
 		$tag_id     = a($_detail, 'value', 'news', 'tag_id');
 		$subtype    = a($_detail, 'value', 'news', 'subtype');
-		$limit      = a($_detail, 'value', 'news', 'limit');
+		$limit      = a($_detail, 'value', 'limit');
 
 		if(!$limit)
 		{

@@ -16,8 +16,8 @@ class model
 			'tag_id'            => \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null,
 			'subtype'           => \dash\request::post('subtype'),
 			'limit'             => \dash\request::post('limit'),
-			'first_line_count'  => \dash\request::post('first_line_count'),
-			'second_line_count' => \dash\request::post('second_line_count'),
+			'first_line_count'  => \dash\request::post('first_line_count') ? \dash\request::post('first_line_count') : null,
+			'second_line_count' => \dash\request::post('second_line_count') ? \dash\request::post('second_line_count') : null,
 			'play_item'         => \dash\request::post('play_item'),
 		];
 
