@@ -34,7 +34,7 @@
           <label for='tag'><?php echo T_("New Tag"); ?></label>
            <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one tag") ?>">
             <?php if(\dash\request::get('tagid')) {?>
-              <option value="0"><?php echo T_("Non") ?></option>
+              <option value="0"><?php echo T_("None") ?></option>
             <?php }else{?>
               <option value="" readonly></option>
             <?php } //endif ?>

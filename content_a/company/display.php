@@ -255,7 +255,7 @@
 
           <div class="msg info">
             <p>
-              <?php echo T_("Non product found by this company"); ?>
+              <?php echo T_("No product found by this company"); ?>
               <br>
               <?php echo T_("You can delete this company now"); ?>
             </p>

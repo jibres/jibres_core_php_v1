@@ -12,8 +12,8 @@ class model
 			'title'    => \dash\request::post('title'),
 			'template' => \dash\request::post('template') ? \dash\request::post('template') : null,
 			'publish'  => 1,
-			'cat_id'   => \dash\request::post('cat_id'),
-			'tag_id'   => \dash\request::post('tag_id'),
+			'cat_id'   => \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null,
+			'tag_id'   => \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null,
 			'subtype'  => \dash\request::post('subtype'),
 			'limit'    => \dash\request::post('limit'),
 		];

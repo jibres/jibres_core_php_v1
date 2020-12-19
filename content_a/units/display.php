@@ -268,7 +268,7 @@
 
           <div class="msg info">
             <p>
-              <?php echo T_("Non product found by this unit"); ?>
+              <?php echo T_("No product found by this unit"); ?>
               <br>
               <?php echo T_("You can delete this unit now"); ?>
             </p>

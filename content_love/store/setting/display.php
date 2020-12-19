@@ -44,7 +44,7 @@
         <label for="enterprise"><?php echo T_("Chage business enterprise") ?></label>
         <div>
           <select class="select22" name="enterprise" id="enterprise">
-            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("None") ?></option>
             <option value="rafiei" <?php if(\dash\data::dataRowData_enterprise() === 'rafiei') { echo 'selected'; } ?>><?php echo T_("Rafiei") ?></option>
           </select>
         </div>

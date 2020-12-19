@@ -381,8 +381,8 @@ if(\dash\request::get('status'))
 
   <div class="c">
     <div class="radio3">
-      <input type="radio" name="android_uniquecode" value="non" id="android_uniquecodenon" <?php if(\dash\request::get('android_uniquecode') == 'non'  ){?> checked <?php } ?>>
-      <label for="android_uniquecodenon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="android_uniquecode" value="none" id="android_uniquecodenon" <?php if(\dash\request::get('android_uniquecode') == 'non'  ){?> checked <?php } ?>>
+      <label for="android_uniquecodenon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 
@@ -407,8 +407,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="language" value="non" id="languagenon" <?php if(\dash\request::get('language') == 'non'  ){?> checked <?php } ?>>
-      <label for="languagenon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="language" value="none" id="languagenon" <?php if(\dash\request::get('language') == 'non'  ){?> checked <?php } ?>>
+      <label for="languagenon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -427,8 +427,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="chatid" value="non" id="chatidnon" <?php if(\dash\request::get('chatid') == 'non'  ){?> checked <?php } ?>>
-      <label for="chatidnon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="chatid" value="none" id="chatidnon" <?php if(\dash\request::get('chatid') == 'non'  ){?> checked <?php } ?>>
+      <label for="chatidnon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -453,8 +453,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="permission" value="non" id="permissionnon" <?php if(\dash\request::get('permission') == 'non'  ){?> checked <?php } ?>>
-      <label for="permissionnon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="permission" value="none" id="permissionnon" <?php if(\dash\request::get('permission') == 'non'  ){?> checked <?php } ?>>
+      <label for="permissionnon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -479,8 +479,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="twostep" value="non" id="twostepnon" <?php if(\dash\request::get('twostep') == 'non'  ){?> checked <?php } ?>>
-      <label for="twostepnon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="twostep" value="none" id="twostepnon" <?php if(\dash\request::get('twostep') == 'non'  ){?> checked <?php } ?>>
+      <label for="twostepnon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -506,8 +506,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="password" value="non" id="passwordnon" <?php if(\dash\request::get('password') == 'non'  ){?> checked <?php } ?>>
-      <label for="passwordnon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="password" value="none" id="passwordnon" <?php if(\dash\request::get('password') == 'non'  ){?> checked <?php } ?>>
+      <label for="passwordnon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -533,8 +533,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="email" value="non" id="emailnon" <?php if(\dash\request::get('email') == 'non'  ){?> checked <?php } ?>>
-      <label for="emailnon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="email" value="none" id="emailnon" <?php if(\dash\request::get('email') == 'non'  ){?> checked <?php } ?>>
+      <label for="emailnon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -560,8 +560,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="mobile" value="non" id="mobilenon" <?php if(\dash\request::get('mobile') == 'non'  ){?> checked <?php } ?>>
-      <label for="mobilenon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="mobile" value="none" id="mobilenon" <?php if(\dash\request::get('mobile') == 'non'  ){?> checked <?php } ?>>
+      <label for="mobilenon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -586,8 +586,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="displayname" value="non" id="displaynamenon" <?php if(\dash\request::get('displayname') == 'non'  ){?> checked <?php } ?>>
-      <label for="displaynamenon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="displayname" value="none" id="displaynamenon" <?php if(\dash\request::get('displayname') == 'non'  ){?> checked <?php } ?>>
+      <label for="displaynamenon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -612,8 +612,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="avatar" value="non" id="avatarnon" <?php if(\dash\request::get('avatar') == 'non'  ){?> checked <?php } ?>>
-      <label for="avatarnon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="avatar" value="none" id="avatarnon" <?php if(\dash\request::get('avatar') == 'non'  ){?> checked <?php } ?>>
+      <label for="avatarnon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>
@@ -640,8 +640,8 @@ if(\dash\request::get('status'))
 
     <div class="c">
     <div class="radio3">
-      <input type="radio" name="username" value="non" id="usernamenon" <?php if(\dash\request::get('username') == 'non'  ){?> checked <?php } ?>>
-      <label for="usernamenon"><?php echo T_("Non"); ?></label>
+      <input type="radio" name="username" value="none" id="usernamenon" <?php if(\dash\request::get('username') == 'non'  ){?> checked <?php } ?>>
+      <label for="usernamenon"><?php echo T_("None"); ?></label>
     </div>
   </div>
 </div>

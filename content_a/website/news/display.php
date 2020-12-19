@@ -1,24 +1,23 @@
+<?php
+
+$have_title       = true;
+$have_limit       = true;
+$have_fc_position = true;
+
+?>
 
 <div class="avand-lg">
-
-
   <form method="post" class="box" autocomplete="off" >
-
     <div class="body">
 
-
-
-      <label for="title"><?php echo T_("Line title"); ?></label>
-      <div class="input">
-        <input type="text" name="title" id="title" value="<?php if(!a(\dash\data::lineSetting(), 'title') && a(\dash\data::lineSetting(), 'title') !== '0'){ echo \dash\data::newsNameSuggestion(); }else{ echo a(\dash\data::lineSetting(), 'title'); } ?>"  maxlength="200"  >
-      </div>
+      <?php require_once(__DIR__.'/../display-items.php'); ?>
 
 
 
       <div class="mB10">
         <label for='cat'><?php echo T_("Special category"); ?></label>
         <select name="cat_id" id="cat" class="select22"  data-placeholder='<?php echo T_("Select category"); ?>' >
-          <option></option>
+          <?php if(a(\dash\data::lineSetting(), 'news', 'cat_id')) {?><option value="0"><?php echo T_("None") ?></option><?php }else{ ?><option></option><?php } //endif ?>
            <?php foreach (\dash\data::listCategory() as $key => $value) {?>
             <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(), 'news', 'cat_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'title'); ?></option>
           <?php } //endfor ?>
@@ -28,7 +27,7 @@
         <div class="mB10">
         <label for='tag'><?php echo T_("Special tag"); ?></label>
         <select name="tag_id" id="tag" class="select22"  data-placeholder='<?php echo T_("Select tag"); ?>' >
-          <option></option>
+          <?php if(a(\dash\data::lineSetting(), 'news', 'tag_id')) {?><option value="0"><?php echo T_("None") ?></option><?php }else{ ?><option></option><?php } //endif ?>
            <?php foreach (\dash\data::listTag() as $key => $value) {?>
             <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(), 'news', 'tag_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'title'); ?></option>
           <?php } //endfor ?>
@@ -54,10 +53,6 @@
         </select>
       </div>
 
-      <label for="limit"><?php echo T_("Count show post"); ?></label>
-      <div class="input">
-        <input type="tel" name="limit" id="limit" placeholder="<?php echo \dash\fit::number(5); ?>" value="<?php echo a(\dash\data::lineSetting(), 'news', 'limit'); ?>" data-format='int' >
-      </div>
 
 
     </div>

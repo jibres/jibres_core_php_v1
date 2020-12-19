@@ -34,7 +34,7 @@
           <label for='cat'><?php echo T_("New Category"); ?></label>
            <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>">
             <?php if(\dash\request::get('catid')) {?>
-              <option value="0"><?php echo T_("Non") ?></option>
+              <option value="0"><?php echo T_("None") ?></option>
             <?php }else{?>
               <option value="" readonly></option>
             <?php } //endif ?>

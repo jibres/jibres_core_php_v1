@@ -71,7 +71,7 @@ function BoxProductFilter()
         <div>
          <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>">
           <?php if(\dash\request::get('catid')) {?>
-            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("None") ?></option>
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
@@ -89,7 +89,7 @@ function BoxProductFilter()
       <div>
          <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one tag") ?>">
           <?php if(\dash\request::get('tagid')) {?>
-            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("None") ?></option>
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
@@ -106,7 +106,7 @@ function BoxProductFilter()
         </div>
         <select name="unitid" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
             <?php if(\dash\request::get('unitid')) {?>
-            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("None") ?></option>
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
@@ -123,7 +123,7 @@ function BoxProductFilter()
         </div>
         <select name="companyid" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
           <?php if(\dash\request::get('companyid')) {?>
-            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("None") ?></option>
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
@@ -138,7 +138,7 @@ function BoxProductFilter()
         <label for='status'><?php echo T_("Status"); ?></label>
         <select name="status" id="status" class="select22" data-placeholder='<?php echo T_("Product Status"); ?>'>
           <?php if(\dash\request::get('status')) {?>
-            <option value="0"><?php echo T_("Non") ?></option>
+            <option value="0"><?php echo T_("None") ?></option>
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
