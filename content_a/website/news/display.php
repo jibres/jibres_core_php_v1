@@ -66,7 +66,7 @@
       <?php if (\dash\data::newsID()) { ?>
         <div class="f">
           <div class="cauto">
-            <div data-confirm data-data='{"remove": "line", "edit_line" : "setting", "id": "<?php echo \dash\request::get('id'); ?>"}' class="btn outline danger"><?php echo T_("Remove"); ?></div>
+            <div data-confirm data-data='{"remove": "line", "edit_line" : "setting", "id": "<?php echo \dash\request::get('id'); ?>"}' class="btn linkDel danger"><?php echo T_("Remove"); ?></div>
           </div>
           <div class="c"></div>
           <div class="cauto">
