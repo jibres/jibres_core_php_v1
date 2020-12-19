@@ -45,7 +45,7 @@ class load
 
 		$result              = [];
 		$result['title']     = $line_title;
-		$result['line_link'] = null;
+		$result['line_link'] = \dash\url::kindgom(). '/blog';
 		$result['list']      = $list;
 
 		return $result;

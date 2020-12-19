@@ -16,6 +16,7 @@ if($postList && is_array($postList))
 ?>
   <div class="jBlog1">
     <div class="avand-md">
+    <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
     <div class="row">
       <?php foreach ($postList as $key => $post) { ?>
         <div <?php echo \lib\app\website\generator::fc_class($key, $line_detail); ?>>
@@ -40,6 +41,7 @@ if($postList && is_array($postList))
 <?php }else{  /*special list*/ ?>
 
   <div class="avand-md">
+    <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
     <div class="row">
       <?php foreach ($postList as $key => $value) {?>
         <div <?php echo \lib\app\website\generator::fc_class($key, $line_detail); ?>>

@@ -108,6 +108,8 @@ class news
 			'first_line_count'  => ['enum' => [1, 2, 3]],
 			'second_line_count' => ['enum' => [1, 2, 3, 4]],
 			'play_item'         => ['enum' => ['none', 'first', 'all']],
+			'more_link'         => ['enum' => ['show', 'hide']],
+			'more_link_caption' => 'string_50',
 		];
 
 		$require   = [];
@@ -145,6 +147,8 @@ class news
 		$saved_option['second_line_count'] = $data['second_line_count'];
 		$saved_option['play_item']         = $data['play_item'];
 		$saved_option['limit']             = $data['limit'];
+		$saved_option['more_link']         = $data['more_link'];
+		$saved_option['more_link_caption'] = $data['more_link_caption'];
 
 		$saved_option['news'] =
 		[
@@ -207,6 +211,8 @@ class news
 		$saved_value['second_line_count'] = $data['second_line_count'];
 		$saved_value['play_item']         = $data['play_item'];
 		$saved_value['limit']             = $data['limit'];
+		$saved_value['more_link']         = $data['more_link'];
+		$saved_value['more_link_caption'] = $data['more_link_caption'];
 
 		$ready_to_save =
 		[

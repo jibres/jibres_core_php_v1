@@ -265,9 +265,8 @@ class generator
 
 	public static function fc_class($_loop_index, $_line_detail)
 	{
-
 		// show the default value
-		$class = 'c-xs-12 c-sm-12';
+		$class             = 'c-xs-12 c-sm-12';
 		$first_line_count  = a($_line_detail, 'value', 'first_line_count');
 		$second_line_count = a($_line_detail, 'value', 'second_line_count');
 
@@ -304,7 +303,6 @@ class generator
 		{
 			switch ((string) $second_line_count)
 			{
-
 				case '2':
 					$class = 'c-xs-12 c-sm-6';
 					break;
@@ -324,11 +322,38 @@ class generator
 			}
 		}
 
-
 		return 'class="'. $class. '"';
-
 	}
 
 
+
+	public static function line_title($_line_detail, $_link = null)
+	{
+		$html              = null;
+		$title             = a($_line_detail, 'value', 'title');
+		$more_link         = a($_line_detail, 'value', 'more_link');
+		$more_link_caption = a($_line_detail, 'value', 'more_link_caption');
+
+		if($more_link === 'hide' || !$_link)
+		{
+			$html  = '<h2>';
+			$html .= $title;
+			$html .= '</h2>';
+		}
+		else
+		{
+			$more_link_caption = $more_link_caption ? $more_link_caption : T_("Show more");
+
+			$html .=
+			"<div class='row'>
+				<div class='c-xs c-sm'><h2>". $title ."</h2></div>
+				<div class='c-xs-auto c-sm-auto'>
+					<a href='" . $_link . "'>". $more_link_caption . "</a>
+				</div>
+			</div>";
+		}
+
+		return $html;
+	}
 }
 ?>

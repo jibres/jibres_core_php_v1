@@ -19,6 +19,8 @@ class model
 			'first_line_count'  => \dash\request::post('first_line_count') ? \dash\request::post('first_line_count') : null,
 			'second_line_count' => \dash\request::post('second_line_count') ? \dash\request::post('second_line_count') : null,
 			'play_item'         => \dash\request::post('play_item'),
+			'more_link'         => \dash\request::post('more_link'),
+			'more_link_caption' => \dash\request::post('more_link_caption'),
 		];
 
 

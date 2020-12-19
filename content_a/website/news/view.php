@@ -23,7 +23,7 @@ class view
 
 		\dash\data::defaultProductLineType(T_("Latest product (Default)"));
 
-		\dash\data::NameSuggestion(\lib\app\website\body\line\news::suggest_new_name());
+		\dash\data::nameSuggestion(\lib\app\website\body\line\news::suggest_new_name());
 
 		\dash\data::listCategory(\dash\app\terms\get::cat_list());
 		\dash\data::listTag(\dash\app\terms\get::get_all_tag());
