@@ -1,5 +1,4 @@
 <?php
-
 $template = 'special';
 if(isset($line_detail['value']['news']['template']) && $line_detail['value']['news']['template'] && is_string($line_detail['value']['news']['template']))
 {
@@ -15,7 +14,6 @@ if($postList && is_array($postList))
   if($template  == 'simple')
   {
 ?>
-
   <div class="jBlog1">
     <div class="avand-md">
     <div class="row">

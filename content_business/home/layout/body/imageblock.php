@@ -51,7 +51,7 @@ if($imageblock)
 		echo '>';
 		{
 			echo '<img src="'. \lib\filepath::fix(a($value, 'image')). '"';
-			echo 'alt="'. a($value, 'alt'). '"';
+			echo ' alt="'. a($value, 'alt'). '"';
 			echo '>';
 		}
 		echo '</a> ';
