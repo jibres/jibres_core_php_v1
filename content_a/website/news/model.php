@@ -9,13 +9,16 @@ class model
 
 		$post =
 		[
-			'title'    => \dash\request::post('title'),
-			'template' => \dash\request::post('template') ? \dash\request::post('template') : null,
-			'publish'  => 1,
-			'cat_id'   => \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null,
-			'tag_id'   => \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null,
-			'subtype'  => \dash\request::post('subtype'),
-			'limit'    => \dash\request::post('limit'),
+			'title'             => \dash\request::post('title'),
+			'template'          => \dash\request::post('template') ? \dash\request::post('template') : null,
+			'publish'           => 1,
+			'cat_id'            => \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null,
+			'tag_id'            => \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null,
+			'subtype'           => \dash\request::post('subtype'),
+			'limit'             => \dash\request::post('limit'),
+			'first_line_count'  => \dash\request::post('first_line_count'),
+			'second_line_count' => \dash\request::post('second_line_count'),
+			'play_item'         => \dash\request::post('play_item'),
 		];
 
 

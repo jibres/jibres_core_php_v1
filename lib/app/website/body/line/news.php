@@ -98,13 +98,16 @@ class news
 	{
 		$condition =
 		[
-			'title'    => 'string_200',
-			'template' => ['enum' => ['simple', 'special']],
-			'subtype'  => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'cat_id'   => 'code',
-			'tag_id'   => 'code',
-			'publish'  => 'bit',
-			'limit'    => 'tinyint',
+			'title'             => 'string_200',
+			'template'          => ['enum' => ['simple', 'special']],
+			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'cat_id'            => 'code',
+			'tag_id'            => 'code',
+			'publish'           => 'bit',
+			'limit'             => 'tinyint',
+			'first_line_count'  => ['enum' => [1, 2, 3, 4]],
+			'second_line_count' => ['enum' => [1, 2, 3]],
+			'play_item'         => ['enum' => ['none', 'first', 'all']],
 		];
 
 		$require   = [];
@@ -140,11 +143,14 @@ class news
 
 		$saved_option['news'] =
 		[
-			'cat_id'   => $data['cat_id'],
-			'tag_id'   => $data['tag_id'],
-			'template' => $data['template'],
-			'subtype'  => $data['subtype'],
-			'limit'    => $data['limit'],
+			'cat_id'            => $data['cat_id'],
+			'tag_id'            => $data['tag_id'],
+			'template'          => $data['template'],
+			'subtype'           => $data['subtype'],
+			'limit'             => $data['limit'],
+			'first_line_count'  => $data['first_line_count'],
+			'second_line_count' => $data['second_line_count'],
+			'play_item'         => $data['play_item'],
 		];
 
 
@@ -202,11 +208,14 @@ class news
 
 		$ready_to_save =
 		[
-			'cat_id'   => $data['cat_id'],
-			'tag_id'   => $data['tag_id'],
-			'template' => $data['template'],
-			'subtype'  => $data['subtype'],
-			'limit'    => $data['limit'],
+			'cat_id'            => $data['cat_id'],
+			'tag_id'            => $data['tag_id'],
+			'template'          => $data['template'],
+			'subtype'           => $data['subtype'],
+			'limit'             => $data['limit'],
+			'first_line_count'  => $data['first_line_count'],
+			'second_line_count' => $data['second_line_count'],
+			'play_item'         => $data['play_item'],
 		];
 
 
