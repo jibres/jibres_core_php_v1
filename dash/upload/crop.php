@@ -11,26 +11,38 @@ class crop
 
 		$extlen     = mb_strlen($_ext);
 		$url_file   = substr($_file_addr, 0, -$extlen-1);
-		$url_thumb  = $url_file.'-thumb.'.$_ext;
-		$url_normal = $url_file.'-normal.'.$_ext;
-		$url_large  = $url_file.'-large.'.$_ext;
-
 
 		// thumb image
 		\dash\utility\image::load($_file_addr);
-		\dash\utility\image::thumb(150, 150);
-		\dash\utility\image::save($url_thumb);
+		\dash\utility\image::thumb(120, 120);
+		\dash\utility\image::save($url_file.'-w120.'.$_ext);
 
-		// large image
+
 		\dash\utility\image::load($_file_addr);
-		\dash\utility\image::resize(900, 600);
-		\dash\utility\image::save($url_large);
+		\dash\utility\image::setWidth(220);
+		\dash\utility\image::save($url_file.'-w220.'.$_ext);
 
 
-		// normal image
 		\dash\utility\image::load($_file_addr);
-		\dash\utility\image::resize(600, 400);
-		\dash\utility\image::save($url_normal);
+		\dash\utility\image::setWidth(300);
+		\dash\utility\image::save($url_file.'-w300.'.$_ext);
+
+
+
+		\dash\utility\image::load($_file_addr);
+		\dash\utility\image::setWidth(460);
+		\dash\utility\image::save($url_file.'-w460.'.$_ext);
+
+
+		\dash\utility\image::load($_file_addr);
+		\dash\utility\image::setWidth(780);
+		\dash\utility\image::save($url_file.'-w780.'.$_ext);
+
+
+
+		\dash\utility\image::load($_file_addr);
+		\dash\utility\image::setWidth(1100);
+		\dash\utility\image::save($url_file.'-w1100.'.$_ext);
 
 
 	}

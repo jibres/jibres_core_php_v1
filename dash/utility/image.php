@@ -38,7 +38,7 @@ class image
 	 * Quality of the image in percentage (JPEG only)
 	 * @var int
 	 */
-	private static $quality = 100;
+	private static $quality = 90;
 
 
 	/**
@@ -210,7 +210,7 @@ class image
 	 * @param int $width	New width
 	 * @param bool $prop	Keeps the proportions if true
 	 */
-	public static function setWidth($width, $prop=false)
+	public static function setWidth($width, $prop=true)
 	{
 		if(!self::$loaded)
 		{
