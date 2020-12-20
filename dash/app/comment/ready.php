@@ -27,11 +27,28 @@ class ready
 					}
 					break;
 
+				case 'status':
+					$result[$key]      = $value;
+					$result['tstatus'] = T_(ucfirst($value));
+					break;
+
+				case 'product_thumb':
+					if($value)
+					{
+						$result[$key] = \lib\filepath::fix($value);
+					}
+					else
+					{
+						$result[$key] = \dash\app::static_image_url();
+					}
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
 			}
 		}
+
 
 		return $result;
 	}

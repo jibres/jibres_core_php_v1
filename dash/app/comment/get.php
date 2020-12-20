@@ -22,7 +22,7 @@ class get
 			return false;
 		}
 
-		$detail = \dash\db\comments\get::by_id($id);
+		$detail = \dash\db\comments\get::full_by_id($id);
 
 		$temp = [];
 

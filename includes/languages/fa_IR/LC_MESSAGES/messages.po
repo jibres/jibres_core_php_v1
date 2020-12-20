@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-19 10:56+0330\n"
-"PO-Revision-Date: 2020-12-19 10:59+0330\n"
+"POT-Creation-Date: 2020-12-20 13:47+0330\n"
+"PO-Revision-Date: 2020-12-20 13:48+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -761,9 +761,10 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_a/form/answer/detail/display.php:140 content_a/order/editdate/display.php:31
 #: content_a/order/home/filter.php:228 content_a/products/comment/display.php:86
 #: content_account/billing/display.php:53 content_account/billing/display.php:60
-#: content_business/orders/display.php:20 content_love/domain/action/display.php:14
-#: content_love/domain/billing/display.php:95 content_love/domain/credit/display.php:28
-#: content_love/domain/log/display.php:98 content_love/domain/nicdetail/display.php:17
+#: content_business/orders/display.php:20 content_cms/comments/edit/display.php:9
+#: content_love/domain/action/display.php:14 content_love/domain/billing/display.php:95
+#: content_love/domain/credit/display.php:28 content_love/domain/log/display.php:98
+#: content_love/domain/nicdetail/display.php:17
 #: content_love/domain/onlineniclog/display.php:98
 #: content_love/domain/polls/display.php:57
 #: content_love/domain/setting/action/display.php:17
@@ -965,7 +966,7 @@ msgstr "نام کامل"
 #: content_account/address.php:144 content_account/my/home/display.php:46
 #: content_business/orders/view/display.php:39 content_business/p/home/display.php:371
 #: content_business/p/home/display.php:372 content_business/shipping/display.php:19
-#: content_business/shipping/display.php:108 content_cms/comments/edit/display.php:13
+#: content_business/shipping/display.php:108 content_cms/comments/edit/display.php:77
 #: content_crm/member/add/display.php:9 content_crm/member/glance/display.php:170
 #: content_crm/member/home/display-old.php:120 content_crm/member/mobile/display.php:6
 #: content_crm/sms/view/display.php:14 content_enter/app/display.php:32
@@ -999,7 +1000,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_a/setting/social/display.php:73 content_account/my/email/display.php:7
 #: content_account/my/email/view.php:10 content_account/my/home/display.php:52
 #: content_business/home/layout/template/visitcard.php:40
-#: content_cms/comments/edit/display.php:17 content_crm/member/email/display.php:6
+#: content_cms/comments/edit/display.php:81 content_crm/member/email/display.php:6
 #: content_crm/member/glance/display.php:177 content_crm/member/home/display-old.php:123
 #: content_love/domain/nicdetail/display.php:13
 #: content_love/domain/setting/display.php:202 content_love/log/home/logTable.php:62
@@ -1040,7 +1041,7 @@ msgstr "خیابان هفت تیر، کوچه یکم"
 msgid "Floor2, Yas Building"
 msgstr "ساختمان یاس، طبقه دوم"
 
-#: content/contact/display.php:69 content_a/chap/size-a4/oneSide-buyer.php:57
+#: content/contact/display.php:69 content_a/chap/size-a4/oneSide-buyer.php:60
 #: content_a/chap/size-a4/oneSide-seller.php:47
 msgid "Postal Code"
 msgstr "کد پستی"
@@ -2200,7 +2201,7 @@ msgid "Free"
 msgstr "رایگان"
 
 #: content/home/display.php:35 content/home/display.php:42
-#: content_a/chap/size-a4/oneSide-buyer.php:39 content_a/chap/size-a4/oneSide-buyer.php:49
+#: content_a/chap/size-a4/oneSide-buyer.php:41 content_a/chap/size-a4/oneSide-buyer.php:51
 #: content_a/chap/size-a4/oneSide-seller.php:29
 #: content_a/chap/size-a4/oneSide-seller.php:39 content_cms/view.php:99
 #: content_su/view.php:140 dash/app/sort.php:88
@@ -2873,7 +2874,7 @@ msgstr "کشور"
 #: content/ip/home/display.php:19 content/ip/home/view.php:29
 #: content_a/accounting/irvat/add/display.php:261
 #: content_a/accounting/irvat/add/display.php:327
-#: content_a/chap/size-a4/oneSide-buyer.php:41
+#: content_a/chap/size-a4/oneSide-buyer.php:43
 #: content_a/chap/size-a4/oneSide-seller.php:31 content_a/form/analytics/pageStep.php:42
 #: content_a/setup/address/display.php:24 content_business/shipping/display.php:128
 #: dash/utility/location.php:100 lib/app/form/item/type.php:242
@@ -2883,7 +2884,7 @@ msgstr "استان"
 #: content/ip/home/display.php:23 content/ip/home/view.php:30
 #: content_a/accounting/irvat/add/display.php:262
 #: content_a/accounting/irvat/add/display.php:336
-#: content_a/chap/size-a4/oneSide-buyer.php:51
+#: content_a/chap/size-a4/oneSide-buyer.php:53
 #: content_a/chap/size-a4/oneSide-seller.php:41 content_a/setup/address/display.php:33
 #: content_business/shipping/display.php:136 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.php:284 dash/utility/location.php:164
@@ -4246,13 +4247,13 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/website/text/view.php:19 content_a/website/titleline/view.php:19
 #: content_account/api/view.php:16 content_account/appkey/view.php:16
 #: content_account/billing/detail/view.php:12 content_account/billing/invoice/view.php:13
-#: content_cms/category/remove/view.php:12 content_cms/posts/add/view.php:10
-#: content_cms/posts/edit/view.php:42 content_cms/posts/gallerysort/view.php:14
-#: content_cms/posts/publishdate/view.php:10 content_cms/posts/redirecturl/view.php:10
-#: content_cms/posts/seo/view.php:10 content_cms/posts/setting/view.php:11
-#: content_cms/posts/writer/view.php:10 content_cms/tag/remove/view.php:12
-#: content_crm/member/address/view.php:36 content_crm/member/master.php:9
-#: content_crm/member/message/add/view.php:15
+#: content_cms/category/remove/view.php:12 content_cms/comments/answer/view.php:12
+#: content_cms/posts/add/view.php:10 content_cms/posts/edit/view.php:42
+#: content_cms/posts/gallerysort/view.php:14 content_cms/posts/publishdate/view.php:10
+#: content_cms/posts/redirecturl/view.php:10 content_cms/posts/seo/view.php:10
+#: content_cms/posts/setting/view.php:11 content_cms/posts/writer/view.php:10
+#: content_cms/tag/remove/view.php:12 content_crm/member/address/view.php:36
+#: content_crm/member/master.php:9 content_crm/member/message/add/view.php:15
 #: content_crm/member/transactions/detail/view.php:11
 #: content_crm/notification/view/view.php:12 content_crm/permission/add/view.php:12
 #: content_crm/permission/advance/view.php:12 content_crm/permission/edit/view.php:12
@@ -4624,8 +4625,9 @@ msgstr "غیرفعال"
 #: content_a/products/edit/block/sidebar-menu.php:59
 #: content_a/products/export/display.php:57 content_a/products/home/filter.php:138
 #: content_a/products/status/view.php:18 content_a/setting/domain/manage/display.php:123
-#: content_business/orders/display.php:21 content_cms/comments/edit/display.php:41
-#: content_crm/member/glance/display.php:191 content_crm/member/home/display-old.php:129
+#: content_business/orders/display.php:21 content_cms/comments/edit/display.php:17
+#: content_cms/comments/edit/display.php:105 content_crm/member/glance/display.php:191
+#: content_crm/member/home/display-old.php:129
 #: content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
 #: content_love/business/domain/alllist/display.php:23
@@ -5568,7 +5570,7 @@ msgstr "کدپستی"
 
 #: content_a/accounting/irvat/add/display.php:265
 #: content_a/accounting/irvat/add/display.php:354
-#: content_a/chap/size-a4/oneSide-buyer.php:82
+#: content_a/chap/size-a4/oneSide-buyer.php:88
 #: content_a/chap/size-a4/oneSide-seller.php:72 content_a/order/address/display.php:161
 #: content_a/order/detail/display.php:64 content_a/setup/address/display.php:47
 #: content_account/address.php:43 content_account/address.php:139
@@ -5583,7 +5585,7 @@ msgstr "شماره تلفن"
 
 #: content_a/accounting/irvat/add/display.php:267
 #: content_a/accounting/irvat/add/display.php:359
-#: content_a/chap/size-a4/oneSide-buyer.php:90
+#: content_a/chap/size-a4/oneSide-buyer.php:96
 #: content_a/chap/size-a4/oneSide-seller.php:80
 #: content_my/domain/whoisdetail/whoisDetailForm.php:325
 msgid "Fax"
@@ -7151,7 +7153,7 @@ msgstr "لطفا یک دسته را انتخاب کنید"
 #: content_a/products/home/filter.php:74 content_a/products/home/filter.php:92
 #: content_a/products/home/filter.php:109 content_a/products/home/filter.php:126
 #: content_a/products/home/filter.php:141 content_a/tag/remove/display.php:37
-#: content_a/website/display-items.php:24 content_a/website/news/display.php:28
+#: content_a/website/display-items.php:49 content_a/website/news/display.php:28
 #: content_a/website/news/display.php:38 content_a/website/news/display.php:59
 #: content_cms/category/remove/display.php:37 content_cms/tag/remove/display.php:37
 #: content_crm/member/home/display-old.php:385 content_crm/member/home/display-old.php:411
@@ -7282,20 +7284,20 @@ msgstr "قیمت نهایی"
 msgid "Sum Total"
 msgstr "جمع کل"
 
-#: content_a/chap/size-a4/oneSide-buyer.php:13
+#: content_a/chap/size-a4/oneSide-buyer.php:11
 msgid "Buyer Details"
 msgstr "جزئیات خریدار"
 
-#: content_a/chap/size-a4/oneSide-buyer.php:18 content_a/chap/size-a4/oneSide-seller.php:8
+#: content_a/chap/size-a4/oneSide-buyer.php:17 content_a/chap/size-a4/oneSide-seller.php:8
 msgid "VAT Number"
 msgstr "کد اقتصادی"
 
-#: content_a/chap/size-a4/oneSide-buyer.php:22
+#: content_a/chap/size-a4/oneSide-buyer.php:23
 #: content_a/chap/size-a4/oneSide-seller.php:12
 msgid "Company ID Number"
 msgstr "شناسه ملی"
 
-#: content_a/chap/size-a4/oneSide-buyer.php:61
+#: content_a/chap/size-a4/oneSide-buyer.php:66
 #: content_a/chap/size-a4/oneSide-seller.php:51
 msgid "Company Registration Number"
 msgstr "شماره ثبت"
@@ -8388,8 +8390,8 @@ msgid "The form is expire"
 msgstr "فرم منقضی شده است"
 
 #: content_a/form/status/display.php:53 content_a/products/comment/display.php:142
-#: content_a/products/comment/edit/display.php:43 content_cms/comments/edit/display.php:56
-#: content_support/ticket/ticketTable.php:160
+#: content_a/products/comment/edit/display.php:43
+#: content_cms/comments/edit/display.php:120 content_support/ticket/ticketTable.php:160
 #: dash/layout/admin/sidebar/sidebar-support.php:50
 #: includes/languages/trans_static.php:513
 msgid "Trash"
@@ -9103,12 +9105,13 @@ msgid "Registered"
 msgstr "ثبت‌ شده"
 
 #: content_a/order/status/display.php:44 content_a/products/comment/display.php:198
-#: content_a/products/comment/edit/display.php:35 content_cms/comments/edit/display.php:48
-#: content_crm/member/home/display-old.php:682 content_love/domain/setting/display.php:122
-#: includes/languages/trans_static.php:481 includes/languages/trans_static_public.php:936
-#: lib/app/factor/action.php:63 lib/app/factor/ready.php:114 lib/pardakhtyar/type.php:13
+#: content_a/products/comment/edit/display.php:35
+#: content_cms/comments/edit/display.php:112 content_crm/member/home/display-old.php:682
+#: content_love/domain/setting/display.php:122 includes/languages/trans_static.php:481
+#: includes/languages/trans_static_public.php:936 lib/app/factor/action.php:63
+#: lib/app/factor/ready.php:114 lib/pardakhtyar/type.php:13
 msgid "Awaiting"
-msgstr "در حال انتظار"
+msgstr "در انتظار"
 
 #: content_a/order/status/display.php:45 lib/app/factor/action.php:64
 #: lib/app/factor/ready.php:115
@@ -9148,9 +9151,10 @@ msgstr "بایگانی"
 
 #: content_a/order/status/display.php:54 content_a/products/comment/display.php:143
 #: content_a/products/comment/display.php:234
-#: content_a/products/comment/edit/display.php:47 content_cms/comments/edit/display.php:60
-#: content_support/ticket/show/display.php:47 content_support/ticket/show/display.php:86
-#: content_support/ticket/show/display.php:95 content_support/ticket/ticketTable.php:161
+#: content_a/products/comment/edit/display.php:47
+#: content_cms/comments/edit/display.php:124 content_support/ticket/show/display.php:47
+#: content_support/ticket/show/display.php:86 content_support/ticket/show/display.php:95
+#: content_support/ticket/ticketTable.php:161
 #: dash/layout/admin/sidebar/sidebar-support.php:51
 #: includes/languages/trans_static.php:502 lib/app/factor/action.php:74
 #: lib/app/factor/ready.php:125
@@ -9425,48 +9429,56 @@ msgid "Invalid id"
 msgstr "شناسه نامعتبر"
 
 #: content_a/products/comment/answer/display.php:12
+#: content_cms/comments/answer/display.php:12
 msgid "New Answer"
 msgstr "پاسخ جدید"
 
 #: content_a/products/comment/answer/display.php:16
+#: content_cms/comments/answer/display.php:16
 msgid "Submit answer"
 msgstr "ارسال پاسخ"
 
 #: content_a/products/comment/answer/display.php:25
-#: content_a/products/comment/edit/display.php:17 content_cms/comments/edit/display.php:30
+#: content_a/products/comment/edit/display.php:17
+#: content_cms/comments/answer/display.php:25 content_cms/comments/edit/display.php:94
 msgid "Submitted on"
 msgstr "ارسال شده در"
 
 #: content_a/products/comment/answer/display.php:26
-#: content_a/products/comment/edit/display.php:18 content_cms/comments/edit/display.php:31
+#: content_a/products/comment/edit/display.php:18
+#: content_cms/comments/answer/display.php:26 content_cms/comments/edit/display.php:95
 msgid "Updated on"
 msgstr "بروزرسانی در"
 
 #: content_a/products/comment/answer/display.php:28
-#: content_a/products/comment/edit/display.php:20 content_cms/comments/edit/display.php:33
+#: content_a/products/comment/edit/display.php:20
+#: content_cms/comments/answer/display.php:28 content_cms/comments/edit/display.php:97
 msgid "Current status"
 msgstr "وضعیت فعلی"
 
 #: content_a/products/comment/answer/model.php:12
-#: content_b1/product/comment/answer/model.php:15 lib/app/product/comment.php:361
+#: content_b1/product/comment/answer/model.php:15 content_cms/comments/answer/model.php:12
+#: lib/app/product/comment.php:361
 msgid "Please fill the answer box"
 msgstr "لطفا پاسخ خود را بنویسید"
 
-#: content_a/products/comment/answer/view.php:18
+#: content_a/products/comment/answer/view.php:18 content_cms/comments/answer/view.php:9
 msgid "Answer to comment"
 msgstr "پاسخ به دیدگاه"
 
-#: content_a/products/comment/display.php:82 content_cms/comments/edit/display.php:9
+#: content_a/products/comment/display.php:82 content_cms/comments/edit/display.php:73
 msgid "Author"
 msgstr "نویسنده"
 
 #: content_a/products/comment/display.php:138 content_a/products/comment/display.php:207
-#: content_a/products/comment/edit/display.php:31 content_cms/comments/edit/display.php:44
+#: content_a/products/comment/edit/display.php:31
+#: content_cms/comments/edit/display.php:108 content_cms/comments/home/display.php:12
 msgid "Approve"
 msgstr "تایید"
 
 #: content_a/products/comment/display.php:141 content_a/products/comment/display.php:216
-#: content_a/products/comment/edit/display.php:39 content_cms/comments/edit/display.php:52
+#: content_a/products/comment/edit/display.php:39
+#: content_cms/comments/edit/display.php:116 content_cms/comments/home/display.php:13
 msgid "Unapprove"
 msgstr "تایید نشده"
 
@@ -9477,7 +9489,7 @@ msgstr "تایید نشده"
 #: content_a/website/quote/setting/display.php:38
 #: content_a/website/specialslider/setting/display.php:51
 #: content_a/website/text/display.php:29 content_a/website/titleline/display.php:29
-#: content_cms/comments/edit/display.php:64 content_love/domain/detail/dns/display.php:67
+#: content_cms/comments/edit/display.php:128 content_love/domain/detail/dns/display.php:67
 #: content_love/domain/detail/holder/display.php:30
 #: content_love/domain/setting/dns/display.php:67
 #: content_love/domain/setting/holder/display.php:30
@@ -9502,7 +9514,8 @@ msgstr "بروزرسانی"
 msgid "Invalid status"
 msgstr "وضعیت نامعتبر است"
 
-#: content_a/products/comment/edit/view.php:18 content_cms/comments/edit/view.php:11
+#: content_a/products/comment/edit/view.php:18 content_cms/comments/edit/display.php:59
+#: content_cms/comments/edit/view.php:11
 msgid "Edit comment"
 msgstr "ویرایش نظر"
 
@@ -10116,7 +10129,7 @@ msgstr "مدیریت شبکه‌های اجتماعی"
 
 #: content_a/products/share/display.php:62 content_a/products/share/model.php:85
 #: content_a/setup/address/display.php:52 content_account/my/home/display.php:154
-#: content_account/my/social/display.php:12 content_cms/comments/edit/display.php:21
+#: content_account/my/social/display.php:12 content_cms/comments/edit/display.php:85
 #: content_crm/member/legal/display.php:33 content_my/business/home/display_pwa.php:53
 #: content_my/business/home/display_site.php:134 content_my/ipg/gateway/display.php:16
 #: content_my/ipg/setup/gateway/display.php:16 content_v2/app/view.php:230
@@ -12602,7 +12615,7 @@ msgstr "محتوای وب‌سایت"
 msgid "Add line"
 msgstr "افزودن ردیف جدید"
 
-#: content_a/website/display-items.php:2
+#: content_a/website/display-items.php:3
 #: content_a/website/imageblock/setting/display.php:10
 #: content_a/website/productline/display.php:11
 #: content_a/website/quote/setting/display.php:10
@@ -12611,31 +12624,43 @@ msgstr "افزودن ردیف جدید"
 msgid "Line title"
 msgstr "عنوان ردیف"
 
-#: content_a/website/display-items.php:11
+#: content_a/website/display-items.php:15
+msgid "Show read more link"
+msgstr "نمایش لینک مشاهده بیشتر"
+
+#: content_a/website/display-items.php:21
+msgid "Hide read more link"
+msgstr "پنهان کردن لینک مشاهده بیشتر"
+
+#: content_a/website/display-items.php:26
+msgid "Caption of more link"
+msgstr "عنوان لینک مشاهده بیشتر"
+
+#: content_a/website/display-items.php:37
 msgid "Count show post"
 msgstr "تعداد نوشته‌ها برای نمایش"
 
-#: content_a/website/display-items.php:22
+#: content_a/website/display-items.php:47
 msgid "Set the number of item views in the first row"
 msgstr "تنظیم تعداد آیتم‌های نمایش داده شده در ردیف اول"
 
-#: content_a/website/display-items.php:25 content_a/website/display-items.php:35
+#: content_a/website/display-items.php:50 content_a/website/display-items.php:59
 msgid "One item"
 msgstr "یک گزینه"
 
-#: content_a/website/display-items.php:26 content_a/website/display-items.php:36
+#: content_a/website/display-items.php:51 content_a/website/display-items.php:60
 msgid "Two item"
 msgstr "دو آیتم"
 
-#: content_a/website/display-items.php:27 content_a/website/display-items.php:37
+#: content_a/website/display-items.php:52 content_a/website/display-items.php:61
 msgid "Three item"
 msgstr "سه گزینه"
 
-#: content_a/website/display-items.php:33
+#: content_a/website/display-items.php:57
 msgid "Set the number of item views in the second row"
 msgstr "تنظیم تعداد آیتم‌های نمایش داده شده در ردیف دوم"
 
-#: content_a/website/display-items.php:38
+#: content_a/website/display-items.php:62
 msgid "Four item"
 msgstr "چهار آیتم"
 
@@ -13492,7 +13517,7 @@ msgid "Welcome"
 msgstr "خوش آمدید"
 
 #: content_account/home/display.php:14 dash/app/address.php:220
-#: includes/languages/trans_static_public.php:33 lib/app/factor/get.php:387
+#: includes/languages/trans_static_public.php:33 lib/app/factor/get.php:396
 #: lib/app/product/property.php:247
 msgid ","
 msgstr "،"
@@ -14330,7 +14355,7 @@ msgstr "تایید"
 msgid "Forms"
 msgstr "فرم‌ها"
 
-#: content_business/home/layout/body/news.php:31
+#: content_business/home/layout/body/news.php:32
 msgid "Keep Reading"
 msgstr "بیشتر بخوانید"
 
@@ -35674,7 +35699,7 @@ msgstr "۱۶:۹ (پیش‌فرض)"
 
 #: lib/app/website/body/line/imageblock.php:191
 #: lib/app/website/body/line/imageblock.php:436 lib/app/website/body/line/news.php:77
-#: lib/app/website/body/line/news.php:184 lib/app/website/body/line/productline.php:77
+#: lib/app/website/body/line/news.php:189 lib/app/website/body/line/productline.php:77
 #: lib/app/website/body/line/productline.php:172 lib/app/website/body/line/quote.php:118
 #: lib/app/website/body/line/quote.php:369 lib/app/website/body/line/slider.php:190
 #: lib/app/website/body/line/slider.php:436
@@ -35753,11 +35778,11 @@ msgstr "جعبه تصویر اضافه شد"
 msgid "This is not a latest news"
 msgstr "این شناسه متعلق به آخرین اخبار نیست"
 
-#: lib/app/website/body/line/news.php:161
+#: lib/app/website/body/line/news.php:166
 msgid "News line added"
 msgstr "ردیف اخبار اضافه شد"
 
-#: lib/app/website/body/line/news.php:232
+#: lib/app/website/body/line/news.php:236
 msgid "News line edited"
 msgstr "ردیف اخبار ویرایش شد"
 
@@ -36023,6 +36048,10 @@ msgstr "#فهرست"
 #: lib/app/website/footer/template/footer_private_rafiei.php:11
 msgid "Footer #Rafiei"
 msgstr "پابرگ #رفیعی"
+
+#: lib/app/website/generator.php:345
+msgid "Show more"
+msgstr "مشاهده بیشتر"
 
 #: lib/app/website/header/get.php:43
 msgid "Invalid header key"
