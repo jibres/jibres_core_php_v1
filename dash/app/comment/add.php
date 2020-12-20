@@ -33,7 +33,15 @@ class add
 			return false;
 		}
 
-		\dash\notif::ok(T_("Your comment successfully added"));
+		if(isset($args['parent']) && $args['parent'])
+		{
+			\dash\notif::ok(T_("Your comment successfully added"));
+		}
+		else
+		{
+			\dash\notif::ok(T_("Your answer successfully added"));
+
+		}
 
 		$return       = [];
 
@@ -42,6 +50,32 @@ class add
 		return $return;
 
 	}
+
+
+
+	public static function answer($_answer, $_id)
+	{
+
+		$load = \dash\app\comment\get::inline_get($_id);
+
+		if(!$load)
+		{
+			\dash\notif::error(T_("Invalid comment id"));
+			return false;
+		}
+
+
+		$args =
+		[
+			'content' => $_answer,
+			'parent'  => $_id,
+			'status'  => 'approved',
+		];
+
+		return self::add($args);
+	}
+
+
 
 
 	private static function is_duplicate($args)
@@ -62,6 +96,11 @@ class add
 		if(isset($args['post_id']) && $args['post_id'])
 		{
 			$check_duplicate['post_id'] = $args['post_id'];
+		}
+
+		if(isset($args['parent']) && $args['parent'])
+		{
+			$check_duplicate['parent'] = $args['parent'];
 		}
 
 		if(isset($args['product_id']) && $args['product_id'])

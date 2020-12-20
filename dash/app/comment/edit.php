@@ -4,9 +4,9 @@ namespace dash\app\comment;
 class edit
 {
 
-	public static function edit_status($_args, $_id)
+	public static function edit_status($_status, $_id)
 	{
-		self::edit($_args, $_id);
+		self::edit(['status' => $_status], $_id);
 
 		if(\dash\engine\process::status())
 		{

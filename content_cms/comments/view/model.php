@@ -17,21 +17,30 @@ class model
 		}
 
 
-		$status = \dash\request::post('status');
-
-		if(!$status)
+		if(\dash\request::post('answertocomment') === 'answertocomment')
 		{
-			\dash\notif::error(T_("Invalid status"));
-			return false;
+			$answer      = \dash\request::post('answer');
+
+			\dash\app\comment\add::answer($answer, \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 		}
 
-		$update =['status'  => $status,];
 
-		$post_detail = \dash\app\comment\edit::edit_status($update, \dash\request::get('id'));
-
-		if(\dash\engine\process::status())
+		if(\dash\request::post('status'))
 		{
-			\dash\redirect::pwd();
+
+			$status      = \dash\request::post('status');
+
+			$post_detail = \dash\app\comment\edit::edit_status($status, \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }

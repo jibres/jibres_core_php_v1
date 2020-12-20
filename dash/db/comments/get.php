@@ -39,6 +39,14 @@ class get
 
 
 
+	public static function answer_count($_parent)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.parent = $_parent";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 
 	public static function get_one($_args)
 	{

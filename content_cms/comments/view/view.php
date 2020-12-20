@@ -13,6 +13,9 @@ class view
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::back_text(T_('Comments'));
 
+		$answer_count = \dash\app\comment\get::answer_count($id);
+		\dash\data::answerCount($answer_count);
+
 	}
 }
 ?>

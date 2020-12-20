@@ -27,11 +27,9 @@
         <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
         <div class="key"><?php echo substr(a($value, 'content'), 0, 70); ?></div>
         <div class="value status s0"><?php echo T_($value['status']); ?></div>
-<?php if($value['status'] === 'approved') { ?>
-        <div class="go star gold"></div>
-<?php } ?>
+
         <div class="value datetime humandate s0"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
-        <div class="go <?php if(isset($value['status']) && in_array($value['status'], ['span','deleted','unapproved'])) { echo ' nok';}else{}?>"></div>
+        <div class="go <?php if(isset($value['status']) && in_array($value['status'], ['unapproved','spam'])) { echo ' times nok';}elseif($value['status'] === 'approved'){echo 'check ok';}else{  }?>"></div>
       </a>
      </li>
 <?php } //endfor ?>
