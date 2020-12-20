@@ -5,33 +5,16 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('remove') === 'remove')
-		{
-			\dash\app\comment\remove::remove(\dash\request::get('id'));
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::this());
-			}
 
-			return;
-		}
+		$post = [];
+		$post['content'] = \dash\request::post('content');
 
-
-		$status = \dash\request::post('status');
-
-		if(!$status)
-		{
-			\dash\notif::error(T_("Invalid status"));
-			return false;
-		}
-
-		$update =['status'  => $status,];
-
-		$post_detail = \dash\app\comment\edit::edit_status($update, \dash\request::get('id'));
+		$post_detail = \dash\app\comment\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::pwd();
+
+			\dash\redirect::to(\dash\url::this(). '/view'. \dash\request::full_get());
 		}
 	}
 }
