@@ -2,6 +2,49 @@
 $dataRow = \dash\data::dataRow();
 
 ?>
+
+
+<?php if(a($dataRow, 'user_id')) {?>
+<nav class="items long">
+  <ul>
+    <li>
+      <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($dataRow, 'user_id'); ?>">
+        <img src="<?php echo a($dataRow, 'avatar') ?>">
+        <div class="key"><?php echo a($dataRow, 'displayname');?></div>
+        <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'mobile'));?></div>
+        <div class="go"></div>
+      </a>
+    </li>
+    </ul>
+</nav>
+<?php } // endif ?>
+<?php if(a($dataRow, 'product_id')) {?>
+<nav class="items long">
+  <ul>
+    <li>
+      <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/products/edit?id='. a($dataRow, 'product_id'); ?>">
+        <img src="<?php echo a($dataRow, 'product_thumb') ?>">
+        <div class="key"><?php echo a($dataRow, 'product_title');?></div>
+        <div class="go"></div>
+      </a>
+    </li>
+  </ul>
+</nav>
+<?php } // endif ?>
+
+<?php if(a($dataRow, 'post_id')) {?>
+<nav class="items long">
+  <ul>
+    <li>
+      <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/products/edit?id='. a($dataRow, 'post_id'); ?>">
+        <img src="<?php echo a($dataRow, 'product_thumb') ?>">
+        <div class="key"><?php echo a($dataRow, 'product_title');?></div>
+        <div class="go"></div>
+      </a>
+    </li>
+  </ul>
+</nav>
+<?php } // endif ?>
 <nav class="items long">
   <ul>
     <li>
@@ -73,47 +116,6 @@ $dataRow = \dash\data::dataRow();
   </ul>
 </nav>
 
-<?php if(a($dataRow, 'user_id')) {?>
-<nav class="items long">
-  <ul>
-    <li>
-      <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($dataRow, 'user_id'); ?>">
-        <img src="<?php echo a($dataRow, 'avatar') ?>">
-        <div class="key"><?php echo a($dataRow, 'displayname');?></div>
-        <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'mobile'));?></div>
-        <div class="go"></div>
-      </a>
-    </li>
-    </ul>
-</nav>
-<?php } // endif ?>
-<?php if(a($dataRow, 'product_id')) {?>
-<nav class="items long">
-  <ul>
-    <li>
-      <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/products/edit?id='. a($dataRow, 'product_id'); ?>">
-        <img src="<?php echo a($dataRow, 'product_thumb') ?>">
-        <div class="key"><?php echo a($dataRow, 'product_title');?></div>
-        <div class="go"></div>
-      </a>
-    </li>
-  </ul>
-</nav>
-<?php } // endif ?>
-
-<?php if(a($dataRow, 'post_id')) {?>
-<nav class="items long">
-  <ul>
-    <li>
-      <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/products/edit?id='. a($dataRow, 'post_id'); ?>">
-        <img src="<?php echo a($dataRow, 'product_thumb') ?>">
-        <div class="key"><?php echo a($dataRow, 'product_title');?></div>
-        <div class="go"></div>
-      </a>
-    </li>
-  </ul>
-</nav>
-<?php } // endif ?>
 
 <div class="box">
   <div class="pad">

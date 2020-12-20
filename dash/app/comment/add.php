@@ -45,7 +45,7 @@ class add
 
 		$return       = [];
 
-		$return['id'] = \dash\coding::encode($comment_id);
+		$return['id'] = $comment_id;
 
 		return $return;
 

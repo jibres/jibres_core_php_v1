@@ -19,7 +19,7 @@ class check
 			'mobile'      => 'mobile',
 			'gallery'     => 'string_500', // need to fix
 			'title'       => 'title',
-			'parent'      => 'code',
+			'parent'      => 'id',
 			'star'        => ['enum' => [1,2,3,4,5]],
 			'email'       => 'email',
 		];
@@ -85,16 +85,6 @@ class check
 			$data['for'] = 'product';
 		}
 
-
-		if($data['parent'])
-		{
-			$data['parent'] = \dash\coding::decode($data['parent']);
-			if(!$data['parent'])
-			{
-				\dash\notif::error(T_("Invalid comment parent id"));
-				return false;
-			}
-		}
 
 		if(!$data['status'])
 		{

@@ -13,8 +13,7 @@ class get
 	public static function get($_id)
 	{
 
-		$id = \dash\validate::code($_id);
-		$id = \dash\coding::decode($id);
+		$id = \dash\validate::id($_id);
 
 		if(!$id)
 		{
@@ -38,8 +37,7 @@ class get
 	public static function inline_get($_id)
 	{
 
-		$id = \dash\validate::code($_id);
-		$id = \dash\coding::decode($id);
+		$id = \dash\validate::id($_id);
 
 		if(!$id)
 		{
@@ -60,9 +58,7 @@ class get
 
 	public static function answer_count($_id)
 	{
-		$id = \dash\validate::code($_id);
-		$id = \dash\coding::decode($id);
-
+		$id = \dash\validate::id($_id);
 		if(!$id)
 		{
 			\dash\notif::error(T_("Invalid comments id"));

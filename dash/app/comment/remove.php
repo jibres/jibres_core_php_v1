@@ -19,9 +19,8 @@ class remove
 			return true;
 		}
 
-		$id = \dash\coding::decode($_id);
 
-		\dash\db\comments\delete::full_by_id($id);
+		\dash\db\comments\delete::full_by_id($_id);
 
 		\dash\notif::ok(T_("Comment removed"));
 		return true;

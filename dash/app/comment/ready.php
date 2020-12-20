@@ -13,10 +13,8 @@ class ready
 
 			switch ($key)
 			{
-				case 'id':
 				case 'user_id':
 				case 'post_id':
-				case 'parent':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);
@@ -53,6 +51,7 @@ class ready
 						$result[$key] = \dash\app::static_image_url();
 					}
 					break;
+
 
 				default:
 					$result[$key] = $value;

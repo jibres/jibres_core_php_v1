@@ -22,7 +22,7 @@ class search
 			'status'     => ['enum' => ['publish', 'draft', 'removed']],
 			'post_id'    => 'code',
 			'product_id' => 'id',
-			'parent'     => 'string_100',
+			'parent'     => 'id',
 			'limit'      => 'int',
 
 		];
