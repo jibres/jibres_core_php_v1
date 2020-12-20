@@ -28,6 +28,17 @@ class ready
 					break;
 
 				case 'status':
+					$result['html_class'] = null;
+					switch ($value)
+					{
+						case 'approved': 	$result['html_class'] = 'check ok'; break;
+						case 'awaiting': 	$result['html_class'] = 'info'; break;
+						case 'unapproved': 	$result['html_class'] = 'times nok'; break;
+						case 'spam': 		$result['html_class'] = 'stop nok'; break;
+						case 'deleted': 	$result['html_class'] = ''; break;
+						case 'filter': 		$result['html_class'] = ''; break;
+
+					}
 					$result[$key]      = $value;
 					$result['tstatus'] = T_(ucfirst($value));
 					break;
