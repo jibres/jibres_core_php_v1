@@ -113,6 +113,7 @@ class news
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
 			'template'          => ['enum' => ['simple', 'special']],
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'item_title'        => ['enum' => ['none', 'on_image', 'below_image', 'beside_image', 'beside_image_description',]],
 			'cat_id'            => 'code',
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
@@ -169,6 +170,16 @@ class news
 		else
 		{
 			$result['puzzle'] = a($_current_data, 'puzzle');
+		}
+
+
+		if(array_key_exists('item_title', $_args))
+		{
+			$result['item_title'] = $data['item_title'];
+		}
+		else
+		{
+			$result['item_title'] = a($_current_data, 'item_title');
 		}
 
 

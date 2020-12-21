@@ -43,6 +43,11 @@ class model
 			$post['subtype'] = \dash\request::post('subtype');
 		}
 
+		if(\dash\request::post('set_item_title'))
+		{
+			$post['item_title'] = \dash\request::post('item_title');
+		}
+
 		// 	'play_item'         => \dash\request::post('play_item'),
 
 

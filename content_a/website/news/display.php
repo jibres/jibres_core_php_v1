@@ -1,6 +1,5 @@
 <?php $lineSetting = \dash\data::lineSetting(); ?>
 <?php require_once(root. 'content_a/website/display-title.php') ?>
-<?php require_once(root. 'content_a/website/display-limit.php') ?>
 
 <section class="f" data-option='website-line-news-filter'>
   <div class="c8 s12">
@@ -17,6 +16,9 @@
       </div>
   </div>
 </section>
+
+<?php require_once(root. 'content_a/website/display-item-title.php') ?>
+<?php require_once(root. 'content_a/website/display-limit.php') ?>
 
 <section class="f" data-option='website-line-news-template-show'>
   <div class="c8 s12">
