@@ -7,7 +7,7 @@
     <div class="data">
       <h3><?php echo T_("Set filter");?></h3>
       <div class="body">
-        <p><?php echo T_("Set the filter text and options");?></p>
+        <p><?php echo T_("You can extract your favorite posts with different filters");?></p>
       </div>
     </div>
   </div>
@@ -42,9 +42,9 @@
 <section class="f" data-option='website-line-news-remove'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Set remove");?></h3>
+      <h3><?php echo T_("Remove news line");?></h3>
       <div class="body">
-        <p><?php echo T_("Set the remove text and options");?></p>
+        <p><?php echo T_("Are you sure to remove this news line?");?></p>
       </div>
     </div>
   </div>

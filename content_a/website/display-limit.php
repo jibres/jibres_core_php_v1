@@ -30,9 +30,9 @@ if($puzzle && count($puzzle) > 1)
 <section class="f" data-option='website-line-puzzle'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Set post postion controll");?></h3>
+      <h3><?php echo T_("Adjust how items are placed");?></h3>
       <div class="body">
-        <p><?php echo T_("You can customize item position");?></p>
+        <p><?php echo T_("You can adjust the number of items displayed in different rows and columns according to the total number of items");?></p>
       </div>
     </div>
   </div>

@@ -138,7 +138,7 @@ $dataRow = \dash\data::dataRow();
     <input type="hidden" name="answertocomment" value="answertocomment">
     <div class="box">
       <div class="pad">
-        <label for="answer"><?php echo T_("Ansert to comment") ?></label>
+        <label for="answer"><?php echo T_("Answer to comment") ?></label>
         <textarea class="txt" id="answer" name="answer" rows="3"></textarea>
       </div>
       <footer class="txtRa">
