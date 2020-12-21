@@ -27,22 +27,6 @@ class controller
 
 			// use this id in model for edit
 			\dash\data::newsID(\dash\request::get('id'));
-
-			$index = \dash\request::get('index');
-
-			if(is_numeric($index))
-			{
-				if(isset($load_line_detail['news']) && is_array($load_line_detail['news']) && array_key_exists($index, $load_line_detail['news']))
-				{
-					// ok
-					\dash\data::dataRow($load_line_detail['news'][$index]);
-				}
-				else
-				{
-					\dash\header::status(403, T_("Invalid index of news!"));
-				}
-
-			}
 		}
 	}
 }

@@ -78,6 +78,7 @@ class news
 			return false;
 		}
 
+
 		$saved_option = [];
 
 		if(isset($saved_record['value']))
@@ -90,15 +91,26 @@ class news
 			$saved_option = [];
 		}
 
+		if(isset($saved_option['type']) && $saved_option['type'] === 'news')
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\notif::error(T_("Invalid line id"));
+			return false;
+		}
+
 		return $saved_option;
 	}
 
 
-	private static function check_validate($_args)
+	private static function check_validate($_args, $_current_data)
 	{
 		$condition =
 		[
 			'title'             => 'string_200',
+			'puzzle'            => \lib\app\website\puzzle::input_check(),
 			'template'          => ['enum' => ['simple', 'special']],
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'cat_id'            => 'code',
@@ -118,50 +130,140 @@ class news
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		return $data;
+		$result         = [];
+
+		$result['type'] = 'news';
+
+		if(array_key_exists('title', $_args))
+		{
+			$result['title'] = $data['title'];
+		}
+		else
+		{
+			$result['title'] = a($_current_data, 'title');
+		}
+
+		if(array_key_exists('publish', $_args))
+		{
+			$result['publish'] = $data['publish'];
+		}
+		else
+		{
+			$result['publish'] = a($_current_data, 'publish');
+		}
+
+
+		if(array_key_exists('limit', $_args))
+		{
+			$result['limit'] = $data['limit'];
+		}
+		else
+		{
+			$result['limit'] = a($_current_data, 'limit');
+		}
+
+		if(array_key_exists('puzzle', $_args))
+		{
+			$result['puzzle'] = $data['puzzle'];
+		}
+		else
+		{
+			$result['puzzle'] = a($_current_data, 'puzzle');
+		}
+
+
+		if(array_key_exists('more_link', $_args))
+		{
+			$result['more_link'] = $data['more_link'];
+		}
+		else
+		{
+			$result['more_link'] = a($_current_data, 'more_link');
+		}
+
+
+		if(array_key_exists('more_link_caption', $_args))
+		{
+			$result['more_link_caption'] = $data['more_link_caption'];
+		}
+		else
+		{
+			$result['more_link_caption'] = a($_current_data, 'more_link_caption');
+		}
+
+		if(array_key_exists('template', $_args))
+		{
+			$result['template'] = $data['template'];
+		}
+		else
+		{
+			$result['template'] = a($_current_data, 'template');
+		}
+
+		if(array_key_exists('play_item', $_args))
+		{
+			$result['play_item'] = $data['play_item'];
+		}
+		else
+		{
+			$result['play_item'] = a($_current_data, 'play_item');
+		}
+
+		$result['news'] = [];
+
+
+		if(array_key_exists('cat_id', $_args))
+		{
+			$result['news']['cat_id'] = $data['cat_id'];
+		}
+		else
+		{
+			$result['news']['cat_id'] = a($_current_data, 'cat_id');
+		}
+
+		if(array_key_exists('tag_id', $_args))
+		{
+			$result['news']['tag_id'] = $data['tag_id'];
+		}
+		else
+		{
+			$result['news']['tag_id'] = a($_current_data, 'tag_id');
+		}
+
+		if(array_key_exists('subtype', $_args))
+		{
+			$result['news']['subtype'] = $data['subtype'];
+		}
+		else
+		{
+			$result['news']['subtype'] = a($_current_data, 'subtype');
+		}
+
+		return $result;
 	}
 
 
 	// add new news
 	public static function add($_args)
 	{
-		$data = self::check_validate($_args);
+		$data = self::check_validate($_args, []);
 
-		if(!$data)
+		if(!$data['title'])
 		{
-			return false;
+			$data['title'] = self::suggest_new_name();
 		}
-
 
 		$line_id = \lib\app\website\body\add::line('news', ['title' => $data['title'], 'publish' => $data['publish']]);
 
 		if(!$line_id)
 		{
-			\dash\log::oops('error:line');
+			\dash\log::oops('error:line:news');
 			return false;
 		}
 
-		$saved_option = self::inline_get($line_id);
+		$data = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-		$saved_option['first_line_count']  = $data['first_line_count'];
-		$saved_option['second_line_count'] = $data['second_line_count'];
-		$saved_option['play_item']         = $data['play_item'];
-		$saved_option['limit']             = $data['limit'];
-		$saved_option['more_link']         = $data['more_link'];
-		$saved_option['more_link_caption'] = $data['more_link_caption'];
-
-		$saved_option['news'] =
-		[
-			'cat_id'   => $data['cat_id'],
-			'tag_id'   => $data['tag_id'],
-			'template' => $data['template'],
-			'subtype'  => $data['subtype'],
-		];
-
-
-		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
-
-		$save = \lib\db\setting\update::value($saved_option, $line_id);
+		$save = \lib\db\setting\update::value($data, $line_id);
 
 		\dash\notif::ok(T_("News line added"));
 
@@ -173,14 +275,6 @@ class news
 
 	public static function edit($_args, $_line_id)
 	{
-
-		$data      = self::check_validate($_args);
-
-		if(!$data)
-		{
-			return false;
-		}
-
 
 		$line_option = \lib\app\website\body\template::get('news');
 
@@ -195,39 +289,25 @@ class news
 
 		if(!$line_id)
 		{
+			\dash\notif::error(T_("Invalid line id"));
 			return false;
 		}
 
 		$saved_value = self::inline_get($line_id);
 
-		if(!$saved_value || !isset($saved_value['news']))
+		if(!$saved_value)
 		{
 			return false;
 		}
 
-		$saved_value['title']             = $data['title'];
-		$saved_value['publish']           = $data['publish'];
-		$saved_value['first_line_count']  = $data['first_line_count'];
-		$saved_value['second_line_count'] = $data['second_line_count'];
-		$saved_value['play_item']         = $data['play_item'];
-		$saved_value['limit']             = $data['limit'];
-		$saved_value['more_link']         = $data['more_link'];
-		$saved_value['more_link_caption'] = $data['more_link_caption'];
+		$data  = self::check_validate($_args, $saved_value);
 
-		$ready_to_save =
-		[
-			'cat_id'   => $data['cat_id'],
-			'tag_id'   => $data['tag_id'],
-			'template' => $data['template'],
-			'subtype'  => $data['subtype'],
-		];
+		if(!$data)
+		{
+			return false;
+		}
 
-
-		$saved_news = $ready_to_save;
-
-		$saved_value['news'] = $saved_news;
-
-		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
+		$saved_value = json_encode($data, JSON_UNESCAPED_UNICODE);
 
 		$save = \lib\db\setting\update::value($saved_value, $line_id);
 

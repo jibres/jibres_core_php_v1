@@ -7,21 +7,43 @@ class model
 	{
 
 
-		$post =
-		[
-			'title'             => \dash\request::post('title'),
-			'template'          => \dash\request::post('template') ? \dash\request::post('template') : null,
-			'publish'           => 1,
-			'cat_id'            => \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null,
-			'tag_id'            => \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null,
-			'subtype'           => \dash\request::post('subtype'),
-			'limit'             => \dash\request::post('limit'),
-			'first_line_count'  => \dash\request::post('first_line_count') ? \dash\request::post('first_line_count') : null,
-			'second_line_count' => \dash\request::post('second_line_count') ? \dash\request::post('second_line_count') : null,
-			'play_item'         => \dash\request::post('play_item'),
-			'more_link'         => \dash\request::post('more_link'),
-			'more_link_caption' => \dash\request::post('more_link_caption'),
-		];
+		$post            = [];
+		$post['publish'] = 1;
+
+
+		if(\dash\request::post('set_limit'))
+		{
+			$post['limit'] = \dash\request::post('limit');
+		}
+
+
+
+		if(\dash\request::post('set_puzzle'))
+		{
+			$post['puzzle'] = \dash\request::post('puzzle');
+		}
+
+		if(\dash\request::post('set_template'))
+		{
+			$post['template'] = \dash\request::post('template');
+		}
+
+		if(\dash\request::post('set_title'))
+		{
+			$post['title']             = \dash\request::post('title');
+			$post['more_link']         = \dash\request::post('more_lik');
+			$post['more_link_caption'] = \dash\request::post('more_link_cption');
+		}
+
+
+		if(\dash\request::post('set_filter'))
+		{
+			$post['cat_id']  = \dash\request::post('cat_id');
+			$post['tag_id']  = \dash\request::post('tag_id');
+			$post['subtype'] = \dash\request::post('subtype');
+		}
+
+		// 	'play_item'         => \dash\request::post('play_item'),
 
 
 		if(!\dash\data::newsID())
@@ -32,7 +54,7 @@ class model
 			{
 				if(isset($news['id']))
 				{
-					\dash\redirect::to(\dash\url::this(). '/news?id='. $news['id']);
+					\dash\redirect::to(\dash\url::current(). '?id='. $news['id']);
 				}
 				else
 				{
@@ -59,7 +81,7 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::this(). '/news?id='. \dash\data::newsID());
+				\dash\redirect::to(\dash\url::current(). '?id='. \dash\data::newsID());
 			}
 		}
 	}
