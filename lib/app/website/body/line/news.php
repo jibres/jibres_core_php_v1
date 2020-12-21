@@ -218,7 +218,7 @@ class news
 		}
 		else
 		{
-			$result['news']['cat_id'] = a($_current_data, 'cat_id');
+			$result['news']['cat_id'] = a($_current_data, 'news', 'cat_id');
 		}
 
 		if(array_key_exists('tag_id', $_args))
@@ -227,7 +227,7 @@ class news
 		}
 		else
 		{
-			$result['news']['tag_id'] = a($_current_data, 'tag_id');
+			$result['news']['tag_id'] = a($_current_data, 'news', 'tag_id');
 		}
 
 		if(array_key_exists('subtype', $_args))
@@ -236,7 +236,7 @@ class news
 		}
 		else
 		{
-			$result['news']['subtype'] = a($_current_data, 'subtype');
+			$result['news']['subtype'] = a($_current_data, 'news', 'subtype');
 		}
 
 		return $result;
