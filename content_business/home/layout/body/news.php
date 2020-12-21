@@ -19,7 +19,7 @@ if($postList && is_array($postList))
     <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
     <div class="row">
       <?php foreach ($postList as $key => $post) { ?>
-        <div <?php echo \lib\app\website\generator::fc_class($key, $line_detail); ?>>
+        <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>
           <article>
             <header>
               <h2><a href="<?php echo a($post, 'link'); ?>"><?php echo a($post, 'title'); ?></a></h2>
@@ -44,7 +44,7 @@ if($postList && is_array($postList))
     <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
     <div class="row">
       <?php foreach ($postList as $key => $value) {?>
-        <div <?php echo \lib\app\website\generator::fc_class($key, $line_detail); ?>>
+        <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>
         <a class="overlay"<?php if(a($value, 'link')) { echo ' href="'.  a($value, 'link'). '"'; if(a($value, 'target')) { echo ' target="_blank"'; }} ?>>
           <figure>
             <img src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">

@@ -38,8 +38,8 @@ class model
 
 		if(\dash\request::post('set_filter'))
 		{
-			$post['cat_id']  = \dash\request::post('cat_id');
-			$post['tag_id']  = \dash\request::post('tag_id');
+			$post['cat_id']  = \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null;
+			$post['tag_id']  = \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null;
 			$post['subtype'] = \dash\request::post('subtype');
 		}
 
