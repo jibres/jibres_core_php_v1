@@ -39,9 +39,10 @@ class model
 
 		if(\dash\request::post('set_filter'))
 		{
-			$post['cat_id']  = \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null;
-			$post['tag_id']  = \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null;
-			$post['subtype'] = \dash\request::post('subtype');
+			$post['cat_id']    = \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null;
+			$post['tag_id']    = \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null;
+			$post['subtype']   = \dash\request::post('subtype');
+			$post['play_item'] = \dash\request::post('play_item');
 		}
 
 		if(\dash\request::post('set_item_title'))
@@ -49,7 +50,6 @@ class model
 			$post['item_title'] = \dash\request::post('item_title');
 		}
 
-		// 	'play_item'         => \dash\request::post('play_item'),
 
 		if(!\dash\data::newsID())
 		{

@@ -163,6 +163,15 @@ class news
 			$result['show_title'] = a($_current_data, 'show_title');
 		}
 
+		if(array_key_exists('play_item', $_args))
+		{
+			$result['play_item'] = $data['play_item'];
+		}
+		else
+		{
+			$result['play_item'] = a($_current_data, 'play_item');
+		}
+
 		if(array_key_exists('limit', $_args))
 		{
 			$result['limit'] = $data['limit'];
