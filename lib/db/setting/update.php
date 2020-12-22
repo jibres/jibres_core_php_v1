@@ -155,7 +155,7 @@ class update
 				'value'    => $_value,
 			];
 
-			return \lib\db\setting\insert::insert_fuel($insert, $_fuel, $_database);
+			return \lib\db\setting\insert::single_insert_fuel($insert, $_fuel, $_database);
 		}
 	}
 
@@ -181,7 +181,7 @@ class update
 				'value'    => $_value,
 			];
 
-			return \lib\db\setting\insert::insert_fuel($insert, $_fuel, $_database);
+			return \lib\db\setting\insert::single_insert_fuel($insert, $_fuel, $_database);
 		}
 	}
 
