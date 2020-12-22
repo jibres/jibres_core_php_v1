@@ -23,10 +23,6 @@ class model
 			$post['puzzle'] = \dash\request::post('puzzle');
 		}
 
-		if(\dash\request::post('set_template'))
-		{
-			$post['template'] = \dash\request::post('template');
-		}
 
 		if(\dash\request::post('set_title'))
 		{

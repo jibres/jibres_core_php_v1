@@ -111,7 +111,6 @@ class news
 		[
 			'title'             => 'string_200',
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
-			'template'          => ['enum' => ['simple', 'special']],
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'item_title'        => ['enum' => ['none', 'on_image', 'below_image', 'beside_image', 'beside_image_description',]],
 			'cat_id'            => 'code',
@@ -220,14 +219,6 @@ class news
 			$result['more_link_caption'] = a($_current_data, 'more_link_caption');
 		}
 
-		if(array_key_exists('template', $_args))
-		{
-			$result['template'] = $data['template'];
-		}
-		else
-		{
-			$result['template'] = a($_current_data, 'template');
-		}
 
 		if(array_key_exists('play_item', $_args))
 		{
