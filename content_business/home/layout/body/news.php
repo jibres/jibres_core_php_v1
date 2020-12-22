@@ -11,38 +11,10 @@ $postList = a($post_detail, 'list');
 
 if($postList && is_array($postList))
 {
-  if($template  == 'simple')
-  {
 ?>
-<div class="jBlog1">
-  <div class="avand-md">
-    <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
-    <div class="row">
-      <?php foreach ($postList as $key => $post) { ?>
-        <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>
-          <article>
-            <header>
-              <h2><a href="<?php echo a($post, 'link'); ?>"><?php echo a($post, 'title'); ?></a></h2>
-              <div class="meta txtRa">
-                <time datetime="<?php echo a($post, 'publishdate'); ?>"><?php echo \dash\fit::date_human(a($post, 'publishdate')); ?></time>
-              </div>
-            </header>
-            <section>
-              <p><?php echo a($post, 'excerpt'); ?></p>
-              <div class="more"><a href="<?php echo a($post, 'link'); ?>"><?php echo T_("Keep Reading"); ?> <span class="sf-angle-double-left"></span></a></div>
-            </section>
-          </article>
-        </div>
-      <?php } // end foreach ?>
-    </div>
-  </div>
-</div>
-
-<?php }else{  /*special list*/ ?>
-
-  <section class="avand-lg imgLine">
+  <section class="avand-lg puzzle imgLine" data-theme='simple' data-mode='news'>
     <div class="row padMore2">
-      <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
+<?php echo \lib\app\website\generator\title::html($line_detail, a($post_detail, 'line_link')); ?>
       <div class="row">
         <?php foreach ($postList as $key => $value) {?>
           <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>
@@ -57,5 +29,4 @@ if($postList && is_array($postList))
       </div>
     </div>
   </section>
- <?php } //endif ?>
 <?php } //endif ?>

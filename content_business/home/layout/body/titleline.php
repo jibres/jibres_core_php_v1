@@ -24,26 +24,82 @@ if($titleline)
 
 		<div class="row padMore2">
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+				<a href="">
+					<img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg">
+					<h3>lorem 123</h3>
+				</a>
 			</div>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+				<a href="">
+					<img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg">
+					<h3>lorem 123</h3>
+				</a>
 			</div>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+				<a href="">
+					<img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg">
+					<h3>lorem 123</h3>
+				</a>
 			</div>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+				<a href="">
+					<img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg">
+					<h3>lorem 123</h3>
+				</a>
 			</div>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+				<a href="">
+					<img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg">
+					<h3>lorem 123</h3>
+				</a>
 			</div>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+				<a href="">
+					<img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg">
+					<h3>lorem 123</h3>
+				</a>
 			</div>
 		</div>
 </section>
 
+
+<?php
+if($titleline)
+{
+	echo '<h2 class="jTitle1">';
+	echo a($titleline, 'titleline');
+	echo '</h2>';
+}
+?>
+
+<section class="avand-lg imgLine">
+		<div class="row padMore2">
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+			<div class="c-xs-12 c-sm-6 c-md-3">
+				<a href=""><img src="http://cloud.talambar.local/jb2mm/202012/5-df2917707a77bfb3b735c34687b49eda.jpg"></a>
+			</div>
+		</div>
+</section>
 
 
 <?php } ?>
