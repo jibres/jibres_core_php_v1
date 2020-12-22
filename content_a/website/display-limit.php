@@ -1,5 +1,3 @@
-
-
 <section class="f" data-option='website-line-count-show'>
   <div class="c8 s12">
     <div class="data">
@@ -18,14 +16,10 @@
       </div>
   </form>
 </section>
-
-
-
 <?php
 $puzzle = \lib\app\website\puzzle::list(a($lineSetting, 'limit'));
 if($puzzle && count($puzzle) > 1)
 {
-
 ?>
 <section class="f" data-option='website-line-puzzle'>
   <div class="c8 s12">

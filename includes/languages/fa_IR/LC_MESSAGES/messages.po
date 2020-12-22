@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-21 20:03+0330\n"
-"PO-Revision-Date: 2020-12-21 20:06+0330\n"
+"POT-Creation-Date: 2020-12-22 12:41+0330\n"
+"PO-Revision-Date: 2020-12-22 12:47+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4720,7 +4720,7 @@ msgstr "ویرایش"
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:37
 #: content_a/website/menu/edit/display.php:59 content_a/website/menu/edit/display.php:113
-#: content_a/website/news/display.php:53 content_a/website/productline/display.php:48
+#: content_a/website/news/display.php:55 content_a/website/productline/display.php:48
 #: content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
 #: content_a/website/specialslider/add/display.php:43
@@ -4791,7 +4791,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_a/accounting/coding/display-list.php:12
 #: content_a/form/analytics/chart/view.php:20
 #: content_a/form/analytics/filter/display.php:26
-#: content_a/products/comment/display.php:189 content_a/website/display-items.php:73
+#: content_a/products/comment/display.php:189 content_a/website/display-player.php:7
 #: content_crm/member/home/display-old.php:731 content_love/domain/log/display.php:4
 #: content_love/domain/log/display.php:22 content_love/domain/onlineniclog/display.php:4
 #: content_love/domain/onlineniclog/display.php:22
@@ -7153,8 +7153,7 @@ msgstr "لطفا یک دسته را انتخاب کنید"
 #: content_a/products/home/filter.php:74 content_a/products/home/filter.php:92
 #: content_a/products/home/filter.php:109 content_a/products/home/filter.php:126
 #: content_a/products/home/filter.php:141 content_a/tag/remove/display.php:37
-#: content_a/website/display-items.php:49 content_a/website/display-items.php:71
-#: content_a/website/news/filter/display.php:9
+#: content_a/website/display-player.php:5 content_a/website/news/filter/display.php:9
 #: content_a/website/news/filter/display.php:19 content_cms/category/remove/display.php:37
 #: content_cms/tag/remove/display.php:37 content_crm/member/home/display-old.php:385
 #: content_crm/member/home/display-old.php:411 content_crm/member/home/display-old.php:431
@@ -8148,7 +8147,7 @@ msgstr "نوع پیام"
 
 #: content_a/form/item/display.php:303 content_a/setting/cart/text/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:18
-#: content_a/website/news/display.php:34 content_love/domain/irnic/display.php:58
+#: content_a/website/news/display.php:36 content_love/domain/irnic/display.php:58
 #: content_my/domain/irnic/display.php:58
 msgid "Default"
 msgstr "پیش‌فرض"
@@ -12608,82 +12607,53 @@ msgstr "محتوای وب‌سایت"
 msgid "Add line"
 msgstr "افزودن ردیف جدید"
 
-#: content_a/website/display-items.php:3 content_a/website/display-title.php:45
-#: content_a/website/imageblock/setting/display.php:10
-#: content_a/website/productline/display.php:11
-#: content_a/website/quote/setting/display.php:10
-#: content_a/website/specialslider/setting/display.php:10
-#: content_a/website/text/display.php:11 content_a/website/titleline/display.php:11
-msgid "Line title"
-msgstr "عنوان ردیف"
-
-#: content_a/website/display-items.php:15 content_a/website/display-title.php:55
-msgid "Show read more link"
-msgstr "نمایش لینک مشاهده بیشتر"
-
-#: content_a/website/display-items.php:21 content_a/website/display-title.php:61
-msgid "Hide read more link"
-msgstr "پنهان کردن لینک مشاهده بیشتر"
-
-#: content_a/website/display-items.php:26 content_a/website/display-title.php:66
-msgid "Caption of more link"
-msgstr "عنوان لینک مشاهده بیشتر"
-
-#: content_a/website/display-items.php:37
-msgid "Count show post"
-msgstr "تعداد نوشته‌ها برای نمایش"
-
-#: content_a/website/display-items.php:47
-msgid "Set the number of item views in the first row"
-msgstr "تنظیم تعداد آیتم‌های نمایش داده شده در ردیف اول"
-
-#: content_a/website/display-items.php:50 content_a/website/display-items.php:59
-msgid "One item"
-msgstr "یک گزینه"
-
-#: content_a/website/display-items.php:51 content_a/website/display-items.php:60
-msgid "Two item"
-msgstr "دو آیتم"
-
-#: content_a/website/display-items.php:52 content_a/website/display-items.php:61
-msgid "Three item"
-msgstr "سه گزینه"
-
-#: content_a/website/display-items.php:57
-msgid "Set the number of item views in the second row"
-msgstr "تنظیم تعداد آیتم‌های نمایش داده شده در ردیف دوم"
-
-#: content_a/website/display-items.php:62
-msgid "Four item"
-msgstr "چهار آیتم"
-
-#: content_a/website/display-items.php:69
-msgid "Show item in player"
-msgstr "نمایش آیتم در پخش کننده"
-
-#: content_a/website/display-items.php:72
-msgid "First"
-msgstr "اولین"
-
-#: content_a/website/display-limit.php:6
+#: content_a/website/display-item-title.php:4 content_a/website/display-limit.php:4
 msgid "Set count show"
 msgstr "تنظیم تعداد نمایش"
 
-#: content_a/website/display-limit.php:8
+#: content_a/website/display-item-title.php:6 content_a/website/display-limit.php:6
 msgid "How many posts would you like to display?"
 msgstr "تمایل دارید چه تعداد نوشته در این ردیف نمایش داده شود؟"
 
-#: content_a/website/display-limit.php:33
+#: content_a/website/display-item-title.php:14
+msgid "Untitled, Only the image displayed"
+msgstr "بدون عنوان،‌ تنها تصویر نمایش داده شود"
+
+#: content_a/website/display-item-title.php:15
+msgid "Show title on image"
+msgstr "نمایش عنوان روی عکس"
+
+#: content_a/website/display-item-title.php:16
+msgid "Show title below image"
+msgstr "نمایش عنوان در زیر عکس"
+
+#: content_a/website/display-item-title.php:17
+msgid "Show title beside image"
+msgstr "نمایش عنوان کنار عکس"
+
+#: content_a/website/display-item-title.php:18
+msgid "Show title beside image with description"
+msgstr "نمایش عنوان در کنار عکس به همراه توضیحات"
+
+#: content_a/website/display-limit.php:27
 msgid "Adjust how items are placed"
 msgstr "نحوه قرارگیری آیتم‌ها را تنظیم کنید"
 
-#: content_a/website/display-limit.php:35
+#: content_a/website/display-limit.php:29
 msgid ""
 "You can adjust the number of items displayed in different rows and columns according to "
 "the total number of items"
 msgstr ""
 "شما می‌توانید تعداد آیتم‌های نمایش داده شده در سطرها و ستون‌ها را با توجه به تعداد کل "
 "آیتم‌ها تنظیم کنید"
+
+#: content_a/website/display-player.php:3
+msgid "Show item in player"
+msgstr "نمایش آیتم در پخش کننده"
+
+#: content_a/website/display-player.php:6
+msgid "First"
+msgstr "اولین"
 
 #: content_a/website/display-title.php:25
 msgid "Title with more link"
@@ -12696,6 +12666,27 @@ msgstr "ویرایش عنوان"
 #: content_a/website/display-title.php:32
 msgid "Set title"
 msgstr "تنظیم عنوان"
+
+#: content_a/website/display-title.php:45
+#: content_a/website/imageblock/setting/display.php:10
+#: content_a/website/productline/display.php:11
+#: content_a/website/quote/setting/display.php:10
+#: content_a/website/specialslider/setting/display.php:10
+#: content_a/website/text/display.php:11 content_a/website/titleline/display.php:11
+msgid "Line title"
+msgstr "عنوان ردیف"
+
+#: content_a/website/display-title.php:55
+msgid "Show read more link"
+msgstr "نمایش لینک مشاهده بیشتر"
+
+#: content_a/website/display-title.php:61
+msgid "Hide read more link"
+msgstr "عدم نمایش لینک مشاهده بیشتر"
+
+#: content_a/website/display-title.php:66
+msgid "Caption of more link"
+msgstr "عنوان لینک مشاهده بیشتر"
 
 #: content_a/website/footer/box/footer_main_txt.php:16
 #: content_a/website/footer/box/footer_phone.php:16
@@ -13128,35 +13119,35 @@ msgstr "مرتب سازی آیتم‌های فهرست"
 msgid "Menu list"
 msgstr "لیست فهرست‌ها"
 
-#: content_a/website/news/display.php:8 content_a/website/news/display.php:16
+#: content_a/website/news/display.php:7 content_a/website/news/display.php:15
 msgid "Set filter"
 msgstr "تنظیم فیلتر"
 
-#: content_a/website/news/display.php:10
+#: content_a/website/news/display.php:9
 msgid "You can extract your favorite posts with different filters"
 msgstr "شما می‌توانید نوشته‌های مورد نظر خود را با فیلتر‌های مختلف استخراج کنید"
 
-#: content_a/website/news/display.php:24
+#: content_a/website/news/display.php:26
 msgid "Set template show"
 msgstr "تنظیم قالب نمایش"
 
-#: content_a/website/news/display.php:26
+#: content_a/website/news/display.php:28
 msgid "Change your post template view"
 msgstr "تغییر قالب نمایش نوشته"
 
-#: content_a/website/news/display.php:35 content_a/website/quote/setting/display.php:20
+#: content_a/website/news/display.php:37 content_a/website/quote/setting/display.php:20
 msgid "Simple"
 msgstr "ساده"
 
-#: content_a/website/news/display.php:36
+#: content_a/website/news/display.php:38
 msgid "Special"
 msgstr "خاص"
 
-#: content_a/website/news/display.php:45
+#: content_a/website/news/display.php:47
 msgid "Remove news line"
 msgstr "حذف ردیف اخبار"
 
-#: content_a/website/news/display.php:47
+#: content_a/website/news/display.php:49
 msgid "Are you sure to remove this news line?"
 msgstr "آیا از حذف این ردیف خبر اطمینان دارید؟"
 
@@ -35777,7 +35768,7 @@ msgstr "۱۶:۹ (پیش‌فرض)"
 
 #: lib/app/website/body/line/imageblock.php:191
 #: lib/app/website/body/line/imageblock.php:436 lib/app/website/body/line/news.php:77
-#: lib/app/website/body/line/news.php:283 lib/app/website/body/line/productline.php:77
+#: lib/app/website/body/line/news.php:294 lib/app/website/body/line/productline.php:77
 #: lib/app/website/body/line/productline.php:172 lib/app/website/body/line/quote.php:118
 #: lib/app/website/body/line/quote.php:369 lib/app/website/body/line/slider.php:190
 #: lib/app/website/body/line/slider.php:436
@@ -35856,15 +35847,15 @@ msgstr "جعبه تصویر اضافه شد"
 msgid "This is not a latest news"
 msgstr "این شناسه متعلق به آخرین اخبار نیست"
 
-#: lib/app/website/body/line/news.php:100 lib/app/website/body/line/news.php:292
+#: lib/app/website/body/line/news.php:100 lib/app/website/body/line/news.php:303
 msgid "Invalid line id"
 msgstr "شناسه خط اشتباه است"
 
-#: lib/app/website/body/line/news.php:268
+#: lib/app/website/body/line/news.php:279
 msgid "News line added"
 msgstr "ردیف اخبار اضافه شد"
 
-#: lib/app/website/body/line/news.php:316
+#: lib/app/website/body/line/news.php:327
 msgid "News line edited"
 msgstr "ردیف اخبار ویرایش شد"
 
@@ -36131,7 +36122,7 @@ msgstr "#فهرست"
 msgid "Footer #Rafiei"
 msgstr "پابرگ #رفیعی"
 
-#: lib/app/website/generator.php:345
+#: lib/app/website/generator.php:282
 msgid "Show more"
 msgstr "مشاهده بیشتر"
 
@@ -36322,7 +36313,7 @@ msgstr "۳ آیتم در یک خط"
 
 #: lib/app/website/puzzle.php:36 lib/app/website/puzzle.php:47
 msgid "1 item in first line, 2 item in next line"
-msgstr ""
+msgstr "۱ آیتم در ردیف اول و سپس ۲ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:40
 msgid "4 item in one line"
@@ -36334,11 +36325,11 @@ msgstr "۲ آیتم در هر خط"
 
 #: lib/app/website/puzzle.php:42
 msgid "1 item in first line, 3 item in next line"
-msgstr ""
+msgstr "۱ آیتم در ردیف اول، سپس ۳ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:46
 msgid "2 item in first line, 3 item in next line"
-msgstr ""
+msgstr "۲ آیتم در ردیف اول و سپس ۳ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:51 lib/app/website/puzzle.php:71
 msgid "3 item per line"
@@ -36346,23 +36337,23 @@ msgstr "۳ آیتم در هر خط"
 
 #: lib/app/website/puzzle.php:53
 msgid "2 item in first line, 4 item in next line"
-msgstr ""
+msgstr "۲ آیتم در ردیف اول و سپس ۴ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:57
 msgid "1 item in first line then 3 item per line"
-msgstr ""
+msgstr "۱ آیتم در ردیف اول، سپس ۳ آیتم در هر ردیف"
 
 #: lib/app/website/puzzle.php:58
 msgid "2 item in first two line, 3 item in next line"
-msgstr ""
+msgstr "۲ آیتم در دو ردیف اول و سپس ۳ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:59
-msgid "1 item in first then 2 item, then 3 item in next line"
-msgstr ""
+msgid "1 item in first then 2 item, then 4 item in next line"
+msgstr "۱ آیتم در دریف اول،‌سپس ۲ آیتم در ردیف دوم و بعد ۴ آیتم در ردیف دیگر"
 
 #: lib/app/website/puzzle.php:60
 msgid "3 item in first line, 4 item in next line"
-msgstr ""
+msgstr "۳ آیتم در ردیف اول و سپس ۴ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:64
 msgid "4 item per line"
@@ -36370,27 +36361,27 @@ msgstr "۴ آیتم در هر خط"
 
 #: lib/app/website/puzzle.php:65
 msgid "1 item in first line then 3, then 4 item in next line"
-msgstr ""
+msgstr "۱ آیتم در دریف اول،‌سپس ۳ آیتم در ردیف دوم و بعد ۴ آیتم در ردیف دیگر"
 
 #: lib/app/website/puzzle.php:66
 msgid "2 item in first two line, 4 item in next line"
-msgstr ""
+msgstr "۲ آیتم در دو ردیف اول و سپس ۴ آیتم در ردیف بعدی"
 
 #: lib/app/website/puzzle.php:67
 msgid "2 item in first line, then 3 item per line"
-msgstr ""
+msgstr "۲ آیتم در ردیف اول، سپس ۳ آیتم در هر ردیف"
 
 #: lib/app/website/puzzle.php:72
 msgid "2 item in first line then 3 item, then 4 item in next line"
-msgstr ""
+msgstr "۲ آیتم در دریف اول،‌سپس ۳ آیتم در ردیف دوم و بعد ۴ آیتم در ردیف دیگر"
 
 #: lib/app/website/puzzle.php:76
 msgid "1 item in first line, then 3 item per line"
-msgstr ""
+msgstr "۱ آیتم در ردیف اول، سپس ۳ آیتم در هر ردیف"
 
 #: lib/app/website/puzzle.php:77
 msgid "2 item in first line, then 4 item per line"
-msgstr ""
+msgstr "۲ آیتم در ردیف اول، سپس ۴ آیتم در هر ردیف"
 
 #: lib/app/website/status/set.php:24
 msgid "Your status was saved"
@@ -37275,6 +37266,27 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Count show post"
+#~ msgstr "تعداد نوشته‌ها برای نمایش"
+
+#~ msgid "Set the number of item views in the first row"
+#~ msgstr "تنظیم تعداد آیتم‌های نمایش داده شده در ردیف اول"
+
+#~ msgid "One item"
+#~ msgstr "یک گزینه"
+
+#~ msgid "Two item"
+#~ msgstr "دو آیتم"
+
+#~ msgid "Three item"
+#~ msgstr "سه گزینه"
+
+#~ msgid "Set the number of item views in the second row"
+#~ msgstr "تنظیم تعداد آیتم‌های نمایش داده شده در ردیف دوم"
+
+#~ msgid "Four item"
+#~ msgstr "چهار آیتم"
 
 #~ msgid "You can customize item position"
 #~ msgstr "شما می‌توانید ستون‌ها را جهت نمایش سفارشی کنید"
