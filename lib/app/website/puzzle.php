@@ -90,8 +90,10 @@ class puzzle
 
 	public static function layout($_index, $_line_detail)
 	{
-		$puzzle = a($_line_detail, 'value', 'puzzle');
-		$limit = a($_line_detail, 'value', 'limit');
+		$puzzle    = a($_line_detail, 'value', 'puzzle');
+		$limit     = a($_line_detail, 'value', 'limit');
+		$play_item = a($_line_detail, 'value', 'play_item');
+
 		if(!$limit || !is_numeric($limit))
 		{
 			$limit = 5;
@@ -137,6 +139,7 @@ class puzzle
 
 
 		$class = null;
+		$playMode = null;
 
 		switch ($puzzle)
 		{
@@ -313,9 +316,16 @@ class puzzle
 				break;
 		}
 
+
+		if($level === 1 && $play_item === 'first')
+		{
+			$playMode = 'video';
+		}
+
 		$result =
 		[
-			'class' => $class
+			'class'    => $class,
+			'playMode' => $playMode,
 		];
 
 		return $result;
