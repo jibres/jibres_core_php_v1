@@ -159,7 +159,7 @@ class puzzle
 			case '1+2':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-3';	break;
+					case 1: $fc = 'c-xs-12 c-sm-12'; break;
 					case 2:	$fc = 'c-xs-12 c-sm-6';	break;
 				}
 				break;
@@ -270,7 +270,7 @@ class puzzle
 				{
 					case 1: $fc = 'c-xs-12 c-sm-6';	break;
 					case 2:	$fc = 'c-xs-12 c-sm-4';	break;
-					case 3:	$fc = 'c-xs-12 c-sm-3';	break;
+					case 3:	$fc = 'c-xs-12 c-sm-4';	break;
 				}
 				break;
 
@@ -279,7 +279,6 @@ class puzzle
 				break;
 
 			case '2+3+4':
-
 				switch ($level)
 				{
 					case 1:	$fc = 'c-xs-12 c-sm-6';	break;
@@ -301,7 +300,12 @@ class puzzle
 				break;
 
 			case '2+4+4':
-				$fc = 'c-xs-12 c-sm-12';
+			switch ($level)
+				{
+					case 1:	$fc = 'c-xs-12 c-sm-6';break;
+					case 2: $fc = 'c-xs-12 c-sm-3'; break;
+					case 3: $fc = 'c-xs-12 c-sm-3';	break;
+				}
 				break;
 
 			default:
