@@ -14,8 +14,8 @@ if($postList && is_array($postList))
   if($template  == 'simple')
   {
 ?>
-  <div class="jBlog1">
-    <div class="avand-md">
+<div class="jBlog1">
+  <div class="avand-md">
     <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
     <div class="row">
       <?php foreach ($postList as $key => $post) { ?>
@@ -35,25 +35,27 @@ if($postList && is_array($postList))
         </div>
       <?php } // end foreach ?>
     </div>
-    </div>
   </div>
+</div>
 
 <?php }else{  /*special list*/ ?>
 
-  <div class="avand-md">
-    <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
-    <div class="row">
-      <?php foreach ($postList as $key => $value) {?>
-        <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>
-        <a class="overlay"<?php if(a($value, 'link')) { echo ' href="'.  a($value, 'link'). '"'; if(a($value, 'target')) { echo ' target="_blank"'; }} ?>>
-          <figure>
-            <img src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
-            <figcaption><h2><?php echo a($value, 'title'); ?></h2></figcaption>
-          </figure>
-        </a>
-        </div>
-      <?php } //endfor ?>
+  <section class="avand-lg imgLine">
+    <div class="row padMore2">
+      <?php echo \lib\app\website\generator::line_title($line_detail, a($post_detail, 'line_link')); ?>
+      <div class="row">
+        <?php foreach ($postList as $key => $value) {?>
+          <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>
+            <a class="overlay"<?php if(a($value, 'link')) { echo ' href="'.  a($value, 'link'). '"'; if(a($value, 'target')) { echo ' target="_blank"'; }} ?>>
+              <figure>
+                <img src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
+                <figcaption><h2><?php echo a($value, 'title'); ?></h2></figcaption>
+              </figure>
+            </a>
+          </div>
+        <?php } //endfor ?>
+      </div>
     </div>
-  </div>
+  </section>
  <?php } //endif ?>
 <?php } //endif ?>
