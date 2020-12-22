@@ -33,6 +33,7 @@ class model
 			$post['title']             = \dash\request::post('title');
 			$post['more_link']         = \dash\request::post('more_link');
 			$post['more_link_caption'] = \dash\request::post('more_link_caption');
+			$post['show_title'] = \dash\request::post('show_title');
 		}
 
 

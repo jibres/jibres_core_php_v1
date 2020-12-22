@@ -46,6 +46,22 @@ else
         <div class="input">
           <input type="text" name="title" id="title" value="<?php if(!a($lineSetting, 'title') && a($lineSetting, 'title') !== '0'){ echo \dash\data::nameSuggestion(); }else{ echo a($lineSetting, 'title'); } ?>"  maxlength="200">
         </div>
+        <div class="mB10">
+           <div class="row">
+              <div class="c-xs-6 c-sm-6">
+                <div class="radio3">
+                  <input type="radio" name="show_title" value="yes" id="showtitleyes" <?php if(a($lineSetting, 'show_title') === 'yes' || !a($lineSetting, 'show_title')) { echo 'checked';} ?>>
+                  <label for="showtitleyes"><?php echo T_("Show title on website") ?></label>
+                </div>
+              </div>
+              <div class="c-xs-6 c-sm-6">
+                <div class="radio3">
+                  <input type="radio" name="show_title" value="no" id="showtitleno" <?php if(a($lineSetting, 'show_title') === 'no') { echo 'checked';} ?>>
+                  <label for="showtitleno"><?php echo T_("Do not show title on website") ?></label>
+                </div>
+              </div>
+            </div>
+        </div>
         <?php if(\dash\url::child() === 'news') {?>
           <div class="mB10">
             <div class="row">

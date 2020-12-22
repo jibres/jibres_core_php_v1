@@ -122,6 +122,7 @@ class news
 			'second_line_count' => ['enum' => [1, 2, 3, 4]],
 			'play_item'         => ['enum' => ['none', 'first', 'all']],
 			'more_link'         => ['enum' => ['show', 'hide']],
+			'show_title'        => 'yes_no',
 			'more_link_caption' => 'string_50',
 		];
 
@@ -153,6 +154,14 @@ class news
 			$result['publish'] = a($_current_data, 'publish');
 		}
 
+		if(array_key_exists('show_title', $_args))
+		{
+			$result['show_title'] = $data['show_title'];
+		}
+		else
+		{
+			$result['show_title'] = a($_current_data, 'show_title');
+		}
 
 		if(array_key_exists('limit', $_args))
 		{
