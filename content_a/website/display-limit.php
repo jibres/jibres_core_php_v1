@@ -11,7 +11,7 @@
     <input type="hidden" name="set_limit" value="1 ">
       <div class="action">
         <select class="select22" name="limit">
-          <?php for ($i=1; $i <= 10 ; $i++) { $selected = null; if(a($lineSetting, 'limit') == $i) { $selected = 'selected'; } echo '<option value="'. $i .'" '. $selected .'>'. \dash\fit::number($i) . '</option>'; } ?>
+          <?php for ($i=1; $i <= 10 ; $i++) { $selected = null; if(a($lineSetting, 'limit') == $i || (!a($lineSetting, 'limit') && $i == 8)) { $selected = 'selected'; } echo '<option value="'. $i .'" '. $selected .'>'. \dash\fit::number($i) . '</option>'; } ?>
         </select>
       </div>
   </form>
