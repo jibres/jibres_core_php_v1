@@ -79,9 +79,12 @@ else
               </div>
             </div>
           </div>
-          <label for="more_link_caption"><?php echo T_("Caption of more link"); ?></label>
-          <div class="input">
-            <input type="text" name="more_link_caption" id="more_link_caption" value="<?php echo a($lineSetting, 'more_link_caption');  ?>"  maxlength="200">
+
+          <div data-response='more_link' data-response-where='show' <?php if(a($lineSetting, 'more_link') === 'show' || !a($lineSetting, 'more_link')) {}else{ echo 'data-response-hide';} ?>>
+            <label for="more_link_caption"><?php echo T_("Caption of more link"); ?></label>
+            <div class="input">
+              <input type="text" name="more_link_caption" id="more_link_caption" value="<?php echo a($lineSetting, 'more_link_caption');  ?>"  maxlength="200">
+            </div>
           </div>
         <?php } // endif ?>
       </div>
