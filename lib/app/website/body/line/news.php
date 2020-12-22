@@ -27,11 +27,7 @@ class news
 			return false;
 		}
 
-		if(isset($result['news']) && is_array($result['news']))
-		{
-			$result['news'] = self::ready($result['news']);
-		}
-
+		$result = self::ready($result);
 
 		return $result;
 	}
@@ -51,6 +47,10 @@ class news
 
 			switch ($key)
 			{
+				case 'news':
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = isset($value) ? (string) $value : null;
 					break;
@@ -113,7 +113,7 @@ class news
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_below_image','titel_beside_image','title_beside_image_description','blog']],
-			'avand'             => ['enum' => ['sm','md','lg','xl','xxl','none']],
+			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','']],
 			'cat_id'            => 'code',
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
