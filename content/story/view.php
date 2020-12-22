@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-		\dash\face::cover(\dash\url::cdn(). '/img/story/jibres-story-love.gif');
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-story-cover-1.jpg');
 
 	}
 }
