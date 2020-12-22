@@ -7,6 +7,11 @@ class view
 	{
 		\dash\data::myType(\dash\data::dataRow_type());
 
+
+		$maxFileSize = 10;//\dash\upload\size::cms_file_size();
+		\dash\data::maxFileSize($maxFileSize);
+
+
 		$moduleTypeTxt = \dash\data::myType();
 		$moduleType    = '';
 
