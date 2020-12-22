@@ -157,12 +157,12 @@ $isPost = ($type === 'post');
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='thumb' data-ratio="1" data-ratio-free data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='thumb' data-ratio="1" data-ratio-free data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
       <input type="hidden" name="runaction_setthumb" value="1">
 
-      <input type="file" accept="image/jpeg, image/png" id="image1">
-      <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?></label>
+      <input type="file" accept="image/jpeg, image/png" id="image1thumb">
+      <label for="image1thumb"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?></label>
     </div>
   </form>
 
