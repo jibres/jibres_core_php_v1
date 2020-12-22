@@ -31,8 +31,8 @@ class model
 		if(\dash\request::post('set_title'))
 		{
 			$post['title']             = \dash\request::post('title');
-			$post['more_link']         = \dash\request::post('more_lik');
-			$post['more_link_caption'] = \dash\request::post('more_link_cption');
+			$post['more_link']         = \dash\request::post('more_link');
+			$post['more_link_caption'] = \dash\request::post('more_link_caption');
 		}
 
 
@@ -49,7 +49,6 @@ class model
 		}
 
 		// 	'play_item'         => \dash\request::post('play_item'),
-
 
 		if(!\dash\data::newsID())
 		{
