@@ -14,7 +14,7 @@ if($postList && is_array($postList)) {?>
      <a<?php if(a($value, 'link')) { echo ' href="'.  a($value, 'link'). '"'; if(a($value, 'target')) { echo ' target="_blank"'; }} ?>>
       <figure>
 <?php if( a($myPuzzle, 'playMode') === 'video') { ?>
-      <video controls preload='meta'>
+      <video controls preload='meta' poster='<?php echo \lib\filepath::fix(a($value, 'cover')); ?>'>
         <source type="video/mp4" src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>">
       </video>
 <?php } elseif( a($myPuzzle, 'playMode') === 'audio') { ?>
