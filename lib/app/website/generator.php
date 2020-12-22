@@ -19,37 +19,8 @@ class generator
 	 */
 	public static function load_website_setting()
 	{
-		// load by get
-		$get_website_type = \dash\validate::enum(\dash\request::get('websitemode'), false ,['enum' => ['visitcard', 'stat', 'comingsoon', 'shop']]);
 
-		if($get_website_type)
-		{
-			$setting = [];
-
-			switch ($get_website_type)
-			{
-				case 'stat':
-					$setting = self::website_stat_setting();
-					break;
-
-				case 'comingsoon':
-					$setting = self::website_comingsoon_setting();
-					break;
-
-				case 'shop':
-					$setting = self::website_shop_setting();
-					break;
-
-
-				case 'visitcard':
-				default:
-					$setting = self::website_visitcard_setting();
-					break;
-			}
-
-			return $setting;
-		}
-
+		$website_setting = [];
 
 		$addr = \dash\engine\store::website_addr();
 
@@ -76,7 +47,7 @@ class generator
 
 		if(empty($website_setting))
 		{
-			$load_query = self::get_template();
+			$load_query = self::load_setting();
 			if(!is_array($load_query))
 			{
 				$load_query = [];
@@ -90,16 +61,69 @@ class generator
 
 		}
 
-		if(isset($website_setting['template']))
+		// website is not active !! BUG!
+		if(!isset($website_setting['template']))
 		{
-			return $website_setting;
+			return false;
 		}
 
-		return false;
 
+		$new_website_mode = null;
+		if(\dash\request::get('websitemode'))
+		{
+			$get_website_type = \dash\validate::enum(\dash\request::get('websitemode'), false ,['enum' => ['visitcard', 'stat', 'comingsoon', 'shop']]);
+
+			if($get_website_type && \dash\user::id())
+			{
+				if(\dash\permission::is_admin())
+				{
+					$new_website_mode = $get_website_type;
+				}
+			}
+		}
+
+		$load_template = $new_website_mode ? $new_website_mode : $website_setting['template'];
+
+		switch ($load_template)
+		{
+
+			case 'stat':
+				$website_setting['template'] = $load_template;
+				$website_setting['header']   = ['active' => 'header_comingsoon'];
+				$website_setting['footer']   = ['active' => 'footer_comingsoon'];
+				$website_setting['body_raw'] = 'comingsoon';
+				break;
+
+			case 'comingsoon':
+				$website_setting['template'] = $load_template;
+				$website_setting['header']   = ['active' => 'header_comingsoon'];
+				$website_setting['footer']   = ['active' => 'footer_comingsoon'];
+				$website_setting['body_raw'] = 'comingsoon';
+				break;
+
+			case 'shop':
+			case 'publish':
+				$website_setting['template'] = 'publish';
+				break;
+
+
+			case 'visitcard':
+			default:
+				$website_setting['template'] = $load_template;
+				$website_setting['header']   = ['active' => 'header_visitcard'];
+				$website_setting['footer']   = ['active' => 'footer_visitcard'];
+				$website_setting['body_raw'] = 'visitcard';
+				break;
+		}
+
+
+
+		return $website_setting;
 	}
 
-	public static function get_template()
+
+
+	private static function load_setting()
 	{
 		// check from file
 		// get from query
@@ -119,7 +143,7 @@ class generator
 			$result['template'] = $active_status['value'];
 		}
 
-		if($result['template'] === 'publish')
+		// if($result['template'] === 'publish')
 		{
 			$load_all_website = \lib\app\website\body\get::get_sort_body_line(true);
 
@@ -194,71 +218,6 @@ class generator
 			return $setting['body'];
 		}
 		return [];
-	}
-
-
-
-	private static function website_stat_setting()
-	{
-		$setting =
-		[
-			'template' => 'publish',
-			'header'   => ['active' => 'header_stat'],
-			'footer'   => ['active' => 'footer_stat'],
-			'body_raw' => 'stat',
-		];
-		return $setting;
-	}
-
-
-
-	private static function website_comingsoon_setting()
-	{
-		$setting =
-		[
-			'template' => 'publish',
-			'header'   => ['active' => 'header_comingsoon'],
-			'footer'   => ['active' => 'footer_comingsoon'],
-			'body_raw' => 'comingsoon',
-		];
-		return $setting;
-	}
-
-
-
-	private static function website_visitcard_setting()
-	{
-		$setting =
-		[
-			'template' => 'publish',
-			'header'   => ['active' => 'header_visitcard'],
-			'footer'   => ['active' => 'footer_visitcard'],
-			'body_raw' => 'visitcard',
-		];
-		return $setting;
-	}
-
-
-	private static function website_shop_setting()
-	{
-
-		$setting =
-		[
-			'template' => 'publish',
-			'header'   => ['active' => 'header_2'],
-			'footer'   => ['active' => 'footer_2'],
-			'lines' =>
-			[
-				'list' =>
-				[
-					[
-						'type' => 'body_last_product',
-						'limit' => 6,
-					]
-				]
-			],
-		];
-		return $setting;
 	}
 
 
