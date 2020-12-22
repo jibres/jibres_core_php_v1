@@ -58,28 +58,31 @@ else
               </div>
             </div>
         </div>
+
         <?php if(\dash\url::child() === 'news') {?>
-          <div class="mB10">
-            <div class="row">
-              <div class="c-xs-6 c-sm-6">
-                <div class="radio3">
-                  <input type="radio" name="more_link" value="show" id="showmorelink" <?php if(a($lineSetting, 'more_link') === 'show' || !a($lineSetting, 'more_link')) { echo 'checked';} ?>>
-                  <label for="showmorelink"><?php echo T_("Show read more link") ?></label>
+          <div data-response='show_title' data-response-where='yes' <?php if(a($lineSetting, 'show_title') === 'yes' || !a($lineSetting, 'show_title')) {}else{ echo 'data-response-hide';} ?>>
+            <div class="mB10">
+              <div class="row">
+                <div class="c-xs-6 c-sm-6">
+                  <div class="radio3">
+                    <input type="radio" name="more_link" value="show" id="showmorelink" <?php if(a($lineSetting, 'more_link') === 'show' || !a($lineSetting, 'more_link')) { echo 'checked';} ?>>
+                    <label for="showmorelink"><?php echo T_("Show read more link") ?></label>
+                  </div>
                 </div>
-              </div>
-              <div class="c-xs-6 c-sm-6">
-                <div class="radio3">
-                  <input type="radio" name="more_link" value="hide" id="hidemorelink" <?php if(a($lineSetting, 'more_link') === 'hide') { echo 'checked';} ?>>
-                  <label for="hidemorelink"><?php echo T_("Hide read more link") ?></label>
+                <div class="c-xs-6 c-sm-6">
+                  <div class="radio3">
+                    <input type="radio" name="more_link" value="hide" id="hidemorelink" <?php if(a($lineSetting, 'more_link') === 'hide') { echo 'checked';} ?>>
+                    <label for="hidemorelink"><?php echo T_("Hide read more link") ?></label>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div data-response='more_link' data-response-where='show' <?php if(a($lineSetting, 'more_link') === 'show' || !a($lineSetting, 'more_link')) {}else{ echo 'data-response-hide';} ?>>
-            <label for="more_link_caption"><?php echo T_("Caption of more link"); ?></label>
-            <div class="input">
-              <input type="text" name="more_link_caption" id="more_link_caption" value="<?php echo a($lineSetting, 'more_link_caption');  ?>"  maxlength="200">
+            <div data-response='more_link' data-response-where='show' <?php if(a($lineSetting, 'more_link') === 'show' || !a($lineSetting, 'more_link')) {}else{ echo 'data-response-hide';} ?>>
+              <label for="more_link_caption"><?php echo T_("Caption of more link"); ?></label>
+              <div class="input">
+                <input type="text" name="more_link_caption" id="more_link_caption" value="<?php echo a($lineSetting, 'more_link_caption');  ?>"  maxlength="200">
+              </div>
             </div>
           </div>
         <?php } // endif ?>
