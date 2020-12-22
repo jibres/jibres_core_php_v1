@@ -107,6 +107,14 @@ class login
 		else
 		{
 			$user_detail = \dash\db\users::get_by_id($load['user_id']);
+			if(isset($user_detail['id']) && \dash\engine\store::inStore())
+			{
+				if($place === 'subdomain' || $place === 'customer_domain')
+				{
+					// user login in the store
+					$user_detail['user_in_store'] = true;
+				}
+			}
 		}
 
 		\dash\user::set_detail($user_detail);
