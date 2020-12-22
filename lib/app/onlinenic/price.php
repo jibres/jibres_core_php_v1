@@ -6,10 +6,16 @@ class price
 {
 	private static function dollar()
 	{
-		return 26000; // toman
+		return 26100; // toman
 		// return 31000; // toman // date: 2020-11-26
 		// return 26000; // toman // date: 2020-9-28
 		// return 19000; // toman // date: 2020-06-18
+
+		// .com domain
+		// 8.89 $ onlinenic without wage
+		// 8.89 + 2.9% = 9.14 $ from online nic
+		// 9.14 + 4% profit = 9.5 $
+		//
 	}
 
 	private static function wage()
