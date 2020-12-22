@@ -13,8 +13,8 @@ if($postList && is_array($postList))
 {
 ?>
   <section class="avand-lg puzzle imgLine" data-theme='simple' data-mode='news'>
-    <div class="row padMore2">
 <?php echo \lib\app\website\generator\title::html($line_detail, a($post_detail, 'line_link')); ?>
+    <div class="row padMore2">
       <div class="row">
         <?php foreach ($postList as $key => $value) {?>
           <div <?php echo \lib\app\website\puzzle::layout($key, $line_detail); ?>>

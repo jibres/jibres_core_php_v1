@@ -5,42 +5,43 @@ class title
 {
 	public static function html($_line_detail, $_link = null)
 	{
-		$html              = null;
+		if(a($_line_detail, 'value', 'show_title') === 'no')
+		{
+			return '';
+		}
+
+		$html              = '';
 		$title             = a($_line_detail, 'value', 'title');
 		$more_link         = a($_line_detail, 'value', 'more_link');
 		$more_link_caption = a($_line_detail, 'value', 'more_link_caption');
-		$show_title = a($_line_detail, 'value', 'show_title');
+
 
 		if($more_link === 'hide' || !$_link)
 		{
-			if($show_title === 'no')
+			$html = '<div class="eTitle">';
 			{
-				// don't show title
+				$html = '<h2 class="title">'. $title. '</h2>';
 			}
-			else
-			{
-				$html  = '<h2>';
-				$html .= $title;
-				$html .= '</h2>';
-			}
+			$html = '</div>';
 		}
 		else
 		{
 			$more_link_caption = $more_link_caption ? $more_link_caption : T_("Show more");
 
-			$html .= "<div class='row'>";
-			$html .="<div class='c-xs c-sm'>";
-
-			if($show_title === 'no')
+			$html .= "<div class='eTitle row'>";
 			{
-				// don't show title
+				$html .= "<div class='c'>";
+				{
+					$html .= '<h2 class="title">'. $title .'</h2>';
+				}
+				$html .= "</div>";
+				$html .= "<div class='c-auto os'>";
+				{
+					$html .= "<a class='more' href='" . $_link . "'>". $more_link_caption . "</a>";
+				}
+				$html .= "</div>";
 			}
-			else
-			{
-				$html .= "<h2>". $title ."</h2>";
-			}
-
-			$html .= "</div><div class='c-xs-auto c-sm-auto'><a class='btn link' href='" . $_link . "'>". $more_link_caption . "</a></div></div>";
+			$html .= "</div>";
 		}
 
 		return $html;
