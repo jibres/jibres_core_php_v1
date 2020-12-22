@@ -10,6 +10,7 @@ class check
 		[
 			'language'        => 'language',
 			'cover'           => 'string_500', // path
+			'thumb'           => 'string_500', // path
 			'title'           => 'string_100',
 			'seotitle'        => 'seotitle',
 			'excerpt'         => 'string_300',
@@ -361,7 +362,7 @@ class check
 		unset($data['publishtime']);
 		unset($data['creator']);
 		unset($data['icon']);
-		unset($data['thumb']);
+
 
 		return $data;
 

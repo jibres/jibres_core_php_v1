@@ -147,6 +147,33 @@ $isPost = ($type === 'post');
 </section>
 <?php } // endif ?>
 
+<section class="f" data-option='cms-post-thumb'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Post thumb")?></h3>
+      <div class="body">
+        <p><?php echo T_("Setting up a post thumb helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a thumb") ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" >
+    <div class="action" data-uploader data-name='thumb' data-ratio="1" data-ratio-free data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
+      <input type="hidden" name="runaction_setthumb" value="1">
+
+      <input type="file" accept="image/jpeg, image/png" id="image1">
+      <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?></label>
+    </div>
+  </form>
+
+  <?php if(\dash\data::dataRow_thumb()) {?>
+    <footer class="txtRa">
+     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove post thumb") ?></div>
+    </footer>
+  <?php } //endif ?>
+</section>
+
+
 <section class="f" data-option='cms-post-cover'>
   <div class="c8 s12">
     <div class="data">

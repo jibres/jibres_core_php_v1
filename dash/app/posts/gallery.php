@@ -181,24 +181,24 @@ class gallery
 				}
 			}
 
-			$new_gallery_field = [];
-			foreach ($post_gallery_field['files'] as $key => $value)
-			{
-				if(isset($value['id']) && $value['id'] == $post_gallery_field['thumbid'])
-				{
-					$new_gallery_field[] = $value;
-				}
-			}
+			// $new_gallery_field = [];
+			// foreach ($post_gallery_field['files'] as $key => $value)
+			// {
+			// 	if(isset($value['id']) && $value['id'] == $post_gallery_field['thumbid'])
+			// 	{
+			// 		$new_gallery_field[] = $value;
+			// 	}
+			// }
 
-			foreach ($post_gallery_field['files'] as $key => $value)
-			{
-				if(isset($value['id']) && $value['id'] != $post_gallery_field['thumbid'])
-				{
-					$new_gallery_field[] = $value;
-				}
-			}
+			// foreach ($post_gallery_field['files'] as $key => $value)
+			// {
+			// 	if(isset($value['id']) && $value['id'] != $post_gallery_field['thumbid'])
+			// 	{
+			// 		$new_gallery_field[] = $value;
+			// 	}
+			// }
 
-			$post_gallery_field['files'] = $new_gallery_field;
+			// $post_gallery_field['files'] = $new_gallery_field;
 			$post_gallery_field          = json_encode($post_gallery_field, JSON_UNESCAPED_UNICODE);
 
 			\dash\db\posts\update::gallery($post_gallery_field, $post_id);
@@ -323,39 +323,39 @@ class gallery
 					\dash\upload\cms::remove_post_gallery($post_id, $remove_file_id);
 				}
 
-				if(isset($post_detail['thumb']) && isset($post_gallery_field['thumbid']) && floatval($post_gallery_field['thumbid']) === floatval($fileid))
-				{
-					$post_detail['thumb'] = null;
-				}
+				// if(isset($post_detail['thumb']) && isset($post_gallery_field['thumbid']) && floatval($post_gallery_field['thumbid']) === floatval($fileid))
+				// {
+				// 	$post_detail['thumb'] = null;
+				// }
 
-				$next_image = null;
-				foreach ($post_gallery_field['files'] as $key => $value)
-				{
-					$ext = substr(strrchr($value['path'], '.'), 1);
-					$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
-					if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
-					{
-						$next_image = $value;
-						break;
-					}
+				// $next_image = null;
+				// foreach ($post_gallery_field['files'] as $key => $value)
+				// {
+				// 	$ext = substr(strrchr($value['path'], '.'), 1);
+				// 	$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+				// 	if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+				// 	{
+				// 		$next_image = $value;
+				// 		break;
+				// 	}
 
-					if($next_image)
-					{
-						break;
-					}
-				}
+				// 	if($next_image)
+				// 	{
+				// 		break;
+				// 	}
+				// }
 
-				if((!isset($post_detail['thumb']) || (array_key_exists('thumb', $post_detail) && !$post_detail['thumb'])) && $next_image && isset($next_image['id']) && isset($next_image['path']))
-				{
-					\dash\db\posts\update::thumb($next_image['path'], $post_id);
-					$post_gallery_field['thumbid'] = $next_image['id'];
-				}
+				// if((!isset($post_detail['thumb']) || (array_key_exists('thumb', $post_detail) && !$post_detail['thumb'])) && $next_image && isset($next_image['id']) && isset($next_image['path']))
+				// {
+				// 	\dash\db\posts\update::thumb($next_image['path'], $post_id);
+				// 	$post_gallery_field['thumbid'] = $next_image['id'];
+				// }
 
-				if(!$next_image)
-				{
-					$post_gallery_field['thumbid'] = null;
-					\dash\db\posts\update::thumb(null, $post_id);
-				}
+				// if(!$next_image)
+				// {
+				// 	$post_gallery_field['thumbid'] = null;
+				// 	\dash\db\posts\update::thumb(null, $post_id);
+				// }
 
 			}
 
@@ -458,24 +458,24 @@ class gallery
 		$save_gallery = [];
 
 
-		if(isset($new_gallery[0]['id']) && isset($new_gallery[0]['path']))
-		{
-			$ext = substr(strrchr($new_gallery[0]['path'], '.'), 1);
-			$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
-			if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
-			{
-				\dash\db\posts\update::thumb($new_gallery[0]['path'], $id);
-				$save_gallery['thumbid'] = $new_gallery[0]['id'];
-			}
-			else
-			{
-				$save_gallery['thumbid'] = $current_thumb_id;
-			}
-		}
-		else
-		{
-			$save_gallery['thumbid'] = $current_thumb_id;
-		}
+		// if(isset($new_gallery[0]['id']) && isset($new_gallery[0]['path']))
+		// {
+		// 	$ext = substr(strrchr($new_gallery[0]['path'], '.'), 1);
+		// 	$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+		// 	if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+		// 	{
+		// 		\dash\db\posts\update::thumb($new_gallery[0]['path'], $id);
+		// 		$save_gallery['thumbid'] = $new_gallery[0]['id'];
+		// 	}
+		// 	else
+		// 	{
+		// 		$save_gallery['thumbid'] = $current_thumb_id;
+		// 	}
+		// }
+		// else
+		// {
+		// 	$save_gallery['thumbid'] = $current_thumb_id;
+		// }
 
 		$save_gallery['files'] = $new_gallery;
 

@@ -113,10 +113,7 @@ switch (\dash\data::dataRow_status())
                     </video>
                   <?php } else { ?>
                   <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
-                    <?php if($key === 0) {?>
-                    <?php }else{ ?>
                       <div class='setFeatureImg' data-ajaxify data-refresh data-data='{"fileaction": "setthumb", "fileid" : "<?php echo a($value, 'id'); ?>"}'><?php echo T_("Set as cover"); ?></div>
-                    <?php }// endid ?>
                   <?php } ?>
                   <div>
                     <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
