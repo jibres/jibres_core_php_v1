@@ -128,88 +128,88 @@ class gallery
 	}
 
 
-	public static function setthumb($_post_id, $_file_id)
-	{
-		$file_id = \dash\validate::code($_file_id);
-		$file_id = \dash\coding::decode($file_id);
+	// public static function setthumb($_post_id, $_file_id)
+	// {
+	// 	$file_id = \dash\validate::code($_file_id);
+	// 	$file_id = \dash\coding::decode($file_id);
 
-		if(!$file_id)
-		{
-			\dash\notif::error(T_("Invalid file id"));
-			return false;
-		}
+	// 	if(!$file_id)
+	// 	{
+	// 		\dash\notif::error(T_("Invalid file id"));
+	// 		return false;
+	// 	}
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
+	// 	if(!\lib\store::in_store())
+	// 	{
+	// 		\dash\notif::error(T_("Your are not in this store!"));
+	// 		return false;
+	// 	}
 
-		$load_gallery = self::get_gallery_field($_post_id);
-		if(!$load_gallery)
-		{
-			return false;
-		}
+	// 	$load_gallery = self::get_gallery_field($_post_id);
+	// 	if(!$load_gallery)
+	// 	{
+	// 		return false;
+	// 	}
 
-		$post_gallery_field    = $load_gallery['gallery'];
-		$post_id = \dash\coding::decode($_post_id);
+	// 	$post_gallery_field    = $load_gallery['gallery'];
+	// 	$post_id = \dash\coding::decode($_post_id);
 
-		if(isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))
-		{
-			$thumb_path = null;
+	// 	if(isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))
+	// 	{
+	// 		$thumb_path = null;
 
-			foreach ($post_gallery_field['files'] as $key => $one_file)
-			{
-				if(isset($one_file['id']) && floatval($one_file['id']) === floatval($file_id) && isset($one_file['path']))
-				{
-					$post_gallery_field['thumbid'] = $one_file['id'];
-					$thumb_path                       = $one_file['path'];
+	// 		foreach ($post_gallery_field['files'] as $key => $one_file)
+	// 		{
+	// 			if(isset($one_file['id']) && floatval($one_file['id']) === floatval($file_id) && isset($one_file['path']))
+	// 			{
+	// 				$post_gallery_field['thumbid'] = $one_file['id'];
+	// 				$thumb_path                       = $one_file['path'];
 
-					$ext = substr(strrchr($thumb_path, '.'), 1);
+	// 				$ext = substr(strrchr($thumb_path, '.'), 1);
 
-					$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
-					if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
-					{
-						// ok
-					}
-					else
-					{
-						\dash\notif::error(T_("Only image file can be set on post thumb"));
-						return false;
-					}
+	// 				$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+	// 				if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+	// 				{
+	// 					// ok
+	// 				}
+	// 				else
+	// 				{
+	// 					\dash\notif::error(T_("Only image file can be set on post thumb"));
+	// 					return false;
+	// 				}
 
-				}
-			}
+	// 			}
+	// 		}
 
-			// $new_gallery_field = [];
-			// foreach ($post_gallery_field['files'] as $key => $value)
-			// {
-			// 	if(isset($value['id']) && $value['id'] == $post_gallery_field['thumbid'])
-			// 	{
-			// 		$new_gallery_field[] = $value;
-			// 	}
-			// }
+	// 		// $new_gallery_field = [];
+	// 		// foreach ($post_gallery_field['files'] as $key => $value)
+	// 		// {
+	// 		// 	if(isset($value['id']) && $value['id'] == $post_gallery_field['thumbid'])
+	// 		// 	{
+	// 		// 		$new_gallery_field[] = $value;
+	// 		// 	}
+	// 		// }
 
-			// foreach ($post_gallery_field['files'] as $key => $value)
-			// {
-			// 	if(isset($value['id']) && $value['id'] != $post_gallery_field['thumbid'])
-			// 	{
-			// 		$new_gallery_field[] = $value;
-			// 	}
-			// }
+	// 		// foreach ($post_gallery_field['files'] as $key => $value)
+	// 		// {
+	// 		// 	if(isset($value['id']) && $value['id'] != $post_gallery_field['thumbid'])
+	// 		// 	{
+	// 		// 		$new_gallery_field[] = $value;
+	// 		// 	}
+	// 		// }
 
-			// $post_gallery_field['files'] = $new_gallery_field;
-			$post_gallery_field          = json_encode($post_gallery_field, JSON_UNESCAPED_UNICODE);
+	// 		// $post_gallery_field['files'] = $new_gallery_field;
+	// 		$post_gallery_field          = json_encode($post_gallery_field, JSON_UNESCAPED_UNICODE);
 
-			\dash\db\posts\update::gallery($post_gallery_field, $post_id);
-			\dash\db\posts\update::thumb($thumb_path, $post_id);
+	// 		\dash\db\posts\update::gallery($post_gallery_field, $post_id);
+	// 		\dash\db\posts\update::thumb($thumb_path, $post_id);
 
-			return true;
-		}
+	// 		return true;
+	// 	}
 
-		\dash\notif::error(T_("Invalid gallery id"));
-		return false;
-	}
+	// 	\dash\notif::error(T_("Invalid gallery id"));
+	// 	return false;
+	// }
 
 
 	public static function gallery($_post_id, $_file_detail, $_type = 'add')
@@ -264,17 +264,17 @@ class gallery
 				$post_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
 			}
 
-			if(!isset($post_detail['thumb']) || (array_key_exists('thumb', $post_detail) && !$post_detail['thumb']))
-			{
-				$ext = substr(strrchr($file_path, '.'), 1);
-				$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
-				if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
-				{
-					\dash\db\posts\update::thumb($file_path, $post_id);
-					$post_gallery_field['thumbid'] = $fileid;
-					// ok
-				}
-			}
+			// if(!isset($post_detail['thumb']) || (array_key_exists('thumb', $post_detail) && !$post_detail['thumb']))
+			// {
+			// 	$ext = substr(strrchr($file_path, '.'), 1);
+			// 	$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+			// 	if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
+			// 	{
+			// 		\dash\db\posts\update::thumb($file_path, $post_id);
+			// 		$post_gallery_field['thumbid'] = $fileid;
+			// 		// ok
+			// 	}
+			// }
 
 			// check max gallery image
 			if(isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))

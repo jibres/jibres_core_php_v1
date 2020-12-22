@@ -26,14 +26,6 @@ class model
 		}
 
 
-
-		if(\dash\request::post('fileaction') === 'setthumb')
-		{
-			self::setthumb($id);
-			return false;
-		}
-
-
 		$post =
 		[
 
@@ -65,19 +57,6 @@ class model
 		\dash\app\posts\gallery::gallery($_id, $fileid, 'remove');
 		\dash\notif::ok(T_("File removed"));
 		// \dash\redirect::pwd();
-	}
-
-
-	public static function setthumb($_id)
-	{
-		$fileid = \dash\request::post('fileid');
-		\dash\app\posts\gallery::setthumb($_id, $fileid);
-		if(\dash\engine\process::status())
-		{
-			\dash\notif::ok(T_("Product thumb set"));
-			\dash\redirect::pwd();
-		}
-
 	}
 
 
