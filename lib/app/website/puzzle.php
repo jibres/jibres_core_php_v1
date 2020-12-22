@@ -97,7 +97,6 @@ class puzzle
 			$limit = 5;
 		}
 
-		$fc = null;
 		$puzzle_list = self::list($limit);
 		$default_puzzle = null;
 
@@ -137,164 +136,165 @@ class puzzle
 		}
 
 
+		$class = null;
 
 		switch ($puzzle)
 		{
 			case '1':
-				$fc = 'c-xs-12 c-sm-12';
+				$class = 'c-xs-12 c-sm-12';
 				break;
 
 			case '2':
-				$fc = 'c-xs-12 c-sm-6';
+				$class = 'c-xs-12 c-sm-6';
 				break;
 
 			case '3':
-				$fc = 'c-xs-12 c-sm-4';
+				$class = 'c-xs-12 c-sm-4';
 				break;
 
 			case '4':
-				$fc = 'c-xs-12 c-sm-3';
+				$class = 'c-xs-12 c-sm-3';
 				break;
 
 			case '1+2':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-12'; break;
-					case 2:	$fc = 'c-xs-12 c-sm-6';	break;
+					case 1: $class = 'c-xs-12 c-sm-12'; break;
+					case 2:	$class = 'c-xs-12 c-sm-6';	break;
 				}
 				break;
 
 			case '2+2':
-				$fc = 'c-xs-12 c-sm-6';
+				$class = 'c-xs-12 c-sm-6';
 				break;
 
 			case '1+3':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-12'; break;
-					case 2:	$fc = 'c-xs-12 c-sm-4';	break;
+					case 1: $class = 'c-xs-12 c-sm-12'; break;
+					case 2:	$class = 'c-xs-12 c-sm-4';	break;
 				}
 				break;
 
 			case '2+3':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-6';	break;
-					case 2: $fc = 'c-xs-12 c-sm-4';	break;
+					case 1: $class = 'c-xs-12 c-sm-6';	break;
+					case 2: $class = 'c-xs-12 c-sm-4';	break;
 				}
 				break;
 
 			case '1+4':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-12'; break;
-					case 2: $fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-12'; break;
+					case 2: $class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '3+3':
-				$fc = 'c-xs-12 c-sm-4';
+				$class = 'c-xs-12 c-sm-4';
 				break;
 
 			case '2+2+2':
-				$fc = 'c-xs-12 c-sm-6';
+				$class = 'c-xs-12 c-sm-6';
 				break;
 
 			case '2+4':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-6';	break;
-					case 2:	$fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-6';	break;
+					case 2:	$class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '1+3+3':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-12'; break;
-					case 2:	$fc = 'c-xs-12 c-sm-4';  break;
-					case 3: $fc = 'c-xs-12 c-sm-4';  break;
+					case 1: $class = 'c-xs-12 c-sm-12'; break;
+					case 2:	$class = 'c-xs-12 c-sm-4';  break;
+					case 3: $class = 'c-xs-12 c-sm-4';  break;
 				}
 				break;
 
 			case '2+2+3':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-6';	break;
-					case 2:	$fc = 'c-xs-12 c-sm-6';	break;
-					case 3:	$fc = 'c-xs-12 c-sm-4';	break;
+					case 1:	$class = 'c-xs-12 c-sm-6';	break;
+					case 2:	$class = 'c-xs-12 c-sm-6';	break;
+					case 3:	$class = 'c-xs-12 c-sm-4';	break;
 				}
 				break;
 
 			case '1+2+4':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-12'; break;
-					case 2: $fc = 'c-xs-12 c-sm-6';	break;
-					case 3:	$fc = 'c-xs-12 c-sm-3';	break;
+					case 1: $class = 'c-xs-12 c-sm-12'; break;
+					case 2: $class = 'c-xs-12 c-sm-6';	break;
+					case 3:	$class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '3+4':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-4';	break;
-					case 2:	$fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-4';	break;
+					case 2:	$class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '4+4':
-				$fc = 'c-xs-12 c-sm-3';
+				$class = 'c-xs-12 c-sm-3';
 				break;
 
 			case '1+3+4':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-12'; break;
-					case 2: $fc = 'c-xs-12 c-sm-4';	break;
-					case 3:	$fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-12'; break;
+					case 2: $class = 'c-xs-12 c-sm-4';	break;
+					case 3:	$class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '2+2+4':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-6';	break;
-					case 2:	$fc = 'c-xs-12 c-sm-6';	break;
-					case 3:	$fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-6';	break;
+					case 2:	$class = 'c-xs-12 c-sm-6';	break;
+					case 3:	$class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '2+3+3':
 				switch ($level)
 				{
-					case 1: $fc = 'c-xs-12 c-sm-6';	break;
-					case 2:	$fc = 'c-xs-12 c-sm-4';	break;
-					case 3:	$fc = 'c-xs-12 c-sm-4';	break;
+					case 1: $class = 'c-xs-12 c-sm-6';	break;
+					case 2:	$class = 'c-xs-12 c-sm-4';	break;
+					case 3:	$class = 'c-xs-12 c-sm-4';	break;
 				}
 				break;
 
 			case '3+3+3':
-				$fc = 'c-xs-12 c-sm-4';
+				$class = 'c-xs-12 c-sm-4';
 				break;
 
 			case '2+3+4':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-6';	break;
-					case 2: $fc = 'c-xs-12 c-sm-4';	break;
-					case 3: $fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-6';	break;
+					case 2: $class = 'c-xs-12 c-sm-4';	break;
+					case 3: $class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			case '1+3+3+3':
 				switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-12';break;
+					case 1:	$class = 'c-xs-12 c-sm-12';break;
 					case 2:
 					case 3:
 					case 4:
-						$fc = 'c-xs-12 c-sm-4';
+						$class = 'c-xs-12 c-sm-4';
 						break;
 				}
 				break;
@@ -302,23 +302,23 @@ class puzzle
 			case '2+4+4':
 			switch ($level)
 				{
-					case 1:	$fc = 'c-xs-12 c-sm-6';break;
-					case 2: $fc = 'c-xs-12 c-sm-3'; break;
-					case 3: $fc = 'c-xs-12 c-sm-3';	break;
+					case 1:	$class = 'c-xs-12 c-sm-6';break;
+					case 2: $class = 'c-xs-12 c-sm-3'; break;
+					case 3: $class = 'c-xs-12 c-sm-3';	break;
 				}
 				break;
 
 			default:
-				$fc = 'c-xs-12 c-sm-12';
+				$class = 'c-xs-12 c-sm-12';
 				break;
 		}
 
-		if($fc)
-		{
-			return 'class="'. $fc. '" ';
-		}
+		$result =
+		[
+			'class' => $class
+		];
 
-
+		return $result;
 	}
 }
 ?>
