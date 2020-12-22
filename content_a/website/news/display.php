@@ -17,7 +17,7 @@
   </div>
 </section>
 
-<?php require_once(root. 'content_a/website/display-item-title.php') ?>
+<?php require_once(root. 'content_a/website/display-item-design.php') ?>
 <?php require_once(root. 'content_a/website/display-limit.php') ?>
 
 

@@ -112,7 +112,7 @@ class news
 			'title'             => 'string_200',
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'item_title'        => ['enum' => ['none', 'on_image', 'below_image', 'beside_image', 'beside_image_description',]],
+			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_below_image','titel_beside_image','title_beside_image_description','blog']],
 			'cat_id'            => 'code',
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
@@ -190,13 +190,13 @@ class news
 		}
 
 
-		if(array_key_exists('item_title', $_args))
+		if(array_key_exists('design', $_args))
 		{
-			$result['item_title'] = $data['item_title'];
+			$result['design'] = $data['design'];
 		}
 		else
 		{
-			$result['item_title'] = a($_current_data, 'item_title');
+			$result['design'] = a($_current_data, 'design');
 		}
 
 
