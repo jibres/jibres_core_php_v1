@@ -26,8 +26,6 @@ class title
 		}
 		else
 		{
-			$more_link_caption = $more_link_caption ? $more_link_caption : T_("Show more");
-
 			$html .= "<div class='eTitle row'>";
 			{
 				$html .= "<div class='c'>";
