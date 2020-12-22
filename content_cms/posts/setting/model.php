@@ -21,23 +21,6 @@ class model
 
 
 
-		if(\dash\request::post('remove_thumb') === 'remove_thumb')
-		{
-			$post['thumb'] = null;
-		}
-
-		if(\dash\request::post('runaction_setthumb'))
-		{
-			$file_thumb = \dash\upload\cms::set_post_thumb(\dash\coding::decode(\dash\request::get('id')));
-			if(!$file_thumb)
-			{
-				\dash\notif::error(T_("Please upload a photo"));
-				return false;
-			}
-			$post['thumb'] = $file_thumb;
-		}
-
-
 
 
 		if(\dash\request::post('remove_cover') === 'remove_cover')

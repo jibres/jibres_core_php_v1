@@ -25,17 +25,36 @@ class model
 			return false;
 		}
 
+		$post = [];
 
-		$post =
-		[
 
-			'subtitle'    => \dash\request::post('subtitle'),
-			'title'       => \dash\request::post('title'),
-			'content'     => \dash\request::post_raw('content'),
-			'tag'         => \dash\request::post('tag'),
-			'cat'         => \dash\request::post('cat'),
+		if(\dash\request::post('runaction_setthumb'))
+		{
+			$file_thumb = \dash\upload\cms::set_post_thumb(\dash\coding::decode(\dash\request::get('id')));
+			if(!$file_thumb)
+			{
+				\dash\notif::error(T_("Please upload a photo"));
+				return false;
+			}
+			$post['thumb'] = $file_thumb;
+		}
+		elseif(\dash\request::post('remove_thumb') === 'remove_thumb')
+		{
+			$post['thumb'] = null;
+		}
+		else
+		{
+			$post =
+			[
+				'subtitle'    => \dash\request::post('subtitle'),
+				'title'       => \dash\request::post('title'),
+				'content'     => \dash\request::post_raw('content'),
+				'tag'         => \dash\request::post('tag'),
+				'cat'         => \dash\request::post('cat'),
+			];
 
-		];
+		}
+
 
 		if(!$post || !\dash\engine\process::status())
 		{

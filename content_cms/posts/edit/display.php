@@ -83,6 +83,71 @@ switch (\dash\data::dataRow_status())
     </div>
   </div>
 
+
+      <?php if($isPost || $isHelp) {?>
+
+      <div class="box">
+        <div class="pad">
+          <?php if($isPost) {?>
+          <div class="mB10">
+            <div class="row align-center">
+              <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
+              <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+            </div>
+            <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
+              <?php foreach (\dash\data::listCategory() as $key => $value) {?>
+                <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['id'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
+              <?php } //endfor ?>
+            </select>
+          </div>
+        <?php } //endif ?>
+          <div>
+            <div class="row align-center">
+              <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
+              <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+            </div>
+            <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
+              <?php foreach (\dash\data::allTagList() as $key => $value) {?>
+                <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::tagsSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
+              <?php } //endfor ?>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    <?php } //endif ?>
+
+
+
+  </form>
+
+
+<section class="f" data-option='cms-post-thumb'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Post thumb")?></h3>
+      <div class="body">
+        <p><?php echo T_("Setting up a post thumb helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a thumb") ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" >
+    <div class="action" data-uploader data-name='thumb' data-ratio="1" data-ratio-free data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
+      <input type="hidden" name="runaction_setthumb" value="1">
+
+      <input type="file" accept="image/jpeg, image/png" id="image1thumb">
+      <label for="image1thumb"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?></label>
+    </div>
+  </form>
+
+  <?php if(\dash\data::dataRow_thumb()) {?>
+    <footer class="txtRa">
+     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove post thumb") ?></div>
+    </footer>
+  <?php } //endif ?>
+</section>
+
 <?php
   $gallery = \dash\data::dataRow_gallery_array();
   if(!is_array($gallery))
@@ -90,6 +155,7 @@ switch (\dash\data::dataRow_status())
     $gallery = [];
   }
 ?>
+<form method="post" autocomplete="off">
     <div class="box">
       <div class="pad1">
         <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
@@ -125,6 +191,7 @@ switch (\dash\data::dataRow_status())
         <?php } //endif ?>
       </div>
     </div>
+  </form>
 
 
       <div class="box">
@@ -150,36 +217,4 @@ switch (\dash\data::dataRow_status())
         </footer>
       </div>
 
-
-      <?php if($isPost || $isHelp) {?>
-      <div class="box">
-        <div class="pad">
-          <?php if($isPost) {?>
-          <div class="mB10">
-            <div class="row align-center">
-              <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
-              <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-            </div>
-            <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
-              <?php foreach (\dash\data::listCategory() as $key => $value) {?>
-                <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['id'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
-              <?php } //endfor ?>
-            </select>
-          </div>
-        <?php } //endif ?>
-          <div>
-            <div class="row align-center">
-              <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-              <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-            </div>
-            <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
-              <?php foreach (\dash\data::allTagList() as $key => $value) {?>
-                <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::tagsSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
-              <?php } //endfor ?>
-            </select>
-          </div>
-        </div>
-      </div>
-    <?php } //endif ?>
-</form>
 
