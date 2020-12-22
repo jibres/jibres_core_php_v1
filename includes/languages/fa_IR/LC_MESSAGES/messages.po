@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-22 12:41+0330\n"
-"PO-Revision-Date: 2020-12-22 12:47+0330\n"
+"POT-Creation-Date: 2020-12-22 19:23+0330\n"
+"PO-Revision-Date: 2020-12-22 19:27+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -593,7 +593,7 @@ msgstr ""
 "مشکلات بحرانی هستند، اگرچه ممکن است هم‌چنان دسترسی گسترده‌ای را در اختیار مهاجمان قرار "
 "دهند."
 
-#: content/bug/display.php:64
+#: content/bug/display.php:64 content_a/website/display-avand.php:15
 msgid "Medium"
 msgstr "متوسط"
 
@@ -4720,7 +4720,7 @@ msgstr "ویرایش"
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:37
 #: content_a/website/menu/edit/display.php:59 content_a/website/menu/edit/display.php:113
-#: content_a/website/news/display.php:55 content_a/website/productline/display.php:48
+#: content_a/website/news/display.php:36 content_a/website/productline/display.php:48
 #: content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
 #: content_a/website/specialslider/add/display.php:43
@@ -4791,7 +4791,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_a/accounting/coding/display-list.php:12
 #: content_a/form/analytics/chart/view.php:20
 #: content_a/form/analytics/filter/display.php:26
-#: content_a/products/comment/display.php:189 content_a/website/display-player.php:7
+#: content_a/products/comment/display.php:189 content_a/website/news/filter/display.php:41
 #: content_crm/member/home/display-old.php:731 content_love/domain/log/display.php:4
 #: content_love/domain/log/display.php:22 content_love/domain/onlineniclog/display.php:4
 #: content_love/domain/onlineniclog/display.php:22
@@ -5149,8 +5149,8 @@ msgstr "ظرفیت گالری تکمیل است!"
 #: content_a/form/setting/display.php:22 content_a/order/comment/display.php:39
 #: content_a/products/edit/block/gallery.php:15 content_a/setup/logo/display.php:14
 #: content_a/website/header/box/header_logo.php:25
-#: content_cms/attachment/add/display.php:8 content_cms/posts/edit/display.php:100
-#: content_cms/posts/setting/display.php:164
+#: content_cms/attachment/add/display.php:8 content_cms/posts/edit/display.php:139
+#: content_cms/posts/edit/display.php:166 content_cms/posts/setting/display.php:165
 #: content_crm/member/identification/display.php:106
 #: content_crm/member/identification/display.php:118 content_support/ticket/addForm.php:36
 msgid "Drag &amp; Drop your files or Browse"
@@ -5160,7 +5160,7 @@ msgstr "فایل خود را بکشید و اینجا رها کنید یا ان�
 #: content_a/accounting/irvat/add/display.php:422
 #: content_a/products/edit/block/gallery.php:19
 #: content_a/website/header/box/header_logo.php:17
-#: content_cms/attachment/add/display.php:7 content_cms/posts/edit/display.php:104
+#: content_cms/attachment/add/display.php:7 content_cms/posts/edit/display.php:170
 #: content_support/ticket/addForm.php:32
 msgid "Maximum file size"
 msgstr "حداکثر اندازه فایل"
@@ -5211,13 +5211,13 @@ msgstr "ساخت یک نسخه کپی از سند حسابداری"
 #: content_a/accounting/doc/edit/model.php:147
 #: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:264
 #: content_cms/attachment/add/model.php:32 content_cms/attachment/view/model.php:32
-#: content_cms/posts/edit/model.php:113
+#: content_cms/posts/edit/model.php:111
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
 #: content_a/accounting/doc/edit/model.php:166
 #: content_a/accounting/irvat/edit/model.php:95 content_a/products/edit/model.php:280
-#: content_cms/posts/edit/model.php:66 dash/utility/sitemap.php:65
+#: content_cms/posts/edit/model.php:77 dash/utility/sitemap.php:65
 #: lib/app/staticfile/remove.php:37
 msgid "File removed"
 msgstr "فایل حذف شد"
@@ -6000,8 +6000,8 @@ msgstr "تنظیم به عنوان سال مالی جاری"
 #: content_a/products/home/filter.php:87 content_a/products/home/filter.php:105
 #: content_a/products/home/filter.php:122 content_a/products/organization/display.php:46
 #: content_a/products/organization/display.php:62
-#: content_a/setting/product/tag/display.php:12 content_cms/posts/edit/display.php:165
-#: content_cms/posts/edit/display.php:177 content_love/domain/detail/display.php:72
+#: content_a/setting/product/tag/display.php:12 content_cms/posts/edit/display.php:95
+#: content_cms/posts/edit/display.php:107 content_love/domain/detail/display.php:72
 #: content_love/domain/setting/display.php:47 content_my/domain/setting/display.php:45
 msgid "Manage"
 msgstr "مدیریت"
@@ -6894,7 +6894,7 @@ msgid "Customize for SEO"
 msgstr "بهینه‌سازی برای موتورهای جستجو"
 
 #: content_a/category/edit/display.php:32 content_a/products/edit/block/seo.php:14
-#: content_cms/posts/edit/display.php:146 content_cms/posts/seo/display.php:25
+#: content_cms/posts/edit/display.php:209 content_cms/posts/seo/display.php:25
 msgid "Google"
 msgstr "گوگل"
 
@@ -7153,8 +7153,9 @@ msgstr "لطفا یک دسته را انتخاب کنید"
 #: content_a/products/home/filter.php:74 content_a/products/home/filter.php:92
 #: content_a/products/home/filter.php:109 content_a/products/home/filter.php:126
 #: content_a/products/home/filter.php:141 content_a/tag/remove/display.php:37
-#: content_a/website/display-player.php:5 content_a/website/news/filter/display.php:9
-#: content_a/website/news/filter/display.php:19 content_cms/category/remove/display.php:37
+#: content_a/website/display-avand.php:19 content_a/website/news/filter/display.php:8
+#: content_a/website/news/filter/display.php:18
+#: content_a/website/news/filter/display.php:39 content_cms/category/remove/display.php:37
 #: content_cms/tag/remove/display.php:37 content_crm/member/home/display-old.php:385
 #: content_crm/member/home/display-old.php:411 content_crm/member/home/display-old.php:431
 #: content_crm/member/home/display-old.php:457 content_crm/member/home/display-old.php:483
@@ -7639,7 +7640,7 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/answer/display.php:54 content_a/form/analytics/pageStep.php:49
 #: content_a/form/analytics/tag/display.php:29 content_a/form/answer/detail/display.php:77
 #: content_a/products/edit/display-master.php:63 content_a/products/home/filter.php:86
-#: content_a/setting/product/tag/display.php:11 content_cms/posts/edit/display.php:176
+#: content_a/setting/product/tag/display.php:11 content_cms/posts/edit/display.php:106
 #: content_support/ticket/show/display.php:232 includes/languages/trans_static.php:546
 #: lib/app/product/filter.php:315 lib/app/product/filter.php:325
 #: lib/app/product/property.php:334 lib/app/product/search.php:130
@@ -8147,8 +8148,7 @@ msgstr "نوع پیام"
 
 #: content_a/form/item/display.php:303 content_a/setting/cart/text/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:18
-#: content_a/website/news/display.php:36 content_love/domain/irnic/display.php:58
-#: content_my/domain/irnic/display.php:58
+#: content_love/domain/irnic/display.php:58 content_my/domain/irnic/display.php:58
 msgid "Default"
 msgstr "پیش‌فرض"
 
@@ -9399,7 +9399,7 @@ msgstr "حذف شده"
 #: content_a/products/comment/edit/view.php:13 content_a/setting/fund/controller.php:14
 #: content_cms/posts/edit/controller.php:14 content_my/domain/irnic/edit/controller.php:23
 #: content_support/message/edit/view.php:26 content_support/ticket/show/model.php:13
-#: content_support/ticket/show/view.php:44 dash/app/posts/check.php:71
+#: content_support/ticket/show/view.php:44 dash/app/posts/check.php:72
 #: lib/app/business_domain/dns.php:151 lib/app/business_domain/dns.php:159
 #: lib/app/business_domain/dns.php:213 lib/app/business_domain/dns.php:221
 #: lib/app/business_domain/dns.php:386 lib/app/business_domain/dns.php:394
@@ -9561,15 +9561,15 @@ msgstr "ایران بارکد را اسکن کنید..."
 msgid "Code on scale"
 msgstr "کد تعریف شده روی ترازو"
 
-#: content_a/products/edit/block/gallery.php:11 content_cms/posts/edit/display.php:96
+#: content_a/products/edit/block/gallery.php:11 content_cms/posts/edit/display.php:162
 msgid "Product gallery is full!"
 msgstr "ظرفیت گالری محصول تکمیل است!"
 
-#: content_a/products/edit/block/gallery.php:17 content_cms/posts/edit/display.php:102
+#: content_a/products/edit/block/gallery.php:17 content_cms/posts/edit/display.php:168
 msgid "Sort images"
 msgstr "مرتب‌سازی تصاویر"
 
-#: content_a/products/edit/block/gallery.php:33 content_cms/posts/edit/display.php:118
+#: content_a/products/edit/block/gallery.php:33
 msgid "Set as cover"
 msgstr "تنظیم به عنوان تصویر شاخص"
 
@@ -9660,7 +9660,7 @@ msgstr "توضیحاتی در مورد این محصول"
 
 #: content_a/products/edit/display-master.php:52 content_a/products/home/filter.php:67
 #: content_business/collection/view.php:9 content_cms/home/display.php:27
-#: content_cms/posts/edit/display.php:164 content_support/faq/display.php:12
+#: content_cms/posts/edit/display.php:94 content_support/faq/display.php:12
 #: content_support/tag/display.php:12 content_support/tag/view.php:10
 #: dash/layout/pwa/pwa_menu.php:248 lib/app/product/property.php:247
 #: lib/app/product/search.php:122
@@ -9668,7 +9668,6 @@ msgid "Category"
 msgstr "دسته بندی"
 
 #: content_a/products/edit/model.php:291 content_b1/product/gallery/thumb/model.php:26
-#: content_cms/posts/edit/model.php:77
 msgid "Product thumb set"
 msgstr "تصویر شاخص محصول تنظیم شد"
 
@@ -12607,33 +12606,65 @@ msgstr "محتوای وب‌سایت"
 msgid "Add line"
 msgstr "افزودن ردیف جدید"
 
-#: content_a/website/display-item-title.php:4 content_a/website/display-limit.php:4
-msgid "Set count show"
-msgstr "تنظیم تعداد نمایش"
+#: content_a/website/display-avand.php:4
+msgid "Set box width"
+msgstr "تنظیم عرض جعبه محتوا"
 
-#: content_a/website/display-item-title.php:6 content_a/website/display-limit.php:6
-msgid "How many posts would you like to display?"
-msgstr "تمایل دارید چه تعداد نوشته در این ردیف نمایش داده شود؟"
+#: content_a/website/display-avand.php:14
+msgid "Small"
+msgstr "کوچک"
 
-#: content_a/website/display-item-title.php:14
+#: content_a/website/display-avand.php:16
+msgid "Large"
+msgstr "بزرگ"
+
+#: content_a/website/display-avand.php:17
+msgid "X Large"
+msgstr "خیلی بزرگ"
+
+#: content_a/website/display-avand.php:18
+msgid "XX Large"
+msgstr "خیلی خیلی بزرگ"
+
+#: content_a/website/display-item-design.php:4
+msgid "Set item design"
+msgstr "تنظیم قالب آیتم"
+
+#: content_a/website/display-item-design.php:6
+msgid "You can change the item design"
+msgstr "شما می‌توانید نوع طراحی گزینه را تغییر دهید"
+
+#: content_a/website/display-item-design.php:14
 msgid "Untitled, Only the image displayed"
 msgstr "بدون عنوان،‌ تنها تصویر نمایش داده شود"
 
-#: content_a/website/display-item-title.php:15
-msgid "Show title on image"
-msgstr "نمایش عنوان روی عکس"
+#: content_a/website/display-item-design.php:15
+msgid "Image with title on image"
+msgstr "نمایش تصویر به همراه عنوان روی تصویر"
 
-#: content_a/website/display-item-title.php:16
+#: content_a/website/display-item-design.php:16
 msgid "Show title below image"
 msgstr "نمایش عنوان در زیر عکس"
 
-#: content_a/website/display-item-title.php:17
+#: content_a/website/display-item-design.php:17
 msgid "Show title beside image"
 msgstr "نمایش عنوان کنار عکس"
 
-#: content_a/website/display-item-title.php:18
+#: content_a/website/display-item-design.php:18
 msgid "Show title beside image with description"
 msgstr "نمایش عنوان در کنار عکس به همراه توضیحات"
+
+#: content_a/website/display-item-design.php:19
+msgid "Blog mode"
+msgstr "حالت بلاگ"
+
+#: content_a/website/display-limit.php:4
+msgid "Set count show"
+msgstr "تنظیم تعداد نمایش"
+
+#: content_a/website/display-limit.php:6
+msgid "How many posts would you like to display?"
+msgstr "تمایل دارید چه تعداد نوشته در این ردیف نمایش داده شود؟"
 
 #: content_a/website/display-limit.php:27
 msgid "Adjust how items are placed"
@@ -12647,27 +12678,15 @@ msgstr ""
 "شما می‌توانید تعداد آیتم‌های نمایش داده شده در سطرها و ستون‌ها را با توجه به تعداد کل "
 "آیتم‌ها تنظیم کنید"
 
-#: content_a/website/display-player.php:3
-msgid "Show item in player"
-msgstr "نمایش آیتم در پخش کننده"
-
-#: content_a/website/display-player.php:6
-msgid "First"
-msgstr "اولین"
-
-#: content_a/website/display-title.php:25
+#: content_a/website/display-title.php:23
 msgid "Title with more link"
 msgstr "عنوان با لینک مشاهده بیشتر"
 
-#: content_a/website/display-title.php:32
+#: content_a/website/display-title.php:30
 msgid "Edit title"
 msgstr "ویرایش عنوان"
 
-#: content_a/website/display-title.php:32
-msgid "Set title"
-msgstr "تنظیم عنوان"
-
-#: content_a/website/display-title.php:45
+#: content_a/website/display-title.php:41
 #: content_a/website/imageblock/setting/display.php:10
 #: content_a/website/productline/display.php:11
 #: content_a/website/quote/setting/display.php:10
@@ -12676,15 +12695,23 @@ msgstr "تنظیم عنوان"
 msgid "Line title"
 msgstr "عنوان ردیف"
 
-#: content_a/website/display-title.php:55
+#: content_a/website/display-title.php:50
+msgid "Show title on website"
+msgstr "نمایش عنوان در وب‌سایت"
+
+#: content_a/website/display-title.php:56
+msgid "Do not show title on website"
+msgstr "عدم نمایش عنوان در وب‌سایت"
+
+#: content_a/website/display-title.php:67
 msgid "Show read more link"
 msgstr "نمایش لینک مشاهده بیشتر"
 
-#: content_a/website/display-title.php:61
+#: content_a/website/display-title.php:73
 msgid "Hide read more link"
 msgstr "عدم نمایش لینک مشاهده بیشتر"
 
-#: content_a/website/display-title.php:66
+#: content_a/website/display-title.php:80
 msgid "Caption of more link"
 msgstr "عنوان لینک مشاهده بیشتر"
 
@@ -13127,68 +13154,60 @@ msgstr "تنظیم فیلتر"
 msgid "You can extract your favorite posts with different filters"
 msgstr "شما می‌توانید نوشته‌های مورد نظر خود را با فیلتر‌های مختلف استخراج کنید"
 
-#: content_a/website/news/display.php:26
-msgid "Set template show"
-msgstr "تنظیم قالب نمایش"
-
 #: content_a/website/news/display.php:28
-msgid "Change your post template view"
-msgstr "تغییر قالب نمایش نوشته"
-
-#: content_a/website/news/display.php:37 content_a/website/quote/setting/display.php:20
-msgid "Simple"
-msgstr "ساده"
-
-#: content_a/website/news/display.php:38
-msgid "Special"
-msgstr "خاص"
-
-#: content_a/website/news/display.php:47
 msgid "Remove news line"
 msgstr "حذف ردیف اخبار"
 
-#: content_a/website/news/display.php:49
+#: content_a/website/news/display.php:30
 msgid "Are you sure to remove this news line?"
 msgstr "آیا از حذف این ردیف خبر اطمینان دارید؟"
 
-#: content_a/website/news/filter/display.php:7
+#: content_a/website/news/filter/display.php:6
 #: content_a/website/productline/display.php:29
 msgid "Special category"
 msgstr "دسته‌بندی خاص"
 
-#: content_a/website/news/filter/display.php:8 content_a/website/news/filter/display.php:9
+#: content_a/website/news/filter/display.php:7 content_a/website/news/filter/display.php:8
 msgid "Select category"
 msgstr "انتخاب دسته‌بندی"
 
-#: content_a/website/news/filter/display.php:17
+#: content_a/website/news/filter/display.php:16
 msgid "Special tag"
 msgstr "تگ خاص"
 
+#: content_a/website/news/filter/display.php:17
 #: content_a/website/news/filter/display.php:18
-#: content_a/website/news/filter/display.php:19
 msgid "Select tag"
 msgstr "انتخاب تگ"
 
-#: content_a/website/news/filter/display.php:27
+#: content_a/website/news/filter/display.php:26
 msgid "Post template"
 msgstr "قالب نوشته"
 
-#: content_a/website/news/filter/display.php:29 content_cms/posts/setting/display.php:47
+#: content_a/website/news/filter/display.php:28 content_cms/posts/setting/display.php:47
 msgid "Standard"
 msgstr "استاندارد"
 
-#: content_a/website/news/filter/display.php:30 content_cms/posts/setting/display.php:48
+#: content_a/website/news/filter/display.php:29 content_cms/posts/setting/display.php:48
 #: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
 
-#: content_a/website/news/filter/display.php:31 content_cms/posts/setting/display.php:49
+#: content_a/website/news/filter/display.php:30 content_cms/posts/setting/display.php:49
 msgid "Video"
 msgstr "ویدیو"
 
-#: content_a/website/news/filter/display.php:32 content_cms/posts/setting/display.php:50
+#: content_a/website/news/filter/display.php:31 content_cms/posts/setting/display.php:50
 msgid "Audio"
 msgstr "صوتی"
+
+#: content_a/website/news/filter/display.php:37
+msgid "Show item in player"
+msgstr "نمایش آیتم در پخش کننده"
+
+#: content_a/website/news/filter/display.php:40
+msgid "First"
+msgstr "اولین"
 
 #: content_a/website/news/filter/view.php:9
 msgid "Filter posts"
@@ -13262,6 +13281,10 @@ msgstr "ویرایش نقل قول"
 #: content_a/website/quote/setting/display.php:16
 msgid "Style mode"
 msgstr "نوع و حالت نمایش"
+
+#: content_a/website/quote/setting/display.php:20
+msgid "Simple"
+msgstr "ساده"
 
 #: content_a/website/quote/setting/display.php:21
 msgid "Professional"
@@ -14219,12 +14242,12 @@ msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: content_account/security/view.php:74 content_v2/account/session/view.php:42
-#: dash/login.php:721 includes/languages/trans_static_public.php:342
+#: dash/login.php:729 includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
 #: content_account/security/view.php:78 content_v2/account/session/view.php:46
-#: dash/login.php:726 includes/languages/trans_static_public.php:343
+#: dash/login.php:734 includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
 
@@ -14396,10 +14419,6 @@ msgstr "تایید"
 #: lib/app/store/analytics.php:112 lib/app/store/analytics.php:113
 msgid "Forms"
 msgstr "فرم‌ها"
-
-#: content_business/home/layout/body/news.php:32
-msgid "Keep Reading"
-msgstr "بیشتر بخوانید"
 
 #: content_business/home/layout/header/header_100.php:29
 msgid "Enter to account"
@@ -14602,10 +14621,9 @@ msgstr "ضمیمه‌ها"
 msgid "Add new attachment"
 msgstr "افزودن فایل ضمیمه جدید"
 
-#: content_cms/attachment/view/controller.php:14 dash/app/posts/gallery.php:138
-#: dash/app/posts/gallery.php:297 lib/app/irvat/gallery.php:157
-#: lib/app/product/gallery.php:149 lib/app/product/gallery.php:308
-#: lib/app/tax/doc/gallery.php:175
+#: content_cms/attachment/view/controller.php:14 dash/app/posts/gallery.php:297
+#: lib/app/irvat/gallery.php:157 lib/app/product/gallery.php:149
+#: lib/app/product/gallery.php:308 lib/app/tax/doc/gallery.php:175
 msgid "Invalid file id"
 msgstr "شناسه فایل اشتباه است"
 
@@ -14820,9 +14838,29 @@ msgstr "زیرنویس را اینجا وارد کنید"
 msgid "Write post "
 msgstr "نوشتن مطلب "
 
-#: content_cms/posts/edit/display.php:153
+#: content_cms/posts/edit/display.php:128 content_cms/posts/edit/display.php:140
+msgid "Featured image"
+msgstr "تصویر شاخص"
+
+#: content_cms/posts/edit/display.php:130
+msgid ""
+"Setting up a post featured image helps you to publish your post professionally on "
+"social networks"
+msgstr ""
+"تنظیم تصویر شاخص نوشته به شما کمک می‌کند تا مطالب خود را به صورت حرفه‌ای در شبکه‌های "
+"اجتماعی منتشر کنید"
+
+#: content_cms/posts/edit/display.php:146
+msgid "Remove featured image"
+msgstr "حذف تصویر شاخص"
+
+#: content_cms/posts/edit/display.php:216
 msgid "Customize SEO"
 msgstr "سفارشی سازی سئو"
+
+#: content_cms/posts/edit/model.php:36 content_cms/posts/setting/model.php:36
+msgid "Please upload a photo"
+msgstr "لطفا یک تصویر بارگذاری کنید"
 
 #: content_cms/posts/edit/view.php:38 content_cms/posts/edit/view.php:56
 msgid "Edit post"
@@ -14990,11 +15028,11 @@ msgstr "ویرایش زبان نوشته"
 msgid "You can change your post language"
 msgstr "شما می‌توانید زبان این نوشته را به صورت دستی تغییر دهید"
 
-#: content_cms/posts/setting/display.php:153
+#: content_cms/posts/setting/display.php:154
 msgid "Post cover"
 msgstr "کاور نوشته"
 
-#: content_cms/posts/setting/display.php:155
+#: content_cms/posts/setting/display.php:156
 msgid ""
 "Setting up a post cover helps you to publish your post professionally on social "
 "networks. If you do not use this feature, the post thumb image will be used as a cover"
@@ -15003,15 +15041,15 @@ msgstr ""
 "منتشر کنید. اگر از این ویژگی استفاده نکنید، تصویر شاخص نوشته به عنوان کاور شبکه‌‌های "
 "اجتماعی مورد استفاده قرار می‌گیرد"
 
-#: content_cms/posts/setting/display.php:171
+#: content_cms/posts/setting/display.php:172
 msgid "Remove post cover"
 msgstr "حذف کاور نوشته"
 
-#: content_cms/posts/setting/display.php:181 dash/plan_list.php:181
+#: content_cms/posts/setting/display.php:182 dash/plan_list.php:181
 msgid "Remove post"
 msgstr "حذف نوشته"
 
-#: content_cms/posts/setting/display.php:184
+#: content_cms/posts/setting/display.php:185
 msgid ""
 "Can not remove post when published. You must be change your post status to draft and "
 "then can remove it."
@@ -15019,17 +15057,13 @@ msgstr ""
 "نمی‌توانید نوشته را در حالی که منتشر شده است حذف کنید. شما باید ابتدا وضعیت نوشته را به "
 "پیش‌نویس تغییر دهید و سپس آن را حذف کنید."
 
-#: content_cms/posts/setting/display.php:186
+#: content_cms/posts/setting/display.php:187
 msgid "Are your sure to remove this post?"
 msgstr "آیا از حذف این نوشته اطمینان دارید؟"
 
-#: content_cms/posts/setting/display.php:194 content_cms/posts/setting/display.php:196
+#: content_cms/posts/setting/display.php:195 content_cms/posts/setting/display.php:197
 msgid "Remove Post"
 msgstr "حذف نوشته"
-
-#: content_cms/posts/setting/model.php:36
-msgid "Please upload a photo"
-msgstr "لطفا یک تصویر بارگذاری کنید"
 
 #: content_cms/posts/setting/view.php:9
 msgid "Edit post setting"
@@ -18199,7 +18233,7 @@ msgstr "مدت زمانی که مایلید این دامنه را بخرید ا
 #: content_my/domain/option/display.php:17 content_my/domain/option/display.php:46
 #: content_my/domain/renew/display.php:47 content_my/domain/renew/display.php:69
 #: content_my/domain/review/controller.php:102 content_my/domain/review/controller.php:148
-#: lib/app/onlinenic/price.php:165
+#: lib/app/onlinenic/price.php:171
 msgid "1 Year"
 msgstr "یک ساله"
 
@@ -18208,7 +18242,7 @@ msgstr "یک ساله"
 #: content_my/domain/buy/domain-search-result-ir.php:84
 #: content_my/domain/option/display.php:22 content_my/domain/renew/display.php:51
 #: content_my/domain/renew/display.php:75 content_my/domain/review/controller.php:107
-#: content_my/domain/review/controller.php:152 lib/app/onlinenic/price.php:169
+#: content_my/domain/review/controller.php:152 lib/app/onlinenic/price.php:175
 msgid "5 Year"
 msgstr "پنج ساله"
 
@@ -19952,42 +19986,42 @@ msgid "Choose renew time"
 msgstr "مدت زمانی که مایلید این دامنه را تمدید کنید انتخاب کنید"
 
 #: content_my/domain/renew/display.php:48 content_my/domain/review/controller.php:149
-#: lib/app/onlinenic/price.php:166
+#: lib/app/onlinenic/price.php:172
 msgid "2 Year"
 msgstr "دو ساله"
 
 #: content_my/domain/renew/display.php:49 content_my/domain/review/controller.php:150
-#: lib/app/onlinenic/price.php:167
+#: lib/app/onlinenic/price.php:173
 msgid "3 Year"
 msgstr "سه سال"
 
 #: content_my/domain/renew/display.php:50 content_my/domain/review/controller.php:151
-#: lib/app/onlinenic/price.php:168
+#: lib/app/onlinenic/price.php:174
 msgid "4 Year"
 msgstr "چهار ساله"
 
 #: content_my/domain/renew/display.php:52 content_my/domain/review/controller.php:153
-#: lib/app/onlinenic/price.php:170
+#: lib/app/onlinenic/price.php:176
 msgid "6 Year"
 msgstr "شش ساله"
 
 #: content_my/domain/renew/display.php:53 content_my/domain/review/controller.php:154
-#: lib/app/onlinenic/price.php:171
+#: lib/app/onlinenic/price.php:177
 msgid "7 Year"
 msgstr "هفت ساله"
 
 #: content_my/domain/renew/display.php:54 content_my/domain/review/controller.php:155
-#: lib/app/onlinenic/price.php:172
+#: lib/app/onlinenic/price.php:178
 msgid "8 Year"
 msgstr "هشت ساله"
 
 #: content_my/domain/renew/display.php:55 content_my/domain/review/controller.php:156
-#: lib/app/onlinenic/price.php:173
+#: lib/app/onlinenic/price.php:179
 msgid "9 Year"
 msgstr "نه ساله"
 
 #: content_my/domain/renew/display.php:56 content_my/domain/review/controller.php:157
-#: lib/app/onlinenic/price.php:174
+#: lib/app/onlinenic/price.php:180
 msgid "10 Year"
 msgstr "ده ساله"
 
@@ -22180,7 +22214,7 @@ msgstr "کد اعتبارسنجی یافت نشد"
 msgid "Code is ok"
 msgstr "کد صحیح است"
 
-#: content_v2/account/session/model.php:13 dash/login.php:633
+#: content_v2/account/session/model.php:13 dash/login.php:641
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
@@ -22766,49 +22800,49 @@ msgstr "هیچ راهی برای افزودن مطلب وجود ندارد"
 msgid "Post successfuly added"
 msgstr "مطلب با موفقیت اضافه شد"
 
-#: dash/app/posts/check.php:79
+#: dash/app/posts/check.php:80
 msgid "This post is published. And you can not edit it!"
 msgstr "این خبر منتشر شده و شما نمی‌توانید آن را حذف کنید!"
 
-#: dash/app/posts/check.php:89
+#: dash/app/posts/check.php:90
 msgid "This is not your post. And you can not edit it!"
 msgstr "این خبر شما نیست و شما نمی‌توانید آن را حذف کنید!"
 
-#: dash/app/posts/check.php:154
+#: dash/app/posts/check.php:155
 msgid "Invalid parameter parent"
 msgstr "پارامتر والد نامعتبر است"
 
-#: dash/app/posts/check.php:167
+#: dash/app/posts/check.php:168
 msgid "Parent post not found"
 msgstr "مطلب والد یافت نشد"
 
-#: dash/app/posts/check.php:175
+#: dash/app/posts/check.php:176
 msgid "Can not set page as parent of self!"
 msgstr "نمی‌توانید صفحه‌ای را به‌عنوان والد خودش ثبت کنید!"
 
-#: dash/app/posts/check.php:271
+#: dash/app/posts/check.php:272
 msgid "Category setting for better access is suggested"
 msgstr "تنظیم دسته‌بندی برای دسترسی مناسب‌تر توصیه می‌شود"
 
-#: dash/app/posts/check.php:302 dash/utility/pay/start.php:183 lib/app/cart/search.php:304
+#: dash/app/posts/check.php:303 dash/utility/pay/start.php:183 lib/app/cart/search.php:304
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
 
-#: dash/app/posts/check.php:396
+#: dash/app/posts/check.php:397
 msgid "Duplicate post url. This post url is already exists in your post list"
 msgstr "آدرس نوشته تکراری است. این آدرس نوشته در لیست نوشته‌های شما وجود دارد"
 
-#: dash/app/posts/check.php:404
+#: dash/app/posts/check.php:405
 msgid "Duplicate url. You have a category by this url and can not set this url for post"
 msgstr ""
 "آدرس تکراری است. شما یک دسته‌بندی با این آدرس دارید و نمی‌توانید نوشته‌ای با این آدرس ثبت "
 "کنید"
 
-#: dash/app/posts/check.php:417
+#: dash/app/posts/check.php:418
 msgid "Duplicate category url. This category url is already exists in your category list"
 msgstr "آدرس دسته‌بندی تکراری است. این دسته‌بندی در لیست شما موجود است"
 
-#: dash/app/posts/check.php:425
+#: dash/app/posts/check.php:426
 msgid "Duplicate url. You have a post by this url and can not set this url for category"
 msgstr ""
 "آدرس تکراری است. شما یک نوشته با این آدرس دارید و نمی‌توانید دسته‌بندی با این آدرس ثبت "
@@ -22838,27 +22872,16 @@ msgstr "جزئیات نوشته یافت نشد"
 msgid "Post gallery not found"
 msgstr "گالری نوشته یافت نشد"
 
-#: dash/app/posts/gallery.php:144 dash/app/posts/gallery.php:219
-#: lib/app/cart/checkout.php:20 lib/app/irvat/gallery.php:90
-#: lib/app/product/company.php:21 lib/app/product/gallery.php:155
-#: lib/app/product/gallery.php:230 lib/app/product/remove.php:10
-#: lib/app/product/unit.php:21 lib/app/product/updateprice.php:154
-#: lib/app/product/variants.php:84 lib/app/product/variants.php:258
-#: lib/app/product/variants.php:275 lib/app/setting/setup.php:92
-#: lib/app/setting/setup.php:228 lib/app/store/edit.php:144
+#: dash/app/posts/gallery.php:219 lib/app/cart/checkout.php:20
+#: lib/app/irvat/gallery.php:90 lib/app/product/company.php:21
+#: lib/app/product/gallery.php:155 lib/app/product/gallery.php:230
+#: lib/app/product/remove.php:10 lib/app/product/unit.php:21
+#: lib/app/product/updateprice.php:154 lib/app/product/variants.php:84
+#: lib/app/product/variants.php:258 lib/app/product/variants.php:275
+#: lib/app/setting/setup.php:92 lib/app/setting/setup.php:228 lib/app/store/edit.php:144
 #: lib/app/tax/doc/gallery.php:102
 msgid "Your are not in this store!"
 msgstr "شما در این فروشگاه نیستید!"
-
-#: dash/app/posts/gallery.php:177
-msgid "Only image file can be set on post thumb"
-msgstr "تنها فایل تصویری می‌تواند به عنوان تصویر شاخص نوشته ثبت شود"
-
-#: dash/app/posts/gallery.php:210 dash/app/posts/gallery.php:317
-#: lib/app/irvat/gallery.php:177 lib/app/product/gallery.php:221
-#: lib/app/product/gallery.php:328 lib/app/tax/doc/gallery.php:195
-msgid "Invalid gallery id"
-msgstr "شناسه گالری تصاویر اشتباه است"
 
 #: dash/app/posts/gallery.php:242 lib/app/irvat/gallery.php:113
 #: lib/app/product/gallery.php:253 lib/app/tax/doc/gallery.php:131
@@ -22874,6 +22897,12 @@ msgstr "این فایل در گالری تصاویر فعلی موجود است"
 #: lib/app/tax/doc/gallery.php:162
 msgid "Maximum count of gallery file is 10"
 msgstr "حداکثر تعداد فایل در گالری ۱۰ فایل است"
+
+#: dash/app/posts/gallery.php:317 lib/app/irvat/gallery.php:177
+#: lib/app/product/gallery.php:221 lib/app/product/gallery.php:328
+#: lib/app/tax/doc/gallery.php:195
+msgid "Invalid gallery id"
+msgstr "شناسه گالری تصاویر اشتباه است"
 
 #: dash/app/posts/gallery.php:394 lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
@@ -23235,7 +23264,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:751
+#: dash/cleanse.php:756
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -23945,7 +23974,7 @@ msgstr "شروع به افزودن آیتم‌های خود کنید"
 msgid "Oops! We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/login.php:664
+#: dash/login.php:672
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -34220,11 +34249,11 @@ msgstr "در حال حاضر نمی‌توانیم جزئیات دی‌ان‌ا
 msgid "Can not get domain tranfer code"
 msgstr "نمی‌توانیم کد انتقال دامنه را دریافت کنیم"
 
-#: lib/app/onlinenic/price.php:93 lib/app/onlinenic/price.php:146
+#: lib/app/onlinenic/price.php:99 lib/app/onlinenic/price.php:152
 msgid "Error in load domain price detail"
 msgstr "خطا در دریافت هزینه‌های مربوط به دامنه"
 
-#: lib/app/onlinenic/price.php:107
+#: lib/app/onlinenic/price.php:113
 msgid "This period of domain have not price!"
 msgstr "این بازه زمانی برای دامنه قیمت مشخصی ندارد!"
 
@@ -35768,7 +35797,7 @@ msgstr "۱۶:۹ (پیش‌فرض)"
 
 #: lib/app/website/body/line/imageblock.php:191
 #: lib/app/website/body/line/imageblock.php:436 lib/app/website/body/line/news.php:77
-#: lib/app/website/body/line/news.php:294 lib/app/website/body/line/productline.php:77
+#: lib/app/website/body/line/news.php:316 lib/app/website/body/line/productline.php:77
 #: lib/app/website/body/line/productline.php:172 lib/app/website/body/line/quote.php:118
 #: lib/app/website/body/line/quote.php:369 lib/app/website/body/line/slider.php:190
 #: lib/app/website/body/line/slider.php:436
@@ -35847,15 +35876,15 @@ msgstr "جعبه تصویر اضافه شد"
 msgid "This is not a latest news"
 msgstr "این شناسه متعلق به آخرین اخبار نیست"
 
-#: lib/app/website/body/line/news.php:100 lib/app/website/body/line/news.php:303
+#: lib/app/website/body/line/news.php:100 lib/app/website/body/line/news.php:325
 msgid "Invalid line id"
 msgstr "شناسه خط اشتباه است"
 
-#: lib/app/website/body/line/news.php:279
+#: lib/app/website/body/line/news.php:301
 msgid "News line added"
 msgstr "ردیف اخبار اضافه شد"
 
-#: lib/app/website/body/line/news.php:327
+#: lib/app/website/body/line/news.php:349
 msgid "News line edited"
 msgstr "ردیف اخبار ویرایش شد"
 
@@ -36122,7 +36151,7 @@ msgstr "#فهرست"
 msgid "Footer #Rafiei"
 msgstr "پابرگ #رفیعی"
 
-#: lib/app/website/generator.php:282
+#: lib/app/website/generator/title.php:29
 msgid "Show more"
 msgstr "مشاهده بیشتر"
 
@@ -37267,6 +37296,24 @@ msgstr "یارد"
 msgid "Samandehi"
 msgstr "ساماندهی"
 
+#~ msgid "Set title"
+#~ msgstr "تنظیم عنوان"
+
+#~ msgid "Set template show"
+#~ msgstr "تنظیم قالب نمایش"
+
+#~ msgid "Change your post template view"
+#~ msgstr "تغییر قالب نمایش نوشته"
+
+#~ msgid "Special"
+#~ msgstr "خاص"
+
+#~ msgid "Keep Reading"
+#~ msgstr "بیشتر بخوانید"
+
+#~ msgid "Only image file can be set on post thumb"
+#~ msgstr "تنها فایل تصویری می‌تواند به عنوان تصویر شاخص نوشته ثبت شود"
+
 #~ msgid "Count show post"
 #~ msgstr "تعداد نوشته‌ها برای نمایش"
 
@@ -37521,9 +37568,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Help Center Article"
 #~ msgstr "مقالات مرکز راهنمایی"
-
-#~ msgid "Featured Image"
-#~ msgstr "تصویر شاخص"
 
 #~ msgid "Special mode"
 #~ msgstr "حالت ویژه"
@@ -38785,9 +38829,6 @@ msgstr "ساماندهی"
 #~ msgid "Type choice and press Enter"
 #~ msgstr "گزینه‌ها را تایپ کنید و کلید اینتر را بزنید"
 
-#~ msgid "You can change item type"
-#~ msgstr "شما می‌توانید نوع گزینه را تغییر دهید"
-
 #~ msgid "Boolean"
 #~ msgstr "درست و غلط"
 
@@ -39146,9 +39187,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Stat mode"
 #~ msgstr "حالت آماری"
-
-#~ msgid "Shop mode"
-#~ msgstr "حالت فروشگاهی"
 
 #~ msgid "Whithout name"
 #~ msgstr "بدون نام"
