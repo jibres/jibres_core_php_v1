@@ -24,6 +24,12 @@ class model
 		}
 
 
+		if(\dash\request::post('set_avand'))
+		{
+			$post['avand'] = \dash\request::post('avand');
+		}
+
+
 		if(\dash\request::post('set_title'))
 		{
 			$post['title']             = \dash\request::post('title');

@@ -113,12 +113,11 @@ class news
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_below_image','titel_beside_image','title_beside_image_description','blog']],
+			'avand'             => ['enum' => ['sm','md','lg','xl','xxl','none']],
 			'cat_id'            => 'code',
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
 			'limit'             => 'tinyint',
-			'first_line_count'  => ['enum' => [1, 2, 3]],
-			'second_line_count' => ['enum' => [1, 2, 3, 4]],
 			'play_item'         => ['enum' => ['none', 'first', 'all']],
 			'more_link'         => ['enum' => ['show', 'hide']],
 			'show_title'        => 'yes_no',
@@ -151,6 +150,15 @@ class news
 		else
 		{
 			$result['publish'] = a($_current_data, 'publish');
+		}
+
+		if(array_key_exists('avand', $_args))
+		{
+			$result['avand'] = $data['avand'];
+		}
+		else
+		{
+			$result['avand'] = a($_current_data, 'avand');
 		}
 
 		if(array_key_exists('show_title', $_args))
@@ -272,6 +280,11 @@ class news
 		{
 			$data['title'] = self::suggest_new_name();
 		}
+
+		$data['avand']  = 'md';
+		$data['limit']  = 8;
+		$data['design'] = 'title_on_image';
+
 
 		$line_id = \lib\app\website\body\add::line('news', ['title' => $data['title'], 'publish' => $data['publish']]);
 
