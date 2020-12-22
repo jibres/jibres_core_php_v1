@@ -5,12 +5,10 @@ $lineSetting = \dash\data::lineSetting();
 if(!a($lineSetting, 'title') && a($lineSetting, 'title') !== '0')
 {
   $currentTitle =  \dash\data::nameSuggestion();
-  $titleSet     = false;
 }
 else
 {
   $currentTitle = a($lineSetting, 'title');
-  $titleSet     = true;
 }
 
 ?>
@@ -29,12 +27,10 @@ else
   </div>
   <div class="c4 s12">
       <div class="action">
-        <a class="btn master" href="<?php echo \dash\url::that(). '/title'. \dash\request::full_get(); ?>"><?php if($titleSet) { echo T_("Edit title"); }else{ echo T_("Set title"); } ?></a>
+        <a class="btn master" href="<?php echo \dash\url::that(). '/title'. \dash\request::full_get(); ?>"><?php echo T_("Edit title"); ?></a>
       </div>
   </div>
 </section>
-
-
 
 <?php }else{  // url subchild is title ?>
 <form method="post" autocomplete="off" id="formboxtitle">
