@@ -125,9 +125,9 @@ switch (\dash\data::dataRow_status())
 <section class="f" data-option='cms-post-thumb'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Post thumb")?></h3>
+      <h3><?php echo T_("Featured image")?></h3>
       <div class="body">
-        <p><?php echo T_("Setting up a post thumb helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a thumb") ?></p>
+        <p><?php echo T_("Setting up a post featured image helps you to publish your post professionally on social networks") ?></p>
       </div>
     </div>
   </div>
@@ -137,13 +137,13 @@ switch (\dash\data::dataRow_status())
 
       <input type="file" accept="image/jpeg, image/png" id="image1thumb">
       <label for="image1thumb"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?></label>
+      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?>
     </div>
   </form>
 
   <?php if(\dash\data::dataRow_thumb()) {?>
     <footer class="txtRa">
-     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove post thumb") ?></div>
+     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove featured image") ?></div>
     </footer>
   <?php } //endif ?>
 </section>
