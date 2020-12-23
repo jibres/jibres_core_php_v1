@@ -217,11 +217,11 @@ class ready
 		{
 			$result['poster'] = null;
 
-			if(a($result['cover']))
+			if(a($result, 'cover'))
 			{
 				$result['poster'] = $result['cover'];
 			}
-			elseif($result['thumb'])
+			elseif(a($result, 'thumb'))
 			{
 				$result['poster'] = $result['thumb'];
 			}
@@ -238,7 +238,36 @@ class ready
 			}
 		}
 
+		self::check_valid_subtype($result);
+
 		return $result;
+	}
+
+
+	private static function check_valid_subtype(&$result)
+	{
+		if(\dash\url::content() !== 'cms')
+		{
+			return;
+		}
+
+		$result['validation_type'] =
+		[
+			'audio'    => false,
+			'video'    => false,
+			'gallery'  => true,
+			'standard' => true,
+		];
+
+		if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+		{
+			$result['validation_type']['audio'] = true;
+		}
+
+		if(a($result, 'gallery_array', 0, 'type') === 'video' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+		{
+			$result['validation_type']['video'] = true;
+		}
 
 	}
 }
