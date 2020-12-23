@@ -117,6 +117,36 @@ class get
 	}
 
 
+	public static function cms_setting()
+	{
+		$cat   = 'cms_setting';
+
+		$result = self::load_setting_once($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$setting[$value['key']] = $value['value'];
+			}
+		}
+
+
+		if(!isset($setting['ratio']))
+		{
+			$setting['ratio'] = null;
+		}
+
+		return $setting;
+	}
+
+
 
 
 	public static function telegram_setting()

@@ -4,6 +4,33 @@ namespace lib\app\setting;
 
 class set
 {
+	public static function cms_setting($_args)
+	{
+
+		$condition =
+		[
+			'thumbratiostandard' => \lib\ratio::check_input(),
+			'thumbratiogallery'  => \lib\ratio::check_input(),
+			'thumbratiovideo'    => \lib\ratio::check_input(),
+			'thumbratiopodcast'  => \lib\ratio::check_input(),
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'cms_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		\dash\notif::ok(T_("CMS setting saved"));
+		return true;
+
+	}
+
 	public static function product_setting($_args)
 	{
 

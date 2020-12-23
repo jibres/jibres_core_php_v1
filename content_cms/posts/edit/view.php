@@ -64,12 +64,38 @@ class view
 		\dash\face::title($myTitle);
 
 
-		$productImageRatioHtml = 'data-ratio=1 data-ratio-free';
-		// if(isset($productSettingSaved['ratio_detail']['ratio']))
-		// {
-		// 	$productImageRatioHtml = 'data-ratio='. $productSettingSaved['ratio_detail']['ratio'];
-		// }
-		\dash\data::productImageRatioHtml($productImageRatioHtml);
+		$cmsSettingSaved = \lib\app\setting\get::cms_setting();
+		\dash\data::cmsSettingSaved($cmsSettingSaved);
+
+
+
+
+
+
+		switch (a($dataRow, 'subtype'))
+		{
+			case 'standard':
+				\lib\ratio::data_ratio_html(a($cmsSettingSaved, 'thumbratiostandard'));
+				break;
+
+			case 'gallery':
+				\lib\ratio::data_ratio_html(a($cmsSettingSaved, 'thumbratiogallery'));
+				break;
+
+			case 'video':
+				\lib\ratio::data_ratio_html(a($cmsSettingSaved, 'thumbratiovideo'));
+				break;
+
+			case 'audio':
+				\lib\ratio::data_ratio_html(a($cmsSettingSaved, 'thumbratiopodcast'));
+				break;
+
+			default:
+				# code...
+				break;
+		}
+
+
 		\dash\data::allTagList(\dash\app\terms\get::get_all_tag());
 		\dash\data::listCategory(\dash\app\terms\get::cat_list());
 

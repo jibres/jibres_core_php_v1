@@ -132,7 +132,7 @@ switch (\dash\data::dataRow_status())
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='thumb' data-ratio="1" data-ratio-free data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
       <input type="hidden" name="runaction_setthumb" value="1">
 
       <input type="file" accept="image/jpeg, image/png" id="image1thumb">
