@@ -4,6 +4,86 @@ namespace lib;
 
 class ratio
 {
+	public static function list()
+	{
+		$list          = [];
+		$list['1:1']   = ['title' => \dash\fit::text('1:1')];
+		$list['2.5:1'] = ['title' => \dash\fit::text('2.5:1')];
+		$list['4:3']   = ['title' => \dash\fit::text('4:3')];
+		$list['5:3']   = ['title' => \dash\fit::text('5:3')];
+		$list['16:9']  = ['title' => \dash\fit::text('16:9')];
+		$list['16:10'] = ['title' => \dash\fit::text('16:10')];
+		$list['19:10'] = ['title' => \dash\fit::text('19:10')];
+		$list['32:9']  = ['title' => \dash\fit::text('32:9')];
+		$list['64:27'] = ['title' => \dash\fit::text('64:27')];
+		return $list;
+	}
+
+
+	/**
+	 * Check input function
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function check_input()
+	{
+		$list = self::list();
+		return ['enum' => array_keys($list)];
+	}
+
+
+	/**
+	 * Return string of select option ratio
+	 *
+	 * @param      <type>  $_current_data  The current data
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function select_html($_current_data = null, $_place = null)
+	{
+		$result     = '';
+
+		$list       = [];
+
+		$is_default = null;
+
+		if($_place === 'products')
+		{
+			$is_default = self::default_ratio('ratio', 'product');
+		}
+		else
+		{
+			$is_default = self::default_ratio('ratio');
+		}
+
+		$list = self::list();
+
+		foreach ($list as $key => $value)
+		{
+			$result.= '<option value="'. $key. '"';
+			if($key == $_current_data)
+			{
+				$result .= ' selected';
+			}
+			$result.= ' >';
+			if($is_default === $key)
+			{
+				$result .= T_("Default"). ' (';
+				$result .= $value['title'];
+				$result .= ')';
+			}
+			else
+			{
+				$result .= $value['title'];
+			}
+			$result.= '</option>';
+		}
+
+		return $result;
+	}
+
+
+
 	public static function product_ratio($_data)
 	{
 		return self::ratio($_data, 'product');
