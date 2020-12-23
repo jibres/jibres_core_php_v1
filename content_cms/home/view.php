@@ -15,6 +15,8 @@ class view
 		\dash\data::back_link(\dash\url::kingdom(). '/a');
 
 		\dash\data::dashboardDetail(\dash\app\posts\dashboard::detail());
+
+		\dash\face::btnSetting(\dash\url::here(). '/setting');
 	}
 }
 ?>
