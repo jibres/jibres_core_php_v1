@@ -37,17 +37,16 @@
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='gallery' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+    <div class="action" data-uploader data-name='gallery' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(a($dataRow, 'gallery_array', 0, 'path')) { echo "data-fill";}?>>
       <input type="file" accept="audio/*" id="audio1">
+        <label for="audio1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <label for="audio1">
           <audio controls>
             <source src="<?php echo a($dataRow, 'gallery_array', 0, 'path') ?>" type="<?php echo a($dataRow, 'gallery_array', 0, 'mime') ?>">
           </audio>
         </label>
-      <?php }else{ ?>
-        <label for="audio1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-        <?php } //endif ?>
+      <?php } //endif ?>
     </div>
   </form>
 
@@ -73,17 +72,16 @@ if(a($dataRow, 'subtype') === 'video') {?>
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='gallery' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+    <div class="action" data-uploader data-name='gallery' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(a($dataRow, 'gallery_array', 0, 'path')) { echo "data-fill";}?>>
       <input type="file" accept="video/*" id="video1">
+        <label for="video1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <label for="video1">
           <video width="320" height="240" controls>
             <source src="<?php echo a($dataRow, 'gallery_array', 0, 'path') ?>" type="<?php echo a($dataRow, 'gallery_array', 0, 'mime') ?>">
           </video>
         </label>
-      <?php }else{ ?>
-        <label for="video1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-        <?php } //endif ?>
+      <?php } //endif ?>
     </div>
   </form>
 

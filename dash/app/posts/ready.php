@@ -216,6 +216,7 @@ class ready
 		if(a($result, 'subtype') === 'video')
 		{
 			$result['poster'] = null;
+
 			if(a($result['cover']))
 			{
 				$result['poster'] = $result['cover'];
