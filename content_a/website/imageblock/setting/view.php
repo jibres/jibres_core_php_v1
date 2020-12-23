@@ -21,8 +21,6 @@ class view
 			\dash\data::back_link(\dash\url::this(). '?id='. \dash\data::imageblockID());
 		}
 
-		\dash\data::defaultRatioSlider(\lib\app\website\body\line\imageblock::default_ratio('title'));
-
 		\dash\data::imageblockNameSuggestion(\lib\app\website\body\line\imageblock::suggest_new_name());
 
 
