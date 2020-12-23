@@ -14,11 +14,11 @@ if($postList && is_array($postList)) {?>
      <a<?php if(a($value, 'link')) { echo ' href="'.  a($value, 'link'). '"'; if(a($value, 'target')) { echo ' target="_blank"'; }} ?>>
       <figure>
 <?php if( a($myPuzzle, 'playMode') === 'video') { ?>
-      <video controls preload='meta' poster='<?php echo \lib\filepath::fix(a($value, 'cover')); ?>'>
+      <video controls preload='meta'<?php if(a($value, 'poster')) { echo " poster='". \lib\filepath::fix(a($value, 'poster')). "'";} ?>>
         <source type="<?php echo a($value, 'gallery_array', 0, 'mime'); ?>" src="<?php echo \lib\filepath::fix(a($value, 'gallery_array', 0, 'path')); ?>">
       </video>
 <?php } elseif( a($myPuzzle, 'playMode') === 'audio') { ?>
-      <audio controls preload='meta' poster='<?php echo \lib\filepath::fix(a($value, 'cover')); ?>'>
+      <audio controls preload='meta'>
         <source type="<?php echo a($value, 'gallery_array', 0, 'mime'); ?>" src="<?php echo \lib\filepath::fix(a($value, 'gallery_array', 0, 'path')); ?>">
       </audio>
 <?php } else { ?>

@@ -42,7 +42,7 @@
         <label for="audio1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <label for="audio1">
-          <audio controls>
+          <audio controls preload='meta'>
             <source src="<?php echo a($dataRow, 'gallery_array', 0, 'path') ?>" type="<?php echo a($dataRow, 'gallery_array', 0, 'mime') ?>">
           </audio>
         </label>
@@ -77,7 +77,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
         <label for="video1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <label for="video1">
-          <video controls preload='meta'>
+          <video controls preload='meta'<?php if(a($dataRow, 'poster')) { echo " poster='". \lib\filepath::fix(a($dataRow, 'poster')). "'";} ?>>
             <source src="<?php echo a($dataRow, 'gallery_array', 0, 'path') ?>" type="<?php echo a($dataRow, 'gallery_array', 0, 'mime') ?>">
           </video>
         </label>
