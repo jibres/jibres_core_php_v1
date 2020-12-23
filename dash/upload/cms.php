@@ -23,6 +23,7 @@ class cms
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
+				'gif',
 			],
 		];
 
