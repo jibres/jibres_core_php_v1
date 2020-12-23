@@ -32,7 +32,7 @@
     <div class="data">
       <h3><?php echo T_("Audio")?></h3>
       <div class="body">
-        <p><?php echo T_("Add your audio") ?></p>
+        <p><?php echo T_("We enable you to upload audio clips and share them with the world. Sharing your talent is simple!") ?></p>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
     <div class="data">
       <h3><?php echo T_("Video")?></h3>
       <div class="body">
-        <p><?php echo T_("Add your video") ?></p>
+        <p><?php echo T_("Share your video with the world.") ?></p>
       </div>
     </div>
   </div>
