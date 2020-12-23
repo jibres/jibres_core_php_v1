@@ -1,6 +1,8 @@
   <section id='jibresPageTitle' class="color2">
-   <h2><?php echo T_('Learn the ins and outs of our API.') ?></h2>
-   <p><?php echo T_('Get started with our API right away using our detailed, straightforward guides.') ?></p>
+   <div class="avand">
+    <h2><?php echo T_('Learn the ins and outs of our API.') ?></h2>
+    <p><?php echo T_('Get started with our API right away using our detailed, straightforward guides.') ?></p>
+   </div>
   </section>
 
 
