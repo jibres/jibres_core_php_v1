@@ -112,10 +112,6 @@ class get
 
 		}
 
-		$setting['ratio_detail'] = \lib\ratio::product_ratio($setting);
-
-
-
 		return $setting;
 
 	}

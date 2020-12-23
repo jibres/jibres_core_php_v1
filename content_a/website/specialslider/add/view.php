@@ -35,34 +35,7 @@ class view
 			\dash\face::btnSetting(\dash\url::this(). '/specialslider/setting');
 		}
 
-		$ratio = \lib\app\website\body\line\specialslider::ratio(\dash\data::lineSetting());
-		$ratioHtml = '';
-		if(isset($ratio['ratio']))
-		{
-			$ratioHtml .= 'data-ratio="'. $ratio['ratio']. '" ';
-		}
-
-		if(isset($ratio['min_w']))
-		{
-			$ratioHtml .= 'data-min-w="'. $ratio['min_w']. '" ';
-		}
-
-		if(isset($ratio['min_h']))
-		{
-			$ratioHtml .= 'data-min-h="'. $ratio['min_h']. '" ';
-		}
-
-		if(isset($ratio['max_w']))
-		{
-			$ratioHtml .= 'data-max-w="'. $ratio['max_w']. '" ';
-		}
-
-		if(isset($ratio['max_h']))
-		{
-			$ratioHtml .= 'data-max-h="'. $ratio['max_h']. '" ';
-		}
-
-		\dash\data::ratioHtml($ratioHtml);
+		\lib\ratio::data_ratio_html(\dash\data::lineSetting_ratio());
 
 
 		if(\dash\data::lineSetting_specialslider() && is_array(\dash\data::lineSetting_specialslider()))

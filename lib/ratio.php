@@ -92,13 +92,10 @@ class ratio
 
 	public static function ratio($_data, $_type = null)
 	{
-		if(isset($_data['ratio']))
+		$ratio = null;
+		if(is_string($_data))
 		{
-			$ratio = $_data['ratio'];
-		}
-		else
-		{
-			$ratio = self::default_ratio('ratio', $_type);
+			$ratio = $_data;
 		}
 
 		if(strpos($ratio, ':') === false)
@@ -126,8 +123,44 @@ class ratio
 
 	}
 
+	public static function data_ratio_html($_ratio)
+	{
 
-	private static function ratio_title($_ratio_float)
+		$ratio = self::ratio($_ratio);
+
+		$ratioHtml = '';
+		if(isset($ratio['ratio']))
+		{
+			$ratioHtml .= 'data-ratio="'. $ratio['ratio']. '" ';
+		}
+
+		if(isset($ratio['min_w']))
+		{
+			$ratioHtml .= 'data-min-w="'. $ratio['min_w']. '" ';
+		}
+
+		if(isset($ratio['min_h']))
+		{
+			$ratioHtml .= 'data-min-h="'. $ratio['min_h']. '" ';
+		}
+
+		if(isset($ratio['max_w']))
+		{
+			$ratioHtml .= 'data-max-w="'. $ratio['max_w']. '" ';
+		}
+
+		if(isset($ratio['max_h']))
+		{
+			$ratioHtml .= 'data-max-h="'. $ratio['max_h']. '" ';
+		}
+
+		\dash\data::ratioHtml($ratioHtml);
+
+		return $ratioHtml;
+	}
+
+
+	public static function ratio_title($_ratio_float)
 	{
 		if(!$_ratio_float || !is_numeric($_ratio_float))
 		{

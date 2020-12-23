@@ -21,8 +21,6 @@ class view
 			\dash\data::back_link(\dash\url::this(). '?id='. \dash\data::specialsliderID());
 		}
 
-		\dash\data::defaultRatioSpecialSlider(\lib\app\website\body\line\specialslider::default_ratio('title'));
-
 		\dash\data::specialsliderNameSuggestion(\lib\app\website\body\line\specialslider::suggest_new_name());
 
 
