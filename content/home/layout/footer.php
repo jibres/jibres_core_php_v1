@@ -143,7 +143,6 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 <div class="go"></div>
                 </a>
               </li>
-
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/bug">
                 <div class="key"><?php echo T_('Jibres Bug Program'); ?></div>
@@ -192,12 +191,30 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 <div class="go"></div>
                 </a>
               </li>
+              <li>
+                <a class="item f" href="<?php echo $kingdom; ?>/logo">
+                <div class="key"><?php echo T_('Jibres Logo'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="item f" href="<?php echo $kingdom; ?>/brand">
+                <div class="key"><?php echo T_('Brand Style Guide'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
             </ul>
           </nav>
 
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li class="title"><?php echo T_('Jibres Company'); ?></li>
+              <li>
+                <a class="item f" href="<?php echo $kingdom; ?>/story">
+                <div class="key"><?php echo T_('Jibres Story'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/about">
                 <div class="key"><?php echo T_('About Jibres'); ?></div>
@@ -231,18 +248,6 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/careers">
                 <div class="key"><?php echo T_('Careers'); ?></div>
-                <div class="go"></div>
-                </a>
-              </li>
-              <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/logo">
-                <div class="key"><?php echo T_('Jibres Logo'); ?></div>
-                <div class="go"></div>
-                </a>
-              </li>
-              <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/brand">
-                <div class="key"><?php echo T_('Brand Style Guide'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
