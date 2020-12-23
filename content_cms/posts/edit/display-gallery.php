@@ -3,9 +3,9 @@
 <section class="f" data-option='cms-post-thumb'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Featured image")?></h3>
+      <h3><?php echo T_("Featured Image")?></h3>
       <div class="body">
-        <p><?php echo T_("Setting up a post featured image helps you to publish your post professionally on social networks") ?></p>
+        <p><?php echo T_("The Featured Image is a Jibres theme feature that allows theme you to using a representative image. Featured Image is a primary image for your post."); ?></p>
       </div>
     </div>
   </div>
