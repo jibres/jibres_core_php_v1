@@ -15,10 +15,12 @@ if($postList && is_array($postList)) {?>
       <figure>
 <?php if( a($myPuzzle, 'playMode') === 'video') { ?>
       <video controls preload='meta' poster='<?php echo \lib\filepath::fix(a($value, 'cover')); ?>'>
-        <source type="video/mp4" src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>">
+        <source type="<?php echo a($value, 'gallery_array', 0, 'mime'); ?>" src="<?php echo \lib\filepath::fix(a($value, 'gallery_array', 0, 'path')); ?>">
       </video>
 <?php } elseif( a($myPuzzle, 'playMode') === 'audio') { ?>
-       <img src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
+      <audio controls preload='meta' poster='<?php echo \lib\filepath::fix(a($value, 'cover')); ?>'>
+        <source type="<?php echo a($value, 'gallery_array', 0, 'mime'); ?>" src="<?php echo \lib\filepath::fix(a($value, 'gallery_array', 0, 'path')); ?>">
+      </audio>
 <?php } else { ?>
        <img src="<?php echo \lib\filepath::fix(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
 <?php } ?>
