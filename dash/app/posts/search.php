@@ -102,8 +102,9 @@ class search
 
 		if($data['website_mode'])
 		{
-			$time = time();
-			$and[] = " UNIX_TIMESTAMP(posts.publishdate) <= $time ";
+			$now = date("Y-m-d H:i:s");
+			$and[] = " posts.publishdate <= '$now' ";
+			$order_sort = " ORDER BY posts.publishdate DESC";
 		}
 
 
