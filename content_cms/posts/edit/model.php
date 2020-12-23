@@ -13,7 +13,13 @@ class model
 			return false;
 		}
 
-		if(self::upload_gallery($id))
+		$galleryMode = 'add';
+		if(in_array(\dash\data::dataRow_subtype(), ['audio', 'video']))
+		{
+			$galleryMode = 'update';
+		}
+
+		if(self::upload_gallery($id, $galleryMode))
 		{
 			return false;
 		}
@@ -84,7 +90,7 @@ class model
 	 * Uploads a gallery.
 	 * Use this function in api
 	 */
-	public static function upload_gallery($_id)
+	public static function upload_gallery($_id, $_mode = 'add')
 	{
 		if(\dash\request::files('gallery'))
 		{
@@ -93,7 +99,7 @@ class model
 			if(isset($uploaded_file['id']))
 			{
 				// save uploaded file
-				\dash\app\posts\gallery::gallery($_id, $uploaded_file, 'add');
+				\dash\app\posts\gallery::gallery($_id, $uploaded_file, $_mode);
 			}
 
 			if(!\dash\engine\process::status())

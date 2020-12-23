@@ -230,7 +230,7 @@ class gallery
 		$post_id            = \dash\coding::decode($_post_id);
 		$post_detail        = $load_gallery['detail'];
 
-		if($_type === 'add')
+		if($_type === 'add' || $_type === 'update')
 		{
 
 			if(isset($_file_detail['path']))
@@ -254,6 +254,11 @@ class gallery
 						\dash\notif::error(T_("Duplicate file in this gallery"));
 						return false;
 					}
+				}
+
+				if($_type === 'update')
+				{
+					$post_gallery_field['files']   = [];
 				}
 
 				$post_gallery_field['files'][] = ['id' => $fileid, 'path' => $file_path];
