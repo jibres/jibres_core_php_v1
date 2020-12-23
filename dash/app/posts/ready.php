@@ -213,6 +213,20 @@ class ready
 		}
 
 
+		if(a($result, 'subtype') === 'video')
+		{
+			$result['poster'] = null;
+			if(a($result['cover']))
+			{
+				$result['poster'] = $result['cover'];
+			}
+			elseif($result['thumb'])
+			{
+				$result['poster'] = $result['thumb'];
+			}
+		}
+
+
 		if(isset($result['publishdate']) && $result['publishdate'] && isset($result['status']) && $result['status'] === 'publish')
 		{
 			$myTime = time() - strtotime($result['publishdate']);
