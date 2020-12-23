@@ -100,6 +100,23 @@ class edit
 		{
 			\dash\log::set('editPost', ['code' => $id]);
 
+			if(isset($load_posts['subtype']) && isset($args['subtype']) && $load_posts['subtype'] !== $args['subtype'])
+			{
+				if(!self::check_change_subtype($load_posts, $load_posts['subtype'], $args['subtype']))
+				{
+					return false;
+				}
+
+			}
+
+			if(isset($args['status']) && $args['status'] === 'publish')
+			{
+				if(!self::check_publishable($load_posts))
+				{
+					return false;
+				}
+			}
+
 			\dash\db\posts::update($args, $id);
 
 			if(\dash\engine\process::status())
@@ -153,6 +170,118 @@ class edit
 		{
 			\dash\notif::info(T_("Post save without changes"));
 		}
+
+	}
+
+
+	private static function check_publishable($_data)
+	{
+		$result = \dash\app\posts\ready::row($_data);
+
+		if(a($result, 'subtype') === 'video')
+		{
+			if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+			{
+				// can change to video
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("When post set on type video you must be have fill the video file to publish"));
+				return false;
+			}
+
+		}
+
+		if(a($result, 'subtype') === 'audio')
+		{
+			if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+			{
+				// can change to audio
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("When post set on type audio you must be have fill the audio file to publish"));
+				return false;
+			}
+
+		}
+
+		return true;
+
+	}
+
+
+	private static function check_change_subtype($_data, $_old_subtype, $_new_subtype)
+	{
+		if($_old_subtype === $_new_subtype)
+		{
+			// no change in subtype
+			return true;
+		}
+
+		if($_new_subtype === 'gallery')
+		{
+			// every type can change to gallery
+			return true;
+		}
+
+		if($_new_subtype === 'standard')
+		{
+			// every type can change to standard
+			return true;
+		}
+
+		if(isset($_data['status']) && $_data['status'] === 'publish')
+		{
+			\dash\notif::error(T_("Can not convert post type to video or podcast when post published"));
+			return false;
+		}
+
+		$result = \dash\app\posts\ready::row($_data);
+
+		if($_new_subtype === 'video')
+		{
+			if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+			{
+				// can change to video
+				return true;
+			}
+			elseif(!a($result, 'gallery_array'))
+			{
+				// nothing
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("To convert to video you must have only one gallery items and that must be a video"));
+				return false;
+			}
+
+		}
+
+		if($_new_subtype === 'audio')
+		{
+			if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+			{
+				// can change to audio
+				return true;
+			}
+			elseif(!a($result, 'gallery_array'))
+			{
+				// nothing
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("To convert to audio you must have only one gallery items and that must be a audio"));
+				return false;
+			}
+
+		}
+
+		return true;
 
 	}
 }
