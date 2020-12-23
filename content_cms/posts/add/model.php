@@ -6,6 +6,14 @@ class model
 {
 	public static function post()
 	{
+
+		$post =
+		[
+			'title'    => \dash\request::post('title'),
+			'content'  => \dash\request::post_raw('content'),
+			'language' => \dash\language::current(),
+		];
+
 		if(\dash\url::module() === 'help')
 		{
 			$type    = 'help';
@@ -16,17 +24,11 @@ class model
 		}
 		else
 		{
-			$type    = 'post';
+			$type            = 'post';
+			$post['subtype'] = \dash\request::post('subtype');
 		}
 
-
-		$post =
-		[
-			'title'    => \dash\request::post('title'),
-			'content'  => \dash\request::post_raw('content'),
-			'language' => \dash\language::current(),
-			'type'     => $type,
-		];
+		$post['type'] = $type;
 
 		$post_detail = \dash\app\posts\add::add($post);
 
