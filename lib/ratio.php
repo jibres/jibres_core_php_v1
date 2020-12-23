@@ -61,7 +61,7 @@ class ratio
 		foreach ($list as $key => $value)
 		{
 			$result.= '<option value="'. $key. '"';
-			if($key == $_current_data)
+			if($key == $_current_data || (!$_current_data && $key === $is_default))
 			{
 				$result .= ' selected';
 			}
