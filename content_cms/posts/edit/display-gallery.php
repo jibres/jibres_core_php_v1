@@ -1,36 +1,10 @@
 <?php $dataRow = \dash\data::dataRow();  ?>
 
-<section class="f" data-option='cms-post-thumb'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Featured Image")?></h3>
-      <div class="body">
-        <p><?php echo T_("The Featured Image is a Jibres theme feature that allows theme you to using a representative image. Featured Image is a primary image for your post."); ?></p>
-      </div>
-    </div>
-  </div>
-  <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?> data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
-      <input type="hidden" name="runaction_setthumb" value="1">
-      <input type="file" accept="image/jpeg, image/png" id="image1thumb">
-      <label for="image1thumb"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?>
-    </div>
-  </form>
-
-  <?php if(\dash\data::dataRow_thumb()) {?>
-    <footer class="txtRa">
-     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove featured image") ?></div>
-    </footer>
-  <?php } //endif ?>
-</section>
-
-
 <?php if(a($dataRow, 'subtype') === 'audio') {?>
 <section class="f" data-option='cms-post-audio'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Audio")?></h3>
+      <h3><?php echo T_("Podcast")?></h3>
       <div class="body">
         <p><?php echo T_("We enable you to upload audio clips and share them with the world. Sharing your talent is simple!") ?></p>
       </div>
@@ -97,6 +71,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
 
 
 
+
 if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
 {
   // show the gallery box
@@ -147,3 +122,30 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
 } // don't show gallery bo
 // the gallery box only show when the post subtype is standart or gallery
  ?>
+
+
+
+<section class="f" data-option='cms-post-thumb'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Featured Image")?></h3>
+      <div class="body">
+        <p><?php echo T_("The Featured Image is a Jibres theme feature that allows theme you to using a representative image. Featured Image is a primary image for your post."); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" >
+    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?> data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+      <input type="hidden" name="runaction_setthumb" value="1">
+      <input type="file" accept="image/jpeg, image/png" id="image1thumb">
+      <label for="image1thumb"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?>
+    </div>
+  </form>
+
+  <?php if(\dash\data::dataRow_thumb()) {?>
+    <footer class="txtRa">
+     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove featured image") ?></div>
+    </footer>
+  <?php } //endif ?>
+</section>
