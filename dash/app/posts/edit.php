@@ -104,7 +104,7 @@ class edit
 			{
 				if(!self::check_change_subtype($load_posts, $load_posts['subtype'], $args['subtype']))
 				{
-					return false;
+					// return false;
 				}
 
 			}
@@ -113,7 +113,7 @@ class edit
 			{
 				if(!self::check_publishable($load_posts))
 				{
-					return false;
+					// return false;
 				}
 			}
 
@@ -180,14 +180,14 @@ class edit
 
 		if(a($result, 'subtype') === 'video')
 		{
-			if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+			if(a($result, 'gallery_array', 0, 'type') === 'video' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
 			{
 				// can change to video
 				return true;
 			}
 			else
 			{
-				\dash\notif::error(T_("When post set on type video you must be have fill the video file to publish"));
+				\dash\notif::warn(T_("When post set on type video you must be have fill the video file to publish"));
 				return false;
 			}
 
@@ -202,7 +202,7 @@ class edit
 			}
 			else
 			{
-				\dash\notif::error(T_("When post set on type audio you must be have fill the audio file to publish"));
+				\dash\notif::warn(T_("When post set on type audio you must be have fill the audio file to publish"));
 				return false;
 			}
 
@@ -233,17 +233,17 @@ class edit
 			return true;
 		}
 
-		if(isset($_data['status']) && $_data['status'] === 'publish')
-		{
-			\dash\notif::error(T_("Can not convert post type to video or podcast when post published"));
-			return false;
-		}
+		// if(isset($_data['status']) && $_data['status'] === 'publish')
+		// {
+		// 	\dash\notif::error(T_("Can not convert post type to video or podcast when post published"));
+		// 	return false;
+		// }
 
 		$result = \dash\app\posts\ready::row($_data);
 
 		if($_new_subtype === 'video')
 		{
-			if(a($result, 'gallery_array', 0, 'type') === 'audio' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
+			if(a($result, 'gallery_array', 0, 'type') === 'video' && is_array(a($result, 'gallery_array')) && count(a($result, 'gallery_array')) === 1)
 			{
 				// can change to video
 				return true;
@@ -255,7 +255,7 @@ class edit
 			}
 			else
 			{
-				\dash\notif::error(T_("To convert to video you must have only one gallery items and that must be a video"));
+				\dash\notif::warn(T_("To convert to video you must have only one gallery items and that must be a video"));
 				return false;
 			}
 
@@ -275,7 +275,7 @@ class edit
 			}
 			else
 			{
-				\dash\notif::error(T_("To convert to audio you must have only one gallery items and that must be a audio"));
+				\dash\notif::warn(T_("To convert to audio you must have only one gallery items and that must be a audio"));
 				return false;
 			}
 
