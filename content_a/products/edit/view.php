@@ -109,11 +109,17 @@ class view
 		$productSettingSaved = \lib\app\setting\get::product_setting();
 		\dash\data::productSettingSaved($productSettingSaved);
 
-		$productImageRatioHtml = 'data-ratio=1 data-ratio-free';
+
 		if(isset($productSettingSaved['ratio']))
 		{
-			\lib\ratio::data_ratio_html($productSettingSaved['ratio']);
+			$ratio = $productSettingSaved['ratio'];
 		}
+		else
+		{
+			$ratio = '1:1';
+		}
+
+		\lib\ratio::data_ratio_html($ratio);
 	}
 }
 ?>
