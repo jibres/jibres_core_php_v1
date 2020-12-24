@@ -45,16 +45,16 @@ class datablock
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
 			$html .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
-				$myGallery0 = a($value, 'gallery_array', 0, 'path');
-				$playMode   = a($myPuzzle, 'playMode');
+				$playMode     = a($myPuzzle, 'playMode');
+				$galleryPath0 = a($value, 'gallery_array', 0, 'path');
 
-				if( $myGallery0 && $playMode === 'video')
+				if( $galleryPath0 && $playMode === 'video')
 				{
-					$html .= self::createVideoEl($value);
+					$html .= self::createVideoOrAudio($playMode, $value);
 				}
-				elseif( $myGallery0 && $playMode === 'audio')
+				elseif( $galleryPath0 && $playMode === 'audio')
 				{
-					$html .= self::createAudioEl($value);
+					$html .= self::createVideoOrAudio($playMode, $value);
 				}
 				elseif (a($value, 'thumb'))
 				{
@@ -67,24 +67,44 @@ class datablock
 	}
 
 
-	private static function createVideoEl($_prop)
+	private static function createVideoOrAudio($_type, $_value)
 	{
-		if(!a($_prop, 'gallery_array', 0, 'path'))
+		$myMediaSrc  = \lib\filepath::fix(a($_value, 'gallery_array', 0, 'path'));
+		$myMediaMime = a($_value, 'gallery_array', 0, 'mime');
+
+		if($_type === 'video')
 		{
-			return null;
+			$myMediaPoster = \lib\filepath::fix(a($_value, 'poster'));
+
+			return self::createVideoEl($myMediaSrc, $myMediaMime, $myMediaPoster);
 		}
-		$videoEl = '<video';
-		$videoEl .= ' controls';
-		$videoEl .= '  preload="meta"';
-		if(a($_prop, 'poster'))
+		if($_type === 'audio')
 		{
-			$videoEl .= ' poster="'. \lib\filepath::fix(a($_prop, 'poster')). '"';
+			return self::createAudioEl($myMediaSrc, $myMediaMime);
+		}
+
+		return null;
+	}
+
+
+	private static function createVideoEl($_src, $_mime = 'video/mp4', $_poster = null)
+	{
+		$videoEl = '<video';
+		{
+			$videoEl .= ' controls';
+		}
+		{
+			$videoEl .= '  preload="meta"';
+		}
+		if($_poster)
+		{
+			$videoEl .= ' poster="'. $_poster. '"';
 		}
 		$videoEl .= '>';
 		{
 			$videoEl .= '<source';
-			$videoEl .= ' type="'. a($_prop, 'gallery_array', 0, 'mime'). '"';
-			$videoEl .= ' src="'. \lib\filepath::fix(a($_prop, 'gallery_array', 0, 'path')). '"';
+			$videoEl .= ' type="'. $_mime. '"';
+			$videoEl .= ' src="'. $_src. '"';
 			$videoEl .= '>';
 		}
 
@@ -94,20 +114,20 @@ class datablock
 	}
 
 
-	private static function createAudioEl($_prop)
+	private static function createAudioEl($_src, $_mime = 'audio/mp3')
 	{
-		if(!a($_prop, 'gallery_array', 0, 'path'))
-		{
-			return null;
-		}
 		$audioEl = '<audio';
-		$audioEl .= ' controls';
-		$audioEl .= '  preload="meta"';
+		{
+			$audioEl .= ' controls';
+		}
+		{
+			$audioEl .= '  preload="meta"';
+		}
 		$audioEl .= '>';
 		{
 			$audioEl .= '<source';
-			$audioEl .= ' type="'. a($_prop, 'gallery_array', 0, 'mime'). '"';
-			$audioEl .= ' src="'. \lib\filepath::fix(a($_prop, 'gallery_array', 0, 'path')). '"';
+			$audioEl .= ' type="'. $_mime. '"';
+			$audioEl .= ' src="'. $_src. '"';
 			$audioEl .= '>';
 		}
 
