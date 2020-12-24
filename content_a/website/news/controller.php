@@ -11,7 +11,7 @@ class controller
 
 		if($id)
 		{
-			$load_line_detail = \lib\app\website\body\line\news::get($id);
+			$load_line_detail = \lib\app\website\body\line\datablock::get($id);
 
 			if(!$load_line_detail)
 			{
@@ -20,13 +20,8 @@ class controller
 
 			\dash\data::lineSetting($load_line_detail);
 
-			if(isset($load_line_detail['news']))
-			{
-				\dash\data::dataRow($load_line_detail['news']);
-			}
-
 			// use this id in model for edit
-			\dash\data::newsID(\dash\request::get('id'));
+			\dash\data::dataBlockID(\dash\request::get('id'));
 		}
 	}
 }

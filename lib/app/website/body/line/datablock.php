@@ -1,15 +1,15 @@
 <?php
 namespace lib\app\website\body\line;
 
-class news
+class datablock
 {
 
-	public static function suggest_new_name()
+	public static function suggest_new_name($_name)
 	{
 		$count_news = \lib\db\setting\get::count_platform_cat_key('website', 'homepage', 'body_line_news');
 		$count_news = intval($count_news) + 1;
 
-		return T_("News"). ' '. \dash\fit::number($count_news);
+		return $_name. ' '. \dash\fit::number($count_news);
 	}
 
 
@@ -129,6 +129,7 @@ class news
 		$condition =
 		[
 			'publish'           => 'bit',
+			'type'              => ['enum' => ['news', 'product', 'imageblock']],
 
 			'title'             => 'string_200',
 			'show_title'        => 'yes_no',
@@ -136,7 +137,7 @@ class news
 			'more_link_caption' => 'string_50',
 
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
-			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_below_image','titel_beside_image','title_beside_image_description','blog']],
+			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_middle_image','title_below_image','titel_beside_image','title_beside_image_description','blog', 'slider_mode']],
 			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','none']],
 			'radius'            => ['enum' => ['normal','sharp','circular','none']],
 			'padding'           => ['enum' => ['normal','low','high','none']],
@@ -155,7 +156,6 @@ class news
 
 		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$data['type'] = 'news';
 
 		$data = \dash\cleanse::data_json_merge($_args, $data, $_current_data);
 

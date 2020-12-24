@@ -9,6 +9,7 @@ class model
 
 		$post            = [];
 		$post['publish'] = 1;
+		$post['type']    = 'news';
 
 
 		if(\dash\request::post('set_limit'))
@@ -63,9 +64,9 @@ class model
 		}
 
 
-		if(!\dash\data::newsID())
+		if(!\dash\data::dataBlockID())
 		{
-			$news = \lib\app\website\body\line\news::add($post);
+			$news = \lib\app\website\body\line\datablock::add($post);
 
 			if(\dash\engine\process::status())
 			{
@@ -92,13 +93,13 @@ class model
 			}
 			else
 			{
-				\lib\app\website\body\line\news::edit($post, \dash\data::newsID());
+				\lib\app\website\body\line\datablock::edit($post, \dash\data::dataBlockID());
 			}
 
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::current(). '?id='. \dash\data::newsID());
+				\dash\redirect::to(\dash\url::current(). '?id='. \dash\data::dataBlockID());
 			}
 		}
 	}
