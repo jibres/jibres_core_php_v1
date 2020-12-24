@@ -174,10 +174,38 @@ class datablock
 		// create srcset
 		$imgEl .= ' alt="'. $_alt. '"';
 		$imgEl .= '>';
-
+		self::createImgSrcset($_src);
 		return $imgEl;
 	}
 
+
+	public static function createImgSrcset($_src)
+	{
+		$dotPosition = strrpos($_src, '.');
+		if(!$dotPosition)
+		{
+			return false;
+		}
+		$imgName = substr($_src, 0, $dotPosition);
+		$imgExt  = substr($_src, $dotPosition);
+		$srcset  = '';
+		$srcsetArr = [];
+		// my defined breakpoints
+		$myBreakPoints =
+		[
+			220 => '220',
+			300 => '400',
+			440 => '600',
+		];
+
+		foreach ($myBreakPoints as $width => $breakpoint)
+		{
+			$srcsetArr[] = $imgName. '-w'. $width. $imgExt. ' '. $breakpoint;
+		}
+		$srcset = implode(', ', $srcsetArr);
+
+		return $srcset;
+	}
 
 }
 ?>
