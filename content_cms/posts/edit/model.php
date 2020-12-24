@@ -34,7 +34,23 @@ class model
 		$post = [];
 
 
-		if(\dash\request::post('runaction_setthumb'))
+
+
+		if(\dash\request::post('remove_cover') === 'remove_cover')
+		{
+			$post['cover'] = null;
+		}
+		elseif(\dash\request::post('runaction_setcover'))
+		{
+			$file_cover = \dash\upload\cms::set_post_cover(\dash\coding::decode(\dash\request::get('id')));
+			if(!$file_cover)
+			{
+				\dash\notif::error(T_("Please upload a photo"));
+				return false;
+			}
+			$post['cover'] = $file_cover;
+		}
+		elseif(\dash\request::post('runaction_setthumb'))
 		{
 			$file_thumb = \dash\upload\cms::set_post_thumb(\dash\coding::decode(\dash\request::get('id')));
 			if(!$file_thumb)
