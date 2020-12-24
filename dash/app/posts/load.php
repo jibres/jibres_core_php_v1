@@ -13,9 +13,9 @@ class load
 	public static function template($_detail)
 	{
 		$line_title = a($_detail, 'value', 'title');
-		$cat_id     = a($_detail, 'value', 'news', 'cat_id');
-		$tag_id     = a($_detail, 'value', 'news', 'tag_id');
-		$subtype    = a($_detail, 'value', 'news', 'subtype');
+		$cat_id     = a($_detail, 'value', 'cat_id');
+		$tag_id     = a($_detail, 'value', 'tag_id');
+		$subtype    = a($_detail, 'value', 'subtype');
 		$limit      = a($_detail, 'value', 'limit');
 
 		if(!$limit)
