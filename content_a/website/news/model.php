@@ -52,7 +52,6 @@ class model
 
 		if(\dash\request::post('set_filter'))
 		{
-			$post['cat_id']    = \dash\request::post('cat_id') ? \dash\request::post('cat_id') : null;
 			$post['tag_id']    = \dash\request::post('tag_id') ? \dash\request::post('tag_id') : null;
 			$post['subtype']   = \dash\request::post('subtype');
 			$post['play_item'] = \dash\request::post('play_item');

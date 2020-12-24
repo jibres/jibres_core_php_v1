@@ -2,15 +2,7 @@
   <input type="hidden" name="set_filter" value="1">
   <div class="box">
     <div class="body">
-      <div class="mB10">
-        <label for='cat'><?php echo T_("Special category"); ?></label>
-        <select name="cat_id" id="cat" class="select22"  data-placeholder='<?php echo T_("Select category"); ?>' >
-          <?php if(a(\dash\data::lineSetting(),  'cat_id')) {?><option value="0"><?php echo T_("None") ?></option><?php }else{ ?><option value=""><?php echo T_("Select category") ?></option><?php } //endif ?>
-          <?php foreach (\dash\data::listCategory() as $key => $value) {?>
-            <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(),  'cat_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'title'); ?></option>
-          <?php } //endfor ?>
-        </select>
-      </div>
+
 
       <div class="mB10">
         <label for='tag'><?php echo T_("Special tag"); ?></label>
