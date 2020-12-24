@@ -424,6 +424,43 @@ class cleanse
 	}
 
 
+	public static function data_json_merge($_args, $_data, $_current_data)
+	{
+		if(!is_array($_args) || !is_array($_data) || !is_array($_current_data))
+		{
+			return false;
+		}
+
+		$result = [];
+
+		foreach ($_args as $key => $value)
+		{
+			if(array_key_exists($key, $_data))
+			{
+				$result[$key] = $_data[$key];
+			}
+			elseif(array_key_exists($key, $_current_data))
+			{
+				$result[$key] = $_current_data[$key];
+			}
+		}
+
+		foreach ($_data as $key => $value)
+		{
+			if(array_key_exists($key, $_args))
+			{
+				// nothing
+			}
+			elseif(array_key_exists($key, $_current_data))
+			{
+				$result[$key] = $_current_data[$key];
+			}
+		}
+
+		return $result;
+	}
+
+
 
 	public static function data($_cleans_function, $_data, $_notif = true, $_meta = [])
 	{
