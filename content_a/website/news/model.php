@@ -29,6 +29,16 @@ class model
 			$post['avand'] = \dash\request::post('avand');
 		}
 
+		if(\dash\request::post('set_radius'))
+		{
+			$post['radius'] = \dash\request::post('radius');
+		}
+
+		if(\dash\request::post('set_padding'))
+		{
+			$post['padding'] = \dash\request::post('padding');
+		}
+
 
 		if(\dash\request::post('set_title'))
 		{

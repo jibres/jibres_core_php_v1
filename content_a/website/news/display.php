@@ -18,6 +18,8 @@
 </section>
 
 <?php require_once(root. 'content_a/website/display-avand.php') ?>
+<?php require_once(root. 'content_a/website/display-radius.php') ?>
+<?php require_once(root. 'content_a/website/display-padding.php') ?>
 <?php require_once(root. 'content_a/website/display-item-design.php') ?>
 <?php require_once(root. 'content_a/website/display-limit.php') ?>
 

@@ -133,6 +133,8 @@ class news
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_below_image','titel_beside_image','title_beside_image_description','blog']],
 			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','none']],
+			'radius'             => ['enum' => ['normal','sharp','circular','none']],
+			'padding'             => ['enum' => ['normal','low','high','none']],
 			'cat_id'            => 'code',
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
@@ -207,6 +209,25 @@ class news
 			$result['limit'] = a($_current_data, 'limit');
 		}
 
+		if(array_key_exists('radius', $_args))
+		{
+			$result['radius'] = $data['radius'];
+		}
+		else
+		{
+			$result['radius'] = a($_current_data, 'radius');
+		}
+
+
+		if(array_key_exists('padding', $_args))
+		{
+			$result['padding'] = $data['padding'];
+		}
+		else
+		{
+			$result['padding'] = a($_current_data, 'padding');
+		}
+
 		if(array_key_exists('puzzle', $_args))
 		{
 			$result['puzzle'] = $data['puzzle'];
@@ -263,7 +284,7 @@ class news
 		}
 		else
 		{
-			$result['cat_id'] = a($_current_data, 'news', 'cat_id');
+			$result['cat_id'] = a($_current_data, 'cat_id');
 		}
 
 		if(array_key_exists('tag_id', $_args))
@@ -272,7 +293,7 @@ class news
 		}
 		else
 		{
-			$result['tag_id'] = a($_current_data, 'news', 'tag_id');
+			$result['tag_id'] = a($_current_data, 'tag_id');
 		}
 
 		if(array_key_exists('subtype', $_args))
@@ -281,7 +302,7 @@ class news
 		}
 		else
 		{
-			$result['subtype'] = a($_current_data, 'news', 'subtype');
+			$result['subtype'] = a($_current_data, 'subtype');
 		}
 
 		return $result;
