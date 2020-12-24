@@ -23,12 +23,10 @@ class load
 			$limit = 5;
 		}
 
-		if(!$subtype)
+		if(!$subtype || $subtype === 'any')
 		{
-			$subtype = 'standard';
+			$subtype = null;
 		}
-
-
 
 		$args =
 		[

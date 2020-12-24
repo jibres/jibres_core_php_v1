@@ -162,7 +162,7 @@ class datablock
 
 
 			'play_item'         => ['enum' => ['none', 'first', 'all']],
-			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'subtype'           => ['enum' => ['any', 'standard', 'gallery', 'video', 'audio']],
 			'tag_id'            => 'code',
 		];
 

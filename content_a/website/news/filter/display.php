@@ -17,6 +17,7 @@
       <div class="mB10">
         <label for='subtype'><?php echo T_("Post template"); ?></label>
         <select class="select22" name="subtype" id="subtype">
+          <option value="any" <?php if(a(\dash\data::lineSetting(),  'subtype') == 'any') { echo 'selected'; } ?> ><?php echo T_("Any post"); ?></option>
           <option value="standard" <?php if(a(\dash\data::lineSetting(),  'subtype') == 'standard') { echo 'selected'; } ?> ><?php echo T_("Standard"); ?></option>
           <option value="gallery" <?php if(a(\dash\data::lineSetting(),  'subtype') == 'gallery') { echo 'selected'; } ?> ><?php echo T_("Gallery"); ?></option>
           <option value="video" <?php if(a(\dash\data::lineSetting(),  'subtype') == 'video') { echo 'selected'; } ?> ><?php echo T_("Video"); ?></option>
