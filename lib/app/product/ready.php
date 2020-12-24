@@ -83,7 +83,7 @@ class ready
 					break;
 
 				case 'slug':
-					$result[$key] = isset($value) ? (string) $value : null;
+					$result[$key] = $value;
 					if(isset($result['url']))
 					{
 						$result['url'] = $result['url']. '/'. $value;

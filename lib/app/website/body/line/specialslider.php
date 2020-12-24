@@ -70,7 +70,7 @@ class specialslider
 					break;
 
 				default:
-					$result[$key] = isset($value) ? (string) $value : null;
+					$result[$key] = $value;
 					break;
 			}
 		}
