@@ -81,6 +81,41 @@ class media
 	}
 
 
+	public static function heading($_text, $_level, $_class = null)
+	{
+		switch ($_level)
+		{
+			// case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			// case 6:
+				// do nothing
+				break;
+
+			default:
+				$_level = 2;
+				break;
+		}
+
+		$headingEl = '<h'. $_level;
+		if($_class)
+		{
+			$headingEl .= ' class="'. $_class. '"';
+		}
+		else
+		{
+			$headingEl .= ' class="eTitle"';
+		}
+		$headingEl .= '>';
+		$headingEl .= $_text;
+		$headingEl .= '</h'. $_level.'>';
+
+		return $headingEl;
+	}
+
+
 	public static function createImgEl($_src, $_alt = null)
 	{
 		$imgEl = '<img';

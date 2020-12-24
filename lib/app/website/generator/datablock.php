@@ -65,7 +65,7 @@ class datablock
 						$itemHtml .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
 					}
 				}
-				$itemHtml .= media::createLinkEl($linkTitle, $link, $linkTarget);
+				$itemHtml .= media::createLinkEl(media::heading($linkTitle, 2), $link, $linkTarget);
 			}
 			$itemHtml .= '</div>';
 		}
