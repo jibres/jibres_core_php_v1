@@ -61,7 +61,7 @@ class datablock
 						$imgLink       = a($value, 'link');
 						$imgLinkTarget = a($value, 'target');
 
-						$itemHtml .= self::createImgEl($imgSrc, $imgAlt);
+						$itemHtml .= self::createLinkedImgEl($imgSrc, $imgAlt, $imgLink, $imgLinkTarget);
 					}
 				}
 			}
@@ -143,7 +143,22 @@ class datablock
 
 	public static function createLinkedImgEl($_src, $_alt = null, $_link = null, $_target = null)
 	{
-		return self::createImgEl();
+		$linkEl = '<a';
+		if($_link)
+		{
+			$linkEl .= ' href="'.  $_link. '"';
+		}
+		if($_target)
+		{
+			$linkEl .= ' target="_blank"';
+		}
+		$linkEl .= '>';
+		{
+			$linkEl .= self::createImgEl($_src, $_alt);
+		}
+		$linkEl .= '</a>';
+
+		return $linkEl;
 	}
 
 
@@ -154,7 +169,7 @@ class datablock
 		$imgEl .= ' src="'. $_src. '"';
 		if(!$_alt)
 		{
-			$_alt = 'image on Jibres';
+			$_alt .= 'image on Jibres';
 		}
 		// create srcset
 		$imgEl .= ' alt="'. $_alt. '"';
