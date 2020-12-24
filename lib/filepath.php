@@ -139,6 +139,11 @@ class filepath
 	 */
 	public static function fix_real_path($_addr)
 	{
+		if(!is_string($_addr))
+		{
+			return null;
+		}
+
 		$addr = null;
 
 		if(\dash\engine\store::inStore())
