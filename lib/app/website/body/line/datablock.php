@@ -167,14 +167,20 @@ class datablock
 			'tag_id'            => 'code',
 		];
 
-		$require   = [];
+		$require = [];
 
-		$meta      = [];
+		$meta    = [];
 
-		$data      = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$data    = \dash\cleanse::data_json_merge($_args, $data, $_current_data);
 
 
-		$data = \dash\cleanse::data_json_merge($_args, $data, $_current_data);
+		// if subtype is standard or gallery we set default paly item in none
+		if($data['subtype'] === 'standard' || $data['subtype'] === 'gallery')
+		{
+			$data['play_item'] = 'none';
+		}
 
 		return $data;
 	}
