@@ -63,6 +63,23 @@ class datablock
 					$result[$key] = $value;
 					break;
 
+				case 'more_link_caption':
+					if(!$value)
+					{
+						if(\dash\url::content() === 'a')
+						{
+							$result['more_link_caption_placeholder'] = T_("Show more");
+						}
+						else
+						{
+							$value = T_("Show more");
+						}
+					}
+
+					$result[$key] = $value;
+
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
