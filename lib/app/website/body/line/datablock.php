@@ -154,7 +154,10 @@ class datablock
 			'more_link_caption' => 'string_50',
 
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
-			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_middle_image','title_below_image','titel_beside_image','title_beside_image_description','blog', 'slider_mode']],
+
+
+
+			'info_position'     => ['enum' => ['none','top','bottom','beside','inside',]],
 			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','none']],
 			'radius'            => ['enum' => ['normal','sharp','circular','none']],
 			'padding'           => ['enum' => ['normal','low','high','none']],

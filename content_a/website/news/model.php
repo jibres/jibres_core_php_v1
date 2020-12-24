@@ -57,9 +57,9 @@ class model
 			$post['play_item'] = \dash\request::post('play_item');
 		}
 
-		if(\dash\request::post('set_design'))
+		if(\dash\request::post('set_info_position'))
 		{
-			$post['design'] = \dash\request::post('design');
+			$post['info_position'] = \dash\request::post('info_position');
 		}
 
 
