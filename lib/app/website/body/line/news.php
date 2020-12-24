@@ -47,14 +47,33 @@ class news
 
 			switch ($key)
 			{
-				case 'news':
+				case 'avand':
+					if($value === 'none')
+					{
+						if(\dash\url::content() !== 'a')
+						{
+							$value = '';
+						}
+					}
+					elseif(!$value)
+					{
+						$value = 'avand';
+					}
+
 					$result[$key] = $value;
 					break;
 
 				default:
-					$result[$key] = isset($value) ? (string) $value : null;
+					$result[$key] = $value;
 					break;
 			}
+		}
+
+
+		if(!isset($result['avand']))
+		{
+			// master default
+			$result['avand'] = 'avand';
 		}
 
 		return $result;
@@ -113,7 +132,7 @@ class news
 			'puzzle'            => \lib\app\website\puzzle::input_check(),
 			'subtype'           => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'design'            => ['enum' => ['untitled_only_image','title_on_image','title_below_image','titel_beside_image','title_beside_image_description','blog']],
-			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','']],
+			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','none']],
 			'cat_id'            => 'code',
 			'tag_id'            => 'code',
 			'publish'           => 'bit',
@@ -237,34 +256,32 @@ class news
 			$result['play_item'] = a($_current_data, 'play_item');
 		}
 
-		$result['news'] = [];
-
 
 		if(array_key_exists('cat_id', $_args))
 		{
-			$result['news']['cat_id'] = $data['cat_id'];
+			$result['cat_id'] = $data['cat_id'];
 		}
 		else
 		{
-			$result['news']['cat_id'] = a($_current_data, 'news', 'cat_id');
+			$result['cat_id'] = a($_current_data, 'news', 'cat_id');
 		}
 
 		if(array_key_exists('tag_id', $_args))
 		{
-			$result['news']['tag_id'] = $data['tag_id'];
+			$result['tag_id'] = $data['tag_id'];
 		}
 		else
 		{
-			$result['news']['tag_id'] = a($_current_data, 'news', 'tag_id');
+			$result['tag_id'] = a($_current_data, 'news', 'tag_id');
 		}
 
 		if(array_key_exists('subtype', $_args))
 		{
-			$result['news']['subtype'] = $data['subtype'];
+			$result['subtype'] = $data['subtype'];
 		}
 		else
 		{
-			$result['news']['subtype'] = a($_current_data, 'news', 'subtype');
+			$result['subtype'] = a($_current_data, 'news', 'subtype');
 		}
 
 		return $result;

@@ -49,7 +49,7 @@ class imageblock
 
 		if(!is_array($_data))
 		{
-			return null;
+			return [];
 		}
 
 		foreach ($_data as $key => $value)
@@ -75,7 +75,7 @@ class imageblock
 					break;
 
 				default:
-					$result[$key] = isset($value) ? (string) $value : null;
+					$result[$key] = $value;
 					break;
 			}
 		}

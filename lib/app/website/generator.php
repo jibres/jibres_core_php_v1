@@ -156,7 +156,7 @@ class generator
 			foreach ($load_all_website as $key => $value)
 			{
 
-				if(!isset($value['value']) || !isset($value['value']) || !isset($value['value']))
+				if(!isset($value['cat']) || !isset($value['key']) || !isset($value['value']))
 				{
 					continue;
 				}
@@ -189,6 +189,20 @@ class generator
 					if(!isset($setting['body']))
 					{
 						$setting['body'] = [];
+					}
+
+
+					if(isset($myValue['type']))
+					{
+						$fn = ['\\lib\\app\\website\\body\\line\\'. $myValue['type'], 'ready'];
+						if(is_callable($fn))
+						{
+							$fn1 = $fn[0];
+							$fn2 = $fn[1];
+
+							$myValue = $fn1::$fn2($myValue);
+
+						}
 					}
 
 					$setting['body'][] = ['cat' => $value['cat'], 'key' => $value['key'], 'value' => $myValue];

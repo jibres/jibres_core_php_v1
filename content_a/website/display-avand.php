@@ -17,7 +17,7 @@
           <option value="avand-lg" <?php if(a($lineSetting, 'avand') == 'avand-lg') { echo 'selected'; } ?> ><?php echo T_("Large") ?></option>
           <option value="avand-xl" <?php if(a($lineSetting, 'avand') == 'avand-xl') { echo 'selected'; } ?> ><?php echo T_("X Large") ?></option>
           <option value="avand-xxl" <?php if(a($lineSetting, 'avand') == 'avand-xxl') { echo 'selected'; } ?> ><?php echo T_("XX Large") ?></option>
-          <option value="" <?php if(a($lineSetting, 'avand') == '') { echo 'selected'; } ?> ><?php echo T_("Without container") ?></option>
+          <option value="none" <?php if(a($lineSetting, 'avand') == 'none') { echo 'selected'; } ?> ><?php echo T_("Without container") ?></option>
         </select>
       </div>
   </form>
