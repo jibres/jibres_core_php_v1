@@ -18,7 +18,7 @@
           <option value="title_beside_image_description" <?php if(a($lineSetting, 'design') == 'title_beside_image_description') { echo 'selected'; } ?> ><?php echo T_("Show title beside image with description") ?></option>
           <option value="blog" <?php if(a($lineSetting, 'design') == 'blog') { echo 'selected'; } ?> ><?php echo T_("Blog mode") ?></option>
           <option value="slider_mode" <?php if(a($lineSetting, 'design') == 'slider_mode') { echo 'selected'; } ?> ><?php echo T_("Slider mode") ?></option>
-          <option value="title_middle_image" <?php if(a($lineSetting, 'design') == 'title_middle_image') { echo 'selected'; } ?> ><?php echo T_("Show title middle mode") ?></option>
+          <option value="title_middle_image" <?php if(a($lineSetting, 'design') == 'title_middle_image') { echo 'selected'; } ?> ><?php echo T_("Show title middle image") ?></option>
 
 
         </select>
