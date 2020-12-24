@@ -39,31 +39,35 @@ class datablock
 
 	private static function everyItem($_list, $_blockSetting)
 	{
-		$html = '';
+		$itemHtml = '';
 		foreach ($_list as $key => $value)
 		{
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
-			$html .= '<div class="'. a($myPuzzle, 'class'). '">';
+			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
 				$playMode     = a($myPuzzle, 'playMode');
 				$galleryPath0 = a($value, 'gallery_array', 0, 'path');
 
-				if( $galleryPath0 && $playMode === 'video')
+				if($playMode === 'video' || $playMode === 'audio')
 				{
-					$html .= self::createVideoOrAudio($playMode, $value);
+					$itemHtml .= self::createVideoOrAudio($playMode, $value);
 				}
-				elseif( $galleryPath0 && $playMode === 'audio')
+				else
 				{
-					$html .= self::createVideoOrAudio($playMode, $value);
-				}
-				elseif (a($value, 'thumb'))
-				{
-					$html .= self::createImgEl($value);
+					$imgSrc = a($value, 'thumb');
+					if($imgSrc)
+					{
+						$imgAlt        = a($value, 'title');
+						$imgLink       = a($value, 'link');
+						$imgLinkTarget = a($value, 'target');
+
+						$itemHtml .= self::createImgEl($imgSrc, $imgAlt);
+					}
 				}
 			}
-			$html .= '</div>';
+			$itemHtml .= '</div>';
 		}
-		return $html;
+		return $itemHtml;
 	}
 
 
@@ -87,7 +91,7 @@ class datablock
 	}
 
 
-	private static function createVideoEl($_src, $_mime = 'video/mp4', $_poster = null)
+	public static function createVideoEl($_src, $_mime = 'video/mp4', $_poster = null)
 	{
 		$videoEl = '<video';
 		{
@@ -114,7 +118,7 @@ class datablock
 	}
 
 
-	private static function createAudioEl($_src, $_mime = 'audio/mp3')
+	public static function createAudioEl($_src, $_mime = 'audio/mp3')
 	{
 		$audioEl = '<audio';
 		{
@@ -137,15 +141,23 @@ class datablock
 	}
 
 
-	private static function createImgEl($_prop)
+	public static function createLinkedImgEl($_src, $_alt = null, $_link = null, $_target = null)
 	{
-		if(!a($_prop, 'thumb'))
-		{
-			return null;
-		}
+		return self::createImgEl();
+	}
+
+
+	public static function createImgEl($_src, $_alt = null)
+	{
 		$imgEl = '<img';
-		$imgEl .= ' src="'. \lib\filepath::fix(a($_prop, 'thumb')). '"';
-		$imgEl .= ' alt="'. a($_prop, 'title'). '"';
+		$imgEl .= ' loading="lazy"';
+		$imgEl .= ' src="'. $_src. '"';
+		if(!$_alt)
+		{
+			$_alt = 'image on Jibres';
+		}
+		// create srcset
+		$imgEl .= ' alt="'. $_alt. '"';
 		$imgEl .= '>';
 
 		return $imgEl;
