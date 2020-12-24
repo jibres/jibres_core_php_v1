@@ -45,8 +45,12 @@ class datablock
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
 			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
-				$playMode     = a($myPuzzle, 'playMode');
-				$galleryPath0 = a($value, 'gallery_array', 0, 'path');
+				$playMode      = a($myPuzzle, 'playMode');
+				$galleryPath0  = a($value, 'gallery_array', 0, 'path');
+				// link data
+				$linkTitle  = a($value, 'title');
+				$link       = a($value, 'link');
+				$linkTarget = a($value, 'target');
 
 				if($playMode === 'video' || $playMode === 'audio')
 				{
@@ -57,13 +61,11 @@ class datablock
 					$imgSrc = a($value, 'thumb');
 					if($imgSrc)
 					{
-						$imgAlt        = a($value, 'title');
-						$imgLink       = a($value, 'link');
-						$imgLinkTarget = a($value, 'target');
 
-						$itemHtml .= media::createLinkedImgEl($imgSrc, $imgAlt, $imgLink, $imgLinkTarget);
+						$itemHtml .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
 					}
 				}
+				$itemHtml .= media::createLinkEl($linkTitle, $link, $linkTarget);
 			}
 			$itemHtml .= '</div>';
 		}
@@ -89,5 +91,6 @@ class datablock
 
 		return null;
 	}
+
 }
 ?>

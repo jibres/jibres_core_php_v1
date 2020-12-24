@@ -55,6 +55,12 @@ class media
 
 	public static function createLinkedImgEl($_src, $_alt = null, $_link = null, $_target = null)
 	{
+		return self::createLinkEl(self::createImgEl($_src, $_alt), $_link, $_target);
+	}
+
+
+	public static function createLinkEl($_inside, $_link, $_target = null)
+	{
 		$linkEl = '<a';
 		if($_link)
 		{
@@ -65,8 +71,9 @@ class media
 			$linkEl .= ' target="_blank"';
 		}
 		$linkEl .= '>';
+
 		{
-			$linkEl .= self::createImgEl($_src, $_alt);
+			$linkEl .= $_inside;
 		}
 		$linkEl .= '</a>';
 
