@@ -205,8 +205,10 @@ class datablock
 		$myBreakPoints =
 		[
 			220 => '220w',
-			300 => '1400w',
-			440 => '1600w',
+			300 => '300w',
+			460 => '460w',
+			780 => '780w',
+			1100 => '1100w',
 		];
 
 		foreach ($myBreakPoints as $width => $breakpoint)
