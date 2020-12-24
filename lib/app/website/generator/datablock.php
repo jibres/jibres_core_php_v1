@@ -166,7 +166,8 @@ class datablock
 	{
 		$imgEl = '<img';
 		$imgEl .= ' loading="lazy"';
-		$imgEl .= ' src="'. $_src. '"';
+		$imgEl .= self::createImgSrc($_src);
+
 		if(!$_alt)
 		{
 			$_alt .= 'image on Jibres';
@@ -176,6 +177,16 @@ class datablock
 		$imgEl .= '>';
 		self::createImgSrcset($_src);
 		return $imgEl;
+	}
+
+
+	public static function createImgSrc($_src)
+	{
+		$srcAttr = '';
+		$srcAttr .= ' srcset="'. self::createImgSrcset($_src). '"';
+		$srcAttr .= ' src="'. $_src. '"';
+
+		return $srcAttr;
 	}
 
 
@@ -193,9 +204,9 @@ class datablock
 		// my defined breakpoints
 		$myBreakPoints =
 		[
-			220 => '220',
-			300 => '400',
-			440 => '600',
+			220 => '220w',
+			300 => '1400w',
+			440 => '1600w',
 		];
 
 		foreach ($myBreakPoints as $width => $breakpoint)
