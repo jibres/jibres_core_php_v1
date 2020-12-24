@@ -18,11 +18,11 @@ class title
 
 		if($more_link === 'hide' || !$_link)
 		{
-			$html = '<div class="eTitle">';
+			$html .= '<div class="eTitle">';
 			{
-				$html = '<h2 class="title">'. $title. '</h2>';
+				$html .= '<h2 class="title">'. $title. '</h2>';
 			}
-			$html = '</div>';
+			$html .= '</div>';
 		}
 		else
 		{

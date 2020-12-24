@@ -1,11 +1,16 @@
 <?php
-$post_detail = \dash\app\posts\load::template($line_detail);
-$postList    = a($post_detail, 'list');
+$blockData = \dash\app\posts\load::template($line_detail);
+$postList    = a($blockData, 'list');
+
+echo \lib\app\website\generator\datablock::html($line_detail, $blockData);
+
 
 if($postList && is_array($postList)) {?>
 
   <section class="<?php echo a($line_detail, 'value', 'avand'); ?> puzzle imgLine" data-mode='<?php echo a($line_detail, 'value', 'type'); ?>' data-design='<?php echo a($line_detail, 'value', 'design'); ?>'>
-   <?php echo \lib\app\website\generator\title::html($line_detail, a($post_detail, 'line_link')); ?>
+   <?php echo \lib\app\website\generator\title::html($line_detail, a($blockData, 'line_link')); ?>
+
+
    <div class="row padMore2">
 <?php foreach ($postList as $key => $value) {?>
 <?php $myPuzzle = \lib\app\website\puzzle::layout($key, $line_detail); ?>
