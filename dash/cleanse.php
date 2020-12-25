@@ -455,6 +455,10 @@ class cleanse
 			{
 				$result[$key] = $_current_data[$key];
 			}
+			else
+			{
+				$result[$key] = null;
+			}
 		}
 
 		return $result;
