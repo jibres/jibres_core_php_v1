@@ -19,7 +19,8 @@ class search
 		[
 			'order'      => 'order',
 			'sort'       => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'status'     => ['enum' => ['publish', 'draft', 'removed']],
+			'for'         => ['enum' => ['page','post','product']],
+			'status'      => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
 			'post_id'    => 'code',
 			'product_id' => 'id',
 			'parent'     => 'id',
@@ -82,6 +83,20 @@ class search
 			$list = [];
 		}
 
+		return $list;
+	}
+
+
+
+	public static function by_product($_id)
+	{
+		$args =
+		[
+			'product_id' => $_id,
+			'status' => 'approved',
+		];
+
+		$list = self::list(null, $args);
 		return $list;
 	}
 }

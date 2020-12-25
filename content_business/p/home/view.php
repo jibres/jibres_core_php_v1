@@ -23,10 +23,10 @@ class view
 		\dash\data::propertyList($property_list);
 
 
-		$customer_review = \lib\app\product\comment::customer_review($id);
+		$customer_review = \dash\app\comment\get::product_customer_review($id);
 		\dash\data::customerReview($customer_review);
 
-		$commentList = \lib\app\product\comment::get_public_list(\dash\data::dataRow_id());
+		$commentList = \dash\app\comment\search::by_product(\dash\data::dataRow_id());
 		\dash\data::commentList($commentList);
 
 
