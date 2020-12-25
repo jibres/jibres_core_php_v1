@@ -86,6 +86,23 @@ class check
 		}
 
 
+		if($data['parent'])
+		{
+			$load_parent = \dash\app\comment\get::inline_get($data['parent']);
+			if(!$load_parent)
+			{
+				\dash\notif::error(T_("Invalid parent id"));
+				return false;
+			}
+
+			if(isset($load_parent['parent']) && $load_parent['parent'])
+			{
+				\dash\notif::error(T_("You can not answer to an answer comment!"));
+				return false;
+			}
+		}
+
+
 		if(!$data['status'])
 		{
 			$data['status'] = 'awaiting';
