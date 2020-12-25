@@ -150,20 +150,16 @@ class model
 		{
 			$uploaded_file = \dash\upload\cms::set_post_gallery_editor(\dash\coding::decode(\dash\request::get('id')));
 
-			if($uploaded_file)
-			{
-				// save uploaded file
-				\dash\app\posts\gallery::gallery(\dash\request::get('id'), $uploaded_file, 'add');
-			}
-
 			$result             = [];
-			$result['fineName'] = $uploaded_file['filename'];
-			$result['url']      = \lib\filepath::fix($uploaded_file['path']);
-			$result['uploaded'] = 1;
-
-			if(!\dash\engine\process::status())
+			if(isset($uploaded_file['filename']) && isset($uploaded_file['path']))
 			{
-				// $result['uploaded'] = 0;
+				$result['fineName'] = $uploaded_file['filename'];
+				$result['url']      = \lib\filepath::fix($uploaded_file['path']);
+				$result['uploaded'] = 1;
+			}
+			else
+			{
+				$result['uploaded'] = 0;
 			}
 
 			\dash\code::jsonBoom($result);
