@@ -106,7 +106,7 @@ class timeline
 			'store_id','login','login_diff','start','start_diff','ask','ask_diff','subdomain','subdomain_diff','creating',
 			'creating_diff','startcreate','startcreate_diff','endcreate','endcreate_diff','opening','opening_diff','loadstore',
 			'loadstore_diff','user','productcompany','productunit','products','factors','factordetails','funds','inventory',
-			'productcategory','productcomment','productprices','productproperties','producttag','producttagusage','files','fileusage',
+			'productcategory','productprices','productproperties','producttag','producttagusage','files','fileusage',
 			'agents','apilog',
 		];
 

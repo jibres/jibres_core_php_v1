@@ -117,7 +117,6 @@ class statistics
 		$result['pos']                  = floatval(\dash\db\config::public_get_count('pos'));
 		$result['productcategory']      = floatval(\dash\db\config::public_get_count('productcategory'));
 		$result['productcategoryusage'] = floatval(\dash\db\config::public_get_count('productcategoryusage'));
-		$result['productcomment']       = floatval(\dash\db\config::public_get_count('productcomment'));
 		$result['productcompany']       = floatval(\dash\db\config::public_get_count('productcompany'));
 		$result['productinventory']     = floatval(\dash\db\config::public_get_count('productinventory'));
 		$result['productprices']        = floatval(\dash\db\config::public_get_count('productprices'));

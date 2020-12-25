@@ -65,7 +65,6 @@ class analytics
 			// 'inventory'            => ['group' => T_("Product"), 'title' => T_("Inventory")],
 			'productcategory'      => ['group' => T_("Product"), 'title' => T_("Product category")],
 			'productcategoryusage' => ['group' => T_("Product"), 'title' => T_("Product categoryusage")],
-			'productcomment'       => ['group' => T_("Product"), 'title' => T_("Product comment")],
 			'productcompany'       => ['group' => T_("Product"), 'title' => T_("Product company")],
 			'productinventory'     => ['group' => T_("Product"), 'title' => T_("Product inventory")],
 			'productprices'        => ['group' => T_("Product"), 'title' => T_("Product prices")],
