@@ -15,7 +15,7 @@
           <option value="top" <?php if(a($lineSetting, 'info_position') == 'top') { echo 'selected'; } ?> ><?php echo T_("top") ?></option>
           <option value="bottom" <?php if(a($lineSetting, 'info_position') == 'bottom') { echo 'selected'; } ?> ><?php echo T_("bottom") ?></option>
           <option value="beside" <?php if(a($lineSetting, 'info_position') == 'beside') { echo 'selected'; } ?> ><?php echo T_("Beside") ?></option>
-          <option value="inside" <?php if(a($lineSetting, 'info_position') == 'inside') { echo 'selected'; } ?> ><?php echo T_("Over") ?></option>
+          <option value="inside" <?php if(a($lineSetting, 'info_position') == 'inside') { echo 'selected'; } ?> ><?php echo T_("Inside") ?></option>
         </select>
       </div>
   </form>
