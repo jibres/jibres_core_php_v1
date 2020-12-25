@@ -201,7 +201,7 @@
 <section id="jibresApp">
   <div class="avand-lg">
     <div class="row">
-      <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
+      <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
       <div class="c-xs-12 c-sm-12 c-lg-7 text">
         <h2><?php echo T_("Jibres Mobile App"); ?></h2>
         <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
@@ -209,16 +209,16 @@
         <div class="dl">
           <a href="<?php echo \dash\url::kingdom(); ?>/app/android" title='<?php echo T_("Download Jibres App from Google play") ?>' target="_blank" rel="noopener">
 <?php if(\dash\language::current() === 'fa') {?>
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/googleplay-fa.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+            <img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/app/get/googleplay-fa.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
 <?php } else {?>
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
+            <img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/app/get/googleplay.png" alt='<?php echo T_("Jibres app on Google play") ?>'>
 <?php }?>
           </a>
           <a href="<?php echo \dash\url::kingdom(); ?>/app/direct" title='<?php echo T_("Direct download Jibres app") ?>'>
 <?php if(\dash\language::current() === 'fa') {?>
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/downloadapk-fa.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+            <img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/app/get/downloadapk-fa.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
 <?php } else {?>
-            <img src="<?php echo \dash\url::cdn(); ?>/img/app/get/downloadapk.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
+            <img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/app/get/downloadapk.png" alt='<?php echo T_("Direct download Jibres app") ?>'>
 <?php }?>
           </a>
         </div>
@@ -261,7 +261,7 @@
           <div class="shapeTop"></div>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
           <footer class="f align-center from">
-            <div class="cauto"><img src="<?php echo \dash\url::cdn(); ?>/img/quote/50px/<?php echo $value['avatar']; ?>-50px.jpg" srcset="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>.jpg 2x" alt='<?php echo $value['name']; ?>'></div>
+            <div class="cauto"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/quote/50px/<?php echo $value['avatar']; ?>-50px.jpg" srcset="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>.jpg 2x" alt='<?php echo $value['name']; ?>'></div>
             <div class="cauto pLa10">
               <div class="name"><?php echo $value['name']; ?></div>
               <div class="position"><?php echo $value['position']; ?></div>
