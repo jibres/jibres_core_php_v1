@@ -41,7 +41,7 @@ class datablock
 	{
 		$itemHtml = '';
 		$infoPos  = a($_blockSetting, 'info_position');
-		var_dump($_blockSetting);
+		// var_dump($_blockSetting);
 
 		foreach ($_list as $key => $value)
 		{
