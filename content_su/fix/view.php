@@ -30,12 +30,13 @@ class view
 
 		$result =
 		[
-			'count'      => 0,
-			'counImage'  => 0,
-			'CropedFile' => 0,
-			'isCroped'   => 0,
-			'NeedToCrop' => 0,
-			'CountForEeach' => 0,
+			'count'               => 0,
+			'counImage'           => 0,
+			'CropedFile'          => 0,
+			'FileCropExists'            => 0,
+			'NeedToCrop'          => 0,
+			'CountForEeach'       => 0,
+			'RemoveOldCropedFile' => 0,
 
 		];
 
@@ -73,6 +74,15 @@ class view
 					{
 						$result['counImage']++;
 
+
+
+						if(self::remove_old_file($file))
+						{
+							$result['RemoveOldCropedFile']++;
+							continue;
+						}
+
+
 						if(self::the_croped_file($file))
 						{
 							$result['CropedFile']++;
@@ -82,7 +92,7 @@ class view
 
 						if(self::is_croped($file, $path_info['extension']))
 						{
-							$result['isCroped']++;
+							$result['FileCropExists']++;
 							continue;
 						}
 
@@ -101,9 +111,112 @@ class view
 
 		}
 
+
+		$jibres_file = glob(YARD. 'talambar_dl/*');
+
+		foreach ($jibres_file as $folders)
+		{
+
+			$result['CountForEeach']++;
+
+			$files = glob($folders. '/*');
+
+			// var_dump($files);exit();
+
+			foreach ($files as $file)
+			{
+				$result['CountForEeach']++;
+
+				$result['count']++;
+
+				$path_info = pathinfo($file);
+
+				if(isset($path_info['extension']) &&  in_array($path_info['extension'], ['jpg','jpeg','png','gif']))
+				{
+					$result['counImage']++;
+
+					if(self::remove_old_file($file))
+					{
+						$result['RemoveOldCropedFile']++;
+						continue;
+					}
+
+
+					if(self::the_croped_file($file))
+					{
+						$result['CropedFile']++;
+						continue;
+					}
+
+
+					if(self::is_croped($file, $path_info['extension']))
+					{
+						$result['FileCropExists']++;
+						continue;
+					}
+
+					\dash\upload\crop::pic($file, $path_info['extension']);
+
+					$result['NeedToCrop']++;
+
+
+				}
+			}
+
+		}
+
 		var_dump($result);
 
 		exit();
+	}
+
+
+	private static function remove_old_file($_path)
+	{
+		if(strpos($_path, '-normal-') !== false)
+		{
+			unlink($_path);
+			return true;
+		}
+
+
+		if(strpos($_path, '-thumb-') !== false)
+		{
+			unlink($_path);
+			return true;
+		}
+
+
+		if(strpos($_path, '-large-') !== false)
+		{
+			unlink($_path);
+			return true;
+		}
+
+		if(strpos($_path, '-normal.') !== false)
+		{
+			unlink($_path);
+			return true;
+		}
+
+
+		if(strpos($_path, '-thumb.') !== false)
+		{
+			unlink($_path);
+			return true;
+		}
+
+
+		if(strpos($_path, '-large.') !== false)
+		{
+			unlink($_path);
+			return true;
+		}
+
+
+
+		return false;
+
 	}
 
 	private static function is_croped($_path, $_ext)
