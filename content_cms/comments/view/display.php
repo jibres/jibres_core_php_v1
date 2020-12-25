@@ -122,7 +122,7 @@ $dataRow = \dash\data::dataRow();
 
     <?php if(\dash\data::answerCount()) {?>
     <li>
-      <a class="item f" href="<?php echo \dash\data::listCommentMoudle(). \dash\request::full_get(['answerto' => \dash\request::get('cid')]); ?>">
+      <a class="item f" href="<?php echo \dash\data::listCommentMoudle(). \dash\request::full_get(['cid' => null, 'answerto' => \dash\request::get('cid')]); ?>">
         <div class="key"><?php echo T_("Show Answer to this comment");?></div>
         <div class="value txtB ltr"><?php echo \dash\fit::number(\dash\data::answerCount()); ?></div>
         <div class="go"></div>

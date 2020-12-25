@@ -24,12 +24,14 @@ class view
 			'status' => \dash\request::get('status'),
 		];
 
+		$args = array_merge($args, $_args);
+
 		if(\dash\request::get('answerto'))
 		{
-			$args['parent'] = \dash\request::get('answerto');
+			$args['parent']     = \dash\request::get('answerto');
+			$args['product_id'] = null;
+			$args['for']        = null;
 		}
-
-		$args = array_merge($args, $_args);
 
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
