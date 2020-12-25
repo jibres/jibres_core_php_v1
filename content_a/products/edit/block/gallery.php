@@ -10,7 +10,7 @@
         <?php if(is_array(\dash\data::productDataRow_gallery_array()) && count(\dash\data::productDataRow_gallery_array()) > 10) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Product gallery is full!"); ?></div>
         <?php }else{ ?>
-          <div data-uploader data-max-w="1000" data-max-h="1000" data-name='gallery' <?php echo \dash\data::ratioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
+          <div data-uploader data-max-w="1600" data-max-h="1600" data-name='gallery' <?php echo \dash\data::ratioHtml(); ?> <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
             <input type="file" id="file1">
             <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr>
               <?php if(count($gallery) >= 3) {?>
