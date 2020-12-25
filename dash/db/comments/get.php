@@ -49,8 +49,8 @@ class get
 		"
 			SELECT
 				comments.*,
-				users.displayname AS `displayname`,
-				users.mobile AS `mobile`,
+				users.displayname AS `user_displayname`,
+				users.mobile AS `user_mobile`,
 				users.avatar AS `avatar`,
 				products.title AS `product_title`,
 				products.thumb AS `product_thumb`
@@ -62,8 +62,8 @@ class get
 				comments.id = $_id
 			LIMIT 1
 		";
-
 		$result = \dash\db::get($query, null, true);
+
 
 		return $result;
 	}

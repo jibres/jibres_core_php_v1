@@ -4,20 +4,39 @@ $dataRow = \dash\data::dataRow();
 ?>
 
 
-<?php if(a($dataRow, 'user_id')) {?>
 <nav class="items long">
   <ul>
+<?php if(a($dataRow, 'user_id')) {?>
     <li>
       <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($dataRow, 'user_id'); ?>">
         <img src="<?php echo a($dataRow, 'avatar') ?>">
-        <div class="key"><?php echo a($dataRow, 'displayname');?></div>
+        <div class="key"><?php echo a($dataRow, 'user_displayname');?></div>
+        <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'user_mobile'));?></div>
+        <div class="go"></div>
+      </a>
+    </li>
+<?php } // endif ?>
+
+<?php if(a($dataRow, 'displayname')) {?>
+    <li>
+      <a class="item f">
+        <div class="key"><?php echo T_("Name") ?></div>
+        <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'displayname'));?></div>
+        <div class="go"></div>
+      </a>
+    </li>
+<?php } // endif ?>
+<?php if(a($dataRow, 'mobile')) {?>
+    <li>
+      <a class="item f">
+        <div class="key"><?php echo T_("Mobile") ?></div>
         <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'mobile'));?></div>
         <div class="go"></div>
       </a>
     </li>
+<?php } // endif ?>
     </ul>
 </nav>
-<?php } // endif ?>
 <?php if(a($dataRow, 'product_id')) {?>
 <nav class="items long">
   <ul>
