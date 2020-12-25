@@ -5,15 +5,15 @@ class title
 {
 	public static function html($_line_detail, $_link = null)
 	{
-		if(a($_line_detail, 'value', 'show_title') === 'no')
+		if(a($_line_detail, 'show_title') === 'no')
 		{
 			return '';
 		}
 
 		$html              = '';
-		$title             = a($_line_detail, 'value', 'title');
-		$more_link         = a($_line_detail, 'value', 'more_link');
-		$more_link_caption = a($_line_detail, 'value', 'more_link_caption');
+		$title             = a($_line_detail, 'title');
+		$more_link         = a($_line_detail, 'more_link');
+		$more_link_caption = a($_line_detail, 'more_link_caption');
 
 
 		if($more_link === 'hide' || !$_link)

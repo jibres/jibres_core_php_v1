@@ -90,9 +90,9 @@ class puzzle
 
 	public static function layout($_index, $_line_detail)
 	{
-		$puzzle    = a($_line_detail, 'value', 'puzzle');
-		$limit     = a($_line_detail, 'value', 'limit');
-		$play_item = a($_line_detail, 'value', 'play_item');
+		$puzzle    = a($_line_detail, 'puzzle');
+		$limit     = a($_line_detail, 'limit');
+		$play_item = a($_line_detail, 'play_item');
 
 		if(!$limit || !is_numeric($limit))
 		{

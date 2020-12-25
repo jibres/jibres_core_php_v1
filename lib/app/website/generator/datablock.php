@@ -14,13 +14,14 @@ class datablock
 		{
 			return null;
 		}
+		$_blockSetting = a($_blockSetting, 'value');
 
 		$html = '<section class="puzzle imgLine"';
-		$html .= ' data-mode="'. a($_blockSetting, 'value', 'type'). '"';
-		$html .= ' data-design="'. a($_blockSetting, 'value', 'design'). '"';
+		$html .= ' data-mode="'. a($_blockSetting, 'type'). '"';
+		$html .= ' data-design="'. a($_blockSetting, 'design'). '"';
 		$html .= '>';
 		{
-			$html .= '<div class="'. a($_blockSetting, 'value', 'avand'). '">';
+			$html .= '<div class="'. a($_blockSetting, 'avand'). '">';
 			{
 				// get title line if need to show
 				$html .= \lib\app\website\generator\title::html($_blockSetting, a($_data, 'line_link'));
@@ -40,8 +41,10 @@ class datablock
 	private static function everyItem($_list, $_blockSetting)
 	{
 		$itemHtml = '';
+		var_dump($_blockSetting);
 		foreach ($_list as $key => $value)
 		{
+
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
 			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
