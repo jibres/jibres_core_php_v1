@@ -17,6 +17,11 @@ class form
 			$size = floatval($_size);
 		}
 
+		if($size > 10)
+		{
+			$size = 1;
+		}
+
 		$ext = ['jpg', 'png'];
 		if($_ext && is_array($_ext))
 		{
