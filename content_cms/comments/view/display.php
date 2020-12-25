@@ -126,7 +126,11 @@ $dataRow = \dash\data::dataRow();
   </div>
   <footer>
     <div class="row">
-      <div class="c-auto"><div class="link sm" data-kerkere-icon data-kerkere='.answerToComment'><?php echo T_("Answer to comment") ?></div></div>
+      <div class="c-auto">
+        <?php if(!a($dataRow, 'parent')) {?>
+        <div class="link sm" data-kerkere-icon data-kerkere='.answerToComment'><?php echo T_("Answer to comment") ?></div>
+      <?php } //endif ?>
+      </div>
       <div class="c"></div>
       <div class="c-auto"><a class="link sm" href="<?php echo \dash\url::this(). '/edit?id='. a($dataRow, 'id') ?>"><?php echo T_("Edit comment") ?></a></div>
     </div>
