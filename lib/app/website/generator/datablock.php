@@ -18,7 +18,6 @@ class datablock
 
 		$html = '<section class="puzzle imgLine"';
 		$html .= ' data-mode="'. a($_blockSetting, 'type'). '"';
-		$html .= ' data-design="'. a($_blockSetting, 'design'). '"';
 		$html .= '>';
 		{
 			$html .= '<div class="'. a($_blockSetting, 'avand'). '">';
@@ -41,10 +40,11 @@ class datablock
 	private static function everyItem($_list, $_blockSetting)
 	{
 		$itemHtml = '';
+		$infoPos  = a($_blockSetting, 'info_position');
 		var_dump($_blockSetting);
+
 		foreach ($_list as $key => $value)
 		{
-
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
 			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
@@ -54,6 +54,11 @@ class datablock
 				$linkTitle  = a($value, 'title');
 				$link       = a($value, 'link');
 				$linkTarget = a($value, 'target');
+
+				if($infoPos === 'top')
+				{
+					$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
+				}
 
 				if($playMode === 'video' || $playMode === 'audio')
 				{
@@ -93,6 +98,15 @@ class datablock
 		}
 
 		return null;
+	}
+
+
+	private static function createInfoBox($_value)
+	{
+		$myInfoBox = '';
+
+
+		return $myInfoBox;
 	}
 
 }
