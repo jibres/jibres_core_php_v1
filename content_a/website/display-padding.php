@@ -11,10 +11,7 @@
     <input type="hidden" name="set_padding" value="1">
       <div class="action">
           <select name="padding" class="select22" id="padding">
-          <option value="normal" <?php if(a($lineSetting, 'padding') == 'normal') { echo 'selected'; } ?> ><?php echo T_("Normal") ?></option>
-          <option value="low" <?php if(a($lineSetting, 'padding') == 'low') { echo 'selected'; } ?> ><?php echo T_("Low") ?></option>
-          <option value="high" <?php if(a($lineSetting, 'padding') == 'high') { echo 'selected'; } ?> ><?php echo T_("High") ?></option>
-          <option value="none" <?php if(a($lineSetting, 'padding') == 'none') { echo 'selected'; } ?> ><?php echo T_("Without padding") ?></option>
+            <?php echo \lib\app\website\padding::select_html(a($lineSetting, 'padding')); ?>
         </select>
       </div>
   </form>

@@ -11,12 +11,9 @@
     <input type="hidden" name="set_radius" value="1">
       <div class="action">
           <select name="radius" class="select22" id="radius">
-          <option value="normal" <?php if(a($lineSetting, 'radius') == 'normal') { echo 'selected'; } ?> ><?php echo T_("Normal") ?></option>
-          <option value="sharp" <?php if(a($lineSetting, 'radius') == 'sharp') { echo 'selected'; } ?> ><?php echo T_("Sharp") ?></option>
-          <option value="circular" <?php if(a($lineSetting, 'radius') == 'circular') { echo 'selected'; } ?> ><?php echo T_("Circular") ?></option>
-          <option value="none" <?php if(a($lineSetting, 'radius') == 'none') { echo 'selected'; } ?> ><?php echo T_("Without radius") ?></option>
+            <?php echo \lib\app\website\radius::select_html(a($lineSetting, 'radius')); ?>
+
         </select>
       </div>
   </form>
 </section>
-

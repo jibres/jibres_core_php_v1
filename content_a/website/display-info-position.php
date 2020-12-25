@@ -10,12 +10,8 @@
   <form class="c4 s12" method="post" data-patch>
     <input type="hidden" name="set_info_position" value="1">
       <div class="action">
-          <select name="info_position" class="select22">
-          <option value="none" <?php if(a($lineSetting, 'info_position') == 'none') { echo 'selected'; } ?> ><?php echo T_("No show") ?></option>
-          <option value="top" <?php if(a($lineSetting, 'info_position') == 'top') { echo 'selected'; } ?> ><?php echo T_("top") ?></option>
-          <option value="bottom" <?php if(a($lineSetting, 'info_position') == 'bottom') { echo 'selected'; } ?> ><?php echo T_("bottom") ?></option>
-          <option value="beside" <?php if(a($lineSetting, 'info_position') == 'beside') { echo 'selected'; } ?> ><?php echo T_("Beside") ?></option>
-          <option value="inside" <?php if(a($lineSetting, 'info_position') == 'inside') { echo 'selected'; } ?> ><?php echo T_("Inside") ?></option>
+        <select name="info_position" class="select22">
+            <?php echo \lib\app\website\info_position::select_html(a($lineSetting, 'info_position')); ?>
         </select>
       </div>
   </form>

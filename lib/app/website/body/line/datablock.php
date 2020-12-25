@@ -157,10 +157,10 @@ class datablock
 
 
 
-			'info_position'     => ['enum' => ['none','top','bottom','beside','inside',]],
-			'avand'             => ['enum' => ['avand','avand-sm','avand-md','avand-lg','avand-xl','avand-xxl','none']],
-			'radius'            => ['enum' => ['normal','sharp','circular','none']],
-			'padding'           => ['enum' => ['normal','low','high','none']],
+			'info_position'     => \lib\app\website\info_position::input_check(),
+			'avand'             => \lib\app\website\avand::input_check(),
+			'radius'            => \lib\app\website\radius::input_check(),
+			'padding'           => \lib\app\website\padding::input_check(),
 			'limit'             => 'tinyint',
 
 
@@ -176,7 +176,6 @@ class datablock
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$data    = \dash\cleanse::data_json_merge($_args, $data, $_current_data);
-
 
 		// if subtype is standard or gallery we set default paly item in none
 		if($data['subtype'] === 'standard' || $data['subtype'] === 'gallery')
@@ -195,13 +194,8 @@ class datablock
 
 		if(!$data['title'])
 		{
-			$data['title'] = self::suggest_new_name();
+			$data['title'] = self::suggest_new_name(T_("News"));
 		}
-
-		$data['avand']  = 'md';
-		$data['limit']  = 8;
-		$data['design'] = 'title_on_image';
-
 
 		$line_id = \lib\app\website\body\add::line('news', ['title' => $data['title'], 'publish' => $data['publish']]);
 
