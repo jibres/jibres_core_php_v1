@@ -320,7 +320,7 @@ if(count($myGallery) > 1)
               </div>
             </div>
             <div class="c"><?php echo a($value, 'displayname'); ?></div>
-            <div class="c-auto ltr txtRa"><?php echo \dash\fit::date($value['datecreated']); ?></div>
+            <div class="c-auto ltr txtRa"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
           </div>
 
           <p><?php echo $value['content']; ?></p>
