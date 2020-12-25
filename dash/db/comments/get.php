@@ -34,6 +34,13 @@ class get
 	}
 
 
+	public static function product_comment_count($_product_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.product_id = $_product_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 
 	public static function by_id($_id)
 	{

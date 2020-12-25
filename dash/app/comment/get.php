@@ -122,6 +122,26 @@ class get
 	}
 
 
+	public static function product_comment_count($_product_id)
+	{
+		$product_id = \dash\validate::id($_product_id);
+		if(!$product_id)
+		{
+			return false;
+		}
+
+		$load_count = \dash\db\comments\get::product_comment_count($product_id);
+
+		if(!is_numeric($load_count))
+		{
+			$load_count = 0;
+		}
+
+		return intval($load_count);
+
+
+	}
+
 
 }
 ?>

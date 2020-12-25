@@ -59,7 +59,7 @@ class view
 		$property_list = \lib\app\product\property::get_count($id);
 		\dash\data::propertyCount($property_list);
 
-		$comment_list = \lib\app\product\comment::get_count($id);
+		$comment_list = \dash\app\comment\get::product_comment_count($id);
 		\dash\data::commentCount($comment_list);
 
 		$cat_list = \lib\app\category\get::product_cat($id);
