@@ -4,7 +4,7 @@ namespace content_cms\comments\home;
 
 class view
 {
-	public static function config()
+	public static function config($_args = [])
 	{
 		\dash\face::title(T_("Comments"));
 
@@ -29,6 +29,8 @@ class view
 		{
 			$args['parent'] = \dash\request::get('answerto');
 		}
+
+		$args = array_merge($args, $_args);
 
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));

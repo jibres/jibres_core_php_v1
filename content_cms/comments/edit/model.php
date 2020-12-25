@@ -13,7 +13,7 @@ class model
 		$post['displayname'] = \dash\request::post('displayname');
 		$post['star']        = \dash\request::post('star');
 
-		$post_detail = \dash\app\comment\edit::edit($post, \dash\request::get('id'));
+		$post_detail = \dash\app\comment\edit::edit($post, \dash\request::get('cid'));
 
 		if(\dash\engine\process::status())
 		{

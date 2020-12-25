@@ -7,7 +7,7 @@ class model
 	{
 		if(\dash\request::post('remove') === 'remove')
 		{
-			\dash\app\comment\remove::remove(\dash\request::get('id'));
+			\dash\app\comment\remove::remove(\dash\request::get('cid'));
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::this());
@@ -24,7 +24,7 @@ class model
 			$answer['title']   = \dash\request::post('answertitle');
 
 
-			\dash\app\comment\add::answer($answer, \dash\request::get('id'));
+			\dash\app\comment\add::answer($answer, \dash\request::get('cid'));
 
 			if(\dash\engine\process::status())
 			{
@@ -38,7 +38,7 @@ class model
 
 			$status      = \dash\request::post('status');
 
-			$post_detail = \dash\app\comment\edit::edit_status($status, \dash\request::get('id'));
+			$post_detail = \dash\app\comment\edit::edit_status($status, \dash\request::get('cid'));
 
 			if(\dash\engine\process::status())
 			{

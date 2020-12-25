@@ -122,7 +122,7 @@ $dataRow = \dash\data::dataRow();
 
     <?php if(\dash\data::answerCount()) {?>
     <li>
-      <a class="item f" href="<?php echo \dash\url::this(). '?answerto='. \dash\request::get('id'); ?>">
+      <a class="item f" href="<?php echo \dash\url::this(). '?answerto='. \dash\request::get('cid'); ?>">
         <div class="key"><?php echo T_("Show Answer to this comment");?></div>
         <div class="value txtB ltr"><?php echo \dash\fit::number(\dash\data::answerCount()); ?></div>
         <div class="go"></div>
@@ -149,7 +149,7 @@ $dataRow = \dash\data::dataRow();
       <?php } //endif ?>
       </div>
       <div class="c"></div>
-      <div class="c-auto"><a class="link sm" href="<?php echo \dash\url::this(). '/edit?id='. a($dataRow, 'id') ?>"><?php echo T_("Edit comment") ?></a></div>
+      <div class="c-auto"><a class="link sm" href="<?php echo \dash\url::this(). '/edit?cid='. a($dataRow, 'id') ?>"><?php echo T_("Edit comment") ?></a></div>
     </div>
   </footer>
 </div>
