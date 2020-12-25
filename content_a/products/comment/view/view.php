@@ -1,7 +1,7 @@
 <?php
-namespace content_a\products\comment\edit;
+namespace content_a\products\comment\view;
 
-class view extends \content_cms\comments\edit\view
+class view extends \content_cms\comments\view\view
 {
 	public static function config()
 	{

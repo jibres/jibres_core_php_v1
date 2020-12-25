@@ -15,6 +15,10 @@ class controller
 		}
 
 		\dash\data::dataRow($dataRow);
+
+		\dash\data::editCommentModule(\dash\url::this(). '/edit');
+		\dash\data::viewCommentModule(\dash\url::this(). '/view');
+		\dash\data::listCommentMoudle(\dash\url::this());
 	}
 }
 ?>

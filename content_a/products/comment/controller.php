@@ -2,7 +2,7 @@
 namespace content_a\products\comment;
 
 
-class controller
+class controller extends \content_cms\comments\home\controller
 {
 	public static function routing()
 	{
@@ -14,6 +14,10 @@ class controller
 		{
 			\lib\app\product\load::one();
 		}
+
+		parent::routing();
+
+		\dash\data::viewCommentModule(\dash\url::that(). '/view');
 
 	}
 }

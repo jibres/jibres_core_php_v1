@@ -10,7 +10,7 @@ class model
 			\dash\app\comment\remove::remove(\dash\request::get('cid'));
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::to(\dash\data::listCommentMoudle());
 			}
 
 			return;
