@@ -67,7 +67,8 @@ class add
 
 		$args =
 		[
-			'content' => $_answer,
+			'content' => a($_answer, 'content'),
+			'title'   => a($_answer, 'title'),
 			'parent'  => $_id,
 			'status'  => 'approved',
 		];

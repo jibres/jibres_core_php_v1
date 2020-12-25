@@ -19,7 +19,10 @@ class model
 
 		if(\dash\request::post('answertocomment') === 'answertocomment')
 		{
-			$answer      = \dash\request::post('answer');
+			$answer            = [];
+			$answer['content'] = \dash\request::post('answer');
+			$answer['title']   = \dash\request::post('answertitle');
+
 
 			\dash\app\comment\add::answer($answer, \dash\request::get('id'));
 

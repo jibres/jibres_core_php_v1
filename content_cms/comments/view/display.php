@@ -83,7 +83,7 @@ $dataRow = \dash\data::dataRow();
      <li>
       <a class="item f" href="<?php echo \dash\url::this(). '/view?id='. a($dataRow, 'parent'); ?>">
         <div class="key"><?php echo T_("In response to the comment");?></div>
-        <div class="value ltr"><?php echo a($dataRow, 'parent');?></div>
+        <div class="value ltr"><?php echo \dash\fit::text(a($dataRow, 'parent'));?></div>
         <div class="go"></div>
       </a>
     </li>
@@ -138,6 +138,10 @@ $dataRow = \dash\data::dataRow();
     <input type="hidden" name="answertocomment" value="answertocomment">
     <div class="box">
       <div class="pad">
+        <label for="answertitle"><?php echo T_("Title") ?></label>
+        <div class="input">
+          <input type="text" name="answertitle" id="answertitle" maxlength="100">
+        </div>
         <label for="answer"><?php echo T_("Answer to comment") ?></label>
         <textarea class="txt" id="answer" name="answer" rows="3"></textarea>
       </div>

@@ -8,6 +8,8 @@ class model
 
 		$post = [];
 		$post['content'] = \dash\request::post('content');
+		$post['title'] = \dash\request::post('title');
+		$post['star'] = \dash\request::post('star');
 
 		$post_detail = \dash\app\comment\edit::edit($post, \dash\request::get('id'));
 
