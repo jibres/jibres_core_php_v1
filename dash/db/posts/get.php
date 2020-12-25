@@ -19,7 +19,7 @@ class get
 
 	public static function list_all_of_pages($_current_id)
 	{
-		$query  = "SELECT posts.id, posts.title, posts.parent FROM posts WHERE posts.type = 'page' AND posts.id != $_current_id ";
+		$query  = "SELECT posts.id, posts.title, posts.parent FROM posts WHERE posts.type = 'page' AND posts.status = 'publish' AND posts.id != $_current_id ";
 		$result = \dash\db::get($query);
 		return $result;
 	}

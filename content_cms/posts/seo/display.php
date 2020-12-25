@@ -35,7 +35,12 @@ $isHelp = ($type === 'help');
     <div class="pad">
   <?php if($isPage || $isHelp) {?>
  <?php if(\dash\data::parentList()) {?>
-      <p><?php echo T_("You can set this page as a subset of another page") ?></p>
+      <p class="">
+        <div class="mB10"><?php echo T_("You can set this page as a subset of another page") ?></div>
+        <div class="fc-mute"><?php echo T_("Only published page can set as page parent") ?></div>
+
+      </p>
+
       <div class="mB10">
         <select class="select22" name="parent" id="parent">
           <option value="0"><?php echo T_("Nothing. Independent page") ?></option>
