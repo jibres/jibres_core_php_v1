@@ -15,9 +15,7 @@ $dataRow = \dash\data::dataRow();
         <div class="go"></div>
       </a>
     </li>
-<?php } // endif ?>
-
-<?php if(a($dataRow, 'displayname')) {?>
+<?php }elseif(a($dataRow, 'displayname')) {?>
     <li>
       <a class="item f">
         <div class="key"><?php echo T_("Name") ?></div>

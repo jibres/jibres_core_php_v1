@@ -2,6 +2,18 @@
   <div class="avand-md">
     <div class="box">
       <div class="pad">
+      <?php if(\dash\data::dataRow_user_id()) {/*nothing*/}else{?>
+        <label for="mobile"><?php echo T_("Mobile") ?></label>
+        <div class="input">
+          <input type="text" name="mobile" id="mobile" maxlength="100" value="<?php echo \dash\data::dataRow_mobile() ?>">
+        </div>
+
+        <label for="displayname"><?php echo T_("Name") ?></label>
+        <div class="input">
+          <input type="text" name="displayname" id="displayname" maxlength="100" value="<?php echo \dash\data::dataRow_displayname() ?>">
+        </div>
+      <?php } //endif ?>
+
         <label for="title"><?php echo T_("Title") ?></label>
         <div class="input">
           <input type="text" name="title" id="title" maxlength="100" value="<?php echo \dash\data::dataRow_title() ?>">

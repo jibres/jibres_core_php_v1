@@ -6,10 +6,12 @@ class model
 	public static function post()
 	{
 
-		$post = [];
-		$post['content'] = \dash\request::post('content');
-		$post['title'] = \dash\request::post('title');
-		$post['star'] = \dash\request::post('star');
+		$post                = [];
+		$post['content']     = \dash\request::post('content');
+		$post['title']       = \dash\request::post('title');
+		$post['mobile']      = \dash\request::post('mobile');
+		$post['displayname'] = \dash\request::post('displayname');
+		$post['star']        = \dash\request::post('star');
 
 		$post_detail = \dash\app\comment\edit::edit($post, \dash\request::get('id'));
 
