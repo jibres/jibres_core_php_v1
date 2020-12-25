@@ -48,6 +48,14 @@ class search
 		if($data['status'])
 		{
 			$and[] = " comments.status =  '$data[status]' ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['parent'])
+		{
+			$and[] = " comments.parent =  '$data[parent]' ";
+			self::$is_filtered = true;
 		}
 
 

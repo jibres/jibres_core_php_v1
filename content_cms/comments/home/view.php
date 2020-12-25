@@ -23,8 +23,12 @@ class view
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 			'status' => \dash\request::get('status'),
-
 		];
+
+		if(\dash\request::get('answerto'))
+		{
+			$args['parent'] = \dash\request::get('answerto');
+		}
 
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
