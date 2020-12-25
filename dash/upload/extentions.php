@@ -25,6 +25,7 @@ class extentions
 			'aac'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/aac'],
 			// image
 			'bmp'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/bmp'],
+			'webp'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/webp'],
 			'gif'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/gif'],
 			'jpeg'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
 			'jpg'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],

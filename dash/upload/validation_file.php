@@ -68,6 +68,20 @@ class validation_file
 			imagepng(imagecreatefromstring(file_get_contents($tmp_name)), $tmp_name);
 			$fileExt = 'png';
 		}
+		elseif($fileExt === 'png')
+		{
+			$img = imagecreatefrompng($tmp_name);
+			imagewebp( $img , $tmp_name , 80);
+			$fileExt = 'webp';
+		}
+		elseif($fileExt === 'jpg')
+		{
+			$img = imagecreatefromjpeg($tmp_name);
+			imagewebp( $img , $tmp_name , 80);
+			$fileExt = 'webp';
+		}
+
+
 
 		$extCheck           = \dash\upload\extentions::check($tmp_name, $fileExt, $_meta);
 

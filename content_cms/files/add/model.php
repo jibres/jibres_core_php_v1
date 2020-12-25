@@ -15,7 +15,7 @@ class model
 				'ext' =>
 				[
 					'mp3','wav','ogg','wma','m4a','aac', 	// audio
-					'bmp','gif','jpeg','jpg','png',			// image
+					'bmp','gif','jpeg','jpg','png','webp',	// image
 					'mpeg','mpg','mp4','mov','avi',			// video
 				],
 			];

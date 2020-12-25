@@ -67,11 +67,21 @@ class image
 			{
 				self::$img = @imagecreatefrompng($filepath);
 			}
+			elseif($type == IMAGETYPE_WBMP)
+			{
+				self::$img = @imagecreatefromwbmp($filepath);
+			}
+			elseif($type == IMAGETYPE_WEBP)
+			{
+				self::$img = @imagecreatefromwebp($filepath);
+			}
+
 			if(!isset(self::$img))
 			{
 				return false;
 			}
-			if(!in_array($type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG)))
+
+			if(!in_array($type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WBMP, IMAGETYPE_WEBP)))
 			{
 				return false;
 			}
@@ -117,6 +127,10 @@ class image
 		elseif(self::$type==IMAGETYPE_PNG)
 		{
 			imagepng(self::$img, $filepath);
+		}
+		elseif(self::$type == IMAGETYPE_WEBP || self::$type == IMAGETYPE_WBMP)
+		{
+			imagewbmp(self::$img, $filepath);
 		}
 	}
 

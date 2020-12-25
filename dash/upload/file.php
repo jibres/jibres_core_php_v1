@@ -139,7 +139,7 @@ class file
 			return false;
 		}
 
-		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif']))
+		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
 			if(isset($_meta['square']) && $_meta['square'])
 			{
@@ -192,7 +192,7 @@ class file
 		// }
 
 		// 7. save file in some quality if need. for example pictures need to crop and save all need size
-		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif']))
+		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
 			\dash\upload\crop::pic($directory['full'], $myFile['ext']);
 		}
