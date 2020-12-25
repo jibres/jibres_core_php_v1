@@ -50,57 +50,54 @@ class image
 	{
 		self::$loaded = false;
 
-		if(\dash\file::exists($filepath))
+		if(!\dash\file::exists($filepath))
 		{
-			list(self::$width, self::$height, $type) = @getimagesize($filepath);
-			// unset(self::$img);
-			self::$img = null;
-			if($type==IMAGETYPE_JPEG)
-			{
-				self::$img = @imagecreatefromjpeg($filepath);
-			}
-			else if($type==IMAGETYPE_GIF)
-			{
-				self::$img = @imagecreatefromgif($filepath);
-			}
-			else if($type==IMAGETYPE_PNG)
-			{
-				self::$img = @imagecreatefrompng($filepath);
-			}
-			elseif($type == IMAGETYPE_WBMP)
-			{
-				self::$img = @imagecreatefromwbmp($filepath);
-			}
-			elseif($type == IMAGETYPE_WEBP)
-			{
-				self::$img = @imagecreatefromwebp($filepath);
-			}
+			return false;
+		}
 
-			if(!isset(self::$img))
-			{
-				return false;
-			}
-
-			if(!in_array($type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WBMP, IMAGETYPE_WEBP)))
-			{
-				return false;
-			}
-
-			self::$type = $type;
-
-			// Preservation of the transparence / alpha for PNG and GIF
-			if($type==IMAGETYPE_GIF || $type==IMAGETYPE_PNG)
-			{
-				imagealphablending(self::$img, false);
-				imagesavealpha(self::$img, true);
-			}
-
-			self::$loaded = true;
+		list(self::$width, self::$height, $type) = @getimagesize($filepath);
+		// unset(self::$img);
+		self::$img = null;
+		if($type==IMAGETYPE_JPEG)
+		{
+			self::$img = @imagecreatefromjpeg($filepath);
+		}
+		else if($type==IMAGETYPE_GIF)
+		{
+			self::$img = @imagecreatefromgif($filepath);
+		}
+		else if($type==IMAGETYPE_PNG)
+		{
+			self::$img = @imagecreatefrompng($filepath);
+		}
+		elseif($type == IMAGETYPE_WBMP)
+		{
+			self::$img = @imagecreatefromwbmp($filepath);
+		}
+		elseif($type == IMAGETYPE_WEBP)
+		{
+			self::$img = @imagecreatefromwebp($filepath);
 		}
 		else
 		{
 			return false;
 		}
+
+		if(!isset(self::$img))
+		{
+			return false;
+		}
+
+		self::$type = $type;
+
+		// Preservation of the transparence / alpha for PNG and GIF
+		if($type==IMAGETYPE_GIF || $type==IMAGETYPE_PNG)
+		{
+			imagealphablending(self::$img, false);
+			imagesavealpha(self::$img, true);
+		}
+
+		self::$loaded = true;
 	}
 
 

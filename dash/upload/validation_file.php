@@ -43,17 +43,17 @@ class validation_file
 
 		$tmp_name = \dash\upload\file::my_files($_upload_name, 'tmp_name');
 
-		$fileInfo           = pathinfo(\dash\upload\file::my_files($_upload_name, 'name'));
+		$fileInfo = pathinfo(\dash\upload\file::my_files($_upload_name, 'name'));
 
 		if(isset($fileInfo['filename']))
 		{
-			$fileName     = $fileInfo['filename'];
+			$fileName = $fileInfo['filename'];
 		}
 
 		$fileExt = null;
 		if(isset($fileInfo['extension']))
 		{
-			$fileExt      = mb_strtolower($fileInfo['extension']);
+			$fileExt = mb_strtolower($fileInfo['extension']);
 
 			if($fileExt === 'jpeg')
 			{
@@ -62,7 +62,6 @@ class validation_file
 		}
 
 		// force convert jpeg to png
-
 		if($fileExt !== 'png' && isset($_meta['force_png']) && $tmp_name)
 		{
 			imagepng(imagecreatefromstring(file_get_contents($tmp_name)), $tmp_name);
@@ -82,8 +81,7 @@ class validation_file
 		}
 
 
-
-		$extCheck           = \dash\upload\extentions::check($tmp_name, $fileExt, $_meta);
+		$extCheck = \dash\upload\extentions::check($tmp_name, $fileExt, $_meta);
 
 		if(!\dash\engine\process::status())
 		{
