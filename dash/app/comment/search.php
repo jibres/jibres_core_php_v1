@@ -51,6 +51,12 @@ class search
 			self::$is_filtered = true;
 		}
 
+		if($data['product_id'])
+		{
+			$and[] = " comments.product_id =  '$data[product_id]' ";
+			self::$is_filtered = true;
+		}
+
 
 		if($data['parent'])
 		{
