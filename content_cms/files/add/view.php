@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\attachment\add;
+namespace content_cms\files\add;
 
 class view
 {

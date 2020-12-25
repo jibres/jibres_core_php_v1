@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\attachment\view;
+namespace content_cms\files\view;
 
 class controller
 {
