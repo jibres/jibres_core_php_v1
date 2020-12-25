@@ -59,6 +59,10 @@ class ready
 			}
 		}
 
+		if(isset($result['user_id']) && $result['user_id'] && isset($result['user_displayname']))
+		{
+			$result['displayname'] = $result['user_displayname'];
+		}
 
 		return $result;
 	}

@@ -25,7 +25,21 @@ class search
 		}
 
 
-		$query = "SELECT comments.* FROM comments $q[join] $q[where] $q[order] $limit ";
+		$query =
+		"
+			SELECT
+				comments.*,
+				users.displayname AS `user_displayname`,
+				users.mobile AS `user_mobile`,
+				users.avatar AS `avatar`
+			FROM
+				comments
+			LEFT JOIN users ON users.id = comments.user_id
+			$q[join]
+			$q[where]
+			$q[order]
+			$limit
+		";
 		$result = \dash\db::get($query);
 
 		return $result;
