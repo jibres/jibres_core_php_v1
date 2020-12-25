@@ -16,10 +16,8 @@ class model
 			return false;
 		}
 
-		$result = \lib\app\product\comment::answer($answer, $id);
 
 
-		\content_b1\tools::say($result);
 
 	}
 
