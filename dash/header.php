@@ -265,8 +265,11 @@ class header
 		else
 		{
 			@header("Cache-Control: no-cache, no-store, max-age=0, must-revalidate"); // HTTP 1.1.
+			// @header("Last-Modified: ". gmdate("D, d M Y H:i:s"). " GMT");
+			// @header("Cache-Control: post-check=0, pre-check=0", false);
 			@header("Pragma: no-cache"); // HTTP 1.0.
 			@header("Expires: 0"); // Proxies.
+			// @header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
 		}
 	}
 }
