@@ -7,6 +7,26 @@ class controller
 	// for routing check
 	public static function routing()
 	{
+		if(\dash\request::get('utm_campaign') === 'pwa' ) //&& \dash\detect\device::detectPWA())
+		{
+			if(\dash\user::id())
+			{
+				if(\dash\engine\store::inBusinessAdmin())
+				{
+					\dash\redirect::to(\dash\url::kingdom(). '/a');
+				}
+				else
+				{
+					\dash\redirect::to(\dash\url::kingdom(). '/my');
+				}
+			}
+			else
+			{
+				\dash\redirect::to_login(true);
+			}
+		}
+
+
 		if(\dash\url::store())
 		{
 			if(\dash\url::module() === 'apk' && !\dash\url::child())
@@ -25,16 +45,6 @@ class controller
 
 			\dash\redirect::to(\dash\url::kingdom(). '/a');
 		}
-
-		if(\dash\user::id())
-		{
-			if(\dash\detect\device::detectPWA())
-			{
-				// \dash\redirect::to(\dash\url::kingdom(). '/dashboard');
-			}
-		}
-
-
 	}
 }
 ?>

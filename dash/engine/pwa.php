@@ -30,7 +30,7 @@ class pwa
 
 
 			'scope'            => '/',
-			'start_url'        => \dash\url::kingdom(). '/my?utm_source=pwa',
+			'start_url'        => \dash\url::kingdom(). '/my?utm_campaign=pwa&utm_medium=standalone&utm_source=jibres',
 			'orientation'      => 'portrait',
 
 
@@ -56,7 +56,16 @@ class pwa
 			$manifest['description'] = \lib\store::desc();
 			$manifest['theme_color'] = '#000';
 			$manifest['icons'] = self::logo_business();
-			$manifest['start_url'] = \dash\url::kingdom(). '?utm_source=pwa';
+			$manifest['start_url'] = \dash\url::kingdom(). '?utm_campaign=pwa&utm_medium=standalone&utm_source=business';
+		}
+		elseif(\dash\engine\store::inBusinessAdmin())
+		{
+			$manifest['name'] = T_("Manage"). ' '. \lib\store::title();
+			$manifest['short_name'] = T_("Manage"). ' '. \lib\store::title();
+			$manifest['description'] = \lib\store::desc();
+			$manifest['theme_color'] = '#000';
+			$manifest['icons'] = self::logo_business();
+			$manifest['start_url'] = \dash\url::kingdom(). '/a?utm_campaign=pwa&utm_medium=standalone&utm_source=dashboard';
 		}
 		elseif(self::logo_jibres())
 		{
