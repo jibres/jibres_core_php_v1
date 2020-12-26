@@ -244,6 +244,7 @@ class header
 		}
 	}
 
+
 	public static function set_force($_code)
 	{
 			self::$status_code = $_code;
@@ -251,6 +252,13 @@ class header
 			$status_header = trim("HTTP/1.1 $_code $desc");
 			// set header
 			@header($status_header, true, $_code);
+	}
+
+
+	public static function cache($_time = 3600)
+	{
+		@header("Cache-Control: max-age=" + $_time);
+		@header("Expires: ".gmdate("D, d M Y H:i:s",time() + $_time)." GMT");
 	}
 }
 ?>

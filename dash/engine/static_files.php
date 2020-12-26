@@ -76,6 +76,9 @@ class static_files
 		$contributors .= '─██░░██████████─██░░██──██░░██████─██░░██──────────██░░██─████░░████─██░░██████████─██░░██████████─'. "\n";
 		$contributors .= '─██░░░░░░░░░░██─██░░██──██░░░░░░██─██░░██──────────██░░██─██░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─'. "\n";
 
+		// cache 1 day
+		\dash\header::cache(60*60*24);
+
 		// try to show it
 		\dash\code::jsonBoom($contributors, true, 'text');
 	}
@@ -103,6 +106,8 @@ class static_files
 		// allow
 		$robots .= "Sitemap: /sitemap.xml". "\n";
 
+		// cache 1 day
+		\dash\header::cache(60*60*24);
 
 		\dash\code::jsonBoom($robots, true, 'text');
 	}
