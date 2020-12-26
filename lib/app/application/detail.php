@@ -20,7 +20,7 @@ class detail
 			return false;
 		}
 
-		if(!\dash\upload\crop::check_square($store_logo))
+		if(!\dash\utility\image::check_square($store_logo))
 		{
 			return false;
 		}

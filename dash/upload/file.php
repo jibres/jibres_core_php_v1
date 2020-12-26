@@ -143,7 +143,7 @@ class file
 		{
 			if(isset($_meta['square']) && $_meta['square'])
 			{
-				$square = \dash\upload\crop::check_square($myFile['tmp_name']);
+				$square = \dash\utility\image::check_square($myFile['tmp_name']);
 				if(!$square)
 				{
 					if(isset($_meta['notif_msg_square']))
