@@ -9,72 +9,120 @@ class static_files
 	{
 		$contributors = "";
 		// general detail
-		$contributors .= '/** '. T_("In The name of Allah"). ' **/' . "\n\n\n";
+		$contributors .= '/** '. ("In The name of Allah"). ' **/' . "\n\n\n";
 
-		$contributors .= T_("Proudly made in IRAN, powered by Dash."). "\n";
-		$contributors .= "https://github.com/Ermile/dash". "\n\n";
+		$contributors .= "https://github.com/Jibres". "\n\n";
 
-		$contributors .= T_("Ermile is built by a creative team of engineers, designers, researchers and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see ermile.com/careers."). "\n";
+		$contributors .= ("Jibres is built by a creative team of engineers, designers, researchers and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see jibres.com/careers."). "\n";
 
 
 		// teams member
-		$contributors .= "\n\n". "/* ". T_('TEAM'). "*/";
+		$contributors .= "\n\n". "/* ". ('TEAM'). "*/";
 
 		// Javad Adib
-		$contributors .= "\n\t". T_("Javad Adib");
-		$contributors .= "\n\t". T_('Website'). ": https://evazzadeh.com";
-		$contributors .= "\n\t". T_('Website'). ": https://mradib.com";
-		$contributors .= "\n\t". T_('Contact'). ": CEO [at] Jibres.com";
-		$contributors .= "\n\t". T_('Twitter'). ": @MrAdib";
-		$contributors .= "\n\t". T_('Github'). ": @MrJavadAdib";
-		$contributors .= "\n\t". T_('Location'). ": Iran";
+		$contributors .= "\n\t". ("Javad Adib");
+		$contributors .= "\n\t". ('Website'). ": https://mradib.com";
+		$contributors .= "\n\t". ('Website'). ": https://evazzadeh.com";
+		$contributors .= "\n\t". ('Contact'). ": CEO [at] Jibres.com";
+		$contributors .= "\n\t". ('Twitter'). ": @MrAdib";
+		$contributors .= "\n\t". ('Github'). ": @MrJavadAdib";
+		$contributors .= "\n\t". ('Telegram'). ": @MrJavadADib";
+		// $contributors .= "\n\t". ('Location'). ": Iran";
 		$contributors .= "\n";
 
 		// Reza Mohiti
-		$contributors .= "\n\t". T_("Reza Mohiti");
-		$contributors .= "\n\t". T_('Website'). ": http://rezamohiti.ir";
-		$contributors .= "\n\t". T_('Contact'). ": rm.biqarar [at] gmail.com";
-		$contributors .= "\n\t". T_('Twitter'). ": @rmbiqarar";
-		$contributors .= "\n\t". T_('Location'). ": Qom, Iran";
+		$contributors .= "\n\t". ("Reza Mohiti");
+		$contributors .= "\n\t". ('Website'). ": https://rezamohiti.ir";
+		$contributors .= "\n\t". ('Contact'). ": rm.biqarar [at] gmail.com";
+		$contributors .= "\n\t". ('Twitter'). ": @rmBiqarar";
+		$contributors .= "\n\t". ('Github'). ": @biqarar";
+		$contributors .= "\n\t". ('Telegram'). ": @Biqarar";
+		// $contributors .= "\n\t". ('Location'). ": Qom, Iran";
 
 
 		// special thanks to
-		$contributors .= "\n\n\n". "/* ". T_('THANKS'). "*/";
+		$contributors .= "\n\n\n". "/* ". ('THANKS'). "*/";
 
 		// Mohammad Hasan Salehi HajiAbadi
-		$contributors .= "\n\t". T_("Mohammad Hasan Salehi HajiAbadi");
-		$contributors .= "\n\t". T_('Contact'). ": itb.Baravak [at] gmail.com";
-		$contributors .= "\n\t". T_('Twitter'). ": @baravak";
-		$contributors .= "\n\t". T_('Location'). ": Qom, Iran";
+		$contributors .= "\n\t". ("Mohammad Hasan Salehi HajiAbadi");
+		$contributors .= "\n\t". ('Website'). ": https://hasansalehi.ir";
+		$contributors .= "\n\t". ('Contact'). ": itb.Baravak [at] gmail.com";
+		$contributors .= "\n\t". ('Twitter'). ": @baravak";
+		$contributors .= "\n\t". ('Github'). ": @baravak";
+		$contributors .= "\n\t". ('Telegram'). ": @Hasan";
+		// $contributors .= "\n\t". ('Location'). ": Qom, Iran";
 		$contributors .= "\n";
 
 		// Saman Soltani
-		$contributors .= "\n\t". T_("Saman Soltani");
-		$contributors .= "\n\t". T_('Contact'). ': '. "sam.soltani [at] gmail.com";
-		$contributors .= "\n\t". T_('Location'). ": Germany";
+		$contributors .= "\n\t". ("Saman Soltani");
+		$contributors .= "\n\t". ('Website'). ": https://samansoltani.com";
+		$contributors .= "\n\t". ('Contact'). ': '. "sam.soltani [at] gmail.com";
+		$contributors .= "\n\t". ('Twitter'). ": @Saman_Soltani";
+		$contributors .= "\n\t". ('Github'). ": @Saman";
+		$contributors .= "\n\t". ('Telegram'). ": @Saman_Soltani";
+		// $contributors .= "\n\t". ('Location'). ": Germany";
+		$contributors .= "\n";
+
+		// Sadegh Salehi
+		$contributors .= "\n\t". ("Sadegh Salehi HajiAbadi");
+		$contributors .= "\n\t". ('Website'). ": https://sahelekaj.ir";
+		$contributors .= "\n\t". ('Contact'). ': '. "sahelekaj [at] gmail.com";
+		$contributors .= "\n\t". ('Telegram'). ": @Sahelekaj";
+		// $contributors .= "\n\t". ('Location'). ": Iran";
+		$contributors .= "\n";
+
+		// Ahmad Karimi
+		$contributors .= "\n\t". ("Ahmad Karimi");
+		$contributors .= "\n\t". ('Website'). ": http://ahmadkarimi.com";
+		$contributors .= "\n\t". ('Contact'). ': '. "ahmadkarimi1991 [at] gmail.com";
+		$contributors .= "\n\t". ('Twitter'). ": @AhmadKarimi1991";
+		$contributors .= "\n\t". ('Github'). ": @AhmadKarimi1991";
+		$contributors .= "\n\t". ('Telegram'). ": @eahmad";
+		// $contributors .= "\n\t". ('Location'). ": Iran";
+		$contributors .= "\n";
 
 
 		// site
-		$contributors .= "\n\n\n". "/* ". T_('SITE'). "*/";
-		$contributors .= "\n\t". "Last update: 05/07/2019";
-		$contributors .= "\n\t". "Version: 2.0.0";
+		$contributors .= "\n\n\n". "/* ". ('SITE'). "*/";
+		$contributors .= "\n\t". "Last update: 26/12/2020";
+		$contributors .= "\n\t". "Version: 3.0.0";
 		$contributors .= "\n\t". "Language: Farsi / English";
 		$contributors .= "\n\t". "Doctype: HTML5";
 		$contributors .= "\n\t". "IDE: Sublime!";
 
 
 		// Ermile
+		// $contributors .= "\n\n\n";
+		// $contributors .= '─██████████████─████████████████───██████──────────██████─██████████─██████─────────██████████████─'. "\n";
+		// $contributors .= '─██░░░░░░░░░░██─██░░░░░░░░░░░░██───██░░██████████████░░██─██░░░░░░██─██░░██─────────██░░░░░░░░░░██─'. "\n";
+		// $contributors .= '─██░░██████████─██░░████████░░██───██░░░░░░░░░░░░░░░░░░██─████░░████─██░░██─────────██░░██████████─'. "\n";
+		// $contributors .= '─██░░██─────────██░░██────██░░██───██░░██████░░██████░░██───██░░██───██░░██─────────██░░██─────────'. "\n";
+		// $contributors .= '─██░░██████████─██░░████████░░██───██░░██──██░░██──██░░██───██░░██───██░░██─────────██░░██████████─'. "\n";
+		// $contributors .= '─██░░░░░░░░░░██─██░░░░░░░░░░░░██───██░░██──██░░██──██░░██───██░░██───██░░██─────────██░░░░░░░░░░██─'. "\n";
+		// $contributors .= '─██░░██████████─██░░██████░░████───██░░██──██████──██░░██───██░░██───██░░██─────────██░░██████████─'. "\n";
+		// $contributors .= '─██░░██─────────██░░██──██░░██─────██░░██──────────██░░██───██░░██───██░░██─────────██░░██─────────'. "\n";
+		// $contributors .= '─██░░██████████─██░░██──██░░██████─██░░██──────────██░░██─████░░████─██░░██████████─██░░██████████─'. "\n";
+		// $contributors .= '─██░░░░░░░░░░██─██░░██──██░░░░░░██─██░░██──────────██░░██─██░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─'. "\n";
+
+		// $contributors .= "\n\n\n";
+		// $contributors .= '     /$$$$$ /$$ /$$'. "\n";
+		// $contributors .= '    |__  $$|__/| $$'. "\n";
+		// $contributors .= '       | $$ /$$| $$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$$'. "\n";
+		// $contributors .= '       | $$| $$| $$__  $$ /$$__  $$ /$$__  $$ /$$_____/'. "\n";
+		// $contributors .= '  /$$  | $$| $$| $$  \ $$| $$  \__/| $$$$$$$$|  $$$$$$ '. "\n";
+		// $contributors .= ' | $$  | $$| $$| $$  | $$| $$      | $$_____/ \____  $$'. "\n";
+		// $contributors .= ' |  $$$$$$/| $$| $$$$$$$/| $$      |  $$$$$$$ /$$$$$$$/'. "\n";
+		// $contributors .= ' \______/ |__/|_______/ |__/       \_______/|_______/ '. "\n";
+		// $contributors .= ''. "\n";
+
 		$contributors .= "\n\n\n";
-		$contributors .= '─██████████████─████████████████───██████──────────██████─██████████─██████─────────██████████████─'. "\n";
-		$contributors .= '─██░░░░░░░░░░██─██░░░░░░░░░░░░██───██░░██████████████░░██─██░░░░░░██─██░░██─────────██░░░░░░░░░░██─'. "\n";
-		$contributors .= '─██░░██████████─██░░████████░░██───██░░░░░░░░░░░░░░░░░░██─████░░████─██░░██─────────██░░██████████─'. "\n";
-		$contributors .= '─██░░██─────────██░░██────██░░██───██░░██████░░██████░░██───██░░██───██░░██─────────██░░██─────────'. "\n";
-		$contributors .= '─██░░██████████─██░░████████░░██───██░░██──██░░██──██░░██───██░░██───██░░██─────────██░░██████████─'. "\n";
-		$contributors .= '─██░░░░░░░░░░██─██░░░░░░░░░░░░██───██░░██──██░░██──██░░██───██░░██───██░░██─────────██░░░░░░░░░░██─'. "\n";
-		$contributors .= '─██░░██████████─██░░██████░░████───██░░██──██████──██░░██───██░░██───██░░██─────────██░░██████████─'. "\n";
-		$contributors .= '─██░░██─────────██░░██──██░░██─────██░░██──────────██░░██───██░░██───██░░██─────────██░░██─────────'. "\n";
-		$contributors .= '─██░░██████████─██░░██──██░░██████─██░░██──────────██░░██─████░░████─██░░██████████─██░░██████████─'. "\n";
-		$contributors .= '─██░░░░░░░░░░██─██░░██──██░░░░░░██─██░░██──────────██░░██─██░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─'. "\n";
+		$contributors .= '     ██╗██╗██████╗ ██████╗ ███████╗███████╗'. "\n";
+		$contributors .= '     ██║██║██╔══██╗██╔══██╗██╔════╝██╔════╝'. "\n";
+		$contributors .= '     ██║██║██████╔╝██████╔╝█████╗  ███████╗'. "\n";
+		$contributors .= '██   ██║██║██╔══██╗██╔══██╗██╔══╝  ╚════██║'. "\n";
+		$contributors .= '╚█████╔╝██║██████╔╝██║  ██║███████╗███████║'. "\n";
+		$contributors .= ' ╚════╝ ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝'. "\n";
+		$contributors .= ''. "\n";
 
 		// cache 1 day
 		\dash\header::cache(60*60*24);
