@@ -11,6 +11,7 @@ class static_files
 		// general detail
 		$contributors .= '/** '. ("In The name of Allah"). ' **/' . "\n\n\n";
 
+		$contributors .= "https://Jibres.com". "\n\n";
 		$contributors .= "https://github.com/Jibres". "\n\n";
 
 		$contributors .= ("Jibres is built by a creative team of engineers, designers, researchers and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see jibres.com/careers."). "\n";
