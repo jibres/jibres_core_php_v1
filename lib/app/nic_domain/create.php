@@ -128,16 +128,19 @@ class create
 		$transaction_id = null;
 
 		$period_month = 0;
+		$period_year = 0;
 
 		$price        = \lib\app\nic_domain\price::register($period);
 
 		if($period === '1year')
 		{
 			$period_month = 12;
+			$period_year = 1;
 		}
 		elseif($period === '5year')
 		{
 			$period_month = 5*12;
+			$period_year = 5;
 		}
 
 		if(!$irnic_new && !$nic_id)
@@ -420,10 +423,12 @@ class create
 		{
 			$gift_args =
 			[
-				'code'    => $data['gift'],
-				'price'   => $price,
-				'user_id' => $user_id,
-				'usein'   => 'domain',
+				'domain'        => $domain,
+				'domain_period' => $period_year,
+				'code'          => $data['gift'],
+				'price'         => $price,
+				'user_id'       => $user_id,
+				'usein'         => 'domain',
 			];
 
 			$gift_detail = \lib\app\gift\check::check($gift_args);

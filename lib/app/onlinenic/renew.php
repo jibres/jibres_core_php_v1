@@ -168,10 +168,12 @@ class renew
 		{
 			$gift_args =
 			[
-				'code'    => $data['gift'],
-				'price'   => $price,
-				'user_id' => $user_id,
-				'usein'   => 'domain',
+				'domain'        => $domain,
+				'domain_period' => $period,
+				'code'          => $data['gift'],
+				'price'         => $price,
+				'user_id'       => $user_id,
+				'usein'         => 'domain',
 			];
 
 			$gift_detail = \lib\app\gift\check::check($gift_args);
