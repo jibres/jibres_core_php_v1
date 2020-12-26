@@ -31,6 +31,7 @@ class func
 
 			if(\dash\request::ajax())
 			{
+				\dash\header::cache(0);
 				\dash\header::set(202, true);
 				// read all notif
 				$notifs = \dash\notif::get();
