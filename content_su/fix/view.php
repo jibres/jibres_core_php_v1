@@ -137,47 +137,29 @@ class view
 
 	private static function remove_bad_crop($_path, $_ext)
 	{
-		if(isset($path_info['extension']) &&  in_array($path_info['extension'], ['jpg','jpeg','png','gif']))
+		if(in_array($_ext, ['jpg','jpeg','png','gif']))
 		{
+			$remove_bad_crop =
+			[
+				'-w120.',
+				'-w220.',
+				'-w300.',
+				'-w460.',
+				'-w780.',
+				'-w1100.',
+			];
 
-			if(strpos($_path, '-w120.') !== false)
+			foreach ($remove_bad_crop as $key => $value)
 			{
-				unlink($_path);
-				return true;
+				if(strpos($_path, $value) !== false)
+				{
+					unlink($_path);
+					return true;
+				}
+
 			}
 
-
-			if(strpos($_path, '-w220.') !== false)
-			{
-				unlink($_path);
-				return true;
-			}
-
-
-			if(strpos($_path, '-w300.') !== false)
-			{
-				unlink($_path);
-				return true;
-			}
-
-
-			if(strpos($_path, '-w460.') !== false)
-			{
-				unlink($_path);
-				return true;
-			}
-
-			if(strpos($_path, '-w780.') !== false)
-			{
-				unlink($_path);
-				return true;
-			}
-
-			if(strpos($_path, '-w1100.') !== false)
-			{
-				unlink($_path);
-				return true;
-			}
+			return false;
 
 		}
 
@@ -191,46 +173,25 @@ class view
 
 	private static function remove_old_file($_path)
 	{
-		if(strpos($_path, '-normal-') !== false)
+		$remove_old_file =
+		[
+			'-normal-',
+			'-thumb-',
+			'-large-',
+			'-normal.',
+			'-thumb.',
+			'-large.',
+		];
+
+		foreach ($remove_old_file as $key => $value)
 		{
-			unlink($_path);
-			return true;
+			if(strpos($_path, $value) !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
 		}
-
-
-		if(strpos($_path, '-thumb-') !== false)
-		{
-			unlink($_path);
-			return true;
-		}
-
-
-		if(strpos($_path, '-large-') !== false)
-		{
-			unlink($_path);
-			return true;
-		}
-
-		if(strpos($_path, '-normal.') !== false)
-		{
-			unlink($_path);
-			return true;
-		}
-
-
-		if(strpos($_path, '-thumb.') !== false)
-		{
-			unlink($_path);
-			return true;
-		}
-
-
-		if(strpos($_path, '-large.') !== false)
-		{
-			unlink($_path);
-			return true;
-		}
-
 
 
 		return false;
