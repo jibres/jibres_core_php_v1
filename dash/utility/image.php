@@ -56,17 +56,18 @@ class image
 		}
 
 		list(self::$width, self::$height, $type) = @getimagesize($filepath);
-		// unset(self::$img);
+
 		self::$img = null;
-		if($type==IMAGETYPE_JPEG)
+
+		if($type == IMAGETYPE_JPEG)
 		{
 			self::$img = @imagecreatefromjpeg($filepath);
 		}
-		else if($type==IMAGETYPE_GIF)
+		else if($type == IMAGETYPE_GIF)
 		{
 			self::$img = @imagecreatefromgif($filepath);
 		}
-		else if($type==IMAGETYPE_PNG)
+		else if($type == IMAGETYPE_PNG)
 		{
 			self::$img = @imagecreatefrompng($filepath);
 		}
@@ -91,7 +92,7 @@ class image
 		self::$type = $type;
 
 		// Preservation of the transparence / alpha for PNG and GIF
-		if($type==IMAGETYPE_GIF || $type==IMAGETYPE_PNG)
+		if($type == IMAGETYPE_GIF || $type == IMAGETYPE_PNG)
 		{
 			imagealphablending(self::$img, false);
 			imagesavealpha(self::$img, true);
@@ -106,28 +107,28 @@ class image
 	 *
 	 * @param string $filepath	Path of the image file
 	 */
-	public static function save($filepath)
+	public static function save($img, $filepath)
 	{
 		if(!self::$loaded)
 		{
 			return false;
 		}
 
-		if(self::$type==IMAGETYPE_JPEG)
+		if(self::$type == IMAGETYPE_JPEG)
 		{
-			imagejpeg(self::$img, $filepath, self::$quality);
+			imagejpeg($img, $filepath, self::$quality);
 		}
-		elseif(self::$type==IMAGETYPE_GIF)
+		elseif(self::$type == IMAGETYPE_GIF)
 		{
-			imagegif(self::$img, $filepath);
+			imagegif($img, $filepath);
 		}
-		elseif(self::$type==IMAGETYPE_PNG)
+		elseif(self::$type == IMAGETYPE_PNG)
 		{
-			imagepng(self::$img, $filepath);
+			imagepng($img, $filepath);
 		}
 		elseif(self::$type == IMAGETYPE_WEBP || self::$type == IMAGETYPE_WBMP)
 		{
-			imagewbmp(self::$img, $filepath);
+			imagewbmp($img, $filepath);
 		}
 	}
 
@@ -151,11 +152,11 @@ class image
 	 * @param bool $alpha	Activates alpha channel if true (optionnal)
 	 * @return resource	New image resource
 	 */
-	private static function create($width, $height, $alpha=null)
+	private static function create($width, $height, $alpha = null)
 	{
 		if(!isset($alpha))
 		{
-			$alpha = self::$type==1 || self::$type==3;
+			$alpha = self::$type == IMAGETYPE_GIF || self::$type == IMAGETYPE_PNG;
 		}
 
 		$img = imagecreatetruecolor($width, $height);
@@ -188,14 +189,11 @@ class image
 			return false;
 		}
 
-		$img = self::create($dst_w, $dst_h);
+		$new_img = self::create($dst_w, $dst_h);
 
-		imagecopyresampled($img , self::$img, 0, 0, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
-		imagedestroy(self::$img);
+		imagecopyresampled($new_img , self::$img, 0, 0, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
 
-		self::$img    = $img;
-		self::$width  = $dst_w;
-		self::$height = $dst_h;
+		return $new_img;
 	}
 
 	/**
@@ -211,7 +209,7 @@ class image
 			return false;
 		}
 
-		self::crop(0, 0, self::$width, self::$height, $width, $height);
+		return self::crop(0, 0, self::$width, self::$height, $width, $height);
 	}
 
 
@@ -237,7 +235,7 @@ class image
 			$height = self::$height;
 		}
 
-		self::resize($width, $height);
+		return self::resize($width, $height);
 	}
 
 
@@ -263,7 +261,7 @@ class image
 			$width = self::$width;
 		}
 
-		self::resize($width, $height);
+		return self::resize($width, $height);
 	}
 
 
@@ -302,76 +300,13 @@ class image
 		{
 			$height_ratio = self::$width / $ratio;
 			$height_half_diff = round((self::$height - $height_ratio) / 2);
-			self::crop(0, $height_half_diff, self::$width, $height_ratio, $width, $height);
+			return self::crop(0, $height_half_diff, self::$width, $height_ratio, $width, $height);
 		}
 		else
 		{
 			$width_ratio = self::$height * $ratio;
 			$width_half_diff = round((self::$width - $width_ratio) / 2);
-			self::crop($width_half_diff, 0, $width_ratio, self::$height, $width, $height);
-		}
-	}
-
-
-	/**
-	 * Returns the width of the image
-	 *
-	 * @return int
-	 */
-	public static function getWidth()
-	{
-		if(!self::$loaded)
-		{
-			return false;
-		}
-		return self::$width;
-	}
-
-
-	/**
-	 * Returns the height of the image
-	 *
-	 * @return int
-	 */
-	public static function getHeight()
-	{
-		if(!self::$loaded)
-		{
-			return false;
-		}
-		return self::$height;
-	}
-
-
-	/**
-	 * Returns the type of the image, relative to IMAGETYPE_* constants
-	 *
-	 * @return int
-	 */
-	public static function getType()
-	{
-		if(!self::$loaded)
-		{
-			return false;
-		}
-		return self::$type;
-	}
-
-
-	/**
-	 * Change the type of the image (using IMAGETYPE_* constants)
-	 *
-	 * @param int $type		IMAGETYPE_JPEG, IMAGETYPE_GIF, or IMAGETYPE_PNG
-	 */
-	public static function setType($type)
-	{
-		if(!self::$loaded)
-		{
-			return false;
-		}
-		if(in_array($type, array(IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_PNG)))
-		{
-			self::$type = $type;
+			return self::crop($width_half_diff, 0, $width_ratio, self::$height, $width, $height);
 		}
 	}
 
@@ -427,6 +362,56 @@ class image
 		}
 
 		return null;
+	}
+
+
+
+
+	public static function responsive_image($_file_addr, $_ext)
+	{
+		$extlen     = mb_strlen($_ext);
+
+		$url_file   = substr($_file_addr, 0, -$extlen-1);
+
+		self::load($_file_addr);
+
+		if(!self::$loaded)
+		{
+			return false;
+		}
+
+		// make thumb
+
+		$new_img = \dash\utility\image::thumb(120, 120);
+
+		imagewebp($new_img, $url_file.'-w120.webp', 80);
+
+		imagedestroy($new_img);
+
+		$file_list =
+		[
+			220,
+			300,
+			460,
+			780,
+			1100,
+		];
+
+
+		foreach ($file_list as $width)
+		{
+			$new_img = \dash\utility\image::setWidth($width);
+
+			$new_path = $url_file. '-w'. $width. '.webp';
+
+			imagewebp($new_img, $new_path, 80);
+
+			imagedestroy($new_img);
+		}
+
+		imagedestroy(self::$img);
+
+		self::$loaded = false;
 	}
 
 }
