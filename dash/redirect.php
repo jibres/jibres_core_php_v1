@@ -142,6 +142,7 @@ class redirect
 			}
 		}
 		\dash\data::pageWithLogin(true);
+		return true;
 	}
 }
 ?>
