@@ -63,7 +63,8 @@ class pwa
 			$manifest['icons'] = self::logo_jibres();
 		}
 		$expire = (60 * 60 * 24);
-		@header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + $expire)); // 24 hour
+		@header("Cache-Control: max-age=" + $expire);
+		@header("Expires: ".gmdate("D, d M Y H:i:s",time() + $expire)." GMT");
 
 		// show result of manifest
 		\dash\code::jsonBoom($manifest, false, 'manifest');
