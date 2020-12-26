@@ -7,7 +7,7 @@ class controller
 	// for routing check
 	public static function routing()
 	{
-		if(\dash\request::get('utm_campaign') === 'pwa' ) //&& \dash\detect\device::detectPWA())
+		if(\dash\request::get('utm_campaign') === 'pwa' && \dash\detect\device::detectPWA())
 		{
 			if(\dash\user::id())
 			{
