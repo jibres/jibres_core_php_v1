@@ -194,7 +194,7 @@ class file
 		// 7. save file in some quality if need. for example pictures need to crop and save all need size
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
-			\dash\upload\crop::pic($directory['full'], $myFile['ext']);
+			\dash\utility\image::responsive_image($directory['full'], $myFile['ext']);
 		}
 
 
