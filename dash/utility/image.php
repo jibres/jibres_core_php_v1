@@ -397,16 +397,41 @@ class image
 			1100,
 		];
 
+		$copy_on_size = [];
 
-		foreach ($file_list as $width)
+		foreach ($file_list as $new_width)
 		{
-			$new_img = \dash\utility\image::setWidth($width);
+			if(self::$width < $new_width)
+			{
+				$copy_on_size[] = $new_width;
+			}
+		}
 
-			$new_path = $url_file. '-w'. $width. '.webp';
+		$need_crop = array_diff($file_list, $copy_on_size);
+		$need_copy = $copy_on_size;
 
-			imagewebp($new_img, $new_path, 80);
+		if($need_crop)
+		{
+			foreach ($need_crop as $new_width)
+			{
+				$new_img = \dash\utility\image::setWidth($new_width);
 
-			imagedestroy($new_img);
+				$new_path = $url_file. '-w'. $new_width. '.webp';
+
+				imagewebp($new_img, $new_path, 80);
+
+				imagedestroy($new_img);
+			}
+		}
+
+		if($need_copy)
+		{
+			foreach ($need_copy as $new_width)
+			{
+				$new_path = $url_file. '-w'. $new_width. '.webp';
+
+				imagewebp(self::$img, $new_path, 80);
+			}
 		}
 
 		imagedestroy(self::$img);
