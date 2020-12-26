@@ -18,31 +18,25 @@ class view
 
 	}
 
+	private static $result =
+	[
+		'count'                   => 0,
+		'counImage'               => 0,
+		'CropedFile'              => 0,
+		'FileCropExists'          => 0,
+		'NeedToCrop'              => 0,
+		'RemoveVeryOldCropedFile' => 0,
+		'RemoveOldCrop'           => 0,
+
+	];
+
 
 	private static function file_croper()
 	{
 		$store_folders = glob(YARD. 'talambar_cloud/*');
-		if(!$store_folders)
-		{
-			die('No folders');
-			return;
-		}
-
-		$result =
-		[
-			'count'               => 0,
-			'counImage'           => 0,
-			'CropedFile'          => 0,
-			'FileCropExists'            => 0,
-			'NeedToCrop'          => 0,
-			'CountForEeach'       => 0,
-			'RemoveOldCropedFile' => 0,
-
-		];
 
 		foreach ($store_folders as $store_folder)
 		{
-			$result['CountForEeach']++;
 
 			$folders = glob($store_folder. '/*');
 
@@ -53,7 +47,6 @@ class view
 
 			foreach ($folders as $date_folder)
 			{
-				$result['CountForEeach']++;
 
 				$date = glob($date_folder. '/*');
 
@@ -64,51 +57,15 @@ class view
 
 				foreach ($date as $file)
 				{
-					$result['CountForEeach']++;
 
-					$result['count']++;
+					self::$result['count']++;
 
 					$path_info = pathinfo($file);
 
-					if(isset($path_info['extension']) &&  in_array($path_info['extension'], ['jpg','jpeg','png','gif']))
-					{
-						$result['counImage']++;
+					self::fix_file($path_info, $file);
 
-
-
-						if(self::remove_old_file($file))
-						{
-							$result['RemoveOldCropedFile']++;
-							continue;
-						}
-
-
-						if(self::the_croped_file($file))
-						{
-							$result['CropedFile']++;
-							continue;
-						}
-
-
-						if(self::is_croped($file, $path_info['extension']))
-						{
-							$result['FileCropExists']++;
-							continue;
-						}
-
-						\dash\upload\crop::pic($file, $path_info['extension']);
-
-						$result['NeedToCrop']++;
-
-
-						// var_dump($file);
-					}
-					// var_dump($path_info);
-					// var_dump($file);
 				}
 			}
-
-
 		}
 
 
@@ -117,57 +74,120 @@ class view
 		foreach ($jibres_file as $folders)
 		{
 
-			$result['CountForEeach']++;
 
 			$files = glob($folders. '/*');
 
-			// var_dump($files);exit();
-
 			foreach ($files as $file)
 			{
-				$result['CountForEeach']++;
 
-				$result['count']++;
+				self::$result['count']++;
 
 				$path_info = pathinfo($file);
 
-				if(isset($path_info['extension']) &&  in_array($path_info['extension'], ['jpg','jpeg','png','gif']))
-				{
-					$result['counImage']++;
-
-					if(self::remove_old_file($file))
-					{
-						$result['RemoveOldCropedFile']++;
-						continue;
-					}
-
-
-					if(self::the_croped_file($file))
-					{
-						$result['CropedFile']++;
-						continue;
-					}
-
-
-					if(self::is_croped($file, $path_info['extension']))
-					{
-						$result['FileCropExists']++;
-						continue;
-					}
-
-					\dash\upload\crop::pic($file, $path_info['extension']);
-
-					$result['NeedToCrop']++;
-
-
-				}
+				self::fix_file($path_info, $file);
 			}
 
 		}
 
-		var_dump($result);
+		var_dump(self::$result);
 
 		exit();
+	}
+
+
+	private static function fix_file($path_info, $file)
+	{
+		if(isset($path_info['extension']) &&  in_array($path_info['extension'], ['jpg','jpeg','png','gif', 'webp']))
+		{
+			self::$result['counImage']++;
+
+			if(self::remove_old_file($file))
+			{
+				self::$result['RemoveVeryOldCropedFile']++;
+				return;
+			}
+
+
+			if(self::remove_bad_crop($file, $path_info['extension']))
+			{
+				self::$result['RemoveOldCrop']++;
+				return;
+			}
+
+
+			if(self::the_croped_file($file))
+			{
+				self::$result['CropedFile']++;
+				return;
+			}
+
+
+			if(self::is_croped($file, $path_info['extension']))
+			{
+				self::$result['FileCropExists']++;
+				return;
+			}
+
+			\dash\utility\image::responsive_image($file, $path_info['extension']);
+
+			self::$result['NeedToCrop']++;
+
+			var_dump($file);
+
+		}
+	}
+
+	private static function remove_bad_crop($_path, $_ext)
+	{
+		if(isset($path_info['extension']) &&  in_array($path_info['extension'], ['jpg','jpeg','png','gif']))
+		{
+
+			if(strpos($_path, '-w120.') !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
+
+			if(strpos($_path, '-w220.') !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
+
+			if(strpos($_path, '-w300.') !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
+
+			if(strpos($_path, '-w460.') !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
+			if(strpos($_path, '-w780.') !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
+			if(strpos($_path, '-w1100.') !== false)
+			{
+				unlink($_path);
+				return true;
+			}
+
+		}
+
+
+
+
+		return false;
+
 	}
 
 
@@ -227,7 +247,7 @@ class view
 
 		foreach ($a as $key => $value)
 		{
-			$new_file_check = $new_path. $value. $_ext;
+			$new_file_check = $new_path. $value. 'webp';
 			if(is_file($new_file_check))
 			{
 				return true;
