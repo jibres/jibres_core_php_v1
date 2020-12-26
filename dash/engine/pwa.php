@@ -102,12 +102,12 @@ class pwa
 		$iconsArr = [];
 
 		// check icon32
-		$iconsArr[] =
-		[
-			'type'  => 'image/png',
-			'sizes' => '32x32',
-			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-32.min.png',
-		];
+		// $iconsArr[] =
+		// [
+		// 	'type'  => 'image/png',
+		// 	'sizes' => '32x32',
+		// 	'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-32.min.png',
+		// ];
 
 		// check icon48
 		$iconsArr[] =
@@ -118,12 +118,12 @@ class pwa
 		];
 
 		// check icon64
-		$iconsArr[] =
-		[
-			'type'  => 'image/png',
-			'sizes' => '64x64',
-			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-64.min.png',
-		];
+		// $iconsArr[] =
+		// [
+		// 	'type'  => 'image/png',
+		// 	'sizes' => '64x64',
+		// 	'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-64.min.png',
+		// ];
 
 		// check icon72
 		$iconsArr[] =
@@ -206,12 +206,12 @@ class pwa
 		];
 
 		// check icon1024
-		$iconsArr[] =
-		[
-			'type'  => 'image/png',
-			'sizes' => '1024x1024',
-			'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-1024.min.png',
-		];
+		// $iconsArr[] =
+		// [
+		// 	'type'  => 'image/png',
+		// 	'sizes' => '1024x1024',
+		// 	'src'   => \dash\url::cdn(). '/logo/min/Jibres-Logo-icon-zero-1024.min.png',
+		// ];
 
 		return $iconsArr;
 	}
