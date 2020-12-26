@@ -36,7 +36,7 @@ class static_files
 		$contributors .= "\n\t". ('Contact'). ": CEO [at] Jibres.com";
 		$contributors .= "\n\t". ('Twitter'). ": @MrAdib";
 		$contributors .= "\n\t". ('Github'). ": @MrJavadAdib";
-		$contributors .= "\n\t". ('Telegram'). ": @MrJavadADib";
+		$contributors .= "\n\t". ('Telegram'). ": @MrJavadAdib";
 		// $contributors .= "\n\t". ('Location'). ": Iran";
 		$contributors .= "\n";
 

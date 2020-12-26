@@ -257,8 +257,17 @@ class header
 
 	public static function cache($_time = 3600)
 	{
-		@header("Cache-Control: max-age=" + $_time);
-		@header("Expires: ".gmdate("D, d M Y H:i:s",time() + $_time)." GMT");
+		if($_time)
+		{
+			@header("Cache-Control: max-age=" + $_time);
+			@header("Expires: ".gmdate("D, d M Y H:i:s",time() + $_time)." GMT");
+		}
+		else
+		{
+			@header("Cache-Control: no-cache, no-store, max-age=0, must-revalidate"); // HTTP 1.1.
+			@header("Pragma: no-cache"); // HTTP 1.0.
+			@header("Expires: 0"); // Proxies.
+		}
 	}
 }
 ?>
