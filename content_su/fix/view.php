@@ -132,8 +132,6 @@ class view
 
 			self::$result['NeedToCrop']++;
 
-			var_dump($file);
-
 		}
 	}
 
