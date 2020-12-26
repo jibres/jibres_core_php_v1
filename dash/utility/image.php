@@ -418,6 +418,8 @@ class image
 
 				$new_path = $url_file. '-w'. $new_width. '.webp';
 
+				imagepalettetotruecolor($new_img);
+
 				imagewebp($new_img, $new_path, 80);
 
 				imagedestroy($new_img);
@@ -429,6 +431,8 @@ class image
 			foreach ($need_copy as $new_width)
 			{
 				$new_path = $url_file. '-w'. $new_width. '.webp';
+
+				imagepalettetotruecolor(self::$img);
 
 				imagewebp(self::$img, $new_path, 80);
 			}
