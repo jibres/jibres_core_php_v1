@@ -324,6 +324,7 @@ class url
 			'image',
 			'images',
 			'video',
+			'blog',
 
 		];
 
