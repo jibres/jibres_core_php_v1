@@ -50,7 +50,7 @@ class template
 		{
 			$type  = $data['type'];
 			$slug  = $data['slug'];
-			$table = 'posts';
+			$table = 'blog_page';
 			// load /blog /video /podcast /gallery
 		}
 		elseif($data = self::find_tag(true))
@@ -145,37 +145,10 @@ class template
 		$contentAddr = \dash\engine\content::get_addr();
 		$display_addr = null;
 
-		// elseif template type with specefic slug exist show it
-		if( is_file($contentAddr. 'template/'.$type.'-'. $slug. self::$file_ext) )
-		{
-			$display_addr       = $contentAddr. 'template/'.$type.'-'. $slug. self::$file_ext;
-			self::$display_name = $type.'-'.$slug. self::$file_ext;
-		}
-		// elseif template type with name of table exist in module folder then show it
-		elseif( is_file($contentAddr. $type.'/'.$table.self::$file_ext) )
-		{
-			$display_addr         = $contentAddr. $type.'/'.$table.self::$file_ext;
-			self::$display_name   = $type.'/'.$table.self::$file_ext;
-			self::$display_prefix = null;
-		}
-		// elseif template type with name of table exist show it
-		elseif( is_file($contentAddr. 'template/'.$type.'-'.$table.self::$file_ext) )
-		{
-			$display_addr       = $contentAddr. 'template/'.$type.'-'.$table.self::$file_ext;
-			self::$display_name = $type.'-'.$table.self::$file_ext;
-		}
-		// elseif template type exist show it like posts or terms
-		elseif( is_file($contentAddr. 'template/'.$type.self::$file_ext) )
-		{
-			$display_addr       = $contentAddr. 'template/'.$type.self::$file_ext;
-			self::$display_name = $type.self::$file_ext;
-		}
-
-		// elseif template type exist show it
-		elseif( is_file($contentAddr. 'template/'.$table.self::$file_ext) )
+		if( is_file($contentAddr. 'template/'.$table.self::$file_ext) )
 		{
 			$display_addr       = $contentAddr. 'template/'.$table.self::$file_ext;
-			self::$display_name = $myurl['table'].self::$file_ext;
+			self::$display_name = $table.self::$file_ext;
 		}
 		// elseif default template exist show it else use homepage!
 		elseif( is_file($contentAddr. 'template/default'. self::$file_ext) )
@@ -197,6 +170,7 @@ class template
 		{
 			$data['meta'] = json_decode($data['meta'], true);
 		}
+
 
 		if($finded_template)
 		{
@@ -387,14 +361,15 @@ class template
 				case 'blog':
 					$type = 'standard';
 					break;
-
 			}
+
+			\dash\data::dataTable(\dash\app\posts\search::blog_page($type));
+			\dash\data::listEngine_start(true);
 
 			$data =
 			[
-				'type' => $type,
+				'type' => $myUrl,
 				'slug' => $myUrl,
-				'data' => [], //\dash\app\posts\search::blog_page($type),
 			];
 			return $data;
 		}

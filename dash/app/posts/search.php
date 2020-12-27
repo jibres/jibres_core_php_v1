@@ -157,6 +157,19 @@ class search
 
 	}
 
+	public static function blog_page($_subtype)
+	{
+		$args =
+		[
+			'subtype'      => $_subtype,
+			'type'         => 'post',
+			'website_mode' => true
+
+		];
+		$list = self::list(null, $args);
+		return $list;
+	}
+
 
 	public static function lates_post($_args = [])
 	{
