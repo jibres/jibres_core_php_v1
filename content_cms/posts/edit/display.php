@@ -110,7 +110,7 @@ switch (\dash\data::dataRow_status())
       <div class="box">
         <div class="pad">
           <div class="seoPreview">
-            <a target="_blank" href="<?php echo \dash\data::dataRow_link(); ?>">
+            <a target="_blank" href="<?php echo \dash\data::postViewLink(); ?>">
               <cite><?php echo \dash\data::dataRow_link(); ?></cite>
             </a>
             <div class="f">

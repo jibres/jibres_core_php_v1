@@ -32,11 +32,13 @@ class view
 
 		if(a($dataRow, 'status') === 'publish')
 		{
+			\dash\data::postViewLink(\dash\data::dataRow_link());
 			\dash\face::btnView(\dash\data::dataRow_link());
 		}
 		else
 		{
-			\dash\face::btnPreview(\dash\data::dataRow_link(). '?preview=yes');
+			\dash\data::postViewLink(\dash\data::dataRow_link(). '?preview=yes');
+			\dash\face::btnPreview(\dash\data::postViewLink());
 		}
 
 

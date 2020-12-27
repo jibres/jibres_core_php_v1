@@ -19,6 +19,19 @@ class view
 			\dash\data::parentList($load_parent);
 		}
 
+
+		if(a($dataRow, 'status') === 'publish')
+		{
+			\dash\data::postViewLink(\dash\data::dataRow_link());
+			\dash\face::btnView(\dash\data::dataRow_link());
+		}
+		else
+		{
+			\dash\data::postViewLink(\dash\data::dataRow_link(). '?preview=yes');
+			\dash\face::btnPreview(\dash\data::postViewLink());
+		}
+
+
 		\dash\data::allTagList(\dash\app\terms\get::get_all_tag());
 
 		\dash\data::tagsSavedTitle([]);
