@@ -123,14 +123,19 @@ class check
 				$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
 				$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 			}
+
+			if(!$data['url'])
+			{
+				$data['url'] = $data['slug'];
+			}
 		}
+
 
 		$comment = $data['comment'];
 		$comment = $comment ? 'open' : 'closed';
 
 
 		$parent_url  = null;
-		$parent_slug = null;
 
 		$parent = $data['parent'];
 
@@ -175,21 +180,18 @@ class check
 						$slug = str_replace($current_post_parent_detail['slug']. '-', '', $data['slug']);
 						$url = str_replace($current_post_parent_detail['url']. '/', '', $data['url']);
 
-						$parent_slug = $parent_detail['slug'];
 						$parent_url = $parent_detail['url'];
 					}
 				}
 				else
 				{
 					// no change in slug or url
-					$parent_slug = $parent_detail['slug'];
 					$parent_url = $parent_detail['url'];
 				}
 
 			}
 			else
 			{
-				$parent_slug = $parent_detail['slug'];
 				$parent_url = $parent_detail['url'];
 			}
 		}
@@ -200,15 +202,11 @@ class check
 		}
 
 
-		if($parent_slug)
-		{
-			$data['slug'] = $parent_slug . '/'. $data['slug'];
-		}
-
 		if($parent_url)
 		{
-			$data['url'] = $parent_url . '/'. $data['url'];
+			$data['url'] = $parent_url . '/'. $data['slug'];
 		}
+
 
 
 		if($data['tagurl'])
@@ -355,7 +353,11 @@ class check
 			$data['status'] = 'draft';
 		}
 
-
+		if($data['slug'] && mb_strlen($data['slug']) > 100)
+		{
+			\dash\notif::error(T_("Can not set the slug larger than 100 character"), 'slug');
+			return false;
+		}
 
 
 

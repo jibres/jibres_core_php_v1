@@ -6,6 +6,8 @@ class controller
 	public static function routing()
 	{
 
+		// <link href="URL OF ORIGINAL PAGE" rel="canonical" />
+
 		$module = \dash\url::module();
 		if(!$module)
 		{

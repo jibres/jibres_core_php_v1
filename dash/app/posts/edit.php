@@ -68,7 +68,7 @@ class edit
 			$_args['excerpt'] = 'need - excerpt :/ ';
 		}
 
-		if(isset($_args['tagurl']))
+		if(isset($_args['tagurl']) || (isset($args['type']) && in_array($args['type'], ['help', 'page']) && isset($_args['slug'])))
 		{
 			$_args['url'] = 'need - url :/ ';
 		}

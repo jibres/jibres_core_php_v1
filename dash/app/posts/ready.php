@@ -86,29 +86,6 @@ class ready
 					}
 					break;
 
-				case 'slug':
-					$result[$key] = $value;
-					$split = explode('/', $value);
-					$parent_url = [];
-					$my_parent_url = [];
-					if(count($split) > 1)
-					{
-						foreach ($split as $index => $parent_slug)
-						{
-							$parent_url[] = $parent_slug;
-							$my_parent_url[] = implode('/', $parent_url);
-						}
-
-						array_pop($my_parent_url);
-					}
-
-					$result['slug_raw']   = end($split);
-					$result['parent_url'] = $my_parent_url;
-					break;
-
-				case 'url':
-					$result[$key] = $value;
-					break;
 
 
 				case 'content':
@@ -231,7 +208,6 @@ class ready
 				$result['poster'] = $result['thumb'];
 			}
 		}
-
 
 		if(isset($result['publishdate']) && $result['publishdate'] && isset($result['status']) && $result['status'] === 'publish')
 		{
