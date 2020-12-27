@@ -122,15 +122,7 @@ class check
 				$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
 				$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 			}
-
-			if(!$data['url'])
-			{
-				$data['url'] = $data['slug'];
-			}
 		}
-
-
-
 
 		$comment = $data['comment'];
 		$comment = $comment ? 'open' : 'closed';

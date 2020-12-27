@@ -208,6 +208,11 @@ class ready
 		{
 			$my_link .= 'n/';
 			$my_link .= $result['id'];
+
+			if(isset($result['slug']))
+			{
+				$my_link .= '/'.$result['slug'];
+			}
 		}
 
 		$result['link'] = $my_link;

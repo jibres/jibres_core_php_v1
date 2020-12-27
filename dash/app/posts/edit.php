@@ -68,14 +68,14 @@ class edit
 			$_args['excerpt'] = 'need - excerpt :/ ';
 		}
 
-		if(isset($_args['slug']))
-		{
-			$_args['url'] = 'need - url :/ ';
-		}
+		// if(isset($_args['slug']))
+		// {
+		// 	$_args['url'] = 'need - url :/ ';
+		// }
 
 		if(isset($_args['status']))
 		{
-			$_args['publishdate'] = 'need - url :/ ';
+			$_args['publishdate'] = 'need - publishdate :/ ';
 		}
 
 
@@ -148,19 +148,19 @@ class edit
 						}
 
 					}
-					elseif(isset($args['slug']))
-					{
-						$url = \dash\db\termusages\get::first_category_url($load_posts['id']);
+					// elseif(isset($args['slug']))
+					// {
+					// 	$url = \dash\db\termusages\get::first_category_url($load_posts['id']);
 
-						if($url && is_string($url))
-						{
-							\dash\db\posts::update(['url' => ltrim($url. '/'. $args['slug'], '/')], $load_posts['id']);
-						}
-						else
-						{
-							\dash\db\posts::update(['url' => $args['slug']], $load_posts['id']);
-						}
-					}
+					// 	if($url && is_string($url))
+					// 	{
+					// 		\dash\db\posts::update(['url' => ltrim($url. '/'. $args['slug'], '/')], $load_posts['id']);
+					// 	}
+					// 	else
+					// 	{
+					// 		\dash\db\posts::update(['url' => $args['slug']], $load_posts['id']);
+					// 	}
+					// }
 				}
 
 				\dash\notif::ok(T_("Post successfully updated"));
