@@ -14,32 +14,23 @@ if($template === 'comingsoon' || $template === 'visitcard')
 }
 // if $template == 'publish' generate display
 
+// body generator
+$lines = \lib\app\website\generator::get_body_line();
 
-if(\dash\engine\template::$finded_template)
+foreach ($lines as $key => $line_detail)
 {
-	// load the business post
-	require_once(root. 'content_n/home/display.php');
-}
-else
-{
-	// body generator
-	$lines = \lib\app\website\generator::get_body_line();
-
-	foreach ($lines as $key => $line_detail)
+	if(isset($line_detail['value']['publish']) && $line_detail['value']['publish'])
 	{
-		if(isset($line_detail['value']['publish']) && $line_detail['value']['publish'])
+		if(isset($line_detail['value']['type']))
 		{
-			if(isset($line_detail['value']['type']))
-			{
-				$addr = __DIR__. '/body/'. $line_detail['value']['type']. '.php';
+			$addr = __DIR__. '/body/'. $line_detail['value']['type']. '.php';
 
-				if(is_file($addr))
-				{
-					require($addr);
-				}
+			if(is_file($addr))
+			{
+				require($addr);
 			}
 		}
 	}
-
 }
+
 ?>

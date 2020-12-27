@@ -111,6 +111,13 @@ class business
 			return null;
 		}
 
+		// load a post by display of content_n
+		if(\dash\engine\template::$finded_template)
+		{
+			// load the business post
+			return root. 'content_n/home/display.php';
+		}
+
 		$addr = self::template_addr(). 'body.php';
 		if(is_file($addr))
 		{
