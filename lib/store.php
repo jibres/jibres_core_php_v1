@@ -65,6 +65,11 @@ class store
 			$id = $_id;
 		}
 
+		if(!$id)
+		{
+			return false;
+		}
+
 		$addr = \dash\engine\store::detail_addr(). $id. \dash\engine\store::$ext;
 		if(is_file($addr))
 		{
