@@ -72,57 +72,19 @@ class check
 				\dash\notif::error(T_("Invalid id"));
 				return false;
 			}
-
-			if($current_post_detail['status'] === 'publish')
-			{
-				if(!\dash\permission::check('cmsPostPublisher'))
-				{
-					\dash\notif::error(T_("This post is published. And you can not edit it!"));
-					return false;
-				}
-			}
-
-
-			if(floatval($current_post_detail['user_id']) !== floatval(\dash\user::id()))
-			{
-				if(!\dash\permission::check('cmsManageAllPost'))
-				{
-					\dash\notif::error(T_("This is not your post. And you can not edit it!"));
-					return false;
-				}
-			}
-		}
-
-
-		if($data['title'] && !$data['slug'])
-		{
-			$data['slug'] = $data['title'];
-		}
-
-		if($data['slug'])
-		{
-			$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
-			$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
-		}
-
-		if(!$data['url'])
-		{
-			$data['url'] = $data['slug'];
 		}
 
 		if(!$data['type'])
 		{
-			$data['type'] = 'post';
+			if(isset($current_post_detail['type']))
+			{
+				$data['type'] = $current_post_detail['type'];
+			}
+			else
+			{
+				$data['type'] = 'post';
+			}
 		}
-
-		$comment = $data['comment'];
-		$comment = $comment ? 'open' : 'closed';
-
-
-		$parent_url  = null;
-		$parent_slug = null;
-
-		$parent = $data['parent'];
 
 		$isPage = false;
 		$isHelp = false;
@@ -147,14 +109,48 @@ class check
 			}
 		}
 
+
+		if($isPage || $isHelp)
+		{
+			if($data['title'] && !$data['slug'])
+			{
+				$data['slug'] = $data['title'];
+			}
+
+			if($data['slug'])
+			{
+				$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
+				$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
+			}
+
+			if(!$data['url'])
+			{
+				$data['url'] = $data['slug'];
+			}
+		}
+
+
+
+
+		$comment = $data['comment'];
+		$comment = $comment ? 'open' : 'closed';
+
+
+		$parent_url  = null;
+		$parent_slug = null;
+
+		$parent = $data['parent'];
+
 		if($parent)
 		{
 			$parent = \dash\coding::decode($parent);
+
 			if(!$parent)
 			{
 				\dash\notif::error(T_("Invalid parameter parent"), 'parent');
 				return false;
 			}
+
 			$data['parent'] = $parent;
 		}
 
@@ -223,10 +219,10 @@ class check
 
 		if(isset($data['url']))
 		{
-			$check_duplicate_url = self::check_duplicate_post_and_term($data['url'], $_id, 'in_post');
-
-			if(!$check_duplicate_url)
+			$check_duplicate_url_in_posts = \dash\db\posts\get::check_duplicate_url_in_posts($data['url'], $_id);
+			if(isset($check_duplicate_url_in_posts['id']))
 			{
+				\dash\notif::error(T_("Duplicate post url. This post url is already exists in your post list"));
 				return false;
 			}
 		}
@@ -259,19 +255,6 @@ class check
 		unset($data['set_publishdate']);
 
 		$meta = $_option['meta'];
-
-		if(isset($current_post_detail['type']))
-		{
-			$data['type'] = $current_post_detail['type'];
-		}
-
-		if(in_array($data['type'], ['post']))
-		{
-			if(!$data['cat'] && $_id && $data['title'])
-			{
-				\dash\notif::warn(T_("Category setting for better access is suggested"));
-			}
-		}
 
 
 		$icon = $data['icon'];
@@ -323,7 +306,6 @@ class check
 			}
 		}
 
-
 		if(!\dash\permission::check('cmsPostPublisher'))
 		{
 			unset($data['status']);
@@ -352,12 +334,6 @@ class check
 		}
 
 
-		unset($data['btntitle']);
-		unset($data['btnurl']);
-		unset($data['btntarget']);
-		unset($data['btncolor']);
-		unset($data['srctitle']);
-		unset($data['srcurl']);
 		unset($data['redirecturl']);
 		unset($data['publishtime']);
 		unset($data['creator']);
