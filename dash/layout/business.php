@@ -104,6 +104,12 @@ class business
 			return null;
 		}
 
+		// check only in home module
+		// this variable set on content business home controller
+		if(!\dash\temp::get('inHomePageOfBusiness'))
+		{
+			return null;
+		}
 
 		$addr = self::template_addr(). 'body.php';
 		if(is_file($addr))
