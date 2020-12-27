@@ -176,41 +176,41 @@ class ready
 			}
 		}
 
+		if(\dash\engine\store::inStore())
+		{
+			$my_link = \lib\store::url(). '/';
+		}
+		else
+		{
+			$my_link = \dash\url::kingdom(). '/';
+		}
+
+		// only jibres have post language
+		// all business have not any lanuage
+		if(!\dash\engine\store::inStore())
+		{
+			if(isset($result['language']) && $result['language'] && !\dash\url::lang())
+			{
+				$my_link .=  $result['language']. '/';
+			}
+		}
+
 		if(isset($result['url']))
 		{
-			if(\dash\engine\store::inStore())
-			{
-				$my_link = \lib\store::url(). '/';
-			}
-			else
-			{
-				$my_link = \dash\url::kingdom(). '/';
-			}
-
-			// only jibres have post language
-			// all business have not any lanuage
-			if(!\dash\engine\store::inStore())
-			{
-				if(isset($result['language']) && $result['language'] && !\dash\url::lang())
-				{
-					$my_link .=  $result['language']. '/';
-				}
-			}
-
 			if(isset($result['type']) && $result['type'] === 'help')
 			{
 				$my_link .= 'support/';
 			}
 
-
 			$my_link .= $result['url'];
-
-			$result['link'] = $my_link;
 		}
 		else
 		{
-			$result['link'] = null;
+			$my_link .= 'n/';
+			$my_link .= $result['id'];
 		}
+
+		$result['link'] = $my_link;
 
 
 		if(a($result, 'subtype') === 'video')
