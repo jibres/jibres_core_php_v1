@@ -4,9 +4,10 @@ namespace dash\engine;
 class template
 {
 	public static $display_name    = null;
+	public static $display_addr    = null;
 	public static $finded_template = null;
 	public static $dataRow         = null;
-	public static $file_ext        = '.html';
+	public static $file_ext        = '.php';
 	public static $display_prefix  = true;
 
 
@@ -44,7 +45,15 @@ class template
 			return true;
 		}
 
-		if($data = self::find_tag(true))
+		// load simillary about or about-fa .html
+		if($data = self::post_subtype())
+		{
+			$type  = $data['type'];
+			$slug  = $data['slug'];
+			$table = 'posts';
+			// load /blog /video /podcast /gallery
+		}
+		elseif($data = self::find_tag(true))
 		{
 			// find if 'tag' is the first of url
 			$type  = 'tag';
@@ -134,55 +143,53 @@ class template
 	{
 		$finded_template = false;
 		$contentAddr = \dash\engine\content::get_addr();
+		$display_addr = null;
 
 		// elseif template type with specefic slug exist show it
 		if( is_file($contentAddr. 'template/'.$type.'-'. $slug. self::$file_ext) )
 		{
-			self::$display_name	= $type.'-'.$slug. self::$file_ext;
+			$display_addr       = $contentAddr. 'template/'.$type.'-'. $slug. self::$file_ext;
+			self::$display_name = $type.'-'.$slug. self::$file_ext;
 		}
 		// elseif template type with name of table exist in module folder then show it
 		elseif( is_file($contentAddr. $type.'/'.$table.self::$file_ext) )
 		{
+			$display_addr         = $contentAddr. $type.'/'.$table.self::$file_ext;
 			self::$display_name   = $type.'/'.$table.self::$file_ext;
 			self::$display_prefix = null;
 		}
 		// elseif template type with name of table exist show it
 		elseif( is_file($contentAddr. 'template/'.$type.'-'.$table.self::$file_ext) )
 		{
-			self::$display_name	= $type.'-'.$table.self::$file_ext;
+			$display_addr       = $contentAddr. 'template/'.$type.'-'.$table.self::$file_ext;
+			self::$display_name = $type.'-'.$table.self::$file_ext;
 		}
 		// elseif template type exist show it like posts or terms
 		elseif( is_file($contentAddr. 'template/'.$type.self::$file_ext) )
 		{
-			self::$display_name	= $type.self::$file_ext;
+			$display_addr       = $contentAddr. 'template/'.$type.self::$file_ext;
+			self::$display_name = $type.self::$file_ext;
 		}
-		// elseif template cat exist show it
-		// elseif( is_file($contentAddr. 'template/'.$post_cat.self::$file_ext) )
-		// {
-		// 	self::$display_name	= $post_cat.self::$file_ext;
-		// }
 
 		// elseif template type exist show it
 		elseif( is_file($contentAddr. 'template/'.$table.self::$file_ext) )
 		{
-			self::$display_name	= $myurl['table'].self::$file_ext;
+			$display_addr       = $contentAddr. 'template/'.$table.self::$file_ext;
+			self::$display_name = $myurl['table'].self::$file_ext;
 		}
 		// elseif default template exist show it else use homepage!
 		elseif( is_file($contentAddr. 'template/default'. self::$file_ext) )
 		{
-			self::$display_name	= 'default'. self::$file_ext;
+			$display_addr       = $contentAddr. 'template/default'. self::$file_ext;
+			self::$display_name = 'default'. self::$file_ext;
 		}
-		elseif( is_file($contentAddr. 'template/default.php') )
-		{
-			self::$display_name	= 'default.php';
-		}
+
 
 		// if find template for this url
 		// then if template for current lang is exist, set it
 		if(self::$display_name)
 		{
 			self::checkLangTemplate();
-
 			$finded_template = true;
 		}
 
@@ -195,6 +202,7 @@ class template
 		{
 			self::$dataRow         = $data;
 			self::$finded_template = $finded_template;
+			self::$display_addr    = $display_addr;
 		}
 	}
 
@@ -353,6 +361,46 @@ class template
 		return $myUrl;
 	}
 
+
+
+	public static function post_subtype()
+	{
+		$myUrl = self::get_my_url();
+
+		if(in_array($myUrl, ['blog', 'podcast', 'gallery', 'video']))
+		{
+			switch ($myUrl)
+			{
+				case 'podcast':
+					$type = 'audio';
+					break;
+
+				case 'gallery':
+					$type = 'gallery';
+					break;
+
+				case 'video':
+					$type = 'video';
+					break;
+
+				default:
+				case 'blog':
+					$type = 'standard';
+					break;
+
+			}
+
+			$data =
+			[
+				'type' => $type,
+				'slug' => $myUrl,
+				'data' => [], //\dash\app\posts\search::blog_page($type),
+			];
+			return $data;
+		}
+
+		return false;
+	}
 
 
 	public static function find_tag($_by_tag_url = false)

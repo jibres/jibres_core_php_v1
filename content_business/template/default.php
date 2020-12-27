@@ -1,1 +1,1 @@
-<?php /*just need to exist this file to route page and posts. @TODO @reza Need to fix :| */ ?>
+<?php require_once(root. 'content_n/home/display.php'); ?>

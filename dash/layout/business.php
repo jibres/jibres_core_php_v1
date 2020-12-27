@@ -114,8 +114,7 @@ class business
 		// load a post by display of content_n
 		if(\dash\engine\template::$finded_template)
 		{
-			// load the business post
-			return root. 'content_n/home/display.php';
+			return \dash\engine\template::$display_addr;
 		}
 
 		$addr = self::template_addr(). 'body.php';
