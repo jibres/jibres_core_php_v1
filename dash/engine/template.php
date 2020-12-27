@@ -364,7 +364,6 @@ class template
 			}
 
 			\dash\data::dataTable(\dash\app\posts\search::blog_page($type));
-			\dash\data::listEngine_start(true);
 
 			$data =
 			[

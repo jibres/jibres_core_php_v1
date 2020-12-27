@@ -23,14 +23,43 @@ class find
 			return false;
 		}
 
+
+		if(\dash\url::content() === 'n')
+		{
+			$dataRow = self::load_by_id();
+		}
+		else
+		{
+			$dataRow = self::load_by_url($url);
+		}
+
+		// post not founded
+		if(!$dataRow || !is_array($dataRow))
+		{
+			return false;
+		}
+
+		$dataRow             = \dash\app\posts\ready::row($dataRow);
+		$id                  = \dash\coding::decode($dataRow['id']);
+
+		$tag                 = \dash\app\posts\get::get_post_tag($id);
+		$dataRow['tags']     = $tag;
+
+		self::$dataRow = $dataRow;
+
+		return $dataRow;
+	}
+
+
+	private static function load_by_url($url)
+	{
+
 		$url = str_replace("'", '', $url);
 		$url = str_replace('"', '', $url);
 		$url = str_replace('`', '', $url);
 		$url = str_replace('%', '', $url);
 
 		$preview  = \dash\request::get('preview') ? true : false;
-
-		$user_id = \dash\user::id();
 
 		if(\dash\engine\store::inStore())
 		{
@@ -59,21 +88,38 @@ class find
 
 		$dataRow = \dash\db\posts\get::get_one($get_post);
 
-		// post not founded
-		if(!$dataRow || !is_array($dataRow))
+		return $dataRow;
+	}
+
+
+	private static function load_by_id()
+	{
+
+		$load_post = \dash\app\posts\get::get(\dash\url::module(), ['check_login' => false]);
+
+		if(!$load_post || !isset($load_post['type']))
 		{
 			return false;
 		}
 
-		$dataRow             = \dash\app\posts\ready::row($dataRow);
-		$id                  = \dash\coding::decode($dataRow['id']);
+		if(!in_array($load_post['type'], ['post', 'page']))
+		{
+			return false;
+		}
 
-		$tag                 = \dash\app\posts\get::get_post_tag($id);
-		$dataRow['tags']     = $tag;
+		if(\dash\url::child())
+		{
+			if(isset($load_post['slug']) && $load_post['slug'] === \dash\url::child())
+			{
+				// ok. nothing
+			}
+			else
+			{
+				\dash\header::status(404, T_("Invalid slug of post"));
+			}
+		}
 
-		self::$dataRow = $dataRow;
-
-		return $dataRow;
+		return $load_post;
 	}
 }
 ?>
