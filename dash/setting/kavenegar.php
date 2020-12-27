@@ -35,6 +35,7 @@ class kavenegar
 				else
 				{
 					$json['apikey'] = $json['business_apikey'];
+					$json['line']   = $json['business_line'];
 				}
 			}
 
