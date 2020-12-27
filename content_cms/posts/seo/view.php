@@ -19,6 +19,15 @@ class view
 			\dash\data::parentList($load_parent);
 		}
 
+		\dash\data::allTagList(\dash\app\terms\get::get_all_tag());
+
+		\dash\data::tagsSavedTitle([]);
+
+		if(is_array(\dash\data::dataRow_tags()))
+		{
+			\dash\data::tagsSavedTitle(array_column(\dash\data::dataRow_tags(), 'title'));
+		}
+
 	}
 }
 ?>

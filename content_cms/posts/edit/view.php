@@ -97,20 +97,12 @@ class view
 
 
 		\dash\data::allTagList(\dash\app\terms\get::get_all_tag());
-		\dash\data::listCategory(\dash\app\terms\get::cat_list());
 
 		\dash\data::tagsSavedTitle([]);
-		\dash\data::listSavedCat([]);
 
 		if(is_array(\dash\data::dataRow_tags()))
 		{
 			\dash\data::tagsSavedTitle(array_column(\dash\data::dataRow_tags(), 'title'));
-		}
-
-
-		if(is_array(\dash\data::dataRow_category()))
-		{
-			\dash\data::listSavedCat(array_column(\dash\data::dataRow_category(), 'term_id'));
 		}
 
 	}

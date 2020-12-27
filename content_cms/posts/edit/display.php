@@ -88,19 +88,6 @@ switch (\dash\data::dataRow_status())
 
       <div class="box">
         <div class="pad">
-          <?php if($isPost) {?>
-          <div class="mB10">
-            <div class="row align-center">
-              <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
-              <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-            </div>
-            <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
-              <?php foreach (\dash\data::listCategory() as $key => $value) {?>
-                <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['id'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
-              <?php } //endfor ?>
-            </select>
-          </div>
-        <?php } //endif ?>
           <div>
             <div class="row align-center">
               <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>

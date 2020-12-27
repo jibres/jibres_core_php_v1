@@ -72,7 +72,6 @@ class model
 				'title'       => \dash\request::post('title'),
 				'content'     => \dash\request::post_raw('content'),
 				'tag'         => \dash\request::post('tag'),
-				'cat'         => \dash\request::post('cat'),
 			];
 
 		}

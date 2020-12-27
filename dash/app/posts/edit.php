@@ -68,16 +68,15 @@ class edit
 			$_args['excerpt'] = 'need - excerpt :/ ';
 		}
 
-		// if(isset($_args['slug']))
-		// {
-		// 	$_args['url'] = 'need - url :/ ';
-		// }
+		if(isset($_args['tagurl']))
+		{
+			$_args['url'] = 'need - url :/ ';
+		}
 
 		if(isset($_args['status']))
 		{
 			$_args['publishdate'] = 'need - publishdate :/ ';
 		}
-
 
 		$tag = [];
 		if($args['tag'])
@@ -93,6 +92,7 @@ class edit
 
 		unset($args['cat']);
 		unset($args['tag']);
+
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
@@ -128,39 +128,6 @@ class edit
 					{
 						\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
 					}
-
-					if(array_key_exists('cat', $_args))
-					{
-						$post_url = \dash\app\posts\terms::save_post_term($cat, $load_posts['id'], 'cat');
-
-						if($post_url === false)
-						{
-							return false;
-						}
-
-						if($post_url)
-						{
-							\dash\db\posts::update(['url' => ltrim($post_url. '/'. $load_posts['slug'], '/')], $load_posts['id']);
-						}
-						else
-						{
-							\dash\db\posts::update(['url' => $load_posts['slug']], $load_posts['id']);
-						}
-
-					}
-					// elseif(isset($args['slug']))
-					// {
-					// 	$url = \dash\db\termusages\get::first_category_url($load_posts['id']);
-
-					// 	if($url && is_string($url))
-					// 	{
-					// 		\dash\db\posts::update(['url' => ltrim($url. '/'. $args['slug'], '/')], $load_posts['id']);
-					// 	}
-					// 	else
-					// 	{
-					// 		\dash\db\posts::update(['url' => $args['slug']], $load_posts['id']);
-					// 	}
-					// }
 				}
 
 				\dash\notif::ok(T_("Post successfully updated"));

@@ -28,12 +28,13 @@ class check
 			'icon'            => 'string_50',
 			'redirecturl'     => 'url',
 			'creator'         => 'code',
+			'tagurl'         => 'code',
 			'tag'             => 'tag',
 			'cat'             => 'cat',
 			'set_publishdate' => 'bit',
 		];
 
-		$require = ['title', 'slug'];
+		$require = ['title'];
 
 		$meta =	[];
 
@@ -209,6 +210,38 @@ class check
 			$data['url'] = $parent_url . '/'. $data['url'];
 		}
 
+
+		if($data['tagurl'])
+		{
+			$load_tag = \dash\app\terms\get::get($data['tagurl']);
+			if(!$load_tag || !isset($load_tag['url']))
+			{
+				\dash\notif::error(T_("Invalid tag id"));
+				return false;
+			}
+
+			$data['url'] = $load_tag['url'];
+
+			if(!$data['slug'])
+			{
+				if(isset($current_post_detail['title']))
+				{
+					$data['slug'] = \dash\validate::slug($current_post_detail['title'], false, ['rules' => 'persian']);
+				}
+				else
+				{
+					\dash\notif::error(T_("Slug is required"));
+					return false;
+				}
+			}
+
+			if($data['slug'])
+			{
+				$data['url'] .= '/'. $data['slug'];
+			}
+		}
+
+
 		if(isset($data['url']))
 		{
 			$check_duplicate_url_in_posts = \dash\db\posts\get::check_duplicate_url_in_posts($data['url'], $_id);
@@ -217,6 +250,12 @@ class check
 				\dash\notif::error(T_("Duplicate post url. This post url is already exists in your post list"));
 				return false;
 			}
+
+			if(!\dash\validate\url::allow_post_url($data['url'], 'posts', $_id))
+			{
+				return false;
+			}
+
 		}
 
 
@@ -289,15 +328,6 @@ class check
 			$data['subtype'] = 'standard';
 		}
 
-
-		if($data['url'])
-		{
-			if(!\dash\validate\url::allow_post_url($data['url'], 'posts', $_id))
-			{
-				return false;
-			}
-		}
-
 		if(!\dash\permission::check('cmsPostPublisher'))
 		{
 			unset($data['status']);
@@ -326,10 +356,14 @@ class check
 		}
 
 
+
+
+
 		unset($data['redirecturl']);
 		unset($data['publishtime']);
 		unset($data['creator']);
 		unset($data['icon']);
+		unset($data['tagurl']);
 
 
 		return $data;

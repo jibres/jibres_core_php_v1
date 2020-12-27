@@ -30,7 +30,6 @@
     </footer>
   <?php } //endif ?>
 </section>
-
 <?php } //endif
 
 

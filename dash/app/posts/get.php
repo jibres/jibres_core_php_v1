@@ -157,26 +157,11 @@ class get
 		$tag = self::get_post_tag($id);
 		$load['tags'] = $tag;
 
-		$category = self::get_post_category($id);
-		$load['category'] = $category;
 
 		// var_dump($load);exit();
 		return $load;
 	}
 
-
-	public static function get_post_category($_id)
-	{
-		$load_category = \dash\db\termusages\get::usage($_id, 'cat');
-		if(!is_array($load_category))
-		{
-			$load_category = [];
-		}
-
-		$load_category = array_map(['\\dash\\app\\terms\\ready', 'row'], $load_category);
-
-		return $load_category;
-	}
 
 	public static function get_post_tag($_id)
 	{

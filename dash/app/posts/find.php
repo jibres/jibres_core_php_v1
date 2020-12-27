@@ -71,9 +71,6 @@ class find
 		$tag                 = \dash\app\posts\get::get_post_tag($id);
 		$dataRow['tags']     = $tag;
 
-		$category            = \dash\app\posts\get::get_post_category($id);
-		$dataRow['category'] = $category;
-
 		self::$dataRow = $dataRow;
 
 		return $dataRow;
