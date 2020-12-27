@@ -44,17 +44,7 @@ class template
 			return true;
 		}
 
-		if($data = self::find_cat())
-		{
-			// find if 'categroy' is the first of url
-			$type  = 'category';
-			$table = 'terms';
-			if(isset($data['slug']))
-			{
-				$slug = $data['slug'];
-			}
-		}
-		elseif($data = self::find_tag())
+		if($data = self::find_tag(true))
 		{
 			// find if 'tag' is the first of url
 			$type  = 'tag';
@@ -92,7 +82,7 @@ class template
 			}
 
 		}
-		elseif ($data = self::find_term())
+		elseif ($data = self::find_tag())
 		{
 
 			$type  = 'cat';
@@ -108,11 +98,6 @@ class template
 			if(isset($data['type']))
 			{
 				$type = $data['type'];
-			}
-
-			if($type === 'cat')
-			{
-				$type = 'category';
 			}
 
 			if(isset($data['language']))
@@ -369,61 +354,45 @@ class template
 	}
 
 
-	public static function find_cat()
+
+	public static function find_tag($_by_tag_url = false)
 	{
 		$myUrl = self::get_my_url();
 
-		if(substr($myUrl, 0, 9) === 'category/')
-		{
-			$cat_data = \dash\db\terms\get::get_raw(['url' => substr($myUrl, 9), 'type' => 'cat', 'language' => \dash\language::current(), 'limit' => 1]);
-			if($cat_data)
-			{
-				return $cat_data;
-			}
-		}
-		return false;
-	}
-
-
-	public static function find_tag()
-	{
-		$myUrl = self::get_my_url();
 		if(substr($myUrl, 0, 4) === 'tag/')
 		{
-			$cat_data = \dash\db\terms\get::get_raw(['url' => substr($myUrl, 4), 'type' => 'tag', 'language' => \dash\language::current(), 'limit' => 1]);
-			if($cat_data)
+			$myUrl = substr($myUrl, 4);
+		}
+		else
+		{
+			// need to check url only by tag/ in url
+			if($_by_tag_url)
 			{
-				return $cat_data;
+				return false;
 			}
 		}
+
+		$get_tag =
+		[
+			'url'      => $myUrl,
+			'type'     => 'tag',
+			'limit'    => 1,
+		];
+
+		if(!\dash\engine\store::inStore())
+		{
+			$get_tag['language'] = \dash\language::current();
+		}
+
+		$cat_data = \dash\db\terms\get::get_raw($get_tag);
+		if($cat_data)
+		{
+			return $cat_data;
+		}
+
 		return false;
 	}
 
-
-	public static function find_term()
-	{
-		$myUrl = self::get_my_url();
-
-		if(self::ignore_url($myUrl))
-		{
-			return false;
-		}
-
-		$term_data = \dash\db\terms\get::get_raw(['url' => $myUrl, 'type' => 'cat', 'language' => \dash\language::current(), 'limit' => 1]);
-
-		if($term_data)
-		{
-			return $term_data;
-		}
-
-		$term_data = \dash\db\terms\get::get_raw(['url' => $myUrl, 'type' => 'tag', 'language' => \dash\language::current(), 'limit' => 1]);
-
-		if($term_data)
-		{
-			return $term_data;
-		}
-		return false;
-	}
 
 
 	public static function find_post()
