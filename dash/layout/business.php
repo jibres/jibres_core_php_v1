@@ -94,15 +94,24 @@ class business
 
 	public static function body_addr()
 	{
-		if(self::$website)
+		if(!self::$website)
 		{
-			$addr = self::template_addr(). 'body.php';
-			if(is_file($addr))
-			{
-				return $addr;
-			}
-
+			return null;
 		}
+
+		if(\dash\engine\content::get() !== 'content_business')
+		{
+			return null;
+		}
+
+
+		$addr = self::template_addr(). 'body.php';
+		if(is_file($addr))
+		{
+			return $addr;
+		}
+
+
 	}
 
 
