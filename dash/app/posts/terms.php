@@ -151,22 +151,6 @@ class terms
 			\dash\db\termusages\delete::hard_delete_category($must_remove, $_post_id);
 		}
 
-		if($_type === 'cat')
-		{
-			// load first category url
-			$url = \dash\db\termusages\get::first_category_url($_post_id);
-
-			if($url && is_string($url))
-			{
-				return $url;
-			}
-			else
-			{
-				// no category founded
-				return null;
-			}
-		}
-
 		return true;
 
 	}
