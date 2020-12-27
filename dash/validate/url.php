@@ -284,9 +284,9 @@ class url
 			}
 		}
 
-		if(substr_count($_url, '/') > 1)
+		if(substr_count($_url, '/') > 5)
 		{
-			\dash\notif::error(T_("You cannot use more than one slash in url"), ['element' => ['url', 'slug', 'title']]);
+			\dash\notif::error(T_("You cannot use more than 5 slash in url"), ['element' => ['url', 'slug', 'title']]);
 			return false;
 		}
 
