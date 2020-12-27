@@ -16,34 +16,27 @@ class controller
 
 		$load_post = \dash\app\posts\get::get(\dash\url::module(), ['check_login' => false]);
 
-		// if(!isset($load_post['type']) || !isset($load_post['status']) || !isset($load_post['url']) || !isset($load_post['language']))
-		// {
-		// 	\dash\redirect::to(\dash\url::kingdom());
-		// }
+		if(!$load_post || !isset($load_post['type']))
+		{
+			\dash\header::status(404, T_("Post not found"));
+		}
 
-		// if(!in_array($load_post['type'], ['post', 'page', 'help']))
-		// {
-		// 	\dash\redirect::to(\dash\url::kingdom());
-		// }
+		if(!in_array($load_post['type'], ['post', 'page']))
+		{
+			\dash\header::status(404, T_("Post not found"));
+		}
 
-		// var_dump($load_post);exit();
-
-
-		// if(!in_array($load_post['status'], ['publish']))
-		// {
-		// 	\dash\redirect::to(\dash\url::kingdom());
-		// }
-
-		// if(isset($load_post['link']))
-		// {
-		// 	\dash\log::set('newsCodeRedirect', ['code' => \dash\url::module(), 'link' => $load_post['link']]);
-
-		// 	\dash\redirect::to($load_post['link']);
-
-		// 	return;
-		// }
-
-		// \dash\redirect::to(\dash\url::kingdom());
+		if(\dash\url::child())
+		{
+			if(isset($load_post['slug']) && $load_post['slug'] === \dash\url::child())
+			{
+				// ok. nothing
+			}
+			else
+			{
+				\dash\header::status(404, T_("Invalid slug of post"));
+			}
+		}
 
 		\dash\data::dataRow($load_post);
 
