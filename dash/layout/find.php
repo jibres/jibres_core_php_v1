@@ -118,6 +118,19 @@ class find
 				// jibres homepage webiste
 				$myHeader = root.'content/home/layout/header.php';
 			}
+			elseif($myContent === 'content_n')
+			{
+				if(\dash\engine\store::inStore())
+				{
+					// subdomain of stores
+					$myHeader = root.'content_business/home/layout/header.php';
+				}
+				else
+				{
+					// jibres homepage webiste
+					$myHeader = root.'content/home/layout/header.php';
+				}
+			}
 			elseif($myContent === 'content_business')
 			{
 				// subdomain of stores
@@ -168,6 +181,20 @@ class find
 			{
 				// jibres homepage webiste
 				$myFooter = root.'content/home/layout/footer.php';
+			}
+			elseif($myContent === 'content_n')
+			{
+				if(\dash\engine\store::inStore())
+				{
+					// subdomain of stores
+					$myFooter = root.'content_business/home/layout/footer.php';
+				}
+				else
+				{
+					// jibres homepage webiste
+					$myFooter = root.'content/home/layout/footer.php';
+				}
+
 			}
 			elseif($myContent === 'content_business')
 			{
