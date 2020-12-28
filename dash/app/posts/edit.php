@@ -18,7 +18,7 @@ class edit
 			return false;
 		}
 
-		$load_posts = \dash\db\posts\get::by_id($id);
+		$load_posts = \dash\app\posts\get::load_post($_id);
 
 		if(!isset($load_posts['id']))
 		{
@@ -48,6 +48,7 @@ class edit
 
 		// check args
 		$args = \dash\app\posts\check::variable($_args, $id, $_option);
+
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
@@ -84,13 +85,6 @@ class edit
 			$tag = $args['tag'];
 		}
 
-		$cat = [];
-		if($args['cat'])
-		{
-			$cat = $args['cat'];
-		}
-
-		unset($args['cat']);
 		unset($args['tag']);
 
 
@@ -126,7 +120,7 @@ class edit
 				{
 					if(array_key_exists('tag', $_args))
 					{
-						\dash\app\posts\terms::save_post_term($tag, $load_posts['id'], 'tag');
+						\dash\app\posts\terms::save_post_term($tag, $id, 'tag');
 					}
 				}
 
@@ -143,7 +137,7 @@ class edit
 
 	private static function check_publishable($_data)
 	{
-		$result = \dash\app\posts\ready::row($_data);
+		$result = $_data;
 
 		if(a($result, 'subtype') === 'video')
 		{
@@ -206,7 +200,7 @@ class edit
 		// 	return false;
 		// }
 
-		$result = \dash\app\posts\ready::row($_data);
+		$result = $_data;
 
 		if($_new_subtype === 'video')
 		{

@@ -6,6 +6,9 @@ class edit
 {
 	public static function edit($_args, $_id)
 	{
+
+		\dash\permission::access('cmsManageTag');
+
 		$id = \dash\coding::decode($_id);
 
 		if(!$id)

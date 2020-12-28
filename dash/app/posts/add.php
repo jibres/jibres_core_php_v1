@@ -4,17 +4,8 @@ namespace dash\app\posts;
 class add
 {
 
-	/**
-	 * add new user
-	 *
-	 * @param      array          $_args  The arguments
-	 *
-	 * @return     array|boolean  ( description_of_the_return_value )
-	 */
 	public static function add($_args)
 	{
-		\dash\permission::access('cmsManagePost');
-
 		// check args
 		$args = \dash\app\posts\check::variable($_args);
 
@@ -23,7 +14,6 @@ class add
 			return false;
 		}
 
-		unset($args['cat']);
 		unset($args['tag']);
 
 		$args['user_id'] = \dash\user::id();

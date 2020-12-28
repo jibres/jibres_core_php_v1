@@ -8,6 +8,9 @@ class remove
 
 	public static function remove_action($_id, $_action)
 	{
+
+		\dash\permission::access('cmsManageTag');
+
 		$load = \dash\app\terms\get::get($_id);
 
 		if(!isset($load['id']))
@@ -58,11 +61,7 @@ class remove
 
 	public static function remove($_id)
 	{
-		if(!\dash\permission::check('manageProductTag'))
-		{
-			return false;
-		}
-
+		\dash\permission::access('cmsManageTag');
 
 		$load = \dash\app\terms\get::get($_id);
 

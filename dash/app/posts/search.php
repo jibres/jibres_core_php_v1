@@ -13,8 +13,18 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_force = false)
 	{
+		if($_force)
+		{
+			// not check permission because request from website
+		}
+		else
+		{
+			\dash\permission::access('_group_cms');
+		}
+
+
 		$condition =
 		[
 			'order'        => 'order',
@@ -56,12 +66,10 @@ class search
 			$meta['limit'] = $data['limit'];
 		}
 
-
 		if($data['type'])
 		{
 			$and[] = " posts.type =  '$data[type]' ";
 		}
-
 
 		if($data['subtype'])
 		{
@@ -171,7 +179,7 @@ class search
 			'website_mode' => true
 
 		];
-		$list = self::list(null, $args);
+		$list = self::list(null, $args, true);
 		return $list;
 	}
 

@@ -30,7 +30,6 @@ class check
 			'creator'         => 'code',
 			'tagurl'         => 'code',
 			'tag'             => 'tag',
-			'cat'             => 'cat',
 			'set_publishdate' => 'bit',
 		];
 
@@ -73,6 +72,19 @@ class check
 				\dash\notif::error(T_("Invalid id"));
 				return false;
 			}
+
+
+			if(!\dash\permission::check('cmsManageAllPost'))
+			{
+				if(floatval(\dash\user::id()) === floatval($current_post_detail['user_id']))
+				{
+					/* no problem*/
+				}
+				else
+				{
+					\dash\permission::deny(T_("Can not access to edit this post!"));
+				}
+			}
 		}
 
 		if(!$data['type'])
@@ -108,6 +120,22 @@ class check
 				case 'post': $isPost = true; break;
 				case 'help': $isHelp = true; break;
 			}
+		}
+
+		/* check permission */
+		if($isPage)
+		{
+			\dash\permission::access('cmsManagePage');
+		}
+
+		if($isPost)
+		{
+			\dash\permission::access('cmsManagePost');
+		}
+
+		if($isHelp)
+		{
+			\dash\permission::access('cmsManageHelpCenter');
 		}
 
 
@@ -326,10 +354,6 @@ class check
 			$data['subtype'] = 'standard';
 		}
 
-		if(!\dash\permission::check('cmsPostPublisher'))
-		{
-			unset($data['status']);
-		}
 
 		if(!$data['excerpt'] && $data['content'])
 		{
@@ -360,6 +384,10 @@ class check
 		}
 
 
+		if($data['status'] && $data['status'] === 'publish')
+		{
+			\dash\permission::access('cmsPostPublisher');
+		}
 
 		unset($data['redirecturl']);
 		unset($data['publishtime']);

@@ -153,6 +153,27 @@ class get
 			return false;
 		}
 
+		switch ($load['type'])
+		{
+			case 'post':
+				\dash\permission::access('cmsManagePost');
+				break;
+
+			case 'page':
+				\dash\permission::access('cmsManagePage');
+				break;
+
+			case 'help':
+				\dash\permission::access('cmsManageHelpCenter');
+				break;
+
+			default:
+				/* Invaild type BUG! */
+				\dash\log::oops('postLoadInvalidType', T_("Invalid post type!"));
+				return false;
+				break;
+		}
+
 		$load = \dash\app\posts\ready::row($load);
 
 		$tag = self::get_post_tag($id);

@@ -184,7 +184,7 @@ class plan_list
 		$master['cmsManagePost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManagePost', 				'title' => T_('Manage Post'), 'require' => []];
 		$master['cmsManagePage']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManagePage', 				'title' => T_('Manage Page'), 'require' => []];
 		$master['cmsManageAllPost']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAllPost', 			'title' => T_('Manage All Post'), 'require' => []];
-		$master['cmsManageHelpCenter']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageHelpCenter', 			'title' => T_('Manage Help Center'), 'require' => []];
+		$master['cmsManageHelpCenter']          = ['jibres' => true,  'business' => false,  'group' => 'cms', 		'caller' => 'cmsManageHelpCenter', 			'title' => T_('Manage Help Center'), 'require' => []];
 		$master['cmsPostPublisher']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostPublisher', 			'title' => T_('Publish post'), 'require' => []];
 		$master['cmsPostRemove']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostRemove', 				'title' => T_('Remove post'), 'require' => []];
 
@@ -199,9 +199,9 @@ class plan_list
 
 
 		// --------------- Need to check
-		$master['contentPardakhtyar']           = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'contentPardakhtyar', 			'title' => T_('contentPardakhtyar'), 'require' => []];
-		$master['cpTagSupportEdit']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagSupportEdit', 			'title' => T_('Manage tag'), 'require' => []];
-		$master['cpHelpCenterEdit']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterEdit', 			'title' => T_('Help center'), 'require' => []];
+
+		$master['cpTagSupportEdit']             = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'cpTagSupportEdit', 			'title' => T_('Manage tag'), 'require' => []];
+		$master['cpHelpCenterEdit']             = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'cpHelpCenterEdit', 			'title' => T_('Help center'), 'require' => []];
 		$master['supportTicketManage']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketManage', 			'title' => T_('supportTicketManage'), 'require' => []];
 		$master['supportTicketAddNote']         = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketAddNote', 		'title' => T_('supportTicketAddNote'), 'require' => []];
 		$master['supportEditMessage']           = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportEditMessage', 			'title' => T_('supportEditMessage'), 'require' => []];
