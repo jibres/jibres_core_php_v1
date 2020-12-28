@@ -70,8 +70,12 @@ class add
 			'content' => a($_answer, 'content'),
 			'title'   => a($_answer, 'title'),
 			'parent'  => $_id,
-			'status'  => 'approved',
 		];
+
+		if(\dash\permission::check('cmsManageComment'))
+		{
+			$args['status']  = 'approved';
+		}
 
 		return self::add($args);
 	}

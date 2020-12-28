@@ -12,6 +12,8 @@ class remove
 	 */
 	public static function remove($_id)
 	{
+		\dash\permission::access('cmsManageComment');
+
 		$load = \dash\app\comment\get::inline_get($_id);
 		if(!$load)
 		{

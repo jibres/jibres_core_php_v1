@@ -12,6 +12,7 @@ class get
 	 */
 	public static function get($_id)
 	{
+		\dash\permission::access('cmsCommentView');
 
 		$id = \dash\validate::id($_id);
 
@@ -36,6 +37,7 @@ class get
 
 	public static function inline_get($_id)
 	{
+
 
 		$id = \dash\validate::id($_id);
 

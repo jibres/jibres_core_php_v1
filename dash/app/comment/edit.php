@@ -20,6 +20,8 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
+		\dash\permission::access('cmsManageComment');
+
 		// check args
 		$args = \dash\app\comment\check::variable($_args);
 
