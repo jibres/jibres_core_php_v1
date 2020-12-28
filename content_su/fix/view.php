@@ -80,7 +80,7 @@ class view
 
 	private static function check_file_builded_webp($path_info, $file)
 	{
-		if($path_info['extension'] !== 'webp')
+		if(in_array($path_info['extension'], ['jpg', 'png', 'giff']))
 		{
 			self::is_croped($file, $path_info['extension']);
 		}
