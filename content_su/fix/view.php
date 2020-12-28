@@ -11,8 +11,100 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+		self::check_file();
+
 	}
 
+	private static $result = [];
+
+	private static function check_file()
+	{
+		$store_folders = glob(YARD. 'talambar_cloud/*');
+
+		foreach ($store_folders as $store_folder)
+		{
+
+			$folders = glob($store_folder. '/*');
+
+			if(!$folders)
+			{
+				continue;
+			}
+
+			foreach ($folders as $date_folder)
+			{
+
+				$date = glob($date_folder. '/*');
+
+				if(!$date)
+				{
+					continue;
+				}
+
+				foreach ($date as $file)
+				{
+
+
+					$path_info = pathinfo($file);
+
+					self::check_file_builded_webp($path_info, $file);
+
+				}
+			}
+		}
+
+
+		$jibres_file = glob(YARD. 'talambar_dl/*');
+
+		foreach ($jibres_file as $folders)
+		{
+
+
+			$files = glob($folders. '/*');
+
+			foreach ($files as $file)
+			{
+
+				$path_info = pathinfo($file);
+
+				self::check_file_builded_webp($path_info, $file);
+			}
+
+		}
+
+		var_dump(self::$result);
+		exit();
+
+	}
+
+
+	private static function check_file_builded_webp($path_info, $file)
+	{
+		if($path_info['extension'] !== 'webp')
+		{
+			self::is_croped($file, $path_info['extension']);
+		}
+	}
+
+
+
+	private static function is_croped($_path, $_ext)
+	{
+		$a = ['-w120.', '-w220.', '-w300.', '-w460.', '-w780.', '-w1100.',];
+
+		$new_path = str_replace('.'. $_ext, '', $_path);
+
+		foreach ($a as $key => $value)
+		{
+			$new_file_check = $new_path. $value. 'webp';
+
+			if(!is_file($new_file_check))
+			{
+				self::$result[] = $new_file_check;
+			}
+		}
+
+	}
 
 
 	private static function setting_news_fix()
