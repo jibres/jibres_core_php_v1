@@ -152,7 +152,7 @@ class media
 			return false;
 		}
 		$imgName = substr($_src, 0, $dotPosition);
-		$imgExt  = substr($_src, $dotPosition);
+		$imgExt  = '.webp';//substr($_src, $dotPosition);
 		$srcset  = '';
 		$srcsetArr = [];
 		// my defined breakpoints
