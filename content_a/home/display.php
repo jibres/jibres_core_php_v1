@@ -131,6 +131,21 @@
       </ul>
     </nav>
 
+
+    <nav class="items long">
+      <ul>
+        <?php if(\dash\permission::check('_group_cms')) {?>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/cms">
+            <i class="sf-file-text"></i>
+            <div class="key"><?php echo T_("Content Management"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      <?php } //endif ?>
+      </ul>
+    </nav>
+
     <nav class="items long">
       <ul>
         <?php if(\dash\permission::check('_group_form')) {?>
