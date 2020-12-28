@@ -14,9 +14,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). \dash\request::full_get());
 
-		\dash\data::listTag(\dash\app\terms\get::get_all_tag());
-
-
 	}
 }
 ?>

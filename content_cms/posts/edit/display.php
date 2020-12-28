@@ -95,7 +95,7 @@ switch (\dash\data::dataRow_status())
             </div>
             <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/tag/api?json=true'; ?>'>
               <?php foreach (\dash\data::dataRow_tags() as $key => $value) {?>
-                <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::tagsSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
+                <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
               <?php } //endfor ?>
             </select>
           </div>

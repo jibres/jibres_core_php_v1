@@ -19,7 +19,16 @@ class view
 
 			foreach ($list as $key => $value)
 			{
-				$new_list[] = ['id' => $value['title'], 'text' => $value['title']];
+				if(\dash\request::get('getid'))
+				{
+					$id = $value['id'];
+				}
+				else
+				{
+					$id = $value['title'];
+				}
+
+				$new_list[] = ['id' => $id, 'text' => $value['title']];
 			}
 
 		}
