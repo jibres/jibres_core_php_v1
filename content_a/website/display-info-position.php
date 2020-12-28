@@ -3,7 +3,7 @@
     <div class="data">
       <h3><?php echo T_("Set info position");?></h3>
       <div class="body">
-        <p><?php echo T_("You can change the item info_position");?></p>
+        <p><?php echo T_("You can change the item position");?></p>
       </div>
     </div>
   </div>
