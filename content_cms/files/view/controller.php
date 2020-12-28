@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-
+		\dash\permission::access('cmsManageAttachment');
 		$id = \dash\request::get('id');
 		$load = \dash\app\files\get::get($id);
 

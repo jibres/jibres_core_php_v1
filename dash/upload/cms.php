@@ -11,6 +11,8 @@ class cms
 	 */
 	public static function set_post_thumb($_post_id = null)
 	{
+		\dash\permission::access('cmsAttachmentAdd');
+
 		if(!$_post_id)
 		{
 			\dash\notif::error(T_("Post not found"));
@@ -65,6 +67,8 @@ class cms
 
 	public static function set_post_cover($_post_id = null)
 	{
+		\dash\permission::access('cmsAttachmentAdd');
+
 		if(!$_post_id)
 		{
 			\dash\notif::error(T_("Post not found"));
@@ -142,6 +146,8 @@ class cms
 
 	public static function set_post_gallery($_post_id)
 	{
+		\dash\permission::access('cmsAttachmentAdd');
+
 		if(!$_post_id)
 		{
 			\dash\notif::error(T_("Post not found"));
@@ -197,6 +203,8 @@ class cms
 
 	public static function set_post_gallery_editor($_post_id)
 	{
+		\dash\permission::access('cmsAttachmentAdd');
+
 		if(!$_post_id)
 		{
 			\dash\notif::error(T_("Post not found"));
