@@ -24,6 +24,7 @@ class search
 			'sort'       => ['enum' => ['title']],
 			'pagination' => 'bit',
 			'type'       => ['enum' => ['cat', 'tag']],
+			'limit'      => 'int',
 		];
 
 		$require = [];
@@ -43,6 +44,12 @@ class search
 		}
 
 		$meta['limit'] = 20;
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
+
 		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
 		{
 			$meta['pagination'] = false;

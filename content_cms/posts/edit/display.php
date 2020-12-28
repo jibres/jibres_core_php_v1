@@ -93,8 +93,8 @@ switch (\dash\data::dataRow_status())
               <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
               <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
             </div>
-            <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
-              <?php foreach (\dash\data::allTagList() as $key => $value) {?>
+            <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/tag/api?json=true'; ?>'>
+              <?php foreach (\dash\data::dataRow_tags() as $key => $value) {?>
                 <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::tagsSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
               <?php } //endfor ?>
             </select>
