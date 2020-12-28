@@ -13,9 +13,12 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_force = false)
 	{
-		\dash\permission::access('cmsCommentView');
+		if(!$_force)
+		{
+			\dash\permission::access('cmsCommentView');
+		}
 
 		$condition =
 		[
@@ -112,7 +115,7 @@ class search
 			'status' => 'approved',
 		];
 
-		$list = self::list(null, $args);
+		$list = self::list(null, $args, true);
 		return $list;
 	}
 }
