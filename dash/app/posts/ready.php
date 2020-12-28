@@ -72,6 +72,7 @@ class ready
 					break;
 
 				case 'gallery':
+					$result[$key] = $value;
 					if($value)
 					{
 						$result['gallery_array'] = json_decode($value, true);
