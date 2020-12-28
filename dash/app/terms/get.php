@@ -46,13 +46,17 @@ class get
 
 	public static function get_all_tag()
 	{
-		$args =
-		[
-			'type' => 'tag',
-			'pagination' => false,
-		];
-		return \dash\app\terms\search::list(null, $args);
+		$list = \dash\db\terms\get::get_all_tag();
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\dash\\app\\terms\\ready', 'row'], $list);
+
+		return $list;
 	}
+
 
 
 	public static function lates_tag()

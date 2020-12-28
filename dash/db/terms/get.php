@@ -57,5 +57,18 @@ class get
 
 		return $result;
 	}
+
+
+
+	public static function get_all_tag()
+	{
+		$query = "SELECT terms.id, terms.title FROM terms ";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 }
 ?>

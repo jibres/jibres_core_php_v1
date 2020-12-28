@@ -4,16 +4,16 @@
     <div class="body">
 
 
-      <div class="mB10">
+       <div class="mB10">
         <label for='tag'><?php echo T_("Special tag"); ?></label>
-        <select name="tag_id" id="tag" class="select22" data-model='tag'  data-placeholder='<?php echo T_("Select tag"); ?>' data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/tag/api?json=true&getid=1'; ?>'>
-          <?php if(a(\dash\data::lineSetting(),  'tag_id')) {?>
-            <option value="0"><?php echo T_("None") ?></option>
-            <option value="<?php echo a(\dash\data::lineSetting(),  'tag_id') ?>" selected><?php echo \dash\data::currentTag_title() ?></option>
-          <?php } //endif ?>
-
+        <select name="tag_id" id="tag" class="select22"  data-placeholder='<?php echo T_("Select tag"); ?>' >
+          <?php if(a(\dash\data::lineSetting(),  'tag_id')) {?><option value="0"><?php echo T_("None") ?></option><?php }else{ ?><option value=""><?php echo T_("Select tag") ?></option><?php } //endif ?>
+          <?php foreach (\dash\data::listTag() as $key => $value) {?>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(a(\dash\data::lineSetting(),  'tag_id') == $value['id']) { echo 'selected'; } ?> ><?php echo a($value, 'title'); ?></option>
+          <?php } //endfor ?>
         </select>
       </div>
+
 
       <div class="mB10">
         <label for='subtype'><?php echo T_("Post template"); ?></label>
