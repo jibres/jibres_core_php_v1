@@ -23,6 +23,9 @@ $isPost = ($type === 'post');
     <div class="action">
       <input type="hidden" name="runaction_editstatus" value="1">
       <select name="status" class="select22">
+        <?php if(\dash\data::dataRow_status() === 'deleted') {?>
+          <option value="deleted" selected><?php echo T_("Deleted") ?></option>
+        <?php } //endif ?>
         <option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') { echo 'selected';} ?>><?php echo T_("Draft") ?></option>
         <option value="publish" <?php if(\dash\data::dataRow_status() === 'publish') { echo 'selected';} ?>><?php echo T_("Publish") ?></option>
       </select>

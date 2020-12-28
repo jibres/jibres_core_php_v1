@@ -39,6 +39,11 @@ class find
 			return false;
 		}
 
+		if(isset($dataRow['status']) && $dataRow['status'] === 'deleted')
+		{
+			return false;
+		}
+
 		$dataRow             = \dash\app\posts\ready::row($dataRow);
 		$id                  = \dash\coding::decode($dataRow['id']);
 

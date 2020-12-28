@@ -101,6 +101,7 @@ class get
 
 		$detail = \dash\db\posts\get::by_id($id);
 
+
 		$temp = [];
 
 		if(is_array($detail))

@@ -23,18 +23,21 @@ class remove
 				return false;
 			}
 
-			if($load['status'] === 'deleted')
-			{
-				\dash\notif::error(T_("This post was already removed"));
-				return false;
-			}
 		}
 
-		\dash\db\termusages\delete::by_post_id($load['id']);
 		// \dash\db\comments\delete::by_post_id($load['id']);
-		\dash\db\posts\delete::record($load['id']);
 
-		\dash\log::set('postRemoved', ['my_title' => a($load, 'title')]);
+		if($load['status'] === 'deleted')
+		{
+			\dash\db\termusages\delete::by_post_id($load['id']);
+			\dash\db\posts\delete::record($load['id']);
+			\dash\log::set('postRemoved', ['my_title' => a($load, 'title')]);
+		}
+		else
+		{
+			\dash\db\posts::update(['status' => 'deleted'], $load['id']);
+		}
+
 
 		\dash\notif::ok(T_("Post removed"));
 
