@@ -94,14 +94,33 @@ class view
 
 		$new_path = str_replace('.'. $_ext, '', $_path);
 
+		$drop = false;
 		foreach ($a as $key => $value)
 		{
 			$new_file_check = $new_path. $value. 'webp';
 
 			if(!is_file($new_file_check))
 			{
+				$drop = true;
 				self::$result[] = $new_file_check;
 			}
+		}
+
+		if($drop)
+		{
+			foreach ($a as $key => $value)
+			{
+				$new_file_check = $new_path. $value. 'webp';
+
+				if(is_file($new_file_check))
+				{
+					unlink($new_file_check);
+				}
+			}
+
+			\dash\utility\image::responsive_image($_path, $_ext);
+
+
 		}
 
 	}
