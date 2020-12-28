@@ -63,7 +63,9 @@ class get
 	{
 		$args =
 		[
-			'type' => 'tag',
+			'type'       => 'tag',
+			'pagination' => false,
+			'limit'      => 5,
 		];
 
 		return \dash\app\terms\search::list(null, $args);

@@ -33,6 +33,7 @@ class search
 
 		];
 
+
 		$require = [];
 		$meta    =	[];
 
@@ -180,19 +181,12 @@ class search
 		if(!isset($_args['limit']))
 		{
 			$_args['limit'] = 5;
-			$_args['end_limit'] = 5;
 		}
 
-		$_args['order_raw'] = 'posts.id DESC';
-		$_args['pagenation'] = false;
+		$_args['pagination'] = 'n';
 		$_args['status'] = 'publish';
 
-		$list = \dash\db\posts::search(null, $_args);
-
-		if(is_array($list))
-		{
-			$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
-		}
+		$list = self::list(null, $_args);
 
 		return $list;
 	}
