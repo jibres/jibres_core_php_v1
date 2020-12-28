@@ -24,7 +24,6 @@ class baby
 		self::dbl_slash();
 		// check request uri
 		self::check($_SERVER['REQUEST_URI'], true);
-
 		// check for requests
 		foreach ($_REQUEST as $key => $value)
 		{
@@ -35,7 +34,16 @@ class baby
 
 			if(is_string($value) && mb_strlen($value) > 5000)
 			{
-				self::pacifier(11, 414);
+
+				if(in_array($key, ['content', 'desc']) && mb_strlen($value) < 50000)
+				{
+					// no problem
+					// for post content and product desc we have an editor
+				}
+				else
+				{
+					self::pacifier(11, 414);
+				}
 			}
 			// check key is not using invalid chars
 			self::check($key, true);
