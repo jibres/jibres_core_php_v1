@@ -39,7 +39,7 @@ class load
 			'tag_id'       => $tag_id,
 		];
 
-		$list = \dash\app\posts\search::list(null, $args);
+		$list = \dash\app\posts\search::list(null, $args, true);
 
 		$result              = [];
 		$result['title']     = $line_title;
