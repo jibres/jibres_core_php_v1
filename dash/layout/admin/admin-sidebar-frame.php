@@ -13,7 +13,7 @@ require_once ('sidebar/sidebar-a.php');
 
 
 
-<?php if(\dash\permission::check('contentCp')) {?>
+<?php if(\dash\permission::check('_group_cms')) {?>
      <li><a href="<?php echo \dash\url::kingdom(); ?>/cms" <?php if(\dash\url::content() === 'cms') {?> class="activeContent"<?php }//endif ?> data-shortkey="67+77" data-shortkey-prevent data-shortkey-timeout='1000'><i class='sf-align-left'></i> <?php echo T_("CMS"); ?></a></li>
 <?php
  if(\dash\url::content() === 'cms')

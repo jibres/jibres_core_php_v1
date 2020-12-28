@@ -130,7 +130,7 @@ class panel
 			'active' => 1,
 		];
 
-		if(\dash\permission::check('cpPostsView'))
+		if(\dash\permission::check('_group_cms'))
 		{
 			$menu[] =
 			[
@@ -139,9 +139,8 @@ class panel
 				'icon'   => 'pinboard',
 				'active' => (\dash\url::module()==='posts'&& !\dash\request::get('type')? true :false)
 			];
-		}
-		if(\dash\permission::check('cpCategoryView'))
-		{
+
+
 			$menu[] =
 			[
 				'title'  => T_("Categories"),
@@ -149,9 +148,8 @@ class panel
 				'icon'   => 'grid',
 				'active' => (\dash\url::module()==='terms'&& \dash\request::get('type')==='cat'? true :false)
 			];
-		}
-		if(\dash\permission::check('cpTagView'))
-		{
+
+
 			$menu[] =
 			[
 				'title'  => T_("Keywords"),
@@ -159,9 +157,7 @@ class panel
 				'icon'   => 'tags',
 				'active' => (\dash\url::module()==='terms'&& \dash\request::get('type')==='tag'? true :false)
 			];
-		}
-		if(\dash\permission::check('cpPageView'))
-		{
+
 			$menu[] =
 			[
 				'title'  => T_("Static Pages"),
@@ -171,7 +167,7 @@ class panel
 			];
 		}
 
-		if(\dash\permission::check('cpHelpCenterView'))
+		if(\dash\permission::check('cmsManageHelpCenter'))
 		{
 			$menu[] =
 			[
@@ -182,18 +178,9 @@ class panel
 			];
 		}
 
-		if(\dash\permission::check('cpTagHelpAdd') || \dash\permission::check('cpTagHelpEdit'))
-		{
-			$menu[] =
-			[
-				'title'  => T_("Help Center Keywords"),
-				'link'   => \dash\url::here(). '/terms?type=help_tag',
-				'icon'   => 'tags',
-				'active' => (\dash\url::module()==='terms'&& \dash\request::get('type')==='help_tag'? true :false)
-			];
-		}
 
-		if(\dash\permission::check('cpCommentsView'))
+
+		if(\dash\permission::check('cmsCommentView'))
 		{
 			$menu[] =
 			[
@@ -204,7 +191,7 @@ class panel
 			];
 		}
 
-		if(\dash\permission::check('cpPostsView'))
+		if(\dash\permission::check('cmsAttachmentView'))
 		{
 			$menu[] =
 			[

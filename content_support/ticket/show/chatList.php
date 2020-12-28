@@ -105,7 +105,7 @@ if($myTag)
 
           <nav class="txtRa">
             <?php if(\dash\permission::check('supportTicketManage')) {?><a href="<?php echo $urlThis; ?>?user_id=<?php echo a($record, 'value', 'user_id'). \dash\data::accessGetAnd(); ?>" title='<?php echo T_("User tickets"); ?>'><i class="sf-question-circle"></i></a><?php } ?>
-            <?php if(\dash\permission::check('cpUsersView')) {?><a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo a($record, 'value', 'user_id'); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a><?php } ?>
+            <?php if(\dash\permission::check('_group_crm')) {?><a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo a($record, 'value', 'user_id'); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a><?php } ?>
           </nav>
         <?php }//endif ?>
         </td>
@@ -216,7 +216,7 @@ else
 
           <nav class="txtRa">
             <?php if(\dash\permission::check('supportTicketManage')) {?><a href="<?php echo $urlThis; ?>?user_id=<?php echo a($value, 'user_id'); ?>" title='<?php echo T_("User tickets"); ?>'><i class="sf-question-circle"></i></a><?php } //endif ?>
-            <?php if(\dash\permission::check('cpUsersView')) {?><a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo a($value, 'user_id'); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a><?php }//endif ?>
+            <?php if(\dash\permission::check('_group_crm')) {?><a href="<?php echo \dash\url::kingdom(); ?>/crm/member/glance?id=<?php echo a($value, 'user_id'); ?>" title='<?php echo T_("User Profile"); ?>'><i class="sf-user-md"></i></a><?php }//endif ?>
 
           </nav>
 <?php } //endif ?>

@@ -1,7 +1,7 @@
  <nav class="items long2">
      <ul>
 
-  <?php if(\dash\permission::check('cpPostsView')) {?>
+
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/posts">
           <div class="key"><?php echo T_('Posts');?></div>
@@ -9,9 +9,9 @@
           <div class="go"></div>
         </a>
       </li>
-  <?php }// endif ?>
 
-<?php if(\dash\permission::check('cpPageView')) {?>
+
+
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/pages">
           <div class="key"><?php echo T_('Pages');?></div>
@@ -19,9 +19,9 @@
           <div class="go"></div>
         </a>
       </li>
-  <?php }// endif ?>
 
-<?php if(\dash\permission::check('cpTagView')) {?>
+
+
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/tag">
           <div class="key"><?php echo T_('Tags');?></div>
@@ -29,11 +29,11 @@
           <div class="go"></div>
         </a>
       </li>
-  <?php }// endif ?>
 
 
 
-   <?php if(\dash\permission::check('crmAttachmentView')) {?>
+
+   <?php if(\dash\permission::check('cmsAttachmentView')) {?>
        <li class="">
         <a class="item f" href="<?php echo \dash\url::here();?>/files">
           <div class="key"><?php echo T_('Attachments');?></div>
@@ -44,7 +44,7 @@
   <?php }// endif ?>
 
 
-   <?php if(\dash\permission::check('cpCommentsEdit')) {?>
+   <?php if(\dash\permission::check('cmsCommentView')) {?>
        <li class="">
         <a class="item f" href="<?php echo \dash\url::here();?>/comments">
           <div class="key"><?php echo T_('Comments');?></div>
@@ -54,7 +54,7 @@
       </li>
   <?php }// endif ?>
 
-     <?php if(!\dash\engine\store::inStore() && \dash\permission::check('manageHelpCenter')) {?>
+     <?php if(!\dash\engine\store::inStore() && \dash\permission::check('cmsManageHelpCenter')) {?>
        <li class="">
         <a class="item f" href="<?php echo \dash\url::here();?>/help">
           <div class="key"><?php echo T_('Help center');?></div>

@@ -139,25 +139,27 @@ class plan_list
 
 		// $master['EnterByAnother']               = ['jibres' => true, 'business' => false,  'group' => 'manage',	     'caller' => 'EnterByAnother', 				'title' => T_('EnterByAnother'), 'require' => []];
 
+		// --------------- PRODUCT
 		$master['productAdd']                   = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'productAdd', 					'title' => T_('Add new product'), 'require' => []];
 		$master['ProductEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductEdit', 					'title' => T_('Edit product'), 'require' => []];
 		$master['ProductDelete']                = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductDelete', 				'title' => T_('Delete product'), 'require' => []];
 		$master['mamageProductUnit']            = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'mamageProductUnit', 			'title' => T_('Mamage Product Unit'), 'require' => []];
 		$master['manageProductCompany']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCompany', 		'title' => T_('Manage Product Company'), 'require' => []];
-		$master['manageProductComment']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductComment', 		'title' => T_('Manage Product Comment'), 'require' => []];
 		$master['manageProductTag']             = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductTag', 			'title' => T_('Manage Product Tag'), 'require' => []];
 		$master['manageProductCategory']        = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCategory', 		'title' => T_('Manage Product Category'), 'require' => []];
 
 
+		// --------------- FACTOR + CART + SALE
 		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('Add new sale order'), 'require' => []];
 		$master['manageCart']                   = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageCart', 				 	'title' => T_('Manage Cart'), 'require' => []];
 		$master['manageFactors']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageFactors', 			 	'title' => T_('Manage Factors'), 'require' => []];
-		$master['orderNotificationReceiver']    = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'orderNotificationReceiver', 	'title' => T_('Order notification Receiver'), 'require' => []];
 
 
+		// --------------- SETTING
 		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
 
 
+		// --------------- FORMS
 		$master['ManageForm']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageForm', 						'title' => T_('Manage Form'), 'require' => []];
 		$master['AdvanceFormAnalyze']           = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'AdvanceFormAnalyze', 				'title' => T_('Advance Form Analyze'), 'require' => []];
 		$master['ManageFormTags']               = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageFormTags', 					'title' => T_('Manage Form Tags'), 'require' => []];
@@ -166,6 +168,7 @@ class plan_list
 
 
 
+		// --------------- CRM
 		$master['crmCustomerManagement']        = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmCustomerManagement', 		'title' => T_('Manage Customers'), 'require' => []];
 		$master['crmManageCustomerPayment']     = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmManageCustomerPayment', 	'title' => T_('Manage customer payemnts'), 'require' => []];
 		$master['crmPermissionManagement']      = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmPermissionManagement', 		'title' => T_('Permission Management'), 'require' => []];
@@ -177,63 +180,28 @@ class plan_list
 		$master['crmAddNewNotification']        = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmAddNewNotification', 		'title' => T_('Add New Notification'), 'require' => []];
 
 
-		$master['cmsAddNewPost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAddNewPost', 				'title' => T_('Add New Post'), 'require' => []];
+		// --------------- CMS
+		$master['cmsManagePost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManagePost', 				'title' => T_('Manage Post'), 'require' => []];
+		$master['cmsManagePage']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManagePage', 				'title' => T_('Manage Page'), 'require' => []];
+		$master['cmsManageAllPost']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAllPost', 			'title' => T_('Manage All Post'), 'require' => []];
+		$master['cmsManageHelpCenter']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageHelpCenter', 			'title' => T_('Manage Help Center'), 'require' => []];
+		$master['cmsPostPublisher']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostPublisher', 			'title' => T_('Publish post'), 'require' => []];
 		$master['cmsPostRemove']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostRemove', 				'title' => T_('Remove post'), 'require' => []];
-		$master['cmsPostPublisher']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostPublisher', 				'title' => T_('Publish post'), 'require' => []];
-		$master['cmsManageAllPost']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAllPost', 				'title' => T_('Manage All Post'), 'require' => []];
-		$master['cmsAddNewCategory']            = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAddNewCategory', 				'title' => T_('Add New Category'), 'require' => []];
 
-		$master['contentCp']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'contentCp', 					'title' => T_('contentCp'), 'require' => []];
-		$master['cpSMS']                        = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpSMS', 						'title' => T_('cpSMS'), 'require' => []];
-		$master['cpUsersEdit']                  = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpUsersEdit', 					'title' => T_('cpUsersEdit'), 'require' => []];
-		$master['cpSmsSend']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpSmsSend', 					'title' => T_('cpSmsSend'), 'require' => []];
-		$master['cpUsersView']                  = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpUsersView', 					'title' => T_('cpUsersView'), 'require' => []];
+		$master['cmsCommentView']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsCommentView', 				'title' => T_('View Comments'), 'require' => []];
+		$master['cmsManageComment']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageComment', 			'title' => T_('Manage Comments'), 'require' => []];
+
+		$master['cmsManageTag']                 = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageTag', 				'title' => T_('Manage Tags'), 'require' => []];
+
+		$master['cmsAttachmentView']            = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAttachmentView', 			'title' => T_('View Attachment'), 'require' => []];
+		$master['cmsAttachmentAdd']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAttachmentAdd', 			'title' => T_('Add New Attachment'), 'require' => []];
+		$master['cmsManageAttachment']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAttachment', 			'title' => T_('Manage Attachments'), 'require' => []];
+
+
+		// --------------- Need to check
 		$master['contentPardakhtyar']           = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'contentPardakhtyar', 			'title' => T_('contentPardakhtyar'), 'require' => []];
-		$master['cpPageAdd']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPageAdd', 					'title' => T_('cpPageAdd'), 'require' => []];
-		$master['cpHelpCenterAdd']              = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterAdd', 				'title' => T_('cpHelpCenterAdd'), 'require' => []];
-		$master['cpPostsAdd']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsAdd', 					'title' => T_('cpPostsAdd'), 'require' => []];
-		$master['cpPostsViewAll']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsViewAll', 				'title' => T_('cpPostsViewAll'), 'require' => []];
-		$master['cpPageView']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPageView', 					'title' => T_('cpPageView'), 'require' => []];
-		$master['cpHelpCenterView']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterView', 			'title' => T_('cpHelpCenterView'), 'require' => []];
-		$master['cpPostsView']                  = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsView', 					'title' => T_('cpPostsView'), 'require' => []];
-		$master['cpPageEdit']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPageEdit', 					'title' => T_('cpPageEdit'), 'require' => []];
-		$master['cpHelpCenterEdit']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterEdit', 			'title' => T_('cpHelpCenterEdit'), 'require' => []];
-		$master['cpPostsEdit']                  = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsEdit', 					'title' => T_('cpPostsEdit'), 'require' => []];
-		$master['cpPostsEditStatus']            = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsEditStatus', 			'title' => T_('cpPostsEditStatus'), 'require' => []];
-		$master['cpHelpCenterEditStatus']       = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterEditStatus', 		'title' => T_('cpHelpCenterEditStatus'), 'require' => []];
-		$master['cpHelpCenterEditPublished']    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterEditPublished', 	'title' => T_('cpHelpCenterEditPublished'), 'require' => []];
-		$master['cpChangePostCreator']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpChangePostCreator', 			'title' => T_('cpChangePostCreator'), 'require' => []];
-		$master['cpPostsDelete']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsDelete', 				'title' => T_('cpPostsDelete'), 'require' => []];
-		$master['cpCommentsView']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCommentsView', 				'title' => T_('cpCommentsView'), 'require' => []];
-		$master['cpCommentsEdit']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCommentsEdit', 				'title' => T_('cpCommentsEdit'), 'require' => []];
-		$master['cpCategoryDelete']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCategoryDelete', 			'title' => T_('cpCategoryDelete'), 'require' => []];
-		$master['cpTagHelpDelete']              = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagHelpDelete', 				'title' => T_('cpTagHelpDelete'), 'require' => []];
-		$master['cpTagSupportDelete']           = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagSupportDelete', 			'title' => T_('cpTagSupportDelete'), 'require' => []];
-		$master['cpTagDelete']                  = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagDelete', 					'title' => T_('cpTagDelete'), 'require' => []];
-		$master['cpCategoryEdit']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCategoryEdit', 				'title' => T_('cpCategoryEdit'), 'require' => []];
-		$master['cpTagHelpEdit']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagHelpEdit', 				'title' => T_('cpTagHelpEdit'), 'require' => []];
-		$master['cpTagSupportEdit']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagSupportEdit', 			'title' => T_('cpTagSupportEdit'), 'require' => []];
-		$master['cpTagEdit']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagEdit', 					'title' => T_('cpTagEdit'), 'require' => []];
-		$master['cpCategoryAdd']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCategoryAdd', 				'title' => T_('cpCategoryAdd'), 'require' => []];
-		$master['cpTagSupportAdd']              = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagSupportAdd', 				'title' => T_('cpTagSupportAdd'), 'require' => []];
-		$master['cpTagHelpAdd']                 = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagHelpAdd', 				'title' => T_('cpTagHelpAdd'), 'require' => []];
-		$master['cpTagAdd']                     = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagAdd', 					'title' => T_('cpTagAdd'), 'require' => []];
-		$master['cpCategoryView']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCategoryView', 				'title' => T_('cpCategoryView'), 'require' => []];
-		$master['cpTagHelpView']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagHelpView', 				'title' => T_('cpTagHelpView'), 'require' => []];
-		$master['cpTagSupportView']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagSupportView', 			'title' => T_('cpTagSupportView'), 'require' => []];
-		$master['cpTagView']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagView', 					'title' => T_('cpTagView'), 'require' => []];
-		$master['cpDayEvent']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpDayEvent', 					'title' => T_('cpDayEvent'), 'require' => []];
-		$master['cpTransaction']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTransaction', 				'title' => T_('cpTransaction'), 'require' => []];
-		$master['cpTransactionAdd']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTransactionAdd', 			'title' => T_('cpTransactionAdd'), 'require' => []];
-		$master['cpHelpCenterViewAll']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterViewAll', 			'title' => T_('cpHelpCenterViewAll'), 'require' => []];
-		$master['cpPostsEditPublished']         = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsEditPublished', 		'title' => T_('cpPostsEditPublished'), 'require' => []];
-		$master['cpPostsEditForOthers']         = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsEditForOthers', 		'title' => T_('cpPostsEditForOthers'), 'require' => []];
-		$master['cpHelpCenterDelete']           = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterDelete', 			'title' => T_('cpHelpCenterDelete'), 'require' => []];
-		$master['cpPageDelete']                 = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPageDelete', 				'title' => T_('cpPageDelete'), 'require' => []];
-		$master['cpHelpCenterDeleteForOthers']  = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterDeleteForOthers', 	'title' => T_('cpHelpCenterDeleteForOthers'), 'require' => []];
-		$master['cpPostsDeleteForOthers']       = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpPostsDeleteForOthers', 		'title' => T_('cpPostsDeleteForOthers'), 'require' => []];
-		$master['cpCommentsDelete']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpCommentsDelete', 			'title' => T_('cpCommentsDelete'), 'require' => []];
-
+		$master['cpTagSupportEdit']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpTagSupportEdit', 			'title' => T_('Manage tag'), 'require' => []];
+		$master['cpHelpCenterEdit']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cpHelpCenterEdit', 			'title' => T_('Help center'), 'require' => []];
 		$master['supportTicketManage']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketManage', 			'title' => T_('supportTicketManage'), 'require' => []];
 		$master['supportTicketAddNote']         = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketAddNote', 		'title' => T_('supportTicketAddNote'), 'require' => []];
 		$master['supportEditMessage']           = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportEditMessage', 			'title' => T_('supportEditMessage'), 'require' => []];

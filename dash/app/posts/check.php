@@ -375,7 +375,7 @@ class check
 
 	public static function get_user_can_write_post($_type)
 	{
-		$who_have = \dash\permission::who_have('cmsAddNewPost');
+		$who_have = \dash\permission::who_have('cmsManagePost');
 		if(\dash\permission::supervisor())
 		{
 			$who_have[] = 'supervisor';
