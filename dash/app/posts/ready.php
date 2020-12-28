@@ -184,7 +184,11 @@ class ready
 		else
 		{
 			$my_link .= 'n/';
-			$my_link .= $result['id'];
+
+			if(isset($result['id']))
+			{
+				$my_link .= $result['id'];
+			}
 
 			if(isset($result['slug']))
 			{

@@ -44,7 +44,6 @@ class find
 			return false;
 		}
 
-		$dataRow             = \dash\app\posts\ready::row($dataRow);
 		$id                  = \dash\coding::decode($dataRow['id']);
 
 		$tag                 = \dash\app\posts\get::get_post_tag($id);
@@ -92,6 +91,7 @@ class find
 		}
 
 		$dataRow = \dash\db\posts\get::get_one($get_post);
+		$dataRow = \dash\app\posts\ready::row($dataRow);
 
 		return $dataRow;
 	}
