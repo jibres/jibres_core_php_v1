@@ -31,12 +31,17 @@ class datablock
 				// $spaceSize = 'high';
 				// $spaceSize = 'extra';
 				$radiusSize = a($_blockSetting, 'radius');
-				$radiusSize = '0';
-				// $radiusSize = '1x';
+				// $radiusSize = '0';
+				$radiusSize = '1x';
 				// $radiusSize = '2x';
 				// $radiusSize = '3x';
 				// $radiusSize = '4x';
 				// $radiusSize = 'circle';
+				$effectMode = a($_blockSetting, 'effect');
+				// $effectMode = 'none';
+				$effectMode = 'zoom';
+				// $effectMode = 'darkShadow';
+				// $effectMode = 'whiteShadow';
 
 				$html .= '<div class="row"';
 				if($spaceSize)
@@ -46,6 +51,10 @@ class datablock
 				if($radiusSize)
 				{
 					$html .= ' data-radius="'. $radiusSize. '"';
+				}
+				if($effectMode)
+				{
+					$html .= ' data-effect="'. $effectMode. '"';
 				}
 				$html .= '>';
 				{
@@ -68,7 +77,7 @@ class datablock
 		foreach ($_list as $key => $value)
 		{
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
-			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '" data-info="'. $infoPos. '">';
+			$itemHtml .= '<div class="everyItem '. a($myPuzzle, 'class'). '" data-info="'. $infoPos. '">';
 			{
 				$playMode      = a($myPuzzle, 'playMode');
 				$galleryPath0  = a($value, 'gallery_array', 0, 'path');
@@ -127,8 +136,10 @@ class datablock
 
 	private static function createInfoBox($_title, $_link, $_target)
 	{
-		$myInfoBox = '';
-		$myInfoBox = media::createLinkEl(media::heading($_title, 2), $_link, $_target, 'title');
+		$myInfoBox = '<div class="info">';
+		// $myInfoBox .= media::createLinkEl(media::heading($_title, 2), $_link, $_target, 'title');
+		$myInfoBox .= media::heading(media::createLinkEl($_title, $_link, $_target, 'title'), 2);
+		$myInfoBox .= '</div>';
 
 		return $myInfoBox;
 	}

@@ -10,7 +10,7 @@ class media
 			$videoEl .= ' controls';
 		}
 		{
-			$videoEl .= '  preload="meta"';
+			$videoEl .= ' preload="meta"';
 		}
 		if($_poster)
 		{
@@ -37,7 +37,7 @@ class media
 			$audioEl .= ' controls';
 		}
 		{
-			$audioEl .= '  preload="meta"';
+			$audioEl .= ' preload="meta"';
 		}
 		$audioEl .= '>';
 		{
@@ -110,7 +110,7 @@ class media
 		}
 		else
 		{
-			$headingEl .= ' class="eTitle"';
+			$headingEl .= ' class="title"';
 		}
 		$headingEl .= '>';
 		$headingEl .= $_text;
