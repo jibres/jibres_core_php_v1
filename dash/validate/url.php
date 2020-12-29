@@ -284,9 +284,9 @@ class url
 			}
 		}
 
-		if(substr_count($_url, '/') > 5)
+		if(substr_count($_url, '/') > 3)
 		{
-			\dash\notif::error(T_("You cannot use more than 5 slash in url"), ['element' => ['url', 'slug', 'title']]);
+			\dash\notif::error(T_("You cannot use more than 3 slash in url"), ['element' => ['url', 'slug', 'title']]);
 			return false;
 		}
 
@@ -299,10 +299,8 @@ class url
 
 		$disallow =
 		[
-			'cat',
 			'tag',
-			'term',
-			'file',
+			// 'file',
 			'files',
 			'static',
 			'sitemap',
@@ -318,13 +316,13 @@ class url
 			'profile',
 			'search',
 			'shipping',
-			'audio',
-			'podcast',
-			'gallery',
-			'image',
-			'images',
-			'video',
-			'blog',
+			// 'audio',
+			// 'podcast',
+			// 'gallery',
+			// 'image',
+			// 'images',
+			// 'video',
+			// 'blog',
 
 		];
 
