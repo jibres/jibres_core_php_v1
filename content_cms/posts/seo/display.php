@@ -24,8 +24,8 @@
     <div class="pad">
       <div class="mB10">
         <label for="seotitle"><?php echo T_("SEO Title"); ?></label>
-        <div class="input ltr">
-          <input type="text" name="slug" id="seotitle"  value="<?php echo a($dataRow,'seotitle'); ?>" maxlength='400'>
+        <div class="input">
+          <input type="text" name="seotitle" id="seotitle"  value="<?php echo a($dataRow,'seotitle'); ?>" maxlength='400'>
         </div>
       </div>
       <div class="mB10">
@@ -39,13 +39,13 @@
           <div class="c-xs-12 c-sm-6 c-md">
             <div class="radio3">
               <input type="radio" name="specialaddress" value="independence" id="independence"  <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'checked';} ?>>
-              <label for="independence"><?php echo T_("independence") ?></label>
+              <label for="independence"><?php echo T_("Independence") ?></label>
             </div>
           </div>
           <div class="c-xs-12 c-sm-6 c-md">
             <div class="radio3">
               <input type="radio" name="specialaddress" value="special" id="special" <?php if(\dash\data::dataRow_specialaddress() === 'special') {echo 'checked';} ?>>
-              <label for="special"><?php echo T_("special") ?></label>
+              <label for="special"><?php echo T_("Special") ?></label>
             </div>
           </div>
           <?php if(\dash\data::dataRow_tags()) {?>
@@ -69,9 +69,9 @@
 
       <div data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
         <div class="mB10">
-          <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
+          <label for="seoSlug"><?php echo T_("Url"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
           <div class="input ltr">
-            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo a($dataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
+            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Url"); ?>' value="<?php echo a($dataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
           </div>
         </div>
       </div>

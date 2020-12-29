@@ -7,7 +7,7 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
-		$_option = [];
+		\dash\permission::access('cmsManagePost');
 
 		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);

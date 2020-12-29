@@ -6,6 +6,7 @@ class add
 
 	public static function add($_args)
 	{
+		\dash\permission::access('cmsManagePost');
 		// check args
 		$args = \dash\app\posts\check::variable($_args);
 

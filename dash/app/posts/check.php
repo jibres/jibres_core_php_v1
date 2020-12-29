@@ -26,12 +26,12 @@ class check
 			'parent'          => 'code',
 			'publishdate'     => 'date',
 			'publishtime'     => 'time',
-			'icon'            => 'string_50',
 			'redirecturl'     => 'url',
 			'creator'         => 'code',
 			'tagurl'          => 'code',
 			'tag'             => 'tag',
 			'set_publishdate' => 'bit',
+			'set_seo' => 'bit',
 		];
 
 		$require = ['title'];
@@ -39,11 +39,6 @@ class check
 		$meta =	[];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
-		if(!$data['language'])
-		{
-			$data['language'] = \dash\language::current();
-		}
 
 
 		$current_post_detail            = [];
@@ -53,7 +48,6 @@ class check
 
 		if($_id)
 		{
-
 			$current_post_detail = \dash\db\posts\get::by_id($_id);
 
 			if(!isset($current_post_detail['user_id']) || !isset($current_post_detail['status']) || !isset($current_post_detail['type']))
@@ -76,78 +70,82 @@ class check
 			}
 		}
 
-		if(!$data['type'])
+		// all record is page
+		$data['type']    = 'post';
+
+		$comment         = $data['comment'] ? 'open' : 'closed';
+		$data['comment'] = $comment;
+
+		if(!$data['language'])
 		{
-			if(isset($current_post_detail['type']))
+			$data['language'] = \dash\language::current();
+		}
+
+		// default special address is independence
+		if(!$data['specialaddress'])
+		{
+			$data['specialaddress'] = 'independence';
+		}
+
+		$need_slug = false;
+
+		// independence post
+		if($data['specialaddress'] === 'independence')
+		{
+			$need_slug      = false;
+			$data['slug']   = null;
+			$data['url']    = null;
+			$data['parent'] = null;
+		}
+		elseif($data['specialaddress'] === 'special')
+		{
+			$need_slug      = true;
+			$data['parent'] = null;
+			$data['tagurl'] = null;
+		}
+		elseif($data['specialaddress'] === 'under_tag')
+		{
+			$need_slug      = true;
+			$data['parent'] = null;
+
+			if(!$data['tagurl'])
 			{
-				$data['type'] = $current_post_detail['type'];
+				\dash\notif::error(T_("Please choose a tag"));
+				return false;
 			}
-			else
+		}
+		elseif($data['specialaddress'] === 'under_page')
+		{
+			$need_slug      = true;
+			$data['tagurl'] = null;
+
+			if(!$data['parent'])
 			{
-				$data['type'] = 'post';
+				\dash\notif::error(T_("Please choose a post as parent"));
+				return false;
 			}
 		}
 
-		$isPage = false;
-		$isHelp = false;
-		$isPost = false;
-
-		if(isset($current_post_detail['type']))
+		if($need_slug)
 		{
-			switch ($current_post_detail['type'])
+			if(!$data['slug'])
 			{
-				case 'page': $isPage = true; break;
-				case 'post': $isPost = true; break;
-				case 'help': $isHelp = true; break;
-			}
-		}
-		elseif($data['type'])
-		{
-			switch ($data['type'])
-			{
-				case 'page': $isPage = true; break;
-				case 'post': $isPost = true; break;
-				case 'help': $isHelp = true; break;
+				\dash\notif::error(T_("Url is required"), 'slug');
+				return false;
 			}
 		}
 
-		/* check permission */
-		if($isPost)
+		if($data['slug'])
 		{
-			\dash\permission::access('cmsManagePost');
+			$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
+			$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
 		}
 
-		if($isHelp)
+		if($data['slug'] && $data['specialaddress'] === 'special')
 		{
-			\dash\permission::access('cmsManageHelpCenter');
+			$data['url'] = $data['slug'];
 		}
 
-
-		if($isPage || $isHelp)
-		{
-			if($data['title'] && !$data['slug'])
-			{
-				$data['slug'] = $data['title'];
-			}
-
-			if($data['slug'])
-			{
-				$data['slug'] = \dash\validate::slug($data['slug'], false, ['rules' => 'persian']);
-				$data['slug'] = str_replace(substr($data['slug'], 0, strrpos($data['slug'], '/')). '/', '', $data['slug']);
-			}
-
-			if(!$data['url'])
-			{
-				$data['url'] = $data['slug'];
-			}
-		}
-
-
-		$comment = $data['comment'];
-		$comment = $comment ? 'open' : 'closed';
-
-
-		$parent_url  = null;
 
 		$parent = $data['parent'];
 
@@ -162,50 +160,33 @@ class check
 			}
 
 			$data['parent'] = $parent;
-		}
-
-		if($parent && ($isPage || $isHelp))
-		{
 
 			$parent_detail = \dash\db\posts\get::by_id($parent);
 
-			if(!isset($parent_detail['slug']) || !isset($parent_detail['url']))
+			if(isset($parent_detail['specialaddress']) && $parent_detail['specialaddress'] === 'special')
 			{
-				\dash\notif::error(T_("Parent post not found"), 'parent');
-				return false;
-			}
-
-			if($_id)
-			{
-				if(floatval($parent) === floatval($_id))
-				{
-					\dash\notif::error(T_("Can not set page as parent of self!"), 'parent');
-					return false;
-				}
-
-				if(isset($current_post_detail['parent']) && floatval($current_post_detail['parent']) !== floatval($parent))
-				{
-					$current_post_parent_detail = \dash\db\posts\get::by_id($current_post_detail['parent']);
-
-					if(isset($current_post_parent_detail['slug']) && isset($current_post_parent_detail['url']))
-					{
-						$slug = str_replace($current_post_parent_detail['slug']. '-', '', $data['slug']);
-						$url = str_replace($current_post_parent_detail['url']. '/', '', $data['url']);
-
-						$parent_url = $parent_detail['url'];
-					}
-				}
-				else
-				{
-					// no change in slug or url
-					$parent_url = $parent_detail['url'];
-				}
-
+				// nothing
 			}
 			else
 			{
-				$parent_url = $parent_detail['url'];
+				\dash\notif::error(T_("Only post by special address can set as parent of another post"));
+				return false;
 			}
+
+			if(!isset($parent_detail['slug']) || !isset($parent_detail['url']))
+			{
+				\dash\notif::error(T_("Parent post have not a special url"), 'parent');
+				return false;
+			}
+
+			if($_id && floatval($parent) === floatval($_id))
+			{
+				\dash\notif::error(T_("Can not set page as parent of self!"), 'parent');
+				return false;
+			}
+
+			$data['url'] = $parent_detail['url'] . '/'. $data['slug'];
+
 		}
 		else
 		{
@@ -214,16 +195,10 @@ class check
 		}
 
 
-		if($parent_url)
-		{
-			$data['url'] = $parent_url . '/'. $data['slug'];
-		}
-
-
-
 		if($data['tagurl'])
 		{
 			$load_tag = \dash\app\terms\get::get($data['tagurl']);
+
 			if(!$load_tag || !isset($load_tag['url']))
 			{
 				\dash\notif::error(T_("Invalid tag id"));
@@ -231,24 +206,8 @@ class check
 			}
 
 			$data['url'] = $load_tag['url'];
+			$data['url'] .= '/'. $data['slug'];
 
-			if(!$data['slug'])
-			{
-				if(isset($current_post_detail['title']))
-				{
-					$data['slug'] = \dash\validate::slug($current_post_detail['title'], false, ['rules' => 'persian']);
-				}
-				else
-				{
-					\dash\notif::error(T_("Slug is required"));
-					return false;
-				}
-			}
-
-			if($data['slug'])
-			{
-				$data['url'] .= '/'. $data['slug'];
-			}
 		}
 
 
@@ -265,7 +224,6 @@ class check
 			{
 				return false;
 			}
-
 		}
 
 
@@ -295,7 +253,7 @@ class check
 
 		unset($data['set_publishdate']);
 
-
+		// only a person who can change all post can change the post writer
 		if(\dash\permission::check('cmsManageAllPost'))
 		{
 			$creator = $data['creator'];
@@ -324,24 +282,6 @@ class check
 			$data['subtype'] = 'standard';
 		}
 
-
-		if(!$data['excerpt'] && $data['content'])
-		{
-			if(isset($current_post_detail['excerpt']) && $current_post_detail['excerpt'])
-			{
-				$data['excerpt'] = $current_post_detail['excerpt'];
-			}
-			else
-			{
-				$data['excerpt'] = \dash\utility\excerpt::extractRelevant($data['content']);
-			}
-		}
-
-		if(mb_strlen($data['excerpt']) > 300)
-		{
-			$data['excerpt'] = substr($data['excerpt'], 0, 300);
-		}
-
 		if(!$data['status'])
 		{
 			$data['status'] = 'draft';
@@ -353,6 +293,11 @@ class check
 			return false;
 		}
 
+		if($data['url'] && mb_strlen($data['url']) > 180)
+		{
+			\dash\notif::error(T_("Can not set the url larger than 180 character"), 'url');
+			return false;
+		}
 
 		if($data['status'] && $data['status'] === 'publish')
 		{
@@ -361,8 +306,8 @@ class check
 
 		unset($data['publishtime']);
 		unset($data['creator']);
-		unset($data['icon']);
 		unset($data['tagurl']);
+		unset($data['set_seo']);
 
 
 		return $data;
@@ -388,49 +333,6 @@ class check
 	}
 
 
-	public static function check_duplicate_post_and_term($_url, $_id, $_type)
-	{
-		if($_type === 'in_post')
-		{
-			$check_duplicate_url_in_posts = \dash\db\posts\get::check_duplicate_url_in_posts($_url, $_id);
-			if(isset($check_duplicate_url_in_posts['id']))
-			{
-				\dash\notif::error(T_("Duplicate post url. This post url is already exists in your post list"));
-				return false;
-			}
-
-			$check_duplicate_url_in_terms = \dash\db\terms\get::check_duplicate_url_in_terms($_url);
-
-			if(isset($check_duplicate_url_in_terms['id']))
-			{
-				\dash\notif::error(T_("Duplicate url. You have a category by this url and can not set this url for post"));
-				return false;
-			}
-
-
-		}
-		else
-		{
-			// in category
-
-			$check_duplicate_url_in_terms = \dash\db\terms\get::check_duplicate_url_in_terms($_url, $_id);
-			if(isset($check_duplicate_url_in_terms['id']))
-			{
-				\dash\notif::error(T_("Duplicate category url. This category url is already exists in your category list"));
-				return false;
-			}
-
-			$check_duplicate_url_in_posts = \dash\db\posts\get::check_duplicate_url_in_posts($_url);
-
-			if(isset($check_duplicate_url_in_posts['id']))
-			{
-				\dash\notif::error(T_("Duplicate url. You have a post by this url and can not set this url for category"));
-				return false;
-			}
-		}
-
-		return true;
-	}
 
 }
 ?>

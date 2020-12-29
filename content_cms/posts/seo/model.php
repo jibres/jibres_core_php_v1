@@ -8,6 +8,7 @@ class model
 
 		$post =
 		[
+			'set_seo'        => true,
 			'slug'           => \dash\request::post('slug'),
 			'excerpt'        => \dash\request::post('excerpt'),
 			'seotitle'       => \dash\request::post('seotitle'),
