@@ -1,12 +1,5 @@
 <?php
-
-$type   = \dash\data::dataRow_type();
-
 $myID = '?id='. \dash\request::get('id');
-
-$isPage = ($type === 'page');
-$isPost = ($type === 'post');
-
 ?>
 
 
@@ -33,7 +26,6 @@ $isPost = ($type === 'post');
   </form>
 </section>
 
-<?php if($isPost) { ?>
   <section class="f" data-option='cms-post-theme'>
     <div class="c8 s12">
       <div class="data">
@@ -55,7 +47,7 @@ $isPost = ($type === 'post');
       </div>
     </form>
   </section>
-<?php } // endif ?>
+
 
 <section class="f" data-option='cms-post-comment'>
   <div class="c8 s12">
@@ -77,6 +69,24 @@ $isPost = ($type === 'post');
   </form>
 </section>
 
+
+<section class="f" data-option='cms-post-seo'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("SEO");?></h3>
+      <div class="body">
+        <p><?php echo T_("Customize SEO");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a href="<?php echo \dash\url::this(). '/seo'. $myID; ?>" class="btn master"><?php echo T_("Customize SEO") ?></a>
+    </div>
+  </div>
+</section>
+
+
 <section class="f" data-option='cms-post-redirect'>
   <div class="c8 s12">
     <div class="data">
@@ -93,7 +103,7 @@ $isPost = ($type === 'post');
   </div>
 </section>
 
-<?php if($isPost) { ?>
+
   <section class="f" data-option='cms-post-publishdate'>
     <div class="c8 s12">
       <div class="data">
@@ -125,7 +135,7 @@ $isPost = ($type === 'post');
       </div>
     </div>
   </section>
-<?php } // endif ?>
+
 
 <?php if(!\dash\engine\store::inStore()) {?>
 <section class="f" data-option='cms-post-language'>
