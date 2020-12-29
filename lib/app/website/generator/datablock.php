@@ -16,7 +16,7 @@ class datablock
 		}
 		$_blockSetting = a($_blockSetting, 'value');
 
-		$html = '<section class="puzzle imgLine"';
+		$html = '<section class="puzzle"';
 		$html .= ' data-mode="'. a($_blockSetting, 'type'). '"';
 		$html .= '>';
 		{
@@ -24,7 +24,30 @@ class datablock
 			{
 				// get title line if need to show
 				$html .= \lib\app\website\generator\title::html($_blockSetting, a($_data, 'line_link'));
-				$html .= '<div class="row padMore2">';
+
+				$spaceSize    = a($_blockSetting, 'padding');
+				// $spaceSize = 'zero';
+				// $spaceSize = 'normal';
+				// $spaceSize = 'high';
+				// $spaceSize = 'extra';
+				$radiusSize = a($_blockSetting, 'radius');
+				$radiusSize = '0';
+				// $radiusSize = '1x';
+				// $radiusSize = '2x';
+				// $radiusSize = '3x';
+				// $radiusSize = '4x';
+				// $radiusSize = 'circle';
+
+				$html .= '<div class="row"';
+				if($spaceSize)
+				{
+					$html .= ' data-space="'. $spaceSize. '"';
+				}
+				if($radiusSize)
+				{
+					$html .= ' data-radius="'. $radiusSize. '"';
+				}
+				$html .= '>';
 				{
 					$html .= self::everyItem($dataList, $_blockSetting);
 				}
@@ -41,7 +64,6 @@ class datablock
 	{
 		$itemHtml = '';
 		$infoPos  = a($_blockSetting, 'info_position');
-		// var_dump($_blockSetting);
 
 		foreach ($_list as $key => $value)
 		{
