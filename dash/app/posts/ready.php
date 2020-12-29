@@ -225,6 +225,15 @@ class ready
 		}
 
 
+		if(isset($result['seotitle']) && $result['seotitle'])
+		{
+			$result['post_title'] = $result['seotitle'];
+		}
+		else
+		{
+			$result['post_title'] = $result['title']. ' | '. \dash\face::hereTitle();
+		}
+
 		return $result;
 	}
 }

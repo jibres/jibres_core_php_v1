@@ -8,7 +8,7 @@
       </a>
       <div class="f">
         <div class="c s12 pLa10">
-          <h3><?php echo \dash\data::dataRow_title();  ?> | <?php echo \dash\face::site(); ?></h3>
+          <h3><?php echo \dash\data::dataRow_post_title(); ?></h3>
           <p class="desc"><?php echo a($dataRow,'excerpt'); ?></p>
         </div>
         <div class="cauto os s12">
