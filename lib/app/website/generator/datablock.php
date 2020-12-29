@@ -77,36 +77,40 @@ class datablock
 		foreach ($_list as $key => $value)
 		{
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
-			$itemHtml .= '<div class="everyItem '. a($myPuzzle, 'class'). '" data-info="'. $infoPos. '">';
+			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
-				$playMode      = a($myPuzzle, 'playMode');
-				$galleryPath0  = a($value, 'gallery_array', 0, 'path');
-				// link data
-				$linkTitle  = a($value, 'title');
-				$link       = a($value, 'link');
-				$linkTarget = a($value, 'target');
+				$itemHtml .= '<div class="everyItem" data-info="'. $infoPos. '">';
+				{
+					$playMode      = a($myPuzzle, 'playMode');
+					$galleryPath0  = a($value, 'gallery_array', 0, 'path');
+					// link data
+					$linkTitle  = a($value, 'title');
+					$link       = a($value, 'link');
+					$linkTarget = a($value, 'target');
 
-				if($infoPos === 'top')
-				{
-					$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
-				}
-
-				if($playMode === 'video' || $playMode === 'audio')
-				{
-					$itemHtml .= self::createVideoOrAudio($playMode, $value);
-				}
-				else
-				{
-					$imgSrc = a($value, 'thumb');
-					if($imgSrc)
+					if($infoPos === 'top')
 					{
-						$itemHtml .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
+						$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
+					}
+
+					if($playMode === 'video' || $playMode === 'audio')
+					{
+						$itemHtml .= self::createVideoOrAudio($playMode, $value);
+					}
+					else
+					{
+						$imgSrc = a($value, 'thumb');
+						if($imgSrc)
+						{
+							$itemHtml .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
+						}
+					}
+					if($infoPos === 'bottom' || $infoPos === 'inside')
+					{
+						$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
 					}
 				}
-				if($infoPos === 'bottom' || $infoPos === 'inside')
-				{
-					$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
-				}
+				$itemHtml .= '</div>';
 			}
 			$itemHtml .= '</div>';
 		}
