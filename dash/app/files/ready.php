@@ -52,7 +52,8 @@ class ready
 			{
 				case 'image':
 					$result['t_type'] = T_("Image");
-					$result['thumb'] = a($result, 'path');
+					$result['thumb'] = \lib\app\website\generator\media::getImgThumb(a($result, 'path'));
+
 					break;
 
 				case 'archive':
