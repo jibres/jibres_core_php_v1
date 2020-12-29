@@ -27,19 +27,19 @@ class datablock
 
 				$spaceSize    = a($_blockSetting, 'padding');
 				// $spaceSize = 'zero';
-				// $spaceSize = 'normal';
+				// $spaceSize = 'normal'; default
 				// $spaceSize = 'high';
 				$spaceSize = 'extra';
 				$radiusSize = a($_blockSetting, 'radius');
 				// $radiusSize = '0';
-				// $radiusSize = '1x';
+				// $radiusSize = '1x'; default
 				// $radiusSize = '2x';
 				$radiusSize = '3x';
 				// $radiusSize = '4x';
 				// $radiusSize = 'circle';
 				$effectMode = a($_blockSetting, 'effect');
 				// $effectMode = 'none';
-				$effectMode = 'zoom';
+				$effectMode = 'zoom'; // default
 				// $effectMode = 'darkShadow';
 				// $effectMode = 'whiteShadow';
 
