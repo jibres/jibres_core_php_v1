@@ -329,7 +329,7 @@ class text
 		}
 
 		// php 7.3
-		$allow_tag = '<a><b><strong><i><p><br><ul><ol><li><h1><h2><h3><h4><table><thead><tbody><tr><td><th><figure><img><oembed>';
+		$allow_tag = '<a><b><strong><i><p><br><ul><ol><li><h1><h2><h3><h4><table><thead><tbody><tr><td><th><figure><img><oembed><blockquote>';
 
 		$data = strip_tags($data, $allow_tag);
 
