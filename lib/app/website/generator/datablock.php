@@ -76,10 +76,16 @@ class datablock
 
 		foreach ($_list as $key => $value)
 		{
+			$myItem = '';
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
-			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
+			$myItem .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
-				$itemHtml .= '<div class="everyItem" data-info="'. $infoPos. '">';
+				$myItem .= '<div class="everyItem"';
+				if($infoPos)
+				{
+					$myItem .= ' data-info="'. $infoPos. '"';
+				}
+					$myItem .= '>';
 				{
 					$playMode      = a($myPuzzle, 'playMode');
 					$galleryPath0  = a($value, 'gallery_array', 0, 'path');
@@ -90,29 +96,31 @@ class datablock
 
 					if($infoPos === 'top')
 					{
-						$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
+						$myItem .= self::createInfoBox($linkTitle, $link, $linkTarget);
 					}
 
 					if($playMode === 'video' || $playMode === 'audio')
 					{
-						$itemHtml .= self::createVideoOrAudio($playMode, $value);
+						$myItem .= self::createVideoOrAudio($playMode, $value);
 					}
 					else
 					{
 						$imgSrc = a($value, 'thumb');
 						if($imgSrc)
 						{
-							$itemHtml .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
+							$myItem .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
 						}
 					}
 					if($infoPos === 'bottom' || $infoPos === 'inside')
 					{
-						$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
+						$myItem .= self::createInfoBox($linkTitle, $link, $linkTarget);
 					}
 				}
-				$itemHtml .= '</div>';
+				$myItem .= '</div>';
 			}
-			$itemHtml .= '</div>';
+			$myItem .= '</div>';
+			// append created item
+			$itemHtml .= $myItem;
 		}
 		return $itemHtml;
 	}
