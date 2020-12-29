@@ -67,16 +67,14 @@
         <?php } //endif ?>
       </div>
 
-      <div data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
-        <div class="mB10">
+      <div class="mT10" data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
           <label for="seoSlug"><?php echo T_("Url"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
           <div class="input ltr">
             <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Url"); ?>' value="<?php echo a($dataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
           </div>
-        </div>
       </div>
 
-      <div data-response='specialaddress' data-response-where='under_page' <?php if(\dash\data::dataRow_specialaddress() === 'under_page') {}else{ echo 'data-response-hide';} ?>>
+      <div class="mB10" data-response='specialaddress' data-response-where='under_page' <?php if(\dash\data::dataRow_specialaddress() === 'under_page') {}else{ echo 'data-response-hide';} ?>>
         <div class="mB10 font-12">
           <div class="mB10"><?php echo T_("You can set this page as a subset of another page") ?></div>
           <div class="fc-mute"><?php echo T_("Only published page can set as page parent") ?></div>
@@ -91,7 +89,7 @@
         </div>
       </div>
 
-      <div data-response='specialaddress' data-response-where='under_tag' <?php if(\dash\data::dataRow_specialaddress() === 'under_tag') {}else{ echo 'data-response-hide';} ?>>
+      <div class="mB10" data-response='specialaddress' data-response-where='under_tag' <?php if(\dash\data::dataRow_specialaddress() === 'under_tag') {}else{ echo 'data-response-hide';} ?>>
         <div class="mB10">
           <label for="tagurl"><?php echo T_("Set post address as sub child of tag") ?></label>
           <select class="select22" name="tagurl" id="tagurl" data-placeholder='<?php echo T_("Select tag") ?>'>

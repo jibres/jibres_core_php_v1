@@ -23,8 +23,9 @@ class find
 			return false;
 		}
 
+		$content_n = \dash\url::content() === 'n';
 
-		if(\dash\url::content() === 'n')
+		if($content_n)
 		{
 			$dataRow = self::load_by_id();
 		}
@@ -52,6 +53,15 @@ class find
 			{
 				\dash\redirect::to($dataRow['redirecturl'], true, 302);
 			}
+		}
+
+		if($content_n && isset($dataRow['url']) && $dataRow['url'] && isset($dataRow['link']))
+		{
+			if($preview)
+			{
+				$dataRow['link'] = $dataRow['link']. '?preview=yes';
+			}
+			\dash\redirect::to($dataRow['link'], true, 302);
 		}
 
 		$id                  = \dash\coding::decode($dataRow['id']);

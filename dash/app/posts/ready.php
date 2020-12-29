@@ -13,6 +13,11 @@ class ready
 			$_data  = [];
 		}
 
+		if(empty($_data))
+		{
+			return [];
+		}
+
 		$result               = [];
 		$result['icon_list'] = null;
 
@@ -220,11 +225,13 @@ class ready
 		}
 
 		// set seo title
+		$result['post_title'] = null;
+
 		if(isset($result['seotitle']) && $result['seotitle'])
 		{
 			$result['post_title'] = $result['seotitle'];
 		}
-		else
+		elseif(isset($result['title']))
 		{
 			$result['post_title'] = $result['title']. ' | '. \dash\face::hereTitle();
 		}
