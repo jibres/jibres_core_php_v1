@@ -42,5 +42,28 @@ class get
 
 		return $result;
 	}
+
+
+
+	public static function usage_list($_id)
+	{
+		$id = \dash\coding::decode($_id);
+
+		if(!$id || !is_numeric($id))
+		{
+			return false;
+		}
+
+		$result = \dash\db\files::get_usages($id);
+
+		if(!$result || !is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = array_map(['\\dash\\app\\files\\ready', 'row_usage'], $result);
+
+		return $result;
+	}
 }
 ?>

@@ -48,12 +48,21 @@
 	</nav>
 	<nav class="items long">
 		<ul>
+			<?php if(\dash\data::usageList()) {?>
 			<li>
 				<a class="f item" href="<?php echo \dash\url::this(). '/remove'. \dash\request::full_get() ?>">
 					<div class="key"><?php echo T_("Remove file") ?></div>
 					<div class="value"><i class="sf-trash fc-red"></i></div>
 				</a>
 			</li>
+		<?php }else{ ?>
+			<li>
+				<a data-confirm data-data='{"remove": "remove"}' class="f item">
+					<div class="key"><?php echo T_("Remove file") ?></div>
+					<div class="value"><i class="sf-trash fc-red"></i></div>
+				</a>
+			</li>
+		<?php } //endif ?>
 		</ul>
 	</nav>
 

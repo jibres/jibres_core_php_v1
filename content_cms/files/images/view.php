@@ -8,8 +8,9 @@ class view
 
 		\dash\face::title(T_("View File"));
 
-		\dash\data::back_text(T_("Files"));
-		\dash\data::back_link(\dash\url::this());
+
+		\dash\data::back_text(T_("Back"));
+		\dash\data::back_link(\dash\url::this(). '/view'. \dash\request::full_get());
 
 	}
 }

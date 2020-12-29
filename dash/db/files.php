@@ -12,6 +12,26 @@ class files
 	}
 
 
+	public static function get_usages($_id)
+	{
+		$query = "SELECT fileusage.* FROM fileusage WHERE fileusage.file_id = $_id LIMIT 500";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
+	public static function remove($_id)
+	{
+		$query  = "DELETE FROM fileusage WHERE fileusage.file_id = $_id ";
+		$result = \dash\db::get($query);
+
+		$query  = "DELETE FROM files WHERE files.id = $_id LIMIT 1";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 
 	public static function attachment_count()
 	{
