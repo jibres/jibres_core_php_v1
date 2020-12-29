@@ -59,7 +59,7 @@ class media
 	}
 
 
-	public static function createLinkEl($_inside, $_link, $_target = null)
+	public static function createLinkEl($_inside, $_link, $_target = null, $_class = null)
 	{
 		$linkEl = '<a';
 		if($_link)
@@ -69,6 +69,10 @@ class media
 		if($_target)
 		{
 			$linkEl .= ' target="_blank"';
+		}
+		if($_class)
+		{
+			$linkEl .= ' class="'. $_class. '"';
 		}
 		$linkEl .= '>';
 
@@ -118,7 +122,7 @@ class media
 
 	public static function createImgEl($_src, $_alt = null)
 	{
-		$imgEl = '<img';
+		$imgEl = '<img itemprop="image"';
 		$imgEl .= ' loading="lazy"';
 		$imgEl .= self::createImgSrc($_src);
 

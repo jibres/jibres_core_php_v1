@@ -46,7 +46,7 @@ class datablock
 		foreach ($_list as $key => $value)
 		{
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
-			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '">';
+			$itemHtml .= '<div class="'. a($myPuzzle, 'class'). '" data-info="'. $infoPos. '">';
 			{
 				$playMode      = a($myPuzzle, 'playMode');
 				$galleryPath0  = a($value, 'gallery_array', 0, 'path');
@@ -69,11 +69,13 @@ class datablock
 					$imgSrc = a($value, 'thumb');
 					if($imgSrc)
 					{
-
 						$itemHtml .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
 					}
 				}
-				$itemHtml .= media::createLinkEl(media::heading($linkTitle, 2), $link, $linkTarget);
+				if($infoPos === 'bottom' || $infoPos === 'inside')
+				{
+					$itemHtml .= self::createInfoBox($linkTitle, $link, $linkTarget);
+				}
 			}
 			$itemHtml .= '</div>';
 		}
@@ -101,10 +103,10 @@ class datablock
 	}
 
 
-	private static function createInfoBox($_value)
+	private static function createInfoBox($_title, $_link, $_target)
 	{
 		$myInfoBox = '';
-
+		$myInfoBox = media::createLinkEl(media::heading($_title, 2), $_link, $_target, 'title');
 
 		return $myInfoBox;
 	}
