@@ -32,8 +32,7 @@ class remove
 
 		if($usage_list)
 		{
-			var_dump($usage_list);
-			exit();
+			// need to load product record or post record and set null in galler or thumb
 		}
 
 		$position = 'jibres';

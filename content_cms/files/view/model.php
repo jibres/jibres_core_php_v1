@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('remove') === 'remove')
 		{
-			\dash\app\files\remove::remove(\dash\request::get('id'));
+			\dash\app\files\remove::remove(\dash\request::get('id'), true);
 
 			if(\dash\engine\process::status())
 			{

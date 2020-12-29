@@ -14,11 +14,18 @@ class files
 
 	public static function get_usages($_id)
 	{
-		$query = "SELECT fileusage.* FROM fileusage WHERE fileusage.file_id = $_id LIMIT 500";
+		$query = "SELECT fileusage.* FROM fileusage WHERE fileusage.file_id = $_id";
 		$result = \dash\db::get($query);
 		return $result;
 	}
 
+
+	public static function get_usages_count($_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.file_id = $_id";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 
 
 	public static function remove($_id)

@@ -43,7 +43,19 @@ class get
 		return $result;
 	}
 
+	public static function usage_count($_id)
+	{
+		$id = \dash\coding::decode($_id);
 
+		if(!$id || !is_numeric($id))
+		{
+			return false;
+		}
+
+		$result = \dash\db\files::get_usages_count($id);
+
+		return intval($result);
+	}
 
 	public static function usage_list($_id)
 	{
