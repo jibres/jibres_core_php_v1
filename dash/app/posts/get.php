@@ -159,10 +159,6 @@ class get
 				\dash\permission::access('cmsManagePost');
 				break;
 
-			case 'page':
-				\dash\permission::access('cmsManagePage');
-				break;
-
 			case 'help':
 				\dash\permission::access('cmsManageHelpCenter');
 				break;

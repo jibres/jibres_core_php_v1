@@ -182,11 +182,10 @@ class plan_list
 
 		// --------------- CMS
 		$master['cmsManagePost']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManagePost', 				'title' => T_('Manage Post'), 'require' => []];
-		$master['cmsManagePage']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManagePage', 				'title' => T_('Manage Page'), 'require' => []];
 		$master['cmsManageAllPost']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAllPost', 			'title' => T_('Manage All Post'), 'require' => []];
-		$master['cmsManageHelpCenter']          = ['jibres' => true,  'business' => false,  'group' => 'cms', 		'caller' => 'cmsManageHelpCenter', 			'title' => T_('Manage Help Center'), 'require' => []];
 		$master['cmsPostPublisher']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostPublisher', 			'title' => T_('Publish post'), 'require' => []];
 		$master['cmsPostRemove']                = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsPostRemove', 				'title' => T_('Remove post'), 'require' => []];
+		$master['cmsManageHelpCenter']          = ['jibres' => true,  'business' => false,  'group' => 'cms', 		'caller' => 'cmsManageHelpCenter', 			'title' => T_('Manage Help Center'), 'require' => []];
 
 		$master['cmsCommentView']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsCommentView', 				'title' => T_('View Comments'), 'require' => []];
 		$master['cmsManageComment']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageComment', 			'title' => T_('Manage Comments'), 'require' => []];

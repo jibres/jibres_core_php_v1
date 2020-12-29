@@ -123,11 +123,6 @@ class check
 		}
 
 		/* check permission */
-		if($isPage)
-		{
-			\dash\permission::access('cmsManagePage');
-		}
-
 		if($isPost)
 		{
 			\dash\permission::access('cmsManagePost');

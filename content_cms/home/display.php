@@ -8,13 +8,6 @@
       </a>
     </li>
     <li>
-      <a class="item f" href="<?php echo \dash\url::here();?>/pages">
-        <div class="key"><?php echo T_('Pages');?></div>
-        <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_pages()); ?></div>
-        <div class="go"></div>
-      </a>
-    </li>
-    <li>
       <a class="item f" href="<?php echo \dash\url::here();?>/tag">
         <div class="key"><?php echo T_('Tags');?></div>
         <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
