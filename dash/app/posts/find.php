@@ -44,6 +44,11 @@ class find
 			return false;
 		}
 
+		if(isset($dataRow['redirecturl']) && $dataRow['redirecturl'])
+		{
+			\dash\redirect::to($dataRow['redirecturl'], true, 302);
+		}
+
 		$id                  = \dash\coding::decode($dataRow['id']);
 
 		$tag                 = \dash\app\posts\get::get_post_tag($id);

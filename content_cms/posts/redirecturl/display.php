@@ -11,13 +11,13 @@ $myFirstURL = '';
         </p>
         <label for="redirecturl"><?php echo T_("Redirect URL") ?></label>
         <div class="input">
-          <input type="url" name="redirecturl"  value="<?php echo a(\dash\data::dataRow(), 'meta', 'redirect'); ?>" id="redirecturl" >
+          <input type="url" name="redirecturl"  value="<?php echo a(\dash\data::dataRow(), 'redirecturl'); ?>" id="redirecturl" >
         </div>
       </div>
       <footer class="f">
         <div class="cauto">
-          <?php if(a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
-            <a href="<?php echo a(\dash\data::dataRow(), 'meta', 'redirect') ?>" target='_blank' class='btn link'><?php echo T_("Visit link") ?></a>
+          <?php if(a(\dash\data::dataRow(), 'redirecturl')) {?>
+            <a href="<?php echo a(\dash\data::dataRow(), 'redirecturl') ?>" target='_blank' class='btn link'><?php echo T_("Visit link") ?></a>
           <?php } //endif ?>
 
         </div>
