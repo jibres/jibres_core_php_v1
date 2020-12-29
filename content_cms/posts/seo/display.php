@@ -94,10 +94,10 @@
       <div data-response='specialaddress' data-response-where='under_tag' <?php if(\dash\data::dataRow_specialaddress() === 'under_tag') {}else{ echo 'data-response-hide';} ?>>
         <div class="mB10">
           <label for="tagurl"><?php echo T_("Set post address as sub child of tag") ?></label>
-          <select class="select22" name="tagurl" id="tagurl">
-            <option value=""><?php echo T_("Independent") ?></option>
+          <select class="select22" name="tagurl" id="tagurl" data-placeholder='<?php echo T_("Select tag") ?>'>
+            <option value=""><?php echo T_("Select tag") ?></option>
             <?php foreach (\dash\data::dataRow_tags() as $key => $value) {?>
-              <option value="<?php echo $value['term_id'] ?>" <?php if(substr(\dash\data::dataRow_url(), 0, mb_strlen($value['url'])) === $value['url']) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
+              <option value="<?php echo $value['term_id'] ?>" <?php if(mb_substr(\dash\data::dataRow_url(), 0, mb_strlen($value['url'])) === $value['url']) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
             <?php } //endif ?>
           </select>
         </div>
