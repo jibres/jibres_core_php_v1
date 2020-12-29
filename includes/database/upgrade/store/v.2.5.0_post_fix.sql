@@ -1,0 +1,2 @@
+ALTER TABLE jibres_XXXXXXX.posts ADD `redirecturl` text CHARACTER SET utf8mb4 NULL;
+ALTER TABLE jibres_XXXXXXX.posts ADD `specialaddress` enum('independence', 'special', 'under_tag', 'under_page')  NULL;
