@@ -366,6 +366,19 @@ class image
 
 
 
+	public static function responsive_image_size()
+	{
+		return
+		[
+			120,
+			220,
+			300,
+			460,
+			780,
+			1100,
+		];
+	}
+
 
 	public static function responsive_image($_file_addr, $_ext)
 	{
@@ -381,8 +394,8 @@ class image
 		}
 
 		$total_size_path = [];
-		// make thumb
 
+		// make thumb
 		$new_img = \dash\utility\image::thumb(120, 120);
 
 		$thumb_path = $url_file.'-w120.webp';
@@ -393,14 +406,10 @@ class image
 
 		$total_size_path[] = $thumb_path;
 
-		$file_list =
-		[
-			220,
-			300,
-			460,
-			780,
-			1100,
-		];
+		$file_list = self::responsive_image_size();
+
+		// remove 120 size
+		array_shift($file_list);
 
 		$copy_on_size = [];
 
