@@ -12,15 +12,11 @@ class view
 
 		\dash\face::btnSave('editFormSEO');
 
-		$dataRow = \dash\data::dataRow();
-		if(a($dataRow, 'type') === 'page' || a($dataRow, 'type') === 'help')
-		{
-			$load_parent = \dash\app\posts\get::load_all_parent(\dash\request::get('id'));
-			\dash\data::parentList($load_parent);
-		}
+		$load_parent = \dash\app\posts\get::load_all_parent(\dash\request::get('id'));
+		\dash\data::parentList($load_parent);
 
 
-		if(a($dataRow, 'status') === 'publish')
+		if(\dash\data::dataRow_status() === 'publish')
 		{
 			\dash\data::postViewLink(\dash\data::dataRow_link());
 			\dash\face::btnView(\dash\data::dataRow_link());

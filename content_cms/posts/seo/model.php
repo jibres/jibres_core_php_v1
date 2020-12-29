@@ -8,11 +8,12 @@ class model
 
 		$post =
 		[
-			'slug'     => \dash\request::post('slug'),
-			'excerpt'  => \dash\request::post('excerpt'),
-			'seotitle' => \dash\request::post('seotitle'),
-			'tagurl'   => \dash\request::post('tagurl'),
-			'parent'   => \dash\request::post('parent') ? \dash\request::post('parent') : null,
+			'slug'           => \dash\request::post('slug'),
+			'excerpt'        => \dash\request::post('excerpt'),
+			'seotitle'       => \dash\request::post('seotitle'),
+			'tagurl'         => \dash\request::post('tagurl'),
+			'specialaddress' => \dash\request::post('specialaddress'),
+			'parent'         => \dash\request::post('parent') ? \dash\request::post('parent') : null,
 		];
 
 

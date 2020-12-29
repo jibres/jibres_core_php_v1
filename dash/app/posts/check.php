@@ -4,7 +4,7 @@ namespace dash\app\posts;
 
 class check
 {
-	public static function variable($_args, $_id = null, $_option = [])
+	public static function variable($_args, $_id = null)
 	{
 		$condition =
 		[
@@ -22,13 +22,14 @@ class check
 			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'comment'         => 'bit',
 			'status'          => ['enum' => ['publish','draft']],
+			'specialaddress'  => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
 			'parent'          => 'code',
 			'publishdate'     => 'date',
 			'publishtime'     => 'time',
 			'icon'            => 'string_50',
 			'redirecturl'     => 'url',
 			'creator'         => 'code',
-			'tagurl'         => 'code',
+			'tagurl'          => 'code',
 			'tag'             => 'tag',
 			'set_publishdate' => 'bit',
 		];
@@ -44,18 +45,6 @@ class check
 			$data['language'] = \dash\language::current();
 		}
 
-		$default_option =
-		[
-			'meta'     => [],
-			'raw_args' => [],
-		];
-
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
-
-		$_option = array_merge($default_option, $_option);
 
 		$current_post_detail            = [];
 		$current_post_detail['user_id'] = null;
@@ -306,20 +295,6 @@ class check
 
 		unset($data['set_publishdate']);
 
-		$meta = $_option['meta'];
-
-
-		$icon = $data['icon'];
-		if($icon)
-		{
-			$meta['icon'] = $icon;
-		}
-
-		$meta['redirect'] = $data['redirecturl'];
-
-		$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
-
-		$data['meta'] = $meta;
 
 		if(\dash\permission::check('cmsManageAllPost'))
 		{
@@ -384,7 +359,6 @@ class check
 			\dash\permission::access('cmsPostPublisher');
 		}
 
-		unset($data['redirecturl']);
 		unset($data['publishtime']);
 		unset($data['creator']);
 		unset($data['icon']);
