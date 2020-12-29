@@ -69,27 +69,6 @@ class get
 	 */
 	public static function get($_id, $_options = [])
 	{
-		$default_options =
-		[
-			'debug'       => true,
-			'check_login' => true,
-		];
-
-		if(!is_array($_options))
-		{
-			$_options = [];
-		}
-
-		$_options = array_merge($default_options, $_options);
-
-		if($_options['check_login'])
-		{
-			if(!\dash\user::id())
-			{
-				return false;
-			}
-		}
-
 		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);
 
@@ -100,7 +79,6 @@ class get
 		}
 
 		$detail = \dash\db\posts\get::by_id($id);
-
 
 		$temp = [];
 
@@ -138,6 +116,8 @@ class get
 
 	public static function load_post($_id)
 	{
+		\dash\permission::access('cmsManagePost');
+
 		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);
 
@@ -151,23 +131,6 @@ class get
 		if(!$load || !isset($load['user_id']) || !isset($load['type']))
 		{
 			return false;
-		}
-
-		switch ($load['type'])
-		{
-			case 'post':
-				\dash\permission::access('cmsManagePost');
-				break;
-
-			case 'help':
-				\dash\permission::access('cmsManageHelpCenter');
-				break;
-
-			default:
-				/* Invaild type BUG! */
-				\dash\log::oops('postLoadInvalidType', T_("Invalid post type!"));
-				return false;
-				break;
 		}
 
 		$load = \dash\app\posts\ready::row($load);

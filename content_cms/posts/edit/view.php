@@ -5,8 +5,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::myType(\dash\data::dataRow_type());
-
 
 		$maxFileSize = 10;//\dash\upload\size::cms_file_size();
 		\dash\data::maxFileSize($maxFileSize);
@@ -15,10 +13,7 @@ class view
 		$moduleTypeTxt = \dash\data::myType();
 		$moduleType    = '';
 
-		if(\dash\data::myType())
-		{
-			$moduleType = '?type='. \dash\data::myType();
-		}
+
 
 		$dataRow = \dash\data::dataRow();
 		$id = \dash\request::get('id');
@@ -49,29 +44,12 @@ class view
 		\dash\data::back_text(T_("Back"));
 		\dash\data::back_link($myBadgeLink);
 
-		$myType = \dash\data::myType();
-
-		if($myType === 'page')
-		{
-			$myTitle  = T_('Edit page');
-			$pageList = \dash\db\posts::get(['type' => 'page', 'language' => \dash\language::current(), 'status' => ["NOT IN", "('deleted')"]]);
-			$pageList = array_map(['\\dash\\app\\posts\\ready', 'row'], $pageList);
-			\dash\data::pageList($pageList);
-		}
-		else
-		{
-			$myTitle = T_('Edit post');
-		}
+		$myTitle = T_('Edit post');
 
 		\dash\face::title($myTitle);
 
-
 		$cmsSettingSaved = \lib\app\setting\get::cms_setting();
 		\dash\data::cmsSettingSaved($cmsSettingSaved);
-
-
-
-
 
 
 		switch (a($dataRow, 'subtype'))

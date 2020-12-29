@@ -7,35 +7,18 @@ class model
 	public static function post()
 	{
 
-
 		if(\content_cms\posts\edit\model::upload_editor())
 		{
 			return false;
 		}
 
-
 		$post =
 		[
 			'title'    => \dash\request::post('title'),
+			'subtype'  => \dash\request::post('subtype'),
 			'content'  => \dash\request::post_raw('content'),
 			'language' => \dash\language::current(),
 		];
-
-		if(\dash\url::module() === 'help')
-		{
-			$type    = 'help';
-		}
-		elseif(\dash\url::module() === 'pages')
-		{
-			$type    = 'page';
-		}
-		else
-		{
-			$type            = 'post';
-			$post['subtype'] = \dash\request::post('subtype');
-		}
-
-		$post['type'] = $type;
 
 		$post_detail = \dash\app\posts\add::add($post);
 

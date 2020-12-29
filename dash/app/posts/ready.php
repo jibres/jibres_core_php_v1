@@ -173,25 +173,20 @@ class ready
 			}
 		}
 
-		if(isset($result['url']))
+		if(isset($result['url']) && $result['url'])
 		{
-			if(isset($result['type']) && $result['type'] === 'help')
-			{
-				$my_link .= 'support/';
-			}
-
 			$my_link .= $result['url'];
 		}
 		else
 		{
 			$my_link .= 'n/';
 
-			if(isset($result['id']))
+			if(isset($result['id']) && $result['id'])
 			{
 				$my_link .= $result['id'];
 			}
 
-			if(isset($result['slug']))
+			if(isset($result['slug']) && $result['slug'])
 			{
 				$my_link .= '/'.$result['slug'];
 			}
@@ -224,7 +219,7 @@ class ready
 			}
 		}
 
-
+		// set seo title
 		if(isset($result['seotitle']) && $result['seotitle'])
 		{
 			$result['post_title'] = $result['seotitle'];

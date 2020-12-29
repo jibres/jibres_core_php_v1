@@ -123,37 +123,6 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
  ?>
 
 
-<?php if(a($dataRow, 'type') === 'page') { // load cover ?>
-
-
-<section class="f" data-option='cms-post-cover'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Post cover")?></h3>
-      <div class="body">
-        <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover") ?></p>
-      </div>
-    </div>
-  </div>
-  <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='cover' data-ratio="16:9" data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
-      <input type="hidden" name="runaction_setcover" value="1">
-
-      <input type="file" accept="image/jpeg, image/png" id="image1">
-      <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-      <?php if(\dash\data::dataRow_cover()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_cover() ?>"></label><?php } //endif ?></label>
-    </div>
-  </form>
-
-  <?php if(\dash\data::dataRow_cover()) {?>
-    <footer class="txtRa">
-     <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="btn link fc-red"><?php echo T_("Remove post cover") ?></div>
-    </footer>
-  <?php } //endif ?>
-</section>
-
-<?php }else{ ?>
-
 <section class="f" data-option='cms-post-thumb'>
   <div class="c8 s12">
     <div class="data">
@@ -179,4 +148,3 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
   <?php } //endif ?>
 </section>
 
-<?php } // endif ?>

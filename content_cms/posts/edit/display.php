@@ -7,10 +7,6 @@ $type   = \dash\data::dataRow_type();
 
 $myID = '?id='. \dash\request::get('id');
 
-$isPage = ($type === 'page');
-$isPost = ($type === 'post');
-$isHelp = ($type === 'help');
-
 $myIcon = 'check';
 
 switch (\dash\data::dataRow_status())
@@ -84,7 +80,6 @@ switch (\dash\data::dataRow_status())
   </div>
 
 
-      <?php if($isPost || $isHelp) {?>
 
       <div class="box">
         <div class="pad">
@@ -102,7 +97,6 @@ switch (\dash\data::dataRow_status())
         </div>
       </div>
 
-    <?php } //endif ?>
   </form>
 
   <?php require_once('display-gallery.php'); ?>
@@ -129,5 +123,4 @@ switch (\dash\data::dataRow_status())
           <a class="link sm" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a>
         </footer>
       </div>
-
 

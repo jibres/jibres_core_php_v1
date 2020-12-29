@@ -3,7 +3,7 @@
     <li>
       <a class="item f" href="<?php echo \dash\url::here();?>/posts">
         <div class="key"><?php echo T_('Posts');?></div>
-        <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_news()); ?></div>
+        <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_post()); ?></div>
         <div class="go"></div>
       </a>
     </li>

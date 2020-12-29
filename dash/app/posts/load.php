@@ -17,6 +17,7 @@ class load
 		$tag_id     = a($_detail, 'value', 'tag_id');
 		$subtype    = a($_detail, 'value', 'subtype');
 		$limit      = a($_detail, 'value', 'limit');
+		$line_link  = a($_detail, 'value', 'line_link');
 
 		if(!$limit)
 		{
@@ -32,7 +33,6 @@ class load
 		[
 			'pagination'   => 'n',
 			'website_mode' => true,
-			'type'         => 'post',
 			'subtype'      => $subtype,
 			'limit'        => $limit,
 			'cat_id'       => $cat_id,
@@ -43,7 +43,7 @@ class load
 
 		$result              = [];
 		$result['title']     = $line_title;
-		$result['line_link'] = \dash\url::kindgom(). '/blog';
+		$result['line_link'] = $line_link;
 		$result['list']      = $list;
 
 		return $result;

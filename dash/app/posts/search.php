@@ -175,7 +175,6 @@ class search
 		$args =
 		[
 			'subtype'      => $_subtype,
-			'type'         => 'post',
 			'website_mode' => true
 
 		];

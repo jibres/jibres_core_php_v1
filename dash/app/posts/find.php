@@ -105,14 +105,9 @@ class find
 	private static function load_by_id()
 	{
 
-		$load_post = \dash\app\posts\get::get(\dash\url::module(), ['check_login' => false]);
+		$load_post = \dash\app\posts\get::get(\dash\url::module());
 
-		if(!$load_post || !isset($load_post['type']))
-		{
-			return false;
-		}
-
-		if(!in_array($load_post['type'], ['post', 'page']))
+		if(!$load_post || !isset($load_post['slug']))
 		{
 			return false;
 		}
