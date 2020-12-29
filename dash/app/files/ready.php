@@ -114,6 +114,12 @@ class ready
 	}
 
 
+	public static function row_usage()
+	{
+		return self::row(...func_get_args());
+	}
+
+
 
 
 	private static function getImgThumb($_src)
