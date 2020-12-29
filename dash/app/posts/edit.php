@@ -26,37 +26,12 @@ class edit
 			return false;
 		}
 
-		if(array_key_exists('meta', $load_posts))
-		{
-			if(is_string($load_posts['meta']) && substr($load_posts['meta'], 0, 1) === '{')
-			{
-				$load_posts['meta'] = json_decode($load_posts['meta'], true);
-			}
-			elseif(is_array($load_posts['meta']))
-			{
-				// nothing
-			}
-			else
-			{
-				$load_posts['meta'] = [];
-			}
-
-			$_option['meta'] = $load_posts['meta'];
-		}
-
-		$_option['raw_args'] = $_args;
-
 		// check args
-		$args = \dash\app\posts\check::variable($_args, $id, $_option);
+		$args = \dash\app\posts\check::variable($_args, $id);
 
 		if($args === false || !\dash\engine\process::status())
 		{
 			return false;
-		}
-
-		if(isset($_args['redirecturl']))
-		{
-			$_args['meta'] = 'need - meta :/ ';
 		}
 
 		if(isset($_args['creator']) && $_args['creator'])
