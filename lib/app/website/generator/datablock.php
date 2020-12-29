@@ -29,12 +29,12 @@ class datablock
 				// $spaceSize = 'zero';
 				// $spaceSize = 'normal';
 				// $spaceSize = 'high';
-				// $spaceSize = 'extra';
+				$spaceSize = 'extra';
 				$radiusSize = a($_blockSetting, 'radius');
 				// $radiusSize = '0';
-				$radiusSize = '1x';
+				// $radiusSize = '1x';
 				// $radiusSize = '2x';
-				// $radiusSize = '3x';
+				$radiusSize = '3x';
 				// $radiusSize = '4x';
 				// $radiusSize = 'circle';
 				$effectMode = a($_blockSetting, 'effect');
@@ -118,7 +118,7 @@ class datablock
 						$imgSrc = a($value, 'thumb');
 						if($imgSrc)
 						{
-							$myItem .= media::createImgEl($imgSrc, $linkTitle);
+							$myItem .= media::createPictureEl($imgSrc, $linkTitle);
 						}
 					}
 					if($infoPos === 'bottom' || $infoPos === 'inside')

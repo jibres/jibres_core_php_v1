@@ -133,8 +133,32 @@ class media
 		// create srcset
 		$imgEl .= ' alt="'. $_alt. '"';
 		$imgEl .= '>';
-		self::createImgSrcset($_src);
 		return $imgEl;
+	}
+
+
+	public static function createPictureEl($_src, $_alt = null)
+	{
+		$picEl = '<picture>';
+		{
+			$picEl .= '<source type="image/webp"';
+			$picEl .= ' srcset="'. self::createImgSrcset($_src). '"';
+			$picEl .= '>';
+
+			$picEl .= '<img';
+			$picEl .= ' loading="lazy"';
+			$picEl .= ' src="'. $_src. '"';
+
+			if(!$_alt)
+			{
+				$_alt .= 'another image on Talambar';
+			}
+			// create srcset
+			$picEl .= ' alt="'. $_alt. '"';
+			$picEl .= '>';
+		}
+		$picEl .= '</picture>';
+		return $picEl;
 	}
 
 
