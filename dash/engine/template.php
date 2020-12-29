@@ -63,7 +63,7 @@ class template
 				$slug = $data['slug'];
 			}
 		}
-		elseif($data = self::find_post())
+		elseif($data = \dash\app\posts\find::post())
 		{
 			// find the post by this url
 			$type  = 'post';
@@ -83,11 +83,6 @@ class template
 			if(in_array($type, $not_allow_type_route))
 			{
 				return false;
-			}
-
-			if(isset($data['redirecturl']) && $data['redirecturl'])
-			{
-				\dash\redirect::to($data['redirecturl'], true, 302);
 			}
 
 		}
@@ -415,17 +410,6 @@ class template
 		return false;
 	}
 
-
-
-	public static function find_post()
-	{
-		$post_detail = \dash\app\posts\find::post();
-		if($post_detail)
-		{
-			return $post_detail;
-		}
-		return false;
-	}
 
 
 	public static function find_404()

@@ -44,9 +44,14 @@ class find
 			return false;
 		}
 
+		$preview  = \dash\request::get('preview') ? true : false;
+
 		if(isset($dataRow['redirecturl']) && $dataRow['redirecturl'])
 		{
-			\dash\redirect::to($dataRow['redirecturl'], true, 302);
+			if(!$preview)
+			{
+				\dash\redirect::to($dataRow['redirecturl'], true, 302);
+			}
 		}
 
 		$id                  = \dash\coding::decode($dataRow['id']);
@@ -107,7 +112,7 @@ class find
 
 		$load_post = \dash\app\posts\get::get(\dash\url::module());
 
-		if(!$load_post || !isset($load_post['slug']))
+		if(!$load_post)
 		{
 			return false;
 		}
