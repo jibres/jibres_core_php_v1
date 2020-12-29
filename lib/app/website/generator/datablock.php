@@ -80,23 +80,33 @@ class datablock
 			$myPuzzle = \lib\app\website\puzzle::layout($key, $_blockSetting);
 			$myItem .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
-				$myItem .= '<div class="everyItem"';
+				$playMode      = a($myPuzzle, 'playMode');
+				$galleryPath0  = a($value, 'gallery_array', 0, 'path');
+				// link data
+				$linkTitle  = a($value, 'title');
+				$link       = a($value, 'link');
+				$linkTarget = a($value, 'target');
+
+				// add every item element
+				$myItem .= '<a class="everyItem"';
 				if($infoPos)
 				{
 					$myItem .= ' data-info="'. $infoPos. '"';
 				}
-					$myItem .= '>';
+				if($link)
 				{
-					$playMode      = a($myPuzzle, 'playMode');
-					$galleryPath0  = a($value, 'gallery_array', 0, 'path');
-					// link data
-					$linkTitle  = a($value, 'title');
-					$link       = a($value, 'link');
-					$linkTarget = a($value, 'target');
+					$myItem .= ' href="'. $link. '"';
+				}
+				if($linkTarget)
+				{
+					$myItem .= ' target="_blank"';
+				}
+				$myItem .= '>';
+				{
 
 					if($infoPos === 'top')
 					{
-						$myItem .= self::createInfoBox($linkTitle, $link, $linkTarget);
+						$myItem .= self::createInfoBox($linkTitle);
 					}
 
 					if($playMode === 'video' || $playMode === 'audio')
@@ -108,15 +118,15 @@ class datablock
 						$imgSrc = a($value, 'thumb');
 						if($imgSrc)
 						{
-							$myItem .= media::createLinkedImgEl($imgSrc, $linkTitle, $link, $linkTarget);
+							$myItem .= media::createImgEl($imgSrc, $linkTitle);
 						}
 					}
 					if($infoPos === 'bottom' || $infoPos === 'inside')
 					{
-						$myItem .= self::createInfoBox($linkTitle, $link, $linkTarget);
+						$myItem .= self::createInfoBox($linkTitle);
 					}
 				}
-				$myItem .= '</div>';
+				$myItem .= '</a>';
 			}
 			$myItem .= '</div>';
 			// append created item
@@ -146,11 +156,10 @@ class datablock
 	}
 
 
-	private static function createInfoBox($_title, $_link, $_target)
+	private static function createInfoBox($_title)
 	{
 		$myInfoBox = '<div class="info">';
-		// $myInfoBox .= media::createLinkEl(media::heading($_title, 2), $_link, $_target, 'title');
-		$myInfoBox .= media::heading(media::createLinkEl($_title, $_link, $_target, 'title'), 2);
+		$myInfoBox .= media::heading($_title, 2);
 		$myInfoBox .= '</div>';
 
 		return $myInfoBox;
