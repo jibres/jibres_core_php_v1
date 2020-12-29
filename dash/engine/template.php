@@ -85,9 +85,9 @@ class template
 				return false;
 			}
 
-			if(isset($data['meta']['redirect']) && $data['meta']['redirect'])
+			if(isset($data['redirecturl']) && $data['redirecturl'])
 			{
-				\dash\redirect::to($data['meta']['redirect'], true, 302);
+				\dash\redirect::to($data['redirecturl'], true, 302);
 			}
 
 		}
