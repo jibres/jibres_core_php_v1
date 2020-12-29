@@ -173,27 +173,5 @@ class media
 
 		return $srcset;
 	}
-
-
-	public static function getImgThumb($_src)
-	{
-		$dotPosition = strrpos($_src, '.');
-		if(!$dotPosition)
-		{
-			return '';
-		}
-		$imgExt = substr($_src, $dotPosition);
-		switch ($imgExt)
-		{
-			case '.jpg':
-			case '.png':
-			case '.gif':
-				return substr($_src, 0, $dotPosition). '-w120.webp';
-				break;
-
-			default:
-				return $_src;
-		}
-	}
 }
 ?>

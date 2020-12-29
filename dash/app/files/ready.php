@@ -52,7 +52,7 @@ class ready
 			{
 				case 'image':
 					$result['t_type'] = T_("Image");
-					$result['thumb'] = \lib\app\website\generator\media::getImgThumb(a($result, 'path'));
+					$result['thumb'] = self::getImgThumb(a($result, 'path'));
 
 					break;
 
@@ -111,7 +111,31 @@ class ready
 
 
 		return $result;
-
 	}
+
+
+
+
+	private static function getImgThumb($_src)
+	{
+		$dotPosition = strrpos($_src, '.');
+		if(!$dotPosition)
+		{
+			return '';
+		}
+		$imgExt = substr($_src, $dotPosition);
+		switch ($imgExt)
+		{
+			case '.jpg':
+			case '.png':
+			case '.gif':
+				return substr($_src, 0, $dotPosition). '-w120.webp';
+				break;
+
+			default:
+				return $_src;
+		}
+	}
+
 }
 ?>
