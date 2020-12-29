@@ -1,5 +1,6 @@
 <?php $dataRow = \dash\data::dataRow(); ?>
 <div class="avand-md">
+	<p class="msg font-12"><?php echo T_("To optimize your images and increase your SEO score, we store uploaded images in different sizes in webp format so that you can use it anywhere with the required size.") ?></p>
 	<div class="row">
 		<?php
 			foreach (\dash\utility\image::responsive_image_size() as $size) {
