@@ -147,9 +147,17 @@ class model
 	{
 		if(\dash\request::files('upload'))
 		{
-			$uploaded_file = \dash\upload\cms::set_post_gallery_editor(\dash\coding::decode(\dash\request::get('id')));
+			$id = null;
+
+			if(\dash\request::get('id'))
+			{
+				$id = \dash\coding::decode(\dash\request::get('id'));
+			}
+
+			$uploaded_file = \dash\upload\cms::set_post_gallery_editor($id);
 
 			$result             = [];
+
 			if(isset($uploaded_file['filename']) && isset($uploaded_file['path']))
 			{
 				$result['fineName'] = $uploaded_file['filename'];

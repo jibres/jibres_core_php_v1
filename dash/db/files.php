@@ -28,6 +28,20 @@ class files
 	}
 
 
+	public static function set_unknown_fileusage($_relate, $_user_id, $_relate_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.user_id = $_user_id AND  fileusage.related = '$_relate' AND fileusage.related_id IS NULL";
+		$count = \dash\db::get($query, 'count', true);
+
+		if($count && is_numeric($count))
+		{
+			$query = "UPDATE fileusage SET fileusage.related_id = $_relate_id WHERE fileusage.user_id = $_user_id AND  fileusage.related = '$_relate' AND fileusage.related_id IS NULL LIMIT $count";
+			$result = \dash\db::get($query);
+			return $result;
+		}
+		return false;
+	}
+
 	public static function remove($_id)
 	{
 		$query  = "DELETE FROM fileusage WHERE fileusage.file_id = $_id ";
