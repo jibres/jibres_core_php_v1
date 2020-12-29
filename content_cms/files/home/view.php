@@ -7,9 +7,9 @@ class view
 	public static function config()
 	{
 
-		\dash\face::title(T_("Attachments"));
+		\dash\face::title(T_("Files"));
 
-		\dash\data::action_text(T_('Add new attachment'));
+		\dash\data::action_text(T_('Upload'));
 		\dash\data::action_link(\dash\url::this(). '/add');
 
 		\dash\data::back_text(T_('CMS'));

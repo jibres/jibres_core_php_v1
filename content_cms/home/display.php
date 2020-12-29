@@ -24,7 +24,7 @@
     <?php if(\dash\permission::check('cmsAttachmentView')) {?>
       <li class="">
         <a class="item f" href="<?php echo \dash\url::here();?>/files">
-          <div class="key"><?php echo T_('Attachments');?></div>
+          <div class="key"><?php echo T_('Files');?></div>
           <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
           <div class="go"></div>
         </a>

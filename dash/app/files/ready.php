@@ -51,20 +51,58 @@ class ready
 			switch ($result['type'])
 			{
 				case 'image':
+					$result['t_type'] = T_("Image");
 					$result['thumb'] = a($result, 'path');
 					break;
 
 				case 'archive':
+					$result['t_type'] = T_("Archive");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'audio':
+					$result['t_type'] = T_("Audio");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'pdf':
+					$result['t_type'] = T_("PDF");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'video':
+					$result['t_type'] = T_("Video");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'word':
+					$result['t_type'] = T_("Word");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'excel':
+					$result['t_type'] = T_("Excel");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'powerpoint':
+					$result['t_type'] = T_("Power Point");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'code':
+					$result['t_type'] = T_("Code");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'text':
+					$result['t_type'] = T_("Text");
+					$result['thumb'] = \dash\app::static_image_url();
+					break;
+
 				case 'file':
 				default:
+					$result['t_type'] = T_("File");
 					$result['thumb'] = \dash\app::static_image_url();
 					break;
 			}
