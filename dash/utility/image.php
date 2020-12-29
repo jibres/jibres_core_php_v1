@@ -380,13 +380,18 @@ class image
 			return false;
 		}
 
+		$total_size_path = [];
 		// make thumb
 
 		$new_img = \dash\utility\image::thumb(120, 120);
 
-		imagewebp($new_img, $url_file.'-w120.webp', 80);
+		$thumb_path = $url_file.'-w120.webp';
+
+		imagewebp($new_img, $thumb_path, 80);
 
 		imagedestroy($new_img);
+
+		$total_size_path[] = $thumb_path;
 
 		$file_list =
 		[
@@ -423,6 +428,8 @@ class image
 				imagewebp($new_img, $new_path, 80);
 
 				imagedestroy($new_img);
+
+				$total_size_path[] = $new_path;
 			}
 		}
 
@@ -435,12 +442,25 @@ class image
 				imagepalettetotruecolor(self::$img);
 
 				imagewebp(self::$img, $new_path, 80);
+
+				$total_size_path[] = $new_path;
 			}
 		}
 
 		imagedestroy(self::$img);
 
 		self::$loaded = false;
+
+		$result = [];
+
+		$result['responsive_image_size'] = 0;
+
+		foreach ($total_size_path as $path)
+		{
+			$result['responsive_image_size'] += filesize($path);
+		}
+
+		return $result;
 	}
 
 }

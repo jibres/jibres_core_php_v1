@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.files ADD `totalsize`  int(10) NULL DEFAULT NULL AFTER `size`;

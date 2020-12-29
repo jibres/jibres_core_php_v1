@@ -191,10 +191,16 @@ class file
 		// 	return false;
 		// }
 
+		$totalsize = $myFile['size'];
 		// 7. save file in some quality if need. for example pictures need to crop and save all need size
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
-			\dash\utility\image::responsive_image($directory['full'], $myFile['ext']);
+			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext']);
+
+			if(isset($responsive_result['responsive_image_size']))
+			{
+				$totalsize += $responsive_result['responsive_image_size'];
+			}
 		}
 
 
@@ -206,6 +212,7 @@ class file
 			'mime'        => $myFile['mime'],
 			'ext'         => $myFile['ext'],
 			'size'        => $myFile['size'],
+			'totalsize'   => $totalsize,
 
 			'folder'      => $directory['folder'],
 			'path'        => $directory['path'],
