@@ -45,11 +45,11 @@ switch (\dash\data::dataRow_status())
         </li>
       <?php } //endif ?>
 
-      <?php if(a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
+      <?php if(a(\dash\data::dataRow(), 'redirecturl')) {?>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/redirecturl'. \dash\request::full_get();?>">
             <div class="key"><?php echo T_("This post automatically redirected to new page") ?></div>
-            <div class="value s0"><?php echo a(\dash\data::dataRow(), 'meta', 'redirect');?></div>
+            <div class="value s0"><?php echo a(\dash\data::dataRow(), 'redirecturl');?></div>
             <div class="go detail"></div>
           </a>
         </li>
