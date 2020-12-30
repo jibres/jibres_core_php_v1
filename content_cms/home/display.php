@@ -1,16 +1,14 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-        <div id="chartdivcrmhome" class="box chart x260 s0" data-abc='crm/homepage'>
+        <div id="chartdivcmshome" class="box chart x260 s0" data-abc='cms/homepage'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
-        <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
-        <div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
-
-        <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
+        <div id="chardatatitle"><?php echo T_("Post") ?></div>
+        <div id="charttitle"><?php echo T_("Chart count register post per day in last 1 year") ?></div>
         <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
-        <div id="chartverify"><?php echo a($dashboardDetail, 'chart', 'verify') ?></div>
-        <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
+        <div id="chartdata"><?php echo a($dashboardDetail, 'chart', 'data') ?></div>
+
       </div>
     </div>
 

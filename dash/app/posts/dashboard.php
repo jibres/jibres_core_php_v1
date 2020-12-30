@@ -45,9 +45,75 @@ class dashboard
 		$dashboard_detail['havecover_percent']      = $havecover_percent;
 		$dashboard_detail['publish_percent']        = $publish_percent;
 
+		$dashboard_detail['chart']        = self::chart();
+
+
 		return $dashboard_detail;
 
 
+
+
+	}
+
+
+
+
+	private static function chart()
+	{
+
+		$last_12_month = date("Y-m-d", strtotime("-365 days"));
+
+		$month_list = [];
+		$category = [];
+
+		if(\dash\language::current() === 'fa')
+		{
+			for ($i=0; $i < 12 ; $i++)
+			{
+				$jalali_month = \dash\utility\jdate::date("m", strtotime("-$i month"), false);
+
+				list($startdate, $enddate) = \dash\utility\jdate::jalali_month(\dash\utility\jdate::date("Y", strtotime("-$i month"), false), $jalali_month);
+
+				$all_date[$jalali_month]   = [$startdate, $enddate];
+				$month_list[$jalali_month] = 0;
+				$category[] = \dash\utility\jdate::date("F", strtotime("-$i month"));
+			}
+
+			$get_detail   = \dash\db\posts\get::chart_by_date_fa($last_12_month, $all_date);
+
+		}
+		else
+		{
+			$get_detail   = \dash\db\posts\get::chart_by_date_en($last_12_month);
+
+			for ($i=0; $i < 12 ; $i++)
+			{
+				$month_list[date("m", strtotime("-$i month"))] = 0;
+				$category[] = date("F", strtotime("-$i month"));
+			}
+
+		}
+
+		if(!is_array($get_detail))
+		{
+			$get_detail = [];
+		}
+
+
+
+		foreach ($get_detail as $key => $value)
+		{
+			if(isset($month_list[$value['month']]))
+			{
+				$month_list[$value['month']] = floatval($value['count']);
+			}
+		}
+
+		$chart             = [];
+		$chart['category'] = json_encode($category , JSON_UNESCAPED_UNICODE);
+		$chart['data']   = json_encode(array_values($month_list), JSON_UNESCAPED_UNICODE);
+
+		return $chart;
 	}
 
 }

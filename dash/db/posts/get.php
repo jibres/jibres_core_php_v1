@@ -48,5 +48,56 @@ class get
 		return $result;
 	}
 
+
+
+	public static function chart_by_date_fa($_enddate, $_month_list)
+	{
+		$CASE = [];
+		foreach ($_month_list as $month => $date)
+		{
+			$CASE[] = "WHEN DATE(posts.datecreated) >= DATE('$date[0]') AND DATE(posts.datecreated) <= DATE('$date[1]') THEN '$month'";
+		}
+
+		$CASE = " CASE ". implode(" ", $CASE). "  ELSE '0' END ";
+
+
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				$CASE AS `month`
+			FROM
+				posts
+			WHERE
+				DATE(posts.datecreated) >= DATE('$_enddate')
+			GROUP BY $CASE
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
+
+	public static function chart_by_date_en($_enddate)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				MONTH(posts.datecreated) AS `month`
+			FROM
+				posts
+			WHERE
+				DATE(posts.datecreated) >= DATE('$_enddate')
+			GROUP BY MONTH(posts.datecreated)
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 }
 ?>
