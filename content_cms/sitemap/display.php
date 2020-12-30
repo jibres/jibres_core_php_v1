@@ -1,39 +1,40 @@
+<div class="avand-md">
+  <div class="box">
+   <div class="body">
+      <p><?php echo T_("Create sitemap automatically by click on this page"); ?></p>
 
+      <?php if(!\dash\data::siteMapFile_sitemap() && !\dash\data::siteMapFile_base()) {?>
+       <div class="btn txtC xl success" data-confirm data-data='{"run" : "yes"}'><?php echo T_("Create sitemap now!"); ?> </div>
+      <?php } //endif ?>
 
- <div class="cbox">
-  <h2><?php echo T_("Create sitemap automatically by click on this page"); ?></h2>
-
-  <?php if(\dash\data::siteMapFile_base()) {?>
-
-  	 <a class="btn" target="_blank" href="<?php echo \dash\url::base(); ?>/sitemap.xml"><?php echo T_("Base Sitemap"); ?></a>
-  <?php } //endif ?>
-
-  <?php if(\dash\data::siteMapFile_sitemap()) {?>
-
-   <a class="btn" target="_blank" href="<?php echo \dash\url::base(); ?>/sitemap"><?php echo T_("Sitemap Directory"); ?></a>
-  <?php } //endif ?>
-
-  <?php if(!\dash\data::siteMapFile_sitemap() && !\dash\data::siteMapFile_base()) {?>
-
-   <div class="btn txtC xl success" data-confirm data-data='{"run" : "yes"}'><?php echo T_("Create sitemap now!"); ?> </div>
-
-  <?php }else{ ?>
-
-   <div data-confirm data-data='{"run" : "yes"}' class="btn floatRa secondary" ><?php echo T_("Create it Again"); ?></div>
-
-  <?php } //endif ?>
-
-  <?php if(\dash\data::siteMapFile_base()) {?>
-
-
-   <p data-kerkere='.removeSiteMapFile' class="mT10 fc-red fs08"><?php echo T_("Remove all  sitemap files"); ?></p>
-   <div data-kerkere-content='hide' class="removeSiteMapFile">
-    <div class="btn danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove all  sitemap files"); ?></div>
    </div>
+   <footer class="f">
+      <?php if(\dash\data::siteMapFile_base()) {?>
+        <div class="cauto">
+          <a class="btn" target="_blank" href="<?php echo \dash\url::base(); ?>/sitemap.xml"><?php echo T_("Base Sitemap"); ?></a>
+        </div>
+      <?php } //endif ?>
+    <div class="c"></div>
+    <div class="cauto">
+      <div data-confirm data-data='{"run" : "yes"}' class="btn floatRa secondary" ><?php echo T_("Create it Again"); ?></div>
+    </div>
 
+   </footer>
+
+
+  </div>
+
+  <?php if(\dash\data::siteMapFile_base()) {?>
+  <div class="box">
+    <div class="body">
+      <?php echo T_("Remove all  sitemap files"); ?>
+    </div>
+    <footer class="txtRa">
+      <div class="btn danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove all  sitemap files"); ?></div>
+    </footer>
+  </div>
   <?php } //endif ?>
 
- </div>
 
 
 <?php if(\dash\data::sitemapData() && is_array(\dash\data::sitemapData())) {?>
@@ -78,3 +79,4 @@
 </div>
 <?php } //endif ?>
 
+</div>
