@@ -52,14 +52,14 @@
             </a>
           </li>
           <li>
-            <a class="item f" href="<?php echo \dash\url::here();?>/posts?status=awaiting">
+            <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
               <div class="key"><?php echo T_('awaiting comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
               <div class="go"></div>
             </a>
           </li>
           <li>
-            <a class="item f" href="<?php echo \dash\url::here();?>/posts?status=approved">
+            <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=approved">
               <div class="key"><?php echo T_('approved comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_approved()); ?></div>
               <div class="go"></div>
