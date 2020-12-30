@@ -6,10 +6,6 @@ class view
 	public static function config()
 	{
 
-		$maxFileSize = 10;//\dash\upload\size::cms_file_size();
-		\dash\data::maxFileSize($maxFileSize);
-
-
 		$moduleTypeTxt = \dash\data::myType();
 		$moduleType    = '';
 

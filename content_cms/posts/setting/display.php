@@ -171,7 +171,7 @@ $myID = '?id='. \dash\request::get('id');
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='cover' data-ratio="1" data-ratio-free data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='cover' data-ratio="1" data-ratio-free data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
       <input type="hidden" name="runaction_setcover" value="1">
 
       <input type="file" accept="image/jpeg, image/png" id="image1">
