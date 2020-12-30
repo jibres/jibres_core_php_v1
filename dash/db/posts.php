@@ -52,6 +52,23 @@ class posts
 		return \dash\db\config::public_get_count('posts', ...func_get_args());
 	}
 
+
+	public static function get_active_count()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function get_active_count_subtype($_subtype)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.subtype = '$_subtype' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	/**
 	 * insert new recrod in posts table
 	 * @param array $_args fields data

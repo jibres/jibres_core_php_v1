@@ -30,6 +30,7 @@ class view
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 			'status' => \dash\request::get('status'),
+			'subtype' => \dash\request::get('subtype'),
 			'cat_id' => \dash\request::get('categoryid'),
 			'tag_id' => \dash\request::get('tagid'),
 		];
