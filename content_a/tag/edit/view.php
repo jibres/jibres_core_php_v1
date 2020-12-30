@@ -17,7 +17,7 @@ class view
 		\dash\data::back_text(T_('Tags'));
 		\dash\data::back_link(\dash\url::this());
 
-		\dash\face::btnView(\dash\data::dataRow_url());
+		\dash\face::btnView(\dash\data::dataRow_link());
 		\dash\face::btnSave('form1');
 
 	}

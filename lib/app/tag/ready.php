@@ -20,6 +20,11 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'url':
+					$result[$key] = $value;
+					$result['link'] = \lib\store::url(). '/hashtag/'. $value;
+					break;
+
 
 				case 'count':
 					$result[$key] = floatval($value);
