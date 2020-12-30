@@ -8,25 +8,25 @@
 						<div class="row">
 							<div class="c-xs-12 c-sm-6 c-md-3">
 								<div class="radio3">
-									<input type="radio" name="subtype" value="standard" id="standard" checked>
+									<input type="radio" name="subtype" value="standard" id="standard" <?php if(\dash\request::get('subtype') === 'standard' || !\dash\request::get('subtype') ) {echo 'checked';} ?>>
 									<label for="standard"><?php echo T_("Standard") ?></label>
 								</div>
 							</div>
 							<div class="c-xs-12 c-sm-6 c-md-3">
 								<div class="radio3">
-									<input type="radio" name="subtype" value="gallery" id="gallery">
+									<input type="radio" name="subtype" value="gallery" id="gallery" <?php if(\dash\request::get('subtype') === 'gallery') {echo 'checked';} ?>>
 									<label for="gallery"><?php echo T_("Gallery") ?></label>
 								</div>
 							</div>
 							<div class="c-xs-12 c-sm-6 c-md-3">
 								<div class="radio3">
-									<input type="radio" name="subtype" value="video" id="video">
+									<input type="radio" name="subtype" value="video" id="video" <?php if(\dash\request::get('subtype') === 'video') {echo 'checked';} ?>>
 									<label for="video"><?php echo T_("Video") ?></label>
 								</div>
 							</div>
 							<div class="c-xs-12 c-sm-6 c-md-3">
 								<div class="radio3">
-									<input type="radio" name="subtype" value="audio" id="audio">
+									<input type="radio" name="subtype" value="audio" id="audio" <?php if(\dash\request::get('subtype') === 'audio') {echo 'checked';} ?>>
 									<label for="audio"><?php echo T_("Podcast") ?></label>
 								</div>
 							</div>
