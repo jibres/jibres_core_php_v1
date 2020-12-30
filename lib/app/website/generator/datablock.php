@@ -25,23 +25,12 @@ class datablock
 				// get title line if need to show
 				$html .= \lib\app\website\generator\title::html($_blockSetting, a($_data, 'line_link'));
 
-				$spaceSize    = a($_blockSetting, 'padding');
-				// $spaceSize = 'zero';
-				// $spaceSize = 'normal'; default
-				// $spaceSize = 'high';
-				$spaceSize = 'extra';
+				$spaceSize  = a($_blockSetting, 'padding');
+
 				$radiusSize = a($_blockSetting, 'radius');
-				// $radiusSize = '0';
-				// $radiusSize = '1x'; default
-				// $radiusSize = '2x';
-				$radiusSize = '3x';
-				// $radiusSize = '4x';
-				// $radiusSize = 'circle';
+
 				$effectMode = a($_blockSetting, 'effect');
-				// $effectMode = 'none';
-				$effectMode = 'zoom'; // default
-				// $effectMode = 'darkShadow';
-				// $effectMode = 'whiteShadow';
+
 
 				$html .= '<div class="row"';
 				if($spaceSize)
