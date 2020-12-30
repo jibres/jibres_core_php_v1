@@ -94,35 +94,49 @@
     <?php }// endif ?>
   </div>
 </div>
-<div class="f">
-  <div class="c s12">
-    <div class="pRa5">
-      <div class="cbox fs11 mB10">
-        <h2><?php echo T_("Latest News"); ?></h2>
-        <?php if(is_array(\dash\data::dashboardDetail_latesPost())) {?>
+
+
+<div class="row font-14 mT5">
+  <div class="c-xs-12 c-sm-12 c-md-6">
+    <p class="mB5-f font-14"><?php echo T_("Latest posts") ?></p>
+    <?php if(\dash\data::dashboardDetail_latesPost()) {?>
+      <nav class="items long">
+        <ul>
           <?php foreach (\dash\data::dashboardDetail_latesPost() as $key => $value) {?>
-            <a class="msg f" target="_blank" href="<?php echo a($value, 'link'); ?>">
-              <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; } else { echo T_("Without title");} ?></div>
-              <div class="cauto"><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></div>
-            </a>
-          <?php }//endfor ?>
-        <?php }//endif ?>
-      </div>
-    </div>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::here(); ?>/posts/edit?id=<?php echo $value['id']; ?>">
+                <img src="<?php echo a($value, 'thumb'); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
+                <div class="key"><?php  echo $value['title'];  ?></div>
+                <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+              </a>
+            </li>
+          <?php } //endfor ?>
+        </ul>
+      </nav>
+    <?php } else { ?>
+      <p class="msg"><?php echo T_("No post have been registered yet"); ?></p>
+    <?php } //endif ?>
   </div>
-  <div class="c s12">
-    <div class="pRa5">
-      <div class="cbox fs11 mB10">
-        <h2><?php echo T_("Latest comment"); ?></h2>
-        <?php if(is_array(\dash\data::dashboardDetail_latesComment())) {?>
-          <?php foreach (\dash\data::dashboardDetail_latesComment() as $key => $value) {?>
-            <a class="msg f" href="<?php echo \dash\url::kingdom(); ?>/comment/<?php echo a($value, 'url'); ?>">
-              <div><?php if(isset($value['title']) && $value['title']) { echo $value['title']; } else { echo T_("Without title");} ?></div>
-              <div class="cauto"><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></div>
-            </a>
-          <?php }//endfor ?>
-        <?php }//endif ?>
-      </div>
-    </div>
+
+  <div class="c-xs-12 c-sm-12 c-md-6">
+    <p class="mB5-f font-14"><?php echo T_("Latest comment") ?></p>
+    <?php if(\dash\data::dashboardDetail_latesComment()) {?>
+      <nav class="items long">
+        <ul>
+          <?php foreach (\dash\data::dashboardDetail_latesComment() as $key => $value) { ?>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::here(); ?>/comments/view?cid=<?php echo $value['id']; ?>">
+                <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+                <div class="key"><?php if(isset($value['title']) && $value['title']) { echo $value['title']; }else{ echo mb_substr($value['content'], 0, 20); } ?></div>
+                <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+              </a>
+            </li>
+          <?php } //endfor ?>
+        </ul>
+      </nav>
+    <?php } else { ?>
+      <p class="msg"><?php echo T_("No comment have been registered yet"); ?></p>
+    <?php } //endif ?>
   </div>
+
 </div>
