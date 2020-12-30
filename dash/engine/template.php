@@ -34,9 +34,7 @@ class template
 		}
 
 		$data  = null;
-		$slug  = null;
 		$type  = null;
-		$table = null;
 
 		// load simillary about or about-fa .html
 		if(self::fake_static_page())
@@ -45,73 +43,23 @@ class template
 			return true;
 		}
 
-		// load simillary about or about-fa .html
-		if($data = self::post_subtype())
+
+		if($data = self::find_tag(true))
 		{
-			$type  = $data['type'];
-			$slug  = $data['slug'];
-			$table = 'blog_page';
-			// load /blog /video /podcast /gallery
-		}
-		elseif($data = self::find_tag(true))
-		{
-			// find if 'tag' is the first of url
-			$type  = 'tag';
-			$table = 'terms';
-			if(isset($data['slug']))
-			{
-				$slug = $data['slug'];
-			}
+			$type = 'tag';
 		}
 		elseif($data = \dash\app\posts\find::post())
 		{
-			// find the post by this url
-			$type  = 'post';
-			$table = 'posts';
-			if(isset($data['slug']))
-			{
-				$slug = $data['slug'];
-			}
-
-			if(isset($data['type']))
-			{
-				$type = $data['type'];
-			}
-
-			$not_allow_type_route = ['help'];
-
-			if(in_array($type, $not_allow_type_route))
-			{
-				return false;
-			}
-
+			$type = 'posts';
 		}
 		elseif ($data = self::find_tag())
 		{
-
-			$type  = 'cat';
-			$table = 'terms';
-			$url   = null;
-			$lang  = null;
-
 			if(isset($data['url']))
 			{
-				$url = $data['url'];
+				// redirect /abc if exist in tags to /tag/abc
+				$new_url = \dash\url::kingdom().'/tag/'.$data['url'];
+				\dash\redirect::to($new_url);
 			}
-
-			if(isset($data['type']))
-			{
-				$type = $data['type'];
-			}
-
-			if(isset($data['language']))
-			{
-				$lang = '/'. $data['language'];
-			}
-
-			$new_url = \dash\url::base(). $lang. '/'. $type. '/'. $url;
-
-			\dash\redirect::to($new_url);
 			return;
 
 		}
@@ -121,9 +69,10 @@ class template
 			return true;
 		}
 
-		if($type && $slug && $table)
+
+		if($type)
 		{
-			self::set_display_name($data, $type, $slug, $table);
+			self::set_display_name($data, $type);
 			return true;
 		}
 		else
@@ -134,16 +83,16 @@ class template
 	}
 
 
-	public static function set_display_name($data, $type, $slug, $table)
+	public static function set_display_name($data, $type)
 	{
 		$finded_template = false;
 		$contentAddr = \dash\engine\content::get_addr();
 		$display_addr = null;
 
-		if( is_file($contentAddr. 'template/'.$table.self::$file_ext) )
+		if( is_file($contentAddr. 'template/'.$type.self::$file_ext) )
 		{
-			$display_addr       = $contentAddr. 'template/'.$table.self::$file_ext;
-			self::$display_name = $table.self::$file_ext;
+			$display_addr       = $contentAddr. 'template/'.$type.self::$file_ext;
+			self::$display_name = $type.self::$file_ext;
 		}
 		// elseif default template exist show it else use homepage!
 		elseif( is_file($contentAddr. 'template/default'. self::$file_ext) )
@@ -159,11 +108,6 @@ class template
 		{
 			self::checkLangTemplate();
 			$finded_template = true;
-		}
-
-		if(isset($data['meta']) && is_string($data['meta']) && substr($data['meta'], 0,1) === '{')
-		{
-			$data['meta'] = json_decode($data['meta'], true);
 		}
 
 
@@ -332,45 +276,6 @@ class template
 
 
 
-	public static function post_subtype()
-	{
-		$myUrl = self::get_my_url();
-
-		if(in_array($myUrl, ['blog', 'podcast', 'gallery', 'video']))
-		{
-			switch ($myUrl)
-			{
-				case 'podcast':
-					$type = 'audio';
-					break;
-
-				case 'gallery':
-					$type = 'gallery';
-					break;
-
-				case 'video':
-					$type = 'video';
-					break;
-
-				default:
-				case 'blog':
-					$type = 'standard';
-					break;
-			}
-
-			\dash\data::dataTable(\dash\app\posts\search::blog_page($type));
-
-			$data =
-			[
-				'type' => $myUrl,
-				'slug' => $myUrl,
-			];
-			return $data;
-		}
-
-		return false;
-	}
-
 
 	public static function find_tag($_by_tag_url = false)
 	{
@@ -392,7 +297,6 @@ class template
 		$get_tag =
 		[
 			'url'      => $myUrl,
-			'type'     => 'tag',
 			'limit'    => 1,
 		];
 
@@ -402,6 +306,7 @@ class template
 		}
 
 		$cat_data = \dash\db\terms\get::get_raw($get_tag);
+
 		if($cat_data)
 		{
 			return $cat_data;
