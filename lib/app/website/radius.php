@@ -6,11 +6,13 @@ class radius
 	public static function list()
 	{
 
-		$list             = [];
-		$list["normal"]   = ['title' => T_("Normal"), 'default' => true,];
-		$list["sharp"]    = ['title' => T_("Sharp"), 'default' => true,];
-		$list["circular"] = ['title' => T_("Circular"), 'default' => true,];
-		$list["none"]     = ['title' => T_("None"), 'default' => false,];
+		$list           = [];
+		$list['0']      = ['title' => "0", 'default' => false];
+		$list['1x']     = ['title' => "1x", 'default' => false];
+		$list['2x']     = ['title' => "2x", 'default' => false];
+		$list['3x']     = ['title' => "3x", 'default' => false];
+		$list['4x']     = ['title' => "4x", 'default' => false];
+		$list['circle'] = ['title' => T_("Circle"), 'default' => false];
 
 		return $list;
 
