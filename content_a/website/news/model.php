@@ -24,6 +24,11 @@ class model
 			$post['puzzle'] = \dash\request::post('puzzle');
 		}
 
+		if(\dash\request::post('set_effect'))
+		{
+			$post['effect'] = \dash\request::post('effect');
+		}
+
 
 		if(\dash\request::post('set_avand'))
 		{

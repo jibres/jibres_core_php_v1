@@ -161,6 +161,7 @@ class datablock
 			'avand'             => \lib\app\website\avand::input_check(),
 			'radius'            => \lib\app\website\radius::input_check(),
 			'padding'           => \lib\app\website\padding::input_check(),
+			'effect'            => \lib\app\website\effect::input_check(),
 			'limit'             => 'tinyint',
 
 
