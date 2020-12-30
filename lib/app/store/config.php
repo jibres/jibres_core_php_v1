@@ -60,6 +60,8 @@ class config
 
 		self::add_example_product();
 
+		self::add_example_page();
+
 		\dash\notif::clean();
 	}
 
@@ -304,6 +306,34 @@ class config
 			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
 
 		}
+	}
+
+
+	private static function add_example_page()
+	{
+
+		$args =
+		[
+			'title'          => T_("About"),
+			'slug'           => 'about',
+			'specialaddress' => 'special',
+			'status'         => 'publish',
+			'content'        => T_("Sample about page"),
+		];
+
+		$post_id = \dash\app\posts\add::add($args);
+
+		$args =
+		[
+			'title'          => T_("Contact US"),
+			'slug'           => 'contact',
+			'specialaddress' => 'special',
+			'status'         => 'publish',
+			'content'        => T_("Sample contact page"),
+		];
+
+		$post_id = \dash\app\posts\add::add($args);
+
 	}
 
 }
