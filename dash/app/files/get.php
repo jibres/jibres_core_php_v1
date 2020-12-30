@@ -26,6 +26,16 @@ class get
 	}
 
 
+	public static function dashboard_detail()
+	{
+		$result = [];
+		$result['totalfiles'] = floatval(\dash\db\files::count_all());
+		$result['totalsize'] = floatval(\dash\db\files::total_size());
+
+		return $result;
+	}
+
+
 	public static function inline_get($_id)
 	{
 

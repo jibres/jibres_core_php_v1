@@ -15,6 +15,8 @@ class view
 		\dash\data::back_text(T_('CMS'));
 		\dash\data::back_link(\dash\url::here());
 
+		\dash\face::btnSetting(\dash\url::this(). '/setting');
+
 
 
 		\dash\data::listEngine_start(true);

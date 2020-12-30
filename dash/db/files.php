@@ -19,6 +19,21 @@ class files
 		return $result;
 	}
 
+	public static function count_all()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM files ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function total_size()
+	{
+		$query = "SELECT SUM(files.totalsize) AS `sum` FROM files ";
+		$result = \dash\db::get($query, 'sum', true);
+		return $result;
+	}
+
+
 
 	public static function get_usages_count($_id)
 	{
