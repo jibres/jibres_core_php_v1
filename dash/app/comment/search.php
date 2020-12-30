@@ -23,13 +23,14 @@ class search
 		$condition =
 		[
 			'order'      => 'order',
-			'sort'       => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'for'         => ['enum' => ['page','post','product']],
-			'status'      => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
+			'sort'       => ['enum' => ['id']],
+			'for'        => ['enum' => ['page','post','product']],
+			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
 			'post_id'    => 'code',
 			'product_id' => 'id',
 			'parent'     => 'id',
 			'limit'      => 'int',
+			'pagination' => 'y_n',
 
 		];
 
@@ -48,6 +49,11 @@ class search
 		if($data['limit'])
 		{
 			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
 		}
 
 		if($data['status'])
@@ -102,6 +108,19 @@ class search
 			$list = [];
 		}
 
+		return $list;
+	}
+
+
+	public static function lates_comment()
+	{
+		$args =
+		[
+			'limit'      => 5,
+			'pagination' => 'n',
+		];
+
+		$list = self::list(null, $args);
 		return $list;
 	}
 

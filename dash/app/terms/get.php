@@ -58,20 +58,6 @@ class get
 	}
 
 
-
-	public static function lates_tag()
-	{
-		$args =
-		[
-			'type'       => 'tag',
-			'pagination' => false,
-			'limit'      => 5,
-		];
-
-		return \dash\app\terms\search::list(null, $args);
-	}
-
-
 	public static function cat_list()
 	{
 		$args =
