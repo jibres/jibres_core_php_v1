@@ -69,6 +69,29 @@ class posts
 	}
 
 
+	public static function get_count_special_address()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.specialaddress != 'independence' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function get_count_have_cover()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.cover IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function get_count_published()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status = 'publish' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
 	/**
 	 * insert new recrod in posts table
 	 * @param array $_args fields data

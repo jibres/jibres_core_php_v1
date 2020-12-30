@@ -1,5 +1,40 @@
+<?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
+        <div id="chartdivcrmhome" class="box chart x260 s0" data-abc='crm/homepage'>
+      <div class="hide">
+        <div id="charttitleunit"><?php echo T_("Count") ?></div>
+        <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
+        <div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
+
+        <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
+        <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
+        <div id="chartverify"><?php echo a($dashboardDetail, 'chart', 'verify') ?></div>
+        <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
+      </div>
+    </div>
+
+    <section class="row">
+     <div class="c-xs-0 c-sm-4 c-md-4">
+      <a href="<?php echo \dash\url::this() ?>/posts?specialaddress=customized" class="circularChartBox">
+       <?php $myPercent= a($dashboardDetail, 'specialaddress_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Special Address");?></h3>
+      </a>
+     </div>
+     <div class="c-xs-6 c-sm-4 c-md-4">
+      <a href="<?php echo \dash\url::this() ?>/posts?havecover=y" class="circularChartBox">
+       <?php $myPercent= a($dashboardDetail, 'havecover_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Cover was set");?></h3>
+      </a>
+     </div>
+
+     <div class="c-xs-6 c-sm-4 c-md-4">
+      <a href="<?php echo \dash\url::this() ?>/posts" class="circularChartBox">
+       <?php $myPercent= a($dashboardDetail, 'publish_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+       <h3><?php echo T_("Publish percent");?></h3>
+      </a>
+     </div>
+    </section>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-4">
     <nav class="items long">
