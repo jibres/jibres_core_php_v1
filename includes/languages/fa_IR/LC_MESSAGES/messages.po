@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-30 11:24+0330\n"
-"PO-Revision-Date: 2020-12-30 11:26+0330\n"
+"POT-Creation-Date: 2020-12-30 13:56+0330\n"
+"PO-Revision-Date: 2020-12-30 13:58+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5684,10 +5684,10 @@ msgstr "افزودن فاکتور جدید"
 #: content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:191
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
-#: content_a/sale/display.php:17 content_crm/home/display.php:6
-#: content_crm/member/home/display-old.php:73 content_love/domain/home/display.php:219
-#: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
-#: includes/languages/trans_static_public.php:899
+#: content_a/sale/display.php:17 content_cms/home/display.php:6
+#: content_crm/home/display.php:6 content_crm/member/home/display-old.php:73
+#: content_love/domain/home/display.php:219 content_su/tg/system/display.php:10
+#: content_su/tg/users/display.php:85 includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -8215,7 +8215,7 @@ msgstr "مرتب‌سازی آیتم‌ها"
 
 #: content_a/form/itemLink.php:16 content_a/form/tag/add/view.php:10
 #: content_a/form/tag/edit/view.php:17 content_a/tag/edit/view.php:17
-#: content_cms/home/display.php:75 content_cms/tag/add/view.php:10
+#: content_cms/home/display.php:108 content_cms/tag/add/view.php:10
 #: content_cms/tag/edit/view.php:10 content_cms/tag/home/view.php:8
 #: includes/languages/trans_static_public.php:975
 msgid "Tags"
@@ -11190,9 +11190,9 @@ msgstr "بانک سامان"
 msgid "Sina"
 msgstr "بانک سینا"
 
-#: content_a/setting/pcpos/display.php:24 content_cms/tag/home/display.php:7
-#: includes/languages/trans_static_public.php:518 lib/app/setting/get.php:80
-#: lib/app/store/analytics.php:56
+#: content_a/setting/pcpos/display.php:24 content_cms/home/display.php:7
+#: content_cms/tag/home/display.php:7 includes/languages/trans_static_public.php:518
+#: lib/app/setting/get.php:80 lib/app/store/analytics.php:56
 msgid "Post"
 msgstr "نوشته"
 
@@ -13092,13 +13092,13 @@ msgstr "هر نوشته‌ای"
 msgid "Standard"
 msgstr "استاندارد"
 
-#: content_a/website/news/filter/display.php:23 content_cms/home/display.php:30
+#: content_a/website/news/filter/display.php:23 content_cms/home/display.php:63
 #: content_cms/posts/add/display.php:18 content_cms/posts/setting/display.php:43
 #: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
 
-#: content_a/website/news/filter/display.php:24 content_cms/home/display.php:23
+#: content_a/website/news/filter/display.php:24 content_cms/home/display.php:56
 #: content_cms/posts/add/display.php:24 content_cms/posts/edit/display-gallery.php:41
 #: content_cms/posts/setting/display.php:44 dash/app/files/ready.php:75
 msgid "Video"
@@ -14582,7 +14582,7 @@ msgstr "بارگذاری"
 
 #: content_cms/files/add/view.php:11 content_cms/files/home/view.php:10
 #: content_cms/files/setting/view.php:10 content_cms/files/setting/view.php:12
-#: content_cms/files/view/view.php:11 content_cms/home/display.php:87
+#: content_cms/files/view/view.php:11 content_cms/home/display.php:120
 #: includes/languages/trans_static.php:562 lib/app/store/analytics.php:117
 msgid "Files"
 msgstr "فایل‌ها"
@@ -14646,44 +14646,60 @@ msgstr "حذف فایل"
 msgid "Invalid post type"
 msgstr "نوع نوشته نامعتبر است"
 
-#: content_cms/home/display.php:9
+#: content_cms/home/display.php:8
+msgid "Chart count register post per day in last 1 year"
+msgstr "نمودار تعداد نوشته‌ها به تفکیک روز در یک سال گذشته"
+
+#: content_cms/home/display.php:19 content_cms/posts/seo/display.php:37
+msgid "Special Address"
+msgstr "آدرس اختصاصی"
+
+#: content_cms/home/display.php:25
+msgid "Cover was set"
+msgstr "کاور‌ها تنظیم شده‌اند"
+
+#: content_cms/home/display.php:32
+msgid "Publish percent"
+msgstr "درصد منتشر شده‌ها"
+
+#: content_cms/home/display.php:42
 msgid "All Posts"
 msgstr "همه نوشته‌ها"
 
-#: content_cms/home/display.php:16
+#: content_cms/home/display.php:49
 msgid "Standard post"
 msgstr "نوشته‌های استاندارد"
 
-#: content_cms/home/display.php:37 content_cms/posts/add/display.php:30
+#: content_cms/home/display.php:70 content_cms/posts/add/display.php:30
 #: content_cms/posts/edit/display-gallery.php:7
 msgid "Podcast"
 msgstr "پادکست"
 
-#: content_cms/home/display.php:49 dash/panel.php:187
+#: content_cms/home/display.php:82 dash/panel.php:187
 msgid "All Comments"
 msgstr "همه دیدگاه‌ها"
 
-#: content_cms/home/display.php:56
+#: content_cms/home/display.php:89
 msgid "Awaiting comments"
 msgstr "دیدگاه‌های در انتظار بررسی"
 
-#: content_cms/home/display.php:63
+#: content_cms/home/display.php:96
 msgid "Approved comments"
 msgstr "دیدگاه‌های تایید شده"
 
-#: content_cms/home/display.php:101
+#: content_cms/home/display.php:134
 msgid "Latest posts"
 msgstr "آخرین نوشته‌ها"
 
-#: content_cms/home/display.php:117
+#: content_cms/home/display.php:150
 msgid "No post have been registered yet"
 msgstr "هنوز هیچ نوشته‌ای ثبت نشده است"
 
-#: content_cms/home/display.php:122
+#: content_cms/home/display.php:155
 msgid "Latest comment"
 msgstr "آخرین دیدگاه‌ها"
 
-#: content_cms/home/display.php:138
+#: content_cms/home/display.php:171
 msgid "No comment have been registered yet"
 msgstr "هنوز هیچ دیدگاهی ثبت نشده است"
 
@@ -14867,10 +14883,6 @@ msgstr "بازدید از لینک"
 #: content_cms/posts/redirecturl/view.php:8
 msgid "Edit post redirect"
 msgstr "ویرایش آدرس انتقال مطلب"
-
-#: content_cms/posts/seo/display.php:37
-msgid "Special Address"
-msgstr "آدرس اختصاصی"
 
 #: content_cms/posts/seo/display.php:42
 msgid "Independence"
