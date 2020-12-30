@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-29 21:00+0330\n"
-"PO-Revision-Date: 2020-12-29 21:05+0330\n"
+"POT-Creation-Date: 2020-12-30 08:29+0330\n"
+"PO-Revision-Date: 2020-12-30 08:29+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -12721,8 +12721,8 @@ msgstr "متن آگهی"
 #: content_a/website/header/announcement/display.php:20
 #: content_a/website/imageblock/add/display.php:24
 #: content_a/website/menu/edit/display.php:15
-#: content_a/website/specialslider/add/display.php:24 content_cms/posts/seo/display.php:72
-#: content_cms/posts/seo/display.php:74 content_cms/tag/edit/display.php:9
+#: content_a/website/specialslider/add/display.php:24 content_cms/posts/seo/display.php:71
+#: content_cms/posts/seo/display.php:73 content_cms/tag/edit/display.php:9
 #: content_love/business/analytics/table/display.php:7
 #: content_love/log/home/logTable.php:63 content_love/smslog/view/display.php:16
 #: content_love/store/display.php:20 content_su/apilog/home/display.php:80
@@ -13071,8 +13071,8 @@ msgid "Special tag"
 msgstr "تگ خاص"
 
 #: content_a/website/news/filter/display.php:9
-#: content_a/website/news/filter/display.php:10 content_cms/posts/seo/display.php:97
-#: content_cms/posts/seo/display.php:98
+#: content_a/website/news/filter/display.php:10 content_cms/posts/seo/display.php:95
+#: content_cms/posts/seo/display.php:96
 msgid "Select tag"
 msgstr "انتخاب تگ"
 
@@ -14665,21 +14665,21 @@ msgstr "نوع نوشته‌ را انتخاب کنید"
 msgid "Podcast"
 msgstr "پادکست"
 
-#: content_cms/posts/add/display.php:37 content_cms/posts/edit/display.php:65
+#: content_cms/posts/add/display.php:38 content_cms/posts/edit/display.php:65
 msgid "Enter title here"
 msgstr "عنوان را اینجا وارد کنید"
 
-#: content_cms/posts/add/display.php:39
+#: content_cms/posts/add/display.php:41
 msgid "Write your post ..."
 msgstr "متن خود را بنویسید..."
 
-#: content_cms/posts/add/display.php:40
+#: content_cms/posts/add/display.php:42
 msgid "First type main text and save as draft, then complete and publish it."
 msgstr ""
 "در ابتدا متن اصلی و عنوان را وارد کرده و به‌عنوان پیش‌نویس ذخیره کنید، سپس آن را تکمیل و "
 "منتشر کنید."
 
-#: content_cms/posts/add/display.php:43
+#: content_cms/posts/add/display.php:45
 msgid "Save as draft"
 msgstr "ذخیره پیش نویس"
 
@@ -14856,23 +14856,23 @@ msgstr "زیرمجموعه تگ"
 msgid "Under page"
 msgstr "زیرمجموعه صفحه‌ای دیگر"
 
-#: content_cms/posts/seo/display.php:72
+#: content_cms/posts/seo/display.php:71
 msgid "End part of your news url."
 msgstr "آخرین قسمت آدرس مطلب شما."
 
-#: content_cms/posts/seo/display.php:81
+#: content_cms/posts/seo/display.php:79
 msgid "You can set this page as a subset of another page"
 msgstr "شما می‌توانید این صفحه را به عنوان زیر مجموعه صفحه‌ای دیگر قرار دهید."
 
-#: content_cms/posts/seo/display.php:82
+#: content_cms/posts/seo/display.php:80
 msgid "Only published page can set as page parent"
 msgstr "تنها صفحات منتشر شده امکان تنظیم به عنوان صفحه والد را خواهند داشت"
 
-#: content_cms/posts/seo/display.php:85 content_cms/posts/seo/display.php:86
+#: content_cms/posts/seo/display.php:83 content_cms/posts/seo/display.php:84
 msgid "Choose a post"
 msgstr "یک نوشته‌ را انتخاب کنید"
 
-#: content_cms/posts/seo/display.php:96
+#: content_cms/posts/seo/display.php:94
 msgid "Set post address as sub child of tag"
 msgstr "تنظیم آدرس نوشته به عنوان زیرمجموعه‌ای از یک تگ"
 
@@ -22878,7 +22878,7 @@ msgstr "برای تغییر نوع به ویدئو شما باید یک فایل
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/find.php:123
+#: dash/app/posts/find.php:138
 msgid "Invalid slug of post"
 msgstr "نامک نوشته اشتباه است"
 
@@ -22923,7 +22923,7 @@ msgstr "هیچ تصویری برای مرتب سازی یافت نشد"
 msgid "Please reload page to sort all image in this post gallery"
 msgstr "لطفا برای مرتب سازی همه تصاویر موجود در این نوشته، صفحه را مجددا بارگذاری نمایید"
 
-#: dash/app/posts/ready.php:218
+#: dash/app/posts/ready.php:223
 msgid "will be published on future"
 msgstr "در آینده منتشر خواهد شد"
 
@@ -31234,7 +31234,7 @@ msgstr "نیازمند"
 
 #: includes/languages/trans_static_public.php:869 lib/app/website/info_position.php:12
 msgid "beside"
-msgstr "داخلی"
+msgstr "کنار"
 
 #: includes/languages/trans_static_public.php:871
 msgid "next"
