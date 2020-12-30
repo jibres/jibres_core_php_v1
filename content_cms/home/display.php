@@ -6,28 +6,28 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts">
-            <div class="key"><?php echo T_('Posts');?></div>
+            <div class="key"><?php echo T_('All Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_post()); ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=standard">
-            <div class="key"><?php echo T_('standard post');?></div>
+            <div class="key"><?php echo T_('Standard post');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_standard()); ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=video">
-            <div class="key"><?php echo T_('video post');?></div>
+            <div class="key"><?php echo T_('Video');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_video()); ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=gallery">
-            <div class="key"><?php echo T_('gallery post');?></div>
+            <div class="key"><?php echo T_('Gallery');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_gallery()); ?></div>
             <div class="go"></div>
           </a>
@@ -46,21 +46,21 @@
         <ul>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments">
-              <div class="key"><?php echo T_('Comments');?></div>
+              <div class="key"><?php echo T_('All Comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
               <div class="go"></div>
             </a>
           </li>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
-              <div class="key"><?php echo T_('awaiting comments');?></div>
+              <div class="key"><?php echo T_('Awaiting comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
               <div class="go"></div>
             </a>
           </li>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=approved">
-              <div class="key"><?php echo T_('approved comments');?></div>
+              <div class="key"><?php echo T_('Approved comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_approved()); ?></div>
               <div class="go"></div>
             </a>

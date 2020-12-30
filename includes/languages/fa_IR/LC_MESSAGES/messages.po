@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-30 09:30+0330\n"
-"PO-Revision-Date: 2020-12-30 09:33+0330\n"
+"POT-Creation-Date: 2020-12-30 11:24+0330\n"
+"PO-Revision-Date: 2020-12-30 11:26+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4259,7 +4259,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_account/billing/detail/view.php:12 content_account/billing/invoice/view.php:13
 #: content_cms/comments/edit/view.php:12 content_cms/files/images/view.php:12
 #: content_cms/files/remove/view.php:11 content_cms/posts/add/view.php:10
-#: content_cms/posts/edit/view.php:44 content_cms/posts/gallerysort/view.php:14
+#: content_cms/posts/edit/view.php:40 content_cms/posts/gallerysort/view.php:14
 #: content_cms/posts/publishdate/view.php:10 content_cms/posts/redirecturl/view.php:10
 #: content_cms/posts/seo/view.php:10 content_cms/posts/setting/view.php:11
 #: content_cms/posts/writer/view.php:10 content_cms/tag/remove/view.php:12
@@ -5153,7 +5153,7 @@ msgstr "ظرفیت گالری تکمیل است!"
 #: content_a/form/answer/detail/display.php:118 content_a/form/inquiry/display.php:57
 #: content_a/form/setting/display.php:22 content_a/order/comment/display.php:39
 #: content_a/products/edit/block/gallery.php:15 content_a/setup/logo/display.php:14
-#: content_a/website/header/box/header_logo.php:25 content_cms/files/add/display.php:8
+#: content_a/website/header/box/header_logo.php:25 content_cms/files/add/display.php:7
 #: content_cms/posts/edit/display-gallery.php:16
 #: content_cms/posts/edit/display-gallery.php:50
 #: content_cms/posts/edit/display-gallery.php:91
@@ -5167,7 +5167,7 @@ msgstr "فایل خود را بکشید و اینجا رها کنید یا ان�
 #: content_a/accounting/doc/add/display-list.php:121
 #: content_a/accounting/irvat/add/display.php:422
 #: content_a/products/edit/block/gallery.php:19
-#: content_a/website/header/box/header_logo.php:17 content_cms/files/add/display.php:7
+#: content_a/website/header/box/header_logo.php:17 content_cms/files/add/display.php:8
 #: content_cms/posts/edit/display-gallery.php:95 content_support/ticket/addForm.php:32
 msgid "Maximum file size"
 msgstr "حداکثر اندازه فایل"
@@ -5726,7 +5726,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_a/products/home/view.php:94 content_a/setting/domain/view.php:51
 #: content_a/tag/home/view.php:43 content_business/search/view.php:39
 #: content_cms/comments/home/view.php:47 content_cms/files/home/view.php:43
-#: content_cms/posts/home/view.php:47 content_cms/tag/home/view.php:47
+#: content_cms/posts/home/view.php:48 content_cms/tag/home/view.php:47
 #: content_crm/log/home/view.php:56 content_crm/member/home/view.php:32
 #: content_crm/member/log/view.php:50 content_crm/member/message/view.php:51
 #: content_crm/member/transactions/view.php:38 content_crm/notification/home/view.php:41
@@ -8215,7 +8215,7 @@ msgstr "مرتب‌سازی آیتم‌ها"
 
 #: content_a/form/itemLink.php:16 content_a/form/tag/add/view.php:10
 #: content_a/form/tag/edit/view.php:17 content_a/tag/edit/view.php:17
-#: content_cms/home/display.php:12 content_cms/tag/add/view.php:10
+#: content_cms/home/display.php:75 content_cms/tag/add/view.php:10
 #: content_cms/tag/edit/view.php:10 content_cms/tag/home/view.php:8
 #: includes/languages/trans_static_public.php:975
 msgid "Tags"
@@ -9388,8 +9388,8 @@ msgstr "حذف شده"
 
 #: content_a/products/comment/view.php:30
 #: content_a/products/edit/block/sidebar-menu.php:73 content_cms/comments/home/view.php:9
-#: content_cms/comments/view/view.php:14 content_cms/home/display.php:29
-#: includes/languages/trans_static.php:563 includes/languages/trans_static_public.php:94
+#: content_cms/comments/view/view.php:14 includes/languages/trans_static.php:563
+#: includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
 msgid "Comments"
 msgstr "دیدگاه‌ها"
@@ -12470,8 +12470,7 @@ msgstr "افزودن متن جدید!"
 msgid "Add Text Block"
 msgstr "افزودن بخش متنی"
 
-#: content_a/website/body/add/display.php:93 content_cms/home/display.php:52
-#: dash/social/telegram/commands/news.php:37
+#: content_a/website/body/add/display.php:93 dash/social/telegram/commands/news.php:37
 msgid "Latest News"
 msgstr "آخرین اخبار"
 
@@ -13093,15 +13092,15 @@ msgstr "هر نوشته‌ای"
 msgid "Standard"
 msgstr "استاندارد"
 
-#: content_a/website/news/filter/display.php:23 content_cms/posts/add/display.php:18
-#: content_cms/posts/setting/display.php:43 lib/app/product/filter.php:235
-#: lib/app/product/filter.php:245
+#: content_a/website/news/filter/display.php:23 content_cms/home/display.php:30
+#: content_cms/posts/add/display.php:18 content_cms/posts/setting/display.php:43
+#: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
 
-#: content_a/website/news/filter/display.php:24 content_cms/posts/add/display.php:24
-#: content_cms/posts/edit/display-gallery.php:41 content_cms/posts/setting/display.php:44
-#: dash/app/files/ready.php:75
+#: content_a/website/news/filter/display.php:24 content_cms/home/display.php:23
+#: content_cms/posts/add/display.php:24 content_cms/posts/edit/display-gallery.php:41
+#: content_cms/posts/setting/display.php:44 dash/app/files/ready.php:75
 msgid "Video"
 msgstr "ویدیو"
 
@@ -14583,7 +14582,7 @@ msgstr "بارگذاری"
 
 #: content_cms/files/add/view.php:11 content_cms/files/home/view.php:10
 #: content_cms/files/setting/view.php:10 content_cms/files/setting/view.php:12
-#: content_cms/files/view/view.php:11 content_cms/home/display.php:20
+#: content_cms/files/view/view.php:11 content_cms/home/display.php:87
 #: includes/languages/trans_static.php:562 lib/app/store/analytics.php:117
 msgid "Files"
 msgstr "فایل‌ها"
@@ -14647,34 +14646,50 @@ msgstr "حذف فایل"
 msgid "Invalid post type"
 msgstr "نوع نوشته نامعتبر است"
 
-#: content_cms/home/display.php:5 content_cms/posts/home/view.php:9
-#: includes/languages/trans_static.php:559 includes/languages/trans_static_public.php:90
-#: includes/languages/trans_static_public.php:973
-msgid "Posts"
-msgstr "نوشته‌ها"
+#: content_cms/home/display.php:9
+msgid "All Posts"
+msgstr "همه نوشته‌ها"
 
-#: content_cms/home/display.php:38 content_support/faq/view.php:26
-#: content_support/home/view.php:9 content_support/home/view.php:21
-#: content_support/tag/view.php:24 content_support/ticket/home/view.php:25
-#: dash/plan_list.php:203
-msgid "Help center"
-msgstr "مرکز راهنمایی"
+#: content_cms/home/display.php:16
+msgid "Standard post"
+msgstr "نوشته‌های استاندارد"
 
-#: content_cms/home/display.php:56 content_cms/home/display.php:71
-msgid "Without title"
-msgstr "بدون عنوان"
+#: content_cms/home/display.php:37 content_cms/posts/add/display.php:30
+#: content_cms/posts/edit/display-gallery.php:7
+msgid "Podcast"
+msgstr "پادکست"
 
-#: content_cms/home/display.php:67
+#: content_cms/home/display.php:49 dash/panel.php:187
+msgid "All Comments"
+msgstr "همه دیدگاه‌ها"
+
+#: content_cms/home/display.php:56
+msgid "Awaiting comments"
+msgstr "دیدگاه‌های در انتظار بررسی"
+
+#: content_cms/home/display.php:63
+msgid "Approved comments"
+msgstr "دیدگاه‌های تایید شده"
+
+#: content_cms/home/display.php:101
+msgid "Latest posts"
+msgstr "آخرین نوشته‌ها"
+
+#: content_cms/home/display.php:117
+msgid "No post have been registered yet"
+msgstr "هنوز هیچ نوشته‌ای ثبت نشده است"
+
+#: content_cms/home/display.php:122
 msgid "Latest comment"
 msgstr "آخرین دیدگاه‌ها"
+
+#: content_cms/home/display.php:138
+msgid "No comment have been registered yet"
+msgstr "هنوز هیچ دیدگاهی ثبت نشده است"
 
 #: content_cms/posts/add/display.php:7
 msgid "Choose post type"
 msgstr "نوع نوشته‌ را انتخاب کنید"
-
-#: content_cms/posts/add/display.php:30 content_cms/posts/edit/display-gallery.php:7
-msgid "Podcast"
-msgstr "پادکست"
 
 #: content_cms/posts/add/display.php:38 content_cms/posts/edit/display.php:65
 msgid "Enter title here"
@@ -14777,13 +14792,19 @@ msgstr "سفارشی سازی سئو"
 msgid "Please upload a photo"
 msgstr "لطفا یک تصویر بارگذاری کنید"
 
-#: content_cms/posts/edit/view.php:40 content_cms/posts/edit/view.php:47
+#: content_cms/posts/edit/view.php:36 content_cms/posts/edit/view.php:43
 msgid "Edit post"
 msgstr "ویرایش نوشته"
 
-#: content_cms/posts/edit/view.php:42
+#: content_cms/posts/edit/view.php:38
 msgid "Back to list of posts"
 msgstr "بازگشت به لیست نوشته‌ها"
+
+#: content_cms/posts/home/view.php:9 includes/languages/trans_static.php:559
+#: includes/languages/trans_static_public.php:90
+#: includes/languages/trans_static_public.php:973
+msgid "Posts"
+msgstr "نوشته‌ها"
 
 #: content_cms/posts/home/view.php:20 content_crm/log/home/view.php:73
 #: content_love/log/home/view.php:28 content_love/transactions/view.php:18
@@ -21567,6 +21588,12 @@ msgstr ""
 "به‌سادگی تیکت‌های خود را مدیریت کنید و با مونیتور و رهگیری آن‌ها به بهترین پاسخ برای رفع "
 "مشکل خود برسید"
 
+#: content_support/faq/view.php:26 content_support/home/view.php:9
+#: content_support/home/view.php:21 content_support/tag/view.php:24
+#: content_support/ticket/home/view.php:25 dash/plan_list.php:203
+msgid "Help center"
+msgstr "مرکز راهنمایی"
+
 #: content_support/home/article.php:56
 msgid "Download PDF"
 msgstr "دانلود پی‌دی‌اف"
@@ -23938,10 +23965,6 @@ msgstr "صفحات ثابت"
 #: dash/panel.php:174
 msgid "Help Center Articles"
 msgstr "مقالات مرکز راهنمایی"
-
-#: dash/panel.php:187
-msgid "All Comments"
-msgstr "دیدگاه‌ها"
 
 #: dash/panel.php:198
 msgid "Files Library"
@@ -37268,6 +37291,9 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Without title"
+#~ msgstr "بدون عنوان"
 
 #~ msgid "Sharp"
 #~ msgstr "تیز"
