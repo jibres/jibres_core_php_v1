@@ -20,7 +20,7 @@ class size
 
 	public static function cms_file_size($_pretty = false)
 	{
-		return self::MB(1, $_pretty);
+		return self::MB(2, $_pretty);
 	}
 
 
