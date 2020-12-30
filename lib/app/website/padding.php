@@ -7,11 +7,10 @@ class padding
 	{
 
 		$list           = [];
+		$list["zero"]   = ['title' => T_("Zero"), 'default' => false,];
 		$list["normal"] = ['title' => T_("Normal"), 'default' => true,];
-		$list["low"]    = ['title' => T_("Low"), 'default' => true,];
-		$list["high"]   = ['title' => T_("high"), 'default' => true,];
-		$list["none"]   = ['title' => T_("None"), 'default' => false,];
-
+		$list["high"]   = ['title' => T_("High"), 'default' => false,];
+		$list["extra"]  = ['title' => T_("Extra"), 'default' => false,];
 		return $list;
 
 	}
