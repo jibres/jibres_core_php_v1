@@ -8,7 +8,7 @@ class radius
 
 		$list           = [];
 		$list['0']      = ['title' => "0", 'default' => false];
-		$list['1x']     = ['title' => "1x", 'default' => false];
+		$list['1x']     = ['title' => "1x", 'default' => true];
 		$list['2x']     = ['title' => "2x", 'default' => false];
 		$list['3x']     = ['title' => "3x", 'default' => false];
 		$list['4x']     = ['title' => "4x", 'default' => false];
@@ -16,6 +16,25 @@ class radius
 
 		return $list;
 
+	}
+
+
+	public static function get($_key)
+	{
+		$list = self::list();
+
+		if(!isset($_key) || !array_key_exists($_key, $list))
+		{
+			foreach ($list as $key => $item)
+			{
+				if(isset($item['default']) && $item['default'])
+				{
+					$_key = $key;
+				}
+			}
+		}
+
+		return $_key;
 	}
 
 

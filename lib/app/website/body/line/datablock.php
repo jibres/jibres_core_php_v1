@@ -47,21 +47,26 @@ class datablock
 
 			switch ($key)
 			{
-				case 'avand':
-					if($value === 'none')
-					{
-						if(\dash\url::content() !== 'a')
-						{
-							$value = '';
-						}
-					}
-					elseif(!$value)
-					{
-						$value = 'avand';
-					}
-
-					$result[$key] = $value;
+				case 'info_position':
+					$result[$key] = \lib\app\website\info_position::get($value);
 					break;
+
+				case 'avand':
+					$result[$key] = \lib\app\website\avand::get($value);
+					break;
+
+				case 'radius':
+					$result[$key] = \lib\app\website\radius::get($value);
+					break;
+
+				case 'padding':
+					$result[$key] = \lib\app\website\padding::get($value);
+					break;
+
+				case 'effect':
+					$result[$key] = \lib\app\website\effect::get($value);
+					break;
+
 
 				case 'more_link_caption':
 					if(!$value)
@@ -84,13 +89,6 @@ class datablock
 					$result[$key] = $value;
 					break;
 			}
-		}
-
-
-		if(!isset($result['avand']))
-		{
-			// master default
-			$result['avand'] = 'avand';
 		}
 
 		return $result;

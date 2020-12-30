@@ -194,7 +194,14 @@ class generator
 
 					if(isset($myValue['type']))
 					{
-						$fn = ['\\lib\\app\\website\\body\\line\\'. $myValue['type'], 'ready'];
+						$myType = $myValue['type'];
+
+						if(in_array($myValue['type'], ['news']))
+						{
+							$myType = 'datablock';
+						}
+
+						$fn = ['\\lib\\app\\website\\body\\line\\'. $myType, 'ready'];
 						if(is_callable($fn))
 						{
 							$fn1 = $fn[0];

@@ -16,6 +16,25 @@ class padding
 	}
 
 
+	public static function get($_key)
+	{
+		$list = self::list();
+
+		if(!isset($_key) || !array_key_exists($_key, $list))
+		{
+			foreach ($list as $key => $item)
+			{
+				if(isset($item['default']) && $item['default'])
+				{
+					$_key = $key;
+				}
+			}
+		}
+
+		return $_key;
+	}
+
+
 	public static function input_check()
 	{
 		$list = self::list();
