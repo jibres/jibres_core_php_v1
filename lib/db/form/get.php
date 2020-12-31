@@ -5,6 +5,26 @@ namespace lib\db\form;
 class get
 {
 
+
+	public static function sitemap_list($_from, $_to)
+	{
+		$query  =
+		"
+			SELECT
+				form.id,
+				form.slug,
+				IFNULL(form.datemodified, form.datecreated) AS `datemodified`
+			FROM
+				form
+			WHERE
+				form.status = 'publish' AND
+				form.id >= $_from AND
+				form.id < $_to
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM form WHERE form.id = $_id LIMIT 1";
