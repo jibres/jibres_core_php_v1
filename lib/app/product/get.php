@@ -7,6 +7,18 @@ class get
 	private static $product_prev      = [];
 	private static $product_next      = [];
 
+	public static function sitemap_list($_from, $_to)
+	{
+		$list = \lib\db\products\get::sitemap_list($_from, $_to);
+		if(!is_array($list))
+		{
+			return false;
+		}
+
+		$list = array_map(['\\lib\\app\\product\\ready', 'row_quick'], $list);
+
+		return $list;
+	}
 
 
 	public static function first_sale($_id)

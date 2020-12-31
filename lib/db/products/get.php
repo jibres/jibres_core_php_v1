@@ -12,6 +12,27 @@ class get
 	}
 
 
+	public static function sitemap_list($_from, $_to)
+	{
+		$query  =
+		"
+			SELECT
+				products.id,
+				products.slug,
+				IFNULL(products.datemodified, products.datecreated) AS `datemodified`
+			FROM
+				products
+			WHERE
+				products.status != 'deleted' AND
+				products.parent IS NULL AND
+				products.id >= $_from AND
+				products.id < $_to
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function load_family_group_name($_parent_id, $_index)
 	{
 		$query  =
