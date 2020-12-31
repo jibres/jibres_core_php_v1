@@ -22,7 +22,9 @@ class sitemap
 	public static function create_all()
 	{
 		// self::create_all_products();
-		self::create_all_posts();
+		// self::create_all_posts();
+		self::create_all_tags();
+
 	}
 
 
@@ -174,6 +176,55 @@ class sitemap
 
 		$addr = self::business_addr('posts');
 		$addr .= 'posts-'. $calculate['file_name'];
+
+		$sitemap = new \dash\utility\sitemap_xml($addr);
+
+		foreach ($result as $key => $value)
+		{
+			$sitemap->addItem($value['link'], $value['datemodified'], '0.9');
+		}
+
+		$sitemap->endSitemap();
+
+		return true;
+	}
+
+
+
+
+	public static function create_all_tags()
+	{
+		$result = null;
+		$start  = 1;
+
+		do
+		{
+			$result = self::tags($start);
+			$start  = $start + self::$count;
+		}
+		while ($result);
+	}
+
+
+	public static function tags($_id)
+	{
+
+		$calculate = self::calculate($_id);
+
+		if(!$calculate)
+		{
+			return false;
+		}
+
+		$result = \dash\app\terms\get::sitemap_list($calculate['from'], $calculate['to']);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$addr = self::business_addr('tags');
+		$addr .= 'tags-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
 
