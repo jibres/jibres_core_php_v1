@@ -9,7 +9,7 @@
    <footer class="f">
       <?php if(\dash\data::siteMapFile_base()) {?>
         <div class="cauto">
-          <a class="btn" target="_blank" href="<?php echo \dash\url::base(); ?>/sitemap.xml"><?php echo T_("Base Sitemap"); ?></a>
+          <a class="btn" target="_blank" href="<?php echo \lib\store::url(); ?>/sitemap.xml"><?php echo T_("Base Sitemap"); ?></a>
         </div>
       <?php } //endif ?>
     <div class="c"></div>

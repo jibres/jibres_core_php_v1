@@ -7,8 +7,7 @@ class model
 	{
 		if(\dash\request::post('run') === 'yes')
 		{
-			$result = \dash\utility\sitemap::create();
-			\dash\session::set('result_create_sitemap' , $result);
+			$result = \dash\utility\sitemap::create_all();
 			\dash\notif::ok(T_("Sitemap successfully created"));
 			\dash\redirect::pwd();
 			return;

@@ -29,6 +29,14 @@ class sitemap
 
 	}
 
+	public static function delete()
+	{
+		$path = self::business_addr();
+		\dash\file::delete($path);
+		return true;
+
+	}
+
 
 	/**
 	 * Calcuate file name by record id
