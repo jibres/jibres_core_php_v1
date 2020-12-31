@@ -3,6 +3,26 @@ namespace dash\db\terms;
 
 class get
 {
+	public static function sitemap_list($_from, $_to)
+	{
+		$query  =
+		"
+			SELECT
+				terms.id,
+				terms.url,
+				IFNULL(terms.datemodified, terms.datecreated) AS `datemodified`
+			FROM
+				terms
+			WHERE
+				terms.id >= $_from AND
+				terms.id < $_to
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
 	public static function get_raw()
 	{
 		return \dash\db\config::public_get('terms', ...func_get_args());

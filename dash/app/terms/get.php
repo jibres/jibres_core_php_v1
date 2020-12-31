@@ -4,6 +4,20 @@ namespace dash\app\terms;
 
 class get
 {
+	public static function sitemap_list($_from, $_to)
+	{
+		$list = \dash\db\terms\get::sitemap_list($_from, $_to);
+
+		if(!is_array($list) || !$list)
+		{
+			return null;
+		}
+
+		$list = array_map(['\\dash\\app\\terms\\ready', 'row'], $list);
+
+		return $list;
+	}
+
 	public static function get($_id)
 	{
 		$id = \dash\coding::decode($_id);
