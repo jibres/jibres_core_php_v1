@@ -113,6 +113,8 @@ class sitemap
 	public static function products($_id)
 	{
 
+		$addr = self::business_addr('products');
+
 		$calculate = self::calculate($_id);
 
 		if(!$calculate)
@@ -127,7 +129,6 @@ class sitemap
 			return false;
 		}
 
-		$addr = self::business_addr('products');
 		$addr .= 'products-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
@@ -162,6 +163,8 @@ class sitemap
 	public static function posts($_id)
 	{
 
+		$addr = self::business_addr('posts');
+
 		$calculate = self::calculate($_id);
 
 		if(!$calculate)
@@ -176,7 +179,6 @@ class sitemap
 			return false;
 		}
 
-		$addr = self::business_addr('posts');
 		$addr .= 'posts-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
@@ -211,6 +213,8 @@ class sitemap
 	public static function tags($_id)
 	{
 
+		$addr = self::business_addr('tags');
+
 		$calculate = self::calculate($_id);
 
 		if(!$calculate)
@@ -225,7 +229,6 @@ class sitemap
 			return false;
 		}
 
-		$addr = self::business_addr('tags');
 		$addr .= 'tags-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
@@ -259,6 +262,8 @@ class sitemap
 	public static function hashtag($_id)
 	{
 
+		$addr = self::business_addr('hashtag');
+
 		$calculate = self::calculate($_id);
 
 		if(!$calculate)
@@ -273,7 +278,6 @@ class sitemap
 			return false;
 		}
 
-		$addr = self::business_addr('hashtag');
 		$addr .= 'hashtag-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
@@ -307,6 +311,7 @@ class sitemap
 
 	public static function forms($_id)
 	{
+		$addr = self::business_addr('form');
 
 		$calculate = self::calculate($_id);
 
@@ -322,7 +327,6 @@ class sitemap
 			return false;
 		}
 
-		$addr = self::business_addr('form');
 		$addr .= 'hashtag-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
