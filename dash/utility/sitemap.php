@@ -66,8 +66,103 @@ class sitemap
 	}
 
 
+	private static function get_path($_addr)
+	{
+		$path = str_replace(YARD. 'talambar_cloud/', '', $_addr);
+		$path = \lib\filepath::fix($path);
+		return $path;
+	}
+
+	/**
+	 * Manage master list
+	 *
+	 * @param      <type>  $_type  The type
+	 * @param      <type>  $_id    The identifier
+	 */
+	private static function master_list($_type, $_addr, $_set_result = [])
+	{
+		$master_xml = str_replace(basename($_addr), '', $_addr);
+		$master_xml .= $_type. '.xml';
+
+		if(!is_file($master_xml))
+		{
+			\dash\file::write($master_xml, null);
+		}
+
+		$result = [];
+
+		try
+		{
+			$object = @new \SimpleXMLElement(\dash\file::read($master_xml));
+
+			foreach ($object as $key => $value)
+			{
+				$myValue = (array) $value->loc;
+
+				if(isset($myValue[0]))
+				{
+					$result[] = $myValue[0];
+				}
+			}
+		}
+		catch (\Exception $e)
+		{
+			$result = [];
+		}
+
+		if($_set_result)
+		{
+			$sitemap = new \dash\utility\sitemap_xml($master_xml);
+
+			$sitemap->siteampIndex();
+
+			foreach ($_set_result as $key => $value)
+			{
+				$sitemap->addIndexItem($value);
+			}
+
+			$sitemap->endSitemap();
+
+		}
+
+		return $result;
+	}
+
+
+	private static function remove_from_list($_type, $_addr)
+	{
+		$load = self::master_list($_type, $_addr);
+
+		$path = self::get_path($_addr);
+
+		if(in_array($path, $load))
+		{
+			unset($load[array_search($path, $load)]);
+			self::master_list($_type, $_addr, $load);
+		}
+
+	}
+
+
+	private static function add_to_list($_type, $_addr)
+	{
+		$load = self::master_list($_type, $_addr);
+
+		$path = self::get_path($_addr);
+
+		if(!in_array($path, $load))
+		{
+			$load[] = $path;
+			self::master_list($_type, $_addr, $load);
+		}
+
+	}
+
+
+
 	private static function make($_type, $_id, $_field, $_fn)
 	{
+
 		$calculate = self::calculate($_id);
 
 		if(!$calculate)
@@ -85,10 +180,13 @@ class sitemap
 
 		if(!$result)
 		{
+			self::remove_from_list($_type, $addr);
 			return false;
 		}
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
+
+		$sitemap->startSitemap();
 
 		foreach ($result as $key => $value)
 		{
@@ -96,6 +194,8 @@ class sitemap
 		}
 
 		$sitemap->endSitemap();
+
+		self::add_to_list($_type, $addr);
 
 		return true;
 	}
@@ -172,7 +272,7 @@ class sitemap
 
 	public static function forms($_id)
 	{
-		return self::make('forms', $_id, 'link', '\\lib\\app\\form\\form\\get');
+		return self::make('forms', $_id, 'url', '\\lib\\app\\form\\form\\get');
 	}
 
 }
