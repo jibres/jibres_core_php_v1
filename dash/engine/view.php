@@ -182,10 +182,9 @@ class view
 		}
 
 		// set page cover
-		$meta = \dash\data::dataRow_meta();
-		if(isset($meta['thumb']))
+		if(\dash\data::dataRow_cover())
 		{
-			\dash\face::cover($meta['thumb']);
+			\dash\face::cover(\dash\data::dataRow_cover());
 		}
 
 		// set new title
