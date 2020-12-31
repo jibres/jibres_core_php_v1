@@ -58,7 +58,7 @@ class sitemap
 		[
 			'from'      => $from,
 			'to'        => $to,
-			'file_name' => $from . '-'. $to,
+			'file_name' => $from . '-'. $to. '.xml',
 		];
 
 		return $result;
@@ -68,8 +68,6 @@ class sitemap
 
 	private static function make($_type, $_id, $_field, $_fn)
 	{
-		$addr = self::business_addr($_type);
-
 		$calculate = self::calculate($_id);
 
 		if(!$calculate)
@@ -77,14 +75,18 @@ class sitemap
 			return false;
 		}
 
+		$addr = self::business_addr($_type);
+		$addr .= $_type. '-'. $calculate['file_name'];
+
+		// delete to create again
+		\dash\file::delete($addr);
+
 		$result = $_fn::sitemap_list($calculate['from'], $calculate['to']);
 
 		if(!$result)
 		{
 			return false;
 		}
-
-		$addr .= $_type. '-'. $calculate['file_name'];
 
 		$sitemap = new \dash\utility\sitemap_xml($addr);
 
