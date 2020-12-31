@@ -124,6 +124,13 @@ class sitemap
 			\dash\file::makeDir($addr, null, true);
 		}
 
+		$master_xml = $addr . $_type. '.xml';
+
+		if(!is_file($master_xml))
+		{
+			\dash\file::write($master_xml, null);
+		}
+
 
 		return $addr;
 	}
@@ -143,32 +150,25 @@ class sitemap
 		while ($result);
 	}
 
-
 	public static function products($_id)
 	{
 		return self::make('products', $_id, 'url', '\\lib\\app\\product\\get');
 	}
-
 
 	public static function posts($_id)
 	{
 		return self::make('posts', $_id, 'link', '\\dash\\app\\posts\\get');
 	}
 
-
-
 	public static function tags($_id)
 	{
 		return self::make('tags', $_id, 'link', '\\dash\\app\\terms\\get');
 	}
 
-
-
 	public static function hashtag($_id)
 	{
 		return self::make('hashtag', $_id, 'link', '\\lib\\app\\tag\\get');
 	}
-
 
 	public static function forms($_id)
 	{
