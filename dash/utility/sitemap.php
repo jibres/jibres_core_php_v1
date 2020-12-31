@@ -21,11 +21,11 @@ class sitemap
 	 */
 	public static function create_all()
 	{
-		self::create_all_products();
-		self::create_all_posts();
-		self::create_all_tags();
-		self::create_all_hashtag();
-		self::create_all_forms();
+		self::create_all_item('products');
+		self::create_all_item('posts');
+		self::create_all_item('tags');
+		self::create_all_item('hashtag');
+		self::create_all_item('forms');
 
 	}
 
@@ -66,6 +66,38 @@ class sitemap
 	}
 
 
+	private static function make($_type, $_id, $_field, $_fn)
+	{
+		$addr = self::business_addr($_type);
+
+		$calculate = self::calculate($_id);
+
+		if(!$calculate)
+		{
+			return false;
+		}
+
+		$result = $_fn::sitemap_list($calculate['from'], $calculate['to']);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$addr .= $_type. '-'. $calculate['file_name'];
+
+		$sitemap = new \dash\utility\sitemap_xml($addr);
+
+		foreach ($result as $key => $value)
+		{
+			$sitemap->addItem($value[$_field], $value['datemodified'], '0.9');
+		}
+
+		$sitemap->endSitemap();
+
+		return true;
+	}
+
 	/**
 	 * Get sitemap business addr
 	 *
@@ -96,14 +128,14 @@ class sitemap
 
 
 
-	public static function create_all_products()
+	public static function create_all_item($_type)
 	{
 		$result = null;
 		$start  = 1;
 
 		do
 		{
-			$result = self::products($start);
+			$result = self::$_type($start);
 			$start  = $start + self::$count;
 		}
 		while ($result);
@@ -112,233 +144,33 @@ class sitemap
 
 	public static function products($_id)
 	{
-
-		$addr = self::business_addr('products');
-
-		$calculate = self::calculate($_id);
-
-		if(!$calculate)
-		{
-			return false;
-		}
-
-		$result = \lib\app\product\get::sitemap_list($calculate['from'], $calculate['to']);
-
-		if(!$result)
-		{
-			return false;
-		}
-
-		$addr .= 'products-'. $calculate['file_name'];
-
-		$sitemap = new \dash\utility\sitemap_xml($addr);
-
-		foreach ($result as $key => $value)
-		{
-			$sitemap->addItem($value['url'], $value['datemodified'], '0.9');
-		}
-
-		$sitemap->endSitemap();
-
-		return true;
-	}
-
-
-
-
-	public static function create_all_posts()
-	{
-		$result = null;
-		$start  = 1;
-
-		do
-		{
-			$result = self::posts($start);
-			$start  = $start + self::$count;
-		}
-		while ($result);
+		return self::make('products', $_id, 'url', '\\lib\\app\\product\\get');
 	}
 
 
 	public static function posts($_id)
 	{
-
-		$addr = self::business_addr('posts');
-
-		$calculate = self::calculate($_id);
-
-		if(!$calculate)
-		{
-			return false;
-		}
-
-		$result = \dash\app\posts\get::sitemap_list($calculate['from'], $calculate['to']);
-
-		if(!$result)
-		{
-			return false;
-		}
-
-		$addr .= 'posts-'. $calculate['file_name'];
-
-		$sitemap = new \dash\utility\sitemap_xml($addr);
-
-		foreach ($result as $key => $value)
-		{
-			$sitemap->addItem($value['link'], $value['datemodified'], '0.9');
-		}
-
-		$sitemap->endSitemap();
-
-		return true;
+		return self::make('posts', $_id, 'link', '\\dash\\app\\posts\\get');
 	}
 
-
-
-
-	public static function create_all_tags()
-	{
-		$result = null;
-		$start  = 1;
-
-		do
-		{
-			$result = self::tags($start);
-			$start  = $start + self::$count;
-		}
-		while ($result);
-	}
 
 
 	public static function tags($_id)
 	{
-
-		$addr = self::business_addr('tags');
-
-		$calculate = self::calculate($_id);
-
-		if(!$calculate)
-		{
-			return false;
-		}
-
-		$result = \dash\app\terms\get::sitemap_list($calculate['from'], $calculate['to']);
-
-		if(!$result)
-		{
-			return false;
-		}
-
-		$addr .= 'tags-'. $calculate['file_name'];
-
-		$sitemap = new \dash\utility\sitemap_xml($addr);
-
-		foreach ($result as $key => $value)
-		{
-			$sitemap->addItem($value['link'], $value['datemodified'], '0.9');
-		}
-
-		$sitemap->endSitemap();
-
-		return true;
+		return self::make('tags', $_id, 'link', '\\dash\\app\\terms\\get');
 	}
 
-
-
-	public static function create_all_hashtag()
-	{
-		$result = null;
-		$start  = 1;
-
-		do
-		{
-			$result = self::hashtag($start);
-			$start  = $start + self::$count;
-		}
-		while ($result);
-	}
 
 
 	public static function hashtag($_id)
 	{
-
-		$addr = self::business_addr('hashtag');
-
-		$calculate = self::calculate($_id);
-
-		if(!$calculate)
-		{
-			return false;
-		}
-
-		$result = \lib\app\tag\get::sitemap_list($calculate['from'], $calculate['to']);
-
-		if(!$result)
-		{
-			return false;
-		}
-
-		$addr .= 'hashtag-'. $calculate['file_name'];
-
-		$sitemap = new \dash\utility\sitemap_xml($addr);
-
-		foreach ($result as $key => $value)
-		{
-			$sitemap->addItem($value['link'], $value['datemodified'], '0.9');
-		}
-
-		$sitemap->endSitemap();
-
-		return true;
-	}
-
-
-
-
-	public static function create_all_forms()
-	{
-		$result = null;
-		$start  = 1;
-
-		do
-		{
-			$result = self::forms($start);
-			$start  = $start + self::$count;
-		}
-		while ($result);
+		return self::make('hashtag', $_id, 'link', '\\lib\\app\\tag\\get');
 	}
 
 
 	public static function forms($_id)
 	{
-		$addr = self::business_addr('form');
-
-		$calculate = self::calculate($_id);
-
-		if(!$calculate)
-		{
-			return false;
-		}
-
-		$result = \lib\app\form\form\get::sitemap_list($calculate['from'], $calculate['to']);
-
-		if(!$result)
-		{
-			return false;
-		}
-
-		$addr .= 'hashtag-'. $calculate['file_name'];
-
-		$sitemap = new \dash\utility\sitemap_xml($addr);
-
-		foreach ($result as $key => $value)
-		{
-			$sitemap->addItem($value['url'], $value['datemodified'], '0.9');
-		}
-
-		$sitemap->endSitemap();
-
-		return true;
+		return self::make('forms', $_id, 'link', '\\lib\\app\\form\\form\\get');
 	}
 
 }
