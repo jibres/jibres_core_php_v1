@@ -27,7 +27,6 @@ class sitemap_xml
 	 */
 	private $addr;
 
-	const EXT                = '.xml';
 	const SCHEMA             = 'http://www.sitemaps.org/schemas/sitemap/0.9';
 
 
@@ -94,7 +93,7 @@ class sitemap_xml
 	private function startSitemap()
 	{
 		$this->setWriter(new \XMLWriter());
-		$this->getWriter()->openURI($this->getAddr() . self::EXT);
+		$this->getWriter()->openURI($this->getAddr());
 		$this->getWriter()->startDocument('1.0', 'UTF-8');
 		$this->getWriter()->setIndent(true);
 		$this->getWriter()->startElement('urlset');
