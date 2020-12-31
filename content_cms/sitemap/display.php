@@ -2,11 +2,9 @@
   <div class="box">
    <div class="body">
       <p><?php echo T_("Create sitemap automatically by click on this page"); ?></p>
-
       <?php if(!\dash\data::siteMapFile_sitemap() && !\dash\data::siteMapFile_base()) {?>
        <div class="btn txtC xl success" data-confirm data-data='{"run" : "yes"}'><?php echo T_("Create sitemap now!"); ?> </div>
       <?php } //endif ?>
-
    </div>
    <footer class="f">
       <?php if(\dash\data::siteMapFile_base()) {?>
@@ -18,12 +16,8 @@
     <div class="cauto">
       <div data-confirm data-data='{"run" : "yes"}' class="btn floatRa secondary" ><?php echo T_("Create it Again"); ?></div>
     </div>
-
    </footer>
-
-
   </div>
-
   <?php if(\dash\data::siteMapFile_base()) {?>
   <div class="box">
     <div class="body">
