@@ -21,10 +21,11 @@ class sitemap
 	 */
 	public static function create_all()
 	{
-		// self::create_all_products();
-		// self::create_all_posts();
-		// self::create_all_tags();
+		self::create_all_products();
+		self::create_all_posts();
+		self::create_all_tags();
 		self::create_all_hashtag();
+		self::create_all_forms();
 
 	}
 
@@ -280,6 +281,55 @@ class sitemap
 		foreach ($result as $key => $value)
 		{
 			$sitemap->addItem($value['link'], $value['datemodified'], '0.9');
+		}
+
+		$sitemap->endSitemap();
+
+		return true;
+	}
+
+
+
+
+	public static function create_all_forms()
+	{
+		$result = null;
+		$start  = 1;
+
+		do
+		{
+			$result = self::forms($start);
+			$start  = $start + self::$count;
+		}
+		while ($result);
+	}
+
+
+	public static function forms($_id)
+	{
+
+		$calculate = self::calculate($_id);
+
+		if(!$calculate)
+		{
+			return false;
+		}
+
+		$result = \lib\app\form\form\get::sitemap_list($calculate['from'], $calculate['to']);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$addr = self::business_addr('form');
+		$addr .= 'hashtag-'. $calculate['file_name'];
+
+		$sitemap = new \dash\utility\sitemap_xml($addr);
+
+		foreach ($result as $key => $value)
+		{
+			$sitemap->addItem($value['url'], $value['datemodified'], '0.9');
 		}
 
 		$sitemap->endSitemap();
