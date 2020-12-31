@@ -11,9 +11,18 @@ namespace dash\utility;
  */
 class sitemap
 {
-	public static function create()
+
+	// every file have 100 record
+	private static $count = 100;
+
+
+	/**
+	 * Creates all sitemap
+	 */
+	public static function create_all()
 	{
-		self::create_all_products();
+		// self::create_all_products();
+		self::create_all_posts();
 	}
 
 
@@ -38,8 +47,8 @@ class sitemap
 		// 101 -> 101, 200,
 		// 200 -> 101, 200
 
-		$from = (floor($_id / 100)*100);
-		$to   = $from + 100;
+		$from = (floor($_id / self::$count)*self::$count);
+		$to   = $from + self::$count;
 
 		$result =
 		[
@@ -91,7 +100,7 @@ class sitemap
 		do
 		{
 			$result = self::products($start);
-			$start  = $start + 100;
+			$start  = $start + self::$count;
 		}
 		while ($result);
 	}
@@ -122,6 +131,55 @@ class sitemap
 		foreach ($result as $key => $value)
 		{
 			$sitemap->addItem($value['url'], $value['datemodified'], '0.9');
+		}
+
+		$sitemap->endSitemap();
+
+		return true;
+	}
+
+
+
+
+	public static function create_all_posts()
+	{
+		$result = null;
+		$start  = 1;
+
+		do
+		{
+			$result = self::posts($start);
+			$start  = $start + self::$count;
+		}
+		while ($result);
+	}
+
+
+	public static function posts($_id)
+	{
+
+		$calculate = self::calculate($_id);
+
+		if(!$calculate)
+		{
+			return false;
+		}
+
+		$result = \dash\app\posts\get::sitemap_list($calculate['from'], $calculate['to']);
+
+		if(!$result)
+		{
+			return false;
+		}
+
+		$addr = self::business_addr('posts');
+		$addr .= 'posts-'. $calculate['file_name'];
+
+		$sitemap = new \dash\utility\sitemap_xml($addr);
+
+		foreach ($result as $key => $value)
+		{
+			$sitemap->addItem($value['link'], $value['datemodified'], '0.9');
 		}
 
 		$sitemap->endSitemap();
