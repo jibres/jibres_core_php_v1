@@ -71,6 +71,13 @@ class find
 
 		self::$dataRow = $dataRow;
 
+		if(!\dash\data::dataRow())
+		{
+			\dash\data::dataRow($dataRow);
+		}
+
+		\dash\engine\view::set_cms_titles();
+
 		return $dataRow;
 	}
 
