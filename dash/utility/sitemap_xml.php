@@ -37,7 +37,6 @@ class sitemap_xml
 	public function __construct($_addr)
 	{
 		$this->setAddr($_addr);
-		$this->startSitemap();
 	}
 
 
@@ -90,7 +89,7 @@ class sitemap_xml
 	 * Prepares sitemap XML document
 	 *
 	 */
-	private function startSitemap()
+	public function startSitemap()
 	{
 		$this->setWriter(new \XMLWriter());
 		$this->getWriter()->openURI($this->getAddr());
@@ -99,6 +98,41 @@ class sitemap_xml
 		$this->getWriter()->startElement('urlset');
 		$this->getWriter()->writeAttribute('xmlns', self::SCHEMA);
 	}
+
+
+	/**
+	 * Prepares sitemap XML document
+	 *
+	 */
+	public function siteampIndex()
+	{
+		$this->setWriter(new \XMLWriter());
+		$this->getWriter()->openURI($this->getAddr());
+		$this->getWriter()->startDocument('1.0', 'UTF-8');
+		$this->getWriter()->setIndent(true);
+		$this->getWriter()->startElement('sitemapindex');
+		$this->getWriter()->writeAttribute('xmlns', self::SCHEMA);
+	}
+
+	/**
+	 * Adds an item.
+	 *
+	 * @param      <type>  $_loc           The location
+	 * @param      <type>  $_lastmodified  The lastmodified
+	 * @param      <type>  $_priority      The priority
+	 * @param      <type>  $_changefreq    The changefreq
+	 *
+	 * @return     self    ( description_of_the_return_value )
+	 */
+	public function addIndexItem($_loc)
+	{
+		$this->getWriter()->startElement('sitemap');
+		$this->getWriter()->writeElement('loc', $_loc);
+		$this->getWriter()->endElement();
+		return $this;
+	}
+
+
 
 
 	/**
@@ -135,6 +169,8 @@ class sitemap_xml
 
 		return $this;
 	}
+
+
 
 
 	/**
