@@ -4,6 +4,27 @@ namespace lib\db\producttag;
 
 class get
 {
+
+	public static function sitemap_list($_from, $_to)
+	{
+		$query  =
+		"
+			SELECT
+				producttag.id,
+				producttag.slug,
+				producttag.url,
+				IFNULL(producttag.datemodified, producttag.datecreated) AS `datemodified`
+			FROM
+				producttag
+			WHERE
+				producttag.id >= $_from AND
+				producttag.id < $_to
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function all_tag()
 	{
 

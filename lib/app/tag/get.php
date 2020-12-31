@@ -6,6 +6,19 @@ class get
 {
 
 
+	public static function sitemap_list($_from, $_to)
+	{
+		$list = \lib\db\producttag\get::sitemap_list($_from, $_to);
+		if(!is_array($list))
+		{
+			return false;
+		}
+
+		$list = array_map(['\\lib\\app\\tag\\ready', 'row'], $list);
+
+		return $list;
+	}
+
 
 	public static function load_product_by_tag($_tag)
 	{
