@@ -4,6 +4,19 @@ namespace lib\app\product;
 
 class ready
 {
+	public static function row_quick($_data)
+	{
+		$args =
+		[
+			'load_gallery'     => false,
+			'parent_thumb'     => false,
+			'check_allow_shop' => false,
+			'check_cart_limit' => false,
+		];
+
+		return self::row($_data, $args);
+	}
+
 
 	public static function row($_data, $_option = [])
 	{
