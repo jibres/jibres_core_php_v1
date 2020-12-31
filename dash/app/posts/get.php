@@ -5,6 +5,22 @@ namespace dash\app\posts;
 class get
 {
 
+
+	public static function sitemap_list($_from, $_to)
+	{
+		$list = \dash\db\posts\get::sitemap_list($_from, $_to);
+
+		if(!is_array($list) || !$list)
+		{
+			return null;
+		}
+
+		$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
+
+		return $list;
+	}
+
+
 	public static function load_all_parent($_id)
 	{
 		$id = \dash\coding::decode($_id);

@@ -4,6 +4,31 @@ namespace dash\db\posts;
 
 class get
 {
+
+	public static function sitemap_list($_from, $_to)
+	{
+		$query  =
+		"
+			SELECT
+				posts.id,
+				posts.url,
+				posts.slug,
+				posts.specialaddress,
+				IFNULL(posts.datemodified, posts.datecreated) AS `datemodified`
+			FROM
+				posts
+			WHERE
+				posts.status = 'publish' AND
+				posts.id >= $_from AND
+				posts.id < $_to
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 	public static function check_duplicate_url_in_posts($_url, $_id = null)
 	{
 		$check_id = null;
