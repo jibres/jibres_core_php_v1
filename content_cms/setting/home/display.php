@@ -18,7 +18,7 @@
 </section>
 
 
-<section class="f" data-option='cms-thumb-ratio'>
+<section class="f" data-option='cms-gallery-ratio'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Featured image of gallery post");?></h3>
@@ -38,7 +38,7 @@
 </section>
 
 
-<section class="f" data-option='cms-thumb-ratio'>
+<section class="f" data-option='cms-video-ratio'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Featured image of video post");?></h3>
@@ -57,7 +57,7 @@
   </form>
 </section>
 
-<section class="f" data-option='cms-thumb-ratio'>
+<section class="f" data-option='cms-podcast-ratio'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Featured image of podcast post");?></h3>
@@ -74,4 +74,22 @@
         </select>
       </div>
   </form>
+</section>
+
+
+
+<section class="f" data-option='cms-sitemap'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Sitemap");?></h3>
+      <div class="body">
+        <p><?php echo T_("View sitemap");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a class="btn master" href="<?php echo \dash\url::here(). '/sitemap' ?>"><?php echo T_("View sitemap") ?></a>
+    </div>
+  </div>
 </section>
