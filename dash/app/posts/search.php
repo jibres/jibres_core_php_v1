@@ -28,7 +28,7 @@ class search
 		$condition =
 		[
 			'order'        => 'order',
-			'sort'         => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
+			'sort'         => ['enum' => ['title',]],
 			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'       => ['enum' => ['publish', 'draft', 'deleted']],
 			'user_code'    => 'code',
