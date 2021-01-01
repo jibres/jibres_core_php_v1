@@ -48,8 +48,8 @@ class view
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(false);
-		\dash\data::listEngine_sort(false);
+		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_sort(true);
 
 		$args =
 		[
@@ -57,8 +57,17 @@ class view
 			'sort'    => \dash\request::get('sort'),
 			'status'  => \dash\request::get('status'),
 			'subtype' => $subtype,
-			'cat_id'  => \dash\request::get('categoryid'),
 			'tag_id'  => \dash\request::get('tagid'),
+
+			'pd'      => \dash\request::get('pd'),
+			'g'       => \dash\request::get('g'),
+			'fi'      => \dash\request::get('fi'),
+			'co'      => \dash\request::get('co'),
+			'seo'     => \dash\request::get('seo'),
+			'sa'      => \dash\request::get('sa'),
+			'com'     => \dash\request::get('com'),
+			't'       => \dash\request::get('t'),
+			'r'       => \dash\request::get('r'),
 		];
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));

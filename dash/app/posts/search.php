@@ -30,7 +30,7 @@ class search
 			'order'        => 'order',
 			'sort'         => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
 			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'status'       => ['enum' => ['publish', 'draft', 'removed']],
+			'status'       => ['enum' => ['publish', 'draft', 'deleted']],
 			'user_code'    => 'code',
 			'type'         => ['enum' => ['post', 'page', 'help']],
 			'parent'       => 'string_100',
@@ -40,6 +40,17 @@ class search
 			'tag_id'       => 'code',
 			'website_mode' => 'bit',
 			'pagination'   => 'y_n',
+
+
+			'pd'           => 'bit', // publish date in the future
+			'g'            => 'y_n', // with gallery
+			'fi'           => 'y_n', // feautred image. thumb
+			'co'           => 'y_n', // cover
+			'seo'          => ['enum' => ['full']],
+			'sa'           => ['enum' => ['n', 'y', 'yt', 'yp']], // special address
+			'com'          => 'y_n', // comment
+			't'            => 'y_n', // tag
+			'r'            => 'bit', // redirecturl
 
 		];
 
@@ -84,6 +95,7 @@ class search
 		if($data['status'])
 		{
 			$and[] = " posts.status =  '$data[status]' ";
+			self::$is_filtered = true;
 		}
 		else
 		{
@@ -102,22 +114,119 @@ class search
 			}
 		}
 
-		if($data['cat_id'])
-		{
-			$data['cat_id'] = \dash\coding::decode($data['cat_id']);
 
-			if($data['cat_id'])
-			{
-				$and[]   = " termusages.term_id =  $data[cat_id] ";
-				$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id ";
-			}
-		}
 
 		if($data['website_mode'])
 		{
 			$now = date("Y-m-d H:i:s");
 			$and[] = " posts.publishdate <= '$now' ";
 			$order_sort = " ORDER BY posts.publishdate DESC";
+		}
+
+
+		if($data['t'] === 'y')
+		{
+			$and[]   = " termusages.term_id IS NOT NULL ";
+			$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id ";
+			self::$is_filtered = true;
+		}
+		elseif($data['t'] === 'n')
+		{
+			$and[]   = " termusages.term_id IS NULL ";
+			$meta['join']['join_on_termusages'] = " LEFT JOIN termusages ON termusages.post_id = posts.id ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['pd'])
+		{
+			$now = date("Y-m-d H:i:s");
+			$and[] = " posts.publishdate >= '$now' ";
+			$and[] = " posts.status = 'publish' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['g'] === 'y')
+		{
+			$and[] = " posts.gallery IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['g'] === 'n')
+		{
+			$and[] = " posts.gallery IS NULL ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['fi'] === 'y')
+		{
+			$and[] = " posts.thumb IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['fi'] === 'n')
+		{
+			$and[] = " posts.thumb IS NULL ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['com'] === 'y')
+		{
+			$and[] = " posts.comment = 'open' ";
+			self::$is_filtered = true;
+		}
+		elseif($data['com'] === 'n')
+		{
+			$and[] = " ( posts.comment = 'close' OR posts.comment IS NULL)  ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['co'] === 'y')
+		{
+			$and[] = " posts.cover IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['co'] === 'n')
+		{
+			$and[] = " posts.cover IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['seo'] === 'full')
+		{
+			$and[] = " posts.excerpt IS NOT NULL ";
+			$and[] = " posts.specialaddress != 'independence' ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['r'])
+		{
+			$and[] = " posts.redirecturl IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['sa'] === 'n')
+		{
+			$and[] = " posts.specialaddress = 'independence' ";
+			self::$is_filtered = true;
+		}
+		elseif($data['sa'] === 'y')
+		{
+			$and[] = " posts.specialaddress = 'special' ";
+			self::$is_filtered = true;
+		}
+		elseif($data['sa'] === 'yt')
+		{
+			$and[] = " posts.specialaddress = 'under_tag' ";
+			self::$is_filtered = true;
+		}
+		elseif($data['sa'] === 'yp')
+		{
+			$and[] = " posts.specialaddress = 'under_page' ";
+			self::$is_filtered = true;
 		}
 
 
