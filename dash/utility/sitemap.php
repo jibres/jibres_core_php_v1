@@ -14,6 +14,91 @@ class sitemap
 
 	// every file have 100 record
 	private static $count = 100;
+	private static $master_group =
+	[
+		'products',
+		'posts',
+		'tags',
+		'hashtag',
+		'forms'
+	];
+
+
+	/**
+	 * Generate and echo sitemap file
+	 */
+	public static function sitemap()
+	{
+		if(\dash\engine\store::inStore())
+		{
+			$sitemap = self::business_sitemap();
+		}
+		else
+		{
+			$sitemap = self::jibres_sitemap();
+		}
+
+		\dash\code::jsonBoom($sitemap, null, 'xml');
+	}
+
+
+	/**
+	 * Generate maste sitemap for jibres
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function jibres_sitemap()
+	{
+		$sitemap = '';
+		$sitemap .= '<?xml version="1.0" encoding="UTF-8"?>';
+		$sitemap .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+		$sitemap .= '<sitemap>';
+		$sitemap .= '<loc>http://jibres.local/sitemap/static_page.xml</loc>';
+		$sitemap .= '</sitemap>';
+
+		$sitemap .= '<sitemap>';
+		$sitemap .= '<loc>http://jibres.local/sitemap/posts.xml</loc>';
+		$sitemap .= '</sitemap>';
+
+		$sitemap .= '<sitemap>';
+		$sitemap .= '<loc>http://jibres.local/sitemap/tags.xml</loc>';
+		$sitemap .= '</sitemap>';
+
+		$sitemap .= '</sitemapindex>';
+
+		return $sitemap;
+	}
+
+
+	/**
+	 * Generate maste sitemap for very store
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function business_sitemap()
+	{
+		$addr = \dash\url::cloud(). '/';
+		$addr .= \dash\store_coding::encode_raw(). '/';
+		$addr .= 'sitemap/';
+
+
+		$sitemap = '';
+		$sitemap .= '<?xml version="1.0" encoding="UTF-8"?>';
+		$sitemap .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+		foreach (self::$master_group as $group)
+		{
+			$loc = $addr . $group. '/'. $group. '.xml';
+			$sitemap .= '<sitemap>';
+			$sitemap .= '<loc>'. $loc. '</loc>';
+			$sitemap .= '</sitemap>';
+		}
+
+		$sitemap .= '</sitemapindex>';
+
+		return $sitemap;
+	}
 
 
 	/**
@@ -21,20 +106,23 @@ class sitemap
 	 */
 	public static function create_all()
 	{
-		self::create_all_item('products');
-		self::create_all_item('posts');
-		self::create_all_item('tags');
-		self::create_all_item('hashtag');
-		self::create_all_item('forms');
-
+		foreach (self::$master_group as $group)
+		{
+			self::create_all_item($group);
+		}
 	}
 
+
+	/**
+	 * Deletes all sitemap file.
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function delete()
 	{
 		$path = self::business_addr();
 		\dash\file::delete($path);
 		return true;
-
 	}
 
 
@@ -80,6 +168,7 @@ class sitemap
 		$path = \lib\filepath::fix($path);
 		return $path;
 	}
+
 
 	/**
 	 * Manage master list

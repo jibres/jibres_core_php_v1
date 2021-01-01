@@ -228,8 +228,13 @@ class prepare
 	 */
 	private static function static_files()
 	{
+
 		switch (\dash\url::directory())
 		{
+			case 'sitemap.xml':
+				\dash\utility\sitemap::sitemap();
+				break;
+
 			case 'manifest.webmanifest':
 				\dash\engine\pwa::manifest();
 				break;
