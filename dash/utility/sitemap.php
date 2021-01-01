@@ -68,26 +68,30 @@ class sitemap
 	 */
 	private static function jibres_sitemap()
 	{
+		$loc = \dash\url::dl(). '/';
+		$loc .= 'sitemap';
+
 		$sitemap = '';
 		$sitemap .= '<?xml version="1.0" encoding="UTF-8"?>';
 		$sitemap .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
 		$sitemap .= '<sitemap>';
-		$sitemap .= '<loc>http://jibres.local/sitemap/static_page.xml</loc>';
+		$sitemap .= '<loc>'.$loc.'/pages/pages.xml</loc>';
 		$sitemap .= '</sitemap>';
 
 		$sitemap .= '<sitemap>';
-		$sitemap .= '<loc>http://jibres.local/sitemap/posts.xml</loc>';
+		$sitemap .= '<loc>'.$loc.'/posts/posts.xml</loc>';
 		$sitemap .= '</sitemap>';
 
 		$sitemap .= '<sitemap>';
-		$sitemap .= '<loc>http://jibres.local/sitemap/tags.xml</loc>';
+		$sitemap .= '<loc>'.$loc.'/tags/tags.xml</loc>';
 		$sitemap .= '</sitemap>';
 
 		$sitemap .= '</sitemapindex>';
 
 		return $sitemap;
 	}
+
 
 	/**
 	 * Get the master sitemap url
@@ -363,7 +367,8 @@ class sitemap
 		}
 		else
 		{
-			$addr = root. 'public_html/';
+			$addr = \dash\upload\directory::move_to('jibres');
+			$addr .= 'sitemap/';
 		}
 
 		if($_type)
