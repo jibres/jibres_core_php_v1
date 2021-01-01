@@ -1,76 +1,17 @@
 <div class="avand-md">
   <div class="box">
    <div class="body">
-      <p><?php echo T_("Create sitemap automatically by click on this page"); ?></p>
-      <?php if(!\dash\data::siteMapFile_sitemap() && !\dash\data::siteMapFile_base()) {?>
-       <div class="btn txtC xl success" data-confirm data-data='{"run" : "yes"}'><?php echo T_("Create sitemap now!"); ?> </div>
-      <?php } //endif ?>
+      <div class="txtB"><?php echo T_("What are Sitemaps?"); ?></div>
+      <p>
+        <?php echo T_('Sitemaps are an easy way for webmasters to inform search engines about pages on their sites that are available for crawling. In its simplest form, a Sitemap is an XML file that lists URLs for a site along with additional metadata about each URL (when it was last updated, how often it usually changes, and how important it is, relative to other URLs in the site) so that search engines can more intelligently crawl the site.') ?>
+        <?php echo T_('Web crawlers usually discover pages from links within the site and from other sites. Sitemaps supplement this data to allow crawlers that support Sitemaps to pick up all URLs in the Sitemap and learn about those URLs using the associated metadata. Using the Sitemap protocol does not guarantee that web pages are included in search engines, but provides hints for web crawlers to do a better job of crawling your site.'); ?>
+      </p>
+      <?php echo T_('We automatically builds your sitemap') ?>
+      <p>
+      </p>
    </div>
-   <footer class="f">
-      <?php if(\dash\data::siteMapFile_base()) {?>
-        <div class="cauto">
-          <a class="btn" target="_blank" href="<?php echo \lib\store::url(); ?>/sitemap.xml"><?php echo T_("Base Sitemap"); ?></a>
-        </div>
-      <?php } //endif ?>
-    <div class="c"></div>
-    <div class="cauto">
-      <div data-confirm data-data='{"run" : "yes"}' class="btn floatRa secondary" ><?php echo T_("Create it Again"); ?></div>
-    </div>
-   </footer>
+      <footer class="txtRa">
+        <a class="btn link" target="_blank" href="<?php echo \lib\store::url(); ?>/sitemap.xml"><?php echo T_("View Sitemap"); ?></a>
+      </footer>
   </div>
-  <?php if(\dash\data::siteMapFile_base()) {?>
-  <div class="box">
-    <div class="body">
-      <?php echo T_("Remove all  sitemap files"); ?>
-    </div>
-    <footer class="txtRa">
-      <div class="btn danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove all  sitemap files"); ?></div>
-    </footer>
-  </div>
-  <?php } //endif ?>
-
-
-
-<?php if(\dash\data::sitemapData() && is_array(\dash\data::sitemapData())) {?>
-<div class="f justify-center">
-	<div class="c6 s12">
-		 <div class="cbox">
-
-		   <h3><?php echo T_("Sitemap Result"); ?></h3>
-
-       <?php foreach (\dash\data::sitemapData() as $key => $value) {?>
-
-		   <?php if($value) {?>
-
-		   <div class="msg">
-        <div class="f">
-          <div class="c"><?php echo $key; ?></div>
-          <div class="c">
-            <span class="floatL txtB txtC"><?php echo \dash\fit::number($value); ?> <small><?php echo T_("Item"); ?></small></span>
-          </div>
-        </div>
-        </div>
-        <?php } //endif ?>
-		   <?php } //endfor ?>
-
-         <?php foreach (\dash\data::sitemapData() as $key => $value) {?>
-
-       <?php if(!$value) {?>
-       <div class="badge">
-        <div class="f">
-          <div class="c"><?php echo $key; ?></div>
-          <div class="c mLa10">
-            <span class="floatL txtB txtC"><?php echo \dash\fit::number($value); ?> <small><?php echo T_("Item"); ?></small></span>
-          </div>
-        </div>
-        </div>
-        <?php } //endif ?>
-       <?php } //endfor ?>
-
-
-		 </div>
-	</div>
-</div>
-<?php } //endif ?>
-
 </div>
