@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2020-12-30 13:56+0330\n"
-"PO-Revision-Date: 2020-12-30 13:58+0330\n"
+"POT-Creation-Date: 2021-01-01 12:35+0330\n"
+"PO-Revision-Date: 2021-01-01 12:52+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5177,8 +5177,8 @@ msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:12 content_a/accounting/turnover/display.php:149
-#: lib/app/store/config.php:85 lib/app/store/config.php:120 lib/app/store/config.php:225
-#: lib/app/store/config.php:258 lib/app/store/config.php:291
+#: lib/app/store/config.php:87 lib/app/store/config.php:122 lib/app/store/config.php:227
+#: lib/app/store/config.php:260 lib/app/store/config.php:293
 msgid "Number"
 msgstr "شماره"
 
@@ -5224,8 +5224,7 @@ msgstr "فایل با موفقیت آپلود شد"
 
 #: content_a/accounting/doc/edit/model.php:166
 #: content_a/accounting/irvat/edit/model.php:95 content_a/products/edit/model.php:280
-#: content_cms/posts/edit/model.php:82 dash/utility/sitemap.php:65
-#: lib/app/staticfile/remove.php:37
+#: content_cms/posts/edit/model.php:82 lib/app/staticfile/remove.php:37
 msgid "File removed"
 msgstr "فایل حذف شد"
 
@@ -5726,7 +5725,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_a/products/home/view.php:94 content_a/setting/domain/view.php:51
 #: content_a/tag/home/view.php:43 content_business/search/view.php:39
 #: content_cms/comments/home/view.php:47 content_cms/files/home/view.php:43
-#: content_cms/posts/home/view.php:48 content_cms/tag/home/view.php:47
+#: content_cms/posts/home/view.php:74 content_cms/tag/home/view.php:47
 #: content_crm/log/home/view.php:56 content_crm/member/home/view.php:32
 #: content_crm/member/log/view.php:50 content_crm/member/message/view.php:51
 #: content_crm/member/transactions/view.php:38 content_crm/notification/home/view.php:41
@@ -6757,7 +6756,6 @@ msgstr "محصول"
 
 #: content_a/cart/home/display.php:147 content_a/cart/home/display.php:186
 #: content_a/form/answer/item/display.php:48 content_a/report/products/display.php:21
-#: content_cms/sitemap/display.php:54 content_cms/sitemap/display.php:68
 msgid "Item"
 msgstr "گزینه"
 
@@ -7082,12 +7080,13 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/sms/kavenegar/view.php:11 content_a/setting/social/view.php:8
 #: content_a/setting/staticfile/view.php:8 content_a/setting/telegram/view.php:10
 #: content_a/tag/home/view.php:16 content_a/units/view.php:11
-#: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
-#: content_love/store/display.php:27 content_love/store/display.php:60
-#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
-#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
-#: dash/layout/admin/admin-titlebox.php:27 dash/layout/admin/sidebar/sidebar-a.php:21
-#: dash/layout/pwa/pwa_menu.php:202 lib/app/store/analytics.php:123
+#: content_cms/sitemap/view.php:10 content_love/business/domain/pageStep.php:23
+#: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
+#: content_love/store/display.php:60 content_my/domain/irnic/view.php:16
+#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
+#: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
+#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:202
+#: lib/app/store/analytics.php:123
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -7527,10 +7526,10 @@ msgstr "حذف شرکت سازنده محصول"
 #: lib/app/factor/add.php:105 lib/app/factor/get.php:164 lib/app/product/add.php:78
 #: lib/app/product/company.php:63 lib/app/product/company.php:228
 #: lib/app/product/company.php:260 lib/app/product/company.php:353
-#: lib/app/product/edit.php:104 lib/app/product/get.php:33 lib/app/product/get.php:74
+#: lib/app/product/edit.php:104 lib/app/product/get.php:45 lib/app/product/get.php:86
 #: lib/app/product/unit.php:63 lib/app/product/unit.php:229 lib/app/product/unit.php:261
 #: lib/app/product/unit.php:355 lib/app/store/edit.php:33 lib/app/store/edit.php:78
-#: lib/app/tag/add.php:60 lib/app/tag/edit.php:13 lib/app/tag/get.php:71
+#: lib/app/tag/add.php:60 lib/app/tag/edit.php:13 lib/app/tag/get.php:84
 #: lib/app/tag/search.php:28
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
@@ -8429,8 +8428,8 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 #: dash/app/terms/remove.php:70 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:100
 #: lib/app/form/tag/get.php:107 lib/app/form/tag/get.php:124 lib/app/form/tag/get.php:131
 #: lib/app/form/tag/remove.php:18 lib/app/form/tag/remove.php:39
-#: lib/app/form/tag/remove.php:72 lib/app/tag/edit.php:24 lib/app/tag/get.php:52
-#: lib/app/tag/get.php:59 lib/app/tag/get.php:81 lib/app/tag/get.php:88
+#: lib/app/form/tag/remove.php:72 lib/app/tag/edit.php:24 lib/app/tag/get.php:65
+#: lib/app/tag/get.php:72 lib/app/tag/get.php:94 lib/app/tag/get.php:101
 #: lib/app/tag/remove.php:15 lib/app/tag/remove.php:36 lib/app/tag/remove.php:71
 #: lib/app/tag/search.php:40
 msgid "Invalid tag id"
@@ -10749,7 +10748,7 @@ msgstr "نماد اعتماد"
 #: lib/app/export/download.php:30 lib/app/factor/edit.php:51
 #: lib/app/form/answer/get.php:21 lib/app/form/answer/remove.php:14
 #: lib/app/form/choice/get.php:24 lib/app/form/filter/get.php:24
-#: lib/app/form/form/get.php:30 lib/app/form/item/get.php:23 lib/app/form/item/get.php:177
+#: lib/app/form/form/get.php:44 lib/app/form/item/get.php:23 lib/app/form/item/get.php:177
 #: lib/app/form/item/get.php:211 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
 #: lib/app/nic_contact/get.php:35 lib/app/nic_domain/get.php:310
@@ -10982,7 +10981,7 @@ msgstr "جمع‌آوری داده‌ها."
 
 #: content_a/setting/home/display.php:210 content_cms/comments/home/view.php:11
 #: content_cms/files/home/view.php:15 content_cms/home/view.php:9
-#: content_cms/posts/home/view.php:14 content_cms/setting/home/view.php:9
+#: content_cms/posts/home/view.php:45 content_cms/setting/home/view.php:9
 #: content_cms/tag/home/view.php:16 dash/layout/admin/admin-sidebar-frame.php:17
 #: dash/plan_list.php:103 lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
 #: lib/app/store/analytics.php:56 lib/app/store/analytics.php:57
@@ -13059,7 +13058,7 @@ msgstr "شما می‌توانید نوشته‌های مورد نظر خود ر
 
 #: content_a/website/news/display.php:23 content_a/website/news/display.php:31
 msgid "Setup design"
-msgstr ""
+msgstr "تنظیمات ظاهر"
 
 #: content_a/website/news/display.php:43
 msgid "Remove news line"
@@ -13088,19 +13087,21 @@ msgid "Any post"
 msgstr "هر نوشته‌ای"
 
 #: content_a/website/news/filter/display.php:22 content_cms/posts/add/display.php:12
-#: content_cms/posts/setting/display.php:42
+#: content_cms/posts/home/view.php:15 content_cms/posts/setting/display.php:42
 msgid "Standard"
 msgstr "استاندارد"
 
 #: content_a/website/news/filter/display.php:23 content_cms/home/display.php:63
-#: content_cms/posts/add/display.php:18 content_cms/posts/setting/display.php:43
+#: content_cms/posts/add/display.php:18 content_cms/posts/home/view.php:21
+#: content_cms/posts/home/view.php:33 content_cms/posts/setting/display.php:43
 #: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
 
 #: content_a/website/news/filter/display.php:24 content_cms/home/display.php:56
 #: content_cms/posts/add/display.php:24 content_cms/posts/edit/display-gallery.php:41
-#: content_cms/posts/setting/display.php:44 dash/app/files/ready.php:75
+#: content_cms/posts/home/view.php:27 content_cms/posts/setting/display.php:44
+#: dash/app/files/ready.php:75
 msgid "Video"
 msgstr "ویدیو"
 
@@ -14725,7 +14726,8 @@ msgstr ""
 msgid "Save as draft"
 msgstr "ذخیره پیش نویس"
 
-#: content_cms/posts/add/view.php:8 content_cms/posts/home/view.php:11
+#: content_cms/posts/add/view.php:8 content_cms/posts/home/view.php:16
+#: content_cms/posts/home/view.php:39
 msgid "Add new post"
 msgstr "افزودن نوشته جدید"
 
@@ -14734,6 +14736,8 @@ msgid ""
 "We enable you to upload audio clips and share them with the world. Sharing your talent "
 "is simple!"
 msgstr ""
+"ما به شما امکان می‌دهیم کلیپ‌های صوتی را بارگذاری کرده و آنها را با دنیا به اشتراک "
+"بگذارید. به اشتراک گذاشتن استعداد خود ساده است!"
 
 #: content_cms/posts/edit/display-gallery.php:29
 msgid "Remove audio"
@@ -14741,7 +14745,7 @@ msgstr "حذف صوت"
 
 #: content_cms/posts/edit/display-gallery.php:43
 msgid "Share your video with the world."
-msgstr ""
+msgstr "ویدئوی خود را با دنیا به اشتراک بگذارید."
 
 #: content_cms/posts/edit/display-gallery.php:63
 msgid "Remove video"
@@ -14756,6 +14760,8 @@ msgid ""
 "The Featured Image is a Jibres theme feature that allows theme you to using a "
 "representative image. Featured Image is a primary image for your post."
 msgstr ""
+"تصویر شاخص یکی‌ از ویژگی‌های قالب‌های جیبرس است که به شما این امکان را می‌دهد که از یک "
+"تصویر نماینده استفاده کنید. تصویر شاخص یک تصویر اصلی برای نوشته شماست."
 
 #: content_cms/posts/edit/display-gallery.php:140
 msgid "Featured image"
@@ -14822,15 +14828,17 @@ msgstr "بازگشت به لیست نوشته‌ها"
 msgid "Posts"
 msgstr "نوشته‌ها"
 
-#: content_cms/posts/home/view.php:20 content_crm/log/home/view.php:73
-#: content_love/log/home/view.php:28 content_love/transactions/view.php:18
-#: content_pardakhtyar/customer/home/view.php:20 content_pardakhtyar/log/check/view.php:22
-#: content_pardakhtyar/log/request/view.php:22 content_pardakhtyar/shop/home/view.php:20
-#: content_su/apilog/home/view.php:23 content_su/dbtables/view.php:26
-#: content_su/tg/log/view.php:23 content_su/tg/system/view.php:23
-#: content_su/tg/users/view.php:23
-msgid "Search for :search"
-msgstr "جستجوی :search"
+#: content_cms/posts/home/view.php:22
+msgid "Add new gallery"
+msgstr "افزودن گالری جدید"
+
+#: content_cms/posts/home/view.php:28
+msgid "Add new video"
+msgstr "افزودن ویدئو جدید"
+
+#: content_cms/posts/home/view.php:34
+msgid "Add new podcast"
+msgstr "افزودن پادکست جدید"
 
 #: content_cms/posts/publishdate/display.php:6
 msgid ""
@@ -15066,45 +15074,60 @@ msgstr "تصویر شاخص برای ویدئو‌ها"
 msgid "Featured image of podcast post"
 msgstr "تصویر شاخص برای پادکست‌ها"
 
+#: content_cms/setting/home/display.php:84 content_cms/sitemap/view.php:8
+msgid "Sitemap"
+msgstr "نقشه‌ی سایت"
+
+#: content_cms/setting/home/display.php:91
+msgid "View sitemap"
+msgstr "نمایش نقشه سایت"
+
 #: content_cms/setting/home/view.php:8
 msgid "Set image ratio"
 msgstr "تنظیم نسبت تصویر"
 
 #: content_cms/sitemap/display.php:4
-msgid "Create sitemap automatically by click on this page"
-msgstr "با کلیک در این صفحه نقشه‌ی سایت را بطور خودکار ایجاد کنید"
+msgid "What are Sitemaps?"
+msgstr "نقشه سایت چیست؟"
 
-#: content_cms/sitemap/display.php:8
-msgid "Base Sitemap"
-msgstr "سایت‌مپ اصلی"
+#: content_cms/sitemap/display.php:6
+msgid ""
+"Sitemaps are an easy way for webmasters to inform search engines about pages on their "
+"sites that are available for crawling. In its simplest form, a Sitemap is an XML file "
+"that lists URLs for a site along with additional metadata about each URL (when it was "
+"last updated, how often it usually changes, and how important it is, relative to other "
+"URLs in the site) so that search engines can more intelligently crawl the site."
+msgstr ""
+"نقشه سایت یک راه آسان برای مدیران وب‌سایت‌ها است که می‌توانند صفحات موجود در وب‌سایت خود را "
+"به اطلاع موتورهای جستجو و خزنده‌های وب برسانند. نقشه سایت در ساده ترین حالت یک فایل xml "
+"است که شامل آدرس‌های موجود در وب‌سایت به همراه داده‌های اضافی مانند زمان به‌روزرسانی،‌ میزان "
+"اهمیت و ... می‌باشد."
 
-#: content_cms/sitemap/display.php:13
-msgid "Sitemap Directory"
-msgstr "پوشه فایل‌های نقشه سایت"
+#: content_cms/sitemap/display.php:7
+msgid ""
+"Web crawlers usually discover pages from links within the site and from other sites. "
+"Sitemaps supplement this data to allow crawlers that support Sitemaps to pick up all "
+"URLs in the Sitemap and learn about those URLs using the associated metadata. Using the "
+"Sitemap protocol does not guarantee that web pages are included in search engines, but "
+"provides hints for web crawlers to do a better job of crawling your site."
+msgstr ""
+"موتور‌های جستجو و خزنده‌های وب معمولاً صفحات سایت را از پیوندهای داخل سایت و سایت‌های دیگر "
+"کشف می‌کنند. نقشه‌ سایت این داده‌ها را تکمیل می‌کند و به خزنده‌هایی که نقشه سایت را پشتیبانی "
+"می‌کنند این امکان را می‌دهد تا تمامی پیونده‌های سایت شما را استخراج کنند. با استفاده از "
+"پروتکل نقشه سایت گرچه تضمین نمی‌شود که صفحات وب‌ در موتورهای جستجو گنجانده شوند، اما "
+"امکاناتی را برای موتور‌های جستجو فراهم می‌کند تا سایت شما را بهتر جستجو کنند."
 
-#: content_cms/sitemap/display.php:18
-msgid "Create sitemap now!"
-msgstr "هم‌اکنون نقشه سایت را بسازید!"
+#: content_cms/sitemap/display.php:9
+msgid "We automatically builds your sitemap"
+msgstr "ما نقشه سایت شما رو به صورت خودکار ساخته‌ایم"
 
-#: content_cms/sitemap/display.php:22
-msgid "Create it Again"
-msgstr "دوباره بسازش"
+#: content_cms/sitemap/display.php:14
+msgid "View Sitemap"
+msgstr "نمایش نقشه سایت"
 
-#: content_cms/sitemap/display.php:29 content_cms/sitemap/display.php:31
-msgid "Remove all  sitemap files"
-msgstr "حذف همه‌ فایل‌‌های نقشه سایت"
-
-#: content_cms/sitemap/display.php:44
-msgid "Sitemap Result"
-msgstr "نتیجه ایجاد نقشه سایت"
-
-#: content_cms/sitemap/model.php:12
+#: content_cms/sitemap/model.php:11
 msgid "Sitemap successfully created"
 msgstr "نقشه سایت با موفقیت ایجاد شد"
-
-#: content_cms/sitemap/view.php:8
-msgid "Sitemap"
-msgstr "نقشه‌ی سایت"
 
 #: content_cms/tag/add/model.php:19 lib/app/form/tag/add.php:62
 msgid "Tag added"
@@ -15269,6 +15292,15 @@ msgstr ""
 #: lib/app/store/analytics.php:103
 msgid "Log"
 msgstr "لاگ"
+
+#: content_crm/log/home/view.php:73 content_love/log/home/view.php:28
+#: content_love/transactions/view.php:18 content_pardakhtyar/customer/home/view.php:20
+#: content_pardakhtyar/log/check/view.php:22 content_pardakhtyar/log/request/view.php:22
+#: content_pardakhtyar/shop/home/view.php:20 content_su/apilog/home/view.php:23
+#: content_su/dbtables/view.php:26 content_su/tg/log/view.php:23
+#: content_su/tg/system/view.php:23 content_su/tg/users/view.php:23
+msgid "Search for :search"
+msgstr "جستجوی :search"
 
 #: content_crm/member/add/display.php:11
 msgid "Like 09120123456"
@@ -20152,8 +20184,8 @@ msgstr "این دامنه از لیست دامنه‌های شما حذف شده
 msgid "Domain is Available for buy"
 msgstr "دامنه برای خرید موجود است"
 
-#: content_my/domain/setting/display.php:265 lib/app/product/ready.php:385
-#: lib/app/product/ready.php:396 lib/app/product/ready.php:402
+#: content_my/domain/setting/display.php:265 lib/app/product/ready.php:398
+#: lib/app/product/ready.php:409 lib/app/product/ready.php:415
 msgid "Buy now"
 msgstr "همین الان بخر"
 
@@ -22451,7 +22483,7 @@ msgstr "شناسه محصول اشتباه است"
 msgid "Comment removed"
 msgstr "دیدگاه با موفقیت حذف شد"
 
-#: dash/app/files/get.php:19 dash/app/terms/get.php:19
+#: dash/app/files/get.php:19 dash/app/terms/get.php:33
 msgid "Terms not founded"
 msgstr "عبارت یافت نشد"
 
@@ -22896,7 +22928,7 @@ msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکت�
 msgid "Post id not set"
 msgstr "شناسه مطلب تنظیم نشده است"
 
-#: dash/app/posts/edit.php:25 dash/app/posts/get.php:77 dash/app/posts/get.php:102
+#: dash/app/posts/edit.php:25 dash/app/posts/get.php:93 dash/app/posts/get.php:118
 msgid "Invalid posts id"
 msgstr "شناسه مطلب اشتباه است"
 
@@ -22928,7 +22960,7 @@ msgstr "برای تغییر نوع به ویدئو شما باید یک فایل
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/find.php:138
+#: dash/app/posts/find.php:145
 msgid "Invalid slug of post"
 msgstr "نامک نوشته اشتباه است"
 
@@ -24538,7 +24570,8 @@ msgstr "همگام‌سازی با وب‌سایت"
 
 #: dash/social/telegram/commands/ermile.php:332
 #: dash/social/telegram/commands/ermile.php:528
-#: dash/social/telegram/commands/ermileInline.php:76 lib/app/website/init.php:56
+#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:317
+#: lib/app/website/init.php:56
 msgid "About"
 msgstr "درباره"
 
@@ -25490,10 +25523,6 @@ msgstr "مقدار نامعتبر"
 #: dash/utility/pay/start.php:245
 msgid "Pay whith :bank"
 msgstr "پرداخت با :bank"
-
-#: dash/utility/sitemap.php:105
-msgid "Link created"
-msgstr "لینک ساخته شد"
 
 #: dash/utility/sms.php:47
 msgid "Jibres.ir"
@@ -33476,8 +33505,8 @@ msgstr "فاکتور به‌روزرسانی شد"
 msgid "Can not update your irvat"
 msgstr "نمی‌توانید فاکتور خود را ویرایش کنید"
 
-#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:106 lib/app/product/get.php:48
-#: lib/app/product/get.php:89 lib/app/tax/doc/gallery.php:62
+#: lib/app/irvat/gallery.php:48 lib/app/product/gallery.php:106 lib/app/product/get.php:60
+#: lib/app/product/get.php:101 lib/app/tax/doc/gallery.php:62
 msgid "Product detail not found"
 msgstr "جزئیات محصول یافت نشد"
 
@@ -34592,7 +34621,7 @@ msgstr "تنها فایل تصویری می‌تواند به عنوان تصو�
 msgid "Please reload page to sort all image in this product gallery"
 msgstr "لطفا برای مرتب سازی همه تصاویر موجود در این محصول صفحه را مجددا بارگذاری نمایید"
 
-#: lib/app/product/get.php:40 lib/app/product/get.php:81
+#: lib/app/product/get.php:52 lib/app/product/get.php:93
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
@@ -34658,40 +34687,40 @@ msgstr "خصیصه‌های محصول شما بدون تغییر ذخیره ش�
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
-#: lib/app/product/ready.php:242 lib/app/product/ready.php:251
+#: lib/app/product/ready.php:255 lib/app/product/ready.php:264
 msgid "Tomorrow"
 msgstr "فردا"
 
-#: lib/app/product/ready.php:246
+#: lib/app/product/ready.php:259
 msgid "Today"
 msgstr "امروز"
 
-#: lib/app/product/ready.php:372
+#: lib/app/product/ready.php:385
 msgid "Product is not available for shop"
 msgstr "محصول برای فروش موجود نیست"
 
-#: lib/app/product/ready.php:390
+#: lib/app/product/ready.php:403
 msgid "Temporary out of stock"
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است"
 
-#: lib/app/product/ready.php:411 lib/app/product/ready.php:415
-#: lib/app/product/ready.php:431
+#: lib/app/product/ready.php:424 lib/app/product/ready.php:428
+#: lib/app/product/ready.php:444
 msgid "Product is not available"
 msgstr "محصول موجود نیست"
 
-#: lib/app/product/ready.php:419
+#: lib/app/product/ready.php:432
 msgid "Will be available soon"
 msgstr "به زودی موجود خواهد شد"
 
-#: lib/app/product/ready.php:423
+#: lib/app/product/ready.php:436
 msgid "Product is discountinued"
 msgstr "تولید این محصول متوقف شده است"
 
-#: lib/app/product/ready.php:427
+#: lib/app/product/ready.php:440
 msgid "Product was deleted"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/ready.php:440
+#: lib/app/product/ready.php:453
 msgid "Please choose a variants of this product to buy"
 msgstr "لطفا یکی از انواع این محصول را برای خرید انتخاب کنید"
 
@@ -35296,98 +35325,110 @@ msgstr "آدرس‌ها"
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
-#: lib/app/store/config.php:72
+#: lib/app/store/config.php:74
 msgid "Example product 1"
 msgstr "محصول نمونه ۱"
 
-#: lib/app/store/config.php:75
+#: lib/app/store/config.php:77
 msgid "Description of example product 1"
 msgstr "توضیحاتی در مورد محصول نمونه ۱"
 
-#: lib/app/store/config.php:78 lib/app/store/config.php:113 lib/app/store/config.php:148
-#: lib/app/store/config.php:183 lib/app/store/config.php:218 lib/app/store/config.php:251
-#: lib/app/store/config.php:284
+#: lib/app/store/config.php:80 lib/app/store/config.php:115 lib/app/store/config.php:150
+#: lib/app/store/config.php:185 lib/app/store/config.php:220 lib/app/store/config.php:253
+#: lib/app/store/config.php:286
 msgid "Share this product by this text"
 msgstr "با این متن محصول خود را به اشتراک بگذارید"
 
-#: lib/app/store/config.php:82 lib/app/store/config.php:117 lib/app/store/config.php:152
-#: lib/app/store/config.php:187 lib/app/store/config.php:222 lib/app/store/config.php:255
-#: lib/app/store/config.php:288
+#: lib/app/store/config.php:84 lib/app/store/config.php:119 lib/app/store/config.php:154
+#: lib/app/store/config.php:189 lib/app/store/config.php:224 lib/app/store/config.php:257
+#: lib/app/store/config.php:290
 msgid "Example company"
 msgstr "شرکت سازنده نمونه"
 
-#: lib/app/store/config.php:83 lib/app/store/config.php:118 lib/app/store/config.php:153
-#: lib/app/store/config.php:188 lib/app/store/config.php:223 lib/app/store/config.php:256
-#: lib/app/store/config.php:289
+#: lib/app/store/config.php:85 lib/app/store/config.php:120 lib/app/store/config.php:155
+#: lib/app/store/config.php:190 lib/app/store/config.php:225 lib/app/store/config.php:258
+#: lib/app/store/config.php:291
 msgid "Example tag 1"
 msgstr "تگ نمونه ۱"
 
-#: lib/app/store/config.php:83 lib/app/store/config.php:118 lib/app/store/config.php:153
-#: lib/app/store/config.php:188 lib/app/store/config.php:223 lib/app/store/config.php:256
-#: lib/app/store/config.php:289
+#: lib/app/store/config.php:85 lib/app/store/config.php:120 lib/app/store/config.php:155
+#: lib/app/store/config.php:190 lib/app/store/config.php:225 lib/app/store/config.php:258
+#: lib/app/store/config.php:291
 msgid "Example tag 2"
 msgstr "تگ نمونه ۲"
 
-#: lib/app/store/config.php:84 lib/app/store/config.php:119 lib/app/store/config.php:189
-#: lib/app/store/config.php:224 lib/app/store/config.php:257 lib/app/store/config.php:290
+#: lib/app/store/config.php:86 lib/app/store/config.php:121 lib/app/store/config.php:191
+#: lib/app/store/config.php:226 lib/app/store/config.php:259 lib/app/store/config.php:292
 msgid "Example category 1"
 msgstr "دسته‌بندی نمونه ۱"
 
-#: lib/app/store/config.php:107
+#: lib/app/store/config.php:109
 msgid "Example product 2"
 msgstr "محصول نمونه ۲"
 
-#: lib/app/store/config.php:110
+#: lib/app/store/config.php:112
 msgid "Description of example product 2"
 msgstr "توضیحاتی در مورد محصول نمونه ۲"
 
-#: lib/app/store/config.php:142
+#: lib/app/store/config.php:144
 msgid "Example product 3"
 msgstr "محصول نمونه ۳"
 
-#: lib/app/store/config.php:145
+#: lib/app/store/config.php:147
 msgid "Description of example product 3"
 msgstr "توضیحاتی در مورد محصول نمونه ۳"
 
-#: lib/app/store/config.php:154
+#: lib/app/store/config.php:156
 msgid "Example category 2"
 msgstr "دسته‌بندی نمونه ۲"
 
-#: lib/app/store/config.php:155 lib/app/store/config.php:190
+#: lib/app/store/config.php:157 lib/app/store/config.php:192
 msgid "Box"
 msgstr "جعبه"
 
-#: lib/app/store/config.php:177
+#: lib/app/store/config.php:179
 msgid "Example product 4"
 msgstr "محصول نمونه ۴"
 
-#: lib/app/store/config.php:180
+#: lib/app/store/config.php:182
 msgid "Description of example product 4"
 msgstr "توضیحاتی در مورد محصول نمونه ۴"
 
-#: lib/app/store/config.php:212
+#: lib/app/store/config.php:214
 msgid "Example product 5"
 msgstr "محصول نمونه ۵"
 
-#: lib/app/store/config.php:215
+#: lib/app/store/config.php:217
 msgid "Description of example product 5"
 msgstr "توضیحاتی در مورد محصول نمونه ۵"
 
-#: lib/app/store/config.php:245
+#: lib/app/store/config.php:247
 msgid "Example product 6"
 msgstr "محصول نمونه ۶"
 
-#: lib/app/store/config.php:248
+#: lib/app/store/config.php:250
 msgid "Description of example product 6"
 msgstr "توضیحاتی در مورد محصول نمونه ۶"
 
-#: lib/app/store/config.php:278
+#: lib/app/store/config.php:280
 msgid "Example product 7"
 msgstr "محصول نمونه ۷"
 
-#: lib/app/store/config.php:281
+#: lib/app/store/config.php:283
 msgid "Description of example product 7"
 msgstr "توضیحاتی در مورد محصول نمونه ۷"
+
+#: lib/app/store/config.php:321
+msgid "Sample about page"
+msgstr "نمونه‌ای از صفحه درباره ما"
+
+#: lib/app/store/config.php:328
+msgid "Contact US"
+msgstr "تماس با ما"
+
+#: lib/app/store/config.php:332
+msgid "Sample contact page"
+msgstr "نمونه‌ای از صفحه ارتباط با ما"
 
 #: lib/app/store/edit.php:20
 msgid "No change in business subdomain"
@@ -35993,15 +36034,15 @@ msgstr "ردیف حذف شد"
 
 #: lib/app/website/effect.php:11
 msgid "Zoom"
-msgstr ""
+msgstr "بزرگنمایی"
 
 #: lib/app/website/effect.php:12
 msgid "Dark Shadow"
-msgstr ""
+msgstr "سایه تیره"
 
 #: lib/app/website/effect.php:13
 msgid "White Shadow"
-msgstr ""
+msgstr "سایه سفید"
 
 #: lib/app/website/footer/get.php:43
 msgid "Invalid footer key"
@@ -36326,7 +36367,7 @@ msgstr "عادی"
 
 #: lib/app/website/padding.php:13
 msgid "Extra"
-msgstr ""
+msgstr "خیلی زیاد"
 
 #: lib/app/website/puzzle.php:27
 msgid "1 item in one line"
@@ -37303,6 +37344,27 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Create sitemap automatically by click on this page"
+#~ msgstr "با کلیک در این صفحه نقشه‌ی سایت را بطور خودکار ایجاد کنید"
+
+#~ msgid "Sitemap Directory"
+#~ msgstr "پوشه فایل‌های نقشه سایت"
+
+#~ msgid "Create sitemap now!"
+#~ msgstr "هم‌اکنون نقشه سایت را بسازید!"
+
+#~ msgid "Create it Again"
+#~ msgstr "دوباره بسازش"
+
+#~ msgid "Remove all  sitemap files"
+#~ msgstr "حذف همه‌ فایل‌‌های نقشه سایت"
+
+#~ msgid "Sitemap Result"
+#~ msgstr "نتیجه ایجاد نقشه سایت"
+
+#~ msgid "Link created"
+#~ msgstr "لینک ساخته شد"
 
 #~ msgid "Without title"
 #~ msgstr "بدون عنوان"
@@ -39709,9 +39771,6 @@ msgstr "ساماندهی"
 #~ msgid "Get vision text"
 #~ msgstr "دریافت متن چشم‌انداز"
 
-#~ msgid "Get contact text"
-#~ msgstr "دریافت متن و اطلاعات تماس"
-
 #~ msgid "Get last posts list"
 #~ msgstr "دریافت لیست آخرین نوشته‌ها"
 
@@ -39947,9 +40006,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Publish on website?"
 #~ msgstr "روی وب‌سایت منتشر شود؟"
-
-#~ msgid "Simple image"
-#~ msgstr "تصویر ساده"
 
 #~ msgid "Edit setting of latest news"
 #~ msgstr "ویرایش تنظیمات مربوط به آخرین اخبار"
@@ -40249,9 +40305,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Creating your store"
 #~ msgstr "درحال ساخت فروشگاه شما"
-
-#~ msgid "We can not build your store!"
-#~ msgstr "ما نتوانستیم فروشگاه شما را بسازیم!"
 
 #~ msgid "Build my own store"
 #~ msgstr "فروشگاه من را بساز"
