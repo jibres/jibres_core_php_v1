@@ -158,9 +158,9 @@ class sitemap
 		}
 		else
 		{
+			self::create_jibres_static_page();
 			self::create_all_item('posts');
 			self::create_all_item('tags');
-			// self::create_jibres_static_page();
 
 		}
 	}
@@ -217,7 +217,15 @@ class sitemap
 
 	private static function get_path($_addr)
 	{
-		$path = str_replace(YARD. 'talambar_cloud/', '', $_addr);
+		if(\dash\engine\store::inStore())
+		{
+			$path = str_replace(YARD. 'talambar_cloud/', '', $_addr);
+		}
+		else
+		{
+			$path = str_replace(YARD. 'talambar_dl/', '', $_addr);
+		}
+
 		$path = \lib\filepath::fix($path);
 		return $path;
 	}
@@ -408,6 +416,71 @@ class sitemap
 			$start  = $start + self::$count;
 		}
 		while ($result);
+	}
+
+
+
+	private static function create_jibres_static_page()
+	{
+		$list =
+		[
+			'about',
+			'api',
+			// 'app',
+			// 'billborad',
+			// 'careers',
+			'benefits',
+			'blog',
+			'brand',
+			'bug',
+			'catalog',
+			'certificates',
+			'changelog',
+			'contact',
+			'domains',
+			'domains/pricing',
+			'domains/search',
+			// 'enterprise',
+			// 'free',
+			// 'help',
+			// 'help/faq',
+			'ip',
+			'logo',
+			'mission',
+			// 'press',
+			'pricing',
+			'privacy',
+			'shipping',
+			'shipping/irpost',
+			'socialresponsibility',
+			// 'status',
+			'story',
+			// 'subscribe',
+
+			'team',
+			'terms',
+			'values',
+			'vision',
+			'whois',
+		];
+
+		$addr = self::sitemap_real_path('pages');
+		$addr .= 'pages.xml';
+
+		$sitemap = new \dash\utility\sitemap_xml($addr);
+
+		$sitemap->startSitemap();
+
+		foreach ($list as $key => $value)
+		{
+			$url = \dash\url::site().'/'. $value;
+
+			$sitemap->addItem($url, null, '0.9');
+		}
+
+		$sitemap->endSitemap();
+
+		return true;
 	}
 
 
