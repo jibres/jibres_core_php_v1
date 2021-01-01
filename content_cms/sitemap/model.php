@@ -20,6 +20,18 @@ class model
 			\dash\redirect::pwd();
 
 		}
+
+		if(\dash\request::post('rebuild') === 'rebuild')
+		{
+			\dash\utility\sitemap::delete();
+			\dash\utility\sitemap::create_all();
+			\dash\notif::ok(T_("Sitemap rebuild successfully"));
+			\dash\redirect::pwd();
+			return;
+
+
+		}
+
 	}
 }
 ?>
