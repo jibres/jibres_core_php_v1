@@ -71,6 +71,22 @@ class sitemap
 	}
 
 
+	public static function url()
+	{
+		if(\dash\engine\store::inStore())
+		{
+			$url = \lib\store::url();
+		}
+		else
+		{
+			$url = \dash\url::base();
+		}
+
+		$url .= '/sitemap.xml';
+		return $url;
+	}
+
+
 	/**
 	 * Generate maste sitemap for very store
 	 *
