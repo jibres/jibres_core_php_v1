@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-01 12:35+0330\n"
-"PO-Revision-Date: 2021-01-01 12:52+0330\n"
+"POT-Creation-Date: 2021-01-01 13:29+0330\n"
+"PO-Revision-Date: 2021-01-01 13:31+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -15125,9 +15125,27 @@ msgstr "ما نقشه سایت شما رو به صورت خودکار ساخته
 msgid "View Sitemap"
 msgstr "نمایش نقشه سایت"
 
+#: content_cms/sitemap/display.php:21 content_cms/sitemap/display.php:27
+msgid "Rebuil sitemap"
+msgstr "ساخت مجدد نقشه سایت"
+
+#: content_cms/sitemap/display.php:23
+msgid ""
+"We will automatically update the sitemap with any changes in the posts, products and "
+"tags. However, you can submit a request to rebuild the sitemap.\n"
+" This will delete all the files related to the sitemap and rebuild them"
+msgstr ""
+"ما به صورت خودکار بعد از هر تغییر در محصولات،‌ نوشته‌ها و تگ‌ها نقشه سایت را به‌روزرسانی "
+"می‌کنیم. با این حال شما می‌توانید درخواستی برای ساخت مجدد نقشه سایت داشته باشید. \n"
+" با این درخواست تمامی فایل‌های مرتبط با نقشه سایت حذف شده و مجددا ساخته خواهند شد"
+
 #: content_cms/sitemap/model.php:11
 msgid "Sitemap successfully created"
 msgstr "نقشه سایت با موفقیت ایجاد شد"
+
+#: content_cms/sitemap/model.php:28
+msgid "Sitemap rebuild successfully"
+msgstr "ساخت مجدد نقشه سایت با موفقیت انجام شد"
 
 #: content_cms/tag/add/model.php:19 lib/app/form/tag/add.php:62
 msgid "Tag added"
