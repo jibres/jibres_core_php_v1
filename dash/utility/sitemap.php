@@ -12,8 +12,27 @@ namespace dash\utility;
 class sitemap
 {
 
-	// every file have 100 record
+	/**
+	 * Count lin per file
+	 *
+	 * @var        integer
+	 */
 	private static $count = 100;
+
+
+	/**
+	 * Load list once
+	 *
+	 * @var        array
+	 */
+	private static $load_list = [];
+
+
+	/**
+	 * Master group
+	 *
+	 * @var        array
+	 */
 	private static $master_group =
 	[
 		'products',
@@ -70,7 +89,11 @@ class sitemap
 		return $sitemap;
 	}
 
-
+	/**
+	 * Get the master sitemap url
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function url()
 	{
 		if(\dash\engine\store::inStore())
@@ -88,9 +111,9 @@ class sitemap
 
 
 	/**
-	 * Generate maste sitemap for very store
+	 * Generate master sitemap for every store
 	 *
-	 * @return     string  ( description_of_the_return_value )
+	 * @return     string  The sitempa xml string
 	 */
 	private static function business_sitemap()
 	{
@@ -118,13 +141,23 @@ class sitemap
 
 
 	/**
-	 * Creates all sitemap
+	 * Creates all sitemap group
 	 */
 	public static function create_all()
 	{
-		foreach (self::$master_group as $group)
+		if(\dash\engine\store::inStore())
 		{
-			self::create_all_item($group);
+			foreach (self::$master_group as $group)
+			{
+				self::create_all_item($group);
+			}
+		}
+		else
+		{
+			self::create_all_item('posts');
+			self::create_all_item('tags');
+			// self::create_jibres_static_page();
+
 		}
 	}
 
@@ -136,7 +169,7 @@ class sitemap
 	 */
 	public static function delete()
 	{
-		$path = self::business_addr();
+		$path = self::sitemap_real_path();
 		\dash\file::delete($path);
 		return true;
 	}
@@ -283,7 +316,7 @@ class sitemap
 			return false;
 		}
 
-		$addr = self::business_addr($_type);
+		$addr = self::sitemap_real_path($_type);
 		$addr .= $_type. '-'. $calculate['file_name'];
 
 		// delete to create again
@@ -320,12 +353,18 @@ class sitemap
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function business_addr($_type = null)
+	private static function sitemap_real_path($_type = null)
 	{
-		$addr = \dash\upload\directory::move_to('business');
-
-		$addr .= \dash\store_coding::encode_raw(). '/';
-		$addr .= 'sitemap/';
+		if(\dash\engine\store::inStore())
+		{
+			$addr = \dash\upload\directory::move_to('business');
+			$addr .= \dash\store_coding::encode_raw(). '/';
+			$addr .= 'sitemap/';
+		}
+		else
+		{
+			$addr = root. 'public_html/';
+		}
 
 		if($_type)
 		{
@@ -337,11 +376,14 @@ class sitemap
 			\dash\file::makeDir($addr, null, true);
 		}
 
-		$master_xml = $addr . $_type. '.xml';
-
-		if(!is_file($master_xml))
+		if($_type)
 		{
-			\dash\file::write($master_xml, null);
+			$master_xml = $addr . $_type. '.xml';
+
+			if(!is_file($master_xml))
+			{
+				\dash\file::write($master_xml, null);
+			}
 		}
 
 
@@ -362,6 +404,7 @@ class sitemap
 		}
 		while ($result);
 	}
+
 
 	public static function products($_id)
 	{
