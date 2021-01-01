@@ -8,7 +8,6 @@ class transaction_newPaySuccessfull
 	public static function site($_args = [])
 	{
 
-		// $my_type         = isset($_args['data']['my_type']) ? $_args['data']['my_type'] : null;
 
 		$result              = [];
 
@@ -44,6 +43,13 @@ class transaction_newPaySuccessfull
 		if(isset($_args['data']['my_detail']['title']))
 		{
 			$title = $_args['data']['my_detail']['title'];
+		}
+
+		$my_name         = isset($_args['data']['my_detail']['displayname']) ? $_args['data']['my_detail']['displayname'] : null;
+
+		if($my_name)
+		{
+			$msg .= T_("Customer") . ' '. $my_name. "\n";
 		}
 
 		$msg .= T_(":amount :currency paid. Description :title", ['amount' => $amount, 'currency' => $currency, 'title' => $title]);
