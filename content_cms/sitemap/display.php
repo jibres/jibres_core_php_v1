@@ -11,7 +11,7 @@
       </p>
    </div>
       <footer class="txtRa">
-        <a class="btn link" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><?php echo T_("View Sitemap"); ?></a>
+        <a class="btn master" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><?php echo T_("View Sitemap"); ?></a>
       </footer>
   </div>
 
