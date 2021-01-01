@@ -99,6 +99,16 @@
 
 
 	<div class="c4 s12">
+		<a class="dcard x1" href='<?php echo \dash\url::kingdom(); ?>/cms'>
+			<div class="statistic blue">
+				<div class="value"><i class="sf-atom"></i></div>
+				<div class="label"><?php echo T_("CMS"); ?></div>
+			</div>
+		</a>
+	</div>
+
+
+	<div class="c4 s12">
 		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/log'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-database"></i></div>
