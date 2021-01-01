@@ -160,6 +160,10 @@ class code
 		{
 			@header("Content-Type: text/plain; charset=utf-8");
 		}
+		elseif($_customHeader === 'xml')
+		{
+			@header("Content-Type: text/xml; charset=utf-8");
+		}
 		else
 		{
 			@header("Content-Type: application/json; charset=utf-8");
