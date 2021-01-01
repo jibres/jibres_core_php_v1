@@ -623,12 +623,12 @@ class store
 				{
 
 					$store_domain = $value['domain'];
-					$lang = null;
-					if(\dash\language::current() !== \dash\language::primary())
-					{
-						$lang = '/'. \dash\language::current();
-					}
-					$store_domain = \dash\url::protocol(). '://'. $store_domain .$lang;
+					// $lang = null;
+					// if(\dash\language::current() !== \dash\language::primary())
+					// {
+					// 	$lang = '/'. \dash\language::current();
+					// }
+					$store_domain = \dash\url::protocol(). '://'. $store_domain; // .$lang;
 				}
 			}
 
