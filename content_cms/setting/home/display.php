@@ -83,7 +83,6 @@
     <div class="data">
       <h3><?php echo T_("Sitemap");?></h3>
       <div class="body">
-        <p><?php echo T_("View sitemap");?></p>
       </div>
     </div>
   </div>
