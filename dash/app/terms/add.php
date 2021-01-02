@@ -12,7 +12,7 @@ class add
 
 			$value['multiple_insert'] = true;
 
-			$id = self::add($value);
+			$id = self::add($value, true);
 
 			if($id && !\dash\engine\process::status())
 			{
@@ -32,11 +32,21 @@ class add
 
 		}
 
+		if(min($ids) == max($ids))
+		{
+			\dash\utility\sitemap::tags(max($ids));
+		}
+		else
+		{
+			\dash\utility\sitemap::tags(min($ids));
+			\dash\utility\sitemap::tags(max($ids));
+		}
+
 		return $ids;
 	}
 
 
-	public static function add($_args)
+	public static function add($_args, $_multiple = false)
 	{
 
 		\dash\permission::access('cmsManagePost');
@@ -60,6 +70,12 @@ class add
 		}
 
 		$return['id'] = \dash\coding::encode($term_id);
+
+
+		if(!$_multiple)
+		{
+			\dash\utility\sitemap::tags($term_id);
+		}
 
 		return $return;
 	}

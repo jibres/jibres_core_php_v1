@@ -80,6 +80,8 @@ class remove
 
 		\dash\db\terms\delete::record(\dash\coding::decode($_id));
 
+		\dash\utility\sitemap::tags(\dash\coding::decode($_id));
+
 		\dash\notif::ok(T_("Tag successfully removed"));
 
 		return true;

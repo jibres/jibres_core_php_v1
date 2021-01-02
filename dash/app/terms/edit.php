@@ -31,6 +31,8 @@ class edit
 		{
 			\dash\db\terms\update::update($args, $id);
 
+			\dash\utility\sitemap::tags($id);
+
 			\dash\notif::ok(T_("Category successfully updated"));
 		}
 		else
