@@ -88,6 +88,8 @@ class edit
 
 			\dash\db\posts::update($args, $id);
 
+			self::check_update_sitemap($load_posts, $args);
+
 			if(\dash\engine\process::status())
 			{
 
@@ -146,6 +148,42 @@ class edit
 
 		return true;
 
+	}
+
+
+	private static function check_update_sitemap($_data, $_args)
+	{
+		$post_id = a($_data, 'id');
+		$post_id = \dash\coding::decode($post_id);
+
+		$need_update = false;
+
+		if(!$post_id)
+		{
+			return false;
+		}
+
+
+		$need_check = ['title', 'content', 'slug', 'seotitle', 'excerpt', 'specialaddress', 'url', 'status'];
+
+		foreach ($_data as $key => $value)
+		{
+			if(in_array($key, $need_check))
+			{
+				if(isset($_args[$key]))
+				{
+					if(!\dash\validate::is_equal($value, $_args[$key]))
+					{
+						$need_update = true;
+					}
+				}
+			}
+		}
+
+		if($need_update)
+		{
+			\dash\utility\sitemap::posts($post_id);
+		}
 	}
 
 
