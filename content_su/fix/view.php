@@ -11,6 +11,23 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+		$xml = root. 'public_html/sitemap.xml';
+		if(is_file($xml))
+		{
+			\dash\file::delete($xml);
+			var_dump('xml deleted');
+			exit();
+		}
+
+		$xml = root. 'public_html/sitemap/';
+		if(is_dir($xml))
+		{
+			\dash\file::delete($xml);
+			var_dump('xml deleted');
+			exit();
+		}
+
+
 		// self::check_file();
 
 	}
