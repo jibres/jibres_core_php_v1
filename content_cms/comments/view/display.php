@@ -53,9 +53,9 @@ $dataRow = \dash\data::dataRow();
 <nav class="items long">
   <ul>
     <li>
-      <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/products/edit?id='. a($dataRow, 'post_id'); ?>">
-        <img src="<?php echo a($dataRow, 'product_thumb') ?>">
-        <div class="key"><?php echo a($dataRow, 'product_title');?></div>
+      <a class="item f" href="<?php echo \dash\url::here(). '/posts/edit?id='. a($dataRow, 'post_id'); ?>">
+        <img src="<?php echo a($dataRow, 'post_thumb') ?>">
+        <div class="key"><?php echo a($dataRow, 'post_title');?></div>
         <div class="go"></div>
       </a>
     </li>

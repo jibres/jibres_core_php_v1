@@ -86,11 +86,14 @@ class get
 				users.mobile AS `user_mobile`,
 				users.avatar AS `avatar`,
 				products.title AS `product_title`,
-				products.thumb AS `product_thumb`
+				products.thumb AS `product_thumb`,
+				posts.title AS `post_title`,
+				posts.thumb AS `post_thumb`
 			FROM
 				comments
 			LEFT JOIN users ON users.id = comments.user_id
 			LEFT JOIN products ON products.id = comments.product_id
+			LEFT JOIN posts ON posts.id = comments.post_id
 			WHERE
 				comments.id = $_id
 			LIMIT 1

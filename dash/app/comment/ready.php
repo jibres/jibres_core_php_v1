@@ -42,6 +42,7 @@ class ready
 					break;
 
 				case 'product_thumb':
+				case 'post_thumb':
 					if($value)
 					{
 						$result[$key] = \lib\filepath::fix($value);
