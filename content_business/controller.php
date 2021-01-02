@@ -16,11 +16,7 @@ class controller
 				\dash\header::status(404, T_("Store not found"));
 			}
 
-			$nosale = \lib\store::detail('nosale');
-			if($nosale)
-			{
-				\dash\data::nosale(true);
-			}
+			\lib\store::check_master_business_config();
 		}
 
 		// redirect factor short address to full address

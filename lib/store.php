@@ -25,6 +25,20 @@ class store
 		}
 	}
 
+	/**
+	 * Set master config for load store
+	 * use in content_business and content_n
+	 *
+	 */
+	public static function check_master_business_config()
+	{
+		$nosale = \lib\store::detail('nosale');
+		if($nosale)
+		{
+			\dash\data::nosale(true);
+		}
+	}
+
 
 	public static function clean_session($_slug)
 	{
