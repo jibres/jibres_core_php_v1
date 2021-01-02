@@ -61,8 +61,8 @@ $meta = \dash\data::dataRow_meta();
   {
   ?>
   <div class='msg simple f mT20'>
-    <div class="c"><time datetime="<?php echo \dash\data::dataRow_datemodified(); ?>"><?php echo \dash\fit::date_time(\dash\data::dataRow_publishdate()); ?></time></div>
-    <div class="cauto os"><a href="<?php echo \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("News Code"); ?> <span class="txtB"><?php echo \dash\data::dataRow_id(); ?></span></a></div>
+    <div class="c"><time class="ltr compact" datetime="<?php echo \dash\data::dataRow_datemodified(); ?>"><?php echo \dash\fit::date_time(\dash\data::dataRow_publishdate()); ?></time></div>
+    <div class="cauto os"><a data-copy='<?php echo \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(); ?>' href="<?php echo \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(); ?>" title='<?php echo T_("For share via social networks"); ?>'><?php echo T_("Short Code"); ?> <span class="txtB"><?php echo \dash\data::dataRow_id(); ?></span></a></div>
   </div>
 
   <?php
