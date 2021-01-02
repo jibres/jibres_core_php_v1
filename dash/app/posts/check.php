@@ -96,6 +96,7 @@ class check
 			$data['slug']   = null;
 			$data['url']    = null;
 			$data['parent'] = null;
+			$data['tagurl'] = null;
 		}
 		elseif($data['specialaddress'] === 'special')
 		{
