@@ -12,7 +12,6 @@ class get
 			SELECT
 				producttag.id,
 				producttag.slug,
-				producttag.url,
 				IFNULL(producttag.datemodified, producttag.datecreated) AS `datemodified`
 			FROM
 				producttag

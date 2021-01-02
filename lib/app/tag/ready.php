@@ -20,7 +20,7 @@ class ready
 					$result[$key] = $value;
 					break;
 
-				case 'url':
+				case 'slug':
 					$result[$key] = $value;
 					$result['link'] = \lib\store::url(). '/hashtag/'. $value;
 					break;

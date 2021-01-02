@@ -88,6 +88,8 @@ class add
 
 		\dash\notif::ok(T_("Tag successfully added"));
 
+		// create sitemap
+		\dash\utility\sitemap::hashtag($id);
 
 		$result       = [];
 		$result['id'] = $id;
@@ -234,14 +236,18 @@ class add
 					'status'   => 'enable',
 					'title'    => $value,
 					'slug'     => $slug,
-					'url'      => $slug,
 					'creator'  => \dash\user::id(),
 					// 'language' => \dash\language::current(),
 				];
 			}
 			$have_term_to_save_log = true;
+
 			$first_id    = \lib\db\producttag\insert::multi_insert($multi_insert_tag);
 			$all_tags_id = array_merge($all_tags_id, \dash\db\config::multi_insert_id($multi_insert_tag, $first_id));
+
+			// create sitemap
+			\dash\utility\sitemap::hashtag(min($all_tags_id));
+			\dash\utility\sitemap::hashtag(max($all_tags_id));
 		}
 
 		$category_id = $all_tags_id;
