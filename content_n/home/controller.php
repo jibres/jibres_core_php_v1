@@ -15,12 +15,11 @@ class controller
 		}
 
 		$load = \dash\app\posts\find::post();
+
 		if(!$load)
 		{
 			\dash\header::status(404, T_("Post not found"));
 		}
-
-		\dash\data::dataRow($load);
 
 		\dash\open::get();
 

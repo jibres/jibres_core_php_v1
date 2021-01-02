@@ -263,7 +263,7 @@ class mvc
 			}
 
 			// combine two type of set title into one
-			if(\dash\url::content() === null)
+			if(\dash\url::content() === null || \dash\url::content() === 'n')
 			{
 				// maybe dataRow is full
 				if(!\dash\data::dataRow())
