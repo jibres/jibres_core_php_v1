@@ -3,8 +3,14 @@ namespace dash\db\terms;
 
 class get
 {
-	public static function sitemap_list($_from, $_to)
+	public static function sitemap_list($_from, $_to, $_lang = null)
 	{
+		$lang = null;
+		if($_lang)
+		{
+			$lang = " AND terms.language = '$_lang' ";
+		}
+
 		$query  =
 		"
 			SELECT
@@ -16,6 +22,7 @@ class get
 			WHERE
 				terms.id >= $_from AND
 				terms.id < $_to
+				$lang
 		";
 
 		$result = \dash\db::get($query);
