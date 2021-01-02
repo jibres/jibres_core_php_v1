@@ -69,6 +69,17 @@ class search
 		}
 
 
+		if($data['post_id'])
+		{
+			$data['post_id'] = \dash\coding::decode($data['post_id']);
+			if($data['post_id'])
+			{
+				$and[] = " comments.post_id =  '$data[post_id]' ";
+				self::$is_filtered = true;
+			}
+		}
+
+
 		if($data['parent'])
 		{
 			$and[] = " comments.parent =  '$data[parent]' ";
@@ -131,6 +142,19 @@ class search
 		$args =
 		[
 			'product_id' => $_id,
+			'status' => 'approved',
+		];
+
+		$list = self::list(null, $args, true);
+		return $list;
+	}
+
+
+	public static function by_post($_id)
+	{
+		$args =
+		[
+			'post_id' => $_id,
 			'status' => 'approved',
 		];
 

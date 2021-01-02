@@ -72,6 +72,25 @@ class get
 
 	}
 
+	public static function post_customer_review($_post_id)
+	{
+		$post_id = \dash\validate::code($_post_id);
+		$post_id = \dash\coding::decode($post_id);
+		if(!$post_id)
+		{
+			return false;
+		}
+
+
+		$customer_review = \dash\db\comments\get::customer_review_post($post_id);
+		if(!is_array($customer_review))
+		{
+			$customer_review = [];
+		}
+
+		return self::make_customer_review_array($customer_review);
+	}
+
 
 	public static function product_customer_review($_product_id)
 	{
@@ -82,18 +101,17 @@ class get
 			return false;
 		}
 
-		$product_detail = \lib\app\product\get::inline_get($product_id);
-		if(!$product_detail)
-		{
-			\dash\notif::error(T_("Invalid product id"));
-			return false;
-		}
-
-		$customer_review = \dash\db\comments\get::customer_review($product_id);
+		$customer_review = \dash\db\comments\get::customer_review_product($product_id);
 		if(!is_array($customer_review))
 		{
 			$customer_review = [];
 		}
+
+		return self::make_customer_review_array($customer_review);
+	}
+
+	private static function make_customer_review_array($_customer_review)
+	{
 
 		$result =
 		[
@@ -106,7 +124,7 @@ class get
 			'star_5' => null,
 		];
 
-		$result = array_merge($result, $customer_review);
+		$result = array_merge($result, $_customer_review);
 
 		$count = floatval($result['count']);
 		if(!$count)

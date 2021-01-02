@@ -4,7 +4,7 @@ namespace dash\db\comments;
 
 class get
 {
-	public static function customer_review($_product_id)
+	public static function customer_review_product($_product_id)
 	{
 		$query =
 		"
@@ -26,6 +26,32 @@ class get
 					comments.product_id IN (SELECT products.id FROM products WHERE products.parent = $_product_id) OR
 					comments.product_id IN (SELECT products.id FROM products WHERE products.parent = (SELECT products.parent FROM products WHERE products.id = $_product_id))
 				)
+
+		";
+		$result = \dash\db::get($query, null, true);
+
+		return $result;
+	}
+
+
+	public static function customer_review_post($_post_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				AVG(comments.star) AS `avg`,
+				SUM(CASE WHEN comments.star = 1 THEN 1 ELSE 0 END) 'star_1',
+				SUM(CASE WHEN comments.star = 2 THEN 1 ELSE 0 END) 'star_2',
+				SUM(CASE WHEN comments.star = 3 THEN 1 ELSE 0 END) 'star_3',
+				SUM(CASE WHEN comments.star = 4 THEN 1 ELSE 0 END) 'star_4',
+				SUM(CASE WHEN comments.star = 5 THEN 1 ELSE 0 END) 'star_5'
+
+			FROM
+				comments
+			WHERE
+				comments.status     = 'approved' AND
+				comments.post_id = $_post_id
 
 		";
 		$result = \dash\db::get($query, null, true);

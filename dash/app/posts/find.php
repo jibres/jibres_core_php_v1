@@ -35,7 +35,7 @@ class find
 		}
 
 		// post not founded
-		if(!$dataRow || !is_array($dataRow))
+		if(!$dataRow || !is_array($dataRow) || !isset($dataRow['id']))
 		{
 			return false;
 		}
@@ -77,6 +77,15 @@ class find
 		}
 
 		\dash\engine\view::set_cms_titles();
+
+
+
+		$customer_review = \dash\app\comment\get::post_customer_review($dataRow['id']);
+		\dash\data::customerReview($customer_review);
+
+		$commentList = \dash\app\comment\search::by_post($dataRow['id']);
+		\dash\data::commentList($commentList);
+
 
 		return $dataRow;
 	}
