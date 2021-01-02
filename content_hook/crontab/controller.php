@@ -101,13 +101,6 @@ class controller
 
 		if(\dash\engine\store::inStore())
 		{
-
-			if(self::at('19:25'))
-			{
-				\dash\utility\sitemap::create_all();
-			}
-
-
 			// check and auto expire order
 			\lib\app\factor\edit::auto_expire_order();
 
