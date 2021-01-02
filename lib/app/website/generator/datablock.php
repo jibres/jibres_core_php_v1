@@ -92,10 +92,9 @@ class datablock
 				}
 				$myItem .= '>';
 				{
-
 					if($infoPos === 'top')
 					{
-						$myItem .= self::createInfoBox($linkTitle);
+						$myItem .= self::createInfoBox($linkTitle, 2);
 					}
 
 					if($playMode === 'video' || $playMode === 'audio')
@@ -110,9 +109,23 @@ class datablock
 							$myItem .= media::createPictureEl($imgSrc, $linkTitle);
 						}
 					}
-					if($infoPos === 'bottom' || $infoPos === 'inside')
+					switch ($infoPos)
 					{
-						$myItem .= self::createInfoBox($linkTitle);
+						case 'bottom':
+							$myItem .= self::createInfoBox($linkTitle, 2);
+							break;
+
+						case 'inside':
+							$myItem .= self::createInfoBox($linkTitle, 3);
+							break;
+
+						case 'beside':
+							$myItem .= self::createInfoBox($linkTitle, 4);
+							break;
+
+						default:
+							// do nothing
+							break;
 					}
 				}
 				$myItem .= '</a>';
@@ -145,10 +158,10 @@ class datablock
 	}
 
 
-	private static function createInfoBox($_title)
+	private static function createInfoBox($_title, $_heading = 2)
 	{
 		$myInfoBox = '<div class="info">';
-		$myInfoBox .= media::heading($_title, 2);
+		$myInfoBox .= media::heading($_title, $_heading);
 		$myInfoBox .= '</div>';
 
 		return $myInfoBox;
