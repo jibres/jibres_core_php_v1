@@ -27,7 +27,7 @@ class view
 		}
 
 		$store_logo = \lib\store::logo();
-		if($store_logo)
+		if($store_logo && !\dash\face::cover())
 		{
 			\dash\face::cover($store_logo);
 			\dash\face::twitterCard('summary');
