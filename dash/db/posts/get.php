@@ -5,8 +5,13 @@ namespace dash\db\posts;
 class get
 {
 
-	public static function sitemap_list($_from, $_to)
+	public static function sitemap_list($_from, $_to, $_lang = null)
 	{
+		$lang = null;
+		if($_lang)
+		{
+			$lang = " AND posts.language = '$_lang' ";
+		}
 		$query  =
 		"
 			SELECT
@@ -21,6 +26,7 @@ class get
 				posts.status = 'publish' AND
 				posts.id >= $_from AND
 				posts.id < $_to
+				$lang
 		";
 
 		$result = \dash\db::get($query);

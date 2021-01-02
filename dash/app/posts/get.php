@@ -8,7 +8,13 @@ class get
 
 	public static function sitemap_list($_from, $_to)
 	{
-		$list = \dash\db\posts\get::sitemap_list($_from, $_to);
+		$lang = null;
+		if(!\dash\engine\store::inStore())
+		{
+			$lang = \dash\language::current();
+		}
+
+		$list = \dash\db\posts\get::sitemap_list($_from, $_to, $lang);
 
 		if(!is_array($list) || !$list)
 		{
