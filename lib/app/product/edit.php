@@ -343,7 +343,7 @@ class edit
 		{
 			foreach ($args as $key => $value)
 			{
-				if(array_key_exists($key, $product_detail) && self::isEqual($product_detail[$key], $value))
+				if(array_key_exists($key, $product_detail) && \dash\validate::is_equal($product_detail[$key], $value))
 				{
 					unset($args[$key]);
 				}
@@ -360,7 +360,14 @@ class edit
 					return false;
 				}
 
-
+				if(isset($_option['multi_edit']) && $_option['multi_edit'])
+				{
+					// nothing
+				}
+				else
+				{
+					self::check_update_sitemap($args, $id);
+				}
 
 				if(\dash\engine\process::status())
 				{
@@ -420,24 +427,24 @@ class edit
 	}
 
 
-	private static function isEqual($_a, $_b)
+	private static function check_update_sitemap($_args, $_id)
 	{
-		if($_a === $_b)
+		$need_check = ['title', 'desc', 'slug', 'seodesc', 'status'];
+
+		$need_update = false;
+
+		foreach ($_args as $key => $value)
 		{
-			return true;
+			if(in_array($key, $need_check))
+			{
+				$need_update = true;
+			}
 		}
 
-		if((string) $_a == (string) $_b)
+		if($need_update)
 		{
-			return true;
+			\dash\utility\sitemap::products($_id);
 		}
-
-		if(($_a == '' || is_null($_a) || $_a == null) && ($_b == '' || is_null($_b) || $_b == null))
-		{
-			return true;
-		}
-
-		return false;
 	}
 }
 ?>
