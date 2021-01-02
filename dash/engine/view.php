@@ -189,6 +189,10 @@ class view
 		{
 			\dash\face::cover(\dash\data::dataRow_cover());
 		}
+		elseif(\dash\data::dataRow_thumb())
+		{
+			\dash\face::cover(\dash\data::dataRow_thumb());
+		}
 
 		// set new title
 		self::set_title();
