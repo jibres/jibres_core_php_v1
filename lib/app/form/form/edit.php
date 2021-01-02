@@ -39,9 +39,40 @@ class edit
 
 		\lib\db\form\update::update($args, $_id);
 
+		self::check_update_sitemap($load, $args, $_id);
+
 		\dash\notif::ok(T_("Contact form successfully updated"));
 
 		return true;
+	}
+
+
+
+	private static function check_update_sitemap($_data, $_args, $_id)
+	{
+
+		$need_update = false;
+
+		$need_check = ['title', 'slug', 'lang', 'status', 'desc'];
+
+		foreach ($_data as $key => $value)
+		{
+			if(in_array($key, $need_check))
+			{
+				if(isset($_args[$key]))
+				{
+					if(!\dash\validate::is_equal($value, $_args[$key]))
+					{
+						$need_update = true;
+					}
+				}
+			}
+		}
+
+		if($need_update)
+		{
+			\dash\utility\sitemap::forms($_id);
+		}
 	}
 }
 ?>

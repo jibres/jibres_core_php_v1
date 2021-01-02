@@ -23,6 +23,8 @@ class add
 
 		$id = \lib\db\form\insert::new_record($args);
 
+		\dash\utility\sitemap::forms($id);
+
 		\dash\notif::ok(T_("Contact form successfully added"));
 
 		return ['id' => $id];
