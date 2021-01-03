@@ -56,6 +56,11 @@ class controller
 				$result[] =  \dash\utility\git::pull(root, false);
 				break;
 
+			case 'cdn':
+				$cdn_path = YARD . 'talambar_cdn/';
+				$result[] = "<p>CDN location is <b>". $cdn_path. "</b></p><br><br>";
+				$result[] =  \dash\utility\git::pull($cdn_path, false);
+				break;
 
 			default:
 				// $result[] =  \dash\utility\git::pull(root, false);

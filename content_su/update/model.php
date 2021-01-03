@@ -17,6 +17,10 @@ class model
 				self::pull();
 				break;
 
+			case 'cdn':
+				self::pull_cdn();
+				break;
+
 			case 'upgrade':
 				self::upgrade();
 				break;
@@ -56,6 +60,14 @@ class model
 		if(\content_su\update\controller::gitUpdate('all', false))
 		{
 			\dash\notif::info(T_('System git pull successfully'));
+		}
+	}
+
+	private static function pull_cdn()
+	{
+		if(\content_su\update\controller::gitUpdate('cdn', false))
+		{
+			\dash\notif::info(T_('CDN git pull successfully'));
 		}
 	}
 
