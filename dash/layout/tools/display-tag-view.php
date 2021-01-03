@@ -1,3 +1,4 @@
+<div class="avand">
 <?php
    $myPostByThisCat = null;
   if(\dash\data::dataRow_type() === 'cat')
@@ -27,3 +28,4 @@
     echo "</article>";
   }
 ?>
+</div>

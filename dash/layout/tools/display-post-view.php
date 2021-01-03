@@ -1,3 +1,7 @@
+<div class="avand">
+  <div class="box">
+  <div class="body">
+
 <?php
 
 $dataRow = \dash\data::dataRow();
@@ -102,3 +106,6 @@ require_once('display-comment-list.php');
 ?>
   </section>
 </article>
+</div>
+</div>
+</div>

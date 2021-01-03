@@ -7,7 +7,7 @@
     }
     else
     {
-      require_once(core. '/layout/tools/display-term-list.php');
+      require_once(core. '/layout/tools/display-tag-view.php');
     }
   ?>
   </div>
