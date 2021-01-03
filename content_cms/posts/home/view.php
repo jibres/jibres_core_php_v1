@@ -37,7 +37,7 @@ class view
 
 			default:
 				\dash\data::action_text(T_('Add new post'));
-				\dash\data::action_link(\dash\url::this(). '/addo');
+				\dash\data::action_link(\dash\url::this(). '/add');
 				break;
 		}
 
