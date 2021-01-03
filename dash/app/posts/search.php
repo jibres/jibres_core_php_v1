@@ -41,6 +41,8 @@ class search
 			'website_mode' => 'bit',
 			'pagination'   => 'y_n',
 
+			'multi_tag_search' => 'string_1000',
+			'not_current_id'       => 'id',
 
 			'pd'           => 'bit', // publish date in the future
 			'g'            => 'y_n', // with gallery
@@ -114,6 +116,16 @@ class search
 			}
 		}
 
+		if($data['multi_tag_search'])
+		{
+			$and[]   = " termusages.term_id IN ($data[multi_tag_search]) ";
+			$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id ";
+		}
+
+		if($data['not_current_id'])
+		{
+			$and[] = " posts.id != $data[not_current_id] ";
+		}
 
 
 		if($data['website_mode'])
@@ -302,9 +314,51 @@ class search
 		$_args['pagination'] = 'n';
 		$_args['status'] = 'publish';
 
-		$list = self::list(null, $_args);
+		$list = self::list(null, $_args, true);
 
 		return $list;
+	}
+
+
+	public static function similar_post($_post_id)
+	{
+		$post_id = \dash\coding::decode($_post_id);
+		if(!$post_id)
+		{
+			return self::lates_post();
+		}
+
+
+		$load_post_term =
+		"
+			SELECT
+				terms.id AS `id`
+			FROM
+				posts
+			INNER JOIN termusages ON termusages.post_id = posts.id
+			INNER JOIN terms ON terms.id = termusages.term_id
+			WHERE
+				posts.id = $post_id
+			LIMIT 20
+		";
+
+		$post_term = \dash\db::get($load_post_term, 'id');
+		if(empty($post_term))
+		{
+			return self::lates_post();
+		}
+
+		$multi_tag_search = implode(',', $post_term);
+
+		$args                     = [];
+		$args['pagination']       = 'n';
+		$args['status']           = 'publish';
+		$args['website_mode']     = 1;
+		$args['multi_tag_search'] = $multi_tag_search;
+		$args['not_current_id']   = $post_id;
+
+		return self::list(null, $args, true);
+
 	}
 
 }

@@ -92,14 +92,14 @@ echo '<div class="msg">';
 require_once('display-post-share-box.php');
 echo '</div>';
 
-$myPostSimilar = []; // \dash\app\posts\get::get_post_list['mode' => 'similar', 'post_id' => \dash\data::dataRow_id()]);
+$myPostSimilar = \dash\app\posts\search::similar_post(\dash\data::dataRow_id());
 if($myPostSimilar)
 {
   echo '<nav class="msg">';
   echo '<h4 class="mB20-f">'. T_("Recommended for you"). '</h4>';
   foreach ($myPostSimilar as $key => $value)
   {
-    echo '<a class="block" href="'. \dash\url::kingdom().'/n/'. \dash\data::dataRow_id().'">'. $value['title']. '</a>';
+    echo '<a class="block" href="'. a($value, 'link') .'">'. $value['title']. '</a>';
   }
   echo '</nav>';
 }
