@@ -1,1 +1,0 @@
-<?php require_once(root. 'content_n/home/display.php'); ?>
