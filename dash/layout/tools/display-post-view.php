@@ -88,6 +88,9 @@ if(a($dataRow, 'tags') && is_array(a($dataRow, 'tags')))
 
 echo '</div>';
 }
+echo '<div class="msg">';
+require_once('display-post-share-box.php');
+echo '</div>';
 
 $myPostSimilar = []; // \dash\app\posts\get::get_post_list['mode' => 'similar', 'post_id' => \dash\data::dataRow_id()]);
 if($myPostSimilar)
