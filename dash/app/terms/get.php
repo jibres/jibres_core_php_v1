@@ -24,7 +24,7 @@ class get
 		return $list;
 	}
 
-	public static function get($_id)
+	public static function get($_id, $_force = false)
 	{
 		$id = \dash\coding::decode($_id);
 		if(!$id)
@@ -36,7 +36,10 @@ class get
 
 		if(!$result)
 		{
-			\dash\notif::error(T_("Terms not founded"));
+			if(!$_force)
+			{
+				\dash\notif::error(T_("Terms not founded"));
+			}
 			return false;
 		}
 

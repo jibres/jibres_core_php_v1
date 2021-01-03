@@ -13,7 +13,6 @@ class load
 	public static function template($_detail)
 	{
 		$line_title = a($_detail, 'value', 'title');
-		$cat_id     = a($_detail, 'value', 'cat_id');
 		$tag_id     = a($_detail, 'value', 'tag_id');
 		$subtype    = a($_detail, 'value', 'subtype');
 		$limit      = a($_detail, 'value', 'limit');
@@ -29,13 +28,21 @@ class load
 			$subtype = null;
 		}
 
+		if(!$line_link && $tag_id)
+		{
+			$load_tag = \dash\app\terms\get::get($tag_id, true);
+			if(isset($load_tag['link']))
+			{
+				$line_link = $load_tag['link'];
+			}
+		}
+
 		$args =
 		[
 			'pagination'   => 'n',
 			'website_mode' => true,
 			'subtype'      => $subtype,
 			'limit'        => $limit,
-			'cat_id'       => $cat_id,
 			'tag_id'       => $tag_id,
 		];
 
