@@ -12,6 +12,36 @@ class model
 	 */
 	public static function post()
 	{
+		$user_id = \dash\coding::decode(\dash\request::get('id'));
+
+		if(\dash\request::post('apikey') === 'generate')
+		{
+			$check = \dash\app\user_auth::make_user_auth($user_id, 'api');
+			if($check)
+			{
+				\dash\log::set('createNewApiKey');
+				\dash\notif::ok(T_("Creat new api key successfully complete"));
+				\dash\redirect::pwd();
+			}
+			else
+			{
+				\dash\notif::error(T_("Error in create new api key"));
+			}
+		}
+		elseif(\dash\request::post('apikey') === 'remove')
+		{
+			$check = \dash\app\user_auth::disable_api_key($user_id, 'api');
+			if($check)
+			{
+				\dash\log::set('RemoveApiKey');
+				\dash\notif::ok(T_("Your api key was removed"));
+				\dash\redirect::pwd();
+			}
+			else
+			{
+				\dash\notif::error(T_("Error in remove api key"));
+			}
+		}
 
 		$post =
 		[
@@ -19,7 +49,7 @@ class model
 
 		];
 
-		if(floatval(\dash\coding::decode(\dash\request::get('id'))) === floatval(\dash\user::id()))
+		if(floatval($user_id) === floatval(\dash\user::id()))
 		{
 			if(\dash\user::detail('permission') === 'supervisor')
 			{

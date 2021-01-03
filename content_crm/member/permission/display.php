@@ -23,3 +23,35 @@
     </div>
   </form>
 </section>
+
+<?php if(\dash\data::dataRowMember_permission()) {?>
+<section class="f" data-option='crm-user-apikey'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Customer API Key");?></h3>
+      <div class="body">
+        <p><?php echo T_("By creating an API Key, you will allow this user to access the system through a programming interface.") ?></p>
+        <?php if(\dash\data::UserApiKey()) {?>
+          <div class="txtB mT10"><?php echo T_("API key") ?></div>
+          <div class="msg ltr light">
+
+          <div title="<?php echo T_("Copy") ?>" class="link btn" data-copy='<?php echo \dash\data::UserApiKey_auth(); ?>'>
+            <i class="sf-clone"></i>
+            <code><?php echo str_repeat('*', 16).  substr(\dash\data::UserApiKey_auth(), 16); ?></code>
+          </div>
+          </div>
+        <?php }// endif ?>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+  <?php if(\dash\data::UserApiKey()) {?>
+        <div data-confirm data-data='{"apikey": "remove"}' class="btn danger"><?php echo T_("Revoke") ?></div>
+  <?php }else{ ?>
+        <div data-confirm data-data='{"apikey": "generate"}' class="btn master"><?php echo T_("Generate API Key") ?></div>
+  <?php } //endif ?>
+    </div>
+  </div>
+</section>
+<?php } //endif ?>
