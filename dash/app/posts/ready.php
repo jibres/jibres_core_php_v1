@@ -224,6 +224,20 @@ class ready
 			}
 		}
 
+
+		if(isset($result['will_be_published_on_future']) && isset($result['status']) && $result['status'] === 'publish' && \dash\url::content() !== 'cms' && !\dash\request::get('preview'))
+		{
+			$result['content']       = $result['will_be_published_on_future']['message'];
+			$result['gallery_array'] = [];
+			$result['gallery']       = null;
+			$result['thumb']         = null;
+			$result['title']         = null;
+			$result['subtitle']      = null;
+			$result['cover']         = null;
+			$result['comment']       = 'close';
+		}
+
+
 		// set seo title
 		$result['post_title'] = null;
 
