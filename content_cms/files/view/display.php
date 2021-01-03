@@ -1,7 +1,7 @@
 <?php $dataRow = \dash\data::dataRow(); ?>
 <div class="avand-md">
 	<a target="_blank" href="<?php echo a($dataRow, 'path') ?>">
-		<img src="<?php echo a($dataRow, 'thumb'); ?>" alt="<?php echo a($dataRow, 'title') ?>">
+		<img src="<?php echo a($dataRow, 'thumb_raw'); ?>" alt="<?php echo a($dataRow, 'title') ?>">
 	</a>
 	<nav class="items long">
 		<ul>

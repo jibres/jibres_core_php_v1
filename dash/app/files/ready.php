@@ -53,6 +53,7 @@ class ready
 				case 'image':
 					$result['t_type'] = T_("Image");
 					$result['thumb'] = self::getImgThumb(a($result, 'path'));
+					$result['thumb_raw'] = a($result, 'path');
 
 					break;
 
@@ -109,6 +110,10 @@ class ready
 			}
 		}
 
+		if(isset($result['thumb']) && !isset($result['thumb_raw']))
+		{
+			$result['thumb_raw'] = $result['thumb'];
+		}
 
 		return $result;
 	}
