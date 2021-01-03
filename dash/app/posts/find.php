@@ -54,7 +54,16 @@ class find
 				}
 				else
 				{
-					\dash\redirect::to($dataRow['redirecturl'], true, 302);
+					$match = "/\/n\/$dataRow[id](|\/|\?)/";
+
+					if(preg_match($match, $dataRow['redirecturl']))
+					{
+						// not redirect. user set the redirect url the base of post url /n/Q
+					}
+					else
+					{
+						\dash\redirect::to($dataRow['redirecturl'], true, 302);
+					}
 				}
 			}
 		}
