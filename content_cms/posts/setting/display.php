@@ -67,6 +67,9 @@ $myID = '?id='. \dash\request::get('id');
       </div>
     </div>
   </form>
+  <footer class="txtRa">
+    <a class="btn link" href="<?php echo \dash\url::here(). '/comments?post_id='. \dash\request::get('id'); ?>"><?php echo T_("Show comment") ?></a>
+  </footer>
 </section>
 
 
