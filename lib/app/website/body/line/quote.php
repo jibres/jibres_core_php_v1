@@ -189,11 +189,11 @@ class quote
 			}
 		}
 
-		if(!$image_path)
-		{
-			\dash\notif::error(T_("Please upload an image file"), 'image');
-			return false;
-		}
+		// if(!$image_path)
+		// {
+		// 	\dash\notif::error(T_("Please upload an image file"), 'image');
+		// 	return false;
+		// }
 
 		$line_id = \lib\app\website\body\add::line('quote');
 
@@ -417,11 +417,11 @@ class quote
 			}
 		}
 
-		if(!$image_path)
-		{
-			\dash\notif::error(T_("Please upload an image file"), 'image');
-			return false;
-		}
+		// if(!$image_path)
+		// {
+		// 	\dash\notif::error(T_("Please upload an image file"), 'image');
+		// 	return false;
+		// }
 
 		if(!$data['text'])
 		{
