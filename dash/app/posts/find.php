@@ -40,10 +40,6 @@ class find
 			return false;
 		}
 
-		if(isset($dataRow['status']) && $dataRow['status'] === 'deleted')
-		{
-			return false;
-		}
 
 		$preview  = \dash\request::get('preview') ? true : false;
 
@@ -51,8 +47,21 @@ class find
 		{
 			if(!$preview)
 			{
-				\dash\redirect::to($dataRow['redirecturl'], true, 302);
+				if(isset($dataRow['link']) && $dataRow['link'] == $dataRow['redirecturl'])
+				{
+					// nothing. User try to make too many redirect error!
+					// redirect the post to self!
+				}
+				else
+				{
+					\dash\redirect::to($dataRow['redirecturl'], true, 302);
+				}
 			}
+		}
+
+		if(isset($dataRow['status']) && $dataRow['status'] === 'deleted')
+		{
+			return false;
 		}
 
 		if($content_n && isset($dataRow['url']) && $dataRow['url'] && isset($dataRow['link']))
@@ -61,12 +70,14 @@ class find
 			{
 				$dataRow['link'] = $dataRow['link']. '?preview=yes';
 			}
+
 			\dash\redirect::to($dataRow['link'], true, 302);
 		}
 
 		$id                  = \dash\coding::decode($dataRow['id']);
 
 		$tag                 = \dash\app\posts\get::get_post_tag($id);
+
 		$dataRow['tags']     = $tag;
 
 		self::$dataRow = $dataRow;
