@@ -250,24 +250,24 @@
 
 
 <?php if(\dash\data::quote()) { ?>
-<section id='jibresQuote'>
+<section class='eQuote'>
   <div class="avand">
     <h4><?php echo T_("Our Happy Friends!"); ?></h4>
     <div class="row padMore">
 <?php foreach (\dash\data::quote() as $key => $value) {?>
       <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4 itemBox">
-        <div class="item f f-column justify-between">
+        <blockquote class="item f f-column justify-between">
           <p class="flex-1"><?php echo $value['quote']; ?></p>
           <div class="shapeTop"></div>
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
-          <footer class="f align-center from">
-            <div class="cauto"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/quote/50px/<?php echo $value['avatar']; ?>-50px.jpg" srcset="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>.jpg 2x" alt='<?php echo $value['name']; ?>'></div>
-            <div class="cauto pLa10">
+          <div class="from row align-center">
+            <div class="c-auto"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/quote/50px/<?php echo $value['avatar']; ?>-50px.jpg" srcset="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>.jpg 2x" alt='<?php echo $value['name']; ?>'></div>
+            <div class="c">
               <div class="name"><?php echo $value['name']; ?></div>
               <div class="position"><?php echo $value['position']; ?></div>
             </div>
-          </footer>
-        </div>
+          </div>
+        </blockquote>
       </div>
 <?php } ?>
     </div>
