@@ -33,11 +33,11 @@ class edit
 
 			\dash\utility\sitemap::tags($id);
 
-			\dash\notif::ok(T_("Category successfully updated"));
+			\dash\notif::ok(T_("Tag successfully updated"));
 		}
 		else
 		{
-			\dash\notif::info(T_("Category save without changes"));
+			\dash\notif::info(T_("Tag save without changes"));
 		}
 
 		return true;
