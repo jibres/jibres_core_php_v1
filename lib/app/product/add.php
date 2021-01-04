@@ -70,16 +70,6 @@ class add
 	{
 		\dash\permission::access('productAdd');
 
-
-		if(!\lib\store::id())
-		{
-			if($_option['debug'])
-			{
-				\dash\notif::error(T_("Store not found"));
-			}
-			return false;
-		}
-
 		$default_option =
 		[
 			'debug'       => true,
