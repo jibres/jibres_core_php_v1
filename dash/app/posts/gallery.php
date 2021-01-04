@@ -122,6 +122,7 @@ class gallery
 			'gallery' => $post_gallery_field,
 			'detail'  => $load_post_gallery,
 			'id'      => $load_post_gallery['id'],
+			'subtype' => a($load_post_gallery, 'subtype'),
 		];
 
 		return $result;
@@ -142,6 +143,18 @@ class gallery
 		$post_gallery_field = $load_gallery['gallery'];
 		$post_id            = \dash\coding::decode($_post_id);
 		$post_detail        = $load_gallery['detail'];
+
+
+		if($_type === 'add_auto')
+		{
+			$_type = 'add';
+
+			if(in_array(a($load_gallery, 'subtype'), ['audio', 'video']))
+			{
+				$_type = 'update';
+			}
+
+		}
 
 		if($_type === 'add' || $_type === 'update')
 		{

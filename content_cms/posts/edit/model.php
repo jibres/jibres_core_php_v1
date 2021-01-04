@@ -13,13 +13,7 @@ class model
 			return false;
 		}
 
-		$galleryMode = 'add';
-		if(in_array(\dash\data::dataRow_subtype(), ['audio', 'video']))
-		{
-			$galleryMode = 'update';
-		}
-
-		if(self::upload_gallery($id, $galleryMode))
+		if(self::upload_gallery($id, 'add_auto'))
 		{
 			return false;
 		}
