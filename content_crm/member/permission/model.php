@@ -42,6 +42,15 @@ class model
 				\dash\notif::error(T_("Error in remove api key"));
 			}
 		}
+		elseif(\dash\request::post('apikey') === 'revoke')
+		{
+			$check = \dash\app\user_auth::disable_api_key($user_id, 'api');
+			$check = \dash\app\user_auth::make_user_auth($user_id, 'api');
+			\dash\log::set('RevokeApiKey');
+			\dash\notif::ok(T_("Your api key was revoked"));
+			\dash\redirect::pwd();
+
+		}
 
 		$post =
 		[

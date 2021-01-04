@@ -46,11 +46,17 @@
   <div class="c4 s12">
     <div class="action">
   <?php if(\dash\data::UserApiKey()) {?>
-        <div data-confirm data-data='{"apikey": "remove"}' class="btn danger"><?php echo T_("Revoke") ?></div>
+        <div data-confirm data-data='{"apikey": "revoke"}' class="btn secondary"><?php echo T_("Revoke") ?></div>
   <?php }else{ ?>
         <div data-confirm data-data='{"apikey": "generate"}' class="btn master"><?php echo T_("Generate API Key") ?></div>
   <?php } //endif ?>
     </div>
   </div>
+  <?php if(\dash\data::UserApiKey()) {?>
+    <footer class="txtRa">
+
+        <div data-confirm data-data='{"apikey": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
+    </footer>
+  <?php } //endif ?>
 </section>
 <?php } //endif ?>
