@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-04 11:45+0100\n"
-"PO-Revision-Date: 2021-01-04 11:48+0100\n"
+"POT-Creation-Date: 2021-01-04 17:41+0330\n"
+"PO-Revision-Date: 2021-01-04 17:42+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -4650,7 +4650,7 @@ msgstr "ویرایش"
 #: content_a/website/specialslider/setting/display.php:39
 #: content_a/website/text/display.php:25 content_a/website/titleline/display.php:25
 #: content_account/api/display.php:22 content_business/p/home/display.php:146
-#: content_cms/comments/view/display.php:182 content_crm/member/permission/display.php:58
+#: content_cms/comments/view/display.php:182 content_crm/member/permission/display.php:56
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_love/domain/detail/display.php:195
 #: content_my/domain/irnic/edit/display.php:24 content_my/domain/setting/display.php:219
@@ -5123,7 +5123,7 @@ msgstr "شماره سند حسابداری جدید"
 #: content_a/products/duplicate/display.php:12
 #: content_a/setting/domain/manage/display.php:34
 #: content_a/setting/domain/manage/display.php:39
-#: content_crm/member/permission/display.php:37
+#: content_crm/member/permission/display.php:35
 #: content_crm/member/permission/display.php:38
 #: includes/languages/trans_static_public.php:107
 msgid "Copy"
@@ -8353,7 +8353,7 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
 #: content_a/tag/edit/controller.php:14 content_a/tag/remove/controller.php:13
-#: content_cms/tag/edit/controller.php:19 dash/app/files/remove.php:21
+#: content_cms/tag/edit/controller.php:15 dash/app/files/remove.php:21
 #: dash/app/posts/check.php:205 dash/app/terms/remove.php:18 dash/app/terms/remove.php:39
 #: dash/app/terms/remove.php:70 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:100
 #: lib/app/form/tag/get.php:107 lib/app/form/tag/get.php:124 lib/app/form/tag/get.php:131
@@ -13303,7 +13303,6 @@ msgid "Error in remove api key"
 msgstr "خطا در حذف کلید اتصال جدید"
 
 #: content_account/api/view.php:9 content_account/security/display.php:139
-#: content_crm/member/permission/display.php:35
 msgid "API key"
 msgstr "کلید API"
 
@@ -14126,11 +14125,11 @@ msgstr "فایل از گالری حذف شد"
 msgid "Please set store code in url"
 msgstr "لطفا کد‌ فروشگاه را در آدرس وارد کنید"
 
-#: content_b1/tools.php:53 content_r10/tools.php:41 content_v2/tools.php:38
+#: content_b1/tools.php:54 content_r10/tools.php:41 content_v2/tools.php:38
 msgid "Apikey not set"
 msgstr "کلید ای‌پی‌آی تنظیم نشده است"
 
-#: content_b1/tools.php:93 content_r10/tools.php:135 content_v2/tools.php:151
+#: content_b1/tools.php:94 content_r10/tools.php:135 content_v2/tools.php:151
 msgid "Invalid apikey"
 msgstr "کلید ای‌پی‌آی نامعتبر است"
 
@@ -14514,6 +14513,10 @@ msgstr "تایید نشده"
 #: dash/upload/file.php:179
 msgid "Can not upload file"
 msgstr "ناتوان در آپلود فایل"
+
+#: content_cms/files/add/model.php:42
+msgid "Please send a file to upload"
+msgstr "لطفا فایل مورد نظر را بارگذاری کنید"
 
 #: content_cms/files/add/view.php:9 content_cms/files/home/view.php:12
 #: lib/app/form/item/type.php:304
@@ -15901,8 +15904,8 @@ msgid "Administrator"
 msgstr "مدیر"
 
 #: content_crm/member/permission/display.php:31
-msgid "Customer API Key"
-msgstr "کلید ای‌پی‌آی مشتری"
+msgid "API Key"
+msgstr "کلید API"
 
 #: content_crm/member/permission/display.php:33
 msgid ""
@@ -15912,15 +15915,15 @@ msgstr ""
 "با ایجاد کلید ای‌پی‌آی به این کاربر اجازه می‌دهید تا از طریق رابط برنامه‌نویسی به سیستم "
 "دسترسی پیدا کند."
 
-#: content_crm/member/permission/display.php:37
+#: content_crm/member/permission/display.php:35
 msgid "Copied. Paste into your code!"
 msgstr "کپی شد. حالا بزارش توی کد!"
 
-#: content_crm/member/permission/display.php:49
+#: content_crm/member/permission/display.php:47
 msgid "Revoke"
 msgstr "باطل کن"
 
-#: content_crm/member/permission/display.php:51
+#: content_crm/member/permission/display.php:49
 msgid "Generate API Key"
 msgstr "تولید کلید ای‌پی‌آی"
 
@@ -21644,7 +21647,7 @@ msgstr "دریافت اطلاعات از گیت با موفقیت انجام ش�
 
 #: content_su/update/model.php:70
 msgid "CDN git pull successfully"
-msgstr ""
+msgstr "دریافت مخزن سی‌دی‌ان"
 
 #: content_su/update/model.php:78
 msgid "System upgrade database successfully"
@@ -22480,7 +22483,7 @@ msgstr "آدرس حذف شد"
 msgid "No way to add new data"
 msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد"
 
-#: dash/app/comment/add.php:38 dash/app/comment/edit.php:51
+#: dash/app/comment/add.php:38
 msgid "Your comment successfully added"
 msgstr "دیدگاه شما با موفقیت اضافه شد"
 
@@ -22488,7 +22491,7 @@ msgstr "دیدگاه شما با موفقیت اضافه شد"
 msgid "Your answer successfully added"
 msgstr "پاسخ شما با موفقیت اضافه شد"
 
-#: dash/app/comment/add.php:120 dash/app/ticket.php:293
+#: dash/app/comment/add.php:126 dash/app/ticket.php:293
 msgid "This text is duplicate and you are sended something like this before!"
 msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
 
@@ -22520,7 +22523,11 @@ msgstr "شما نمی‌توانید به پاسخ یک دیگاه پاسخ ده
 msgid "Comment saved without change"
 msgstr "دیدگاه بدون تغییر ذخیره شد"
 
-#: dash/app/comment/get.php:21 dash/app/comment/get.php:46 dash/app/comment/get.php:66
+#: dash/app/comment/edit.php:51
+msgid "Your comment successfully edited"
+msgstr "دیدگاه شما با موفقیت ویرایش شد"
+
+#: dash/app/comment/get.php:21 dash/app/comment/get.php:51 dash/app/comment/get.php:71
 msgid "Invalid comments id"
 msgstr "شناسه دیدگاه اشتباه است"
 
@@ -23145,7 +23152,7 @@ msgstr "نوشته حذف شد"
 
 #: dash/app/posts/remove.php:41
 msgid "Post move to trash"
-msgstr ""
+msgstr "نوشته به زباله‌دان منتقل شد"
 
 #: dash/app/posts/terms.php:45 lib/app/category/add.php:315
 msgid "Invalid cat format"
@@ -23180,12 +23187,12 @@ msgid "Can not access to edit term"
 msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
 
 #: dash/app/terms/edit.php:36
-msgid "Category successfully updated"
-msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
+msgid "Tag successfully updated"
+msgstr "تگ با موفقیت به‌روز‌رسانی شد"
 
 #: dash/app/terms/edit.php:40
-msgid "Category save without changes"
-msgstr "دسته‌بندی بدون تغییر ذخیره شد"
+msgid "Tag save without changes"
+msgstr "تگ بدون تغییر ذخیره شد"
 
 #: dash/app/terms/remove.php:47 lib/app/form/tag/remove.php:47 lib/app/tag/remove.php:44
 msgid "Please select one tag"
@@ -24094,7 +24101,7 @@ msgstr "نظر خودتون رو در مورد این نوشته بنویسید 
 
 #: dash/layout/tools/display-comment-list.php:3
 msgid "User reviews"
-msgstr ""
+msgstr "نظرات کاربران"
 
 #: dash/layout/tools/display-post-view.php:73
 msgid "Short Code"
@@ -37468,6 +37475,15 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Customer API Key"
+#~ msgstr "کلید ای‌پی‌آی مشتری"
+
+#~ msgid "Category successfully updated"
+#~ msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
+
+#~ msgid "Category save without changes"
+#~ msgstr "دسته‌بندی بدون تغییر ذخیره شد"
 
 #~ msgid "Know about our stories and events"
 #~ msgstr "درباره داستان ها و رویدادهای ما بدانید"
