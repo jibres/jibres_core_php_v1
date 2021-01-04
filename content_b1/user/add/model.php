@@ -8,7 +8,7 @@ class model
 	{
 		$post           = [];
 
-		$post['mobile'] = \content_b1\tools::input_body('mobile');
+		$post['mobile'] = \dash\request::input_body('mobile');
 
 		$result = \dash\app\user::add($post);
 

@@ -8,7 +8,7 @@ class model
 	{
 		$args                = [];
 
-		$args['title']       = \content_b1\tools::input_body('title');
+		$args['title']       = \dash\request::input_body('title');
 
 		$result = \lib\app\product\company::edit($args, \dash\request::get('id'));
 

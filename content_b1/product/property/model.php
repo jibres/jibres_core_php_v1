@@ -8,7 +8,7 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$result = \lib\app\product\property::set(\content_b1\tools::input_body(), $id);
+		$result = \lib\app\product\property::set(\dash\request::input_body(), $id);
 
 		\content_b1\tools::say($result);
 	}

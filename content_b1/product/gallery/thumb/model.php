@@ -8,7 +8,7 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$fileid = \content_b1\tools::input_body('fileid');
+		$fileid = \dash\request::input_body('fileid');
 
 		if(!$fileid)
 		{

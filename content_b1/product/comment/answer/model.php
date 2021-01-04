@@ -8,7 +8,7 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$answer = \content_b1\tools::input_body('answer');
+		$answer = \dash\request::input_body('answer');
 
 		if(!$answer)
 		{

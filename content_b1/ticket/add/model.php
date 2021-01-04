@@ -10,8 +10,8 @@ class model
 	{
 		// $via     = 'api';
 		$via     = null;
-		$content = \content_b1\tools::input_body('content');
-		$title   = \content_b1\tools::input_body('title');
+		$content = \dash\request::input_body('content');
+		$title   = \dash\request::input_body('title');
 		$file    = null;
 		$result  = \content_support\ticket\add\model::add_new($via, $content, $file, $title);
 

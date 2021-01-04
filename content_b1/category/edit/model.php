@@ -11,14 +11,14 @@ class model
 		$id = \dash\validate::id($id);
 
 		$args             = [];
-		$args['title']    = \content_b1\tools::input_body('title');
-		$args['slug']     = \content_b1\tools::input_body('slug');
-		$args['parent']   = \content_b1\tools::input_body('parent');
-		$args['desc']     = \content_b1\tools::input_body('desc');
-		$args['seotitle'] = \content_b1\tools::input_body('seotitle');
-		$args['seodesc']  = \content_b1\tools::input_body('seodesc');
+		$args['title']    = \dash\request::input_body('title');
+		$args['slug']     = \dash\request::input_body('slug');
+		$args['parent']   = \dash\request::input_body('parent');
+		$args['desc']     = \dash\request::input_body('desc');
+		$args['seotitle'] = \dash\request::input_body('seotitle');
+		$args['seodesc']  = \dash\request::input_body('seodesc');
 
-		$property  = \content_b1\tools::input_body('property');
+		$property  = \dash\request::input_body('property');
 
 		$result = \lib\app\category\edit::edit($args, $id, $property);
 
