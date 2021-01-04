@@ -5,46 +5,17 @@ namespace content_b1;
 class tools
 {
 	public static $b1             = [];
-	private static $REQUEST       = [];
-	private static $request_check = false;
+
 
 	/**
 	 * this function route as first of every request on api
 	 */
 	public static function master_check()
 	{
-		self::check_appkey();
 		self::check_apikey();
 
-		// never store init in b1
-		self::check_store_not_init();
-	}
+		self::apikey_required();
 
-
-	public static function appkey_required()
-	{
-		if(isset(self::$b1['appkey_detail']) && self::$b1['appkey_detail'])
-		{
-			return true;
-		}
-		else
-		{
-			self::stop(403, T_("Appkey not set"));
-		}
-	}
-
-
-	public static function apikey_required()
-	{
-		if(!\dash\user::id())
-		{
-			self::stop(403, T_("Apikey not set"));
-		}
-	}
-
-
-	private static function check_store_not_init()
-	{
 		if(!\dash\url::store())
 		{
 			self::stop(403, T_("Please set store code in url"));
@@ -58,42 +29,24 @@ class tools
 	}
 
 
-	/**
-	 * Load appkey from header
-	 * IF exists
-	 * Check require in another function
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function check_appkey()
+
+	private static function apikey_required()
 	{
-		$appkey = \dash\header::get('appkey');
+		$public_module =
+		[
+			// some module
+		];
 
-		$appkey = \dash\validate::md5($appkey);
-
-		if(!$appkey)
+		if(in_array(\dash\url::module(), $public_module))
 		{
-			return;
-		}
-
-		\dash\app\apilog::static_var('appkey', $appkey);
-
-		if(!trim($appkey))
-		{
-			self::stop(400, T_("Appkey not set"));
-		}
-
-		$appkey_is_ok              = \dash\app\user_auth::jibres_check_appkey($appkey);
-
-		self::$b1['appkey_detail'] = $appkey_is_ok;
-
-		if($appkey_is_ok)
-		{
-			return true;
+			// needless to require apikey
 		}
 		else
 		{
-			self::stop(400, T_("Invalid app key"));
+			if(!\dash\user::id())
+			{
+				self::stop(403, T_("Apikey not set"));
+			}
 		}
 	}
 
@@ -135,38 +88,17 @@ class tools
 			self::stop(401, T_("Invalid apikey"));
 		}
 
-		$session_id = \dash\url::root(). 'APIBUSINESS'. $get['id'];
+		$user_id = $get['user_id'];
 
-		\dash\session::restart($session_id);
+		\dash\user::init($user_id, 'api_business');
 
 		if(!\dash\user::id())
 		{
-			\dash\user::init($get['user_id'], 'api_business');
+			return false;
 		}
 
 		return true;
 	}
-
-
-
-	public static function invalid_url()
-	{
-		self::stop(404, T_("Invalid url"));
-	}
-
-
-	public static function invalid_method()
-	{
-		self::stop(405, T_("Invalid method"));
-	}
-
-
-	public static function invalid_param($_param = null)
-	{
-		self::stop(400, T_("Invalid param :val", ['val' => $_param]));
-	}
-
-
 
 
 
@@ -193,61 +125,5 @@ class tools
 		\dash\notif::api($_result);
 	}
 
-
-	public static function input_body($_name = null)
-	{
-		if(!self::$request_check)
-		{
-			self::$request_check = true;
-
-			if(\dash\request::post())
-			{
-				\dash\notif::warn(T_("Send your request as json not in post field"));
-			}
-
-			$request = \dash\request::php_input();
-			if(is_string($request))
-			{
-				$request = json_decode($request, true);
-			}
-
-			if(!is_array($request))
-			{
-				$request = [];
-			}
-
-			$request = \dash\safe::safe($request, 'sqlinjection');
-
-			self::$REQUEST = $request;
-		}
-
-		if(isset($_name))
-		{
-			if(array_key_exists($_name, self::$REQUEST))
-			{
-				return self::$REQUEST[$_name];
-			}
-			else
-			{
-				return null;
-			}
-		}
-		else
-		{
-			return self::$REQUEST;
-		}
-	}
-
-
-	public static function isset_input_body($_name)
-	{
-		self::input_body();
-
-		if(array_key_exists($_name, self::$REQUEST))
-		{
-			return true;
-		}
-		return false;
-	}
 }
 ?>
