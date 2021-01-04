@@ -7,12 +7,8 @@ class controller
 	{
 
 		$dataRow = \dash\app\terms\get::get(\dash\request::get('id'));
-		\dash\data::dataRow($dataRow);
 
-		if(a($dataRow, 'type') !== 'tag')
-		{
-			\dash\header::status(404);
-		}
+		\dash\data::dataRow($dataRow);
 
 		if(!$dataRow)
 		{
