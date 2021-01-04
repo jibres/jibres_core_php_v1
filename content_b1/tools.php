@@ -40,6 +40,7 @@ class tools
 		$public_directory =
 		[
 			'posts/latest',
+			'comments/add',
 		];
 
 		if(in_array(\dash\url::directory(), $public_directory))

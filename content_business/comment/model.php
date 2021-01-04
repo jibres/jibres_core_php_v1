@@ -15,6 +15,8 @@ class model
 		$post['post_id']     = \dash\request::post('post_id');
 		$result              = \dash\app\comment\add::add($post);
 
+		return $result;
+
 	}
 }
 ?>

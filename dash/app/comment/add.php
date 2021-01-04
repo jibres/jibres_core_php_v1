@@ -96,6 +96,12 @@ class add
 		{
 			$check_duplicate['agent_id'] = $args['agent_id'];
 			$check_duplicate['ip']       = $args['ip'];
+
+			// not check duplicate in api mode
+			if(\dash\temp::get('isApi'))
+			{
+				return false;
+			}
 		}
 
 		if(isset($args['post_id']) && $args['post_id'])
