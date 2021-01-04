@@ -12,6 +12,7 @@ class remove
 
 		if(!$load)
 		{
+			\dash\notif::error(T_("Post not found"));
 			return false;
 		}
 
@@ -32,14 +33,15 @@ class remove
 			\dash\db\termusages\delete::by_post_id($load['id']);
 			\dash\db\posts\delete::record($load['id']);
 			\dash\log::set('postRemoved', ['my_title' => a($load, 'title')]);
+			\dash\notif::ok(T_("Post removed"));
 		}
 		else
 		{
 			\dash\db\posts::update(['status' => 'deleted'], $load['id']);
+			\dash\notif::ok(T_("Post move to trash"));
 		}
 
 
-		\dash\notif::ok(T_("Post removed"));
 
 		return true;
 	}
