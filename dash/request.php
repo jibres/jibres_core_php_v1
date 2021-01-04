@@ -3,9 +3,11 @@ namespace dash;
 
 class request
 {
-	private static $POST  = [];
-	private static $GET   = [];
-	private static $FILES = [];
+	private static $POST              = [];
+	private static $GET               = [];
+	private static $FILES             = [];
+	private static $PHP_INPUT         = [];
+	private static $PHP_INPUT_CHECKED = false;
 
 	/**
 	 * filter post and safe it
@@ -243,6 +245,65 @@ class request
 			}
 		}
 		return self::$FILES;
+	}
+
+
+
+	public static function input_body($_name = null)
+	{
+		if(!self::$PHP_INPUT_CHECKED)
+		{
+			self::$PHP_INPUT_CHECKED = true;
+
+			if(\dash\request::post())
+			{
+				\dash\notif::warn(T_("Send your request as json not in post field"));
+			}
+
+			$request = \dash\request::php_input();
+
+			if(is_string($request))
+			{
+				$request = json_decode($request, true);
+			}
+
+			if(!is_array($request))
+			{
+				$request = [];
+			}
+
+			$request = \dash\safe::safe($request, 'sqlinjection');
+
+			self::$PHP_INPUT = $request;
+		}
+
+		if(isset($_name))
+		{
+			if(array_key_exists($_name, self::$PHP_INPUT))
+			{
+				return self::$PHP_INPUT[$_name];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return self::$PHP_INPUT;
+		}
+	}
+
+
+	public static function isset_input_body($_name)
+	{
+		self::input_body();
+
+		if(array_key_exists($_name, self::$PHP_INPUT))
+		{
+			return true;
+		}
+		return false;
 	}
 
 
