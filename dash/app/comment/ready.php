@@ -65,6 +65,24 @@ class ready
 			$result['displayname'] = $result['user_displayname'];
 		}
 
+		if(!a($result, 'user_id'))
+		{
+			unset($result['user_displayname']);
+			unset($result['user_mobile']);
+		}
+
+		if(!a($result, 'product_id'))
+		{
+			unset($result['product_title']);
+			unset($result['product_thumb']);
+		}
+
+		if(!a($result, 'post_id'))
+		{
+			unset($result['post_title']);
+			unset($result['post_thumb']);
+		}
+
 		// unset some variable in api
 		if(\dash\temp::get('isApi'))
 		{
