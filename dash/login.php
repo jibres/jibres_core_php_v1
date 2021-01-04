@@ -381,6 +381,7 @@ class login
 	 */
 	private static function where_am_i()
 	{
+		$place = null;
 		if(\dash\engine\store::inBusinessDomain())
 		{
 			$place = 'customer_domain';
@@ -392,6 +393,26 @@ class login
 		elseif(\dash\engine\store::inBusinessAdmin())
 		{
 			$place = 'admin';
+		}
+		elseif(\dash\engine\store::free_subdomain())
+		{
+			switch (\dash\url::subdomain())
+			{
+				// case 'developers':
+				// case 'api':
+				// case 'shop':
+				case 'core':
+					$place = 'api_core';
+					break;
+
+				case 'business':
+					$place = 'api_business';
+					break;
+
+				default:
+					$place = null;
+					break;
+			}
 		}
 		else
 		{
@@ -432,6 +453,8 @@ class login
 
 		$load_user = [];
 
+		$need_login_record = true;
+
 		switch ($place)
 		{
 			case 'jibres':
@@ -447,9 +470,20 @@ class login
 
 				break;
 
+			case 'api_business':
+				$load_user  = \dash\db\users::get_by_id($_user_id);
+
+				// set user in stroe because have not cookie to check and set this variable
+				if(isset($load_user['id']))
+				{
+					$load_user['user_in_store'] = true;
+				}
+
+				$need_login_record = false;
+				break;
+
 			case 'subdomain':
 			case 'customer_domain':
-			case 'api_business':
 			default:
 				$load_user  = \dash\db\users::get_by_id($_user_id);
 				break;
@@ -461,66 +495,68 @@ class login
 			return false;
 		}
 
-		$code      = self::generate_login_code($_user_id, $load_user);
-		$myIp      = \dash\server::ip();
-		$ip_md5    = md5($myIp);
-		$agent_md5 = md5(\dash\agent::get());
-		$ip_id     = \dash\utility\ip::id($myIp);
-		$agent_id  = \dash\agent::get(true);
-
-		$insert_login_record =
-		[
-			'code'           => $code,
-			'user_id'        => $_user_id,
-			// 'jibres_user_id' => $_user_id,
-			'ip'             => \dash\server::ip(),
-			'ip_id'          => $ip_id,
-			'ip_md5'         => $ip_md5,
-			'agent_id'       => $agent_id,
-			'agent_md5'      => $agent_md5,
-			'status'         => 'active',
-			'place'          => $place,
-			'trustdomain'    => \dash\url::host(),
-			'datecreated'    => date("Y-m-d H:i:s"),
-		];
-
-		$login_id = \dash\db\login\insert::new_record($insert_login_record);
-
-		if(!$login_id)
+		if($need_login_record)
 		{
-			\dash\log::oops('login:canNotInsertLoginRecord');
-			return false;
+			$code      = self::generate_login_code($_user_id, $load_user);
+			$myIp      = \dash\server::ip();
+			$ip_md5    = md5($myIp);
+			$agent_md5 = md5(\dash\agent::get());
+			$ip_id     = \dash\utility\ip::id($myIp);
+			$agent_id  = \dash\agent::get(true);
+
+			$insert_login_record =
+			[
+				'code'           => $code,
+				'user_id'        => $_user_id,
+				// 'jibres_user_id' => $_user_id,
+				'ip'             => \dash\server::ip(),
+				'ip_id'          => $ip_id,
+				'ip_md5'         => $ip_md5,
+				'agent_id'       => $agent_id,
+				'agent_md5'      => $agent_md5,
+				'status'         => 'active',
+				'place'          => $place,
+				'trustdomain'    => \dash\url::host(),
+				'datecreated'    => date("Y-m-d H:i:s"),
+			];
+
+			$login_id = \dash\db\login\insert::new_record($insert_login_record);
+
+			if(!$login_id)
+			{
+				\dash\log::oops('login:canNotInsertLoginRecord');
+				return false;
+			}
+
+			$insert_login_ip =
+			[
+				'login_id'    => $login_id,
+				'ip'          => $myIp,
+				'ip_id'       => $ip_id,
+				'agent_id'    => $agent_id,
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			\dash\db\login\insert::new_record_login_ip($insert_login_ip);
+
+			$load_user_ready = $load_user;
+
+			unset($load_user_ready['permission']); //! just for not return false in check permission
+
+			$load_user_ready = \dash\app\user::ready($load_user_ready);
+			// if user set save remember set cookie life time for 1 month
+			if(isset($load_user_ready['forceremember']) && $load_user_ready['forceremember'])
+			{
+				$time = (60*60*24*30);
+			}
+			else
+			{
+				$time = null;
+			}
+
+
+			\dash\utility\cookie::write(self::cookie_name(), $code, $time);
 		}
-
-		$insert_login_ip =
-		[
-			'login_id'    => $login_id,
-			'ip'          => $myIp,
-			'ip_id'       => $ip_id,
-			'agent_id'    => $agent_id,
-			'datecreated' => date("Y-m-d H:i:s"),
-		];
-
-		\dash\db\login\insert::new_record_login_ip($insert_login_ip);
-
-
-		$load_user_ready = $load_user;
-
-		unset($load_user_ready['permission']); //! just for not return false in check permission
-
-		$load_user_ready = \dash\app\user::ready($load_user_ready);
-		// if user set save remember set cookie life time for 1 month
-		if(isset($load_user_ready['forceremember']) && $load_user_ready['forceremember'])
-		{
-			$time = (60*60*24*30);
-		}
-		else
-		{
-			$time = null;
-		}
-
-
-		\dash\utility\cookie::write(self::cookie_name(), $code, $time);
 
 		return $load_user;
 
