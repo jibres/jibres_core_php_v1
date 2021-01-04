@@ -65,6 +65,17 @@ class ready
 			$result['displayname'] = $result['user_displayname'];
 		}
 
+		// unset some variable in api
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['gender_string']);
+			unset($result['gender']);
+			unset($result['tstatus']);
+			unset($result['html_class']);
+			unset($result['factor_id']);
+			unset($result['agent_id']);
+		}
+
 		return $result;
 	}
 
