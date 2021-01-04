@@ -15,6 +15,12 @@ class add
 			return false;
 		}
 
+		$tag = [];
+		if($args['tag'])
+		{
+			$tag = $args['tag'];
+		}
+
 		unset($args['tag']);
 
 		$args['user_id'] = \dash\user::id();
@@ -27,6 +33,16 @@ class add
 		{
 			\dash\log::oops('dbErrorInsertPost', T_("No way to insert post"));
 			return false;
+		}
+
+		if(array_key_exists('tag', $_args))
+		{
+			\dash\app\posts\terms::save_post_term($tag, $post_id, 'tag');
+		}
+
+		if(isset($args['status']) && $args['status'] === 'publish')
+		{
+			\dash\utility\sitemap::posts($post_id);
 		}
 
 

@@ -93,12 +93,9 @@ class edit
 			if(\dash\engine\process::status())
 			{
 
-				if(in_array($load_posts['type'], ['post', 'help']))
+				if(array_key_exists('tag', $_args))
 				{
-					if(array_key_exists('tag', $_args))
-					{
-						\dash\app\posts\terms::save_post_term($tag, $id, 'tag');
-					}
+					\dash\app\posts\terms::save_post_term($tag, $id, 'tag');
 				}
 
 				\dash\notif::ok(T_("Post successfully updated"));
