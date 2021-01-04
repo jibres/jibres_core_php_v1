@@ -14,7 +14,6 @@ class ready
 			{
 				case 'id':
 				case 'term_id':
-				case 'parent':
 					if(isset($value))
 					{
 						$result[$key] = \dash\coding::encode($value);
@@ -30,15 +29,16 @@ class ready
 					$result[$key] = $value;
 					break;
 
+
+				// hidden filed
+				case 'user_id':
+				// case 'count':
 				case 'meta':
-					if($value && is_string($value))
-					{
-						$result[$key] = json_decode($value, true);
-					}
-					else
-					{
-						$result[$key] = $value;
-					}
+				case 'desc':
+				case 'language':
+				case 'type':
+				case 'parent':
+				case 'status':
 					break;
 
 				default:
