@@ -80,6 +80,12 @@ class store
 	{
 		if(self::inStore())
 		{
+			// api.jibres.com/$jb2dj
+			if(self::free_subdomain())
+			{
+				return false;
+			}
+
 			if(\dash\url::store())
 			{
 				return true;
@@ -108,6 +114,13 @@ class store
 		{
 			// like shop.customerdomain.com
 			if(self::inCustomerDomain())
+			{
+				return false;
+			}
+
+			// no every subdomain is business subdomain
+			// for example api.jibres.com is not a store subdomain
+			if(self::free_subdomain())
 			{
 				return false;
 			}
