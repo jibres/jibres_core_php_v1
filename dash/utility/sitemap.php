@@ -351,7 +351,10 @@ class sitemap
 
 		foreach ($result as $key => $value)
 		{
-			$sitemap->addItem($value[$_field], $value['datemodified'], '0.9');
+			if(isset($value[$_field]))
+			{
+				$sitemap->addItem($value[$_field], $value['datemodified'], '0.9');
+			}
 		}
 
 		$sitemap->endSitemap();
