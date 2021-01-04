@@ -28,7 +28,7 @@
 <section class="f" data-option='crm-user-apikey'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Customer API Key");?></h3>
+      <h3><?php echo T_("API Key");?></h3>
       <div class="body">
         <p><?php echo T_("By creating an API Key, you will allow this user to access the system through a programming interface.") ?></p>
         <?php if(\dash\data::UserApiKey()) {?>
