@@ -34,11 +34,10 @@
         <?php if(\dash\data::UserApiKey()) {?>
           <div class="txtB mT10"><?php echo T_("API key") ?></div>
           <div class="msg ltr light">
-
-          <div title="<?php echo T_("Copy") ?>" class="link btn" data-copy='<?php echo \dash\data::UserApiKey_auth(); ?>'>
-            <i class="sf-clone"></i>
-            <code><?php echo str_repeat('*', 16).  substr(\dash\data::UserApiKey_auth(), 16); ?></code>
-          </div>
+            <div title="<?php echo T_("Copy") ?>" class="link" data-copy='<?php echo \dash\data::UserApiKey_auth(); ?>'>
+              <span class="btn"><?php echo T_("Copy") ?></span>
+              <code><?php echo str_repeat('*', 16).  substr(\dash\data::UserApiKey_auth(), 16); ?></code>
+            </div>
           </div>
         <?php }// endif ?>
       </div>
