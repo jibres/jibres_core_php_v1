@@ -18,12 +18,12 @@
 					<header><h3><?php echo T_("Business API");?></h3></header>
 					<div class="body">
 						<p><?php echo T_("Programmatically manage all of your business data with Jibres RESTful API including user data, products, invoices."); ?></p>
-						<a class="btn2 blue" href="https://documenter.getpostman.com/view/1511811/Szzj8Hg3" target="_blank" data-direct><?php echo T_("View API v1 Documentations"); ?></a>
+						<a class="btn2 blue" href="https://documenter.getpostman.com/view/1511811/TVt2e4vB" target="_blank" data-direct><?php echo T_("View API v1 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>
 
-			<div class="c6 s12 pA10">
+			<div class="c6 s12 pA10 hide">
 				<div class="box">
 					<header><h3><?php echo T_("API");?></h3></header>
 					<div class="body">
@@ -34,7 +34,7 @@
 			</div>
 
 
-			<div class="c6 s12 pA10">
+			<div class="c6 s12 pA10 hide">
 				<div class="box">
 					<header><h3><?php echo T_("Core");?></h3></header>
 					<div class="body">
