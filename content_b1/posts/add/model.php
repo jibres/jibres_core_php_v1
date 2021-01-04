@@ -23,7 +23,7 @@ class model
 		$args['publishtime']    = \dash\request::input_body('publishtime');
 		$args['redirecturl']    = \dash\request::input_body('redirecturl');
 		$args['tagurl']         = \dash\request::input_body('tagurl');
-		$args['tag']            = \dash\request::input_body('tag');
+		$args['tags']           = \dash\request::input_body('tags');
 
 
 		$result = \dash\app\posts\add::add($args);
