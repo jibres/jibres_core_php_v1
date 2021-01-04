@@ -115,6 +115,13 @@ class ready
 			$result['thumb_raw'] = $result['thumb'];
 		}
 
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['domain']);
+			unset($result['t_type']);
+			unset($result['thumb_raw']);
+		}
+
 		return $result;
 	}
 

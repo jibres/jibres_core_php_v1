@@ -31,6 +31,16 @@ class model
 			{
 				\dash\notif::ok(T_("File successfully uploaded"));
 			}
+
+			if(\dash\temp::get('isApi'))
+			{
+				return $file_detail;
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("Please send a file to upload"));
+			return false;
 		}
 
 		if(\dash\engine\process::status())
