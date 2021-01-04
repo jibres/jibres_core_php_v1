@@ -40,42 +40,6 @@ class ready
 					}
 					break;
 
-				case 'meta':
-					$result['meta'] = null;
-					if(is_array($value))
-					{
-						$result['meta'] = $value;
-					}
-					elseif(is_string($value))
-					{
-						$result['meta'] = json_decode($value, true);
-						if(!is_array($result['meta']))
-						{
-							$result['meta'] = [];
-						}
-					}
-
-					if(isset($result['meta']['thumb']))
-					{
-						$result['meta']['thumb'] = \lib\filepath::fix($result['meta']['thumb']);
-						$result['thumb_image'] = $result['meta']['thumb'];
-					}
-
-					if(isset($result['meta']['gallery']['files']) && is_array($result['meta']['gallery']['files']))
-					{
-						foreach ($result['meta']['gallery']['files'] as $Gkey => $Gvalue)
-						{
-							if(isset($Gvalue['path']))
-							{
-								$result['meta']['gallery']['files'][$Gkey]['path'] = \lib\filepath::fix($result['meta']['gallery']['files'][$Gkey]['path']);
-							}
-
-						}
-					}
-
-
-					break;
-
 				case 'gallery':
 					$result[$key] = $value;
 					if($value)
@@ -248,6 +212,20 @@ class ready
 		elseif(isset($result['title']))
 		{
 			$result['post_title'] = $result['title']. ' | '. \dash\face::hereTitle();
+		}
+
+
+		// unset some private variable in api
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['icon_list']);
+			unset($result['meta']);
+			unset($result['special']);
+			unset($result['auto_excerpt']);
+			unset($result['language']);
+			unset($result['post_title']);
+			unset($result['gallery']);
+
 		}
 
 		return $result;

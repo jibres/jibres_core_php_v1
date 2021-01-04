@@ -304,6 +304,21 @@ class search
 	}
 
 
+
+
+	public static function api_lates_post($_args = [])
+	{
+
+		$_args['website_mode'] = true;
+		$_args['status']       = 'publish';
+
+		$list = self::list(null, $_args, true);
+
+		return $list;
+	}
+
+
+
 	public static function lates_post($_args = [])
 	{
 		if(!isset($_args['limit']))
