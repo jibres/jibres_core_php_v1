@@ -69,12 +69,24 @@ class model
 	}
 
 
-	public static function remove_gallery($_id)
+	public static function remove_gallery($_id, $_file_id = null)
 	{
-		$fileid = \dash\request::post('fileid');
+		if(!$_file_id)
+		{
+			$fileid = \dash\request::post('fileid');
+		}
+		else
+		{
+			$fileid = $_file_id;
+		}
+
 		\dash\app\posts\gallery::gallery($_id, $fileid, 'remove');
-		\dash\notif::ok(T_("File removed"));
-		// \dash\redirect::pwd();
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("File removed"));
+		}
+
 	}
 
 

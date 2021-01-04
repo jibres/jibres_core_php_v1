@@ -12,5 +12,15 @@ class model
 
 		\content_b1\tools::say($result);
 	}
+
+
+	public static function delete()
+	{
+		\dash\temp::set('isApi', false);
+
+		$result = \content_cms\posts\edit\model::remove_gallery(\dash\request::get('id'), \dash\request::get('file_id'));
+
+		\content_b1\tools::say($result);
+	}
 }
 ?>
