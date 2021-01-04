@@ -24,6 +24,11 @@ class get
 
 		$detail = \dash\db\comments\get::full_by_id($id);
 
+		if(!$detail)
+		{
+			return false;
+		}
+
 		$temp = [];
 
 		if(is_array($detail))
