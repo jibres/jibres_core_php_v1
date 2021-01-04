@@ -42,13 +42,13 @@ class edit
 
 		if(empty($args))
 		{
-			\dash\notfi::info(T_("Comment saved without change"));
+			\dash\notif::info(T_("Comment saved without change"));
 			return true;
 		}
 
  		\dash\db\comments\update::update($args, $load['id']);
 
-		\dash\notif::ok(T_("Your comment successfully added"));
+		\dash\notif::ok(T_("Your comment successfully edited"));
 
 
 		return true;
