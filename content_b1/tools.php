@@ -12,6 +12,9 @@ class tools
 	 */
 	public static function master_check()
 	{
+		// set is api variable to check somewhere
+		\dash\temp::set('isApi', true);
+
 		self::check_apikey();
 
 		self::apikey_required();
@@ -32,12 +35,14 @@ class tools
 
 	private static function apikey_required()
 	{
-		$public_module =
+
+		// some directory needless to check api key
+		$public_directory =
 		[
-			// some module
+			'posts/latest',
 		];
 
-		if(in_array(\dash\url::module(), $public_module))
+		if(in_array(\dash\url::directory(), $public_directory))
 		{
 			// needless to require apikey
 		}
