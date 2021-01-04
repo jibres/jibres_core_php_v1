@@ -29,7 +29,7 @@ class check
 			'redirecturl'     => 'url',
 			'creator'         => 'code',
 			'tagurl'          => 'code',
-			'tag'             => 'tag',
+			'tags'             => 'tag',
 			'set_publishdate' => 'bit',
 			'set_seo' => 'bit',
 		];

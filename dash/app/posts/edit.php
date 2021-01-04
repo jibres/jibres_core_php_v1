@@ -54,13 +54,13 @@ class edit
 			$_args['publishdate'] = 'need - publishdate :/ ';
 		}
 
-		$tag = [];
-		if($args['tag'])
+		$tags = [];
+		if($args['tags'])
 		{
-			$tag = $args['tag'];
+			$tags = $args['tags'];
 		}
 
-		unset($args['tag']);
+		unset($args['tags']);
 
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
@@ -93,9 +93,9 @@ class edit
 			if(\dash\engine\process::status())
 			{
 
-				if(array_key_exists('tag', $_args))
+				if(array_key_exists('tags', $_args))
 				{
-					\dash\app\posts\terms::save_post_term($tag, $id, 'tag');
+					\dash\app\posts\terms::save_post_term($tags, $id, 'tag');
 				}
 
 				\dash\notif::ok(T_("Post successfully updated"));

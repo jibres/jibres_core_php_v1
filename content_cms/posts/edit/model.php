@@ -55,7 +55,7 @@ class model
 				'subtitle'    => \dash\request::post('subtitle'),
 				'title'       => \dash\request::post('title'),
 				'content'     => \dash\request::post_raw('content'),
-				'tag'         => \dash\request::post('tag'),
+				'tags'         => \dash\request::post('tag'),
 			];
 
 		}

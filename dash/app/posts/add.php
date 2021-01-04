@@ -15,13 +15,13 @@ class add
 			return false;
 		}
 
-		$tag = [];
-		if($args['tag'])
+		$tags = [];
+		if($args['tags'])
 		{
-			$tag = $args['tag'];
+			$tags = $args['tags'];
 		}
 
-		unset($args['tag']);
+		unset($args['tags']);
 
 		$args['user_id'] = \dash\user::id();
 
@@ -35,9 +35,9 @@ class add
 			return false;
 		}
 
-		if(array_key_exists('tag', $_args))
+		if(array_key_exists('tags', $_args))
 		{
-			\dash\app\posts\terms::save_post_term($tag, $post_id, 'tag');
+			\dash\app\posts\terms::save_post_term($tags, $post_id, 'tag');
 		}
 
 		if(isset($args['status']) && $args['status'] === 'publish')
