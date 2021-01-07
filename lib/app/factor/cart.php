@@ -258,11 +258,11 @@ class cart
 		}
 
 
+		\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 
 
 		if($data['payway'] === 'online')
 		{
-			\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 			// set status on pending_pay
 			\lib\app\factor\action::set('awaiting_payment', $factor_id);
 
