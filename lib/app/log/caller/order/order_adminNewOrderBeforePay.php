@@ -68,7 +68,7 @@ class order_adminNewOrderBeforePay
 
 	public static function sms()
 	{
-		return false;
+		return true;
 	}
 
 	public static function sms_text($_args, $_mobile)
