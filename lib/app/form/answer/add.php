@@ -602,6 +602,8 @@ class add
 			{
 				\dash\notif::ok(T_("Your answer was saved"), ['alerty' => true]);
 			}
+
+			\dash\log::set('form_newAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $add_answer]);
 		}
 		else
 		{
