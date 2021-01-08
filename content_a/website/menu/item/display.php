@@ -18,8 +18,12 @@
           <label for="target"><?php echo T_("Open in New tab"); ?><small></small></label>
         </div>
     </div>
-    <footer class="txtRa">
-      <button class="btn <?php if($editMode) { echo 'primary'; }else{ echo 'success';} ?>"><?php if($editMode) { echo T_("Edit");}else{ echo T_("Add");} ?></button>
+    <footer>
+      <div class="row">
+        <div class="c-auto"><?php if($editMode){ ?><div class="btn linkDel" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div><?php } //endif ?></div>
+        <div class="c"></div>
+        <div class="c-auto"><button class="btn <?php if($editMode) { echo 'primary'; }else{ echo 'success';} ?>"><?php if($editMode) { echo T_("Edit");}else{ echo T_("Add");} ?></button></div>
+       </div>
     </footer>
   </form>
 </div>
