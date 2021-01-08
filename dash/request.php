@@ -317,13 +317,7 @@ class request
 	{
 		$input = @file_get_contents('php://input');
 
-
-		if(\dash\engine\baby::hex($input))
-		{
-			\dash\engine\baby::pacifier(12, 424);
-		}
-
-		if(\dash\engine\baby::script($input))
+		if(\dash\engine\baby::check_simple($input))
 		{
 			\dash\engine\baby::pacifier(12, 424);
 		}

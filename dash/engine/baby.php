@@ -75,7 +75,7 @@ class baby
 					}
 					else
 					{
-						// self::check($value2, true);
+						self::check_simple($value2, true);
 					}
 				}
 			}
@@ -86,7 +86,7 @@ class baby
 			}
 			else
 			{
-				// self::check($value, true);
+				self::check_simple($value, true);
 			}
 		}
 		// we can add some check on php://input and maybe another one!
@@ -131,6 +131,38 @@ class baby
 
 	}
 
+
+	/**
+	 * check input text to have problem with hex or invalid chars
+	 * @param  [type]  $_txt       [description]
+	 * @param  boolean $_onlyCheck [description]
+	 * @return [type]              [description]
+	 */
+	public static function check_simple($_txt, $_block = false)
+	{
+		$result = null;
+		$status_code = 418;
+
+		// check for problem in hex
+		if(self::hex($_txt))
+		{
+			$result = true;
+		}
+		// check for someone try inject script
+		if(self::script($_txt, true))
+		{
+			$status_code = 451;
+			$result = true;
+		}
+
+		// if needed block
+		if($result === true && $_block)
+		{
+			self::pacifier(null, $status_code);
+		}
+		// return final result if not blocked!
+		return $result;
+	}
 
 	/**
 	 * check input text to have problem with hex or invalid chars
@@ -209,7 +241,7 @@ class baby
 	 * @param  [type] $_txt [description]
 	 * @return [type]       [description]
 	 */
-	public static function script($_txt)
+	public static function script($_txt, $_simple = false)
 	{
 		if(preg_match("/<script>/i", $_txt))
 		{
@@ -236,21 +268,26 @@ class baby
 			self::$level = 5;
 			return true;
 		}
-		if(preg_match("/<(.*)>/", $_txt))
+
+		if(!$_simple)
 		{
-			self::$level = 3;
-			return true;
+			if(preg_match("/<(.*)>/", $_txt))
+			{
+				self::$level = 3;
+				return true;
+			}
+			if(preg_match("/<(.*)\?/", $_txt))
+			{
+				self::$level = 2;
+				return true;
+			}
+			if(preg_match("/</", $_txt))
+			{
+				self::$level = 1;
+				return true;
+			}
 		}
-		if(preg_match("/<(.*)\?/", $_txt))
-		{
-			self::$level = 2;
-			return true;
-		}
-		if(preg_match("/</", $_txt))
-		{
-			self::$level = 1;
-			return true;
-		}
+
 		if(preg_match("/eval(.*)\(/i", $_txt))
 		{
 			self::$level = 0;
