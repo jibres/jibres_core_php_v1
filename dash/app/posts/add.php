@@ -15,6 +15,12 @@ class add
 			return false;
 		}
 
+		if(!$args['title'])
+		{
+			\dash\notif::error(T_("Title is required"));
+			return false;
+		}
+
 		$tags = [];
 		if($args['tags'])
 		{
