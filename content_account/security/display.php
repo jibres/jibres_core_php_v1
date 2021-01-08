@@ -133,10 +133,10 @@ else
       <div class="body pad">
         <div class="f">
           <div class="c">
-            <h3><?php echo T_("API key and Application key"); ?></h3>
+            <h3><?php echo T_("Access token and Application key"); ?></h3>
             <p><?php echo T_("Protect this key like a password!"); ?></p>
             <p><?php echo T_("Keys used to access APIs in"); ?> <?php echo \dash\face::site(); ?></p>
-            <a href="<?php echo \dash\url::here(); ?>/api" class="btn primary outline"><?php echo T_("API key"); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/api" class="btn primary outline"><?php echo T_("Access Token"); ?></a>
             <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn primary outline"><?php echo T_("Application key"); ?></a>
           </div>
           <div class="cauto s12 os">

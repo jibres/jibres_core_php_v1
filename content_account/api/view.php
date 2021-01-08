@@ -6,11 +6,8 @@ class view
 
 	public static function config()
 	{
-		\dash\face::title(T_('API key'));
+		\dash\face::title(T_('Access Token'));
 
-
-		\dash\data::action_link(\dash\url::here(). '/security');
-		\dash\data::action_text(T_('Back to Account security'));
 
 		\dash\data::back_link(\dash\url::here(). '/security');
 		\dash\data::back_text(T_('Back'));
