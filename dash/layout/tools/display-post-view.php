@@ -20,7 +20,7 @@ if(\dash\data::dataRow_thumb())
   echo '</a>';
 }
 
-echo '<div>';
+echo '<div class="postContent">';
 echo \dash\data::dataRow_content();
 echo '</div>';
 
