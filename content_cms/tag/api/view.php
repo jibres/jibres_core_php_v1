@@ -35,6 +35,7 @@ class view
 
 
 		\dash\notif::results($new_list);
+		\dash\code::end();
 	}
 }
 ?>

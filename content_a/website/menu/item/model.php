@@ -6,15 +6,18 @@ class model
 {
 	public static function post()
 	{
-
-
 		$post =
 		[
-			'title'   => \dash\request::post('title'),
-			'url'     => \dash\request::post('url'),
-			'target'  => \dash\request::post('target'),
-			'itemkey' => \dash\data::itemkey(),
-			'remove'  => \dash\request::post('remove'),
+			'title'         => \dash\request::post('title'),
+			'url'           => \dash\request::post('url'),
+			'pointer'       => \dash\request::post('pointer'),
+			'target'        => \dash\request::post('target'),
+			'itemkey'       => \dash\data::itemkey(),
+			'remove'        => \dash\request::post('remove'),
+			'product_id'    => \dash\request::post('product_id'),
+			'post_id'       => \dash\request::post('post_id'),
+			'tag_id'        => \dash\request::post('tag_id'),
+			'socialnetwork' => \dash\request::post('socialnetwork'),
 		];
 
 		$theme_detail = \lib\app\website\menu\add::menu_item($post, \dash\request::get('id'));

@@ -139,12 +139,18 @@ class add
 	{
 		$condition =
 		[
-			'title'   => 'string_50',
-			'url'     => 'string_200',
-			'target'  => 'bit',
-			'remove'  => 'bit',
-			'itemkey' => 'smallint',
-			'sort'    => 'smallint',
+			'title'         => 'string_50',
+			'url'           => 'string_200',
+			'product_id'    => 'id',
+			'hashtag_id'    => 'id',
+			'post_id'       => 'code',
+			'tag_id'        => 'code',
+			'target'        => 'bit',
+			'remove'        => 'bit',
+			'itemkey'       => 'smallint',
+			'sort'          => 'smallint',
+			'pointer'       => ['enum' => ['homepage','products','posts','tags','hashtag','socialnetwork','other']],
+			'socialnetwork' => 'string_50',
 		];
 
 		if(isset($_args['itemkey']) && isset($_args['remove']) && $_args['remove'])
@@ -153,7 +159,7 @@ class add
 		}
 		else
 		{
-			$require = ['title', 'url'];
+			$require = ['title', 'pointer'];
 		}
 
 
@@ -188,9 +194,11 @@ class add
 		$sort = $data['sort'];
 		if(!$sort)
 		{
-			$sort = count($load_detail['list']) + 1;
+			$data['sort'] = count($load_detail['list']) + 1;
 		}
 
+
+		$check_detail = false;
 
 		if(isset($data['itemkey']))
 		{
@@ -206,27 +214,27 @@ class add
 			}
 			else
 			{
-				// add new item
-				$load_detail['list'][$data['itemkey']] =
-				[
-					'title'  => $data['title'],
-					'url'    => $data['url'],
-					'target' => $data['target'],
-					'sort'   => $sort,
-				];
+				$check_detail = true;
+				// edit item
+				$load_detail['list'][$data['itemkey']] = $data;
 			}
 
 		}
 		else
 		{
+			$check_detail = true;
 			// add new item
-			$load_detail['list'][] =
-			[
-				'title'  => $data['title'],
-				'url'    => $data['url'],
-				'target' => $data['target'],
-				'sort'   => $sort,
-			];
+			$load_detail['list'][] = $data;
+		}
+
+
+		if($check_detail)
+		{
+			if($data['pointer'] === 'other' && !$data['url'])
+			{
+				\dash\notif::error(T_("Please enter url"), 'url');
+				return false;
+			}
 		}
 
 
