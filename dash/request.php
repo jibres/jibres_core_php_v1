@@ -272,7 +272,7 @@ class request
 				$request = [];
 			}
 
-			$request = \dash\safe::safe($request, 'sqlinjection');
+			$request = \dash\safe::safe($request, 'sqlinjection-raw');
 
 			self::$PHP_INPUT = $request;
 		}
