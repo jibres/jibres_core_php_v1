@@ -1,25 +1,45 @@
+<section class="f" data-option='menu-edit-title'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Change menu title");?></h3>
+      <div class="body">
+          <div class="txtB"><?php echo \dash\data::menuDetail_title() ?></div>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+      <div class="action">
+        <a class="btn master" href="<?php echo \dash\url::that(). '/edit'. \dash\request::full_get() ?>"><?php echo T_("Edit menu title") ?></a>
+      </div>
+  </div>
+</section>
 
 
-<div class="avand-md">
-  <div class="msg fs14"><?php echo T_("Select any of the menu items you want and move them to sort") ?></div>
-<form method="post" data-patch>
 
-    <nav class="items">
-     <ol data-sortable2>
 
-    <?php foreach (\dash\data::menuDetailList() as $key => $value) {?>
-       <li>
-        <a class="f item">
-          <i class="sf-thumbnails" data-handle>
-            <input type="hidden" name="sort[]" value="<?php echo $key; ?>">
-          </i>
-          <div class="key"><?php echo a($value, 'title');?><?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?></div>
-        </a>
-       </li>
+<section class="f" data-option='menu-remove'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Remove menu");?></h3>
+      <div class="body">
+            <?php if(\dash\data::usageList()) {?>
+            <p><?php echo T_("Usage menu list") ?></p>
+            <?php foreach (\dash\data::usageList() as $key => $value) {?>
+              <a href="<?php echo \dash\url::this(). a($value, 'link'); ?>" class="badge pA20 fs11"><?php echo a($value, 'title') ?></a>
+            <?php } //endforeach ?>
+          <?php }else{ ?>
+            <p class="mT20">
+              <?php echo T_("This menu not use anywhere. You can remove it") ?>
+            </p>
+          <?php }//endif ?>
 
-    <?php } //enfor ?>
-     </ol>
-   </nav>
-</form>
-</div>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+      <div class="action">
+        <div data-confirm data-data='{"remove": "remove"}' class="btn danger"><?php echo T_("Remove") ?></div>
+      </div>
+  </div>
+</section>
 

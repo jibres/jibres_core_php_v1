@@ -23,7 +23,7 @@ class view
 		{
 			// back
 			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::that(). '/roster'. \dash\request::full_get());
+			\dash\data::back_link(\dash\url::that(). '/roster'. \dash\request::full_get(['key' => null]));
 		}
 		else
 		{

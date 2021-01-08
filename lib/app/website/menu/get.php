@@ -46,8 +46,9 @@ class get
 						$new_list[] = ['title' => T_("Header menu"), 'link' => '/header'];
 						break;
 
+					case 'footer_customized':
 					case 'footer_customize':
-						$new_list[] = ['title' => T_("Header menu"), 'link' => '/footer'];
+						$new_list[] = ['title' => T_("Footer menu"), 'link' => '/footer'];
 						break;
 
 					default:

@@ -42,7 +42,7 @@ else
   <?php if(\dash\data::allMenu()) {?>
   <footer class="txtRa">
     <?php if($currentMenuID) {?>
-      <a href="<?php echo \dash\url::this(). '/menu/edit?id='. $currentMenuID; ?>" class="btn link"><?php echo T_("Edit menu :val", ['val' => $currentMenuName]); ?></a>
+      <a href="<?php echo \dash\url::this(). '/menu/roster?id='. $currentMenuID; ?>" class="btn link"><?php echo T_("Edit menu :val", ['val' => $currentMenuName]); ?></a>
     <?php } //endif ?>
    <a href="<?php echo \dash\url::this() ?>/menu/add" class="btn link"><?php echo T_("Add new menu") ?></a>
   </footer>

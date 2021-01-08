@@ -6,14 +6,20 @@ class model
 {
 	public static function post()
 	{
-		$sort = \dash\request::post('sort');
 
-		$theme_detail = \lib\app\website\menu\add::menu_item_sort($sort, \dash\request::get('id'));
-
-
-		if(\dash\engine\process::status())
+		if(\dash\request::post('remove') === 'remove')
 		{
-			\dash\redirect::pwd();
+			$post =
+			[
+				'removemenu'    => \dash\request::get('id'),
+			];
+
+			$theme_detail = \lib\app\website\menu\add::remove_menu($post);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::this(). '/menu');
+			}
 		}
 
 	}
