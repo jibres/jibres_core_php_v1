@@ -340,7 +340,7 @@ class search
 		$post_id = \dash\coding::decode($_post_id);
 		if(!$post_id)
 		{
-			return self::lates_post();
+			return null;
 		}
 
 
@@ -360,7 +360,7 @@ class search
 		$post_term = \dash\db::get($load_post_term, 'id');
 		if(empty($post_term))
 		{
-			return self::lates_post();
+			return null;
 		}
 
 		$multi_tag_search = implode(',', $post_term);
