@@ -1,5 +1,5 @@
 <?php
-namespace content_a\website\menu\edit;
+namespace content_a\website\menu\roster;
 
 
 class model

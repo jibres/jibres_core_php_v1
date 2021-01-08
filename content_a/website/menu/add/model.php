@@ -19,7 +19,7 @@ class model
 		{
 			if(isset($theme_detail['id']))
 			{
-				\dash\redirect::to(\dash\url::this(). '/menu/edit?id='. $theme_detail['id']);
+				\dash\redirect::to(\dash\url::this(). '/menu/item?id='. $theme_detail['id']);
 			}
 			else
 			{

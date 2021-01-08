@@ -1,5 +1,5 @@
 <?php
-namespace content_a\website\menu\sort;
+namespace content_a\website\menu\setting;
 
 
 class model
