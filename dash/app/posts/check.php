@@ -73,8 +73,15 @@ class check
 		// all record is page
 		$data['type']    = 'post';
 
-		$comment         = $data['comment'] ? 'open' : 'closed';
-		$data['comment'] = $comment;
+		if($data['comment'] === 'close')
+		{
+			$data['comment'] = 'close';
+		}
+		else
+		{
+			$comment         = $data['comment'] ? 'open' : 'closed';
+			$data['comment'] = $comment;
+		}
 
 		if(!$data['language'])
 		{
