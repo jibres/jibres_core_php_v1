@@ -143,11 +143,6 @@ class baby
 		$result = null;
 		$status_code = 418;
 
-		// check for problem in hex
-		if(self::hex($_txt))
-		{
-			$result = true;
-		}
 		// check for someone try inject script
 		if(self::script($_txt, true))
 		{
