@@ -199,13 +199,13 @@ class store
 		{
 			self::config_by_store_id();
 		}
-		elseif($subdomain)
-		{
-			self::config_by_subdomain();
-		}
 		elseif(self::inCustomerDomain() && self::$customerDomainStore_id)
 		{
 			self::init_by_id(self::$customerDomainStore_id);
+		}
+		elseif($subdomain)
+		{
+			self::config_by_subdomain();
 		}
 	}
 
@@ -240,7 +240,7 @@ class store
 				if(isset(self::$customerDomainDetail['subdomain']) && self::$customerDomainDetail['subdomain'] === $subdomain)
 				{
 					// no problem.
-					// the user poin shop.example.com to jibres
+					// the user point shop.example.com to jibres
 				}
 				else
 				{
