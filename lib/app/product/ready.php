@@ -346,7 +346,7 @@ class ready
 
 		if(isset($result['oversale']) && $result['oversale'])
 		{
-			$maxsale = null;
+			$maxsale = $max_cart_limit;
 		}
 
 		$result['cart_limit']                   = [];
