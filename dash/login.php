@@ -45,7 +45,9 @@ class login
 					$blockMeta = null;
 					if(self::$error)
 					{
+						self::$error[] = $_SERVER;
 						$blockMeta = json_encode(self::$error, JSON_UNESCAPED_UNICODE);
+						$blockMeta = addslashes($blockMeta);
 					}
 
 					\dash\db\login\update::set_block($load['id'], 'master', $blockMeta);
@@ -203,6 +205,10 @@ class login
 			self::$error[] = 'used in place  :' . self::where_am_i();
 			self::$error[] = 'current url is :' . \dash\url::current();
 			self::$error[] = 'the status is :' . a($_detail, 'status');
+			self::$error[] = '--- cookie ---';
+			self::$error[] = self::read_cookie();
+			self::$error[] = '--- detail ---';
+			self::$error[] = $_detail;
 			return false;
 		}
 
