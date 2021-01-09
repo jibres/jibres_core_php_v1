@@ -582,17 +582,31 @@ class prepare
 	 */
 	public static function check_domain()
 	{
+		$specail_domain =
+		[
+			'blog.jibres.ir',
+			'blog.jibres.com',
+			'blog.jibres.local',
+		];
 
-		$domain = \dash\url::domain();
-		switch ($domain)
+		if(in_array(\dash\url::host(), $specail_domain))
 		{
-			case 'jibres.com':
-			case 'jibres.ir':
-			case 'jibres.local':
-				// nothing
-				return;
-				break;
+			// need check business domain
 		}
+		else
+		{
+			$domain = \dash\url::domain();
+			switch ($domain)
+			{
+				case 'jibres.com':
+				case 'jibres.ir':
+				case 'jibres.local':
+					// nothing
+					return;
+					break;
+			}
+		}
+
 
 		// check is customer domain or no
 		$is_customer_domain = \dash\engine\store::is_customer_domain(\dash\url::host());
