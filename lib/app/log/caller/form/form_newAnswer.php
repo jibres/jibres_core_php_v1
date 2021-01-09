@@ -79,10 +79,34 @@ class form_newAnswer
 	{
 		$title = self::get_msg($_args);
 
+		$my_form_id       = isset($_args['data']['my_form_id']) ? $_args['data']['my_form_id'] : null;
+		$my_answer_id   = isset($_args['data']['my_answer_id']) ? \dash\fit::number($_args['data']['my_answer_id']) : null;
+
+		//  the link is
+		// a/form/answer/detail?id=$my_form_id&aid=$my_answer_id
+		$url = \lib\store::admin_url(). '/a/form/answer/detail?'. http_build_query(['id' => $my_form_id, 'aid' => $my_answer_id]);
+
+		$body = '';
+		$body .= '<p>';
+		$body .= T_("A new response to the form was registered");
+
+		if($my_form_id && is_numeric($my_form_id))
+		{
+			$form_detail = \lib\db\form\get::by_id($my_form_id);
+			if(isset($form_detail['title']))
+			{
+				$body .= " ". $form_detail['title'];
+			}
+		}
+
+		$body .= '<a href="'.$url.'" target="_blank" clicktracking=off >'. T_("View answer"). '</a>';
+		$body .= '</p>';
+
+
 		$email =
 		[
 			'email'   => $_email,
-			'body'    => $title,
+			'body'    => $body,
 			'subject' => T_("New answer to form"),
 		];
 
