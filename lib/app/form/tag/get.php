@@ -85,6 +85,12 @@ class get
 	{
 		\dash\permission::access('_group_form');
 
+		$_answer_id = \dash\validate::id($_answer_id);
+		if(!$_answer_id)
+		{
+			return false;
+		}
+
 		$get_usage = \lib\db\form_tagusage\get::usage($_answer_id);
 
 		return $get_usage;

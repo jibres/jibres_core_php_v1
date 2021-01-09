@@ -8,6 +8,12 @@ class get
 	{
 		\dash\permission::access('_group_form');
 
+		$_answer_id = \dash\validate::id($_answer_id);
+		if(!$_answer_id)
+		{
+			return false;
+		}
+
 		$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
 		if(!$load_answer)
 		{

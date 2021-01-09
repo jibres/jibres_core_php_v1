@@ -225,6 +225,12 @@ class get
 
 		$items         = self::items($_form_id);
 
+		$_answer_id = \dash\validate::id($_answer_id);
+		if(!$_answer_id)
+		{
+			return false;
+		}
+
 		$load_answer   = \lib\db\form_answer\get::user_answer($_answer_id);
 
 		$answer        = a($load_answer, 'answer');
