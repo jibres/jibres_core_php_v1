@@ -16,7 +16,7 @@ switch (\dash\data::dataRow_status())
   case 'deleted' :  $myIcon = 'stop nok'; break;
 }
 ?>
-<?php if(\dash\data::dataRow_status() !== 'publish' || a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'meta', 'redirect')) {?>
+<?php if(\dash\data::dataRow_status() !== 'publish' || a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'redirecturl')) {?>
   <nav class="items long">
     <ul>
 
