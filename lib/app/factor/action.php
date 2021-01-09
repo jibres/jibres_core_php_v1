@@ -289,7 +289,7 @@ class action
 
 		if($data['action'] === 'tracking')
 		{
-			$data['desc'] = \dash\validate::bigint($data['desc']);
+			$data['desc'] = \dash\validate::string_100($data['desc']);
 
 			$check_exist_tracking = \lib\db\factoraction\get::by_action_factor_id($factor_id, 'tracking');
 			if(isset($check_exist_tracking['id']))
