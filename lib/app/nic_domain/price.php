@@ -42,7 +42,7 @@ class price
 			{
 				$days = $diff->days;
 			}
-
+			// @todo need to fix @reza
 			if($days > 30 && $days < 60)
 			{
 				$price = $price * 2;
