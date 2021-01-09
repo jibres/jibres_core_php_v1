@@ -234,7 +234,7 @@ class generator
 		echo '<label>';
 		if($_bold)
 		{
-			echo '<span class="txtB">';
+			echo '<span>';
 			echo a($value, 'title');
 			echo '</span>';
 		}
