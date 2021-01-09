@@ -204,7 +204,7 @@ class generator
 
 	private static function label($value, $_special_text = null, $_special_id = null)
 	{
-		echo '<label for="';
+		echo '<label class="q" for="';
 		if($_special_id)
 		{
 			echo $_special_id;
@@ -229,20 +229,10 @@ class generator
 	}
 
 
-	private static function label_raw($value, $_bold = false)
+	private static function label_raw($value)
 	{
-		echo '<label>';
-		if($_bold)
-		{
-			echo '<span>';
-			echo a($value, 'title');
-			echo '</span>';
-		}
-		else
-		{
-			echo a($value, 'title');
-		}
-
+		echo '<label class="q">';
+		echo a($value, 'title');
 		self::isRequired($value, true);
 		echo '</label>';
 	}
@@ -402,7 +392,7 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label_raw($value, true);
+				self::label_raw($value);
 
 				self::div('row');
 				{
@@ -442,7 +432,7 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label_raw($value, true);
+				self::label_raw($value);
 				self::div('row');
 				{
 					if(isset($value['choice']) && is_array($value['choice']))
@@ -587,7 +577,7 @@ class generator
 	{
 		self::div('c-xs-12 c-12');
 		{
-			self::label_raw($value, true);
+			self::label_raw($value);
 			self::div('mB10');
 			{
 				self::div('row');
@@ -852,7 +842,7 @@ class generator
 		{
 			self::div('mB10');
 			{
-				self::label_raw($value, true);
+				self::label_raw($value);
 				self::div('row');
 				{
 					self::div('c-xs-6 c-sm-6');
