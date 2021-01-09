@@ -104,13 +104,16 @@ class view
 			// set desktop title
 			if(\dash\url::content() || \dash\engine\store::inBusinessWebsite())
 			{
-				if(\dash\face::specialTitle())
+				if(\dash\url::module())
 				{
-					// do nothing
-				}
-				else
-				{
-					$page_title .= ' | '. \dash\face::site();
+					if(\dash\face::specialTitle())
+					{
+						// do nothing
+					}
+					else
+					{
+						$page_title .= ' | '. \dash\face::site();
+					}
 				}
 			}
 
