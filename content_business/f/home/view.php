@@ -14,9 +14,8 @@ class view
 			$store_title = \lib\store::detail('title');
 			if($store_title)
 			{
-				\dash\face::title(T_("Forms"). ' | '. $store_title);
+				\dash\face::title(T_("Forms"));
 			}
-
 		}
 
 		if(\dash\data::formDetail_desc())

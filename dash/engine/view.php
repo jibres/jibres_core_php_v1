@@ -102,7 +102,7 @@ class view
 				\dash\face::titlePWA($page_title);
 			}
 			// set desktop title
-			if(\dash\url::content())
+			if(\dash\url::content() || \dash\engine\store::inBusinessWebsite())
 			{
 				if(\dash\face::specialTitle())
 				{
