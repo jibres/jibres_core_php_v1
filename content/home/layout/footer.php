@@ -155,14 +155,12 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li class="title"><?php echo T_('Resources'); ?></li>
-              <?php if(false) {?>
               <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/blog">
+                <a class="item f" target="_blank" href="https://blog.jibres.<?php if(\dash\language::current() == 'fa') {echo "ir";} else {echo "com";} ?>">
                 <div class="key"><?php echo T_('Blog'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
-            <?php } //endif ?>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/terms">
                 <div class="key"><?php echo T_('Terms of Service'); ?></div>
