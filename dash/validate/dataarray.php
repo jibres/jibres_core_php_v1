@@ -126,7 +126,7 @@ class dataarray
 				break;
 			}
 
-			$temp = \dash\validate::string_30($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
+			$temp = \dash\validate::string_50($tag, true, ['field_title' => $_field_title, 'element' => $_element]);
 			if(isset($temp))
 			{
 				$new_tag[] = $temp;
