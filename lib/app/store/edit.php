@@ -6,7 +6,7 @@ class edit
 {
 	public static function change_subdomain($_subdomain, $_id)
 	{
-		$subdomain = \dash\validate::subdomain($_subdomain);
+		$subdomain = \dash\validate::subdomain_admin($_subdomain);
 		if(!$subdomain)
 		{
 			return false;

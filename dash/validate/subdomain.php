@@ -8,8 +8,16 @@ class subdomain
 	public static function subdomain($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$meta        = $_meta;
-		$meta['min'] = 5;
-		$meta['max'] = 50;
+
+		if(!isset($meta['min']))
+		{
+			$meta['min'] = 5;
+		}
+
+		if(!isset($meta['max']))
+		{
+			$meta['max'] = 50;
+		}
 
 		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, $meta);
 
@@ -37,21 +45,21 @@ class subdomain
 		$data = trim($data, '_');
 		$data = trim($data);
 
-		if(mb_strlen($data) < 5)
+		if(mb_strlen($data) < $meta['min'])
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Slug must have at least 5 character"), ['element' => $_element]);
+				\dash\notif::error(T_("Slug must have at least :val character", ['val' => \dash\fit::number($meta['min'])]), ['element' => $_element]);
 				\dash\cleanse::$status = false;
 			}
 			return false;
 		}
 
-		if(mb_strlen($data) > 50)
+		if(mb_strlen($data) > $meta['max'])
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Please set the subdomain less than 50 character"), ['element' => $_element]);
+				\dash\notif::error(T_("Please set the subdomain less than :val character", ['val' => \dash\fit::number($meta['max'])]), ['element' => $_element]);
 				\dash\cleanse::$status = false;
 			}
 			return false;
@@ -237,6 +245,17 @@ class subdomain
 		}
 
 		return false;
+	}
+
+
+	public static function subdomain_admin($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$meta        = $_meta;
+		$meta['min'] = 3;
+		$meta['max'] = 50;
+
+		return self::subdomain($_data, $_notif, $_element, $_field_title, $meta);
+
 	}
 }
 ?>

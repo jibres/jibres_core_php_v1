@@ -612,6 +612,7 @@ class cleanse
 			case 'email': 				$data = \dash\validate\text::email(...$fn_args); 					break;
 			case 'md5': 				$data = \dash\validate\text::md5(...$fn_args); 						break;
 			case 'subdomain': 			$data = \dash\validate\subdomain::subdomain(...$fn_args); 			break;
+			case 'subdomain_admin':  	$data = \dash\validate\subdomain::subdomain_admin(...$fn_args); 	break;
 			case 'iban': 				$data = \dash\validate\iban::check(...$fn_args); 					break;
 			case 'iban_detail': 		$data = \dash\validate\iban::detail(...$fn_args); 					break;
 			case 'url': 				$data = \dash\validate\url::url(...$fn_args); 						break;
