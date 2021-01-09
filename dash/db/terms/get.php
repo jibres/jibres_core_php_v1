@@ -97,5 +97,29 @@ class get
 	}
 
 
+
+
+	public static function hot_tag()
+	{
+		$query =
+		"
+			SELECT
+				terms.*
+			FROM
+				terms
+			WHERE
+				terms.id IN
+				(
+					SELECT termusages.term_id FROM termusages GROUP BY term_id ORDER BY COUNT(*) DESC
+				)
+			LIMIT 100
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 }
 ?>

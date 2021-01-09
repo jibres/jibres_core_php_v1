@@ -102,5 +102,22 @@ class search
 
 		return $list;
 	}
+
+
+
+	public static function hot_tag()
+	{
+		$list = \dash\db\terms\get::hot_tag();
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$list = array_map(['\\dash\\app\\terms\\ready', 'row'], $list);
+
+		return $list;
+
+	}
 }
 ?>
