@@ -17,26 +17,25 @@ if(\dash\data::menuDetail_list() && is_array(\dash\data::menuDetail_list()))
       </div>
     </div>
   </div>
-  <nav class="items">
-    <ul>
+    <ol class="items2" data-layer-limit="3" data-sortable>
       <?php foreach ($list as $key => $value) {?>
         <li>
-          <a class="f item" href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['key' => $key]) ?>">
-            <div class="key"><?php echo a($value, 'title');?>
-              <?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?>
-            </div>
-            <div class="go"></div>
-          </a>
+          <div class="f item">
+            <i class="sf-thumbnails" data-handle></i>
+            <div class="key"><?php echo a($value, 'title');?><?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?></div>
+            <div class="value addChild"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['child' => $key]) ?>"><?php echo T_("Add Child"); ?></a></div>
+            <div class="value"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['key' => $key]) ?>"><?php echo T_("Edit"); ?></a></div>
+          </div>
+          <ol data-sortable></ol>
         </li>
       <?php } //enfor ?>
-    </ul>
-  </nav>
+    </ol>
   <nav class="items">
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::this(). '/menu/item'. \dash\request::full_get(); ?>">
           <div class="go plus ok"></div>
-          <div class="key"><?php echo T_("Add new item");?></div>
+          <div class="key"><?php echo T_("Add menu item");?></div>
         </a>
       </li>
     </ul>
