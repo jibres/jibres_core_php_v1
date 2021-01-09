@@ -23,7 +23,7 @@ if(\dash\data::menuDetail_list() && is_array(\dash\data::menuDetail_list()))
           <div class="f item">
             <i class="sf-thumbnails" data-handle></i>
             <div class="key"><?php echo a($value, 'title');?><?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?></div>
-            <div class="value addChild"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['child' => $key]) ?>"><?php echo T_("Add Child"); ?></a></div>
+            <div class="value addChild pRa20-f"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['child' => $key]) ?>"><?php echo T_("Add Child"); ?></a></div>
             <div class="value"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['key' => $key]) ?>"><?php echo T_("Edit"); ?></a></div>
           </div>
           <ol data-sortable></ol>
