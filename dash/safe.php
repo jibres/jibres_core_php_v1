@@ -74,7 +74,7 @@ class safe
 		{
 			$_string = trim($_string);
 
-			$_string = self::remove_2s($_string);
+			// $_string = self::remove_2s($_string);
 		}
 
 		$_string = self::remove_2nl($_string);

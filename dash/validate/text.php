@@ -94,8 +94,8 @@ class text
 			$data = preg_replace("/[\n]/", " ", $data);
 		}
 
-		// remove 2 space in everywhere
-		$data = preg_replace("/\h+/", " ", $data);
+		// // remove 2 space in everywhere
+		// $data = preg_replace("/\h+/", " ", $data);
 
 
 		if(isset($_meta['html']) && $_meta['html'])
