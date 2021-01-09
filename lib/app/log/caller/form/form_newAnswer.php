@@ -80,7 +80,7 @@ class form_newAnswer
 		$title = self::get_msg($_args);
 
 		$my_form_id       = isset($_args['data']['my_form_id']) ? $_args['data']['my_form_id'] : null;
-		$my_answer_id   = isset($_args['data']['my_answer_id']) ? \dash\fit::number($_args['data']['my_answer_id']) : null;
+		$my_answer_id   = isset($_args['data']['my_answer_id']) ? $_args['data']['my_answer_id'] : null;
 
 		//  the link is
 		// a/form/answer/detail?id=$my_form_id&aid=$my_answer_id
