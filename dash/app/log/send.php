@@ -59,6 +59,16 @@ class send
 				}
 			}
 
+			if(isset($value['email']))
+			{
+				$email = json_decode($value['email'], true);
+
+				if(isset($email['email']))
+				{
+					self::send_email($email['email'], $email);
+				}
+			}
+
 			\dash\db\logs::update(['send' => 1], $value['id']);
 		}
 	}
@@ -96,6 +106,27 @@ class send
 		}
 		\dash\temp::set('kavenegar_sms_type', 'notif'); //enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL,
 		\dash\utility\sms::send($_mobile, $_text, $_meta);
+
+	}
+
+
+	private static function send_email($_email, $_meta = [])
+	{
+		if(\dash\url::isLocal())
+		{
+			return false;
+		}
+
+		$email =
+		[
+			'to'       => $_email,
+			'body'     => a($_meta, 'body'),
+			'template' => 'html',
+			'subject'  => a($_meta, 'subject'),
+		];
+
+		$send = \lib\email\send::send($email);
+
 
 	}
 }

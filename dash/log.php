@@ -483,15 +483,6 @@ class log
 			{
 				if(isset($value['email']))
 				{
-					// check if send by tg not send by sms
-					if(isset($new_args[$key]['telegram']) || isset($new_args[$key]['sms']))
-					{
-						if(!self::call_fn($_caller, 'force_send_email'))
-						{
-							continue;
-						}
-					}
-
 					$current_lang = \dash\language::current();
 
 					if(isset($value['language']) && mb_strlen($value['language']) === 2 && $value['language'] !== $current_lang)
@@ -502,7 +493,7 @@ class log
 					$email_text = self::call_fn($_caller, 'email_text', $_args, $value['email']);
 					if($email_text)
 					{
-						$new_args[$key]['email'] = json_encode(['email' => $value['email'], 'text' => $email_text], JSON_UNESCAPED_UNICODE);
+						$new_args[$key]['email'] = addslashes($email_text);
 					}
 				}
 			}

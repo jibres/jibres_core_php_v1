@@ -68,6 +68,29 @@ class form_newAnswer
 		return false;
 	}
 
+
+	public static function email()
+	{
+		return true;
+	}
+
+
+	public static function email_text($_args, $_email)
+	{
+		$title = self::get_msg($_args);
+
+		$email =
+		[
+			'email'   => $_email,
+			'body'    => $title,
+			'subject' => T_("New answer to form"),
+		];
+
+		return json_encode($email, JSON_UNESCAPED_UNICODE);
+	}
+
+
+
 	public static function sms_text($_args, $_mobile)
 	{
 		$title = self::get_msg($_args);
