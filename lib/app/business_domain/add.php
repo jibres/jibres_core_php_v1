@@ -104,6 +104,7 @@ class add
 			return false;
 		}
 
+
 		$cdn = 'arvancloud';
 
 		$ir_domain = \dash\validate::ir_domain($domain, false);
@@ -161,6 +162,13 @@ class add
 			\dash\notif::error(T_("Invalid domain"));
 			return false;
 		}
+
+		if(strpos($parse_url['root'], 'jibres') !== false || strpos($parse_url['domain'], 'jibres') !== false || strpos($parse_url['subdomain'], 'jibres') !== false)
+		{
+			\dash\notif::error(T_("Can not use jibres keywork in domain!"));
+			return false;
+		}
+
 
 		$master_domain = null;
 
