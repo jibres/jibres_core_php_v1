@@ -6,9 +6,9 @@
 
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <meta name ="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0 maximum-scale=1.5, minimal-ui"/>
- <link rel="shortcut icon" href="<?php echo(\dash\url::cdn()); ?>/images/favicon-error.png"/>
- <link rel="stylesheet"  href="<?php echo(\dash\url::cdn()); ?>/css/jibres.min.css?v=4">
- <meta http-equiv="refresh" content="2; URL=<?php echo(strtok($_loc, '?'));?>">
+ <link href="<?php echo(\dash\url::cdn()); ?>/images/favicon-error.png" rel="shortcut icon"/>
+ <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
+ <meta http-equiv="refresh" content="20; URL=<?php echo(strtok($_loc, '?'));?>">
 </head>
 <body class='redirecting' data-model='<?php echo $_model; ?>'>
 
@@ -28,6 +28,6 @@
 
   </div>
 
- <script src="<?php echo(\dash\url::siftal()); ?>/js/siftal.min.js?v=3"></script>
+ <script src="<?php echo \dash\layout\func::staticmtime('js/jibres.min.js');?>"></script>
 </body>
 </html>
