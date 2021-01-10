@@ -12,7 +12,7 @@ class redirect
 	 */
 	public static function to($_url, $_php = true, $_arg = null)
 	{
-		$statusCode = 307;
+		$statusCode = 302;
 		// set header for redirect via php
 		if(is_numeric($_arg))
 		{
@@ -81,7 +81,7 @@ class redirect
 	 * @param  integer $_type [description]
 	 * @return [type]         [description]
 	 */
-	private static function via_php($_loc, $_type = 307)
+	private static function via_php($_loc, $_type = 302)
 	{
 		if (!headers_sent())
 		{
