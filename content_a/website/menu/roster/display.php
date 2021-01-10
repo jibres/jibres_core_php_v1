@@ -17,7 +17,7 @@ if(\dash\data::menuDetail_list() && is_array(\dash\data::menuDetail_list()))
       </div>
     </div>
   </div>
-  <form data-patch2>
+  <form data-patch>
     <ol class="items2" data-layer-limit="3" data-sortable>
       <?php foreach ($list as $key => $value) {?>
         <li>
