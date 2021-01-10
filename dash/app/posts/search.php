@@ -134,6 +134,7 @@ class search
 		{
 			$now = date("Y-m-d H:i:s");
 			$and[] = " posts.publishdate <= '$now' ";
+			$and[] = " posts.status = 'publish' ";
 			$order_sort = " ORDER BY posts.publishdate DESC";
 		}
 
