@@ -17,12 +17,12 @@ if(\dash\data::menuDetail_list() && is_array(\dash\data::menuDetail_list()))
       </div>
     </div>
   </div>
-  <form data-patch>
+  <form data-patch2>
     <ol class="items2" data-layer-limit="3" data-sortable>
       <?php foreach ($list as $key => $value) {?>
         <li>
           <div class="f item">
-            <i class="sf-thumbnails" data-handle><input type="hidden" name="sort[]" value="<?php echo $key; ?>"></i>
+            <i class="sf-thumbnails" data-handle><input type="hidden" data-id='<?php echo $key; ?>' name="sort[]" value="<?php echo $key; ?>"></i>
             <div class="key"><?php echo a($value, 'title');?><?php if(a($value, 'target')) {?><i class="sf-external-link fc-mute"></i> <?php }// endif ?></div>
             <div class="value addChild pRa20-f"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['child' => $key]) ?>"><?php echo T_("Add Subitem"); ?></a></div>
             <div class="value"><a href="<?php echo \dash\url::that(). '/item'. \dash\request::full_get(['key' => $key]) ?>"><?php echo T_("Edit"); ?></a></div>
