@@ -82,7 +82,7 @@ class apilog
 		self::$apilog['resultstatus']   = \dash\engine\process::status() ? 'true' : 'false'; // 100
 		self::$apilog['responseheader'] = addslashes(self::jsonEncode(\headers_list()));
 		self::$apilog['responsebody']   = self::$save_detail ? addslashes($_result) : null;
-		self::$apilog['notif']          = self::jsonEncode(\dash\notif::get());
+		self::$apilog['notif']          = addslashes(self::jsonEncode(\dash\notif::get()));
 		self::$apilog['responselen']    = mb_strlen($_result);
 		self::$apilog['dateresponse']   = date("Y-m-d H:i:s");
 
