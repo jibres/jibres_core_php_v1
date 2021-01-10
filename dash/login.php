@@ -50,6 +50,8 @@ class login
 						$blockMeta = addslashes($blockMeta);
 					}
 
+					self::$error = [];
+
 					\dash\db\login\update::set_block($load['id'], 'master', $blockMeta);
 				}
 				else
