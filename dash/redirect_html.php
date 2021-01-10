@@ -10,7 +10,7 @@
  <link rel="stylesheet"  href="<?php echo(\dash\url::cdn()); ?>/css/jibres.min.css?v=4">
  <meta http-equiv="refresh" content="2; URL=<?php echo(strtok($_loc, '?'));?>">
 </head>
-<body class='redirecting'>
+<body class='redirecting' data-model='<?php echo $_model; ?>'>
 
   <div class='longfazers'><span></span><span></span><span></span><span></span></div>
   <div class='jet'>

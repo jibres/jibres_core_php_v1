@@ -31,7 +31,13 @@ class redirect
 		}
 		else
 		{
-			self::via_html($_url, $_arg);
+			$model = 'simple';
+			if($_php === 'pay')
+			{
+				$model = 'pay';
+			}
+
+			self::via_html($_url, $_arg, $model);
 		}
 
 		\dash\code::bye();
@@ -98,7 +104,7 @@ class redirect
 	 * @param  [type] $_loc [description]
 	 * @return [type]       [description]
 	 */
-	private static function via_html($_loc, $_txt = null)
+	private static function via_html($_loc, $_txt = null, $_model = null)
 	{
 		require_once(core."redirect_html.php");
 	}
