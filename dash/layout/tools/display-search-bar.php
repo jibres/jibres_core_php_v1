@@ -3,6 +3,7 @@
 <?php
 $all_get = \dash\request::get();
 unset($all_get['page']);
+unset($all_get['q']);
 if($all_get)
 {
   foreach ($all_get as $key => $value)
@@ -23,7 +24,7 @@ if($all_get)
       <div class="c">
         <div>
           <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
-            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(). \dash\request::get('barcode'); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
+            <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
             <button class="addon btn light3 s0"><i class="sf-search"></i></button>
           </div>
         </div>
