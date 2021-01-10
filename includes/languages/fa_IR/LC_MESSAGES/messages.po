@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-08 14:28+0330\n"
-"PO-Revision-Date: 2021-01-08 14:45+0330\n"
+"POT-Creation-Date: 2021-01-10 20:07+0330\n"
+"PO-Revision-Date: 2021-01-10 20:10+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -26,13 +26,13 @@ msgid "Jibres Values"
 msgstr "ارزش‌های جیبرس"
 
 #: content/about/display.php:16 content/about/display.php:17
-#: content/home/layout/footer.php:228 content/home/layout/pwa-footer.php:209
+#: content/home/layout/footer.php:226 content/home/layout/pwa-footer.php:209
 #: content/mission/view.php:9
 msgid "Jibres Mission"
 msgstr "ماموریت جیبرس"
 
 #: content/about/display.php:22 content/about/display.php:23
-#: content/home/layout/footer.php:234 content/home/layout/pwa-footer.php:215
+#: content/home/layout/footer.php:232 content/home/layout/pwa-footer.php:215
 #: content/vision/view.php:9
 msgid "Jibres Vision"
 msgstr "چشم‌انداز جیبرس"
@@ -53,7 +53,7 @@ msgstr ""
 "جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار بیزینس‌های مدرن و "
 "همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
 
-#: content/about/view.php:9 content/home/layout/footer.php:222
+#: content/about/view.php:9 content/home/layout/footer.php:220
 #: content/home/layout/pwa-footer.php:203 content/mission/view.php:15
 #: content/values/view.php:15 content/vision/view.php:15
 #: content_r10/android/about/view.php:9
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Jibres Brand"
 msgstr "برند جیبرس"
 
-#: content/brand/view.php:14 content/home/layout/footer.php:198
+#: content/brand/view.php:14 content/home/layout/footer.php:196
 #: content/home/layout/header.php:9 content/home/layout/header.php:13
 #: content/home/layout/pwa-footer.php:239 content/logo/section-icon.php:10
 #: content/logo/section-icon.php:16 content/logo/section-icon.php:17
@@ -728,7 +728,7 @@ msgstr "کاتالوگ جیبرس"
 msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
-#: content/certificates/view.php:9 content/home/layout/footer.php:186
+#: content/certificates/view.php:9 content/home/layout/footer.php:184
 #: content/home/layout/pwa-footer.php:185
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
@@ -1318,7 +1318,7 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_su/tg/log/display.php:48 content_su/tg/log/display.php:56
 #: content_su/tg/users/display.php:49 content_su/tg/users/display.php:57
 #: content_support/home/dashboard.php:15 content_support/ticket/home/display.php:51
-#: content_support/ticket/home/display.php:52 dash/layout/tools/display-search-bar.php:26
+#: content_support/ticket/home/display.php:52 dash/layout/tools/display-search-bar.php:27
 #: includes/languages/trans_static_public.php:108 lib/app/form/inquiry.php:22
 msgid "Search"
 msgstr "جستجو"
@@ -2637,63 +2637,63 @@ msgstr "ارسال بازخورد"
 msgid "Resources"
 msgstr "منابع"
 
-#: content/home/layout/footer.php:161 content/home/layout/pwa-footer.php:161
+#: content/home/layout/footer.php:160 content/home/layout/pwa-footer.php:161
 msgid "Blog"
 msgstr "بلاگ"
 
-#: content/home/layout/footer.php:168 content/home/layout/pwa-footer.php:167
+#: content/home/layout/footer.php:166 content/home/layout/pwa-footer.php:167
 #: content_enter/signup/view.php:24 content_my/business/start/view.php:11
 msgid "Terms of Service"
 msgstr "شرایط استفاده از خدمات"
 
-#: content/home/layout/footer.php:174 content/home/layout/pwa-footer.php:173
+#: content/home/layout/footer.php:172 content/home/layout/pwa-footer.php:173
 #: content/privacy/view.php:9 content_enter/signup/view.php:25
 msgid "Privacy Policy"
 msgstr "حریم خصوصی"
 
-#: content/home/layout/footer.php:180 content/home/layout/pwa-footer.php:179
+#: content/home/layout/footer.php:178 content/home/layout/pwa-footer.php:179
 msgid "Changelog"
 msgstr "پیشرفت پروژه"
 
-#: content/home/layout/footer.php:192 content/home/layout/pwa-footer.php:191
+#: content/home/layout/footer.php:190 content/home/layout/pwa-footer.php:191
 msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
-#: content/home/layout/footer.php:204 content/home/layout/pwa-footer.php:245
+#: content/home/layout/footer.php:202 content/home/layout/pwa-footer.php:245
 msgid "Brand Style Guide"
 msgstr "راهنمای نشان تجاری"
 
-#: content/home/layout/footer.php:213 content/home/layout/pwa-footer.php:200
+#: content/home/layout/footer.php:211 content/home/layout/pwa-footer.php:200
 msgid "Jibres Company"
 msgstr "شرکت جیبرس"
 
-#: content/home/layout/footer.php:216 content/investment/view.php:14
+#: content/home/layout/footer.php:214 content/investment/view.php:14
 #: content/story/view.php:9
 msgid "Jibres Story"
 msgstr "داستان جیبرس"
 
-#: content/home/layout/footer.php:240 content/home/layout/pwa-footer.php:221
+#: content/home/layout/footer.php:238 content/home/layout/pwa-footer.php:221
 msgid "Our Values"
 msgstr "ارزش‌های ما"
 
-#: content/home/layout/footer.php:246 content/home/layout/pwa-footer.php:227
+#: content/home/layout/footer.php:244 content/home/layout/pwa-footer.php:227
 msgid "Our Team"
 msgstr "تیم ما"
 
-#: content/home/layout/footer.php:252 content/home/layout/pwa-footer.php:233
+#: content/home/layout/footer.php:250 content/home/layout/pwa-footer.php:233
 msgid "Careers"
 msgstr "فرصت‌های شغلی"
 
-#: content/home/layout/footer.php:258 content/home/layout/pwa-footer.php:251
+#: content/home/layout/footer.php:256 content/home/layout/pwa-footer.php:251
 #: content/press/view.php:9
 msgid "Press and Media"
 msgstr "مطبوعات و رسانه‌ها"
 
-#: content/home/layout/footer.php:268 content/home/layout/pwa-footer.php:261
+#: content/home/layout/footer.php:266 content/home/layout/pwa-footer.php:261
 msgid "All rights reserved."
 msgstr "تمام حقوق محفوظ است."
 
-#: content/home/layout/footer.php:268 content/home/layout/pwa-footer.php:261
+#: content/home/layout/footer.php:266 content/home/layout/pwa-footer.php:261
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
@@ -2702,7 +2702,7 @@ msgstr "جیبرس"
 msgid "Pricing"
 msgstr "هزینه‌ها"
 
-#: content/home/layout/header.php:25 content_a/home/view.php:16 content_my/home/view.php:9
+#: content/home/layout/header.php:25 content_a/home/view.php:17 content_my/home/view.php:9
 #: dash/layout/pwa/pwa_menu.php:102 dash/panel.php:38
 msgid "Control Center"
 msgstr "مرکز کنترل"
@@ -2827,7 +2827,7 @@ msgstr ""
 msgid "Hasan Salehi"
 msgstr "حسن صالحی"
 
-#: content/home/view.php:117
+#: content/home/view.php:117 content/home/view.php:123
 msgid "Software Developer"
 msgstr "توسعه‌دهنده نرم‌افزار"
 
@@ -2838,6 +2838,19 @@ msgid ""
 msgstr ""
 "یکی از بهترین و راحت‌ترین پنل‌های ثبت دامنه‌ای بود که تا به حال دیده بودم، مخصوصا بخش "
 "دیکشنری دامنه‌های سه حرفی :))"
+
+#: content/home/view.php:122
+msgid "Saman Soltani"
+msgstr "سامان سلطانی"
+
+#: content/home/view.php:125
+msgid ""
+"Jibres is the most fastest website builder which I saw. At first, it maybe a bit "
+"complicated, but you will deeply understand these features by challenges that you are "
+"going to face in your business."
+msgstr ""
+"جیبرس سریع‌ترین سایت‌سازی است که دیده‌ام. ممکن است ابتدا پیچیده به نظر بیاید، ولی بعد از "
+"مدتی تمامی امکانات واضح می‌شوند و نیاز وجودیشان را در چالش‌های متفاوت درک خواهید کرد."
 
 #: content/investment/display.php:35 content/story/display.php:59
 msgid "Sincerely, Javad Adib"
@@ -4623,8 +4636,8 @@ msgstr "افزودن"
 #: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
 #: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
 #: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:11
-#: content_a/website/menu/item/display.php:89 content_a/website/quote/add/display.php:61
-#: content_a/website/quote/display.php:18
+#: content_a/website/menu/item/display.php:89 content_a/website/menu/roster/display.php:28
+#: content_a/website/quote/add/display.php:61 content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
 #: content_a/website/specialslider/display.php:28 content_account/address.php:149
 #: content_cms/comments/edit/display.php:39 content_crm/member/home/display-old.php:141
@@ -5139,7 +5152,7 @@ msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
 #: content_a/accounting/doc/edit/model.php:147
 #: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:264
-#: content_cms/files/add/model.php:32 content_cms/files/remove/model.php:32
+#: content_cms/files/add/model.php:33 content_cms/files/remove/model.php:32
 #: content_cms/posts/edit/model.php:122
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
@@ -6164,7 +6177,7 @@ msgstr "مایکت"
 #: content_crm/permission/advance/display.php:90
 #: content_love/business/domain/setting/display.php:27
 #: content_love/business/domain/setting/display.php:134
-#: content_love/store/setting/display.php:53 content_my/domain/option/display.php:92
+#: content_love/store/setting/display.php:63 content_my/domain/option/display.php:92
 #: content_su/backup/display.php:63 content_su/cronjob/display.php:14
 #: content_su/nano/display.php:12 content_support/message/edit/display.php:18
 #: content_support/ticket/show/chatList.php:58 dash/layout/admin/admin-titlebox.php:70
@@ -6416,7 +6429,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/application/home/display.php:83 content_su/log/display.php:24
 #: content_su/log/display.php:54 content_su/log/display.php:85
 #: content_su/log/display.php:116 dash/app/files/ready.php:107
-#: includes/languages/trans_static.php:489 lib/app/form/generator.php:742
+#: includes/languages/trans_static.php:489 lib/app/form/generator.php:732
 msgid "File"
 msgstr "فایل"
 
@@ -6635,7 +6648,7 @@ msgstr "تعداد محصولات"
 #: content_a/cart/home/display.php:77 content_a/form/analytics/filter/display.php:15
 #: content_a/order/home/filter.php:18 content_a/products/home/filter.php:18
 #: content_crm/member/home/display-old.php:711 content_my/domain/other/display.php:79
-#: content_my/domain/search/display.php:87 dash/layout/tools/display-search-bar.php:19
+#: content_my/domain/search/display.php:87 dash/layout/tools/display-search-bar.php:20
 #: includes/languages/trans_static.php:484
 msgid "Filter"
 msgstr "فیلتر"
@@ -6644,7 +6657,7 @@ msgstr "فیلتر"
 #: content_a/form/tag/display.php:82 content_a/products/home/filter.php:31
 #: content_a/tag/home/display.php:81 content_business/search/display.php:19
 #: content_my/domain/other/display.php:92 content_my/domain/search/display.php:100
-#: dash/layout/tools/display-search-bar.php:34 lib/app/factor/filter.php:54
+#: dash/layout/tools/display-search-bar.php:35 lib/app/factor/filter.php:54
 msgid "Sort"
 msgstr "ترتیب"
 
@@ -6790,7 +6803,7 @@ msgstr "شناسه دسته‌بندی اشتباه است"
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_static.php:497 lib/app/form/generator.php:863
+#: includes/languages/trans_static.php:497 lib/app/form/generator.php:853
 msgid "Yes"
 msgstr "بله"
 
@@ -6805,7 +6818,7 @@ msgstr "بله"
 #: content_love/gift/create/review/display.php:35
 #: content_love/gift/create/review/display.php:36 content_love/gift/view/display.php:32
 #: content_love/gift/view/display.php:33 content_my/domain/irnic/edit/display.php:19
-#: includes/languages/trans_static.php:498 lib/app/form/generator.php:874
+#: includes/languages/trans_static.php:498 lib/app/form/generator.php:864
 msgid "No"
 msgstr "خیر"
 
@@ -7085,7 +7098,7 @@ msgstr "لطفا یک دسته را انتخاب کنید"
 #: content_crm/member/home/display-old.php:483 content_crm/member/home/display-old.php:510
 #: content_crm/member/home/display-old.php:537 content_crm/member/home/display-old.php:564
 #: content_crm/member/home/display-old.php:590 content_crm/member/home/display-old.php:616
-#: content_crm/member/home/display-old.php:644 content_love/store/setting/display.php:47
+#: content_crm/member/home/display-old.php:644 content_love/store/setting/display.php:57
 #: lib/app/website/effect.php:10
 msgid "None"
 msgstr "هیچ کدام"
@@ -7972,7 +7985,6 @@ msgid "Form inquiry"
 msgstr "استعلام از فرم"
 
 #: content_a/form/item/add/display.php:15 content_a/form/item/add/view.php:9
-#: content_a/website/menu/roster/display.php:39
 msgid "Add new item"
 msgstr "افزودن آیتم جدید"
 
@@ -8143,9 +8155,9 @@ msgstr "مرتب‌سازی آیتم‌ها"
 
 #: content_a/form/itemLink.php:16 content_a/form/tag/add/view.php:10
 #: content_a/form/tag/edit/view.php:17 content_a/tag/edit/view.php:17
-#: content_cms/home/display.php:108 content_cms/tag/add/view.php:10
-#: content_cms/tag/edit/view.php:10 content_cms/tag/home/view.php:8
-#: includes/languages/trans_static_public.php:975
+#: content_business/tag/view.php:8 content_cms/home/display.php:108
+#: content_cms/tag/add/view.php:10 content_cms/tag/edit/view.php:10
+#: content_cms/tag/home/view.php:8 includes/languages/trans_static_public.php:975
 msgid "Tags"
 msgstr "کلیدواژه‌ها"
 
@@ -8359,9 +8371,9 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
 #: content_a/tag/edit/controller.php:14 content_a/tag/remove/controller.php:13
 #: content_cms/tag/edit/controller.php:15 dash/app/files/remove.php:21
-#: dash/app/posts/check.php:205 dash/app/terms/remove.php:18 dash/app/terms/remove.php:39
-#: dash/app/terms/remove.php:70 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:100
-#: lib/app/form/tag/get.php:107 lib/app/form/tag/get.php:124 lib/app/form/tag/get.php:131
+#: dash/app/posts/check.php:212 dash/app/terms/remove.php:18 dash/app/terms/remove.php:39
+#: dash/app/terms/remove.php:70 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106
+#: lib/app/form/tag/get.php:113 lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
 #: lib/app/form/tag/remove.php:18 lib/app/form/tag/remove.php:39
 #: lib/app/form/tag/remove.php:72 lib/app/tag/edit.php:24 lib/app/tag/get.php:65
 #: lib/app/tag/get.php:72 lib/app/tag/get.php:94 lib/app/tag/get.php:101
@@ -13015,6 +13027,14 @@ msgstr "مدیریت شبکه‌های اجتماعی"
 msgid "Add menu items"
 msgstr "افزودن گزینه‌های فهرست"
 
+#: content_a/website/menu/roster/display.php:27
+msgid "Add Subitem"
+msgstr "افزودن زیرمنو"
+
+#: content_a/website/menu/roster/display.php:40
+msgid "Add menu item"
+msgstr "افزودن آیتم به منو"
+
 #: content_a/website/menu/roster/view.php:10
 msgid "Edit menu items"
 msgstr "ویرایش گزینه‌های فهرست"
@@ -14160,12 +14180,12 @@ msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: content_account/security/view.php:74 content_v2/account/session/view.php:42
-#: dash/login.php:765 includes/languages/trans_static_public.php:342
+#: dash/login.php:768 includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
 #: content_account/security/view.php:78 content_v2/account/session/view.php:46
-#: dash/login.php:770 includes/languages/trans_static_public.php:343
+#: dash/login.php:773 includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
 
@@ -14581,12 +14601,12 @@ msgstr "تایید شده"
 msgid "Unapproved"
 msgstr "تایید نشده"
 
-#: content_cms/files/add/model.php:28 content_cms/files/remove/model.php:28
+#: content_cms/files/add/model.php:29 content_cms/files/remove/model.php:28
 #: dash/upload/file.php:179
 msgid "Can not upload file"
 msgstr "ناتوان در آپلود فایل"
 
-#: content_cms/files/add/model.php:42
+#: content_cms/files/add/model.php:43
 msgid "Please send a file to upload"
 msgstr "لطفا فایل مورد نظر را بارگذاری کنید"
 
@@ -14823,6 +14843,10 @@ msgstr "زیرنویس را اینجا وارد کنید"
 msgid "Write post "
 msgstr "نوشتن مطلب "
 
+#: content_cms/posts/edit/display.php:91
+msgid "Enter your tags and seperate them by comma"
+msgstr "تگ‌های خود را با کاما از هم جدا کرده و وارد کنید"
+
 #: content_cms/posts/edit/display.php:123 content_cms/posts/setting/display.php:81
 #: content_cms/posts/setting/display.php:87
 msgid "Customize SEO"
@@ -15047,7 +15071,7 @@ msgstr ""
 msgid "Remove post cover"
 msgstr "حذف کاور نوشته"
 
-#: content_cms/posts/setting/display.php:198 dash/plan_list.php:187
+#: content_cms/posts/setting/display.php:198 dash/plan_list.php:188
 msgid "Remove post"
 msgstr "حذف نوشته"
 
@@ -19164,19 +19188,23 @@ msgstr "زمان پاسخ"
 msgid "plan"
 msgstr "پلن"
 
-#: content_love/store/setting/display.php:44
+#: content_love/store/setting/display.php:43
+msgid "Go to admin"
+msgstr "برو به پنل مدیریت"
+
+#: content_love/store/setting/display.php:54
 msgid "Chage business enterprise"
 msgstr "تغییر شناسه مشتری سازمانی"
 
-#: content_love/store/setting/display.php:48
+#: content_love/store/setting/display.php:58
 msgid "Rafiei"
 msgstr "رفیعی"
 
-#: content_love/store/setting/display.php:63
+#: content_love/store/setting/display.php:73
 msgid "You can change business subdomain"
 msgstr "شما می‌توانید زیردامنه بیزینس را تغییر دهید"
 
-#: content_love/store/setting/display.php:69
+#: content_love/store/setting/display.php:79
 msgid "Change subdomian"
 msgstr "ویرایش زیردامنه"
 
@@ -20611,7 +20639,7 @@ msgstr "افزودن تعداد مشتریان با افزودن مشتری جد
 msgid "Back to list of customers"
 msgstr "بازگشت به لیست مشتریان"
 
-#: content_pardakhtyar/customer/dashboard/model.php:60 lib/app/form/comment/get.php:57
+#: content_pardakhtyar/customer/dashboard/model.php:60 lib/app/form/comment/get.php:63
 msgid "Id not set"
 msgstr "شناسه تنظیم نشده است"
 
@@ -21742,7 +21770,7 @@ msgstr ""
 
 #: content_support/faq/view.php:26 content_support/home/view.php:9
 #: content_support/home/view.php:21 content_support/tag/view.php:24
-#: content_support/ticket/home/view.php:25 dash/plan_list.php:203
+#: content_support/ticket/home/view.php:25 dash/plan_list.php:204
 msgid "Help center"
 msgstr "مرکز راهنمایی"
 
@@ -22387,7 +22415,7 @@ msgstr "کد اعتبارسنجی یافت نشد"
 msgid "Code is ok"
 msgstr "کد صحیح است"
 
-#: content_v2/account/session/model.php:13 dash/login.php:677
+#: content_v2/account/session/model.php:13 dash/login.php:680
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
@@ -22984,11 +23012,15 @@ msgstr "شناسه سطح دسترسی اشتباه است"
 msgid "Permission removed"
 msgstr "سطح دسترسی حذف شد"
 
-#: dash/app/posts/add.php:34
+#: dash/app/posts/add.php:20
+msgid "Title is required"
+msgstr "عنوان الزامی است"
+
+#: dash/app/posts/add.php:40
 msgid "No way to insert post"
 msgstr "هیچ راهی برای افزودن مطلب وجود ندارد"
 
-#: dash/app/posts/add.php:55
+#: dash/app/posts/add.php:61
 msgid "Post successfuly added"
 msgstr "مطلب با موفقیت اضافه شد"
 
@@ -22996,49 +23028,49 @@ msgstr "مطلب با موفقیت اضافه شد"
 msgid "Can not access to edit this post!"
 msgstr "شما دسترسی لازم را برای ویرایش این نوشته را ندارید!"
 
-#: dash/app/posts/check.php:114
+#: dash/app/posts/check.php:121
 msgid "Please choose a tag"
 msgstr "لطفا تگ را انتخاب کنید"
 
-#: dash/app/posts/check.php:125
+#: dash/app/posts/check.php:132
 msgid "Please choose a post as parent"
 msgstr "لطفا یک نوشته را به عنوان والد انتخاب کنید"
 
-#: dash/app/posts/check.php:134
+#: dash/app/posts/check.php:141
 msgid "Url is required"
 msgstr "آدرس الزامی است"
 
-#: dash/app/posts/check.php:159
+#: dash/app/posts/check.php:166
 msgid "Invalid parameter parent"
 msgstr "پارامتر والد نامعتبر است"
 
-#: dash/app/posts/check.php:173
+#: dash/app/posts/check.php:180
 msgid "Only post by special address can set as parent of another post"
 msgstr ""
 "تنها نوشته‌هایی که دارای آدرس اختصاصی هستند می‌توانند به عنوان والد برای نوشته‌ای دیگر "
 "قرار گیرند"
 
-#: dash/app/posts/check.php:179
+#: dash/app/posts/check.php:186
 msgid "Parent post have not a special url"
 msgstr "مطلب والد دارای آدرس اختصاصی نیست"
 
-#: dash/app/posts/check.php:185
+#: dash/app/posts/check.php:192
 msgid "Can not set page as parent of self!"
 msgstr "نمی‌توانید صفحه‌ای را به‌عنوان والد خودش ثبت کنید!"
 
-#: dash/app/posts/check.php:220
+#: dash/app/posts/check.php:227
 msgid "Duplicate post url. This post url is already exists in your post list"
 msgstr "آدرس نوشته تکراری است. این آدرس نوشته در لیست نوشته‌های شما وجود دارد"
 
-#: dash/app/posts/check.php:272 dash/utility/pay/start.php:183 lib/app/cart/search.php:304
+#: dash/app/posts/check.php:279 dash/utility/pay/start.php:183 lib/app/cart/search.php:304
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
 
-#: dash/app/posts/check.php:293
+#: dash/app/posts/check.php:300
 msgid "Can not set the slug larger than 100 character"
 msgstr "نمی‌توانید نامک را بیشتر از ۱۰۰ کاراکتر تنظیم کنید"
 
-#: dash/app/posts/check.php:299
+#: dash/app/posts/check.php:306
 msgid "Can not set the url larger than 180 character"
 msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکتر تنظیم کنید"
 
@@ -23561,7 +23593,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:797
+#: dash/cleanse.php:798
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -24198,7 +24230,7 @@ msgstr "شروع به افزودن آیتم‌های خود کنید"
 msgid "Oops! We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/login.php:708
+#: dash/login.php:711
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -24322,160 +24354,164 @@ msgstr "مدیریت سبد خرید"
 msgid "Manage Factors"
 msgstr "مدیریت سفارشات"
 
-#: dash/plan_list.php:159
+#: dash/plan_list.php:156
+msgid "Order Notification Receiver"
+msgstr ""
+
+#: dash/plan_list.php:160
 msgid "Manage business setting"
 msgstr "مدیریت تنظیمات بیزینس"
 
-#: dash/plan_list.php:163
+#: dash/plan_list.php:164
 msgid "Manage Form"
 msgstr "مدیریت فرم‌ساز"
 
-#: dash/plan_list.php:164
+#: dash/plan_list.php:165
 msgid "Advance Form Analyze"
 msgstr "تجزیه و تحلیل پیشرفته"
 
-#: dash/plan_list.php:165
+#: dash/plan_list.php:166
 msgid "Manage Form Tags"
 msgstr "مدیریت کلیدواژه فرم‌ها"
 
-#: dash/plan_list.php:166
+#: dash/plan_list.php:167
 msgid "Remove form answer"
 msgstr "حذف پاسخ فرم‌ها"
 
-#: dash/plan_list.php:167
+#: dash/plan_list.php:168
 msgid "Form Description"
 msgstr "ثبت توضیحات برای پاسخ‌ فرم‌ها"
 
-#: dash/plan_list.php:172
+#: dash/plan_list.php:173
 msgid "Manage Customers"
 msgstr "مدیریت مشتریان"
 
-#: dash/plan_list.php:173
+#: dash/plan_list.php:174
 msgid "Manage customer payemnts"
 msgstr "مدیریت پرداختی‌های مشتریان"
 
-#: dash/plan_list.php:174
+#: dash/plan_list.php:175
 msgid "Permission Management"
 msgstr "مدیریت سطح دسترسی"
 
-#: dash/plan_list.php:175
+#: dash/plan_list.php:176
 msgid "Show Payemnt List"
 msgstr "نمایش لیست پرداختی‌ها"
 
-#: dash/plan_list.php:176
+#: dash/plan_list.php:177
 msgid "Show logs"
 msgstr "نمایش ردپا"
 
-#: dash/plan_list.php:177
+#: dash/plan_list.php:178
 msgid "Show sms list"
 msgstr "نمایش لیست پیامک‌ها"
 
-#: dash/plan_list.php:178
+#: dash/plan_list.php:179
 msgid "Show Tickets List"
 msgstr "نمایش لیست تیکت‌ها"
 
-#: dash/plan_list.php:179
+#: dash/plan_list.php:180
 msgid "Ticket Manager"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:180
+#: dash/plan_list.php:181
 msgid "Add New Notification"
 msgstr "افزودن پیام جدید"
 
-#: dash/plan_list.php:184
+#: dash/plan_list.php:185
 msgid "Manage Post"
 msgstr "مدیریت نوشته‌ها"
 
-#: dash/plan_list.php:185
+#: dash/plan_list.php:186
 msgid "Manage All Post"
 msgstr "مدیریت تمامی نوشته‌‌ها"
 
-#: dash/plan_list.php:186
+#: dash/plan_list.php:187
 msgid "Publish post"
 msgstr "انتشار نوشته"
 
-#: dash/plan_list.php:188
+#: dash/plan_list.php:189
 msgid "Manage Help Center"
 msgstr "مدیریت مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:190
+#: dash/plan_list.php:191
 msgid "View Comments"
 msgstr "نمایش دیدگاه‌ها"
 
-#: dash/plan_list.php:191
+#: dash/plan_list.php:192
 msgid "Manage Comments"
 msgstr "مدیریت دیدگاه‌ها"
 
-#: dash/plan_list.php:193
+#: dash/plan_list.php:194
 msgid "Manage Tags"
 msgstr "مدیریت تگ‌ها"
 
-#: dash/plan_list.php:195
+#: dash/plan_list.php:196
 msgid "View Attachment"
 msgstr "نمایش ضمیمه‌‌ها"
 
-#: dash/plan_list.php:196
+#: dash/plan_list.php:197
 msgid "Add New Attachment"
 msgstr "افزودن فایل ضمیمه جدید"
 
-#: dash/plan_list.php:197
+#: dash/plan_list.php:198
 msgid "Manage Attachments"
 msgstr "مدیریت ضمیمه‌ها"
 
-#: dash/plan_list.php:202
+#: dash/plan_list.php:203
 msgid "Manage tag"
 msgstr "مدیریت تگ"
 
-#: dash/plan_list.php:204 includes/languages/trans_static_public.php:1039
+#: dash/plan_list.php:205 includes/languages/trans_static_public.php:1039
 msgid "supportTicketManage"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:205 includes/languages/trans_static_public.php:1046
+#: dash/plan_list.php:206 includes/languages/trans_static_public.php:1046
 msgid "supportTicketAddNote"
 msgstr "افزودن یادداشت به تیکت"
 
-#: dash/plan_list.php:206 includes/languages/trans_static_public.php:1042
+#: dash/plan_list.php:207 includes/languages/trans_static_public.php:1042
 msgid "supportEditMessage"
 msgstr "ویرایش پیام تیکت"
 
-#: dash/plan_list.php:207 includes/languages/trans_static_public.php:1047
+#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1047
 msgid "supportTicketSignature"
 msgstr "داشتن امضا در تیکت"
 
-#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1032
+#: dash/plan_list.php:209 includes/languages/trans_static_public.php:1032
 msgid "cpHelpCenterEditForOthers"
 msgstr "ویرایش مقالات سایرین در مرکز راهنمایی"
 
-#: dash/plan_list.php:209 includes/languages/trans_static_public.php:1003
+#: dash/plan_list.php:210 includes/languages/trans_static_public.php:1003
 #: includes/languages/trans_static_public.php:1041
 msgid "supportTicketAnswer"
 msgstr "توانایی پاسخ به تیکت‌ها"
 
-#: dash/plan_list.php:210 includes/languages/trans_static_public.php:1040
+#: dash/plan_list.php:211 includes/languages/trans_static_public.php:1040
 msgid "supportTicketManageSubdomain"
 msgstr "مدیریت تیکت در تمامی زیردامنه‌ها"
 
-#: dash/plan_list.php:211 includes/languages/trans_static_public.php:1045
+#: dash/plan_list.php:212 includes/languages/trans_static_public.php:1045
 msgid "supportTicketAssignTag"
 msgstr "افزودن تگ به تیکت"
 
-#: dash/plan_list.php:212 includes/languages/trans_static_public.php:1048
+#: dash/plan_list.php:213 includes/languages/trans_static_public.php:1048
 msgid "supportTicketClose"
 msgstr "بستن تیکت"
 
-#: dash/plan_list.php:213 includes/languages/trans_static_public.php:1049
+#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1049
 msgid "supportTicketReOpen"
 msgstr "دوباره باز کردن تیکت"
 
-#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1050
+#: dash/plan_list.php:215 includes/languages/trans_static_public.php:1050
 msgid "supportTicketDelete"
 msgstr "حذف تیکت"
 
-#: dash/plan_list.php:215 includes/languages/trans_static_public.php:1044
+#: dash/plan_list.php:216 includes/languages/trans_static_public.php:1044
 msgid "supportTicketShowMobile"
 msgstr "نمایش موبایل پاسخ دهنده تیکت"
 
-#: dash/plan_list.php:216 includes/languages/trans_static_public.php:1037
+#: dash/plan_list.php:217 includes/languages/trans_static_public.php:1037
 msgid "supportTicketReport"
 msgstr "نمایش گزارش‌های پشتیبانی"
 
@@ -25875,43 +25911,43 @@ msgstr "کد ملی باید به صورت عددی وارد شود"
 msgid "Invalid national code"
 msgstr "کد ملی اشتباه است"
 
-#: dash/validate/number.php:29
+#: dash/validate/number.php:36
 msgid "Field :val must be a number"
 msgstr "مقدار :val  باید به صورت عددی باشد"
 
-#: dash/validate/number.php:40
+#: dash/validate/number.php:47
 msgid "Number is infinite!"
 msgstr "عدد وارد شده بسیار بزرگ است!"
 
-#: dash/validate/number.php:52
+#: dash/validate/number.php:59
 msgid "Number is out of range"
 msgstr "عدد وارد شده خارج از محدوده اعداد مجاز است"
 
-#: dash/validate/number.php:65
+#: dash/validate/number.php:72
 msgid "Field :val must be larger than :min character"
 msgstr "مقدار :val  باید بزرگتر از :min  باشد"
 
-#: dash/validate/number.php:79
+#: dash/validate/number.php:86
 msgid "Field :val must be less than :max character"
 msgstr "فیلد :val باید کمتر از :max حرف باشد"
 
-#: dash/validate/number.php:159
+#: dash/validate/number.php:166
 msgid "Post code must be larger than 3 character"
 msgstr "کد پستی باید بیش از ۳ کاراکتر باشد"
 
-#: dash/validate/number.php:170
+#: dash/validate/number.php:177
 msgid "Post code must be less than 10 character"
 msgstr "کد پستی باید کمتر از ۱۰ کاراکتر باشد"
 
-#: dash/validate/number.php:194
+#: dash/validate/number.php:201
 msgid "Post code must be exactly 10 character"
 msgstr "کدپستی باید دقیقا ۱۰ رقم باشد"
 
-#: dash/validate/number.php:218
+#: dash/validate/number.php:225
 msgid "Phone number must be larger than 8 character"
 msgstr "شماره تلفن باید بزرگتر از ۸ کاراکتر باشد"
 
-#: dash/validate/number.php:229
+#: dash/validate/number.php:236
 msgid "Phone number must be less than 14 character"
 msgstr "شماره تلفن باید کمتر از ۱۴ کاراکتر باشد"
 
@@ -25933,41 +25969,41 @@ msgstr ""
 msgid "Please use more than 3 unique character in your password"
 msgstr "لطفا در کلمه عبور خود از ۴ حرف یا عدد متفاوت استفاده کنید"
 
-#: dash/validate/subdomain.php:26
+#: dash/validate/subdomain.php:34
 msgid "Please fill subdomain"
 msgstr "لطفا زیردامنه را وارد کنید"
 
-#: dash/validate/subdomain.php:44
-msgid "Slug must have at least 5 character"
-msgstr "نامک باید بزرگتر از ۵ کاراکتر باشد"
+#: dash/validate/subdomain.php:52
+msgid "Slug must have at least :val character"
+msgstr ""
 
-#: dash/validate/subdomain.php:54
-msgid "Please set the subdomain less than 50 character"
-msgstr "لطفا زیردامنه را کمتر از ۵۰ حرف وارد کنید"
+#: dash/validate/subdomain.php:62
+msgid "Please set the subdomain less than :val character"
+msgstr ""
 
-#: dash/validate/subdomain.php:64
+#: dash/validate/subdomain.php:72
 msgid "Only [A-Za-z0-9-_] can use in subdomain"
 msgstr "شما باید فقط از حروف و اعداد لاتین در زیردامنه استفاده کنید"
 
-#: dash/validate/subdomain.php:74
+#: dash/validate/subdomain.php:82
 msgid "Slug should contain a Latin letter"
 msgstr "نامک باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/subdomain.php:84
+#: dash/validate/subdomain.php:92
 msgid "The subdomain must begin with latin letters"
 msgstr "زیردامنه باید با حرف لاتین شروع شود"
 
-#: dash/validate/subdomain.php:94 dash/validate/subdomain.php:104
+#: dash/validate/subdomain.php:102 dash/validate/subdomain.php:112
 msgid "The subdomain must have one separator"
 msgstr "زیردامنه می‌بایست تنها یک جداکننده داشته باشد"
 
-#: dash/validate/subdomain.php:120
+#: dash/validate/subdomain.php:128
 msgid "Can not use subdomain by jibres keyword"
 msgstr "نمی‌توانید از کلمه جیبرس در زیردامنه استفاده کنید"
 
-#: dash/validate/subdomain.php:131 dash/validate/subdomain.php:141
-#: dash/validate/subdomain.php:151 dash/validate/subdomain.php:161
-#: dash/validate/subdomain.php:171
+#: dash/validate/subdomain.php:139 dash/validate/subdomain.php:149
+#: dash/validate/subdomain.php:159 dash/validate/subdomain.php:169
+#: dash/validate/subdomain.php:179
 msgid "You can not choose this subdomain"
 msgstr "شما نمی توانید زیردامنه را انتخاب کنید"
 
@@ -32363,30 +32399,30 @@ msgstr "ظرفیت تعداد دامنه‌های متصل به بیزینس ش�
 msgid "Domain is not valid"
 msgstr "دامنه معتبر نیست"
 
-#: lib/app/business_domain/add.php:124
+#: lib/app/business_domain/add.php:125
 msgid "Duplicate domain. This domain already added to domains list"
 msgstr "دامنه تکراری است. این دامنه قبلا به سیستم اضافه شده است"
 
-#: lib/app/business_domain/add.php:128
+#: lib/app/business_domain/add.php:129
 msgid "This domain is alreay exists in your business domain list"
 msgstr "این دامنه هم‌اکنون در لیست دامنه‌های متصل به فروشگاه شما موجود است"
 
-#: lib/app/business_domain/add.php:132
+#: lib/app/business_domain/add.php:133
 msgid "Duplicate domain. This domain already taken by another business"
 msgstr "این دامنه تکراری است. دامنه توسط بیزینس دیگری در حال استفاده است"
 
-#: lib/app/business_domain/add.php:143
+#: lib/app/business_domain/add.php:144
 msgid "This domain is pending for delete. Please try it later"
 msgstr "این دامنه در انتظار حذف است. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/business_domain/add.php:161 lib/app/business_domain/edit.php:75
+#: lib/app/business_domain/add.php:162 lib/app/business_domain/edit.php:75
 #: lib/app/nic_domain/get.php:26 lib/app/nic_domain/lock.php:52
 #: lib/app/nic_domain/lock.php:154 lib/app/onlinenic/lock.php:52
 #: lib/app/onlinenic/lock.php:155
 msgid "Invalid domain"
 msgstr "دامنه اشتباه است"
 
-#: lib/app/business_domain/add.php:220
+#: lib/app/business_domain/add.php:228
 msgid "Domain added"
 msgstr "دامنه اضافه شد"
 
@@ -33272,7 +33308,7 @@ msgstr "گزینه حذف شد"
 msgid "Your comment was saved"
 msgstr "دیدگاه شما ذخیره شد"
 
-#: lib/app/form/comment/get.php:64
+#: lib/app/form/comment/get.php:70
 msgid "Comment not found"
 msgstr "دیدگاه یافت نشد"
 
@@ -33326,11 +33362,11 @@ msgstr "نمی‌توانیم این فرم را کپی کنیم"
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
-#: lib/app/form/generator.php:600
+#: lib/app/form/generator.php:590
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:611
+#: lib/app/form/generator.php:601
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
@@ -33919,8 +33955,17 @@ msgid "New answer"
 msgstr "پاسخ جدید"
 
 #: lib/app/log/caller/form/form_newAnswer.php:34
+#: lib/app/log/caller/form/form_newAnswer.php:91
 msgid "A new response to the form was registered"
 msgstr "یک پاسخ جدید به فرم‌ها ثبت شد"
+
+#: lib/app/log/caller/form/form_newAnswer.php:102
+msgid "View answer"
+msgstr "مشاهده پاسخ"
+
+#: lib/app/log/caller/form/form_newAnswer.php:110
+msgid "New answer to form"
+msgstr "پاسخ جدید به فرم"
 
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:13
 #: lib/app/log/caller/order/order_customerSendingOrder.php:13
@@ -37559,6 +37604,12 @@ msgstr "یارد"
 msgid "Samandehi"
 msgstr "ساماندهی"
 
+#~ msgid "Slug must have at least 5 character"
+#~ msgstr "نامک باید بزرگتر از ۵ کاراکتر باشد"
+
+#~ msgid "Please set the subdomain less than 50 character"
+#~ msgstr "لطفا زیردامنه را کمتر از ۵۰ حرف وارد کنید"
+
 #~ msgid "Manage menu"
 #~ msgstr "مدیریت فهرست"
 
@@ -37752,9 +37803,6 @@ msgstr "ساماندهی"
 
 #~ msgid "Mohammad Hasan Salehi HajiAbadi"
 #~ msgstr "محمد حسن صالحی حاجی آبادی"
-
-#~ msgid "Saman Soltani"
-#~ msgstr "سامان سلطانی"
 
 #~ msgid "SITE"
 #~ msgstr "سایت"

@@ -118,9 +118,16 @@ class view
 				"avatar"   => "hasan-salehi",
 				"quote"    => T_("It was one of the best and most convenient domain registration panels I've ever seen, especially the three-letter domain dictionary :))"),
 			],
+			[
+				"name"     => T_("Saman Soltani"),
+				"position" => T_("Software Developer"),
+				"avatar"   => "saman-soltani",
+				"quote"    => T_("Jibres is the most fastest website builder which I saw. At first, it maybe a bit complicated, but you will deeply understand these features by challenges that you are going to face in your business."),
+			],
 		];
 
 		shuffle($quote);
+		$quote = array_slice($quote, 0, 3);
 		\dash\data::quote($quote);
 
 
