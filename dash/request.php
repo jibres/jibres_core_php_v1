@@ -319,7 +319,7 @@ class request
 
 		if(\dash\engine\baby::check_simple($input))
 		{
-			\dash\engine\baby::pacifier(12, 424);
+			\dash\engine\baby::pacifier(null, 424);
 		}
 
 		return $input;
