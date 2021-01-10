@@ -281,6 +281,18 @@ class baby
 				self::$level = 1;
 				return true;
 			}
+
+			if(preg_match("/\/([^\/]*)(and|or)(\s|\()+(.*)=(.*)/i", $_txt))
+			{
+				self::$level = 6;
+				return true;
+			}
+
+			if(preg_match("/\/([^\/]*)union(.*)(\(|\=|\))=(.*)/i", $_txt))
+			{
+				self::$level = 5;
+				return true;
+			}
 		}
 
 		if(preg_match("/eval(.*)\(/i", $_txt))
@@ -306,16 +318,6 @@ class baby
 		if(preg_match("/xmltype(.*)\(/i", $_txt))
 		{
 			self::$level = 4;
-			return true;
-		}
-		if(preg_match("/\/([^\/]*)(and|or)(\s|\()+(.*)=(.*)/i", $_txt))
-		{
-			self::$level = 6;
-			return true;
-		}
-		if(preg_match("/\/([^\/]*)union(.*)(\(|\=|\))=(.*)/i", $_txt))
-		{
-			self::$level = 5;
 			return true;
 		}
 		// if cant find something return false
