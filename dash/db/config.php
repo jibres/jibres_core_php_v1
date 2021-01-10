@@ -61,7 +61,13 @@ class config
 			$join = null;
 		}
 
-		return
+		$fields = '*';
+		if(isset($_meta['fields']))
+		{
+			$fields = $_meta['fields'];
+		}
+
+		$result =
 		[
 			'where'       => $where,
 			'order'       => $order,
@@ -69,7 +75,10 @@ class config
 			'limit'       => $limit,
 			'start_limit' => $start_limit,
 			'join'        => $join,
+			'fields'      => $fields,
 		];
+
+		return $result;
 	}
 
 
