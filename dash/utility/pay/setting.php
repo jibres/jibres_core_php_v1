@@ -153,14 +153,29 @@ class setting
 			$token = self::get_token();
 			if($token)
 			{
-				if(strpos($back_url, '?') === false)
+				if(substr($back_url, -1) === '?')
 				{
-					$back_url = $back_url. '?jftoken='. $token;
+					$back_url = substr($back_url, 0, -1);
 				}
-				else
+
+				$check_url = \dash\validate\url::parseUrl($back_url);
+
+				if(isset($check_url['query']) && $check_url['query'])
 				{
 					$back_url = $back_url. '&jftoken='. $token;
 				}
+				else
+				{
+					if(strpos($back_url, '?') === false)
+					{
+						$back_url = $back_url. '?jftoken='. $token;
+					}
+					else
+					{
+						$back_url = $back_url. '&jftoken='. $token;
+					}
+				}
+
 			}
 		}
 		\dash\redirect::to($back_url, true, 302);
