@@ -114,7 +114,7 @@ class model
 			[
 				'msg_go'        => T_("Pay test"),
 				'auto_go'       => false,
-				'auto_back'     => false,
+				'auto_back'     => true,
 				'final_msg'     => true,
 				'turn_back'     => \dash\url::pwd(),
 				'user_id'       => \dash\user::id(),
