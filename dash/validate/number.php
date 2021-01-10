@@ -17,9 +17,16 @@ class number
 
 		if(is_string($data))
 		{
-			$data    = \dash\utility\convert::to_en_number($data);
-			$replace = ['{', '}', '(', ')', '_', '-', '+', ' ', ','];
-			$data    = str_replace($replace, '', $data);
+			if(isset($_meta['force_number']) && $_meta['force_number'])
+			{
+				// wee need force number. for example in id
+			}
+			else
+			{
+				$data    = \dash\utility\convert::to_en_number($data);
+				$replace = ['{', '}', '(', ')', '_', '-', '+', ' ', ','];
+				$data    = str_replace($replace, '', $data);
+			}
 		}
 
 		if(!is_numeric($data))
