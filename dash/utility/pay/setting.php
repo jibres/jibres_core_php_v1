@@ -155,11 +155,11 @@ class setting
 			{
 				if(strpos($back_url, '?') === false)
 				{
-					$back_url = $back_url. '?token='. $token;
+					$back_url = $back_url. '?jftoken='. $token;
 				}
 				else
 				{
-					$back_url = $back_url. '&token='. $token;
+					$back_url = $back_url. '&jftoken='. $token;
 				}
 			}
 		}
