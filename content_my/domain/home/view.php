@@ -25,9 +25,9 @@ class view
 		\dash\data::dashboardDetail($dashboard_detail);
 
 
-		if(\dash\request::get('token'))
+		if(\dash\request::get('jftoken'))
 		{
-			$get_msg = \dash\utility\pay\setting::final_msg(\dash\request::get('token'));
+			$get_msg = \dash\utility\pay\setting::final_msg(\dash\request::get('jftoken'));
 
 			if($get_msg)
 			{

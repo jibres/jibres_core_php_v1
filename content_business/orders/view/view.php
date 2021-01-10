@@ -9,9 +9,9 @@ class view
 		\dash\face::title(T_("My orders"));
 
 
-		if(\dash\request::get('token'))
+		if(\dash\request::get('jftoken'))
 		{
-			$get_msg = \dash\utility\pay\setting::final_msg(\dash\request::get('token'));
+			$get_msg = \dash\utility\pay\setting::final_msg(\dash\request::get('jftoken'));
 			if($get_msg)
 			{
 				if(isset($get_msg['condition']) && $get_msg['condition'] === 'ok' && isset($get_msg['plus']))
