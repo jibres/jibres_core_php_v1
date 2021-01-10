@@ -178,7 +178,7 @@ class setting
 
 			}
 		}
-		\dash\redirect::to($back_url, true, 302);
+		\dash\redirect::to($back_url, 'pay', 302);
 	}
 
 
