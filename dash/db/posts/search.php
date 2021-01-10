@@ -25,7 +25,7 @@ class search
 		}
 
 
-		$query = "SELECT posts.* FROM posts $q[join] $q[where] $q[order] $limit ";
+		$query = "SELECT $q[fields] FROM posts $q[join] $q[where] $q[order] $limit ";
 		$result = \dash\db::get($query);
 
 		return $result;

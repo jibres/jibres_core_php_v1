@@ -68,6 +68,7 @@ class search
 		$or            = [];
 		$order_sort    = null;
 		$meta['limit'] = 15;
+		$meta['fields'] = " posts.* ";
 
 		if($data['pagination'] === 'n')
 		{
@@ -118,6 +119,7 @@ class search
 
 		if($data['multi_tag_search'])
 		{
+			$meta['fields'] = " DISTINCT posts.* ";
 			$and[]   = " termusages.term_id IN ($data[multi_tag_search]) ";
 			$meta['join']['join_on_termusages'] = " INNER JOIN termusages ON termusages.post_id = posts.id ";
 		}
