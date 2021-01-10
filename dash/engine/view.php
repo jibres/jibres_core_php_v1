@@ -104,11 +104,7 @@ class view
 			// set desktop title
 			if(\dash\url::content() || \dash\engine\store::inBusinessWebsite())
 			{
-				if(\dash\url::module() === null)
-				{
-					// do nothing
-				}
-				elseif(\dash\face::specialTitle())
+				if(\dash\face::specialTitle())
 				{
 					// do nothing
 				}

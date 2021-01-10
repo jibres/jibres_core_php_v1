@@ -12,6 +12,7 @@ class view
 
 		\dash\data::dashboardData(\lib\app\cache\get::admin_dashboard());
 
+		\dash\face::specialTitle(true);
 		// back
 		\dash\data::back_text(T_('Control Center'));
 		\dash\data::back_link(\dash\url::sitelang(). '/my');
