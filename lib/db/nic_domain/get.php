@@ -82,20 +82,22 @@ class get
 				domain
 			LEFT JOIN usersetting ON usersetting.user_id = domain.user_id
 			WHERE
-				domain.status != 'deleted' AND
-				domain.autorenew = 1 AND
-				domain.available = 0 AND
-				DATE(domain.dateexpire) < DATE('$_date') AND
-				HOUR(domain.dateexpire) = '$_hour' AND
+				domain.id IN
 				(
 					SELECT
-						domainstatus.status
+						domain.id
 					FROM
-						domainstatus
+						domain
+					LEFT JOIN domainstatus ON domainstatus.domain = domain.name
 					WHERE
-						domainstatus.domain = domain.name AND
+
+						domain.status != 'deleted' AND
+						domain.autorenew = 1 AND
+						domain.available = 0 AND
+						DATE(domain.dateexpire) < DATE('$_date') AND
+						HOUR(domain.dateexpire) = '$_hour' AND
 						domainstatus.active = 1 AND
-						domainstatus.status IN
+						domainstatus.status NOT IN
 						(
 							'serverRenewProhibited',
 							'pendingDelete',
@@ -106,7 +108,9 @@ class get
 							'irnicRegistrationDocRequired',
 							'irnicRenewalPendingHolderCheck'
 						)
-				) IS NULL
+				)
+
+
 			ORDER BY domain.datemodified ASC, domain.dateexpire ASC
 		";
 		$result = \dash\db::get($query, null, false, 'nic');
