@@ -62,24 +62,199 @@ class edit
 
 
 
+	private static $sort_level = [];
+
 	public static function sort($_args, $_id)
 	{
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
+		{
+			\dash\notif::error(T_("Id is required"));
+			return false;
+		}
+
 		if(!is_array($_args))
 		{
 			\dash\notif::error(T_("Sort arguments must be array"));
 			return false;
 		}
 
-		$sort_level = [];
+		$args = array_values($_args);
 
-		foreach ($_sort as $key => $value)
+		$update = [];
+
+		foreach ($args as $sort_number => $string)
 		{
+			$split  = explode('-', $string);
 
+			$my_sort = $sort_number + 1;
+
+			if(count($split) === 0)
+			{
+				return false;
+			}
+			elseif(count($split) === 1)
+			{
+				$level1 = self::get_level_id($split[0]);
+				if(!$level1)
+				{
+					return false;
+				}
+
+				$update[$level1['id']] = ['parent1' => $id, 'sort' => $my_sort];
+			}
+			elseif(count($split) === 2)
+			{
+				$level1 = self::get_level_id($split[0]);
+				if(!$level1)
+				{
+					return false;
+				}
+
+				$level2 = self::get_level_id($split[1]);
+				if(!$level2)
+				{
+					return false;
+				}
+
+				$update[$level2['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'sort' => $my_sort];
+			}
+			elseif(count($split) === 3)
+			{
+				$level1 = self::get_level_id($split[0]);
+				if(!$level1)
+				{
+					return false;
+				}
+
+				$level2 = self::get_level_id($split[1]);
+				if(!$level2)
+				{
+					return false;
+				}
+
+				$level3 = self::get_level_id($split[2]);
+				if(!$level3)
+				{
+					return false;
+				}
+
+				$update[$level3['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'sort' => $my_sort];
+
+			}
+			elseif(count($split) === 4)
+			{
+				$level1 = self::get_level_id($split[0]);
+				if(!$level1)
+				{
+					return false;
+				}
+
+				$level2 = self::get_level_id($split[1]);
+				if(!$level2)
+				{
+					return false;
+				}
+
+				$level3 = self::get_level_id($split[2]);
+				if(!$level3)
+				{
+					return false;
+				}
+
+				$level4 = self::get_level_id($split[3]);
+				if(!$level4)
+				{
+					return false;
+				}
+
+				$update[$level4['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'parent4' => $level3['id'], 'sort' => $my_sort];
+
+			}
+			elseif(count($split) === 5)
+			{
+				$level1 = self::get_level_id($split[0]);
+				if(!$level1)
+				{
+					return false;
+				}
+
+				$level2 = self::get_level_id($split[1]);
+				if(!$level2)
+				{
+					return false;
+				}
+
+				$level3 = self::get_level_id($split[2]);
+				if(!$level3)
+				{
+					return false;
+				}
+
+				$level4 = self::get_level_id($split[3]);
+				if(!$level4)
+				{
+					return false;
+				}
+
+				$level5 = self::get_level_id($split[4]);
+				if(!$level5)
+				{
+					return false;
+				}
+
+				$update[$level5['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'parent4' => $level3['id'], 'parent5' => $level4['id'], 'sort' => $my_sort];
+			}
 		}
 
-		var_dump($sort_level);
+		if(!empty($update))
+		{
+			\lib\db\menu\update::sort_level($update);
+		}
 
-		var_dump(func_get_args());exit();
 	}
+
+
+	private static function get_level_id($_string)
+	{
+		$split_level = explode('_', $_string);
+
+		$level       = null;
+		$id          = null;
+
+		if(isset($split_level[0]))
+		{
+			$level = \dash\validate::tinyint($split_level[0]);
+
+			if(!isset($level))
+			{
+				return false;
+			}
+
+			$level = intval($level) + 1;
+
+			if(!in_array($level, [1,2,3,4,5]))
+			{
+				$level = null;
+			}
+		}
+
+		if(isset($split_level[1]))
+		{
+			$id = \dash\validate::id($split_level[1]);
+			if(!$id)
+			{
+				return false;
+			}
+		}
+
+		$result          = [];
+		$result['id']    = $id;
+		$result['level'] = $level;
+
+		return $result;
+	}
+
 }
 ?>
