@@ -6,56 +6,60 @@ class model
 {
 	public static function post()
 	{
-
-		if(\dash\request::post('editmenu') === 'editmenu')
+		if(\dash\request::post('setsort'))
 		{
-			$post =
-			[
-				'title'    => \dash\request::post('menutitle'),
-			];
-
-			$theme_detail = \lib\app\website\menu\edit::edit_menu($post, \dash\request::get('id'));
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::pwd();
-			}
+			var_dump($_POST);
+			exit();
 		}
-		elseif(\dash\request::post('removemenu') === 'removemenu')
-		{
+		// if(\dash\request::post('editmenu') === 'editmenu')
+		// {
+		// 	$post =
+		// 	[
+		// 		'title'    => \dash\request::post('menutitle'),
+		// 	];
 
-			$post =
-			[
-				'removemenu'    => \dash\request::post('menuid'),
-			];
+		// 	$theme_detail = \lib\app\website\menu\edit::edit_menu($post, \dash\request::get('id'));
 
-			$theme_detail = \lib\app\website\menu\add::remove_menu($post);
+		// 	if(\dash\engine\process::status())
+		// 	{
+		// 		\dash\redirect::pwd();
+		// 	}
+		// }
+		// elseif(\dash\request::post('removemenu') === 'removemenu')
+		// {
 
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::to(\dash\url::this(). '/menu');
-			}
-		}
-		else
-		{
+		// 	$post =
+		// 	[
+		// 		'removemenu'    => \dash\request::post('menuid'),
+		// 	];
 
-			$post =
-			[
-				'title'   => \dash\request::post('title'),
-				'url'     => \dash\request::post('url'),
-				'target'  => \dash\request::post('target'),
-				'itemkey' => \dash\request::post('itemkey'),
-				'remove'  => \dash\request::post('remove'),
-			];
+		// 	$theme_detail = \lib\app\website\menu\add::remove_menu($post);
 
-			$theme_detail = \lib\app\website\menu\add::menu_item($post, \dash\request::get('id'));
+		// 	if(\dash\engine\process::status())
+		// 	{
+		// 		\dash\redirect::to(\dash\url::this(). '/menu');
+		// 	}
+		// }
+		// else
+		// {
+
+		// 	$post =
+		// 	[
+		// 		'title'   => \dash\request::post('title'),
+		// 		'url'     => \dash\request::post('url'),
+		// 		'target'  => \dash\request::post('target'),
+		// 		'itemkey' => \dash\request::post('itemkey'),
+		// 		'remove'  => \dash\request::post('remove'),
+		// 	];
+
+		// 	$theme_detail = \lib\app\website\menu\add::menu_item($post, \dash\request::get('id'));
 
 
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::pwd();
-			}
-		}
+		// 	if(\dash\engine\process::status())
+		// 	{
+		// 		\dash\redirect::pwd();
+		// 	}
+		// }
 	}
 }
 ?>

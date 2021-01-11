@@ -394,7 +394,7 @@ class cleanse
 	/**
 	 * Unset every index not send from user
 	 */
-	public static function patch_mode($_input, $_data)
+	public static function patch_mode($_input, $_data, $_exception = [])
 	{
 		if(!is_array($_input))
 		{
@@ -410,13 +410,25 @@ class cleanse
 			self::bye();
 		}
 
+		if(!is_array($_exception))
+		{
+			$_exception = [];
+		}
+
 		$clean_data = $_data;
 
 		foreach ($_data as $key => $value)
 		{
 			if(!array_key_exists($key, $_input))
 			{
-				unset($clean_data[$key]);
+				if(in_array($key, $_exception))
+				{
+					// not unset.
+				}
+				else
+				{
+					unset($clean_data[$key]);
+				}
 			}
 		}
 

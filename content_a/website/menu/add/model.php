@@ -12,7 +12,7 @@ class model
 			'title'    => \dash\request::post('title'),
 		];
 
-		$theme_detail = \lib\app\website\menu\add::new_menu($post);
+		$theme_detail = \lib\app\menu\add::add($post);
 
 
 		if(\dash\engine\process::status())

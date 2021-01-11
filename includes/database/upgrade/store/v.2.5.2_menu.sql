@@ -1,0 +1,27 @@
+CREATE TABLE jibres_XXXXXXX.menu (
+`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`title` varchar(200) NULL DEFAULT NULL,
+`url` text NULL,
+`pointer` enum('homepage','products','posts','forms','tags','hashtag','socialnetwork','other') NULL DEFAULT NULL,
+`related_id` bigint(20) UNSIGNED NULL DEFAULT NULL,
+`sort` int(10) NULL DEFAULT NULL,
+`target` varchar(50) NULL DEFAULT NULL,
+`parent1` int(10) UNSIGNED NULL DEFAULT NULL,
+`parent2` int(10) UNSIGNED NULL DEFAULT NULL,
+`parent3` int(10) UNSIGNED NULL DEFAULT NULL,
+`parent4` int(10) UNSIGNED NULL DEFAULT NULL,
+`parent5` int(10) UNSIGNED NULL DEFAULT NULL,
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `menu_search_index_title` (`title`),
+KEY `menu_search_index_pointer` (`pointer`),
+KEY `menu_search_index_related_id` (`related_id`),
+KEY `menu_search_index_sort` (`sort`),
+KEY `menu_search_index_parent1` (`parent1`),
+KEY `menu_search_index_parent2` (`parent2`),
+KEY `menu_search_index_parent3` (`parent3`),
+KEY `menu_search_index_parent4` (`parent4`),
+KEY `menu_search_index_parent5` (`parent5`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

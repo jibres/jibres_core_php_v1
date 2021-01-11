@@ -17,7 +17,7 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/menu/add');
 
-		$menu_list = \lib\app\website\menu\get::list_all_menu();
+		$menu_list = \lib\app\menu\get::list_all_menu();
 		\dash\data::menuList($menu_list);
 
 		if(!$menu_list)
