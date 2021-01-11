@@ -77,7 +77,7 @@ class view
 	private static function set_product_title_page()
 	{
 
-		\dash\face::title(\dash\data::dataRow_title() . ' | '. \lib\store::title());
+		\dash\face::title(\dash\data::dataRow_title());
 		\dash\face::titlePWA(\lib\store::title());
 
 		if(\dash\data::dataRow_thumb())
