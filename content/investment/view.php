@@ -6,13 +6,13 @@ class view
 {
 	public static function config()
 	{
-		if(!\dash\permission::supervisor())
+		if(!\dash\url::isLocal())
 		{
 			\dash\header::status(403);
 		}
 
-		\dash\face::title(T_('Jibres Story'));
-		\dash\face::desc(T_('Read about the tortuous journey of Jibers. To be continued...'));
+		\dash\face::title(T_('Invest in Jibres'));
+		\dash\face::desc(T_('If you are interested in investing in Jibres, we have created this page for you to answer your questions'));
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
