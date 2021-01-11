@@ -118,7 +118,7 @@ class model
 				'final_msg'     => true,
 				'turn_back'     => \dash\url::pwd(),
 				'user_id'       => \dash\user::id(),
-				'amount'        => 1000,
+				'amount'        => 2000,
 			];
 
 
