@@ -72,15 +72,181 @@
     <td class="txtB"><a href="<?php echo \dash\url::cdn(); ?>/vcard/Jibres-vCard-Javad-Adib.vcf"><?php echo T_("Mr. Javad Adib"); ?></a></td>
    </tr>
 
+   <tr>
+    <td class="txtRa"><?php echo T_("Activity"); ?></td>
+    <td class="txtB"><?php echo T_("Financial technology"). (' - '). T_("Fintech"); ?></td>
+   </tr>
+   <tr>
+    <td class="txtRa"><?php echo T_("Keywords"); ?></td>
+    <td class="txtB"><?php echo T_("Fintech"). T_(', '). T_("Ecommerce"); ?></td>
+   </tr>
+   <tr>
+    <td class="txtRa"><?php echo T_("Public release date"); ?></td>
+    <td class="txtB"><?php echo T_("Soon."); ?></td>
+   </tr>
   </table>
  </div>
 
 
-<?php if (\dash\language::current() === 'fa') { ?>
- <div class="avand-md impact font-16 pB25-f">
-  <p>داستان شکل‌گیری ایده جیبرس و شروع اون یک روایت مفصل است. من جواد ادیب هستم و میخوام داستان جیبرس رو براتون روایت کنم.</p>
+ <div class="avand-md impact font-16">
+  <h2><?php echo T_("Basic Detail"); ?></h2>
+  <table class="tbl1 v5 mB0-f">
+   <tr>
+    <td class="txtRa"><?php echo T_("Linkedin"); ?></td>
+    <td class="txtB"><?php echo T_("Soon."); ?></td>
+   </tr>
+   <tr>
+    <td class="txtRa"><?php echo T_("Facebook"); ?></td>
+    <td class="txtB"><?php echo T_("Soon."); ?></td>
+   </tr>
+   <tr>
+    <td class="txtRa"><?php echo T_("Twitter"); ?></td>
+    <td class="txtB"><?php echo T_("Soon."); ?></td>
+   </tr>
+   <tr>
+    <td class="txtRa"><?php echo T_("Instagram"); ?></td>
+    <td class="txtB">https://instagram.com/JibresDotCom</td>
+   </tr>
+   <tr>
+    <td class="txtRa"><?php echo T_("Telegram"); ?></td>
+    <td class="txtB"><?php echo T_("Soon."); ?></td>
+   </tr>
 
-  <p>یکی بود یکی نبود. برمیگردیم به خیلی وقت پیش، سال ۱۳۹۲ شمسی؛ انگار یه قرن از اون دوران گذشته. پنج جوان بودیم از پنج شهر متفاوت. جواد،‌ سامان، حسن، محمد و امید. همین اولش احتمالا این سوال براتون پیش اومد که چطور با هم آشنا شدیم؟ مسابقات مهارت. ما هر کدوم نماینده یک استان و رقیب هم تو مسابقات کشوری تو دوره‌های مختلف بودیم. رشته نرم‌افزار و وب.</p>
+   <tr>
+    <td class="txtRa"><?php echo T_("Public release date"); ?></td>
+    <td class="txtB"><?php echo T_("Soon."); ?></td>
+   </tr>
+  </table>
+ </div>
+
+
+ <div class="avand-md impact font-16">
+
+  <h5><?php echo ("Describe our company and the problem we're solving"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Is our solution uniquely addressing this problem?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("How will our company change the world?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("What is the big picture and vision?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Please explain why your team is uniquely qualified to solve this problem."); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("How long have you been working together and how did the co-founders meet?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Is there someone on your team building your technology?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("If accepted into the program, can all founders participate in the accelerator full-time?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Please provide your revenue/customer/user growth KPIs or metrics. Include totals and month-over-month growth for the last six months. If your product is not yet in the market, how are you tracking progress - ie. LOIs/MOUs, waitlist sign-ups, or other indicators of early market demand?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("How do you plan to acquire customers/users?*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Please explain any capital raised to date and terms: *"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("What is your monthly burn and how much runway do you have?*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Please list names and websites of 3-5 of your competitors: *"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("Please list all shareholders (including founders, employees and investors) of the company that own at least 5% equity, including their title and percentage: *"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("How did you meet your teammates?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("How long is your collaboration?"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+
+  <h5><?php echo ("در مورد مشکلی که حل کردید توضیح دهید و مشتریان شما تاکنون چگونه مشکل خود را حل می کردند."); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("مشتریان و بازار هدف خود را شرح دهید"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("اندازه بازار کسب و کار خود را چه میزان برآورد می کنید؟"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("مدل درآمدی کسب و کار شما چیست؟"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("رقبای مستقیم و غیر مستقیم کسب و کارتان را نام ببرید و مزیت رقابتی خود را نسبت به آنان تشریح کنید."); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("آیا محصول و یا خدمات شما آماده ورود به بازار است؟"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("به چه میزان سرمایه برای رشد خود در این مرحله نیاز دارید؟ (تومان)"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("در ازای سرمایه مورد نیاز فوق الذکر چند درصد از سهام کسب و کار خود را به سرمایه گذار واگذار خواهید کرد؟"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("تاکنون چه میزان در این استارتاپ سرمایه گذاری شده است؟ (تومان)"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("دلیل شما برای ورود به شناسا چیست؟"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+
+  <hr>
+  <h5><?php echo ("ایده خود را به صورت خلاصه توضیح دهید.*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("چه مدت برای پرورش ایده خود وقت گذاشته اید؟*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("چه مدت در آینده وقت خواهید گذاشت؟*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("جریان درآمدی پیشنهادی شما چیست؟*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("چگونه کاربر جذب خواهید کرد؟*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("چه کسانی رقیبان احتمالی شما خواهند بود؟*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo ("مزیت ایده شما در چیست؟*"); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo (""); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <h5><?php echo (""); ?></h5>
+  <p><?php echo T_(""); ?></p>
+
+  <pre>
+فایل ارائه به سرمایه گذار
+طرح کسب و کار
+خلاصه اجرایی طرح کسب و کار
+جریان نقدینگی
+مدل کسب و کار
+ویدیوی معرفی استارتاپ و اعضای تیم
+  </pre>
+ </div>
+
+
+
+
+
+
+
+ <div class="avand-md impact font-16 pB25-f">
 
   <video class="block" controls preload="metadata">
     <source type="video/mp4" src="<?php echo \dash\url::cdn(); ?>/video/WorldSkills-SkillsChangeLives.mp4">
@@ -88,19 +254,6 @@
   <p class="msg minimal font-14 txtC mT10 mB0-f">این ویدیوی رسمی مسابقات جهانی مهارت هست و به‌راستی که مهارت زندگی را تغییر می‌دهد.</p>
  </div>
 
-
-
-
- <div class="avand-md impact font-16">
-
- </div>
-
-
-<?php } else { ?>
- <div class="avand-md impact font-16">
-  <p><?php echo T_("Soon") ?></p>
- </div>
-<?php } ?>
 
  <div class="avand-md impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/story/jibres-love.gif" alt='<?php echo T_("Sincerely, Javad Adib") ?>'>
