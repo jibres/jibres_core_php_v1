@@ -37,9 +37,9 @@ class generate
 				foreach ($value['list'] as $check_end_key => $one_item)
 				{
 					self::$result .= '<li>';
-					self::$result .='<div class="f item">';
-					self::$result .='<i class="sf-thumbnails" data-handle><input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '"></i>';
-					self::$result .='<div class="key">'. a($one_item, 'title');
+					self::$result .= '<div class="f item">';
+					self::$result .= '<i class="sf-thumbnails" data-handle><input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '"></i>';
+					self::$result .= '<div class="key">'. a($one_item, 'title');
 
 					if(a($value, 'target'))
 					{
@@ -51,11 +51,18 @@ class generate
 					self::$result .= '<div class="value"><a href="'. \dash\url::that(). '/item'. \dash\request::full_get(['id' => a($one_item, 'id')]). '">'. T_("Edit"). '</a></div>';
 					self::$result .= '</div>';
 
-					if(isset($value['child']) && is_array($value['child']) && $check_end_key === $endkey)
+					if(isset($value['child']) && is_array($value['child']))
 					{
-						self::$result .= '<ol data-sortable>';
-						self::create_admin($value['child']);
-						self::$result .='</ol>';
+						if($check_end_key === $endkey)
+						{
+							self::$result .= '<ol data-sortable>';
+							self::create_admin($value['child']);
+							self::$result .='</ol>';
+						}
+						else
+						{
+							self::$result .= '<ol data-sortable></ol>';
+						}
 					}
 
 					self::$result .= '</li>';
