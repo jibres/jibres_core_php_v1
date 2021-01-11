@@ -8,9 +8,9 @@ class model
 	{
 		if(\dash\request::post('setsort'))
 		{
-			var_dump($_POST);
-			exit();
+			\lib\app\menu\edit::sort(\dash\request::post('sort'), \dash\request::get('id'));
 		}
+
 		// if(\dash\request::post('editmenu') === 'editmenu')
 		// {
 		// 	$post =

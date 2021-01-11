@@ -59,5 +59,27 @@ class edit
 
 		return true;
 	}
+
+
+
+	public static function sort($_args, $_id)
+	{
+		if(!is_array($_args))
+		{
+			\dash\notif::error(T_("Sort arguments must be array"));
+			return false;
+		}
+
+		$sort_level = [];
+
+		foreach ($_sort as $key => $value)
+		{
+
+		}
+
+		var_dump($sort_level);
+
+		var_dump(func_get_args());exit();
+	}
 }
 ?>
