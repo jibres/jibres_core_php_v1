@@ -35,7 +35,7 @@ class generate
 				foreach ($value['list'] as $one_item)
 				{
 					self::$result .='<div class="f item">';
-					self::$result .='<i class="sf-thumbnails" data-handle><input type="hidden" name="sort[]" value="'. a($one_item, 'id'). '"></i>';
+					self::$result .='<i class="sf-thumbnails" data-handle><input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '"></i>';
 					self::$result .='<div class="key">'. a($one_item, 'title');
 
 					if(a($value, 'target'))
