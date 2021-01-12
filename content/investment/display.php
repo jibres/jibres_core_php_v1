@@ -8,7 +8,7 @@
 
 
 
-   <div class="row">
+   <div class="row msg info2 mT25 mB0-f font-14">
      <div class="c"><?php echo T_("Version"). ' '. \dash\fit::number(1, false); ?></div>
      <div class="c txtRa"><?php echo T_("Last Update"). ' '. \dash\fit::date("2021-01-13"); ?></div>
    </div>
