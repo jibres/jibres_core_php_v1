@@ -12,31 +12,31 @@ class view
 		switch ($subtype)
 		{
 			case 'standard':
-				$myTitle .= ' | '. T_("Standard");
-				\dash\data::action_text(T_('Add new post'));
+				$myTitle = T_("Standard Posts");
+				\dash\data::action_text(T_('Add New Post'));
 				\dash\data::action_link(\dash\url::this(). '/add?subtype=standard');
 				break;
 
 			case 'gallery':
-				$myTitle .= ' | '. T_("Gallery");
-				\dash\data::action_text(T_('Add new gallery'));
+				$myTitle = T_("Galleries");
+				\dash\data::action_text(T_('Add New Gallery'));
 				\dash\data::action_link(\dash\url::this(). '/add?subtype=gallery');
 				break;
 
 			case 'video':
-				$myTitle .= ' | '. T_("Video");
-				\dash\data::action_text(T_('Add new video'));
+				$myTitle = T_("Videos");
+				\dash\data::action_text(T_('Add New Video'));
 				\dash\data::action_link(\dash\url::this(). '/add?subtype=video');
 				break;
 
 			case 'audio':
-				$myTitle .= ' | '. T_("Gallery");
-				\dash\data::action_text(T_('Add new podcast'));
+				$myTitle = T_("Podcasts");
+				\dash\data::action_text(T_('Add New Podcast'));
 				\dash\data::action_link(\dash\url::this(). '/add?subtype=audio');
 				break;
 
 			default:
-				\dash\data::action_text(T_('Add new post'));
+				\dash\data::action_text(T_('Add New Post'));
 				\dash\data::action_link(\dash\url::this(). '/add');
 				break;
 		}
