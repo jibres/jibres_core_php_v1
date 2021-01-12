@@ -76,6 +76,7 @@ class get
 		$list = array_combine(array_column($list, 'id'), $list);
 
 		$new_list = [];
+
 		foreach ($list as $key => $value)
 		{
 
@@ -85,61 +86,83 @@ class get
 			$parent4 = a($value, 'parent4');
 			$parent5 = a($value, 'parent5');
 
-			if($parent1)
+			if($parent1 && !$parent2 && !$parent3 && !$parent4 && !$parent5)
 			{
-				if($parent2)
-				{
-					if($parent3)
-					{
-						if($parent4)
-						{
-							if($parent5)
-							{
-								if(!isset($new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4]['child'][$parent5]))
-								{
-									$new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4]['child'][$parent5] = ['list' => []];
-								}
-								$new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4]['child'][$parent5]['list'][] = $value;
-							}
-							else
-							{
-								if(!isset($new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4]))
-								{
-									$new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4] = ['list' => [], 'child' => []];
-								}
-								$new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4]['list'][] = $value;
-
-							}
-						}
-						else
-						{
-							if(!isset($new_list[$parent1]['child'][$parent2]['child'][$parent3]))
-							{
-								$new_list[$parent1]['child'][$parent2]['child'][$parent3] = ['list' => [], 'child' => []];
-							}
-							$new_list[$parent1]['child'][$parent2]['child'][$parent3]['list'][] = $value;
-
-						}
-					}
-					else
-					{
-						if(!isset($new_list[$parent1]['child'][$parent2]))
-						{
-							$new_list[$parent1]['child'][$parent2] = ['list' => [], 'child' => []];
-						}
-						$new_list[$parent1]['child'][$parent2]['list'][] = $value;
-					}
-				}
-				else
-				{
-					if(!isset($new_list[$parent1]))
-					{
-						$new_list[$parent1] = ['list' => [], 'child' =>[]];
-					}
-					$new_list[$parent1]['list'][] = $value;
-				}
+				$new_list[$key] = $value;
 			}
 		}
+
+
+
+		foreach ($list as $key => $value)
+		{
+
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+			$parent5 = a($value, 'parent5');
+
+
+			if($parent1 && $parent2 && !$parent3 && !$parent4 && !$parent5)
+			{
+				$new_list[$parent2]['child'][$key] = $value;
+			}
+
+		}
+
+
+		foreach ($list as $key => $value)
+		{
+
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+			$parent5 = a($value, 'parent5');
+
+
+			if($parent1 && $parent2 && $parent3 && !$parent4 && !$parent5)
+			{
+				$new_list[$parent2]['child'][$parent3]['child'][$key] = $value;
+			}
+
+		}
+
+		foreach ($list as $key => $value)
+		{
+
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+			$parent5 = a($value, 'parent5');
+
+
+			if($parent1 && $parent2 && $parent3 && $parent4 && !$parent5)
+			{
+				$new_list[$parent2]['child'][$parent3]['child'][$parent4]['child'][$key] = $value;
+			}
+		}
+
+
+		foreach ($list as $key => $value)
+		{
+
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+			$parent5 = a($value, 'parent5');
+
+
+			if($parent1 && $parent2 && $parent3 && $parent4 && $parent5)
+			{
+				$new_list[$parent2]['child'][$parent3]['child'][$parent4]['child'][$parent5]['child'][$key] = $value;
+			}
+
+		}
+
 
 		return $new_list;
 	}

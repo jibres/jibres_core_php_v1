@@ -102,7 +102,7 @@ class edit
 					return false;
 				}
 
-				$update[$level1['id']] = ['parent1' => $id, 'sort' => $my_sort];
+				$update[$level1['id']] = ['parent1' => $id, 'parent2' => null, 'parent3' => null, 'parent4' => null, 'parent5' => null, 'sort' => $my_sort];
 			}
 			elseif(count($split) === 2)
 			{
@@ -118,7 +118,7 @@ class edit
 					return false;
 				}
 
-				$update[$level2['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'sort' => $my_sort];
+				$update[$level2['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => null, 'parent4' => null, 'parent5' => null, 'sort' => $my_sort];
 			}
 			elseif(count($split) === 3)
 			{
@@ -140,7 +140,7 @@ class edit
 					return false;
 				}
 
-				$update[$level3['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'sort' => $my_sort];
+				$update[$level3['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'parent4' => null, 'parent5' => null, 'sort' => $my_sort];
 
 			}
 			elseif(count($split) === 4)
@@ -169,7 +169,7 @@ class edit
 					return false;
 				}
 
-				$update[$level4['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'parent4' => $level3['id'], 'sort' => $my_sort];
+				$update[$level4['id']] = ['parent1' => $id, 'parent2' => $level1['id'], 'parent3' => $level2['id'], 'parent4' => $level3['id'], 'parent5' => null, 'sort' => $my_sort];
 
 			}
 			elseif(count($split) === 5)
