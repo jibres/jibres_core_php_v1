@@ -38,7 +38,7 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts">
-            <i class="sf-cart-arrow-down"></i>
+            <i class="sf-file-text-o"></i>
             <div class="key"><?php echo T_('All Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_post()); ?></div>
             <div class="go"></div>
@@ -78,6 +78,7 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/tag">
+            <i class="sf-tags"></i>
             <div class="key"><?php echo T_('Tags');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
             <div class="go"></div>
@@ -90,6 +91,7 @@
         <ul>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments">
+              <i class="sf-comments"></i>
               <div class="key"><?php echo T_('All Comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
               <div class="go"></div>
@@ -97,6 +99,7 @@
           </li>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
+              <i class="sf-commenting"></i>
               <div class="key"><?php echo T_('Awaiting comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
               <div class="go"></div>
@@ -109,6 +112,7 @@
         <ul>
           <li class="">
             <a class="item f" href="<?php echo \dash\url::here();?>/sitemap">
+              <i class="sf-sitemap"></i>
               <div class="key"><?php echo T_('Sitemap');?></div>
               <!-- <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div> -->
               <div class="go info"></div>
@@ -121,6 +125,7 @@
         <ul>
           <li class="">
             <a class="item f" href="<?php echo \dash\url::here();?>/files">
+              <i class="sf-file"></i>
               <div class="key"><?php echo T_('Files');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
               <div class="go"></div>
@@ -142,7 +147,9 @@
           <?php foreach (\dash\data::dashboardDetail_latesPost() as $key => $value) {?>
             <li>
               <a class="item f" href="<?php echo \dash\url::here(); ?>/posts/edit?id=<?php echo $value['id']; ?>">
+<?php if(a($value, 'thumb')) {?>
                 <img src="<?php echo a($value, 'thumb'); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
+<?php }?>
                 <div class="key"><?php  echo $value['title'];  ?></div>
                 <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
               </a>
