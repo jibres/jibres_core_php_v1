@@ -12,122 +12,13 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 
-		// self::check_file();
-
-	}
-
-	private static $result = [];
-
-	private static function check_file()
-	{
-		$store_folders = glob(YARD. 'talambar_cloud/*');
-
-		foreach ($store_folders as $store_folder)
-		{
-
-			$folders = glob($store_folder. '/*');
-
-			if(!$folders)
-			{
-				continue;
-			}
-
-			foreach ($folders as $date_folder)
-			{
-
-				$date = glob($date_folder. '/*');
-
-				if(!$date)
-				{
-					continue;
-				}
-
-				foreach ($date as $file)
-				{
-
-
-					$path_info = pathinfo($file);
-
-					self::check_file_builded_webp($path_info, $file);
-
-				}
-			}
-		}
-
-
-		$jibres_file = glob(YARD. 'talambar_dl/*');
-
-		foreach ($jibres_file as $folders)
-		{
-
-
-			$files = glob($folders. '/*');
-
-			foreach ($files as $file)
-			{
-
-				$path_info = pathinfo($file);
-
-				self::check_file_builded_webp($path_info, $file);
-			}
-
-		}
-
-		var_dump(self::$result);
-		exit();
+		// self::fix_menu();
 
 	}
 
 
-	private static function check_file_builded_webp($path_info, $file)
-	{
-		if(in_array($path_info['extension'], ['jpg', 'png', 'giff']))
-		{
-			self::is_croped($file, $path_info['extension']);
-		}
-	}
 
-
-
-	private static function is_croped($_path, $_ext)
-	{
-		$a = ['-w120.', '-w220.', '-w300.', '-w460.', '-w780.', '-w1100.',];
-
-		$new_path = str_replace('.'. $_ext, '', $_path);
-
-		$drop = false;
-		foreach ($a as $key => $value)
-		{
-			$new_file_check = $new_path. $value. 'webp';
-
-			if(!is_file($new_file_check))
-			{
-				$drop = true;
-				self::$result[] = $new_file_check;
-			}
-		}
-
-		if($drop)
-		{
-			foreach ($a as $key => $value)
-			{
-				$new_file_check = $new_path. $value. 'webp';
-
-				if(is_file($new_file_check))
-				{
-					unlink($new_file_check);
-				}
-			}
-
-			\dash\utility\image::responsive_image($_path, $_ext);
-
-
-		}
-
-	}
-
-
-	private static function setting_news_fix()
+	private static function fix_menu()
 	{
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
@@ -135,17 +26,95 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			$query = "SELECT * FROM setting WHERE setting.key LIKE 'body_line_news' ";
+			$query = "SELECT * FROM setting WHERE setting.cat = 'menu' ";
 			$dbname = \dash\engine\store::make_database_name($value['id']);
 			$resutl = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
 			if($resutl)
 			{
-			var_dump($value);
-				var_dump($resutl);
+				foreach ($resutl as $one_old_menu)
+				{
+					if(isset($one_old_menu['value']) && $one_old_menu['value'])
+					{
+						$json = json_decode($one_old_menu['value'], true);
+						if(!is_array($json))
+						{
+							var_dump('is not array');
+							var_dump($one_old_menu);
+							var_dump($value);
+							var_dump($resutl);
+							continue;
+						}
+
+						if(!isset($json['title']) && !isset($json['list']) || (!is_array(a($json, 'list'))))
+						{
+							var_dump('have not title or list');
+							var_dump($one_old_menu);
+							var_dump($value);
+							var_dump($resutl);
+							continue;
+						}
+
+						$master_menu_title = $json['title'];
+
+						$insert_master_menu = " INSERT INTO menu SET menu.title = '$json[title]' ";
+						$resutl = \dash\db::query($insert_master_menu, $value['fuel'], ['database' => $dbname]);
+						$master_id = \dash\db::insert_id();
+
+						if(!$master_id)
+						{
+							var_dump('can not add master menu');
+							var_dump($one_old_menu);
+							var_dump($value);
+							var_dump($resutl);
+							continue;
+						}
+
+						$multi_insert = [];
+
+						foreach ($json['list'] as $v)
+						{
+							$multi_insert[] =
+							[
+								'title'   => a($v, 'title'),
+								'url'     => a($v, 'url'),
+								'target'  => a($v, 'target') ? 'blank' : null,
+								'sort'    => intval(a($v, 'sort')) + 1,
+								'parent1' => $master_id,
+								'pointer' => 'other',
+							];
+						}
+
+						if(empty($multi_insert))
+						{
+							var_dump('multi_insert is empty');
+							var_dump($one_old_menu);
+							var_dump($value);
+							var_dump($resutl);
+							continue;
+						}
+
+						$make_multi_insert_set = \dash\db\config::make_multi_insert($multi_insert);
+
+						$insert_master_menu_result = \dash\db::query(" INSERT INTO menu $make_multi_insert_set ", $value['fuel'], ['database' => $dbname]);
+
+						if(!$insert_master_menu_result)
+						{
+							var_dump('can not add master menu');
+							var_dump($one_old_menu);
+							var_dump($value);
+							var_dump($resutl);
+							continue;
+						}
+
+						// check menu position
+						// var_dump($multi_insert);
+						// var_dump($json);
+					}
+				}
+				// var_dump($value);
+				// var_dump($resutl);
 			}
 		}
-		var_dump($list
-		);exit();
 	}
 }
 ?>
