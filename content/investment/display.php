@@ -95,6 +95,11 @@
   </section>
 
   <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Is our solution uniquely addressing this problem?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Who are the Jibres target market and customers?"); ?></h3>
    <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
@@ -105,7 +110,12 @@
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Is our solution uniquely addressing this problem?"); ?></h3>
+   <h3 class="txtB font-22"><?php echo T_("What is our estimate of the size of the Jibers business market?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo T_("Jibres business model"); ?></h3>
    <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
@@ -126,11 +136,6 @@
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How long have we been working together? How did we meet?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo T_("Can our all founders work full-time?"); ?></h3>
    <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
@@ -166,6 +171,16 @@
   </section>
 
   <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo T_("Jibres competitive advantage over competitors"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo T_("Can our all founders work full-time?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Our shareholders of the company"); ?></h3>
    <p class="mB0-f">title and percentage</p>
    <p class="mB0-f"><?php echo T_(""); ?></p>
@@ -177,20 +192,7 @@
 
 
 
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("اندازه بازار کسب و کار خود را چه میزان برآورد می کنید؟"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
 
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("مدل درآمدی کسب و کار شما چیست؟"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("رقبای مستقیم و غیر مستقیم کسب و کارتان را نام ببرید و مزیت رقابتی خود را نسبت به آنان تشریح کنید."); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo ("آیا محصول و یا خدمات شما آماده ورود به بازار است؟"); ?></h3>
