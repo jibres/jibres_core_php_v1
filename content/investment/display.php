@@ -26,7 +26,6 @@
     <td class="txtRa"><?php echo T_("Company Identification Number"); ?></td>
     <td class="txtB ltr"><?php echo \dash\fit::number(14005025553, false); ?></td>
    </tr>
-
 <?php if(\dash\url::isLocal()) { ?>
    <tr>
     <td class="txtRa"><?php echo T_("Company VAT ID"); ?></td>
@@ -63,6 +62,10 @@
    </tr>
 <?php } ?>
    <tr>
+    <td class="txtRa"><?php echo T_("Website"); ?></td>
+    <td class="txtB ltr"><a href="<?php echo \dash\url::kingdom(); ?>"><?php echo \dash\url::domain(); ?></a></td>
+   </tr>
+   <tr>
     <td class="txtRa"><?php echo T_("Email Address"); ?></td>
     <td class="txtB ltr"><a href="mailto:info@jibres.com">Info [ @ ] Jibres.com</a></td>
    </tr>
@@ -78,7 +81,20 @@
    </tr>
    <tr>
     <td class="txtRa"><?php echo T_("Keywords"); ?></td>
-    <td class="txtB"><?php echo T_("Fintech"). T_(', '). T_("Ecommerce"); ?></td>
+    <td class="txtB">
+      <a rel="nofollow noopener" href="https://en.wikipedia.org/wiki/Financial_technology"><?php echo T_("Fintech"); ?></a><br>
+      <a rel="nofollow noopener" href="https://en.wikipedia.org/wiki/E-commerce"><?php echo T_("E-commerce"); ?></a><br>
+      <a><?php echo T_("Website Builder"); ?></a><br>
+      <a><?php echo T_("App Builder"); ?></a><br>
+      <a><?php echo T_("Telegram Seller"); ?></a><br>
+      <a rel="nofollow noopener" href="https://en.wikipedia.org/wiki/Point_of_sale"><?php echo T_("POS Software"); ?></a><br>
+      <a><?php echo T_("Instagram Sell Assistant"); ?></a><br>
+      <a><?php echo T_("PWA Builder"); ?></a><br>
+      <a rel="nofollow noopener" href="https://en.wikipedia.org/wiki/Customer_relationship_management"><?php echo T_("CRM"); ?></a><br>
+      <a rel="nofollow noopener" href="https://en.wikipedia.org/wiki/Content_management"><?php echo T_("Content Management System"); ?></a><br>
+      <a><?php echo T_("Form Builder"); ?></a><br>
+      <a><?php echo T_("Accounting"); ?></a>
+      </td>
    </tr>
    <tr>
     <td class="txtRa"><?php echo T_("Public release date"); ?></td>
