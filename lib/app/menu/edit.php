@@ -210,6 +210,56 @@ class edit
 
 		if(!empty($update))
 		{
+			$error = false;
+			foreach ($update as $id => $detail)
+			{
+				$parent1 = $detail['parent1'];
+				$parent2 = $detail['parent2'];
+				$parent3 = $detail['parent3'];
+				$parent4 = $detail['parent4'];
+				$parent5 = $detail['parent5'];
+
+				if($parent1 && !$parent2 && !$parent3 && !$parent4 && !$parent5)
+				{
+					// ok
+				}
+				elseif($parent1 && $parent2 && !$parent3 && !$parent4 && !$parent5)
+				{
+					if(isset($update[$parent2]['parent2']) && $update[$parent2]['parent2'])
+					{
+						$error = true;
+					}
+				}
+				elseif($parent1 && $parent2 && $parent3 && !$parent4 && !$parent5)
+				{
+					if(isset($update[$parent3]['parent3']) && $update[$parent3]['parent3'])
+					{
+						$error = true;
+					}
+				}
+				elseif($parent1 && $parent2 && $parent3 && $parent4 && !$parent5)
+				{
+					if(isset($update[$parent4]['parent4']) && $update[$parent4]['parent4'])
+					{
+						$error = true;
+					}
+				}
+				elseif($parent1 && $parent2 && $parent3 && $parent4 && $parent5)
+				{
+					if(isset($update[$parent5]['parent5']) && $update[$parent5]['parent5'])
+					{
+						$error = true;
+					}
+				}
+
+			}
+
+			if($error)
+			{
+				\dash\notif::error(T_("Can not save this menu level!"));
+				return false;
+			}
+
 			\lib\db\menu\update::sort_level($update);
 		}
 
