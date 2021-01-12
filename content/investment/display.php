@@ -101,120 +101,176 @@
   </section>
 
 
- </article>
 
 
 
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("How will our company change the world?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("What is the big picture and vision?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Why our team is uniquely qualified to solve this problem?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("How long have we been working together and how did we meet?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Is there someone on your team building your technology?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("If accepted into the program, can all founders participate in the accelerator full-time?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Please provide your revenue/customer/user growth KPIs or metrics. Include totals and month-over-month growth for the last six months. If your product is not yet in the market, how are you tracking progress - ie. LOIs/p waitlist sign-ups, or other indicators of early market demand?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("How do you plan to acquire customers/users?*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Please explain any capital raised to date and terms: *"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("What is your monthly burn and how much runway do you have?*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Please list names and websites of 3-5 of your competitors: *"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("Please list all shareholders (including founders, employees and investors) of the company that own at least 5% equity, including their title and percentage: *"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("How did you meet your teammates?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("How long is your collaboration?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
 
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("در مورد مشکلی که حل کردید توضیح دهید و مشتریان شما تاکنون چگونه مشکل خود را حل می کردند."); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("مشتریان و بازار هدف خود را شرح دهید"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("اندازه بازار کسب و کار خود را چه میزان برآورد می کنید؟"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("مدل درآمدی کسب و کار شما چیست؟"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("رقبای مستقیم و غیر مستقیم کسب و کارتان را نام ببرید و مزیت رقابتی خود را نسبت به آنان تشریح کنید."); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("آیا محصول و یا خدمات شما آماده ورود به بازار است؟"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("به چه میزان سرمایه برای رشد خود در این مرحله نیاز دارید؟ (تومان)"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("در ازای سرمایه مورد نیاز فوق الذکر چند درصد از سهام کسب و کار خود را به سرمایه گذار واگذار خواهید کرد؟"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("تاکنون چه میزان در این استارتاپ سرمایه گذاری شده است؟ (تومان)"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("دلیل شما برای ورود به شناسا چیست؟"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
 
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("ایده خود را به صورت خلاصه توضیح دهید.*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("چه مدت برای پرورش ایده خود وقت گذاشته اید؟*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("چه مدت در آینده وقت خواهید گذاشت؟*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
- <section class="avand impact font-16">
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("جریان درآمدی پیشنهادی شما چیست؟*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("چگونه کاربر جذب خواهید کرد؟*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
-  <p class="txtB"><?php echo ("How will our company change the world?"); ?></p>
-  <p><?php echo T_(""); ?></p>
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("چه کسانی رقیبان احتمالی شما خواهند بود؟*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
-  <p class="txtB"><?php echo ("What is the big picture and vision?"); ?></p>
-  <p><?php echo T_(""); ?></p>
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("مزیت ایده شما در چیست؟*"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
-  <p class="txtB"><?php echo ("Please explain why your team is uniquely qualified to solve this problem."); ?></p>
-  <p><?php echo T_(""); ?></p>
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo (""); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
-  <p class="txtB"><?php echo ("How long have you been working together and how did the co-founders meet?"); ?></p>
-  <p><?php echo T_(""); ?></p>
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo (""); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
 
-  <p class="txtB"><?php echo ("Is there someone on your team building your technology?"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("If accepted into the program, can all founders participate in the accelerator full-time?"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("Please provide your revenue/customer/user growth KPIs or metrics. Include totals and month-over-month growth for the last six months. If your product is not yet in the market, how are you tracking progress - ie. LOIs/p waitlist sign-ups, or other indicators of early market demand?"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("How do you plan to acquire customers/users?*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("Please explain any capital raised to date and terms: *"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("What is your monthly burn and how much runway do you have?*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("Please list names and websites of 3-5 of your competitors: *"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("Please list all shareholders (including founders, employees and investors) of the company that own at least 5% equity, including their title and percentage: *"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("How did you meet your teammates?"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("How long is your collaboration?"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-
-  <p class="txtB"><?php echo ("در مورد مشکلی که حل کردید توضیح دهید و مشتریان شما تاکنون چگونه مشکل خود را حل می کردند."); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("مشتریان و بازار هدف خود را شرح دهید"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("اندازه بازار کسب و کار خود را چه میزان برآورد می کنید؟"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("مدل درآمدی کسب و کار شما چیست؟"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("رقبای مستقیم و غیر مستقیم کسب و کارتان را نام ببرید و مزیت رقابتی خود را نسبت به آنان تشریح کنید."); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("آیا محصول و یا خدمات شما آماده ورود به بازار است؟"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("به چه میزان سرمایه برای رشد خود در این مرحله نیاز دارید؟ (تومان)"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("در ازای سرمایه مورد نیاز فوق الذکر چند درصد از سهام کسب و کار خود را به سرمایه گذار واگذار خواهید کرد؟"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("تاکنون چه میزان در این استارتاپ سرمایه گذاری شده است؟ (تومان)"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("دلیل شما برای ورود به شناسا چیست؟"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-
-  <p class="txtB"><?php echo ("ایده خود را به صورت خلاصه توضیح دهید.*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("چه مدت برای پرورش ایده خود وقت گذاشته اید؟*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("چه مدت در آینده وقت خواهید گذاشت؟*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("جریان درآمدی پیشنهادی شما چیست؟*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("چگونه کاربر جذب خواهید کرد؟*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("چه کسانی رقیبان احتمالی شما خواهند بود؟*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo ("مزیت ایده شما در چیست؟*"); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo (""); ?></p>
-  <p><?php echo T_(""); ?></p>
-
-  <p class="txtB"><?php echo (""); ?></p>
-  <p><?php echo T_(""); ?></p>
 
   <pre>
 فایل ارائه به سرمایه گذار
@@ -224,7 +280,8 @@
 مدل کسب و کار
 ویدیوی معرفی استارتاپ و اعضای تیم
   </pre>
- </section>
+
+ </article>
 
 
 
