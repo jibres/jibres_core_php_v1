@@ -21,8 +21,16 @@ class model
 
 		if(\dash\request::post('remove') === 'remove')
 		{
-			$theme_detail = \lib\app\menu\remove::remove($current_id);
+			\lib\app\menu\remove::remove($current_id);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::to(\dash\url::that(). '/roster?'. \dash\request::build_query(['id' => \dash\request::get('id')]));
+			}
+
+			return false;
 		}
+
 
 		$post =
 		[
