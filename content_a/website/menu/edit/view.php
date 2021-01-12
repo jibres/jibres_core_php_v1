@@ -7,8 +7,6 @@ class view extends \content_a\website\menu\item\view
 {
 	public static function config()
 	{
-		parent::config();
-
 		\dash\face::title(T_('Edit menu title'));
 
 		\dash\data::back_text(T_('Back'));

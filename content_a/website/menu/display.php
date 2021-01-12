@@ -6,7 +6,7 @@
           <li>
             <a class="f" href="<?php echo \dash\url::this();?>/menu/roster?id=<?php echo a($value, 'id'); ?>">
               <div class="key"><?php echo a($value, 'title');?></div>
-              <div class="go"><?php echo \dash\fit::number(a($value, 'count_child')). ' '. T_("Link"); ?> </div>
+              <div class="go"><?php echo \dash\fit::number(a($value, 'count_link')). ' '. T_("Link"); ?> </div>
             </a>
           </li>
         <?php } //enfor ?>

@@ -9,12 +9,7 @@ class model
 
 		if(\dash\request::post('remove') === 'remove')
 		{
-			$post =
-			[
-				'removemenu'    => \dash\request::get('id'),
-			];
-
-			$theme_detail = \lib\app\website\menu\add::remove_menu($post);
+			$theme_detail = \lib\app\menu\remove::remove(\dash\request::get('id'));
 
 			if(\dash\engine\process::status())
 			{

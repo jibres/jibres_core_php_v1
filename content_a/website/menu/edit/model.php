@@ -11,7 +11,7 @@ class model
 			'title'    => \dash\request::post('menutitle'),
 		];
 
-		$theme_detail = \lib\app\website\menu\edit::edit_menu($post, \dash\request::get('id'));
+		$theme_detail = \lib\app\menu\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

@@ -40,8 +40,8 @@ class generate
 			}
 
 			self::$result .= '</div>';
-			self::$result .= '<div class="value addChild pRa20-f s0"><a href="'. \dash\url::that(). '/item'. \dash\request::full_get(['id' => a($one_item, 'id')]). '">'. T_("Add Subitem"). '</a></div>';
-			self::$result .= '<div class="value"><a href="'. \dash\url::that(). '/item'. \dash\request::full_get(['id' => a($one_item, 'id')]). '">'. T_("Edit"). '</a></div>';
+			self::$result .= '<div class="value addChild pRa20-f s0"><a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'parent' => a($one_item, 'id')]). '">'. T_("Add Subitem"). '</a></div>';
+			self::$result .= '<div class="value"><a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')]). '">'. T_("Edit"). '</a></div>';
 			self::$result .= '</div>';
 
 			if(isset($one_item['child']) && is_array($one_item['child']) && $one_item['child'])

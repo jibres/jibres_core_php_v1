@@ -55,6 +55,55 @@ class get
 
 
 
+	public static function one_child($_master_id, $_id)
+	{
+		$master_id = \dash\validate::id($_master_id);
+		$id        = \dash\validate::id($_id);
+
+		if(!$master_id || !$id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\menu\get::child_by_master_id($master_id, $id);
+
+		if(!$load)
+		{
+			\dash\notif::error(T_("Data not found"));
+			return false;
+		}
+
+		$load = \lib\app\menu\ready::row($load);
+
+		return $load;
+	}
+
+
+	public static function get_master($_id)
+	{
+
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\menu\get::master_by_id($id);
+
+		if(!$load)
+		{
+			\dash\notif::error(T_("Data not found"));
+			return false;
+		}
+
+		$load = \lib\app\menu\ready::row($load);
+
+		return $load;
+	}
+
+
+
 	public static function child($_id)
 	{
 
@@ -79,7 +128,6 @@ class get
 
 		foreach ($list as $key => $value)
 		{
-
 			$parent1 = a($value, 'parent1');
 			$parent2 = a($value, 'parent2');
 			$parent3 = a($value, 'parent3');
@@ -93,34 +141,28 @@ class get
 		}
 
 
-
 		foreach ($list as $key => $value)
 		{
-
 			$parent1 = a($value, 'parent1');
 			$parent2 = a($value, 'parent2');
 			$parent3 = a($value, 'parent3');
 			$parent4 = a($value, 'parent4');
 			$parent5 = a($value, 'parent5');
-
 
 			if($parent1 && $parent2 && !$parent3 && !$parent4 && !$parent5)
 			{
 				$new_list[$parent2]['child'][$key] = $value;
 			}
-
 		}
 
 
 		foreach ($list as $key => $value)
 		{
-
 			$parent1 = a($value, 'parent1');
 			$parent2 = a($value, 'parent2');
 			$parent3 = a($value, 'parent3');
 			$parent4 = a($value, 'parent4');
 			$parent5 = a($value, 'parent5');
-
 
 			if($parent1 && $parent2 && $parent3 && !$parent4 && !$parent5)
 			{
@@ -131,13 +173,11 @@ class get
 
 		foreach ($list as $key => $value)
 		{
-
 			$parent1 = a($value, 'parent1');
 			$parent2 = a($value, 'parent2');
 			$parent3 = a($value, 'parent3');
 			$parent4 = a($value, 'parent4');
 			$parent5 = a($value, 'parent5');
-
 
 			if($parent1 && $parent2 && $parent3 && $parent4 && !$parent5)
 			{
@@ -148,21 +188,17 @@ class get
 
 		foreach ($list as $key => $value)
 		{
-
 			$parent1 = a($value, 'parent1');
 			$parent2 = a($value, 'parent2');
 			$parent3 = a($value, 'parent3');
 			$parent4 = a($value, 'parent4');
 			$parent5 = a($value, 'parent5');
 
-
 			if($parent1 && $parent2 && $parent3 && $parent4 && $parent5)
 			{
 				$new_list[$parent2]['child'][$parent3]['child'][$parent4]['child'][$parent5]['child'][$key] = $value;
 			}
-
 		}
-
 
 		return $new_list;
 	}

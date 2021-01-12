@@ -12,6 +12,23 @@ class get
 		return $result;
 	}
 
+
+	public static function master_by_id($_id)
+	{
+		$query = "SELECT * FROM menu WHERE menu.id = $_id AND menu.parent1 IS NULL AND menu.parent2 IS NULL AND menu.parent3 IS NULL AND menu.parent4 IS NULL AND menu.parent5 IS NULL LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function child_by_master_id($_master_id, $_id)
+	{
+		$query = "SELECT * FROM menu WHERE menu.id = $_id AND menu.parent1 = $_master_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 	public static function child($_id)
 	{
 		$query =
@@ -21,10 +38,10 @@ class get
 			FROM
 				menu
 			WHERE
-				menu.parent1 = $_id ||
-				menu.parent2 = $_id ||
-				menu.parent3 = $_id ||
-				menu.parent4 = $_id ||
+				menu.parent1 = $_id OR
+				menu.parent2 = $_id OR
+				menu.parent3 = $_id OR
+				menu.parent4 = $_id OR
 				menu.parent5 = $_id
 			ORDER BY
 				menu.sort ASC

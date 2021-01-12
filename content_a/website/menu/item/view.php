@@ -7,7 +7,27 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add menu items'));
+		$editMode     = \dash\data::editMode();
+		$addChildMode = \dash\data::addChildMode();
+
+		$title        = null;
+
+		if($editMode)
+		{
+			$title = T_("Edit item");
+		}
+		elseif($addChildMode)
+		{
+			$title = T_("Add child to");
+			$title .= ' '. \dash\data::dataRowParent_title();
+		}
+		else
+		{
+			$title = T_("Add menu item");
+			$title .= ' '. \dash\data::menuDetail_title();
+		}
+
+		\dash\face::title($title);
 
 
 		$list = \dash\data::menuDetail_list();

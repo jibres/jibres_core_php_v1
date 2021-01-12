@@ -1,8 +1,14 @@
-<?php $editMode = \dash\data::editMode(); ?>
+<?php
+
+$editMode     = \dash\data::editMode();
+$addChildMode = \dash\data::addChildMode();
+
+
+?>
 
 <div class="avand-md">
   <form method="post" class="box" autocomplete="off">
-    <header><h2><?php if($editMode){ echo T_("Edit item");}else{ echo T_("Add item to menu"). ' '. \dash\data::menuDetail_title();} ?></h2></header>
+    <header><h2><?php echo \dash\face::title() ?></h2></header>
       <div class="body">
         <label for="title"><?php echo T_("Title"); ?></label>
         <div class="input">

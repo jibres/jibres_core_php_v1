@@ -6,6 +6,24 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\data::editMode())
+		{
+			$current_id = \dash\request::get('edit');
+		}
+		elseif(\dash\data::addChildMode())
+		{
+			$current_id = \dash\request::get('parent');
+		}
+		else
+		{
+			$current_id = \dash\request::get('id');
+		}
+
+		if(\dash\request::post('remove') === 'remove')
+		{
+			$theme_detail = \lib\app\menu\remove::remove($current_id);
+		}
+
 		$post =
 		[
 			'title'         => \dash\request::post('title'),
@@ -19,11 +37,21 @@ class model
 			'hashtag_id'    => \dash\request::post('tag_id'),
 		];
 
-		$theme_detail = \lib\app\menu\add::menu_item($post, \dash\request::get('id'));
+
+		if(\dash\data::editMode())
+		{
+			$theme_detail = \lib\app\menu\edit::edit($post, $current_id);
+		}
+		else
+		{
+			$theme_detail = \lib\app\menu\add::menu_item($post, $current_id);
+		}
+
+
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::that(). '/roster'. \dash\request::full_get(['key' => null]));
+			\dash\redirect::to(\dash\url::that(). '/roster?'. \dash\request::build_query(['id' => \dash\request::get('id')]));
 		}
 	}
 
