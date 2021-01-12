@@ -37,12 +37,12 @@ class model
 			'title'         => \dash\request::post('title'),
 			'url'           => \dash\request::post('url'),
 			'pointer'       => \dash\request::post('pointer'),
-			'target'        => \dash\request::post('target'),
+			'target'        => \dash\request::post('target') ? 'blank' : null,
 			'product_id'    => \dash\request::post('product_id'),
 			'post_id'       => \dash\request::post('post_id'),
 			'tag_id'        => \dash\request::post('tag_id'),
 			'socialnetwork' => \dash\request::post('socialnetwork'),
-			'hashtag_id'    => \dash\request::post('tag_id'),
+			'hashtag_id'    => \dash\request::post('hashtag_id'),
 		];
 
 

@@ -31,8 +31,8 @@ $addChildMode = \dash\data::addChildMode();
 
        <div data-response='pointer' data-response-where='products' <?php if(\dash\data::dataRow_pointer() === 'products'){}else{ echo 'data-response-hide';} ?>>
           <select name="product_id" class="select22" id="productSearch"  data-model='html'  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in product"); ?>'>
-            <?php if(\dash\data::dataRow_product_id()) {?>
-              <option value="<?php echo \dash\data::dataRow_product_id() ?>" selected><?php echo \dash\data::productTitle() ?></option>
+            <?php if(\dash\data::dataRow_related_id()) {?>
+              <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::productTitle() ?></option>
             <?php } //endif ?>
             </select>
         </div>
@@ -40,8 +40,8 @@ $addChildMode = \dash\data::addChildMode();
 
        <div data-response='pointer' data-response-where='posts' <?php if(\dash\data::dataRow_pointer() === 'posts'){}else{ echo 'data-response-hide';} ?>>
           <select name="post_id" class="select22" id="postSearch"  data-model='html'  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/posts/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in posts"); ?>'>
-            <?php if(\dash\data::dataRow_post_id()) {?>
-              <option value="<?php echo \dash\data::dataRow_post_id() ?>" selected><?php echo \dash\data::postTitle() ?></option>
+            <?php if(\dash\data::dataRow_related_id()) {?>
+              <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::postTitle() ?></option>
             <?php } //endif ?>
             </select>
         </div>
@@ -49,16 +49,16 @@ $addChildMode = \dash\data::addChildMode();
 
        <div data-response='pointer' data-response-where='tags' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
           <select name="tag_id" class="select22" id="tagSearch"  data-model='html'  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in tags"); ?>'>
-            <?php if(\dash\data::dataRow_tag_id()) {?>
-              <option value="<?php echo \dash\data::dataRow_tag_id() ?>" selected><?php echo \dash\data::tagTitle() ?></option>
+            <?php if(\dash\data::dataRow_related_id()) {?>
+              <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::tagTitle() ?></option>
             <?php } //endif ?>
             </select>
         </div>
 
         <div data-response='pointer' data-response-where='hashtag' <?php if(\dash\data::dataRow_pointer() === 'hashtag'){}else{ echo 'data-response-hide';} ?>>
           <select name="hashtag_id" class="select22" id="hashtagSearch"  data-model='html'  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in hashtag"); ?>'>
-            <?php if(\dash\data::dataRow_hashtag_id()) {?>
-              <option value="<?php echo \dash\data::dataRow_hashtag_id() ?>" selected><?php echo \dash\data::hashtagTitle() ?></option>
+            <?php if(\dash\data::dataRow_related_id()) {?>
+              <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::hashtagTitle() ?></option>
             <?php } //endif ?>
             </select>
         </div>

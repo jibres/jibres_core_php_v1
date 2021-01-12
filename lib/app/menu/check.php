@@ -10,7 +10,7 @@ class check
 		$condition =
 		[
 			'title'         => 'title',
-			'url'           => 'url',
+			'url'           => 'string_500',
 			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other']],
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
@@ -23,7 +23,7 @@ class check
 			'product_id'    => 'id',
 			'post_id'       => 'code',
 			'form_id'       => 'id',
-			'tag_id'        => 'id',
+			'tag_id'        => 'code',
 			'socialnetwork' => 'string_50',
 			'hashtag_id'    => 'id',
 		];
@@ -132,7 +132,7 @@ class check
 					return false;
 				}
 
-				$load_post = \dash\app\post\get::get($data['post_id']);
+				$load_post = \dash\app\posts\get::inline_get($data['post_id']);
 				if(!isset($load_post['id']))
 				{
 					\dash\notif::error(T_("Invalid post id"));
@@ -170,7 +170,7 @@ class check
 					\dash\notif::error(T_("Invalid tag id"));
 					return false;
 				}
-				$data['related_id'] = $load_tag['id'];
+				$data['related_id'] = \dash\coding::decode($load_tag['id']);
 				break;
 
 			case 'hashtag':
@@ -180,7 +180,8 @@ class check
 					return false;
 				}
 
-				$load_hashtag = \lib\app\tag\get::get($data['hashtag_id']);
+				$load_hashtag = \lib\app\tag\get::get($data['hashtag_id'], true);
+
 				if(!isset($load_hashtag['id']))
 				{
 					\dash\notif::error(T_("Invalid hashtag id"));
@@ -195,7 +196,6 @@ class check
 					\dash\notif::error(T_("Please choose a social network"));
 					return false;
 				}
-				$data['url'] = $data['socialnetwork'];
 				break;
 
 			case 'other':
@@ -216,7 +216,7 @@ class check
 		unset($data['product_id']);
 		unset($data['post_id']);
 		unset($data['tag_id']);
-		unset($data['socialnetwork']);
+
 		unset($data['hashtag_id']);
 		unset($data['form_id']);
 

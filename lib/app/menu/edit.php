@@ -32,12 +32,12 @@ class edit
 			$exception[] = 'parent5';
 		}
 
-		if(isset($args['product_id']) || isset($args['post_id']) || isset($args['tag_id']) || isset($args['hashtag_id']))
+		if(isset($_args['product_id']) || isset($_args['post_id']) || isset($_args['tag_id']) || isset($_args['hashtag_id']))
 		{
 			$exception[] = 'related_id';
 		}
 
-		if(isset($args['socialnetwork']))
+		if(isset($_args['socialnetwork']))
 		{
 			$exception[] = 'url';
 		}

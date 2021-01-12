@@ -77,7 +77,7 @@ class get
 	}
 
 
-	public static function get($_id)
+	public static function get($_id, $_force = false)
 	{
 		if(!\lib\store::id())
 		{
@@ -85,9 +85,14 @@ class get
 			return false;
 		}
 
-		\dash\permission::access('_group_products');
+		if(!$_force)
+		{
+			\dash\permission::access('_group_products');
+		}
+
 
 		$_id = \dash\validate::id($_id);
+
 
 		if(!$_id)
 		{
@@ -96,6 +101,7 @@ class get
 		}
 
 		$load = \lib\db\producttag\get::one($_id);
+
 		if(!$load)
 		{
 			\dash\notif::error(T_("Invalid tag id"));

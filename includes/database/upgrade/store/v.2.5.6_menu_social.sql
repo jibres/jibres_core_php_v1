@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.menu ADD `socialnetwork` varchar(100) NULL DEFAULT NULL AFTER `related_id`;

@@ -38,30 +38,31 @@ class view
 
 		\dash\face::title($title);
 
-
+		// 'homepage','products','posts','forms','tags','hashtag','socialnetwork','other'
 
 		$dataRow = \dash\data::dataRow();
-		if(isset($dataRow['product_id']))
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'products' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
-			$loadProduct = \lib\app\product\get::get($dataRow['product_id']);
+			$loadProduct = \lib\app\product\get::get($dataRow['related_id']);
+
 			if(isset($loadProduct['title']))
 			{
 				\dash\data::productTitle($loadProduct['title']);
 			}
 		}
 
-		if(isset($dataRow['post_id']))
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'posts' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
-			$loadPost = \dash\app\posts\get::get($dataRow['post_id']);
+			$loadPost = \dash\app\posts\get::get(\dash\coding::encode($dataRow['related_id']));
 			if(isset($loadPost['title']))
 			{
 				\dash\data::postTitle($loadPost['title']);
 			}
 		}
 
-		if(isset($dataRow['tag_id']))
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'tags' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
-			$loadTag = \dash\app\terms\get::get($dataRow['tag_id']);
+			$loadTag = \dash\app\terms\get::get(\dash\coding::encode($dataRow['related_id']));
 			if(isset($loadTag['title']))
 			{
 				\dash\data::tagTitle($loadTag['title']);
@@ -69,9 +70,9 @@ class view
 		}
 
 
-		if(isset($dataRow['hashtag_id']))
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'hashtag' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
-			$loadHashtag = \lib\app\tag\get::get($dataRow['hashtag_id']);
+			$loadHashtag = \lib\app\tag\get::get($dataRow['related_id']);
 			if(isset($loadHashtag['title']))
 			{
 				\dash\data::hashtagTitle($loadHashtag['title']);
