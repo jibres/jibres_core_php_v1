@@ -8,12 +8,12 @@
 
         <label for="menutitle"><?php echo T_("Menu title"); ?></label>
         <div class="input">
-          <input type="text" name="title" id="menutitle" value="" maxlength="50" required>
+          <input type="text" name="title" id="menutitle" value="" maxlength="50" required <?php \dash\layout\autofocus::html() ?>>
         </div>
 
       </div>
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Add"); ?></button>
+        <button class="btn master"><?php echo T_("Create menu"); ?></button>
       </footer>
     </form>
 </div>

@@ -21,7 +21,7 @@ class view
 		{
 			\dash\redirect::to(\dash\url::that(). '/item'. \dash\request::full_get());
 		}
-
+		\dash\data::menuChilCount(\dash\temp::get('calcMenuChildCount'));
 		\dash\data::menuChild($load_menu_child);
 
 	}

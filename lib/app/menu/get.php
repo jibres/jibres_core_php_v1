@@ -137,6 +137,9 @@ class get
 			$list = [];
 		}
 
+		\dash\temp::set('calcMenuChildCount', count($list));
+
+
 		$list = array_map(['\\lib\\app\\menu\\ready', 'row'], $list);
 
 		$list = array_combine(array_column($list, 'id'), $list);

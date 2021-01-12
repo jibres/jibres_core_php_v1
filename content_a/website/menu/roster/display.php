@@ -13,7 +13,7 @@ if(\dash\data::menuChild() && is_array(\dash\data::menuChild()))
     <div class="body">
       <div class="row">
         <div class="c txtB"><?php echo \dash\data::menuDetail_title() ?></div>
-        <div class="c-auto os fc-mute font-12"><?php echo \dash\fit::number(count($list)). ' '. T_("Link"); ?></div>
+        <div class="c-auto os fc-mute font-12"><?php echo \dash\fit::number(\dash\data::menuChilCount()). ' '. T_("Link"); ?></div>
       </div>
     </div>
   </div>
