@@ -30,7 +30,7 @@ else
             <option></option>
           <?php } //endif ?>
           <?php foreach (\dash\data::allMenu() as $key => $value) {?>
-            <option value="<?php echo a($value, 'key'); ?>" <?php if(a($footer_detail, 'saved', $box) == a($value, 'key')) { echo 'selected'; $currentMenuID = a($value, 'id'); $currentMenuName = a($value, 'title');} ?>><?php echo a($value, 'title'); ?></option>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(a($footer_detail, 'saved', $box) == a($value, 'id')) { echo 'selected'; $currentMenuID = a($value, 'id'); $currentMenuName = a($value, 'title');} ?>><?php echo a($value, 'title'); ?></option>
           <?php } //endfor ?>
         </select>
 

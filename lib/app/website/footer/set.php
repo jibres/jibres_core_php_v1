@@ -36,13 +36,12 @@ class set
 
 	public static function customize_footer($_args)
 	{
-		$menu = ['enum' => \lib\app\website\menu\get::list_all_menu_keys()];
 		$condition =
 		[
-			'footer_menu_1' => $menu,
-			'footer_menu_2' => $menu,
-			'footer_menu_3' => $menu,
-			'footer_menu_4' => $menu,
+			'footer_menu_1' => 'id',
+			'footer_menu_2' => 'id',
+			'footer_menu_3' => 'id',
+			'footer_menu_4' => 'id',
 			'footer_logo'   => 'string',
 		];
 

@@ -36,11 +36,10 @@ class set
 
 	public static function customize_header($_args)
 	{
-		$menu = ['enum' => \lib\app\website\menu\get::list_all_menu_keys()];
 		$condition =
 		[
-			'header_menu_1' => $menu,
-			'header_menu_2' => $menu,
+			'header_menu_1' => 'id',
+			'header_menu_2' => 'id',
 			'header_logo'   => 'string',
 		];
 
@@ -49,6 +48,7 @@ class set
 		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$need_save = \dash\cleanse::patch_mode($_args, $data);
 
