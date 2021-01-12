@@ -38,7 +38,8 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts">
-            <i class="sf-file-text-o"></i>
+            <i class="sf-archive"></i>
+
             <div class="key"><?php echo T_('All Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_post()); ?></div>
             <div class="go"></div>
@@ -46,27 +47,31 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=standard">
+            <i class="sf-align-left"></i>
             <div class="key"><?php echo T_('Standard post');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_standard()); ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=video">
-            <div class="key"><?php echo T_('Video');?></div>
-            <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_video()); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-        <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=gallery">
+            <i class="sf-picture"></i>
             <div class="key"><?php echo T_('Gallery');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_gallery()); ?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
+          <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=video">
+            <i class="sf-film"></i>
+            <div class="key"><?php echo T_('Video');?></div>
+            <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_video()); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+        <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=audio">
+            <i class="sf-music"></i>
             <div class="key"><?php echo T_('Podcast');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_audio()); ?></div>
             <div class="go"></div>
