@@ -3,6 +3,16 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-investment-1.jpg" alt='<?php echo T_("Jibres Investment Opportunity");?>'>
  </div>
 
+  <section class="avand-md impact font-18">
+   <p><?php echo T_("We have designed this page to answer your questions that you may be interested in investing in Jibres. These are just some of the questions that investors want to know about Jibres. Of course, you may have more and specific questions, so do not hesitate to contact us. We mentioned the version and the date of editing. So reading this page once will probably not be enough.") ?></p>
+
+
+
+   <div class="row">
+     <div class="c"><?php echo T_("Version"). ' '. \dash\fit::number(1, false); ?></div>
+     <div class="c txtRa"><?php echo T_("Last Update"). ' '. \dash\fit::date("2021-01-13"); ?></div>
+   </div>
+ </section>
 
  <div class="avand-md impact font-16">
   <h2><?php echo T_("Our Company Detail"); ?></h2>
@@ -106,7 +116,8 @@
 
  <article>
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Describe our company and the problem we're solving"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("Our company and the problem we're solving"); ?></h3>
+   <p></p>
    <p class="mB0-f">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </section>
 
