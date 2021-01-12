@@ -120,59 +120,53 @@
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How long have we been working together and how did we meet?"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("How long have we been working together? How did we meet?"); ?></h3>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Is there someone on your team building your technology?"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("Can our all founders work full-time?"); ?></h3>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("If accepted into the program, can all founders participate in the accelerator full-time?"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("What are our KPIs or metrics for growth?"); ?></h3>
+   <p>revenue/customer/user</p>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Please provide your revenue/customer/user growth KPIs or metrics. Include totals and month-over-month growth for the last six months. If your product is not yet in the market, how are you tracking progress - ie. LOIs/p waitlist sign-ups, or other indicators of early market demand?"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("What are our totals and month over month growth?"); ?></h3>
+   <p><?php echo T_(""); ?></p>
+  </section>
+
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo ("How do we plan to acquire customers/users?"); ?></h3>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How do you plan to acquire customers/users?*"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("Explain any capital raised to date and terms"); ?></h3>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Please explain any capital raised to date and terms: *"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("What is our monthly burn? How much runway do we have?"); ?></h3>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("What is your monthly burn and how much runway do you have?*"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("Jibres competitors"); ?></h3>
    <p><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Please list names and websites of 3-5 of your competitors: *"); ?></h3>
+   <h3 class="txtB font-22"><?php echo ("Our shareholders of the company"); ?></h3>
+   <p>title and percentage</p>
    <p><?php echo T_(""); ?></p>
   </section>
 
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Please list all shareholders (including founders, employees and investors) of the company that own at least 5% equity, including their title and percentage: *"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How did you meet your teammates?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How long is your collaboration?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
 
 
   <section class="avand-lg impact font-16">
