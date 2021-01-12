@@ -11,13 +11,13 @@ class view
 			\dash\header::status(403);
 		}
 
-		\dash\face::title(T_('Invest in Jibres'));
+		\dash\face::title(T_('Jibres Investment Opportunity'));
 		\dash\face::desc(T_('If you are interested in investing in Jibres, we have created this page for you to answer your questions'));
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-story-cover-1.jpg');
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-investment-cover-1.jpg');
 
 	}
 }
