@@ -9,6 +9,11 @@ class view
 
 		\dash\data::back_text(T_("Back"));
 		\dash\data::back_link(\dash\url::this(). \dash\request::full_get());
+
+		if(\dash\detect\device::detectPWA())
+		{
+			\dash\face::btnInsert('formAddPost');
+		}
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <div class="avand-md">
-	<form method="post" autocomplete="off">
+	<form method="post" autocomplete="off" id="formAddPost">
 		<div class="box">
 			<div class="body">
 				<?php if(\dash\url::module() === 'posts') {?>
@@ -40,9 +40,11 @@
 				<textarea class="txt mB10" data-editor id='descInput' name="content" placeholder='<?php echo T_("Write your post ..."); ?>' maxlength='100000' rows="10"></textarea>
 				<p class="fc-mute mB0-f s0"><?php echo T_("First type main text and save as draft, then complete and publish it."); ?></p>
 			</div>
+<?php if(!\dash\detect\device::detectPWA()) {?>
 			<footer class="txtRa">
 				<button class="btn master"><?php echo T_("Save as draft"); ?></button>
 			</footer>
+<?php } ?>
 		</div>
 	</form>
 </div>
