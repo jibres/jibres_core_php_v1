@@ -12,7 +12,7 @@
     </div>
 
     <section class="row">
-     <div class="c-xs-0 c-sm-4 c-md-4">
+     <div class="c-xs-6 c-sm-4 c-md-4">
       <a href="<?php echo \dash\url::this() ?>/posts?specialaddress=customized" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'specialaddress_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("SEO Friendly URL");?></h3>
@@ -25,7 +25,7 @@
       </a>
      </div>
 
-     <div class="c-xs-6 c-sm-4 c-md-4">
+     <div class="c-xs-0 c-sm-4 c-md-4">
       <a href="<?php echo \dash\url::this() ?>/posts" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'publish_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Publish percent");?></h3>
@@ -106,7 +106,7 @@
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
 <?php
 $awaitingColor = '';
-if(\dash\data::dashboardDetail_comments_awaiting() >= 0)
+if(\dash\data::dashboardDetail_comments_awaiting() > 0)
 {
   $awaitingColor = " fc-red";
 }
