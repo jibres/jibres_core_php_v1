@@ -186,73 +186,25 @@
    <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
-
-
-
-
-
-
-
-
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("آیا محصول و یا خدمات شما آماده ورود به بازار است؟"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("How much capital do we need to grow at this stage?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("به چه میزان سرمایه برای رشد خود در این مرحله نیاز دارید؟ (تومان)"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("At this stage, what percentage of the shares will you transfer to the investor?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("در ازای سرمایه مورد نیاز فوق الذکر چند درصد از سهام کسب و کار خود را به سرمایه گذار واگذار خواهید کرد؟"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("How much has been invested in Jibres so far?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("تاکنون چه میزان در این استارتاپ سرمایه گذاری شده است؟ (تومان)"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("دلیل شما برای ورود به شناسا چیست؟"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("ایده خود را به صورت خلاصه توضیح دهید.*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("چه مدت برای پرورش ایده خود وقت گذاشته اید؟*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("چه مدت در آینده وقت خواهید گذاشت؟*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("جریان درآمدی پیشنهادی شما چیست؟*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("چگونه کاربر جذب خواهید کرد؟*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("چه کسانی رقیبان احتمالی شما خواهند بود؟*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("مزیت ایده شما در چیست؟*"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("How long have we taken the time to develop our idea?"); ?></h3>
+   <p>spend time in future</p>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
 
