@@ -139,6 +139,20 @@
         </ul>
       </nav>
     <?php }// endif ?>
+      <nav class="items long">
+        <ul>
+          <li class="">
+            <a class="item f" href="<?php echo \dash\url::here();?>/seo">
+              <div class="key"><?php echo T_('Smart SEO');?></div>
+              <i class="fc-gold sf-star"></i>
+              <i class="fc-gold sf-star"></i>
+              <i class="fc-gold sf-star-o"></i>
+              <i class="fc-gold sf-star-o"></i>
+              <i class="fc-gold sf-star-o"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
   </div>
 </div>
 
