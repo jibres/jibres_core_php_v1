@@ -21,14 +21,14 @@
      <div class="c-xs-6 c-sm-4 c-md-4">
       <a href="<?php echo \dash\url::this() ?>/posts?havecover=y" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'havecover_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-       <h3><?php echo T_("Cover was set");?></h3>
+       <h3><?php echo T_("Social Media Cover");?></h3>
       </a>
      </div>
 
      <div class="c-xs-0 c-sm-4 c-md-4">
       <a href="<?php echo \dash\url::this() ?>/posts" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'publish_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-       <h3><?php echo T_("Publish percent");?></h3>
+       <h3><?php echo T_("Publish vs Draft");?></h3>
       </a>
      </div>
     </section>
