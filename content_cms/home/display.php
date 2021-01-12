@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-        <div id="chartdivcmshome" class="box chart x280 s0" data-abc='cms/homepage'>
+        <div id="chartdivcmshome" class="box chart x330 s0" data-abc='cms/homepage'>
       <div class="hide">
         <div id="chardatatitle"><?php echo T_("Post") ?></div>
         <div id="charttitle"><?php echo T_("Posts per month in last year") ?></div>
@@ -104,10 +104,17 @@
           </li>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
-              <i class="sf-commenting"></i>
+<?php
+$awaitingColor = '';
+if(\dash\data::dashboardDetail_comments_awaiting() >= 0)
+{
+  $awaitingColor = " fc-red";
+}
+?>
+              <i class="sf-commenting<?php echo $awaitingColor;?>"></i>
               <div class="key"><?php echo T_('Awaiting comments');?></div>
-              <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
-              <div class="go"></div>
+              <div class="value<?php echo $awaitingColor;?>"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
+              <div class="go<?php echo $awaitingColor;?>"></div>
             </a>
           </li>
         </ul>
@@ -146,9 +153,9 @@
               <div class="key"><?php echo T_('Smart SEO');?></div>
               <i class="fc-gold sf-star"></i>
               <i class="fc-gold sf-star"></i>
-              <i class="fc-gold sf-star-o"></i>
-              <i class="fc-gold sf-star-o"></i>
-              <i class="fc-gold sf-star-o"></i>
+              <i class="fc-gold sf-star-half-o"></i>
+              <i class="fc-mute sf-star-o"></i>
+              <i class="fc-mute sf-star-o"></i>
             </a>
           </li>
         </ul>
