@@ -48,7 +48,7 @@
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=standard">
             <i class="sf-align-left"></i>
-            <div class="key"><?php echo T_('Standard post');?></div>
+            <div class="key"><?php echo T_('Standard Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_standard()); ?></div>
             <div class="go"></div>
           </a>
@@ -112,7 +112,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
 }
 ?>
               <i class="sf-commenting<?php echo $awaitingColor;?>"></i>
-              <div class="key"><?php echo T_('Awaiting comments');?></div>
+              <div class="key"><?php echo T_('Awaiting Moderation');?></div>
               <div class="value<?php echo $awaitingColor;?>"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
               <div class="go<?php echo $awaitingColor;?>"></div>
             </a>
@@ -132,7 +132,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
           </li>
         </ul>
       </nav>
-    <?php if(\dash\permission::check('cmsAttachmentView')) {?>
+<?php if(\dash\permission::check('cmsAttachmentView')) {?>
       <nav class="items long">
         <ul>
           <li class="">
@@ -145,7 +145,8 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
           </li>
         </ul>
       </nav>
-    <?php }// endif ?>
+<?php }// endif ?>
+<?php if(\dash\url::isLocal()) {?>
       <nav class="items long">
         <ul>
           <li class="">
@@ -160,13 +161,14 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
           </li>
         </ul>
       </nav>
+<?php }// endif ?>
   </div>
 </div>
 
 
 <div class="row font-14 mT5">
   <div class="c-xs-12 c-sm-12 c-md-6">
-    <p class="mB5-f font-14"><?php echo T_("Latest posts") ?></p>
+    <p class="mB5-f font-14"><?php echo T_("Latest Posts") ?></p>
     <?php if(\dash\data::dashboardDetail_latesPost()) {?>
       <nav class="items long">
         <ul>
@@ -184,12 +186,12 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
         </ul>
       </nav>
     <?php } else { ?>
-      <p class="msg"><?php echo T_("No post have been registered yet"); ?></p>
+      <p class="msg"><?php echo T_("No post has registered yet!"); ?></p>
     <?php } //endif ?>
   </div>
 
   <div class="c-xs-12 c-sm-12 c-md-6">
-    <p class="mB5-f font-14"><?php echo T_("Latest comment") ?></p>
+    <p class="mB5-f font-14"><?php echo T_("Latest Comments") ?></p>
     <?php if(\dash\data::dashboardDetail_latesComment()) {?>
       <nav class="items long">
         <ul>
@@ -205,7 +207,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
         </ul>
       </nav>
     <?php } else { ?>
-      <p class="msg"><?php echo T_("No comment have been registered yet"); ?></p>
+      <p class="msg"><?php echo T_("No comment has registered yet!"); ?></p>
     <?php } //endif ?>
   </div>
 
