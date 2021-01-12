@@ -1,11 +1,10 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-        <div id="chartdivcmshome" class="box chart x260 s0" data-abc='cms/homepage'>
+        <div id="chartdivcmshome" class="box chart x280 s0" data-abc='cms/homepage'>
       <div class="hide">
-        <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="chardatatitle"><?php echo T_("Post") ?></div>
-        <div id="charttitle"><?php echo T_("Chart count register post per day in last 1 year") ?></div>
+        <div id="charttitle"><?php echo T_("Posts per month in last year") ?></div>
         <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
         <div id="chartdata"><?php echo a($dashboardDetail, 'chart', 'data') ?></div>
 
@@ -16,7 +15,7 @@
      <div class="c-xs-0 c-sm-4 c-md-4">
       <a href="<?php echo \dash\url::this() ?>/posts?specialaddress=customized" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'specialaddress_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
-       <h3><?php echo T_("Special Address");?></h3>
+       <h3><?php echo T_("SEO Friendly URL");?></h3>
       </a>
      </div>
      <div class="c-xs-6 c-sm-4 c-md-4">
@@ -39,6 +38,7 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts">
+            <i class="sf-cart-arrow-down"></i>
             <div class="key"><?php echo T_('All Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_post()); ?></div>
             <div class="go"></div>
@@ -74,6 +74,17 @@
         </li>
       </ul>
     </nav>
+    <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here();?>/tag">
+            <div class="key"><?php echo T_('Tags');?></div>
+            <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
     <?php if(\dash\permission::check('cmsCommentView')) {?>
       <nav class="items long">
         <ul>
@@ -91,27 +102,20 @@
               <div class="go"></div>
             </a>
           </li>
-          <li>
-            <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=approved">
-              <div class="key"><?php echo T_('Approved comments');?></div>
-              <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_approved()); ?></div>
-              <div class="go"></div>
+        </ul>
+      </nav>
+    <?php }// endif ?>
+      <nav class="items long">
+        <ul>
+          <li class="">
+            <a class="item f" href="<?php echo \dash\url::here();?>/sitemap">
+              <div class="key"><?php echo T_('Sitemap');?></div>
+              <!-- <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div> -->
+              <div class="go info"></div>
             </a>
           </li>
         </ul>
       </nav>
-    <?php }// endif ?>
-    <nav class="items long">
-      <ul>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::here();?>/tag">
-            <div class="key"><?php echo T_('Tags');?></div>
-            <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-      </ul>
-    </nav>
     <?php if(\dash\permission::check('cmsAttachmentView')) {?>
       <nav class="items long">
         <ul>

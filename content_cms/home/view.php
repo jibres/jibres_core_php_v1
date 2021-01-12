@@ -6,7 +6,7 @@ class view
 
 	public static function config()
 	{
-		\dash\face::title(T_('CMS'));
+		\dash\face::title(T_('Content Management System'));
 
 		\dash\data::back_text(T_("Dashboard"));
 		\dash\data::back_link(\dash\url::kingdom(). '/a');

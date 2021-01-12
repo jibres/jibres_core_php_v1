@@ -76,19 +76,3 @@
   </form>
 </section>
 
-
-
-<section class="f" data-option='cms-sitemap'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Sitemap");?></h3>
-      <div class="body">
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a class="btn master" href="<?php echo \dash\url::here(). '/sitemap' ?>"><?php echo T_("View sitemap") ?></a>
-    </div>
-  </div>
-</section>
