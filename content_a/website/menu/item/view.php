@@ -12,6 +12,9 @@ class view
 
 		$title        = null;
 
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::that(). '/roster?'. \dash\request::build_query(['id' => \dash\request::get('id')]));
+
 		if($editMode)
 		{
 			$title = T_("Edit item");
@@ -25,19 +28,17 @@ class view
 		{
 			$title = T_("Add menu item");
 			$title .= ' '. \dash\data::menuDetail_title();
+
+			$child_count = \lib\app\menu\get::child_count(\dash\request::get('id'));
+			if(!$child_count)
+			{
+				\dash\data::back_link(\dash\url::this(). '/menu');
+			}
 		}
 
 		\dash\face::title($title);
 
 
-		$list = \dash\data::menuDetail_list();
-
-		if(!$list || !is_array($list))
-		{
-			$list = [];
-		}
-
-		\dash\data::menuDetailList($list);
 
 		$dataRow = \dash\data::dataRow();
 		if(isset($dataRow['product_id']))
@@ -76,20 +77,6 @@ class view
 				\dash\data::hashtagTitle($loadHashtag['title']);
 			}
 		}
-
-		if($list)
-		{
-			// back
-			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::that(). '/roster'. \dash\request::full_get(['key' => null]));
-		}
-		else
-		{
-			// back
-			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::this(). '/menu');
-		}
-
 
 	}
 }

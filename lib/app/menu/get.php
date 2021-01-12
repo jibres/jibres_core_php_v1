@@ -54,6 +54,23 @@ class get
 	}
 
 
+	public static function child_count($_id)
+	{
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		$count = \lib\db\menu\get::child_count($id);
+
+		$count = intval($count);
+
+		return $count;
+	}
+
+
 
 	public static function one_child($_master_id, $_id)
 	{

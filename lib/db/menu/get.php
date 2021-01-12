@@ -27,6 +27,25 @@ class get
 		return $result;
 	}
 
+	public static function child_count($_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				menu
+			WHERE
+				menu.parent1 = $_id OR
+				menu.parent2 = $_id OR
+				menu.parent3 = $_id OR
+				menu.parent4 = $_id OR
+				menu.parent5 = $_id
+		";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 
 
 	public static function child($_id)
