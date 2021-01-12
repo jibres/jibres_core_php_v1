@@ -63,19 +63,10 @@ switch (\dash\data::dataRow_status())
     <div class="pad">
       <div class="input mB10">
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
-        <?php if(\dash\data::dataRow_type() === 'post') {?>
-          <span class="addon" data-kerkere='.subTitle' <?php if(\dash\data::dataRow_subtitle()) {?> data-kerkere-icon='open' <?php }else{ ?> data-kerkere-icon <?php }//endif ?>><span class="s0"><?php echo T_("Add Subtitle"); ?></span></span>
-        <?php } //endif ?>
       </div>
-      <?php if(\dash\data::dataRow_type() === 'post') {?>
-        <div class="subTitle" data-kerkere-content='<?php if(\dash\data::dataRow_subtitle()) {echo 'show'; }else{ echo 'hide'; } ?>'>
-          <label><?php echo T_("Subtitle"); ?> <small><?php echo T_("Subtitle show under title and used on press websites"); ?></small></label>
-          <div class="input">
-            <input type="text" name="subtitle" id="subtitle" placeholder='<?php echo T_("Enter subtitle here"); ?>' value="<?php echo \dash\data::dataRow_subtitle(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
-          </div>
-        </div>
-      <?php }//endif ?>
-      <textarea class="txt mB10" data-editor id='descInput' name="content" placeholder='<?php echo T_("Write post "); ?>' maxlength='100000' rows="15"><?php echo \dash\data::dataRow_content(); ?></textarea>
+      <div>
+        <textarea class="txt" data-editor id='descInput' name="content" placeholder='<?php echo T_("Write post "); ?>' maxlength='100000' rows="10"><?php echo \dash\data::dataRow_content(); ?></textarea>
+      </div>
     </div>
   </div>
 
@@ -83,17 +74,11 @@ switch (\dash\data::dataRow_status())
 
       <div class="box">
         <div class="pad">
-          <div>
-            <div class="row align-center">
-              <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-              <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-            </div>
-            <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/tag/api?json=true'; ?>' data-placeholder="<?php echo T_('Enter your tags and seperate them by comma') ?>">
-              <?php foreach (\dash\data::dataRow_tags() as $key => $value) {?>
-                <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
-              <?php } //endfor ?>
-            </select>
-          </div>
+          <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::here(). '/tag/api?json=true'; ?>' data-placeholder="<?php echo T_('Enter your tags and seperate them by comma') ?>">
+            <?php foreach (\dash\data::dataRow_tags() as $key => $value) {?>
+              <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
+            <?php } //endfor ?>
+          </select>
         </div>
       </div>
 
