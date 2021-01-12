@@ -207,31 +207,13 @@
    <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
-
-
-  <pre>
-فایل ارائه به سرمایه گذار
-طرح کسب و کار
-خلاصه اجرایی طرح کسب و کار
-جریان نقدینگی
-مدل کسب و کار
-ویدیوی معرفی استارتاپ و اعضای تیم
-  </pre>
-
  </article>
 
 
-
-
-
-
-
- <div class="avand-md impact font-16 pB25-f">
-
+ <div class="avand-md zero impact font-16">
   <video class="block" controls preload="metadata">
     <source type="video/mp4" src="<?php echo \dash\url::cdn(); ?>/video/WorldSkills-SkillsChangeLives.mp4">
   </video>
-  <p class="msg minimal font-14 txtC mT10 mB0-f">این ویدیوی رسمی مسابقات جهانی مهارت هست و به‌راستی که مهارت زندگی را تغییر می‌دهد.</p>
  </div>
 
 
