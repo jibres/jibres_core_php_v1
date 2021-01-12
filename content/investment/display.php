@@ -91,93 +91,91 @@
  <article>
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo ("Describe our company and the problem we're solving"); ?></h3>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   <p class="mB0-f">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo T_("Who are the Jibres target market and customers?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
+  </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo T_("How have our customers solve their problems so far?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo ("Is our solution uniquely addressing this problem?"); ?></h3>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </section>
-
-
-
-
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How will our company change the world?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("What is the big picture and vision?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("How will our company change the world?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Why our team is uniquely qualified to solve this problem?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("What is the big picture and vision?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How long have we been working together? How did we meet?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("Why our team is uniquely qualified to solve this problem?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Can our all founders work full-time?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("How long have we been working together? How did we meet?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("What are our KPIs or metrics for growth?"); ?></h3>
-   <p>revenue/customer/user</p>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("Can our all founders work full-time?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("What are our totals and month over month growth?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("How do we plan to acquire customers/users?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("What are our KPIs or metrics for growth?"); ?></h3>
+   <p class="mB0-f">revenue/customer/user</p>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Explain any capital raised to date and terms"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("What are our totals and month over month growth?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("What is our monthly burn? How much runway do we have?"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("How do we plan to acquire customers/users?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Jibres competitors"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("Explain any capital raised to date and terms"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Our shareholders of the company"); ?></h3>
-   <p>title and percentage</p>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("در مورد مشکلی که حل کردید توضیح دهید و مشتریان شما تاکنون چگونه مشکل خود را حل می کردند."); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("What is our monthly burn? How much runway do we have?"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("مشتریان و بازار هدف خود را شرح دهید"); ?></h3>
-   <p><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("Jibres competitors"); ?></h3>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
   </section>
+
+  <section class="avand-lg impact font-16">
+   <h3 class="txtB font-22"><?php echo T_("Our shareholders of the company"); ?></h3>
+   <p class="mB0-f">title and percentage</p>
+   <p class="mB0-f"><?php echo T_(""); ?></p>
+  </section>
+
+
+
+
+
+
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo ("اندازه بازار کسب و کار خود را چه میزان برآورد می کنید؟"); ?></h3>
@@ -255,15 +253,6 @@
    <p><?php echo T_(""); ?></p>
   </section>
 
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo (""); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
-
-  <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo (""); ?></h3>
-   <p><?php echo T_(""); ?></p>
-  </section>
 
 
   <pre>
