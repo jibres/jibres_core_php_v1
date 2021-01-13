@@ -18,12 +18,12 @@ class website
 
 	public static function menu($_key, $_class = null)
 	{
-		\lib\app\website\menu\generate::menu($_key, $_class);
+		\lib\app\menu\generate::menu($_key, $_class);
 	}
 
 	public static function menu_with_title($_key, $_class = null)
 	{
-		\lib\app\website\menu\generate::menu_with_title($_key, $_class);
+		\lib\app\menu\generate::menu_with_title($_key, $_class);
 	}
 
 
@@ -58,12 +58,12 @@ class website
 
 	public static function have_footer_menu()
 	{
-		return \lib\app\website\menu\generate::have_footer_menu();
+		return \lib\app\menu\generate::have_footer_menu();
 	}
 
 	public static function have_header_menu()
 	{
-		return \lib\app\website\menu\generate::have_header_menu();
+		return \lib\app\menu\generate::have_header_menu();
 	}
 
 

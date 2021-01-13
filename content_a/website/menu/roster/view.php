@@ -17,10 +17,7 @@ class view
 
 		$load_menu_child = \lib\app\menu\get::child(\dash\request::get('id'));
 
-		if(!$load_menu_child)
-		{
-			\dash\redirect::to(\dash\url::that(). '/item'. \dash\request::full_get());
-		}
+
 		\dash\data::menuChilCount(\dash\temp::get('calcMenuChildCount'));
 		\dash\data::menuChild($load_menu_child);
 

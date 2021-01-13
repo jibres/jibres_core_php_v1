@@ -16,8 +16,8 @@ class view extends \content_a\website\menu\item\view
 
 		\dash\face::btnSetting(null);
 
-		$usageList = \lib\app\website\menu\get::usage_list(\dash\data::menuDetail_key());
-		\dash\data::usageList($usageList);
+		// $usageList = \lib\app\website\menu\get::usage_list(\dash\data::menuDetail_key());
+		// \dash\data::usageList($usageList);
 
 	}
 }

@@ -179,10 +179,10 @@ class generator
 					$setting['footer'][$value['key']] = $myValue;
 				}
 
-				if(strpos($value['cat'], 'menu') !== false)
-				{
-					$setting['menu'][$value['key']] = $myValue;
-				}
+				// if(strpos($value['cat'], 'menu') !== false)
+				// {
+				// 	$setting['menu'][$value['key']] = $myValue;
+				// }
 
 				if($value['cat'] === 'homepage')
 				{

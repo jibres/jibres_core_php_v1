@@ -44,54 +44,58 @@ class init
 
 	private static function menu()
 	{
-		$menu1 = \lib\app\website\menu\add::new_menu(['title' => T_("Example menu 1")]);
+		$menu1 = \lib\app\menu\add::add(['title' => T_("Example menu 1")]);
 
 		if(isset($menu1['id']))
 		{
 
-			$customize_header = \lib\app\website\header\set::customize_header(['header_menu_1' => $menu1['key']]);
+			$customize_header = \lib\app\website\header\set::customize_header(['header_menu_1' => $menu1['id']]);
 
 			$menu_item1 =
 			[
-				'title' => T_("About"),
-				'url'   => '/about',
+				'title'   => T_("About"),
+				'url'     => '/about',
+				'pointer' => 'other',
 			];
 
-			\lib\app\website\menu\add::menu_item($menu_item1, $menu1['id']);
+			\lib\app\menu\add::menu_item($menu_item1, $menu1['id']);
 
 			$menu_item2 =
 			[
-				'title' => T_("Contact"),
-				'url'   => '/contact',
+				'title'   => T_("Contact"),
+				'url'     => '/contact',
+				'pointer' => 'other',
 			];
 
-			\lib\app\website\menu\add::menu_item($menu_item2, $menu1['id']);
+			\lib\app\menu\add::menu_item($menu_item2, $menu1['id']);
 		}
 
 
-		$menu2 = \lib\app\website\menu\add::new_menu(['title' => T_("Example menu 2")]);
+		$menu2 = \lib\app\menu\add::add(['title' => T_("Example menu 2")]);
 
 		if(isset($menu2['id']))
 		{
-			$customize_header = \lib\app\website\header\set::customize_header(['header_menu_2' => $menu2['key']]);
+			$customize_header = \lib\app\website\header\set::customize_header(['header_menu_2' => $menu2['id']]);
 
 			$menu_item1 =
 			[
-				'title'  => T_("Instagram"),
-				'url'    => 'https://www.instagram.com/JibresDotCom/',
-				'target' => 1,
+				'title'   => T_("Instagram"),
+				'url'     => 'https://www.instagram.com/JibresDotCom/',
+				'target'  => 'blank',
+				'pointer' => 'other',
 			];
 
-			\lib\app\website\menu\add::menu_item($menu_item1, $menu2['id']);
+			\lib\app\menu\add::menu_item($menu_item1, $menu2['id']);
 
 			$menu_item2 =
 			[
-				'title'  => T_("Telegram"),
-				'url'    => 'https://t.me/Jibres',
-				'target' => 1,
+				'title'   => T_("Telegram"),
+				'url'     => 'https://t.me/Jibres',
+				'target'  => 'blank',
+				'pointer' => 'other',
 			];
 
-			\lib\app\website\menu\add::menu_item($menu_item2, $menu2['id']);
+			\lib\app\menu\add::menu_item($menu_item2, $menu2['id']);
 		}
 
 	}
