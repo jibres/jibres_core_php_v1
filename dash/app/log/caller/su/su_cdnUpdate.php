@@ -62,7 +62,7 @@ class su_cdnUpdate
 		$tg_msg .= "👨‍💻 ".\dash\log::from_name();
 		$tg_msg .= "\n";
 
-		$tg_msg .= "⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
+		$tg_msg .= "⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), 'shortDate');
 
 		$tg                 = [];
 		$tg['chat_id']      = $_chat_id;
