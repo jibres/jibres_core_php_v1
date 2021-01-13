@@ -11,8 +11,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-
-		// self::fix_menu();
+		self::fix_menu();
 
 	}
 
@@ -56,6 +55,14 @@ class view
 
 						$master_menu_title = $json['title'];
 
+						$check_not_duplicate = " SELECT *  FROM menu WHERE menu.title = '$json[title]' AND menu.parent1 IS NULL LIMIT 1 ";
+						$check_not_duplicate = \dash\db::get($check_not_duplicate, null, true, $value['fuel'], ['database' => $dbname]);
+						if($check_not_duplicate)
+						{
+							var_dump('duplicate menu !!!!! Do not run this url again :/');
+							continue;
+						}
+
 						$insert_master_menu = " INSERT INTO menu SET menu.title = '$json[title]' ";
 						$resutl = \dash\db::query($insert_master_menu, $value['fuel'], ['database' => $dbname]);
 						$master_id = \dash\db::insert_id();
@@ -84,27 +91,26 @@ class view
 							];
 						}
 
-						if(empty($multi_insert))
+						if(!empty($multi_insert))
 						{
-							var_dump('multi_insert is empty');
-							var_dump($one_old_menu);
-							var_dump($value);
-							var_dump($resutl);
-							continue;
+							$make_multi_insert_set = \dash\db\config::make_multi_insert($multi_insert);
+
+							$insert_master_menu_result = \dash\db::query(" INSERT INTO menu $make_multi_insert_set ", $value['fuel'], ['database' => $dbname]);
+
+							if(!$insert_master_menu_result)
+							{
+								var_dump('can not add master menu');
+								var_dump($one_old_menu);
+								var_dump($value);
+								var_dump($resutl);
+								continue;
+							}
 						}
 
-						$make_multi_insert_set = \dash\db\config::make_multi_insert($multi_insert);
 
-						$insert_master_menu_result = \dash\db::query(" INSERT INTO menu $make_multi_insert_set ", $value['fuel'], ['database' => $dbname]);
+						$load_usage = \dash\db::query("UPDATE setting SET setting.value = '$master_id' WHERE setting.value = '$one_old_menu[key]' ", $value['fuel'], ['database' => $dbname]);
 
-						if(!$insert_master_menu_result)
-						{
-							var_dump('can not add master menu');
-							var_dump($one_old_menu);
-							var_dump($value);
-							var_dump($resutl);
-							continue;
-						}
+
 
 						// check menu position
 						// var_dump($multi_insert);
@@ -115,6 +121,8 @@ class view
 				// var_dump($resutl);
 			}
 		}
+
+		var_dump('all menu converted to new version');exit();
 	}
 }
 ?>
