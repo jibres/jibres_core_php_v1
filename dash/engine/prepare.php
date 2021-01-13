@@ -37,7 +37,7 @@ class prepare
 		// check need redirect for lang or www or https or main domain
 		self::fix_url_host();
 
-		self::check_domain();
+		// self::check_domain();
 
 		self::account_urls();
 

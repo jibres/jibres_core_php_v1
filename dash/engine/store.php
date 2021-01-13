@@ -190,6 +190,8 @@ class store
 
 	public static function config()
 	{
+		\dash\engine\prepare::check_domain();
+
 		self::privacy_domain_check();
 
 		$store     = \dash\url::store();
@@ -570,6 +572,7 @@ class store
 			$load_detail = \dash\file::read($customer_domain);
 			$load_detail = json_decode($load_detail, true);
 		}
+
 
 		self::$customerDomainDetail = $load_detail;
 
