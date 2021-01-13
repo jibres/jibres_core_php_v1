@@ -27,6 +27,48 @@ class get
 		return $result;
 	}
 
+
+	public static function load_menu($_id, $_max_level)
+	{
+		$other = null;
+		if($_max_level == 1)
+		{
+			$other = ' AND menu.parent2 IS NULL AND menu.parent3 IS NULL AND menu.parent4 IS NULL AND menu.parent5 IS NULL ';
+		}
+		elseif($_max_level == 2)
+		{
+			$other = ' AND menu.parent3 IS NULL AND menu.parent4 IS NULL AND menu.parent5 IS NULL ';
+		}
+		elseif($_max_level == 3)
+		{
+			$other = ' AND menu.parent4 IS NULL AND menu.parent5 IS NULL ';
+		}
+		elseif($_max_level == 4)
+		{
+			$other = ' AND menu.parent5 IS NULL ';
+		}
+
+
+		$query =
+		"
+			SELECT
+				*
+			FROM
+				menu
+			WHERE
+				(
+					menu.id      = $_id OR
+					menu.parent1 = $_id
+				)
+				$other
+			ORDER BY menu.sort ASC
+
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function child_count($_id)
 	{
 		$query =

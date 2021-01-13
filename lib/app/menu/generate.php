@@ -66,6 +66,8 @@ class generate
 
 	public static function menu($_key, $_class = null)
 	{
+        $result = '';
+
 		$customized_key = '';
 		if(in_array(substr($_key, 0, 6), ['header', 'footer']))
 		{
@@ -74,67 +76,95 @@ class generate
 
 		$website = \dash\data::website();
 
-		if(isset($website[$customized_key][$_key]) && isset($website['menu'][$website[$customized_key][$_key]]['list']) && is_array($website['menu'][$website[$customized_key][$_key]]['list']))
-		{
-  			echo '<nav';
+        if(isset($website[$customized_key][$_key]) && $website[$customized_key][$_key] && is_numeric($website[$customized_key][$_key]))
+        {
+            $menu_id = $website[$customized_key][$_key];
+
+            $max_level = 1; // load maximum level
+            $load_menu = \lib\app\menu\get::load_menu($menu_id, $max_level);
+
+            if(!$load_menu)
+            {
+                return null;
+            }
+
+  			$result .= '<nav';
   			if($_class)
   			{
-  				echo ' class="'. $_class. '"';
+  				$result .= ' class="'. $_class. '"';
   			}
-  			echo '>';
-     		foreach ($website['menu'][$website[$customized_key][$_key]]['list'] as $menuValue)
+  			$result .= '>';
+     		foreach ($load_menu['list'] as $menuValue)
      		{
-      			echo '<a ';
+      			$result .= '<a ';
       			if(a($menuValue, 'target'))
       			{
-      				echo 'target="_blank" data-direct ';
+      				$result .= 'target="_blank" data-direct ';
       			}
-      			echo ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
+      			$result .= ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
      		}
-  			echo '</nav>';
+  			$result .= '</nav>';
 		}
+
+        return $result;
 	}
 
 
 
-      public static function menu_with_title($_key, $_class = null)
-      {
+    public static function menu_with_title($_key, $_class = null)
+    {
+
+        $result = '';
+
         $customized_key = '';
         if(in_array(substr($_key, 0, 6), ['header', 'footer']))
         {
-          $customized_key = substr($_key, 0, 6);
+            $customized_key = substr($_key, 0, 6);
         }
 
         $website = \dash\data::website();
 
-        if(isset($website[$customized_key][$_key]) && isset($website['menu'][$website[$customized_key][$_key]]['list']) && is_array($website['menu'][$website[$customized_key][$_key]]['list']))
+        if(isset($website[$customized_key][$_key]) && $website[$customized_key][$_key] && is_numeric($website[$customized_key][$_key]))
         {
-            if(isset($website['menu'][$website[$customized_key][$_key]]['title']))
+            $menu_id = $website[$customized_key][$_key];
+
+            $max_level = 1; // load maximum level
+            $load_menu = \lib\app\menu\get::load_menu($menu_id, $max_level);
+
+            if(!$load_menu)
             {
-              echo '<h4>'. $website['menu'][$website[$customized_key][$_key]]['title']. '</h4>';
+                return null;
             }
-            echo '<nav';
+
+            if(isset($load_menu['title']))
+            {
+                $result .= '<h4>'. $load_menu['title']. '</h4>';
+            }
+
+            $result .= '<nav';
             if($_class)
             {
-              echo ' class="'. $_class. '"';
+                $result .= ' class="'. $_class. '"';
             }
-            echo '>';
-            echo '<ul>';
-            foreach ($website['menu'][$website[$customized_key][$_key]]['list'] as $menuValue)
+            $result .= '>';
+            $result .= '<ul>';
+            foreach ($load_menu['list'] as $menuValue)
             {
-                echo '<li>';
-                  echo '<a ';
-                  if(a($menuValue, 'target'))
-                  {
-                    echo 'target="_blank" data-direct ';
-                  }
-                  echo ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
-                echo '</li>';
+                $result .= '<li>';
+                $result .= '<a ';
+                if(a($menuValue, 'target'))
+                {
+                    $result .= 'target="_blank" data-direct ';
+                }
+                $result .= ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
+                $result .= '</li>';
             }
-            echo '</ul>';
-            echo '</nav>';
+            $result .= '</ul>';
+            $result .= '</nav>';
         }
-      }
+
+        return $result;
+    }
 
 
 

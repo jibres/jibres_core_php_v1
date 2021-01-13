@@ -18,12 +18,12 @@ class website
 
 	public static function menu($_key, $_class = null)
 	{
-		\lib\app\menu\generate::menu($_key, $_class);
+		return \lib\app\menu\generate::menu($_key, $_class);
 	}
 
 	public static function menu_with_title($_key, $_class = null)
 	{
-		\lib\app\menu\generate::menu_with_title($_key, $_class);
+		return \lib\app\menu\generate::menu_with_title($_key, $_class);
 	}
 
 

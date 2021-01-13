@@ -34,8 +34,8 @@ else
 
   <?php if(\lib\website::have_header_menu()) {?>
   <div class="menuBar row">
-    <div class="c"><?php \lib\website::menu('header_menu_1'); ?></div>
-    <div class="c-auto os"><?php \lib\website::menu('header_menu_2', 'xs0'); ?></div>
+    <div class="c"><?php  echo \lib\website::menu('header_menu_1'); ?></div>
+    <div class="c-auto os"><?php  echo \lib\website::menu('header_menu_2', 'xs0'); ?></div>
   </div>
 <?php } //endif ?>
 

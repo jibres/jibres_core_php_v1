@@ -20,19 +20,19 @@
 		<nav class="mid">
 			<div class="f">
 				<div class="c3">
-					<?php \lib\website::menu_with_title('footer_menu_1'); ?>
+					<?php echo \lib\website::menu_with_title('footer_menu_1'); ?>
 				</div>
 
 				<div class="c3">
-					<?php \lib\website::menu_with_title('footer_menu_2'); ?>
+					<?php echo \lib\website::menu_with_title('footer_menu_2'); ?>
 				</div>
 
 				<div class="c3">
-					<?php \lib\website::menu_with_title('footer_menu_3'); ?>
+					<?php echo \lib\website::menu_with_title('footer_menu_3'); ?>
 				</div>
 
 				<div class="c3">
-					<?php \lib\website::menu_with_title('footer_menu_4'); ?>
+					<?php echo \lib\website::menu_with_title('footer_menu_4'); ?>
 				</div>
 
 			</div>

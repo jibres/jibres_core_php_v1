@@ -121,6 +121,67 @@ class get
 
 
 
+	public static function load_menu($_id, $_max_level = 1)
+	{
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		if(!$_max_level || !in_array($_max_level, [1, 2, 3, 4, 5]))
+		{
+			$_max_level = 1;
+		}
+
+		$load = \lib\db\menu\get::load_menu($id, $_max_level);
+
+		if(!$load || !is_array($load))
+		{
+			return null;
+		}
+
+		$post_id    = [];
+		$product_id = [];
+		$tag_id     = [];
+		$hashtag_id = [];
+		$form_id    = [];
+		$social     = [];
+
+		$result =
+		[
+			'title' => null,
+			'list' => [],
+		];
+
+		foreach ($load as $key => $value)
+		{
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+			$parent5 = a($value, 'parent5');
+
+			if(!$parent1 && !$parent2 && !$parent3 && !$parent4 && !$parent5)
+			{
+				$result['title'] = a($value, 'title');
+				continue;
+			}
+
+			$temp             = [];
+			$temp['title']    = a($value, 'title');
+			$temp['url']      = a($value, 'url');
+			$result['list'][] = $temp;
+
+		}
+
+		return $result;
+
+	}
+
+
+
 	public static function child($_id)
 	{
 
