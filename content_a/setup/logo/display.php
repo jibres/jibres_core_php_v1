@@ -16,7 +16,7 @@
           <label for="image1">
             <img id="finalImage" class="mA0-f" src="<?php echo \dash\data::dataRow_logo(); ?>">
           </label>
-          <span class="imageDel" data-confirm data-data='{"deletefile" : 1}'></span>
+          <span class="imageDel hide" data-confirm data-data='{"deletefile" : 1}'></span>
 <?php }?>
         </div>
 
