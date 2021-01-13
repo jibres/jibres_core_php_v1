@@ -57,7 +57,7 @@ class su_cdnUpdate
 		$code = isset($_args['code']) ? $_args['code'] : null;
 
 		$tg_msg = '';
-		$tg_msg .= "🛢#CDNUpdate";
+		$tg_msg .= "🥊 #CDNUpdate";
 		$tg_msg .= "\n";
 		$tg_msg .= "👨‍💻 ".\dash\log::from_name();
 		$tg_msg .= "\n";

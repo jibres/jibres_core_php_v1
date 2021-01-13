@@ -55,10 +55,10 @@ class su_upgradeDataBase
 		$code = isset($_args['code']) ? $_args['code'] : null;
 
 		$tg_msg = '';
-		$tg_msg .= "🛢#DbUpgrade\n👨‍💻 ".\dash\log::from_name()."\n";
-		$tg_msg .= T_("Upgrade database");
+		$tg_msg .= "🛢 #DbUpgrade\n👨‍💻 ".\dash\log::from_name();
+		// $tg_msg .= T_("Upgrade database");
 
-		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
+		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), 'shortDate');
 
 		$tg                 = [];
 		$tg['chat_id']      = $_chat_id;

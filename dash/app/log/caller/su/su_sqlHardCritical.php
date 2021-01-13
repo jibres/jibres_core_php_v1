@@ -56,7 +56,7 @@ class su_sqlHardCritical
 		$tg_msg .= "🦠 #CRITICAL_QUERY\n";
 		$tg_msg .= T_("We have a number of requests from the database that have taken a long time");
 
-		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
+		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), 'shortDate');
 
 		$tg                 = [];
 		$tg['chat_id']      = $_chat_id;
