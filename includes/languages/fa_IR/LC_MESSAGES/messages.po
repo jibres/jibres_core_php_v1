@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-13 01:57+0330\n"
-"PO-Revision-Date: 2021-01-13 02:08+0330\n"
+"POT-Creation-Date: 2021-01-13 12:41+0330\n"
+"PO-Revision-Date: 2021-01-13 12:49+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2618,7 +2618,7 @@ msgstr "مرکز پشتیبانی"
 
 #: content/home/layout/footer.php:124 content/home/layout/pwa-footer.php:124
 #: content_v2/app/view.php:205 dash/social/telegram/commands/ermile.php:528
-#: includes/languages/trans_static.php:589 lib/app/website/init.php:64
+#: includes/languages/trans_static.php:589 lib/app/website/init.php:65
 msgid "Contact"
 msgstr "تماس"
 
@@ -3062,17 +3062,39 @@ msgstr "تاریخ انتشار عمومی"
 msgid "Soon."
 msgstr "بزودی"
 
+#: content/investment/display.php:119
+msgid "Our company and the problem we're solving"
+msgstr "شرکت ما و مشکلی که ما حل می‌کنیم"
+
+#: content/investment/display.php:125
+msgid "Is our solution uniquely addressing this problem?"
+msgstr "آیا راه‌حل ما به‌شکل منحصربفردی این مشکل را برطرف می‌کند؟"
+
+#: content/investment/display.php:126 content/investment/display.php:131
+#: content/investment/display.php:136 content/investment/display.php:141
+#: content/investment/display.php:146 content/investment/display.php:151
+#: content/investment/display.php:156 content/investment/display.php:161
+#: content/investment/display.php:166 content/investment/display.php:172
+#: content/investment/display.php:177 content/investment/display.php:182
+#: content/investment/display.php:187 content/investment/display.php:192
+#: content/investment/display.php:197 content/investment/display.php:202
+#: content/investment/display.php:207 content/investment/display.php:213
+#: content/investment/display.php:218 content/investment/display.php:223
+#: content/investment/display.php:228 content/investment/display.php:234
+msgid "."
+msgstr ""
+
 #: content/investment/display.php:130
 msgid "Who are the Jibres target market and customers?"
-msgstr ""
+msgstr "بازار هدف و مشتریان جیبرس چه کسانی هستند؟"
 
 #: content/investment/display.php:135
 msgid "How have our customers solve their problems so far?"
-msgstr ""
+msgstr "مشتریان ما پیش از این چگونه مشکل خود را حل می‌کردند؟"
 
 #: content/investment/display.php:140
 msgid "What is our estimate of the size of the Jibers business market?"
-msgstr ""
+msgstr "تخمین ما از اندازه بازار تجاری جیبرس چقدر است؟"
 
 #: content/investment/display.php:145
 msgid "Jibres business model"
@@ -3083,38 +3105,36 @@ msgid "How will our company change the world?"
 msgstr "چطور شرکت ما دنیا را تغییر می‌دهد؟"
 
 #: content/investment/display.php:155
-#, fuzzy
-#| msgid "What's the purpose of a domain?"
 msgid "What is the big picture and vision?"
-msgstr "هدف استفاده از دامنه چیست؟"
+msgstr "چشم‌انداز و نهایت ایده ما کجاست؟"
 
 #: content/investment/display.php:160
 msgid "Why our team is uniquely qualified to solve this problem?"
-msgstr ""
+msgstr "چرا تیم ما برای حل این مشکل منحصربفرد و یکتاست؟"
 
 #: content/investment/display.php:165
 msgid "How long have we been working together? How did we meet?"
-msgstr ""
+msgstr "چه مدت است که تیم ما با هم کار می‌کند؟ چگونه با هم آشنا شدیم؟"
 
 #: content/investment/display.php:170
 msgid "What are our KPIs or metrics for growth?"
-msgstr ""
+msgstr "معیارهای قابل اندازه‌گیری یا KPI ما برای رشد چیست؟"
 
 #: content/investment/display.php:176
 msgid "What are our totals and month over month growth?"
-msgstr ""
+msgstr "مجموع و رشد ماهیانه ما چقدر است؟"
 
 #: content/investment/display.php:181
 msgid "How do we plan to acquire customers/users?"
-msgstr ""
+msgstr "برنامه ما برای کسب مشتری یا کاربر چیست؟"
 
 #: content/investment/display.php:186
 msgid "Explain any capital raised to date and terms"
-msgstr ""
+msgstr "تشریح هرگونه سرمایه جمع‌شده تا به امروز و شرایط آن"
 
 #: content/investment/display.php:191
 msgid "What is our monthly burn? How much runway do we have?"
-msgstr ""
+msgstr "مصرف سوخت ماهیانه ما چقدر است؟ تا چند وقت میتونیم پرواز کنیم؟"
 
 #: content/investment/display.php:196
 msgid "Jibres competitors"
@@ -3122,11 +3142,11 @@ msgstr "رقبای جیبرس"
 
 #: content/investment/display.php:201
 msgid "Jibres competitive advantage over competitors"
-msgstr ""
+msgstr "مزیت رقابتی جیبرس نسبت به رقبا"
 
 #: content/investment/display.php:206
 msgid "Can our all founders work full-time?"
-msgstr ""
+msgstr "آیا همه موسسان ما می‌توانند تمام وقت کار کنند؟"
 
 #: content/investment/display.php:211
 msgid "Our shareholders of the company"
@@ -3134,19 +3154,19 @@ msgstr "سهامداران شرکت"
 
 #: content/investment/display.php:217
 msgid "How much capital do we need to grow at this stage?"
-msgstr ""
+msgstr "در این مرحله به چه میزان سرمایه برای رشد نیاز داریم؟"
 
 #: content/investment/display.php:222
-msgid "At this stage, what percentage of the shares will you transfer to the investor?"
-msgstr ""
+msgid "At this stage, what percentage of the shares will we transfer to the investor?"
+msgstr "در این مرحله حداکثر چند درصد از سهام را به سرمایه‌گذار منتقل می‌کنیم؟"
 
 #: content/investment/display.php:227
 msgid "How much has been invested in Jibres so far?"
-msgstr ""
+msgstr "تاکنون چقدر در جیبرس سرمایه‌گذاری شده است؟"
 
 #: content/investment/display.php:232
 msgid "How long have we taken the time to develop our idea?"
-msgstr ""
+msgstr "چقدر برای صرف ایده جیبرس صرف کرده‌ایم؟"
 
 #: content/investment/display.php:248
 msgid "Invest in Jibres"
@@ -3157,6 +3177,8 @@ msgid ""
 "If you are interested in investing in Jibres, we have created this page for you to "
 "answer your questions"
 msgstr ""
+"اگر شما علاقمند به سرمایه‌گذاری در جیبرس هستید، ما این صفحه را برای پاسخ به سوالات شما "
+"ایجاد کرده‌ایم"
 
 #: content/ip/home/display.php:11 content/ip/home/view.php:22
 #: content_a/setting/pcpos/display.php:90 content_a/setting/pcpos/display.php:92
@@ -4481,12 +4503,11 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/website/imageblock/view.php:19 content_a/website/menu/add/view.php:13
 #: content_a/website/menu/edit/view.php:12 content_a/website/menu/item/view.php:15
 #: content_a/website/menu/roster/view.php:15 content_a/website/menu/setting/view.php:14
-#: content_a/website/menu/sort/view.php:14 content_a/website/menu/view.php:13
-#: content_a/website/news/design/view.php:12 content_a/website/news/filter/view.php:14
-#: content_a/website/news/title/view.php:15 content_a/website/news/view.php:13
-#: content_a/website/productline/view.php:19 content_a/website/quote/add/view.php:33
-#: content_a/website/quote/setting/view.php:20 content_a/website/quote/view.php:19
-#: content_a/website/specialslider/add/view.php:33
+#: content_a/website/menu/view.php:13 content_a/website/news/design/view.php:12
+#: content_a/website/news/filter/view.php:14 content_a/website/news/title/view.php:15
+#: content_a/website/news/view.php:13 content_a/website/productline/view.php:19
+#: content_a/website/quote/add/view.php:33 content_a/website/quote/setting/view.php:20
+#: content_a/website/quote/view.php:19 content_a/website/specialslider/add/view.php:33
 #: content_a/website/specialslider/setting/view.php:20
 #: content_a/website/specialslider/view.php:19 content_a/website/status/view.php:12
 #: content_a/website/text/view.php:19 content_a/website/titleline/view.php:19
@@ -4909,7 +4930,7 @@ msgstr "وضعیت"
 #: content_a/setting/staticfile/display.php:24 content_a/tag/add/display.php:12
 #: content_a/tag/edit/display.php:37 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
-#: content_a/website/menu/item/display.php:95 content_a/website/productline/display.php:29
+#: content_a/website/menu/item/display.php:97 content_a/website/productline/display.php:29
 #: content_a/website/quote/add/display.php:65
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:79
 #: content_cms/tag/add/display.php:12 content_crm/member/add/display.php:15
@@ -4942,7 +4963,7 @@ msgstr "افزودن"
 #: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
 #: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
 #: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:11
-#: content_a/website/menu/item/display.php:95 content_a/website/quote/add/display.php:61
+#: content_a/website/menu/item/display.php:97 content_a/website/quote/add/display.php:61
 #: content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
 #: content_a/website/specialslider/display.php:28 content_account/address.php:149
@@ -4951,7 +4972,7 @@ msgstr "افزودن"
 #: content_crm/permission/user/display.php:11 content_my/domain/irnic/edit/display.php:25
 #: content_support/ticket/show/chatList.php:130
 #: content_support/ticket/show/chatList.php:241 content_v2/app/view.php:152
-#: includes/languages/trans_static_public.php:144 lib/app/menu/generate.php:44
+#: includes/languages/trans_static_public.php:144 lib/app/menu/generate.php:46
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -4965,7 +4986,7 @@ msgstr "ویرایش"
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:30
-#: content_a/website/menu/item/display.php:93
+#: content_a/website/menu/item/display.php:95
 #: content_a/website/menu/setting/display.php:41 content_a/website/news/display.php:51
 #: content_a/website/productline/display.php:48 content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
@@ -7741,7 +7762,7 @@ msgid "Remove product company"
 msgstr "حذف شرکت سازنده محصول"
 
 #: content_a/controller.php:16 content_b1/tools.php:30 content_business/controller.php:16
-#: content_v2/controller.php:19 dash/engine/store.php:290 lib/app/application/queue.php:12
+#: content_v2/controller.php:19 dash/engine/store.php:292 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:232 lib/app/business_domain/add.php:63
 #: lib/app/business_domain/edit.php:90 lib/app/category/add.php:13
 #: lib/app/category/add.php:119 lib/app/category/add.php:194 lib/app/category/edit.php:39
@@ -11886,7 +11907,7 @@ msgstr "این گزینه‌ها در وب‌سایت شما استفاده خو
 
 #: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: lib/app/website/init.php:80 lib/store.php:547
+#: lib/app/website/init.php:82 lib/store.php:547
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -12599,7 +12620,7 @@ msgid "Please choose type of new block."
 msgstr "لطفا نوع بخش جدید را انتخاب کنید."
 
 #: content_a/website/body/add/display.php:8 content_a/website/specialslider/view.php:15
-#: lib/app/website/init.php:184
+#: lib/app/website/init.php:188
 msgid "Special Slider"
 msgstr "اسلایدر ویژه"
 
@@ -12920,7 +12941,7 @@ msgstr "متن آگهی"
 
 #: content_a/website/header/announcement/display.php:20
 #: content_a/website/imageblock/add/display.php:24
-#: content_a/website/menu/item/display.php:79
+#: content_a/website/menu/item/display.php:81
 #: content_a/website/specialslider/add/display.php:24 content_cms/posts/seo/display.php:71
 #: content_cms/posts/seo/display.php:73 content_cms/tag/edit/display.php:9
 #: content_love/business/analytics/table/display.php:7
@@ -13105,7 +13126,7 @@ msgid "Image Alt"
 msgstr "متن جایگزین عکس"
 
 #: content_a/website/imageblock/add/display.php:33
-#: content_a/website/menu/item/display.php:86
+#: content_a/website/menu/item/display.php:88
 #: content_a/website/specialslider/add/display.php:33
 msgid "Open in New tab"
 msgstr "باز کردن در صفحه جدید"
@@ -13301,13 +13322,9 @@ msgstr "لیست بخش‌هایی که این فهرست در آن استفاد
 msgid "This menu not use anywhere. You can remove it"
 msgstr "این فهرست در هیچ قسمتی استفاده نشده است. می‌توانید آن را حذف کنید"
 
-#: content_a/website/menu/setting/view.php:12 content_a/website/menu/sort/view.php:12
+#: content_a/website/menu/setting/view.php:12
 msgid "Sort menu items"
 msgstr "مرتب سازی آیتم‌های فهرست"
-
-#: content_a/website/menu/sort/display.php:4
-msgid "Select any of the menu items you want and move them to sort"
-msgstr "یک آیتم‌ را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
 
 #: content_a/website/menu/view.php:10
 msgid "Menu list"
@@ -18101,6 +18118,7 @@ msgid "DNS Record"
 msgstr "دی‌ان‌اس رکورد"
 
 #: content_love/business/domain/setting/display.php:7
+#: dash/app/log/caller/su/su_cdnUpdate.php:22
 msgid "CDN"
 msgstr "سی‌دی‌ان"
 
@@ -19341,7 +19359,7 @@ msgstr "پیام"
 #: content_love/log/home/logTable.php:60 content_su/home/display.php:197
 #: content_su/tg/home/view.php:11 content_support/ticket/show/display.php:166
 #: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
-#: lib/app/website/init.php:89 lib/store.php:548
+#: lib/app/website/init.php:92 lib/store.php:548
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -21728,6 +21746,7 @@ msgid "Users"
 msgstr "کاربران"
 
 #: content_su/tg/home/display.php:11 dash/app/log/caller/su/su_CentralizedGitUpdate.php:15
+#: dash/app/log/caller/su/su_cdnUpdate.php:24
 #: dash/app/log/caller/su/su_dayEventReport.php:15
 #: dash/app/log/caller/su/su_gitUpdate.php:24
 #: dash/app/log/caller/su/su_upgradeDataBase.php:24
@@ -22877,31 +22896,16 @@ msgid "File successfully removed"
 msgstr "فایل با موفقیت حذف شد"
 
 #: dash/app/log/caller/enter/enter_AlertSupervisorLoginToAllSupervisor.php:13
-msgid "Supervisor was login to Jibres"
-msgstr "مدیر فنی وارد حساب کاربری خود شد"
-
-#: dash/app/log/caller/enter/enter_AlertSupervisorLoginToAllSupervisor.php:41
-msgid "Was login to jibres."
-msgstr "در حساب کاربری خود وارد شد."
+msgid "Supervisor Login"
+msgstr "ورود سوپروایزر"
 
 #: dash/app/log/caller/enter/enter_NewAccountLogin.php:15
-msgid "New login to account"
-msgstr "ورود جدید به حساب‌کاربری"
+msgid "New login"
+msgstr "ورود جدید"
 
 #: dash/app/log/caller/enter/enter_NewAccountLogin.php:30
 msgid "We have noticed a new login to your account"
 msgstr "ما متوجه ورود جدید به حساب کاربری شما شدیم"
-
-#: dash/app/log/caller/enter/enter_NewAccountLogin.php:32
-msgid "Were you yourself?"
-msgstr "خودتان بودید؟"
-
-#: dash/app/log/caller/enter/enter_NewAccountLogin.php:34
-msgid ""
-"You can change your password or enable two-step login to make your account more secure"
-msgstr ""
-"برای امنیت بیشتر حساب کاربری خود می‌توانید کلمه عبور خود را تغییر دهید و یا از ورود دو "
-"مرحله‌ای استفاده کنید"
 
 #: dash/app/log/caller/enter/enter_VerificationCode.php:14
 msgid "Verification code"
@@ -22956,7 +22960,6 @@ msgid "CentralizedGitUpdate"
 msgstr "آپدیت مرکزی گیت"
 
 #: dash/app/log/caller/su/su_CentralizedGitUpdate.php:13
-#: dash/app/log/caller/su/su_gitUpdate.php:22 dash/app/log/caller/su/su_gitUpdate.php:61
 #: includes/languages/trans_static_public.php:1067
 msgid "Git update"
 msgstr "به‌روزرسانی مخازن گیت"
@@ -22964,6 +22967,14 @@ msgstr "به‌روزرسانی مخازن گیت"
 #: dash/app/log/caller/su/su_blockIPDetected.php:8
 msgid "A new Block ip detected"
 msgstr "آی‌پی بلاک شده جدید شناسایی شد"
+
+#: dash/app/log/caller/su/su_cdnUpdate.php:13 dash/app/log/caller/su/su_gitUpdate.php:13
+msgid "updated"
+msgstr "بروزرسانی"
+
+#: dash/app/log/caller/su/su_cdnUpdate.php:17 dash/app/log/caller/su/su_gitUpdate.php:17
+msgid "You updated"
+msgstr "شما بروزرسانی کردید"
 
 #: dash/app/log/caller/su/su_dayEventReport.php:10
 #: dash/app/log/caller/su/su_dayEventReport.php:75
@@ -22975,13 +22986,9 @@ msgstr "رکورد جدید!"
 msgid "What was yesterday"
 msgstr "دیروز چه خبر بود"
 
-#: dash/app/log/caller/su/su_gitUpdate.php:13
-msgid "update git repository"
-msgstr "مخازن گیت پروژه را به روزرسانی کرد"
-
-#: dash/app/log/caller/su/su_gitUpdate.php:17
-msgid "You updated git repository"
-msgstr "شما مخازن گیت را به‌روزرسانی کردید"
+#: dash/app/log/caller/su/su_gitUpdate.php:22
+msgid "Jibres core repository"
+msgstr "مخزن هسته جیبرس"
 
 #: dash/app/log/caller/su/su_phpBug.php:8
 msgid "System have a php bug!!"
@@ -22990,10 +22997,6 @@ msgstr "سیستم باگ داره!"
 #: dash/app/log/caller/su/su_phpBug.php:12
 msgid "PHP bug!"
 msgstr "پی‌اچ‌پی باگ!"
-
-#: dash/app/log/caller/su/su_phpBug.php:62 dash/app/log/caller/su/su_sqlError.php:64
-msgid "Last error time: "
-msgstr "آخرین زمان خطا: "
 
 #: dash/app/log/caller/su/su_sqlError.php:9
 msgid "Database have error!!"
@@ -23025,7 +23028,6 @@ msgid "You upgraded database to new version"
 msgstr "شما دیتابیس را به نسخه جدید ارتقا دادید"
 
 #: dash/app/log/caller/su/su_upgradeDataBase.php:22
-#: dash/app/log/caller/su/su_upgradeDataBase.php:59
 msgid "Upgrade database"
 msgstr "به‌روزرسانی دیتابیس"
 
@@ -23954,19 +23956,19 @@ msgstr "سلام، مستندات را بخوان و پروژه خودتو شر�
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
 
-#: dash/engine/store.php:232
+#: dash/engine/store.php:234
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:247
+#: dash/engine/store.php:249
 msgid "Can not route subdomain in your domain!"
 msgstr "به زیردامنه‌های شما در حالت دامنه اختصاصی پاسخ داده نخواهد شد!"
 
-#: dash/engine/store.php:253
+#: dash/engine/store.php:255
 msgid "Domain and store code conflict!"
 msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:265
+#: dash/engine/store.php:267
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
@@ -34319,7 +34321,7 @@ msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 msgid "Can not save this menu level!"
 msgstr "نمی‌توانید این فایل را تغییر دهید!"
 
-#: lib/app/menu/generate.php:43
+#: lib/app/menu/generate.php:45
 msgid "Add Subitem"
 msgstr "افزودن زیرمنو"
 
@@ -36827,95 +36829,21 @@ msgstr "داخل"
 msgid "Example menu 1"
 msgstr "فهرست نمونه ۱"
 
-#: lib/app/website/init.php:72
+#: lib/app/website/init.php:74
 msgid "Example menu 2"
 msgstr "فهرست نمونه ۲"
 
-#: lib/app/website/init.php:105
+#: lib/app/website/init.php:109
 msgid "Latest products"
 msgstr "آخرین محصولات"
 
-#: lib/app/website/init.php:114
+#: lib/app/website/init.php:118
 msgid "Random products"
 msgstr "محصولات تصادفی"
 
-#: lib/app/website/init.php:175
+#: lib/app/website/init.php:179
 msgid "Image :val"
 msgstr "تصویر :val"
-
-#: lib/app/website/menu/add.php:31
-msgid "This title was exists in your menu list. Try another"
-msgstr "این نام قبلا در لیست فهرست‌های شما ثبت شده است، نامی دیگر انتخاب کنید"
-
-#: lib/app/website/menu/add.php:39
-msgid "You are using all your menu build capacity and you cannot build a new menu"
-msgstr "شما از حداکثر ظرفیت ساخت فهرست استفاده کرده‌اید و نمی‌توانید فهرستی جدید ایجاد کنید"
-
-#: lib/app/website/menu/add.php:62
-msgid "Your menu was saved"
-msgstr "فهرست شما ذخیره شد"
-
-#: lib/app/website/menu/add.php:107
-msgid "This menu is usage in somewhere and can not be remove"
-msgstr "این فهرست در بخش‌های مختلف استفاده شده است و امکان حذف آن وجود ندارد"
-
-#: lib/app/website/menu/add.php:125
-msgid "Your menu was removed"
-msgstr "فهرست شما حذف شد"
-
-#: lib/app/website/menu/add.php:175 lib/app/website/menu/add.php:313
-#: lib/app/website/menu/edit.php:15 lib/app/website/menu/get.php:113
-msgid "Invalid menu id"
-msgstr "شناسه فهرست اشتباه است"
-
-#: lib/app/website/menu/add.php:182 lib/app/website/menu/add.php:320
-#: lib/app/website/menu/get.php:103
-msgid "Menu detail not found"
-msgstr "جزئیات فهرست یافت نشد"
-
-#: lib/app/website/menu/add.php:207
-msgid "This item is not set in your menu list!"
-msgstr "این گزینه در لیست فهرست شما وجود ندارد!"
-
-#: lib/app/website/menu/add.php:235
-msgid "Please enter url"
-msgstr "لطفا آدرس را وارد کنید"
-
-#: lib/app/website/menu/add.php:243
-msgid "You can not add more than 20 link in one menu!"
-msgstr "شما‌ نمی‌توانید بیشتر از ۲۰ گزینه در یک فهرست ایجاد کنید!"
-
-#: lib/app/website/menu/add.php:269
-msgid "Your list removed from your menu"
-msgstr "فهرست حذف شد"
-
-#: lib/app/website/menu/add.php:273
-msgid "Menu item was updated"
-msgstr "گزینه فهرست به‌روزرسانی شد"
-
-#: lib/app/website/menu/add.php:277
-msgid "Your item added to your menu"
-msgstr "گزینه به لیست شما اضافه شد"
-
-#: lib/app/website/menu/add.php:359
-msgid "Items sorted"
-msgstr "مرتب‌سازی انجام شد"
-
-#: lib/app/website/menu/edit.php:38
-msgid "Invalid menu detail"
-msgstr "جزئیات فهرست اشتباه است"
-
-#: lib/app/website/menu/edit.php:52
-msgid "Menu was updated"
-msgstr "فهرست به‌روزرسانی شد"
-
-#: lib/app/website/menu/get.php:46
-msgid "Header menu"
-msgstr "منوی سرصفحه"
-
-#: lib/app/website/menu/get.php:51
-msgid "Footer menu"
-msgstr "فهرست پابرگ"
 
 #: lib/app/website/padding.php:10
 msgid "Zero"
@@ -37904,6 +37832,93 @@ msgstr "یارد"
 #: lib/website.php:52
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#~ msgid "Select any of the menu items you want and move them to sort"
+#~ msgstr ""
+#~ "یک آیتم‌ را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
+
+#~ msgid "Supervisor was login to Jibres"
+#~ msgstr "مدیر فنی وارد حساب کاربری خود شد"
+
+#~ msgid "Was login to jibres."
+#~ msgstr "در حساب کاربری خود وارد شد."
+
+#~ msgid "New login to account"
+#~ msgstr "ورود جدید به حساب‌کاربری"
+
+#~ msgid "Were you yourself?"
+#~ msgstr "خودتان بودید؟"
+
+#~ msgid ""
+#~ "You can change your password or enable two-step login to make your account more "
+#~ "secure"
+#~ msgstr ""
+#~ "برای امنیت بیشتر حساب کاربری خود می‌توانید کلمه عبور خود را تغییر دهید و یا از ورود "
+#~ "دو مرحله‌ای استفاده کنید"
+
+#~ msgid "update git repository"
+#~ msgstr "مخازن گیت پروژه را به روزرسانی کرد"
+
+#~ msgid "You updated git repository"
+#~ msgstr "شما مخازن گیت را به‌روزرسانی کردید"
+
+#~ msgid "Last error time: "
+#~ msgstr "آخرین زمان خطا: "
+
+#~ msgid "This title was exists in your menu list. Try another"
+#~ msgstr "این نام قبلا در لیست فهرست‌های شما ثبت شده است، نامی دیگر انتخاب کنید"
+
+#~ msgid "You are using all your menu build capacity and you cannot build a new menu"
+#~ msgstr ""
+#~ "شما از حداکثر ظرفیت ساخت فهرست استفاده کرده‌اید و نمی‌توانید فهرستی جدید ایجاد کنید"
+
+#~ msgid "Your menu was saved"
+#~ msgstr "فهرست شما ذخیره شد"
+
+#~ msgid "This menu is usage in somewhere and can not be remove"
+#~ msgstr "این فهرست در بخش‌های مختلف استفاده شده است و امکان حذف آن وجود ندارد"
+
+#~ msgid "Your menu was removed"
+#~ msgstr "فهرست شما حذف شد"
+
+#~ msgid "Invalid menu id"
+#~ msgstr "شناسه فهرست اشتباه است"
+
+#~ msgid "Menu detail not found"
+#~ msgstr "جزئیات فهرست یافت نشد"
+
+#~ msgid "This item is not set in your menu list!"
+#~ msgstr "این گزینه در لیست فهرست شما وجود ندارد!"
+
+#~ msgid "Please enter url"
+#~ msgstr "لطفا آدرس را وارد کنید"
+
+#~ msgid "You can not add more than 20 link in one menu!"
+#~ msgstr "شما‌ نمی‌توانید بیشتر از ۲۰ گزینه در یک فهرست ایجاد کنید!"
+
+#~ msgid "Your list removed from your menu"
+#~ msgstr "فهرست حذف شد"
+
+#~ msgid "Menu item was updated"
+#~ msgstr "گزینه فهرست به‌روزرسانی شد"
+
+#~ msgid "Your item added to your menu"
+#~ msgstr "گزینه به لیست شما اضافه شد"
+
+#~ msgid "Items sorted"
+#~ msgstr "مرتب‌سازی انجام شد"
+
+#~ msgid "Invalid menu detail"
+#~ msgstr "جزئیات فهرست اشتباه است"
+
+#~ msgid "Menu was updated"
+#~ msgstr "فهرست به‌روزرسانی شد"
+
+#~ msgid "Header menu"
+#~ msgstr "منوی سرصفحه"
+
+#~ msgid "Footer menu"
+#~ msgstr "فهرست پابرگ"
 
 #~ msgid "Invalid item key"
 #~ msgstr "شناسه گزینه اشتباه است"

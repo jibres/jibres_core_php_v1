@@ -3,7 +3,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-investment-1.jpg" alt='<?php echo T_("Jibres Investment Opportunity");?>'>
  </div>
 
-  <section class="avand-md impact font-18">
+  <section class="avand-md impact font-16a">
    <p><?php echo T_("We have designed this page to answer your questions that you may be interested in investing in Jibres. These are just some of the questions that investors want to know about Jibres. Of course, you may have more and specific questions, so do not hesitate to contact us. We mentioned the version and the date of editing. So reading this page once will probably not be enough.") ?></p>
 
 
@@ -116,128 +116,128 @@
 
  <article>
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Our company and the problem we're solving"); ?></h3>
+   <h3 class="txtB font-22"><?php echo T_("Our company and the problem we're solving"); ?></h3>
    <p></p>
    <p class="mB0-f">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo ("Is our solution uniquely addressing this problem?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("Is our solution uniquely addressing this problem?"); ?></h3>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Who are the Jibres target market and customers?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How have our customers solve their problems so far?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("What is our estimate of the size of the Jibers business market?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Jibres business model"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How will our company change the world?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("What is the big picture and vision?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Why our team is uniquely qualified to solve this problem?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How long have we been working together? How did we meet?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("What are our KPIs or metrics for growth?"); ?></h3>
    <p class="mB0-f">revenue/customer/user</p>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("What are our totals and month over month growth?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How do we plan to acquire customers/users?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Explain any capital raised to date and terms"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("What is our monthly burn? How much runway do we have?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Jibres competitors"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Jibres competitive advantage over competitors"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Can our all founders work full-time?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("Our shareholders of the company"); ?></h3>
    <p class="mB0-f">title and percentage</p>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How much capital do we need to grow at this stage?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
-   <h3 class="txtB font-22"><?php echo T_("At this stage, what percentage of the shares will you transfer to the investor?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <h3 class="txtB font-22"><?php echo T_("At this stage, what percentage of the shares will we transfer to the investor?"); ?></h3>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How much has been invested in Jibres so far?"); ?></h3>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
   <section class="avand-lg impact font-16">
    <h3 class="txtB font-22"><?php echo T_("How long have we taken the time to develop our idea?"); ?></h3>
    <p>spend time in future</p>
-   <p class="mB0-f"><?php echo T_(""); ?></p>
+   <p class="mB0-f"><?php echo T_("."); ?></p>
   </section>
 
  </article>
 
 
- <div class="avand-md zero impact font-16">
+ <div class="avand-md zero impact">
   <video class="block" controls preload="metadata">
     <source type="video/mp4" src="<?php echo \dash\url::cdn(); ?>/video/WorldSkills-SkillsChangeLives.mp4">
   </video>
