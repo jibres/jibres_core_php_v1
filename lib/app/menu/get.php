@@ -135,6 +135,8 @@ class get
 			$_max_level = 1;
 		}
 
+		$_max_level = 5;
+
 		$load = \lib\db\menu\get::load_menu($id, $_max_level);
 
 		if(!$load || !is_array($load))
@@ -169,12 +171,10 @@ class get
 				continue;
 			}
 
-			$temp             = [];
-			$temp['title']    = a($value, 'title');
-			$temp['url']      = a($value, 'url');
-			$result['list'][] = $temp;
-
+			$result['list'][] = $value;
 		}
+
+		$result['list'] = self::make_menu($result['list']);
 
 		return $result;
 
@@ -193,12 +193,22 @@ class get
 		}
 
 		$list = \lib\db\menu\get::child($id);
+		\dash\temp::set('calcMenuChildCount', count($list));
+
+
+		return self::make_menu($list);
+
+	}
+
+
+	private  static function make_menu($list)
+	{
+
 		if(!is_array($list))
 		{
 			$list = [];
 		}
 
-		\dash\temp::set('calcMenuChildCount', count($list));
 
 
 		$list = array_map(['\\lib\\app\\menu\\ready', 'row'], $list);
