@@ -10,11 +10,11 @@ class enter_AlertSupervisorLoginToAllSupervisor
 
 		$result              = [];
 
-		$result['title']     = T_("Supervisor was login to Jibres");
+		$result['title']     = T_("Supervisor Login");
 
-		$result['icon']      = 'atom';
+		$result['icon']      = 'user-close-security';
 		$result['cat']       = T_("Supervisor");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'fc-black';
 		$result['txt']       = self::get_msg($_args);
 		return $result;
 
@@ -24,8 +24,8 @@ class enter_AlertSupervisorLoginToAllSupervisor
 	public static function get_msg($_args = [])
 	{
 		$msg = '';
-		$user_id         = isset($_args['data']['my_user_id']) ? $_args['data']['my_user_id'] : null;
-		$displayname         = isset($_args['data']['my_detail']['displayname']) ? $_args['data']['my_detail']['displayname'] : null;
+		$user_id     = isset($_args['data']['my_user_id']) ? $_args['data']['my_user_id'] : null;
+		$displayname = isset($_args['data']['my_detail']['displayname']) ? $_args['data']['my_detail']['displayname'] : null;
 
 
 		// if(floatval($user_id) === floatval(\dash\user::id()))
@@ -37,8 +37,8 @@ class enter_AlertSupervisorLoginToAllSupervisor
 		// else
 		// {
 			$msg.= $displayname;
-			$msg .= "\n";
-			$msg.= T_("Was login to jibres.");
+			// $msg .= "\n";
+			// $msg.= T_("Was login to jibres.");
 		// }
 
 		return $msg;
@@ -80,13 +80,12 @@ class enter_AlertSupervisorLoginToAllSupervisor
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#Enter #SupervisorLoginToJibres ";
+		$tg_msg .= "#Enter #SupervisorLogin ";
 
 		// $my_type         = isset($_args['data']['my_type']) ? $_args['data']['my_type'] : null;
 
 
-		$tg_msg .= " 🟢 \n";
-
+		$tg_msg .= "\n🟢 ";
 		$tg_msg .= self::get_msg($_args);
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 

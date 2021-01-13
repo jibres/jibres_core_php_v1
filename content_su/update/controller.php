@@ -54,12 +54,14 @@ class controller
 				$result[] = "<h1>$_name</h1>";
 				$result[] = "<p>Project location is <b>". root. "</b></p><br><br>";
 				$result[] =  \dash\utility\git::pull(root, false);
+				\dash\log::set('su_gitUpdate');
 				break;
 
 			case 'cdn':
 				$cdn_path = YARD . 'talambar_cdn/';
 				$result[] = "<p>CDN location is <b>". $cdn_path. "</b></p><br><br>";
 				$result[] =  \dash\utility\git::pull($cdn_path, false);
+				\dash\log::set('su_cdnUpdate');
 				break;
 
 			default:
@@ -68,7 +70,6 @@ class controller
 				// return;
 				break;
 		}
-		\dash\log::set('su_gitUpdate');
 		return $result;
 	}
 

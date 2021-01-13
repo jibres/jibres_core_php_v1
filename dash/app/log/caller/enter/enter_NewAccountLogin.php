@@ -12,11 +12,11 @@ class enter_NewAccountLogin
 
 		$result              = [];
 
-		$result['title']     = T_("New login to account");
+		$result['title']     = T_("New login");
 
-		$result['icon']      = 'log-in';
+		$result['icon']      = 'enter';
 		$result['cat']       = T_("Enter");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'fc-green';
 		$result['txt']       = self::get_msg($_args);
 		return $result;
 
@@ -28,10 +28,10 @@ class enter_NewAccountLogin
 		$msg = '';
 
 		$msg.= T_("We have noticed a new login to your account");
-		$msg .= "\n";
-		$msg.= T_("Were you yourself?");
-		$msg .= "\n";
-		$msg.= T_("You can change your password or enable two-step login to make your account more secure");
+		// $msg .= "\n";
+		// $msg.= T_("Were you yourself?");
+		// $msg .= "\n";
+		// $msg.= T_("You can change your password or enable two-step login to make your account more secure");
 
 		return $msg;
 	}

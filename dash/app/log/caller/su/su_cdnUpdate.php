@@ -1,7 +1,7 @@
 <?php
 namespace dash\app\log\caller\su;
 
-class su_gitUpdate
+class su_cdnUpdate
 {
 	public static function site($_args = [])
 	{
@@ -19,10 +19,10 @@ class su_gitUpdate
 
 
 		$result              = [];
-		$result['title']     = T_("Jibres core repository");
+		$result['title']     = T_("CDN");
 		$result['icon']      = 'git-square';
 		$result['cat']       = T_("System");
-		$result['iconClass'] = 'fc-hot';
+		$result['iconClass'] = 'fc-blue';
 		$result['excerpt']   = $excerpt;
 		return $result;
 	}
@@ -57,7 +57,7 @@ class su_gitUpdate
 		$code = isset($_args['code']) ? $_args['code'] : null;
 
 		$tg_msg = '';
-		$tg_msg .= "🛢#JibresUpdate";
+		$tg_msg .= "🛢#CDNUpdate";
 		$tg_msg .= "\n";
 		$tg_msg .= "👨‍💻 ".\dash\log::from_name();
 		$tg_msg .= "\n";
