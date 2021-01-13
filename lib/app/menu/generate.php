@@ -104,7 +104,10 @@ class generate
 
     private static function menuLi($_list, $_layer)
     {
-        // var_dump();
+        if($_layer > 3)
+        {
+            return null;
+        }
         $menuLi = '';
         $menuLi .= '<ul>';
         foreach ($_list as $myLiData)
