@@ -21,6 +21,11 @@ class action
 		$_args['user_id']            = \dash\user::jibres_user();
 		$_args['gateway']            = \dash\temp::get('run:by:system') ? 'system' : 'user';
 
+		if(isset($_args['meta']) && is_string($_args['meta']))
+		{
+			$_args['meta'] = addslashes($_args['meta']);
+		}
+
 		return self::add($_args);
 	}
 
