@@ -199,13 +199,13 @@ class store
 		{
 			self::config_by_store_id();
 		}
-		elseif($subdomain)
-		{
-			self::config_by_subdomain();
-		}
 		elseif(self::inCustomerDomain() && self::$customerDomainStore_id)
 		{
 			self::init_by_id(self::$customerDomainStore_id);
+		}
+		elseif($subdomain)
+		{
+			self::config_by_subdomain();
 		}
 	}
 
