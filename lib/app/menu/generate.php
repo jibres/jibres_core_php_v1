@@ -62,56 +62,7 @@ class generate
 	}
 
 
-
-
-	public static function menu($_key, $_class = null)
-	{
-        $result = '';
-
-		$customized_key = '';
-		if(in_array(substr($_key, 0, 6), ['header', 'footer']))
-		{
-			$customized_key = substr($_key, 0, 6);
-		}
-
-		$website = \dash\data::website();
-
-        if(isset($website[$customized_key][$_key]) && $website[$customized_key][$_key] && is_numeric($website[$customized_key][$_key]))
-        {
-            $menu_id = $website[$customized_key][$_key];
-
-            $max_level = 1; // load maximum level
-            $load_menu = \lib\app\menu\get::load_menu($menu_id, $max_level);
-
-            if(!$load_menu)
-            {
-                return null;
-            }
-
-  			$result .= '<nav';
-  			if($_class)
-  			{
-  				$result .= ' class="'. $_class. '"';
-  			}
-  			$result .= '>';
-     		foreach ($load_menu['list'] as $menuValue)
-     		{
-      			$result .= '<a ';
-      			if(a($menuValue, 'target'))
-      			{
-      				$result .= 'target="_blank" data-direct ';
-      			}
-      			$result .= ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
-     		}
-  			$result .= '</nav>';
-		}
-
-        return $result;
-	}
-
-
-
-    public static function menu_with_title($_key, $_class = null)
+    public static function menu($_key, $_class = null)
     {
 
         $result = '';
@@ -136,36 +87,59 @@ class generate
                 return null;
             }
 
-            if(isset($load_menu['title']))
-            {
-                $result .= '<h4>'. $load_menu['title']. '</h4>';
-            }
-
             $result .= '<nav';
             if($_class)
             {
                 $result .= ' class="'. $_class. '"';
             }
             $result .= '>';
-            $result .= '<ul>';
-            foreach ($load_menu['list'] as $menuValue)
-            {
-                $result .= '<li>';
-                $result .= '<a ';
-                if(a($menuValue, 'target'))
-                {
-                    $result .= 'target="_blank" data-direct ';
-                }
-                $result .= ' href="'. a($menuValue, 'url'). '">'. a($menuValue, 'title'). '</a>';
-                $result .= '</li>';
-            }
-            $result .= '</ul>';
+            // loop to create list item
+            $result .= self::menuLi($load_menu['list'], 1);
+
             $result .= '</nav>';
         }
 
         return $result;
     }
 
+    private static function menuLi($_list, $_layer)
+    {
+        // var_dump();
+        $menuLi = '';
+        $menuLi .= '<ul>';
+        foreach ($_list as $myLiData)
+        {
+            $menuLi .= '<li data-test='. a($myLiData, 'id'). '>';
+            {
+                $menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'));
+                if(isset($myLiData['child']) && count($myLiData['child']))
+                {
+                    $menuLi .= self::menuLi($myLiData['child'], $_layer + 1);
+                }
+            }
+            $menuLi .= '</li>';
+        }
+        $menuLi .= '</ul>';
+        return $menuLi;
+    }
+
+    private static function menuLink($_text, $_link = null, $_target = null)
+    {
+        $menuLinkEl = '<a';
+        if($_target)
+        {
+            $menuLinkEl .= ' target="_blank"';
+        }
+        if($_link)
+        {
+            $menuLinkEl .= ' href="'. $_link. '"';
+        }
+        $menuLinkEl .= '>';
+        $menuLinkEl .= $_text;
+        $menuLinkEl .= '</a>';
+
+        return $menuLinkEl;
+    }
 
 
     public static function have_header_menu()

@@ -21,11 +21,6 @@ class website
 		return \lib\app\menu\generate::menu($_key, $_class);
 	}
 
-	public static function menu_with_title($_key, $_class = null)
-	{
-		return \lib\app\menu\generate::menu_with_title($_key, $_class);
-	}
-
 
 	public static function load_enamd()
 	{
