@@ -36,7 +36,8 @@ class model
 		[
 			'title'         => \dash\request::post('title'),
 			'url'           => \dash\request::post('url'),
-			'pointer'       => \dash\request::post('pointer'),
+			// 'pointer'       => \dash\request::post('pointer'),
+			'pointer'       => 'other',
 			'target'        => \dash\request::post('target') ? 'blank' : null,
 			'product_id'    => \dash\request::post('product_id'),
 			'post_id'       => \dash\request::post('post_id'),

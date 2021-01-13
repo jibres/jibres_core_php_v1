@@ -15,7 +15,7 @@ $addChildMode = \dash\data::addChildMode();
           <input type="text" name="title" id="title" value="<?php echo \dash\data::dataRow_title() ?>" maxlength="50" required <?php \dash\layout\autofocus::html() ?>>
         </div>
 
-        <div class="mB10">
+        <div class="mB10 hide">
           <label for="pointer"><?php echo T_("Hint to") ?></label>
           <select name="pointer" class="select22">
             <option value=""><?php echo T_("Please select an item") ?></option>
@@ -74,8 +74,10 @@ $addChildMode = \dash\data::addChildMode();
           <a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/setting/social' ?>"><?php echo T_("Manage social network") ?></a>
         </div>
 
-
+        <?php if(false) {?>
         <div data-response='pointer' data-response-where='other' <?php if(\dash\data::dataRow_pointer() === 'other'){}else{ echo 'data-response-hide';} ?>>
+        <?php } ?>
+        <div>
           <label for="url"><?php echo T_("Url"); ?></label>
           <div class="input ltr">
             <input type="text" name="url" id="url" value="<?php echo \dash\data::dataRow_url(); ?>" >
