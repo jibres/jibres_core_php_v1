@@ -11,9 +11,9 @@ class su_sqlError
 
 		$result              = [];
 		$result['title']     = T_("Sql error!");
-		$result['icon']      = 'bug-2';
+		$result['icon']      = 'crosshairs';
 		$result['cat']       = T_("Bug");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'fc-hot';
 
 		$excerpt .= ' ';
 		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/su/log">';
@@ -54,15 +54,15 @@ class su_sqlError
 		$mymsg = isset($_args['mymsg']) ? $_args['mymsg'] : null;
 
 		$tg_msg = '';
-		$tg_msg .= "🥁#SQLERROR\n";
+		$tg_msg .= "🥁 #SQLERROR\n";
 
 		$code = isset($_args['code']) ? $_args['code'] : null;
 		if($code)
 		{
 			$code = \dash\fit::date_human(date("Y-m-d H:i:s", $code));
-			$tg_msg .= "\n";
-			$tg_msg .= T_("Last error time: "). $code;
-			$tg_msg .= "\n";
+			// $tg_msg .= "\n";
+			$tg_msg .= $code;
+			// $tg_msg .= "\n";
 		}
 
 
