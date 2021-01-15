@@ -73,13 +73,8 @@ class view
 		{
 			\dash\data::userToggleSidebar(true);
 		}
-
-
-		\dash\data::addons_googleAnalytics(self::addon_googleAnalytics());
-		\dash\data::addons_tawk(self::addon_tawk());
-		\dash\data::addons_imber(self::addon_imber());
-		\dash\data::addons_raychat(self::addon_raychat());
-
+		// add third party to view
+		viewThirdParty::append();
 
 		// @todo Javad check browser via new lib
 		// \dash\detect\browser::deadbrowserDetection();
@@ -249,126 +244,6 @@ class view
 		{
 			\dash\face::titlePWA(\dash\face::title());
 		}
-	}
-
-
-	private static function addon_googleAnalytics()
-	{
-		// supersaeed guid
-		// UA-130946685-3
-		$google_analytics = null;
-
-		if(\dash\url::tld() === 'ir')
-		{
-			$jibres_google_analytics = 'UA-130946685-2';
-		}
-		else
-		{
-			$jibres_google_analytics = 'UA-130946685-1';
-		}
-
-
-		if(!\dash\engine\store::inStore())
-		{
-			$google_analytics = $jibres_google_analytics;
-		}
-		else
-		{
-			if(\lib\store::detail('google_analytics'))
-			{
-				$google_analytics = \lib\store::detail('google_analytics');
-			}
-			else
-			{
-				$google_analytics = $jibres_google_analytics;
-			}
-		}
-
-		return $google_analytics;
-	}
-
-
-	private static function addon_tawk()
-	{
-		if(\dash\engine\store::inStore())
-		{
-			if(\lib\store::detail('addon_tawk'))
-			{
-				return \lib\store::detail('addon_tawk');
-			}
-		}
-		else
-		{
-			switch (\dash\url::tld())
-			{
-				case 'ir':
-					return '5fc8dc17a1d54c18d8f00574';
-
-				case 'com':
-					return '5fdb8b03a8a254155ab44bbd';
-
-				default:
-					return null;
-			}
-		}
-
-		return null;
-	}
-
-
-	private static function addon_imber()
-	{
-		if(\dash\engine\store::inStore())
-		{
-			if(\lib\store::detail('addon_imber'))
-			{
-				return \lib\store::detail('addon_imber');
-			}
-		}
-		else
-		{
-			switch (\dash\url::tld())
-			{
-				case 'ir':
-					return 'z4ukjzykjxzslen';
-
-				case 'com':
-					return null;
-
-				default:
-					return 'z4ukjzykjxzslen';
-					return null;
-			}
-		}
-
-		return null;
-	}
-
-
-	private static function addon_raychat()
-	{
-		return null;
-
-		if(\dash\engine\store::inStore())
-		{
-			if(\lib\store::detail('addon_raychat'))
-			{
-				return \lib\store::detail('addon_raychat');
-			}
-		}
-		else
-		{
-			if(\dash\url::tld() === 'ir')
-			{
-				return '753a218c-a747-4aa1-a637-c3e8552bde75';
-			}
-			elseif(\dash\url::tld() === 'local')
-			{
-				return '9e05444f-b316-4e42-b85d-40e18c4ff8d7';
-			}
-		}
-
-		return null;
 	}
 
 }

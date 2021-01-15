@@ -48,25 +48,13 @@ if(\dash\url::store())
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
  <meta content="index, follow" name="robots"/>
 <?php
-if(\dash\data::addons_googleAnalytics())
+// add third party addons
+foreach (\dash\data::addons() as $service => $value)
 {
-  if(!\dash\url::isLocal())
+  if($value)
   {
-    // disable on local
-    echo " <meta content='". \dash\data::addons_googleAnalytics(). "' name='gtag'/>\n";
+    echo " <meta content='". $value. "' name='". $service. "'/>\n";
   }
-}
-if(\dash\data::addons_tawk())
-{
-  echo " <meta content='". \dash\data::addons_tawk(). "' name='tawk'/>\n";
-}
-if(\dash\data::addons_raychat())
-{
-  echo " <meta content='". \dash\data::addons_raychat(). "' name='raychat'/>\n";
-}
-if(\dash\data::addons_imber())
-{
-  echo " <meta content='". \dash\data::addons_imber(). "' name='imber'/>\n";
 }
 ?>
  <meta content="yes" name="mobile-web-app-capable"/>
