@@ -16,7 +16,7 @@ class model
 		\lib\app\product\edit::edit($post, $id);
 		\dash\notif::clean();
 
-		\lib\db\products\get::$catch_load_one_product = [];
+
 		\lib\app\product\load::one($id);
 
 
