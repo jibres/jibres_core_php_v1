@@ -123,7 +123,7 @@ class quote
 
 		if(isset($saved_record['value']))
 		{
-			$saved_option = json_decode($saved_record['value'], true);
+			$saved_option = \dash\json::decode($saved_record['value'], true);
 		}
 
 		if(!is_array($saved_option))

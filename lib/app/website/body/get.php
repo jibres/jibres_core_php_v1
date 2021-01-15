@@ -59,11 +59,12 @@ class get
 
 		$result = [];
 
+
 		foreach ($load_line as $key => $value)
 		{
 			if(isset($value['value']))
 			{
-				$my_value = json_decode($value['value'], true);
+				$my_value = \dash\json::decode($value['value'], true);
 				if(isset($value['id']))
 				{
 					$my_value['id'] = \dash\coding::encode($value['id']);
@@ -81,7 +82,6 @@ class get
 				$result[] = $my_value;
 			}
 		}
-
 
 		return $result;
 	}
@@ -105,7 +105,7 @@ class get
 
 		if(isset($setting['value']))
 		{
-			$result = json_decode($setting['value'], true);
+			$result = \dash\json::decode($setting['value'], true);
 		}
 
 		if(!is_array($result))
