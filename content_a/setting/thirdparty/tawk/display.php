@@ -10,7 +10,7 @@
             <p><?php echo T_("tawk.to offers iOS, Android, Windows and Mac OSX apps to stay connected, or you can log in via any modern browser."); ?></p>
           </div>
 
-            <label for="itawk"><?php echo T_("Tawk code"); ?> <span class="fc-red">*</span></label>
+            <label for="itawk">tawk.to Property ID <span class="fc-red">*</span></label>
             <div class="input ltr">
             <input type="text" name="addon_tawk" id="itawk" value="<?php echo a($storeData, 'addon_tawk'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
             </div>
