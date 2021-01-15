@@ -32,9 +32,16 @@ class redirect
 		else
 		{
 			$model = 'simple';
-			if($_php === 'pay')
+			switch ($_php)
 			{
-				$model = 'pay';
+				case 'pay':
+				case 'jibres':
+				case 'billboard':
+					$model = $_php;
+					break;
+
+				default:
+					break;
 			}
 
 			self::via_html($_url, $_arg, $model);

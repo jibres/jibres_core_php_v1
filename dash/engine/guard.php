@@ -41,7 +41,7 @@ class guard
 				if(!$_readonly)
 				{
 					// redirect to billboard
-					\dash\redirect::to(\dash\url::kingdom(). '/billboard', false);
+					\dash\redirect::to(\dash\url::kingdom(). '/billboard', 'billboard');
 					// @header('X-Frame-Options: *');
 				}
 				return true;
@@ -122,7 +122,7 @@ class guard
 			[
 				"'self'",
 			],
-			'manifest-uri' =>
+			'manifest-src' =>
 			[
 				"'self'",
 			],
