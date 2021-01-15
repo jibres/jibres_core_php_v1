@@ -19,6 +19,8 @@ $addChildMode = \dash\data::addChildMode();
           <label for="pointer"><?php echo T_("Hint to") ?></label>
           <select name="pointer" class="select22">
             <option value=""><?php echo T_("Please select an item") ?></option>
+            <option value="title" <?php if(\dash\data::dataRow_pointer() === 'title') {echo 'selected';} ?>><?php echo T_("Title") ?></option>
+            <option value="separator" <?php if(\dash\data::dataRow_pointer() === 'separator') {echo 'selected';} ?>><?php echo T_("Separator") ?></option>
             <option value="homepage" <?php if(\dash\data::dataRow_pointer() === 'homepage') {echo 'selected';} ?>><?php echo T_("Home page") ?></option>
             <option value="products" <?php if(\dash\data::dataRow_pointer() === 'products') {echo 'selected';} ?>><?php echo T_("Products") ?></option>
             <option value="posts" <?php if(\dash\data::dataRow_pointer() === 'posts') {echo 'selected';} ?>><?php echo T_("Posts") ?></option>
