@@ -1,11 +1,7 @@
-<?php
-$storeData = \dash\data::store_store_data();
-?>
+<?php $storeData = \dash\data::store_store_data(); ?>
 
-
-<div class="f justify-center">
- <div class="c6 s12 pA10">
-  <form method="post" autocomplete="off">
+<div class="avand-sm zero">
+  <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box impact mB25-f">
       <header><h2><?php echo T_("Set imber live chat setting");?></h2></header>
         <div class="body">
@@ -15,12 +11,13 @@ $storeData = \dash\data::store_store_data();
             <input type="text" name="addon_imber" id="iimber" value="<?php echo a($storeData, 'addon_imber'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
             </div>
         </div>
+<?php if (!\dash\detect\device::detectPWA()) { ?>
         <footer class="txtRa">
           <button  class="btn success" ><?php echo T_("Save"); ?></div>
         </footer>
+<?php } ?>
     </div>
   </form>
- </div>
 </div>
 
 

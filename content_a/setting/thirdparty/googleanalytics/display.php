@@ -1,4 +1,5 @@
 <?php $storeData = \dash\data::store_store_data(); ?>
+
 <div class="avand-sm zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div class="box impact">
