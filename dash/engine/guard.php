@@ -88,6 +88,7 @@ class guard
 				"https://cdn.jsdelivr.net/emojione/",
 				"static.cloudflareinsights.com",
 				"http://localhost:9759/jibres/",
+				"https://*.imber.live/",
 			],
 			'style-src' =>
 			[
@@ -161,7 +162,6 @@ class guard
 			// allow iframe on some conditions
 			$policy['frame-ancestors'] = ['https:'];
 		}
-
 
 		// for local
 		if(\dash\url::isLocal())
