@@ -19,6 +19,18 @@ class remove
 			return false;
 		}
 
+
+		$my_tag_id = \dash\coding::decode($_id);
+		if($my_tag_id)
+		{
+			$used_in_menu = \lib\app\menu\update::tag($my_tag_id);
+			if($used_in_menu)
+			{
+				\dash\notif::error(T_("This tag used in menu and can not be remove"));
+				return false;
+			}
+		}
+
 		if(isset($load['count']) && $load['count'])
 		{
 			// ok

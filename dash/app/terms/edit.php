@@ -31,6 +31,12 @@ class edit
 		{
 			\dash\db\terms\update::update($args, $id);
 
+
+			if(isset($args['url']))
+			{
+				\lib\app\menu\update::tag($id, true);
+			}
+
 			\dash\utility\sitemap::tags($id);
 
 			\dash\notif::ok(T_("Tag successfully updated"));

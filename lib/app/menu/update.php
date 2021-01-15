@@ -49,6 +49,28 @@ class update
 		return null;
 	}
 
+	public static function tag($_id, $_set = false)
+	{
+		$is_used = self::is_used('tags', $_id);
+
+		if(!$_set)
+		{
+			return $is_used;
+		}
+
+		if($is_used)
+		{
+			$load = \dash\app\terms\get::get(\dash\coding::encode($_id));
+
+			if(isset($load['link']))
+			{
+				return self::fix_update('tags', $_id, $load['link']);
+			}
+		}
+
+		return null;
+	}
+
 
 
 	private static function fix_update($_pointer, $_relate_id, $_url)
