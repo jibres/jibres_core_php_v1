@@ -9,7 +9,6 @@
             <p><?php echo T_("Any company or individual that wants to sell their products or services online via its own website, should acquire the eNAMAD, which is the official indicator for an approved and trusted online vendor. To secure an eNAMAD certificate, E-commerce Development Center of Iran requires businesses to meet 38 different conditions."); ?></p>
           </div>
 
-
           <?php if(a($storeData, 'enamad')) {?>
             <div class="msg success2 minimal"><?php echo T_("Your enamad detail was saved") ?></div>
             <?php if(\dash\data::enamadID()) {?>
