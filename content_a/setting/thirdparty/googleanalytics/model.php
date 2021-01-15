@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\addon\googleanalytics;
+namespace content_a\setting\thirdparty\googleanalytics;
 
 
 class model
