@@ -23,13 +23,7 @@
           <div class="go"></div>
         </a>
       </li>
-      <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/imber">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/imber.png" alt='Imber'>
-          <div class="key"><?php echo T_("Imber - All in One Marketing Automation Platform"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
+<?php if (\dash\language::current() === 'fa') { ?>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/raychat">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/raychat.jpg" alt='RayChat'>
@@ -37,28 +31,38 @@
           <div class="go"></div>
         </a>
       </li>
+<?php } ?>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/imber">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/imber.png" alt='Imber'>
+          <div class="key"><?php echo T_("Imber - All in One Marketing Automation Platform"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
     </ul>
   </nav>
 
 
+<?php if (\dash\language::current() === 'fa') { ?>
   <h2><?php echo T_("Certificates"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/enamad">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/business/cert/enamad.jpg" alt='Enamad'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/enamad.jpg" alt='Enamad'>
           <div class="key"><?php echo T_("Enamad"); ?></div>
           <div class="go"></div>
         </a>
       </li>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/samandehi">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/business/cert/samandehi.jpg" alt='Samandehi'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/samandehi.jpg" alt='Samandehi'>
           <div class="key"><?php echo T_("Samandehi"); ?></div>
           <div class="go"></div>
         </a>
       </li>
     </ul>
   </nav>
+<?php } ?>
 
 </div>

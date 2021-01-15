@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-13 12:41+0330\n"
-"PO-Revision-Date: 2021-01-13 12:49+0330\n"
+"POT-Creation-Date: 2021-01-15 19:24+0330\n"
+"PO-Revision-Date: 2021-01-15 19:28+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -730,7 +730,7 @@ msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
 #: content/certificates/view.php:9 content/home/layout/footer.php:184
-#: content/home/layout/pwa-footer.php:185
+#: content/home/layout/pwa-footer.php:185 content_a/setting/thirdparty/display.php:47
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
 
@@ -2159,7 +2159,7 @@ msgstr ""
 "بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:27 content/home/view.php:11 content/view.php:17
-#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:236
+#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:246
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2169,7 +2169,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:246
+#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:256
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2197,7 +2197,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:41 content_a/channels/home/display.php:28
-#: content_a/setting/home/display.php:256
+#: content_a/setting/home/display.php:266
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2222,7 +2222,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:266
+#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:276
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -2280,7 +2280,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:33
 #: content_a/setting/place/inventory/display.php:31
 #: content_a/setting/place/inventory/display.php:44
-#: content_a/website/menu/item/display.php:23 content_a/website/productline/view.php:15
+#: content_a/website/menu/item/display.php:25 content_a/website/productline/view.php:15
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:271 dash/plan_list.php:44
 #: includes/languages/trans_static.php:560 lib/app/export/product.php:43
 #: lib/app/website/body/template.php:91
@@ -3042,12 +3042,12 @@ msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
 #: content/investment/display.php:105 content_a/form/home/view.php:9
-#: content_a/home/display.php:154 content_a/setting/home/display.php:193
+#: content_a/home/display.php:154 content_a/setting/home/display.php:203
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
 #: content/investment/display.php:106 content_a/accounting/home/view.php:9
-#: content_a/home/display.php:162 content_a/setting/home/display.php:183
+#: content_a/home/display.php:162 content_a/setting/home/display.php:193
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
 #: lib/app/store/analytics.php:96
@@ -4479,19 +4479,17 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/products/poof/view.php:22 content_a/products/property/view.php:22
 #: content_a/products/share/view.php:22 content_a/products/sharetext/view.php:22
 #: content_a/products/shipping/view.php:29 content_a/products/status/view.php:22
-#: content_a/products/variants/view.php:21
-#: content_a/setting/addon/googleanalytics/view.php:13
-#: content_a/setting/addon/raychat/view.php:13 content_a/setting/addon/tawk/view.php:13
-#: content_a/setting/company/view.php:11 content_a/setting/domain/add/view.php:11
+#: content_a/products/variants/view.php:21 content_a/setting/company/view.php:11
+#: content_a/setting/domain/add/view.php:11
 #: content_a/setting/domain/existdomain/view.php:11
 #: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/remove/view.php:11
 #: content_a/setting/domain/setting/view.php:11 content_a/setting/domain/view.php:11
-#: content_a/setting/enamad/view.php:10 content_a/setting/fund/view.php:16
-#: content_a/setting/logo/view.php:15 content_a/setting/payment/bank/view.php:11
-#: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
-#: content_a/setting/place/inventory/view.php:10 content_a/setting/pos/pos/view.php:11
+#: content_a/setting/fund/view.php:16 content_a/setting/logo/view.php:15
+#: content_a/setting/payment/bank/view.php:11 content_a/setting/payment/way/view.php:11
+#: content_a/setting/pcpos/view.php:12 content_a/setting/place/inventory/view.php:10
+#: content_a/setting/pos/pos/view.php:11
 #: content_a/setting/product/preparationtime/view.php:11
-#: content_a/setting/samandehi/view.php:10 content_a/setting/shipping/irpost/view.php:11
+#: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
 #: content_a/setting/sms/view.php:11 content_a/setting/social/view.php:14
 #: content_a/setting/staticfile/view.php:15 content_a/setting/units/view.php:16
@@ -4762,6 +4760,7 @@ msgstr "کد"
 #: content_a/setting/place/inventory/display.php:8 content_a/tag/add/display.php:6
 #: content_a/tag/edit/display.php:6 content_a/units/display.php:41
 #: content_a/website/body/add/display.php:111 content_a/website/menu/item/display.php:13
+#: content_a/website/menu/item/display.php:22
 #: content_a/website/specialslider/add/display.php:18
 #: content_account/billing/display.php:52 content_business/p/home/display.php:380
 #: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:162
@@ -4930,8 +4929,8 @@ msgstr "وضعیت"
 #: content_a/setting/staticfile/display.php:24 content_a/tag/add/display.php:12
 #: content_a/tag/edit/display.php:37 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
-#: content_a/website/menu/item/display.php:97 content_a/website/productline/display.php:29
-#: content_a/website/quote/add/display.php:65
+#: content_a/website/menu/item/display.php:106
+#: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:79
 #: content_cms/tag/add/display.php:12 content_crm/member/add/display.php:15
 #: content_crm/permission/add/display.php:11
@@ -4963,7 +4962,7 @@ msgstr "افزودن"
 #: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
 #: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
 #: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:11
-#: content_a/website/menu/item/display.php:97 content_a/website/quote/add/display.php:61
+#: content_a/website/menu/item/display.php:106 content_a/website/quote/add/display.php:61
 #: content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
 #: content_a/website/specialslider/display.php:28 content_account/address.php:149
@@ -4986,7 +4985,7 @@ msgstr "ویرایش"
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:30
-#: content_a/website/menu/item/display.php:95
+#: content_a/website/menu/item/display.php:104
 #: content_a/website/menu/setting/display.php:41 content_a/website/news/display.php:51
 #: content_a/website/productline/display.php:48 content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
@@ -6433,10 +6432,7 @@ msgstr "مایکت"
 #: content_a/products/variants/display-add-product.php:98
 #: content_a/setting/accounting/currency/display.php:35
 #: content_a/setting/accounting/defaultdetail/display.php:54
-#: content_a/setting/addon/googleanalytics/display.php:19
-#: content_a/setting/addon/raychat/display.php:19
-#: content_a/setting/addon/tawk/display.php:19 content_a/setting/cart/limit/display.php:25
-#: content_a/setting/cart/text/display.php:37 content_a/setting/enamad/display.php:41
+#: content_a/setting/cart/limit/display.php:25 content_a/setting/cart/text/display.php:37
 #: content_a/setting/general/lang/display.php:24
 #: content_a/setting/general/nosale/display.php:20
 #: content_a/setting/general/title/display.php:20
@@ -6446,7 +6442,6 @@ msgstr "مایکت"
 #: content_a/setting/product/tag/display.php:23
 #: content_a/setting/product/text/display.php:19
 #: content_a/setting/product/viewtext/display.php:19
-#: content_a/setting/samandehi/display.php:42
 #: content_a/setting/shipping/setting/display.php:108
 #: content_a/setting/shipping/text/display.php:38
 #: content_a/setting/sms/kavenegar/display.php:23 content_a/setting/social/display.php:102
@@ -6455,7 +6450,13 @@ msgstr "مایکت"
 #: content_a/setting/telegram/channel/display.php:21
 #: content_a/setting/telegram/starttext/display.php:19
 #: content_a/setting/telegram/telegrambtn/display.php:35
-#: content_a/setting/telegram/text/display.php:19 content_a/setup/address/display.php:61
+#: content_a/setting/telegram/text/display.php:19
+#: content_a/setting/thirdparty/enamad/display.php:41
+#: content_a/setting/thirdparty/googleanalytics/display.php:19
+#: content_a/setting/thirdparty/imber/display.php:18
+#: content_a/setting/thirdparty/raychat/display.php:19
+#: content_a/setting/thirdparty/samandehi/display.php:42
+#: content_a/setting/thirdparty/tawk/display.php:20 content_a/setup/address/display.php:61
 #: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:26
 #: content_a/setup/owner/display.php:41 content_a/setup/payment/display.php:43
 #: content_a/setup/pos/display.php:31 content_a/setup/units/display.php:66
@@ -7309,25 +7310,22 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/pricehistory/choose/view.php:12 content_a/pricehistory/view.php:12
 #: content_a/products/export/view.php:12 content_a/products/import/view.php:12
 #: content_a/report/products/view.php:10 content_a/report/productvalue/view.php:10
-#: content_a/setting/accounting/view.php:10
-#: content_a/setting/addon/googleanalytics/view.php:8
-#: content_a/setting/addon/raychat/view.php:8 content_a/setting/addon/tawk/view.php:8
-#: content_a/setting/address/view.php:11 content_a/setting/cart/view.php:11
-#: content_a/setting/domain/add/view.php:8 content_a/setting/domain/existdomain/view.php:8
+#: content_a/setting/accounting/view.php:10 content_a/setting/address/view.php:11
+#: content_a/setting/cart/view.php:11 content_a/setting/domain/add/view.php:8
+#: content_a/setting/domain/existdomain/view.php:8
 #: content_a/setting/domain/manage/view.php:8 content_a/setting/domain/remove/view.php:8
 #: content_a/setting/domain/setting/view.php:8 content_a/setting/domain/view.php:8
-#: content_a/setting/enamad/view.php:8 content_a/setting/fund/view.php:8
-#: content_a/setting/general/lang/view.php:8 content_a/setting/general/lang/view.php:12
-#: content_a/setting/general/nosale/view.php:8
+#: content_a/setting/fund/view.php:8 content_a/setting/general/lang/view.php:8
+#: content_a/setting/general/lang/view.php:12 content_a/setting/general/nosale/view.php:8
 #: content_a/setting/general/nosale/view.php:11 content_a/setting/general/title/view.php:8
 #: content_a/setting/general/title/view.php:12 content_a/setting/general/view.php:10
 #: content_a/setting/home/view.php:8 content_a/setting/order/view.php:11
 #: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
 #: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
 #: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/samandehi/view.php:8 content_a/setting/shipping/text/view.php:11
-#: content_a/setting/sms/kavenegar/view.php:11 content_a/setting/social/view.php:8
-#: content_a/setting/staticfile/view.php:8 content_a/setting/telegram/view.php:10
+#: content_a/setting/shipping/text/view.php:11 content_a/setting/sms/kavenegar/view.php:11
+#: content_a/setting/social/view.php:8 content_a/setting/staticfile/view.php:8
+#: content_a/setting/telegram/view.php:10 content_a/setting/thirdparty/view.php:10
 #: content_a/tag/home/view.php:16 content_a/units/view.php:11
 #: content_cms/sitemap/view.php:10 content_love/business/domain/pageStep.php:23
 #: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
@@ -7449,27 +7447,27 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 msgid "Sort Product categories"
 msgstr "مرتب‌سازی دسته‌بندی محصولات"
 
-#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:237
+#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:247
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:247
+#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:257
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:257
+#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:267
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:267
+#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:277
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:276
+#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:286
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:277
+#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:287
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -8673,7 +8671,7 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 #: dash/app/terms/remove.php:70 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106
 #: lib/app/form/tag/get.php:113 lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
 #: lib/app/form/tag/remove.php:18 lib/app/form/tag/remove.php:39
-#: lib/app/form/tag/remove.php:72 lib/app/menu/check.php:170 lib/app/tag/edit.php:24
+#: lib/app/form/tag/remove.php:72 lib/app/menu/check.php:187 lib/app/tag/edit.php:24
 #: lib/app/tag/get.php:65 lib/app/tag/get.php:72 lib/app/tag/get.php:99
 #: lib/app/tag/get.php:107 lib/app/tag/remove.php:15 lib/app/tag/remove.php:36
 #: lib/app/tag/remove.php:71 lib/app/tag/search.php:40
@@ -9324,7 +9322,7 @@ msgstr "درحال ارسال"
 msgid "Set as delivered"
 msgstr "تنظیم به عنوان تحویل داده شده"
 
-#: content_a/order/status/display.php:32 content_a/website/menu/item/display.php:28
+#: content_a/order/status/display.php:32 content_a/website/menu/item/display.php:31
 msgid "Something else"
 msgstr "موارد دیگر"
 
@@ -10641,73 +10639,6 @@ msgstr "تنظیم مجدد شماره‌های سند حسابداری"
 msgid "Accounting resetnumber setting"
 msgstr "تنظیم مجدد شماره سند حسابداری"
 
-#: content_a/setting/addon/googleanalytics/display.php:10
-msgid "Set google analytics"
-msgstr "تنظیمات تحلیل‌گر آمار گوگل"
-
-#: content_a/setting/addon/googleanalytics/display.php:12
-msgid ""
-"If you want to have the details of your website in full detail, please enter your "
-"Google Analytics code here. \n"
-"To do this, you need to register on Google Analytics and get the code from there"
-msgstr ""
-"اگر می‌خواهید آمار دقیقی از وب‌سایت خود و گزارشات مربوط به آن را داشته باشید می‌توانید از "
-"موتور تحلیل‌گر گوگل برای این کار استفاده کنید\n"
-" بدین منظور ابتدا باید در سایت تحلیل‌گر گوگل ثبت‌نام کنید و کد دریافت شده از آن سرویس را "
-"اینجا قرار دهید"
-
-#: content_a/setting/addon/googleanalytics/display.php:13
-msgid "Google Analytics code"
-msgstr "کد تحلیل آمار گوگل"
-
-#: content_a/setting/addon/googleanalytics/view.php:8
-msgid "Google Analytics"
-msgstr "تحلیل‌گر آمار گوگل"
-
-#: content_a/setting/addon/raychat/display.php:10
-msgid "Set raychat live chat setting"
-msgstr "تنظیمات چت آنلاین رایچت"
-
-#: content_a/setting/addon/raychat/display.php:12
-msgid ""
-"If you want to have live chat in your website, enter your raychat token code here. \n"
-"To do this, you need to register on raychat.to and get the code from there"
-msgstr ""
-"اگر می‌خواهید سیستم چت آنلاین در وب‌سایت خود داشته باشید می‌توانید از موتور چت رایچت برای "
-"این کار استفاده کنید\n"
-" بدین منظور ابتدا باید در سایت رایچت ثبت‌نام کنید و کد دریافت شده از آن سرویس را اینجا "
-"قرار دهید"
-
-#: content_a/setting/addon/raychat/display.php:13
-msgid "Raychat code"
-msgstr "کد رایچت"
-
-#: content_a/setting/addon/raychat/view.php:8
-msgid "Raychat live chat"
-msgstr "چت آنلاین رایچت"
-
-#: content_a/setting/addon/tawk/display.php:10
-msgid "Set tawk live chat setting"
-msgstr "تنظیمات چت آنلاین tawk"
-
-#: content_a/setting/addon/tawk/display.php:12
-msgid ""
-"If you want to have live chat in your website, enter your tawk token code here. \n"
-"To do this, you need to register on tawk.to and get the code from there"
-msgstr ""
-"اگر می‌خواهید سیستم چت آنلاین در وب‌سایت خود داشته باشید می‌توانید از موتور چت tawk برای "
-"این کار استفاده کنید\n"
-" بدین منظور ابتدا باید در سایت tawk.to ثبت‌نام کنید و کد دریافت شده از آن سرویس را اینجا "
-"قرار دهید"
-
-#: content_a/setting/addon/tawk/display.php:13
-msgid "Tawk code"
-msgstr "کد Tawk"
-
-#: content_a/setting/addon/tawk/view.php:8 content_a/website/home/display.php:84
-msgid "Tawk live chat"
-msgstr "چت آنلاین tawk"
-
 #: content_a/setting/address/view.php:9 content_a/setup/address/view.php:9
 msgid "Set your store address"
 msgstr "تنظیم آدرس فروشگاه شما"
@@ -10806,7 +10737,7 @@ msgid "Master domain"
 msgstr "دامنه اصلی"
 
 #: content_a/setting/domain/existdomain/display.php:6
-#: content_a/website/home/display.php:88
+#: content_a/website/home/display.php:84
 msgid "Connect store to your domain"
 msgstr "اتصال دامنه اختصاصی شما به فروشگاه"
 
@@ -10927,40 +10858,6 @@ msgstr "تمام دامنه‌های متصل به بیزینس شما بر رو
 msgid "Domain setting"
 msgstr "تنظیمات دامنه"
 
-#: content_a/setting/enamad/display.php:10
-msgid "Set Enamad script code here"
-msgstr "کد نماد اعتماد را در این قسمت تنظیم کنید"
-
-#: content_a/setting/enamad/display.php:13
-msgid "Your enamad detail was saved"
-msgstr "مشخصات گواهی نماد اعتماد شما ذخیره شده است"
-
-#: content_a/setting/enamad/display.php:19
-msgid "Enamad ID"
-msgstr "شناسه نماد اعتماد"
-
-#: content_a/setting/enamad/display.php:28 content_a/setting/enamad/display.php:35
-msgid "Enamad code"
-msgstr "کد نماد اعتماد"
-
-#: content_a/setting/enamad/display.php:43
-msgid "Remove enamad setting"
-msgstr "حذف تنظیمات نماد اعتماد"
-
-#: content_a/setting/enamad/model.php:23
-msgid "Enamad Script is required"
-msgstr "کد نماد اعتماد الزامی است"
-
-#: content_a/setting/enamad/model.php:34
-msgid ""
-"The text of enamad contains a series of special characters that are not in your text"
-msgstr "کد نماد اعتماد دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
-
-#: content_a/setting/enamad/view.php:8 content_a/website/home/display.php:86
-#: lib/website.php:39
-msgid "Enamad"
-msgstr "نماد اعتماد"
-
 #: content_a/setting/fund/controller.php:14 content_a/website/menu/item/controller.php:13
 #: content_cms/posts/edit/controller.php:14 content_my/domain/irnic/edit/controller.php:23
 #: content_support/message/edit/view.php:26 content_support/ticket/show/model.php:13
@@ -10974,7 +10871,7 @@ msgstr "نماد اعتماد"
 #: lib/app/form/form/get.php:44 lib/app/form/item/get.php:23 lib/app/form/item/get.php:177
 #: lib/app/form/item/get.php:211 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
-#: lib/app/menu/check.php:45 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
+#: lib/app/menu/check.php:46 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
 #: lib/app/nic_domain/get.php:310 lib/app/nic_domain/get.php:337
 #: lib/app/nic_log/get.php:13 lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13
 #: lib/app/pos/tools.php:13 lib/app/product/edit.php:25 lib/app/product/edit.php:35
@@ -11191,19 +11088,32 @@ msgstr "پیام کوتاه"
 msgid "SMS setting"
 msgstr "تنظیمات پیام کوتاه"
 
-#: content_a/setting/home/display.php:184
+#: content_a/setting/home/display.php:176 content_a/setting/thirdparty/enamad/view.php:11
+#: content_a/setting/thirdparty/googleanalytics/view.php:11
+#: content_a/setting/thirdparty/imber/view.php:11
+#: content_a/setting/thirdparty/raychat/view.php:11
+#: content_a/setting/thirdparty/samandehi/view.php:11
+#: content_a/setting/thirdparty/tawk/view.php:11 content_a/setting/thirdparty/view.php:8
+msgid "Third Party Services"
+msgstr "سرویس‌های افزودنی دیگران"
+
+#: content_a/setting/home/display.php:177
+msgid "Connect to other services like google analytics, live chat"
+msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
+
+#: content_a/setting/home/display.php:194
 msgid "Manage your business accounting"
 msgstr "مدیریت حسابداری بیزینس شما"
 
-#: content_a/setting/home/display.php:194
+#: content_a/setting/home/display.php:204
 msgid "Create online forms and publish them."
 msgstr "فرم‌های آنلاین بسازید و آنها را منتشر کنید."
 
-#: content_a/setting/home/display.php:194
+#: content_a/setting/home/display.php:204
 msgid "Collect data."
 msgstr "جمع‌آوری داده‌ها."
 
-#: content_a/setting/home/display.php:210 content_cms/comments/home/view.php:11
+#: content_a/setting/home/display.php:220 content_cms/comments/home/view.php:11
 #: content_cms/files/home/view.php:15 content_cms/posts/home/view.php:45
 #: content_cms/setting/home/view.php:9 content_cms/tag/home/view.php:16
 #: content_love/home/display.php:105 dash/layout/admin/admin-sidebar-frame.php:17
@@ -11214,15 +11124,15 @@ msgstr "جمع‌آوری داده‌ها."
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/setting/home/display.php:211
+#: content_a/setting/home/display.php:221
 msgid "Manage your business news and contents"
 msgstr "مدیریت اخبار و محتوای بیزینس شما"
 
-#: content_a/setting/home/display.php:220 dash/panel.php:291
+#: content_a/setting/home/display.php:230 dash/panel.php:291
 msgid "Customers - CRM"
 msgstr "مشتریان - CRM"
 
-#: content_a/setting/home/display.php:221
+#: content_a/setting/home/display.php:231
 msgid "Manage business customers"
 msgstr "مدیریت مشتریان بیزینس"
 
@@ -11748,43 +11658,6 @@ msgstr "هنگام نمایش محصول در وب‌سایت می‌توانی�
 msgid "Product View Text"
 msgstr "متن ثابت در صفحه نمایش محصول"
 
-#: content_a/setting/samandehi/display.php:10
-msgid "Set samandehi script code here"
-msgstr "کد ساماندهی را در این قسمت تنظیم کنید"
-
-#: content_a/setting/samandehi/display.php:13
-msgid "Your samandehi detail was saved"
-msgstr "مشخصات گواهی ساماندهی شما ذخیره شده است"
-
-#: content_a/setting/samandehi/display.php:19
-msgid "Samandehi Link 1"
-msgstr "لینک اول ساماندهی"
-
-#: content_a/setting/samandehi/display.php:28
-msgid "Samandehi Link 2"
-msgstr "لینک دوم ساماندهی"
-
-#: content_a/setting/samandehi/display.php:36
-msgid "Samandehi Script"
-msgstr "کد ساماندهی"
-
-#: content_a/setting/samandehi/display.php:44
-msgid "Remove samandehi setting"
-msgstr "حذف تنظیمات ساماندهی"
-
-#: content_a/setting/samandehi/model.php:24
-msgid "Samandehi Script is required"
-msgstr "کد ساماندهی الزامی است"
-
-#: content_a/setting/samandehi/model.php:36
-msgid ""
-"The text of samandehi contains a series of special characters that are not in your text"
-msgstr "کد ساماندهی دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
-
-#: content_a/setting/samandehi/view.php:8 content_a/website/home/display.php:87
-msgid "samandehi"
-msgstr "ساماندهی"
-
 #: content_a/setting/shipping/display.php:7
 msgid "Shipping option"
 msgstr "تنظیمات ارسال سفارش"
@@ -12169,6 +12042,201 @@ msgstr "دکمه‌های تلگرام"
 #: content_a/setting/telegram/text/view.php:8
 msgid "Telegram Share Text"
 msgstr "متن ثابت برای اشتراک گذاری محصولات در تلگرام"
+
+#: content_a/setting/thirdparty/display.php:2
+msgid "Analytics"
+msgstr "تجزیه و تحلیل"
+
+#: content_a/setting/thirdparty/display.php:8
+#: content_a/setting/thirdparty/googleanalytics/view.php:8
+msgid "Google Analytics"
+msgstr "گوگل آنالیتیکس"
+
+#: content_a/setting/thirdparty/display.php:16
+msgid "Live Chat"
+msgstr "چت آنلاین"
+
+#: content_a/setting/thirdparty/display.php:22
+msgid "tawk.to - 100% FREE live chat!"
+msgstr "tawk.to چت زنده ۱۰۰٪ رایگان"
+
+#: content_a/setting/thirdparty/display.php:30
+msgid "RayChat - Online Chat Platform"
+msgstr "رایچت - پلتفرم گفتگوی آنلاین و ارتباط با مشتریان"
+
+#: content_a/setting/thirdparty/display.php:38
+msgid "Imber - All in One Marketing Automation Platform"
+msgstr "ایمبر - سرویس جامع ارتباط با مشتری"
+
+#: content_a/setting/thirdparty/display.php:53
+#: content_a/setting/thirdparty/enamad/view.php:8 lib/website.php:34
+msgid "Enamad"
+msgstr "نماد اعتماد"
+
+#: content_a/setting/thirdparty/display.php:60 lib/website.php:47
+msgid "Samandehi"
+msgstr "ساماندهی"
+
+#: content_a/setting/thirdparty/enamad/display.php:9
+msgid ""
+"Any company or individual that wants to sell their products or services online via its "
+"own website, should acquire the eNAMAD, which is the official indicator for an approved "
+"and trusted online vendor. To secure an eNAMAD certificate, E-commerce Development "
+"Center of Iran requires businesses to meet 38 different conditions."
+msgstr ""
+"اینماد یا نماد اعتماد الکترونیکی از طرف مرکز توسعه تجارت الکترونیک به وب‌سایتی‌های "
+"فروشگاهی داده می‌شود. مهمترین مزیت که اینماد دارد، جلب اعتماد کاربر است و به شما قابلیت "
+"دریافت درگاه مستقیم بانکی را می‌دهد."
+
+#: content_a/setting/thirdparty/enamad/display.php:13
+msgid "Your enamad detail was saved"
+msgstr "مشخصات گواهی نماد اعتماد شما ذخیره شده است"
+
+#: content_a/setting/thirdparty/enamad/display.php:19
+msgid "Enamad ID"
+msgstr "شناسه نماد اعتماد"
+
+#: content_a/setting/thirdparty/enamad/display.php:28
+#: content_a/setting/thirdparty/enamad/display.php:35
+msgid "Enamad code"
+msgstr "کد نماد اعتماد"
+
+#: content_a/setting/thirdparty/enamad/display.php:36
+msgid "Paste you Enamad code here"
+msgstr "کد اینماد خود را اینجا کپی کنید"
+
+#: content_a/setting/thirdparty/enamad/display.php:43
+msgid "Remove enamad setting"
+msgstr "حذف تنظیمات نماد اعتماد"
+
+#: content_a/setting/thirdparty/enamad/model.php:23
+msgid "Enamad Script is required"
+msgstr "کد نماد اعتماد الزامی است"
+
+#: content_a/setting/thirdparty/enamad/model.php:34
+msgid ""
+"The text of enamad contains a series of special characters that are not in your text"
+msgstr "کد نماد اعتماد دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
+
+#: content_a/setting/thirdparty/googleanalytics/display.php:9
+msgid ""
+"Google Analytics is a web analytics service offered by Google that tracks and reports "
+"website traffic, currently as a platform inside the Google Marketing Platform brand. As "
+"of 2019, Google Analytics is the most widely used web analytics service on the web. "
+"Google Analytics provides an SDK that allows gathering usage data from iOS and Android "
+"app, known as Google Analytics for Mobile Apps."
+msgstr ""
+"گوگل آنالیتیکس یک سرویس رایگان توسعه‌داده شده توسط گوگل است که آمار بازدید‌کنندگان وب‌سایت "
+"شما را نشان می‌دهد. این سیستم امکان بررسی و تحلیل ورودی‌ها، صفحات ورودی‌دهنده، کاربران "
+"وارد‌شده، فعالیت‌های کاربران، زمان حضور و مسیر خروجی آن‌ها را ارائه می‌کند. به این ترتیب، "
+"گستره وسیعی از اطلاعات، در اختیار مدیریت سایت قرار خواهد گرفت."
+
+#: content_a/setting/thirdparty/googleanalytics/display.php:12
+msgid "Your Google Analytics Tracking ID"
+msgstr "Tracking ID گوگل آنالیتیکس شما"
+
+#: content_a/setting/thirdparty/imber/display.php:9
+msgid ""
+"Imber is an all-in-one marketing automation platform built for customer support with "
+"live chat, sales, and marketing. All together. 7 day free trial."
+msgstr ""
+"ایمبر به شما کمک می‌کند که یک ارتباط صمیمی و پایدار با مشتریان خود داشته باشید و اونا رو "
+"تبدیل به مشتریان وفادار کنید. ایمبر با ارایه‌ی اپلیکیشنی جامع و یک‌پارچه به شما کمک می‌کند "
+"که در سریع‌ترین زمان ممکن پاسخ مشتریان خود را بدهید."
+
+#: content_a/setting/thirdparty/imber/display.php:11
+msgid "Imber Token"
+msgstr "توکن ایمبر"
+
+#: content_a/setting/thirdparty/imber/view.php:8
+msgid "Imber"
+msgstr "ایمبر"
+
+#: content_a/setting/thirdparty/raychat/display.php:9
+msgid ""
+"Raychat is a free customer messaging platform. Chat with your customers and make them a "
+"loyal customer."
+msgstr ""
+"با نصب رایچت بر روی وب سایت میتوانید با مشتریانتون بصورت لحظه ای گفتگو (چت) بکنید و هیچ "
+"کاربری رو از دست ندید. تجربه جدید گفتگوی آنلاین اینجا آغاز می‌شود!"
+
+#: content_a/setting/thirdparty/raychat/display.php:12
+msgid "Raychat Token"
+msgstr "توکن رایچت"
+
+#: content_a/setting/thirdparty/raychat/view.php:8
+msgid "Raychat"
+msgstr "رایچت"
+
+#: content_a/setting/thirdparty/samandehi/display.php:9
+msgid ""
+"Any company or individual that wants to have online website, can acquire the Samandehi "
+"certification, which is the official indicator for an approved and trusted online "
+"vendor."
+msgstr ""
+"یکی از مراجع احراز هویت مدیران اینترنتی، ستاد ساماندهی پایگاه‌های اینترنتی است. این مرکز "
+"وابسته به مرکز توسعه فناوری اطلاعات و رسانه‌های دیجیتال وزارت فرهنگ و ارشاد اسلامی است. "
+"این سامانه مانع فیلتر کلی سایت می‌گردد. یعنی با ثبت مشخصات مدیر سایت در سامانه ساماندهی، "
+"بعد از دریافت اخطار، چنانچه در اسرع وقت نسبت به حذف محتوای اعلام شده از طرف سامانه "
+"اقدام کنید، سایت شما فیلتر نخواهد شد!"
+
+#: content_a/setting/thirdparty/samandehi/display.php:13
+msgid "Your samandehi detail was saved"
+msgstr "مشخصات گواهی ساماندهی شما ذخیره شده است"
+
+#: content_a/setting/thirdparty/samandehi/display.php:19
+msgid "Samandehi Link 1"
+msgstr "لینک اول ساماندهی"
+
+#: content_a/setting/thirdparty/samandehi/display.php:28
+msgid "Samandehi Link 2"
+msgstr "لینک دوم ساماندهی"
+
+#: content_a/setting/thirdparty/samandehi/display.php:36
+msgid "Samandehi Script"
+msgstr "کد ساماندهی"
+
+#: content_a/setting/thirdparty/samandehi/display.php:37
+msgid "Paste you Samandehi code here"
+msgstr "کد ساماندهی خود را اینجا کپی کنید"
+
+#: content_a/setting/thirdparty/samandehi/display.php:44
+msgid "Remove samandehi setting"
+msgstr "حذف تنظیمات ساماندهی"
+
+#: content_a/setting/thirdparty/samandehi/model.php:24
+msgid "Samandehi Script is required"
+msgstr "کد ساماندهی الزامی است"
+
+#: content_a/setting/thirdparty/samandehi/model.php:36
+msgid ""
+"The text of samandehi contains a series of special characters that are not in your text"
+msgstr "کد ساماندهی دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
+
+#: content_a/setting/thirdparty/samandehi/view.php:8
+msgid "samandehi"
+msgstr "ساماندهی"
+
+#: content_a/setting/thirdparty/tawk/display.php:9
+msgid ""
+"tawk.to is the world's #1 most widely used live chat software. More than 35 percent of "
+"all websites that use live chat. tawk.to is a 100 percent free live chat application "
+"designed to increase the effectiveness in managing the online customer engagement "
+"experience, enabling multiple websites and agents in a single dashboard interface to "
+"chat with the visitors on your website."
+msgstr ""
+"سرویس‌دهنده شماره یک چت آنلاین جهان tawk.to است که بیش از ۳۵ درصد وب‌سایت‌ها از آن استفاده "
+"می‌کنند. این سرویس به‌صورت کامل رایگان بوده و برای افزایش تعامل شما با مخاطبین خود طراحی "
+"شده و امکان اتصال چندین وب‌سایت به یک پنل مدیریت را هم داراست. هم‌چنین آمار بازدیدکنندگان "
+"هم توسط این سرویس ارائه می‌گردد."
+
+#: content_a/setting/thirdparty/tawk/display.php:10
+msgid ""
+"tawk.to offers iOS, Android, Windows and Mac OSX apps to stay connected, or you can log "
+"in via any modern browser."
+msgstr ""
+"سرویس tawk.to پیشنهاد نرم‌افزار اندروید، آی‌اواس و نسخه ویندوز و سیستم‌عامل مک را هم برای "
+"اتصال به پنل مدیریت خود ارائه می‌دهد."
 
 #: content_a/setting/vat/view.php:9 content_a/setup/vat/view.php:9
 msgid "Tax settings"
@@ -12941,7 +13009,7 @@ msgstr "متن آگهی"
 
 #: content_a/website/header/announcement/display.php:20
 #: content_a/website/imageblock/add/display.php:24
-#: content_a/website/menu/item/display.php:81
+#: content_a/website/menu/item/display.php:90
 #: content_a/website/specialslider/add/display.php:24 content_cms/posts/seo/display.php:71
 #: content_cms/posts/seo/display.php:73 content_cms/tag/edit/display.php:9
 #: content_love/business/analytics/table/display.php:7
@@ -13086,10 +13154,6 @@ msgid "Show website"
 msgstr "نمایش وب‌سایت"
 
 #: content_a/website/home/display.php:83
-msgid "Google analytics setting"
-msgstr "تنظیمات تحلیل‌گر آمار گوگل"
-
-#: content_a/website/home/display.php:85
 msgid "Static file verification"
 msgstr "اعتبارسنجی از طریق فایل‌های ثابت"
 
@@ -13126,7 +13190,7 @@ msgid "Image Alt"
 msgstr "متن جایگزین عکس"
 
 #: content_a/website/imageblock/add/display.php:33
-#: content_a/website/menu/item/display.php:88
+#: content_a/website/menu/item/display.php:97
 #: content_a/website/specialslider/add/display.php:33
 msgid "Open in New tab"
 msgstr "باز کردن در صفحه جدید"
@@ -13244,49 +13308,65 @@ msgstr "اشاره به"
 msgid "Please select an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
-#: content_a/website/menu/item/display.php:22
+#: content_a/website/menu/item/display.php:23
+msgid "Separator"
+msgstr "جداکننده"
+
+#: content_a/website/menu/item/display.php:24
 msgid "Home page"
 msgstr "صفحه نخست"
 
-#: content_a/website/menu/item/display.php:24 content_cms/posts/home/view.php:9
+#: content_a/website/menu/item/display.php:26 content_cms/posts/home/view.php:9
 #: includes/languages/trans_static.php:559 includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
 msgid "Posts"
 msgstr "نوشته‌ها"
 
-#: content_a/website/menu/item/display.php:25
+#: content_a/website/menu/item/display.php:27
 msgid "Tag of posts"
 msgstr "تگ نوشته‌ها"
 
-#: content_a/website/menu/item/display.php:26
+#: content_a/website/menu/item/display.php:28
 msgid "Hashtag of products"
 msgstr "هشتگ محصولات"
 
-#: content_a/website/menu/item/display.php:27
+#: content_a/website/menu/item/display.php:29 content_business/f/home/view.php:17
+#: lib/app/log/caller/form/form_newAnswer.php:16 lib/app/store/analytics.php:106
+#: lib/app/store/analytics.php:107 lib/app/store/analytics.php:108
+#: lib/app/store/analytics.php:109 lib/app/store/analytics.php:110
+#: lib/app/store/analytics.php:111 lib/app/store/analytics.php:112
+msgid "Forms"
+msgstr "فرم‌ها"
+
+#: content_a/website/menu/item/display.php:30
 msgid "Social network"
 msgstr "شبکه‌های اجتماعی"
 
-#: content_a/website/menu/item/display.php:33
+#: content_a/website/menu/item/display.php:36
 msgid "Search in product"
 msgstr "جستجو در محصولات"
 
-#: content_a/website/menu/item/display.php:42
+#: content_a/website/menu/item/display.php:45
 msgid "Search in posts"
 msgstr "جستجو در نوشته‌ها"
 
-#: content_a/website/menu/item/display.php:51
+#: content_a/website/menu/item/display.php:54
 msgid "Search in tags"
 msgstr "جستجو در تگ‌ها"
 
-#: content_a/website/menu/item/display.php:59
+#: content_a/website/menu/item/display.php:62
 msgid "Search in hashtag"
 msgstr "جستجو در هشتگ‌ها"
 
-#: content_a/website/menu/item/display.php:69
+#: content_a/website/menu/item/display.php:71
+msgid "Search in forms"
+msgstr "جستجو در فرم‌ها"
+
+#: content_a/website/menu/item/display.php:81
 msgid "Select social network"
 msgstr "انتخاب شبکه اجتماعی"
 
-#: content_a/website/menu/item/display.php:74
+#: content_a/website/menu/item/display.php:86
 msgid "Manage social network"
 msgstr "مدیریت شبکه‌های اجتماعی"
 
@@ -14583,14 +14663,6 @@ msgstr "فرم شما منتشر نشده است. فقط شما می‌توان�
 #: content_business/f/home/display-form.php:30
 msgid "Submit"
 msgstr "تایید"
-
-#: content_business/f/home/view.php:17 lib/app/log/caller/form/form_newAnswer.php:16
-#: lib/app/store/analytics.php:106 lib/app/store/analytics.php:107
-#: lib/app/store/analytics.php:108 lib/app/store/analytics.php:109
-#: lib/app/store/analytics.php:110 lib/app/store/analytics.php:111
-#: lib/app/store/analytics.php:112
-msgid "Forms"
-msgstr "فرم‌ها"
 
 #: content_business/home/layout/header/header_100.php:29
 msgid "Enter to account"
@@ -19745,7 +19817,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:111
-#: lib/app/store/check.php:54
+#: lib/app/store/check.php:55
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -22827,7 +22899,7 @@ msgstr "پاسخ شما با موفقیت اضافه شد"
 msgid "This text is duplicate and you are sended something like this before!"
 msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
 
-#: dash/app/comment/check.php:41 lib/app/menu/check.php:138
+#: dash/app/comment/check.php:41 lib/app/menu/check.php:144
 msgid "Invalid post id"
 msgstr "شناسه مطلب اشتباه است"
 
@@ -23253,7 +23325,7 @@ msgstr "مطلب با موفقیت اضافه شد"
 msgid "Can not access to edit this post!"
 msgstr "شما دسترسی لازم را برای ویرایش این نوشته را ندارید!"
 
-#: dash/app/posts/check.php:121 lib/app/menu/check.php:163
+#: dash/app/posts/check.php:121 lib/app/menu/check.php:180
 msgid "Please choose a tag"
 msgstr "لطفا تگ را انتخاب کنید"
 
@@ -23944,7 +24016,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:242
+#: dash/engine/guard.php:312
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -23972,7 +24044,7 @@ msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل د�
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/view.php:155
+#: dash/engine/view.php:151
 msgid "Latest news"
 msgstr "آخرین اخبار"
 
@@ -24395,11 +24467,11 @@ msgstr "بررسی سبد خرید"
 msgid "Date and time"
 msgstr "تاریخ و زمان"
 
-#: dash/layout/foundation.php:188
+#: dash/layout/foundation.php:184
 msgid "JavaScript is required to use our service."
 msgstr "جاوا اسکریپت برای استفاده از سرویس ما ضروری است."
 
-#: dash/layout/foundation.php:190
+#: dash/layout/foundation.php:186
 msgid "Enable JavaScript in your browser or use one which supports it."
 msgstr ""
 "جاوا اسکریپت را در مرورگر خود فعال کنید یا از مرورگری استفاده کنید که از آن پشتیبانی "
@@ -33106,7 +33178,7 @@ msgstr "خطا در پرداخت"
 msgid "Pay cancel"
 msgstr "انصراف از پرداخت"
 
-#: lib/app/factor/action.php:128 lib/app/factor/edit.php:43 lib/app/menu/edit.php:73
+#: lib/app/factor/action.php:128 lib/app/factor/edit.php:43 lib/app/menu/edit.php:74
 msgid "Id is required"
 msgstr "شناسه الزامی است"
 
@@ -33513,7 +33585,7 @@ msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
 #: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:34
-#: lib/app/form/item/edit.php:100 lib/app/menu/edit.php:50
+#: lib/app/form/item/edit.php:100 lib/app/menu/edit.php:51
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 
@@ -34247,75 +34319,75 @@ msgstr "کد رهگیری شما :val"
 msgid "Menu created"
 msgstr "منو ساخته شد"
 
-#: lib/app/menu/check.php:59
+#: lib/app/menu/check.php:60
 msgid "Maximum menu level is 5"
 msgstr "منو حداکثر می‌تواند ۵ لایه باشد"
 
-#: lib/app/menu/check.php:115
+#: lib/app/menu/check.php:116
 #, fuzzy
 #| msgid "Please choose a tag"
 msgid "Please choose a product"
 msgstr "لطفا تگ را انتخاب کنید"
 
-#: lib/app/menu/check.php:122 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
+#: lib/app/menu/check.php:123 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
 #: lib/app/product/property.php:78 lib/app/product/property.php:96
 #: lib/app/product/property.php:475
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
-#: lib/app/menu/check.php:131
+#: lib/app/menu/check.php:137
 #, fuzzy
 #| msgid "Please choose a tag"
 msgid "Please choose a post"
 msgstr "لطفا تگ را انتخاب کنید"
 
-#: lib/app/menu/check.php:147
+#: lib/app/menu/check.php:158
 #, fuzzy
 #| msgid "Please choose year"
 msgid "Please choose a form"
 msgstr "لطفا سال مالی را انتخاب کنید"
 
-#: lib/app/menu/check.php:154
+#: lib/app/menu/check.php:165
 #, fuzzy
 #| msgid "Invalid factor id"
 msgid "Invalid form id"
 msgstr "شناسه فاکتور اشتباه است"
 
-#: lib/app/menu/check.php:179
+#: lib/app/menu/check.php:202
 #, fuzzy
 #| msgid "Please choose a tag"
 msgid "Please choose a hashtag"
 msgstr "لطفا تگ را انتخاب کنید"
 
-#: lib/app/menu/check.php:187
+#: lib/app/menu/check.php:210
 #, fuzzy
 #| msgid "Invalid tag id"
 msgid "Invalid hashtag id"
 msgstr "شناسه تگ نادرست است"
 
-#: lib/app/menu/check.php:196
+#: lib/app/menu/check.php:224
 #, fuzzy
 #| msgid "Please set your social network id"
 msgid "Please choose a social network"
 msgstr "لطفا شبکه‌های اجتماعی خود را تنظیم کنید"
 
-#: lib/app/menu/check.php:204
+#: lib/app/menu/check.php:233
 #, fuzzy
 #| msgid "Please enter url"
 msgid "Please set a url"
 msgstr "لطفا آدرس را وارد کنید"
 
-#: lib/app/menu/edit.php:58
+#: lib/app/menu/edit.php:59
 #, fuzzy
 #| msgid "Menu was updated"
 msgid "Menu updated"
 msgstr "فهرست به‌روزرسانی شد"
 
-#: lib/app/menu/edit.php:79
+#: lib/app/menu/edit.php:80
 msgid "Sort arguments must be array"
 msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 
-#: lib/app/menu/edit.php:259
+#: lib/app/menu/edit.php:260
 #, fuzzy
 #| msgid "Can not edit this file!"
 msgid "Can not save this menu level!"
@@ -34330,10 +34402,8 @@ msgid "Data not found"
 msgstr "داده یافت نشد"
 
 #: lib/app/menu/remove.php:21
-#, fuzzy
-#| msgid "File removed"
 msgid "Menu removed"
-msgstr "فایل حذف شد"
+msgstr "منو حذف شد"
 
 #: lib/app/nic_contact/add.php:29
 msgid "Invalid contact"
@@ -35875,7 +35945,7 @@ msgstr "پوز"
 msgid "Urls"
 msgstr "آدرس‌ها"
 
-#: lib/app/store/check.php:62
+#: lib/app/store/check.php:63
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
@@ -37829,9 +37899,92 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
-#: lib/website.php:52
-msgid "Samandehi"
-msgstr "ساماندهی"
+#, fuzzy, php-format
+#~ msgid ""
+#~ "tawk.to is the world's #1 most widely used live chat software. More than 35 percent "
+#~ "of all websites that use live chat. tawk.to is a 100% free live chat application "
+#~ "designed to increase the effectiveness in managing the online customer engagement "
+#~ "experience, enabling multiple websites and agents in a single dashboard interface to "
+#~ "chat with the visitors on your website."
+#~ msgstr ""
+#~ "سرویس‌دهنده شماره یک چت آنلاین جهان tawk.to است که بیش از ۳۵ درصد وب‌سایت‌ها از آن "
+#~ "استفاده می‌کنند. این سرویس به‌صورت کامل رایگان بوده و برای افزایش تعامل شما با مخاطبین "
+#~ "خود طراحی شده و امکان اتصال چندین وب‌سایت به یک پنل مدیریت را هم داراست. هم‌چنین آمار "
+#~ "بازدیدکنندگان هم توسط این سرویس ارائه می‌گردد."
+
+#, fuzzy, php-format
+#~ msgid ""
+#~ "tawk.to is the world's #1 most widely used live chat software. More than 35% of all "
+#~ "websites that use live chat. tawk.to is a 100% free live chat application designed "
+#~ "to increase the effectiveness in managing the online customer engagement experience, "
+#~ "enabling multiple websites and agents in a single dashboard interface to chat with "
+#~ "the visitors on your website."
+#~ msgstr ""
+#~ "سرویس‌دهنده شماره یک چت آنلاین جهان tawk.to است که بیش از ۳۵ درصد وب‌سایت‌ها از آن "
+#~ "استفاده می‌کنند. این سرویس به‌صورت کامل رایگان بوده و برای افزایش تعامل شما با مخاطبین "
+#~ "خود طراحی شده و امکان اتصال چندین وب‌سایت به یک پنل مدیریت را هم داراست. هم‌چنین آمار "
+#~ "بازدیدکنندگان هم توسط این سرویس ارائه می‌گردد."
+
+#~ msgid "Set google analytics"
+#~ msgstr "تنظیمات تحلیل‌گر آمار گوگل"
+
+#~ msgid ""
+#~ "If you want to have the details of your website in full detail, please enter your "
+#~ "Google Analytics code here. \n"
+#~ "To do this, you need to register on Google Analytics and get the code from there"
+#~ msgstr ""
+#~ "اگر می‌خواهید آمار دقیقی از وب‌سایت خود و گزارشات مربوط به آن را داشته باشید می‌توانید "
+#~ "از موتور تحلیل‌گر گوگل برای این کار استفاده کنید\n"
+#~ " بدین منظور ابتدا باید در سایت تحلیل‌گر گوگل ثبت‌نام کنید و کد دریافت شده از آن سرویس "
+#~ "را اینجا قرار دهید"
+
+#~ msgid "Google Analytics code"
+#~ msgstr "کد تحلیل آمار گوگل"
+
+#~ msgid "Set raychat live chat setting"
+#~ msgstr "تنظیمات چت آنلاین رایچت"
+
+#~ msgid ""
+#~ "If you want to have live chat in your website, enter your raychat token code here. \n"
+#~ "To do this, you need to register on raychat.to and get the code from there"
+#~ msgstr ""
+#~ "اگر می‌خواهید سیستم چت آنلاین در وب‌سایت خود داشته باشید می‌توانید از موتور چت رایچت "
+#~ "برای این کار استفاده کنید\n"
+#~ " بدین منظور ابتدا باید در سایت رایچت ثبت‌نام کنید و کد دریافت شده از آن سرویس را "
+#~ "اینجا قرار دهید"
+
+#~ msgid "Raychat code"
+#~ msgstr "کد رایچت"
+
+#~ msgid "Raychat live chat"
+#~ msgstr "چت آنلاین رایچت"
+
+#~ msgid "Set tawk live chat setting"
+#~ msgstr "تنظیمات چت آنلاین tawk"
+
+#~ msgid ""
+#~ "If you want to have live chat in your website, enter your tawk token code here. \n"
+#~ "To do this, you need to register on tawk.to and get the code from there"
+#~ msgstr ""
+#~ "اگر می‌خواهید سیستم چت آنلاین در وب‌سایت خود داشته باشید می‌توانید از موتور چت tawk "
+#~ "برای این کار استفاده کنید\n"
+#~ " بدین منظور ابتدا باید در سایت tawk.to ثبت‌نام کنید و کد دریافت شده از آن سرویس را "
+#~ "اینجا قرار دهید"
+
+#~ msgid "Tawk code"
+#~ msgstr "کد Tawk"
+
+#~ msgid "Tawk live chat"
+#~ msgstr "چت آنلاین tawk"
+
+#~ msgid "Set Enamad script code here"
+#~ msgstr "کد نماد اعتماد را در این قسمت تنظیم کنید"
+
+#~ msgid "Set samandehi script code here"
+#~ msgstr "کد ساماندهی را در این قسمت تنظیم کنید"
+
+#~ msgid "Google analytics setting"
+#~ msgstr "تنظیمات تحلیل‌گر آمار گوگل"
 
 #~ msgid "Select any of the menu items you want and move them to sort"
 #~ msgstr ""
