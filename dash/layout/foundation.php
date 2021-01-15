@@ -56,6 +56,10 @@ foreach (\dash\data::addons() as $service => $value)
     echo " <meta content='". $value. "' name='". $service. "'/>\n";
   }
 }
+if(isset($_SERVER['HTTP_REFERER']))
+{
+  echo " <meta content='". urlencode($_SERVER['HTTP_REFERER']). "' name='ref'/>\n";
+}
 ?>
  <meta content="yes" name="mobile-web-app-capable"/>
  <meta content="yes" name="apple-touch-fullscreen"/>
