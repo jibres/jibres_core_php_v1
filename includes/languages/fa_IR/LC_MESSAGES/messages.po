@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-15 19:24+0330\n"
-"PO-Revision-Date: 2021-01-15 19:28+0330\n"
+"POT-Creation-Date: 2021-01-15 19:58+0330\n"
+"PO-Revision-Date: 2021-01-15 19:59+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6454,7 +6454,7 @@ msgstr "مایکت"
 #: content_a/setting/thirdparty/enamad/display.php:41
 #: content_a/setting/thirdparty/googleanalytics/display.php:19
 #: content_a/setting/thirdparty/imber/display.php:18
-#: content_a/setting/thirdparty/raychat/display.php:19
+#: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
 #: content_a/setting/thirdparty/tawk/display.php:20 content_a/setup/address/display.php:61
 #: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:26
@@ -12163,6 +12163,10 @@ msgstr ""
 #: content_a/setting/thirdparty/raychat/display.php:12
 msgid "Raychat Token"
 msgstr "توکن رایچت"
+
+#: content_a/setting/thirdparty/raychat/display.php:16
+msgid "This service is disabled due to a security problem."
+msgstr "این سرویس به دلیل مشکل امنیتی تا اطلاع ثانوی غیرفعال است."
 
 #: content_a/setting/thirdparty/raychat/view.php:8
 msgid "Raychat"
@@ -23388,31 +23392,31 @@ msgstr "شناسه مطلب تنظیم نشده است"
 msgid "Invalid posts id"
 msgstr "شناسه مطلب اشتباه است"
 
-#: dash/app/posts/edit.php:101
+#: dash/app/posts/edit.php:106
 msgid "Post successfully updated"
 msgstr "مطلب با موفقیت به روز رسانی شد"
 
-#: dash/app/posts/edit.php:106
+#: dash/app/posts/edit.php:111
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
 
-#: dash/app/posts/edit.php:125
+#: dash/app/posts/edit.php:130
 msgid "When post set on type video you must be have fill the video file to publish"
 msgstr ""
 "وقتی نوع نوشته روی ویدئو تنظیم شده باشد شما باید یک فایل ویدئویی در این نوشته داشته "
 "باشید تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:140
+#: dash/app/posts/edit.php:145
 msgid "When post set on type audio you must be have fill the audio file to publish"
 msgstr ""
 "وقتی نوع نوشته روی پادکست تنظیم شده باشد شما باید یک فایل صوتی در این نوشته داشته باشید "
 "تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:229
+#: dash/app/posts/edit.php:234
 msgid "To convert to video you must have only one gallery items and that must be a video"
 msgstr "برای تغییر نوع به ویدئو شما باید یک فایل ویدئویی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/edit.php:249
+#: dash/app/posts/edit.php:254
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
@@ -23546,11 +23550,15 @@ msgstr "در آینده منتشر خواهد شد"
 msgid "Can not remove published post!"
 msgstr "نمی توانید نوشته منتشر شده را حذف کنید!"
 
-#: dash/app/posts/remove.php:36
+#: dash/app/posts/remove.php:32
+msgid "This post used in menu and can not be remove"
+msgstr ""
+
+#: dash/app/posts/remove.php:43
 msgid "Post removed"
 msgstr "نوشته حذف شد"
 
-#: dash/app/posts/remove.php:41
+#: dash/app/posts/remove.php:48
 msgid "Post move to trash"
 msgstr "نوشته به زباله‌دان منتقل شد"
 
@@ -24016,7 +24024,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:312
+#: dash/engine/guard.php:333
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -34371,7 +34379,7 @@ msgstr "شناسه تگ نادرست است"
 msgid "Please choose a social network"
 msgstr "لطفا شبکه‌های اجتماعی خود را تنظیم کنید"
 
-#: lib/app/menu/check.php:233
+#: lib/app/menu/check.php:238
 #, fuzzy
 #| msgid "Please enter url"
 msgid "Please set a url"
@@ -35120,15 +35128,15 @@ msgstr "عنوان محصول نمی تواند خالی باشد"
 msgid "Can not update product"
 msgstr "نمی‌توانیم محصول را به‌روزرسانی کنیم"
 
-#: lib/app/product/edit.php:394 lib/app/product/edit.php:404
+#: lib/app/product/edit.php:399 lib/app/product/edit.php:409
 msgid "Your product successfully updated"
 msgstr "محصول با موفقیت به روز رسانی شد"
 
-#: lib/app/product/edit.php:413
+#: lib/app/product/edit.php:418
 msgid "Your product saved without change"
 msgstr "محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/edit.php:422
+#: lib/app/product/edit.php:427
 msgid "No value found for editing"
 msgstr "هیچ مقداری برای ویرایش وجود ندارد"
 
@@ -35352,19 +35360,23 @@ msgstr "لطفا یکی از انواع این محصول را برای خرید
 msgid "This product have some child and can not be remove!"
 msgstr "این محصول تعدادی زیرمجموعه دارد و امکان حذف آن نیست!"
 
-#: lib/app/product/remove.php:42
+#: lib/app/product/remove.php:29
+msgid "This product used in menu item and can not be remove"
+msgstr ""
+
+#: lib/app/product/remove.php:49
 msgid "Product removed"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/remove.php:60
+#: lib/app/product/remove.php:67
 msgid "Invalid option index!"
 msgstr "شماره مرتب‌سازی اشتباه است!"
 
-#: lib/app/product/remove.php:130
+#: lib/app/product/remove.php:137
 msgid "All product by :val :col removed"
 msgstr "همه محصولات با تنوع :val :col حذف شد"
 
-#: lib/app/product/remove.php:135
+#: lib/app/product/remove.php:142
 msgid "No data to remove!"
 msgstr "داده‌ای برای حذف وجود ندارد!"
 

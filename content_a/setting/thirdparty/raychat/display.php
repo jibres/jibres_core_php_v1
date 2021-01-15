@@ -13,6 +13,7 @@
           <div class="input ltr">
             <input type="text" name="addon_raychat" id="iraychat" value="<?php echo a($storeData, 'addon_raychat'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
           </div>
+          <div class="msg danger"><?php echo T_("This service is disabled due to a security problem."); ?></div>
         </div>
 <?php if (!\dash\detect\device::detectPWA()) { ?>
         <footer class="txtRa">
