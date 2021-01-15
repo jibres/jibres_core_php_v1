@@ -75,6 +75,11 @@ class edit
 					// update sitemap
 					\dash\utility\sitemap::hashtag($_id);
 
+					if(isset($args['slug']))
+					{
+						\lib\app\menu\update::hashtag($_id, true);
+					}
+
 					\dash\log::set('productTagUpdated', ['old' => $get_tag, 'change' => $args]);
 					\dash\notif::ok(T_("The tag successfully updated"));
 					return true;

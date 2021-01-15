@@ -27,6 +27,29 @@ class update
 	}
 
 
+	public static function hashtag($_id, $_set = false)
+	{
+		$is_used = self::is_used('hashtag', $_id);
+
+		if(!$_set)
+		{
+			return $is_used;
+		}
+
+		if($is_used)
+		{
+			$load = \lib\app\tag\get::get($_id);
+
+			if(isset($load['link']))
+			{
+				return self::fix_update('hashtag', $_id, $load['link']);
+			}
+		}
+
+		return null;
+	}
+
+
 	public static function post($_id, $_set = false)
 	{
 		$is_used = self::is_used('posts', $_id);

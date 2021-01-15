@@ -16,6 +16,13 @@ class remove
 			return false;
 		}
 
+		$used_in_menu = \lib\app\menu\update::hashtag($_id);
+		if($used_in_menu)
+		{
+			\dash\notif::error(T_("This hashtag used in menu and can not be remove"));
+			return false;
+		}
+
 		if(isset($load['count']) && $load['count'])
 		{
 			// ok
