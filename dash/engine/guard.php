@@ -63,60 +63,129 @@ class guard
 
 	private static function header_content_security_policy()
 	{
-		$csp = '';
-		// default src
-		$csp .= "default-src 'self'; ";
-		// $csp .= "default-src 'none'; ";
-		// script-src
-		// $csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com 'unsafe-inline'; ";
-		$csp .= "script-src ". self::csp_cdn(). " www.google-analytics.com www.googletagmanager.com https://*.tawk.to https://cdn.jsdelivr.net/emojione/ static.cloudflareinsights.com http://localhost:9759/jibres/; ";
-		// style-src
-		$csp .= "style-src ". self::csp_cdn(). " https: 'unsafe-inline'; ";
-		// $csp .= "style-src ". self::csp_cdn(). "; ";
-		// img-src
-		$csp .= "img-src ". self::csp_cdn(). ' '. self::csp_domain(). " https: blob: data:; ";
-		// font-src
-		$csp .= "font-src ". self::csp_cdn(). " https: data:; ";
-		// media-src
-		$csp .= "media-src ". self::csp_cdn(). ' '. self::csp_domain(). " data:; ";
-		// frame-src
-		$csp .= "frame-src 'self' https://tejarak.com/ https://status.jibres.com/ https://sarshomar.com https://www.google.com/ https://*.tawk.to https://www.youtube.com/ https://www.aparat.com; ";
-		// base-uri
-		$csp .= "base-uri 'self'; ";
-		// manifest-src
-		$csp .= "manifest-src 'self'; ";
-		// connect-src
-		$csp .= "connect-src 'self' https://*.jibres.ir https://*.jibres.com wss: https:";
-		if(\dash\url::isLocal())
-		{
-			$csp .=  " *.jibres.local";
-		}
-		$csp .=  "; ";
-		// form-action
-		$csp .= "form-action 'self' https://va.tawk.to; ";
+		$policy =
+		[
+			'default-src' =>
+			[
+				"'self'",
+			],
+			'script-src' =>
+			[
+				self::csp_cdn(),
+				"www.google-analytics.com",
+				"www.googletagmanager.com",
+				"https://*.tawk.to",
+				"https://cdn.jsdelivr.net/emojione/",
+				"static.cloudflareinsights.com",
+				"http://localhost:9759/jibres/",
+			],
+			'style-src' =>
+			[
+				self::csp_cdn(),
+				"https:",
+				"'unsafe-inline'",
+			],
+			'img-src' =>
+			[
+				self::csp_cdn(),
+				self::csp_domain(),
+				"https:",
+				"blob:",
+				"data:",
+			],
+			'font-src' =>
+			[
+				self::csp_cdn(),
+				"https:",
+				"data:",
+			],
+			'media-src' =>
+			[
+				self::csp_cdn(),
+				self::csp_domain(),
+				"data:",
+			],
+			'frame-src' =>
+			[
+				"'self'",
+				"https://tejarak.com/",
+				"https://status.jibres.com/",
+				"https://sarshomar.com",
+				"https://www.google.com/",
+				"https://*.tawk.to",
+				"https://www.youtube.com/",
+				"https://www.aparat.com",
+			],
+			'base-uri' =>
+			[
+				"'self'",
+			],
+			'manifest-uri' =>
+			[
+				"'self'",
+			],
+			'connect-src' =>
+			[
+				"'self'",
+				'https://*.jibres.ir',
+				'https://*.jibres.com',
+				'wss:',
+				'https:',
+			],
+			'form-action' =>
+			[
+				"'self'",
+				'https://va.tawk.to'
+			],
+			'frame-ancestors' =>
+			[
+				"'self'",
+				self::csp_domain('*', 'jibres'),
+				\dash\url::site(),
+				\dash\url::set_subdomain('*'),
 
-		// -------------------------------------- blocked
-		// frame-ancestors
-		if(!self::header_xframe_option(true))
+			],
+			'block-all-mixed-content' => [],
+
+		];
+
+		if(self::header_xframe_option(true))
+		{
+			// remove ancestors;
+			unset($policy['frame-ancestors']);
+		}
+
+		if(\dash\url::module() === 'billboard')
 		{
 			// allow iframe on some conditions
-			if(\dash\url::module() === 'billboard')
-			{
-				$csp .= "frame-ancestors https:; ";
-			}
-			else
-			{
-				$csp .= "frame-ancestors self ". self::csp_domain('*', 'jibres'). " ". \dash\url::site(). " ". \dash\url::set_subdomain('*'). "; ";
-				// $csp .= "frame-ancestors 'none'; ";
-			}
+			$policy['frame-ancestors'][] = 'https:';
 		}
-		// block all mixed content
-		$csp .= "block-all-mixed-content;";
+
+
+		// for local
+		if(\dash\url::isLocal())
+		{
+			$policy['connect-src'][] = '*.jibres.local';
+		}
+
+		// create export txt
+		$policyTxt = '';
+		foreach ($policy as $group => $arr)
+		{
+			$policyTxt.= $group;
+			foreach ($arr as $index => $val)
+			{
+				$policyTxt .= ' '. $val;
+			}
+			$policyTxt.= '; ';
+		}
+
+		$policyTxt = trim($policyTxt);
 
 		// @todo add report
 		// report-uri core.jibres.com/r10/csp/log
 
-		@header("Content-Security-Policy: ". $csp);
+		@header("Content-Security-Policy: ". $policyTxt);
 	}
 
 
