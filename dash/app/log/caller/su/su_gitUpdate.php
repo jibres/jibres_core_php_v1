@@ -58,7 +58,7 @@ class su_gitUpdate
 
 		$tg_msg = '';
 		$tg_msg .= "🛢#JibresUpdate";
-		$tg_msg .= "\n";
+		$tg_msg .= " ";
 		$tg_msg .= "👨‍💻 ".\dash\log::from_name();
 		$tg_msg .= "\n";
 
