@@ -90,6 +90,11 @@ class edit
 
 			self::check_update_sitemap($load_posts, $args);
 
+			if(array_key_exists('url', $args))
+			{
+				\lib\app\menu\update::post($id, true);
+			}
+
 			if(\dash\engine\process::status())
 			{
 

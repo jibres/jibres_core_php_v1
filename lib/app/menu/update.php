@@ -27,6 +27,29 @@ class update
 	}
 
 
+	public static function post($_id, $_set = false)
+	{
+		$is_used = self::is_used('posts', $_id);
+
+		if(!$_set)
+		{
+			return $is_used;
+		}
+
+		if($is_used)
+		{
+			$load = \dash\app\posts\get::get(\dash\coding::encode($_id));
+
+			if(isset($load['link']))
+			{
+				return self::fix_update('posts', $_id, $load['link']);
+			}
+		}
+
+		return null;
+	}
+
+
 
 	private static function fix_update($_pointer, $_relate_id, $_url)
 	{

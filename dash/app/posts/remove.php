@@ -26,6 +26,13 @@ class remove
 
 		}
 
+		$load_menu = \lib\app\menu\update::post($load['id']);
+		if($load_menu)
+		{
+			\dash\notif::error(T_("This post used in menu and can not be remove"));
+			return false;
+		}
+
 		// \dash\db\comments\delete::by_post_id($load['id']);
 
 		if($load['status'] === 'deleted')
