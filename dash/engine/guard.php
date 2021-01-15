@@ -159,7 +159,7 @@ class guard
 
 		];
 
-		if(self::header_xframe_option(true))
+		if(self::header_xframe_option(true) || \dash\url::module() === 'billboard')
 		{
 			// remove ancestors;
 			unset($policy['frame-ancestors']);
