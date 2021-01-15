@@ -18,6 +18,14 @@ class update
 	}
 
 
+	public static function update_related_url($_pointer, $_related_id, $_url)
+	{
+		$query  = "UPDATE menu SET menu.url = '$_url' WHERE menu.pointer = '$_pointer' AND menu.related_id = $_related_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function sort_level($_update)
 	{
 		$query = [];

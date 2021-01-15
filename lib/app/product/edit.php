@@ -369,6 +369,11 @@ class edit
 					self::check_update_sitemap($args, $id);
 				}
 
+				if(isset($args['title']))
+				{
+					\lib\app\menu\update::product($id, true);
+				}
+
 				if(\dash\engine\process::status())
 				{
 					if(!$isChild)
