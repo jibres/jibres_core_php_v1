@@ -5,14 +5,14 @@ class viewThirdParty
 {
 	public static function append()
 	{
-		\dash\data::addons_gtag(self::addon_googleAnalytics());
-		\dash\data::addons_tawk(self::addon_tawk());
-		\dash\data::addons_imber(self::addon_imber());
-		\dash\data::addons_raychat(self::addon_raychat());
+		\dash\data::addons_gtag(self::googleAnalytics());
+		\dash\data::addons_tawk(self::tawk());
+		\dash\data::addons_imber(self::imber());
+		\dash\data::addons_raychat(self::raychat());
 	}
 
 
-	private static function addon_googleAnalytics()
+	public static function googleAnalytics()
 	{
 		// supersaeed guid
 		// UA-130946685-3
@@ -43,7 +43,7 @@ class viewThirdParty
 	}
 
 
-	private static function addon_tawk()
+	public static function tawk()
 	{
 		if(\dash\engine\store::inStore())
 		{
@@ -72,7 +72,7 @@ class viewThirdParty
 	}
 
 
-	private static function addon_imber()
+	public static function imber()
 	{
 		if(\dash\engine\store::inStore())
 		{
@@ -101,10 +101,8 @@ class viewThirdParty
 	}
 
 
-	private static function addon_raychat()
+	public static function raychat()
 	{
-		return null;
-
 		if(\dash\engine\store::inStore())
 		{
 			if(\lib\store::detail('addon_raychat'))

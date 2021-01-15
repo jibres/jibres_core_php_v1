@@ -82,13 +82,7 @@ class guard
 			'script-src' =>
 			[
 				self::csp_cdn(),
-				"www.google-analytics.com",
-				"www.googletagmanager.com",
-				"https://*.tawk.to",
-				"https://cdn.jsdelivr.net/emojione/",
-				"static.cloudflareinsights.com",
 				"http://localhost:9759/jibres/",
-				"https://*.imber.live/",
 			],
 			'style-src' =>
 			[
@@ -140,7 +134,6 @@ class guard
 			'form-action' =>
 			[
 				"'self'",
-				'https://va.tawk.to'
 			],
 			'frame-ancestors' =>
 			[
@@ -161,6 +154,34 @@ class guard
 		{
 			// allow iframe on some conditions
 			$policy['frame-ancestors'] = ['https:'];
+		}
+
+		// add some special if that one exist on page
+		// google analytics
+		if(\dash\engine\viewThirdParty::googleAnalytics())
+		{
+			$policy['script-src'][] = "www.google-analytics.com";
+			$policy['script-src'][] = "www.googletagmanager.com";
+		}
+		// tawk
+		if(\dash\engine\viewThirdParty::tawk())
+		{
+			$policy['script-src'][] = "https://*.tawk.to";
+			$policy['script-src'][] = "https://cdn.jsdelivr.net/emojione/";
+			$policy['script-src'][] = "static.cloudflareinsights.com";
+			$policy['form-action'][] = 'https://va.tawk.to';
+		}
+		// Raychat
+		if(\dash\engine\viewThirdParty::raychat())
+		{
+			$policy['script-src'][] = "https://*.raychat.io/";
+			// $policy['script-src'][] = "'unsafe-inline'";
+			$policy['media-src'][] = "https://app.raychat.io/";
+		}
+		// Imber
+		if(\dash\engine\viewThirdParty::imber())
+		{
+			$policy['script-src'][] = "https://*.imber.live/";
 		}
 
 		// for local
