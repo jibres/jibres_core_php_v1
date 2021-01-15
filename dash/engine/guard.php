@@ -168,7 +168,7 @@ class guard
 		if(\dash\url::module() === 'billboard')
 		{
 			// allow iframe on some conditions
-			$policy['frame-ancestors'][] = 'https:';
+			$policy['frame-ancestors'] = ['https:'];
 		}
 
 
