@@ -23,6 +23,13 @@ class remove
 			return false;
 		}
 
+		$used_in_menu = \lib\app\menu\update::product($_id);
+		if($used_in_menu)
+		{
+			\dash\notif::error(T_("This product used in menu item and can not be remove"));
+			return false;
+		}
+
 		$parent_id = null;
 
 		if(isset($product_detail['parent']) && $product_detail['parent'])
