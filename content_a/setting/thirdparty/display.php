@@ -1,6 +1,6 @@
 
-<div class="f justify-center">
-  <div class="c8 s12 m10 x6 pA20">
+<div class="row justify-center">
+  <div class="c-xs-12 c-sm-12 c-md-8">
     <h2><?php echo T_("Analytics"); ?></h2>
     <nav class="items mB25-f">
       <ul>

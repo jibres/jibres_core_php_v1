@@ -1,23 +1,23 @@
-<?php
-$storeData = \dash\data::store_store_data();
-?>
+<?php $storeData = \dash\data::store_store_data(); ?>
 
+<div class="row justify-center">
+ <div class="c-xs-12 c-sm-12 c-md-8">
+  <form method="post" autocomplete="off" id='aThirdParty'>
+    <div class="box impact">
+      <div class="body">
+        <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/google-analytics-banner.png" alt='Google Analytics'>
+        <p class="msg"><?php echo T_("Google Analytics is a web analytics service offered by Google that tracks and reports website traffic, currently as a platform inside the Google Marketing Platform brand. As of 2019, Google Analytics is the most widely used web analytics service on the web. Google Analytics provides an SDK that allows gathering usage data from iOS and Android app, known as Google Analytics for Mobile Apps."); ?></p>
 
-<div class="f justify-center">
- <div class="c6 s12 pA10">
-  <form method="post" autocomplete="off">
-    <div  class="box impact mB25-f">
-      <header><h2><?php echo T_("Google Analytics");?></h2></header>
-        <div class="body">
-          <p class="mB0-f"><?php echo T_("If you want to have the details of your website in full detail, please enter your Google Analytics code here. \nTo do this, you need to register on Google Analytics and get the code from there"); ?></p>
-            <label for="igoogleanalytics"><?php echo T_("Google Analytics code"); ?> <span class="fc-red">*</span></label>
-            <div class="input ltr">
-              <input type="text" name="google_analytics" id="igoogleanalytics" placeholder="UA-123456789-0"  value="<?php echo a($storeData, 'google_analytics'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
-            </div>
-        </div>
-        <footer class="txtRa">
-          <button  class="btn success" ><?php echo T_("Save"); ?></div>
-        </footer>
+          <label for="igoogleanalytics"><?php echo T_("Your Google Analytics Tracking ID"); ?> <span class="fc-red">*</span></label>
+          <div class="input ltr">
+            <input type="text" name="google_analytics" id="igoogleanalytics" placeholder="UA-123456789-0"  value="<?php echo a($storeData, 'google_analytics'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='20' minlength="1">
+          </div>
+      </div>
+<?php if (!\dash\detect\device::detectPWA()) { ?>
+      <footer class="txtRa">
+        <button class="btn success" ><?php echo T_("Save"); ?></div>
+      </footer>
+<?php } ?>
     </div>
   </form>
  </div>

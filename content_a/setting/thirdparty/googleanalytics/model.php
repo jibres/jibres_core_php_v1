@@ -8,7 +8,7 @@ class model
 	{
 		$post =
 		[
-			'google_analytics'    => \dash\request::post('google_analytics'),
+			'google_analytics' => \dash\request::post('google_analytics'),
 		];
 
 		\lib\app\store\edit::selfedit($post);

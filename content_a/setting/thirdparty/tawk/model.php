@@ -8,7 +8,7 @@ class model
 	{
 		$post =
 		[
-			'addon_tawk'    => \dash\request::post('addon_tawk'),
+			'addon_tawk' => \dash\request::post('addon_tawk'),
 		];
 
 		\lib\app\store\edit::selfedit($post);

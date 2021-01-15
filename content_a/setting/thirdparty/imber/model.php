@@ -8,7 +8,7 @@ class model
 	{
 		$post =
 		[
-			'addon_imber'    => \dash\request::post('addon_imber'),
+			'addon_imber' => \dash\request::post('addon_imber'),
 		];
 
 		\lib\app\store\edit::selfedit($post);

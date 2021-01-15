@@ -8,7 +8,7 @@ class model
 	{
 		$post =
 		[
-			'addon_raychat'    => \dash\request::post('addon_raychat'),
+			'addon_raychat' => \dash\request::post('addon_raychat'),
 		];
 
 		\lib\app\store\edit::selfedit($post);
