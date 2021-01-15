@@ -6,11 +6,6 @@ class view
 {
 	public static function config()
 	{
-		if(!\dash\permission::supervisor())
-		{
-			\dash\header::status(403);
-		}
-
 		\dash\face::title(T_('Jibres Investment Opportunity'));
 		\dash\face::desc(T_('If you are interested in investing in Jibres, we have created this page for you to answer your questions'));
 		// btn
