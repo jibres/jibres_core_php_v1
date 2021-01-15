@@ -15,7 +15,7 @@ class generate
 		}
 
 		self::$result = '';
-		self::$result .= '<ol class="items2" data-layer-limit="3" data-sortable>';
+		self::$result .= '<ol class="items2" data-layer-limit="4" data-sortable>';
 
 		self::create_admin($_menu);
 
