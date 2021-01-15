@@ -77,6 +77,7 @@ class view
 
 		\dash\data::addons_googleAnalytics(self::addon_googleAnalytics());
 		\dash\data::addons_tawk(self::addon_tawk());
+		\dash\data::addons_imber(self::addon_imber());
 		\dash\data::addons_raychat(self::addon_raychat());
 
 
@@ -302,15 +303,41 @@ class view
 			{
 				case 'ir':
 					return '5fc8dc17a1d54c18d8f00574';
-					break;
 
 				case 'com':
 					return '5fdb8b03a8a254155ab44bbd';
-					break;
 
 				default:
 					return null;
-					break;
+			}
+		}
+
+		return null;
+	}
+
+
+	private static function addon_imber()
+	{
+		if(\dash\engine\store::inStore())
+		{
+			if(\lib\store::detail('addon_imber'))
+			{
+				return \lib\store::detail('addon_imber');
+			}
+		}
+		else
+		{
+			switch (\dash\url::tld())
+			{
+				case 'ir':
+					return 'z4ukjzykjxzslen';
+
+				case 'com':
+					return null;
+
+				default:
+					return 'z4ukjzykjxzslen';
+					return null;
 			}
 		}
 

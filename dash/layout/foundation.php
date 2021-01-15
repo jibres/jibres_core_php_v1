@@ -64,6 +64,10 @@ if(\dash\data::addons_raychat())
 {
   echo " <meta content='". \dash\data::addons_raychat(). "' name='raychat'/>\n";
 }
+if(\dash\data::addons_imber())
+{
+  echo " <meta content='". \dash\data::addons_imber(). "' name='imber'/>\n";
+}
 ?>
  <meta content="yes" name="mobile-web-app-capable"/>
  <meta content="yes" name="apple-touch-fullscreen"/>
