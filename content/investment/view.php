@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		if(!\dash\url::isLocal())
+		if(!\dash\permission::supervisor())
 		{
 			\dash\header::status(403);
 		}
