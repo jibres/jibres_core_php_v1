@@ -2,13 +2,17 @@
 
 <div class="avand-sm impact zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
-    <div  class="box">
+    <div class="box">
         <div class="body">
-          <p class="mB0-f"><?php echo T_("If you want to have live chat in your website, enter your raychat token code here. \nTo do this, you need to register on raychat.to and get the code from there"); ?></p>
-            <label for="iraychat"><?php echo T_("Raychat code"); ?> <span class="fc-red">*</span></label>
-            <div class="input ltr">
-            <input type="text" name="addon_raychat" id="iraychat" value="<?php echo a($storeData, 'addon_raychat'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
-            </div>
+          <img class="block mB10" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/raychat-banner.png" alt='raychat'>
+          <div class="msg">
+            <p><?php echo T_("Raychat is a free customer messaging platform. Chat with your customers and make them a loyal customer.") ?></p>
+          </div>
+
+          <label for="iraychat"><?php echo T_("Raychat Token"); ?> <span class="fc-red">*</span></label>
+          <div class="input ltr">
+            <input type="text" name="addon_raychat" id="iraychat" value="<?php echo a($storeData, 'addon_raychat'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
+          </div>
         </div>
 <?php if (!\dash\detect\device::detectPWA()) { ?>
         <footer class="txtRa">

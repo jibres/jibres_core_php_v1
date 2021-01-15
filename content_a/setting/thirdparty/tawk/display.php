@@ -12,7 +12,7 @@
 
           <label for="itawk">tawk.to Property ID <span class="fc-red">*</span></label>
           <div class="input ltr">
-            <input type="text" name="addon_tawk" id="itawk" value="<?php echo a($storeData, 'addon_tawk'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
+            <input type="text" name="addon_tawk" id="itawk" value="<?php echo a($storeData, 'addon_tawk'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
           </div>
         </div>
 <?php if (!\dash\detect\device::detectPWA()) { ?>
