@@ -173,7 +173,7 @@
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/thirdparty">
                     <div class="c-auto"><i class="sf-lamp"></i></div>
                     <div class="c">
-                        <h2><?php echo T_("third Party Services"); ?></h2>
+                        <h2><?php echo T_("Third Party Services"); ?></h2>
                         <p><?php echo T_("Connect to other services like google analytics, live chat"); ?></p>
                     </div>
                 </a>

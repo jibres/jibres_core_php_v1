@@ -1,7 +1,5 @@
 <?php $storeData = \dash\data::store_store_data(); ?>
-
-<div class="row justify-center">
- <div class="c-xs-12 c-sm-12 c-md-8">
+<div class="avand-sm zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div class="box impact">
       <div class="body">
@@ -20,7 +18,6 @@
 <?php } ?>
     </div>
   </form>
- </div>
 </div>
 
 
