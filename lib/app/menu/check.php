@@ -15,17 +15,18 @@ class check
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
 			'related_id'    => 'id',
-			// 'parent1'       => 'id',
-			// 'parent2'       => 'id',
-			// 'parent3'       => 'id',
-			// 'parent4'       => 'id',
-			// 'parent5'       => 'id',
+			// 'parent1'    => 'id',
+			// 'parent2'    => 'id',
+			// 'parent3'    => 'id',
+			// 'parent4'    => 'id',
+			// 'parent5'    => 'id',
 			'product_id'    => 'id',
 			'post_id'       => 'code',
 			'form_id'       => 'id',
 			'tag_id'        => 'code',
 			'socialnetwork' => 'string_50',
 			'hashtag_id'    => 'id',
+			'form_id'       => 'id',
 		];
 
 		$require = ['title'];

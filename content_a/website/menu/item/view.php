@@ -79,6 +79,15 @@ class view
 			}
 		}
 
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'forms' && isset($dataRow['related_id']) && $dataRow['related_id'])
+		{
+			$loadForm = \lib\app\form\form\get::get($dataRow['related_id']);
+			if(isset($loadForm['title']))
+			{
+				\dash\data::formTitle($loadForm['title']);
+			}
+		}
+
 	}
 }
 ?>
