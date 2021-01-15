@@ -103,6 +103,7 @@ class viewThirdParty
 
 	public static function raychat()
 	{
+		return null;
 		if(\dash\engine\store::inStore())
 		{
 			if(\lib\store::detail('addon_raychat'))
