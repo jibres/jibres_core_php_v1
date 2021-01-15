@@ -118,13 +118,7 @@ class guard
 			'frame-src' =>
 			[
 				"'self'",
-				"https://tejarak.com/",
-				"https://status.jibres.com/",
-				"https://sarshomar.com",
-				"https://www.google.com/",
-				"https://*.tawk.to",
-				"https://www.youtube.com/",
-				"https://www.aparat.com",
+				"https:",
 			],
 			'base-uri' =>
 			[
@@ -150,13 +144,10 @@ class guard
 			'frame-ancestors' =>
 			[
 				"'self'",
-				self::csp_domain('*', 'jibres'),
 				\dash\url::site(),
-				\dash\url::set_subdomain('*'),
-
+				self::csp_domain('*', 'jibres'),
 			],
 			'block-all-mixed-content' => [],
-
 		];
 
 		if(self::header_xframe_option(true) || \dash\url::module() === 'billboard')
