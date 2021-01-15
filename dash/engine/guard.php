@@ -57,7 +57,15 @@ class guard
 		}
 		if(!$_readonly)
 		{
-			@header('X-Frame-Options: DENY');
+			if(\dash\url::module() === 'billboard')
+			{
+				// allow
+				@header('X-Frame-Options: *');
+			}
+			else
+			{
+				@header('X-Frame-Options: DENY');
+			}
 		}
 		return false;
 	}
