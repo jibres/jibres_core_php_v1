@@ -35,6 +35,7 @@ class edit
 		if(isset($_args['product_id']) || isset($_args['post_id']) || isset($_args['tag_id']) || isset($_args['hashtag_id']) || isset($_args['form_id']))
 		{
 			$exception[] = 'related_id';
+			$exception[] = 'url';
 		}
 
 		if(isset($_args['socialnetwork']))

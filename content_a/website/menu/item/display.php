@@ -87,7 +87,7 @@ $addChildMode = \dash\data::addChildMode();
         <div data-response='pointer' data-response-where='other' <?php if(\dash\data::dataRow_pointer() === 'other'){}else{ echo 'data-response-hide';} ?>>
           <label for="url"><?php echo T_("Url"); ?></label>
           <div class="input ltr">
-            <input type="text" name="url" id="url" value="<?php echo \dash\data::dataRow_url(); ?>" >
+            <input type="text" name="url" id="url" value="<?php if(\dash\data::dataRow_pointer() === 'other') { echo \dash\data::dataRow_url(); } ?>" >
           </div>
           <div class="switch1 mB5">
             <input type="checkbox" name="target" id="target" <?php if(\dash\data::dataRow_target()) { echo 'checked';} ?>>

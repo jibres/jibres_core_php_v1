@@ -117,13 +117,18 @@ class check
 					return false;
 				}
 
-				$load_product = \lib\app\product\get::inline_get($data['product_id']);
+				$load_product = \lib\app\product\get::get($data['product_id']);
 				if(!isset($load_product['id']))
 				{
 					\dash\notif::error(T_("Invalid product id"));
 					return false;
 				}
 				$data['related_id'] = $load_product['id'];
+
+				if(isset($load_product['url']))
+				{
+					$data['url'] = $load_product['url'];
+				}
 				break;
 
 			case 'posts':
@@ -133,13 +138,18 @@ class check
 					return false;
 				}
 
-				$load_post = \dash\app\posts\get::inline_get($data['post_id']);
+				$load_post = \dash\app\posts\get::get($data['post_id']);
 				if(!isset($load_post['id']))
 				{
 					\dash\notif::error(T_("Invalid post id"));
 					return false;
 				}
-				$data['related_id'] = $load_post['id'];
+				$data['related_id'] = \dash\coding::decode($load_post['id']);
+
+				if(isset($load_post['link']))
+				{
+					$data['url'] = $load_post['link'];
+				}
 				break;
 
 			case 'forms':
@@ -156,6 +166,12 @@ class check
 					return false;
 				}
 				$data['related_id'] = $load_form['id'];
+
+				if(isset($load_form['url']))
+				{
+					$data['url'] = $load_form['url'];
+				}
+
 				break;
 
 			case 'tags':
@@ -172,6 +188,12 @@ class check
 					return false;
 				}
 				$data['related_id'] = \dash\coding::decode($load_tag['id']);
+
+				if(isset($load_tag['link']))
+				{
+					$data['url'] = $load_tag['link'];
+				}
+
 				break;
 
 			case 'hashtag':
@@ -189,6 +211,11 @@ class check
 					return false;
 				}
 				$data['related_id'] = $load_hashtag['id'];
+
+				if(isset($load_hashtag['link']))
+				{
+					$data['url'] = $load_hashtag['link'];
+				}
 				break;
 
 			case 'socialnetwork':
@@ -197,6 +224,7 @@ class check
 					\dash\notif::error(T_("Please choose a social network"));
 					return false;
 				}
+				$data['url'] = null;
 				break;
 
 			case 'other':
