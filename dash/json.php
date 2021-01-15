@@ -6,7 +6,7 @@ namespace dash;
 class json
 {
 
-	public static function decode($_json)
+	public static function decode($_json, $_array = true)
 	{
 		if(!is_string($_json))
 		{
@@ -15,7 +15,7 @@ class json
 
 		$_json = preg_replace('/\r|\n/','\n', trim($_json));
 
-		$array = json_decode($_json, true);
+		$array = json_decode($_json, $_array);
 
 		if(!is_array($array))
 		{
