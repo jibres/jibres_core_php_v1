@@ -89,13 +89,13 @@ class viewThirdParty
 		switch (\dash\url::tld())
 		{
 			case 'ir':
-				return 'z4ukjzykjxzslen';
+				return null;
+				// return 'z4ukjzykjxzslen';
 
 			case 'com':
 				return null;
 
 			default:
-				return 'z4ukjzykjxzslen';
 				return null;
 		}
 	}
