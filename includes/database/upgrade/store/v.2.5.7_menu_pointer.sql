@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.menu CHANGE `pointer` `pointer` enum('homepage','products','posts','forms','tags','hashtag','socialnetwork','other', 'title', 'separator') NULL DEFAULT NULL;

@@ -11,7 +11,7 @@ class check
 		[
 			'title'         => 'title',
 			'url'           => 'string_500',
-			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other']],
+			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other', 'title', 'separator']],
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
 			'related_id'    => 'id',
@@ -224,6 +224,11 @@ class check
 					\dash\notif::error(T_("Please choose a social network"));
 					return false;
 				}
+				$data['url'] = null;
+				break;
+
+			case 'title':
+			case 'separator':
 				$data['url'] = null;
 				break;
 
