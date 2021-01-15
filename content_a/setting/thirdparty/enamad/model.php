@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\enamad;
+namespace content_a\setting\thirdparty\enamad;
 
 
 class model

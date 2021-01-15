@@ -1,15 +1,15 @@
 <?php
-namespace content_a\setting\addon\imber;
+namespace content_a\setting\thirdparty\imber;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Setting'). ' | '. T_('Imber live chat'));
+		\dash\face::title(T_('Imber'));
 
 		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::here(). '/website');
+		\dash\data::back_text(T_('Third Party Services'));
+		\dash\data::back_link(\dash\url::that());
 	}
 }
 ?>

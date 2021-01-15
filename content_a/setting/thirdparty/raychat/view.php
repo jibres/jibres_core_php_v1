@@ -1,17 +1,15 @@
 <?php
-namespace content_a\setting\addon\raychat;
+namespace content_a\setting\thirdparty\raychat;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Setting'). ' | '. T_('Raychat live chat'));
-
+		\dash\face::title(T_('Raychat'));
 
 		// back
-
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::here(). '/website');
+		\dash\data::back_text(T_('Third Party Services'));
+		\dash\data::back_link(\dash\url::that());
 	}
 }
 ?>

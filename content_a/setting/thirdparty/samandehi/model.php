@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\samandehi;
+namespace content_a\setting\thirdparty\samandehi;
 
 
 class model

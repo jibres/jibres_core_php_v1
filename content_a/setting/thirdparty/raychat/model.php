@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\addon\raychat;
+namespace content_a\setting\thirdparty\raychat;
 
 
 class model

@@ -19,7 +19,5 @@ class model
 			\dash\redirect::pwd();
 		}
 	}
-
-
 }
 ?>

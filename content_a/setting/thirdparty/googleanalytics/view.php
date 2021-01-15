@@ -7,10 +7,8 @@ class view
 	{
 		\dash\face::title(T_('Google Analytics'));
 
-
 		// back
-
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('Third Party Services'));
 		\dash\data::back_link(\dash\url::that());
 	}
 }

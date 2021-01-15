@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\addon\imber;
+namespace content_a\setting\thirdparty\imber;
 
 
 class model

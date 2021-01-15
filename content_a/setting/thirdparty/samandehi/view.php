@@ -1,15 +1,15 @@
 <?php
-namespace content_a\setting\samandehi;
+namespace content_a\setting\thirdparty\samandehi;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Setting'). ' | '. T_('samandehi'));
-		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::here(). '/website');
+		\dash\face::title(T_('samandehi'));
 
+		// back
+		\dash\data::back_text(T_('Third Party Services'));
+		\dash\data::back_link(\dash\url::that());
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\addon\tawk;
+namespace content_a\setting\thirdparty\tawk;
 
 
 class model

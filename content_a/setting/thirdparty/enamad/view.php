@@ -1,14 +1,15 @@
 <?php
-namespace content_a\setting\enamad;
+namespace content_a\setting\thirdparty\enamad;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Setting'). ' | '. T_('Enamad'));
+		\dash\face::title(T_('Enamad'));
+
 		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::here(). '/website');
+		\dash\data::back_text(T_('Third Party Services'));
+		\dash\data::back_link(\dash\url::that());
 
 		$storeData = \dash\data::store_store_data();
 		$enamad = isset($storeData['enamad']) ? $storeData['enamad'] : null;
