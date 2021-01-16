@@ -84,6 +84,9 @@ class datetime
 
 		}
 
+
+		$data = date($format, strtotime($data));
+
 		try
 		{
 
