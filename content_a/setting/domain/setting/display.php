@@ -21,7 +21,7 @@
   </form>
 </section>
 
-
+<?php if($masterdomain) {?>
 <section class="f" data-option='redirect-subdomain-to-domain'>
   <div class="c8 s12">
     <div class="data">
@@ -73,6 +73,4 @@
     </div>
   </form>
 </section>
-
-
-
+<?php } //endif ?>
