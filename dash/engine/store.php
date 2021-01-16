@@ -23,7 +23,7 @@ class store
 	 *
 	 * @var        boolean
 	 */
-	private static $IN_SOTE  = false;
+	private static $IN_STORE  = false;
 
 
 	/**
@@ -51,7 +51,7 @@ class store
 	 */
 	public static function inStore()
 	{
-		return self::$IN_SOTE;
+		return self::$IN_STORE;
 	}
 
 
@@ -500,7 +500,7 @@ class store
 
 			self::$store_loaded_detail = $detail;
 
-			self::$IN_SOTE = true;
+			self::$IN_STORE = true;
 
 			if(!\dash\url::store())
 			{
