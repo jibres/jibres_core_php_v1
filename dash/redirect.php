@@ -145,13 +145,15 @@ class redirect
 	{
 		if(!\dash\user::login())
 		{
+			$pwd = urlencode(\dash\url::pwd());
+
 			if($_php)
 			{
-				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), true, 302);
+				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. $pwd, true, 302);
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. \dash\url::pwd(), false);
+				\dash\redirect::to(\dash\url::kingdom(). '/enter?referer='. $pwd, false);
 			}
 		}
 		\dash\data::pageWithLogin(true);

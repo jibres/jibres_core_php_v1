@@ -43,6 +43,7 @@ class controller
 		$referer = \dash\validate::url(\dash\request::get('referer'), false);
 		if($referer)
 		{
+			$referer = urldecode($referer);
 			\dash\session::set('enter_referer', $referer);
 		}
 	}
