@@ -46,7 +46,7 @@ class safe
 					break;
 
 				case 'sqlinjection':
-					$remove_inject = ["'", '"', '\\\\\\', '`', '\*'];
+					$remove_inject = ["'", '"', '\\\\\\', '`'];
 					$checkPersianChar = true;
 					break;
 
@@ -78,8 +78,6 @@ class safe
 		if($trim)
 		{
 			$_string = trim($_string);
-
-			// $_string = self::remove_2s($_string);
 		}
 
 		$_string = self::remove_2nl($_string);
@@ -124,47 +122,7 @@ class safe
 	}
 
 
-	public static function remove_nl($_string)
-	{
-		$_string = preg_replace("/[\n]/", " ", $_string);
-		return $_string;
-	}
 
-
-	public static function remove_2s($_string)
-	{
-		$_string = preg_replace("/\h+/", " ", $_string);
-		return $_string;
-	}
-
-
-
-
-	public static function stripTags($_string)
-	{
-		$_string = strip_tags($_string);
-		$_string = str_replace('<p>', '', $_string);
-		$_string = str_replace('</p>', '', $_string);
-		$_string = str_replace('<br>', '', $_string);
-		$_string = str_replace('<br/>', '', $_string);
-		$_string = str_replace('<br />', '', $_string);
-		return $_string;
-	}
-
-
-	public static function forJson($_string)
-	{
-		$_string = preg_replace("/\<\/[\w]\>/", ' ', $_string);
-		$_string = preg_replace("/\r/", ' ', $_string);
-		$_string = preg_replace("/\n/", ' ', $_string);
-		$_string = strip_tags($_string);
-		$_string = trim($_string);
-		$_string = self::remove_2nl($_string);
-		$_string = self::remove_nl($_string);
-		$_string = self::remove_2s($_string);
-		$_string = trim($_string);
-		return $_string;
-	}
 
 	/**
 	 * Nested function for walk array or object
