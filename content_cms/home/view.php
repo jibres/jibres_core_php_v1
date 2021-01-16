@@ -13,10 +13,7 @@ class view
 
 		\dash\data::dashboardDetail(\dash\app\posts\dashboard::detail());
 
-		if(\dash\permission::check('cmsSetting'))
-		{
-			\dash\face::btnSetting(\dash\url::here(). '/setting');
-		}
+
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\setting\home;
+namespace content_cms\customization\home;
 
 class controller
 {

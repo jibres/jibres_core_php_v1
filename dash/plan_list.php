@@ -197,7 +197,7 @@ class plan_list
 		$master['cmsAttachmentAdd']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAttachmentAdd', 			'title' => T_('Add New Attachment'), 'require' => []];
 		$master['cmsManageAttachment']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAttachment', 			'title' => T_('Manage Attachments'), 'require' => []];
 
-		$master['cmsSetting']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsSetting',	 				'title' => T_('Manage CMS setting'), 'require' => []];
+		$master['cmsSetting']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsSetting',	 				'title' => T_('CMS customization'), 'require' => []];
 
 		// --------------- Need to check
 

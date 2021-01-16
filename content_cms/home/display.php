@@ -131,6 +131,19 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
           </li>
         </ul>
       </nav>
+<?php if(\dash\permission::check('cmsSetting')) {?>
+  <nav class="items long">
+        <ul>
+          <li class="">
+            <a class="item f" href="<?php echo \dash\url::here();?>/customization">
+              <i class="sf-cog"></i>
+              <div class="key"><?php echo T_('Customization');?></div>
+              <div class="go info"></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+<?php } //endif ?>
 <?php if(\dash\permission::check('cmsAttachmentView')) {?>
       <nav class="items long">
         <ul>
