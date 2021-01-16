@@ -610,14 +610,9 @@ class store
 	}
 
 
-	/**
-	 * Retrun the store url
-	 *
-	 * @return     string  ( description_of_the_return_value )
-	 */
-	public static function url()
+	public static function master_domain($_full = false)
 	{
-		$store_domain = null;
+		$master_domain = null;
 
 		$store_detail = self::detail();
 
@@ -625,20 +620,53 @@ class store
 		{
 			foreach ($store_detail['store_data']['domain'] as $key => $value)
 			{
-				if(isset($value['domain']) && $value['domain'] && isset($value['master']) && $value['master'] && ((isset($value['status']) && $value['status'] === 'ok') || (isset($value['subdomain']) && $value['subdomain'])))
+				if(
+					isset($value['domain']) &&
+					$value['domain'] &&
+					isset($value['master']) &&
+					$value['master'] &&
+					(
+						(
+							isset($value['status']) &&
+							$value['status'] === 'ok'
+						)
+						||
+						(
+							isset($value['subdomain']) &&
+							$value['subdomain']
+						)
+					)
+				  )
 				{
 
-					$store_domain = $value['domain'];
+					$master_domain = $value['domain'];
 					// $lang = null;
 					// if(\dash\language::current() !== \dash\language::primary())
 					// {
 					// 	$lang = '/'. \dash\language::current();
 					// }
-					$store_domain = \dash\url::protocol(). '://'. $store_domain; // .$lang;
+					$master_domain = \dash\url::protocol(). '://'. $master_domain; // .$lang;
+					if($_full && \dash\url::path())
+					{
+						$master_domain .= \dash\url::path();
+					}
 				}
 			}
 
 		}
+
+		return $master_domain;
+	}
+
+
+	/**
+	 * Retrun the store url
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function url()
+	{
+		$store_domain = self::master_domain();
 
 		if($store_domain)
 		{
