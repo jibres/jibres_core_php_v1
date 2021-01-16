@@ -28,7 +28,7 @@ class search
 		$condition =
 		[
 			'order'        => 'order',
-			'sort'         => ['enum' => ['title',]],
+			'sort'         => 'string_50',
 			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'       => ['enum' => ['publish', 'draft', 'deleted']],
 			'user_code'    => 'code',
@@ -257,7 +257,10 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$order_sort = " ORDER BY $data[sort] $data[order]";
+			if(\dash\app\posts\filter::check_allow($data['sort'], $data['order']))
+			{
+				$order_sort = " ORDER BY $data[sort] $data[order]";
+			}
 		}
 
 		if(!$order_sort)

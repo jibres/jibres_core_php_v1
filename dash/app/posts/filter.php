@@ -54,6 +54,15 @@ class filter
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
 
+		$sort_list[] = ['title' => T_("Publish date DESC"), 'query' => ['sort' => 'publishdate', 'order' => 'desc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("Publish date ASC"), 	'query' => ['sort' => 'publishdate', 'order' => 'asc'], 	'public' => false];
+
+		$sort_list[] = ['title' => T_("Date modified DESC"),'query' => ['sort' => 'datemodified', 'order' => 'desc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("Date modified ASC"), 'query' => ['sort' => 'datemodified', 'order' => 'asc'], 	'public' => false];
+
+		$sort_list[] = ['title' => T_("Date created DESC"),'query' => ['sort' => 'datecreated', 'order' => 'desc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("Date created ASC"), 'query' => ['sort' => 'datecreated', 'order' => 'asc'], 		'public' => false];
+
 
 		$current_string_query = \dash\request::get();
 		unset($current_string_query['sort']);
