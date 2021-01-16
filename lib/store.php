@@ -6,24 +6,13 @@ namespace lib;
  */
 class store
 {
-	private static $life_time  = 60 * 3;
-
+	/**
+	 * Load store detail
+	 *
+	 * @var        array
+	 */
 	private static $store      = [];
 
-	private static $store_slug = null;
-
-
-	// clean session and init again store detail
-	public static function refresh()
-	{
-		$store_id = self::id();
-		if($store_id)
-		{
-			self::reset_cache();
-			self::clean();
-			self::init();
-		}
-	}
 
 	/**
 	 * Set master config for load store
@@ -40,25 +29,19 @@ class store
 	}
 
 
-	public static function clean_session($_slug)
-	{
-		// need to remove
-	}
 
-	/**
-	 * clean chach to load detail again
-	 * user in edit store
-	 */
-	public static function clean()
+	// clean session and init again store detail
+	public static function refresh()
 	{
-		$addr = \dash\engine\store::setting_addr(). self::id();
-		if(is_file($addr))
+		$store_id = self::id();
+		if($store_id)
 		{
-			\dash\file::delete($addr);
+			self::reset_cache();
+			self::$store = [];
+			self::init();
 		}
-
-		self::$store = [];
 	}
+
 
 
 	public static function reset_cache($_id = null)
@@ -79,7 +62,7 @@ class store
 			$id = $_id;
 		}
 
-		if(!$id)
+		if(!$id || !is_numeric($id))
 		{
 			return false;
 		}
@@ -121,7 +104,7 @@ class store
 
 		if(!$_id)
 		{
-			self::clean();
+			self::$store = [];
 		}
 
 	}
@@ -170,13 +153,7 @@ class store
 		}
 
 
-		$store_detail_file = [];
-
-		$store_id = \dash\engine\store::store_detail();
-		if(isset($store_id['id']) && is_numeric($store_id['id']))
-		{
-			$store_detail_file = \dash\engine\store::init_by_id($store_id['id']);
-		}
+		$store_detail_file = \dash\engine\store::store_detail();
 
  		// no file founded an no record existe in jibres database
  		if(!$store_detail_file || !isset($store_detail_file['store']))
@@ -316,7 +293,7 @@ class store
 
 		$load_store_domain_record = [];
 
-		if($_store_id)
+		if($_store_id && is_numeric($_store_id))
 		{
 			// load domain status from jibres database
 			//@check @reza
