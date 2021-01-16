@@ -27,3 +27,26 @@
     </div>
   </form>
 </section>
+
+
+
+<section class="f" data-option='cms-post-showwriter'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Show wrirter name");?></h3>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+  <form autocomplete="off" class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <input type="hidden" name="runaction_showwriter" value="1">
+      <select class="select22" name="showwriter">
+          <option value="default" <?php if(\dash\data::dataRow_showwriter() == 'default') { echo 'selected'; } ?> ><?php echo T_("Default"); ?></option>
+          <option value="visible" <?php if(\dash\data::dataRow_showwriter() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
+          <option value="hidden" <?php if(\dash\data::dataRow_showwriter() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
+        </select>
+    </div>
+  </form>
+</section>

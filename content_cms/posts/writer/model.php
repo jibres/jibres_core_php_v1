@@ -5,11 +5,17 @@ class model
 {
 	public static function post()
 	{
+		$post = [];
 
-		$post =
-		[
-			'creator'     => \dash\request::post('creator'),
-		];
+		if(\dash\request::post('runaction_showwriter'))
+		{
+			$post['showwriter']  = \dash\request::post('showwriter');
+
+		}
+		else
+		{
+			$post['creator']  = \dash\request::post('creator');
+		}
 
 
 		if(!$post || !\dash\engine\process::status())

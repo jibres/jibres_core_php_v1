@@ -20,18 +20,22 @@ class check
 			'content'         => 'html',
 			'type'            => ['enum' => ['post', 'page', 'help', 'mag']],
 			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'comment'         => 'bit',
 			'status'          => ['enum' => ['publish','draft']],
 			'specialaddress'  => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
+
+			'comment'         => ['enum' => ['open','closed','default']],
+			'showwriter'      => ['enum' => ['visible','hidden','default']],
+			'showdate'        => ['enum' => ['visible','hidden','default']],
+
 			'parent'          => 'code',
 			'publishdate'     => 'date',
 			'publishtime'     => 'time',
 			'redirecturl'     => 'url',
 			'creator'         => 'code',
 			'tagurl'          => 'code',
-			'tags'             => 'tag',
+			'tags'            => 'tag',
 			'set_publishdate' => 'bit',
-			'set_seo' => 'bit',
+			'set_seo'         => 'bit',
 		];
 
 		$require = ['title'];
@@ -72,16 +76,6 @@ class check
 
 		// all record is page
 		$data['type']    = 'post';
-
-		if($data['comment'] === 'close')
-		{
-			$data['comment'] = 'close';
-		}
-		else
-		{
-			$comment         = $data['comment'] ? 'open' : 'closed';
-			$data['comment'] = $comment;
-		}
 
 		if(!$data['language'])
 		{

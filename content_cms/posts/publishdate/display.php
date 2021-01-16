@@ -39,6 +39,13 @@
           <?php if(\dash\data::dataRow_status() !== 'publish'){?>
           </div>
         <?php  }//endif ?>
+
+        <label for="showdate"><?php echo T_("Show wrirter name");?></label>
+        <select class="select22" name="showdate">
+          <option value="default" <?php if(\dash\data::dataRow_showdate() == 'default') { echo 'selected'; } ?> ><?php echo T_("Default"); ?></option>
+          <option value="visible" <?php if(\dash\data::dataRow_showdate() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
+          <option value="hidden" <?php if(\dash\data::dataRow_showdate() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
+        </select>
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Save") ?></button>

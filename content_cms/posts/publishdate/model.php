@@ -10,6 +10,7 @@ class model
 		[
 			'publishdate'     => \dash\request::post('publishdate'),
 			'publishtime'     => \dash\request::post('publishtime'),
+			'showdate'        => \dash\request::post('showdate'),
 			'set_publishdate' => 1,
 		];
 
@@ -19,6 +20,7 @@ class model
 			[
 				'publishdate'     => null,
 				'publishtime'     => null,
+				'showdate'        => \dash\request::post('showdate'),
 				'set_publishdate' => 1,
 			];
 		}
