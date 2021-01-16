@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-16 10:22+0330\n"
-"PO-Revision-Date: 2021-01-16 10:23+0330\n"
+"POT-Creation-Date: 2021-01-16 13:20+0330\n"
+"PO-Revision-Date: 2021-01-16 13:21+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -994,7 +994,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_support/ticket/contact_ticket/model.php:126
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:355
-#: lib/store.php:554
+#: lib/store.php:531
 msgid "Email"
 msgstr "رایانامه"
 
@@ -3060,7 +3060,7 @@ msgstr "تاریخ انتشار عمومی"
 
 #: content/investment/display.php:111
 msgid "Soon."
-msgstr "بزودی"
+msgstr "بزودی."
 
 #: content/investment/display.php:119
 msgid "Our company and the problem we're solving"
@@ -4971,7 +4971,7 @@ msgstr "افزودن"
 #: content_crm/permission/user/display.php:11 content_my/domain/irnic/edit/display.php:25
 #: content_support/ticket/show/chatList.php:130
 #: content_support/ticket/show/chatList.php:241 content_v2/app/view.php:152
-#: includes/languages/trans_static_public.php:144 lib/app/menu/generate.php:46
+#: includes/languages/trans_static_public.php:144 lib/app/menu/generate.php:65
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -5479,7 +5479,7 @@ msgstr "ساخت یک نسخه کپی از سند حسابداری"
 #: content_a/accounting/doc/edit/model.php:147
 #: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:264
 #: content_cms/files/add/model.php:33 content_cms/files/remove/model.php:32
-#: content_cms/posts/edit/model.php:122
+#: content_cms/posts/edit/model.php:121
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
@@ -7327,13 +7327,12 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/social/view.php:8 content_a/setting/staticfile/view.php:8
 #: content_a/setting/telegram/view.php:10 content_a/setting/thirdparty/view.php:10
 #: content_a/tag/home/view.php:16 content_a/units/view.php:11
-#: content_cms/sitemap/view.php:10 content_love/business/domain/pageStep.php:23
-#: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
-#: content_love/store/display.php:60 content_my/domain/irnic/view.php:16
-#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
-#: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
-#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:202
-#: lib/app/store/analytics.php:123
+#: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
+#: content_love/store/display.php:27 content_love/store/display.php:60
+#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
+#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
+#: dash/layout/admin/admin-titlebox.php:27 dash/layout/admin/sidebar/sidebar-a.php:21
+#: dash/layout/pwa/pwa_menu.php:202 lib/app/store/analytics.php:123
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -10836,21 +10835,29 @@ msgstr ""
 "یک دامنه را به عنوان دامنه اصلی بیزینس خود مشخص کنید. در این حالت تمامی دامنه‌های متصل "
 "به بیزینس شما بر روی این دامنه منتقل خواهند شد"
 
+#: content_a/setting/domain/setting/display.php:28
+msgid "Redirect jibres subdomain to business master domain"
+msgstr "انتقال زیردامنه جیبرس به دامنه اصلی بیزینس شما"
+
 #: content_a/setting/domain/setting/display.php:30
+msgid "If this feature is enable all request from :from redirect to :to "
+msgstr "اگر این امکان فعال باشد همه درخواست‌ها از :from منتقل می‌شوند به :to "
+
+#: content_a/setting/domain/setting/display.php:55
 msgid "Redirect all domain to master"
 msgstr "انتقال همه‌ دامنه‌ها به دامنه اصلی"
 
-#: content_a/setting/domain/setting/display.php:32
+#: content_a/setting/domain/setting/display.php:57
 msgid "Enable these settings if you want to route all business domain independently"
 msgstr ""
 "اگر میخواهید همه دامنه‌های متصل به بیزینس خود را به صورت مستقل داشته باشید این تنظیمات "
 "را فعال کنید"
 
-#: content_a/setting/domain/setting/display.php:34
+#: content_a/setting/domain/setting/display.php:59
 msgid "Be careful in this case you are at risk in terms of content and SEO"
 msgstr "مراقب باشید در این حالت شما از نظر سئو در معرض خطر هستید"
 
-#: content_a/setting/domain/setting/display.php:36
+#: content_a/setting/domain/setting/display.php:61
 msgid "All sites linked to your business will be redirected to the main domain"
 msgstr "تمام دامنه‌های متصل به بیزینس شما بر روی دامنه اصلی منتقل خواهند شد"
 
@@ -11115,9 +11122,10 @@ msgstr "جمع‌آوری داده‌ها."
 
 #: content_a/setting/home/display.php:220 content_cms/comments/home/view.php:11
 #: content_cms/files/home/view.php:15 content_cms/posts/home/view.php:45
-#: content_cms/setting/home/view.php:9 content_cms/tag/home/view.php:16
-#: content_love/home/display.php:105 dash/layout/admin/admin-sidebar-frame.php:17
-#: dash/plan_list.php:103 lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
+#: content_cms/setting/home/view.php:9 content_cms/sitemap/view.php:10
+#: content_cms/tag/home/view.php:16 content_love/home/display.php:105
+#: dash/layout/admin/admin-sidebar-frame.php:17 dash/plan_list.php:103
+#: lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
 #: lib/app/store/analytics.php:56 lib/app/store/analytics.php:57
 #: lib/app/store/analytics.php:58 lib/app/store/analytics.php:59
 #: lib/app/store/analytics.php:60 lib/app/store/analytics.php:61
@@ -11781,7 +11789,7 @@ msgstr "این گزینه‌ها در وب‌سایت شما استفاده خو
 
 #: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: lib/app/website/init.php:82 lib/store.php:547
+#: lib/app/website/init.php:82 lib/store.php:524
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -11794,39 +11802,39 @@ msgstr "کانال"
 msgid "Telegram Admin user"
 msgstr "نام کاربری ادمین تلگرام"
 
-#: content_a/setting/social/display.php:38 lib/store.php:549
+#: content_a/setting/social/display.php:38 lib/store.php:526
 msgid "Youtube"
 msgstr "یوتیوب"
 
 #: content_a/setting/social/display.php:45 content_account/my/home/display.php:170
 #: content_account/my/social/display.php:27 content_account/my/social/display.php:30
-#: lib/store.php:550
+#: lib/store.php:527
 msgid "Twitter"
 msgstr "توییتر"
 
 #: content_a/setting/social/display.php:52 content_account/my/home/display.php:175
 #: content_account/my/social/display.php:34 content_account/my/social/display.php:37
-#: includes/languages/trans_static_public.php:251 lib/store.php:551
+#: includes/languages/trans_static_public.php:251 lib/store.php:528
 msgid "Linkedin"
 msgstr "لینکدین"
 
 #: content_a/setting/social/display.php:59 includes/languages/trans_static_public.php:250
-#: lib/store.php:552
+#: lib/store.php:529
 msgid "Github"
 msgstr "گیت‌هاب"
 
 #: content_a/setting/social/display.php:66 content_account/my/home/display.php:165
 #: content_account/my/social/display.php:20 content_account/my/social/display.php:23
-#: lib/store.php:553
+#: lib/store.php:530
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
 #: content_a/setting/social/display.php:80 includes/languages/trans_static_public.php:252
-#: lib/store.php:555
+#: lib/store.php:532
 msgid "Aparat"
 msgstr "آپارات"
 
-#: content_a/setting/social/display.php:87 lib/store.php:556
+#: content_a/setting/social/display.php:87 lib/store.php:533
 msgid "Eitaa"
 msgstr "ایتا"
 
@@ -12059,7 +12067,7 @@ msgstr "چت آنلاین"
 
 #: content_a/setting/thirdparty/display.php:22
 msgid "tawk.to - 100% FREE live chat!"
-msgstr "tawk.to چت زنده ۱۰۰٪ رایگان"
+msgstr "tawk.to چت زنده ۱۰۰٪ رایگان!"
 
 #: content_a/setting/thirdparty/display.php:30
 msgid "RayChat - Online Chat Platform"
@@ -12159,7 +12167,7 @@ msgid ""
 "loyal customer."
 msgstr ""
 "با نصب رایچت بر روی وب سایت میتوانید با مشتریانتون بصورت لحظه ای گفتگو (چت) بکنید و هیچ "
-"کاربری رو از دست ندید. تجربه جدید گفتگوی آنلاین اینجا آغاز می‌شود!"
+"کاربری رو از دست ندید. تجربه جدید گفتگوی آنلاین اینجا آغاز می‌شود."
 
 #: content_a/setting/thirdparty/raychat/display.php:12
 msgid "Raychat Token"
@@ -12183,7 +12191,7 @@ msgstr ""
 "وابسته به مرکز توسعه فناوری اطلاعات و رسانه‌های دیجیتال وزارت فرهنگ و ارشاد اسلامی است. "
 "این سامانه مانع فیلتر کلی سایت می‌گردد. یعنی با ثبت مشخصات مدیر سایت در سامانه ساماندهی، "
 "بعد از دریافت اخطار، چنانچه در اسرع وقت نسبت به حذف محتوای اعلام شده از طرف سامانه "
-"اقدام کنید، سایت شما فیلتر نخواهد شد!"
+"اقدام کنید، سایت شما فیلتر نخواهد شد."
 
 #: content_a/setting/thirdparty/samandehi/display.php:13
 msgid "Your samandehi detail was saved"
@@ -14957,7 +14965,7 @@ msgstr "بارگذاری"
 
 #: content_cms/files/add/view.php:11 content_cms/files/home/view.php:10
 #: content_cms/files/setting/view.php:10 content_cms/files/setting/view.php:12
-#: content_cms/files/view/view.php:11 content_cms/home/display.php:141
+#: content_cms/files/view/view.php:11 content_cms/home/display.php:140
 #: includes/languages/trans_static.php:562 lib/app/store/analytics.php:117
 msgid "Files"
 msgstr "فایل‌ها"
@@ -15066,23 +15074,23 @@ msgstr "در انتظار تایید"
 msgid "Sitemap"
 msgstr "نقشه‌ی سایت"
 
-#: content_cms/home/display.php:154
+#: content_cms/home/display.php:153
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:171
+#: content_cms/home/display.php:170
 msgid "Latest Posts"
 msgstr "آخرین نوشته‌ها"
 
-#: content_cms/home/display.php:189
+#: content_cms/home/display.php:188
 msgid "No post has registered yet!"
 msgstr "هنوز هیچ نوشته‌ای ثبت نشده است!"
 
-#: content_cms/home/display.php:194
+#: content_cms/home/display.php:193
 msgid "Latest Comments"
 msgstr "آخرین دیدگاه‌ها"
 
-#: content_cms/home/display.php:210
+#: content_cms/home/display.php:209
 msgid "No comment has registered yet!"
 msgstr "هنوز هیچ دیدگاهی ثبت نشده است!"
 
@@ -15518,11 +15526,11 @@ msgstr ""
 "می‌کنیم. با این حال شما می‌توانید درخواستی برای ساخت مجدد نقشه سایت داشته باشید. \n"
 " با این درخواست تمامی فایل‌های مرتبط با نقشه سایت حذف شده و مجددا ساخته خواهند شد"
 
-#: content_cms/sitemap/model.php:11
+#: content_cms/sitemap/model.php:13
 msgid "Sitemap successfully created"
 msgstr "نقشه سایت با موفقیت ایجاد شد"
 
-#: content_cms/sitemap/model.php:28
+#: content_cms/sitemap/model.php:30
 msgid "Sitemap rebuild successfully"
 msgstr "ساخت مجدد نقشه سایت با موفقیت انجام شد"
 
@@ -19438,7 +19446,7 @@ msgstr "پیام"
 #: content_love/log/home/logTable.php:60 content_su/home/display.php:197
 #: content_su/tg/home/view.php:11 content_support/ticket/show/display.php:166
 #: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
-#: lib/app/website/init.php:92 lib/store.php:548
+#: lib/app/website/init.php:92 lib/store.php:525
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -19824,7 +19832,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:111
-#: lib/app/store/check.php:55
+#: lib/app/store/check.php:56
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -23380,7 +23388,7 @@ msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکت�
 
 #: dash/app/posts/dropdown.php:21
 msgid "Posts not found."
-msgstr "نوشته یافت نشد"
+msgstr "نوشته یافت نشد."
 
 #: dash/app/posts/dropdown.php:36 dash/app/user/site_list.php:39
 #: lib/app/product/site_list.php:70
@@ -26097,7 +26105,7 @@ msgstr ""
 "سیستم تماس بگیرید"
 
 #: dash/validate/dataarray.php:46 dash/validate/datetime.php:22
-#: dash/validate/datetime.php:211
+#: dash/validate/datetime.php:214
 msgid "Field :val must be string or number"
 msgstr "فیلد :val باید به صورت عددی یا متی وارد شود"
 
@@ -26121,7 +26129,7 @@ msgstr "شما می‌توانید حداکثر ۱۰۰ کلید‌واژه اض�
 msgid "You can set maximum 5 cat"
 msgstr "شما می‌توانید حداکثر ۵ دسته‌بندی اضافه کنید"
 
-#: dash/validate/datetime.php:32 dash/validate/datetime.php:221
+#: dash/validate/datetime.php:32 dash/validate/datetime.php:224
 msgid "Field :val must be larger than 2 character"
 msgstr "فیلد :val باید بزرگتر از ۲ حرف باشد"
 
@@ -26133,25 +26141,25 @@ msgstr "فیلد :val باید کمتر از ۳۰ حرف باشد"
 msgid "Field :val is not a valid date field"
 msgstr "فیلد :val وارد شد شامل یک تاریخ صحیح نیست"
 
-#: dash/validate/datetime.php:97 dash/validate/datetime.php:107
-#: dash/validate/datetime.php:121 lib/app/tax/year/check.php:60
+#: dash/validate/datetime.php:100 dash/validate/datetime.php:110
+#: dash/validate/datetime.php:124 lib/app/tax/year/check.php:60
 #: lib/app/tax/year/check.php:67
 msgid "Invalid date"
 msgstr "تاریخ نامعتبر است"
 
-#: dash/validate/datetime.php:148 dash/validate/datetime.php:175
+#: dash/validate/datetime.php:151 dash/validate/datetime.php:178
 msgid "Invalid birthday"
 msgstr "تاریخ تولد اشتباه است"
 
-#: dash/validate/datetime.php:165
+#: dash/validate/datetime.php:168
 msgid "Invalid birthday, birthday can not larger than date now!"
 msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
-#: dash/validate/datetime.php:232
+#: dash/validate/datetime.php:235
 msgid "Field :val must be less than 8 character"
 msgstr "فیلد :val باید کمتر از ۸ حرف باشد"
 
-#: dash/validate/datetime.php:263
+#: dash/validate/datetime.php:266
 msgid "Invalid time format, Please enter the time by correct format for example 12:15"
 msgstr "قالب ساعت اشتباه است. لطفا ساعت را به درستی وارد کنید برای مثال ۱۲:۱۵"
 
@@ -33662,7 +33670,11 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/edit.php:44
+#: lib/app/form/form/edit.php:43
+msgid "This form used in menu and can not be remove"
+msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
+
+#: lib/app/form/form/edit.php:54
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
@@ -34388,7 +34400,7 @@ msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 msgid "Can not save this menu level!"
 msgstr "نمی‌توانیم این سطح از منو را ذخیره کنیم!"
 
-#: lib/app/menu/generate.php:45
+#: lib/app/menu/generate.php:59
 msgid "Add Subitem"
 msgstr "افزودن زیرمنو"
 
@@ -35944,7 +35956,7 @@ msgstr "پوز"
 msgid "Urls"
 msgstr "آدرس‌ها"
 
-#: lib/app/store/check.php:63
+#: lib/app/store/check.php:64
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
@@ -39777,9 +39789,6 @@ msgstr "یارد"
 
 #~ msgid "You have not any master doamin"
 #~ msgstr "شما برای بیزینس خود دامنه اصلی مشخص نکرده‌اید"
-
-#~ msgid "If your want to set this domain as your business master domain"
-#~ msgstr "اگر می‌خواهید این دامنه را به عنوان دامنه اصلی بیزینس خود انتخاب کنید"
 
 #~ msgid "Add this time you set :domain as master domain"
 #~ msgstr "در حال حاضر دامنه اصلی بیزینس شما بر روی :domain تنظیم شده است"
