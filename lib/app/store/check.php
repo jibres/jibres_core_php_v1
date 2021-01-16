@@ -41,6 +41,7 @@ class check
 			'samandehi_link2'               => 'url',
 
 			'redirect_all_domain_to_master' => 'bit',
+			'redirect_jibres_subdomain_to_master' => 'bit',
 		];
 
 		$require = ['title'];

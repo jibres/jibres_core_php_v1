@@ -9,7 +9,27 @@ class model
 		if(\dash\request::post('master') === 'master')
 		{
 			\lib\app\business_domain\edit::set_my_master(\dash\request::post('masterdomain'));
+
+			\dash\redirect::pwd();
+
 		}
+
+		if(\dash\request::post('redirectsubdomain') === 'redirectsubdomain')
+		{
+			$post =
+			[
+				'redirect_jibres_subdomain_to_master'    => \dash\request::post('redirect_jibres_subdomain_to_master'),
+			];
+
+			\lib\app\store\edit::selfedit($post);
+
+			\lib\store::refresh();
+
+			\dash\redirect::pwd();
+
+		}
+
+
 
 		if(\dash\request::post('redirect') === 'redirect')
 		{

@@ -1,4 +1,4 @@
-
+<?php $masterdomain = null; ?>
 <section class="f" data-option='master-domain'>
   <div class="c8 s12">
     <div class="data">
@@ -14,9 +14,34 @@
       <select name="masterdomain" class="select22" data-placeholder='<?php echo T_("Please choose one domain as master") ?>'>
         <option value="" readonly><?php echo T_("Please choose one domain as master") ?></option>
         <?php foreach (\dash\data::domainList() as $key => $value) {?>
-            <option value="<?php echo a($value, 'domain'); ?>" <?php if(a($value, 'master')) { echo "selected";} ?>><?php echo a($value, 'domain') ?></option>
+            <option value="<?php echo a($value, 'domain'); ?>" <?php if(a($value, 'master')) { $masterdomain = a($value, 'domain'); echo "selected";} ?>><?php echo a($value, 'domain') ?></option>
         <?php } ?>
       </select>
+    </div>
+  </form>
+</section>
+
+
+<section class="f" data-option='redirect-subdomain-to-domain'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Redirect jibres subdomain to business master domain");?></h3>
+      <div class="body">
+        <p><?php echo T_("If this feature is enable all request from :from redirect to :to ",
+        [
+          'from' => '<br><code>'. \lib\store::detail('subdomain').'.jibres.'. \dash\url::tld(). '</code><br>',
+          'to' => '<br><code>'. $masterdomain. '</code>',
+        ]); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="redirectsubdomain" value="redirectsubdomain">
+    <div class="action">
+        <div class="switch1">
+          <input id="redirect_jibres_subdomain_to_master" type="checkbox" name="redirect_jibres_subdomain_to_master" <?php if(\dash\data::redirectJibresSubdomainToMaster()) {echo 'checked';} ?>>
+          <label for="redirect_jibres_subdomain_to_master"></label>
+        </div>
     </div>
   </form>
 </section>
@@ -48,3 +73,6 @@
     </div>
   </form>
 </section>
+
+
+

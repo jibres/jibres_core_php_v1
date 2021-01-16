@@ -16,6 +16,8 @@ class view
 		\dash\data::domainList($all_domain_name);
 
 		\dash\data::redirectAllDomainToMaster(\lib\store::detail('redirect_all_domain_to_master'));
+		\dash\data::redirectJibresSubdomainToMaster(\lib\store::detail('redirect_jibres_subdomain_to_master'));
+
 
 	}
 }
