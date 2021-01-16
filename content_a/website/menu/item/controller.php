@@ -35,7 +35,7 @@ class controller
 			$load_one_child = \lib\app\menu\get::one_child(\dash\request::get('id'), $child_id);
 			if(!$load_one_child)
 			{
-				\dash\header::status(404, T_("Invalid child id"));
+				\dash\header::status(404, T_("Invalid sub menu id"));
 			}
 
 			if($editMode)

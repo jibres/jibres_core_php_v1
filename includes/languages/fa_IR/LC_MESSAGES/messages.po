@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-15 19:58+0330\n"
-"PO-Revision-Date: 2021-01-15 19:59+0330\n"
+"POT-Creation-Date: 2021-01-16 10:22+0330\n"
+"PO-Revision-Date: 2021-01-16 10:23+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -65,7 +65,7 @@ msgstr "درباره جیبرس"
 #: content/changelog/view.php:15 content/contact/view.php:17
 #: content/domains/home/view.php:12 content/enterprise/view.php:13
 #: content/forceunlock/view.php:12 content/free/view.php:12 content/help/view.php:13
-#: content/investment/view.php:17 content/press/view.php:15 content/pricing/view.php:13
+#: content/investment/view.php:12 content/press/view.php:15 content/pricing/view.php:13
 #: content/privacy/view.php:15 content/shipping/irpost/view.php:12
 #: content/shipping/view.php:12 content/socialresponsibility/view.php:15
 #: content/status/view.php:12 content/story/view.php:12 content/subscribe/view.php:13
@@ -2280,7 +2280,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:33
 #: content_a/setting/place/inventory/display.php:31
 #: content_a/setting/place/inventory/display.php:44
-#: content_a/website/menu/item/display.php:25 content_a/website/productline/view.php:15
+#: content_a/website/menu/item/display.php:20 content_a/website/productline/view.php:15
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:271 dash/plan_list.php:44
 #: includes/languages/trans_static.php:560 lib/app/export/product.php:43
 #: lib/app/website/body/template.php:91
@@ -2853,7 +2853,7 @@ msgstr ""
 "جیبرس سریع‌ترین سایت‌سازی است که دیده‌ام. ممکن است ابتدا پیچیده به نظر بیاید، ولی بعد از "
 "مدتی تمامی امکانات واضح می‌شوند و نیاز وجودیشان را در چالش‌های متفاوت درک خواهید کرد."
 
-#: content/investment/display.php:3 content/investment/view.php:14
+#: content/investment/display.php:3 content/investment/view.php:9
 msgid "Jibres Investment Opportunity"
 msgstr "فرصت سرمایه‌گذاری در جیبرس"
 
@@ -3066,113 +3066,113 @@ msgstr "بزودی"
 msgid "Our company and the problem we're solving"
 msgstr "شرکت ما و مشکلی که ما حل می‌کنیم"
 
-#: content/investment/display.php:125
+#: content/investment/display.php:131
 msgid "Is our solution uniquely addressing this problem?"
 msgstr "آیا راه‌حل ما به‌شکل منحصربفردی این مشکل را برطرف می‌کند؟"
 
-#: content/investment/display.php:126 content/investment/display.php:131
-#: content/investment/display.php:136 content/investment/display.php:141
-#: content/investment/display.php:146 content/investment/display.php:151
-#: content/investment/display.php:156 content/investment/display.php:161
-#: content/investment/display.php:166 content/investment/display.php:172
-#: content/investment/display.php:177 content/investment/display.php:182
-#: content/investment/display.php:187 content/investment/display.php:192
-#: content/investment/display.php:197 content/investment/display.php:202
-#: content/investment/display.php:207 content/investment/display.php:213
-#: content/investment/display.php:218 content/investment/display.php:223
-#: content/investment/display.php:228 content/investment/display.php:234
-msgid "."
-msgstr ""
-
-#: content/investment/display.php:130
+#: content/investment/display.php:146
 msgid "Who are the Jibres target market and customers?"
 msgstr "بازار هدف و مشتریان جیبرس چه کسانی هستند؟"
 
-#: content/investment/display.php:135
+#: content/investment/display.php:148 content/investment/display.php:155
+#: content/investment/display.php:162 content/investment/display.php:169
+#: content/investment/display.php:176 content/investment/display.php:183
+#: content/investment/display.php:190 content/investment/display.php:197
+#: content/investment/display.php:205 content/investment/display.php:212
+#: content/investment/display.php:219 content/investment/display.php:226
+#: content/investment/display.php:233 content/investment/display.php:240
+#: content/investment/display.php:247 content/investment/display.php:254
+#: content/investment/display.php:262 content/investment/display.php:269
+#: content/investment/display.php:276 content/investment/display.php:283
+#: content/investment/display.php:291
+msgid "."
+msgstr "."
+
+#: content/investment/display.php:153
 msgid "How have our customers solve their problems so far?"
 msgstr "مشتریان ما پیش از این چگونه مشکل خود را حل می‌کردند؟"
 
-#: content/investment/display.php:140
+#: content/investment/display.php:160
 msgid "What is our estimate of the size of the Jibers business market?"
 msgstr "تخمین ما از اندازه بازار تجاری جیبرس چقدر است؟"
 
-#: content/investment/display.php:145
+#: content/investment/display.php:167
 msgid "Jibres business model"
 msgstr "بیزینس مدل جیبرس"
 
-#: content/investment/display.php:150
+#: content/investment/display.php:174
 msgid "How will our company change the world?"
 msgstr "چطور شرکت ما دنیا را تغییر می‌دهد؟"
 
-#: content/investment/display.php:155
+#: content/investment/display.php:181
 msgid "What is the big picture and vision?"
 msgstr "چشم‌انداز و نهایت ایده ما کجاست؟"
 
-#: content/investment/display.php:160
+#: content/investment/display.php:188
 msgid "Why our team is uniquely qualified to solve this problem?"
 msgstr "چرا تیم ما برای حل این مشکل منحصربفرد و یکتاست؟"
 
-#: content/investment/display.php:165
+#: content/investment/display.php:195
 msgid "How long have we been working together? How did we meet?"
 msgstr "چه مدت است که تیم ما با هم کار می‌کند؟ چگونه با هم آشنا شدیم؟"
 
-#: content/investment/display.php:170
+#: content/investment/display.php:202
 msgid "What are our KPIs or metrics for growth?"
 msgstr "معیارهای قابل اندازه‌گیری یا KPI ما برای رشد چیست؟"
 
-#: content/investment/display.php:176
+#: content/investment/display.php:210
 msgid "What are our totals and month over month growth?"
 msgstr "مجموع و رشد ماهیانه ما چقدر است؟"
 
-#: content/investment/display.php:181
+#: content/investment/display.php:217
 msgid "How do we plan to acquire customers/users?"
 msgstr "برنامه ما برای کسب مشتری یا کاربر چیست؟"
 
-#: content/investment/display.php:186
+#: content/investment/display.php:224
 msgid "Explain any capital raised to date and terms"
 msgstr "تشریح هرگونه سرمایه جمع‌شده تا به امروز و شرایط آن"
 
-#: content/investment/display.php:191
+#: content/investment/display.php:231
 msgid "What is our monthly burn? How much runway do we have?"
 msgstr "مصرف سوخت ماهیانه ما چقدر است؟ تا چند وقت میتونیم پرواز کنیم؟"
 
-#: content/investment/display.php:196
+#: content/investment/display.php:238
 msgid "Jibres competitors"
 msgstr "رقبای جیبرس"
 
-#: content/investment/display.php:201
+#: content/investment/display.php:245
 msgid "Jibres competitive advantage over competitors"
 msgstr "مزیت رقابتی جیبرس نسبت به رقبا"
 
-#: content/investment/display.php:206
+#: content/investment/display.php:252
 msgid "Can our all founders work full-time?"
 msgstr "آیا همه موسسان ما می‌توانند تمام وقت کار کنند؟"
 
-#: content/investment/display.php:211
+#: content/investment/display.php:259
 msgid "Our shareholders of the company"
 msgstr "سهامداران شرکت"
 
-#: content/investment/display.php:217
+#: content/investment/display.php:267
 msgid "How much capital do we need to grow at this stage?"
 msgstr "در این مرحله به چه میزان سرمایه برای رشد نیاز داریم؟"
 
-#: content/investment/display.php:222
+#: content/investment/display.php:274
 msgid "At this stage, what percentage of the shares will we transfer to the investor?"
 msgstr "در این مرحله حداکثر چند درصد از سهام را به سرمایه‌گذار منتقل می‌کنیم؟"
 
-#: content/investment/display.php:227
+#: content/investment/display.php:281
 msgid "How much has been invested in Jibres so far?"
 msgstr "تاکنون چقدر در جیبرس سرمایه‌گذاری شده است؟"
 
-#: content/investment/display.php:232
+#: content/investment/display.php:288
 msgid "How long have we taken the time to develop our idea?"
 msgstr "چقدر برای صرف ایده جیبرس صرف کرده‌ایم؟"
 
-#: content/investment/display.php:248
+#: content/investment/display.php:306
 msgid "Invest in Jibres"
 msgstr "سرمایه‌گذاری در جیبرس"
 
-#: content/investment/view.php:15
+#: content/investment/view.php:10
 msgid ""
 "If you are interested in investing in Jibres, we have created this page for you to "
 "answer your questions"
@@ -4759,8 +4759,8 @@ msgstr "کد"
 #: content_a/setting/pcpos/display.php:46 content_a/setting/pcpos/display.php:48
 #: content_a/setting/place/inventory/display.php:8 content_a/tag/add/display.php:6
 #: content_a/tag/edit/display.php:6 content_a/units/display.php:41
-#: content_a/website/body/add/display.php:111 content_a/website/menu/item/display.php:13
-#: content_a/website/menu/item/display.php:22
+#: content_a/website/body/add/display.php:111 content_a/website/menu/item/display.php:17
+#: content_a/website/menu/item/display.php:31
 #: content_a/website/specialslider/add/display.php:18
 #: content_account/billing/display.php:52 content_business/p/home/display.php:380
 #: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:162
@@ -4929,7 +4929,7 @@ msgstr "وضعیت"
 #: content_a/setting/staticfile/display.php:24 content_a/tag/add/display.php:12
 #: content_a/tag/edit/display.php:37 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
-#: content_a/website/menu/item/display.php:106
+#: content_a/website/menu/item/display.php:116
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:79
 #: content_cms/tag/add/display.php:12 content_crm/member/add/display.php:15
@@ -4962,7 +4962,7 @@ msgstr "افزودن"
 #: content_a/setting/place/inventory/display.php:47 content_a/units/display.php:75
 #: content_a/units/display.php:134 content_a/website/imageblock/add/display.php:47
 #: content_a/website/imageblock/display.php:25 content_a/website/menu/edit/display.php:11
-#: content_a/website/menu/item/display.php:106 content_a/website/quote/add/display.php:61
+#: content_a/website/menu/item/display.php:116 content_a/website/quote/add/display.php:61
 #: content_a/website/quote/display.php:18
 #: content_a/website/specialslider/add/display.php:47
 #: content_a/website/specialslider/display.php:28 content_account/address.php:149
@@ -4985,7 +4985,7 @@ msgstr "ویرایش"
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_a/website/imageblock/add/display.php:43
 #: content_a/website/imageblock/setting/display.php:30
-#: content_a/website/menu/item/display.php:104
+#: content_a/website/menu/item/display.php:114
 #: content_a/website/menu/setting/display.php:41 content_a/website/news/display.php:51
 #: content_a/website/productline/display.php:48 content_a/website/quote/add/display.php:57
 #: content_a/website/quote/setting/display.php:32
@@ -8667,14 +8667,14 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
 #: content_a/tag/edit/controller.php:14 content_a/tag/remove/controller.php:13
 #: content_cms/tag/edit/controller.php:15 dash/app/files/remove.php:21
-#: dash/app/posts/check.php:212 dash/app/terms/remove.php:18 dash/app/terms/remove.php:39
-#: dash/app/terms/remove.php:70 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106
+#: dash/app/posts/check.php:212 dash/app/terms/remove.php:18 dash/app/terms/remove.php:51
+#: dash/app/terms/remove.php:82 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106
 #: lib/app/form/tag/get.php:113 lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
 #: lib/app/form/tag/remove.php:18 lib/app/form/tag/remove.php:39
-#: lib/app/form/tag/remove.php:72 lib/app/menu/check.php:187 lib/app/tag/edit.php:24
+#: lib/app/form/tag/remove.php:72 lib/app/menu/check.php:201 lib/app/tag/edit.php:24
 #: lib/app/tag/get.php:65 lib/app/tag/get.php:72 lib/app/tag/get.php:99
-#: lib/app/tag/get.php:107 lib/app/tag/remove.php:15 lib/app/tag/remove.php:36
-#: lib/app/tag/remove.php:71 lib/app/tag/search.php:40
+#: lib/app/tag/get.php:107 lib/app/tag/remove.php:15 lib/app/tag/remove.php:43
+#: lib/app/tag/remove.php:78 lib/app/tag/search.php:40
 msgid "Invalid tag id"
 msgstr "شناسه تگ نادرست است"
 
@@ -9322,7 +9322,7 @@ msgstr "درحال ارسال"
 msgid "Set as delivered"
 msgstr "تنظیم به عنوان تحویل داده شده"
 
-#: content_a/order/status/display.php:32 content_a/website/menu/item/display.php:31
+#: content_a/order/status/display.php:32 content_a/website/menu/item/display.php:26
 msgid "Something else"
 msgstr "موارد دیگر"
 
@@ -10871,7 +10871,7 @@ msgstr "تنظیمات دامنه"
 #: lib/app/form/form/get.php:44 lib/app/form/item/get.php:23 lib/app/form/item/get.php:177
 #: lib/app/form/item/get.php:211 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
-#: lib/app/menu/check.php:46 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
+#: lib/app/menu/check.php:60 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
 #: lib/app/nic_domain/get.php:310 lib/app/nic_domain/get.php:337
 #: lib/app/nic_log/get.php:13 lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13
 #: lib/app/pos/tools.php:13 lib/app/product/edit.php:25 lib/app/product/edit.php:35
@@ -11686,7 +11686,8 @@ msgstr "آیا حمل و نقل دارید؟"
 msgid "To set your business currency"
 msgstr "برای تنظیم واحد‌های فروشگاه"
 
-#: content_a/setting/shipping/setting/display.php:24 dash/app/user/email.php:168
+#: content_a/setting/shipping/setting/display.php:24
+#: content_a/website/menu/item/display.php:94 dash/app/user/email.php:168
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
@@ -13013,7 +13014,7 @@ msgstr "متن آگهی"
 
 #: content_a/website/header/announcement/display.php:20
 #: content_a/website/imageblock/add/display.php:24
-#: content_a/website/menu/item/display.php:90
+#: content_a/website/menu/item/display.php:100
 #: content_a/website/specialslider/add/display.php:24 content_cms/posts/seo/display.php:71
 #: content_cms/posts/seo/display.php:73 content_cms/tag/edit/display.php:9
 #: content_love/business/analytics/table/display.php:7
@@ -13194,7 +13195,7 @@ msgid "Image Alt"
 msgstr "متن جایگزین عکس"
 
 #: content_a/website/imageblock/add/display.php:33
-#: content_a/website/menu/item/display.php:97
+#: content_a/website/menu/item/display.php:107
 #: content_a/website/specialslider/add/display.php:33
 msgid "Open in New tab"
 msgstr "باز کردن در صفحه جدید"
@@ -13299,42 +13300,40 @@ msgid "Edit menu title"
 msgstr "ویرایش عنوان فهرست"
 
 #: content_a/website/menu/item/controller.php:38
-#, fuzzy
-#| msgid "Invalid file id"
-msgid "Invalid child id"
-msgstr "شناسه فایل اشتباه است"
+msgid "Invalid sub menu id"
+msgstr "شناسه فهرست فرعی اشتباه است"
 
-#: content_a/website/menu/item/display.php:19
+#: content_a/website/menu/item/display.php:14
 msgid "Hint to"
 msgstr "اشاره به"
 
-#: content_a/website/menu/item/display.php:21
+#: content_a/website/menu/item/display.php:16
 msgid "Please select an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
-#: content_a/website/menu/item/display.php:23
+#: content_a/website/menu/item/display.php:18
 msgid "Separator"
 msgstr "جداکننده"
 
-#: content_a/website/menu/item/display.php:24
+#: content_a/website/menu/item/display.php:19
 msgid "Home page"
 msgstr "صفحه نخست"
 
-#: content_a/website/menu/item/display.php:26 content_cms/posts/home/view.php:9
+#: content_a/website/menu/item/display.php:21 content_cms/posts/home/view.php:9
 #: includes/languages/trans_static.php:559 includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
 msgid "Posts"
 msgstr "نوشته‌ها"
 
-#: content_a/website/menu/item/display.php:27
+#: content_a/website/menu/item/display.php:22
 msgid "Tag of posts"
 msgstr "تگ نوشته‌ها"
 
-#: content_a/website/menu/item/display.php:28
+#: content_a/website/menu/item/display.php:23
 msgid "Hashtag of products"
 msgstr "هشتگ محصولات"
 
-#: content_a/website/menu/item/display.php:29 content_business/f/home/view.php:17
+#: content_a/website/menu/item/display.php:24 content_business/f/home/view.php:17
 #: lib/app/log/caller/form/form_newAnswer.php:16 lib/app/store/analytics.php:106
 #: lib/app/store/analytics.php:107 lib/app/store/analytics.php:108
 #: lib/app/store/analytics.php:109 lib/app/store/analytics.php:110
@@ -13342,47 +13341,51 @@ msgstr "هشتگ محصولات"
 msgid "Forms"
 msgstr "فرم‌ها"
 
-#: content_a/website/menu/item/display.php:30
+#: content_a/website/menu/item/display.php:25
 msgid "Social network"
 msgstr "شبکه‌های اجتماعی"
 
-#: content_a/website/menu/item/display.php:36
+#: content_a/website/menu/item/display.php:39
 msgid "Search in product"
 msgstr "جستجو در محصولات"
 
-#: content_a/website/menu/item/display.php:45
+#: content_a/website/menu/item/display.php:48
 msgid "Search in posts"
 msgstr "جستجو در نوشته‌ها"
 
-#: content_a/website/menu/item/display.php:54
+#: content_a/website/menu/item/display.php:57
 msgid "Search in tags"
 msgstr "جستجو در تگ‌ها"
 
-#: content_a/website/menu/item/display.php:62
+#: content_a/website/menu/item/display.php:65
 msgid "Search in hashtag"
 msgstr "جستجو در هشتگ‌ها"
 
-#: content_a/website/menu/item/display.php:71
+#: content_a/website/menu/item/display.php:74
 msgid "Search in forms"
 msgstr "جستجو در فرم‌ها"
 
-#: content_a/website/menu/item/display.php:81
+#: content_a/website/menu/item/display.php:84
 msgid "Select social network"
 msgstr "انتخاب شبکه اجتماعی"
 
-#: content_a/website/menu/item/display.php:86
-msgid "Manage social network"
-msgstr "مدیریت شبکه‌های اجتماعی"
+#: content_a/website/menu/item/display.php:91
+msgid "Only the networks you have set up are displayed"
+msgstr "تنها شبکه‌های اجتماعی که تنظیم کرده‌اید نمایش داده می‌شوند"
+
+#: content_a/website/menu/item/display.php:93
+msgid "To manage your social network"
+msgstr "برای مدیریت شبکه‌های اجتماعی"
 
 #: content_a/website/menu/item/view.php:20
 msgid "Edit item"
 msgstr "ویرایش آیتم"
 
-#: content_a/website/menu/item/view.php:24
+#: content_a/website/menu/item/view.php:25
 msgid "Add child to"
 msgstr "افزودن زیرمجموعه به"
 
-#: content_a/website/menu/item/view.php:29 content_a/website/menu/roster/display.php:29
+#: content_a/website/menu/item/view.php:31 content_a/website/menu/roster/display.php:29
 msgid "Add menu item"
 msgstr "افزودن آیتم به منو"
 
@@ -22903,7 +22906,7 @@ msgstr "پاسخ شما با موفقیت اضافه شد"
 msgid "This text is duplicate and you are sended something like this before!"
 msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
 
-#: dash/app/comment/check.php:41 lib/app/menu/check.php:144
+#: dash/app/comment/check.php:41 lib/app/menu/check.php:158
 msgid "Invalid post id"
 msgstr "شناسه مطلب اشتباه است"
 
@@ -23313,7 +23316,7 @@ msgstr "شناسه سطح دسترسی اشتباه است"
 msgid "Permission removed"
 msgstr "سطح دسترسی حذف شد"
 
-#: dash/app/posts/add.php:20
+#: dash/app/posts/add.php:20 lib/app/menu/check.php:47
 msgid "Title is required"
 msgstr "عنوان الزامی است"
 
@@ -23329,7 +23332,7 @@ msgstr "مطلب با موفقیت اضافه شد"
 msgid "Can not access to edit this post!"
 msgstr "شما دسترسی لازم را برای ویرایش این نوشته را ندارید!"
 
-#: dash/app/posts/check.php:121 lib/app/menu/check.php:180
+#: dash/app/posts/check.php:121 lib/app/menu/check.php:194
 msgid "Please choose a tag"
 msgstr "لطفا تگ را انتخاب کنید"
 
@@ -23552,7 +23555,7 @@ msgstr "نمی توانید نوشته منتشر شده را حذف کنید!"
 
 #: dash/app/posts/remove.php:32
 msgid "This post used in menu and can not be remove"
-msgstr ""
+msgstr "این نوشته در منو استفاده شده و امکان حذف آن وجود ندارد"
 
 #: dash/app/posts/remove.php:43
 msgid "Post removed"
@@ -23594,23 +23597,27 @@ msgstr "عبارات تکراری"
 msgid "Can not access to edit term"
 msgstr "دسترسی لازم برای ویرایش ترم وجود ندارد"
 
-#: dash/app/terms/edit.php:36
+#: dash/app/terms/edit.php:42
 msgid "Tag successfully updated"
 msgstr "تگ با موفقیت به‌روز‌رسانی شد"
 
-#: dash/app/terms/edit.php:40
+#: dash/app/terms/edit.php:46
 msgid "Tag save without changes"
 msgstr "تگ بدون تغییر ذخیره شد"
 
-#: dash/app/terms/remove.php:47 lib/app/form/tag/remove.php:47 lib/app/tag/remove.php:44
+#: dash/app/terms/remove.php:29
+msgid "This tag used in menu and can not be remove"
+msgstr "این تگ در منو استفاده شده و امکان حذف آن وجود ندارد"
+
+#: dash/app/terms/remove.php:59 lib/app/form/tag/remove.php:47 lib/app/tag/remove.php:51
 msgid "Please select one tag"
 msgstr "لطفا یک تگ را انتخاب کنید"
 
-#: dash/app/terms/remove.php:76
+#: dash/app/terms/remove.php:88
 msgid "Some post save by this tag and you can not remove it"
 msgstr "تعدادی از نوشته‌‌ها با این تگ ذخیره شده‌اند و شما نمی‌توانید این تگ را حذف کنید"
 
-#: dash/app/terms/remove.php:85 lib/app/form/tag/remove.php:85 lib/app/tag/remove.php:84
+#: dash/app/terms/remove.php:97 lib/app/form/tag/remove.php:85 lib/app/tag/remove.php:91
 msgid "Tag successfully removed"
 msgstr "تگ با موفقیت حذف شد"
 
@@ -24653,7 +24660,7 @@ msgstr "مدیریت سفارشات"
 
 #: dash/plan_list.php:156
 msgid "Order Notification Receiver"
-msgstr ""
+msgstr "دریافت کننده پیام‌های سفارشات"
 
 #: dash/plan_list.php:160
 msgid "Manage business setting"
@@ -26272,11 +26279,11 @@ msgstr "لطفا زیردامنه را وارد کنید"
 
 #: dash/validate/subdomain.php:52
 msgid "Slug must have at least :val character"
-msgstr ""
+msgstr "نامک باید حداقل دارای :val حرف باشد"
 
 #: dash/validate/subdomain.php:62
 msgid "Please set the subdomain less than :val character"
-msgstr ""
+msgstr "لطفا زیردامنه را کمتر از :val حرف وارد کنید"
 
 #: dash/validate/subdomain.php:72
 msgid "Only [A-Za-z0-9-_] can use in subdomain"
@@ -33845,7 +33852,7 @@ msgstr "تگ تکراری است"
 msgid "No change in your answer tag"
 msgstr "تگ پاسخ شما تغییری نکرد"
 
-#: lib/app/form/tag/edit.php:70 lib/app/tag/edit.php:79
+#: lib/app/form/tag/edit.php:70 lib/app/tag/edit.php:84
 msgid "The tag successfully updated"
 msgstr "تگ با موفقیت به‌روز‌رسانی شد"
 
@@ -33853,7 +33860,7 @@ msgstr "تگ با موفقیت به‌روز‌رسانی شد"
 msgid "Can not update your answer tag"
 msgstr "نمی‌توانید تگ پاسخ خود را ویرایش کنید"
 
-#: lib/app/form/tag/edit.php:83 lib/app/tag/edit.php:92
+#: lib/app/form/tag/edit.php:83 lib/app/tag/edit.php:97
 msgid "Tag saved without chnage"
 msgstr "تگ بدون تغییر ذخیره شد"
 
@@ -34327,67 +34334,49 @@ msgstr "کد رهگیری شما :val"
 msgid "Menu created"
 msgstr "منو ساخته شد"
 
-#: lib/app/menu/check.php:60
+#: lib/app/menu/check.php:74
 msgid "Maximum menu level is 5"
 msgstr "منو حداکثر می‌تواند ۵ لایه باشد"
 
-#: lib/app/menu/check.php:116
-#, fuzzy
-#| msgid "Please choose a tag"
+#: lib/app/menu/check.php:130
 msgid "Please choose a product"
-msgstr "لطفا تگ را انتخاب کنید"
+msgstr "لطفا یک محصول را انتخاب کنید"
 
-#: lib/app/menu/check.php:123 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
+#: lib/app/menu/check.php:137 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
 #: lib/app/product/property.php:78 lib/app/product/property.php:96
 #: lib/app/product/property.php:475
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
-#: lib/app/menu/check.php:137
-#, fuzzy
-#| msgid "Please choose a tag"
+#: lib/app/menu/check.php:151
 msgid "Please choose a post"
-msgstr "لطفا تگ را انتخاب کنید"
+msgstr "لطفا یک نوشته را انتخاب کنید"
 
-#: lib/app/menu/check.php:158
-#, fuzzy
-#| msgid "Please choose year"
+#: lib/app/menu/check.php:172
 msgid "Please choose a form"
-msgstr "لطفا سال مالی را انتخاب کنید"
+msgstr "لطفا یکی از فرم‌ها را انتخاب کنید"
 
-#: lib/app/menu/check.php:165
-#, fuzzy
-#| msgid "Invalid factor id"
+#: lib/app/menu/check.php:179
 msgid "Invalid form id"
-msgstr "شناسه فاکتور اشتباه است"
+msgstr "شناسه فرم اشتباه است"
 
-#: lib/app/menu/check.php:202
-#, fuzzy
-#| msgid "Please choose a tag"
+#: lib/app/menu/check.php:216
 msgid "Please choose a hashtag"
-msgstr "لطفا تگ را انتخاب کنید"
-
-#: lib/app/menu/check.php:210
-#, fuzzy
-#| msgid "Invalid tag id"
-msgid "Invalid hashtag id"
-msgstr "شناسه تگ نادرست است"
+msgstr "لطفا یکی از هشتگ‌های محصولات را انتخاب کنید"
 
 #: lib/app/menu/check.php:224
-#, fuzzy
-#| msgid "Please set your social network id"
-msgid "Please choose a social network"
-msgstr "لطفا شبکه‌های اجتماعی خود را تنظیم کنید"
+msgid "Invalid hashtag id"
+msgstr "شناسه هشتگ نادرست است"
 
 #: lib/app/menu/check.php:238
-#, fuzzy
-#| msgid "Please enter url"
+msgid "Please choose a social network"
+msgstr "لطفا یکی از شبکه‌های اجتماعی خود را انتخاب کنید"
+
+#: lib/app/menu/check.php:253
 msgid "Please set a url"
 msgstr "لطفا آدرس را وارد کنید"
 
 #: lib/app/menu/edit.php:59
-#, fuzzy
-#| msgid "Menu was updated"
 msgid "Menu updated"
 msgstr "فهرست به‌روزرسانی شد"
 
@@ -34396,10 +34385,8 @@ msgid "Sort arguments must be array"
 msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 
 #: lib/app/menu/edit.php:260
-#, fuzzy
-#| msgid "Can not edit this file!"
 msgid "Can not save this menu level!"
-msgstr "نمی‌توانید این فایل را تغییر دهید!"
+msgstr "نمی‌توانیم این سطح از منو را ذخیره کنیم!"
 
 #: lib/app/menu/generate.php:45
 msgid "Add Subitem"
@@ -35362,7 +35349,7 @@ msgstr "این محصول تعدادی زیرمجموعه دارد و امکان
 
 #: lib/app/product/remove.php:29
 msgid "This product used in menu item and can not be remove"
-msgstr ""
+msgstr "این محصول در منو استفاده شده و امکان حذف آن وجود ندارد"
 
 #: lib/app/product/remove.php:49
 msgid "Product removed"
@@ -36162,11 +36149,15 @@ msgstr "شما می‌توانید حداکثر ۲۰ کلید‌واژه به ی
 msgid "No change in your product tag"
 msgstr "تگ محصول شما تغییری نکرد"
 
-#: lib/app/tag/edit.php:85
+#: lib/app/tag/edit.php:90
 msgid "Can not update your product tag"
 msgstr "نمی‌توانید تگ محصولات خود را ویرایش کنید"
 
-#: lib/app/tag/remove.php:77
+#: lib/app/tag/remove.php:22
+msgid "This hashtag used in menu and can not be remove"
+msgstr "این هشتگ در منو استفاده شده و امکان حذف آن وجود ندارد"
+
+#: lib/app/tag/remove.php:84
 msgid "Some product save by this tag and you can not remove it"
 msgstr "تعدادی از محصولات با این تگ ذخیره شده‌اند و شما نمی‌توانید این تگ را حذف کنید"
 
@@ -37911,7 +37902,10 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
-#, fuzzy, php-format
+#~ msgid "Manage social network"
+#~ msgstr "مدیریت شبکه‌های اجتماعی"
+
+#, fuzzy
 #~ msgid ""
 #~ "tawk.to is the world's #1 most widely used live chat software. More than 35 percent "
 #~ "of all websites that use live chat. tawk.to is a 100% free live chat application "
@@ -37924,7 +37918,7 @@ msgstr "یارد"
 #~ "خود طراحی شده و امکان اتصال چندین وب‌سایت به یک پنل مدیریت را هم داراست. هم‌چنین آمار "
 #~ "بازدیدکنندگان هم توسط این سرویس ارائه می‌گردد."
 
-#, fuzzy, php-format
+#, fuzzy
 #~ msgid ""
 #~ "tawk.to is the world's #1 most widely used live chat software. More than 35% of all "
 #~ "websites that use live chat. tawk.to is a 100% free live chat application designed "
@@ -38045,9 +38039,6 @@ msgstr "یارد"
 
 #~ msgid "Your menu was removed"
 #~ msgstr "فهرست شما حذف شد"
-
-#~ msgid "Invalid menu id"
-#~ msgstr "شناسه فهرست اشتباه است"
 
 #~ msgid "Menu detail not found"
 #~ msgstr "جزئیات فهرست یافت نشد"
@@ -39726,9 +39717,6 @@ msgstr "یارد"
 
 #~ msgid "Tag not found"
 #~ msgstr "تگ یافت نشد"
-
-#~ msgid "This tag use in some product and can not be removed"
-#~ msgstr "این تگ در تعدادی از محصولات استفاده شده و امکان حذف آن وجود ندارد"
 
 #~ msgid "Tag removed"
 #~ msgstr "تگ حذف شد"
