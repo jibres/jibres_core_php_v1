@@ -82,7 +82,7 @@ $addChildMode = \dash\data::addChildMode();
           <?php $social = \lib\store::social(); if(!is_array($social)){ $social = []; } ?>
           <select name="socialnetwork" class="select22">
             <option value=""><?php echo T_("Select social network") ?></option>
-            <?php foreach ($social as $key => $value) { if(!a($value, 'user')) {continue;}  ?>
+            <?php foreach ($social as $key => $value) { ?>
               <option value="<?php echo $key ?>" <?php if(\dash\data::dataRow_socialnetwork() === $key) {echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
             <?php } //endfor ?>
           </select>

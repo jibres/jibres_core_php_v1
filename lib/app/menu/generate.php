@@ -29,6 +29,13 @@ class generate
 
 		foreach ($_menu as $index => $one_item)
 		{
+            $have_child = false;
+
+			if(isset($one_item['child']) && is_array($one_item['child']) && $one_item['child'])
+            {
+                $have_child = true;
+            }
+
 			$result .= '<li>';
 			$result .= '<div class="f item">';
             {
@@ -37,6 +44,8 @@ class generate
                     $result .= '<input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '">';
                 }
                 $result .= '</i>';
+
+                // $result .= '<i data-kerkere=".showMenu" data-kerkere-icon="open"></i>';
 
     			$result .= '<div class="key">'. a($one_item, 'title');
     			if(a($one_item, 'target'))
@@ -59,7 +68,7 @@ class generate
             }
 			$result .= '</div>';
 
-			if(isset($one_item['child']) && is_array($one_item['child']) && $one_item['child'])
+            if($have_child)
 			{
 				$result .= '<ol data-sortable>';
 				$result .= self::create_admin($one_item['child']);
