@@ -95,6 +95,19 @@ class update
 	}
 
 
+	public static function form($_id, $_set = false)
+	{
+		$is_used = self::is_used('forms', $_id);
+
+		if(!$_set)
+		{
+			return $is_used;
+		}
+
+		return null;
+	}
+
+
 
 	private static function fix_update($_pointer, $_relate_id, $_url)
 	{

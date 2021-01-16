@@ -35,6 +35,16 @@ class edit
 			return false;
 		}
 
+		if(isset($args['status']) && $args['status'] === 'deleted')
+		{
+			$used_in_menu = \lib\app\menu\update::form($_id);
+			if($used_in_menu)
+			{
+				\dash\notif::error(T_("This form used in menu and can not be remove"));
+				return false;
+			}
+		}
+
 		$args['datemodified'] = date("Y-m-d H:i:s");
 
 		\lib\db\form\update::update($args, $_id);
