@@ -5,7 +5,7 @@ class model
 {
 	public static function post()
 	{
-		\dash\permission::access('_group_setting');
+		\dash\permission::access('cmsSetting');
 
 		if(\dash\request::post('run') === 'yes')
 		{

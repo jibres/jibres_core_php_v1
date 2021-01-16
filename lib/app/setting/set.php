@@ -6,7 +6,7 @@ class set
 {
 	public static function cms_setting($_args)
 	{
-		\dash\permission::access('_group_setting');
+		\dash\permission::access('cmsSetting');
 
 		$condition =
 		[

@@ -15,7 +15,7 @@
       </footer>
   </div>
 
-  <?php if(\dash\permission::check('_group_setting')) {?>
+  <?php if(\dash\permission::check('cmsSetting')) {?>
   <div class="box">
    <div class="body">
       <div class="txtB"><?php echo T_("Rebuil sitemap"); ?></div>
