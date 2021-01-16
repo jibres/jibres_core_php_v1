@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-16 13:20+0330\n"
-"PO-Revision-Date: 2021-01-16 13:21+0330\n"
+"POT-Creation-Date: 2021-01-16 17:03+0330\n"
+"PO-Revision-Date: 2021-01-16 17:04+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -994,7 +994,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_support/ticket/contact_ticket/model.php:126
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:355
-#: lib/store.php:531
+#: lib/store.php:533
 msgid "Email"
 msgstr "رایانامه"
 
@@ -4905,9 +4905,9 @@ msgstr "غیرفعال"
 #: content_love/gift/edit/display.php:74 content_love/gift/view/display.php:30
 #: content_my/domain/other/display-maybemydomain.php:27
 #: content_my/domain/search/display.php:168 content_su/smsclient/home/display.php:16
-#: content_support/ticket/show/chatList.php:20 dash/app/posts/filter.php:117
-#: dash/app/posts/filter.php:126 dash/app/posts/filter.php:136
-#: dash/app/posts/filter.php:145 lib/app/business_domain/search.php:87
+#: content_support/ticket/show/chatList.php:20 dash/app/posts/filter.php:126
+#: dash/app/posts/filter.php:135 dash/app/posts/filter.php:145
+#: dash/app/posts/filter.php:154 lib/app/business_domain/search.php:87
 #: lib/app/business_domain/search_dns.php:59
 msgid "Status"
 msgstr "وضعیت"
@@ -6476,9 +6476,9 @@ msgstr "مایکت"
 #: content_account/security/rememberme/display.php:14
 #: content_business/profile/detail/display.php:44
 #: content_cms/posts/publishdate/display.php:44
-#: content_cms/posts/redirecturl/display.php:26 content_cms/posts/writer/display.php:26
-#: content_cms/tag/edit/display.php:15 content_crm/member/business/display.php:18
-#: content_crm/member/detail/display.php:10 content_crm/member/email/display.php:12
+#: content_cms/posts/redirecturl/display.php:26 content_cms/tag/edit/display.php:15
+#: content_crm/member/business/display.php:18 content_crm/member/detail/display.php:10
+#: content_crm/member/email/display.php:12
 #: content_crm/member/identification/display.php:129
 #: content_crm/member/legal/display.php:63 content_crm/member/mobile/display.php:12
 #: content_crm/member/transactions/minus/display.php:19
@@ -7761,7 +7761,7 @@ msgstr "حذف شرکت سازنده محصول"
 #: content_a/controller.php:16 content_b1/tools.php:30 content_business/controller.php:16
 #: content_v2/controller.php:19 dash/engine/store.php:292 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:232 lib/app/business_domain/add.php:63
-#: lib/app/business_domain/edit.php:90 lib/app/category/add.php:13
+#: lib/app/business_domain/edit.php:100 lib/app/category/add.php:13
 #: lib/app/category/add.php:119 lib/app/category/add.php:194 lib/app/category/edit.php:39
 #: lib/app/category/get.php:46 lib/app/category/get.php:78 lib/app/category/search.php:28
 #: lib/app/factor/add.php:105 lib/app/factor/get.php:164 lib/app/product/company.php:63
@@ -7789,6 +7789,7 @@ msgstr "سوال"
 
 #: content_a/form/analytics/addcondition/display-chose-item.php:9
 #: content_a/form/analytics/addcondition/display-condition.php:14
+#: content_cms/posts/writer/display.php:19 content_cms/posts/writer/display.php:20
 msgid "Please select on item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -7876,8 +7877,8 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/tag/display.php:29 content_a/form/answer/detail/display.php:77
 #: content_a/products/edit/display-master.php:63 content_a/products/home/filter.php:86
 #: content_a/setting/product/tag/display.php:11
-#: content_support/ticket/show/display.php:232 dash/app/posts/filter.php:284
-#: dash/app/posts/filter.php:294 includes/languages/trans_static.php:546
+#: content_support/ticket/show/display.php:232 dash/app/posts/filter.php:293
+#: dash/app/posts/filter.php:303 includes/languages/trans_static.php:546
 #: lib/app/product/filter.php:315 lib/app/product/filter.php:325
 #: lib/app/product/property.php:334 lib/app/product/search.php:130
 #: lib/app/store/analytics.php:60
@@ -8596,7 +8597,7 @@ msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:42
-#: content_cms/posts/setting/display.php:22 dash/app/posts/filter.php:127
+#: content_cms/posts/setting/display.php:22 dash/app/posts/filter.php:136
 #: includes/languages/trans_static.php:512 lib/app/factor/action.php:61
 #: lib/app/factor/ready.php:112 lib/app/tax/doc/ready.php:40
 #: lib/app/tax/docdetail/ready.php:26
@@ -8627,7 +8628,7 @@ msgid "The form is expire"
 msgstr "فرم منقضی شده است"
 
 #: content_a/form/status/display.php:53 content_support/ticket/ticketTable.php:160
-#: dash/app/posts/filter.php:137 dash/layout/admin/sidebar/sidebar-support.php:50
+#: dash/app/posts/filter.php:146 dash/layout/admin/sidebar/sidebar-support.php:50
 #: includes/languages/trans_static.php:513
 msgid "Trash"
 msgstr "زباله‌دان"
@@ -9479,9 +9480,10 @@ msgstr "ویرایش سفارش"
 msgid "Date created"
 msgstr "تاریخ ثبت"
 
-#: content_a/pricehistory/display.php:16 content_love/domain/all/display.php:65
-#: content_love/domain/autorenew/display.php:18 content_love/domain/fetch/display.php:64
-#: content_love/domain/setting/display.php:307 content_love/log/home/logTable.php:98
+#: content_a/pricehistory/display.php:16 content_cms/posts/home/display.php:7
+#: content_love/domain/all/display.php:65 content_love/domain/autorenew/display.php:18
+#: content_love/domain/fetch/display.php:64 content_love/domain/setting/display.php:307
+#: content_love/log/home/logTable.php:98
 #: content_my/domain/other/display-maybemydomain.php:29
 #: content_my/domain/search/display.php:170
 msgid "Date modified"
@@ -9621,8 +9623,8 @@ msgstr "حذف شده"
 
 #: content_a/products/comment/view.php:30
 #: content_a/products/edit/block/sidebar-menu.php:73 content_cms/comments/home/view.php:9
-#: content_cms/comments/view/view.php:14 dash/app/posts/filter.php:264
-#: dash/app/posts/filter.php:274 includes/languages/trans_static.php:563
+#: content_cms/comments/view/view.php:14 dash/app/posts/filter.php:273
+#: dash/app/posts/filter.php:283 includes/languages/trans_static.php:563
 #: includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
 msgid "Comments"
@@ -11121,8 +11123,8 @@ msgid "Collect data."
 msgstr "جمع‌آوری داده‌ها."
 
 #: content_a/setting/home/display.php:220 content_cms/comments/home/view.php:11
-#: content_cms/files/home/view.php:15 content_cms/posts/home/view.php:45
-#: content_cms/setting/home/view.php:9 content_cms/sitemap/view.php:10
+#: content_cms/customization/home/view.php:9 content_cms/files/home/view.php:15
+#: content_cms/posts/home/view.php:45 content_cms/sitemap/view.php:10
 #: content_cms/tag/home/view.php:16 content_love/home/display.php:105
 #: dash/layout/admin/admin-sidebar-frame.php:17 dash/plan_list.php:103
 #: lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
@@ -11789,7 +11791,7 @@ msgstr "این گزینه‌ها در وب‌سایت شما استفاده خو
 
 #: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: lib/app/website/init.php:82 lib/store.php:524
+#: lib/app/website/init.php:82 lib/store.php:526
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -11802,39 +11804,39 @@ msgstr "کانال"
 msgid "Telegram Admin user"
 msgstr "نام کاربری ادمین تلگرام"
 
-#: content_a/setting/social/display.php:38 lib/store.php:526
+#: content_a/setting/social/display.php:38 lib/store.php:528
 msgid "Youtube"
 msgstr "یوتیوب"
 
 #: content_a/setting/social/display.php:45 content_account/my/home/display.php:170
 #: content_account/my/social/display.php:27 content_account/my/social/display.php:30
-#: lib/store.php:527
+#: lib/store.php:529
 msgid "Twitter"
 msgstr "توییتر"
 
 #: content_a/setting/social/display.php:52 content_account/my/home/display.php:175
 #: content_account/my/social/display.php:34 content_account/my/social/display.php:37
-#: includes/languages/trans_static_public.php:251 lib/store.php:528
+#: includes/languages/trans_static_public.php:251 lib/store.php:530
 msgid "Linkedin"
 msgstr "لینکدین"
 
 #: content_a/setting/social/display.php:59 includes/languages/trans_static_public.php:250
-#: lib/store.php:529
+#: lib/store.php:531
 msgid "Github"
 msgstr "گیت‌هاب"
 
 #: content_a/setting/social/display.php:66 content_account/my/home/display.php:165
 #: content_account/my/social/display.php:20 content_account/my/social/display.php:23
-#: lib/store.php:530
+#: lib/store.php:532
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
 #: content_a/setting/social/display.php:80 includes/languages/trans_static_public.php:252
-#: lib/store.php:532
+#: lib/store.php:534
 msgid "Aparat"
 msgstr "آپارات"
 
-#: content_a/setting/social/display.php:87 lib/store.php:533
+#: content_a/setting/social/display.php:87 lib/store.php:535
 msgid "Eitaa"
 msgstr "ایتا"
 
@@ -13475,7 +13477,7 @@ msgstr "استاندارد"
 
 #: content_a/website/news/filter/display.php:23 content_cms/home/display.php:59
 #: content_cms/posts/add/display.php:17 content_cms/posts/setting/display.php:43
-#: dash/app/posts/filter.php:155 dash/app/posts/filter.php:165
+#: dash/app/posts/filter.php:164 dash/app/posts/filter.php:174
 #: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
@@ -14949,6 +14951,33 @@ msgstr "تایید شده"
 msgid "Unapproved"
 msgstr "تایید نشده"
 
+#: content_cms/customization/home/display.php:4
+msgid "Featured image of standard post"
+msgstr "تصویر شاخص برای نوشته‌های استاندارد"
+
+#: content_cms/customization/home/display.php:6
+#: content_cms/customization/home/display.php:26
+#: content_cms/customization/home/display.php:46
+#: content_cms/customization/home/display.php:65
+msgid "Specify the aspect ratio of the featured image"
+msgstr "نسبت ابعاد تصویر شاخص را مشخص کنید"
+
+#: content_cms/customization/home/display.php:24
+msgid "Featured image of gallery post"
+msgstr "تصویر شاخص برای گالری‌ها"
+
+#: content_cms/customization/home/display.php:44
+msgid "Featured image of video post"
+msgstr "تصویر شاخص برای ویدئو‌ها"
+
+#: content_cms/customization/home/display.php:63
+msgid "Featured image of podcast post"
+msgstr "تصویر شاخص برای پادکست‌ها"
+
+#: content_cms/customization/home/view.php:8
+msgid "CMS Customization"
+msgstr "سفارشی سازی سیستم مدیریت محتوا"
+
 #: content_cms/files/add/model.php:29 content_cms/files/remove/model.php:28
 #: dash/upload/file.php:179
 msgid "Can not upload file"
@@ -14965,12 +14994,12 @@ msgstr "بارگذاری"
 
 #: content_cms/files/add/view.php:11 content_cms/files/home/view.php:10
 #: content_cms/files/setting/view.php:10 content_cms/files/setting/view.php:12
-#: content_cms/files/view/view.php:11 content_cms/home/display.php:140
+#: content_cms/files/view/view.php:11 content_cms/home/display.php:153
 #: includes/languages/trans_static.php:562 lib/app/store/analytics.php:117
 msgid "Files"
 msgstr "فایل‌ها"
 
-#: content_cms/files/home/display.php:6 content_cms/posts/home/display.php:6
+#: content_cms/files/home/display.php:6 content_cms/posts/home/display.php:16
 msgid "Post image"
 msgstr "تصویر نوشته"
 
@@ -15074,23 +15103,27 @@ msgstr "در انتظار تایید"
 msgid "Sitemap"
 msgstr "نقشه‌ی سایت"
 
-#: content_cms/home/display.php:153
+#: content_cms/home/display.php:140
+msgid "Customization"
+msgstr "سفارشی سازی"
+
+#: content_cms/home/display.php:166
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:170
+#: content_cms/home/display.php:183
 msgid "Latest Posts"
 msgstr "آخرین نوشته‌ها"
 
-#: content_cms/home/display.php:188
+#: content_cms/home/display.php:201
 msgid "No post has registered yet!"
 msgstr "هنوز هیچ نوشته‌ای ثبت نشده است!"
 
-#: content_cms/home/display.php:193
+#: content_cms/home/display.php:206
 msgid "Latest Comments"
 msgstr "آخرین دیدگاه‌ها"
 
-#: content_cms/home/display.php:209
+#: content_cms/home/display.php:222
 msgid "No comment has registered yet!"
 msgstr "هنوز هیچ دیدگاهی ثبت نشده است!"
 
@@ -15197,6 +15230,11 @@ msgstr "نمایش نوشته‌ها با شرط"
 msgid "Post founded"
 msgstr "نوشته یافت شد"
 
+#: content_cms/posts/home/display.php:11 content_cms/posts/publishdate/display.php:30
+#: content_cms/posts/setting/display.php:113
+msgid "Publish date"
+msgstr "تاریخ انتشار"
+
 #: content_cms/posts/home/view.php:16 content_cms/posts/home/view.php:39
 msgid "Add New Post"
 msgstr "افزودن نوشته جدید"
@@ -15245,10 +15283,6 @@ msgstr "در زمان انتشار مطلب"
 msgid "In special date"
 msgstr "در تاریخ خاص"
 
-#: content_cms/posts/publishdate/display.php:30 content_cms/posts/setting/display.php:113
-msgid "Publish date"
-msgstr "تاریخ انتشار"
-
 #: content_cms/posts/publishdate/display.php:35
 msgid "Publish time"
 msgstr "زمان انتشار"
@@ -15289,11 +15323,11 @@ msgstr "مستقل"
 msgid "Special"
 msgstr "خاص"
 
-#: content_cms/posts/seo/display.php:55 dash/app/posts/filter.php:245
+#: content_cms/posts/seo/display.php:55 dash/app/posts/filter.php:254
 msgid "Under tag"
 msgstr "زیرمجموعه تگ"
 
-#: content_cms/posts/seo/display.php:63 dash/app/posts/filter.php:255
+#: content_cms/posts/seo/display.php:63 dash/app/posts/filter.php:264
 msgid "Under page"
 msgstr "زیرمجموعه صفحه‌ای دیگر"
 
@@ -15346,13 +15380,13 @@ msgstr ""
 msgid "Show comment"
 msgstr "نمایش دیدگاه"
 
-#: content_cms/posts/setting/display.php:79 dash/app/posts/filter.php:175
-#: dash/app/posts/filter.php:185 dash/app/posts/filter.php:195
-#: dash/app/posts/filter.php:205 dash/app/posts/filter.php:214
+#: content_cms/posts/setting/display.php:79 dash/app/posts/filter.php:184
+#: dash/app/posts/filter.php:194 dash/app/posts/filter.php:204
+#: dash/app/posts/filter.php:214 dash/app/posts/filter.php:223
 msgid "SEO"
 msgstr "سئو"
 
-#: content_cms/posts/setting/display.php:96 dash/app/posts/filter.php:304
+#: content_cms/posts/setting/display.php:96 dash/app/posts/filter.php:313
 #: dash/redirect_html.php:5 dash/utility/pay/api/asanpardakht/go.php:79
 #: dash/utility/pay/api/irkish/go.php:74 dash/utility/pay/api/mellat/go.php:89
 #: dash/utility/pay/api/sep/go.php:68 includes/languages/trans_static.php:581
@@ -15383,11 +15417,11 @@ msgstr ""
 msgid "Edit publish date"
 msgstr "ویرایش زمان انتشار"
 
-#: content_cms/posts/setting/display.php:129 content_cms/posts/writer/display.php:17
+#: content_cms/posts/setting/display.php:129 content_cms/posts/writer/display.php:4
 msgid "Change post writer"
 msgstr "تغییر نویسنده مطلب"
 
-#: content_cms/posts/setting/display.php:131 content_cms/posts/writer/display.php:15
+#: content_cms/posts/setting/display.php:131 content_cms/posts/writer/display.php:6
 msgid "You can change the author of the post manually"
 msgstr "شما می‌توانید نویسنده این مطلب را به صورت دستی تغییر دهید"
 
@@ -15444,34 +15478,9 @@ msgstr "حذف نوشته"
 msgid "Edit post setting"
 msgstr "ویرایش تنظیمات نوشته"
 
-#: content_cms/posts/writer/display.php:5
+#: content_cms/posts/writer/display.php:9
 msgid "Current post wirter"
 msgstr "نویسنده فعلی مطلب"
-
-#: content_cms/setting/home/display.php:4
-msgid "Featured image of standard post"
-msgstr "تصویر شاخص برای نوشته‌های استاندارد"
-
-#: content_cms/setting/home/display.php:6 content_cms/setting/home/display.php:26
-#: content_cms/setting/home/display.php:46 content_cms/setting/home/display.php:65
-msgid "Specify the aspect ratio of the featured image"
-msgstr "نسبت ابعاد تصویر شاخص را مشخص کنید"
-
-#: content_cms/setting/home/display.php:24
-msgid "Featured image of gallery post"
-msgstr "تصویر شاخص برای گالری‌ها"
-
-#: content_cms/setting/home/display.php:44
-msgid "Featured image of video post"
-msgstr "تصویر شاخص برای ویدئو‌ها"
-
-#: content_cms/setting/home/display.php:63
-msgid "Featured image of podcast post"
-msgstr "تصویر شاخص برای پادکست‌ها"
-
-#: content_cms/setting/home/view.php:8
-msgid "CMS Settings"
-msgstr "تنظیمات سیستم مدیریت محتوا"
 
 #: content_cms/sitemap/display.php:4
 msgid "What are Sitemaps?"
@@ -16505,8 +16514,8 @@ msgstr "تراکنش‌ها"
 msgid "Answer to ticket"
 msgstr "پاسخ به تیکت"
 
-#: content_crm/notification/view/model.php:68 content_crm/ticket/view/model.php:68
-#: content_support/ticket/show/model.php:403 lib/app/form/answer/add.php:603
+#: content_crm/notification/view/model.php:67 content_crm/ticket/view/model.php:67
+#: content_support/ticket/show/model.php:400 lib/app/form/answer/add.php:603
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
@@ -19446,7 +19455,7 @@ msgstr "پیام"
 #: content_love/log/home/logTable.php:60 content_su/home/display.php:197
 #: content_su/tg/home/view.php:11 content_support/ticket/show/display.php:166
 #: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
-#: lib/app/website/init.php:92 lib/store.php:525
+#: lib/app/website/init.php:92 lib/store.php:527
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -22099,7 +22108,7 @@ msgstr ""
 
 #: content_support/faq/view.php:26 content_support/home/view.php:9
 #: content_support/home/view.php:21 content_support/tag/view.php:24
-#: content_support/ticket/home/view.php:25 dash/plan_list.php:204
+#: content_support/ticket/home/view.php:25 dash/plan_list.php:205
 msgid "Help center"
 msgstr "مرکز راهنمایی"
 
@@ -22549,11 +22558,11 @@ msgstr "مشکل حل شد"
 msgid "Ticket set as unsolved"
 msgstr "مشکل هنوز حل نشده"
 
-#: content_support/ticket/show/model.php:302
+#: content_support/ticket/show/model.php:301
 msgid "Your note saved"
 msgstr "پیام شما ذخیره شد"
 
-#: content_support/ticket/show/model.php:336
+#: content_support/ticket/show/model.php:335
 msgid "Your message has been added"
 msgstr "پیام شما اضافه شد"
 
@@ -23439,72 +23448,96 @@ msgstr "عنوان، صعودی"
 msgid "Title DESC"
 msgstr "عنوان نزولی"
 
-#: dash/app/posts/filter.php:118
+#: dash/app/posts/filter.php:57
+msgid "Publish date DESC"
+msgstr "تاریخ انتشار نزولی"
+
+#: dash/app/posts/filter.php:58
+msgid "Publish date ASC"
+msgstr "تاریخ انتشار صعودی"
+
+#: dash/app/posts/filter.php:60
+msgid "Date modified DESC"
+msgstr "تاریخ ویرایش نزولی"
+
+#: dash/app/posts/filter.php:61
+msgid "Date modified ASC"
+msgstr "تاریخ ویرایش صعودی"
+
+#: dash/app/posts/filter.php:63
+msgid "Date created DESC"
+msgstr "تاریخ ثبت نزولی"
+
+#: dash/app/posts/filter.php:64
+msgid "Date created ASC"
+msgstr "تاریخ ثبت صعودی"
+
+#: dash/app/posts/filter.php:127
 msgid "Published"
 msgstr "منتشر شده"
 
-#: dash/app/posts/filter.php:146
+#: dash/app/posts/filter.php:155
 msgid "Publish in the future"
 msgstr "انتشار در آینده"
 
-#: dash/app/posts/filter.php:156 lib/app/product/filter.php:236
+#: dash/app/posts/filter.php:165 lib/app/product/filter.php:236
 msgid "Have gallery"
 msgstr "دارای گالری تصاویر"
 
-#: dash/app/posts/filter.php:166 lib/app/product/filter.php:246
+#: dash/app/posts/filter.php:175 lib/app/product/filter.php:246
 msgid "Have not gallery"
 msgstr "بدون گالری تصاویر"
 
-#: dash/app/posts/filter.php:176
+#: dash/app/posts/filter.php:185
 msgid "With featured image"
 msgstr "دارای تصویر شاخص"
 
-#: dash/app/posts/filter.php:186
+#: dash/app/posts/filter.php:195
 msgid "Without featured image"
 msgstr "بدون تصویر شاخص"
 
-#: dash/app/posts/filter.php:196
+#: dash/app/posts/filter.php:205
 msgid "With cover"
 msgstr "دارای کاور"
 
-#: dash/app/posts/filter.php:206
+#: dash/app/posts/filter.php:215
 msgid "Without cover"
 msgstr "بدون کاور"
 
-#: dash/app/posts/filter.php:215
+#: dash/app/posts/filter.php:224
 msgid "Special SEO"
 msgstr "سئوی اختصاصی"
 
-#: dash/app/posts/filter.php:224 dash/app/posts/filter.php:234
-#: dash/app/posts/filter.php:244 dash/app/posts/filter.php:254
+#: dash/app/posts/filter.php:233 dash/app/posts/filter.php:243
+#: dash/app/posts/filter.php:253 dash/app/posts/filter.php:263
 msgid "URL"
 msgstr "نشانی اینترنتی"
 
-#: dash/app/posts/filter.php:225
+#: dash/app/posts/filter.php:234
 msgid "Without special address"
 msgstr "بدون آدرس اختصاصی"
 
-#: dash/app/posts/filter.php:235
+#: dash/app/posts/filter.php:244
 msgid "With special address"
 msgstr "دارای آدرس اختصاصی"
 
-#: dash/app/posts/filter.php:265
+#: dash/app/posts/filter.php:274
 msgid "Allow comments"
 msgstr "مجاز برای ثبت دیدگاه"
 
-#: dash/app/posts/filter.php:275
+#: dash/app/posts/filter.php:284
 msgid "Comments not allowed"
 msgstr "ثبت دیدگاه قفل شده"
 
-#: dash/app/posts/filter.php:285 lib/app/product/filter.php:316
+#: dash/app/posts/filter.php:294 lib/app/product/filter.php:316
 msgid "Have tag"
 msgstr "دارای تگ"
 
-#: dash/app/posts/filter.php:295 lib/app/product/filter.php:326
+#: dash/app/posts/filter.php:304 lib/app/product/filter.php:326
 msgid "Have not tag"
 msgstr "بدون تگ"
 
-#: dash/app/posts/filter.php:305
+#: dash/app/posts/filter.php:314
 msgid "Have Redirect url"
 msgstr "دارای آدرس انتقال"
 
@@ -24770,60 +24803,64 @@ msgstr "افزودن فایل ضمیمه جدید"
 msgid "Manage Attachments"
 msgstr "مدیریت ضمیمه‌ها"
 
-#: dash/plan_list.php:203
+#: dash/plan_list.php:200
+msgid "CMS customization"
+msgstr "سفارشی سازی سیستم مدیریت محتوا"
+
+#: dash/plan_list.php:204
 msgid "Manage tag"
 msgstr "مدیریت تگ"
 
-#: dash/plan_list.php:205 includes/languages/trans_static_public.php:1039
+#: dash/plan_list.php:206 includes/languages/trans_static_public.php:1039
 msgid "supportTicketManage"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:206 includes/languages/trans_static_public.php:1046
+#: dash/plan_list.php:207 includes/languages/trans_static_public.php:1046
 msgid "supportTicketAddNote"
 msgstr "افزودن یادداشت به تیکت"
 
-#: dash/plan_list.php:207 includes/languages/trans_static_public.php:1042
+#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1042
 msgid "supportEditMessage"
 msgstr "ویرایش پیام تیکت"
 
-#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1047
+#: dash/plan_list.php:209 includes/languages/trans_static_public.php:1047
 msgid "supportTicketSignature"
 msgstr "داشتن امضا در تیکت"
 
-#: dash/plan_list.php:209 includes/languages/trans_static_public.php:1032
+#: dash/plan_list.php:210 includes/languages/trans_static_public.php:1032
 msgid "cpHelpCenterEditForOthers"
 msgstr "ویرایش مقالات سایرین در مرکز راهنمایی"
 
-#: dash/plan_list.php:210 includes/languages/trans_static_public.php:1003
+#: dash/plan_list.php:211 includes/languages/trans_static_public.php:1003
 #: includes/languages/trans_static_public.php:1041
 msgid "supportTicketAnswer"
 msgstr "توانایی پاسخ به تیکت‌ها"
 
-#: dash/plan_list.php:211 includes/languages/trans_static_public.php:1040
+#: dash/plan_list.php:212 includes/languages/trans_static_public.php:1040
 msgid "supportTicketManageSubdomain"
 msgstr "مدیریت تیکت در تمامی زیردامنه‌ها"
 
-#: dash/plan_list.php:212 includes/languages/trans_static_public.php:1045
+#: dash/plan_list.php:213 includes/languages/trans_static_public.php:1045
 msgid "supportTicketAssignTag"
 msgstr "افزودن تگ به تیکت"
 
-#: dash/plan_list.php:213 includes/languages/trans_static_public.php:1048
+#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1048
 msgid "supportTicketClose"
 msgstr "بستن تیکت"
 
-#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1049
+#: dash/plan_list.php:215 includes/languages/trans_static_public.php:1049
 msgid "supportTicketReOpen"
 msgstr "دوباره باز کردن تیکت"
 
-#: dash/plan_list.php:215 includes/languages/trans_static_public.php:1050
+#: dash/plan_list.php:216 includes/languages/trans_static_public.php:1050
 msgid "supportTicketDelete"
 msgstr "حذف تیکت"
 
-#: dash/plan_list.php:216 includes/languages/trans_static_public.php:1044
+#: dash/plan_list.php:217 includes/languages/trans_static_public.php:1044
 msgid "supportTicketShowMobile"
 msgstr "نمایش موبایل پاسخ دهنده تیکت"
 
-#: dash/plan_list.php:217 includes/languages/trans_static_public.php:1037
+#: dash/plan_list.php:218 includes/languages/trans_static_public.php:1037
 msgid "supportTicketReport"
 msgstr "نمایش گزارش‌های پشتیبانی"
 
@@ -32727,14 +32764,14 @@ msgstr "این دامنه تکراری است. دامنه توسط بیزینس 
 msgid "This domain is pending for delete. Please try it later"
 msgstr "این دامنه در انتظار حذف است. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/business_domain/add.php:162 lib/app/business_domain/edit.php:75
+#: lib/app/business_domain/add.php:162 lib/app/business_domain/edit.php:85
 #: lib/app/nic_domain/get.php:26 lib/app/nic_domain/lock.php:52
 #: lib/app/nic_domain/lock.php:154 lib/app/onlinenic/lock.php:52
 #: lib/app/onlinenic/lock.php:155
 msgid "Invalid domain"
 msgstr "دامنه اشتباه است"
 
-#: lib/app/business_domain/add.php:228
+#: lib/app/business_domain/add.php:233
 msgid "Domain added"
 msgstr "دامنه اضافه شد"
 
@@ -32852,11 +32889,11 @@ msgstr "دریافت دی‌ان‌اس با موفقیت انجام شد"
 msgid "Can not connect to Check DNS server!"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم!"
 
-#: lib/app/business_domain/edit.php:100
+#: lib/app/business_domain/edit.php:112
 msgid "Your business master domain set"
 msgstr "دامنه اصلی بیزینس شما تنظیم شد"
 
-#: lib/app/business_domain/edit.php:128
+#: lib/app/business_domain/edit.php:138
 msgid "Domain record updated"
 msgstr "ردیف دامنه به‌روزرسانی شد"
 
@@ -32902,12 +32939,12 @@ msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم
 msgid "HTTPS request was sended"
 msgstr "درخواست اچ‌تی‌تی‌پی‌اس ارسال شده است"
 
-#: lib/app/business_domain/remove.php:33 lib/app/business_domain/remove.php:77
+#: lib/app/business_domain/remove.php:34 lib/app/business_domain/remove.php:78
 #: lib/app/nic_domain/edit.php:441 lib/app/nic_domain/remove.php:37
 msgid "Domain removed"
 msgstr "دامنه حذف شد"
 
-#: lib/app/business_domain/remove.php:53
+#: lib/app/business_domain/remove.php:54
 msgid ""
 "You can not remove master Domain. Please change your business master domain and try it "
 "later"
@@ -37914,6 +37951,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "CMS Settings"
+#~ msgstr "تنظیمات سیستم مدیریت محتوا"
+
 #~ msgid "Manage social network"
 #~ msgstr "مدیریت شبکه‌های اجتماعی"
 
@@ -38950,9 +38990,6 @@ msgstr "یارد"
 
 #~ msgid "Permission title"
 #~ msgstr "عنوان سطح‌دسترسی"
-
-#~ msgid "Customized"
-#~ msgstr "سفارشی سازی شده"
 
 #~ msgid "Count of user in permission"
 #~ msgstr "تعداد کاربران با این سطح دسترسی"
