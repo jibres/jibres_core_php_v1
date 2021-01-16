@@ -1,14 +1,7 @@
 <div class="avand">
 <?php
-   $myPostByThisCat = null;
-  if(\dash\data::dataRow_type() === 'cat')
-  {
-    $myPostByThisCat = \dash\app\posts\get::get_post_list(['cat' => \dash\data::dataRow_slug()]);
-  }
-  elseif(\dash\data::dataRow_type() === 'tag')
-  {
-    $myPostByThisCat = \dash\app\posts\get::get_post_list(['tag' => \dash\data::dataRow_slug()]);
-  }
+
+  $myPostByThisCat = \dash\app\posts\get::get_post_list(['tag' => \dash\data::dataRow_slug()]);
 
   if($myPostByThisCat)
   {

@@ -5,6 +5,7 @@ class template
 {
 
 	public static $display_addr    = null;
+	public static $display_name    = null;
 	public static $finded_template = null;
 	public static $dataRow         = null;
 
@@ -57,12 +58,12 @@ class template
 			return;
 		}
 
-
 		if($type)
 		{
 			self::$dataRow         = $data;
 			self::$finded_template = true;
 			self::$display_addr    = $display_addr;
+			self::$display_name    = str_replace(root, '', $display_addr);
 			return true;
 		}
 		else

@@ -136,7 +136,7 @@ class mvc
 
 		if(\dash\engine\template::$finded_template)
 		{
-			// self::$folder_addr = \dash\engine\template::$display_name;
+			self::$folder_addr = \dash\engine\template::$display_name;
 			return true;
 		}
 	}
