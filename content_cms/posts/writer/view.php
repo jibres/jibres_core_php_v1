@@ -14,7 +14,10 @@ class view
 		$postWriter = \dash\app\posts\get::post_writer_list();
 		\dash\data::postWriter($postWriter);
 
-		\dash\data::postWriterOld(\dash\app\user::get(\dash\data::dataRow_user_id()));
+		if(is_array($postWriter) && !in_array(\dash\data::dataRow_user_id(), array_column($postWriter, 'id')))
+		{
+			\dash\data::postWriterOld(\dash\app\user::get(\dash\data::dataRow_user_id()));
+		}
 
 	}
 }
