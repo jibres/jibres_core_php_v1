@@ -25,10 +25,30 @@ class ready
 			}
 		}
 
+		if(isset($result['pointer']) && $result['pointer'] === 'socialnetwork' && isset($result['socialnetwork']) && !a($result, 'url'))
+		{
+			$result['url'] = self::get_my_social($result['socialnetwork']);
+		}
+
 		$result['child'] = [];
 		return $result;
 	}
 
 
+	private static $get_my_social = [];
+	private static function get_my_social($_social)
+	{
+		if(!self::$get_my_social)
+		{
+			self::$get_my_social = \lib\store::social();
+		}
+
+		if(isset(self::$get_my_social[$_social]['link']))
+		{
+			return self::$get_my_social[$_social]['link'];
+		}
+
+		return null;
+	}
 }
 ?>

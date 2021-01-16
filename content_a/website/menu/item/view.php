@@ -18,15 +18,18 @@ class view
 		if($editMode)
 		{
 			$title = T_("Edit item");
+			\dash\face::title($title);
 		}
 		elseif($addChildMode)
 		{
 			$title = T_("Add child to");
+			\dash\face::title($title);
 			$title .= ' '. \dash\data::dataRowParent_title();
 		}
 		else
 		{
 			$title = T_("Add menu item");
+			\dash\face::title($title);
 			$title .= ' '. \dash\data::menuDetail_title();
 
 			$child_count = \lib\app\menu\get::child_count(\dash\request::get('id'));
@@ -36,7 +39,8 @@ class view
 			}
 		}
 
-		\dash\face::title($title);
+		\dash\data::myFullPageTitle($title);
+
 
 		// 'homepage','products','posts','forms','tags','hashtag','socialnetwork','other'
 

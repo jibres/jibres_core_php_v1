@@ -8,7 +8,7 @@ $addChildMode = \dash\data::addChildMode();
 
 <div class="avand-md">
   <form method="post" class="box" autocomplete="off">
-    <header><h2><?php echo \dash\face::title() ?></h2></header>
+    <header><h2><?php echo \dash\data::myFullPageTitle() ?></h2></header>
       <div class="body">
         <div class="mB10">
           <label for="pointer"><?php echo T_("Hint to") ?></label>
@@ -82,11 +82,18 @@ $addChildMode = \dash\data::addChildMode();
           <?php $social = \lib\store::social(); if(!is_array($social)){ $social = []; } ?>
           <select name="socialnetwork" class="select22">
             <option value=""><?php echo T_("Select social network") ?></option>
-            <?php foreach ($social as $key => $value) {?>
-              <option value="<?php echo $key ?>" <?php if(\dash\data::dataRow_socialnetwork() === $key) {echo 'selected';} ?>><?php echo T_(ucfirst($key)); ?></option>
+            <?php foreach ($social as $key => $value) { if(!a($value, 'user')) {continue;}  ?>
+              <option value="<?php echo $key ?>" <?php if(\dash\data::dataRow_socialnetwork() === $key) {echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
             <?php } //endfor ?>
           </select>
-          <a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/setting/social' ?>"><?php echo T_("Manage social network") ?></a>
+          <div class="msg mT20">
+            <p>
+              <?php echo T_("Only the networks you have set up are displayed") ?>
+              <br>
+              <?php echo T_("To manage your social network") ?>
+              <a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/setting/social' ?>"><?php echo T_("Click here") ?></a>
+            </p>
+          </div>
         </div>
 
         <div data-response='pointer' data-response-where='other' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'other'){}else{ echo 'data-response-hide';} ?>>

@@ -524,7 +524,7 @@ class store
 	}
 
 
-	public static function social()
+	public static function social($_need = null)
 	{
 		$detail = self::detail();
 		if(isset($detail['store_data']))
@@ -560,7 +560,22 @@ class store
 			}
 
 		}
-		return $social;
+
+		if($_need)
+		{
+			if(isset($social[$_need]))
+			{
+				return $social[$_need];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return $social;
+		}
 	}
 
 
