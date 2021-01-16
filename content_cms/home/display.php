@@ -126,7 +126,6 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
             <a class="item f" href="<?php echo \dash\url::here();?>/sitemap">
               <i class="sf-sitemap"></i>
               <div class="key"><?php echo T_('Sitemap');?></div>
-              <!-- <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div> -->
               <div class="go info"></div>
             </a>
           </li>

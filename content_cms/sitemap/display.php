@@ -15,7 +15,7 @@
       </footer>
   </div>
 
-
+  <?php if(\dash\permission::check('_group_setting')) {?>
   <div class="box">
    <div class="body">
       <div class="txtB"><?php echo T_("Rebuil sitemap"); ?></div>
@@ -27,4 +27,5 @@
         <div data-confirm data-data='{"rebuild" : "rebuild"}' class="btn"><?php echo T_("Rebuil sitemap"); ?></div>
       </footer>
   </div>
+<?php } //endif ?>
 </div>

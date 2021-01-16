@@ -5,6 +5,8 @@ class model
 {
 	public static function post()
 	{
+		\dash\permission::access('_group_setting');
+
 		if(\dash\request::post('run') === 'yes')
 		{
 			$result = \dash\utility\sitemap::create_all();
