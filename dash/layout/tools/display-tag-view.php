@@ -1,7 +1,7 @@
 <div class="avand">
 <?php
 
-  $myPostByThisCat = \dash\app\posts\get::get_post_list(['tag' => \dash\data::dataRow_slug()]);
+  $myPostByThisCat = \dash\app\posts\search::by_tag_id(\dash\data::dataRow_id());
 
   if($myPostByThisCat)
   {
@@ -19,6 +19,8 @@
       echo "</section>";
     }
     echo "</article>";
+
+    \dash\utility\pagination::html();
   }
 ?>
 </div>

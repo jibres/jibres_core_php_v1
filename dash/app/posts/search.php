@@ -321,6 +321,20 @@ class search
 	}
 
 
+	public static function by_tag_id($_tag_id)
+	{
+		$args =
+		[
+			'tag_id'       => $_tag_id,
+			'website_mode' => true,
+		];
+
+		$list = self::list(null, $args, true);
+
+		return $list;
+	}
+
+
 
 	public static function lates_post($_args = [])
 	{

@@ -175,6 +175,7 @@ class template
 
 		if($cat_data)
 		{
+			$cat_data = \dash\app\terms\ready::row($cat_data);
 			return $cat_data;
 		}
 
