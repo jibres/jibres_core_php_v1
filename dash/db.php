@@ -205,6 +205,25 @@ class db
 	}
 
 
+
+	/**
+	 * Safe value for query string
+	 *
+	 * @param      <type>  $_string  The string
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function safe($_string)
+	{
+		if(!\dash\db\mysql\tools\connection::link())
+		{
+			return $_string;
+		}
+
+		return \mysqli_real_escape_string(\dash\db\mysql\tools\connection::link(), $_string);
+	}
+
+
 	/**
 	 * transaction
 	 */
