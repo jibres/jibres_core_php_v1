@@ -221,6 +221,11 @@ class add
 
 		\lib\app\business_domain\edit::reset_redirect_domain_setting();
 
+		if($data['store_id'])
+		{
+			\lib\app\business_domain\business::reset_list($data['store_id']);
+		}
+
 		\lib\store::reset_cache();
 
 		if(self::$debug)

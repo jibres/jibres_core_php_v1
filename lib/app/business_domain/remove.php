@@ -23,6 +23,7 @@ class remove
 			if($remove_from_cdn_panel)
 			{
 				\lib\store::reset_cache($load['store_id']);
+				\lib\app\business_domain\business::reset_list($load['store_id']);
 
 				\lib\db\business_domain\delete::all_domain_action($id);
 				\lib\db\business_domain\delete::all_domain_dns($id);

@@ -19,6 +19,13 @@ class edit
 	{
 		$_args['datemodified'] = date("Y-m-d H:i:s");
 		$result = \lib\db\business_domain\update::update($_args, $_id);
+
+		// load detail and if have store_id
+		$load = \lib\db\business_domain\get::by_id($_id);
+		if(isset($load['store_id']))
+		{
+			\lib\app\business_domain\business::reset_list($load['store_id']);
+		}
 	}
 
 
@@ -63,7 +70,10 @@ class edit
 					\lib\db\business_domain\update::reset_all_redirect_store($store_id, 0);
 				}
 			}
+
 			\lib\store::reset_cache();
+
+			\lib\app\business_domain\business::reset_list($store_id);
 		}
 	}
 
@@ -97,6 +107,8 @@ class edit
 
 		\lib\store::reset_cache();
 
+		\lib\app\business_domain\business::reset_list($store_id);
+
 		\dash\notif::ok(T_("Your business master domain set"));
 
 		return true;
@@ -121,9 +133,7 @@ class edit
 
 		$data = \dash\cleanse::patch_mode($_args, $data);
 
-		$data['datemodified'] = date("Y-m-d H:i:s");
-
-		$result = \lib\db\business_domain\update::update($data, $id);
+		$result = self::edit_raw($data, $id);
 
 		\dash\notif::ok(T_("Domain record updated"));
 		return true;

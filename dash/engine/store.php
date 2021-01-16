@@ -662,10 +662,25 @@ class store
 	}
 
 
-
+	/**
+	 * The business domain detail file
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	public static function customer_domain_addr()
 	{
 		return YARD. 'jibres_temp/stores/domain/';
+	}
+
+
+	/**
+	 * Get list of business domain
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function domain_list_addr()
+	{
+		return YARD. 'jibres_temp/stores/domainlist/';
 	}
 
 	/**
