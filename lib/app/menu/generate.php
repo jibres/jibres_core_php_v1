@@ -31,17 +31,32 @@ class generate
 		{
 			$result .= '<li>';
 			$result .= '<div class="f item">';
-			$result .= '<i class="sf-thumbnails" data-handle><input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '"></i>';
-			$result .= '<div class="key">'. a($one_item, 'title');
+            {
+    			$result .= '<i class="sf-thumbnails" data-handle>';
+                {
+                    $result .= '<input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '">';
+                }
+                $result .= '</i>';
 
-			if(a($one_item, 'target'))
-			{
-				$result .= '<i class="sf-external-link fc-mute"></i>';
-			}
+    			$result .= '<div class="key">'. a($one_item, 'title');
+    			if(a($one_item, 'target'))
+    			{
+    				$result .= '<i class="sf-external-link fc-mute"></i>';
+    			}
+    			$result .= '</div>';
 
-			$result .= '</div>';
-			$result .= '<div class="value addChild pRa20-f s0"><a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'parent' => a($one_item, 'id')]). '">'. T_("Add Subitem"). '</a></div>';
-			$result .= '<div class="value"><a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')]). '">'. T_("Edit"). '</a></div>';
+    			$result .= '<div class="value addChild pRa20-f s0">';
+                {
+                    $result .= '<a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'parent' => a($one_item, 'id')]). '">'. T_("Add Subitem"). '</a>';
+                }
+                $result .= '</div>';
+
+    			$result .= '<div class="value">';
+                {
+                    $result .= '<a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')]). '">'. T_("Edit"). '</a>';
+                }
+                $result .= '</div>';
+            }
 			$result .= '</div>';
 
 			if(isset($one_item['child']) && is_array($one_item['child']) && $one_item['child'])
