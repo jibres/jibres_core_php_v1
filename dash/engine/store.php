@@ -438,8 +438,33 @@ class store
 		if($get_store_id)
 		{
 			$result = self::lock($get_store_id, $get_store_detail);
+
+			$all_store_setting = \lib\store::detail();
+			if(isset($all_store_setting['store_data']['redirect_jibres_subdomain_to_master']) && $all_store_setting['store_data']['redirect_jibres_subdomain_to_master'])
+			{
+				if(isset($all_store_setting['store_data']['domain']) && is_array($all_store_setting['store_data']['domain']))
+				{
+					foreach ($all_store_setting['store_data']['domain'] as $key => $value)
+					{
+						if(isset($value['domain']) && $value['domain'] && isset($value['master']) && $value['master'] && ((isset($value['status']) && $value['status'] === 'ok') || (isset($value['subdomain']) && $value['subdomain'])))
+						{
+							$new_url = \dash\url::protocol(). '://';
+							$new_url .= $value['domain'];
+							if(\dash\url::path())
+							{
+								$new_url .= \dash\url::path();
+							}
+
+							\dash\redirect::to($new_url);
+
+							return false;
+						}
+					}
+				}
+			}
 			return $result;
 		}
+
 
 		return false;
 	}
