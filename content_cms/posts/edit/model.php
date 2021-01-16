@@ -100,7 +100,6 @@ class model
 		if(\dash\request::files('gallery'))
 		{
 			$uploaded_file = \dash\upload\cms::set_post_gallery(\dash\coding::decode($_id));
-
 			if(isset($uploaded_file['id']))
 			{
 				// save uploaded file
@@ -120,7 +119,12 @@ class model
 				else
 				{
 					\dash\notif::ok(T_("File successfully uploaded"));
-	 				\dash\redirect::pwd();
+
+					// api use this function !!!
+					if(\dash\url::content() === 'cms')
+					{
+	 					\dash\redirect::pwd();
+					}
 				}
 			}
 
