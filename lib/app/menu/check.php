@@ -29,11 +29,25 @@ class check
 			'form_id'       => 'id',
 		];
 
-		$require = ['title'];
+		$require = [];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['pointer'] === 'separator')
+		{
+			$data['title'] = null;
+			// title is not require
+		}
+		else
+		{
+			if(!isset($data['title']))
+			{
+				\dash\notif::error(T_("Title is required"), 'title');
+				return false;
+			}
+		}
 
 		if($data['parent'])
 		{
@@ -230,6 +244,7 @@ class check
 			case 'title':
 			case 'separator':
 				$data['url'] = null;
+				$data['related_id'] = null;
 				break;
 
 			case 'other':

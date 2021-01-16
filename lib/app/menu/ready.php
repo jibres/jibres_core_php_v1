@@ -26,7 +26,6 @@ class ready
 		}
 
 		$result['child'] = [];
-
 		return $result;
 	}
 

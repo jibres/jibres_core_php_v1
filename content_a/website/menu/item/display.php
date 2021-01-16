@@ -10,11 +10,6 @@ $addChildMode = \dash\data::addChildMode();
   <form method="post" class="box" autocomplete="off">
     <header><h2><?php echo \dash\face::title() ?></h2></header>
       <div class="body">
-        <label for="title"><?php echo T_("Title"); ?></label>
-        <div class="input">
-          <input type="text" name="title" id="title" value="<?php echo \dash\data::dataRow_title() ?>" maxlength="50" required <?php \dash\layout\autofocus::html() ?>>
-        </div>
-
         <div class="mB10">
           <label for="pointer"><?php echo T_("Hint to") ?></label>
           <select name="pointer" class="select22">
@@ -31,6 +26,14 @@ $addChildMode = \dash\data::addChildMode();
             <option value="other" <?php if(\dash\data::dataRow_pointer() === 'other') {echo 'selected';} ?>><?php echo T_("Something else") ?></option>
           </select>
         </div>
+
+       <div data-response='pointer' data-response-where-not='separator' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'separator'){ echo 'data-response-hide';} ?>>
+          <label for="title"><?php echo T_("Title"); ?></label>
+          <div class="input">
+            <input type="text" name="title" id="title" value="<?php echo \dash\data::dataRow_title() ?>" maxlength="50" >
+          </div>
+        </div>
+
 
        <div data-response='pointer' data-response-where='products' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'products'){}else{ echo 'data-response-hide';} ?>>
           <select name="product_id" class="select22" id="productSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in product"); ?>'>
