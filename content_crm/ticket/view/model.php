@@ -34,7 +34,6 @@ class model
 		[
 			'masterid' => $_id,
 			'code'     => $_id,
-			// 'tcontent' => \dash\safe::forJson($content),
 			'plus'     => $update_main['plus'],
 		];
 

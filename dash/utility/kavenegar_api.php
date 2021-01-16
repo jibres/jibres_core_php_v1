@@ -133,7 +133,7 @@ class kavenegar_api
 			//=====================================================================================//
 			// for debug you can uncomment below line to see the result get from server
 
-			\dash\temp::set('rawKavenegrarResult', \dash\safe::forJson($response));
+			\dash\temp::set('rawKavenegrarResult', $response);
 
 			if(!$response)
 			{
