@@ -42,7 +42,7 @@ class search
 			$and[] = " files.type = '$data[type]' ";
 		}
 
-		$meta['limit'] = 20;
+		$meta['limit'] = 15;
 		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
 		{
 			$meta['pagination'] = false;
