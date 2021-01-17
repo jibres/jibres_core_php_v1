@@ -85,6 +85,9 @@ class user
 		unset($_args['username']);
 		unset($_args['chatid']);
 
+		// if user have not mobile or chat id duplicate insert recrod of user
+		// need to fix
+		// @javad @fix
 		$result             = \dash\app\user::quick_add($_args);
 
 		$_args['status']   = $myStatus;
