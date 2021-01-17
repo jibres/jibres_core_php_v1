@@ -1,4 +1,6 @@
 <?php
+$cmsSetting = \lib\app\setting\get::cms_setting();
+
 
 $dataRow = \dash\data::dataRow();
 echo '<div class="avand">';
@@ -68,7 +70,13 @@ if(\dash\data::dataRow_datemodified())
 {
 
 echo '<div class="msg simple f mT20">';
-echo '<div class="c"><time class="ltr compact" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time></div>';
+echo '<div class="c">';
+if(\dash\data::dataRow_showdate() === 'visible' || a($cmsSetting, 'defaultshowdate') === 'visible')
+{
+  echo '<time class="ltr compact" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time>';
+}
+
+echo '</div>';
 echo '<div class="cauto os">';
 echo '<a data-copy="'.  \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" title="'.  T_("For share via social networks"). '">'. T_("Short Code") .' <span class="txtB">' . \dash\data::dataRow_id(). '</span></a>';
 echo '</div>';
@@ -103,11 +111,11 @@ if($myPostSimilar)
   }
   echo '</nav>';
 }
-if(\dash\data::dataRow_comment() === 'open')
+if(\dash\data::dataRow_comment() === 'open' || a($cmsSetting, 'defaultcomment') === 'open')
 {
   require_once('display-add-comment.php');
+  require_once('display-comment-list.php');
 }
-require_once('display-comment-list.php');
 
 
 echo '</div>';
