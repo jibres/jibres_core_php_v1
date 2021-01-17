@@ -14,6 +14,9 @@ class set
 			'thumbratiogallery'  => \lib\ratio::check_input(),
 			'thumbratiovideo'    => \lib\ratio::check_input(),
 			'thumbratiopodcast'  => \lib\ratio::check_input(),
+			'defaultcomment'     => ['enum' => ['open', 'closed']],
+			'defaultshowwriter'  => ['enum' => ['visible', 'hidden']],
+			'defaultshowdate'    => ['enum' => ['visible', 'hidden']],
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

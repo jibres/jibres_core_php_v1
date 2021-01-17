@@ -26,6 +26,20 @@ class model
 			$post['thumbratiopodcast'] = \dash\request::post('thumbratiopodcast');
 		}
 
+		if(\dash\request::post('set_defaultcomment'))
+		{
+			$post['defaultcomment'] = \dash\request::post('defaultcomment');
+		}
+
+		if(\dash\request::post('set_defaultshowwriter'))
+		{
+			$post['defaultshowwriter'] = \dash\request::post('defaultshowwriter');
+		}
+
+		if(\dash\request::post('set_defaultshowdate'))
+		{
+			$post['defaultshowdate'] = \dash\request::post('defaultshowdate');
+		}
 
 		\lib\app\setting\set::cms_setting($post);
 

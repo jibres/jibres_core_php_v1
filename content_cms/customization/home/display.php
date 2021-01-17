@@ -76,3 +76,69 @@
   </form>
 </section>
 
+
+<section class="f" data-option='cms-comment-defualt'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default post comment");?></h3>
+      <div class="body">
+        <p><?php echo T_("In this section, you specify the default status of the comment");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_defaultcomment" value="1">
+      <div class="action">
+         <select class="select22" name="defaultcomment" data-placeholder='<?php echo T_("Please choose an item") ?>'>
+          <option value=""><?php echo T_("Please choose an item") ?></option>
+          <option value="open" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'open') { echo 'selected'; } ?> ><?php echo T_("Open"); ?></option>
+          <option value="closed" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'closed') { echo 'selected'; } ?> ><?php echo T_("Closed"); ?></option>
+        </select>
+      </div>
+  </form>
+</section>
+
+
+
+<section class="f" data-option='cms-show-writer-default'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default show writer");?></h3>
+      <div class="body">
+        <p><?php echo T_("In this section, you specify the default status of the show writer");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_defaultshowwriter" value="1">
+      <div class="action">
+         <select class="select22" name="defaultshowwriter" data-placeholder='<?php echo T_("Please choose an item") ?>'>
+          <option value=""><?php echo T_("Please choose an item") ?></option>
+          <option value="visible" <?php if(\dash\data::cmsSettingSaved_defaultshowwriter() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
+          <option value="hidden" <?php if(\dash\data::cmsSettingSaved_defaultshowwriter() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
+        </select>
+      </div>
+  </form>
+</section>
+
+
+<section class="f" data-option='cms-show-date-default'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default show date");?></h3>
+      <div class="body">
+        <p><?php echo T_("In this section, you specify the default status of the show date");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_defaultshowdate" value="1">
+      <div class="action">
+         <select class="select22" name="defaultshowdate" data-placeholder='<?php echo T_("Please choose an item") ?>'>
+          <option value=""><?php echo T_("Please choose an item") ?></option>
+          <option value="visible" <?php if(\dash\data::cmsSettingSaved_defaultshowdate() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
+          <option value="hidden" <?php if(\dash\data::cmsSettingSaved_defaultshowdate() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
+        </select>
+      </div>
+  </form>
+</section>
