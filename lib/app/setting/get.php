@@ -137,12 +137,6 @@ class get
 			}
 		}
 
-
-		if(!isset($setting['ratio']))
-		{
-			$setting['ratio'] = null;
-		}
-
 		return $setting;
 	}
 

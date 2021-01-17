@@ -19,6 +19,27 @@ class view
 			\dash\data::postWriterOld(\dash\app\user::get(\dash\data::dataRow_user_id()));
 		}
 
+		$cmsSettingSaved = \lib\app\setting\get::cms_setting();
+
+		if(isset($cmsSettingSaved['defaultshowwriter']))
+		{
+			if($cmsSettingSaved['defaultshowwriter'] === 'visible')
+			{
+				$defaultTitle = T_("Default (Visible)");
+			}
+			else
+			{
+				$defaultTitle = T_("Default (Hidden)");
+
+			}
+		}
+		else
+		{
+			$defaultTitle = T_("Default");
+		}
+
+		\dash\data::defaultTitleShowwriter($defaultTitle);
+
 	}
 }
 ?>

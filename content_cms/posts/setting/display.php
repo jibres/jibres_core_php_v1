@@ -62,7 +62,7 @@ $myID = '?id='. \dash\request::get('id');
     <div class="action">
       <input type="hidden" name="runaction_comment" value="1">
       <select class="select22" name="comment">
-          <option value="default" <?php if(\dash\data::dataRow_comment() == 'default') { echo 'selected'; } ?> ><?php echo T_("Default"); ?></option>
+          <option value="default" <?php if(\dash\data::dataRow_comment() == 'default') { echo 'selected'; } ?> ><?php echo \dash\data::defaultTitleComment(); ?></option>
           <option value="open" <?php if(\dash\data::dataRow_comment() == 'open') { echo 'selected'; } ?> ><?php echo T_("Open"); ?></option>
           <option value="closed" <?php if(\dash\data::dataRow_comment() == 'closed') { echo 'selected'; } ?> ><?php echo T_("Closed"); ?></option>
         </select>

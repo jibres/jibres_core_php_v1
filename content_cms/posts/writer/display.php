@@ -43,7 +43,7 @@
     <div class="action">
       <input type="hidden" name="runaction_showwriter" value="1">
       <select class="select22" name="showwriter">
-          <option value="default" <?php if(\dash\data::dataRow_showwriter() == 'default') { echo 'selected'; } ?> ><?php echo T_("Default"); ?></option>
+          <option value="default" <?php if(\dash\data::dataRow_showwriter() == 'default') { echo 'selected'; } ?> ><?php echo \dash\data::defaultTitleShowwriter(); ?></option>
           <option value="visible" <?php if(\dash\data::dataRow_showwriter() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
           <option value="hidden" <?php if(\dash\data::dataRow_showwriter() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
         </select>
