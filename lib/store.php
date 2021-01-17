@@ -283,52 +283,7 @@ class store
 			}
 		}
 
-		if(!isset($result['domain']))
-		{
-			$result['domain'] = [];
-		}
-
-		if(!is_array($result['domain']))
-		{
-			$result['domain'] = [];
-		}
-
-		$load_store_domain_record = [];
-
-		if($_store_id && is_numeric($_store_id))
-		{
-			// load domain status from jibres database
-			//@check @reza
-			$load_store_domain_record = \lib\app\business_domain\business::domain_list($_store_id);
-			if(!is_array($load_store_domain_record))
-			{
-				$load_store_domain_record = [];
-			}
-		}
-
-		foreach ($load_store_domain_record as $key => $value)
-		{
-			$domain_status = null;
-			$domain_master = null;
-			$domain_subdomain = null;
-
-			if(isset($value['status']))
-			{
-				$domain_status = $value['status'];
-			}
-
-			if(isset($value['master']))
-			{
-				$domain_master = $value['master'];
-			}
-
-			if(isset($value['subdomain']))
-			{
-				$domain_subdomain = $value['subdomain'];
-			}
-
-			$result['domain'][] = ['domain' => $value['domain'], 'status' => $domain_status, 'master' => $domain_master, 'subdomain' => $domain_subdomain];
-		}
+		$result['domain'] = \lib\app\business_domain\business::domain_list($_store_id);
 
 		if(array_key_exists('logo', $result) && !$result['logo'])
 		{
@@ -346,7 +301,9 @@ class store
 		$result['update_time'] = time();
 		\dash\file::write($addr, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 
-		return self::ready_setting($result);
+		$result = self::ready_setting($result);
+
+		return $result;
 	}
 
 

@@ -8,7 +8,7 @@ class business
 	{
 		if(!$_store_id || !is_numeric($_store_id))
 		{
-			return false;
+			return [];
 		}
 
 		$addr = \dash\engine\store::domain_list_addr();
@@ -20,8 +20,8 @@ class business
 		if(is_file($addr))
 		{
 			$load = \dash\file::read($addr);
-			$load = json_decode($load, true);
-			if(is_array($load))
+			$domain_list = json_decode($load, true);
+			if(!is_array($domain_list))
 			{
 				$domain_list = [];
 			}
