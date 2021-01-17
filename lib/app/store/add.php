@@ -152,15 +152,12 @@ class add
 
 		\dash\log::set('StartMakeNewStore', ['my_detail' => $args]);
 
-		\dash\db::transaction();
 
 		// add store record in jibres table
 		$store_id = self::new_store($subdomain, $args['creator'], $fuel);
 
 		if(!$store_id)
 		{
-			\dash\db::rollback();
-
 			\dash\log::set('dbCanNotAddStore', ['request_subdomain' => $subdomain]);
 
 			\dash\notif::error(T_("Can not add your store"));
@@ -169,6 +166,8 @@ class add
 
 			return false;
 		}
+
+		\dash\db::transaction();
 
 		// add store data in jibres database
 		$add_store_data = self::new_store_data($args, $store_id);
