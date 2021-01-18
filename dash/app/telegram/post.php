@@ -51,6 +51,11 @@ class post
 			$txt     .= a($post_detail , 'excerpt'). "\n";
 		}
 
+		if(a($_meta , 'sharetext'))
+		{
+			$txt     .= a($_meta , 'sharetext'). "\n";
+		}
+
 		// bussiness tg text footer
 		if(isset($telegram_setting['share_text']))
 		{

@@ -25,7 +25,7 @@ $propertyList = \dash\data::propertyList();
             <div class="msg">
               <p><?php echo \dash\data::dataRow_title() ?></p>
               <p><?php echo \dash\data::dataRow_excerpt(); ?></p>
-              <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::dataRow(),'sharetext'); ?></textarea>
+              <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'></textarea>
               <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
             </div>
 
