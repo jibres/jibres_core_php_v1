@@ -218,8 +218,15 @@ class view
 		}
 		else
 		{
+			if(\dash\engine\store::inStore() && \lib\store::logo())
+			{
+				\dash\face::cover(\lib\store::logo());
+			}
+			else
+			{
+				\dash\face::cover(\dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-500.png');
+			}
 
-			\dash\face::cover(\dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-500.png');
 			\dash\face::twitterCard('summary');
 		}
 	}
