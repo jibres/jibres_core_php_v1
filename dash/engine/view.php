@@ -198,6 +198,13 @@ class view
 			\dash\face::cover(\dash\data::dataRow_thumb());
 		}
 
+
+		if(!\dash\data::back_link())
+		{
+			\dash\data::back_text(T_("Back"));
+			\dash\data::back_link(\dash\url::kingdom());
+		}
+
 		// set new title
 		self::set_title();
 	}
