@@ -128,30 +128,32 @@ class cms
 			return false;
 		}
 
-		$fileusage =
-		[
-			'file_id'     => $file_detail['id'],
-			'user_id'     => \dash\user::id(),
-			'title'       => null,
-			'alt'         => null,
-			'desc'        => null,
-			'related'     => 'post_cover',
-			'related_id'  => $_post_id,
-			'datecreated' => date("Y-m-d H:i:s"),
-		];
-
-		$check_duplicate_usage = \dash\db\fileusage::duplicate('post_cover', $_post_id);
-
-		if(isset($check_duplicate_usage['id']))
-		{
-			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
-		}
-		else
-		{
-			\dash\db\fileusage::insert($fileusage);
-		}
+		self::set_usage('post_cover', $file_detail['id'], $_post_id);
 
 		return $file_detail['path'];
+	}
+
+
+	public static function set_post_cover_by_file_id($_post_id, $_file_id)
+	{
+		\dash\permission::access('cmsAttachmentAdd');
+
+		if(!$_post_id)
+		{
+			\dash\notif::error(T_("Post not found"));
+			return false;
+		}
+
+		$load_file = \dash\app\files\get::get($_file_id);
+
+		if(!isset($load_file['id']))
+		{
+			return false;
+		}
+
+		self::set_usage('post_cover', \dash\coding::decode($load_file['id']), $_post_id);
+
+		return $load_file['path'];
 	}
 
 

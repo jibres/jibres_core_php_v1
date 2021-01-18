@@ -183,7 +183,7 @@ $myID = '?id='. \dash\request::get('id');
 <?php } // endif ?>
 
 
-<section class="f" data-option='cms-post-cover'>
+<section class="f" data-option='cms-post-cover' id="cmspostcover">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Post cover")?></h3>
@@ -202,11 +202,19 @@ $myID = '?id='. \dash\request::get('id');
     </div>
   </form>
 
-  <?php if(\dash\data::dataRow_cover()) {?>
-    <footer class="txtRa">
-     <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="btn link fc-red"><?php echo T_("Remove post cover") ?></div>
-    </footer>
-  <?php } //endif ?>
+  <footer class="txtRa">
+    <div class="f">
+      <div class="cauto">
+        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image']) ?>"><?php echo T_("Choose from gallery") ?></a>
+      </div>
+      <div class="c"></div>
+      <div class="cauto">
+        <?php if(\dash\data::dataRow_cover()) {?>
+         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="btn link fc-red"><?php echo T_("Remove post cover") ?></div>
+        <?php } //endif ?>
+      </div>
+    </div>
+  </footer>
 </section>
 
 
