@@ -6,7 +6,7 @@ class view
 	public static function config()
 	{
 
-		\dash\face::title(T_("View File"));
+		\dash\face::title(T_("Webp images"));
 
 
 		\dash\data::back_text(T_("Back"));
