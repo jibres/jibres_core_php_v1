@@ -129,6 +129,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
       <h3><?php echo T_("Featured Image")?></h3>
       <div class="body">
         <p><?php echo T_("The Featured Image is a Jibres theme feature that allows theme you to using a representative image. Featured Image is a primary image for your post."); ?></p>
+        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image']) ?>"><?php echo T_("Choose from gallery") ?></a>
       </div>
     </div>
   </div>

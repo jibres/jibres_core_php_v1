@@ -37,30 +37,66 @@ class cms
 			return false;
 		}
 
+		self::set_usage('post_thumb', $file_detail['id'], $_post_id);
+
+		return $file_detail['path'];
+	}
+
+
+
+	public static function set_post_thumb_by_file_id($_post_id, $_file_id)
+	{
+		\dash\permission::access('cmsAttachmentAdd');
+
+		if(!$_post_id)
+		{
+			\dash\notif::error(T_("Post not found"));
+			return false;
+		}
+
+		$load_file = \dash\app\files\get::get($_file_id);
+
+		if(!isset($load_file['id']))
+		{
+			return false;
+		}
+
+		self::set_usage('post_thumb', \dash\coding::decode($load_file['id']), $_post_id);
+
+		return $load_file['path'];
+	}
+
+
+
+	private static function set_usage($_related, $_file_id, $_related_id)
+	{
+		if(!$_file_id || !$_related_id || !is_numeric($_file_id) || !is_numeric($_related_id))
+		{
+			return false;
+		}
+
 		$fileusage =
 		[
-			'file_id'     => $file_detail['id'],
+			'file_id'     => $_file_id,
 			'user_id'     => \dash\user::id(),
 			'title'       => null,
 			'alt'         => null,
 			'desc'        => null,
 			'related'     => 'post_thumb',
-			'related_id'  => $_post_id,
+			'related_id'  => $_related_id,
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
-		$check_duplicate_usage = \dash\db\fileusage::duplicate('post_thumb', $_post_id);
+		$check_duplicate_usage = \dash\db\fileusage::duplicate('post_thumb', $_related_id);
 
 		if(isset($check_duplicate_usage['id']))
 		{
-			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $file_detail['id']);
+			\dash\db\fileusage::update_file_id($check_duplicate_usage['id'], $_file_id);
 		}
 		else
 		{
 			\dash\db\fileusage::insert($fileusage);
 		}
-
-		return $file_detail['path'];
 	}
 
 
