@@ -129,7 +129,6 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
       <h3><?php echo T_("Featured Image")?></h3>
       <div class="body">
         <p><?php echo T_("The Featured Image is a Jibres theme feature that allows theme you to using a representative image. Featured Image is a primary image for your post."); ?></p>
-        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image']) ?>"><?php echo T_("Choose from gallery") ?></a>
       </div>
     </div>
   </div>
@@ -142,10 +141,19 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
     </div>
   </form>
 
-  <?php if(\dash\data::dataRow_thumb()) {?>
     <footer class="txtRa">
-     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove featured image") ?></div>
+      <div class="f">
+        <div class="cauto">
+          <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image']) ?>"><?php echo T_("Choose from gallery") ?></a>
+        </div>
+        <div class="c"></div>
+        <div class="cauto">
+          <?php if(\dash\data::dataRow_thumb()) {?>
+            <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove featured image") ?></div>
+          <?php } //endif ?>
+        </div>
+      </div>
+
     </footer>
-  <?php } //endif ?>
 </section>
 
