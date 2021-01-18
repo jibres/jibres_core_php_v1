@@ -91,6 +91,24 @@ $myID = '?id='. \dash\request::get('id');
 </section>
 
 
+
+<section class="f" data-option='cms-post-share'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Smart Share");?></h3>
+      <div class="body">
+        <p><?php echo T_("Share this post in social networks");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a href="<?php echo \dash\url::this(). '/share'. $myID; ?>" class="btn master"><?php echo T_("Smart Share") ?></a>
+    </div>
+  </div>
+</section>
+
+
 <section class="f" data-option='cms-post-redirect'>
   <div class="c8 s12">
     <div class="data">
