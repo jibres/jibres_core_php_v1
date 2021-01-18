@@ -221,6 +221,18 @@ class extentions
 	}
 
 
+	public static function is_ext($_ext)
+	{
+		$list = self::mime();
+
+		if(isset($list[$_ext]))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 
 	public static function get_all_allow_ext()
 	{

@@ -21,9 +21,10 @@ class search
 		$condition =
 		[
 			'order'      => 'order',
-			'sort'       => ['enum' => ['title']],
+			'sort'       => 'string_100',
 			'pagination' => 'bit',
-			'type'       => ['enum' => ['cat']],
+			'type'       => ['enum' => ['image','archive','audio','pdf','video','word','excel','powerpoint','code','text','file', 'other']],
+			'ext'       => 'string_100',
 		];
 
 		$require = [];
@@ -39,10 +40,20 @@ class search
 
 		if($data['type'])
 		{
-			$and[] = " files.type = '$data[type]' ";
+			if($data['type'] === 'other')
+			{
+				$and[] = " files.type IN ('word','excel','powerpoint','code','text','file') ";
+			}
+			else
+			{
+				$and[] = " files.type = '$data[type]' ";
+			}
+
+			self::$is_filtered = true;
 		}
 
 		$meta['limit'] = 15;
+
 		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
 		{
 			$meta['pagination'] = false;
@@ -56,7 +67,21 @@ class search
 
 		if($query_string)
 		{
-			$or[]        = " files.title LIKE '%$query_string%'";
+			$filename_search = true;
+			if(substr($query_string, 0, 1) === '.' && strpos($query_string, ' ') === false && mb_strlen($query_string) > 3)
+			{
+				$ext = substr($query_string, 1);
+				if(\dash\upload\extentions::is_ext($ext))
+				{
+					$and[] = " files.ext = '$ext' ";
+					$filename_search = false;
+				}
+			}
+
+			if($filename_search)
+			{
+				$or[]        = " files.filename LIKE '%$query_string%'";
+			}
 
 			self::$is_filtered = true;
 		}
@@ -64,14 +89,11 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$sort = mb_strtolower($data['sort']);
-			$order = null;
-			if($data['order'])
+			if(\dash\app\files\filter::check_allow($data['sort'], $data['order']))
 			{
-				$order = mb_strtolower($data['order']);
+				$order_sort = " ORDER BY $data[sort] $data[order] ";
 			}
 
-			$order_sort = " ORDER BY $sort $order";
 		}
 
 		if(!$order_sort)
