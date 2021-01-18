@@ -98,7 +98,7 @@ class post
 			[
 				[
 					[
-						'text' => T_("View order"),
+						'text' => T_("View"),
 						'url'  => \lib\store::url(). '/n/'. a($post_detail , 'id'),
 					],
 				],
