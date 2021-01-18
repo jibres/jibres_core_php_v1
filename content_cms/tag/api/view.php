@@ -11,7 +11,7 @@ class view
 		if(\dash\request::get('q'))
 		{
 			// show dropdown of product list
-			$list = \dash\app\terms\search::list(\dash\request::get('q'), ['type' => 'tag', 'pagination' => false, 'limit' => 20]);
+			$list = \dash\app\terms\search::list(\dash\request::get('q'), ['type' => 'tag', 'pagination' => false, 'limit' => 20, 'sort' => 'title', 'order' => 'asc']);
 			if(!is_array($list))
 			{
 				$list = [];
