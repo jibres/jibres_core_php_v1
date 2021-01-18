@@ -131,7 +131,6 @@ class model
 			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
 
 		}
-		var_dump($myResult);exit();
 
 		// if bot user is not exist in chat
 		// description: "Bad Request: chat not found"
