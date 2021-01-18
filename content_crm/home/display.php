@@ -137,6 +137,13 @@
           <div class="go"></div>
         </a>
       </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::here();?>/telegram">
+          <i class="sf-paper-plane"></i>
+          <div class="key"><?php echo T_('Telegram');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/log">
           <i class="sf-camera-surveillance"></i>
