@@ -27,6 +27,7 @@ $propertyList = \dash\data::propertyList();
               <p><?php echo \dash\data::dataRow_excerpt(); ?></p>
               <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'></textarea>
               <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
+              <?php echo \dash\app\telegram\post::get_tags_html(\dash\data::dataRow_tags()); ?>
             </div>
 
             <?php $social = \lib\store::social(); ?>

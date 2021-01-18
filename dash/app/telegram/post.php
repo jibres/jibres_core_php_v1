@@ -7,7 +7,7 @@ class post
 	public static function send($_id, $_meta = [])
 	{
 
-		$post_detail = \dash\app\posts\get::get($_id);
+		$post_detail = \dash\app\posts\get::load_post($_id);
 
 		if(!$post_detail)
 		{
@@ -42,10 +42,9 @@ class post
 			$msgData['photo'] = a($post_detail , 'thumb');
 		}
 
-		// title
+
 		$txt = '<b>'. a($post_detail , 'title'). '</b>'. "\n";
 
-		// product share text
 		if(a($post_detail , 'excerpt'))
 		{
 			$txt     .= a($post_detail , 'excerpt'). "\n";
@@ -56,11 +55,16 @@ class post
 			$txt     .= a($_meta , 'sharetext'). "\n";
 		}
 
-		// bussiness tg text footer
+		if(isset($post_detail['tags']))
+		{
+			$txt .= "\n". self::get_tags_html($post_detail['tags']). "\n";
+		}
+
 		if(isset($telegram_setting['share_text']))
 		{
 			$txt     .= "\n". $telegram_setting['share_text'];
 		}
+
 
 		$msgData['reply_markup'] = false;
 
@@ -126,12 +130,12 @@ class post
 
 		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
 		\dash\social\telegram\tg::$name      = $botname;
-		// if(isset($msgData['photo']))
-		// {
-		// 	$msgData['caption'] = $txt;
-		// 	// $myResult = \dash\social\telegram\tg::sendPhoto($msgData);
-		// }
-		// else
+		if(isset($msgData['photo']))
+		{
+			$msgData['caption'] = $txt;
+			$myResult = \dash\social\telegram\tg::sendPhoto($msgData);
+		}
+		else
 		{
 			$msgData['text'] = $txt;
 			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
@@ -161,6 +165,27 @@ class post
 		\dash\notif::ok(T_("Post successfully on telegram"));
 		return true;
 
+	}
+
+
+
+	public static function get_tags_html($_tags)
+	{
+		if(!$_tags || !is_array($_tags))
+		{
+			return null;
+		}
+
+		$result = '';
+		foreach ($_tags as $key => $value)
+		{
+			if(isset($value['title']))
+			{
+				$result .= ' #'. str_replace(' ', '_', $value['title']);
+			}
+		}
+
+		return $result;
 	}
 }
 ?>
