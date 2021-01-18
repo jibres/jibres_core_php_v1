@@ -6,14 +6,14 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Sms log"));
+		\dash\face::title(T_("Telegram chat list"));
 
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_text(T_('CRM'));
 
 
 		\dash\data::listEngine_start(true);
-		\dash\data::listEngine_search(\dash\url::this());
+		\dash\data::listEngine_search(false);
 		\dash\data::listEngine_filter(false);
 		\dash\data::listEngine_sort(false);
 

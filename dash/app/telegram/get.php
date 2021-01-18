@@ -6,13 +6,8 @@ class get
 {
 	public static function get($_id)
 	{
-		$id = \dash\coding::decode($_id);
-		if(!$id)
-		{
-			return false;
-		}
 
-		$result = self::inline_get($id);
+		$result = self::inline_get($_id);
 
 		if(!$result)
 		{
@@ -38,13 +33,13 @@ class get
 
 	public static function inline_get($_id)
 	{
-
-		if(!$_id || !is_numeric($_id))
+		$id = \dash\validate::id($_id, false);
+		if(!$id)
 		{
 			return false;
 		}
 
-		$result = \dash\db\telegrams\get::by_id($_id);
+		$result = \dash\db\telegrams\get::by_id($id);
 		if(!$result || !is_array($result))
 		{
 			return false;

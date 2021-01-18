@@ -9,26 +9,10 @@
       </a>
      </li>
 
-     <li>
-      <a class="f item">
-        <div class="key"><?php echo T_("Mobile") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></div>
-        <div class="go detail"></div>
-      </a>
-     </li>
-
-       <li>
-      <a class="f item">
-        <div class="key"><?php echo T_("Line") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_line()); ?></div>
-        <div class="go detail"></div>
-      </a>
-     </li>
-
     <li>
       <a class="f item">
-        <div class="key"><?php echo T_("Date created") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></div>
+        <div class="key"><?php echo T_("Date send") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_senddate()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
