@@ -30,6 +30,7 @@ class post
 		}
 
 		$msgData  = [];
+		$msgData['post_id'] = \dash\coding::decode($_id);
 		$msgData['chat_id'] = '@'. $telegram_setting['channel'];
 
 		$botname   = a($telegram_setting, 'username');
@@ -129,7 +130,6 @@ class post
 		{
 			$msgData['text'] = $txt;
 			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
-
 		}
 
 		// if bot user is not exist in chat
