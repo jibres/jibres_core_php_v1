@@ -18,7 +18,7 @@
           <div class="availability" data-green data-type='view'><?php echo T_("This product addet to your cart"); ?></div>
         <?php } // endif ?>
 
-        <?php if(a($value, 'trackquantity')) {?>
+        <?php if(a($value, 'trackquantity') && a($value, 'type') != 'file') {?>
 
         <?php $stock = floatval(a($value, 'stock')); ?>
           <?php if($stock >= 10) {?>

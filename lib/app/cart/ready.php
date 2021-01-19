@@ -119,6 +119,7 @@ class ready
 			$result['instock']       = a($get_from_product, 'instock');
 			$result['title']         = a($get_from_product, 'title');
 			$result['status']        = a($get_from_product, 'status');
+			$result['type']        	 = a($get_from_product, 'type');
 			$result['allow_shop']    = a($get_from_product, 'allow_shop');
 
 
