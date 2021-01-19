@@ -20,14 +20,16 @@
      </dl>
    <?php } //endif ?>
 
+    <?php if(is_numeric(\dash\data::cartSummary_shipping())){ ?>
      <dl class="shipping">
       <dt><?php echo T_("Shipping"); ?></dt>
         <?php if(\dash\data::cartSummary_shipping()) {?>
       <dd><?php echo \dash\fit::number(\dash\data::cartSummary_shipping()); ?> <?php echo \lib\store::currency(); ?> </dd>
-      <?php }else{ ?>
+      <?php }elseif(is_numeric(\dash\data::cartSummary_shipping())){ ?>
         <dd class="fc-green"><span class="txtB" ><?php echo T_("Free") ?></span> <i class="sf-gift"></i></dd>
       <?php }//endif ?>
      </dl>
+    <?php }//endif ?>
 
      <dl class="total">
       <dt><?php echo T_("Total"); ?></dt>

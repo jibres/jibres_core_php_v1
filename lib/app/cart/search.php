@@ -255,12 +255,12 @@ class search
 			}
 		}
 
-		$shipping_value = 0;
+		$shipping_value = null;
 		$shipping = \lib\app\setting\get::shipping_setting();
 
-		if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
+		if(isset($shipping['sendbypost']) && is_numeric($shipping['sendbypost']) && isset($shipping['sendbypostprice']) && is_numeric($shipping['sendbypostprice']))
 		{
-			if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
+			if(isset($shipping['freeshipping']) && is_numeric($shipping['freeshipping']) && isset($shipping['freeshippingprice']) && is_numeric($shipping['freeshippingprice']))
 			{
 				if(floatval($subtotal) >= floatval($shipping['freeshippingprice']))
 				{
