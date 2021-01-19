@@ -52,6 +52,7 @@ class search
 			'so'          => 'y_n',
 			'w'           => 'y_n',
 			't'           => 'y_n',
+			'tq'          => 'y_n',
 
 			'websitemode' => 'bit',
 
@@ -200,6 +201,20 @@ class search
 		{
 			$and[] = "(products.price IS NULL OR products.price = 0 )";
 			self::$filter_args['price']      = T_("Without price");
+			self::$is_filtered            = true;
+		}
+
+
+			// price
+		if(isset($data['tq']) && $data['tq'] === 'y')
+		{
+			$and[] = " products.trackquantity  = 'yes' ";
+
+			self::$is_filtered            = true;
+		}
+		elseif(isset($data['tq']) && $data['tq'] === 'n')
+		{
+			$and[] = " ( products.trackquantity  = 'no' OR products.trackquantity  IS NULL ) ";
 			self::$is_filtered            = true;
 		}
 

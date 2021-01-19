@@ -288,6 +288,25 @@ class filter
 			'public'         => false,
 		];
 
+		$list['tracking_on'] =
+		[
+			'key'            => 'tracking_on',
+			'group'          => T_("Track quantity"),
+			'title'          => T_("Track quantity On"),
+			'query'			 => ['tq' => 'y'],
+			'public'         => false,
+		];
+
+
+		$list['tracking_off'] =
+		[
+			'key'            => 'tracking_off',
+			'group'          => T_("Track quantity"),
+			'title'          => T_("Track quantity Off"),
+			'query'			 => ['tq' => 'n'],
+			'public'         => false,
+		];
+
 
 		$list['have_weight'] =
 		[
