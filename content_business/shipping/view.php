@@ -8,7 +8,7 @@ class view
 	{
 		$title = T_("Pay"). ' ('. \dash\fit::number(\lib\website::cart_total(true)). ')';
 		\dash\face::titlePWA($title);
-		\dash\face::title($title . ' '. \dash\face::site());
+		\dash\face::title($title);
 
 		// btn
 		\dash\data::back_link(\dash\url::kingdom().'/cart');

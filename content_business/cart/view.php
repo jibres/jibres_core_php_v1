@@ -8,7 +8,7 @@ class view
 	{
 		$title = T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')';
 		\dash\face::titlePWA($title);
-		\dash\face::title($title . ' '. \dash\face::site());
+		\dash\face::title($title);
 
 		$dataTable = \lib\website::cart_detail();
 		\dash\data::dataTable($dataTable);
