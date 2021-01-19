@@ -205,7 +205,7 @@ $myID = '?id='. \dash\request::get('id');
   <footer class="txtRa">
     <div class="f">
       <div class="cauto">
-        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image']) ?>"><?php echo T_("Choose from gallery") ?></a>
+        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9']) ?>"><?php echo T_("Choose from gallery") ?></a>
       </div>
       <div class="c"></div>
       <div class="cauto">

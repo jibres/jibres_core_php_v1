@@ -144,7 +144,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
     <footer class="txtRa">
       <div class="f">
         <div class="cauto">
-          <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image']) ?>"><?php echo T_("Choose from gallery") ?></a>
+          <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image', 'ratio' => \dash\data::ratioHtmlDetail_ratio_string()]) ?>"><?php echo T_("Choose from gallery") ?></a>
         </div>
         <div class="c"></div>
         <div class="cauto">

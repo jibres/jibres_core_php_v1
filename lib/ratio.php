@@ -155,6 +155,8 @@ class ratio
 			$ratioHtml .= 'data-max-h="'. $ratio['max_h']. '" ';
 		}
 
+		\dash\data::ratioHtmlDetail($ratio);
+
 		\dash\data::ratioHtml($ratioHtml);
 
 		return $ratioHtml;
