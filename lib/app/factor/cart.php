@@ -71,6 +71,8 @@ class cart
 
 		$require = ['payway'];
 
+		$need_address_text = false;
+
 		if($user_id)
 		{
 			if(isset($_args['address_id']) && $_args['address_id'])
@@ -79,13 +81,15 @@ class cart
 			}
 			else
 			{
-				array_push($require, 'address');
+				$need_address_text = true;
+				// array_push($require, 'address');
 				array_push($require, 'mobile');
 			}
 		}
 		else
 		{
-			array_push($require, 'address');
+			$need_address_text = true;
+			// array_push($require, 'address');
 			array_push($require, 'mobile');
 		}
 
@@ -93,7 +97,7 @@ class cart
 		[
 			'field_title' =>
 			[
-				'payway' => 'Payment',
+				'payway'     => 'Payment',
 				'address_id' => 'Address',
 			],
 		];
@@ -159,9 +163,16 @@ class cart
 		$factor['desc']     = $data['desc'];
 		$factor['discount'] = null;
 
+
+		$fileMode = true;
 		$factor_detail = [];
 		foreach ($user_cart as $key => $value)
 		{
+			if(isset($value['type']) && $value['type'] != 'file')
+			{
+				$fileMode = false;
+			}
+
 			$factor_detail[] =
 			[
 				'product'  => $value['product_id'],
@@ -170,6 +181,15 @@ class cart
 				'price'    => null,
 			];
 
+		}
+
+		if(!$fileMode && $need_address_text)
+		{
+			if(!$data['address'])
+			{
+				\dash\notif::error(T_("Address is required"), 'address');
+				return false;
+			}
 		}
 
 		$return = [];

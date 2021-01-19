@@ -24,9 +24,7 @@ class view
 		$shipping_setting = \lib\app\setting\get::shipping_setting();
 		\dash\data::shippingSettingSaved($shipping_setting);
 
-
-		$myCart = \lib\website::cart_detail();
-		\dash\data::myCart($myCart);
+		self::cart_detail();
 
 		$cartSummary = \lib\website::cart_summary();
 		\dash\data::cartSummary($cartSummary);
@@ -38,6 +36,22 @@ class view
 		self::static_var();
 	}
 
+
+	public static function cart_detail()
+	{
+
+		$myCart = \lib\website::cart_detail();
+		\dash\data::myCart($myCart);
+
+		if(is_array($myCart))
+		{
+			$allType = array_column($myCart, 'type');
+			if(count($allType) === 1 && a($allType, 0) === 'file')
+			{
+				\dash\data::fileMode(true);
+			}
+		}
+	}
 
 	private static function static_var()
 	{

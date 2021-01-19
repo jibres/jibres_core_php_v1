@@ -156,20 +156,47 @@ class get
 	}
 
 
+	private static function load_my_order_detail($_id, $_user_id, $_guestid)
+	{
+		$user_id = null;
+		if($_user_id)
+		{
+			$user_id = " AND factors.customer = $_user_id ";
+		}
+
+		$guestid = null;
+		if($_guestid)
+		{
+			$guestid = " AND factors.guestid = '$_guestid' ";
+		}
+		$query =
+		"
+			SELECT
+				factors.*
+
+			FROM
+				factors
+			WHERE
+				factors.id = $_id
+				$user_id
+				$guestid
+			LIMIT 1
+		";
+		$result = \dash\db::get($query, null, true);
+
+		return $result;
+
+	}
 
 	public static function load_my_order_user_id($_id, $_user_id)
 	{
-		$query = "SELECT * FROM factors WHERE factors.id = $_id AND factors.customer = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
-		return $result;
+		return self::load_my_order_detail($_id, $_user_id, null);
 	}
 
 
 	public static function load_my_order_guestid($_id, $_guestid)
 	{
-		$query = "SELECT * FROM factors WHERE factors.id = $_id AND factors.guestid = '$_guestid' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
-		return $result;
+		return self::load_my_order_detail($_id, null, $_guestid);
 	}
 
 

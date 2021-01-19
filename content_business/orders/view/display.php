@@ -23,8 +23,8 @@
 
           <div class="msg">
 
+            <?php $address = a(\dash\data::dataRow(), 'address'); if(a($address, 'address')){ ?>
             <span class=" link"><?php echo T_("Address") ?></span>
-            <?php $address = a(\dash\data::dataRow(), 'address'); ?>
             <?php if(isset($address['country']) && $address['country']) {?><i class="flag <?php echo mb_strtolower($address['country']); ?>"></i><?php } //endif ?>
             <span ><?php echo a($address, 'location_string'); ?></span>
             <span><?php echo a($address, 'address'); ?></span>
@@ -35,6 +35,9 @@
             <?php if(isset($address['phone']) && $address['phone']) {?>
               <div title='<?php echo T_("Phone"); ?>'><i class="sf-phone"></i> <?php echo \dash\fit::text($address['phone']); ?></div>
             <?php } //endif ?>
+
+            <?php } //endif ?>
+
             <?php if(isset($address['mobile']) && $address['mobile']) {?>
               <div title='<?php echo T_("Mobile"); ?>' class="mT5"><i class="sf-mobile"></i> <?php echo \dash\fit::mobile($address['mobile']); ?></div>
             <?php } //endif ?>
@@ -50,8 +53,63 @@
         <?php } //endif ?>
       </div>
 
+      <?php if(\dash\data::dataRow_products() && is_array(\dash\data::dataRow_products())) {?>
 
-      <?php \lib\website::product_list(\dash\data::dataRow_products(), 2); ?>
+           <div class="box cartPage">
+    <div class="pad">
+        <?php  foreach (\dash\data::dataRow_products() as $key => $value) { ?>
+
+
+        <div class="cartItem">
+          <div class="row align-center">
+            <div class="c-auto">
+              <img src="<?php echo a($value, 'thumb') ?>" alt="<?php echo a($value, 'title') ?>">
+            </div>
+            <div class="c">
+              <h3 class="title"><a href="<?php echo a($value, 'url'); ?>"><?php echo a($value, 'title') ?></a></h3>
+
+
+              <div class="priceShow" data-cart>
+                <span class="price"><?php echo \dash\fit::number(a($value, 'price')); ?></span>
+                <span class="unit"><?php echo \lib\store::currency(); ?></span>
+              </div>
+            </div>
+
+
+            <div class="c-auto c-xs-12">
+              <?php if(!a($value, 'allow_shop')) {?>
+                <div class="availability" data-red data-type='view'><?php echo T_("This product was removed from your cart"); ?></div>
+              <?php }else{ ?>
+                <div class="itemOperation">
+                  <div class="productCount">
+                    <?php if(a($value, 'type') === 'file' && in_array(a(\dash\data::dataRow(), 'order', 'paystatus' ), ['successful_payment'])) {?>
+                      <?php if(a($value, 'fileaddress')) {?>
+
+
+                        <a data-action class="btn success" href="<?php echo a($value, 'fileaddress') ?>" download target="_blank"><?php echo T_("Download file") ?></a>
+                      <?php }else{ ?>
+                        <div class="fc-red"><?php echo T_("File have not address!") ?></div>
+                      <?php } //endif ?>
+                    <?php } //endif ?>
+
+                  </div>
+
+                </div>
+              <?php } // endif ?>
+
+            </div>
+          </div>
+        </div>
+
+
+      <?php } //endfor ?>
+    </div>
+  </div>
+
+      <?php } //endif ?>
+
+
+
     </div>
   </div>
 </div>

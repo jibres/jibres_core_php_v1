@@ -266,16 +266,6 @@ class get
 		{
 			foreach ($products as $key => $value)
 			{
-				if(isset($value['count']))
-				{
-					$value['count'] = \lib\number::down($value['count']);
-				}
-				if(isset($value['sum']))
-				{
-					$value['sum'] = \lib\number::down($value['sum']);
-					$value['sum'] = \lib\price::down($value['sum']);
-				}
-
 				$products[$key] = \lib\app\product\ready::row($value);
 			}
 		}
@@ -290,7 +280,6 @@ class get
 		{
 			$factor = \lib\app\factor\ready::row($factor);
 		}
-
 
 		$result             = [];
 		$result['order']    = $factor;

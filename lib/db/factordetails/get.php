@@ -48,6 +48,7 @@ class get
 		$query =
 		"
 			SELECT
+				products.*,
 				factordetails.product_id as `id`,
 				factordetails.price AS `price`,
 				factordetails.discount AS `discount`,
@@ -56,16 +57,6 @@ class get
 				factordetails.count AS `count`,
 				factordetails.sum AS `sum`,
 				(IF(products.thumb IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.thumb FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.thumb)) AS `thumb`,
-				products.title,
-				products.trackquantity,
-				products.instock,
-				products.status,
-				products.optionname1,
-				products.optionvalue1,
-				products.optionname2,
-				products.optionvalue2,
-				products.optionname3,
-				products.optionvalue3,
 				products.price AS `product_price`,
 				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`,
 				productunit.title AS `unit`
