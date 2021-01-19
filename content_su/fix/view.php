@@ -11,118 +11,86 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-		self::fix_menu();
+		self::fix_ratio_file();
 
 	}
 
 
 
-	private static function fix_menu()
+	private static function fix_ratio_file()
 	{
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
 		$setting = [];
 
+		$file_error = [];
+		$duplicate = 0;
+		$run = 0;
+
 		foreach ($list as $key => $value)
 		{
-			$query = "SELECT * FROM setting WHERE setting.cat = 'menu' ";
-			$dbname = \dash\engine\store::make_database_name($value['id']);
+			$query = "	SELECT * FROM files WHERE files.ext IN ('jpg','jpeg','png','gif', 'webp') ";
+			$store_id = $value['id'];
+			$dbname = \dash\engine\store::make_database_name($store_id);
 			$resutl = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
 			if($resutl)
 			{
-				foreach ($resutl as $one_old_menu)
+
+				foreach ($resutl as $one_file)
 				{
-					if(isset($one_old_menu['value']) && $one_old_menu['value'])
+					if(isset($one_file['path']))
 					{
-						$json = json_decode($one_old_menu['value'], true);
-						if(!is_array($json))
+						if(a($one_file, 'height') || a($one_file, 'width'))
 						{
-							var_dump('is not array');
-							var_dump($one_old_menu);
-							var_dump($value);
-							var_dump($resutl);
+							$duplicate++;
 							continue;
 						}
 
-						if(!isset($json['title']) && !isset($json['list']) || (!is_array(a($json, 'list'))))
+
+						$addr = YARD . 'talambar_cloud/';
+						$addr .=\dash\store_coding::encode_raw();
+						$addr .= $one_file['path'];
+
+						if(!is_file($addr))
 						{
-							var_dump('have not title or list');
-							var_dump($one_old_menu);
-							var_dump($value);
-							var_dump($resutl);
+							$file_error[] = $addr;
 							continue;
 						}
 
-						$master_menu_title = $json['title'];
+						$update = [];
 
-						$check_not_duplicate = " SELECT *  FROM menu WHERE menu.title = '$json[title]' AND menu.parent1 IS NULL LIMIT 1 ";
-						$check_not_duplicate = \dash\db::get($check_not_duplicate, null, true, $value['fuel'], ['database' => $dbname]);
-						if($check_not_duplicate)
+						$ratio_detail = \dash\utility\image::get_ratio($addr, true);
+
+						if(isset($ratio_detail['height']))
 						{
-							var_dump('duplicate menu !!!!! Do not run this url again :/');
-							continue;
+							$update['height'] = $ratio_detail['height'];
 						}
 
-						$insert_master_menu = " INSERT INTO menu SET menu.title = '$json[title]' ";
-						$resutl = \dash\db::query($insert_master_menu, $value['fuel'], ['database' => $dbname]);
-						$master_id = \dash\db::insert_id();
-
-						if(!$master_id)
+						if(isset($ratio_detail['width']))
 						{
-							var_dump('can not add master menu');
-							var_dump($one_old_menu);
-							var_dump($value);
-							var_dump($resutl);
-							continue;
+							$update['width'] = $ratio_detail['width'];
 						}
 
-						$multi_insert = [];
-
-						foreach ($json['list'] as $v)
+						if(isset($ratio_detail['ratio']))
 						{
-							$multi_insert[] =
-							[
-								'title'   => a($v, 'title'),
-								'url'     => a($v, 'url'),
-								'target'  => a($v, 'target') ? 'blank' : null,
-								'sort'    => intval(a($v, 'sort')) + 1,
-								'parent1' => $master_id,
-								'pointer' => 'other',
-							];
+							$update['ratio'] = $ratio_detail['ratio'];
 						}
 
-						if(!empty($multi_insert))
+						if(!empty($update))
 						{
-							$make_multi_insert_set = \dash\db\config::make_multi_insert($multi_insert);
+							$set = \dash\db\config::make_set($update);
 
-							$insert_master_menu_result = \dash\db::query(" INSERT INTO menu $make_multi_insert_set ", $value['fuel'], ['database' => $dbname]);
-
-							if(!$insert_master_menu_result)
-							{
-								var_dump('can not add master menu');
-								var_dump($one_old_menu);
-								var_dump($value);
-								var_dump($resutl);
-								continue;
-							}
+							$load_usage = \dash\db::query("UPDATE files SET $set WHERE files.id = '$one_file[id]' LIMIT 1 ", $value['fuel'], ['database' => $dbname]);
+							$run++;
 						}
-
-
-						$load_usage = \dash\db::query("UPDATE setting SET setting.value = '$master_id' WHERE setting.value = '$one_old_menu[key]' ", $value['fuel'], ['database' => $dbname]);
-
-
-
-						// check menu position
-						// var_dump($multi_insert);
-						// var_dump($json);
 					}
 				}
-				// var_dump($value);
-				// var_dump($resutl);
 			}
 		}
-
-		var_dump('all menu converted to new version');exit();
+		var_dump("run", $run);
+		var_dump("duplicate", $duplicate);
+		var_dump("file not found", $file_error);
+		exit();
 	}
 }
 ?>
