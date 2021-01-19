@@ -43,6 +43,7 @@ class ready
 				case 'oversale':
 				case 'minsale':
 				case 'maxsale':
+				case 'type':
 					$get_from_product[$key] = $value;
 					break;
 

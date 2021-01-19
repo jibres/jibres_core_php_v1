@@ -399,6 +399,7 @@ class ready
 				if(isset($result['type']) && $result['type'] === 'file')
 				{
 					$allow_shop = true;
+					$shop_message = T_("Product is ready for shop");
 				}
 				else
 				{
