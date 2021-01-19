@@ -136,6 +136,14 @@ if(count($myGallery) > 1)
                   <form method="post" autocomplete="off" id="formaddcart" <?php if(\dash\data::productInCart()){ echo 'data-patch'; } ?> >
 
                     <input type="hidden" name="product_id" value="<?php echo \dash\data::dataRow_id() ?>">
+                      <?php
+                        $select_count = a(\dash\data::dataRow(), 'cart_limit', 'sale_step_list');
+                        if(is_array($select_count) && count($select_count) === 1 && isset($select_count[0]))
+                        {
+                          echo '<input type="hidden" name="count" value="'. $select_count[0]. '">';
+                        }
+                        else{
+                       ?>
                     <div class="productQty">
                         <?php if(a(\dash\data::dataRow(), 'cart_limit', 'sale_step_list')) {?>
                       <select class="select22" name="count" data-model="productItem">
@@ -155,6 +163,7 @@ if(count($myGallery) > 1)
                           </div>
                         <?php } //endif ?>
                     </div>
+                      <?php } //endif ?>
 
                   <?php if(\dash\data::productInCart()) {?>
                       <a href="<?php echo \dash\url::kingdom();?>/cart" class="link"><?php echo T_("In cart"); ?></a>
