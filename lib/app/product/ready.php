@@ -349,6 +349,14 @@ class ready
 			$maxsale = $max_cart_limit;
 		}
 
+		if(isset($result['type']) && $result['type'] === 'file')
+		{
+			$minsale = 1;
+			$maxsale = 1;
+			$salestep = 1;
+		}
+
+
 		$result['cart_limit']                   = [];
 		$result['cart_limit']['min_sale']       = $minsale;
 		$result['cart_limit']['max_sale']       = $maxsale;
@@ -388,19 +396,31 @@ class ready
 		{
 			if($result['status'] === 'available')
 			{
-				if(array_key_exists('trackquantity', $result))
+				if(isset($result['type']) && $result['type'] === 'file')
 				{
-					if($result['trackquantity'])
+					$allow_shop = true;
+				}
+				else
+				{
+					if(array_key_exists('trackquantity', $result))
 					{
-						if(isset($result['instock']) && $result['instock'])
+						if($result['trackquantity'])
 						{
-							$allow_shop = true;
-							$shop_message = T_("Buy now");
+							if(isset($result['instock']) && $result['instock'])
+							{
+								$allow_shop = true;
+								$shop_message = T_("Buy now");
+							}
+							else
+							{
+								$allow_shop = false;
+								$shop_message = T_("Temporary out of stock");
+							}
 						}
 						else
 						{
-							$allow_shop = false;
-							$shop_message = T_("Temporary out of stock");
+							$allow_shop = true;
+							$shop_message = T_("Buy now");
 						}
 					}
 					else
@@ -408,11 +428,6 @@ class ready
 						$allow_shop = true;
 						$shop_message = T_("Buy now");
 					}
-				}
-				else
-				{
-					$allow_shop = true;
-					$shop_message = T_("Buy now");
 				}
 			}
 			else
