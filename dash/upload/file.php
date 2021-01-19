@@ -191,10 +191,32 @@ class file
 		// 	return false;
 		// }
 
+		$height = null;
+		$width  = null;
+		$ratio  = null;
+
 		$totalsize = $myFile['size'];
 		// 7. save file in some quality if need. for example pictures need to crop and save all need size
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
+
+			$ratio_detail = \dash\utility\image::get_ratio($directory['full'], true);
+
+			if(isset($ratio_detail['height']))
+			{
+				$height = $ratio_detail['height'];
+			}
+
+			if(isset($ratio_detail['width']))
+			{
+				$width = $ratio_detail['width'];
+			}
+
+			if(isset($ratio_detail['ratio']))
+			{
+				$ratio = $ratio_detail['ratio'];
+			}
+
 			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext']);
 
 			if(isset($responsive_result['responsive_image_size']))
@@ -213,6 +235,10 @@ class file
 			'ext'         => $myFile['ext'],
 			'size'        => $myFile['size'],
 			'totalsize'   => $totalsize,
+
+			'height'      => $height,
+			'width'       => $width,
+			'ratio'       => $ratio,
 
 			'folder'      => $directory['folder'],
 			'path'        => $directory['path'],

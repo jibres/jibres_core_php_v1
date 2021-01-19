@@ -314,7 +314,7 @@ class image
 
 
 
-	public static function get_ratio($_addr)
+	public static function get_ratio($_addr, $_full = false)
 	{
 		if(!is_file($_addr))
 		{
@@ -336,7 +336,20 @@ class image
 		$ratio = $width / $height;
 		$ratio = round($ratio, 5);
 
-		return $ratio;
+		if($_full)
+		{
+			return
+			[
+				'width'  => $width,
+				'height' => $height,
+				'ratio'  => $ratio,
+			];
+		}
+		else
+		{
+			return $ratio;
+		}
+
 
 	}
 
