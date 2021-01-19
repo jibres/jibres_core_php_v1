@@ -114,6 +114,7 @@ class ratio
 		$result                 = [];
 		$result['ratio_string'] = $ratio;
 		$result['ratio']        = $int_ratio;
+		$result['ratio_round']        = round($int_ratio, 2);
 		$result['min_w']        = 800;
 		$result['min_h']        = 600;
 		$result['max_w']        = 1080;
@@ -176,6 +177,9 @@ class ratio
 			'2.34' => '21:9',
 			'2.37' => '64:27',
 			'1.67' => '5:3',
+			'1'    => '1:1',
+			'1.0'  => '1:1',
+			'1.00' => '1:1',
 		];
 
 		$ratio_float = round($_ratio_float, 2);

@@ -24,7 +24,8 @@ class search
 			'sort'       => 'string_100',
 			'pagination' => 'bit',
 			'type'       => ['enum' => ['image','archive','audio','pdf','video','word','excel','powerpoint','code','text','file', 'other']],
-			'ext'       => 'string_100',
+			'ext'        => 'string_100',
+			'ratio'      => \lib\ratio::check_input(),
 		];
 
 		$require = [];
@@ -50,6 +51,17 @@ class search
 			}
 
 			self::$is_filtered = true;
+		}
+
+		if($data['ratio'])
+		{
+			$get_ratio = \lib\ratio::ratio($data['ratio']);
+
+			if(isset($get_ratio['ratio_round']))
+			{
+				$and[] = " files.ratio = $get_ratio[ratio_round] ";
+				self::$is_filtered = true;
+			}
 		}
 
 		$meta['limit'] = 15;

@@ -129,6 +129,15 @@ class filter
 		// $list['file']       = ['key' => 'file', 		'group' => T_("File Type"), 'title' => T_('file'), 		'query' => ['type' => 'file'], 		'public' => true];
 		$list['other']      = ['key' => 'other', 		'group' => T_("File Type"), 'title' => T_('Other'), 	'query' => ['type' => 'other'], 	'public' => true];
 
+		$ratio = \lib\ratio::list();
+		if(is_array($ratio))
+		{
+			foreach ($ratio as $key => $value)
+			{
+				$list['ratio'. $key]  = ['key' => 'ratio'. $key, 'group' => T_("Ratio"), 'title' => T_('Ratio'). ' '. $value['title'], 	'query' => ['ratio' => $key], 	'public' => true];
+			}
+		}
+
 		return $list;
 
 	}

@@ -38,6 +38,16 @@
 				</a>
 			</li>
 			<?php } //endif ?>
+
+			<?php if(a($dataRow, 'ratio')) {?>
+			<li>
+				<a class="f item">
+					<div class="key"><?php echo T_("Ratio") ?></div>
+					<div class="value"><?php echo \dash\fit::text(\lib\ratio::ratio_title(a($dataRow, 'ratio'))); ?></div>
+				</a>
+			</li>
+			<?php } //endif ?>
+
 			<li>
 				<a class="f item">
 					<div class="key"><?php echo T_("Date created") ?></div>

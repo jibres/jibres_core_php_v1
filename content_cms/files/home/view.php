@@ -28,6 +28,7 @@ class view
 			'sort'  => \dash\request::get('sort'),
 			'type'  => \dash\request::get('type'),
 			'ext'   => \dash\request::get('ext'),
+			'ratio' => \dash\request::get('ratio'),
 		];
 
 		$postList      = \dash\app\files\search::list(\dash\request::get('q'), $args);
