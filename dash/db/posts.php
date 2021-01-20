@@ -60,6 +60,16 @@ class posts
 		return $result;
 	}
 
+	public static function avg_seorank()
+	{
+		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status != 'deleted' ";
+		$result = \dash\db::get($query, 'rank', true);
+		return $result;
+	}
+
+
+
+
 
 	public static function get_active_count_subtype($_subtype)
 	{

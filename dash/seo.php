@@ -59,7 +59,7 @@ class seo
 	 *
 	 * @return     string   ( description_of_the_return_value )
 	 */
-	private static function star_html($_star)
+	public static function star_html($_star)
 	{
 		$result = '';
 		for ($i=1; $i <= 5 ; $i++)

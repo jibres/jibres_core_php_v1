@@ -158,22 +158,18 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
         </ul>
       </nav>
 <?php }// endif ?>
-<?php if(\dash\url::isLocal()) {?>
+
       <nav class="items long">
         <ul>
           <li class="">
             <a class="item f" href="<?php echo \dash\url::here();?>/seo">
               <div class="key"><?php echo T_('Smart SEO');?></div>
-              <i class="fc-gold sf-star"></i>
-              <i class="fc-gold sf-star"></i>
-              <i class="fc-gold sf-star-half-o"></i>
-              <i class="fc-mute sf-star-o"></i>
-              <i class="fc-mute sf-star-o"></i>
+              <?php echo a(\dash\data::dashboardDetail(), 'seostar_html'); ?>
             </a>
           </li>
         </ul>
       </nav>
-<?php }// endif ?>
+
   </div>
 </div>
 

@@ -23,6 +23,10 @@ class dashboard
 		$dashboard_detail['comments_approved'] = floatval(\dash\db\comments::get_count(['status' => 'approved']));
 
 		$dashboard_detail['files']             = floatval(\dash\db\files::count_all());
+		$dashboard_detail['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());
+		$dashboard_detail['seostar_html']      = \dash\seo::star_html(round(($dashboard_detail['avg_seorank'] * 5 / 100)));
+
+
 		//
 		$dashboard_detail['tags']              = floatval(\dash\db\terms\get::get_count(['type' => 'tag']));
 		$dashboard_detail['latesPost']         = \dash\app\posts\search::lates_post();
@@ -57,6 +61,15 @@ class dashboard
 
 	}
 
+
+	public static function seo()
+	{
+		$seo_dashboard                      = [];
+
+		$seo_dashboard['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());
+		$seo_dashboard['seostar_html']      = \dash\seo::star_html(round(($seo_dashboard['avg_seorank'] * 5 / 100)));
+		return $seo_dashboard;
+	}
 
 
 
