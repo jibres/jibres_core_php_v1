@@ -36,6 +36,23 @@ class edit
 
 		$exception = [];
 
+		$seo_detail            = [];
+		$seo_detail['type']    = 'post';
+		$seo_detail['id']      = a($load_posts, 'id');
+		$seo_detail['title']   = a($load_posts, 'title');
+		$seo_detail['seodesc'] = a($load_posts, 'excerpt');
+		$seo_detail['content'] = a($load_posts, 'content');
+		$seo_detail['tags']    = a($load_posts, 'tags');
+
+		$seoAnalyze    = \dash\seo::analyze($seo_detail);
+
+		if(isset($seoAnalyze['rank']))
+		{
+			$args['seorank'] = $seoAnalyze['rank'];
+			$exception[] = 'seorank';
+		}
+
+
 		if(isset($_args['creator']) && $_args['creator'])
 		{
 			$exception[] = 'user_id';

@@ -54,6 +54,9 @@ class filter
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
 
+		$sort_list[] = ['title' => T_("Best SEO rank"),		'query' => ['sort' => 'seorank', 	'order' => 'desc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("Weakest SEO rank"), 	'query' => ['sort' => 'seorank', 	'order' => 'asc'], 		'public' => false];
+
 		$sort_list[] = ['title' => T_("Publish date DESC"), 'query' => ['sort' => 'publishdate', 'order' => 'desc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Publish date ASC"), 	'query' => ['sort' => 'publishdate', 'order' => 'asc'], 	'public' => false];
 
