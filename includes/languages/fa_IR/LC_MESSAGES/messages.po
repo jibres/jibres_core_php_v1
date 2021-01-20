@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-20 19:53+0330\n"
-"PO-Revision-Date: 2021-01-20 19:54+0330\n"
+"POT-Creation-Date: 2021-01-20 20:35+0330\n"
+"PO-Revision-Date: 2021-01-20 20:36+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4907,9 +4907,9 @@ msgstr "غیرفعال"
 #: content_love/gift/edit/display.php:74 content_love/gift/view/display.php:30
 #: content_my/domain/other/display-maybemydomain.php:27
 #: content_my/domain/search/display.php:168 content_su/smsclient/home/display.php:16
-#: content_support/ticket/show/chatList.php:20 dash/app/posts/filter.php:126
-#: dash/app/posts/filter.php:135 dash/app/posts/filter.php:145
-#: dash/app/posts/filter.php:154 lib/app/business_domain/search.php:87
+#: content_support/ticket/show/chatList.php:20 dash/app/posts/filter.php:129
+#: dash/app/posts/filter.php:138 dash/app/posts/filter.php:148
+#: dash/app/posts/filter.php:157 lib/app/business_domain/search.php:87
 #: lib/app/business_domain/search_dns.php:59
 msgid "Status"
 msgstr "وضعیت"
@@ -7886,8 +7886,8 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/tag/display.php:29 content_a/form/answer/detail/display.php:77
 #: content_a/products/edit/display-master.php:63 content_a/products/home/filter.php:86
 #: content_a/setting/product/tag/display.php:11
-#: content_support/ticket/show/display.php:232 dash/app/posts/filter.php:293
-#: dash/app/posts/filter.php:303 includes/languages/trans_static.php:546
+#: content_support/ticket/show/display.php:232 dash/app/posts/filter.php:296
+#: dash/app/posts/filter.php:306 includes/languages/trans_static.php:546
 #: lib/app/product/filter.php:334 lib/app/product/filter.php:344
 #: lib/app/product/property.php:334 lib/app/product/search.php:131
 #: lib/app/store/analytics.php:60
@@ -8524,6 +8524,7 @@ msgstr "درصد فراوانی"
 #: content_business/p/home/display.php:294 content_business/p/home/display.php:299
 #: content_business/p/home/display.php:304 content_business/p/home/display.php:309
 #: content_business/p/home/view.php:103 content_cms/posts/seo/display.php:111
+#: content_cms/seo/display.php:7 content_cms/seo/display.php:23
 #: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
 #: content_my/domain/review/display.php:205 dash/layout/tools/display-comment-list.php:19
 #: dash/layout/tools/display-comment-list.php:24
@@ -8607,7 +8608,7 @@ msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:42
-#: content_cms/posts/setting/display.php:22 dash/app/posts/filter.php:136
+#: content_cms/posts/setting/display.php:22 dash/app/posts/filter.php:139
 #: includes/languages/trans_static.php:512 lib/app/factor/action.php:61
 #: lib/app/factor/ready.php:112 lib/app/tax/doc/ready.php:40
 #: lib/app/tax/docdetail/ready.php:26
@@ -8638,7 +8639,7 @@ msgid "The form is expire"
 msgstr "فرم منقضی شده است"
 
 #: content_a/form/status/display.php:53 content_support/ticket/ticketTable.php:160
-#: dash/app/posts/filter.php:146 dash/layout/admin/sidebar/sidebar-support.php:50
+#: dash/app/posts/filter.php:149 dash/layout/admin/sidebar/sidebar-support.php:50
 #: includes/languages/trans_static.php:513
 msgid "Trash"
 msgstr "زباله‌دان"
@@ -9633,8 +9634,8 @@ msgstr "حذف شده"
 
 #: content_a/products/comment/view.php:30
 #: content_a/products/edit/block/sidebar-menu.php:73 content_cms/comments/home/view.php:9
-#: content_cms/comments/view/view.php:14 dash/app/posts/filter.php:273
-#: dash/app/posts/filter.php:283 includes/languages/trans_static.php:563
+#: content_cms/comments/view/view.php:14 dash/app/posts/filter.php:276
+#: dash/app/posts/filter.php:286 includes/languages/trans_static.php:563
 #: includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
 msgid "Comments"
@@ -11137,9 +11138,10 @@ msgstr "جمع‌آوری داده‌ها."
 #: content_a/setting/home/display.php:220 content_cms/comments/home/view.php:11
 #: content_cms/customization/home/view.php:9 content_cms/files/choose/view.php:58
 #: content_cms/files/home/view.php:14 content_cms/posts/home/view.php:45
-#: content_cms/sitemap/view.php:10 content_cms/tag/home/view.php:16
-#: content_love/home/display.php:105 dash/layout/admin/admin-sidebar-frame.php:17
-#: dash/plan_list.php:103 lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
+#: content_cms/seo/view.php:10 content_cms/sitemap/view.php:10
+#: content_cms/tag/home/view.php:16 content_love/home/display.php:105
+#: dash/layout/admin/admin-sidebar-frame.php:17 dash/plan_list.php:103
+#: lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
 #: lib/app/store/analytics.php:56 lib/app/store/analytics.php:57
 #: lib/app/store/analytics.php:58 lib/app/store/analytics.php:59
 #: lib/app/store/analytics.php:60 lib/app/store/analytics.php:61
@@ -13491,7 +13493,7 @@ msgstr "استاندارد"
 
 #: content_a/website/news/filter/display.php:23 content_cms/home/display.php:59
 #: content_cms/posts/add/display.php:17 content_cms/posts/setting/display.php:43
-#: dash/app/posts/filter.php:164 dash/app/posts/filter.php:174
+#: dash/app/posts/filter.php:167 dash/app/posts/filter.php:177
 #: lib/app/product/filter.php:235 lib/app/product/filter.php:245
 msgid "Gallery"
 msgstr "گالری"
@@ -15085,7 +15087,7 @@ msgid "Show all files where"
 msgstr "نمایش فایل‌ها با شرط"
 
 #: content_cms/files/choose/display.php:5 content_cms/files/home/display.php:6
-#: content_cms/posts/home/display.php:16
+#: content_cms/posts/home/display.php:16 content_cms/seo/display.php:21
 msgid "Post image"
 msgstr "تصویر نوشته"
 
@@ -15214,23 +15216,23 @@ msgstr "نقشه‌ی سایت"
 msgid "Customization"
 msgstr "سفارشی سازی"
 
-#: content_cms/home/display.php:166
+#: content_cms/home/display.php:166 content_cms/seo/view.php:9
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:183
+#: content_cms/home/display.php:179
 msgid "Latest Posts"
 msgstr "آخرین نوشته‌ها"
 
-#: content_cms/home/display.php:201
+#: content_cms/home/display.php:197
 msgid "No post has registered yet!"
 msgstr "هنوز هیچ نوشته‌ای ثبت نشده است!"
 
-#: content_cms/home/display.php:206
+#: content_cms/home/display.php:202
 msgid "Latest Comments"
 msgstr "آخرین دیدگاه‌ها"
 
-#: content_cms/home/display.php:222
+#: content_cms/home/display.php:218
 msgid "No comment has registered yet!"
 msgstr "هنوز هیچ دیدگاهی ثبت نشده است!"
 
@@ -15443,11 +15445,11 @@ msgstr "مستقل"
 msgid "Special"
 msgstr "خاص"
 
-#: content_cms/posts/seo/display.php:55 dash/app/posts/filter.php:254
+#: content_cms/posts/seo/display.php:55 dash/app/posts/filter.php:257
 msgid "Under tag"
 msgstr "زیرمجموعه تگ"
 
-#: content_cms/posts/seo/display.php:63 dash/app/posts/filter.php:264
+#: content_cms/posts/seo/display.php:63 dash/app/posts/filter.php:267
 msgid "Under page"
 msgstr "زیرمجموعه صفحه‌ای دیگر"
 
@@ -15504,9 +15506,9 @@ msgstr ""
 msgid "Show comment"
 msgstr "نمایش دیدگاه"
 
-#: content_cms/posts/setting/display.php:80 dash/app/posts/filter.php:184
-#: dash/app/posts/filter.php:194 dash/app/posts/filter.php:204
-#: dash/app/posts/filter.php:214 dash/app/posts/filter.php:223
+#: content_cms/posts/setting/display.php:80 dash/app/posts/filter.php:187
+#: dash/app/posts/filter.php:197 dash/app/posts/filter.php:207
+#: dash/app/posts/filter.php:217 dash/app/posts/filter.php:226
 msgid "SEO"
 msgstr "سئو"
 
@@ -15514,7 +15516,7 @@ msgstr "سئو"
 msgid "Share this post in social networks"
 msgstr "اشتراک گذاری این نوشته از طریق شبکه‌های اجتماعی"
 
-#: content_cms/posts/setting/display.php:115 dash/app/posts/filter.php:313
+#: content_cms/posts/setting/display.php:115 dash/app/posts/filter.php:316
 #: dash/redirect_html.php:5 dash/utility/pay/api/asanpardakht/go.php:79
 #: dash/utility/pay/api/irkish/go.php:74 dash/utility/pay/api/mellat/go.php:89
 #: dash/utility/pay/api/sep/go.php:68 includes/languages/trans_static.php:581
@@ -15621,6 +15623,14 @@ msgstr "اشتراک‌گذاری هوشمند نوشته"
 #: content_cms/posts/writer/display.php:9
 msgid "Current post wirter"
 msgstr "نویسنده فعلی مطلب"
+
+#: content_cms/seo/display.php:6
+msgid "Average post SEO rank"
+msgstr "میانگین امتیاز سئو"
+
+#: content_cms/seo/display.php:15
+msgid "Top post SEO rank"
+msgstr "بهترین رتبه‌ سئو در نوشته‌ها"
 
 #: content_cms/sitemap/display.php:4
 msgid "What are Sitemaps?"
@@ -23622,31 +23632,31 @@ msgstr "شناسه مطلب تنظیم نشده است"
 msgid "Invalid posts id"
 msgstr "شناسه مطلب اشتباه است"
 
-#: dash/app/posts/edit.php:104
+#: dash/app/posts/edit.php:121
 msgid "Post successfully updated"
 msgstr "مطلب با موفقیت به روز رسانی شد"
 
-#: dash/app/posts/edit.php:109
+#: dash/app/posts/edit.php:126
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
 
-#: dash/app/posts/edit.php:128
+#: dash/app/posts/edit.php:145
 msgid "When post set on type video you must be have fill the video file to publish"
 msgstr ""
 "وقتی نوع نوشته روی ویدئو تنظیم شده باشد شما باید یک فایل ویدئویی در این نوشته داشته "
 "باشید تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:143
+#: dash/app/posts/edit.php:160
 msgid "When post set on type audio you must be have fill the audio file to publish"
 msgstr ""
 "وقتی نوع نوشته روی پادکست تنظیم شده باشد شما باید یک فایل صوتی در این نوشته داشته باشید "
 "تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:232
+#: dash/app/posts/edit.php:249
 msgid "To convert to video you must have only one gallery items and that must be a video"
 msgstr "برای تغییر نوع به ویدئو شما باید یک فایل ویدئویی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/edit.php:252
+#: dash/app/posts/edit.php:269
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
@@ -23659,95 +23669,103 @@ msgid "Title DESC"
 msgstr "عنوان نزولی"
 
 #: dash/app/posts/filter.php:57
+msgid "Best SEO rank"
+msgstr "بهترین سئو"
+
+#: dash/app/posts/filter.php:58
+msgid "Weakest SEO rank"
+msgstr "ضعیف ترین سئو"
+
+#: dash/app/posts/filter.php:60
 msgid "Publish date DESC"
 msgstr "تاریخ انتشار نزولی"
 
-#: dash/app/posts/filter.php:58
+#: dash/app/posts/filter.php:61
 msgid "Publish date ASC"
 msgstr "تاریخ انتشار صعودی"
 
-#: dash/app/posts/filter.php:60
+#: dash/app/posts/filter.php:63
 msgid "Date modified DESC"
 msgstr "تاریخ ویرایش نزولی"
 
-#: dash/app/posts/filter.php:61
+#: dash/app/posts/filter.php:64
 msgid "Date modified ASC"
 msgstr "تاریخ ویرایش صعودی"
 
-#: dash/app/posts/filter.php:63
+#: dash/app/posts/filter.php:66
 msgid "Date created DESC"
 msgstr "تاریخ ثبت نزولی"
 
-#: dash/app/posts/filter.php:64
+#: dash/app/posts/filter.php:67
 msgid "Date created ASC"
 msgstr "تاریخ ثبت صعودی"
 
-#: dash/app/posts/filter.php:127
+#: dash/app/posts/filter.php:130
 msgid "Published"
 msgstr "منتشر شده"
 
-#: dash/app/posts/filter.php:155
+#: dash/app/posts/filter.php:158
 msgid "Publish in the future"
 msgstr "انتشار در آینده"
 
-#: dash/app/posts/filter.php:165 lib/app/product/filter.php:236
+#: dash/app/posts/filter.php:168 lib/app/product/filter.php:236
 msgid "Have gallery"
 msgstr "دارای گالری تصاویر"
 
-#: dash/app/posts/filter.php:175 lib/app/product/filter.php:246
+#: dash/app/posts/filter.php:178 lib/app/product/filter.php:246
 msgid "Have not gallery"
 msgstr "بدون گالری تصاویر"
 
-#: dash/app/posts/filter.php:185
+#: dash/app/posts/filter.php:188
 msgid "With featured image"
 msgstr "دارای تصویر شاخص"
 
-#: dash/app/posts/filter.php:195
+#: dash/app/posts/filter.php:198
 msgid "Without featured image"
 msgstr "بدون تصویر شاخص"
 
-#: dash/app/posts/filter.php:205
+#: dash/app/posts/filter.php:208
 msgid "With cover"
 msgstr "دارای کاور"
 
-#: dash/app/posts/filter.php:215
+#: dash/app/posts/filter.php:218
 msgid "Without cover"
 msgstr "بدون کاور"
 
-#: dash/app/posts/filter.php:224
+#: dash/app/posts/filter.php:227
 msgid "Special SEO"
 msgstr "سئوی اختصاصی"
 
-#: dash/app/posts/filter.php:233 dash/app/posts/filter.php:243
-#: dash/app/posts/filter.php:253 dash/app/posts/filter.php:263
+#: dash/app/posts/filter.php:236 dash/app/posts/filter.php:246
+#: dash/app/posts/filter.php:256 dash/app/posts/filter.php:266
 msgid "URL"
 msgstr "نشانی اینترنتی"
 
-#: dash/app/posts/filter.php:234
+#: dash/app/posts/filter.php:237
 msgid "Without special address"
 msgstr "بدون آدرس اختصاصی"
 
-#: dash/app/posts/filter.php:244
+#: dash/app/posts/filter.php:247
 msgid "With special address"
 msgstr "دارای آدرس اختصاصی"
 
-#: dash/app/posts/filter.php:274
+#: dash/app/posts/filter.php:277
 msgid "Allow comments"
 msgstr "مجاز برای ثبت دیدگاه"
 
-#: dash/app/posts/filter.php:284
+#: dash/app/posts/filter.php:287
 msgid "Comments not allowed"
 msgstr "ثبت دیدگاه قفل شده"
 
-#: dash/app/posts/filter.php:294 lib/app/product/filter.php:335
+#: dash/app/posts/filter.php:297 lib/app/product/filter.php:335
 msgid "Have tag"
 msgstr "دارای تگ"
 
-#: dash/app/posts/filter.php:304 lib/app/product/filter.php:345
+#: dash/app/posts/filter.php:307 lib/app/product/filter.php:345
 msgid "Have not tag"
 msgstr "بدون تگ"
 
-#: dash/app/posts/filter.php:314
+#: dash/app/posts/filter.php:317
 msgid "Have Redirect url"
 msgstr "دارای آدرس انتقال"
 
