@@ -6,19 +6,20 @@ class seo
 {
 	public static function analyze($_detail)
 	{
-		$seo   = [];
-		$seo[] = self::analyze_title_length($_detail);
-		$seo[] = self::analyze_word_count($_detail);
-		$seo[] = self::analyze_text_dificould($_detail);
-		$seo[] = self::analyze_tags($_detail);
-		$seo[] = self::analyze_seodesc($_detail);
-		$seo[] = self::analyze_title_tag($_detail);
-		$seo[] = self::analyze_mobile_friendly($_detail);
-		$seo[] = self::analyze_sitemap($_detail);
-		$seo[] = self::analyze_favicon($_detail);
+		$seo           = [];
+		$seo['list']   = [];
+		$seo['list'][] = self::analyze_title_length($_detail);
+		$seo['list'][] = self::analyze_word_count($_detail);
+		$seo['list'][] = self::analyze_text_dificould($_detail);
+		$seo['list'][] = self::analyze_tags($_detail);
+		$seo['list'][] = self::analyze_seodesc($_detail);
+		$seo['list'][] = self::analyze_title_tag($_detail);
+		$seo['list'][] = self::analyze_mobile_friendly($_detail);
+		$seo['list'][] = self::analyze_sitemap($_detail);
+		$seo['list'][] = self::analyze_favicon($_detail);
 
 		$count_ok = 0;
-		foreach ($seo as $key => $value)
+		foreach ($seo['list'] as $key => $value)
 		{
 			if(a($value, 'ok') === true)
 			{
@@ -26,14 +27,34 @@ class seo
 			}
 		}
 
-		$percent = round($count_ok * 100 / count($seo));
+		$percent = round($count_ok * 100 / count($seo['list']));
 
-		array_unshift($seo, ['ok' => true, 'msg' => T_("Total SEO rank is :val percent", ['val' => \dash\fit::number($percent)])]);
+		$seo['rank']   = $percent;
 
+		$seo['star'] = round(($percent * 5 / 100));
+
+		$seo['star_html'] = self::star_html($seo['star']);
 
 		return $seo;
 	}
 
+
+	private static function star_html($_star)
+	{
+		$result = '';
+		for ($i=1; $i <= 5 ; $i++)
+		{
+			if($i <= $_star)
+			{
+				$result .= '<i class="fc-gold sf-star"></i>';
+			}
+			else
+			{
+				$result .= '<i class="fc-gold sf-star-o"></i>';
+			}
+		}
+		return $result;
+	}
 
 	/**
 	 * Analyze title

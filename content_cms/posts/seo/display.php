@@ -103,13 +103,17 @@
     </div>
   </div>
 </form>
-
+<?php if(\dash\data::seoAnalyze()) { $seoAnalyze = \dash\data::seoAnalyze(); ?>
 <div class="box">
   <div class="pad">
-    <h6><?php echo T_("SEO analysis") ?></h6>
-    <?php foreach (\dash\data::seoAnalyze() as $key => $value) {?>
+    <h6 class="txtB"><?php echo T_("SEO analysis") ?></h6>
+    <div class="font-20 mB20">
+      <div><?php echo T_("Total rank"). ' '. \dash\fit::number(a($seoAnalyze, 'rank')). ' '. T_("Percent") ?></div>
+      <?php echo a($seoAnalyze, 'star_html') ?>
+    </div>
+    <?php foreach (a($seoAnalyze, 'list') as $key => $value) {?>
       <a class="checklist fc-black" <?php if(a($value, 'ok') === true) { echo 'data-okay';}elseif(a($value, 'ok') === false){echo 'data-fail';}else{} ?>><?php echo a($value, 'msg'); ?></a>
     <?php } ?>
   </div>
 </div>
-
+<?php } //endif ?>
