@@ -103,3 +103,13 @@
     </div>
   </div>
 </form>
+
+<div class="box">
+  <div class="pad">
+    <h6><?php echo T_("SEO analysis") ?></h6>
+    <?php foreach (\dash\data::seoAnalyze() as $key => $value) {?>
+      <a class="checklist fc-black" <?php if(a($value, 'ok') === true) { echo 'data-okay';}elseif(a($value, 'ok') === false){echo 'data-fail';}else{} ?>><?php echo a($value, 'msg'); ?></a>
+    <?php } ?>
+  </div>
+</div>
+

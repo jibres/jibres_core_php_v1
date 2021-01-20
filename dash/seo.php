@@ -6,106 +6,196 @@ class seo
 {
 	public static function analyze($_detail)
 	{
-		$seo = [];
+		$seo   = [];
+		$seo[] = self::analyze_title_length($_detail);
+		$seo[] = self::analyze_word_count($_detail);
+		$seo[] = self::analyze_text_dificould($_detail);
+		$seo[] = self::analyze_tags($_detail);
+		$seo[] = self::analyze_seodesc($_detail);
+		$seo[] = self::analyze_title_tag($_detail);
+		$seo[] = self::analyze_mobile_friendly($_detail);
+		$seo[] = self::analyze_sitemap($_detail);
+		$seo[] = self::analyze_favicon($_detail);
 
-		$seo['title']           = self::analyze_title($_detail);
-		$seo['word_count']      = self::analyze_word_count($_detail);
-		$seo['content_length']  = mb_strlen(strip_tags(a($_detail, 'content')));
-		$seo['text_dificould'] = self::analyze_text_dificould($_detail);
+		$count_ok = 0;
+		foreach ($seo as $key => $value)
+		{
+			if(a($value, 'ok') === true)
+			{
+				$count_ok++;
+			}
+		}
 
-		var_dump($seo);
-		var_dump($_detail);exit();
+		$percent = round($count_ok * 100 / count($seo));
+
+		array_unshift($seo, ['ok' => true, 'msg' => T_("Total SEO rank is :val percent", ['val' => \dash\fit::number($percent)])]);
+
+
+		return $seo;
 	}
 
 
-
-	private static function analyze_title($_detail)
+	/**
+	 * Analyze title
+	 *
+	 * @param      <type>  $_detail  The detail
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
+	private static function analyze_title_length($_detail)
 	{
-		$score  = 0;
+		$ok     = null;
+		$msg    = T_("Analyze title failed!");
 		$length = 0;
-		$ok     = false;
 
 		if(isset($_detail['title']) && is_string($_detail['title']))
 		{
 			$length = mb_strlen($_detail['title']);
 
-			$title_rank['length'] = $length;
-
 			if($length >= 30 && $length <= 60)
 			{
-				$ok = true;
-				$score = 3;
+				$ok  = true;
+				$msg = T_("Very good. You have set the title to :val words and this is the best number of words in the title.", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length >= 60 && $length <= 90)
 			{
-				$ok = true;
-				$score = 2;
+				$ok  = true;
+				$msg = T_("Good. You have set the title to :val words and this number is appropriate for the title", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length < 30)
 			{
-				$score = 1;
+				$ok  = false;
+				$msg = T_("Weak. :val words found in title. The best case scenario for a title is 30 to 60 words", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length > 90)
 			{
-				$score = 1;
+				$ok  = false;
+				$msg = T_("Hard. :val words found in title. The best case scenario for a title is 30 to 60 words and a maximum of 90 words", ['val' => \dash\fit::number($length)]);
 			}
 		}
 
-
-		$title_rank =
+		$result =
 		[
-			'ok'          => $ok,
-			'score'       => $score,
-			'length'      => $length,
-			'coefficient' => 1,
+			'ok'     => $ok,
+			'msg'    => $msg,
+			'length' => $length,
 		];
 
-		return $title_rank;
+		return $result;
 
 	}
 
 
+	/**
+	 * Gets the word count.
+	 *
+	 * @param      <type>  $_text  The text
+	 *
+	 * @return     <type>  The word count.
+	 */
+	private static function _get_word_count($_text)
+	{
+		$_text = strip_tags($_text);
+
+		// $word_count = str_word_count($_text);
+
+		// if($_text && !$word_count)
+		{
+			// https://www.php.net/manual/en/function.str-word-count.php#107363
+			$word_count = count(preg_split('~[^\p{L}\p{N}\']+~u', $_text));
+		}
+
+		return floatval($word_count);
+	}
+
+
+	/**
+	 * Analyze word count
+	 *
+	 * @param      <type>  $_detail  The detail
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
 	private static function analyze_word_count($_detail)
 	{
-		$ok    = false;
-		$score = 0;
+		$ok         = null;
+		$msg        = T_("No content");
 		$word_count = 0;
 
 		if(isset($_detail['content']) && is_string($_detail['content']))
 		{
-			$content = strip_tags($_detail['content']);
-
-			$word_count = str_word_count($content);
-			if($content && !$word_count)
-			{
-				// get here: https://www.php.net/manual/en/function.str-word-count.php#107363
-				$word_count = count(preg_split('~[^\p{L}\p{N}\']+~u',$content));
-			}
+			$word_count = self::_get_word_count($_detail['content']);
 
 			if($word_count >= 300)
 			{
-				$ok = true;
-				$score = 3;
+				$ok  = true;
+				$msg = T_("Very Good, Your content contain :val words", ['val' => \dash\fit::number($word_count)]);
 			}
 			else
 			{
-				$score = 1;
+				$ok  = false;
+				$msg = T_("Your content contain :val words, Content must be contain at least 300 words", ['val' => \dash\fit::number($word_count)]);
 			}
 		}
 
-
-		$title_rank =
+		$result =
 		[
-			'ok'          => $ok,
-			'score'       => $score,
-			'count'       => $word_count,
-			'coefficient' => 1,
+			'ok'    => $ok,
+			'msg'   => $msg,
+			'count' => $word_count,
 		];
 
-		return $title_rank;
+		return $result;
+	}
+
+	/**
+	 * Analyze word count
+	 *
+	 * @param      <type>  $_detail  The detail
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
+	private static function analyze_content_length($_detail)
+	{
+		$ok         = null;
+		$msg        = T_("No content");
+		$word_count = 0;
+
+		if(isset($_detail['content']) && is_string($_detail['content']))
+		{
+
+			$word_count = mb_strlen($_detail['content']);
+
+			if($word_count >= 300)
+			{
+				$ok  = true;
+				$msg = T_("Very Good, Your content contain :val words", ['val' => \dash\fit::number($word_count)]);
+			}
+			else
+			{
+				$ok  = false;
+				$msg = T_("Your content contain :val words, Content must be contain atlease 300 words", ['val' => \dash\fit::number($word_count)]);
+			}
+		}
+
+		$result =
+		[
+			'ok'    => $ok,
+			'msg'   => $msg,
+			'count' => $word_count,
+		];
+
+		return $result;
 	}
 
 
+	/**
+	 * Analyze sentens
+	 *
+	 * @param      <type>  $_detail  The detail
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
 	private static function analyze_sentences($_detail)
 	{
 		$ok    = false;
@@ -128,7 +218,7 @@ class seo
 		}
 
 
-		$title_rank =
+		$result =
 		[
 			'ok'          => $ok,
 			'score'       => $score,
@@ -136,7 +226,7 @@ class seo
 			'coefficient' => 1,
 		];
 
-		return $title_rank;
+		return $result;
 	}
 
 
@@ -161,9 +251,11 @@ class seo
 
 			$list = preg_split("/\s/", $content);
 
+			// var_dump($list);exit();
+
 			foreach ($list as $key => $value)
 			{
-				if(mb_strlen($value) < 5)
+				if(mb_strlen($value) < 7)
 				{
 					$count += 1;
 				}
@@ -171,11 +263,11 @@ class seo
 				{
 					$count += 2;
 				}
-				elseif(mb_strlen($value) < 20)
+				elseif(mb_strlen($value) < 30)
 				{
 					$count += 3;
 				}
-				elseif(mb_strlen($value) < 25)
+				elseif(mb_strlen($value) < 40)
 				{
 					$count += 4;
 				}
@@ -189,7 +281,7 @@ class seo
 		}
 
 
-		$title_rank =
+		$result =
 		[
 			'ok'          => $ok,
 			'score'       => $score,
@@ -197,12 +289,12 @@ class seo
 			'coefficient' => 1,
 		];
 
-		return $title_rank;
+		return $result;
 	}
 
 	private static function analyze_text_dificould($_detail)
 	{
-		$ok    = false;
+		$ok    = true;
 		$score = 0;
 		$note  = null;
 		$level = null;
@@ -215,8 +307,7 @@ class seo
 			$content = preg_replace("/!{2,}/", "!", $content);
 			$content = preg_replace("/\.{2,}/", ".", $content);
 
-			$analyze_word_count = self::analyze_word_count($_detail);
-			$totla_words = $analyze_word_count['count'];
+			$totla_words = self::_get_word_count($content);
 
 			$analyze_sentences = self::analyze_sentences($_detail);
 			$total_sentences = $analyze_sentences['count'];
@@ -264,7 +355,7 @@ class seo
 				$level = 'College graduate';
 				$note = T_('Very difficult to read. Best understood by university graduates.');
 			}
-			elseif($score <= 10 && $score > 0)
+			elseif($score <= 10)
 			{
 				$level = 'Professional';
 				$note = T_('Extremely difficult to read. Best understood by university graduates.');
@@ -274,18 +365,221 @@ class seo
 		}
 
 
-		$title_rank =
+		$result =
 		[
 			'ok'          => $ok,
 			'score'       => $score,
 			'level'       => $level,
-			'note'       => $note,
+			'msg'       => $note,
 
 		];
 
-		// var_dump($title_rank);exit();
+		return $result;
+	}
 
-		return $title_rank;
+
+
+	private static function analyze_tags($_detail)
+	{
+		$ok      = false;
+		$percent = 0;
+		$count   = 0;
+		$msg     = T_("It is better to use a keyword");
+
+
+		if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
+		{
+			$ok  = null;
+			$msg = T_("The keyword used in the text could not be found");
+
+			if(isset($_detail['content']) && is_string($_detail['content']))
+			{
+				foreach ($_detail['tags'] as $key => $value)
+				{
+					$count += substr_count($_detail['content'], $value['title']);
+				}
+
+				$totla_words = self::_get_word_count($_detail['content']);
+
+				if(!$totla_words)
+				{
+					$totla_words = 1;
+				}
+
+				$percent = round(($count * 100) / $totla_words, 2);
+
+				$ok = true;
+				if($percent > 100)
+				{
+					$percent = 100;
+				}
+
+				if($percent <= 0)
+				{
+					$ok = null;
+					$percent = 0;
+				}
+
+				$msg = T_("The frequency of use of the keyword in the text is :val percent and count use keyword in your content is :count", ['val' => \dash\fit::number($percent), 'count' => \dash\fit::number($count)]);
+			}
+		}
+
+
+		$result =
+		[
+			'ok'      => $ok,
+			'percent' => $percent,
+			'count'   => $count,
+			'msg'     => $msg,
+		];
+
+
+		return $result;
+	}
+
+
+	private static function analyze_seodesc($_detail)
+	{
+		$ok      = false;
+		$count   = 0;
+		$msg     = T_("The seo description is not set");
+
+		if(isset($_detail['seodesc']) && is_string($_detail['seodesc']))
+		{
+			$ok  = null;
+			$msg = T_("The seo description is set but not tags founded");
+
+			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
+			{
+				$ok  = null;
+				$msg = T_("It is better to use keywords in the text of social networking");
+
+				if(isset($_detail['seodesc']) && is_string($_detail['seodesc']))
+				{
+					foreach ($_detail['tags'] as $key => $value)
+					{
+						$count += substr_count($_detail['seodesc'], $value['title']);
+					}
+
+					if($count >= 1)
+					{
+						$ok = true;
+						$msg = T_("Very good. Keywords are used in the social media sharing text");
+					}
+
+				}
+			}
+		}
+
+
+
+		$result =
+		[
+			'ok'      => $ok,
+			'count'   => $count,
+			'msg'     => $msg,
+		];
+
+
+		return $result;
+	}
+
+	private static function analyze_title_tag($_detail)
+	{
+		$ok      = false;
+		$count   = 0;
+		$msg     = T_("The title is not set");
+
+		if(isset($_detail['title']) && is_string($_detail['title']))
+		{
+			$ok  = null;
+			$msg = T_("The title is set but not tags founded");
+
+			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
+			{
+				$ok  = null;
+				$msg = T_("It is better to use keywords in the title");
+
+				if(isset($_detail['title']) && is_string($_detail['title']))
+				{
+					foreach ($_detail['tags'] as $key => $value)
+					{
+						$count += substr_count($_detail['content'], $value['title']);
+					}
+
+					if($count >= 1)
+					{
+						$ok = true;
+						$msg = T_("Very good. Keywords are used in the title");
+					}
+
+				}
+			}
+		}
+
+
+		$result =
+		[
+			'ok'      => $ok,
+			'count'   => $count,
+			'msg'     => $msg,
+		];
+
+
+		return $result;
+	}
+
+
+
+	private static function analyze_mobile_friendly($_detail)
+	{
+		$ok      = true;
+		$msg     = T_("very good. The website is fully responsive and specially displayed on mobile");
+
+		$result =
+		[
+			'ok'      => $ok,
+			'msg'     => $msg,
+		];
+
+		return $result;
+	}
+
+
+	private static function analyze_sitemap($_detail)
+	{
+		$ok      = true;
+		$msg     = T_("Your post is indexed in sitemap");
+
+		$result =
+		[
+			'ok'      => $ok,
+			'msg'     => $msg,
+		];
+
+		return $result;
+	}
+
+	private static function analyze_favicon($_detail)
+	{
+		if(\lib\store::logo())
+		{
+			$ok  = true;
+			$msg = T_("Your website favicon is set");
+		}
+		else
+		{
+			$ok  = false;
+			$msg = T_("Your website favicon is not set");
+		}
+
+		$result =
+		[
+			'ok'      => $ok,
+			'msg'     => $msg,
+		];
+
+		return $result;
 	}
 
 

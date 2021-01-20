@@ -161,7 +161,6 @@ class get
 		$load['tags'] = $tag;
 
 
-		// var_dump($load);exit();
 		return $load;
 	}
 
