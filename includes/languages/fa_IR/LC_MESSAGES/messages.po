@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-19 17:05+0330\n"
-"PO-Revision-Date: 2021-01-19 17:07+0330\n"
+"POT-Creation-Date: 2021-01-20 19:34+0330\n"
+"PO-Revision-Date: 2021-01-20 19:38+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8523,9 +8523,9 @@ msgstr "درصد فراوانی"
 #: content_a/form/report/compare/display.php:105 content_business/p/home/display.php:289
 #: content_business/p/home/display.php:294 content_business/p/home/display.php:299
 #: content_business/p/home/display.php:304 content_business/p/home/display.php:309
-#: content_business/p/home/view.php:103 content_love/gift/create/review/display.php:16
-#: content_love/gift/view/display.php:13 content_my/domain/review/display.php:205
-#: dash/layout/tools/display-comment-list.php:19
+#: content_business/p/home/view.php:103 content_cms/posts/seo/display.php:111
+#: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
+#: content_my/domain/review/display.php:205 dash/layout/tools/display-comment-list.php:19
 #: dash/layout/tools/display-comment-list.php:24
 #: dash/layout/tools/display-comment-list.php:29
 #: dash/layout/tools/display-comment-list.php:34
@@ -15470,6 +15470,10 @@ msgstr "یک نوشته‌ را انتخاب کنید"
 #: content_cms/posts/seo/display.php:94
 msgid "Set post address as sub child of tag"
 msgstr "تنظیم آدرس نوشته به عنوان زیرمجموعه‌ای از یک تگ"
+
+#: content_cms/posts/seo/display.php:109
+msgid "SEO analysis"
+msgstr "تجزیه و تحلیل سئو"
 
 #: content_cms/posts/seo/view.php:8
 msgid "Edit post SEO"
@@ -23618,31 +23622,31 @@ msgstr "شناسه مطلب تنظیم نشده است"
 msgid "Invalid posts id"
 msgstr "شناسه مطلب اشتباه است"
 
-#: dash/app/posts/edit.php:106
+#: dash/app/posts/edit.php:104
 msgid "Post successfully updated"
 msgstr "مطلب با موفقیت به روز رسانی شد"
 
-#: dash/app/posts/edit.php:111
+#: dash/app/posts/edit.php:109
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
 
-#: dash/app/posts/edit.php:130
+#: dash/app/posts/edit.php:128
 msgid "When post set on type video you must be have fill the video file to publish"
 msgstr ""
 "وقتی نوع نوشته روی ویدئو تنظیم شده باشد شما باید یک فایل ویدئویی در این نوشته داشته "
 "باشید تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:145
+#: dash/app/posts/edit.php:143
 msgid "When post set on type audio you must be have fill the audio file to publish"
 msgstr ""
 "وقتی نوع نوشته روی پادکست تنظیم شده باشد شما باید یک فایل صوتی در این نوشته داشته باشید "
 "تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:234
+#: dash/app/posts/edit.php:232
 msgid "To convert to video you must have only one gallery items and that must be a video"
 msgstr "برای تغییر نوع به ویدئو شما باید یک فایل ویدئویی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/edit.php:254
+#: dash/app/posts/edit.php:252
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
@@ -25085,6 +25089,175 @@ msgstr "نمایش گزارش‌های پشتیبانی"
 #: dash/redirect_html.php:21
 msgid "REDIRECTING ..."
 msgstr "در حال انتقال..."
+
+#: dash/seo.php:89
+msgid "The best case scenario for a title is 30 to 60 words and a maximum of 90 words."
+msgstr "بهتر است بین ۳۰ تا ۶۰ کلمه و حد اکثر ۹۰ کلمه در عنوان وجود داشته باشد."
+
+#: dash/seo.php:101
+msgid ""
+"Very good. You have set the title to :val words and this is the best number of words in "
+"the title."
+msgstr ""
+"عالی. شما عنوان را با :val کلمه تنظیم کرده اید و این بهترین تعداد کلمات در عنوان است."
+
+#: dash/seo.php:107
+msgid ""
+"Good. You have set the title to :val words and this number is appropriate for the title."
+msgstr "خوب. شما عنوان را با :val کلمه تنظیم کرده اید و این عدد برای عنوان مناسب است."
+
+#: dash/seo.php:113
+msgid ""
+"Weak. :val words found in title. The best case scenario for a title is 30 to 60 words."
+msgstr ""
+"ضعیف. :val کلمه در عنوان شما قرار دارد. بهتر است بین ۳۰ تا ۶۰ کلمه در عنوان وجود داشته "
+"باشد."
+
+#: dash/seo.php:119
+msgid ""
+"Bad. :val words found in title. The best case scenario for a title is 30 to 60 words "
+"and a maximum of 90 words."
+msgstr "بهتر است بین ۳۰ تا ۶۰ کلمه و حداکثر ۹۰ کلمه در عنوان وجود داشته باشد."
+
+#: dash/seo.php:234
+msgid "Content must be contain at least 300 words."
+msgstr "محتوا باید حداقل شامل ۳۰۰ کلمه باشد."
+
+#: dash/seo.php:246
+msgid "Very Good, Your content contain :val words."
+msgstr "عالی. متن شما دارای :val کلمه است."
+
+#: dash/seo.php:252
+msgid "Your content contain :val words, Content must be contain at least 300 words."
+msgstr "محتوای شما دارای :val کلمه است. محتوا باید حداقل دارای ۳۰۰ کلمه باشد."
+
+#: dash/seo.php:283
+msgid "Empty content to analyze text dificould."
+msgstr "محتوایی برای تحلیل درجه سختی خوانایی، وجود ندارد."
+
+#: dash/seo.php:298
+msgid "Very easy to read. Easily understood by an average 11-year-old student."
+msgstr ""
+"خواندن این متن بسیار آسان است. به راحتی توسط یه دانش آموز متوسط ۱۱ ساله قابل درک است."
+
+#: dash/seo.php:303
+msgid "Easy to read."
+msgstr "به سادگی قابل خواندن است."
+
+#: dash/seo.php:308
+msgid "Fairly easy to read."
+msgstr "خواندن این متن نسبتا آسان است."
+
+#: dash/seo.php:313
+msgid "Plain English. Easily understood by 13- to 15-year-old students."
+msgstr "متن ساده و خوانایی است. به راحتی توسط دانش‌ آموزان ۱۳ تا ۱۵ سال قابل درک است."
+
+#: dash/seo.php:318
+msgid "Fairly difficult to read."
+msgstr "خواندن این متن نسبتا دشوار است."
+
+#: dash/seo.php:323
+msgid "Difficult to read."
+msgstr "خواندن این متن دشوار است."
+
+#: dash/seo.php:328
+msgid "Very difficult to read. Best understood by university graduates."
+msgstr "خواندن این متن دشوار است. فارغ التحصیلان دانشگاه این متن را بهتر درک می‌کنند."
+
+#: dash/seo.php:333
+msgid "Extremely difficult to read. Best understood by university graduates."
+msgstr ""
+"خواندن این متن بسیار دشوار است. فارغ التحصیلان دانشگاه این متن را بهتر درک می‌کنند."
+
+#: dash/seo.php:365
+msgid "It is better to use a keyword."
+msgstr "بهتر است از تگ استفاده کنید"
+
+#: dash/seo.php:370
+msgid "The keyword used in the text could not be found"
+msgstr "هیچ کدام از کلمات کلیدی در متن استفاده نشده است."
+
+#: dash/seo.php:400
+msgid ""
+"The frequency of use of the keyword in the text is :val percent and count use keyword "
+"in your content is :count."
+msgstr ""
+"تراکم استفاده از کلمات کلیدی در متن شما :val درصد است و تعداد دفعات استفاده از کلمات "
+"کلیدی در متن شما :count است."
+
+#: dash/seo.php:425
+msgid "Social sharing text is not set."
+msgstr "متن اشتراک گذاری در شبکه‌های اجتماعی تنظیم نشده است."
+
+#: dash/seo.php:431
+msgid "Social sharing text is set but not tags founded."
+msgstr ""
+"متن اشتراک گذاری در شبکه‌های اجتماعی تنظیم شده است اما هیچ کلمه کلیدی ثبت نشده است."
+
+#: dash/seo.php:437
+msgid "It is better to use keywords in the text of social networking text."
+msgstr "بتهر است از کلمات کلیدی درمتن اشتراک گذاری شبکه‌های اجتماعی استفاده کنید."
+
+#: dash/seo.php:450
+msgid "Very good. Keywords are used in the social media sharing text."
+msgstr "عالی. از کلمات کلیدی در متن اشتراک گذاری شبکه‌های اجتماعی استفاده شده است."
+
+#: dash/seo.php:475
+msgid ""
+"It is best to use tags in the first paragraph of your text. First fill the content ;)"
+msgstr ""
+"بهتر است از کلید‌واژه‌ها در اولین پاراگراف متن خود استفاده کنید البته ابتدا متن خود را "
+"بنویسید :)"
+
+#: dash/seo.php:480
+msgid "No tag added and not use in first paragraph."
+msgstr "هیچ کلیدواژه‌ای ثبت نشده که از آن در اولین پاراگراف متن استفاده شود."
+
+#: dash/seo.php:485
+msgid "Tags not use in first paragraph."
+msgstr "از کلمات کلیدی در اولین پاراگراف متن استفاده نشده است."
+
+#: dash/seo.php:498
+msgid "Very good. Keywords are used in the first paragraph."
+msgstr "عالی. از کلمات کلیدی در پاراگراف اول متن استفاده شده است."
+
+#: dash/seo.php:522 dash/seo.php:532
+msgid "It is better to use keywords in the title."
+msgstr "بهتر است از کلمات کلیدی در عنوان نوشته استفاده کنید."
+
+#: dash/seo.php:527
+msgid "The title is set but not tags founded."
+msgstr "عنوان تنظیم شده است اما هیچ تگی تنظیم نشده است."
+
+#: dash/seo.php:544
+msgid "Very good. Keywords are used in the title."
+msgstr "عالی. از کلمات کلیدی در عنوان استفاده شده است."
+
+#: dash/seo.php:571
+msgid "Very good. The website is fully responsive and specially displayed on mobile."
+msgstr ""
+"عالی. وب‌سایت شما کاملا برای نمایش در تلفن همراه بهینه سازی شده است و به صورت ویژه در "
+"تلفن همراه نمایش داده می‌شود."
+
+#: dash/seo.php:588
+msgid "Your post is indexed in sitemap."
+msgstr "نوشته شما در نقشه سایت قرار گرفته است."
+
+#: dash/seo.php:608
+msgid "Very good. Your website favicon is set."
+msgstr "عالی. لوگوی وب‌سایت شما تنظیم شده است."
+
+#: dash/seo.php:613
+msgid "Your website favicon is not set."
+msgstr "لوگوی وب‌سایت شما تنظیم نشده است."
+
+#: dash/seo.php:632
+msgid "Your content have not any link."
+msgstr "متن شما دارای هیچ لینکی نیست."
+
+#: dash/seo.php:642
+msgid "You have :count link in your content."
+msgstr "شما :count لینک در متن خود دارید."
 
 #: dash/social/telegram/answer.php:80
 msgid "Thanks for using me!"
@@ -36389,7 +36562,7 @@ msgstr "بله؛ من صاحب بیزینس خودم هستم"
 msgid "No, I'm developing a store for a client"
 msgstr "خیر؛ من در حال ایجاد فروشگاه برای مشتری خودم هستم"
 
-#: lib/app/store/search.php:163
+#: lib/app/store/search.php:165
 msgid "Field"
 msgstr "فیلد"
 
@@ -40033,9 +40206,6 @@ msgstr "یارد"
 #~ msgid "Can not create your business!"
 #~ msgstr "نمی‌توانیم بیزینس شما را ایجاد کنیم!"
 
-#~ msgid "You have not any master doamin"
-#~ msgstr "شما برای بیزینس خود دامنه اصلی مشخص نکرده‌اید"
-
 #~ msgid "Add this time you set :domain as master domain"
 #~ msgstr "در حال حاضر دامنه اصلی بیزینس شما بر روی :domain تنظیم شده است"
 
@@ -40435,9 +40605,6 @@ msgstr "یارد"
 
 #~ msgid "Can not connect to arvancloud API"
 #~ msgstr "نمی‌توانیم به ای‌پی‌آی آروان متصل شویم"
-
-#~ msgid "You are currently logged in to your account"
-#~ msgstr "شما هم‌اکنون با اکانت خود وارد سیستم هستید"
 
 #~ msgid "Do you want to enter this store with the same account?"
 #~ msgstr "آیا می‌خواهید با همین حساب وارد این فروشگاه شوید؟"
@@ -42279,9 +42446,6 @@ msgstr "یارد"
 
 #~ msgid "Please enter the scale code as a five digit number"
 #~ msgstr "لطفا کد کالا در ترازو را به صورت عدد پنج رقمی وارد کنید"
-
-#~ msgid "Seo title is out of range"
-#~ msgstr "طول متن عنوان برای موتور‌های جستجو خارج از محدوده است"
 
 #~ msgid "Seo description is out of range"
 #~ msgstr "طول متن توضیحات خارج از محدوده است"

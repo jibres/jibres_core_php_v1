@@ -116,7 +116,7 @@ class seo
 			{
 				$class = 'fail';
 				$ok    = false;
-				$msg   = T_("Hard. :val words found in title. The best case scenario for a title is 30 to 60 words and a maximum of 90 words.", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Bad. :val words found in title. The best case scenario for a title is 30 to 60 words and a maximum of 90 words.", ['val' => \dash\fit::number($length)]);
 			}
 		}
 
