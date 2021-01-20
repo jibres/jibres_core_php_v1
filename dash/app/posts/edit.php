@@ -34,24 +34,22 @@ class edit
 			return false;
 		}
 
+		$exception = [];
+
 		if(isset($_args['creator']) && $_args['creator'])
 		{
-			$_args['user_id'] = 'need - user_id :/ ';
+			$exception[] = 'user_id';
 		}
 
-		if(isset($_args['content']) && $_args['content'])
-		{
-			$_args['excerpt'] = 'need - excerpt :/ ';
-		}
 
 		if(isset($_args['tagurl']) || (isset($args['type']) && in_array($args['type'], ['help', 'page']) && isset($_args['slug'])))
 		{
-			$_args['url'] = 'need - url :/ ';
+			$exception[] = 'url';
 		}
 
 		if(isset($_args['status']))
 		{
-			$_args['publishdate'] = 'need - publishdate :/ ';
+			$exception[] = 'publishdate';
 		}
 
 		$tags = [];
@@ -63,7 +61,7 @@ class edit
 		unset($args['tags']);
 
 
-		$args = \dash\cleanse::patch_mode($_args, $args);
+		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(!empty($args))
 		{
