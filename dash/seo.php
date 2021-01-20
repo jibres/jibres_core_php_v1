@@ -86,7 +86,7 @@ class seo
 	private static function analyze_title_length($_detail)
 	{
 		$ok     = null;
-		$msg    = T_("The best case scenario for a title is 30 to 60 words and a maximum of 90 words.");
+		$msg    = T_("The best case scenario for a title is 30 to 60 character and a maximum of 90 character.");
 		$length = 0;
 		$class  = 'fail';
 
@@ -98,25 +98,25 @@ class seo
 			{
 				$ok    = true;
 				$class = 'okay';
-				$msg   = T_("Very good. You have set the title to :val words and this is the best number of words in the title.", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Very good. You have set the title to :val character and this is the best number of character in the title.", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length >= 60 && $length <= 90)
 			{
 				$ok    = true;
 				$class = 'okay';
-				$msg   = T_("Good. You have set the title to :val words and this number is appropriate for the title.", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Good. You have set the title to :val character and this number is appropriate for the title.", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length < 30)
 			{
 				$class = 'fail';
 				$ok    = false;
-				$msg   = T_("Weak. :val words found in title. The best case scenario for a title is 30 to 60 words.", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Weak. :val character found in title. The best case scenario for a title is 30 to 60 character.", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length > 90)
 			{
 				$class = 'fail';
 				$ok    = false;
-				$msg   = T_("Bad. :val words found in title. The best case scenario for a title is 30 to 60 words and a maximum of 90 words.", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Bad. :val character found in title. The best case scenario for a title is 30 to 60 character and a maximum of 90 character.", ['val' => \dash\fit::number($length)]);
 			}
 		}
 
@@ -194,7 +194,7 @@ class seo
 		$_text = strip_tags($_text);
 
 		// https://www.php.net/manual/en/function.str-word-count.php#107363
-		$word_count = count(preg_split('~[^\p{L}\p{N}\']+~u', $_text));
+		$word_count = count(preg_split('/\s|\n|\./', $_text));
 
 		return floatval($word_count);
 	}
@@ -367,7 +367,7 @@ class seo
 		if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 		{
 			$ok  = null;
-			$msg = T_("The keyword used in the text could not be found");
+			$msg = T_("The keyword used in the text could not be found.");
 
 			if(isset($_detail['content']) && is_string($_detail['content']))
 			{
