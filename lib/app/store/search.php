@@ -54,6 +54,8 @@ class search
 		if($query_string)
 		{
 			$or[]        = " store_data.title LIKE '%$query_string%'";
+			$or[]        = " store.subdomain LIKE '%$query_string%'";
+			$or[]        = " store.id LIKE '%$query_string%'";
 
 			$meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
 
