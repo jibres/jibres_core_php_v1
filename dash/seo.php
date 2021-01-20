@@ -9,26 +9,38 @@ class seo
 		$seo           = [];
 		$seo['list']   = [];
 		$seo['list'][] = self::analyze_title_length($_detail);
-		$seo['list'][] = self::analyze_word_count($_detail);
-		$seo['list'][] = self::analyze_text_dificould($_detail);
-		$seo['list'][] = self::analyze_tags($_detail);
-		$seo['list'][] = self::analyze_seodesc($_detail);
 		$seo['list'][] = self::analyze_title_tag($_detail);
+		$seo['list'][] = self::analyze_word_count($_detail);
+		$seo['list'][] = self::analyze_seodesc($_detail);
+		$seo['list'][] = self::analyze_tags($_detail);
 		$seo['list'][] = self::analyze_tags_in_first_paragraph($_detail);
+		$seo['list'][] = self::analyze_text_dificould($_detail);
 		$seo['list'][] = self::analyze_mobile_friendly($_detail);
 		$seo['list'][] = self::analyze_sitemap($_detail);
 		$seo['list'][] = self::analyze_favicon($_detail);
+		$seo['list'][] = self::analyze_favicon($_detail);
 
-		$count_ok = 0;
+		$count_ok  = 0;
+		$count_all = 0;
 		foreach ($seo['list'] as $key => $value)
 		{
-			if(a($value, 'ok') === true)
+			if(a($value, 'rate'))
 			{
-				$count_ok++;
+				$count_all++;
+
+				if(a($value, 'ok') === true)
+				{
+					$count_ok += a($value, 'rate');
+				}
 			}
 		}
 
-		$percent = round($count_ok * 100 / count($seo['list']));
+		if(!$count_all)
+		{
+			$count_all = 1;
+		}
+
+		$percent = round($count_ok * 100 / $count_all);
 
 		$seo['rank']   = $percent;
 
@@ -99,6 +111,7 @@ class seo
 		$result =
 		[
 			'ok'     => $ok,
+			'rate'   => 1,
 			'msg'    => $msg,
 			'length' => $length,
 		];
@@ -164,6 +177,7 @@ class seo
 		[
 			'ok'    => $ok,
 			'msg'   => $msg,
+			'rate'  => 1,
 			'count' => $word_count,
 		];
 
@@ -204,6 +218,7 @@ class seo
 		[
 			'ok'    => $ok,
 			'msg'   => $msg,
+			'rate'  => 0,
 			'count' => $word_count,
 		];
 
@@ -242,10 +257,10 @@ class seo
 
 		$result =
 		[
-			'ok'          => $ok,
-			'score'       => $score,
-			'count'       => $count,
-			'coefficient' => 1,
+			'ok'    => $ok,
+			'score' => $score,
+			'count' => $count,
+			'rate'  => 1,
 		];
 
 		return $result;
@@ -305,10 +320,10 @@ class seo
 
 		$result =
 		[
-			'ok'          => $ok,
-			'score'       => $score,
-			'count'       => $count,
-			'coefficient' => 1,
+			'ok'    => $ok,
+			'score' => $score,
+			'count' => $count,
+			'rate'  => 1,
 		];
 
 		return $result;
@@ -389,10 +404,11 @@ class seo
 
 		$result =
 		[
-			'ok'          => $ok,
-			'score'       => $score,
-			'level'       => $level,
-			'msg'       => $note,
+			'ok'    => $ok,
+			'score' => $score,
+			'level' => $level,
+			'msg'   => $note,
+			'rate'  => 0,
 
 		];
 
@@ -453,6 +469,7 @@ class seo
 			'percent' => $percent,
 			'count'   => $count,
 			'msg'     => $msg,
+			'rate'    => 1,
 		];
 
 
@@ -496,9 +513,10 @@ class seo
 
 		$result =
 		[
-			'ok'      => $ok,
-			'count'   => $count,
-			'msg'     => $msg,
+			'ok'    => $ok,
+			'count' => $count,
+			'msg'   => $msg,
+			'rate'  => 1,
 		];
 
 
@@ -540,8 +558,9 @@ class seo
 
 		$result =
 		[
-			'ok'      => $ok,
-			'msg'     => $msg,
+			'ok'   => $ok,
+			'msg'  => $msg,
+			'rate' => 1,
 		];
 
 		return $result;
@@ -586,9 +605,10 @@ class seo
 
 		$result =
 		[
-			'ok'      => $ok,
-			'count'   => $count,
-			'msg'     => $msg,
+			'ok'    => $ok,
+			'count' => $count,
+			'msg'   => $msg,
+			'rate'  => 1,
 		];
 
 
@@ -604,8 +624,9 @@ class seo
 
 		$result =
 		[
-			'ok'      => $ok,
-			'msg'     => $msg,
+			'ok'   => $ok,
+			'msg'  => $msg,
+			'rate' => 1,
 		];
 
 		return $result;
@@ -619,8 +640,9 @@ class seo
 
 		$result =
 		[
-			'ok'      => $ok,
-			'msg'     => $msg,
+			'ok'   => $ok,
+			'msg'  => $msg,
+			'rate' => 1,
 		];
 
 		return $result;
@@ -641,8 +663,9 @@ class seo
 
 		$result =
 		[
-			'ok'      => $ok,
-			'msg'     => $msg,
+			'ok'   => $ok,
+			'msg'  => $msg,
+			'rate' => 1,
 		];
 
 		return $result;
