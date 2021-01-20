@@ -86,9 +86,9 @@ class seo
 	private static function analyze_title_length($_detail)
 	{
 		$ok     = null;
-		$msg    = T_("No title founded!");
+		$msg    = T_("The best case scenario for a title is 30 to 60 words and a maximum of 90 words.");
 		$length = 0;
-		$class  = null;
+		$class  = 'fail';
 
 		if(isset($_detail['title']) && is_string($_detail['title']))
 		{
@@ -104,19 +104,19 @@ class seo
 			{
 				$ok    = true;
 				$class = 'okay';
-				$msg   = T_("Good. You have set the title to :val words and this number is appropriate for the title", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Good. You have set the title to :val words and this number is appropriate for the title.", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length < 30)
 			{
 				$class = 'fail';
 				$ok    = false;
-				$msg   = T_("Weak. :val words found in title. The best case scenario for a title is 30 to 60 words", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Weak. :val words found in title. The best case scenario for a title is 30 to 60 words.", ['val' => \dash\fit::number($length)]);
 			}
 			elseif($length > 90)
 			{
 				$class = 'fail';
 				$ok    = false;
-				$msg   = T_("Hard. :val words found in title. The best case scenario for a title is 30 to 60 words and a maximum of 90 words", ['val' => \dash\fit::number($length)]);
+				$msg   = T_("Hard. :val words found in title. The best case scenario for a title is 30 to 60 words and a maximum of 90 words.", ['val' => \dash\fit::number($length)]);
 			}
 		}
 
@@ -215,7 +215,7 @@ class seo
 		$content = preg_replace("/\?{2,}/", "?", $content);
 		$content = preg_replace("/\!{2,}/", "!", $content);
 		$content = preg_replace("/\.{2,}/", ".", $content);
-		$count = count(preg_split("/\?|\!|\./", $content));
+		$count   = count(preg_split("/\?|\!|\./", $content));
 		return floatval($count);
 	}
 
@@ -231,9 +231,9 @@ class seo
 	private static function analyze_word_count($_detail)
 	{
 		$ok         = null;
-		$msg        = T_("Empty content!");
+		$msg        = T_("Content must be contain at least 300 words.");
 		$word_count = 0;
-		$class      = null;
+		$class      = 'fail';
 
 		if(isset($_detail['content']) && is_string($_detail['content']))
 		{
@@ -243,13 +243,13 @@ class seo
 			{
 				$ok    = true;
 				$class = 'okay';
-				$msg   = T_("Very Good, Your content contain :val words", ['val' => \dash\fit::number($word_count)]);
+				$msg   = T_("Very Good, Your content contain :val words.", ['val' => \dash\fit::number($word_count)]);
 			}
 			else
 			{
 				$ok    = false;
-				$class = 'faid';
-				$msg   = T_("Your content contain :val words, Content must be contain at least 300 words", ['val' => \dash\fit::number($word_count)]);
+				$class = 'fail';
+				$msg   = T_("Your content contain :val words, Content must be contain at least 300 words.", ['val' => \dash\fit::number($word_count)]);
 			}
 		}
 
@@ -266,47 +266,6 @@ class seo
 	}
 
 
-	/**
-	 * Analyze word count
-	 *
-	 * @param      <type>  $_detail  The detail
-	 *
-	 * @return     array   ( description_of_the_return_value )
-	 */
-	private static function analyze_content_length($_detail)
-	{
-		$ok         = null;
-		$msg        = T_("No content");
-		$word_count = 0;
-		$class      = null;
-
-		if(isset($_detail['content']) && is_string($_detail['content']))
-		{
-			$word_count = mb_strlen($_detail['content']);
-
-			if($word_count >= 300)
-			{
-				$ok  = true;
-				$msg = T_("Very Good, Your content contain :val words", ['val' => \dash\fit::number($word_count)]);
-			}
-			else
-			{
-				$ok  = false;
-				$msg = T_("Your content contain :val words, Content must be contain atlease 300 words", ['val' => \dash\fit::number($word_count)]);
-			}
-		}
-
-		$result =
-		[
-			'ok'    => $ok,
-			'msg'   => $msg,
-			'class' => $ok ? 'okay' : 'faid',
-			'rate'  => 0,
-			'count' => $word_count,
-		];
-
-		return $result;
-	}
 
 
 
@@ -321,7 +280,7 @@ class seo
 	{
 		$ok    = true;
 		$score = 0;
-		$note  = T_("Empty content to analyze text dificould");
+		$note  = T_("Empty content to analyze text dificould.");
 		$level = null;
 		$class = 'info';
 
@@ -403,7 +362,7 @@ class seo
 		$ok      = false;
 		$percent = 0;
 		$count   = 0;
-		$msg     = T_("It is better to use a keyword");
+		$msg     = T_("It is better to use a keyword.");
 
 		if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 		{
@@ -438,7 +397,7 @@ class seo
 					$percent = 0;
 				}
 
-				$msg = T_("The frequency of use of the keyword in the text is :val percent and count use keyword in your content is :count", ['val' => \dash\fit::number($percent), 'count' => \dash\fit::number($count)]);
+				$msg = T_("The frequency of use of the keyword in the text is :val percent and count use keyword in your content is :count.", ['val' => \dash\fit::number($percent), 'count' => \dash\fit::number($count)]);
 			}
 		}
 
@@ -448,7 +407,7 @@ class seo
 			'ok'      => $ok,
 			'percent' => $percent,
 			'count'   => $count,
-			'class'   => $ok ? 'okay' : 'faid',
+			'class'   => $ok ? 'okay' : 'fail',
 			'msg'     => $msg,
 			'rate'    => 1,
 		];
@@ -461,21 +420,21 @@ class seo
 	private static function analyze_seodesc($_detail)
 	{
 		$ok    = false;
-		$class = null;
+		$class = 'fail';
 		$count = 0;
-		$msg   = T_("Social sharing text is not set");
+		$msg   = T_("Social sharing text is not set.");
 
 		if(isset($_detail['seodesc']) && is_string($_detail['seodesc']))
 		{
-			$ok  = null;
+			$ok    = null;
 			$class = 'warn';
-			$msg = T_("Social sharing text is set but not tags founded");
+			$msg   = T_("Social sharing text is set but not tags founded.");
 
 			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 			{
 				$ok    = null;
 				$class = 'warn';
-				$msg   = T_("It is better to use keywords in the text of social networking text");
+				$msg   = T_("It is better to use keywords in the text of social networking text.");
 
 				if(isset($_detail['seodesc']) && is_string($_detail['seodesc']))
 				{
@@ -488,7 +447,7 @@ class seo
 					{
 						$ok    = true;
 						$class = 'okay';
-						$msg   = T_("Very good. Keywords are used in the social media sharing text");
+						$msg   = T_("Very good. Keywords are used in the social media sharing text.");
 					}
 
 				}
@@ -513,17 +472,17 @@ class seo
 	{
 		$ok      = false;
 		$count   = 0;
-		$msg     = T_("Empty content!");
+		$msg     = T_("It is best to use tags in the first paragraph of your text. First fill the content ;)");
 
 		if(isset($_detail['content']) && is_string($_detail['content']))
 		{
 			$ok  = null;
-			$msg = T_("No tag added and not use in first paragraph");
+			$msg = T_("No tag added and not use in first paragraph.");
 
 			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 			{
 				$ok  = null;
-				$msg = T_("Tags not use in first paragraph");
+				$msg = T_("Tags not use in first paragraph.");
 
 				$paragraphs = preg_split("/\n|\<br\s?\/?\>|\<\/p\>/", $_detail['content']);
 				if(isset($paragraphs[0]))
@@ -535,8 +494,8 @@ class seo
 
 					if($count >= 1)
 					{
-						$ok = true;
-						$msg = T_("Very good. Keywords are used in the first paragraph");
+						$ok  = true;
+						$msg = T_("Very good. Keywords are used in the first paragraph.");
 					}
 				}
 			}
@@ -546,7 +505,7 @@ class seo
 		[
 			'ok'    => $ok,
 			'msg'   => $msg,
-			'class' => $ok ? 'okay' : 'faid',
+			'class' => $ok ? 'okay' : 'fail',
 			'rate'  => 1,
 		];
 
@@ -558,19 +517,19 @@ class seo
 
 	private static function analyze_title_tag($_detail)
 	{
-		$ok      = false;
-		$count   = 0;
-		$msg     = T_("The title is not set");
+		$ok    = false;
+		$count = 0;
+		$msg   = T_("It is better to use keywords in the title.");
 
 		if(isset($_detail['title']) && is_string($_detail['title']))
 		{
-			$ok  = null;
-			$msg = T_("The title is set but not tags founded");
+			$ok  = false;
+			$msg = T_("The title is set but not tags founded.");
 
 			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 			{
-				$ok  = null;
-				$msg = T_("It is better to use keywords in the title");
+				$ok  = false;
+				$msg = T_("It is better to use keywords in the title.");
 
 				if(isset($_detail['title']) && is_string($_detail['title']))
 				{
@@ -581,8 +540,8 @@ class seo
 
 					if($count >= 1)
 					{
-						$ok = true;
-						$msg = T_("Very good. Keywords are used in the title");
+						$ok  = true;
+						$msg = T_("Very good. Keywords are used in the title.");
 					}
 
 				}
@@ -594,10 +553,11 @@ class seo
 		[
 			'ok'    => $ok,
 			'count' => $count,
-			'class' => $ok ? 'okay' : 'faid',
+			'class' => $ok ? 'okay' : 'fail',
 			'msg'   => $msg,
 			'rate'  => 1,
 		];
+
 
 
 		return $result;
@@ -608,13 +568,13 @@ class seo
 	private static function analyze_mobile_friendly($_detail)
 	{
 		$ok      = true;
-		$msg     = T_("Very good. The website is fully responsive and specially displayed on mobile");
+		$msg     = T_("Very good. The website is fully responsive and specially displayed on mobile.");
 
 		$result =
 		[
 			'ok'    => $ok,
 			'msg'   => $msg,
-			'class' => $ok ? 'okay' : 'faid',
+			'class' => $ok ? 'okay' : 'fail',
 			'rate'  => 1,
 		];
 
@@ -625,13 +585,13 @@ class seo
 	private static function analyze_sitemap($_detail)
 	{
 		$ok      = true;
-		$msg     = T_("Your post is indexed in sitemap");
+		$msg     = T_("Your post is indexed in sitemap.");
 
 		$result =
 		[
 			'ok'    => $ok,
 			'msg'   => $msg,
-			'class' => $ok ? 'okay' : 'faid',
+			'class' => $ok ? 'okay' : 'fail',
 			'rate'  => 1,
 		];
 
@@ -645,19 +605,19 @@ class seo
 		if(\lib\store::logo())
 		{
 			$ok  = true;
-			$msg = T_("Your website favicon is set");
+			$msg = T_("Very good. Your website favicon is set.");
 		}
 		else
 		{
 			$ok  = false;
-			$msg = T_("Your website favicon is not set");
+			$msg = T_("Your website favicon is not set.");
 		}
 
 		$result =
 		[
 			'ok'    => $ok,
 			'msg'   => $msg,
-			'class' => $ok ? 'okay' : 'faid',
+			'class' => $ok ? 'okay' : 'fail',
 			'rate'  => 1,
 		];
 
@@ -669,17 +629,17 @@ class seo
 	{
 		$ok      = false;
 		$count   = 0;
-		$msg     = T_("Empty content!");
+		$msg     = T_("Your content have not any link.");
 
 		if(isset($_detail['content']) && is_string($_detail['content']))
 		{
 			$ok      = true;
-			$content = strip_tags($_detail['content']);
+			$content = $_detail['content'];
 			$https   = substr_count($content, 'https://');
 			$http    = substr_count($content, 'http://');
 			$count   = $https + $http;
 
-			$msg   = T_("You have :count link in your content", ['count' => \dash\fit::number($count)]);
+			$msg   = T_("You have :count link in your content.", ['count' => \dash\fit::number($count)]);
 		}
 
 
