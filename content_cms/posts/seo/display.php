@@ -112,7 +112,7 @@
       <?php echo a($seoAnalyze, 'star_html') ?>
     </div>
     <?php foreach (a($seoAnalyze, 'list') as $key => $value) {?>
-      <a class="checklist fc-black" <?php if(a($value, 'ok') === true) { echo 'data-okay';}elseif(a($value, 'ok') === false){echo 'data-fail';}else{} ?>><?php echo a($value, 'msg'); ?></a>
+      <a class="checklist fc-black" <?php if(a($value, 'class')) { echo 'data-'. a($value, 'class'); } ?> ><?php echo a($value, 'msg'); ?></a>
     <?php } ?>
   </div>
 </div>
