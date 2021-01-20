@@ -14,6 +14,7 @@ class seo
 		$seo['list'][] = self::analyze_tags($_detail);
 		$seo['list'][] = self::analyze_seodesc($_detail);
 		$seo['list'][] = self::analyze_title_tag($_detail);
+		$seo['list'][] = self::analyze_tags_in_first_paragraph($_detail);
 		$seo['list'][] = self::analyze_mobile_friendly($_detail);
 		$seo['list'][] = self::analyze_sitemap($_detail);
 		$seo['list'][] = self::analyze_favicon($_detail);
@@ -493,7 +494,6 @@ class seo
 		}
 
 
-
 		$result =
 		[
 			'ok'      => $ok,
@@ -504,6 +504,51 @@ class seo
 
 		return $result;
 	}
+
+	private static function analyze_tags_in_first_paragraph($_detail)
+	{
+		$ok      = false;
+		$count   = 0;
+		$msg     = T_("Tags not use in first paragraph");
+
+		if(isset($_detail['content']) && is_string($_detail['content']))
+		{
+			$ok  = null;
+			$msg = T_("No tag added and not use in first paragraph");
+
+			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
+			{
+				$ok  = null;
+				$msg = T_("Tags not use in first paragraph");
+
+				$paragraphs = preg_split("/\n|\<br\s?\/?\>|\<\/p\>/", $_detail['content']);
+				if(isset($paragraphs[0]))
+				{
+					foreach ($_detail['tags'] as $key => $value)
+					{
+						$count += substr_count($paragraphs[0], $value['title']);
+					}
+
+					if($count >= 1)
+					{
+						$ok = true;
+						$msg = T_("Very good. Keywords are used in the first paragraph");
+					}
+				}
+			}
+		}
+
+		$result =
+		[
+			'ok'      => $ok,
+			'msg'     => $msg,
+		];
+
+		return $result;
+	}
+
+
+
 
 	private static function analyze_title_tag($_detail)
 	{
