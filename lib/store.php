@@ -44,22 +44,32 @@ class store
 
 
 
-	public static function reset_cache($_id = null)
+	public static function reset_cache($_id = null, $_subdomain = null)
 	{
+		$subdomain = null;
+
 		if(!$_id)
 		{
-			$id = self::id();
+			$id        = self::id();
 			$subdomain = self::detail('subdomain');
+		}
+		else
+		{
+			$id = $_id;
+		}
 
+		if(!$subdomain && $_subdomain)
+		{
+			$subdomain = $_subdomain;
+		}
+
+		if($subdomain)
+		{
 			$addr = \dash\engine\store::subdomain_addr(). $subdomain. \dash\engine\store::$ext;
 			if(is_file($addr))
 			{
 				\dash\file::delete($addr);
 			}
-		}
-		else
-		{
-			$id = $_id;
 		}
 
 		if(!$id || !is_numeric($id))

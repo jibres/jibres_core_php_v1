@@ -1,5 +1,5 @@
 <?php $dataRow = \dash\data::dataRow(); ?>
-<div class="avand-md">
+<div class="avand-lg">
   <nav class="items ltr">
     <ul>
       <li>
@@ -61,6 +61,35 @@
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Save") ?></button>
+      </footer>
+    </div>
+  </form>
+
+
+   <form method="post" autocomplete="off">
+    <input type="hidden" name="set_storage" value="1">
+    <div class="box">
+      <div class="body">
+        <label for="storage"><?php echo T_("Chage business storage limit") ?></label>
+        <div class="input">
+          <input type="number" name="storage" value="<?php echo \dash\data::dataRowData_storage() ?>">
+        </div>
+        <?php if(\dash\data::dataRowData_storage()) {?>
+          <div class="msg">
+            <?php echo \dash\fit::file_size(\dash\data::dataRowData_storage()) ?>
+          </div>
+        <?php } // endif ?>
+        <?php
+        $quick = [0, 10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000];
+        foreach ($quick as $key => $value)
+        {
+          $data = json_encode(['set_storage' => 1, 'storage' => $value * 1024]);
+          echo "<div class='btn sm mLa5' data-ajaxify data-method='post' data-data='$data'>". \dash\fit::file_size($value * 1024). '</div>';
+        }
+        ?>
+      </div>
+      <footer class="txtRa">
+        <button class="btn master"><?php echo T_("Save Storage limit") ?></button>
       </footer>
     </div>
   </form>

@@ -13,6 +13,13 @@ class model
 			\lib\app\store\edit::change_enterprise($enterprise, \dash\request::get('id'));
 		}
 
+		if(\dash\request::post('set_storage'))
+		{
+			$storage = \dash\request::post('storage');
+
+			\lib\app\store\edit::change_storage($storage, \dash\request::get('id'));
+		}
+
 		if(\dash\request::post('subdomain'))
 		{
 			$subdomain = \dash\request::post('subdomain');

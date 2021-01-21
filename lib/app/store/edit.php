@@ -40,13 +40,7 @@ class edit
 
 		\lib\db\setting\update::overwirte_cat_key_fuel($subdomain, 'store_setting', 'subdomain', $load_store['fuel'], $my_store_db);
 
-		\lib\store::reset_cache($load_store['id']);
-
-		$addr = \dash\engine\store::subdomain_addr(). $load_store['subdomain']. \dash\engine\store::$ext;
-		if(is_file($addr))
-		{
-			\dash\file::delete($addr);
-		}
+		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
 
 		\dash\log::set('businessSubdomainUpdate', ['old_subdomain' => $load_store['subdomain'], 'new_subdomain' => $subdomain ]);
 
@@ -85,19 +79,52 @@ class edit
 
 		\lib\db\setting\update::overwirte_cat_key_fuel($_enterprise, 'store_setting', 'enterprise', $load_store['fuel'], $my_store_db);
 
-		\lib\store::reset_cache($load_store['id']);
-
-		$addr = \dash\engine\store::subdomain_addr(). $load_store['subdomain']. \dash\engine\store::$ext;
-		if(is_file($addr))
-		{
-			\dash\file::delete($addr);
-		}
+		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
 
 		$current_store_data = \lib\db\store\get::data($_id);
 
 		\dash\log::set('businessEnterpriceUpdated', ['old_enterprise' => a($current_store_data, 'enterprise'), 'new_enterprise' => $_enterprise ]);
 
 		\dash\notif::ok(T_("Enterprice was changed"));
+
+		return true;
+	}
+
+
+
+	public static function change_storage($_storage, $_id)
+	{
+		$_storage = \dash\validate::bigint($_storage);
+
+		if(!$_storage)
+		{
+			$_storage = 0;
+		}
+
+		$storage = $_storage;
+
+		$load_store = \lib\db\store\get::by_id($_id);
+
+		if(!isset($load_store['id']))
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		\lib\db\store\update::storage($storage, $load_store['id']);
+
+		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
+
+		\lib\db\setting\update::overwirte_cat_key_fuel($storage, 'store_setting', 'storage', $load_store['fuel'], $my_store_db);
+
+		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
+
+
+		$current_store_data = \lib\db\store\get::data($_id);
+
+		\dash\log::set('businessStorageUpdated', ['old_storage' => a($current_store_data, 'storage'), 'new_storage' => $storage ]);
+
+		\dash\notif::ok(T_("Storage was changed"));
 
 		return true;
 	}

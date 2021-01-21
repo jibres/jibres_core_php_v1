@@ -39,5 +39,15 @@ class update
 		return $result;
 
 	}
+
+
+	public static function storage($_storage, $_id)
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "UPDATE store_data SET store_data.storage = $_storage , store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+
+	}
 }
 ?>
