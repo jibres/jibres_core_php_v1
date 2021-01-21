@@ -34,6 +34,12 @@ class view
 			'show_type' => 'all',
 		];
 
+		if(\dash\url::module() === 'staff')
+		{
+			$args['show_type'] = 'staff';
+
+		}
+
 
 
 		$search_string   = \dash\validate::search(\dash\request::get('q'));
