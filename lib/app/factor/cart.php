@@ -93,6 +93,12 @@ class cart
 			array_push($require, 'mobile');
 		}
 
+		// in admin needless to get address
+		if(\dash\url::content() === 'a')
+		{
+			$need_address_text = false;
+		}
+
 		$meta =
 		[
 			'field_title' =>
