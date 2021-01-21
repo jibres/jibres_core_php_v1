@@ -139,6 +139,12 @@ class file
 			return false;
 		}
 
+		if(!\dash\upload\storage::have_space($myFile['size']))
+		{
+			\dash\notif::error(T_("Your storage space is full. Please contact support"));
+			return false;
+		}
+
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
 			if(isset($_meta['square']) && $_meta['square'])
