@@ -85,13 +85,16 @@ class dashboard
 		{
 			for ($i=0; $i < 12 ; $i++)
 			{
-				$jalali_month = \dash\utility\jdate::date("m", strtotime("-$i month"), false);
+				// stard date on gregorian month must be plus 2 days and the convert to jalali month !
+				$month_time = strtotime("-$i month") + (60*60*24*2);
+
+				$jalali_month = \dash\utility\jdate::date("m", $month_time, false);
 
 				list($startdate, $enddate) = \dash\utility\jdate::jalali_month(\dash\utility\jdate::date("Y", strtotime("-$i month"), false), $jalali_month);
 
 				$all_date[$jalali_month]   = [$startdate, $enddate];
 				$month_list[$jalali_month] = 0;
-				$category[] = \dash\utility\jdate::date("F", strtotime("-$i month"));
+				$category[] = \dash\utility\jdate::date("F", $month_time);
 			}
 
 			$get_detail   = \dash\db\posts\get::chart_by_date_fa($last_12_month, $all_date);
