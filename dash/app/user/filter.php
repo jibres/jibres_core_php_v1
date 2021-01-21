@@ -25,6 +25,9 @@ class filter
 		{
 			$list['haveorder']    = ['key' => 'haveorder', 	'group' => T_("Order"), 'title' => T_('Have Order'), 	'query' => ['ho' => 'y'], 	'public' => true];
 			$list['havenotorder'] = ['key' => 'havenotorder', 	'group' => T_("Order"), 'title' => T_('Have Not Order'), 	'query' => ['ho' => 'n'], 	'public' => true];
+
+			$list['havecart']    = ['key' => 'havecart', 	'group' => T_("Order"), 'title' => T_('Have Cart'), 	'query' => ['hc' => 'y'], 	'public' => true];
+			$list['havenotcart'] = ['key' => 'havenotcart', 	'group' => T_("Order"), 'title' => T_('Have Not Cart'), 	'query' => ['hc' => 'n'], 	'public' => true];
 		}
 		return $list;
 

@@ -24,6 +24,7 @@ class search
 
 			'hm'        => 'y_n',
 			'ho'        => 'y_n',
+			'hc'        => 'y_n',
 		];
 
 		$require = [];
@@ -73,6 +74,21 @@ class search
 				$meta['fields'] = ' DISTINCT users.* ';
 				$meta['join'][] = " LEFT JOIN factors ON factors.customer = users.id ";
 				$and[] = " factors.id IS NULL ";
+				self::$is_filtered = true;
+
+			}
+
+			if($data['hc'] === 'y')
+			{
+				$meta['fields'] = ' DISTINCT users.* ';
+				$meta['join'][] = " INNER JOIN cart ON cart.user_id = users.id ";
+				self::$is_filtered = true;
+			}
+			elseif($data['hc'] === 'n')
+			{
+				$meta['fields'] = ' DISTINCT users.* ';
+				$meta['join'][] = " LEFT JOIN cart ON cart.user_id = users.id ";
+				$and[] = " cart.id IS NULL ";
 				self::$is_filtered = true;
 
 			}

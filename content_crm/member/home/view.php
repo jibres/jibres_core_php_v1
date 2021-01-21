@@ -30,6 +30,7 @@ class view
 			'status'    => \dash\request::get('status'),
 			'hm'        => \dash\request::get('hm'),
 			'ho'        => \dash\request::get('ho'),
+			'hc'        => \dash\request::get('hc'),
 			'show_type' => 'all',
 		];
 
