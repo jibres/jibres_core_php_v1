@@ -24,7 +24,7 @@
 
 
   <h2 id="customer-care-and-complete-satisfaction"><?php echo T_("Customer Care and Complete Satisfaction"); ?></h2>
-  <p><?php echo T_("Attracting people's participation as well as having their valuable presence has always been a great honor for Jibres and to appreciate your support, in return, Jibres presents services to promote customer satisfaction."); ?> <?php echo T_("These services are presented in different time intervals and are aimed at costomer care mission and appreciation of your valuable presence."); ?></p>
+  <p><?php echo T_("Attracting people's participation as well as having their valuable presence has always been a great honor for Jibres and to appreciate your support, in return, Jibres presents services to promote customer satisfaction."); ?> <?php echo T_("These services are presented in different time intervals and are aimed at customer care mission and appreciation of your valuable presence."); ?></p>
 
  </div>
 
