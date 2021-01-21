@@ -12,10 +12,13 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 
+
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(false);
-		\dash\data::listEngine_sort(false);
+		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\dash\app\comment\filter::sort_list());
+
 
 		$args =
 		[

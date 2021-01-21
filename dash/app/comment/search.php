@@ -23,7 +23,7 @@ class search
 		$condition =
 		[
 			'order'      => 'order',
-			'sort'       => ['enum' => ['id']],
+			'sort'       => 'string_50',
 			'for'        => ['enum' => ['page','post','product']],
 			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
 			'post_id'    => 'code',
@@ -100,7 +100,10 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$order_sort = " ORDER BY $data[sort] $data[order]";
+			if(\dash\app\comment\filter::check_allow($data['sort'], $data['order']))
+			{
+				$order_sort = " ORDER BY $data[sort] $data[order]";
+			}
 		}
 
 		if(!$order_sort)
