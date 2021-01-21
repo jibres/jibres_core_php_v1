@@ -76,7 +76,7 @@ class dashboard
 	private static function chart()
 	{
 
-		$last_12_month = date("Y-m-d", strtotime("-365 days"));
+		$last_12_month = date("Y-m-d H:i:s", strtotime("-365 days"));
 
 		$month_list = [];
 		$category = [];
@@ -97,12 +97,14 @@ class dashboard
 				$category[] = \dash\utility\jdate::date("F", $month_time);
 			}
 
-			$get_detail   = \dash\db\posts\get::chart_by_date_fa($last_12_month, $all_date);
+			$get_detail_publish = \dash\db\posts\get::chart_by_date_fa($last_12_month, $all_date, 'publish');
+			$get_detail_draft   = \dash\db\posts\get::chart_by_date_fa($last_12_month, $all_date, 'draft');
 
 		}
 		else
 		{
-			$get_detail   = \dash\db\posts\get::chart_by_date_en($last_12_month);
+			$get_detail_publish = \dash\db\posts\get::chart_by_date_en($last_12_month, 'publish');
+			$get_detail_draft   = \dash\db\posts\get::chart_by_date_en($last_12_month, 'publish');
 
 			for ($i=0; $i < 12 ; $i++)
 			{
@@ -112,24 +114,48 @@ class dashboard
 
 		}
 
-		if(!is_array($get_detail))
+
+		if(!is_array($get_detail_publish))
 		{
-			$get_detail = [];
+			$get_detail_publish = [];
+		}
+
+		if(!is_array($get_detail_draft))
+		{
+			$get_detail_draft = [];
 		}
 
 
+		$month_list_publish = [];
+		$month_list_draft   = [];
 
-		foreach ($get_detail as $key => $value)
+		foreach ($month_list as $key => $value)
 		{
-			if(isset($month_list[$value['month']]))
+			if(isset($get_detail_publish[$key]))
 			{
-				$month_list[$value['month']] = floatval($value['count']);
+				$month_list_publish[$key] = floatval($get_detail_publish[$key]);
+			}
+			else
+			{
+				$month_list_publish[$key] = floatval(0);
+			}
+
+			if(isset($get_detail_draft[$key]))
+			{
+				$month_list_draft[$key] = floatval($get_detail_draft[$key]);
+			}
+			else
+			{
+				$month_list_draft[$key] = floatval(0);
 			}
 		}
 
-		$chart             = [];
-		$chart['category'] = json_encode($category , JSON_UNESCAPED_UNICODE);
-		$chart['data']   = json_encode(array_values($month_list), JSON_UNESCAPED_UNICODE);
+
+
+		$chart                = [];
+		$chart['category']    = json_encode($category , JSON_UNESCAPED_UNICODE);
+		$chart['datapublish'] = json_encode(array_values($month_list_publish), JSON_UNESCAPED_UNICODE);
+		$chart['datadraft']   = json_encode(array_values($month_list_draft), JSON_UNESCAPED_UNICODE);
 
 		return $chart;
 	}

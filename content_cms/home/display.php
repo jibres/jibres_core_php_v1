@@ -3,11 +3,12 @@
   <div class="c-xs-12 c-sm-12 c-md-8">
         <div id="chartdivcmshome" class="box chart x330 s0" data-abc='cms/homepage'>
       <div class="hide">
-        <div id="chardatatitle"><?php echo T_("Post") ?></div>
+        <div id="chardatatitle"><?php echo T_("Draft Post") ?></div>
+        <div id="chardatatitlepublish"><?php echo T_("Publish Post") ?></div>
         <div id="charttitle"><?php echo T_("Posts per month in last year") ?></div>
         <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
-        <div id="chartdata"><?php echo a($dashboardDetail, 'chart', 'data') ?></div>
-
+        <div id="chartdatapublish"><?php echo a($dashboardDetail, 'chart', 'datapublish') ?></div>
+        <div id="chartdatadraft"><?php echo a($dashboardDetail, 'chart', 'datadraft') ?></div>
       </div>
     </div>
 

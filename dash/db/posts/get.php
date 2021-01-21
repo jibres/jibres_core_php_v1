@@ -81,12 +81,12 @@ class get
 
 
 
-	public static function chart_by_date_fa($_enddate, $_month_list)
+	public static function chart_by_date_fa($_enddate, $_month_list, $_status)
 	{
 		$CASE = [];
 		foreach ($_month_list as $month => $date)
 		{
-			$CASE[] = "WHEN DATE(posts.datecreated) >= DATE('$date[0]') AND DATE(posts.datecreated) <= DATE('$date[1]') THEN '$month'";
+			$CASE[] = "WHEN posts.datecreated >= '$date[0] 00:00:00' AND posts.datecreated <= '$date[1] 23:59:59' THEN '$month'";
 		}
 
 		$CASE = " CASE ". implode(" ", $CASE). "  ELSE '0' END ";
@@ -100,18 +100,19 @@ class get
 			FROM
 				posts
 			WHERE
-				DATE(posts.datecreated) >= DATE('$_enddate')
+				posts.status = '$_status' AND
+				posts.datecreated >= '$_enddate'
 			GROUP BY $CASE
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\db::get($query, ['month', 'count']);
 
 		return $result;
 	}
 
 
 
-	public static function chart_by_date_en($_enddate)
+	public static function chart_by_date_en($_enddate, $_status)
 	{
 		$query  =
 		"
@@ -121,11 +122,12 @@ class get
 			FROM
 				posts
 			WHERE
-				DATE(posts.datecreated) >= DATE('$_enddate')
+				posts.status = '$_status' AND
+				posts.datecreated >= '$_enddate'
 			GROUP BY MONTH(posts.datecreated)
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\db::get($query, ['month', 'count']);
 
 		return $result;
 	}
