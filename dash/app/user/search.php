@@ -21,6 +21,8 @@ class search
 			'sort'      => 'string_50',
 			'status'    => ['enum' => ['sale', 'buy', 'saleorder']],
 			'show_type' => ['enum' => ['staff', 'all']],
+
+			'hm'        => 'y_n',
 		];
 
 		$require = [];
@@ -41,6 +43,18 @@ class search
 		else
 		{
 			/*nothing*/
+		}
+
+		if($data['hm'] === 'y')
+		{
+			$and[] = " users.mobile IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['hm'] === 'n')
+		{
+			$and[] = " users.mobile IS NULL ";
+			self::$is_filtered = true;
+
 		}
 
 

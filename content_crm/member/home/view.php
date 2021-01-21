@@ -28,6 +28,7 @@ class view
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
 			'status'    => \dash\request::get('status'),
+			'hm'        => \dash\request::get('hm'),
 			'show_type' => 'all',
 		];
 
