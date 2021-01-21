@@ -20,6 +20,12 @@ class filter
 		$list                  = [];
 		$list['havemobile']    = ['key' => 'havemobile', 	'group' => T_("Identify"), 'title' => T_('Have Mobile'), 	'query' => ['hm' => 'y'], 	'public' => true];
 		$list['havenotmobile'] = ['key' => 'havenotmobile', 	'group' => T_("Identify"), 'title' => T_('Have Not Mobile'), 	'query' => ['hm' => 'n'], 	'public' => true];
+
+		if(\dash\engine\store::inStore())
+		{
+			$list['haveorder']    = ['key' => 'haveorder', 	'group' => T_("Order"), 'title' => T_('Have Order'), 	'query' => ['ho' => 'y'], 	'public' => true];
+			$list['havenotorder'] = ['key' => 'havenotorder', 	'group' => T_("Order"), 'title' => T_('Have Not Order'), 	'query' => ['ho' => 'n'], 	'public' => true];
+		}
 		return $list;
 
 	}

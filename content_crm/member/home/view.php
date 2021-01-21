@@ -29,6 +29,7 @@ class view
 			'sort'      => \dash\request::get('sort'),
 			'status'    => \dash\request::get('status'),
 			'hm'        => \dash\request::get('hm'),
+			'ho'        => \dash\request::get('ho'),
 			'show_type' => 'all',
 		];
 

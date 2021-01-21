@@ -23,6 +23,7 @@ class search
 			'show_type' => ['enum' => ['staff', 'all']],
 
 			'hm'        => 'y_n',
+			'ho'        => 'y_n',
 		];
 
 		$require = [];
@@ -35,6 +36,8 @@ class search
 		$or            = [];
 		$order_sort    = null;
 		$meta['limit'] = 15;
+		$meta['join'] = [];
+		$meta['fields'] = 'users.*';
 
 		if($data['show_type'] === 'staff')
 		{
@@ -55,6 +58,24 @@ class search
 			$and[] = " users.mobile IS NULL ";
 			self::$is_filtered = true;
 
+		}
+
+		if(\dash\engine\store::inStore())
+		{
+			if($data['ho'] === 'y')
+			{
+				$meta['fields'] = ' DISTINCT users.* ';
+				$meta['join'][] = " INNER JOIN factors ON factors.customer = users.id ";
+				self::$is_filtered = true;
+			}
+			elseif($data['ho'] === 'n')
+			{
+				$meta['fields'] = ' DISTINCT users.* ';
+				$meta['join'][] = " LEFT JOIN factors ON factors.customer = users.id ";
+				$and[] = " factors.id IS NULL ";
+				self::$is_filtered = true;
+
+			}
 		}
 
 
