@@ -225,11 +225,11 @@ class create
 		if(!isset($check_duplicate_domain['holder']))
 		{
 
-			if($data['whoistype'] === 'jibreswhoisgard')
-			{
-				$contact_id = \lib\app\onlinenic\gard::get(); // get random
-			}
-			else
+			// if($data['whoistype'] === 'jibreswhoisgard')
+			// {
+			// 	$contact_id = \lib\app\onlinenic\gard::get(); // get random
+			// }
+			// else
 			{
 				$split = explode('.', $domain);
 				$tld   = end($split);
