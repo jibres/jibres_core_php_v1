@@ -69,9 +69,9 @@
           <?php if(a($value, 'see')) { ?><span class="sf-eye fc-green" title="<?php echo T_("Seen by customer") ?>"></span><?php }//endif ?>
           <span class="badge rounded light"><?php echo \dash\fit::number($key + 1) ?></span>
         </div>
-
       </div>
-      <p class="mB0"><?php echo a($value, 'content'); ?></p>
+      <?php $userText = false; if(\dash\data::dataRow_user_id() == a($value, 'user_id')) { $userText = true; } ?>
+      <p class="mB0 <?php if($userText) { echo 'fc-fb';} ?>"><?php echo a($value, 'content'); ?></p>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
     </div>
     <footer class="f">
