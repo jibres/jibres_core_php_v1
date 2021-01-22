@@ -10,8 +10,8 @@ class view extends \content_crm\member\home\view
 
 		\dash\face::title(T_("Staff List"));
 
-		\dash\data::action_link(null);
-		\dash\data::action_text(null);
+		\dash\data::action_link(\dash\url::this(). '/add');
+		\dash\data::action_text(T_("Add new staff"));
 	}
 
 
