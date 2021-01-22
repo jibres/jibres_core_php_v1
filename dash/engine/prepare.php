@@ -586,7 +586,10 @@ class prepare
 		[
 			'blog.jibres.ir',
 			'blog.jibres.com',
+			'help.jibres.ir',
+			'help.jibres.com',
 			'blog.jibres.local',
+			'help.jibres.local',
 		];
 
 		if(in_array(\dash\url::host(), $specail_domain))
