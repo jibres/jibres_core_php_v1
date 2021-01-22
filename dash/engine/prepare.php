@@ -603,6 +603,9 @@ class prepare
 			{
 				case 'jibres.com':
 				case 'jibres.ir':
+				case 'jibres.store':
+				case 'myjibres.com':
+				// case 'myjibres.ir':
 				case 'jibres.local':
 					// nothing
 					return;
