@@ -3,7 +3,15 @@
     <div class="pad">
       <textarea class="txt" name="content" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php echo T_("Answer to ticket") ?>'><?php echo \dash\data::dataRow_content() ?></textarea>
       <?php if(\dash\data::dataRow_file()) {?>
-        <div class="ibtn x30 wide mT10"><span><?php echo T_("Attachment"); ?></span><i class="sf-times fc-red"></i></div>
+        <div class="msg mT10" data-removeElement>
+
+        <div class="row">
+          <div class="cauto"><?php echo T_("You can change the file by upload new file or remove file") ?></div>
+          <div class="c"></div>
+          <div class="cauto"><a target="_blank" href="<?php echo \dash\data::dataRow_file(); ?>"  class="link btn"><?php echo T_("View") ?></a></div>
+          <div class="cauto"><div data-ajaxify data-data='{"removefile": "removefile"}' class="btn linkDel"><?php echo T_("Remove Attachment") ?></div></div>
+        </div>
+        </div>
       <?php } //endif ?>
       <div class="mT10" data-uploader data-name='file'>
         <input type="file"  id="file1">

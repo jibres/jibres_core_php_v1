@@ -8,6 +8,12 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('removefile') === 'removefile')
+		{
+			\dash\app\ticket\edit::edit(['file' => null], $id);
+			return;
+		}
+
 		if(\dash\request::post('remove') === 'remove')
 		{
 			\dash\app\ticket\remove::remove($id);
