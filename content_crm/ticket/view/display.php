@@ -71,7 +71,7 @@
         </div>
       </div>
       <?php $userText = false; if(\dash\data::dataRow_user_id() == a($value, 'user_id')) { $userText = true; } ?>
-      <p class="mB0 <?php if($userText) { echo 'fc-fb';} ?>"><?php echo a($value, 'content'); ?></p>
+      <div class="mTB10 <?php if($userText) { echo 'fc-fb';} ?>"><?php echo a($value, 'content'); ?></div>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
     </div>
     <footer class="f">
@@ -79,7 +79,7 @@
         <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
       </div>
       <div class="c"></div>
-      <div class="cauto"><a href="#" class="link sm"><?php echo T_("Edit") ?></a></div>
+      <div class="cauto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>" class="link sm"><?php echo T_("Edit") ?></a></div>
     </footer>
   </div>
 
