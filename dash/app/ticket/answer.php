@@ -27,6 +27,18 @@ class answer
 			return false;
 		}
 
+		$file = null;
+		if(\dash\request::files('file'))
+		{
+			$file = \dash\upload\support::ticket();
+			if(!isset($file['path']))
+			{
+				return false;
+			}
+
+			$args['file'] = $file['path'];
+		}
+
 		$args['parent']      = $master['id'];
 		$args['user_id']     = \dash\user::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
@@ -48,6 +60,11 @@ class answer
 		{
 			\dash\notif::error(T_("Can not add your message"));
 			return false;
+		}
+
+		if(isset($file['id']))
+		{
+			\dash\upload\support::ticket_usage($file, $message_id);
 		}
 
 		\dash\notif::ok(T_('Your message saved'));
