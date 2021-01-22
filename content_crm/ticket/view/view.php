@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Show sms log detail"));
+		\dash\face::title(T_("Show ticket"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));

@@ -85,7 +85,7 @@ class search
 
 		if(is_array($list))
 		{
-			$list = array_map(['\\dash\\app\\ticket', 'ready'], $list);
+			$list = array_map(['\\dash\\app\\ticket\\ready', 'row'], $list);
 		}
 		else
 		{

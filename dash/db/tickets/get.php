@@ -17,7 +17,7 @@ class get
 				tickets
 			LEFT JOIN users ON users.id = tickets.user_id
 			WHERE
-				tickets.parent = $_id
+				tickets.parent = $_id OR tickets.id = $_id
 			ORDER BY tickets.id DESC
 			LIMIT 500
 		";
