@@ -21,6 +21,9 @@ class search
 
 	public static function list($_query_string, $_args)
 	{
+
+		\dash\permission::access('crmShowTicketsList');
+
 		$condition =
 		[
 			'order'     => 'order',

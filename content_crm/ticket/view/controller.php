@@ -6,10 +6,9 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('crmTicketManager');
 
 		$id = \dash\request::get('id');
-		$load = \dash\app\ticket::get($id);
+		$load = \dash\app\ticket\get::get($id);
 		if(!$load)
 		{
 			\dash\header::status(404);
@@ -17,7 +16,7 @@ class controller
 
 		if(isset($load['parent']) && $load['parent'])
 		{
-			\dash\redirect::to(\dash\url::this(). '/view'. \dash\request::full_get(['id' => $load['parent']]));
+			\dash\redirect::to(\dash\url::this(). '/view?id='. $load['parent']);
 		}
 
 		\dash\data::dataRow($load);

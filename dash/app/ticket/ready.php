@@ -115,6 +115,9 @@ class ready
 			}
 		}
 
+
+		$result['link'] = \lib\store::url(). '/!'. $result['id'];
+
 		return $result;
 	}
 }

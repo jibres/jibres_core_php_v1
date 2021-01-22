@@ -348,7 +348,7 @@ class view
 		}
 
 		$tags = \dash\db\tickets::ticket_tag($args_tag);
-		$result['tags'] = array_map(['\dash\app\term\ready', 'row'], $tags);
+		$result['tags'] = array_map(['\\dash\\app\\terms\\ready', 'row'], $tags);
 
 		// remove all old session sidebar to create new
 		\dash\session::clean_cat('support_sidebar');
