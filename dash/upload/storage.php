@@ -17,7 +17,7 @@ class storage
 			}
 			else
 			{
-				$storage_limit = 100 * 1024 * 1024; // 100 MB
+				$storage_limit = 1000 * 1024 * 1024; // 1 GB
 			}
 
 			$total_used    = floatval(\dash\db\files::total_size());
