@@ -222,7 +222,7 @@ class create
 		}
 
 
-		if(!isset($check_duplicate_domain['holder']))
+		// if(!isset($check_duplicate_domain['holder']))
 		{
 
 			// if($data['whoistype'] === 'jibreswhoisgard')
@@ -289,10 +289,10 @@ class create
 
 			\lib\db\nic_domain\update::update(['holder' => $contact_id], $domain_id);
 		}
-		else
-		{
-			$contact_id = $check_duplicate_domain['holder'];
-		}
+		// else
+		// {
+		// 	$contact_id = $check_duplicate_domain['holder'];
+		// }
 
 
 
