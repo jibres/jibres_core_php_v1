@@ -17,8 +17,9 @@ class controller
 			$alertyOpt =
 			[
 				'alerty'            => true,
-				'timeout'           => 2000,
-				'showConfirmButton' => false
+				'timeout'           => 1000,
+				'showConfirmButton' => false,
+				'priority'          => false,
 			];
 
 			// show alert as toast
