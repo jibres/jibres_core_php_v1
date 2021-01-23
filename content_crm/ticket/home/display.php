@@ -4,7 +4,7 @@ echo '<nav class="items long">';
   foreach (\dash\data::dataTable() as $key => $value)
   {
     echo '<li>';
-    echo '<a class="f item" href="'. \dash\url::that(). '/view?id='. $value['id']. '">';
+    echo '<a class="f" href="'. \dash\url::that(). '/view?id='. $value['id']. '">';
         echo '<div class="key">';
         {
           if(a($value, 'solved'))
@@ -20,7 +20,7 @@ echo '<nav class="items long">';
 
           if(a($value, 'plus'))
           {
-            echo ' <i class="sf-refresh"></i> '. \dash\fit::number(a($value, 'plus'));
+            echo ' <span class="badge rounded light s0"> <i class="sf-refresh"></i> '. \dash\fit::number(a($value, 'plus')). '</span>';
           }
 
 
