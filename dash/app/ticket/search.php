@@ -57,6 +57,11 @@ class search
 			$and[] = " tickets.status = '$data[status]' ";
 			self::$is_filtered = true;
 		}
+		else
+		{
+			$and[] = " tickets.status NOT IN ('deleted', 'spam') ";
+
+		}
 
 		if($data['so'] === 'y')
 		{
