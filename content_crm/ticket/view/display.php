@@ -17,14 +17,14 @@
       <a class="f item">
         <div class="key"><?php echo T_("Ticket ID") ?></div>
         <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
-        <div class="go detail"></div>
+        <div class="go detail ok"></div>
       </a>
     </li>
     <li>
       <a class="f item">
         <div class="key"><?php echo T_("Status") ?></div>
         <div class="value txtB"><?php echo T_(\dash\data::dataRow_status()); ?></div>
-        <div class="go detail"></div>
+        <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
       </a>
     </li>
 

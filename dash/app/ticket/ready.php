@@ -7,6 +7,14 @@ class ready
 	public static function row($_data)
 	{
 		$result = [];
+
+		if(!$_data)
+		{
+			return $result;
+		}
+
+		$_data = \dash\app::fix_avatar($_data);
+
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
@@ -23,35 +31,39 @@ class ready
 				case 'status':
 					$color       = null;
 					$color_class = null;
+					$statuclass = 'detail';
 					switch ($value)
 					{
 						case 'awaiting':
 							$color       = null;
 							$color_class = 'pain';
+							$statuclass = 'detail';
 							break;
 
-						case 'unapproved':
-							$color       = 'warning';
-							$color_class = 'warn';
-							break;
 
 						case 'spam':
 						case 'deleted':
 						case 'filter':
 							$color       = 'negative';
 							$color_class = 'danger';
+							$statuclass = 'stop nok';
 							break;
+
 
 						case 'close':
 							$color       = 'disabled';
 							$color_class = 'secondary';
+							$statuclass = 'ban nok';
 							break;
 
 						case 'answered':
 							$color       = 'positive';
 							$color_class = 'success';
+							$statuclass = 'check ok';
 							break;
 					}
+
+					$result['statuclass'] = $statuclass;
 
 					if(isset($_data['plus']) && $_data['plus'])
 					{
@@ -97,7 +109,6 @@ class ready
 					}
 					break;
 
-				case 'avatar':
 				case 'file':
 					if(isset($value))
 					{
