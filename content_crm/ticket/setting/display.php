@@ -112,27 +112,3 @@ echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' dat
     </div>
   </div>
 </section>
-
-
-
-
-
-<section class="f" data-option='crm-ticket-solved'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Ticket subject");?></h3>
-      <div class="body">
-        <p><?php echo T_("Seting the ticket subject helps you to find a specific ticket faster") ?></p>
-      </div>
-    </div>
-  </div>
-  <form method="post" autocomplete="off" class="c4 s12">
-    <div class="action">
-      <div class="input">
-        <input type="hidden" name="runaction_title" value="1">
-        <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
-        <button class="btn addon master"><?php echo T_("Save") ?></button>
-      </div>
-    </div>
-  </form>
-</section>

@@ -20,15 +20,15 @@
         <div class="go detail ok"></div>
       </a>
     </li>
-    <?php if(\dash\data::dataRow_title()) {?>
+
     <li>
-      <a class="f item" href="<?php echo \dash\face::btnSetting() ?>">
+      <a class="f item" href="<?php echo \dash\url::this(). '/subject?id='. \dash\request::get('id') ?>">
         <div class="key"><?php echo T_("Subject") ?></div>
-        <div class="value txtB"><?php echo \dash\data::dataRow_title(); ?></div>
+        <div class="value txtB"><?php if(\dash\data::dataRow_title()) { echo \dash\data::dataRow_title(); }else{echo '<span class="fc-mute">'. T_("Set Subject"). '</span>';} ?></div>
         <div class="go detail"></div>
       </a>
     </li>
-  <?php } //endif ?>
+
     <li>
       <a class="f item" href="<?php echo \dash\face::btnSetting() ?>">
         <div class="key"><?php echo T_("Status") ?></div>

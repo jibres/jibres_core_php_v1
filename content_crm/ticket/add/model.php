@@ -11,6 +11,7 @@ class model
 		[
 			'content' => \dash\request::post_raw('content'),
 			'user_id' => \dash\request::post('user_id'),
+			'title'   => \dash\request::post('title'),
 		];
 
 		$result = \dash\app\ticket\add::add_by_admin($post);
