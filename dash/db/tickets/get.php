@@ -53,5 +53,14 @@ class get
 
 
 
+	public static function conversation_count($_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_id OR tickets.id = $_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+
 }
 ?>

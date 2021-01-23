@@ -62,6 +62,59 @@ class answer
 			return false;
 		}
 
+		$update_master           = [];
+		$update_master['status'] = 'answered';
+
+		$plus = \dash\db\tickets\get::conversation_count($master['id']);
+		if(is_numeric($plus))
+		{
+			$update_master['plus'] = $plus;
+		}
+		else
+		{
+			$plus = 1; // error. Bug. But need this variable :/
+		}
+
+		\dash\db\tickets\update::update($update_master, $master['id']);
+
+		$log =
+		[
+			'masterid' => $master['id'],
+			'code'     => $master['id'],
+			'plus'     => $plus,
+			'from'     => \dash\user::id(),
+		];
+
+		$isDubleAnswer = false;
+
+		if(isset($master['status']) && $master['status'] === 'answered')
+		{
+			$isDubleAnswer = true;
+			\dash\log::set('ticket_DubleAnswerTicket', $log);
+		}
+		else
+		{
+			\dash\log::set('ticket_AnswerTicket', $log);
+		}
+
+		if(!$isDubleAnswer)
+		{
+			if(isset($master['user_id']))
+			{
+				$log['to'] = $master['user_id'];
+			}
+
+			if($sendmessage)
+			{
+				\dash\log::set('ticket_answerTicketAlertSend', $log);
+			}
+			else
+			{
+				\dash\log::set('ticket_answerTicketAlert', $log);
+			}
+		}
+
+
 		if(isset($file['id']))
 		{
 			\dash\upload\support::ticket_usage($file, $message_id);
