@@ -36,6 +36,14 @@
       </a>
     </li>
 
+     <li>
+      <a class="f item" href="<?php echo \dash\face::btnSetting(); ?>">
+        <div class="key"><?php echo T_("Solved status") ?></div>
+        <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("The problem is solved");}else{echo T_("The problem is not solved");} ?></div>
+        <div class="go <?php if(\dash\data::dataRow_solved()){echo 'check ok';}else{echo 'times nok';} ?>"></div>
+      </a>
+    </li>
+
     <li>
       <a class="f item">
         <div class="key"><?php echo T_("IP") ?></div>

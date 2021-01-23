@@ -21,6 +21,7 @@ class check
 			'type'        => 'string_50',
 			'user_id'     => 'id',
 			'sendmessage' => 'bit',
+			'solved'      => 'bit',
 			'file'        => 'string',
 			'content'     => $content_condition,
 			'parent'      => 'id',

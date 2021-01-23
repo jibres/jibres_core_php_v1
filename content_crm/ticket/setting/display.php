@@ -61,3 +61,54 @@ $deleted              = "<div class='btn linkDel' data-confirm data-data='". $js
     <div class="cauto"><?php echo $deleted ?></div>
   </footer>
 </section>
+
+
+<section class="f" data-option='crm-ticket-solved'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Change solved status");?></h3>
+      <div class="body">
+        <p>
+<?php
+if(\dash\data::dataRow_solved())
+{
+  echo T_("If your problem is not solved yet, please set this ticket as unsolved");
+}
+else
+{
+  echo T_("If your problem is solved, please set this ticket as solved");
+}
+?>
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+<?php
+
+$solved = \dash\data::dataRow_solved();
+$edit_array                         = [];
+$edit_array['runaction_editsolved'] = 1;
+if($solved)
+{
+  $edit_array['solved'] = '0';
+  $new_solved           = T_("The problem is not solved");
+  $btnclass             = 'warn';
+
+}
+else
+{
+  $edit_array['solved'] = '1';
+  $new_solved           = T_("The problem is solved");
+  $btnclass             = 'success';
+}
+
+$json = json_encode($edit_array);
+echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' data-method='post'>". $new_solved . '</div>';
+
+?>
+    </div>
+  </div>
+</section>
