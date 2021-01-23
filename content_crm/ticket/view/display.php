@@ -54,15 +54,15 @@
     </li>
 
     <li>
-      <a class="f item">
+      <a target="_blank" class="f item" href="<?php echo \dash\url::jibres_domain(). 'ip/'. \dash\utility\convert::to_en_number(\dash\data::dataRow_prettyip()) ?>">
         <div class="key"><?php echo T_("IP") ?></div>
         <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_prettyip()); ?></div>
         <div class="go detail"></div>
       </a>
     </li>
 
-    <li class="hide">
-      <a class="f item">
+    <li class="">
+      <a class="f item" data-copy='<?php echo \dash\data::dataRow_link(); ?>'>
         <div class="key"><?php echo T_("Link") ?></div>
         <div class="value txtB"><?php echo \dash\data::dataRow_link(); ?></div>
         <div class="go detail"></div>
