@@ -27,9 +27,9 @@ class search
 		$condition =
 		[
 			'order'     => 'order',
-			'sort'      => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'status'    => ['enum' => ['sale', 'buy', 'saleorder']],
-			'show_type' => ['enum' => ['verify', 'all']],
+			'sort'      => 'string_50',
+			'status'    => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
+			'so'        => 'y_n',
 			'user_code' => 'code',
 			'limit'     => 'int',
 		];
@@ -52,6 +52,22 @@ class search
 
 		$and[] = " tickets.parent IS NULL ";
 
+		if($data['status'])
+		{
+			$and[] = " tickets.status = '$data[status]' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['so'] === 'y')
+		{
+			$and[] = " tickets.solved = 1 ";
+			self::$is_filtered = true;
+		}
+		elseif($data['so'] === 'n')
+		{
+			$and[] = " ( tickets.solved IS NULL OR tickets.solved =  0 ) ";
+			self::$is_filtered = true;
+		}
 
 		if($data['user_code'])
 		{
@@ -76,7 +92,10 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$order_sort = " ORDER BY $data[sort] $data[order]";
+			if(\dash\app\ticket\filter::check_allow($data['sort'], $data['order']))
+			{
+				$order_sort = " ORDER BY $data[sort] $data[order]";
+			}
 		}
 
 		if(!$order_sort)
