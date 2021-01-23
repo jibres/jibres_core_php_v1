@@ -30,7 +30,7 @@ class search
 			'sort'      => 'string_50',
 			'status'    => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
 			'so'        => 'y_n',
-			'user_code' => 'code',
+			'user' => 'code',
 			'limit'     => 'int',
 		];
 
@@ -74,9 +74,9 @@ class search
 			self::$is_filtered = true;
 		}
 
-		if($data['user_code'])
+		if($data['user'])
 		{
-			$user_id = \dash\coding::decode($data['user_code']);
+			$user_id = \dash\coding::decode($data['user']);
 			$and[] = " tickets.user_id =  $user_id ";
 
 		}

@@ -279,7 +279,7 @@ $dashboardDetail = \dash\data::dashboardDetail();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::kingdom(). '/support/ticket?user='. \dash\request::get('id') ?>">
+          <a class="item f" href="<?php echo \dash\url::here(). '/ticket?user='. \dash\request::get('id') ?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
           </a>
