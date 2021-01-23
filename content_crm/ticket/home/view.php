@@ -11,6 +11,9 @@ class view
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_text(T_('CRM'));
 
+		\dash\data::action_link(\dash\url::this(). '/add');
+		\dash\data::action_text(T_('Add new ticket'));
+
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());

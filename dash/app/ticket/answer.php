@@ -40,10 +40,6 @@ class answer
 		}
 
 		$args['parent']      = $master['id'];
-		$args['user_id']     = \dash\user::id();
-		$args['datecreated'] = date("Y-m-d H:i:s");
-		$args['type']        = 'ticket';
-		$args['ip']          = \dash\server::ip(true);
 
 		$sendmessage = false;
 
