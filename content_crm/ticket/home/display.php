@@ -4,13 +4,18 @@
      <li>
       <a class="f align-center" href="<?php echo \dash\url::that(). '/view?id='. $value['id'] ?>">
         <div class="key">
-          <?php echo T_("Ticket"). ' #'. $value['id']; if(a($value, 'title')) { echo  ' '. a($value, 'title');} ?>
-
+<?php
+echo T_("Ticket"). ' <span class="fc-fb">#'. $value['id']. '</span> ';
+echo a($value, 'displayname');
+if(a($value, 'title')) { echo  ' | <b>'. a($value, 'title'). '</b>';}
+ ?>
+          <?php  ?>
+          <?php  ?>
 
         </div>
-        <div class="value s0"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
-        <div class="value txtB s0"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
-        <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+        <div class="value s0"></div>
+        <div class="value txtB s0"><?php if(a($value, 'plus')) { echo \dash\fit::number(a($value, 'plus')). ' <i class="sf-refresh"></i>';} ?></div>
+        <div class="value"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
         <div class="go <?php echo a($value, 'statuclass') ?>"></div>
       </a>
      </li>
