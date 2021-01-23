@@ -27,7 +27,7 @@
      </li>
 
     <li>
-      <a class="f item">
+      <a class="f item" data-kerkere='.showResponse'>
         <div class="key"><?php echo T_("Date response") ?></div>
         <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_responsedate()); ?></div>
         <div class="go detail"></div>
@@ -41,3 +41,7 @@
       <p><?php echo nl2br(a($data, 'sendtext')); ?></p>
   </div>
 </div>
+<div class="showResponse" data-kerkere-content='hide'>
+<pre><?php print_r(a($data, 'response')) ?></pre>
+</div>
+
