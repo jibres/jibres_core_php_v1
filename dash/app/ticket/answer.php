@@ -61,6 +61,11 @@ class answer
 		$update_master           = [];
 		$update_master['status'] = 'answered';
 
+		if(!a($master, 'answertime') && a($master, 'datecreated'))
+		{
+			$update_master['answertime'] = time() - strtotime($master['datecreated']);
+		}
+
 		$plus = \dash\db\tickets\get::conversation_count($master['id']);
 		if(is_numeric($plus))
 		{
