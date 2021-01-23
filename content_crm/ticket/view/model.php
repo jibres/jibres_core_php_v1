@@ -8,6 +8,20 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+
+		if(\dash\request::post('newbranch') && \dash\request::post('branch'))
+		{
+			$result = \dash\app\ticket\add::branch($id, \dash\request::post('branch'));
+
+			if(isset($result['id']))
+			{
+				\dash\redirect::to(\dash\url::this(). '/view?id='. $result['id']);
+			}
+
+			return true;
+		}
+
+
 		$post =
 		[
 			'content'     => \dash\request::post_raw('answer'),

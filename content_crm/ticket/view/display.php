@@ -45,7 +45,7 @@
       </a>
     </li>
 
-     <li>
+    <li>
       <a class="f item" href="<?php echo \dash\face::btnSetting(); ?>">
         <div class="key"><?php echo T_("Solved status") ?></div>
         <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("The problem is solved");}else{echo T_("The problem is not solved");} ?></div>
@@ -60,14 +60,15 @@
         <div class="go detail"></div>
       </a>
     </li>
-
+    <?php if(\dash\data::dataRow_base()) {?>
     <li class="">
-      <a class="f item" data-copy='<?php echo \dash\data::dataRow_link(); ?>'>
-        <div class="key"><?php echo T_("Link") ?></div>
-        <div class="value txtB"><?php echo \dash\data::dataRow_link(); ?></div>
+      <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
+        <div class="key"><?php echo T_("This ticket is branch of another ticket"); ?></div>
+        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_base()); ?></div>
         <div class="go detail"></div>
       </a>
     </li>
+  <?php }// endif ?>
   </ul>
 </nav>
 
@@ -84,17 +85,25 @@
         <div class="c"></div>
         <div class="c-auto">
           <?php if(a($value, 'see')) { ?><span class="sf-eye fc-green" title="<?php echo T_("Seen by customer") ?>"></span><?php }//endif ?>
-          <span class="badge rounded light"><?php echo \dash\fit::number($key + 1) ?></span>
+        </div>
+        <div class="cauto">
+          <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
         </div>
       </div>
       <?php $userText = false; if(\dash\data::dataRow_user_id() == a($value, 'user_id')) { $userText = true; } ?>
       <div class="mTB10 <?php if($userText) { echo 'fc-fb';} ?>"><?php echo a($value, 'content'); ?></div>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
+      <?php if(a($value, 'branch')) {?>
+        <div class="msg info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
+      <?php } //endif ?>
     </div>
     <footer class="f">
-      <div class="cauto">
-        <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
-      </div>
+      <?php if($userText && $key > 0 && !a($value, 'branch')) {?>
+        <div class="cauto mLR10">
+          <div class="link sm fc-fb" data-title="<?php echo T_("Add this message in new ticket and answer to it?") ?>" data-confirm data-data='{"newbranch":"1", "branch": "<?php echo a($value, 'id') ?>"}'><?php echo T_("Answer in new ticket"); ?>
+          </div>
+        </div>
+      <?php }//endif ?>
       <div class="c"></div>
       <div class="cauto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>" class="link sm"><?php echo T_("Edit") ?></a></div>
     </footer>

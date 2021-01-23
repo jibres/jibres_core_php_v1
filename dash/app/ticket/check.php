@@ -25,6 +25,9 @@ class check
 			'file'        => 'string',
 			'content'     => $content_condition,
 			'parent'      => 'id',
+			'base'        => 'id',
+			'branch'      => 'id',
+			'ip'          => 'bigint',
 		];
 
 		$require = ['content'];
@@ -49,7 +52,11 @@ class check
 
 		$data['datecreated'] = date("Y-m-d H:i:s");
 		$data['type']        = 'ticket';
-		$data['ip']          = \dash\server::ip(true);
+
+		if(!$data['ip'])
+		{
+			$data['ip']          = \dash\server::ip(true);
+		}
 
 
 		return $data;

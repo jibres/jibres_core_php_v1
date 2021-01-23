@@ -59,5 +59,57 @@ class add
 	}
 
 
+
+	public static function branch($_master_id, $_child_id)
+	{
+		\dash\permission::access('crmTicketManager');
+
+		$master = \dash\app\ticket\get::inline_get($_master_id);
+		if(!$master)
+		{
+			return false;
+		}
+
+
+		$child = \dash\app\ticket\get::inline_get($_child_id);
+		if(!$child)
+		{
+			return false;
+		}
+
+
+
+		if(isset($child['parent']) && floatval($child['parent']) === floatval($master['id']))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not add branch by this message"));
+			return false;
+		}
+
+		$new =
+		[
+			'title'   => $master['title'],
+			'content' => $child['content'],
+			'user_id' => \dash\coding::encode($child['user_id']),
+			'base'    => $child['id'],
+			'file'    => $child['file'],
+			'ip'      => $child['ip'],
+		];
+
+		$new_ticket = self::add_by_admin($new);
+
+		if(isset($new_ticket['id']))
+		{
+			\dash\db\tickets\update::update(['branch' => $new_ticket['id']], $child['id']);
+		}
+
+		return $new_ticket;
+
+	}
+
+
 }
 ?>
