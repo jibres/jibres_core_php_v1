@@ -24,7 +24,7 @@
     <li>
       <a class="f item" href="<?php echo \dash\url::this(). '/subject?id='. \dash\request::get('id') ?>">
         <div class="key"><?php echo T_("Subject") ?></div>
-        <div class="value txtB"><?php if(\dash\data::dataRow_title()) { echo \dash\data::dataRow_title(); }else{echo '<span class="fc-mute">'. T_("Set Subject"). '</span>';} ?></div>
+        <div class="value txtB"><?php if(\dash\data::dataRow_title()) { echo \dash\data::dataRow_title(); }else{echo '<span class="fc-mute">'. T_("To set subject click here"). '</span>';} ?></div>
         <div class="go detail <?php if(\dash\data::dataRow_title()){ echo 'ok';} ?>"></div>
       </a>
     </li>
