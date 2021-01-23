@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-23 15:17+0330\n"
-"PO-Revision-Date: 2021-01-23 15:20+0330\n"
+"POT-Creation-Date: 2021-01-23 19:52+0330\n"
+"PO-Revision-Date: 2021-01-23 19:52+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4524,7 +4524,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_crm/permission/setting/view.php:15 content_crm/permission/user/view.php:13
 #: content_crm/permission/user/view.php:16 content_crm/permission/view.php:12
 #: content_crm/sms/view/view.php:12 content_crm/telegram/view/view.php:12
-#: content_crm/ticket/edit/view.php:18 content_crm/ticket/setting/view.php:12
+#: content_crm/ticket/add/view.php:12 content_crm/ticket/edit/view.php:18
+#: content_crm/ticket/setting/view.php:12 content_crm/ticket/subject/view.php:12
 #: content_crm/ticket/view/view.php:12 content_crm/transactions/detail/view.php:11
 #: content_enter/pass/change/display.php:21 content_enter/pass/view.php:37
 #: content_enter/twostep/display.php:29 content_enter/verify/view.php:43
@@ -4909,7 +4910,10 @@ msgstr "غیرفعال"
 #: dash/app/comment/filter.php:27 dash/app/comment/filter.php:28
 #: dash/app/comment/filter.php:29 dash/app/posts/filter.php:42
 #: dash/app/posts/filter.php:51 dash/app/posts/filter.php:61 dash/app/posts/filter.php:70
-#: lib/app/business_domain/search.php:87 lib/app/business_domain/search_dns.php:59
+#: dash/app/ticket/filter.php:31 dash/app/ticket/filter.php:32
+#: dash/app/ticket/filter.php:33 dash/app/ticket/filter.php:34
+#: dash/app/ticket/filter.php:35 lib/app/business_domain/search.php:87
+#: lib/app/business_domain/search_dns.php:59
 msgid "Status"
 msgstr "وضعیت"
 
@@ -4969,7 +4973,7 @@ msgstr "افزودن"
 #: content_a/website/specialslider/display.php:28 content_account/address.php:149
 #: content_cms/comments/edit/display.php:39 content_crm/member/home/display-old.php:141
 #: content_crm/permission/setting/display.php:11
-#: content_crm/permission/user/display.php:11 content_crm/ticket/view/display.php:99
+#: content_crm/permission/user/display.php:11 content_crm/ticket/view/display.php:108
 #: content_my/domain/irnic/edit/display.php:25
 #: content_support/ticket/show/chatList.php:130
 #: content_support/ticket/show/chatList.php:241 content_v2/app/view.php:152
@@ -5423,8 +5427,8 @@ msgstr "ظرفیت گالری تکمیل است!"
 #: content_cms/posts/edit/display-gallery.php:139
 #: content_cms/posts/setting/display.php:200
 #: content_crm/member/identification/display.php:106
-#: content_crm/member/identification/display.php:118
-#: content_crm/ticket/edit/display.php:18 content_crm/ticket/view/display.php:111
+#: content_crm/member/identification/display.php:118 content_crm/ticket/add/display.php:17
+#: content_crm/ticket/edit/display.php:18 content_crm/ticket/view/display.php:120
 #: content_support/ticket/addForm.php:36
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل خود را بکشید و اینجا رها کنید یا انتخاب کنید"
@@ -5978,7 +5982,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_crm/member/home/view.php:55 content_crm/member/log/view.php:50
 #: content_crm/member/message/view.php:51 content_crm/member/transactions/view.php:38
 #: content_crm/notification/home/view.php:41 content_crm/sms/home/view.php:41
-#: content_crm/telegram/datalist/view.php:41 content_crm/ticket/home/view.php:40
+#: content_crm/telegram/datalist/view.php:41 content_crm/ticket/home/view.php:47
 #: content_crm/transactions/view.php:47 content_love/application/home/view.php:48
 #: content_love/business/domain/action/view.php:39
 #: content_love/business/domain/alllist/view.php:63
@@ -6490,7 +6494,7 @@ msgstr "مایکت"
 #: content_crm/member/transactions/minus/display.php:19
 #: content_crm/member/transactions/plus/display.php:19
 #: content_crm/permission/advance/display.php:90 content_crm/ticket/edit/display.php:24
-#: content_crm/ticket/setting/display.php:134
+#: content_crm/ticket/subject/display.php:11
 #: content_love/business/domain/setting/display.php:27
 #: content_love/business/domain/setting/display.php:134
 #: content_love/store/setting/display.php:63 content_my/domain/option/display.php:92
@@ -7067,12 +7071,14 @@ msgid "Count produts DESC"
 msgstr "تعداد محصولات، نزولی"
 
 #: content_a/cart/home/view.php:82 dash/app/comment/filter.php:14
-#: dash/app/telegram/filter.php:15 lib/app/factor/filter.php:15
+#: dash/app/telegram/filter.php:15 dash/app/ticket/filter.php:15
+#: lib/app/factor/filter.php:15
 msgid "Date ASC"
 msgstr "تاریخ،‌ صعودی"
 
 #: content_a/cart/home/view.php:87 dash/app/comment/filter.php:15
-#: dash/app/telegram/filter.php:16 lib/app/factor/filter.php:16
+#: dash/app/telegram/filter.php:16 dash/app/ticket/filter.php:16
+#: lib/app/factor/filter.php:16
 msgid "Date DESC"
 msgstr "تاریخ، نزولی"
 
@@ -7814,7 +7820,7 @@ msgid "Not answered"
 msgstr "پاسخ نداده است"
 
 #: content_a/form/analytics/addcondition/display-condition.php:16
-#: content_support/ticket/ticketTable.php:127
+#: content_support/ticket/ticketTable.php:127 dash/app/ticket/filter.php:32
 #: dash/layout/admin/sidebar/sidebar-support.php:17
 #: includes/languages/trans_static.php:517 includes/languages/trans_static_public.php:989
 #: lib/app/form/filter/ready.php:65 lib/app/store/analytics.php:174
@@ -8419,7 +8425,6 @@ msgstr "زرد (برای پیام هشدار)"
 
 #: content_a/form/item/display.php:319 content_a/website/menu/display.php:9
 #: content_a/website/menu/roster/display.php:16 content_account/ref/display.php:30
-#: content_crm/ticket/view/display.php:66
 msgid "Link"
 msgstr "لینک"
 
@@ -9353,8 +9358,9 @@ msgstr "ثبت‌ شده"
 
 #: content_a/order/status/display.php:44 content_crm/member/home/display-old.php:682
 #: content_love/domain/setting/display.php:122 dash/app/comment/filter.php:28
-#: includes/languages/trans_static.php:481 includes/languages/trans_static_public.php:936
-#: lib/app/factor/action.php:63 lib/app/factor/ready.php:114 lib/pardakhtyar/type.php:13
+#: dash/app/ticket/filter.php:31 includes/languages/trans_static.php:481
+#: includes/languages/trans_static_public.php:936 lib/app/factor/action.php:63
+#: lib/app/factor/ready.php:114 lib/pardakhtyar/type.php:13
 msgid "Awaiting"
 msgstr "در انتظار"
 
@@ -9398,7 +9404,7 @@ msgstr "بایگانی"
 #: content_crm/ticket/setting/display.php:48 content_support/ticket/show/display.php:47
 #: content_support/ticket/show/display.php:86 content_support/ticket/show/display.php:95
 #: content_support/ticket/ticketTable.php:161 dash/app/comment/filter.php:29
-#: dash/layout/admin/sidebar/sidebar-support.php:51
+#: dash/app/ticket/filter.php:34 dash/layout/admin/sidebar/sidebar-support.php:51
 #: includes/languages/trans_static.php:502 lib/app/factor/action.php:74
 #: lib/app/factor/ready.php:125
 msgid "Spam"
@@ -9632,9 +9638,9 @@ msgstr "مدیریت تنوع محصول"
 #: content_a/products/organization/view.php:35 content_a/products/shipping/view.php:35
 #: content_a/products/status/view.php:28 content_cms/posts/setting/display.php:20
 #: content_love/business/domain/setting/display.php:127
-#: content_love/domain/setting/display.php:127 includes/languages/trans_static.php:496
-#: includes/languages/trans_static_public.php:1109 lib/app/factor/action.php:73
-#: lib/app/factor/ready.php:124 lib/app/product/load.php:132
+#: content_love/domain/setting/display.php:127 dash/app/ticket/filter.php:35
+#: includes/languages/trans_static.php:496 includes/languages/trans_static_public.php:1109
+#: lib/app/factor/action.php:73 lib/app/factor/ready.php:124 lib/app/product/load.php:132
 msgid "Deleted"
 msgstr "حذف شده"
 
@@ -15029,7 +15035,7 @@ msgid "Please choose an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
 #: content_cms/customization/home/display.php:95 content_cms/posts/setting/display.php:67
-#: includes/languages/trans_static.php:543
+#: dash/app/ticket/filter.php:33 includes/languages/trans_static.php:543
 msgid "Closed"
 msgstr "بسته"
 
@@ -15861,7 +15867,7 @@ msgid "Last tickets"
 msgstr "آخرین تیکت‌ها"
 
 #: content_crm/home/display.php:215 content_crm/member/glance/display.php:142
-#: content_crm/ticket/home/display.php:7 content_support/ticket/add/view.php:15
+#: content_crm/ticket/home/display.php:19 content_support/ticket/add/view.php:15
 #: content_support/ticket/report/view.php:16 content_support/view.php:54
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31 dash/app/ticket.php:187
 #: lib/app/store/analytics.php:47
@@ -16816,7 +16822,36 @@ msgstr "زمان پاسخ"
 msgid "Show telegram chat detail"
 msgstr "نمایش جزئیات چت تلگرام"
 
-#: content_crm/ticket/edit/display.php:4 content_crm/ticket/view/display.php:108
+#: content_crm/ticket/add/display.php:4
+msgid "Ticket owner"
+msgstr "صاحب تیکت"
+
+#: content_crm/ticket/add/display.php:6
+msgid "Choose ticket owner"
+msgstr "انتخاب صاحب تیکت"
+
+#: content_crm/ticket/add/display.php:9 content_crm/ticket/add/display.php:11
+#: content_crm/ticket/view/display.php:26
+msgid "Subject"
+msgstr "موضوع"
+
+#: content_crm/ticket/add/display.php:13 lib/app/form/item/type.php:64
+msgid "Type here ..."
+msgstr "اینجا تایپ کنید..."
+
+#: content_crm/ticket/add/display.php:22
+msgid "Add Ticket"
+msgstr "افزودن تیکت"
+
+#: content_crm/ticket/add/view.php:9 content_crm/ticket/home/view.php:15
+#: content_support/ticket/add/view.php:9 content_support/ticket/home/display.php:78
+#: dash/layout/admin/sidebar/sidebar-api-v2.php:63
+#: dash/social/telegram/commands/ermile.php:334
+#: includes/languages/trans_static_public.php:1087
+msgid "Add new ticket"
+msgstr "افزودن تیکت جدید"
+
+#: content_crm/ticket/edit/display.php:4 content_crm/ticket/view/display.php:117
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:66
 msgid "Answer to ticket"
 msgstr "پاسخ به تیکت"
@@ -16836,6 +16871,10 @@ msgstr "حذف این پیام"
 #: content_crm/ticket/edit/view.php:9
 msgid "Edit ticket"
 msgstr "ویرایش تیکت"
+
+#: content_crm/ticket/home/display-filter.php:3
+msgid "Show all ticket where"
+msgstr "نمایش تیکت‌ها با شرط"
 
 #: content_crm/ticket/setting/display.php:6
 msgid "You can change ticket status"
@@ -16875,43 +16914,64 @@ msgstr "مشکل حل نشده است"
 msgid "The problem is solved"
 msgstr "مشکل حل شده است"
 
-#: content_crm/ticket/setting/display.php:123
-msgid "Ticket subject"
-msgstr "موضوع تیکت"
-
-#: content_crm/ticket/setting/display.php:125
-msgid "Seting the ticket subject helps you to find a specific ticket faster"
-msgstr "تنظیم موضوع تیکت به شما کمک می‌کند تا در پیدا کردن تیکت خاص سریع تر به نتیجه برسید"
-
 #: content_crm/ticket/setting/view.php:9
 msgid "Ticket setting"
 msgstr "تنظیمات تیکت"
+
+#: content_crm/ticket/subject/display.php:5
+msgid "Seting the ticket subject helps you to find a specific ticket faster"
+msgstr "تنظیم موضوع تیکت به شما کمک می‌کند تا در پیدا کردن تیکت خاص سریع تر به نتیجه برسید"
+
+#: content_crm/ticket/subject/view.php:9
+msgid "Ticket subject"
+msgstr "موضوع تیکت"
 
 #: content_crm/ticket/view/display.php:18
 msgid "Ticket ID"
 msgstr "شماره تیکت"
 
-#: content_crm/ticket/view/display.php:26
-msgid "Subject"
-msgstr "موضوع"
+#: content_crm/ticket/view/display.php:27
+msgid "Set Subject"
+msgstr "تنظیم موضوع"
 
 #: content_crm/ticket/view/display.php:50
 msgid "Solved status"
 msgstr "وضعیت حل شدن تیکت"
 
-#: content_crm/ticket/view/display.php:86
+#: content_crm/ticket/view/display.php:66
+msgid "This ticket is branch of another ticket"
+msgstr "این تیکت شاخه‌ای از تیکت دیگر است"
+
+#: content_crm/ticket/view/display.php:87
 msgid "Seen by customer"
 msgstr "توسط مشتری دیده شده است"
 
-#: content_crm/ticket/view/display.php:92
+#: content_crm/ticket/view/display.php:95
 msgid "Show Attachment"
 msgstr "نمایش ضمیمه‌‌"
 
-#: content_crm/ticket/view/display.php:118 content_support/ticket/addForm.php:45
+#: content_crm/ticket/view/display.php:97
+msgid "This message answered in new ticket"
+msgstr "این پیام در تیکت جدیدی پاسخ داده شده است"
+
+#: content_crm/ticket/view/display.php:97
+#: dash/app/log/caller/ticket/ticket_seeTicket.php:11
+msgid "See ticket"
+msgstr "مشاهده تیکت"
+
+#: content_crm/ticket/view/display.php:103
+msgid "Add this message in new ticket and answer to it?"
+msgstr "آیا می‌خواهید این پیام را به عنوان تیکت جدید ثبت کرده و به آن پاسخ دهید؟"
+
+#: content_crm/ticket/view/display.php:103
+msgid "Answer in new ticket"
+msgstr "پاسخ در تیکت جدید"
+
+#: content_crm/ticket/view/display.php:127 content_support/ticket/addForm.php:45
 msgid "Send notify about your answer to creator of ticket"
 msgstr "سازنده تیکت را در جریان پاسخ شما قرار دهیم"
 
-#: content_crm/ticket/view/display.php:123
+#: content_crm/ticket/view/display.php:132
 msgid "Send answer"
 msgstr "ارسال پاسخ"
 
@@ -18144,7 +18204,7 @@ msgstr "این ایمیل قبلا تایید شده است"
 msgid "Let's go"
 msgstr "بزن بریم"
 
-#: content_hook/smile/controller.php:45
+#: content_hook/smile/controller.php:46
 msgid "You have :val new message!"
 msgstr "شما :val پیام جدید دارید!"
 
@@ -22579,13 +22639,6 @@ msgstr "شما در تلاشید کد اچ‌تی‌ام‌ال ارسال کن�
 msgid "Can not set 2 link in one message!"
 msgstr "نمی‌توانید دو لینک را در یک پیام ارسال کنید!"
 
-#: content_support/ticket/add/view.php:9 content_support/ticket/home/display.php:78
-#: dash/layout/admin/sidebar/sidebar-api-v2.php:63
-#: dash/social/telegram/commands/ermile.php:334
-#: includes/languages/trans_static_public.php:1087
-msgid "Add new ticket"
-msgstr "افزودن تیکت جدید"
-
 #: content_support/ticket/add/view.php:10
 msgid "Dot worry!"
 msgstr "نگران نباشید!"
@@ -22702,6 +22755,7 @@ msgid "Un solved ticket"
 msgstr "تیکت‌های حل نشده"
 
 #: content_support/ticket/home/view.php:132 content_support/ticket/show/display.php:134
+#: dash/app/ticket/filter.php:37
 msgid "Solved ticket"
 msgstr "ثبت به عنوان حل شده"
 
@@ -22800,7 +22854,7 @@ msgstr "شما می‌توانید برای نگهداری این تیکت در 
 msgid "Not spam"
 msgstr "جفنگ نیست"
 
-#: content_support/ticket/show/display.php:123
+#: content_support/ticket/show/display.php:123 dash/app/ticket/filter.php:38
 msgid "Un Solved ticket"
 msgstr "ثبت به عنوان حل نشده"
 
@@ -22918,6 +22972,7 @@ msgid "All Tickets"
 msgstr "همه تیکت‌ها"
 
 #: content_support/ticket/ticketTable.php:80 content_support/ticket/ticketTable.php:143
+#: dash/app/ticket/filter.php:37 dash/app/ticket/filter.php:38
 #: dash/layout/admin/sidebar/sidebar-support.php:33
 #: includes/languages/trans_static_public.php:1110
 msgid "Solved"
@@ -23577,10 +23632,6 @@ msgstr "لطفا به تیکت پاسخ دهید"
 msgid "You have some unanswered message."
 msgstr "شما چند پیام دارید که به آنها پاسخ نداده‌اید."
 
-#: dash/app/log/caller/ticket/ticket_seeTicket.php:11
-msgid "See ticket"
-msgstr "مشاهده تیکت"
-
 #: dash/app/log/caller/ticket/ticket_seeTicket.php:18
 msgid "see ticket"
 msgstr "تیکت را دید"
@@ -24046,15 +24097,31 @@ msgstr "دقیقه"
 msgid "Can not access to edit ticket"
 msgstr "دسترسی به ویرایش تیکت ندارید"
 
+#: dash/app/ticket/add.php:12
+msgid "Please choose the customer"
+msgstr "لطفا مشتری را انتخاب کنید"
+
+#: dash/app/ticket/add.php:40
+msgid "Can not add your ticket"
+msgstr "نمی‌توانیم تیکت شما را ثبت کنیم"
+
+#: dash/app/ticket/add.php:55
+msgid "Ticket added"
+msgstr "تیکت اضافه شد"
+
+#: dash/app/ticket/add.php:88
+msgid "Can not add branch by this message"
+msgstr "نمی‌توانید از این پیام شاخه‌ای جدید ایجاد کنید"
+
 #: dash/app/ticket/answer.php:19
 msgid "Can not answer to this message!"
 msgstr "نمی‌توانید به این پیام پاسخ دهید!"
 
-#: dash/app/ticket/answer.php:61
+#: dash/app/ticket/answer.php:57
 msgid "Can not add your message"
 msgstr "نمی‌توانیم پیام شما را اضافه کنیم"
 
-#: dash/app/ticket/answer.php:123
+#: dash/app/ticket/answer.php:124
 msgid "Your message saved"
 msgstr "پیام شما ذخیره شد"
 
@@ -24069,6 +24136,10 @@ msgstr "پیام بدون تغییر ذخیره شد"
 #: dash/app/ticket/edit.php:70
 msgid "Message edited"
 msgstr "پیام ویرایش شد"
+
+#: dash/app/ticket/filter.php:17
+msgid "Conversations"
+msgstr "گفت‌و‌گو"
 
 #: dash/app/ticket/get.php:36
 msgid "Data not founded"
@@ -34364,10 +34435,6 @@ msgstr "نوع فایل نامعتبر است"
 #: lib/app/form/item/type.php:56
 msgid "Short answer"
 msgstr "پاسخ کوتاه"
-
-#: lib/app/form/item/type.php:64
-msgid "Type here ..."
-msgstr "اینجا تایپ کنید..."
 
 #: lib/app/form/item/type.php:73
 msgid "Descriptive answer"
