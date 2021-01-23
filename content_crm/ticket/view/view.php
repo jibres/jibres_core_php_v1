@@ -12,6 +12,10 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
+
+		\dash\face::btnSetting(\dash\url::this(). '/setting?id='. \dash\request::get('id'));
+
+
 		$ticket_id = \dash\data::dataRow_id();
 
 		$conversation = \dash\app\ticket\get::conversation($ticket_id);

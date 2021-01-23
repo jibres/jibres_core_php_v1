@@ -21,7 +21,7 @@
       </a>
     </li>
     <li>
-      <a class="f item">
+      <a class="f item" href="<?php echo \dash\face::btnSetting() ?>">
         <div class="key"><?php echo T_("Status") ?></div>
         <div class="value txtB"><?php echo T_(\dash\data::dataRow_status()); ?></div>
         <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
