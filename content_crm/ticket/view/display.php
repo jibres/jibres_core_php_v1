@@ -25,7 +25,7 @@
       <a class="f item" href="<?php echo \dash\url::this(). '/subject?id='. \dash\request::get('id') ?>">
         <div class="key"><?php echo T_("Subject") ?></div>
         <div class="value txtB"><?php if(\dash\data::dataRow_title()) { echo \dash\data::dataRow_title(); }else{echo '<span class="fc-mute">'. T_("Set Subject"). '</span>';} ?></div>
-        <div class="go detail"></div>
+        <div class="go detail <?php if(\dash\data::dataRow_title()){ echo 'ok';} ?>"></div>
       </a>
     </li>
 
@@ -65,7 +65,7 @@
       <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
         <div class="key"><?php echo T_("This ticket is branch of another ticket"); ?></div>
         <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_base()); ?></div>
-        <div class="go detail"></div>
+        <div class="go"></div>
       </a>
     </li>
   <?php }// endif ?>
