@@ -3,7 +3,11 @@
 <?php foreach (\dash\data::dataTable() as $key => $value) { ?>
      <li>
       <a class="f align-center" href="<?php echo \dash\url::that(). '/view?id='. $value['id'] ?>">
-        <div class="key"><?php echo T_("Ticket"). ' #'. $value['id'];  ?></div>
+        <div class="key">
+          <?php echo T_("Ticket"). ' #'. $value['id']; if(a($value, 'title')) { echo  ' '. a($value, 'title');} ?>
+
+
+        </div>
         <div class="value s0"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
         <div class="value txtB s0"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
         <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>

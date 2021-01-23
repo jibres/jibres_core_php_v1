@@ -19,6 +19,11 @@ class model
 			$post['solved'] = \dash\request::post('solved');
 		}
 
+		if(\dash\request::post('runaction_title'))
+		{
+			$post['title'] = \dash\request::post('title');
+		}
+
 		if(!empty($post))
 		{
 			\dash\app\ticket\edit::edit($post, $id);

@@ -20,6 +20,15 @@
         <div class="go detail ok"></div>
       </a>
     </li>
+    <?php if(\dash\data::dataRow_title()) {?>
+    <li>
+      <a class="f item" href="<?php echo \dash\face::btnSetting() ?>">
+        <div class="key"><?php echo T_("Subject") ?></div>
+        <div class="value txtB"><?php echo \dash\data::dataRow_title(); ?></div>
+        <div class="go detail"></div>
+      </a>
+    </li>
+  <?php } //endif ?>
     <li>
       <a class="f item" href="<?php echo \dash\face::btnSetting() ?>">
         <div class="key"><?php echo T_("Status") ?></div>
