@@ -32,7 +32,7 @@ if($all_get)
 <?php if(\dash\data::listEngine_filter()) {?>
       <div class="cauto">
         <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
-          <option><i class="sf-sort mRa5"></i><span><?php echo T_("Sort"); ?></span></div>
+          <option><?php echo T_("Sort"); ?></option>
 <?php
 if(\dash\data::sortList())
 {
