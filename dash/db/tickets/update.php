@@ -19,5 +19,15 @@ class update
 		$result = \dash\db::query($query);
 	}
 
+
+	public static function set_base_null($_base_id)
+	{
+		$query  = "UPDATE tickets SET tickets.base = NULL WHERE tickets.base = $_base_id ";
+		$result = \dash\db::query($query);
+
+		$query  = "UPDATE tickets SET tickets.branch = NULL WHERE tickets.branch = $_base_id ";
+		$result = \dash\db::query($query);
+	}
+
 }
 ?>

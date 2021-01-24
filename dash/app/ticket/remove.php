@@ -25,6 +25,7 @@ class remove
 		}
 
 
+		\dash\db\tickets\update::set_base_null($load['id']);
 		\dash\db\tickets\delete::delete($load['id']);
 
 		\dash\notif::ok(T_('Message removed'));

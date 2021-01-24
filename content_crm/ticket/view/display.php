@@ -84,7 +84,7 @@ $customer_mode = \dash\temp::get('customer_mode');
     <li class="">
       <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
         <div class="key"><?php echo T_("This ticket is branch of another ticket"); ?></div>
-        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_base()); ?></div>
+        <div class="value"><?php echo T_("View base ticket"); ?></div>
         <div class="go"></div>
       </a>
     </li>
