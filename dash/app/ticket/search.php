@@ -74,8 +74,15 @@ class search
 			}
 			else
 			{
-				// check guest token
-				return [];
+				$guestid = \dash\user::get_user_guest();
+				if($guestid)
+				{
+					$and[] = " tickets.guestid = '$guestid' ";
+				}
+				else
+				{
+					return [];
+				}
 			}
 		}
 

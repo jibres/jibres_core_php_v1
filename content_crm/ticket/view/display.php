@@ -80,13 +80,14 @@ $customer_mode = \dash\temp::get('customer_mode');
 </nav>
 
 <?php foreach (\dash\data::conversation() as $key => $value) {?>
+  <?php $userText = false; if(\dash\data::dataRow_user_id() == a($value, 'user_id')) { $userText = true; } ?>
   <div class="box">
     <div class="pad">
       <div class="row">
         <div class="c-auto">
           <div class="txtB">
             <img class="avatar" src="<?php echo a($value, 'avatar') ?>">
-            <?php echo a($value, 'displayname'); ?>
+            <?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>
           </div>
         </div>
         <div class="c"></div>
@@ -97,7 +98,6 @@ $customer_mode = \dash\temp::get('customer_mode');
           <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
         </div>
       </div>
-      <?php $userText = false; if(\dash\data::dataRow_user_id() == a($value, 'user_id')) { $userText = true; } ?>
       <div class="mTB10 <?php if($userText) { echo 'fc-fb';} ?>"><?php echo a($value, 'content'); ?></div>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
       <?php if(a($value, 'branch')) {?>

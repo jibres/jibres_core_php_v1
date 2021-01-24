@@ -77,26 +77,8 @@ class ready
 					$result['colorClass'] = $color_class;
 					$result[$key]         = $value;
 					break;
-				case 'id':
-					$result[$key] = $value;
-					$datecreated = isset($_data['datecreated']) ? $_data['datecreated'] : null;
-					if($datecreated)
-					{
-						$result['code'] =  md5((string) $value. '^_^-*_*)JIBRES));))__'. $datecreated);
-					}
-					break;
 
-				case 'user_in_ticket':
-					if($value)
-					{
-						$explode = explode(',', $value);
-						$result[$key] = array_map(['\dash\coding', 'encode'], $explode);
-					}
-					else
-					{
-						$result[$key] = [];
-					}
-					break;
+
 				case 'user_id':
 				case 'term_id':
 					if(isset($value))

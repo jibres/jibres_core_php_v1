@@ -19,7 +19,8 @@ class check
 			'status'      => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
 			'via'         => ['enum' => ['site', 'telegram', 'sms', 'contact', 'admincontact', 'app']],
 			'type'        => 'string_50',
-			'user_id'     => 'code',
+			'user_id'     => 'id',
+			'guestid'     => 'md5',
 			'sendmessage' => 'bit',
 			'solved'      => 'bit',
 			'file'        => 'string',
@@ -35,20 +36,18 @@ class check
 
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if($data['user_id'])
+
+		if(!$data['user_id'])
 		{
-			$data['user_id'] = \dash\coding::decode($data['user_id']);
+			$data['user_id'] = \dash\user::id();
 		}
+
 
 		if(!$data['status'])
 		{
 			$data['status'] = 'awaiting';
 		}
 
-		if(!$data['user_id'])
-		{
-			$data['user_id'] = \dash\user::id();
-		}
 
 		$data['datecreated'] = date("Y-m-d H:i:s");
 		$data['type']        = 'ticket';

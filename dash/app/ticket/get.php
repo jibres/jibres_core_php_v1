@@ -59,14 +59,30 @@ class get
 			return false;
 		}
 
+		$guestid = null;
 		$user_id = \dash\user::id();
 		if(!$user_id)
+		{
+			$guestid = \dash\user::get_user_guest();
+			if(!$guestid)
+			{
+				return false;
+			}
+		}
+
+		if($user_id)
+		{
+			$load = \dash\db\tickets\get::load_my_ticket($id, $user_id, $guestid);
+		}
+		elseif($guestid)
+		{
+			$load = \dash\db\tickets\get::load_my_ticket_guestid($id, $guestid);
+		}
+		else
 		{
 			return false;
 		}
 
-
-		$load = \dash\db\tickets\get::load_my_ticket($id, $user_id);
 
 		if(!$load)
 		{
@@ -83,8 +99,6 @@ class get
 
 	public static function conversation($_id)
 	{
-		\dash\permission::access('crmTicketManager');
-
 		$id = \dash\validate::id($_id);
 		if(!$id)
 		{

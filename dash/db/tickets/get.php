@@ -51,6 +51,32 @@ class get
 		return $result;
 	}
 
+
+
+
+	public static function load_my_ticket_guestid($_id, $_guestid)
+	{
+		$query =
+		"
+			SELECT
+				tickets.*,
+				users.mobile      AS `mobile`,
+				users.displayname AS `displayname`,
+				users.avatar AS `avatar`
+			FROM
+				tickets
+			LEFT JOIN users ON users.id = tickets.user_id
+			WHERE
+				tickets.id = $_id AND
+				tickets.guestid = '$_guestid'
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true);
+
+		return $result;
+	}
+
 	public static function load_my_ticket($_id, $_user_id)
 	{
 		$query =

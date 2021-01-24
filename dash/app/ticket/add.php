@@ -24,6 +24,18 @@ class add
 			}
 		}
 
+		if(!$args['user_id'])
+		{
+			$guestid = \dash\user::get_user_guest(true);
+			if(!$guestid)
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
+
+			$args['guestid'] = $guestid;
+		}
+
 		$file = null;
 		if(\dash\request::files('file'))
 		{
@@ -79,6 +91,19 @@ class add
 		{
 			return false;
 		}
+
+		if(!$args['user_id'])
+		{
+			$guestid = \dash\user::get_user_guest(true);
+			if(!$guestid)
+			{
+				\dash\notif::error(T_("Please login to continue"));
+				return false;
+			}
+
+			$args['guestid'] = $guestid;
+		}
+
 
 		$file = null;
 		if(\dash\request::files('file'))
@@ -148,6 +173,8 @@ class add
 			\dash\notif::error(T_("Please choose the customer"), 'user_id');
 			return false;
 		}
+
+		$_args['user_id'] = \dash\coding::decode($_args['user_id']);
 
 
 		$args = \dash\app\ticket\check::variable($_args);
