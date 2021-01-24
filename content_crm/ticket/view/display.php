@@ -4,6 +4,18 @@ $customer_mode = \dash\temp::get('customer_mode');
 
 ?>
 <?php if(!$customer_mode) {?>
+  <?php if(!a($data, 'user_id')) {?>
+  <nav class="items long">
+  <ul>
+    <li>
+      <a class="item f">
+        <img src="<?php echo \dash\data::dataRow_avatar() ?>">
+        <div class="key"><?php echo T_("Guest user")?></div>
+      </a>
+    </li>
+  </ul>
+</nav>
+  <?php }else{ ?>
 <nav class="items long">
   <ul>
     <li>
@@ -16,6 +28,7 @@ $customer_mode = \dash\temp::get('customer_mode');
     </li>
   </ul>
 </nav>
+<?php } //endif ?>
 <?php } //endif ?>
 <nav class="items long">
   <ul>
