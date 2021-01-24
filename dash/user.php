@@ -372,6 +372,7 @@ class user
 				{
 					\lib\app\cart\add::assing_to_user($guest, $code, true);
 				}
+				\dash\app\ticket\add::assing_to_user($guest, $code);
 			}
 
 			\dash\utility\cookie::delete('user_guest_id');
