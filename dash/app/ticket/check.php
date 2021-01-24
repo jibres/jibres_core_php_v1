@@ -4,11 +4,11 @@ namespace dash\app\ticket;
 class check
 {
 
-	public static function variable($_args, $_id = null)
+	public static function variable($_args, $_id = null, $_website_mode = false)
 	{
 		$content_condition = 'desc';
 
-		if(\dash\permission::check('crmTicketManager'))
+		if(\dash\permission::check('crmTicketManager') && !$_website_mode)
 		{
 			$content_condition = 'html';
 		}

@@ -1,40 +1,45 @@
 <?php
-namespace content_crm\ticket\home;
-
+namespace content_business\ticket\home;
 
 class view
 {
+
+
 	public static function config()
 	{
+
 		\dash\face::title(T_("Tickets"));
+		\dash\face::desc(T_("See list of your tickets!"));
 
+
+
+		// btn
+		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
-		\dash\data::back_text(T_('CRM'));
 
+		\dash\data::action_text(T_('New Ticket'));
+		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
-		\dash\data::action_text(T_('Add new ticket'));
 
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(true);
 		\dash\data::listEngine_sort(true);
-		\dash\data::sortList(\dash\app\ticket\filter::sort_list());
+		\dash\data::sortList(\dash\app\ticket\filter::sort_list('website'));
 
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
-			'status' => \dash\request::get('status'),
-			'so'     => \dash\request::get('so'),
-			'user'   => \dash\request::get('user'),
-
+			'order'         => \dash\request::get('order'),
+			'sort'          => \dash\request::get('sort'),
+			'status'        => \dash\request::get('status'),
+			'customer_mode' => true,
 		];
 
 		$search_string = \dash\request::get('q');
 
-		$list = \dash\app\ticket\search::list($search_string, $args);
+		$list = \dash\app\ticket\search::list($search_string, $args, true);
 
 		\dash\data::dataTable($list);
 
@@ -47,6 +52,10 @@ class view
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
+
+
 	}
+
+
 }
 ?>

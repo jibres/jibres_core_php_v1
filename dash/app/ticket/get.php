@@ -41,6 +41,38 @@ class get
 	}
 
 
+
+	public static function my_ticket()
+	{
+		$id = \dash\request::get('id');
+		$id = \dash\validate::id($id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$user_id = \dash\user::id();
+		if(!$user_id)
+		{
+			return false;
+		}
+
+
+		$load = \dash\db\tickets\get::load_my_ticket($id, $user_id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load = \dash\app\ticket\ready::row($load);
+
+
+		return $load;
+
+
+	}
+
 	public static function conversation($_id)
 	{
 		\dash\permission::access('crmTicketManager');

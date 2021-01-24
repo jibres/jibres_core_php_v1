@@ -1,4 +1,8 @@
-<?php $data = \dash\data::dataRow(); ?>
+<?php
+$data = \dash\data::dataRow();
+$customer_mode = \dash\temp::get('customer_mode');
+?>
+<?php if(!$customer_mode) {?>
 <nav class="items long">
   <ul>
     <li>
@@ -11,6 +15,7 @@
     </li>
   </ul>
 </nav>
+<?php } //endif ?>
 <nav class="items long">
   <ul>
     <li>
@@ -20,17 +25,18 @@
         <div class="go detail ok"></div>
       </a>
     </li>
-
+  <?php if($customer_mode && !\dash\data::dataRow_title()) {/*Not display title*/}else{?>
     <li>
-      <a class="f item" href="<?php echo \dash\url::this(). '/subject?id='. \dash\request::get('id') ?>">
+      <a class="f item" <?php if(!$customer_mode) {?> href="<?php echo \dash\url::this(). '/subject?id='. \dash\request::get('id') ?>"<?php }// endif ?>>
         <div class="key"><?php echo T_("Subject") ?></div>
         <div class="value txtB"><?php if(\dash\data::dataRow_title()) { echo \dash\data::dataRow_title(); }else{echo '<span class="fc-mute">'. T_("To set subject click here"). '</span>';} ?></div>
         <div class="go detail <?php if(\dash\data::dataRow_title()){ echo 'ok';} ?>"></div>
       </a>
     </li>
+  <?php } //endif ?>
 
     <li>
-      <a class="f item" href="<?php echo \dash\face::btnSetting() ?>">
+      <a class="f item" <?php if(!$customer_mode) {?> href="<?php echo \dash\face::btnSetting() ?>"<?php } //endif ?>>
         <div class="key"><?php echo T_("Status") ?></div>
         <div class="value txtB"><?php echo T_(\dash\data::dataRow_status()); ?></div>
         <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
@@ -44,7 +50,7 @@
         <div class="go detail"></div>
       </a>
     </li>
-
+    <?php if(!$customer_mode) {?>
     <li>
       <a class="f item" href="<?php echo \dash\face::btnSetting(); ?>">
         <div class="key"><?php echo T_("Solved status") ?></div>
@@ -52,6 +58,7 @@
         <div class="go <?php if(\dash\data::dataRow_solved()){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
     </li>
+  <?php } // endif ?>
 
     <li>
       <a target="_blank" class="f item" href="<?php echo \dash\url::jibres_domain(). 'ip/'. \dash\utility\convert::to_en_number(\dash\data::dataRow_prettyip()) ?>">
@@ -84,7 +91,7 @@
         </div>
         <div class="c"></div>
         <div class="c-auto">
-          <?php if(a($value, 'see')) { ?><span class="sf-eye fc-green" title="<?php echo T_("Seen by customer") ?>"></span><?php }//endif ?>
+          <?php if(a($value, 'see') && !$customer_mode) { ?><span class="sf-eye fc-green" title="<?php echo T_("Seen by customer") ?>"></span><?php }//endif ?>
         </div>
         <div class="cauto">
           <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
@@ -97,6 +104,7 @@
         <div class="msg info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
       <?php } //endif ?>
     </div>
+    <?php if(!$customer_mode) {?>
     <footer class="f">
       <?php if($userText && $key > 0 && !a($value, 'branch')) {?>
         <div class="cauto mLR10">
@@ -107,6 +115,7 @@
       <div class="c"></div>
       <div class="cauto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>" class="link sm"><?php echo T_("Edit") ?></a></div>
     </footer>
+  <?php } //endif ?>
   </div>
 
 <?php } ?>
@@ -114,7 +123,7 @@
   <div class="box">
     <div class="pad">
       <input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">
-      <textarea class="txt" name="answer" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php echo T_("Answer to ticket") ?>'></textarea>
+      <textarea class="txt" name="answer" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php if(!$customer_mode) { echo T_("Answer to ticket"); }else{ echo T_("Write your message");} ?>'></textarea>
       <div class="mT10" data-uploader data-name='file'>
         <input type="file"  id="file1">
         <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
@@ -122,14 +131,16 @@
     </div>
     <footer class="f">
       <div class="cauto">
+        <?php if(!$customer_mode) {?>
         <div class="check1">
           <input type="checkbox" name="sendmessage" id="sendmessage" checked>
           <label for="sendmessage"><?php echo T_("Send notify about your answer to creator of ticket"); ?>
         </div>
+      <?php } //endif ?>
       </div>
       <div class="c"></div>
       <div class="cauto">
-        <button class="btn master"><?php echo T_("Send answer"); ?></button>
+        <button class="btn master"><?php if(!$customer_mode) { echo T_("Send answer"); }else{ echo T_("Send ticket");} ?></button>
       </div>
     </footer>
   </div>

@@ -19,19 +19,22 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_force = false)
 	{
-
-		\dash\permission::access('crmShowTicketsList');
+		if(!$_force)
+		{
+			\dash\permission::access('crmShowTicketsList');
+		}
 
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => 'string_50',
-			'status'    => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
-			'so'        => 'y_n',
-			'user' => 'code',
-			'limit'     => 'int',
+			'order'         => 'order',
+			'sort'          => 'string_50',
+			'status'        => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
+			'so'            => 'y_n',
+			'user'          => 'code',
+			'limit'         => 'int',
+			'customer_mode' => 'bit',
 		];
 
 		$require = [];
@@ -60,7 +63,20 @@ class search
 		else
 		{
 			$and[] = " tickets.status NOT IN ('deleted', 'spam') ";
+		}
 
+		if($data['customer_mode'])
+		{
+			if(\dash\user::id())
+			{
+				$user_id = \dash\user::id();
+				$and[] = " tickets.user_id = $user_id ";
+			}
+			else
+			{
+				// check guest token
+				return [];
+			}
 		}
 
 		if($data['so'] === 'y')
