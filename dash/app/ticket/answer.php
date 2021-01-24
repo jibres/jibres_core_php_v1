@@ -71,6 +71,11 @@ class answer
 			return false;
 		}
 
+		if(isset($file['id']))
+		{
+			\dash\upload\support::ticket_usage($file, $message_id);
+		}
+
 		$update_master           = [];
 
 		if(!$is_note)
@@ -106,40 +111,42 @@ class answer
 			'from'     => \dash\user::id(),
 		];
 
-		$isDubleAnswer = false;
-
-		if(isset($master['status']) && $master['status'] === 'answered')
+		if($is_note)
 		{
-			$isDubleAnswer = true;
-			\dash\log::set('ticket_DubleAnswerTicket', $log);
+			\dash\log::set('ticket_AddNoteTicket', $log);
 		}
 		else
 		{
-			\dash\log::set('ticket_AnswerTicket', $log);
-		}
+			$isDubleAnswer = false;
 
-		if(!$isDubleAnswer)
-		{
-			if(isset($master['user_id']))
+			if(isset($master['status']) && $master['status'] === 'answered')
 			{
-				$log['to'] = $master['user_id'];
-			}
-
-			if($sendmessage)
-			{
-				\dash\log::set('ticket_answerTicketAlertSend', $log);
+				$isDubleAnswer = true;
+				\dash\log::set('ticket_DubleAnswerTicket', $log);
 			}
 			else
 			{
-				\dash\log::set('ticket_answerTicketAlert', $log);
+				\dash\log::set('ticket_AnswerTicket', $log);
+			}
+
+			if(!$isDubleAnswer)
+			{
+				if(isset($master['user_id']))
+				{
+					$log['to'] = $master['user_id'];
+				}
+
+				if($sendmessage)
+				{
+					\dash\log::set('ticket_answerTicketAlertSend', $log);
+				}
+				else
+				{
+					\dash\log::set('ticket_answerTicketAlert', $log);
+				}
 			}
 		}
 
-
-		if(isset($file['id']))
-		{
-			\dash\upload\support::ticket_usage($file, $message_id);
-		}
 
 		\dash\notif::ok(T_('Your message saved'));
 

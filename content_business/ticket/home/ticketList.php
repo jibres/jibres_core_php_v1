@@ -15,13 +15,6 @@ if(\dash\data::listEngine())
               {
 
                 echo '<span class="mRa5">'. T_("Ticket"). ' <span class="fc-fb">#'. $value['id']. '</span></span> ';
-
-                if(a($value, 'plus'))
-                {
-                  echo ' <span class="badge rounded light s0"> <i class="sf-refresh"></i> '. \dash\fit::number(a($value, 'plus')). '</span>';
-                }
-
-
                 if(a($value, 'title'))
                 {
                   echo  ' <b>'. a($value, 'title'). '</b>';

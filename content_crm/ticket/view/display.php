@@ -111,7 +111,24 @@ $customer_mode = \dash\temp::get('customer_mode');
           <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
         </div>
       </div>
-      <div class="mTB10 <?php if($userText) { echo 'fc-fb ';} if(a($value, 'type') === 'note'){echo 'msg ';} ?>"><?php echo a($value, 'content'); ?></div>
+      <?php
+        echo '<div class="mTB10 ';
+       if($userText)
+       {
+        echo 'fc-fb ';
+       }
+       if(a($value, 'type') === 'note')
+       {
+        echo 'msg ';
+       }
+       echo '">';
+       if(a($value, 'type') === 'note')
+       {
+        echo '<div class="txtB fc-mute">'. T_("Note"). '</div>';
+       }
+       echo a($value, 'content');
+       echo '</div>';
+      ?>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
       <?php if(a($value, 'branch')) {?>
         <div class="msg info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
@@ -119,7 +136,7 @@ $customer_mode = \dash\temp::get('customer_mode');
     </div>
     <?php if(!$customer_mode) {?>
     <footer class="f">
-      <?php if($userText && $key > 0 && !a($value, 'branch')) {?>
+      <?php if($userText && $key > 0 && !a($value, 'branch') && a($value, 'type') != 'note') {?>
         <div class="cauto mLR10">
           <div class="link sm fc-fb" data-title="<?php echo T_("Add this message in new ticket and answer to it?") ?>" data-confirm data-data='{"newbranch":"1", "branch": "<?php echo a($value, 'id') ?>"}'><?php echo T_("Answer in new ticket"); ?>
           </div>
