@@ -59,8 +59,6 @@ $customer_mode = \dash\temp::get('customer_mode');
         <div class="go <?php if(\dash\data::dataRow_solved()){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
     </li>
-  <?php } // endif ?>
-
     <li>
       <a target="_blank" class="f item" href="<?php echo \dash\url::jibres_domain(). 'ip/'. \dash\utility\convert::to_en_number(\dash\data::dataRow_prettyip()) ?>">
         <div class="key"><?php echo T_("IP") ?></div>
@@ -68,6 +66,7 @@ $customer_mode = \dash\temp::get('customer_mode');
         <div class="go detail"></div>
       </a>
     </li>
+  <?php } // endif ?>
     <?php if(\dash\data::dataRow_base()) {?>
     <li class="">
       <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
@@ -125,7 +124,7 @@ $customer_mode = \dash\temp::get('customer_mode');
   <div class="box">
     <div class="pad">
       <input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">
-      <textarea class="txt" name="answer" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php if(!$customer_mode) { echo T_("Answer to ticket"); }else{ echo T_("Write your message");} ?>'></textarea>
+      <textarea class="txt" name="<?php if(!$customer_mode){echo 'answer';}else{echo 'content';} ?>" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php if(!$customer_mode) { echo T_("Answer to ticket"); }else{ echo T_("Write your message");} ?>'></textarea>
       <div class="mT10" data-uploader data-name='file'>
         <input type="file"  id="file1">
         <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>

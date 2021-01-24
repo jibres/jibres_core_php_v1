@@ -42,9 +42,17 @@ class get
 
 
 
-	public static function my_ticket()
+	public static function my_ticket($_id = null)
 	{
-		$id = \dash\request::get('id');
+		if($_id)
+		{
+			$id = $_id;
+		}
+		else
+		{
+			$id = \dash\request::get('id');
+		}
+
 		$id = \dash\validate::id($id);
 		if(!$id)
 		{

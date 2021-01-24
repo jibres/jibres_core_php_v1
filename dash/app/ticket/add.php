@@ -58,6 +58,88 @@ class add
 
 	}
 
+
+	public static function to_my_ticket($_args, $_id)
+	{
+		$master = \dash\app\ticket\get::my_ticket($_id);
+		if(!$master)
+		{
+			return false;
+		}
+
+		if(isset($master['parent']) && $master['parent'])
+		{
+			\dash\notif::error(T_("Can not add messge to this ticket id!"));
+			return false;
+		}
+
+
+		$args = \dash\app\ticket\check::variable($_args);
+		if(!$args)
+		{
+			return false;
+		}
+
+		$file = null;
+		if(\dash\request::files('file'))
+		{
+			$file = \dash\upload\support::ticket();
+			if(!isset($file['path']))
+			{
+				return false;
+			}
+
+			$args['file'] = $file['path'];
+		}
+
+		$args['parent']      = $master['id'];
+
+		unset($args['sendmessage']);
+
+		$message_id = \dash\db\tickets\insert::new_record($args);
+
+		if(!$message_id)
+		{
+			\dash\notif::error(T_("Can not add your message"));
+			return false;
+		}
+
+		$update_master           = [];
+		$update_master['status'] = 'awaiting';
+
+		$plus = \dash\db\tickets\get::conversation_count($master['id']);
+		if(is_numeric($plus))
+		{
+			$update_master['plus'] = $plus;
+		}
+		else
+		{
+			$plus = 1; // error. Bug. But need this variable :/
+		}
+
+		\dash\db\tickets\update::update($update_master, $master['id']);
+
+		$log =
+		[
+			'masterid' => $master['id'],
+			'code'     => $master['id'],
+			'plus'     => $plus,
+			'from'     => \dash\user::id(),
+		];
+
+		\dash\log::set('ticket_AddToTicket', $log);
+
+		if(isset($file['id']))
+		{
+			\dash\upload\support::ticket_usage($file, $message_id);
+		}
+
+		\dash\notif::ok(T_('Your message saved'));
+
+		return true;
+
+	}
+
 	public static function add_by_admin($_args)
 	{
 
