@@ -62,6 +62,10 @@ class answer
 		{
 			$args['type'] = 'note';
 		}
+		else
+		{
+			$args['type'] = 'answer';
+		}
 
 		$message_id = \dash\db\tickets\insert::new_record($args);
 

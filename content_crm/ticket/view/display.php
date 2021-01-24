@@ -92,8 +92,19 @@ $customer_mode = \dash\temp::get('customer_mode');
   </ul>
 </nav>
 
-<?php foreach (\dash\data::conversation() as $key => $value) {?>
-  <?php $userText = false; if(\dash\data::dataRow_user_id() == a($value, 'user_id')) { $userText = true; } ?>
+<?php
+foreach (\dash\data::conversation() as $key => $value)
+{
+ $userText = false;
+ if(\dash\data::dataRow_user_id() == a($value, 'user_id'))
+ {
+  $userText = true;
+ }
+ if(a($value, 'type') === 'answer')
+ {
+  $userText = false;
+ }
+  ?>
   <div class="box">
     <div class="pad">
       <div class="row">
@@ -153,8 +164,7 @@ $customer_mode = \dash\temp::get('customer_mode');
   <?php if($customer_mode){ \dash\csrf::html(false); } ?>
   <div class="box">
     <div class="pad">
-      <input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">
-      <textarea class="txt" name="<?php if(!$customer_mode){echo 'answer';}else{echo 'content';} ?>" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php if(!$customer_mode) { echo T_("Answer to ticket"); }else{ echo T_("Write your message");} ?>'></textarea>
+      <textarea class="txt" <?php if(!$customer_mode){echo 'name="answer" data-editor';}else{echo 'name="content"';} ?> rows="4" <?php \dash\layout\autofocus::html() ?> placeholder='<?php if(!$customer_mode) { echo T_("Answer to ticket"); }else{ echo T_("Write your message");} ?>'></textarea>
       <div class="mT10" data-uploader data-name='file'>
         <input type="file"  id="file1">
         <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
