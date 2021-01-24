@@ -1,6 +1,7 @@
 <?php
 $data = \dash\data::dataRow();
 $customer_mode = \dash\temp::get('customer_mode');
+
 ?>
 <?php if(!$customer_mode) {?>
 <nav class="items long">
@@ -120,6 +121,7 @@ $customer_mode = \dash\temp::get('customer_mode');
 
 <?php } ?>
 <form method="post" autocomplete="off" >
+  <?php if($customer_mode){ \dash\csrf::html(false); } ?>
   <div class="box">
     <div class="pad">
       <input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">

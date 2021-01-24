@@ -13,6 +13,17 @@ class add
 			return false;
 		}
 
+		if(isset($args['content']))
+		{
+			$count_http  = substr_count($args['content'], 'http://');
+			$count_https = substr_count($args['content'], 'https://');
+			if($count_https + $count_http >= 2)
+			{
+				\dash\notif::error(T_("Can not set 2 link in one message!"));
+				return false;
+			}
+		}
+
 		$file = null;
 		if(\dash\request::files('file'))
 		{

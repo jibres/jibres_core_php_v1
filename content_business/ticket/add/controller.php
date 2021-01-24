@@ -1,5 +1,5 @@
 <?php
-namespace content_support\ticket\add;
+namespace content_business\ticket\add;
 
 class controller
 {

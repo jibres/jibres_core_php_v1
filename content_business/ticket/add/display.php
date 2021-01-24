@@ -6,6 +6,7 @@
 		<div class="c-xs-12 c-sm-12 c-lg-8 c-xl-9">
 
 			<form method="post" autocomplete="off" >
+				<?php \dash\csrf::html(false); ?>
 				<div class="box">
 					<div class="pad">
 						<label for="title"><?php echo T_("Subject") ?></label>
