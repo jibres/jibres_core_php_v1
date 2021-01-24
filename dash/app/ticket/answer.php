@@ -28,23 +28,10 @@ class answer
 			return false;
 		}
 
-
 		$args = \dash\app\ticket\check::variable($_args);
 		if(!$args)
 		{
 			return false;
-		}
-
-		$file = null;
-		if(\dash\request::files('file'))
-		{
-			$file = \dash\upload\support::ticket();
-			if(!isset($file['path']))
-			{
-				return false;
-			}
-
-			$args['file'] = $file['path'];
 		}
 
 		$args['parent']      = $master['id'];
@@ -67,17 +54,12 @@ class answer
 			$args['type'] = 'answer';
 		}
 
-		$message_id = \dash\db\tickets\insert::new_record($args);
+		$message_id = \dash\app\ticket\add::add_new_ticket($args);
 
 		if(!$message_id)
 		{
 			\dash\notif::error(T_("Can not add your message"));
 			return false;
-		}
-
-		if(isset($file['id']))
-		{
-			\dash\upload\support::ticket_usage($file, $message_id);
 		}
 
 		$update_master           = [];
@@ -155,10 +137,6 @@ class answer
 		\dash\notif::ok(T_('Your message saved'));
 
 		return true;
-
-
 	}
-
-
 }
 ?>

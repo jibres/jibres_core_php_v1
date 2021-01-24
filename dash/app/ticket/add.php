@@ -4,6 +4,52 @@ namespace dash\app\ticket;
 class add
 {
 
+	/**
+	 * Adds a new ticket.
+	 *
+	 * @param      <type>   $_args  The arguments
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function add_new_ticket($args)
+	{
+		unset($args['sendmessage']);
+
+		$file = null;
+		if(\dash\request::files('file'))
+		{
+			$file = \dash\upload\support::ticket();
+			if(!isset($file['path']))
+			{
+				return false;
+			}
+
+			$args['file'] = $file['path'];
+		}
+
+		$ticket_id = \dash\db\tickets\insert::new_record($args);
+		if(!$ticket_id)
+		{
+			\dash\notif::error(T_("Can not add your ticket"));
+			return false;
+		}
+
+		if(isset($file['id']))
+		{
+			\dash\upload\support::ticket_usage($file, $ticket_id);
+		}
+
+		return $ticket_id;
+	}
+
+
+	/**
+	 * Adds New ticetk by customer
+	 *
+	 * @param      <type>         $_args  The arguments
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
 	public static function add($_args)
 	{
 
@@ -36,28 +82,10 @@ class add
 			$args['guestid'] = $guestid;
 		}
 
-		$file = null;
-		if(\dash\request::files('file'))
-		{
-			$file = \dash\upload\support::ticket();
-			if(!isset($file['path']))
-			{
-				return false;
-			}
-
-			$args['file'] = $file['path'];
-		}
-
-		$ticket_id = \dash\db\tickets\insert::new_record($args);
+		$ticket_id = self::add_new_ticket($args);
 		if(!$ticket_id)
 		{
-			\dash\notif::error(T_("Can not add your ticket"));
 			return false;
-		}
-
-		if(isset($file['id']))
-		{
-			\dash\upload\support::ticket_usage($file, $ticket_id);
 		}
 
 		$result = [];
@@ -66,11 +94,17 @@ class add
 
 		\dash\notif::ok(T_("Ticket added"));
 		return $result;
-
-
 	}
 
 
+	/**
+	 * Customer add new message to ticket
+	 *
+	 * @param      <type>   $_args  The arguments
+	 * @param      <type>   $_id    The identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function to_my_ticket($_args, $_id)
 	{
 		$master = \dash\app\ticket\get::my_ticket($_id);
@@ -104,28 +138,11 @@ class add
 			$args['guestid'] = $guestid;
 		}
 
-
-		$file = null;
-		if(\dash\request::files('file'))
-		{
-			$file = \dash\upload\support::ticket();
-			if(!isset($file['path']))
-			{
-				return false;
-			}
-
-			$args['file'] = $file['path'];
-		}
-
 		$args['parent']      = $master['id'];
 
-		unset($args['sendmessage']);
-
-		$message_id = \dash\db\tickets\insert::new_record($args);
-
-		if(!$message_id)
+		$ticket_id = self::add_new_ticket($args);
+		if(!$ticket_id)
 		{
-			\dash\notif::error(T_("Can not add your message"));
 			return false;
 		}
 
@@ -154,10 +171,6 @@ class add
 
 		\dash\log::set('ticket_AddToTicket', $log);
 
-		if(isset($file['id']))
-		{
-			\dash\upload\support::ticket_usage($file, $message_id);
-		}
 
 		\dash\notif::ok(T_('Your message saved'));
 
@@ -165,8 +178,17 @@ class add
 
 	}
 
+
+	/**
+	 * Add new ticket by admin.
+	 *
+	 * @param      <type>         $_args  The arguments
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
 	public static function add_by_admin($_args)
 	{
+		\dash\permission::access('crmTicketManager');
 
 		if(!a($_args, 'user_id'))
 		{
@@ -183,46 +205,30 @@ class add
 			return false;
 		}
 
-
-
-		$file = null;
-		if(\dash\request::files('file'))
-		{
-			$file = \dash\upload\support::ticket();
-			if(!isset($file['path']))
-			{
-				return false;
-			}
-
-			$args['file'] = $file['path'];
-		}
-
-		$ticket_id = \dash\db\tickets\insert::new_record($args);
+		$ticket_id = self::add_new_ticket($args);
 		if(!$ticket_id)
 		{
 			\dash\notif::error(T_("Can not add your ticket"));
 			return false;
 		}
 
-		if(isset($file['id']))
-		{
-			\dash\upload\support::ticket_usage($file, $ticket_id);
-		}
-
 		$result = [];
 		$result['id'] = $ticket_id;
 
 
-
-
 		\dash\notif::ok(T_("Ticket added"));
 		return $result;
-
-
 	}
 
 
-
+	/**
+	 * Create a branch from one message of ticket
+	 *
+	 * @param      <type>   $_master_id  The master identifier
+	 * @param      <type>   $_child_id   The child identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function branch($_master_id, $_child_id)
 	{
 		\dash\permission::access('crmTicketManager');
@@ -233,14 +239,11 @@ class add
 			return false;
 		}
 
-
 		$child = \dash\app\ticket\get::inline_get($_child_id);
 		if(!$child)
 		{
 			return false;
 		}
-
-
 
 		if(isset($child['parent']) && floatval($child['parent']) === floatval($master['id']))
 		{
@@ -274,6 +277,14 @@ class add
 	}
 
 
+	/**
+	 * After login user assigned ticket in guest mode to user account
+	 *
+	 * @param      <type>   $_guest_id  The guest identifier
+	 * @param      <type>   $_user_id   The user identifier
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function assing_to_user($_guest_id, $_user_id)
 	{
 
