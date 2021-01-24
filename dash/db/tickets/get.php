@@ -3,9 +3,13 @@ namespace dash\db\tickets;
 
 class get
 {
-	public static function conversation($_id)
+	public static function conversation($_id, $_customer_mode = false)
 	{
-
+		$note = null;
+		if($_customer_mode)
+		{
+			$note = " AND tickets.type != 'note' ";
+		}
 		$query =
 		"
 			SELECT
@@ -17,7 +21,7 @@ class get
 				tickets
 			LEFT JOIN users ON users.id = tickets.user_id
 			WHERE
-				tickets.parent = $_id OR tickets.id = $_id
+				(tickets.parent = $_id OR tickets.id = $_id)  $note
 			ORDER BY tickets.id ASC
 			LIMIT 500
 		";

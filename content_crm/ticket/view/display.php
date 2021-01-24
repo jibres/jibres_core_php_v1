@@ -111,7 +111,7 @@ $customer_mode = \dash\temp::get('customer_mode');
           <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
         </div>
       </div>
-      <div class="mTB10 <?php if($userText) { echo 'fc-fb';} ?>"><?php echo a($value, 'content'); ?></div>
+      <div class="mTB10 <?php if($userText) { echo 'fc-fb ';} if(a($value, 'type') === 'note'){echo 'msg ';} ?>"><?php echo a($value, 'content'); ?></div>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
       <?php if(a($value, 'branch')) {?>
         <div class="msg info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
@@ -142,20 +142,24 @@ $customer_mode = \dash\temp::get('customer_mode');
         <input type="file"  id="file1">
         <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       </div>
-    </div>
-    <footer class="f">
-      <div class="cauto">
         <?php if(!$customer_mode) {?>
         <div class="check1">
           <input type="checkbox" name="sendmessage" id="sendmessage" checked>
-          <label for="sendmessage"><?php echo T_("Send notify about your answer to creator of ticket"); ?>
+          <label for="sendmessage"><?php echo T_("Send notify about your answer to creator of ticket"); ?></label>
+        </div>
+
+       <div class="check1">
+          <input type="checkbox" name="note" id="inote">
+          <label for="inote"><?php echo T_("Add yout message as note."); ?> <small><?php echo T_('Users do not see the notes and only the system administrator sees them') ?></small></label>
         </div>
       <?php } //endif ?>
-      </div>
-      <div class="c"></div>
-      <div class="cauto">
-        <button class="btn master"><?php if(!$customer_mode) { echo T_("Send answer"); }else{ echo T_("Send ticket");} ?></button>
-      </div>
+    </div>
+    <footer class="txtRa">
+      <?php if($customer_mode) {?>
+        <button class="btn master"><?php echo T_("Send ticket"); ?></button>
+      <?php }else{ ?>
+        <button class="btn master"><?php echo T_("Send answer"); ?></button>
+      <?php } //endif ?>
     </footer>
   </div>
 </form>

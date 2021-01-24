@@ -97,7 +97,7 @@ class get
 
 	}
 
-	public static function conversation($_id)
+	public static function conversation($_id, $_customer_mode = false)
 	{
 		$id = \dash\validate::id($_id);
 		if(!$id)
@@ -105,7 +105,7 @@ class get
 			return false;
 		}
 
-		$conversation = \dash\db\tickets\get::conversation($id);
+		$conversation = \dash\db\tickets\get::conversation($id, $_customer_mode);
 		if(!is_array($conversation))
 		{
 			$conversation = [];

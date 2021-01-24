@@ -26,6 +26,7 @@ class model
 		[
 			'content'     => \dash\request::post_raw('answer'),
 			'sendmessage' => \dash\request::post('sendmessage'),
+			'note'        => \dash\request::post('note'),
 		];
 
 		\dash\app\ticket\answer::add($post, $id);

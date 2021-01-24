@@ -8,6 +8,14 @@ class answer
 	{
 		\dash\permission::access('crmTicketManager');
 
+		$is_note = false;
+		if(isset($_args['note']) && $_args['note'])
+		{
+			$is_note = true;
+		}
+
+		unset($_args['note']);
+
 		$master = \dash\app\ticket\get::inline_get($_id);
 		if(!$master)
 		{
@@ -50,6 +58,11 @@ class answer
 
 		unset($args['sendmessage']);
 
+		if($is_note)
+		{
+			$args['type'] = 'note';
+		}
+
 		$message_id = \dash\db\tickets\insert::new_record($args);
 
 		if(!$message_id)
@@ -59,7 +72,11 @@ class answer
 		}
 
 		$update_master           = [];
-		$update_master['status'] = 'answered';
+
+		if(!$is_note)
+		{
+			$update_master['status'] = 'answered';
+		}
 
 		if(!a($master, 'answertime') && a($master, 'datecreated'))
 		{
@@ -76,7 +93,10 @@ class answer
 			$plus = 1; // error. Bug. But need this variable :/
 		}
 
-		\dash\db\tickets\update::update($update_master, $master['id']);
+		if(!empty($update_master))
+		{
+			\dash\db\tickets\update::update($update_master, $master['id']);
+		}
 
 		$log =
 		[
