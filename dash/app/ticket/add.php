@@ -88,6 +88,16 @@ class add
 			return false;
 		}
 
+		$log =
+		[
+			'from'     => $args['user_id'] ? $args['user_id'] : null,
+			'code'     => $ticket_id,
+			'masterid' => $ticket_id,
+			'via'      => null,
+		];
+
+		\dash\log::set('ticket_addNewTicket', $log);
+
 		$result = [];
 		$result['id'] = $ticket_id;
 
@@ -211,6 +221,17 @@ class add
 			\dash\notif::error(T_("Can not add your ticket"));
 			return false;
 		}
+
+
+		// $log =
+		// [
+		// 	'from'     => $args['user_id'] ? $args['user_id'] : null,
+		// 	'code'     => $ticket_id,
+		// 	'masterid' => $ticket_id,
+		// 	'via'      => null,
+		// ];
+
+		// \dash\log::set('ticket_addNewTicket', $log);
 
 		$result = [];
 		$result['id'] = $ticket_id;
