@@ -8,12 +8,12 @@ class model
 
 	public static function post()
 	{
-		// $via     = 'api';
-		$via     = null;
-		$content = \dash\request::input_body('content');
-		$title   = \dash\request::input_body('title');
-		$file    = null;
-		$result  = \content_support\ticket\add\model::add_new($via, $content, $file, $title);
+		$post            = [];
+		$post['content'] = \dash\request::input_body('content');
+		$post['title']   = \dash\request::input_body('title');
+		$post['via']     = 'api';
+
+		$result  = \dash\app\ticket\add::add($post);
 
 		\content_b1\tools::say($result);
 	}
