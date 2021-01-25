@@ -85,7 +85,7 @@
       <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/message">
         <i class="sf-align-left"></i>
-        <div class="key"><?php echo T_('All message');?></div>
+        <div class="key"><?php echo T_('All messages');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'message')); ?></div>
         <div class="go"></div>
        </a>
