@@ -6,7 +6,7 @@ class answer
 
 	public static function add($_args, $_id)
 	{
-		\dash\permission::access('crmTicketManager');
+		// \dash\permission::access('crmTicketManager');
 
 		$is_note = false;
 		if(isset($_args['note']) && $_args['note'])
