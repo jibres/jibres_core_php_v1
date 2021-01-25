@@ -50,7 +50,7 @@ class add
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function add($_args)
+	public static function add($_args, $_option = [])
 	{
 
 		$args = \dash\app\ticket\check::variable($_args, null, true);
@@ -101,8 +101,14 @@ class add
 		$result = [];
 		$result['id'] = $ticket_id;
 
-
-		\dash\notif::ok(T_("Ticket added"));
+		if(isset($_option['silent']) && $_option['silent'])
+		{
+			// silent mode !
+		}
+		else
+		{
+			\dash\notif::ok(T_("Ticket added"));
+		}
 		return $result;
 	}
 

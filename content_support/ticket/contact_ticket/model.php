@@ -174,55 +174,22 @@ class model
 
 		];
 
-		$result = \dash\app\ticket::add($args);
+		$result = \dash\app\ticket\add::add($args, ['silent' => true]);
 
 		if(isset($result['id']))
 		{
-			$log =
-			[
-				'from' => \dash\user::id() ? \dash\user::id() : $user_id,
-				'code' => $result['id'],
-				'via'  => 'contact',
-			];
-
-			\dash\log::set('ticket_addNewTicket', $log);
-		}
-
-
-		if(\dash\user::login())
-		{
-			if(isset($result['id']))
-			{
-
-				$ticket_link = '<a href="'. \dash\url::site(). '/support/ticket/show?id='. $result['id'].'">'. T_("You can check your contacting answer here") .'</a>';
-				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link, ['target' => '.showContactNotif']);
-				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link);
-				// \dash\redirect::pwd();
-			}
-			else
-			{
-				// just if we have error run this code
-				\dash\log::set('contactUsLoginNotSave');
-				\dash\notif::error(T_("We could'nt save the contact"));
-			}
+			$ticket_link = '<a href="'. \dash\url::kingdom(). '/support/ticket/view?id='. $result['id'].'">'. T_("You can check your contacting answer here") .'</a>';
+			\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link, ['target' => '.showContactNotif']);
+			\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link);
+			// \dash\redirect::pwd();
 		}
 		else
 		{
-			if(isset($result['codeurl']))
-			{
-				\dash\session::set('temp_ticket_codeurl', $result['codeurl']);
-				$ticket_link = '<a href="'. $result['codeurl'].'">'. T_("You can check your contacting answer here") .'</a>';
-				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link, ['target' => '.showContactNotif']);
-				\dash\notif::ok(T_("Thank You For contacting us"). ' '. $ticket_link);
-				// \dash\redirect::pwd();
-
-			}
-			else
-			{
-				\dash\log::set('contactFail');
-				\dash\notif::error(T_("We could'nt save the contact"));
-			}
+			// just if we have error run this code
+			\dash\log::set('contactUsLoginNotSave');
+			\dash\notif::error(T_("We could'nt save the contact"));
 		}
+
 	}
 }
 ?>
