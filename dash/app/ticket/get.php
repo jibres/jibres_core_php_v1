@@ -18,7 +18,7 @@ class get
 
 	public static function get($_id)
 	{
-		\dash\permission::access('crmTicketManager');
+		\dash\permission::access('crmShowTicketsList');
 
 		$load = self::inline_get($_id);
 

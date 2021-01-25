@@ -1000,9 +1000,9 @@ class TransStatic
 	echo T_("supportTagEdit");
 	echo T_("supportTagDelete");
 	echo T_("supportDeleteTicket");
-	echo T_("supportTicketAnswer");
+	echo T_("crmTicketManager");
 	echo T_("supportTicketAddTag");
-	echo T_("supportTicketAnswerOtherSubdomain");
+	echo T_("crmTicketManagerOtherSubdomain");
 	echo T_("supportTicketChangeStatus");
 	echo T_(":displayname add new ticket in :domain");
 
@@ -1038,7 +1038,7 @@ class TransStatic
 	echo T_("supportTicketShowLog");
 	echo T_("supportTicketManage");
 	echo T_("supportTicketManageSubdomain");
-	echo T_("supportTicketAnswer");
+	echo T_("crmTicketManager");
 	echo T_("supportEditMessage");
 	echo T_("supportDeleteMessage");
 	echo T_("supportTicketShowMobile");

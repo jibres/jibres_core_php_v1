@@ -28,16 +28,7 @@ class controller
 					'limit'  => 1
 				];
 
-
-				if(\dash\permission::check('cpHelpCenterEditForOthers'))
-				{
-					$check_arg['status']   = ["NOT IN", "('deleted')"];
-				}
-				else
-				{
-					$check_arg['status'] = 'publish';
-				}
-
+				$check_arg['status'] = 'publish';
 
 				$check = \dash\db\posts::get($check_arg);
 				if($check)

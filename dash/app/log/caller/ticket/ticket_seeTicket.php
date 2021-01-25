@@ -31,7 +31,7 @@ class ticket_seeTicket
 
 	public static function send_to()
 	{
-		return ['supportTicketAnswer'];
+		return ['crmTicketManager'];
 	}
 
 	public static function expire()

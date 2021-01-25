@@ -180,6 +180,7 @@ class plan_list
 
 		$master['crmShowTicketsList']           = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmShowTicketsList', 			'title' => T_('Show Tickets List'), 'require' => []];
 		$master['crmTicketManager']             = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmTicketManager', 			'title' => T_('Ticket Manager'), 'require' => []];
+
 		$master['crmAddNewNotification']        = ['jibres' => false, 'business' => true,  'group' => 'crm', 		'caller' => 'crmAddNewNotification', 		'title' => T_('Add New Notification'), 'require' => []];
 
 
@@ -201,26 +202,9 @@ class plan_list
 
 		$master['cmsSetting']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsSetting',	 				'title' => T_('CMS customization'), 'require' => []];
 
-		// --------------- Need to check
-
-		$master['cpTagSupportEdit']             = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'cpTagSupportEdit', 			'title' => T_('Manage tag'), 'require' => []];
-		$master['cpHelpCenterEdit']             = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'cpHelpCenterEdit', 			'title' => T_('Help center'), 'require' => []];
-		$master['supportTicketManage']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketManage', 			'title' => T_('supportTicketManage'), 'require' => []];
-		$master['supportTicketAddNote']         = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketAddNote', 		'title' => T_('supportTicketAddNote'), 'require' => []];
-		$master['supportEditMessage']           = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportEditMessage', 			'title' => T_('supportEditMessage'), 'require' => []];
-		$master['supportTicketSignature']       = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketSignature', 		'title' => T_('supportTicketSignature'), 'require' => []];
-		$master['cpHelpCenterEditForOthers']    = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'cpHelpCenterEditForOthers', 	'title' => T_('cpHelpCenterEditForOthers'), 'require' => []];
-		$master['supportTicketAnswer']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketAnswer', 			'title' => T_('supportTicketAnswer'), 'require' => []];
-		$master['supportTicketManageSubdomain'] = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketManageSubdomain', 'title' => T_('supportTicketManageSubdomain'), 'require' => []];
-		$master['supportTicketAssignTag']       = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketAssignTag', 		'title' => T_('supportTicketAssignTag'), 'require' => []];
-		$master['supportTicketClose']           = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketClose', 			'title' => T_('supportTicketClose'), 'require' => []];
-		$master['supportTicketReOpen']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketReOpen', 			'title' => T_('supportTicketReOpen'), 'require' => []];
-		$master['supportTicketDelete']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketDelete', 			'title' => T_('supportTicketDelete'), 'require' => []];
-		$master['supportTicketShowMobile']      = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketShowMobile', 		'title' => T_('supportTicketShowMobile'), 'require' => []];
-		$master['supportTicketReport']          = ['jibres' => true,  'business' => true,  'group' => 'support', 	'caller' => 'supportTicketReport', 			'title' => T_('supportTicketReport'), 'require' => []];
-
 		return $master;
 	}
+
 
 
 }

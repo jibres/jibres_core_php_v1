@@ -23,11 +23,6 @@ class view
 
 			self::help_center();
 
-			// if have permission show edit link
-			if(\dash\permission::check('cpHelpCenterEdit'))
-			{
-				\dash\face::btnSetting(\dash\url::kingdom(). '/cms/help/edit?id='. \dash\data::dataRow_id());
-			}
 
 		}
 		else
@@ -120,14 +115,6 @@ class view
 		$random_faq_args = ['type' => 'help', 'limit' => 5, 'tag' => 'faq', 'random' => true];
 
 
-		if(\dash\permission::check('cpHelpCenterEditForOthers'))
-		{
-			// $get_posts_term['status']   = ["NOT IN", "('deleted')"];
-		}
-		else
-		{
-			// $get_posts_term['status']   = 'publish';
-		}
 
 		$search = \dash\request::get('q');
 		$search = \dash\validate::search($search, false);

@@ -46,7 +46,7 @@ class ticket_AnswerTicket
 
 	public static function send_to()
 	{
-		return ['supportTicketAnswer'];
+		return ['crmTicketManager'];
 	}
 
 	public static function is_notif()
