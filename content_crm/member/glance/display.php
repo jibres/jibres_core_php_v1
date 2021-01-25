@@ -168,7 +168,7 @@ if(a($dataRowMember,  'status') === 'ban')
           <ul>
           <?php  foreach (a($dashboardDetail, 'last_5_ticket') as $key => $value) { ?>
              <li>
-              <a class="item f" href="<?php echo \dash\url::kingdom(). '/support/ticket/show?id='. $value['id'] ?>">
+              <a class="item f" href="<?php echo \dash\url::here(). '/ticket/view?id='. $value['id'] ?>">
                 <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::number(a($value, 'id'));?></div>
                 <div class="value"><?php echo \dash\fit::date_human(a($value, 'datecreated'));?></div>
                 <div class="go"></div>
