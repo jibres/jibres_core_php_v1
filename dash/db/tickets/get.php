@@ -3,6 +3,25 @@ namespace dash\db\tickets;
 
 class get
 {
+	public static function count_unanswered_ticket()
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				tickets
+			WHERE
+				tickets.parent  IS NULL AND
+				tickets.status = 'awaiting'
+		";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+
+	}
+
+
 	public static function conversation($_id, $_customer_mode = false)
 	{
 		$note = null;

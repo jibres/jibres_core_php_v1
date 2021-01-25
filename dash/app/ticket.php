@@ -28,16 +28,6 @@ class ticket
 
 
 
-	public static function check_unanswer_ticket()
-	{
-		$count_unanswered_ticket = \dash\db\tickets::count_unanswered_ticket();
-
-		$count_unanswered_ticket = intval($count_unanswered_ticket);
-		if($count_unanswered_ticket > 0)
-		{
-			\dash\log::set('ticket_notAnsweredTicket', ['my_count' => $count_unanswered_ticket]);
-		}
-	}
 
 
 	public static function get_user_in_ticket($_ticket_detail)

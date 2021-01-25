@@ -84,7 +84,7 @@ class controller
 
 			if(self::in_hour(['07', '09', '11', '13', '15', '17', '19', '21', '23']))
 			{
-				\dash\app\ticket::check_unanswer_ticket();
+				\dash\app\ticket\get::check_unanswer_ticket();
 			}
 
 			// get nic pull request every 5 min
