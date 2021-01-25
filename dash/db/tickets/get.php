@@ -42,25 +42,6 @@ class get
 
 
 
-	public static function last_ticket_user($_user_id)
-	{
-
-		$query =
-		"
-			SELECT * FROM tickets
-			WHERE
-				tickets.type   = 'ticket' AND
-				tickets.parent IS NULL AND
-				tickets.user_id = $_user_id
-			ORDER BY tickets.id DESC
-			LIMIT 5
-		";
-
-		$result = \dash\db::get($query);
-		return $result;
-
-	}
-
 
 	public static function conversation($_id, $_customer_mode = false)
 	{

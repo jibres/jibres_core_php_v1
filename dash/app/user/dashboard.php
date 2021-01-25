@@ -117,13 +117,11 @@ class dashboard
 			$ticket = 0;
 		}
 
-		$last_5_ticket = \dash\db\tickets\get::last_ticket_user($user_id);
+		$last_5_ticket = \dash\app\ticket\search::last_ticket_user($user_id);
 		if(!is_array($last_5_ticket))
 		{
 			$last_5_ticket = [];
 		}
-
-		$last_5_ticket = array_map(['\\dash\\app\\ticket', 'ready'], $last_5_ticket);
 
 
 

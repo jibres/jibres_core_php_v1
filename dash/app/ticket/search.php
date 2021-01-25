@@ -19,6 +19,20 @@ class search
 	}
 
 
+	public static function last_ticket_user($_user_id)
+	{
+		$args =
+		[
+			'user'       => \dash\coding::encode($_user_id),
+			'sort'       => 'datemodified',
+			'order'      => 'desc',
+			'limit'      => 5,
+			'pagination' => 'n',
+		];
+
+		return self::list(null, $args, true);
+	}
+
 	public static function list($_query_string, $_args, $_force = false)
 	{
 		if(!$_force)
@@ -34,6 +48,7 @@ class search
 			'so'            => 'y_n',
 			'user'          => 'code',
 			'limit'         => 'int',
+			'pagination'    => 'y_n',
 			'customer_mode' => 'bit',
 			'message_mode'  => 'bit',
 		];
@@ -52,6 +67,11 @@ class search
 		if($data['limit'])
 		{
 			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
 		}
 
 		if($data['message_mode'])
