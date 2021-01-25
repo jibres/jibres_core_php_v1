@@ -32,17 +32,16 @@ class filter
 
 		$list = [];
 
-		$list['awaiting']  = ['key' => 'awaiting', 	'group' => T_("Status"), 'title' => T_('Awaiting'), 	'query' => ['status' => 'awaiting'], 	'public' => true];
-		$list['answered']  = ['key' => 'answered', 	'group' => T_("Status"), 'title' => T_('Answered'), 	'query' => ['status' => 'answered'], 	'public' => true];
-		$list['close']     = ['key' => 'close', 	'group' => T_("Status"), 'title' => T_('Closed'), 		'query' => ['status' => 'close'], 	'public' => true];
+		$list['awaiting']  = ['key' => 'awaiting', 	'group' => T_("Status"), 'title' => T_('Awaiting'),  'query' => ['status' => 'awaiting'], 	'public' => true];
+		$list['answered']  = ['key' => 'answered', 	'group' => T_("Status"), 'title' => T_('Answered'),  'query' => ['status' => 'answered'], 	'public' => true];
+		$list['close']     = ['key' => 'close', 	'group' => T_("Status"), 'title' => T_('Closed'), 	 'query' => ['status' => 'close'], 		'public' => true];
 
 		if($_module !== 'website')
 		{
-			$list['spam']      = ['key' => 'spam', 		'group' => T_("Status"), 'title' => T_('Spam'), 		'query' => ['status' => 'spam'], 	'public' => true];
-			$list['deleted']   = ['key' => 'deleted', 	'group' => T_("Status"), 'title' => T_('Deleted'), 		'query' => ['status' => 'deleted'], 	'public' => true];
-			$list['solved']    = ['key' => 'solved', 	'group' => T_("Solved"), 'title' => T_('Solved ticket'), 'query' => ['so' => 'y'], 	'public' => true];
-			$list['notsolved'] = ['key' => 'notsolved', 'group' => T_("Solved"), 'title' => T_('Un Solved ticket'), 'query' => ['so' => 'n'], 	'public' => true];
-
+			$list['spam']      = ['key' => 'spam', 		'group' => T_("Status"), 'title' => T_('Spam'), 			'query' => ['status' => 'spam'], 	'public' => true];
+			$list['deleted']   = ['key' => 'deleted', 	'group' => T_("Status"), 'title' => T_('Deleted'), 			'query' => ['status' => 'deleted'], 'public' => true];
+			$list['solved']    = ['key' => 'solved', 	'group' => T_("Solved"), 'title' => T_('Solved ticket'), 	'query' => ['so' => 'y'], 			'public' => true];
+			$list['notsolved'] = ['key' => 'notsolved', 'group' => T_("Solved"), 'title' => T_('Un Solved ticket'), 'query' => ['so' => 'n'], 			'public' => true];
 		}
 
 		return $list;
