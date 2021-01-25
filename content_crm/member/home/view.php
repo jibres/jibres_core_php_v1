@@ -31,6 +31,7 @@ class view
 			'hm'        => \dash\request::get('hm'),
 			'ho'        => \dash\request::get('ho'),
 			'hc'        => \dash\request::get('hc'),
+			'hp'        => \dash\request::get('hp'),
 			'show_type' => 'all',
 		];
 

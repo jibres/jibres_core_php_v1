@@ -25,6 +25,7 @@ class search
 			'hm'        => 'y_n',
 			'ho'        => 'y_n',
 			'hc'        => 'y_n',
+			'hp'        => 'y_n',
 		];
 
 		$require = [];
@@ -57,6 +58,18 @@ class search
 		elseif($data['hm'] === 'n')
 		{
 			$and[] = " users.mobile IS NULL ";
+			self::$is_filtered = true;
+
+		}
+
+		if($data['hp'] === 'y')
+		{
+			$and[] = " users.permission IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['hp'] === 'n')
+		{
+			$and[] = " users.permission IS NULL ";
 			self::$is_filtered = true;
 
 		}
