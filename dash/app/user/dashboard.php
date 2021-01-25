@@ -110,14 +110,14 @@ class dashboard
 			$balance = 0;
 		}
 
-		$ticket = \dash\db\tickets::count_user_ticket($user_id);
+		$ticket = \dash\db\tickets\get::count_user_ticket($user_id);
 
 		if(!is_numeric($ticket))
 		{
 			$ticket = 0;
 		}
 
-		$last_5_ticket = \dash\db\tickets::last_ticket_user($user_id);
+		$last_5_ticket = \dash\db\tickets\get::last_ticket_user($user_id);
 		if(!is_array($last_5_ticket))
 		{
 			$last_5_ticket = [];

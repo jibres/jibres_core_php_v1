@@ -45,7 +45,7 @@ class support_tools
 		{
 			if(isset($_args['code']))
 			{
-				self::$load = \dash\db\tickets::get(['id' => $_args['code'], 'limit' => 1]);
+				self::$load = \dash\app\ticket\get::inline_get($_args['code']);
 			}
 		}
 

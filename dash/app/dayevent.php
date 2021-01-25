@@ -60,8 +60,8 @@ class dayevent
 		$result['agent']                  = floatval(\dash\db\agents::get_count());
 		$result['session']                = floatval(\dash\db\login\get::get_count_all());
 		$result['urls']                   = floatval(\dash\db\visitors::url_get_count());
-		$result['ticket']                 = floatval(\dash\db\tickets::get_count(['parent' => null]));
-		$result['ticket_message']         = floatval(\dash\db\tickets::get_count(['parent' => ['IS NOT', 'NULL']]));
+		$result['ticket']                 = floatval(\dash\db\tickets\get::count_ticket());
+		$result['ticket_message']         = floatval(\dash\db\tickets\get::count_message());
 		$result['comment']                = floatval(\dash\db\comments::get_count());
 		$result['address']                = floatval(\dash\db\address::get_count());
 
