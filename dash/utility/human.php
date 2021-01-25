@@ -149,7 +149,7 @@ class human
 				$result = $hour.' '. T_('hour');
 				if($min)
 				{
-					$result .= T_(', :min minute', ['min'=> $min]);
+					$result .= ' '. T_(', :min minute', ['min'=> $min]);
 				}
 			}
 			else if(is_numeric($min) && $min)

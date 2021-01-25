@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcmsticket" class="box chart x310 s0" data-abc='crm/tickets'>
+    <div id="chartdivcmsticket" class="box chart x350 s0" data-abc='crm/tickets'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="charttickettitle"><?php echo T_("Ticket") ?></div>
@@ -92,6 +92,22 @@
       </li>
      </ul>
    </nav>
+
+
+   <nav class="items long">
+     <ul>
+      <li>
+       <a class="item f">
+        <i class="sf-clock"></i>
+        <div class="key"><?php echo T_('The average time of the first response');?></div>
+        <div class="value"><?php echo \dash\utility\human::time(a($dashboardDetail, 'answertime'), true); ?></div>
+        <div class="go detail"></div>
+       </a>
+      </li>
+     </ul>
+   </nav>
+
+
 
 
   </div>

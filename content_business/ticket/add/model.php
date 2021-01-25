@@ -9,6 +9,7 @@ class model
 		[
 			'title'   => \dash\request::post('title'),
 			'content' => \dash\request::post('content'),
+			'via'     => 'site',
 		];
 
 		$result = \dash\app\ticket\add::add($post);

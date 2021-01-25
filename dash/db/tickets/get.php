@@ -164,6 +164,15 @@ class get
 
 
 
+	public static function avg_answertime()
+	{
+		$query = "SELECT AVG(tickets.answertime) AS `answertime` FROM tickets WHERE tickets.status NOT IN ('deleted', 'spam') AND tickets.parent IS NULL AND tickets.answertime IS NOT NULL ";
+		$result = \dash\db::get($query, 'answertime', true);
+		return floatval($result);
+	}
+
+
+
 	public static function chart_by_date_fa($_enddate, $_month_list, $_message = false)
 	{
 		$CASE = [];
