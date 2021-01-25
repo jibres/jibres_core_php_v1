@@ -72,6 +72,7 @@ $customer_mode = \dash\temp::get('customer_mode');
         <div class="go <?php if(\dash\data::dataRow_solved()){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
     </li>
+    <?php if(\dash\data::dataRow_ip()) {?>
     <li>
       <a target="_blank" class="f item" href="<?php echo \dash\url::jibres_domain(). 'ip/'. \dash\utility\convert::to_en_number(\dash\data::dataRow_prettyip()) ?>">
         <div class="key"><?php echo T_("IP") ?></div>
@@ -79,6 +80,7 @@ $customer_mode = \dash\temp::get('customer_mode');
         <div class="go detail"></div>
       </a>
     </li>
+  <?php } //endif ?>
   <?php } // endif ?>
     <?php if(\dash\data::dataRow_base()) {?>
     <li class="">

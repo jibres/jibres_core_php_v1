@@ -35,6 +35,7 @@ class search
 			'user'          => 'code',
 			'limit'         => 'int',
 			'customer_mode' => 'bit',
+			'message_mode'  => 'bit',
 		];
 
 		$require = [];
@@ -53,7 +54,14 @@ class search
 			$meta['limit'] = $data['limit'];
 		}
 
-		$and[] = " tickets.parent IS NULL ";
+		if($data['message_mode'])
+		{
+			// nothing
+		}
+		else
+		{
+			$and[] = " tickets.parent IS NULL ";
+		}
 
 		if($data['status'])
 		{
