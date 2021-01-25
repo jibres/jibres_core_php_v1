@@ -139,7 +139,7 @@ foreach (\dash\data::conversation() as $key => $value)
        {
         echo '<div class="txtB fc-mute">'. T_("Note"). '</div>';
        }
-       echo a($value, 'content');
+       echo nl2br(a($value, 'content'));
        echo '</div>';
       ?>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>

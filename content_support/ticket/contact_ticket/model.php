@@ -75,27 +75,9 @@ class model
 
 		$args = array_merge($default_args, $args);
 
-		$content = \dash\validate::desc($args["content"]);
+		$content = $args['content'];
 
-		// check content
-		if($content == '' || !trim($content))
-		{
-			\dash\notif::error(T_("Please try type something!"), "content");
-			return false;
-		}
 
-		if(strip_tags(\dash\request::post_raw('content')) != \dash\request::post_raw('content'))
-		{
-			\dash\session::set('ticket_load_page_time', time());
-			\dash\header::status(422, T_("You try to add some html code!"));
-		}
-
-		$count_http  = substr_count($content, 'http://');
-		$count_https = substr_count($content, 'https://');
-		if($count_https + $count_http >= 2)
-		{
-			\dash\header::status(422, T_("Can not set 2 link in one message!"));
-		}
 
 		$mobile      = null;
 		$displayname = null;
@@ -134,39 +116,10 @@ class model
 			$content = $content_temp. $content;
 		}
 
-		/**
-		 * register user if set mobile and not register
-		 */
-		if($mobile && !\dash\user::login())
-		{
 
-			// check existing mobile
-			$exists_user = \dash\db\users::get_by_mobile($mobile);
-
-			// register if the mobile is valid
-			if(!$exists_user || empty($exists_user))
-			{
-				// signup user by site_guest
-				$user_id = \dash\app\user::quick_add(['mobile' => $mobile, 'displayname' => $displayname]);
-
-				if(!$user_id)
-				{
-					$user_id = null;
-				}
-
-				// save log by caller 'user:send:contact:register:by:mobile'
-				\dash\log::set('contactRegisterByMobile');
-			}
-			elseif(isset($exists_user['id']))
-			{
-				$user_id = $exists_user['id'];
-			}
-
-		}
 
 		$args =
 		[
-			'type'    => 'ticket',
 			'via'     => 'contact',
 			'content' => $content,
 			'title'   => \dash\temp::get('tempTicketTitle') ? \dash\temp::get('tempTicketTitle') : T_("Contact Us"),
