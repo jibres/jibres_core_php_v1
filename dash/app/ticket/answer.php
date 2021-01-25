@@ -92,7 +92,7 @@ class answer
 		$log =
 		[
 			'masterid' => $master['id'],
-			'code'     => $master['id'],
+			'code'     => $message_id,
 			'plus'     => $plus,
 			'from'     => \dash\user::id(),
 		];
