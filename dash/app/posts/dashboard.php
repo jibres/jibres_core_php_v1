@@ -104,7 +104,7 @@ class dashboard
 		else
 		{
 			$get_detail_publish = \dash\db\posts\get::chart_by_date_en($last_12_month, 'publish');
-			$get_detail_draft   = \dash\db\posts\get::chart_by_date_en($last_12_month, 'publish');
+			$get_detail_draft   = \dash\db\posts\get::chart_by_date_en($last_12_month, 'draft');
 
 			for ($i=0; $i < 12 ; $i++)
 			{

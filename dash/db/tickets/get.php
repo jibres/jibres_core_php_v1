@@ -164,6 +164,69 @@ class get
 
 
 
+	public static function chart_by_date_fa($_enddate, $_month_list, $_message = false)
+	{
+		$CASE = [];
+		foreach ($_month_list as $month => $date)
+		{
+			$CASE[] = "WHEN tickets.datecreated >= '$date[0] 00:00:00' AND tickets.datecreated <= '$date[1] 23:59:59' THEN '$month'";
+		}
+
+		$CASE = " CASE ". implode(" ", $CASE). "  ELSE '0' END ";
+
+		$where = ' AND tickets.parent IS NULL ';
+		if($_message)
+		{
+			$where = null;
+		}
+
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				$CASE AS `month`
+			FROM
+				tickets
+			WHERE
+				tickets.datecreated >= '$_enddate'
+				$where
+			GROUP BY $CASE
+		";
+		$result = \dash\db::get($query, ['month', 'count']);
+		return $result;
+	}
+
+
+
+	public static function chart_by_date_en($_enddate, $_message = false)
+	{
+		$where = ' AND tickets.parent IS NULL ';
+		if($_message)
+		{
+			$where = null;
+		}
+
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				MONTH(tickets.datecreated) AS `month`
+			FROM
+				tickets
+			WHERE
+				tickets.datecreated >= '$_enddate'
+				$where
+
+			GROUP BY MONTH(tickets.datecreated)
+		";
+
+		$result = \dash\db::get($query, ['month', 'count']);
+
+		return $result;
+	}
+
+
+
 
 
 }
