@@ -29,7 +29,7 @@ class get
 		"
 			SELECT COUNT(*) AS `count` FROM tickets
 			WHERE
-				tickets.type   = 'ticket' AND
+				tickets.status NOT IN ('deleted', 'spam') AND
 				tickets.parent IS NULL AND
 				(tickets.solved = 0 OR tickets.solved IS NULL) AND
 				tickets.user_id = $_user_id

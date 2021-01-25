@@ -32,7 +32,7 @@ class dashboard
 		}
 
 		$last_order        = null;
-		$active_order      = null;
+		$active_order      = 0;
 		$cart_count        = null;
 		$average_order_pay = null;
 		$total_order_pay   = null;

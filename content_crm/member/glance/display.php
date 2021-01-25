@@ -45,8 +45,8 @@ if(a($dataRowMember,  'status') === 'ban')
       </a>
      </div>
      <div class="c-xs-6 c-sm-4">
-      <a href="<?php echo \dash\url::kingdom(). '/support/ticket?user='. \dash\request::get('id') ?>" class="stat">
-       <h3><?php echo T_("Active Ticket");?></h3>
+      <a href="<?php echo \dash\url::here(). '/ticket/datalist?user='. \dash\request::get('id') ?>" class="stat">
+       <h3><?php echo T_("Tickets");?></h3>
        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'active_ticket'));?></div>
       </a>
      </div>
@@ -169,7 +169,7 @@ if(a($dataRowMember,  'status') === 'ban')
           <?php  foreach (a($dashboardDetail, 'last_5_ticket') as $key => $value) { ?>
              <li>
               <a class="item f" href="<?php echo \dash\url::here(). '/ticket/view?id='. $value['id'] ?>">
-                <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::number(a($value, 'id'));?></div>
+                <div class="key"><?php echo T_("Ticket"). ' #'. \dash\fit::text(a($value, 'id'));?></div>
                 <div class="value"><?php echo \dash\fit::date_human(a($value, 'datecreated'));?></div>
                 <div class="go"></div>
               </a>
@@ -309,7 +309,7 @@ if(a($dataRowMember,  'status') === 'ban')
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::here(). '/ticket?user='. \dash\request::get('id') ?>">
+          <a class="item f" href="<?php echo \dash\url::here(). '/ticket/datalist?user='. \dash\request::get('id') ?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
           </a>
