@@ -42,7 +42,7 @@ class get
 
 
 
-	public static function my_ticket($_id = null)
+	public static function my_ticket($_id = null, $_website_mode = false)
 	{
 		if($_id)
 		{
@@ -66,7 +66,15 @@ class get
 			$guestid = \dash\user::get_user_guest();
 			if(!$guestid)
 			{
-				return false;
+				if($_website_mode)
+				{
+					// redirect to login to login user and see it
+					\dash\redirect::to_login();
+				}
+				else
+				{
+					return false;
+				}
 			}
 		}
 

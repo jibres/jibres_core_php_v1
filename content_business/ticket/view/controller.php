@@ -11,7 +11,7 @@ class controller
 
 		\dash\temp::set('customer_mode', true);
 
-		$load = \dash\app\ticket\get::my_ticket();
+		$load = \dash\app\ticket\get::my_ticket(null, true);
 
 		if(!$load)
 		{
