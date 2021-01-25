@@ -19,7 +19,7 @@ class search
 		[
 			'order'     => 'order',
 			'sort'      => 'string_50',
-			'status'    => ['enum' => ['sale', 'buy', 'saleorder']],
+			'status'    => ['enum' => ['active','awaiting','deactive','removed','filter','unreachable', 'ban', 'block']],
 			'show_type' => ['enum' => ['staff', 'all']],
 
 			'hm'        => 'y_n',
@@ -92,6 +92,12 @@ class search
 				self::$is_filtered = true;
 
 			}
+		}
+
+		if($data['status'])
+		{
+			$and[] = " users.status = '$data[status]' ";
+			self::$is_filtered = true;
 		}
 
 

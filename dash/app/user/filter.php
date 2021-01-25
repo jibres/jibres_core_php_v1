@@ -21,6 +21,8 @@ class filter
 		$list['havemobile']    = ['key' => 'havemobile', 	'group' => T_("Identify"), 'title' => T_('Have Mobile'), 	'query' => ['hm' => 'y'], 	'public' => true];
 		$list['havenotmobile'] = ['key' => 'havenotmobile', 'group' => T_("Identify"), 'title' => T_('Have Not Mobile'), 	'query' => ['hm' => 'n'], 	'public' => true];
 
+		$list['ban'] = ['key' => 'ban', 'group' => T_("Status"), 'title' => T_('Banned user'), 	'query' => ['status' => 'ban'], 	'public' => true];
+
 		if(\dash\engine\store::inStore())
 		{
 			$list['haveorder']    = ['key' => 'haveorder', 		'group' => T_("Order"), 'title' => T_('Have Order'), 	 'query' => ['ho' => 'y'], 	'public' => true];

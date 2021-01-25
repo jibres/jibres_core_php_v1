@@ -7,18 +7,25 @@ class model
 
 	public static function post()
 	{
-		$user_id = \dash\coding::decode(\dash\request::get('id'));
 
-		if(\dash\request::post('deleteuser') === 'DeleteUserYN' && \dash\permission::supervisor())
+		if(\dash\request::post('resetban') === 'resetban')
 		{
-			$removed = \dash\app\user::delete_user($user_id);
-			if($removed)
+			$post =
+			[
+				'status' => 'awaiting',
+				'ban_expire' => null,
+			];
+
+			\dash\app\user::edit($post, \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
 			{
-				\dash\notif::ok(T_("User removed"));
 				\dash\redirect::pwd();
 			}
-			return false;
 		}
+
+
+
 
 
 	}

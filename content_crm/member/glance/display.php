@@ -2,8 +2,38 @@
 $myID = '?id='. \dash\request::get('id');
 $dashboardDetail = \dash\data::dashboardDetail();
 
+$dataRowMember = \dash\data::dataRowMember();
+
+if(a($dataRowMember,  'status') === 'ban')
+{
+  $banMessage = '';
+  $banMessage .= '<div class="msg danger2 font-14 "><div class="row align-center">';
+  {
+    $banMessage .= '<div class="cauto">';
+    {
+      $banMessage .= T_("This user is banned");
+      if(a($dataRowMember, 'ban_expire'))
+      {
+        $banMessage .= ' '. T_("Expire ban on"). ' '. \dash\fit::date_time(a($dataRowMember, 'ban_expire'));
+      }
+    }
+    $banMessage .='</div>';
+    $banMessage .= '<div class="c"></div>';
+
+    $banMessage .= '<div class="cauto">';
+    {
+      $banMessage .= '<div class="btn success" data-confirm data-data=\'{"resetban": "resetban"}\'>'. T_("Reset user now"). '</div>';
+    }
+    $banMessage .='</div>';
+  }
+  $banMessage .='</div></div>';
+
+  echo $banMessage;
+}
 
 ?>
+
+
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
 
