@@ -36,7 +36,7 @@ $customer_mode = \dash\temp::get('customer_mode');
       <a class="f item">
         <div class="key"><?php echo T_("Ticket ID") ?></div>
         <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
-        <div class="go detail ok"></div>
+        <div class="go detail"></div>
       </a>
     </li>
   <?php if($customer_mode && !\dash\data::dataRow_title()) {/*Not display title*/}else{?>

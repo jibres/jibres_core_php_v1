@@ -117,6 +117,11 @@ class search
 
 		if($query_string)
 		{
+			if($isInt = \dash\validate::int($query_string, false))
+			{
+				$or[] = " tickets.id = '$isInt' ";
+			}
+
 			$or[] = " tickets.title LIKE '%$query_string%' ";
 			$or[] = " tickets.content LIKE '%$query_string%' ";
 			$or[] = " users.mobile LIKE '%$query_string%' ";
