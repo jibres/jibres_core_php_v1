@@ -81,11 +81,23 @@ class template
 		if(substr($mymodule, 0, 1) === '!')
 		{
 			$supportCode = substr($mymodule, 1);
-			// create url of support
-			$support_link = \dash\url::kingdom(). '/support/ticket/show?id='.$supportCode;
-			// redirect to new address
-			\dash\redirect::to($support_link);
-			return true;
+
+			if($supportCode = \dash\validate::id($supportCode, false))
+			{
+				if(\dash\engine\store::inStore())
+				{
+					// create url of support
+					$support_link = \dash\url::kingdom(). '/ticket/view?id='.$supportCode;
+				}
+				else
+				{
+					// create url of support
+					$support_link = \dash\url::kingdom(). '/support/ticket/view?id='.$supportCode;
+				}
+				// redirect to new address
+				\dash\redirect::to($support_link);
+				return true;
+			}
 		}
 
 		return false;

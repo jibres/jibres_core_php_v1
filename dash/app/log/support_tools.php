@@ -9,7 +9,14 @@ class support_tools
 	public static function ticket_short_link_admin($_id)
 	{
 		$link = '';
-		$link .= \dash\url::kingdom();
+		if(\dash\engine\store::inStore())
+		{
+			$link .= \lib\store::admin_url();
+		}
+		else
+		{
+			$link .= \dash\url::kingdom();
+		}
 		$link .= '/crm/ticket/view?id='. $_id;
 
 		return $link;
