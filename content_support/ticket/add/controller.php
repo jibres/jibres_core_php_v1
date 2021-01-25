@@ -1,13 +1,8 @@
 <?php
 namespace content_support\ticket\add;
 
-class controller
+class controller extends \content_business\ticket\add\controller
 {
-	public static function routing()
-	{
-		\dash\utility\ip::check(true);
 
-		\dash\csrf::set();
-	}
 }
 ?>

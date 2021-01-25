@@ -5,6 +5,16 @@ class support_tools
 {
 	private static $load = [];
 
+
+	public static function ticket_short_link_admin($_id)
+	{
+		$link = '';
+		$link .= \dash\url::kingdom();
+		$link .= '/crm/ticket/view?id='. $_id;
+
+		return $link;
+	}
+
 	public static function ticket_short_link($_id)
 	{
 		$link = '';

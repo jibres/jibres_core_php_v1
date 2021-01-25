@@ -18,7 +18,7 @@ class ticket_seeTicket
 		$excerpt .= T_("see ticket");
 
 		$excerpt .= ' ';
-		$excerpt .=	'<a href="'.\dash\app\log\support_tools::ticket_short_link($masterid). '">';
+		$excerpt .=	'<a href="'.\dash\app\log\support_tools::ticket_short_link_admin($masterid). '">';
 		$excerpt .= T_("Show ticket");
 		$excerpt .= ' ';
 		$excerpt .= \dash\fit::text($masterid);

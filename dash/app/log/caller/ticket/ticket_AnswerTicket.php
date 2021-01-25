@@ -27,7 +27,7 @@ class ticket_AnswerTicket
 		}
 
 		$excerpt .= ' ';
-		$excerpt .=	'<a href="'.\dash\app\log\support_tools::ticket_short_link($code). '">';
+		$excerpt .=	'<a href="'.\dash\app\log\support_tools::ticket_short_link_admin($code). '">';
 		$excerpt .= T_("Show ticket");
 		$excerpt .= ' ';
 		$excerpt .= \dash\fit::text($code);
