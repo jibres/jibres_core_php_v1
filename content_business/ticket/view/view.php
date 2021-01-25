@@ -17,7 +17,7 @@ class view
 
 		$ticket_id = \dash\data::dataRow_id();
 
-		$conversation = \dash\app\ticket\get::conversation($ticket_id);
+		$conversation = \dash\app\ticket\get::conversation($ticket_id, true);
 
 		\dash\data::conversation($conversation);
 

@@ -1,44 +1,100 @@
-<?php
-echo '<nav class="items long">';
-  echo '<ul>';
-  foreach (\dash\data::dataTable() as $key => $value)
-  {
-    echo '<li>';
-    echo '<a class="f" href="'. \dash\url::that(). '/view?id='. $value['id']. '">';
-        echo '<div class="key">';
-        {
-          if(a($value, 'solved'))
-          {
-            $fc = 'fc-green';
-          }
-          else
-          {
-            $fc = 'fc-fb';
-          }
+<?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
+<div class="row">
+  <div class="c-xs-12 c-sm-12 c-md-8">
+    <div id="chartdivcrmhome" class="box chart x280 s0" data-abc='crm/homepage'>
+      <div class="hide">
+        <div id="charttitleunit"><?php echo T_("Count") ?></div>
+        <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
+        <div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
 
-          echo '<span class="mRa5">'. T_("Ticket"). ' <span class="'.$fc.'">#'. $value['id']. '</span></span> ';
+        <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
+        <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
+        <div id="chartverify"><?php echo a($dashboardDetail, 'chart', 'verify') ?></div>
+        <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
+      </div>
+    </div>
 
-          if(a($value, 'plus'))
-          {
-            echo ' <span class="badge rounded light s0"> <i class="sf-refresh"></i> '. \dash\fit::number(a($value, 'plus')). '</span>';
-          }
+  </div>
+  <div class="c-xs-12 c-sm-12 c-md-4">
+    <nav class="items long">
+     <ul>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist">
+          <i class="sf-heart-o"></i>
+          <div class="key"><?php echo T_('All tickets');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'tickets')); ?></div>
+          <div class="go search"></div>
+        </a>
+      </li>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/add">
+          <i class="sf-asterisk"></i>
+          <div class="key"><?php echo T_('Add new ticket');?></div>
+          <div class="go plus"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
+   <nav class="items long">
+     <ul>
+      <li>
+       <a class="item f" href="<?php echo \dash\url::this();?>/datalist?status=awaiting">
+        <i class="sf-spin-alt fc-hot"></i>
+        <div class="key"><?php echo T_('Awaiting answer');?></div>
+        <div class="value txtB"><?php echo \dash\fit::number(a($dashboardDetail, 'awaiting')); ?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+       <li>
+       <a class="item f" href="<?php echo \dash\url::this();?>/datalist?status=close">
+        <i class="sf-archive"></i>
+        <div class="key"><?php echo T_('Closed tickets');?></div>
+        <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'close')); ?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+     </ul>
+   </nav>
+
+   <nav class="items long">
+     <ul>
+      <li>
+       <a class="item f" href="<?php echo \dash\url::this();?>/datalist?so=y">
+        <i class="sf-check"></i>
+        <div class="key"><?php echo T_('Solved tickets');?></div>
+        <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'solved')); ?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+       <li>
+       <a class="item f" href="<?php echo \dash\url::this();?>/datalist?so=n">
+        <i class="sf-exclamation-triangle"></i>
+        <div class="key"><?php echo T_('Unsolved tickets');?></div>
+        <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'unsolved')); ?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+     </ul>
+   </nav>
 
 
-          if(a($value, 'title'))
-          {
-            echo  ' <b>'. a($value, 'title'). '</b>';
-          }
-        }
-        echo '</div>';
-        echo '<div class="value">'. \dash\fit::date_time($value['datecreated']). '</div>';
-        echo '<div class="value s0">'. a($value, 'displayname'). '</div>';
-        echo '<div class="value"><img class="avatar" alt="'. a($value, 'displayname'). '" src="'. a($value, 'avatar'). '"></div>';
 
-    echo '</a>';
-    echo '</li>';
+   <nav class="items long">
+     <ul>
+      <li>
+       <a class="item f" href="<?php echo \dash\url::this();?>/message">
+        <i class="sf-align-left"></i>
+        <div class="key"><?php echo T_('All message');?></div>
+        <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'message')); ?></div>
+        <div class="go"></div>
+       </a>
+      </li>
+     </ul>
+   </nav>
 
-  }
-  echo '</ul>';
-echo '</nav>';
-\dash\utility\pagination::html();
-?>
+
+  </div>
+</div>
+
+</div>

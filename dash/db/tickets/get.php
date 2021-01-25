@@ -115,5 +115,56 @@ class get
 
 
 
+	public static function count_awaiting()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_ticket()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status NOT IN ('deleted', 'spam') ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_message()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.status NOT IN ('deleted', 'spam') ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_close()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'close' ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_solved()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE  tickets.status NOT IN ('deleted', 'spam') AND tickets.parent IS NULL AND tickets.solved = 1 ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_unsolved()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.status NOT IN ('deleted', 'spam') AND tickets.parent IS NULL AND (tickets.solved = 0 OR tickets.solved IS NULL) ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+
+
+
 }
 ?>

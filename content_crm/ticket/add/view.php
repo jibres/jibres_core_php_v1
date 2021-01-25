@@ -13,6 +13,5 @@ class view
 		\dash\data::back_link(\dash\url::this());
 	}
 
-
 }
 ?>
