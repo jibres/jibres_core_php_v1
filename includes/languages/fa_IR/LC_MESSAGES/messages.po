@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-25 18:16+0330\n"
-"PO-Revision-Date: 2021-01-25 18:16+0330\n"
+"POT-Creation-Date: 2021-01-25 20:29+0330\n"
+"PO-Revision-Date: 2021-01-25 20:29+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3030,7 +3030,7 @@ msgstr "PWA ساز"
 #: content_crm/telegram/datalist/view.php:12 content_crm/telegram/home/view.php:12
 #: content_crm/ticket/home/view.php:12 content_crm/transactions/view.php:11
 #: content_love/home/display.php:95 dash/plan_list.php:95
-#: includes/languages/trans_static_public.php:1115
+#: includes/languages/trans_static_public.php:1113
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
 
@@ -4557,7 +4557,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_su/tg/sendmessage/view.php:8 content_su/tg/sendphoto/view.php:9
 #: content_su/tg/system/view.php:9 content_su/tg/users/view.php:9
 #: content_su/tg/webhook/view.php:8 content_su/update/view.php:8
-#: content_su/usage/view.php:8 content_support/home/view.php:74
+#: content_su/usage/view.php:8 content_support/home/view.php:69
 #: content_v2/app/view.php:142 dash/engine/view.php:204
 msgid "Back"
 msgstr "بازگشت"
@@ -4995,8 +4995,9 @@ msgstr "ویرایش"
 #: content_account/api/display.php:16 content_business/p/home/display.php:154
 #: content_cms/comments/view/display.php:182 content_crm/member/permission/display.php:56
 #: content_crm/permission/setting/display.php:26
-#: content_crm/permission/user/display.php:26 content_love/domain/detail/display.php:195
-#: content_my/domain/irnic/edit/display.php:24 content_my/domain/setting/display.php:219
+#: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
+#: content_love/domain/detail/display.php:195 content_my/domain/irnic/edit/display.php:24
+#: content_my/domain/setting/display.php:219
 #: content_pardakhtyar/customer/dashboard/shaba-detail.php:12
 msgid "Remove"
 msgstr "حذف"
@@ -6454,7 +6455,7 @@ msgstr "مایکت"
 #: content_a/setting/telegram/telegrambtn/display.php:35
 #: content_a/setting/telegram/text/display.php:19
 #: content_a/setting/thirdparty/enamad/display.php:41
-#: content_a/setting/thirdparty/googleanalytics/display.php:19
+#: content_a/setting/thirdparty/gtag/display.php:19
 #: content_a/setting/thirdparty/imber/display.php:18
 #: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
@@ -6927,8 +6928,8 @@ msgstr "این محصول از سبد خرید شما حذف شد"
 
 #: content_a/cart/add/display.php:211 content_a/order/comment/display.php:69
 #: content_a/order/productList.php:76 content_account/address.php:73
-#: content_business/cart/display.php:52 content_crm/ticket/setting/display.php:53
-#: includes/languages/trans_static.php:503 includes/languages/trans_static_public.php:88
+#: content_business/cart/display.php:52 includes/languages/trans_static.php:503
+#: includes/languages/trans_static_public.php:88
 msgid "Delete"
 msgstr "حذف"
 
@@ -9387,8 +9388,8 @@ msgid "Archive"
 msgstr "بایگانی"
 
 #: content_a/order/status/display.php:54 content_cms/comments/view/display.php:181
-#: content_crm/ticket/setting/display.php:48 dash/app/comment/filter.php:29
-#: dash/app/ticket/filter.php:42 dash/layout/admin/sidebar/sidebar-support.php:51
+#: dash/app/comment/filter.php:29 dash/app/ticket/filter.php:42
+#: dash/layout/admin/sidebar/sidebar-support.php:51
 #: includes/languages/trans_static.php:502 lib/app/factor/action.php:74
 #: lib/app/factor/ready.php:125
 msgid "Spam"
@@ -9623,7 +9624,7 @@ msgstr "مدیریت تنوع محصول"
 #: content_a/products/status/view.php:28 content_cms/posts/setting/display.php:20
 #: content_love/business/domain/setting/display.php:127
 #: content_love/domain/setting/display.php:127 dash/app/ticket/filter.php:43
-#: includes/languages/trans_static.php:496 includes/languages/trans_static_public.php:1109
+#: includes/languages/trans_static.php:496 includes/languages/trans_static_public.php:1107
 #: lib/app/factor/action.php:73 lib/app/factor/ready.php:124 lib/app/product/load.php:132
 msgid "Deleted"
 msgstr "حذف شده"
@@ -11105,7 +11106,7 @@ msgid "SMS setting"
 msgstr "تنظیمات پیام کوتاه"
 
 #: content_a/setting/home/display.php:176 content_a/setting/thirdparty/enamad/view.php:11
-#: content_a/setting/thirdparty/googleanalytics/view.php:11
+#: content_a/setting/thirdparty/gtag/view.php:11
 #: content_a/setting/thirdparty/imber/view.php:11
 #: content_a/setting/thirdparty/raychat/view.php:11
 #: content_a/setting/thirdparty/samandehi/view.php:11
@@ -12067,8 +12068,7 @@ msgstr "متن ثابت برای اشتراک گذاری محصولات در ت�
 msgid "Analytics"
 msgstr "تجزیه و تحلیل"
 
-#: content_a/setting/thirdparty/display.php:8
-#: content_a/setting/thirdparty/googleanalytics/view.php:8
+#: content_a/setting/thirdparty/display.php:8 content_a/setting/thirdparty/gtag/view.php:8
 msgid "Google Analytics"
 msgstr "گوگل آنالیتیکس"
 
@@ -12138,7 +12138,7 @@ msgid ""
 "The text of enamad contains a series of special characters that are not in your text"
 msgstr "کد نماد اعتماد دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
 
-#: content_a/setting/thirdparty/googleanalytics/display.php:9
+#: content_a/setting/thirdparty/gtag/display.php:9
 msgid ""
 "Google Analytics is a web analytics service offered by Google that tracks and reports "
 "website traffic, currently as a platform inside the Google Marketing Platform brand. As "
@@ -12151,7 +12151,7 @@ msgstr ""
 "وارد‌شده، فعالیت‌های کاربران، زمان حضور و مسیر خروجی آن‌ها را ارائه می‌کند. به این ترتیب، "
 "گستره وسیعی از اطلاعات، در اختیار مدیریت سایت قرار خواهد گرفت."
 
-#: content_a/setting/thirdparty/googleanalytics/display.php:12
+#: content_a/setting/thirdparty/gtag/display.php:12
 msgid "Your Google Analytics Tracking ID"
 msgstr "Tracking ID گوگل آنالیتیکس شما"
 
@@ -14469,7 +14469,7 @@ msgstr "بررسی تمام نشست‌های فعال"
 #: content_account/security/display.php:104 content_account/security/display.php:143
 #: content_account/security/sessions/display.php:5
 #: content_crm/member/glance/display.php:326 content_crm/member/sessions/view.php:12
-#: includes/languages/trans_static_public.php:1124
+#: includes/languages/trans_static_public.php:1122
 msgid "Sessions"
 msgstr "نشست‌ها"
 
@@ -14890,12 +14890,12 @@ msgstr "تغییر کلمه عبور"
 
 #: content_business/profile/display-menu.php:32 content_business/ticket/add/view.php:13
 #: content_business/ticket/home/view.php:11 content_business/ticket/view/view.php:14
-#: content_crm/home/display.php:113 content_crm/member/glance/display.php:313
-#: content_crm/ticket/datalist/view.php:9 content_crm/ticket/datalist/view.php:12
-#: content_crm/ticket/home/view.php:9 content_crm/ticket/message/view.php:12
-#: content_support/faq/view.php:14 content_support/home/view.php:13
-#: dash/layout/admin/sidebar/sidebar-support.php:4 dash/panel.php:239
-#: includes/languages/trans_static.php:565
+#: content_crm/home/display.php:113 content_crm/member/glance/display.php:49
+#: content_crm/member/glance/display.php:313 content_crm/ticket/datalist/view.php:9
+#: content_crm/ticket/datalist/view.php:12 content_crm/ticket/home/view.php:9
+#: content_crm/ticket/message/view.php:12 content_support/faq/view.php:14
+#: content_support/home/view.php:13 dash/layout/admin/sidebar/sidebar-support.php:4
+#: dash/panel.php:239 includes/languages/trans_static.php:565
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
@@ -14904,7 +14904,7 @@ msgstr "تیکت‌ها"
 #: content_crm/ticket/home/display.php:32 content_crm/ticket/home/view.php:15
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:63
 #: dash/social/telegram/commands/ermile.php:334
-#: includes/languages/trans_static_public.php:1087
+#: includes/languages/trans_static_public.php:1085
 msgid "Add new ticket"
 msgstr "افزودن تیکت جدید"
 
@@ -14976,7 +14976,7 @@ msgstr "نمایش تیکت‌ها با شرط"
 #: content_business/ticket/home/ticketList.php:17 content_crm/home/display.php:215
 #: content_crm/member/glance/display.php:172 content_crm/ticket/datalist/display.php:19
 #: content_crm/ticket/home/display.php:7 content_crm/ticket/message/display.php:12
-#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31 dash/app/ticket.php:187
+#: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31
 #: lib/app/store/analytics.php:47
 msgid "Ticket"
 msgstr "تیکت"
@@ -14985,9 +14985,9 @@ msgstr "تیکت"
 msgid "See list of your tickets!"
 msgstr "مشاهده لیست تمام تیکت‌های شما!"
 
-#: content_business/ticket/home/view.php:20 content_support/home/view.php:38
+#: content_business/ticket/home/view.php:20 content_support/home/view.php:33
 #: dash/layout/admin/sidebar/sidebar-support.php:7
-#: includes/languages/trans_static_public.php:1106
+#: includes/languages/trans_static_public.php:1104
 msgid "New Ticket"
 msgstr "تیکت جدید"
 
@@ -15683,7 +15683,7 @@ msgstr ""
 msgid "Remove post cover"
 msgstr "حذف کاور نوشته"
 
-#: content_cms/posts/setting/display.php:225 dash/plan_list.php:190
+#: content_cms/posts/setting/display.php:225 dash/plan_list.php:191
 msgid "Remove post"
 msgstr "حذف نوشته"
 
@@ -16036,10 +16036,6 @@ msgstr "تنظیم مجدد کاربر"
 #: content_crm/member/glance/display.php:43
 msgid "Active Order"
 msgstr "سفارشات فعال"
-
-#: content_crm/member/glance/display.php:49
-msgid "Active Ticket"
-msgstr "تیکت‌های فعال"
 
 #: content_crm/member/glance/display.php:55 content_my/domain/review/display.php:220
 #: content_my/home/display_site.php:21
@@ -16911,8 +16907,7 @@ msgstr "ویرایش تیکت"
 
 #: content_crm/ticket/home/display.php:8 content_love/smslog/display.php:19
 #: content_love/smslog/view/display.php:10 content_su/tg/sendmessage/display.php:11
-#: dash/app/log/caller/sendNotifBySms.php:18 dash/app/ticket.php:196
-#: lib/app/form/item/type.php:429
+#: dash/app/log/caller/sendNotifBySms.php:18 lib/app/form/item/type.php:429
 msgid "Message"
 msgstr "پیام"
 
@@ -16952,37 +16947,58 @@ msgstr "میانگین زمان اولین پاسخ‌گویی"
 msgid "You can change ticket status"
 msgstr "شما می‌توانید وضعیت این تیکت را ویرایش کنید"
 
-#: content_crm/ticket/setting/display.php:8
-msgid "Current Status"
-msgstr "وضعیت فعلی"
+#: content_crm/ticket/setting/display.php:10
+msgid "This ticket is closed"
+msgstr "این تیکت بسته شده است"
 
-#: content_crm/ticket/setting/display.php:24 content_crm/ticket/setting/display.php:36
+#: content_crm/ticket/setting/display.php:28 content_crm/ticket/setting/display.php:40
 msgid "Close ticket"
 msgstr "بستن تیکت"
 
-#: content_crm/ticket/setting/display.php:30
+#: content_crm/ticket/setting/display.php:34
 msgid "Reopen ticket"
 msgstr "باز کردن مجدد تیکت"
 
-#: content_crm/ticket/setting/display.php:69
+#: content_crm/ticket/setting/display.php:56
 msgid "Change solved status"
 msgstr "ویرایش وضعیت حل شدن تیکت"
 
-#: content_crm/ticket/setting/display.php:75
+#: content_crm/ticket/setting/display.php:62
+msgid "This ticket is solved"
+msgstr "این تیکت حل شده است"
+
+#: content_crm/ticket/setting/display.php:63
 msgid "If your problem is not solved yet, please set this ticket as unsolved"
 msgstr "اگر مشکل مطرح شده همچنان باقی است، لطفا این تیکت را در حالت حل نشده قرار دهید"
 
-#: content_crm/ticket/setting/display.php:79
-msgid "If your problem is solved, please set this ticket as solved"
-msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت را در حالت حل شده قرار دهید"
+#: content_crm/ticket/setting/display.php:68
+msgid ""
+"If your problem is solved, please set this ticket as solved. \n"
+" This will help you understand how many of your customers' requests are successfully "
+"solved"
+msgstr ""
+"اگر مشکل مطرح شده در این تیکت حل شده است لطفا تیکت را در حالت حل شده قرار دهید \n"
+" این کار به شما کمک می‌کند تا ببینید چه مقدار از درخواست‌های مشتریان با موفقیت انجام می‌شود"
 
-#: content_crm/ticket/setting/display.php:97 content_crm/ticket/view/display.php:71
-msgid "The problem is not solved"
-msgstr "مشکل حل نشده است"
+#: content_crm/ticket/setting/display.php:86
+msgid "Set as  not solved"
+msgstr "تنظیم به عنوان حل نشده"
 
-#: content_crm/ticket/setting/display.php:104 content_crm/ticket/view/display.php:71
-msgid "The problem is solved"
-msgstr "مشکل حل شده است"
+#: content_crm/ticket/setting/display.php:93
+msgid "Set as solved"
+msgstr "تنظیم به عنوان حل شده"
+
+#: content_crm/ticket/setting/display.php:111
+msgid "Remove ticket"
+msgstr "حذف تیکت"
+
+#: content_crm/ticket/setting/display.php:114
+msgid "Remove ticket with all conversations"
+msgstr "حذف تیکت با همه گفت‌و‌گو‌های داخل آن"
+
+#: content_crm/ticket/setting/display.php:125
+msgid "Set as Spam ticket"
+msgstr "تنظیم به عنوان هرزنامه"
 
 #: content_crm/ticket/setting/view.php:9
 msgid "Ticket setting"
@@ -17011,6 +17027,14 @@ msgstr "برای تنظیم موضوع کلیک کنید"
 #: content_crm/ticket/view/display.php:70
 msgid "Solved status"
 msgstr "وضعیت حل شدن تیکت"
+
+#: content_crm/ticket/view/display.php:71
+msgid "The problem is solved"
+msgstr "مشکل حل شده است"
+
+#: content_crm/ticket/view/display.php:71
+msgid "The problem is not solved"
+msgstr "مشکل حل نشده است"
 
 #: content_crm/ticket/view/display.php:88
 msgid "This ticket is branch of another ticket"
@@ -22587,7 +22611,7 @@ msgstr ""
 "مشکل خود برسید"
 
 #: content_support/faq/view.php:26 content_support/home/view.php:9
-#: content_support/home/view.php:21 dash/plan_list.php:207
+#: content_support/home/view.php:21
 msgid "Help center"
 msgstr "مرکز راهنمایی"
 
@@ -22917,7 +22941,7 @@ msgstr "شما دسترسی لازم برای حذف این آدرس را ندا
 msgid "Address removed"
 msgstr "آدرس حذف شد"
 
-#: dash/app/comment/add.php:32 dash/app/ticket.php:309
+#: dash/app/comment/add.php:32
 msgid "No way to add new data"
 msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد"
 
@@ -22929,7 +22953,7 @@ msgstr "دیدگاه شما با موفقیت اضافه شد"
 msgid "Your answer successfully added"
 msgstr "پاسخ شما با موفقیت اضافه شد"
 
-#: dash/app/comment/add.php:126 dash/app/ticket.php:293
+#: dash/app/comment/add.php:126
 msgid "This text is duplicate and you are sended something like this before!"
 msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
 
@@ -23113,7 +23137,7 @@ msgid "CentralizedGitUpdate"
 msgstr "آپدیت مرکزی گیت"
 
 #: dash/app/log/caller/su/su_CentralizedGitUpdate.php:13
-#: includes/languages/trans_static_public.php:1067
+#: includes/languages/trans_static_public.php:1065
 msgid "Git update"
 msgstr "به‌روزرسانی مخازن گیت"
 
@@ -23209,7 +23233,7 @@ msgid "You added new message to ticket"
 msgstr "شما پیامی را به تیکت افزودید"
 
 #: dash/app/log/caller/ticket/ticket_AnswerTicket.php:11
-#: includes/languages/trans_static_public.php:1093
+#: includes/languages/trans_static_public.php:1091
 msgid "Answer ticket"
 msgstr "پاسخ به تیکت"
 
@@ -23721,26 +23745,6 @@ msgstr "تعدادی از نوشته‌‌ها با این تگ ذخیره شد�
 msgid "Tag successfully removed"
 msgstr "تگ با موفقیت حذف شد"
 
-#: dash/app/ticket.php:185
-msgid "Count ticket"
-msgstr "تعداد تیکت"
-
-#: dash/app/ticket.php:194
-msgid "Count message"
-msgstr "تعداد پیام"
-
-#: dash/app/ticket.php:203
-msgid "Answer time"
-msgstr "زمان‌ پاسخ"
-
-#: dash/app/ticket.php:205
-msgid "Minutes"
-msgstr "دقیقه"
-
-#: dash/app/ticket.php:329
-msgid "Can not access to edit ticket"
-msgstr "دسترسی به ویرایش تیکت ندارید"
-
 #: dash/app/ticket/add.php:33 dash/app/ticket/add.php:227
 msgid "Can not add your ticket"
 msgstr "نمی‌توانیم تیکت شما را ثبت کنیم"
@@ -23799,7 +23803,7 @@ msgstr "گفت‌و‌گو"
 
 #: dash/app/ticket/filter.php:44 dash/app/ticket/filter.php:45
 #: dash/layout/admin/sidebar/sidebar-support.php:33
-#: includes/languages/trans_static_public.php:1110
+#: includes/languages/trans_static_public.php:1108
 msgid "Solved"
 msgstr "حل شده"
 
@@ -23811,7 +23815,7 @@ msgstr "ثبت به عنوان حل شده"
 msgid "Un Solved ticket"
 msgstr "ثبت به عنوان حل نشده"
 
-#: dash/app/ticket/get.php:36
+#: dash/app/ticket/get.php:48
 msgid "Data not founded"
 msgstr "اطلاعات یافت نشد"
 
@@ -24993,110 +24997,53 @@ msgstr "نمایش لیست تیکت‌ها"
 msgid "Ticket Manager"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:183
+#: dash/plan_list.php:184
 msgid "Add New Notification"
 msgstr "افزودن پیام جدید"
 
-#: dash/plan_list.php:187
+#: dash/plan_list.php:188
 msgid "Manage Post"
 msgstr "مدیریت نوشته‌ها"
 
-#: dash/plan_list.php:188
+#: dash/plan_list.php:189
 msgid "Manage All Post"
 msgstr "مدیریت تمامی نوشته‌‌ها"
 
-#: dash/plan_list.php:189
+#: dash/plan_list.php:190
 msgid "Publish post"
 msgstr "انتشار نوشته"
 
-#: dash/plan_list.php:191
+#: dash/plan_list.php:192
 msgid "Manage Help Center"
 msgstr "مدیریت مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:193
+#: dash/plan_list.php:194
 msgid "View Comments"
 msgstr "نمایش دیدگاه‌ها"
 
-#: dash/plan_list.php:194
+#: dash/plan_list.php:195
 msgid "Manage Comments"
 msgstr "مدیریت دیدگاه‌ها"
 
-#: dash/plan_list.php:196
+#: dash/plan_list.php:197
 msgid "Manage Tags"
 msgstr "مدیریت تگ‌ها"
 
-#: dash/plan_list.php:198
+#: dash/plan_list.php:199
 msgid "View Attachment"
 msgstr "نمایش ضمیمه‌‌ها"
 
-#: dash/plan_list.php:199
+#: dash/plan_list.php:200
 msgid "Add New Attachment"
 msgstr "افزودن فایل ضمیمه جدید"
 
-#: dash/plan_list.php:200
+#: dash/plan_list.php:201
 msgid "Manage Attachments"
 msgstr "مدیریت ضمیمه‌ها"
 
-#: dash/plan_list.php:202
+#: dash/plan_list.php:203
 msgid "CMS customization"
 msgstr "سفارشی سازی سیستم مدیریت محتوا"
-
-#: dash/plan_list.php:206
-msgid "Manage tag"
-msgstr "مدیریت تگ"
-
-#: dash/plan_list.php:208 includes/languages/trans_static_public.php:1039
-msgid "supportTicketManage"
-msgstr "مدیریت تیکت"
-
-#: dash/plan_list.php:209 includes/languages/trans_static_public.php:1046
-msgid "supportTicketAddNote"
-msgstr "افزودن یادداشت به تیکت"
-
-#: dash/plan_list.php:210 includes/languages/trans_static_public.php:1042
-msgid "supportEditMessage"
-msgstr "ویرایش پیام تیکت"
-
-#: dash/plan_list.php:211 includes/languages/trans_static_public.php:1047
-msgid "supportTicketSignature"
-msgstr "داشتن امضا در تیکت"
-
-#: dash/plan_list.php:212 includes/languages/trans_static_public.php:1032
-msgid "cpHelpCenterEditForOthers"
-msgstr "ویرایش مقالات سایرین در مرکز راهنمایی"
-
-#: dash/plan_list.php:213 includes/languages/trans_static_public.php:1003
-#: includes/languages/trans_static_public.php:1041
-msgid "supportTicketAnswer"
-msgstr "توانایی پاسخ به تیکت‌ها"
-
-#: dash/plan_list.php:214 includes/languages/trans_static_public.php:1040
-msgid "supportTicketManageSubdomain"
-msgstr "مدیریت تیکت در تمامی زیردامنه‌ها"
-
-#: dash/plan_list.php:215 includes/languages/trans_static_public.php:1045
-msgid "supportTicketAssignTag"
-msgstr "افزودن تگ به تیکت"
-
-#: dash/plan_list.php:216 includes/languages/trans_static_public.php:1048
-msgid "supportTicketClose"
-msgstr "بستن تیکت"
-
-#: dash/plan_list.php:217 includes/languages/trans_static_public.php:1049
-msgid "supportTicketReOpen"
-msgstr "دوباره باز کردن تیکت"
-
-#: dash/plan_list.php:218 includes/languages/trans_static_public.php:1050
-msgid "supportTicketDelete"
-msgstr "حذف تیکت"
-
-#: dash/plan_list.php:219 includes/languages/trans_static_public.php:1044
-msgid "supportTicketShowMobile"
-msgstr "نمایش موبایل پاسخ دهنده تیکت"
-
-#: dash/plan_list.php:220 includes/languages/trans_static_public.php:1037
-msgid "supportTicketReport"
-msgstr "نمایش گزارش‌های پشتیبانی"
 
 #: dash/redirect_html.php:21
 msgid "REDIRECTING ..."
@@ -32503,7 +32450,7 @@ msgid "Control Panel Contact"
 msgstr "مدیریت نظرات و دیدگاه‌ها"
 
 #: includes/languages/trans_static_public.php:985
-#: includes/languages/trans_static_public.php:1144
+#: includes/languages/trans_static_public.php:1142
 msgid "cpContactView"
 msgstr "نمایش پیام‌های ارتباط با ما"
 
@@ -32524,7 +32471,7 @@ msgid "SupportTags"
 msgstr "تگ‌های بخش پشتیبانی"
 
 #: includes/languages/trans_static_public.php:993
-#: includes/languages/trans_static_public.php:1120
+#: includes/languages/trans_static_public.php:1118
 msgid "cpSupportTagAdd"
 msgstr "افزودن تگ به تیکت"
 
@@ -32564,38 +32511,39 @@ msgstr "حذف تگ تیکت"
 msgid "supportDeleteTicket"
 msgstr "توانایی حذف تیکت"
 
+#: includes/languages/trans_static_public.php:1003
+#: includes/languages/trans_static_public.php:1039
+msgid "crmTicketManager"
+msgstr "مدیریت تیکت‌ها"
+
 #: includes/languages/trans_static_public.php:1004
 msgid "supportTicketAddTag"
 msgstr "افزودن تگ به تیکت"
 
 #: includes/languages/trans_static_public.php:1005
-msgid "supportTicketAnswerOtherSubdomain"
-msgstr "توانایی پاسخ به تیکت‌های سابدامنه دیگر"
-
-#: includes/languages/trans_static_public.php:1006
 msgid "supportTicketChangeStatus"
 msgstr "تغییر وضعیت تیکت"
 
-#: includes/languages/trans_static_public.php:1007
+#: includes/languages/trans_static_public.php:1006
 msgid ":displayname add new ticket in :domain"
 msgstr ":displayname یک تیکت جدید در :domain ثبت کرد"
 
-#: includes/languages/trans_static_public.php:1009
+#: includes/languages/trans_static_public.php:1008
 msgid "load su whit user :user"
 msgstr "تنظیمات اس‌یو توسط :user باز شد"
 
-#: includes/languages/trans_static_public.php:1010
-#: includes/languages/trans_static_public.php:1081
+#: includes/languages/trans_static_public.php:1009
+#: includes/languages/trans_static_public.php:1079
 msgid "The :user was loaded su content"
 msgstr ":user بخش اس‌یو را باز کرد"
 
-#: includes/languages/trans_static_public.php:1011
-#: includes/languages/trans_static_public.php:1075
+#: includes/languages/trans_static_public.php:1010
+#: includes/languages/trans_static_public.php:1073
 msgid "We Noticed a New Login, :displayname"
 msgstr "ما یک ورودی جدید را مشاهده کردیم :displayname"
 
-#: includes/languages/trans_static_public.php:1012
-#: includes/languages/trans_static_public.php:1083
+#: includes/languages/trans_static_public.php:1011
+#: includes/languages/trans_static_public.php:1081
 msgid ""
 "If this was you, you can safely disregard this message. If you didn't do this, please "
 "change your password to help secure your account. Learn more about keeping your account "
@@ -32605,12 +32553,12 @@ msgstr ""
 "نکردید، لطفا گذرواژه خود را تغییر دهید تا امنیت حسابتان را تضمین کنید. درباره حفظ امنیت "
 "حساب کاربری بیشتر بدانید."
 
-#: includes/languages/trans_static_public.php:1014
-#: includes/languages/trans_static_public.php:1074
+#: includes/languages/trans_static_public.php:1013
+#: includes/languages/trans_static_public.php:1072
 msgid "You have new ticket"
 msgstr "شما یک تیکت جدید دارید"
 
-#: includes/languages/trans_static_public.php:1015
+#: includes/languages/trans_static_public.php:1014
 msgid ""
 "You have new ticket from :displayname \n"
 " see :link"
@@ -32618,175 +32566,219 @@ msgstr ""
 "شما یک تیکت جدیدی از طرف :displayname  دارید \n"
 " ببینید :link"
 
-#: includes/languages/trans_static_public.php:1018
+#: includes/languages/trans_static_public.php:1017
 msgid "cpTagHelpView"
 msgstr "نمایش تگ‌های مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1019
+#: includes/languages/trans_static_public.php:1018
 msgid "cpTagHelpAdd"
 msgstr "افزودن تگ به مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1020
+#: includes/languages/trans_static_public.php:1019
 msgid "cpTagHelpEdit"
 msgstr "ویرایش تگ‌های مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1021
+#: includes/languages/trans_static_public.php:1020
 msgid "cpTagHelpDelete"
 msgstr "حذف تگ‌های مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1022
+#: includes/languages/trans_static_public.php:1021
 msgid "cpTagSupportView"
 msgstr "نمایش تگ‌های پشتیبانی"
 
-#: includes/languages/trans_static_public.php:1023
+#: includes/languages/trans_static_public.php:1022
 msgid "cpTagSupportAdd"
 msgstr "افزودن تگ‌های پشتیبانی"
 
-#: includes/languages/trans_static_public.php:1024
+#: includes/languages/trans_static_public.php:1023
 msgid "cpTagSupportEdit"
 msgstr "ویرایش تگ‌های پشتیبانی"
 
-#: includes/languages/trans_static_public.php:1025
+#: includes/languages/trans_static_public.php:1024
 msgid "cpTagSupportDelete"
 msgstr "حذف تگ‌های پشتیبانی"
 
-#: includes/languages/trans_static_public.php:1026
+#: includes/languages/trans_static_public.php:1025
 msgid "cpHelpCenterView"
 msgstr "نمایش مقالات مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1027
+#: includes/languages/trans_static_public.php:1026
 msgid "cpHelpCenterViewAll"
 msgstr "نمایش مقالات سایرین در مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1028
+#: includes/languages/trans_static_public.php:1027
 msgid "cpHelpCenterAdd"
 msgstr "افزودن مقاله به مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1029
+#: includes/languages/trans_static_public.php:1028
 msgid "cpHelpCenterEdit"
 msgstr "ویرایش مقاله در مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1030
+#: includes/languages/trans_static_public.php:1029
 msgid "cpHelpCenterEditStatus"
 msgstr "تغییرت وضعیت مقالات مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1031
+#: includes/languages/trans_static_public.php:1030
 msgid "cpHelpCenterEditPublished"
 msgstr "تغییر مقاله منتشر شده در مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1033
+#: includes/languages/trans_static_public.php:1031
+msgid "cpHelpCenterEditForOthers"
+msgstr "ویرایش مقالات سایرین در مرکز راهنمایی"
+
+#: includes/languages/trans_static_public.php:1032
 msgid "cpHelpCenterDelete"
 msgstr "حذف مقاله در مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1034
+#: includes/languages/trans_static_public.php:1033
 msgid "cpHelpCenterDeleteForOthers"
 msgstr "حذف مقالات سایرین در مرکز راهنمایی"
 
-#: includes/languages/trans_static_public.php:1035
+#: includes/languages/trans_static_public.php:1034
 msgid "cpEmailTemplateView"
 msgstr "نمایش الگو‌های ایمیل"
 
-#: includes/languages/trans_static_public.php:1036
+#: includes/languages/trans_static_public.php:1035
 msgid "cpEmailTemplateEdit"
 msgstr "ویرایش الگوهای ایمیل"
 
-#: includes/languages/trans_static_public.php:1038
+#: includes/languages/trans_static_public.php:1036
+msgid "supportTicketReport"
+msgstr "نمایش گزارش‌های پشتیبانی"
+
+#: includes/languages/trans_static_public.php:1037
 msgid "supportTicketShowLog"
 msgstr "نمایش لاگ پشتیبانی"
 
-#: includes/languages/trans_static_public.php:1043
+#: includes/languages/trans_static_public.php:1038
+msgid "supportTicketManage"
+msgstr "مدیریت تیکت"
+
+#: includes/languages/trans_static_public.php:1040
+msgid "supportEditMessage"
+msgstr "ویرایش پیام تیکت"
+
+#: includes/languages/trans_static_public.php:1041
 msgid "supportDeleteMessage"
 msgstr "حذف تیکت"
 
-#: includes/languages/trans_static_public.php:1051
+#: includes/languages/trans_static_public.php:1042
+msgid "supportTicketShowMobile"
+msgstr "نمایش موبایل پاسخ دهنده تیکت"
+
+#: includes/languages/trans_static_public.php:1043
+msgid "supportTicketAssignTag"
+msgstr "افزودن تگ به تیکت"
+
+#: includes/languages/trans_static_public.php:1044
+msgid "supportTicketAddNote"
+msgstr "افزودن یادداشت به تیکت"
+
+#: includes/languages/trans_static_public.php:1045
+msgid "supportTicketSignature"
+msgstr "داشتن امضا در تیکت"
+
+#: includes/languages/trans_static_public.php:1046
+msgid "supportTicketClose"
+msgstr "بستن تیکت"
+
+#: includes/languages/trans_static_public.php:1047
+msgid "supportTicketReOpen"
+msgstr "دوباره باز کردن تیکت"
+
+#: includes/languages/trans_static_public.php:1048
+msgid "supportTicketDelete"
+msgstr "حذف تیکت"
+
+#: includes/languages/trans_static_public.php:1049
 msgid "supportTicketShowLastVisitor"
 msgstr "نمایش بازدیدهای اخیر در تیکت"
 
-#: includes/languages/trans_static_public.php:1052
+#: includes/languages/trans_static_public.php:1050
 msgid "cpVisitorView"
 msgstr "نمایش بازدیدکنندگان"
 
-#: includes/languages/trans_static_public.php:1054
+#: includes/languages/trans_static_public.php:1052
 msgid "Send notification"
 msgstr "ارسال آگاه‌سازی‌"
 
-#: includes/languages/trans_static_public.php:1055
+#: includes/languages/trans_static_public.php:1053
 msgid "Set ticket close if solved"
 msgstr "بستن تیکت‌های حل شده"
 
-#: includes/languages/trans_static_public.php:1057
+#: includes/languages/trans_static_public.php:1055
 msgid "Nginx service restarted"
 msgstr "سرویس انجین‌ایکس دوباره راه‌اندازی شد"
 
-#: includes/languages/trans_static_public.php:1058
+#: includes/languages/trans_static_public.php:1056
 msgid "Mysql service restarted"
 msgstr "سرویس مای‌اس‌کیو‌ال دوباره راه‌اندازی شد"
 
-#: includes/languages/trans_static_public.php:1059
+#: includes/languages/trans_static_public.php:1057
 msgid "Sshpass installed"
 msgstr "Sshpass نصب شد"
 
-#: includes/languages/trans_static_public.php:1060
+#: includes/languages/trans_static_public.php:1058
 msgid "Invalid command sended"
 msgstr "دستور ‌نامعتبر ارسال شده است"
 
-#: includes/languages/trans_static_public.php:1061
+#: includes/languages/trans_static_public.php:1059
 msgid "Cronjob detail changed"
 msgstr "جزئیات کرون‌جاب تغییر کرد"
 
-#: includes/languages/trans_static_public.php:1062
+#: includes/languages/trans_static_public.php:1060
 msgid "Disable cronjob"
 msgstr "کرون‌جاب غیر فعال شد"
 
-#: includes/languages/trans_static_public.php:1063
+#: includes/languages/trans_static_public.php:1061
 msgid "Database upgraded to new version"
 msgstr "به‌روزرسانی دیتابیس به نسخه جدید انجام شد"
 
-#: includes/languages/trans_static_public.php:1064
+#: includes/languages/trans_static_public.php:1062
 msgid "Git config is modified"
 msgstr "فایل تنظیمات گیت به‌روزرسانی شد"
 
-#: includes/languages/trans_static_public.php:1065
+#: includes/languages/trans_static_public.php:1063
 msgid "Generate sitemap"
 msgstr "ساخت نقشه سایت"
 
-#: includes/languages/trans_static_public.php:1066
+#: includes/languages/trans_static_public.php:1064
 msgid "Run translation extract"
 msgstr "اجرای خروجی از ترجمه‌ها"
 
-#: includes/languages/trans_static_public.php:1068
+#: includes/languages/trans_static_public.php:1066
 msgid "Telegram send message"
 msgstr "ارسال متن از طریق تلگرام"
 
-#: includes/languages/trans_static_public.php:1069
+#: includes/languages/trans_static_public.php:1067
 msgid "Telegram send photo"
 msgstr "ارسال تصویر از طریق تلگرام"
 
-#: includes/languages/trans_static_public.php:1070
+#: includes/languages/trans_static_public.php:1068
 msgid "Telegram set webhook"
 msgstr "تنظیم وب‌هوک تلگرام"
 
-#: includes/languages/trans_static_public.php:1071
+#: includes/languages/trans_static_public.php:1069
 msgid "Add transaction manually"
 msgstr "اضافه کردن تراکنش دستی"
 
-#: includes/languages/trans_static_public.php:1072
+#: includes/languages/trans_static_public.php:1070
 msgid "The title :name"
 msgstr "عنوان :title"
 
-#: includes/languages/trans_static_public.php:1073
+#: includes/languages/trans_static_public.php:1071
 msgid "Load su whit :user"
 msgstr "صفحه مدیریت فنی توسط :user باز شد"
 
-#: includes/languages/trans_static_public.php:1076
+#: includes/languages/trans_static_public.php:1074
 msgid "Send message :msg to chatid :chatid"
 msgstr "ارسال پیام متنی از طریق تلگرام به شناسه :chatid"
 
-#: includes/languages/trans_static_public.php:1077
+#: includes/languages/trans_static_public.php:1075
 msgid "Send photo to chatid :chatid"
 msgstr "ارسال پیام تصویری از طریق تلگرام به شناسه :chatid"
 
-#: includes/languages/trans_static_public.php:1078
+#: includes/languages/trans_static_public.php:1076
 msgid ""
 ":url \n"
 " whit max connetcion :max_connections"
@@ -32794,199 +32786,199 @@ msgstr ""
 ":url \n"
 " به همراه حداکثر کانکشن :max_connections"
 
-#: includes/languages/trans_static_public.php:1079
+#: includes/languages/trans_static_public.php:1077
 msgid "Add transaction :title whit :plus plus and :minus minus to :user_id"
 msgstr "افزایش تراکنش دستی با عنوان :title با افزودن :plus و کاهش :minus برای  :user_id"
 
-#: includes/languages/trans_static_public.php:1080
+#: includes/languages/trans_static_public.php:1078
 msgid "The :user content"
 msgstr "کاربر :user محتوا"
 
-#: includes/languages/trans_static_public.php:1082
+#: includes/languages/trans_static_public.php:1080
 msgid "You have new ticket from :displayname"
 msgstr "شما یک تیکت جدید از طرف :displayname  دارید"
 
-#: includes/languages/trans_static_public.php:1088
+#: includes/languages/trans_static_public.php:1086
 msgid "The ticket closed"
 msgstr "تیکت بسته شد"
 
-#: includes/languages/trans_static_public.php:1089
+#: includes/languages/trans_static_public.php:1087
 msgid "The ticket set as open ticket"
 msgstr "تیکت دوباره باز شد"
 
-#: includes/languages/trans_static_public.php:1090
+#: includes/languages/trans_static_public.php:1088
 msgid "The ticket delete ticket"
 msgstr "تیکت حذف شد"
 
-#: includes/languages/trans_static_public.php:1091
+#: includes/languages/trans_static_public.php:1089
 msgid "The ticket set as solved ticket"
 msgstr "تیک به وضعیت حل شده تغییر کرد"
 
-#: includes/languages/trans_static_public.php:1092
+#: includes/languages/trans_static_public.php:1090
 msgid "The ticket set as unsolved ticket"
 msgstr "تیکت به وضعیت حل نشده تغییر کرد"
 
-#: includes/languages/trans_static_public.php:1094
+#: includes/languages/trans_static_public.php:1092
 msgid "Add new message to ticket"
 msgstr "افزودن پیام به تیکت"
 
-#: includes/languages/trans_static_public.php:1095
+#: includes/languages/trans_static_public.php:1093
 msgid "Add new note to ticket"
 msgstr "افزودن یادداشت به تیکت"
 
-#: includes/languages/trans_static_public.php:1096
+#: includes/languages/trans_static_public.php:1094
 msgid "The message was edited"
 msgstr "پیام ویرایش شد"
 
-#: includes/languages/trans_static_public.php:1097
+#: includes/languages/trans_static_public.php:1095
 msgid ";displayname add new ticket"
 msgstr ";displayname یک تیکت جدید ثبت کرد"
 
-#: includes/languages/trans_static_public.php:1098
+#: includes/languages/trans_static_public.php:1096
 msgid ";displayname close the ticket"
 msgstr ";displayname تیکت را بست"
 
-#: includes/languages/trans_static_public.php:1099
+#: includes/languages/trans_static_public.php:1097
 msgid ";displayname re open the ticket"
 msgstr ";displayname تیکت را دوباره باز کرد"
 
-#: includes/languages/trans_static_public.php:1100
+#: includes/languages/trans_static_public.php:1098
 msgid ";displayname delete the ticket"
 msgstr ";displayname تیک را حذف کرد"
 
-#: includes/languages/trans_static_public.php:1101
+#: includes/languages/trans_static_public.php:1099
 msgid ";displayname set as solved the ticket"
 msgstr ";displayname تیکت را به وضعیت حل شده تغییر داد"
 
-#: includes/languages/trans_static_public.php:1102
+#: includes/languages/trans_static_public.php:1100
 msgid ";displayname set as unsolved the ticket"
 msgstr ";displayname تیکت را به وضعیت حل نشده تغییر داد"
 
-#: includes/languages/trans_static_public.php:1103
+#: includes/languages/trans_static_public.php:1101
 msgid ";displayname answer ticket"
 msgstr ";displayname تیکت را جواب داد"
 
-#: includes/languages/trans_static_public.php:1104
+#: includes/languages/trans_static_public.php:1102
 msgid ";displayname add new message to ticket"
 msgstr ";displayname یک پیام جدید به تیکت اضافه کرد"
 
-#: includes/languages/trans_static_public.php:1105
+#: includes/languages/trans_static_public.php:1103
 msgid ";displayname add new note to ticket"
 msgstr ";displayname یک یادداشت جدید به تیکت اضافه کرد"
 
-#: includes/languages/trans_static_public.php:1107
+#: includes/languages/trans_static_public.php:1105
 msgid "Close the ticket"
 msgstr "تیکت را بست"
 
-#: includes/languages/trans_static_public.php:1108
+#: includes/languages/trans_static_public.php:1106
 msgid "Open the ticket"
 msgstr "تیکت را باز کرد"
 
-#: includes/languages/trans_static_public.php:1111
+#: includes/languages/trans_static_public.php:1109
 msgid "Back to unsolved"
 msgstr "بازگشت به حل نشده"
 
-#: includes/languages/trans_static_public.php:1112
+#: includes/languages/trans_static_public.php:1110
 msgid "Remove temp csv file"
 msgstr "حذف فایل‌های سی‌اس‌وی خروجی"
 
-#: includes/languages/trans_static_public.php:1114
+#: includes/languages/trans_static_public.php:1112
 msgid "contentCrm"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: includes/languages/trans_static_public.php:1116
+#: includes/languages/trans_static_public.php:1114
 msgid "CP"
 msgstr "کنترل‌پنل"
 
-#: includes/languages/trans_static_public.php:1117
+#: includes/languages/trans_static_public.php:1115
 msgid "Customer relationship management"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: includes/languages/trans_static_public.php:1119
+#: includes/languages/trans_static_public.php:1117
 msgid "supportTicketTrash"
 msgstr "نمایش تیکت‌های حذف شده"
 
-#: includes/languages/trans_static_public.php:1122
+#: includes/languages/trans_static_public.php:1120
 msgid "Invoices"
 msgstr "فاکتور‌ها"
 
-#: includes/languages/trans_static_public.php:1123 lib/app/store/analytics.php:43
+#: includes/languages/trans_static_public.php:1121 lib/app/store/analytics.php:43
 msgid "Userdetail"
 msgstr "جزئیات کاربر"
 
-#: includes/languages/trans_static_public.php:1126
+#: includes/languages/trans_static_public.php:1124
 msgid "Panel"
 msgstr "پنل"
 
-#: includes/languages/trans_static_public.php:1127
+#: includes/languages/trans_static_public.php:1125
 msgid "panel"
 msgstr "پنل"
 
-#: includes/languages/trans_static_public.php:1129
+#: includes/languages/trans_static_public.php:1127
 msgid "activeuser"
 msgstr "کاربران فعال"
 
-#: includes/languages/trans_static_public.php:1130
+#: includes/languages/trans_static_public.php:1128
 msgid "deactiveuser"
 msgstr "کاربران غیرفعال"
 
-#: includes/languages/trans_static_public.php:1131
+#: includes/languages/trans_static_public.php:1129
 msgid "user_awaiting"
 msgstr "کاربران درانتظار"
 
-#: includes/languages/trans_static_public.php:1132
+#: includes/languages/trans_static_public.php:1130
 msgid "user_removed"
 msgstr "کاربران حذف شده"
 
-#: includes/languages/trans_static_public.php:1133
+#: includes/languages/trans_static_public.php:1131
 msgid "user_filter"
 msgstr "کاربران فیلترشده"
 
-#: includes/languages/trans_static_public.php:1134
+#: includes/languages/trans_static_public.php:1132
 msgid "news"
 msgstr "اخبار"
 
-#: includes/languages/trans_static_public.php:1137
+#: includes/languages/trans_static_public.php:1135
 msgid "cpMagAdd"
 msgstr "افزودن مجله"
 
-#: includes/languages/trans_static_public.php:1138
+#: includes/languages/trans_static_public.php:1136
 msgid "cpMagEditPublished"
 msgstr "ویرایش مجله منتشر شده"
 
-#: includes/languages/trans_static_public.php:1139
+#: includes/languages/trans_static_public.php:1137
 msgid "cpMagEditForOthers"
 msgstr "ویرایش مجله دیگران"
 
-#: includes/languages/trans_static_public.php:1140
+#: includes/languages/trans_static_public.php:1138
 msgid "cpMagDelete"
 msgstr "حذف مجله"
 
-#: includes/languages/trans_static_public.php:1141
+#: includes/languages/trans_static_public.php:1139
 msgid "cpMagDeleteForOthers"
 msgstr "حذف مجله دیگران"
 
-#: includes/languages/trans_static_public.php:1142
+#: includes/languages/trans_static_public.php:1140
 msgid "cpMagEditStatus"
 msgstr "ویرایش وضعیت مجله"
 
-#: includes/languages/trans_static_public.php:1143
+#: includes/languages/trans_static_public.php:1141
 msgid "cpDayEvent"
 msgstr "نمایش رویداد‌های روزانه"
 
-#: includes/languages/trans_static_public.php:1145
+#: includes/languages/trans_static_public.php:1143
 msgid "cpMagView"
 msgstr "نمایش مجله"
 
-#: includes/languages/trans_static_public.php:1146
+#: includes/languages/trans_static_public.php:1144
 msgid "cpMagEdit"
 msgstr "ویرایش مجله"
 
-#: includes/languages/trans_static_public.php:1148
+#: includes/languages/trans_static_public.php:1146
 msgid "cpChangePostCreator"
 msgstr "تغییر نویسنده مطالب"
 
-#: includes/languages/trans_static_public.php:1149
+#: includes/languages/trans_static_public.php:1147
 msgid "Contributor"
 msgstr "مشارکت کننده"
 
@@ -38358,6 +38350,39 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "supportTicketManageSubdomain"
+#~ msgstr "مدیریت تیکت در تمامی زیردامنه‌ها"
+
+#~ msgid "Active Ticket"
+#~ msgstr "تیکت‌های فعال"
+
+#~ msgid "Current Status"
+#~ msgstr "وضعیت فعلی"
+
+#~ msgid "If your problem is solved, please set this ticket as solved"
+#~ msgstr "اگر مشکل مطرح حل شده است، لطفا این تیکت را در حالت حل شده قرار دهید"
+
+#~ msgid "Count ticket"
+#~ msgstr "تعداد تیکت"
+
+#~ msgid "Count message"
+#~ msgstr "تعداد پیام"
+
+#~ msgid "Answer time"
+#~ msgstr "زمان‌ پاسخ"
+
+#~ msgid "Minutes"
+#~ msgstr "دقیقه"
+
+#~ msgid "Can not access to edit ticket"
+#~ msgstr "دسترسی به ویرایش تیکت ندارید"
+
+#~ msgid "Manage tag"
+#~ msgstr "مدیریت تگ"
+
+#~ msgid "supportTicketAnswer"
+#~ msgstr "توانایی پاسخ به تیکت‌ها"
+
 #~ msgid "Invalid token!"
 #~ msgstr "توکن دسترسی نامعتبر است!"
 
@@ -38506,9 +38531,6 @@ msgstr "یارد"
 
 #~ msgid "You can open it anytime you need."
 #~ msgstr "شما می‌توانید تیکت را هر زمانی که مایل بودید مجدد باز کنید."
-
-#~ msgid "This ticket is closed."
-#~ msgstr "این تیکت بسته شده است."
 
 #~ msgid "Also you can delete it if you do not need it."
 #~ msgstr "هم‌چنین در صورت عدم نیاز می‌توانید آن را حذف کنید."
@@ -41293,9 +41315,6 @@ msgstr "یارد"
 
 #~ msgid "The ticket status"
 #~ msgstr "وضعیت تیکت"
-
-#~ msgid "The ticket solved"
-#~ msgstr "وضعیت حل شدن تیکت"
 
 #~ msgid "Replace {PRODUCT_ID} by your product id"
 #~ msgstr "به جای عبارت {PRODUCT_ID}  کد محصول خود را قرار دهید"
