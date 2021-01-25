@@ -30,7 +30,7 @@ class view
 		}
 
 		\dash\face::btnSetting(\dash\url::here().'/setting/social');
-		\dash\face::help(\dash\url::support().'/product');
+		// \dash\face::help(\dash\url::support().'/product');
 
 
 		$telegram_setting = \lib\app\setting\get::telegram_setting();

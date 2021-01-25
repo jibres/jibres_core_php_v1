@@ -53,7 +53,7 @@
 				</aside>
 			</div>
 		</section>
-		<?php if(\dash\face::help()) {?>
+		<?php if(false) {?>
 		<div class="txtRa font-16 fc-mute"><?php echo T_("Learn more about :val", ['val' => '<a class="link" href="'. \dash\face::help(). '">'. \dash\face::title(). '</a>'] ); ?><i class="compact sf-question-circle mLa5"></i></div>
 		<?php }?>
 	<?php } //endif ?>

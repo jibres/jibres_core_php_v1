@@ -59,7 +59,7 @@ class view
 			\dash\face::btnView(\dash\data::productDataRow_url());
 		}
 
-		\dash\face::help(\dash\url::support().'/variants');
+		// \dash\face::help(\dash\url::support().'/variants');
 
 
 		$variants_list = \lib\app\product\variants::get($id);
