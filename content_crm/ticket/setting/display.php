@@ -4,9 +4,13 @@
       <h3><?php echo T_("Change status");?></h3>
       <div class="body">
         <p><?php echo T_("You can change ticket status");?></p>
-        <div class="msg">
-          <?php echo T_("Current Status") ?> <b><?php echo T_(\dash\data::dataRow_status()) ?></b>
-        </div>
+        <?php
+if(\dash\data::dataRow_status() === 'close')
+{
+  echo '<div class="msg minimal info2">'. T_("This ticket is closed");
+  echo '</div>';
+}
+?>
       </div>
     </div>
   </div>
@@ -39,27 +43,10 @@ else
 
 $json = json_encode($edit_array);
 echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' data-method='post'>". $new_status . '</div>';
-
-$spam = null;
-if($status === 'close')
-{
-  $edit_array['status'] = 'spam';
-  $json                 = json_encode($edit_array);
-  $spam                 = "<div class='btn linkDel' data-ajaxify data-data='". $json . "' data-method='post'>". T_("Spam") . '</div>';
-}
-
-$edit_array['status'] = 'deleted';
-$json                 = json_encode($edit_array);
-$deleted              = "<div class='btn linkDel' data-confirm data-data='". $json . "' data-method='post'>". T_("Delete") . '</div>';
-
 ?>
     </div>
   </div>
-  <footer class="f">
-    <div class="cauto"><?php echo $spam ?></div>
-    <div class="c"></div>
-    <div class="cauto"><?php echo $deleted ?></div>
-  </footer>
+
 </section>
 
 
@@ -72,11 +59,13 @@ $deleted              = "<div class='btn linkDel' data-confirm data-data='". $js
 <?php
 if(\dash\data::dataRow_solved())
 {
+  echo '<div class="msg minimal success2">'. T_("This ticket is solved"). '<br>';
   echo T_("If your problem is not solved yet, please set this ticket as unsolved");
+  echo '</div>';
 }
 else
 {
-  echo T_("If your problem is solved, please set this ticket as solved");
+  echo T_("If your problem is solved, please set this ticket as solved. \n This will help you understand how many of your customers' requests are successfully solved");
 }
 ?>
 
@@ -94,14 +83,14 @@ $edit_array['runaction_editsolved'] = 1;
 if($solved)
 {
   $edit_array['solved'] = '0';
-  $new_solved           = T_("The problem is not solved");
+  $new_solved           = T_("Set as  not solved");
   $btnclass             = 'warn';
 
 }
 else
 {
   $edit_array['solved'] = '1';
-  $new_solved           = T_("The problem is solved");
+  $new_solved           = T_("Set as solved");
   $btnclass             = 'success';
 }
 
@@ -111,4 +100,28 @@ echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' dat
 ?>
     </div>
   </div>
+</section>
+
+
+
+
+<section class="f" data-option='crm-ticket-remove'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Remove ticket");?></h3>
+      <div class="body">
+        <p class="fc-red">
+          <?php echo T_("Remove ticket with all conversations") ?>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <div data-confirm data-data='{"runaction_editstatus" : 1, "status" : "deleted"}' class="btn danger"><?php echo T_("Remove") ?></div>
+    </div>
+  </div>
+  <footer class="txtRa">
+      <div data-confirm data-data='{"runaction_editstatus" : 1, "status" : "spam"}' class="btn linkDel"><?php echo T_("Set as Spam ticket") ?></div>
+  </footer>
 </section>

@@ -29,7 +29,7 @@ class model
 		{
 			if(isset($post['status']) && in_array($post['status'], ['deleted', 'spam']))
 			{
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::to(\dash\url::this(). '/datalist');
 			}
 
 			\dash\redirect::pwd();

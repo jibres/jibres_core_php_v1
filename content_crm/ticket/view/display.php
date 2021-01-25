@@ -132,7 +132,7 @@ foreach (\dash\data::conversation() as $key => $value)
        }
        if(a($value, 'type') === 'note')
        {
-        echo 'msg ';
+        echo 'msg minimal ';
        }
        echo '">';
        if(a($value, 'type') === 'note')
@@ -144,7 +144,7 @@ foreach (\dash\data::conversation() as $key => $value)
       ?>
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
       <?php if(a($value, 'branch')) {?>
-        <div class="msg info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
+        <div class="msg minimal info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
       <?php } //endif ?>
     </div>
     <?php if(!$customer_mode) {?>
