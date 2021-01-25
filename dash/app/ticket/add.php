@@ -180,7 +180,7 @@ class add
 		$log =
 		[
 			'masterid' => $master['id'],
-			'code'     => $master['id'],
+			'code'     => $ticket_id,
 			'plus'     => $plus,
 			'from'     => \dash\user::id(),
 		];
