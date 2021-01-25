@@ -44,6 +44,11 @@ class log
 
 	public static function to_supervisor($_text)
 	{
+		if(!\dash\engine\store::inStore())
+		{
+			return;
+		}
+
 		$log =
 		[
 			'my_text' => $_text,
