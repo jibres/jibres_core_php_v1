@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Tickets"));
+		\dash\face::title(T_("Messages"));
 
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::back_text(T_('Tickets'));

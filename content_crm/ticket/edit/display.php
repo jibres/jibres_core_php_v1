@@ -19,7 +19,9 @@
       </div>
     </div>
     <footer class="f">
+      <?php if(\dash\data::dataRow_parent()) {?>
       <div class="cauto"><div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove this message") ?></div></div>
+    <?php } //endif ?>
       <div class="c"></div>
       <div class="cauto"><button class="btn master"><?php echo T_("Save") ?></button></div>
     </footer>
