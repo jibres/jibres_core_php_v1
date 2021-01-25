@@ -7,31 +7,38 @@ class ticket
 	public static function answer($_id, $_answer)
 	{
 		// save answer
-		\content_support\ticket\show\model::answer_save($_id, $_answer);
+		$args =
+		[
+			'content' => $_content,
+		];
+
+		\dash\app\ticket\answer::add($args, $_id);
+
 		return true;
 	}
 
 
 	public static function create($_content)
 	{
-		\content_support\ticket\add\model::add_new('telegram', $_content);
+		$args =
+		[
+			'via' => 'telegram',
+			'content' => $_content,
+		];
+		\dash\app\ticket\add\add($args);
 	}
 
 
 	public static function list($_id)
 	{
 		$_id = \dash\utility\convert::to_en_number($_id);
-		\content_support\ticket\show\view::load_tichet($_id);
-
-		$dataTable          = \dash\data::dataTable();
-		$masterTicketDetail = \dash\data::masterTicketDetail();
+		$dataTable = \dash\app\ticket\get::conversation($_id);
 
 		if(!$dataTable)
 		{
 			return false;
 		}
 
-		\content_support\ticket\show\view::see_ticket($masterTicketDetail, $dataTable, $_id);
 
 		$msg = '';
 		$msg .= "🆔#Ticket".$_id. "\n";
