@@ -3,7 +3,7 @@
   <nav class="items mB25-f">
     <ul>
       <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/googleanalytics">
+        <a class="f" href="<?php echo \dash\url::that(); ?>/gtag">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/google_analytics.svg" alt='Google Analytics'>
           <div class="key"><?php echo T_("Google Analytics"); ?></div>
           <div class="go"></div>

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\thirdparty\googleanalytics;
+namespace content_a\setting\thirdparty\gtag;
 
 
 class model
