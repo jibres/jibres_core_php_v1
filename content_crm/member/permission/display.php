@@ -22,6 +22,9 @@
 		</select>
     </div>
   </form>
+  <footer class="txtRa">
+    <a class="btn link" href="<?php echo \dash\url::here(). '/permission' ?>"><?php echo T_("Manage permissions") ?></a>
+  </footer>
 </section>
 
 <?php if(\dash\data::dataRowMember_permission()) {?>

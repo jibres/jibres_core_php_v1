@@ -15,7 +15,7 @@ class search
 
 	public static function last_5_ticket()
 	{
-		return self::list(null, ['limit' => 5]);
+		return self::list(null, ['limit' => 5], true);
 	}
 
 
