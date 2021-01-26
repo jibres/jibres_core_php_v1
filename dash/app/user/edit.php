@@ -62,7 +62,6 @@ trait edit
 
 			if(array_key_exists('permission', $_args))
 			{
-				$is_staff  = $_args['permission'] ? true : false;
 
 				$load_user = \dash\db\users::get_by_id($_id);
 
@@ -90,35 +89,42 @@ trait edit
 		$result = \dash\db\users::update($_args, $_id);
 
 
-		if($result)
+		if($result && isset($load_user))
 		{
-			if($is_staff === true || $is_staff === false)
-			{
-
-				if(isset($load_user['jibres_user_id']) || isset($_args['jibres_user_id']))
-				{
-					if($is_staff === true)
-					{
-						$set = ['staff' => 'yes'];
-					}
-					else
-					{
-						$set = ['staff' => 'no'];
-					}
-
-					$jibres_user_id = isset($load_user['jibres_user_id']) ? $load_user['jibres_user_id'] : $_args['jibres_user_id'];
-
-					\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $jibres_user_id, $set);
-				}
-				else
-				{
-					\dash\notif::warn(T_("Please set mobile to this user and then change the permission"));
-				}
-			}
-
+			self::update_jibres_store_user($load_user, $_args);
 		}
 		return $result;
 
+	}
+
+
+	public static function update_jibres_store_user($load_user, $_args)
+	{
+		$is_staff  = a($_args, 'permission') ? true : false;
+
+		if($is_staff === true || $is_staff === false)
+		{
+
+			if(isset($load_user['jibres_user_id']) || isset($_args['jibres_user_id']))
+			{
+				if($is_staff === true)
+				{
+					$set = ['staff' => 'yes'];
+				}
+				else
+				{
+					$set = ['staff' => 'no'];
+				}
+
+				$jibres_user_id = isset($load_user['jibres_user_id']) ? $load_user['jibres_user_id'] : $_args['jibres_user_id'];
+
+				\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $jibres_user_id, $set);
+			}
+			else
+			{
+				\dash\notif::warn(T_("Please set mobile to this user and then change the permission"));
+			}
+		}
 	}
 
 
