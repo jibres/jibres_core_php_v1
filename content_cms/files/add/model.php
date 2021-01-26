@@ -18,6 +18,8 @@ class model
 					'bmp','gif','jpeg','jpg','png','webp',	// image
 					'mpeg','mpg','mp4','mov','avi',			// video
 					'pdf',									// doc
+					'zip', 'rar',							// zip
+
 				],
 			];
 
