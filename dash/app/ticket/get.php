@@ -133,6 +133,25 @@ class get
 
 		$conversation = array_map(['\\dash\\app\\ticket\\ready', 'row'], $conversation);
 
+		if($_customer_mode)
+		{
+			$endMessage = end($conversation);
+
+			if(a($endMessage, 'parent') && !a($endMessage, 'see') && a($endMessage, 'type') === 'answer')
+			{
+				$log =
+				[
+					'from'     => \dash\user::id(),
+					'code'     => a($endMessage, 'id'),
+					'masterid' => a($endMessage, 'parent'),
+				];
+
+				\dash\db\tickets\update::update(['see' => 1], $endMessage['id']);
+
+				\dash\log::set('ticket_seeTicket', $log);
+			}
+		}
+
 		return $conversation;
 	}
 }
