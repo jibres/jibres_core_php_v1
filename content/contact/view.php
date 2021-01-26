@@ -2,7 +2,7 @@
 namespace content\contact;
 
 
-class view extends \content_support\ticket\contact_ticket\view
+class view
 {
 	public static function config()
 	{
@@ -11,7 +11,14 @@ class view extends \content_support\ticket\contact_ticket\view
 
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-contact-1.jpg');
 
-		self::codeurl();
+		\dash\session::set('ticket_load_page_time', time());
+
+		$codeurl = \dash\session::get('temp_ticket_codeurl');
+		if($codeurl && !\dash\user::login())
+		{
+			\dash\data::tempTicketCodeURL($codeurl);
+			\dash\session::clean('temp_ticket_codeurl');
+		}
 
 		// btn
 		\dash\data::back_text(T_('Home'));

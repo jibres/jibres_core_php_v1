@@ -2,7 +2,7 @@
 namespace content\bug;
 
 
-class model extends \content_support\ticket\contact_ticket\model
+class model
 {
 	public static function post()
 	{
@@ -13,7 +13,7 @@ class model extends \content_support\ticket\contact_ticket\model
 		$args['content'] = \dash\request::post('title'). "\n". \dash\request::post('content');
 
 		\dash\temp::set('tempTicketTitle', T_("Bug"));
-		parent::post($args);
+		\dash\app\ticket\contact::post($args);
 	}
 }
 ?>

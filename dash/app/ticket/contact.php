@@ -1,7 +1,7 @@
 <?php
-namespace content_support\ticket\contact_ticket;
+namespace dash\app\ticket;
 
-class model
+class contact
 {
 
 	public static function check_input_time()

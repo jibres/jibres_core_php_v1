@@ -2,10 +2,12 @@
 namespace content\bug;
 
 
-class view extends \content_support\ticket\contact_ticket\view
+class view
 {
+
 	public static function config()
 	{
+
 		\dash\face::title(T_('Jibres Bug Program'));
 		\dash\face::desc(T_("All technology contains bugs. If you've found a security vulnerability, we'd like to help out. By submitting a vulnerability to a program on Jibres."));
 		// btn
@@ -16,7 +18,15 @@ class view extends \content_support\ticket\contact_ticket\view
 
 		\dash\data::global_scriptPage('matrix.js');
 
-		self::codeurl();
+		\dash\session::set('ticket_load_page_time', time());
+
+		$codeurl = \dash\session::get('temp_ticket_codeurl');
+		if($codeurl && !\dash\user::login())
+		{
+			\dash\data::tempTicketCodeURL($codeurl);
+			\dash\session::clean('temp_ticket_codeurl');
+		}
+
 	}
 }
 ?>

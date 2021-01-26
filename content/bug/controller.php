@@ -2,8 +2,13 @@
 namespace content\bug;
 
 
-class controller extends \content_support\ticket\contact_ticket\controller
+class controller
 {
+	public static function routing()
+	{
+		\dash\utility\ip::check();
 
+		\dash\csrf::set();
+	}
 }
 ?>
