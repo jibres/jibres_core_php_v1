@@ -6,6 +6,8 @@ class dashboard
 {
 	public static function one_user($_user_id)
 	{
+		$one_user                      = [];
+
 		$user_id = \dash\coding::decode($_user_id);
 		if(!$user_id)
 		{
@@ -84,6 +86,16 @@ class dashboard
 			}
 
 			$last_5_order = \lib\app\factor\search::last_user_order($user_id);
+
+		}
+		else
+		{
+			// in jibres mode load business, domains, create business limit, emails
+			$one_user['emails_count']   = \dash\app\user\email::get_user_email_count($user_id);
+			$one_user['domains_count']  = \lib\app\nic_domain\search::count_user_domain($user_id);
+			$one_user['business_count'] = \lib\app\store\mystore::get_count_owner($user_id);
+			$one_user['business_list']  = \lib\app\store\mystore::list($user_id);
+
 		}
 
 
@@ -126,7 +138,7 @@ class dashboard
 
 
 
-		$one_user                      = [];
+
 		$one_user['last_payment']      = $last_payment;
 		$one_user['last_login']        = $last_login_date;
 		$one_user['last_ip']           = $last_login_ip;

@@ -49,6 +49,15 @@ class search
 	}
 
 
+	public static function count_user_domain($_user_id)
+	{
+		$args              = [];
+		$args['user_id']   = $_user_id;
+		$args['get_count'] = 1;
+		return self::get_list(null, $args);
+	}
+
+
 	public static function get_list($_query_string, $_args)
 	{
 

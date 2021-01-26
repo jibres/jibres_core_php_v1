@@ -6,7 +6,8 @@ class view
 {
 	public static function config()
 	{
-		\content_crm\member\main\view::dataRowMember();
+
+		\content_crm\member\master::view();
 
 		\dash\face::title(T_('Edit jibres business user detail'));
 

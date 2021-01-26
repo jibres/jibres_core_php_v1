@@ -4,6 +4,27 @@ namespace dash\app\user;
 
 class email
 {
+	public static function get_user_email_count($_user_id = null)
+	{
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id = \dash\user::id();
+		}
+
+		if(!$user_id)
+		{
+			return [];
+		}
+
+		$result = \dash\db\useremail::get_count_by_user_id($user_id);
+
+		return floatval($result);
+	}
+
 	public static function get_my_list()
 	{
 		if(!\dash\user::id())

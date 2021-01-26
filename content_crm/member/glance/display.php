@@ -1,4 +1,5 @@
 <?php
+$inStore = \dash\engine\store::inStore();
 $myID = '?id='. \dash\request::get('id');
 $dashboardDetail = \dash\data::dashboardDetail();
 
@@ -31,12 +32,14 @@ if(a($dataRowMember,  'status') === 'ban')
   echo $banMessage;
 }
 
+// business_list
 ?>
+
 
 
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-
+    <?php if($inStore) {?>
     <section class="row">
      <div class="c-xs-6 c-sm-4">
       <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
@@ -57,6 +60,34 @@ if(a($dataRowMember,  'status') === 'ban')
       </a>
      </div>
     </section>
+  <?php }else{ // in jibres mode ?>
+    <section class="row">
+      <div class="c-xs-6 c-sm-3">
+      <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
+       <h3><?php echo T_("Business Count");?></h3>
+       <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'business_count'));?></div>
+      </a>
+     </div>
+     <div class="c-xs-6 c-sm-3">
+      <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
+       <h3><?php echo T_("Domain Count");?></h3>
+       <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'domains_count'));?></div>
+      </a>
+     </div>
+     <div class="c-xs-6 c-sm-3">
+      <a href="<?php echo \dash\url::here(). '/ticket/datalist?user='. \dash\request::get('id') ?>" class="stat">
+       <h3><?php echo T_("Tickets");?></h3>
+       <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'active_ticket'));?></div>
+      </a>
+     </div>
+     <div class="c-xs-12 c-sm-3">
+      <a href="<?php echo \dash\url::this(). '/transactions'. $myID ?>" class="stat <?php if(a($dashboardDetail, 'balance')>0) echo " green"; ?>">
+       <h3><?php echo T_("Account Balance");?> <small><?php echo \lib\store::currency() ?></small></h3>
+       <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'balance'));?></div>
+      </a>
+     </div>
+    </section>
+  <?php } //endif ?>
 
 
     <div class="row">
@@ -99,6 +130,15 @@ if(a($dataRowMember,  'status') === 'ban')
               </a>
 <?php }?>
             </li>
+            <?php if(!$inStore) {?>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::this(). '/sessions?id='. \dash\request::get('id');?>">
+                <div class="key"><?php echo T_('Email count');?></div>
+                <div class="value ltr"><?php echo \dash\fit::number(a($dashboardDetail, 'emails_count'));?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+          <?php  }//endif ?>
           </ul>
         </nav>
       </div>
@@ -133,6 +173,15 @@ if(a($dataRowMember,  'status') === 'ban')
                 <div class="go"></div>
               </a>
             </li>
+             <?php if(!$inStore) {?>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::this(). '/business?id='. \dash\request::get('id');?>">
+                <div class="key"><?php echo T_('Business limit');?></div>
+                <div class="value ltr"><?php if(!a(\dash\data::dataRowMember(), 'businesscount')) {echo T_("Default");}else{ echo \dash\fit::number(a(\dash\data::dataRowMember(), 'businesscount'));}?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+          <?php  }//endif ?>
           </ul>
         </nav>
       </div>

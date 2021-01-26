@@ -15,6 +15,8 @@ class controller
 		{
 			\dash\header::status(404, ';)');
 		}
+
+		\content_crm\member\master::load();
 	}
 }
 ?>

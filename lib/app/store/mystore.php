@@ -4,9 +4,17 @@ namespace lib\app\store;
 
 class mystore
 {
-	public static function list()
+	public static function list($_user_id = null)
 	{
-		$user_id = \dash\user::id();
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id = \dash\user::id();
+		}
+
 		if(!$user_id)
 		{
 			return false;
@@ -53,5 +61,53 @@ class mystore
 
 		return $result;
 	}
+
+
+	public static function get_count($_user_id = null)
+	{
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id = \dash\user::id();
+		}
+
+		if(!$user_id)
+		{
+			return false;
+		}
+
+		$store_user = \lib\db\store\store_user::get_my_store_count($user_id);
+
+		return floatval($store_user);
+
+	}
+
+	public static function get_count_owner($_user_id = null)
+	{
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id = \dash\user::id();
+		}
+
+		if(!$user_id)
+		{
+			return false;
+		}
+
+		$store_user = \lib\db\store\store_user::get_my_store_count_owner($user_id);
+
+		return floatval($store_user);
+
+	}
+
+
+
 }
 ?>
