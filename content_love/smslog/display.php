@@ -53,7 +53,7 @@
         <div><?php echo $value['mode']; ?></div>
       </td>
       <td class="collapsing"><?php echo $value['ip']; ?></td>
-      <td class="collapsing"><?php echo $value['store_id']; ?></td>
+      <td class="collapsing"><?php echo a($value, 'store_id'); ?></td>
       <td class="collapsing">
         <div><?php echo \dash\fit::date_time($value['datesend']); ?></div>
       </td>
