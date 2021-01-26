@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\member\add;
+namespace content_crm\staff\add;
 
 
 class view
