@@ -282,6 +282,11 @@ class sms
 			$_args['len'] = mb_strlen($_args['message']);
 		}
 
+		if(!a($_args['status']))
+		{
+			$_args['status'] = 'send';
+		}
+
 		$_args['provider']    = 'kavenegar';
 		$_args['urlmd5']      = md5(\dash\url::pwd());
 		$_args['url']         = \dash\url::pwd();

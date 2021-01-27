@@ -3,15 +3,8 @@ namespace lib\app\sms\log;
 
 class search
 {
-	private static $filter_message = null;
-	private static $filter_args    = [];
+
 	private static $is_filtered    = false;
-
-
-	public static function filter_message()
-	{
-		return self::$filter_message;
-	}
 
 
 	public static function is_filtered()
@@ -25,9 +18,13 @@ class search
 	{
 		$condition =
 		[
-			'order'       => 'order',
-			'sort'        => ['enum' => ['type','id']],
-			'store_id'    => 'id',
+			'order'    => 'order',
+			'sort'     => 'string_100',
+			'store_id' => 'id',
+			'status'   => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
+			// 'type'     => ['enum' => []],
+			'mobile'   => 'mobile',
+
 
 		];
 
@@ -56,29 +53,33 @@ class search
 			$and[] = " sms_log.store_id = $data[store_id] ";
 		}
 
+		if($data['status'])
+		{
+			if($data['status'] === 'other')
+			{
+				$and[] = " sms_log.status NOT IN ('pending', 'sending', 'send') ";
+
+			}
+			else
+			{
+				$and[] = " sms_log.status = '$data[status]' ";
+			}
+			self::$is_filtered = true;
+		}
+
 		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{
 			$or[]        = " sms_log.mobile LIKE '%$query_string%'";
-
-
 			self::$is_filtered = true;
 		}
 
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['id']))
+			if(\lib\app\sms\log\filter::check_allow($data['sort'], $data['order']))
 			{
-
-				$sort = mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = mb_strtolower($data['order']);
-				}
-
 				$order_sort = " ORDER BY $sort $order";
 			}
 		}
@@ -87,8 +88,6 @@ class search
 		{
 			$order_sort = " ORDER BY sms_log.id DESC";
 		}
-
-
 
 		$list = \lib\db\sms_log\search::list($and, $or, $order_sort, $meta);
 
@@ -123,23 +122,8 @@ class search
 				}
 			}
 		}
+
 		$list = array_map(['\\lib\\app\\sms\\log\\ready', 'row'], $list);
-
-		$filter_args_data = [];
-
-		foreach (self::$filter_args as $key => $value)
-		{
-			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
-			{
-				$filter_args_data[substr($value, 1)] = $list[0][$key];
-			}
-			else
-			{
-				$filter_args_data[$key] = $value;
-			}
-		}
-
-		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
 		return $list;
 	}

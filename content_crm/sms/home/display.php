@@ -1,19 +1,37 @@
-<nav class="items">
-  <ul>
-<?php foreach (\dash\data::dataTable() as $key => $value) {?>
-     <li>
-      <a class="f align-center" href="<?php echo \dash\url::that(). '/view?id='. $value['id'] ?>">
+<?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
+<div class="row">
+  <div class="c-xs-12 c-sm-12 c-md-8">
+    <div id="chartdivcmsticket" class="box chart x350 s0" data-abc='crm/tickets'>
+      <div class="hide">
+        <div id="charttitleunit"><?php echo T_("Count") ?></div>
+        <div id="charttickettitle"><?php echo T_("Ticket") ?></div>
+        <div id="chartmessagetitle"><?php echo T_("Message") ?></div>
 
-        <div class="key"><?php echo T_($value['message']); ?></div>
+        <div id="charttitle"><?php echo T_("Thicket and message in last years") ?></div>
+        <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
+        <div id="chartdataticket"><?php echo a($dashboardDetail, 'chart', 'dataticket') ?></div>
+        <div id="chartdatamessage"><?php echo a($dashboardDetail, 'chart', 'datamessage') ?></div>
+      </div>
+    </div>
 
-        <div class="value txtB s0"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
-        <div class="value datetime s0"><?php echo \dash\fit::date_time($value['datesend']) ?></div>
-        <div class="go"></div>
-      </a>
-     </li>
-<?php } //endfor ?>
-  </ul>
-</nav>
+  </div>
+  <div class="c-xs-12 c-sm-12 c-md-4">
+    <nav class="items long">
+     <ul>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist">
+          <i class="sf-envelope"></i>
+          <div class="key"><?php echo T_('Send sms history');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'sms')); ?></div>
+          <div class="go search"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
 
-<?php \dash\utility\pagination::html(); ?>
 
+
+  </div>
+</div>
+
+</div>

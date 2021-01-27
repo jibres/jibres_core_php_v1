@@ -133,7 +133,7 @@
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/sms">
           <i class="sf-envelope"></i>
-          <div class="key"><?php echo T_('Sended SMS list');?></div>
+          <div class="key"><?php echo T_('SMS');?></div>
           <div class="go"></div>
         </a>
       </li>
