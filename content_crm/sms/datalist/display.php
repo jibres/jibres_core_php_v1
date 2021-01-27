@@ -2,7 +2,7 @@
   <ul>
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo \dash\url::that(). '/view?id='. $value['id'] ?>">
+      <a class="f align-center" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
 
         <div class="key"><?php echo T_($value['message']); ?></div>
 
