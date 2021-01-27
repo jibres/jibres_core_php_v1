@@ -1,6 +1,7 @@
 ALTER TABLE jibres.sms_log CHANGE `status` `status` enum('pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other') DEFAULT NULL;
 ALTER TABLE jibres.sms_log ADD `sender` enum('system','admin', 'customer') DEFAULT NULL AFTER `status`;
 ALTER TABLE jibres.sms_log ADD KEY `smslog_sender` (`sender`);
+UPDATE jibres.sms_log SET sms_log.status = 'send';
 
 
 CREATE TABLE jibres.email_log (
