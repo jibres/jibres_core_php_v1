@@ -313,6 +313,12 @@ class set
 			'UserPassword' => 'string_100',
 		];
 
+		$idpay =
+		[
+			'status' => 'bit',
+			'apikey' => 'string_100',
+		];
+
 
 		$data = [];
 
@@ -324,7 +330,7 @@ class set
 
 		foreach ($_args as $key => $value)
 		{
-			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat']))
+			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat', 'idpay']))
 			{
 				$data[$key] = \dash\cleanse::input($value, $$key, [], []);
 			}

@@ -11,6 +11,7 @@
 					html_block_paymentParsian($bank);
 					html_block_paymentPayir($bank);
 					html_block_paymentIrankhis($bank);
+					html_block_idpay($bank);
 				 ?>
 			</div>
 			<footer class="f">
@@ -229,3 +230,21 @@
 
 <?php } // endfunction ?>
 
+
+<?php function html_block_idpay($bank) {?>
+<div class="switch1">
+ <input type="checkbox" name="idpay" id="idpay" <?php if(a($bank, 'idpay', 'status')) { echo 'checked';} ?> >
+ <label for="idpay"></label>
+ <label for="idpay"><?php echo T_("Enable idpay payment"); ?></label>
+</div>
+
+<div class="f mT10" data-response='idpay' data-response-effect='slide' <?php if(a($bank, 'idpay', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+	<div class="c12 mLa5">
+		<label for="apikey">API KEY</label>
+		<div class="input">
+		  <input type="text" name="apikey" id="apikey" placeholder='apikey' value="<?php echo a($bank, 'idpay','apikey'); ?>" maxlength='300'>
+		</div>
+	</div>
+</div>
+
+<?php } // endfunction ?>

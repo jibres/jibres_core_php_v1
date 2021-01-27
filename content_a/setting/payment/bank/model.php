@@ -90,6 +90,16 @@ class model
 			$payment['payir']['status'] = false;
 		}
 
+		if(\dash\request::post('idpay'))
+		{
+			$payment['idpay']['status'] = true;
+			$payment['idpay']['apikey'] = \dash\request::post('apikey');
+		}
+		else
+		{
+			$payment['idpay']['status'] = false;
+		}
+
 		if(\dash\request::post('irkish'))
 		{
 			$payment['irkish']['status']      = true;
