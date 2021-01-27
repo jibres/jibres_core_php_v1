@@ -26,6 +26,14 @@
           <div class="go search"></div>
         </a>
       </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/conversation">
+          <i class="sf-chat"></i>
+          <div class="key"><?php echo T_('Conversation');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'conversation')); ?></div>
+          <div class="go search"></div>
+        </a>
+      </li>
      </ul>
    </nav>
 

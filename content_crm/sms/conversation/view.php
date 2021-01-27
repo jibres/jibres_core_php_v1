@@ -1,12 +1,12 @@
 <?php
-namespace content_crm\sms\datalist;
+namespace content_crm\sms\conversation;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Send sms history"));
+		\dash\face::title(T_("Conversation"));
 
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::back_text(T_('SMS'));
@@ -21,10 +21,11 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
-			'status' => \dash\request::get('status'),
-			'mobile' => \dash\request::get('mobile'),
+			'order'        => \dash\request::get('order'),
+			'sort'         => \dash\request::get('sort'),
+			'status'       => \dash\request::get('status'),
+			'mobile'       => \dash\request::get('mobile'),
+			'conversation' => 1,
 
 		];
 

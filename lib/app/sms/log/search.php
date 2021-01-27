@@ -18,14 +18,13 @@ class search
 	{
 		$condition =
 		[
-			'order'    => 'order',
-			'sort'     => 'string_100',
-			'store_id' => 'id',
-			'status'   => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
-			// 'type'     => ['enum' => []],
-			'mobile'   => 'mobile',
-
-
+			'order'        => 'order',
+			'sort'         => 'string_100',
+			'store_id'     => 'id',
+			'status'       => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
+			// 'type'      => ['enum' => []],
+			'mobile'       => 'mobile',
+			'conversation' => 'bit',
 		];
 
 
@@ -51,6 +50,12 @@ class search
 		if($data['store_id'])
 		{
 			$and[] = " sms_log.store_id = $data[store_id] ";
+		}
+
+		if($data['mobile'])
+		{
+			$and[] = " sms_log.mobile = '$data[mobile]' ";
+			self::$is_filtered = true;
 		}
 
 		if($data['status'])
@@ -97,7 +102,16 @@ class search
 			$order_sort = " ORDER BY sms_log.id DESC";
 		}
 
-		$list = \lib\db\sms_log\search::list($and, $or, $order_sort, $meta);
+
+		if($data['conversation'])
+		{
+			$list = \lib\db\sms_log\search::conversation_list($and, $or, $order_sort, $meta);
+
+		}
+		else
+		{
+			$list = \lib\db\sms_log\search::list($and, $or, $order_sort, $meta);
+		}
 
 		if(!is_array($list))
 		{

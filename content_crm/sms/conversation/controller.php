@@ -1,5 +1,5 @@
 <?php
-namespace content_crm\sms\home;
+namespace content_crm\sms\conversation;
 
 
 class controller
