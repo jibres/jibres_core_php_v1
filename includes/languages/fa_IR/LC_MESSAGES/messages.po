@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-25 20:29+0330\n"
-"PO-Revision-Date: 2021-01-25 20:29+0330\n"
+"POT-Creation-Date: 2021-01-27 13:59+0330\n"
+"PO-Revision-Date: 2021-01-27 14:02+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -61,8 +61,8 @@ msgid "About Jibres"
 msgstr "درباره جیبرس"
 
 #: content/about/view.php:12 content/benefits/view.php:13 content/brand/view.php:12
-#: content/bug/view.php:12 content/careers/view.php:12 content/certificates/view.php:15
-#: content/changelog/view.php:15 content/contact/view.php:17
+#: content/bug/view.php:14 content/careers/view.php:12 content/certificates/view.php:15
+#: content/changelog/view.php:15 content/contact/view.php:24
 #: content/domains/home/view.php:12 content/enterprise/view.php:13
 #: content/forceunlock/view.php:12 content/free/view.php:12 content/help/view.php:13
 #: content/investment/view.php:12 content/press/view.php:15 content/pricing/view.php:13
@@ -693,12 +693,12 @@ msgstr "ارسال"
 msgid "Bug"
 msgstr "باگ"
 
-#: content/bug/view.php:9 content/home/layout/footer.php:148
+#: content/bug/view.php:11 content/home/layout/footer.php:148
 #: content/home/layout/pwa-footer.php:149
 msgid "Jibres Bug Program"
 msgstr "برنامه گزارش باگ جیبرس"
 
-#: content/bug/view.php:10
+#: content/bug/view.php:12
 msgid ""
 "All technology contains bugs. If you've found a security vulnerability, we'd like to "
 "help out. By submitting a vulnerability to a program on Jibres."
@@ -929,7 +929,7 @@ msgstr ""
 #: content_cms/comments/view/display.php:21 content_crm/member/add/display.php:5
 #: content_crm/member/identification/display.php:8
 #: content_crm/member/identification/display.php:10 content_crm/staff/add/display.php:5
-#: content_enter/signup/display.php:12 content_support/ticket/contact_ticket/model.php:113
+#: content_enter/signup/display.php:12 dash/app/ticket/contact.php:113
 #: dash/layout/tools/display-add-comment.php:27
 msgid "Name"
 msgstr "نام"
@@ -951,7 +951,7 @@ msgstr "نام کامل"
 #: content_business/p/home/display.php:381 content_business/shipping/display.php:19
 #: content_business/shipping/display.php:108 content_cms/comments/edit/display.php:6
 #: content_cms/comments/view/display.php:30 content_crm/member/add/display.php:9
-#: content_crm/member/glance/display.php:200 content_crm/member/home/display-old.php:120
+#: content_crm/member/glance/display.php:249 content_crm/member/home/display-old.php:120
 #: content_crm/member/mobile/display.php:6 content_crm/sms/view/display.php:14
 #: content_crm/staff/add/display.php:9 content_enter/app/display.php:32
 #: content_enter/home/display.php:20 content_enter/pass/change/display.php:6
@@ -965,8 +965,7 @@ msgstr "نام کامل"
 #: content_love/transactions/minus/display.php:61
 #: content_love/transactions/minus/display.php:62 content_su/tg/log/display.php:98
 #: content_su/tg/system/display.php:24 content_su/tg/users/display.php:99
-#: content_support/ticket/contact_ticket/model.php:103
-#: dash/layout/tools/display-add-comment.php:34
+#: dash/app/ticket/contact.php:103 dash/layout/tools/display-add-comment.php:34
 #: dash/layout/tools/display-add-comment.php:35
 #: includes/languages/trans_static_public.php:162 lib/app/form/item/type.php:333
 msgid "Mobile"
@@ -981,14 +980,13 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_a/setting/social/display.php:73 content_account/my/email/display.php:7
 #: content_account/my/email/view.php:10 content_account/my/home/display.php:52
 #: content_business/home/layout/template/visitcard.php:40
-#: content_crm/member/email/display.php:6 content_crm/member/glance/display.php:207
+#: content_crm/member/email/display.php:6 content_crm/member/glance/display.php:256
 #: content_crm/member/home/display-old.php:123
 #: content_love/domain/nicdetail/display.php:13
 #: content_love/domain/setting/display.php:202 content_love/log/home/logTable.php:62
 #: content_my/domain/whoisdetail/whoisDetailForm.php:355
 #: content_my/ipg/gateway/display.php:21 content_my/ipg/setup/gateway/display.php:21
-#: content_support/ticket/contact_ticket/model.php:108
-#: includes/languages/trans_static_public.php:941
+#: dash/app/ticket/contact.php:108 includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:355
 #: lib/store.php:500
 msgid "Email"
@@ -1033,7 +1031,7 @@ msgid "Our location on map"
 msgstr "موقعیت ما در نقشه"
 
 #: content/contact/view.php:9 content_my/business/start/display.php:31
-#: content_support/ticket/contact_ticket/model.php:125
+#: dash/app/ticket/contact.php:125
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -4887,7 +4885,7 @@ msgstr "غیرفعال"
 #: content_a/products/export/display.php:57 content_a/products/home/filter.php:138
 #: content_a/products/status/view.php:18 content_a/setting/domain/manage/display.php:123
 #: content_business/orders/display.php:21 content_cms/comments/view/display.php:85
-#: content_crm/member/glance/display.php:221 content_crm/member/home/display-old.php:129
+#: content_crm/member/glance/display.php:270 content_crm/member/home/display-old.php:129
 #: content_crm/ticket/view/display.php:54 content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
 #: content_love/business/domain/alllist/display.php:23
@@ -4993,7 +4991,7 @@ msgstr "ویرایش"
 #: content_a/website/specialslider/setting/display.php:39
 #: content_a/website/text/display.php:25 content_a/website/titleline/display.php:25
 #: content_account/api/display.php:16 content_business/p/home/display.php:154
-#: content_cms/comments/view/display.php:182 content_crm/member/permission/display.php:56
+#: content_cms/comments/view/display.php:182 content_crm/member/permission/display.php:59
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
 #: content_love/domain/detail/display.php:195 content_my/domain/irnic/edit/display.php:24
@@ -5095,7 +5093,7 @@ msgstr "ماهیت گروه"
 #: content_account/billing/display.php:62 content_account/billing/display.php:100
 #: content_crm/member/home/display-old.php:83
 #: content_love/business/domain/alllist/display.php:30
-#: content_love/log/home/logTable.php:9 content_pay/home/display.php:260
+#: content_love/log/home/logTable.php:9 content_pay/home/display.php:267
 #: content_su/apilog/home/display.php:103 content_su/smsclient/home/display.php:52
 #: includes/languages/trans_static.php:667
 msgid "Detail"
@@ -5468,8 +5466,8 @@ msgstr "شماره سند حسابداری جدید"
 #: content_a/products/duplicate/display.php:12
 #: content_a/setting/domain/manage/display.php:34
 #: content_a/setting/domain/manage/display.php:39
-#: content_crm/member/permission/display.php:35
 #: content_crm/member/permission/display.php:38
+#: content_crm/member/permission/display.php:41
 #: includes/languages/trans_static_public.php:107
 msgid "Copy"
 msgstr "کپی"
@@ -5480,7 +5478,7 @@ msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
 #: content_a/accounting/doc/edit/model.php:147
 #: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:264
-#: content_cms/files/add/model.php:33 content_cms/files/remove/model.php:32
+#: content_cms/files/add/model.php:35 content_cms/files/remove/model.php:32
 #: content_cms/posts/edit/model.php:121
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
@@ -5505,8 +5503,8 @@ msgstr "بستن اسناد"
 #: content_a/setting/product/setting/display.php:91
 #: content_my/domain/predict/display.php:95 content_my/domain/search/display.php:187
 #: content_su/update/display.php:14 includes/languages/trans_static.php:594
-#: lib/app/nic_domain/search.php:185 lib/app/nic_domain/search.php:191
-#: lib/app/nic_domain/search.php:197
+#: lib/app/nic_domain/search.php:194 lib/app/nic_domain/search.php:200
+#: lib/app/nic_domain/search.php:206
 msgid "Lock"
 msgstr "قفل"
 
@@ -6440,7 +6438,7 @@ msgstr "مایکت"
 #: content_a/setting/general/nosale/display.php:20
 #: content_a/setting/general/title/display.php:20
 #: content_a/setting/order/validity/display.php:36
-#: content_a/setting/payment/bank/display.php:18
+#: content_a/setting/payment/bank/display.php:19
 #: content_a/setting/product/preparationtime/display.php:21
 #: content_a/setting/product/tag/display.php:23
 #: content_a/setting/product/text/display.php:19
@@ -6480,7 +6478,7 @@ msgstr "مایکت"
 #: content_business/profile/detail/display.php:44
 #: content_cms/posts/publishdate/display.php:51
 #: content_cms/posts/redirecturl/display.php:26 content_cms/tag/edit/display.php:15
-#: content_crm/member/business/display.php:18 content_crm/member/detail/display.php:10
+#: content_crm/member/business/display.php:13 content_crm/member/detail/display.php:10
 #: content_crm/member/email/display.php:12
 #: content_crm/member/identification/display.php:129
 #: content_crm/member/legal/display.php:63 content_crm/member/mobile/display.php:12
@@ -6989,7 +6987,7 @@ msgstr "کاربر مهمان سبد خرید اضافه کرده"
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
 #: content_a/home/display.php:37 content_a/setting/home/display.php:133
 #: content_business/home/layout/header/header_100.php:23
-#: content_crm/member/glance/display.php:266 dash/layout/pwa/pwa_menu.php:254
+#: content_crm/member/glance/display.php:315 dash/layout/pwa/pwa_menu.php:254
 #: lib/app/store/analytics.php:85
 msgid "Cart"
 msgstr "سبد خرید"
@@ -8388,8 +8386,9 @@ msgstr "نوع پیام"
 #: content_a/form/item/display.php:303 content_a/setting/cart/text/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:18
 #: content_cms/posts/publishdate/view.php:29 content_cms/posts/setting/view.php:29
-#: content_cms/posts/writer/view.php:38 content_love/domain/irnic/display.php:58
-#: content_my/domain/irnic/display.php:58 lib/ratio.php:71
+#: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
+#: content_love/domain/irnic/display.php:58 content_my/domain/irnic/display.php:58
+#: lib/ratio.php:71
 msgid "Default"
 msgstr "پیش‌فرض"
 
@@ -9464,7 +9463,7 @@ msgid "Subdiscount"
 msgstr "جمع تخفیف‌ها"
 
 #: content_a/order/view.php:9 content_a/setting/home/display.php:143
-#: content_crm/member/glance/display.php:260 dash/layout/admin/admin-header.php:21
+#: content_crm/member/glance/display.php:309 dash/layout/admin/admin-header.php:21
 #: dash/layout/pwa/pwa_menu.php:189 dash/panel.php:281 dash/plan_list.php:52
 msgid "Orders"
 msgstr "سفارشات"
@@ -11232,35 +11231,39 @@ msgstr "تنظیمات سفارش"
 msgid "Configuration bank payment setting"
 msgstr "تنظیمات درگاه پرداخت بانک"
 
-#: content_a/setting/payment/bank/display.php:17
+#: content_a/setting/payment/bank/display.php:18
 msgid "Test payment"
 msgstr "تست درگاه پرداخت"
 
-#: content_a/setting/payment/bank/display.php:33
+#: content_a/setting/payment/bank/display.php:34
 msgid "Enable mellat payment"
 msgstr "فعال سازی درگاه پرداخت بانک ملت"
 
-#: content_a/setting/payment/bank/display.php:71
+#: content_a/setting/payment/bank/display.php:72
 msgid "Enable zarinpal payment"
 msgstr "فعال سازی درگاه پرداخت زرین‌پال"
 
-#: content_a/setting/payment/bank/display.php:99
+#: content_a/setting/payment/bank/display.php:100
 msgid "Enable asanpardakht payment"
 msgstr "فعال سازی درگاه پرداخت آسان‌پرداخت"
 
-#: content_a/setting/payment/bank/display.php:166
+#: content_a/setting/payment/bank/display.php:167
 msgid "Enable parsian payment"
 msgstr "فعال سازی درگاه پرداخت پارسیان"
 
-#: content_a/setting/payment/bank/display.php:185
+#: content_a/setting/payment/bank/display.php:186
 msgid "Enable payir payment"
 msgstr "فعال سازی درگاه پرداخت پی‌آی‌آر"
 
-#: content_a/setting/payment/bank/display.php:204
+#: content_a/setting/payment/bank/display.php:205
 msgid "Enable irkish payment"
 msgstr "فعال سازی درگاه پرداخت ایران‌کیش"
 
-#: content_a/setting/payment/bank/model.php:115
+#: content_a/setting/payment/bank/display.php:238
+msgid "Enable idpay payment"
+msgstr "فعال سازی درگاه پرداخت آی‌دی‌پی"
+
+#: content_a/setting/payment/bank/model.php:125
 msgid "Pay test"
 msgstr "تست درگاه پرداخت"
 
@@ -11707,7 +11710,7 @@ msgid "To set your business currency"
 msgstr "برای تنظیم واحد‌های فروشگاه"
 
 #: content_a/setting/shipping/setting/display.php:24
-#: content_a/website/menu/item/display.php:94 dash/app/user/email.php:168
+#: content_a/website/menu/item/display.php:94 dash/app/user/email.php:189
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
@@ -14021,7 +14024,7 @@ msgstr "بیشتر بدانید"
 #: content_b1/user/address/fetch/view.php:14 content_b1/user/address/remove/model.php:14
 #: content_b1/user/edit/avatar/model.php:16 dash/app/address.php:36
 #: dash/app/user/business.php:68 dash/app/user/description.php:20
-#: dash/app/user/description.php:51 dash/app/user/edit.php:163
+#: dash/app/user/description.php:51 dash/app/user/edit.php:169
 #: lib/pardakhtyar/app/acceptor.php:145 lib/pardakhtyar/app/acceptor.php:152
 #: lib/pardakhtyar/app/customer.php:158 lib/pardakhtyar/app/merchantIbans.php:127
 #: lib/pardakhtyar/app/merchantIbans.php:134 lib/pardakhtyar/app/shop.php:148
@@ -14051,7 +14054,7 @@ msgstr "آدرس با موفقیت به‌روزرسانی شد"
 msgid "Address successfully added"
 msgstr "آدرس با موفقیت اضافه شد"
 
-#: content_account/my/address/view.php:10 content_crm/member/glance/display.php:249
+#: content_account/my/address/view.php:10 content_crm/member/glance/display.php:298
 msgid "Addresses"
 msgstr "آدرس‌ها"
 
@@ -14109,7 +14112,7 @@ msgstr "پروفایل"
 msgid "Username"
 msgstr "نام‌کاربری"
 
-#: content_account/my/home/display.php:60 content_crm/member/glance/display.php:214
+#: content_account/my/home/display.php:60 content_crm/member/glance/display.php:263
 #: content_crm/member/home/display-old.php:132 content_crm/staff/add/display.php:13
 #: content_su/home/display.php:189 dash/app/user/filter.php:31 dash/app/user/filter.php:32
 #: dash/layout/admin/sidebar/sidebar-su.php:23
@@ -14468,7 +14471,7 @@ msgstr "بررسی تمام نشست‌های فعال"
 
 #: content_account/security/display.php:104 content_account/security/display.php:143
 #: content_account/security/sessions/display.php:5
-#: content_crm/member/glance/display.php:326 content_crm/member/sessions/view.php:12
+#: content_crm/member/glance/display.php:375 content_crm/member/sessions/view.php:12
 #: includes/languages/trans_static_public.php:1122
 msgid "Sessions"
 msgstr "نشست‌ها"
@@ -14890,12 +14893,13 @@ msgstr "تغییر کلمه عبور"
 
 #: content_business/profile/display-menu.php:32 content_business/ticket/add/view.php:13
 #: content_business/ticket/home/view.php:11 content_business/ticket/view/view.php:14
-#: content_crm/home/display.php:113 content_crm/member/glance/display.php:49
-#: content_crm/member/glance/display.php:313 content_crm/ticket/datalist/view.php:9
-#: content_crm/ticket/datalist/view.php:12 content_crm/ticket/home/view.php:9
-#: content_crm/ticket/message/view.php:12 content_support/faq/view.php:14
-#: content_support/home/view.php:13 dash/layout/admin/sidebar/sidebar-support.php:4
-#: dash/panel.php:239 includes/languages/trans_static.php:565
+#: content_crm/home/display.php:113 content_crm/member/glance/display.php:52
+#: content_crm/member/glance/display.php:79 content_crm/member/glance/display.php:362
+#: content_crm/ticket/datalist/view.php:9 content_crm/ticket/datalist/view.php:12
+#: content_crm/ticket/home/view.php:9 content_crm/ticket/message/view.php:12
+#: content_support/faq/view.php:14 content_support/home/view.php:13
+#: dash/layout/admin/sidebar/sidebar-support.php:4 dash/panel.php:239
+#: includes/languages/trans_static.php:565
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
@@ -14974,7 +14978,7 @@ msgid "Show all ticket where"
 msgstr "نمایش تیکت‌ها با شرط"
 
 #: content_business/ticket/home/ticketList.php:17 content_crm/home/display.php:215
-#: content_crm/member/glance/display.php:172 content_crm/ticket/datalist/display.php:19
+#: content_crm/member/glance/display.php:221 content_crm/ticket/datalist/display.php:19
 #: content_crm/ticket/home/display.php:7 content_crm/ticket/message/display.php:12
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31
 #: lib/app/store/analytics.php:47
@@ -15141,12 +15145,12 @@ msgstr ""
 msgid "CMS Customization"
 msgstr "سفارشی سازی سیستم مدیریت محتوا"
 
-#: content_cms/files/add/model.php:29 content_cms/files/remove/model.php:28
+#: content_cms/files/add/model.php:31 content_cms/files/remove/model.php:28
 #: dash/upload/file.php:185
 msgid "Can not upload file"
 msgstr "ناتوان در آپلود فایل"
 
-#: content_cms/files/add/model.php:43
+#: content_cms/files/add/model.php:45
 msgid "Please send a file to upload"
 msgstr "لطفا فایل مورد نظر را بارگذاری کنید"
 
@@ -15917,11 +15921,11 @@ msgstr "آخرین ورود‌ها"
 msgid "No entries have been made so far"
 msgstr "تاکنون هیچ ورودی انجام نشده است"
 
-#: content_crm/home/display.php:205 content_crm/member/glance/display.php:165
+#: content_crm/home/display.php:205 content_crm/member/glance/display.php:214
 msgid "Last tickets"
 msgstr "آخرین تیکت‌ها"
 
-#: content_crm/home/display.php:224 content_crm/member/glance/display.php:181
+#: content_crm/home/display.php:224 content_crm/member/glance/display.php:230
 msgid "No ticket have been received so far"
 msgstr "تاکنون هیچ تیکتی دریافت نشده است"
 
@@ -15967,15 +15971,15 @@ msgstr "افزودن مشتری جدید"
 msgid "Customer addresses"
 msgstr "آدرس‌های مشتری"
 
-#: content_crm/member/business/display.php:9
+#: content_crm/member/business/display.php:4
 msgid "User business Setting"
 msgstr "تنظیمات بیزینس کاربران"
 
-#: content_crm/member/business/display.php:11
+#: content_crm/member/business/display.php:6
 msgid "Count allow user create business"
 msgstr "تعداد مجاز ساخت بیزینس برای کاربر"
 
-#: content_crm/member/business/view.php:11
+#: content_crm/member/business/view.php:12
 msgid "Edit jibres business user detail"
 msgstr "ویرایش تنظیمات مربوط به بیزینس کاربران"
 
@@ -16021,111 +16025,127 @@ msgstr "به‌روزرسانی نام و تصویر مشتری"
 msgid "Change customer email address"
 msgstr "ویرایش آدرس ایمیل مشتری"
 
-#: content_crm/member/glance/display.php:14
+#: content_crm/member/glance/display.php:15
 msgid "This user is banned"
 msgstr "این کاربر مسدود شده است"
 
-#: content_crm/member/glance/display.php:17
+#: content_crm/member/glance/display.php:18
 msgid "Expire ban on"
 msgstr "زمان انقضای محدودیت"
 
-#: content_crm/member/glance/display.php:25
+#: content_crm/member/glance/display.php:26
 msgid "Reset user now"
 msgstr "تنظیم مجدد کاربر"
 
-#: content_crm/member/glance/display.php:43
+#: content_crm/member/glance/display.php:46
 msgid "Active Order"
 msgstr "سفارشات فعال"
 
-#: content_crm/member/glance/display.php:55 content_my/domain/review/display.php:220
-#: content_my/home/display_site.php:21
+#: content_crm/member/glance/display.php:58 content_crm/member/glance/display.php:85
+#: content_my/domain/review/display.php:220 content_my/home/display_site.php:21
 msgid "Account Balance"
 msgstr "موجودی حساب"
 
-#: content_crm/member/glance/display.php:68
+#: content_crm/member/glance/display.php:67
+msgid "Business Count"
+msgstr "تعداد بیزینس‌ها"
+
+#: content_crm/member/glance/display.php:73
+msgid "Domain Count"
+msgstr "تعداد دامنه‌ها"
+
+#: content_crm/member/glance/display.php:99
 msgid "Registration Date"
 msgstr "تاریخ ثبت‌نام"
 
-#: content_crm/member/glance/display.php:75
+#: content_crm/member/glance/display.php:106
 msgid "Last Updated"
 msgstr "آخرین به‌روزرسانی"
 
-#: content_crm/member/glance/display.php:82
+#: content_crm/member/glance/display.php:113
 msgid "Last login at"
 msgstr "تاریخ آخرین ورود"
 
-#: content_crm/member/glance/display.php:90 content_crm/member/glance/display.php:96
+#: content_crm/member/glance/display.php:121 content_crm/member/glance/display.php:127
 msgid "Last IP"
 msgstr "آخرین آی‌پی"
 
-#: content_crm/member/glance/display.php:97
+#: content_crm/member/glance/display.php:128
 msgid "Not logged in yet!"
 msgstr "هنوز در سیستم وارد نشده است!"
 
-#: content_crm/member/glance/display.php:110
+#: content_crm/member/glance/display.php:136
+msgid "Email count"
+msgstr "تعداد ایمیل‌ها"
+
+#: content_crm/member/glance/display.php:150
 msgid "Last payment"
 msgstr "آخرین پرداختی"
 
-#: content_crm/member/glance/display.php:117
+#: content_crm/member/glance/display.php:157
 msgid "Total payed"
 msgstr "مجموع پرداختی‌ها"
 
-#: content_crm/member/glance/display.php:124
+#: content_crm/member/glance/display.php:164
 msgid "Total buy"
 msgstr "مجموع خرید"
 
-#: content_crm/member/glance/display.php:131
+#: content_crm/member/glance/display.php:171
 msgid "Average order pay"
 msgstr "میانگین مبلغ سفارش"
 
-#: content_crm/member/glance/display.php:144
+#: content_crm/member/glance/display.php:179
+msgid "Business limit"
+msgstr "محدودیت ساخت بیزینس"
+
+#: content_crm/member/glance/display.php:193
 msgid "Last orders"
 msgstr "آخرین سفارشات"
 
-#: content_crm/member/glance/display.php:161
+#: content_crm/member/glance/display.php:210
 msgid "Not yet ordered."
 msgstr "هنوز سفارش نداده است."
 
-#: content_crm/member/glance/display.php:215 content_love/domain/irnic/display.php:65
+#: content_crm/member/glance/display.php:264 content_love/domain/irnic/display.php:65
 #: content_my/domain/irnic/display.php:65 content_my/domain/irnic/edit/display.php:62
 #: includes/languages/trans_static_public.php:150
 #: includes/languages/trans_static_public.php:464 lib/app/nic_contact/search.php:79
 msgid "Admin"
 msgstr "مدیریت"
 
-#: content_crm/member/glance/display.php:232
+#: content_crm/member/glance/display.php:281
 msgid "Identification detail"
 msgstr "جزئیات شناسنامه‌ای"
 
-#: content_crm/member/glance/display.php:238
+#: content_crm/member/glance/display.php:287
 msgid "Legal information"
 msgstr "اطلاعات حقوقی"
 
-#: content_crm/member/glance/display.php:279 lib/app/factor/action.php:60
+#: content_crm/member/glance/display.php:328 lib/app/factor/action.php:60
 msgid "Notes"
 msgstr "یادداشت‌ها"
 
-#: content_crm/member/glance/display.php:290 content_love/domain/home/display.php:125
+#: content_crm/member/glance/display.php:339 content_love/domain/home/display.php:125
 #: content_my/domain/payments/view.php:9 content_my/ipg/home/display.php:90
 msgid "Payments"
 msgstr "پرداختی‌ها"
 
-#: content_crm/member/glance/display.php:296
+#: content_crm/member/glance/display.php:345
 #: content_crm/member/transactions/plus/view.php:12
 msgid "Increase account recharge"
 msgstr "افزایش شارژ حساب مشتری"
 
-#: content_crm/member/glance/display.php:302
+#: content_crm/member/glance/display.php:351
 #: content_crm/member/transactions/minus/view.php:12
 msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
-#: content_crm/member/glance/display.php:320 content_crm/ticket/message/view.php:9
+#: content_crm/member/glance/display.php:369 content_crm/ticket/message/view.php:9
 #: content_love/gift/create/stepGuide.php:98 dash/layout/pwa/pwa_menu.php:108
 msgid "Messages"
 msgstr "پیام‌ها"
 
-#: content_crm/member/glance/display.php:333
+#: content_crm/member/glance/display.php:382
 msgid "Customer Logs History"
 msgstr "تاریخچه ردپای مشتری"
 
@@ -16322,14 +16342,14 @@ msgid "Have not username"
 msgstr "بدون نام کاربری"
 
 #: content_crm/member/home/display-old.php:672 content_crm/member/status/display.php:17
-#: includes/languages/trans_static.php:480 lib/app/nic_domain/search.php:171
-#: lib/app/nic_domain/search.php:185
+#: includes/languages/trans_static.php:480 lib/app/nic_domain/search.php:180
+#: lib/app/nic_domain/search.php:194
 msgid "Active"
 msgstr "فعال"
 
 #: content_crm/member/home/display-old.php:692 content_crm/member/status/display.php:19
-#: includes/languages/trans_static.php:482 lib/app/nic_domain/search.php:178
-#: lib/app/nic_domain/search.php:191
+#: includes/languages/trans_static.php:482 lib/app/nic_domain/search.php:187
+#: lib/app/nic_domain/search.php:200
 msgid "Deactive"
 msgstr "غیر فعال"
 
@@ -16582,11 +16602,15 @@ msgstr "بدون سطح دسترسی"
 msgid "Administrator"
 msgstr "مدیر"
 
-#: content_crm/member/permission/display.php:31
+#: content_crm/member/permission/display.php:26
+msgid "Manage permissions"
+msgstr "مدیریت سطح دسترسی"
+
+#: content_crm/member/permission/display.php:34
 msgid "API Key"
 msgstr "کلید API"
 
-#: content_crm/member/permission/display.php:33
+#: content_crm/member/permission/display.php:36
 msgid ""
 "By creating an API Key, you will allow this user to access the system through a "
 "programming interface."
@@ -16594,15 +16618,15 @@ msgstr ""
 "با ایجاد کلید ای‌پی‌آی به این کاربر اجازه می‌دهید تا از طریق رابط برنامه‌نویسی به سیستم "
 "دسترسی پیدا کند."
 
-#: content_crm/member/permission/display.php:35
+#: content_crm/member/permission/display.php:38
 msgid "Copied. Paste into your code!"
 msgstr "کپی شد. حالا بزارش توی کد!"
 
-#: content_crm/member/permission/display.php:47
+#: content_crm/member/permission/display.php:50
 msgid "Revoke"
 msgstr "باطل کن"
 
-#: content_crm/member/permission/display.php:49
+#: content_crm/member/permission/display.php:52
 msgid "Generate API Key"
 msgstr "تولید کلید ای‌پی‌آی"
 
@@ -17709,12 +17733,12 @@ msgid "Password?"
 msgstr "کلمه عبور؟"
 
 #: content_enter/app/model.php:49 content_enter/home/model.php:185
-#: content_support/ticket/contact_ticket/model.php:26
+#: dash/app/ticket/contact.php:26
 msgid "You hit our maximum try limit."
 msgstr "شما حداکثر تلاش خود را انجام دادید."
 
 #: content_enter/app/model.php:49 content_enter/home/model.php:185
-#: content_support/ticket/contact_ticket/model.php:26
+#: dash/app/ticket/contact.php:26
 msgid "Try again later!"
 msgstr "بعدا مجددا تلاش کنید!"
 
@@ -17841,7 +17865,7 @@ msgid "Mobile not found"
 msgstr "موبایل یافت نشد"
 
 #: content_enter/home/model.php:66 content_love/domain/domainbuy/model.php:22
-#: dash/app/address.php:251 dash/app/user/add.php:58 dash/upload/category.php:68
+#: dash/app/address.php:251 dash/app/user/add.php:70 dash/upload/category.php:68
 #: dash/upload/user.php:22 dash/upload/user.php:79 dash/upload/user.php:98
 #: dash/upload/user.php:156 lib/pardakhtyar/app/acceptor.php:16
 #: lib/pardakhtyar/app/merchantIbans.php:16 lib/pardakhtyar/app/shop.php:16
@@ -18058,8 +18082,8 @@ msgid "Active two-step"
 msgstr "فعال‌سازی ورود دو مرحله‌ای"
 
 #: content_enter/twostep/model.php:11 content_enter/twostep/view.php:11
-#: dash/app/ticket/add.php:78 dash/app/ticket/add.php:150 dash/app/user/email.php:35
-#: dash/app/user/email.php:87 dash/app/user/email.php:197 dash/app/user/email.php:261
+#: dash/app/ticket/add.php:78 dash/app/ticket/add.php:150 dash/app/user/email.php:56
+#: dash/app/user/email.php:108 dash/app/user/email.php:218 dash/app/user/email.php:282
 #: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
 #: lib/app/cart/add.php:168 lib/app/cart/add.php:218 lib/app/cart/checkout.php:14
 #: lib/app/cart/edit.php:19 lib/app/cart/remove.php:36 lib/app/domains/search.php:27
@@ -18073,7 +18097,7 @@ msgstr "فعال‌سازی ورود دو مرحله‌ای"
 #: lib/app/nic_domain/get.php:18 lib/app/nic_domain/get.php:304
 #: lib/app/nic_domain/get.php:331 lib/app/nic_domain/renew.php:61
 #: lib/app/nic_domain/search.php:27 lib/app/nic_domain/search.php:42
-#: lib/app/nic_domain/search.php:419 lib/app/nic_domain/transfer.php:85
+#: lib/app/nic_domain/search.php:428 lib/app/nic_domain/transfer.php:85
 #: lib/app/nic_domainaction/action.php:11 lib/app/nic_domainaction/search.php:11
 #: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
 #: lib/app/nic_domainstatus/search.php:27 lib/app/nic_domainstatus/search.php:125
@@ -18321,7 +18345,7 @@ msgstr "ایمیل تایید شد"
 msgid "This verification email is expired"
 msgstr "کد اعتبارسنجی منقضی شده است"
 
-#: content_enter/verifyemail/controller.php:94 dash/app/user/email.php:107
+#: content_enter/verifyemail/controller.php:94 dash/app/user/email.php:128
 msgid "This email is already verified"
 msgstr "این ایمیل قبلا تایید شده است"
 
@@ -19541,7 +19565,7 @@ msgstr "این دامنه آماده خرید است!"
 #: dash/app/user.php:179 dash/app/visitor.php:112 dash/app/visitor.php:141
 #: includes/languages/trans_static.php:532 lib/app/factor/ready.php:87
 #: lib/app/factor/ready.php:126 lib/app/nic_domain/ready.php:59
-#: lib/app/nic_domain/search.php:197
+#: lib/app/nic_domain/search.php:206
 msgid "Unknown"
 msgstr "ناشناس"
 
@@ -20868,7 +20892,7 @@ msgstr "دی‌ان‌اس پیش‌فرض به‌روز‌رسانی شد"
 
 #: content_my/domain/other/display-maybemydomain.php:46
 #: content_my/domain/predict/display.php:99 content_my/domain/search/display.php:192
-#: lib/app/nic_domain/search.php:171 lib/app/nic_domain/search.php:178
+#: lib/app/nic_domain/search.php:180 lib/app/nic_domain/search.php:187
 msgid "Autorenew"
 msgstr "تمدید خودکار"
 
@@ -22657,31 +22681,6 @@ msgstr "نمی‌توانید آنچه را به‌دنبالش هستید بی�
 msgid "Contact the legendary support team right now."
 msgstr "همین الان با تیم پشتیبانی افسانه‌ای ما تماس بگیرید."
 
-#: content_support/ticket/contact_ticket/model.php:50
-msgid "It was very fast!"
-msgstr "خیلی سریع بود!"
-
-#: content_support/ticket/contact_ticket/model.php:55
-msgid "Your cookies may have been blocked"
-msgstr "احتمالا کوکی‌های شما بلاک شده است"
-
-#: content_support/ticket/contact_ticket/model.php:55
-msgid "You need to enable cookie for usign this service"
-msgstr "برای استفاده از این سرویس شما به کوکی نیاز دارید"
-
-#: content_support/ticket/contact_ticket/model.php:134
-msgid "You can check your contacting answer here"
-msgstr "شما می‌توانید پاسخ تماس خود را در اینجا بررسی کنید"
-
-#: content_support/ticket/contact_ticket/model.php:135
-#: content_support/ticket/contact_ticket/model.php:136
-msgid "Thank You For contacting us"
-msgstr "از تماس شما متشکریم"
-
-#: content_support/ticket/contact_ticket/model.php:143
-msgid "We could'nt save the contact"
-msgstr "مشکلی در ذخیره‌سازی مخاطب پیش آمد"
-
 #: content_v2/account/android/add/model.php:67 content_v2/account/android/add/model.php:83
 #: content_v2/account/android/add/model.php:99
 #: content_v2/account/android/add/model.php:114
@@ -23781,6 +23780,30 @@ msgstr "نمی‌توانید به این پیام پاسخ دهید!"
 msgid "Can not add your message"
 msgstr "نمی‌توانیم پیام شما را اضافه کنیم"
 
+#: dash/app/ticket/contact.php:50
+msgid "It was very fast!"
+msgstr "خیلی سریع بود!"
+
+#: dash/app/ticket/contact.php:55
+msgid "Your cookies may have been blocked"
+msgstr "احتمالا کوکی‌های شما بلاک شده است"
+
+#: dash/app/ticket/contact.php:55
+msgid "You need to enable cookie for usign this service"
+msgstr "برای استفاده از این سرویس شما به کوکی نیاز دارید"
+
+#: dash/app/ticket/contact.php:134
+msgid "You can check your contacting answer here"
+msgstr "شما می‌توانید پاسخ تماس خود را در اینجا بررسی کنید"
+
+#: dash/app/ticket/contact.php:135 dash/app/ticket/contact.php:136
+msgid "Thank You For contacting us"
+msgstr "از تماس شما متشکریم"
+
+#: dash/app/ticket/contact.php:143
+msgid "We could'nt save the contact"
+msgstr "مشکلی در ذخیره‌سازی مخاطب پیش آمد"
+
 #: dash/app/ticket/edit.php:47
 msgid "No data receive for update!"
 msgstr "اطلاعاتی برای به‌روزرسانی یافت نشد!"
@@ -23835,27 +23858,27 @@ msgstr "نمی‌توانید کاربری که داری سطح دسترسی ه�
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
-#: dash/app/user/add.php:81 dash/app/user/edit.php:181
+#: dash/app/user/add.php:93 dash/app/user/edit.php:187
 msgid "Duplicate mobile"
 msgstr "تلفن همراه تکراری"
 
-#: dash/app/user/add.php:102 dash/app/user/edit.php:218
+#: dash/app/user/add.php:114 dash/app/user/edit.php:224
 msgid "Duplicate nationalcode or pasportcode in your user list"
 msgstr "این کدملی یا شماره گذرنامه در لیست اعضا شما تکراری است"
 
-#: dash/app/user/add.php:122
+#: dash/app/user/add.php:134
 msgid "No way to insert user"
 msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 
-#: dash/app/user/add.php:134
+#: dash/app/user/add.php:146
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/business.php:60 dash/app/user/edit.php:155
+#: dash/app/user/business.php:60 dash/app/user/edit.php:161
 msgid "Can not access to edit user"
 msgstr "دسترسی لازم برای ویرایش کاربر وجود ندارد"
 
-#: dash/app/user/business.php:95 dash/app/user/edit.php:241
+#: dash/app/user/business.php:95 dash/app/user/edit.php:247
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
@@ -23883,77 +23906,77 @@ msgstr "شناسه نامعتبر!"
 msgid "Notes removed"
 msgstr "یادداشت‌ حذف شد"
 
-#: dash/app/user/edit.php:81 dash/app/user/edit.php:115
+#: dash/app/user/edit.php:80 dash/app/user/edit.php:125
 msgid "Please set mobile to this user and then change the permission"
 msgstr ""
 "لطفا برای تغییر سطح دسترسی کاربر ابتدا یک شماره تلفن همراه برای این کاربر ثبت کنید"
 
-#: dash/app/user/edit.php:191
+#: dash/app/user/edit.php:197
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
 
-#: dash/app/user/email.php:29 dash/app/user/email.php:81 dash/app/user/email.php:191
-#: dash/app/user/email.php:255
+#: dash/app/user/email.php:50 dash/app/user/email.php:102 dash/app/user/email.php:212
+#: dash/app/user/email.php:276
 msgid "Please enter email"
 msgstr "لطفا ایمیل را وارد کنید"
 
-#: dash/app/user/email.php:49 dash/app/user/email.php:101 dash/app/user/email.php:211
+#: dash/app/user/email.php:70 dash/app/user/email.php:122 dash/app/user/email.php:232
 msgid "Email not found"
 msgstr "ایمیل یافت نشد"
 
-#: dash/app/user/email.php:62
+#: dash/app/user/email.php:83
 msgid "Your email was removed"
 msgstr "ایمیل شما حذف شد"
 
-#: dash/app/user/email.php:118
+#: dash/app/user/email.php:139
 msgid "You already verified this email"
 msgstr "شما قبلا این ایمیل را تایید کرده‌اید"
 
-#: dash/app/user/email.php:122
+#: dash/app/user/email.php:143
 msgid "This email is already verified for another user"
 msgstr "این ایمیل قبلا توسط کاربر دیگری تایید شده است"
 
-#: dash/app/user/email.php:167
+#: dash/app/user/email.php:188
 msgid "To confirm your email in Jibres"
 msgstr "برای تایید ایمیل خود در جیبرس"
 
-#: dash/app/user/email.php:176
+#: dash/app/user/email.php:197
 msgid "Verify your mail"
 msgstr "ایمیل خود را تایید کنید"
 
-#: dash/app/user/email.php:181
+#: dash/app/user/email.php:202
 msgid "A verification email was send to your email"
 msgstr "ایمیل اعتبار سنجی ارسال شد"
 
-#: dash/app/user/email.php:217
+#: dash/app/user/email.php:238
 msgid "This email is already set as primary email"
 msgstr "این ایمیل قبلا به عنوان ایمیل اصلی انتخاب شده است"
 
-#: dash/app/user/email.php:227
+#: dash/app/user/email.php:248
 msgid "Please verify the email to set as primary"
 msgstr "لطفا برای تنظیم به عنوان ایمیل اصلی،‌ این ایمیل را تایید کنید"
 
-#: dash/app/user/email.php:239
+#: dash/app/user/email.php:260
 msgid "Your email was set as primary"
 msgstr "ایمیل شما به عنوان ایمیل اصلی تنظیم شد"
 
-#: dash/app/user/email.php:273
+#: dash/app/user/email.php:294
 msgid "This email already added to your panel"
 msgstr "این ایمیل قبلا به حساب کاربری شما اضافه شده است"
 
-#: dash/app/user/email.php:277
+#: dash/app/user/email.php:298
 msgid "This email is already taken"
 msgstr "این ایمیل قبلا گرفته شده است"
 
-#: dash/app/user/email.php:287
+#: dash/app/user/email.php:308
 msgid "This email is already exist in your list"
 msgstr "این ایمیل قبلا به لیست ایمیل‌های شما اضافه شده است"
 
-#: dash/app/user/email.php:295
+#: dash/app/user/email.php:316
 msgid "Maximum email capacity is 20 per user"
 msgstr "ظرفیت ایمیل برای هر کاربر ۲۰ مورد است"
 
-#: dash/app/user/email.php:311
+#: dash/app/user/email.php:332
 msgid "Your email was added"
 msgstr "ایمیل شما اضافه شد"
 
@@ -26041,15 +26064,16 @@ msgstr "نمایش رکورد :min تا :max از :total"
 msgid "The asanpardakht payment on this service is locked"
 msgstr "درگاه آسان پرداخت در سرویس شما قفل شده است"
 
-#: dash/utility/pay/api/asanpardakht/back.php:56 dash/utility/pay/api/irkish/back.php:55
-#: dash/utility/pay/api/mellat/back.php:59 dash/utility/pay/api/parsian/back.php:48
-#: dash/utility/pay/api/payir/back.php:58 dash/utility/pay/api/sep/back.php:49
-#: dash/utility/pay/api/zarinpal/back.php:40
+#: dash/utility/pay/api/asanpardakht/back.php:56 dash/utility/pay/api/idpay/back.php:45
+#: dash/utility/pay/api/irkish/back.php:55 dash/utility/pay/api/mellat/back.php:59
+#: dash/utility/pay/api/parsian/back.php:48 dash/utility/pay/api/payir/back.php:58
+#: dash/utility/pay/api/sep/back.php:49 dash/utility/pay/api/zarinpal/back.php:40
 msgid "Your session is lost! We can not find your transaction"
 msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم تراکنش شما را بیابیم"
 
 #: dash/utility/pay/api/asanpardakht/back.php:70
-#: dash/utility/pay/api/asanpardakht/back.php:77 dash/utility/pay/api/irkish/back.php:71
+#: dash/utility/pay/api/asanpardakht/back.php:77 dash/utility/pay/api/idpay/back.php:63
+#: dash/utility/pay/api/idpay/back.php:92 dash/utility/pay/api/irkish/back.php:71
 #: dash/utility/pay/api/mellat/back.php:78 dash/utility/pay/api/parsian/back.php:65
 #: dash/utility/pay/api/parsian/back.php:72 dash/utility/pay/api/payir/back.php:76
 #: dash/utility/pay/api/payir/back.php:105 dash/utility/pay/api/sep/back.php:58
@@ -26081,6 +26105,26 @@ msgstr "خطا در درگاه پرداخت با کد :result"
 #: dash/utility/pay/api/asanpardakht/go.php:78
 msgid "Redirect to asanpardakht payment"
 msgstr "در حال انتقال به درگاه آسان پرداخت"
+
+#: dash/utility/pay/api/idpay/back.php:13 dash/utility/pay/api/idpay/go.php:13
+msgid "The idpay payment on this service is locked"
+msgstr "درگاه آی‌دی‌پی در سرویس شما قفل شده است"
+
+#: dash/utility/pay/api/idpay/back.php:20 dash/utility/pay/api/idpay/go.php:20
+msgid "The idpay payment api not set"
+msgstr "شناسه ای‌پی‌آی درگاه پرداخت آی‌دی‌پی تنظیم نشده است"
+
+#: dash/utility/pay/api/idpay/back.php:32
+msgid "The idpay payment id not set"
+msgstr "شناسه درگاه پرداخت آی‌دی‌پی تنظیم نشده است"
+
+#: dash/utility/pay/api/idpay/bank.php:59 dash/utility/pay/api/idpay/bank.php:136
+msgid "Bank error"
+msgstr "خطای بانک"
+
+#: dash/utility/pay/api/idpay/bank.php:67 dash/utility/pay/api/idpay/bank.php:143
+msgid "Can not parse bank result!"
+msgstr "نمی‌توانید نتایج بانک را تجزیه کنیم!"
 
 #: dash/utility/pay/api/irkish/back.php:13 dash/utility/pay/api/irkish/go.php:13
 msgid "The irkish payment on this service is locked"
@@ -35226,19 +35270,19 @@ msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
 "استفاده کنید"
 
-#: lib/app/nic_domain/search.php:403
+#: lib/app/nic_domain/search.php:412
 msgid "Pay in next week"
 msgstr "مبلغ پرداختی در یک هفته آینده"
 
-#: lib/app/nic_domain/search.php:404
+#: lib/app/nic_domain/search.php:413
 msgid "Pay in next month"
 msgstr "مبلغ پرداختی در یک ماه آینده"
 
-#: lib/app/nic_domain/search.php:405
+#: lib/app/nic_domain/search.php:414
 msgid "Pay in next year"
 msgstr "مبلغ پرداختی در یک سال آینده"
 
-#: lib/app/nic_domain/search.php:406
+#: lib/app/nic_domain/search.php:415
 msgid "Pay in next 5year"
 msgstr "مبلغ پرداختی در پنج سال آینده"
 
@@ -36074,11 +36118,11 @@ msgstr "تنظیمات سبد خرید ذخیره شد"
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:321
+#: lib/app/setting/set.php:327
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:341
+#: lib/app/setting/set.php:347
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
