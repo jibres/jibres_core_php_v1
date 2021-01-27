@@ -231,7 +231,9 @@ if(!is_array($myPayment))
 			<?php if(isset($myPayment['idpay']['status']) && $myPayment['idpay']['status']) {?>
 			<div class="radioGateway">
 			<input type="radio" name="bank" value="idpay" id="idpay" >
-			<label for='idpay' class="spay-64-sepah"></label>
+			<label for='idpay'>
+				<?php require_once('idpay.php') ?>
+			</label>
 			</div>
 			<?php } //endif ?>
 
