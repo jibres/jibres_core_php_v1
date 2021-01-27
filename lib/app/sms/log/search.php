@@ -71,7 +71,15 @@ class search
 
 		if($query_string)
 		{
-			$or[]        = " sms_log.mobile LIKE '%$query_string%'";
+			$mobile = \dash\validate::mobile($query_string, false);
+			if($mobile)
+			{
+				$or[]        = " sms_log.mobile = '$mobile'";
+			}
+			else
+			{
+				$or[]        = " sms_log.mobile LIKE '%$query_string%'";
+			}
 			self::$is_filtered = true;
 		}
 
