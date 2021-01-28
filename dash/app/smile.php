@@ -82,7 +82,8 @@ class smile
 			[
 				'alerty'            => true,
 				'timeout'           => 2000,
-				'showConfirmButton' => false
+				'showConfirmButton' => false,
+				'priority'          => false,
 			];
 
 				// show alert as toast
