@@ -30,7 +30,6 @@ class view
 		\dash\data::sortLink($sortLink);
 
 
-		\dash\data::filterBox(\lib\app\sms\search::filter_message());
 
 		$isFiltered = \lib\app\sms\search::is_filtered();
 
