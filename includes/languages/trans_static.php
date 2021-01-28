@@ -1001,6 +1001,10 @@ class TransStatic
 	echo T_('saleorder');
 	echo T_('Saleorder');
 
+
+	echo T_('sended');
+	echo T_('Sended');
+
  }
 }
 ?>

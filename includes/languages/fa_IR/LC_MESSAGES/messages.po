@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-28 12:00+0330\n"
-"PO-Revision-Date: 2021-01-28 12:03+0330\n"
+"POT-Creation-Date: 2021-01-28 13:41+0330\n"
+"PO-Revision-Date: 2021-01-28 13:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -134,9 +134,9 @@ msgstr ""
 #: content_v2/android/splash/view.php:20 content_v2/android/view.php:26
 #: dash/engine/view.php:22 dash/layout/admin/admin-sidebar.php:123
 #: dash/layout/admin/admin-sidebar.php:124 dash/layout/schema.php:5
-#: dash/utility/sms.php:43 includes/languages/trans_static.php:7
-#: includes/languages/trans_static_domain.php:6 lib/app/nic_log/search.php:194
-#: lib/app/onlinenic/log/search.php:193
+#: includes/languages/trans_static.php:7 includes/languages/trans_static_domain.php:6
+#: lib/app/nic_log/search.php:194 lib/app/onlinenic/log/search.php:193
+#: lib/app/sms/send.php:43
 msgid "Jibres"
 msgstr "جیبرس"
 
@@ -4650,7 +4650,7 @@ msgstr "#1 جهان در سیستم مهندسی فروش"
 
 #: content/view.php:36 content_r10/android/intro/view.php:19
 #: content_r10/android/splash/view.php:14 content_v2/android/splash/view.php:21
-#: dash/utility/sms.php:43
+#: lib/app/sms/send.php:43
 msgid "Sell and Enjoy"
 msgstr "بفروش و لذت ببر"
 
@@ -26572,14 +26572,6 @@ msgstr "مقدار نامعتبر"
 msgid "Pay whith :bank"
 msgstr "پرداخت با :bank"
 
-#: dash/utility/sms.php:47
-msgid "Jibres.ir"
-msgstr "Jibres.ir"
-
-#: dash/utility/sms.php:51
-msgid "Jibres.com"
-msgstr "Jibres.com"
-
 #: dash/validate.php:110
 msgid ""
 "You were identified as a robot. Contact your system administrator if you feel that "
@@ -29799,6 +29791,14 @@ msgstr "سفارش فروش"
 #: includes/languages/trans_static.php:1002
 msgid "Saleorder"
 msgstr "سفارش فروش"
+
+#: includes/languages/trans_static.php:1005
+msgid "sended"
+msgstr "ارسال شده"
+
+#: includes/languages/trans_static.php:1006
+msgid "Sended"
+msgstr "ارسال شده"
 
 #: includes/languages/trans_static_domain.php:7
 msgid "contact_check"
@@ -36215,6 +36215,14 @@ msgstr "کیف پول الکترونیکی اضافه شد"
 #: lib/app/sms/get.php:19
 msgid "Log not founded"
 msgstr "لاگ یافت نشد"
+
+#: lib/app/sms/send.php:47
+msgid "Jibres.ir"
+msgstr "Jibres.ir"
+
+#: lib/app/sms/send.php:51
+msgid "Jibres.com"
+msgstr "Jibres.com"
 
 #: lib/app/staticfile/add.php:27
 msgid "Maximum capacity of static file is full!"
