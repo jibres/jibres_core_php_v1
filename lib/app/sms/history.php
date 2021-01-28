@@ -101,5 +101,40 @@ class history
 		\lib\db\sms_log\insert::new_record($_args);
 	}
 
+
+	public static function update($_args, $_id)
+	{
+
+		unset($_args['mobile']);
+
+		$response = \dash\temp::get('rawKavenegrarResult');
+
+		$decode_response = \dash\json::decode($response);
+
+		if(isset($decode_response['entries'][0]['cost']) && is_numeric($decode_response['entries'][0]['cost']))
+		{
+			$_args['cost'] = $decode_response['entries'][0]['cost'];
+		}
+
+		if(!a($_args, 'message') && isset($decode_response['entries'][0]['message']))
+		{
+			$_args['message'] = $decode_response['entries'][0]['message'];
+		}
+
+		if(isset($_args['message']) && is_string($_args['message']))
+		{
+			$_args['len'] = mb_strlen($_args['message']);
+			$_args['smscount'] = ceil($_args['len'] / 70);
+		}
+
+		$_args['status']   = 'sended';
+		$_args['provider'] = 'kavenegar';
+		$_args['response'] = $response;
+		$_args['send']     = \dash\temp::get('rawKavenegrarSendParam');
+
+
+		\lib\db\sms_log\update::record($_args, $_id);
+	}
+
 }
 ?>

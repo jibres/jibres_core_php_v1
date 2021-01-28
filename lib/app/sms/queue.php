@@ -52,11 +52,11 @@ class queue
 	{
 		if(\dash\url::isLocal())
 		{
-			// return false;
+			return false;
 		}
 
-		$limit = 2;
-		// get 10 not sended sms
+		$limit = 20;
+		// get 20 not sended sms
 		$queue = \lib\db\sms_log\get::not_sended($limit);
 
 		// no queue
@@ -70,20 +70,17 @@ class queue
 		$ids = array_column($queue, 'id');
 		if($ids)
 		{
-			// \lib\db\sms_log\update::set_multi_sending($ids);
+			\lib\db\sms_log\update::set_multi_sending($ids);
 		}
 
 		foreach ($queue as $key => $sms)
 		{
 			if(isset($sms['mobile']) && isset($sms['message']))
 			{
-
-				$sms_result = \lib\app\sms::send($sms['mobile'], $sms['message']);
-
-
+				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], null, $sms['id']);
 			}
 		}
-		exit();
+
 	}
 
 

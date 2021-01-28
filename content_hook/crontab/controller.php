@@ -9,9 +9,9 @@ class controller
 
 	public static function routing()
 	{
-			self::cronjob_run();
 		if(\dash\permission::supervisor())
 		{
+			self::cronjob_run();
 			return;
 		}
 
