@@ -1,0 +1,1 @@
+UPDATE jibres.sms_log SET sms_log.smscount = CEIL(sms_log.len / 70);

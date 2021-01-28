@@ -9,7 +9,7 @@ class controller
 		\dash\permission::access('crmSms');
 
 		$id = \dash\request::get('id');
-		$load = \lib\app\sms\log\get::get($id);
+		$load = \lib\app\sms\get::get($id);
 		if(!$load)
 		{
 			\dash\header::status(404);

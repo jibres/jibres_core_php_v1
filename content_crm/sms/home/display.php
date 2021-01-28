@@ -37,6 +37,18 @@
      </ul>
    </nav>
 
+   <nav class="items long">
+     <ul>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/send">
+          <i class="sf-out"></i>
+          <div class="key"><?php echo T_('Send sms');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
 
 
   </div>

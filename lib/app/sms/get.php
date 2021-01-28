@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\sms\log;
+namespace lib\app\sms;
 
 
 class get
@@ -20,7 +20,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\app\sms\log\ready::row($load);
+		$load = \lib\app\sms\ready::row($load);
 
 		return $load;
 	}

@@ -27,6 +27,30 @@
 
     <li>
       <a class="f item">
+        <div class="key"><?php echo T_("Status") ?></div>
+        <div class="value txtB"><?php echo T_(\dash\data::dataRow_status()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+
+         <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("Length") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::number(\dash\data::dataRow_len()). ' '. T_("Character"); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+
+         <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("Count sms") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::number(\dash\data::dataRow_smscount()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+
+    <li>
+      <a class="f item">
         <div class="key"><?php echo T_("Date created") ?></div>
         <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></div>
         <div class="go detail"></div>

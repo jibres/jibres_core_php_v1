@@ -16,7 +16,7 @@ class view
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(true);
 		\dash\data::listEngine_sort(true);
-		\dash\data::sortList(\lib\app\sms\log\filter::sort_list());
+		\dash\data::sortList(\lib\app\sms\filter::sort_list());
 
 
 		$args =
@@ -30,12 +30,12 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\sms\log\search::list($search_string, $args);
+		$list = \lib\app\sms\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
 
-		$isFiltered = \lib\app\sms\log\search::is_filtered();
+		$isFiltered = \lib\app\sms\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 

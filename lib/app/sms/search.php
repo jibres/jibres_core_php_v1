@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\sms\log;
+namespace lib\app\sms;
 
 class search
 {
@@ -91,7 +91,7 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(\lib\app\sms\log\filter::check_allow($data['sort'], $data['order']))
+			if(\lib\app\sms\filter::check_allow($data['sort'], $data['order']))
 			{
 				$order_sort = " ORDER BY $sort $order";
 			}
@@ -145,7 +145,7 @@ class search
 			}
 		}
 
-		$list = array_map(['\\lib\\app\\sms\\log\\ready', 'row'], $list);
+		$list = array_map(['\\lib\\app\\sms\\ready', 'row'], $list);
 
 		return $list;
 	}

@@ -280,11 +280,12 @@ class sms
 		if(isset($_args['message']) && is_string($_args['message']))
 		{
 			$_args['len'] = mb_strlen($_args['message']);
+			$_args['smscount'] = ceil($_args['len'] / 70);
 		}
 
 		if(!a($_args['status']))
 		{
-			$_args['status'] = 'send';
+			$_args['status'] = 'sended';
 		}
 
 		$_args['provider']    = 'kavenegar';
