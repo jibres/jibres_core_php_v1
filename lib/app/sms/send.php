@@ -42,13 +42,17 @@ class send
 		// create complete message
 		$sms_header = T_('Jibres') . ' | '. T_('Sell and Enjoy');
 		$sms_footer = "";
-		if(\dash\url::tld() === 'ir')
+
+		if(!\dash\engine\store::inStore())
 		{
-			$sms_footer .= T_('Jibres.ir');
-		}
-		else
-		{
-			$sms_footer .= T_('Jibres.com');
+			if(\dash\url::tld() === 'ir')
+			{
+				$sms_footer .= T_('Jibres.ir');
+			}
+			else
+			{
+				$sms_footer .= T_('Jibres.com');
+			}
 		}
 
 		$message = '';
