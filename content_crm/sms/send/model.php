@@ -9,8 +9,9 @@ class model
 		$post            = [];
 		$post['mobile']  = \dash\request::post('mobile');
 		$post['message'] = \dash\request::post('message');
+		$post['sender']  = 'admin';
 
-		$result = \lib\app\sms\send::send_once($post);
+		$result = \lib\app\sms\queue::add_one($post);
 
 		if(isset($result['id']))
 		{

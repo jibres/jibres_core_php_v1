@@ -43,22 +43,6 @@ class send
 				}
 			}
 
-			if(isset($value['sms']))
-			{
-				$sms = json_decode($value['sms'], true);
-
-				if(isset($sms['mobile']) && isset($sms['text']))
-				{
-					$meta = [];
-					if(isset($sms['meta']))
-					{
-						$meta = $sms['meta'];
-					}
-
-					self::send_sms($sms['mobile'], $sms['text'], $meta);
-				}
-			}
-
 			if(isset($value['email']))
 			{
 				$email = json_decode($value['email'], true);
@@ -94,18 +78,6 @@ class send
 				$myResult = \dash\social\telegram\tg::sendMessage($value);
 			}
 		}
-
-	}
-
-
-	private static function send_sms($_mobile, $_text, $_meta = [])
-	{
-		if(\dash\url::isLocal())
-		{
-			return false;
-		}
-		\dash\temp::set('kavenegar_sms_type', 'notif'); //enum('signup', 'login','twostep', 'recovermobile', 'callback_signup', 'notif', 'other') NULL,
-		\dash\utility\sms::send($_mobile, $_text, $_meta);
 
 	}
 

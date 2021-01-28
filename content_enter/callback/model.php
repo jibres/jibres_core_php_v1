@@ -150,13 +150,6 @@ class model
 
 		\dash\log::set('enter:callback:signup:by:sms');
 
-		$msg    = T_("Your register was complete");
-
-		// $kavenegar_send_result = \dash\utility\sms::send($mobile, $msg);
-
-
-		// \dash\log::set('enter:callback:sms:registe:reasult');
-
 		\dash\notif::ok(T_("User signup by sms"));
 
 

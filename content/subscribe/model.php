@@ -28,7 +28,7 @@ class model
 			$sms .= "Jibres.com";
 			if(\dash\validate::ir_mobile($mobile, false))
 			{
-				\dash\utility\sms::send($mobile, $sms);
+
 			}
 		}
 	}

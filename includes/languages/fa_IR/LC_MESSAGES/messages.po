@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-27 13:59+0330\n"
-"PO-Revision-Date: 2021-01-27 14:02+0330\n"
+"POT-Creation-Date: 2021-01-28 12:00+0330\n"
+"PO-Revision-Date: 2021-01-28 12:03+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -683,8 +683,9 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content_business/p/home/display.php:397
-#: content_crm/member/message/add/display.php:9 content_su/tg/sendmessage/display.php:20
-#: content_su/tg/sendphoto/display.php:27 dash/layout/tools/display-add-comment.php:51
+#: content_crm/member/message/add/display.php:9 content_crm/sms/send/display.php:15
+#: content_su/tg/sendmessage/display.php:20 content_su/tg/sendphoto/display.php:27
+#: dash/layout/tools/display-add-comment.php:51 lib/app/sms/filter.php:28
 msgid "Send"
 msgstr "ارسال"
 
@@ -952,15 +953,16 @@ msgstr "نام کامل"
 #: content_business/shipping/display.php:108 content_cms/comments/edit/display.php:6
 #: content_cms/comments/view/display.php:30 content_crm/member/add/display.php:9
 #: content_crm/member/glance/display.php:249 content_crm/member/home/display-old.php:120
-#: content_crm/member/mobile/display.php:6 content_crm/sms/view/display.php:14
-#: content_crm/staff/add/display.php:9 content_enter/app/display.php:32
-#: content_enter/home/display.php:20 content_enter/pass/change/display.php:6
-#: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
-#: content_enter/pass/set/display.php:7 content_enter/pass/signup/display.php:7
-#: content_enter/signup/display.php:5 content_enter/verify/display.php:3
-#: content_love/domain/domainbuy/display.php:7 content_love/domain/setting/display.php:207
-#: content_love/log/home/logTable.php:30 content_love/smslog/display.php:18
-#: content_love/smslog/view/display.php:8 content_love/transactions/add/display.php:61
+#: content_crm/member/mobile/display.php:6 content_crm/sms/send/display.php:5
+#: content_crm/sms/view/display.php:14 content_crm/staff/add/display.php:9
+#: content_enter/app/display.php:32 content_enter/home/display.php:20
+#: content_enter/pass/change/display.php:6 content_enter/pass/display.php:3
+#: content_enter/pass/recovery/display.php:3 content_enter/pass/set/display.php:7
+#: content_enter/pass/signup/display.php:7 content_enter/signup/display.php:5
+#: content_enter/verify/display.php:3 content_love/domain/domainbuy/display.php:7
+#: content_love/domain/setting/display.php:207 content_love/log/home/logTable.php:30
+#: content_love/smslog/display.php:18 content_love/smslog/view/display.php:8
+#: content_love/transactions/add/display.php:61
 #: content_love/transactions/add/display.php:62
 #: content_love/transactions/minus/display.php:61
 #: content_love/transactions/minus/display.php:62 content_su/tg/log/display.php:98
@@ -3971,10 +3973,11 @@ msgstr "وزن"
 #: content_crm/member/transactions/plus/display.php:7
 #: content_crm/member/transactions/plus/display.php:12
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
-#: content_crm/permission/user/display.php:5 content_my/ipg/profile/display.php:41
-#: content_my/ipg/profile/display.php:56 content_my/ipg/profile/display.php:71
-#: content_my/ipg/profile/display.php:109 content_my/ipg/setup/profile/display.php:41
-#: content_my/ipg/setup/profile/display.php:56 content_my/ipg/setup/profile/display.php:71
+#: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
+#: content_my/ipg/profile/display.php:41 content_my/ipg/profile/display.php:56
+#: content_my/ipg/profile/display.php:71 content_my/ipg/profile/display.php:109
+#: content_my/ipg/setup/profile/display.php:41 content_my/ipg/setup/profile/display.php:56
+#: content_my/ipg/setup/profile/display.php:71
 #: content_my/ipg/setup/profile/display.php:109 lib/app/form/generator.php:87
 msgid "Required"
 msgstr "الزامی"
@@ -4251,7 +4254,7 @@ msgstr "درباره داستان هیجان‌انگیز جیبرس بخوان�
 
 #: content/subscribe/display.php:6 content/subscribe/view.php:9
 msgid "Subscribe to Jibres world"
-msgstr "مشترک شدن در دنیای جبرس"
+msgstr "مشترک شدن در دنیای جیبرس"
 
 #: content/team/display.php:8
 msgid "The best thing about Jibres is our people."
@@ -4886,7 +4889,8 @@ msgstr "غیرفعال"
 #: content_a/products/status/view.php:18 content_a/setting/domain/manage/display.php:123
 #: content_business/orders/display.php:21 content_cms/comments/view/display.php:85
 #: content_crm/member/glance/display.php:270 content_crm/member/home/display-old.php:129
-#: content_crm/ticket/view/display.php:54 content_developers/docs/004-responses.php:58
+#: content_crm/sms/view/display.php:30 content_crm/ticket/view/display.php:54
+#: content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
 #: content_love/business/domain/alllist/display.php:23
 #: content_love/business/domain/detail/display.php:17
@@ -4908,6 +4912,8 @@ msgstr "غیرفعال"
 #: dash/app/ticket/filter.php:42 dash/app/ticket/filter.php:43 dash/app/user/filter.php:27
 #: dash/app/user/filter.php:28 dash/app/user/filter.php:29
 #: lib/app/business_domain/search.php:87 lib/app/business_domain/search_dns.php:59
+#: lib/app/sms/filter.php:26 lib/app/sms/filter.php:27 lib/app/sms/filter.php:28
+#: lib/app/sms/filter.php:29 lib/app/sms/filter.php:30
 msgid "Status"
 msgstr "وضعیت"
 
@@ -5060,7 +5066,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_crm/member/home/display-old.php:731 content_love/domain/log/display.php:4
 #: content_love/domain/log/display.php:22 content_love/domain/onlineniclog/display.php:4
 #: content_love/domain/onlineniclog/display.php:22
-#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:776
+#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:792
 #: lib/app/form/report_advance.php:112
 msgid "All"
 msgstr "همه"
@@ -5093,7 +5099,7 @@ msgstr "ماهیت گروه"
 #: content_account/billing/display.php:62 content_account/billing/display.php:100
 #: content_crm/member/home/display-old.php:83
 #: content_love/business/domain/alllist/display.php:30
-#: content_love/log/home/logTable.php:9 content_pay/home/display.php:267
+#: content_love/log/home/logTable.php:9 content_pay/home/display.php:269
 #: content_su/apilog/home/display.php:103 content_su/smsclient/home/display.php:52
 #: includes/languages/trans_static.php:667
 msgid "Detail"
@@ -5926,9 +5932,10 @@ msgstr "افزودن فاکتور جدید"
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:191
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/sale/display.php:17 content_crm/home/display.php:6
-#: content_crm/member/home/display-old.php:73 content_crm/ticket/home/display.php:6
-#: content_love/domain/home/display.php:219 content_su/tg/system/display.php:10
-#: content_su/tg/users/display.php:85 includes/languages/trans_static_public.php:899
+#: content_crm/member/home/display-old.php:73 content_crm/sms/home/display.php:6
+#: content_crm/ticket/home/display.php:6 content_love/domain/home/display.php:219
+#: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
+#: includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -5972,9 +5979,10 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_crm/log/home/view.php:56 content_crm/member/home/view.php:56
 #: content_crm/member/log/view.php:50 content_crm/member/message/view.php:51
 #: content_crm/member/transactions/view.php:38 content_crm/notification/home/view.php:41
-#: content_crm/sms/home/view.php:41 content_crm/telegram/datalist/view.php:41
-#: content_crm/ticket/datalist/view.php:47 content_crm/ticket/message/view.php:43
-#: content_crm/transactions/view.php:47 content_love/application/home/view.php:48
+#: content_crm/sms/conversation/view.php:45 content_crm/sms/datalist/view.php:44
+#: content_crm/telegram/datalist/view.php:41 content_crm/ticket/datalist/view.php:47
+#: content_crm/ticket/message/view.php:43 content_crm/transactions/view.php:47
+#: content_love/application/home/view.php:48
 #: content_love/business/domain/action/view.php:39
 #: content_love/business/domain/alllist/view.php:63
 #: content_love/business/domain/dnslist/view.php:59 content_love/domain/all/view.php:41
@@ -7062,13 +7070,13 @@ msgstr "تعداد محصولات، نزولی"
 
 #: content_a/cart/home/view.php:82 dash/app/comment/filter.php:14
 #: dash/app/telegram/filter.php:15 dash/app/ticket/filter.php:16
-#: lib/app/factor/filter.php:15
+#: lib/app/factor/filter.php:15 lib/app/sms/filter.php:14
 msgid "Date ASC"
 msgstr "تاریخ،‌ صعودی"
 
 #: content_a/cart/home/view.php:87 dash/app/comment/filter.php:15
 #: dash/app/telegram/filter.php:16 dash/app/ticket/filter.php:17
-#: lib/app/factor/filter.php:16
+#: lib/app/factor/filter.php:16 lib/app/sms/filter.php:15
 msgid "Date DESC"
 msgstr "تاریخ، نزولی"
 
@@ -9361,7 +9369,7 @@ msgid "Preparing"
 msgstr "درحال آماده سازی"
 
 #: content_a/order/status/display.php:49 lib/app/factor/action.php:68
-#: lib/app/factor/ready.php:119
+#: lib/app/factor/ready.php:119 lib/app/sms/filter.php:27
 msgid "Sending"
 msgstr "درحال ارسال"
 
@@ -9479,7 +9487,7 @@ msgstr "ویرایش سفارش"
 #: content_a/pricehistory/display.php:15 content_cms/comments/view/display.php:69
 #: content_cms/files/view/display.php:53
 #: content_crm/member/transactions/detail/display.php:61
-#: content_crm/sms/view/display.php:30 content_crm/transactions/detail/display.php:58
+#: content_crm/sms/view/display.php:54 content_crm/transactions/detail/display.php:58
 #: content_love/business/domain/detail/display.php:18
 #: content_love/business/domain/dnslist/display.php:27
 #: content_love/domain/setting/display.php:306 content_love/log/home/logTable.php:91
@@ -11094,8 +11102,10 @@ msgstr "تنظیمات سفارش"
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:165 content_love/log/home/logTable.php:61
-#: includes/languages/trans_static_public.php:940
+#: content_a/setting/home/display.php:165 content_crm/home/display.php:136
+#: content_crm/sms/conversation/view.php:12 content_crm/sms/datalist/view.php:12
+#: content_crm/sms/home/view.php:9 content_crm/sms/send/view.php:12
+#: content_love/log/home/logTable.php:61 includes/languages/trans_static_public.php:940
 #: includes/languages/trans_static_public.php:982
 msgid "SMS"
 msgstr "پیام کوتاه"
@@ -14972,14 +14982,14 @@ msgstr "ما اینجاییم تا به سوالات شما پاسخ دهیم."
 
 #: content_business/ticket/home/display-filter.php:3
 #: content_crm/ticket/datalist/display-filter.php:3
-#: content_crm/ticket/home/display-filter.php:3
 #: content_support/ticket/home/display-filter.php:3
 msgid "Show all ticket where"
 msgstr "نمایش تیکت‌ها با شرط"
 
 #: content_business/ticket/home/ticketList.php:17 content_crm/home/display.php:215
-#: content_crm/member/glance/display.php:221 content_crm/ticket/datalist/display.php:19
-#: content_crm/ticket/home/display.php:7 content_crm/ticket/message/display.php:12
+#: content_crm/member/glance/display.php:221 content_crm/sms/home/display.php:7
+#: content_crm/ticket/datalist/display.php:19 content_crm/ticket/home/display.php:7
+#: content_crm/ticket/message/display.php:12
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:31
 #: lib/app/store/analytics.php:47
 msgid "Ticket"
@@ -15889,10 +15899,6 @@ msgstr "پرداختی‌های موفق"
 #: content_crm/home/display.php:97
 msgid "All payments"
 msgstr "همه پرداختی‌ها"
-
-#: content_crm/home/display.php:136
-msgid "Sended SMS list"
-msgstr "پیامک‌های ارسال شده"
 
 #: content_crm/home/display.php:143 content_crm/telegram/home/view.php:9
 #: content_love/log/home/logTable.php:60 content_su/home/display.php:197
@@ -16832,13 +16838,61 @@ msgstr "شما می‌توانید این سطح دسترسی را حذف کنی
 msgid "Add new permission"
 msgstr "افزودن سطح دسترسی جدید"
 
-#: content_crm/sms/home/view.php:9 content_love/smslog/view.php:9
-msgid "Sms log"
-msgstr "لاگ پیامک"
+#: content_crm/sms/conversation/display-filter.php:3
+#: content_crm/sms/datalist/display-filter.php:3
+msgid "Show all sms where"
+msgstr "نمایش پیامک‌ها با شرط"
+
+#: content_crm/sms/conversation/view.php:9 content_crm/sms/home/display.php:32
+msgid "Conversation"
+msgstr "گفت‌و‌گو"
+
+#: content_crm/sms/datalist/view.php:9 content_crm/sms/home/display.php:24
+msgid "Send sms history"
+msgstr "تاریخچه پیامک‌های ارسال شده"
+
+#: content_crm/sms/home/display.php:8 content_crm/ticket/home/display.php:8
+#: content_love/smslog/display.php:19 content_love/smslog/view/display.php:10
+#: content_su/tg/sendmessage/display.php:11 dash/app/log/caller/sendNotifBySms.php:18
+#: lib/app/form/item/type.php:429
+msgid "Message"
+msgstr "پیام"
+
+#: content_crm/sms/home/display.php:10 content_crm/ticket/home/display.php:10
+msgid "Thicket and message in last years"
+msgstr "تیکت‌ها و پاسخ‌ها در یک‌سال گذشته"
+
+#: content_crm/sms/home/display.php:45 content_crm/sms/send/view.php:9
+msgid "Send sms"
+msgstr "ارسال پیام"
+
+#: content_crm/sms/send/display.php:9
+msgid "Message text ..."
+msgstr "متن پیام ..."
+
+#: content_crm/sms/send/display.php:11
+msgid ""
+"After registering the SMS, your request will be placed in the sending queue and you "
+"will send it in a few minutes"
+msgstr ""
+"بعد از ثبت،‌ پیامک شما در صف ارسال قرار خواهد گرفت و تا چند دقیقه بعد ارسال خواهد شد"
 
 #: content_crm/sms/view/display.php:22
 msgid "Line"
 msgstr "خط"
+
+#: content_crm/sms/view/display.php:38 lib/app/product/property.php:64
+#: lib/app/product/property.php:264 lib/app/product/property.php:268
+msgid "Length"
+msgstr "طول"
+
+#: content_crm/sms/view/display.php:39
+msgid "Character"
+msgstr "کاراکتر"
+
+#: content_crm/sms/view/display.php:46
+msgid "Count sms"
+msgstr "تعداد پیامک‌ها"
 
 #: content_crm/sms/view/view.php:9 content_love/smslog/view/view.php:9
 msgid "Show sms log detail"
@@ -16928,16 +16982,6 @@ msgstr "حذف این پیام"
 #: content_crm/ticket/edit/view.php:9
 msgid "Edit ticket"
 msgstr "ویرایش تیکت"
-
-#: content_crm/ticket/home/display.php:8 content_love/smslog/display.php:19
-#: content_love/smslog/view/display.php:10 content_su/tg/sendmessage/display.php:11
-#: dash/app/log/caller/sendNotifBySms.php:18 lib/app/form/item/type.php:429
-msgid "Message"
-msgstr "پیام"
-
-#: content_crm/ticket/home/display.php:10
-msgid "Thicket and message in last years"
-msgstr "تیکت‌ها و پاسخ‌ها در یک‌سال گذشته"
 
 #: content_crm/ticket/home/display.php:24
 msgid "All tickets"
@@ -17825,10 +17869,6 @@ msgid "More than one log found"
 msgstr "بیشتر از یک لاگ یافت شد"
 
 #: content_enter/callback/model.php:153
-msgid "Your register was complete"
-msgstr "ثبت نام شما کامل شد"
-
-#: content_enter/callback/model.php:160
 msgid "User signup by sms"
 msgstr "کاربر با ارسال پیامک ثبت نام شد"
 
@@ -18805,11 +18845,13 @@ msgstr "شما می‌توانید وضعیت این دامنه را به صور
 
 #: content_love/business/domain/setting/display.php:123
 #: content_love/domain/setting/display.php:124 includes/languages/trans_static.php:582
+#: lib/app/sms/filter.php:26
 msgid "Pending"
 msgstr "در انتظار"
 
 #: content_love/business/domain/setting/display.php:124
 #: content_love/domain/setting/display.php:123 includes/languages/trans_static.php:529
+#: lib/app/sms/filter.php:29
 msgid "Failed"
 msgstr "ناموفق"
 
@@ -20008,6 +20050,10 @@ msgstr "مدل"
 #: content_love/smslog/display.php:46
 msgid "Multiple mobiles"
 msgstr "چند موبایلی"
+
+#: content_love/smslog/view.php:9
+msgid "Sms log"
+msgstr "لاگ پیامک"
 
 #: content_love/smslog/view/display.php:9
 msgid "Mobiles"
@@ -23038,12 +23084,12 @@ msgstr "پی‌دی‌اف"
 #: dash/app/files/filter.php:46 dash/app/telegram/filter.php:40
 #: includes/languages/trans_static.php:530 lib/app/form/item/type.php:305
 #: lib/app/form/item/type.php:432 lib/app/form/item/type.php:449
-#: lib/app/form/item/type.php:466 lib/app/store/analytics.php:115
-#: lib/app/store/analytics.php:116 lib/app/store/analytics.php:117
-#: lib/app/store/analytics.php:118 lib/app/store/analytics.php:119
-#: lib/app/store/analytics.php:120 lib/app/store/analytics.php:121
-#: lib/app/store/analytics.php:122 lib/app/store/analytics.php:123
-#: lib/app/store/analytics.php:124
+#: lib/app/form/item/type.php:466 lib/app/sms/filter.php:30
+#: lib/app/store/analytics.php:115 lib/app/store/analytics.php:116
+#: lib/app/store/analytics.php:117 lib/app/store/analytics.php:118
+#: lib/app/store/analytics.php:119 lib/app/store/analytics.php:120
+#: lib/app/store/analytics.php:121 lib/app/store/analytics.php:122
+#: lib/app/store/analytics.php:123 lib/app/store/analytics.php:124
 msgid "Other"
 msgstr "سایر"
 
@@ -34108,9 +34154,9 @@ msgstr "فیلد اشتباه است"
 msgid "Column customized"
 msgstr "ستون‌ها سفارشی شد"
 
-#: lib/app/form/filter/ready.php:55 lib/app/form/report.php:210
-#: lib/app/form/report.php:211 lib/app/form/report.php:324 lib/app/form/report.php:325
-#: lib/app/form/report.php:429
+#: lib/app/form/filter/ready.php:55 lib/app/form/report.php:208
+#: lib/app/form/report.php:209 lib/app/form/report.php:340 lib/app/form/report.php:341
+#: lib/app/form/report.php:445
 msgid "Not answer"
 msgstr "بدون پاسخ"
 
@@ -34279,7 +34325,7 @@ msgstr "ورودی مخفی"
 msgid "Agree"
 msgstr "موافقت"
 
-#: lib/app/form/report.php:199 lib/app/form/report.php:312 lib/app/form/report.php:313
+#: lib/app/form/report.php:197 lib/app/form/report.php:328 lib/app/form/report.php:329
 msgid "Other choice"
 msgstr "سایر گزینه‌ها"
 
@@ -35724,11 +35770,6 @@ msgstr "لطفا برای مرتب سازی همه تصاویر موجود در 
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
 
-#: lib/app/product/property.php:64 lib/app/product/property.php:264
-#: lib/app/product/property.php:268
-msgid "Length"
-msgstr "طول"
-
 #: lib/app/product/property.php:66 lib/app/product/property.php:284
 #: lib/app/product/property.php:288
 msgid "Height"
@@ -36171,7 +36212,7 @@ msgstr "این کیف پول هم‌اکنون در لیست کیف‌ پول‌
 msgid "Wallet was added"
 msgstr "کیف پول الکترونیکی اضافه شد"
 
-#: lib/app/sms/log/get.php:19
+#: lib/app/sms/get.php:19
 msgid "Log not founded"
 msgstr "لاگ یافت نشد"
 
@@ -38394,6 +38435,12 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Sended SMS list"
+#~ msgstr "پیامک‌های ارسال شده"
+
+#~ msgid "Your register was complete"
+#~ msgstr "ثبت نام شما کامل شد"
+
 #~ msgid "supportTicketManageSubdomain"
 #~ msgstr "مدیریت تیکت در تمامی زیردامنه‌ها"
 
@@ -38408,9 +38455,6 @@ msgstr "یارد"
 
 #~ msgid "Count ticket"
 #~ msgstr "تعداد تیکت"
-
-#~ msgid "Count message"
-#~ msgstr "تعداد پیام"
 
 #~ msgid "Answer time"
 #~ msgstr "زمان‌ پاسخ"

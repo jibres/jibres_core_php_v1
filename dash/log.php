@@ -476,6 +476,13 @@ class log
 					{
 						$new_args[$key]['sms'] = addslashes($sms_text);
 					}
+
+					$sms_text_array = json_decode($sms_text, true);
+					if(isset($sms_text_array['mobile']) && isset($sms_text_array['text']))
+					{
+						// save into sms send
+						\lib\app\sms\queue::add_one(['mobile' => $sms_text_array['mobile'], 'message' => $sms_text_array['text']]);
+					}
 				}
 			}
 		}

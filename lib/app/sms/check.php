@@ -9,6 +9,7 @@ class check
 		[
 			'mobile'  => 'mobile',
 			'message' => 'desc',
+			'sender'  => ['enum' => ['system', 'admin', 'customer']],
 		];
 
 		$require = ['mobile', 'message'];

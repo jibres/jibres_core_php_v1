@@ -9,9 +9,9 @@ class controller
 
 	public static function routing()
 	{
+			self::cronjob_run();
 		if(\dash\permission::supervisor())
 		{
-			self::cronjob_run();
 			return;
 		}
 
@@ -112,6 +112,8 @@ class controller
 				\lib\app\import\run::crontab();
 			}
 		}
+
+		\lib\app\sms\queue::send();
 
 		\dash\app\log\send::notification();
 

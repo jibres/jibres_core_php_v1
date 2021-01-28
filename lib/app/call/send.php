@@ -1,9 +1,9 @@
 <?php
-namespace dash\utility;
-require_once(core."utility/kavenegar_api.php");
+namespace lib\app\call;
+
 
 /** call management class **/
-class call
+class send
 {
 	private static function kavenegar_auth()
 	{
@@ -91,7 +91,7 @@ class call
 			'dateresponse' => date("Y-m-d H:i:s"),
 		];
 
-		\dash\utility\sms::save_history($insert_kavenegar_log);
+		\lib\app\sms\history::add($insert_kavenegar_log);
 
 		return $result;
 	}

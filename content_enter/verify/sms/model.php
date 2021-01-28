@@ -101,17 +101,17 @@ class model
 				$sms_setting = \lib\app\setting\get::sms_setting();
 				if(isset($sms_setting['kavenegar_apikey']) && $sms_setting['kavenegar_apikey'])
 				{
-					$kavenegar_send_result = \dash\utility\sms::send($my_mobile, $msg, $sms_option);
+					$kavenegar_send_result = \lib\app\sms\send::send($my_mobile, $msg, $sms_option);
 				}
 				else
 				{
 					$token2 = \lib\store::title();
-					$kavenegar_send_result = \dash\utility\sms::verification_code($my_mobile, $template, $token, null, null, null, $token2);
+					$kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token, null, null, null, $token2);
 				}
 			}
 			else
 			{
-				$kavenegar_send_result = \dash\utility\sms::verification_code($my_mobile, $template, $token);
+				$kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token);
 			}
 
 		}
