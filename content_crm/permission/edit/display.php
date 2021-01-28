@@ -20,8 +20,8 @@ if(!is_array($permissionList))
 
       <div class="c-xs c-sm"></div>
 
-      <div class="c-xs-auto c-sm-auto hide">
-        <a class="btn link" href="<?php echo \dash\url::this(). '/user?id='. \dash\request::get('id') ?>"><?php echo T_("Manage users by this permission") ?></a>
+      <div class="c-xs-auto c-sm-auto">
+        <a class="link" href="<?php echo \dash\url::here(). '/member?permission='. \dash\data::dataRow_key(); ?>"><?php echo T_("List users by this permission") ?></a>
       </div>
     </div>
   </div>

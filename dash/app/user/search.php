@@ -21,6 +21,7 @@ class search
 			'sort'      => 'string_50',
 			'status'    => ['enum' => ['active','awaiting','deactive','removed','filter','unreachable', 'ban', 'block']],
 			'show_type' => ['enum' => ['staff', 'all']],
+			'permission'      => 'string_50',
 
 			'hm'        => 'y_n',
 			'ho'        => 'y_n',
@@ -48,6 +49,12 @@ class search
 		else
 		{
 			/*nothing*/
+		}
+
+
+		if($data['permission'])
+		{
+			$and[] = " users.permission = '$data[permission]' ";
 		}
 
 		if($data['hm'] === 'y')

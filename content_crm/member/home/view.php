@@ -25,14 +25,15 @@ class view
 
 		$args =
 		[
-			'order'     => \dash\request::get('order'),
-			'sort'      => \dash\request::get('sort'),
-			'status'    => \dash\request::get('status'),
-			'hm'        => \dash\request::get('hm'),
-			'ho'        => \dash\request::get('ho'),
-			'hc'        => \dash\request::get('hc'),
-			'hp'        => \dash\request::get('hp'),
-			'show_type' => 'all',
+			'order'      => \dash\request::get('order'),
+			'sort'       => \dash\request::get('sort'),
+			'status'     => \dash\request::get('status'),
+			'permission' => \dash\request::get('permission'),
+			'hm'         => \dash\request::get('hm'),
+			'ho'         => \dash\request::get('ho'),
+			'hc'         => \dash\request::get('hc'),
+			'hp'         => \dash\request::get('hp'),
+			'show_type'  => 'all',
 		];
 
 		if(\dash\url::module() === 'staff')
