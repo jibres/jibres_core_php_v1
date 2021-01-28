@@ -82,19 +82,21 @@
               <?php }else{ ?>
                 <div class="itemOperation">
                   <div class="productCount">
-                    <?php if(a($value, 'type') === 'file' && in_array(a(\dash\data::dataRow(), 'order', 'paystatus' ), ['successful_payment'])) {?>
-                      <?php if(a($value, 'fileaddress')) {?>
-
-
-                        <a data-action class="btn success" href="<?php echo a($value, 'fileaddress') ?>" download target="_blank"><?php echo T_("Download file") ?></a>
-                      <?php }else{ ?>
-                        <div class="fc-red"><?php echo T_("File have not address!") ?></div>
-                      <?php } //endif ?>
-                    <?php } //endif ?>
-
                   </div>
-
                 </div>
+
+                <?php if(a($value, 'type') === 'file' && in_array(a(\dash\data::dataRow(), 'order', 'paystatus' ), ['successful_payment'])) {?>
+                  <?php if(a($value, 'fileaddress')) {?>
+                    <a data-action class="btn success" href="<?php echo a($value, 'fileaddress') ?>" download target="_blank"><?php echo T_("Download file") ?></a>
+                    <?php if(\dash\request::is_app()) {?>
+                      <div class="msg mT10"><?php echo T_("File Address"). ' '. a($value, 'fileaddress') ?>
+                        <a class="btn master mT10" data-copy="<?php echo a($value, 'fileaddress') ?>"><?php echo T_("Copy To Download") ?></a>
+                      </div>
+                    <?php } //endif ?>
+                  <?php }else{ ?>
+                    <div class="fc-red"><?php echo T_("File have not address!") ?></div>
+                  <?php } //endif ?>
+                <?php } //endif ?>
               <?php } // endif ?>
 
             </div>
