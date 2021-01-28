@@ -17,9 +17,10 @@ class view
 
 		\dash\data::listEngine_start(true);
 
-		$listPermission = \dash\app\permission\get::list();
+		$listPermission = \dash\app\permission\get::list(true);
 
 		\dash\data::dataTable($listPermission);
+
 	}
 }
 ?>

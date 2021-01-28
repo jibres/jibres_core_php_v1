@@ -95,7 +95,7 @@ class get
 	}
 
 
-	public static function list()
+	public static function list($_load_user_count = false)
 	{
 		$list = \lib\db\setting\get::by_cat('permission');
 
@@ -104,24 +104,26 @@ class get
 			$list = [];
 		}
 
-		$all_key = array_column($list, 'key');
-		if($all_key)
+		if($_load_user_count)
 		{
-			$user_count = \dash\db\users\get::group_by_permission();
-			if(!is_array($user_count))
+			$all_key = array_column($list, 'key');
+			if($all_key)
 			{
-				$user_count = [];
-			}
-
-			foreach ($list as $key => $value)
-			{
-				if(isset($value['key']) && isset($user_count[$value['key']]))
+				$user_count = \dash\db\users\get::group_by_permission();
+				if(!is_array($user_count))
 				{
-					$list[$key]['user_count'] = floatval($user_count[$value['key']]);
+					$user_count = [];
+				}
+
+				foreach ($list as $key => $value)
+				{
+					if(isset($value['key']) && isset($user_count[$value['key']]))
+					{
+						$list[$key]['user_count'] = floatval($user_count[$value['key']]);
+					}
 				}
 			}
 		}
-
 
 		return $list;
 
