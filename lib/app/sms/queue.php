@@ -77,7 +77,14 @@ class queue
 		{
 			if(isset($sms['mobile']) && isset($sms['message']))
 			{
-				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], null, $sms['id']);
+				$option = [];
+
+				if(isset($sms['sender']) && $sms['sender'] === 'admin')
+				{
+					$option['line'] = '100020009';
+				}
+
+				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
 			}
 		}
 
