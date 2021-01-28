@@ -40,11 +40,12 @@ class send
 		$_message = trim($_message);
 
 		// create complete message
-		$sms_header = T_('Jibres') . ' | '. T_('Sell and Enjoy');
+		$sms_header = "";
 		$sms_footer = "";
 
 		if(!\dash\engine\store::inStore())
 		{
+			$sms_header = T_('Jibres') . ' | '. T_('Sell and Enjoy');
 			if(\dash\url::tld() === 'ir')
 			{
 				$sms_footer .= T_('Jibres.ir');
