@@ -24,6 +24,11 @@ class add
 
 	public static function calculate_shipping_value($factor, $_option = [])
 	{
+		// in file mode not calculate shipping
+		if(isset($_option['fileMode']) && $_option['fileMode'])
+		{
+			return $factor;
+		}
 
 		$shipping_value = 0;
 
@@ -89,6 +94,7 @@ class add
 			'debug'     => true,
 			'factor_id' => null,
 			'from_cart' => false,
+			'fileMode'  => false,
 		];
 
 		if(!is_array($_option))
@@ -156,7 +162,7 @@ class add
 			// change factor mode to customer
 			$mode = 'customer';
 
-			$factor = self::calculate_shipping_value($factor, ['mode' => $mode]);
+			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $_option['fileMode']]);
 
 		}
 

@@ -200,7 +200,7 @@ class cart
 
 		$return = [];
 
-		$result = \lib\app\factor\add::new_factor($factor, $factor_detail, ['from_cart' => true]);
+		$result = \lib\app\factor\add::new_factor($factor, $factor_detail, ['from_cart' => true, 'fileMode' => $fileMode]);
 
 		// check can add new factor
 		if(!isset($result['factor_id']) || !isset($result['price']))

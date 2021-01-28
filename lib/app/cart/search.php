@@ -255,26 +255,33 @@ class search
 			}
 		}
 
-		$shipping_value = null;
-		$shipping = \lib\app\setting\get::shipping_setting();
+		$all_type = array_column($_detail, 'type');
 
-		if(isset($shipping['sendbypost']) && is_numeric($shipping['sendbypost']) && isset($shipping['sendbypostprice']) && is_numeric($shipping['sendbypostprice']))
+		$shipping_value = null;
+		// only if have product calculate shipping
+		if(in_array('product', $all_type))
 		{
-			if(isset($shipping['freeshipping']) && is_numeric($shipping['freeshipping']) && isset($shipping['freeshippingprice']) && is_numeric($shipping['freeshippingprice']))
+			$shipping = \lib\app\setting\get::shipping_setting();
+
+			if(isset($shipping['sendbypost']) && is_numeric($shipping['sendbypost']) && isset($shipping['sendbypostprice']) && is_numeric($shipping['sendbypostprice']))
 			{
-				if(floatval($subtotal) >= floatval($shipping['freeshippingprice']))
+				if(isset($shipping['freeshipping']) && is_numeric($shipping['freeshipping']) && isset($shipping['freeshippingprice']) && is_numeric($shipping['freeshippingprice']))
 				{
-					$shipping_value = 0;
+					if(floatval($subtotal) >= floatval($shipping['freeshippingprice']))
+					{
+						$shipping_value = 0;
+					}
+					else
+					{
+						$shipping_value = floatval($shipping['sendbypostprice']);
+					}
 				}
 				else
 				{
 					$shipping_value = floatval($shipping['sendbypostprice']);
 				}
 			}
-			else
-			{
-				$shipping_value = floatval($shipping['sendbypostprice']);
-			}
+
 		}
 
 		$result             = [];
