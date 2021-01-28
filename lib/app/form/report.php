@@ -128,7 +128,6 @@ class report
 	public static function chart_pie($_item)
 	{
 		$var = self::check($_item);
-
 		if(!$var)
 		{
 			return null;
@@ -149,8 +148,7 @@ class report
 		$not_answer   = null;
 		$percent_answer = null;
 
-
-		if(in_array($type, ['dropdown', 'single_choice', 'multiple_choice']))
+		if(in_array($type, ['dropdown', 'single_choice', 'multiple_choice', 'gender']))
 		{
 			$count_answer = \lib\db\form_answerdetail\get::count_answer_item_id($form_id, $item_id);
 
@@ -215,6 +213,24 @@ class report
 		if($all_answer_count && $count_answer)
 		{
 			$percent_answer = round((($count_answer * 100) / $all_answer_count), 2);
+		}
+
+		if($type === 'gender')
+		{
+			foreach ($table as $key => $value)
+			{
+				if(isset($value['name']))
+				{
+					$table[$key]['name'] = T_($value['name']);
+				}
+			}
+			foreach ($chart as $key => $value)
+			{
+				if(isset($value['name']))
+				{
+					$chart[$key]['name'] = T_($value['name']);
+				}
+			}
 		}
 
 		$result                      = [];
