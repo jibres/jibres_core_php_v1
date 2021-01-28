@@ -93,7 +93,7 @@ class search
 		{
 			if(\lib\app\sms\filter::check_allow($data['sort'], $data['order']))
 			{
-				$order_sort = " ORDER BY $sort $order";
+				$order_sort = " ORDER BY $data[sort] $data[order]";
 			}
 		}
 
