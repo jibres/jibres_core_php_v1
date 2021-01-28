@@ -63,13 +63,13 @@ if(a($dataRowMember,  'status') === 'ban')
   <?php }else{ // in jibres mode ?>
     <section class="row">
       <div class="c-xs-6 c-sm-3">
-      <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
+      <a href="<?php echo \dash\url::kingdom(). '/love/store?user='. \dash\request::get('id'); ?>"  class="stat">
        <h3><?php echo T_("Business Count");?></h3>
        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'business_count'));?></div>
       </a>
      </div>
      <div class="c-xs-6 c-sm-3">
-      <a href="<?php echo \dash\url::kingdom(). '/a/order?customer='. \dash\request::get('id'); ?>"  class="stat">
+      <a href="<?php echo \dash\url::kingdom(). '/love/domain/all?user='. \dash\request::get('id'); ?>"  class="stat">
        <h3><?php echo T_("Domain Count");?></h3>
        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'domains_count'));?></div>
       </a>
@@ -132,7 +132,7 @@ if(a($dataRowMember,  'status') === 'ban')
             </li>
             <?php if(!$inStore) {?>
             <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/sessions?id='. \dash\request::get('id');?>">
+              <a class="item f" href="<?php echo \dash\url::kingdom(). '/love/emails?user='. \dash\request::get('id');?>">
                 <div class="key"><?php echo T_('Email count');?></div>
                 <div class="value ltr"><?php echo \dash\fit::number(a($dashboardDetail, 'emails_count'));?></div>
                 <div class="go"></div>

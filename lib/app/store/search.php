@@ -24,8 +24,9 @@ class search
 	{
 		$condition =
 		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['name','id']],
+			'order' => 'order',
+			'sort'  => ['enum' => ['name','id']],
+			'user'  => 'code',
 		];
 
 		$require = [];
@@ -45,6 +46,15 @@ class search
 
 		$order_sort  = null;
 
+		if($data['user'])
+		{
+			$user_id = \dash\coding::decode($data['user']);
+			if($user_id)
+			{
+				$and[] = " store.creator = $user_id ";
+				self::$is_filtered = true;
+			}
+		}
 
 
 		$query_string = \dash\validate::search($_query_string, false);

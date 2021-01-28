@@ -16,6 +16,7 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
+			'user'   => \dash\request::get('user'),
 		];
 
 		\dash\temp::set('disableDomainFetch', true);

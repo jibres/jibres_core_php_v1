@@ -73,6 +73,7 @@ class search
 			'user_id'   => 'id',
 			'is_admin'  => 'bit',
 			'get_count'  => 'bit',
+			'user'    => 'code',
 
 		];
 
@@ -268,6 +269,15 @@ class search
 		if($data['user_id'])
 		{
 			$and[] = " domain.user_id = $data[user_id] ";
+		}
+
+		if($data['user'])
+		{
+			$user_id = \dash\coding::decode($data['user']);
+			if($user_id)
+			{
+				$and[] = " domain.user_id = $user_id ";
+			}
 		}
 
 		if($data['get_count'])
