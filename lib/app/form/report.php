@@ -74,7 +74,6 @@ class report
 		}
 
 
-
 		return
 		[
 			'item_id'    => $item_id,
@@ -559,6 +558,7 @@ class report
 		extract($var);
 
 		$load_answer = \lib\db\form_answerdetail\get::chart_wordcloud($form_id, $item_id);
+
 		if(!is_array($load_answer))
 		{
 			$load_answer = [];
@@ -589,9 +589,16 @@ class report
 		foreach ($load_answer as $key => $value)
 		{
 
-			$temp      = self::remove_2_char($value);
-
-			$myCountTemp = array_count_values(explode(' ', $temp));
+			if(\dash\validate::date($value ,false))
+			{
+				$temp = \dash\fit::date($value);
+				$myCountTemp = [strtok($temp, '-') => 1];
+			}
+			else
+			{
+				$temp        = self::remove_2_char($value);
+				$myCountTemp = array_count_values(explode(' ', $temp));
+			}
 
 			foreach ($myCountTemp as $myWord => $myCountWord)
 			{

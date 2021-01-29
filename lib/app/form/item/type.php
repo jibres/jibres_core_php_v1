@@ -174,7 +174,7 @@ class type
 			'key'          => 'date',
 			'placeholder'  => true,
 			'chart' 	   => true,
-			'chart_type'   => ['heatmap'],
+			'chart_type'   => 'wordcloud',
 			'title'        => T_('Date'),
 			'group'        => T_('Date & time'),
 			'default_load' =>
@@ -189,7 +189,7 @@ class type
 			'key'          => 'birthdate',
 			'placeholder'  => true,
 			'chart' 	   => true,
-			'chart_type'   => ['heatmap'],
+			'chart_type'   => 'wordcloud',
 			'title'        => T_('Birthdate'),
 			'group'        => T_('Date & time'),
 			'default_load' =>
@@ -204,7 +204,7 @@ class type
 			'key'          => 'time',
 			'placeholder'  => true,
 			'chart' 	   => true,
-			'chart_type'   => ['heatmap'],
+			'chart_type'   => 'wordcloud',
 			'title'        => T_('Time'),
 			'group'        => T_('Date & time'),
 			'default_load' =>
