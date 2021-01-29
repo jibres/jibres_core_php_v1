@@ -1,13 +1,12 @@
 <?php
-namespace content_crm\sms\send;
+namespace content_crm\notification\send;
 
 
 class controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('crmSms');
-		\dash\redirect::to(\dash\url::this(). '/datalist');
+		\dash\permission::access('_group_crm');
 	}
 }
 ?>

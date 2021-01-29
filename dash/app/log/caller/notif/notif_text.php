@@ -7,23 +7,15 @@ class notif_text
 	public static function site($_args = [])
 	{
 
-		$result               = [];
+		$result              = [];
 
-		$result["title"]      = isset($_args['data']['notif_title']) ? $_args['data']['notif_title'] : null;
-		$result["small"]      = isset($_args['data']['notif_small']) ? $_args['data']['notif_small'] : null;
-		$result["big"]        = isset($_args['data']['notif_big']) ? $_args['data']['notif_big'] : null;
-		$result["sub_text"]   = isset($_args['data']['notif_sub_text']) ? $_args['data']['notif_sub_text'] : null;
-		$result["group"]      = isset($_args['data']['notif_group']) ? $_args['data']['notif_group'] : null;
-		$result["sender"]     = isset($_args['data']['notif_sender']) ? $_args['data']['notif_sender'] : null;
-		$result["large_icon"] = isset($_args['data']['notif_large_icon']) ? $_args['data']['notif_large_icon'] : null;
-		$result["icon"]       = isset($_args['data']['notif_icon']) ? $_args['data']['notif_icon'] : null;
-		$result["link"]       = isset($_args['data']['notif_link']) ? $_args['data']['notif_link'] : null;
-		$result["external"]   = isset($_args['data']['notif_external']) ? $_args['data']['notif_external'] : null;
+		$result["title"]     = isset($_args['data']['notif_title']) ? $_args['data']['notif_title'] : null;
+		$result["text"]      = isset($_args['data']['notif_text']) ? $_args['data']['notif_text'] : null;
+		$result["group"]     = isset($_args['data']['notif_group']) ? $_args['data']['notif_group'] : null;
 
-		$result['excerpt']    = $result['small'];
-		$result['cat']        = $result['group'];
-		$result['iconClass']  = 'fc-blue';
-		$result['txt']        = $result['big'];
+		$result['cat']       = $result['group'];
+		$result['iconClass'] = 'fc-blue';
+		$result['txt']       = $result['text'];
 
 		return $result;
 
