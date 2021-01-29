@@ -68,11 +68,22 @@ class search
 
 		if($query_string)
 		{
-			$or[] = " transactions.title LIKE '%$query_string%' ";
-			$or[] = " transactions.plus LIKE '%$query_string%' ";
-			$or[] = " transactions.minus LIKE '%$query_string%' ";
-			$or[] = " users.mobile LIKE '%$query_string%' ";
-			$or[] = " users.displayname LIKE '%$query_string%' ";
+			if($int = \dash\validate::int($query_string, false))
+			{
+				$or[] = " transactions.id = '$query_string' ";
+				$or[] = " transactions.plus = '$query_string' ";
+				$or[] = " transactions.minus = '$query_string' ";
+			}
+			elseif($mobile = \dash\validate::mobile($query_string, false))
+			{
+				$or[] = " users.mobile = '$mobile' ";
+			}
+			else
+			{
+				$or[] = " transactions.title LIKE '%$query_string%' ";
+				$or[] = " users.displayname LIKE '%$query_string%' ";
+			}
+
 
 			self::$is_filtered = true;
 		}

@@ -116,7 +116,7 @@ if(\dash\data::payDetail_final_msg())
 				<tbody>
 					<tr>
 						<th><?php echo T_("Track id"); ?></th>
-						<td><?php echo \dash\coding::encode(\dash\data::dataRow_id()); ?></td>
+						<td><code><?php echo \dash\data::dataRow_id(); ?></code></td>
 					</tr>
 					<tr>
 						<th><?php echo T_("Date"); ?></th>
