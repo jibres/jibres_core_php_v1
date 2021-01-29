@@ -5,6 +5,13 @@ class controller
 {
 	public static function routing()
 	{
+		if(\dash\request::get('showserver') === 'showserver')
+		{
+			\dash\code::dump($_SERVER, true);
+			exit();
+		}
+
+
 		if(\dash\engine\store::free_subdomain())
 		{
 			\dash\engine\prepare::html_raw_page('dnsPoint');
