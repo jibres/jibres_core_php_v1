@@ -20,11 +20,11 @@ class search
 	{
 		$condition =
 		[
-			'order'      => 'order',
-			'sort'       => 'string_100',
-			'pagination' => 'bit',
-			'type'       => ['enum' => ['other']],
-			'ext'       => 'string_100',
+			'order'        => 'order',
+			'sort'         => 'string_100',
+			'pagination'   => 'bit',
+			'chatid'       => 'string_100',
+			'conversation' => 'bit',
 		];
 
 		$require = [];
@@ -38,16 +38,9 @@ class search
 		$or          = [];
 
 
-		if($data['type'])
+		if($data['chatid'])
 		{
-			if($data['type'] === 'other')
-			{
-				$and[] = " telegrams.type IN ('word','excel','powerpoint','code','text','file') ";
-			}
-			else
-			{
-				$and[] = " telegrams.type = '$data[type]' ";
-			}
+			$and[] = " telegrams.chatid = '$data[chatid]' ";
 
 			self::$is_filtered = true;
 		}
@@ -101,12 +94,27 @@ class search
 			$order_sort = " ORDER BY telegrams.id DESC";
 		}
 
-
-		$list = \dash\db\telegrams\search::list($and, $or, $order_sort, $meta);
+		if($data['conversation'])
+		{
+			$list = \dash\db\telegrams\search::conversation_list($and, $or, $order_sort, $meta);
+		}
+		else
+		{
+			$list = \dash\db\telegrams\search::list($and, $or, $order_sort, $meta);
+		}
 
 
 		if(is_array($list))
 		{
+
+			$all_chatid = array_column($list, 'chatid');
+			$all_chatid = array_filter($all_chatid);
+			$all_chatid = array_unique($all_chatid);
+			if($all_chatid)
+			{
+				self::load_user_detail_chatid($list, $all_chatid);
+			}
+
 			$list = array_map(['\\dash\\app\\telegram\\ready', 'row'], $list);
 		}
 		else
@@ -114,7 +122,36 @@ class search
 			$list = [];
 		}
 
+
 		return $list;
+	}
+
+
+	private static function load_user_detail_chatid(&$list, $all_chatid)
+	{
+		$load_user_detail_chatid = \dash\db\user_telegram\get::load_user_detail_chatid($all_chatid);
+		if(!is_array($load_user_detail_chatid))
+		{
+			$load_user_detail_chatid = [];
+		}
+
+		if(!$load_user_detail_chatid)
+		{
+			return;
+		}
+
+		$load_user_detail_chatid = array_map(['\\dash\\app', 'fix_avatar'], $load_user_detail_chatid);
+
+		$load_user_detail_chatid = array_combine(array_column($load_user_detail_chatid, 'chatid'), $load_user_detail_chatid);
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['chatid']) && isset($load_user_detail_chatid[$value['chatid']]))
+			{
+				$list[$key]['user_detail'] = $load_user_detail_chatid[$value['chatid']];
+			}
+		}
+
 	}
 }
 ?>

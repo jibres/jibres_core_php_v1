@@ -22,6 +22,7 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
+			'chatid' => \dash\request::get('chatid'),
 
 		];
 
