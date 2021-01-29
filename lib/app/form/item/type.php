@@ -189,7 +189,7 @@ class type
 			'key'          => 'birthdate',
 			'placeholder'  => true,
 			'chart' 	   => true,
-			'chart_type'   => 'wordcloud',
+			'chart_type'   => 'pie',
 			'title'        => T_('Birthdate'),
 			'group'        => T_('Date & time'),
 			'default_load' =>

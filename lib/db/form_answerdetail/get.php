@@ -62,6 +62,9 @@ class get
 		return $result;
 	}
 
+
+
+
 	public static function count_answer_item_id($_form_id, $_item_id)
 	{
 		$query =
@@ -82,6 +85,27 @@ class get
 	}
 
 
+
+	public static function chart_pie_birthdate($_form_id, $_item_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				SUBSTRING(form_answerdetail.answer, 1, 4) AS `answer`
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.form_id = $_form_id AND
+				form_answerdetail.item_id = $_item_id
+			GROUP BY SUBSTRING(form_answerdetail.answer, 1, 4)
+			ORDER BY SUBSTRING(form_answerdetail.answer, 1, 4) DESC
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
 
 	public static function chart_pie($_form_id, $_item_id)
 	{

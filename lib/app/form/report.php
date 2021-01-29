@@ -134,20 +134,29 @@ class report
 
 		extract($var);
 
-		$load_answer = \lib\db\form_answerdetail\get::chart_pie($form_id, $item_id);
+		if($type === 'birthdate')
+		{
+			$load_answer = \lib\db\form_answerdetail\get::chart_pie_birthdate($form_id, $item_id);
+		}
+		else
+		{
+			$load_answer = \lib\db\form_answerdetail\get::chart_pie($form_id, $item_id);
+		}
+
 		if(!is_array($load_answer))
 		{
 			$load_answer = [];
 		}
 
 		$all_answer_count = \lib\db\form_answer\get::count_by_form_id($form_id);
+
 		$chart        = [];
 		$table        = [];
 		$count_answer = null;
 		$not_answer   = null;
 		$percent_answer = null;
 
-		if(in_array($type, ['dropdown', 'single_choice', 'multiple_choice', 'gender']))
+		if(in_array($type, ['dropdown', 'single_choice', 'multiple_choice', 'gender', 'birthdate']))
 		{
 			$count_answer = \lib\db\form_answerdetail\get::count_answer_item_id($form_id, $item_id);
 
@@ -163,6 +172,11 @@ class report
 
 			foreach ($load_answer as $key => $value)
 			{
+				if($type === 'birthdate')
+				{
+					$value['answer'] = T_('Year'). ' '. strtok(\dash\fit::date($value['answer']. '-01-05'), '-');
+				}
+
 				if(isset($value['count']) && isset($value['answer']))
 				{
 					if($all_answer_count && $value['count'])
