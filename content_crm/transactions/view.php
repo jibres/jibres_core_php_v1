@@ -18,14 +18,16 @@ class view
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(false);
-		\dash\data::listEngine_sort(false);
+		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\dash\app\transaction\filter::sort_list());
 
 		$args =
 		[
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
 			'status'    => \dash\request::get('status'),
+			'verify'    => \dash\request::get('verify'),
 			'show_type' => 'verify',
 		];
 

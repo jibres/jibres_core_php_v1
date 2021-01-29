@@ -17,11 +17,12 @@ class search
 	{
 		$condition =
 		[
-			'order'  => 'order',
-			'sort'   => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
-			'status' => ['enum' => ['sale', 'buy', 'saleorder']],
+			'order'     => 'order',
+			'sort'      => 'string_50',
+			'status'    => ['enum' => ['sale', 'buy', 'saleorder']],
 			'show_type' => ['enum' => ['verify', 'all']],
 			'user_code' => 'code',
+			'verify' => 'y_n',
 		];
 
 		$require = [];
@@ -42,6 +43,17 @@ class search
 		else
 		{
 			/*nothing*/
+		}
+
+		if($data['verify'] === 'y')
+		{
+			$and[] = " transactions.verify =  1 ";
+			self::$is_filtered = true;
+		}
+		elseif($data['verify'] === 'n')
+		{
+			$and[] = " ( transactions.verify = 0 OR transactions.verify IS NULL ) ";
+			self::$is_filtered = true;
 		}
 
 		if($data['user_code'])
@@ -68,7 +80,10 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$order_sort = " ORDER BY $data[sort] $data[order]";
+			if(\dash\app\transaction\filter::check_allow($data['sort'], $data['order']))
+			{
+				$order_sort = " ORDER BY $data[sort] $data[order]";
+			}
 		}
 
 		if(!$order_sort)
