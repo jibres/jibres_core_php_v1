@@ -2,7 +2,7 @@
 namespace dash\app\log\caller\transaction;
 
 
-class transaction_newPaySuccessfull
+class transaction_addTransactionManualy
 {
 
 	public static function site($_args = [])
@@ -29,7 +29,7 @@ class transaction_newPaySuccessfull
 		$msg = '';
 		if(isset($_args['data']['log_user_detail']))
 		{
-			$msg .= ' '. T_("Customer");
+			$msg .= ' '. T_("Operator");
 
 			if(isset($_args['data']['log_user_detail']['fullname']))
 			{
@@ -39,36 +39,67 @@ class transaction_newPaySuccessfull
 			{
 				$msg .= ' '. \dash\fit::mobile($_args['data']['log_user_detail']['mobile']). ' ';
 			}
-			$msg .= ' | ';
+			$msg .= "\n";
 
 		}
 
 		$amount = null;
-		if(isset($_args['data']['my_detail']['plus']))
+		if(isset($_args['data']['my_amount']))
 		{
-			$amount = \dash\fit::number($_args['data']['my_detail']['plus']);
+			$amount = \dash\fit::number($_args['data']['my_amount']);
+		}
+
+		$type = null;
+		if(isset($_args['data']['my_type']))
+		{
+			$type = \dash\fit::number($_args['data']['my_type']);
+		}
+
+		if($type === 'plus')
+		{
+			$type = T_("Increase account recharge");
+		}
+		elseif($type === 'minus')
+		{
+			$type = T_("Reduce account recharge");
 		}
 
 		$currency = null;
-		if(isset($_args['data']['my_detail']['currecy_name']))
+		if(isset($_args['data']['my_currecy']))
 		{
-			$currency = $_args['data']['my_detail']['currecy_name'];
+			$currency = $_args['data']['my_currecy'];
+			$currency = \lib\currency::name($currency);
 		}
 
 		$title = null;
-		if(isset($_args['data']['my_detail']['title']))
+		if(isset($_args['data']['my_title']))
 		{
-			$title = $_args['data']['my_detail']['title'];
+			$title = $_args['data']['my_title'];
 		}
 
-		$my_name         = isset($_args['data']['my_detail']['displayname']) ? $_args['data']['my_detail']['displayname'] : null;
+		$msg .= $type. ' ';
+		$msg .= $amount. ' ';
+		$msg .= $currency. ' ';
+		$msg .= T_("Description"). ' ';
+		$msg .= $title. ' ';
 
-		if($my_name)
+
+		$for_user = null;
+		if(isset($_args['data']['my_for_user_name']))
 		{
-			$msg .= T_("Customer") . ' '. $my_name. "\n";
+			$for_user = $_args['data']['my_for_user_name'];
+			$msg .= T_("For user"). ' ';
+			$msg .= $for_user. ' ';
 		}
 
-		$msg .= T_(":amount :currency paid. Description :title", ['amount' => $amount, 'currency' => $currency, 'title' => $title]);
+		$for_mobile = null;
+		if(isset($_args['data']['my_for_user_mobile']))
+		{
+			$for_mobile = $_args['data']['my_for_user_mobile'];
+			$msg .= T_("Mobile"). ' ';
+			$msg .= \dash\fit::mobile($for_mobile). ' ';
+		}
+
 
 		return $msg;
 	}
@@ -83,7 +114,6 @@ class transaction_newPaySuccessfull
 	{
 		return true;
 	}
-
 
 	public static function expire()
 	{

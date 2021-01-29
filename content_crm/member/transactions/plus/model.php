@@ -77,11 +77,25 @@ class model
 			$insert['minus'] = $data['amount'];
 		}
 
-		\dash\db\transactions::set($insert);
+		$transaction_id = \dash\db\transactions::set($insert);
 
 		if(\dash\engine\process::status())
 		{
-			\dash\log::set('addTransactionManualy', ['title' => $data['title'], 'plus' => $data['amount'], 'user_id' => $user_id]);
+			$log =
+			[
+				'my_title'           => $data['title'],
+				'my_amount'          => $data['amount'],
+				'my_type'            => \dash\url::subchild(),
+				'my_for_user'        => $user_id,
+				'my_oprator'         => \dash\user::id(),
+				'my_currency'        => $currency,
+				'my_transaction_id'  => $transaction_id,
+				'my_for_user_name'   => \dash\data::dataRowMember_displayname(),
+				'my_for_user_mobile' => \dash\data::dataRowMember_mobile(),
+			];
+
+			\dash\log::set('transaction_addTransactionManualy', $log);
+
 			\dash\notif::ok(T_("Transaction inserted"));
 			\dash\redirect::to(\dash\url::this(). '/transactions'. \dash\request::full_get());
 		}
