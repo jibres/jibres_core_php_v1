@@ -69,7 +69,7 @@ class back
         \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
-        if(intval($status) === 100)
+        if(intval($status) === 10)
         {
             $is_ok = \dash\utility\pay\api\idpay\bank::verify($idpay);
 
