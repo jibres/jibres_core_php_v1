@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('AWS S3'));
+		\dash\face::title(T_('Amazon S3'));
 
 		// back
 		\dash\data::back_text(T_('Third Party Services'));

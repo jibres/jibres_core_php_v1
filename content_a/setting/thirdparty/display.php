@@ -12,27 +12,27 @@
     </ul>
   </nav>
 
-    <h2><?php echo T_("Spaces with AWS S3"); ?></h2>
+    <h2><?php echo T_("Cloud Storage S3"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/awss3">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/aws.svg" alt='AWS'>
-          <div class="key"><?php echo T_("Amazon S3 AWS"); ?></div>
+          <div class="key"><?php echo T_("Amazon"); ?></div>
           <div class="go"></div>
         </a>
       </li>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/digitaloceans3">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/digitalocean.svg" alt='digitalocean'>
-          <div class="key"><?php echo T_("DigitalOcean S3"); ?></div>
+          <div class="key"><?php echo T_("DigitalOcean"); ?></div>
           <div class="go"></div>
         </a>
       </li>
        <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/arvanclouds3">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/arvancloud.svg" alt='ArvanCloud'>
-          <div class="key"><?php echo T_("ArvanCloud S3"); ?></div>
+          <div class="key"><?php echo T_("ArvanCloud"); ?></div>
           <div class="go"></div>
         </a>
       </li>

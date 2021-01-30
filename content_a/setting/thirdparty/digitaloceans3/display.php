@@ -6,7 +6,7 @@
       <div class="body">
         <img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/digitalocean-banner.svg" alt='DigitalOcean'>
         <div class="msg">
-          <p><?php echo T_("DWe make it simple to launch in the cloud and scale up as you grow – with an intuitive control panel, predictable pricing, team accounts, and more.") ?></p>
+          <p><?php echo T_("Spaces is an S3-compatible object storage service that lets you store and serve large amounts of data. Each Space is a bucket for you to store and serve files.") ?></p>
         </div>
 
         <div class="switch1">
@@ -14,23 +14,23 @@
           <label for="istatus"></label>
           <label for="istatus"><?php echo T_("Upload your file to DigitalOcean S3 platform") ?></label>
         </div>
-        <div data-response='status' data-response-effect='slide' <?php if(!a($digitaloceans3, 'status')) { echo 'data-response-hide'; }; ?>>
-          <label for="iaccesskey"><?php echo T_("Accesskey"); ?> <span class="fc-red">*</span></label>
+        <div class="ltr" data-response='status' data-response-effect='slide' <?php if(!a($digitaloceans3, 'status')) { echo 'data-response-hide'; }; ?>>
+          <label for="iaccesskey">Accesskey <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="accesskey" id="iaccesskey" value="<?php echo a($digitaloceans3, 'accesskey'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="isecretkey"><?php echo T_("Secretkey"); ?> <span class="fc-red">*</span></label>
+          <label for="isecretkey">Secretkey <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="secretkey" id="isecretkey" value="<?php echo a($digitaloceans3, 'secretkey'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="iendpoint"><?php echo T_("Endpoint"); ?> <span class="fc-red">*</span></label>
+          <label for="iendpoint">Endpoint <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="endpoint" id="iendpoint" value="<?php echo a($digitaloceans3, 'endpoint'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="ibucket"><?php echo T_("Bucket"); ?> <span class="fc-red">*</span></label>
+          <label for="ibucket">Bucket <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="bucket" id="ibucket" value="<?php echo a($digitaloceans3, 'bucket'); ?>" maxlength='300' minlength="1">
           </div>
