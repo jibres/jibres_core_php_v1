@@ -429,8 +429,7 @@ class set
 		{
 			if(!\lib\store::detail('special_upload_provider'))
 			{
-				\lib\app\store\edit::selfedit(['special_upload_provider' => 1]);
-				\dash\notif::clean();
+				\lib\app\store\edit::selfedit(['special_upload_provider' => 1], ['silent' => true]);
 				\lib\store::refresh();
 			}
 		}
@@ -438,8 +437,7 @@ class set
 		{
 			if(\lib\store::detail('special_upload_provider'))
 			{
-				\lib\app\store\edit::selfedit(['special_upload_provider' => 0]);
-				\dash\notif::clean();
+				\lib\app\store\edit::selfedit(['special_upload_provider' => 0], ['silent' => true]);
 				\lib\store::refresh();
 			}
 		}

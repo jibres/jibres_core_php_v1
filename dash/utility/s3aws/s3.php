@@ -71,17 +71,19 @@ class s3
 
             $fire =
             [
+
                 'region'      => '',
-                'version'     => '2006-03-01',
+                // 'version'     => '2006-03-01',
+                'version'     => 'latest',
                 'endpoint'    => self::$ENDPOINT,
                 'credentials' =>
                 [
                     'key'    => self::$AWS_KEY,
-                    'secret' => self::$AWS_SECRET_KEY
+                    'secret' => self::$AWS_SECRET_KEY,
                 ],
                 // Set the S3 class to use objects.dreamhost.com/bucket
                 // instead of bucket.objects.dreamhost.com
-                'use_path_style_endpoint' => false
+                'use_path_style_endpoint' => false,
             ];
 
             try
@@ -90,6 +92,7 @@ class s3
             }
             catch (\Exception $e)
             {
+                if(\dash\url::isLocal()) {\dash\notif::error($e->getMessage());}
                 return false;
             }
         }
@@ -116,6 +119,11 @@ class s3
 
         $client = self::connect();
 
+        if(!$client)
+        {
+            return false;
+        }
+
         try
         {
             $upload =
@@ -137,6 +145,7 @@ class s3
         }
         catch (\Exception $e)
         {
+            if(\dash\url::isLocal()) {\dash\notif::error($e->getMessage());}
             return false;
         }
 
@@ -153,6 +162,11 @@ class s3
         }
 
         $client = self::connect();
+
+        if(!$client)
+        {
+            return false;
+        }
 
         try
         {
@@ -176,6 +190,7 @@ class s3
         }
         catch (\Exception $e)
         {
+            if(\dash\url::isLocal()) {\dash\notif::error($e->getMessage());}
             return false;
         }
 

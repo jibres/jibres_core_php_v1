@@ -164,7 +164,7 @@ class edit
 
 
 
-	public static function selfedit($_args)
+	public static function selfedit($_args, $_option = [])
 	{
 		if(!\lib\store::in_store())
 		{
@@ -219,7 +219,15 @@ class edit
 
 		\lib\store::reset_cache();
 
-		\dash\notif::ok(T_("Your setting was saved"));
+		if(isset($_option['silent']) && $_option['silent'])
+		{
+			// silient mode
+		}
+		else
+		{
+			\dash\notif::ok(T_("Your setting was saved"));
+		}
+
 		return true;
 	}
 }
