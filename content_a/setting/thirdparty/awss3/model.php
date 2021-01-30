@@ -13,6 +13,7 @@ class model
 			'accesskey' => \dash\request::post('accesskey'),
 			'secretkey' => \dash\request::post('secretkey'),
 			'endpoint'  => \dash\request::post('endpoint'),
+			'bucket'    => \dash\request::post('bucket'),
 		];
 
 		\lib\app\setting\set::upload_provider($post);

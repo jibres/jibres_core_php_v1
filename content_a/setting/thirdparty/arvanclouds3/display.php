@@ -29,6 +29,11 @@
           <div class="input ltr">
             <input type="text" name="endpoint" id="iendpoint" value="<?php echo a($arvanclouds3, 'endpoint'); ?>" maxlength='300' minlength="1">
           </div>
+
+          <label for="ibucket"><?php echo T_("Bucket"); ?> <span class="fc-red">*</span></label>
+          <div class="input ltr">
+            <input type="text" name="bucket" id="ibucket" value="<?php echo a($arvanclouds3, 'bucket'); ?>" maxlength='300' minlength="1">
+          </div>
         </div>
       </div>
       <?php if (!\dash\detect\device::detectPWA()) { ?>

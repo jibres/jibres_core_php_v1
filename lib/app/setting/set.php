@@ -360,12 +360,22 @@ class set
 			'status'    => 'bit',
 			'accesskey' => 'string_300',
 			'secretkey' => 'string_300',
-			'endpoint'  => 'string_300',
-			'default'   => 'bit',
+			'endpoint'  => 'url',
+			'bucket'    => 'string_100',
 		];
 
-		$data = \dash\cleanse::input($_args, $condition, [], []);
+		$required = [];
 
+		if(a($_args, 'accesskey') || a($_args, 'secretkey') || a($_args, 'endpoint') || a($_args, 'bucket'))
+		{
+			$required = ['accesskey', 'secretkey', 'endpoint', 'bucket'];
+		}
+		else
+		{
+			$_args['status'] = 0;
+		}
+
+		$data = \dash\cleanse::input($_args, $condition, $required, []);
 
 		$args =
 		[
@@ -373,16 +383,16 @@ class set
 			'accesskey' => $data['accesskey'],
 			'secretkey' => $data['secretkey'],
 			'endpoint'  => $data['endpoint'],
-			'default'   => $data['default'],
+			'bucket'    => $data['bucket'],
 		];
 
 		$cat   = 'upload_provider';
 		$key   = $data['provider'];
-		$value = \dash\json::encode($args);
 
 		$load       = \lib\app\setting\get::upload_provider();
 		$any_active = false;
 
+		$test_connection = false;
 
 		if($data['status'])
 		{
@@ -396,6 +406,8 @@ class set
 					return false;
 				}
 			}
+
+			$test_connection = true;
 		}
 		else
 		{
@@ -409,6 +421,7 @@ class set
 			}
 		}
 
+		$value = \dash\json::encode($args);
 		\lib\app\setting\tools::update($cat, $key, $value);
 
 		if($any_active)
@@ -430,7 +443,34 @@ class set
 			}
 		}
 
-		\dash\notif::ok(T_("Upload provider setting saved"));
+		if($test_connection)
+		{
+			\lib\app\setting\get::reset_setting_cache($cat);
+			$test_connection = \dash\utility\s3aws\s3::test_connection();
+
+			if(!$test_connection)
+			{
+				$clean_message = true;
+				\dash\notif::error(' ', ['alerty' => true, 'html' => T_("We can not connect to S3 service by this variable. This setting automaticary disabled")]);
+				$args['status'] = null;
+				$value = \dash\json::encode($args);
+				\lib\app\setting\tools::update($cat, $key, $value);
+			}
+			else
+			{
+				$clean_message = true;
+				\dash\notif::ok(' ', ['alerty' => true, 'html' => T_("The connection was successfully tested <br> From now on, all files uploaded to your service will be stored in this cloud service provider")]);
+			}
+		}
+
+		if(isset($clean_message) && $clean_message)
+		{
+			// not show this mesage
+		}
+		else
+		{
+			\dash\notif::ok(T_("Upload provider setting saved"));
+		}
 		return true;
 
 	}

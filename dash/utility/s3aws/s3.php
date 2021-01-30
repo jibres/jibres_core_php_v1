@@ -84,8 +84,14 @@ class s3
                 'use_path_style_endpoint' => false
             ];
 
-            self::$client = new \Aws\S3\S3Client($fire);
-
+            try
+            {
+                self::$client = new \Aws\S3\S3Client($fire);
+            }
+            catch (\Exception $e)
+            {
+                return false;
+            }
         }
 
         return self::$client;
@@ -110,25 +116,72 @@ class s3
 
         $client = self::connect();
 
-        $upload =
-        [
-            'Bucket' => self::$bucket,
-            'Key'    => $_addr,
-            'ACL'    => 'public-read',
-            'Body'   => fopen($_real_path, 'r'),
-        ];
-
-        $result = $client->putObject($upload);
-
-        if(isset($result['ObjectURL']) && is_string($result['ObjectURL']))
+        try
         {
-            $url = $result['ObjectURL'];
-            return $url;
+            $upload =
+            [
+                'Bucket' => self::$bucket,
+                'Key'    => $_addr,
+                'ACL'    => 'public-read',
+                'Body'   => fopen($_real_path, 'r'),
+            ];
+
+            $result = $client->putObject($upload);
+
+            if(isset($result['ObjectURL']) && is_string($result['ObjectURL']))
+            {
+                $url = $result['ObjectURL'];
+                return $url;
+            }
+            return false;
+        }
+        catch (\Exception $e)
+        {
+            return false;
         }
 
-        return false;
 
     }
+
+
+    public static function test_connection()
+    {
+        // s3 is not active
+        if(!self::active())
+        {
+            return false;
+        }
+
+        $client = self::connect();
+
+        try
+        {
+
+            $get =
+            [
+                'Bucket' => self::$bucket,
+                'Prefix' => md5(rand()),
+            ];
+
+            $ListObjects = $client->ListObjects($get);
+
+            if($ListObjects)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch (\Exception $e)
+        {
+            return false;
+        }
+
+    }
+
+
 
 
     // $result = [];

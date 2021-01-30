@@ -12,10 +12,24 @@ class s3
 	{
 		if(self::$load === null)
 		{
-			$json = \dash\file::read(__DIR__. '/secret/s3.secret.json');
-			if($json && is_string($json))
+			if(\dash\engine\store::inStore())
 			{
-				$json = json_decode($json, true);
+				if(\lib\store::detail('special_upload_provider'))
+				{
+					$json = \lib\app\setting\get::upload_provider();
+				}
+				else
+				{
+					$json = [];
+				}
+			}
+			else
+			{
+				$json = \dash\file::read(__DIR__. '/secret/s3.secret.json');
+				if($json && is_string($json))
+				{
+					$json = json_decode($json, true);
+				}
 			}
 
 			if(!is_array($json))
@@ -29,13 +43,13 @@ class s3
 	}
 
 
-	private static function default_service()
+	private static function active_service()
 	{
 		if(is_array(self::$load))
 		{
 			foreach (self::$load as $key => $value)
 			{
-				if(isset($value['default']) && $value['default'])
+				if(isset($value['status']) && $value['status'])
 				{
 					return $key;
 				}
@@ -52,7 +66,7 @@ class s3
 
 		if(is_null($_service))
 		{
-			$_service = self::default_service();
+			$_service = self::active_service();
 		}
 
 		if(isset(self::$load[$_service]['status']))
@@ -70,7 +84,7 @@ class s3
 
 		if(is_null($_service))
 		{
-			$_service = self::default_service();
+			$_service = self::active_service();
 		}
 
 		if(isset(self::$load[$_service]['accesskey']))
@@ -88,7 +102,7 @@ class s3
 
 		if(is_null($_service))
 		{
-			$_service = self::default_service();
+			$_service = self::active_service();
 		}
 
 		if(isset(self::$load[$_service]['secretkey']))
@@ -107,7 +121,7 @@ class s3
 
 		if(is_null($_service))
 		{
-			$_service = self::default_service();
+			$_service = self::active_service();
 		}
 
 		if(isset(self::$load[$_service]['bucket']))
@@ -125,7 +139,7 @@ class s3
 
 		if(is_null($_service))
 		{
-			$_service = self::default_service();
+			$_service = self::active_service();
 		}
 
 		if(isset(self::$load[$_service]['endpoint']))

@@ -19,6 +19,18 @@ class get
 		}
 	}
 
+	public static function reset_setting_cache($_cat = null)
+	{
+		if($_cat)
+		{
+			unset(self::$load_setting_once[$_cat]);
+		}
+		else
+		{
+			self::$load_setting_once = [];
+		}
+	}
+
 	public static function payment()
 	{
 		$payment = \lib\db\setting\get::payment();
