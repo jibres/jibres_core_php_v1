@@ -28,7 +28,7 @@ class json
 
 	public static function encode($_array)
 	{
-		if(!is_array($_array) || !is_object($_array))
+		if(!is_array($_array) && !is_object($_array))
 		{
 			return null;
 		}
