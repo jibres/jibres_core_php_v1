@@ -452,7 +452,7 @@ class set
 			if(!$test_connection)
 			{
 				$clean_message = true;
-				\dash\notif::error(' ', ['alerty' => true, 'html' => T_("We can not connect to S3 service by this variable. This setting automaticary disabled")]);
+				\dash\notif::error(' ', ['alerty' => true, 'html' => T_("We can not connect to S3 service by this variable. This setting automatically disabled")]);
 				$args['status'] = null;
 				$value = \dash\json::encode($args);
 				\lib\app\setting\tools::update($cat, $key, $value);
