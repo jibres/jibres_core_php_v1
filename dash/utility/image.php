@@ -393,11 +393,14 @@ class image
 	}
 
 
-	public static function responsive_image($_file_addr, $_ext)
+	public static function responsive_image($_file_addr, $_ext, $_path = null)
 	{
 		$extlen     = mb_strlen($_ext);
 
+		$if_s3_remove = [];
+
 		$url_file   = substr($_file_addr, 0, -$extlen-1);
+		$url_paht   = substr($_path, 0, -$extlen-1);
 
 		self::load($_file_addr);
 
@@ -412,10 +415,13 @@ class image
 		$new_img = \dash\utility\image::thumb(120, 120);
 
 		$thumb_path = $url_file.'-w120.webp';
+		$thumb_s3 = $url_paht.'-w120.webp';
 
 		imagewebp($new_img, $thumb_path, 80);
 
 		imagedestroy($new_img);
+
+		$if_s3_remove[$thumb_path] = \dash\utility\s3aws\s3::upload($thumb_path, $thumb_s3);
 
 		$total_size_path[] = $thumb_path;
 
@@ -444,12 +450,15 @@ class image
 				$new_img = \dash\utility\image::setWidth($new_width);
 
 				$new_path = $url_file. '-w'. $new_width. '.webp';
+				$new_s3 = $url_paht. '-w'. $new_width. '.webp';
 
 				imagepalettetotruecolor($new_img);
 
 				imagewebp($new_img, $new_path, 80);
 
 				imagedestroy($new_img);
+
+				$if_s3_remove[$new_path] = \dash\utility\s3aws\s3::upload($new_path, $new_s3);
 
 				$total_size_path[] = $new_path;
 			}
@@ -460,10 +469,13 @@ class image
 			foreach ($need_copy as $new_width)
 			{
 				$new_path = $url_file. '-w'. $new_width. '.webp';
+				$new_s3 = $url_paht. '-w'. $new_width. '.webp';
 
 				imagepalettetotruecolor(self::$img);
 
 				imagewebp(self::$img, $new_path, 80);
+
+				$if_s3_remove[$new_path] =\dash\utility\s3aws\s3::upload($new_path, $new_s3);
 
 				$total_size_path[] = $new_path;
 			}
@@ -480,6 +492,15 @@ class image
 		foreach ($total_size_path as $path)
 		{
 			$result['responsive_image_size'] += filesize($path);
+		}
+
+		// remove if file uploadded on s3
+		foreach ($if_s3_remove as $local_path => $s3_path)
+		{
+			if($s3_path)
+			{
+				\dash\file::delete($local_path);
+			}
 		}
 
 		return $result;

@@ -186,16 +186,24 @@ class file
 			return false;
 		}
 
-		// // 6. move file to the new directory
-		// if(move_uploaded_file($myFile['tmp_name'], $directory['path']))
-		// {
-		// 	@chmod($directory['full'], 0644);
-		// }
-		// else
-		// {
-		// 	\dash\notif::error(T_("Can not upload file"));
-		// 	return false;
-		// }
+		$upload_in_s3 = false;
+
+		$url = \dash\utility\s3aws\s3::upload($directory['full'], $directory['path']);
+
+		// make error in s3
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		// upload in s3 and save full address of file
+		if($url)
+		{
+			$upload_in_s3        = true;
+			$directory['path']   = $url;
+			$directory['folder'] = 's3/'. \dash\utility\s3aws\s3::get_bucket_name();
+		}
+
 
 		$height = null;
 		$width  = null;
@@ -223,12 +231,18 @@ class file
 				$ratio = $ratio_detail['ratio'];
 			}
 
-			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext']);
+			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext'], $directory['path']);
 
 			if(isset($responsive_result['responsive_image_size']))
 			{
 				$totalsize += $responsive_result['responsive_image_size'];
 			}
+		}
+
+		// if the file uploaded in s3 remove from local
+		if($upload_in_s3)
+		{
+			\dash\file::delete($directory['full']);
 		}
 
 
