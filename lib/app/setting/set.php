@@ -408,6 +408,7 @@ class set
 			}
 
 			$test_connection = true;
+			\dash\db::transaction();
 		}
 		else
 		{
@@ -458,9 +459,14 @@ class set
 			}
 			else
 			{
+				$args['status'] = 1;
+				$value = \dash\json::encode($args);
+				\lib\app\setting\tools::update($cat, $key, $value);
 				$clean_message = true;
 				\dash\notif::ok(' ', ['alerty' => true, 'html' => T_("The connection was successfully tested <br> From now on, all files uploaded to your service will be stored in this cloud service provider")]);
 			}
+
+			\dash\db::commit();
 		}
 
 		if(isset($clean_message) && $clean_message)
