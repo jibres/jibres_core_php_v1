@@ -349,5 +349,91 @@ class set
 
 	}
 
+
+
+	public static function upload_provider($_args)
+	{
+		$condition =
+		[
+			'type'      => ['enum' => ['s3']],
+			'provider'  => ['enum' => ['digitalocean', 'aws', 'arvancloud']],
+			'status'    => 'bit',
+			'accesskey' => 'string_300',
+			'secretkey' => 'string_300',
+			'endpoint'  => 'string_300',
+			'default'   => 'bit',
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, [], []);
+
+
+		$args =
+		[
+			'status'    => $data['status'],
+			'accesskey' => $data['accesskey'],
+			'secretkey' => $data['secretkey'],
+			'endpoint'  => $data['endpoint'],
+			'default'   => $data['default'],
+		];
+
+		$cat   = 'upload_provider';
+		$key   = $data['provider'];
+		$value = \dash\json::encode($args);
+
+		$load       = \lib\app\setting\get::upload_provider();
+		$any_active = false;
+
+
+		if($data['status'])
+		{
+			$any_active = true;
+
+			foreach ($load as $k => $v)
+			{
+				if(isset($v['status']) && $v['status'] && $key != $k)
+				{
+					\dash\notif::error(T_("You already use from another s3 platform. To active this service please disable all other S3 service first"));
+					return false;
+				}
+			}
+		}
+		else
+		{
+
+			foreach ($load as $k => $v)
+			{
+				if(isset($v['status']) && $v['status'] && $key != $k)
+				{
+					$any_active = true;
+				}
+			}
+		}
+
+		\lib\app\setting\tools::update($cat, $key, $value);
+
+		if($any_active)
+		{
+			if(!\lib\store::detail('special_upload_provider'))
+			{
+				\lib\app\store\edit::selfedit(['special_upload_provider' => 1]);
+				\dash\notif::clean();
+				\lib\store::refresh();
+			}
+		}
+		else
+		{
+			if(\lib\store::detail('special_upload_provider'))
+			{
+				\lib\app\store\edit::selfedit(['special_upload_provider' => 0]);
+				\dash\notif::clean();
+				\lib\store::refresh();
+			}
+		}
+
+		\dash\notif::ok(T_("Upload provider setting saved"));
+		return true;
+
+	}
+
 }
 ?>

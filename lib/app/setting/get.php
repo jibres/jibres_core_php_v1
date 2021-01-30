@@ -85,6 +85,32 @@ class get
 	}
 
 
+
+	public static function upload_provider()
+	{
+		$cat   = 'upload_provider';
+
+		$result = self::load_setting_once($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				$setting[$value['key']] = \dash\json::decode($value['value']);
+			}
+		}
+
+		return $setting;
+
+	}
+
+
 	public static function product_setting()
 	{
 		$cat   = 'product_setting';
