@@ -105,7 +105,11 @@ class add
 				$is_required = true;
 				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)) || (is_array($my_answer) && empty(array_filter($my_answer))))
 				{
-					if(isset($item_detail['type']) && $item_detail['type'] === 'file' && \dash\request::files('a_'. $item_id))
+					if(isset($item_detail['type']) && $item_detail['type'] === 'message' )
+					{
+						continue;
+					}
+					elseif(isset($item_detail['type']) && $item_detail['type'] === 'file' && \dash\request::files('a_'. $item_id))
 					{
 						// in file mode check file sended or no
 						continue;
