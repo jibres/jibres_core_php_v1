@@ -7,6 +7,14 @@ class file
 	private static $MY_FILES = [];
 	private static $upload_name = null;
 
+	/**
+	 * Upload by scp in other server
+	 *
+	 * @var        boolean
+	 */
+	private static $upload_other_server_scp = true;
+
+
 	private static function config_my_files($_upload_name, $_meta)
 	{
 		self::$upload_name = $_upload_name;
@@ -168,7 +176,7 @@ class file
 		$filename = md5($myFile['filename']). '.'. $myFile['ext'];
 
 		// 5. find best directory to put the file there
-		$directory = \dash\upload\directory::get($filename);
+		$directory = \dash\upload\directory::get($filename, self::$upload_other_server_scp);
 
 		if(!$directory)
 		{
@@ -176,35 +184,61 @@ class file
 			return false;
 		}
 
-		if(\dash\file::rename($myFile['tmp_name'], $directory['full']))
-		{
-			@chmod($directory['full'], 0644);
-		}
-		else
-		{
-			\dash\notif::error(T_("Can not upload file"));
-			return false;
-		}
-
-		$upload_in_s3 = false;
-
+		$upload_in_s3           = false;
+		$upload_in_scp          = false;
 		$directory['real_path'] = $directory['path'];
+		$real_addr              = $myFile['tmp_name'];
 
-		$url = \dash\utility\s3aws\s3::upload($directory['full'], $directory['path']);
 
-		// make error in s3
-		if(!\dash\engine\process::status())
+		if(self::$upload_other_server_scp)
 		{
-			return false;
+			if(\dash\scp::uploader_connection())
+			{
+				if(\dash\scp::send($myFile['tmp_name'], $directory['full']))
+				{
+					$upload_in_scp = true;
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not send your file in remote directory"));
+					return false;
+				}
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not upload your file in storage"));
+				return false;
+			}
+
 		}
-
-		// upload in s3 and save full address of file
-		if($url)
+		elseif(\dash\utility\s3aws\s3::active())
 		{
+			$url = \dash\utility\s3aws\s3::upload($myFile['tmp_name'], $directory['path']);
+			// make error in s3
+			if(!\dash\engine\process::status() || !$url)
+			{
+				return false;
+			}
+
 			$upload_in_s3        = true;
 			$directory['path']   = $url;
 			$directory['folder'] = \dash\utility\s3aws\s3::get_sample_folder_name();
 		}
+		else
+		{
+			if(\dash\file::rename($myFile['tmp_name'], $directory['full']))
+			{
+				$real_addr = $directory['full'];
+				@chmod($directory['full'], 0644);
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not upload file"));
+				return false;
+			}
+		}
+
+
 
 
 		$height = null;
@@ -233,7 +267,7 @@ class file
 				$ratio = $ratio_detail['ratio'];
 			}
 
-			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext'], $directory['real_path']);
+			$responsive_result = \dash\utility\image::responsive_image($real_addr, $myFile['ext'], $directory['real_path']);
 
 			if(isset($responsive_result['responsive_image_size']))
 			{
@@ -242,7 +276,7 @@ class file
 		}
 
 		// if the file uploaded in s3 remove from local
-		if($upload_in_s3)
+		if($upload_in_s3 || $upload_in_scp)
 		{
 			\dash\file::delete($directory['full']);
 		}

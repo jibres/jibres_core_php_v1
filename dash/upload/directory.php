@@ -17,35 +17,44 @@ class directory
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function move_to($_type)
+	public static function move_to($_type, $_remote_server = false)
 	{
+		$addr = null;
+
+		if(!$_remote_server)
+		{
+			$addr .= YARD;
+		}
+
 		if($_type === 'jibres')
 		{
-			return YARD . 'talambar_dl/';
+			$addr .= 'talambar_dl/';
 		}
 		else
 		{
-			return YARD . 'talambar_cloud/';
+			$addr .= 'talambar_cloud/';
 		}
+
+		return $addr;
 	}
 
 
-	public static function get($_filename)
+	public static function get($_filename, $_remote_server = false)
 	{
 		if(\dash\engine\store::inStore())
 		{
-			return self::store_mode($_filename);
+			return self::store_mode($_filename, $_remote_server);
 		}
 		else
 		{
-			return self::jibres_mode($_filename);
+			return self::jibres_mode($_filename, $_remote_server);
 		}
 	}
 
 
-	private static function store_mode($_filename)
+	private static function store_mode($_filename, $_remote_server = false)
 	{
-		$move_to    = self::move_to('store');
+		$move_to    = self::move_to('store', $_remote_server);
 
 
 		$folder_id  = \dash\store_coding::encode_raw();
@@ -53,9 +62,12 @@ class directory
 
 		$folder_loc = $move_to . $folder_id;
 
-		if($folder_loc && !is_dir($folder_loc))
+		if(!$_remote_server)
 		{
-			\dash\file::makeDir($folder_loc, 0775, true);
+			if($folder_loc && !is_dir($folder_loc))
+			{
+				\dash\file::makeDir($folder_loc, 0775, true);
+			}
 		}
 
 		$qry_count     = \dash\db\files::attachment_count();
@@ -75,11 +87,11 @@ class directory
 
 
 
-	public static function jibres_mode($_filename)
+	public static function jibres_mode($_filename, $_remote_server = false)
 	{
 		$qry_count     = \dash\db\files::attachment_count();
 
-		$move_to = self::move_to('jibres');
+		$move_to = self::move_to('jibres', $_remote_server);
 
 		$folder_prefix = $move_to;
 
@@ -87,9 +99,12 @@ class directory
 
 		$folder_loc    = $folder_prefix . $folder_id;
 
-		if($folder_loc && !is_dir($folder_loc))
+		if(!$_remote_server)
 		{
-			\dash\file::makeDir($folder_loc, 0775, true);
+			if($folder_loc && !is_dir($folder_loc))
+			{
+				\dash\file::makeDir($folder_loc, 0775, true);
+			}
 		}
 
 		$file_id       = $qry_count % 1000 + 1;
