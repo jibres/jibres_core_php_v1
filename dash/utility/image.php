@@ -393,11 +393,12 @@ class image
 	}
 
 
-	public static function responsive_image($_file_addr, $_ext, $_path = null)
+	public static function responsive_image($_file_addr, $_ext, $_path = null, $_upload_other_server_scp = false)
 	{
 		$extlen     = mb_strlen($_ext);
 
 		$if_s3_remove = [];
+		$if_scp_remove = [];
 
 		$url_file   = substr($_file_addr, 0, -$extlen-1);
 		$url_paht   = substr($_path, 0, -$extlen-1);
@@ -422,6 +423,10 @@ class image
 		imagedestroy($new_img);
 
 		$if_s3_remove[$thumb_path] = \dash\utility\s3aws\s3::upload($thumb_path, $thumb_s3);
+		if($_upload_other_server_scp)
+		{
+			$if_scp_remove[$thumb_path] = \dash\scp::send($thumb_path, $thumb_s3);
+		}
 
 		$total_size_path[] = $thumb_path;
 
@@ -460,6 +465,11 @@ class image
 
 				$if_s3_remove[$new_path] = \dash\utility\s3aws\s3::upload($new_path, $new_s3);
 
+				if($_upload_other_server_scp)
+				{
+					$if_scp_remove[$thumb_path] = \dash\scp::send($new_path, $new_s3);
+				}
+
 				$total_size_path[] = $new_path;
 			}
 		}
@@ -476,6 +486,11 @@ class image
 				imagewebp(self::$img, $new_path, 80);
 
 				$if_s3_remove[$new_path] =\dash\utility\s3aws\s3::upload($new_path, $new_s3);
+
+				if($_upload_other_server_scp)
+				{
+					$if_scp_remove[$thumb_path] = \dash\scp::send($new_path, $new_s3);
+				}
 
 				$total_size_path[] = $new_path;
 			}
@@ -498,6 +513,14 @@ class image
 		foreach ($if_s3_remove as $local_path => $s3_path)
 		{
 			if($s3_path)
+			{
+				\dash\file::delete($local_path);
+			}
+		}
+
+		foreach ($if_scp_remove as $local_path => $scp_file)
+		{
+			if($scp_file)
 			{
 				\dash\file::delete($local_path);
 			}

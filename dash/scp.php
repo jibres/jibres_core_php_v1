@@ -143,7 +143,7 @@ class scp
 
 		if(is_null($_mode))
 		{
-			$_mode = 0744;
+			$_mode = 0775;
 		}
 
 		try

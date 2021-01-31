@@ -99,6 +99,12 @@ class file
 	 */
 	public static function upload($_upload_name, $_meta = [])
 	{
+		self::$upload_other_server_scp = false;
+
+		if(\dash\permission::supervisor())
+		{
+			self::$upload_other_server_scp = true;
+		}
 
 		$default_meta =
 		[
@@ -194,6 +200,7 @@ class file
 		{
 			if(\dash\scp::uploader_connection())
 			{
+				$directory['real_path'] = $directory['full'];
 				if(\dash\scp::send($myFile['tmp_name'], $directory['full']))
 				{
 					$upload_in_scp = true;
@@ -267,7 +274,7 @@ class file
 				$ratio = $ratio_detail['ratio'];
 			}
 
-			$responsive_result = \dash\utility\image::responsive_image($real_addr, $myFile['ext'], $directory['real_path']);
+			$responsive_result = \dash\utility\image::responsive_image($real_addr, $myFile['ext'], $directory['real_path'], self::$upload_other_server_scp);
 
 			if(isset($responsive_result['responsive_image_size']))
 			{
