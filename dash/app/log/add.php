@@ -35,11 +35,14 @@ class add
 		$log['notif_text']  = a($data, 'text');
 		$log['notif_group'] = a($data, 'group');
 
-		\dash\log::set('notif_text', $log);
+		$log_id = \dash\log::set('notif_text', $log);
 
 		\dash\notif::ok(T_("Notifation sended"));
 
-		return true;
+		$result = [];
+		$result['id'] = $log_id;
+
+		return $result;
 
 
 	}

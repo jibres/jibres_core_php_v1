@@ -17,6 +17,8 @@ class model
 			\dash\redirect::to(\dash\url::this(). '/view?id='. $result['id']);
 		}
 
+		\dash\redirect::pwd();
+
 
 	}
 }
