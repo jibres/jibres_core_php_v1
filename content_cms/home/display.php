@@ -1,10 +1,10 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-        <div id="chartdivcmshome" class="box chart x380 s0" data-abc='cms/homepage'>
+        <div id="chartdivcmshome" class="box chart x380 s0" data-abc='cms/homepage?v=2'>
       <div class="hide">
-        <div id="chardatatitle"><?php echo T_("Draft Post") ?></div>
-        <div id="chardatatitlepublish"><?php echo T_("Publish Post") ?></div>
+        <div id="chardatatitle"><?php echo T_("Draft") ?></div>
+        <div id="chardatatitlepublish"><?php echo T_("Publish") ?></div>
         <div id="charttitle"><?php echo T_("Posts per month in last year") ?></div>
         <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
         <div id="chartdatapublish"><?php echo a($dashboardDetail, 'chart', 'datapublish') ?></div>
