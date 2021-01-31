@@ -8,8 +8,8 @@ class view
 		\dash\face::title(T_('Setting'). ' | '. T_('Domain'));
 
 		// back
-		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::here(). '/website');
+		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_link(\dash\url::this());
 
 
 

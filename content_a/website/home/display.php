@@ -66,22 +66,12 @@
         </ul>
       </nav>
 
-      <nav class="items">
-        <ul>
-          <li>
-            <a class="f" target="_blank" href="<?php echo \lib\store::url();?>">
-              <div class="key"><?php echo T_('Show website');?></div>
-              <div class="go"></div></a>
-            </li>
-          </ul>
-        </nav>
 
 
 
         <nav class="items long">
           <ul>
             <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/staticfile"><div class="key"><?php echo T_("Static file verification"); ?></div><div class="go"></div></a></li>
-            <li><a class="f" href="<?php echo \dash\url::here(); ?>/setting/domain"><div class="key"><?php echo T_("Connect store to your domain"); ?></div><div class="go"></div></a></li>
           </ul>
         </nav>
 
