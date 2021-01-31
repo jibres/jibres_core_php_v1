@@ -257,7 +257,6 @@ class s3
 
         $path = self::get_file_key($_path);
 
-        // var_dump($client->getObject(['Bucket' => self::$bucket, 'Key' => $path]));exit();
 
         try
         {
@@ -269,12 +268,18 @@ class s3
 
             $deleteObject = $client->deleteObject($delete);
 
-            if ($deleteObject['DeleteMarker'])
+
+            if($deleteObject['DeleteMarker'])
             {
                 return true;
             }
             else
             {
+                if(self::$provider === 'arvancloud')
+                {
+                    return true; // :)) arvancloud say not deleted but deleted!
+                }
+
                 return false;
             }
 
