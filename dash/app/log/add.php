@@ -48,6 +48,37 @@ class add
 	}
 
 
+	public static function notif_group($_args)
+	{
+
+		\dash\notif::warn('not ready');
+		return true;
+
+		$condition =
+		[
+			'group' => \dash\app\user\group::check_input(),
+			'text'  => 'desc',
+		];
+
+		$require = ['group', 'text'];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$title = a($data, 'title');
+		if(!$title)
+		{
+			$title = T_("Notifation");
+		}
+
+		$log['notif_title'] = $title;
+		$log['notif_text']  = a($data, 'text');
+		$log['notif_group'] = a($data, 'group');
+
+	}
+
+
 
 
 }
