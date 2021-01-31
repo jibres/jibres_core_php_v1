@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-30 17:13+0330\n"
-"PO-Revision-Date: 2021-01-30 17:14+0330\n"
+"POT-Creation-Date: 2021-01-31 16:57+0330\n"
+"PO-Revision-Date: 2021-01-31 17:00+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -685,7 +685,8 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 #: content/bug/display.php:106 content/contact/display.php:40
 #: content/subscribe/display.php:24 content_business/p/home/display.php:397
 #: content_crm/member/message/add/display.php:9
-#: content_crm/notification/send/display.php:12 content_crm/sms/send/display.php:15
+#: content_crm/notification/send/display.php:12
+#: content_crm/notification/sendgroup/display.php:17 content_crm/sms/send/display.php:15
 #: content_crm/telegram/send/display.php:15 content_su/tg/sendmessage/display.php:20
 #: content_su/tg/sendphoto/display.php:27 dash/layout/tools/display-add-comment.php:51
 #: lib/app/sms/filter.php:28
@@ -2158,7 +2159,7 @@ msgstr ""
 "بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:27 content/home/view.php:11 content/view.php:17
-#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:246
+#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:234
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2168,7 +2169,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:256
+#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:244
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2196,7 +2197,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:41 content_a/channels/home/display.php:28
-#: content_a/setting/home/display.php:266
+#: content_a/setting/home/display.php:254
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2221,7 +2222,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:276
+#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:264
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -3044,12 +3045,12 @@ msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
 #: content/investment/display.php:105 content_a/form/home/view.php:9
-#: content_a/home/display.php:154 content_a/setting/home/display.php:203
+#: content_a/home/display.php:153 content_a/setting/home/display.php:191
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
 #: content/investment/display.php:106 content_a/accounting/home/view.php:9
-#: content_a/home/display.php:162 content_a/setting/home/display.php:193
+#: content_a/home/display.php:161 content_a/setting/home/display.php:181
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
 #: lib/app/store/analytics.php:96
@@ -3977,13 +3978,14 @@ msgstr "وزن"
 #: content_crm/member/transactions/minus/display.php:12
 #: content_crm/member/transactions/plus/display.php:7
 #: content_crm/member/transactions/plus/display.php:12
-#: content_crm/notification/send/display.php:5 content_crm/permission/add/display.php:5
-#: content_crm/permission/setting/display.php:5 content_crm/permission/user/display.php:5
-#: content_crm/sms/send/display.php:5 content_crm/telegram/send/display.php:5
-#: content_my/ipg/profile/display.php:41 content_my/ipg/profile/display.php:56
-#: content_my/ipg/profile/display.php:71 content_my/ipg/profile/display.php:109
-#: content_my/ipg/setup/profile/display.php:41 content_my/ipg/setup/profile/display.php:56
-#: content_my/ipg/setup/profile/display.php:71
+#: content_crm/notification/send/display.php:5
+#: content_crm/notification/sendgroup/display.php:5
+#: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
+#: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
+#: content_crm/telegram/send/display.php:5 content_my/ipg/profile/display.php:41
+#: content_my/ipg/profile/display.php:56 content_my/ipg/profile/display.php:71
+#: content_my/ipg/profile/display.php:109 content_my/ipg/setup/profile/display.php:41
+#: content_my/ipg/setup/profile/display.php:56 content_my/ipg/setup/profile/display.php:71
 #: content_my/ipg/setup/profile/display.php:109 lib/app/form/generator.php:87
 msgid "Required"
 msgstr "الزامی"
@@ -4485,20 +4487,18 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/domain/add/view.php:11
 #: content_a/setting/domain/existdomain/view.php:11
 #: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/remove/view.php:11
-#: content_a/setting/domain/setting/view.php:11 content_a/setting/domain/view.php:11
-#: content_a/setting/fund/view.php:16 content_a/setting/logo/view.php:15
-#: content_a/setting/payment/bank/view.php:11 content_a/setting/payment/way/view.php:11
-#: content_a/setting/pcpos/view.php:12 content_a/setting/place/inventory/view.php:10
-#: content_a/setting/pos/pos/view.php:11
+#: content_a/setting/domain/setting/view.php:11 content_a/setting/fund/view.php:16
+#: content_a/setting/logo/view.php:15 content_a/setting/payment/bank/view.php:11
+#: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
+#: content_a/setting/place/inventory/view.php:10 content_a/setting/pos/pos/view.php:11
 #: content_a/setting/product/preparationtime/view.php:11
 #: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
-#: content_a/setting/sms/view.php:11 content_a/setting/social/view.php:14
-#: content_a/setting/staticfile/view.php:15 content_a/setting/units/view.php:16
-#: content_a/setting/vat/view.php:13 content_a/tag/remove/view.php:17
-#: content_a/units/view.php:29 content_a/units/view.php:36
-#: content_a/website/body/add/view.php:12 content_a/website/body/view.php:12
-#: content_a/website/imageblock/add/view.php:33
+#: content_a/setting/social/view.php:14 content_a/setting/staticfile/view.php:15
+#: content_a/setting/units/view.php:16 content_a/setting/vat/view.php:13
+#: content_a/tag/remove/view.php:17 content_a/units/view.php:29
+#: content_a/units/view.php:36 content_a/website/body/add/view.php:12
+#: content_a/website/body/view.php:12 content_a/website/imageblock/add/view.php:33
 #: content_a/website/imageblock/setting/view.php:20
 #: content_a/website/imageblock/view.php:19 content_a/website/menu/add/view.php:13
 #: content_a/website/menu/edit/view.php:12 content_a/website/menu/item/view.php:15
@@ -5939,7 +5939,7 @@ msgstr "افزودن فاکتور جدید"
 #: content_a/accounting/irvat/all/display.php:6 content_a/android/home/display.php:117
 #: content_a/cart/add/display.php:39 content_a/cart/add/display.php:41
 #: content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:191
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:190
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/sale/display.php:17 content_crm/home/display.php:6
 #: content_crm/member/home/display-old.php:73 content_crm/notification/home/display.php:6
@@ -5973,7 +5973,9 @@ msgstr "فروشنده"
 msgid "Total item by vat"
 msgstr "مجموع مبلغ مشمول مالیات"
 
-#: content_a/accounting/irvat/all/display.php:139 includes/languages/trans_static.php:73
+#: content_a/accounting/irvat/all/display.php:139
+#: content_a/setting/thirdparty/kavenegar/view.php:11
+#: includes/languages/trans_static.php:73
 msgid "Thirdparty"
 msgstr "طرف‌حساب"
 
@@ -6465,8 +6467,7 @@ msgstr "مایکت"
 #: content_a/setting/product/text/display.php:19
 #: content_a/setting/product/viewtext/display.php:19
 #: content_a/setting/shipping/setting/display.php:108
-#: content_a/setting/shipping/text/display.php:38
-#: content_a/setting/sms/kavenegar/display.php:23 content_a/setting/social/display.php:102
+#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:102
 #: content_a/setting/telegram/adminusername/display.php:21
 #: content_a/setting/telegram/bot/display.php:22
 #: content_a/setting/telegram/channel/display.php:21
@@ -6479,6 +6480,7 @@ msgstr "مایکت"
 #: content_a/setting/thirdparty/enamad/display.php:41
 #: content_a/setting/thirdparty/gtag/display.php:19
 #: content_a/setting/thirdparty/imber/display.php:18
+#: content_a/setting/thirdparty/kavenegar/display.php:23
 #: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
 #: content_a/setting/thirdparty/tawk/display.php:20 content_a/setup/address/display.php:61
@@ -7347,24 +7349,25 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/domain/existdomain/view.php:8
 #: content_a/setting/domain/manage/view.php:8 content_a/setting/domain/remove/view.php:8
 #: content_a/setting/domain/setting/view.php:8 content_a/setting/domain/view.php:8
-#: content_a/setting/fund/view.php:8 content_a/setting/general/lang/view.php:8
-#: content_a/setting/general/lang/view.php:12 content_a/setting/general/nosale/view.php:8
+#: content_a/setting/domain/view.php:11 content_a/setting/fund/view.php:8
+#: content_a/setting/general/lang/view.php:8 content_a/setting/general/lang/view.php:12
+#: content_a/setting/general/nosale/view.php:8
 #: content_a/setting/general/nosale/view.php:11 content_a/setting/general/title/view.php:8
 #: content_a/setting/general/title/view.php:12 content_a/setting/general/view.php:10
 #: content_a/setting/home/view.php:8 content_a/setting/order/view.php:11
 #: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
 #: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
 #: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/sms/kavenegar/view.php:11
-#: content_a/setting/social/view.php:8 content_a/setting/staticfile/view.php:8
-#: content_a/setting/telegram/view.php:10 content_a/setting/thirdparty/view.php:10
-#: content_a/tag/home/view.php:16 content_a/units/view.php:11
-#: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
-#: content_love/store/display.php:27 content_love/store/display.php:60
-#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
-#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
-#: dash/layout/admin/admin-titlebox.php:27 dash/layout/admin/sidebar/sidebar-a.php:21
-#: dash/layout/pwa/pwa_menu.php:202 lib/app/store/analytics.php:123
+#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:8
+#: content_a/setting/staticfile/view.php:8 content_a/setting/telegram/view.php:10
+#: content_a/setting/thirdparty/view.php:10 content_a/tag/home/view.php:16
+#: content_a/units/view.php:11 content_love/business/domain/pageStep.php:23
+#: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
+#: content_love/store/display.php:60 content_my/domain/irnic/view.php:16
+#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
+#: content_v2/app/view.php:247 dash/layout/admin/admin-titlebox.php:27
+#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:202
+#: lib/app/store/analytics.php:123
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -7478,27 +7481,27 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 msgid "Sort Product categories"
 msgstr "مرتب‌سازی دسته‌بندی محصولات"
 
-#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:247
+#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:235
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:257
+#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:245
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:267
+#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:255
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:277
+#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:265
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:286
+#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:274
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:287
+#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:275
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -8870,28 +8873,28 @@ msgstr "مشتریان"
 msgid "Staffs"
 msgstr "کارمندان"
 
-#: content_a/home/display.php:117
-msgid "Website setting"
-msgstr "تنظیمات وب‌سایت"
-
-#: content_a/home/display.php:126
-msgid "Android app"
-msgstr "اپلیکیشن اندروید"
-
-#: content_a/home/display.php:141 dash/panel.php:301
+#: content_a/home/display.php:117 dash/panel.php:301
 msgid "Content Management"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/home/display.php:173 content_my/domain/home/display.php:149
+#: content_a/home/display.php:131
+msgid "Website setting"
+msgstr "تنظیمات وب‌سایت"
+
+#: content_a/home/display.php:140
+msgid "Android app"
+msgstr "اپلیکیشن اندروید"
+
+#: content_a/home/display.php:172 content_my/domain/home/display.php:149
 #: dash/panel.php:342
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: content_a/home/display.php:189
+#: content_a/home/display.php:188
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:190
+#: content_a/home/display.php:189
 msgid "Sum price"
 msgstr "جمع مبالغ"
 
@@ -10775,7 +10778,6 @@ msgid "Master domain"
 msgstr "دامنه اصلی"
 
 #: content_a/setting/domain/existdomain/display.php:6
-#: content_a/website/home/display.php:84
 msgid "Connect store to your domain"
 msgstr "اتصال دامنه اختصاصی شما به فروشگاه"
 
@@ -10879,24 +10881,28 @@ msgid "Redirect jibres subdomain to business master domain"
 msgstr "انتقال زیردامنه جیبرس به دامنه اصلی بیزینس شما"
 
 #: content_a/setting/domain/setting/display.php:30
-msgid "If this feature is enable all request from :from redirect to :to "
+#, fuzzy
+#| msgid "If this feature is enable all request from :from redirect to :to "
+msgid ""
+"If this feature is enable all request from jibres subdomain to your website primary "
+"domain."
 msgstr "اگر این امکان فعال باشد همه درخواست‌ها از :from منتقل می‌شوند به :to "
 
-#: content_a/setting/domain/setting/display.php:55
+#: content_a/setting/domain/setting/display.php:56
 msgid "Redirect all domain to master"
 msgstr "انتقال همه‌ دامنه‌ها به دامنه اصلی"
 
-#: content_a/setting/domain/setting/display.php:57
+#: content_a/setting/domain/setting/display.php:58
 msgid "Enable these settings if you want to route all business domain independently"
 msgstr ""
 "اگر میخواهید همه دامنه‌های متصل به بیزینس خود را به صورت مستقل داشته باشید این تنظیمات "
 "را فعال کنید"
 
-#: content_a/setting/domain/setting/display.php:59
+#: content_a/setting/domain/setting/display.php:60
 msgid "Be careful in this case you are at risk in terms of content and SEO"
 msgstr "مراقب باشید در این حالت شما از نظر سئو در معرض خطر هستید"
 
-#: content_a/setting/domain/setting/display.php:61
+#: content_a/setting/domain/setting/display.php:62
 msgid "All sites linked to your business will be redirected to the main domain"
 msgstr "تمام دامنه‌های متصل به بیزینس شما بر روی دامنه اصلی منتقل خواهند شد"
 
@@ -11124,19 +11130,7 @@ msgstr "تنظیمات سفارش"
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:165 content_crm/home/display.php:136
-#: content_crm/sms/conversation/view.php:12 content_crm/sms/datalist/view.php:12
-#: content_crm/sms/home/view.php:9 content_crm/sms/send/view.php:12
-#: content_love/log/home/logTable.php:61 includes/languages/trans_static_public.php:940
-#: includes/languages/trans_static_public.php:982
-msgid "SMS"
-msgstr "پیام کوتاه"
-
-#: content_a/setting/home/display.php:166
-msgid "SMS setting"
-msgstr "تنظیمات پیام کوتاه"
-
-#: content_a/setting/home/display.php:176
+#: content_a/setting/home/display.php:164
 #: content_a/setting/thirdparty/arvanclouds3/view.php:11
 #: content_a/setting/thirdparty/awss3/view.php:11
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
@@ -11149,23 +11143,23 @@ msgstr "تنظیمات پیام کوتاه"
 msgid "Third Party Services"
 msgstr "سرویس‌های افزودنی دیگران"
 
-#: content_a/setting/home/display.php:177
+#: content_a/setting/home/display.php:165
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:194
+#: content_a/setting/home/display.php:182
 msgid "Manage your business accounting"
 msgstr "مدیریت حسابداری بیزینس شما"
 
-#: content_a/setting/home/display.php:204
+#: content_a/setting/home/display.php:192
 msgid "Create online forms and publish them."
 msgstr "فرم‌های آنلاین بسازید و آنها را منتشر کنید."
 
-#: content_a/setting/home/display.php:204
+#: content_a/setting/home/display.php:192
 msgid "Collect data."
 msgstr "جمع‌آوری داده‌ها."
 
-#: content_a/setting/home/display.php:220 content_cms/comments/home/view.php:11
+#: content_a/setting/home/display.php:208 content_cms/comments/home/view.php:11
 #: content_cms/customization/home/view.php:9 content_cms/files/choose/view.php:58
 #: content_cms/files/home/view.php:14 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_cms/sitemap/view.php:10
@@ -11178,20 +11172,20 @@ msgstr "جمع‌آوری داده‌ها."
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/setting/home/display.php:221
+#: content_a/setting/home/display.php:209
 msgid "Manage your business news and contents"
 msgstr "مدیریت اخبار و محتوای بیزینس شما"
 
-#: content_a/setting/home/display.php:230 dash/panel.php:291
+#: content_a/setting/home/display.php:218 dash/panel.php:291
 msgid "Customers - CRM"
 msgstr "مشتریان - CRM"
 
-#: content_a/setting/home/display.php:231
+#: content_a/setting/home/display.php:219
 msgid "Manage business customers"
 msgstr "مدیریت مشتریان بیزینس"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
-#: lib/app/store/edit.php:222
+#: lib/app/store/edit.php:228
 msgid "Your setting was saved"
 msgstr "تنظیمات شما ذخیره شد"
 
@@ -11809,28 +11803,6 @@ msgstr ""
 msgid "Shipping Text"
 msgstr "تنظیم متن ثابت صفحه ارسال سفارش"
 
-#: content_a/setting/sms/display.php:7 content_a/setting/sms/kavenegar/display.php:6
-#: content_a/setting/sms/kavenegar/display.php:13
-msgid "Kavenegar API KEY"
-msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
-
-#: content_a/setting/sms/display.php:8
-msgid "Sent SMS history"
-msgstr "تاریخچه پیامک‌های ارسال شده"
-
-#: content_a/setting/sms/kavenegar/display.php:8
-#: content_developers/docs/home/display.php:28
-msgid "API"
-msgstr "رابط برنامه‌نویسی"
-
-#: content_a/setting/sms/kavenegar/view.php:8
-msgid "Kavenegar API"
-msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
-
-#: content_a/setting/sms/view.php:9
-msgid "Setting SMS"
-msgstr "تنظیمات پیام کوتاه"
-
 #: content_a/setting/social/display.php:10
 msgid "Set the social network link"
 msgstr "تنظیم لینک شبکه‌های اجتماعی"
@@ -12272,6 +12244,20 @@ msgstr "توکن ایمبر"
 #: content_a/setting/thirdparty/imber/view.php:8
 msgid "Imber"
 msgstr "ایمبر"
+
+#: content_a/setting/thirdparty/kavenegar/display.php:6
+#: content_a/setting/thirdparty/kavenegar/display.php:13
+msgid "Kavenegar API KEY"
+msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
+
+#: content_a/setting/thirdparty/kavenegar/display.php:8
+#: content_developers/docs/home/display.php:28
+msgid "API"
+msgstr "رابط برنامه‌نویسی"
+
+#: content_a/setting/thirdparty/kavenegar/view.php:8
+msgid "Kavenegar API"
+msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
 
 #: content_a/setting/thirdparty/raychat/display.php:9
 msgid ""
@@ -13273,11 +13259,7 @@ msgstr "وضعیت وب‌سایت"
 msgid "Menu"
 msgstr "منو"
 
-#: content_a/website/home/display.php:73
-msgid "Show website"
-msgstr "نمایش وب‌سایت"
-
-#: content_a/website/home/display.php:83
+#: content_a/website/home/display.php:74
 msgid "Static file verification"
 msgstr "اعتبارسنجی از طریق فایل‌های ثابت"
 
@@ -15994,6 +15976,14 @@ msgstr "پرداختی‌های موفق"
 msgid "All payments"
 msgstr "همه پرداختی‌ها"
 
+#: content_crm/home/display.php:136 content_crm/sms/conversation/view.php:12
+#: content_crm/sms/datalist/view.php:12 content_crm/sms/home/view.php:9
+#: content_crm/sms/send/view.php:12 content_love/log/home/logTable.php:61
+#: includes/languages/trans_static_public.php:940
+#: includes/languages/trans_static_public.php:982
+msgid "SMS"
+msgstr "پیام کوتاه"
+
 #: content_crm/home/display.php:143 content_crm/telegram/conversation/view.php:12
 #: content_crm/telegram/home/view.php:9 content_crm/telegram/send/view.php:12
 #: content_love/log/home/logTable.php:60 content_su/home/display.php:197
@@ -16915,7 +16905,8 @@ msgstr "همه اطلاع‌رسانی‌ها"
 msgid "Send notifications"
 msgstr "ارسال اطلاع‌رسانی"
 
-#: content_crm/notification/send/display.php:9 content_crm/sms/send/display.php:9
+#: content_crm/notification/send/display.php:9
+#: content_crm/notification/sendgroup/display.php:14 content_crm/sms/send/display.php:9
 #: content_crm/telegram/send/display.php:9
 msgid "Message text ..."
 msgstr "متن پیام ..."
@@ -16925,9 +16916,23 @@ msgstr "متن پیام ..."
 msgid "Send notification"
 msgstr "ارسال آگاه‌سازی‌"
 
-#: content_crm/notification/send/view.php:12 content_love/log/home/logTable.php:59
+#: content_crm/notification/send/view.php:12
+#: content_crm/notification/sendgroup/view.php:12 content_love/log/home/logTable.php:59
 msgid "Notification"
 msgstr "پیام"
+
+#: content_crm/notification/sendgroup/display.php:5
+msgid "Group user"
+msgstr "گروه کاربران"
+
+#: content_crm/notification/sendgroup/display.php:7
+#: content_crm/notification/sendgroup/display.php:8
+msgid "Please choose one group"
+msgstr "لطفا یکی از گروه‌ها را انتخاب کنید"
+
+#: content_crm/notification/sendgroup/view.php:9
+msgid "Group sending notification"
+msgstr "ارسال اطلاع‌رسانی گروهی"
 
 #: content_crm/notification/view/display.php:29
 msgid "Read date"
@@ -23253,11 +23258,23 @@ msgstr "پاورپوینت"
 msgid "This file is used in somewhere and can not be remove"
 msgstr "این فایل در جاهای مختلفی استفاده شده است و امکان حذف آن وجود ندارد"
 
-#: dash/app/files/remove.php:63
+#: dash/app/files/remove.php:76
+msgid "File removed from s3 platform"
+msgstr "فایل از پلتفرم S3 حذف شد"
+
+#: dash/app/files/remove.php:80
+msgid "We can not remove this file from s3 platform"
+msgstr "ما نمی‌توانیم فایل شما را از S3 حذف کنیم"
+
+#: dash/app/files/remove.php:87
+msgid "Can not remove your file from s3 platform"
+msgstr "نمی‌توانیم فایل شما را از S3 حذف کنیم"
+
+#: dash/app/files/remove.php:119
 msgid "File successfully removed"
 msgstr "فایل با موفقیت حذف شد"
 
-#: dash/app/log/add.php:31
+#: dash/app/log/add.php:31 dash/app/log/add.php:72
 msgid "Notifation"
 msgstr "اطلاع‌رسانی"
 
@@ -24266,6 +24283,14 @@ msgstr "دارای سبد خرید"
 #: dash/app/user/filter.php:40
 msgid "Have Not Cart"
 msgstr "بدون سبد خرید"
+
+#: dash/app/user/group.php:15
+msgid "All users"
+msgstr "تمام کاربران"
+
+#: dash/app/user/group.php:21
+msgid "Users have order"
+msgstr "کاربران خرید کرده"
 
 #: dash/app/user/site_list.php:21
 msgid "Customer not found."
@@ -36347,14 +36372,14 @@ msgstr ""
 "شما هم‌اکنون از یک پلتفرم فضای ابری دیگری استفاده می‌کنید. برای فعال کردن این سرویس لطفا "
 "ابتدا همه سرویس‌های فضای ابری دیگر را غیر فعال کنید"
 
-#: lib/app/setting/set.php:455
+#: lib/app/setting/set.php:453
 msgid ""
 "We can not connect to S3 service by this variable. This setting automatically disabled"
 msgstr ""
 "ما نتوانستیم به پلتفرم S3 با مقادیر وارد شده متصل شویم. وضعیت اتصال به صورت خودکار "
 "غیرفعال خواهد شد"
 
-#: lib/app/setting/set.php:466
+#: lib/app/setting/set.php:464
 msgid ""
 "The connection was successfully tested <br> From now on, all files uploaded to your "
 "service will be stored in this cloud service provider"
@@ -36362,7 +36387,7 @@ msgstr ""
 "اتصال با موفقیت آزمایش شد <br> از این پس، تمام پرونده‌های بارگذاری شده در سرویس شما، در "
 "زیرساخت این ارائه دهنده خدمات فضای ابری ذخیره می‌شوند"
 
-#: lib/app/setting/set.php:478
+#: lib/app/setting/set.php:476
 msgid "Upload provider setting saved"
 msgstr "تنظیمات سرویس ارائه دهنده خدمات ابری ذخیره شد"
 
@@ -38638,6 +38663,18 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "SMS setting"
+#~ msgstr "تنظیمات پیام کوتاه"
+
+#~ msgid "Sent SMS history"
+#~ msgstr "تاریخچه پیامک‌های ارسال شده"
+
+#~ msgid "Setting SMS"
+#~ msgstr "تنظیمات پیام کوتاه"
+
+#~ msgid "Show website"
+#~ msgstr "نمایش وب‌سایت"
+
 #~ msgid "Show all chat"
 #~ msgstr "نمایش همه چت‌ها"
 
@@ -39912,9 +39949,6 @@ msgstr "یارد"
 
 #~ msgid "Remove chatid"
 #~ msgstr "حذف شناسه تلگرام"
-
-#~ msgid "User have android"
-#~ msgstr "کاربر دارای شناسه اندروید است"
 
 #~ msgid "Active sessions"
 #~ msgstr "ورودهای فعال"
@@ -42758,9 +42792,6 @@ msgstr "یارد"
 
 #~ msgid "Sourse url is out of range"
 #~ msgstr "آدرس منبع خارج از محدوده تعداد کاراکتر مجاز است"
-
-#~ msgid "All users"
-#~ msgstr "تمام کاربران"
 
 #~ msgid "Text of template is required"
 #~ msgstr "متن الگو الزامی است"
