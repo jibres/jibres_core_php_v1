@@ -188,6 +188,8 @@ class file
 
 		$upload_in_s3 = false;
 
+		$directory['real_path'] = $directory['path'];
+
 		$url = \dash\utility\s3aws\s3::upload($directory['full'], $directory['path']);
 
 		// make error in s3
@@ -231,7 +233,7 @@ class file
 				$ratio = $ratio_detail['ratio'];
 			}
 
-			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext'], $directory['path']);
+			$responsive_result = \dash\utility\image::responsive_image($directory['full'], $myFile['ext'], $directory['real_path']);
 
 			if(isset($responsive_result['responsive_image_size']))
 			{
