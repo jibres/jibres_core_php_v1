@@ -77,7 +77,8 @@ class remove
 				}
 				else
 				{
-					\dash\notif::warn(T_("We can not remove this file from s3 platform"));
+					\dash\notif::error(T_("We can not remove this file from s3 platform"));
+					return false;
 				}
 
 			}
