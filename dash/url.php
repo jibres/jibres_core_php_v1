@@ -223,6 +223,11 @@ class url
 			$path_result['prefix'] = $maybe_lang;
 			array_shift($my_dir);
 		}
+		elseif($maybe_lang === '%D8%A8%D8%B4')
+		{
+			// بش
+			\dash\redirect::to(self::_site(). str_replace('/%D8%A8%D8%B4/', '/fa/', $_path));
+		}
 
 		if(count($my_dir) > 0)
 		{
