@@ -31,7 +31,7 @@ class extentions
 			'jpg'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
 			'png'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/png'],
 			'tif'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/tiff'],
-			'svg'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/svg+xml'],
+			'svg'      => [ 'allow' => false,	'type' => 'image',      'mime' => 'image/svg+xml'],
 			// pdf
 			'pdf'      => [ 'allow' => true,	'type' => 'pdf',        'mime' => 'application/pdf'],
 			// video
