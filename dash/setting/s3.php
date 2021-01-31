@@ -115,6 +115,39 @@ class s3
 
 
 
+	public static function region($_service = null)
+	{
+		self::load();
+
+		if(is_null($_service))
+		{
+			$_service = self::active_service();
+		}
+
+		$region = null;
+
+		if(isset(self::$load[$_service]['region']))
+		{
+			$region = self::$load[$_service]['region'];
+		}
+
+		if(!$region)
+		{
+			if($_service === 'digitalocean')
+			{
+				$region = 'us-east-1';
+			}
+			else
+			{
+				$region = '';
+			}
+		}
+
+		return $region;
+	}
+
+
+
 	public static function bucket($_service = null)
 	{
 		self::load();

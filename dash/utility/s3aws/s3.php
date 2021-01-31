@@ -12,6 +12,7 @@ class s3
     private static $client         = null;
     private static $connected      = false;
     private static $bucket         = null;
+    private static $region = null;
 
 
     /**
@@ -32,6 +33,8 @@ class s3
 
                 self::$ENDPOINT       = \dash\setting\s3::endpoint();
                 self::$bucket         = \dash\setting\s3::bucket();
+
+                self::$region         = \dash\setting\s3::region();
 
                 self::$is_active      = true;
             }
@@ -72,7 +75,7 @@ class s3
             $fire =
             [
 
-                'region'      => '',
+                'region'      => self::$region,
                 // 'version'     => '2006-03-01',
                 'version'     => 'latest',
                 'endpoint'    => self::$ENDPOINT,
