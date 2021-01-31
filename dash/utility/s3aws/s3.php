@@ -48,6 +48,17 @@ class s3
     }
 
 
+    private static function debug()
+    {
+        if(\dash\url::isLocal())
+        {
+            return true;
+        }
+
+        return true;
+        // return false;
+    }
+
     /**
      * Gets the bucket name.
      *
@@ -95,7 +106,7 @@ class s3
             }
             catch (\Exception $e)
             {
-                if(\dash\url::isLocal()) {\dash\notif::error($e->getMessage());}
+                if(self::debug()) {\dash\notif::error($e->getMessage());}
                 return false;
             }
         }
@@ -148,7 +159,7 @@ class s3
         }
         catch (\Exception $e)
         {
-            if(\dash\url::isLocal()) {\dash\notif::error($e->getMessage());}
+            if(self::debug()) {\dash\notif::error($e->getMessage());}
             return false;
         }
 
@@ -193,7 +204,7 @@ class s3
         }
         catch (\Exception $e)
         {
-            if(\dash\url::isLocal()) {\dash\notif::error($e->getMessage());}
+            if(self::debug()) {\dash\notif::error($e->getMessage());}
             return false;
         }
 
