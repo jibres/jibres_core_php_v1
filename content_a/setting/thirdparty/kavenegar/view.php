@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\sms\kavenegar;
+namespace content_a\setting\thirdparty\kavenegar;
 
 class view
 {
@@ -8,8 +8,8 @@ class view
 		\dash\face::title(T_('Kavenegar API'));
 
 		// back
-		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::this(). '/sms');
+		\dash\data::back_text(T_('Thirdparty'));
+		\dash\data::back_link(\dash\url::that());
 
 		\dash\data::smsSettingSaved(\lib\app\setting\get::sms_setting());
 

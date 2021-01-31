@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\sms\kavenegar;
+namespace content_a\setting\thirdparty\kavenegar;
 
 
 class model
