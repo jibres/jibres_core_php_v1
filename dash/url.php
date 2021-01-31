@@ -226,7 +226,9 @@ class url
 		elseif($maybe_lang === '%D8%A8%D8%B4')
 		{
 			// بش
-			\dash\redirect::to(self::_site(). str_replace('/%D8%A8%D8%B4/', '/fa/', $_path));
+			// var_dump(self::_site(). str_replace('/%D8%A8%D8%B4/', '/fa/', $_path));
+			// exit();
+			\dash\redirect::to(self::_site(). str_replace('/%D8%A8%D8%B4', '/fa', $_path));
 		}
 
 		if(count($my_dir) > 0)
