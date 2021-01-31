@@ -288,6 +288,38 @@ class s3
     }
 
 
+    public static function delete_backet()
+    {
+        // s3 is not active
+        if(!self::active())
+        {
+            return false;
+        }
+
+        $client = self::connect();
+
+        if(!$client)
+        {
+            return false;
+        }
+
+        $objects = $client->getIterator('ListObjects', (['Bucket' => self::$bucket]));
+
+        foreach ($objects as $object)
+        {
+            $result = $client->deleteObject([
+                'Bucket' => self::$bucket,
+                'Key' => $object['Key'],
+            ]);
+        }
+
+        $result = $client->deleteBucket([
+            'Bucket' => self::$bucket,
+        ]);
+
+    }
+
+
     public static function get_sample_folder_name()
     {
         return 's3/'. self::$provider. '/'. self::get_bucket_name();
