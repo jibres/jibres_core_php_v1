@@ -136,7 +136,7 @@ class s3
 			if($_service === 'digitalocean')
 			{
 				$region = 'us-east-1';
-				$region = 'nyc3';
+				// $region = 'nyc3';
 			}
 			else
 			{
