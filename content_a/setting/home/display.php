@@ -1,5 +1,5 @@
 
-<?php $myHide = \dash\url::isLocal() ? null : 'hide'; ?>
+<?php $myHide = \dash\url::isLocal() ? null : 'hide'; $myHide = 'hide';?>
 <div class="box" data-settings>
     <?php if(false) {?>
     <div class="pad">
@@ -259,7 +259,7 @@
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/social">
-                    <div class="c-auto"><i class="sf-network"></i></div>
+                    <div class="c-auto"><i class="sf-internet"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Social Marketing"); ?></h2>
                         <p><?php echo T_("Manage your business social marketing"); ?></p>
