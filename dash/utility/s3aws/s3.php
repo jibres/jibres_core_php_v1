@@ -5,15 +5,22 @@ class s3
 {
 
     private static $is_active      = null;
-    private static $ENDPOINT       = null;
+    private static $endpoint       = null;
     private static $AWS_KEY        = null;
     private static $AWS_SECRET_KEY = null;
 
     private static $client         = null;
     private static $connected      = false;
     private static $bucket         = null;
-    private static $region = null;
+    private static $region         = null;
+    private static $provider       = null;
 
+
+
+    public static function set_provider($_provider)
+    {
+        self::$provider = $_provider;
+    }
 
     /**
      * Check is active s3
@@ -25,16 +32,17 @@ class s3
     {
         if(is_null(self::$is_active))
         {
-            if(\dash\setting\s3::status())
+            if(\dash\setting\s3::status(self::$provider))
             {
                 // define access key and secretkey
-                self::$AWS_KEY        =  \dash\setting\s3::accesskey();
-                self::$AWS_SECRET_KEY =  \dash\setting\s3::secretkey();
+                self::$AWS_KEY        =  \dash\setting\s3::accesskey(self::$provider);
+                self::$AWS_SECRET_KEY =  \dash\setting\s3::secretkey(self::$provider);
 
-                self::$ENDPOINT       = \dash\setting\s3::endpoint();
-                self::$bucket         = \dash\setting\s3::bucket();
+                self::$endpoint       = \dash\setting\s3::endpoint(self::$provider);
+                self::$bucket         = \dash\setting\s3::bucket(self::$provider);
 
-                self::$region         = \dash\setting\s3::region();
+                self::$region         = \dash\setting\s3::region(self::$provider);
+                self::$provider       = \dash\setting\s3::provider(self::$provider);
 
                 self::$is_active      = true;
             }
@@ -88,7 +96,7 @@ class s3
                 'region'      => self::$region,
                 // 'version'     => '2006-03-01',
                 'version'     => 'latest',
-                'endpoint'    => self::$ENDPOINT,
+                'endpoint'    => self::$endpoint,
                 'credentials' =>
                 [
                     'key'    => self::$AWS_KEY,
@@ -161,8 +169,6 @@ class s3
             if(self::debug()) {\dash\notif::error($e->getMessage());}
             return false;
         }
-
-
     }
 
 
@@ -210,29 +216,81 @@ class s3
     }
 
 
+    private static function get_file_key($_path)
+    {
+        $endpoint = self::$endpoint;
+        $bucket   = self::$bucket;
+        $temp     = preg_replace("/^(https|http)\:\/\//", '', $endpoint);
+
+        if(substr($_path, 0, 7) === 'http://')
+        {
+            $temp = 'http://'. $bucket. '.' . $temp;
+        }
+        if(substr($_path, 0, 8) === 'https://')
+        {
+            $temp = 'https://'. $bucket. '.' . $temp;
+        }
+
+        $temp .= '/';
+
+        $key = str_replace($temp, '', $_path);
 
 
-    // $result = [];
-
-    // $listResponse = $client->listBuckets();
-    // $buckets = $listResponse['Buckets'];
-
-    // $result['listBuckets'] = $buckets;
-
-    // $objectsListResponse = $client->ListObjects(['Bucket' => 'rezamohiti', 'Prefix' => '/abc']);
-
-    // $result['listObjects'] = $objectsListResponse;
-    // // var_dump($listResponse);
-
-    // $hello_url = $client->getObjectUrl('rezamohiti', 'pic2.jpg');
-    // $result['getObjectUrl'] = $hello_url;
+        return $key;
+    }
 
 
-    // var_dump($result);
+    public static function delete_file($_path)
+    {
+        // s3 is not active
+        if(!self::active())
+        {
+            return false;
+        }
+
+        $client = self::connect();
+
+        if(!$client)
+        {
+            return false;
+        }
+
+        $path = self::get_file_key($_path);
+
+        // var_dump($client->getObject(['Bucket' => self::$bucket, 'Key' => $path]));exit();
+
+        try
+        {
+            $delete =
+            [
+                'Bucket' => self::$bucket,
+                'Key'    => $path,
+            ];
+
+            $deleteObject = $client->deleteObject($delete);
+
+            if ($deleteObject['DeleteMarker'])
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        catch (\Exception $e)
+        {
+            if(self::debug()) {\dash\notif::error($e->getMessage());}
+            return false;
+        }
+
+    }
 
 
-    // exit();
-
+    public static function get_sample_folder_name()
+    {
+        return 's3/'. self::$provider. '/'. self::get_bucket_name();
+    }
 }
-
 ?>

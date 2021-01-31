@@ -114,6 +114,17 @@ class s3
 	}
 
 
+	public static function provider($_provider = null)
+	{
+		if($_provider)
+		{
+			return $_provider;
+		}
+
+		return self::active_service();
+	}
+
+
 
 	public static function region($_service = null)
 	{
@@ -133,7 +144,7 @@ class s3
 
 		if(!$region)
 		{
-			if($_service === 'digitalocean')
+			if($_service === 'digitalocean' || $_service === 'aws')
 			{
 				$region = 'us-east-1';
 				// $region = 'nyc3';

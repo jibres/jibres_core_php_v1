@@ -203,7 +203,7 @@ class file
 		{
 			$upload_in_s3        = true;
 			$directory['path']   = $url;
-			$directory['folder'] = 's3/'. \dash\utility\s3aws\s3::get_bucket_name();
+			$directory['folder'] = \dash\utility\s3aws\s3::get_sample_folder_name();
 		}
 
 
