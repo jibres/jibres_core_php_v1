@@ -55,8 +55,7 @@ class s3
             return true;
         }
 
-        return true;
-        // return false;
+        return false;
     }
 
     /**
