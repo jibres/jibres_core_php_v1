@@ -106,7 +106,7 @@ class datablock
 						$imgSrc = a($value, 'thumb');
 						if($imgSrc)
 						{
-							$myItem .= \dash\generate\media::picture($imgSrc, $linkTitle);
+							$myItem .= media::createPictureEl($imgSrc, $linkTitle);
 						}
 					}
 					switch ($infoPos)
@@ -147,11 +147,11 @@ class datablock
 		{
 			$myMediaPoster = \lib\filepath::fix(a($_value, 'poster'));
 
-			return \dash\generate\media::video($myMediaSrc, $myMediaMime, $myMediaPoster);
+			return media::createVideoEl($myMediaSrc, $myMediaMime, $myMediaPoster);
 		}
 		if($_type === 'audio')
 		{
-			return \dash\generate\media::audio($myMediaSrc, $myMediaMime);
+			return media::createAudioEl($myMediaSrc, $myMediaMime);
 		}
 
 		return null;
@@ -161,7 +161,7 @@ class datablock
 	private static function createInfoBox($_title, $_heading = 2)
 	{
 		$myInfoBox = '<div class="info">';
-		$myInfoBox .= \dash\generate\media::heading($_title, $_heading);
+		$myInfoBox .= media::heading($_title, $_heading);
 		$myInfoBox .= '</div>';
 
 		return $myInfoBox;
