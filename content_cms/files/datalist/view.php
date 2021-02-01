@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\files\home;
+namespace content_cms\files\datalist;
 
 
 class view
@@ -11,8 +11,8 @@ class view
 		\dash\data::action_text(T_('Upload'));
 		\dash\data::action_link(\dash\url::this(). '/add');
 
-		\dash\data::back_text(T_('CMS'));
-		\dash\data::back_link(\dash\url::here());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
 
 
 		\dash\data::listEngine_start(true);

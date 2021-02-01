@@ -48,7 +48,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this());
+			\dash\redirect::to(\dash\url::this(). '/datalist');
 		}
 	}
 }

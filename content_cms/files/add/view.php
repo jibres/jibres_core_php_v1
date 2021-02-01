@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_("Upload"));
 
 		\dash\data::back_text(T_("Files"));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/datalist');
 
 	}
 }
