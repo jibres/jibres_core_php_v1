@@ -254,5 +254,20 @@ class fit{
 	{
 		return \dash\upload\size::readableSize($_size);
 	}
+
+
+	public static function url_thumb($_src)
+	{
+		$dotPosition = strrpos($_src, '.');
+		if(!$dotPosition)
+		{
+			return false;
+		}
+		$imgName = substr($_src, 0, $dotPosition);
+		$newUrl = $imgName. '-w120.webp';
+
+		return $newUrl;
+	}
+
 }
 ?>
