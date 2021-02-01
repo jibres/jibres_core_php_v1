@@ -50,14 +50,14 @@ class dashboard
 			$dashboard_detail['upload_special_provider'] = false;
 		}
 
-		$dashboard_detail['charttype']                   = self::chart($dashboard_detail['total_size'], $dashboard_detail['total_count']);
+		self::chart($dashboard_detail);
 
 		return $dashboard_detail;
 	}
 
 
 
-	private static function chart($_total_size, $_total_count)
+	private static function chart(&$dashboard_detail)
 	{
 		$get_count_size_per_type = \dash\db\files::chart_count_size_per_type();
 
@@ -66,9 +66,34 @@ class dashboard
 			$get_count_size_per_type = [];
 		}
 
+		$type_count =
+		[
+			'image' => 0,
+			'audio' => 0,
+			'video' => 0,
+			'other' => 0,
+
+			// 'pdf',
+			// 'archive',
+			// 'word',
+			// 'excel',
+			// 'powerpoint',
+			// 'code',
+			// 'text',
+			// 'file',
+		];
 		$result = [];
 		foreach ($get_count_size_per_type as $key => $value)
 		{
+			if(isset($type_count[$value['type']]))
+			{
+				$type_count[$value['type']] += floatval($value['count']);
+			}
+			else
+			{
+				$type_count['other'] += floatval($value['count']);
+			}
+
 			$result[] = ['name' => T_(ucfirst($value['type'])), 'y' => floatval($value['count'])];
 		}
 
@@ -76,7 +101,9 @@ class dashboard
 		$chart['category'] = json_encode(array_column($result, 'name') , JSON_UNESCAPED_UNICODE);
 		$chart['data']     = json_encode(array_values($result), JSON_UNESCAPED_UNICODE);
 
-		return $chart;
+		$dashboard_detail['charttype'] = $chart;
+		$dashboard_detail['type_count'] = $type_count;
+
 	}
 }
 ?>

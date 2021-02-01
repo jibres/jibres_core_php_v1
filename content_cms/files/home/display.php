@@ -26,6 +26,33 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
 
 ?>
 
+<section class="row">
+  <div class="c-xs-6 c-sm-3">
+    <a href="<?php echo \dash\url::this(). '/datalist?type=image'; ?>" class="stat x70">
+      <h3><?php echo T_("Images");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'image'));?></div>
+    </a>
+  </div>
+  <div class="c-xs-6 c-sm-3">
+    <a href="<?php echo \dash\url::this(). '/datalist?type=audio'; ?>" class="stat x70">
+      <h3><?php echo T_("Audio");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'audio'));?></div>
+    </a>
+  </div>
+  <div class="c-xs-6 c-sm-3">
+    <a href="<?php echo \dash\url::this(). '/datalist?type=video'; ?>" class="stat x70">
+      <h3><?php echo T_("Vedeo");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'video'));?></div>
+    </a>
+  </div>
+  <div class="c-xs-6 c-sm-3">
+    <a href="<?php echo \dash\url::this(). '/datalist?type=other'; ?>" class="stat x70">
+      <h3><?php echo T_("Other");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'other'));?></div>
+    </a>
+  </div>
+</section>
+
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
     <div id="chartdivcmsfiles" class="box chart x270 s0" data-abc='cms/files'>
