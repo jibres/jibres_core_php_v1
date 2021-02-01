@@ -31,5 +31,28 @@ class get
 
 		return $load_detail;
 	}
+
+
+	public static function HTMLshowDetaiRecrod($value)
+	{
+		$result = '';
+		if(a($value, 'province_name') || a($value, 'city_name'))
+		{
+			$result.= a($value, 'province_name');
+			$result.= a($value, 'city_name');
+		}
+		elseif(isset($value['item_type']) && $value['item_type'] === 'file')
+		{
+			$result .= '<a target="_blank" href="'. \lib\filepath::fix($value['answer']). '" class="btn link" >'. T_("Show file"). '</a>';
+		}
+		else
+		{
+			$result .= a($value, 'answer');
+			$result .= ' ';
+			$result .= a($value, 'textarea');
+		}
+
+		return $result;
+	}
 }
 ?>

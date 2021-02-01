@@ -23,7 +23,7 @@
       <?php } //endif ?>
           <th class=""><?php echo a($value, 'item_title'); ?></th>
           <td class="">
-            <?php  HTMLshowDetaiRecrod($value) ?>
+            <?php  echo \lib\app\form\answer\get::HTMLshowDetaiRecrod($value) ?>
           </td>
       <?php  if(!($i % 2)) { ?>
         </tr>
@@ -57,7 +57,7 @@
         <tr>
           <th class=""><?php echo a($value, 'item_title'); ?></th>
           <td class="">
-            <?php  HTMLshowDetaiRecrod($value) ?>
+            <?php echo \lib\app\form\answer\get::HTMLshowDetaiRecrod($value); ?>
             </td>
         </tr>
 <?php } //endif ?>
@@ -164,26 +164,3 @@
   </div>
 </div>
 <?php } //endif ?>
-
-
-
-<?php
-function HTMLshowDetaiRecrod($value)
-{
-   if(a($value, 'province_name') || a($value, 'city_name'))
-  {
-    echo a($value, 'province_name');
-    echo a($value, 'city_name');
-  }
-  elseif(isset($value['item_type']) && $value['item_type'] === 'file')
-  {
-    echo '<a target="_blank" href="'. \lib\filepath::fix($value['answer']). '" class="btn link" >'. T_("Show file"). '</a>';
-  }
-  else
-  {
-    echo a($value, 'answer');
-    echo ' ';
-    echo a($value, 'textarea');
-  }
-}
-?>
