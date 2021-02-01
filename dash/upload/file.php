@@ -7,16 +7,15 @@ class file
 	private static $MY_FILES = [];
 	private static $upload_name = null;
 
-	/**
-	 * Upload by scp in other server
-	 *
-	 * @var        boolean
-	 */
-	private static $upload_other_server_scp = true;
 
+	/**
+	 * Uploads an other server by scp.
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function upload_other_server_scp()
 	{
-		return self::$upload_other_server_scp;
+		return false;
 	}
 
 
