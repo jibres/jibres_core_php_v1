@@ -31,7 +31,7 @@ class view
 		$seo_detail            = [];
 		$seo_detail['type']    = 'post';
 		$seo_detail['id']      = a($dataRow, 'id');
-		$seo_detail['title']   = a($dataRow, 'title');
+		$seo_detail['title']   = a($dataRow, 'post_title');
 		$seo_detail['seodesc'] = a($dataRow, 'excerpt');
 		$seo_detail['content'] = a($dataRow, 'content');
 		$seo_detail['tags']    = a($dataRow, 'tags');

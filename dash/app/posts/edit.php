@@ -39,7 +39,7 @@ class edit
 		$seo_detail            = [];
 		$seo_detail['type']    = 'post';
 		$seo_detail['id']      = a($load_posts, 'id');
-		$seo_detail['title']   = a($load_posts, 'title');
+		$seo_detail['title']   = a($load_posts, 'post_title');
 		$seo_detail['seodesc'] = a($load_posts, 'excerpt');
 		$seo_detail['content'] = a($load_posts, 'content');
 		$seo_detail['tags']    = a($load_posts, 'tags');
