@@ -24,7 +24,7 @@ class filepath
 			{
 				if(isset($_option['avatar']) && $_option['avatar'])
 				{
-					if(preg_match("/^\w{5}\/\d{6}\/.*/", $_path))
+					if(preg_match("/^(local\/)?\w{5}\/\d{6}\/.*/", $_path))
 					{
 						return self::fix($_path, ['force_cloud' => true]);
 					}
@@ -34,21 +34,28 @@ class filepath
 					}
 				}
 
-				if(\dash\engine\store::inStore() || (isset($_option['force_cloud']) && $_option['force_cloud']))
+				$new_path = '';
+				if(isset($_option['force_cloud']) && $_option['force_cloud'])
 				{
 					$new_path = \dash\url::cloud(). '/';
-					$new_path .= $_path;
 				}
-				elseif(!\dash\engine\store::inStore() || (isset($_option['force_dl']) && $_option['force_dl']))
+				elseif(isset($_option['force_dl']) && $_option['force_dl'])
 				{
 					$new_path = \dash\url::dl(). '/';
-					$new_path .= $_path;
 				}
 				else
 				{
-					// never !
-					$new_path = $_path;
+					if(\dash\engine\store::inStore())
+					{
+						$new_path = \dash\url::cloud(). '/';
+					}
+					else
+					{
+						$new_path = \dash\url::dl(). '/';
+					}
 				}
+
+				$new_path .= $_path;
 			}
 		}
 		else
