@@ -1,9 +1,25 @@
+<?php
+function HTMLLastModified($_key)
+{
+  $data = \dash\data::cmsSettingSaved();
+  if(isset($data[$_key. '_lastmodified']))
+  {
+    $result = '';
+    $result .= '<span class="block fc-mute">';
+    $result .= T_("Last modified");
+    $result .= ' ';
+    $result .= \dash\fit::date_human($data[$_key. '_lastmodified']);
+    $result .= '</span>';
+    return $result;
+  }
+}
+?>
 <section class="f" data-option='cms-thumb-ratio'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Featured image of standard post");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiostandard'); ?>
       </div>
     </div>
   </div>
@@ -23,7 +39,7 @@
     <div class="data">
       <h3><?php echo T_("Featured image of gallery post");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiogallery'); ?>
       </div>
     </div>
   </div>
@@ -43,7 +59,7 @@
     <div class="data">
       <h3><?php echo T_("Featured image of video post");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiovideo'); ?>
       </div>
     </div>
   </div>
@@ -62,7 +78,7 @@
     <div class="data">
       <h3><?php echo T_("Featured image of podcast post");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiopodcast'); ?>
       </div>
     </div>
   </div>
@@ -82,7 +98,7 @@
     <div class="data">
       <h3><?php echo T_("Default post comment");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you specify the default status of the comment");?></p>
+        <p><?php echo T_("In this section, you specify the default status of the comment");?></p><?php echo HTMLLastModified('defaultcomment'); ?>
       </div>
     </div>
   </div>
@@ -104,7 +120,7 @@
     <div class="data">
       <h3><?php echo T_("Default show writer");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you specify the default status of the show writer");?></p>
+        <p><?php echo T_("In this section, you specify the default status of the show writer");?></p><?php echo HTMLLastModified('defaultshowwriter'); ?>
       </div>
     </div>
   </div>
@@ -125,7 +141,7 @@
     <div class="data">
       <h3><?php echo T_("Default show date");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you specify the default status of the show date");?></p>
+        <p><?php echo T_("In this section, you specify the default status of the show date");?></p><?php echo HTMLLastModified('defaultshowdate'); ?>
       </div>
     </div>
   </div>

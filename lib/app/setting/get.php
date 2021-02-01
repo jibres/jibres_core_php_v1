@@ -172,6 +172,10 @@ class get
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
 				$setting[$value['key']] = $value['value'];
+				if(isset($value['datemodified']) && $value['datemodified'])
+				{
+					$setting[$value['key']. '_lastmodified'] = $value['datemodified'];
+				}
 			}
 		}
 
