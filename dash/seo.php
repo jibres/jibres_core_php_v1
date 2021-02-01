@@ -20,6 +20,24 @@ class seo
 		$seo['list'][] = self::analyze_text_dificould($_detail);
 		$seo['list'][] = self::analyze_link($_detail);
 
+		$new_list =
+		[
+			'fail' => [],
+			'warn' => [],
+			'okay' => [],
+			'info' => [],
+		];
+
+		foreach ($seo['list'] as $key => $value)
+		{
+			if(isset($value['class']) && isset($new_list[$value['class']]))
+			{
+				$new_list[$value['class']][] = $value;
+			}
+		}
+
+		$seo['list'] = array_merge($new_list['fail'], $new_list['warn'], $new_list['okay'], $new_list['info']);
+
 		$count_ok  = 0;
 		$count_all = 0;
 		foreach ($seo['list'] as $key => $value)
