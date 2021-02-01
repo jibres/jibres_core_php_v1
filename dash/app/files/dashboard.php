@@ -82,7 +82,9 @@ class dashboard
 			// 'text',
 			// 'file',
 		];
-		$result = [];
+		$count = [];
+		$size  = [];
+
 		foreach ($get_count_size_per_type as $key => $value)
 		{
 			if(isset($type_count[$value['type']]))
@@ -94,15 +96,22 @@ class dashboard
 				$type_count['other'] += floatval($value['count']);
 			}
 
-			$result[] = ['name' => T_(ucfirst($value['type'])), 'y' => floatval($value['count'])];
+			$count[] = ['name' => T_(ucfirst($value['type'])), 'y' => floatval($value['count'])];
+			$size[]  = ['name' => T_(ucfirst($value['type'])), 'y' => floatval($value['size'])];
 		}
 
-		$chart             = [];
-		$chart['category'] = json_encode(array_column($result, 'name') , JSON_UNESCAPED_UNICODE);
-		$chart['data']     = json_encode(array_values($result), JSON_UNESCAPED_UNICODE);
+		$chart                             = [];
+		$chart['category']                 = json_encode(array_column($count, 'name') , JSON_UNESCAPED_UNICODE);
+		$chart['data']                     = json_encode(array_values($count), JSON_UNESCAPED_UNICODE);
 
-		$dashboard_detail['charttype'] = $chart;
-		$dashboard_detail['type_count'] = $type_count;
+		$chart_size                        = [];
+		$chart_size['category']            = $chart['category'];
+		$chart_size['data']                = json_encode(array_values($size), JSON_UNESCAPED_UNICODE);
+
+		$dashboard_detail['charttypesize'] = $chart_size;
+		$dashboard_detail['charttype']     = $chart;
+		$dashboard_detail['type_count']    = $type_count;
+
 
 	}
 }
