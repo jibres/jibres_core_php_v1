@@ -82,6 +82,12 @@ class directory
 
 		$path = str_replace($move_to, '', $full_addr);
 
+		if(\dash\url::isLocal())
+		{
+			$path = 'local/'. $path;
+		}
+
+
 		$result           = [];
 		$result['full']   = $full_addr;
 		$result['path']   = $path;
@@ -118,6 +124,10 @@ class directory
 
 		$path = str_replace($move_to, '', $full_addr);
 
+		if(\dash\url::isLocal())
+		{
+			$path = 'local/'. $path;
+		}
 
 		$result           = [];
 		$result['full']   = $full_addr;

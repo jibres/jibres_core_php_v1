@@ -553,9 +553,16 @@ class url
 
 		if(self::$url['root'] === 'jibres')
 		{
-			if(self::isLocal() && $_mode == 'cdn')
+			if(self::isLocal())
 			{
-				$talambarAddr .= 'local';
+				if($_mode == 'cdn')
+				{
+					$talambarAddr .= 'local';
+				}
+				else
+				{
+					$talambarAddr .= 'ir';
+				}
 			}
 			else
 			{
@@ -571,10 +578,17 @@ class url
 		}
 		else
 		{
-			if(self::isLocal() && $_mode == 'cdn')
+			if(self::isLocal())
 			// for business
 			{
-				$talambarAddr .= 'local';
+				if($_mode == 'cdn')
+				{
+					$talambarAddr .= 'local';
+				}
+				else
+				{
+					$talambarAddr .= 'ir';
+				}
 			}
 			else
 			{
