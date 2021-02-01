@@ -195,7 +195,20 @@ class file
 		$real_addr              = $myFile['tmp_name'];
 
 
-		if(self::upload_other_server_scp())
+		if(\dash\utility\s3aws\s3::active())
+		{
+			$url = \dash\utility\s3aws\s3::upload($myFile['tmp_name'], $directory['path']);
+			// make error in s3
+			if(!\dash\engine\process::status() || !$url)
+			{
+				return false;
+			}
+
+			$upload_in_s3        = true;
+			$directory['path']   = $url;
+			$directory['folder'] = \dash\utility\s3aws\s3::get_sample_folder_name();
+		}
+		elseif(self::upload_other_server_scp())
 		{
 			if(\dash\scp::uploader_connection())
 			{
@@ -215,20 +228,6 @@ class file
 				\dash\notif::error(T_("Can not upload your file in storage"));
 				return false;
 			}
-
-		}
-		elseif(\dash\utility\s3aws\s3::active())
-		{
-			$url = \dash\utility\s3aws\s3::upload($myFile['tmp_name'], $directory['path']);
-			// make error in s3
-			if(!\dash\engine\process::status() || !$url)
-			{
-				return false;
-			}
-
-			$upload_in_s3        = true;
-			$directory['path']   = $url;
-			$directory['folder'] = \dash\utility\s3aws\s3::get_sample_folder_name();
 		}
 		else
 		{
@@ -277,9 +276,9 @@ class file
 			{
 				$extlen     = mb_strlen($myFile['ext']);
 
-				$file_without_ext   = substr($real_addr, 0, -$extlen-1);
-				$path_without_ext   = substr($directory['real_path'], 0, -$extlen-1);
-				$full_without_ext   = substr($directory['full'], 0, -$extlen-1);
+				$file_without_ext = substr($real_addr, 0, -$extlen-1);
+				$path_without_ext = substr($directory['real_path'], 0, -$extlen-1);
+				$full_without_ext = substr($directory['full'], 0, -$extlen-1);
 
 				$new_path = $file_without_ext . '-w'. $width. '.webp';
 
@@ -287,16 +286,16 @@ class file
 				{
 					$totalsize += filesize($new_path);
 
-					if(self::upload_other_server_scp())
-					{
-						$new_path_scp = $full_without_ext . '-w'. $width. '.webp';
-						\dash\scp::send($new_path, $new_path_scp);
-						\dash\file::delete($new_path);
-					}
-					elseif($upload_in_s3)
+					if($upload_in_s3)
 					{
 						$new_path_s3 = $path_without_ext . '-w'. $width. '.webp';
 						\dash\utility\s3aws\s3::upload($new_path, $new_path_s3);
+						\dash\file::delete($new_path);
+					}
+					elseif(self::upload_other_server_scp())
+					{
+						$new_path_scp = $full_without_ext . '-w'. $width. '.webp';
+						\dash\scp::send($new_path, $new_path_scp);
 						\dash\file::delete($new_path);
 					}
 					else
