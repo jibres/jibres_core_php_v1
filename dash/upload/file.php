@@ -14,6 +14,11 @@ class file
 	 */
 	private static $upload_other_server_scp = true;
 
+	public static function upload_other_server_scp()
+	{
+		return self::$upload_other_server_scp;
+	}
+
 
 	private static function config_my_files($_upload_name, $_meta)
 	{
@@ -99,13 +104,6 @@ class file
 	 */
 	public static function upload($_upload_name, $_meta = [])
 	{
-		self::$upload_other_server_scp = false;
-
-		if(\dash\permission::supervisor())
-		{
-			self::$upload_other_server_scp = true;
-		}
-
 		$default_meta =
 		[
 			'allow_size'       => null,
@@ -179,10 +177,12 @@ class file
 			}
 		}
 
-		$filename = md5($myFile['filename']). '.'. $myFile['ext'];
+		$md5FileNmae = md5($myFile['filename']);
+
+		$filename = $md5FileNmae. '.'. $myFile['ext'];
 
 		// 5. find best directory to put the file there
-		$directory = \dash\upload\directory::get($filename, self::$upload_other_server_scp);
+		$directory = \dash\upload\directory::get($filename, self::upload_other_server_scp());
 
 		if(!$directory)
 		{
@@ -191,19 +191,18 @@ class file
 		}
 
 		$upload_in_s3           = false;
-		$upload_in_scp          = false;
 		$directory['real_path'] = $directory['path'];
 		$real_addr              = $myFile['tmp_name'];
 
 
-		if(self::$upload_other_server_scp)
+		if(self::upload_other_server_scp())
 		{
 			if(\dash\scp::uploader_connection())
 			{
 				$directory['real_path'] = $directory['full'];
 				if(\dash\scp::send($myFile['tmp_name'], $directory['full']))
 				{
-					$upload_in_scp = true;
+					// ok
 				}
 				else
 				{
@@ -246,8 +245,6 @@ class file
 		}
 
 
-
-
 		$height = null;
 		$width  = null;
 		$ratio  = null;
@@ -274,18 +271,46 @@ class file
 				$ratio = $ratio_detail['ratio'];
 			}
 
-			$responsive_result = \dash\utility\image::responsive_image($real_addr, $myFile['ext'], $directory['real_path'], self::$upload_other_server_scp);
+			$width_list = \dash\utility\image::responsive_image_size();
 
-			if(isset($responsive_result['responsive_image_size']))
+			foreach ($width_list as $width)
 			{
-				$totalsize += $responsive_result['responsive_image_size'];
+				$extlen     = mb_strlen($myFile['ext']);
+
+				$file_without_ext   = substr($real_addr, 0, -$extlen-1);
+				$path_without_ext   = substr($directory['real_path'], 0, -$extlen-1);
+				$full_without_ext   = substr($directory['full'], 0, -$extlen-1);
+
+				$new_path = $file_without_ext . '-w'. $width. '.webp';
+
+				if(\dash\utility\image::make_webp_image($real_addr, $new_path, $width))
+				{
+					$totalsize += filesize($new_path);
+
+					if(self::upload_other_server_scp())
+					{
+						$new_path_scp = $full_without_ext . '-w'. $width. '.webp';
+						\dash\scp::send($new_path, $new_path_scp);
+						\dash\file::delete($new_path);
+					}
+					elseif($upload_in_s3)
+					{
+						$new_path_s3 = $path_without_ext . '-w'. $width. '.webp';
+						\dash\utility\s3aws\s3::upload($new_path, $new_path_s3);
+						\dash\file::delete($new_path);
+					}
+					else
+					{
+						// nothing. Upload in local directory of server
+					}
+				}
 			}
 		}
 
-		// if the file uploaded in s3 remove from local
-		if($upload_in_s3 || $upload_in_scp)
+		// if the file uploaded in s3 or scp remove from local
+		if($upload_in_s3 || self::upload_other_server_scp())
 		{
-			\dash\file::delete($directory['full']);
+			\dash\file::delete($real_addr);
 		}
 
 

@@ -46,8 +46,16 @@ class image
 	 *
 	 * @param string $filepath	Path of the image file
 	 */
-	public static function load($filepath)
+	public static function load($filepath, $_once = false)
 	{
+		if($_once)
+		{
+			if(self::$loaded)
+			{
+				return true;
+			}
+		}
+
 		self::$loaded = false;
 
 		if(!\dash\file::exists($filepath))
@@ -393,140 +401,38 @@ class image
 	}
 
 
-	public static function responsive_image($_file_addr, $_ext, $_path = null, $_upload_other_server_scp = false)
+	public static function make_webp_image($_file_addr, $_new_addr, $_width)
 	{
-		$extlen     = mb_strlen($_ext);
-
-		$if_s3_remove = [];
-		$if_scp_remove = [];
-
-		$url_file   = substr($_file_addr, 0, -$extlen-1);
-		$url_paht   = substr($_path, 0, -$extlen-1);
-
-		self::load($_file_addr);
+		self::load($_file_addr, true);
 
 		if(!self::$loaded)
 		{
 			return false;
 		}
 
-		$total_size_path = [];
+		if($_width === 120)
+		{
+			// make thumb
+			$new_img = \dash\utility\image::thumb(120, 120);
+		}
+		else
+		{
+			if(self::$width < $_width)
+			{
+				$new_img = self::$img;
+			}
+			else
+			{
+				$new_img = \dash\utility\image::setWidth($_width);
+			}
+		}
 
-		// make thumb
-		$new_img = \dash\utility\image::thumb(120, 120);
-
-		$thumb_path = $url_file.'-w120.webp';
-		$thumb_s3 = $url_paht.'-w120.webp';
-
-		imagewebp($new_img, $thumb_path, 80);
+		imagewebp($new_img, $_new_addr, 80);
 
 		imagedestroy($new_img);
 
-		$if_s3_remove[$thumb_path] = \dash\utility\s3aws\s3::upload($thumb_path, $thumb_s3);
-		if($_upload_other_server_scp)
-		{
-			$if_scp_remove[$thumb_path] = \dash\scp::send($thumb_path, $thumb_s3);
-		}
+		return true;
 
-		$total_size_path[] = $thumb_path;
-
-		$file_list = self::responsive_image_size();
-
-		// remove 120 size
-		array_shift($file_list);
-
-		$copy_on_size = [];
-
-		foreach ($file_list as $new_width)
-		{
-			if(self::$width < $new_width)
-			{
-				$copy_on_size[] = $new_width;
-			}
-		}
-
-		$need_crop = array_diff($file_list, $copy_on_size);
-		$need_copy = $copy_on_size;
-
-		if($need_crop)
-		{
-			foreach ($need_crop as $new_width)
-			{
-				$new_img = \dash\utility\image::setWidth($new_width);
-
-				$new_path = $url_file. '-w'. $new_width. '.webp';
-				$new_s3 = $url_paht. '-w'. $new_width. '.webp';
-
-				imagepalettetotruecolor($new_img);
-
-				imagewebp($new_img, $new_path, 80);
-
-				imagedestroy($new_img);
-
-				$if_s3_remove[$new_path] = \dash\utility\s3aws\s3::upload($new_path, $new_s3);
-
-				if($_upload_other_server_scp)
-				{
-					$if_scp_remove[$thumb_path] = \dash\scp::send($new_path, $new_s3);
-				}
-
-				$total_size_path[] = $new_path;
-			}
-		}
-
-		if($need_copy)
-		{
-			foreach ($need_copy as $new_width)
-			{
-				$new_path = $url_file. '-w'. $new_width. '.webp';
-				$new_s3 = $url_paht. '-w'. $new_width. '.webp';
-
-				imagepalettetotruecolor(self::$img);
-
-				imagewebp(self::$img, $new_path, 80);
-
-				$if_s3_remove[$new_path] =\dash\utility\s3aws\s3::upload($new_path, $new_s3);
-
-				if($_upload_other_server_scp)
-				{
-					$if_scp_remove[$thumb_path] = \dash\scp::send($new_path, $new_s3);
-				}
-
-				$total_size_path[] = $new_path;
-			}
-		}
-
-		imagedestroy(self::$img);
-
-		self::$loaded = false;
-
-		$result = [];
-
-		$result['responsive_image_size'] = 0;
-
-		foreach ($total_size_path as $path)
-		{
-			$result['responsive_image_size'] += filesize($path);
-		}
-
-		// remove if file uploadded on s3
-		foreach ($if_s3_remove as $local_path => $s3_path)
-		{
-			if($s3_path)
-			{
-				\dash\file::delete($local_path);
-			}
-		}
-
-		foreach ($if_scp_remove as $local_path => $scp_file)
-		{
-			if($scp_file)
-			{
-				\dash\file::delete($local_path);
-			}
-		}
-
-		return $result;
 	}
 
 }
