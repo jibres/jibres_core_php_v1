@@ -156,7 +156,7 @@ class report
 		$not_answer   = null;
 		$percent_answer = null;
 
-		if(in_array($type, ['dropdown', 'single_choice', 'multiple_choice', 'gender', 'birthdate']))
+		if(in_array($type, ['dropdown', 'single_choice', 'multiple_choice', 'gender', 'birthdate','yes_no']))
 		{
 			$count_answer = \lib\db\form_answerdetail\get::count_answer_item_id($form_id, $item_id);
 
@@ -228,7 +228,7 @@ class report
 			$percent_answer = round((($count_answer * 100) / $all_answer_count), 2);
 		}
 
-		if($type === 'gender')
+		if($type === 'gender' || $type === 'yes_no')
 		{
 			foreach ($table as $key => $value)
 			{
@@ -245,6 +245,7 @@ class report
 				}
 			}
 		}
+
 
 		$result                      = [];
 		$result['chart_type']        = 'pie';
