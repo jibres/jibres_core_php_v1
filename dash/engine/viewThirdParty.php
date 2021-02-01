@@ -57,6 +57,8 @@ class viewThirdParty
 			}
 		}
 
+		return null; // force disable
+
 		// for jibres
 		switch (\dash\url::tld())
 		{
@@ -103,7 +105,8 @@ class viewThirdParty
 
 	public static function raychat()
 	{
-		return null;
+		return null; // force disable
+
 		if(\dash\engine\store::inBusinessWebsite())
 		{
 			if(\lib\store::detail('addon_raychat'))
