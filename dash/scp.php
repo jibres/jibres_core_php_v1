@@ -16,15 +16,17 @@ class scp
 			return false;
 		}
 
+		ini_set('default_socket_timeout', 59);
+
 		if(!self::$connection)
 		{
 			try
 			{
-				$connection = \ssh2_connect($_host, $_port);
+				$connection = @ssh2_connect($_host, $_port);
 
 				if($connection)
 				{
-					$ok = \ssh2_auth_password($connection, $_user, $_pass);
+					$ok = @ssh2_auth_password($connection, $_user, $_pass);
 
 					if($ok)
 					{
@@ -61,7 +63,7 @@ class scp
 
 		try
 		{
-			$fingerprint = \ssh2_fingerprint(self::$connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
+			$fingerprint = @ssh2_fingerprint(self::$connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
 
 			if($fingerprint != $_known_host)
 			{
@@ -100,7 +102,7 @@ class scp
 
 		try
 		{
-			$result = \ssh2_scp_send(self::$connection, $_local_file, $_remote_file, $_create_mode);
+			$result = @ssh2_scp_send(self::$connection, $_local_file, $_remote_file, $_create_mode);
 			return $result;
 		}
 		catch (\Exception $e)
@@ -122,7 +124,7 @@ class scp
 
 		try
 		{
-			$result = \ssh2_scp_recv(self::$connection, self::fix_home_dir($_remote_file), $_local_file);
+			$result = @ssh2_scp_recv(self::$connection, self::fix_home_dir($_remote_file), $_local_file);
 			return $result;
 		}
 		catch (\Exception $e)
@@ -145,8 +147,8 @@ class scp
 
 		try
 		{
-			$sftp   = \ssh2_sftp(self::$connection);
-			$result = \ssh2_sftp_unlink($sftp, $_remote_file);
+			$sftp   = @ssh2_sftp(self::$connection);
+			$result = @ssh2_sftp_unlink($sftp, $_remote_file);
 			return $result;
 		}
 		catch (\Exception $e)
@@ -172,8 +174,8 @@ class scp
 
 		try
 		{
-			$sftp   = \ssh2_sftp(self::$connection);
-			$result = \ssh2_sftp_mkdir($sftp, dirname($_path), $_mode, $_recursive);
+			$sftp   = @ssh2_sftp(self::$connection);
+			$result = @ssh2_sftp_mkdir($sftp, dirname($_path), $_mode, $_recursive);
 			return $result;
 		}
 		catch (\Exception $e)
@@ -194,7 +196,7 @@ class scp
 
 		try
 		{
-			$sftp   = \ssh2_sftp(self::$connection);
+			$sftp   = @ssh2_sftp(self::$connection);
 			$result = file_exists('ssh2.sftp://' . $sftp . dirname($_path));
 			return $result;
 		}
