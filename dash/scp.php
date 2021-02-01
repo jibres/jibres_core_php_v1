@@ -172,7 +172,7 @@ class scp
 
 		try
 		{
-			$sftp   = ssh2_sftp(self::$connection);
+			$sftp   = \ssh2_sftp(self::$connection);
 			$result = \ssh2_sftp_mkdir($sftp, dirname($_path), $_mode, $_recursive);
 			return $result;
 		}
@@ -194,7 +194,7 @@ class scp
 
 		try
 		{
-			$sftp   = ssh2_sftp(self::$connection);
+			$sftp   = \ssh2_sftp(self::$connection);
 			$result = file_exists('ssh2.sftp://' . $sftp . dirname($_path));
 			return $result;
 		}
@@ -209,11 +209,11 @@ class scp
 
 	public static function uploader_connection()
 	{
-		$host       = \dash\setting\upload_scp::host();
-		$username   = \dash\setting\upload_scp::username();
-		$password   = \dash\setting\upload_scp::password();
-		$known_host = \dash\setting\upload_scp::known_host();
-		$port       = \dash\setting\upload_scp::port();
+		$host                 = \dash\setting\upload_scp::host();
+		$username             = \dash\setting\upload_scp::username();
+		$password             = \dash\setting\upload_scp::password();
+		$known_host           = \dash\setting\upload_scp::known_host();
+		$port                 = \dash\setting\upload_scp::port();
 		self::$home_directory = '/home/'. $username;
 
 		if(self::connect($host, $username, $password, $port))
