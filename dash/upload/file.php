@@ -15,7 +15,7 @@ class file
 	 */
 	public static function upload_other_server_scp()
 	{
-		return false;
+		return true;
 	}
 
 

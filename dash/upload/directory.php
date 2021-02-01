@@ -35,6 +35,11 @@ class directory
 			$addr .= 'talambar_cloud/';
 		}
 
+		if(\dash\url::isLocal())
+		{
+			$addr .= 'local/';
+		}
+
 		return $addr;
 	}
 

@@ -36,11 +36,25 @@ class filepath
 
 				if(\dash\engine\store::inStore() || (isset($_option['force_cloud']) && $_option['force_cloud']))
 				{
-					$new_path = \dash\url::cloud(). '/'. $_path;
+					$new_path = \dash\url::cloud(). '/';
+
+					if(\dash\url::isLocal())
+					{
+						$new_path .= 'local/';
+					}
+
+					$new_path .= $_path;
 				}
 				elseif(!\dash\engine\store::inStore() || (isset($_option['force_dl']) && $_option['force_dl']))
 				{
-					$new_path = \dash\url::dl(). '/'. $_path;
+					$new_path = \dash\url::dl(). '/';
+
+					if(\dash\url::isLocal())
+					{
+						$new_path .= 'local/';
+					}
+
+					$new_path .= $_path;
 				}
 				else
 				{
