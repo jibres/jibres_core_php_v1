@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.setting ADD `datemodified` timestamp DEFAULT NULL AFTER `lang`;
