@@ -5,7 +5,8 @@ class model
 {
 	public static function post()
 	{
-		$post = \dash\request::post();
+		$post  = \dash\request::post();
+		$files = \dash\request::files();
 
 		$answer              = [];
 		$answer['form_id']   = \dash\data::formId();
@@ -17,6 +18,13 @@ class model
 			if(preg_match("/^a_(\d+)$/", $key, $split))
 			{
 				$answer['answer'][$split[1]] = $value;
+			}
+		}
+		foreach ($files as $key => $value)
+		{
+			if(preg_match("/^a_(\d+)$/", $key, $split))
+			{
+				$answer['answer'][$split[1]] = 1; // get the file in other place
 			}
 		}
 
