@@ -11,6 +11,7 @@ class view
 		$result                            = [];
 		$result['mbstring']                = extension_loaded('mbstring');
 		$result['soap']                    = class_exists("soapclient");
+		$result['ssh2']                    = function_exists("ssh2_connect");
 		$result['curl']                    = function_exists('curl_version');
 		$result['zip']                     = class_exists("ZipArchive");
 		$result['max_execution_time']      = ini_get('max_execution_time');
