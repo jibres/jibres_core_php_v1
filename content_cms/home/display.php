@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-        <div id="chartdivcmshome" class="box chart x380 s0" data-abc='cms/homepage' data-abc-v='4'>
+        <div id="chartdivcmshome" class="box chart x280 s0" data-abc='cms/homepage' data-abc-v='4'>
       <div class="hide">
         <div id="chardatatitle"><?php echo T_("Draft") ?></div>
         <div id="chardatatitlepublish"><?php echo T_("Publish") ?></div>
@@ -121,30 +121,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
         </ul>
       </nav>
     <?php }// endif ?>
-      <nav class="items long">
-        <ul>
-          <li class="">
-            <a class="item f" href="<?php echo \dash\url::here();?>/sitemap">
-              <i class="sf-sitemap"></i>
-              <div class="key"><?php echo T_('Sitemap');?></div>
-              <div class="go info"></div>
-            </a>
-          </li>
-        </ul>
-      </nav>
-<?php if(\dash\permission::check('cmsSetting')) {?>
-  <nav class="items long">
-        <ul>
-          <li class="">
-            <a class="item f" href="<?php echo \dash\url::here();?>/customization">
-              <i class="sf-cog"></i>
-              <div class="key"><?php echo T_('Customization');?></div>
-              <div class="go info"></div>
-            </a>
-          </li>
-        </ul>
-      </nav>
-<?php } //endif ?>
+
 <?php if(\dash\permission::check('cmsAttachmentView')) {?>
       <nav class="items long">
         <ul>

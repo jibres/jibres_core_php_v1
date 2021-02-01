@@ -11,9 +11,15 @@ class view
 		\dash\data::back_text(T_("Dashboard"));
 		\dash\data::back_link(\dash\url::kingdom(). '/a');
 
+		\dash\data::action_text(T_('Add New Post'));
+		\dash\data::action_link(\dash\url::this(). '/posts/add');
+
+		if(\dash\permission::check('cmsSetting'))
+		{
+			\dash\face::btnSetting(\dash\url::this().'/customization');
+		}
+
 		\dash\data::dashboardDetail(\dash\app\posts\dashboard::detail());
-
-
 	}
 }
 ?>
