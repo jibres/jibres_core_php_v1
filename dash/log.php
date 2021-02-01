@@ -745,7 +745,7 @@ class log
 		@file_put_contents($_addr, $_text, FILE_APPEND);
 
 		// check size
-		$filesize = filesize($_addr);
+		$filesize = @filesize($_addr);
 
 		// check on 1 MB
 		if(floatval($filesize) > (1 * 1024 * 1024))
