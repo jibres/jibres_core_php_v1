@@ -1,9 +1,9 @@
 <?php
-namespace lib\app\website\generator;
+namespace dash\generate;
 
 class media
 {
-	public static function createVideoEl($_src, $_mime = 'video/mp4', $_poster = null)
+	public static function video($_src, $_mime = 'video/mp4', $_poster = null)
 	{
 		$videoEl = '<video';
 		{
@@ -30,7 +30,7 @@ class media
 	}
 
 
-	public static function createAudioEl($_src, $_mime = 'audio/mp3')
+	public static function audio($_src, $_mime = 'audio/mp3')
 	{
 		$audioEl = '<audio';
 		{
@@ -55,7 +55,7 @@ class media
 
 	public static function createLinkedImgEl($_src, $_alt = null, $_link = null, $_target = null)
 	{
-		return self::createLinkEl(self::createImgEl($_src, $_alt), $_link, $_target);
+		return self::createLinkEl(self::img($_src, $_alt), $_link, $_target);
 	}
 
 
@@ -120,7 +120,7 @@ class media
 	}
 
 
-	public static function createImgEl($_src, $_alt = null)
+	public static function img($_src, $_alt = null)
 	{
 		$imgEl = '<img itemprop="image"';
 		$imgEl .= ' loading="lazy"';
@@ -137,7 +137,7 @@ class media
 	}
 
 
-	public static function createPictureEl($_src, $_alt = null)
+	public static function picture($_src, $_alt = null)
 	{
 		$picEl = '<picture>';
 		{

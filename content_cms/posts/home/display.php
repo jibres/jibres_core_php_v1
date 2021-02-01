@@ -13,9 +13,10 @@
     ?>
      <li>
       <a class="item f align-center" href="<?php echo \dash\url::this(). '/edit?id='.  a($value, 'id') ?>">
-<?php if(a($value, 'thumb')) {?>
-        <?php echo '<img src="'. a($value, 'thumb'). '" alt="'. T_("Post image"). '">'; ?>
-<?php } else {?>
+<?php if(a($value, 'thumb'))
+{
+  echo \dash\generate\media::picture(a($value, 'thumb'), a($value, 'title'));
+} else {?>
         <i class="sf-news"></i>
 <?php }?>
         <div class="key"><?php echo a($value, 'title'); ?></div>
