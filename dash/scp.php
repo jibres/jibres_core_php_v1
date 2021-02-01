@@ -149,7 +149,7 @@ class scp
 		try
 		{
 			$sftp   = ssh2_sftp(self::$connection);
-			$result = \ssh2_sftp_mkdir($sftp, $_path, $_mode, $_recursive);
+			$result = \ssh2_sftp_mkdir($sftp, dirname($_path), $_mode, $_recursive);
 			return $result;
 		}
 		catch (\Exception $e)
