@@ -45,7 +45,7 @@ class viewThirdParty
 
 	public static function tawk()
 	{
-		if(\dash\engine\store::inStore())
+		if(\dash\engine\store::inBusinessWebsite())
 		{
 			if(\lib\store::detail('addon_tawk'))
 			{
@@ -74,7 +74,7 @@ class viewThirdParty
 
 	public static function imber()
 	{
-		if(\dash\engine\store::inStore())
+		if(\dash\engine\store::inBusinessWebsite())
 		{
 			if(\lib\store::detail('addon_imber'))
 			{
@@ -104,7 +104,7 @@ class viewThirdParty
 	public static function raychat()
 	{
 		return null;
-		if(\dash\engine\store::inStore())
+		if(\dash\engine\store::inBusinessWebsite())
 		{
 			if(\lib\store::detail('addon_raychat'))
 			{
