@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-01-31 16:57+0330\n"
-"PO-Revision-Date: 2021-01-31 17:00+0330\n"
+"POT-Creation-Date: 2021-02-01 13:12+0330\n"
+"PO-Revision-Date: 2021-02-01 13:19+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3217,7 +3217,7 @@ msgstr "استان"
 #: content_a/chap/size-a4/oneSide-seller.php:41 content_a/setup/address/display.php:33
 #: content_business/shipping/display.php:136 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.php:284 dash/utility/location.php:164
-#: lib/app/form/answer/add.php:244
+#: lib/app/form/answer/add.php:256
 msgid "City"
 msgstr "شهر"
 
@@ -5074,7 +5074,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_crm/member/home/display-old.php:731 content_love/domain/log/display.php:4
 #: content_love/domain/log/display.php:22 content_love/domain/onlineniclog/display.php:4
 #: content_love/domain/onlineniclog/display.php:22
-#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:813
+#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:814
 #: lib/app/form/report_advance.php:112
 msgid "All"
 msgstr "همه"
@@ -5127,8 +5127,8 @@ msgstr "تفصیل‌پذیر"
 #: content_a/cart/home/display.php:225 content_a/category/home/display.php:145
 #: content_a/form/analytics/table/display.php:98
 #: content_a/form/analytics/table/display.php:105 content_a/form/answer/display.php:77
-#: content_a/form/answer/display.php:84 content_a/form/answer/item/display.php:72
-#: content_a/form/answer/item/display.php:79 content_a/form/home/display.php:134
+#: content_a/form/answer/display.php:84 content_a/form/answer/item/display.php:71
+#: content_a/form/answer/item/display.php:78 content_a/form/home/display.php:134
 #: content_a/form/home/display.php:142 content_a/form/tag/display.php:96
 #: content_a/notiflog/display.php:155 content_a/notiflog/display.php:163
 #: content_a/order/home/display.php:180 content_a/order/home/display.php:188
@@ -5172,7 +5172,7 @@ msgstr "پاک‌سازی فیلترها"
 #: content_a/accounting/coding/all/display.php:167
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:224
 #: content_a/form/analytics/table/display.php:104 content_a/form/answer/display.php:83
-#: content_a/form/answer/item/display.php:78 content_a/form/home/display.php:141
+#: content_a/form/answer/item/display.php:77 content_a/form/home/display.php:141
 #: content_a/notiflog/display.php:162 content_a/order/home/display.php:187
 #: content_crm/member/home/display-old.php:228 content_love/domain/irnic/display.php:92
 #: content_love/domain/polls/display.php:101 content_love/log/home/logTable.php:131
@@ -5190,7 +5190,7 @@ msgstr "نتیجه‌ای یافت نشد!"
 #: content_a/accounting/coding/all/display.php:167
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:224
 #: content_a/form/analytics/table/display.php:104 content_a/form/answer/display.php:83
-#: content_a/form/answer/item/display.php:78 content_a/form/home/display.php:141
+#: content_a/form/answer/item/display.php:77 content_a/form/home/display.php:141
 #: content_a/notiflog/display.php:162 content_a/order/home/display.php:187
 #: content_crm/member/home/display-old.php:228 content_love/domain/irnic/display.php:92
 #: content_love/domain/polls/display.php:101 content_love/log/home/logTable.php:131
@@ -5210,7 +5210,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/doc/display.php:46 content_a/accounting/irvat/all/display.php:210
 #: content_a/accounting/turnover/display.php:220 content_a/category/home/display.php:156
 #: content_a/company/display.php:136 content_a/form/answer/display.php:89
-#: content_a/form/answer/item/display.php:84 content_a/form/home/display.php:148
+#: content_a/form/answer/item/display.php:83 content_a/form/home/display.php:148
 #: content_a/form/tag/display.php:104 content_a/notiflog/display.php:169
 #: content_a/order/home/display.php:194 content_a/products/home/display.php:243
 #: content_a/tag/home/display.php:110 content_a/units/display.php:149
@@ -8143,10 +8143,6 @@ msgstr "غیر مشمول"
 msgid "Enter new tag or select one tag"
 msgstr "تگ جدید وارد کنید یا یک تگ انتخاب کنید"
 
-#: content_a/form/answer/detail/display.php:180
-msgid "Show file"
-msgstr "نمایش فایل"
-
 #: content_a/form/answer/detail/model.php:17
 msgid "Tag saved"
 msgstr "کلیدواژه ذخیره شد"
@@ -8211,7 +8207,7 @@ msgstr "پاسخ‌ها"
 msgid "Answer"
 msgstr "پاسخ"
 
-#: content_a/form/answer/item/display.php:50 content_a/form/answer/item/display.php:61
+#: content_a/form/answer/item/display.php:50 content_a/form/answer/item/display.php:60
 msgid "Other answer"
 msgstr "سایر پاسخ‌ها"
 
@@ -8635,9 +8631,9 @@ msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:42
-#: content_cms/posts/setting/display.php:22 dash/app/posts/filter.php:52
-#: includes/languages/trans_static.php:512 lib/app/factor/action.php:61
-#: lib/app/factor/ready.php:112 lib/app/tax/doc/ready.php:40
+#: content_cms/home/display.php:6 content_cms/posts/setting/display.php:22
+#: dash/app/posts/filter.php:52 includes/languages/trans_static.php:512
+#: lib/app/factor/action.php:61 lib/app/factor/ready.php:112 lib/app/tax/doc/ready.php:40
 #: lib/app/tax/docdetail/ready.php:26
 msgid "Draft"
 msgstr "پیش‌نویس"
@@ -8646,8 +8642,9 @@ msgstr "پیش‌نویس"
 msgid "The form is draft"
 msgstr "فرم پیش‌نویس است"
 
-#: content_a/form/status/display.php:29 content_cms/posts/setting/display.php:23
-#: content_love/gift/create/review/display.php:49 includes/languages/trans_static.php:518
+#: content_a/form/status/display.php:29 content_cms/home/display.php:7
+#: content_cms/posts/setting/display.php:23 content_love/gift/create/review/display.php:49
+#: includes/languages/trans_static.php:518
 msgid "Publish"
 msgstr "انتشار"
 
@@ -8704,10 +8701,10 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
 #: content_a/tag/edit/controller.php:14 content_a/tag/remove/controller.php:13
-#: content_cms/tag/edit/controller.php:15 dash/app/files/remove.php:21
-#: dash/app/posts/check.php:206 dash/app/terms/remove.php:18 dash/app/terms/remove.php:51
-#: dash/app/terms/remove.php:82 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106
-#: lib/app/form/tag/get.php:113 lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
+#: content_cms/tag/edit/controller.php:15 dash/app/posts/check.php:206
+#: dash/app/terms/remove.php:18 dash/app/terms/remove.php:51 dash/app/terms/remove.php:82
+#: lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106 lib/app/form/tag/get.php:113
+#: lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
 #: lib/app/form/tag/remove.php:18 lib/app/form/tag/remove.php:39
 #: lib/app/form/tag/remove.php:72 lib/app/menu/check.php:201 lib/app/tag/edit.php:24
 #: lib/app/tag/get.php:65 lib/app/tag/get.php:72 lib/app/tag/get.php:99
@@ -10881,12 +10878,12 @@ msgid "Redirect jibres subdomain to business master domain"
 msgstr "انتقال زیردامنه جیبرس به دامنه اصلی بیزینس شما"
 
 #: content_a/setting/domain/setting/display.php:30
-#, fuzzy
-#| msgid "If this feature is enable all request from :from redirect to :to "
 msgid ""
-"If this feature is enable all request from jibres subdomain to your website primary "
+"Turn's on to redirect all requests from the Jibres subdomain to your website's primary "
 "domain."
-msgstr "اگر این امکان فعال باشد همه درخواست‌ها از :from منتقل می‌شوند به :to "
+msgstr ""
+"برای اینکه تمامی درخواست‌های ارسال شده به زیردامنه جیبرس به دامنه اصلی بیزینس شما منتقل "
+"گردد این گزینه را فعال کنید."
 
 #: content_a/setting/domain/setting/display.php:56
 msgid "Redirect all domain to master"
@@ -12082,6 +12079,9 @@ msgid ""
 "encrypted format. You can have stable access to a reliable storage system from all "
 "around the world, without worrying about data loss."
 msgstr ""
+"ArvanCloud به شما امکان می‌دهد هر نوع داده را در Cloud Storage در یک قالب کاملا رمزگذاری "
+"شده ذخیره کنید. شما می‌توانید بدون نگرانی در مورد از دست دادن داده‌ها، به یک سیستم ذخیره "
+"سازی مطمئن از سراسر جهان دسترسی پایدار داشته باشید."
 
 #: content_a/setting/thirdparty/arvanclouds3/display.php:15
 msgid "Upload your file to ArvanCloud S3 platform"
@@ -12098,6 +12098,10 @@ msgid ""
 "same scalable storage infrastructure that Amazon.com uses to run its global e-commerce "
 "network"
 msgstr ""
+"Amazon S3 یا Amazon Simple Storage Service سرویسی است که توسط سرویس‌های وب آمازون (AWS) "
+"ارائه می‌شود که ذخیره سازی اشیا را از طریق رابط وب سرویس فراهم می‌کند. آمازون S3 از همان "
+"زیرساخت ذخیره سازی مقیاس پذیر استفاده می‌کند که Amazon.com برای راه‌اندازی شبکه تجارت "
+"الکترونیکی جهانی خود استفاده کرده است"
 
 #: content_a/setting/thirdparty/awss3/display.php:15
 msgid "Upload your file to AWS S3 platform"
@@ -12112,6 +12116,8 @@ msgid ""
 "Spaces is an S3-compatible object storage service that lets you store and serve large "
 "amounts of data. Each Space is a bucket for you to store and serve files."
 msgstr ""
+"Spaces یک سرویس ذخیره سازی فایل سازگار با S3 است که به شما امکان می‌دهد مقدار زیادی داده "
+"را ذخیره کنید. هر Space دارای یک پوشه برای ذخیره و استفاده از فایل‌ها است."
 
 #: content_a/setting/thirdparty/digitaloceans3/display.php:15
 msgid "Upload your file to DigitalOcean S3 platform"
@@ -15232,7 +15238,7 @@ msgid "CMS Customization"
 msgstr "سفارشی سازی سیستم مدیریت محتوا"
 
 #: content_cms/files/add/model.php:31 content_cms/files/remove/model.php:28
-#: dash/upload/file.php:185
+#: dash/upload/file.php:240
 msgid "Can not upload file"
 msgstr "ناتوان در آپلود فایل"
 
@@ -15318,9 +15324,10 @@ msgstr "محدودیت فضای ذخیره سازی"
 msgid "Used percent"
 msgstr "درصد استفاده شده"
 
-#: content_cms/files/view/controller.php:15 dash/app/posts/gallery.php:217
-#: lib/app/irvat/gallery.php:157 lib/app/product/gallery.php:149
-#: lib/app/product/gallery.php:308 lib/app/tax/doc/gallery.php:175
+#: content_cms/files/view/controller.php:15 dash/app/files/remove.php:21
+#: dash/app/posts/gallery.php:217 lib/app/irvat/gallery.php:157
+#: lib/app/product/gallery.php:149 lib/app/product/gallery.php:308
+#: lib/app/tax/doc/gallery.php:175
 msgid "Invalid file id"
 msgstr "شناسه فایل اشتباه است"
 
@@ -15350,14 +15357,6 @@ msgstr "نمایش فایل"
 #: content_cms/help/setting/controller.php:13
 msgid "Invalid post type"
 msgstr "نوع نوشته نامعتبر است"
-
-#: content_cms/home/display.php:6
-msgid "Draft Post"
-msgstr "نوشته‌های پیش‌نویس"
-
-#: content_cms/home/display.php:7
-msgid "Publish Post"
-msgstr "نوشته‌های منتشر شده"
 
 #: content_cms/home/display.php:8
 msgid "Posts per month in last year"
@@ -23238,9 +23237,10 @@ msgstr "پی‌دی‌اف"
 msgid "Other"
 msgstr "سایر"
 
-#: dash/app/files/get.php:19 dash/app/telegram/get.php:14 dash/app/terms/get.php:41
-msgid "Terms not founded"
-msgstr "عبارت یافت نشد"
+#: dash/app/files/get.php:19 lib/app/export/download.php:56 lib/app/import/product.php:89
+#: lib/app/import/product.php:95 lib/app/staticfile/remove.php:43
+msgid "File not found"
+msgstr "فایل یافت نشد"
 
 #: dash/app/files/ready.php:81
 msgid "Word"
@@ -23270,7 +23270,11 @@ msgstr "ما نمی‌توانیم فایل شما را از S3 حذف کنیم"
 msgid "Can not remove your file from s3 platform"
 msgstr "نمی‌توانیم فایل شما را از S3 حذف کنیم"
 
-#: dash/app/files/remove.php:119
+#: dash/app/files/remove.php:98
+msgid "Can not connect to storage server"
+msgstr "نمی‌توانیم به سرور فایل‌ها متصل شویم"
+
+#: dash/app/files/remove.php:144
 msgid "File successfully removed"
 msgstr "فایل با موفقیت حذف شد"
 
@@ -23918,6 +23922,10 @@ msgstr "دسته‌بندی یا تگ خیلی طولانی است!"
 #: dash/app/smile.php:93
 msgid "You have :val new order!"
 msgstr "شما :val سفارش جدید دارید!"
+
+#: dash/app/telegram/get.php:14 dash/app/terms/get.php:41
+msgid "Terms not founded"
+msgstr "عبارت یافت نشد"
 
 #: dash/app/terms/add.php:68
 msgid "No way to insert term"
@@ -26084,21 +26092,29 @@ msgid "Can not upload this file. Some keywords of this file is wrong!"
 msgstr ""
 "امکان بارگذاری این نوع فایل وجود ندارد. بعضی از کلمات کلیدی اشتباه در این فایل یافت شد!"
 
-#: dash/upload/file.php:138
+#: dash/upload/file.php:149
 msgid "File size is greater than allowed"
 msgstr "حجم فایل ارسالی از میزان حجم مجاز برای ارسال بزرگتر است"
 
-#: dash/upload/file.php:144
+#: dash/upload/file.php:155
 msgid "Your storage space is full. Please contact support"
 msgstr "فضای ذخیره سازی شما تکمیل شده است. لطفا با پشتیبانی تماس بگیرید"
 
-#: dash/upload/file.php:161
+#: dash/upload/file.php:172
 msgid "Please use from a square image file"
 msgstr "لطفا از تصویر مربع استفاده کنید"
 
-#: dash/upload/file.php:175
+#: dash/upload/file.php:188
 msgid "Directory for upload not found"
 msgstr "دایرکتوری برای آپلود یافت نشد"
+
+#: dash/upload/file.php:221
+msgid "Can not send your file in remote directory"
+msgstr "نمی‌توانیم فایل شما را در آدرس مقصد بارگذاری کنیم"
+
+#: dash/upload/file.php:227
+msgid "Can not upload your file in storage"
+msgstr "نمی‌توانیم فایل شما را بارگذاری کنیم"
 
 #: dash/upload/irvat.php:20 dash/upload/irvat.php:37 lib/app/factor/get.php:145
 #: lib/app/factor/get.php:189 lib/app/factor/get.php:300
@@ -33875,11 +33891,6 @@ msgstr "نمی‌توانیم درخواست دریافت خروجی شما را
 msgid "File not available to download"
 msgstr "فایل آمادگی دانلود را ندارد"
 
-#: lib/app/export/download.php:56 lib/app/import/product.php:89
-#: lib/app/import/product.php:95 lib/app/staticfile/remove.php:43
-msgid "File not found"
-msgstr "فایل یافت نشد"
-
 #: lib/app/export/form_answer.php:62
 msgid "Create export form answer completed"
 msgstr "ساخت فایل خروجی از پاسخ‌ها تکمیل شد"
@@ -34278,35 +34289,35 @@ msgstr "شناسه قرعه‌کشی نامعتبر است"
 msgid "Invalid type of item"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:108 lib/app/form/answer/add.php:244
+#: lib/app/form/answer/add.php:119 lib/app/form/answer/add.php:256
 msgid ":val is required"
 msgstr ":val الزامی است"
 
-#: lib/app/form/answer/add.php:183
+#: lib/app/form/answer/add.php:195
 msgid "You must select at least :min options"
 msgstr "شما باید حداقل :min گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:192
+#: lib/app/form/answer/add.php:204
 msgid "You can choose up to :max options"
 msgstr "شما می‌توانید حداکثر :max گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:377
+#: lib/app/form/answer/add.php:389
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:393
+#: lib/app/form/answer/add.php:405
 msgid "You are answer to this form before"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
-#: lib/app/form/answer/add.php:412
+#: lib/app/form/answer/add.php:424
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:603
+#: lib/app/form/answer/add.php:615
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:610
+#: lib/app/form/answer/add.php:622
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
@@ -34317,6 +34328,10 @@ msgstr "شما هیچ پاسخی برای خروجی گرفتن ندارید"
 #: lib/app/form/answer/get.php:28
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
+
+#: lib/app/form/answer/get.php:46
+msgid "Show file"
+msgstr "نمایش فایل"
 
 #: lib/app/form/choice/add.php:38
 msgid "Choice successfully added"
@@ -34352,8 +34367,8 @@ msgid "Column customized"
 msgstr "ستون‌ها سفارشی شد"
 
 #: lib/app/form/filter/ready.php:55 lib/app/form/report.php:221
-#: lib/app/form/report.php:222 lib/app/form/report.php:353 lib/app/form/report.php:354
-#: lib/app/form/report.php:458
+#: lib/app/form/report.php:222 lib/app/form/report.php:354 lib/app/form/report.php:355
+#: lib/app/form/report.php:459
 msgid "Not answer"
 msgstr "بدون پاسخ"
 
@@ -34522,7 +34537,7 @@ msgstr "ورودی مخفی"
 msgid "Agree"
 msgstr "موافقت"
 
-#: lib/app/form/report.php:210 lib/app/form/report.php:341 lib/app/form/report.php:342
+#: lib/app/form/report.php:210 lib/app/form/report.php:342 lib/app/form/report.php:343
 msgid "Other choice"
 msgstr "سایر گزینه‌ها"
 
@@ -38662,6 +38677,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Draft Post"
+#~ msgstr "نوشته‌های پیش‌نویس"
+
+#~ msgid "Publish Post"
+#~ msgstr "نوشته‌های منتشر شده"
 
 #~ msgid "SMS setting"
 #~ msgstr "تنظیمات پیام کوتاه"
