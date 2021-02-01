@@ -14,7 +14,7 @@
      <li>
       <a class="item f align-center" href="<?php echo \dash\url::this(). '/edit?id='.  a($value, 'id') ?>">
 <?php if(a($value, 'thumb')) {?>
-        <?php echo '<img src="'. a($value, 'thumb'). '" alt="'. T_("Post image"). '">'; ?>
+        <?php echo '<img src="'. \dash\utility\image::url_thumb(a($value, 'thumb')). '" alt="'. T_("Post image"). '">'; ?>
 <?php } else {?>
         <i class="sf-news"></i>
 <?php }?>

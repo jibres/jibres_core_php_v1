@@ -386,6 +386,19 @@ class image
 	}
 
 
+	public static function url_thumb($_src)
+	{
+		$dotPosition = strrpos($_src, '.');
+		if(!$dotPosition)
+		{
+			return false;
+		}
+		$imgName = substr($_src, 0, $dotPosition);
+		$newUrl = $imgName. '-w120.webp';
+
+		return $newUrl;
+	}
+
 
 	public static function responsive_image_size()
 	{
