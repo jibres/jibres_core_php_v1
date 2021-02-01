@@ -530,7 +530,14 @@ class url
 			}
 			else
 			{
-				$talambarAddr = 'http';
+				if($_mode === 'cdn')
+				{
+					$talambarAddr = 'http';
+				}
+				else
+				{
+					$talambarAddr = 'https';
+				}
 			}
 		}
 		else
