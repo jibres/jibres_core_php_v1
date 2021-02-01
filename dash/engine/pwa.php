@@ -71,6 +71,12 @@ class pwa
 		{
 			$manifest['icons'] = self::logo_jibres();
 		}
+
+		if(!$manifest['description'])
+		{
+			unset($manifest['description']);
+		}
+
 		// cache 1 day
 		\dash\header::cache(60*60*24);
 
