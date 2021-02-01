@@ -68,9 +68,8 @@ class ratio
 			$result.= ' >';
 			if($is_default === $key)
 			{
-				$result .= T_("Default"). ' (';
 				$result .= $value['title'];
-				$result .= ')';
+				$result .= ' ('. T_("Default").')';
 			}
 			else
 			{
