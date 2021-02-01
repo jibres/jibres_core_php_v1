@@ -16,7 +16,7 @@ class get
 
 		if(!$result)
 		{
-			\dash\notif::error(T_("Terms not founded"));
+			\dash\notif::error(T_("File not found"));
 			return false;
 		}
 

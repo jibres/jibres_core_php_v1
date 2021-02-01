@@ -18,7 +18,7 @@ class remove
 
 		if(!isset($load['id']))
 		{
-			\dash\notif::error(T_("Invalid tag id"));
+			\dash\notif::error(T_("Invalid file id"));
 			return false;
 		}
 
@@ -89,13 +89,24 @@ class remove
 		}
 		else
 		{
+			$upload_other_server_scp = \dash\upload\file::upload_other_server_scp();
+
+			if($upload_other_server_scp)
+			{
+				if(!\dash\scp::uploader_connection())
+				{
+					\dash\notif::error(T_("Can not connect to storage server"));
+					return false;
+				}
+			}
+
 			$position = 'jibres';
 			if(\dash\engine\store::inStore())
 			{
 				$position = 'business';
 			}
 
-			$directory = \dash\upload\directory::move_to($position);
+			$directory = \dash\upload\directory::move_to($position, $upload_other_server_scp);
 
 			$file_path = $directory. $load['path'];
 
@@ -106,11 +117,25 @@ class remove
 				foreach ($responsive_image as $width)
 				{
 					$new_path = str_replace('.'. $load['ext'], '-w'. $width. '.webp', $file_path);
-					\dash\file::delete($new_path);
+					if($upload_other_server_scp)
+					{
+						\dash\scp::delete($new_path);
+					}
+					else
+					{
+						\dash\file::delete($new_path);
+					}
 				}
 			}
 
-			\dash\file::delete($file_path);
+			if($upload_other_server_scp)
+			{
+				\dash\scp::delete($file_path);
+			}
+			else
+			{
+				\dash\file::delete($file_path);
+			}
 		}
 
 

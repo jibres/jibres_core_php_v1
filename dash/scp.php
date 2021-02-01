@@ -5,7 +5,7 @@ namespace dash;
  */
 class scp
 {
-	private static $connection = null;
+	private static $connection     = null;
 	private static $home_directory = null;
 
 
@@ -123,6 +123,30 @@ class scp
 		try
 		{
 			$result = \ssh2_scp_recv(self::$connection, self::fix_home_dir($_remote_file), $_local_file);
+			return $result;
+		}
+		catch (\Exception $e)
+		{
+			return false;
+		}
+	}
+
+
+	public static function delete($_remote_file)
+	{
+		self::connect();
+
+		if(!self::$connection)
+		{
+			return false;
+		}
+
+		$_remote_file = self::fix_home_dir($_remote_file);
+
+		try
+		{
+			$sftp   = \ssh2_sftp(self::$connection);
+			$result = \ssh2_sftp_unlink($sftp, $_remote_file);
 			return $result;
 		}
 		catch (\Exception $e)
