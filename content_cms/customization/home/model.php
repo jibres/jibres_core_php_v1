@@ -6,6 +6,7 @@ class model
 	public static function post()
 	{
 		$post = [];
+
 		if(\dash\request::post('set_thumbratiostandard'))
 		{
 			$post['thumbratiostandard'] = \dash\request::post('thumbratiostandard');
@@ -28,23 +29,30 @@ class model
 
 		if(\dash\request::post('set_defaultcomment'))
 		{
-			$post['defaultcomment'] = \dash\request::post('defaultcomment');
+			$post['defaultcomment'] = \dash\request::post('defaultcomment') ? 'open' : 'closed';
 		}
 
 		if(\dash\request::post('set_defaultshowwriter'))
 		{
-			$post['defaultshowwriter'] = \dash\request::post('defaultshowwriter');
+			$post['defaultshowwriter'] = \dash\request::post('defaultshowwriter') ? 'visible' : 'hidden';
 		}
 
 		if(\dash\request::post('set_defaultshowdate'))
 		{
-			$post['defaultshowdate'] = \dash\request::post('defaultshowdate');
+			$post['defaultshowdate'] = \dash\request::post('defaultshowdate') ? 'visible' : 'hidden';
+		}
+
+		if(empty($post))
+		{
+			\dash\notif::error(T_("Invalid request"));
+			return false;
 		}
 
 		\lib\app\setting\set::cms_setting($post);
 
 		if(\dash\engine\process::status())
 		{
+			\dash\notif::clean();
 			\dash\redirect::pwd();
 		}
 

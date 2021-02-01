@@ -175,6 +175,22 @@ class get
 			}
 		}
 
+		if(!a($setting, 'defaultcomment'))
+		{
+			$setting['defaultcomment'] = 'open';
+		}
+
+
+		if(!a($setting, 'defaultshowwriter'))
+		{
+			$setting['defaultshowwriter'] = 'visible';
+		}
+
+		if(!a($setting, 'defaultshowdate'))
+		{
+			$setting['defaultshowdate'] = 'visible';
+		}
+
 		return $setting;
 	}
 

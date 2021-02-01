@@ -89,11 +89,10 @@
   <form class="c4 s12" method="post" data-patch>
     <input type="hidden" name="set_defaultcomment" value="1">
       <div class="action">
-         <select class="select22" name="defaultcomment" data-placeholder='<?php echo T_("Please choose an item") ?>'>
-          <option value=""><?php echo T_("Please choose an item") ?></option>
-          <option value="open" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'open') { echo 'selected'; } ?> ><?php echo T_("Open"); ?></option>
-          <option value="closed" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'closed') { echo 'selected'; } ?> ><?php echo T_("Closed"); ?></option>
-        </select>
+        <div class="switch1">
+          <input id="idefaultcomment" type="checkbox" name="defaultcomment" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'open') { echo 'checked'; } ?>>
+          <label for="idefaultcomment" data-on="<?php echo T_("Open") ?>" data-off="<?php echo T_("Closed") ?>"></label>
+        </div>
       </div>
   </form>
 </section>
@@ -112,11 +111,10 @@
   <form class="c4 s12" method="post" data-patch>
     <input type="hidden" name="set_defaultshowwriter" value="1">
       <div class="action">
-         <select class="select22" name="defaultshowwriter" data-placeholder='<?php echo T_("Please choose an item") ?>'>
-          <option value=""><?php echo T_("Please choose an item") ?></option>
-          <option value="visible" <?php if(\dash\data::cmsSettingSaved_defaultshowwriter() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
-          <option value="hidden" <?php if(\dash\data::cmsSettingSaved_defaultshowwriter() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
-        </select>
+        <div class="switch1">
+          <input id="idefaultshowwriter" type="checkbox" name="defaultshowwriter" <?php if(\dash\data::cmsSettingSaved_defaultshowwriter() == 'visible') { echo 'checked'; } ?>>
+          <label for="idefaultshowwriter" data-on="<?php echo T_("Visible") ?>" data-off="<?php echo T_("Hidden") ?>"></label>
+        </div>
       </div>
   </form>
 </section>
@@ -134,11 +132,10 @@
   <form class="c4 s12" method="post" data-patch>
     <input type="hidden" name="set_defaultshowdate" value="1">
       <div class="action">
-         <select class="select22" name="defaultshowdate" data-placeholder='<?php echo T_("Please choose an item") ?>'>
-          <option value=""><?php echo T_("Please choose an item") ?></option>
-          <option value="visible" <?php if(\dash\data::cmsSettingSaved_defaultshowdate() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
-          <option value="hidden" <?php if(\dash\data::cmsSettingSaved_defaultshowdate() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
-        </select>
+        <div class="switch1">
+          <input id="idefaultshowdate" type="checkbox" name="defaultshowdate" <?php if(\dash\data::cmsSettingSaved_defaultshowdate() == 'visible') { echo 'checked'; } ?>>
+          <label for="idefaultshowdate" data-on="<?php echo T_("Visible") ?>" data-off="<?php echo T_("Hidden") ?>"></label>
+        </div>
       </div>
   </form>
 </section>
