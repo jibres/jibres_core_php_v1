@@ -269,7 +269,7 @@ class s3
             $deleteObject = $client->deleteObject($delete);
 
 
-            if($deleteObject['DeleteMarker'])
+            if(isset($deleteObject['DeleteMarker']) && $deleteObject['DeleteMarker'])
             {
                 return true;
             }
