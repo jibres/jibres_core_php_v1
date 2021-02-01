@@ -7,7 +7,7 @@ namespace dash\upload;
 class storage
 {
 
-	public static function have_space($_size)
+	public static function limit()
 	{
 		if(\dash\engine\store::inStore())
 		{
@@ -19,21 +19,29 @@ class storage
 			{
 				$storage_limit = 1000 * 1024 * 1024; // 1 GB
 			}
-
-			$total_used    = floatval(\dash\db\files::total_size());
-
-			if(floatval($_size) + $total_used > $storage_limit )
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
 		}
 		else
 		{
 			// jibres have unlimit storage
+			$storage_limit = 1000 * 1000 * 1024 * 1024; // 1TB
+		}
+
+		return $storage_limit;
+	}
+
+
+	public static function have_space($_size)
+	{
+		$storage_limit = self::limit();
+
+		$total_used    = floatval(\dash\db\files::total_size());
+
+		if(floatval($_size) + $total_used > $storage_limit )
+		{
+			return false;
+		}
+		else
+		{
 			return true;
 		}
 	}

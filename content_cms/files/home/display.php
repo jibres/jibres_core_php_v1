@@ -1,18 +1,115 @@
-<nav class="items">
-  <ul>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-     <li>
-      <a class="f align-center" href="<?php echo \dash\url::this(). '/view?id='.  a($value, 'id') ?>">
-        <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo T_("Post image") ?>">
-        <div class="key"><?php echo a($value, 'filename'). '.'. a($value, 'ext'); ?></div>
-        <div class="value s0"><?php echo \dash\fit::file_size(a($value, 'size')); ?></div>
-        <div class="value"><span class="badge light"><?php echo a($value, 't_type'); ?></span></div>
-        <div class="value ltr s0"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></div>
-        <div class="go <?php echo $value['icon_list'] ?>"></div>
-      </a>
-     </li>
-    <?php } //endfor ?>
-  </ul>
-</nav>
+<?php
+$dashboard = \dash\data::dashboardDetail();
+$provider = [];
+if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_name'))
+{
+  switch ($dashboard['upload_provider_name'])
+  {
 
-<?php \dash\utility\pagination::html(); ?>
+    case 'arvancloud':
+      $provider['title'] = T_("ArvanCloud");
+      $provider['image'] = \dash\url::cdn(). '/img/thirdparty/arvancloud.svg';
+      break;
+
+    case 'digitalocean':
+      $provider['title'] = T_("DigitalOcean");
+      $provider['image'] = \dash\url::cdn(). '/img/thirdparty/digitalocean.svg';
+      break;
+
+    case 'aws':
+    default:
+      $provider['title'] = T_("AWS");
+      $provider['image'] = \dash\url::cdn(). '/img/thirdparty/aws.svg';
+      break;
+  }
+}
+
+?>
+
+<div class="row">
+  <div class="c-xs-12 c-sm-12 c-md-8">
+    <div id="chartdivcmsfiles" class="box chart x270 s0" data-abc='cms/files'>
+      <div class="hide">
+        <div id="charttitleunit"><?php echo T_("Count") ?></div>
+        <div id="chartfiletitle"><?php echo T_("File") ?></div>
+        <div id="charttitle"><?php echo T_("Total file count per type") ?></div>
+        <div id="chartcategory"><?php echo a($dashboard, 'charttype', 'category') ?></div>
+        <div id="chartdata"><?php echo a($dashboard, 'charttype', 'data') ?></div>
+      </div>
+    </div>
+  </div>
+  <div class="c-xs-12 c-sm-12 c-md-4">
+
+<?php if($provider) {?>
+    <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/setting/thirdparty'; ?>">
+          <img class="avatar" src="<?php echo $provider['image'] ?>" alt="<?php echo $dashboard['upload_provider_name'] ?>">
+          <div class="key"><?php echo T_("Your file is uploaded on :provider ", ['provider' => $provider['title']]) ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+<?php } //endif ?>
+<nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/add">
+          <i class="sf-cloud-upload"></i>
+          <div class="key"><?php echo T_('Upload');?></div>
+
+          <div class="go plus ok"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
+    <nav class="items long">
+     <ul>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist">
+          <i class="sf-files-o"></i>
+          <div class="key"><?php echo T_('Total file');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'total_count')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?order=desc&sort=size">
+          <i class="sf-lamp"></i>
+          <div class="key"><?php echo T_('Total size');?></div>
+          <div class="value"><?php echo \dash\fit::file_size(a($dashboard, 'total_size')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
+   <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f">
+          <i class="sf-database"></i>
+          <div class="key"><?php echo T_('Storage limit');?></div>
+          <div class="value"><?php echo \dash\fit::file_size(a($dashboard, 'storage_limit')); ?></div>
+          <div class="go detail"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f">
+          <i class="sf-battery-half"></i>
+          <div class="key"><?php echo T_('Useage percent');?></div>
+          <div class="value"><?php echo \dash\fit::text(a($dashboard, 'used_percent')). ' '. T_("%"); ?></div>
+          <div class="go detail"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
+
+
+  </div>
+</div>
+</div>

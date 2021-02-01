@@ -26,36 +26,6 @@ class get
 	}
 
 
-	public static function dashboard_detail()
-	{
-		$result = [];
-		$result['totalfiles'] = floatval(\dash\db\files::count_all());
-		$result['totalsize'] = floatval(\dash\db\files::total_size());
-
-		if(\dash\engine\store::inStore())
-		{
-			$result['storagelimit'] = floatval(\lib\store::detail('storage'));
-			$div = $result['storagelimit'];
-			if(intval($div) === 0)
-			{
-				$div = 1;
-			}
-
-			$result['usedpercent'] = round($result['totalsize'] * 100 / $div, 2);
-			if($result['usedpercent'] > 100)
-			{
-				$result['usedpercent'] = 100;
-			}
-		}
-		else
-		{
-			$result['storagelimit'] = '-';
-			$result['usedpercent'] = '-';
-		}
-
-		return $result;
-	}
-
 
 	public static function inline_get($_id)
 	{

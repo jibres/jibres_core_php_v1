@@ -139,5 +139,23 @@ class files
 		$result = \dash\db\config::public_get('files', ...func_get_args());
 		return $result;
 	}
+
+
+
+	public static function chart_count_size_per_type()
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				SUM(files.totalsize) AS `size`,
+				files.type
+			FROM files
+				GROUP BY files.type
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
 }
 ?>
