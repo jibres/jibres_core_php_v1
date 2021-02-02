@@ -162,7 +162,9 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
             <li>
               <a class="item f" href="<?php echo \dash\url::here(); ?>/posts/edit?id=<?php echo $value['id']; ?>">
 <?php if(a($value, 'thumb')) {?>
-                <img src="<?php echo a($value, 'thumb'); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
+                <img src="<?php echo \dash\fit::url_thumb(a($value, 'thumb')); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
+<?php } else {?>
+        <i class="sf-news"></i>
 <?php }?>
                 <div class="key"><?php  echo $value['title'];  ?></div>
                 <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
@@ -184,7 +186,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
           <?php foreach (\dash\data::dashboardDetail_latesComment() as $key => $value) { ?>
             <li>
               <a class="item f" href="<?php echo \dash\url::here(); ?>/comments/view?cid=<?php echo $value['id']; ?>">
-                <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+                <img src="<?php echo \dash\fit::url_thumb(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
                 <div class="key"><?php if(isset($value['title']) && $value['title']) { echo $value['title']; }else{ echo mb_substr($value['content'], 0, 20); } ?></div>
                 <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
               </a>
