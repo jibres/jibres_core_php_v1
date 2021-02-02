@@ -48,7 +48,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=standard">
-            <i class="sf-align-left"></i>
+            <i class="sf-news"></i>
             <div class="key"><?php echo T_('Standard Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_standard()); ?></div>
             <div class="go"></div>
@@ -163,9 +163,31 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
               <a class="item f" href="<?php echo \dash\url::here(); ?>/posts/edit?id=<?php echo $value['id']; ?>">
 <?php if(a($value, 'thumb')) {?>
                 <img src="<?php echo \dash\fit::url_thumb(a($value, 'thumb')); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
-<?php } else {?>
-        <i class="sf-news"></i>
-<?php }?>
+<?php } else {
+$type = 'news';
+switch (a($value, 'subtype'))
+{
+  case 'standard':
+    $type = 'news';
+    break;
+
+  case 'gallery':
+    $type = 'picture';
+    break;
+
+  case 'video':
+    $type = 'film';
+    break;
+
+  case 'audio':
+    $type = 'music';
+    break;
+
+  default:
+    break;
+}
+echo '<i class="sf-'. $type. '"></i>';
+}?>
                 <div class="key"><?php  echo $value['title'];  ?></div>
                 <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
               </a>
