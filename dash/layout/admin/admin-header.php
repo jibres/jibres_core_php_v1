@@ -22,7 +22,7 @@
     <a href="<?php echo \dash\url::sitelang(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell pulse"></i></a>
     <a class="profileShow" href="<?php echo \dash\url::kingdom(). '/account';?>">
 <?php if(\dash\user::detail('avatar')) { ?>
-     <img src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
+     <img src="<?php echo \dash\fit::url_thumb(\dash\user::detail('avatar')); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()){ ?>
      <img src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
 <?php }else{ ?>

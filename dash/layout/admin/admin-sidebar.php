@@ -27,7 +27,7 @@ else
    echo "<a href='$avatarLink' title='". T_('Edit your profile'). "' class='avatar'>";
    if(\dash\user::detail('avatar'))
    {
-    echo '<img src="'. \dash\user::detail('avatar'). '" alt="'. T_("Avatar of you"). ' '. \dash\user::detail('displayname') .'">';
+    echo '<img src="'. \dash\fit::url_thumb(\dash\user::detail('avatar')). '" alt="'. T_("Avatar of you"). ' '. \dash\user::detail('displayname') .'">';
    }
    elseif(\dash\user::id())
    {
