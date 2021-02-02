@@ -102,8 +102,8 @@ class image
 		// Preservation of the transparence / alpha for PNG and GIF
 		if($type == IMAGETYPE_GIF || $type == IMAGETYPE_PNG)
 		{
-			imagealphablending(self::$img, false);
-			imagesavealpha(self::$img, true);
+			@imagealphablending(self::$img, false);
+			@imagesavealpha(self::$img, true);
 		}
 
 		self::$loaded = true;
@@ -124,19 +124,19 @@ class image
 
 		if(self::$type == IMAGETYPE_JPEG)
 		{
-			imagejpeg($img, $filepath, self::$quality);
+			@imagejpeg($img, $filepath, self::$quality);
 		}
 		elseif(self::$type == IMAGETYPE_GIF)
 		{
-			imagegif($img, $filepath);
+			@imagegif($img, $filepath);
 		}
 		elseif(self::$type == IMAGETYPE_PNG)
 		{
-			imagepng($img, $filepath);
+			@imagepng($img, $filepath);
 		}
 		elseif(self::$type == IMAGETYPE_WEBP || self::$type == IMAGETYPE_WBMP)
 		{
-			imagewbmp($img, $filepath);
+			@imagewbmp($img, $filepath);
 		}
 	}
 
@@ -167,13 +167,13 @@ class image
 			$alpha = self::$type == IMAGETYPE_GIF || self::$type == IMAGETYPE_PNG;
 		}
 
-		$img = imagecreatetruecolor($width, $height);
+		$img = @imagecreatetruecolor($width, $height);
 
 		// Preservation of the transparence / alpha for PNG and GIF
 		if($alpha)
 		{
-			imagealphablending($img, false);
-			imagesavealpha($img, true);
+			@imagealphablending($img, false);
+			@imagesavealpha($img, true);
 		}
 
 		return $img;
@@ -199,7 +199,7 @@ class image
 
 		$new_img = self::create($dst_w, $dst_h);
 
-		imagecopyresampled($new_img , self::$img, 0, 0, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
+		@imagecopyresampled($new_img , self::$img, 0, 0, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
 
 		return $new_img;
 	}
@@ -400,9 +400,9 @@ class image
 	}
 
 
-	public static function make_webp_image($_file_addr, $_new_addr, $_width)
+	public static function make_webp_image($_file_addr, $_new_addr, $_width, $_load_once = false)
 	{
-		self::load($_file_addr, true);
+		self::load($_file_addr, $_load_once);
 
 		if(!self::$loaded)
 		{
@@ -418,17 +418,16 @@ class image
 		{
 			if(self::$width < $_width)
 			{
-				$new_img = self::$img;
+				$_width = self::$width;
 			}
-			else
-			{
-				$new_img = \dash\utility\image::setWidth($_width);
-			}
+
+			$new_img = \dash\utility\image::setWidth($_width);
+
 		}
 
-		imagewebp($new_img, $_new_addr, 80);
+		@imagewebp($new_img, $_new_addr, 80);
+		@imagedestroy($new_img);
 
-		imagedestroy($new_img);
 
 		return true;
 

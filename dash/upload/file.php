@@ -281,7 +281,7 @@ class file
 
 				$new_path = $file_without_ext . '-w'. $width. '.webp';
 
-				if(\dash\utility\image::make_webp_image($real_addr, $new_path, $width))
+				if(\dash\utility\image::make_webp_image($real_addr, $new_path, $width, true))
 				{
 					$totalsize += filesize($new_path);
 
