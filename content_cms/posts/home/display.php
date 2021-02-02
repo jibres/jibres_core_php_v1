@@ -15,9 +15,31 @@
       <a class="item f align-center" href="<?php echo \dash\url::this(). '/edit?id='.  a($value, 'id') ?>">
 <?php if(a($value, 'thumb')) {?>
         <?php echo '<img src="'. \dash\fit::url_thumb(a($value, 'thumb')). '" alt="'. T_("Post image"). '">'; ?>
-<?php } else {?>
-        <i class="sf-news"></i>
-<?php }?>
+<?php } else {
+$type = 'news';
+switch (a($value, 'subtype'))
+{
+  case 'standard':
+    $type = 'news';
+    break;
+
+  case 'gallery':
+    $type = 'picture';
+    break;
+
+  case 'video':
+    $type = 'film';
+    break;
+
+  case 'audio':
+    $type = 'music';
+    break;
+
+  default:
+    break;
+}
+echo '<i class="sf-'. $type. '"></i>';
+}?>
         <div class="key"><?php echo a($value, 'title'); ?></div>
         <div class="value ltr" title="<?php echo $date_title; ?>"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></div>
         <div class="go <?php echo $value['icon_list'] ?>"></div>
