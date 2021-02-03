@@ -4,8 +4,7 @@ function HTMLLastModified($_key)
   $data = \dash\data::cmsSettingSaved();
   if(isset($data[$_key. '_lastmodified']))
   {
-    $result = '';
-    $result .= '<time datatime="'. $data[$_key. "_lastmodified"] .'">';
+    $result = '<time datatime="'. $data[$_key. "_lastmodified"] .'">';
     $result .= T_("This setting was last changed a :val", ['val' => \dash\fit::date_human($data[$_key. "_lastmodified"])]);
     $result .= '</time>';
     return $result;
@@ -15,9 +14,10 @@ function HTMLLastModified($_key)
 <section class="f" data-option='cms-thumb-ratio'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Featured image of standard post");?></h3>
+      <h3><?php echo T_("An aspect ratio of  Featured image for standard post");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiostandard'); ?>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p>
+        <?php echo HTMLLastModified('thumbratiostandard'); ?>
       </div>
     </div>
   </div>
