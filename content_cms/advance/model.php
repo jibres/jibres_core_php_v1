@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\customization\home;
+namespace content_cms\advance;
 
 class model
 {

@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\customization\home;
+namespace content_cms\advance;
 
 class view
 {
@@ -10,7 +10,6 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 		\dash\data::cmsSettingSaved(\lib\app\setting\get::cms_setting());
-
 	}
 }
 ?>

@@ -5,11 +5,9 @@ function HTMLLastModified($_key)
   if(isset($data[$_key. '_lastmodified']))
   {
     $result = '';
-    $result .= '<span class="block fc-mute">';
-    $result .= T_("Last modified");
-    $result .= ' ';
-    $result .= \dash\fit::date_human($data[$_key. '_lastmodified']);
-    $result .= '</span>';
+    $result .= '<time datatime="'. $data[$_key. "_lastmodified"] .'">';
+    $result .= T_("This setting was last changed a :val", ['val' => \dash\fit::date_human($data[$_key. "_lastmodified"])]);
+    $result .= '</time>';
     return $result;
   }
 }

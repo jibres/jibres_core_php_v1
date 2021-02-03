@@ -16,7 +16,7 @@ class view
 
 		if(\dash\permission::check('cmsSetting'))
 		{
-			\dash\face::btnSetting(\dash\url::this().'/customization');
+			\dash\face::btnSetting(\dash\url::this().'/advance');
 		}
 
 		\dash\data::dashboardDetail(\dash\app\posts\dashboard::detail());
