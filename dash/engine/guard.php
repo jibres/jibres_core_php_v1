@@ -185,6 +185,8 @@ class guard
 		if(\dash\url::isLocal())
 		{
 			$policy['connect-src'][] = '*.jibres.local';
+			$policy['img-src'][] = '*.jibres.local';
+			$policy['font-src'][] = '*.jibres.local';
 		}
 
 		// create export txt
