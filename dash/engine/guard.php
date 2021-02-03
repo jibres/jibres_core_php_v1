@@ -92,24 +92,20 @@ class guard
 			],
 			'img-src' =>
 			[
-				self::csp_cdn(),
-				self::csp_domain(),
+				"https:",
+				"blob:",
+				"data:",
+			],
+			'media-src' =>
+			[
 				"https:",
 				"blob:",
 				"data:",
 			],
 			'font-src' =>
 			[
-				self::csp_cdn(),
 				"https:",
 				"data:",
-			],
-			'media-src' =>
-			[
-				self::csp_cdn(),
-				self::csp_domain(),
-				"data:",
-				'https://*.arvanstorage.com',
 			],
 			'frame-src' =>
 			[
