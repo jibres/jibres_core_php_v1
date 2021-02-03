@@ -7,6 +7,12 @@ namespace dash\upload;
 class size
 {
 
+	public static function maxUploadSize($_module = null)
+	{
+		$size = \dash\upload\size::MB(1, true);
+		\dash\data::maxUploadSize($size);
+		return $size;
+	}
 	/**
 	 * Show the max file size to upload in support content
 	 *

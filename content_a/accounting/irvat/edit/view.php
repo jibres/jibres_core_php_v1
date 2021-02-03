@@ -13,7 +13,7 @@ class view
 		\dash\data::back_link(\dash\url::that(). '/all');
 
 
-		\dash\data::maxUploadSize(\dash\upload\size::MB(1, true));
+		\dash\upload\size::maxUploadSize('accounting');
 
 		\dash\data::titleList(\lib\app\irvat\get::title_list());
 

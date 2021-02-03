@@ -23,7 +23,7 @@ class view
 		\dash\data::toplineSaved(\lib\app\website\header\topline::get());
 
 
-		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
+		\dash\upload\size::maxUploadSize('header');
 	}
 }
 ?>

@@ -20,7 +20,7 @@ class view
 			\dash\data::allMenu($menu);
 		}
 
-		\dash\data::maxUploadSize(\dash\upload\size::cms_file_size(true));
+		\dash\upload\size::maxUploadSize('footer');
 	}
 }
 ?>
