@@ -23,7 +23,7 @@ class size
 	 */
 	public static function support_file_size($_pretty = false)
 	{
-		return self::MB(1, $_pretty);
+		return self::MB(2, $_pretty);
 	}
 
 
@@ -36,7 +36,7 @@ class size
 
 	public static function crm_file_size($_pretty = false)
 	{
-		return self::MB(1, $_pretty);
+		return self::MB(2, $_pretty);
 	}
 
 
