@@ -9,7 +9,7 @@ class size
 
 	public static function set_default_file_size($_content = null)
 	{
-		$maxFileSize = self::MB(2);
+		$maxFileSize = self::MB(5);
 		$title       = self::readableSize($maxFileSize);
 		\dash\data::maxFileSize($maxFileSize);
 		\dash\data::maxFileSizeTitle($title);
@@ -23,20 +23,20 @@ class size
 	 */
 	public static function support_file_size($_pretty = false)
 	{
-		return self::MB(2, $_pretty);
+		return self::MB(5, $_pretty);
 	}
 
 
 
 	public static function cms_file_size($_pretty = false)
 	{
-		return self::MB(2, $_pretty);
+		return self::MB(5, $_pretty);
 	}
 
 
 	public static function crm_file_size($_pretty = false)
 	{
-		return self::MB(2, $_pretty);
+		return self::MB(5, $_pretty);
 	}
 
 
@@ -47,7 +47,7 @@ class size
 
 		if(\dash\engine\store::inStore() && \lib\store::detail('special_upload_provider'))
 		{
-			$mb = $mb * 5;
+			$mb = 100;
 		}
 
 		$size = self::allow_size($mb);
