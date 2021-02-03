@@ -4,7 +4,7 @@
   <form method="post" autocomplete="off" enctype="multipart/form-data">
 
     <?php \dash\csrf::html(); ?>
-  	<div data-uploader data-name='avatar' data-ratio="1" data-final='#finalImage' data-preview-circle data-autoSend data-uploader-circle>
+  	<div data-uploader data-name='avatar' data-ratio="1" data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-preview-circle data-autoSend data-uploader-circle>
       <input type="file" accept="image/jpeg, image/png" id="image1">
       <label for="image1"><?php echo T_('Drag &amp; Drop your picture or Browse'); ?></label>
 

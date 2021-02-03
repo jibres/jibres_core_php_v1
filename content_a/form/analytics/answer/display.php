@@ -90,7 +90,7 @@
             </div>
           </div>
           <div class="showAttachment" data-kerkere-content='hide'>
-            <div class="box" data-uploader data-name='file'>
+            <div class="box" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
               <input type="file"  id="file1">
               <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
             </div>

@@ -9,7 +9,7 @@
       <form method="post" enctype="multipart/form-data" autocomplete="off">
 
 
-        <div data-uploader data-name='logo' data-ratio="1" data-final='#finalImage'<?php if(\dash\data::dataRow_logo()) { echo " data-fill"; }?>>
+        <div data-uploader data-name='logo' data-ratio="1" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage'<?php if(\dash\data::dataRow_logo()) { echo " data-fill"; }?>>
           <input type="file" accept="image/jpeg, image/png" id="image1">
           <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
 <?php if(\dash\data::dataRow_logo()) {?>

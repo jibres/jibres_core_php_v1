@@ -53,7 +53,7 @@
 
 					<div class="mB10">
 						<div data-uploader data-name='file' data-final='#finalImagefile1'>
-							<input type="file" accept="image/*" id="file1">
+							<input type="file" accept="image/*" id="file1" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 							<label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
 							<label for="file1"><img id="finalImagefile1" <?php if(\dash\data::dataRow_inquiryimage()) {?>src="<?php echo \dash\data::dataRow_inquiryimage(); ?>" <?php } //endif ?> alt="<?php echo T_("File") ?>"></label>
 						</div>

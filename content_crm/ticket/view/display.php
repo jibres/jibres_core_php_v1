@@ -167,7 +167,7 @@ foreach (\dash\data::conversation() as $key => $value)
   <div class="box">
     <div class="pad">
       <textarea class="txt" <?php if(!$customer_mode){echo 'name="answer" data-editor';}else{echo 'name="content"';} ?> rows="4" <?php \dash\layout\autofocus::html() ?> placeholder='<?php if(!$customer_mode) { echo T_("Answer to ticket"); }else{ echo T_("Write your message");} ?>'></textarea>
-      <div class="mT10" data-uploader data-name='file'>
+      <div class="mT10" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
         <input type="file"  id="file1">
         <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       </div>

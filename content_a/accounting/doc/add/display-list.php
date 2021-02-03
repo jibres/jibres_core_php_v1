@@ -116,7 +116,7 @@
         <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Document gallery is full!"); ?></div>
         <?php }else{ ?>
-          <div data-uploader data-ratio-free data-name='gallery' data-autoSend>
+          <div data-uploader data-ratio-free data-name='gallery' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-autoSend>
             <input type="file" id="file1">
             <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small></label>
 

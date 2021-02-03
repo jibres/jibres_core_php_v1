@@ -19,7 +19,7 @@ else
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-autoSend <?php if(a($header_detail, 'saved', 'header_logo')) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-autoSend <?php if(a($header_detail, 'saved', 'header_logo')) { echo "data-fill";}?>>
 
       <input type="file" accept="image/jpeg, image/png" id="image1">
       <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>

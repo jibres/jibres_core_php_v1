@@ -101,7 +101,7 @@
 
 				<div class="mB10">
 					<label for="file1"><?php echo T_("ID card image"); ?></label>
-					<div data-uploader data-name='file1' data-final='#finalImagefile1'>
+					<div data-uploader data-name='file1' data-final='#finalImagefile1' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 						<input type="file" accept="image/*" id="file1">
 						<label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
 						<label for="file1"><img id="finalImagefile1" <?php if(\dash\data::dataRow_inquiryimage()) {?>src="<?php echo \dash\data::dataRow_inquiryimage(); ?>" <?php } //endif ?> alt="<?php echo T_("File") ?>"></label>
@@ -113,7 +113,7 @@
 
 				<div class="mB10">
 					<label for="file2"><?php echo T_("National card photo"); ?></label>
-					<div data-uploader data-name='file2' data-final='#finalImagefile2'>
+					<div data-uploader data-name='file2' data-final='#finalImagefile2' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 						<input type="file" accept="image/*" id="file2">
 						<label for="file2"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
 						<label for="file2"><img id="finalImagefile2" <?php if(\dash\data::dataRow_inquiryimage()) {?>src="<?php echo \dash\data::dataRow_inquiryimage(); ?>" <?php } //endif ?> alt="<?php echo T_("File") ?>"></label>

@@ -84,7 +84,7 @@
       <section class="box">
         <header><h2><?php echo T_("Category image"); ?></h2></header>
         <div class="body2">
-          <div data-uploader data-name='file' data-final='#finalImage' <?php if(\dash\data::dataRow_file()) { echo "data-fill";}?>>
+          <div data-uploader data-name='file' data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(\dash\data::dataRow_file()) { echo "data-fill";}?>>
             <input type="file" accept="image/jpeg, image/png" id="image1">
             <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
             <?php if(\dash\data::dataRow_file()) {?>
