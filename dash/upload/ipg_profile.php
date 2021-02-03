@@ -14,7 +14,7 @@ class ipg_profile
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -60,7 +60,7 @@ class ipg_profile
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image

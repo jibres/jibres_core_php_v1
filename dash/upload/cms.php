@@ -21,7 +21,7 @@ class cms
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::cms_file_size(),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -113,7 +113,7 @@ class cms
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::cms_file_size(),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -194,7 +194,7 @@ class cms
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::cms_file_size(),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'mp3','wav','ogg','wma','m4a','aac', 	// audio
@@ -252,7 +252,7 @@ class cms
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::cms_file_size(),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'mp3','wav','ogg','wma','m4a','aac', 	// audio

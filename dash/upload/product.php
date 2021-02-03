@@ -40,7 +40,7 @@ class product
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -120,7 +120,7 @@ class product
 
 			$meta =
 			[
-				'allow_size'       => \dash\upload\size::MB(1),
+				'allow_size'       => \dash\upload\size::get(),
 				'upload_from_path' => $new_path,
 				'upload_name'      => 'gallery',
 				'ext'              =>
@@ -177,7 +177,7 @@ class product
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'gif','jpeg','jpg','png',			// image

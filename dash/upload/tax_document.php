@@ -40,7 +40,7 @@ class tax_document
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'doc','docx','xls','xlsx','ppt','pptx','ppsx','zip','rar','jpeg','jpg','png','pdf',

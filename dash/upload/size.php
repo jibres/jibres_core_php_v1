@@ -7,48 +7,33 @@ namespace dash\upload;
 class size
 {
 
+	public static function get()
+	{
+		$mb = 5;
+
+		if(\dash\engine\store::inStore() && \lib\store::detail('special_upload_provider'))
+		{
+			$mb = 100;
+		}
+
+		return self::MB($mb);
+	}
+
+
 	public static function set_default_file_size($_content = null)
 	{
-		$maxFileSize = self::MB(5);
+		$maxFileSize = self::get();
 		$title       = self::readableSize($maxFileSize);
 		\dash\data::maxFileSize($maxFileSize);
 		\dash\data::maxFileSizeTitle($title);
 	}
 
 
-	/**
-	 * Show the max file size to upload in support content
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function support_file_size($_pretty = false)
-	{
-		return self::MB(5, $_pretty);
-	}
-
-
-
-	public static function cms_file_size($_pretty = false)
-	{
-		return self::MB(5, $_pretty);
-	}
-
-
-	public static function crm_file_size($_pretty = false)
-	{
-		return self::MB(5, $_pretty);
-	}
-
 
 	// convert MB to byte
 	public static function MB($_mb, $_pretty = false)
 	{
 		$mb   = floatval($_mb) * 1024 * 1024;
-
-		if(\dash\engine\store::inStore() && \lib\store::detail('special_upload_provider'))
-		{
-			$mb = 100;
-		}
 
 		$size = self::allow_size($mb);
 

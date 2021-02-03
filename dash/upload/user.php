@@ -25,7 +25,7 @@ class user
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
@@ -101,7 +101,7 @@ class user
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::crm_file_size(),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image

@@ -18,7 +18,7 @@ class quick
 
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpg', 'jpeg', 'png'

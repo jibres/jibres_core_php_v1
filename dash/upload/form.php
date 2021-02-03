@@ -19,7 +19,7 @@ class form
 
 		if($size > 10)
 		{
-			$size = 1;
+			$size = 10;
 		}
 
 		$ext = ['jpg', 'png'];
@@ -65,7 +65,7 @@ class form
 	{
 		$meta =
 		[
-			'allow_size' => \dash\upload\size::MB(1),
+			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
 				'jpeg','jpg','png',			// image
