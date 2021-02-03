@@ -109,6 +109,7 @@ class guard
 				self::csp_cdn(),
 				self::csp_domain(),
 				"data:",
+				'https://*.arvanstorage.com',
 			],
 			'frame-src' =>
 			[
