@@ -14,7 +14,7 @@ else
   echo T_("Work on your branding and add your logo. If you are not have logo don not worry, we are use your website title until you prepare your innovative logo. Manage and grow your business online with Jibres.");
 }
 ?></p>
-        <p class="meta"><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxUploadSize(); ?></b></p>
+        <p class="meta"><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxFileSizeTitle(); ?></b></p>
       </div>
     </div>
   </div>

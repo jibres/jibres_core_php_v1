@@ -56,6 +56,8 @@ class view
 				break;
 		}
 
+		\dash\upload\size::set_default_file_size('business');
+
 	}
 }
 ?>

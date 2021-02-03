@@ -42,7 +42,6 @@ class view
 
 		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
-		\dash\upload\size::maxUploadSize('accounting');
 
 		\dash\data::myType(\dash\data::dataRow_type());
 		\dash\data::editMode(true);

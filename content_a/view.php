@@ -30,6 +30,10 @@ class view
 		\dash\data::badge_shortkey(120);
 
 
+		\dash\upload\size::set_default_file_size();
+
+
+
 		// $cache_key = 'staff_list_'.\dash\url::subdomain();
 		// $cache = \dash\session::get($cache_key, 'jibres_store');
 		// if(!$cache)

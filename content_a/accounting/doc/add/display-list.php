@@ -118,7 +118,7 @@
         <?php }else{ ?>
           <div data-uploader data-ratio-free data-name='gallery' data-autoSend>
             <input type="file" id="file1">
-            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small></label>
 
         <?php if(\dash\data::dataRow_gallery_array()) {?>
           <div class="previewList">

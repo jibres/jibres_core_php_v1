@@ -10,7 +10,8 @@ class view
 		\dash\data::badge_shortkey(120);
 		\dash\data::badge2_shortkey(121);
 
-		\dash\upload\size::maxUploadSize('support');
+		\dash\upload\size::set_default_file_size('support');
+
 	}
 }
 ?>

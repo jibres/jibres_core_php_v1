@@ -8,7 +8,7 @@ class view
 	{
 		\dash\data::include_adminPanel(true);
 
-
+		\dash\upload\size::set_default_file_size('my');
 		if(\dash\url::module() === null || \dash\url::module() === 'business')
 		{
 			$myStore = \lib\app\store\mystore::list();

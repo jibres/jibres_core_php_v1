@@ -22,8 +22,6 @@ class view
 
 		\dash\data::toplineSaved(\lib\app\website\header\topline::get());
 
-
-		\dash\upload\size::maxUploadSize('header');
 	}
 }
 ?>

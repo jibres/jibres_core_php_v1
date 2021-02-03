@@ -419,7 +419,7 @@
                   <?php } //endfor ?>
                 </div>
               <?php } //endif ?>
-              <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxUploadSize(); ?></small></label>
+              <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small></label>
               <input type="file" id="file1" name="gallery">
               <?php if(false) {?>
 

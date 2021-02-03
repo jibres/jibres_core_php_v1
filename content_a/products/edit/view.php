@@ -29,9 +29,6 @@ class view
 		}
 
 
-		\dash\upload\size::maxUploadSize('product');
-
-
 		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);
 

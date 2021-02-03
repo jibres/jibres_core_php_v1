@@ -7,12 +7,15 @@ namespace dash\upload;
 class size
 {
 
-	public static function maxUploadSize($_module = null)
+	public static function set_default_file_size($_content = null)
 	{
-		$size = \dash\upload\size::MB(1, true);
-		\dash\data::maxUploadSize($size);
-		return $size;
+		$maxFileSize = self::MB(2);
+		$title       = self::readableSize($maxFileSize);
+		\dash\data::maxFileSize($maxFileSize);
+		\dash\data::maxFileSizeTitle($title);
 	}
+
+
 	/**
 	 * Show the max file size to upload in support content
 	 *
@@ -22,6 +25,7 @@ class size
 	{
 		return self::MB(1, $_pretty);
 	}
+
 
 
 	public static function cms_file_size($_pretty = false)
@@ -40,6 +44,12 @@ class size
 	public static function MB($_mb, $_pretty = false)
 	{
 		$mb   = floatval($_mb) * 1024 * 1024;
+
+		if(\dash\engine\store::inStore() && \lib\store::detail('special_upload_provider'))
+		{
+			$mb = $mb * 5;
+		}
+
 		$size = self::allow_size($mb);
 
 		if(!$_pretty)

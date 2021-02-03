@@ -20,7 +20,6 @@ class view
 			\dash\data::allMenu($menu);
 		}
 
-		\dash\upload\size::maxUploadSize('footer');
 	}
 }
 ?>
