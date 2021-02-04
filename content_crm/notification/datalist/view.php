@@ -23,6 +23,7 @@ class view
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 			'notif' => 1,
+			'touser' => \dash\request::get('touser'),
 
 		];
 

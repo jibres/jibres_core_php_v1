@@ -374,7 +374,7 @@ if(a($dataRowMember,  'status') === 'ban')
         </li>
 
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/message'. $myID;?>">
+          <a class="item f" href="<?php echo \dash\url::here(). '/notification/datalist?touser='. \dash\request::get('id');?>">
             <div class="key"><?php echo T_("Messages") ?></div>
             <div class="go"></div>
           </a>

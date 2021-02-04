@@ -23,6 +23,7 @@ class search
 			'show_type' => ['enum' => ['user', 'admin']],
 			'limit'     => 'int',
 			'to'        => 'id',
+			'touser'    => 'code',
 			'from'      => 'id',
 			'caller'    => 'string_200',
 			'notif'     => 'bit',
@@ -68,6 +69,16 @@ class search
 		if($data['to'])
 		{
 			$and[] = " logs.to =  $data[to] ";
+		}
+
+		if($data['touser'])
+		{
+			$user = \dash\coding::decode($data['touser']);
+			if($user)
+			{
+				$and[] = " logs.to =  $user ";
+			}
+
 		}
 
 		if($data['notif'])
