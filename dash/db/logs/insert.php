@@ -39,6 +39,14 @@ class insert
 				$query = "SELECT users.id, $VALUES FROM users ";
 				break;
 
+			case 'users_have_order':
+				$query = "SELECT factors.customer, $VALUES FROM factors WHERE factors.customer IS NOT NULL GROUP BY factors.customer ";
+				break;
+
+			case 'users_havenot_order':
+				$query = "SELECT users.id, $VALUES FROM users LEFT JOIN factors ON factors.customer = users.id  WHERE factors.customer IS NULL  ";
+				break;
+
 			default:
 				return false;
 				break;

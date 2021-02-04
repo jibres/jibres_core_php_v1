@@ -12,7 +12,10 @@ class model
 
 		$result = \dash\app\log\add::notif_group($post);
 
-		\dash\redirect::pwd();
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
 
 
 	}

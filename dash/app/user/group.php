@@ -21,6 +21,13 @@ class group
 			'title' => T_("Users have order"),
 		];
 
+		$list['users_havenot_order'] =
+		[
+			'key'   => 'users_havenot_order',
+			'title' => T_("Users have not order"),
+		];
+
+
 		return $list;
 
 	}
