@@ -9,6 +9,7 @@ class get
 		$id = \dash\coding::decode($_id);
 		if(!$id)
 		{
+			\dash\notif::error(T_("Invalid file id"));
 			return false;
 		}
 

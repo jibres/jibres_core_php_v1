@@ -15,6 +15,8 @@ class search
 
 	public static function list($_query_string, $_args)
 	{
+		\dash\permission::access('_group_crm');
+
 		$condition =
 		[
 			'order'     => 'order',

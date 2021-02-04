@@ -492,79 +492,29 @@ class user
 		return $result;
 	}
 
-
-	public static function user_in_all_table($_user_id)
+	public static function ready_api($_data)
 	{
-		if(!$_user_id || !is_numeric($_user_id))
-		{
-			return false;
-		}
 
-		$result                 = [];
-		$result['address']      =
-		[
-			'count'  => \dash\db\address::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
+		unset($_data['pin']);
+		unset($_data['ref']);
+		unset($_data['twostep']);
+		unset($_data['unit_id']);
+		unset($_data['meta']);
+		unset($_data['sidebar']);
+		unset($_data['theme']);
+		unset($_data['forceremember']);
+		unset($_data['signature']);
+		unset($_data['foreign']);
+		unset($_data['detail']);
+		unset($_data['jibres_user_id']);
+		unset($_data['password']);
+		unset($_data['title']);
+		unset($_data['avatar_raw']);
+		unset($_data['parent']);
 
-		$result['comments']     =
-		[
-			'count'  => \dash\db\comments::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
-
-		$result['invoices']     =
-		[
-			'count'  => \dash\db\invoices::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
-
-		$result['options']      =
-		[
-			'count'  => \dash\db\options::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
-
-		$result['posts']        =
-		[
-			'count'  => \dash\db\posts::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
-
-
-		$result['logs']         =
-		[
-			'count'  => \dash\db\logs::get_count(['from' => $_user_id]),
-			'link'   => \dash\url::kingdom(). '/crm/log?from=',
-			'encode' => false,
-		];
-
-		$result['logs_to']      =
-		[
-			'count'  => \dash\db\logs::get_count(['to' => $_user_id]),
-			'link'   => \dash\url::kingdom(). '/crm/log?to=',
-			'encode' => false,
-		];
-
-
-
-		$result['transactions'] =
-		[
-			'count'  => \dash\db\transactions::get_count(['user_id' => $_user_id]),
-			'link'   => null,
-			'encode' => false,
-		];
-
-
-
-		return $result;
-
+		return $_data;
 	}
+
 
 
 	public static function delete_user($_user_id)

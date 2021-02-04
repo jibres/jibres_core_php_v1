@@ -6,86 +6,38 @@ class view
 {
 	public static function config()
 	{
-		$detail = \dash\app\user::list(null, []);
-		if(is_array($detail))
+
+		$args =
+		[
+			'order'      => \dash\request::get('order'),
+			'sort'       => \dash\request::get('sort'),
+			'status'     => \dash\request::get('status'),
+			'permission' => \dash\request::get('permission'),
+			'hm'         => \dash\request::get('hm'),
+			'ho'         => \dash\request::get('ho'),
+			'hc'         => \dash\request::get('hc'),
+			'hp'         => \dash\request::get('hp'),
+			'show_type'  => 'all',
+		];
+
+		$search_string   = \dash\validate::search(\dash\request::get('q'));
+
+		$userList = \dash\app\user\search::list($search_string, $args);
+
+		if(!is_array($userList))
 		{
-			$detail = array_map(['self', 'ready'], $detail);
+			$userList = [];
 		}
 
-		\content_b1\tools::say($detail);
+		$userList = array_map(['\\dash\\app\\user', 'ready_api'], $userList);
+
+		$isFiltered = \dash\app\user\search::is_filtered();
+		\dash\notif::meta(['is_filtered' => $isFiltered]);
+
+		\content_b1\tools::say($userList);
+
 	}
 
-	// call from user fetch and user detail
-	public static function ready($_data)
-	{
-		$result = [];
-		foreach ($_data as $key => $value)
-		{
-			switch($key)
-			{
-				case 'jibres_user_id':
-				case 'title':
-				case 'password':
-				case 'verifymobile':
-				case 'verifyemail':
-				case 'avatar_raw':
-				case 'parent':
-				case 'type':
-				case 'pin':
-				case 'ref':
-				case 'twostep':
-				case 'unit_id':
-				case 'meta':
-				case 'sidebar':
-				case 'theme':
-				case 'forceremember':
-				case 'signature':
-				case 'detail':
-					// not show to user
-					break;
 
-				// case 'id':
-				// case 'username':
-				// case 'displayname':
-				// case 'gender':
-				// case 'mobile':
-				// case 'email':
-				// case 'status':
-				// case 'permission':
-				// case 'datecreated':
-				// case 'datemodified':
-				// case 'birthday':
-				// case 'language':
-				// case 'website':
-				// case 'facebook':
-				// case 'twitter':
-				// case 'instagram':
-				// case 'linkedin':
-				// case 'gmail':
-				// case 'firstname':
-				// case 'lastname':
-				// case 'bio':
-				// case 'father':
-				// case 'nationalcode':
-				// case 'nationality':
-				// case 'pasportcode':
-				// case 'pasportdate':
-				// case 'marital':
-				// case 'foreign':
-				// case 'phone':
-
-				// 	break;
-				case 'avatar':
-					$value = \lib\filepath::fix($value);
-					$result[$key] = $value;
-					break;
-
-				default:
-					$result[$key] = $value;
-					break;
-			}
-		}
-		return $result;
-	}
 }
 ?>
