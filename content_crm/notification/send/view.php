@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_("Send notification"));
 
 		\dash\data::back_link(\dash\url::this());
-		\dash\data::back_text(T_('Notification'));
+		\dash\data::back_text(T_('Notifications'));
 
 		if(\dash\request::get('user'))
 		{

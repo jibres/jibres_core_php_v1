@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_("Group sending notification"));
 
 		\dash\data::back_link(\dash\url::this());
-		\dash\data::back_text(T_('Notification'));
+		\dash\data::back_text(T_('Notifications'));
 
 
 		$group = \dash\app\user\group::list();
