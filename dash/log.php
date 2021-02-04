@@ -125,7 +125,7 @@ class log
 
 		$is_notif = self::call_fn($_caller, 'is_notif');
 
-		$field['notif'] = $is_notif;
+		$field['notif'] = $is_notif ? 1 : null;
 
 		$log_type = self::call_fn($_caller, 'log_type');
 
@@ -591,6 +591,13 @@ class log
 	// save log in database
 	public static function db($_caller, $_args = [], $_multi_send = [])
 	{
+		$get_sql_string = false;
+		if(isset($_args['data']['get_sql_string']) && $_args['data']['get_sql_string'])
+		{
+			unset($_args['data']['get_sql_string']);
+			$get_sql_string = true;
+		}
+
 		$default_args =
 		[
 			'from'       => null,
@@ -679,6 +686,11 @@ class log
 			'telegram'     => $_args['telegram'],
 			'email'        => $_args['email'],
 		];
+		// we need to sql raw to insert multi record in send group notifications
+		if($get_sql_string)
+		{
+			return $insert_log;
+		}
 
 		if($_multi_send)
 		{

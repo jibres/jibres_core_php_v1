@@ -6,9 +6,9 @@ class model
 {
 	public static function post()
 	{
-		$post         = [];
+		$post          = [];
 		$post['group'] = \dash\request::post('group');
-		$post['text'] = \dash\request::post('text');
+		$post['text']  = \dash\request::post('text');
 
 		$result = \dash\app\log\add::notif_group($post);
 

@@ -26,6 +26,19 @@ class group
 	}
 
 
+
+
+	public static function get($_key)
+	{
+		$list = self::list();
+		if(isset($list[$_key]))
+		{
+			return $list[$_key];
+		}
+		return null;
+	}
+
+
 	public static function check_input()
 	{
 		$list = self::list();

@@ -51,9 +51,6 @@ class add
 	public static function notif_group($_args)
 	{
 
-		\dash\notif::warn('not ready');
-		return true;
-
 		$condition =
 		[
 			'group' => \dash\app\user\group::check_input(),
@@ -72,14 +69,26 @@ class add
 			$title = T_("Notifation");
 		}
 
-		$log['notif_title'] = $title;
-		$log['notif_text']  = a($data, 'text');
-		$log['notif_group'] = a($data, 'group');
+		$log['notif_title']    = $title;
+		$log['notif_text']     = a($data, 'text');
+		$log['notif_group']    = a($data, 'group');
+		$log['get_sql_string'] = true;
+
+		$get_sql_string = \dash\log::set('notif_text', $log);
+
+		$result = \dash\db\logs\insert::send_group($get_sql_string, $data['group']);
+
+		if($result)
+		{
+			\dash\notif::ok(T_("Send notification successfully"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not send your notification"));
+			return false;
+		}
 
 	}
-
-
-
-
 }
 ?>

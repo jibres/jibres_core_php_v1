@@ -38,6 +38,14 @@
           <div class="go"></div>
         </a>
       </li>
+
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/sendgroup">
+          <i class="sf-users"></i>
+          <div class="key"><?php echo T_('Send group notifications');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
      </ul>
    </nav>
 

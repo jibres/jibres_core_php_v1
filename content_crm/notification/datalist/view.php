@@ -8,8 +8,8 @@ class view
 	{
 		\dash\face::title(T_("Notifications"));
 
-		\dash\data::back_link(\dash\url::here());
-		\dash\data::back_text(T_('CRM'));
+		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_text(T_('Notifications'));
 
 
 		\dash\data::listEngine_start(true);
