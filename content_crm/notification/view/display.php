@@ -1,4 +1,21 @@
 <?php $data = \dash\data::dataRow(); ?>
+<?php if(\dash\data::toUserDetail()) {?>
+  <nav class="items long">
+    <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::here(). '/member/glance?id='. \dash\data::dataRow_to_user();?>">
+          <img src="<?php echo \dash\data::toUserDetail_avatar() ?>">
+          <div class="key"><?php echo \dash\data::toUserDetail_displayname();?></div>
+          <div class="value"><?php echo T_(\dash\data::toUserDetail_status());?></div>
+          <div class="value"><?php echo \dash\fit::mobile(\dash\data::toUserDetail_mobile());?></div>
+          <div class="go <?php echo $myIcon ?>"></div>
+
+        </a>
+      </li>
+    </ul>
+  </nav>
+<?php } //endif ?>
+
 <nav class="items">
   <ul>
       <li>

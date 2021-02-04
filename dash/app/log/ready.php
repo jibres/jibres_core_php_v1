@@ -28,6 +28,12 @@ class ready
 					$result['id_raw'] = $value;
 					break;
 
+				case 'from':
+				case 'to':
+					$result[$key]          = $value;
+					$result[$key. '_user'] = $value ? \dash\coding::encode($value) : null;
+					break;
+
 				case 'data':
 					if($value && is_string($value))
 					{

@@ -11,6 +11,11 @@ class view
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::back_text(T_('Notification'));
 
+		if(\dash\request::get('user'))
+		{
+			\dash\data::userDetail(\dash\app\user::get(\dash\request::get('user')));
+		}
+
 
 	}
 }

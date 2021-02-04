@@ -379,6 +379,15 @@ if(a($dataRowMember,  'status') === 'ban')
             <div class="go"></div>
           </a>
         </li>
+
+
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(). '/notification/send?user='. \dash\request::get('id');?>">
+            <div class="key"><?php echo T_("Send message") ?></div>
+            <div class="go plus ok"></div>
+          </a>
+        </li>
+
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/sessions'. $myID;?>">
             <div class="key"><?php echo T_("Sessions") ?></div>

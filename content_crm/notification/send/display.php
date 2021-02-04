@@ -4,7 +4,11 @@
       <div class="pad">
         <label for="user"><?php echo T_("Customer") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div>
-          <select name="user" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'></select>
+          <select name="user" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
+            <?php if(\dash\request::get('user')) {?>
+              <option value="<?php echo \dash\request::get('user') ?>" selected><?php echo \dash\data::userDetail_displayname() ?></option>
+            <?php } //endif ?>
+          </select>
         </div>
         <textarea name="text" class="txt mB10" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
       </div>
