@@ -34,8 +34,12 @@ class prepare
 		// protect ourselve
 		\dash\engine\guard::protect();
 
-		// check need redirect for lang or www or https or main domain
-		self::fix_url_host();
+		if(!\dash\engine\store::inStore())
+		{
+			// check need redirect for lang or www or https or main domain
+			self::fix_url_host();
+
+		}
 
 		// self::check_domain();
 
