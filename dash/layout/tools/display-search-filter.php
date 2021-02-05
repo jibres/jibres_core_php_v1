@@ -1,11 +1,8 @@
 <?php
-
-$title = isset($filter_title) ? $filter_title : T_("Show all data where");
-
 if(is_array(\dash\data::listEngine_filter()))
 {
-  echo '<p>'. $title. '</p>';
-  echo '<div class="mB20">';
+  echo '<p class="msg info2">'. T_("Organize your data so it's easier to analyze. Filter your data if you only want to display records that meet certain criteria."). '</p>';
+  echo '<div class="filterList">';
 
   $first     = true;
   $myClass   = null;
@@ -15,6 +12,7 @@ if(is_array(\dash\data::listEngine_filter()))
   {
     if($lastGroup !== $value['group'])
     {
+      echo '<div>'. T_("Group by"). ' '. $value['group']. '</div>';
       $lastGroup = $value['group'];
       if(!$first)
       {
@@ -40,7 +38,7 @@ if(is_array(\dash\data::listEngine_filter()))
     {
      echo ' light';
     }
-    echo ' mB10 mLa5" href="'. \dash\url::that(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
+    echo '" href="'. \dash\url::that(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
     $myClass = null;
     $first = false;
   }
@@ -48,15 +46,14 @@ if(is_array(\dash\data::listEngine_filter()))
 }
 ?>
 
-<div class="f font-12">
-  <div class="cauto">
+<div class="row align-center">
+  <div class="c">
     <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>
-    <div class="fc-mute mA10"><span class="txtB"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Record founded") ?></div>
+    <div class="fc-mute"><span class="txtB"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Record founded") ?></div>
   </div>
-  <div class="c"></div>
-  <div class="cauto">
+  <div class="c-auto">
     <?php if(\dash\request::get()) {?>
-      <a class="btn outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
+      <a class="btn secondary outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
     <?php }//endif ?>
   </div>
 </div>
