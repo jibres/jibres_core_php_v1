@@ -8,7 +8,8 @@ class model
 	{
 		$post           = [];
 
-		$post['mobile'] = \dash\request::input_body('mobile');
+		$post['mobile']      = \dash\request::input_body('mobile');
+		$post['displayname'] = \dash\request::input_body('displayname');
 
 		$result = \dash\app\user::add($post);
 

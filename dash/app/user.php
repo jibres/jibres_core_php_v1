@@ -289,6 +289,7 @@ class user
 			'marital'               => ['enum' => ['single', 'married']],
 			'avatar'                => 'string_200',
 			// 'shcode'             => 'smallint',
+			'subscribe'             => 'bit',
 			'nationality'           => 'country',
 			'phone'                 => 'phone',
 			'status'                => ['enum' => ['active','awaiting','deactive','removed','filter','unreachable', 'ban', 'block']],
