@@ -13,10 +13,18 @@ class address
 		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
+			\dash\notif::error(T_("Invalid address id"));
 			return false;
 		}
 
 		$result = \dash\db\address::get(['id' => $id, 'limit' => 1]);
+
+		if(!$result)
+		{
+			\dash\notif::error(T_("Address not found"));
+			return false;
+		}
+
 		$temp = [];
 		if(is_array($result) && $result)
 		{
@@ -445,6 +453,12 @@ class address
 		if(!isset($check['id']))
 		{
 			\dash\notif::error(T_("Can not access to remove this address"));
+			return false;
+		}
+
+		if(isset($check['status']) && $check['status'] === 'delete')
+		{
+			\dash\notif::error(T_("Address not found"));
 			return false;
 		}
 

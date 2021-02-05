@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\user\address\add;
+namespace content_b1\user\address\detail;
 
 
 class controller
