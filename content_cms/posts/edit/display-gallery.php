@@ -1,4 +1,11 @@
-<?php $dataRow = \dash\data::dataRow();  ?>
+<?php
+  $dataRow = \dash\data::dataRow();
+  $chooseTxt = T_('Drag &amp; Drop your files or Browse');
+  if(\dash\detect\device::detectPWA())
+  {
+    $chooseTxt = T_('Choose File');
+  }
+?>
 
 <?php if(a($dataRow, 'subtype') === 'audio') {?>
 <section class="f" data-option='cms-post-audio'>
@@ -7,13 +14,14 @@
       <h3><?php echo T_("Podcast")?></h3>
       <div class="body">
         <p><?php echo T_("We enable you to upload audio clips and share them with the world. Sharing your talent is simple!") ?></p>
+        <p class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></p>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='gallery' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(a($dataRow, 'gallery_array', 0, 'path')) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='gallery' data-type='audio' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(a($dataRow, 'gallery_array', 0, 'path')) { echo "data-fill";}?>>
       <input type="file" accept="audio/*" id="audio1">
-        <label for="audio1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+        <label for="audio1"><?php echo $chooseTxt; ?></label>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <label for="audio1">
           <audio controls preload='meta'>
@@ -41,13 +49,14 @@ if(a($dataRow, 'subtype') === 'video') {?>
       <h3><?php echo T_("Video")?></h3>
       <div class="body">
         <p><?php echo T_("Share your video with the world.") ?></p>
+        <p class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></p>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='gallery' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(a($dataRow, 'gallery_array', 0, 'path')) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='gallery' data-type='video' data-autoSend data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(a($dataRow, 'gallery_array', 0, 'path')) { echo "data-fill";}?>>
       <input type="file" accept="video/*" id="video1">
-        <label for="video1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+        <label for="video1"><?php echo $chooseTxt ?></label>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <label for="video1">
           <video controls preload='meta'<?php if(a($dataRow, 'poster')) { echo " poster='". \lib\filepath::fix(a($dataRow, 'poster')). "'";} ?>>
@@ -86,13 +95,14 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
         <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Product gallery is full!"); ?></div>
         <?php }else{ ?>
-          <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-name='gallery' data-ratio-free <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
+          <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-name='gallery' data-ratio-free data-type='gallery' <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
             <input type="file" id="file1">
-            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr>
+            <label for="file1"><abbr><?php echo $chooseTxt; ?></abbr>
               <?php if(count($gallery) >= 3) {?>
                 <a href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
               <?php } //endif ?>
-            <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small></label>
+            <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small>
+            </label>
 
         <?php if(\dash\data::dataRow_gallery_array()) {?>
           <div class="previewList">
@@ -133,10 +143,10 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?> data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?> data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-type='featureImage'>
       <input type="hidden" name="runaction_setthumb" value="1">
       <input type="file" accept="image/jpeg, image/png" id="image1thumb">
-      <label for="image1thumb"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <label for="image1thumb"><?php echo $chooseTxt ?></label>
       <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?>
     </div>
   </form>
