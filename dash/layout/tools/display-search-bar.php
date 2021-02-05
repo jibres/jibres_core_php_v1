@@ -50,12 +50,20 @@ if(\dash\data::sortList())
     </div>
   </div>
 
-<?php if(\dash\data::listEngine_filter()) {
+<?php if(\dash\data::listEngine_filter())
+{
   echo '<div class="filterBox" data-kerkere-content="hide">';
-  $myFilterAddr = str_replace('display.php', 'display-filter.php', \dash\layout\func::display());
-  if(is_file($myFilterAddr))
+  if(\dash\data::listEngine_filter() === true)
   {
-    require_once($myFilterAddr);
+    $myFilterAddr = str_replace('display.php', 'display-filter.php', \dash\layout\func::display());
+    if(is_file($myFilterAddr))
+    {
+      require_once($myFilterAddr);
+    }
+  }
+  else
+  {
+    require_once(core. 'layout/tools/display-search-filter.php');
   }
   echo '</div>';
 }?>

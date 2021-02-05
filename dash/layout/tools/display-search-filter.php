@@ -2,7 +2,7 @@
 
 $title = isset($filter_title) ? $filter_title : T_("Show all data where");
 
-if(isset($list) && is_array($list))
+if(is_array(\dash\data::listEngine_filter()))
 {
   echo '<p>'. $title. '</p>';
   echo '<div class="mB20">';
@@ -11,7 +11,7 @@ if(isset($list) && is_array($list))
   $myClass   = null;
   $lastGroup = null;
 
-  foreach ($list as $key => $value)
+  foreach (\dash\data::listEngine_filter() as $key => $value)
   {
     if($lastGroup !== $value['group'])
     {
