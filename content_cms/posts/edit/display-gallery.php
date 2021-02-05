@@ -108,8 +108,22 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
 
         <?php if(\dash\data::dataRow_gallery_array()) {?>
           <div class="previewList">
+            <div class="row">
             <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
-                <div class="fileItem" data-removeElement data-type='<?php echo a($value, 'type'); ?>'>
+<?php
+$myGalleryClass = 'c-xs-6 c-sm-4 c-md-3 c-lg-3 c-xxl-2';
+switch (a($value, 'type'))
+{
+  case 'video':
+    $myGalleryClass = 'c-xs-12 c-sm-12 c-md-6 c-xxl-4';
+    break;
+
+  case 'audio':
+    $myGalleryClass = 'c-xs-12 c-sm-12';
+    break;
+}
+ ?>
+                <div class="fileItem <?php echo $myGalleryClass; ?>" data-removeElement data-type='<?php echo a($value, 'type'); ?>'>
                   <?php if(a($value, 'type') === 'video') {?>
                     <video controls>
                       <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
@@ -126,6 +140,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
                   </div>
                 </div>
             <?php } //endfor ?>
+            </div>
           </div>
         <?php } //endif ?>
           </div>
