@@ -41,7 +41,7 @@ switch (a($value, 'subtype'))
 echo '<i class="sf-'. $type. '"></i>';
 }?>
         <div class="key"><?php echo a($value, 'title'); ?></div>
-        <div class="value ltr" title="<?php echo $date_title; ?>"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></div>
+        <time class="value" datatime="<?php echo $date_title; ?>"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></time>
         <div class="go <?php echo $value['icon_list'] ?>"></div>
       </a>
      </li>
