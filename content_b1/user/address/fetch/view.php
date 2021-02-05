@@ -19,6 +19,11 @@ class view
 
 		$detail = \content_b1\user\address::list_address();
 
+		if(!$detail)
+		{
+			\dash\notif::info(T_("No address founded"));
+		}
+
 		\content_b1\tools::say($detail);
 	}
 }

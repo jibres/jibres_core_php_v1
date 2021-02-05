@@ -16,23 +16,6 @@ class pagination
 		return \dash\utility\pagination::init($_total_rows, $_length);
 	}
 
-	public static function pagination_fake($_fake_total_row, $_length = 10)
-	{
-
-		$total_rows = floatval($_fake_total_row);
-		$result     = self::pagination($total_rows, $_length);
-
-		if($result)
-		{
-			return "LIMIT ". implode(',', $result);
-		}
-		else
-		{
-			return null;
-		}
-	}
-
-
 
 	public static function pagination_query($_query, $_length = 10, $_fuel = null)
 	{
