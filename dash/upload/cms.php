@@ -61,6 +61,17 @@ class cms
 			return false;
 		}
 
+		if(isset($load_file['type']) && $load_file['type'] === 'image')
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not set this file as cover!"));
+			return false;
+		}
+
+
 		self::set_usage('post_thumb', \dash\coding::decode($load_file['id']), $_post_id);
 
 		return $load_file['path'];
@@ -148,6 +159,16 @@ class cms
 
 		if(!isset($load_file['id']))
 		{
+			return false;
+		}
+
+		if(isset($load_file['type']) && $load_file['type'] === 'image')
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not set this file as cover!"));
 			return false;
 		}
 
