@@ -558,7 +558,7 @@ class url
 			$talambarAddr .= '.talambar.';
 		}
 
-		if(self::$url['root'] === 'jibres')
+		if(self::$url['root'] === 'jibres' || self::$url['root'] === 'myjibres')
 		{
 			if(self::isLocal())
 			{
@@ -573,7 +573,7 @@ class url
 			}
 			else
 			{
-				if(self::tld() === 'ir')
+				if(self::tld() === 'ir' || self::tld() === 'store')
 				{
 					$talambarAddr .= 'ir';
 				}
