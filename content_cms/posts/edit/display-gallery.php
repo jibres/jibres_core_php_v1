@@ -97,7 +97,9 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
         <?php }else{ ?>
           <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-name='gallery' data-ratio-free data-type='gallery' <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
             <input type="file" id="file1">
-            <label for="file1"><abbr><?php echo $chooseTxt; ?></abbr>
+            <label for="file1">
+              <abbr class="block"><?php echo T_("Gallery") ?></abbr>
+              <abbr><?php echo $chooseTxt; ?></abbr>
               <?php if(count($gallery) >= 3) {?>
                 <a href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
               <?php } //endif ?>
@@ -133,7 +135,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
  ?>
 
 
-<section class="f" data-option='cms-post-thumb'>
+<section class="f mB10-f" data-option='cms-post-thumb'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Featured Image")?></h3>
