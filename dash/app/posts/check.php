@@ -11,7 +11,7 @@ class check
 			'language'        => 'language',
 			'cover'           => 'string_500', // path
 			'thumb'           => 'string_500', // path
-			'title'           => 'string_100',
+			'title'           => 'string_200',
 			'seotitle'        => 'seotitle',
 			'excerpt'         => 'string_300',
 			'subtitle'        => 'string_500',
