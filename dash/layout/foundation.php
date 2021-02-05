@@ -81,7 +81,10 @@ if(isset($_SERVER['HTTP_REFERER']))
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="apple-touch-startup-image"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
-<?php } else {?>
+ <?php if(\dash\engine\store::inBusinessSubdomain()) {?>
+ <meta name="robots" content="noindex">
+ <meta name="googlebot" content="noindex">
+<?php } /* end if of businessSubdomain*/ } else {?>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>
