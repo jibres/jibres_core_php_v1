@@ -111,6 +111,17 @@ class ready
 
 		$result['link'] = \lib\store::url(). '/!'. $result['id'];
 
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['prettyip']);
+			unset($result['ipRaw']);
+			unset($result['rowColor']);
+			unset($result['colorClass']);
+			unset($result['statuclass']);
+			unset($result['plus']);
+			unset($result['gender_string']);
+		}
+
 		return $result;
 	}
 }
