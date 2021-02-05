@@ -24,7 +24,7 @@ class view
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_filter(\dash\app\ticket\filter::list('website'));
 		\dash\data::listEngine_sort(true);
 		\dash\data::sortList(\dash\app\ticket\filter::sort_list('website'));
 
