@@ -101,7 +101,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
               <div class="block"><?php echo T_("Gallery") ?></div>
               <abbr><?php echo $chooseTxt; ?></abbr>
               <?php if(count($gallery) >= 3) {?>
-                <a href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
+                <a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
               <?php } //endif ?>
             <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small>
             </label>
