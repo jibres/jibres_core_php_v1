@@ -582,7 +582,13 @@ class prepare
 	 */
 	public static function check_domain()
 	{
-		$specail_domain =
+		// free subdomain like api.jibres.com, business.jibres.ir, ...
+		if(\dash\engine\store::free_subdomain())
+		{
+			return false;
+		}
+
+		$specail_my_business_domain =
 		[
 			'blog.jibres.ir',
 			'blog.jibres.com',
@@ -592,27 +598,60 @@ class prepare
 			'help.jibres.local',
 		];
 
-		if(in_array(\dash\url::host(), $specail_domain))
+		if(in_array(\dash\url::host(), $specail_my_business_domain))
 		{
-			// need check business domain
+			// need to check business domain
+			$is_customer_domain = \dash\engine\store::is_customer_domain(\dash\url::host());
+
+			if($is_customer_domain)
+			{
+				return;
+			}
 		}
-		else
+
+		$domain    = \dash\url::domain();
+		$subdomain = \dash\url::subdomain();
+
+		if($subdomain)
 		{
-			$domain = \dash\url::domain();
 			switch ($domain)
 			{
-				case 'jibres.com':
-				case 'jibres.ir':
-				// case 'jibres.store':
-				// case 'myjibres.com':
-				// case 'myjibres.ir':
-				case 'jibres.local':
+				case 'jibres.store':
+				case 'myjibres.ir':
+				case 'myjibres.com':
+				case 'myjibres.local':
 					// nothing
+					return;
+					break;
+
+				case 'jibres.ir':
+				case 'jibres.com':
+				case 'jibres.local':
+					self::go_to_myjibres();
 					return;
 					break;
 			}
 		}
+		else
+		{
+			switch ($domain)
+			{
+				case 'jibres.ir':
+				case 'jibres.com':
+				case 'jibres.local':
+					// nothing
+					return;
+					break;
 
+				case 'jibres.store':
+				case 'myjibres.ir':
+				case 'myjibres.com':
+				case 'myjibres.local':
+					self::go_to_jibres();
+					return;
+					break;
+			}
+		}
 
 		// check is customer domain or no
 		$is_customer_domain = \dash\engine\store::is_customer_domain(\dash\url::host());
@@ -667,6 +706,50 @@ class prepare
 		self::html_raw_page('unknownMode');
 	}
 
+
+	private static function go_to_jibres()
+	{
+		$url = \dash\url::protocol(). '://jibres.';
+		switch (\dash\url::tld())
+		{
+			case 'com':
+			case 'local':
+				$url .= \dash\url::tld();
+				break;
+
+			case 'store':
+			default:
+				$url .= 'ir';
+				break;
+		}
+
+		\dash\redirect::to($url);
+	}
+
+
+
+	private static function go_to_myjibres()
+	{
+		$url = \dash\url::protocol(). '://';
+		$url .= \dash\url::subdomain();
+		switch (\dash\url::tld())
+		{
+			case 'com':
+			case 'local':
+				$url .= '.myjibres.'. \dash\url::tld();
+				break;
+
+			case 'ir':
+			default:
+				$url .= '.jibres.store';
+				break;
+		}
+		if(\dash\url::path())
+		{
+			$url .= \dash\url::path();
+		}
+		\dash\redirect::to($url);
+	}
 
 
 	public static function html_raw_page($_file_name)
