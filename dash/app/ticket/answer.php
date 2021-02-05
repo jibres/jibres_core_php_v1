@@ -24,7 +24,7 @@ class answer
 
 		if(isset($master['parent']) && $master['parent'])
 		{
-			\dash\noitf::error(T_("Can not answer to this message!"));
+			\dash\notif::error(T_("Can not answer to this message!"));
 			return false;
 		}
 
