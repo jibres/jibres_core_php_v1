@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Files"));
+		\dash\face::title(T_("Choose from files"));
 
 		self::call_back_link();
 
