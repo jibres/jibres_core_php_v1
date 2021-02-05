@@ -1,23 +1,20 @@
 <?php
-function HTMLLastModified($_key)
+function lastModified($_key)
 {
   $data = \dash\data::cmsSettingSaved();
   if(isset($data[$_key. '_lastmodified']))
   {
-    $result = '<time datatime="'. $data[$_key. "_lastmodified"] .'">';
-    $result .= T_("This setting was last changed a :val", ['val' => \dash\fit::date_human($data[$_key. "_lastmodified"])]);
-    $result .= '</time>';
-    return $result;
+    return \dash\generate\option::lastModified($data[$_key. "_lastmodified"]);
   }
 }
 ?>
 <section class="f" data-option='cms-thumb-ratio'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("An aspect ratio of  Featured image for standard post");?></h3>
+      <h3><?php echo T_("An aspect ratio of Featured image for standard post");?></h3>
       <div class="body">
         <p><?php echo T_("Specify the aspect ratio of the featured image");?></p>
-        <?php echo HTMLLastModified('thumbratiostandard'); ?>
+        <?php echo lastModified('thumbratiostandard'); ?>
       </div>
     </div>
   </div>
@@ -35,9 +32,9 @@ function HTMLLastModified($_key)
 <section class="f" data-option='cms-gallery-ratio'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Featured image of gallery post");?></h3>
+      <h3><?php echo T_("An aspect ratio of Featured image for gallery");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiogallery'); ?>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo lastModified('thumbratiogallery'); ?>
       </div>
     </div>
   </div>
@@ -55,9 +52,9 @@ function HTMLLastModified($_key)
 <section class="f" data-option='cms-video-ratio'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Featured image of video post");?></h3>
+      <h3><?php echo T_("An aspect ratio of  Featured image for video");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiovideo'); ?>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo lastModified('thumbratiovideo'); ?>
       </div>
     </div>
   </div>
@@ -74,9 +71,9 @@ function HTMLLastModified($_key)
 <section class="f" data-option='cms-podcast-ratio'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Featured image of podcast post");?></h3>
+      <h3><?php echo T_("An aspect ratio of  Featured image for podcast");?></h3>
       <div class="body">
-        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo HTMLLastModified('thumbratiopodcast'); ?>
+        <p><?php echo T_("Specify the aspect ratio of the featured image");?></p><?php echo lastModified('thumbratiopodcast'); ?>
       </div>
     </div>
   </div>
@@ -96,7 +93,7 @@ function HTMLLastModified($_key)
     <div class="data">
       <h3><?php echo T_("Default post comment");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you specify the default status of the comment");?></p><?php echo HTMLLastModified('defaultcomment'); ?>
+        <p><?php echo T_("In this section, you specify the default status of the comment");?></p><?php echo lastModified('defaultcomment'); ?>
       </div>
     </div>
   </div>
@@ -105,7 +102,7 @@ function HTMLLastModified($_key)
       <div class="action">
         <div class="switch1">
           <input id="idefaultcomment" type="checkbox" name="defaultcomment" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'open') { echo 'checked'; } ?>>
-          <label for="idefaultcomment" data-on="<?php echo T_("Open") ?>" data-off="<?php echo T_("Closed") ?>"></label>
+          <label for="idefaultcomment"></label>
         </div>
       </div>
   </form>
@@ -118,7 +115,7 @@ function HTMLLastModified($_key)
     <div class="data">
       <h3><?php echo T_("Default show writer");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you specify the default status of the show writer");?></p><?php echo HTMLLastModified('defaultshowwriter'); ?>
+        <p><?php echo T_("In this section, you specify the default status of the show writer");?></p><?php echo lastModified('defaultshowwriter'); ?>
       </div>
     </div>
   </div>
@@ -127,7 +124,7 @@ function HTMLLastModified($_key)
       <div class="action">
         <div class="switch1">
           <input id="idefaultshowwriter" type="checkbox" name="defaultshowwriter" <?php if(\dash\data::cmsSettingSaved_defaultshowwriter() == 'visible') { echo 'checked'; } ?>>
-          <label for="idefaultshowwriter" data-on="<?php echo T_("Visible") ?>" data-off="<?php echo T_("Hidden") ?>"></label>
+          <label for="idefaultshowwriter"></label>
         </div>
       </div>
   </form>
@@ -139,7 +136,7 @@ function HTMLLastModified($_key)
     <div class="data">
       <h3><?php echo T_("Default show date");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you specify the default status of the show date");?></p><?php echo HTMLLastModified('defaultshowdate'); ?>
+        <p><?php echo T_("In this section, you specify the default status of the show date");?></p><?php echo lastModified('defaultshowdate'); ?>
       </div>
     </div>
   </div>
@@ -148,7 +145,7 @@ function HTMLLastModified($_key)
       <div class="action">
         <div class="switch1">
           <input id="idefaultshowdate" type="checkbox" name="defaultshowdate" <?php if(\dash\data::cmsSettingSaved_defaultshowdate() == 'visible') { echo 'checked'; } ?>>
-          <label for="idefaultshowdate" data-on="<?php echo T_("Visible") ?>" data-off="<?php echo T_("Hidden") ?>"></label>
+          <label for="idefaultshowdate"></label>
         </div>
       </div>
   </form>
