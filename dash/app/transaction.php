@@ -71,6 +71,29 @@ class transaction
 			}
 		}
 
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['user_id']);
+            unset($result['code']);
+            unset($result['caller']);
+            unset($result['amount_request']);
+            unset($result['amount_end']);
+            unset($result['parent_id']);
+            unset($result['related_user_id']);
+            unset($result['related_foreign']);
+            unset($result['related_id']);
+            unset($result['payment_response']);
+            unset($result['meta']);
+            unset($result['payment_response1']);
+            unset($result['payment_response2']);
+            unset($result['payment_response3']);
+            unset($result['payment_response4']);
+            unset($result['token']);
+            unset($result['banktoken']);
+            unset($result['finalmsg']);
+            unset($result['factor_id']);
+		}
+
 		return $result;
 	}
 }

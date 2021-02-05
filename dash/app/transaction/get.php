@@ -20,6 +20,8 @@ class get
 			return false;
 		}
 
+		$load = \dash\app\transaction::ready($load);
+
 		return $load;
 
 
