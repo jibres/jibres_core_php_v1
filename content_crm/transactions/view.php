@@ -18,7 +18,7 @@ class view
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_filter(\dash\app\transaction\filter::list(\dash\url::child()));
 		\dash\data::listEngine_sort(true);
 		\dash\data::sortList(\dash\app\transaction\filter::sort_list());
 

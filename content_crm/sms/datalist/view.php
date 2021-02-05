@@ -17,7 +17,7 @@ class view
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(true);
+		\dash\data::listEngine_filter(\lib\app\sms\filter::list());
 		\dash\data::listEngine_sort(true);
 		\dash\data::sortList(\lib\app\sms\filter::sort_list());
 
