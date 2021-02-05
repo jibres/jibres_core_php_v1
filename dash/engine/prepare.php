@@ -34,12 +34,10 @@ class prepare
 		// protect ourselve
 		\dash\engine\guard::protect();
 
-		if(!\dash\engine\store::inStore())
-		{
-			// check need redirect for lang or www or https or main domain
-			self::fix_url_host();
 
-		}
+		// check need redirect for lang or www or https or main domain
+		self::fix_url_host();
+
 
 		// self::check_domain();
 
@@ -345,7 +343,7 @@ class prepare
 				// local is exception
 				$target_host .= '.'.\dash\url::tld();
 			}
-			elseif(\dash\url::tld() === 'icu' || \dash\url::tld() === 'xyz')
+			elseif(\dash\url::tld() === 'icu' || \dash\url::tld() === 'xyz' || \dash\url::tld() === 'store')
 			{
 				// icu and xyz is exception
 				$target_host .= '.'.\dash\url::tld();
