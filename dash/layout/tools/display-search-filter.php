@@ -14,21 +14,9 @@ if(is_array(\dash\data::listEngine_filter()))
     {
       echo '<div>'. T_("Group by"). ' '. $value['group']. '</div>';
       $lastGroup = $value['group'];
-      if(!$first)
-      {
-        if(\dash\request::is_pwa())
-        {
-          $myClass = null;
-          echo '<div class="block"></div>';
-        }
-        else
-        {
-          $myClass = ' mLa10';
-        }
-      }
     }
 
-    echo '<a class="btn '. $myClass;
+    echo '<a class="btn'. $myClass;
 
     if(a($value, 'is_active'))
     {
