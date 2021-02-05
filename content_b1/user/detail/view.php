@@ -6,7 +6,6 @@ class view
 {
 	public static function config()
 	{
-		\dash\permission::access('_group_crm');
 
 		$user_code = \dash\request::get('id');
 
