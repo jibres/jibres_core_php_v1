@@ -750,7 +750,7 @@ class prepare
 		{
 			$url .= \dash\url::path();
 		}
-		\dash\redirect::to($url);
+		\dash\redirect::to($url, 301);
 	}
 
 
