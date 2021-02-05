@@ -29,5 +29,27 @@ class model
 		\content_b1\tools::say($result);
 
 	}
+
+	public static function delete()
+	{
+		$post           = [];
+
+		$user_code = \dash\request::get('id');
+
+		$user_id = \dash\coding::decode($user_code);
+		if(!$user_id)
+		{
+			\dash\notif::error(T_("Invalid user id"));
+			return false;
+		}
+
+		$post['avatar'] = null;
+
+
+		$result    = \dash\app\user::edit($post, $user_code);
+
+		\content_b1\tools::say($result);
+
+	}
 }
 ?>
