@@ -16,7 +16,7 @@ if($all_get)
   <div class="searchBox">
     <div class="row">
 <?php if(\dash\data::listEngine_filter()) {?>
-      <div class="cauto">
+      <div class="c-auto">
         <a class="btn light3 <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
       </div>
 <?php }?>
@@ -30,17 +30,35 @@ if($all_get)
         </div>
       </div>
 <?php if(\dash\data::listEngine_filter()) {?>
-      <div class="cauto">
-        <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
-          <option><?php echo T_("Sort"); ?></option>
+      <div class="c-2 c-xs-3 sortBox">
+        <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link data-placeholder='<?php echo T_("Sort"); ?>'>
 <?php
 if(\dash\data::sortList())
 {
   foreach (\dash\data::sortList() as $key => $value)
   {
-?>
-          <option value="<?php echo \dash\url::that(). '?'. a($value, 'query_string'); ?>" <?php if(\dash\request::get('sort') == a($value, 'query')['sort'] && \dash\request::get('order') == a($value, 'query')['order']) { echo 'selected'; }?> ><?php echo a($value, 'title'); ?></option>
-<?php
+    echo "<option";
+    if(a($value, 'clear') === true)
+    {
+      echo ' value=""';
+    }
+    else
+    {
+      echo ' value="';
+      echo \dash\url::that();
+      if(a($value, 'query_string'))
+      {
+        echo "?". a($value, 'query_string');
+      }
+      echo '"';
+    }
+    if(\dash\request::get('sort') == a($value, 'query', 'sort') && \dash\request::get('order') == a($value, 'query', 'order'))
+    {
+      echo ' selected';
+    }
+    echo ">";
+    echo a($value, 'title');
+    echo "</option>";
   }
 }
 ?>

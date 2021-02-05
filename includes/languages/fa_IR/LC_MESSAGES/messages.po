@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2021-02-04 14:37+0330\n"
-"PO-Revision-Date: 2021-02-05 15:51+0330\n"
+"PO-Revision-Date: 2021-02-05 17:44+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6349,7 +6349,7 @@ msgstr "فیلتر"
 #: content_my/domain/search/display.php:100 dash/layout/tools/display-search-bar.php:35
 #: lib/app/factor/filter.php:14
 msgid "Sort"
-msgstr "ترتیب"
+msgstr "مرتب‌سازی"
 
 #: content_a/cart/home/display.php:103
 msgid "Show cart where"

@@ -9,7 +9,33 @@ class filter
 	{
 		// public => true means show in api and site
 		$sort_list   = [];
-		// $sort_list[] = ['title' => T_("None"), 				'query' => [], 												'public' => true];
+		if(\dash\request::get('sort'))
+		{
+			$sort_list[] =
+			[
+				'title' => T_("Clear Sort"),
+				'query' =>
+				[
+					'sort' => null,
+					'order' => null
+				],
+				'public' => true
+			];
+		}
+		else
+		{
+			$sort_list[] =
+			[
+				'title' => T_("Sort"),
+				'query' =>
+				[
+					'sort' => null,
+					'order' => null,
+				],
+				'clear' => true,
+				'public' => true
+			];
+		}
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
 
