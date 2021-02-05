@@ -213,7 +213,7 @@ if(count($myGallery) > 1)
   <div class="box shareBox">
     <nav class="row align-center">
       <div class="c">
-        <a href="<?php echo \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(); ?>"><?php echo T_("Product Code"); ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::dataRow_id()); ?></span></a>
+        <a data-copy="<?php echo \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(); ?>" href="<?php echo \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(); ?>"><?php echo T_("Product Code"); ?> <span class="txtB"><?php echo \dash\fit::number(\dash\data::dataRow_id()); ?></span></a>
       </div>
       <div class="c-auto share1">
         <a target="_blank" title='<?php echo T_("facebook"); ?>' href="https://www.facebook.com/sharer/sharer.php?u=<?php echo \dash\url::pwd(); ?>" class="facebook">
