@@ -98,7 +98,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
           <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-name='gallery' data-ratio-free data-type='gallery' <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
             <input type="file" id="file1">
             <label for="file1">
-              <abbr class="block"><?php echo T_("Gallery") ?></abbr>
+              <div class="block"><?php echo T_("Gallery") ?></div>
               <abbr><?php echo $chooseTxt; ?></abbr>
               <?php if(count($gallery) >= 3) {?>
                 <a href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
@@ -114,6 +114,10 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
                     <video controls>
                       <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
                     </video>
+                  <?php } else if(a($value, 'type') === 'audio') {?>
+                    <audio controls>
+                      <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
+                    </audio>
                   <?php } else { ?>
                     <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
                   <?php } ?>
