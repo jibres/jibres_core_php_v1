@@ -40,7 +40,7 @@
           </div>
         <?php  }//endif ?>
 
-        <label for="showdate"><?php echo T_("Show wrirter name");?></label>
+        <label for="showdate"><?php echo T_("Show date in post page");?></label>
         <select class="select22" name="showdate">
           <option value="default" <?php if(\dash\data::dataRow_showdate() == 'default') { echo 'selected'; } ?> ><?php echo \dash\data::defaultTitleShowdate(); ?></option>
           <option value="visible" <?php if(\dash\data::dataRow_showdate() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
