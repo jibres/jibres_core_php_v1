@@ -31,7 +31,7 @@ class search
 			'sort'         => 'string_50',
 			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'       => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
-			'user_code'    => 'code',
+			'user'    => 'code',
 			'type'         => ['enum' => ['post', 'page', 'help']],
 			'parent'       => 'string_100',
 			'language'     => 'language',
@@ -93,6 +93,17 @@ class search
 		if($data['language'])
 		{
 			$and[] = " posts.language =  '$data[language]' ";
+		}
+
+		if($data['user'])
+		{
+			$user_id = \dash\coding::decode($data['user']);
+			if($user_id)
+			{
+				$and[] = " posts.user_id =  $user_id ";
+				self::$is_filtered = true;
+			}
+
 		}
 
 		if($data['status'])

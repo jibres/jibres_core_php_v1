@@ -250,6 +250,16 @@ class filter
 		];
 
 
+		$list['post_writer'] =
+		[
+			'key'    => 'post_writer',
+			'group'  => T_("Writer"),
+			'title'  => T_("Search in post writer"),
+			'mode'   => 'users_search',
+			'public' => false,
+		];
+
+
 		return $list;
 
 	}

@@ -59,6 +59,7 @@ class view
 			'status'  => \dash\request::get('status'),
 			'subtype' => $subtype,
 			'tag_id'  => \dash\request::get('tagid'),
+			'user'    => \dash\request::get('user'),
 
 			'pd'      => \dash\request::get('pd'),
 			'g'       => \dash\request::get('g'),

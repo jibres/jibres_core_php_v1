@@ -105,28 +105,31 @@ trait datafilter
 
 		foreach ($list as $key => $value)
 		{
-			$active = false;
-			foreach ($value['query'] as $k => $v)
+			if(isset($value['query']))
 			{
-				if(isset($get[$k]) && $get[$k] == $v)
+				$active = false;
+				foreach ($value['query'] as $k => $v)
 				{
-					$active = true;
-					break;
+					if(isset($get[$k]) && $get[$k] == $v)
+					{
+						$active = true;
+						break;
+					}
 				}
-			}
 
-			if($active)
-			{
-				$myQuery      = array_map(function($_a) {return null;}, $value['query']);
-				$query_string = \dash\request::fix_get($myQuery);
-			}
-			else
-			{
-				$query_string = \dash\request::fix_get($value['query']);
-			}
+				if($active)
+				{
+					$myQuery      = array_map(function($_a) {return null;}, $value['query']);
+					$query_string = \dash\request::fix_get($myQuery);
+				}
+				else
+				{
+					$query_string = \dash\request::fix_get($value['query']);
+				}
 
-			$list[$key]['query_string'] = $query_string;
-			$list[$key]['is_active']    = $active;
+				$list[$key]['query_string'] = $query_string;
+				$list[$key]['is_active']    = $active;
+			}
 		}
 
 		return $list;

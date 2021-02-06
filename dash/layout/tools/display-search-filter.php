@@ -4,9 +4,10 @@ if(is_array(\dash\data::listEngine_filter()))
   echo '<p class="msg info2">'. T_("Organize your data so it's easier to analyze. Filter your data if you only want to display records that meet certain criteria."). '</p>';
   echo '<div class="filterList">';
 
-  $first     = true;
-  $myClass   = null;
-  $lastGroup = null;
+  $first            = true;
+  $myClass          = null;
+  $lastGroup        = null;
+  $apply_filter_btn = false;
 
   foreach (\dash\data::listEngine_filter() as $key => $value)
   {
@@ -15,11 +16,30 @@ if(is_array(\dash\data::listEngine_filter()))
     {
       $mode = $value['mode'];
     }
-
     switch ($mode)
     {
       case 'posts_search':
 
+        break;
+
+      case 'users_search':
+        $apply_filter_btn = true;
+        echo "<div>";
+        echo '<label>'. a($value, 'title'). '</label>';
+        echo '<select name="user" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
+        if(\dash\request::get('user'))
+        {
+          $userselected_detail = \dash\app\user::get(\dash\request::get('user'));
+          if($userselected_detail)
+          {
+            echo '<option value="'. a($userselected_detail, 'id'). '">';
+            echo a($userselected_detail, 'displayname');
+            echo '</option>';
+          }
+          // echo "<option value=''>". T_("None"). '</option>';
+        }
+        echo '</select>';
+        echo "</div>";
         break;
 
       // default
@@ -53,7 +73,7 @@ if(is_array(\dash\data::listEngine_filter()))
 }
 ?>
 
-<div class="row align-center">
+<div class="row align-center mT10">
   <div class="c">
     <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>
     <div class="fc-mute"><span class="txtB"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Record founded") ?></div>
@@ -62,5 +82,8 @@ if(is_array(\dash\data::listEngine_filter()))
     <?php if(\dash\request::get()) {?>
       <a class="btn secondary outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
     <?php }//endif ?>
+    <?php if($apply_filter_btn) {?>
+    <button class="btn primary2 outline"><?php echo T_("Apply filter") ?></button>
+  <?php } //endif ?>
   </div>
 </div>
