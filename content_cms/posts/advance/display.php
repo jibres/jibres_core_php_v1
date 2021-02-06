@@ -106,23 +106,6 @@ $myID = '?id='. \dash\request::get('id');
 </section>
 
 
-<section class="f" data-option='cms-post-seo'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("SEO");?></h3>
-      <div class="body">
-        <p><?php echo T_("Customize SEO");?></p>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a href="<?php echo \dash\url::this(). '/seo'. $myID; ?>" class="btn master"><?php echo T_("Customize SEO") ?></a>
-    </div>
-  </div>
-</section>
-
-
 
 <section class="f" data-option='cms-post-share'>
   <div class="c8 s12">
