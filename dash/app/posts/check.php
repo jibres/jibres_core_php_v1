@@ -245,6 +245,11 @@ class check
 
 		$data['publishdate'] = trim($publishdate. ' '. $publishtime);
 
+		if($data['publishdate'])
+		{
+			$data['publishdate'] = date("Y-m-d H:i:s", strtotime($data['publishdate']));
+		}
+
 		if(isset($current_post_detail['publishdate']) && $current_post_detail['publishdate'])
 		{
 			if(!$data['set_publishdate'])

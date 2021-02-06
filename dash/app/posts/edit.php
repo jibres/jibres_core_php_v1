@@ -101,6 +101,15 @@ class edit
 				}
 			}
 
+			if(isset($load_posts['status']) && $load_posts['status'] === 'publish')
+			{
+				if(array_key_exists('publishdate', $_args) && !a($args, 'publishdate'))
+				{
+					\dash\notif::error(T_("Publish date is required when post is published"), ['element' => ['publishdate', 'publishtime']]);
+					return false;
+				}
+			}
+
 			\dash\db\posts::update($args, $id);
 
 			self::check_update_sitemap($load_posts, $args);
