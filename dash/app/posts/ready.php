@@ -56,6 +56,14 @@ class ready
 					}
 					break;
 
+				case 'seorank':
+					if(!$value)
+					{
+						$value = 0;
+					}
+					$result[$key]   = $value;
+					$result['seo_rank_star'] = \dash\seo::star_html(round(($value * 5 / 100)));
+					break;
 
 
 				case 'content':
@@ -258,6 +266,7 @@ class ready
 			unset($result['gallery']);
 			unset($result['publishdate_message']);
 			unset($result['tstatus']);
+			unset($result['seo_rank_star']);
 
 		}
 

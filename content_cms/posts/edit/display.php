@@ -98,10 +98,13 @@ switch (\dash\data::dataRow_status())
               </div>
             </div>
           </div>
-
         </div>
-        <footer class="txtLa">
-          <a class="link" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a>
+        <footer>
+          <div class="row">
+            <div class="c-auto"><a class="link" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a></div>
+            <div class="c"></div>
+            <div class="c-auto"><?php echo a(\dash\data::dataRow(), 'seo_rank_star'); ?></div>
+          </div>
         </footer>
       </div>
 
