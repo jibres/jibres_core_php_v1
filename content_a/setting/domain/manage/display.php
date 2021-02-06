@@ -57,6 +57,10 @@
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsverify()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS verify"); ?></a>
         </div>
+        <div class="msg minumal">
+          <?php echo T_("To connect domain, all DNS servers must identify your domain DNS. The following link can show you the DNS status of your domain") ?>
+          <a class="link" target="_blank" href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_domain() ?>"><?php echo T_("Check DNS") ?></a>
+        </div>
       </div>
     </div>
   <?php } //endif ?>
