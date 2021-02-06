@@ -15,13 +15,23 @@ $myID = '?id='. \dash\request::get('id');
   <form method="post" class="c4 s12" data-patch>
     <div class="action">
       <input type="hidden" name="runaction_editstatus" value="1">
-      <select name="status" class="select22">
+       <div>
+        <div class="radio1">
+          <input type="radio" name="status" value="draft" id="statusdraft" <?php if(\dash\data::dataRow_status() === 'draft') {echo 'checked';} ?>>
+          <label for="statusdraft"><?php echo T_("Draft"); ?></label>
+        </div>
+
+        <div class="radio1 green">
+          <input type="radio" name="status" value="publish" id="statuspublish" <?php if(\dash\data::dataRow_status() === 'publish') {echo 'checked';} ?>>
+          <label for="statuspublish"><?php echo T_("Published"); ?></label>
+        </div>
         <?php if(\dash\data::dataRow_status() === 'deleted') {?>
-          <option value="deleted" selected><?php echo T_("Deleted") ?></option>
+          <div class="radio1 red">
+            <input type="radio" name="status" value="deleted" id="statusdeleted" <?php if(\dash\data::dataRow_status() === 'deleted') {echo 'checked';} ?>>
+            <label for="statusdeleted"><?php echo T_("Deleted"); ?></label>
+          </div>
         <?php } //endif ?>
-        <option value="draft" <?php if(\dash\data::dataRow_status() === 'draft') { echo 'selected';} ?>><?php echo T_("Draft") ?></option>
-        <option value="publish" <?php if(\dash\data::dataRow_status() === 'publish') { echo 'selected';} ?>><?php echo T_("Publish") ?></option>
-      </select>
+      </div>
     </div>
   </form>
 </section>
