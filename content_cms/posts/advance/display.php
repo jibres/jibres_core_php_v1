@@ -36,6 +36,41 @@ $myID = '?id='. \dash\request::get('id');
   </form>
 </section>
 
+<section class="f" data-option='cms-post-cover' id="cmspostcover">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Post cover")?></h3>
+      <div class="body">
+        <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover") ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" >
+    <div class="action" data-uploader data-name='cover' data-ratio="1.7"  data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
+      <input type="hidden" name="runaction_setcover" value="1">
+
+      <input type="file" accept="image/jpeg, image/png" id="image1">
+      <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <?php if(\dash\data::dataRow_cover()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_cover() ?>"></label><?php } //endif ?></label>
+    </div>
+  </form>
+
+  <footer class="txtRa">
+    <div class="f">
+      <div class="cauto">
+        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9']) ?>"><?php echo T_("Choose from gallery") ?></a>
+      </div>
+      <div class="c"></div>
+      <div class="cauto">
+        <?php if(\dash\data::dataRow_cover()) {?>
+         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="btn link fc-red"><?php echo T_("Remove post cover") ?></div>
+        <?php } //endif ?>
+      </div>
+    </div>
+  </footer>
+</section>
+
+
   <section class="f" data-option='cms-post-theme'>
     <div class="c8 s12">
       <div class="data">
@@ -106,41 +141,6 @@ $myID = '?id='. \dash\request::get('id');
 </section>
 
 
-
-<section class="f" data-option='cms-post-share'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Smart Share");?></h3>
-      <div class="body">
-        <p><?php echo T_("Share this post in social networks");?></p>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a href="<?php echo \dash\url::this(). '/share'. $myID; ?>" class="btn master"><?php echo T_("Smart Share") ?></a>
-    </div>
-  </div>
-</section>
-
-
-<section class="f" data-option='cms-post-redirect'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Redirect");?></h3>
-      <div class="body">
-        <p><?php echo T_("If you want your post to be moved to a new page after opening, enter the URL of the new page here");?></p>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a href="<?php echo \dash\url::this(). '/redirecturl'. $myID; ?>" class="btn master"><?php echo T_("Set post redirect url") ?></a>
-    </div>
-  </div>
-</section>
-
-
   <section class="f" data-option='cms-post-publishdate'>
     <div class="c8 s12">
       <div class="data">
@@ -174,6 +174,24 @@ $myID = '?id='. \dash\request::get('id');
   </section>
 
 
+
+<section class="f" data-option='cms-post-redirect'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Redirect");?></h3>
+      <div class="body">
+        <p><?php echo T_("If you want your post to be moved to a new page after opening, enter the URL of the new page here");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a href="<?php echo \dash\url::this(). '/redirecturl'. $myID; ?>" class="btn master"><?php echo T_("Set post redirect url") ?></a>
+    </div>
+  </div>
+</section>
+
+
 <?php if(!\dash\engine\store::inStore()) {?>
 <section class="f" data-option='cms-post-language'>
   <div class="c8 s12">
@@ -196,42 +214,6 @@ $myID = '?id='. \dash\request::get('id');
   </form>
 </section>
 <?php } // endif ?>
-
-
-<section class="f" data-option='cms-post-cover' id="cmspostcover">
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Post cover")?></h3>
-      <div class="body">
-        <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover") ?></p>
-      </div>
-    </div>
-  </div>
-  <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='cover' data-ratio="1.7"  data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
-      <input type="hidden" name="runaction_setcover" value="1">
-
-      <input type="file" accept="image/jpeg, image/png" id="image1">
-      <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-      <?php if(\dash\data::dataRow_cover()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_cover() ?>"></label><?php } //endif ?></label>
-    </div>
-  </form>
-
-  <footer class="txtRa">
-    <div class="f">
-      <div class="cauto">
-        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9']) ?>"><?php echo T_("Choose from gallery") ?></a>
-      </div>
-      <div class="c"></div>
-      <div class="cauto">
-        <?php if(\dash\data::dataRow_cover()) {?>
-         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="btn link fc-red"><?php echo T_("Remove post cover") ?></div>
-        <?php } //endif ?>
-      </div>
-    </div>
-  </footer>
-</section>
-
 
 
 <section class="f" data-option='cms-post-remove'>
