@@ -29,23 +29,31 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
 
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcmsfiles" class="box chart x270 s0" data-abc='cms/files'>
-      <div class="hide">
-        <div id="charttitleunit"><?php echo T_("Count") ?></div>
-        <div id="chartfiletitle"><?php echo T_("File") ?></div>
-        <div id="charttitle"><?php echo T_("Total file count per type") ?></div>
-        <div id="chartcategory"><?php echo a($dashboard, 'charttype', 'category') ?></div>
-        <div id="chartdata"><?php echo a($dashboard, 'charttype', 'data') ?></div>
+    <div class="row">
+    <div class="c-xs-12 c-sm-12 c-md-6">
+      <div id="chartdivcmsfiles" class="box chart x270 s0" data-abc='cms/files'>
+        <div class="hide">
+          <div id="charttitleunit"><?php echo T_("Count") ?></div>
+          <div id="chartfiletitle"><?php echo T_("File") ?></div>
+          <div id="charttitle"><?php echo T_("Total file count per type") ?></div>
+          <div id="chartcategory"><?php echo a($dashboard, 'charttype', 'category') ?></div>
+          <div id="chartdata"><?php echo a($dashboard, 'charttype', 'data') ?></div>
+        </div>
       </div>
     </div>
-    <div id="chartdivcmsfilessize" class="box chart x270 s0" data-abc='cms/files'>
-      <div class="hide">
-        <div id="charttitleunitsize"><?php echo T_("Size") ?></div>
-        <div id="chartfiletitlesize"><?php echo T_("File") ?></div>
-        <div id="charttitlesize"><?php echo T_("Total file size per type") ?></div>
-        <div id="chartcategorysize"><?php echo a($dashboard, 'charttypesize', 'category') ?></div>
-        <div id="chartdatasize"><?php echo a($dashboard, 'charttypesize', 'data') ?></div>
+
+    <div class="c-xs-12 c-sm-12 c-md-6">
+      <div id="chartdivcmsfilessize" class="box chart x270 s0" data-abc='cms/files'>
+        <div class="hide">
+          <div id="charttitleunitsize"><?php echo T_("Size") ?></div>
+          <div id="chartfiletitlesize"><?php echo T_("File") ?></div>
+          <div id="charttitlesize"><?php echo T_("Total file size per type") ?></div>
+          <div id="chartcategorysize"><?php echo a($dashboard, 'charttypesize', 'category') ?></div>
+          <div id="chartdatasize"><?php echo a($dashboard, 'charttypesize', 'data') ?></div>
+        </div>
       </div>
+    </div>
+
     </div>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-4">
