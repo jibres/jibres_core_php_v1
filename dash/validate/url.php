@@ -76,6 +76,7 @@ class url
 	public static function domain_clean($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = $_data;
+		$data = preg_replace("/\s/", '', $data);
 		$data = urldecode($data);
 		$data = mb_strtolower($data);
 		$data = \dash\utility\convert::to_en_number($data);
