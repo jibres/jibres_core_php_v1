@@ -24,17 +24,23 @@
           </div>
 
           <div data-response='PDT' data-response-where='publishdatetypecustomized' <?php if(!\dash\data::dataRow_publishdate()){ echo 'data-response-hide';} ?>>
-          <?php } //endif ?>
-
+          <?php } //endif
+          $nowDate = str_replace('-', '/', \dash\utility\convert::to_en_number(\dash\fit::date(date("Y/m/d"))));
+          $publishdate = null;
+          if(\dash\data::dataRow_publishdate())
+          {
+            $publishdate = \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_publishdate()));
+          }
+          ?>
 
           <label for="publishdate"><?php echo T_("Publish date") ?></label>
           <div class="input">
-            <input type="text" name="publishdate" data-format='date' value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_publishdate())); ?>" id="publishdate" >
+            <input type="text" name="publishdate" data-format='date' placeholder="<?php echo $nowDate ?>" value="<?php if(\dash\data::dataRow_publishdate()) { echo $publishdate; }else{echo $nowDate; } ?>" id="publishdate" >
           </div>
 
           <label for="publishtime"><?php echo T_("Publish time") ?></label>
           <div class="input">
-            <input type="text" name="publishtime" data-format='time' value="<?php if(\dash\data::dataRow_publishdate()) { echo date("H:i", strtotime(\dash\data::dataRow_publishdate())); } ?>" id="publishtime" >
+            <input type="text" name="publishtime" data-format='time' placeholder="<?php echo date("H:i"); ?>" value="<?php if(\dash\data::dataRow_publishdate()) { echo date("H:i", strtotime(\dash\data::dataRow_publishdate())); }else{ echo date("H:i");} ?>" id="publishtime" >
           </div>
           <?php if(\dash\data::dataRow_status() !== 'publish'){?>
           </div>
