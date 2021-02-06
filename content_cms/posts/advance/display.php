@@ -41,7 +41,7 @@ $myID = '?id='. \dash\request::get('id');
     <div class="data">
       <h3><?php echo T_("Post cover")?></h3>
       <div class="body">
-        <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover") ?></p>
+        <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover.") ?></p>
       </div>
     </div>
   </div>
@@ -76,7 +76,8 @@ $myID = '?id='. \dash\request::get('id');
       <div class="data">
         <h3><?php echo T_("Theme");?></h3>
         <div class="body">
-          <p><?php echo T_("Templates are used to distinguish between posts. You can use it to categorize content on the site");?></p>
+
+          <p><?php echo T_("Sometimes you may want a different look and feel for certain posts on your website. For instance, you may want to use a different layout for the video or podcast. Choose a template to categorize your posts and we show a different layout for each type.");?></p>
         </div>
       </div>
     </div>
