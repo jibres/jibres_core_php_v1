@@ -49,7 +49,7 @@ class view
 		}
 		elseif(\dash\request::get('related') === 'postscover' && \dash\request::get('related_id'))
 		{
-			$link = \dash\url::here(). '/posts/setting?id='. \dash\request::get('related_id');
+			$link = \dash\url::here(). '/posts/advance?id='. \dash\request::get('related_id');
 			$title = T_("Post setting");
 		}
 		else
