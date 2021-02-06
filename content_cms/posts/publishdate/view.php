@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_("Edit post publish date"));
 
 		\dash\data::back_text(T_("Back"));
-		\dash\data::back_link(\dash\url::this(). '/setting'. \dash\request::full_get());
+		\dash\data::back_link(\dash\url::this(). '/advance'. \dash\request::full_get());
 
 
 		$cmsSettingSaved = \lib\app\setting\get::cms_setting();

@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\posts\setting;
+namespace content_cms\posts\advance;
 
 class view
 {

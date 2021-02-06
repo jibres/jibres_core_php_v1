@@ -22,7 +22,7 @@ switch (\dash\data::dataRow_status())
 
       <?php if(\dash\data::dataRow_status() !== 'publish') {?>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/setting'. \dash\request::full_get();?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/advance'. \dash\request::full_get();?>">
             <div class="key"><?php echo T_("To change post status Click here") ?></div>
             <div class="value"><?php echo T_(\dash\data::dataRow_status());?></div>
             <div class="go <?php echo $myIcon ?>"></div>
