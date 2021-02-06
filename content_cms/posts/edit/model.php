@@ -99,6 +99,10 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("File removed"));
+			if(\dash\request::post('redirect') === 'yes')
+			{
+				\dash\redirect::pwd();
+			}
 		}
 
 	}

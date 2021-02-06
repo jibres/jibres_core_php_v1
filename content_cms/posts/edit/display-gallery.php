@@ -34,7 +34,7 @@
 
   <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
     <footer class="txtRa">
-     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove audio") ?></div>
+      <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove audio") ?></div>
     </footer>
   <?php } //endif ?>
 </section>
@@ -69,7 +69,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
 
   <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
     <footer class="txtRa">
-     <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove video") ?></div>
+     <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove video") ?></div>
     </footer>
   <?php } //endif ?>
 </section>
