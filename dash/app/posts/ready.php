@@ -62,7 +62,7 @@ class ready
 						$value = 0;
 					}
 					$result[$key]   = $value;
-					$result['seo_rank_star'] = \dash\seo::star_html(round(($value * 5 / 100)));
+					$result['seo_rank_star'] = \dash\seo::star_html(round(($value * 5 / 100), 1));
 					break;
 
 

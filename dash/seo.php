@@ -62,7 +62,7 @@ class seo
 
 		$seo['rank']   = $percent;
 
-		$seo['star'] = round(($percent * 5 / 100));
+		$seo['star'] = round(($percent * 5 / 100), 1);
 
 		$seo['star_html'] = self::star_html($seo['star']);
 
@@ -80,17 +80,27 @@ class seo
 	public static function star_html($_star)
 	{
 		$result = '';
+
 		for ($i=1; $i <= 5 ; $i++)
 		{
+
 			if($i <= $_star)
 			{
-				$result .= '<i class="fc-gold sf-star"></i>';
+				if($i + 0.5  < $_star )
+				{
+					$result .= '<i class="fc-gold sf-star"></i>';
+				}
+				else
+				{
+					$result .= '<i class="fc-gold sf-star-half-o"></i>';
+				}
 			}
 			else
 			{
 				$result .= '<i class="fc-gold sf-star-o"></i>';
 			}
 		}
+		$result = '<div class="ltr compact">'. $result. '</div>';
 		return $result;
 	}
 
