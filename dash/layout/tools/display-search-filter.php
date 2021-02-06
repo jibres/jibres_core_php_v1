@@ -19,7 +19,23 @@ if(is_array(\dash\data::listEngine_filter()))
     switch ($mode)
     {
       case 'posts_search':
-
+         $apply_filter_btn = true;
+        echo "<div>";
+        echo '<label>'. a($value, 'title'). '</label>';
+        echo '<select name="post_id" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/cms/posts/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
+        if(\dash\request::get('post_id'))
+        {
+          $userselected_detail = \dash\app\posts\get::get(\dash\request::get('post_id'));
+          if($userselected_detail)
+          {
+            echo '<option value="'. a($userselected_detail, 'id'). '">';
+            echo a($userselected_detail, 'title');
+            echo '</option>';
+          }
+          // echo "<option value=''>". T_("None"). '</option>';
+        }
+        echo '</select>';
+        echo "</div>";
         break;
 
       case 'users_search':
