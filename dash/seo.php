@@ -542,7 +542,7 @@ class seo
 		if(isset($_detail['title']) && is_string($_detail['title']))
 		{
 			$ok  = false;
-			$msg = T_("The title is set but not tags founded.");
+			// $msg = T_("The title is set but not tags founded.");
 
 			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 			{
