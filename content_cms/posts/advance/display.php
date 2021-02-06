@@ -165,7 +165,7 @@ $myID = '?id='. \dash\request::get('id');
         <h3><?php echo T_("Change post writer"); ?></h3>
         <div class="body">
           <p><?php echo T_("You can change the author of the post manually");?></p>
-          <?php if(\dash\data::postWriterOld()) {?><div><?php echo T_("Current post writer"). ' '.  \dash\data::postWriterOld_displayname(); ?></div><?php } //endif ?>
+          <?php if(\dash\data::postWriterOld()) {?><div class="mT10"><?php echo T_("Current post writer"). ' '.  \dash\data::postWriterOld_displayname(); ?></div><?php } //endif ?>
         </div>
       </div>
     </div>

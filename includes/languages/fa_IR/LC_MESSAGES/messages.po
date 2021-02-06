@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2021-02-06 11:41+0330\n"
-"PO-Revision-Date: 2021-02-06 15:30+0330\n"
+"PO-Revision-Date: 2021-02-06 16:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -14893,7 +14893,7 @@ msgstr "نوشتن مطلب "
 
 #: content_cms/posts/edit/display.php:77
 msgid "Enter your tags and seperate them by comma"
-msgstr "تگ‌های خود را با کاما از هم جدا کرده و وارد کنید"
+msgstr "تگ‌های خود را با وارد کرده و اینتر بزنید"
 
 #: content_cms/posts/edit/display.php:108 content_cms/posts/setting/display.php:82
 #: content_cms/posts/setting/display.php:88
@@ -23738,7 +23738,7 @@ msgstr "برای تغییر وضعیت منوی کناری کلیک کنید"
 
 #: dash/layout/admin/admin-titlebox.php:30
 msgid "Preview"
-msgstr "پیش نمایش"
+msgstr "پیش‌نمایش"
 
 #: dash/layout/admin/admin-titlebox.php:36 dash/social/telegram/commands/ermile.php:434
 #: includes/languages/trans_static.php:552
