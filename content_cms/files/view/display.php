@@ -1,20 +1,18 @@
 <?php $dataRow = \dash\data::dataRow(); ?>
 <div class="avand-md">
-	<div class="mB10">
 
 <?php if(a($dataRow, 'type') === 'video') { ?>
-	  <video class="block" controls>
+	  <video class="block mB10" controls>
 	    <source src="<?php echo a($dataRow, 'path'); ?>" type="<?php echo a($dataRow, 'mime'); ?>">
 	  </video>
 <?php } else if(a($dataRow, 'type') === 'audio') { ?>
-  <audio class="block" controls>
+  <audio class="block mB10" controls>
     <source src="<?php echo a($dataRow, 'path'); ?>" type="<?php echo a($dataRow, 'mime'); ?>">
   </audio>
 <?php } else if(a($dataRow, 'type') === 'image') { ?>
-			<img class="block" src="<?php echo a($dataRow, 'thumb_raw'); ?>" alt="<?php echo a($dataRow, 'title') ?>">
+			<img class="block mB10" src="<?php echo a($dataRow, 'thumb_raw'); ?>" alt="<?php echo a($dataRow, 'title') ?>">
 <?php } else { ?>
 <?php } ?>
-	</div>
 	<nav class="items long">
 		<ul>
 			<li>
@@ -115,7 +113,7 @@ echo "<i class='sf-". $fType. "' title='". a($dataRow, 't_type'). "'>". "</i>";
 			<li>
 				<a data-confirm data-data='{"remove": "remove"}' class="f item">
 					<div class="key"><?php echo T_("Remove file") ?></div>
-					<div class="value"><i class="sf-trash fc-red"></i></div>
+					<i class="sf-trash fc-red"></i>
 				</a>
 			</li>
 		</ul>

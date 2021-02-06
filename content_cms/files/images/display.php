@@ -7,12 +7,15 @@
 			$myPath = \lib\filepath::fix(str_replace('.'. \dash\data::dataRow_ext(), '-w'. $size. '.webp', \dash\data::dataRow_path()));
 		?>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<a class="vcard green mA10" href="<?php echo $myPath ?>" target="_blank">
+				<div class="vcard mA10">
 					<img alt="<?php echo T_("Image") ?>" src="<?php echo $myPath ?>">
-	            	<div class="content">
-		              <div class="header"><?php echo T_("Width"). ' '. \dash\fit::text($size); ?></div>
-		            </div>
-				</a>
+        	<div class="content">
+            <div class="header">
+            	<a href="<?php echo $myPath ?>" target="_blank"><i class="sf-link-external"></i> <?php echo T_("Width"). ' '. \dash\fit::text($size); ?></a>
+            </div>
+          </div>
+          <footer></footer>
+				</div>
     		</div>
 		<?php } //endi ?>
 	</div>
