@@ -61,7 +61,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       <li>
         <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/setting/thirdparty'; ?>">
           <img class="avatar" src="<?php echo $provider['image'] ?>" alt="<?php echo $dashboard['upload_provider_name'] ?>">
-          <div class="key"><?php echo T_("Your file is uploaded on :provider ", ['provider' => $provider['title']]) ?></div>
+          <div class="key"><?php echo T_("Your file is uploaded on :provider ", ['provider' => a($provider, 'title')]) ?></div>
           <div class="go"></div>
         </a>
       </li>
