@@ -103,12 +103,12 @@ class dashboard
 		}
 
 		$chart                             = [];
-		$chart['category']                 = json_encode(array_column($count, 'name') , JSON_UNESCAPED_UNICODE);
-		$chart['data']                     = json_encode(array_values($count), JSON_UNESCAPED_UNICODE);
+
+		$chart['data']                     = json_encode($count, JSON_UNESCAPED_UNICODE);
 
 		$chart_size                        = [];
-		$chart_size['category']            = $chart['category'];
-		$chart_size['data']                = json_encode(array_values($size), JSON_UNESCAPED_UNICODE);
+
+		$chart_size['data']                = json_encode($size, JSON_UNESCAPED_UNICODE);
 
 		$dashboard_detail['charttypesize'] = $chart_size;
 		$dashboard_detail['charttype']     = $chart;
