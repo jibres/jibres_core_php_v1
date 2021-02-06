@@ -43,7 +43,7 @@ class search
 			$and[] = " terms.type = '$data[type]' ";
 		}
 
-		$meta['limit'] = 20;
+		$meta['limit'] = 25;
 
 		if($data['limit'])
 		{

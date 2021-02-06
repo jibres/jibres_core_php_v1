@@ -82,15 +82,23 @@ class ready
 					switch ($value)
 					{
 						case 'draft':
+							$result['tstatus'] = T_("Draft");
 							$result['icon_list'] = ' detail ';
 							break;
 
 						case 'publish':
+							$result['tstatus'] = T_("Published");
 							$result['icon_list'] = ' check ok ';
 							break;
 
 						case 'deleted':
+							$result['tstatus'] = T_("Trash");
 							$result['icon_list'] = ' times nok ';
+							break;
+
+						case 'pending_review':
+							$result['tstatus'] = T_("Pending Review");
+							$result['icon_list'] = ' detail nok ';
 							break;
 
 						default:
@@ -249,6 +257,7 @@ class ready
 			unset($result['post_title']);
 			unset($result['gallery']);
 			unset($result['publishdate_message']);
+			unset($result['tstatus']);
 
 		}
 

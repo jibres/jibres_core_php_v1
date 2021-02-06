@@ -30,7 +30,7 @@ class search
 			'order'        => 'order',
 			'sort'         => 'string_50',
 			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'status'       => ['enum' => ['publish', 'draft', 'deleted']],
+			'status'       => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
 			'user_code'    => 'code',
 			'type'         => ['enum' => ['post', 'page', 'help']],
 			'parent'       => 'string_100',
@@ -67,7 +67,7 @@ class search
 		$meta['join']  = [];
 		$or            = [];
 		$order_sort    = null;
-		$meta['limit'] = 15;
+		$meta['limit'] = 10;
 		$meta['fields'] = " posts.* ";
 
 		if($data['pagination'] === 'n')

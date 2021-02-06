@@ -90,6 +90,15 @@ class filter
 			'public'         => false,
 		];
 
+		$list['pending_review'] =
+		[
+			'key'            => 'pending_review',
+			'group'          => T_("Status"),
+			'title'          => T_("Pending Review"),
+			'query'			 => ['status' => 'pending_review'],
+			'public'         => false,
+		];
+
 		$list['publishdate'] =
 		[
 			'key'            => 'publishdate',

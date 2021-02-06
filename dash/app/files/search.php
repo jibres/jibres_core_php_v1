@@ -64,7 +64,7 @@ class search
 			}
 		}
 
-		$meta['limit'] = 15;
+		$meta['limit'] = 10;
 
 		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
 		{

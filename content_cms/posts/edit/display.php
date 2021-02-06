@@ -16,7 +16,7 @@ switch (\dash\data::dataRow_status())
   case 'deleted' :  $myIcon = 'stop nok'; break;
 }
 ?>
-<?php if(\dash\data::dataRow_status() !== 'publish') {?>
+<?php if(\dash\data::dataRow_status() === 'draft' && \dash\permission::check('cmsPostPublisher')) {?>
   <div class="msg info2 font-14a mB10-f row" data-space='zero' data-removeElement>
     <div class="c c-xs-12"><?php echo T_("This post is a draft and not published yet. You must publish it if you want it visible to everyone") ?></div>
     <div class="c-auto c-xs-12 txtRa"><a class="link imageDel" data-ajaxify data-data='{"publishnow": "yes"}'><?php echo T_("Publish Now") ?></a></div>

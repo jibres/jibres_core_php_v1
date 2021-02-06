@@ -20,7 +20,7 @@ class check
 			'content'         => 'html',
 			'type'            => ['enum' => ['post', 'page', 'help', 'mag']],
 			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'status'          => ['enum' => ['publish','draft']],
+			'status'          => ['enum' => ['publish','draft', 'pending_review']],
 			'specialaddress'  => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
 
 			'comment'         => ['enum' => ['open','closed','default']],

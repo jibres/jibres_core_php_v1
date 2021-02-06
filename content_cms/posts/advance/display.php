@@ -21,11 +21,18 @@ $myID = '?id='. \dash\request::get('id');
           <input type="radio" name="status" value="draft" id="statusdraft" <?php if(\dash\data::dataRow_status() === 'draft') {echo 'checked';} ?>>
           <label for="statusdraft"><?php echo T_("Draft"); ?></label>
         </div>
-
-        <div class="radio1 green">
-          <input type="radio" name="status" value="publish" id="statuspublish" <?php if(\dash\data::dataRow_status() === 'publish') {echo 'checked';} ?>>
-          <label for="statuspublish"><?php echo T_("Published"); ?></label>
+        <div class="radio1 yellow">
+          <input type="radio" name="status" value="pending_review" id="statuspending_review" <?php if(\dash\data::dataRow_status() === 'pending_review') {echo 'checked';} ?>>
+          <label for="statuspending_review"><?php echo T_("Pending review"); ?></label>
         </div>
+
+        <?php if(\dash\permission::check('cmsPostPublisher')) {?>
+          <div class="radio1 green">
+            <input type="radio" name="status" value="publish" id="statuspublish" <?php if(\dash\data::dataRow_status() === 'publish') {echo 'checked';} ?>>
+            <label for="statuspublish"><?php echo T_("Published"); ?></label>
+          </div>
+        <?php } //endif ?>
+
         <?php if(\dash\data::dataRow_status() === 'deleted') {?>
           <div class="radio1 red">
             <input type="radio" name="status" value="deleted" id="statusdeleted" <?php if(\dash\data::dataRow_status() === 'deleted') {echo 'checked';} ?>>
