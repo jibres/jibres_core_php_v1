@@ -1,11 +1,11 @@
 <?php
-namespace content_cms\advance;
+namespace content_cms\config;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('CMS Customization'));
+		\dash\face::title(T_('CMS Configuration'));
 		\dash\data::back_text(T_("CMS"));
 		\dash\data::back_link(\dash\url::here());
 

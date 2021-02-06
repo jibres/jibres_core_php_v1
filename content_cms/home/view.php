@@ -14,11 +14,6 @@ class view
 		\dash\data::action_text(T_('Add New Post'));
 		\dash\data::action_link(\dash\url::this(). '/posts/add');
 
-		if(\dash\permission::check('cmsSetting'))
-		{
-			\dash\face::btnSetting(\dash\url::this().'/advance');
-		}
-
 		\dash\data::dashboardDetail(\dash\app\posts\dashboard::detail());
 	}
 }

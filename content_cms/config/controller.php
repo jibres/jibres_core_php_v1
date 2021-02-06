@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\advance;
+namespace content_cms\config;
 
 class controller
 {
