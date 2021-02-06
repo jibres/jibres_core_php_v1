@@ -31,6 +31,10 @@ class view
 
 		\dash\data::defaultTitleComment($defaultTitle);
 
+		if(\dash\data::dataRow_user_id())
+		{
+			\dash\data::postWriterOld(\dash\app\user::get(\dash\data::dataRow_user_id()));
+		}
 
 	}
 }
