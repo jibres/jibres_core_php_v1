@@ -158,7 +158,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
           <li class="">
             <a class="item f" href="<?php echo \dash\url::here();?>/seo">
               <div class="key"><?php echo T_('Smart SEO');?></div>
-              <?php echo a(\dash\data::dashboardDetail(), 'seostar_html'); ?>
+              <div class="value"><?php echo a(\dash\data::dashboardDetail(), 'seostar_html'); ?></div>
             </a>
           </li>
         </ul>
