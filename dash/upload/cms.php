@@ -67,7 +67,7 @@ class cms
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not set this file as cover!"));
+			\dash\notif::error(T_("Can not set this file as post featured image!"));
 			return false;
 		}
 
@@ -168,7 +168,7 @@ class cms
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not set this file as cover!"));
+			\dash\notif::error(T_("Can not set this file as post cover!"));
 			return false;
 		}
 
