@@ -649,7 +649,7 @@ class store
 			}
 			else
 			{
-				$store_domain = \dash\url::set_subdomain(\lib\store::detail('subdomain'));
+				$store_domain = \dash\url::business_url(\lib\store::detail('subdomain'));
 			}
 
 		}

@@ -325,6 +325,39 @@ class url
 	}
 
 
+	/**
+	 * Get business url by subdomain
+	 *
+	 * @param      string  $_subdomain  The subdomain
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function business_url($_subdomain)
+	{
+		$url = null;
+
+		$url .= self::protocol(). '://';
+		$url .= $_subdomain. '.';
+
+		if(self::tld() === 'com' || self::tld() === 'local')
+		{
+			$url .= 'myjibres.'. self::tld();
+		}
+		else
+		{
+			$url .= 'jibres.store';
+		}
+
+		if(self::lang())
+		{
+			$url .= '/'. self::lang();
+		}
+
+		return $url;
+	}
+
+
+
 	public static function set_subdomain($_subdomain = null, $_full = null)
 	{
 		$url = null;
