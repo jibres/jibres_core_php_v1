@@ -8,7 +8,7 @@ $myID = '?id='. \dash\request::get('id');
     <div class="data">
       <h3><?php echo T_("Change status");?></h3>
       <div class="body">
-        <p><?php echo T_("You can change your post status");?></p>
+        <p><?php echo T_("The status of a post determines how Jibres handles that post. For instance, public posts viewable by everyone are assigned the publish status, while drafts are assigned the draft status.");?></p>
       </div>
     </div>
   </div>
