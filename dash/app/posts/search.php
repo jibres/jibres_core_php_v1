@@ -52,7 +52,7 @@ class search
 			'sa'           => ['enum' => ['n', 'y', 'yt', 'yp']], // special address
 			'com'          => 'y_n', // comment
 			't'            => 'y_n', // tag
-			'r'            => 'bit', // redirecturl
+			'r'            => 'y_n', // redirecturl
 
 		];
 
@@ -216,9 +216,14 @@ class search
 		}
 
 
-		if($data['r'])
+		if($data['r'] === 'y')
 		{
 			$and[] = " posts.redirecturl IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['r'] === 'n')
+		{
+			$and[] = " posts.redirecturl IS NULL ";
 			self::$is_filtered = true;
 		}
 

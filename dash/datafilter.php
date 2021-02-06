@@ -49,7 +49,38 @@ trait datafilter
 	public static function sort_list($_module = null)
 	{
 		// public => true means show in api and site
-		$sort_list   = self::sort_list_array($_module);
+
+		$sort_list   = [];
+
+		if(\dash\request::get('sort'))
+		{
+			$sort_list[] =
+			[
+				'title' => T_("Clear Sort"),
+				'query' =>
+				[
+					'sort' => null,
+					'order' => null
+				],
+				'public' => true
+			];
+		}
+		else
+		{
+			$sort_list[] =
+			[
+				'title' => T_("Sort"),
+				'query' =>
+				[
+					'sort' => null,
+					'order' => null,
+				],
+				'clear' => true,
+				'public' => true
+			];
+		}
+
+		$sort_list   = array_merge($sort_list, self::sort_list_array($_module));
 
 		$current_string_query = \dash\request::get();
 		unset($current_string_query['sort']);
