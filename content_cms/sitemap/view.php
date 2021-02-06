@@ -7,9 +7,8 @@ class view
 	{
 		\dash\face::title(T_('Sitemap'));
 
-		\dash\data::back_text(T_('CMS'));
-		\dash\data::back_link(\dash\url::here());
-
+		\dash\data::back_text(T_('Smart SEO'));
+		\dash\data::back_link(\dash\url::here(). '/seo');
 	}
 }
 ?>
