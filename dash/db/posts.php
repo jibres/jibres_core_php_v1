@@ -62,7 +62,7 @@ class posts
 
 	public static function avg_seorank()
 	{
-		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status != 'deleted' ";
+		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status = 'publish' ";
 		$result = \dash\db::get($query, 'rank', true);
 		return $result;
 	}
