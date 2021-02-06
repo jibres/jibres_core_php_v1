@@ -68,10 +68,12 @@ class dashboard
 
 		$type_count =
 		[
-			'image' => 0,
-			'audio' => 0,
-			'video' => 0,
-			'other' => 0,
+			'image'   => 0,
+			'audio'   => 0,
+			'video'   => 0,
+			'archive' => 0,
+			'pdf'     => 0,
+			'other'   => 0,
 
 			// 'pdf',
 			// 'archive',

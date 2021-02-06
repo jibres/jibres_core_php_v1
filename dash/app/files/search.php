@@ -43,7 +43,7 @@ class search
 		{
 			if($data['type'] === 'other')
 			{
-				$and[] = " files.type IN ('word','excel','powerpoint','code','text','file') ";
+				$and[] = " files.type NOT IN ('image','video','audio', 'archive', 'pdf') ";
 			}
 			else
 			{
