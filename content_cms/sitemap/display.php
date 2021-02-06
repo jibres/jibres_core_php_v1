@@ -6,8 +6,8 @@
       <p><?php echo T_('Web crawlers usually discover pages from links within the site and from other sites. Sitemaps supplement this data to allow crawlers that support Sitemaps to pick up all URLs in the Sitemap and learn about those URLs using the associated metadata. Using the Sitemap protocol does not guarantee that web pages are included in search engines, but provides hints for web crawlers to do a better job of crawling your site.'); ?></p>
       <div class="msg success"><?php echo T_('We automatically build your sitemap.') ?></div>
 
-      <div class="msg info2 row ltr" data-copy='<?php echo \dash\utility\sitemap::url(); ?>'>
-        <div class="c"><a class="link" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><i class="sf-link-external compact mLa10"></i><?php echo \dash\utility\sitemap::url(); ?></a></div>
+      <div class="msg info2 row ltr mB0" data-copy='<?php echo \dash\utility\sitemap::url(); ?>'>
+        <div class="c"><a class="link" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><i class="sf-link-external compact mR10"></i><?php echo \dash\utility\sitemap::url(); ?></a></div>
         <div class="c-auto"><?php echo T_("Copy Sitemap URL"); ?></div>
       </div>
    </div>
