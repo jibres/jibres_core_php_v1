@@ -29,9 +29,9 @@
       <div class="body">
         <p><?php echo T_("Turn's on to redirect all requests from the Jibres subdomain to your website's primary domain."); ?></p>
         <div class="msg minimal <?php if(\dash\data::redirectJibresSubdomainToMaster()) { echo "success2";}  ?> ltr mB0 mT20 row">
-          <div class="c-5"><?php echo \lib\store::detail('subdomain').'.jibres.'. \dash\url::tld(); ?></div>
-          <div class="c-2 txtC"> <i class="sf-chevron-right"></i><i class="sf-chevron-right"></i><i class="sf-chevron-right"></i> </div>
-          <div class="c-5 txtR"><b><?php echo $masterdomain; ?></b></div>
+          <div class="c-xs-12 c-5"><?php $domain = (\dash\url::tld() === 'com') ? 'myjibres.com': 'jibres.store'; echo \lib\store::detail('subdomain').'.'. $domain; ?></div>
+          <div class="c-xs-12 c-2 txtC"> <i class="sf-chevron-right"></i><i class="sf-chevron-right"></i><i class="sf-chevron-right"></i> </div>
+          <div class="c-xs-12 c-5 txtR"><b><?php echo $masterdomain; ?></b></div>
         </div>
       </div>
     </div>

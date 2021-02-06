@@ -4,15 +4,21 @@
 
   <?php require_once('add/display.php'); ?>
 
-<?php }else{ ?>
+<?php }else
+{
+
+$domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.jibres.store';
+
+
+?>
 
 
 <div class="avand-md">
   <nav class="items">
     <ul>
       <li>
-          <a class="f item" href="<?php echo 'https://'. \lib\store::detail('subdomain').'.jibres.'. \dash\url::jibres_tld(); ?>" target='_blank'>
-            <div class="key"><?php echo \lib\store::detail('subdomain').'.jibres.'. \dash\url::jibres_tld(); ?></div>
+          <a class="f item" href="<?php  echo 'https://'. \lib\store::detail('subdomain'). $domain; ?>" target='_blank'>
+            <div class="key"><?php echo \lib\store::detail('subdomain'). $domain; ?></div>
             <div class="value"><?php echo T_("Connected"); ?></div>
             <div class="go"></div>
           </a>
