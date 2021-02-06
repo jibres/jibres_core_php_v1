@@ -149,7 +149,7 @@ switch (a($value, 'type'))
           <div class="row">
             <div class="cauto"><?php echo \dash\data::convertPostTo();  ?></div>
             <div class="c"></div>
-            <div class="cauto"><?php if(count($gallery) >= 2) {?><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a><?php } //endif ?></div>
+            <div class="cauto"><?php if(count($gallery) >= 2) {?><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort Gallery") ?></a><?php } //endif ?></div>
           </div>
         </footer>
       <?php } //endif ?>
