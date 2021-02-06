@@ -183,6 +183,14 @@ $myID = '?id='. \dash\request::get('id');
       <h3><?php echo T_("Redirect");?></h3>
       <div class="body">
         <p><?php echo T_("If you want your post to be moved to a new page after opening, enter the URL of the new page here");?></p>
+        <?php if(\dash\data::dataRow_redirecturl()) {?>
+          <div class="row msg success2 minimal">
+            <div class="c-auto"><?php echo T_("This post automatically redirected to new page") ?></div>
+            <div class="c"></div>
+            <div class="c-auto"><a class="link sm" href="<?php echo \dash\data::dataRow_redirecturl() ?>" target="_blank"><?php echo T_("Visit link") ?></a></div>
+          </div>
+
+        <?php } //endif ?>
       </div>
     </div>
   </div>

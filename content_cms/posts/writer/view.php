@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_("Edit post writer"));
 
 		\dash\data::back_text(T_("Back"));
-		\dash\data::back_link(\dash\url::this(). '/edit'. \dash\request::full_get());
+		\dash\data::back_link(\dash\url::this(). '/advance'. \dash\request::full_get());
 
 
 		$postWriter = \dash\app\posts\get::post_writer_list();
