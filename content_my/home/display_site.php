@@ -3,28 +3,28 @@
  <div class="f">
   <div class="c9 s12 pRa10">
 
-    <section class="f">
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::here() ?>/business"  class="stat">
+    <section class="row">
+     <div class="c-xs-6 c">
+      <a href="<?php echo \dash\url::here() ?>/business"  class="stat x70">
        <h3><?php echo T_("Business");?></h3>
        <div class="val"><?php echo \dash\fit::stats(a($myData, 'store_count'));?></div>
       </a>
      </div>
-     <div class="c pRa10">
-      <a href="<?php echo \dash\url::here() ?>/domain" class="stat">
+     <div class="c-xs-6 c">
+      <a href="<?php echo \dash\url::here() ?>/domain" class="stat x70">
        <h3><?php echo T_("Domains");?></h3>
        <div class="val"><?php echo \dash\fit::stats(a($myData, 'domain_count'));?></div>
       </a>
      </div>
-     <div class="c">
-      <a href="<?php echo \dash\url::kingdom() ?>/account/billing" class="stat <?php if(a($myData, 'budget')>0) echo " green"; ?>">
+     <div class="c-xs-0 c">
+      <a href="<?php echo \dash\url::kingdom() ?>/account/billing" class="stat x70 <?php if(a($myData, 'budget')>0) echo " green"; ?>">
        <h3><?php echo T_("Account Balance");?></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'budget'));?></div>
       </a>
      </div>
     </section>
 
-    <section class="box domainQuickBuy">
+    <section class="box domainQuickBuy s0">
       <h3><a href="<?php echo \dash\url::here() ?>/domain"><?php echo T_("Search for your dream domain"); ?></a></h3>
       <p><?php echo T_("Every website start with a great domain name"); ?></p>
       <form method="get" action="<?php echo \dash\url::here(); ?>/domain/buy" autocomplete='off'>

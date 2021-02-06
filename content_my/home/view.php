@@ -10,7 +10,7 @@ class view
 		\dash\face::specialTitle(true);
 		// \dash\face::help(\dash\url::support().'/my');
 
-		if(!\dash\detect\device::detectPWA())
+		// if(!\dash\detect\device::detectPWA())
 		{
 			\dash\data::action_text(T_('Add Your Business'));
 			\dash\data::action_icon('plus');
