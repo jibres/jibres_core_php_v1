@@ -53,17 +53,14 @@ $myID = '?id='. \dash\request::get('id');
             <input type="radio" name="subtype" value="standard" id="subtypestandard" <?php if(\dash\data::dataRow_subtype() === 'standard') {echo 'checked';} ?>>
             <label for="subtypestandard"><?php echo T_("Standard"); ?></label>
           </div>
-
           <div class="radio1">
             <input type="radio" name="subtype" value="gallery" id="subtypegallery" <?php if(\dash\data::dataRow_subtype() === 'gallery') {echo 'checked';} ?>>
             <label for="subtypegallery"><?php echo T_("Gallery"); ?></label>
           </div>
-
           <div class="radio1">
             <input type="radio" name="subtype" value="video" id="subtypevideo" <?php if(\dash\data::dataRow_subtype() === 'video') {echo 'checked';} ?>>
             <label for="subtypevideo"><?php echo T_("Video"); ?></label>
           </div>
-
           <div class="radio1">
             <input type="radio" name="subtype" value="audio" id="subtypeaudio" <?php if(\dash\data::dataRow_subtype() === 'audio') {echo 'checked';} ?>>
             <label for="subtypeaudio"><?php echo T_("Audio"); ?></label>
@@ -87,11 +84,20 @@ $myID = '?id='. \dash\request::get('id');
   <form autocomplete="off" class="c4 s12" method="post" data-patch>
     <div class="action">
       <input type="hidden" name="runaction_comment" value="1">
-      <select class="select22" name="comment">
-          <option value="default" <?php if(\dash\data::dataRow_comment() == 'default') { echo 'selected'; } ?> ><?php echo \dash\data::defaultTitleComment(); ?></option>
-          <option value="open" <?php if(\dash\data::dataRow_comment() == 'open') { echo 'selected'; } ?> ><?php echo T_("Open"); ?></option>
-          <option value="closed" <?php if(\dash\data::dataRow_comment() == 'closed') { echo 'selected'; } ?> ><?php echo T_("Closed"); ?></option>
-        </select>
+      <div>
+        <div class="radio1">
+          <input type="radio" name="comment" value="default" id="commentdefault" <?php if(\dash\data::dataRow_comment() === 'default' || !\dash\data::dataRow_comment()) {echo 'checked';} ?>>
+          <label for="commentdefault"><?php echo \dash\data::defaultTitleComment(); ?></label>
+        </div>
+        <div class="radio1 green">
+          <input type="radio" name="comment" value="open" id="commentopen" <?php if(\dash\data::dataRow_comment() === 'open') {echo 'checked';} ?>>
+          <label for="commentopen"><?php echo T_("Open"); ?></label>
+        </div>
+        <div class="radio1 red">
+          <input type="radio" name="comment" value="closed" id="commentclosed" <?php if(\dash\data::dataRow_comment() === 'closed') {echo 'checked';} ?>>
+          <label for="commentclosed"><?php echo T_("Closed"); ?></label>
+        </div>
+      </div>
     </div>
   </form>
   <footer class="txtRa">
