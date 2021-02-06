@@ -8,7 +8,7 @@
 ?>
 
 <?php if(a($dataRow, 'subtype') === 'audio') {?>
-<section class="f" data-option='cms-post-audio'>
+<section class="f mB10-f" data-option='cms-post-audio'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Podcast")?></h3>
@@ -43,7 +43,7 @@
 
 
 if(a($dataRow, 'subtype') === 'video') {?>
-<section class="f" data-option='cms-post-video'>
+<section class="f mB10-f" data-option='cms-post-video'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Video")?></h3>
