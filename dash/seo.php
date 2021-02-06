@@ -80,7 +80,6 @@ class seo
 	public static function star_html($_star)
 	{
 		$result = '';
-		$_star = 4;
 
 		for ($i=1; $i <= 5 ; $i++)
 		{
