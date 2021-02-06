@@ -24,6 +24,15 @@ class model
 			return true;
 		}
 
+		if(\dash\request::post('forcesubtype'))
+		{
+			$post_detail = \dash\app\posts\edit::edit(['subtype' => \dash\request::post('forcesubtype')], \dash\request::get('id'));
+			\dash\redirect::pwd();
+			return true;
+		}
+
+
+
 		if(\dash\request::post('fileaction') === 'remove')
 		{
 			self::remove_gallery($id);

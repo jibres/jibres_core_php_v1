@@ -144,12 +144,12 @@ switch (a($value, 'type'))
           </div>
         <?php } //endif ?>
       </div>
-       <?php if(count($gallery) >= 2) {?>
+       <?php if(count($gallery) >= 2 || \dash\data::convertPostTo()) {?>
         <footer>
           <div class="row">
-            <div class="cauto"></div>
+            <div class="cauto"><?php echo \dash\data::convertPostTo();  ?></div>
             <div class="c"></div>
-            <div class="cauto"><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a></div>
+            <div class="cauto"><?php if(count($gallery) >= 2) {?><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a><?php } //endif ?></div>
           </div>
         </footer>
       <?php } //endif ?>

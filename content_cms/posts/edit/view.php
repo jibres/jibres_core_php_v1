@@ -47,11 +47,26 @@ class view
 		$cmsSettingSaved = \lib\app\setting\get::cms_setting();
 		\dash\data::cmsSettingSaved($cmsSettingSaved);
 
+		$one_gallery_type = null;
+
+		$gallery = a($dataRow, 'gallery_array');
+
+		if(is_array($gallery) && count($gallery) === 1)
+		{
+			$one_gallery_type = a($gallery, 0, 'type');
+		}
 
 		switch (a($dataRow, 'subtype'))
 		{
 			case 'standard':
 				\lib\ratio::data_ratio_html(a($cmsSettingSaved, 'thumbratiostandard'));
+				switch ($one_gallery_type)
+				{
+					case 'image': self::convertPostTo('gallery'); break;
+					case 'video': self::convertPostTo('video');	break;
+					case 'audio': self::convertPostTo('audio');	break;
+					default: /*nothing*/ break;
+				}
 				break;
 
 			case 'gallery':
@@ -72,6 +87,16 @@ class view
 		}
 
 
+	}
+
+
+	private static function convertPostTo($_type)
+	{
+		$result = '';
+		$result .= T_("You can change ths post type to :val", ['val' => T_(ucfirst($_type))]);
+		$result .= ' ';
+		$result .= '<span class="link" data-title="'.T_("Are you sure to convert this post type to :val", ['val' => T_(ucfirst($_type))]) .'" data-confirm data-data=\'{"forcesubtype": "'.$_type.'"}\'>'. T_("Convert now"). '</span>';
+		\dash\data::convertPostTo($result);
 	}
 }
 ?>
