@@ -14,7 +14,7 @@
 						<label for="inquiry"><?php echo T_("Enable inquiry") ?></label>
 					</div>
 
-					<div data-response="inquiry" <?php if(\dash\data::dataRow_inquiry()){/*nothing*/}else{ echo 'data-response-hide'; } ?> data-response-effect='slide'>
+					<div data-response="inquiry" <?php if(\dash\data::dataRow_inquiry()){/*nothing*/}else{ echo 'data-response-hide'; } ?>>
 
 						<?php if(!\dash\data::formItems()) {?>
 							<div class="msg warn2"><?php echo T_("You have not any inquiry question in your form. Questions that are mobile or national code can be used in the inquiry process") ?></div>

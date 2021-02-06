@@ -9,7 +9,7 @@
           <label for="status"><?php echo T_("Header Special Announcement"); ?><small></small></label>
         </div>
 
-        <div data-response='status' data-response-effect='slide' <?php if(!\dash\data::toplineSaved_status()) {echo 'data-response-hide';} ?>>
+        <div data-response='status' <?php if(!\dash\data::toplineSaved_status()) {echo 'data-response-hide';} ?>>
 
 
           <label for="text"><?php echo T_("Announcement Text"); ?></label>

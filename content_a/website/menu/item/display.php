@@ -27,7 +27,7 @@ $addChildMode = \dash\data::addChildMode();
           </select>
         </div>
 
-       <div data-response='pointer' data-response-where-not='separator' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'separator'){ echo 'data-response-hide';} ?>>
+       <div data-response='pointer' data-response-where-not='separator' <?php if(\dash\data::dataRow_pointer() === 'separator'){ echo 'data-response-hide';} ?>>
           <label for="title"><?php echo T_("Title"); ?></label>
           <div class="input">
             <input type="text" name="title" id="title" value="<?php echo \dash\data::dataRow_title() ?>" maxlength="50" >
@@ -35,7 +35,7 @@ $addChildMode = \dash\data::addChildMode();
         </div>
 
 
-       <div data-response='pointer' data-response-where='products' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'products'){}else{ echo 'data-response-hide';} ?>>
+       <div data-response='pointer' data-response-where='products' <?php if(\dash\data::dataRow_pointer() === 'products'){}else{ echo 'data-response-hide';} ?>>
           <select name="product_id" class="select22" id="productSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in product"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::productTitle() ?></option>
@@ -44,7 +44,7 @@ $addChildMode = \dash\data::addChildMode();
         </div>
 
 
-       <div data-response='pointer' data-response-where='posts' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'posts'){}else{ echo 'data-response-hide';} ?>>
+       <div data-response='pointer' data-response-where='posts' <?php if(\dash\data::dataRow_pointer() === 'posts'){}else{ echo 'data-response-hide';} ?>>
           <select name="post_id" class="select22" id="postSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/posts/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in posts"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::postTitle() ?></option>
@@ -53,7 +53,7 @@ $addChildMode = \dash\data::addChildMode();
         </div>
 
 
-       <div data-response='pointer' data-response-where='tags' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
+       <div data-response='pointer' data-response-where='tags' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
           <select name="tag_id" class="select22" id="tagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in tags"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::tagTitle() ?></option>
@@ -61,7 +61,7 @@ $addChildMode = \dash\data::addChildMode();
             </select>
         </div>
 
-        <div data-response='pointer' data-response-where='hashtag' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'hashtag'){}else{ echo 'data-response-hide';} ?>>
+        <div data-response='pointer' data-response-where='hashtag' <?php if(\dash\data::dataRow_pointer() === 'hashtag'){}else{ echo 'data-response-hide';} ?>>
           <select name="hashtag_id" class="select22" id="hashtagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in hashtag"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::hashtagTitle() ?></option>
@@ -70,7 +70,7 @@ $addChildMode = \dash\data::addChildMode();
         </div>
 
 
-        <div data-response='pointer' data-response-where='forms' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'forms'){}else{ echo 'data-response-hide';} ?>>
+        <div data-response='pointer' data-response-where='forms' <?php if(\dash\data::dataRow_pointer() === 'forms'){}else{ echo 'data-response-hide';} ?>>
           <select name="form_id" class="select22" id="formsSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/form/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in forms"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::formTitle() ?></option>
@@ -78,7 +78,7 @@ $addChildMode = \dash\data::addChildMode();
             </select>
         </div>
 
-        <div data-response='pointer' data-response-where='socialnetwork' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'socialnetwork'){}else{ echo 'data-response-hide';} ?>>
+        <div data-response='pointer' data-response-where='socialnetwork' <?php if(\dash\data::dataRow_pointer() === 'socialnetwork'){}else{ echo 'data-response-hide';} ?>>
           <?php $social = \lib\store::social(); if(!is_array($social)){ $social = []; } ?>
           <select name="socialnetwork" class="select22">
             <option value=""><?php echo T_("Select social network") ?></option>
@@ -96,7 +96,7 @@ $addChildMode = \dash\data::addChildMode();
           </div>
         </div>
 
-        <div data-response='pointer' data-response-where='other' data-response-effect='slide' <?php if(\dash\data::dataRow_pointer() === 'other'){}else{ echo 'data-response-hide';} ?>>
+        <div data-response='pointer' data-response-where='other' <?php if(\dash\data::dataRow_pointer() === 'other'){}else{ echo 'data-response-hide';} ?>>
           <label for="url"><?php echo T_("Url"); ?></label>
           <div class="input ltr">
             <input type="text" name="url" id="url" value="<?php if(\dash\data::dataRow_pointer() === 'other') { echo \dash\data::dataRow_url(); } ?>" >

@@ -14,7 +14,7 @@
           <label for="istatus"></label>
           <label for="istatus"><?php echo T_("Upload your file to AWS S3 platform") ?></label>
         </div>
-        <div class="ltr" data-response='status' data-response-effect='slide' <?php if(!a($awss3, 'status')) { echo 'data-response-hide'; }; ?>>
+        <div class="ltr" data-response='status' <?php if(!a($awss3, 'status')) { echo 'data-response-hide'; }; ?>>
           <label for="iaccesskey">Accesskey <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="accesskey" id="iaccesskey" value="<?php echo a($awss3, 'accesskey'); ?>" maxlength='300' minlength="1">

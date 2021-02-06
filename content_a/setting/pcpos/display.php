@@ -58,7 +58,7 @@
          <label for="irankish"><?php echo T_("Enable irankish PC POS"); ?></label>
         </div>
 
-        <div class="f mT10" data-response='irankish' data-response-effect='slide'  data-response-hide >
+        <div class="f mT10" data-response='irankish'  data-response-hide >
             <label for="serial"><?php echo T_("Serial"); ?></label>
             <div class="input">
               <input type="number" name="serial" id="serial" placeholder='<?php echo T_("Serial"); ?>'  min="1" max="99999999999999999999999">
@@ -85,7 +85,7 @@
          <label for="asanpardakht"><?php echo T_("Enable asanpardakht PC POS"); ?></label>
         </div>
 
-        <div class="f mT10" data-response='asanpardakht' data-response-effect='slide'  data-response-hide >
+        <div class="f mT10" data-response='asanpardakht'  data-response-hide >
           <div class="c6 pLa5">
             <label for="ip"><?php echo T_("IP"); ?></label>
             <div class="input">

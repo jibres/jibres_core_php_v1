@@ -27,7 +27,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
             <label for="itrackquantity"></label>
             <label for="itrackquantity"><?php echo T_("Track quantity"); ?><small></small></label>
           </div>
-          <div data-response='itrackquantity' data-response-effect='slide' <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())){}else{ echo 'data-response-hide';} ?>  >
+          <div data-response='itrackquantity' <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add' && \dash\data::productSettingSaved_defaulttracking())){}else{ echo 'data-response-hide';} ?>  >
             <p class="fs09 fc-mute"><?php echo T_("Inventory tracking can help you avoid selling products that have run out of stock, or let you know when you need to order or make more of your product."); ?></p>
 
             <div class="switch1">

@@ -18,7 +18,7 @@
   </div>
 </div>
 <?php } //endif ?>
-<div data-response='wholeeditequalprice' data-response-effect='slide' <?php if($showPriceWholeEdit) {/*nothing*/}else{echo 'data-response-hide'; } //endif ?>>
+<div data-response='wholeeditequalprice' <?php if($showPriceWholeEdit) {/*nothing*/}else{echo 'data-response-hide'; } //endif ?>>
 
  <div class="box">
       <div class="pad jboxPrice">

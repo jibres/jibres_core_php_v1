@@ -23,7 +23,7 @@
         </select>
 
 
-        <div class="mB10" data-response='condition' data-response-hide data-response-where='equal|notequal|larger|less|like' data-response-effect='slide'>
+        <div class="mB10" data-response='condition' data-response-hide data-response-where='equal|notequal|larger|less|like'>
           <label for="value"><?php echo T_("Value") ?></label>
            <select name="value" id="vaue" class="select22" data-model='tag'>
             <option value=""><?php echo T_("Value"); ?></option>

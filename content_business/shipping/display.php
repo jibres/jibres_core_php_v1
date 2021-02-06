@@ -93,7 +93,7 @@
 
 <?php function addNewAddress($_have_old_address) {?>
 <?php if($_have_old_address) {?>
-  <div data-response='address_id' data-response-hide data-response-where='new_address' data-response-effect='slide'>
+  <div data-response='address_id' data-response-hide data-response-where='new_address'>
 <?php } //endif ?>
 <div class="box">
       <div class="row">

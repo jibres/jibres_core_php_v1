@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div data-response='wd' data-response-where='wdn' data-response-hide data-response-effect='slide'>
+        <div data-response='wd' data-response-where='wdn' data-response-hide>
 
         <div class="mB10">
           <label for='tag'><?php echo T_("New Tag"); ?></label>
