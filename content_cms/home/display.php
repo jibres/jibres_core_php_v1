@@ -122,7 +122,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
       </nav>
     <?php }// endif ?>
 
-<?php if(\dash\permission::check('cmsSetting')) {?>
+<?php if(\dash\permission::check('cmsConfig')) {?>
       <nav class="items long">
         <ul>
           <li class="">
