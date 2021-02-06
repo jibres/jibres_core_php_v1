@@ -54,7 +54,7 @@ class description
 
 		if(!$notesid)
 		{
-			\dash\notif::error(T_("Invalid notess id"), 'id');
+			\dash\notif::error(T_("Invalid notes id"), 'id');
 			return false;
 		}
 

@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-05 19:34+0330\n"
-"PO-Revision-Date: 2021-02-05 19:35+0330\n"
+"POT-Creation-Date: 2021-02-06 11:41+0330\n"
+"PO-Revision-Date: 2021-02-06 11:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -14670,7 +14670,7 @@ msgstr "فایل از گالری حذف شد"
 
 #: content_b1/ticket/detail/view.php:18
 msgid "Please set the master ticket id"
-msgstr ""
+msgstr "لطفا شناسه تیکت اصلی را ارسال کنید"
 
 #: content_b1/tools.php:24
 msgid "Please set store code in url"
@@ -14686,19 +14686,19 @@ msgstr "کلید ای‌پی‌آی نامعتبر است"
 
 #: content_b1/transactions/detail/view.php:15
 msgid "Transaction not found"
-msgstr ""
+msgstr "هیچ تراکنشی یافت نشد"
 
 #: content_b1/user/address.php:56 dash/app/address.php:24 dash/app/address.php:461
 msgid "Address not found"
-msgstr ""
+msgstr "آدرس یافت نشد"
 
 #: content_b1/user/address/fetch/view.php:24
 msgid "No address founded"
-msgstr ""
+msgstr "هیچ آدرسی یافت نشد"
 
 #: content_b1/user/notes/fetch/view.php:15
 msgid "No description founded"
-msgstr ""
+msgstr "هیچ یادداشتی یافت نشد"
 
 #: content_business/app/display.php:14
 msgid "Download from Google Play"
@@ -15234,10 +15234,10 @@ msgstr "لطفا فایل مورد نظر را بارگذاری کنید"
 msgid "Upload"
 msgstr "بارگذاری"
 
-#: content_cms/files/add/view.php:11 content_cms/files/choose/view.php:9
-#: content_cms/files/datalist/view.php:9 content_cms/files/home/view.php:9
-#: content_cms/files/view/view.php:11 content_cms/home/display.php:131
-#: includes/languages/trans_static.php:562 lib/app/store/analytics.php:117
+#: content_cms/files/add/view.php:11 content_cms/files/datalist/view.php:9
+#: content_cms/files/home/view.php:9 content_cms/files/view/view.php:11
+#: content_cms/home/display.php:131 includes/languages/trans_static.php:562
+#: lib/app/store/analytics.php:117
 msgid "Files"
 msgstr "فایل‌ها"
 
@@ -15253,6 +15253,10 @@ msgstr "لطفا فایل خود را انتخاب کنید"
 #: content_cms/files/choose/model.php:47
 msgid "This method is not allowed"
 msgstr "این روش مجاز نمی‌باشد"
+
+#: content_cms/files/choose/view.php:9
+msgid "Choose from files"
+msgstr "انتخاب از فایل‌ها"
 
 #: content_cms/files/choose/view.php:48 content_cms/posts/edit/view.php:36
 #: content_cms/posts/edit/view.php:43
@@ -15468,11 +15472,11 @@ msgstr "ویدئوی خود را با دنیا به اشتراک بگذارید.
 msgid "Remove video"
 msgstr "حذف ویدئو"
 
-#: content_cms/posts/edit/display-gallery.php:141
+#: content_cms/posts/edit/display-gallery.php:160
 msgid "Featured Image"
 msgstr "تصویر شاخص"
 
-#: content_cms/posts/edit/display-gallery.php:143
+#: content_cms/posts/edit/display-gallery.php:162
 msgid ""
 "The Featured Image is a Jibres theme feature that allows theme you to using a "
 "representative image. Featured Image is a primary image for your post."
@@ -15480,16 +15484,16 @@ msgstr ""
 "تصویر شاخص در لیست‌ها به‌عنوان تصویر اصلی برای این نوشته نمایش داده می‌شود. یکی از مهم‌ترین "
 "مزیت‌هایی تصویر شاخص، افزایش زیبایی وب‌سایت شماست."
 
-#: content_cms/posts/edit/display-gallery.php:152
+#: content_cms/posts/edit/display-gallery.php:171
 msgid "Featured image"
 msgstr "تصویر شاخص"
 
-#: content_cms/posts/edit/display-gallery.php:159
+#: content_cms/posts/edit/display-gallery.php:178
 #: content_cms/posts/setting/display.php:208
 msgid "Choose from gallery"
 msgstr "انتخاب از گالری"
 
-#: content_cms/posts/edit/display-gallery.php:164
+#: content_cms/posts/edit/display-gallery.php:183
 msgid "Remove featured image"
 msgstr "حذف تصویر شاخص"
 
@@ -21581,8 +21585,8 @@ msgstr "هیچ کیف پولی یافت نشد"
 
 #: content_n/home/controller.php:21 content_v2/business/posts/detail/view.php:14
 #: dash/app/posts/remove.php:15 dash/upload/cms.php:18 dash/upload/cms.php:53
-#: dash/upload/cms.php:110 dash/upload/cms.php:143 dash/upload/cms.php:172
-#: dash/upload/cms.php:191 dash/upload/product.php:20 dash/upload/product.php:37
+#: dash/upload/cms.php:121 dash/upload/cms.php:154 dash/upload/cms.php:193
+#: dash/upload/cms.php:212 dash/upload/product.php:20 dash/upload/product.php:37
 #: dash/upload/product.php:93 dash/upload/tax_document.php:20
 #: dash/upload/tax_document.php:37
 msgid "Post not found"
@@ -24096,15 +24100,15 @@ msgstr "لطفا متن را پر کنید"
 
 #: dash/app/user/description.php:34
 msgid "Duplicate notes for user founded"
-msgstr ""
+msgstr "یادداشت برای این کاربر تکراری است"
 
 #: dash/app/user/description.php:40
 msgid "Note saved"
 msgstr "پیام شما ذخیره شد"
 
 #: dash/app/user/description.php:57
-msgid "Invalid notess id"
-msgstr ""
+msgid "Invalid notes id"
+msgstr "شناسه یادداشت اشتباه است"
 
 #: dash/app/user/description.php:64
 msgid "Invalid id!"
@@ -24112,7 +24116,7 @@ msgstr "شناسه نامعتبر!"
 
 #: dash/app/user/description.php:70
 msgid "Notes not found"
-msgstr ""
+msgstr "یادداشت‌ یافت نشد"
 
 #: dash/app/user/description.php:76
 msgid "Notes removed"
@@ -26052,6 +26056,14 @@ msgstr "جزئیات بیشتر"
 #: dash/upload/category.php:16
 msgid "Category id not set"
 msgstr "شناسه دسته‌بندی تنظیم نشده"
+
+#: dash/upload/cms.php:70
+msgid "Can not set this file as post featured image!"
+msgstr "نمی‌توانید این فایل را به عنوان تصویر شاخص مطلب انتخاب کنید"
+
+#: dash/upload/cms.php:171
+msgid "Can not set this file as post cover!"
+msgstr "نمی‌توانید این فایل را به عنوان کاور مطلب انتخاب کنید"
 
 #: dash/upload/extentions.php:161
 msgid "Content type of this file is different by extension of file"
@@ -38677,9 +38689,6 @@ msgstr "یارد"
 
 #~ msgid "Duplicate note for user founded"
 #~ msgstr "یادداشت تکراری است"
-
-#~ msgid "Invalid notes id"
-#~ msgstr "شناسه یادداشت اشتباه است"
 
 #~ msgid "Show all data where"
 #~ msgstr "نمایش اطلاعات با شرط"
