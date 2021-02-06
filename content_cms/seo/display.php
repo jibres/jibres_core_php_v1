@@ -6,7 +6,7 @@
       <div class="seoRank txtC mT20" data-size='hero'>
         <?php echo a(\dash\data::dashboardDetail(), 'seostar_html') ?>
       </div>
-      <div class="font-20 txtC">
+      <div class="font-18 txtC">
         <h2><?php echo T_("Average post SEO rank") ?></h2>
         <div class="font-40 txtB ltr"><?php echo \dash\fit::number(a(\dash\data::dashboardDetail(), 'avg_seorank')). ' '. T_("%") ?></div>
       </div>
