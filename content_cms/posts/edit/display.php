@@ -17,18 +17,16 @@ switch (\dash\data::dataRow_status())
 }
 ?>
 <?php if(\dash\data::dataRow_status() !== 'publish' || a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'redirecturl')) {?>
+      <?php if(\dash\data::dataRow_status() !== 'publish') {?>
+        <div class="msg font-12 minimal" data-removeElement>
+          <?php echo T_("This post is not published and can not be displayed to other people") ?>
+          <?php echo T_("To change post status Click here") ?>
+          <span class="link imageDel" data-ajaxify data-data='{"publishnow": "yes"}'><?php echo T_("Publish now") ?></span>
+        </div>
+      <?php } //endif ?>
   <nav class="items long">
     <ul>
 
-      <?php if(\dash\data::dataRow_status() !== 'publish') {?>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/advance'. \dash\request::full_get();?>">
-            <div class="key"><?php echo T_("To change post status Click here") ?></div>
-            <div class="value"><?php echo T_(\dash\data::dataRow_status());?></div>
-            <div class="go <?php echo $myIcon ?>"></div>
-          </a>
-        </li>
-      <?php } //endif ?>
 
       <?php if(a(\dash\data::dataRow(), 'will_be_published_on_future')) {?>
         <li>

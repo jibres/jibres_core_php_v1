@@ -18,6 +18,11 @@ class model
 			return false;
 		}
 
+		if(\dash\request::post('publishnow') === 'yes')
+		{
+			$post_detail = \dash\app\posts\edit::edit(['status' => 'publish'], \dash\request::get('id'));
+			return true;
+		}
 
 		if(\dash\request::post('fileaction') === 'remove')
 		{
