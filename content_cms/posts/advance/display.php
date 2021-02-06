@@ -152,7 +152,7 @@ $myID = '?id='. \dash\request::get('id');
     </div>
     <div class="c4 s12">
       <div class="action">
-        <a href="<?php echo \dash\url::this(). '/publishdate'. $myID; ?>" class="btn master"><?php echo T_("Edit publish date") ?></a>
+        <a href="<?php echo \dash\url::this(). '/publishdate'. $myID; ?>" class="btn secondary"><?php echo T_("Edit publish date") ?></a>
       </div>
     </div>
   </section>
@@ -168,7 +168,7 @@ $myID = '?id='. \dash\request::get('id');
     </div>
     <div class="c4 s12">
       <div class="action">
-        <a href="<?php echo \dash\url::this(). '/writer'. $myID; ?>" class="btn master"><?php echo T_("Edit post writer") ?></a>
+        <a href="<?php echo \dash\url::this(). '/writer'. $myID; ?>" class="btn secondary"><?php echo T_("Edit post writer") ?></a>
       </div>
     </div>
   </section>
@@ -186,7 +186,7 @@ $myID = '?id='. \dash\request::get('id');
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a href="<?php echo \dash\url::this(). '/redirecturl'. $myID; ?>" class="btn master"><?php echo T_("Set post redirect url") ?></a>
+      <a href="<?php echo \dash\url::this(). '/redirecturl'. $myID; ?>" class="btn secondary"><?php echo T_("Set redirect url") ?></a>
     </div>
   </div>
 </section>
