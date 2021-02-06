@@ -89,7 +89,11 @@ class seo
 			}
 			else
 			{
-				if($i - 0.9 <= $_star )
+				if($i - 0.25 <= $_star )
+				{
+					$result .= '<i class="fc-gold sf-star"></i>';
+				}
+				else if($i - 0.75 <= $_star )
 				{
 					$result .= '<i class="fc-gold sf-star-half-o"></i>';
 				}
