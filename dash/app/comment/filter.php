@@ -27,6 +27,7 @@ class filter
 		$list['unapproved'] = ['key' => 'unapproved', 	'group' => T_("Status"), 'title' => T_('Unapproved'), 	'query' => ['status' => 'unapproved'], 	'public' => true];
 		$list['awaiting']   = ['key' => 'awaiting', 	'group' => T_("Status"), 'title' => T_('Awaiting'), 	'query' => ['status' => 'awaiting'], 	'public' => true];
 		$list['spam']       = ['key' => 'spam', 		'group' => T_("Status"), 'title' => T_('Spam'), 	'query' => ['status' => 'spam'], 	'public' => true];
+		$list['posts']      = ['key' => 'posts', 		'group' => T_("Posts"),  'title' => T_('Comment of special posts'), 	'query' => ['status' => 'spam'], 	'public' => true, 'mode' => 'posts_search'];
 
 		return $list;
 

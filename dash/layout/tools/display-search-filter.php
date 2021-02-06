@@ -10,23 +10,42 @@ if(is_array(\dash\data::listEngine_filter()))
 
   foreach (\dash\data::listEngine_filter() as $key => $value)
   {
-    if($lastGroup !== $value['group'])
+    $mode = null;
+    if(isset($value['mode']) && $value['mode'])
     {
-      echo '<div>'. T_("Group by"). ' '. $value['group']. '</div>';
-      $lastGroup = $value['group'];
+      $mode = $value['mode'];
     }
 
-    echo '<a class="btn'. $myClass;
+    switch ($mode)
+    {
+      case 'posts_search':
 
-    if(a($value, 'is_active'))
-    {
-      echo ' primary2';
+        break;
+
+      // default
+      default:
+
+        if($lastGroup !== $value['group'])
+        {
+          echo '<div>'. T_("Group by"). ' '. $value['group']. '</div>';
+          $lastGroup = $value['group'];
+        }
+
+
+        echo '<a class="btn'. $myClass;
+
+        if(a($value, 'is_active'))
+        {
+          echo ' primary2';
+        }
+        else
+        {
+         echo ' light';
+        }
+        echo '" href="'. \dash\url::that(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
+
+        break;
     }
-    else
-    {
-     echo ' light';
-    }
-    echo '" href="'. \dash\url::that(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
     $myClass = null;
     $first = false;
   }
