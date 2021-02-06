@@ -80,24 +80,24 @@ class seo
 	public static function star_html($_star)
 	{
 		$result = '';
+		$_star = 4;
 
 		for ($i=1; $i <= 5 ; $i++)
 		{
-
 			if($i <= $_star)
 			{
-				if($i + 0.5  < $_star )
-				{
-					$result .= '<i class="fc-gold sf-star"></i>';
-				}
-				else
-				{
-					$result .= '<i class="fc-gold sf-star-half-o"></i>';
-				}
+				$result .= '<i class="fc-gold sf-star"></i>';
 			}
 			else
 			{
-				$result .= '<i class="fc-gold sf-star-o"></i>';
+				if($i - 0.9 <= $_star )
+				{
+					$result .= '<i class="fc-gold sf-star-half-o"></i>';
+				}
+				else
+				{
+					$result .= '<i class="fc-gold sf-star-o"></i>';
+				}
 			}
 		}
 		$result = '<div class="ltr compact">'. $result. '</div>';
