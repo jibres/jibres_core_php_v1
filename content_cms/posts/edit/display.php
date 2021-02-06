@@ -104,8 +104,8 @@ switch (\dash\data::dataRow_status())
           </div>
 
         </div>
-        <footer class="txtRa">
-          <a class="link sm" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a>
+        <footer class="txtLa">
+          <a class="link" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a>
         </footer>
       </div>
 
