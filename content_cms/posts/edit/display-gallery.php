@@ -100,9 +100,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
             <label for="file1">
               <div class="block"><?php echo T_("Gallery") ?></div>
               <abbr><?php echo $chooseTxt; ?></abbr>
-              <?php if(count($gallery) >= 3) {?>
-                <a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a>
-              <?php } //endif ?>
+
             <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small>
             </label>
 
@@ -146,6 +144,15 @@ switch (a($value, 'type'))
           </div>
         <?php } //endif ?>
       </div>
+       <?php if(count($gallery) >= 2) {?>
+        <footer>
+          <div class="row">
+            <div class="cauto"></div>
+            <div class="c"></div>
+            <div class="cauto"><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort images") ?></a></div>
+          </div>
+        </footer>
+      <?php } //endif ?>
     </div>
   </form>
 <?php
