@@ -26,6 +26,7 @@ class view
 			'sort'   => \dash\request::get('sort'),
 			'status' => \dash\request::get('status'),
 			'post_id' => \dash\request::get('post_id'),
+			'user' => \dash\request::get('user'),
 		];
 
 		$args = array_merge($args, $_args);

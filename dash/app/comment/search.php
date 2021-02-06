@@ -27,6 +27,7 @@ class search
 			'for'        => ['enum' => ['page','post','product']],
 			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
 			'post_id'    => 'code',
+			'user'    => 'code',
 			'product_id' => 'id',
 			'parent'     => 'id',
 			'limit'      => 'int',
@@ -75,6 +76,17 @@ class search
 			if($data['post_id'])
 			{
 				$and[] = " comments.post_id =  '$data[post_id]' ";
+				self::$is_filtered = true;
+			}
+		}
+
+
+		if($data['user'])
+		{
+			$data['user'] = \dash\coding::decode($data['user']);
+			if($data['user'])
+			{
+				$and[] = " comments.user_id =  '$data[user]' ";
 				self::$is_filtered = true;
 			}
 		}

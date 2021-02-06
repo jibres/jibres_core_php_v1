@@ -20,7 +20,7 @@ if(is_array(\dash\data::listEngine_filter()))
     {
       case 'posts_search':
          $apply_filter_btn = true;
-        echo "<div>";
+        echo "<div class='mB10'>";
         echo '<label>'. a($value, 'title'). '</label>';
         echo '<select name="post_id" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/cms/posts/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
         if(\dash\request::get('post_id'))
@@ -40,7 +40,7 @@ if(is_array(\dash\data::listEngine_filter()))
 
       case 'users_search':
         $apply_filter_btn = true;
-        echo "<div>";
+        echo "<div class='mB10'>";
         echo '<label>'. a($value, 'title'). '</label>';
         echo '<select name="user" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
         if(\dash\request::get('user'))
