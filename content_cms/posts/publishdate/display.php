@@ -1,3 +1,4 @@
+<?php require_once(root. 'content_cms/posts/postDetail.php'); ?>
 <div class="avand-md">
   <form method="post" autocomplete="off" id="formPublishdate">
     <div class="box">

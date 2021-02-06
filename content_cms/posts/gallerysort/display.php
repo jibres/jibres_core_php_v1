@@ -1,3 +1,4 @@
+<?php require_once(root. 'content_cms/posts/postDetail.php'); ?>
 <?php
   $gallery = \dash\data::dataRow_gallery_array();
   if(!is_array($gallery))

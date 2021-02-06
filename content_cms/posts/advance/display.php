@@ -1,6 +1,7 @@
 <?php
 $myID = '?id='. \dash\request::get('id');
 ?>
+<?php require_once(root. 'content_cms/posts/postDetail.php'); ?>
 
 
 <section class="f" data-option='cms-post-status'>

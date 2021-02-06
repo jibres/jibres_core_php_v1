@@ -1,3 +1,4 @@
+<?php require_once(root. 'content_cms/posts/postDetail.php'); ?>
 <?php
 $dataRow = \dash\data::dataRow();
 $myFirstURL = '';

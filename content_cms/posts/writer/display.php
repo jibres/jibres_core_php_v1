@@ -1,3 +1,4 @@
+<?php require_once(root. 'content_cms/posts/postDetail.php'); ?>
 <section class="f" data-option='cms-post-writer'>
   <div class="c8 s12">
     <div class="data">

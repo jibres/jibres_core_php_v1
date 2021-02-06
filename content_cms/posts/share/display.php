@@ -1,16 +1,11 @@
+<?php require_once(root. 'content_cms/posts/postDetail.php'); ?>
 <?php
 $propertyList = \dash\data::propertyList();
 ?>
 
 
 <div class="avand-sm">
-
-
-
   <div class="jPage">
-
-
-
     <section class="jbox">
       <div class="pad jboxProperty">
 
