@@ -250,9 +250,9 @@ class fit{
 
 
 
-	public static function file_size($_size)
+	public static function file_size($_size, $_forceEn = null)
 	{
-		return \dash\upload\size::readableSize($_size);
+		return \dash\upload\size::readableSize($_size, $_forceEn);
 	}
 
 

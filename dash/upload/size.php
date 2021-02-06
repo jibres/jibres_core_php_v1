@@ -80,13 +80,17 @@ class size
 	}
 
 
-	public static function readableSize($_filesize)
+	public static function readableSize($_filesize, $_forceEn = null)
 	{
 		if(is_numeric($_filesize))
 		{
 			$decr   = 1024;
 			$step   = 0;
 			$prefix = array(T_('Byte'), T_('KB'), T_('MB'), T_('GB'), T_('TB'), T_('PB'), 'EB', 'ZB', 'YB');
+			if($_forceEn)
+			{
+				$prefix = array('Byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+			}
 
 			while(($_filesize / $decr) > 0.9)
 			{
@@ -96,6 +100,11 @@ class size
 
 			if(isset($prefix[$step]))
 			{
+				if($_forceEn)
+				{
+					return \dash\fit::number_en(round($_filesize, 2)).' '.$prefix[$step];
+				}
+
 				return \dash\fit::number(round($_filesize, 2)).' '.$prefix[$step];
 			}
 			else

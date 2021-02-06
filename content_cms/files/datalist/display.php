@@ -6,7 +6,7 @@
         <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo T_("Post image") ?>">
         <div class="key"><?php echo a($value, 'filename'). '.'. a($value, 'ext'); ?></div>
 
-        <div class="value s0"><?php echo \dash\fit::file_size(a($value, 'size')); ?></div>
+        <div class="value fileSize s0"><?php echo \dash\fit::file_size(a($value, 'size'), true); ?></div>
 
 <?php
 $fType = 'file';
