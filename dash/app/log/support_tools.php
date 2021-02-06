@@ -59,24 +59,24 @@ class support_tools
 		[
 			'inline_keyboard'    =>
 			[
-				[
-					[
-						'text' => 	T_("Visit in site"),
-						'url'  => \dash\url::base(). '/!'. $_code,
-					],
-				],
-				[
-					[
-						'text'          => 	T_("Check ticket"),
-						'callback_data' => 'ticket '. $_code,
-					],
-				],
-				[
-					[
-						'text'          => 	T_("Answer"),
-						'callback_data' => 'ticket '. $_code. ' answer',
-					],
-				],
+				// [
+				// 	[
+				// 		'text' => 	T_("Visit in site"),
+				// 		'url'  => \dash\url::base(). '/!'. $_code,
+				// 	],
+				// ],
+				// [
+				// 	[
+				// 		'text'          => 	T_("Check ticket"),
+				// 		'callback_data' => 'ticket '. $_code,
+				// 	],
+				// ],
+				// [
+				// 	[
+				// 		'text'          => 	T_("Answer"),
+				// 		'callback_data' => 'ticket '. $_code. ' answer',
+				// 	],
+				// ],
 			],
 		];
 	}
@@ -87,18 +87,18 @@ class support_tools
 		[
 			'inline_keyboard'    =>
 			[
-				[
-					[
-						'text' => 	T_("Visit in site"),
-						'url'  => \dash\url::base(). '/!'. $_code,
-					],
-				],
-				[
-					[
-						'text'          => 	T_("Check ticket"),
-						'callback_data' => 'ticket '. $_code,
-					],
-				],
+				// [
+				// 	[
+				// 		'text' => 	T_("Visit in site"),
+				// 		'url'  => \dash\url::base(). '/!'. $_code,
+				// 	],
+				// ],
+				// [
+				// 	[
+				// 		'text'          => 	T_("Check ticket"),
+				// 		'callback_data' => 'ticket '. $_code,
+				// 	],
+				// ],
 			],
 		];
 	}
