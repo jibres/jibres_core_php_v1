@@ -48,12 +48,28 @@ $myID = '?id='. \dash\request::get('id');
     <form autocomplete="off" class="c4 s12" method="post" data-patch>
       <div class="action">
         <input type="hidden" name="runaction_theme" value="1">
-        <select class="select22" name="subtype">
-          <option value="standard" <?php if(\dash\data::dataRow_subtype() == 'standard') { echo 'selected'; } ?> ><?php echo T_("Standard"); ?></option>
-          <option value="gallery" <?php if(\dash\data::dataRow_subtype() == 'gallery') { echo 'selected'; } ?> ><?php echo T_("Gallery"); ?></option>
-          <option value="video" <?php if(\dash\data::dataRow_subtype() == 'video') { echo 'selected'; } ?> ><?php echo T_("Video"); ?></option>
-          <option value="audio" <?php if(\dash\data::dataRow_subtype() == 'audio') { echo 'selected'; } ?> > <?php echo T_("Audio"); ?></option>
-        </select>
+        <div>
+          <div class="radio1">
+            <input type="radio" name="subtype" value="standard" id="subtypestandard" <?php if(\dash\data::dataRow_subtype() === 'standard') {echo 'checked';} ?>>
+            <label for="subtypestandard"><?php echo T_("Standard"); ?></label>
+          </div>
+
+          <div class="radio1">
+            <input type="radio" name="subtype" value="gallery" id="subtypegallery" <?php if(\dash\data::dataRow_subtype() === 'gallery') {echo 'checked';} ?>>
+            <label for="subtypegallery"><?php echo T_("Gallery"); ?></label>
+          </div>
+
+          <div class="radio1">
+            <input type="radio" name="subtype" value="video" id="subtypevideo" <?php if(\dash\data::dataRow_subtype() === 'video') {echo 'checked';} ?>>
+            <label for="subtypevideo"><?php echo T_("Video"); ?></label>
+          </div>
+
+          <div class="radio1">
+            <input type="radio" name="subtype" value="audio" id="subtypeaudio" <?php if(\dash\data::dataRow_subtype() === 'audio') {echo 'checked';} ?>>
+            <label for="subtypeaudio"><?php echo T_("Audio"); ?></label>
+          </div>
+        </div>
+
       </div>
     </form>
   </section>
