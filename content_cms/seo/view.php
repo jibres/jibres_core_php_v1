@@ -16,7 +16,7 @@ class view
 			'order'      => 'desc',
 			'sort'       => 'seorank',
 			'status'     => 'publish',
-			'limit'      => 5,
+			'limit'      => 10,
 			'pagination' => 'n',
 		];
 
