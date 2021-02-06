@@ -47,7 +47,7 @@ $myID = '?id='. \dash\request::get('id');
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='cover' data-ratio="1.7"  data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
+    <div class="action" data-uploader data-name='cover' data-type='cover' data-ratio="1.7"  data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage' data-autoSend <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
       <input type="hidden" name="runaction_setcover" value="1">
 
       <input type="file" accept="image/jpeg, image/png" id="image1">
@@ -165,7 +165,7 @@ $myID = '?id='. \dash\request::get('id');
       <div class="data">
         <h3><?php echo T_("Change post writer"); ?></h3>
         <div class="body">
-          <p><?php echo T_("You can change the author of the post manually");?></p>
+          <p><?php echo T_("You can change the author of the post manually.");?></p>
           <?php if(\dash\data::postWriterOld()) {?><div class="mT10"><?php echo T_("Current post writer"). ' '.  \dash\data::postWriterOld_displayname(); ?></div><?php } //endif ?>
         </div>
       </div>
@@ -184,7 +184,7 @@ $myID = '?id='. \dash\request::get('id');
     <div class="data">
       <h3><?php echo T_("Redirect");?></h3>
       <div class="body">
-        <p><?php echo T_("If you want your post to be moved to a new page after opening, enter the URL of the new page here");?></p>
+        <p><?php echo T_("If you want your post to be moved to a new page after opening, enter the URL of the new page here.");?></p>
         <?php if(\dash\data::dataRow_redirecturl()) {?>
           <div class="row msg success2 minimal">
             <div class="c-auto"><?php echo T_("This post automatically redirected to new page") ?></div>

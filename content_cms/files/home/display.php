@@ -80,18 +80,6 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
      </ul>
    </nav>
 <?php } //endif ?>
-<nav class="items long">
-     <ul>
-      <li>
-        <a class="item f" href="<?php echo \dash\url::this();?>/add">
-          <i class="sf-cloud-upload"></i>
-          <div class="key"><?php echo T_('Upload');?></div>
-
-          <div class="go plus ok"></div>
-        </a>
-      </li>
-     </ul>
-   </nav>
 
     <nav class="items long">
      <ul>
@@ -109,6 +97,18 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
           <div class="key"><?php echo T_('Total size');?></div>
           <div class="value"><?php echo \dash\fit::file_size(a($dashboard, 'total_size')); ?></div>
           <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+    <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/add">
+          <i class="sf-cloud-upload"></i>
+          <div class="key"><?php echo T_('Upload');?></div>
+
+          <div class="go plus ok"></div>
         </a>
       </li>
      </ul>
