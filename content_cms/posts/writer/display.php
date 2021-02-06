@@ -42,11 +42,20 @@
   <form autocomplete="off" class="c4 s12" method="post" data-patch>
     <div class="action">
       <input type="hidden" name="runaction_showwriter" value="1">
-      <select class="select22" name="showwriter">
-          <option value="default" <?php if(\dash\data::dataRow_showwriter() == 'default') { echo 'selected'; } ?> ><?php echo \dash\data::defaultTitleShowwriter(); ?></option>
-          <option value="visible" <?php if(\dash\data::dataRow_showwriter() == 'visible') { echo 'selected'; } ?> ><?php echo T_("Visible"); ?></option>
-          <option value="hidden" <?php if(\dash\data::dataRow_showwriter() == 'hidden') { echo 'selected'; } ?> ><?php echo T_("Hidden"); ?></option>
-        </select>
+       <div>
+        <div class="radio1">
+          <input type="radio" name="showwriter" value="default" id="showwriterdefault" <?php if(\dash\data::dataRow_showwriter() === 'default' || !\dash\data::dataRow_showwriter()) {echo 'checked';} ?>>
+          <label for="showwriterdefault"><?php echo \dash\data::defaultTitleShowwriter(); ?></label>
+        </div>
+        <div class="radio1 green">
+          <input type="radio" name="showwriter" value="visible" id="showwritervisible" <?php if(\dash\data::dataRow_showwriter() === 'visible') {echo 'checked';} ?>>
+          <label for="showwritervisible"><?php echo T_("Visible"); ?></label>
+        </div>
+        <div class="radio1 red">
+          <input type="radio" name="showwriter" value="hidden" id="showwriterhidden" <?php if(\dash\data::dataRow_showwriter() === 'hidden') {echo 'checked';} ?>>
+          <label for="showwriterhidden"><?php echo T_("Hidden"); ?></label>
+        </div>
+      </div>
     </div>
   </form>
 </section>
