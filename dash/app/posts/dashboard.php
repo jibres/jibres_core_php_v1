@@ -24,7 +24,8 @@ class dashboard
 
 		$dashboard_detail['files']             = floatval(\dash\db\files::count_all());
 		$dashboard_detail['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());
-		$dashboard_detail['seostar_html']      = \dash\seo::star_html(round(($dashboard_detail['avg_seorank'] * 5 / 100), 1));
+		$star = round(($dashboard_detail['avg_seorank'] * 5 / 100), 1);
+		$dashboard_detail['seostar_html']      = \dash\seo::star_html($star);
 
 
 		//
@@ -67,7 +68,7 @@ class dashboard
 		$seo_dashboard                      = [];
 
 		$seo_dashboard['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());
-		$seo_dashboard['seostar_html']      = \dash\seo::star_html(round(($seo_dashboard['avg_seorank'] * 5 / 100)));
+		$seo_dashboard['seostar_html']      = \dash\seo::star_html(round(($seo_dashboard['avg_seorank'] * 5 / 100), 1));
 		return $seo_dashboard;
 	}
 
