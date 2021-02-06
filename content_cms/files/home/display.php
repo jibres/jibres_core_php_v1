@@ -114,6 +114,61 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
      </ul>
    </nav>
 
+
+  <nav class="items long">
+    <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=image">
+          <i class="sf-file-image-o"></i>
+          <div class="key"><?php echo T_('Image');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'image')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=audio">
+          <i class="sf-music"></i>
+          <div class="key"><?php echo T_('Audio');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'audio')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=video">
+          <i class="sf-file-video-o"></i>
+          <div class="key"><?php echo T_('Video');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'video')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=pdf">
+          <i class="sf-file-pdf-o"></i>
+          <div class="key"><?php echo T_('PDF');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'pdf')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=archive">
+          <i class="sf-file-archive-o"></i>
+          <div class="key"><?php echo T_('ZIP');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'archive')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=other">
+          <i class="sf-file-o"></i>
+          <div class="key"><?php echo T_('Other files');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'other')); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
    <nav class="items long">
      <ul>
       <li>
