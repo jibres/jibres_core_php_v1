@@ -16,18 +16,16 @@ switch (\dash\data::dataRow_status())
   case 'deleted' :  $myIcon = 'stop nok'; break;
 }
 ?>
-<?php if(\dash\data::dataRow_status() !== 'publish' || a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'redirecturl')) {?>
-      <?php if(\dash\data::dataRow_status() !== 'publish') {?>
-        <div class="msg font-12 minimal" data-removeElement>
-          <?php echo T_("This post is not published and can not be displayed to other people") ?>
-          <?php echo T_("To change post status Click here") ?>
-          <span class="link imageDel" data-ajaxify data-data='{"publishnow": "yes"}'><?php echo T_("Publish now") ?></span>
-        </div>
-      <?php } //endif ?>
+<?php if(\dash\data::dataRow_status() !== 'publish') {?>
+  <div class="msg info2 font-14a mB10-f row" data-space='zero' data-removeElement>
+    <div class="c"><?php echo T_("This post is a draft and not published yet. You must publish it if you want it visible to everyone") ?></div>
+    <div class="c-auto"><a class="link imageDel" data-ajaxify data-data='{"publishnow": "yes"}'><?php echo T_("Publish Now") ?></a></div>
+  </div>
+<?php } //endif ?>
+
+<?php if(a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'redirecturl')) {?>
   <nav class="items long">
     <ul>
-
-
       <?php if(a(\dash\data::dataRow(), 'will_be_published_on_future')) {?>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/publishdate'. \dash\request::full_get();?>">
