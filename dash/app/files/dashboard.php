@@ -99,7 +99,7 @@ class dashboard
 			}
 
 			$count[] = ['name' => T_(ucfirst($value['type'])), 'y' => floatval($value['count'])];
-			$size[]  = ['name' => T_(ucfirst($value['type'])), 'y' => floatval($value['size'])];
+			$size[]  = ['name' => T_(ucfirst($value['type'])), 'y' => round(floatval($value['size']) / 1024 / 1024)];
 		}
 
 		$chart                             = [];
