@@ -188,6 +188,29 @@ class ready
 			}
 		}
 
+		$publishdate_message = null;
+		if(isset($result['publishdate']) && $result['publishdate'])
+		{
+			$myTime = time() - strtotime($result['publishdate']);
+			if($myTime < 0)
+			{
+				$publishdate_message = T_("Post will be published at :val", ['val' => \dash\fit::date_time($result['publishdate'])]);
+			}
+			else
+			{
+				$publishdate_message = T_("Post published at :val", ['val' => \dash\fit::date_time($result['publishdate'])]);
+			}
+		}
+		else
+		{
+			$publishdate_message = T_("Post will be published at when status set on publish");
+		}
+		$result['publishdate_message'] = $publishdate_message;
+
+
+
+
+
 
 		if(isset($result['will_be_published_on_future']) && isset($result['status']) && $result['status'] === 'publish' && \dash\url::content() !== 'cms' && !\dash\request::get('preview'))
 		{
@@ -225,6 +248,7 @@ class ready
 			unset($result['language']);
 			unset($result['post_title']);
 			unset($result['gallery']);
+			unset($result['publishdate_message']);
 
 		}
 

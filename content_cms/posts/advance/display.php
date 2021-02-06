@@ -147,6 +147,7 @@ $myID = '?id='. \dash\request::get('id');
         <h3><?php echo T_("Publish date");?></h3>
         <div class="body">
           <p><?php echo T_("By default, the publish time is saved when you set post status publish, and you can manually change the publication date in this section.");?></p>
+          <time><?php echo \dash\data::dataRow_publishdate_message(); ?></time>
         </div>
       </div>
     </div>

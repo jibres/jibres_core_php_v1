@@ -117,7 +117,7 @@ switch (\dash\data::dataRow_status())
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a href="<?php echo \dash\url::this(). '/share'. $myID; ?>" class="btn master"><?php echo T_("Smart Share") ?></a>
+      <a href="<?php echo \dash\url::this(). '/share'. $myID; ?>" class="btn secondary"><?php echo T_("Smart Share") ?></a>
     </div>
   </div>
 </section>
