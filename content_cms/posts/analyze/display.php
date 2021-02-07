@@ -19,12 +19,14 @@
   </div>
 </div>
 
+
 <?php if(\dash\data::seoAnalyze()) { $seoAnalyze = \dash\data::seoAnalyze(); ?>
 <div class="box">
   <div class="pad">
     <h6 class="txtB"><?php echo T_("SEO analysis") ?></h6>
     <div class="font-20 mB20">
-      <div><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?> <?php echo a($seoAnalyze, 'star_html') ?></div>
+      <div class="font-40"><?php echo a($seoAnalyze, 'star_html') ?></div>
+      <div><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?></div>
 
     </div>
     <?php foreach (a($seoAnalyze, 'list') as $key => $value) {?>

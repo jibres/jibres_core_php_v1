@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Edit post SEO"));
+		\dash\face::title(T_("SEO Content Analysis"));
 
 		\dash\data::back_text(T_("Back"));
 		\dash\data::back_link(\dash\url::this(). '/edit'. \dash\request::full_get());
@@ -33,10 +33,6 @@ class view
 		$seoAnalyze    = \dash\seo::analyze($seo_detail);
 
 		\dash\data::seoAnalyze($seoAnalyze);
-
-
-
-
 	}
 }
 ?>
