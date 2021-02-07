@@ -63,8 +63,8 @@
                 <label for="under_page"><?php echo T_("Under page") ?></label>
               </div>
             </div>
-          </div>
         <?php } //endif ?>
+        </div>
       </div>
 
       <div class="mT10" data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
@@ -103,6 +103,7 @@
     </div>
   </div>
 </form>
+
 <?php if(\dash\data::seoAnalyze()) { $seoAnalyze = \dash\data::seoAnalyze(); ?>
 <div class="box">
   <div class="pad">
