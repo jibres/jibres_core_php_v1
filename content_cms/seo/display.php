@@ -34,8 +34,34 @@
     <ul>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
        <li>
-        <a class="f align-center" href="<?php echo \dash\url::here(). '/posts/seo?id='.  a($value, 'id') ?>">
-          <?php echo '<img src="'. a($value, 'thumb'). '" alt="'. T_("Post image"). '">'; ?>
+        <a class="item f align-center" href="<?php echo \dash\url::here(). '/posts/seo?id='.  a($value, 'id') ?>">
+<?php if(a($value, 'thumb')) {?>
+                <img src="<?php echo \dash\fit::url_thumb(a($value, 'thumb')); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
+<?php } else {
+$type = 'news';
+switch (a($value, 'subtype'))
+{
+  case 'standard':
+    $type = 'news';
+    break;
+
+  case 'gallery':
+    $type = 'picture';
+    break;
+
+  case 'video':
+    $type = 'film';
+    break;
+
+  case 'audio':
+    $type = 'music';
+    break;
+
+  default:
+    break;
+}
+echo '<i class="sf-'. $type. '"></i>';
+}?>
           <div class="key"><?php echo a($value, 'title'); ?></div>
           <div class="value ltr"><?php if(a($value, 'seorank')) { echo \dash\fit::number(a($value, 'seorank')) . ' '. T_("%"); } ?></div>
           <div class="value ltr"><?php if(a($value, 'seorank')) { echo a($value, 'seo_rank_star'); } ?></div>
