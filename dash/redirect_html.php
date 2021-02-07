@@ -19,7 +19,7 @@
   </div>
   <div class="detail">
     <h1<?php if($_txt) {echo ' title="'. $_txt. '"';} ?>><?php echo T_('REDIRECTING ...') ?></h1>
-    <?php echo '  <h2><a href='. $_loc. '>'. strtok($_loc, '?') .'</a></h2>';
+    <?php echo '  <h2><a href='. urlencode($_loc). '>'. strtok($_loc, '?') .'</a></h2>';
     if($_txt)
     {
       echo '  <br><p>'. $_txt .'</p>';
