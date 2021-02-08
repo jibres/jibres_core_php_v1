@@ -27,6 +27,13 @@
      <td></td>
     </tr>
 
+
+    <tr>
+     <td><?php echo \dash\fit::date("2021-01-01"); ?></td>
+     <td><?php echo T_("happy New Year"); ?> <?php echo \dash\fit::number("2021", false); ?></td>
+     <td></td>
+    </tr>
+
     <tr>
      <td><?php echo \dash\fit::date("2020-07-21"); ?></td>
      <td><?php echo T_("The first online sale was registered on our first online store website.");?></td>
