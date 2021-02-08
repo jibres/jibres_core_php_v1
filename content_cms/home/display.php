@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-        <div id="chartdivcmshome" class="box chart x280 s0" data-abc='cms/homepage' data-abc-v='4'>
+        <div id="chartdivcmshome" class="box chart x330 s0" data-abc='cms/homepage' data-abc-v='4'>
       <div class="hide">
         <div id="chardatatitle"><?php echo T_("Draft") ?></div>
         <div id="chardatatitlepublish"><?php echo T_("Publish") ?></div>
