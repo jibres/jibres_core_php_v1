@@ -55,7 +55,7 @@ class view
 					if(isset($seoAnalyze['rank']))
 					{
 						$args['seorank'] = $seoAnalyze['rank'];
-						\dash\db::get("UPDATE posts SET posts.seorank = $seoAnalyze[rank] WHERE posts.id = $one_post[id] LIMIT 1", $value['fuel'], ['database' => $dbname]);
+						\dash\db::query("UPDATE posts SET posts.seorank = $seoAnalyze[rank] WHERE posts.id = $one_post[id] LIMIT 1", $value['fuel'], ['database' => $dbname]);
 
 					}
 
