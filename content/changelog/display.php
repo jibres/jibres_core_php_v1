@@ -82,6 +82,12 @@
     </tr>
 
     <tr>
+     <td><?php echo \dash\fit::date("2019-09-25"); ?></td>
+     <td><?php echo T_("Beta version is released."); ?></td>
+     <td></td>
+    </tr>
+
+    <tr>
      <td><?php echo \dash\fit::date("2019-02-07"); ?></td>
      <td><?php echo T_("add support of digital scale barcode and get weight of product automatically."); ?></td>
      <td></td>
@@ -114,12 +120,6 @@
     <tr>
      <td><?php echo \dash\fit::date("2017-12-12"); ?></td>
      <td><?php echo T_("Our first store on web is created and start add product to store."); ?></td>
-     <td></td>
-    </tr>
-
-    <tr>
-     <td><?php echo \dash\fit::date("2017-12-07"); ?></td>
-     <td><?php echo T_("Beta version is released."); ?></td>
      <td></td>
     </tr>
 
