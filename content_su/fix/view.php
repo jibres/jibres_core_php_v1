@@ -11,12 +11,14 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+		self::fix();
+
 
 	}
 
 
 
-	private static function fix_ratio_file()
+	private static function fix()
 	{
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
@@ -28,67 +30,41 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			$query = "	SELECT * FROM files WHERE files.ext IN ('jpg','jpeg','png','gif', 'webp') ";
+			$query = "	SELECT * FROM posts  ";
 			$store_id = $value['id'];
 			$dbname = \dash\engine\store::make_database_name($store_id);
 			$resutl = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
 			if($resutl)
 			{
-
-				foreach ($resutl as $one_file)
+				foreach ($resutl as $one_post)
 				{
-					if(isset($one_file['path']))
+
+					$query = "	SELECT terms.id AS `term_id`, terms.title, terms.url FROM termusages INNER JOIN terms ON terms.id = termusages.term_id WHERE termusages.post_id = $one_post[id] AND termusages.type = 'tag' ";
+					$tags = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
+
+					$seo_detail            = [];
+					$seo_detail['type']    = 'post';
+					$seo_detail['id']      = a($one_post, 'id');
+					$seo_detail['title']   = a($one_post, 'title');
+					$seo_detail['seodesc'] = a($one_post, 'excerpt');
+					$seo_detail['content'] = a($one_post, 'content');
+					$seo_detail['tags']    = $tags;
+
+					$seoAnalyze    = \dash\seo::analyze($seo_detail);
+
+					if(isset($seoAnalyze['rank']))
 					{
-						if(a($one_file, 'height') || a($one_file, 'width'))
-						{
-							$duplicate++;
-							continue;
-						}
+						$args['seorank'] = $seoAnalyze['rank'];
+						\dash\db::get("UPDATE posts SET posts.seorank = $seoAnalyze[rank] WHERE posts.id = $one_post[id] LIMIT 1", $value['fuel'], ['database' => $dbname]);
 
-
-						$addr = YARD . 'talambar_cloud/';
-						$addr .=\dash\store_coding::encode_raw();
-						$addr .= $one_file['path'];
-
-						if(!is_file($addr))
-						{
-							$file_error[] = $addr;
-							continue;
-						}
-
-						$update = [];
-
-						$ratio_detail = \dash\utility\image::get_ratio($addr, true);
-
-						if(isset($ratio_detail['height']))
-						{
-							$update['height'] = $ratio_detail['height'];
-						}
-
-						if(isset($ratio_detail['width']))
-						{
-							$update['width'] = $ratio_detail['width'];
-						}
-
-						if(isset($ratio_detail['ratio']))
-						{
-							$update['ratio'] = $ratio_detail['ratio'];
-						}
-
-						if(!empty($update))
-						{
-							$set = \dash\db\config::make_set($update);
-
-							$load_usage = \dash\db::query("UPDATE files SET $set WHERE files.id = '$one_file[id]' LIMIT 1 ", $value['fuel'], ['database' => $dbname]);
-							$run++;
-						}
 					}
+
+
 				}
 			}
 		}
-		var_dump("run", $run);
-		var_dump("duplicate", $duplicate);
-		var_dump("file not found", $file_error);
+
+		var_dump('ok');
 		exit();
 	}
 }
