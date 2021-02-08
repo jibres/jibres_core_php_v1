@@ -35,9 +35,53 @@ class dropdown
 			$result['results'][] = self::getNeededFieldLink($value, T_("Tag"), $edit_link);
 		}
 
+		$search_setting = self::search_setting($query);
+		foreach ($search_setting as $key => $value)
+		{
+			$result['results'][] = self::getNeededFieldLink($value, T_("Config"), a($value, 'link'));
+		}
+
 		\dash\code::jsonBoom($result);
 
-		var_dump($q);exit();
+	}
+
+
+
+
+	private static function search_setting($_query)
+	{
+		$list =
+		[
+			[
+				'title' => T_("Sitemap"),
+				'words' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
+				'link' => \dash\url::kingdom(). '/cms/sitemap',
+			],
+			[
+				'title' => T_("Config"),
+				'words' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
+				'link' => \dash\url::kingdom(). '/cms/config',
+			]
+		];
+
+		$result = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['words']))
+			{
+				if(in_array(mb_strtolower($_query), $value['words']))
+				{
+					$result[] =
+					[
+						'title' => a($value, 'title'),
+						'link' => a($value, 'link'),
+					];
+				}
+			}
+		}
+
+		return $result;
 	}
 
 
