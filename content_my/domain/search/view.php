@@ -17,6 +17,15 @@ class view
 		\dash\face::btnImport(\dash\url::this().'/import');
 		// \dash\face::btnExport(\dash\url::this().'/export');
 
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\domains\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\domains\filter::sort_list());
+
+
+
+
 		$args =
 		[
 			'order'     => \dash\request::get('order'),
@@ -30,23 +39,9 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		if(\lib\nic\mode::api())
-		{
-			$args['q'] = $search_string;
-
-			$get_api    = new \lib\nic\api();
-			$list       = $get_api->domain_fetch($args);
-			$filterBox  = $get_api->meta('filter_message');
-			$isFiltered = $get_api->meta('is_filtered');
-		}
-		else
-		{
-
-			$list          = \lib\app\nic_domain\search::list($search_string, $args);
-			$filterBox     = \lib\app\nic_domain\search::filter_message();
-			$isFiltered    = \lib\app\nic_domain\search::is_filtered();
-
-		}
+		$list          = \lib\app\nic_domain\search::list($search_string, $args);
+		$filterBox     = \lib\app\nic_domain\search::filter_message();
+		$isFiltered    = \lib\app\nic_domain\search::is_filtered();
 
 		$count_group_by_status = \lib\app\nic_domain\dashboard::count_group_by_status();
 		\dash\data::groupByStatus($count_group_by_status);

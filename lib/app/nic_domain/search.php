@@ -64,16 +64,16 @@ class search
 		$condition =
 		[
 			'order'     => 'order',
-			'sort'      => ['enum' => ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']],
-			'list'    => ['enum' => ['mydomain', 'renew', 'available', 'import']],
+			'sort'      => 'string_100',
+			'list'      => ['enum' => ['mydomain', 'renew', 'available', 'import']],
 			'lock'      => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew' => ['enum' => ['on', 'off']],
 			'predict'   => 'bit',
 			'status'    => 'string_100',
 			'user_id'   => 'id',
 			'is_admin'  => 'bit',
-			'get_count'  => 'bit',
-			'user'    => 'code',
+			'get_count' => 'bit',
+			'user'      => 'code',
 
 		];
 
@@ -115,17 +115,9 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['name', 'dateexpire', 'dateregister', 'dateupdate', 'id']))
+			if(\lib\app\domains\filter::check_allow($data['sort'], $data['order']))
 			{
-
-				$sort = mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = mb_strtolower($data['order']);
-				}
-
-				$order_sort = " ORDER BY $sort $order";
+				$order_sort = " ORDER BY $data[sort] $data[order]";
 			}
 		}
 
