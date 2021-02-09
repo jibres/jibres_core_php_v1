@@ -15,15 +15,15 @@ class view
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(\dash\app\files\filter::list());
 		\dash\data::listEngine_sort(true);
+		\dash\data::listEngine_cleanFilterUrl(\dash\url::that().'?'. \dash\request::build_query(['related' => \dash\request::get('related'), 'related_id' => \dash\request::get('related_id')]));
 		\dash\data::sortList(\dash\app\files\filter::sort_list());
-
 		$args =
 		[
 			'order' => \dash\request::get('order'),
 			'sort'  => \dash\request::get('sort'),
 			'type'  => \dash\request::get('type'),
 			'ext'   => \dash\request::get('ext'),
-			'ratio'   => \dash\request::get('ratio'),
+			'ratio' => \dash\request::get('ratio'),
 		];
 
 		$postList      = \dash\app\files\search::list(\dash\request::get('q'), $args);
