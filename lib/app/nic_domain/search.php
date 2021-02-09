@@ -75,6 +75,8 @@ class search
 			'get_count' => 'bit',
 			'user'      => 'code',
 
+			'pagination' => 'y_n',
+
 		];
 
 		$require = [];
@@ -96,6 +98,11 @@ class search
 		$or          = [];
 
 		$meta['limit'] = 20;
+
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
+		}
 
 
 		$order_sort  = null;
@@ -132,6 +139,7 @@ class search
 		}
 		elseif($data['predict'])
 		{
+			// $meta['fields'] = 'DISTINCT domain.*';
 			// get user setting of life time domain
 			// if not set show 5 years
 			$my_setting = \lib\app\nic_usersetting\get::get();
@@ -151,6 +159,17 @@ class search
 			// $and[] = " domain.verify = 1 ";
 			$and[] = " domain.autorenew = 1 ";
 			$and[] = " domain.available = 0 ";
+
+			// $meta['join'][] = "  JOIN domainstatus ON domainstatus.domain = domain.name";
+			// $and[] = " domainstatus.active = 1 AND domainstatus.status NOT IN (
+			// 				'serverRenewProhibited',
+			// 				'pendingDelete',
+			// 				'pendingRenew',
+			// 				'irnicRegistrationRejected',
+			// 				'irnicRegistrationPendingHolderCheck',
+			// 				'irnicRegistrationPendingDomainCheck',
+			// 				'irnicRegistrationDocRequired',
+			// 				'irnicRenewalPendingHolderCheck')";
 
 			$and[] =
 			"

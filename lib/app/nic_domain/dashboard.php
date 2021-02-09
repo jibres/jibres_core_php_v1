@@ -110,17 +110,16 @@ class dashboard
 
 		$life_time   = \lib\app\nic_usersetting\defaultval::get_time($domainlifetime);
 
-		$next_year = date("Y-m-d", strtotime("+365 days") - $life_time);
 
 
-		$count_expire_domain_next_year = intval(\lib\db\nic_domain\get::count_expire_domain_date($user_id, $next_year));
-		if($count_expire_domain_next_year)
+		\lib\app\nic_domain\search::list(null, ['predict' => true]);
+		$calc = \dash\data::myPayCalc();
+		if(!is_array($calc))
 		{
-			$price = \lib\app\nic_domain\price::renew($autorenewperiod);
-			$predict_late_payment = $price * $count_expire_domain_next_year;
+			$calc = [];
 		}
 
-		$result['predict_late_payment'] = $predict_late_payment;
+		$result['predict_late_payment'] = array_sum(array_column($calc, 'price'));
 
 		// $result['domain_pay_chart']      = self::domain_pay_chart($user_id);
 		$result['domain_pay_chart']      = self::domain_pay_chart_day($user_id);
