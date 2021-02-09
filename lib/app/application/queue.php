@@ -537,10 +537,13 @@ class queue
 		{
 			\dash\scp::uploader_connection();
 
-			$result = \dash\scp::send($source, $dest);
+			$result = @copy($source, $dest);
+
+			$result = \dash\scp::send($dest, str_replace(YARD, '', $dest));
+
 			if($result)
 			{
-				\dash\file::delete($source);
+				\dash\file::delete($dest);
 			}
 		}
 		else
