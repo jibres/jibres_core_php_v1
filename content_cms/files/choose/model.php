@@ -28,6 +28,22 @@ class model
 			return;
 
 		}
+		elseif(\dash\request::get('related') === 'postsgallery' && \dash\request::get('related_id'))
+		{
+			$back_link = \content_cms\files\choose\view::call_back_link();
+
+			$file_detail = \dash\upload\cms::set_post_gallery_by_file_id(\dash\coding::decode(\dash\request::get('related_id')), $fileid);
+			if($file_detail)
+			{
+				\dash\app\posts\gallery::gallery(\dash\request::get('related_id'), $file_detail, 'add');
+				if(\dash\engine\process::status())
+				{
+					\dash\redirect::to($back_link);
+				}
+			}
+			return;
+
+		}
 		elseif(\dash\request::get('related') === 'postscover' && \dash\request::get('related_id'))
 		{
 			$back_link = \content_cms\files\choose\view::call_back_link();

@@ -52,6 +52,11 @@ class view
 			$link = \dash\url::here(). '/posts/advance?id='. \dash\request::get('related_id');
 			$title = T_("Post setting");
 		}
+		elseif(\dash\request::get('related') === 'postsgallery' && \dash\request::get('related_id'))
+		{
+			$link = \dash\url::here(). '/posts/edit?id='. \dash\request::get('related_id');
+			$title = T_("Edit post");
+		}
 		else
 		{
 			$link = \dash\url::here();

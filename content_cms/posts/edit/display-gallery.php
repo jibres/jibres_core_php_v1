@@ -144,15 +144,15 @@ switch (a($value, 'type'))
           </div>
         <?php } //endif ?>
       </div>
-       <?php if(count($gallery) >= 2 || \dash\data::convertPostTo()) {?>
+
         <footer>
           <div class="row">
-            <div class="cauto"><?php echo \dash\data::convertPostTo();  ?></div>
+            <div class="cauto"><a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgallery', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
             <div class="c"></div>
-            <div class="cauto"><?php if(count($gallery) >= 2) {?><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort Gallery") ?></a><?php } //endif ?></div>
+            <div class="cauto"><?php echo \dash\data::convertPostTo();  if(count($gallery) >= 2) {?><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort Gallery") ?></a><?php } //endif ?></div>
           </div>
         </footer>
-      <?php } //endif ?>
+
     </div>
   </form>
 <?php

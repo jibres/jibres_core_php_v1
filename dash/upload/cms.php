@@ -203,6 +203,33 @@ class cms
 	}
 
 
+
+	public static function set_post_gallery_by_file_id($_post_id, $_file_id)
+	{
+		\dash\permission::access('cmsAttachmentAdd');
+
+		if(!$_post_id)
+		{
+			\dash\notif::error(T_("Post not found"));
+			return false;
+		}
+
+		$_file_id = \dash\coding::decode($_file_id);
+
+		$load_file = \dash\app\files\get::inline_get($_file_id);
+
+		if(!isset($load_file['id']))
+		{
+			return false;
+		}
+
+		self::set_usage('post_gallery', $load_file['id'], $_post_id);
+
+		return $load_file;
+	}
+
+
+
 	public static function set_post_gallery($_post_id)
 	{
 		\dash\permission::access('cmsAttachmentAdd');
