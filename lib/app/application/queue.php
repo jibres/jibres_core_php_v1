@@ -533,7 +533,20 @@ class queue
 
 		\dash\log::file(json_encode([$source, $dest]), 'transfer_file_apk', 'application');
 
-		if(@copy($source, $dest))
+		if(\dash\upload\file::upload_other_server_scp())
+		{
+			$result = \dash\scp::send($source, $dest);
+			if($result)
+			{
+				\dash\file::delete($source);
+			}
+		}
+		else
+		{
+			$result = @copy($source, $dest);
+		}
+
+		if($result)
 		{
 			// copy application successfully
 			return true;
