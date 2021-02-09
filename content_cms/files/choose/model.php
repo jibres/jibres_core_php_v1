@@ -7,6 +7,9 @@ class model
 	public static function post()
 	{
 		$fileid = \dash\request::post('fileid');
+		$related = \dash\request::get('related');
+		$related_id = \dash\request::get('related_id');
+
 
 		if(!$fileid)
 		{
@@ -14,28 +17,28 @@ class model
 			return false;
 		}
 
-		if(\dash\request::get('related') === 'poststhumb' && \dash\request::get('related_id'))
+		if($related === 'poststhumb' && $related_id)
 		{
 			$back_link = \content_cms\files\choose\view::call_back_link();
 
-			$file_path = \dash\upload\cms::set_post_thumb_by_file_id(\dash\coding::decode(\dash\request::get('related_id')), $fileid);
+			$file_path = \dash\upload\cms::set_post_thumb_by_file_id(\dash\coding::decode($related_id), $fileid);
 
 			if($file_path)
 			{
-				\dash\app\posts\edit::edit(['thumb' => $file_path], \dash\request::get('related_id'));
+				\dash\app\posts\edit::edit(['thumb' => $file_path], $related_id);
 				\dash\redirect::to($back_link);
 			}
 			return;
 
 		}
-		elseif(\dash\request::get('related') === 'postsgallery' && \dash\request::get('related_id'))
+		elseif(in_array($related, ['postsgallery', 'postsgalleryvideo', 'postsgalleryaudio']) && $related_id)
 		{
 			$back_link = \content_cms\files\choose\view::call_back_link();
 
-			$file_detail = \dash\upload\cms::set_post_gallery_by_file_id(\dash\coding::decode(\dash\request::get('related_id')), $fileid);
+			$file_detail = \dash\upload\cms::set_post_gallery_by_file_id(\dash\coding::decode($related_id), $fileid, $related);
 			if($file_detail)
 			{
-				\dash\app\posts\gallery::gallery(\dash\request::get('related_id'), $file_detail, 'add');
+				\dash\app\posts\gallery::gallery($related_id, $file_detail, 'add_auto');
 				if(\dash\engine\process::status())
 				{
 					\dash\redirect::to($back_link);
@@ -44,15 +47,15 @@ class model
 			return;
 
 		}
-		elseif(\dash\request::get('related') === 'postscover' && \dash\request::get('related_id'))
+		elseif($related === 'postscover' && $related_id)
 		{
 			$back_link = \content_cms\files\choose\view::call_back_link();
 
-			$file_path = \dash\upload\cms::set_post_cover_by_file_id(\dash\coding::decode(\dash\request::get('related_id')), $fileid);
+			$file_path = \dash\upload\cms::set_post_cover_by_file_id(\dash\coding::decode($related_id), $fileid);
 
 			if($file_path)
 			{
-				\dash\app\posts\edit::edit(['cover' => $file_path], \dash\request::get('related_id'));
+				\dash\app\posts\edit::edit(['cover' => $file_path], $related_id);
 				\dash\redirect::to($back_link);
 			}
 			return;
@@ -61,6 +64,7 @@ class model
 		else
 		{
 			\dash\notif::error(T_("This method is not allowed"));
+			\dash\redirect::to(\dash\url::here());
 			return false;
 		}
 	}

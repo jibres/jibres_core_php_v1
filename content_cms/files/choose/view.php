@@ -42,27 +42,24 @@ class view
 
 	public static function call_back_link()
 	{
-		if(\dash\request::get('related') === 'poststhumb' && \dash\request::get('related_id'))
+		$related    = \dash\request::get('related');
+		$related_id = \dash\request::get('related_id');
+
+		if(in_array($related, ['postsgallery', 'postsgalleryvideo', 'postsgalleryaudio']) && $related_id)
 		{
-			$link = \dash\url::here(). '/posts/edit?id='. \dash\request::get('related_id');
+			$link  = \dash\url::here(). '/posts/edit?id='. $related_id;
 			$title = T_("Edit post");
 		}
-		elseif(\dash\request::get('related') === 'postscover' && \dash\request::get('related_id'))
+		elseif($related === 'postscover' && $related_id)
 		{
-			$link = \dash\url::here(). '/posts/advance?id='. \dash\request::get('related_id');
+			$link  = \dash\url::here(). '/posts/advance?id='. $related_id;
 			$title = T_("Post setting");
-		}
-		elseif(\dash\request::get('related') === 'postsgallery' && \dash\request::get('related_id'))
-		{
-			$link = \dash\url::here(). '/posts/edit?id='. \dash\request::get('related_id');
-			$title = T_("Edit post");
 		}
 		else
 		{
-			$link = \dash\url::here();
+			$link  = \dash\url::here();
 			$title = T_("CMS");
 		}
-
 
 		\dash\data::back_text($title);
 		\dash\data::back_link($link);

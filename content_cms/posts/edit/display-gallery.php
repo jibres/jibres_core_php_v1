@@ -31,12 +31,17 @@
       <?php } //endif ?>
     </div>
   </form>
-
-  <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
-    <footer class="txtRa">
-      <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove audio") ?></div>
-    </footer>
-  <?php } //endif ?>
+  <footer>
+    <div class="row">
+        <div class="cauto"><a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryaudio', 'type' => 'audio', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
+        <div class="c"></div>
+      <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
+        <div class="cauto">
+          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove audio") ?></div>
+        </div>
+      <?php } //endif ?>
+      </div>
+  </footer>
 </section>
 <?php } //endif
 
@@ -66,12 +71,17 @@ if(a($dataRow, 'subtype') === 'video') {?>
       <?php } //endif ?>
     </div>
   </form>
-
-  <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
-    <footer class="txtRa">
-     <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove video") ?></div>
-    </footer>
-  <?php } //endif ?>
+  <footer>
+    <div class="row">
+        <div class="cauto"><a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryvideo', 'type' => 'video', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
+        <div class="c"></div>
+      <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
+        <div class="cauto">
+          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove video") ?></div>
+        </div>
+      <?php } //endif ?>
+      </div>
+  </footer>
 </section>
 
 <?php } //endif

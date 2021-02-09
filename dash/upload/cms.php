@@ -204,7 +204,7 @@ class cms
 
 
 
-	public static function set_post_gallery_by_file_id($_post_id, $_file_id)
+	public static function set_post_gallery_by_file_id($_post_id, $_file_id, $_type)
 	{
 		\dash\permission::access('cmsAttachmentAdd');
 
@@ -222,6 +222,39 @@ class cms
 		{
 			return false;
 		}
+
+		switch ($_type)
+		{
+			case 'postsgalleryvideo':
+				if(isset($load_file['type']) && $load_file['type'] === 'video')
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not set this file as post video!"));
+					return false;
+				}
+				break;
+
+			case 'postsgalleryaudio':
+				if(isset($load_file['type']) && $load_file['type'] === 'audio')
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not set this file as post audio!"));
+					return false;
+				}
+				break;
+
+			case 'postsgallery':
+			default:
+				// no problem to set every file
+				break;
+		}
+
 
 		self::set_usage('post_gallery', $load_file['id'], $_post_id);
 
