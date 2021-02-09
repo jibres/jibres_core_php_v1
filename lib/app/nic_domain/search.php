@@ -132,7 +132,19 @@ class search
 		}
 		elseif($data['predict'])
 		{
-			$next_year = date("Y-m-d", strtotime("+5 year"));
+			// get user setting of life time domain
+			// if not set show 5 years
+			$my_setting = \lib\app\nic_usersetting\get::get();
+			if(isset($my_setting['domainlifetime']) && $my_setting['domainlifetime'])
+			{
+				$next_year = date("Y-m-d", strtotime("+". $my_setting['domainlifetime']));
+			}
+			else
+			{
+				$next_year = date("Y-m-d", strtotime("+5 year"));
+			}
+
+
 			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[] = " domain.status != 'deleted' ";
@@ -387,11 +399,6 @@ class search
 				{
 					$result['year']++;
 				}
-				elseif($mytime < (60*60*24*365*5))
-				{
-					$result['5year']++;
-				}
-
 			}
 		}
 
@@ -414,7 +421,6 @@ class search
 		$return[] = ['title' => T_("Pay in next week"), 'count' => $result['week'], 'price' => ($price * $result['week'])];
 		$return[] = ['title' => T_("Pay in next month"), 'count' => $result['month'], 'price' => ($price * $result['month'])];
 		$return[] = ['title' => T_("Pay in next year"), 'count' => $result['year'], 'price' => ($price * $result['year'])];
-		$return[] = ['title' => T_("Pay in next 5year"), 'count' => $result['5year'], 'price' => ($price * $result['5year'])];
 
 
 
