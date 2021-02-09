@@ -1,67 +1,49 @@
+<?php
+$result = '';
 
-<?php $sortLink = \dash\data::sortLink(); ?>
+$result .= '<nav class="items">';
+$result .= '<ul>';
+foreach (\dash\data::dataTable() as $key => $value)
+{
+    $result .= '<li>';
+    $result .= '<a class="f item" href="'. \dash\url::this(). '/setting?domain='. a($value, 'name'). '">';
+    $result .= '<div class="key">'. a($value, 'name'). '</div>';
 
+    $result .= '<div class="value s0">'. a($value, 'status_text'). '</div>';
 
-<?php if (\dash\detect\device::detectPWA()) { ?>
-<nav class="items">
-  <ul>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-     <li>
-       <a class="item f" href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo a($value, 'name'); ?>">
-        <div class="key"><code><?php echo a($value, 'name'); ?></code></div>
-        <div class="go"></div>
-      </a>
-     </li>
-    <?php } //endfor ?>
-  </ul>
-</nav>
-<?php } else { ?>
+    if(isset($value['autorenew']) && $value['autorenew'])
+    {
+      $result .= '<div title="'. T_("Autorenew is active").'" class="value s0"><i class="sf-refresh fc-blue"></i></div>';
+    }
+    else
+    {
+      $result .= '<div title="'. T_("Autorenew is deactive").'" class="value s0"><i class="sf-refresh fc-mute"></i></div>';
+    }
 
+    if(isset($value['lock']) && $value['lock'] == 1 )
+    {
+      $result .= '<div title="'. T_("Domain is Lock").'" class="value s0"><i class="sf-lock fc-green"></i></div>';
+    }
+    elseif(isset($value['lock']) && $value['lock'] == 0)
+    {
+      $result .= '<div title="'. T_("Domain is Unlock").'" class="value s0"><i class="sf-unlock fc-red"></i></div>';
+    }
+    else
+    {
+      $result .= '<div title="'. T_("Unknown lock status").'" class="value s0"><i class="sf-lock"></i></div>';
+    }
 
+    $result .= '<time class="value datetime">'. \dash\fit::date(a($value, 'dateexpire')). '</time>';
 
-<div class="fs12">
-    <table class="tbl1 v1 responsive">
-        <thead>
-            <tr class="fs09">
-                <th><?php echo T_("Domain"); ?></th>
-                <th class=""><?php echo T_("Status"); ?></th>
-                <th class="txtL"><?php echo T_("Expire date"); ?></th>
-                <th class="txtL"><?php echo T_("Create date"); ?><br><?php echo T_("Date modified"); ?></th>
-                <th class="txtL"><?php echo T_("DNS"); ?></th>
-            </tr>
-        </thead>
-        <tbody class="fs12">
+    $result .= '<div class="go '. a($value, 'status_icon') .'"></div>';
 
-            <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+    $result .= '</a>';
+    $result .= '</li>';
+}
+$result .= '</ul>';
+$result .= '</nav>';
 
-            <tr <?php  if(a($value, 'status') === 'disable') { echo 'class="negative"'; }?> >
-                <td>
-                    <!-- <a target="_blank" href="http://<?php echo a($value, 'name'); ?>"><i class="sf-link"></i></a> -->
-                    <a href="<?php echo \dash\url::this(); ?>/setting?domain=<?php echo a($value, 'name'); ?>" class="link flex"> <i class="sf-edit"></i> <code><?php echo a($value, 'name'); ?></code></a>
-                </td>
+echo $result;
 
-                <td class="">
-                  <?php echo a($value, 'status_html'); ?>
-                    <a href="<?php echo \dash\url::this(). '/setting?domain='. a($value, 'name'); ?>">
-                    <div class="ibtn x30 wide"><?php echo '<span>'.T_("Autorenew"). '</span>'; if(isset($value['autorenew']) && $value['autorenew']) { echo '<i class="sf-refresh fc-blue"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
-                    </a>
-                </td>
-
-                <td class="collapsing txtL fs09"><?php echo \dash\fit::date(a($value, 'dateexpire')); ?></td>
-                <td class="collapsing txtL fs09">
-                  <div><?php echo \dash\fit::date(a($value, 'dateregister')); ?></div>
-                  <div><?php echo \dash\fit::date(a($value, 'dateupdate')); ?></div>
-                </td>
-                <td class="collapsing ltr txtL">
-                    <code><?php echo a($value, 'ns1'); ?></code>
-                    <br>
-                    <code><?php echo a($value, 'ns2'); ?></code>
-                </td>
-
-            </tr>
-            <?php } //endfor ?>
-        </tbody>
-    </table>
-</div>
-<?php } //endif ?>
-<?php \dash\utility\pagination::html(); ?>
+\dash\utility\pagination::html();
+?>
