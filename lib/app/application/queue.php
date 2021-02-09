@@ -535,6 +535,8 @@ class queue
 
 		if(\dash\upload\file::upload_other_server_scp())
 		{
+			\dash\scp::uploader_connection();
+
 			$result = \dash\scp::send($source, $dest);
 			if($result)
 			{
