@@ -179,17 +179,16 @@ class dropdown
 
 		$result   = [];
 		$id       = null;
-		$name     = null;
+		$html     = null;
 		$datalist = [];
 
-		$name .= '<a href="'. $_link. '">';
-
-		$name .= '<span class="pRa10">'. $_type. ' </span>';
-
+		$html .= '<div class="row align-center">';
 		if(isset($_data['thumb']))
 		{
-			$name .= '<img class="avatar image" src="'.  $_data['thumb'] .'"> ';
+			$html .= '<div class="c-auto"><img src="'.  $_data['thumb'] .'"></div>';
 		}
+
+
 
 		if(isset($_data['id']))
 		{
@@ -200,17 +199,19 @@ class dropdown
 		if(isset($_data['title']))
 		{
 			$datalist['title'] = $_data['title'];
-			$name .= '<span class="pRa10">'. $_data['title']. '</span>';
+			$html .= '<div class="c">'. $_data['title']. '</div>';
 		}
+		$html .= '<div class="c-auto">'. $_type. ' </div>';
 
-		$name .= '</a>';
-		// add price to name of item
+		$html .= '</div>';
+		// add price to html of item
 		$result =
 		[
 			// select22
-			'html'     => $name,
+			'html'     => $html,
 			'id'       => $id,
 			'datalist' => $datalist,
+			'url'      => $_link,
 		];
 
 		return $result;
