@@ -3,7 +3,7 @@
 <div class="avand-sm zero">
     <div class="box">
       <div class='font-16'>
-        <select class="select22" data-model='html'  data-ajax--url="<?php echo \dash\url::this() ?>/search" data-shortkey-search data-placeholder="<?php echo T_("Find a setting") ?>"></select>
+        <select class="select22" data-model='html' data-ajax--url="<?php echo \dash\url::this() ?>/search" data-shortkey-search data-placeholder="<?php echo T_("Find a setting") ?>"></select>
       </div>
     </div>
 </div>

@@ -25,35 +25,52 @@ class controller
 	}
 
 
+	private static function setting_list()
+	{
+			$list =
+			[
+				[
+					'title'    => T_("Sitemap"),
+					'keywords' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
+					'url'      => \dash\url::kingdom(). '/cms/sitemap',
+					'addr'     => [T_("Content Management System"), T_("SEO") ],
+					'icon'     => 'sitemap',
+				],
+				[
+					'title'    => T_("Config"),
+					'keywords' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
+					'url'      => \dash\url::kingdom(). '/cms/config',
+				],
+				[
+					'title'    => T_("ArvanCloud"),
+					'keywords' => [T_("Arvan"), T_("ArvanCloud"), T_("Storage"), 'Arvan', "ArvanCloud", "Arvan Cloud", "File"],
+					'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/arvanclouds3',
+					'addr'     => [T_("Setting"), T_("Third Party Services"), T_("S3") ],
+					'img'      => \dash\url::cdn(). '/img/thirdparty/arvancloud.svg',
+				]
+			];
+
+		return $list;
+	}
+
+
 	private static function search_setting($_query)
 	{
-		$list =
-		[
-			[
-				'title'    => T_("Sitemap"),
-				'keywords' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
-				'url'      => \dash\url::kingdom(). '/cms/sitemap',
-				'addr'     => [T_("Content Management System"), T_("SEO") ],
-				'icon'     => 'sitemap',
-			],
-			[
-				'title'    => T_("Config"),
-				'keywords' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
-				'url'      => \dash\url::kingdom(). '/cms/config',
-			],
-			[
-				'title'    => T_("ArvanCloud"),
-				'keywords' => [T_("Arvan"), T_("ArvanCloud"), T_("Storage"), 'Arvan', "ArvanCloud", "Arvan Cloud"],
-				'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/arvanclouds3',
-				'addr'     => [T_("Setting"), T_("Third Party Services"), T_("S3") ],
-				'img'      => \dash\url::cdn(). '/img/thirdparty/arvancloud.svg',
-			]
-		];
-
+		$myList = self::setting_list();
 		$result = [];
 
-		foreach ($list as $key => $value)
+		foreach ($myList as $key => $value)
 		{
+			if(isset($value['title']))
+			{
+				if(strpos($value['title'], mb_strtolower($_query)) !== false)
+				{
+					unset($value['keywords']);
+					$result[] = $value;
+					continue;
+				}
+			}
+
 			if(isset($value['keywords']))
 			{
 				$myKeykeywords = implode(' , ', $value['keywords']);
@@ -61,8 +78,20 @@ class controller
 				if(strpos($myKeykeywords, mb_strtolower($_query)) !== false)
 				{
 					unset($value['keywords']);
-					$value['id'] = $key. a($value, 'title');
 					$result[] = $value;
+					continue;
+				}
+			}
+
+			if(isset($value['addr']))
+			{
+				$myKeyAddr = implode(' , ', $value['addr']);
+				$myKeyAddr = mb_strtolower($myKeyAddr);
+				if(strpos($myKeyAddr, mb_strtolower($_query)) !== false)
+				{
+					unset($value['keywords']);
+					$result[] = $value;
+					continue;
 				}
 			}
 		}
@@ -75,7 +104,6 @@ class controller
 	{
 
 		$result   = [];
-		$id       = null;
 		$html     = null;
 		$datalist = [];
 
@@ -83,17 +111,11 @@ class controller
 
 		if(isset($_data['img']))
 		{
-			$html .= '<div class="c-auto"><img src="'.  $_data['img'] .'"></div>';
+			$html .= '<div class="c-auto"><img class="cover" src="'.  $_data['img'] .'"></div>';
 		}
 		if(isset($_data['icon']))
 		{
 			$html .= '<div class="c-auto"><i class="sf-'.  $_data['icon'] .'"></i></div>';
-		}
-
-		if(isset($_data['id']))
-		{
-			$id = $_data['id'];
-			$datalist['id'] = $_data['id'];
 		}
 
 		if(isset($_data['title']))
@@ -119,7 +141,7 @@ class controller
 		[
 			// select22
 			'html'     => $html,
-			'id'       => $id,
+			'id'       => a($_data, 'title'),
 			'datalist' => $datalist,
 			'url'      => a($_data, 'url'),
 		];
