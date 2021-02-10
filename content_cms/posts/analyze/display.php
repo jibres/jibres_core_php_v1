@@ -23,12 +23,19 @@
 <?php if(\dash\data::seoAnalyze()) { $seoAnalyze = \dash\data::seoAnalyze(); ?>
 <div class="box">
   <div class="pad">
-    <h6 class="txtB"><?php echo T_("SEO analysis") ?></h6>
-    <div class="font-20 mB20">
-      <div class="font-40"><?php echo a($seoAnalyze, 'star_html') ?></div>
-      <div><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?></div>
-
+    <div class="seoRank txtC mT20" data-size='normal'>
+      <?php echo a($seoAnalyze, 'star_html') ?>
     </div>
+    <div class="txtC">
+      <h2><?php echo T_("SEO Content Analysis Score") ?></h2>
+      <div class="font-30 txtB ltr"><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="box">
+  <div class="pad pT10">
     <?php foreach (a($seoAnalyze, 'list') as $key => $value) {?>
       <a class="checklist fc-black" <?php if(a($value, 'class')) { echo 'data-'. a($value, 'class'); } ?> ><?php echo a($value, 'msg'); ?></a>
     <?php } ?>

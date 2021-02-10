@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-10 18:08+0330\n"
-"PO-Revision-Date: 2021-02-10 18:11+0330\n"
+"POT-Creation-Date: 2021-02-10 19:26+0330\n"
+"PO-Revision-Date: 2021-02-10 19:26+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5975,7 +5975,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_a/products/home/view.php:95 content_a/setting/domain/view.php:51
 #: content_a/tag/home/view.php:43 content_business/search/view.php:39
 #: content_business/ticket/home/view.php:52 content_cms/comments/home/view.php:52
-#: content_cms/files/choose/view.php:38 content_cms/files/datalist/view.php:42
+#: content_cms/files/choose/view.php:39 content_cms/files/datalist/view.php:42
 #: content_cms/posts/home/view.php:85 content_cms/tag/home/view.php:47
 #: content_crm/log/home/view.php:56 content_crm/member/home/view.php:57
 #: content_crm/member/log/view.php:50 content_crm/member/transactions/view.php:38
@@ -8536,7 +8536,7 @@ msgstr "درصد فراوانی"
 #: content_business/p/home/display.php:294 content_business/p/home/display.php:299
 #: content_business/p/home/display.php:304 content_business/p/home/display.php:309
 #: content_business/p/home/view.php:103 content_cms/files/home/display.php:175
-#: content_cms/posts/analyze/display.php:29 content_cms/posts/edit/display.php:112
+#: content_cms/posts/analyze/display.php:31 content_cms/posts/edit/display.php:112
 #: content_cms/seo/display.php:11 content_cms/seo/display.php:66
 #: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
 #: content_my/domain/review/display.php:205 dash/layout/tools/display-comment-list.php:19
@@ -11162,7 +11162,7 @@ msgid "Collect data."
 msgstr "جمع‌آوری داده‌ها."
 
 #: content_a/setting/home/display.php:218 content_cms/comments/home/view.php:11
-#: content_cms/config/view.php:9 content_cms/files/choose/view.php:61
+#: content_cms/config/view.php:9 content_cms/files/choose/view.php:62
 #: content_cms/files/home/view.php:14 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_cms/tag/home/view.php:16
 #: content_love/home/display.php:105 dash/layout/admin/admin-sidebar-frame.php:17
@@ -15327,12 +15327,12 @@ msgstr "این روش مجاز نمی‌باشد"
 msgid "Choose from files"
 msgstr "انتخاب از فایل‌ها"
 
-#: content_cms/files/choose/view.php:51 content_cms/posts/edit/view.php:36
+#: content_cms/files/choose/view.php:52 content_cms/posts/edit/view.php:36
 #: content_cms/posts/edit/view.php:43
 msgid "Edit post"
 msgstr "ویرایش نوشته"
 
-#: content_cms/files/choose/view.php:56
+#: content_cms/files/choose/view.php:57
 msgid "Post setting"
 msgstr "تنظیمات نوشته"
 
@@ -15706,9 +15706,9 @@ msgstr "پیش‌فرض (باز)"
 msgid "Default (Closed)"
 msgstr "پیش‌فرض (بسته)"
 
-#: content_cms/posts/analyze/display.php:26
-msgid "SEO analysis"
-msgstr "تجزیه و تحلیل سئو"
+#: content_cms/posts/analyze/display.php:30
+msgid "SEO Content Analysis Score"
+msgstr "نمره آنالیز محتوای سئو"
 
 #: content_cms/posts/analyze/view.php:8
 msgid "SEO Content Analysis"
@@ -38898,6 +38898,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "SEO analysis"
+#~ msgstr "تجزیه و تحلیل سئو"
 
 #~ msgid "Domain reserved"
 #~ msgstr "دامنه رزرو شده است"
