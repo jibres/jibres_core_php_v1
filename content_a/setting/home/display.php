@@ -1,21 +1,31 @@
 
 <?php $myHide = \dash\url::isLocal() ? null : 'hide'; $myHide = 'hide';?>
+<div class="avand-sm zero">
+    <div class="box">
+      <div class='font-16'>
+        <select class="select22" data-model='html'  data-ajax--url="<?php echo \dash\url::here() ?>/search" data-shortkey-search data-placeholder="<?php echo T_("Find a setting") ?>"></select>
+      </div>
+    </div>
+</div>
+
 <div class="box" data-settings>
     <?php if(false) {?>
     <div class="pad">
-        <div>
 
-         <select class="select22" data-link data-placeholder="<?php echo T_("Search") ?>">
+        <div>
+            <select class="select22" data-link data-placeholder="<?php echo T_("Search") ?>">
                 <option readonly value=""><span><?php echo T_("Search"); ?></span></option>
                 <?php foreach (\dash\data::settingSearch() as $key => $value) {?>
                     <option value="<?php echo $value['link']; ?>"><?php echo $value['title']; ?></option>
                 <?php } //endif ?>
-                </select>
+            </select>
         </div>
     </div>
 <?php } //endif ?>
 
     <div class="body">
+
+
         <div class="row">
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/general">
@@ -79,7 +89,7 @@
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/shipping">
-                    <div class="c-auto"><i class="sf-flight"></i></div>
+                    <div class="c-auto"><i class="sf-plane-airport"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Shipping"); ?></h2>
                         <p><?php echo T_("Manage how you ship orders to customers"); ?></p>
@@ -249,7 +259,7 @@
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/pos">
-                    <div class="c-auto"><i class="sf-tools"></i></div>
+                    <div class="c-auto"><i class="sf-cash-register"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Point of Sale Software"); ?></h2>
                         <p><?php echo T_("Manage your business pos configuration"); ?></p>
