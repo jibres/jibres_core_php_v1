@@ -70,7 +70,8 @@ class dropdown
 		{
 			if(isset($value['words']))
 			{
-				if(in_array(mb_strtolower($_query), $value['words']))
+				$myKeyWords = implode(' , ', $value['words']);
+				if(strpos($myKeyWords, mb_strtolower($_query)) !== false)
 				{
 					$result[] =
 					[
