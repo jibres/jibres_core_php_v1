@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-10 16:02+0330\n"
-"PO-Revision-Date: 2021-02-10 16:03+0330\n"
+"POT-Creation-Date: 2021-02-10 18:08+0330\n"
+"PO-Revision-Date: 2021-02-10 18:11+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -3033,7 +3033,8 @@ msgstr "PWA ساز"
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: content/investment/display.php:104 content_cms/home/view.php:9 dash/panel.php:127
+#: content/investment/display.php:104 content_a/setting/search/controller.php:36
+#: content_cms/home/view.php:9 dash/panel.php:127
 msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
@@ -7166,7 +7167,7 @@ msgid "Customize for SEO"
 msgstr "بهینه‌سازی برای موتورهای جستجو"
 
 #: content_a/category/edit/display.php:32 content_a/products/edit/block/seo.php:14
-#: content_cms/posts/analyze/display.php:15 content_cms/posts/edit/display.php:97
+#: content_cms/posts/analyze/display.php:15 content_cms/posts/edit/display.php:95
 #: content_cms/posts/seo/display.php:15
 msgid "Google"
 msgstr "گوگل"
@@ -7347,15 +7348,16 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
 #: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
 #: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:8
-#: content_a/setting/staticfile/view.php:8 content_a/setting/telegram/view.php:10
-#: content_a/setting/thirdparty/view.php:10 content_a/tag/home/view.php:16
-#: content_a/units/view.php:11 content_love/business/domain/pageStep.php:23
-#: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
-#: content_love/store/display.php:60 content_my/domain/irnic/view.php:16
-#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
-#: content_v2/app/view.php:247 dash/layout/admin/sidebar/sidebar-a.php:21
-#: dash/layout/pwa/pwa_menu.php:202 lib/app/store/analytics.php:123
+#: content_a/setting/search/controller.php:48 content_a/setting/shipping/text/view.php:11
+#: content_a/setting/social/view.php:8 content_a/setting/staticfile/view.php:8
+#: content_a/setting/telegram/view.php:10 content_a/setting/thirdparty/view.php:10
+#: content_a/tag/home/view.php:16 content_a/units/view.php:11
+#: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
+#: content_love/store/display.php:27 content_love/store/display.php:60
+#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
+#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
+#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:202
+#: lib/app/store/analytics.php:123
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -7899,7 +7901,7 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/answer/display.php:54 content_a/form/analytics/pageStep.php:49
 #: content_a/form/analytics/tag/display.php:29 content_a/form/answer/detail/display.php:77
 #: content_a/products/edit/display-master.php:63 content_a/products/home/filter.php:86
-#: content_a/setting/product/tag/display.php:11 dash/app/posts/dropdown.php:35
+#: content_a/setting/product/tag/display.php:11 dash/app/posts/dropdown.php:33
 #: dash/app/posts/filter.php:217 dash/app/posts/filter.php:227
 #: includes/languages/trans_static.php:546 lib/app/product/filter.php:249
 #: lib/app/product/filter.php:259 lib/app/product/property.php:334
@@ -8534,10 +8536,10 @@ msgstr "درصد فراوانی"
 #: content_business/p/home/display.php:294 content_business/p/home/display.php:299
 #: content_business/p/home/display.php:304 content_business/p/home/display.php:309
 #: content_business/p/home/view.php:103 content_cms/files/home/display.php:175
-#: content_cms/posts/analyze/display.php:29 content_cms/seo/display.php:11
-#: content_cms/seo/display.php:66 content_love/gift/create/review/display.php:16
-#: content_love/gift/view/display.php:13 content_my/domain/review/display.php:205
-#: dash/layout/tools/display-comment-list.php:19
+#: content_cms/posts/analyze/display.php:29 content_cms/posts/edit/display.php:112
+#: content_cms/seo/display.php:11 content_cms/seo/display.php:66
+#: content_love/gift/create/review/display.php:16 content_love/gift/view/display.php:13
+#: content_my/domain/review/display.php:205 dash/layout/tools/display-comment-list.php:19
 #: dash/layout/tools/display-comment-list.php:24
 #: dash/layout/tools/display-comment-list.php:29
 #: dash/layout/tools/display-comment-list.php:34
@@ -9763,7 +9765,7 @@ msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
 
 #: content_a/products/edit/block/sidebar-menu.php:93
-#: content_cms/posts/edit/display.php:115 content_cms/posts/edit/display.php:123
+#: content_cms/posts/edit/display.php:127 content_cms/posts/edit/display.php:135
 msgid "Smart Share"
 msgstr "اشتراک‌گذاری هوشمند"
 
@@ -11027,10 +11029,8 @@ msgid "General setting"
 msgstr "تنظیمات عمومی"
 
 #: content_a/setting/home/display.php:6
-#, fuzzy
-#| msgid "Domain setting"
 msgid "Find a setting"
-msgstr "تنظیمات دامنه"
+msgstr "جستجو در تنظیمات"
 
 #: content_a/setting/home/display.php:35
 msgid "View and update your business details"
@@ -11132,7 +11132,7 @@ msgstr "تنظیمات سفارش"
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:174
+#: content_a/setting/home/display.php:174 content_a/setting/search/controller.php:48
 #: content_a/setting/thirdparty/arvanclouds3/view.php:11
 #: content_a/setting/thirdparty/awss3/view.php:11
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
@@ -11378,7 +11378,7 @@ msgid "Sina"
 msgstr "بانک سینا"
 
 #: content_a/setting/pcpos/display.php:24 content_cms/tag/home/display.php:7
-#: dash/app/posts/dropdown.php:27 includes/languages/trans_static_public.php:518
+#: dash/app/posts/dropdown.php:25 includes/languages/trans_static_public.php:518
 #: lib/app/setting/get.php:92 lib/app/store/analytics.php:56
 msgid "Post"
 msgstr "نوشته"
@@ -11711,6 +11711,72 @@ msgstr "هنگام نمایش محصول در وب‌سایت می‌توانی�
 #: content_a/setting/product/viewtext/view.php:8
 msgid "Product View Text"
 msgstr "متن ثابت در صفحه نمایش محصول"
+
+#: content_a/setting/search/controller.php:33 content_cms/seo/display.php:21
+#: content_cms/sitemap/view.php:8 dash/app/posts/dropdown.php:51
+msgid "Sitemap"
+msgstr "نقشه‌ی سایت"
+
+#: content_a/setting/search/controller.php:34 dash/app/posts/dropdown.php:52
+#: includes/languages/trans_static.php:457
+msgid "site"
+msgstr "سایت"
+
+#: content_a/setting/search/controller.php:34 dash/app/posts/dropdown.php:52
+msgid "site map"
+msgstr "نقشه سایت"
+
+#: content_a/setting/search/controller.php:34 dash/app/posts/dropdown.php:52
+msgid "sitemap"
+msgstr "نقشه‌ی سایت"
+
+#: content_a/setting/search/controller.php:34 dash/app/posts/dropdown.php:52
+msgid "map"
+msgstr "نقشه"
+
+#: content_a/setting/search/controller.php:36 dash/app/posts/filter.php:108
+#: dash/app/posts/filter.php:118 dash/app/posts/filter.php:128
+#: dash/app/posts/filter.php:138 dash/app/posts/filter.php:147
+msgid "SEO"
+msgstr "سئو"
+
+#: content_a/setting/search/controller.php:40 content_cms/home/display.php:135
+#: dash/app/posts/dropdown.php:39 dash/app/posts/dropdown.php:56
+msgid "Config"
+msgstr "پیکربندی"
+
+#: content_a/setting/search/controller.php:41 dash/app/posts/dropdown.php:57
+msgid "setting"
+msgstr "تنظیمات"
+
+#: content_a/setting/search/controller.php:41 dash/app/posts/dropdown.php:57
+msgid "config"
+msgstr "پیکربندی"
+
+#: content_a/setting/search/controller.php:41 dash/app/posts/dropdown.php:57
+msgid "ratio"
+msgstr "نسبت"
+
+#: content_a/setting/search/controller.php:41 dash/app/posts/dropdown.php:57
+msgid "image ratio"
+msgstr "نسبت تصویر"
+
+#: content_a/setting/search/controller.php:45 content_a/setting/search/controller.php:46
+#: content_a/setting/thirdparty/display.php:35 content_cms/files/home/display.php:10
+msgid "ArvanCloud"
+msgstr "ابر آروان"
+
+#: content_a/setting/search/controller.php:46
+msgid "Arvan"
+msgstr "آروان"
+
+#: content_a/setting/search/controller.php:46
+msgid "Storage"
+msgstr "ذخیره‌سازی"
+
+#: content_a/setting/search/controller.php:48
+msgid "S3"
+msgstr "اس۳"
 
 #: content_a/setting/shipping/display.php:7
 msgid "Shipping option"
@@ -12149,10 +12215,6 @@ msgstr "آمازون"
 #: content_a/setting/thirdparty/display.php:28 content_cms/files/home/display.php:15
 msgid "DigitalOcean"
 msgstr "دیجیتال‌ اوشن"
-
-#: content_a/setting/thirdparty/display.php:35 content_cms/files/home/display.php:10
-msgid "ArvanCloud"
-msgstr "ابر آروان"
 
 #: content_a/setting/thirdparty/display.php:43
 msgid "Live Chat"
@@ -15423,11 +15485,6 @@ msgstr "همه دیدگاه‌ها"
 msgid "Awaiting Moderation"
 msgstr "در انتظار تایید"
 
-#: content_cms/home/display.php:135 dash/app/posts/dropdown.php:41
-#: dash/app/posts/dropdown.php:61
-msgid "Config"
-msgstr "پیکربندی"
-
 #: content_cms/home/display.php:164 content_cms/seo/view.php:9
 #: content_cms/sitemap/view.php:10
 msgid "Smart SEO"
@@ -15454,7 +15511,7 @@ msgstr "هنوز هیچ دیدگاهی ثبت نشده است!"
 msgid "Add New Post"
 msgstr "افزودن نوشته جدید"
 
-#: content_cms/posts/add/display.php:37 content_cms/posts/edit/display.php:61
+#: content_cms/posts/add/display.php:37 content_cms/posts/edit/display.php:59
 msgid "Enter title here"
 msgstr "عنوان را اینجا وارد کنید"
 
@@ -15655,7 +15712,7 @@ msgstr "تجزیه و تحلیل سئو"
 
 #: content_cms/posts/analyze/view.php:8
 msgid "SEO Content Analysis"
-msgstr "تجزیه و تحلیل سئو"
+msgstr "آنالیز سئو از نظر محتوا"
 
 #: content_cms/posts/edit/display-gallery.php:6
 msgid "Choose File"
@@ -15721,19 +15778,27 @@ msgstr "همین الان منتشر کن"
 msgid "Time left until published"
 msgstr "زمان باقیمانده تا انتشار"
 
-#: content_cms/posts/edit/display.php:64
+#: content_cms/posts/edit/display.php:62
 msgid "Write post "
 msgstr "نوشتن مطلب "
 
-#: content_cms/posts/edit/display.php:73
+#: content_cms/posts/edit/display.php:71
 msgid "Enter your tags and seperate them by comma"
 msgstr "تگ‌های خود را با وارد کرده و اینتر بزنید"
 
-#: content_cms/posts/edit/display.php:104
+#: content_cms/posts/edit/display.php:102
 msgid "Customize SEO"
 msgstr "سفارشی‌سازی سئو"
 
-#: content_cms/posts/edit/display.php:117
+#: content_cms/posts/edit/display.php:112
+msgid "SEO content analysis of this post is :val."
+msgstr "آنالیز سئو برای این نوشته از نظر محتوا :val است."
+
+#: content_cms/posts/edit/display.php:115
+msgid "Look at our tips and improve your SEO."
+msgstr "به توصیه‌های ما برای افزایش کیفیت سئو نگاهی بندازید."
+
+#: content_cms/posts/edit/display.php:129
 msgid "Share this post in social networks"
 msgstr "اشتراک‌گذاری این نوشته از طریق شبکه‌های اجتماعی"
 
@@ -15917,11 +15982,6 @@ msgstr "نمایش نام نویسنده"
 #: content_cms/seo/display.php:10
 msgid "Average post SEO rank"
 msgstr "میانگین امتیاز سئو"
-
-#: content_cms/seo/display.php:21 content_cms/sitemap/view.php:8
-#: dash/app/posts/dropdown.php:56
-msgid "Sitemap"
-msgstr "نقشه‌ی سایت"
 
 #: content_cms/seo/display.php:32
 msgid "Top post SEO rank"
@@ -20466,8 +20526,8 @@ msgstr "لطفا با ما تماس بگیرید تا بتوانیم مشکل ر
 
 #: content_my/business/error/display.php:16 lib/app/nic_domain/create.php:191
 #: lib/app/nic_domain/renew.php:176 lib/app/nic_domain/renew.php:214
-#: lib/app/nic_domain/renew.php:531 lib/app/onlinenic/renew.php:133
-#: lib/app/onlinenic/renew.php:461
+#: lib/app/nic_domain/renew.php:532 lib/app/onlinenic/renew.php:133
+#: lib/app/onlinenic/renew.php:463
 msgid "Read about this problem"
 msgstr "درباره این مشکل بخوانید"
 
@@ -21256,7 +21316,7 @@ msgid "We can not detect the reseller or billing contact of this account"
 msgstr "ما نتوانستیم اطلاعات مربوط به نماینده یا رابط مالی دامنه شما را شناسایی کنیم"
 
 #: content_my/domain/review/display.php:127 lib/app/nic_domain/renew.php:212
-#: lib/app/nic_domain/renew.php:518
+#: lib/app/nic_domain/renew.php:519
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
@@ -22868,7 +22928,7 @@ msgstr "جستجو در پایگاه دانش ما..."
 msgid "Search result"
 msgstr "نتیجه جستجو"
 
-#: content_support/home/dashboard.php:44 dash/app/posts/dropdown.php:128
+#: content_support/home/dashboard.php:44 dash/app/posts/dropdown.php:122
 #: dash/app/user/site_list.php:55 dash/layout/tools/display-search-empty.php:2
 #: dash/layout/tools/display-search-empty.php:3 lib/app/product/site_list.php:82
 msgid "No result found!"
@@ -23708,43 +23768,11 @@ msgstr "نمی‌توانید نامک را بیشتر از ۱۰۰ کاراکت�
 msgid "Can not set the url larger than 180 character"
 msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکتر تنظیم کنید"
 
-#: dash/app/posts/dropdown.php:57 includes/languages/trans_static.php:457
-msgid "site"
-msgstr "سایت"
-
-#: dash/app/posts/dropdown.php:57
-msgid "site map"
-msgstr "نقشه سایت"
-
-#: dash/app/posts/dropdown.php:57
-msgid "sitemap"
-msgstr "نقشه‌ی سایت"
-
-#: dash/app/posts/dropdown.php:57
-msgid "map"
-msgstr "نقشه"
-
-#: dash/app/posts/dropdown.php:62
-msgid "setting"
-msgstr "تنظیمات"
-
-#: dash/app/posts/dropdown.php:62
-msgid "config"
-msgstr "پیکربندی"
-
-#: dash/app/posts/dropdown.php:62
-msgid "ratio"
-msgstr "نسبت"
-
-#: dash/app/posts/dropdown.php:62
-msgid "image ratio"
-msgstr "نسبت تصویر"
-
-#: dash/app/posts/dropdown.php:102
+#: dash/app/posts/dropdown.php:96
 msgid "Posts not found."
 msgstr "نوشته یافت نشد."
 
-#: dash/app/posts/dropdown.php:117 dash/app/user/site_list.php:39
+#: dash/app/posts/dropdown.php:111 dash/app/user/site_list.php:39
 #: lib/app/product/site_list.php:70
 msgid "No result founded!"
 msgstr "نتیجه‌ای یافت نشد!"
@@ -23844,12 +23872,6 @@ msgstr "دارای گالری تصاویر"
 #: dash/app/posts/filter.php:99 lib/app/product/filter.php:161
 msgid "Have not gallery"
 msgstr "بدون گالری تصاویر"
-
-#: dash/app/posts/filter.php:108 dash/app/posts/filter.php:118
-#: dash/app/posts/filter.php:128 dash/app/posts/filter.php:138
-#: dash/app/posts/filter.php:147
-msgid "SEO"
-msgstr "سئو"
 
 #: dash/app/posts/filter.php:109
 msgid "With featured image"
@@ -35520,7 +35542,7 @@ msgstr "خرید دامنه :domain برای :year سال با شناسه ایر
 msgid "Buy domian :val"
 msgstr "خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:698 lib/app/onlinenic/create.php:601
+#: lib/app/nic_domain/create.php:700 lib/app/onlinenic/create.php:603
 msgid "Can not register your domain"
 msgstr "نمی‌توانیم دامنه شما را ثبت کنیم"
 
@@ -35672,7 +35694,7 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از شش سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/nic_domain/renew.php:210 lib/app/nic_domain/renew.php:516
+#: lib/app/nic_domain/renew.php:210 lib/app/nic_domain/renew.php:517
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
@@ -35699,17 +35721,17 @@ msgstr "تمدید دامنه :domain انجام شد"
 msgid "Domain date expire:"
 msgstr "تاریخ انقضای دامنه:"
 
-#: lib/app/nic_domain/renew.php:520
+#: lib/app/nic_domain/renew.php:521
 msgid "After change this problem you can try again"
 msgstr "بعد از انجام اقدامات ذکر شده می‌توانید مجددا تلاش کنید"
 
-#: lib/app/nic_domain/renew.php:522 lib/app/onlinenic/renew.php:452
+#: lib/app/nic_domain/renew.php:523 lib/app/onlinenic/renew.php:454
 msgid "If you pay any amount, Your amount is saved in your account"
 msgstr ""
 "اگر مبلغی را پرداخت کرده باشید، آن مبلغ در حساب کاربری شما ذخیره شده است و می‌توانید از "
 "آن استفاده کنید"
 
-#: lib/app/nic_domain/renew.php:527 lib/app/onlinenic/renew.php:457
+#: lib/app/nic_domain/renew.php:528 lib/app/onlinenic/renew.php:459
 msgid "Don't worry! Your gift is ok and not used. You can use it again"
 msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
@@ -35747,7 +35769,7 @@ msgstr "انتقال دامنه :val"
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
 
-#: lib/app/nic_domain/transfer.php:462
+#: lib/app/nic_domain/transfer.php:464
 msgid "Can not transfer this domain"
 msgstr "نمی‌توان این دامنه را انتقال داد"
 
@@ -35881,7 +35903,7 @@ msgstr ""
 msgid "Refund money for renew domian :val"
 msgstr "بازگشت هزینه تمدید دامنه :val"
 
-#: lib/app/onlinenic/renew.php:451
+#: lib/app/onlinenic/renew.php:453
 msgid "We can not renew this domain."
 msgstr "نمی‌توانم این دامنه را تمدید کرد."
 
@@ -35897,7 +35919,7 @@ msgstr "دامنه :domain با موفقیت منتقل شد"
 msgid "Refund money for transfer domian :val"
 msgstr "بازگشت هزینه انتقال دامنه :val"
 
-#: lib/app/onlinenic/transfer.php:543
+#: lib/app/onlinenic/transfer.php:546
 msgid "Can not transfer your domain"
 msgstr "نمی‌توانیم دامنه را منتقل کنید"
 

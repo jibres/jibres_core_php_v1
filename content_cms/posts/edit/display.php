@@ -53,8 +53,6 @@ switch (\dash\data::dataRow_status())
 
 
 <form method="post" autocomplete="off" id="formEditPost">
-
-
   <div class="box">
     <div class="pad">
       <div class="input mB10">
@@ -82,45 +80,59 @@ switch (\dash\data::dataRow_status())
 
   <?php require_once('display-gallery.php'); ?>
 
-      <div class="box">
-        <div class="pad">
-          <div class="seoPreview">
-            <a target="_blank" href="<?php echo \dash\data::postViewLink(); ?>">
-              <cite><?php echo \dash\data::dataRow_link(); ?></cite>
-            </a>
-            <div class="f">
-              <div class="c s12 pLa10">
-                <h3><?php echo \dash\data::dataRow_post_title(); ?></h3>
-                <p class="desc"><?php echo a($dataRow,'excerpt'); ?></p>
-              </div>
-              <div class="cauto os s12">
-                <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
-              </div>
-            </div>
+  <div class="box">
+    <div class="pad">
+      <div class="seoPreview">
+        <a target="_blank" href="<?php echo \dash\data::postViewLink(); ?>">
+          <cite><?php echo \dash\data::dataRow_link(); ?></cite>
+        </a>
+        <div class="f">
+          <div class="c s12 pLa10">
+            <h3><?php echo \dash\data::dataRow_post_title(); ?></h3>
+            <p class="desc"><?php echo a($dataRow,'excerpt'); ?></p>
+          </div>
+          <div class="cauto os s12">
+            <img src="<?php echo \dash\url::siftal(); ?>/images/logo/google.png" alt='<?php echo T_("Google"); ?>'>
           </div>
         </div>
-        <footer>
-          <div class="row">
-            <div class="c-auto"><a class="link" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a></div>
-            <div class="c"></div>
-            <div class="c-auto"><?php echo a(\dash\data::dataRow(), 'seo_rank_star'); ?></div>
-          </div>
-        </footer>
-      </div>
-
-
-<section class="f" data-option='cms-post-share'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Smart Share");?></h3>
-      <div class="body">
-        <p><?php echo T_("Share this post in social networks");?></p>
       </div>
     </div>
+    <footer>
+      <div class="row">
+        <div class="c-auto"><a class="link" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a></div>
+        <div class="c"></div>
+      </div>
+    </footer>
   </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a href="<?php echo \dash\url::this(). '/share'. $myID; ?>" class="btn secondary"><?php echo T_("Smart Share") ?></a>
+
+  <div class="box font-16">
+    <div class="pad">
+      <a class="row align-center" href="<?php echo \dash\url::this(). '/analyze'. \dash\request::full_get(); ?>">
+        <div class="c c-xs-12 txtB"><?php
+echo T_("SEO content analysis of this post is :val.", ['val' => '<b>'. \dash\fit::text(a(\dash\data::dataRow(), 'seorank')). ' '. T_("%"). '</b>']);
+if(a(\dash\data::dataRow(), 'seorank') < 90)
+{
+  echo " ". T_("Look at our tips and improve your SEO.");
+}
+        ?></div>
+        <div class="c-auto c-xs-12 txtC font-30"><?php echo a(\dash\data::dataRow(), 'seo_rank_star'); ?></div>
+      </a>
     </div>
   </div>
-</section>
+
+
+  <section class="f" data-option='cms-post-share'>
+    <div class="c8 s12">
+      <div class="data">
+        <h3><?php echo T_("Smart Share");?></h3>
+        <div class="body">
+          <p><?php echo T_("Share this post in social networks");?></p>
+        </div>
+      </div>
+    </div>
+    <div class="c4 s12">
+      <div class="action">
+        <a href="<?php echo \dash\url::this(). '/share'. $myID; ?>" class="btn secondary"><?php echo T_("Smart Share") ?></a>
+      </div>
+    </div>
+  </section>
