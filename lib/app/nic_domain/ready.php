@@ -199,9 +199,9 @@ class ready
 							in_array('irnicRegistrationApproved', 	$nicstatus)
 						  )
 						{
-							$status_text = T_("Domain reserved");
+							$status_text = T_("Domain Approved");
 							$status_icon = 'detail ok';
-							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Domain reserved").'</span><i class="sf-info-circle fc-blue"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Domain Approved").'</span><i class="sf-info-circle fc-blue"></i></div>';
 						}
 
 
