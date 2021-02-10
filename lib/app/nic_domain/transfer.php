@@ -453,6 +453,8 @@ class transfer
 				'transaction_id' => $transaction_id,
 			];
 
+			\dash\log::to_supervisor('failed to transfer domain '. $domain);
+
 			\lib\app\nic_domainaction\action::set('transfer_failed', $domain_action_detail);
 
 

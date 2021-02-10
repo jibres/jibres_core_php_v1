@@ -577,6 +577,8 @@ class create
 
 			}
 
+			\dash\log::to_supervisor('failed to register domain '. $domain);
+
 			// have error in register domain
 			$update =
 			[

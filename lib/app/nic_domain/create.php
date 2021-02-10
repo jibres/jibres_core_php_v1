@@ -695,6 +695,8 @@ class create
 
 			\lib\app\nic_domainaction\action::set('register_failed', $domain_action_detail);
 
+			\dash\log::to_supervisor('failed to register domain '. $domain);
+
 			\dash\notif::warn(T_("Can not register your domain"));
 		}
 	}

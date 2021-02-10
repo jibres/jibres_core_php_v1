@@ -435,6 +435,8 @@ class renew
 
 			}
 
+			\dash\log::to_supervisor('failed to renew domain '. $domain);
+
 			$domain_action_detail =
 			[
 				'domain_id'      => $domain_id,

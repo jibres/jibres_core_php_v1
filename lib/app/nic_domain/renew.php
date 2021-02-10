@@ -510,6 +510,7 @@ class renew
 
 			\lib\app\nic_domainaction\action::set('renew_failed', $domain_action_detail);
 
+			\dash\log::to_supervisor('failed to renew domain '. $domain);
 
 			\dash\temp::set('domainHaveTransaction', true);
 

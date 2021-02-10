@@ -520,6 +520,9 @@ class transfer
 				}
 
 			}
+
+			\dash\log::to_supervisor('failed to transfer domain '. $domain);
+
 			// have error in transfer domain
 			$update =
 			[
