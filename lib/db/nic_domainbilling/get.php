@@ -4,6 +4,23 @@ namespace lib\db\nic_domainbilling;
 
 class get
 {
+	public static function register_price_back($_domain)
+	{
+		$query  =
+		"
+			SELECT DISTINCT	domainbilling.*
+			FROM
+				domainbilling
+			INNER JOIN domain ON domain.id = domainbilling.domain_id
+			WHERE
+				domain.name = '$_domain' AND
+				domainbilling.action = 'register'
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
 	public static function my_total_payed($_user_id, $_date = null)
 	{
 		$date = null;

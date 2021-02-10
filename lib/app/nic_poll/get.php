@@ -63,6 +63,8 @@ class get
 									elseif(in_array('irnicRegistrationRejected', $poll['detail'][$insert['domain']]['status']))
 									{
 										$log_meta['domainstatus'] = 'rejected';
+										// @reza need to check if pay money and back it
+										self::back_money($insert['domain']);
 									}
 									else
 									{
@@ -108,6 +110,49 @@ class get
 			}
 		}
 		return $poll;
+
+	}
+
+
+	private static function back_money($_domain)
+	{
+		$result = \lib\db\nic_domainbilling\get::register_price_back($_domain);
+		if(!is_array($result))
+		{
+			return false;
+		}
+
+		if(count($result) > 1)
+		{
+			\dash\log::to_supervisor('Domain reject money back. More than one register record founded. domain: '. $_domain);
+			return false;
+		}
+
+		$result = a($result, 0);
+
+		if(a($result, 'user_id') && a($result, 'finalprice') && is_numeric($result['finalprice']) && !a($result, 'giftusage_id'))
+		{
+			$insert_transaction =
+			[
+				'user_id' => $result['user_id'],
+				'title'   => T_("Refund money for reject domain :val", ['val' => $_domain]),
+				'verify'  => 1,
+				'plus'    => floatval($result['finalprice']),
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+			\dash\log::set('domain_irnicRefundMoney', ['to' => $result['user_id'], 'mydomain' => $_domain]);
+
+			\dash\log::to_supervisor('Domain reject money back. Refund money successfull. domain: '. $_domain);
+
+		}
+		// check domain only for one user
+		// if this domain founded in more than one user accoutn check who pay for this domain
+		// if more than one person pay for this domain set log and return
+		// check domain pay money
+		// refund money paid
 
 	}
 
