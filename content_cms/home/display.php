@@ -4,7 +4,7 @@
 
       <div class='mB10 font-14'>
         <select class="select22" data-model='html'  data-ajax--url="<?php echo \dash\url::here() ?>?json=true" data-shortkey-search data-placeholder="<?php echo T_("Search in posts and tags") ?>"></select>
-        </div>
+      </div>
         <div id="chartdivcmshome" class="box chart x285 s0" data-abc='cms/homepage' data-abc-v='4'>
       <div class="hide">
         <div id="chardatatitle"><?php echo T_("Draft") ?></div>

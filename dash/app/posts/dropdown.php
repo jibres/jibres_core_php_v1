@@ -199,7 +199,7 @@ class dropdown
 		if(isset($_data['title']))
 		{
 			$datalist['title'] = $_data['title'];
-			$html .= '<div class="c">'. $_data['title']. '</div>';
+			$html .= '<div class="c oneLine">'. $_data['title']. '</div>';
 		}
 		$html .= '<div class="c-auto">'. $_type. ' </div>';
 
