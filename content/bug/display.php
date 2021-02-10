@@ -74,7 +74,6 @@
  		<h2><?php echo T_("Submit Vulnerability Report"); ?></h2>
  		<p class="mB25"><?php echo T_("All technology contains bugs. If you've found a security vulnerability, we'd like to help out. By submitting a vulnerability to a program on Jibres. The proof of concept is the most important part of your report submission. Clear, reproducible steps will help us validate this issue as quickly as possible.") ?></p>
 
-
      <form method="post" data-clear autocomplete="off" enctype="multipart/form-data">
 <?php \dash\csrf::html(); ?>
 
@@ -105,6 +104,7 @@
 
       <button type="submit" name="submit-contact" class="btn block success mT25"><?php echo T_("Send"); ?></button>
      </form>
+ 		<div class="showContactNotif"></div>
 
 
 
