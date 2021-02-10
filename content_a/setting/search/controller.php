@@ -30,14 +30,23 @@ class controller
 		$list =
 		[
 			[
-				'title' => T_("Sitemap"),
-				'words' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
-				'url' => \dash\url::kingdom(). '/cms/sitemap',
+				'title'    => T_("Sitemap"),
+				'keywords' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
+				'url'      => \dash\url::kingdom(). '/cms/sitemap',
+				'addr'     => [T_("Content Management System"), T_("SEO") ],
+				'icon'     => 'sitemap',
 			],
 			[
-				'title' => T_("Config"),
-				'words' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
-				'url' => \dash\url::kingdom(). '/cms/config',
+				'title'    => T_("Config"),
+				'keywords' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
+				'url'      => \dash\url::kingdom(). '/cms/config',
+			],
+			[
+				'title'    => T_("ArvanCloud"),
+				'keywords' => [T_("Arvan"), T_("ArvanCloud"), T_("Storage"), 'Arvan', "ArvanCloud", "Arvan Cloud"],
+				'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/arvanclouds3',
+				'addr'     => [T_("Setting"), T_("Third Party Services"), T_("S3") ],
+				'img'      => \dash\url::cdn(). '/img/thirdparty/arvancloud.svg',
 			]
 		];
 
@@ -45,12 +54,13 @@ class controller
 
 		foreach ($list as $key => $value)
 		{
-			if(isset($value['words']))
+			if(isset($value['keywords']))
 			{
-				$myKeyWords = implode(' , ', $value['words']);
-				if(strpos($myKeyWords, mb_strtolower($_query)) !== false)
+				$myKeykeywords = implode(' , ', $value['keywords']);
+				$myKeykeywords = mb_strtolower($myKeykeywords);
+				if(strpos($myKeykeywords, mb_strtolower($_query)) !== false)
 				{
-					unset($value['words']);
+					unset($value['keywords']);
 					$value['id'] = $key. a($value, 'title');
 					$result[] = $value;
 				}
@@ -70,9 +80,14 @@ class controller
 		$datalist = [];
 
 		$html .= '<div class="row align-center">';
-		if(isset($_data['thumb']))
+
+		if(isset($_data['img']))
 		{
-			$html .= '<div class="c-auto"><img src="'.  $_data['thumb'] .'"></div>';
+			$html .= '<div class="c-auto"><img src="'.  $_data['img'] .'"></div>';
+		}
+		if(isset($_data['icon']))
+		{
+			$html .= '<div class="c-auto"><i class="sf-'.  $_data['icon'] .'"></i></div>';
 		}
 
 		if(isset($_data['id']))
@@ -84,9 +99,19 @@ class controller
 		if(isset($_data['title']))
 		{
 			$datalist['title'] = $_data['title'];
-			$html .= '<div class="c oneLine">'. $_data['title']. '</div>';
+			$html .= '<div class="c oneLine">';
+
+			if(isset($_data['addr']))
+			{
+				$html .= "<div class='txtB'>". $_data['title']. "</div>";
+				$html .= "<div>". implode(' / ', $_data['addr']). "</div>";
+			}
+			else
+			{
+				$html .= $_data['title'];
+			}
+			$html .= '</div>';
 		}
-		$html .= '<div class="c-auto">'. ' </div>';
 
 		$html .= '</div>';
 		// add price to html of item
