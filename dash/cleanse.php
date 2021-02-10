@@ -176,7 +176,7 @@ class cleanse
 			// validation is a string maybe need to call a function
 			if(is_string($validate))
 			{
-				$check = self::data($validate, $my_data, true, ['element' => $field, 'field_title' => $field_title, 'continue_with_error' => true]);
+				$check = self::data($validate, $my_data, true, array_merge($_meta, ['element' => $field, 'field_title' => $field_title, 'continue_with_error' => true]));
 			}
 			elseif(is_array($validate))
 			{
@@ -191,7 +191,7 @@ class cleanse
 							self::bye(T_("Enum option must be string or number"));
 						}
 					}
-					$check = self::data('enum', $my_data, true, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field, 'continue_with_error' => true]);
+					$check = self::data('enum', $my_data, true, array_merge($_meta, ['enum' => $validate['enum'], 'field_title' => $field_title, 'element' => $field, 'continue_with_error' => true]));
 				}
 				else
 				{
@@ -247,7 +247,7 @@ class cleanse
 
 							if(is_string($validate[$my_field]))
 							{
-								$temp_data[$my_field] = self::data($validate[$my_field], $my_field_value, true, ['element' => $my_field, 'field_title' => $my_field, 'continue_with_error' => true]);
+								$temp_data[$my_field] = self::data($validate[$my_field], $my_field_value, true, array_merge($_meta, ['element' => $my_field, 'field_title' => $my_field, 'continue_with_error' => true]));
 							}
 							elseif(is_array($validate[$my_field]))
 							{
@@ -259,7 +259,7 @@ class cleanse
 										self::bye(T_("Enum option must be string or number"));
 									}
 								}
-								$temp_data[$my_field] = self::data('enum', $my_field_value, true, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field, 'continue_with_error' => true]);
+								$temp_data[$my_field] = self::data('enum', $my_field_value, true, array_merge($_meta, ['enum' => $validate[$my_field], 'field_title' => $my_field, 'element' => $my_field, 'continue_with_error' => true]));
 							}
 							else
 							{
