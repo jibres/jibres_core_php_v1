@@ -126,6 +126,19 @@ class password
 			return false;
 		}
 
+		if(isset($_meta['displayname']) && $_meta['displayname'])
+		{
+			if(strpos($data, $_meta['displayname']) !== false)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Can not use display name in the password"), ['element' => $_element]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
 		return $data;
 	}
 }
