@@ -232,11 +232,11 @@ class renew
 
 			if($dont_know_nic_bill)
 			{
-				$domain_action_detail['detail'] = json_encode(['current_date_expire' => $current_date_expire, 'dont_know_nic_bill' => true, 'must_set_reseller' => $reseller === $jibres_nic_contact ? true : false]);
+				$domain_action_detail['detail'] = json_encode(['renew_price' => $price, 'current_date_expire' => $current_date_expire, 'dont_know_nic_bill' => true, 'must_set_reseller' => $reseller === $jibres_nic_contact ? true : false]);
 			}
 			else
 			{
-				$domain_action_detail['detail'] = json_encode(['current_date_expire' => $current_date_expire]);
+				$domain_action_detail['detail'] = json_encode(['renew_price' => $price, 'current_date_expire' => $current_date_expire]);
 			}
 
 			\lib\app\nic_domainaction\action::set('domain_renew_ready', $domain_action_detail);
