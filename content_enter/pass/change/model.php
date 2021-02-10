@@ -25,6 +25,8 @@ class model
 			[
 				'ramzNew' => 'password',
 			],
+			'passwd_mobile' => \dash\user::detail('mobile'),
+			'displayname'   => \dash\user::detail('displayname'),
 		];
 
 		$data = \dash\cleanse::input($args, $condition, $require, $meta);
