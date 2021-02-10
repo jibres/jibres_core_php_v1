@@ -31,7 +31,8 @@ class model
 			[
 				'newpassword' => 'password',
 			],
-			'displayname' => $args['displayname'],
+			'displayname'   => $args['displayname'],
+			'passwd_mobile' => \dash\request::post('mobile'),
 		];
 
 		$data = \dash\cleanse::input($args, $condition, $require, $meta);

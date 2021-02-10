@@ -139,6 +139,19 @@ class password
 			}
 		}
 
+		if(isset($_meta['passwd_mobile']) && $_meta['passwd_mobile'])
+		{
+			if(strpos($data, $_meta['passwd_mobile']) !== false)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Can not use your mobile in the password"), ['element' => $_element]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
 		return $data;
 	}
 }
