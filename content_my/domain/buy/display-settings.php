@@ -6,6 +6,43 @@
    <div class="msg minimal success2 txtC txtB mB10-f fs16">
     <?php echo \dash\data::myDomain(); ?>
    </div>
+   <?php if($special_ir_tld = \dash\validate\url::is_legal_ir_domain(\dash\data::myDomain(), true))
+   {
+    switch ($special_ir_tld)
+    {
+      case 'id.ir':
+        $message = T_("To register this domain you need to have irnic person account.");
+        break;
+
+      case 'co.ir':
+      case 'net.ir':
+        $message = T_("To register this domain you need to have irnic private account.");
+        break;
+
+      case 'gov.ir':
+      case 'co.ir':
+        $message = T_("To register this domain you need to have irnic gov account.");
+        break;
+
+      case 'sch.ir':
+      case 'ac.ir':
+        $message = T_("To register this domain you need to have irnic education account.");
+        break;
+
+      case 'org.ir':
+        $message = T_("To register this domain you need to have irnic education or private account.");
+        break;
+
+      default:
+        $message = null;
+        break;
+    }
+    if($message)
+    {
+      $message .= ' '. T_("If you have not this type of account your register can not be complete!");
+      echo '<div class="msg danger2 minimal">'. $message. '</div>';
+    }
+   } //endif ?>
   <?php }else{ ?>
    <div class="msg minimal warn2 txtC txtB mB10-f fs16">
     <p><?php echo T_("Can not register this domain"); ?></p>
