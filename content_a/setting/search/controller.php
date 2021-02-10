@@ -32,7 +32,7 @@ class controller
 				[
 					'title'    => T_("Sitemap"),
 					'keywords' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
-					'url'      => \dash\url::kingdom(). '/cms/sitemap',
+					// 'url'      => \dash\url::kingdom(). '/cms/sitemap',
 					'addr'     => [T_("Content Management System"), T_("SEO") ],
 					'icon'     => 'sitemap',
 				],
@@ -44,7 +44,7 @@ class controller
 				[
 					'title'    => T_("ArvanCloud"),
 					'keywords' => [T_("Arvan"), T_("ArvanCloud"), T_("Storage"), 'Arvan', "ArvanCloud", "Arvan Cloud", "File"],
-					'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/arvanclouds3',
+					// 'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/arvanclouds3',
 					'addr'     => [T_("Setting"), T_("Third Party Services"), T_("S3") ],
 					'img'      => \dash\url::cdn(). '/img/thirdparty/arvancloud.svg',
 				]
@@ -111,7 +111,7 @@ class controller
 
 		if(isset($_data['img']))
 		{
-			$html .= '<div class="c-auto"><img class="cover" src="'.  $_data['img'] .'"></div>';
+			$html .= '<div class="c-auto"><img class="little" src="'.  $_data['img'] .'"></div>';
 		}
 		if(isset($_data['icon']))
 		{
