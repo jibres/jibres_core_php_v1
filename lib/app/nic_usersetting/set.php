@@ -19,7 +19,7 @@ class set
 			'ns3'             => 'dns',
 			'ns4'             => 'dns',
 			'autorenewperiod' => ['enum' => ['1year', '5year']],
-			'domainlifetime'  => ['enum' => ['3day', '1week','1month', '6month', '1year']],
+			'domainlifetime'  => ['enum' => ['off', '1week','1month', '6month']],
 
 			'fullname'        => 'enstring_100',
 			'phone'           => 'phone',

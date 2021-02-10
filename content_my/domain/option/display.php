@@ -32,18 +32,17 @@
     <div class="data">
       <h3><?php echo T_("IR Domain Auto Renew Remain Time");?></h3>
       <div class="body">
-        <p><?php echo T_("Minimum date until we try to auto renew your domain. We are suggest one month.");?></p>
+        <p><?php echo T_("Minimum date until we try to auto renew your domain.");?></p>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
         <select name="domainlifetime" class="select22">
-          <option value="3day" <?php if(\dash\data::dataRow_domainlifetime() === '3day') {echo 'selected';} ?>><?php echo T_("3 Day"); ?></option>
+          <option value="off" <?php if(\dash\data::dataRow_domainlifetime() === 'off') {echo 'selected';} ?>><?php echo T_("Disable auto renew"). ' ('. T_("Default"). ')'; ?></option>
           <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
-          <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?> (<?php echo T_("default"); ?>)</option>
+          <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("1 Month"); ?></option>
           <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
-          <option value="1year" <?php if(\dash\data::dataRow_domainlifetime() === '1year') {echo 'selected';} ?>><?php echo T_("1 Year"); ?></option>
         </select>
     </div>
   </form>
