@@ -31,6 +31,7 @@ class model
 			[
 				'newpassword' => 'password',
 			],
+			'displayname' => $args['displayname'],
 		];
 
 		$data = \dash\cleanse::input($args, $condition, $require, $meta);
