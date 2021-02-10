@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-10 15:00+0330\n"
-"PO-Revision-Date: 2021-02-10 15:02+0330\n"
+"POT-Creation-Date: 2021-02-10 16:02+0330\n"
+"PO-Revision-Date: 2021-02-10 16:03+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1278,8 +1278,8 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/form/answer/item/display.php:38 content_a/form/home/display.php:73
 #: content_a/form/home/display.php:74 content_a/form/tag/display.php:74
 #: content_a/notiflog/display.php:69 content_a/notiflog/display.php:70
-#: content_a/order/home/filter.php:23 content_a/setting/home/display.php:8
-#: content_a/setting/home/display.php:9 content_a/tag/home/display.php:73
+#: content_a/order/home/filter.php:23 content_a/setting/home/display.php:16
+#: content_a/setting/home/display.php:17 content_a/tag/home/display.php:73
 #: content_business/search/view.php:9 content_crm/member/home/display-old.php:57
 #: content_crm/member/home/display-old.php:58 content_love/application/home/display.php:58
 #: content_love/application/home/display.php:59
@@ -1737,7 +1737,7 @@ msgid "Domain Price"
 msgstr "هزینه دامنه"
 
 #: content/domains/pricing/view.php:12 content/domains/search/view.php:12
-#: content/home/layout/header.php:19 content_a/setting/home/display.php:154
+#: content/home/layout/header.php:19 content_a/setting/home/display.php:164
 #: content_developers/docs/home/display.php:49
 #: content_love/business/domain/action/view.php:12
 #: content_love/business/domain/add/view.php:12
@@ -2153,7 +2153,7 @@ msgstr ""
 "بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:27 content/home/view.php:11 content/view.php:17
-#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:234
+#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:244
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2163,7 +2163,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:244
+#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:254
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2191,7 +2191,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:41 content_a/channels/home/display.php:28
-#: content_a/setting/home/display.php:254
+#: content_a/setting/home/display.php:264
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2216,7 +2216,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:264
+#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:274
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -2271,7 +2271,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 
 #: content/home/display.php:100 content_a/home/display.php:61
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
-#: content_a/products/home/view.php:11 content_a/setting/home/display.php:33
+#: content_a/products/home/view.php:11 content_a/setting/home/display.php:43
 #: content_a/setting/place/inventory/display.php:31
 #: content_a/setting/place/inventory/display.php:44
 #: content_a/website/menu/item/display.php:20 content_a/website/productline/view.php:15
@@ -3038,12 +3038,12 @@ msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
 #: content/investment/display.php:105 content_a/form/home/view.php:9
-#: content_a/home/display.php:153 content_a/setting/home/display.php:191
+#: content_a/home/display.php:153 content_a/setting/home/display.php:201
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
 #: content/investment/display.php:106 content_a/accounting/home/view.php:9
-#: content_a/home/display.php:161 content_a/setting/home/display.php:181
+#: content_a/home/display.php:161 content_a/setting/home/display.php:191
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
 #: lib/app/store/analytics.php:96
@@ -4865,7 +4865,7 @@ msgstr "پیگیری"
 #: content_love/domain/setting/display.php:125 includes/languages/trans_static.php:499
 #: lib/app/nic_domain/ready.php:146 lib/app/nic_domain/ready.php:148
 #: lib/app/nic_domain/ready.php:154 lib/app/nic_domain/ready.php:156
-#: lib/app/nic_domain/ready.php:318
+#: lib/app/nic_domain/ready.php:317
 msgid "Enable"
 msgstr "فعال"
 
@@ -6916,7 +6916,7 @@ msgstr "تخفیف"
 #: content_a/order/home/display.php:67 content_a/order/summary.php:34
 #: content_a/products/edit/block/sidebar-menu.php:25
 #: content_a/products/shipping/display.php:16 content_a/products/shipping/view.php:18
-#: content_a/setting/home/display.php:84 content_business/cart/cartSummary.php:25
+#: content_a/setting/home/display.php:94 content_business/cart/cartSummary.php:25
 msgid "Shipping"
 msgstr "حمل و نقل"
 
@@ -6997,7 +6997,7 @@ msgid "Guest user add cart"
 msgstr "کاربر مهمان سبد خرید اضافه کرده"
 
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
-#: content_a/home/display.php:37 content_a/setting/home/display.php:133
+#: content_a/home/display.php:37 content_a/setting/home/display.php:143
 #: content_business/home/layout/header/header_100.php:23
 #: content_crm/member/glance/display.php:324 dash/layout/pwa/pwa_menu.php:254
 #: lib/app/store/analytics.php:85
@@ -7469,27 +7469,27 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 msgid "Sort Product categories"
 msgstr "مرتب‌سازی دسته‌بندی محصولات"
 
-#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:235
+#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:245
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:245
+#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:255
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:255
+#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:265
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:265
+#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:275
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:274
+#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:284
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:275
+#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:285
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -9477,7 +9477,7 @@ msgstr "جمع مبالغ"
 msgid "Subdiscount"
 msgstr "جمع تخفیف‌ها"
 
-#: content_a/order/view.php:9 content_a/setting/home/display.php:143
+#: content_a/order/view.php:9 content_a/setting/home/display.php:153
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
 #: dash/layout/pwa/pwa_menu.php:189 dash/panel.php:281 dash/plan_list.php:52
 msgid "Orders"
@@ -11016,7 +11016,7 @@ msgstr "آیا امکان خرید و فروش در کسب‌وکار شما غ�
 msgid "Saleing"
 msgstr "فروش"
 
-#: content_a/setting/general/title/view.php:8 content_a/setting/home/display.php:24
+#: content_a/setting/general/title/view.php:8 content_a/setting/home/display.php:34
 msgid "General"
 msgstr "عمومی"
 
@@ -11026,39 +11026,45 @@ msgstr "عمومی"
 msgid "General setting"
 msgstr "تنظیمات عمومی"
 
-#: content_a/setting/home/display.php:25
+#: content_a/setting/home/display.php:6
+#, fuzzy
+#| msgid "Domain setting"
+msgid "Find a setting"
+msgstr "تنظیمات دامنه"
+
+#: content_a/setting/home/display.php:35
 msgid "View and update your business details"
 msgstr "نمایش و ویرایش اطلاعات بیزینس"
 
-#: content_a/setting/home/display.php:34
+#: content_a/setting/home/display.php:44
 msgid "Manage how your business products organized"
 msgstr "مدیریت و سازماندهی محصولات بیزینس شما"
 
-#: content_a/setting/home/display.php:44
+#: content_a/setting/home/display.php:54
 msgid "Locations"
 msgstr "موقعیت‌ها"
 
-#: content_a/setting/home/display.php:45
+#: content_a/setting/home/display.php:55
 msgid "Manage the place you stock inventory and sell products"
 msgstr "مدیریت انبارها و موجودی و فروش محصولات"
 
-#: content_a/setting/home/display.php:54
+#: content_a/setting/home/display.php:64
 msgid "Taxes"
 msgstr "مالیات"
 
-#: content_a/setting/home/display.php:55
+#: content_a/setting/home/display.php:65
 msgid "Manage how your business charges taxes"
 msgstr "مدیریت تنظیمات بیزینس شما درباره مالیات"
 
-#: content_a/setting/home/display.php:64
+#: content_a/setting/home/display.php:74
 msgid "Payment Providers"
 msgstr "درگاه‌های پرداخت"
 
-#: content_a/setting/home/display.php:65
+#: content_a/setting/home/display.php:75
 msgid "Enable and manage your business payment providers"
 msgstr "مدیریت و فعال‌سازی درگاه‌های پرداخت بیزینس"
 
-#: content_a/setting/home/display.php:74 content_account/billing/view.php:13
+#: content_a/setting/home/display.php:84 content_account/billing/view.php:13
 #: content_account/billing/view.php:17 content_account/home/view.php:9
 #: content_account/my/home/display.php:31 content_account/my/home/view.php:13
 #: content_account/notification/view.php:20
@@ -11066,23 +11072,23 @@ msgstr "مدیریت و فعال‌سازی درگاه‌های پرداخت ب�
 msgid "Account"
 msgstr "حساب کاربری"
 
-#: content_a/setting/home/display.php:75
+#: content_a/setting/home/display.php:85
 msgid "Manage your accounts and permissions"
 msgstr "مدیریت حساب‌کاربری و سطوح دسترسی"
 
-#: content_a/setting/home/display.php:85
+#: content_a/setting/home/display.php:95
 msgid "Manage how you ship orders to customers"
 msgstr "مدیریت نحوه ارسال سفارشات به مشتریان"
 
-#: content_a/setting/home/display.php:94 content_account/billing/display.php:19
+#: content_a/setting/home/display.php:104 content_account/billing/display.php:19
 msgid "Checkout"
 msgstr "پرداخت"
 
-#: content_a/setting/home/display.php:95
+#: content_a/setting/home/display.php:105
 msgid "Customize your online checkout process"
 msgstr "سفارشی‌سازی روند پرداخت آنلاین"
 
-#: content_a/setting/home/display.php:104 content_account/home/display.php:88
+#: content_a/setting/home/display.php:114 content_account/home/display.php:88
 #: content_account/home/display.php:92 content_account/notification/view.php:9
 #: content_business/profile/display-menu.php:7 content_crm/home/display.php:122
 #: content_crm/notification/datalist/view.php:9
@@ -11092,41 +11098,41 @@ msgstr "سفارشی‌سازی روند پرداخت آنلاین"
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
 
-#: content_a/setting/home/display.php:105
+#: content_a/setting/home/display.php:115
 msgid "Manage notification send to you and your cusotmers"
 msgstr "مدیریت پیام‌های ارسالی به شما و و مشتریان"
 
-#: content_a/setting/home/display.php:114 content_account/home/display.php:128
+#: content_a/setting/home/display.php:124 content_account/home/display.php:128
 #: content_account/home/display.php:132 dash/layout/admin/sidebar/sidebar-account.php:4
 #: lib/app/nic_contact/search.php:100
 msgid "Billing"
 msgstr "مالی"
 
-#: content_a/setting/home/display.php:115
+#: content_a/setting/home/display.php:125
 msgid "Your billing information and view your invoices"
 msgstr "اطلاعات مالی و مشاهده فاکتورها"
 
-#: content_a/setting/home/display.php:123 lib/pardakhtyar/type.php:113
+#: content_a/setting/home/display.php:133 lib/pardakhtyar/type.php:113
 msgid "Legal"
 msgstr "حقوقی"
 
-#: content_a/setting/home/display.php:124
+#: content_a/setting/home/display.php:134
 msgid "Manage your business legal pages"
 msgstr "مدیریت صفحات حقوقی و قانونی بیزینس شما"
 
-#: content_a/setting/home/display.php:134
+#: content_a/setting/home/display.php:144
 msgid "Cart setting"
 msgstr "تنظیمات سبد خرید"
 
-#: content_a/setting/home/display.php:144
+#: content_a/setting/home/display.php:154
 msgid "Order setting"
 msgstr "تنظیمات سفارش"
 
-#: content_a/setting/home/display.php:155
+#: content_a/setting/home/display.php:165
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:164
+#: content_a/setting/home/display.php:174
 #: content_a/setting/thirdparty/arvanclouds3/view.php:11
 #: content_a/setting/thirdparty/awss3/view.php:11
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
@@ -11139,23 +11145,23 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 msgid "Third Party Services"
 msgstr "سرویس‌های افزودنی دیگران"
 
-#: content_a/setting/home/display.php:165
+#: content_a/setting/home/display.php:175
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:182
+#: content_a/setting/home/display.php:192
 msgid "Manage your business accounting"
 msgstr "مدیریت حسابداری بیزینس شما"
 
-#: content_a/setting/home/display.php:192
+#: content_a/setting/home/display.php:202
 msgid "Create online forms and publish them."
 msgstr "فرم‌های آنلاین بسازید و آنها را منتشر کنید."
 
-#: content_a/setting/home/display.php:192
+#: content_a/setting/home/display.php:202
 msgid "Collect data."
 msgstr "جمع‌آوری داده‌ها."
 
-#: content_a/setting/home/display.php:208 content_cms/comments/home/view.php:11
+#: content_a/setting/home/display.php:218 content_cms/comments/home/view.php:11
 #: content_cms/config/view.php:9 content_cms/files/choose/view.php:61
 #: content_cms/files/home/view.php:14 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_cms/tag/home/view.php:16
@@ -11167,15 +11173,15 @@ msgstr "جمع‌آوری داده‌ها."
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/setting/home/display.php:209
+#: content_a/setting/home/display.php:219
 msgid "Manage your business news and contents"
 msgstr "مدیریت اخبار و محتوای بیزینس شما"
 
-#: content_a/setting/home/display.php:218 dash/panel.php:291
+#: content_a/setting/home/display.php:228 dash/panel.php:291
 msgid "Customers - CRM"
 msgstr "مشتریان - CRM"
 
-#: content_a/setting/home/display.php:219
+#: content_a/setting/home/display.php:229
 msgid "Manage business customers"
 msgstr "مدیریت مشتریان بیزینس"
 
@@ -35632,11 +35638,11 @@ msgstr "نیاز به ارائه مستندات"
 msgid "Register Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:203 lib/app/nic_domain/ready.php:205
-msgid "Domain reserved"
-msgstr "دامنه رزرو شده است"
+#: lib/app/nic_domain/ready.php:202 lib/app/nic_domain/ready.php:204
+msgid "Domain Approved"
+msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:294
+#: lib/app/nic_domain/ready.php:293
 msgid "Register now"
 msgstr "هم‌اکنون ثبت‌نام کنید"
 
@@ -38870,6 +38876,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Domain reserved"
+#~ msgstr "دامنه رزرو شده است"
 
 #~ msgid "Images"
 #~ msgstr "تصاویر"
