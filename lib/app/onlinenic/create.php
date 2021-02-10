@@ -48,34 +48,31 @@ class create
 			'email'                => 'email',
 			'phonecc'              => 'intstring_3',
 			'faxcc'                => 'intstring_3',
-
 		];
 
-		$require = ['domain'];
-
-		// if(isset($_args['whoistype']) && $_args['whoistype'] === 'customizedetail')
-		{
-			// all is required
-			array_push($require, 'fullname');
-			array_push($require, 'org');
-			array_push($require, 'country');
-			array_push($require, 'province');
-			array_push($require, 'city');
-			array_push($require, 'address');
-			array_push($require, 'postcode');
-			array_push($require, 'phone');
-			array_push($require, 'email');
-			array_push($require, 'fax');
-			array_push($require, 'phonecc');
-			array_push($require, 'faxcc');
-		}
+		$require =
+		[
+			'domain',
+			'fullname',
+			'org',
+			'country',
+			'province',
+			'city',
+			'address',
+			'postcode',
+			'phone',
+			'email',
+			'fax',
+			'phonecc',
+			'faxcc',
+		];
 
 
 		$meta    =
 		[
 			'field_title' =>
 			[
-				'faxcc' => T_("Code"),
+				'faxcc'   => T_("Code"),
 				'phonecc' => T_("Code"),
 			],
 		];
@@ -111,7 +108,7 @@ class create
 		$ns3         = $data['ns3'];
 		$ns4         = $data['ns4'];
 
-
+		// set detect
 		\lib\app\domains\detect::domain('register', $domain);
 		\lib\app\domains\detect::dns($ns1);
 		\lib\app\domains\detect::dns($ns2);
@@ -136,6 +133,7 @@ class create
 		if(!$price)
 		{
 			// error in load price
+			// the notif maked in get_price function
 			return false;
 		}
 
@@ -222,77 +220,70 @@ class create
 		}
 
 
-		// if(!isset($check_duplicate_domain['holder']))
+		if(!a($check_duplicate_domain, 'holder') || a($check_duplicate_domain, 'holder') === 'jibres-whois-guard-1')
 		{
+			$split = explode('.', $domain);
+			$tld   = end($split);
 
-			// if($data['whoistype'] === 'jibreswhoisgard')
-			// {
-			// 	$contact_id = \lib\app\onlinenic\gard::get(); // get random
-			// }
-			// else
+			$create_new_contact =
+			[
+				'fullname' => $data['fullname'],
+				'company'  => $data['org'],
+				'country'  => $data['country'],
+				'province' => $data['province'],
+				'city'     => $data['city'],
+				'address'  => $data['address'],
+				'postcode' => $data['postcode'],
+				'phone'    => $data['phone'],
+				'phonecc'  => $data['phonecc'],
+				'fax'      => $data['fax'],
+				'faxcc'    => $data['faxcc'],
+				'email'    => $data['email'],
+			];
+
+			\lib\app\nic_usersetting\set::set($create_new_contact);
+
+			$create_new_contact =
+			[
+				'ext'        => $tld,
+				'name'       => $data['fullname'],
+				'org'        => $data['org'],
+				'country'    => $data['country'],
+				'province'   => $data['province'],
+				'city'       => $data['city'],
+				'street'     => $data['address'],
+				'postalcode' => $data['postcode'],
+				'voice'      => '+'. $data['phonecc'] . '.'. $data['phone'],
+				'fax'        => '+'. $data['faxcc'] . '.'. $data['fax'],
+				'email'      => $data['email'],
+			];
+
+
+			$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
+
+			if(isset($contact_id['data']['contactid']))
 			{
-				$split = explode('.', $domain);
-				$tld   = end($split);
-
-				$create_new_contact =
-				[
-					'fullname' => $data['fullname'],
-					'company'  => $data['org'],
-					'country'  => $data['country'],
-					'province' => $data['province'],
-					'city'     => $data['city'],
-					'address'  => $data['address'],
-					'postcode' => $data['postcode'],
-					'phone'    => $data['phone'],
-					'phonecc'  => $data['phonecc'],
-					'fax'      => $data['fax'],
-					'faxcc'    => $data['faxcc'],
-					'email'    => $data['email'],
-				];
-
-				\lib\app\nic_usersetting\set::set($create_new_contact);
-
-				$create_new_contact =
-				[
-					'ext'        => $tld,
-					'name'       => $data['fullname'],
-					'org'        => $data['org'],
-					'country'    => $data['country'],
-					'province'   => $data['province'],
-					'city'       => $data['city'],
-					'street'     => $data['address'],
-					'postalcode' => $data['postcode'],
-					'voice'      => '+'. $data['phonecc'] . '.'. $data['phone'],
-					'fax'        => '+'. $data['faxcc'] . '.'. $data['fax'],
-					'email'      => $data['email'],
-				];
-
-
-				$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
-
-				if(isset($contact_id['data']['contactid']))
-				{
-					$contact_id = $contact_id['data']['contactid'];
-				}
-				else
-				{
-					\dash\notif::error(T_("Some detail is wrong!. We can not create your whois detail"));
-					return false;
-				}
-
-				if(!$contact_id)
-				{
-					\dash\notif::error(T_("Can not save your whois detail at this time. Please try later"));
-					return false;
-				}
+				$contact_id = $contact_id['data']['contactid'];
 			}
+			else
+			{
+				\dash\notif::error(T_("Some detail is wrong!. We can not create your whois detail"));
+				return false;
+			}
+
+			if(!$contact_id)
+			{
+				\dash\notif::error(T_("Can not save your whois detail at this time. Please try later"));
+				return false;
+			}
+
 
 			\lib\db\nic_domain\update::update(['holder' => $contact_id], $domain_id);
 		}
-		// else
-		// {
-		// 	$contact_id = $check_duplicate_domain['holder'];
-		// }
+		else
+		{
+			$contact_id = $check_duplicate_domain['holder'];
+		}
 
 
 
@@ -481,8 +472,6 @@ class create
 			}
 		}
 
-
-
 		if($data['gift'])
 		{
 			$gift_meta =
@@ -546,13 +535,13 @@ class create
 				'status'       => 'enable',
 				'verify'       => 1,
 
-				'autorenew'    => 1,
+				// 'autorenew'    => 1,
 				'lock'         => 1,
 				'available'    => 0,
 
 				'dateregister' => $result['data']['regdate'],
 				'dateexpire'   => $result['data']['expdate'],
-				'datecreated'  => date("Y-m-d H:i:s"),
+				'datemodified'  => date("Y-m-d H:i:s"),
 			];
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
@@ -582,6 +571,8 @@ class create
 					];
 
 					$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+					\dash\log::to_supervisor($insert_transaction['title']);
 				}
 
 			}
