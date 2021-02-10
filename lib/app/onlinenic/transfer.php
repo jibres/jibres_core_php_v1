@@ -42,28 +42,24 @@ class transfer
 
 		];
 
-		$require = ['domain'];
+		$require =
+		[
+			'domain',
+			'fullname',
+			'org',
+			'country',
+			'province',
+			'city',
+			'address',
+			'postcode',
+			'phone',
+			'email',
+			'fax',
+			'phonecc',
+			'faxcc',
+		];
 
-		// if(isset($_args['whoistype']) && $_args['whoistype'] === 'customizedetail')
-		{
-			// all is required
-			array_push($require, 'fullname');
-			array_push($require, 'org');
-			array_push($require, 'country');
-			array_push($require, 'province');
-			array_push($require, 'city');
-			array_push($require, 'address');
-			array_push($require, 'postcode');
-			array_push($require, 'phone');
-			array_push($require, 'email');
-			array_push($require, 'fax');
-			array_push($require, 'phonecc');
-			array_push($require, 'faxcc');
-		}
-
-
-
-		$meta    =
+		$meta =
 		[
 			'field_title' =>
 			[
@@ -90,8 +86,6 @@ class transfer
 
 
 		$domain      = $data['domain'];
-
-
 
 		\lib\app\domains\detect::domain('transfer', $domain);
 
@@ -179,78 +173,71 @@ class transfer
 			}
 		}
 
-
-		// if(!isset($check_duplicate_domain['holder']))
+		if(!a($check_duplicate_domain, 'holder') || a($check_duplicate_domain, 'holder') === 'jibres-whois-guard-1')
 		{
-			// if($data['whoistype'] === 'jibreswhoisgard')
-			// {
-			// 	$contact_id = \lib\app\onlinenic\gard::get(); // get random
-			// }
-			// else
+
+			$split = explode('.', $domain);
+			$tld   = end($split);
+
+			$create_new_contact =
+			[
+				'fullname' => $data['fullname'],
+				'company'  => $data['org'],
+				'country'  => $data['country'],
+				'province' => $data['province'],
+				'city'     => $data['city'],
+				'address'  => $data['address'],
+				'postcode' => $data['postcode'],
+				'phone'    => $data['phone'],
+				'phonecc'  => $data['phonecc'],
+				'fax'      => $data['fax'],
+				'faxcc'    => $data['faxcc'],
+				'email'    => $data['email'],
+			];
+
+			\lib\app\nic_usersetting\set::set($create_new_contact);
+
+			$create_new_contact =
+			[
+				'ext'        => $tld,
+				'name'       => $data['fullname'],
+				'org'        => $data['org'],
+				'country'    => $data['country'],
+				'province'   => $data['province'],
+				'city'       => $data['city'],
+				'street'     => $data['address'],
+				'postalcode' => $data['postcode'],
+				'voice'      => '+'. $data['phonecc'] . '.'. $data['phone'],
+				'fax'        => '+'. $data['faxcc'] . '.'. $data['fax'],
+				'email'      => $data['email'],
+			];
+
+
+			$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
+
+			if(isset($contact_id['data']['contactid']))
 			{
-				$split = explode('.', $domain);
-				$tld   = end($split);
-
-				$create_new_contact =
-				[
-					'fullname' => $data['fullname'],
-					'company'  => $data['org'],
-					'country'  => $data['country'],
-					'province' => $data['province'],
-					'city'     => $data['city'],
-					'address'  => $data['address'],
-					'postcode' => $data['postcode'],
-					'phone'    => $data['phone'],
-					'phonecc'  => $data['phonecc'],
-					'fax'      => $data['fax'],
-					'faxcc'    => $data['faxcc'],
-					'email'    => $data['email'],
-				];
-
-				\lib\app\nic_usersetting\set::set($create_new_contact);
-
-				$create_new_contact =
-				[
-					'ext'        => $tld,
-					'name'       => $data['fullname'],
-					'org'        => $data['org'],
-					'country'    => $data['country'],
-					'province'   => $data['province'],
-					'city'       => $data['city'],
-					'street'     => $data['address'],
-					'postalcode' => $data['postcode'],
-					'voice'      => '+'. $data['phonecc'] . '.'. $data['phone'],
-					'fax'        => '+'. $data['faxcc'] . '.'. $data['fax'],
-					'email'      => $data['email'],
-				];
-
-
-				$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
-
-				if(isset($contact_id['data']['contactid']))
-				{
-					$contact_id = $contact_id['data']['contactid'];
-				}
-				else
-				{
-					\dash\notif::error(T_("Some detail is wrong!. We can not create your whois detail"));
-					return false;
-				}
-
-				if(!$contact_id)
-				{
-					\dash\notif::error(T_("Can not save your whois detail at this time. Please try later"));
-					return false;
-				}
+				$contact_id = $contact_id['data']['contactid'];
 			}
+			else
+			{
+				\dash\notif::error(T_("Some detail is wrong!. We can not create your whois detail"));
+				return false;
+			}
+
+			if(!$contact_id)
+			{
+				\dash\notif::error(T_("Can not save your whois detail at this time. Please try later"));
+				return false;
+			}
+
 
 			\lib\db\nic_domain\update::update(['holder' => $contact_id], $domain_id);
 		}
-		// else
-		// {
-		// 	$contact_id = $check_duplicate_domain['holder'];
-		// }
-
+		else
+		{
+			$contact_id = $check_duplicate_domain['holder'];
+		}
 
 
 		$domain_code = \dash\coding::encode($domain_id);
@@ -527,6 +514,9 @@ class transfer
 					];
 
 					$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+					\dash\log::to_supervisor($insert_transaction['title']);
+
 				}
 
 			}

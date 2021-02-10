@@ -429,6 +429,8 @@ class renew
 					];
 
 					$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+					\dash\log::to_supervisor($insert_transaction['title']);
 				}
 
 			}
