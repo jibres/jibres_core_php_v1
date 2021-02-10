@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-10 11:13+0330\n"
-"PO-Revision-Date: 2021-02-10 11:21+0330\n"
+"POT-Creation-Date: 2021-02-10 12:40+0330\n"
+"PO-Revision-Date: 2021-02-10 12:46+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -19293,7 +19293,7 @@ msgstr ""
 #: content_love/domain/domainbuy/display.php:72
 #: content_love/domain/setting/dns/display.php:12
 #: content_my/domain/buy/display-settings-com.php:51
-#: content_my/domain/buy/display-settings.php:79 content_my/domain/option/display.php:67
+#: content_my/domain/buy/display-settings.php:116 content_my/domain/option/display.php:67
 #: content_my/domain/review/display.php:70 content_my/domain/setting/dns/display.php:13
 #: content_my/domain/setting/dns/display.php:63
 msgid "DNS #1"
@@ -19309,7 +19309,7 @@ msgstr "سرور آی‌پی ۱"
 #: content_love/domain/domainbuy/display.php:79
 #: content_love/domain/setting/dns/display.php:26
 #: content_my/domain/buy/display-settings-com.php:58
-#: content_my/domain/buy/display-settings.php:86 content_my/domain/option/display.php:73
+#: content_my/domain/buy/display-settings.php:123 content_my/domain/option/display.php:73
 #: content_my/domain/review/display.php:81 content_my/domain/setting/dns/display.php:21
 #: content_my/domain/setting/dns/display.php:77
 msgid "DNS #2"
@@ -19325,7 +19325,7 @@ msgstr "سرور آی‌پی ۲"
 #: content_love/domain/domainbuy/display.php:92
 #: content_love/domain/setting/dns/display.php:39
 #: content_my/domain/buy/display-settings-com.php:71
-#: content_my/domain/buy/display-settings.php:99 content_my/domain/option/display.php:79
+#: content_my/domain/buy/display-settings.php:136 content_my/domain/option/display.php:79
 #: content_my/domain/review/display.php:93 content_my/domain/setting/dns/display.php:29
 #: content_my/domain/setting/dns/display.php:90
 msgid "DNS #3"
@@ -19341,7 +19341,7 @@ msgstr "سرور آی‌پی ۳"
 #: content_love/domain/domainbuy/display.php:99
 #: content_love/domain/setting/dns/display.php:51
 #: content_my/domain/buy/display-settings-com.php:78
-#: content_my/domain/buy/display-settings.php:106 content_my/domain/option/display.php:85
+#: content_my/domain/buy/display-settings.php:143 content_my/domain/option/display.php:85
 #: content_my/domain/review/display.php:102 content_my/domain/setting/dns/display.php:35
 #: content_my/domain/setting/dns/display.php:102
 msgid "DNS #4"
@@ -19444,67 +19444,67 @@ msgstr "نام دامنه"
 
 #: content_love/domain/domainbuy/display.php:17
 #: content_my/domain/buy/display-settings-com.php:24
-#: content_my/domain/buy/display-settings.php:24 content_my/domain/renew/display.php:63
+#: content_my/domain/buy/display-settings.php:61 content_my/domain/renew/display.php:63
 msgid "Choose register time"
 msgstr "مدت زمانی که مایلید این دامنه را بخرید انتخاب کنید"
 
 #: content_love/domain/domainbuy/display.php:23
-#: content_my/domain/buy/display-settings.php:30
+#: content_my/domain/buy/display-settings.php:67
 #: content_my/domain/buy/domain-search-result-ir.php:68
 #: content_my/domain/option/display.php:37 content_my/domain/renew/display.php:47
 #: content_my/domain/renew/display.php:69 content_my/domain/review/controller.php:102
-#: content_my/domain/review/controller.php:148 lib/app/onlinenic/price.php:171
+#: content_my/domain/review/controller.php:152 lib/app/onlinenic/price.php:171
 msgid "1 Year"
 msgstr "یک ساله"
 
 #: content_love/domain/domainbuy/display.php:29
-#: content_my/domain/buy/display-settings.php:36
+#: content_my/domain/buy/display-settings.php:73
 #: content_my/domain/buy/domain-search-result-ir.php:84
 #: content_my/domain/option/display.php:42 content_my/domain/renew/display.php:51
 #: content_my/domain/renew/display.php:75 content_my/domain/review/controller.php:107
-#: content_my/domain/review/controller.php:152 lib/app/onlinenic/price.php:175
+#: content_my/domain/review/controller.php:156 lib/app/onlinenic/price.php:175
 msgid "5 Year"
 msgstr "پنج ساله"
 
 #: content_love/domain/domainbuy/display.php:35
-#: content_my/domain/buy/display-settings.php:42
+#: content_my/domain/buy/display-settings.php:79
 #: content_my/domain/irnic/add/display.php:133 content_my/domain/transfer/display.php:59
 msgid "IRNIC Handle"
 msgstr "شناسه ایرنیک"
 
 #: content_love/domain/domainbuy/display.php:35
-#: content_my/domain/buy/display-settings.php:42 content_my/domain/transfer/display.php:59
+#: content_my/domain/buy/display-settings.php:79 content_my/domain/transfer/display.php:59
 msgid "Don't have IRNIC Handle? Create one."
 msgstr "شناسه ایرنیک ندارید؟ یکی بسازید."
 
 #: content_love/domain/domainbuy/display.php:40
-#: content_my/domain/buy/display-settings.php:47
+#: content_my/domain/buy/display-settings.php:84
 msgid "If you want to customize domain Handle click here"
 msgstr "برای سفارشی‌سازی سایر رابط‌های دامنه کلیک کنید"
 
 #: content_love/domain/domainbuy/display.php:46
-#: content_my/domain/buy/display-settings.php:53
+#: content_my/domain/buy/display-settings.php:90
 msgid "IRNIC Admin"
 msgstr "رابط اداری دامنه"
 
 #: content_love/domain/domainbuy/display.php:52
-#: content_my/domain/buy/display-settings.php:59
+#: content_my/domain/buy/display-settings.php:96
 msgid "IRNIC Tecnical"
 msgstr "رابط فنی دامنه"
 
 #: content_love/domain/domainbuy/display.php:58
-#: content_my/domain/buy/display-settings.php:65
+#: content_my/domain/buy/display-settings.php:102
 msgid "IRNIC Billing"
 msgstr "رابط مالی دامنه"
 
 #: content_love/domain/domainbuy/display.php:87
 #: content_my/domain/buy/display-settings-com.php:66
-#: content_my/domain/buy/display-settings.php:94
+#: content_my/domain/buy/display-settings.php:131
 msgid "If you have more DNS click here to set them"
 msgstr "برای تنظیم دی‌ان‌اس بیشتر کلیک کنید"
 
 #: content_love/domain/domainbuy/display.php:118
-#: content_my/domain/buy/display-settings.php:125
+#: content_my/domain/buy/display-settings.php:162
 #: content_my/domain/irnic/add/display.php:113 content_my/domain/renew/display.php:86
 #: content_my/domain/transfer/display.php:71
 msgid "IRNIC agreement"
@@ -19512,14 +19512,14 @@ msgstr "توافقنامه ایرنیک"
 
 #: content_love/domain/domainbuy/display.php:119
 #: content_my/domain/buy/display-settings-com.php:91
-#: content_my/domain/buy/display-settings.php:126
+#: content_my/domain/buy/display-settings.php:163
 #: content_my/domain/irnic/add/display.php:114 content_my/domain/renew/display.php:87
 #: content_my/domain/transfer/display.php:72 content_my/domain/transfer/display.php:82
 msgid "Jibres Terms of Service"
 msgstr "شرایط استفاده از خدمات جیبرس"
 
 #: content_love/domain/domainbuy/display.php:116
-#: content_my/domain/buy/display-settings.php:123
+#: content_my/domain/buy/display-settings.php:160
 #: content_my/domain/transfer/display.php:69
 msgid ""
 "By clicking Register, you are indicating that you have read the :nic and agree to the :"
@@ -19765,7 +19765,7 @@ msgstr "همین الان اضافه کن"
 msgid "This domain is available for register!"
 msgstr "این دامنه آماده خرید است!"
 
-#: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:144
+#: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:148
 #: content_my/domain/setting/display.php:57 dash/app/log/ready.php:89
 #: dash/app/log/ready.php:93 dash/app/user.php:87 dash/app/user.php:129
 #: dash/app/user.php:179 dash/app/visitor.php:112 dash/app/visitor.php:141
@@ -20693,12 +20693,12 @@ msgid "Our short suggestion"
 msgstr "پیشنهاد ما"
 
 #: content_my/domain/buy/display-settings-com.php:11
-#: content_my/domain/buy/display-settings.php:11
+#: content_my/domain/buy/display-settings.php:48
 msgid "Can not register this domain"
 msgstr "نمی‌توان این دامنه را ثبت کرد"
 
 #: content_my/domain/buy/display-settings-com.php:14
-#: content_my/domain/buy/display-settings.php:14
+#: content_my/domain/buy/display-settings.php:51
 msgid "Try another"
 msgstr "مجددا تلاش کنید"
 
@@ -20714,19 +20714,47 @@ msgstr ""
 "با فشردن دکمه خرید دامنه، شما :terms را خوانده‌اید و موافقت خود را با آن اعلام کرده‌اید."
 
 #: content_my/domain/buy/display-settings-com.php:96
-#: content_my/domain/buy/display-settings.php:133
+#: content_my/domain/buy/display-settings.php:170
 msgid "Review Detail"
 msgstr "بازبینی جزئیات"
 
 #: content_my/domain/buy/display-settings-com.php:106
-#: content_my/domain/buy/display-settings.php:143
+#: content_my/domain/buy/display-settings.php:180
 msgid "Domain is occupied"
 msgstr "این دامنه گرفته شده است"
 
 #: content_my/domain/buy/display-settings-com.php:109
-#: content_my/domain/buy/display-settings.php:146
+#: content_my/domain/buy/display-settings.php:183
 msgid "Who is?"
 msgstr "کی گرفته؟"
+
+#: content_my/domain/buy/display-settings.php:14
+msgid "To register this domain you need to have irnic person account."
+msgstr "برای ثبت این دامنه شما باید دارای حساب کاربری شخصی از ایرنیک باشید."
+
+#: content_my/domain/buy/display-settings.php:19
+msgid "To register this domain you need to have irnic private account."
+msgstr ""
+"برای ثبت این دامنه شما باید دارای حساب کاربری ویژه موسسات و نهاد‌های غیر دولتی از ایرنیک "
+"باشید."
+
+#: content_my/domain/buy/display-settings.php:24
+msgid "To register this domain you need to have irnic gov account."
+msgstr "برای ثبت این دامنه شما باید دارای حساب کاربری دولتی از ایرنیک باشید."
+
+#: content_my/domain/buy/display-settings.php:29
+msgid "To register this domain you need to have irnic education account."
+msgstr "برای ثبت این دامنه شما باید دارای حساب کاربری ویژه مراکز آموزشی از ایرنیک باشید."
+
+#: content_my/domain/buy/display-settings.php:33
+msgid "To register this domain you need to have irnic education or private account."
+msgstr ""
+"برای ثبت این دامنه شما باید دارای حساب کاربری ویژه مراکز آموزشی یا حساب کاربری ویژه "
+"موسسات و نهاد‌های غیر دولتی از ایرنیک باشید."
+
+#: content_my/domain/buy/display-settings.php:42
+msgid "If you have not this type of account your register can not be complete!"
+msgstr "اگر شما دارای این نوع حساب کاربری از ایرنیک نیستید ثبت دامنه شما انجام نخواهد شد!"
 
 #: content_my/domain/buy/domain-search-result-ir.php:36
 msgid "If is your domain you can renew it"
@@ -21152,42 +21180,42 @@ msgstr "هزینه تمدید"
 msgid "Choose renew time"
 msgstr "مدت زمانی که مایلید این دامنه را تمدید کنید انتخاب کنید"
 
-#: content_my/domain/renew/display.php:48 content_my/domain/review/controller.php:149
+#: content_my/domain/renew/display.php:48 content_my/domain/review/controller.php:153
 #: lib/app/onlinenic/price.php:172
 msgid "2 Year"
 msgstr "دو ساله"
 
-#: content_my/domain/renew/display.php:49 content_my/domain/review/controller.php:150
+#: content_my/domain/renew/display.php:49 content_my/domain/review/controller.php:154
 #: lib/app/onlinenic/price.php:173
 msgid "3 Year"
 msgstr "سه سال"
 
-#: content_my/domain/renew/display.php:50 content_my/domain/review/controller.php:151
+#: content_my/domain/renew/display.php:50 content_my/domain/review/controller.php:155
 #: lib/app/onlinenic/price.php:174
 msgid "4 Year"
 msgstr "چهار ساله"
 
-#: content_my/domain/renew/display.php:52 content_my/domain/review/controller.php:153
+#: content_my/domain/renew/display.php:52 content_my/domain/review/controller.php:157
 #: lib/app/onlinenic/price.php:176
 msgid "6 Year"
 msgstr "شش ساله"
 
-#: content_my/domain/renew/display.php:53 content_my/domain/review/controller.php:154
+#: content_my/domain/renew/display.php:53 content_my/domain/review/controller.php:158
 #: lib/app/onlinenic/price.php:177
 msgid "7 Year"
 msgstr "هفت ساله"
 
-#: content_my/domain/renew/display.php:54 content_my/domain/review/controller.php:155
+#: content_my/domain/renew/display.php:54 content_my/domain/review/controller.php:159
 #: lib/app/onlinenic/price.php:178
 msgid "8 Year"
 msgstr "هشت ساله"
 
-#: content_my/domain/renew/display.php:55 content_my/domain/review/controller.php:156
+#: content_my/domain/renew/display.php:55 content_my/domain/review/controller.php:160
 #: lib/app/onlinenic/price.php:179
 msgid "9 Year"
 msgstr "نه ساله"
 
-#: content_my/domain/renew/display.php:56 content_my/domain/review/controller.php:157
+#: content_my/domain/renew/display.php:56 content_my/domain/review/controller.php:161
 #: lib/app/onlinenic/price.php:180
 msgid "10 Year"
 msgstr "ده ساله"
@@ -42337,9 +42365,6 @@ msgstr "یارد"
 
 #~ msgid "Add First Money"
 #~ msgstr "اولین پرداخت شما"
-
-#~ msgid "Can not register your domain, Money back to your account"
-#~ msgstr "نمی‌توانیم دامنه را ثبت کنیم. پول به حساب شما برگشت داده شد"
 
 #~ msgid "Your domain"
 #~ msgstr "دامنه‌های شما"

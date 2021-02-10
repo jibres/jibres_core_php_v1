@@ -8,6 +8,7 @@
    </div>
    <?php if($special_ir_tld = \dash\validate\url::is_legal_ir_domain(\dash\data::myDomain(), true))
    {
+    $message = null;
     switch ($special_ir_tld)
     {
       case 'id.ir':
