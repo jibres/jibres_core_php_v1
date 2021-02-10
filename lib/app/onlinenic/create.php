@@ -461,22 +461,24 @@ class create
 		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
 
-
-		$insert_transaction =
-		[
-			'user_id' => $user_id,
-			'title'   => T_("Buy domian :val", ['val' => $domain]),
-			'verify'  => 1,
-			'minus'   => floatval($data['minus_transaction']),
-			'type'    => 'money',
-		];
-
-		$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-		if(!$transaction_id)
+		if($data['minus_transaction'])
 		{
-			\dash\log::oops('transaction_db');
-			return false;
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Buy domian :val", ['val' => $domain]),
+				'verify'  => 1,
+				'minus'   => floatval($data['minus_transaction']),
+				'type'    => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+			if(!$transaction_id)
+			{
+				\dash\log::oops('transaction_db');
+				return false;
+			}
 		}
 
 
@@ -565,6 +567,25 @@ class create
 		}
 		else
 		{
+			if(isset($result['code']) && is_numeric($result['code']) && floatval($result['code']) !== floatval(1000))
+			{
+				// onlinenic error. need to back money
+				if($data['minus_transaction'])
+				{
+					$insert_transaction =
+					[
+						'user_id' => $user_id,
+						'title'   => T_("Refund money for register domian :val", ['val' => $domain]),
+						'verify'  => 1,
+						'plus'   => floatval($data['minus_transaction']),
+						'type'    => 'money',
+					];
+
+					$transaction_id = \dash\db\transactions::set($insert_transaction);
+				}
+
+			}
+
 			// have error in register domain
 			$update =
 			[
