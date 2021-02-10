@@ -46,7 +46,7 @@ class view
 		$related    = \dash\request::get('related');
 		$related_id = \dash\request::get('related_id');
 
-		if(in_array($related, ['postsgallery', 'postsgalleryvideo', 'postsgalleryaudio']) && $related_id)
+		if(in_array($related, ['poststhumb','postsgallery', 'postsgalleryvideo', 'postsgalleryaudio']) && $related_id)
 		{
 			$link  = \dash\url::here(). '/posts/edit?id='. $related_id;
 			$title = T_("Edit post");
