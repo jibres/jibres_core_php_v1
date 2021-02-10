@@ -12,14 +12,12 @@ class dropdown
 		}
 
 		$query = \dash\validate::search(\dash\request::get('q'), false);
-
 		if(!$query)
 		{
 			return;
 		}
-		$result = [];
-
-		$resultRaw    = \dash\app\posts\search::list($query, []);
+		$result    = [];
+		$resultRaw = \dash\app\posts\search::list($query, []);
 
 		foreach ($resultRaw as $key => $value)
 		{
@@ -27,7 +25,7 @@ class dropdown
 			$result['results'][] = self::getNeededFieldLink($value, T_("Post"), $edit_link);
 		}
 
-		$resultRawTag    = \dash\app\terms\search::list($query, []);
+		$resultRawTag = \dash\app\terms\search::list($query, []);
 
 		foreach ($resultRawTag as $key => $value)
 		{
@@ -38,14 +36,11 @@ class dropdown
 		$search_setting = self::search_setting($query);
 		foreach ($search_setting as $key => $value)
 		{
-			$result['results'][] = self::getNeededFieldLink($value, T_("Config"), a($value, 'link'));
+			$result['results'][] = self::getNeededFieldLink($value, T_("Config"), a($value, 'url'));
 		}
 
 		\dash\code::jsonBoom($result);
-
 	}
-
-
 
 
 	private static function search_setting($_query)
@@ -55,12 +50,12 @@ class dropdown
 			[
 				'title' => T_("Sitemap"),
 				'words' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
-				'link' => \dash\url::kingdom(). '/cms/sitemap',
+				'url' => \dash\url::kingdom(). '/cms/sitemap',
 			],
 			[
 				'title' => T_("Config"),
 				'words' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
-				'link' => \dash\url::kingdom(). '/cms/config',
+				'url' => \dash\url::kingdom(). '/cms/config',
 			]
 		];
 
@@ -73,11 +68,9 @@ class dropdown
 				$myKeyWords = implode(' , ', $value['words']);
 				if(strpos($myKeyWords, mb_strtolower($_query)) !== false)
 				{
-					$result[] =
-					[
-						'title' => a($value, 'title'),
-						'link' => a($value, 'link'),
-					];
+					unset($value['words']);
+					$value['id'] = $key. a($value, 'title');
+					$result[] = $value;
 				}
 			}
 		}

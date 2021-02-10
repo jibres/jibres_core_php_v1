@@ -32,12 +32,12 @@ class controller
 			[
 				'title' => T_("Sitemap"),
 				'words' => [T_("site"), T_("site map"), T_("sitemap"), 'sitemap', T_("map"), 'map'],
-				'link' => \dash\url::kingdom(). '/cms/sitemap',
+				'url' => \dash\url::kingdom(). '/cms/sitemap',
 			],
 			[
 				'title' => T_("Config"),
 				'words' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
-				'link' => \dash\url::kingdom(). '/cms/config',
+				'url' => \dash\url::kingdom(). '/cms/config',
 			]
 		];
 
@@ -50,11 +50,9 @@ class controller
 				$myKeyWords = implode(' , ', $value['words']);
 				if(strpos($myKeyWords, mb_strtolower($_query)) !== false)
 				{
-					$result[] =
-					[
-						'title' => a($value, 'title'),
-						'link' => a($value, 'link'),
-					];
+					unset($value['words']);
+					$value['id'] = $key. a($value, 'title');
+					$result[] = $value;
 				}
 			}
 		}
@@ -98,7 +96,7 @@ class controller
 			'html'     => $html,
 			'id'       => $id,
 			'datalist' => $datalist,
-			'url'      => a($_data, 'link'),
+			'url'      => a($_data, 'url'),
 		];
 
 		return $result;
