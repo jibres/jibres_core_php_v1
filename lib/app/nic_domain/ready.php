@@ -191,7 +191,6 @@ class ready
 							unset($other_status[array_search('irnicRegistrationApproved', $other_status)]);
 						}
 
-
 						if(
 							in_array('serverHold', 					$nicstatus) &&
 							in_array('irnicReserved', 				$nicstatus) &&
