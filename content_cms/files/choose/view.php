@@ -24,6 +24,7 @@ class view
 			'type'  => \dash\request::get('type'),
 			'ext'   => \dash\request::get('ext'),
 			'ratio' => \dash\request::get('ratio'),
+			'limit' => 30,
 		];
 
 		$postList      = \dash\app\files\search::list(\dash\request::get('q'), $args);

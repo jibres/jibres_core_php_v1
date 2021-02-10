@@ -26,6 +26,7 @@ class search
 			'type'       => ['enum' => ['image','archive','audio','pdf','video','word','excel','powerpoint','code','text','file', 'other']],
 			'ext'        => 'string_100',
 			'ratio'      => \lib\ratio::check_input(),
+			'limit'      => 'int',
 		];
 
 		$require = [];
@@ -65,6 +66,11 @@ class search
 		}
 
 		$meta['limit'] = 10;
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
+
 
 		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
 		{
