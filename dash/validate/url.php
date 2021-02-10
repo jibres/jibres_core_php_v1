@@ -512,14 +512,34 @@ class url
 	}
 
 
+	public static function is_legal_ir_domain($_domain, $_get_tld = false)
+	{
+		$special_tld = self::special_tld(true);
+		foreach ($special_tld as $key => $tld)
+		{
+			if(substr($_domain, -(strlen($tld) + 1)) === '.'. $tld )
+			{
+				if($_get_tld)
+				{
+					return $tld;
+				}
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+
 	/**
 	 * Special tld
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function special_tld()
+	private static function special_tld($_only_ir = false)
 	{
-		$list =
+		$list_ir =
 		[
 			// ir special domain tld
 			'id.ir',
@@ -530,6 +550,10 @@ class url
 			'sch.ir',
 			'ac.ir',
 			'org.ir',
+		];
+
+		$list_international =
+		[
 
 			// international special domain : get from onlinenic domain allow list
 			'aaa.pro',
@@ -588,7 +612,12 @@ class url
 
 		];
 
-		return $list;
+		if($_only_ir)
+		{
+			return $list_ir;
+		}
+
+		return array_merge($list_ir, $list_international);
 	}
 
 }
