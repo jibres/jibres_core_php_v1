@@ -32,18 +32,16 @@ class price
 
 		if($_expire_date)
 		{
+			// $expire_date = strtotime(date("Y-m-d", strtotime("-29 days"))); // for test
+			$expire_date = strtotime($_expire_date);
+			$now         = strtotime(date("Y-m-d"));
 
-			$date1 = date_create($_expire_date);
-			$date2 = date_create(date("Y-m-d"));
-			$diff  = date_diff($date2, $date1);
-			$days  = 0;
+			$_30_days    = 60*60*24*30;
+			$_60_days    = 60*60*24*60;
 
-			if(isset($diff->days))
-			{
-				$days = $diff->days;
-			}
-			// @todo need to fix @reza
-			if($days > 30 && $days < 60)
+			$diff = $now - $expire_date;
+
+			if($diff >= $_30_days && $diff <= $_60_days)
 			{
 				$price = $price * 2;
 			}
