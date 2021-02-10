@@ -56,7 +56,7 @@ else
 <div class="f">
 
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-    <div class="c2 pA5">
+    <div class="c2 s6 pA5">
         <a class="stat x70 available" href="<?php echo \dash\url::this(). '/buy/'. a($value, 'domain'); ?>">
             <h3><?php echo T_("Available") ?></h3>
             <div class="val ltr"><?php echo a($value, 'root'); ?> <small>.<?php echo a($value, 'tld'); ?></small></div>

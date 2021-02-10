@@ -72,7 +72,7 @@ class search
 			$and[]         = " domainaction.user_id = $data[user_id] ";
 		}
 
-		$meta['limit'] = 10;
+		$meta['limit'] = 20;
 
 		$order_sort    = " ORDER BY domainaction.id DESC";
 
