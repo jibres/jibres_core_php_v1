@@ -55,8 +55,23 @@ class ready
 					break;
 
 				case 'period':
+					if(isset($_data['name']))
+					{
+						if(\dash\validate::ir_domain($_data['name'], false))
+						{
+							$period_title = \dash\fit::number(round($value / 12)). ' '. T_("Year");
+						}
+						else
+						{
+							$period_title = \dash\fit::number($value). ' '. T_("Year");
+						}
+					}
+					else
+					{
+						$period_title = null;
+					}
 					$result[$key] = $value;
-					$result['period_title'] = \dash\fit::number(round($value / 12)). ' '. T_("Year");
+					$result['period_title'] = $period_title;
 					break;
 
 				case 'price':
