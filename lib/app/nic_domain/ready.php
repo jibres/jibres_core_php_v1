@@ -218,6 +218,14 @@ class ready
 						$result['other_status'] = $other_status_html;
 					}
 
+					if(isset($_data['registrar']) && $_data['registrar'] === 'onlinenic')
+					{
+						$status_text = T_("Enable");
+						$status_icon = 'check ok';
+						$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
+
+					}
+
 					$result['status_text'] = $status_text;
 					$result['status_icon'] = $status_icon;
 					$result['status_html'] = $status_html;
