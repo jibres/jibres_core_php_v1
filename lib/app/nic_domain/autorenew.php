@@ -47,17 +47,31 @@ class autorenew
 	{
 		foreach ($_list as $key => $value)
 		{
+			if(\dash\validate::ir_domain($value['name'], false))
+			{
+				$is_ir = true;
+				$autorenewperiod = $value['autorenewperiod'];
+			}
+			else
+			{
+				$is_ir = false;
+				$autorenewperiod = $value['autorenewperiodcom'];
+			}
+
+			if(!$autorenewperiod)
+			{
+				$autorenewperiod = '1year';
+			}
 
 			$dateexpire      = $value['dateexpire'];
 			$user_id         = $value['owner'];
-			$autorenewperiod = $value['autorenewperiod'];
 			$domain_id = $value['myid'];
 
 			\lib\db\nic_domain\update::record(['renewtry' => date("Y-m-d H:i:s")], $value['myid']);
 
 			$user_budget = floatval(\dash\db\transactions::budget($user_id));
 
-			if(\dash\validate::ir_domain($value['name'], false))
+			if($is_ir)
 			{
 				// must renew this domain whit $autrenweperiod
 				$price = \lib\app\nic_domain\price::renew($autorenewperiod, $dateexpire);
@@ -108,8 +122,7 @@ class autorenew
 				continue;
 			}
 
-
-			if(\dash\validate::ir_domain($value['name'], false))
+			if($is_ir)
 			{
 				$result = \lib\app\nic_domain\renew::renew($renew);
 			}

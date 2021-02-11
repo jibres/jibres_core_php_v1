@@ -151,7 +151,8 @@ class search
 					domain.user_id AS `owner`,
 					domain.available,
 					usersetting.domainlifetime,
-					usersetting.autorenewperiod
+					usersetting.autorenewperiod,
+					usersetting.autorenewperiodcom
 				';
 
 				$meta['join'][] = "LEFT JOIN usersetting ON usersetting.user_id = domain.user_id ";
