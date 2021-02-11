@@ -266,143 +266,17 @@ if(count($myGallery) > 1)
   </div>
 <?php } ?>
 
-<?php if(\dash\data::productSettingSaved_comment()) {?>
 
-<?php if(\dash\data::customerReview_count()) {?>
- <section class="box productReview">
-  <h2><?php echo T_("Customer reviews"); ?></h2>
+<?php
+if(\dash\data::productSettingSaved_comment())
+{
+  require_once(core. 'layout\tools\display-add-comment.php');
+} //endif comment is closed
+?>
 
-  <div class="row allReviewSummary">
-    <div class="c-auto c-xs-0">
-      <div class="ratingAvg"><?php echo \dash\fit::text(\dash\data::customerReview_avg()); ?></div>
-      <div class="ratingSummary">
-        <div class="starRating compact" data-star='<?php echo \dash\data::customerReview_avg(); ?>' data-gold>
-          <i></i><i></i><i></i><i></i><i></i>
-        </div>
-        <span><?php echo \dash\fit::number(\dash\data::customerReview_count()); ?></span>
-      </div>
-    </div>
-    <div class="c c-xs-12 rating">
-      <div class="row">
-        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("5"); ?></span></div>
-        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_5_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_5_percent')). ' '. T_("%"); ?></span></div>
-      </div>
-      <div class="row">
-        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("4"); ?></span></div>
-        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_4_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_4_percent')). ' '. T_("%"); ?></span></div>
-      </div>
-      <div class="row">
-        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("3"); ?></span></div>
-        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_3_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_3_percent')). ' '. T_("%"); ?></span></div>
-      </div>
-      <div class="row">
-        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("2"); ?></span></div>
-        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_2_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_2_percent')). ' '. T_("%"); ?></span></div>
-      </div>
-      <div class="row">
-        <div class="c-auto"><span class="sf-star"><?php echo \dash\fit::text("1"); ?></span></div>
-        <div class="c"><progress value="<?php echo a(\dash\data::customerReview(),'star_1_percent'); ?>" max="100"></progress></div>
-        <div class="c-auto"><span class="percentVal"><?php echo \dash\fit::text(a(\dash\data::customerReview(),'star_1_percent')). ' '. T_("%"); ?></span></div>
-      </div>
-    </div>
-  </div>
+<?php require_once(core. 'layout\tools\display-comment-list.php'); ?>
 
 
-<?php $commentList = \dash\data::commentList(); ?>
-<?php if($commentList) { ?>
-  <div class="commnetList">
-<?php foreach ($commentList as $key => $value){ ?>
-    <div class="msg">
-      <div class="row align-center">
-        <div class="c-auto c-xs-12">
-          <img class="customerImg" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
-        </div>
-        <div class="c c-xs-12">
-          <div class="msg minimal row">
-            <div class="c-auto c-xs-12">
-              <div class="starRating" data-star='<?php echo $value['star']; ?>'>
-                <i></i><i></i><i></i><i></i><i></i>
-              </div>
-            </div>
-            <div class="c"><?php echo a($value, 'displayname'); ?></div>
-            <div class="c-auto ltr txtRa"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
-          </div>
-
-          <p><?php echo $value['content']; ?></p>
-        </div>
-
-
-      </div>
-    </div>
-<?php   } // end for ?>
-  </div>
-<?php } // end if ?>
- </section>
-<?php } //endif ?>
-
- <section class="box" id='productAddReview'>
-  <form method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
-    <h3><?php echo T_("Review this product"); ?></h3>
-    <input type="hidden" name="product_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
-
-    <div class="starRating">
-      <fieldset>
-        <input type="radio" name="rating" id="star5" value="5"/>
-        <label for="star5" title="<?php echo T_("Outstanding");?>">5 stars</label>
-        <input type="radio" name="rating" id="star4" value="4"/>
-        <label for="star4" title="<?php echo T_("Very Good");?>">4 stars</label>
-        <input type="radio" name="rating" id="star3" value="3"/>
-        <label for="star3" title="<?php echo T_("Good");?>">3 stars</label>
-        <input type="radio" name="rating" id="star2" value="2"/>
-        <label for="star2" title="<?php echo T_("Poor");?>">2 stars</label>
-        <input type="radio" name="rating" id="star1" value="1"/>
-        <label for="star1" title="<?php echo T_("Very Poor");?>">1 star</label>
-      </fieldset>
-    </div>
-
-
-  <?php if(!\dash\user::id()) { ?>
-        <div class="row">
-          <div class="c c-xs-12 mB10">
-
-            <div class="input">
-             <label class="addon" for="name"><?php echo T_("Name"); ?></label>
-             <input type="text" name="name" id="name" placeholder='<?php echo T_("Full Name"); ?>' maxlength='40' value="<?php echo \dash\user::detail('displayname'); ?>">
-            </div>
-
-          </div>
-          <div class="c c-xs-12 mB10">
-            <div class="input">
-             <label class="addon" for="mobile"><?php echo T_("Mobile"); ?></label>
-             <input type="tel" name="mobile" id="mobile" placeholder='<?php echo T_("Mobile"); ?>' maxlength="13" autocomplete="off" data-validity='<?php echo T_("Please enter valid mobile number. `:val` is incorrect"); ?>' value="<?php echo \dash\user::detail('mobile'); ?>">
-            </div>
-          </div>
-
-          <input type="text" name="username" class="hide" value="">
-        </div>
-  <?php } // endif?>
-    <div class="input mB10">
-     <input type="text" name="title" id="title" placeholder='<?php echo T_("Title"); ?>' maxlength='40' >
-    </div>
-    <div class="mB10">
-      <textarea name="content" class="txt" rows="5" placeholder='<?php echo T_("Write your review about this product..."); ?>'></textarea>
-    </div>
-
-    <div class="row ">
-      <div class="c">
-        <button class="btn primary"><?php echo T_("Send"); ?></button>
-      </div>
-
-    </div>
-  </form>
-
-
- </section>
-<?php } //endif comment is closed  ?>
 
 <?php if(\dash\data::similarProduct()) {?>
 <h2 class="jTitle1"><?php echo T_("Related products") ?></h2>

@@ -116,16 +116,11 @@ echo '</div>';
 
 // comment box
 {
-  echo '<div class="box commentBlock">';
-  echo '<div class="body">';
+  // add new comment
   if(\dash\data::dataRow_comment() === 'open' || ( \dash\data::dataRow_comment() === 'default' && a($cmsSetting, 'defaultcomment') === 'open' ))
   {
     require_once('display-add-comment.php');
   }
-
-  echo '</div>';
-  echo '</div>';
-
   // show list of comments
   require_once('display-comment-list.php');
 }
