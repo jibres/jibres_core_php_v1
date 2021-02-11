@@ -81,7 +81,7 @@ if(\dash\data::sortList())
   }
   else
   {
-    require_once(core. 'layout/tools/display-search-filter.php');
+    require_once(core. 'layout/search/search-filter.php');
   }
   echo '</div>';
 }?>

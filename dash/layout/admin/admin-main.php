@@ -5,15 +5,15 @@
 	{
 		if(\dash\data::dataTable())
 		{
-		    require_once(core. 'layout/tools/display-search-bar.php');
+		    require_once(core. 'layout/search/search-bar.php');
 		    require_once \dash\layout\func::display();
 		}
 		else
 		{
 		  if(\dash\data::isFiltered() || \dash\request::get('q'))
 		  {
-		    require_once(core. 'layout/tools/display-search-bar.php');
-		    require_once(core. 'layout/tools/display-search-empty.php');
+		    require_once(core. 'layout/search/search-bar.php');
+		    require_once(core. 'layout/search/search-empty.php');
 		  }
 		  else
 		  {
