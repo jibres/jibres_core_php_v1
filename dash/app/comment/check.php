@@ -42,11 +42,32 @@ class check
 				return false;
 			}
 
-			if($check_ok_post['comment'] !== 'open')
+
+			if($check_ok_post['comment'] === 'closed')
 			{
 				\dash\notif::error(T_("Comment of this post is closed!"));
 				return false;
 			}
+			elseif($check_ok_post['comment'] === 'open')
+			{
+
+			}
+			else
+			{
+
+				$cms_setting = \lib\app\setting\get::cms_setting();
+				if(isset($cms_setting['defaultcomment']) && $cms_setting['defaultcomment'] === 'open')
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Comment of this post is closed!"));
+					return false;
+				}
+
+			}
+
 
 			if(a($check_ok_post, 'type') === 'page')
 			{
