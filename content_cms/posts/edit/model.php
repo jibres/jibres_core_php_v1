@@ -21,6 +21,11 @@ class model
 		if(\dash\request::post('publishnow') === 'yes')
 		{
 			$post_detail = \dash\app\posts\edit::edit(['status' => 'publish'], \dash\request::get('id'));
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::clean();
+				\dash\notif::ok(T_("Your post successfully published"));
+			}
 			return true;
 		}
 
