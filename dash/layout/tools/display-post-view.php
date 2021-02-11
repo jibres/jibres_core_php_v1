@@ -111,15 +111,26 @@ if($myPostSimilar)
   }
   echo '</nav>';
 }
-if(\dash\data::dataRow_comment() === 'open' || ( \dash\data::dataRow_comment() === 'default' && a($cmsSetting, 'defaultcomment') === 'open' ))
+echo '</div>';
+echo '</div>';
+
+// comment box
 {
-  require_once('display-add-comment.php');
+  echo '<div class="box commentBlock">';
+  echo '<div class="body">';
+  if(\dash\data::dataRow_comment() === 'open' || ( \dash\data::dataRow_comment() === 'default' && a($cmsSetting, 'defaultcomment') === 'open' ))
+  {
+    require_once('display-add-comment.php');
+  }
+
+  echo '</div>';
+  echo '</div>';
+
+  // show list of comments
   require_once('display-comment-list.php');
 }
 
-
-echo '</div>';
-echo '</div>';
+// close avand
 echo '</div>';
 
 ?>
