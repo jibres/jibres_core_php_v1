@@ -6,15 +6,7 @@ $dataRow = \dash\data::dataRow();
 echo '<div class="avand">';
 echo '<div class="box">';
 echo '<div class="body">';
-echo '<h2>';
-echo \dash\data::dataRow_title();
-echo '</h2>';
-if(\dash\data::dataRow_subtitle())
-{
-  echo '<h4>';
-  echo \dash\data::dataRow_subtitle();
-  echo '</h4>';
-}
+echo '<h2>'. \dash\data::dataRow_title(). '</h2>';
 if(\dash\data::dataRow_thumb())
 {
   echo '<a href="'.  \dash\data::dataRow_link(). '" class="thumb">';
