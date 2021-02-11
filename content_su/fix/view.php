@@ -11,20 +11,10 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-		self::fix();
 
 
 	}
 
-	private static function fix()
-	{
-		$all_domain = \dash\db::get("SELECT * FROM domain", null, false, 'nic');
-		foreach ($all_domain as $key => $value)
-		{
-			\lib\app\nic_domain\get::force_fetch($value['name']);
-		}
-		var_dump('all domain fetched');exit();
-	}
 
 
 	private static function fix_store()
