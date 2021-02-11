@@ -199,9 +199,9 @@ class gallery
 			// check max gallery image
 			if(isset($post_gallery_field['files']) && is_array($post_gallery_field['files']))
 			{
-				if(count($post_gallery_field['files']) > 10)
+				if(count($post_gallery_field['files']) > 50)
 				{
-					\dash\notif::error(T_("Maximum count of gallery file is 10"));
+					\dash\notif::error(T_("Maximum count of gallery file is 50"));
 					return false;
 				}
 			}
