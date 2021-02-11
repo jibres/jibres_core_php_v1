@@ -219,7 +219,6 @@ class search
 			// $and[]   = " domain.verify = 1 ";
 			$and[]      = " domain.autorenew = 1 ";
 			$and[]      = " domain.available = 0 ";
-
 			$and[] =
 			"
 				(
@@ -296,13 +295,22 @@ class search
 				}
 
 				$mobile_emails_query = null;
-				if($emails || $mobile)
+				if($emails && $mobile)
 				{
-					$mobile_emails_query = " OR (( domain.available = 0 OR domain.available IS NULL) AND (domain.mobile = '$mobile' OR domain.email IN ('$emails') ) )";
+					$mobile_emails_query = " OR domain.mobile = '$mobile' OR domain.email IN ('$emails') ";
 				}
+				elseif($mobile)
+				{
+					$mobile_emails_query = " OR  domain.mobile = '$mobile' ";
 
+				}
+				elseif($emails)
+				{
+					$mobile_emails_query = " OR  domain.email IN ('$emails') ";
+				}
+				$and[] = " ( domain.available = 0 OR domain.available IS NULL) ";
 				// $and[] = " domain.status = 'enable' ";
-				$and[] = " ( ( domain.verify = 1 AND ( domain.available = 0 OR domain.available IS NULL) ) $mobile_emails_query )";
+				$and[] = " ( domain.verify = 1  $mobile_emails_query )";
 				// self::$is_filtered          = true;
 				// self::$filter_args[T_("Status")] = T_("My domains");
 			}
