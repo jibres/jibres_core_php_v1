@@ -5,7 +5,7 @@
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/tg">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/tg.svg" alt='<?php echo T_("Telegram"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/telegram.svg" alt='<?php echo T_("Telegram"); ?>'>
           <div class="key"><?php echo T_("Telegram"); ?></div>
           <div class="go"></div>
         </a>
@@ -19,7 +19,7 @@
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/fb">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/facebook.svg" alt='<?php echo T_("Facebook"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/facebook.svg" alt='<?php echo T_("Facebook"); ?>'>
           <div class="key"><?php echo T_("Facebook"); ?></div>
           <div class="go"></div>
         </a>
@@ -27,7 +27,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/tw">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/twitter.svg" alt='<?php echo T_("Twitter"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/twitter.svg" alt='<?php echo T_("Twitter"); ?>'>
           <div class="key"><?php echo T_("Twitter"); ?></div>
           <div class="go"></div>
         </a>
@@ -35,7 +35,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/instagram">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/instagram.svg" alt='<?php echo T_("Instagram"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/instagram.svg" alt='<?php echo T_("Instagram"); ?>'>
           <div class="key"><?php echo T_("Instagram"); ?></div>
           <div class="go"></div>
         </a>
@@ -43,7 +43,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/linkedin">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/linkedin.svg" alt='<?php echo T_("Linkedin"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/linkedin.svg" alt='<?php echo T_("Linkedin"); ?>'>
           <div class="key"><?php echo T_("Linkedin"); ?></div>
           <div class="go"></div>
         </a>
@@ -51,7 +51,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/gt">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/github.svg" alt='<?php echo T_("Github"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/github.svg" alt='<?php echo T_("Github"); ?>'>
           <div class="key"><?php echo T_("Github"); ?></div>
           <div class="go"></div>
         </a>
@@ -59,7 +59,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/youtube">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/youtube.svg" alt='<?php echo T_("Youtube"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/youtube.svg" alt='<?php echo T_("Youtube"); ?>'>
           <div class="key"><?php echo T_("Youtube"); ?></div>
           <div class="go"></div>
         </a>
@@ -67,7 +67,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/wa">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/whatsapp.svg" alt='<?php echo T_("Whatsapp"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/whatsapp.svg" alt='<?php echo T_("Whatsapp"); ?>'>
           <div class="key"><?php echo T_("Whatsapp"); ?></div>
           <div class="go"></div>
         </a>
@@ -76,19 +76,20 @@
     </ul>
   </nav>
 
-
+<?php if (\dash\language::current() === 'fa') { ?>
   <h2><?php echo T_("Iranian Social Media"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/aparat">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/social/aparat.svg" alt='<?php echo T_("Aparat"); ?>'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/aparat.svg" alt='<?php echo T_("Aparat"); ?>'>
           <div class="key"><?php echo T_("Aparat"); ?></div>
           <div class="go"></div>
         </a>
       </li>
     </ul>
   </nav>
+<?php } ?>
 
 
 </div>
