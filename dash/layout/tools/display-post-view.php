@@ -119,10 +119,10 @@ echo '</div>';
   // add new comment
   if(\dash\data::dataRow_comment() === 'open' || ( \dash\data::dataRow_comment() === 'default' && a($cmsSetting, 'defaultcomment') === 'open' ))
   {
-    require_once('display-add-comment.php');
+    require_once(core. 'layout\comment\comment-add.php');
   }
   // show list of comments
-  require_once('display-comment-list.php');
+  require_once(core. 'layout\comment\comment-list.php');
 }
 
 // close avand
