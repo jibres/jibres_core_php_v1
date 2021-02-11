@@ -68,6 +68,7 @@ class search
 			'list'            => ['enum' => ['mydomain', 'renew', 'available', 'import']],
 			'lock'            => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew'       => ['enum' => ['on', 'off']],
+			'reg'       => ['enum' => ['com', 'ir']],
 			'predict'         => 'bit',
 			'status'          => 'string_100',
 			'user_id'         => 'id',
@@ -129,6 +130,17 @@ class search
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY domain.id DESC";
+		}
+
+		if($data['reg'] === 'ir')
+		{
+			$and[] = " domain.registrar = 'irnic' ";
+			self::$is_filtered = true;
+		}
+		elseif($data['reg'] === 'com')
+		{
+			$and[] = " domain.registrar != 'irnic' ";
+			self::$is_filtered = true;
 		}
 
 		if($data['is_admin'])

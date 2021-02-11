@@ -30,8 +30,9 @@ class view
 		[
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
-			'list'    => \dash\request::get('list'),
+			'list'      => \dash\request::get('list'),
 			'lock'      => \dash\request::get('lock'),
+			'reg'       => \dash\request::get('reg'),
 			'autorenew' => \dash\request::get('autorenew'),
 			// 'status' => \dash\request::get('status'),
 
