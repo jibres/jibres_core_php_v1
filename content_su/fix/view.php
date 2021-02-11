@@ -16,9 +16,18 @@ class view
 
 	}
 
-
-
 	private static function fix()
+	{
+		$all_domain = \dash\db::get("SELECT * FROM domain", null, false, 'nic');
+		foreach ($all_domain as $key => $value)
+		{
+			\lib\app\nic_domain\get::force_fetch($value['name']);
+		}
+		var_dump('all domain fetched');exit();
+	}
+
+
+	private static function fix_store()
 	{
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
