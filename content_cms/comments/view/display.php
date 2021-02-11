@@ -20,7 +20,7 @@ $dataRow = \dash\data::dataRow();
       <a class="item f">
         <div class="key"><?php echo T_("Name") ?></div>
         <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'displayname'));?></div>
-        <div class="go"></div>
+        <div class="go detail"></div>
       </a>
     </li>
 <?php } // endif ?>
