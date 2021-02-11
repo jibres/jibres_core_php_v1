@@ -102,7 +102,7 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
 <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad1">
-        <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
+        <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 50) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Product gallery is full!"); ?></div>
         <?php }else{ ?>
           <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-name='gallery' data-ratio-free data-type='gallery' <?php if(\dash\url::child() === 'edit') { echo 'data-autoSend'; }?>>
