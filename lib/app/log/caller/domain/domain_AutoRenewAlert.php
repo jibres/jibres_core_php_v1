@@ -8,7 +8,6 @@ class domain_AutoRenewAlert
 
 	public static function site($_args = [])
 	{
-		$my_name         = isset($_args['data']['my_name']) ? $_args['data']['my_name'] : null;
 		$result              = [];
 		$result['title']     = T_("Domain Auto renew alert");
 		$result['icon']      = 'flag';
@@ -23,28 +22,56 @@ class domain_AutoRenewAlert
 
 	public static function get_msg($_args = [])
 	{
-		$msg        = '';
-		$domain_detail = (isset($_args['data']['domain_detail']) && $_args['data']['domain_detail']) ? $_args['data']['domain_detail'] : [];
-		$domain_detail_status = (isset($_args['data']['domain_detail']['auto_status'])) ? $_args['data']['domain_detail']['auto_status'] : null;
-		$msg        .= T_("Domain Auto renew alert");
-		if($domain_detail_status)
+
+
+		$my_domain      = a($_args, 'data', 'my_domain');
+		$my_domain_id   = a($_args, 'data', 'my_domain_id');
+		$my_expredate   = a($_args, 'data', 'my_expredate');
+		$my_mode        = a($_args, 'data', 'my_mode');
+		$my_budget      = a($_args, 'data', 'my_budget');
+		$my_price       = a($_args, 'data', 'my_price');
+		$my_renew_is_ok = a($_args, 'data', 'my_renew_is_ok');
+		$my_status      = a($_args, 'data', 'my_status');
+		$my_action      = a($_args, 'data', 'my_action');
+
+		if($my_action === 'exec')
 		{
-			$msg        .= " \n";
-			$msg        .= " #". $domain_detail_status;
+			// execute renew action
+			switch ($my_status)
+			{
+				case 'low_budget':
+					$msg = T_("We try to renew domain :val But your budget less than domain renew price.", ['val' => $my_domain]);
+					break;
+
+				case 'failed':
+					$msg = T_("We try to renew domain :val But renew is failed!", ['val' => $my_domain]);
+					break;
+
+				case 'ok':
+					$msg = T_("Domain :val successfully renewed. Have a good time", ['val' => $my_domain]);
+					break;
+
+				case 'unknown':
+				default:
+					$msg = T_("We try to renew domain :val But renew is not complete!", ['val' => $my_domain]);
+					break;
+			}
+		}
+		else
+		{
+			// only notif
+			if($my_renew_is_ok)
+			{
+				$msg = T_("Domain :val will be renewed at tomorrow.", ['val' => $my_domain]);
+			}
+			else
+			{
+				$msg = T_("Domain :val will be renewed at tomorrow. But your balance is low. Please recharge your account", ['val' => $my_domain]);
+			}
 		}
 
-		$msg        .= " \n";
-		$msg        .= '```';
-		$msg        .= json_encode($domain_detail, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-		$msg        .= '```';
-		$msg        .= "\n";
+
 		return $msg;
-	}
-
-
-	public static function send_to()
-	{
-		return ['supervisor'];
 	}
 
 

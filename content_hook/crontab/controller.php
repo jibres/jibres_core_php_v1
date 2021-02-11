@@ -77,7 +77,8 @@ class controller
 				\lib\app\nic_credit\get::fetch();
 			}
 
-			if(self::every_hour())
+			// from 8 to 20
+			if(intval(date("H")) > 8 && intval(date("H")) < 20)
 			{
 				\lib\app\nic_domain\autorenew::run();
 			}

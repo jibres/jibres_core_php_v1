@@ -195,6 +195,10 @@ class ready
 							$result['icon']    = '<i class="sf-info-circle fs12 fc-blue"></i>';
 							break;
 
+						case 'autorenew_failed':
+							$result['title'] = T_("Auto renew failed");
+							$result['icon']    = '<i class="sf-refresh fs12 fc-red"></i>';
+							break;
 
 						case 'delete':
 						case 'expire':

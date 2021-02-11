@@ -63,19 +63,20 @@ class search
 
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => 'string_100',
-			'list'      => ['enum' => ['mydomain', 'renew', 'available', 'import']],
-			'lock'      => ['enum' => ['on', 'off', 'unknown']],
-			'autorenew' => ['enum' => ['on', 'off']],
-			'predict'   => 'bit',
-			'status'    => 'string_100',
-			'user_id'   => 'id',
-			'is_admin'  => 'bit',
-			'get_count' => 'bit',
-			'user'      => 'code',
-
-			'pagination' => 'y_n',
+			'order'           => 'order',
+			'sort'            => 'string_100',
+			'list'            => ['enum' => ['mydomain', 'renew', 'available', 'import']],
+			'lock'            => ['enum' => ['on', 'off', 'unknown']],
+			'autorenew'       => ['enum' => ['on', 'off']],
+			'predict'         => 'bit',
+			'status'          => 'string_100',
+			'user_id'         => 'id',
+			'is_admin'        => 'bit',
+			'get_count'       => 'bit',
+			'user'            => 'code',
+			'autorenew_notif' => 'yes_no',
+			'autorenew_mode'  => ['enum' => ['1week', '1month', '6month']],
+			'pagination'      => 'y_n',
 
 		];
 
@@ -113,9 +114,6 @@ class search
 		if($query_string)
 		{
 			$or[]        = " domain.name LIKE '%$query_string%'";
-
-
-
 			self::$is_filtered = true;
 		}
 
@@ -139,37 +137,87 @@ class search
 		}
 		elseif($data['predict'])
 		{
-			// $meta['fields'] = 'DISTINCT domain.*';
-			// get user setting of life time domain
-			// if not set show 5 years
-			$my_setting = \lib\app\nic_usersetting\get::get();
-			if(isset($my_setting['domainlifetime']) && $my_setting['domainlifetime'])
+			if($data['autorenew_mode'])
 			{
-				$next_year = date("Y-m-d", strtotime("+". $my_setting['domainlifetime']));
+				$meta['pagination'] = false;
+				$meta['fields'] =
+				'
+					domain.id AS `myid`,
+					domain.name,
+					domain.dateexpire,
+					domain.autorenew,
+					domain.renewnotif,
+					domain.status,
+					domain.user_id AS `owner`,
+					domain.available,
+					usersetting.domainlifetime,
+					usersetting.autorenewperiod
+				';
+
+				$meta['join'][] = "LEFT JOIN usersetting ON usersetting.user_id = domain.user_id ";
+
+				switch ($data['autorenew_mode'])
+				{
+					case '1week':
+						$and[]     = " usersetting.domainlifetime = '1week' ";
+						$expire_at = date("Y-m-d", strtotime("+7 days"));
+
+						break;
+
+					case '1month':
+						$and[]     = " usersetting.domainlifetime = '1month' ";
+						$expire_at = date("Y-m-d", strtotime("+1 month"));
+						break;
+
+					case '6month':
+						$and[]     = " usersetting.domainlifetime = '6month' ";
+						$expire_at = date("Y-m-d", strtotime("+6 month"));
+						break;
+
+					default:
+						$expire_at = date("Y-m-d", strtotime("+5 year"));
+						break;
+				}
+
+				// only set notif
+				if($data['autorenew_notif'] === 'yes')
+				{
+					$meta['limit'] = 100;
+					$and[]         = " domain.renewnotif IS NULL ";
+					$expire_at     = date("Y-m-d", strtotime($expire_at) + (60*60*24*1)); // + 1day to set notif
+				}
+				else
+				{
+					$and[] = " domain.renewnotif IS NOT NULL ";
+					$and[] = " domain.renewtry IS NULL ";
+
+					$meta['limit'] = 10;
+
+				}
 			}
 			else
 			{
-				$next_year = date("Y-m-d", strtotime("+5 year"));
+				// get user setting of life time domain
+				// if not set show 5 years
+				$my_setting = \lib\app\nic_usersetting\get::get();
+
+				if(isset($my_setting['domainlifetime']) && $my_setting['domainlifetime'])
+				{
+					$expire_at = date("Y-m-d", strtotime("+". $my_setting['domainlifetime']));
+				}
+				else
+				{
+					$expire_at = date("Y-m-d", strtotime("+5 year"));
+				}
 			}
 
+			$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
 
-			$and[] = " DATE(domain.dateexpire) <= DATE('$next_year') ";
 			$order_sort = " ORDER BY domain.dateexpire ASC";
-			$and[] = " domain.status != 'deleted' ";
-			// $and[] = " domain.verify = 1 ";
-			$and[] = " domain.autorenew = 1 ";
-			$and[] = " domain.available = 0 ";
-
-			// $meta['join'][] = "  JOIN domainstatus ON domainstatus.domain = domain.name";
-			// $and[] = " domainstatus.active = 1 AND domainstatus.status NOT IN (
-			// 				'serverRenewProhibited',
-			// 				'pendingDelete',
-			// 				'pendingRenew',
-			// 				'irnicRegistrationRejected',
-			// 				'irnicRegistrationPendingHolderCheck',
-			// 				'irnicRegistrationPendingDomainCheck',
-			// 				'irnicRegistrationDocRequired',
-			// 				'irnicRenewalPendingHolderCheck')";
+			$and[]      = " domain.status = 'enable' ";
+			// $and[]   = " domain.verify = 1 ";
+			$and[]      = " domain.autorenew = 1 ";
+			$and[]      = " domain.available = 0 ";
 
 			$and[] =
 			"
@@ -346,7 +394,6 @@ class search
 		{
 			// <div class="ibtn wide"><span>تمدید خودکار</span><i class="sf-refresh fc-blue"></i></div>
 			$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
-
 		}
 		else
 		{
@@ -371,7 +418,7 @@ class search
 		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
 
-		if($data['predict'])
+		if($data['predict'] && !$data['autorenew_mode'])
 		{
 			$new_list = \lib\db\nic_domain\search::calc_pay_period_predict($and, $or, $order_sort, $meta);
 			self::calc_pay_period_predict($new_list, $data['user_id']);

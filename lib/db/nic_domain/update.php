@@ -18,6 +18,19 @@ class update
 		return $result;
 	}
 
+	public static function record($_args, $_id)
+	{
+		$set = \dash\db\config::make_set($_args);
+		if(!$set)
+		{
+			return false;
+		}
+
+		$query  = "UPDATE domain SET $set WHERE domain.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'nic');
+		return $result;
+	}
+
 
 	public static function update_by_dumain($_args, $_domain)
 	{
