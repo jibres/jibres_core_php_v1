@@ -111,7 +111,7 @@ if($myPostSimilar)
   }
   echo '</nav>';
 }
-if(\dash\data::dataRow_comment() === 'open' || a($cmsSetting, 'defaultcomment') === 'open')
+if(\dash\data::dataRow_comment() === 'open' || ( \dash\data::dataRow_comment() === 'default' && a($cmsSetting, 'defaultcomment') === 'open' ))
 {
   require_once('display-add-comment.php');
   require_once('display-comment-list.php');
