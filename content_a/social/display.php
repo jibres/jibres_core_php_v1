@@ -50,7 +50,7 @@
       </li>
 
       <li>
-        <a class="f" href="<?php echo \dash\url::this(); ?>/gt">
+        <a class="f" href="<?php echo \dash\url::this(); ?>/github">
           <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/github.svg" alt='<?php echo T_("Github"); ?>'>
           <div class="key"><?php echo T_("Github"); ?></div>
           <div class="go"></div>
@@ -66,7 +66,7 @@
       </li>
 
       <li>
-        <a class="f" href="<?php echo \dash\url::this(); ?>/wa">
+        <a class="f" href="<?php echo \dash\url::this(); ?>/whatsapp">
           <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/whatsapp.svg" alt='<?php echo T_("Whatsapp"); ?>'>
           <div class="key"><?php echo T_("Whatsapp"); ?></div>
           <div class="go"></div>
