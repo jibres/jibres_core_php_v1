@@ -934,7 +934,7 @@ class url
 
 	public static function jibreLocal()
 	{
-		if(self::get('site') === 'http://jibres.local')
+		if(self::get('site') === 'http://jibres.local' || self::get('site') === 'http://myjibres.local')
 		{
 			return true;
 		}
