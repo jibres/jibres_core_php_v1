@@ -3,8 +3,8 @@
 <div class="avand-sm impact zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box">
+        <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/arvancloud-banner.jpg" alt='ArvanCloud'>
       <div class="body">
-        <img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/arvancloud-banner.jpg" alt='ArvanCloud'>
         <div class="msg">
           <p><?php echo T_("ArvanCloud allows you to save any kind of data on Cloud Storage in a completely encrypted format. You can have stable access to a reliable storage system from all around the world, without worrying about data loss.") ?></p>
         </div>
@@ -30,7 +30,7 @@
             <input type="text" name="endpoint" id="iendpoint" value="<?php echo a($arvanclouds3, 'endpoint'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="ibucket">Bucket <span class="fc-red">*</span></label>
+          <label for="ibucket"><?php echo T_("Bucket") ?> <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="bucket" id="ibucket" value="<?php echo a($arvanclouds3, 'bucket'); ?>" maxlength='300' minlength="1">
           </div>

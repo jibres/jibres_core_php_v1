@@ -3,8 +3,8 @@
 <div class="avand-sm impact zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box">
+      <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/digitalocean-banner.jpg" alt='DigitalOcean'>
       <div class="body">
-        <img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/digitalocean-banner.svg" alt='DigitalOcean'>
         <div class="msg">
           <p><?php echo T_("Spaces is an S3-compatible object storage service that lets you store and serve large amounts of data. Each Space is a bucket for you to store and serve files.") ?></p>
         </div>
