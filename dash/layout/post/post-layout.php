@@ -3,6 +3,7 @@ $cmsSetting = \lib\app\setting\get::cms_setting();
 
 
 $dataRow = \dash\data::dataRow();
+echo '<div class="postBlock">';
 echo '<div class="avand">';
 echo '<div class="box">';
 echo '<div class="body">';
@@ -82,4 +83,6 @@ echo '</div>';
 // close avand
 echo '</div>';
 
+// close post Block
+echo '</div>';
 ?>

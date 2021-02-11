@@ -2,18 +2,31 @@
 if(isset($dataRow['gallery_array']) && is_array($dataRow['gallery_array']))
 {
   echo '<div class="gallery" id="lightgallery">';
-  foreach ($dataRow['gallery_array'] as $key => $myUrl)
   {
-    if(isset($myUrl['path']))
+    echo '<div class="row">';
+
+    foreach ($dataRow['gallery_array'] as $key => $myUrl)
     {
-      $endUrl = substr($myUrl['path'], -4);
-      if(in_array($endUrl, ['.jpg', '.png', '.gif']))
+      if(isset($myUrl['path']))
       {
-        echo '<a data-action href="'. $myUrl['path'].'"><img src="'. $myUrl['path']. '" alt="'. \dash\data::dataRow_title(). '"></a>';
+        $endUrl = substr($myUrl['path'], -4);
+        if(in_array($endUrl, ['.jpg', '.png', '.gif', '.webp']))
+        {
+          echo '<div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
+          {
+            echo '<a data-action href="'. $myUrl['path'].'">';
+            echo '<img src="'. $myUrl['path']. '" alt="'. \dash\data::dataRow_title(). '">';
+            echo '</a>';
+          }
+          echo '</div>';
+        }
       }
     }
+    echo '</div>';
   }
   echo '</div>';
+
+
 
   echo '<div class="gallery2">';
   foreach ($dataRow['gallery_array'] as $key => $myUrl)
