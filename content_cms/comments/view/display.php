@@ -112,7 +112,7 @@
     <?php if(\dash\data::answerCount()) {?>
     <li>
       <a class="item f" href="<?php echo \dash\data::listCommentMoudle(). \dash\request::full_get(['cid' => null, 'answerto' => \dash\request::get('cid')]); ?>">
-        <div class="key"><?php echo T_("Show Answer to this comment");?></div>
+        <div class="key"><?php echo T_("Number of responses received");?></div>
         <div class="value txtB ltr"><?php echo \dash\fit::number(\dash\data::answerCount()); ?></div>
         <div class="go"></div>
       </a>
@@ -134,7 +134,7 @@
 
 
 <div class="box">
-  <div class="pad">
+  <div class="body">
     <div class="row align-center">
       <div class="c"><?php echo T_("You can change status of this comment"); ?></div>
       <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "approved"}' class="btn success<?php if(a($dataRow, 'status') !== 'approved'){echo ' outline';} ?>"><?php echo T_("Approved"); ?></div></div>
@@ -142,8 +142,16 @@
       <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "spam"}' class="btn pain<?php if(a($dataRow, 'status') !== 'spam'){echo ' outline';} ?>"><?php echo T_("Spam"); ?></div></div>
       <div class="c-auto c-xs-6"><div data-confirm data-data='{"remove": "remove"}' class="btn danger<?php if(a($dataRow, 'status') !== 'remove'){echo ' outline';} ?>"><?php echo T_("Remove"); ?></div></div>
     </div>
+<?php
+if(a($dataRow, 'status') === 'unapproved')
+{
+  echo '<div class="msg minimal info2 mB10 mT10">'. T_("Click on Approve to make a comment publicly visible on your website.") . '</div>';
+  echo '<div class="msg minimal warn2 mB0">'. T_("If you see a comment that looks or feel spammy, then you can mark it as Spam.") . '</div>';
+}
+?>
   </div>
 </div>
+
 
 
 <?php if(a($dataRow, 'title')) {?>
@@ -170,7 +178,7 @@
     <div class="row">
       <div class="c-auto">
         <?php if(!a($dataRow, 'parent')) {?>
-        <div class="link sm" data-kerkere-icon data-kerkere='.answerToComment'><?php echo T_("Answer to comment") ?></div>
+        <div class="link sm" data-kerkere-icon="close" data-kerkere='.answerToComment'><?php echo T_("Answer to comment") ?></div>
       <?php } //endif ?>
       </div>
       <div class="c"></div>
@@ -183,13 +191,8 @@
   <form method='post' autocomplete="off">
     <input type="hidden" name="answertocomment" value="answertocomment">
     <div class="box">
-      <div class="pad">
-        <label for="answertitle"><?php echo T_("Title") ?></label>
-        <div class="input">
-          <input type="text" name="answertitle" id="answertitle" maxlength="100">
-        </div>
-        <label for="answer"><?php echo T_("Answer to comment") ?></label>
-        <textarea class="txt" id="answer" name="answer" rows="3"></textarea>
+      <div class="body">
+        <textarea class="txt" id="answer" name="answer" rows="3" placeholder='<?php echo T_("Write your answer") ?>'></textarea>
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Save answer") ?></button>
@@ -197,5 +200,3 @@
     </div>
   </form>
 </div>
-
-
