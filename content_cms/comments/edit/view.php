@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_("Edit comment"));
 
 		\dash\data::back_link(\dash\data::viewCommentModule(). \dash\request::full_get());
-		\dash\data::back_text(T_('Back'));
+		\dash\data::back_text(T_('View Comment'));
 
 	}
 }

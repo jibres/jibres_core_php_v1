@@ -1,15 +1,11 @@
-<?php
-$dataRow = \dash\data::dataRow();
-
-?>
-
+<?php $dataRow = \dash\data::dataRow(); ?>
 
 <nav class="items long">
   <ul>
 <?php if(a($dataRow, 'user_id')) {?>
     <li>
       <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($dataRow, 'user_id'); ?>">
-        <img src="<?php echo a($dataRow, 'avatar') ?>">
+        <img src="<?php echo a($dataRow, 'avatar') ?>" alt="<?php echo a($dataRow, 'user_displayname');?>">
         <div class="key"><?php echo a($dataRow, 'user_displayname');?></div>
         <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'user_mobile'));?></div>
         <div class="go"></div>
@@ -68,7 +64,7 @@ $dataRow = \dash\data::dataRow();
       <a class="item f">
         <div class="key"><?php echo T_("Date created");?></div>
         <div class="value txtB ltr"><?php echo \dash\fit::date_time(a($dataRow, 'datecreated'));?></div>
-
+        <div class="go detail"></div>
       </a>
     </li>
     <?php if(a($dataRow, 'datemodified')) {?>
@@ -76,23 +72,16 @@ $dataRow = \dash\data::dataRow();
       <a class="item f">
         <div class="key"><?php echo T_("Datemodified");?></div>
         <div class="value txtB ltr"><?php echo \dash\fit::date_time(a($dataRow, 'datemodified'));?></div>
+        <div class="go detail"></div>
       </a>
     </li>
   <?php } //endif ?>
-
-    <li>
-      <a class="item f">
-        <div class="key"><?php echo T_("Status");?></div>
-        <div class="value txtB ltr"><?php echo a($dataRow, 'tstatus'); ?></div>
-        <div class="go <?php echo a($dataRow, 'html_class') ?>"></div>
-      </a>
-    </li>
 
       <li>
       <a class="item f" href="<?php echo 'https://jibres.'. \dash\url::jibres_tld(). '/ip/'. long2ip(a($dataRow, 'ip')) ?>" target="_blank">
         <div class="key"><?php echo T_("IP");?></div>
         <div class="value txtB ltr"><?php echo \dash\fit::text(long2ip(a($dataRow, 'ip'))); ?></div>
-        <div class="go"></div>
+        <div class="go external"></div>
       </a>
     </li>
 
@@ -130,16 +119,52 @@ $dataRow = \dash\data::dataRow();
     </li>
   <?php } //endif ?>
 
+
+
+    <li>
+      <a class="item f">
+        <div class="key"><?php echo T_("Status");?></div>
+        <div class="value txtB ltr"><?php echo a($dataRow, 'tstatus'); ?></div>
+        <div class="go <?php echo a($dataRow, 'html_class') ?>"></div>
+      </a>
+    </li>
   </ul>
 </nav>
 
 
+
 <div class="box">
   <div class="pad">
-    <?php if(a($dataRow, 'title')) {?>
-    <div class="txtB"><?php echo a($dataRow, 'title'); ?></div>
-    <?php } //endif ?>
-    <p><?php echo nl2br(a($dataRow, 'content')) ?></p>
+    <div class="row align-center">
+      <div class="c"><?php echo T_("You can change status of this comment"); ?></div>
+      <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "approved"}' class="btn success<?php if(a($dataRow, 'status') !== 'approved'){echo ' outline';} ?>"><?php echo T_("Approved"); ?></div></div>
+      <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "unapproved"}' class="btn secondary<?php if(a($dataRow, 'status') !== 'unapproved'){echo ' outline';} ?>"><?php echo T_("Unapproved"); ?></div></div>
+      <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "spam"}' class="btn pain<?php if(a($dataRow, 'status') !== 'spam'){echo ' outline';} ?>"><?php echo T_("Spam"); ?></div></div>
+      <div class="c-auto c-xs-6"><div data-confirm data-data='{"remove": "remove"}' class="btn danger<?php if(a($dataRow, 'status') !== 'remove'){echo ' outline';} ?>"><?php echo T_("Remove"); ?></div></div>
+    </div>
+  </div>
+</div>
+
+
+<?php if(a($dataRow, 'title')) {?>
+<nav class="items long">
+  <ul>
+    <li>
+      <div class="item f">
+        <div class="key"><?php echo T_("Title")?></div>
+        <div class="value txtB"><?php echo a($dataRow, 'title'); ?></div>
+        <div class="go detail"></div>
+      </div>
+    </li>
+  </ul>
+</nav>
+<?php } //endif ?>
+
+
+
+<div class="box showComment">
+  <div class="body">
+    <div><?php echo nl2br(a($dataRow, 'content')) ?></div>
   </div>
   <footer>
     <div class="row">
@@ -173,14 +198,4 @@ $dataRow = \dash\data::dataRow();
   </form>
 </div>
 
-<div class="box">
-  <div class="pad">
-    <div class="row">
-      <div class="c-auto c-xs-6 mTB10"><div data-ajaxify data-data='{"status": "approved"}' class="btn success outline"><?php echo T_("Approved"); ?></div></div>
-      <div class="c-auto c-xs-6 mTB10"><div data-ajaxify data-data='{"status": "unapproved"}' class="btn secondary outline"><?php echo T_("Unapproved"); ?></div></div>
-      <div class="c-auto c-xs-6 mTB10"><div data-ajaxify data-data='{"status": "spam"}' class="btn pain outline"><?php echo T_("Spam"); ?></div></div>
-      <div class="c-auto c-xs-6 mTB10"><div data-confirm data-data='{"remove": "remove"}' class="btn danger outline"><?php echo T_("Remove"); ?></div></div>
-    </div>
-  </div>
-</div>
 
