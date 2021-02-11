@@ -126,7 +126,7 @@ if(a(\dash\data::dataRow(), 'seorank') < 90)
       <div class="data">
         <h3><?php echo T_("Smart Share");?></h3>
         <div class="body">
-          <p><?php echo T_("Share this post in social networks");?></p>
+          <p><?php echo T_("Grow your audience with Smart Share. Keep them engaged. Do it for free.");?></p>
         </div>
       </div>
     </div>
