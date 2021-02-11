@@ -47,6 +47,30 @@
 </section>
 
 
+<section class="f" data-option='renew-period-com'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("International Domain Auto Renew Period");?></h3>
+      <div class="body">
+        <p><?php echo T_("Based on your decision, we are renew your international domains and you can set period for this automatic action");?></p>
+        <p><span class="txtB"><?php echo T_("Note"); ?></span> <?php echo T_("You can enable or disable auto renew option on your domains.");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <select name="autorenewperiodcom" class="select22">
+          <option value="1year" <?php if(\dash\data::dataRow_autorenewperiodcom() === '1year' || !\dash\data::dataRow_autorenewperiodcom()) {echo 'selected';} ?>><?php echo T_("1 Year"). ' ('. T_("Default"). ')'; ?></option>
+          <option value="2year" <?php if(\dash\data::dataRow_autorenewperiodcom() === '2year') {echo 'selected';} ?>><?php echo T_("2 Year"); ?></option>
+          <option value="3year" <?php if(\dash\data::dataRow_autorenewperiodcom() === '3year' ) {echo 'selected';} ?>><?php echo T_("3 Year"); ?></option>
+          <option value="4year" <?php if(\dash\data::dataRow_autorenewperiodcom() === '4year') {echo 'selected';} ?>><?php echo T_("4 Year"); ?></option>
+          <option value="5year" <?php if(\dash\data::dataRow_autorenewperiodcom() === '5year') {echo 'selected';} ?>><?php echo T_("5 Year"); ?></option>
+        </select>
+    </div>
+  </form>
+</section>
+
+
 
 
 <section class="f" data-option='default-dns'>

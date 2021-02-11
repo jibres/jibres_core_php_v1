@@ -19,6 +19,8 @@ class set
 			'ns3'             => 'dns',
 			'ns4'             => 'dns',
 			'autorenewperiod' => ['enum' => ['1year', '5year']],
+			'autorenewperiodcom' => ['enum' => ['1year', '2year', '3year', '4year', '5year']],
+
 			'domainlifetime'  => ['enum' => ['off', '1week','1month', '6month']],
 
 			'fullname'        => 'enstring_100',
