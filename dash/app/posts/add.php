@@ -31,6 +31,23 @@ class add
 
 		$args['user_id'] = \dash\user::id();
 
+		// inset seorank
+
+		$seo_detail            = [];
+		$seo_detail['type']    = 'post';
+		$seo_detail['id']      = null;
+		$seo_detail['title']   = a($args, 'title') . ' | '. \dash\face::hereTitle();
+		$seo_detail['seodesc'] = a($args, 'excerpt');
+		$seo_detail['content'] = a($args, 'content');
+		// $seo_detail['tags']    = a($args, 'tags');
+
+		$seoAnalyze    = \dash\seo::analyze($seo_detail);
+
+		if(isset($seoAnalyze['rank']))
+		{
+			$args['seorank'] = $seoAnalyze['rank'];
+		}
+
 		$return         = [];
 
 		$post_id = \dash\db\posts::insert($args);
