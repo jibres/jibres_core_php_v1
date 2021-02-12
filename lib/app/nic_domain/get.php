@@ -72,6 +72,9 @@ class get
 		// only ir domain need to fetch
 		if(!\dash\validate::ir_domain($_domain, false))
 		{
+			// var_dump($_domain);
+			// $get_domain_info = \lib\onlinenic\api::info_domain($_domain);
+			// var_dump($get_domain_info);exit();
 			return;
 		}
 
