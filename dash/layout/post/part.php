@@ -335,6 +335,15 @@ class part
 			$html .= T_("Share of Telegram");
 			$html .= '</a>';
 		}
+		// copy shortLink
+		{
+			$html .= '<a class="copy" title="'. T_("Copy Shortlink"). '"';
+			$html .= 'data-copy="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '"';
+			$html .= 'data-copy-msg="'. T_("ShortLink of this page is copied. Paste in anywhere!"). '"';
+			$html .= '>';
+			$html .= T_("Copy Shortlink");
+			$html .= '</a>';
+		}
 
     return $html;
 	}

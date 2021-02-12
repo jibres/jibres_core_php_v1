@@ -10,33 +10,17 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
     echo \dash\layout\post\part::infoBox();
     echo \dash\layout\post\part::article();
     echo \dash\layout\post\part::gallery();
+
+    // comment
+    \dash\layout\post\part::commentBox();
   }
 
 
 
-  echo '<hr>';
-  echo '<hr>';
-  echo '<hr>';
   echo '<div class="box">';
 
 
 
-
-  if(\dash\data::dataRow_datemodified())
-  {
-    echo '<div class="msg simple f mT20">';
-    echo '<div class="c">';
-    if(\dash\data::dataRow_showdate() === 'visible' || a($cmsSetting, 'defaultshowdate') === 'visible')
-    {
-      echo '<time class="ltr compact" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time>';
-    }
-
-    echo '</div>';
-    echo '<div class="cauto os">';
-    echo '<a data-copy="'.  \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" title="'.  T_("For share via social networks"). '">'. T_("Short Code") .' <span class="txtB">' . \dash\data::dataRow_id(). '</span></a>';
-    echo '</div>';
-    echo '</div>';
-  }
 
 
   $tags = \dash\data::dataRow_tags();
@@ -52,9 +36,6 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
 
   echo '</div>';
   }
-  echo '<div class="msg">';
-  require_once('share-box.php');
-  echo '</div>';
 
   $myPostSimilar = \dash\app\posts\search::similar_post(\dash\data::dataRow_id());
   if($myPostSimilar)
@@ -71,7 +52,6 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
   echo '</div>';
 
 
-  \dash\layout\post\part::commentBox();
 
   // close avand
   echo '</div>';
