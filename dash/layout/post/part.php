@@ -102,7 +102,29 @@ class part
 		$html = '';
     $html .= '<article>';
     $html .= \dash\data::dataRow_content();
+    $html .= \dash\layout\post\part::tagLine();
     $html .= '</article>';
+
+    return $html;
+	}
+
+
+	public static function tagLine()
+	{
+		$html = '';
+	  $tags = \dash\data::dataRow_tags();
+
+		if($tags && is_array($tags))
+		{
+			$html .= '<div class="tagLine">';
+			foreach ($tags as $key => $value)
+			{
+				$html .= '<a class="btn light mRa5 mB5" href="'. a($value, 'url'). '">';
+				$html .= a($value, 'title');
+				$html .= "</a> ";
+			}
+			$html .= '</div>';
+		}
 
     return $html;
 	}

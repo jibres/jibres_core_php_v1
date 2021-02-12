@@ -11,6 +11,7 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
     echo \dash\layout\post\part::article();
     echo \dash\layout\post\part::gallery();
 
+
     // comment
     \dash\layout\post\part::commentBox();
   }
@@ -23,19 +24,7 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
 
 
 
-  $tags = \dash\data::dataRow_tags();
-  if($tags && is_array($tags))
-  {
-    echo '<div class="tagBox msg simple">';
-    foreach ($tags as $key => $value)
-    {
-      echo "<span class='btn'>";
-      echo a($value, 'title');
-      echo "</span> ";
-    }
 
-  echo '</div>';
-  }
 
   $myPostSimilar = \dash\app\posts\search::similar_post(\dash\data::dataRow_id());
   if($myPostSimilar)
