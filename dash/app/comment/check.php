@@ -30,13 +30,12 @@ class check
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
 		if($data['post_id'])
 		{
 			$data['post_id'] = \dash\coding::decode($data['post_id']);
 
 			$check_ok_post = \dash\db\posts\get::by_id($data['post_id']);
-			if(!isset($check_ok_post['comment']))
+			if(!isset($check_ok_post['id']))
 			{
 				\dash\notif::error(T_("Invalid post id"));
 				return false;
