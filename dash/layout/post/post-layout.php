@@ -4,7 +4,7 @@ $cmsSetting = \lib\app\setting\get::cms_setting();
 
 $dataRow = \dash\data::dataRow();
 echo '<div class="postBlock">';
-echo '<div class="avand-md">';
+echo '<div class="avand-md zero">';
 echo '<div class="box">';
 echo '<div class="body">';
 echo '<h2>'. \dash\data::dataRow_title(). '</h2>';
