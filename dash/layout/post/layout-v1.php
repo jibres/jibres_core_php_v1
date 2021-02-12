@@ -7,7 +7,10 @@ echo '<div class="postBlock">';
 echo '<div class="avand-md zero">';
 echo '<div class="box">';
 echo '<div class="body">';
-echo '<h2>'. \dash\data::dataRow_title(). '</h2>';
+
+echo \dash\layout\post\part::title();
+
+
 if(\dash\data::dataRow_thumb())
 {
   echo '<a href="'.  \dash\data::dataRow_link(). '" class="thumb">';

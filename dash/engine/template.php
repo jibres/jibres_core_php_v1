@@ -45,7 +45,9 @@ class template
 		elseif($data = \dash\app\posts\find::post())
 		{
 			$type         = 'posts';
-			$display_addr = core . 'layout/post/post-layout.php';
+			// $display_addr = core . 'layout/post/layout-v1.php';
+
+			$display_addr = core . 'layout/post/layout-v2.php';
 		}
 		elseif ($data = self::find_tag())
 		{
