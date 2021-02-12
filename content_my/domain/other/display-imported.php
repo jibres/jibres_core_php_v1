@@ -1,7 +1,7 @@
 <?php
 $result = '';
 
-$result .= '<nav class="items">';
+$result .= '<nav class="items ltr">';
 $result .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
 {
