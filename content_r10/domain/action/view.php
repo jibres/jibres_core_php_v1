@@ -10,6 +10,7 @@ class view
 
 		$args =
 		[
+			'user_id' => \dash\user::id(),
 			'domain_id' => $id,
 		];
 

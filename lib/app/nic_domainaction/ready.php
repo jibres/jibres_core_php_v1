@@ -226,6 +226,12 @@ class ready
 		// }
 		unset($result['detail']['pay_link']);
 
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['icon']);
+			unset($result['giftusage_id']);
+		}
+
 		return $result;
 	}
 }
