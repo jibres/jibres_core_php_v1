@@ -141,7 +141,7 @@ switch (a($value, 'type'))
                       <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
                     </audio>
                   <?php } else { ?>
-                    <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
+                    <img src="<?php echo \dash\fit::img(a($value, 'path'), 460); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
                   <?php } ?>
                   <div>
                     <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
@@ -185,7 +185,7 @@ switch (a($value, 'type'))
       <input type="hidden" name="runaction_setthumb" value="1">
       <input type="file" accept="image/jpeg, image/png" id="image1thumb">
       <label for="image1thumb"><?php echo $chooseTxt ?></label>
-      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb" src="<?php echo \dash\data::dataRow_thumb() ?>"></label><?php } //endif ?>
+      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img src="<?php echo \dash\fit::img(\dash\data::dataRow_thumb(), 460) ?>" alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb"></label><?php } //endif ?>
     </div>
   </form>
 
