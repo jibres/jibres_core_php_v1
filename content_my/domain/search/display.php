@@ -30,7 +30,7 @@ foreach (\dash\data::dataTable() as $key => $value)
     }
     else
     {
-      $result .= '<div title="'. T_("Unknown lock status").'" class="value s0"><i class="sf-lock"></i></div>';
+      $result .= '<i class="sf-lock" title="'. T_("Unknown lock status").'"></i>';
     }
 
     $result .= '<time class="value datetime">'. \dash\fit::date(a($value, 'dateexpire')). '</time>';
