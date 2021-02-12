@@ -11,6 +11,9 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
 
   }
 
+  echo '<hr>';
+  echo '<hr>';
+  echo '<hr>';
   echo '<div class="box">';
 
   if(\dash\data::dataRow_thumb())

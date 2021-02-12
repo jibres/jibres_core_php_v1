@@ -1,1 +1,1 @@
-<?php require_once(core. '/layout/post/post-layout.php');  ?>
+<?php require_once(core. '/layout/post/layout-v2.php');  ?>

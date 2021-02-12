@@ -22,7 +22,12 @@ class part
     {
       case 'video':
         $html .= self::topVideo($myGalleryTopMedia);
-        $html .= self::title();
+        $html .= self::postTitleBox();
+        break;
+
+      case 'audio':
+        $html .= self::topAudio($myGalleryTopMedia);
+        $html .= self::postTitleBox();
         break;
 
       case 'standard':
@@ -37,10 +42,50 @@ class part
     return $html;
 	}
 
+	public static function postTitleBox()
+	{
+		$html = '';
+		$html .= '<div class="row align-center postTitleBox" data-space="high">';
+		{
+			$html .= '<div class="c-auto">';
+			{
+				$html .= self::thumb(220);
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="c">';
+			{
+				$html .= self::title();
+				$html .= self::excerpt();
+			}
+			$html .= '</div>';
+
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
 
 	public static function title($_heading = 2)
 	{
 		return '<h'. $_heading. '>'. \dash\data::dataRow_title(). '</h'. $_heading. '>';
+	}
+
+
+	public static function excerpt()
+	{
+		return '<p>'. \dash\data::dataRow_excerpt(). '</p>';
+	}
+
+
+	public static function thumb($_size = 1100)
+	{
+		if(!\dash\data::dataRow_thumb())
+		{
+			return null;
+		}
+		return '<img src="'. \dash\fit::img(\dash\data::dataRow_thumb(), $_size). '" alt="'. \dash\data::dataRow_title(). '">';
 	}
 
 
@@ -77,7 +122,12 @@ class part
 		$endUrl = substr($path, -4);
     if(in_array($endUrl, ['.mp4', '.ogg', 'webm']))
     {
-      $htmlVideo .= '<video controls>';
+      $htmlVideo .= '<video controls';
+      if(\dash\data::dataRow_cover())
+      {
+      	$htmlVideo .= ' poster="'. \dash\data::dataRow_cover(). '"';
+      }
+      $htmlVideo .= '>';
       $htmlVideo .= '<source src="'. $path. '" type="'. a($_data, 'mime'). '">';
       $htmlVideo .= '</video>';
     }
@@ -115,12 +165,5 @@ class part
 
     return $htmlAudio;
 	}
-
-
-	public static function thumb()
-	{
-
-	}
-
 }
 ?>
