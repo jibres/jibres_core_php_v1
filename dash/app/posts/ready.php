@@ -270,6 +270,11 @@ class ready
 
 		}
 
+		if(is_null(a($result, 'comment')))
+		{
+			$result['comment'] = 'default';
+		}
+
 		return $result;
 	}
 }
