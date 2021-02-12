@@ -4,20 +4,29 @@ namespace content_r10;
 
 class tools
 {
-	public static $r10             = [];
-	private static $REQUEST       = [];
-	private static $request_check = false;
+	public static $r10            = [];
 
 	/**
 	 * this function route as first of every request on api
 	 */
 	public static function master_check()
 	{
-		self::check_appkey();
-		self::check_apikey();
+		if(\dash\url::store())
+		{
+			self::stop(403, T_("Can not set store in url"));
+			return false;
+		}
 
-		// never store init in r10
-		self::check_store_not_init();
+		self::check_appkey();
+		self::check_accesstoken();
+
+		if(\dash\url::module() === 'domain')
+		{
+			self::appkey_required();
+			self::accesstoken_required();
+		}
+
+		\dash\temp::set('isApi', true);
 	}
 
 
@@ -34,27 +43,12 @@ class tools
 	}
 
 
-	public static function apikey_required()
+	public static function accesstoken_required()
 	{
 		if(!\dash\user::id())
 		{
-			self::stop(403, T_("Apikey not set"));
+			self::stop(403, T_("Access token not set"));
 		}
-	}
-
-
-	private static function check_store_not_init()
-	{
-		if(\dash\url::store())
-		{
-			self::stop(403, T_("Can not set store in url"));
-			return false;
-		}
-
-		// if(\lib\store::id())
-		// {
-		// 	self::stop(403, T_("Can not set store in url"));
-		// }
 	}
 
 
@@ -106,25 +100,25 @@ class tools
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function check_apikey()
+	public static function check_accesstoken()
 	{
-		$apikey = \dash\header::get('apikey');
+		$accesstoken = \dash\header::get('accesstoken');
 
-		$apikey = \dash\validate::md5($apikey);
+		$accesstoken = \dash\validate::md5($accesstoken);
 
-		if(!$apikey)
+		if(!$accesstoken)
 		{
 			return false;
 		}
 
-		\dash\app\apilog::static_var('apikey', $apikey);
+		\dash\app\apilog::static_var('apikey', $accesstoken);
 
 		$get =
 		[
 			'status'  => 'enable',
 			'user_id' => [" IS ", " NOT NULL "],
 			'type'    => 'member',
-			'auth'    => $apikey,
+			'auth'    => $accesstoken,
 			'limit'   => 1,
 		];
 
@@ -132,42 +126,18 @@ class tools
 
 		if(!isset($get['id']) || !isset($get['datecreated']) || !isset($get['user_id']))
 		{
-			self::stop(401, T_("Invalid apikey"));
+			self::stop(401, T_("Invalid accesstoken"));
 		}
 
-		$session_id = \dash\url::root(). 'APICORE'. $get['id'];
-
-		\dash\session::restart($session_id);
+		\dash\user::init($get['user_id'], 'api_core');
 
 		if(!\dash\user::id())
 		{
-			\dash\user::init($get['user_id'], 'api_core');
+			return false;
 		}
 
 		return true;
 	}
-
-
-
-	public static function invalid_url()
-	{
-		self::stop(404, T_("Invalid url"));
-	}
-
-
-	public static function invalid_method()
-	{
-		self::stop(405, T_("Invalid method"));
-	}
-
-
-	public static function invalid_param($_param = null)
-	{
-		self::stop(400, T_("Invalid param :val", ['val' => $_param]));
-	}
-
-
-
 
 
 	public static function stop($_code, $_msg = null, $_result = null)
@@ -193,61 +163,5 @@ class tools
 		\dash\notif::api($_result);
 	}
 
-
-	public static function input_body($_name = null)
-	{
-		if(!self::$request_check)
-		{
-			self::$request_check = true;
-
-			if(\dash\request::post())
-			{
-				\dash\notif::warn(T_("Send your request as json not in post field"));
-			}
-
-			$request = \dash\request::php_input();
-			if(is_string($request))
-			{
-				$request = json_decode($request, true);
-			}
-
-			if(!is_array($request))
-			{
-				$request = [];
-			}
-
-			$request = \dash\safe::safe($request, 'sqlinjection');
-
-			self::$REQUEST = $request;
-		}
-
-		if(isset($_name))
-		{
-			if(array_key_exists($_name, self::$REQUEST))
-			{
-				return self::$REQUEST[$_name];
-			}
-			else
-			{
-				return null;
-			}
-		}
-		else
-		{
-			return self::$REQUEST;
-		}
-	}
-
-
-	public static function isset_input_body($_name)
-	{
-		self::input_body();
-
-		if(array_key_exists($_name, self::$REQUEST))
-		{
-			return true;
-		}
-		return false;
-	}
 }
 ?>
