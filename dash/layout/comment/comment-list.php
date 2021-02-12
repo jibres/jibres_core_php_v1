@@ -1,9 +1,9 @@
+<?php if(\dash\data::customerReview_count()) {?>
  <section class="box reviewComments">
   <header>
     <h2><?php echo T_("User reviews"); ?></h2>
   </header>
   <div class="body">
-<?php if(\dash\data::customerReview_count()) {?>
     <div class="row allReviewSummary">
       <div class="c-auto c-xs-0">
         <div class="ratingAvg"><?php echo \dash\fit::text(\dash\data::customerReview_avg()); ?></div>
@@ -42,7 +42,6 @@
         </div>
       </div>
     </div>
-<?php } //endif ?>
 
 
 <?php $commentList = \dash\data::commentList(); if($commentList) { ?>
@@ -72,3 +71,4 @@
 <?php } // end if ?>
   </div>
 </section>
+<?php } //endif ?>
