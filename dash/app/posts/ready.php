@@ -274,6 +274,78 @@ class ready
 			$result['comment'] = 'default';
 		}
 
+		$cms_setting = \lib\app\setting\get::cms_setting();
+
+		switch ($result['comment'])
+		{
+			case 'open':
+				$result['allowcomment'] = true;
+				break;
+
+			case 'closed':
+				$result['allowcomment'] = false;
+				break;
+
+			case 'default':
+			default:
+				if(a($cms_setting, 'defaultcomment') === 'closed')
+				{
+					$result['allowcomment'] = false;
+				}
+				else
+				{
+					$result['allowcomment'] = true;
+				}
+				break;
+		}
+
+		switch ($result['showwriter'])
+		{
+			case 'visible':
+				$result['allowshowwriter'] = true;
+				break;
+
+			case 'hidden':
+				$result['allowshowwriter'] = false;
+				break;
+
+			case 'default':
+			default:
+				if(a($cms_setting, 'defaultshowwriter') === 'hidden')
+				{
+					$result['allowshowwriter'] = false;
+				}
+				else
+				{
+					$result['allowshowwriter'] = true;
+				}
+				break;
+		}
+
+
+		switch ($result['showdate'])
+		{
+			case 'visible':
+				$result['allowshowpublishdate'] = true;
+				break;
+
+			case 'hidden':
+				$result['allowshowpublishdate'] = false;
+				break;
+
+			case 'default':
+			default:
+				if(a($cms_setting, 'defaultshowdate') === 'hidden')
+				{
+					$result['allowshowpublishdate'] = false;
+				}
+				else
+				{
+					$result['allowshowpublishdate'] = true;
+				}
+				break;
+		}
+
 		return $result;
 	}
 }
