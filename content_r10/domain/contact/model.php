@@ -14,8 +14,8 @@ class model
 	{
 		$patch = [];
 
-		if(\content_r10\tools::isset_input_body('title'))  		$patch['title']   	    = \content_r10\tools::input_body('title');
-		if(\content_r10\tools::isset_input_body('isdefault'))    $patch['isdefault']     = \content_r10\tools::input_body('isdefault');
+		if(\dash\request::isset_input_body('title'))  		$patch['title']   	    = \dash\request::input_body('title');
+		if(\dash\request::isset_input_body('isdefault'))    $patch['isdefault']     = \dash\request::input_body('isdefault');
 
 		$result = \lib\app\nic_contact\edit::edit($patch, \dash\request::get('id'));
 

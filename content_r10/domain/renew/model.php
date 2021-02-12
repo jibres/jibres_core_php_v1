@@ -8,9 +8,9 @@ class model
 	{
 		$post =
 		[
-			'domain'      => \content_r10\tools::input_body('domain'),
-			'period'      => \content_r10\tools::input_body('period'),
-			'agree'       => \content_r10\tools::input_body('agree'),
+			'domain'      => \dash\request::input_body('domain'),
+			'period'      => \dash\request::input_body('period'),
+			'agree'       => \dash\request::input_body('agree'),
 		];
 
 		$result = \lib\app\nic_domain\renew::renew($post);

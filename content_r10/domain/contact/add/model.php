@@ -9,9 +9,9 @@ class model
 	{
 		$oldcontact = null;
 
-		if(\content_r10\tools::isset_input_body('contact_id'))
+		if(\dash\request::isset_input_body('contact_id'))
 		{
-		 	$oldcontact   = \content_r10\tools::input_body('contact_id');
+		 	$oldcontact   = \dash\request::input_body('contact_id');
 		}
 
 		$check = \lib\app\nic_contact\add::exists_contact($oldcontact, null);

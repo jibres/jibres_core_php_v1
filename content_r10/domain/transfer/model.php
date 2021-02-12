@@ -8,11 +8,11 @@ class model
 	{
 		$post =
 		[
-			'domain'    => \content_r10\tools::input_body('domain'),
-			'agree'     => \content_r10\tools::input_body('agree'),
-			'nic_id'    => \content_r10\tools::input_body('nic_id'),
-			'irnic_new' => \content_r10\tools::input_body('irnic_new'),
-			'pin'       => \content_r10\tools::input_body('pin'),
+			'domain'    => \dash\request::input_body('domain'),
+			'agree'     => \dash\request::input_body('agree'),
+			'nic_id'    => \dash\request::input_body('nic_id'),
+			'irnic_new' => \dash\request::input_body('irnic_new'),
+			'pin'       => \dash\request::input_body('pin'),
 		];
 
 		$result = \lib\app\nic_domain\transfer::transfer($post);

@@ -20,15 +20,12 @@ class remove
 			return false;
 		}
 
-		// if(isset($load_domain['status']) && $load_domain['status'] === 'disable')
-		// {
-		// 	// nothing
-		// }
-		// else
-		// {
-		// 	\dash\notif::error(T_("Can not edit this domain status"));
-		// 	return false;
-		// }
+		if(isset($load_domain['status']) && $load_domain['status'] === 'deleted')
+		{
+			\dash\notif::error(T_("Domain not found!"));
+			return false;
+		}
+
 
 		\lib\app\domains\detect::domain('remove', $load_domain['name']);
 

@@ -17,13 +17,10 @@ class view
 
 		$list = \lib\app\nic_domain\search::list($search_string, $args);
 
-
-		$filterBox     = \lib\app\nic_domain\search::filter_message();
 		$isFiltered    = \lib\app\nic_domain\search::is_filtered();
 
 		$meta =
 		[
-			'filter_message' => $filterBox,
 			'is_filtered'    => $isFiltered,
 		];
 

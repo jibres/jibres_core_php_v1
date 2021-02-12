@@ -7,8 +7,8 @@ class view
 	public static function config()
 	{
 		$q    = \dash\request::get('domain');
-		$info = \lib\app\nic_domain\check::check($q);
-		\content_r10\tools::say($info);
+		$check = \lib\app\domains\check::check($q);
+		\content_r10\tools::say($check);
 	}
 }
 ?>

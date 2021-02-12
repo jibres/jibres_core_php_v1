@@ -47,6 +47,16 @@ class edit
 			return false;
 		}
 
+		if(isset($load_domain['name']) && \dash\validate::ir_domain($load_domain['name'], false))
+		{
+			// ok. No problem
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not change international domain holder"));
+			return false;
+		}
+
 		$condition =
 		[
 			'ns1'    => 'dns',

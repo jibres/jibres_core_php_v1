@@ -326,6 +326,23 @@ class ready
 			$result['status_html'] = $status_html;
 		}
 
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['tstatus']);
+			unset($result['renewtry']);
+			unset($result['renewnotif']);
+			unset($result['can_renew']);
+			unset($result['other_status']);
+			unset($result['status_html']);
+			unset($result['lastfetch']);
+			unset($result['status_icon']);
+			unset($result['ownercheckdate']);
+			unset($result['jibres_dns']);
+			unset($result['dns']);
+			unset($result['nicstatus_array']);
+
+		}
+
 		return $result;
 	}
 
