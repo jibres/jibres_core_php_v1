@@ -153,11 +153,25 @@ class dashboard
 
 		$user_id = \dash\user::id();
 
+
+		$get_count =
+		[
+			'renew'     => 'maybe',
+			'import'    => 'imported',
+			'available' => 'available',
+		];
+
 		$result              = [];
-		$result['mydomain']  = floatval(\lib\app\nic_domain\search::get_my_active_count($user_id));
-		$result['maybe']     = floatval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
-		$result['available'] = floatval(\lib\db\nic_domain\get::my_available_count($user_id));
-		$result['imported'] = floatval(\lib\db\nic_domain\get::my_imported_count($user_id));
+		foreach ($get_count as $key => $value)
+		{
+			$args =
+			[
+				'list'    => $key,
+				'get_count' => true,
+			];
+
+			$result[$value]  = \lib\app\nic_domain\search::list(null, $args);
+		}
 
 		return $result;
 	}

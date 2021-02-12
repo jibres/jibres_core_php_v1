@@ -44,8 +44,6 @@ class view
 		$filterBox     = \lib\app\nic_domain\search::filter_message();
 		$isFiltered    = \lib\app\nic_domain\search::is_filtered();
 
-		$count_group_by_status = \lib\app\nic_domain\dashboard::count_group_by_status();
-		\dash\data::groupByStatus($count_group_by_status);
 
 		\dash\data::filterBox($filterBox);
 

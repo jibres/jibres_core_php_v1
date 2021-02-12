@@ -26,36 +26,17 @@ class view
 
 		$data_list  = $urlGetList;
 
-		switch ($urlGetList)
-		{
-			case 'renew':
-				// \dash\data::action_text(T_('Renew Domain'));
-				// \dash\data::action_link(\dash\url::this(). '/renew');
-				$data_list = 'renew';
-				break;
-			case 'import':
-				\dash\face::btnImport(null);
-				// \dash\data::action_text(T_('Import domain'));
-				// \dash\data::action_link(\dash\url::this(). '/import');
-				break;
-
-			default:
-				$data_list = 'renew';
-				// \dash\data::action_text(T_('Renew Domain'));
-				// \dash\data::action_link(\dash\url::this(). '/renew');
-				break;
-		}
-
 		$args =
 		[
 			'order'     => \dash\request::get('order'),
 			'sort'      => \dash\request::get('sort'),
-			'list'    => $data_list,
+			'list'      => $data_list,
 			'lock'      => \dash\request::get('lock'),
 			'autorenew' => \dash\request::get('autorenew'),
 			// 'status' => \dash\request::get('status'),
 
 		];
+
 
 		$search_string = \dash\request::get('q');
 

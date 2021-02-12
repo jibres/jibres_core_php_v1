@@ -8,7 +8,7 @@ class search
 	public static function count_list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
-		$query = "SELECT COUNT(*) AS `count` FROM domain $q[where] ";
+		$query = "SELECT COUNT(*) AS `count` FROM domain $q[join] $q[where] ";
 		$result = \dash\db::get($query, 'count', true, 'nic');
 		return $result;
 	}
