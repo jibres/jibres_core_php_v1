@@ -1,269 +1,289 @@
-<?php if(\dash\data::domainDetail_available() === '0') {?>
-<?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
-
-
-<div class="f fs14 mT10 mB20">
- <div class="c6 s12 pRa5">
-
-  <div class="panel mB10">
-    <table class="tbl1 v4 mB0">
-     <tr>
-      <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
-      <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
-     </tr>
-     <tr>
-      <th><?php echo T_('Status & Validity') ?>
-      </th>
-        <td class="ltr txtRa">
-        <?php echo \dash\data::domainDetail_status_html(); ?>
-      </td>
-     </tr>
-     <tr>
-      <th><?php echo T_('Registrar') ?></th>
-      <td class="ltr txtRa"><?php echo T_(\dash\data::domainDetail_registrar()); ?></td>
-     </tr>
-     <tr>
-      <th><?php echo T_('Registered on') ?></th>
-      <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
-     </tr>
-     <tr>
-      <th><?php echo T_('Expired on') ?>
-      <?php if(\dash\data::domainDetail_can_renew()) {?>
-      <a class="link mLa5" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Renew domain'); ?></a>
-      <?php } //endif ?>
-      </th>
-      <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
-     </tr>
-<?php if(\dash\data::domainDetail_datemodified()) {?>
-     <tr>
-      <th><?php echo T_('Last activity') ?></th>
-      <td class="ltr txtRa"><?php echo \dash\fit::date(\dash\data::domainDetail_datemodified()); ?></td>
-     </tr>
-<?php }?>
-<?php if(\dash\data::domainDetail_verify()) {?>
-     <tr>
-      <th><?php echo T_('Transfer lock') ?> <a class="mLa5 hide" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Manage'); ?></a></th>
-      <td class="txtRa"><div class="ibtn wide"><?php
-if(\dash\data::domainDetail_lock())
+<?php
+$result = '';
+if(\dash\data::domainDetail_available() !== '0')
 {
- echo '<div class="fc-green"><span>'.T_("Locked"). '</span>'. '<i class="sf-lock"></i></div>';
+  $result .= '<div class="f justify-center fs14">';
+  $result .= '<div class="c6 s12">';
+  $result .= '<div class="msg info2 txtC">';
+  $result .= '<p class="txtB fs12">'. \dash\data::domainDetail_name(). '</p>';
+  $result .= '<p>'. T_("Domain is Available for buy"). '</p>';
+  $result .= '<a class="btn success" href="'. \dash\url::this() . '/buy/'. \dash\data::domainDetail_name(). '">'. T_("Buy now"). '</a>';
+  $result .= '</div>';
+  $result .= '</div>';
+  $result .= '</div>';
+  echo $result;
+  return;
 }
-elseif(\dash\data::domainDetail_lock() == '0')
-{
- echo '<div class="fc-red"><span>'.T_("Unlocked"). '</span>'. '<i class="sf-unlock"></i></div>';
-}
-else
-{
- echo '<div class="fc-red"><span>'.T_("Unknown"). '</span>'. '<i class="sf-question"></i></div>';
+$result .= '<div class="avand-md">';
+$result .= '<nav class="items long2">';
+  $result .= '<ul>';
 
-}
-?></div></td>
-     </tr>
-<?php } //endif ?>
-     <tr>
-      <th><?php echo T_('Auto Renew');
-if(\dash\data::domainDetail_autorenew())
-{
- echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"unset\"}'>". T_('Click to disable'). "</span>";
-}
-else
-{
- echo "<span class='link mLa5' data-confirm data-data='{\"myaction\" : \"autorenew\", \"op\" :\"set\"}'>". T_('Click to enable'). "</span>";
-}
-      ?></th>
-      <td class="txtRa collapsing"><?php
-if(\dash\data::domainDetail_autorenew())
-{
- echo "<div class='ibtn wide fc-blue'><span>". T_('Automatic'). "</span><i class='sf-refresh'></i></div>";
-}
-else
-{
- echo "<div class='ibtn wide fc-red'><span>". T_('Off'). "</span><i class='sf-times'></i></div>";
-}
-?></td>
-     </tr>
-    </table>
-  </div>
- </div>
+    $result .= '<li>';
+      $result .= '<a class="f item">';
+        $result .= '<div class="key">'. T_("Domain"). '</div>';
+        $result .= '<div class="value txtB">'. \dash\data::domainDetail_name(). '</div>';
+        $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+    $result .= '</li>';
 
- <div class="c6 s12 pLa5">
-  <div class="panel mB10">
-    <table class="tbl1 v4 mB0">
-     <tr>
-      <td>
-        <?php if(\dash\data::domainDetail_verify()) {?>
-        <a href="<?php echo \dash\url::that(). '/dns?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Name Servers'). ' - DNS' ?></a>
-        <?php }else{ echo T_('Name Servers'). ' - DNS'; } ?>
-      </td>
-      <td class="txtRa">
-        <a rel="nofollow" target="_blank" class="btn secondary sm outline" href="https://intodns.com/<?php echo \dash\data::domainDetail_name(); ?>"><?php echo T_("check DNS server and mail server health"); ?></a>
-        <a target="_blank" class="btn secondary sm outline" href="<?php echo \dash\url::sitelang().'/whois/'. \dash\data::domainDetail_name(); ?>"><?php echo T_("Whois?"); ?></a>
-      </td>
-     </tr>
-     <?php if(\dash\data::domainDetail_ns1()) {?>
-     <tr>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip1() ?></td>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns1() ?></td>
-     </tr>
-     <?php } //endif ?>
+    $result .= '<li>';
+      $result .= '<a class="f item">';
+        $result .= '<div class="key">'. T_("Status & Validity"). '</div>';
+        $result .= '<div class="value">'. \dash\data::domainDetail_status_text(). '</div>';
+        $result .= '<div class="go '.\dash\data::domainDetail_status_icon().'"></div>';
+      $result .= '</a>';
+    $result .= '</li>';
 
-     <?php if(\dash\data::domainDetail_ns2()) {?>
-     <tr>
-       <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip2() ?></td>
-       <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns2() ?></td>
-     </tr>
-     <?php } //endif ?>
+    $result .= '<li>';
+      $result .= '<a class="f item">';
+        $result .= '<div class="key">'. T_("Registrar"). '</div>';
+        $result .= '<div class="value">'. T_(ucfirst(\dash\data::domainDetail_registrar())). '</div>';
+        $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+    $result .= '</li>';
 
-     <?php if(\dash\data::domainDetail_ns3()) {?>
-     <tr>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip3() ?></td>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns3() ?></td>
-     </tr>
-     <?php } //endif ?>
+    $result .= '<li>';
+      $result .= '<a class="f item">';
+        $result .= '<div class="key">'. T_("Registered on"). '</div>';
+        $result .= '<div class="value">'. \dash\fit::date(\dash\data::domainDetail_dateregister()). '</div>';
+        $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+    $result .= '</li>';
 
-     <?php if(\dash\data::domainDetail_ns4()) {?>
-     <tr>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip4() ?></td>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns4() ?></td>
-     </tr>
-     <?php } //endif ?>
-    </table>
-  </div>
-<?php if(\dash\data::internationalDomain()) { /* nothing */ } else{?>
-  <div class="panel mB10">
-    <table class="tbl1 v4 mB0">
-     <tr>
-      <td>
-        <?php if(\dash\data::domainDetail_verify()) {?>
-        <a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>"><?php echo T_("IRNIC holder") ?></a>
-        <?php }else{ echo T_("IRNIC holder"); } ?>
-      </td>
-      <td class="txtRa ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
-     </tr>
-     <tr>
-      <td>
-        <?php if(\dash\data::domainDetail_verify()) {?>
-        <a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>"><?php echo T_("IRNIC admin") ?></a>
-        <?php }else{ echo T_("IRNIC admin"); } ?>
-      </td>
-      <td class="txtRa ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
-     </tr>
-     <tr>
-      <td>
-        <?php if(\dash\data::domainDetail_verify()) {?>
-        <a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>"><?php echo T_("IRNIC billing") ?></a>
-        <?php }else{ echo T_("IRNIC billing"); } ?>
-      </td>
-      <td class="txtRa ltr"><?php echo \dash\data::domainDetail_bill(); ?></td>
-     </tr>
-     <tr>
-      <td>
-        <?php if(\dash\data::domainDetail_verify()) {?>
-        <a href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain'); ?>"><?php echo T_("IRNIC technical") ?></a>
-        <?php }else{ echo T_("IRNIC technical"); } ?>
-      </td>
-      <td class="txtRa ltr"><?php echo \dash\data::domainDetail_tech(); ?></td>
-     </tr>
-     <?php if(\dash\data::domainDetail_reseller()) {?>
-     <tr class="positive">
-      <td>
-        <?php echo T_("Reseller") ?>
-      </td>
-      <td class="txtRa ltr txtB"><?php echo \dash\data::domainDetail_reseller(); ?></td>
-     </tr>
-   <?php } //endif ?>
-    </table>
-  </div>
-<?php } // endif ?>
+    $result .= '<li>';
+      $result .= '<a class="f item">';
+        $result .= '<div class="key">'. T_("Expired on"). '</div>';
+        $result .= '<div class="value txtB">'. \dash\fit::date(\dash\data::domainDetail_dateexpire()). '</div>';
+        $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+    $result .= '</li>';
 
-<?php if(\dash\data::domainDetail_nicstatus_array()) {?>
-<div class="panel mB10">
- <table class="tbl1 v4 mB0">
-  <?php
-   if(\dash\data::domainDetail_nicstatus_array())
+    if(\dash\data::domainDetail_can_renew())
     {
-      foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
+       $result .= '<li>';
+        $result .= '<a class="f item" href="'. \dash\url::this(). '/renew?domain='. \dash\request::get('domain').'">';
+          $result .= '<div class="key">'. T_("Renew domain now"). '</div>';
+          $result .= '<div class="go ok"></div>';
+        $result .= '</a>';
+       $result .= '</li>';
+    }
+
+    if(\dash\data::domainDetail_datemodified())
+    {
+      $result .= '<li>';
+        $result .= '<a class="f item">';
+          $result .= '<div class="key">'. T_("Last activity"). '</div>';
+          $result .= '<div class="value">'. \dash\fit::date_time(\dash\data::domainDetail_datemodified()). '</div>';
+          $result .= '<div class="go detail"></div>';
+        $result .= '</a>';
+      $result .= '</li>';
+    }
+
+    if(\dash\data::domainDetail_verify())
+    {
+      $result .= '<li>';
+        $result .= '<a class="f item">';
+          $result .= '<div class="key">'. T_("Transfer lock"). '</div>';
+          if(\dash\data::domainDetail_lock())
+          {
+            $result .= '<div class="value">'. T_("Locked"). '</div>';
+            $result .= '<div class="go check ok"></div>';
+          }
+          elseif(\dash\data::domainDetail_lock() == '0')
+          {
+            $result .= '<div class="value txtB">'. T_("Unlocked"). '</div>';
+            $result .= '<div class="go times nok"></div>';
+          }
+          else
+          {
+            $result .= '<div class="value">'. T_("Unknown"). '</div>';
+            $result .= '<div class="go detail"></div>';
+          }
+        $result .= '</a>';
+      $result .= '</li>';
+
+    }
+
+    $result .= '<li>';
+    if(\dash\data::domainDetail_autorenew())
       {
-        echo '<tr>';
+        $result .= '<a class="f item" data-confirm data-data=\'{"myaction" : "autorenew", "op" :"unset"}\'>';
+        $result .= '<div class="key">'. T_("Auto renew"). ' <small class="fc-mute">'. T_("Click to deactive").'</small></div>';
+        $result .= '<div class="value txtB">'. T_("Enable"). '</div>';
+        $result .= '<div class="go check ok"></div>';
+      }
+      else
+      {
+        $result .= '<a class="f item" data-confirm data-data=\'{"myaction" : "autorenew", "op" :"set"}\'>';
+        $result .= '<div class="key" >'. T_("Auto renew"). ' <small class="fc-mute">'. T_("Click to active").'</small></div>';
+        $result .= '<div class="value txtB">'. T_("Off"). '</div>';
+        $result .= '<div class="go times nok"></div>';
+      }
+      $result .= '</a>';
+      $result .= '</li>';
 
-        if(mb_strtolower($value) === 'ok')
-        {
-          echo "<td>".T_("Domain is OK"). "</td>";
-        }
-        else
-        {
-          echo "<td>". T_($value). "</td>";
-        }
+  $result .= '</ul>';
+$result .= '</nav>';
+$result .= '<nav class="items long2">';
+  $result .= '<ul>';
 
-        if(\dash\language::current() === 'fa')
-        {
-          echo '<td class="ltr txtRa">' . $value. "</td>";
-        }
-        echo '</tr>';
+    for ($i=1; $i <= 4 ; $i++)
+    {
+      if(a(\dash\data::domainDetail(), 'ns'. $i))
+      {
+         $result .= '<li>';
+          $result .= '<a class="f item">';
+            $result .= '<div class="key">DNS #'.$i. '</div>';
+            $result .= '<div class="value">'. a(\dash\data::domainDetail(), 'ns'. $i). '</div>';
+            if(a(\dash\data::domainDetail(), 'ip'. $i))
+            {
+              $result .= '<div class="value">'. a(\dash\data::domainDetail(), 'ip'. $i). '</div>';
+            }
+            $result .= '<div class="go detail"></div>';
+          $result .= '</a>';
+        $result .= '</li>';
+
       }
     }
-  ?>
-  </table>
-</div>
-<?php } //endif ?>
+
+  $result .= '</ul>';
+$result .= '</nav>';
+$result .= '<nav class="items long2">';
+  $result .= '<ul>';
+
+    if(!\dash\data::internationalDomain())
+    {
+        $result .= '<li>';
+          $result .= '<a class="f item" ';
+          if(\dash\data::domainDetail_verify())
+          {
+            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
+          }
+          $result .= '>';
+            $result .= '<div class="key">'. T_("IRNIC holder"). '</div>';
+            $result .= '<div class="value">'. \dash\data::domainDetail_holder(). '</div>';
+            $result .= '<div class="go"></div>';
+          $result .= '</a>';
+        $result .= '</li>';
+
+        $result .= '<li>';
+          $result .= '<a class="f item" ';
+          if(\dash\data::domainDetail_verify())
+          {
+            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
+          }
+          $result .= '>';
+            $result .= '<div class="key">'. T_("IRNIC admin"). '</div>';
+            $result .= '<div class="value">'. \dash\data::domainDetail_admin(). '</div>';
+            $result .= '<div class="go"></div>';
+          $result .= '</a>';
+        $result .= '</li>';
+
+        $result .= '<li>';
+          $result .= '<a class="f item" ';
+          if(\dash\data::domainDetail_verify())
+          {
+            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
+          }
+          $result .= '>';
+            $result .= '<div class="key">'. T_("IRNIC billing"). '</div>';
+            $result .= '<div class="value">'. \dash\data::domainDetail_bill(). '</div>';
+            $result .= '<div class="go"></div>';
+          $result .= '</a>';
+        $result .= '</li>';
+
+        $result .= '<li>';
+          $result .= '<a class="f item" ';
+          if(\dash\data::domainDetail_verify())
+          {
+            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
+          }
+          $result .= '>';
+            $result .= '<div class="key">'. T_("IRNIC technical"). '</div>';
+            $result .= '<div class="value">'. \dash\data::domainDetail_tech(). '</div>';
+            $result .= '<div class="go"></div>';
+          $result .= '</a>';
+        $result .= '</li>';
+
+        if(\dash\data::domainDetail_reseller())
+        {
+           $result .= '<li>';
+            $result .= '<a class="f item">';
+              $result .= '<div class="key">'. T_("Reseller"). '</div>';
+              $result .= '<div class="value">'. \dash\data::domainDetail_reseller(). '</div>';
+              $result .= '<div class="go detail ok"></div>';
+            $result .= '</a>';
+          $result .= '</li>';
+        }
+
+    }
+
+  $result .= '</ul>';
+$result .= '</nav>';
+
+  if(\dash\data::domainDetail_nicstatus_array())
+  {
+
+      $result .= '<nav class="items long2">';
+      $result .= '<ul>';
+      foreach (\dash\data::domainDetail_nicstatus_array() as $key => $value)
+      {
+         $result .= '<li>';
+            $result .= '<a class="f item">';
+              if(mb_strtolower($value) === 'ok')
+              {
+                $result .= '<div class="key">'. T_("Domain is OK"). '</div>';
+              }
+              else
+              {
+                $result .= '<div class="key">'. T_($value). '</div>';
+              }
+              if(\dash\language::current() === 'fa')
+              {
+                $result .= '<div class="value">'. $value. '</div>';
+              }
+              $result .= '<div class="go detail"></div>';
+            $result .= '</a>';
+          $result .= '</li>';
+      }
+
+      $result .= '</ul>';
+      $result .= '</nav>';
+  }
 
 
-
-  <?php if(!\dash\data::domainDetail_verify()) {?>
-  <div class="panel mB10">
-    <table class="tbl1 v4 mB0">
-     <tr>
-      <td>
-        <?php echo T_("Remove this domain from your account"); ?>
-      </td>
-      <td class="txtRa ltr"><div data-confirm data-data='{"status" : "remove"}' class="btn danger "><?php echo T_("Remove") ?></div></td>
-     </tr>
-
-
-    </table>
-  </div>
-<?php } //endif ?>
+  if(!\dash\data::domainDetail_verify())
+  {
+    $result .= '<nav class="items long2">';
+    $result .= '<ul>';
+    $result .= '<li>';
+    $result .= '<a class="f item">';
+    $result .= '<div class="key" data-confirm data-data=\'{"status" : "remove"}\'>'. T_("Remove this domain from your account"). '</div>';
+    $result .= '<div class="go ban nok"></div>';
+    $result .= '</a>';
+    $result .= '</li>';
+    $result .= '</ul>';
+    $result .= '</nav>';
+  }
 
 
+  if(\dash\permission::supervisor())
+  {
+    $result .= '<nav class="items long2">';
+    $result .= '<ul>';
+    $result .= '<li>';
+    $result .= '<a class="f item">';
+    $result .= '<div class="key" data-confirm data-data=\'{"clean" : "lastfetch"}\'>'. T_("Last fetch"). '</div>';
+    $result .= '<div class="value">'. \dash\fit::date_human(\dash\data::domainDetail_lastfetch()). '</div>';
+    $result .= '<div class="go detail ok"></div>';
+    $result .= '</a>';
+    $result .= '</li>';
+    $result .= '</ul>';
+    $result .= '</nav>';
+  }
 
+$result. '</div>';
 
-  <?php if(\dash\permission::supervisor()) {?>
-  <div class="panel mB10">
-    <table class="tbl1 v4 mB0">
-      <tr>
-      <td>
-        <?php echo T_("Last fetch"); ?>
-      </td>
-      <td class="txtRa ltr"><?php echo \dash\fit::date_human(\dash\data::domainDetail_lastfetch()); ?></td>
-     </tr>
+echo $result;
 
-     <tr>
-      <td>
-        <?php echo T_("Remove to check again"); ?>
-      </td>
-      <td class="txtRa ltr">
-        <div data-confirm data-data='{"clean" : "lastfetch"}' class="btn secondary outline"><?php echo T_("Clean fetch") ?></div>
-      </td>
-     </tr>
-
-    </table>
-  </div>
-<?php } //endif ?>
-
-
-
-
- </div>
-</div>
-
-<?php }else{ ?>
-  <div class="f justify-center fs14">
-    <div class="c6 s12">
-      <div class="msg info2 txtC">
-        <p class="txtB fs12"><?php echo \dash\data::domainDetail_name(); ?> </p>
-        <p><?php echo T_("Domain is Available for buy") ?></p>
-        <a class="btn success" href="<?php echo \dash\url::this() . '/buy/'. \dash\data::domainDetail_name(); ?>"><?php echo T_("Buy now"); ?></a>
-      </div>
-    </div>
-  </div>
-<?php } //endif ?>
+?>
