@@ -27,9 +27,13 @@ class view
 			}
 			else
 			{
-				var_dump($q);
-				$get_domain_info = \lib\onlinenic\api::info_domain($q);
-				var_dump($get_domain_info);exit();
+				$info = \lib\onlinenic\api::info_domain($q);
+				$log_id = \dash\temp::get('ONLINENIC-last-log-id');
+				if($log_id)
+				{
+					\dash\data::action_link(\dash\url::this(). '/onlineniclog/view?id='. $log_id);
+					\dash\data::action_text(T_("Show log"));
+				}
 			}
 			\dash\data::DomainInfo($info);
 		}

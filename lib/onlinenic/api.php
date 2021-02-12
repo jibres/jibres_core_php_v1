@@ -126,7 +126,8 @@ class api
 			$insert_log['result_code'] = floatval($result['code']);
 		}
 
-		\lib\db\onlinenic_log\insert::new_record($insert_log);
+		$log_id = \lib\db\onlinenic_log\insert::new_record($insert_log);
+		\dash\temp::set('ONLINENIC-last-log-id', $log_id);
 
 		if(isset($result['msg']) && isset($result['code']) && intval($result['code']) !== 1000)
 		{

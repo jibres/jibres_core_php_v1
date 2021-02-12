@@ -69,15 +69,98 @@ class get
 
 	public static function update_fetch($_domain, $_load_domain)
 	{
-		// only ir domain need to fetch
 		if(!\dash\validate::ir_domain($_domain, false))
 		{
-			// var_dump($_domain);
-			// $get_domain_info = \lib\onlinenic\api::info_domain($_domain);
-			// var_dump($get_domain_info);exit();
-			return;
+			self::com_domain_fetch($_domain, $_load_domain);
+		}
+		else
+		{
+			self::ir_domain_fetch($_domain, $_load_domain);
+		}
+	}
+
+	private static function com_domain_fetch($_domain, $_load_domain)
+	{
+
+		$get_domain_info = \lib\onlinenic\api::info_domain($_domain);
+
+		if(!isset($get_domain_info['data']))
+		{
+			return false;
 		}
 
+		$fetch = $get_domain_info['data'];
+
+		$update_domain = [];
+
+		if(isset($fetch['status']))
+		{
+			$update_domain['nicstatus'] = $fetch['status'];
+		}
+
+		if(isset($fetch['regdate']))
+		{
+			$update_domain['dateregister'] = \dash\validate::string($fetch['regdate'], false);
+		}
+
+		if(isset($fetch['expdate']))
+		{
+			$update_domain['dateexpire'] = \dash\validate::string($fetch['expdate'], false);
+		}
+
+		if(isset($fetch['registrant']))
+		{
+			$update_domain['reseller'] = \dash\validate::string($fetch['registrant'], false);
+		}
+
+
+		if(isset($fetch['admin']))
+		{
+			$update_domain['admin'] = \dash\validate::string($fetch['admin'], false);
+		}
+
+		if(isset($fetch['tech']))
+		{
+			$update_domain['tech'] = \dash\validate::string($fetch['tech'], false);
+		}
+
+		if(isset($fetch['billing']))
+		{
+			$update_domain['bill'] = \dash\validate::string($fetch['billing'], false);
+		}
+
+		if(isset($fetch['dns1']))
+		{
+			$update_domain['ns1'] = \dash\validate::string($fetch['dns1'], false);
+		}
+		else
+		{
+			$update_domain['ns1'] = null;
+		}
+
+
+		if(isset($fetch['dns2']))
+		{
+			$update_domain['ns2'] = \dash\validate::string($fetch['dns2'], false);
+		}
+		else
+		{
+			$update_domain['ns2'] = null;
+		}
+
+		$update_domain['lastfetch'] = date("Y-m-d H:i:s");
+
+		if(!\dash\url::isLocal())
+		{
+			\lib\db\nic_domain\update::update_by_dumain($update_domain, $_load_domain['name']);
+		}
+
+		return $fetch;
+	}
+
+
+	private static function ir_domain_fetch($_domain, $_load_domain)
+	{
 		$fetch = self::info($_domain);
 
 		if(isset($fetch[$_domain]))
