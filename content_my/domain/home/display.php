@@ -38,20 +38,20 @@
 
     <section class="row s0">
      <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+      <a href="<?php echo \dash\url::this() ?>/search?autorenew=on" class="circularChartBox">
        <?php $myPercent=a($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain with Auto Renew");?></h3>
       </a>
      </div>
      <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+      <a href="<?php echo \dash\url::this() ?>/search?lock=on" class="circularChartBox">
        <?php $myPercent=a($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain Locked");?></h3>
       </a>
      </div>
 
      <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
+      <a href="<?php echo \dash\url::this() ?>/search" class="circularChartBox">
        <?php $myPercent=a($myData, 'domain_active_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Active domain");?></h3>
       </a>
@@ -70,14 +70,12 @@
         <div class="go next"></div>
        </a>
       </li>
-      <?php if(a($myData, 'maybe_my_domain') || a($myData, 'available_domain')) {?>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/other">
         <div class="key"><?php echo T_('Other domain');?></div>
         <div class="go next"></div>
        </a>
       </li>
-    <?php } //endif ?>
      </ul>
     </nav>
 

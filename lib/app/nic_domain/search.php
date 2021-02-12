@@ -63,21 +63,22 @@ class search
 
 		$condition =
 		[
-			'order'           => 'order',
-			'sort'            => 'string_100',
-			'list'            => ['enum' => ['mydomain', 'renew', 'available', 'import']],
-			'lock'            => ['enum' => ['on', 'off', 'unknown']],
-			'autorenew'       => ['enum' => ['on', 'off']],
-			'reg'       => ['enum' => ['com', 'ir']],
-			'predict'         => 'bit',
-			'status'          => 'string_100',
-			'user_id'         => 'id',
-			'is_admin'        => 'bit',
-			'get_count'       => 'bit',
-			'user'            => 'code',
-			'autorenew_notif' => 'yes_no',
-			'autorenew_mode'  => ['enum' => ['1week', '1month', '6month']],
-			'pagination'      => 'y_n',
+			'order'             => 'order',
+			'sort'              => 'string_100',
+			'list'              => ['enum' => ['mydomain', 'renew', 'available', 'import']],
+			'lock'              => ['enum' => ['on', 'off', 'unknown']],
+			'autorenew'         => ['enum' => ['on', 'off']],
+			'reg'               => ['enum' => ['com', 'ir']],
+			'predict'           => 'bit',
+			'get_total_predict' => 'bit',
+			'status'            => 'string_100',
+			'user_id'           => 'id',
+			'is_admin'          => 'bit',
+			'get_count'         => 'bit',
+			'user'              => 'code',
+			'autorenew_notif'   => 'yes_no',
+			'autorenew_mode'    => ['enum' => ['1week', '1month', '6month']],
+			'pagination'        => 'y_n',
 
 		];
 
@@ -372,10 +373,16 @@ class search
 			}
 		}
 
+		$list = [];
+
 		if($data['get_count'])
 		{
 			$count = \lib\db\nic_domain\search::count_list($and, $or, $order_sort, $meta);
 			return floatval($count);
+		}
+		elseif($data['get_total_predict'])
+		{
+			// no get list of preditct
 		}
 		else
 		{
@@ -411,7 +418,7 @@ class search
 			}
 		}
 
-		if(is_array($list))
+		if(is_array($list) && $list)
 		{
 			// <div class="ibtn wide"><span>تمدید خودکار</span><i class="sf-refresh fc-blue"></i></div>
 			$list = array_map(['\\lib\\app\\nic_domain\\ready', 'row'], $list);
@@ -420,24 +427,6 @@ class search
 		{
 			$list = [];
 		}
-
-
-		$filter_args_data = [];
-
-		foreach (self::$filter_args as $key => $value)
-		{
-			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
-			{
-				$filter_args_data[substr($value, 1)] = $list[0][$key];
-			}
-			else
-			{
-				$filter_args_data[$key] = $value;
-			}
-		}
-
-		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
-
 
 		if($data['predict'] && !$data['autorenew_mode'])
 		{
@@ -530,9 +519,9 @@ class search
 
 	}
 
-	public static function get_my_active_count($_user_id)
+	public static function get_my_active_count($_user_id, $_args = [])
 	{
-		return self::get_list(null, ['user_id' => $_user_id, 'get_count' => true]);
+		return self::get_list(null, array_merge($_args, ['user_id' => $_user_id, 'get_count' => true]));
 	}
 
 

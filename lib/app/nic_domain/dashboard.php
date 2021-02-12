@@ -54,13 +54,11 @@ class dashboard
 		$user_id = \dash\user::id();
 
 		$result                          = [];
-		$result['maybe_my_domain']   = intval(\lib\db\nic_domain\get::maybe_my_domain_count($user_id));
-		$result['available_domain'] = intval(\lib\db\nic_domain\get::my_available_count($user_id));
-		$result['my_domain']      = intval(\lib\app\nic_domain\search::get_my_active_count($user_id));
 
-		$count_autorenew = intval(\lib\db\nic_domain\get::my_autorenew_count($user_id));
+		$result['my_domain'] = intval(\lib\app\nic_domain\search::get_my_active_count($user_id));
+		$count_autorenew     = intval(\lib\app\nic_domain\search::get_my_active_count($user_id, ['autorenew' => 'on']));
+		$count_lock          = intval(\lib\app\nic_domain\search::get_my_active_count($user_id, ['lock' => 'on']));
 
-		$count_lock = intval(\lib\db\nic_domain\get::my_lock_count($user_id));
 
 		$my_all = $result['my_domain'];
 		if(!$my_all)
@@ -68,7 +66,8 @@ class dashboard
 			$my_all = 1;
 		}
 
-		$my_active_domain = (floatval($result['my_domain']) +  floatval($result['maybe_my_domain']));
+		$my_active_domain = $result['my_domain'];
+
 		if(!$my_active_domain)
 		{
 			$my_active_domain = 1;
@@ -112,7 +111,7 @@ class dashboard
 
 
 
-		\lib\app\nic_domain\search::list(null, ['predict' => true]);
+		\lib\app\nic_domain\search::list(null, ['predict' => true, 'get_total_predict' => true]);
 		$calc = \dash\data::myPayCalc();
 		if(!is_array($calc))
 		{
@@ -123,7 +122,6 @@ class dashboard
 
 		// $result['domain_pay_chart']      = self::domain_pay_chart($user_id);
 		$result['domain_pay_chart']      = self::domain_pay_chart_day($user_id);
-
 
 		return $result;
 	}

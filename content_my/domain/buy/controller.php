@@ -6,8 +6,6 @@ class controller
 {
 	public static function routing()
 	{
-
-
 		if(\dash\url::dir(3))
 		{
 			\dash\header::status(404, T_("Invalid url"));
@@ -52,7 +50,6 @@ class controller
 			{
 				\dash\data::InvalidDomain(true);
 			}
-
 
 			\dash\data::infoResult($info);
 		}
