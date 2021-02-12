@@ -233,21 +233,25 @@ class part
 	public static function infoBox()
 	{
 		$html = '';
-		$html .= '<div class="row infoBox msg">';
+		$html .= '<div class="msg minimal infoBox">';
 		{
-			$html .= '<div class="c-auto">';
+			$html .= '<div class="row align-center ">';
 			{
-				$html .= self::publishDate();
-			}
-			$html .= '</div>';
-			$html .= '<div class="c-auto">';
-			{
-				$html .= self::readingTime();
-			}
-			$html .= '</div>';
-			$html .= '<div class="c">';
-			{
-
+				$html .= '<div class="c-auto">';
+				{
+					$html .= self::publishDate();
+				}
+				$html .= '</div>';
+				$html .= '<div class="c-auto">';
+				{
+					$html .= self::readingTime();
+				}
+				$html .= '</div>';
+				$html .= '<nav class="c share1 txtL">';
+				{
+					$html .= self::shareLink();
+				}
+				$html .= '</nav>';
 			}
 			$html .= '</div>';
 		}
@@ -289,6 +293,49 @@ class part
 
     return $html;
 	}
+
+
+	public static function shareLink()
+	{
+		$html = '';
+
+		// facebook
+		{
+			$html .= '<a target="_blank" class="facebook" title="'. T_("Share of Facebook"). '"';
+			$html .= 'href="https://www.facebook.com/sharer/sharer.php?u='. \dash\url::pwd(). '"';
+			$html .= '>';
+			$html .= T_("Share of Facebook");
+			$html .= '</a>';
+		}
+		// twitter
+		{
+			$html .= '<a target="_blank" class="twitter" title="'. T_("Share of Twitter"). '"';
+			$html .= 'href="https://twitter.com/home?status='. \dash\url::pwd(). '"';
+			$html .= '>';
+			$html .= T_("Share of Twitter");
+			$html .= '</a>';
+		}
+		// linkedin
+		{
+			$html .= '<a target="_blank" class="linkedin" title="'. T_("Share of Linkedin"). '"';
+			$html .= 'href="https://www.linkedin.com/shareArticle?mini=true&url='. \dash\url::pwd(). '&title='. urlencode(\dash\face::title()).'&summary='. \dash\face::desc() . '"';
+			$html .= '>';
+			$html .= T_("Share of Linkedin");
+			$html .= '</a>';
+		}
+		// telegram
+		{
+			$html .= '<a target="_blank" class="telegram" title="'. T_("Share of Telegram"). '"';
+			$html .= 'href="https://t.me/share/url?url='. \dash\url::pwd(). '&text='. urlencode(\dash\face::title()). '"';
+			$html .= '>';
+			$html .= T_("Share of Telegram");
+			$html .= '</a>';
+		}
+
+
+    return $html;
+	}
+
 
 	public static function commentBox()
 	{
