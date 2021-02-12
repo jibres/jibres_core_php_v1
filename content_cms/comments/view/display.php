@@ -5,7 +5,7 @@
 <?php if(a($dataRow, 'user_id')) {?>
     <li>
       <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($dataRow, 'user_id'); ?>">
-        <img src="<?php echo \dash\fit::url_thumb(a($dataRow, 'avatar')); ?>" alt="<?php echo a($dataRow, 'user_displayname');?>">
+        <img src="<?php echo \dash\fit::img(a($dataRow, 'avatar')); ?>" alt="<?php echo a($dataRow, 'user_displayname');?>">
         <div class="key"><?php echo a($dataRow, 'user_displayname');?></div>
         <div class="value"><?php echo \dash\fit::mobile(a($dataRow, 'user_mobile'));?></div>
         <div class="go"></div>
@@ -36,7 +36,7 @@
   <ul>
     <li>
       <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/products/edit?id='. a($dataRow, 'product_id'); ?>">
-        <img src="<?php echo \dash\fit::url_thumb(a($dataRow, 'product_thumb')); ?>">
+        <img src="<?php echo \dash\fit::img(a($dataRow, 'product_thumb')); ?>">
         <div class="key"><?php echo a($dataRow, 'product_title');?></div>
         <div class="go"></div>
       </a>

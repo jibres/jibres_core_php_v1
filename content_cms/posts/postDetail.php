@@ -3,7 +3,7 @@
     <li>
       <a class="item f" href="<?php echo \dash\url::this(). '/edit?id='. \dash\request::get('id');?>">
 <?php if(\dash\data::dataRow_thumb()) {?>
-        <?php echo '<img src="'. \dash\fit::url_thumb(\dash\data::dataRow_thumb()). '" alt="'. \dash\data::dataRow_title(). '">'; ?>
+        <?php echo '<img src="'. \dash\fit::img(\dash\data::dataRow_thumb()). '" alt="'. \dash\data::dataRow_title(). '">'; ?>
 <?php } else {
 $type = 'news';
 switch (\dash\data::dataRow_subtype())

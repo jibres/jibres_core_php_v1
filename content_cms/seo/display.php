@@ -36,7 +36,7 @@
        <li>
         <a class="item f align-center" href="<?php echo \dash\url::here(). '/posts/seo?id='.  a($value, 'id') ?>">
 <?php if(a($value, 'thumb')) {?>
-                <img src="<?php echo \dash\fit::url_thumb(a($value, 'thumb')); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
+                <img src="<?php echo \dash\fit::img(a($value, 'thumb')); ?>" alt="Thumb image - <?php echo a($value, 'title'); ?>">
 <?php } else {
 $type = 'news';
 switch (a($value, 'subtype'))

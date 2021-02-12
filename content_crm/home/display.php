@@ -167,7 +167,7 @@
   <?php foreach (\dash\data::dashboardDetail_latestMember() as $key => $value) {?>
          <li>
           <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo $value['id']; ?>">
-            <img src="<?php echo \dash\fit::url_thumb(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+            <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
             <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
           </a>
@@ -188,7 +188,7 @@
   <?php foreach (\dash\data::dashboardDetail_latestLogs() as $key => $value) { ?>
          <li>
           <a class="item f" href="<?php echo \dash\url::here(); ?>/member/glance?id=<?php echo \dash\coding::encode($value['from']); ?>">
-            <img src="<?php echo \dash\fit::url_thumb(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+            <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
             <div class="key"><?php if(isset($value['displayname']) && $value['displayname']) { echo $value['displayname']; }else{ echo T_("Without name");} ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
           </a>
@@ -209,7 +209,7 @@
   <?php foreach (\dash\data::dashboardDetail_latestTicket() as $key => $value) { ?>
         <li>
           <a class="f align-center" href="<?php echo \dash\url::here(). '/ticket/view?id='. $value['id'] ?>">
-            <img src="<?php echo \dash\fit::url_thumb(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+            <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
             <div class="key"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
 
             <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::text($value['id']);  ?></div>

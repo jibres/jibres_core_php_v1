@@ -24,7 +24,7 @@
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
       <a class="f align-center" href="<?php echo \dash\data::viewCommentModule(). \dash\request::full_get(['cid' => $value['id']]); ?>">
-        <img src="<?php echo \dash\fit::url_thumb(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+        <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
         <div class="key"><?php echo substr(a($value, 'content'), 0, 70); ?></div>
         <div class="value status s0"><?php echo T_($value['status']); ?></div>
 

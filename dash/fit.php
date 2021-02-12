@@ -249,24 +249,9 @@ class fit{
 	}
 
 
-
 	public static function file_size($_size, $_forceEn = null)
 	{
 		return \dash\upload\size::readableSize($_size, $_forceEn);
-	}
-
-
-	public static function url_thumb($_src)
-	{
-		$dotPosition = strrpos($_src, '.');
-		if(!$dotPosition)
-		{
-			return false;
-		}
-		$imgName = substr($_src, 0, $dotPosition);
-		$newUrl = $imgName. '-w120.webp';
-
-		return $newUrl;
 	}
 
 
