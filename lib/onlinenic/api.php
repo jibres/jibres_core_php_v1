@@ -78,7 +78,15 @@ class api
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 90);
+
+		$timeout = 90;
+		// in local have timeout error for connection!
+		if(\dash\url::isLocal())
+		{
+			$timeout = 5;
+		}
+
+		curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
 
 		$response = curl_exec($ch);
 		$CurlError = curl_error($ch);
