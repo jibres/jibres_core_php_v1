@@ -370,6 +370,22 @@ class part
     return $html;
 	}
 
+	public static function similarPost()
+	{
+		$html = '';
+		$myPostSimilar = \dash\app\posts\search::similar_post(\dash\data::dataRow_id());
+		if($myPostSimilar)
+		{
+			$html .= '<nav class="similarPost msg">';
+			$html .= '<h4>'. T_("Recommended for you"). '</h4>';
+			foreach ($myPostSimilar as $key => $value)
+			{
+				$html .= '<a class="block" href="'. a($value, 'link') .'">'. $value['title']. '</a>';
+			}
+			$html .= '</nav>';
+		}
+    return $html;
+	}
 
 	public static function commentBox()
 	{
