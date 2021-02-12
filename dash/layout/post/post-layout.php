@@ -4,7 +4,7 @@ $cmsSetting = \lib\app\setting\get::cms_setting();
 
 $dataRow = \dash\data::dataRow();
 echo '<div class="postBlock">';
-echo '<div class="avand-lg">';
+echo '<div class="avand-md">';
 echo '<div class="box">';
 echo '<div class="body">';
 echo '<h2>'. \dash\data::dataRow_title(). '</h2>';
@@ -24,18 +24,18 @@ require_once('gallery-box.php');
 
 if(\dash\data::dataRow_datemodified())
 {
-echo '<div class="msg simple f mT20">';
-echo '<div class="c">';
-if(\dash\data::dataRow_showdate() === 'visible' || a($cmsSetting, 'defaultshowdate') === 'visible')
-{
-  echo '<time class="ltr compact" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time>';
-}
+  echo '<div class="msg simple f mT20">';
+  echo '<div class="c">';
+  if(\dash\data::dataRow_showdate() === 'visible' || a($cmsSetting, 'defaultshowdate') === 'visible')
+  {
+    echo '<time class="ltr compact" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time>';
+  }
 
-echo '</div>';
-echo '<div class="cauto os">';
-echo '<a data-copy="'.  \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" title="'.  T_("For share via social networks"). '">'. T_("Short Code") .' <span class="txtB">' . \dash\data::dataRow_id(). '</span></a>';
-echo '</div>';
-echo '</div>';
+  echo '</div>';
+  echo '<div class="cauto os">';
+  echo '<a data-copy="'.  \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" title="'.  T_("For share via social networks"). '">'. T_("Short Code") .' <span class="txtB">' . \dash\data::dataRow_id(). '</span></a>';
+  echo '</div>';
+  echo '</div>';
 }
 
 
