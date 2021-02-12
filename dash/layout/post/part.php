@@ -147,6 +147,7 @@ class part
 	{
 		$html = '';
 		$galleryArr = a(\dash\data::dataRow(), 'gallery_array');
+		var_dump(a(\dash\data::dataRow(), 'gallery'));
 		if(!is_array($galleryArr))
 		{
 			return null;
@@ -162,7 +163,7 @@ class part
 	      	switch (a($myMedia, 'type'))
 	      	{
 	      		case 'image':
-		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
+		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
 		          {
 		            $html .= '<a data-action href="'. $myMedia['path'].'" data-fancybox="productGallery">';
 		            $html .= '<img src="'. \dash\fit::img($myMedia['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
@@ -172,7 +173,7 @@ class part
 	      			break;
 
 	      		case 'audio':
-		          $html .= '<div class="c-12">';
+		          $html .= '<div class="c-12" data-type="'. a($myMedia, 'type'). '">';
 		          {
 	      				$html .= self::audio($myMedia);
 		          }
@@ -180,15 +181,23 @@ class part
 	      			break;
 
 	      		case 'video':
-		          $html .= '<div class="c-12">';
+		          $html .= '<div class="c-12" data-type="'. a($myMedia, 'type'). '">';
 		          {
 	      				$html .= self::video($myMedia);
 		          }
 		          $html .= '</div>';
 	      			break;
 
+	      		case 'pdf':
 	      		default:
-
+		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+		          {
+		          	var_dump($myMedia);
+		            $html .= '<a data-action href="'. $myMedia['path'].'">';
+		            $html .= 'File123';
+		            $html .= '</a>';
+		          }
+		          $html .= '</div>';
 	      			break;
 	      	}
 	      }
