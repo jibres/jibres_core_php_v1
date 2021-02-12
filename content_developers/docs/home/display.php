@@ -49,7 +49,7 @@
 					<header><h3><?php echo T_("Domains");?></h3></header>
 					<div class="body">
 						<p><?php echo T_("This is a simple and secure method for authenticating users and allowing third party access to Jibres domain center."); ?></p>
-						<a class="btn2 green" href="https://documenter.getpostman.com/view/1511811/SzYgSFWt" target="_blank" data-direct><?php echo T_("View Domain v10 Documentations"); ?></a>
+						<a class="btn2 green" href="https://documenter.getpostman.com/view/1511811/TWDRsKf3" target="_blank" data-direct><?php echo T_("View Domain v10 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>
