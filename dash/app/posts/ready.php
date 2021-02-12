@@ -125,19 +125,18 @@ class ready
 		if(a($result, 'content') && !a($result, 'excerpt'))
 		{
 			$result['excerpt'] = \dash\utility\excerpt::extractRelevant($result['content']);
-			$result['auto_excerpt'] = true;
+			$result['autoexcerpt'] = true;
 		}
 
-		if(\dash\url::content() === 'cms')
+
+		if(!a($result, 'autoexcerpt') && a($result, 'content'))
 		{
-			if(!a($result, 'auto_excerpt') && a($result, 'content'))
+			if(\dash\utility\excerpt::extractRelevant($result['content']) == a($result, 'excerpt'))
 			{
-				if(\dash\utility\excerpt::extractRelevant($result['content']) == a($result, 'excerpt'))
-				{
-					$result['auto_excerpt'] = true;
-				}
+				$result['autoexcerpt'] = true;
 			}
 		}
+
 
 		if(\dash\engine\store::inStore())
 		{
@@ -260,7 +259,7 @@ class ready
 			unset($result['icon_list']);
 			unset($result['meta']);
 			unset($result['special']);
-			unset($result['auto_excerpt']);
+			unset($result['autoexcerpt']);
 			unset($result['language']);
 			unset($result['post_title']);
 			unset($result['gallery']);
