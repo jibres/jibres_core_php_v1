@@ -10,20 +10,15 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
     echo \dash\layout\post\part::article();
 
   }
+  require_once('gallery-box.php');
+
 
   echo '<hr>';
   echo '<hr>';
   echo '<hr>';
   echo '<div class="box">';
 
-  if(\dash\data::dataRow_thumb())
-  {
-    echo '<a href="'.  \dash\data::dataRow_link(). '" class="thumb">';
-    echo '<img src="'. \dash\fit::img(\dash\data::dataRow_thumb(), 1100). '" alt="'. \dash\data::dataRow_title(). '">';
-    echo '</a>';
-  }
 
-  require_once('gallery-box.php');
 
 
   if(\dash\data::dataRow_datemodified())

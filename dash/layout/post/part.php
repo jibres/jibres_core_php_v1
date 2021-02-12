@@ -11,7 +11,7 @@ class part
 		// check gallery items
 		$myGallery = \dash\data::dataRow_gallery_array();
 		$myGalleryTopMedia = null;
-		if(count($myGallery) === 1)
+		if(is_array($myGallery) && count($myGallery) === 1)
 		{
 			$myGalleryTopMedia = $myGallery[0];
 		}
