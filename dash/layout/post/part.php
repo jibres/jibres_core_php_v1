@@ -46,6 +46,7 @@ class part
     return $html;
 	}
 
+
 	public static function postTitleBox()
 	{
 		$html = '';
@@ -167,6 +168,12 @@ class part
 
 	public static function gallery()
 	{
+		if(\dash\data::dataRow_subtype() === 'video' ||  \dash\data::dataRow_subtype() === 'audio')
+		{
+			// do not repeat video and audio
+			return null;
+		}
+
 		$html = '';
 		$galleryArr = a(\dash\data::dataRow(), 'gallery_array');
 		if(!is_array($galleryArr))
@@ -370,6 +377,7 @@ class part
     return $html;
 	}
 
+
 	public static function similarPost()
 	{
 		$html = '';
@@ -386,6 +394,7 @@ class part
 		}
     return $html;
 	}
+
 
 	public static function commentBox()
 	{
