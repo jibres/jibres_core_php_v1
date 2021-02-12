@@ -21,7 +21,7 @@ class part
     switch ($_subType)
     {
       case 'video':
-        $html .= self::topVideo($myGalleryTopMedia);
+        $html .= self::video($myGalleryTopMedia, \dash\data::dataRow_cover());
         // $html .= self::postTitleBox();
         $html .= self::title();
         $html .= self::excerpt();
@@ -29,7 +29,7 @@ class part
 
       case 'audio':
         $html .= self::postTitleBox();
-        $html .= self::topAudio($myGalleryTopMedia);
+        $html .= self::audio($myGalleryTopMedia);
         break;
 
       case 'standard':
@@ -108,16 +108,16 @@ class part
 	}
 
 
-	public static function topVideo($_data)
+	public static function video($_data, $_poster = null)
 	{
 		$htmlVideo = '';
 
     if(a($_data, 'type') === 'video')
     {
       $htmlVideo .= '<video controls';
-      if(\dash\data::dataRow_cover())
+      if($_poster)
       {
-      	$htmlVideo .= ' poster="'. \dash\data::dataRow_cover(). '"';
+      	$htmlVideo .= ' poster="'. $_poster . '"';
       }
       $htmlVideo .= '>';
       $htmlVideo .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
@@ -128,7 +128,7 @@ class part
 	}
 
 
-	public static function topAudio($_data)
+	public static function audio($_data)
 	{
 		$htmlAudio = '';
 
@@ -155,24 +155,40 @@ class part
 	  $html .= '<div class="gallery" id="lightgallery">';
 	  {
 	    $html .= '<div class="row">';
-	    foreach ($galleryArr as $key => $myUrl)
+	    foreach ($galleryArr as $key => $myMedia)
 	    {
-	      if(a($myUrl, 'path'))
+	      if(a($myMedia, 'path'))
 	      {
-	      	switch (a($myUrl, 'type'))
+	      	switch (a($myMedia, 'type'))
 	      	{
 	      		case 'image':
 		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
 		          {
-		            $html .= '<a data-action href="'. $myUrl['path'].'" data-fancybox="productGallery">';
-		            $html .= '<img src="'. \dash\fit::img($myUrl['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
+		            $html .= '<a data-action href="'. $myMedia['path'].'" data-fancybox="productGallery">';
+		            $html .= '<img src="'. \dash\fit::img($myMedia['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
 		            $html .= '</a>';
 		          }
 		          $html .= '</div>';
 	      			break;
 
+	      		case 'audio':
+		          $html .= '<div class="c-12">';
+		          {
+	      				$html .= self::audio($myMedia);
+		          }
+		          $html .= '</div>';
+	      			break;
+
+	      		case 'video':
+		          $html .= '<div class="c-12">';
+		          {
+	      				$html .= self::video($myMedia);
+		          }
+		          $html .= '</div>';
+	      			break;
+
 	      		default:
-	      			# code...
+
 	      			break;
 	      	}
 	      }
