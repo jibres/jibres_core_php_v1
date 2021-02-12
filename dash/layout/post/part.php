@@ -35,8 +35,8 @@ class part
       case 'standard':
       case 'gallery':
       default:
-        $html .= self::title();
         $html .= self::thumb(1100);
+        $html .= self::title();
         $html .= self::excerpt();
         break;
     }
@@ -79,6 +79,10 @@ class part
 
 	public static function excerpt()
 	{
+		if(\dash\data::dataRow_autoexcerpt())
+		{
+			return null;
+		}
 		return '<p class="excerpt">'. \dash\data::dataRow_excerpt(). '</p>';
 	}
 
