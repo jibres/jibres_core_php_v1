@@ -462,8 +462,12 @@ class login
 		{
 			case 'jibres':
 			case 'admin':
+				$load_user  = \dash\db\users::jibres_get_by_id($_user_id);
+				break;
+
 			case 'api_core':
 				$load_user  = \dash\db\users::jibres_get_by_id($_user_id);
+				$need_login_record = false;
 				break;
 
 				// in telegram we have not cookie and return user detail
