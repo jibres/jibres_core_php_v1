@@ -173,6 +173,15 @@ class fit{
 		return \dash\datetime::fit($_date, null, 'date');
 	}
 
+	public static function datetime_full($_date)
+	{
+		if(!$_date)
+		{
+			return null;
+		}
+		return \dash\datetime::fit($_date, true, 'datetime');
+	}
+
 
 	public static function time($_date)
 	{
