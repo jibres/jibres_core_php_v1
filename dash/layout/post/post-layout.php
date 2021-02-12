@@ -11,7 +11,7 @@ echo '<h2>'. \dash\data::dataRow_title(). '</h2>';
 if(\dash\data::dataRow_thumb())
 {
   echo '<a href="'.  \dash\data::dataRow_link(). '" class="thumb">';
-  echo '<img src="'. \dash\data::dataRow_thumb(). '" alt="'. \dash\data::dataRow_title(). '">';
+  echo '<img src="'. \dash\fit::img(\dash\data::dataRow_thumb(), 1100). '" alt="'. \dash\data::dataRow_title(). '">';
   echo '</a>';
 }
 
