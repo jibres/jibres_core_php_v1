@@ -88,31 +88,31 @@
 
       <div class="c12 mB5">
         <div class="input ltr">
-          <label class="addon" for="ns1"><?php echo T_("DNS #1"); ?></label>
+          <label class="addon" for="ns1">DNS 1</label>
           <input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::dataRow_ns1(); ?>">
         </div>
       </div>
       <div class="c12 mB5">
         <div class="input ltr">
-          <label class="addon" for="ns2"><?php echo T_("DNS #2"); ?></label>
+          <label class="addon" for="ns2">DNS 2</label>
           <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::dataRow_ns2(); ?>">
         </div>
       </div>
       <div class="c12 mB5">
         <div class="input ltr">
-          <label class="addon" for="ns3"><?php echo T_("DNS #3"); ?></label>
+          <label class="addon" for="ns3">DNS 3</label>
           <input type="text" name="ns3" id="ns3" maxlength="50" value="<?php echo \dash\data::dataRow_ns3(); ?>">
         </div>
       </div>
       <div class="c12 mB5">
         <div class="input ltr">
-          <label class="addon" for="ns4"><?php echo T_("DNS #4"); ?></label>
+          <label class="addon" for="ns4">DNS 4</label>
           <input type="text" name="ns4" id="ns4" maxlength="50" value="<?php echo \dash\data::dataRow_ns4(); ?>">
         </div>
       </div>
 
       <div class="c12 mT10 txtC">
-        <button class="btn block primary"><?php echo T_("Save"); ?></button>
+        <button class="btn  secondary"><?php echo T_("Save"); ?></button>
       </div>
 
     </div>
@@ -139,7 +139,7 @@
             <?php } ?>
           </select>
         <?php }else{ ?>
-          <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn primary w200"><?php echo T_("Manage IRNIC Handle"); ?></a>
+          <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn secondary w200"><?php echo T_("Manage IRNIC Handle"); ?></a>
         <?php } ?>
     </div>
   </form>
@@ -164,7 +164,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-          <a href="<?php echo \dash\url::this(). '/whoisdetail' ?>" class="btn primary w200"><?php echo T_("Manage Whois Detail"); ?></a>
+          <a href="<?php echo \dash\url::this(). '/whoisdetail' ?>" class="btn secondary w200"><?php echo T_("Manage Whois Detail"); ?></a>
     </div>
   </form>
 </section>
