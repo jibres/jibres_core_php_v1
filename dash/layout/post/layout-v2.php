@@ -10,7 +10,8 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
     echo \dash\layout\post\part::article();
 
   }
-  require_once('gallery-box.php');
+
+  echo \dash\layout\post\part::gallery();
 
 
   echo '<hr>';

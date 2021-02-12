@@ -112,23 +112,7 @@ class part
 	{
 		$htmlVideo = '';
 
-		switch (a($_data, 'ext'))
-		{
-			case 'mp4':
-			case 'ogg':
-			case 'webm':
-				// do nothing
-				break;
-
-			default:
-				return null;
-
-				break;
-		}
-
-		$path   = a($_data, 'path');
-		$endUrl = substr($path, -4);
-    if(in_array($endUrl, ['.mp4', '.ogg', 'webm']))
+    if(a($_data, 'type') === 'video')
     {
       $htmlVideo .= '<video controls';
       if(\dash\data::dataRow_cover())
@@ -136,7 +120,7 @@ class part
       	$htmlVideo .= ' poster="'. \dash\data::dataRow_cover(). '"';
       }
       $htmlVideo .= '>';
-      $htmlVideo .= '<source src="'. $path. '" type="'. a($_data, 'mime'). '">';
+      $htmlVideo .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
       $htmlVideo .= '</video>';
     }
 
@@ -148,26 +132,10 @@ class part
 	{
 		$htmlAudio = '';
 
-		switch (a($_data, 'ext'))
-		{
-			case 'mp3':
-			case 'ogg':
-			case 'wav':
-				// do nothing
-				break;
-
-			default:
-				return null;
-
-				break;
-		}
-
-		$path   = a($_data, 'path');
-		$endUrl = substr($path, -4);
-    if(in_array($endUrl, ['.mp3', '.ogg', '.wav']))
+		if(a($_data, 'type') === 'audio')
     {
       $htmlAudio .= '<audio controls>';
-      $htmlAudio .= '<source src="'. $path. '" type="'. a($_data, 'mime'). '">';
+      $htmlAudio .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
       $htmlAudio .= '</audio>';
     }
 
@@ -179,17 +147,7 @@ class part
 	{
 		$html = '';
 		$galleryArr = a(\dash\data::dataRow(), 'gallery_array');
-
-		$html .= self::galleryImg($galleryArr);
-
-		return $html;
-	}
-
-
-	public static function galleryImg($_galleryArr)
-	{
-		$html = '';
-		if(!is_array($_galleryArr))
+		if(!is_array($galleryArr))
 		{
 			return null;
 		}
@@ -197,21 +155,26 @@ class part
 	  $html .= '<div class="gallery" id="lightgallery">';
 	  {
 	    $html .= '<div class="row">';
-	    foreach ($_galleryArr as $key => $myUrl)
+	    foreach ($galleryArr as $key => $myUrl)
 	    {
 	      if(a($myUrl, 'path'))
 	      {
-	        $endUrl = substr(a($myUrl, 'path'), -4);
-	        if(in_array($endUrl, ['.jpg', '.png', '.gif', '.webp']))
-	        {
-	          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
-	          {
-	            $html .= '<a data-action href="'. $myUrl['path'].'" data-fancybox="productGallery">';
-	            $html .= '<img src="'. \dash\fit::img($myUrl['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
-	            $html .= '</a>';
-	          }
-	          $html .= '</div>';
-	        }
+	      	switch (a($myUrl, 'type'))
+	      	{
+	      		case 'image':
+		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
+		          {
+		            $html .= '<a data-action href="'. $myUrl['path'].'" data-fancybox="productGallery">';
+		            $html .= '<img src="'. \dash\fit::img($myUrl['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
+		            $html .= '</a>';
+		          }
+		          $html .= '</div>';
+	      			break;
+
+	      		default:
+	      			# code...
+	      			break;
+	      	}
 	      }
 	    }
 	    $html .= '</div>';
