@@ -12,16 +12,7 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$list = $get_api->domain_history();
-		}
-		else
-		{
-			$list = \lib\app\nic_domainaction\search::all_list(null, []);
-		}
+		$list = \lib\app\nic_domainaction\search::all_list(null, []);
 
 		\dash\data::dataTable($list);
 

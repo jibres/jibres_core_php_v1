@@ -49,25 +49,7 @@ class model
 		}
 
 		\dash\notif::warn("This action needs to work!");
-		return;
-		// if(\dash\request::post('status') == 'remove')
-		// {
-		// 	if(\lib\nic\mode::api())
-		// 	{
-		// 		$get_api     = new \lib\nic\api();
-		// 		$load_domain = $get_api->domain_delete(\dash\data::domainDetail_id());
-		// 	}
-		// 	else
-		// 	{
-		// 		$result = \lib\app\nic_domain\remove::remove(\dash\data::domainDetail_id());
-		// 	}
 
-		// 	if(\dash\engine\process::status())
-		// 	{
-		// 		\dash\redirect::to(\dash\url::this());
-		// 	}
-		// 	return;
-		// }
 	}
 }
 ?>

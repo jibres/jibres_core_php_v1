@@ -19,15 +19,7 @@ class model
 
 		if(\dash\request::post('myaction') === 'remove')
 		{
-			if(\lib\nic\mode::api())
-			{
-				$get_api = new \lib\nic\api();
-				$remove  = $get_api->contact_remove(\dash\request::get('id'));
-			}
-			else
-			{
-				$remove = \lib\app\nic_contact\edit::remove(\dash\request::get('id'));
-			}
+			$remove = \lib\app\nic_contact\edit::remove(\dash\request::get('id'));
 
 			if(\dash\engine\process::status() && $remove)
 			{
@@ -42,24 +34,12 @@ class model
 			'isdefault' => \dash\request::post('isdefault'),
 		];
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$edit  = $get_api->contact_edit($post, \dash\request::get('id'));
-		}
-		else
-		{
-			$edit = \lib\app\nic_contact\edit::edit($post, \dash\request::get('id'));
-		}
-
+		$edit = \lib\app\nic_contact\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
 			\dash\redirect::pwd();
 		}
-
-
-
 	}
 }
 ?>

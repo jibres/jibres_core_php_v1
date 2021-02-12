@@ -8,15 +8,7 @@ class controller
 	{
 		\content_my\domain\controller::check_login();
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api    = new \lib\nic\api();
-			$detail     = $get_api->contact_load(\dash\request::get('id'));
-		}
-		else
-		{
-			$detail = \lib\app\nic_contact\get::load();
-		}
+		$detail = \lib\app\nic_contact\get::load();
 
 		if(!$detail)
 		{

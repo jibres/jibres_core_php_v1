@@ -14,15 +14,7 @@ class model
 			'agree'  => \dash\request::post('agree'),
 		];
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$result  = $get_api->domain_renew($post);
-		}
-		else
-		{
-			$result = \lib\app\domains\renew::renew($post);
-		}
+		$result = \lib\app\domains\renew::renew($post);
 
 		if(\dash\engine\process::status() && isset($result['domain_id']))
 		{

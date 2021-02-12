@@ -8,15 +8,7 @@ class model
 	{
 		if(\dash\request::post('oldcontact'))
 		{
-			if(\lib\nic\mode::api())
-			{
-				$get_api = new \lib\nic\api();
-				$check   = $get_api->contact_add_exists(\dash\request::post('oldcontact'), \dash\request::post('titleold'));
-			}
-			else
-			{
-				$check = \lib\app\nic_contact\add::exists_contact(\dash\request::post('oldcontact'), \dash\request::post('titleold'));
-			}
+			$check = \lib\app\nic_contact\add::exists_contact(\dash\request::post('oldcontact'), \dash\request::post('titleold'));
 
 			if($check)
 			{
@@ -49,15 +41,7 @@ class model
 				'address'      => \dash\request::post('address'),
 			];
 
-			if(\lib\nic\mode::api())
-			{
-				$get_api = new \lib\nic\api();
-				$create = $get_api->contact_create_new($post);
-			}
-			else
-			{
-				$create = \lib\app\nic_contact\add::create_new($post);
-			}
+			$create = \lib\app\nic_contact\add::create_new($post);
 
 			if($create)
 			{

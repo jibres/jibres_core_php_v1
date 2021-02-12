@@ -28,21 +28,9 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api    = new \lib\nic\api();
-			$list       = $get_api->contact_fetch();
-			$filterBox  = $get_api->meta('filter_message');
-			$isFiltered = $get_api->meta('is_filtered');
-		}
-		else
-		{
-
-			$list          = \lib\app\nic_contact\search::list($search_string, $args);
-			$filterBox     = \lib\app\nic_contact\search::filter_message();
-			$isFiltered    = \lib\app\nic_contact\search::is_filtered();
-
-		}
+		$list          = \lib\app\nic_contact\search::list($search_string, $args);
+		$filterBox     = \lib\app\nic_contact\search::filter_message();
+		$isFiltered    = \lib\app\nic_contact\search::is_filtered();
 
 		\dash\data::filterBox($filterBox);
 

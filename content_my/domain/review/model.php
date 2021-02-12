@@ -42,15 +42,7 @@ class model
 			'usebudget'    => \dash\request::post('usebudget'),
 		];
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$result  = $get_api->domain_renew($post);
-		}
-		else
-		{
-			$result = \lib\app\domains\renew::renew($post);
-		}
+		$result = \lib\app\domains\renew::renew($post);
 
 		if(\dash\engine\process::status())
 		{
@@ -105,16 +97,7 @@ class model
 			'email'        => a(\dash\data::dataRowAction(), 'detail', 'email'),
 		];
 
-
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$result  = $get_api->domain_buy($post);
-		}
-		else
-		{
-			$result = \lib\app\domains\create::new_domain($post);
-		}
+		$result = \lib\app\domains\create::new_domain($post);
 
 		if(\dash\engine\process::status())
 		{
@@ -166,17 +149,7 @@ class model
 
 		];
 
-
-
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$result  = $get_api->domain_transfer($post);
-		}
-		else
-		{
-			$result = \lib\app\domains\transfer::transfer($post);
-		}
+		$result = \lib\app\domains\transfer::transfer($post);
 
 		if(\dash\engine\process::status())
 		{

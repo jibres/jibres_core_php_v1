@@ -20,17 +20,8 @@ class model
 			'ip4'   => \dash\request::post('ip4'),
 		];
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api     = new \lib\nic\api();
-			$load_domain = $get_api->domain_update_dns(\dash\data::domainDetail_id(), $post);
-		}
-		else
-		{
-			// $result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
-			$result = \lib\app\domains\edit::dns($post, \dash\data::domainDetail_id());
-		}
-
+		// $result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
+		$result = \lib\app\domains\edit::dns($post, \dash\data::domainDetail_id());
 
 		if(\dash\engine\process::status())
 		{

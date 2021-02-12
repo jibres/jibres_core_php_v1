@@ -101,17 +101,10 @@ class view
 
 			\dash\data::userSetting($my_setting);
 
-			if(\lib\nic\mode::api())
-			{
-				$get_api = new \lib\nic\api();
-				$list    = $get_api->contact_fetch_all();
-			}
-			else
-			{
-				\dash\notif::clean();
-				\dash\engine\process::continue();
-				$list    = \lib\app\nic_contact\search::my_list();
-			}
+			\dash\notif::clean();
+			\dash\engine\process::continue();
+			$list    = \lib\app\nic_contact\search::my_list();
+
 
 			\dash\data::myContactList($list);
 			if(is_array($list))

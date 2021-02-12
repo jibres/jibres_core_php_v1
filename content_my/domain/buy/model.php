@@ -64,16 +64,7 @@ class model
 
 		];
 
-
-		if(\lib\nic\mode::api())
-		{
-			$get_api = new \lib\nic\api();
-			$result  = $get_api->domain_buy($post);
-		}
-		else
-		{
-			$result = \lib\app\domains\create::new_domain($post);
-		}
+		$result = \lib\app\domains\create::new_domain($post);
 
 		if(\dash\engine\process::status() && isset($result['domain_id']))
 		{

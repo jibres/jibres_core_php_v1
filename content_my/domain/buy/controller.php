@@ -34,17 +34,7 @@ class controller
 
 			if($domain)
 			{
-
-				if(\lib\nic\mode::api())
-				{
-					$get_api = new \lib\nic\api();
-					$check    = $get_api->domain_available($domain);
-				}
-				else
-				{
-					$check = \lib\app\domains\check::check($domain);
-				}
-
+				$check = \lib\app\domains\check::check($domain);
 				\dash\data::haveBuyDomain(true);
 				\dash\data::checkResult($check);
 			}
@@ -56,15 +46,7 @@ class controller
 		elseif($q)
 		{
 
-			if(\lib\nic\mode::api())
-			{
-				$get_api = new \lib\nic\api();
-				$info    = $get_api->domain_check($q);
-			}
-			else
-			{
-				$info = \lib\app\domains\check::multi_check($q);
-			}
+			$info = \lib\app\domains\check::multi_check($q);
 
 			if(\dash\request::get('q') && !$info && \dash\engine\process::status())
 			{

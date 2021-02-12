@@ -14,16 +14,7 @@ class model
 			'bill'  => \dash\request::post('bill'),
 		];
 
-		if(\lib\nic\mode::api())
-		{
-			$get_api     = new \lib\nic\api();
-			$load_domain = $get_api->domain_update_holder(\dash\data::domainDetail_id(), $post);
-		}
-		else
-		{
-			$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'holder');
-		}
-
+		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'holder');
 
 		if(\dash\engine\process::status())
 		{

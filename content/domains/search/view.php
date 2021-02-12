@@ -17,17 +17,7 @@ class view
 		if($q)
 		{
 			\dash\data::myDomain($q);
-
-			if(\dash\url::isLocal())
-			{
-				$get_api = new \lib\nic\api();
-				$info    = $get_api->domain_check($q);
-			}
-			else
-			{
-				$info = \lib\app\domains\check::multi_check($q);
-			}
-
+			$info = \lib\app\domains\check::multi_check($q);
 			\dash\data::infoResult($info);
 		}
 	}
