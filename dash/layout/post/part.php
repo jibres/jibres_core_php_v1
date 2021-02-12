@@ -22,18 +22,22 @@ class part
     {
       case 'video':
         $html .= self::topVideo($myGalleryTopMedia);
-        $html .= self::postTitleBox();
+        // $html .= self::postTitleBox();
+        $html .= self::title();
+        $html .= self::excerpt();
         break;
 
       case 'audio':
-        $html .= self::topAudio($myGalleryTopMedia);
         $html .= self::postTitleBox();
+        $html .= self::topAudio($myGalleryTopMedia);
         break;
 
       case 'standard':
       case 'gallery':
       default:
         $html .= self::title();
+        $html .= self::thumb(1100);
+        $html .= self::excerpt();
         break;
     }
 
@@ -75,7 +79,7 @@ class part
 
 	public static function excerpt()
 	{
-		return '<p>'. \dash\data::dataRow_excerpt(). '</p>';
+		return '<p class="excerpt">'. \dash\data::dataRow_excerpt(). '</p>';
 	}
 
 
