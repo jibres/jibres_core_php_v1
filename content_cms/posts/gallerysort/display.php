@@ -14,10 +14,10 @@
     <figure class="overlay" >
       <input type="hidden" name="sort[]" value="<?php echo a($value, 'id'); ?>">
       <?php if(a($value, 'type') === 'image') {?>
-        <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="3">
+        <img src="<?php echo \dash\fit::img(a($value, 'path'), 220); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="3">
       <?php }else{ ?>
         <div class="txtC mTB5 txtB"><?php echo T_(ucfirst(a($value, 'type'))) ?></div>
-        <img src="<?php echo \dash\app::static_image_url('wide'); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="2">
+        <img src="<?php echo \dash\fit::img(\dash\app::static_image_url('wide'), 220); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="2">
       <?php } //endif ?>
     </figure>
   </div>
