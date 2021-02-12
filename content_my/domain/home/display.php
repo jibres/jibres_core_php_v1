@@ -4,52 +4,30 @@
   <div class="f">
    <div class="c9 s12 pRa10">
 
-    <section class="f hide">
-     <div class="c s12 pRa10">
-      <a href="<?php echo \dash\url::this() ?>/search" class="stat">
-       <h3><?php echo T_("Your Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(a($myData, 'my_domain'));?></div>
-      </a>
-     </div>
-     <div class="c s0 pRa10">
-      <a href="<?php if(!a($myData, 'maybe_my_domain')){ echo \dash\url::this(). '/renew'; }else{ echo \dash\url::this(). '/search?list=renew'; } ?>" class="stat">
-       <h3><?php echo T_("Renew Domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(a($myData, 'maybe_my_domain'));?></div>
-      </a>
-     </div>
-     <div class="c s0">
-      <a href="<?php if(!a($myData, 'available_domain')){ echo \dash\url::this(). '/buy'; }else{ echo \dash\url::this(). '/search?list=available'; } ?>" class="stat">
-       <h3><?php echo T_("Available domains");?></h3>
-       <div class="val"><?php echo \dash\fit::stats(a($myData, 'available_domain'));?></div>
-      </a>
-     </div>
-    </section>
-
-
     <section class="row">
      <div class="c">
-      <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/payments" class="stat x70">
        <h3><?php echo T_("Total Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'total_payment'));?></div>
       </a>
      </div>
 
      <div class="c s0">
-      <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat x70">
        <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'last_year_payment'));?></div>
       </a>
      </div>
 
      <div class="c">
-      <a href="<?php echo \dash\url::kingdom(); ?>/account/billing?from=domain" class="stat<?php if(a($myData, 'user_budget')>0) echo " green"; ?>">
+      <a href="<?php echo \dash\url::kingdom(); ?>/account/billing?from=domain" class="stat x70<?php if(a($myData, 'user_budget')>0) echo " green"; ?>">
        <h3><?php echo T_("Your Current Balance");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'user_budget'));?></div>
       </a>
      </div>
 
      <div class="c s0">
-      <a href="<?php echo \dash\url::this() ?>/predict" class="stat">
+      <a href="<?php echo \dash\url::this() ?>/predict" class="stat x70">
        <h3><?php echo T_("Predict Late Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'predict_late_payment'));?></div>
       </a>
@@ -57,9 +35,6 @@
     </section>
 
     <div id="chartdiv" class="box chart x320 s0" data-abc='my/domainhomepage'></div>
-
-
-
 
     <section class="row s0">
      <div class="c">
@@ -82,13 +57,6 @@
       </a>
      </div>
    </section>
-
-
-
-
-
-
-
    </div>
 
 
