@@ -12,10 +12,10 @@ if(isset($dataRow['gallery_array']) && is_array($dataRow['gallery_array']))
         $endUrl = substr($myUrl['path'], -4);
         if(in_array($endUrl, ['.jpg', '.png', '.gif', '.webp']))
         {
-          echo '<div class="c-xs-12 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
+          echo '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
           {
             echo '<a data-action href="'. $myUrl['path'].'" data-fancybox="productGallery">';
-            echo '<img src="'. $myUrl['path']. '" alt="'. \dash\data::dataRow_title(). '">';
+            echo '<img src="'. \dash\fit::img($myUrl['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
             echo '</a>';
           }
           echo '</div>';
