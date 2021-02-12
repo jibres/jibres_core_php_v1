@@ -237,17 +237,22 @@ class part
 		{
 			$html .= '<div class="row align-center ">';
 			{
-				$html .= '<div class="c-auto">';
+				$html .= '<div class="c-xs-6 c-auto">';
 				{
 					$html .= self::publishDate();
 				}
 				$html .= '</div>';
-				$html .= '<div class="c-auto">';
+				$html .= '<div class="c-xs-6 c-auto txtL">';
 				{
 					$html .= self::readingTime();
 				}
 				$html .= '</div>';
-				$html .= '<nav class="c share1 txtL">';
+				$html .= '<div class="c-xs-2 c txtL">';
+				{
+					$html .= T_("Share");
+				}
+				$html .= '</div>';
+				$html .= '<nav class="c-xs-10 c-auto share1 txtL">';
 				{
 					$html .= self::shareLink();
 				}
@@ -298,7 +303,6 @@ class part
 	public static function shareLink()
 	{
 		$html = '';
-
 		// facebook
 		{
 			$html .= '<a target="_blank" class="facebook" title="'. T_("Share of Facebook"). '"';
@@ -331,7 +335,6 @@ class part
 			$html .= T_("Share of Telegram");
 			$html .= '</a>';
 		}
-
 
     return $html;
 	}
