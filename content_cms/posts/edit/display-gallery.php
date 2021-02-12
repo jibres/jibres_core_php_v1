@@ -143,11 +143,11 @@ switch (a($value, 'type'))
                   <?php } else if(a($value, 'type') === 'image') {?>
                     <img src="<?php echo \dash\fit::img(a($value, 'path'), 460); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
                   <?php } else if(a($value, 'type') === 'pdf') {?>
-                    <div class="file"><i class="sf-file-pdf-o"></i></div>
+                    <div class="file"><i class="sf-file-pdf-o"></i><?php echo T_("PDF"); ?></div>
                   <?php } else if(a($value, 'type') === 'zip') {?>
-                    <div class="file"><i class="sf-file-archive-o"></i></div>
+                    <div class="file"><i class="sf-file-archive-o"></i><?php echo T_("ZIP"); ?></div>
                   <?php } else { ?>
-                    <div class="file"><i class="sf-file-o"></i></div>
+                    <div class="file"><i class="sf-file-o"></i><?php echo T_("File"); ?></div>
                   <?php } ?>
                   <div>
                     <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
