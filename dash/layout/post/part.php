@@ -384,13 +384,23 @@ class part
 		$myPostSimilar = \dash\app\posts\search::similar_post(\dash\data::dataRow_id());
 		if($myPostSimilar)
 		{
-			$html .= '<nav class="similarPost msg">';
-			$html .= '<h4>'. T_("Recommended for you"). '</h4>';
-			foreach ($myPostSimilar as $key => $value)
+			$html .= '<section class="box similarPost">';
 			{
-				$html .= '<a class="block" href="'. a($value, 'link') .'">'. $value['title']. '</a>';
+				$html .= '<header>';
+				{
+					$html .= '<h4>'. T_("Recommended for you"). '</h4>';
+				}
+				$html .= '</header>';
+
+				$html .= '<nav class="body">';
+				foreach ($myPostSimilar as $key => $value)
+				{
+					$html .= '<a class="block" href="'. a($value, 'link') .'">'. $value['title']. '</a>';
+				}
+				$html .= '</nav>';
 			}
-			$html .= '</nav>';
+
+			$html .= '</section>';
 		}
     return $html;
 	}
