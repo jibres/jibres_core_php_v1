@@ -173,5 +173,11 @@ class part
 
     return $htmlAudio;
 	}
+
+
+	public static function gallery()
+	{
+
+	}
 }
 ?>

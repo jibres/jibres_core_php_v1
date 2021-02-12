@@ -1,4 +1,5 @@
 <?php
+$dataRow = \dash\data::dataRow();
 if(isset($dataRow['gallery_array']) && is_array($dataRow['gallery_array']))
 {
   echo '<div class="gallery" id="lightgallery">';
