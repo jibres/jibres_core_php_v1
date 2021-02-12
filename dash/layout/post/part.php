@@ -114,7 +114,7 @@ class part
 
     if(a($_data, 'type') === 'video')
     {
-      $htmlVideo .= '<video controls';
+      $htmlVideo .= '<video controls preload="metadata"';
       if($_poster)
       {
       	$htmlVideo .= ' poster="'. $_poster . '"';
@@ -134,7 +134,7 @@ class part
 
 		if(a($_data, 'type') === 'audio')
     {
-      $htmlAudio .= '<audio controls>';
+      $htmlAudio .= '<audio controls preload="metadata">';
       $htmlAudio .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
       $htmlAudio .= '</audio>';
     }
@@ -188,11 +188,33 @@ class part
 	      			break;
 
 	      		case 'pdf':
+		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+		          {
+		            $html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
+		            $html .= '<i class="sf-file-pdf-o"></i>';
+		            $html .= T_("Download PDF");
+		            $html .= '</a>';
+		          }
+		          $html .= '</div>';
+	      			break;
+
+	      		case 'zip':
+		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+		          {
+		            $html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
+		            $html .= '<i class="sf-file-archive-o"></i>';
+		            $html .= T_("Download ZIP");
+		            $html .= '</a>';
+		          }
+		          $html .= '</div>';
+	      			break;
+
 	      		default:
 		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
 		          {
-		            $html .= '<a data-action href="'. $myMedia['path'].'">';
-		            $html .= 'File123';
+		            $html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
+		            $html .= '<i class="sf-file-o"></i>';
+		            $html .= T_("Download File");
 		            $html .= '</a>';
 		          }
 		          $html .= '</div>';
