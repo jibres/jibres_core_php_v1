@@ -228,5 +228,78 @@ class part
 
 		 return $html;
 	}
+
+
+	public static function infoBox()
+	{
+		$html = '';
+		$html .= '<div class="row infoBox msg">';
+		{
+			$html .= '<div class="c-auto">';
+			{
+				$html .= self::publishDate();
+			}
+			$html .= '</div>';
+			$html .= '<div class="c-auto">';
+			{
+				$html .= self::readingTime();
+			}
+			$html .= '</div>';
+			$html .= '<div class="c">';
+			{
+
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
+
+	public static function publishDate()
+	{
+		$html = '';
+
+    if(\dash\data::dataRow_allowshowpublishdate())
+    {
+      $html .= '<time class="ltr compact"';
+      $html .= ' datetime="'. \dash\data::dataRow_publishdate(). '"';
+      $html .= ' title="'. T_("This post published at :val", ['val' => \dash\fit::datetime_full(\dash\data::dataRow_publishdate()) ]). '"';
+      $html .= '>';
+      $html .= \dash\fit::date_time(\dash\data::dataRow_publishdate());
+      $html .= '</time>';
+    }
+
+    return $html;
+	}
+
+
+	public static function readingTime()
+	{
+		$html = '';
+
+    if(\dash\data::dataRow_readingtime())
+    {
+    	$val = ['val' => \dash\fit::number(\dash\data::dataRow_readingtime())];
+      $html .= '<attr title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+      $html .= T_(":val read", $val);
+      $html .= '</attr>';
+    }
+
+    return $html;
+	}
+
+	public static function commentBox()
+	{
+    // add new comment
+    if(\dash\data::dataRow_allowcomment())
+    {
+      require_once(core. 'layout/comment/comment-add.php');
+    }
+    // show list of comments
+    require_once(core. 'layout/comment/comment-list.php');
+	}
+
 }
 ?>

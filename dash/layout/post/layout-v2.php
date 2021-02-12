@@ -7,11 +7,11 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
   echo '<div class="avand-md zero">';
   {
     echo \dash\layout\post\part::header($subType);
+    echo \dash\layout\post\part::infoBox();
     echo \dash\layout\post\part::article();
-
+    echo \dash\layout\post\part::gallery();
   }
 
-  echo \dash\layout\post\part::gallery();
 
 
   echo '<hr>';
@@ -71,20 +71,10 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
   echo '</div>';
 
 
-  // comment box
-  {
-    // add new comment
-    if(\dash\data::dataRow_comment() === 'open' || ( \dash\data::dataRow_comment() === 'default' && a($cmsSetting, 'defaultcomment') === 'open' ))
-    {
-      require_once(core. 'layout/comment/comment-add.php');
-    }
-    // show list of comments
-    require_once(core. 'layout/comment/comment-list.php');
-  }
+  \dash\layout\post\part::commentBox();
 
   // close avand
   echo '</div>';
-
 }
 
 // close post Block
