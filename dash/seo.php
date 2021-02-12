@@ -220,7 +220,7 @@ class seo
 	 *
 	 * @return     <type>  The word count.
 	 */
-	private static function get_word_count($_text)
+	public static function get_word_count($_text)
 	{
 		$_text = strip_tags($_text);
 
