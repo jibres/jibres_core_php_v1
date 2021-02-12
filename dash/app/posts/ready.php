@@ -299,7 +299,7 @@ class ready
 				break;
 		}
 
-		switch ($result['showwriter'])
+		switch (a($result, 'showwriter'))
 		{
 			case 'visible':
 				$result['allowshowwriter'] = true;
@@ -323,7 +323,7 @@ class ready
 		}
 
 
-		switch ($result['showdate'])
+		switch (a($result, 'showdate'))
 		{
 			case 'visible':
 				$result['allowshowpublishdate'] = true;
