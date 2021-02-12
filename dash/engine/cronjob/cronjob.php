@@ -27,7 +27,7 @@ class cronjob
 		$index_php_addr = $jibres_addr. "public_html/index.php";
 
 
-		$SERVER_NAME = 'jibres.ir';
+		$SERVER_NAME = 'jibres.store';
 
 		// fake $_SERVER
 		$server =
