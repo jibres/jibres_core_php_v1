@@ -177,7 +177,48 @@ class part
 
 	public static function gallery()
 	{
+		$html = '';
+		$galleryArr = a(\dash\data::dataRow(), 'gallery_array');
 
+		$html .= self::galleryImg($galleryArr);
+
+		return $html;
+	}
+
+
+	public static function galleryImg($_galleryArr)
+	{
+		$html = '';
+		if(!is_array($_galleryArr))
+		{
+			return null;
+		}
+
+	  $html .= '<div class="gallery" id="lightgallery">';
+	  {
+	    $html .= '<div class="row">';
+	    foreach ($_galleryArr as $key => $myUrl)
+	    {
+	      if(a($myUrl, 'path'))
+	      {
+	        $endUrl = substr(a($myUrl, 'path'), -4);
+	        if(in_array($endUrl, ['.jpg', '.png', '.gif', '.webp']))
+	        {
+	          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2">';
+	          {
+	            $html .= '<a data-action href="'. $myUrl['path'].'" data-fancybox="productGallery">';
+	            $html .= '<img src="'. \dash\fit::img($myUrl['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
+	            $html .= '</a>';
+	          }
+	          $html .= '</div>';
+	        }
+	      }
+	    }
+	    $html .= '</div>';
+	  }
+	  $html .= '</div>';
+
+		 return $html;
 	}
 }
 ?>
