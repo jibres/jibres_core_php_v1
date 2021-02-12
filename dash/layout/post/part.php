@@ -147,7 +147,6 @@ class part
 	{
 		$html = '';
 		$galleryArr = a(\dash\data::dataRow(), 'gallery_array');
-		var_dump(a(\dash\data::dataRow(), 'gallery'));
 		if(!is_array($galleryArr))
 		{
 			return null;
@@ -192,7 +191,6 @@ class part
 	      		default:
 		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
 		          {
-		          	var_dump($myMedia);
 		            $html .= '<a data-action href="'. $myMedia['path'].'">';
 		            $html .= 'File123';
 		            $html .= '</a>';
