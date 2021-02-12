@@ -239,7 +239,7 @@ if(a($dataRowMember,  'status') === 'ban')
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
-            <img src="<?php echo \dash\data::dataRowMember_avatar() ?>">
+            <img src="<?php echo \dash\fit::url_thumb(\dash\data::dataRowMember_avatar()); ?>">
             <div class="key txtB"><?php echo \dash\data::dataRowMember_displayname();?></div>
             <div class="go"></div>
           </a>
