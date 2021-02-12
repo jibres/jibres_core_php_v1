@@ -26,22 +26,22 @@
     </section>
 
 
-    <section class="f">
-     <div class="c pRa10">
+    <section class="row">
+     <div class="c">
       <a href="<?php echo \dash\url::this() ?>/payments" class="stat">
        <h3><?php echo T_("Total Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'total_payment'));?></div>
       </a>
      </div>
 
-     <div class="c pRa10 s0">
+     <div class="c s0">
       <a href="<?php echo \dash\url::this() ?>/payments?time=365" class="stat">
        <h3><?php echo T_("Last Year Payments");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'last_year_payment'));?></div>
       </a>
      </div>
 
-     <div class="c pRa10">
+     <div class="c">
       <a href="<?php echo \dash\url::kingdom(); ?>/account/billing?from=domain" class="stat<?php if(a($myData, 'user_budget')>0) echo " green"; ?>">
        <h3><?php echo T_("Your Current Balance");?> <small>(<?php echo \lib\currency::unit(); ?>)</small></h3>
        <div class="val"><?php echo \dash\fit::number(a($myData, 'user_budget'));?></div>
@@ -61,14 +61,14 @@
 
 
 
-    <section class="f s0">
-     <div class="c pRa10">
+    <section class="row s0">
+     <div class="c">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
        <?php $myPercent=a($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain with Auto Renew");?></h3>
       </a>
      </div>
-     <div class="c pRa10">
+     <div class="c">
       <a href="<?php echo \dash\url::this() ?>/search?" class="circularChartBox">
        <?php $myPercent=a($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Domain Locked");?></h3>
@@ -94,7 +94,7 @@
 
    <div class="c3 s12">
 
-    <nav class="items">
+    <nav class="items long">
      <ul>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/search">
@@ -113,7 +113,7 @@
      </ul>
     </nav>
 
-    <nav class="items">
+    <nav class="items long">
      <ul>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/buy">
@@ -142,7 +142,7 @@
      </ul>
     </nav>
 
-    <nav class="items">
+    <nav class="items long">
      <ul>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/option">
@@ -153,7 +153,7 @@
      </ul>
     </nav>
 
-    <nav class="items">
+    <nav class="items long">
      <ul>
       <li>
        <a class="f" href="<?php echo \dash\url::this();?>/payments">
@@ -176,7 +176,7 @@
      </ul>
     </nav>
 
-    <nav class="items s0">
+    <nav class="items long s0">
      <ul>
       <li>
        <a class="f" target="_blank" href="<?php echo \dash\url::api('developers');?>/docs">

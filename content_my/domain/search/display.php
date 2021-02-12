@@ -1,7 +1,7 @@
 <?php
 $result = '';
 
-$result .= '<nav class="items">';
+$result .= '<nav class="items ltr">';
 $result .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
 {
@@ -13,20 +13,20 @@ foreach (\dash\data::dataTable() as $key => $value)
 
     if(isset($value['autorenew']) && $value['autorenew'])
     {
-      $result .= '<div title="'. T_("Autorenew is active").'" class="value s0"><i class="sf-refresh fc-blue"></i></div>';
+      $result .= '<i class="sf-refresh fc-blue" title="'. T_("Autorenew is active").'"></i>';
     }
     else
     {
-      $result .= '<div title="'. T_("Autorenew is deactive").'" class="value s0"><i class="sf-refresh fc-mute"></i></div>';
+      $result .= '<i class="sf-refresh fc-mute" title="'. T_("Autorenew is deactive").'"></i>';
     }
 
     if(isset($value['lock']) && $value['lock'] == 1 )
     {
-      $result .= '<div title="'. T_("Domain is Lock").'" class="value s0"><i class="sf-lock fc-green"></i></div>';
+      $result .= '<i class="sf-lock s0 fc-green" title="'. T_("Domain is Lock").'"></i>';
     }
     elseif(isset($value['lock']) && $value['lock'] == 0)
     {
-      $result .= '<div title="'. T_("Domain is Unlock").'" class="value s0"><i class="sf-unlock fc-red"></i></div>';
+      $result .= '<i class="sf-unlock s0 fc-red" title="'. T_("Domain is Unlock").'"></i>';
     }
     else
     {
