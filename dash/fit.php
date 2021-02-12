@@ -269,5 +269,36 @@ class fit{
 		return $newUrl;
 	}
 
+
+	public static function img($_src, $_size = null)
+	{
+		$dotPosition = strrpos($_src, '.');
+		if(!$dotPosition)
+		{
+			return false;
+		}
+		// check size of img
+		switch ($_size)
+		{
+			case '120':
+			case '220':
+			case '300':
+			case '460':
+			case '780':
+			case '1100':
+			case 'raw':
+				// do nothing
+				break;
+
+			default:
+				$_size = '120';
+				break;
+		}
+
+		$newUrl = substr($_src, 0, $dotPosition). '-w'. $_size .'.webp';
+
+		return $newUrl;
+	}
+
 }
 ?>
