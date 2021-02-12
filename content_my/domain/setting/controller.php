@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_my\domain\controller::check_login();
+
 
 		$domain = \dash\request::get('domain');
 		if($domain)

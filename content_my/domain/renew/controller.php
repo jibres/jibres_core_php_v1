@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		\content_my\domain\controller::check_login();
+
 
 		if(\dash\url::dir(3))
 		{
