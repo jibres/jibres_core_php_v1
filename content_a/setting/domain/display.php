@@ -1,18 +1,8 @@
-
-
-<?php if(!\dash\data::dataTable()){?>
-
-  <?php require_once('add/display.php'); ?>
-
-<?php }else
-{
+<?php
 
 $domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.jibres.store';
 
-
 ?>
-
-
 <div class="avand-md">
   <nav class="items">
     <ul>
@@ -23,6 +13,7 @@ $domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.jibres.store';
             <div class="go"></div>
           </a>
       </li>
+      <?php if(\dash\data::dataTable()){ ?>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
       <li>
           <a class="f item" href="<?php echo \dash\url::that(). '/manage?domain='. a($value, 'domain'); ?>">
@@ -36,12 +27,12 @@ $domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.jibres.store';
           </a>
       </li>
       <?php } //endfor ?>
-
+      <?php } // endif ?>
     </ul>
   </nav>
 </div>
-
-
-<?php \dash\utility\pagination::html(); ?>
-
-<?php } //endif ?>
+<?php
+\dash\utility\pagination::html();
+echo '<br>';
+  require_once('add/display.php');
+?>
