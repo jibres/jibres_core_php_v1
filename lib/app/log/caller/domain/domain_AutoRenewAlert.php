@@ -66,7 +66,7 @@ class domain_AutoRenewAlert
 			}
 			else
 			{
-				$msg = T_("Domain :val will be renewed at tomorrow. But your balance is low. Please recharge your account", ['val' => $my_domain]);
+				$msg = T_("Domain :val will be renewed at tomorrow. But your balance is low.", ['val' => $my_domain]);
 			}
 		}
 
