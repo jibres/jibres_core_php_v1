@@ -270,11 +270,11 @@ if(count($myGallery) > 1)
 <?php
 if(\dash\data::productSettingSaved_comment())
 {
-  require_once(core. 'layout\comment\comment-add.php');
+  require_once(core. 'layout/comment/comment-add.php');
 } //endif comment is closed
 ?>
 
-<?php require_once(core. 'layout\comment\comment-list.php'); ?>
+<?php require_once(core. 'layout/comment/comment-list.php'); ?>
 
 
 
