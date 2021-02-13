@@ -401,6 +401,8 @@ class renew
 				'gateway'    => null,
 				'available'  => 0,
 				'dateexpire' => $expiredate,
+				'renewnotif' => null,
+				'renewtry'   => null,
 			];
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
