@@ -2,8 +2,6 @@
 <div class="f justify-center">
  <div class="c9 m12 s12">
   <div class="cbox">
-   <div class="msg minimal pLR20-f fs16 txtB ltr txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
-
    <p class="msg info2"><?php echo T_('You can change domain technical and billing holder to another one to allow them to do some action.'); ?></p>
    <form method="post" autocomplete="off" >
        <label for="iholder"><?php echo T_("Domain Holder"); ?></label>
