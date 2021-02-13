@@ -177,7 +177,7 @@ $result .= '<nav class="items long2">';
         {
             $result .= '<li>';
             $result .= '<a class="f item" ';
-            $result .= 'href="'. \dash\url::that(). '/dns?holder='. \dash\request::get('domain'). '">';
+            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '">';
             $result .= '<div class="key">'. T_("Manage Domain Holder").'</div>';
             $result .= '<div class="go"></div>';
             $result .= '</a>';
