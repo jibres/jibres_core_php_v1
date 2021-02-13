@@ -6,6 +6,8 @@
             <th class="ltr txtL">Domain life time</th>
             <th class="ltr txtL">Auto renew period IR</th>
             <th class="txtC">Auto renew period COM</th>
+            <th class="txtC">Renew Notif</th>
+            <th class="txtC">Renew Try</th>
         </tr>
     </thead>
     <tbody class="ltr txtL">
@@ -19,6 +21,8 @@
             <td class="ltr txtL"><?php echo a($value, 'domainlifetime'); ?></td>
             <td class="ltr txtL"><?php echo a($value, 'autorenewperiod'); ?></td>
             <td class="txtC"><?php echo a($value, 'autorenewperiodcom'); ?></td>
+            <td class="txtC"><?php echo \dash\fit::date_time(a($value, 'renewnotif')); ?></td>
+            <td class="txtC"><?php echo \dash\fit::date_time(a($value, 'renewtry')); ?></td>
 
         </tr>
         <?php } //endfor ?>

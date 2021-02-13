@@ -63,22 +63,23 @@ class search
 
 		$condition =
 		[
-			'order'             => 'order',
-			'sort'              => 'string_100',
-			'list'              => ['enum' => ['mydomain', 'renew', 'available', 'import']],
-			'lock'              => ['enum' => ['on', 'off', 'unknown']],
-			'autorenew'         => ['enum' => ['on', 'off']],
-			'reg'               => ['enum' => ['com', 'ir']],
-			'predict'           => 'bit',
-			'get_total_predict' => 'bit',
-			'status'            => 'string_100',
-			'user_id'           => 'id',
-			'is_admin'          => 'bit',
-			'get_count'         => 'bit',
-			'user'              => 'code',
-			'autorenew_notif'   => 'yes_no',
-			'autorenew_mode'    => ['enum' => ['1week', '1month', '6month']],
-			'pagination'        => 'y_n',
+			'order'               => 'order',
+			'sort'                => 'string_100',
+			'list'                => ['enum' => ['mydomain', 'renew', 'available', 'import']],
+			'lock'                => ['enum' => ['on', 'off', 'unknown']],
+			'autorenew'           => ['enum' => ['on', 'off']],
+			'reg'                 => ['enum' => ['com', 'ir']],
+			'predict'             => 'bit',
+			'get_total_predict'   => 'bit',
+			'status'              => 'string_100',
+			'user_id'             => 'id',
+			'is_admin'            => 'bit',
+			'get_count'           => 'bit',
+			'user'                => 'code',
+			'autorenew_notif'     => 'yes_no',
+			'autorenew_adminlist' => 'yes_no',
+			'autorenew_mode'      => ['enum' => ['1week', '1month', '6month']],
+			'pagination'          => 'y_n',
 
 		];
 
@@ -160,6 +161,7 @@ class search
 					domain.dateexpire,
 					domain.autorenew,
 					domain.renewnotif,
+					domain.renewtry,
 					domain.status,
 					domain.user_id AS `owner`,
 					domain.available,
@@ -202,10 +204,19 @@ class search
 				}
 				else
 				{
-					$and[] = " domain.renewnotif IS NOT NULL ";
-					$and[] = " domain.renewtry IS NULL ";
+					if($data['autorenew_adminlist'] === 'yes')
+					{
+						// not check anything
+						// big limit to show to admin
+						$meta['limit'] = 100;
+					}
+					else
+					{
+						$and[] = " domain.renewnotif IS NOT NULL ";
+						$and[] = " domain.renewtry IS NULL ";
+						$meta['limit'] = 10;
+					}
 
-					$meta['limit'] = 10;
 
 				}
 			}

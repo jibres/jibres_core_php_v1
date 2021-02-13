@@ -18,9 +18,9 @@ class view
 		{
 			$args =
 			[
-				'predict'        => true,
-				'autorenew_mode' => $date,
-				'autorenew_notif' => 'yes',
+				'predict'             => true,
+				'autorenew_mode'      => $date,
+				'autorenew_adminlist' => 'yes',
 			];
 
 			$list = \lib\app\nic_domain\search::get_list(null, $args);
