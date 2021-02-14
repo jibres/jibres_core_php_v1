@@ -38,6 +38,7 @@
 
 				<?php }else{ ?>
 
+				<div class="cauto mRa10" data-confirm data-data='{"remove": "remove", "id": "<?php echo a($value, 'id') ?>"}'><i class="sf-trash fs14 fc-red"></i></div>
 				<div class="c s12"><small><?php echo T_("Status"); ?></small> <b><?php echo $value['tstatus']; ?></b></div>
 
 				<?php }//endif ?>

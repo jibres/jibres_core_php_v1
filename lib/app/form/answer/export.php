@@ -54,6 +54,16 @@ class export
 	}
 
 
+
+	public static function remove($_id)
+	{
+		\dash\permission::access('ManageForm');
+
+		return \lib\app\export\remove::request('form_answer', $_id);
+
+	}
+
+
 	public static function list($_form_id)
 	{
 		\dash\permission::access('ManageForm');
