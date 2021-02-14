@@ -67,7 +67,11 @@ foreach (\dash\data::conversation() as $key => $value)
     </div>
 
 
-      <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
+<?php if(a($value, 'file')) {?>
+  <div>
+    <a class="attachment btn dark" target="_blank" href="<?php echo a($value, 'file') ?>"><i class="sf-attach mRa10"></i> <?php echo T_("Show Attachment") ?></a>
+  </div>
+<?php }//endif ?>
 
   </div>
  </div>
