@@ -6,6 +6,15 @@ class controller
 	public static function routing()
 	{
 		$name = \dash\url::dir(1);
+		if($name === 'errorlog')
+		{
+			if(is_file('/var/log/nginx/error.log'))
+			{
+				\dash\file::download('/var/log/nginx/error.log');
+			}
+			\dash\code::boom();
+		}
+
 
 		if(!$name)
 		{

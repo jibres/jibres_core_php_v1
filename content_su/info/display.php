@@ -3,6 +3,7 @@
   <h2><?php echo T_("Info"); ?></h2>
    	<a class="btn" target='_blank' href="<?php echo \dash\url::here(); ?>/info/server"><?php echo T_("Show server info"); ?></a>
    	<a class="btn" target='_blank' href="<?php echo \dash\url::here(); ?>/info/php"><?php echo T_("Show PHP info"); ?></a>
+   	<a download class="btn" target='_blank' href="<?php echo \dash\url::this(); ?>/errorlog">Download NGINX error.log</a>
  </div>
 
 <div class="tblBox fs14">
