@@ -38,7 +38,7 @@ class product
 		}
 
 
-		$file_detail         = \dash\upload\export::push_export_file($addr, $file_name, 'products');
+		$file_detail         = \dash\upload\importexport::push_export_file($addr, $file_name, 'products');
 
 		$path = null;
 		if(isset($file_detail['path']))

@@ -80,25 +80,15 @@ class product
 
 	public static function pre_check($_detail, $_inline = false)
 	{
-		$file     = isset($_detail['file']) ? $_detail['file'] : null;
+		$_detail = \lib\app\export\ready::row($_detail);
+
+		$file     = isset($_detail['download_link']) ? $_detail['download_link'] : null;
 		$id       = isset($_detail['id']) ? $_detail['id'] : null;
 		$old_meta = isset($_detail['meta']) ? $_detail['meta'] : null;
 
 		if(!$file)
 		{
 			\dash\notif::error(T_("File not found"));
-			return false;
-		}
-
-		if(!is_file($file))
-		{
-			\dash\notif::error(T_("File not found"));
-			return false;
-		}
-
-		if(filesize($file) > (6*1024*1024))
-		{
-			\dash\notif::error(T_("File size error"));
 			return false;
 		}
 

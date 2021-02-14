@@ -29,40 +29,21 @@ class add
 	private static function new_import($_type)
 	{
 
-		$upload_setting =
-		[
-			'ext'        => ['csv'],
-			'allow_size' => (5*1024*1024),
-		];
+		$file_name = 'import-products-'. date("Y-m-d"). '-'. date("His"). '-'. rand(11111, 99999);
 
-		$meta = [];
+		$file_detail = \dash\upload\importexport::push_import_file('import', $file_name, 'products');
 
-		$file_detail = \dash\upload\file::upload('import', $upload_setting);
-		if(!$file_detail || !isset($file_detail['path']) || !isset($file_detail['id']))
+		if(!$file_detail)
 		{
 			return false;
-		}
-
-		$path = \dash\upload\directory::move_to('store'). $file_detail['path'];
-
-
-		$meta['file_id'] = $file_detail['id'];
-
-		if($meta)
-		{
-			$meta = json_encode($meta, JSON_UNESCAPED_UNICODE);
-		}
-		else
-		{
-			$meta = null;
 		}
 
 		$insert =
 		[
 			'type'        => $_type,
 			'mode'        => 'import',
-			'file'        => $path,
-			'meta'        => $meta,
+			'file'        => $file_detail['path'],
+			'meta'        => null,
 			'creator'     => \dash\user::id(),
 			'status'      => 'awaiting',
 			'datecreated' => date("Y-m-d H:i:s"),
