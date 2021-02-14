@@ -79,6 +79,7 @@ else
             <div class="value"><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></div>
           </div>
         </li>
+        <?php if(\dash\data::dataRow_answertime()) {?>
         <li>
           <div class="f item">
             <i class="sf-cardiac-pulse"></i>
@@ -86,6 +87,7 @@ else
             <div class="value "><?php echo \dash\utility\human::time(\dash\data::dataRow_answertime(), true); ?></div>
           </div>
         </li>
+      <?php } //endif ?>
       </ul>
     </nav>
 
@@ -181,6 +183,7 @@ else
 
     <nav class="items long">
       <ul>
+        <?php if(a(\dash\data::conversation(), 0, 'messagecount')) {?>
         <li>
           <div class="f item">
             <i class="sf-comment"></i>
@@ -188,6 +191,8 @@ else
             <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'messagecount')); ?></div>
           </div>
         </li>
+      <?php } //endif ?>
+        <?php if(a(\dash\data::conversation(), 0, 'answercount')) {?>
         <li>
           <div class="f item">
             <i class="sf-comments-o"></i>
@@ -195,6 +200,8 @@ else
             <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'answercount')); ?></div>
           </div>
         </li>
+      <?php } //endif ?>
+        <?php if(a(\dash\data::conversation(), 0, 'attachmentcount')) {?>
         <li>
           <div class="f item">
             <i class="sf-attach"></i>
@@ -202,6 +209,7 @@ else
             <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'attachmentcount')); ?></div>
           </div>
         </li>
+      <?php } //endif ?>
       </ul>
     </nav>
 
