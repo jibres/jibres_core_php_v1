@@ -28,6 +28,10 @@ class ready
 					$result['tstatus'] = T_(ucfirst($value));
 					break;
 
+				case 'file':
+					$result[$key] = $value;
+					$result['download_link'] = \lib\filepath::fix($value);
+					break;
 
 				default:
 					$result[$key] = $value;

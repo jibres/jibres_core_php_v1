@@ -44,26 +44,38 @@ class directory
 	}
 
 
-	public static function get($_filename, $_remote_server = false)
+	public static function get($_filename, $_remote_server = false, $_meta = [])
 	{
 		if(\dash\engine\store::inStore())
 		{
-			return self::store_mode($_filename, $_remote_server);
+			return self::store_mode($_filename, $_remote_server, $_meta);
 		}
 		else
 		{
-			return self::jibres_mode($_filename, $_remote_server);
+			return self::jibres_mode($_filename, $_remote_server, $_meta);
 		}
 	}
 
 
-	private static function store_mode($_filename, $_remote_server = false)
+	private static function store_mode($_filename, $_remote_server = false, $_meta = [])
 	{
 		$move_to    = self::move_to('store', $_remote_server);
 
-
 		$folder_id  = \dash\store_coding::encode_raw();
-		$folder_id  .= '/'. date("Ym");
+
+		$file_id = null;
+
+		if(isset($_meta['special_path_name']) && $_meta['special_path_name'])
+		{
+			$folder_id .= '/'. $_meta['special_path_name'];
+		}
+		else
+		{
+			$folder_id  .= '/'. date("Ym");
+			$qry_count     = \dash\db\files::attachment_count();
+			$file_id       = (string) ($qry_count + 1) . '-';
+		}
+
 
 		$folder_loc = $move_to . $folder_id;
 
@@ -75,10 +87,7 @@ class directory
 			}
 		}
 
-		$qry_count     = \dash\db\files::attachment_count();
-		$file_id       = $qry_count + 1;
-
-		$full_addr      = $folder_loc. '/'. $file_id. '-'. $_filename;
+		$full_addr      = $folder_loc. '/'. $file_id. $_filename;
 
 		$path = str_replace($move_to, '', $full_addr);
 

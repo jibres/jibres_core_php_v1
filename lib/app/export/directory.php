@@ -18,6 +18,12 @@ class directory
         return $master_dir. $_name. '.csv';
 	}
 
+	public static function temp_dir($_prefix)
+	{
+		$tmpfname = tempnam("/tmp", "JIBRES_EXPORT_". mb_strtoupper($_prefix). '_');
+		return $tmpfname;
+	}
+
 
 	public static function product($_name)
 	{

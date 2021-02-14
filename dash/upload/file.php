@@ -30,11 +30,26 @@ class file
 			{
 				$mime = \dash\upload\extentions::_mime_content_type($my_temp_file);
 
-				$file_name = basename($my_temp_file);
-				$ext = \dash\upload\extentions::get_ext_from_mime($mime);
-				if($ext)
+				if(isset($_meta['special_file_name']) && $_meta['special_file_name'])
 				{
-					$file_name .= '.'. $ext;
+					$file_name = $_meta['special_file_name'];
+				}
+				else
+				{
+					$file_name = basename($my_temp_file);
+				}
+
+				if(isset($_meta['special_file_ext']) && $_meta['special_file_ext'])
+				{
+					$file_name .= '.'. $_meta['special_file_ext'];
+				}
+				else
+				{
+					$ext = \dash\upload\extentions::get_ext_from_mime($mime);
+					if($ext)
+					{
+						$file_name .= '.'. $ext;
+					}
 				}
 
 				self::$MY_FILES[$_meta['upload_name']] =
@@ -105,10 +120,13 @@ class file
 	{
 		$default_meta =
 		[
-			'allow_size'       => null,
-			'upload_from_path' => null,
-			'upload_name'      => null,
-			'ext'              => null,
+			'allow_size'        => null,
+			'upload_from_path'  => null,
+			'special_path_name' => null,
+			'special_file_name' => null,
+			'special_file_ext'  => null,
+			'upload_name'       => null,
+			'ext'               => null,
 		];
 
 		if(!is_array($_meta))
@@ -176,12 +194,19 @@ class file
 			}
 		}
 
-		$md5FileNmae = md5($myFile['filename']);
+		if(isset($_meta['special_file_name']) && $_meta['special_file_name'])
+		{
+			$myfilename = $_meta['special_file_name'];
+		}
+		else
+		{
+			$myfilename = md5($myFile['filename']);
+		}
 
-		$filename = $md5FileNmae. '.'. $myFile['ext'];
+		$filename = $myfilename. '.'. $myFile['ext'];
 
 		// 5. find best directory to put the file there
-		$directory = \dash\upload\directory::get($filename, self::upload_other_server_scp());
+		$directory = \dash\upload\directory::get($filename, self::upload_other_server_scp(), $_meta);
 
 		if(!$directory)
 		{

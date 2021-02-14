@@ -6,14 +6,11 @@ class form_answer
 
 	public static function run($_detail = [])
 	{
+
 		$form_id = null;
-		if(isset($_detail['meta']) && is_string($_detail['meta']))
+		if(isset($_detail['related_id']))
 		{
-			$meta = json_decode($_detail['meta'], true);
-			if(isset($meta['form_id']))
-			{
-				$form_id = $meta['form_id'];
-			}
+			$form_id = $_detail['related_id'];
 		}
 
 		if(!$form_id)
@@ -22,6 +19,7 @@ class form_answer
 			return false;
 		}
 
+
 		ini_set('max_execution_time', 300); //300 seconds = 5 minutes
 		set_time_limit(300);
 
@@ -29,9 +27,10 @@ class form_answer
 		$start_limit  = 0;
 		$end_limit    = $step;
 		$first_record = true;
-		$file_name    = 'Export_form_answer_'. date("Y_m_d"). '_'. rand(11111, 99999);
+		$file_name    = 'export-form-'. $form_id. '-'. date("Y-m-d"). '-'. date("His"). '-'. rand(11111,99999);
 
-		$addr         = \lib\app\export\directory::form_answer($file_name);
+		$addr         = \lib\app\export\directory::temp_dir('form');
+
 
 		if (ob_get_level() == 0) ob_start();
 
@@ -59,6 +58,17 @@ class form_answer
 
 		ob_end_flush();
 
+
+		$file_detail         = \dash\upload\export::push_export_file($addr, $file_name, 'form');
+
+
+		$path = null;
+		if(isset($file_detail['path']))
+		{
+			$path = $file_detail['path'];
+		}
+
+
 		$msg     = T_("Create export form answer completed");
 		$msg     .= '<br>'. T_("This file will be automatically deleted tomorrow");
 
@@ -67,10 +77,10 @@ class form_answer
 
 		if($user_id)
 		{
-			\dash\log::set('export_ExportProduct', ['fileaddr' => $addr, 'myname' => $myname, 'to' => $user_id]);
+			\dash\log::set('export_ExportProduct', ['fileaddr' => $path, 'myname' => $myname, 'to' => $user_id]);
 		}
 
-		return $addr;
+		return $path;
 
 	}
 }
