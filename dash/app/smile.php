@@ -35,8 +35,8 @@ class smile
 				$liveUrl = urldecode(\dash\request::post('smileLive'));
 				$liveUrl = str_replace('&amp;', '&', $liveUrl);
 
-				\dash\notif::ok(T_("smile data is here, run live mode"));
-				\dash\redirect::to($liveUrl);
+				// \dash\notif::ok(T_("smile data is here, run live mode"));
+				// \dash\redirect::to($liveUrl);
 			}
 
 			$myResult =
