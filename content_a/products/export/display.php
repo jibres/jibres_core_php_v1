@@ -61,7 +61,7 @@
 				<div class="cauto mLa5">
 					<?php if(isset($value['status']) && $value['status'] == 'done') {?>
 
-					<a href="<?php echo \dash\url::that(); ?>?id=<?php echo a($value, 'id'); ?>"><?php echo T_("Download"); ?></a>
+					<a download href="<?php echo a($value, 'download_link'); ?>"><?php echo T_("Download"); ?></a>
 
 					<?php } //endif ?>
 				</div>

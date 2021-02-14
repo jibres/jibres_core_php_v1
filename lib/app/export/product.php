@@ -17,9 +17,9 @@ class product
 		$result       = \lib\db\products\get::export_list($start_limit, $end_limit);
 		$first_record = true;
 
-		$file_name = 'Export_Product_'. date("Y_m_d"). '_'. rand(11111, 99999);
+		$file_name    = 'export-products-'. date("Y-m-d"). '-'. date("His"). '-'. rand(11111,99999);
 
-		$addr = \lib\app\export\directory::product($file_name);
+		$addr         = \lib\app\export\directory::temp_dir('products');
 
 		while ($result)
 		{
@@ -37,6 +37,15 @@ class product
 
 		}
 
+
+		$file_detail         = \dash\upload\export::push_export_file($addr, $file_name, 'products');
+
+		$path = null;
+		if(isset($file_detail['path']))
+		{
+			$path = $file_detail['path'];
+		}
+
 		$msg = T_("Create export products completed");
 		$msg .= '<br>'. T_("This file will be automatically deleted tomorrow");
 
@@ -45,10 +54,10 @@ class product
 
 		if($user_id)
 		{
-			\dash\log::set('export_ExportProduct', ['fileaddr' => $addr, 'myname' => $myname, 'to' => $user_id]);
+			\dash\log::set('export_ExportProduct', ['fileaddr' => $path, 'myname' => $myname, 'to' => $user_id]);
 		}
 
-		return $addr;
+		return $path;
 
 	}
 }
