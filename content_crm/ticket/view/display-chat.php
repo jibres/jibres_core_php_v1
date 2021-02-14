@@ -27,10 +27,78 @@ foreach (\dash\data::conversation() as $key => $value)
   }
 
 ?>
- <div class="messageLine<?php if($otherSide) {echo " txtRa";} ?>">
-  <div class="message"><?php echo nl2br(a($value, 'content')); ?></div>
+ <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";} ?>">
+  <div class="c-auto">
+    <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>">
+  </div>
+  <div class="c<?php if($otherSide) {echo " txtRa";} ?>">
+    <div class="messageBox">
+      <div class="message"><?php echo nl2br(a($value, 'content')); ?></div>
+      <footer class="row<?php if($otherSide) {echo " f-row-reverse";} ?>"">
+        <div class="c-auto">
+          <i class="sf-check<?php if(a($value, 'see')) {echo ' seen';} ?>" title="<?php echo T_("Seen") ?>"></i>
+        </div>
+        <div class="c"></div>
+        <div class="c-auto os ltr">
+          <time datetime="<?php echo a($value, 'datecreated'); ?>"><?php echo \dash\fit::date(a($value, 'datecreated')); ?></time>
+          <time datetime="<?php echo a($value, 'datecreated'); ?>"><?php echo \dash\fit::time(a($value, 'datecreated')); ?></time>
+        </div>
+      </footer>
+    </div>
+  </div>
  </div>
 
+<?php } ?>
+
+</section>
+
+
+
+
+
+
+<hr class="mT50">
+<hr>
+<hr>
+
+
+
+
+
+
+
+
+
+
+<section class="chat" data-xhr='ticket-chat'>
+<?php
+foreach (\dash\data::conversation() as $key => $value)
+{
+  $userText = false;
+  if(\dash\data::dataRow_user_id() == a($value, 'user_id'))
+  {
+    $userText = true;
+  }
+  if(a($value, 'type') === 'answer')
+  {
+    $userText = false;
+  }
+  // show user text on another side
+  $otherSide = $userText;
+
+  if($customer_mode)
+  {
+    if($userText)
+    {
+      $otherSide = false;
+    }
+    else
+    {
+      $otherSide = true;
+    }
+  }
+
+?>
   <div class="box">
     <div class="pad">
       <div class="row">
@@ -48,6 +116,9 @@ foreach (\dash\data::conversation() as $key => $value)
           <div class="fc-mute"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
         </div>
       </div>
+
+
+
       <?php
         echo '<div class="mTB10 ';
        if($userText)
@@ -88,3 +159,7 @@ foreach (\dash\data::conversation() as $key => $value)
 <?php } ?>
 
 </section>
+
+
+
+
