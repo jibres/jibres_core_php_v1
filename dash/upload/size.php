@@ -153,7 +153,10 @@ class size
 		$check      = [];
 
 		$allow_size = self::sys_limit_size(ini_get('upload_max_filesize'));
-		$check[]    = $allow_size;
+		if($allow_size > 0)
+		{
+			$check[]    = $allow_size;
+		}
 
 		$max_post   = self::sys_limit_size(ini_get('post_max_size'));
 		if($max_post > 0)
@@ -162,13 +165,21 @@ class size
 		}
 
 		$memory_limit = self::sys_limit_size(ini_get('memory_limit'));
-		$check[]      = $memory_limit;
+
+		if($memory_limit > 0)
+		{
+			$check[] = $memory_limit;
+		}
 
 		if($_max_size)
 		{
 			$check[] = $_max_size;
 		}
 
+		if(empty($check))
+		{
+			$check[] = (1024*1024*100); // 100 MB if not limit !!!
+		}
 
 		$min = min($check);
 
