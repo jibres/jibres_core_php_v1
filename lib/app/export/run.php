@@ -7,7 +7,7 @@ class run
 	public static function crontab()
 	{
 		// expire old export
-		self::expire();
+		// self::expire();
 
 		// check have running
 		// if have any record as runing skip other export
