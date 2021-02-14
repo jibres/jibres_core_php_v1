@@ -1,7 +1,16 @@
 <?php $data = \dash\data::dataRow(); ?>
 <?php $customer_mode = \dash\temp::get('customer_mode'); ?>
+<?php
+$liveMode = \dash\url::current();
+if(\dash\request::get('id'))
+{
+  $liveMode .= '?id='. \dash\request::get('id');
+}
+?>
+<?php $smileData = '{"hi":"bye", "live": "'. $liveMode. '"}';?>
 
-<div class="row ticketPage" data-smile='{"hi":"bye"}'>
+
+<div class="row ticketPage" data-smile='<?php echo $smileData ?>'>
   <div class="c-xs-12 c-sm-12 c-md-8 c-lg-9 c-xxl-10">
     <nav class="items long">
       <ul>
