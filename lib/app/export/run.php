@@ -35,7 +35,7 @@ class run
 		}
 
 		// enable before push
-		// \lib\db\export\update::set_running($id);
+		\lib\db\export\update::set_running($id);
 		$link = null;
 
 		switch ($type)
