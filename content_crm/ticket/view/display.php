@@ -66,14 +66,15 @@ else
         <li>
           <div class="f item">
             <i class="sf-clock"></i>
-            <time class="key" datetime="<?php echo \dash\data::dataRow_datecreated(); ?>"><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></time>
+            <div class="key"></div>
+            <div class="value"><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></div>
           </div>
         </li>
         <li>
           <div class="f item">
             <i class="sf-cardiac-pulse"></i>
             <div class="key"><?php echo T_("First Answer") ?></div>
-            <time class="value "><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></time>
+            <div class="value "><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></div>
           </div>
         </li>
       </ul>
@@ -110,6 +111,7 @@ else
       <ul>
         <li>
           <a class="f item" <?php if(!$customer_mode) {?> href="<?php echo \dash\face::btnSetting() ?>"<?php } //endif ?>>
+            <i class="sf-chat-alt-fill"></i>
             <div class="key"><?php echo T_("Status") ?></div>
             <div class="value txtB"><?php echo T_(\dash\data::dataRow_status()); ?></div>
             <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
@@ -118,9 +120,9 @@ else
         <?php if(!$customer_mode) {?>
         <li>
           <a class="f item" href="<?php echo \dash\face::btnSetting(); ?>">
-            <div class="key"><?php echo T_("Solved status") ?></div>
-            <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("The problem is solved");}else{echo T_("The problem is not solved");} ?></div>
-            <div class="go <?php if(\dash\data::dataRow_solved()){echo 'check ok';}else{echo 'times nok';} ?>"></div>
+            <i class="sf-<?php if(\dash\data::dataRow_solved()){echo 'heart ok';}else{echo 'heart-o';} ?>"></i>
+            <div class="key"><?php echo T_("Solved?") ?></div>
+            <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("Yes");}else{echo T_("No");} ?></div>
           </a>
         </li>
       <?php } // endif ?>
@@ -133,6 +135,32 @@ else
           </a>
         </li>
       <?php }// endif ?>
+      </ul>
+    </nav>
+
+    <nav class="items long">
+      <ul>
+        <li>
+          <div class="f item">
+            <i class="sf-comment"></i>
+            <div class="key"><?php echo T_("Message Count"); ?></div>
+            <div class="value"><?php echo 5; ?></div>
+          </div>
+        </li>
+        <li>
+          <div class="f item">
+            <i class="sf-comments-o"></i>
+            <div class="key"><?php echo T_("Answer Count"); ?></div>
+            <div class="value"><?php echo 3; ?></div>
+          </div>
+        </li>
+        <li>
+          <div class="f item">
+            <i class="sf-attach"></i>
+            <div class="key"><?php echo T_("Attachment"); ?></div>
+            <div class="value"><?php echo 2; ?></div>
+          </div>
+        </li>
       </ul>
     </nav>
 
