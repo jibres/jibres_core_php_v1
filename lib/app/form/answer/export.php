@@ -29,7 +29,7 @@ class export
 		{
 			$list = \lib\db\form_answer\get::export_list($form_id);
 			$list = self::ready_for_export($list);
-			\dash\utility\export::csv(['name' => 'answer_form_'. $form_id. '_'.date("Y_m_d"). '_'. $count_all, 'data' => $list]);
+			\dash\utility\export::csv(['name' => 'export-form-'. $form_id. '-'.date("Y-m-d").'-'. date("His"). '-'. $count_all, 'data' => $list]);
 			return;
 		}
 	}
