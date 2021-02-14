@@ -34,7 +34,9 @@ foreach (\dash\data::conversation() as $key => $value)
   <div class="c-xs-12 c<?php if($otherSide) {echo " txtRa";} ?>">
     <div class="messageBox"<?php if(a($value, 'type') === 'note') {echo' data-note';} if($userText){ echo ' data-user'; } else {echo ' data-admin data-color=blue';} ?>>
       <div class="message"><?php echo nl2br(a($value, 'content')); ?></div>
-
+<?php if(a($value, 'branch')) {?>
+        <div class="msg minimal info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
+<?php } //endif ?>
 
       <footer class="row<?php if($otherSide) {echo " f-row-reverse";} ?>">
         <div class="c-auto">
@@ -66,10 +68,6 @@ foreach (\dash\data::conversation() as $key => $value)
 
 
       <?php if(a($value, 'file')) {?> <a target="_blank" href="<?php echo a($value, 'file') ?>" class="btn link"><i class="sf-attach"></i> <?php echo T_("Show Attachment") ?></a><?php }//endif ?>
-      <?php if(a($value, 'branch')) {?>
-        <div class="msg minimal info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
-      <?php } //endif ?>
-
 
   </div>
  </div>
