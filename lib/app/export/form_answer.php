@@ -18,6 +18,8 @@ class form_answer
 			return false;
 		}
 
+		\dash\log::to_supervisor(\dash\url::pwd());
+		\dash\log::to_supervisor(json_encode(func_get_args(), JSON_UNESCAPED_UNICODE));
 
 		ini_set('max_execution_time', 300); //300 seconds = 5 minutes
 		set_time_limit(300);
@@ -59,6 +61,8 @@ class form_answer
 
 		$file_detail         = \dash\upload\importexport::push_export_file($addr, $file_name, 'form');
 
+		\dash\log::to_supervisor(json_encode($file_detail, JSON_UNESCAPED_UNICODE));
+
 		$path = null;
 		if(isset($file_detail['path']))
 		{
@@ -77,6 +81,8 @@ class form_answer
 		{
 			\dash\log::set('export_ExportProduct', ['fileaddr' => $path, 'myname' => $myname, 'to' => $user_id]);
 		}
+
+		\dash\log::to_supervisor($path);
 
 		return $path;
 
