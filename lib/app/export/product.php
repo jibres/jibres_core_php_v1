@@ -47,6 +47,8 @@ class product
 			$path = $file_detail['path'];
 		}
 
+		\dash\file::delete($addr);
+
 		$msg = T_("Create export products completed");
 		$msg .= '<br>'. T_("This file will be automatically deleted tomorrow");
 
