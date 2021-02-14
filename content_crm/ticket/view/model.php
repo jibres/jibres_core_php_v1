@@ -21,6 +21,49 @@ class model
 			return true;
 		}
 
+		if(\dash\request::post('setstatus') === 'set' || \dash\request::post('setsolved') === 'set')
+		{
+			$msg  = T_("Ok");
+			$post = [];
+			if(\dash\request::post('setstatus') === 'set')
+			{
+				$post['status'] = \dash\request::post('status');
+				$msg = T_("Ticket was archived");
+			}
+
+			if(\dash\request::post('setsolved') === 'set')
+			{
+				$post['solved'] = \dash\request::post('solved') ? 0 : 1;
+
+				if($post['solved'])
+				{
+					$msg = T_("Ticket was solved");
+				}
+				else
+				{
+					$msg = T_("Ticket set as not solved");
+				}
+			}
+
+			if(!empty($post))
+			{
+				\dash\app\ticket\edit::edit($post, $id);
+			}
+
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::clean();
+				\dash\notif::ok($msg);
+				\dash\redirect::pwd();
+			}
+			return;
+
+		}
+
+
+
+
+
 
 		$post =
 		[
