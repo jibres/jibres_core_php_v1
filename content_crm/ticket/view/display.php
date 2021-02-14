@@ -4,13 +4,12 @@
 $liveMode = \dash\url::current();
 if(\dash\request::get('id'))
 {
-  $liveMode .= '?id='. \dash\request::get('id');
+  $liveMode .= '?live=1&id='. \dash\request::get('id');
 }
 ?>
-<?php $smileData = '{"hi":"bye", "live": "'. $liveMode. '"}';?>
 
 
-<div class="row ticketPage" data-smile='<?php echo $smileData ?>'>
+<div class="row ticketPage" data-smile-live='<?php echo $liveMode; ?>'>
   <div class="c-xs-12 c-sm-12 c-md-8 c-lg-9 c-xxl-10">
     <nav class="items long">
       <ul>

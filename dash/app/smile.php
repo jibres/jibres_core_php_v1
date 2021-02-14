@@ -12,7 +12,7 @@ class smile
 
 		$post               = [];
 		$post['notifOn']    = \dash\request::post('notifOn'); // false
-		$post['smileData']   = \dash\request::post('smileData'); // get smile data inside of page if exist
+		// $post['smileLive']  = \dash\request::post('smileLive'); // get smile data inside of page if exist
 		$post['store_code'] = \dash\request::post('url-env'); // jb2jr
 		$post['url-in']     = \dash\request::post('url-in'); // a
 		$post['url-page']   = \dash\request::post('url-page'); // home
@@ -29,11 +29,14 @@ class smile
 			{
 				$orderCount = self::detect_order($post['store_code']);
 			}
-			if($post['smileData'])
+			if(\dash\request::post('smileLive'))
 			{
 				// do something for example create redirect link
+				$liveUrl = urldecode(\dash\request::post('smileLive'));
+				$liveUrl = str_replace('&amp;', '&', $liveUrl);
+
 				\dash\notif::ok(T_("smile data is here, run live mode"));
-				\dash\redirect::to('google.com');
+				\dash\redirect::to($liveUrl);
 			}
 
 			$myResult =
