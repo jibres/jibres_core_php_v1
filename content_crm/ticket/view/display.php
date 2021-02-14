@@ -56,6 +56,15 @@ else
 
     <nav class="items long">
       <ul>
+      <?php if(\dash\data::dataRow_base()) {?>
+        <li class="">
+          <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
+            <i class="sf-asterisk fc-red"></i>
+            <div class="key"><?php echo T_("Separated from"); ?></div>
+            <div class="value"><?php echo T_("Ticket"). ' '. \dash\data::dataRow_base(); ?></div>
+          </a>
+        </li>
+      <?php }// endif ?>
         <li>
           <div class="f item">
             <i class="sf-date"></i>
@@ -126,15 +135,6 @@ else
           </a>
         </li>
       <?php } // endif ?>
-        <?php if(\dash\data::dataRow_base()) {?>
-        <li class="">
-          <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
-            <div class="key"><?php echo T_("This ticket is branch of another ticket"); ?></div>
-            <div class="value"><?php echo T_("View base ticket"); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-      <?php }// endif ?>
       </ul>
     </nav>
 
@@ -176,18 +176,6 @@ else
           </a>
         </li>
       <?php } //endif ?>
-      </ul>
-    </nav>
-
-    <nav class="items long">
-      <ul>
-        <li>
-          <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
-            <div class="key"><?php echo T_("Branch of"); ?></div>
-            <div class="value"><?php echo T_("Ticket Count"); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
       </ul>
     </nav>
 
