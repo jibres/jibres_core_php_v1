@@ -183,7 +183,7 @@ else
       <ul>
         <li>
           <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
-            <div class="key"><?php echo T_("This ticket is branch of another ticket"); ?></div>
+            <div class="key"><?php echo T_("Branch of"); ?></div>
             <div class="value"><?php echo T_("Ticket Count"); ?></div>
             <div class="go"></div>
           </a>
