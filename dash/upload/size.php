@@ -57,7 +57,6 @@ class size
 	 */
 	public static function ok($_size, $_meta)
 	{
-		\dash\log::to_supervisor(json_encode(func_get_args(), JSON_UNESCAPED_UNICODE));
 		$manual = null;
 		if(isset($_meta['allow_size']) && is_numeric($_meta['allow_size']))
 		{
@@ -170,7 +169,6 @@ class size
 			$check[] = $_max_size;
 		}
 
-		\dash\log::to_supervisor(json_encode($check, JSON_UNESCAPED_UNICODE));
 
 		$min = min($check);
 
