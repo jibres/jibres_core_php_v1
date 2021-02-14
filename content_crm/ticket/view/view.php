@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Show ticket"));
+		\dash\face::title(T_("Ticket"). ' '. \dash\fit::text(\dash\data::dataRow_id()));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
