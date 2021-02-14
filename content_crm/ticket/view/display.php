@@ -122,15 +122,49 @@ else
 
     <nav class="items long">
       <ul>
+        <?php if($customer_mode) {?>
         <li>
-          <a class="f item" <?php if(!$customer_mode) {?> href="<?php echo \dash\face::btnSetting() ?>"<?php } //endif ?>>
+          <div class="f item">
             <i class="sf-chat-alt-fill"></i>
             <div class="key"><?php echo T_("Status") ?></div>
-            <div class="value txtB"><?php echo T_(\dash\data::dataRow_status()); ?></div>
+            <div class="value txtB"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
             <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
-          </a>
+          </div>
         </li>
-        <?php if(!$customer_mode) {?>
+      <?php }else{ ?>
+          <?php if(a(\dash\data::conversation(), 0, 'answercount') === 0 && \dash\data::dataRow_status() === 'awaiting') {?>
+            <li>
+              <div class="f item"
+              data-confirm
+              data-data='{"setstatus": "set", "status": "spam"}'
+              data-title="<?php echo T_("Report as spam"); ?>">
+                <i class="sf-ban fc-red"></i>
+                <div class="key"><?php echo T_("Is spam?") ?></div>
+                <div class="go"></div>
+              </div>
+          </li>
+          <?php }else{ ?>
+            <li>
+              <div class="f item">
+                <i class="sf-chat-alt-fill"></i>
+                <div class="key"><?php echo T_("Status") ?></div>
+                <div class="value txtB"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
+                <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
+              </div>
+            </li>
+          <?php if(\dash\data::dataRow_status() !== 'close') {?>
+            <li>
+              <div class="f item"
+              data-confirm
+              data-data='{"setstatus": "set", "status": "close"}'
+              data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
+                <i class="sf-archive"></i>
+                <div class="key"><?php echo T_("Archive ticket") ?></div>
+                <div class="go"></div>
+              </div>
+          </li>
+        <?php } //endif ?>
+          <?php } //endif ?>
         <li>
           <div class="f item"
           data-confirm
