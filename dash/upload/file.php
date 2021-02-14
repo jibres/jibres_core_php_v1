@@ -150,8 +150,6 @@ class file
 
 		if(!$myFile || !isset($myFile['ext']) || !isset($myFile['md5']) || !isset($myFile['tmp_name']) || !isset($myFile['size']))
 		{
-			\dash\log::to_supervisor('invalid my file');
-			\dash\log::to_supervisor(json_encode($myFile, JSON_UNESCAPED_UNICODE));
 			return false;
 		}
 
@@ -159,7 +157,6 @@ class file
 		$check_md5 = \dash\db\files::duplicate($myFile['md5']);
 		if($check_md5)
 		{
-			\dash\log::to_supervisor('duplicate file md5');
 			return $check_md5;
 		}
 
@@ -167,14 +164,12 @@ class file
 		$check_size = \dash\upload\size::ok($myFile['size'], $_meta);
 		if(!$check_size)
 		{
-			\dash\log::to_supervisor('Not allow size');
 			\dash\notif::error(T_("File size is greater than allowed"));
 			return false;
 		}
 
 		if(!\dash\upload\storage::have_space($myFile['size']))
 		{
-			\dash\log::to_supervisor('Not have space');
 			\dash\notif::error(T_("Your storage space is full. Please contact support"));
 			return false;
 		}
@@ -215,8 +210,6 @@ class file
 
 		if(!$directory)
 		{
-			\dash\log::to_supervisor('Have not directory');
-			\dash\log::to_supervisor(json_encode([$filename, self::upload_other_server_scp(), $_meta], JSON_UNESCAPED_UNICODE));
 			\dash\notif::error(T_("Directory for upload not found"));
 			return false;
 		}
@@ -232,7 +225,6 @@ class file
 			// make error in s3
 			if(!\dash\engine\process::status() || !$url)
 			{
-				\dash\log::to_supervisor('Can not upload in s3');
 				return false;
 			}
 
