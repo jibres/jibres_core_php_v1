@@ -27,6 +27,13 @@ class useremail
 	}
 
 
+	public static function get_user_email_primary($_user_id)
+	{
+		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id ORDER BY useremail.id DESC, FIELD(useremail.verify, 1), FIELD(useremail.primary, 1) LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function check_is_verify_for_other($_email)
 	{

@@ -25,6 +25,29 @@ class email
 		return floatval($result);
 	}
 
+
+
+	public static function get_user_email_primary($_user_id = null)
+	{
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id = \dash\user::id();
+		}
+
+		if(!$user_id)
+		{
+			return [];
+		}
+
+		$result = \dash\db\useremail::get_user_email_primary($user_id);
+
+		return $result;
+	}
+
 	public static function get_my_list()
 	{
 		if(!\dash\user::id())

@@ -27,6 +27,27 @@ class get
 			return false;
 		}
 
+		if(isset($load['user_id']) && $load['user_id'])
+		{
+			$email = \dash\app\user\email::get_user_email_primary($load['user_id']);
+
+			$chatid = \dash\db\user_telegram\get::load_user_chatid($load['user_id']);
+
+			if(isset($email['email']))
+			{
+				$load['useremail'] = $email['email'];
+			}
+
+			if(isset($chatid['username']))
+			{
+				$load['usertelegram'] = $chatid['username'];
+			}
+			elseif(isset($chatid['chatid']))
+			{
+				$load['usertelegram'] = $chatid['chatid'];
+			}
+		}
+
 		$load = \dash\app\ticket\ready::row($load);
 
 		return $load;
@@ -131,6 +152,7 @@ class get
 			$conversation = [];
 		}
 
+
 		$conversation = array_map(['\\dash\\app\\ticket\\ready', 'row'], $conversation);
 
 		if($_customer_mode)
@@ -150,6 +172,65 @@ class get
 
 				\dash\log::set('ticket_seeTicket', $log);
 			}
+		}
+
+		// calculate some stat
+		$message_count    = 0;
+		$message_total    = 0;
+		$attachment_count = 0;
+		$answer_count     = 0;
+		$master_message   = null;
+		$userinticket     = [];
+		foreach ($conversation as $key => $value)
+		{
+			if(isset($value['id']) && floatval($value['id']) === floatval($id))
+			{
+				$master_message = $value;
+				break;
+			}
+		}
+
+		foreach ($conversation as $key => $value)
+		{
+			$message_total++;
+
+			if(isset($value['user_id']))
+			{
+				if($value['user_id'] === a($master_message, 'user_id'))
+				{
+					$message_count++;
+				}
+				else
+				{
+					if(!isset($userinticket[$value['user_id']]))
+					{
+						$userinticket[$value['user_id']] =
+						[
+							'avatar' => a($value, 'avatar'),
+							'displayname' => a($value, 'displayname'),
+						];
+					}
+					$answer_count++;
+				}
+			}
+			else
+			{
+				$message_count++;
+			}
+
+			if(isset($value['file']) && $value['file'])
+			{
+				$attachment_count++;
+			}
+		}
+
+		if(isset($conversation[0]) && is_array($conversation[0]))
+		{
+			$conversation[0]['messagecount']    = $message_count;
+			$conversation[0]['attachmentcount'] = $attachment_count;
+			$conversation[0]['answercount']     = $answer_count;
+			$conversation[0]['messagetotal']    = $message_total;
+			$conversation[0]['userinticket']    = $userinticket;
 		}
 
 		return $conversation;

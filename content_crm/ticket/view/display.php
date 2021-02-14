@@ -31,14 +31,14 @@ else
   </div>
   <aside class="c-xs-12 c-sm-12 c-md-4 c-lg-3 c-xxl-2 ticketSidebar">
 
-    <div class="hero">
+    <a <?php if(a($data, 'user_id')) {echo "href='".\dash\url::kingdom(). '/crm/member/glance?id='. \dash\data::dataRow_user_id()."'"; } //endif ?> class="hero">
   <?php if(!a($data, 'user_id')) {?>
       <img src="<?php echo \dash\fit::img(\dash\data::dataRow_avatar(), 220); ?>" alt="Guest User">
   <?php }else{ ?>
       <img src="<?php echo \dash\fit::img(\dash\data::dataRow_avatar(), 220); ?>" alt='<?php echo \dash\data::dataRow_displayname();?>'>
       <h3><?php echo \dash\data::dataRow_displayname();?></h3>
   <?php } ?>
-    </div>
+    </a>
 
     <nav class="items long">
       <ul>
@@ -83,7 +83,7 @@ else
           <div class="f item">
             <i class="sf-cardiac-pulse"></i>
             <div class="key"><?php echo T_("First Answer") ?></div>
-            <div class="value "><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></div>
+            <div class="value "><?php echo \dash\utility\human::time(\dash\data::dataRow_answertime(), true); ?></div>
           </div>
         </li>
       </ul>
@@ -99,20 +99,24 @@ else
             <div class="value mobile"><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></div>
           </a>
         </li>
+        <?php if(\dash\data::dataRow_useremail()){ ?>
         <li>
-          <div class="f item" data-copy='<?php echo \dash\fit::mobile(\dash\data::dataRow_email()); ?>'>
+          <div class="f item" data-copy='<?php echo \dash\data::dataRow_useremail(); ?>'>
             <i class="sf-at"></i>
             <div class="key"><?php echo T_("Email") ?></div>
-            <div class="value"><?php echo \dash\fit::mobile(\dash\data::dataRow_email()); ?></div>
+            <div class="value"><?php echo \dash\data::dataRow_useremail(); ?></div>
           </div>
         </li>
+      <?php } //endif ?>
+        <?php if(\dash\data::dataRow_usertelegram()){ ?>
         <li>
-          <a class="f item" href="https://t.me/<?php echo \dash\data::dataRow_telegram(); ?>">
+          <a class="f item" href="https://t.me/<?php echo \dash\data::dataRow_usertelegram(); ?>">
             <i class="sf-paper-plane"></i>
             <div class="key"><?php echo T_("Telegram") ?></div>
-            <div class="value"><?php echo \dash\data::dataRow_telegram(); ?></div>
+            <div class="value txtL ltr"><?php echo \dash\data::dataRow_usertelegram(); ?></div>
           </a>
         </li>
+      <?php } //endif ?>
       </ul>
     </nav>
 
@@ -144,21 +148,21 @@ else
           <div class="f item">
             <i class="sf-comment"></i>
             <div class="key"><?php echo T_("Message Count"); ?></div>
-            <div class="value"><?php echo 5; ?></div>
+            <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'messagecount')); ?></div>
           </div>
         </li>
         <li>
           <div class="f item">
             <i class="sf-comments-o"></i>
             <div class="key"><?php echo T_("Answer Count"); ?></div>
-            <div class="value"><?php echo 3; ?></div>
+            <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'answercount')); ?></div>
           </div>
         </li>
         <li>
           <div class="f item">
             <i class="sf-attach"></i>
             <div class="key"><?php echo T_("Attachment"); ?></div>
-            <div class="value"><?php echo 2; ?></div>
+            <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'attachmentcount')); ?></div>
           </div>
         </li>
       </ul>
@@ -179,18 +183,20 @@ else
       </ul>
     </nav>
 
-
-
+  <?php if(a(\dash\data::conversation(), 0, 'userinticket') && is_array(a(\dash\data::conversation(), 0, 'userinticket'))) {?>
     <nav class="items long" title="<?php echo T_("") ?>">
       <ul>
+        <?php foreach (a(\dash\data::conversation(), 0, 'userinticket') as $key => $value) {?>
         <li>
           <div class="f item">
-            <img src="<?php echo \dash\fit::img(\dash\data::dataRow_avatar(), 220); ?>" alt="Guest User">
-            <div class="key"><?php echo T_("Javad Adib"); ?></div>
+            <img src="<?php echo \dash\fit::img(a($value, 'avatar'), 220); ?>" alt="<?php echo a($value, 'displayname') ?>">
+            <div class="key"><?php echo a($value, 'displayname') ?></div>
           </div>
         </li>
+      <?php } //endif ?>
       </ul>
     </nav>
+  <?php } // endif ?>
 
   </aside>
 </div>
