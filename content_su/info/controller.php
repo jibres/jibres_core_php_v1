@@ -15,6 +15,13 @@ class controller
 			\dash\code::boom();
 		}
 
+		if($name === 'phpversion')
+		{
+			$x = exec('php --version', $outpot, $return);
+			echo implode('<br>', $outpot);
+			\dash\code::boom();
+		}
+
 
 		if(!$name)
 		{
