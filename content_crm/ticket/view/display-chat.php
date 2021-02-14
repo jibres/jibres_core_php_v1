@@ -28,11 +28,11 @@ foreach (\dash\data::conversation() as $key => $value)
 
 ?>
  <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";} ?>">
-  <div class="c-auto">
+  <div class="c-xs-12 c-auto">
     <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>">
   </div>
-  <div class="c<?php if($otherSide) {echo " txtRa";} ?>">
-    <div class="messageBox"<?php if(a($value, 'type') === 'note') {echo' data-note';} if($userText){ echo ' data-user'; } else {echo ' data-admin';} ?>>
+  <div class="c-xs-12 c<?php if($otherSide) {echo " txtRa";} ?>">
+    <div class="messageBox"<?php if(a($value, 'type') === 'note') {echo' data-note';} if($userText){ echo ' data-user'; } else {echo ' data-admin data-color=blue';} ?>>
       <div class="message"><?php echo nl2br(a($value, 'content')); ?></div>
 
 
@@ -48,12 +48,12 @@ foreach (\dash\data::conversation() as $key => $value)
 ?>
         <div class="c"></div>
 <?php if(!$customer_mode) {?>
-        <div class="c-auto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>" class="link2"><?php echo T_("Edit") ?></a></div>
+        <div class="c-auto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a></div>
 <?php } //endif ?>
 <?php if(!$customer_mode) {?>
 <?php if($userText && $key > 0 && !a($value, 'branch') && a($value, 'type') != 'note') {?>
         <div class="c-auto">
-          <div class="link" data-title="<?php echo T_("Add this message in new ticket and answer to it?") ?>" data-confirm data-data='{"newbranch":"1", "branch": "<?php echo a($value, 'id') ?>"}'><?php echo T_("Answer in new ticket"); ?></div>
+          <div data-title="<?php echo T_("Add this message in new ticket and answer to it?") ?>" data-confirm data-data='{"newbranch":"1", "branch": "<?php echo a($value, 'id') ?>"}'><?php echo T_("Answer in new ticket"); ?></div>
         </div>
 <?php }//endif ?>
 <?php } //endif ?>

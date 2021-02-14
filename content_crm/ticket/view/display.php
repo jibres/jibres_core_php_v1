@@ -179,6 +179,19 @@ else
       </ul>
     </nav>
 
+
+
+    <nav class="items long" title="<?php echo T_("") ?>">
+      <ul>
+        <li>
+          <div class="f item">
+            <img src="<?php echo \dash\fit::img(\dash\data::dataRow_avatar(), 220); ?>" alt="Guest User">
+            <div class="key"><?php echo T_("Javad Adib"); ?></div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
   </aside>
 </div>
 
