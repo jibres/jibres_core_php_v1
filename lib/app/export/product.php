@@ -15,6 +15,7 @@ class product
 		$end_limit   = $step;
 
 		$result       = \lib\db\products\get::export_list($start_limit, $end_limit);
+
 		$first_record = true;
 
 		$file_name    = 'export-products-'. date("Y-m-d"). '-'. date("His"). '-'. rand(11111,99999);
@@ -50,7 +51,7 @@ class product
 		$msg .= '<br>'. T_("This file will be automatically deleted tomorrow");
 
 		$myname = T_("Products");
-		$user_id = isset($_detail['creator']) ? \dash\validate::id($_detail['creator']): null;
+		$user_id = isset($_detail['creator']) ? \dash\validate::id($_detail['creator'], false): null;
 
 		if($user_id)
 		{

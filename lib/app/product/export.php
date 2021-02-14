@@ -23,7 +23,7 @@ class export
 		{
 			$list = \lib\db\products\get::all_record_for_export();
 			$list = array_map(['\\lib\\app\\product\\ready', 'export'], $list);
-			\dash\utility\export::csv(['name' => 'products_'.date("Y_m_d"). '_'. $count_all, 'data' => $list]);
+			\dash\utility\export::csv(['name' => 'export-products-'.date("Y-m-d"). '-'. date("His"). '-'. $count_all, 'data' => $list]);
 			return;
 		}
 	}
