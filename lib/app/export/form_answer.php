@@ -7,6 +7,10 @@ class form_answer
 	public static function run($_detail = [])
 	{
 
+		if(\dash\request::get('oops') === 'oops')
+		{
+			var_dump(func_get_args());
+		}
 		$form_id = null;
 		if(isset($_detail['related_id']))
 		{
@@ -31,6 +35,10 @@ class form_answer
 
 		$addr         = \lib\app\export\directory::temp_dir('form');
 
+		if(\dash\request::get('oops') === 'oops')
+		{
+			var_dump($addr);
+		}
 
 		if (ob_get_level() == 0) ob_start();
 
@@ -61,6 +69,10 @@ class form_answer
 
 		$file_detail         = \dash\upload\importexport::push_export_file($addr, $file_name, 'form');
 
+		if(\dash\request::get('oops') === 'oops')
+		{
+			var_dump($file_detail, $addr, $file_name, func_get_args());exit();
+		}
 
 		$path = null;
 		if(isset($file_detail['path']))

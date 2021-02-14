@@ -15,9 +15,9 @@ class importexport
 			'upload_from_path'  => $_tmpname,
 			'special_path_name' => 'export/'. $_type,
 			'special_file_name' => $_filename,
-			'special_file_ext' => 'csv',
+			'special_file_ext'  => 'csv',
 			'upload_name'       => 'export',
-			'ext'              =>
+			'ext'               =>
 			[
 				'csv',
 			],

@@ -6,6 +6,11 @@ class view
 {
 	public static function config()
 	{
+		if(\dash\request::get('oops') === 'oops')
+		{
+			\lib\app\export\run::crontab();
+		}
+
 		$form_id = \dash\request::get('id');
 		// page title
 		\dash\face::title(T_("Export form answer"));
