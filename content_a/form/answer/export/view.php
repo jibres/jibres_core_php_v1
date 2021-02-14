@@ -27,7 +27,7 @@ class view
 			\lib\app\export\download::export_form_answer(\dash\request::get('eid'));
 		}
 
-		$list = \lib\app\form\answer\export::list();
+		$list = \lib\app\form\answer\export::list($form_id);
 		\dash\data::exportList($list);
 	}
 }

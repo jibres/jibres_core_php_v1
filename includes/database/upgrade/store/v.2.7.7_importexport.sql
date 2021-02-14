@@ -1,0 +1,2 @@
+ALTER TABLE jibres_XXXXXXX.importexport ADD `related` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `type`;
+ALTER TABLE jibres_XXXXXXX.importexport ADD `related_id` bigint NULL DEFAULT NULL AFTER `related`;

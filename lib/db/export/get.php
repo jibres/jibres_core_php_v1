@@ -20,9 +20,19 @@ class get
 		return $result;
 	}
 
+
+	public static function check_duplicate_where($_where)
+	{
+		$where = \dash\db\config::make_where($_where);
+		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND $where AND importexport.status IN ('request', 'running') ORDER BY importexport.id DESC LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function check_duplicate($_type)
 	{
-		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND importexport.status IN ('request', 'running') LIMIT 1";
+		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND importexport.status IN ('request', 'running') ORDER BY importexport.id DESC LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
@@ -32,6 +42,17 @@ class get
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND DATE(importexport.datecreated) = DATE('$_date')";
 		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
+
+
+	public static function by_type_related_id($_type, $_related_id)
+	{
+		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND importexport.status NOT IN ('cancel', 'deleted', 'expire') AND importexport.related_id = $_related_id ";
+		$result = \dash\db::get($query);
 		return $result;
 	}
 

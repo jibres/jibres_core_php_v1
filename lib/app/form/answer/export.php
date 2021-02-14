@@ -49,16 +49,16 @@ class export
 			return;
 		}
 
-		return \lib\app\export\add::request('form_answer', ['form_id' => $_form_id]);
+		return \lib\app\export\add::request('form_answer', ['related' => 'form', 'related_id' => $_form_id]);
 
 	}
 
 
-	public static function list()
+	public static function list($_form_id)
 	{
 		\dash\permission::access('ManageForm');
 
-		$get_by_type = \lib\db\export\get::by_type('form_answer');
+		$get_by_type = \lib\db\export\get::by_type_related_id('form_answer', $_form_id);
 		$get_by_type = array_map(['\\lib\\app\\export\\ready', 'row'], $get_by_type);
 		return $get_by_type;
 	}
