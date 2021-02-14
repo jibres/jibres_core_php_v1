@@ -60,6 +60,9 @@ class file
 					'error'    => 0,
 					'size'     => filesize($my_temp_file),
 				];
+
+				\dash\log::to_supervisor(json_encode(self::$MY_FILES, JSON_UNESCAPED_UNICODE));
+
 			}
 		}
 	}
@@ -237,8 +240,12 @@ class file
 			if(\dash\scp::uploader_connection())
 			{
 				$directory['real_path'] = $directory['full'];
+
+				\dash\log::to_supervisor(json_encode([$myFile['tmp_name'], $directory['full']], JSON_UNESCAPED_UNICODE));
+
 				if(\dash\scp::send($myFile['tmp_name'], $directory['full']))
 				{
+					\dash\log::to_supervisor('file uploaded and send to scp server');
 					// ok
 				}
 				else
