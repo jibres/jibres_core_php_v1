@@ -1,7 +1,7 @@
 <?php $data = \dash\data::dataRow(); ?>
 <?php $customer_mode = \dash\temp::get('customer_mode'); ?>
 
-<div class="row">
+<div class="row ticketPage">
   <div class="c-xs-12 c-sm-12 c-md-8 c-lg-9 c-xxl-10">
     <nav class="items long">
       <ul>

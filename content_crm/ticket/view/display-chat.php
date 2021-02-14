@@ -1,16 +1,36 @@
+<section class="chat" data-xhr='ticket-chat'>
 <?php
 foreach (\dash\data::conversation() as $key => $value)
 {
- $userText = false;
- if(\dash\data::dataRow_user_id() == a($value, 'user_id'))
- {
-  $userText = true;
- }
- if(a($value, 'type') === 'answer')
- {
   $userText = false;
- }
-  ?>
+  if(\dash\data::dataRow_user_id() == a($value, 'user_id'))
+  {
+    $userText = true;
+  }
+  if(a($value, 'type') === 'answer')
+  {
+    $userText = false;
+  }
+  // show user text on another side
+  $otherSide = $userText;
+
+  if($customer_mode)
+  {
+    if($userText)
+    {
+      $otherSide = false;
+    }
+    else
+    {
+      $otherSide = true;
+    }
+  }
+
+?>
+ <div class="messageLine<?php if($otherSide) {echo " txtRa";} ?>">
+  <div class="message"><?php echo nl2br(a($value, 'content')); ?></div>
+ </div>
+
   <div class="box">
     <div class="pad">
       <div class="row">
@@ -67,3 +87,4 @@ foreach (\dash\data::conversation() as $key => $value)
 
 <?php } ?>
 
+</section>
