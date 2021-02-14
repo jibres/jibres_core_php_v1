@@ -12,6 +12,7 @@ class smile
 
 		$post               = [];
 		$post['notifOn']    = \dash\request::post('notifOn'); // false
+		$post['smileData']   = \dash\request::post('smileData'); // get smile data inside of page if exist
 		$post['store_code'] = \dash\request::post('url-env'); // jb2jr
 		$post['url-in']     = \dash\request::post('url-in'); // a
 		$post['url-page']   = \dash\request::post('url-page'); // home
@@ -27,6 +28,12 @@ class smile
 			if($post['store_code'])
 			{
 				$orderCount = self::detect_order($post['store_code']);
+			}
+			if($post['smileData'])
+			{
+				// do something for example create redirect link
+				\dash\notif::ok(T_("smile data is here, run live mode"));
+				\dash\redirect::to('google.com');
 			}
 
 			$myResult =
@@ -91,7 +98,6 @@ class smile
 			$alertyOpt['position'] = 'top-end';
 
 			\dash\notif::ok(T_("You have :val new order!", ['val' => \dash\fit::number($count_order)]), $alertyOpt);
-
 		}
 
 		return floatval($count_order);
