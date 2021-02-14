@@ -54,7 +54,7 @@ class log
 			'my_text' => $_text,
 		];
 
-		\dash\log::set('sendToSupervisor', $log);
+		\dash\log::set('sendToSupervisor', $log, ['fuel' => 'master']);
 	}
 
 
@@ -82,7 +82,7 @@ class log
 	}
 
 
-	public static function set($_caller, $_args = [])
+	public static function set($_caller, $_args = [], $_option = [])
 	{
 		$data  = [];
 		$field = [];
@@ -98,7 +98,6 @@ class log
 
 		if($save_user_detail && \dash\user::id())
 		{
-
 			$temp = [];
 
 			$temp['id']            = \dash\user::detail('id');
@@ -207,11 +206,11 @@ class log
 
 		if($is_notif)
 		{
-			return self::notif($_caller, $new_args);
+			return self::notif($_caller, $new_args, $_option);
 		}
 		else
 		{
-			return self::db($_caller, $new_args);
+			return self::db($_caller, $new_args, [], $_option);
 		}
 	}
 
@@ -307,7 +306,7 @@ class log
 	}
 
 
-	private static function notif($_caller, &$_args)
+	private static function notif($_caller, &$_args, $_option = [])
 	{
 		// notifread
 		// notifexpire
@@ -325,7 +324,6 @@ class log
 
 		$not_send_supervisor = self::call_fn($_caller, 'not_send_supervisor');
 		$not_send_admin      = self::call_fn($_caller, 'not_send_admin');
-
 
 		$must_send_to = [];
 
@@ -365,7 +363,7 @@ class log
 
 		if($send_to)
 		{
-			$user_detail = self::detect_user($send_to, $not_send_admin, $not_send_supervisor);
+			$user_detail = self::detect_user($send_to, $not_send_admin, $not_send_supervisor, $_option);
 
 			if($user_detail)
 			{
@@ -381,11 +379,11 @@ class log
 
 				$send_args    = self::create_text($_caller, $_args, $must_send_to);
 
-				return self::db($_caller, $_args, $send_args);
+				return self::db($_caller, $_args, $send_args, $_option);
 			}
 		}
 
-		return self::db($_caller, $_args);
+		return self::db($_caller, $_args, [], $_option);
 
 	}
 
@@ -517,7 +515,7 @@ class log
 	}
 
 
-	private static function detect_user($_send_to, $_not_send_admin = false, $_not_send_supervisor = false)
+	private static function detect_user($_send_to, $_not_send_admin = false, $_not_send_supervisor = false, $_option = [])
 	{
 		$all_user_detail = [];
 
@@ -571,7 +569,13 @@ class log
 
 			$public_show_field = "users.id, users.mobile, users.displayname, users.email, users.language";
 
-			$temp = \dash\db\users::get(['permission' => ["IN", "('$permission_list')"], 'status' => 'active'], ['public_show_field' => $public_show_field]);
+			$fuel = null;
+			if(isset($_option['fuel']) && $_option['fuel'])
+			{
+				$fuel = $_option['fuel'];
+			}
+
+			$temp = \dash\db\users::get(['permission' => ["IN", "('$permission_list')"], 'status' => 'active'], ['public_show_field' => $public_show_field, 'db_name' => $fuel]);
 			$all_user_detail = array_merge($all_user_detail, $temp);
 		}
 
@@ -589,7 +593,7 @@ class log
 
 
 	// save log in database
-	public static function db($_caller, $_args = [], $_multi_send = [])
+	public static function db($_caller, $_args = [], $_multi_send = [], $_option = [])
 	{
 		$get_sql_string = false;
 		if(isset($_args['data']['get_sql_string']) && $_args['data']['get_sql_string'])
@@ -692,6 +696,13 @@ class log
 			return $insert_log;
 		}
 
+		$fuel = null;
+
+		if(isset($_option['fuel']) && $_option['fuel'])
+		{
+			$fuel = $_option['fuel'];
+		}
+
 		if($_multi_send)
 		{
 			$multi_record = [];
@@ -702,13 +713,13 @@ class log
 
 			if(!empty($multi_record))
 			{
-				$log_id = \dash\db\logs::multi_insert($multi_record);
+				$log_id = \dash\db\logs::multi_insert($multi_record, $fuel);
 				return $log_id;
 			}
 		}
 		else
 		{
-			$log_id = \dash\db\logs::insert($insert_log);
+			$log_id = \dash\db\logs::insert($insert_log, $fuel);
 			return $log_id;
 		}
 

@@ -206,9 +206,9 @@ class logs
 	public static $fields =	" * ";
 
 
-	public static function multi_insert($_args)
+	public static function multi_insert($_args, $_fuel = null)
 	{
-		$result = \dash\db\config::public_multi_insert('logs', $_args);
+		$result = \dash\db\config::public_multi_insert('logs', $_args, $_fuel);
 		$result = \dash\db::insert_id();
 		return $result;
 	}
@@ -224,7 +224,7 @@ class logs
 	 * @param array $_args fields data
 	 * @return mysql result
 	 */
-	public static function insert($_args)
+	public static function insert($_args, $_fuel = null)
 	{
 
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
@@ -232,7 +232,7 @@ class logs
 		{
 			$query  ="INSERT INTO logs SET $set ";
 
-			$result = \dash\db::query($query);
+			$result = \dash\db::query($query, $_fuel);
 			$result = \dash\db::insert_id();
 			return $result;
 		}
