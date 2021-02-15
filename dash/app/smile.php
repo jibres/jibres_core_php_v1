@@ -185,6 +185,7 @@ class smile
 
 				// set live mode
 				\dash\notif::live(true);
+				\dash\notif::sound(\dash\url::cdn(). '/sounds/new-ticket.mp3');
 
 				\dash\redirect::to($new_url);
 			}
