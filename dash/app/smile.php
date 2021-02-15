@@ -132,15 +132,12 @@ class smile
 
 		if(isset($session_sound['count']) && isset($session_sound['time']))
 		{
-			if(floatval($session_sound['count']) === floatval($_count) && time() - floatval($session_sound['time']) < (10*1))
+			if(floatval($session_sound['count']) === floatval($_count) && time() - floatval($session_sound['time']) < (30))
 			{
 				$play_sound = false;
 			}
 		}
 
-		$session_sound = ['count' => $_count, 'time' => time()];
-
-		\dash\session::set($_key, $session_sound);
 
 		if(!$_count)
 		{
@@ -149,6 +146,10 @@ class smile
 
 		if($play_sound)
 		{
+
+			$session_sound = ['count' => $_count, 'time' => time()];
+
+			\dash\session::set($_key, $session_sound);
 
 			\dash\notif::sound($_sound);
 		}
