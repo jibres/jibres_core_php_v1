@@ -16,7 +16,7 @@ echo '<nav class="items long">';
           echo '<i class="sf-heart-o"></i>';
         }
 
-        echo '<i class="sf-'. a($value, 'statuclass'). '"></i>';
+        echo a($value, 'statuclass');
 
         echo '<div class="value">'. T_("Ticket"). ' #'. $value['id']. '</div>';
 

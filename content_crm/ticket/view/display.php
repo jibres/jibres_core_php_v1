@@ -169,7 +169,7 @@ else
       <ul>
         <li>
           <div class="f item">
-            <i class="<?php echo \dash\data::dataRow_statuclass(); ?>"></i>
+            <?php echo \dash\data::dataRow_statuclass(); ?>
             <div class="key"><?php echo T_("Status") ?></div>
             <div class="value txtB"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
           </div>

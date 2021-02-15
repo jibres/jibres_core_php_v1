@@ -37,7 +37,7 @@ class ready
 						case 'awaiting':
 							$color       = null;
 							$color_class = 'pain';
-							$statuclass = 'sf-bullhorn';
+							$statuclass = 'sf-bullhorn fc-black';
 							break;
 
 
@@ -53,7 +53,7 @@ class ready
 						case 'close':
 							$color       = 'disabled';
 							$color_class = 'secondary';
-							$statuclass = 'sf-archive fc-black';
+							$statuclass = 'sf-archive fc-mute';
 							break;
 
 						case 'answered':
@@ -63,7 +63,7 @@ class ready
 							break;
 					}
 
-					$result['statuclass'] = $statuclass;
+					$result['statuclass'] = '<i class="'. $statuclass. '" title="'. T_($value). '"></i>';
 
 					if(isset($_data['plus']) && $_data['plus'])
 					{
