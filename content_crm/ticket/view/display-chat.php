@@ -1,5 +1,8 @@
-<section class="chat" data-xhr='ticket-chat'>
+<div class="chat" data-xhr='ticket-chat'>
 <?php
+
+$customer_mode = \dash\temp::get('customer_mode');
+
 foreach (\dash\data::conversation() as $key => $value)
 {
   $userText = false;
@@ -71,8 +74,6 @@ foreach (\dash\data::conversation() as $key => $value)
         </div>
       </footer>
     </div>
-
-
 <?php if(a($value, 'file')) {?>
   <div>
 <?php if(a($value, 'filedetail', 'type') === 'image') {?>
@@ -87,8 +88,5 @@ foreach (\dash\data::conversation() as $key => $value)
 
   </div>
  </div>
-
 <?php } ?>
-
-</section>
-
+</div>
