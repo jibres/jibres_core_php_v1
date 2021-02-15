@@ -87,6 +87,36 @@ class filepath
 	}
 
 
+	public static function get_detail($_path)
+	{
+		$result =
+		[
+			'ext' => null,
+			'type' => null,
+			'mime' => null,
+		];
+
+		if(is_string($_path) && $_path)
+		{
+			$ext = substr(strrchr($_path, '.'), 1);
+			$result['ext'] = $ext;
+
+
+			$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+			if(isset($mime_detail['type']))
+			{
+				$result['type'] = $mime_detail['type'];
+			}
+
+			if(isset($mime_detail['mime']))
+			{
+				$result['mime'] = $mime_detail['mime'];
+			}
+		}
+
+		return $result;
+	}
+
 	/**
 	 * Remove the host from file
 	 * in some place we have the full address file and need to remove host to save in database
