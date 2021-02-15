@@ -184,7 +184,7 @@ class smile
 				$new_url = $_smile['urlcurrent'].'?'. \dash\request::build_query($get);
 
 				// set live mode
-				\dash\notif::live(true);
+				\dash\notif::live(1);
 				\dash\notif::sound(\dash\url::cdn(). '/sounds/new-ticket.mp3');
 
 				\dash\redirect::to($new_url);
