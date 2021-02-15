@@ -165,8 +165,8 @@ class get
 
 		if($_customer_mode)
 		{
-			// $endMessage = a($conversation, 0);
-			$endMessage = end($conversation);
+			$endMessage = a($conversation, 0);
+			// $endMessage = end($conversation);
 
 			if(a($endMessage, 'parent') && !a($endMessage, 'see') && a($endMessage, 'type') === 'answer')
 			{
@@ -221,13 +221,16 @@ class get
 		$last_type = null;
 		foreach ($conversation as $key => $value)
 		{
-			if(a($value, 'type') === 'note')
+			if($livelastid === null)
 			{
-				// nothing
-			}
-			else
-			{
-				$livelastid = a($value, 'id');
+				if(a($value, 'type') === 'note')
+				{
+					// nothing
+				}
+				else
+				{
+					$livelastid = a($value, 'id');
+				}
 			}
 
 			if(a($value, 'user_id') !== $last_user || a($value, 'type') !== $last_type)
