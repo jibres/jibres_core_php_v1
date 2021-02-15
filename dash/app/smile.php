@@ -178,9 +178,11 @@ class smile
 			{
 				$get =
 				[
-					'id' => $ticket_id,
+					'id'   => $ticket_id,
+					'live' => 1,
 				];
 				$new_url = $_smile['urlcurrent'].'?'. \dash\request::build_query($get);
+
 				\dash\redirect::to($new_url);
 			}
 		}
