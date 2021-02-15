@@ -199,12 +199,13 @@ class get
 		}
 
 		$last_user = null;
+		$last_type = null;
 		foreach ($conversation as $key => $value)
 		{
-
-			if(a($value, 'user_id') !== $last_user)
+			if(a($value, 'user_id') !== $last_user || a($value, 'type') !== $last_type)
 			{
 				$last_user = a($value, 'user_id');
+				$last_type = a($value, 'type');
 			}
 			else
 			{
@@ -216,7 +217,14 @@ class get
 			{
 				if($value['user_id'] === a($master_message, 'user_id'))
 				{
-					$message_count++;
+					if(a($value, 'type') === 'answer')
+					{
+						$answer_count++;
+					}
+					else
+					{
+						$message_count++;
+					}
 				}
 				else
 				{
