@@ -157,7 +157,7 @@ class get
 
 		if($_customer_mode)
 		{
-			$endMessage = end($conversation);
+			$endMessage = a($conversation, 0);
 
 			if(a($endMessage, 'parent') && !a($endMessage, 'see') && a($endMessage, 'type') === 'answer')
 			{
@@ -190,8 +190,18 @@ class get
 			}
 		}
 
+		$last_user = null;
 		foreach ($conversation as $key => $value)
 		{
+
+			if(a($value, 'user_id') !== $last_user)
+			{
+				$last_user = a($value, 'user_id');
+			}
+			else
+			{
+				$conversation[$key]['dbluser'] = true;
+			}
 			$message_total++;
 
 			if(isset($value['user_id']))

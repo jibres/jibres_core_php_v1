@@ -34,8 +34,8 @@ else
       </ul>
     </nav>
 
-    <?php require_once "display-chat.php"; ?>
     <?php require_once "display-append.php"; ?>
+    <?php require_once "display-chat.php"; ?>
   </div>
   <aside class="c-xs-12 c-sm-12 c-md-4 c-lg-3 c-xxl-2 ticketSidebar">
 
