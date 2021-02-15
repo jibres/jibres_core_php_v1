@@ -141,6 +141,11 @@ class notif
 		self::add_detail('direct', $_direct);
 	}
 
+	public static function live($_live = true)
+	{
+		self::add_detail('live', $_live);
+	}
+
 
 	public static function replaceState($_replaceState = true)
 	{
