@@ -187,6 +187,7 @@ class guard
 			$policy['connect-src'][] = '*.jibres.local';
 			$policy['img-src'][] = '*.jibres.local';
 			$policy['font-src'][] = '*.jibres.local';
+			$policy['media-src'][] = "*.jibres.local";
 		}
 
 		// create export txt
