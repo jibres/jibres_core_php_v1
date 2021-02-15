@@ -165,7 +165,8 @@ class get
 
 		if($_customer_mode)
 		{
-			$endMessage = a($conversation, 0);
+			// $endMessage = a($conversation, 0);
+			$endMessage = end($conversation);
 
 			if(a($endMessage, 'parent') && !a($endMessage, 'see') && a($endMessage, 'type') === 'answer')
 			{

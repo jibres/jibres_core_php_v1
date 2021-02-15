@@ -83,7 +83,7 @@ class get
 			LEFT JOIN users ON users.id = tickets.user_id
 			WHERE
 				(tickets.parent = $_id OR tickets.id = $_id)  $note
-			ORDER BY tickets.id DESC
+			ORDER BY tickets.id ASC
 			LIMIT 500
 		";
 
