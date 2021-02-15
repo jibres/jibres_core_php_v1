@@ -13,7 +13,7 @@ class view
 		\dash\data::back_link(\dash\url::this(). '/datalist');
 
 
-		\dash\face::btnSetting(\dash\url::this(). '/setting?id='. \dash\request::get('id'));
+		// \dash\face::btnSetting(\dash\url::this(). '/setting?id='. \dash\request::get('id'));
 
 
 		$ticket_id = \dash\data::dataRow_id();
