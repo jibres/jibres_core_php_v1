@@ -215,7 +215,7 @@ class get
 				{
 					if(in_array($lastid, $all_id))
 					{
-						unset($conversation[$key]);
+						$conversation[$key]['continue'] = true;
 					}
 				}
 			}

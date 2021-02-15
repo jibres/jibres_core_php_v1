@@ -17,6 +17,10 @@ $customer_mode = \dash\temp::get('customer_mode');
 
 foreach (\dash\data::conversation() as $key => $value)
 {
+  if(a($value, 'continue'))
+  {
+    continue;
+  }
   $userText = false;
   if(\dash\data::dataRow_user_id() == a($value, 'user_id'))
   {
