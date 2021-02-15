@@ -132,7 +132,7 @@ class smile
 
 		if(isset($session_sound['count']) && isset($session_sound['time']))
 		{
-			if(floatval($session_sound['count']) === floatval($_count) && time() - floatval($session_sound['time']) < (30))
+			if(floatval($session_sound['count']) === floatval($_count) && time() - floatval($session_sound['time']) < (60*1))
 			{
 				$play_sound = false;
 			}
