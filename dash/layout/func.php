@@ -48,8 +48,12 @@ class func
 				{
 					\dash\data::global_debug(\dash\notif::get());
 				}
-				// send global on line1 of xhr
-				echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
+
+				if(!$live)
+				{
+					// send global on line1 of xhr
+					echo json_encode(\dash\data::get('global'),  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES). "\n";
+				}
 				// create all blocks
 
 				if(\dash\request::get('loadMore'))
