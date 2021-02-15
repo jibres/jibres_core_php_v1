@@ -30,9 +30,9 @@ foreach (\dash\data::conversation() as $key => $value)
  <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";}?>"<?php if(a($value, 'dbluser')) { echo " data-line-multi"; } else {echo " data-line-1";} ?>>
   <div class="c-xs-12 c-auto">
     <?php if(a($value, 'dbluser')) {?>
-      <div class="imgEmpty"></div>
+      <div class="profileAvatar"></div>
     <?php }else{ ?>
-    <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>">
+    <img class="profileAvatar" src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>">
   <?php } //endif ?>
   </div>
   <div class="c-xs-12 c<?php if($otherSide) {echo " txtRa";} ?>">
@@ -75,7 +75,13 @@ foreach (\dash\data::conversation() as $key => $value)
 
 <?php if(a($value, 'file')) {?>
   <div>
+<?php if(a($value, 'filedetail', 'type') === 'image') {?>
+    <a class="attachment" target="_blank" href="<?php echo a($value, 'file') ?>" data-fancybox="ticketAttachment">
+      <img src="<?php echo \dash\fit::img(a($value, 'file'), 460); ?>" alt="attachment">
+    </a>
+<?php } else { ?>
     <a class="attachment btn dark" target="_blank" href="<?php echo a($value, 'file') ?>"><i class="sf-attach mRa10"></i> <?php echo T_("Show Attachment") ?></a>
+<?php }//endif ?>
   </div>
 <?php }//endif ?>
 
