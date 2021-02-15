@@ -31,6 +31,13 @@ class func
 
 			if(\dash\request::ajax())
 			{
+				$live         = false;
+
+				if(\dash\request::get('live') == 1 && is_file(self::live_addr()))
+				{
+					$live = true;
+				}
+
 				\dash\header::cache(0);
 				\dash\header::set(202, true);
 				// read all notif
@@ -46,6 +53,10 @@ class func
 				if(\dash\request::get('loadMore'))
 				{
 					\dash\layout\find::loadMore(\dash\request::get('loadMore'));
+				}
+				elseif($live)
+				{
+					require_once self::live_addr();
 				}
 				else
 				{
@@ -111,6 +122,11 @@ class func
 	public static function more_addr()
 	{
 		return str_replace('display.php', 'display-more.php', self::$DISPLAY);
+	}
+
+	public static function live_addr()
+	{
+		return str_replace('display.php', 'display-live.php', self::$DISPLAY);
 	}
 
 
