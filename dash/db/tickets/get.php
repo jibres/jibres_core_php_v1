@@ -52,7 +52,7 @@ class get
 			FROM
 				tickets
 			WHERE
-				tickets.parent = $_ticket_id OR tickets.id = $_ticket_id
+				(tickets.parent = $_ticket_id OR tickets.id = $_ticket_id) AND tickets.type != 'note'
 			ORDER BY tickets.id DESC
 			LIMIT 1
 		";

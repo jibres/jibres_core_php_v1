@@ -3,7 +3,7 @@ $live =
 [
   'module'     => 'ticket',
   'id'         => \dash\request::get('id'),
-  'lastid'     => a(\dash\data::conversation(), 0, 'id'),
+  'lastid'     => a(\dash\data::conversation(), 0, 'livelastid'),
   'urlcurrent' => \dash\url::current(),
 ];
 

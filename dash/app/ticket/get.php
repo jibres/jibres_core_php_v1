@@ -188,6 +188,7 @@ class get
 		$attachment_count = 0;
 		$answer_count     = 0;
 		$master_message   = null;
+		$livelastid       = null;
 		$userinticket     = [];
 		foreach ($conversation as $key => $value)
 		{
@@ -202,6 +203,19 @@ class get
 		$last_type = null;
 		foreach ($conversation as $key => $value)
 		{
+
+			if($livelastid === null)
+			{
+				if(a($value, 'type') === 'note')
+				{
+					// nothing
+				}
+				else
+				{
+					$livelastid = a($value, 'id');
+				}
+			}
+
 			if(a($value, 'user_id') !== $last_user || a($value, 'type') !== $last_type)
 			{
 				$last_user = a($value, 'user_id');
@@ -257,6 +271,7 @@ class get
 			$conversation[0]['answercount']     = $answer_count;
 			$conversation[0]['messagetotal']    = $message_total;
 			$conversation[0]['userinticket']    = $userinticket;
+			$conversation[0]['livelastid']      = $livelastid;
 		}
 
 		return $conversation;
