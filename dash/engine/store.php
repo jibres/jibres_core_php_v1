@@ -663,6 +663,37 @@ class store
 
 
 	/**
+	 * Detect store by code
+	 *
+	 * @param      <type>         $_store_code  The store code
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
+	public static function detect_store_by_code($_store_code)
+	{
+		$store_id = \dash\store_coding::decode($_store_code);
+		if(!$store_id)
+		{
+			return false;
+		}
+
+		$store_detail = \lib\app\store\get::by_id($store_id);
+
+		if(!$store_detail)
+		{
+			return false;
+		}
+
+		$result            = [];
+		$result['db_name'] = \dash\engine\store::make_database_name($store_id);
+		$result['fuel']    = a($store_detail, 'fuel');
+		$result['detail']  = $store_detail;
+		return $result;
+
+	}
+
+
+	/**
 	 * The business domain detail file
 	 *
 	 * @return     string  ( description_of_the_return_value )
