@@ -4,11 +4,17 @@ $data = \dash\data::dataRow();
 
 $customer_mode = \dash\temp::get('customer_mode');
 
-$liveMode = \dash\url::current();
-if(\dash\request::get('id'))
-{
-  $liveMode .= '?live=1&id='. \dash\request::get('id');
-}
+$live =
+[
+  'module'     => 'ticket',
+  'id'         => \dash\request::get('id'),
+  'lastid'     => a(\dash\data::conversation(), 0, 'id'),
+  'urlcurrent' => \dash\url::current(),
+];
+
+$liveMode = urlencode(json_encode($live));
+
+
 
 if($customer_mode)
 {
