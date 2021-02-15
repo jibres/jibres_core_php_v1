@@ -46,7 +46,7 @@ foreach (\dash\data::conversation() as $key => $value)
   }
 
 ?>
- <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";}?>"<?php if(a($value, 'dbluser')) { echo " data-line-multi"; } else {echo " data-line-1";} ?>>
+ <div class="messageLine row align-end<?php if($otherSide) {echo " f-row-reverse";}?>"<?php if(a($value, 'dbluser')) { echo " data-line-multi"; } else {echo " data-line-1";} ?>>
   <div class="c-xs-12 c-auto">
     <?php if(a($value, 'dbluser')) {?>
       <div class="profileAvatar"></div>

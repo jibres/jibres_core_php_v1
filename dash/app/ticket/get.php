@@ -224,6 +224,10 @@ class get
 
 		$next_user = null;
 		$next_type = null;
+
+		$last_user = null;
+		$last_type = null;
+
 		foreach ($conversation as $key => $value)
 		{
 			if($livelastid === null)
@@ -238,12 +242,14 @@ class get
 				}
 			}
 
+
+
 			$next = next($conversation);
 			if($next)
 			{
-
-				if(a($next, 'user_id') !== $next_user || a($next, 'type') !== $next_type)
+				if(a($next, 'user_id') != $next_user || a($next, 'type') != $next_type)
 				{
+					$conversation[$key]['dbluser'] = false;
 				}
 				else
 				{
@@ -252,7 +258,23 @@ class get
 
 				$next_user = a($next, 'user_id');
 				$next_type = a($next, 'type');
+
 			}
+			else
+			{
+				if(a($value, 'user_id') != $last_user || a($value, 'type') != $last_type)
+				{
+					$conversation[$key]['dbluser'] = false;
+				}
+				else
+				{
+					$conversation[$key]['dbluser'] = true;
+				}
+			}
+
+			$last_user = a($value, 'user_id');
+			$last_type = a($value, 'type');
+
 
 			$message_total++;
 
