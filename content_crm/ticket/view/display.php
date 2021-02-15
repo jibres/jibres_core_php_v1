@@ -171,7 +171,7 @@ else
               data-data='{"setstatus": "set", "status": "close"}'
               data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
                 <i class="sf-archive fc-orange"></i>
-                <div class="key"><?php echo T_("Archive ticket") ?></div>
+                <div class="key"><?php echo T_("Set ticket as archive") ?></div>
                 <div class="go"></div>
               </div>
           </li>
@@ -251,7 +251,7 @@ else
     </nav>
 
   <?php if(a(\dash\data::conversation(), 0, 'userinticket') && is_array(a(\dash\data::conversation(), 0, 'userinticket'))) {?>
-    <nav class="items long" title="<?php echo T_("") ?>">
+    <nav class="items long">
       <ul>
         <?php foreach (a(\dash\data::conversation(), 0, 'userinticket') as $key => $value) {?>
         <li>
