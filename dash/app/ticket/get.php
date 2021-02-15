@@ -204,17 +204,13 @@ class get
 		$last_type = null;
 		foreach ($conversation as $key => $value)
 		{
-
-			if($livelastid === null)
+			if(a($value, 'type') === 'note')
 			{
-				if(a($value, 'type') === 'note')
-				{
-					// nothing
-				}
-				else
-				{
-					$livelastid = a($value, 'id');
-				}
+				// nothing
+			}
+			else
+			{
+				$livelastid = a($value, 'id');
 			}
 
 			if(a($value, 'user_id') !== $last_user || a($value, 'type') !== $last_type)
