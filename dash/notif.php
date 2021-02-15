@@ -147,6 +147,22 @@ class notif
 	}
 
 
+	public static function liveHtml($_liveHtml)
+	{
+		self::add_detail('liveHtml', $_liveHtml);
+	}
+
+	public static function liveTarget($_liveTarget)
+	{
+		self::add_detail('liveTarget', $_liveTarget);
+	}
+
+	public static function livePosition($_livePosition)
+	{
+		self::add_detail('livePosition', $_livePosition);
+	}
+
+
 	public static function sound($_sound = null)
 	{
 		if($_sound && is_string($_sound))

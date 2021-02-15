@@ -33,7 +33,7 @@ class func
 			{
 				$live         = false;
 
-				if(\dash\request::get('live') == 1 && is_file(self::live_addr()))
+				if(\dash\header::get('x-live') === '1' && is_file(self::live_addr()))
 				{
 					// set live mode
 					\dash\data::global_live(1);
