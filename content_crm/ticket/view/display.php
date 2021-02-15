@@ -4,21 +4,10 @@ $data = \dash\data::dataRow();
 
 $customer_mode = \dash\temp::get('customer_mode');
 
-$live =
-[
-  'module'     => 'ticket',
-  'id'         => \dash\request::get('id'),
-  'lastid'     => a(\dash\data::conversation(), 0, 'id'),
-  'urlcurrent' => \dash\url::current(),
-];
-
-$liveMode = urlencode(json_encode($live));
-
-
-
+// @reza @todo @fix
 if($customer_mode)
 {
-  echo '<div class="row ticketPage" data-smile-live='. $liveMode. '>'  ;
+  echo '<div class="row ticketPage">'  ;
 
     echo '<div class="c-xs-12 c-sm-12">';
       require_once "display-append.php";
@@ -35,7 +24,7 @@ if($customer_mode)
 ?>
 
 
-<div class="row ticketPage" data-smile-live='<?php echo $liveMode; ?>'>
+<div class="row ticketPage">
   <div class="c-xs-12 c-sm-12 c-md-8 c-lg-9 c-xxl-10">
     <nav class="items long">
       <ul>

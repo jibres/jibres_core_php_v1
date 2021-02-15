@@ -1,4 +1,15 @@
-<div class="chat" data-xhr='ticket-chat'>
+<?php
+$live =
+[
+  'module'     => 'ticket',
+  'id'         => \dash\request::get('id'),
+  'lastid'     => a(\dash\data::conversation(), 0, 'id'),
+  'urlcurrent' => \dash\url::current(),
+];
+
+$liveMode = urlencode(json_encode($live));
+
+?><div class="chat" data-xhr='ticket-chat' data-smile-live='<?php echo $liveMode; ?>'>
 <?php
 
 $customer_mode = \dash\temp::get('customer_mode');
