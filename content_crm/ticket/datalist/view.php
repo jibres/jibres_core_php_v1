@@ -28,6 +28,7 @@ class view
 			'sort'   => \dash\request::get('sort'),
 			'status' => \dash\request::get('status'),
 			'so'     => \dash\request::get('so'),
+			'hf'     => \dash\request::get('hf'),
 			'user'   => \dash\request::get('user'),
 
 		];

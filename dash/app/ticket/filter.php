@@ -43,6 +43,9 @@ class filter
 			$list['deleted']   = ['key' => 'deleted', 	'group' => T_("Status"), 'title' => T_('Deleted'), 			'query' => ['status' => 'deleted'], 'public' => true];
 			$list['solved']    = ['key' => 'solved', 	'group' => T_("Solved"), 'title' => T_('Solved ticket'), 	'query' => ['so' => 'y'], 			'public' => true];
 			$list['notsolved'] = ['key' => 'notsolved', 'group' => T_("Solved"), 'title' => T_('Un Solved ticket'), 'query' => ['so' => 'n'], 			'public' => true];
+
+			$list['havefile']    = ['key' => 'havefile', 	'group' => T_("Attachment"), 'title' => T_('With attachment'), 	'query' => ['hf' => 'y'], 			'public' => true];
+			$list['havenotfile'] = ['key' => 'havenotfile', 'group' => T_("Attachment"), 'title' => T_('Without attachment'), 'query' => ['hf' => 'n'], 			'public' => true];
 		}
 
 		return $list;

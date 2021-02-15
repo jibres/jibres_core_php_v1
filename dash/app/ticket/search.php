@@ -46,6 +46,7 @@ class search
 			'sort'          => 'string_50',
 			'status'        => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
 			'so'            => 'y_n',
+			'hf'            => 'y_n',
 			'user'          => 'code',
 			'limit'         => 'int',
 			'pagination'    => 'y_n',
@@ -122,6 +123,17 @@ class search
 		elseif($data['so'] === 'n')
 		{
 			$and[] = " ( tickets.solved IS NULL OR tickets.solved =  0 ) ";
+			self::$is_filtered = true;
+		}
+
+		if($data['hf'] === 'y')
+		{
+			$and[] = " tickets.file IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['hf'] === 'n')
+		{
+			$and[] = " tickets.file IS NULL ";
 			self::$is_filtered = true;
 		}
 
