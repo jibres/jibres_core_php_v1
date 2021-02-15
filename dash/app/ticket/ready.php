@@ -31,13 +31,13 @@ class ready
 				case 'status':
 					$color       = null;
 					$color_class = null;
-					$statuclass = 'detail';
+					$statuclass = 'sf-exchange';
 					switch ($value)
 					{
 						case 'awaiting':
 							$color       = null;
 							$color_class = 'pain';
-							$statuclass = 'detail';
+							$statuclass = 'sf-bullhorn';
 							break;
 
 
@@ -46,20 +46,20 @@ class ready
 						case 'filter':
 							$color       = 'negative';
 							$color_class = 'danger';
-							$statuclass = 'stop nok';
+							$statuclass = 'sf-trash-can fc-red';
 							break;
 
 
 						case 'close':
 							$color       = 'disabled';
 							$color_class = 'secondary';
-							$statuclass = 'ban nok';
+							$statuclass = 'sf-archive fc-black';
 							break;
 
 						case 'answered':
 							$color       = 'positive';
 							$color_class = 'success';
-							$statuclass = 'check ok';
+							$statuclass = 'sf-coffee fc-gold';
 							break;
 					}
 

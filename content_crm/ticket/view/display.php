@@ -167,17 +167,15 @@ else
 
     <nav class="items long">
       <ul>
-        <?php if($customer_mode) {?>
         <li>
           <div class="f item">
-            <i class="sf-chat-alt-fill"></i>
+            <i class="<?php echo \dash\data::dataRow_statuclass(); ?>"></i>
             <div class="key"><?php echo T_("Status") ?></div>
             <div class="value txtB"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
-            <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
           </div>
         </li>
-      <?php }else{ ?>
-          <?php if(a(\dash\data::conversation(), 0, 'answercount') === 0 && \dash\data::dataRow_status() === 'awaiting') {?>
+<?php if(!$customer_mode) {?>
+<?php if(a(\dash\data::conversation(), 0, 'answercount') === 0 && \dash\data::dataRow_status() === 'awaiting') {?>
             <li>
               <div class="f item"
               data-confirm
@@ -188,53 +186,32 @@ else
                 <div class="go"></div>
               </div>
           </li>
-          <?php }else{ ?>
+<?php } else { ?>
+<?php if(\dash\data::dataRow_status() !== 'close' && \dash\data::dataRow_status() !== 'deleted') {?>
             <li>
-              <div class="f item">
-                <i class="sf-chat-alt-fill"></i>
-                <div class="key"><?php echo T_("Status") ?></div>
-                <div class="value txtB"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
-                <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
-              </div>
-            </li>
-          <?php if(\dash\data::dataRow_status() !== 'close' && \dash\data::dataRow_status() !== 'deleted') {?>
-            <li>
-
-
-              <div class="f item"
-              data-confirm
-              data-data='{"setstatus": "set", "status": "close"}'
-              data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
-                <i class="sf-archive fc-orange"></i>
+              <div class="f item" data-confirm data-data='{"setstatus": "set", "status": "close"}' data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
+                <i class="sf-archive fc-mute"></i>
                 <div class="key"><?php echo T_("Set ticket as archive") ?></div>
-                <div class="go"></div>
               </div>
           </li>
-        <?php } //endif ?>
-        <?php if(\dash\data::dataRow_status() === 'close') {?>
+<?php } //endif ?>
+<?php if(\dash\data::dataRow_status() === 'close') {?>
             <li>
-              <div class="f item"
-              data-confirm
-              data-data='{"setstatus": "set", "status": "deleted"}'
-              data-title="<?php echo T_("Do you want to delete this ticket?"); ?>">
+              <div class="f item"data-confirm data-data='{"setstatus": "set", "status": "deleted"}' data-title="<?php echo T_("Do you want to delete this ticket?"); ?>">
                 <i class="sf-trash fc-red"></i>
                 <div class="key"><?php echo T_("Remove ticket") ?></div>
-                <div class="go"></div>
               </div>
           </li>
-        <?php } //endif ?>
-          <?php } //endif ?>
+<?php } //endif ?>
+<?php } //endif ?>
         <li>
-          <div class="f item"
-          data-confirm
-          data-data='{"setsolved": "set", "solved": "<?php echo intval(\dash\data::dataRow_solved()); ?>"}'
-          data-title="<?php if(\dash\data::dataRow_solved()) {echo T_("If your problem is not solved yet, please set this ticket as unsolved");}else{echo T_("If your problem is solved, please set this ticket as solved. \n This will help you understand how many of your customers' requests are successfully solved");} ?>">
+          <div class="f item" data-confirm data-data='{"setsolved": "set", "solved": "<?php echo intval(\dash\data::dataRow_solved()); ?>"}' data-title="<?php if(\dash\data::dataRow_solved()) {echo T_("If your problem is not solved yet, please set this ticket as unsolved");}else{echo T_("If your problem is solved, please set this ticket as solved. \n This will help you understand how many of your customers' requests are successfully solved");} ?>">
             <i class="sf-<?php if(\dash\data::dataRow_solved()){echo 'heart ok';}else{echo 'heart-o';} ?>"></i>
             <div class="key"><?php echo T_("Solved?") ?></div>
             <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("Yes");}else{echo T_("No");} ?></div>
           </div>
         </li>
-      <?php } // endif ?>
+<?php } // endif ?>
       </ul>
     </nav>
 
