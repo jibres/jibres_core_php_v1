@@ -29,7 +29,15 @@ class get
 
 		if(isset($load['user_id']) && $load['user_id'])
 		{
-			$email = \dash\app\user\email::get_user_email_primary($load['user_id']);
+			if(\dash\engine\store::inStore())
+			{
+				// @reza @todo @need to fix
+				$email = null;
+			}
+			else
+			{
+				$email = \dash\app\user\email::get_user_email_primary($load['user_id']);
+			}
 
 			$chatid = \dash\db\user_telegram\get::load_user_chatid($load['user_id']);
 

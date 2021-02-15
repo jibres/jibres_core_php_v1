@@ -44,7 +44,7 @@ foreach (\dash\data::conversation() as $key => $value)
 
       <footer class="row<?php if($otherSide) {echo " f-row-reverse";} ?>">
         <div class="c-auto">
-          <?php if(!$userText) {?>
+          <?php if(!$userText && !$customer_mode) {?>
           <i class="sf-check<?php if(a($value, 'see')) {echo ' seen';} ?>" title="<?php echo T_("Seen") ?>"></i>
         <?php } //endif ?>
         </div>

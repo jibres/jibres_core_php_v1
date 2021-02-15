@@ -1,11 +1,31 @@
-<?php $data = \dash\data::dataRow(); ?>
-<?php $customer_mode = \dash\temp::get('customer_mode'); ?>
 <?php
+
+$data = \dash\data::dataRow();
+
+$customer_mode = \dash\temp::get('customer_mode');
+
 $liveMode = \dash\url::current();
 if(\dash\request::get('id'))
 {
   $liveMode .= '?live=1&id='. \dash\request::get('id');
 }
+
+if($customer_mode)
+{
+  echo '<div class="row ticketPage" data-smile-live='. $liveMode. '>'  ;
+
+    echo '<div class="c-xs-12 c-sm-12">';
+      require_once "display-append.php";
+    echo '</div>';
+
+    echo '<div class="c-xs-12 c-sm-12">';
+      require_once "display-chat.php";
+    echo '</div>';
+
+  echo '</div>';
+  return;
+}
+
 ?>
 
 
