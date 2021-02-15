@@ -24,10 +24,11 @@ echo '<nav class="items long">';
 
         if(a($value, 'plus'))
         {
-          echo "<i class='sf-retweet' data-count='". \dash\fit::number(a($value, 'plus')). "'></i>";
-          // echo '<div class="value">';
-          // echo ' <span class="badge rounded light s0"> <i class="sf-refresh"></i> '. \dash\fit::number(a($value, 'plus')). '</span>';
-          // echo '</div>';
+
+          // echo "<i class='sf-retweet' data-count='". \dash\fit::number(a($value, 'plus')). "'></i>";
+          echo '<div class="value">';
+          echo ' <span class="badge rounded light s0"> <i class="sf-refresh"></i> '. \dash\fit::number(a($value, 'plus')). '</span>';
+          echo '</div>';
         }
 
 

@@ -29,7 +29,11 @@ foreach (\dash\data::conversation() as $key => $value)
 ?>
  <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";} ?>">
   <div class="c-xs-12 c-auto">
-    <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>" <?php if(a($value, 'dbluser')) {echo 'class="hide"';}?>>
+    <?php if(a($value, 'dbluser')) {?>
+      <div class=""></div>
+    <?php }else{ ?>
+    <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>">
+  <?php } //endif ?>
   </div>
   <div class="c-xs-12 c<?php if($otherSide) {echo " txtRa";} ?>">
     <div class="messageBox"<?php if(a($value, 'type') === 'note') {echo' data-note';} if($userText){ echo ' data-user'; } else {echo ' data-admin data-color=blue';} ?>>
@@ -40,7 +44,9 @@ foreach (\dash\data::conversation() as $key => $value)
 
       <footer class="row<?php if($otherSide) {echo " f-row-reverse";} ?>">
         <div class="c-auto">
+          <?php if(!$userText) {?>
           <i class="sf-check<?php if(a($value, 'see')) {echo ' seen';} ?>" title="<?php echo T_("Seen") ?>"></i>
+        <?php } //endif ?>
         </div>
 <?php
        if(a($value, 'type') === 'note')
