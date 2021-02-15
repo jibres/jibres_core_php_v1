@@ -35,6 +35,8 @@ class func
 
 				if(\dash\request::get('live') == 1 && is_file(self::live_addr()))
 				{
+					// set live mode
+					\dash\notif::live(1);
 					$live = true;
 				}
 
