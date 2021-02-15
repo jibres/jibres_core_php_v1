@@ -18,7 +18,7 @@ class view
 
 		$ticket_id = \dash\data::dataRow_id();
 
-		$conversation = \dash\app\ticket\get::conversation($ticket_id);
+		$conversation = \dash\app\ticket\get::conversation($ticket_id, null, \dash\request::get('lastid'));
 
 		\dash\data::conversation($conversation);
 

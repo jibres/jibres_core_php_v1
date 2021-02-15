@@ -146,7 +146,7 @@ class get
 
 	}
 
-	public static function conversation($_id, $_customer_mode = false)
+	public static function conversation($_id, $_customer_mode = false, $_last_id = null)
 	{
 		$id = \dash\validate::id($_id);
 		if(!$id)
@@ -200,6 +200,23 @@ class get
 			}
 		}
 
+		$lastid = \dash\validate::id($_last_id, false);
+		if($lastid)
+		{
+			foreach ($conversation as $key => $value)
+			{
+				if(isset($value['id']) && floatval($value['id']) > $lastid)
+				{
+					// ok;
+				}
+				else
+				{
+					// unset($conversation[$key]);
+				}
+			}
+		}
+
+
 		$last_user = null;
 		$last_type = null;
 		foreach ($conversation as $key => $value)
@@ -243,7 +260,7 @@ class get
 					{
 						$userinticket[$value['user_id']] =
 						[
-							'avatar' => a($value, 'avatar'),
+							'avatar'      => a($value, 'avatar'),
 							'displayname' => a($value, 'displayname'),
 						];
 					}
