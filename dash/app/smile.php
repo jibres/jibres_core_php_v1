@@ -183,6 +183,9 @@ class smile
 				];
 				$new_url = $_smile['urlcurrent'].'?'. \dash\request::build_query($get);
 
+				// set live mode
+				\dash\notif::live(true);
+
 				\dash\redirect::to($new_url);
 			}
 		}
