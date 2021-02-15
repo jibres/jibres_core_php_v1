@@ -33,8 +33,23 @@ else
         </li>
       </ul>
     </nav>
-
+    <?php if(in_array(\dash\data::dataRow_status(), ['close', 'deleted', 'spam'])) {?>
+      <nav class="items long">
+      <ul>
+        <li>
+          <div class="f item" data-kerkere='.showAddAnswer'>
+          <div class="key"><?php echo T_("Add answer") ?></div>
+            <div class="go plus"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="showAddAnswer" data-kerkere-content='hide'>
+      <?php require_once "display-append.php"; ?>
+    </div>
+    <?php }else{ ?>
     <?php require_once "display-append.php"; ?>
+    <?php } //endif ?>
     <?php require_once "display-chat.php"; ?>
   </div>
   <aside class="c-xs-12 c-sm-12 c-md-4 c-lg-3 c-xxl-2 ticketSidebar">
