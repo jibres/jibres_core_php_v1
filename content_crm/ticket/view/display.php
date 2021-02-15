@@ -162,14 +162,28 @@ else
                 <div class="go <?php echo \dash\data::dataRow_statuclass(); ?>"></div>
               </div>
             </li>
-          <?php if(\dash\data::dataRow_status() !== 'close') {?>
+          <?php if(\dash\data::dataRow_status() !== 'close' && \dash\data::dataRow_status() !== 'deleted') {?>
             <li>
+
+
               <div class="f item"
               data-confirm
               data-data='{"setstatus": "set", "status": "close"}'
               data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
-                <i class="sf-archive"></i>
+                <i class="sf-archive fc-orange"></i>
                 <div class="key"><?php echo T_("Archive ticket") ?></div>
+                <div class="go"></div>
+              </div>
+          </li>
+        <?php } //endif ?>
+        <?php if(\dash\data::dataRow_status() === 'close') {?>
+            <li>
+              <div class="f item"
+              data-confirm
+              data-data='{"setstatus": "set", "status": "deleted"}'
+              data-title="<?php echo T_("Do you want to delete this ticket?"); ?>">
+                <i class="sf-trash fc-red"></i>
+                <div class="key"><?php echo T_("Remove ticket") ?></div>
                 <div class="go"></div>
               </div>
           </li>
