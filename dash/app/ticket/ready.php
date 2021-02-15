@@ -95,6 +95,8 @@ class ready
 					if(isset($value))
 					{
 						$result[$key] = \lib\filepath::fix($value);
+						$result['filedetail'] = \lib\filepath::get_detail($value);
+
 					}
 					else
 					{
