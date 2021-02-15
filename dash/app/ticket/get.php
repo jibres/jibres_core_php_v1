@@ -211,7 +211,7 @@ class get
 				}
 				else
 				{
-					// unset($conversation[$key]);
+					unset($conversation[$key]);
 				}
 			}
 		}
