@@ -1,4 +1,9 @@
 <?php
+if(\dash\request::get('gethtml') == '1')
+{
+    require_once "display-chat.php";
+    return;
+}
 
 $data = \dash\data::dataRow();
 

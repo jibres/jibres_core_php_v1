@@ -147,9 +147,9 @@ class notif
 	}
 
 
-	public static function liveHtml($_liveHtml)
+	public static function liveResult($_liveResult)
 	{
-		self::add_detail('liveHtml', $_liveHtml);
+		self::add_detail('liveResult', $_liveResult);
 	}
 
 	public static function liveTarget($_liveTarget)

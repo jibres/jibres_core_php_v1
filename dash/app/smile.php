@@ -217,8 +217,9 @@ class smile
 			{
 				$get =
 				[
-					'id'     => $ticket_id,
-					'lastid' => $lastid,
+					'id'      => $ticket_id,
+					'lastid'  => $lastid,
+					'gethtml' => 1,
 				];
 				$new_url = $_smile['urlcurrent'].'?'. \dash\request::build_query($get);
 
@@ -226,7 +227,7 @@ class smile
 				\dash\notif::live(1);
 				\dash\notif::sound('new-ticket.mp3');
 
-				\dash\notif::liveHtml($new_url);
+				\dash\notif::liveResult($new_url);
 				\dash\notif::liveTarget('.chat');
 				\dash\notif::livePosition('top');
 			}
