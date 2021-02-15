@@ -147,6 +147,15 @@ class notif
 	}
 
 
+	public static function sound($_sound = null)
+	{
+		if($_sound && is_string($_sound))
+		{
+			self::add_detail('sound', $_sound);
+		}
+	}
+
+
 	public static function replaceState($_replaceState = true)
 	{
 		self::add_detail('replaceState', $_replaceState);
