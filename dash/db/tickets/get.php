@@ -42,6 +42,27 @@ class get
 
 
 
+	public static function last_ticket_message_id($_ticket_id, $_fuel, $_db_name)
+	{
+		$query =
+		"
+			SELECT
+				tickets.id,
+				tickets.status
+			FROM
+				tickets
+			WHERE
+				tickets.parent = $_ticket_id OR tickets.id = $_ticket_id
+			ORDER BY tickets.id DESC
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true, $_fuel, ['database' => $_db_name]);
+		return $result;
+
+	}
+
+
 
 	public static function conversation($_id, $_customer_mode = false)
 	{

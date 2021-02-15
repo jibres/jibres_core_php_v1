@@ -29,14 +29,38 @@ class smile
 			{
 				$orderCount = self::detect_order($post['store_code']);
 			}
+
 			if(\dash\request::post('smileLive'))
 			{
-				// do something for example create redirect link
-				$liveUrl = urldecode(\dash\request::post('smileLive'));
-				$liveUrl = str_replace('&amp;', '&', $liveUrl);
+				$smileLive = \dash\request::post('smileLive');
+				if(is_string($smileLive))
+				{
+					$smileLive = urldecode($smileLive);
+					$smileLive = json_decode($smileLive, true);
+				}
+				else
+				{
+					$smileLive = [];
+				}
 
-				// \dash\notif::ok(T_("smile data is here, run live mode"));
-				// \dash\redirect::to($liveUrl);
+				if(!is_array($smileLive))
+				{
+					$smileLive = [];
+				}
+
+				if(isset($smileLive['module']))
+				{
+					switch ($smileLive['module'])
+					{
+						case 'ticket':
+							self::live_ticket($smileLive, $post);
+							break;
+
+						default:
+							# code...
+							break;
+					}
+				}
 			}
 
 			$myResult =
@@ -58,28 +82,13 @@ class smile
 
 	private static function detect_order($_store_code)
 	{
-		$store_id = \dash\store_coding::decode($_store_code);
-		if(!$store_id)
+		$detail = \dash\engine\store::detect_store_by_code($_store_code);
+		if(!a($detail, 'db_name') || !a($detail, 'fuel'))
 		{
 			return false;
 		}
 
-		$store_detail = \lib\app\store\get::by_id($store_id);
-
-		if(!$store_detail)
-		{
-			return false;
-		}
-
-		$db_name = \dash\engine\store::make_database_name($store_id);
-		$fuel    = a($store_detail, 'fuel');
-
-		if(!$db_name || !$fuel)
-		{
-			return false;
-		}
-
-		$count_order = \lib\db\factors\get::count_new_order_fuel($fuel, $db_name);
+		$count_order = \lib\db\factors\get::count_new_order_fuel(a($detail, 'fuel'), a($detail, 'db_name'));
 
 		if(!is_numeric($count_order))
 		{
@@ -104,6 +113,85 @@ class smile
 		}
 
 		return floatval($count_order);
+
+	}
+
+
+	private static function live_ticket($_smile, $_args)
+	{
+		if(!isset($_smile['id']))
+		{
+			return;
+		}
+
+		if(!isset($_smile['lastid']))
+		{
+			return;
+		}
+
+		if(!isset($_smile['urlcurrent']))
+		{
+			return;
+		}
+
+		$ticket_id = $_smile['id'];
+		$ticket_id = \dash\validate::id($ticket_id, false);
+		if(!$ticket_id)
+		{
+			return;
+		}
+
+		$lastid = $_smile['lastid'];
+		$lastid = \dash\validate::id($lastid, false);
+		if(!$lastid)
+		{
+			return;
+		}
+
+		$db_name = null;
+		$fuel    = null;
+
+		if(isset($_args['store_code']) && $_args['store_code'] && $_args['store_code'] !== 'Jibres')
+		{
+			$detail = \dash\engine\store::detect_store_by_code($_args['store_code']);
+			if(!a($detail, 'db_name') || !a($detail, 'fuel'))
+			{
+				return false;
+			}
+			else
+			{
+				$db_name    = $detail['db_name'];
+				$fuel       = $detail['fuel'];
+			}
+		}
+
+
+		$get_last_ticket_message_id = \dash\db\tickets\get::last_ticket_message_id($ticket_id, $fuel, $db_name);
+
+		if(isset($get_last_ticket_message_id['id']))
+		{
+			if(floatval($get_last_ticket_message_id['id']) === floatval($lastid))
+			{
+				// nothing
+			}
+			else
+			{
+				$get =
+				[
+					'id' => $ticket_id,
+				];
+				$new_url = $_smile['urlcurrent'].'?'. \dash\request::build_query($get);
+				\dash\redirect::to($new_url);
+			}
+		}
+		else
+		{
+			// ticket not found
+			return;
+		}
+
+
+
 
 	}
 }
