@@ -70,6 +70,11 @@ class smile
 				'orderCount' => $orderCount,
 			];
 
+			if($myResult['notifCount'])
+			{
+				self::play_sound('notif_sound_new_notification', $notifCount, 'new-notification-2.mp3');
+			}
+
 		}
 		else
 		{
@@ -109,11 +114,44 @@ class smile
 			$alertyOpt['toast']    = true;
 			$alertyOpt['position'] = 'top-end';
 
+
+			self::play_sound('notif_sound_new_order', $count_order, 'new-order-2.mp3');
+
 			\dash\notif::ok(T_("You have :val new order!", ['val' => \dash\fit::number($count_order)]), $alertyOpt);
 		}
 
 		return floatval($count_order);
+	}
 
+
+	private static function play_sound($_key, $_count, $_sound)
+	{
+		$play_sound = true;
+
+		$session_sound = \dash\session::get($_key);
+
+		if(isset($session_sound['count']) && isset($session_sound['time']))
+		{
+			if(floatval($session_sound['count']) === floatval($_count) && time() - floatval($session_sound['time']) < (10*1))
+			{
+				$play_sound = false;
+			}
+		}
+
+		$session_sound = ['count' => $_count, 'time' => time()];
+
+		\dash\session::set($_key, $session_sound);
+
+		if(!$_count)
+		{
+			$play_sound = false;
+		}
+
+		if($play_sound)
+		{
+
+			\dash\notif::sound($_sound);
+		}
 	}
 
 
