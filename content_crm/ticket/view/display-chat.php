@@ -27,10 +27,10 @@ foreach (\dash\data::conversation() as $key => $value)
   }
 
 ?>
- <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";} ?>">
+ <div class="messageLine row align-start<?php if($otherSide) {echo " f-row-reverse";}?>"<?php if(a($value, 'dbluser')) { echo " data-multi"; } ?>>
   <div class="c-xs-12 c-auto">
     <?php if(a($value, 'dbluser')) {?>
-      <div class=""></div>
+      <div class="imgEmpty"></div>
     <?php }else{ ?>
     <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="<?php if($userText && $customer_mode) { echo T_("You"); }else{ echo  a($value, 'displayname');} ?>">
   <?php } //endif ?>
