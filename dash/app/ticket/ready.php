@@ -104,6 +104,14 @@ class ready
 					}
 					break;
 
+				case 'plus':
+					if(!$value)
+					{
+						$value = 1;
+					}
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
