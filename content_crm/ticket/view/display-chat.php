@@ -1,3 +1,4 @@
+<div class="chat" data-xhr='ticket-chat'>
 <?php
 $live =
 [
@@ -9,7 +10,8 @@ $live =
 
 $liveMode = urlencode(json_encode($live));
 
-?><div class="chat" data-xhr='ticket-chat' data-smile-live='<?php echo $liveMode; ?>'>
+?>
+<div class='hide' data-smile-live='<?php echo $liveMode; ?>'></div>
 <?php
 
 $customer_mode = \dash\temp::get('customer_mode');
