@@ -200,6 +200,8 @@ class get
 			}
 		}
 
+		$all_id = array_column($conversation, 'id');
+
 		$lastid = \dash\validate::id($_last_id, false);
 		if($lastid)
 		{
@@ -211,7 +213,10 @@ class get
 				}
 				else
 				{
-					unset($conversation[$key]);
+					if(in_array($lastid, $all_id))
+					{
+						unset($conversation[$key]);
+					}
 				}
 			}
 		}
