@@ -15,7 +15,7 @@ if($customer_mode)
   echo '<div class="row ticketPage">'  ;
 
     echo '<div class="c-xs-12 c-sm-12">';
-      require_once "display-append.php";
+      require_once "display-answer.php";
     echo '</div>';
 
     echo '<div class="c-xs-12 c-sm-12">';
@@ -56,7 +56,6 @@ else
     <?php require_once "display-answer.php"; ?>
 
     <?php require_once "display-chat.php"; ?>
-    <?php require_once "display-append.php"; ?>
 
   </div>
   <aside class="c-xs-12 c-sm-12 c-md-4 c-lg-3 c-xxl-2 ticketSidebar">

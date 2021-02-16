@@ -1,5 +1,5 @@
 <form method="post" autocomplete="off" class="quickReply">
-  <div class="row align-end">
+  <div class="row align-start">
     <div class="c-auto">
       <div class="checkIcon">
         <label for="file1-2" class="sf-attach" data-kerkere='.uploadBox'></label>
