@@ -318,6 +318,11 @@ class get
 			{
 				$attachment_count++;
 			}
+
+			if(isset($value['content']) && $value['content'])
+			{
+				$conversation[$key]['isltr'] = \dash\validate::is_ltr($value['content']);
+			}
 		}
 
 		if(isset($conversation[0]) && is_array($conversation[0]))
@@ -330,7 +335,6 @@ class get
 			$conversation[0]['livelastid']      = $livelastid;
 		}
 
-		// var_dump($conversation);exit();
 		return $conversation;
 	}
 }
