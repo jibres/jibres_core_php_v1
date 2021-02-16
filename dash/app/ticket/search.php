@@ -47,6 +47,7 @@ class search
 			'status'        => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
 			'so'            => 'y_n',
 			'hf'            => 'y_n',
+			'hu'            => 'y_n',
 			'user'          => 'code',
 			'limit'         => 'int',
 			'pagination'    => 'y_n',
@@ -134,6 +135,18 @@ class search
 		elseif($data['hf'] === 'n')
 		{
 			$and[] = " tickets.file IS NULL ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['hu'] === 'y')
+		{
+			$and[] = " tickets.user_id IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['hu'] === 'n')
+		{
+			$and[] = " tickets.user_id IS NULL ";
 			self::$is_filtered = true;
 		}
 

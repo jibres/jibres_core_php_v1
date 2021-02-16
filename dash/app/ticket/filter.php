@@ -46,6 +46,9 @@ class filter
 
 			$list['havefile']    = ['key' => 'havefile', 	'group' => T_("Attachment"), 'title' => T_('With attachment'), 	'query' => ['hf' => 'y'], 			'public' => true];
 			$list['havenotfile'] = ['key' => 'havenotfile', 'group' => T_("Attachment"), 'title' => T_('Without attachment'), 'query' => ['hf' => 'n'], 			'public' => true];
+
+			$list['user']    = ['key' => 'user', 	'group' => T_("Customer"), 'title' => T_('Logined'), 	'query' => ['hu' => 'y'], 			'public' => true];
+			$list['guest'] = ['key' => 'guest', 'group' => T_("Customer"), 'title' => T_('Guest user'), 'query' => ['hu' => 'n'], 			'public' => true];
 		}
 
 		return $list;

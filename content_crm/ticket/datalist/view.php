@@ -30,6 +30,7 @@ class view
 			'so'     => \dash\request::get('so'),
 			'hf'     => \dash\request::get('hf'),
 			'user'   => \dash\request::get('user'),
+			'hu'     => \dash\request::get('hu'),
 
 		];
 
