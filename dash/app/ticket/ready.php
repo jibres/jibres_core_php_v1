@@ -112,6 +112,16 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'content':
+					$result['content_raw'] = $value;
+
+					if($value)
+					{
+						$value = \lib\shortcode::make_clickable($value);
+					}
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
