@@ -19,9 +19,34 @@ class shortcode
 		}
 
 		return self::make_clickable_wp($_data);
-
-
 	}
+
+
+	public static function make_markdown($_data)
+	{
+		if(!$_data || !is_string($_data))
+		{
+			return $_data;
+		}
+
+		$pattern = "/(\*{3})(.{1,500})(\*{3})/";
+		$count = 0;
+		while (preg_match($pattern, $_data, $split))
+		{
+			$count++;
+
+			$_data = preg_replace($pattern, "<b>$2</b>", $_data);
+
+			if($count > 500)
+			{
+				break;
+			}
+		}
+
+		return $_data;
+	}
+
+
 
 	public static function make_clickable_wp( $text )
 	{
