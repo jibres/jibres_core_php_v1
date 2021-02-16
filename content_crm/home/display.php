@@ -202,7 +202,7 @@
   </div>
 
   <div class="c-xs-12 c-sm-12 c-md-4">
-    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/ticket/datalist?sort=datecreated&order=desc' ?>"><?php echo T_("Last tickets") ?></a></p>
+    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/ticket/datalist?act=y' ?>"><?php echo T_("Last tickets") ?></a></p>
     <?php if(\dash\data::dashboardDetail_latestTicket()) {?>
     <nav class="items long">
        <ul>

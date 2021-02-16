@@ -172,7 +172,7 @@ class dashboard
 		$dashboard_detail['success_percent'] = self::transactions_success_percent();
 		$dashboard_detail['latestLogs']   = \dash\app\log\search::lates_log_caller('enter_NewAccountLogin');
 		$dashboard_detail['latestMember'] = \dash\app\user::lates_user();
-		$dashboard_detail['latestTicket'] = \dash\app\ticket\search::last_5_ticket();
+		$dashboard_detail['latestTicket'] = \dash\app\ticket\search::last_5_active_ticket();
 
 		return $dashboard_detail;
 	}
