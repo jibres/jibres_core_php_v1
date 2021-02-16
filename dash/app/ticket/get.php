@@ -222,8 +222,8 @@ class get
 		}
 
 
-		$next_user = null;
-		$next_type = null;
+		$next_user = false;
+		$next_type = false;
 
 		$last_user = null;
 		$last_type = null;
@@ -242,18 +242,33 @@ class get
 				}
 			}
 
+			if($next_user === false)
+			{
+				$next_user = a($value, 'user_id');
+			}
 
+			if($next_type === false)
+			{
+				$next_type = a($value, 'type');
+			}
 
 			$next = next($conversation);
 			if($next)
 			{
-				if(a($next, 'user_id') != $next_user || a($next, 'type') != $next_type)
+				if(a($next, 'user_id') == $next_user)
 				{
-					$conversation[$key]['dbluser'] = false;
+					if(a($next, 'type') !== $next_type && in_array(a($next, 'type'), ['ticket', 'answer']) && in_array($next_type, ['ticket', 'answer']))
+					{
+						$conversation[$key]['dbluser'] = false;
+					}
+					else
+					{
+						$conversation[$key]['dbluser'] = true;
+					}
 				}
 				else
 				{
-					$conversation[$key]['dbluser'] = true;
+					$conversation[$key]['dbluser'] = false;
 				}
 
 				$next_user = a($next, 'user_id');
@@ -262,18 +277,8 @@ class get
 			}
 			else
 			{
-				if(a($value, 'user_id') != $last_user || a($value, 'type') != $last_type)
-				{
-					$conversation[$key]['dbluser'] = false;
-				}
-				else
-				{
-					$conversation[$key]['dbluser'] = true;
-				}
+				$conversation[$key]['dbluser'] = false;
 			}
-
-			$last_user = a($value, 'user_id');
-			$last_type = a($value, 'type');
 
 
 			$message_total++;
@@ -325,6 +330,7 @@ class get
 			$conversation[0]['livelastid']      = $livelastid;
 		}
 
+		// var_dump($conversation);exit();
 		return $conversation;
 	}
 }
