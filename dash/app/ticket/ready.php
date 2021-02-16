@@ -118,6 +118,7 @@ class ready
 					if($value)
 					{
 						$value = \lib\shortcode::make_clickable($value);
+						$value = \lib\shortcode::make_markdown($value);
 					}
 					$result[$key] = $value;
 					break;
