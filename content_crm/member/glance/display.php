@@ -234,7 +234,7 @@ if(a($dataRowMember,  'status') === 'ban')
 
   </div>
 
-  <div class="c-xs-12 c-sm-12 c-md-4">
+  <div class="c-xs-12 c-sm-12 c-md-4 order-xs-first order-sm-first order-md-2">
     <nav class="items long">
       <ul>
         <li>
