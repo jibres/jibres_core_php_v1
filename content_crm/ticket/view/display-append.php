@@ -1,4 +1,4 @@
-<form method="post" autocomplete="off" >
+<form method="post" autocomplete="off">
   <?php if($customer_mode){ \dash\csrf::html(false); } ?>
   <div class="box">
     <div class="pad">
@@ -6,10 +6,6 @@
 
       <div class="showAdvanceAnswer" data-kerkere-content='hide'>
 
-        <div class="mT10" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
-          <input type="file"  id="file1">
-          <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-        </div>
           <?php if(!$customer_mode) {?>
           <div class="check1">
             <input type="checkbox" name="sendmessage" id="sendmessage" checked>

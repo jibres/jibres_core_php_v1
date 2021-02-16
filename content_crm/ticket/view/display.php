@@ -53,6 +53,7 @@ else
         </li>
       </ul>
     </nav>
+    <?php require_once "display-answer.php"; ?>
 
     <?php require_once "display-chat.php"; ?>
     <?php require_once "display-append.php"; ?>
