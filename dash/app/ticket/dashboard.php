@@ -15,6 +15,9 @@ class dashboard
 		$result['unsolved']   = \dash\db\tickets\get::count_unsolved();
 		$result['answertime'] = \dash\db\tickets\get::avg_answertime();
 
+		$result['lastticket'] = \dash\app\ticket\search::last_5_ticket();
+		$result['activeticket'] = \dash\app\ticket\search::last_5_active_ticket();
+
 		$result['chart'] = self::chart();
 
 		return $result;

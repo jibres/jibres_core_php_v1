@@ -39,6 +39,8 @@ class filter
 
 		if($_module !== 'website')
 		{
+			$list['active'] = ['key' => 'active', 'group' => T_("Status"), 'title' => T_('Last active ticket'), 'query' => ['act' => 'y'], 			'public' => true];
+
 			$list['spam']      = ['key' => 'spam', 		'group' => T_("Status"), 'title' => T_('Spam'), 			'query' => ['status' => 'spam'], 	'public' => true];
 			$list['deleted']   = ['key' => 'deleted', 	'group' => T_("Status"), 'title' => T_('Deleted'), 			'query' => ['status' => 'deleted'], 'public' => true];
 			$list['solved']    = ['key' => 'solved', 	'group' => T_("Solved"), 'title' => T_('Solved ticket'), 	'query' => ['so' => 'y'], 			'public' => true];
@@ -49,6 +51,7 @@ class filter
 
 			$list['user']    = ['key' => 'user', 	'group' => T_("Customer"), 'title' => T_('Logined'), 	'query' => ['hu' => 'y'], 			'public' => true];
 			$list['guest'] = ['key' => 'guest', 'group' => T_("Customer"), 'title' => T_('Guest user'), 'query' => ['hu' => 'n'], 			'public' => true];
+
 		}
 
 		return $list;

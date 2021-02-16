@@ -18,6 +18,10 @@ class search
 		return self::list(null, ['limit' => 5], true);
 	}
 
+	public static function last_5_active_ticket()
+	{
+		return self::list(null, ['limit' => 5, 'act' => 'y'], true);
+	}
 
 	public static function last_ticket_user($_user_id)
 	{
@@ -48,6 +52,7 @@ class search
 			'so'            => 'y_n',
 			'hf'            => 'y_n',
 			'hu'            => 'y_n',
+			'act'           => 'y_n',
 			'user'          => 'code',
 			'limit'         => 'int',
 			'pagination'    => 'y_n',
@@ -154,7 +159,13 @@ class search
 		{
 			$user_id = \dash\coding::decode($data['user']);
 			$and[] = " tickets.user_id =  $user_id ";
+		}
 
+		if($data['act'] === 'y')
+		{
+			$and[] = " tickets.status NOT IN ('spam', 'deleted', 'close') ";
+			$order_sort = " ORDER BY tickets.id DESC, FIELD(tickets.status, 'awaiting', 'answered') ";
+			self::$is_filtered = true;
 		}
 
 

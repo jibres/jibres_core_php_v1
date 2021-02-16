@@ -113,4 +113,57 @@
   </div>
 </div>
 
+
+
+<div class="row font-14 mT5">
+  <div class="c-xs-12 c-sm-12 c-md-6">
+    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/datalist?sort=datecreated&order=desc' ?>"><?php echo T_("Last tickets") ?></a></p>
+  <?php if(\dash\data::dashboardDetail_lastticket()) {?>
+    <nav class="items long">
+       <ul>
+  <?php foreach (\dash\data::dashboardDetail_lastticket() as $key => $value) {?>
+        <li>
+          <a class="f align-center" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
+            <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+            <div class="key"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
+
+            <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::text($value['id']);  ?></div>
+            <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+  <?php } //endfor ?>
+       </ul>
+     </nav>
+<?php } else { ?>
+  <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
+<?php } //endif ?>
+  </div>
+
+
+  <div class="c-xs-12 c-sm-12 c-md-6">
+    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/datalist?act=y' ?>"><?php echo T_("Last active tickets") ?></a></p>
+    <?php if(\dash\data::dashboardDetail_activeticket()) {?>
+    <nav class="items long">
+       <ul>
+  <?php foreach (\dash\data::dashboardDetail_activeticket() as $key => $value) { ?>
+        <li>
+          <a class="f align-center" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
+            <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+            <div class="key"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
+
+            <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::text($value['id']);  ?></div>
+            <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
+            <div class="go"></div>
+          </a>
+         </li>
+  <?php } //endfor ?>
+       </ul>
+     </nav>
+<?php } else { ?>
+  <p class="msg"><?php echo T_("No active ticket founded"); ?></p>
+<?php } //endif ?>
+
+  </div>
+
 </div>
