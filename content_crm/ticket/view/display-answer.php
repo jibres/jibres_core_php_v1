@@ -1,14 +1,14 @@
 <form method="post" autocomplete="off" class="quickReply">
   <?php \dash\csrf::html(); ?>
   <div class="row align-start">
-    <div class="c-auto">
+    <div class="c-xs-12 c-sm-12 c-md">
+      <textarea class="txt" data-autoResize <?php if(!$customer_mode){echo 'name="answer" data-simple';}else{echo 'name="content"';} ?> rows="1" placeholder='<?php echo T_("Write a message..."); ?>' role="textbox"></textarea>
+
+    </div>
+    <div class="c-auto order-md-first">
       <div class="checkIcon">
         <label for="file1-2" class="sf-attach" data-kerkere='.uploadBox'></label>
       </div>
-    </div>
-    <div class="c">
-      <textarea class="txt" data-autoResize <?php if(!$customer_mode){echo 'name="answer" data-simple';}else{echo 'name="content"';} ?> rows="1" placeholder='<?php echo T_("Write a message..."); ?>' role="textbox"></textarea>
-
     </div>
 <?php if(!$customer_mode) {?>
     <div class="c-auto">
@@ -24,7 +24,7 @@
       </div>
     </div>
 <?php }?>
-    <div class="c-auto">
+    <div class="c-xs c-sm c-md-auto txtRa">
       <button class="btn master"><?php echo T_("Send"); ?></button>
     </div>
   </div>
