@@ -58,7 +58,7 @@ class answer
 
 		if(!$message_id)
 		{
-			\dash\notif::error(T_("Can not add your message"));
+			\dash\notif::error_once(T_("Can not add your message"));
 			return false;
 		}
 
