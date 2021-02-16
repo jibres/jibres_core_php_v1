@@ -39,6 +39,37 @@ class notif
 	}
 
 
+	/**
+	 * Add notif if have not another notif by this type
+	 *
+	 * @param      <type>   $_type  The type
+	 * @param      <type>   $_text  The text
+	 * @param      <type>   $_meta  The meta
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	private static function add_once($_type, $_text, $_meta)
+	{
+		if(isset(self::$notif['msg']) && is_array(self::$notif['msg']))
+		{
+			foreach (self::$notif['msg'] as $key => $value)
+			{
+				if(isset($value['type']) && $value['type'] === $_type)
+				{
+					return false;
+				}
+			}
+		}
+
+		return self::add($_type, $_text, $_meta);
+	}
+
+
+	/**
+	 * Save log notif
+	 *
+	 * @var        boolean
+	 */
 	private static $notif_log_status = true;
 
 	public static function turn_off_log()
@@ -50,8 +81,6 @@ class notif
 	{
 		self::$notif_log_status = true;
 	}
-
-
 
 	private static function log_notif($_add)
 	{
@@ -136,6 +165,12 @@ class notif
 	}
 
 
+	public static function error_once($_text, $_meta = [])
+	{
+		self::add_once('error', $_text, $_meta);
+	}
+
+
 	public static function direct($_direct = true)
 	{
 		self::add_detail('direct', $_direct);
@@ -193,20 +228,6 @@ class notif
 	public static function results($_result)
 	{
 		self::add_detail('results', $_result);
-	}
-
-	/**
-	 * Use in every where need to add index to master result
-	 * for example select22 need to export result in `results` index
-	 * @param      <type>  $_index   The index
-	 * @param      <type>  $_result  The result
-	 */
-	public static function add_index($_index, $_result)
-	{
-		if(is_string($_index))
-		{
-			self::add_detail($_index, $_result);
-		}
 	}
 
 
