@@ -125,12 +125,14 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 <div class="go"></div>
                 </a>
               </li>
+<?php if(0) {?>
               <li>
                 <a class="item f" href="<?php echo \dash\url::support(); ?>/faq">
                 <div class="key"><?php echo T_('FAQ'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
+<?php }?>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/status">
                 <div class="key"><?php echo T_('System Status'); ?></div>

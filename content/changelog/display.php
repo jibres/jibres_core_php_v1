@@ -27,6 +27,11 @@
      <td></td>
     </tr>
 
+    <tr>
+     <td><?php echo \dash\fit::date("2021-02-16"); ?></td>
+     <td><?php echo T_("Upgrade our powerful ticketing system. Try it, Love it"); ?></td>
+     <td>😎❤️</td>
+    </tr>
 
     <tr>
      <td><?php echo \dash\fit::date("2021-01-01"); ?></td>
