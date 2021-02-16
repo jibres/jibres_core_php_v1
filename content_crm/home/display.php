@@ -160,7 +160,7 @@
 
 <div class="row font-14 mT5">
   <div class="c-xs-12 c-sm-12 c-md-4">
-    <p class="mB5-f font-14"><?php echo T_("Last customers") ?></p>
+    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/member?sort=datecreated&order=desc' ?>"><?php echo T_("Last customers") ?></a></p>
   <?php if(\dash\data::dashboardDetail_latestMember()) {?>
     <nav class="items long">
        <ul>
@@ -181,7 +181,7 @@
   </div>
 
   <div class="c-xs-12 c-sm-12 c-md-4">
-    <p class="mB5-f font-14"><?php echo T_("Last login") ?></p>
+    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/log/enter' ?>"><?php echo T_("Last login") ?></a></p>
     <?php if(\dash\data::dashboardDetail_latestLogs()) {?>
     <nav class="items long">
        <ul>
@@ -202,7 +202,7 @@
   </div>
 
   <div class="c-xs-12 c-sm-12 c-md-4">
-    <p class="mB5-f font-14"><?php echo T_("Last tickets") ?></p>
+    <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/ticket/datalist?sort=datecreated&order=desc' ?>"><?php echo T_("Last tickets") ?></a></p>
     <?php if(\dash\data::dashboardDetail_latestTicket()) {?>
     <nav class="items long">
        <ul>
