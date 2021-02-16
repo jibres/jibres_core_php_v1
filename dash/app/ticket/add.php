@@ -27,6 +27,17 @@ class add
 			$args['file'] = $file['path'];
 		}
 
+		if(isset($args['parent']) && $args['parent'])
+		{
+			$count_in_ticket = \dash\db\tickets\get::count_by_parent($args['parent']);
+
+			if(floatval($count_in_ticket) >= 500 + 1) // 500 + master ticket
+			{
+				\dash\notif::error(T_("Can not add any message to this ticket. The capacity of this ticket is full!"));
+				return false;
+			}
+		}
+
 		$ticket_id = \dash\db\tickets\insert::new_record($args);
 		if(!$ticket_id)
 		{
