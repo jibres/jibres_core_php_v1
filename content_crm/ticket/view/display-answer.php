@@ -1,4 +1,5 @@
 <form method="post" autocomplete="off" class="quickReply">
+  <?php \dash\csrf::html(); ?>
   <div class="row align-start">
     <div class="c-auto">
       <div class="checkIcon">
