@@ -12,14 +12,14 @@
 <?php if(!$customer_mode) {?>
     <div class="c-auto">
       <div class="checkIcon">
-        <input type="checkbox" name="sendmessage" id="sendmessage" checked>
+        <input type="checkbox" name="sendmessage" id="sendmessage">
         <label for="sendmessage" class="sf-bell"></label>
       </div>
     </div>
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="note" id="inote">
-        <label for="inote" class="sf-moon-o"></label>
+        <label for="inote" class="sf-sun-o"></label>
       </div>
     </div>
 <?php }?>
