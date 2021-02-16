@@ -78,7 +78,7 @@ foreach (\dash\data::conversation() as $key => $value)
         <div class="c-auto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a></div>
 <?php } //endif ?>
 <?php if(!$customer_mode) {?>
-<?php if($userText && $key > 0 && !a($value, 'branch') && a($value, 'type') != 'note') {?>
+<?php if($userText && a($value, 'branchable') && !a($value, 'branch') && a($value, 'type') != 'note') {?>
         <div class="c-auto">
           <div data-title="<?php echo T_("Add this message in new ticket and answer to it?") ?>" data-confirm data-data='{"newbranch":"1", "branch": "<?php echo a($value, 'id') ?>"}'><?php echo T_("Answer in new ticket"); ?></div>
         </div>

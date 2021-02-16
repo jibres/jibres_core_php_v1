@@ -230,6 +230,7 @@ class get
 
 		foreach ($conversation as $key => $value)
 		{
+
 			if($livelastid === null)
 			{
 				if(a($value, 'type') === 'note')
@@ -253,6 +254,8 @@ class get
 			}
 
 			$next = next($conversation);
+
+
 			if($next)
 			{
 				if(a($next, 'user_id') == $next_user)
@@ -280,6 +283,12 @@ class get
 				$conversation[$key]['dbluser'] = false;
 			}
 
+			$conversation[$key]['branchable'] = false;
+
+			if(a($value, 'type') === 'ticket' && $conversation[$key]['dbluser'] && $next)
+			{
+				$conversation[$key]['branchable'] = true;
+			}
 
 			$message_total++;
 
