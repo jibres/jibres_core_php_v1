@@ -21,6 +21,23 @@ class get
 
 	}
 
+	public static function count_by_parent($_id)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				tickets
+			WHERE
+				tickets.parent  = $_id
+		";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+
+	}
+
 
 	public static function count_user_ticket($_user_id)
 	{
