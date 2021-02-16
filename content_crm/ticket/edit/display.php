@@ -1,7 +1,7 @@
 <form method="post" autocomplete="off" >
   <div class="box">
     <div class="pad">
-      <textarea class="txt" name="content" data-editor rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php echo T_("Answer to ticket") ?>'><?php echo \dash\data::dataRow_content() ?></textarea>
+      <textarea class="txt" name="content" rows="10" data-rows-min="10" data-autoResize placeholder='<?php echo T_("Answer to ticket") ?>'><?php echo \dash\data::dataRow_content_raw() ?></textarea>
       <?php if(\dash\data::dataRow_file()) {?>
         <div class="msg mT10" data-removeElement>
 
