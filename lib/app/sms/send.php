@@ -242,8 +242,7 @@ class send
 	 */
 	private static function is_rtl($_str, $_type = false)
 	{
-		$rtl_chars_pattern = '/[\x{0590}-\x{05ff}\x{0600}-\x{06ff}]/u';
-		$result            = preg_match($rtl_chars_pattern, $_str);
+		$result = \dash\validate::is_rtl($_str);
 		if($_type)
 		{
 			$result = $result? 70: 160;

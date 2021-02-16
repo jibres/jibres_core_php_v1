@@ -73,6 +73,22 @@ class validate
 
 
 
+
+	public static function is_rtl($_string)
+	{
+		$rtl_chars_pattern = '/[\x{0590}-\x{05ff}\x{0600}-\x{06ff}]/u';
+		$result            = preg_match($rtl_chars_pattern, $_string);
+		return $result;
+	}
+
+
+	public static function is_ltr($_string)
+	{
+		return !self::is_rtl($_string);
+	}
+
+
+
 	/**
 	 * Get string searched in search input
 	 */
