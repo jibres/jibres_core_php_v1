@@ -191,7 +191,7 @@ else
 <?php } //endif ?>
 <?php } //endif ?>
         <li>
-          <div class="f item" data-confirm data-data='{"setsolved": "set", "solved": "<?php echo intval(\dash\data::dataRow_solved()); ?>"}' data-title="<?php if(\dash\data::dataRow_solved()) {echo T_("If your problem is not solved yet, please set this ticket as unsolved");}else{echo T_("If your problem is solved, please set this ticket as solved. \n This will help you understand how many of your customers' requests are successfully solved");} ?>">
+          <div class="f item" data-confirm data-data='{"setsolved": "set", "solved": "<?php echo intval(\dash\data::dataRow_solved()); ?>"}' data-title="<?php if(\dash\data::dataRow_solved()) {echo T_("Is the problem unresolved and still is?");}else{echo T_("Has the problem raised in this ticket been resolved?");} ?>">
             <i class="sf-<?php if(\dash\data::dataRow_solved()){echo 'heart ok';}else{echo 'heart-o';} ?>"></i>
             <div class="key"><?php echo T_("Solved?") ?></div>
             <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("Yes");}else{echo T_("No");} ?></div>
