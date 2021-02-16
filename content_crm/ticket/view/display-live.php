@@ -55,7 +55,7 @@ foreach (\dash\data::conversation() as $key => $value)
   <?php } //endif ?>
   </div>
   <div class="c-xs-12 c<?php if($otherSide) {echo " txtRa";} ?>">
-    <div class="messageBox<?php if(a($value, 'isltr')) { echo ' ltr';} ?>"<?php if(a($value, 'type') === 'note') {echo' data-note';} if($userText){ echo ' data-user'; } else {echo ' data-admin data-color=blue';} ?>>
+    <div class="messageBox<?php if(a($value, 'isltr')) { echo ' ltr';}else{echo ' rtl';} ?>"<?php if(a($value, 'type') === 'note') {echo' data-note';} if($userText){ echo ' data-user'; } else {echo ' data-admin data-color=blue';} ?>>
       <div class="message"><?php echo nl2br(a($value, 'content')); ?></div>
 <?php if(a($value, 'branch')) {?>
         <div class="msg minimal info2"><?php echo T_("This message answered in new ticket") ?><a class="btn link" href="<?php echo \dash\url::this(). '/view?id='. $value['branch'] ?>"><?php echo T_("See ticket") ?></a></div>
