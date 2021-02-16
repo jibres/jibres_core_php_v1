@@ -14,13 +14,13 @@
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="sendmessage" id="sendmessage">
-        <label for="sendmessage" class="sf-bell"></label>
+        <label for="sendmessage" class="sf-bell" title="<?php echo T_("Send notify about your answer to creator of ticket") ?>"></label>
       </div>
     </div>
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="note" id="inote">
-        <label for="inote" class="sf-sun-o"></label>
+        <label for="inote" class="sf-sun-o" title="<?php echo T_("Disabling this option will add your reply to the ticket as a note") ?>"></label>
       </div>
     </div>
 <?php }?>
