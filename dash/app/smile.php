@@ -126,6 +126,7 @@ class smile
 
 	private static function play_sound($_key, $_count, $_sound)
 	{
+
 		$play_sound = true;
 
 		$session_sound = \dash\session::get($_key);
@@ -150,6 +151,12 @@ class smile
 			$session_sound = ['count' => $_count, 'time' => time()];
 
 			\dash\session::set($_key, $session_sound);
+
+			// not play sound in local
+			if(\dash\url::isLocal())
+			{
+				return;
+			}
 
 			\dash\notif::sound($_sound);
 		}
