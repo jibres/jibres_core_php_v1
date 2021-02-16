@@ -8,9 +8,10 @@ if(\dash\request::get('gethtml') == '1')
 $data = \dash\data::dataRow();
 
 $customer_mode = \dash\temp::get('customer_mode');
+$ticket_in_content_my = \dash\temp::get('ticket_in_content_my');
 
-// @reza @todo @fix
-if($customer_mode)
+
+if($customer_mode && !$ticket_in_content_my)
 {
   echo '<div class="row ticketPage">'  ;
 
@@ -60,7 +61,7 @@ else
   </div>
   <aside class="c-xs-12 c-sm-12 c-md-4 c-lg-3 c-xxl-2 ticketSidebar">
 
-    <a <?php if(a($data, 'user_id')) {echo "href='".\dash\url::kingdom(). '/crm/member/glance?id='. \dash\data::dataRow_user_id()."'"; } //endif ?> class="hero">
+    <a <?php if(a($data, 'user_id') && !$customer_mode) {echo "href='".\dash\url::kingdom(). '/crm/member/glance?id='. \dash\data::dataRow_user_id()."'"; } //endif ?> class="hero">
   <?php if(!a($data, 'user_id')) {?>
       <img src="<?php echo \dash\fit::img(\dash\data::dataRow_avatar(), 220); ?>" alt="Guest User">
   <?php }else{ ?>
@@ -108,7 +109,7 @@ else
             <div class="value"><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></div>
           </div>
         </li>
-        <?php if(\dash\data::dataRow_answertime()) {?>
+        <?php if(\dash\data::dataRow_answertime() && !$customer_mode) {?>
         <li>
           <div class="f item">
             <i class="sf-cardiac-pulse"></i>

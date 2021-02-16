@@ -1,1 +1,1 @@
-<?php require_once(root. 'content_business/ticket/home/ticketList.php') ?>
+<?php require_once(root. 'content_crm/ticket/datalist/display.php') ?>

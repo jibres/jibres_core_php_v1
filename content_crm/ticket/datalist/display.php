@@ -24,8 +24,11 @@ echo '<nav class="items long">';
 
         echo '<div class="key">'. a($value, 'title'). '</div>';
 
-        echo '<div class="value s0">'. a($value, 'displayname'). '</div>';
-        echo '<div class="value"><img class="avatar" alt="'. a($value, 'displayname'). '" src="'. \dash\fit::img(a($value, 'avatar')). '"></div>';
+        if(!\dash\temp::get('customer_mode'))
+        {
+          echo '<div class="value s0">'. a($value, 'displayname'). '</div>';
+          echo '<div class="value"><img class="avatar" alt="'. a($value, 'displayname'). '" src="'. \dash\fit::img(a($value, 'avatar')). '"></div>';
+        }
 
         echo '<time class="value" datetime="'. a($value, 'datecreated'). '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
       }
