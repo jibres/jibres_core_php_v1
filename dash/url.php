@@ -88,7 +88,7 @@ class url
 		// generate with host and path
 		self::$url['sitelang']  = self::_sitelang();
 		self::$url['kingdom']   = self::_kingdom();
-		self::$url['support']   = self::_kingdom(). '/support';
+		self::$url['support']   = self::_support();
 		self::$url['here']      = self::_here();
 		self::$url['this']      = self::_this();
 		self::$url['that']      = self::_that();
@@ -1015,6 +1015,22 @@ class url
 		{
 			self::$url['logo'] = self::_talambar('cdn'). '/logo/fa/svg/Jibres-Logo-fa.svg';
 		}
+	}
+
+
+	/**
+	 * get url base to used in tag or links
+	 * @return sting of base
+	 */
+	private static function _support()
+	{
+		$mySupport = 'https://help.jibres.com';
+		if(self::tld() === 'ir' || self::lang() === 'fa')
+		{
+			$mySupport = 'https://help.jibres.ir';
+		}
+
+		return $mySupport ;
 	}
 
 
