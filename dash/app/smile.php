@@ -211,6 +211,20 @@ class smile
 			}
 		}
 
+		if(!\dash\permission::check('crmTicketManager'))
+		{
+			if(!\dash\user::id())
+			{
+				return false;
+			}
+			$is_my_ticket = \dash\db\tickets\get::is_my_ticket($ticket_id, \dash\user::id(), $fuel, $db_name);
+
+			if(!$is_my_ticket)
+			{
+				return false;
+			}
+		}
+
 
 		$get_last_ticket_message_id = \dash\db\tickets\get::last_ticket_message_id($ticket_id, $fuel, $db_name);
 

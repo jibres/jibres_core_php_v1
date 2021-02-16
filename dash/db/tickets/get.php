@@ -59,6 +59,26 @@ class get
 
 
 
+	public static function is_my_ticket($_ticket_id, $_user_id, $_fuel, $_db_name)
+	{
+		$query =
+		"
+			SELECT
+				tickets.id
+			FROM
+				tickets
+			WHERE
+				tickets.id = $_ticket_id AND tickets.user_id = $_user_id
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, null, true, $_fuel, ['database' => $_db_name]);
+		return $result;
+
+	}
+
+
+
 	public static function last_ticket_message_id($_ticket_id, $_fuel, $_db_name)
 	{
 		$query =
