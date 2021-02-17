@@ -38,6 +38,25 @@ class price
 	}
 
 
+	public static function quick_renew($_tld, $_year)
+	{
+		$tld = \dash\validate::string_50($_tld, false);
+		if(!$tld)
+		{
+			return null;
+		}
+
+		$get_all = self::get_all();
+
+		if(isset($get_all['.'. $tld]['price'. $_year]))
+		{
+			return $get_all['.'. $tld]['price'. $_year];
+		}
+		return null;
+
+	}
+
+
 
 	public static function one_year($_tld)
 	{
@@ -188,19 +207,25 @@ class price
 	}
 
 
+	private static $pricing_data = [];
 
 	public static function get_all()
 	{
 
-		$pricing = self::convert_csv_to_json();
-
-		if(!is_array($pricing))
+		if(empty(self::$pricing_data))
 		{
-			$pricing = [];
+			$pricing = self::convert_csv_to_json();
+
+			if(!is_array($pricing))
+			{
+				$pricing = [];
+			}
+
+			self::$pricing_data = $pricing;
 		}
 
 
-		return $pricing;
+		return self::$pricing_data;
 	}
 
 	private static $price_list = [];
@@ -234,6 +259,10 @@ class price
 									'price'  => self::toman_price($value['1 year'], substr($value['domain'], 1)),
 									'price5' => self::toman_price($value['5 years'], substr($value['domain'], 1))
 								];
+								$pricing[$value['domain']]['price1'] = $pricing[$value['domain']]['price'];
+								if(a($value, '2 years')) { 	$pricing[$value['domain']]['price2'] = self::toman_price($value['2 years'], substr($value['domain'], 1)); }
+								if(a($value, '3 years')) { 	$pricing[$value['domain']]['price3'] = self::toman_price($value['3 years'], substr($value['domain'], 1)); }
+								if(a($value, '4 years')) { 	$pricing[$value['domain']]['price4'] = self::toman_price($value['4 years'], substr($value['domain'], 1)); }
 							}
 						}
 					}

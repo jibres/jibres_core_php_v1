@@ -151,6 +151,8 @@ class search
 		}
 		elseif($data['predict'])
 		{
+			// $meta['join'][] = "LEFT JOIN domainstatus ON domainstatus.domain = domain.name ";
+			// $meta['fields'] = " DISTINCT domain.* ";
 			if($data['autorenew_mode'])
 			{
 				$meta['pagination'] = false;
@@ -243,9 +245,9 @@ class search
 			// $and[]   = " domain.verify = 1 ";
 			$and[]      = " domain.autorenew = 1 ";
 			$and[]      = " domain.available = 0 ";
-			$and[] =
+
+			$not_prohibited_ir_status = "(".
 			"
-				(
 					SELECT
 						domainstatus.status
 					FROM
@@ -265,7 +267,26 @@ class search
 							'irnicRenewalPendingHolderCheck'
 						)
 					LIMIT 1
-				) IS NULL ";
+
+				)
+				IS NULL	AND
+				(
+					SELECT
+						domainstatus.status
+					FROM
+						domainstatus
+					WHERE
+						domainstatus.domain = domain.name AND
+						domainstatus.active = 1 AND
+						domainstatus.status = 'ok'
+					LIMIT 1
+				)
+				IS NOT NULL
+			";
+
+			$is_com_domain = " domain.registrar != 'irnic' ";
+
+			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 		}
 		else
 		{
@@ -439,30 +460,82 @@ class search
 			$list = [];
 		}
 
+
 		if($data['predict'] && !$data['autorenew_mode'])
 		{
 			$new_list = \lib\db\nic_domain\search::calc_pay_period_predict($and, $or, $order_sort, $meta);
-			self::calc_pay_period_predict($new_list, $data['user_id']);
-		}
+			$price_list = self::calc_pay_period_predict($new_list, $data['user_id']);
+			foreach ($price_list as $key => $value)
+			{
+				foreach ($list as $k => $v)
+				{
+					if(isset($v['name']) && isset($value['name']) && $v['name'] == $value['name'] && isset($value['price']))
+					{
+						$list[$k]['renew_price'] = $value['price'];
+					}
+				}
+			}
 
+		}
 		return $list;
 	}
 
 	private static function calc_pay_period_predict($_list, $_user_id)
 	{
-		$result          = [];
-		$result['week']  = 0;
-		$result['month'] = 0;
-		$result['year']  = 0;
-		$result['5year'] = 0;
+		$result                = [];
+		$result['week']        = 0;
+		$result['month']       = 0;
+		$result['year']        = 0;
+
+		$result['week_count']  = 0;
+		$result['month_count'] = 0;
+		$result['year_count']  = 0;
+
+		$result['5year']       = 0;
 
 		if(!is_array($_list))
 		{
 			$_list = [];
 		}
 
+		$get_setting = \lib\db\nic_usersetting\get::my_setting($_user_id);
+
+		if(isset($get_setting['autorenewperiod']) && $get_setting['autorenewperiod'])
+		{
+			$autorenewperiod = $get_setting['autorenewperiod'];
+		}
+		else
+		{
+			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
+		}
+
+
+
+		if(isset($get_setting['autorenewperiodcom']) && $get_setting['autorenewperiodcom'])
+		{
+			$autorenewperiodcom = $get_setting['autorenewperiodcom'];
+		}
+		else
+		{
+			$autorenewperiodcom = '1year';
+		}
+
 		foreach ($_list as $key => $value)
 		{
+			if(a($value, 'registrar') === 'irnic')
+			{
+				$_list[$key]['price'] = \lib\app\nic_domain\price::renew($autorenewperiod);
+			}
+			else
+			{
+				$tld   = explode('.', a($value, 'name'));
+				$tld   = end($tld);
+				$price = \lib\app\onlinenic\price::quick_renew($tld, substr($autorenewperiodcom, 0, 1));
+
+				$_list[$key]['price'] = $price;
+
+			}
+
 			if(isset($value['dateexpire']))
 			{
 				$dateexpire = strtotime($value['dateexpire']);
@@ -476,42 +549,34 @@ class search
 
 				if($mytime < (60*60*24*7))
 				{
-					$result['week']++;
+					$result['week_count']++;
+					$result['week'] += floatval(a($_list, $key, 'price'));
 				}
 				elseif($mytime < (60*60*24*30))
 				{
-					$result['month']++;
+					$result['month_count']++;
+					$result['month'] += floatval(a($_list, $key, 'price'));
 				}
 				elseif($mytime < (60*60*24*365))
 				{
-					$result['year']++;
+					$result['year_count']++;
+					$result['year']+= floatval(a($_list, $key, 'price'));
 				}
 			}
-		}
 
-		$get_setting = \lib\db\nic_usersetting\get::my_setting($_user_id);
-
-		if(isset($get_setting['autorenewperiod']))
-		{
-			$autorenewperiod = $get_setting['autorenewperiod'];
 		}
-		else
-		{
-			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
-		}
-
-		$price = \lib\app\nic_domain\price::renew($autorenewperiod);
 
 
 		$return = [];
 
-		$return[] = ['title' => T_("Pay in next week"), 'count' => $result['week'], 'price' => ($price * $result['week'])];
-		$return[] = ['title' => T_("Pay in next month"), 'count' => $result['month'], 'price' => ($price * $result['month'])];
-		$return[] = ['title' => T_("Pay in next year"), 'count' => $result['year'], 'price' => ($price * $result['year'])];
-
+		$return[] = ['title' => T_("Pay in next week"), 'price' => $result['week'], 'count' => $result['week_count']];
+		$return[] = ['title' => T_("Pay in next month"), 'price' => $result['month'], 'count' => $result['month_count']];
+		$return[] = ['title' => T_("Pay in next year"), 'price' => $result['year'], 'count' => $result['year_count']];
 
 
 		\dash\data::myPayCalc($return);
+
+		return $_list;
 	}
 
 

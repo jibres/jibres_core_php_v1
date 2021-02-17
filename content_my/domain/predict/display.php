@@ -23,7 +23,7 @@ foreach (\dash\data::dataTable() as $key => $value)
     $result .= '<li>';
     $result .= '<a class="f item" href="'. \dash\url::this(). '/setting?domain='. a($value, 'name'). '">';
     $result .= '<div class="key">'. a($value, 'name'). '</div>';
-    $result .= '<div class="value"><span class="s0">'. T_("Renew amount"). '</span> '.\lib\app\nic_domain\price::register_string(\dash\data::autorenewperiod()). '</div> ';
+    $result .= '<div class="value"><span class="s0">'. T_("Renew amount"). '</span> '.\dash\fit::number(a($value, 'renew_price')).' '. \lib\currency::unit(). '</div> ';
 
     if(isset($value['autorenew']) && $value['autorenew'])
     {
