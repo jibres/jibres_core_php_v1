@@ -227,15 +227,27 @@ class search
 				// get user setting of life time domain
 				// if not set show 5 years
 				$my_setting = \lib\app\nic_usersetting\get::get();
-
 				if(isset($my_setting['domainlifetime']) && $my_setting['domainlifetime'])
 				{
-					$expire_at = date("Y-m-d", strtotime("+". $my_setting['domainlifetime']));
+					if($my_setting['domainlifetime'] === 'off')
+					{
+						return [];
+						// $and[] = " ('USER DISABLE AUTORENEW' = 'THEN NOT SHOW ANY DOMAIN') "; // NOT AUTO RENEW
+						// $expire_at = date("Y-m-d", strtotime("+100 year"));
+					}
+					else
+					{
+						$expire_at = date("Y-m-d", strtotime("+". $my_setting['domainlifetime']));
+					}
+
 				}
 				else
 				{
-					$expire_at = date("Y-m-d", strtotime("+5 year"));
+					return [];
+					// $and[] = " ('USER NOT ENABLE AUTORENEW' = 'THEN NOT SHOW ANY DOMAIN') "; // NOT AUTO RENEW
+					// $expire_at = date("Y-m-d", strtotime("+100 year"));
 				}
+
 			}
 
 			$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
@@ -566,13 +578,11 @@ class search
 
 		}
 
-
 		$return = [];
 
 		$return[] = ['title' => T_("Pay in next week"), 'price' => $result['week'], 'count' => $result['week_count']];
 		$return[] = ['title' => T_("Pay in next month"), 'price' => $result['month'], 'count' => $result['month_count']];
 		$return[] = ['title' => T_("Pay in next year"), 'price' => $result['year'], 'count' => $result['year_count']];
-
 
 		\dash\data::myPayCalc($return);
 
