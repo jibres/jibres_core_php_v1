@@ -6,11 +6,6 @@ class action
 
 	public static function set($_caller, $_args = [])
 	{
-		if(!\dash\user::id())
-		{
-			\dash\notif::error(T_("Please login to continue"));
-			return false;
-		}
 
 		$insert =
 		[
@@ -32,6 +27,11 @@ class action
 			'finalprice'     => isset($_args['finalprice']) 		? $_args['finalprice'] 		: null,
 			'giftusage_id'   => isset($_args['giftusage_id']) 		? $_args['giftusage_id'] 	: null,
 		];
+
+		if(\dash\temp::get('run:by:system'))
+		{
+			$insert['mode'] = 'auto';
+		}
 
 		$domain_action_id = \lib\db\nic_domainaction\insert::new_record($insert);
 
