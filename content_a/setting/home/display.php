@@ -9,23 +9,7 @@
 </div>
 
 <div class="box" data-settings>
-    <?php if(false) {?>
-    <div class="pad">
-
-        <div>
-            <select class="select22" data-link data-placeholder="<?php echo T_("Search") ?>">
-                <option readonly value=""><span><?php echo T_("Search"); ?></span></option>
-                <?php foreach (\dash\data::settingSearch() as $key => $value) {?>
-                    <option value="<?php echo $value['link']; ?>"><?php echo $value['title']; ?></option>
-                <?php } //endif ?>
-            </select>
-        </div>
-    </div>
-<?php } //endif ?>
-
     <div class="body">
-
-
         <div class="row">
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/general">
@@ -163,6 +147,16 @@
                     <div class="c">
                         <h2><?php echo T_("Domains"); ?></h2>
                         <p><?php echo T_("Connect business to your domain"); ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/security">
+                    <div class="c-auto"><i class="sf-lock"></i></div>
+                    <div class="c">
+                        <h2><?php echo T_("Security"); ?></h2>
+                        <p><?php echo T_("Manage security setting"); ?></p>
                     </div>
                 </a>
             </div>

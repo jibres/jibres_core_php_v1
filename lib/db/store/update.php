@@ -19,7 +19,15 @@ class update
 		$query = "UPDATE store SET store.subdomain = '$_subdomain', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
 		$result = \dash\db::query($query, 'master');
 		return $result;
+	}
 
+
+	public static function set_deleted($_id)
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "UPDATE store SET store.status = 'deleted', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
 	}
 
 
