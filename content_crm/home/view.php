@@ -11,9 +11,19 @@ class view
 		// fill dashboard data
 		\dash\data::dashboardDetail(\dash\app\user\dashboard::detail());
 
-		// back
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::kingdom(). '/a');
+		if(\dash\engine\store::inStore())
+		{
+			// back
+			\dash\data::back_text(T_('Dashboard'));
+			\dash\data::back_link(\dash\url::kingdom(). '/a');
+
+		}
+		else
+		{
+						// back
+			\dash\data::back_text(T_('Dashboard'));
+			\dash\data::back_link(\dash\url::kingdom(). '/love');
+		}
 	}
 }
 ?>
