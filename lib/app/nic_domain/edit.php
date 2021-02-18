@@ -37,7 +37,7 @@ class edit
 		}
 
 
-		if(isset($load_domain['status']) && $load_domain['status'] === 'enable')
+		if(isset($load_domain['status']) && $load_domain['status'] != 'deleted')
 		{
 			// no problem
 		}
