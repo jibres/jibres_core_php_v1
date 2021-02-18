@@ -14,7 +14,12 @@ if(\dash\data::domainDetail_available() !== '0')
   echo $result;
   return;
 }
-$result .= '<div class="avand-md">';
+
+
+$result .= '<div class="row">';
+
+$result .= '<div class="c-xs-12 c-sm-12 c-md-8">';
+
 $result .= '<nav class="items long2">';
 $result .= '<ul>';
 
@@ -69,79 +74,16 @@ $result .= '<ul>';
       $result .= '</li>';
     }
 
-    $result .= '<li>';
-    if(\dash\data::domainDetail_autorenew())
-      {
-        $result .= '<a class="f item" data-confirm data-data=\'{"myaction" : "autorenew", "op" :"unset"}\'>';
-        $result .= '<div class="key">'. T_("Auto renew"). ' <small class="fc-mute">'. T_("Click to deactive").'</small></div>';
-        $result .= '<div class="value txtB">'. T_("Enable"). '</div>';
-        $result .= '<div class="go check ok"></div>';
-      }
-      else
-      {
-        $result .= '<a class="f item" data-confirm data-data=\'{"myaction" : "autorenew", "op" :"set"}\'>';
-        $result .= '<div class="key" >'. T_("Auto renew"). ' <small class="fc-mute">'. T_("Click to active").'</small></div>';
-        $result .= '<div class="value txtB">'. T_("Off"). '</div>';
-        $result .= '<div class="go times nok"></div>';
-      }
-      $result .= '</a>';
-      $result .= '</li>';
-
-    if(\dash\data::domainDetail_can_renew())
-    {
-      $result .= '<li>';
-      $result .= '<a class="f item" href="'. \dash\url::this(). '/renew?domain='. \dash\request::get('domain').'">';
-      $result .= '<div class="key">'. T_("Renew domain now"). '</div>';
-      $result .= '<div class="go plus ok"></div>';
-      $result .= '</a>';
-      $result .= '</li>';
-    }
 
 
-    if(\dash\data::domainDetail_verify())
-    {
-      $result .= '<li>';
-        $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("Transfer lock"). '</div>';
-          if(\dash\data::domainDetail_lock())
-          {
-            $result .= '<div class="value">'. T_("Locked"). '</div>';
-            $result .= '<div class="go check ok"></div>';
-          }
-          elseif(\dash\data::domainDetail_lock() == '0')
-          {
-            $result .= '<div class="value txtB">'. T_("Unlocked"). '</div>';
-            $result .= '<div class="go times nok"></div>';
-          }
-          else
-          {
-            $result .= '<div class="value">'. T_("Unknown"). '</div>';
-            $result .= '<div class="go detail"></div>';
-          }
-        $result .= '</a>';
-      $result .= '</li>';
-
-    }
 
 
 $result .= '</ul>';
 $result .= '</nav>';
+
+
 $result .= '<nav class="items long2">';
   $result .= '<ul>';
-    if(\dash\data::domainDetail_verify())
-    {
-        $result .= '<li>';
-        $result .= '<a class="f item" href="'. \dash\url::that(). '/dns?domain='. \dash\request::get('domain'). '">';
-        $result .= '<div class="key">'. T_("Manage Domain DNS").'</div>';
-        $result .= '<div class="go"></div>';
-        $result .= '</a>';
-        $result .= '</li>';
-    }
     for ($i=1; $i <= 4 ; $i++)
     {
       if(a(\dash\data::domainDetail(), 'ns'. $i))
@@ -168,22 +110,13 @@ $result .= '<nav class="items long2">';
 
   $result .= '</ul>';
 $result .= '</nav>';
+
+
 $result .= '<nav class="items long2">';
   $result .= '<ul>';
 
     if(!\dash\data::internationalDomain())
     {
-       if(\dash\data::domainDetail_verify())
-        {
-            $result .= '<li>';
-            $result .= '<a class="f item" ';
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '">';
-            $result .= '<div class="key">'. T_("Manage Domain Holder").'</div>';
-            $result .= '<div class="go"></div>';
-            $result .= '</a>';
-            $result .= '</li>';
-        }
-
         $result .= '<li>';
           $result .= '<a class="f item" ';
           if(\dash\data::domainDetail_verify())
@@ -252,31 +185,6 @@ $result .= '<nav class="items long2">';
 $result .= '</ul>';
 $result .= '</nav>';
 
-    $result .= '<nav class="items long2">';
-    $result .= '<ul>';
-    $result .= '<li>';
-    $result .= '<a class="f item" href="'. \dash\url::that(). '/action?domain='. \dash\request::get('domain'). '">';
-    $result .= '<div class="key">'. T_("Action history"). '</div>';
-    $result .= '<div class="go"></div>';
-    $result .= '</a>';
-    $result .= '</li>';
-    $result .= '</ul>';
-    $result .= '</nav>';
-
-  if(a(\dash\data::domainDetail(), 'jibres_dns'))
-  {
-    $result .= '<nav class="items long2">';
-    $result .= '<ul>';
-    $result .= '<li>';
-    $result .= '<a class="f item" href="'. \dash\url::that(). '/business?domain='. \dash\request::get('domain'). '">';
-    $result .= '<div class="key">'. T_("Add to your business"). '</div>';
-    $result .= '<div class="go"></div>';
-    $result .= '</a>';
-    $result .= '</li>';
-    $result .= '</ul>';
-    $result .= '</nav>';
-  }
-
 
 
 
@@ -310,6 +218,141 @@ $result .= '</nav>';
       $result .= '</nav>';
   }
 
+$result .= '</div>';
+
+// ----------------------------------------------------------------------------------------------------------------------- side left
+
+$result .= '<div class="c-xs-12 c-sm-12 c-md-4">';
+
+$result .= '<nav class="items long2">';
+  $result .= '<ul>';
+  $result .= '<li>';
+    if(\dash\data::domainDetail_autorenew())
+      {
+        $result .= '<a class="f item" data-confirm data-data=\'{"myaction" : "autorenew", "op" :"unset"}\'>';
+        $result .= '<div class="key">'. T_("Auto renew"). ' <small class="fc-mute">'. T_("Click to deactive").'</small></div>';
+        $result .= '<div class="value txtB">'. T_("Enable"). '</div>';
+        $result .= '<div class="go check ok"></div>';
+      }
+      else
+      {
+        $result .= '<a class="f item" data-confirm data-data=\'{"myaction" : "autorenew", "op" :"set"}\'>';
+        $result .= '<div class="key" >'. T_("Auto renew"). ' <small class="fc-mute">'. T_("Click to active").'</small></div>';
+        $result .= '<div class="value txtB">'. T_("Off"). '</div>';
+        $result .= '<div class="go times nok"></div>';
+      }
+      $result .= '</a>';
+      $result .= '</li>';
+
+    if(\dash\data::domainDetail_can_renew())
+    {
+      $result .= '<li>';
+      $result .= '<a class="f item" href="'. \dash\url::this(). '/renew?domain='. \dash\request::get('domain').'">';
+      $result .= '<div class="key">'. T_("Renew domain now"). '</div>';
+      $result .= '<div class="go plus ok"></div>';
+      $result .= '</a>';
+      $result .= '</li>';
+    }
+  $result .= '</ul>';
+$result .= '</nav>';
+
+
+    if(\dash\data::domainDetail_verify())
+    {
+      $result .= '<nav class="items long2">';
+      $result .= '<ul>';
+      $result .= '<li>';
+        $result .= '<a class="f item" ';
+          if(\dash\data::domainDetail_verify())
+          {
+            $result .= 'href="'. \dash\url::that(). '/transfer?domain='. \dash\request::get('domain'). '"';
+          }
+          $result .= '>';
+          $result .= '<div class="key">'. T_("Transfer lock"). '</div>';
+          if(\dash\data::domainDetail_lock())
+          {
+            $result .= '<div class="value">'. T_("Locked"). '</div>';
+            $result .= '<div class="go check ok"></div>';
+          }
+          elseif(\dash\data::domainDetail_lock() == '0')
+          {
+            $result .= '<div class="value txtB">'. T_("Unlocked"). '</div>';
+            $result .= '<div class="go times nok"></div>';
+          }
+          else
+          {
+            $result .= '<div class="value">'. T_("Unknown"). '</div>';
+            $result .= '<div class="go detail"></div>';
+          }
+        $result .= '</a>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</nav>';
+    }
+
+
+$result .= '<nav class="items long2">';
+  $result .= '<ul>';
+    if(\dash\data::domainDetail_verify())
+    {
+        $result .= '<li>';
+        $result .= '<a class="f item" href="'. \dash\url::that(). '/dns?domain='. \dash\request::get('domain'). '">';
+        $result .= '<div class="key">'. T_("Manage Domain DNS").'</div>';
+        $result .= '<div class="go"></div>';
+        $result .= '</a>';
+        $result .= '</li>';
+    }
+
+  $result .= '</ul>';
+$result .= '</nav>';
+
+
+    if(!\dash\data::internationalDomain())
+    {
+       if(\dash\data::domainDetail_verify())
+        {
+            $result .= '<nav class="items long2">';
+            $result .= '<ul>';
+            $result .= '<li>';
+            $result .= '<a class="f item" ';
+            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '">';
+            $result .= '<div class="key">'. T_("Manage Domain Holder").'</div>';
+            $result .= '<div class="go"></div>';
+            $result .= '</a>';
+            $result .= '</li>';
+            $result .= '</ul>';
+            $result .= '</nav>';
+        }
+    }
+
+
+    $result .= '<nav class="items long2">';
+    $result .= '<ul>';
+    $result .= '<li>';
+    $result .= '<a class="f item" href="'. \dash\url::that(). '/action?domain='. \dash\request::get('domain'). '">';
+    $result .= '<div class="key">'. T_("Action history"). '</div>';
+    $result .= '<div class="go"></div>';
+    $result .= '</a>';
+    $result .= '</li>';
+    $result .= '</ul>';
+    $result .= '</nav>';
+
+  if(a(\dash\data::domainDetail(), 'jibres_dns'))
+  {
+    $result .= '<nav class="items long2">';
+    $result .= '<ul>';
+    $result .= '<li>';
+    $result .= '<a class="f item" href="'. \dash\url::that(). '/business?domain='. \dash\request::get('domain'). '">';
+    $result .= '<div class="key">'. T_("Add to your business"). '</div>';
+    $result .= '<div class="go"></div>';
+    $result .= '</a>';
+    $result .= '</li>';
+    $result .= '</ul>';
+    $result .= '</nav>';
+  }
+
+
+
 
   if(!\dash\data::domainDetail_verify())
   {
@@ -341,7 +384,9 @@ $result .= '</nav>';
     $result .= '</nav>';
   }
 
+  $result .= '</div>';
 $result .= '</div>';
+
 
 echo $result;
 

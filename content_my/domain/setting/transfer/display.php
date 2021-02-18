@@ -14,9 +14,8 @@
       </div>
      </div>
     </div>
-
     <div class="c6 s12">
-     <div class="dcard x1 <?php if(!\dash\data::domainDetail_lock()) { echo ' active';} ?>" data-confirm data-data='{"myaction" : "unlock"}'>
+     <div class="dcard x1 <?php  if( (string) \dash\data::domainDetail_lock() === '0') { echo ' active';} ?>" data-confirm data-data='{"myaction" : "unlock"}'>
       <div class="statistic red">
        <div class="value"><i class="sf-unlock"></i></div>
        <div class="label"><?php echo T_("Unlock domain"); ?></div>
