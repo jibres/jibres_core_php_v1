@@ -11,9 +11,9 @@
   <div class="c4 s12" >
       <div class="action">
       	<?php if(\dash\data::telegramSettingSaved_apikey()) {?>
-        	<a class="btn master" href="<?php echo \dash\url::that(). '/bot' ?>"><?php echo T_("Change Telegram Bot APIKEY") ?></a>
+        	<a class="btn secondary" href="<?php echo \dash\url::that(). '/bot' ?>"><?php echo T_("Change Telegram Bot APIKEY") ?></a>
       	<?php }else{ ?>
-        	<a class="btn master" href="<?php echo \dash\url::that(). '/bot' ?>"><?php echo T_("Set Telegram Bot APIKEY") ?></a>
+        	<a class="btn secondary" href="<?php echo \dash\url::that(). '/bot' ?>"><?php echo T_("Set Telegram Bot APIKEY") ?></a>
       	<?php } // endif ?>
       </div>
   </div>
@@ -31,9 +31,9 @@
   <div class="c4 s12" >
       <div class="action">
       	<?php if(\dash\data::telegramSettingSaved_channel()) {?>
-        	<a class="btn master" href="<?php echo \dash\url::that(). '/channel' ?>"><?php echo T_("Change Telegram Channel") ?></a>
+        	<a class="btn secondary" href="<?php echo \dash\url::that(). '/channel' ?>"><?php echo T_("Change Telegram Channel") ?></a>
       	<?php }else{ ?>
-        	<a class="btn master" href="<?php echo \dash\url::that(). '/channel' ?>"><?php echo T_("Set Telegram Channel") ?></a>
+        	<a class="btn secondary" href="<?php echo \dash\url::that(). '/channel' ?>"><?php echo T_("Set Telegram Channel") ?></a>
       	<?php } // endif ?>
       </div>
   </div>
@@ -53,9 +53,9 @@
   <div class="c4 s12" >
       <div class="action">
         <?php if(\dash\data::telegramSettingSaved_adminusername()) {?>
-          <a class="btn master" href="<?php echo \dash\url::this(). '/social' ?>"><?php echo T_("Change Telegram Admin username") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/adminusername' ?>"><?php echo T_("Change Telegram Admin username") ?></a>
         <?php }else{ ?>
-          <a class="btn master" href="<?php echo \dash\url::this(). '/social' ?>"><?php echo T_("Set Telegram Admin username") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/adminusername' ?>"><?php echo T_("Set Telegram Admin username") ?></a>
         <?php } // endif ?>
       </div>
   </div>
@@ -74,9 +74,9 @@
   <div class="c4 s12" >
       <div class="action">
         <?php if(\dash\data::telegramSettingSaved_share_text()) {?>
-          <a class="btn master" href="<?php echo \dash\url::that(). '/text' ?>"><?php echo T_("Change Telegram Text") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/text' ?>"><?php echo T_("Change Telegram Text") ?></a>
         <?php }else{ ?>
-          <a class="btn master" href="<?php echo \dash\url::that(). '/text' ?>"><?php echo T_("Set Telegram Text") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/text' ?>"><?php echo T_("Set Telegram Text") ?></a>
         <?php } // endif ?>
       </div>
   </div>
@@ -94,9 +94,9 @@
   <div class="c4 s12" >
       <div class="action">
         <?php if(\dash\data::telegramSettingSaved_start_text()) {?>
-          <a class="btn master" href="<?php echo \dash\url::that(). '/starttext' ?>"><?php echo T_("Change Telegram start text") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/starttext' ?>"><?php echo T_("Change Telegram start text") ?></a>
         <?php }else{ ?>
-          <a class="btn master" href="<?php echo \dash\url::that(). '/starttext' ?>"><?php echo T_("Set Telegram start text") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/starttext' ?>"><?php echo T_("Set Telegram start text") ?></a>
         <?php } // endif ?>
       </div>
   </div>
@@ -116,7 +116,7 @@
   </div>
   <div class="c4 s12" >
       <div class="action">
-          <a class="btn master" href="<?php echo \dash\url::that(). '/telegrambtn' ?>"><?php echo T_("Set") ?></a>
+          <a class="btn secondary" href="<?php echo \dash\url::that(). '/telegrambtn' ?>"><?php echo T_("Set") ?></a>
       </div>
   </div>
 </section>

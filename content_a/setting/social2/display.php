@@ -4,7 +4,7 @@
   <nav class="items mB25-f">
     <ul>
       <li>
-        <a class="f" href="<?php echo \dash\url::this(); ?>/tg">
+        <a class="f" href="<?php echo \dash\url::this(); ?>/telegram">
           <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/telegram.svg" alt='<?php echo T_("Telegram"); ?>'>
           <div class="key"><?php echo T_("Telegram"); ?></div>
           <div class="go"></div>
