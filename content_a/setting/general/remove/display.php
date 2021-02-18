@@ -10,7 +10,9 @@ $storeData = \dash\data::store_store_data();
           <?php echo T_("Be careful, You are deleting your business!") ?>
         </div>
         <p>
-          <?php echo T_("To do this, you must enter your business subdomain name. \nPlease note that we will keep your information for a while and also the subdomain of your choice will still be reserved") ?>
+          <?php echo T_("To do this, you must enter your business subdomain name."); ?>
+          <br>
+          <?php echo T_("All your business information will be deleted and will not be recovered."); ?>
         </p>
 
         <div class="check1">
@@ -22,6 +24,9 @@ $storeData = \dash\data::store_store_data();
           <label for="subdomain"><?php echo T_("Please enter the business subdomain") ?></label>
           <div class="input ltr">
             <input type="text" name="subdomain" id="subdomain">
+          </div>
+          <div class="fc-mute">
+            <?php echo T_("You can find your subdomain in setting > domain"); ?>
           </div>
         </div>
       </div>

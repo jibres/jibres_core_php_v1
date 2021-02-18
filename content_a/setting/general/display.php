@@ -26,5 +26,12 @@
       </ul>
     </nav>
 
+
+        <nav class="items">
+      <ul>
+        <li><a class="f" href="<?php echo \dash\url::that(); ?>/remove"><div class="key"><?php echo T_("Remove business"); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+
   </div>
 </div>

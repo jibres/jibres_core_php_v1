@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\security\remove;
+namespace content_a\setting\general\remove;
 
 class controller
 {
