@@ -349,8 +349,11 @@ class ready
 		$allmytext = a($result, 'post_title'). ' '. a($result, 'content'). ' '. a($result, 'excerpt');
 		$count_words = \dash\seo::get_word_count($allmytext);
 
-		$readingtime = ceil($count_words  / 200);
-		$result['readingtime'] = \dash\utility\human::time($readingtime * 60, true);
+		$readingtime = ceil($count_words  / 300);
+		if($readingtime > 1)
+		{
+			$result['readingtime'] = \dash\utility\human::time($readingtime * 60, true);
+		}
 
 
 		return $result;
