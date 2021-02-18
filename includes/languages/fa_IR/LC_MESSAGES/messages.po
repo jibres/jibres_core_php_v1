@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-18 10:07+0330\n"
-"PO-Revision-Date: 2021-02-18 10:14+0330\n"
+"POT-Creation-Date: 2021-02-18 13:33+0330\n"
+"PO-Revision-Date: 2021-02-18 13:35+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -996,7 +996,7 @@ msgid "Please enter valid mobile number. `:val` is incorrect"
 msgstr "لطفا شماره موبایل معتبری وارد کنید. :val اشتباه است"
 
 #: content/contact/display.php:30 content/subscribe/display.php:19
-#: content_a/setting/social/display.php:73 content_account/my/email/display.php:7
+#: content_a/setting/social-old/display.php:73 content_account/my/email/display.php:7
 #: content_account/my/email/view.php:10 content_account/my/home/display.php:52
 #: content_business/home/layout/template/visitcard.php:40
 #: content_crm/member/email/display.php:6 content_crm/member/glance/display.php:256
@@ -4486,11 +4486,13 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/products/poof/view.php:22 content_a/products/property/view.php:22
 #: content_a/products/share/view.php:22 content_a/products/sharetext/view.php:22
 #: content_a/products/shipping/view.php:29 content_a/products/status/view.php:22
-#: content_a/products/variants/view.php:21 content_a/setting/company/view.php:11
-#: content_a/setting/domain/add/view.php:11
+#: content_a/products/variants/view.php:21 content_a/setting/aparat/view.php:10
+#: content_a/setting/company/view.php:11 content_a/setting/domain/add/view.php:11
 #: content_a/setting/domain/existdomain/view.php:11
 #: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/remove/view.php:11
-#: content_a/setting/domain/setting/view.php:11 content_a/setting/fund/view.php:16
+#: content_a/setting/domain/setting/view.php:11 content_a/setting/fb/view.php:10
+#: content_a/setting/fund/view.php:16 content_a/setting/github/view.php:10
+#: content_a/setting/instagram/view.php:10 content_a/setting/linkedin/view.php:10
 #: content_a/setting/logo/view.php:15 content_a/setting/payment/bank/view.php:11
 #: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
 #: content_a/setting/place/inventory/view.php:10 content_a/setting/pos/pos/view.php:11
@@ -4498,11 +4500,13 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/security/remove/view.php:11
 #: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
-#: content_a/setting/social/view.php:14 content_a/setting/staticfile/view.php:15
+#: content_a/setting/social-old/view.php:14 content_a/setting/staticfile/view.php:15
+#: content_a/setting/telegram/view.php:10 content_a/setting/tw/view.php:10
 #: content_a/setting/units/view.php:16 content_a/setting/vat/view.php:13
-#: content_a/tag/remove/view.php:17 content_a/units/view.php:29
-#: content_a/units/view.php:36 content_a/website/body/add/view.php:12
-#: content_a/website/body/view.php:12 content_a/website/imageblock/add/view.php:33
+#: content_a/setting/youtube/view.php:10 content_a/tag/remove/view.php:17
+#: content_a/units/view.php:29 content_a/units/view.php:36
+#: content_a/website/body/add/view.php:12 content_a/website/body/view.php:12
+#: content_a/website/imageblock/add/view.php:33
 #: content_a/website/imageblock/setting/view.php:20
 #: content_a/website/imageblock/view.php:19 content_a/website/menu/add/view.php:13
 #: content_a/website/menu/edit/view.php:12 content_a/website/menu/item/view.php:15
@@ -6453,10 +6457,12 @@ msgstr "مایکت"
 #: content_a/products/variants/display-add-product.php:98
 #: content_a/setting/accounting/currency/display.php:35
 #: content_a/setting/accounting/defaultdetail/display.php:54
-#: content_a/setting/cart/limit/display.php:25 content_a/setting/cart/text/display.php:37
+#: content_a/setting/aparat/display.php:15 content_a/setting/cart/limit/display.php:25
+#: content_a/setting/cart/text/display.php:37 content_a/setting/fb/display.php:14
 #: content_a/setting/general/lang/display.php:24
 #: content_a/setting/general/nosale/display.php:20
-#: content_a/setting/general/title/display.php:20
+#: content_a/setting/general/title/display.php:20 content_a/setting/github/display.php:15
+#: content_a/setting/instagram/display.php:15 content_a/setting/linkedin/display.php:15
 #: content_a/setting/order/validity/display.php:36
 #: content_a/setting/payment/bank/display.php:19
 #: content_a/setting/product/preparationtime/display.php:21
@@ -6464,7 +6470,8 @@ msgstr "مایکت"
 #: content_a/setting/product/text/display.php:19
 #: content_a/setting/product/viewtext/display.php:19
 #: content_a/setting/shipping/setting/display.php:108
-#: content_a/setting/shipping/text/display.php:38 content_a/setting/social/display.php:102
+#: content_a/setting/shipping/text/display.php:38
+#: content_a/setting/social-old/display.php:102
 #: content_a/setting/telegram/adminusername/display.php:21
 #: content_a/setting/telegram/bot/display.php:22
 #: content_a/setting/telegram/channel/display.php:21
@@ -6480,7 +6487,8 @@ msgstr "مایکت"
 #: content_a/setting/thirdparty/kavenegar/display.php:23
 #: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
-#: content_a/setting/thirdparty/tawk/display.php:20 content_a/setup/address/display.php:61
+#: content_a/setting/thirdparty/tawk/display.php:20 content_a/setting/tw/display.php:18
+#: content_a/setting/youtube/display.php:15 content_a/setup/address/display.php:61
 #: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:26
 #: content_a/setup/owner/display.php:41 content_a/setup/payment/display.php:43
 #: content_a/setup/pos/display.php:31 content_a/setup/units/display.php:66
@@ -7360,16 +7368,15 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
 #: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
 #: content_a/setting/search/controller.php:48 content_a/setting/security/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:8
-#: content_a/setting/staticfile/view.php:8 content_a/setting/telegram/view.php:10
-#: content_a/setting/thirdparty/view.php:10 content_a/social/view.php:10
-#: content_a/tag/home/view.php:16 content_a/units/view.php:11
-#: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
-#: content_love/store/display.php:27 content_love/store/display.php:60
-#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
-#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
-#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:202
-#: lib/app/store/analytics.php:123
+#: content_a/setting/shipping/text/view.php:11 content_a/setting/social-old/view.php:8
+#: content_a/setting/social/view.php:10 content_a/setting/staticfile/view.php:8
+#: content_a/setting/thirdparty/view.php:10 content_a/tag/home/view.php:16
+#: content_a/units/view.php:11 content_love/business/domain/pageStep.php:23
+#: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
+#: content_love/store/display.php:60 content_my/domain/irnic/view.php:16
+#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
+#: content_v2/app/view.php:247 dash/layout/admin/sidebar/sidebar-a.php:21
+#: dash/layout/pwa/pwa_menu.php:202 lib/app/store/analytics.php:123
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -10680,6 +10687,16 @@ msgstr "تنظیم مجدد شماره سند حسابداری"
 msgid "Set your store address"
 msgstr "تنظیم آدرس فروشگاه شما"
 
+#: content_a/setting/aparat/display.php:8
+msgid "Enter your account username in aparat."
+msgstr "نام کاربری شما در آپارات"
+
+#: content_a/setting/aparat/view.php:8 content_a/setting/social-old/display.php:80
+#: content_a/setting/social/display.php:78 content_a/setting/social/display.php:79
+#: includes/languages/trans_static_public.php:252 lib/store.php:501
+msgid "Aparat"
+msgstr "آپارات"
+
 #: content_a/setting/cart/display.php:4
 msgid "Set cart page default text"
 msgstr "تنظیم متن ثابت صفحه سبد خرید"
@@ -10920,6 +10937,17 @@ msgstr "تمام دامنه‌های متصل به بیزینس شما بر رو
 msgid "Domain setting"
 msgstr "تنظیمات دامنه"
 
+#: content_a/setting/fb/display.php:7
+msgid "Enter your account username in facebook."
+msgstr "نام کاربری شما در فیسبوک"
+
+#: content_a/setting/fb/view.php:8 content_a/setting/social-old/display.php:66
+#: content_a/setting/social/display.php:29 content_a/setting/social/display.php:30
+#: content_account/my/home/display.php:165 content_account/my/social/display.php:20
+#: content_account/my/social/display.php:23 lib/store.php:499
+msgid "Facebook"
+msgstr "فیس‌بوک"
+
 #: content_a/setting/fund/controller.php:14 content_a/website/menu/item/controller.php:13
 #: content_b1/user/budget/detail/view.php:13 content_cms/posts/edit/controller.php:14
 #: content_my/domain/irnic/edit/controller.php:15 dash/app/posts/check.php:59
@@ -11041,6 +11069,16 @@ msgstr "عمومی"
 #: lib/app/setting/search.php:38
 msgid "General setting"
 msgstr "تنظیمات عمومی"
+
+#: content_a/setting/github/display.php:8
+msgid "Enter your account username in github."
+msgstr "نام کاربری شما در گیت‌هاب"
+
+#: content_a/setting/github/view.php:8 content_a/setting/social-old/display.php:59
+#: content_a/setting/social/display.php:54 content_a/setting/social/display.php:55
+#: includes/languages/trans_static_public.php:250 lib/store.php:498
+msgid "Github"
+msgstr "گیت‌هاب"
 
 #: content_a/setting/home/display.php:6
 msgid "Find a setting"
@@ -11210,8 +11248,31 @@ msgstr "مشتریان - CRM"
 msgid "Manage business customers"
 msgstr "مدیریت مشتریان بیزینس"
 
+#: content_a/setting/instagram/display.php:8
+msgid "Enter your account username in instagram."
+msgstr "نام کاربری شما در اینستاگرام"
+
+#: content_a/setting/instagram/view.php:8 content_a/setting/social-old/display.php:16
+#: content_a/setting/social/display.php:15 content_a/setting/social/display.php:16
+#: content_account/my/home/display.php:160 content_account/my/social/display.php:41
+#: content_account/my/social/display.php:44 lib/app/website/init.php:82 lib/store.php:493
+msgid "Instagram"
+msgstr "اینستاگرام"
+
+#: content_a/setting/linkedin/display.php:8
+msgid "Enter your account username in linkedin."
+msgstr "نام کاربری شما در لینکدین"
+
+#: content_a/setting/linkedin/view.php:8 content_a/setting/social-old/display.php:52
+#: content_a/setting/social/display.php:46 content_a/setting/social/display.php:47
+#: content_account/my/home/display.php:175 content_account/my/social/display.php:34
+#: content_account/my/social/display.php:37 includes/languages/trans_static_public.php:251
+#: lib/store.php:497
+msgid "Linkedin"
+msgstr "لینکدین"
+
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
-#: lib/app/store/edit.php:228
+#: lib/app/store/edit.php:230
 msgid "Your setting was saved"
 msgstr "تنظیمات شما ذخیره شد"
 
@@ -11928,75 +11989,65 @@ msgstr ""
 msgid "Shipping Text"
 msgstr "تنظیم متن ثابت صفحه ارسال سفارش"
 
-#: content_a/setting/social/display.php:10
+#: content_a/setting/social-old/display.php:10
 msgid "Set the social network link"
 msgstr "تنظیم لینک شبکه‌های اجتماعی"
 
-#: content_a/setting/social/display.php:12
+#: content_a/setting/social-old/display.php:12
 msgid "This item use in your website."
 msgstr "این گزینه‌ها در وب‌سایت شما استفاده خواهند شد."
 
-#: content_a/setting/social/display.php:16 content_a/social/display.php:38
-#: content_a/social/display.php:39 content_account/my/home/display.php:160
-#: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: lib/app/website/init.php:82 lib/store.php:493
-msgid "Instagram"
-msgstr "اینستاگرام"
-
-#: content_a/setting/social/display.php:24
+#: content_a/setting/social-old/display.php:24
 #: content_a/setting/telegram/channel/display.php:12
 msgid "Channel"
 msgstr "کانال"
 
-#: content_a/setting/social/display.php:30
+#: content_a/setting/social-old/display.php:30
 msgid "Telegram Admin user"
 msgstr "نام کاربری ادمین تلگرام"
 
-#: content_a/setting/social/display.php:38 content_a/social/display.php:62
-#: content_a/social/display.php:63 lib/store.php:495
+#: content_a/setting/social-old/display.php:38 content_a/setting/social/display.php:62
+#: content_a/setting/social/display.php:63 content_a/setting/youtube/view.php:8
+#: lib/store.php:495
 msgid "Youtube"
 msgstr "یوتیوب"
 
-#: content_a/setting/social/display.php:45 content_a/social/display.php:30
-#: content_a/social/display.php:31 content_account/my/home/display.php:170
-#: content_account/my/social/display.php:27 content_account/my/social/display.php:30
-#: lib/store.php:496
+#: content_a/setting/social-old/display.php:45 content_a/setting/social/display.php:37
+#: content_a/setting/social/display.php:38 content_a/setting/tw/view.php:8
+#: content_account/my/home/display.php:170 content_account/my/social/display.php:27
+#: content_account/my/social/display.php:30 lib/store.php:496
 msgid "Twitter"
 msgstr "توییتر"
 
-#: content_a/setting/social/display.php:52 content_a/social/display.php:46
-#: content_a/social/display.php:47 content_account/my/home/display.php:175
-#: content_account/my/social/display.php:34 content_account/my/social/display.php:37
-#: includes/languages/trans_static_public.php:251 lib/store.php:497
-msgid "Linkedin"
-msgstr "لینکدین"
-
-#: content_a/setting/social/display.php:59 content_a/social/display.php:54
-#: content_a/social/display.php:55 includes/languages/trans_static_public.php:250
-#: lib/store.php:498
-msgid "Github"
-msgstr "گیت‌هاب"
-
-#: content_a/setting/social/display.php:66 content_a/social/display.php:22
-#: content_a/social/display.php:23 content_account/my/home/display.php:165
-#: content_account/my/social/display.php:20 content_account/my/social/display.php:23
-#: lib/store.php:499
-msgid "Facebook"
-msgstr "فیس‌بوک"
-
-#: content_a/setting/social/display.php:80 content_a/social/display.php:85
-#: content_a/social/display.php:86 includes/languages/trans_static_public.php:252
-#: lib/store.php:501
-msgid "Aparat"
-msgstr "آپارات"
-
-#: content_a/setting/social/display.php:87 lib/store.php:502
+#: content_a/setting/social-old/display.php:87 lib/store.php:502
 msgid "Eitaa"
 msgstr "ایتا"
 
-#: content_a/setting/social/view.php:8
+#: content_a/setting/social-old/view.php:8
 msgid "Social Network"
 msgstr "شبکه اجتماعی"
+
+#: content_a/setting/social/display.php:3
+msgid "Social Media Connected to Smart Share"
+msgstr "شبکه‌های اجتماعی متصل به اشتراک‌گذاری هوشمند"
+
+#: content_a/setting/social/display.php:8 content_a/setting/social/display.php:9
+#: content_crm/home/display.php:143 content_crm/telegram/conversation/view.php:12
+#: content_crm/telegram/home/view.php:9 content_crm/telegram/send/view.php:12
+#: content_crm/ticket/view/display.php:156 content_love/log/home/logTable.php:60
+#: content_su/home/display.php:197 content_su/tg/home/view.php:11
+#: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
+#: lib/app/website/init.php:92 lib/store.php:494
+msgid "Telegram"
+msgstr "تلگرام"
+
+#: content_a/setting/social/display.php:24 content_a/setting/social/view.php:8
+msgid "Social Media"
+msgstr "رسانه‌های اجتماعی"
+
+#: content_a/setting/social/display.php:73
+msgid "Iranian Social Media"
+msgstr "شبکه‌های اجتماعی ایرانی"
 
 #: content_a/setting/staticfile/display.php:4
 msgid "Route static file verification"
@@ -12490,9 +12541,17 @@ msgstr ""
 "سرویس tawk.to پیشنهاد نرم‌افزار اندروید، آی‌اواس و نسخه ویندوز و سیستم‌عامل مک را هم برای "
 "اتصال به پنل مدیریت خود ارائه می‌دهد."
 
+#: content_a/setting/tw/display.php:11
+msgid "Enter your account username in twitter."
+msgstr "نام کاربری شما در توییتر"
+
 #: content_a/setting/vat/view.php:9 content_a/setup/vat/view.php:9
 msgid "Tax settings"
 msgstr "تنظیمات مالیاتی"
+
+#: content_a/setting/youtube/display.php:8
+msgid "Enter your account username in youtube."
+msgstr "نام کاربری شما در یوتیوب"
 
 #: content_a/setup/address/display.php:7
 msgid "Based on your country some of our options will be changed."
@@ -12746,32 +12805,6 @@ msgstr "اعمال مالیات روی نرخ حمل و نقل"
 #: content_a/setup/vat/display.php:43
 msgid "Include shipping rates in the tax calculation."
 msgstr "شامل نرخ حمل و نقل در محاسبه مالیات."
-
-#: content_a/social/display.php:3
-msgid "Social Media Connected to Smart Share"
-msgstr "شبکه‌های اجتماعی متصل به اشتراک‌گذاری هوشمند"
-
-#: content_a/social/display.php:8 content_a/social/display.php:9
-#: content_crm/home/display.php:143 content_crm/telegram/conversation/view.php:12
-#: content_crm/telegram/home/view.php:9 content_crm/telegram/send/view.php:12
-#: content_crm/ticket/view/display.php:156 content_love/log/home/logTable.php:60
-#: content_su/home/display.php:197 content_su/tg/home/view.php:11
-#: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
-#: lib/app/website/init.php:92 lib/store.php:494
-msgid "Telegram"
-msgstr "تلگرام"
-
-#: content_a/social/display.php:17 content_a/social/view.php:8
-msgid "Social Media"
-msgstr "رسانه‌های اجتماعی"
-
-#: content_a/social/display.php:70 content_a/social/display.php:71
-msgid "Whatsapp"
-msgstr "واتساپ"
-
-#: content_a/social/display.php:80
-msgid "Iranian Social Media"
-msgstr "شبکه‌های اجتماعی ایرانی"
 
 #: content_a/tag/edit/display.php:22
 msgid "Choose product to add product to this Tag"
@@ -20815,7 +20848,7 @@ msgstr "بیزینس آنلاین منو بساز"
 msgid "choose subdomain on Jibres"
 msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
 
-#: content_my/business/subdomain/model.php:28 lib/app/store/add.php:120
+#: content_my/business/subdomain/model.php:28 lib/app/store/add.php:122
 #: lib/app/store/edit.php:25 lib/app/store/subdomain.php:23
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً گرفته شده است"
@@ -34072,7 +34105,7 @@ msgstr "برای ثبت سبد خرید لطفا مشتری را انتخاب ک
 #: lib/app/product/unit.php:21 lib/app/product/updateprice.php:154
 #: lib/app/product/variants.php:84 lib/app/product/variants.php:258
 #: lib/app/product/variants.php:275 lib/app/setting/setup.php:92
-#: lib/app/setting/setup.php:228 lib/app/store/edit.php:171
+#: lib/app/setting/setup.php:228 lib/app/store/edit.php:173
 #: lib/app/tax/doc/gallery.php:102
 msgid "Your are not in this store!"
 msgstr "شما در این فروشگاه نیستید!"
@@ -36948,16 +36981,16 @@ msgstr "شما نمی‌توانید بیش از :val فروشگاه رایگا�
 msgid "Contact Us if you need more stores"
 msgstr "اگر به فروشگاه‌های بیشتری نیاز دارید با ما تماس بگیرید"
 
-#: lib/app/store/add.php:163 lib/app/store/add.php:181 lib/app/store/add.php:197
-#: lib/app/store/add.php:213
+#: lib/app/store/add.php:165 lib/app/store/add.php:183 lib/app/store/add.php:199
+#: lib/app/store/add.php:215
 msgid "Can not add your store"
 msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
 
-#: lib/app/store/add.php:225
+#: lib/app/store/add.php:227
 msgid "We can not create your store!"
 msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
-#: lib/app/store/add.php:246
+#: lib/app/store/add.php:248
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
@@ -37318,7 +37351,7 @@ msgstr "شناسه مشتری سازمانی ذخیره شد"
 msgid "Storage was changed"
 msgstr "فضای ذخیره‌سازی تغییر کرد"
 
-#: lib/app/store/edit.php:162
+#: lib/app/store/edit.php:164
 msgid "Your social network was saved"
 msgstr "شبکه‌های اجتماعی شما ذخیره شد"
 
@@ -39170,6 +39203,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Whatsapp"
+#~ msgstr "واتساپ"
 
 #~ msgid "plan"
 #~ msgstr "پلن"
@@ -42264,9 +42300,6 @@ msgstr "یارد"
 
 #~ msgid "Or"
 #~ msgstr "یا"
-
-#~ msgid "Your account username in"
-#~ msgstr "نام کاربری شما در"
 
 #~ msgid "Add new address to your profile"
 #~ msgstr "افزودن آدرس جدید در پروفایل شخصی خودتان"
