@@ -12,10 +12,17 @@ class view
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_text(T_('Account'));
 
-
-		// back
-		\dash\data::back_text(T_('Account'));
-		\dash\data::back_link(\dash\url::here());
+		if(\dash\request::get('from') === 'domain')
+		{
+			\dash\data::back_text(T_('Domains'));
+			\dash\data::back_link(\dash\url::kingdom(). '/my/domain');
+		}
+		else
+		{
+			// back
+			\dash\data::back_text(T_('Account'));
+			\dash\data::back_link(\dash\url::here());
+		}
 
 		if(\dash\user::login())
 		{
