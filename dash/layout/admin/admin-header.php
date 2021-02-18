@@ -16,7 +16,7 @@
    <a class="cauto logo" <?php echo $targetLink; ?> href="<?php echo $masterUrl ?>" ><img src="<?php echo \dash\face::logo(); ?>" alt='<?php echo \dash\face::site(); ?>'></a>
    <h1 class='c'><a <?php echo $targetLink; ?> href="<?php echo $masterUrl ?>"><?php echo \dash\face::site(); ?></a></h1>
    <div class='hm right flex cauto os'>
-    <a href="<?php echo \dash\url::sitelang(); ?>/support" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
+    <a href="<?php echo \dash\url::support(); ?>" target="_blank" title='<?php echo T_("Help Center"); ?>' class="support s0"><i class="sf-life-ring"></i></a>
 <?php if(\dash\user::id()) { ?>
     <a href="<?php echo \dash\url::kingdom(); ?>/a/order/unprocessed" title='<?php echo T_("Orders"); ?>' class="orders"><i class="sf-shopping-cart pulse"></i></a>
     <a href="<?php echo \dash\url::sitelang(); ?>/account/notification" title='<?php echo T_("Notifications"); ?>' class="notification"><i class="sf-bell pulse"></i></a>

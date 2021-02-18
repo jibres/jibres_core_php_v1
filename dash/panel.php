@@ -20,10 +20,6 @@ class panel
 		{
 			return self::sidebar_businsess();
 		}
-		if(\dash\url::content() === 'support')
-		{
-			return self::sidebar_jibres_support();
-		}
 
 		// show jibres menu
 		return self::sidebar_jibres_primary();
@@ -96,14 +92,6 @@ class panel
 				'active' => (\dash\url::content() === 'account'? true :false)
 			];
 		}
-		// help center
-		$menu[] =
-		[
-			'title'  => T_("Help Center"),
-			'link'   => \dash\url::sitelang(). '/support',
-			'icon'   => 'life-ring',
-			'active' => (\dash\url::content() === 'support'? true :false)
-		];
 
 		return $menu;
 	}
@@ -213,47 +201,6 @@ class panel
 	}
 
 
-	private static function sidebar_jibres_support()
-	{
-		if(\dash\engine\store::inStore())
-		{
-			$menu = self::jibresControlCenterLink(true);
-			$menu[] = self::businessDashboardLink();
-			$menu[] = ['seperator' => true];
-		}
-		else
-		{
-			$menu = self::jibresControlCenterLink();
-		}
-
-		$menu[] =
-		[
-			'title'  => T_("Help Center"),
-			'link'   => \dash\url::here(),
-			'icon'   => 'life-ring',
-			'active' => 1,
-		];
-
-		$menu[] =
-		[
-			'title'  => T_("Tickets"),
-			'link'   => \dash\url::here().'/ticket',
-			'icon'   => 'question-circle',
-			'active' => (\dash\url::module()==='ticket'? true :false)
-		];
-
-		$menu[] =
-		[
-			'title'  => T_("New ticket"),
-			'link'   => \dash\url::here().'/ticket/add',
-			'icon'   => 'plus',
-			'active' => (\dash\url::module()==='ticket'&& \dash\url::child()==='add'? true :false)
-		];
-
-		return $menu;
-	}
-
-
 	private static function sidebar_businsess()
 	{
 		$menu = self::jibresControlCenterLink();
@@ -312,16 +259,6 @@ class panel
 				'link'   => \dash\url::kingdom().'/a/report',
 				'icon'   => 'bar-chart',
 				'active' => (\dash\url::module()==='report'? true :false)
-			];
-		}
-
-		{
-			$menu[] =
-			[
-				'title'  => T_("Support"),
-				'link'   => \dash\url::kingdom().'/support',
-				'icon'   => 'life-ring',
-				'active' => (\dash\url::content()==='support'? true :false)
 			];
 		}
 
