@@ -89,7 +89,7 @@ class get
 			FROM
 				tickets
 			WHERE
-				(tickets.parent = $_ticket_id OR tickets.id = $_ticket_id) AND tickets.type != 'note'
+				(tickets.parent = $_ticket_id OR tickets.id = $_ticket_id) AND tickets.type NOT IN ('note', 'action')
 			ORDER BY tickets.id DESC
 			LIMIT 1
 		";
@@ -106,7 +106,7 @@ class get
 		$note = null;
 		if($_customer_mode)
 		{
-			$note = " AND tickets.type != 'note' ";
+			$note = " AND tickets.type NOT IN ('note', 'action') ";
 		}
 		$query =
 		"

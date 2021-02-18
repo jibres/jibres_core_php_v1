@@ -63,9 +63,50 @@ class edit
 			return true;
 		}
 
+		$add_action = [];
+
+		if(count($args) === 1)
+		{
+			if(isset($args['status']) && $args['status'] && isset($load['status']) && $args['status'] !== $load['status'])
+			{
+				$add_action[] =
+				[
+					'type'    => 'action',
+					'content' => 'change status',
+					'status'  => $args['status'],
+					'parent'  => $load['id'],
+					'user_id' => \dash\user::id(),
+				];
+			}
+
+			if(array_key_exists('solved', $args) && !\dash\validate::is_equal($load['solved'], $args['solved']))
+			{
+				$add_action[] =
+				[
+					'type'    => 'action',
+					'content' => 'change solved',
+					'solved'  => $args['solved'],
+					'parent'  => $load['id'],
+					'user_id' => \dash\user::id(),
+				];
+			}
+
+		}
+
 		$args['datemodified'] = date("Y-m-d H:i:s");
 
 		\dash\db\tickets\update::update($args, $load['id']);
+
+
+		if($add_action)
+		{
+			foreach ($add_action as $key => $value)
+			{
+				\dash\app\ticket\add::add_new_ticket($value);
+			}
+
+			\dash\notif::clean();
+		}
 
 		\dash\notif::ok(T_('Message edited'));
 

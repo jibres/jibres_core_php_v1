@@ -233,7 +233,7 @@ class get
 
 			if($livelastid === null)
 			{
-				if(a($value, 'type') === 'note')
+				if(a($value, 'type') === 'note' || a($value, 'type') === 'action')
 				{
 					// nothing
 				}

@@ -129,6 +129,25 @@ class ready
 			}
 		}
 
+		if(isset($result['type']) && $result['type'] === 'action')
+		{
+			if(a($result, 'content_raw') === 'change status' && isset($result['status']))
+			{
+				$result['content_raw'] = $result['content'] = T_("Changet ticket status to :val", ['val' => T_($result['status'])]);
+			}
+
+			if(a($result, 'content_raw') === 'change solved')
+			{
+				if(a($result, 'solved'))
+				{
+					$result['content_raw'] = $result['content'] = T_("Set ticket as solved");
+				}
+				else
+				{
+					$result['content_raw'] = $result['content'] = T_("Set ticket as not solved");
+				}
+			}
+		}
 
 		$result['link'] = \lib\store::url(). '/!'. $result['id'];
 
