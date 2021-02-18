@@ -1,9 +1,9 @@
 <?php if(\dash\data::myPayCalc() && is_array(\dash\data::myPayCalc())) {?>
-<div class="f">
+<div class="row">
     <?php foreach (\dash\data::myPayCalc() as $period => $value) {?>
-       <div class="c pRa5">
-            <a class="stat x70">
-                <h3><?php echo a($value, 'title'); ?></h3>
+       <div class="c">
+            <a class="stat x70" href="<?php echo \dash\url::that(). '?until='. a($value, 'key'); ?>">
+                <h3><?php echo a($value, 'title'); ?> <?php if(a($value, 'count')) { echo '<span>( '. \dash\fit::number(a($value, 'count')). ' '. T_('Domain'). ' )</span>';} ?></h3>
                 <div class="val"><?php echo \dash\fit::number(a($value, 'price')); ?></div>
             </a>
         </div>

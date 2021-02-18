@@ -20,9 +20,10 @@ class view
 
 		$args =
 		[
-			'order'   => \dash\request::get('order'),
-			'sort'    => \dash\request::get('sort'),
-			'predict' => true,
+			'order'         => \dash\request::get('order'),
+			'sort'          => \dash\request::get('sort'),
+			'predict_until' => \dash\request::get('until'),
+			'predict'       => true,
 		];
 
 		$search_string = \dash\request::get('q');

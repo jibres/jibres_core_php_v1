@@ -117,8 +117,14 @@ class dashboard
 		{
 			$calc = [];
 		}
+		foreach ($calc as $key => $value)
+		{
+			if(isset($value['key']) && $value['key'] === 'year' && isset($value['price']))
+			{
+				$result['predict_late_payment'] = $value['price'];
+			}
+		}
 
-		$result['predict_late_payment'] = array_sum(array_column($calc, 'price'));
 
 		// $result['domain_pay_chart']      = self::domain_pay_chart($user_id);
 		$result['domain_pay_chart']      = self::domain_pay_chart_day($user_id);

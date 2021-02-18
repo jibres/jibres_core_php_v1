@@ -69,6 +69,7 @@ class search
 			'lock'                => ['enum' => ['on', 'off', 'unknown']],
 			'autorenew'           => ['enum' => ['on', 'off']],
 			'reg'                 => ['enum' => ['com', 'ir']],
+			'predict_until'       => ['enum' => ['week', 'month', 'year']],
 			'predict'             => 'bit',
 			'get_total_predict'   => 'bit',
 			'status'              => 'string_100',
@@ -231,9 +232,8 @@ class search
 				{
 					if($my_setting['domainlifetime'] === 'off')
 					{
+						// user was disable autorenew
 						return [];
-						// $and[] = " ('USER DISABLE AUTORENEW' = 'THEN NOT SHOW ANY DOMAIN') "; // NOT AUTO RENEW
-						// $expire_at = date("Y-m-d", strtotime("+100 year"));
 					}
 					else
 					{
@@ -243,14 +243,39 @@ class search
 				}
 				else
 				{
+					// default autorenew is disable
 					return [];
-					// $and[] = " ('USER NOT ENABLE AUTORENEW' = 'THEN NOT SHOW ANY DOMAIN') "; // NOT AUTO RENEW
-					// $expire_at = date("Y-m-d", strtotime("+100 year"));
+				}
+
+				if($data['predict_until'])
+				{
+
+					$calc_pay_period_predict_expire_at  = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					if($data['predict_until'] === 'week')
+					{
+						$next_week = date("Y-m-d", strtotime("+7 days"));
+						if(strtotime($expire_at) > strtotime($next_week))
+						{
+							$expire_at = $next_week;
+						}
+					}
+					elseif($data['predict_until'] === 'month')
+					{
+						$next_month = date("Y-m-d", strtotime("+30 days"));
+						if(strtotime($expire_at) > strtotime($next_month))
+						{
+							$expire_at = $next_month;
+						}
+					}
+					elseif($data['predict_until'] === 'year')
+					{
+						// nothing
+					}
 				}
 
 			}
 
-			$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+			$and['predict_expire_at']      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
 
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[]      = " domain.status = 'enable' ";
@@ -299,6 +324,7 @@ class search
 			$is_com_domain = " domain.registrar != 'irnic' ";
 
 			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
+
 		}
 		else
 		{
@@ -366,32 +392,20 @@ class search
 					$mobile_emails_query = " OR  domain.email IN ('$emails') ";
 				}
 				$and[] = " ( domain.available = 0 OR domain.available IS NULL) ";
-				// $and[] = " domain.status = 'enable' ";
 				$and[] = " ( domain.verify = 1  $mobile_emails_query )";
-				// self::$is_filtered          = true;
-				// self::$filter_args[T_("Status")] = T_("My domains");
+
 			}
 			elseif($data['list'] === 'renew')
 			{
-				// $and[] = " domain.status NOT IN ('deleted', 'enable') ";
 				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND ( domain.available = 0 OR domain.available IS NULL) AND (domain.gateway IS NULL OR domain.gateway != 'import') ";
-
-				// self::$is_filtered          = true;
-				// self::$filter_args[T_("Status")] = T_("Maybe for your");
 			}
 			elseif($data['list'] === 'available')
 			{
 				$and[] = " domain.available = 1 ";
-
-				// self::$is_filtered          = true;
-				// self::$filter_args[T_("Status")] = T_("Available");
 			}
 			elseif($data['list'] === 'import')
 			{
 				$and[] = " domain.gateway = 'import' AND ( domain.available = 0 OR domain.available IS NULL)AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
-
-				// self::$is_filtered          = true;
-				// self::$filter_args[T_("Status")] = T_("Available");
 			}
 		}
 
@@ -475,6 +489,12 @@ class search
 
 		if($data['predict'] && !$data['autorenew_mode'])
 		{
+			if(isset($calc_pay_period_predict_expire_at))
+			{
+				unset($and['predict_expire_at']);
+				$and[] = $calc_pay_period_predict_expire_at;
+			}
+
 			$new_list = \lib\db\nic_domain\search::calc_pay_period_predict($and, $or, $order_sort, $meta);
 			$price_list = self::calc_pay_period_predict($new_list, $data['user_id']);
 			foreach ($price_list as $key => $value)
@@ -564,12 +584,14 @@ class search
 					$result['week_count']++;
 					$result['week'] += floatval(a($_list, $key, 'price'));
 				}
-				elseif($mytime < (60*60*24*30))
+
+				if($mytime < (60*60*24*30))
 				{
 					$result['month_count']++;
 					$result['month'] += floatval(a($_list, $key, 'price'));
 				}
-				elseif($mytime < (60*60*24*365))
+
+				if($mytime < (60*60*24*365))
 				{
 					$result['year_count']++;
 					$result['year']+= floatval(a($_list, $key, 'price'));
@@ -580,9 +602,9 @@ class search
 
 		$return = [];
 
-		$return[] = ['title' => T_("Pay in next week"), 'price' => $result['week'], 'count' => $result['week_count']];
-		$return[] = ['title' => T_("Pay in next month"), 'price' => $result['month'], 'count' => $result['month_count']];
-		$return[] = ['title' => T_("Pay in next year"), 'price' => $result['year'], 'count' => $result['year_count']];
+		$return[] = ['key' => 'week', 'title' => T_("Pay in next week"), 'price' => $result['week'], 'count' => $result['week_count']];
+		$return[] = ['key' => 'month', 'title' => T_("Pay in next month"), 'price' => $result['month'], 'count' => $result['month_count']];
+		$return[] = ['key' => 'year', 'title' => T_("Pay in next year"), 'price' => $result['year'], 'count' => $result['year_count']];
 
 		\dash\data::myPayCalc($return);
 
