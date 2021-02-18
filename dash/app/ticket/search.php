@@ -48,6 +48,7 @@ class search
 		[
 			'order'         => 'order',
 			'sort'          => 'string_50',
+			'st'          => 'string_50',
 			'status'        => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
 			'so'            => 'y_n',
 			'hf'            => 'y_n',
@@ -143,6 +144,11 @@ class search
 			self::$is_filtered = true;
 		}
 
+		if($data['st'])
+		{
+			$and[] = " tickets.subtype = '$data[st]' ";
+			self::$is_filtered = true;
+		}
 
 		if($data['hu'] === 'y')
 		{

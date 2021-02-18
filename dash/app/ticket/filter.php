@@ -52,6 +52,12 @@ class filter
 			$list['user']    = ['key' => 'user', 	'group' => T_("Customer"), 'title' => T_('Logined'), 	'query' => ['hu' => 'y'], 			'public' => true];
 			$list['guest'] = ['key' => 'guest', 'group' => T_("Customer"), 'title' => T_('Guest user'), 'query' => ['hu' => 'n'], 			'public' => true];
 
+			if(!\dash\engine\store::inStore())
+			{
+				$list['bug']    = ['key' => 'bug', 	'group' => T_("Type"), 'title' => T_('Bug'), 	'query' => ['st' => 'bug'], 			'public' => true];
+				$list['contact'] = ['key' => 'contact', 'group' => T_("Type"), 'title' => T_('Contact us'), 'query' => ['st' => 'contact'], 			'public' => true];
+
+			}
 		}
 
 		return $list;

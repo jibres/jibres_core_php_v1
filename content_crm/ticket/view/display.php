@@ -118,6 +118,15 @@ else
           </div>
         </li>
       <?php } //endif ?>
+        <?php if(\dash\data::dataRow_subtype() && !$customer_mode) {?>
+          <li>
+          <div class="f item">
+            <i class="sf-arrows-alt"></i>
+            <div class="key"><?php echo T_("Type") ?></div>
+            <div class="value "><?php echo T_(ucfirst(\dash\data::dataRow_subtype())); ?></div>
+          </div>
+        </li>
+      <?php } //endif ?>
       </ul>
     </nav>
 
