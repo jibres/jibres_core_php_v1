@@ -19,6 +19,7 @@ class check
 			'status'      => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter','close', 'answered']],
 			'via'         => ['enum' => ['site', 'telegram', 'sms', 'contact', 'admincontact', 'app']],
 			'type'        => 'string_50',
+			'subtype'        => 'string_50',
 			'user_id'     => 'id',
 			'guestid'     => 'md5',
 			'sendmessage' => 'bit',

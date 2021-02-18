@@ -63,6 +63,7 @@ class contact
 			'name'    => \dash\request::post('name'),
 			'email'   => \dash\request::post('email'),
 			'mobile'  => \dash\request::post('mobile'),
+			'subtype' => 'contact',
 		];
 
 		$func_args = func_get_args();
@@ -76,7 +77,6 @@ class contact
 		$args = array_merge($default_args, $args);
 
 		$content = $args['content'];
-
 
 
 		$mobile      = null;
@@ -116,10 +116,9 @@ class contact
 			$content = $content_temp. $content;
 		}
 
-
-
 		$args =
 		[
+			'subtype' => a($args, 'subtype'),
 			'via'     => 'contact',
 			'content' => $content,
 			'title'   => \dash\temp::get('tempTicketTitle') ? \dash\temp::get('tempTicketTitle') : T_("Contact Us"),

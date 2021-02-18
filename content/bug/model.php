@@ -7,6 +7,7 @@ class model
 	public static function post()
 	{
 		$args            = [];
+		$args['subtype'] = 'bug';
 		$args['name']    = \dash\request::post('iu1');
 		$args['mobile']  = \dash\request::post('xum');
 		$args['email']   = \dash\request::post('wue');
