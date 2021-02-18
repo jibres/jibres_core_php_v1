@@ -95,7 +95,9 @@ class controller
 			}
 		}
 
-		\dash\notif::api('Run this code : sh '. __DIR__. '/exec.me.sql');
+		\dash\file::write(__DIR__. '/exec.me.for-javad.sql', str_replace('-uroot -proot', '-ureza -proot -h192.168.1.80', \dash\file::read( __DIR__. '/exec.me.sql')));
+		\dash\notif::api(["Run this code : ","sh ". __DIR__. "/exec.me.sql ","sh ".__DIR__. "/exec.me.for-javad.sql"]);
+
 
 	}
 }
