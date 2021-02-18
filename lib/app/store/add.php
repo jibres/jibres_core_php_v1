@@ -117,6 +117,8 @@ class add
 		$check_exist = \lib\db\store\get::subdomain_exist($subdomain);
 		if($check_exist)
 		{
+			\dash\temp::set('subdomain_exist_in_creating_store', true);
+
 			\dash\notif::error(T_("This subdomain is already occupied"), 'subdomain');
 			return false;
 		}

@@ -65,8 +65,16 @@ class model
 			}
 			else
 			{
-				\dash\log::set('business_creatingNew', ['my_step' => 'creating', 'my_error' => true, 'my_data' => $post]);
-				\dash\log::oops('CreateNewStoreError');
+				if(\dash\temp::get('subdomain_exist_in_creating_store'))
+				{
+
+				}
+				else
+				{
+					\dash\log::set('business_creatingNew', ['my_step' => 'creating', 'my_error' => true, 'my_data' => $post]);
+					\dash\log::oops('CreateNewStoreError');
+				}
+
 				\dash\redirect::to(\dash\url::this());
 				return false;
 			}

@@ -33,7 +33,7 @@ myStores();
           <span class="badge light s0"><?php echo T_("From"); ?> <?php echo \dash\fit::date(a($value, 'datecreated')); ?></span>
           <span class="badge light"><?php echo T_("Staff"); ?></span>
         </div>
-        <div class="addr"><b><?php echo a($value, 'subdomain'); ?></b><span class="fc-mute fs09">.Jibres.<?php echo \dash\url::tld(); ?></span></div>
+        <div class="addr"><b><?php echo a($value, 'subdomain'); ?></b></div>
       </div>
     </a>
   </div>
@@ -108,7 +108,7 @@ myStores();
           <span class="badge light s0"><?php echo T_("From"); ?> <?php echo \dash\fit::date(a($value, 'datecreated')); ?></span>
           <span class="badge light"><?php echo T_("Owner"); ?></span>
         </div>
-        <div class="addr"><b><?php echo a($value, 'subdomain'); ?></b><span class="fc-mute fs09">.Jibres.<?php echo \dash\url::tld(); ?></span></div>
+        <div class="addr"><b><?php echo a($value, 'subdomain'); ?></b></div>
       </div>
     </a>
   </div>
