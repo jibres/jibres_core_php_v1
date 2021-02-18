@@ -1,106 +1,88 @@
-<?php
-$storeData = \dash\data::store_store_data();
 
-?>
-
-<div class="avand-md">
-<form method="post" autocomplete="off" data-refresh data-autoScroll>
-
-  <div  class="box impact mB25-f">
-    <header><h2><?php echo T_("Set the social network link");?></h2></header>
-      <div class="body">
-        <p><?php echo T_("This item use in your website.");?></p>
-        <div class="c4 s12">
-          <div class="action f">
-            <div class="c12 mB5">
-              <label for="instagram"><?php echo T_("Instagram"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="instagram" id="instagram" maxlength="50" value="<?php echo a($storeData, 'instagram'); ?>">
-              </div>
-            </div>
-            <div class="c12 mB5">
-              <div class="row">
-                <div class="c-xs-12 c-sm-6">
-                  <label for="channel"><?php echo T_("Channel"); ?></label>
-                  <div class="input ltr">
-                    <input type="text" name="channel" id="channel" maxlength="50" value="<?php echo \dash\data::telegramSettingSaved_channel(); ?>">
-                  </div>
-                </div>
-                <div class="c-xs-12 c-sm-6">
-                  <label for="telegram"><?php echo T_("Telegram Admin user"); ?></label>
-                  <div class="input ltr">
-                    <input type="text" name="telegram" id="telegram" maxlength="50" value="<?php echo a($storeData, 'telegram'); ?>">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="c12 mB5">
-              <label for="youtube"><?php echo T_("Youtube"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="youtube" id="youtube" maxlength="50" value="<?php echo a($storeData, 'youtube'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="twitter"><?php echo T_("Twitter"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="twitter" id="twitter" maxlength="50" value="<?php echo a($storeData, 'twitter'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="linkedin"><?php echo T_("Linkedin"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="linkedin" id="linkedin" maxlength="50" value="<?php echo a($storeData, 'linkedin'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="github"><?php echo T_("Github"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="github" id="github" maxlength="50" value="<?php echo a($storeData, 'github'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="facebook"><?php echo T_("Facebook"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="facebook" id="facebook" maxlength="50" value="<?php echo a($storeData, 'facebook'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="email"><?php echo T_("Email"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="email" id="email" maxlength="50" value="<?php echo a($storeData, 'email'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="aparat"><?php echo T_("Aparat"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="aparat" id="aparat" maxlength="50" value="<?php echo a($storeData, 'aparat'); ?>">
-              </div>
-            </div>
-
-            <div class="c12 mB5">
-              <label for="eitaa"><?php echo T_("Eitaa"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="eitaa" id="eitaa" maxlength="50" value="<?php echo a($storeData, 'eitaa'); ?>">
-              </div>
-            </div>
+<div class="avand-sm zero">
+  <h2><?php echo T_("Social Media Connected to Smart Share"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/telegram">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/telegram.svg" alt='<?php echo T_("Telegram"); ?>'>
+          <div class="key"><?php echo T_("Telegram"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/instagram">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/instagram.svg" alt='<?php echo T_("Instagram"); ?>'>
+          <div class="key"><?php echo T_("Instagram"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
 
+  <h2><?php echo T_("Social Media"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/fb">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/facebook.svg" alt='<?php echo T_("Facebook"); ?>'>
+          <div class="key"><?php echo T_("Facebook"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/tw">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/twitter.svg" alt='<?php echo T_("Twitter"); ?>'>
+          <div class="key"><?php echo T_("Twitter"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
 
 
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/linkedin">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/linkedin.svg" alt='<?php echo T_("Linkedin"); ?>'>
+          <div class="key"><?php echo T_("Linkedin"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/github">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/github.svg" alt='<?php echo T_("Github"); ?>'>
+          <div class="key"><?php echo T_("Github"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/youtube">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/youtube.svg" alt='<?php echo T_("Youtube"); ?>'>
+          <div class="key"><?php echo T_("Youtube"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
 
 
-          </div>
-        </div>
-      </div>
-      <footer class="txtRa">
-        <button  class="btn success" ><?php echo T_("Save"); ?></button>
-      </footer>
-  </div>
-</form>
+    </ul>
+  </nav>
+
+<?php if (\dash\language::current() === 'fa') { ?>
+  <h2><?php echo T_("Iranian Social Media"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/aparat">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/aparat.svg" alt='<?php echo T_("Aparat"); ?>'>
+          <div class="key"><?php echo T_("Aparat"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+<?php } ?>
+
+
 </div>
