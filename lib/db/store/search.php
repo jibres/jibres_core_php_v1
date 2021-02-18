@@ -21,6 +21,7 @@ class search
 		"
 			SELECT
 				store.*,
+				store.status AS `store_status`,
 				store_data.*
 			FROM
 				store

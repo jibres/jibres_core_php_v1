@@ -6,6 +6,11 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('reenable') === 'reenable')
+		{
+			\lib\app\store\remove::back(\dash\request::get('id'));
+		}
+
 		if(\dash\request::post('setenterprise'))
 		{
 			$enterprise = \dash\request::post('enterprise');

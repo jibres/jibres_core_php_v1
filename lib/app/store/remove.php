@@ -58,5 +58,21 @@ class remove
 		return true;
 	}
 
+	public static function back($_store_id)
+	{
+		$store_id = \dash\validate::id($_store_id);
+		if(!$store_id)
+		{
+			return false;
+		}
+
+		\lib\db\store\update::set_enable($store_id);
+
+		\lib\store::reset_cache($store_id);
+
+		\dash\notif::ok(T_("Store was enabled"));
+		return true;
+	}
+
 }
 ?>

@@ -22,6 +22,12 @@
       </li>
       <li>
         <a class="f item">
+          <div class="key">Status</div>
+          <div class="value txtB"><?php echo $dataRow['status'] ?></div>
+        </a>
+      </li>
+      <li>
+        <a class="f item">
           <div class="key">IP</div>
           <div class="value txtB"><?php echo long2ip($dataRow['ip']) ?></div>
         </a>
@@ -35,6 +41,20 @@
     </ul>
   </nav>
 
+  <?php if($dataRow['status'] === 'deleted') {?>
+
+   <nav class="items">
+    <ul>
+      <li>
+        <div class="f item" data-confirm data-data='{"reenable": "reenable"}'>
+          <div class="key"><?php echo T_("Re enable this business") ?></div>
+          <div class="go detail nok"></div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <?php } //endif ?>
 
    <nav class="items">
     <ul>

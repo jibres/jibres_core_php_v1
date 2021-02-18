@@ -31,6 +31,16 @@ class update
 	}
 
 
+
+	public static function set_enable($_id)
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "UPDATE store SET store.status = 'enable', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+	}
+
+
 	public static function enterprise($_enterprise, $_id)
 	{
 		$date = date("Y-m-d H:i:s");

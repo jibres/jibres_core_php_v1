@@ -21,8 +21,8 @@
       <th><?php echo T_("subdomain"); ?></th>
       <th><?php echo T_("title"); ?></th>
       <th><?php echo T_("owner"); ?></th>
+      <th><?php echo T_("status"); ?></th>
 
-      <th><?php echo T_("plan"); ?></th>
       <th><?php echo T_("datecreated"); ?></th>
       <th class="collapsing"><?php echo T_("Setting"); ?></th>
 
@@ -49,7 +49,7 @@
       </td>
 
 
-      <td><?php echo a($value, 't_plan'); ?></td>
+      <td><?php echo T_(a($value, 'store_status')); ?></td>
       <td title="<?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>">
 
 
