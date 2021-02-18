@@ -12,22 +12,14 @@
 
 
         <div class="row">
-
+          <?php foreach (\lib\app\branding\removebranding::plan_list() as $key => $value) {?>
           <div class="c-xs-12 c-sm-12 c-md-6">
-            <a href="<?php echo \dash\url::that(); ?>/price?type=percent" class="stat">
-              <h3><?php echo \dash\fit::number(100000). ' '. \lib\currency::unit(); ?></h3>
-              <div class="val"><?php echo T_("1 Month"); ?></div>
-            </a>
+            <div data-confirm data-data='{"key": "<?php echo a($value, 'key'); ?>"}' class="stat">
+              <h3><?php echo \dash\fit::number(a($value, 'price')). ' '. a($value, 'currency_name'); ?></h3>
+              <div class="val"><?php echo a($value, 'title'); ?></div>
+            </div>
           </div>
-
-
-          <div class="c-xs-12 c-sm-12 c-md-6">
-            <a href="<?php echo \dash\url::that(); ?>/price?type=amount" class="stat">
-              <h3><?php echo \dash\fit::number(1000000). ' '. \lib\currency::unit(); ?></h3>
-              <div class="val"><?php echo T_("1 Year"); ?></div>
-            </a>
-          </div>
-
+        <?php } //endif ?>
         </div>
 
 
