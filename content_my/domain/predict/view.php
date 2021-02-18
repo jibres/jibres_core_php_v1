@@ -24,6 +24,10 @@ class view
 			'sort'          => \dash\request::get('sort'),
 			'predict_until' => \dash\request::get('until'),
 			'predict'       => true,
+			'list'      => \dash\request::get('list'),
+			'lock'      => \dash\request::get('lock'),
+			'reg'       => \dash\request::get('reg'),
+			'autorenew' => \dash\request::get('autorenew'),
 		];
 
 		$search_string = \dash\request::get('q');

@@ -70,6 +70,7 @@ class search
 			'autorenew'           => ['enum' => ['on', 'off']],
 			'reg'                 => ['enum' => ['com', 'ir']],
 			'predict_until'       => ['enum' => ['week', 'month', 'year']],
+			'expireat'       => ['enum' => ['week', 'month', 'year']],
 			'predict'             => 'bit',
 			'get_total_predict'   => 'bit',
 			'status'              => 'string_100',
@@ -280,7 +281,7 @@ class search
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[]      = " domain.status = 'enable' ";
 			// $and[]   = " domain.verify = 1 ";
-			$and[]      = " domain.autorenew = 1 ";
+			// $and[]      = " domain.autorenew = 1 ";
 			$and[]      = " domain.available = 0 ";
 
 			$not_prohibited_ir_status = "(".
@@ -328,38 +329,6 @@ class search
 		}
 		else
 		{
-			if($data['autorenew'] === 'on')
-			{
-				$and[] = " domain.autorenew = 1 ";
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Autorenew")] = T_("Active");
-
-			}
-			elseif($data['autorenew'] === 'off')
-			{
-				$and[] = " ( domain.autorenew IS NULL OR domain.autorenew = 0 ) ";
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Autorenew")] = T_("Deactive");
-			}
-
-			if($data['lock'] === 'on')
-			{
-				$and[] = " domain.lock = 1 ";
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Lock")] = T_("Active");
-			}
-			elseif($data['lock'] === 'off')
-			{
-				$and[] = " domain.lock = 0 ";
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Lock")] = T_("Deactive");
-			}
-			elseif($data['lock'] === 'unknown')
-			{
-				$and[] = " domain.lock IS NULL  ";
-				self::$is_filtered          = true;
-				self::$filter_args[T_("Lock")] = T_("Unknown");
-			}
 
 			if(!$data['list'] || $data['list'] === 'mydomain')
 			{
@@ -408,6 +377,61 @@ class search
 				$and[] = " domain.gateway = 'import' AND ( domain.available = 0 OR domain.available IS NULL)AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
 			}
 		}
+
+		if($data['expireat'])
+		{
+			switch ($data['expireat'])
+			{
+				case 'week':
+					$expire_at = date("Y-m-d", strtotime("+7 days"));
+					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					break;
+
+				case 'month':
+					$expire_at = date("Y-m-d", strtotime("+30 days"));
+					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					break;
+
+				case 'year':
+					$expire_at = date("Y-m-d", strtotime("+365 days"));
+					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					break;
+
+				default:
+					// nothing
+					break;
+			}
+		}
+
+
+		if($data['autorenew'] === 'on')
+		{
+			$and[] = " domain.autorenew = 1 ";
+			self::$is_filtered          = true;
+
+		}
+		elseif($data['autorenew'] === 'off')
+		{
+			$and[] = " ( domain.autorenew IS NULL OR domain.autorenew = 0 ) ";
+			self::$is_filtered          = true;
+		}
+
+		if($data['lock'] === 'on')
+		{
+			$and[] = " domain.lock = 1 ";
+			self::$is_filtered          = true;
+		}
+		elseif($data['lock'] === 'off')
+		{
+			$and[] = " domain.lock = 0 ";
+			self::$is_filtered          = true;
+		}
+		elseif($data['lock'] === 'unknown')
+		{
+			$and[] = " domain.lock IS NULL  ";
+			self::$is_filtered          = true;
+		}
+
 
 		if($data['status'])
 		{

@@ -73,61 +73,19 @@ class dashboard
 			$my_active_domain = 1;
 		}
 
+		$result['expire_week']              = intval(\lib\app\nic_domain\search::list(null, ['get_count' => true, 'expireat' => 'week']));
+		$result['expire_month']             = intval(\lib\app\nic_domain\search::list(null, ['get_count' => true, 'expireat' => 'month']));;
+		$result['expire_year']              = intval(\lib\app\nic_domain\search::list(null, ['get_count' => true, 'expireat' => 'year']));;
 		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_active_domain);
 		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
 		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_active_domain);
 		$result['user_budget']              = \dash\user::budget();
-		$result['user_unit']         = \lib\currency::unit();
+		$result['user_unit']                = \lib\currency::unit();
 
-		$last_year = date("Y-m-d", strtotime("-365 days"));
-
-		$result['total_payment']        = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id));
-		$result['last_year_payment']    = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id, $last_year));
-
-
-		$predict_late_payment = 0;
-
-		$get_setting = \lib\db\nic_usersetting\get::my_setting($user_id);
-
-		if(isset($get_setting['autorenewperiod']))
-		{
-			$autorenewperiod = $get_setting['autorenewperiod'];
-		}
-		else
-		{
-			$autorenewperiod = \lib\app\nic_usersetting\defaultval::autorenewperiod();
-		}
-
-		if(isset($get_setting['domainlifetime']))
-		{
-			$domainlifetime = $get_setting['domainlifetime'];
-		}
-		else
-		{
-			$domainlifetime = \lib\app\nic_usersetting\defaultval::domainlifetime();
-		}
-
-		$life_time   = \lib\app\nic_usersetting\defaultval::get_time($domainlifetime);
+		$result['total_payment']            = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id));
 
 
 
-		\lib\app\nic_domain\search::list(null, ['predict' => true, 'get_total_predict' => true]);
-		$calc = \dash\data::myPayCalc();
-		if(!is_array($calc))
-		{
-			$calc = [];
-		}
-		foreach ($calc as $key => $value)
-		{
-			if(isset($value['key']) && $value['key'] === 'year' && isset($value['price']))
-			{
-				$result['predict_late_payment'] = $value['price'];
-			}
-		}
-
-
-		// $result['domain_pay_chart']      = self::domain_pay_chart($user_id);
-		$result['domain_pay_chart']      = self::domain_pay_chart_day($user_id);
 
 		return $result;
 	}
@@ -231,59 +189,6 @@ class dashboard
 
 
 
-
-	private static function domain_pay_chart_day($_user_id)
-	{
-		$list = \lib\db\nic_domainbilling\get::chart_my_pay_per_day($_user_id);
-
-
-		$start_date = date("Y-m-d", strtotime("2020-04-01"));
-
-		$end_date   = date("Y-m-d");
-
-		$datetime1  = date_create($start_date);
-		$datetime2  = date_create($end_date);
-
-		$interval   = date_diff($datetime1, $datetime2);
-
-		$diff_day = 0;
-		if(isset($interval->days))
-		{
-			$diff_day = $interval->days;
-		}
-
-
-		$my_list = [];
-		foreach ($list as $key => $value)
-		{
-			if(isset($value['mydate']) && isset($value['price']))
-			{
-				$my_list[$value['mydate']] = $value['price'];
-			}
-		}
-
-		$result = [];
-
-	    for ($i = 0; $i < intval($diff_day) + 1 ; $i++)
-	    {
-	    	$new_date = date("Y-m-d", strtotime("+$i days", strtotime($start_date)));
-	    	if(isset($my_list[$new_date]))
-	    	{
-	    		$result[$new_date] = intval($my_list[$new_date]);
-	    	}
-	    	else
-	    	{
-	    		$result[$new_date] = 0;
-	    	}
-	    }
-
-		$hi_chart               = [];
-		$hi_chart['categories'] = json_encode(array_map(['\\dash\\fit', 'date'], array_keys($result)), JSON_UNESCAPED_UNICODE);
-		$hi_chart['price']      = json_encode(array_values($result), JSON_UNESCAPED_UNICODE);
-
-		return $hi_chart;
-
-	}
 
 
 	private static function domain_action_chart($_date)

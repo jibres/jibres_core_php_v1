@@ -24,16 +24,6 @@
      </div>
     </section>
 
-    <section class="box domainQuickBuy s0">
-      <h3><a href="<?php echo \dash\url::here() ?>/domain"><?php echo T_("Search for your dream domain"); ?></a></h3>
-      <p><?php echo T_("Every website start with a great domain name"); ?></p>
-      <form method="get" action="<?php echo \dash\url::here(); ?>/domain/buy" autocomplete='off'>
-        <div class="input">
-          <input type="search" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Enter your idea for domain name') ?>'>
-          <button class="addon btn warn"><?php echo T_("Register Domain"); ?></button>
-        </div>
-      </form>
-    </section>
 
    <div class="f">
     <div class="c6 s12 pRa10">

@@ -30,6 +30,7 @@ class view
 			'lock'      => \dash\request::get('lock'),
 			'reg'       => \dash\request::get('reg'),
 			'autorenew' => \dash\request::get('autorenew'),
+			'expireat' => \dash\request::get('expireat'),
 			// 'status' => \dash\request::get('status'),
 
 		];
