@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-18 13:33+0330\n"
-"PO-Revision-Date: 2021-02-18 13:35+0330\n"
+"POT-Creation-Date: 2021-02-18 14:11+0330\n"
+"PO-Revision-Date: 2021-02-18 14:13+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -786,7 +786,7 @@ msgstr "نسخه اول جیبرس به امید خدا منتشر خواهد ش
 
 #: content/changelog/display.php:32
 msgid "Upgrade our powerful ticketing system. Try it, Love it"
-msgstr ""
+msgstr "ما سیستم تیکتینگ رو پر قدرت بازنویسی کردیم. امتحانش کنید، عاشقش می‌شید"
 
 #: content/changelog/display.php:38 content/changelog/display.php:80
 msgid "happy New Year"
@@ -2160,7 +2160,7 @@ msgstr ""
 "بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:27 content/home/view.php:11 content/view.php:17
-#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:238
+#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:228
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2170,7 +2170,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:248
+#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:238
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2198,7 +2198,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:41 content_a/channels/home/display.php:28
-#: content_a/setting/home/display.php:258
+#: content_a/setting/home/display.php:248
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2223,7 +2223,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:268
+#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:258
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -3048,12 +3048,12 @@ msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
 #: content/investment/display.php:105 content_a/form/home/view.php:9
-#: content_a/home/display.php:153 content_a/setting/home/display.php:195
+#: content_a/home/display.php:153 content_a/setting/home/display.php:185
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
 #: content/investment/display.php:106 content_a/accounting/home/view.php:9
-#: content_a/home/display.php:161 content_a/setting/home/display.php:185
+#: content_a/home/display.php:161 content_a/setting/home/display.php:175
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
 #: lib/app/store/analytics.php:96
@@ -4491,13 +4491,13 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/domain/existdomain/view.php:11
 #: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/remove/view.php:11
 #: content_a/setting/domain/setting/view.php:11 content_a/setting/fb/view.php:10
-#: content_a/setting/fund/view.php:16 content_a/setting/github/view.php:10
-#: content_a/setting/instagram/view.php:10 content_a/setting/linkedin/view.php:10
-#: content_a/setting/logo/view.php:15 content_a/setting/payment/bank/view.php:11
-#: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
-#: content_a/setting/place/inventory/view.php:10 content_a/setting/pos/pos/view.php:11
+#: content_a/setting/fund/view.php:16 content_a/setting/general/remove/view.php:11
+#: content_a/setting/github/view.php:10 content_a/setting/instagram/view.php:10
+#: content_a/setting/linkedin/view.php:10 content_a/setting/logo/view.php:15
+#: content_a/setting/payment/bank/view.php:11 content_a/setting/payment/way/view.php:11
+#: content_a/setting/pcpos/view.php:12 content_a/setting/place/inventory/view.php:10
+#: content_a/setting/pos/pos/view.php:11
 #: content_a/setting/product/preparationtime/view.php:11
-#: content_a/setting/security/remove/view.php:11
 #: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
 #: content_a/setting/social-old/view.php:14 content_a/setting/staticfile/view.php:15
@@ -7367,16 +7367,16 @@ msgstr "دسته‌بندی محصولات"
 #: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
 #: content_a/setting/place/inventory/view.php:8 content_a/setting/place/view.php:11
 #: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/search/controller.php:48 content_a/setting/security/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social-old/view.php:8
-#: content_a/setting/social/view.php:10 content_a/setting/staticfile/view.php:8
-#: content_a/setting/thirdparty/view.php:10 content_a/tag/home/view.php:16
-#: content_a/units/view.php:11 content_love/business/domain/pageStep.php:23
-#: content_love/gift/create/stepGuide.php:93 content_love/store/display.php:27
-#: content_love/store/display.php:60 content_my/domain/irnic/view.php:16
-#: content_my/domain/stepGuide.php:56 content_my/domain/whoisdetail/view.php:15
-#: content_v2/app/view.php:247 dash/layout/admin/sidebar/sidebar-a.php:21
-#: dash/layout/pwa/pwa_menu.php:202 lib/app/store/analytics.php:123
+#: content_a/setting/search/controller.php:48 content_a/setting/shipping/text/view.php:11
+#: content_a/setting/social-old/view.php:8 content_a/setting/social/view.php:10
+#: content_a/setting/staticfile/view.php:8 content_a/setting/thirdparty/view.php:10
+#: content_a/tag/home/view.php:16 content_a/units/view.php:11
+#: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
+#: content_love/store/display.php:27 content_love/store/display.php:60
+#: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
+#: content_my/domain/whoisdetail/view.php:15 content_v2/app/view.php:247
+#: dash/layout/admin/sidebar/sidebar-a.php:21 dash/layout/pwa/pwa_menu.php:202
+#: lib/app/store/analytics.php:123
 msgid "Setting"
 msgstr "تنظیمات"
 
@@ -7491,27 +7491,27 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 msgid "Sort Product categories"
 msgstr "مرتب‌سازی دسته‌بندی محصولات"
 
-#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:239
+#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:229
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:249
+#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:239
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:259
+#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:249
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:269
+#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:259
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:278
+#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:268
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:279
+#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:269
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -7671,7 +7671,7 @@ msgstr "شما می‌توانید هم اکنون این را حذف کنید!"
 #: content_a/form/analytics/addcondition/display-condition.php:41
 #: content_a/form/analytics/remove/display.php:8 content_a/order/status/display.php:46
 #: content_a/products/property/display.php:56
-#: content_a/setting/security/remove/display.php:29 content_a/units/display.php:78
+#: content_a/setting/general/remove/display.php:34 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
 #: content_account/address.php:10 content_my/business/ask/display.php:45
 #: content_my/business/ask/view.php:21 content_my/business/start/display.php:50
@@ -10689,7 +10689,7 @@ msgstr "تنظیم آدرس فروشگاه شما"
 
 #: content_a/setting/aparat/display.php:8
 msgid "Enter your account username in aparat."
-msgstr "نام کاربری شما در آپارات"
+msgstr "نام کاربری شما در آپارات."
 
 #: content_a/setting/aparat/view.php:8 content_a/setting/social-old/display.php:80
 #: content_a/setting/social/display.php:78 content_a/setting/social/display.php:79
@@ -10939,7 +10939,7 @@ msgstr "تنظیمات دامنه"
 
 #: content_a/setting/fb/display.php:7
 msgid "Enter your account username in facebook."
-msgstr "نام کاربری شما در فیسبوک"
+msgstr "نام کاربری شما در فیسبوک."
 
 #: content_a/setting/fb/view.php:8 content_a/setting/social-old/display.php:66
 #: content_a/setting/social/display.php:29 content_a/setting/social/display.php:30
@@ -11024,6 +11024,10 @@ msgstr "واحد‌های فروشگاه"
 msgid "No-Shopping Business"
 msgstr "کسب‌و‌کار بدون خرید و فروش"
 
+#: content_a/setting/general/display.php:32 content_a/setting/general/remove/view.php:8
+msgid "Remove business"
+msgstr "حذف بیزینس"
+
 #: content_a/setting/general/lang/display.php:12
 msgid "Please choose your business default language"
 msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب کنید"
@@ -11060,6 +11064,34 @@ msgstr "آیا امکان خرید و فروش در کسب‌وکار شما غ�
 msgid "Saleing"
 msgstr "فروش"
 
+#: content_a/setting/general/remove/display.php:10
+msgid "Be careful, You are deleting your business!"
+msgstr "مراقب باشید، شما در حال حذف بیزینس خود هستید!"
+
+#: content_a/setting/general/remove/display.php:13
+msgid "To do this, you must enter your business subdomain name."
+msgstr "برای این کار شما باید نام زیردامنه بیزینس خود را وارد کنید."
+
+#: content_a/setting/general/remove/display.php:15
+msgid "All your business information will be deleted and will not be recovered."
+msgstr "تمامی اطلاعات بیزینس شما حذف خواهد شد و قابل بازیابی نخواهد بود."
+
+#: content_a/setting/general/remove/display.php:20
+msgid "Are you sure you want to delete your business?"
+msgstr "آیا از حذف بیزینس اطمینان دارید؟"
+
+#: content_a/setting/general/remove/display.php:24
+msgid "Please enter the business subdomain"
+msgstr "لطفا زیردامنه بیزینس خود را وارد کنید"
+
+#: content_a/setting/general/remove/display.php:29
+msgid "You can find your subdomain in setting > domain"
+msgstr "شما می‌توانید زیردامنه خود را از قسمت تنظیمات > دامنه‌ها پیدا کنید"
+
+#: content_a/setting/general/remove/display.php:37
+msgid "Confirm and delete business"
+msgstr "تایید و حذف بیزینس"
+
 #: content_a/setting/general/title/view.php:8 content_a/setting/home/display.php:18
 msgid "General"
 msgstr "عمومی"
@@ -11072,7 +11104,7 @@ msgstr "تنظیمات عمومی"
 
 #: content_a/setting/github/display.php:8
 msgid "Enter your account username in github."
-msgstr "نام کاربری شما در گیت‌هاب"
+msgstr "نام کاربری شما در گیت‌هاب."
 
 #: content_a/setting/github/view.php:8 content_a/setting/social-old/display.php:59
 #: content_a/setting/social/display.php:54 content_a/setting/social/display.php:55
@@ -11184,18 +11216,7 @@ msgstr "تنظیمات سفارش"
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:158 content_account/home/display.php:47
-#: content_account/home/display.php:51 content_account/security/rememberme/view.php:13
-#: content_account/security/sessions/view.php:13 content_account/security/view.php:10
-#: dash/layout/admin/sidebar/sidebar-account.php:10
-msgid "Security"
-msgstr "امنیتی"
-
-#: content_a/setting/home/display.php:159
-msgid "Manage security setting"
-msgstr "مدیریت تنظیمات امنیتی"
-
-#: content_a/setting/home/display.php:168 content_a/setting/search/controller.php:48
+#: content_a/setting/home/display.php:158 content_a/setting/search/controller.php:48
 #: content_a/setting/thirdparty/arvanclouds3/view.php:11
 #: content_a/setting/thirdparty/awss3/view.php:11
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
@@ -11208,23 +11229,23 @@ msgstr "مدیریت تنظیمات امنیتی"
 msgid "Third Party Services"
 msgstr "سرویس‌های افزودنی دیگران"
 
-#: content_a/setting/home/display.php:169
+#: content_a/setting/home/display.php:159
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:186
+#: content_a/setting/home/display.php:176
 msgid "Manage your business accounting"
 msgstr "مدیریت حسابداری بیزینس شما"
 
-#: content_a/setting/home/display.php:196
+#: content_a/setting/home/display.php:186
 msgid "Create online forms and publish them."
 msgstr "فرم‌های آنلاین بسازید و آنها را منتشر کنید."
 
-#: content_a/setting/home/display.php:196
+#: content_a/setting/home/display.php:186
 msgid "Collect data."
 msgstr "جمع‌آوری داده‌ها."
 
-#: content_a/setting/home/display.php:212 content_cms/comments/home/view.php:11
+#: content_a/setting/home/display.php:202 content_cms/comments/home/view.php:11
 #: content_cms/config/view.php:9 content_cms/files/choose/view.php:62
 #: content_cms/files/home/view.php:14 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_cms/tag/home/view.php:16
@@ -11236,21 +11257,21 @@ msgstr "جمع‌آوری داده‌ها."
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/setting/home/display.php:213
+#: content_a/setting/home/display.php:203
 msgid "Manage your business news and contents"
 msgstr "مدیریت اخبار و محتوای بیزینس شما"
 
-#: content_a/setting/home/display.php:222 dash/panel.php:291
+#: content_a/setting/home/display.php:212 dash/panel.php:291
 msgid "Customers - CRM"
 msgstr "مشتریان - CRM"
 
-#: content_a/setting/home/display.php:223
+#: content_a/setting/home/display.php:213
 msgid "Manage business customers"
 msgstr "مدیریت مشتریان بیزینس"
 
 #: content_a/setting/instagram/display.php:8
 msgid "Enter your account username in instagram."
-msgstr "نام کاربری شما در اینستاگرام"
+msgstr "نام کاربری شما در اینستاگرام."
 
 #: content_a/setting/instagram/view.php:8 content_a/setting/social-old/display.php:16
 #: content_a/setting/social/display.php:15 content_a/setting/social/display.php:16
@@ -11261,7 +11282,7 @@ msgstr "اینستاگرام"
 
 #: content_a/setting/linkedin/display.php:8
 msgid "Enter your account username in linkedin."
-msgstr "نام کاربری شما در لینکدین"
+msgstr "نام کاربری شما در لینکدین."
 
 #: content_a/setting/linkedin/view.php:8 content_a/setting/social-old/display.php:52
 #: content_a/setting/social/display.php:46 content_a/setting/social/display.php:47
@@ -11863,40 +11884,6 @@ msgstr "ذخیره‌سازی"
 #: content_a/setting/search/controller.php:48
 msgid "S3"
 msgstr "اس۳"
-
-#: content_a/setting/security/display.php:5 content_a/setting/security/remove/view.php:8
-msgid "Remove business"
-msgstr "حذف بیزینس"
-
-#: content_a/setting/security/remove/display.php:10
-msgid "Be careful, You are deleting your business!"
-msgstr "مراقب باشید، شما در حال حذف بیزینس خود هستید!"
-
-#: content_a/setting/security/remove/display.php:13
-msgid ""
-"To do this, you must enter your business subdomain name. \n"
-"Please note that we will keep your information for a while and also the subdomain of "
-"your choice will still be reserved"
-msgstr ""
-"برای این کار شما باید نام زیردامنه بیزینس خود را وارد کنید \n"
-" توجه داشته باشید که ما اطلاعات شما را تا مدتی حفظ خواهیم کرد و نیر زیردامنه شما همچنان "
-"برای ما رزرو خواهد بود"
-
-#: content_a/setting/security/remove/display.php:18
-msgid "Are you sure you want to delete your business?"
-msgstr "آیا از حذف بیزینس اطمینان دارید؟"
-
-#: content_a/setting/security/remove/display.php:22
-msgid "Please enter the business subdomain"
-msgstr "لطفا زیردامنه بیزینس خود را وارد کنید"
-
-#: content_a/setting/security/remove/display.php:32
-msgid "Confirm and delete business"
-msgstr "تایید و حذف بیزینس"
-
-#: content_a/setting/security/view.php:8
-msgid "Security setting"
-msgstr "تنظیمات امنیتی"
 
 #: content_a/setting/shipping/display.php:7
 msgid "Shipping option"
@@ -12543,7 +12530,7 @@ msgstr ""
 
 #: content_a/setting/tw/display.php:11
 msgid "Enter your account username in twitter."
-msgstr "نام کاربری شما در توییتر"
+msgstr "نام کاربری شما در توییتر."
 
 #: content_a/setting/vat/view.php:9 content_a/setup/vat/view.php:9
 msgid "Tax settings"
@@ -12551,7 +12538,7 @@ msgstr "تنظیمات مالیاتی"
 
 #: content_a/setting/youtube/display.php:8
 msgid "Enter your account username in youtube."
-msgstr "نام کاربری شما در یوتیوب"
+msgstr "نام کاربری شما در یوتیوب."
 
 #: content_a/setup/address/display.php:7
 msgid "Based on your country some of our options will be changed."
@@ -14212,6 +14199,13 @@ msgstr "پروفایل"
 #: content_account/home/display.php:37
 msgid "Manage profile"
 msgstr "مدیریت پروفایل"
+
+#: content_account/home/display.php:47 content_account/home/display.php:51
+#: content_account/security/rememberme/view.php:13
+#: content_account/security/sessions/view.php:13 content_account/security/view.php:10
+#: dash/layout/admin/sidebar/sidebar-account.php:10
+msgid "Security"
+msgstr "امنیتی"
 
 #: content_account/home/display.php:48
 msgid "Settings and recommendations to help you keep your account secure"
@@ -39203,6 +39197,21 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Manage security setting"
+#~ msgstr "مدیریت تنظیمات امنیتی"
+
+#~ msgid ""
+#~ "To do this, you must enter your business subdomain name. \n"
+#~ "Please note that we will keep your information for a while and also the subdomain of "
+#~ "your choice will still be reserved"
+#~ msgstr ""
+#~ "برای این کار شما باید نام زیردامنه بیزینس خود را وارد کنید \n"
+#~ " توجه داشته باشید که ما اطلاعات شما را تا مدتی حفظ خواهیم کرد و نیر زیردامنه شما "
+#~ "همچنان برای ما رزرو خواهد بود"
+
+#~ msgid "Security setting"
+#~ msgstr "تنظیمات امنیتی"
 
 #~ msgid "Whatsapp"
 #~ msgstr "واتساپ"
