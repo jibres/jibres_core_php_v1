@@ -10,6 +10,13 @@
           <div class="go"></div>
         </a>
       </li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/instagram">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/instagram.svg" alt='<?php echo T_("Instagram"); ?>'>
+          <div class="key"><?php echo T_("Instagram"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -33,13 +40,6 @@
         </a>
       </li>
 
-      <li>
-        <a class="f" href="<?php echo \dash\url::this(); ?>/instagram">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/instagram.svg" alt='<?php echo T_("Instagram"); ?>'>
-          <div class="key"><?php echo T_("Instagram"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
 
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/linkedin">
@@ -65,13 +65,6 @@
         </a>
       </li>
 
-      <li>
-        <a class="f" href="<?php echo \dash\url::this(); ?>/whatsapp">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/whatsapp.svg" alt='<?php echo T_("Whatsapp"); ?>'>
-          <div class="key"><?php echo T_("Whatsapp"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
 
     </ul>
   </nav>

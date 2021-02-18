@@ -1,5 +1,5 @@
 <?php
-namespace content_a\social;
+namespace content_a\setting\social2;
 
 class view
 {
@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_('Social Media'));
 
 		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::here().'/setting');
+		\dash\data::back_link(\dash\url::this());
 	}
 }
 ?>

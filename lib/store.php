@@ -470,7 +470,7 @@ class store
 	}
 
 
-	public static function social($_need = null)
+	public static function social($_need = null, $_only_get_username = false)
 	{
 		$detail = self::detail();
 		if(isset($detail['store_data']))
@@ -511,7 +511,21 @@ class store
 		{
 			if(isset($social[$_need]))
 			{
-				return $social[$_need];
+				if($_only_get_username)
+				{
+					if(isset($social[$_need]['user']))
+					{
+						return $social[$_need]['user'];
+					}
+					else
+					{
+						return null;
+					}
+				}
+				else
+				{
+					return $social[$_need];
+				}
 			}
 			else
 			{

@@ -152,6 +152,8 @@ class edit
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
+		$data = \dash\cleanse::patch_mode($_args, $data);
+
 		foreach ($data as $key => $value)
 		{
 			\lib\app\setting\tools::update('store_setting', $key, $value);
