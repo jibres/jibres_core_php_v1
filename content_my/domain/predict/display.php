@@ -16,7 +16,7 @@
 <?php
 $result = '';
 
-$result .= '<nav class="items">';
+$result .= '<nav class="items ltr">';
 $result .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
 {
@@ -34,19 +34,7 @@ foreach (\dash\data::dataTable() as $key => $value)
       $result .= '<div title="'. T_("Autorenew is deactive").'" class="value s0"><i class="sf-refresh fc-mute"></i></div>';
     }
 
-    if(isset($value['lock']) && $value['lock'] == 1 )
-    {
-      $result .= '<div title="'. T_("Domain is Lock").'" class="value s0"><i class="sf-lock fc-green"></i></div>';
-    }
-    elseif(isset($value['lock']) && $value['lock'] == 0)
-    {
-      $result .= '<div title="'. T_("Domain is Unlock").'" class="value s0"><i class="sf-unlock fc-red"></i></div>';
-    }
-    else
-    {
-      $result .= '<div title="'. T_("Unknown lock status").'" class="value s0"><i class="sf-lock"></i></div>';
-    }
-    $result .= '<time class="value datetime s0">'. \dash\fit::date(a($value, 'dateexpire')). '</time>';
+    $result .= '<time class="value datetime s0" title="'.T_("Expire date").'">'. \dash\fit::date(a($value, 'dateexpire')). '</time>';
 
     $result .= '<div class="go s0 '. a($value, 'status_icon') .'"></div>';
 
