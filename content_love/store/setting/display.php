@@ -96,9 +96,16 @@
           <input type="number" name="storage" value="<?php echo \dash\data::dataRowData_storage() ?>" id="storage">
         </div>
 
+
+        <label for="uploadsize"><?php echo T_("Chage business upload file size limit") ?></label>
+        <div class="input">
+          <label for="uploadsize" class="addon">MB</label>
+          <input type="number" name="uploadsize" value="<?php echo \dash\data::dataRowData_uploadsize() ?>" id="uploadsize">
+        </div>
+
       </div>
       <footer class="txtRa">
-        <button class="btn master"><?php echo T_("Save Storage limit") ?></button>
+        <button class="btn master"><?php echo T_("Save") ?></button>
       </footer>
     </div>
   </form>

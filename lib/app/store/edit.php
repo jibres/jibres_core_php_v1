@@ -92,7 +92,7 @@ class edit
 
 
 
-	public static function change_storage($_storage, $_id)
+	public static function change_storage($_storage, $_uploadsize, $_id)
 	{
 		$_storage = \dash\validate::bigint($_storage);
 
@@ -101,7 +101,15 @@ class edit
 			$_storage = 0;
 		}
 
-		$storage = $_storage;
+		$_uploadsize = \dash\validate::bigint($_uploadsize);
+
+		if(!$_uploadsize)
+		{
+			$_uploadsize = 0;
+		}
+
+		$uploadsize = $_uploadsize;
+		$storage    = $_storage;
 
 		$load_store = \lib\db\store\get::by_id($_id);
 
@@ -111,18 +119,26 @@ class edit
 			return false;
 		}
 
+		$current_store_data = \lib\db\store\get::data($_id);
+
 		\lib\db\store\update::storage($storage, $load_store['id']);
+		\lib\db\store\update::uploadsize($uploadsize, $load_store['id']);
 
 		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
 
 		\lib\db\setting\update::overwirte_cat_key_fuel($storage, 'store_setting', 'storage', $load_store['fuel'], $my_store_db);
+		\lib\db\setting\update::overwirte_cat_key_fuel($uploadsize, 'store_setting', 'uploadsize', $load_store['fuel'], $my_store_db);
 
 		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
 
-
-		$current_store_data = \lib\db\store\get::data($_id);
-
-		\dash\log::set('businessStorageUpdated', ['old_storage' => a($current_store_data, 'storage'), 'new_storage' => $storage ]);
+		$log =
+		[
+			'old_storage'    => a($current_store_data, 'storage'),
+			'new_storage'    => $storage,
+			'old_uploadsize' => a($current_store_data, 'uploadsize'),
+			'new_uploadsize' => $uploadsize,
+		];
+		\dash\log::set('businessStorageUpdatedAndUploadsize', $log);
 
 		\dash\notif::ok(T_("Storage was changed"));
 

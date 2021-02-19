@@ -21,8 +21,9 @@ class model
 		if(\dash\request::post('set_storage'))
 		{
 			$storage = \dash\request::post('storage');
+			$uploadsize = \dash\request::post('uploadsize');
 
-			\lib\app\store\edit::change_storage($storage, \dash\request::get('id'));
+			\lib\app\store\edit::change_storage($storage, $uploadsize, \dash\request::get('id'));
 		}
 
 		if(\dash\request::post('subdomain'))
