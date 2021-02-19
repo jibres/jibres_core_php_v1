@@ -233,7 +233,7 @@
  <div class="title">
   <h3 title='<?php echo T_('Simplest forever'); ?>'><?php echo T_('Keep it simple'); ?></h3>
   <p><?php echo T_('Simplicity is the ultimate sophistication'); ?></p>
-  <p><?php echo T_('No one can fulfill your e-commerce needs like us'); ?> <span>💪</span></p>
+  <p><?php echo T_('No one can fulfill your e-commerce needs like us'); ?> <span class="emoji">💪</span></p>
  </div>
 
  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
