@@ -44,7 +44,6 @@
      </li>
    <?php } //endif ?>
 
-
     <li>
       <a class="f item">
         <div class="key"><?php echo T_("Successfull payment") ?></div>
@@ -60,5 +59,14 @@
         <div class="go detail"></div>
       </a>
      </li>
+   <?php if(a(\dash\data::dataRow(), 'token')) {?>
+    <li>
+      <a class="f item" href="<?php echo \dash\url::kingdom(). '/pay/'. a(\dash\data::dataRow(), 'token'); ?>">
+        <div class="key"><?php echo T_("Show order page") ?></div>
+        <div class="go "></div>
+      </a>
+     </li>
+
+  <?php } //endif ?>
   </ul>
 </nav>
