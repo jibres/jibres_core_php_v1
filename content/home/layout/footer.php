@@ -1,6 +1,6 @@
 <?php
 $kingdom = \dash\url::kingdom();
-if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
+if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates' && !\dash\agent::isBot())
 {
 ?>
 <section id="jibresCertificates">
