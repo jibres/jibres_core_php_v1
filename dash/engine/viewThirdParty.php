@@ -5,6 +5,10 @@ class viewThirdParty
 {
 	public static function append()
 	{
+		if(\dash\agent::isBot())
+		{
+			return false;
+		}
 		\dash\data::addons_gtag(self::googleAnalytics());
 		\dash\data::addons_tawk(self::tawk());
 		\dash\data::addons_imber(self::imber());
