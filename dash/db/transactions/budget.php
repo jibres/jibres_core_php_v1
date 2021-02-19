@@ -96,7 +96,7 @@ trait budget
 
 		$query =
 		"
-			SELECT (sum(transactions.plus) - sum(transactions.minus)) as 'budget'
+			SELECT (sum(IFNULL(transactions.plus,0)) - sum(IFNULL(transactions.minus,0))) as 'budget'
 			FROM
 				transactions
 			WHERE
