@@ -31,18 +31,16 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
 <div id="jibresFooter">
   <div class="avand">
     <figure class="f align-center logo">
-      <a class="cauto s12" href="/">
-        <img loading="lazy" src="<?php echo \dash\url::cdn();
-       if (\dash\language::current() === 'fa')
-       {
-        echo "/logo/fa-vertical/svg/Jibres-Logo-fa-vertical.svg";
-       }
-       else
-       {
-        echo "/logo/en-vertical/svg/Jibres-Logo-en-vertical.svg";
-       }
-       ?>" alt='<?php echo T_("Jibres Vertical Logo") ?>'>
-      </a>
+      <a class="cauto s12" href="/"><?php
+if (\dash\language::current() === 'fa')
+{
+  echo file_get_contents(root."content/home/layout/brand-vertical-fa.svg");
+}
+else
+{
+  echo file_get_contents(root."content/home/layout/brand-vertical-en.svg");
+}
+       ?></a>
       <figcaption class="c s12"><?php echo T_("Integrated Ecommerce Platform Software") ?> / <?php echo T_("Quickly Start Free! Online Store Website & Mobile Online Store & Social Marketing & POS Software"); ?> / <?php echo T_("Accept Credit Cards - Fully Hosted - SEO Optimized - SSL Certificate - Fully API.") ?> <a href="<?php echo $kingdom; ?>/about"><?php echo T_('Learn more about Jibres'); ?></a></figcaption>
     </figure>
 
