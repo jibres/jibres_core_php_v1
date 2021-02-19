@@ -115,7 +115,7 @@ class header
 			423 => 'Locked', // ---------------------------- @Cleanse -> Check input and validate args. \dash\clense::data()
 			424 => 'Failed Dependency', // ----------------- @MVC -> Model function is not callable
 			426 => 'Upgrade Required',
-			428 => 'Precondition Required',
+			428 => 'Precondition Required', // ------------- @Baby -> check agane
 			429 => 'Too Many Requests',
 			431 => 'Request Header Fields Too Large',
 			451 => 'Unavailable For Legal Reasons', // ----- @Baby have script in url

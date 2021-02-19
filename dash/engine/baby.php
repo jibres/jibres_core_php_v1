@@ -20,6 +20,9 @@ class baby
 			\dash\header::status(412, 'Hi Father!');
 		}
 
+		self::check_server_variable();
+
+
 		// check duble slash in url
 		self::dbl_slash();
 		// check request uri
@@ -90,6 +93,55 @@ class baby
 			}
 		}
 		// we can add some check on php://input and maybe another one!
+	}
+
+	/**
+	 * Need to check this server variable
+		HTTP_USER_AGENT
+		HTTP_REFERER
+		HTTP_ORIGIN
+		HTTP_CF_IPCOUNTRY
+		HTTP_AR_REAL_COUNTRY
+		HTTP_X_REQUESTED_WITH
+		HTTP_ACCEPT
+		HTTP_CF_CONNECTING_IP
+		HTTP_CLIENT_IP
+		HTTP_X_FORWARDED_FOR
+		HTTP_X_FORWARDED
+		HTTP_FORWARDED_FOR
+		HTTP_FORWARDED
+		HTTP_X_FORWARDED_PROTO
+
+		QUERY_STRING
+
+		REQUEST_METHOD
+		SERVER_PROTOCOL
+		HTTP_HOST
+
+		REQUEST_URI -- checked
+
+		REDIRECT_HTTP_AUTHORIZATION
+
+		REMOTE_ADDR
+		LOCAL_ADDR
+		SERVER_SOFTWARE
+		SERVER_ADDR
+		SERVER_NAME
+		SCRIPT_FILENAME
+		PHP_SELF
+		HTTPS
+		SERVER_PORT
+		PHP_AUTH_USER
+		PHP_AUTH_PW
+		PHP_AUTH_DIGEST
+	 */
+	private static function check_server_variable()
+	{
+		if(!\dash\server::get('HTTP_USER_AGENT'))
+		{
+			\dash\header::status(411, 'Who are you?');
+		}
+
 	}
 
 

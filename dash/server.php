@@ -34,7 +34,6 @@ class server
 	public static function referer()
 	{
 		return self::get("HTTP_REFERER");
-
 	}
 
 
