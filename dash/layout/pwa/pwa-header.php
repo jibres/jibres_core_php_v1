@@ -10,7 +10,14 @@ if(!\dash\face::disablePWA_Header())
 
   if(\dash\face::logoPWA())
   {
-    echo '<img class="logo" alt="'. \dash\face::titlePWA(). '" src="'. \dash\face::logoPWA(). '">';
+    if(\dash\data::global_env() === 'Jibres')
+    {
+      echo '<svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1700"><defs><style>  .cls-1{fill:#c80a5a;}.cls-2{fill:#fff;}</style></defs><circle class="cls-1" cx="850" cy="850" r="750"/><path class="cls-2" d="M1259.8 588.9v400h-800v-400h-100v400a100 100 0 0 0 100 100h800a100 100 0 0 0 100-100v-400Z"/></svg>';
+    }
+    else
+    {
+      echo '<img class="logo" alt="'. \dash\face::titlePWA(). '" src="'. \dash\face::logoPWA(). '">';
+    }
   }
   {
     echo "<div class='title'>";
