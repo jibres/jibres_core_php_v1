@@ -88,13 +88,12 @@ if(\dash\server::get('HTTP_REFERER'))
  <meta name="robots" content="noindex">
  <meta name="googlebot" content="noindex">
 <?php } /* end if of businessSubdomain*/ } else {?>
- <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?v=1" sizes="180x180" rel="apple-touch-icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-64x64.png?v=1" sizes="64x64" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png?v=1" sizes="32x32" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png?v=1" sizes="16x16" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon.ico?v=1" rel="shortcut icon"/>
+ <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml" name="msapplication-config"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png" sizes="180x180" rel="apple-touch-icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png" sizes="32x32" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png" sizes="16x16" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon.ico" rel="shortcut icon"/>
  <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
 <?php }?>
