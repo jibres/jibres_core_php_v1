@@ -157,6 +157,7 @@ class search
 			// $meta['fields'] = " DISTINCT domain.* ";
 			if($data['autorenew_mode'])
 			{
+				$and[]      = " domain.autorenew = 1 ";
 				$meta['pagination'] = false;
 				$meta['fields'] =
 				'
@@ -281,7 +282,7 @@ class search
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[]      = " domain.status = 'enable' ";
 			// $and[]   = " domain.verify = 1 ";
-			// $and[]      = " domain.autorenew = 1 ";
+
 			$and[]      = " domain.available = 0 ";
 
 			$not_prohibited_ir_status = "(".
