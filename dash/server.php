@@ -105,6 +105,8 @@ class server
 			// $ipaddress = ip2long( $ipaddress );
 		}
 
+		$ipaddress = \dash\safe::safe($ipaddress);
+
 		return $ipaddress;
 	}
 }
