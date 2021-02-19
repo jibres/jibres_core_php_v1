@@ -68,6 +68,7 @@ $sortLink = \dash\data::sortLink();
       	<th data-sort=<?php echo a($sortLink, 'condition', 'order'); ?>><a href="<?php echo a($sortLink, 'condition', 'link'); ?>"><?php echo T_("Condition"); ?></a></th>
       	<th data-sort=<?php echo a($sortLink, 'verify', 'order'); ?>><a href="<?php echo a($sortLink, 'verify', 'link'); ?>"><?php echo T_("Verify"); ?></a></th>
       	<th data-sort=<?php echo a($sortLink, 'datecreated', 'order'); ?>><a href="<?php echo a($sortLink, 'datecreated', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -96,6 +97,7 @@ $sortLink = \dash\data::sortLink();
 			<?php echo \dash\fit::date($value['datecreated']); ?>
 
 		</td>
+    <td><?php if(a($value, 'token')) {?><a href="<?php echo \dash\url::kingdom(). '/pay/'. a($value, 'token'); ?>"><?php echo T_("Show") ?></a><?php } //endif ?></td>
       </tr>
       <?php } //endfor ?>
     </tbody>
