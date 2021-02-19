@@ -192,9 +192,15 @@ class logs
 	}
 
 
-	public static function get_caller_group()
+	public static function get_caller_group($_date = null)
 	{
-		$query = "SELECT count(*) AS `count`, logs.caller AS `caller` FROM logs GROUP BY logs.caller ORDER BY count(*) DESC";
+		$date = null;
+		if($_date)
+		{
+			$date = " WHERE logs.datecreated >= '$_date' ";
+		}
+
+		$query = "SELECT count(*) AS `count`, logs.caller AS `caller` FROM logs $date GROUP BY logs.caller ORDER BY count(*) DESC";
 		$result = \dash\db::get($query, ['caller', 'count'], false);
 		return $result;
 	}
