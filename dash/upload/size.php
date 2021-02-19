@@ -11,9 +11,16 @@ class size
 	{
 		$mb = 5;
 
-		if(\dash\engine\store::inStore() && \lib\store::detail('special_upload_provider'))
+		if(\dash\engine\store::inStore())
 		{
-			$mb = 100;
+			if(\lib\store::detail('special_upload_provider'))
+			{
+				$mb = 100;
+			}
+			elseif(is_numeric(\lib\store::detail('uploadsize')))
+			{
+				$mb = floatval(\lib\store::detail('uploadsize'));
+			}
 		}
 
 		return self::MB($mb);
