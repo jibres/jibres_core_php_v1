@@ -32,6 +32,13 @@ class branding
 
 	public static function set($_branding)
 	{
+		if(\lib\store::branding_time())
+		{
+			\dash\notif::error(T_("You must first pay a plan to deactive jibres branding"));
+			return false;
+		}
+
+
 		$branding = $_branding ? 'yes' : 'no';
 
 		\lib\db\setting\update::overwirte_cat_key($branding, 'store_setting', 'force_branding');
