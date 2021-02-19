@@ -623,6 +623,8 @@ class cleanse
 			case 'search': 				$data = \dash\validate\text::search(...$fn_args); 					break;
 			case 'email': 				$data = \dash\validate\text::email(...$fn_args); 					break;
 			case 'md5': 				$data = \dash\validate\text::md5(...$fn_args); 						break;
+			case 'filename': 			$data = \dash\validate\text::filename(...$fn_args); 				break;
+			case 'filename_mime': 		$data = \dash\validate\text::filename_mime(...$fn_args); 			break;
 			case 'subdomain': 			$data = \dash\validate\subdomain::subdomain(...$fn_args); 			break;
 			case 'subdomain_admin':  	$data = \dash\validate\subdomain::subdomain_admin(...$fn_args); 	break;
 			case 'iban': 				$data = \dash\validate\iban::check(...$fn_args); 					break;
@@ -663,6 +665,7 @@ class cleanse
 			case 'price': 				$data = \dash\validate\number::price(...$fn_args); 					break;
 			case 'irnic_id': 			$data = \dash\validate\irnic::irnic_id(...$fn_args); 				break;
 			case 'bit': 				$data = $_data ? 1 : null; 											break;
+
 
 			case 'bool':
 					if($_data === null)

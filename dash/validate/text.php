@@ -165,6 +165,72 @@ class text
 	}
 
 
+	public static function filename($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(
+			strpos($data, '"') !== false ||
+			strpos($data, '/') !== false ||
+			strpos($data, ':') !== false ||
+			strpos($data, '<') !== false ||
+			strpos($data, '>') !== false ||
+			strpos($data, '?') !== false ||
+			strpos($data, '*') !== false ||
+			strpos($data, '|') !== false ||
+			strpos($data, '\\') !== false
+
+		  )
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Bad filename :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+	public static function filename_mime($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(
+			strpos($data, '"') !== false ||
+			strpos($data, ':') !== false ||
+			strpos($data, '<') !== false ||
+			strpos($data, '>') !== false ||
+			strpos($data, '?') !== false ||
+			strpos($data, '*') !== false ||
+			strpos($data, '|') !== false ||
+			strpos($data, '\\') !== false
+
+		  )
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Bad filename :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 
 	public static function intstring($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{

@@ -341,11 +341,11 @@ class file
 		$insert_file_record =
 		[
 			'md5'         => $myFile['md5'],
-			'filename'    => $myFile['filename'],
-			'type'        => $myFile['type'],
-			'mime'        => $myFile['mime'],
-			'ext'         => $myFile['ext'],
-			'size'        => $myFile['size'],
+			'filename'    => \dash\validate::filename($myFile['filename']),
+			'type'        => \dash\validate::filename($myFile['type']),
+			'mime'        => \dash\validate::filename_mime($myFile['mime']),
+			'ext'         => \dash\validate::filename($myFile['ext']),
+			'size'        => \dash\validate::filename($myFile['size']),
 			'totalsize'   => $totalsize,
 
 			'height'      => $height,
