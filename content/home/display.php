@@ -93,7 +93,7 @@
 
 <section id='statistic'>
   <div class="avand">
-    <h3 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span>❤️</span></h3>
+    <h3 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span class="emoji">❤️</span></h3>
     <div class="f txtC">
       <div class="c s12 pA10">
           <div class="fs50"><?php echo \dash\fit::stats(\dash\data::homepagenumber_product()) ?>+</div>
