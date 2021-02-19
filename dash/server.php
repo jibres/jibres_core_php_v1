@@ -33,12 +33,8 @@ class server
 	// get referer
 	public static function referer()
 	{
-		$referer = null;
-		if (isset($_SERVER["HTTP_REFERER"]))
-		{
-			$referer = $_SERVER["HTTP_REFERER"];
-		}
-		return $referer;
+		return self::get("HTTP_REFERER");
+
 	}
 
 
