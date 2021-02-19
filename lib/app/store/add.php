@@ -47,6 +47,74 @@ class add
 
 			if($count_store_free >= $businessMaxLimit)
 			{
+				$msg = T_("You can not have more than :val free or trial stores.", ['val' => 3]). ' '. T_("Contact Us if you need more stores");
+
+				\dash\notif::code(1418);
+				if($_notif)
+				{
+					\dash\notif::error($msg);
+				}
+
+				if($_get_detail)
+				{
+					return ['can' => false, 'msg' => $msg, 'type' => 'store3'];
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+		if($_get_detail)
+		{
+			return ['can' => true];
+		}
+		return true;
+	}
+
+	public static function can2($_get_detail = false, $_notif = true)
+	{
+		$user_id = \dash\user::id();
+
+		// create new store by free plan
+		// just check count of free plan store
+		// check store count
+
+		if(!\dash\permission::supervisor())
+		{
+			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
+
+			// if($count_store_free >= 1)
+			// {
+			// 	$user_budget = \dash\db\transactions::budget($user_id, ['unit' => 'toman']);
+
+			// 	$user_budget = floatval($user_budget);
+
+			// 	if($user_budget < 10000)
+			// 	{
+			// 		$msg = T_("To register a second store, you need to have at least 10,000 toman in inventory on your account");
+			// 		\dash\notif::code(1408);
+			// 		if($_notif)
+			// 		{
+			// 			\dash\notif::error($msg);
+			// 		}
+			// 		if($_get_detail)
+			// 		{
+			// 			return ['can' => false, 'msg' => $msg, 'type' => 'price'];
+			// 		}
+			// 		else
+			// 		{
+			// 			return false;
+			// 		}
+			// 	}
+			// }
+
+
+			$businessMaxLimit = 3;
+
+			if($count_store_free >= $businessMaxLimit)
+			{
 				$msg = T_("You can not have more than :val free or trial stores.", ['val' => $businessMaxLimit]). ' '. T_("Contact Us if you need more stores");
 
 				\dash\notif::code(1418);
