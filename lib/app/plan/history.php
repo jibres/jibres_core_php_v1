@@ -94,6 +94,19 @@ class history
 		{
 			case 'branding':
 				\lib\db\store\update::branding($expireplan, $_store_id);
+				$load_store = \lib\db\store\get::by_id($_store_id);
+
+				if(!isset($load_store['id']))
+				{
+					\dash\notif::error(T_("Store not found"));
+					return false;
+				}
+
+				$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
+
+				\lib\db\setting\update::overwirte_cat_key_fuel($expireplan, 'store_setting', 'branding', $load_store['fuel'], $my_store_db);
+
+				\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
 				break;
 
 			default:

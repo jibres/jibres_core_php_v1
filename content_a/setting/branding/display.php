@@ -5,7 +5,7 @@
       <div class="body">
 
         <div class="switch1 mB20">
-          <input type="checkbox" name="removebranding" checked disabled id="removebranding">
+          <input type="checkbox" name="removebranding" <?php if(\lib\store::branding()) { echo 'checked disabled';} ?> id="removebranding">
           <label for="removebranding"></label>
           <label for="removebranding"><?php echo T_("Remove jibres branding from website and application") ?></label>
         </div>

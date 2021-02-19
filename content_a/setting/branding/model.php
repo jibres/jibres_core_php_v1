@@ -13,6 +13,8 @@ class model
 
 		\lib\app\plan\branding::remove($post);
 
+		\dash\redirect::pwd();
+
 	}
 }
 ?>

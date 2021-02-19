@@ -728,6 +728,30 @@ class store
 	}
 
 
+	public static function branding()
+	{
+		$branding = self::detail('branding');
+
+		if(!$branding)
+		{
+			return true;
+		}
+
+		$branding_time = strtotime($branding);
+		if($branding_time === false)
+		{
+			return true;
+		}
+		// have time
+		if($branding_time >= time())
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+
 
 	public static function setting($_key = null)
 	{
