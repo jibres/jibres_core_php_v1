@@ -49,11 +49,14 @@ if(\dash\url::store())
  <meta content="index, follow" name="robots"/>
 <?php
 // add third party addons
-foreach (\dash\data::addons() as $service => $value)
+if(\dash\data::addons())
 {
-  if($value)
+  foreach (\dash\data::addons() as $service => $value)
   {
-    echo " <meta content='". $value. "' name='". $service. "'/>\n";
+    if($value)
+    {
+      echo " <meta content='". $value. "' name='". $service. "'/>\n";
+    }
   }
 }
 if(isset($_SERVER['HTTP_REFERER']))
