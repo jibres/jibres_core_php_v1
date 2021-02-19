@@ -103,7 +103,9 @@ class url
 			}
 			return false;
 		}
-		if(strpos($data, '>') !== false)
+
+
+		if($data && strpos($data, '>') !== false)
 		{
 			if($_notif)
 			{
@@ -112,7 +114,7 @@ class url
 			}
 			return false;
 		}
-		if(strpos($data, '<') !== false)
+		if($data && strpos($data, '<') !== false)
 		{
 			if($_notif)
 			{

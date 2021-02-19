@@ -13,7 +13,7 @@ class view
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::this());
 
-		\dash\data::userBudget(\dash\user::budget());
+		\dash\data::userBudget(\dash\user::budget2());
 		\dash\data::global_scriptPage("my_domain_review.js");
 
 

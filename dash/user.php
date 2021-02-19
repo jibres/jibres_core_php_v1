@@ -156,6 +156,34 @@ class user
 
 
 
+	public static function get_budget2($_user_id)
+	{
+		$temp = \dash\temp::get('USER_BUDGET2');
+		if($temp)
+		{
+			return $temp;
+		}
+		else
+		{
+			$budget = floatval(\dash\db\transactions::budget2($_user_id));
+			\dash\temp::set('USER_BUDGET2', $budget);
+			return $budget;
+		}
+	}
+
+
+	public static function budget2()
+	{
+		if(!self::id())
+		{
+			return 0;
+		}
+
+		return self::get_budget2(self::id());
+	}
+
+
+
 	public static function budget()
 	{
 		if(!self::id())

@@ -86,5 +86,29 @@ trait budget
 	}
 
 
+
+	public static function budget2($_user_id)
+	{
+		if(!$_user_id || !is_numeric($_user_id))
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT (sum(transactions.plus) - sum(transactions.minus)) as 'budget'
+			FROM
+				transactions
+			WHERE
+			transactions.user_id = $_user_id AND
+			transactions.verify  = 1
+		";
+
+		$budget = floatval(\dash\db::get($query, 'budget', true));
+
+		return $budget;
+	}
+
+
 }
 ?>
