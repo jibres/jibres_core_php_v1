@@ -103,7 +103,24 @@ class url
 			}
 			return false;
 		}
-
+		if(strpos($data, '>') !== false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Domain can not contain invalid character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+		if(strpos($data, '<') !== false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Domain can not contain invalid character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
 
 		return $data;
 	}

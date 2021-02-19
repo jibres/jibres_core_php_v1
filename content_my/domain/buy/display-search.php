@@ -24,17 +24,24 @@
 
 <?php
 $result = \dash\data::infoResult();
-
-if(isset($result['ir_master']))
+if($result)
 {
-  $master = $result['ir_master'];
-  require('domain-search-result-ir.php');
+  if(isset($result['ir_master']))
+  {
+    $master = $result['ir_master'];
+    require('domain-search-result-ir.php');
+  }
+
+  if(isset($result['com_master']))
+  {
+    $master = $result['com_master'];
+    require('domain-search-result-ir.php');
+  }
+
 }
-
-if(isset($result['com_master']))
+else
 {
-  $master = $result['com_master'];
-  require('domain-search-result-ir.php');
+  echo '<div class="msg warn txtC mB0">'. T_("Please enter valid domain name!"). "</div>";
 }
 ?>
 
@@ -80,7 +87,7 @@ if(isset($result['com_master']))
     <?php } //endfor ?>
   </ul>
     <?php }else{ ?>
-      <div class="msg danger fs14 rtl"><?php echo T_("The IRNIC server not respond at this time. Try again later!") ?></div>
+      <div class="msg danger"><?php echo T_("The IRNIC server not respond at this time. Try again later!") ?></div>
     <?php } //endif ?>
   <?php } //endif ?>
   </div>
