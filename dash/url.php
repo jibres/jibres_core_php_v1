@@ -761,9 +761,9 @@ class url
 	private static function _query()
 	{
 		$query = null;
-		if(self::server('QUERY_STRING'))
+		if(\dash\request::get())
 		{
-			$query = self::server('QUERY_STRING');
+			$query = \dash\request::build_query(\dash\request::get());
 		}
 		return $query;
 	}
