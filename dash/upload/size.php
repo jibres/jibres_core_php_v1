@@ -23,6 +23,9 @@ class size
 			}
 		}
 
+	 	ini_set('post_max_size', $mb. 'M');
+	 	ini_set('memory_limit', $mb. 'M');
+
 		return self::MB($mb);
 	}
 
