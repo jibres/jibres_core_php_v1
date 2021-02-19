@@ -11,7 +11,7 @@ class model
 			'plan'  => \dash\request::post('key'),
 		];
 
-		\lib\app\branding\removebranding::set($post);
+		\lib\app\plan\branding::remove($post);
 
 	}
 }

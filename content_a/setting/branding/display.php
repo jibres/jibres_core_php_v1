@@ -12,7 +12,7 @@
 
 
         <div class="row">
-          <?php foreach (\lib\app\branding\removebranding::plan_list() as $key => $value) {?>
+          <?php foreach (\lib\app\plan\branding::price_list() as $key => $value) {?>
           <div class="c-xs-12 c-sm-12 c-md-6">
             <div data-confirm data-data='{"key": "<?php echo a($value, 'key'); ?>"}' class="stat">
               <h3><?php echo \dash\fit::number(a($value, 'price')). ' '. a($value, 'currency_name'); ?></h3>
