@@ -45,7 +45,15 @@
       </a>
      </li>
    <?php } //endif ?>
+   <?php if(a(\dash\data::dataRow(), 'token')) {?>
+    <li>
+      <a class="f item" href="<?php echo \dash\url::kingdom(). '/pay/'. a(\dash\data::dataRow(), 'token'); ?>">
+        <div class="key"><?php echo T_("Show order page") ?></div>
+        <div class="go "></div>
+      </a>
+     </li>
 
+  <?php } //endif ?>
 
 
     <li>
