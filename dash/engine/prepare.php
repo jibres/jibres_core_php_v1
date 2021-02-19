@@ -444,13 +444,13 @@ class prepare
 				// only check last slash
 				if($target_url !== \dash\url::pwd())
 				{
-					\dash\redirect::to($full_target);
+					\dash\redirect::to($full_target, true, 301);
 				}
 			}
 			else
 			{
 				// change host and slash together
-				\dash\redirect::to($full_target);
+				\dash\redirect::to($full_target, true, 301);
 			}
 		}
 	}
