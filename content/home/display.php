@@ -1,7 +1,7 @@
 
 <section id="homeLanding">
   <div class="avand-sm">
-    <h2 class="bold"><?php echo T_('Everything you need to sell online'); ?></h2>
+    <h2 class="txtB"><?php echo T_('Everything you need to sell online'); ?></h2>
 
     <?php if(!\dash\user::login()) {?>
     <form class="row" method="post" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter/hi' ?>">
