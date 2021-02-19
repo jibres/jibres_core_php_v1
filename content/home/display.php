@@ -197,7 +197,7 @@
   </div>
 </section>
 
-
+<?php if(!\dash\agent::isBot()) {?>
 <section id="jibresApp">
   <div class="avand-lg">
     <div class="row">
@@ -227,6 +227,7 @@
     </div>
   </div>
 </section>
+<?php }?>
 
 
 <section id='keepitsimple'>
