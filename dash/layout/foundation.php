@@ -93,7 +93,6 @@ if(\dash\server::get('HTTP_REFERER'))
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png" sizes="32x32" type="image/png" rel="icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png" sizes="16x16" type="image/png" rel="icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon.ico" rel="shortcut icon"/>
  <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
 <?php }?>
