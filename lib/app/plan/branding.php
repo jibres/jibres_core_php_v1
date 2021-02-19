@@ -30,6 +30,25 @@ class branding
 	}
 
 
+	public static function set($_branding)
+	{
+		$branding = $_branding ? 'yes' : 'no';
+
+		\lib\db\setting\update::overwirte_cat_key($branding, 'store_setting', 'force_branding');
+
+		if($branding === 'yes')
+		{
+			\dash\notif::ok(T_("Jibres branding was active in your website"));
+		}
+		else
+		{
+			\dash\notif::ok(T_("Jibres branding was deactive in your website"));
+		}
+		\lib\store::reset_cache();
+		return true;
+	}
+
+
 	public static function remove($_args)
 	{
 

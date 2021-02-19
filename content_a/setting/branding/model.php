@@ -6,12 +6,19 @@ class model
 {
 	public static function post()
 	{
-		$post =
-		[
-			'plan'  => \dash\request::post('key'),
-		];
+		if(\dash\request::post('set') === 'set')
+		{
+			\lib\app\plan\branding::set(\dash\request::post('removebranding'));
+		}
+		else
+		{
+			$post =
+			[
+				'plan'  => \dash\request::post('key'),
+			];
 
-		\lib\app\plan\branding::remove($post);
+			\lib\app\plan\branding::remove($post);
+		}
 
 		\dash\redirect::pwd();
 

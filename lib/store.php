@@ -727,8 +727,7 @@ class store
 		return self::detail('plan');
 	}
 
-
-	public static function branding()
+	public static function branding_time()
 	{
 		$branding = self::detail('branding');
 
@@ -748,6 +747,26 @@ class store
 			return false;
 		}
 
+		return true;
+	}
+
+	public static function branding()
+	{
+		$branding = self::branding_time();
+
+		if(!$branding)
+		{
+			$force_branding = self::detail('force_branding');
+
+			if($force_branding === 'yes')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 		return true;
 	}
 

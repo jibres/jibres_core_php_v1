@@ -1,15 +1,16 @@
 <div class="avand-md">
-  <form method="post" autocomplete="off">
     <div  class="box">
 
       <div class="body">
 
+        <form method="post" autocomplete="off" data-patch>
+          <input type="hidden" name="set" value="set">
         <div class="switch1 mB20">
-          <input type="checkbox" name="removebranding" <?php if(\lib\store::branding()) { echo 'checked disabled';} ?> id="removebranding">
+          <input type="checkbox" name="removebranding" <?php if(\lib\store::branding_time()) { echo ' disabled';} if(\lib\store::branding()) { echo ' checked';} ?> id="removebranding">
           <label for="removebranding"></label>
-          <label for="removebranding"><?php echo T_("Remove jibres branding from website and application") ?></label>
+          <label for="removebranding"><?php echo T_("Show jibres branding from website and application") ?></label>
         </div>
-
+        </form>
 
         <div class="row">
           <?php foreach (\lib\app\plan\branding::price_list() as $key => $value) {?>
@@ -25,5 +26,4 @@
 
       </div>
       </div>
-   </form>
 </div>
