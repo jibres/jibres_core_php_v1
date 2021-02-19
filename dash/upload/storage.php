@@ -13,7 +13,8 @@ class storage
 		{
 			if(is_numeric(\lib\store::detail('storage')))
 			{
-				$storage_limit = floatval(\lib\store::detail('storage'));
+				$storage_limit = floatval(\lib\store::detail('storage')); // MB
+				$storage_limit = $storage_limit * 1024 * 1024;
 			}
 			else
 			{
