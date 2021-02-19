@@ -2,7 +2,12 @@
     <div  class="box">
 
       <div class="body">
-
+        <?php
+        if(\lib\store::detail('branding'))
+        {
+          echo '<div class="msg">'. T_("Your branding was expire at :val", ['val' => \dash\fit::date_time(\lib\store::detail('branding'))]). '</div>';
+        }
+        ?>
         <form method="post" autocomplete="off" data-patch>
           <input type="hidden" name="set" value="set">
         <div class="switch1 mB20">
