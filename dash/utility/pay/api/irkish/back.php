@@ -96,7 +96,7 @@ class back
 
             if($is_ok)
             {
-                \dash\utility\pay\verify::bank_ok($amount /10, $transaction_id);
+                \dash\utility\pay\verify::bank_ok($amount_SESSION, $transaction_id);
 
                 return \dash\utility\pay\setting::turn_back();
             }

@@ -88,7 +88,7 @@ class back
 
             if($is_ok)
             {
-                \dash\utility\pay\verify::bank_ok($Amount_Record / 10, $transaction_id);
+                \dash\utility\pay\verify::bank_ok($Amount_Record, $transaction_id);
                 return \dash\utility\pay\setting::turn_back();
             }
             else
