@@ -75,5 +75,18 @@ class update
 		$result = \dash\db::query($query, 'master');
 		return $result;
 	}
+
+
+
+	public static function branding($_expire_branding, $_id)
+	{
+		$date = date("Y-m-d H:i:s");
+		$query = "UPDATE store_data SET store_data.branding = '$_expire_branding' , store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+	}
+
+
+
 }
 ?>

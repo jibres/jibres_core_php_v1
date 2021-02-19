@@ -10,14 +10,18 @@ class history
 	{
 		$period = isset($_detail['key']) ? $_detail['key'] : null;
 
+		$now   = time();
+		$start = date("Y-m-d H:i:s");
+
 		switch ($period)
 		{
 			case '1month':
-				$plus_time = strtotime("+1 month") - time();
+				$plus_time = strtotime("+31 days") - $now;
 				break;
 
 			case '1year':
-				$plus_time = strtotime("+1 year") - time();
+				$plus_time = strtotime("+1 year") - $now;
+
 				break;
 
 			default:
@@ -25,16 +29,42 @@ class history
 				break;
 		}
 
-		$get_last_plan = \lib\db\store_plan\get::last_plan_saved($_plan, $_store_id);
+		$end        = date("Y-m-d H:i:s", $now + $plus_time);
+		$expireplan = date("Y-m-d H:i:s", $now + $plus_time);
 
-		if(isset($get_last_plan['id']))
+		$get_last_plan = \lib\db\store_plan\get::last_plan_saved($_plan, $_store_id);
+		if(isset($get_last_plan['id']) && isset($get_last_plan['expireplan']) && isset($get_last_plan['end']))
 		{
-			var_dump($get_last_plan);exit();
+			$old_expireplan = $get_last_plan['expireplan'];
+			$old_expireplan = strtotime($old_expireplan);
+
+			$old_end = $get_last_plan['end'];
+			$old_end = strtotime($old_end);
+
+			if($old_end === false || $old_expireplan === false)
+			{
+				\dash\log::oops('invalidPlanDate');
+				return false;
+			}
+
+			if($old_expireplan > $now)
+			{
+				$expireplan = date("Y-m-d H:i:s", $old_expireplan + $plus_time);
+			}
+
+			if($old_end > strtotime($start))
+			{
+				$start = date("Y-m-d H:i:s", $old_end);
+				$end   = date("Y-m-d H:i:s", strtotime($start) + $plus_time);
+			}
 		}
 
-		$start      = date("Y-m-d H:i:s");
-		$end        = date("Y-m-d H:i:s", strtotime("+1 month"));
-		$expireplan = date("Y-m-d H:i:s", strtotime($start) + $_plan);
+		// check max plan time 1.5 year
+		if((strtotime($expireplan) - time()) > (60*60*24*30*18)) // 18 month = 1.5 year
+		{
+			\dash\notif::error(T_("Can not register plan more than 1.5 year"));
+			return false;
+		}
 
 		$insert_new_plan =
 		[
@@ -52,50 +82,26 @@ class history
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
-		var_dump($insert_new_plan);
+		$insert_plan = \lib\db\store_plan\insert::new_record($insert_new_plan);
 
-		var_dump(func_get_args());exit();
-
-		if(!isset($_args['plan']))
+		if(!$insert_plan)
 		{
-			\dash\notif::error(T_("Please choose a plan"));
+			\dash\log::oops('canNotInsertPlan', T_("We can not add Save your plan history. Please contact to administrator"));
 			return false;
 		}
 
-		$plan = $_args['plan'];
-		$plan = \dash\validate::string_50($plan);
-		if(!$plan)
+		switch ($_plan)
 		{
-			\dash\notif::error(T_("Please choose a plan"));
-			return false;
+			case 'branding':
+				\lib\db\store\update::branding($expireplan, $_store_id);
+				break;
+
+			default:
+				\dash\notif::warn(T_("Not support!"));
+				break;
 		}
 
-		$choose_plan = [];
-
-		$list = self::price_list();
-		foreach ($list as $key => $value)
-		{
-			if(isset($value['key']) && $value['key'] === $plan)
-			{
-				$choose_plan = $value;
-			}
-		}
-
-		if(!$choose_plan)
-		{
-			\dash\notif::error(T_("Invalid plan"));
-			return false;
-		}
-
-
-		// start transaction
-		// plus budget
-		// minus budget
-		// save plan history
-		// reset business catch
-
-
-		var_dump($_args);exit();
+		return $insert_plan;
 	}
 
 }
