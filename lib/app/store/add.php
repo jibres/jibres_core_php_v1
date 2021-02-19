@@ -47,7 +47,7 @@ class add
 
 			if($count_store_free >= $businessMaxLimit)
 			{
-				$msg = T_("You can not have more than :val free or trial stores.", ['val' => 3]). ' '. T_("Contact Us if you need more stores");
+				$msg = T_("You can not have more than :val free or trial stores.", ['val' => $businessMaxLimit]). ' '. T_("Contact Us if you need more stores");
 
 				\dash\notif::code(1418);
 				if($_notif)
