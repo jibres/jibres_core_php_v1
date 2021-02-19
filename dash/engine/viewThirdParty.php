@@ -71,11 +71,12 @@ class viewThirdParty
 				return '5fc8dc17a1d54c18d8f00574';
 
 			case 'com':
-				return '5fdb8b03a8a254155ab44bbd';
+				// return '5fdb8b03a8a254155ab44bbd';
 
 			default:
 				return null;
 		}
+		return null;
 	}
 
 
