@@ -87,7 +87,7 @@ class prepare
 			return;
 		}
 
-		$referer = (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']) ? true : false;
+		$referer = \dash\server::get('HTTP_REFERER') ? true : false;
 		if($referer)
 		{
 			return false;
@@ -102,13 +102,13 @@ class prepare
 			$redirect_lang = 'en';
 			$ipCountry     = null;
 
-			if(isset($_SERVER['HTTP_CF_IPCOUNTRY']))
+			if(\dash\server::get('HTTP_CF_IPCOUNTRY'))
 			{
-				$ipCountry = mb_strtoupper($_SERVER['HTTP_CF_IPCOUNTRY']);
+				$ipCountry = mb_strtoupper(\dash\server::get('HTTP_CF_IPCOUNTRY'));
 			}
-			elseif(isset($_SERVER['HTTP_AR_REAL_COUNTRY']))
+			elseif(\dash\server::get('HTTP_AR_REAL_COUNTRY'))
 			{
-				$ipCountry = mb_strtoupper($_SERVER['HTTP_AR_REAL_COUNTRY']);
+				$ipCountry = mb_strtoupper(\dash\server::get('HTTP_AR_REAL_COUNTRY'));
 			}
 			else
 			{

@@ -411,7 +411,7 @@ class file
 			header('Content-Transfer-Encoding: binary');
 
 		// Generate the server headers to force the download process
-		if( strstr( $_SERVER['HTTP_USER_AGENT'], "MSIE" ) )
+		if( strstr( \dash\server::get('HTTP_USER_AGENT'), "MSIE" ) )
 		{
 			header("Content-Type: " .$_fileMime .";");
 		}

@@ -29,7 +29,7 @@ class cronjob
 
 		$SERVER_NAME = 'jibres.store';
 
-		// fake $_SERVER
+		// fake $SERVER
 		$server =
 		[
 			'trust_token'     => $trust_token,

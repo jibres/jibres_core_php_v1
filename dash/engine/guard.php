@@ -32,11 +32,11 @@ class guard
 
 	private static function header_xframe_option($_readonly = null)
 	{
-		if(isset($_SERVER['HTTP_REFERER']))
+		if(\dash\server::get('HTTP_REFERER'))
 		{
 			$enamad = 'https://trustseal.enamad.ir/';
 
-			if(strpos($_SERVER['HTTP_REFERER'], $enamad) !== false)
+			if(strpos(\dash\server::get('HTTP_REFERER'), $enamad) !== false)
 			{
 				if(!$_readonly)
 				{
@@ -46,7 +46,7 @@ class guard
 				}
 				return true;
 			}
-			if(strpos($_SERVER['HTTP_REFERER'], '.local/') !== false)
+			if(strpos(\dash\server::get('HTTP_REFERER'), '.local/') !== false)
 			{
 				if(!$_readonly)
 				{
@@ -356,9 +356,9 @@ class guard
 	// check customer domain origin
 	public static function origin()
 	{
-		if (isset($_SERVER['HTTP_ORIGIN']))
+		if (\dash\server::get('HTTP_ORIGIN'))
 		{
-			$origin = $_SERVER['HTTP_ORIGIN'];
+			$origin = \dash\server::get('HTTP_ORIGIN');
 
 			if(!\dash\url::jibreLocal())
 			{

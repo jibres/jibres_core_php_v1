@@ -47,8 +47,8 @@ class visitor
 		$visitor['date']          = date('Y-m-d H:i:s');
 		$visitor['session_id']    = session_id();
 		$visitor['statuscode']    = http_response_code();
-		$visitor['country']       = isset($_SERVER['HTTP_CF_IPCOUNTRY']) ? mb_strtolower($_SERVER['HTTP_CF_IPCOUNTRY']) : null;
-		$visitor['method']        = isset($_SERVER['REQUEST_METHOD']) ? mb_strtolower($_SERVER['REQUEST_METHOD']) : null;
+		$visitor['country']       = \dash\server::get('HTTP_CF_IPCOUNTRY');
+		$visitor['method']        = \dash\server::get('REQUEST_METHOD');
 		$visitor['avgtime']       = null;
 
 		$result = \dash\db\config::public_insert('visitors', $visitor);
@@ -155,9 +155,9 @@ class visitor
 	private static function referer_id($_url_id = null)
 	{
 		$referer = null;
-		if(isset($_SERVER['HTTP_REFERER']))
+		if(\dash\server::get('HTTP_REFERER'))
 		{
-			$referer = $_SERVER['HTTP_REFERER'];
+			$referer = \dash\server::get('HTTP_REFERER');
 		}
 
 		if(!$referer)

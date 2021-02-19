@@ -712,7 +712,7 @@ class Mobile_Detect
     {
         // use global _SERVER if $httpHeaders aren't defined
         if (!is_array($httpHeaders) || !count($httpHeaders)) {
-            $httpHeaders = $_SERVER;
+            $httpHeaders = \dash\server::get();
         }
 
         // clear existing headers
@@ -799,7 +799,7 @@ class Mobile_Detect
     public function setCfHeaders($cfHeaders = null) {
         // use global _SERVER if $cfHeaders aren't defined
         if (!is_array($cfHeaders) || !count($cfHeaders)) {
-            $cfHeaders = $_SERVER;
+            $cfHeaders = \dash\server::get();
         }
 
         // clear existing headers

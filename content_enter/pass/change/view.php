@@ -7,7 +7,7 @@ class view
 	{
 		\content_enter\pass\view::config();
 
-		$referer = a($_SERVER, 'HTTP_REFERER');
+		$referer = \dash\server::get('HTTP_REFERER');
 
 		if($referer && substr($referer, -8) === '/profile')
 		{

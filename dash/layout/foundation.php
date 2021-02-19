@@ -59,9 +59,9 @@ if(\dash\data::addons())
     }
   }
 }
-if(isset($_SERVER['HTTP_REFERER']))
+if(\dash\server::get('HTTP_REFERER'))
 {
-  echo " <meta content='". urlencode($_SERVER['HTTP_REFERER']). "' name='ref'/>\n";
+  echo " <meta content='". urlencode(\dash\server::get('HTTP_REFERER')). "' name='ref'/>\n";
 }
 ?>
  <meta content="yes" name="mobile-web-app-capable"/>

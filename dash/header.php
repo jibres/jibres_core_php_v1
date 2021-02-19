@@ -17,10 +17,10 @@ class header
 		{
 			$my_header = null;
 
-			if(isset($_SERVER) && is_array($_SERVER))
+			if(is_array(\dash\server::get()))
 			{
 				$out = null;
-				foreach($_SERVER as $key => $value)
+				foreach(\dash\server::get() as $key => $value)
 		        {
 		            if (substr($key,0,5)=="HTTP_")
 		            {
@@ -103,7 +103,7 @@ class header
 			409 => 'Conflict',
 			410 => 'Gone',
 			411 => 'Length Required',
-			412 => 'Precondition Failed', // --------------- @Baby -> $_SERVER['REQUEST_URI'] not set!
+			412 => 'Precondition Failed', // --------------- @Baby -> SERVER['REQUEST_URI'] not set!
 			413 => 'Request Entity Too Large',
 			414 => 'Request-URI Too Long', // -------------- @Baby -> check length
 			415 => 'Unsupported Media Type', // ------------ @Baby -> send multi array

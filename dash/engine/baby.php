@@ -98,11 +98,11 @@ class baby
 	{
 		// @check
 		// if find 2slash together block!
-		if(strpos($_SERVER['REQUEST_URI'], '//') !== false)
+		if(strpos(\dash\server::get('REQUEST_URI'), '//') !== false)
 		{
 			// route url like this
 			// http://dash.local/enter?referer=http://dash.local/cp
-			if(strpos($_SERVER['REQUEST_URI'], '?') === false || strpos($_SERVER['REQUEST_URI'], '?') > strpos($_SERVER['REQUEST_URI'], '//'))
+			if(strpos(\dash\server::get('REQUEST_URI'), '?') === false || strpos(\dash\server::get('REQUEST_URI'), '?') > strpos(\dash\server::get('REQUEST_URI'), '//'))
 			{
 				self::pacifier(18, 421);
 			}

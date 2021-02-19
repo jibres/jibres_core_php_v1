@@ -9,7 +9,7 @@ namespace dash;
  *
  * example : http://ermile.jibres.com/en/a/thirdparty/general/edit/test=yes?id=5&page=8
  *
- *** get from $_SERVER
+ *** get from $SERVER
  * 'protocol'   => 'http'
  * 'host'       => 'ermile.jibres.com'						[subdomain+domain]	(HTTP_HOST)
  * 'port'       => 80															(SERVER_PORT)
@@ -481,9 +481,9 @@ class url
 	public static function related_url()
 	{
 		//
-		if(isset($_SERVER['PHP_SELF']))
+		if(\dash\server::get('PHP_SELF'))
 		{
-			$php_self = $_SERVER['PHP_SELF'];
+			$php_self = \dash\server::get('PHP_SELF');
 			$php_self = str_replace('/index.php', '', $php_self);
 			if($php_self)
 			{
@@ -808,18 +808,18 @@ class url
 		$protocol = 'http';
 
 		// this index for arvancloud
-		if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']))
+		if(\dash\server::get('HTTP_X_FORWARDED_PROTO'))
 		{
-			if($_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+			if(\dash\server::get('HTTP_X_FORWARDED_PROTO') === 'https')
 			{
 				$protocol = 'https';
 			}
 			else
 			{
-				$protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+				$protocol = \dash\server::get('HTTP_X_FORWARDED_PROTO');
 			}
 		}
-		elseif((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || self::server('SERVER_PORT') == 443)
+		elseif((\dash\server::get('HTTPS') !== 'off') || self::server('SERVER_PORT') == 443)
 		{
 			$protocol = 'https';
 		}
@@ -837,7 +837,7 @@ class url
 	{
 		$protocol = 'http';
 
-		if((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || self::server('SERVER_PORT') == 443)
+		if((\dash\server::get('HTTPS') !== 'off') || self::server('SERVER_PORT') == 443)
 		{
 			$protocol = 'https';
 		}
@@ -850,20 +850,7 @@ class url
 
 	private static function server($_key = null)
 	{
-		$server = $_SERVER;
-
-		if($_key)
-		{
-			if(array_key_exists($_key, $server))
-			{
-				return $server[$_key];
-			}
-			return null;
-		}
-		else
-		{
-			return $server;
-		}
+		return \dash\server::get($_key);
 	}
 
 	public static function api($_apiType = 'api')

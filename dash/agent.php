@@ -61,11 +61,8 @@ class agent
 	 */
 	public static function agent($_encode = true)
 	{
-		$agent = null;
-		if(isset($_SERVER['HTTP_USER_AGENT']))
-		{
-			$agent = $_SERVER['HTTP_USER_AGENT'];
-		}
+		$agent = \dash\server::get('HTTP_USER_AGENT');
+
 		// if user want encode referer
 		if($_encode)
 		{

@@ -341,8 +341,8 @@ public static function browser_detection( $_which_test = 'full_assoc', $_test_ex
 		if ( $_external_ua_string ) {
 			$browser_user_agent = mb_strtolower( $_external_ua_string );
 		}
-		elseif ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$browser_user_agent = mb_strtolower( $_SERVER['HTTP_USER_AGENT'] );
+		elseif ( \dash\server::get('HTTP_USER_AGENT' ) ) {
+			$browser_user_agent = mb_strtolower( \dash\server::get('HTTP_USER_AGENT') );
 		}
 		else {
 			$browser_user_agent = '';
@@ -887,7 +887,7 @@ public static function browser_detection( $_which_test = 'full_assoc', $_test_ex
 			}
 		}
 	}
-	//$browser_number = $_SERVER["REMOTE_ADDR"];
+	//$browser_number = $SERVER["REMOTE_ADDR"];
 	/**
 	This is where you return values based on what parameter you used to call the function
 	$_which_test is the passed parameter in the initial browser_detection('os') for example returns
@@ -1007,7 +1007,7 @@ public static function browser_detection( $_which_test = 'full_assoc', $_test_ex
 			// check for xhtml support, note that this test can only run if headers have
 			// NOT already been sent.
 			if ( !headers_sent() ) {
-				if ( stristr( $_SERVER["HTTP_ACCEPT"],"application/xhtml+xml") ) {
+				if ( stristr( \dash\server::get("HTTP_ACCEPT"),"application/xhtml+xml") ) {
 
 				}
 				else {

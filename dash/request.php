@@ -363,7 +363,7 @@ class request
 	 */
 	public static function ajax()
 	{
-		if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && mb_strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
+		if(mb_strtolower(\dash\server::get('HTTP_X_REQUESTED_WITH')) == 'xmlhttprequest')
 		{
 			return true;
 		}
@@ -378,9 +378,9 @@ class request
 	 */
 	public static function accept($name)
 	{
-		if(isset($_SERVER['HTTP_ACCEPT']))
+		if(\dash\server::get('HTTP_ACCEPT'))
 		{
-			return (strpos($_SERVER['HTTP_ACCEPT'], $name) !== false);
+			return (strpos(\dash\server::get('HTTP_ACCEPT'), $name) !== false);
 		}
 
 		return null;
@@ -397,7 +397,7 @@ class request
 		{
 			return true;
 		}
-		elseif(isset($_SERVER['Content-Type']) && preg_match("/application\/json/i", $_SERVER['Content-Type']))
+		elseif(preg_match("/application\/json/i", \dash\server::get('Content-Type')))
 		{
 			return true;
 		}
@@ -468,13 +468,13 @@ class request
 
 	public static function country()
 	{
-		if(isset($_SERVER['HTTP_CF_IPCOUNTRY']))
+		if(\dash\server::get('HTTP_CF_IPCOUNTRY'))
 		{
-			return mb_strtoupper($_SERVER['HTTP_CF_IPCOUNTRY']);
+			return mb_strtoupper(\dash\server::get('HTTP_CF_IPCOUNTRY'));
 		}
-		elseif(isset($_SERVER['HTTP_AR_REAL_COUNTRY']))
+		elseif(\dash\server::get('HTTP_AR_REAL_COUNTRY'))
 		{
-			return mb_strtoupper($_SERVER['HTTP_AR_REAL_COUNTRY']);
+			return mb_strtoupper(\dash\server::get('HTTP_AR_REAL_COUNTRY'));
 		}
 		else
 		{
