@@ -187,21 +187,21 @@ class add
 			return false;
 		}
 
-		// add store plan in jibres database
-		$add_store_plan = self::new_store_plan($args, $store_id);
+		// // add store plan in jibres database
+		// $add_store_plan = self::new_store_plan($args, $store_id);
 
-		if(!$add_store_plan)
-		{
-			\dash\db::rollback();
+		// if(!$add_store_plan)
+		// {
+		// 	\dash\db::rollback();
 
-			\dash\log::set('dbCanNotAddStorePlan', ['request_subdomain' => $subdomain]);
+		// 	\dash\log::set('dbCanNotAddStorePlan', ['request_subdomain' => $subdomain]);
 
-			\dash\notif::error(T_("Can not add your store"));
+		// 	\dash\notif::error(T_("Can not add your store"));
 
-			\dash\notif::code(1448);
+		// 	\dash\notif::code(1448);
 
-			return false;
-		}
+		// 	return false;
+		// }
 
 		// add store user in jibres database
 		$add_store_user = self::new_store_user($args, $store_id);
@@ -313,29 +313,6 @@ class add
 		return $result;
 	}
 
-
-	private static function new_store_plan($_args, $_id)
-	{
-		$new_store_plan                = [];
-		$new_store_plan['store_id']    = $_id;
-		$new_store_plan['user_id']     = $_args['creator'];
-		$new_store_plan['plan']        = $_args['plan'];
-		$new_store_plan['start']       = $_args['startplan'];
-		$new_store_plan['end']         = null;
-		$new_store_plan['type']        = 'set';
-		$new_store_plan['description'] = null;
-		$new_store_plan['status']      = 'enable';
-		$new_store_plan['price']       = null;
-		$new_store_plan['discount']    = null;
-		$new_store_plan['promo']       = null;
-		$new_store_plan['period']      = null;
-		$new_store_plan['expireplan']  = $_args['expireplan'];
-		$new_store_plan['datecreated'] = date("Y-m-d H:i:s");
-
-		$result = \lib\db\store\insert::store_plan($new_store_plan);
-
-		return $result;
-	}
 
 
 	private static function new_store_user($_args, $_id)
