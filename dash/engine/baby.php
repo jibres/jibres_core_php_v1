@@ -137,11 +137,16 @@ class baby
 	 */
 	private static function check_server_variable()
 	{
-		if(!\dash\server::get('HTTP_USER_AGENT'))
+		$agent = \dash\server::get('HTTP_USER_AGENT');
+		if(!$agent)
 		{
 			\dash\header::status(411, 'Who are you?');
 		}
 
+		if(mb_strlen($agent) > 500)
+		{
+			\dash\header::status(411, 'Who are you??');
+		}
 	}
 
 
