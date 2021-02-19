@@ -293,16 +293,7 @@ class add
 		$new_store_data['owner']         = $_args['owner'];
 		$new_store_data['description']   = null;
 		$new_store_data['lang']          = null;
-		$new_store_data['unit']          = null;
-		$new_store_data['country']       = null;
-		$new_store_data['domain1']       = null;
-		$new_store_data['domain2']       = null;
-		$new_store_data['domain3']       = null;
-		$new_store_data['status']        = 'enable';
 		$new_store_data['logo']          = null;
-		$new_store_data['plan']          = $_args['plan'];
-		$new_store_data['startplan']     = $_args['startplan'];
-		$new_store_data['expireplan']    = $_args['expireplan'];
 		$new_store_data['lastactivity']  = date("Y-m-d H:i:s");
 		$new_store_data['dbversion']     = null;
 		$new_store_data['dbversiondate'] = null;
