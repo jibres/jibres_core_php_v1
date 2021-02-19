@@ -3,16 +3,16 @@
    <div class="avand">
     <div class="f">
      <div class="cauto">
-      <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'><img <?php
-        if (\dash\language::current() === 'fa')
-        {
-         echo "src='". \dash\url::cdn(). "/logo/fa/svg/Jibres-Logo-fa.svg". "' alt='". T_('Jibres Logo'). "'";
-        }
-        else
-        {
-         echo "src='". \dash\url::cdn(). "/logo/en/svg/Jibres-Logo-en.svg". "' alt='". T_('Jibres Logo'). "'";
-        }
-       ?>><h1><?php echo T_("Jibres"); ?> - <?php echo T_('No.1 Free eCommerce Solution'); ?></h1></a>
+      <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'><?php
+if (\dash\language::current() === 'fa')
+{
+  echo file_get_contents(root."content/home/layout/brand-fa.svg");
+}
+else
+{
+  echo file_get_contents(root."content/home/layout/brand-en.svg");
+}
+       ?><h1><?php echo T_("Jibres"); ?> - <?php echo T_('No.1 Free eCommerce Solution'); ?></h1></a>
      </div>
      <nav class="c s0">
        <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
