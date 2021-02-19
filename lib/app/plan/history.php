@@ -6,7 +6,7 @@ namespace lib\app\plan;
 class history
 {
 
-	public static function set($_plan, $_store_id, $_detail)
+	public static function check($_plan, $_store_id, $_detail)
 	{
 		$period = isset($_detail['key']) ? $_detail['key'] : null;
 
@@ -70,7 +70,7 @@ class history
 		[
 			'store_id'    => $_store_id,
 			'plan'        => $_plan,
-			'user_id'     => \dash\user::jibres_user(),
+			'user_id'     => $_detail['user_id'],
 			'start'       => $start,
 			'end'         => $end,
 			'status'      => 'enable',
@@ -81,6 +81,18 @@ class history
 			'expireplan'  => $expireplan,
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
+
+		return $insert_new_plan;
+	}
+
+
+	public static function set($_plan, $_store_id, $_detail)
+	{
+		$insert_new_plan = self::check(...func_get_args());
+		if(!$insert_new_plan)
+		{
+			return false;
+		}
 
 		$insert_plan = \lib\db\store_plan\insert::new_record($insert_new_plan);
 
@@ -93,7 +105,7 @@ class history
 		switch ($_plan)
 		{
 			case 'branding':
-				\lib\db\store\update::branding($expireplan, $_store_id);
+				\lib\db\store\update::branding($insert_new_plan['expireplan'], $_store_id);
 				$load_store = \lib\db\store\get::by_id($_store_id);
 
 				if(!isset($load_store['id']))
@@ -104,13 +116,13 @@ class history
 
 				$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
 
-				\lib\db\setting\update::overwirte_cat_key_fuel($expireplan, 'store_setting', 'branding', $load_store['fuel'], $my_store_db);
+				\lib\db\setting\update::overwirte_cat_key_fuel($insert_new_plan['expireplan'], 'store_setting', 'branding', $load_store['fuel'], $my_store_db);
 
 				\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
 				break;
 
 			default:
-				\dash\notif::warn(T_("Not support!"));
+				// nothing
 				break;
 		}
 

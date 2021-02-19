@@ -56,7 +56,7 @@ class branding
 	}
 
 
-	public static function remove($_args)
+	public static function buy($_args)
 	{
 
 		if(!isset($_args['plan']))
@@ -90,6 +90,51 @@ class branding
 			return false;
 		}
 
+		$jibres_user_id = \dash\user::jibres_user();
+		$choose_plan['user_id'] = $jibres_user_id;
+
+		// check can register this time
+
+		$check = \lib\app\plan\history::check('branding', \lib\store::id(), $choose_plan);
+		if(!$check)
+		{
+			return false;
+		}
+
+		$get =
+		[
+			'b' => \lib\store::code(),
+			'p' => a($choose_plan, 'key'),
+		];
+
+		$url = \dash\url::sitelang(). '/my/branding?'. \dash\request::build_query($get);
+		\dash\redirect::to($url, 'jibres');
+		return;
+
+
+		$temp_args =
+		[
+			'type'        => 'branding',
+			'store_id'    => \lib\store::id(),
+			'choose_plan' => $choose_plan,
+		];
+
+		// go to bank
+		$meta =
+		[
+			'msg_go'        => T_("Remove jibres branding for :val ", ['val' => a($choose_plan, 'title')]),
+			'auto_go'       => false,
+			'auto_back'     => true,
+			'final_msg'     => true,
+			'turn_back'     => \dash\url::pwd(),
+			'user_id'       => $jibres_user_id,
+			'amount'        => abs(a($choose_plan, 'price')),
+			'final_fn'      => ['/lib/app/plan/branding', 'after_pay'],
+			'final_fn_args' => $temp_args,
+		];
+
+
+		$result_pay = \dash\utility\pay\start::api($meta);
 
 		// start transaction
 		// plus budget
@@ -97,7 +142,6 @@ class branding
 		// save plan history
 		// reset business catch
 
-		\lib\app\plan\history::set('branding', \lib\store::id(), $choose_plan);
 
 	}
 

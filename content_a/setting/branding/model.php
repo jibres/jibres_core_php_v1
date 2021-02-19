@@ -17,7 +17,7 @@ class model
 				'plan'  => \dash\request::post('key'),
 			];
 
-			\lib\app\plan\branding::remove($post);
+			\lib\app\plan\branding::buy($post);
 		}
 
 		\dash\redirect::pwd();
