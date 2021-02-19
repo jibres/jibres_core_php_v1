@@ -140,12 +140,12 @@ class baby
 		$agent = \dash\server::get('HTTP_USER_AGENT');
 		if(!$agent)
 		{
-			\dash\header::status(411, 'Who are you?');
+			\dash\header::status(428, 'Who are you?');
 		}
 
-		if(mb_strlen($agent) > 500)
+		if(mb_strlen($agent) > 1000)
 		{
-			\dash\header::status(411, 'Who are you??');
+			\dash\header::status(431, 'Who are you??');
 		}
 	}
 
