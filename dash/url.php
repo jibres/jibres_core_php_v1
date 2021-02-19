@@ -819,7 +819,11 @@ class url
 				$protocol = \dash\server::get('HTTP_X_FORWARDED_PROTO');
 			}
 		}
-		elseif((\dash\server::get('HTTPS') !== 'off') || self::server('SERVER_PORT') == 443)
+		elseif(self::server('SERVER_PORT') == 443)
+		{
+			$protocol = 'https';
+		}
+		elseif(\dash\server::get('HTTPS') && \dash\server::get('HTTPS') !== 'off')
 		{
 			$protocol = 'https';
 		}
