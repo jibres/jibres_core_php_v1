@@ -4,7 +4,11 @@
   </header>
   <div class="body">
     <form method="post" data-refresh autocomplete="off" action="<?php echo \dash\url::here(); ?>/comment">
-      <input type="hidden" name="post_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
+      <?php if(\dash\temp::get('set_product_comment')) {?>
+        <input type="hidden" name="product_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
+      <?php }else{ ?>
+        <input type="hidden" name="post_id" class="hide" value="<?php echo \dash\data::dataRow_id(); ?>">
+      <?php } //endif ?>
 
     <?php if(!\dash\user::id()) { ?>
           <div class="row">

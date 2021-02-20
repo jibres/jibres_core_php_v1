@@ -39,7 +39,7 @@ class add
 		}
 		else
 		{
-			\dash\notif::ok(T_("Your answer successfully added"));
+			\dash\notif::ok(T_("Your comment successfully added"));
 
 		}
 
