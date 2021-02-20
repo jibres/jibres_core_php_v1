@@ -127,7 +127,14 @@ class connection
 				}
 				else
 				{
-					self::make_error(503, T_("Please contact administrator!"). " 1049 ", $_option);
+					if(function_exists('T_'))
+					{
+						self::make_error(503, T_("Please contact administrator!"). " 1049 ", $_option);
+					}
+					else
+					{
+						self::make_error(503, "Please contact administrator!". " 1049 ", $_option);
+					}
 				}
 				break;
 
