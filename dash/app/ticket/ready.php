@@ -136,6 +136,12 @@ class ready
 				$result['content_raw'] = $result['content'] = T_("Changet ticket status to :val", ['val' => T_($result['status'])]);
 			}
 
+			if(a($result, 'content_raw') === 'assing ticket to user')
+			{
+				$result['content_raw'] = $result['content'] = T_("Assing ticket to user");
+			}
+
+
 			if(a($result, 'content_raw') === 'change solved')
 			{
 				if(a($result, 'solved'))
