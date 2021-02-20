@@ -251,8 +251,14 @@ class baby
 		{
 			$result = true;
 		}
-		// check for problem for containing forbidden chars
+		// disallow double encoding
+		// https://owasp.org/www-community/Double_Encoding
 		else if(self::forbidden(urldecode($_txt), $_block_char))
+		{
+			$result = true;
+		}
+		// disallow triple encoding
+		else if(self::forbidden(urldecode(urldecode($_txt)), $_block_char))
 		{
 			$result = true;
 		}
