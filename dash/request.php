@@ -4,6 +4,7 @@ namespace dash;
 class request
 {
 	private static $POST              = [];
+	private static $REQUEST           = [];
 	private static $GET               = [];
 	private static $FILES             = [];
 	private static $PHP_INPUT         = [];
@@ -80,11 +81,16 @@ class request
 	 */
 	public static function request($_name = null)
 	{
+		if(!self::$REQUEST)
+		{
+			self::$REQUEST = \dash\safe::safe($_REQUEST, 'sqlinjection');
+		}
+
 		if(isset($_name))
 		{
-			if(array_key_exists($_name, $_REQUEST))
+			if(array_key_exists($_name, self::$REQUEST))
 			{
-				return $_REQUEST[$_name];
+				return self::$REQUEST[$_name];
 			}
 			else
 			{
@@ -93,7 +99,7 @@ class request
 		}
 		else
 		{
-			return $_REQUEST;
+			return self::$REQUEST;
 		}
 	}
 
