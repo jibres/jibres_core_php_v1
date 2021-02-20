@@ -7,21 +7,27 @@
           <p><?php echo T_("Your answer is important for us."); ?></p>
 
           <form method="post" autocomplete="off">
-            <?php foreach (\dash\data::polls_questions() as $key => $myQ) {?>
+<?php foreach (\dash\data::polls_questions() as $key => $myQ) {?>
 
             <label for="<?php echo $myQ['id']; ?>"><?php echo $myQ['title']; ?></label>
             <select class="select" id="<?php echo $myQ['id']; ?>" name="<?php echo $myQ['id']; ?>">
               <option selected disabled><?php echo \dash\data::polls_placeholder(); ?></option>
 
-            <?php foreach ($myQ['items'] as $itemKey => $myItem) {?>
-
-              <option value="<?php echo $itemKey; ?>"><?php echo $myItem; ?></option>
-
-            <?php } //endfor ?>
-
+<?php
+foreach ($myQ['items'] as $itemKey => $myItem)
+{
+  echo '<option value="'. $itemKey. '"';
+  if(a($myQ, 'selected') && a($myQ, 'selected') === $itemKey)
+  {
+    echo " selected";
+  }
+  echo '>';
+  echo $myItem;
+  echo '</option>';
+}
+?>
             </select>
-
-            <?php } //endfor ?>
+<?php } //endfor ?>
 
             <div class="f">
               <div class="c pRa5">

@@ -22,7 +22,7 @@ class polls
 
 	public static function Q1()
 	{
-		return
+		$question =
 		[
 			'id'    => __FUNCTION__ ,
 			'title' => T_('Why you are here in Jibres?'),
@@ -33,9 +33,14 @@ class polls
 				3 => T_("I'm just playing around 😀"),
 				4 => T_("I'm your rival ;)"),
 				5 => T_("I'm not satisfied with my current software!"),
-			]
-
+			],
 		];
+
+		if(strpos(\dash\request::get('title'), 'test') !== false)
+		{
+			$question['selected'] = 3;
+		}
+		return $question;
 	}
 
 
