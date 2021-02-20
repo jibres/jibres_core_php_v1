@@ -99,6 +99,12 @@ class model
 
 		$result = \lib\app\domains\create::new_domain($post);
 
+		if(\dash\temp::get('domain_neeed_verify_mobile'))
+		{
+			\dash\redirect::to(\dash\url::kingdom(). '/enter/verify?referer='. urlencode(\dash\url::pwd()));
+			return;
+		}
+
 		if(\dash\engine\process::status())
 		{
 			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_code_url'))

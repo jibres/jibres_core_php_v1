@@ -73,7 +73,12 @@ class create
 		if(!$user_id)
 		{
 			$user_id = \dash\user::id();
+			if(!\dash\user::detail('verifymobile'))
+			{
+				\dash\temp::set('domain_neeed_verify_mobile', true);
+			}
 		}
+
 
 		if(!$user_id)
 		{
@@ -413,6 +418,12 @@ class create
 
 			\dash\notif::ok(T_("Domain ready to register"));
 			return $result;
+		}
+
+		if(\dash\temp::get('domain_neeed_verify_mobile'))
+		{
+			\dash\notif::error(T_("Please verify mobile to continue"));
+			return false;
 		}
 
 		// check gift card
