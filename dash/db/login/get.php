@@ -102,5 +102,30 @@ class get
 
 	}
 
+
+	public static function get_count_all_group_by_ip()
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				login_ip.ip
+			FROM
+				login_ip
+			INNER JOIN login ON login.id = login_ip.login_id
+			INNER JOIN users ON users.id = login.user_id
+			WHERE
+				(users.verifymobile IS NULL OR users.verifymobile = 0)
+			GROUP By
+				login_ip.ip
+			HAVING COUNT(*) > 1
+			ORDER BY COUNT(*) DESC
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
 }
 ?>

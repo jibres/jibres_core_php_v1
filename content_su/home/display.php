@@ -105,6 +105,13 @@
             <div class="go"></div>
           </a>
        </li>
+
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/query">
+            <div class="key"><?php echo T_('Count IP');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
      </ul>
    </nav>
 
