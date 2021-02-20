@@ -266,7 +266,7 @@ class text
 			{
 				if($_notif)
 				{
-					\dash\notif::error(T_("Can not use .txt in filename"), ['element' => $_element, 'code' => 1750]);
+					\dash\notif::error(T_("Invlid filename"), ['element' => $_element, 'code' => 1750]);
 					\dash\cleanse::$status = false;
 				}
 				return false;
