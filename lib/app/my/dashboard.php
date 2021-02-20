@@ -14,7 +14,7 @@ class dashboard
 		$user_id = \dash\user::id();
 
 		$result                 = [];
-		$result['budget']       = \dash\user::budget();
+		$result['budget']       = \dash\user::budget2();
 
 		// load in master veiw
 		$listStore = \dash\data::listStore();
