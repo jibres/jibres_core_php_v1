@@ -191,6 +191,12 @@ class user
 			return 0;
 		}
 
+		// in store we get budget2
+		if(\dash\engine\store::inStore())
+		{
+			return self::get_budget2(self::id());
+		}
+
 		return self::get_budget(self::id());
 	}
 
