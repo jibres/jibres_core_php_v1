@@ -62,7 +62,7 @@ class server
 	 * @return [type] [description]
 	 */
 	public static function ip($_change = null)
-  	{
+	{
 		$ipaddress = null;
 		if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
 		{
@@ -96,6 +96,12 @@ class server
 		else
 		{
 			$ipaddress = null;
+		}
+
+		// check ip is valid or not
+		if(!filter_var($ipaddress, FILTER_VALIDATE_IP))
+		{
+			return false;
 		}
 
 		if($_change)
