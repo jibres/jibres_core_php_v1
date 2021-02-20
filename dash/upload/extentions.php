@@ -139,13 +139,17 @@ class extentions
 		// allow to upload
 		if($myResult['allow'])
 		{
-			if(!function_exists('mime_content_type'))
+			// increase memory limit
+
+			$mime_content_type = null;
+			if(function_exists('mime_content_type'))
+			{
+				$mime_content_type = @mime_content_type($_file_addr);
+			}
+
+			if(!$mime_content_type)
 			{
 				$mime_content_type = self::_mime_content_type($_file_addr);
-			}
-			else
-			{
-				$mime_content_type = mime_content_type($_file_addr);
 			}
 
 			// force changed the extentio of file
@@ -174,8 +178,6 @@ class extentions
 				$myResult['allow'] = false;
 			}
 		}
-
-
 
 		// else return the
 		return $myResult;
