@@ -1,109 +1,81 @@
 
 
 
-<div class="f">
+<div class="row align-end">
+    <div class="c-xs-12 c-sm-12 c-md-8">
 
-    <div class="c8 s12 pA10">
-
-      <div class="cbox">
-        <h2><?php echo T_("Charge your account"); ?></h2>
-        <p><?php echo T_("Enter an amount to charge your account"); ?></p>
-
-        <form method="post" autocomplete="off">
-
-          <?php \dash\csrf::html(); ?>
-
-         <div class="input pA5">
-          <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
-          <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Amount"); ?>' required min=0 max="9999999999">
-          <button class="addon btn primary"><?php echo T_("Checkout"); ?></button>
-         </div>
-        </form>
+      <div class="box">
+        <header><h2><?php echo T_("Charge your account"); ?></h2></header>
+        <div class="body">
+          <form method="post" autocomplete="off">
+            <?php \dash\csrf::html(); ?>
+           <div class="input pA5">
+            <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
+            <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Enter an amount to charge your account"); ?>' required min=0 max="9999999999">
+            <button class="addon btn primary"><?php echo T_("Checkout"); ?></button>
+           </div>
+          </form>
+        </div>
       </div>
-
-
-
-
     </div>
 
-    <div class="c s12 pA10">
-      <div class="cbox">
-       <div class="statistic blue">
-        <div class="value">
-          <i class="sf-credit-card"></i>
-          <span><?php echo \dash\fit::number(\dash\data::userCash()); ?></span>
-        </div>
-        <div class="label"><?php echo T_("Your credit"); ?> <small><?php echo \lib\currency::unit(); ?></small></div>
-       </div>
+    <div class="c-xs-12 c-sm-12 c-md-4">
+      <div class="stat x120 green">
+        <h3><?php echo T_("Your credit"); ?> <i class="sf-credit-card"></i></h3>
+        <div class="val"><?php echo \dash\fit::number(\dash\data::userCash()); ?> <small><?php echo \lib\currency::unit(); ?></small></div>
       </div>
-
     </div>
 
   </div>
 
-
 <?php if(\dash\data::history() && is_array(\dash\data::history())) {?>
-
-
     <h3 id="billing-history" class="pA10"><?php echo T_("Billing History"); ?></h3>
-    <table class="tbl1 v6 fs14">
-      <thead class="primary">
-        <tr>
-          <th class="s0"><?php echo T_("Title"); ?></th>
-          <th><?php echo T_("Date"); ?></th>
-          <th><?php echo T_("Value"); ?></th>
-          <th><?php echo T_("Budget After"); ?></th>
 
-
-          <?php if(\dash\permission::supervisor()) {?>
-
-            <th><?php echo T_("Date"); ?></th>
-            <th><?php echo T_("Verify"); ?></th>
-            <th><?php echo T_("Detail"); ?></th>
-
-          <?php } //endif ?>
-
-        </tr>
-      </thead>
-      <tbody>
+    <ul class="items">
 
 <?php foreach (\dash\data::history() as $key => $value) {?>
+      <li>
+         <a class="item f align-center"<?php
+if(a($value, 'token'))
+{
+  echo 'href="';
+  echo \dash\url::kingdom(). '/pay/'. a($value, 'token');
+  echo '"';
+}
 
+?>>
+<?php if(isset($value['verify']) && $value['verify']) {?>
+          <i class="sf-check fc-green"></i>
+<?php }else{ ?>
+          <i class="sf-times fc-red"></i>
+<?php } //endif ?>
+          <div class="key"><?php echo a($value, 'title'); ?></div>
 
-
-
-
-         <tr>
-          <td class="s0"><?php echo a($value, 'title'); ?></td>
-
-  <td title='<?php echo \dash\fit::text(a($value, 'datecreated')); ?>'><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
-
-
-          <td>
-            <?php
-            if(isset($value['plus']) && $value['plus'])
-            {
-              echo '+'. \dash\fit::number($value['plus']);
-            }
-            elseif(isset($value['minus']) && $value['minus'])
-            {
-              echo '-'. \dash\fit::number($value['minus']);
-            }
-            ?>
-
-          </td>
-          <td><?php echo \dash\fit::number(a($value, 'budget')); ?> <?php if(isset($value['budget']) && $value['budget']){ echo \lib\currency::unit();  }?></td>
-
-          <?php if(\dash\permission::supervisor()) {?>
-            <td title="<?php echo \dash\fit::date(a($value, 'datecreated')); ?>"><?php echo \dash\fit::date_human(a($value, 'datecreated')); ?></td>
-            <td><?php if(isset($value['verify']) && $value['verify']) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } //endif ?></td>
-            <td><a title="<?php echo a($value, 'token'); ?>" class="btn xs warn" href="<?php echo \dash\url::kingdom(); ?>/pay/<?php echo a($value, 'token'); ?>"><?php echo T_("Detail"); ?></a></td>
-          <?php }//endif ?>
-         </tr>
+<?php
+if(isset($value['plus']) && $value['plus'])
+{
+  echo '<div class="value">';
+  echo \dash\fit::number($value['plus']);
+  echo ' '. \lib\currency::unit();
+  echo '</div>';
+  echo '<i class="sf-plus-circle fc-green"></i>';
+}
+elseif(isset($value['minus']) && $value['minus'])
+{
+  echo '<div class="value">';
+  echo \dash\fit::number($value['minus']);
+  echo ' '. \lib\currency::unit();
+  echo '</div>';
+  echo '<i class="sf-minus-circle fc-mute"></i>';
+}
+?>
+          <time class="value s0" datetime='<?php echo \dash\fit::text(a($value, 'datecreated')); ?>'><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></time>
+         </a>
+      </li>
 <?php }//endfor ?>
 
-      </tbody>
-    </table>
+    </ul>
+
     <?php \dash\utility\pagination::html(); ?>
 
 <?php }else{ ?>
