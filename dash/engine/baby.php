@@ -320,6 +320,11 @@ class baby
 			self::$level = 5;
 			return true;
 		}
+		if(preg_match("/prompt(.*)\(/i", $_txt))
+		{
+			self::$level = 5;
+			return true;
+		}
 
 		if(!$_simple)
 		{
