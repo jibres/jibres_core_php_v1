@@ -39,6 +39,7 @@ class cronjob
 			'SERVER_PROTOCOL' => "HTTP/1.1",
 			'REQUEST_URI'     => "/hook/crontab/". $trust_token,
 			'REQUEST_METHOD'  => "POST",
+			'HTTP_USER_AGENT' => 'Jibres-cronjob',
 			'SCRIPT_FILENAME' => $index_php_addr,
 		];
 
