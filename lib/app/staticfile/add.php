@@ -10,8 +10,8 @@ class add
 
 		$condition =
 		[
-			'filename'    => 'string_50',
-			'filecontent' => 'string_500',
+			'filename'    => 'staticfilename',
+			'filecontent' => 'staticfilecontent',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, ['filename'], []);

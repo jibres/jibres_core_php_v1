@@ -231,6 +231,74 @@ class text
 	}
 
 
+	public static function staticfilename($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 50]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!preg_match("/^[A-Za-z0-9\.]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Only A-Za-z0-9. can use in filename"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		if(strpos($data, '.') !== false)
+		{
+			if(substr_count($data, '.') > 1 )
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Can not use more than one dot character in filename"), ['element' => $_element, 'code' => 1750]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+
+			if(strpos($data, '.txt') === false && strpos($data, '.text') === false && strpos($data, '.html') === false)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Can not use .txt in filename"), ['element' => $_element, 'code' => 1750]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
+		return $data;
+	}
+
+
+	public static function staticfilecontent($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 100]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(!preg_match("/^[A-Za-z0-9]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Only A-Za-z0-9 Can be set on static file content"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
 
 	public static function intstring($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
