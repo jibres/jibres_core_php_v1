@@ -31,7 +31,7 @@ class model
 			$myIp = \dash\server::ip();
 			$count_signup_not_verify = \dash\db\login\get::get_count_all_on_ip($myIp);
 
-			if(floatval($count_signup_not_verify) >= 50)
+			if(floatval($count_signup_not_verify) >= 10)
 			{
 				\dash\notif::error(T_("You must verify mobile to continue"));
 				return false;
