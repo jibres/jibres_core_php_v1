@@ -39,7 +39,7 @@ if($result)
   }
 
 }
-else
+elseif(!\dash\data::InvalidDomain() && \dash\request::get('q'))
 {
   echo '<div class="msg warn txtC mB0">'. T_("Please enter valid domain name!"). "</div>";
 }
