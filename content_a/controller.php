@@ -20,7 +20,10 @@ class controller
 		\dash\redirect::to_login();
 
 
-		\dash\permission::has_permission();
+		if(!\dash\permission::has_permission())
+		{
+			\dash\permission::deny();
+		}
 
 
 		if(\dash\request::get('bigopening'))
