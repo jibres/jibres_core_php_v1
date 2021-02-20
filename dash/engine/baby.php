@@ -377,6 +377,16 @@ class baby
 			self::$level = 4;
 			return true;
 		}
+		if(preg_match("/javascript:/i", $_txt))
+		{
+			self::$level = 4;
+			return true;
+		}
+		if(preg_match("/http-equiv/i", $_txt))
+		{
+			self::$level = 4;
+			return true;
+		}
 		if(preg_match("/xmltype(.*)\(/i", $_txt))
 		{
 			self::$level = 4;
