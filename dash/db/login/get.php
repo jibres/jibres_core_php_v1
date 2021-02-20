@@ -79,5 +79,28 @@ class get
 		return $result;
 	}
 
+
+	public static function get_count_all_on_ip($_ip)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				login_ip
+			INNER JOIN login ON login.id = login_ip.login_id
+			INNER JOIN users ON users.id = login.user_id
+			WHERE
+				(users.verifymobile IS NULL OR users.verifymobile = 0) AND
+				login_ip.ip = '$_ip'
+			GROUP By
+				login_ip.ip
+		";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+
+	}
+
 }
 ?>

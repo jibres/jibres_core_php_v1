@@ -28,6 +28,15 @@ class model
 
 			$signup['verifymobile'] = 0;
 
+			$myIp = \dash\server::ip();
+			$count_signup_not_verify = \dash\db\login\get::get_count_all_on_ip($myIp);
+
+			if(floatval($count_signup_not_verify) >= 50)
+			{
+				\dash\notif::error(T_("You must verify mobile to continue"));
+				return false;
+			}
+
 			$user_id = \dash\app\user::quick_add($signup);
 
 			if(!$user_id)
