@@ -79,7 +79,7 @@ class dashboard
 		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_active_domain);
 		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
 		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_active_domain);
-		$result['user_budget']              = \dash\user::budget2();
+		$result['user_budget']              = \dash\user::budget();
 		$result['user_unit']                = \lib\currency::unit();
 
 		$result['total_payment']            = intval(\lib\db\nic_domainbilling\get::my_total_payed($user_id));

@@ -302,7 +302,7 @@ class transfer
 			}
 			else
 			{
-				$user_budget = floatval(\dash\db\transactions::budget2($user_id));
+				$user_budget = floatval(\dash\db\transactions::budget($user_id));
 
 				if($data['usebudget'] && $user_budget)
 				{

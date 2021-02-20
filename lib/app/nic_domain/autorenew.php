@@ -69,7 +69,7 @@ class autorenew
 
 			\lib\db\nic_domain\update::record(['renewtry' => date("Y-m-d H:i:s")], $value['myid']);
 
-			$user_budget = floatval(\dash\db\transactions::budget2($user_id));
+			$user_budget = floatval(\dash\db\transactions::budget($user_id));
 
 			if($is_ir)
 			{
@@ -159,7 +159,7 @@ class autorenew
 	{
 		foreach ($_list as $key => $value)
 		{
-			$user_budget = floatval(\dash\db\transactions::budget2($value['owner']));
+			$user_budget = floatval(\dash\db\transactions::budget($value['owner']));
 
 			if(\dash\validate::ir_domain($value['name'], false))
 			{

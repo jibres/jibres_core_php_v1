@@ -74,28 +74,6 @@ trait budget
 
 		$query =
 		"
-			SELECT budget
-			FROM transactions
-			WHERE
-				transactions.user_id = $_user_id AND
-				transactions.verify  = 1
-			ORDER BY transactions.dateverify DESC, transactions.id DESC
-			LIMIT 1
-		";
-		return floatval(\dash\db::get($query, 'budget', true));
-	}
-
-
-
-	public static function budget2($_user_id)
-	{
-		if(!$_user_id || !is_numeric($_user_id))
-		{
-			return false;
-		}
-
-		$query =
-		"
 			SELECT (sum(IFNULL(transactions.plus,0)) - sum(IFNULL(transactions.minus,0))) as 'budget'
 			FROM
 				transactions
@@ -108,7 +86,5 @@ trait budget
 
 		return $budget;
 	}
-
-
 }
 ?>
