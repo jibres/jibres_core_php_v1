@@ -29,5 +29,16 @@ class update
 		$result = \dash\db::query($query);
 	}
 
+
+
+	public static function set_assing($_new_user_id, $_ticket_id)
+	{
+		$query  = "UPDATE tickets SET tickets.user_id = $_new_user_id WHERE tickets.id = $_ticket_id LIMIT 1 ";
+		$result = \dash\db::query($query);
+
+		$query  = "UPDATE tickets SET tickets.user_id = $_new_user_id WHERE tickets.parent = $_ticket_id AND tickets.user_id IS NULL ";
+		$result = \dash\db::query($query);
+	}
+
 }
 ?>

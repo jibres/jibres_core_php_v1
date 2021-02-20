@@ -133,13 +133,31 @@ else
 
     <nav class="items long">
       <ul>
-        <li>
-          <a class="f item" href="tel:+<?php echo \dash\data::dataRow_mobile();?>">
-            <i class="sf-mobile"></i>
-            <div class="key"><?php echo T_("Mobile") ?></div>
-            <div class="value mobile"><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></div>
-          </a>
-        </li>
+        <?php if(\dash\data::dataRow_mobile()) {?>
+          <li>
+            <a class="f item" href="tel:+<?php echo \dash\data::dataRow_mobile();?>">
+              <i class="sf-mobile"></i>
+              <div class="key"><?php echo T_("Mobile") ?></div>
+              <div class="value mobile"><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></div>
+            </a>
+          </li>
+
+        <?php }elseif($customer_mode) {?>
+          <li>
+            <a class="f item" href="<?php echo \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::pwd());  ?>">
+              <i class="sf-sign-in"></i>
+              <div class="key"><?php echo T_("Please login to save ticket") ?></div>
+            </a>
+          </li>
+
+        <?php }else{ ?>
+          <li>
+            <a class="f item" href="<?php echo \dash\url::this(). '/assign?id='. \dash\data::dataRow_id();  ?>">
+              <i class="sf-plug"></i>
+              <div class="key"><?php echo T_("Assign to user") ?></div>
+            </a>
+          </li>
+        <?php } //endif ?>
         <?php if(\dash\data::dataRow_useremail()){ ?>
         <li>
           <div class="f item" data-copy='<?php echo \dash\data::dataRow_useremail(); ?>'>

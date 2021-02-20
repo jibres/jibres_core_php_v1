@@ -4,7 +4,7 @@
       <div class="body">
         <p><?php echo T_("Seting the ticket subject helps you to find a specific ticket faster") ?></p>
         <div class="input">
-          <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?>>
+          <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
         </div>
       </div>
       <footer class="txtRa">

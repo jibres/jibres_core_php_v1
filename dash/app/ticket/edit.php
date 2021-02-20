@@ -116,5 +116,52 @@ class edit
 	}
 
 
+
+	public static function assign_user($_args, $_id)
+	{
+		$load_ticket = \dash\app\ticket\get::inline_get($_id);
+		if(!isset($load_ticket['id']))
+		{
+			return false;
+		}
+
+		if(isset($load_ticket['parent']) && $load_ticket['parent'])
+		{
+			\dash\notif::error(T_("Can not assing user to message of ticket"));
+			return false;
+		}
+
+		if(isset($load_ticket['user_id']) && $load_ticket['user_id'])
+		{
+			\dash\notif::error(T_("This ticket already assigned to user"));
+			return false;
+		}
+
+		$data = [];
+		$data['user_id'] = \dash\app\user::choose_or_add($_args);
+
+		if(!$data['user_id'])
+		{
+			\dash\notif::error(T_("Please choose customer to add ticket"));
+			return false;
+		}
+
+		\dash\db\tickets\update::set_assing($data['user_id'], $load_ticket['id']);
+
+		$add_action =
+		[
+			'type'    => 'action',
+			'content' => 'assing ticket to user',
+			'parent'  => $load_ticket['id'],
+			'user_id' => \dash\user::id(),
+		];
+
+		\dash\app\ticket\add::add_new_ticket($add_action);
+
+		\dash\notif::ok(T_("Ticket was assigned to user"));
+		return true;
+	}
+
+
 }
 ?>
