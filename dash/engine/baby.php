@@ -251,6 +251,11 @@ class baby
 		{
 			$result = true;
 		}
+		// check for problem for containing forbidden chars
+		else if(self::forbidden(urldecode($_txt), $_block_char))
+		{
+			$result = true;
+		}
 		// if needed block
 		if($result === true && $_block)
 		{
@@ -409,6 +414,7 @@ class baby
 		{
 			$_forbiddenChars = ['"', "`" , "'", '*', '\\'];
 		}
+
 		foreach ($_forbiddenChars as $name)
 		{
 			if (stripos($_txt, $name) !== FALSE)
