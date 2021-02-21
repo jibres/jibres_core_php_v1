@@ -35,6 +35,21 @@ class flood
 	}
 
 
+	public static function unblock($_ip)
+	{
+		if(!$_ip)
+		{
+			return false;
+		}
+
+		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
+		$banIPAddr  = self::$ipSecAddr. 'ban/'. $_ip. '.txt';
+
+		unlink($liveIPAddr);
+		unlink($banIPAddr);
+	}
+
+
 	private static function ip_request_limiter_v1()
 	{
 		// get real ip
@@ -104,8 +119,7 @@ class flood
 				if ($diff > 86400)
 				{
 					// 24 hours in seconds.. if more delete ip file
-					unlink($liveIPAddr);
-					unlink($banIPAddr);
+					self::unblock($myIP);
 				}
 				else
 				{
