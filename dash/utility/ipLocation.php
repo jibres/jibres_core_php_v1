@@ -31,18 +31,38 @@ class ipLocation
 		{
 			$result['flag'] = strtolower($result['dbip']['countryCode']);
 		}
+		if(!$result['flag'])
+		{
+			$result['flag'] = strtolower($result['ipgeolocation']['country_code2']);
+		}
+
 		if(isset($result['dbip']['countryName']))
 		{
 			$result['country'] = strtolower($result['dbip']['countryName']);
 		}
+		if(!$result['country'])
+		{
+			$result['country'] = strtolower($result['ipgeolocation']['country_name']);
+		}
+
 		if(isset($result['dbip']['stateProv']))
 		{
 			$result['state'] = strtolower($result['dbip']['stateProv']);
 		}
+		if(!$result['state'])
+		{
+			$result['state'] = strtolower($result['ipgeolocation']['state_prov']);
+		}
+
 		if(isset($result['dbip']['city']))
 		{
 			$result['city'] = strtolower($result['dbip']['city']);
 		}
+		if(!$result['city'])
+		{
+			$result['city'] = strtolower($result['ipgeolocation']['city']);
+		}
+
 		if(isset($result['ipgeolocation']['latitude']))
 		{
 			$result['latitude'] = strtolower($result['ipgeolocation']['latitude']);
