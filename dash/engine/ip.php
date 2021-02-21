@@ -13,15 +13,8 @@ class ip
 			return false;
 		}
 
-		// check ban folder
-		$banFolder = self::$ipSecAddr. 'ban/';
-		if(!is_dir($banFolder))
-		{
-			\dash\file::makeDir($banFolder, null, true);
-		}
-
-		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
-		$banIPAddr  = $banFolder. $_ip. '.txt';
+		$liveIPAddr = self::ipFileAddr($_ip);
+		$banIPAddr  = self::ipFileAddr($_ip, 'ban');
 
 		// block ip address
 		if(!$_from)
@@ -44,8 +37,8 @@ class ip
 			return false;
 		}
 
-		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
-		$banIPAddr  = self::$ipSecAddr. 'ban/'. $_ip. '.txt';
+		$liveIPAddr = self::ipFileAddr($_ip);
+		$banIPAddr  = self::ipFileAddr($_ip, 'ban');
 
 		unlink($liveIPAddr);
 		unlink($banIPAddr);
@@ -154,7 +147,7 @@ class ip
 				else
 				{
 					// \dash\log::set('ipBan');
-					\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
+					// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
 				}
 			}
 			else if (a($ipData, 'diff') > 3600)
@@ -235,6 +228,13 @@ class ip
 	private static function saveFile($_ip, $_data, $_mode = 'live')
 	{
 		$fileAddr = self::ipFileAddr($_ip, $_mode);
+
+
+		// check
+		if(!is_dir($fileAddr))
+		{
+			\dash\file::makeDir($fileAddr, null, true);
+		}
 
 		$handle = fopen($fileAddr, 'w+');
 
