@@ -19,6 +19,13 @@ class view
 		{
 			// get ip data
 			\dash\data::ip(\dash\utility\ipLocation::get($myIp));
+
+			// get ip detail from jibres data
+			if(\dash\permission::supervisor())
+			{
+				\dash\data::ipStatus(\dash\engine\ip::status($myIp));
+			}
+
 			\dash\face::title(T_("IP"). " ". $myIp);
 
 			\dash\data::ipDetail(\dash\utility\ip::fetch($myIp));

@@ -57,11 +57,22 @@
  	</div>
  </div>
 
+<?php if(\dash\data::ip_dbip()) {?>
  <div class="avand-md impact zero">
  	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_dbip()) ?></pre>
  </div>
+<?php }?>
 
 
+<?php if(\dash\data::ip_ipgeolocation()) {?>
  <div class="avand-md impact zero">
  	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_ipgeolocation()) ?></pre>
  </div>
+<?php }?>
+
+
+<?php if(\dash\data::ipStatus()) {?>
+ <div class="avand-md impact zero">
+ 	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ipStatus()) ?></pre>
+ </div>
+<?php }?>
