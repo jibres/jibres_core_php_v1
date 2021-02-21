@@ -31,7 +31,7 @@ class ipLocation
 		{
 			$result['flag'] = strtolower($result['dbip']['countryCode']);
 		}
-		if(!$result['flag'])
+		if(!$result['flag'] && isset($result['ipgeolocation']['country_code2']))
 		{
 			$result['flag'] = strtolower($result['ipgeolocation']['country_code2']);
 		}
@@ -40,7 +40,7 @@ class ipLocation
 		{
 			$result['country'] = strtolower($result['dbip']['countryName']);
 		}
-		if(!$result['country'])
+		if(!$result['country'] && isset($result['ipgeolocation']['country_name']))
 		{
 			$result['country'] = strtolower($result['ipgeolocation']['country_name']);
 		}
@@ -49,7 +49,7 @@ class ipLocation
 		{
 			$result['state'] = strtolower($result['dbip']['stateProv']);
 		}
-		if(!$result['state'])
+		if(!$result['state'] && isset($result['ipgeolocation']['state_prov']))
 		{
 			$result['state'] = strtolower($result['ipgeolocation']['state_prov']);
 		}
@@ -58,7 +58,7 @@ class ipLocation
 		{
 			$result['city'] = strtolower($result['dbip']['city']);
 		}
-		if(!$result['city'])
+		if(!$result['city'] && isset($result['ipgeolocation']['city']))
 		{
 			$result['city'] = strtolower($result['ipgeolocation']['city']);
 		}
