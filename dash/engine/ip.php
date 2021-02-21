@@ -32,8 +32,8 @@ class ip
 		$fileData = $_from.'|ban';
 
 		// save into file
-		self::saveFile($liveIPAddr, $fileData);
-		self::saveFile($banIPAddr, $fileData);
+		self::saveFile($_ip, $fileData);
+		self::saveFile($_ip, $fileData, 'ban');
 	}
 
 
@@ -60,7 +60,7 @@ class ip
 		}
 
 		// check ip is valid or not
-		if(!filter_var($_ip, FILTER_VALIDATE_IP))
+		if(!filter_var($_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
 		{
 			return false;
 		}
@@ -179,14 +179,14 @@ class ip
 					}
 				}
 
-				self::saveFile($liveIPAddr, $ipData['firstTry'].'|'.$current .'');
+				self::saveFile($myIP, $ipData['firstTry'].'|'.$current .'');
 			}
 		}
 		else
 		{
 			// If first request or new request after 1 hour / 24 hour ban,
 			// new file with <timestamp>|<counter>
-			self::saveFile($liveIPAddr, time().'|0');
+			self::saveFile($myIP, time().'|0');
 		}
 	}
 
@@ -202,16 +202,41 @@ class ip
 			// \dash\log::set('hiFather!!');
 			\dash\header::status(412, 'Hi Father!!');
 		}
-		$myIP = str_replace(':', '-', $myIP);
 
 		return $myIP;
 	}
 
 
-	private static function saveFile($_addr, $_data)
+	private static function ipFileAddr($_ip, $_mode = 'live')
 	{
-		// open file
-		$handle = fopen($_addr, 'w+');
+		switch ($_mode)
+		{
+			case 'live':
+			case 'ban':
+
+				break;
+
+			default:
+				return null;
+				break;
+		}
+
+		// folderAddr
+		$ipSecAddr  = YARD.'jibres_ipsec/'. $_mode. '/';
+		// replace : for ipv6
+		$_ip = str_replace(':', '-', $_ip);
+		// create file addr
+		$ipSecAddr  .= $_ip. '.txt';
+
+		return $ipSecAddr;
+	}
+
+
+	private static function saveFile($_ip, $_data, $_mode = 'live')
+	{
+		$fileAddr = self::ipFileAddr($_ip, $_mode);
+
+		$handle = fopen($fileAddr, 'w+');
 
 		if ($handle)
 		{
@@ -219,7 +244,7 @@ class ip
 			if (fwrite($handle, $_data))
 			{
 				// Chmod to prevent access via web
-				chmod($_addr, 0700);
+				chmod($fileAddr, 0700);
 			}
 			// close file
 			fclose($handle);
