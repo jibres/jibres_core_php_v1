@@ -140,7 +140,6 @@ class ip
 
 		// get ip status
 		$ipData = self::status($myIP);
-		var_dump($ipData);
 
 		if ($ipData)
 		{
