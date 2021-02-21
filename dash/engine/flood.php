@@ -8,6 +8,36 @@ class flood
 	public static function protection()
 	{
 		\dash\engine\ip::checkLimit();
+		self::floodProtection();
+	}
+
+
+	public static function floodProtection()
+	{
+		// visitor request 10 times under e.g. 2 seconds will be stopped!
+		$flood_interval = 2;
+
+		$counter   = \dash\session::get('counter', 'flood');
+		$last_post = \dash\session::get('last', 'flood');
+		$ip        = \dash\session::get('ip', 'flood');
+
+		if(!$counter)
+		{
+			$counter = 1;
+		}
+
+		if($ip && $counter > 10 && ($last_post + $flood_interval) > time())
+		{
+			// Use this if you want to reset counter
+			// \dash\session::set(0, 'counter', 'flood');
+			\dash\header::status(416, 'Please be patient');
+		}
+
+
+		// save session
+		\dash\session::set('ip', \dash\server::ip(), 'flood');
+		\dash\session::set('counter', $counter + 1, 'flood');
+		\dash\session::set('last', time(), 'flood');
 	}
 }
 ?>

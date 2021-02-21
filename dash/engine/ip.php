@@ -128,16 +128,12 @@ class ip
 		// create ip file
 		$liveIPAddr .= $ipSecLive. $myIP. '.txt';
 
-		// save current timestamp
-		$now = time();
-
-		var_dump($ipData = self::status($myIP));
 
 		if (!file_exists($liveIPAddr))
 		{
 			// If first request or new request after 1 hour / 24 hour ban,
 			// new file with <timestamp>|<counter>
-			self::saveFile($liveIPAddr, $now.'|0');
+			self::saveFile($liveIPAddr, time().'|0');
 		}
 		else if ($ipData = self::status($myIP))
 		{
