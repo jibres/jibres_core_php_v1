@@ -18,8 +18,15 @@ class flood
 			return false;
 		}
 
+		// check ban folder
+		$banFolder = self::$ipSecAddr. 'ban/';
+		if(!is_dir($banFolder))
+		{
+			\dash\file::makeDir($banFolder, null, true);
+		}
+
 		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
-		$banIPAddr  = self::$ipSecAddr. 'ban/'. $_ip. '.txt';
+		$banIPAddr  = $banFolder. $_ip. '.txt';
 
 		// block ip address
 		if(!$_from)
@@ -62,7 +69,6 @@ class flood
 		}
 		// try to check ipsec folder
 		$ipSecLive  = self::$ipSecAddr. 'live/';
-		$ipSecBan   = self::$ipSecAddr. 'ban/';
 		$ipSecWhite = self::$ipSecAddr. 'white/';
 
 		// check folders exist
@@ -70,10 +76,7 @@ class flood
 		{
 			\dash\file::makeDir($ipSecLive, null, true);
 		}
-		if(!is_dir($ipSecBan))
-		{
-			\dash\file::makeDir($ipSecBan, null, true);
-		}
+
 		if(!is_dir($ipSecWhite))
 		{
 			\dash\file::makeDir($ipSecWhite, null, true);
@@ -81,7 +84,6 @@ class flood
 
 		// create ip file
 		$liveIPAddr .= $ipSecLive. $myIP. '.txt';
-		$banIPAddr  .= $ipSecBan. $myIP. '.txt';
 
 		// save current timestamp
 		$now = time();
