@@ -29,12 +29,12 @@ class flood
 		// do nothing if ip is changed for this session
 		if($ip && $ip === \dash\server::ip())
 		{
-			if($counter > 10)
+			if($counter > 15)
 			{
 				if(($last_post + $flood_interval) > time())
 				{
 					// Use this if you want to reset counter
-					// \dash\session::set(0, 'counter', 'flood');
+					\dash\session::set(0, 'counter', 'flood');
 					\dash\header::status(416, 'Please be patient');
 				}
 			}
