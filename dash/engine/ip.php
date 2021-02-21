@@ -60,7 +60,7 @@ class ip
 		}
 
 		// check ip is valid or not
-		if(!filter_var($_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
+		if(!filter_var($_ip, FILTER_VALIDATE_IP))
 		{
 			return false;
 		}
