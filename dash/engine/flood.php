@@ -3,20 +3,39 @@ namespace dash\engine;
 
 class flood
 {
+	private static $ipSecAddr = YARD.'jibres_ipsec/';
+
 	public static function protection()
 	{
-		self::request_limiter_v1();
+		self::ip_request_limiter_v1();
 	}
 
 
-	public static function block()
+	public static function block($_ip, $_from = null, $_to = null)
 	{
-		// block ip address
+		if(!$_ip)
+		{
+			return false;
+		}
 
+		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
+		$banIPAddr  = self::$ipSecAddr. 'ban/'. $_ip. '.txt';
+
+		// block ip address
+		if(!$_from)
+		{
+			$_from = time();
+		}
+
+		$fileData = $_from.'|ban';
+
+		// save into file
+		self::saveFile($liveIPAddr, $fileData);
+		self::saveFile($banIPAddr, $fileData);
 	}
 
 
-	private static function request_limiter_v1()
+	private static function ip_request_limiter_v1()
 	{
 		// get real ip
 		$myIP = \dash\server::ip();
@@ -27,9 +46,9 @@ class flood
 			\dash\header::status(412, 'Hi Father!!');
 		}
 		// try to check ipsec folder
-		$ipSecLive  = YARD.'jibres_ipsec/live/';
-		$ipSecBan   = YARD.'jibres_ipsec/ban/';
-		$ipSecWhite = YARD.'jibres_ipsec/white/';
+		$ipSecLive  = self::$ipSecAddr. 'live/';
+		$ipSecBan   = self::$ipSecAddr. 'ban/';
+		$ipSecWhite = self::$ipSecAddr. 'white/';
 
 		// check folders exist
 		if(!is_dir($ipSecLive))
@@ -115,9 +134,7 @@ class flood
 					{
 						// If there was more than 10 rpm -> ban
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						$fileData = $firstTryDate.'|ban';
-						self::saveFile($liveIPAddr, $fileData);
-						self::saveFile($banIPAddr, $fileData);
+						self::block($myIP, $firstTryDate);
 						return;
 					}
 				}
