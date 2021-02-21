@@ -78,6 +78,7 @@ class ip
 			'firstTry' => null,
 			'try'      => null,
 			'diff'     => null,
+			'diffm'     => null,
 			'rpm'      => null,
 		];
 
@@ -97,6 +98,7 @@ class ip
 
 			// Time difference in seconds from first request to now
 			$result['diff'] = time() - $result['firstTry'];
+			$result['diffm'] = intval((time() - $result['firstTry']) / 60);
 		}
 		if(isset($ipArr[1]) && $ipArr[1])
 		{
@@ -104,7 +106,8 @@ class ip
 			// calc rpm
 			if($result['diff'])
 			{
-				$result['rpm'] = intval( ((int)$result['try'] + 1) / ( $result['diff'] / 60) );
+				// request per minute
+				$result['rpm'] = intval( ((int)$result['try']) / $result['diffm'] );
 			}
 		}
 
