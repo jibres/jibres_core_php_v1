@@ -66,6 +66,12 @@ class ip
 		}
 
 		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
+
+		if (!file_exists($liveIPAddr))
+		{
+			return null;
+		}
+
 		$result =
 		[
 			'ip'       => $_ip,
@@ -74,11 +80,6 @@ class ip
 			'diff'     => null,
 			'rpm'      => null,
 		];
-
-		if (!file_exists($liveIPAddr))
-		{
-			return $result;
-		}
 
 		// get ip file data
 		$ipData = file_get_contents($liveIPAddr);
@@ -118,7 +119,7 @@ class ip
 
 		// try to check ipsec folder
 		$ipSecLive  = self::$ipSecAddr. 'live/';
-		$ipSecWhite = self::$ipSecAddr. 'white/';
+		// $ipSecWhite = self::$ipSecAddr. 'white/';
 
 		// check folders exist
 		if(!is_dir($ipSecLive))
@@ -126,27 +127,23 @@ class ip
 			\dash\file::makeDir($ipSecLive, null, true);
 		}
 
-		if(!is_dir($ipSecWhite))
-		{
-			\dash\file::makeDir($ipSecWhite, null, true);
-		}
+		// if(!is_dir($ipSecWhite))
+		// {
+		// 	\dash\file::makeDir($ipSecWhite, null, true);
+		// }
 
 		// create ip file
 		$liveIPAddr .= $ipSecLive. $myIP. '.txt';
 
+		// get ip status
+		$ipData = self::status($myIP);
 
-		if (!file_exists($liveIPAddr))
+		if ($ipData)
 		{
-			// If first request or new request after 1 hour / 24 hour ban,
-			// new file with <timestamp>|<counter>
-			self::saveFile($liveIPAddr, time().'|0');
-		}
-		else if ($ipData = self::status($myIP))
-		{
-			if ($ipData['try'] == 'ban')
+			if (a($ipData, 'try') === 'ban')
 			{
-				// If [1] = ban we check if it was less than 24 hours and die if so
-				if ($ipData['diff'] > 86400)
+				// if it was less than 24 hours and die if so
+				if (a($ipData, 'diff') > 86400)
 				{
 					// 24 hours in seconds.. if more delete ip file
 					self::unblock($myIP);
@@ -155,12 +152,9 @@ class ip
 				{
 					// \dash\log::set('ipBan');
 					\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
-
-					// header("HTTP/1.1 503 Service Unavailable");
-					// exit("Your IP is banned for 24 hours, because of too many requests.");
 				}
 			}
-			else if ($ipData['diff'] > 3600)
+			else if (a($ipData, 'diff') > 3600)
 			{
 				// If first request was more than 1 hour, new ip file
 				unlink($liveIPAddr);
@@ -184,6 +178,12 @@ class ip
 
 				self::saveFile($liveIPAddr, $ipData['firstTry'].'|'.$current .'');
 			}
+		}
+		else
+		{
+			// If first request or new request after 1 hour / 24 hour ban,
+			// new file with <timestamp>|<counter>
+			self::saveFile($liveIPAddr, time().'|0');
 		}
 	}
 
