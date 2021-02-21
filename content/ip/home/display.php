@@ -9,38 +9,52 @@
  	<table class="tbl1 v3 mB0">
  		<tr>
  			<th><?php echo T_("IP"); ?></th>
- 			<td data-copy='<?php echo T_(\dash\data::ip_ip()); ?>'><?php echo T_(\dash\data::ip_ip()); ?></td>
+ 			<td class="txtB" data-copy='<?php echo T_(\dash\data::ip_ip()); ?>'><?php echo T_(\dash\data::ip_ip()); ?></td>
  		</tr>
+<?php if(\dash\data::ip_country()) { ?>
  		<tr>
  			<th><?php echo T_("Country"); ?></th>
  			<td><?php echo T_(\dash\data::ip_country()); ?></td>
  		</tr>
+<?php } ?>
+<?php if(\dash\data::ip_state()) { ?>
  		<tr>
  			<th><?php echo T_("Province"); ?></th>
  			<td><?php echo T_(ucwords(\dash\data::ip_state())); ?></td>
  		</tr>
+<?php } ?>
+<?php if(\dash\data::ip_city()) { ?>
  		<tr>
  			<th><?php echo T_("City"); ?></th>
  			<td><?php echo T_(ucfirst(\dash\data::ip_city())); ?></td>
  		</tr>
+<?php } ?>
+<?php if(\dash\data::ip_isp()) { ?>
  		<tr>
  			<th><?php echo T_("ISP"); ?></th>
  			<td class="ltr"><?php echo T_(ucfirst(\dash\data::ip_isp())); ?></td>
  		</tr>
+<?php } ?>
+<?php if(\dash\data::ip_latitude()) { ?>
  		<tr>
  			<th><?php echo T_("latitude"); ?></th>
  			<td class="ltr"><?php echo \dash\data::ip_latitude(); ?></td>
  		</tr>
+<?php } ?>
+<?php if(\dash\data::ip_longitude()) { ?>
  		<tr>
  			<th><?php echo T_("longitude"); ?></th>
  			<td class="ltr"><?php echo \dash\data::ip_longitude(); ?></td>
  		</tr>
+<?php } ?>
  	</table>
  </div>
 
+<?php if(\dash\data::ip_latitude() && \dash\data::ip_longitude()) {?>
  <div class="avand-md impact zero">
  	<iframe class="block" src="https://www.google.com/maps?q=<?php echo \dash\data::ip_latitude(); ?>,<?php echo \dash\data::ip_longitude(); ?>&hl=en;z=16&amp;output=embed" width="100%" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
  </div>
+<?php }?>
 
  <div class="avand-md zero">
  	<div class="txtC">
