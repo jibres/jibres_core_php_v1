@@ -56,20 +56,16 @@ class ip
 	{
 		if(!$_ip)
 		{
+			return null;
+		}
+
+		// check ip is valid or not
+		if(!filter_var($_ip, FILTER_VALIDATE_IP))
+		{
 			return false;
 		}
 
 		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
-
-		// get ip file data
-		$ipData = file_get_contents($liveIPAddr);
-		if(!$ipData)
-		{
-			return null;
-		}
-
-		// Create paraset [0] -> timestamp  [1] -> counter
-		$ipArr = explode('|', $ipData);
 		$result =
 		[
 			'ip'       => $_ip,
@@ -78,6 +74,21 @@ class ip
 			'diff'     => null,
 			'rpm'      => null,
 		];
+
+		if (!file_exists($liveIPAddr))
+		{
+			return $result;
+		}
+
+		// get ip file data
+		$ipData = file_get_contents($liveIPAddr);
+		if(!$ipData)
+		{
+			return $result;
+		}
+
+		// Create paraset [0] -> timestamp  [1] -> counter
+		$ipArr = explode('|', $ipData);
 
 		if(isset($ipArr[0]) && $ipArr[0])
 		{
