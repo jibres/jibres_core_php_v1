@@ -97,10 +97,10 @@ class ip
 		{
 			$result['try'] = $ipArr[1];
 			// calc rpm
-			if($result['diff'])
+			if($result['diffm'])
 			{
 				// request per minute
-				$result['rpm'] = intval( ((int)$result['try']) / $result['diffm'] );
+				$result['rpm'] = round( ((int)$result['try']) / $result['diffm'], 1 );
 			}
 		}
 
@@ -167,8 +167,8 @@ class ip
 					{
 						// If there was more than 10 rpm -> ban
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::block($myIP, $ipData['firstTry']);
-						return;
+						// self::block($myIP, $ipData['firstTry']);
+						// return;
 					}
 				}
 

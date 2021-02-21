@@ -1,7 +1,7 @@
 <?php
 namespace dash\engine;
 
-class flood
+class waf
 {
 	private static $ipSecAddr = YARD.'jibres_ipsec/';
 
@@ -17,9 +17,9 @@ class flood
 		// visitor request 10 times under e.g. 2 seconds will be stopped!
 		$flood_interval = 1;
 
-		$counter   = \dash\session::get('counter', 'flood');
-		$last_post = \dash\session::get('last', 'flood');
-		$ip        = \dash\session::get('ip', 'flood');
+		$counter   = \dash\session::get('counter', 'waf');
+		$last_post = \dash\session::get('last', 'waf');
+		$ip        = \dash\session::get('ip', 'waf');
 
 		if(!$counter)
 		{
@@ -34,16 +34,16 @@ class flood
 				if(($last_post + $flood_interval) > time())
 				{
 					// Use this if you want to reset counter
-					\dash\session::set(0, 'counter', 'flood');
+					\dash\session::set(0, 'counter', 'waf');
 					\dash\header::status(416, 'Please be patient');
 				}
 			}
 		}
 
 		// save session
-		\dash\session::set('ip', \dash\server::ip(), 'flood');
-		\dash\session::set('counter', $counter + 1, 'flood');
-		\dash\session::set('last', time(), 'flood');
+		\dash\session::set('ip', \dash\server::ip(), 'waf');
+		\dash\session::set('counter', $counter + 1, 'waf');
+		\dash\session::set('last', time(), 'waf');
 	}
 }
 ?>

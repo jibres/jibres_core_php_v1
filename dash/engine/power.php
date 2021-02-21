@@ -19,7 +19,8 @@ class power
 		// block baby to not allow to harm yourself :/
 		\dash\engine\baby::block();
 
-		\dash\engine\flood::protection();
+		// check waf
+		\dash\engine\waf::protection();
 
 		// detect language and if need set the new language
 		\dash\language::detect_language();
