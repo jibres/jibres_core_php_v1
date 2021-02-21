@@ -9,6 +9,13 @@ class flood
 	}
 
 
+	public static function block()
+	{
+		// block ip address
+
+	}
+
+
 	private static function request_limiter_v1()
 	{
 		// get real ip
@@ -20,31 +27,39 @@ class flood
 			\dash\header::status(412, 'Hi Father!!');
 		}
 		// try to check ipsec folder
-		$fileAddr = YARD.'jibres_ipsec/';
-		if(!is_dir($fileAddr))
+		$ipSecLive  = YARD.'jibres_ipsec/live/';
+		$ipSecBan   = YARD.'jibres_ipsec/ban/';
+		$ipSecWhite = YARD.'jibres_ipsec/white/';
+
+		// check folders exist
+		if(!is_dir($ipSecLive))
 		{
-			\dash\file::makeDir($fileAddr, null, true);
+			\dash\file::makeDir($ipSecLive, null, true);
 		}
+		if(!is_dir($ipSecBan))
+		{
+			\dash\file::makeDir($ipSecBan, null, true);
+		}
+		if(!is_dir($ipSecWhite))
+		{
+			\dash\file::makeDir($ipSecWhite, null, true);
+		}
+
 		// create ip file
-		$fileAddr .= $myIP. '.txt';
+		$liveIPAddr .= $ipSecLive. $myIP. '.txt';
+		$banIPAddr  .= $ipSecBan. $myIP. '.txt';
+
 		// save current timestamp
 		$now = time();
 
 
-		if (!file_exists($fileAddr))
+		if (!file_exists($liveIPAddr))
 		{
-			// If first request or new request after 1 hour / 24 hour ban, new file with <timestamp>|<counter>
-			if ($handle = fopen($fileAddr, 'w+'))
-			{
-				if (fwrite($handle, $now.'|0'))
-				{
-					// Chmod to prevent access via web
-					chmod($fileAddr, 0700);
-				}
-				fclose($handle);
-			}
+			// If first request or new request after 1 hour / 24 hour ban,
+			// new file with <timestamp>|<counter>
+			self::saveFile($liveIPAddr, $now.'|0');
 		}
-		else if (($data = file_get_contents($fileAddr)) !== false)
+		else if (($data = file_get_contents($liveIPAddr)) !== false)
 		{
 			// Load existing file
 
@@ -70,10 +85,11 @@ class flood
 				if ($diff > 86400)
 				{
 					// 24 hours in seconds.. if more delete ip file
-					unlink($fileAddr);
+					unlink($liveIPAddr);
 				}
 				else
 				{
+
 					// \dash\log::set('ipBan');
 					\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
 
@@ -84,12 +100,12 @@ class flood
 			else if ($diff > 3600)
 			{
 				// If first request was more than 1 hour, new ip file
-				unlink($fileAddr);
+				unlink($liveIPAddr);
 			}
 			else
 			{
 				// Counter + 1
-				$current = $tryCount + 1;
+				$current = (int)$tryCount + 1;
 
 				if ($current > 120)
 				{
@@ -99,24 +115,39 @@ class flood
 					{
 						// If there was more than 10 rpm -> ban
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						if ($handle = fopen($fileAddr, 'w+'))
-						{
-							// Maybe you like to log the ip once -> die after next request
-							fwrite($handle, $firstTryDate.'|ban');
-							fclose($handle);
-						}
+						self::saveFile($liveIPAddr, $firstTryDate.'|ban');
 						return;
 					}
 				}
 
-				if ($handle = fopen($fileAddr, 'w+'))
-				{
-					// else write counter
-					fwrite($handle, $firstTryDate.'|'.$current .'');
-					fclose($handle);
-				}
+				self::saveFile($liveIPAddr, $firstTryDate.'|'.$current .'');
 			}
 		}
+	}
+
+
+	private static function saveFile($_addr, $_data)
+	{
+		// open file
+		$handle = fopen($_addr, 'w+');
+
+		if ($handle)
+		{
+			// write in file
+			if (fwrite($handle, $_data))
+			{
+				// Chmod to prevent access via web
+				chmod($_addr, 0700);
+			}
+			// close file
+			fclose($handle);
+
+			// okay
+			return true;
+		}
+
+		// some error
+		return false;
 	}
 }
 ?>
