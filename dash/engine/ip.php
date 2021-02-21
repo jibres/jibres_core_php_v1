@@ -65,7 +65,7 @@ class ip
 			return false;
 		}
 
-		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
+		$liveIPAddr = self::ipFileAddr($_ip);
 
 		if (!file_exists($liveIPAddr))
 		{
@@ -121,11 +121,11 @@ class ip
 		$myIP = self::ip();
 
 		// try to check ipsec folder
-		$ipSecLive  = self::$ipSecAddr. 'live/';
+		$ipSecAddr  = self::$ipSecAddr. 'live/';
 		// $ipSecWhite = self::$ipSecAddr. 'white/';
 
 		// check folders exist
-		if(!is_dir($ipSecLive))
+		if(!is_dir($ipSecAddr))
 		{
 			\dash\file::makeDir($ipSecLive, null, true);
 		}
@@ -140,6 +140,7 @@ class ip
 
 		// get ip status
 		$ipData = self::status($myIP);
+		var_dump($ipData);
 
 		if ($ipData)
 		{
