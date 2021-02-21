@@ -103,13 +103,8 @@ class ip
 	public static function checkLimit()
 	{
 		// get real ip
-		$myIP = \dash\server::ip();
-		// check ip exist
-		if(!$myIP)
-		{
-			// \dash\log::set('hiFather!!');
-			\dash\header::status(412, 'Hi Father!!');
-		}
+		$myIP = self::ip();
+
 		// try to check ipsec folder
 		$ipSecLive  = self::$ipSecAddr. 'live/';
 		$ipSecWhite = self::$ipSecAddr. 'white/';
@@ -179,6 +174,22 @@ class ip
 				self::saveFile($liveIPAddr, $ipData['firstTry'].'|'.$current .'');
 			}
 		}
+	}
+
+
+	private static function ip()
+	{
+		// get real ip
+		$myIP = \dash\server::ip();
+		// check ip exist
+		if(!$myIP)
+		{
+			// \dash\log::set('hiFather!!');
+			\dash\header::status(412, 'Hi Father!!');
+		}
+		$myIP = str_replace(':', '', $myIP);
+
+		return $myIP;
 	}
 
 

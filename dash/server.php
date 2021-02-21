@@ -97,6 +97,7 @@ class server
 		{
 			$ipaddress = null;
 		}
+		$ipaddress = '2a01:5ec0:e001:a5a8:6dad:bb41:b3d9:4a38';
 
 		// check ip is valid or not
 		if(!filter_var($ipaddress, FILTER_VALIDATE_IP))
