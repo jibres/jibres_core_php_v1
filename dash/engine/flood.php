@@ -86,10 +86,10 @@ class flood
 				{
 					// 24 hours in seconds.. if more delete ip file
 					unlink($liveIPAddr);
+					unlink($banIPAddr);
 				}
 				else
 				{
-
 					// \dash\log::set('ipBan');
 					\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
 
@@ -115,7 +115,9 @@ class flood
 					{
 						// If there was more than 10 rpm -> ban
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::saveFile($liveIPAddr, $firstTryDate.'|ban');
+						$fileData = $firstTryDate.'|ban';
+						self::saveFile($liveIPAddr, $fileData);
+						self::saveFile($banIPAddr, $fileData);
 						return;
 					}
 				}
