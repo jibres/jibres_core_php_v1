@@ -57,6 +57,54 @@ class flood
 	}
 
 
+	public static function ipStatus($_ip)
+	{
+		if(!$_ip)
+		{
+			return false;
+		}
+
+		$liveIPAddr = self::$ipSecAddr. 'live/'. $_ip. '.txt';
+
+		// get ip file data
+		$ipData = file_get_contents($liveIPAddr);
+		if(!$ipData)
+		{
+			return null;
+		}
+
+		// Create paraset [0] -> timestamp  [1] -> counter
+		$ipArr = explode('|', $ipData);
+		$result =
+		[
+			'ip'       => $_ip,
+			'firstTry' => null,
+			'try'      => null,
+			'diff'     => null,
+			'rpm'      => null,
+		];
+
+		if(isset($ipArr[0]) && $ipArr[0])
+		{
+			$result['firstTry'] = (int)$ipArr[0];
+
+			// Time difference in seconds from first request to now
+			$result['diff'] = time() - $result['firstTry'];
+		}
+		if(isset($ipArr[1]) && $ipArr[1])
+		{
+			$result['try'] = $ipArr[1];
+			// calc rpm
+			if($result['diff'])
+			{
+				$result['rpm'] = intval( ((int)$result['try'] + 1) / ( $result['diff'] / 60) );
+			}
+		}
+
+		return $result;
+	}
+
+
 	private static function ip_request_limiter_v1()
 	{
 		// get real ip
@@ -88,6 +136,7 @@ class flood
 		// save current timestamp
 		$now = time();
 
+		var_dump($ipData = self::ipStatus($myIP));
 
 		if (!file_exists($liveIPAddr))
 		{
@@ -95,30 +144,12 @@ class flood
 			// new file with <timestamp>|<counter>
 			self::saveFile($liveIPAddr, $now.'|0');
 		}
-		else if (($data = file_get_contents($liveIPAddr)) !== false)
+		else if ($ipData = self::ipStatus($myIP))
 		{
-			// Load existing file
-
-			// Create paraset [0] -> timestamp  [1] -> counter
-			$data = explode('|', $data);
-			$firstTryDate = 0;
-			if(isset($data[0]) && $data[0])
-			{
-				$firstTryDate = (int)$data[0];
-			}
-			$tryCount = null;
-			if(isset($data[1]) && $data[1])
-			{
-				$tryCount = $data[1];
-			}
-
-			// Time difference in seconds from first request to now
-			$diff = $now - $firstTryDate;
-
-			if ($tryCount == 'ban')
+			if ($ipData['try'] == 'ban')
 			{
 				// If [1] = ban we check if it was less than 24 hours and die if so
-				if ($diff > 86400)
+				if ($ipData['diff'] > 86400)
 				{
 					// 24 hours in seconds.. if more delete ip file
 					self::unblock($myIP);
@@ -132,7 +163,7 @@ class flood
 					// exit("Your IP is banned for 24 hours, because of too many requests.");
 				}
 			}
-			else if ($diff > 3600)
+			else if ($ipData['diff'] > 3600)
 			{
 				// If first request was more than 1 hour, new ip file
 				unlink($liveIPAddr);
@@ -140,22 +171,21 @@ class flood
 			else
 			{
 				// Counter + 1
-				$current = (int)$tryCount + 1;
+				$current = (int)$ipData['try'] + 1;
 
 				if ($current > 120)
 				{
 					// We check rpm (request per minute) after 100 request to get a good ~value
-					$rpm = ( $current / ( $diff / 60) );
-					if ( $rpm > 10)
+					if ( $ipData['rpm'] > 10)
 					{
 						// If there was more than 10 rpm -> ban
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::block($myIP, $firstTryDate);
+						self::block($myIP, $ipData['firstTry']);
 						return;
 					}
 				}
 
-				self::saveFile($liveIPAddr, $firstTryDate.'|'.$current .'');
+				self::saveFile($liveIPAddr, $ipData['firstTry'].'|'.$current .'');
 			}
 		}
 	}
