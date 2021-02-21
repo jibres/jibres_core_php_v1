@@ -228,12 +228,12 @@ class ip
 	private static function saveFile($_ip, $_data, $_mode = 'live')
 	{
 		$fileAddr = self::ipFileAddr($_ip, $_mode);
-
+		$dir = dirname($fileAddr);
 
 		// check
-		if(!is_dir($fileAddr))
+		if(!is_dir($dir))
 		{
-			\dash\file::makeDir($fileAddr, null, true);
+			\dash\file::makeDir($dir, null, true);
 		}
 
 		$handle = fopen($fileAddr, 'w+');
