@@ -7,7 +7,7 @@ class flood
 
 	public static function protection()
 	{
-		// \dash\engine\ip::checkLimit();
+		\dash\engine\ip::checkLimit();
 		// self::floodProtection();
 	}
 

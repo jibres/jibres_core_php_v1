@@ -181,13 +181,14 @@ class ip
 	{
 		// get real ip
 		$myIP = \dash\server::ip();
+
 		// check ip exist
 		if(!$myIP)
 		{
 			// \dash\log::set('hiFather!!');
 			\dash\header::status(412, 'Hi Father!!');
 		}
-		$myIP = str_replace(':', '', $myIP);
+		$myIP = str_replace(':', '-', $myIP);
 
 		return $myIP;
 	}
