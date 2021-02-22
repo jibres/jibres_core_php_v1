@@ -1,5 +1,5 @@
 <?php
-namespace dash;
+namespace dash\engine;
 
 
 class runtime

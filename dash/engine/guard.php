@@ -26,7 +26,6 @@ class guard
 		@header("X-Powered-By: Jibres");
 		$server_code_name = \dash\engine\fuel::server_code_name(\dash\server::server_ip());
 		@header("X-Node: ". $server_code_name);
-
 	}
 
 

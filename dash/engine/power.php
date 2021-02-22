@@ -8,9 +8,6 @@ class power
 
 	public static function on()
 	{
-		// set start engine power time
-		\dash\runtime::start_engine();
-
 		\dash\engine\prepare::requirements();
 
 		// detect url and start work with them as first lib used by another one

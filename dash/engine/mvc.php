@@ -279,8 +279,8 @@ class mvc
 
 			\dash\engine\view::lastChanges();
 
-			// add header febore echo anything
-			\dash\runtime::show();
+			// add header before echo anything
+			\dash\engine\runtime::show();
 
 			$nativeTemplate = \dash\layout\func::shoot();
 
@@ -335,7 +335,7 @@ class mvc
 			}
 
 			// add header febore echo anything
-			\dash\runtime::show();
+			\dash\engine\runtime::show();
 
 			\dash\code::compile();
 		}
