@@ -7,8 +7,6 @@ class html
 {
 	private static function allow_tag($_type = null, $_mode = null)
 	{
-		$allow_tag = '<b><strong><i><p><br><ul><ol><li><h1><h2><h3><h4>';
-
 		$allow_tag               = [];
 
 		$allow_tag['b']          = ['allow_attr' => ['style']];
