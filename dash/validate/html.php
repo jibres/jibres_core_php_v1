@@ -106,7 +106,7 @@ class html
 
 			@$doc->loadHTML($utf8_meta. $_data, LIBXML_HTML_NODEFDTD);
 
-			self::clean_img($doc);
+			self::clean_element($doc);
 
 			$new_html = $doc->saveHTML();
 
@@ -123,6 +123,35 @@ class html
 				\dash\cleanse::$status = false;
 			}
 			return false;
+		}
+	}
+
+	private static function clean_element(&$doc)
+	{
+		$allow_tag = self::allow_tag();
+
+		foreach ($allow_tag as $tag => $detail)
+		{
+			$nodes = $doc->getElementsByTagName($tag);
+			if($nodes->length)
+			{
+				foreach( $nodes as $nodeTagName )
+				{
+					$nodeNewTagname = @$doc->createElement($tag, $nodeTagName->nodeValue);
+
+					foreach ($detail['allow_attr'] as $attr)
+					{
+						$attr_value        = $nodeTagName->getAttribute($attr);
+						if(isset($attr_value) && $attr_value)
+						{
+					    	@$nodeNewTagname->setAttribute($attr, $attr_value);
+						}
+
+					}
+				    @$nodeTagName->parentNode->replaceChild($nodeNewTagname, $nodeTagName);
+				}
+			}
+
 		}
 	}
 
