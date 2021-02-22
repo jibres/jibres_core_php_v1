@@ -1,13 +1,19 @@
 <?php
-namespace dash\engine;
+namespace dash\engine\waf;
 
-class waf
+class protection
 {
 	private static $ipSecAddr = YARD.'jibres_ipsec/';
 
-	public static function protection()
+	public static function start()
 	{
-		\dash\engine\ip::checkLimit();
+		// block baby to not allow to harm yourself :/
+		\dash\engine\waf\baby::block();
+
+		// check ip
+		\dash\engine\waf\ip::checkLimit();
+
+		// disallow flood
 		// self::floodProtection();
 	}
 

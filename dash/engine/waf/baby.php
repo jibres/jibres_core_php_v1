@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine;
+namespace dash\engine\waf;
 /**
  * some check for baby to not allow to harm yourself
  * v1.2

@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine;
+namespace dash\engine\waf;
 
 class ip
 {
