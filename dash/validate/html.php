@@ -15,7 +15,7 @@ class html
 		$allow_tag['strong']     = ['allow_attr' => ['style']];
 		$allow_tag['i']          = ['allow_attr' => ['style']];
 		$allow_tag['p']          = ['allow_attr' => ['style']];
-		$allow_tag['br']         = ['allow_attr' => ['style']];
+		$allow_tag['br']         = ['allow_attr' => []];
 		$allow_tag['ol']         = ['allow_attr' => ['style']];
 		$allow_tag['ul']         = ['allow_attr' => ['style']];
 		$allow_tag['li']         = ['allow_attr' => ['style']];
@@ -35,7 +35,7 @@ class html
 			$allow_tag['th']         = ['allow_attr' => ['style']];
 			$allow_tag['figure']     = ['allow_attr' => ['style']];
 			$allow_tag['figcaption'] = ['allow_attr' => ['style']];
-			$allow_tag['img']        = ['allow_attr' => ['style']];
+			$allow_tag['img']        = ['allow_attr' => ['style', 'src']];
 			$allow_tag['oembed']     = ['allow_attr' => ['style']];
 			$allow_tag['blockquote'] = ['allow_attr' => ['style']];
 		}
@@ -95,6 +95,11 @@ class html
 
 	private static function analyze_html($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
+		if(!\dash\url::isLocal())
+		{
+			return $_data;
+		}
+
 		try
 		{
 			$utf8_meta = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
