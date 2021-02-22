@@ -42,8 +42,11 @@ class html
 
 		if($_type === 'get_string')
 		{
-			$allow_tag = array_keys($allow_tag);
-			$allow_tag = '<'. implode('><', $allow_tag). '>';
+			// php 7.3
+			$allow_tag = '<'. implode('><', array_keys($allow_tag)). '>';
+
+			// php 7.4
+			// $allow_tag = array_keys($allow_tag);
 			return $allow_tag;
 		}
 
@@ -54,14 +57,12 @@ class html
 	public static function html($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = $_data;
-		// php 7.3
 
 		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
 
 		$allow_tag = self::allow_tag('get_string');
 
 		$data = strip_tags($data, $allow_tag);
-
 
 		return $data;
 	}
@@ -87,7 +88,6 @@ class html
 		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
 
 		$data = strip_tags($data, $allow_tag);
-
 
 		return $data;
 	}
