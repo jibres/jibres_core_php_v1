@@ -33,7 +33,6 @@ class flood
 			// fail to save!
 			// var_dump(88);
 		}
-		sleep(2);
 
 		// visitor request 10 times under e.g. 2 seconds will be stopped!
 		$flood_interval = 1;
