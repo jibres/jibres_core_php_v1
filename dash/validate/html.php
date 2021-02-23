@@ -24,7 +24,6 @@ class html
 
 		if($_mode !== 'basic')
 		{
-			$allow_tag['a']          = ['allow_attr' => ['href', 'style', 'target']];
 			$allow_tag['table']      = ['allow_attr' => ['style']];
 			$allow_tag['thead']      = ['allow_attr' => ['style']];
 			$allow_tag['tbody']      = ['allow_attr' => ['style']];
@@ -36,6 +35,7 @@ class html
 			$allow_tag['img']        = ['allow_attr' => ['style', 'src']];
 			$allow_tag['oembed']     = ['allow_attr' => ['style']];
 			$allow_tag['blockquote'] = ['allow_attr' => ['style']];
+			$allow_tag['a']          = ['allow_attr' => ['href', 'style', 'target']];
 		}
 
 		if($_type === 'get_string')
@@ -54,21 +54,6 @@ class html
 
 	public static function html($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = $_data;
-
-		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
-
-		$allow_tag = self::allow_tag('get_string');
-
-		$data = strip_tags($data, $allow_tag);
-
-		return $data;
-	}
-
-
-	public static function html_basic($_data, $_notif = false, $_element = null, $_field_title = null)
-	{
-		$data = $_data;
 
 		// Check if there is no invalid character in _data
 	    if(preg_match('/\;base64\,/', $_data))
@@ -81,11 +66,34 @@ class html
 			return false;
 	    }
 
-	    $allow_tag = self::allow_tag('get_string', 'basic');
+		$data = $_data;
 
 		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
 
+		$allow_tag = self::allow_tag('get_string');
+
 		$data = strip_tags($data, $allow_tag);
+
+		$data = trim($data);
+
+		return $data;
+	}
+
+
+	public static function html_basic($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::html(...func_get_args());
+
+		if(!$data)
+		{
+			return $data;
+		}
+
+	    $allow_tag = self::allow_tag('get_string', 'basic');
+
+		$data = strip_tags($data, $allow_tag);
+
+		$data = trim($data);
 
 		return $data;
 	}
@@ -128,6 +136,7 @@ class html
 		}
 	}
 
+
 	private static function clean_element(&$doc)
 	{
 		$allow_tag = self::allow_tag();
@@ -139,24 +148,23 @@ class html
 			{
 				foreach( $nodes as $nodeTagName )
 				{
-					$nodeNewTagname = @$doc->createElement($tag, self::DOMinnerHTML($nodeTagName));
+					$nodeNewTagname = $doc->createElement($tag, self::DOMinnerHTML($nodeTagName));
 
 					foreach ($detail['allow_attr'] as $attr)
 					{
 						$attr_value        = $nodeTagName->getAttribute($attr);
 						if(isset($attr_value) && $attr_value)
 						{
-					    	@$nodeNewTagname->setAttribute($attr, $attr_value);
+					    	$nodeNewTagname->setAttribute($attr, $attr_value);
 						}
-
 					}
-				    @$nodeTagName->parentNode->replaceChild($nodeNewTagname, $nodeTagName);
+
+				    $nodeTagName->parentNode->replaceChild($nodeNewTagname, $nodeTagName);
 				}
 			}
-
 		}
-
 	}
+
 
 	private static function DOMinnerHTML($element)
 	{
