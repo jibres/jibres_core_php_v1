@@ -27,6 +27,11 @@ class session2
 
 	public static function get($_key = null, $_cat = null)
 	{
+		if(!self::$isStart)
+		{
+			self::setSessionParams();
+		}
+
 		if($_key)
 		{
 			if($_cat)
@@ -45,7 +50,12 @@ class session2
 			return null;
 		}
 
-		return $_SESSION;
+		if(isset($_SESSION))
+		{
+			return $_SESSION;
+		}
+
+		return null;
 	}
 
 
