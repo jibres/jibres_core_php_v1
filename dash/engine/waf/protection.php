@@ -12,7 +12,7 @@ class protection
 		\dash\engine\waf\ip::checkLimit();
 
 		// disallow flood
-		\dash\engine\waf\flood::stop();
+		\dash\engine\waf\flood::escort();
 	}
 }
 ?>
