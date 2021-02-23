@@ -42,7 +42,6 @@ class runtime
 	}
 
 
-	// call in shutdown function
 	public static function show()
 	{
 		if(empty(self::$runtime))
@@ -84,6 +83,15 @@ class runtime
 		// 	}
 
 		// }
+	}
+
+
+	// call in shutdown function
+	public static function shutdown()
+	{
+		\dash\engine\waf\flood::requestDone();
+
+		self::show();
 	}
 }
 ?>
