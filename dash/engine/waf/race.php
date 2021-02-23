@@ -1,7 +1,7 @@
 <?php
 namespace dash\engine\waf;
 
-class flood
+class race
 {
 	public static function escort()
 	{
@@ -13,7 +13,6 @@ class flood
 		{
 			$requestQty = 0;
 		}
-		// var_dump($thisPage);
 
 
 		// set flood data detection
@@ -31,11 +30,7 @@ class flood
 		else
 		{
 			// fail to save!
-			// var_dump(88);
 		}
-
-		// visitor request 10 times under e.g. 2 seconds will be stopped!
-		$flood_interval = 1;
 
 		// if we have more than one active request, block others
 		if($requestQty > 0)
@@ -64,7 +59,6 @@ class flood
 		else
 		{
 			// fail to save!
-			// var_dump(888);
 		}
 		// var_dump($_SESSION);
 	}

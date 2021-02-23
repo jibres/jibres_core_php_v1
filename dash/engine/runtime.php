@@ -89,7 +89,7 @@ class runtime
 	// call in shutdown function
 	public static function shutdown()
 	{
-		\dash\engine\waf\flood::requestDone();
+		\dash\engine\waf\race::requestDone();
 
 		self::show();
 	}
