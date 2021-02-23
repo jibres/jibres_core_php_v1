@@ -65,7 +65,7 @@ class prepare
 	{
 		// 	register_shutdown_function(['\dash\utility\visitor', 'save']);
 		// register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
-		register_shutdown_function(['\dash\engine\runtime', 'show']);
+		register_shutdown_function(['\dash\engine\runtime', 'shutdown']);
 	}
 
 
