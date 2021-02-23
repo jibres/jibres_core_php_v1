@@ -75,11 +75,11 @@ class session2
 	{
 		// set session name
 		$sessionName = 'jibres';
-		if(\dash\url::store())
+		if(\dash\url::subdomain())
 		{
-			$sessionName .= '-'. \dash\url::store();
+			$sessionName .= '-'. \dash\url::subdomain();
 		}
-		session_name($sessionName);
+		session_name($sessionName. '-waf');
 
 		$cookie_secure   = true;
 		if(\dash\url::isLocal() && \dash\url::protocol() === 'http')
