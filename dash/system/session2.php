@@ -25,11 +25,23 @@ class session2
 	}
 
 
+	public static function getLock($_key = null, $_cat = null)
+	{
+		self::startSession();
+		$result = self::get($_key, $_cat);
+		session_write_close();
+		return $result;
+	}
+
+
 	public static function get($_key = null, $_cat = null)
 	{
 		if(!self::$isStart)
 		{
-			self::setSessionParams();
+			if(self::startSession())
+			{
+				session_write_close();
+			}
 		}
 
 		if($_key)
