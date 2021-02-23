@@ -5,25 +5,23 @@ class race
 {
 	public static function escort()
 	{
-		$escortData = \dash\system\session2::getLock('escort', 'waf');
 		$urlMd5     = md5(\dash\url::current());
-		$thisPage   = a($escortData, $urlMd5);
+		$thisPage   = \dash\system\session2::getLock('waf_race', $urlMd5);
 		$requestQty = a($thisPage, 'request');
 		if(!$requestQty)
 		{
 			$requestQty = 0;
 		}
 
-
-		// set flood data detection
-		$flood['escort'][$urlMd5] =
+		// set race detection data
+		$race =
 		[
 			'time'    => time(),
 			'request' => $requestQty + 1,
 			'ip'      => \dash\server::ip(),
 			'url'     => \dash\url::current(),
 		];
-		if(\dash\system\session2::set('waf', $flood))
+		if(\dash\system\session2::set_with_cat('waf_race', $urlMd5, $race))
 		{
 			// okay. saved
 		}
@@ -40,27 +38,16 @@ class race
 		}
 	}
 
+
 	public static function requestDone()
 	{
-		$urlMd5 = md5(\dash\url::current());
-		// \dash\system\session2::clean_sub_child('waf', 'escort', $urlMd5);
-		$flood['escort'][$urlMd5] =
-		[
-			'time'    => time(),
-			'request' => null,
-			'ip'      => \dash\server::ip(),
-			'url'     => \dash\url::current(),
-		];
+		if(headers_sent())
+		{
+			return null;
+		}
 
-		if(\dash\system\session2::set('waf', $flood))
-		{
-			// okay. saved
-		}
-		else
-		{
-			// fail to save!
-		}
-		// var_dump($_SESSION);
+		// clean session temporary variable
+		\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
 	}
 }
 ?>
