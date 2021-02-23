@@ -262,6 +262,11 @@ class baby
 		{
 			$result = true;
 		}
+		// disallow fourple encoding
+		else if(self::forbidden(urldecode(urldecode(urldecode($_txt))), $_block_char))
+		{
+			$result = true;
+		}
 		// if needed block
 		if($result === true && $_block)
 		{
