@@ -199,7 +199,7 @@ class header
 				\dash\notif::error($translatedDesc);
 			}
 
-  			// end process code and return as json
+			// end process code and return as json
 			\dash\code::end();
 
 			// remove below code if have no problem
@@ -247,11 +247,11 @@ class header
 
 	public static function set_force($_code)
 	{
-			self::$status_code = $_code;
-			$desc          = self::desc($_code);
-			$status_header = trim("HTTP/1.1 $_code $desc");
-			// set header
-			@header($status_header, true, $_code);
+		self::$status_code = $_code;
+		$desc          = self::desc($_code);
+		$status_header = trim("HTTP/1.1 $_code $desc");
+		// set header
+		@header($status_header, true, $_code);
 	}
 
 
