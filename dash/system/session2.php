@@ -71,6 +71,30 @@ class session2
 	}
 
 
+	public static function clean($_key)
+	{
+		self::startSession();
+		unset($_SESSION[$_key]);
+		session_write_close();
+	}
+
+
+	public static function clean_child($_l1, $_key)
+	{
+		self::startSession();
+		unset($_SESSION[$_l1][$_key]);
+		session_write_close();
+	}
+
+
+	public static function clean_sub_child($_l1, $_l2, $_key)
+	{
+		self::startSession();
+		unset($_SESSION[$_l1][$_l2][$_key]);
+		session_write_close();
+	}
+
+
 	private static function setSessionParams()
 	{
 		// set session name
@@ -123,7 +147,11 @@ class session2
 			// normal condition
 		}
 
-		if(!headers_sent())
+		if(headers_sent($filename, $linenum))
+		{
+			// echo "Headers already sent in $filename on line $linenum";
+		}
+		else
 		{
 			if(!self::$isStart)
 			{
