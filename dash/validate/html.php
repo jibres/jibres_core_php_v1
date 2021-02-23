@@ -104,13 +104,15 @@ class html
 
 			$doc = new \DOMDocument('1.0', 'UTF-8');
 
-			@$doc->loadHTML($utf8_meta. $_data, LIBXML_HTML_NODEFDTD);
+			@$doc->loadHTML($utf8_meta. $_data, LIBXML_HTML_NODEFDTD | LIBXML_NONET | LIBXML_BIGLINES | LIBXML_NOBLANKS );
 
 			self::clean_element($doc);
 
 			$new_html = $doc->saveHTML();
 
 			$new_html = trim($new_html);
+
+			$new_html = htmlspecialchars_decode($new_html);
 
 			return $new_html;
 
@@ -137,7 +139,7 @@ class html
 			{
 				foreach( $nodes as $nodeTagName )
 				{
-					$nodeNewTagname = @$doc->createElement($tag, $nodeTagName->nodeValue);
+					$nodeNewTagname = @$doc->createElement($tag, self::DOMinnerHTML($nodeTagName));
 
 					foreach ($detail['allow_attr'] as $attr)
 					{
@@ -153,6 +155,20 @@ class html
 			}
 
 		}
+
+	}
+
+	private static function DOMinnerHTML($element)
+	{
+	    $innerHTML = "";
+	    $children  = $element->childNodes;
+
+	    foreach ($children as $child)
+	    {
+	        $innerHTML .= $element->ownerDocument->saveHTML($child);
+	    }
+
+	    return $innerHTML;
 	}
 
 
