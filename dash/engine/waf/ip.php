@@ -3,9 +3,6 @@ namespace dash\engine\waf;
 
 class ip
 {
-	private static $ipSecAddr = YARD.'jibres_ipsec/';
-
-
 	public static function block($_ip, $_from = null, $_to = null)
 	{
 		if(!$_ip)
@@ -113,24 +110,6 @@ class ip
 		// get real ip
 		$myIP = self::ip();
 
-		// try to check ipsec folder
-		$ipSecAddr  = self::$ipSecAddr. 'live/';
-		// $ipSecWhite = self::$ipSecAddr. 'white/';
-
-		// check folders exist
-		if(!is_dir($ipSecAddr))
-		{
-			\dash\file::makeDir($ipSecLive, null, true);
-		}
-
-		// if(!is_dir($ipSecWhite))
-		// {
-		// 	\dash\file::makeDir($ipSecWhite, null, true);
-		// }
-
-		// create ip file
-		$liveIPAddr .= $ipSecLive. $myIP. '.txt';
-
 		// get ip status
 		$ipData = self::status($myIP);
 
@@ -153,7 +132,10 @@ class ip
 			else if (a($ipData, 'diff') > 3600)
 			{
 				// If first request was more than 1 hour, new ip file
-				unlink($liveIPAddr);
+				if(file_exists(self::ipFileAddr($myIP)))
+				{
+					unlink(self::ipFileAddr($myIP));
+				}
 			}
 			else
 			{
