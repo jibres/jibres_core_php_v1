@@ -25,6 +25,22 @@ class session2
 	}
 
 
+
+	public static function set_with_cat($_cat, $_key, $_value)
+	{
+		if(self::startSession())
+		{
+			$_SESSION[$_cat][$_key] = $_value;
+			// close session
+			session_write_close();
+			// return everything is okay
+			return true;
+		}
+
+		return false;
+	}
+
+
 	public static function getLock($_key = null, $_cat = null)
 	{
 		self::startSession();
