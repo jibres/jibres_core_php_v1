@@ -25,15 +25,23 @@ class session2
 	}
 
 
-	public static function get($_key = null)
+	public static function get($_key = null, $_cat = null)
 	{
 		if($_key)
 		{
+			if($_cat)
+			{
+				if(isset($_SESSION[$_cat][$_key]))
+				{
+					return $_SESSION[$_cat][$_key];
+				}
+				return null;
+			}
+
 			if(isset($_SESSION[$_key]))
 			{
 				return $_SESSION[$_key];
 			}
-
 			return null;
 		}
 
