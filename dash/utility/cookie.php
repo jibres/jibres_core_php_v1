@@ -133,5 +133,17 @@ class cookie
 		unset($_COOKIE[$_name]);
 	}
 
+
+	public static function deleteAll()
+	{
+		if(is_array($_COOKIE))
+		{
+			foreach($_COOKIE as $key => $value)
+			{
+				self::delete($key);
+			}
+		}
+	}
+
 }
 ?>

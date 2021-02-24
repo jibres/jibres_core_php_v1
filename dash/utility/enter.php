@@ -682,20 +682,7 @@ class enter
 
 		\dash\session::destroy();
 
-		if(is_array($_COOKIE))
-		{
-			foreach($_COOKIE as $key => $value)
-			{
-				if(strpos($key, '_g') === 0)
-				{
-					// do nothing for google cookies
-				}
-				else
-				{
-					\dash\utility\cookie::delete($key);
-				}
-			}
-		}
+		\dash\utility\cookie::deleteAll();
 
 		if($_auto_redirect)
 		{
