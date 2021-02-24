@@ -62,7 +62,9 @@ class agent
 	public static function agent($_encode = true)
 	{
 		$agent = \dash\server::get('HTTP_USER_AGENT');
+		// send to dog
 		\dash\engine\dog\agent::inspection($agent);
+
 		// if user want encode referer
 		if($_encode)
 		{

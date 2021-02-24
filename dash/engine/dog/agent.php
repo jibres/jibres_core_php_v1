@@ -18,6 +18,7 @@ class agent
 		\dash\engine\dog\toys\block::word($_agent, 'script');
 		\dash\engine\dog\toys\block::word($_agent, 'javascript');
 		\dash\engine\dog\toys\block::word($_agent, 'delete');
+		\dash\engine\dog\toys\block::word($_agent, 'xss');
 		\dash\engine\dog\toys\block::word($_agent, '{');
 		\dash\engine\dog\toys\block::word($_agent, '}');
 		\dash\engine\dog\toys\block::word($_agent, '"');
