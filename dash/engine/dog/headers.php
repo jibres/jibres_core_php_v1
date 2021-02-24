@@ -35,7 +35,7 @@ class headers
 			\dash\engine\dog\toys\general::len($key, 1, 50);
 
 			// check value len
-			\dash\engine\dog\toys\general::len($value, 0, 200);
+			\dash\engine\dog\toys\general::len($value, 0, 500);
 
 
 			// check blacklist words
@@ -54,12 +54,9 @@ class headers
 		// disallow html tags
 		\dash\engine\dog\toys\block::tags($txt);
 		// disallow some words
-		\dash\engine\dog\toys\block::word($txt, '(');
-		\dash\engine\dog\toys\block::word($txt, ')');
-		\dash\engine\dog\toys\block::word($txt, '<');
-		\dash\engine\dog\toys\block::word($txt, '>');
-		// \dash\engine\dog\toys\block::word($txt, '"');
+
 		\dash\engine\dog\toys\block::word($txt, "'");
+		\dash\engine\dog\toys\block::word($txt, "`");
 		\dash\engine\dog\toys\block::word($txt, "\n");
 	}
 }
