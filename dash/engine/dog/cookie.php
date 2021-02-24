@@ -38,6 +38,8 @@ class cookie
 		\dash\engine\dog\toys\only::something($txt);
 		\dash\engine\dog\toys\only::text($txt);
 
+		// disallow html tags
+		\dash\engine\dog\toys\block::tags($txt);
 		// disallow some words
 		\dash\engine\dog\toys\block::word($txt, 'script');
 		\dash\engine\dog\toys\block::word($txt, 'javascript');

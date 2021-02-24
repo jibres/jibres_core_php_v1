@@ -37,5 +37,15 @@ class block
 			\dash\header::status(428, 'Disallow 5');
 		}
 	}
+
+
+	public static function tags($_text)
+	{
+		$strippedText = strip_tags($_text);
+		if($_text !== $strippedText)
+		{
+			\dash\header::status(428, 'ooh Tag!');
+		}
+	}
 }
 ?>

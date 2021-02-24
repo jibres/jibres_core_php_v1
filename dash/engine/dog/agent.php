@@ -16,6 +16,8 @@ class agent
 		// check len
 		\dash\engine\dog\toys\general::len($agent, 1, 1000);
 
+		// disallow html tags
+		\dash\engine\dog\toys\block::tags($agent);
 		// disallow some words
 		\dash\engine\dog\toys\block::word($agent, 'script');
 		\dash\engine\dog\toys\block::word($agent, 'javascript');
