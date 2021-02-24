@@ -29,6 +29,9 @@ class protection
 
 		// cookie
 		\dash\engine\dog\cookie::inspection();
+
+		// headers
+		\dash\engine\dog\headers::inspection();
 	}
 }
 ?>
