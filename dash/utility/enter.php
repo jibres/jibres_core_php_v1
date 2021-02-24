@@ -825,13 +825,13 @@ class enter
 			array_push($way, 'sms');
 		}
 
-		if(\dash\utility\enter::get_session('verify_from') === 'signup')
-		{
-			if(!\dash\engine\store::inStore())
-			{
-				array_push($way, 'later');
-			}
-		}
+		// if(\dash\utility\enter::get_session('verify_from') === 'signup')
+		// {
+		// 	if(!\dash\engine\store::inStore())
+		// 	{
+		// 		array_push($way, 'later');
+		// 	}
+		// }
 
 		if(empty($way))
 		{
