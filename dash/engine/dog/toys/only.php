@@ -9,7 +9,7 @@ class only
 	{
 		if(!$_txt)
 		{
-			// \dash\header::status(428, 'need something...');
+			\dash\header::status(428, 'need something...');
 		}
 	}
 

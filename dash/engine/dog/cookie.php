@@ -24,6 +24,11 @@ class cookie
 			// check value len
 			\dash\engine\dog\toys\general::len($value, 0, 100);
 
+			// only can be text
+			\dash\engine\dog\toys\only::something($key);
+			\dash\engine\dog\toys\only::text($key);
+
+			\dash\engine\dog\toys\only::text($value);
 
 			// check blacklist words
 			self::blacklist($key);
@@ -34,9 +39,6 @@ class cookie
 
 	private static function blacklist($txt)
 	{
-		// only can be text
-		\dash\engine\dog\toys\only::something($txt);
-		\dash\engine\dog\toys\only::text($txt);
 
 		// disallow html tags
 		\dash\engine\dog\toys\block::tags($txt);
