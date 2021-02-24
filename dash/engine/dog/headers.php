@@ -54,11 +54,6 @@ class headers
 		// disallow html tags
 		\dash\engine\dog\toys\block::tags($txt);
 		// disallow some words
-		\dash\engine\dog\toys\block::word($txt, 'script');
-		\dash\engine\dog\toys\block::word($txt, 'javascript');
-		\dash\engine\dog\toys\block::word($txt, 'prompt');
-		\dash\engine\dog\toys\block::word($txt, 'delete');
-		\dash\engine\dog\toys\block::word($txt, 'xss');
 		\dash\engine\dog\toys\block::word($txt, '(');
 		\dash\engine\dog\toys\block::word($txt, ')');
 		\dash\engine\dog\toys\block::word($txt, '<');
