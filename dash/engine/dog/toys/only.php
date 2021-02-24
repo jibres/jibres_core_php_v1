@@ -5,11 +5,20 @@ namespace dash\engine\dog\toys;
  */
 class only
 {
+	public static function something($_txt)
+	{
+		if(!$_txt)
+		{
+			\dash\header::status(428, 'need something...');
+		}
+	}
+
+
 	public static function text($_txt)
 	{
 		if(!is_string($_txt))
 		{
-			\dash\header::status(428, 'only S');
+			\dash\header::status(428, 'only T');
 		}
 	}
 

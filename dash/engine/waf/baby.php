@@ -20,8 +20,6 @@ class baby
 			\dash\header::status(412, 'Hi Father!');
 		}
 
-		self::check_server_variable();
-
 
 		// check duble slash in url
 		self::dbl_slash();
@@ -135,19 +133,6 @@ class baby
 		PHP_AUTH_PW
 		PHP_AUTH_DIGEST
 	 */
-	private static function check_server_variable()
-	{
-		$agent = \dash\server::get('HTTP_USER_AGENT');
-		if(!$agent)
-		{
-			\dash\header::status(428, 'Who are you?');
-		}
-
-		if(mb_strlen($agent) > 1000)
-		{
-			\dash\header::status(431, 'Who are you??');
-		}
-	}
 
 
 
