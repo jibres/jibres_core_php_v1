@@ -5,26 +5,27 @@ namespace dash\engine\dog;
  */
 class ip
 {
-	public static function inspection($_ip)
+	public static function inspection()
 	{
+		$ip = \dash\server::ip();
 		// we need something for this
-		\dash\engine\dog\toys\only::something($_ip);
+		\dash\engine\dog\toys\only::something($ip);
 		// only can be text
-		\dash\engine\dog\toys\only::text($_ip);
+		\dash\engine\dog\toys\only::text($ip);
 
 		// check ip is valid or not
-		if(!filter_var($_ip, FILTER_VALIDATE_IP))
+		if(!filter_var($ip, FILTER_VALIDATE_IP))
 		{
 			\dash\header::status(412, 'Hi Father!!');
 		}
 
-		if(filter_var($_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
+		if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
 		{
-		  self::ipv4($_ip);
+		  self::ipv4($ip);
 		}
-		elseif(filter_var($_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
+		elseif(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
 		{
-		  self::ipv6($_ip);
+		  self::ipv6($ip);
 		}
 		else
 		{
@@ -33,15 +34,15 @@ class ip
 	}
 
 
-	private static function ipv4($_ip)
+	private static function ipv4($ip)
 	{
-		\dash\engine\dog\toys\general::len($_ip, 7, 15);
+		\dash\engine\dog\toys\general::len($ip, 7, 15);
 	}
 
 
-	private static function ipv6($_ip)
+	private static function ipv6($ip)
 	{
-		\dash\engine\dog\toys\general::len($_ip, 2, 46);
+		\dash\engine\dog\toys\general::len($ip, 2, 46);
 
 	}
 }

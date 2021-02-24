@@ -22,10 +22,13 @@ class protection
 	private static function dog()
 	{
 		// ip
-		\dash\engine\dog\ip::inspection(\dash\server::ip());
+		\dash\engine\dog\ip::inspection();
 
 		// agent
-		\dash\engine\dog\agent::inspection(\dash\agent::agent(false));
+		\dash\engine\dog\agent::inspection();
+
+		// cookie
+		\dash\engine\dog\cookie::inspection();
 	}
 }
 ?>

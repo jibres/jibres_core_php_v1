@@ -5,25 +5,27 @@ namespace dash\engine\dog;
  */
 class agent
 {
-	public static function inspection($_agent)
+	public static function inspection()
 	{
+		$agent = \dash\agent::agent(false);
+
 		// only can be text
-		\dash\engine\dog\toys\only::something($_agent);
-		\dash\engine\dog\toys\only::text($_agent);
+		\dash\engine\dog\toys\only::something($agent);
+		\dash\engine\dog\toys\only::text($agent);
 
 		// check len
-		\dash\engine\dog\toys\general::len($_agent, 1, 1000);
+		\dash\engine\dog\toys\general::len($agent, 1, 1000);
 
 		// disallow some words
-		\dash\engine\dog\toys\block::word($_agent, 'script');
-		\dash\engine\dog\toys\block::word($_agent, 'javascript');
-		\dash\engine\dog\toys\block::word($_agent, 'delete');
-		\dash\engine\dog\toys\block::word($_agent, 'xss');
-		\dash\engine\dog\toys\block::word($_agent, '{');
-		\dash\engine\dog\toys\block::word($_agent, '}');
-		\dash\engine\dog\toys\block::word($_agent, '"');
-		\dash\engine\dog\toys\block::word($_agent, "'");
-		\dash\engine\dog\toys\block::word($_agent, "\n");
+		\dash\engine\dog\toys\block::word($agent, 'script');
+		\dash\engine\dog\toys\block::word($agent, 'javascript');
+		\dash\engine\dog\toys\block::word($agent, 'delete');
+		\dash\engine\dog\toys\block::word($agent, 'xss');
+		\dash\engine\dog\toys\block::word($agent, '{');
+		\dash\engine\dog\toys\block::word($agent, '}');
+		\dash\engine\dog\toys\block::word($agent, '"');
+		\dash\engine\dog\toys\block::word($agent, "'");
+		\dash\engine\dog\toys\block::word($agent, "\n");
 	}
 }
 ?>
