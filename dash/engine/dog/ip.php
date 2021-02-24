@@ -13,7 +13,7 @@ class ip
 			\dash\header::status(412, 'Hi Father!!');
 		}
 		// only can be text
-		general::onlyText($_ip);
+		only::text($_ip);
 
 		if(filter_var($_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
 		{
