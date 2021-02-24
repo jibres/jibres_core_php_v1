@@ -5,6 +5,9 @@ class protection
 {
 	public static function start()
 	{
+		// start dog
+		self::dog();
+
 		// block baby to not allow to harm yourself :/
 		\dash\engine\waf\baby::block();
 
@@ -13,6 +16,16 @@ class protection
 
 		// disallow flood
 		\dash\engine\waf\race::escort();
+	}
+
+
+	private static function dog()
+	{
+		// ip
+		\dash\engine\dog\ip::inspection(\dash\server::ip());
+
+		// agent
+
 	}
 }
 ?>

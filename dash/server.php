@@ -103,9 +103,6 @@ class server
 			$ipaddress = null;
 		}
 
-		// show to dog
-		\dash\engine\dog\ip::inspection($ipaddress);
-
 		self::$IP = $ipaddress;
 		return $ipaddress;
 	}
