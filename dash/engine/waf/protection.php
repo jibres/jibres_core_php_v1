@@ -25,7 +25,7 @@ class protection
 		\dash\engine\dog\ip::inspection(\dash\server::ip());
 
 		// agent
-
+		\dash\engine\dog\agent::inspection(\dash\agent::agent(false));
 	}
 }
 ?>
