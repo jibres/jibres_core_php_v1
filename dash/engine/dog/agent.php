@@ -19,10 +19,13 @@ class agent
 		// disallow some words
 		\dash\engine\dog\toys\block::word($agent, 'script');
 		\dash\engine\dog\toys\block::word($agent, 'javascript');
+		\dash\engine\dog\toys\block::word($agent, 'prompt');
 		\dash\engine\dog\toys\block::word($agent, 'delete');
 		\dash\engine\dog\toys\block::word($agent, 'xss');
 		\dash\engine\dog\toys\block::word($agent, '{');
 		\dash\engine\dog\toys\block::word($agent, '}');
+		\dash\engine\dog\toys\block::word($agent, '<');
+		\dash\engine\dog\toys\block::word($agent, '>');
 		\dash\engine\dog\toys\block::word($agent, '"');
 		\dash\engine\dog\toys\block::word($agent, "'");
 		\dash\engine\dog\toys\block::word($agent, "\n");
