@@ -187,7 +187,7 @@ class detect
 			'user_id'      => \dash\user::id(),
 			'datecreated'  => date("Y-m-d H:i:s"),
 			'type'         => $_type,
-			'ip'           => \dash\server::ip(true),
+			'ip'           => \dash\server::iplong(),
 			'result'       => null,
 			'available'    => (isset($_meta['available']) && $_meta['available']) ? 1 : null,
 			'holder'       => isset($_meta['holder']) 		? $_meta['holder'] 			: null,

@@ -53,7 +53,7 @@ class api
 			'send'          => json_encode($_body, JSON_UNESCAPED_UNICODE),
 			'datesend'      => date("Y-m-d H:i:s"),
 			'domain'        => isset($_body['domain']) ? $_body['domain'] : null,
-			'ip'            => \dash\server::ip(true),
+			'ip'            => \dash\server::iplong(),
 			'gateway'		=> \dash\temp::get('run:by:system') ? 'system' : 'user',
 		];
 

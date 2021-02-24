@@ -55,7 +55,7 @@ class check
 
 		if(!$data['ip'])
 		{
-			$data['ip']          = \dash\server::ip(true);
+			$data['ip'] = \dash\server::iplong();
 		}
 
 

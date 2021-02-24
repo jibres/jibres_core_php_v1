@@ -61,7 +61,7 @@ class server
 	 * Function to get the client IP address
 	 * @return [type] [description]
 	 */
-	public static function ip($_change = null)
+	public static function ip()
 	{
 		$ipaddress = null;
 		if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
@@ -104,16 +104,19 @@ class server
 			return false;
 		}
 
-		if($_change)
-		{
-			// sprintf will then write it as an unsigned integer.
-			$ipaddress = sprintf("%u",ip2long( $ipaddress ));
-			// $ipaddress = ip2long( $ipaddress );
-		}
-
 		$ipaddress = \dash\safe::safe($ipaddress);
 
 		return $ipaddress;
+	}
+
+
+	public static function iplong()
+	{
+		$ipAddr = self::ip();
+		// sprintf will then write it as an unsigned integer.
+		$ipAddr = sprintf("%u",ip2long( $ipAddr ));
+
+		return $ipAddr;
 	}
 }
 ?>

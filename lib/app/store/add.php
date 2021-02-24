@@ -344,7 +344,7 @@ class add
 		$new_store['subdomain']   = $_subdomain;
 		$new_store['fuel']        = $_fuel;
 		$new_store['creator']     = $_creator;
-		$new_store['ip']          = \dash\server::ip(true);
+		$new_store['ip']          = \dash\server::iplong();
 		$new_store['datecreated'] = date("Y-m-d H:i:s");
 
 		$new_store_id = \lib\db\store\insert::store($new_store);

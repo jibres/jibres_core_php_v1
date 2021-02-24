@@ -28,7 +28,7 @@ class run
 			'client_id'     => $tracking_number,
 			'nic_id'        => $_nic_id,
 			'domain'        => $_domain,
-			'ip'            => \dash\server::ip(true),
+			'ip'            => \dash\server::iplong(),
 			'gateway'		=> \dash\temp::get('run:by:system') ? 'system' : 'user',
 		];
 

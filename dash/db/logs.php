@@ -16,7 +16,7 @@ class logs
 
 	public static function count_caller_ip_date($_caller, $_start_date, $_end_date)
 	{
-		$ip     = \dash\server::ip(true);
+		$ip     = \dash\server::iplong();
 		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE logs.caller = '$_caller' AND logs.ip = '$ip' AND DATE(logs.datecreated) >= DATE('$_start_date') AND DATE(logs.datecreated) <= DATE('$_end_date') ";
 		$result = \dash\db::get($query, 'count', true);
 		if(!is_numeric($result))

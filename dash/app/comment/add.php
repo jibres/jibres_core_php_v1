@@ -15,7 +15,7 @@ class add
 		}
 
 		$args['user_id']     = \dash\user::id();
-		$args['ip']          = \dash\server::ip(true);
+		$args['ip']          = \dash\server::iplong();
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 

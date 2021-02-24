@@ -685,7 +685,7 @@ class log
 			'notif'        => $_args['notif'],
 			'readdate'     => $_args['readdate'],
 			'meta'         => $_args['meta'],
-			'ip'           => \dash\server::ip(true),
+			'ip'           => \dash\server::iplong(),
 			'sms'          => $_args['sms'],
 			'telegram'     => $_args['telegram'],
 			'email'        => $_args['email'],

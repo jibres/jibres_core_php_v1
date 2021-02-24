@@ -355,7 +355,7 @@ class file
 			'folder'      => $directory['folder'],
 			'path'        => $directory['path'],
 
-			'ip'          => \dash\server::ip(true),
+			'ip'          => \dash\server::iplong(),
 			'domain'      => \dash\url::host(),
 			'creator'     => \dash\user::id(),
 			'status'      => 'publish',

@@ -39,7 +39,7 @@ class visitor
 		}
 
 		$visitor                  = [];
-		$visitor['visitor_ip']    = \dash\server::ip(true);
+		$visitor['visitor_ip']    = \dash\server::iplong();
 		$visitor['url_id']        = self::url_id();
 		$visitor['url_idreferer'] = self::referer_id($visitor['url_id']);
 		$visitor['agent_id']      = self::agent_id();

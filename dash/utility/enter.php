@@ -637,7 +637,7 @@ class enter
 		{
 			$NewAccoutLogin =
 			[
-				'my_ip' => \dash\server::ip(true),
+				'my_ip' => \dash\server::iplong(),
 				'to'    => $user_id,
 			];
 
