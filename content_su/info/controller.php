@@ -47,7 +47,6 @@ class controller
 					break;
 				}
 
-				require core.'bin/linfo/index.php';
 
 				break;
 
