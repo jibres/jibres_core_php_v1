@@ -57,9 +57,21 @@ class cookie
 			return self::delete($_name, $_path, $_domain);
 		}
 
-		if(!isset($_duration))	$_duration = self::DURATION;
-		if(!isset($_path))			$_path     = self::PATH;
-		if(!isset($_domain))		$_domain   = '.'. \dash\url::domain();
+		if(!isset($_duration))
+		{
+			$_duration = self::DURATION;
+		}
+
+		if(!isset($_path))
+		{
+			$_path     = self::PATH;
+		}
+
+		if(!isset($_domain))
+		{
+			$_domain   = '.'. \dash\url::domain();
+		}
+
 		if(!isset($_secure))
 		{
 			$_secure = self::SECURE;
@@ -68,7 +80,11 @@ class cookie
 				$_secure = false;
 			}
 		}
-		if(!isset($_httponly))	$_httponly = self::HTTPONLY;
+
+		if(!isset($_httponly))
+		{
+			$_httponly = self::HTTPONLY;
+		}
 
 		// Expiration date from the life time in seconds
 		if($_duration == 0)
@@ -83,27 +99,19 @@ class cookie
 		// The value must be a string
 		$_value = (string) $_value;
 
-		// Writes the cookie
-		if(PHP_VERSION_ID < 70300)
-		{
-			$_path .= '; samesite=strict';
-			setcookie($_name, $_value, $expire, $_path, $_domain, $_secure, $_httponly);
-		}
-		else
-		{
-			$opt =
-			[
-				'expires'  => $expire,
-				'path'     => $_path,
-				'domain'   => $_domain,
-				'secure'   => $_secure,
-				'httponly' => $_httponly,
-				'samesite' => 'strict'
-				// None || Lax || Strict
-			];
-			setcookie($_name, $_value, $opt);
 
-		}
+		$opt =
+		[
+			'expires'  => $expire,
+			'path'     => $_path,
+			'domain'   => $_domain,
+			'secure'   => $_secure,
+			'httponly' => $_httponly,
+			'samesite' => 'strict'
+			// None || Lax || Strict
+		];
+		setcookie($_name, $_value, $opt);
+
 		$_COOKIE[$_name] = $_value;
 	}
 

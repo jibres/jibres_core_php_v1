@@ -534,9 +534,9 @@ class prepare
 	private static function minimum_requirement()
 	{
 		// check php version to upper than 7.0
-		if(version_compare(phpversion(), '7.0', '<'))
+		if(version_compare(phpversion(), '7.1', '<'))
 		{
-			\dash\code::bye("<p>For using Dash you must update php version to 7.0 or higher!</p>");
+			\dash\code::bye("<p>For using Dash you must update php version to 7.1 or higher!</p>");
 		}
 	}
 
