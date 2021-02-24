@@ -3,6 +3,7 @@ namespace dash;
 
 class server
 {
+	private static $IP = null;
 
 	/**
 	 * { function_description }
@@ -38,7 +39,7 @@ class server
 
 
 
-	public static function server_ip($_change = null)
+	public static function server_ip()
 	{
 		$server_ip = null;
 		if (isset($_SERVER["SERVER_ADDR"]))
@@ -46,22 +47,26 @@ class server
 			$server_ip = $_SERVER["SERVER_ADDR"];
 		}
 
-		if($_change)
-		{
-			// sprintf will then write it as an unsigned integer.
-			$server_ip = sprintf("%u",ip2long( $server_ip ));
-		}
-
 		return $server_ip;
 	}
 
+
+	public static function ip()
+	{
+		if(self::$IP)
+		{
+			return self::$IP;
+		}
+
+		return self::ipDetector();
+	}
 
 
 	/**
 	 * Function to get the client IP address
 	 * @return [type] [description]
 	 */
-	public static function ip()
+	private static function ipDetector()
 	{
 		$ipaddress = null;
 		if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
@@ -98,14 +103,10 @@ class server
 			$ipaddress = null;
 		}
 
-		// check ip is valid or not
-		if(!filter_var($ipaddress, FILTER_VALIDATE_IP))
-		{
-			return false;
-		}
+		// show to dog
+		\dash\engine\dog\ip::inspection($ipaddress);
 
-		$ipaddress = \dash\safe::safe($ipaddress);
-
+		self::$IP = $ipaddress;
 		return $ipaddress;
 	}
 

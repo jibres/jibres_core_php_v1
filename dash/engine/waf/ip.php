@@ -6,7 +6,7 @@ class ip
 	public static function checkLimit()
 	{
 		// get real ip
-		$myIP = self::ip();
+		$myIP = \dash\server::ip();
 
 		// get ip status
 		$ipData = self::status($myIP);
@@ -163,22 +163,6 @@ class ip
 		}
 
 		return $result;
-	}
-
-
-	private static function ip()
-	{
-		// get real ip
-		$myIP = \dash\server::ip();
-
-		// check ip exist
-		if(!$myIP)
-		{
-			// \dash\log::set('hiFather!!');
-			\dash\header::status(412, 'Hi Father!!');
-		}
-
-		return $myIP;
 	}
 
 
