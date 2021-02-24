@@ -59,8 +59,6 @@ class headers
 		\dash\engine\dog\toys\block::word($txt, 'prompt');
 		\dash\engine\dog\toys\block::word($txt, 'delete');
 		\dash\engine\dog\toys\block::word($txt, 'xss');
-		\dash\engine\dog\toys\block::word($txt, '{');
-		\dash\engine\dog\toys\block::word($txt, '}');
 		\dash\engine\dog\toys\block::word($txt, '(');
 		\dash\engine\dog\toys\block::word($txt, ')');
 		\dash\engine\dog\toys\block::word($txt, '<');
