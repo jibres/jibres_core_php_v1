@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\dog;
+namespace dash\engine\dog\toys;
 /**
  * dash main configure
  */

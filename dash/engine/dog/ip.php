@@ -13,7 +13,7 @@ class ip
 			\dash\header::status(412, 'Hi Father!!');
 		}
 		// only can be text
-		only::text($_ip);
+		\dash\engine\dog\toys\only::text($_ip);
 
 		if(filter_var($_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
 		{
@@ -32,13 +32,13 @@ class ip
 
 	private static function ipv4($_ip)
 	{
-		general::len($_ip, 7, 15);
+		\dash\engine\dog\toys\general::len($_ip, 7, 15);
 	}
 
 
 	private static function ipv6($_ip)
 	{
-		general::len($_ip, 2, 46);
+		\dash\engine\dog\toys\general::len($_ip, 2, 46);
 
 	}
 }
