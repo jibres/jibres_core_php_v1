@@ -20,6 +20,8 @@ class agent
 		\dash\engine\dog\toys\block::word($_agent, 'delete');
 		\dash\engine\dog\toys\block::word($_agent, '{');
 		\dash\engine\dog\toys\block::word($_agent, '}');
+		\dash\engine\dog\toys\block::word($_agent, '"');
+		\dash\engine\dog\toys\block::word($_agent, "'");
 
 	}
 }
