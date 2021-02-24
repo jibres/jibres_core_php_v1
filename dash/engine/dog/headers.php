@@ -63,7 +63,7 @@ class headers
 		\dash\engine\dog\toys\block::word($txt, ')');
 		\dash\engine\dog\toys\block::word($txt, '<');
 		\dash\engine\dog\toys\block::word($txt, '>');
-		\dash\engine\dog\toys\block::word($txt, '"');
+		// \dash\engine\dog\toys\block::word($txt, '"');
 		\dash\engine\dog\toys\block::word($txt, "'");
 		\dash\engine\dog\toys\block::word($txt, "\n");
 	}
