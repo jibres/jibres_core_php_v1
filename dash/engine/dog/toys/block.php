@@ -10,7 +10,7 @@ class block
 		$myTxt = $_text;
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\header::status(428, 'Disallow 1'. $_find);
+			\dash\header::status(428, 'Disallow 1'. $_find. '- '. $_text);
 		}
 
 		$myTxt = urldecode($myTxt);
