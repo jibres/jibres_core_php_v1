@@ -37,10 +37,8 @@ class prepare
 		// protect ourselve
 		\dash\engine\guard::protect();
 
-
 		// check need redirect for lang or www or https or main domain
 		self::fix_url_host();
-
 
 		// self::check_domain();
 
@@ -48,9 +46,6 @@ class prepare
 
 		// generate static files
 		self::static_files();
-
-		// start session
-		\dash\session::start();
 
 		// self::user_country_redirect();
 
