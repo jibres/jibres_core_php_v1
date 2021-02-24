@@ -7,11 +7,35 @@ class block
 {
 	public static function word($_text, $_find)
 	{
-		if(strpos($_text, $_find))
+		$myTxt = $_text;
+		if(strpos($myTxt, $_find))
 		{
-			\dash\header::status(428, 'Disallow');
+			\dash\header::status(428, 'Disallow 1');
 		}
 
+		$myTxt = urldecode($myTxt);
+		if(strpos($myTxt, $_find))
+		{
+			\dash\header::status(428, 'Disallow 2');
+		}
+
+		$myTxt = urldecode($myTxt);
+		if(strpos($myTxt, $_find))
+		{
+			\dash\header::status(428, 'Disallow 3');
+		}
+
+		$myTxt = urldecode($myTxt);
+		if(strpos($myTxt, $_find))
+		{
+			\dash\header::status(428, 'Disallow 4');
+		}
+
+		$myTxt = urldecode($myTxt);
+		if(strpos($myTxt, $_find))
+		{
+			\dash\header::status(428, 'Disallow 5');
+		}
 	}
 }
 ?>
