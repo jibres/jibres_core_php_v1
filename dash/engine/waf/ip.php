@@ -3,6 +3,67 @@ namespace dash\engine\waf;
 
 class ip
 {
+	public static function checkLimit()
+	{
+		// get real ip
+		$myIP = self::ip();
+
+		// get ip status
+		$ipData = self::status($myIP);
+
+		if ($ipData)
+		{
+			if (a($ipData, 'try') === 'ban')
+			{
+				// if it was less than 24 hours and die if so
+				if (a($ipData, 'diff') > 86400)
+				{
+					// 24 hours in seconds.. if more delete ip file
+					self::unblock($myIP);
+				}
+				else
+				{
+					// \dash\log::set('ipBan');
+					// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
+				}
+			}
+			else if (a($ipData, 'diff') > 3600)
+			{
+				// If first request was more than 1 hour, new ip file
+				if(file_exists(self::ipFileAddr($myIP)))
+				{
+					unlink(self::ipFileAddr($myIP));
+				}
+			}
+			else
+			{
+				// Counter + 1
+				$current = (int)$ipData['try'] + 1;
+
+				if ($current > 120)
+				{
+					// We check rpm (request per minute) after 100 request to get a good ~value
+					if ( $ipData['rpm'] > 10)
+					{
+						// If there was more than 10 rpm -> ban
+						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
+						// self::block($myIP, $ipData['firstTry']);
+						// return;
+					}
+				}
+
+				self::saveFile($myIP, $ipData['firstTry'].'|'.$current .'');
+			}
+		}
+		else
+		{
+			// If first request or new request after 1 hour / 24 hour ban,
+			// new file with <timestamp>|<counter>
+			self::saveFile($myIP, time().'|0');
+		}
+	}
+
+
 	public static function block($_ip, $_from = null, $_to = null)
 	{
 		if(!$_ip)
@@ -102,67 +163,6 @@ class ip
 		}
 
 		return $result;
-	}
-
-
-	public static function checkLimit()
-	{
-		// get real ip
-		$myIP = self::ip();
-
-		// get ip status
-		$ipData = self::status($myIP);
-
-		if ($ipData)
-		{
-			if (a($ipData, 'try') === 'ban')
-			{
-				// if it was less than 24 hours and die if so
-				if (a($ipData, 'diff') > 86400)
-				{
-					// 24 hours in seconds.. if more delete ip file
-					self::unblock($myIP);
-				}
-				else
-				{
-					// \dash\log::set('ipBan');
-					// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
-				}
-			}
-			else if (a($ipData, 'diff') > 3600)
-			{
-				// If first request was more than 1 hour, new ip file
-				if(file_exists(self::ipFileAddr($myIP)))
-				{
-					unlink(self::ipFileAddr($myIP));
-				}
-			}
-			else
-			{
-				// Counter + 1
-				$current = (int)$ipData['try'] + 1;
-
-				if ($current > 120)
-				{
-					// We check rpm (request per minute) after 100 request to get a good ~value
-					if ( $ipData['rpm'] > 10)
-					{
-						// If there was more than 10 rpm -> ban
-						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						// self::block($myIP, $ipData['firstTry']);
-						// return;
-					}
-				}
-
-				self::saveFile($myIP, $ipData['firstTry'].'|'.$current .'');
-			}
-		}
-		else
-		{
-			// If first request or new request after 1 hour / 24 hour ban,
-			// new file with <timestamp>|<counter>
-			self::saveFile($myIP, time().'|0');
-		}
 	}
 
 
