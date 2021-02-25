@@ -462,7 +462,7 @@ class text
 			return $data;
 		}
 
-		return \dash\validate\html::html($_data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
+		return \dash\validate\html::html($data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
 	}
 
 
@@ -474,7 +474,7 @@ class text
 		{
 			return $data;
 		}
-		return \dash\validate\html::html_basic($_data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
+		return \dash\validate\html::html_basic($data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
 	}
 
 
