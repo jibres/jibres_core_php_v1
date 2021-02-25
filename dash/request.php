@@ -323,9 +323,9 @@ class request
 	{
 		$input = @file_get_contents('php://input');
 
-		if(\dash\engine\baby::check_simple($input))
+		if(\dash\engine\waf\baby::check_simple($input))
 		{
-			\dash\engine\baby::pacifier(null, 424);
+			\dash\engine\waf\baby::pacifier(null, 424);
 		}
 
 		return $input;
