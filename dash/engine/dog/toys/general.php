@@ -15,7 +15,7 @@ class general
 		if($myLen > $_max)
 		{
 			var_dump($_max);
-			\dash\header::status(428, 'No >');
+			\dash\header::status(428, 'No >'. $_text);
 		}
 	}
 
