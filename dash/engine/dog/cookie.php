@@ -22,7 +22,7 @@ class cookie
 			\dash\engine\dog\toys\general::len($key, 1, 50);
 
 			// check value len
-			\dash\engine\dog\toys\general::len($value, 0, 100);
+			\dash\engine\dog\toys\general::len($value, 0, 200);
 
 			// only can be text
 			\dash\engine\dog\toys\only::something($key);
