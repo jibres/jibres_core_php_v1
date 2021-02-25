@@ -34,6 +34,8 @@ function cronjob_server()
 	if(isset($newServer['trust_token']) && $newServer['trust_token'] === $load_token)
 	{
 		$_SERVER = $newServer;
+		// define iscronjob
+		define('ISCRONJOB', true);
 	}
 	else
 	{
