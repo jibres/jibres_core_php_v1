@@ -40,6 +40,7 @@ class cronjob
 			'REQUEST_URI'     => "/hook/crontab/". $trust_token,
 			'REQUEST_METHOD'  => "POST",
 			'HTTP_USER_AGENT' => 'Jibres-cronjob',
+			'HTTP_COOKIE'     => 'Jibres-cronjob-cookie',
 			'SCRIPT_FILENAME' => $index_php_addr,
 		];
 
