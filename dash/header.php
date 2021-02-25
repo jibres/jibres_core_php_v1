@@ -21,21 +21,20 @@ class header
 			{
 				$out = null;
 				foreach(\dash\server::get() as $key => $value)
-		        {
-		            if (substr($key,0,5)=="HTTP_")
-		            {
-		                $out[$key] = $value;
-		                $key = str_replace(" ","-", strtolower(str_replace("_"," ",substr($key,5))));
-		                $out[$key] = $value;
-		            }
-		            else
-		            {
-		                $out[$key] = $value;
+					{
+						if (substr($key,0,5)=="HTTP_")
+						{
+							$out[$key] = $value;
+							$key = str_replace(" ","-", strtolower(str_replace("_"," ",substr($key,5))));
+							$out[$key] = $value;
+						}
+						else
+						{
+							$out[$key] = $value;
+						}
 					}
-		    	}
-		    	$my_header = $out;
+					$my_header = $out;
 			}
-
 
 			self::$HEADER = \dash\safe::safe($my_header);
 		}
@@ -260,7 +259,7 @@ class header
 		if($_time)
 		{
 			@header("Cache-Control: max-age=" + $_time);
-			@header("Expires: ".gmdate("D, d M Y H:i:s",time() + $_time)." GMT");
+			@header("Expires: ".gmdate("D, d M Y H:i:s", $_time + time())." GMT");
 		}
 		else
 		{
