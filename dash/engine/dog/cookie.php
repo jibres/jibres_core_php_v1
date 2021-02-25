@@ -19,10 +19,10 @@ class cookie
 		foreach ($cookie as $key => $value)
 		{
 			// check key len
-			\dash\engine\dog\toys\general::len($key, 1, 50);
+			\dash\engine\dog\toys\general::len($key, 1, 49);
 
 			// check value len
-			\dash\engine\dog\toys\general::len($value, 0, 200);
+			\dash\engine\dog\toys\general::len($value, 0, 220);
 
 			// only can be text
 			\dash\engine\dog\toys\only::something($key);

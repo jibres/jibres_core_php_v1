@@ -10,11 +10,11 @@ class general
 		$myLen = strlen($_text);
 		if($myLen < $_min)
 		{
-			\dash\header::status(428, 'No <');
+			\dash\header::status(428, 'No < '. $myLen);
 		}
 		if($myLen > $_max)
 		{
-			\dash\header::status(428, 'No >'. $_text);
+			\dash\header::status(428, 'No > '. $myLen);
 		}
 	}
 
@@ -24,11 +24,11 @@ class general
 		$myLen = mb_strlen($_text);
 		if($myLen < $_min)
 		{
-			\dash\header::status(428, 'No <');
+			\dash\header::status(428, 'No < '. $myLen);
 		}
 		if($myLen > $_max)
 		{
-			\dash\header::status(428, 'No >');
+			\dash\header::status(428, 'No > '. $myLen);
 		}
 	}
 
