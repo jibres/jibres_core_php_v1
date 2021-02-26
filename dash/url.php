@@ -30,6 +30,7 @@ namespace dash;
  * 'base'       => 'http://ermile.jibres.com'			[protocol+host]
  *
  * 'path'       => '/en/a/thirdparty/general/edit/test=yes?id=5&page=8'
+ * 'location'   => 'a/thirdparty/general/edit/test=yes?id=5&page=8'
  * 'lang'       => 'en'
  * 'content'    => 'a'
  * 'prefix'     => 'en/a'													[lang+content]
@@ -94,6 +95,7 @@ class url
 		self::$url['that']      = self::_that();
 		self::$url['current']   = self::_current();
 		self::$url['pwd']       = self::_pwd();
+		self::$url['location']  = self::_location();
 		self::setLogo();
 
 		// return final result
@@ -322,6 +324,26 @@ class url
 		}
 
 		return $my_path;
+	}
+
+
+	/**
+	 * return filterd uri as path
+	 * @return string of url path
+	 */
+	private static function _location()
+	{
+		$my_loc = self::_path();
+		if(self::lang())
+		{
+			$my_loc = substr($my_loc, 4);
+		}
+		else
+		{
+			$my_loc = substr($my_loc, 1);
+		}
+
+		return $my_loc;
 	}
 
 
