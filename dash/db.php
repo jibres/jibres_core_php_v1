@@ -217,6 +217,11 @@ class db
 	{
 		if(!\dash\db\mysql\tools\connection::link())
 		{
+			if(\dash\url::isLocal())
+			{
+				\dash\notif::warn('No connection to safe mysqli_real_escape_string');
+			}
+
 			return $_string;
 		}
 
