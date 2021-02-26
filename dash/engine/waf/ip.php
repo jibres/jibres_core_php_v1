@@ -280,6 +280,9 @@ class ip
 	}
 
 
+
+
+
 	private static function generate_file_path($_ip, $_mode)
 	{
 		$addrPath = self::generate_addr_path($_mode);
@@ -317,26 +320,24 @@ class ip
 
 	private static function find_ip_path($_ip)
 	{
-		$fileName = str_replace(':', '-', $_ip). '.yaml';
+		$myLocations =
+		[
+			'live'      => self::generate_file_path($_ip, 'live'),
+			'isolation' => self::generate_file_path($_ip, 'isolation'),
+			'ban'       => self::generate_file_path($_ip, 'ban'),
+		];
 
-		$folderLive      = self::folderWAF. 'live/'. $fileName;
-		$folderIsolation = self::folderWAF. 'isolation/'. $fileName;
-		$folderBan       = self::folderWAF. 'ban/'. $fileName;
-
-		if(file_exists($folderLive))
+		$ipPath = null;
+		// $myLocation =
+		foreach ($myLocations as $key => $loc)
 		{
-			return $folderLive;
-		}
-		if(file_exists($folderIsolation))
-		{
-			return $folderIsolation;
-		}
-		if(file_exists($folderBan))
-		{
-			return $folderBan;
+			if(file_exists($loc))
+			{
+				$ipPath = $loc;
+			}
 		}
 
-		return null;
+		return $ipPath;
 	}
 
 
@@ -371,7 +372,7 @@ class ip
 			'isolation' => self::generate_addr_path('isolation'),
 			'ban'       => self::generate_addr_path('ban'),
 		];
-var_dump($myFolders);
+
 		foreach ($myFolders as $key => $folder)
 		{
 			if(!is_dir($folder))
