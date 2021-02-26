@@ -3,6 +3,9 @@ namespace dash\engine\waf;
 
 class ip
 {
+	// define waf folder as const
+	private const folderWAF = YARD. 'jibres_waf/';
+
 	private static $IP = null;
 	private static $addrLive = null;
 	private static $addrIsolation = null;
@@ -10,13 +13,16 @@ class ip
 
 	public static function monitor()
 	{
-		self::init();
+		// temporary till finish monitor
+		if(!\dash\url::isLocal())
+		{
+			return false;
+		}
 
-		// get real ip
-		$myIP = \dash\server::ip();
+		self::checkAndCreateFolders();
 
 		// get ip status
-		$ipData = self::status($myIP);
+		$ipData = self::status();
 
 		if ($ipData)
 		{
@@ -71,6 +77,74 @@ class ip
 	}
 
 
+	public static function status($_ip = null)
+	{
+		$myIP = self::validateIP($_ip);
+
+		// create array of all fodlers, files, and all data
+		$result =
+		[
+			'addr'     =>
+			[
+				'fileName' => str_replace(':', '-', $myIP). '.yaml',
+				'live'     => str_replace(':', '-', $myIP). '.yaml',
+			],
+			'data'     =>
+			[
+				'ip'       => $myIP,
+				// 'firstTry' => null,
+				// 'try'      => null,
+				// 'diff'     => null,
+				// 'diffm'    => null,
+				// 'rpm'      => null,
+			],
+		];
+
+
+
+
+		$liveIPAddr = self::getFileAddr($_ip);
+
+		if (!file_exists($liveIPAddr))
+		{
+			return null;
+		}
+
+
+		// get ip file data
+		// $ipData = file_get_contents($liveIPAddr);
+		$ipData = \dash\yaml::read($liveIPAddr);
+		if(!$ipData)
+		{
+			return $result;
+		}
+		return;
+		// Create paraset [0] -> timestamp  [1] -> counter
+		$ipArr = explode('|', $ipData);
+
+		if(isset($ipArr[0]) && $ipArr[0])
+		{
+			$result['firstTry'] = (int)$ipArr[0];
+
+			// Time difference in seconds from first request to now
+			$result['diff'] = time() - $result['firstTry'];
+			$result['diffm'] = intval((time() - $result['firstTry']) / 60);
+		}
+		if(isset($ipArr[1]) && $ipArr[1])
+		{
+			$result['try'] = $ipArr[1];
+			// calc rpm
+			if($result['diffm'])
+			{
+				// request per minute
+				$result['rpm'] = round( ((int)$result['try']) / $result['diffm'], 1 );
+			}
+		}
+
+		return $result;
+	}
+
+
 	private static function set($_ip)
 	{
 		$data =
@@ -122,96 +196,6 @@ class ip
 
 		unlink($liveIPAddr);
 		unlink($banIPAddr);
-	}
-
-
-	public static function status($_ip)
-	{
-		if(!$_ip)
-		{
-			$_ip = self::$IP;
-		}
-
-		// check ip is valid or not
-		if(!filter_var($_ip, FILTER_VALIDATE_IP))
-		{
-			return false;
-		}
-
-		$liveIPAddr = self::getFileAddr($_ip);
-
-		if (!file_exists($liveIPAddr))
-		{
-			return null;
-		}
-
-		$result =
-		[
-			'ip'       => $_ip,
-			'firstTry' => null,
-			'try'      => null,
-			'diff'     => null,
-			'diffm'    => null,
-			'rpm'      => null,
-		];
-
-		// get ip file data
-		// $ipData = file_get_contents($liveIPAddr);
-		$ipData = \dash\yaml::read($liveIPAddr);
-		if(!$ipData)
-		{
-			return $result;
-		}
-		return;
-		// Create paraset [0] -> timestamp  [1] -> counter
-		$ipArr = explode('|', $ipData);
-
-		if(isset($ipArr[0]) && $ipArr[0])
-		{
-			$result['firstTry'] = (int)$ipArr[0];
-
-			// Time difference in seconds from first request to now
-			$result['diff'] = time() - $result['firstTry'];
-			$result['diffm'] = intval((time() - $result['firstTry']) / 60);
-		}
-		if(isset($ipArr[1]) && $ipArr[1])
-		{
-			$result['try'] = $ipArr[1];
-			// calc rpm
-			if($result['diffm'])
-			{
-				// request per minute
-				$result['rpm'] = round( ((int)$result['try']) / $result['diffm'], 1 );
-			}
-		}
-
-		return $result;
-	}
-
-
-	private static function getFileAddr($_ip, $_mode = 'live')
-	{
-		switch ($_mode)
-		{
-			case 'live':
-			case 'isolation':
-			case 'ban':
-
-				break;
-
-			default:
-				return null;
-				break;
-		}
-
-		// folderAddr
-		$ipSecAddr  = YARD.'jibres_waf/'. $_mode. '/';
-		// replace : for ipv6
-		$_ip = str_replace(':', '-', $_ip);
-		// create file addr
-		$ipSecAddr  .= $_ip. '.yaml';
-
-		return $ipSecAddr;
 	}
 
 
@@ -270,19 +254,86 @@ class ip
 	}
 
 
+	private static function getFileAddr($_mode)
+	{
+		switch ($_mode)
+		{
+			case 'live':
+			case 'isolation':
+			case 'ban':
+
+				break;
+
+			default:
+				return null;
+				break;
+		}
+
+		// folderAddr
+		$ipSecAddr  = YARD.'jibres_waf/'. $_mode. '/';
+		// replace : for ipv6
+		$_ip = str_replace(':', '-', $_ip);
+		// create file addr
+		$ipSecAddr  .= $_ip. '.yaml';
+
+		return $ipSecAddr;
+	}
+
+
+
+	private static function find_ip_path($_ip)
+	{
+		$fileName = str_replace(':', '-', $_ip). '.yaml';
+
+		$folderLive      = self::folderWAF. 'live/'. $fileName;
+		$folderIsolation = self::folderWAF. 'isolation/'. $fileName;
+		$folderBan       = self::folderWAF. 'ban/'. $fileName;
+
+		if(file_exists($folderLive))
+		{
+			return $folderLive;
+		}
+		if(file_exists($folderIsolation))
+		{
+			return $folderIsolation;
+		}
+		if(file_exists($folderBan))
+		{
+			return $folderBan;
+		}
+
+		return null;
+	}
+
+
+	/**
+	 * validateIP address from developer or init
+	 * @param  [type] $_ip [description]
+	 * @return [type]      [description]
+	 */
+	private static function validateIP($_ip = null)
+	{
+		if($_ip)
+		{
+			// check ip with dog for external requests
+			dash\engine\dog\ip::inspection($_ip);
+			return $_ip;
+		}
+
+		return \dash\server::ip();
+	}
+
+
 	/**
 	 * initialize ip folders and fileName
 	 * @return [type] [description]
 	 */
-	private static function init()
+	private static function checkAndCreateFolders()
 	{
-		self::$IP = \dash\server::ip();
-		$fileName = str_replace(':', '-', self::$IP). '.yaml';
-
-		// folder Name
-		$folderLive      = YARD. 'jibres_waf/live/';
-		$folderIsolation = YARD. 'jibres_waf/isolation/';
-		$folderBan       = YARD. 'jibres_waf/ban/';
+		// check folders and create them
+		$folderLive      = self::folderWAF. 'live/';
+		$folderIsolation = self::folderWAF. 'isolation/';
+		$folderBan       = self::folderWAF. 'ban/';
 
 		// create folders if not exist
 		if(!is_dir($folderLive))
@@ -297,10 +348,6 @@ class ip
 		{
 			\dash\file::makeDir($folderBan, null, true);
 		}
-
-		self::$addrLive      = $folderLive. $fileName;
-		self::$addrIsolation = $folderIsolation. $fileName;
-		self::$addrBan       = $folderBan. $fileName;
 	}
 }
 ?>
