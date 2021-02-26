@@ -25,6 +25,49 @@ class blacklist
 			// $myAddr = str_replace('/index.php', '', $myAddr);
 			// \dash\redirect::to(\dash\url::base(). $myAddr);
 		}
+
+		// block some ext in url
+		if(strpos(\dash\url::path(), '.php') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.asp') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.aspx') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.jsp') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.js') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.do') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.git') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.env') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '.sh') !== false)
+		{
+			\dash\header::status(451);
+		}
+		if(strpos(\dash\url::path(), '[]') !== false)
+		{
+			\dash\header::status(451);
+		}
+
 		// favicon
 		if(strpos(\dash\url::path(), '/favicon.ico') !== false)
 		{
