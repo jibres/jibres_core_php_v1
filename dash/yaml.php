@@ -7,12 +7,30 @@ class yaml
 
 	public static function save($_file, $_data)
 	{
+		if(!function_exists('yaml_emit_file'))
+		{
+			if (!extension_loaded('yaml'))
+			{
+				return false;
+			}
+			return null;
+		}
+
 		return yaml_emit_file($_file, $_data);
 	}
 
 
 	public static function read($_file)
 	{
+		if(!function_exists('yaml_parse_file'))
+		{
+			if (!extension_loaded('yaml'))
+			{
+				return false;
+			}
+			return null;
+		}
+
 		if(!file_exists($_file))
 		{
 			return null;

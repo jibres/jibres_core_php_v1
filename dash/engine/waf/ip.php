@@ -134,7 +134,8 @@ class ip
 		];
 
 		// get ip file data
-		$ipData = file_get_contents($liveIPAddr);
+		// $ipData = file_get_contents($liveIPAddr);
+		$ipData = \dash\yaml::read($liveIPAddr);
 		if(!$ipData)
 		{
 			return $result;
