@@ -23,6 +23,7 @@ class guard
 	public static function hi_developers()
 	{
 		// change header and remove php from it
+		@header("Server: Jibres");
 		@header("X-Powered-By: Jibres");
 		$server_code_name = \dash\engine\fuel::server_code_name(\dash\server::server_ip());
 		@header("X-Node: ". $server_code_name);
