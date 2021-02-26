@@ -5,6 +5,9 @@ class protection
 {
 	public static function start()
 	{
+		// dont run on some condition
+		blacklist::dont_run_exception();
+
 		// start dog
 		self::dog();
 
