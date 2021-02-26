@@ -15,9 +15,9 @@ else
        ?><h1><?php echo T_("Jibres"); ?> - <?php echo T_('No.1 Free eCommerce Solution'); ?></h1></a>
      </div>
      <nav class="c s0">
-       <a href="<?php echo \dash\url::kingdom() ?>/pricing"><?php echo T_("Pricing"); ?></a>
-       <a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Domains"); ?></a>
-       <a href="<?php echo \dash\url::kingdom() ?>/support"><?php echo T_("Help Center"); ?></a>
+       <a href="<?php echo \dash\url::kingdom(); ?>/free"><?php echo T_("Why Free?"); ?></a>
+       <a href="<?php echo \dash\url::kingdom(); ?>/domains"><?php echo T_("Domains"); ?></a>
+       <a target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help Center"); ?> <i class="sf-link-external"></i></a>
      </nav>
      <div class="cauto"><?php
 if (\dash\user::id())
