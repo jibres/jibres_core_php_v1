@@ -52,14 +52,14 @@ class ip
 					}
 				}
 
-				self::saveFile($myIP, $ipData['firstTry'].'|'.$current .'');
+				self::saveYaml($myIP, $ipData['firstTry'].'|'.$current .'');
 			}
 		}
 		else
 		{
 			// If first request or new request after 1 hour / 24 hour ban,
 			// new file with <timestamp>|<counter>
-			self::saveFile($myIP, time().'|0');
+			self::saveYaml($myIP, time().'|0');
 		}
 	}
 
@@ -83,8 +83,8 @@ class ip
 		$fileData = $_from.'|ban';
 
 		// save into file
-		self::saveFile($_ip, $fileData);
-		self::saveFile($_ip, $fileData, 'ban');
+		self::saveYaml($_ip, $fileData);
+		self::saveYaml($_ip, $fileData, 'ban');
 	}
 
 
@@ -171,6 +171,7 @@ class ip
 		switch ($_mode)
 		{
 			case 'live':
+			case 'isolation':
 			case 'ban':
 
 				break;
@@ -188,6 +189,28 @@ class ip
 		$ipSecAddr  .= $_ip. '.yaml';
 
 		return $ipSecAddr;
+	}
+
+
+	private static function saveYaml($_ip, $_data, $_mode = 'live')
+	{
+		$fileAddr = self::getFileAddr($_ip, $_mode);
+		$dir = dirname($fileAddr);
+
+		// check
+		if(!is_dir($dir))
+		{
+			\dash\file::makeDir($dir, null, true);
+		}
+
+		if(\dash\yaml::save($fileAddr, $_data))
+		{
+			// okay
+			return true;
+		}
+
+		// some error
+		return false;
 	}
 
 
