@@ -5,9 +5,13 @@ namespace dash\engine\dog;
  */
 class ip
 {
-	public static function inspection()
+	public static function inspection($_ip = null)
 	{
-		$ip = \dash\server::ip();
+		if(!$_ip)
+		{
+			$ip = \dash\server::ip();
+		}
+
 		// we need something for this
 		\dash\engine\dog\toys\only::something($ip);
 		// only can be text
