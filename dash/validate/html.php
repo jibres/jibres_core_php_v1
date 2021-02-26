@@ -106,44 +106,20 @@ class html
 			return $_data;
 		}
 
-		try
+		$data = $_data;
+
+		$allow_tag = self::allow_tag();
+
+		foreach ($allow_tag as $tag => $detail)
 		{
 			$utf8_meta = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
 
 			$doc = new \DOMDocument('1.0', 'UTF-8');
 
-			@$doc->loadHTML($utf8_meta. $_data, LIBXML_HTML_NODEFDTD | LIBXML_NONET | LIBXML_BIGLINES | LIBXML_NOBLANKS );
+			@$doc->loadHTML($utf8_meta. $data, LIBXML_HTML_NODEFDTD | LIBXML_NONET | LIBXML_BIGLINES);
 
-			self::clean_element($doc);
-
-			$new_html = $doc->saveHTML();
-
-			$new_html = trim($new_html);
-
-			$new_html = htmlspecialchars_decode($new_html);
-
-			return $new_html;
-
-		}
-		catch (\Exception $e)
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("Can not analyze html"));
-				\dash\cleanse::$status = false;
-			}
-			return false;
-		}
-	}
-
-
-	private static function clean_element(&$doc)
-	{
-		$allow_tag = self::allow_tag();
-
-		foreach ($allow_tag as $tag => $detail)
-		{
 			$nodes = $doc->getElementsByTagName($tag);
+
 			if($nodes->length)
 			{
 				foreach( $nodes as $nodeTagName )
@@ -162,7 +138,22 @@ class html
 				    $nodeTagName->parentNode->replaceChild($nodeNewTagname, $nodeTagName);
 				}
 			}
+
+			$doc->normalizeDocument();
+
+			$new_html = $doc->saveHTML();
+
+			$data = $new_html;
+
 		}
+
+		$data = htmlspecialchars_decode($data);
+		$data = preg_replace("/\n/", ' ', $data);
+		$data = preg_replace("/\s{2,}/", ' ', $data);
+
+		$data = \dash\db::safe($data);
+
+		return $data;
 	}
 
 
