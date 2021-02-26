@@ -40,12 +40,24 @@ class controller
 
 		// save referer
 		// to redirect the user ofter login or signup on the referered address
-		$referer = \dash\validate::url(\dash\request::get('referer'), false);
-		if($referer)
+		$ref = \dash\request::get('referer');
+		$refDecode = urldecode(urldecode(urldecode($ref)));
+		if(strpos($refDecode, '://') !== false)
 		{
-			$referer = urldecode($referer);
-			\dash\session::set('enter_referer', $referer);
+			// have a link to another location
+			// open redirect bug
+			\dash\header::status(451);
 		}
+
+		// @todo
+		// need validate relative url
+		//
+		// $referer = \dash\validate::url($ref, false);
+		// if($referer)
+		// {
+		// }
+
+		\dash\session::set('enter_referer', $ref);
 	}
 
 

@@ -465,42 +465,45 @@ class enter
 			return $_url;
 		}
 
-		$host = \dash\url::kingdom();
+		$newPath = null;
 
 		// get url language
 		// if have referer redirect to referer
-		if(\dash\validate::url(\dash\request::get('referer'), false))
+		if(\dash\session::get('enter_referer'))
 		{
-			$host = \dash\validate::url(\dash\request::get('referer'), false);
-		}
-		elseif(\dash\session::get('enter_referer'))
-		{
-			$host = \dash\session::get('enter_referer');
+			$newPath = '/'. urldecode(\dash\session::get('enter_referer'));
 			\dash\session::clean('enter_referer');
 		}
 		elseif(self::get_session('app_mode'))
 		{
-			$host .= '/enter/app?ok=true';
+			$newPath = '/enter/app?ok=true';
 			self::set_session('app_mode', false);
 		}
 		elseif(self::get_session('first_signup'))
 		{
-			$host .= '/my';
+			$newPath = '/my';
 		}
 		else
 		{
 			if(\dash\engine\store::inStore())
 			{
-				$host .= '/';
+				$newPath = '/';
 			}
 			else
 			{
-				$host .= '/my';
+				$newPath = '/my';
 			}
-
 		}
 
-		return $host;
+		// have a link to another location
+		// open redirect bug
+		if(strpos($newPath, '://') !== false)
+		{
+			\dash\header::status(451);
+		}
+		$newPath = \dash\url::kingdom(). $newPath;
+
+		return $newPath;
 	}
 
 
