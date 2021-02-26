@@ -145,7 +145,7 @@ class redirect
 	{
 		if(!\dash\user::login())
 		{
-			$pwd = urlencode(\dash\url::pwd());
+			$pwd = urlencode(\dash\url::location());
 
 			if($_php)
 			{
