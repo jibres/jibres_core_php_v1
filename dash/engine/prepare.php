@@ -548,13 +548,15 @@ class prepare
 		{
 			\dash\header::status(404);
 		}
+
 		// static
 		if(strpos(\dash\url::path(), '/index.html') !== false || strpos(\dash\url::path(), '/index.php') !== false)
 		{
-			$myAddr = str_replace('/index.html', '', \dash\url::path());
-			$myAddr = str_replace('/index.php', '', $myAddr);
+			\dash\header::status(404);
 
-			\dash\redirect::to(\dash\url::base(). $myAddr);
+			// $myAddr = str_replace('/index.html', '', \dash\url::path());
+			// $myAddr = str_replace('/index.php', '', $myAddr);
+			// \dash\redirect::to(\dash\url::base(). $myAddr);
 		}
 		// favicon
 		if(strpos(\dash\url::path(), '/favicon.ico') !== false)
