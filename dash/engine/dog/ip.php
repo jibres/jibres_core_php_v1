@@ -43,7 +43,6 @@ class ip
 	private static function ipv6($ip)
 	{
 		\dash\engine\dog\toys\general::len($ip, 2, 46);
-
 	}
 }
 ?>

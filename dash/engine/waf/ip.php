@@ -3,8 +3,15 @@ namespace dash\engine\waf;
 
 class ip
 {
+	private static $IP = null;
+	private static $addrLive = null;
+	private static $addrIsolation = null;
+	private static $addrBan = null;
+
 	public static function monitor()
 	{
+		self::init();
+
 		// get real ip
 		$myIP = \dash\server::ip();
 
@@ -59,10 +66,25 @@ class ip
 		{
 			// If first request or new request after 1 hour / 24 hour ban,
 			// new file with <timestamp>|<counter>
-			self::saveYaml($myIP, time().'|0');
+			self::set($myIP, 0);
 		}
 	}
 
+
+	private static function set($_ip)
+	{
+		$data =
+		[
+			'ip'       => $_ip,
+			'firstTry' => null,
+			'try'      => null,
+			'diff'     => null,
+			'diffm'    => null,
+			'rpm'      => null,
+		];
+
+		self::saveYaml($_ip, $data);
+	}
 
 	public static function block($_ip, $_from = null, $_to = null)
 	{
@@ -107,7 +129,7 @@ class ip
 	{
 		if(!$_ip)
 		{
-			return null;
+			$_ip = self::$IP;
 		}
 
 		// check ip is valid or not
@@ -129,7 +151,7 @@ class ip
 			'firstTry' => null,
 			'try'      => null,
 			'diff'     => null,
-			'diffm'     => null,
+			'diffm'    => null,
 			'rpm'      => null,
 		];
 
@@ -140,7 +162,7 @@ class ip
 		{
 			return $result;
 		}
-
+		return;
 		// Create paraset [0] -> timestamp  [1] -> counter
 		$ipArr = explode('|', $ipData);
 
@@ -245,6 +267,40 @@ class ip
 
 		// some error
 		return false;
+	}
+
+
+	/**
+	 * initialize ip folders and fileName
+	 * @return [type] [description]
+	 */
+	private static function init()
+	{
+		self::$IP = \dash\server::ip();
+		$fileName = str_replace(':', '-', self::$IP). '.yaml';
+
+		// folder Name
+		$folderLive      = YARD. 'jibres_waf/live/';
+		$folderIsolation = YARD. 'jibres_waf/isolation/';
+		$folderBan       = YARD. 'jibres_waf/ban/';
+
+		// create folders if not exist
+		if(!is_dir($folderLive))
+		{
+			\dash\file::makeDir($folderLive, null, true);
+		}
+		if(!is_dir($folderIsolation))
+		{
+			\dash\file::makeDir($folderIsolation, null, true);
+		}
+		if(!is_dir($folderBan))
+		{
+			\dash\file::makeDir($folderBan, null, true);
+		}
+
+		self::$addrLive      = $folderLive. $fileName;
+		self::$addrIsolation = $folderIsolation. $fileName;
+		self::$addrBan       = $folderBan. $fileName;
 	}
 }
 ?>
