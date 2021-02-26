@@ -280,6 +280,40 @@ class ip
 	}
 
 
+	private static function generate_file_path($_ip, $_mode)
+	{
+		$addrPath = self::generate_addr_path($_mode);
+		if($addrPath)
+		{
+			$fileName = str_replace(':', '-', $_ip). '.yaml';
+			$fullPath = $addrPath. $fileName;
+
+			return $fullPath;
+		}
+
+		return false;
+	}
+
+
+	private static function generate_addr_path($_mode)
+	{
+		switch ($_mode)
+		{
+			case 'live':
+			case 'isolation':
+			case 'ban':
+				break;
+
+			default:
+				return false;
+				break;
+		}
+
+		$fileAddr = self::folderWAF. $_mode. '/';
+
+		return $fileAddr;
+	}
+
 
 	private static function find_ip_path($_ip)
 	{
@@ -331,22 +365,19 @@ class ip
 	private static function checkAndCreateFolders()
 	{
 		// check folders and create them
-		$folderLive      = self::folderWAF. 'live/';
-		$folderIsolation = self::folderWAF. 'isolation/';
-		$folderBan       = self::folderWAF. 'ban/';
-
-		// create folders if not exist
-		if(!is_dir($folderLive))
+		$myFolders =
+		[
+			'live'      => self::generate_addr_path('live'),
+			'isolation' => self::generate_addr_path('isolation'),
+			'ban'       => self::generate_addr_path('ban'),
+		];
+var_dump($myFolders);
+		foreach ($myFolders as $key => $folder)
 		{
-			\dash\file::makeDir($folderLive, null, true);
-		}
-		if(!is_dir($folderIsolation))
-		{
-			\dash\file::makeDir($folderIsolation, null, true);
-		}
-		if(!is_dir($folderBan))
-		{
-			\dash\file::makeDir($folderBan, null, true);
+			if(!is_dir($folder))
+			{
+				\dash\file::makeDir($folder, null, true);
+			}
 		}
 	}
 }
