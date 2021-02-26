@@ -114,8 +114,8 @@ else
             <ul>
               <li class="title"><?php echo T_('Support'); ?></li>
               <li>
-                <a class="item f" href="<?php echo \dash\url::support(); ?>">
-                <div class="key"><?php echo T_('Support Center'); ?></div>
+                <a target="_blank" class="item f" href="<?php echo \dash\url::support(); ?>">
+                <div class="key"><?php echo T_('Support Center'); ?> <i class="sf-external-link"></i></div>
                 <div class="go"></div>
                 </a>
               </li>
@@ -159,7 +159,7 @@ else
               <li class="title"><?php echo T_('Resources'); ?></li>
               <li>
                 <a class="item f" target="_blank" href="https://blog.jibres.<?php if(\dash\language::current() == 'fa') {echo "ir";} else {echo "com";} ?>">
-                <div class="key"><?php echo T_('Blog'); ?></div>
+                <div class="key"><?php echo T_('Blog'); ?>  <i class="sf-external-link"></i></div>
                 <div class="go"></div>
                 </a>
               </li>
@@ -247,12 +247,14 @@ else
                 <div class="go"></div>
                 </a>
               </li>
+<?php if(\dash\language::current() == 'fa' and 0) { ?>
               <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/careers">
+                <a class="item f" href="https://careers.jibres.ir">
                 <div class="key"><?php echo T_('Careers'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
+<?php } ?>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/press">
                 <div class="key"><?php echo T_('Press and Media'); ?></div>
