@@ -185,7 +185,7 @@ class ip
 		// replace : for ipv6
 		$_ip = str_replace(':', '-', $_ip);
 		// create file addr
-		$ipSecAddr  .= $_ip. '.txt';
+		$ipSecAddr  .= $_ip. '.yaml';
 
 		return $ipSecAddr;
 	}
