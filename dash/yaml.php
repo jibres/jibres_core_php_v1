@@ -16,6 +16,11 @@ class yaml
 			return null;
 		}
 
+		if(!$_file)
+		{
+			return false;
+		}
+
 		return yaml_emit_file($_file, $_data);
 	}
 
