@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-02-20 14:39+0330\n"
-"PO-Revision-Date: 2021-02-20 15:18+0330\n"
+"POT-Creation-Date: 2021-02-26 15:24+0330\n"
+"PO-Revision-Date: 2021-02-26 15:25+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -759,8 +759,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_a/accounting/turnover/display.php:156 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:35 content_a/form/analytics/answer/display.php:117
 #: content_a/form/answer/detail/display.php:140 content_a/order/editdate/display.php:31
-#: content_a/order/home/filter.php:228 content_account/billing/display.php:53
-#: content_account/billing/display.php:60 content_business/orders/display.php:20
+#: content_a/order/home/filter.php:228 content_business/orders/display.php:20
 #: content_love/domain/action/display.php:14 content_love/domain/billing/display.php:95
 #: content_love/domain/credit/display.php:28 content_love/domain/log/display.php:98
 #: content_love/domain/nicdetail/display.php:17
@@ -1994,6 +1993,10 @@ msgstr "بازکردن قفل سیستم"
 msgid "Hi! I'm MrAdib, Jibres founder."
 msgstr "سلام! من آقای ادیب هستم. بنیان‌گذار جیبرس."
 
+#: content/free/display.php:4
+msgid "Wait a minute... I want to say why Jibres is free soon"
+msgstr "کمی صبر کنید. بزودی به شما توضیح خواهم داد که چرا جیبرس رایگان است."
+
 #: content/free/view.php:9
 msgid "Why is Jibres free?"
 msgstr "چرا جیبرس رایگان است؟"
@@ -2693,10 +2696,9 @@ msgstr "تمام حقوق محفوظ است."
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
-#: content/home/layout/header.php:18 content/home/layout/pwa-footer.php:64
-#: content_su/smsclient/home/display.php:18
-msgid "Pricing"
-msgstr "هزینه‌ها"
+#: content/home/layout/header.php:18
+msgid "Why Free?"
+msgstr "چرا رایگان؟"
 
 #: content/home/layout/header.php:25 content_a/home/view.php:17 content_my/home/view.php:9
 #: dash/layout/pwa/pwa_menu.php:102 dash/panel.php:34
@@ -2718,6 +2720,10 @@ msgstr "ثبت‌نام"
 #: content/home/layout/pwa-footer.php:44
 msgid "Jibres Vertical Logo"
 msgstr "لوگوی عمودی جیبرس"
+
+#: content/home/layout/pwa-footer.php:64 content_su/smsclient/home/display.php:18
+msgid "Pricing"
+msgstr "هزینه‌ها"
 
 #: content/home/layout/pwa-footer.php:70
 msgid "Developers API"
@@ -3183,7 +3189,7 @@ msgstr ""
 "اگر شما علاقمند به سرمایه‌گذاری در جیبرس هستید، ما این صفحه را برای پاسخ به سوالات شما "
 "ایجاد کرده‌ایم"
 
-#: content/ip/home/display.php:11 content/ip/home/view.php:22
+#: content/ip/home/display.php:11 content/ip/home/view.php:29
 #: content_a/setting/pcpos/display.php:90 content_a/setting/pcpos/display.php:92
 #: content_cms/comments/view/display.php:82 content_crm/ticket/view/display.php:270
 #: content_love/domain/log/display.php:99 content_love/domain/onlineniclog/display.php:99
@@ -3194,14 +3200,14 @@ msgstr ""
 msgid "IP"
 msgstr "آی‌پی"
 
-#: content/ip/home/display.php:15 content_a/accounting/irvat/add/display.php:314
+#: content/ip/home/display.php:16 content_a/accounting/irvat/add/display.php:314
 #: content_a/setup/address/display.php:11 content_business/shipping/display.php:117
 #: content_my/domain/irnic/add/display.php:55 dash/utility/location.php:27
 #: lib/app/form/item/type.php:224
 msgid "Country"
 msgstr "کشور"
 
-#: content/ip/home/display.php:19 content/ip/home/view.php:29
+#: content/ip/home/display.php:22 content/ip/home/view.php:36
 #: content_a/accounting/irvat/add/display.php:261
 #: content_a/accounting/irvat/add/display.php:327
 #: content_a/chap/size-a4/oneSide-buyer.php:43
@@ -3211,7 +3217,7 @@ msgstr "کشور"
 msgid "Province"
 msgstr "استان"
 
-#: content/ip/home/display.php:23 content/ip/home/view.php:30
+#: content/ip/home/display.php:28 content/ip/home/view.php:37
 #: content_a/accounting/irvat/add/display.php:262
 #: content_a/accounting/irvat/add/display.php:336
 #: content_a/chap/size-a4/oneSide-buyer.php:53
@@ -3222,15 +3228,15 @@ msgstr "استان"
 msgid "City"
 msgstr "شهر"
 
-#: content/ip/home/display.php:27 content/ip/home/view.php:31
+#: content/ip/home/display.php:34 content/ip/home/view.php:38
 msgid "ISP"
 msgstr "آی‌‌اس‌پی"
 
-#: content/ip/home/display.php:31
+#: content/ip/home/display.php:40
 msgid "latitude"
 msgstr "عرض جغرافیایی"
 
-#: content/ip/home/display.php:35
+#: content/ip/home/display.php:46
 msgid "longitude"
 msgstr "طول جغرافیایی"
 
@@ -4775,9 +4781,9 @@ msgstr "کد"
 #: content_a/website/body/add/display.php:111 content_a/website/menu/item/display.php:17
 #: content_a/website/menu/item/display.php:31
 #: content_a/website/specialslider/add/display.php:18
-#: content_account/billing/display.php:52 content_cms/comments/edit/display.php:17
-#: content_cms/comments/view/display.php:162 content_cms/files/view/display.php:20
-#: content_cms/tag/add/display.php:6 content_cms/tag/edit/display.php:5
+#: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:162
+#: content_cms/files/view/display.php:20 content_cms/tag/add/display.php:6
+#: content_cms/tag/edit/display.php:5
 #: content_crm/member/transactions/detail/display.php:14
 #: content_crm/member/transactions/minus/display.php:7
 #: content_crm/member/transactions/plus/display.php:7
@@ -5110,7 +5116,6 @@ msgstr "ماهیت گروه"
 #: content_a/accounting/coding/all/display.php:105
 #: content_a/accounting/coding/display.php:20 content_a/cart/home/display.php:180
 #: content_a/form/answer/display.php:54 content_a/form/answer/display.php:65
-#: content_account/billing/display.php:62 content_account/billing/display.php:100
 #: content_crm/member/home/display-old.php:83
 #: content_love/business/domain/alllist/display.php:30
 #: content_love/log/home/logTable.php:9 content_pay/home/display.php:269
@@ -5363,7 +5368,6 @@ msgid "Accounting detail"
 msgstr "تفصیل"
 
 #: content_a/accounting/doc/add/display-docdetail.php:95
-#: content_account/billing/display.php:18
 #: content_crm/member/transactions/minus/display.php:12
 #: content_crm/member/transactions/plus/display.php:12
 #: content_love/domain/credit/display.php:30
@@ -5917,7 +5921,7 @@ msgstr "جنسیت"
 #: content_a/sale/display.php:50 content_crm/member/home/display-old.php:159
 #: content_crm/ticket/assign/display.php:22 content_my/ipg/profile/display.php:22
 #: content_my/ipg/setup/profile/display.php:22 dash/app.php:172 dash/app/user.php:232
-#: dash/user.php:235
+#: dash/user.php:200
 msgid "Mr"
 msgstr "آقای"
 
@@ -5926,7 +5930,7 @@ msgstr "آقای"
 #: content_a/sale/display.php:51 content_crm/member/home/display-old.php:159
 #: content_crm/ticket/assign/display.php:23 content_my/ipg/profile/display.php:28
 #: content_my/ipg/setup/profile/display.php:28 dash/app.php:176 dash/app/user.php:236
-#: dash/user.php:239
+#: dash/user.php:204
 msgid "Mrs"
 msgstr "خانم"
 
@@ -7886,7 +7890,7 @@ msgstr "کوچکتر از"
 #: content_a/products/variants/display-add-variants.php:59
 #: content_a/setting/domain/manage/display.php:27
 #: content_a/setting/domain/manage/display.php:103
-#: content_a/setting/domain/manage/display.php:126 content_account/billing/display.php:54
+#: content_a/setting/domain/manage/display.php:126
 #: content_love/business/domain/dns/display.php:38
 #: content_love/business/domain/dns/display.php:74
 #: content_love/business/domain/dnslist/display.php:26
@@ -9125,7 +9129,7 @@ msgstr "عملیات"
 #: content_a/products/shipping/view.php:15 content_a/products/status/view.php:15
 #: content_a/products/variants/view.php:15 content_crm/home/display.php:171
 #: content_crm/home/display.php:192 dash/app.php:89 dash/app.php:187 dash/app.php:193
-#: dash/app/log/ready.php:52 dash/app/transaction.php:51 dash/user.php:228
+#: dash/app/log/ready.php:52 dash/app/transaction.php:51 dash/user.php:193
 msgid "Without name"
 msgstr "بدون نام"
 
@@ -11190,7 +11194,7 @@ msgstr "مدیریت حساب‌کاربری و سطوح دسترسی"
 msgid "Manage how you ship orders to customers"
 msgstr "مدیریت نحوه ارسال سفارشات به مشتریان"
 
-#: content_a/setting/home/display.php:88 content_account/billing/display.php:19
+#: content_a/setting/home/display.php:88 content_account/billing/display.php:15
 msgid "Checkout"
 msgstr "پرداخت"
 
@@ -14138,34 +14142,23 @@ msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 msgid "Billing usage detail"
 msgstr "جزئیات میزان استفاده"
 
-#: content_account/billing/display.php:9 content_my/business/start/display.php:27
+#: content_account/billing/display.php:8 content_my/business/start/display.php:27
 msgid "Charge your account"
 msgstr "شارژ حساب کاربری"
 
-#: content_account/billing/display.php:10
+#: content_account/billing/display.php:14
 msgid "Enter an amount to charge your account"
 msgstr "میزان شارژ حساب کاربری خود را وارد کنید"
 
-#: content_account/billing/display.php:36
+#: content_account/billing/display.php:24
 msgid "Your credit"
 msgstr "اعتبار شما"
 
-#: content_account/billing/display.php:48
+#: content_account/billing/display.php:32
 msgid "Billing History"
 msgstr "تاریخچه پرداخت‌ها"
 
-#: content_account/billing/display.php:55
-msgid "Budget After"
-msgstr "بودجه"
-
-#: content_account/billing/display.php:61 content_enter/verify/view.php:151
-#: content_love/transactions/display.php:69 content_my/ipg/setup/stepGuide.php:92
-#: content_my/ipg/setupGuide.php:13 dash/app/transaction/filter.php:30
-#: dash/app/transaction/filter.php:31
-msgid "Verify"
-msgstr "اعتبارسنجی"
-
-#: content_account/billing/display.php:111
+#: content_account/billing/display.php:83
 msgid "You are not have payment history yet!"
 msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
@@ -18213,7 +18206,7 @@ msgid "Alert!"
 msgstr "هشدار!"
 
 #: content_enter/alert/view.php:16 content_enter/verify/model.php:76
-#: dash/utility/enter.php:1089 dash/utility/enter.php:1100 dash/utility/enter.php:1107
+#: dash/utility/enter.php:1076 dash/utility/enter.php:1087 dash/utility/enter.php:1094
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
@@ -18553,7 +18546,7 @@ msgstr "مرورگر شما گذرواژه ذخیره شده ای را ارسا�
 msgid "Pleaes set mobile number"
 msgstr "لطفا شماره تلفن‌همراه را وارد کنید"
 
-#: content_enter/signup/model.php:84 dash/utility/enter.php:1494
+#: content_enter/signup/model.php:84 dash/utility/enter.php:1481
 msgid "Please do not use your mobile in password!"
 msgstr "لطفا از موبایل خود در گذرواژه استفاده نکنید!"
 
@@ -18815,6 +18808,12 @@ msgstr "این درخواست برای بازیابی حساب کاربری اس
 #: content_enter/verify/view.php:146
 msgid "This is request of change password."
 msgstr "این درخواست برای تغییر گذرواژه است."
+
+#: content_enter/verify/view.php:151 content_love/transactions/display.php:69
+#: content_my/ipg/setup/stepGuide.php:92 content_my/ipg/setupGuide.php:13
+#: dash/app/transaction/filter.php:30 dash/app/transaction/filter.php:31
+msgid "Verify"
+msgstr "اعتبارسنجی"
 
 #: content_enter/verify/view.php:156
 msgid "Verify by Call"
@@ -24915,12 +24914,12 @@ msgstr "ما نمی‌توانیم به سرویس دیتابیس متصل شو�
 msgid "Unable to connect to this store at this time"
 msgstr "در حال حاضر امکان اتصال به این فروشگاه وجود ندارد"
 
-#: dash/db/mysql/tools/connection.php:130
+#: dash/db/mysql/tools/connection.php:132
 msgid "Please contact administrator!"
 msgstr "لطفا با مدیر سیستم تماس بگیرید!"
 
-#: dash/db/mysql/tools/connection.php:137 dash/db/mysql/tools/connection.php:143
-#: dash/db/mysql/tools/connection.php:149 dash/social/telegram/commands/ermile.php:175
+#: dash/db/mysql/tools/connection.php:144 dash/db/mysql/tools/connection.php:150
+#: dash/db/mysql/tools/connection.php:156 dash/social/telegram/commands/ermile.php:175
 #: dash/social/telegram/commands/ermile.php:448
 msgid "Hello!"
 msgstr "سلام!"
@@ -24989,7 +24988,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:333
+#: dash/engine/guard.php:332
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -26595,11 +26594,11 @@ msgstr "نمی‌توانید این فایل را به عنوان ویدئو ا
 msgid "Can not set this file as post audio!"
 msgstr "نمی‌توانید این فایل را به عنوان پادکست انتخاب کنید!"
 
-#: dash/upload/extentions.php:161
+#: dash/upload/extentions.php:165
 msgid "Content type of this file is different by extension of file"
 msgstr "نوع محتوای فایل بارگذاری شده با پسوند فایل همخوانی ندارد"
 
-#: dash/upload/extentions.php:173
+#: dash/upload/extentions.php:177
 msgid "Can not upload this file. Some keywords of this file is wrong!"
 msgstr ""
 "امکان بارگذاری این نوع فایل وجود ندارد. بعضی از کلمات کلیدی اشتباه در این فایل یافت شد!"
@@ -26695,51 +26694,51 @@ msgstr "شما مسدود شدید"
 msgid "User id not found to save your session"
 msgstr "شناسه کاربر برای ذخیره نشست یافت نشد"
 
-#: dash/utility/enter.php:927
+#: dash/utility/enter.php:914
 msgid "Too many request for generate code"
 msgstr "تعداد درخواست‌های زیادی برای ساخت کد اعتبار سنجی از سمت آی‌پی‌ شما ارسال شده است"
 
-#: dash/utility/enter.php:1020
+#: dash/utility/enter.php:1007
 msgid "Please fill the verification code"
 msgstr "لطفا کد اعتبارسنجی را وارد کنید"
 
-#: dash/utility/enter.php:1029
+#: dash/utility/enter.php:1016
 msgid "What happend? the code is number. you try to send string!?"
 msgstr "چی شده؟ کد باید عددی باشد. شما چطوری دارین متن وارد میکنید!؟"
 
-#: dash/utility/enter.php:1036
+#: dash/utility/enter.php:1023
 msgid "Please enter the 5 digit code sent to your mobile phone"
 msgstr "لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:1057
+#: dash/utility/enter.php:1044
 msgid "System error, try again"
 msgstr "خطای سیستم، دوباره تلاش کنید"
 
-#: dash/utility/enter.php:1081
+#: dash/utility/enter.php:1068
 msgid "Your sms not deliver to us!"
 msgstr "پیامک شما بدست ما نرسیده است!"
 
-#: dash/utility/enter.php:1125
+#: dash/utility/enter.php:1112
 msgid "Wrong code entered, Please enter the 5 digit code sent to your mobile phone"
 msgstr "کد اشتباهی وارد شده است، لطفا کد ۵ رقمی ارسال شده به موبایل خود را وارد کنید"
 
-#: dash/utility/enter.php:1245
+#: dash/utility/enter.php:1232
 msgid "Your two-step verification is now active for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما فعال است"
 
-#: dash/utility/enter.php:1273
+#: dash/utility/enter.php:1260
 msgid "Your two-step verification is now deactive for your account"
 msgstr "ورود دو مرحله ای هم اکنون برای حساب کاربری شما غیر فعال است"
 
-#: dash/utility/enter.php:1300
+#: dash/utility/enter.php:1287
 msgid "Your password was changed"
 msgstr "کلمه عبور شما تغییر یافت"
 
-#: dash/utility/enter.php:1479
+#: dash/utility/enter.php:1466
 msgid "You must set 6 character and large in password"
 msgstr "گذرواژه باید حداقل ۶ کاراکتر باشد"
 
-#: dash/utility/enter.php:1486
+#: dash/utility/enter.php:1473
 msgid "You must set less than 99 character in password"
 msgstr "گذرواژه باید کمتر از ۹۹ کاراکتر باشد"
 
@@ -27369,6 +27368,14 @@ msgstr "فیلد :val باید کمتر از ۸ حرف باشد"
 msgid "Invalid time format, Please enter the time by correct format for example 12:15"
 msgstr "قالب ساعت اشتباه است. لطفا ساعت را به درستی وارد کنید برای مثال ۱۲:۱۵"
 
+#: dash/validate/html.php:63
+msgid "Can not send base64 image in this field"
+msgstr "نمی‌توانید متنی در قالب بیس۶۴ در این فیلد ارسال کنید"
+
+#: dash/validate/html.php:132
+msgid "Can not analyze html"
+msgstr "نمی‌توانیم اچ‌تی‌ام‌ال را آنالیز کنیم"
+
 #: dash/validate/iban.php:150
 msgid "IBAN number must be contain country code and have exactly 24 number"
 msgstr "شماره شبا باید دارای کد کشور باشد و دقیقا ۲۴ رقم عدد را در خود جای دهد"
@@ -27566,8 +27573,8 @@ msgid "Can not use more than one dot character in filename"
 msgstr "نمی‌توانید از بیشتر از یک نقطه در نام فایل استفاده کنید"
 
 #: dash/validate/text.php:269
-msgid "Can not use .txt in filename"
-msgstr ""
+msgid "Invlid filename"
+msgstr "نام فایل اشتباه"
 
 #: dash/validate/text.php:293
 msgid "Only A-Za-z0-9 Can be set on static file content"
@@ -27610,35 +27617,31 @@ msgid "Email is invalid"
 msgstr "مقدار رایانامه اشتباه است"
 
 #: dash/validate/text.php:512
-msgid "Can not send base64 image in this field"
-msgstr "نمی‌توانید متنی در قالب بیس۶۴ در این فیلد ارسال کنید"
-
-#: dash/validate/text.php:558
 msgid "Field :val must be exactly 32 character"
 msgstr "فیلد :val باید دقیقا ۳۲ حرف باشد"
 
-#: dash/validate/text.php:568
+#: dash/validate/text.php:522
 msgid "Invalid md5"
 msgstr "مقدار کدگذاری شده اشتباه است"
 
-#: dash/validate/text.php:592
+#: dash/validate/text.php:546
 msgid "Invalid language"
 msgstr "مقدار رشته زبان اشتباه است"
 
-#: dash/validate/text.php:687
+#: dash/validate/text.php:641
 msgid "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی نمایید"
 
-#: dash/validate/text.php:710
+#: dash/validate/text.php:664
 msgid "Please set the sku less than 16 character"
 msgstr "لطفا کد محصول را کمتر از ۱۶ حرف وارد کنید"
 
-#: dash/validate/text.php:717
+#: dash/validate/text.php:671
 msgid "Only [A-Za-z0-9_-] can use in sku"
 msgstr "شما باید فقط از حروف و اعداد لاتین در کد محصول استفاده کنید"
 
-#: dash/validate/text.php:740 dash/validate/url.php:24
+#: dash/validate/text.php:694 dash/validate/url.php:24
 msgid "Url is invalid"
 msgstr "مقدار آدرس اینترنتی اشتباه است"
 
@@ -39366,6 +39369,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Budget After"
+#~ msgstr "بودجه"
 
 #~ msgid "Save Storage limit"
 #~ msgstr "تنظیم فضای ذخیره‌سازی"
