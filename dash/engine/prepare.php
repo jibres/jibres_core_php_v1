@@ -561,7 +561,7 @@ class prepare
 		// favicon
 		if(strpos(\dash\url::path(), '/favicon.ico') !== false)
 		{
-			\dash\redirect::to(\dash\url::cdn(). '/images/favicons/favicon.ico');
+			\dash\redirect::to(\dash\url::cdn(). '/favicons/favicon.ico');
 		}
 	}
 
