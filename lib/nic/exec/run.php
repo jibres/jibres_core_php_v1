@@ -26,8 +26,8 @@ class run
 			'datesend'      => date("Y-m-d H:i:s"),
 			'request_count' => $_request_count,
 			'client_id'     => $tracking_number,
-			'nic_id'        => $_nic_id,
-			'domain'        => $_domain,
+			'nic_id'        => \dash\validate::string_300($_nic_id),
+			'domain'        => \dash\validate::string_300($_domain),
 			'ip'            => \dash\server::iplong(),
 			'gateway'		=> \dash\temp::get('run:by:system') ? 'system' : 'user',
 		];
