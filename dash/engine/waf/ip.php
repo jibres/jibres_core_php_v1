@@ -3,7 +3,7 @@ namespace dash\engine\waf;
 
 class ip
 {
-	public static function checkLimit()
+	public static function monitor()
 	{
 		// get real ip
 		$myIP = \dash\server::ip();
@@ -30,9 +30,9 @@ class ip
 			else if (a($ipData, 'diff') > 3600)
 			{
 				// If first request was more than 1 hour, new ip file
-				if(file_exists(self::ipFileAddr($myIP)))
+				if(file_exists(self::getFileAddr($myIP)))
 				{
-					unlink(self::ipFileAddr($myIP));
+					unlink(self::getFileAddr($myIP));
 				}
 			}
 			else
@@ -71,8 +71,8 @@ class ip
 			return false;
 		}
 
-		$liveIPAddr = self::ipFileAddr($_ip);
-		$banIPAddr  = self::ipFileAddr($_ip, 'ban');
+		$liveIPAddr = self::getFileAddr($_ip);
+		$banIPAddr  = self::getFileAddr($_ip, 'ban');
 
 		// block ip address
 		if(!$_from)
@@ -95,8 +95,8 @@ class ip
 			return false;
 		}
 
-		$liveIPAddr = self::ipFileAddr($_ip);
-		$banIPAddr  = self::ipFileAddr($_ip, 'ban');
+		$liveIPAddr = self::getFileAddr($_ip);
+		$banIPAddr  = self::getFileAddr($_ip, 'ban');
 
 		unlink($liveIPAddr);
 		unlink($banIPAddr);
@@ -116,7 +116,7 @@ class ip
 			return false;
 		}
 
-		$liveIPAddr = self::ipFileAddr($_ip);
+		$liveIPAddr = self::getFileAddr($_ip);
 
 		if (!file_exists($liveIPAddr))
 		{
@@ -166,7 +166,7 @@ class ip
 	}
 
 
-	private static function ipFileAddr($_ip, $_mode = 'live')
+	private static function getFileAddr($_ip, $_mode = 'live')
 	{
 		switch ($_mode)
 		{
@@ -181,7 +181,7 @@ class ip
 		}
 
 		// folderAddr
-		$ipSecAddr  = YARD.'jibres_ipsec/'. $_mode. '/';
+		$ipSecAddr  = YARD.'jibres_waf/'. $_mode. '/';
 		// replace : for ipv6
 		$_ip = str_replace(':', '-', $_ip);
 		// create file addr
@@ -193,7 +193,7 @@ class ip
 
 	private static function saveFile($_ip, $_data, $_mode = 'live')
 	{
-		$fileAddr = self::ipFileAddr($_ip, $_mode);
+		$fileAddr = self::getFileAddr($_ip, $_mode);
 		$dir = dirname($fileAddr);
 
 		// check

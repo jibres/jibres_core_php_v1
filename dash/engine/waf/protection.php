@@ -12,7 +12,7 @@ class protection
 		\dash\engine\waf\baby::block();
 
 		// check ip
-		\dash\engine\waf\ip::checkLimit();
+		\dash\engine\waf\ip::monitor();
 
 		// disallow flood
 		\dash\engine\waf\race::escort();
