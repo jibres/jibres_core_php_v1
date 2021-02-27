@@ -101,27 +101,26 @@ class ip
 		$defaultData =
 		[
 			'ip'       => $_ip,
+			'zone' => null,
 			'path'     => null,
-			'agent'    => [],
-			'category' => null,
 			'reqFirst' => null,
 			'reqLast'  => null,
 			'reqCount' => null,
 			'diff'     => null,
 			'diffm'    => null,
 			'rpm'      => null,
-			'history'  => [],
+			'agent'    => [],
 		];
 		$data = array_merge($defaultData, $_fileData);
 
 		// create path
-		if(!isset($data['category']))
+		if(!isset($data['zone']))
 		{
-			$data['category'] = 'live';
+			$data['zone'] = 'live';
 		}
 		if(!isset($data['path']))
 		{
-			$data['path'] = self::generate_file_path($_ip, $data['category']);
+			$data['path'] = self::generate_file_path($_ip, $data['zone']);
 		}
 
 		// set request count to zero for first request
@@ -152,22 +151,23 @@ class ip
 		// save agent if not exist
 		$myAgent = \dash\agent::agent(false);
 		$myAgentMd5 = md5($myAgent);
-		if(isset($data['agent'][$myAgentMd5]))
+		if(isset($data['agent'][$myAgentMd5]['name']))
 		{
 			// do nothing yet
 		}
 		else
 		{
-			$data['agent'][$myAgentMd5] = $myAgent;
-		}
-		// add history
-		array_unshift($data['history'], \dash\url::pwd());
-		// save 10 history page
-		if(count($data['history']) > 10)
-		{
-			array_pop($data['history']);
+			$data['agent'][$myAgentMd5]['name']    = $myAgent;
+			$data['agent'][$myAgentMd5]['history'] = [];
 		}
 
+		// add history
+		array_unshift($data['agent'][$myAgentMd5]['history'], \dash\url::pwd());
+		// save 10 history page
+		if(count($data['agent'][$myAgentMd5]['history']) > 10)
+		{
+			array_pop($data['agent'][$myAgentMd5]['history']);
+		}
 
 		return $data;
 	}
