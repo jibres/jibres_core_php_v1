@@ -4,8 +4,6 @@ namespace dash\engine\waf;
 class ip
 {
 	// define waf folder as const
-	private const folderWAF = YARD. 'jibres_waf/';
-
 	private static $IP = null;
 	private static $addrLive = null;
 	private static $addrIsolation = null;
@@ -18,64 +16,17 @@ class ip
 		{
 			return false;
 		}
-
+		// try to create folders
 		self::checkAndCreateFolders();
 
 		// get ip status
 		$ipData = self::fetch();
-		$saveResult = self::save_yaml_file($ipData);
 
-		if ($ipData)
-		{
-			if (a($ipData, 'try') === 'ban')
-			{
-				// if it was less than 24 hours and die if so
-				if (a($ipData, 'diff') > 86400)
-				{
-					// 24 hours in seconds.. if more delete ip file
-					self::unblock($myIP);
-				}
-				else
-				{
-					// \dash\log::set('ipBan');
-					// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests :(');
-				}
-			}
-			else if (a($ipData, 'diff') > 3600)
-			{
-				// If first request was more than 1 hour, new ip file
-				if(file_exists(self::getFileAddr($myIP)))
-				{
-					unlink(self::getFileAddr($myIP));
-				}
-			}
-			else
-			{
-				// Counter + 1
-				$current = 0;
-				// $current = (int)$ipData['try'] + 1;
+		// send to court
+		$judgment = self::court($ipData);
 
-				if ($current > 120)
-				{
-					// We check rpm (request per minute) after 100 request to get a good ~value
-					if ( $ipData['rpm'] > 10)
-					{
-						// If there was more than 10 rpm -> ban
-						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						// self::block($myIP, $ipData['firstTry']);
-						// return;
-					}
-				}
-
-				// self::saveYaml($myIP, $ipData['firstTry'].'|'.$current .'');
-			}
-		}
-		else
-		{
-			// If first request or new request after 1 hour / 24 hour ban,
-			// new file with <timestamp>|<counter>
-			self::set($myIP, 0);
-		}
+		// save judgment inside file
+		$saveResult = self::save_yaml_file($judgment);
 	}
 
 
@@ -101,7 +52,7 @@ class ip
 		$defaultData =
 		[
 			'ip'       => $_ip,
-			'zone' => null,
+			'zone'     => null,
 			'path'     => null,
 			'reqFirst' => null,
 			'reqLast'  => null,
@@ -180,25 +131,56 @@ class ip
 	}
 
 
-
-
-
-
-
-	private static function set($_ip)
+	private static function court($_info)
 	{
-		$data =
-		[
-			'ip'       => $_ip,
-			'firstTry' => null,
-			'try'      => null,
-			'diff'     => null,
-			'diffm'    => null,
-			'rpm'      => null,
-		];
+		if (a($_info, 'diffm') > 60)
+		{
+			// If first request was more than 1 hour, new ip file
+			// if(file_exists(self::getFileAddr($myIP)))
+			// {
+			// 	unlink(self::getFileAddr($myIP));
+			// }
+		}
 
-		self::saveYaml($_ip, $data);
+
+		switch (a($_info, 'zone'))
+		{
+			case 'live':
+				if (a($_info, 'reqCount') > 120)
+				{
+					// We check rpm (request per minute) after 100 request to get a good ~value
+					if ( $_info['rpm'] > 60)
+					{
+						// If there was more than 10 rpm -> ban
+						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
+						self::block($myIP, $_info['firstTry']);
+						return;
+					}
+				}
+				break;
+
+			case 'isolated':
+				break;
+
+
+			case 'ban':
+				// if it was less than 24 hours and die if so
+				if (a($_info, 'diffm') > (60 * 24))
+				{
+					// 24 hours in seconds.. if more delete ip file
+					self::unblock($_info);
+				}
+				else
+				{
+					// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
+				}
+				break;
+
+			default:
+				break;
+		}
 	}
+
 
 	public static function block($_ip, $_from = null, $_to = null)
 	{
@@ -239,89 +221,37 @@ class ip
 	}
 
 
-	private static function saveYaml($_ip, $_data, $_mode = 'live')
-	{
-		$fileAddr = self::getFileAddr($_ip, $_mode);
-		$dir = dirname($fileAddr);
+	// private static function saveFile($_ip, $_data, $_mode = 'live')
+	// {
+	// 	$fileAddr = '';
+	// 	$dir = dirname($fileAddr);
 
-		// check
-		if(!is_dir($dir))
-		{
-			\dash\file::makeDir($dir, null, true);
-		}
+	// 	// check
+	// 	if(!is_dir($dir))
+	// 	{
+	// 		\dash\file::makeDir($dir, null, true);
+	// 	}
 
-		if(\dash\yaml::save($fileAddr, $_data))
-		{
-			// okay
-			return true;
-		}
+	// 	$handle = fopen($fileAddr, 'w+');
 
-		// some error
-		return false;
-	}
+	// 	if ($handle)
+	// 	{
+	// 		// write in file
+	// 		if (fwrite($handle, $_data))
+	// 		{
+	// 			// Chmod to prevent access via web
+	// 			chmod($fileAddr, 0700);
+	// 		}
+	// 		// close file
+	// 		fclose($handle);
 
+	// 		// okay
+	// 		return true;
+	// 	}
 
-	private static function saveFile($_ip, $_data, $_mode = 'live')
-	{
-		$fileAddr = self::getFileAddr($_ip, $_mode);
-		$dir = dirname($fileAddr);
-
-		// check
-		if(!is_dir($dir))
-		{
-			\dash\file::makeDir($dir, null, true);
-		}
-
-		$handle = fopen($fileAddr, 'w+');
-
-		if ($handle)
-		{
-			// write in file
-			if (fwrite($handle, $_data))
-			{
-				// Chmod to prevent access via web
-				chmod($fileAddr, 0700);
-			}
-			// close file
-			fclose($handle);
-
-			// okay
-			return true;
-		}
-
-		// some error
-		return false;
-	}
-
-
-	private static function getFileAddr($_mode)
-	{
-		switch ($_mode)
-		{
-			case 'live':
-			case 'isolation':
-			case 'ban':
-
-				break;
-
-			default:
-				return null;
-				break;
-		}
-
-		// folderAddr
-		$ipSecAddr  = YARD.'jibres_waf/'. $_mode. '/';
-		// replace : for ipv6
-		$_ip = str_replace(':', '-', $_ip);
-		// create file addr
-		$ipSecAddr  .= $_ip. '.yaml';
-
-		return $ipSecAddr;
-	}
-
-
-
-
+	// 	// some error
+	// 	return false;
+	// }
 
 
 	private static function save_yaml_file($_data)
@@ -371,7 +301,7 @@ class ip
 				break;
 		}
 
-		$fileAddr = self::folderWAF. $_mode. '/';
+		$fileAddr = YARD. 'jibres_waf/'. $_mode. '/';
 
 		return $fileAddr;
 	}
