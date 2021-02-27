@@ -157,7 +157,14 @@ class ip
 		}
 		else
 		{
-			$data['agent'][$myAgentMd5]['name']    = $myAgent;
+			$data['agent'][$myAgentMd5]['name'] = $myAgent;
+			// read agent data
+			$browserData = \dash\browser::analyze($myAgent);
+			$data['agent'][$myAgentMd5]['platform']    = $browserData['platform'];
+			$data['agent'][$myAgentMd5]['browser']     = $browserData['browser'];
+			$data['agent'][$myAgentMd5]['version']     = $browserData['version'];
+			$data['agent'][$myAgentMd5]['device_type'] = $browserData['device_type'];
+
 			$data['agent'][$myAgentMd5]['history'] = [];
 		}
 
