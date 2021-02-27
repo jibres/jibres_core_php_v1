@@ -17,6 +17,13 @@ class ip
 		// only can be text
 		\dash\engine\dog\toys\only::text($ip);
 
+		// disallow html tags
+		\dash\engine\dog\toys\block::tags($ip);
+		// disallow some char inside ip
+		\dash\engine\dog\toys\block::word($ip, '"');
+		\dash\engine\dog\toys\block::word($ip, "'");
+		\dash\engine\dog\toys\block::word($ip, "\n");
+
 		// check ip is valid or not
 		if(!filter_var($ip, FILTER_VALIDATE_IP))
 		{
