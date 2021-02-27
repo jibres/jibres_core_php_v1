@@ -88,69 +88,58 @@ class ip
 	}
 
 
-	public static function analyze($_data)
+	public static function analyze($_fileData)
 	{
+		if(!is_array($_fileData))
+		{
+			$_fileData = [];
+		}
+
 		// create array of all fodlers, files, and all data
-		$result =
+		$defaultData =
 		[
-			'addr'     =>
-			[
-				'fileName' => str_replace(':', '-', $myIP). '.yaml',
-				'live'     => str_replace(':', '-', $myIP). '.yaml',
-			],
-			'data'     =>
-			[
-				'ip'       => $myIP,
-				// 'firstTry' => null,
-				// 'try'      => null,
-				// 'diff'     => null,
-				// 'diffm'    => null,
-				// 'rpm'      => null,
-			],
+			'ip'       => $myIP,
+			'fileName' => str_replace(':', '-', $myIP). '.yaml',
+			'fileAddr' => str_replace(':', '-', $myIP). '.yaml',
+			'category' => null,
+			'reqFirst' => null,
+			'reqLast'  => null,
+			'reqCount' => null,
+			'diff'     => null,
+			'diffm'    => null,
+			'rpm'      => null,
 		];
 
+		$data = array_merge($defaultData, $_fileData);
 
-
-
-		$liveIPAddr = self::getFileAddr($_ip);
-
-		if (!file_exists($liveIPAddr))
+		// set request count to zero
+		if(!isset($data['reqCount']))
 		{
-			return null;
+			$data['reqCount'] = 0;
 		}
-
-
-		// get ip file data
-		// $ipData = file_get_contents($liveIPAddr);
-		$ipData = \dash\yaml::read($liveIPAddr);
-		if(!$ipData)
+		// plus request count
+		$data['reqCount'] = $data['reqCount'] + 1;
+		$data['reqLast']  = time();
+		//
+		if(isset($data['reqFirst']))
 		{
-			return $result;
-		}
-		return;
-		// Create paraset [0] -> timestamp  [1] -> counter
-		$ipArr = explode('|', $ipData);
-
-		if(isset($ipArr[0]) && $ipArr[0])
-		{
-			$result['firstTry'] = (int)$ipArr[0];
-
 			// Time difference in seconds from first request to now
-			$result['diff'] = time() - $result['firstTry'];
-			$result['diffm'] = intval((time() - $result['firstTry']) / 60);
+			$data['diff']    = $data['reqLast'] - $data['reqFirst'];
+			$data['diffm']   = intval($data['diff'] / 60);
 		}
+
 		if(isset($ipArr[1]) && $ipArr[1])
 		{
-			$result['try'] = $ipArr[1];
+			$data['try'] = $ipArr[1];
 			// calc rpm
-			if($result['diffm'])
+			if($data['diffm'])
 			{
 				// request per minute
-				$result['rpm'] = round( ((int)$result['try']) / $result['diffm'], 1 );
+				$data['rpm'] = round( ((int)$data['try']) / $data['diffm'], 1 );
 			}
 		}
 
-		return $result;
+		return $data;
 	}
 
 
