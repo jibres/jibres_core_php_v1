@@ -22,7 +22,7 @@ class ip
 		self::checkAndCreateFolders();
 
 		// get ip status
-		$ipData = self::status();
+		$ipData = self::fetch();
 
 		if ($ipData)
 		{
@@ -77,10 +77,19 @@ class ip
 	}
 
 
-	public static function status($_ip = null)
+	public static function fetch($_ip = null)
 	{
+		// validate ip
 		$myIP = self::validateIP($_ip);
+		// open ip file
+		$ipData = self::open_ip_file($myIP);
 
+		return self::analyze($ipData);
+	}
+
+
+	public static function analyze($_data)
+	{
 		// create array of all fodlers, files, and all data
 		$result =
 		[
@@ -315,6 +324,18 @@ class ip
 		$fileAddr = self::folderWAF. $_mode. '/';
 
 		return $fileAddr;
+	}
+
+
+	private static function open_ip_file($_ip)
+	{
+		$myFile = self::find_ip_path($_ip);
+		if($myFile)
+		{
+			return \dash\yaml::read($myFile);
+		}
+
+		return null;
 	}
 
 
