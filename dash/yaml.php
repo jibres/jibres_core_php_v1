@@ -41,7 +41,17 @@ class yaml
 			return null;
 		}
 
-		return yaml_parse_file($_file);
+		$data = null;
+		try
+		{
+			$data = @yaml_parse_file($_file);
+
+		} catch (Exception $e)
+		{
+			$data = false;
+		}
+
+		return $data;
 	}
 
 }
