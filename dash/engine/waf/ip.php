@@ -23,8 +23,7 @@ class ip
 
 		// get ip status
 		$ipData = self::fetch();
-
-		self::save_yaml_file($ipData);
+		$saveResult = self::save_yaml_file($ipData);
 
 		if ($ipData)
 		{
@@ -87,11 +86,11 @@ class ip
 		// open ip file
 		$ipData = self::open_ip_file($myIP);
 
-		return self::analyze($ipData);
+		return self::analyze($myIP, $ipData);
 	}
 
 
-	public static function analyze($_fileData)
+	private static function analyze($_ip, $_fileData)
 	{
 		if(!is_array($_fileData))
 		{
@@ -101,8 +100,7 @@ class ip
 		// create array of all fodlers, files, and all data
 		$defaultData =
 		[
-			'ip'       => null,
-			'fileName' => null,
+			'ip'       => $_ip,
 			'path'     => null,
 			'agent'    => [],
 			'category' => null,
@@ -112,8 +110,19 @@ class ip
 			'diff'     => null,
 			'diffm'    => null,
 			'rpm'      => null,
+			'history'  => [],
 		];
 		$data = array_merge($defaultData, $_fileData);
+
+		// create path
+		if(!isset($data['category']))
+		{
+			$data['category'] = 'live';
+		}
+		if(!isset($data['path']))
+		{
+			$data['path'] = self::generate_file_path($_ip, $data['category']);
+		}
 
 		// set request count to zero for first request
 		if(!isset($data['reqCount']))
@@ -151,9 +160,22 @@ class ip
 		{
 			$data['agent'][$myAgentMd5] = $myAgent;
 		}
+		// add history
+		array_unshift($data['history'], \dash\url::pwd());
+		// save 10 history page
+		if(count($data['history']) > 10)
+		{
+			array_pop($data['history']);
+		}
+
 
 		return $data;
 	}
+
+
+
+
+
 
 
 	private static function set($_ip)
