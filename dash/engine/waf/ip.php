@@ -24,6 +24,8 @@ class ip
 		// get ip status
 		$ipData = self::fetch();
 
+		self::save_yaml_file($ipData);
+
 		if ($ipData)
 		{
 			if (a($ipData, 'try') === 'ban')
@@ -51,7 +53,8 @@ class ip
 			else
 			{
 				// Counter + 1
-				$current = (int)$ipData['try'] + 1;
+				$current = 0;
+				// $current = (int)$ipData['try'] + 1;
 
 				if ($current > 120)
 				{
@@ -65,7 +68,7 @@ class ip
 					}
 				}
 
-				self::saveYaml($myIP, $ipData['firstTry'].'|'.$current .'');
+				// self::saveYaml($myIP, $ipData['firstTry'].'|'.$current .'');
 			}
 		}
 		else
@@ -98,9 +101,10 @@ class ip
 		// create array of all fodlers, files, and all data
 		$defaultData =
 		[
-			'ip'       => $myIP,
-			'fileName' => str_replace(':', '-', $myIP). '.yaml',
-			'fileAddr' => str_replace(':', '-', $myIP). '.yaml',
+			'ip'       => null,
+			'fileName' => null,
+			'path'     => null,
+			'agent'    => [],
 			'category' => null,
 			'reqFirst' => null,
 			'reqLast'  => null,
@@ -109,34 +113,43 @@ class ip
 			'diffm'    => null,
 			'rpm'      => null,
 		];
-
 		$data = array_merge($defaultData, $_fileData);
 
-		// set request count to zero
+		// set request count to zero for first request
 		if(!isset($data['reqCount']))
 		{
 			$data['reqCount'] = 0;
 		}
+		if(!isset($data['reqFirst']))
+		{
+			$data['reqFirst'] = time();
+		}
 		// plus request count
 		$data['reqCount'] = $data['reqCount'] + 1;
 		$data['reqLast']  = time();
-		//
-		if(isset($data['reqFirst']))
-		{
-			// Time difference in seconds from first request to now
-			$data['diff']    = $data['reqLast'] - $data['reqFirst'];
-			$data['diffm']   = intval($data['diff'] / 60);
-		}
 
-		if(isset($ipArr[1]) && $ipArr[1])
+		// Time difference in seconds from first request to now
+		$data['diff']  = $data['reqLast'] - $data['reqFirst'];
+		$data['diffm'] = intval($data['diff'] / 60);
+		// calc rpm
+		if($data['diffm'] > 0)
 		{
-			$data['try'] = $ipArr[1];
-			// calc rpm
-			if($data['diffm'])
-			{
-				// request per minute
-				$data['rpm'] = round( ((int)$data['try']) / $data['diffm'], 1 );
-			}
+			$data['rpm'] = round(($data['reqCount'] / $data['diffm']), 1 );
+		}
+		else
+		{
+			$data['rpm'] = 0;
+		}
+		// save agent if not exist
+		$myAgent = \dash\agent::agent(false);
+		$myAgentMd5 = md5($myAgent);
+		if(isset($data['agent'][$myAgentMd5]))
+		{
+			// do nothing yet
+		}
+		else
+		{
+			$data['agent'][$myAgentMd5] = $myAgent;
 		}
 
 		return $data;
@@ -279,6 +292,25 @@ class ip
 
 
 
+
+
+
+	private static function save_yaml_file($_data)
+	{
+		if(!isset($_data['path']))
+		{
+			return false;
+		}
+
+		if(\dash\yaml::save($_data['path'], $_data))
+		{
+			// okay
+			return true;
+		}
+
+		// some error
+		return false;
+	}
 
 
 	private static function generate_file_path($_ip, $_mode)
