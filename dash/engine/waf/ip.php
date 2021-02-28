@@ -104,8 +104,8 @@ class ip
 			// plus request count
 			$data['reqCounter'] = $data['reqCounter'] + 1;
 			$data['reqTotal']   = $data['reqTotal'] + 1;
-			$data['reqLast']    = time();
 		}
+		$data['reqLast'] = time();
 
 		// Time difference in seconds from first request to now
 		$data['diff']  = $data['reqLast'] - $data['reqFirst'];
@@ -120,32 +120,36 @@ class ip
 			$data['rpm'] = $data['reqCounter'];
 			$data['rps'] = $data['reqCounter'];
 		}
-		// save agent if not exist
-		$myAgent = \dash\agent::agent(false);
-		$myAgentMd5 = md5($myAgent);
-		if(isset($data['agent'][$myAgentMd5]['name']))
+		if(!$_onlyAnalyze)
 		{
-			// do nothing yet
-		}
-		else
-		{
-			$data['agent'][$myAgentMd5]['name']    = $myAgent;
-			$data['agent'][$myAgentMd5]['history'] = [];
-		}
-		// add history
-		$history = &$data['agent'][$myAgentMd5]['history'];
+			// save agent if not exist
+			$myAgent = \dash\agent::agent(false);
+			$myAgentMd5 = md5($myAgent);
+			if(isset($data['agent'][$myAgentMd5]['name']))
+			{
+				// do nothing yet
+			}
+			else
+			{
+				$data['agent'][$myAgentMd5]['name']    = $myAgent;
+				$data['agent'][$myAgentMd5]['history'] = [];
+			}
+			// add history
+			$history = &$data['agent'][$myAgentMd5]['history'];
 
-		$history[time()] =
-		[
-			'url'     => \dash\url::pwd(),
-			'request' => \dash\request::is(),
-			'ajax'    => \dash\request::ajax(),
-		];
-		// save history page
-		if(count($history) > 20)
-		{
-			reset($history);
-			unset($history[key($history)]);
+			$history[time()] =
+			[
+				'url'     => \dash\url::pwd(),
+				'request' => \dash\request::is(),
+				'ajax'    => \dash\request::ajax(),
+			];
+			// save history page
+			if(count($history) > 20)
+			{
+				reset($history);
+				unset($history[key($history)]);
+			}
+
 		}
 
 		return $data;
