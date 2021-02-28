@@ -8,8 +8,9 @@ class simple
 		$captcha_config = unserialize($_SESSION['_CAPTCHA']['config']);
 		if( !$captcha_config ) exit();
 
-		if( isset($_GET['_RENDER']) ) {
-				$_SESSION['_CAPTCHA'] = simple_php_captcha();
+		if( isset($_GET['_RENDER']) )
+		{
+				$_SESSION['_CAPTCHA'] = self::simple_php_captcha();
 		} else {
 				unset($_SESSION['_CAPTCHA']);
 		}
