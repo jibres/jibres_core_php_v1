@@ -7,7 +7,12 @@ class ip
 {
 	public static function inspection($_ip = null)
 	{
-		if(!$_ip)
+		$ip = null;
+		if($_ip)
+		{
+			$ip = $_ip;
+		}
+		else
 		{
 			$ip = \dash\server::ip();
 		}

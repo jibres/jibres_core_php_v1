@@ -23,7 +23,7 @@ class view
 			// get ip detail from jibres data
 			if(\dash\permission::supervisor())
 			{
-				\dash\data::ipStatus(\dash\engine\waf\ip::status($myIp));
+				\dash\data::ipStatus(\dash\engine\waf\ip::fetch($myIp));
 			}
 
 			\dash\face::title(T_("IP"). " ". $myIp);

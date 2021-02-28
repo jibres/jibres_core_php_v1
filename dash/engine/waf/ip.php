@@ -425,7 +425,7 @@ class ip
 		if($_ip)
 		{
 			// check ip with dog for external requests
-			dash\engine\dog\ip::inspection($_ip);
+			\dash\engine\dog\ip::inspection($_ip);
 			return $_ip;
 		}
 
