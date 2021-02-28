@@ -125,7 +125,9 @@ class agent
 			"yoozBot",
 			"TelegramBot",
 			"pingbot",
-			"MJ12bot"
+			"MJ12bot",
+			"Adsbot",
+			"UptimeRobot",
 		];
 
 		foreach($botlist as $bot)
