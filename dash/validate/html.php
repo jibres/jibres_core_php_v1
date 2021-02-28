@@ -26,6 +26,7 @@ class html
 		{
 			$allow_tag['img']        = ['allow_attr' => ['style', 'class', 'src', 'alt']];
 			$allow_tag['a']          = ['allow_attr' => ['style', 'class', 'href', 'target']];
+			$allow_tag['oembed']     = ['allow_attr' => ['style', 'class', 'url']]; // allow video on youtube
 			$allow_tag['table']      = ['allow_attr' => ['style', 'class']];
 			$allow_tag['thead']      = ['allow_attr' => ['style', 'class']];
 			$allow_tag['tbody']      = ['allow_attr' => ['style', 'class']];
@@ -34,7 +35,6 @@ class html
 			$allow_tag['th']         = ['allow_attr' => ['style', 'class']];
 			$allow_tag['figure']     = ['allow_attr' => ['style', 'class']];
 			$allow_tag['figcaption'] = ['allow_attr' => ['style', 'class']];
-			$allow_tag['oembed']     = ['allow_attr' => ['style', 'class']];
 			$allow_tag['blockquote'] = ['allow_attr' => ['style', 'class']];
 		}
 
