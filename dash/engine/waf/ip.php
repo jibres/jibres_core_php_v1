@@ -77,7 +77,14 @@ class ip
 
 		if(!isset($data['zone']))
 		{
-			$data['zone'] = 'live';
+			if(\dash\agent::isBot())
+			{
+				$data['zone'] = 'bot';
+			}
+			else
+			{
+				$data['zone'] = 'live';
+			}
 		}
 		// set request count to zero for first request
 		if(!isset($data['reqCounter']))
@@ -152,6 +159,7 @@ class ip
 		switch (a($_info, 'zone'))
 		{
 			case 'live':
+			case 'bot':
 				if (a($_info, 'diff') > (60 * 60))
 				{
 					// If first request was more than 1 hour, new ip file
@@ -382,6 +390,7 @@ class ip
 		switch ($_mode)
 		{
 			case 'live':
+			case 'bot':
 			case 'isolation':
 			case 'ban':
 				break;
@@ -414,6 +423,7 @@ class ip
 		$myLocations =
 		[
 			'live'      => self::generate_file_path($_ip, 'live'),
+			'bot'       => self::generate_file_path($_ip, 'bot'),
 			'isolation' => self::generate_file_path($_ip, 'isolation'),
 			'ban'       => self::generate_file_path($_ip, 'ban'),
 		];
@@ -460,6 +470,7 @@ class ip
 		$myFolders =
 		[
 			'live'      => self::generate_addr_path('live'),
+			'bot'       => self::generate_addr_path('bot'),
 			'isolation' => self::generate_addr_path('isolation'),
 			'ban'       => self::generate_addr_path('ban'),
 		];
