@@ -40,19 +40,21 @@ class ip
 		// open ip file
 		$ipData = self::open_ip_file($myIP);
 
-		if(!$_ip)
+		if($_ip)
 		{
-			if(!isset($ipData['country']))
-			{
-				$ipData['country'] = \dash\request::country();
-			}
+			// only Analyze mode
+			return self::analyze($myIP, $ipData, true);
 		}
 
+		if(!isset($ipData['country']))
+		{
+			$ipData['country'] = \dash\request::country();
+		}
 		return self::analyze($myIP, $ipData);
 	}
 
 
-	private static function analyze($_ip, $_fileData)
+	private static function analyze($_ip, $_fileData, $_onlyAnalyze = null)
 	{
 		if(!is_array($_fileData))
 		{
@@ -72,6 +74,7 @@ class ip
 			'reqTotal'   => null,
 			'diff'       => null,
 			'rpm'        => null,
+			'rps'        => null,
 			'log'        => [],
 			'agent'      => [],
 		];
@@ -94,10 +97,13 @@ class ip
 		{
 			$data['reqFirst'] = time();
 		}
-		// plus request count
-		$data['reqCounter'] = $data['reqCounter'] + 1;
-		$data['reqTotal']   = $data['reqTotal'] + 1;
-		$data['reqLast']    = time();
+		if(!$_onlyAnalyze)
+		{
+			// plus request count
+			$data['reqCounter'] = $data['reqCounter'] + 1;
+			$data['reqTotal']   = $data['reqTotal'] + 1;
+			$data['reqLast']    = time();
+		}
 
 		// Time difference in seconds from first request to now
 		$data['diff']  = $data['reqLast'] - $data['reqFirst'];
@@ -105,10 +111,12 @@ class ip
 		if($data['diff'] > 0)
 		{
 			$data['rpm'] = round(($data['reqCounter'] / ($data['diff'] / 60)), 1 );
+			$data['rps'] = round(($data['reqCounter'] / ($data['diff'])), 4 );
 		}
 		else
 		{
-			$data['rpm'] = 0;
+			$data['rpm'] = $data['reqCounter'];
+			$data['rps'] = $data['reqCounter'];
 		}
 		// save agent if not exist
 		$myAgent = \dash\agent::agent(false);
