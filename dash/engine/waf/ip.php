@@ -54,16 +54,17 @@ class ip
 		// create array of all fodlers, files, and all data
 		$defaultData =
 		[
-			'ip'       => $_ip,
-			'zone'     => null,
-			'reqStart' => null,
-			'reqFirst' => null,
-			'reqLast'  => null,
-			'reqCount' => null,
-			'diff'     => null,
-			'rpm'      => null,
-			'agent'    => [],
-			'log'      => [],
+			'ip'         => $_ip,
+			'zone'       => null,
+			'reqStart'   => null,
+			'reqFirst'   => null,
+			'reqLast'    => null,
+			'reqCounter' => null,
+			'reqTotal'   => null,
+			'diff'       => null,
+			'rpm'        => null,
+			'log'        => [],
+			'agent'      => [],
 		];
 		$data = array_merge($defaultData, $_fileData);
 
@@ -72,9 +73,9 @@ class ip
 			$data['zone'] = 'live';
 		}
 		// set request count to zero for first request
-		if(!isset($data['reqCount']))
+		if(!isset($data['reqCounter']))
 		{
-			$data['reqCount'] = 0;
+			$data['reqCounter'] = 0;
 		}
 		if(!isset($data['reqStart']))
 		{
@@ -85,7 +86,8 @@ class ip
 			$data['reqFirst'] = time();
 		}
 		// plus request count
-		$data['reqCount'] = $data['reqCount'] + 1;
+		$data['reqCounter'] = $data['reqCounter'] + 1;
+		$data['reqTotal']   = $data['reqTotal'] + 1;
 		$data['reqLast']  = time();
 
 		// Time difference in seconds from first request to now
@@ -93,7 +95,7 @@ class ip
 		// calc rpm
 		if($data['diff'] > 0)
 		{
-			$data['rpm'] = round(($data['reqCount'] / ($data['diff'] / 60)), 1 );
+			$data['rpm'] = round(($data['reqCounter'] / ($data['diff'] / 60)), 1 );
 		}
 		else
 		{
@@ -128,20 +130,18 @@ class ip
 
 	private static function court($_info)
 	{
-		if (a($_info, 'diff') > (60 * 60))
-		{
-			// If first request was more than 1 hour, new ip file
-			// if(file_exists(self::getFileAddr($myIP)))
-			// {
-			// 	unlink(self::getFileAddr($myIP));
-			// }
-		}
 
 
 		switch (a($_info, 'zone'))
 		{
 			case 'live':
-				if (a($_info, 'reqCount') > 120)
+				if (a($_info, 'diff') > (60 * 60))
+				{
+					// If first request was more than 1 hour, new ip file
+					self::reactive($_info);
+				}
+
+				if (a($_info, 'reqCounter') > 120)
 				{
 					// We check rpm (request per minute) after 120 request to get a good ~value
 					if ( $_info['rpm'] > 40)
@@ -154,9 +154,13 @@ class ip
 				break;
 
 			case 'isolation':
-				if(1)
+				if(0)
 				{
 					self::block($_info);
+				}
+				else
+				{
+					self::revalidate($_info);
 				}
 				break;
 
@@ -199,31 +203,59 @@ class ip
 
 	private static function isolate(&$_ipData)
 	{
-		// remove current file
-		self::delete_yaml_file($_ipData);
-		// change zone
-		$_ipData['zone'] = 'isolation';
-		$_ipData['log'][time()] = 'isolation';
+		// reset request count
+		self::resetRequestLimit($_ipData, 'isolation', 'isolation');
 	}
 
 
 	private static function block(&$_ipData)
 	{
-		// remove current file
-		self::delete_yaml_file($_ipData);
-		// change zone
-		$_ipData['zone'] = 'ban';
-		$_ipData['log'][time()] = 'block';
+		// reset request count
+		self::resetRequestLimit($_ipData, 'block', 'ban');
 	}
 
 
 	private static function unblock(&$_ipData)
 	{
-		// remove current file
-		self::delete_yaml_file($_ipData);
-		// change zone
-		$_ipData['zone'] = 'live';
-		$_ipData['log'][time()] = 'unblock';
+		// reset request count
+		self::resetRequestLimit($_ipData, 'unblock', 'live');
+	}
+
+
+	private static function reactive(&$_ipData)
+	{
+		// reset request count
+		self::resetRequestLimit($_ipData, 'reactive');
+	}
+
+
+	private static function revalidate(&$_ipData)
+	{
+		// reset request count
+		self::resetRequestLimit($_ipData, 'revalidate', 'live');
+	}
+
+
+	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null)
+	{
+		// set new zone
+		if($_newZone)
+		{
+			// remove current file
+			self::delete_yaml_file($_ipData);
+
+			$_ipData['zone'] = $_newZone;
+		}
+
+		// log new mode
+		if($_newMode)
+		{
+			$_ipData['log'][time()] = $_newMode;
+		}
+
+		// reset request count
+		$_ipData['reqFirst'] = time();
+		$_ipData['reqCounter'] = 0;
 	}
 
 
