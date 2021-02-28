@@ -58,9 +58,9 @@ class ip
 			'reqLast'  => null,
 			'reqCount' => null,
 			'diff'     => null,
-			'diffm'    => null,
 			'rpm'      => null,
 			'agent'    => [],
+			'log'      => [],
 		];
 		$data = array_merge($defaultData, $_fileData);
 
@@ -89,11 +89,10 @@ class ip
 
 		// Time difference in seconds from first request to now
 		$data['diff']  = $data['reqLast'] - $data['reqFirst'];
-		$data['diffm'] = intval($data['diff'] / 60);
 		// calc rpm
-		if($data['diffm'] > 0)
+		if($data['diff'] > 0)
 		{
-			$data['rpm'] = round(($data['reqCount'] / $data['diffm']), 1 );
+			$data['rpm'] = round(($data['reqCount'] / ($data['diff'] / 60)), 1 );
 		}
 		else
 		{
@@ -108,23 +107,18 @@ class ip
 		}
 		else
 		{
-			$data['agent'][$myAgentMd5]['name'] = $myAgent;
-			// read agent data
-			// $browserData = \dash\browser::analyze($myAgent);
-			// $data['agent'][$myAgentMd5]['platform']    = $browserData['platform'];
-			// $data['agent'][$myAgentMd5]['browser']     = $browserData['browser'];
-			// $data['agent'][$myAgentMd5]['version']     = $browserData['version'];
-			// $data['agent'][$myAgentMd5]['device_type'] = $browserData['device_type'];
-
+			$data['agent'][$myAgentMd5]['name']    = $myAgent;
 			$data['agent'][$myAgentMd5]['history'] = [];
 		}
-
 		// add history
-		array_unshift($data['agent'][$myAgentMd5]['history'], \dash\url::pwd());
+		$history = &$data['agent'][$myAgentMd5]['history'];
+
+		$history[time()] = \dash\url::pwd();
 		// save 10 history page
-		if(count($data['agent'][$myAgentMd5]['history']) > 10)
+		if(count($history) > 10)
 		{
-			array_pop($data['agent'][$myAgentMd5]['history']);
+			reset($history);
+			unset($history[key($history)]);
 		}
 
 		return $data;
@@ -133,7 +127,7 @@ class ip
 
 	private static function court($_info)
 	{
-		if (a($_info, 'diffm') > 60)
+		if (a($_info, 'diff') > (60 * 60))
 		{
 			// If first request was more than 1 hour, new ip file
 			// if(file_exists(self::getFileAddr($myIP)))
@@ -148,24 +142,23 @@ class ip
 			case 'live':
 				if (a($_info, 'reqCount') > 120)
 				{
-					// We check rpm (request per minute) after 100 request to get a good ~value
-					if ( $_info['rpm'] > 60)
+					// We check rpm (request per minute) after 120 request to get a good ~value
+					if ( $_info['rpm'] > 40)
 					{
-						// If there was more than 10 rpm -> ban
+						// If there was more than 40 rpm -> isolation
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::block($myIP, $_info['firstTry']);
-						// return;
+						self::isolate($_info);
 					}
 				}
 				break;
 
-			case 'isolated':
+			case 'isolation':
 				break;
 
 
 			case 'ban':
 				// if it was less than 24 hours and die if so
-				if (a($_info, 'diffm') > (60 * 24))
+				if (a($_info, 'diff') > (60 * 60 * 24))
 				{
 					// 24 hours in seconds.. if more delete ip file
 					self::unblock($_info);
@@ -179,8 +172,20 @@ class ip
 			default:
 				break;
 		}
+var_dump($_info);
 
 		return $_info;
+	}
+
+
+	private static function isolate(&$_ipData)
+	{
+		// remove current file
+		unlink($_ipData['path']);
+		// change zone
+		$_ipData['zone'] = 'isolation';
+		$_ipData['path'] = self::generate_file_path($_ipData['ip'], 'isolation');
+		$_ipData['log'][time()] = 'isolation';
 	}
 
 
