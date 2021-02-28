@@ -108,15 +108,20 @@ class html
 
 		$data = $_data;
 
+		$utf8_meta = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
+		$data      = $utf8_meta. $data;
+
+		// NEED GET RAW DATA
+		$data = stripslashes($data);
+
 		$allow_tag = self::allow_tag();
 
 		foreach ($allow_tag as $tag => $detail)
 		{
-			$utf8_meta = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
 
 			$doc = new \DOMDocument('1.0', 'UTF-8');
 
-			@$doc->loadHTML($utf8_meta. $data, LIBXML_HTML_NODEFDTD | LIBXML_NONET | LIBXML_BIGLINES);
+			@$doc->loadHTML($data, LIBXML_HTML_NODEFDTD | LIBXML_NONET | LIBXML_BIGLINES);
 
 			$nodes = $doc->getElementsByTagName($tag);
 
