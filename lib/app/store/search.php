@@ -59,7 +59,7 @@ class search
 
 		$query_string = \dash\validate::search($_query_string, false);
 
-		$meta['join'][] = " INNER JOIN store_data ON store_data.id = store.id ";
+		$meta['join'][] = " LEFT JOIN store_data ON store_data.id = store.id ";
 
 		if($query_string)
 		{
