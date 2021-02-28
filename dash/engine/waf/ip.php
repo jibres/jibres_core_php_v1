@@ -146,6 +146,10 @@ class ip
 				break;
 
 			case 'isolation':
+				if(1)
+				{
+					self::block($_info);
+				}
 				break;
 
 
@@ -181,42 +185,23 @@ var_dump($_info);
 	}
 
 
-	public static function block($_ip, $_from = null, $_to = null)
+	private static function block(&$_ipData)
 	{
-		if(!$_ip)
-		{
-			return false;
-		}
-
-		$liveIPAddr = self::getFileAddr($_ip);
-		$banIPAddr  = self::getFileAddr($_ip, 'ban');
-
-		// block ip address
-		if(!$_from)
-		{
-			$_from = time();
-		}
-
-		$fileData = $_from.'|ban';
-
-		// save into file
-		self::saveYaml($_ip, $fileData);
-		self::saveYaml($_ip, $fileData, 'ban');
+		// remove current file
+		self::delete_yaml_file($_ipData);
+		// change zone
+		$_ipData['zone'] = 'ban';
+		$_ipData['log'][time()] = 'block';
 	}
 
 
-	public static function unblock($_ip)
+	private static function unblock(&$_ipData)
 	{
-		if(!$_ip)
-		{
-			return false;
-		}
-
-		$liveIPAddr = self::getFileAddr($_ip);
-		$banIPAddr  = self::getFileAddr($_ip, 'ban');
-
-		unlink($liveIPAddr);
-		unlink($banIPAddr);
+		// remove current file
+		self::delete_yaml_file($_ipData);
+		// change zone
+		$_ipData['zone'] = 'live';
+		$_ipData['log'][time()] = 'unblock';
 	}
 
 
