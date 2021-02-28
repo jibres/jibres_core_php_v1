@@ -40,6 +40,14 @@ class ip
 		// open ip file
 		$ipData = self::open_ip_file($myIP);
 
+		if(!$_ip)
+		{
+			if(!isset($ipData['country']))
+			{
+				$ipData['country'] = \dash\request::country();
+			}
+		}
+
 		return self::analyze($myIP, $ipData);
 	}
 
@@ -56,6 +64,7 @@ class ip
 		[
 			'ip'         => $_ip,
 			'zone'       => null,
+			'country'    => null,
 			'reqStart'   => null,
 			'reqFirst'   => null,
 			'reqLast'    => null,
@@ -88,7 +97,7 @@ class ip
 		// plus request count
 		$data['reqCounter'] = $data['reqCounter'] + 1;
 		$data['reqTotal']   = $data['reqTotal'] + 1;
-		$data['reqLast']  = time();
+		$data['reqLast']    = time();
 
 		// Time difference in seconds from first request to now
 		$data['diff']  = $data['reqLast'] - $data['reqFirst'];
@@ -116,7 +125,11 @@ class ip
 		// add history
 		$history = &$data['agent'][$myAgentMd5]['history'];
 
-		$history[time()] = \dash\url::pwd();
+		$history[time()] =
+		[
+			'url' => \dash\url::pwd(),
+			'ajax' => \dash\request::ajax(),
+		];
 		// save history page
 		if(count($history) > 20)
 		{
