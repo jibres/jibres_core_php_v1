@@ -53,7 +53,6 @@ class ip
 		[
 			'ip'       => $_ip,
 			'zone'     => null,
-			'path'     => null,
 			'reqFirst' => null,
 			'reqLast'  => null,
 			'reqCount' => null,
@@ -64,16 +63,10 @@ class ip
 		];
 		$data = array_merge($defaultData, $_fileData);
 
-		// create path
 		if(!isset($data['zone']))
 		{
 			$data['zone'] = 'live';
 		}
-		if(!isset($data['path']))
-		{
-			$data['path'] = self::generate_file_path($_ip, $data['zone']);
-		}
-
 		// set request count to zero for first request
 		if(!isset($data['reqCount']))
 		{
@@ -181,10 +174,9 @@ var_dump($_info);
 	private static function isolate(&$_ipData)
 	{
 		// remove current file
-		unlink($_ipData['path']);
+		self::delete_yaml_file($_ipData);
 		// change zone
 		$_ipData['zone'] = 'isolation';
-		$_ipData['path'] = self::generate_file_path($_ipData['ip'], 'isolation');
 		$_ipData['log'][time()] = 'isolation';
 	}
 
@@ -261,17 +253,52 @@ var_dump($_info);
 	// }
 
 
-	private static function save_yaml_file($_data)
+	private static function generate_yaml_path($_data)
 	{
-		if(!isset($_data['path']))
+		if(!isset($_data['ip']))
 		{
 			return false;
 		}
-
-		if(\dash\yaml::save($_data['path'], $_data))
+		if(!isset($_data['zone']))
 		{
-			// okay
-			return true;
+			return false;
+		}
+		// create path of save file
+		$path = self::generate_file_path($_data['ip'], $_data['zone']);
+
+		return $path;
+	}
+
+
+	private static function delete_yaml_file($_data)
+	{
+		$path = self::generate_yaml_path($_data);
+		if($path)
+		{
+			if(file_exists($path))
+			{
+				unlink($path);
+				return true;
+
+			}
+			return false;
+		}
+
+		return null;
+	}
+
+
+	private static function save_yaml_file($_data)
+	{
+		$path = self::generate_yaml_path($_data);
+		if($path)
+		{
+			if(\dash\yaml::save($path, $_data))
+			{
+				// okay
+				return true;
+			}
+			return false;
 		}
 
 		// some error
