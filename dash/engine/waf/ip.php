@@ -27,6 +27,9 @@ class ip
 
 		// save judgment inside file
 		$saveResult = self::save_yaml_file($judgment);
+
+		// do judgment
+		self::prosecute($judgment);
 	}
 
 
@@ -160,18 +163,32 @@ class ip
 					// 24 hours in seconds.. if more delete ip file
 					self::unblock($_info);
 				}
-				else
-				{
-					// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
-				}
 				break;
 
 			default:
 				break;
 		}
-var_dump($_info);
 
 		return $_info;
+	}
+
+
+	private static function prosecute($_order)
+	{
+		switch (a($_order, 'zone'))
+		{
+			case 'isolation':
+				// show captcha
+				break;
+
+			case 'ban':
+				// block until deadline
+				\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
+				break;
+
+			default:
+				break;
+		}
 	}
 
 
