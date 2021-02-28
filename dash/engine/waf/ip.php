@@ -56,6 +56,7 @@ class ip
 		[
 			'ip'       => $_ip,
 			'zone'     => null,
+			'reqStart' => null,
 			'reqFirst' => null,
 			'reqLast'  => null,
 			'reqCount' => null,
@@ -74,6 +75,10 @@ class ip
 		if(!isset($data['reqCount']))
 		{
 			$data['reqCount'] = 0;
+		}
+		if(!isset($data['reqStart']))
+		{
+			$data['reqStart'] = time();
 		}
 		if(!isset($data['reqFirst']))
 		{
@@ -110,8 +115,8 @@ class ip
 		$history = &$data['agent'][$myAgentMd5]['history'];
 
 		$history[time()] = \dash\url::pwd();
-		// save 10 history page
-		if(count($history) > 10)
+		// save history page
+		if(count($history) > 20)
 		{
 			reset($history);
 			unset($history[key($history)]);
