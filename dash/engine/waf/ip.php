@@ -110,11 +110,11 @@ class ip
 		{
 			$data['agent'][$myAgentMd5]['name'] = $myAgent;
 			// read agent data
-			$browserData = \dash\browser::analyze($myAgent);
-			$data['agent'][$myAgentMd5]['platform']    = $browserData['platform'];
-			$data['agent'][$myAgentMd5]['browser']     = $browserData['browser'];
-			$data['agent'][$myAgentMd5]['version']     = $browserData['version'];
-			$data['agent'][$myAgentMd5]['device_type'] = $browserData['device_type'];
+			// $browserData = \dash\browser::analyze($myAgent);
+			// $data['agent'][$myAgentMd5]['platform']    = $browserData['platform'];
+			// $data['agent'][$myAgentMd5]['browser']     = $browserData['browser'];
+			// $data['agent'][$myAgentMd5]['version']     = $browserData['version'];
+			// $data['agent'][$myAgentMd5]['device_type'] = $browserData['device_type'];
 
 			$data['agent'][$myAgentMd5]['history'] = [];
 		}
@@ -154,7 +154,7 @@ class ip
 						// If there was more than 10 rpm -> ban
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
 						self::block($myIP, $_info['firstTry']);
-						return;
+						// return;
 					}
 				}
 				break;
@@ -179,6 +179,8 @@ class ip
 			default:
 				break;
 		}
+
+		return $_info;
 	}
 
 
