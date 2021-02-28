@@ -204,7 +204,7 @@ class ip
 	private static function isolate(&$_ipData)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'isolation', 'isolation');
+		self::resetRequestLimit($_ipData, 'isolate', 'isolation');
 	}
 
 
@@ -255,7 +255,7 @@ class ip
 
 		// reset request count
 		$_ipData['reqFirst'] = time();
-		$_ipData['reqCounter'] = 0;
+		$_ipData['reqCounter'] = 1;
 	}
 
 
