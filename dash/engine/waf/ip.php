@@ -11,11 +11,6 @@ class ip
 
 	public static function monitor()
 	{
-		// temporary till finish monitor
-		if(!\dash\url::isLocal())
-		{
-			return false;
-		}
 		// try to create folders
 		self::checkAndCreateFolders();
 
@@ -176,14 +171,14 @@ class ip
 				break;
 
 			case 'isolation':
-				if(0)
-				{
-					self::block($_info);
-				}
-				else
-				{
-					self::revalidate($_info);
-				}
+				// if(0)
+				// {
+				// 	self::block($_info);
+				// }
+				// else
+				// {
+				// 	self::revalidate($_info);
+				// }
 				break;
 
 
