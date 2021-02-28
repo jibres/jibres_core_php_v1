@@ -127,8 +127,9 @@ class ip
 
 		$history[time()] =
 		[
-			'url' => \dash\url::pwd(),
-			'ajax' => \dash\request::ajax(),
+			'url'     => \dash\url::pwd(),
+			'request' => \dash\request::is(),
+			'ajax'    => \dash\request::ajax(),
 		];
 		// save history page
 		if(count($history) > 20)
