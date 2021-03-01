@@ -60,7 +60,14 @@ class get
 										// load domain to add in business_domain list
 										\lib\app\business_domain\add::from_domain_approved($insert['domain']);
 									}
-									elseif(in_array('irnicRegistrationRejected', $poll['detail'][$insert['domain']]['status']))
+									elseif
+									(
+										in_array('irnicRegistrationRejected', $poll['detail'][$insert['domain']]['status']) ||
+										(
+											in_array('inactive', $poll['detail'][$insert['domain']]['status']) &&
+											in_array('irnicSuspended', $poll['detail'][$insert['domain']]['status'])
+										)
+									)
 									{
 										$log_meta['domainstatus'] = 'rejected';
 										// @reza need to check if pay money and back it
