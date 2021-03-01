@@ -129,7 +129,7 @@ class fuel
 	{
 		if($_tld === 'com')
 		{
-			return "jibres204";
+			return "jibres203";
 		}
 		else
 		{
