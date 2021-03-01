@@ -314,8 +314,15 @@ class create
 				switch ($check_duplicate_domain['status'])
 				{
 					case 'enable':
-						\dash\notif::error(T_("This domain is already in your list"));
-						return false;
+						if(isset($check_duplicate_domain['available']) && $check_duplicate_domain['available'])
+						{
+							\dash\notif::error(T_("This domain is already in your list"));
+							return false;
+						}
+						else
+						{
+							$domain_id = $check_duplicate_domain['id'];
+						}
 						break;
 
 					case 'expire':
