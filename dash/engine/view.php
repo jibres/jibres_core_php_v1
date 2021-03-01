@@ -266,6 +266,13 @@ class view
 		{
 			\dash\face::titlePWA(\dash\face::title());
 		}
+
+
+		$filteredTitle = str_replace('"', '', \dash\face::headTitle());
+		\dash\face::headTitle($filteredTitle);
+
+		$filteredDesc = str_replace('"', '', \dash\face::desc());
+		\dash\face::desc($filteredDesc);
 	}
 
 }
