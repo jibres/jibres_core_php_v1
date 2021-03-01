@@ -5,7 +5,7 @@ class viewThirdParty
 {
 	public static function append()
 	{
-		\dash\data::addons_recaptcha(self::recaptcha());
+		\dash\data::addons_recaptcha(self::googleRecaptcha());
 		if(\dash\agent::isBot())
 		{
 			return false;
@@ -49,7 +49,7 @@ class viewThirdParty
 	}
 
 
-	public static function recaptcha()
+	public static function googleRecaptcha()
 	{
 		$site_key = '6LeLI84ZAAAAAD6NG_MHThUO4pKUIxCQW8Xkcr3a';
 
