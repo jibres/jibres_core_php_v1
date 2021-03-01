@@ -78,21 +78,35 @@ class check
 				return false;
 			}
 
+
 		}
 
 		if($data['number'])
 		{
-			$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number'], $data['year_id']);
-			if(isset($check_duplicate_number['id']))
+			$my_year_id = null;
+			if($data['year_id'])
 			{
-				if(floatval($check_duplicate_number['id']) === floatval($_id))
+				$my_year_id = $data['year_id'];
+			}
+			elseif(isset($year_id) && $year_id)
+			{
+				$my_year_id = $year_id;
+			}
+
+			if($my_year_id)
+			{
+				$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number'], $my_year_id);
+				if(isset($check_duplicate_number['id']))
 				{
-					// nothing
-				}
-				else
-				{
-					\dash\notif::error(T_("Duplicate accounting document number"), 'number');
-					return false;
+					if(floatval($check_duplicate_number['id']) === floatval($_id))
+					{
+						// nothing
+					}
+					else
+					{
+						\dash\notif::error(T_("Duplicate accounting document number"), 'number');
+						return false;
+					}
 				}
 			}
 		}
