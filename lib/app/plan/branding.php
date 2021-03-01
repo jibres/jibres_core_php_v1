@@ -32,7 +32,7 @@ class branding
 
 	public static function set($_branding)
 	{
-		if(\lib\store::branding_time())
+		if(\lib\store::branding_is_expired())
 		{
 			\dash\notif::error(T_("You must first pay a plan to deactive jibres branding"));
 			return false;

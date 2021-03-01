@@ -11,7 +11,7 @@
         <form method="post" autocomplete="off" data-patch>
           <input type="hidden" name="set" value="set">
         <div class="switch1 mB20">
-          <input type="checkbox" name="removebranding" <?php if(\lib\store::branding_time()) { echo ' disabled';} if(\lib\store::branding()) { echo ' checked';} ?> id="removebranding">
+          <input type="checkbox" name="removebranding" <?php if(\lib\store::branding_is_expired()) { echo ' disabled';} if(\lib\store::branding()) { echo ' checked';} ?> id="removebranding">
           <label for="removebranding"></label>
           <label for="removebranding"><?php echo T_("Show jibres branding from website and application") ?></label>
         </div>

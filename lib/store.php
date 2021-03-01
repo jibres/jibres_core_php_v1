@@ -727,7 +727,8 @@ class store
 		return self::detail('plan');
 	}
 
-	public static function branding_time()
+
+	public static function branding_is_expired()
 	{
 		$branding = self::detail('branding');
 
@@ -741,7 +742,7 @@ class store
 		{
 			return true;
 		}
-		// have time
+		// have time and is not expired
 		if($branding_time >= time())
 		{
 			return false;
@@ -752,7 +753,7 @@ class store
 
 	public static function branding()
 	{
-		$branding = self::branding_time();
+		$branding = self::branding_is_expired();
 
 		if(!$branding)
 		{
