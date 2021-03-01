@@ -5,6 +5,7 @@ class viewThirdParty
 {
 	public static function append()
 	{
+		\dash\data::addons_recaptcha(self::recaptcha());
 		if(\dash\agent::isBot())
 		{
 			return false;
@@ -45,6 +46,14 @@ class viewThirdParty
 			default:
 				return null;
 		}
+	}
+
+
+	public static function recaptcha()
+	{
+		$site_key = '6LeLI84ZAAAAAD6NG_MHThUO4pKUIxCQW8Xkcr3a';
+
+		return $site_key;
 	}
 
 
