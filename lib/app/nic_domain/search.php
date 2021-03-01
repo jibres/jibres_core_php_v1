@@ -217,7 +217,8 @@ class search
 					}
 					else
 					{
-						$and[] = " domain.renewnotif IS NOT NULL ";
+						$yesterday = date("Y-m-d H:i:s", strtotime("-1 days"));
+						$and[] = " domain.renewnotif IS NOT NULL AND domain.renewnotif < '$yesterday' ";
 						$and[] = " domain.renewtry IS NULL ";
 						$meta['limit'] = 10;
 					}
