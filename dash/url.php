@@ -89,6 +89,7 @@ class url
 		// generate with host and path
 		self::$url['sitelang']  = self::_sitelang();
 		self::$url['kingdom']   = self::_kingdom();
+		self::$url['homepage']  = self::_homepage();
 		self::$url['support']   = self::_support();
 		self::$url['here']      = self::_here();
 		self::$url['this']      = self::_this();
@@ -684,6 +685,22 @@ class url
 		return $my_kingdom;
 	}
 
+
+	/**
+	 * get url base to used in tag or links
+	 * @return sting of base
+	 */
+	private static function _homepage()
+	{
+		$my_homepage = self::$url['base']. '/';
+
+		if(self::$url['lang'])
+		{
+			$my_homepage .= self::$url['lang'];
+		}
+
+		return $my_homepage;
+	}
 
 	/**
 	 * calc domain address

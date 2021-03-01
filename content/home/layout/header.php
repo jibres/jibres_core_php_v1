@@ -3,7 +3,7 @@
    <div class="avand">
     <div class="f">
      <div class="cauto">
-      <a class="logo" href='<?php echo \dash\url::kingdom() ?>/'><?php
+      <a class="logo" href='<?php echo \dash\url::homepage() ?>'><?php
 if (\dash\language::current() === 'fa')
 {
   echo file_get_contents(root."content/home/layout/brand-fa.svg");
