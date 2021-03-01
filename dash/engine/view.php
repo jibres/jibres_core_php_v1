@@ -271,6 +271,9 @@ class view
 		$filteredTitle = str_replace('"', '', \dash\face::headTitle());
 		\dash\face::headTitle($filteredTitle);
 
+		$filteredSEO = str_replace('"', '', \dash\face::seo());
+		\dash\face::seo($filteredSEO);
+
 		$filteredDesc = str_replace('"', '', \dash\face::desc());
 		\dash\face::desc($filteredDesc);
 	}
