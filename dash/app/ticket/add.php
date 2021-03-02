@@ -16,7 +16,8 @@ class add
 		unset($args['sendmessage']);
 
 		$file = null;
-		if(\dash\request::files('file'))
+		// only if user login can add file to ticket
+		if(\dash\user::id() && \dash\request::files('file'))
 		{
 			$file = \dash\upload\support::ticket();
 			if(!isset($file['path']))
