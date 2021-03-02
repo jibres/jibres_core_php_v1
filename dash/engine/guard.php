@@ -155,7 +155,7 @@ class guard
 
 		// add some special if that one exist on page
 		// google analytics
-		if(\dash\engine\viewThirdParty::googleRecaptcha())
+		if(\dash\captcha\recaptcha::sitekey())
 		{
 			$policy['script-src'][] = "https://www.google.com/";
 			$policy['script-src'][] = "https://www.gstatic.com/";
