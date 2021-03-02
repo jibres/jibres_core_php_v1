@@ -43,8 +43,9 @@ class db
 
 		\dash\db\mysql\tools\connection::connect($myDbFuel);
 
+		$link = \dash\db\mysql\tools\connection::link();
 		// check the mysql link
-		if(!\dash\db\mysql\tools\connection::link())
+		if(!$link)
 		{
 			\dash\notif::turn_on_log();
 			return null;
@@ -59,45 +60,45 @@ class db
 		 */
 		if($_options['multi_query'] === true)
 		{
-			$result = @mysqli_multi_query(\dash\db\mysql\tools\connection::link(), $_qry);
+			$result = @mysqli_multi_query($link, $_qry);
 
 			// check the mysql result
 			if(!is_a($result, 'mysqli_result') && !$result)
 			{
 				$have_error   = true;
-				$error_code   = @mysqli_errno(\dash\db\mysql\tools\connection::link());
-				$error_string = @mysqli_error(\dash\db\mysql\tools\connection::link());
+				$error_code   = @mysqli_errno($link);
+				$error_string = @mysqli_error($link);
 			}
 
 			if($result)
 			{
 				do
 				{
-					if ($r = mysqli_use_result(\dash\db\mysql\tools\connection::link()))
+					if ($r = mysqli_use_result($link))
 					{
 						$r->close();
 					}
 
-					if (!mysqli_more_results(\dash\db\mysql\tools\connection::link()))
+					if (!mysqli_more_results($link))
 					{
 						break;
 					}
 
-					mysqli_more_results(\dash\db\mysql\tools\connection::link());
+					mysqli_more_results($link);
 				}
-				while (mysqli_next_result(\dash\db\mysql\tools\connection::link()));
+				while (mysqli_next_result($link));
 			}
 		}
 		else
 		{
-			$result = @mysqli_query(\dash\db\mysql\tools\connection::link(), $_qry);
+			$result = @mysqli_query($link, $_qry);
 
 			// check the mysql result
 			if(!is_a($result, 'mysqli_result') && !$result)
 			{
 				$have_error   = true;
-				$error_code   = @mysqli_errno(\dash\db\mysql\tools\connection::link());
-				$error_string = @mysqli_error(\dash\db\mysql\tools\connection::link());
+				$error_code   = @mysqli_errno($link);
+				$error_string = @mysqli_error($link);
 			}
 		}
 
