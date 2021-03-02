@@ -124,10 +124,12 @@ class agent
 			"inoreader",
 			"yoozBot",
 			"TelegramBot",
+			"Twitterbot",
 			"pingbot",
 			"MJ12bot",
 			"Adsbot",
 			"UptimeRobot",
+			"AhrefsBot",
 		];
 
 		foreach($botlist as $bot)
