@@ -37,17 +37,6 @@ class view
 		$sortLink = \dash\app\sort::make_sortLink(['id', 'status', 'daterequest', 'datedone'], \dash\url::this());
 		\dash\data::sortLink($sortLink);
 
-		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
-
-		$isFiltered = \lib\app\nic_domain\search::is_filtered();
-
-		\dash\data::isFiltered($isFiltered);
-
-		if($isFiltered)
-		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
-		}
-
 		// user search anything and no result founded
 		if($search_string && !$list)
 		{
