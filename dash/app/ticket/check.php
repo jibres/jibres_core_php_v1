@@ -6,12 +6,6 @@ class check
 
 	public static function variable($_args, $_id = null, $_website_mode = false)
 	{
-		$content_condition = 'desc';
-
-		if(\dash\permission::check('crmTicketManager') && !$_website_mode)
-		{
-			$content_condition = 'html';
-		}
 
 		$condition =
 		[
@@ -25,7 +19,7 @@ class check
 			'sendmessage' => 'bit',
 			'solved'      => 'bit',
 			'file'        => 'string',
-			'content'     => $content_condition,
+			'content'     => 'desc',
 			'parent'      => 'id',
 			'base'        => 'id',
 			'branch'      => 'id',
