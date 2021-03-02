@@ -9,6 +9,7 @@
           <p><?php echo T_("To make a online business from scratch, please enter name of your business."); ?></p>
 
           <form method="post" autocomplete="off">
+            <?php \dash\csrf::html(); ?>
             <div class="input">
               <input type="text" name="bt" placeholder='<?php echo T_("Your business title"); ?>' <?php \dash\layout\autofocus::html() ?> required maxlength='50'>
             </div>

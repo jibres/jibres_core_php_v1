@@ -15,6 +15,8 @@ class controller
 		{
 			\dash\redirect::to(\dash\url::this(). '/subdomain');
 		}
+
+		\dash\csrf::set();
 	}
 }
 ?>

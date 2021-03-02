@@ -12,5 +12,6 @@
 <div class="hiden">
   <form method="post" id="createstoreform">
     <input type="hidden" name="create" value="store">
+    <?php \dash\csrf::html(); ?>
   </form>
 </div>

@@ -10,6 +10,8 @@ class controller
 		{
 			\dash\redirect::to(\dash\url::this(). '/start');
 		}
+
+		\dash\csrf::set();
 	}
 }
 ?>

@@ -7,6 +7,7 @@
           <p><?php echo T_("Your answer is important for us."); ?></p>
 
           <form method="post" autocomplete="off">
+            <?php \dash\csrf::html(); ?>
 <?php foreach (\dash\data::polls_questions() as $key => $myQ) {?>
 
             <label for="<?php echo $myQ['id']; ?>"><?php echo $myQ['title']; ?></label>
