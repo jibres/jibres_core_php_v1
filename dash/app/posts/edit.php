@@ -36,22 +36,6 @@ class edit
 
 		$exception = [];
 
-		$seo_detail            = [];
-		$seo_detail['type']    = 'post';
-		$seo_detail['id']      = a($load_posts, 'id');
-		$seo_detail['title']   = a($load_posts, 'post_title');
-		$seo_detail['seodesc'] = a($load_posts, 'excerpt');
-		$seo_detail['content'] = a($load_posts, 'content');
-		$seo_detail['tags']    = a($load_posts, 'tags');
-
-		$seoAnalyze    = \dash\seo::analyze($seo_detail);
-
-		if(isset($seoAnalyze['rank']))
-		{
-			$args['seorank'] = $seoAnalyze['rank'];
-			$exception[] = 'seorank';
-		}
-
 
 		if(isset($_args['creator']) && $_args['creator'])
 		{
@@ -112,6 +96,7 @@ class edit
 
 			\dash\db\posts::update($args, $id);
 
+
 			self::check_update_sitemap($load_posts, $args);
 
 			if(array_key_exists('url', $args))
@@ -125,6 +110,24 @@ class edit
 				if(array_key_exists('tags', $_args))
 				{
 					\dash\app\posts\terms::save_post_term($tags, $id, 'tag');
+				}
+
+				// calculate seo rank after save post
+				$load_posts = \dash\app\posts\get::load_post($_id);
+
+				$seo_detail            = [];
+				$seo_detail['type']    = 'post';
+				$seo_detail['id']      = a($load_posts, 'id');
+				$seo_detail['title']   = a($load_posts, 'post_title');
+				$seo_detail['seodesc'] = a($load_posts, 'excerpt');
+				$seo_detail['content'] = a($load_posts, 'content');
+				$seo_detail['tags']    = a($load_posts, 'tags');
+
+				$seoAnalyze    = \dash\seo::analyze($seo_detail);
+
+				if(isset($seoAnalyze['rank']))
+				{
+					\dash\db\posts::update(['seorank' => $seoAnalyze['rank']], $id);
 				}
 
 				\dash\notif::ok(T_("Post successfully updated"));
