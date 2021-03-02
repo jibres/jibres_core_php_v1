@@ -22,6 +22,7 @@ class model
 		}
 		else
 		{
+			\dash\log::set('userTryToVerifyBySendSmsButNoUserId');
 			return false;
 		}
 
@@ -46,7 +47,7 @@ class model
 	/**
 	* check sended code
 	*/
-	public function post()
+	public static function post()
 	{
 		\dash\utility\enter::check_code('sendsms');
 	}
