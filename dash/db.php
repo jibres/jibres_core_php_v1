@@ -20,6 +20,7 @@ class db
 			// run mysqli_multi_query
 			'multi_query'  => false,
 			'database'     => null,
+			'bind'         => null, // buind query
 			// if have error in connection or anything ignore it and return false
 			'ignore_error' => false,
 		];
@@ -55,12 +56,43 @@ class db
 		$error_code   = null;
 		$error_string = null;
 
-		/**
-		 * send the query to mysql engine
-		 */
-		if($_options['multi_query'] === true)
+		// bind query
+		if($_options['bind'] && is_array($_options['bind']))
 		{
-			$result = @mysqli_multi_query($link, $_qry);
+			$bind_args = $_options['bind'];
+			if(isset($bind_args['types']) && is_string($bind_args['types']) && preg_match("/^[idsb]+$/", $bind_args['types']))
+			{
+				$bind_types = $bind_args['types'];
+			}
+			else
+			{
+				\dash\notif::error("Invalid query bind param");
+				return false;
+			}
+
+			if(isset($bind_args['param']) && is_array($bind_args['param']) && $bind_args['param'])
+			{
+				// ok;
+			}
+			else
+			{
+				\dash\notif::error("Empty args bind");
+				return false;
+			}
+
+			$result = false;
+
+			$stmt = \mysqli_prepare($link, $_qry);
+
+			if($stmt)
+			{
+				@mysqli_stmt_bind_param($stmt, $bind_types, ...$bind_args['param']);
+
+				@mysqli_stmt_execute($stmt);
+
+				$result = @$stmt->get_result();
+			}
+
 
 			// check the mysql result
 			if(!is_a($result, 'mysqli_result') && !$result)
@@ -70,37 +102,57 @@ class db
 				$error_string = @mysqli_error($link);
 			}
 
-			if($result)
-			{
-				do
-				{
-					if ($r = mysqli_use_result($link))
-					{
-						$r->close();
-					}
-
-					if (!mysqli_more_results($link))
-					{
-						break;
-					}
-
-					mysqli_more_results($link);
-				}
-				while (mysqli_next_result($link));
-			}
 		}
 		else
 		{
-			$result = @mysqli_query($link, $_qry);
-
-			// check the mysql result
-			if(!is_a($result, 'mysqli_result') && !$result)
+			/**
+			 * send the query to mysql engine
+			 */
+			if($_options['multi_query'] === true)
 			{
-				$have_error   = true;
-				$error_code   = @mysqli_errno($link);
-				$error_string = @mysqli_error($link);
+				$result = @mysqli_multi_query($link, $_qry);
+
+				// check the mysql result
+				if(!is_a($result, 'mysqli_result') && !$result)
+				{
+					$have_error   = true;
+					$error_code   = @mysqli_errno($link);
+					$error_string = @mysqli_error($link);
+				}
+
+				if($result)
+				{
+					do
+					{
+						if ($r = mysqli_use_result($link))
+						{
+							$r->close();
+						}
+
+						if (!mysqli_more_results($link))
+						{
+							break;
+						}
+
+						mysqli_more_results($link);
+					}
+					while (mysqli_next_result($link));
+				}
+			}
+			else
+			{
+				$result = @mysqli_query($link, $_qry);
+
+				// check the mysql result
+				if(!is_a($result, 'mysqli_result') && !$result)
+				{
+					$have_error   = true;
+					$error_code   = @mysqli_errno($link);
+					$error_string = @mysqli_error($link);
+				}
 			}
 		}
+
 
 		// get diff of time after exec
 		$qry_exec_time = microtime(true) - $qry_exec_time;
@@ -171,6 +223,88 @@ class db
 
 		// return the mysql result
 		return $result;
+	}
+
+
+	/**
+	 * Gets the bind.
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     <type>  The bind.
+	 */
+	public static function get_bind(array $_args)
+	{
+		$_args['mode'] = 'get';
+		return self::bind($_args);
+	}
+
+
+	/**
+	 * Queries a bind.
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function query_bind(array $_args)
+	{
+		$_args['mode'] = 'query';
+		return self::bind($_args);
+	}
+
+
+	/**
+	 * Bind query
+	 *
+	 * @param      array    $_args  The arguments
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function bind(array $_args)
+	{
+		$default_bind =
+		[
+			'mode'           => null,
+
+			'query'          => null,
+			'types'          => null,
+			'param'          => null,
+
+			'only_one_value' => false,
+			'column'         => null,
+
+			'fuel'           => null,
+			'option'         => [],
+		];
+
+		$_args = array_merge($default_bind, $_args);
+
+		$option = $_args['option'];
+		if(!is_array($option))
+		{
+			$option = [];
+		}
+
+		$option['bind'] =
+		[
+			'types' => $_args['types'],
+			'param' => $_args['param'],
+		];
+
+		if($_args['mode'] === 'get')
+		{
+			return self::get($_args['query'], $_args['column'], $_args['only_one_value'], $_args['fuel'], $option);
+		}
+		elseif($_args['mode'] === 'query')
+		{
+			return self::query($_args['query'], $_args['fuel'], $option);
+		}
+		else
+		{
+			\dash\notif::error("Invalid bind mode!");
+			return false;
+		}
 	}
 
 
