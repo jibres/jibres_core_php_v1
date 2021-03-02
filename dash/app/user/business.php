@@ -7,7 +7,7 @@ class business
 
 	public static function businesscount($_user_id = null)
 	{
-		// default business count for every user is 3
+		// default business count for every user is 10
 		$businesscount = 10;
 
 		$id = \dash\validate::id($_user_id, false);
