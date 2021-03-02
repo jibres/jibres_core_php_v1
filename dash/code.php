@@ -39,7 +39,6 @@ class code
 	 */
 	public static function boom($_string = null)
 	{
-		\dash\engine\runtime::shutdown();
 		exit($_string);
 	}
 
