@@ -13,7 +13,7 @@ if(\dash\user::id())
 } // endif
 
 \dash\csrf::html();
-echo \dash\utility\recaptcha::html();
+echo \dash\captcha\recaptcha::html();
 ?>
 
 
