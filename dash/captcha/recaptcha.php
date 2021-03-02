@@ -1,5 +1,5 @@
 <?php
-namespace dash\utility;
+namespace dash\captcha;
 
 
 class recaptcha
@@ -40,15 +40,17 @@ class recaptcha
 	}
 
 
-	private static function sitekey()
+	public static function sitekey()
 	{
-		return 'site-key';
+		$site_key = '6LeLI84ZAAAAAD6NG_MHThUO4pKUIxCQW8Xkcr3a';
+
+		return $site_key;
 	}
 
 
-	private static function category()
+	private static function action()
 	{
-		return 'the-category';
+		return 'enter';
 	}
 
 
@@ -56,9 +58,9 @@ class recaptcha
 	{
 		$result = '';
 		$result .= '<div class="hide">';
-		$result .= '<input type="hidden" name="recaptchasitekey" value="'. self::sitekey(). '">';
-		$result .= '<input type="hidden" name="recaptchacat" value="'. self::category(). '">';
-		$result .= '<input type="hidden" name="recaptchatoken" value="">';
+		$result .= '<input type="hidden" name="recaptcha_sitekey" value="'. self::sitekey(). '">';
+		$result .= '<input type="hidden" name="recaptcha_action" value="'. self::action(). '">';
+		$result .= '<input type="hidden" name="recaptcha_token" value="">';
 		$result .= '</div>';
 
 		return $result;
