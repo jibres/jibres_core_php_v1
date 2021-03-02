@@ -17,7 +17,7 @@ class check
 			'subtitle'        => 'string_500',
 			'slug'            => 'string_100',
 			'url'             => 'url',
-			'content'         => 'html',
+			'content'         => 'real_html',
 			'type'            => ['enum' => ['post', 'page', 'help', 'mag']],
 			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'          => ['enum' => ['publish','draft', 'pending_review']],

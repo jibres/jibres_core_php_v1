@@ -42,7 +42,7 @@ class check
 			'vat'               => 'bit',
 			'saleonline'        => 'bit',
 			'carton'            => 'count',
-			'desc'              => 'html',
+			'desc'              => 'real_html',
 			'salestep'          => 'count',
 			'minsale'           => 'count',
 			'maxsale'           => 'count',
