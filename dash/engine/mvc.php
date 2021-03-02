@@ -279,6 +279,9 @@ class mvc
 
 			\dash\engine\view::lastChanges();
 
+			// add header before echo anything
+			\dash\engine\runtime::shutdown();
+
 			$nativeTemplate = \dash\layout\func::shoot();
 
 			if(!$nativeTemplate)
@@ -330,6 +333,9 @@ class mvc
 				// model does not exist in this folder, show not acceptable message
 				\dash\header::status(424);
 			}
+
+			// add header febore echo anything
+			\dash\engine\runtime::shutdown();
 
 			\dash\code::compile();
 		}
