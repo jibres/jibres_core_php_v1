@@ -101,11 +101,6 @@ class html
 
 	private static function analyze_html($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		if(!\dash\url::isLocal())
-		{
-			return $_data;
-		}
-
 		$data = $_data;
 
 		$utf8_meta = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
