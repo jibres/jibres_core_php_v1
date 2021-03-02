@@ -6,7 +6,7 @@ class race
 	public static function escort()
 	{
 		$urlMd5     = md5(\dash\url::current());
-		$thisPage   = \dash\system\session2::getLock('waf_race', $urlMd5);
+		$thisPage   = \dash\system\session2::getLock($urlMd5, 'waf_race');
 		$requestQty = a($thisPage, 'request');
 		if(!$requestQty)
 		{
