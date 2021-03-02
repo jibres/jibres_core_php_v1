@@ -32,11 +32,48 @@ class recaptcha
 
 	private static function check()
 	{
-		if(!\dash\request::post('recaptchatoken'))
+		if(!\dash\request::post('recaptcha_token'))
 		{
 			return false;
 		}
-		// check
+
+		$gRecaptchaResponse = \dash\request::post('recaptcha_token');
+
+		$secret = self::secret();
+
+		try
+		{
+			require_once core.'bin/recaptcha/src/autoload.php';
+
+			$recaptcha = new \ReCaptcha\ReCaptcha($secret);
+
+			$resp = $recaptcha->setExpectedAction(self::action())->verify($gRecaptchaResponse);
+
+			if($resp->isSuccess())
+			{
+				@header('x-rec-score: '. $resp->getScore());
+			    // Verified!
+			    return true;
+			}
+			else
+			{
+			    $errors = $resp->getErrorCodes();
+			    return false;
+			}
+
+		}
+		catch (\Exception $e)
+		{
+			return false;
+		}
+
+		return false;
+	}
+
+
+	private static function secret()
+	{
+		return '6LeLI84ZAAAAAKv12zC_fDlc8WVZzKCSkSqZd3Py';
 	}
 
 

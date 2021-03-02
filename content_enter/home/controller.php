@@ -28,6 +28,7 @@ class controller
 
 
 		\dash\csrf::set(true);
+		\dash\captcha\recaptcha::set();
 	}
 
 
