@@ -614,8 +614,10 @@ class cleanse
 			case 'string': 				$data = \dash\validate\text::string(...$fn_args); 					break;
 			case 'enstring': 			$data = \dash\validate\text::enstring(...$fn_args); 				break;
 			case 'intstring': 			$data = \dash\validate\text::intstring(...$fn_args); 				break;
-			case 'html': 				$data = \dash\validate\text::html(...$fn_args); 					break;
-			case 'html_basic': 			$data = \dash\validate\text::html_basic(...$fn_args); 				break;
+
+			case 'real_html': 			$data = \dash\validate\text::html(...$fn_args); 					break;
+			case 'real_html_basic': 	$data = \dash\validate\text::html_basic(...$fn_args); 				break;
+
 			case 'username': 			$data = \dash\validate\text::username(...$fn_args); 				break;
 			case 'slug': 				$data = \dash\validate\text::slug(...$fn_args); 					break;
 			case 'barcode': 			$data = \dash\validate\text::barcode(...$fn_args); 					break;
@@ -716,6 +718,9 @@ class cleanse
 				$data = \dash\validate\text::string($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'html':
+			case 'html_basic':
+				// like desc to review all moduel use html format
 			case 'desc':
 				$meta['min'] = 0;
 				$meta['max'] = 2000;
