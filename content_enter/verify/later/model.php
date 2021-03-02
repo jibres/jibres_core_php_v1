@@ -10,52 +10,56 @@ class model
 	*/
 	public static function post()
 	{
-		if(\dash\request::post('force_signup') === 'true' && \dash\utility\enter::get_session('verify_from') === 'signup')
-		{
-			$signup = \dash\utility\enter::get_session('signup_detail');
+		// in controller of this module redirect to /verify
+		return false;
 
-			if(!$signup || !is_array($signup))
-			{
-				\dash\log::set('userDetailLostSignup');
-				\dash\notif::error(T_("We can not find your detail to signup"));
-				return false;
-			}
 
-			if(\dash\utility\enter::get_session('temp_ramz_hash'))
-			{
-				$signup['password'] = \dash\utility\enter::get_session('temp_ramz_hash');
-			}
+		// if(\dash\request::post('force_signup') === 'true' && \dash\utility\enter::get_session('verify_from') === 'signup')
+		// {
+		// 	$signup = \dash\utility\enter::get_session('signup_detail');
 
-			$signup['verifymobile'] = 0;
+		// 	if(!$signup || !is_array($signup))
+		// 	{
+		// 		\dash\log::set('userDetailLostSignup');
+		// 		\dash\notif::error(T_("We can not find your detail to signup"));
+		// 		return false;
+		// 	}
 
-			$myIp = \dash\server::ip();
-			$count_signup_not_verify = \dash\db\login\get::get_count_all_on_ip($myIp);
+		// 	if(\dash\utility\enter::get_session('temp_ramz_hash'))
+		// 	{
+		// 		$signup['password'] = \dash\utility\enter::get_session('temp_ramz_hash');
+		// 	}
 
-			if(floatval($count_signup_not_verify) >= 10)
-			{
-				\dash\notif::error(T_("You must verify mobile to continue"));
-				return false;
-			}
+		// 	$signup['verifymobile'] = 0;
 
-			$user_id = \dash\app\user::quick_add($signup);
+		// 	$myIp = \dash\server::ip();
+		// 	$count_signup_not_verify = \dash\db\login\get::get_count_all_on_ip($myIp);
 
-			if(!$user_id)
-			{
-				\dash\log::set('userCanNotSignupDB');
-				\dash\notif::error(T_("We can not signup you"));
-				return false;
-			}
+		// 	if(floatval($count_signup_not_verify) >= 10)
+		// 	{
+		// 		\dash\notif::error(T_("You must verify mobile to continue"));
+		// 		return false;
+		// 	}
 
-			\dash\log::set('userSignup');
+		// 	$user_id = \dash\app\user::quick_add($signup);
 
-			\dash\utility\enter::load_user_data($user_id, 'user_id');
-			\dash\utility\enter::enter_set_login(null, true);
-		}
-		else
-		{
-			\dash\notif::error(T_("Invalid detail for signup!, Please try again"));
-			return false;
-		}
+		// 	if(!$user_id)
+		// 	{
+		// 		\dash\log::set('userCanNotSignupDB');
+		// 		\dash\notif::error(T_("We can not signup you"));
+		// 		return false;
+		// 	}
+
+		// 	\dash\log::set('userSignup');
+
+		// 	\dash\utility\enter::load_user_data($user_id, 'user_id');
+		// 	\dash\utility\enter::enter_set_login(null, true);
+		// }
+		// else
+		// {
+		// 	\dash\notif::error(T_("Invalid detail for signup!, Please try again"));
+		// 	return false;
+		// }
 	}
 }
 ?>
