@@ -806,7 +806,16 @@ class enter
 			if(!\dash\engine\store::inStore())
 			{
 				array_push($way, 'call');
-				array_push($way, 'sendsms');
+
+				if(self::get_session('verify_from') === 'signup')
+				{
+					// we can not get sms from user when user try to singup
+					// because the user record is not added to database and we need userid to save log
+				}
+				else
+				{
+					array_push($way, 'sendsms');
+				}
 			}
 		}
 
@@ -1131,6 +1140,33 @@ class enter
 
 		// to no check again
 		self::set_session('twostep_is_ok', true);
+
+		if(\dash\utility\enter::get_session('verify_from') === 'signup')
+		{
+			$signup = \dash\utility\enter::get_session('signup_detail');
+
+			if(!$signup || !is_array($signup))
+			{
+				\dash\log::set('userDetailLostSignup');
+				\dash\notif::error(T_("We can not find your detail to signup"));
+				return false;
+			}
+
+			$user_id = \dash\app\user::quick_add($signup);
+
+			if(!$user_id)
+			{
+				\dash\log::set('userCanNotSignupDB');
+				\dash\notif::error(T_("We can not signup you"));
+				return false;
+			}
+
+			// load user data by mobile
+			$user_data = \dash\utility\enter::load_user_data($user_id, 'user_id');
+
+			\dash\log::set('userSignup');
+
+		}
 
 
 		if(is_numeric(self::user_data('id')) && !self::user_data('verifymobile'))
