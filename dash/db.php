@@ -222,7 +222,7 @@ class db
 				\dash\notif::warn('No connection to safe mysqli_real_escape_string');
 			}
 
-			return $_string;
+			return addslashes($_string);
 		}
 
 		return \mysqli_real_escape_string(\dash\db\mysql\tools\connection::link(), $_string);
