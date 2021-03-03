@@ -64,7 +64,7 @@ class model
 
 		$post =
 		[
-			'content'     => \dash\request::post_raw('answer'),
+			'content'     => \dash\request::post('answer'),
 			'sendmessage' => !\dash\request::post('sendmessage'),
 			'note'        => \dash\request::post('note'),
 		];

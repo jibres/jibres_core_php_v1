@@ -9,7 +9,7 @@ class model
 
 		$post =
 		[
-			'content' => \dash\request::post_raw('content'),
+			'content' => \dash\request::post('content'),
 			'user_id' => \dash\request::post('user_id'),
 			'title'   => \dash\request::post('title'),
 		];

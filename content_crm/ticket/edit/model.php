@@ -22,7 +22,7 @@ class model
 		{
 			$post =
 			[
-				'content'     => \dash\request::post_raw('content'),
+				'content'     => \dash\request::post('content'),
 			];
 
 			\dash\app\ticket\edit::edit($post, $id);

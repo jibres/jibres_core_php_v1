@@ -11,7 +11,7 @@ class model
 		$id = \dash\request::get('id');
 
 		$post         = [];
-		$post['sharetext'] = \dash\request::post_raw('sharetext');
+		$post['sharetext'] = \dash\request::post('sharetext');
 
 		\lib\app\product\edit::edit($post, $id);
 		\dash\notif::clean();

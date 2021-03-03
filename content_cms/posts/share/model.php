@@ -11,7 +11,7 @@ class model
 
 		$post         = [];
 
-		$post['sharetext'] = \dash\request::post_raw('sharetext');
+		$post['sharetext'] = \dash\request::post('sharetext');
 
 		\dash\app\telegram\post::send($id, $post);
 	}

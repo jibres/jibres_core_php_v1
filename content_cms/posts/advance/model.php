@@ -59,7 +59,7 @@ class model
 
 		if(\dash\request::post('runaction_editstatus'))
 		{
-			$post['status'] = \dash\request::post_raw('status');
+			$post['status'] = \dash\request::post('status');
 		}
 
 		if(\dash\request::post('icon'))
