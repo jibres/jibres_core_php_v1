@@ -259,7 +259,7 @@ class header
 	{
 		if($_time)
 		{
-			@header("Cache-Control: max-age=" + $_time);
+			@header("Cache-Control: max-age=". $_time);
 			@header("Expires: ".gmdate("D, d M Y H:i:s", $_time + time())." GMT");
 		}
 		else
