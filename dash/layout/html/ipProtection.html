@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="UTF-8" />
+  <title>IP Protection - Jibres</title>
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+  <meta content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0" name="viewport"/>
+  <meta content="Jibres is fantastic! new service is comming soon" name="description">
+  <meta content="Javad Adib | Jibres" name="author">
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://cdn.jibres.com/img/cover/Jibres-cover-bot-1.jpg?v=2" name="twitter:image"/>
+  <link href="https://cdn.jibres.com/css/jibres.min.css?1585664188" rel="stylesheet"/>
+  <link rel="shortcut icon" href="https://cdn.jibres.com/favicons/favicon-64x64.png" type="image/x-icon" />
+  <script src="<?php echo \dash\url::cdn(); ?>/js/special/recaptchaAutoSubmit.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ </head>
+ <body class="ipProtection">
+ 	<main class="avand-sm">
+    <div class="box">
+   		<h1><?php echo "Protected by Jibres"; ?></h1>
+      <p><?php echo "We have noticed an unusual activity from your ip and you are blocked"; ?></p>
+      <p><?php echo "Please confirm that you are not a robot!"; ?></p>
+      <form id='ipProtectionJibresRecaptcha' method="POST">
+        <div class="g-recaptcha" data-sitekey="6Ldh0G8aAAAAAPd12fs4wRTBshiTfeG8q1GwBv0E" data-callback="ipProtectionJibresRecaptcha"></div>
+      </form>
+    </div>
+ 	</main>
+ </body>
+</html>
