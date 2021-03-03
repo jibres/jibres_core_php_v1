@@ -6,10 +6,9 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\request::get('title'))
-		{
-			\dash\redirect::to(\dash\url::this(). '/start');
-		}
+		\content_my\business\creating::access_step('subdomain');
+
+
 		\dash\csrf::set();
 	}
 }

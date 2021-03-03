@@ -6,8 +6,8 @@ class model
 {
 	public static function post()
 	{
-		$new_get = [];
-		$new_get['st2'] = time();
+		$data = [];
+		$data['st2'] = time();
 
 		$my_skip = false;
 		if(\dash\request::post('skip') === 'skip')
@@ -37,7 +37,7 @@ class model
 									return false;
 								}
 
-								$new_get[$question['id']] = $answer;
+								$data[$question['id']] = $answer;
 							}
 						}
 					}
@@ -45,9 +45,13 @@ class model
 			}
 		}
 
-		\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => $my_skip, 'my_answer' => $new_get]);
 
-		\dash\redirect::to(\dash\url::this(). '/subdomain?'. \dash\request::fix_get($new_get));
+		$business_token = \content_my\business\creating::cross_step('ask', $data);
+
+		\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => $my_skip, 'my_answer' => $data]);
+
+		\dash\redirect::to(\dash\url::this(). '/subdomain');
+
 		return;
 
 	}

@@ -34,7 +34,15 @@ class model
 
 			\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title]);
 
-			\dash\redirect::to(\dash\url::this(). '/ask?'. \dash\request::fix_get(['title' => $title, 'st1' => time()]));
+			$detail =
+			[
+				'title' => $title,
+				'st1'   => time(),
+			];
+
+			$business_token = \content_my\business\creating::cross_step('start', $detail);
+
+			\dash\redirect::to(\dash\url::this(). '/ask');
 			return;
 		}
 		else

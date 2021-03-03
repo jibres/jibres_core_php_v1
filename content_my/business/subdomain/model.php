@@ -31,7 +31,11 @@ class model
 
 		\dash\log::set('business_creatingNew', ['my_step' => 'subdomain', 'my_subdomain' => $subdomain, 'my_invalid_subdomain' => false, 'my_start_creating' => true]);
 
-		\dash\redirect::to(\dash\url::this().'/creating?'. \dash\request::fix_get(['subdomain' => $subdomain, 'st3' => time()]));
+		$data = ['subdomain' => $subdomain, 'st3' => time()];
+
+		$business_token = \content_my\business\creating::cross_step('subdomain', $data);
+
+		\dash\redirect::to(\dash\url::this(). '/creating');
 	}
 }
 ?>
