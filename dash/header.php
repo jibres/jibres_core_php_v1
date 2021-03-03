@@ -117,6 +117,7 @@ class header
 			428 => 'Precondition Required', // ------------- @Baby -> check agent
 			429 => 'Too Many Requests',
 			431 => 'Request Header Fields Too Large',
+			444 => 'No Response', // ----- waf ip block
 			451 => 'Unavailable For Legal Reasons', // ----- @Baby have script in url
 
 			500 => 'Internal Server Error',
