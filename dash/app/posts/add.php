@@ -50,12 +50,28 @@ class add
 
 		$return         = [];
 
-		$post_id = \dash\db\posts::insert($args);
+		$content = null;
+		if(array_key_exists('content', $args))
+		{
+			$content = $args['content'];
+			unset($args['content']);
+		}
+
+		$post_id = null;
+		if(!empty($args))
+		{
+			$post_id = \dash\db\posts::insert($args);
+		}
 
 		if(!$post_id)
 		{
 			\dash\log::oops('dbErrorInsertPost', T_("No way to insert post"));
 			return false;
+		}
+
+		if($content && $post_id)
+		{
+			\dash\db\posts\update::bind_content($content, $post_id);
 		}
 
 		if(array_key_exists('tags', $_args))

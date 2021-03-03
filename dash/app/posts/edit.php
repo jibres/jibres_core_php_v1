@@ -94,8 +94,22 @@ class edit
 				}
 			}
 
-			\dash\db\posts::update($args, $id);
+			$content = null;
+			if(array_key_exists('content', $args))
+			{
+				$content = $args['content'];
+				unset($args['content']);
+			}
 
+			if(!empty($args))
+			{
+				\dash\db\posts::update($args, $id);
+			}
+
+			if($content)
+			{
+				\dash\db\posts\update::bind_content($content, $id);
+			}
 
 			self::check_update_sitemap($load_posts, $args);
 

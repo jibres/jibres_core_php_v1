@@ -5,6 +5,20 @@ namespace dash\db\posts;
 class update
 {
 
+	public static function bind_content($_content, $_id)
+	{
+		$args =
+		[
+			'query' => "UPDATE posts SET posts.content = ? WHERE posts.id = ? LIMIT 1 ",
+			'mode'  => 'query',
+			'types' => 'sd',
+			'param' => [$_content, $_id]
+		];
+
+		$result = \dash\db::bind($args);
+
+		return $result;
+	}
 
 	public static function record($_args, $_id)
 	{

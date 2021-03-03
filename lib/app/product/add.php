@@ -216,8 +216,12 @@ class add
 			unset($args['desc']);
 		}
 
-		// --------------- add new product
-		$product_id = \lib\db\products\insert::new_record($args);
+		$product_id = null;
+		if(!empty($args))
+		{
+			// --------------- add new product
+			$product_id = \lib\db\products\insert::new_record($args);
+		}
 
 		if(!$product_id)
 		{
@@ -235,7 +239,7 @@ class add
 			return false;
 		}
 
-		if($desc)
+		if($desc && $product_id)
 		{
 			\lib\db\products\update::bind_desc($desc, $product_id);
 		}
