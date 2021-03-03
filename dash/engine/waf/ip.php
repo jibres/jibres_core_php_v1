@@ -149,7 +149,6 @@ class ip
 				reset($history);
 				unset($history[key($history)]);
 			}
-
 		}
 
 		return $data;
@@ -158,8 +157,6 @@ class ip
 
 	private static function court($_info)
 	{
-
-
 		switch (a($_info, 'zone'))
 		{
 			case 'live':
@@ -183,15 +180,34 @@ class ip
 				break;
 
 			case 'isolation':
-				self::showIpProtectionPage();
-				// if(0)
-				// {
-				// 	self::block($_info);
-				// }
-				// else
-				// {
-				// 	self::revalidate($_info);
-				// }
+				if(\dash\request::is('post'))
+				{
+					$recaptchaResponse = \dash\request::post('g-recaptcha-response');
+					if($recaptchaResponse)
+					{
+						// check recaptcha
+
+						// if(0)
+						// {
+						// 	self::block($_info);
+						// }
+						// else
+						// {
+						// 	self::revalidate($_info);
+						// }
+					}
+					else
+					{
+						// block!
+						self::block($_info);
+					}
+				}
+				else
+				{
+					self::showIpProtectionPage();
+				}
+				var_dump(11);
+				exit();
 				break;
 
 
@@ -217,11 +233,13 @@ class ip
 		switch (a($_order, 'zone'))
 		{
 			case 'isolation':
-				// show captcha
+				// show ip isolation page
+				self::showIpProtectionPage();
 				break;
 
 			case 'ban':
 				// block until deadline
+				// show custom page of ban
 				\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
 				break;
 
@@ -233,6 +251,7 @@ class ip
 
 	private static function showIpProtectionPage()
 	{
+		\dash\header::set(303);
 		require_once (core. 'layout/html/ipProtection.html');
 		\dash\code::boom();
 	}
@@ -242,7 +261,6 @@ class ip
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'isolate', 'isolation');
-		self::showIpProtectionPage();
 	}
 
 
