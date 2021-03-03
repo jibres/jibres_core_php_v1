@@ -223,6 +223,19 @@ class store
 		{
 			self::config_by_subdomain();
 		}
+
+
+		if(self::inStore() && \dash\url::content())
+		{
+			if(self::allow_content(true))
+			{
+				// the user can load this content
+			}
+			else
+			{
+				\dash\header::status(409, T_("Can not route this address from your domain!"));
+			}
+		}
 	}
 
 
@@ -282,21 +295,6 @@ class store
 				}
 			}
 		}
-
-
-		// in store only some content can be route
-		if(\dash\url::content())
-		{
-			if(self::allow_content(true))
-			{
-				// the user can load this content
-			}
-			else
-			{
-				\dash\header::status(409, T_("Can not route this address from your domain!"));
-			}
-		}
-
 	}
 
 
