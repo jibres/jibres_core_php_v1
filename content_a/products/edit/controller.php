@@ -13,6 +13,9 @@ class controller
 		{
 			\dash\header::status(404);
 		}
+
+
+		\dash\open::html();
 	}
 }
 ?>

@@ -13,6 +13,10 @@ class controller
 		{
 			\dash\header::status(404);
 		}
+
+		// allow enter html
+		\dash\open::html();
+
 	}
 }
 ?>
