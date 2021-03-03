@@ -729,7 +729,7 @@ class cleanse
 				break;
 
 			case 'order':
-				$meta['enum'] = ['asc', 'desc', 'ASC', 'DESC'];
+				$meta['enum'] = ['asc', 'desc'];
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
