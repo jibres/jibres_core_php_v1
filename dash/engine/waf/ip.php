@@ -186,15 +186,16 @@ class ip
 					if($recaptchaResponse)
 					{
 						// check recaptcha
+						$check_verify = \dash\captcha\recaptcha::verify_v2($recaptchaResponse);
 
-						// if(0)
-						// {
-						// 	self::block($_info);
-						// }
-						// else
-						// {
-						// 	self::revalidate($_info);
-						// }
+						if($check_verify)
+						{
+							self::revalidate($_info);
+						}
+						else
+						{
+							self::block($_info);
+						}
 					}
 					else
 					{
@@ -206,8 +207,7 @@ class ip
 				{
 					self::showIpProtectionPage();
 				}
-				var_dump(11);
-				exit();
+
 				break;
 
 

@@ -40,6 +40,12 @@ class recaptcha
 	}
 
 
+	private static function secret_v2()
+	{
+		return '6Ldh0G8aAAAAAM5dwVsvw2OfW_05I3XZykq_CPLP';
+	}
+
+
 	/**
 	 * Get sitekey
 	 *
@@ -164,6 +170,29 @@ class recaptcha
 		}
 
 		return false;
+	}
+
+
+	public static function verify_v2($_token)
+	{
+		$secret     = self::secret_v2();
+
+		$myIp       = \dash\server::ip();
+
+		$get_result = \dash\captcha\recaptcha_curl::verify($secret, $_token, $myIp);
+
+		$success    = a($get_result, 'success');
+
+		if($success)
+		{
+		    // Verified!
+		    return true;
+		}
+		else
+		{
+		    return false;
+		}
+
 	}
 
 
