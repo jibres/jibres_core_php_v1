@@ -9,8 +9,6 @@
   <meta content="Javad Adib | Jibres" name="author">
   <link rel="shortcut icon" href="<?php echo \dash\url::cdn(); ?>/favicons/favicon-64x64.png" type="image/x-icon" />
   <link href="<?php echo \dash\url::cdn(); ?>/css/jibres.min.css?1585664188" rel="stylesheet"/>
-  <script src="<?php echo \dash\url::cdn(); ?>/js/special/recaptchaAutoSubmit.js" async></script>
-  <script src="https://www.google.com/recaptcha/api.js?hl=<?php echo \dash\language::current(); ?>" async defer></script>
  </head>
  <body class="ipProtection">
  	<section class="avand-sm impact txtC">
@@ -24,4 +22,7 @@
     </form>
  	</section>
  </body>
+ <script async src="<?php echo \dash\layout\func::staticmtime('js/jibres.min.js');?>"></script>
+ <script src="<?php echo \dash\url::cdn(); ?>/js/special/recaptchaAutoSubmit.js" async></script>
+ <script src="https://www.google.com/recaptcha/api.js?hl=<?php echo \dash\language::current(); ?>" async defer></script>
 </html>
