@@ -113,6 +113,8 @@ class exec
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_SAFE_UPLOAD, true);
+		// set agent
+		curl_setopt($curl, CURLOPT_USERAGENT, 'JibresBot (like TwitterBot)');
 		// turn off some setting
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
