@@ -18,6 +18,37 @@ class get
 		self::check_order($get);
 
 		self::check_sort($get);
+
+		self::check_q($get);
+	}
+
+
+	/**
+	 * Check q of search
+	 *
+	 * @param      <type>  $get    The get
+	 */
+	private static function check_q($get)
+	{
+		if(isset($get['q']) && $get['q'])
+		{
+			$q = $get['q'];
+
+			// only can be text
+			\dash\engine\dog\toys\only::text($q);
+
+			\dash\engine\dog\toys\general::len($q, 1, 70);
+
+			// disallow html tags
+			\dash\engine\dog\toys\block::tags($q);
+
+			// disallow some char inside ip
+			\dash\engine\dog\toys\block::word($q, '<');
+			\dash\engine\dog\toys\block::word($q, '>');
+			\dash\engine\dog\toys\block::word($q, '"');
+			\dash\engine\dog\toys\block::word($q, "'");
+			\dash\engine\dog\toys\block::word($q, "\n");
+		}
 	}
 
 
