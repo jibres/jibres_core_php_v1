@@ -16,7 +16,7 @@
       </div>
       <?php if(\dash\data::appkey_auth()) {?>
         <div class="msg info2 mT20">
-          <div><?php echo T_("If you want to revoke or remove this appkey"); ?> <a href="<?php echo \dash\url::kingdom(); ?>/support/ticket/add?title=remove appkey"><?php echo T_("Contact us"); ?></a></div>
+          <div><?php echo T_("If you want to revoke or remove this appkey"); ?> <a href="<?php echo \dash\url::support(); ?>/ticket/add?title=remove appkey"><?php echo T_("Contact us"); ?></a></div>
         </div>
       <?php }else{ ?>
         <button data-confirm data-data='{"add" : "appkey" <?php echo \dash\csrf::get_json(); ?>}' class="btn primary mT5 block"><?php echo T_("Make appkey"); ?></button>

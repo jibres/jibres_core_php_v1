@@ -116,7 +116,7 @@ class pwa_menu
 			],
 			'support' =>
 			[
-				'href' => \dash\url::kingdom(). '/support',
+				'href' => \dash\url::support(),
 				'icon' => 'info-circle',
 				'title' => T_('Help Center'),
 			],

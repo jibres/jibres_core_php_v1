@@ -114,7 +114,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
             <ul>
               <li><h3><?php echo T_('Support'); ?></h3></li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support">
+                <a class="f" href="<?php echo \dash\url::support(); ?>">
                 <div class="key"><?php echo T_('Support Center'); ?></div>
                 <div class="go"></div>
                 </a>
@@ -126,7 +126,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                 </a>
               </li>
               <li>
-                <a class="f" href="<?php echo $kingdom; ?>/support/faq">
+                <a class="f" href="<?php echo \dash\url::support(); ?>/faq">
                 <div class="key"><?php echo T_('FAQ'); ?></div>
                 <div class="go"></div>
                 </a>
