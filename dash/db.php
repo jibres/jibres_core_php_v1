@@ -52,9 +52,10 @@ class db
 			return null;
 		}
 
-		$have_error   = false;
-		$error_code   = null;
-		$error_string = null;
+		$have_error    = false;
+		$error_code    = null;
+		$error_string  = null;
+		$buind_success = false;
 
 		// bind query
 		if($_options['bind'] && is_array($_options['bind']))
@@ -95,7 +96,7 @@ class db
 
 
 			// check the mysql result
-			if(!is_a($result, 'mysqli_result') && !$result)
+			if(!is_a($result, 'mysqli_result') && !$result && @mysqli_error($link))
 			{
 				$have_error   = true;
 				$error_code   = @mysqli_errno($link);

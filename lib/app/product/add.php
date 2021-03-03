@@ -208,6 +208,13 @@ class add
 
 		unset($args['stock']);
 
+		$desc = null;
+
+		if(array_key_exists('desc', $args))
+		{
+			$desc = $args['desc'];
+			unset($args['desc']);
+		}
 
 		// --------------- add new product
 		$product_id = \lib\db\products\insert::new_record($args);
@@ -226,6 +233,11 @@ class add
 			}
 
 			return false;
+		}
+
+		if($desc)
+		{
+			\lib\db\products\update::bind_desc($desc, $product_id);
 		}
 
 

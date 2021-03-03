@@ -352,13 +352,29 @@ class edit
 			if(!empty($args))
 			{
 				\dash\temp::set('productHasChange', true);
-				$update = \lib\db\products\update::record($args, $id);
-				if(!$update)
+
+				if(array_key_exists('desc', $args))
 				{
-					\dash\log::set('productUpdateDbError', ['code' => $id]);
-					\dash\notif::error(T_("Can not update product"));
-					return false;
+					$desc = $args['desc'];
+					unset($args['desc']);
 				}
+
+				if(!empty($args))
+				{
+					$update = \lib\db\products\update::record($args, $id);
+					if(!$update)
+					{
+						\dash\log::set('productUpdateDbError', ['code' => $id]);
+						\dash\notif::error(T_("Can not update product"));
+						return false;
+					}
+				}
+
+				if($desc)
+				{
+					\lib\db\products\update::bind_desc($desc, $id);
+				}
+
 
 				if(isset($_option['multi_edit']) && $_option['multi_edit'])
 				{

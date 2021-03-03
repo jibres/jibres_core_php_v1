@@ -4,6 +4,22 @@ namespace lib\db\products;
 
 class update
 {
+
+	public static function bind_desc($_desc, $_id)
+	{
+		$args =
+		[
+			'query' => "UPDATE products SET products.desc = ? WHERE products.id = ? LIMIT 1 ",
+			'mode'  => 'query',
+			'types' => 'sd',
+			'param' => [$_desc, $_id]
+		];
+
+		$result = \dash\db::bind($args);
+
+		return $result;
+	}
+
 	// UPDATE VARIANTS FIELD
 	public static function variants($_variants, $_id)
 	{
