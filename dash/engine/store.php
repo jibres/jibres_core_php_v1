@@ -173,11 +173,25 @@ class store
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	private static function allow_content()
+	private static function allow_content($_admin_mode = false)
 	{
 		$content = \dash\url::content();
 
-		if($content === 'enter' || $content === 'pay' || $content === 'n' || $content === 'support')
+		$allow_content = [];
+
+		$allow_content[] = 'enter';
+		$allow_content[] = 'pay';
+		$allow_content[] = 'n';
+
+		if($_admin_mode)
+		{
+			$allow_content[] = 'a';
+			$allow_content[] = 'cms';
+			$allow_content[] = 'crm';
+			$allow_content[] = 'hook'; // cronjob need this
+		}
+
+		if(in_array($content, $allow_content))
 		{
 			return true;
 		}
@@ -258,7 +272,7 @@ class store
 			// not route any content in customer domain
 			if(\dash\url::content())
 			{
-				if(self::allow_content())
+				if(self::allow_content(false))
 				{
 					// the user can login by custom domain
 				}
@@ -268,6 +282,21 @@ class store
 				}
 			}
 		}
+
+
+		// in store only some content can be route
+		if(\dash\url::content())
+		{
+			if(self::allow_content(true))
+			{
+				// the user can load this content
+			}
+			else
+			{
+				\dash\header::status(409, T_("Can not route this address from your domain!"));
+			}
+		}
+
 	}
 
 
@@ -652,7 +681,7 @@ class store
 	{
 		self::init_by_id($load_detail['store_id']);
 
-		if(self::allow_content())
+		if(self::allow_content(false))
 		{
 			// nothing
 		}
