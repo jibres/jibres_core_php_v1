@@ -365,7 +365,7 @@ class request
 
 		if($_name)
 		{
-			if(mb_strtoupper($_name) === $request_method)
+			if(mb_strtolower($_name) === mb_strtolower($request_method))
 			{
 				return true;
 			}
@@ -376,7 +376,7 @@ class request
 		}
 		else
 		{
-			return $request_method;
+			return mb_strtolower($request_method);
 		}
 	}
 
