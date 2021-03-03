@@ -1,23 +1,12 @@
-
 <div class="avand-lg">
-
-
   <form method="post" class="box" autocomplete="off" >
-
     <div class="body">
-
-
-
         <label for="title"><?php echo T_("Line title"); ?></label>
         <div class="input">
           <input type="text" name="title" id="title" value="<?php if(!a(\dash\data::lineSetting(), 'title') && a(\dash\data::lineSetting(), 'title') !== '0'){ echo \dash\data::textNameSuggestion(); }else{ echo a(\dash\data::lineSetting(), 'title'); } ?>"  maxlength="200"  >
         </div>
-
-
-      <textarea class="txt" data-editor rows="10" name="text" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::dataRow_text(); ?></textarea>
-
+      <textarea class="txt" data-editor rows="10" name="html" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::dataRow_text(); ?></textarea>
     </div>
-
     <footer class="txtRa">
       <?php if (\dash\data::textID()) { ?>
         <div class="f">
@@ -33,7 +22,5 @@
         <button class="btn primary"><?php echo T_("Save"); ?></button>
       <?php } //endif ?>
     </footer>
-
   </form>
-
 </div>

@@ -44,6 +44,8 @@ class controller
 
 			}
 		}
+
+		\dash\open::html();
 	}
 }
 ?>
