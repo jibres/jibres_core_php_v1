@@ -183,6 +183,7 @@ class ip
 				break;
 
 			case 'isolation':
+				self::showIpProtectionPage();
 				// if(0)
 				// {
 				// 	self::block($_info);
@@ -230,10 +231,18 @@ class ip
 	}
 
 
+	private static function showIpProtectionPage()
+	{
+		require_once (core. 'layout/html/ipProtection.html');
+		\dash\code::boom();
+	}
+
+
 	private static function isolate(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'isolate', 'isolation');
+		self::showIpProtectionPage();
 	}
 
 
