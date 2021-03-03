@@ -193,7 +193,6 @@ class create
 			$msg .= '<br>';
 			$msg .= T_("Your must go to nic.ir and set change holder setting and allow to reseller to access to your account");
 			$msg .= '<br>';
-			$msg .= '<a href="'.\dash\url::support().'/domain" target="_blank">'. T_("Read about this problem"). '</a>';
 
 			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 			return false;
