@@ -13,12 +13,11 @@ class power
 		// detect url and start work with them as first lib used by another one
 		\dash\url::initialize();
 
-		// check waf
-		\dash\engine\waf\protection::start();
-
 		// detect language and if need set the new language
 		\dash\language::detect_language();
 
+		// check waf
+		\dash\engine\waf\protection::start();
 
 		// find store detail and set to connect to true store
 		\dash\engine\store::config();
