@@ -32,8 +32,14 @@ class template
 			return true;
 		}
 
-		$data  = null;
-		$type  = null;
+		// not route any post or tag in jibres
+		if(!\dash\engine\store::inStore())
+		{
+			return false;
+		}
+
+		$data         = null;
+		$type         = null;
 		$display_addr = null;
 
 
