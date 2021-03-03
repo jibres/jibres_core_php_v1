@@ -240,7 +240,8 @@ class ip
 			case 'ban':
 				// block until deadline
 				// show custom page of ban
-				\dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
+				self::showIpBlockPage();
+				// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
 				break;
 
 			default:
@@ -249,10 +250,17 @@ class ip
 	}
 
 
+	private static function showIpBlockPage()
+	{
+		\dash\header::set(444);
+		require_once (core. 'layout/html/ipBan.php');
+		\dash\code::boom();
+	}
+
 	private static function showIpProtectionPage()
 	{
 		\dash\header::set(303);
-		require_once (core. 'layout/html/ipProtection.html');
+		require_once (core. 'layout/html/ipProtection.php');
 		\dash\code::boom();
 	}
 
