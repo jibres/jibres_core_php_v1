@@ -15,7 +15,7 @@ class check
 			'privacy'                 => ['enum' => ['public', 'private']],
 			'status'                  => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','trash','full']],
 			'redirect'                => 'string_1000',
-			'desc'                    => 'html',
+			'desc'                    => 'desc',
 			'endmessage'              => 'desc',
 			'starttime'               => 'datetime',
 			'endtime'                 => 'datetime',
@@ -23,7 +23,7 @@ class check
 
 			'inquiry_mode'            => 'bit',
 			'inquiry'                 => 'bit',
-			'inquirymsg'              => 'html',
+			'inquirymsg'              => 'desc',
 			'showcomment'             => 'bit',
 			'showpulictag'            => 'bit',
 			'question'                => 'array',

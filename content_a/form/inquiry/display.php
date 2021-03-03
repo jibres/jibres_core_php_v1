@@ -46,7 +46,7 @@
 
 						<div class="mB10">
 							<label for="inquirymsg"><?php echo T_("Inquiry Message") ?></label>
-							<textarea name="inquirymsg" data-editor class="txt" rows="3" id="inquirymsg" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_inquirymsg(); ?></textarea>
+							<textarea name="inquirymsg" class="txt" rows="3" id="inquirymsg" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_inquirymsg(); ?></textarea>
 						</div>
 
 

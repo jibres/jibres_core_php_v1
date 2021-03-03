@@ -10,7 +10,7 @@
 
           <div class="mB10">
               <label for="desc"><?php echo T_("Description") ?></label>
-              <textarea name="desc" data-editor class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+              <textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
             </div>
 
 

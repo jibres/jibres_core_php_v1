@@ -10,7 +10,7 @@ class check
 		$condition =
 		[
 			'title'   => 'title',
-			'desc'    => 'html',
+			'desc'    => 'desc',
 			'slug'    => 'slug',
 			'form_id' => 'id',
 			'privacy' => ['enum' => ['public', 'private']],
