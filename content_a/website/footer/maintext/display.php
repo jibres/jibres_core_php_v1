@@ -4,7 +4,7 @@
     <div class="body">
 
       <label for="text"><?php echo T_("Footer Text"); ?></label>
-      <textarea name="text" class="txt" data-editor><?php echo \dash\data::maintextSaved_text() ?></textarea>
+      <textarea name="html" class="txt" data-editor><?php echo \dash\data::maintextSaved_text() ?></textarea>
 
 
     </div>

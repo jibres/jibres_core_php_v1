@@ -9,7 +9,7 @@ class maintext
 
 		$condition =
 		[
-			'text'   => 'html',
+			'text'   => 'real_html',
 		];
 
 		$require = [];
