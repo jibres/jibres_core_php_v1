@@ -19,7 +19,6 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
 
-		// \dash\face::help(\dash\url::support().'/products');
 		\dash\face::btnSetting(\dash\url::here().'/setting/product');
 
 		$productFilterList = \lib\app\product\filter::list();

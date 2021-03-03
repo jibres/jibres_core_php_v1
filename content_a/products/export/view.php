@@ -11,8 +11,6 @@ class view
 		// back
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::here(). '/setting/product');
-		// support link
-		// \dash\face::help(\dash\url::support().'/products/export');
 
 		$count_all = \lib\app\product\export::count_all();
 		\dash\data::countAll($count_all);

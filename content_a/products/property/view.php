@@ -29,8 +29,6 @@ class view
 			\dash\face::btnView(\dash\data::productDataRow_url());
 		}
 
-		// \dash\face::help(\dash\url::support().'/property');
-
 
 		$property_list = \lib\app\product\property::get_pretty($id, true);
 		\dash\data::propertyList($property_list);

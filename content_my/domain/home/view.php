@@ -19,8 +19,6 @@ class view
 
 		\dash\face::btnImport(\dash\url::this().'/import');
 
-		// \dash\face::help(\dash\url::support().'/domain');
-
 		$dashboard_detail = \lib\app\nic_domain\dashboard::user();
 		\dash\data::dashboardDetail($dashboard_detail);
 

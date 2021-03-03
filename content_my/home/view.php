@@ -8,7 +8,6 @@ class view
 	{
 		\dash\face::title(T_('Control Center'));
 		\dash\face::specialTitle(true);
-		// \dash\face::help(\dash\url::support().'/my');
 
 		// if(!\dash\detect\device::detectPWA())
 		{

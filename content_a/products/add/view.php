@@ -17,8 +17,7 @@ class view
 		\dash\face::btnInsert('aProductData');
 		\dash\face::btnInsertValue('master');
 		\dash\face::btnInsertText(T_("Add"));
-		//
-		// \dash\face::help(\dash\url::support().'/product');
+
 
 		$company_list = \lib\app\product\company::list();
 		\dash\data::listCompanies($company_list);
