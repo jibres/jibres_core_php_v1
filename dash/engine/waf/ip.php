@@ -4,10 +4,7 @@ namespace dash\engine\waf;
 class ip
 {
 	// define waf folder as const
-	private static $IP = null;
-	private static $addrLive = null;
-	private static $addrIsolation = null;
-	private static $addrBan = null;
+	private static $lastAction = null;
 
 	public static function monitor()
 	{
@@ -229,6 +226,15 @@ class ip
 
 	private static function prosecute($_order)
 	{
+		// if something happend
+		if(self::$lastAction)
+		{
+			if(\dash\request::is('post'))
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
 		switch (a($_order, 'zone'))
 		{
 			case 'isolation':
@@ -238,7 +244,6 @@ class ip
 
 			case 'ban':
 				// block until deadline
-				// show custom page of ban
 				self::showIpBlockPage();
 				// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
 				break;
@@ -313,6 +318,7 @@ class ip
 		// log new mode
 		if($_newMode)
 		{
+			self::$lastAction = $_newMode;
 			$_ipData['log'][time()] = $_newMode;
 		}
 
