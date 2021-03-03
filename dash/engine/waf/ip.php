@@ -207,7 +207,6 @@ class ip
 				{
 					self::showIpProtectionPage();
 				}
-
 				break;
 
 
