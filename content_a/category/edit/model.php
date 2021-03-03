@@ -51,7 +51,7 @@ class model
 		$args['title']         = \dash\request::post('title');
 		$args['slug']          = \dash\request::post('slug');
 		// $args['parent']     = \dash\request::post('parent');
-		$args['desc']          = \dash\request::post_raw('desc');
+		$args['desc']          = \dash\request::post('desc');
 		$args['seotitle']      = \dash\request::post('seotitle');
 		$args['seodesc']       = \dash\request::post('seodesc');
 		$args['showonwebsite'] = \dash\request::post('showonwebsite');

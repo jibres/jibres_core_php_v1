@@ -8,7 +8,7 @@
             <input type="text" name="title" id="icatname" placeholder='<?php echo T_("Category name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
           </div>
           <label for="desc"><?php echo T_("Description"); ?></label>
-          <textarea data-editor  class="txt mB10" id='desc' name="desc" placeholder='<?php echo T_("Description"); ?>' maxlength='5000' rows="2"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+          <textarea  class="txt mB10" id='desc' name="desc" rows="4" placeholder='<?php echo T_("Description"); ?>' maxlength='5000' rows="2"><?php echo \dash\data::dataRow_desc(); ?></textarea>
            <div class="switch1 mT10">
               <input type="checkbox" name="showonwebsite" id="showonwebsite"  <?php if(\dash\data::dataRow_showonwebsite()) {echo 'checked';}?> >
               <label for="showonwebsite" data-on="<?php echo T_("Yes") ?>" data-off="<?php echo T_("No") ?>"></label>
