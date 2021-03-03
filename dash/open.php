@@ -13,6 +13,9 @@ class open
 		'patch'  => null,
 		'delete' => null,
 		'link'   => null,
+
+		'file'   => null,
+		'html'   => null,
 	];
 
 
