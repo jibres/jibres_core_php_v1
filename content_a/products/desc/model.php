@@ -10,7 +10,7 @@ class model
 		$id = \dash\request::get('id');
 
 		$post         = [];
-		$post['desc'] = \dash\request::post_raw('html');
+		$post['desc'] = \dash\request::post_html();
 
 		$result = \lib\app\product\edit::edit($post, $id);
 	}

@@ -16,7 +16,7 @@ class model
 		[
 			'title'    => \dash\request::post('title'),
 			'subtype'  => \dash\request::post('subtype'),
-			'content'  => \dash\request::post_raw('html'),
+			'content'  => \dash\request::post_html(),
 			'language' => \dash\language::current(),
 		];
 

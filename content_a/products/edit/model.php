@@ -36,7 +36,7 @@ class model
 
 		if(\dash\request::key_exists('html', 'POST'))
 		{
-			$post['desc']      = \dash\request::post_raw('html');
+			$post['desc']      = \dash\request::post_html();
 		}
 
 		$post['cat']       = \dash\request::post('cat');

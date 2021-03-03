@@ -7,7 +7,7 @@ class model
 	{
 		$post =
 		[
-			'text'   => \dash\request::post_raw('html'),
+			'text'   => \dash\request::post_html(),
 
 		];
 

@@ -43,6 +43,23 @@ class request
 
 
 	/**
+	 * Get the html posted
+	 * Everywhere need to save html use this function
+	 */
+	public static function post_html()
+	{
+		$html = null;
+
+		if(isset($_POST['html']))
+		{
+			$html = $_POST['html'];
+		}
+
+		return $html;
+	}
+
+
+	/**
 	 * Return Raw post input
 	 * not safe for html editor
 	 * this record was safe in app level
