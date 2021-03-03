@@ -136,12 +136,6 @@
           </a>
        </li>
        <li>
-          <a class="f" href="<?php echo \dash\url::here();?>/nano">
-            <div class="key"><?php echo T_('Nano');?></div>
-            <div class="go"></div>
-          </a>
-       </li>
-       <li>
           <a class="f" href="<?php echo \dash\url::here();?>/log">
             <div class="key"><?php echo T_('Log');?></div>
             <div class="go"></div>
