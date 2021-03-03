@@ -67,7 +67,7 @@ class model
 			[
 				'subtitle'    => \dash\request::post('subtitle'),
 				'title'       => \dash\request::post('title'),
-				'content'     => \dash\request::post_raw('content'),
+				'content'     => \dash\request::post_raw('html'),
 				'tags'         => \dash\request::post('tag'),
 			];
 

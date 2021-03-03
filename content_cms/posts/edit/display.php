@@ -59,7 +59,7 @@ switch (\dash\data::dataRow_status())
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
       </div>
       <div>
-        <textarea class="txt" data-editor id='descInput' name="content" placeholder='<?php echo T_("Write post "); ?>' maxlength='100000' rows="10"><?php echo \dash\data::dataRow_content(); ?></textarea>
+        <textarea class="txt" data-editor id='descInput' name="html" placeholder='<?php echo T_("Write post "); ?>' maxlength='100000' rows="10"><?php echo \dash\data::dataRow_content(); ?></textarea>
       </div>
     </div>
   </div>

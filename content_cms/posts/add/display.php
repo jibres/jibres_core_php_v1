@@ -37,7 +37,7 @@
 						<input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *'  <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
 					</div>
 				</div>
-				<textarea class="txt mB10" data-editor id='descInput' name="content" placeholder='<?php echo T_("Write your post ..."); ?>' maxlength='100000' rows="10"></textarea>
+				<textarea class="txt mB10" data-editor id='descInput' name="html" placeholder='<?php echo T_("Write your post ..."); ?>' maxlength='100000' rows="10"></textarea>
 				<p class="fc-mute mB0-f s0"><?php echo T_("First type main text and save as draft, then complete and publish it."); ?></p>
 			</div>
 <?php if(!\dash\detect\device::detectPWA()) {?>
