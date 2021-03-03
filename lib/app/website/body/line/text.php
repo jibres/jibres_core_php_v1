@@ -148,7 +148,7 @@ class text
 
 		$saved_option = json_encode($saved_option, JSON_UNESCAPED_UNICODE);
 
-		$save = \lib\db\setting\update::value($saved_option, $line_id);
+		$save = \lib\db\setting\update::bind_value($saved_option, $line_id);
 
 		\dash\notif::ok(T_("Text added"));
 
@@ -209,7 +209,7 @@ class text
 
 		$saved_value = json_encode($saved_value, JSON_UNESCAPED_UNICODE);
 
-		$save = \lib\db\setting\update::value($saved_value, $line_id);
+		$save = \lib\db\setting\update::bind_value($saved_value, $line_id);
 
 		\lib\app\website\generator::remove_catch();
 

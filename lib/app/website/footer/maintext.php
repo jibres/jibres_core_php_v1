@@ -20,7 +20,7 @@ class maintext
 
 		$maintext = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-		$query_result = \lib\db\setting\update::overwirte_platform_cat_key($maintext, 'website', 'footer', 'maintext');
+		$query_result = \lib\db\setting\update::bind_overwirte_platform_cat_key($maintext, 'website', 'footer', 'maintext');
 
 		\lib\app\website\generator::remove_catch();
 
