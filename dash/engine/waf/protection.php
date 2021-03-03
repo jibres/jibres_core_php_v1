@@ -35,6 +35,9 @@ class protection
 
 		// headers
 		\dash\engine\dog\headers::inspection();
+
+		// get
+		\dash\engine\dog\get::inspection();
 	}
 }
 ?>
