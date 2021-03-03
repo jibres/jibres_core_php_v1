@@ -28,7 +28,7 @@ class recaptcha_curl
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
