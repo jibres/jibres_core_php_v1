@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#">
  <head>
   <meta charset="UTF-8" />
-  <title>IP Protection - Jibres</title>
+  <title><?php echo T_("IP Protection"); ?> - <?php echo T_("Jibres"); ?></title>
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
   <meta content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0" name="viewport"/>
   <meta content="Your IP Address is <?php echo \dash\server::ip(); ?>" name="description">
