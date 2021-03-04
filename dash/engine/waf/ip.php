@@ -329,7 +329,7 @@ class ip
 
 
 	// some public function to access from outside
-	public static function isolate($_ip)
+	public static function isolate($_ip, $_reason = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
@@ -337,7 +337,7 @@ class ip
 	}
 
 
-	public static function block($_ip)
+	public static function block($_ip, $_reason = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
@@ -345,7 +345,7 @@ class ip
 	}
 
 
-	public static function unblock($_ip)
+	public static function unblock($_ip, $_reason = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
