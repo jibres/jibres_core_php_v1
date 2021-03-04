@@ -189,6 +189,7 @@ class store
 			$allow_content[] = 'cms';
 			$allow_content[] = 'crm';
 			$allow_content[] = 'hook'; // cronjob need this
+			$allow_content[] = 'account'; // we have one link from business to account. in accoutn controller redirect
 		}
 
 		if(in_array($content, $allow_content))
