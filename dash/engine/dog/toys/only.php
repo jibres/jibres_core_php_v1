@@ -75,5 +75,28 @@ class only
 			\dash\header::status(428, 'only B');
 		}
 	}
+
+
+	public static function a_z0_9_($_txt)
+	{
+		if(!preg_match("/^[A-Za-z0-9\_]+$/", $_txt))
+		{
+			\dash\header::status(428, 'only a-z0-9_');
+		}
+	}
+
+
+	public static function order($_txt)
+	{
+		if($_txt === 'desc' || $_txt === 'asc')
+		{
+			// ok
+		}
+		else
+		{
+			\dash\header::status(428, 'order !');
+		}
+	}
+
 }
 ?>

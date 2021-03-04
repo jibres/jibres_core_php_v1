@@ -66,11 +66,7 @@ class get
 			\dash\engine\dog\toys\only::text($sort);
 			\dash\engine\dog\toys\block::tags($sort);
 			\dash\engine\dog\toys\general::len($sort, 1, 20);
-
-			if(!preg_match("/^[A-Za-z0-9\_]+$/", $sort))
-			{
-				\dash\header::status(428, 'sort !');
-			}
+			\dash\engine\dog\toys\only::a_z0_9_($sort);
 		}
 	}
 
@@ -88,15 +84,7 @@ class get
 			$order = $get['order'];
 
 			\dash\engine\dog\toys\only::text($order);
-
-			if($order === 'desc' || $order === 'asc')
-			{
-				// ok
-			}
-			else
-			{
-				\dash\header::status(428, 'order !');
-			}
+			\dash\engine\dog\toys\only::order($order);
 		}
 	}
 }
