@@ -193,7 +193,8 @@ class ip
 		if(is_array($agents) && count($agents) > 50)
 		{
 			// allow only 50 agent for each ip
-			self::do_block($_info, 'reach 50 agent per ip');
+			// block one day
+			self::do_block($_info, 'reach 50 agent per ip', 60 * 24);
 			return $_info;
 		}
 
@@ -242,7 +243,8 @@ class ip
 						}
 						else
 						{
-							self::do_block($_info, 'recaptcha invalid!');
+							// block 60 minute
+							self::do_block($_info, 'recaptcha invalid!', 60);
 						}
 					}
 					else
@@ -261,11 +263,18 @@ class ip
 				{
 					// do nothing for someone with more than 5 times block!
 				}
-				elseif (a($_info, 'diff') > (60 * 60 * 24))
+				else
 				{
-					self::plusData($_info, 'autoUnblockCounter');
-					// 24 hours in seconds.. if more delete ip file
-					self::do_unblock($_info, 'release after 24h');
+					// if (a($_info, 'diff') > (60 * 60 * 24))
+					$unblockTime = self::getData($_info, 'autoUnblockTime');
+					if(time() > $unblockTime)
+					{
+						self::plusData($_info, 'autoUnblockCounter');
+						// 24 hours in seconds.. if more delete ip file
+						$unblockMsg = 'release after '. self::getData($_info, 'autoUnblockPeriod'). ' min';
+						// unblock ip
+						self::do_unblock($_info, $unblockMsg);
+					}
 				}
 				break;
 
@@ -370,12 +379,14 @@ class ip
 		{
 			self::unsetData($_ipData, 'isolateRefresh');
 			// block for too many refresh page
-			self::do_block($_ipData, 'reach 5 refresh limit');
+			// block 15 minute
+			self::do_block($_ipData, 'reach 5 refresh limit', 15);
 		}
 
 		if(self::getData($_ipData, 'recaptchaSolvedCounter') > 10)
 		{
-			self::do_block($_ipData, 'reach 10 times isolation limit');
+			// block 6 hour
+			self::do_block($_ipData, 'reach 10 times isolation limit', 60 * 6);
 		}
 	}
 
@@ -432,6 +443,9 @@ class ip
 		$unblockTime = time() + ($_minute * 60);
 		// save unblock time
 		self::setData($_ipData, 'autoUnblockTime', $unblockTime);
+		self::setData($_ipData, 'autoUnblockPeriod', $_minute);
+
+		$_reason .= ' - '. $_minute. ' min';
 
 		// reset request count
 		self::resetRequestLimit($_ipData, 'block', 'ban', $_reason);
