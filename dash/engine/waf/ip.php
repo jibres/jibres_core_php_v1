@@ -161,7 +161,7 @@ class ip
 				if (a($_info, 'diff') > (60 * 60))
 				{
 					// If first request was more than 1 hour, new ip file
-					self::do_reactive($_info);
+					self::do_reactive($_info, 'return after 1h');
 				}
 
 				if (a($_info, 'reqCounter') > 120)
@@ -171,7 +171,7 @@ class ip
 					{
 						// If there was more than 40 rpm -> isolation
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::do_isolate($_info);
+						self::do_isolate($_info, 'reach more than 40rpm after 120req');
 					}
 				}
 				break;
@@ -190,11 +190,11 @@ class ip
 
 						if($check_verify)
 						{
-							self::do_revalidate($_info);
+							self::do_revalidate($_info, 'recaptcha solved');
 						}
 						else
 						{
-							self::do_block($_info);
+							self::do_block($_info, 'recaptcha invalid!');
 						}
 					}
 					else
@@ -212,7 +212,7 @@ class ip
 				if (a($_info, 'diff') > (60 * 60 * 24))
 				{
 					// 24 hours in seconds.. if more delete ip file
-					self::do_unblock($_info);
+					self::do_unblock($_info, 'release after 24h');
 				}
 				break;
 
@@ -304,7 +304,7 @@ class ip
 		if($currentTry > 5)
 		{
 			// block for too many refresh page
-			self::do_block($_ipData);
+			self::do_block($_ipData, 'reach 5 refresh limit');
 		}
 
 		self::setData($_ipData, 'isolateRefresh', $currentTry);
@@ -378,7 +378,7 @@ class ip
 	{
 		$ipData = self::fetch($_ip);
 		// do action
-		self::do_isolate($ipData);
+		self::do_isolate($ipData, $_reason);
 	}
 
 
@@ -386,7 +386,7 @@ class ip
 	{
 		$ipData = self::fetch($_ip);
 		// do action
-		self::do_block($ipData);
+		self::do_block($ipData, $_reason);
 	}
 
 
@@ -394,7 +394,7 @@ class ip
 	{
 		$ipData = self::fetch($_ip);
 		// do action
-		self::do_unblock($ipData);
+		self::do_unblock($ipData, $_reason);
 	}
 
 
@@ -418,7 +418,7 @@ class ip
 			$logDetail = $_newMode;
 			if($_reason)
 			{
-				$logDetail = ' - '. $_reason;
+				$logDetail .= ' - '. $_reason;
 			}
 			$_ipData['log'][time()] = $logDetail;
 
