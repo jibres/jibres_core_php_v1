@@ -17,6 +17,12 @@ class ip
 		// send to court
 		$judgment = self::court($ipData);
 
+		if(!$judgment)
+		{
+			// do nothing, no judge!
+			return null;
+		}
+
 		// save judgment inside file
 		$saveResult = self::save_yaml_file($judgment);
 
@@ -154,12 +160,21 @@ class ip
 
 	private static function court($_info)
 	{
+		if (a($_info, 'diff') > (60 * 60 * 24 * 10))
+		{
+			// If first request was more than 10 days from last one
+			// reset all things
+			self::do_reset($_info);
+			return null;
+		}
+
 		// check agent count limit
 		$agents = a($_info, 'agent');
 		if(is_array($agents) && count($agents) > 50)
 		{
 			// allow only 50 agent for each ip
 			self::do_block($_info, 'reach 50 agent per ip');
+			return $_info;
 		}
 
 		switch (a($_info, 'zone'))
@@ -402,6 +417,13 @@ class ip
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'revalidate', 'live', $_reason);
+	}
+
+
+	private static function do_reset(&$_ipData)
+	{
+		// reset everything
+		self::delete_yaml_file($_ipData);
 	}
 
 
