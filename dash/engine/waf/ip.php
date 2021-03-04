@@ -188,6 +188,9 @@ class ip
 						// check recaptcha
 						$check_verify = \dash\captcha\recaptcha::verify_v2($recaptchaResponse);
 
+						// remove isolation Data if exist
+						self::unsetData($_ipData, 'isolateRefresh');
+
 						if($check_verify)
 						{
 							self::do_revalidate($_info, 'recaptcha solved');
@@ -298,11 +301,12 @@ class ip
 
 	private static function checkIsolationRateLimit(&$_ipData)
 	{
-		$currentTry = self::getData($_ipData, 'isolateRefresh', 0);
+		$currentTry = self::getData($_ipData, 'isolateRefresh', 1);
 		$currentTry = intval($currentTry) + 1;
 
 		if($currentTry > 5)
 		{
+			self::unsetData($_ipData, 'isolateRefresh');
 			// block for too many refresh page
 			self::do_block($_ipData, 'reach 5 refresh limit');
 		}
@@ -327,6 +331,13 @@ class ip
 	private static function setData(&$_ipData, $_key, $_value)
 	{
 		$_ipData[$_key] = $_value;
+	}
+
+
+	// set some data inside ipData
+	private static function unsetData(&$_ipData, $_key)
+	{
+		unset($_ipData[$_key]);
 	}
 
 
