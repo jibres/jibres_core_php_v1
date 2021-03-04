@@ -177,6 +177,8 @@ class ip
 				break;
 
 			case 'isolation':
+				self::plusData($_info, 'isolateRefresh', 1);
+
 				if(\dash\request::is('post'))
 				{
 					$recaptchaResponse = \dash\request::post('g-recaptcha-response');
@@ -290,6 +292,25 @@ class ip
 				\dash\notif::direct();
 				\dash\redirect::to(\dash\url::kingdom(), 'jibres', 307);
 		}
+	}
+
+
+	// set some data inside ipData
+	private static function setData(&$_ipData, $_key, $_value)
+	{
+		$_ipData[$_key] = $_value;
+	}
+
+
+	private static function plusData(&$_ipData, $_key)
+	{
+		$old = 0;
+		if(isset($_ipData[$_key]) && is_int($_ipData[$_key]))
+		{
+			$old = $_ipData[$_key];
+		}
+
+		$_ipData[$_key] = $old + 1;
 	}
 
 
