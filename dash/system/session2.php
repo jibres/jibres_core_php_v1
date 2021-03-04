@@ -16,7 +16,7 @@ class session2
 		{
 			$_SESSION[$_key] = $_value;
 			// close session
-			session_write_close();
+			self::closeSession();
 			// return everything is okay
 			return true;
 		}
@@ -32,7 +32,7 @@ class session2
 		{
 			$_SESSION[$_cat][$_key] = $_value;
 			// close session
-			session_write_close();
+			self::closeSession();
 			// return everything is okay
 			return true;
 		}
@@ -45,7 +45,7 @@ class session2
 	{
 		self::startSession();
 		$result = self::get($_key, $_cat);
-		session_write_close();
+		self::closeSession();
 		return $result;
 	}
 
@@ -56,7 +56,7 @@ class session2
 		{
 			if(self::startSession())
 			{
-				session_write_close();
+				self::closeSession();
 			}
 		}
 
@@ -91,7 +91,7 @@ class session2
 	{
 		self::startSession();
 		unset($_SESSION[$_key]);
-		session_write_close();
+		self::closeSession();
 	}
 
 
@@ -99,7 +99,7 @@ class session2
 	{
 		self::startSession();
 		unset($_SESSION[$_l1][$_key]);
-		session_write_close();
+		self::closeSession();
 	}
 
 
@@ -107,7 +107,7 @@ class session2
 	{
 		self::startSession();
 		unset($_SESSION[$_l1][$_l2][$_key]);
-		session_write_close();
+		self::closeSession();
 	}
 
 
@@ -145,7 +145,7 @@ class session2
 	/**
 	 * Start session if not started
 	 */
-	private static function startSession()
+	public static function startSession()
 	{
 		$sessionStatus = session_status();
 		if($sessionStatus === PHP_SESSION_DISABLED)
@@ -156,7 +156,7 @@ class session2
 		{
 			// session is enable before this!
 			// need to check who is open it and don't close
-			session_write_close();
+			self::closeSession();
 		}
 		if($sessionStatus === PHP_SESSION_NONE)
 		{
@@ -179,6 +179,12 @@ class session2
 		}
 
 		return false;
+	}
+
+
+	public static function closeSession()
+	{
+		return session_write_close();
 	}
 
 
