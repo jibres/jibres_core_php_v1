@@ -89,9 +89,7 @@ class runtime
 	// call in shutdown function
 	public static function shutdown()
 	{
-		\dash\engine\waf\race::requestDone();
-
-		self::show();
+		// self::show();
 	}
 }
 ?>

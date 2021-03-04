@@ -14,6 +14,9 @@ class prepare
 
 		self::error_handler();
 		self::debug();
+
+		// set shutdown fn
+		self::dash_shutdown_function();
 	}
 
 
@@ -46,8 +49,6 @@ class prepare
 
 		// self::user_country_redirect();
 
-		self::dash_shutdown_function();
-
 		// if the request is a unload request needless to run anything!
 		self::check_is_unload();
 	}
@@ -57,7 +58,9 @@ class prepare
 	{
 		// 	register_shutdown_function(['\dash\utility\visitor', 'save']);
 		// register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
-		register_shutdown_function(['\dash\engine\runtime', 'shutdown']);
+		// register_shutdown_function(['\dash\engine\runtime', 'shutdown']);
+
+		register_shutdown_function(['\dash\engine\waf\race', 'requestDone']);
 	}
 
 
