@@ -63,5 +63,25 @@ class allow
 
 		return true;
 	}
+
+	public static function check_allow_file()
+	{
+		// ok allowd file
+		if(self::allowed_file())
+		{
+			return true;
+		}
+
+		if(\dash\request::files())
+		{
+			// ip block
+			\dash\header::status(403, T_("Can not send file on this page"));
+			return false;
+		}
+
+		return true;
+	}
+
+
 }
 ?>

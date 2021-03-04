@@ -14,6 +14,8 @@ class controller
 			\dash\header::status(404, T_("Invalid category id"));
 		}
 
+		\dash\allow::file();
+
 	}
 }
 ?>

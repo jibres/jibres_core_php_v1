@@ -7,6 +7,9 @@ class controller
 	public static function routing()
 	{
 		\dash\permission::access('productAdd');
+
+		\dash\allow::html();
+		\dash\allow::file();
 	}
 }
 ?>

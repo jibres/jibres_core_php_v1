@@ -16,6 +16,8 @@ class controller
 
 		\dash\data::dataRow($load);
 
+		\dash\allow::file();
+
 	}
 }
 ?>

@@ -420,14 +420,11 @@
                 </div>
               <?php } //endif ?>
               <label id="productGallery" for="file1"><?php echo T_("Add file"); ?> <small class="fc-mute"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small></label>
-              <input type="file" id="file1" name="gallery">
-              <?php if(false) {?>
 
               <div data-uploader data-name='gallery1' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'  data-ratio-free>
                 <input type="file"  id="file1">
                 <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
               </div>
-            <?php } //endif ?>
 
             </div>
           </div>

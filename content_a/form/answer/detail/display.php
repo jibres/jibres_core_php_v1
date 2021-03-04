@@ -112,15 +112,10 @@
               </div>
             </div>
           </div>
-          <div class="showAttachment" data-kerkere-content='hide'>
-            <div class="box" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
-              <input type="file"  id="file1">
-              <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-            </div>
-          </div>
+
         </div>
         <footer class="f">
-          <div class="cauto hide"><i data-kerkere='.showAttachment' class="sf-attach fs14"></i></div>
+
           <div class="c"></div>
           <div class="cauto"><button class="btn success"><?php echo T_("Add comment") ?></button></div>
         </footer>

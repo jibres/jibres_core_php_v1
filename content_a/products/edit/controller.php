@@ -16,6 +16,7 @@ class controller
 
 
 		\dash\allow::html();
+		\dash\allow::file();
 	}
 }
 ?>

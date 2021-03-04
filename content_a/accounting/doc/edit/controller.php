@@ -31,7 +31,7 @@ class controller
 			\dash\data::dataRowDetail($load_detail);
 		}
 
-
+		\dash\allow::file();
 
 
 	}

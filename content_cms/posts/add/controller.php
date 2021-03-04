@@ -6,6 +6,7 @@ class controller
 	public static function routing()
 	{
 		\dash\allow::html();
+		\dash\allow::file();
 	}
 }
 ?>

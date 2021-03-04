@@ -1,5 +1,5 @@
 <?php
-namespace content_a\android\logo;
+namespace content_a\products\import;
 
 
 class controller

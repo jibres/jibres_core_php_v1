@@ -38,6 +38,8 @@ class controller
 				}
 			}
 		}
+
+		\dash\allow::file();
 	}
 }
 ?>

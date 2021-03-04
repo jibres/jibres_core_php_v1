@@ -8,6 +8,11 @@ class controller
 		\dash\utility\ip::check(true);
 
 		\dash\csrf::set();
+
+		if(\dash\user::id())
+		{
+			\dash\allow::file();
+		}
 	}
 }
 ?>

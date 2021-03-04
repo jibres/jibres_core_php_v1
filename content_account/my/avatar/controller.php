@@ -8,6 +8,8 @@ class controller
 	public static function routing()
 	{
 		\dash\csrf::set();
+
+		\dash\allow::file();
 	}
 }
 ?>

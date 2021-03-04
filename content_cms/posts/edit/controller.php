@@ -17,6 +17,8 @@ class controller
 		\dash\data::dataRow($detail);
 
 		\dash\allow::html();
+
+		\dash\allow::file();
 	}
 }
 ?>

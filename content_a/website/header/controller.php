@@ -13,6 +13,8 @@ class controller
 		}
 
 		\dash\data::activeHeaderDetail($active_header_detail);
+
+		\dash\allow::file();
 	}
 }
 ?>
