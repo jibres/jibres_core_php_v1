@@ -154,6 +154,14 @@ class ip
 
 	private static function court($_info)
 	{
+		// check agent count limit
+		$agents = a($_info, 'agent');
+		if(is_array($agents) && count($agents) > 50)
+		{
+			// allow only 50 agent for each ip
+			self::do_block($_info, 'reach 50 agent per ip');
+		}
+
 		switch (a($_info, 'zone'))
 		{
 			case 'live':
