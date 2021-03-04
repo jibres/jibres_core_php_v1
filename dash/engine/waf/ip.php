@@ -194,6 +194,7 @@ class ip
 						if($check_verify)
 						{
 							self::do_revalidate($_info, 'recaptcha solved');
+							self::plusData($_info, 'recaptchaSolvedCounter');
 						}
 						else
 						{
