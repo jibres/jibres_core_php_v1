@@ -228,17 +228,19 @@ class ip
 	private static function prosecute($_order)
 	{
 		// if something happend
-		if(self::$lastAction)
+		if(self::$lastAction === 'revalidate')
 		{
 			if(\dash\request::is('post'))
 			{
-				\dash\notif::direct();
-				\dash\redirect::pwd();
+				self::redirectOnce();
 			}
 		}
 
 		switch (a($_order, 'zone'))
 		{
+			case 'live':
+				break;
+
 			case 'isolation':
 				// show ip isolation page
 				self::showIpProtectionPage();
