@@ -225,8 +225,7 @@ class creating
 			{
 				if($get_session['step'] === 'start')
 				{
-					\dash\open::get();
-					\dash\open::post();
+					// ok
 				}
 				else
 				{
@@ -286,8 +285,7 @@ class creating
 			{
 				if($get_session['step'] === 'ask')
 				{
-					\dash\open::get();
-					\dash\open::post();
+					// ok
 				}
 				else
 				{
@@ -348,8 +346,7 @@ class creating
 			{
 				if($get_session['step'] === 'subdomain')
 				{
-					\dash\open::get();
-					\dash\open::post();
+					// ok
 				}
 				else
 				{
