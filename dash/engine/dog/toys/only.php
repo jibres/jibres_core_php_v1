@@ -98,5 +98,18 @@ class only
 		}
 	}
 
+
+	public static function enum($_txt, $_enum)
+	{
+		if(in_array($_txt, $_enum))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\header::status(428, 'enum !');
+		}
+	}
+
 }
 ?>
