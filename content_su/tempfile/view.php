@@ -130,7 +130,7 @@ class view
 
 		$filepath   = $_filepath;
 
-		if (\dash\request::get('download'))
+		// if (\dash\request::get('download'))
 		{
 			\dash\file::download($filepath);
 			return;

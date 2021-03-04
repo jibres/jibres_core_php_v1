@@ -32,7 +32,7 @@
       <tr>
 
         <td class="ltr">
-          <a href='<?php echo \dash\url::this(); ?>?folder=<?php echo \dash\request::get('folder'); ?>&file=<?php echo a($value, 'name'); ?>'  >
+          <a data-direct href='<?php echo \dash\url::this(); ?>?folder=<?php echo \dash\request::get('folder'); ?>&file=<?php echo a($value, 'name'); ?>'  >
             <?php echo a($value, 'name') ?>
           </a>
         </td>
