@@ -66,18 +66,37 @@ class allow
 
 	public static function check_allow_file()
 	{
+		$files = \dash\request::files();
+
 		// ok allowd file
 		if(self::allowed_file())
 		{
+			if(is_array($files))
+			{
+				foreach ($files as $key => $value)
+				{
+					if(in_array($key, ["gallery","gallery1","logo","file","image","avatar","thumb","file1","file2"]) || preg_match("/^a\_\d+$/", $key))
+					{
+						// ok
+					}
+					else
+					{
+						// ip block
+						\dash\header::status(403, T_("Can not send file on this page"));
+						return false;
+					}
+				}
+			}
 			return true;
 		}
 
-		if(\dash\request::files())
+		if($file)
 		{
 			// ip block
 			\dash\header::status(403, T_("Can not send file on this page"));
 			return false;
 		}
+
 
 		return true;
 	}
