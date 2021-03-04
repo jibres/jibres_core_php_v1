@@ -76,23 +76,17 @@ class url
 	public static function domain_clean($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = $_data;
-		$data = preg_replace("/\s/", '', $data);
-		$data = urldecode($data);
 		$data = mb_strtolower($data);
-		$data = \dash\utility\convert::to_en_number($data);
 
-		$data = str_replace('http://', '', $data);
-		$data = str_replace('https://', '', $data);
-		$data = preg_replace("/^(.*)\:\/\//", '', $data);
-		$data = preg_replace("/\:\d+/", '', $data);
-		$data = str_replace(':', '', $data);
-
-		if(strpos($data, '/') !== false)
+		if(substr($data, 0, 8) === 'https://')
 		{
-			$data = str_replace(substr($data, strpos($data, '/')), '', $data);
+			$data = str_replace('https://', '', $data);
 		}
 
-		$data = str_replace('/', '', $data);
+		if(substr($data, 0, 7) === 'http://')
+		{
+			$data = str_replace('http://', '', $data);
+		}
 
 		if(in_array(substr($data, 0, 1), ['.']))
 		{
@@ -103,7 +97,6 @@ class url
 			}
 			return false;
 		}
-
 
 		if($data && strpos($data, '>') !== false)
 		{
@@ -123,6 +116,27 @@ class url
 			}
 			return false;
 		}
+
+		if(mb_strlen($data) > 63)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Domain must be less than 63 character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		if(preg_match("/\.{2,}/", $data) || preg_match("/[\s\n\%\\\>\<\/\t]+/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid domain"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
 
 		return $data;
 	}
