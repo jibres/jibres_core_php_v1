@@ -313,6 +313,11 @@ class ip
 			// block for too many refresh page
 			self::do_block($_ipData, 'reach 5 refresh limit');
 		}
+
+		if(self::getData($_ipData, 'recaptchaSolvedCounter') > 10)
+		{
+			self::do_block($_ipData, 'reach 10 times isolation limit');
+		}
 	}
 
 
