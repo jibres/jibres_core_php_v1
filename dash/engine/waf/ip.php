@@ -213,9 +213,9 @@ class ip
 
 			case 'ban':
 				// if it was less than 24 hours and die if so
-				if(self::getData($_info, 'autoUnblock') > 3)
+				if(self::getData($_info, 'autoUnblock') > 5)
 				{
-					// do nothing for someone with more than 3 times block!
+					// do nothing for someone with more than 5 times block!
 				}
 				elseif (a($_info, 'diff') > (60 * 60 * 24))
 				{
