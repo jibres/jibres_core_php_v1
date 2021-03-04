@@ -469,6 +469,21 @@ class ip
 	}
 
 
+	public static function whitelist($_ip, $_reason = null)
+	{
+		$ipData = self::fetch($_ip);
+		// do action
+		self::do_whitelist($ipData, $_reason);
+	}
+
+
+	public static function blacklist($_ip, $_reason = null)
+	{
+		$ipData = self::fetch($_ip);
+		// do action
+		self::do_blacklist($ipData, $_reason);
+	}
+
 
 	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null, $_reason = null)
 	{
