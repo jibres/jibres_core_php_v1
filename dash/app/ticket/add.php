@@ -39,6 +39,12 @@ class add
 			}
 		}
 
+		if(!a($args, 'ip'))
+		{
+			$args['ip'] = \dash\server::iplong();
+		}
+
+
 		$ticket_id = \dash\db\tickets\insert::new_record($args);
 		if(!$ticket_id)
 		{
