@@ -257,13 +257,13 @@ class ip
 
 			case 'ban':
 				// if it was less than 24 hours and die if so
-				if(self::getData($_info, 'autoUnblock') > 5)
+				if(self::getData($_info, 'autoUnblockCounter') > 5)
 				{
 					// do nothing for someone with more than 5 times block!
 				}
 				elseif (a($_info, 'diff') > (60 * 60 * 24))
 				{
-					self::plusData($_info, 'autoUnblock');
+					self::plusData($_info, 'autoUnblockCounter');
 					// 24 hours in seconds.. if more delete ip file
 					self::do_unblock($_info, 'release after 24h');
 				}
@@ -421,8 +421,18 @@ class ip
 	}
 
 
-	private static function do_block(&$_ipData, $_reason = null)
+	private static function do_block(&$_ipData, $_reason = null, $_minute = null)
 	{
+		if(!is_int($_minute) || $_minute < 0)
+		{
+			// by default block 60 minute
+			$_minute = 60;
+		}
+		// change it to second and create expire datetime
+		$unblockTime = time() + ($_minute * 60);
+		// save unblock time
+		self::setData($_ipData, 'autoUnblockTime', $unblockTime);
+
 		// reset request count
 		self::resetRequestLimit($_ipData, 'block', 'ban', $_reason);
 	}
@@ -479,11 +489,11 @@ class ip
 	}
 
 
-	public static function block($_ip, $_reason = null)
+	public static function block($_ip, $_reason = null, $_minute = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
-		self::do_block($ipData, $_reason);
+		self::do_block($ipData, $_reason, $_minute);
 	}
 
 
