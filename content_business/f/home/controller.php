@@ -5,6 +5,8 @@ class controller
 {
 	public static function routing()
 	{
+
+
 		$child = \dash\url::child();
 
 		if(\dash\url::subchild())
@@ -18,6 +20,17 @@ class controller
 				\dash\header::status(404);
 			}
 		}
+
+		if(\dash\url::subchild() === 'inquiry')
+		{
+			// not csrf
+		}
+		else
+		{
+			\dash\csrf::set();
+			\dash\captcha\recaptcha::set();
+		}
+
 		if($child)
 		{
 			$load_form = \lib\app\form\form\get::public_get($child);
