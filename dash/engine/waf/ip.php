@@ -213,7 +213,7 @@ class ip
 				if (a($_info, 'diff') > (60 * 60 * 24))
 				{
 					// 24 hours in seconds.. if more delete ip file
-					self::do_free($_info);
+					self::do_unblock($_info);
 				}
 				break;
 
@@ -311,7 +311,7 @@ class ip
 	}
 
 
-	private static function do_free(&$_ipData)
+	private static function do_unblock(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'unblock', 'live');
@@ -330,6 +330,32 @@ class ip
 		// reset request count
 		self::resetRequestLimit($_ipData, 'revalidate', 'live');
 	}
+
+
+	// some public function to access from outside
+	public static function isolate($_ip)
+	{
+		$ipData = self::fetch($_ip);
+		// do action
+		self::do_isolate($ipData);
+	}
+
+
+	public static function block($_ip)
+	{
+		$ipData = self::fetch($_ip);
+		// do action
+		self::do_block($ipData);
+	}
+
+
+	public static function unblock($_ip)
+	{
+		$ipData = self::fetch($_ip);
+		// do action
+		self::do_unblock($ipData);
+	}
+
 
 
 	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null)
