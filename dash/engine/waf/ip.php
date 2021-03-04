@@ -454,6 +454,10 @@ class ip
 
 	private static function do_unblock(&$_ipData, $_reason = null)
 	{
+		// reset block data
+		self::unsetData($_ipData, 'autoUnblockTime');
+		self::unsetData($_ipData, 'autoUnblockPeriod');
+
 		// reset request count
 		self::resetRequestLimit($_ipData, 'unblock', 'live', $_reason);
 	}
