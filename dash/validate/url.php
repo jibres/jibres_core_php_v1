@@ -80,12 +80,12 @@ class url
 
 		if(substr($data, 0, 8) === 'https://')
 		{
-			$data = str_replace('https://', '', $data);
+			$data = substr($data, 8);
 		}
 
 		if(substr($data, 0, 7) === 'http://')
 		{
-			$data = str_replace('http://', '', $data);
+			$data = substr($data, 7);
 		}
 
 		if(in_array(substr($data, 0, 1), ['.']))
@@ -127,7 +127,17 @@ class url
 			return false;
 		}
 
-		if(preg_match("/\.{2,}/", $data) || preg_match("/[\s\n\%\\\>\<\/\t]+/", $data))
+		if(preg_match("/\.{2,}/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid domain"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		if(!preg_match("/^[a-z0-9-.]+$/", $data))
 		{
 			if($_notif)
 			{
