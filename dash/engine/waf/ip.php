@@ -303,6 +303,8 @@ class ip
 	{
 		$currentTry = self::getData($_ipData, 'isolateRefresh', 1);
 		$currentTry = intval($currentTry) + 1;
+		// try to save data of try
+		self::setData($_ipData, 'isolateRefresh', $currentTry);
 
 		if($currentTry > 5)
 		{
@@ -310,8 +312,6 @@ class ip
 			// block for too many refresh page
 			self::do_block($_ipData, 'reach 5 refresh limit');
 		}
-
-		self::setData($_ipData, 'isolateRefresh', $currentTry);
 	}
 
 
