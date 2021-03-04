@@ -230,10 +230,7 @@ class ip
 		// if something happend
 		if(self::$lastAction === 'revalidate')
 		{
-			if(\dash\request::is('post'))
-			{
-				self::redirectOnce();
-			}
+			self::redirectOnce();
 		}
 
 		switch (a($_order, 'zone'))
@@ -288,11 +285,14 @@ class ip
 			}
 			else
 			{
-				// var_dump(15);
 				\dash\notif::direct();
-				\dash\redirect::to(\dash\url::kingdom());
-				// \dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::kingdom(), true, 307);
 			}
+		}
+		elseif(\dash\request::is('post'))
+		{
+				\dash\notif::direct();
+				\dash\redirect::to(\dash\url::kingdom(), 'jibres', 307);
 		}
 	}
 
