@@ -24,13 +24,13 @@ class extentions
 			'm4a'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/x-m4a'],
 			'aac'      => [ 'allow' => true,	'type' => 'audio',      'mime' => 'audio/aac'],
 			// image
-			'bmp'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/bmp'],
+			'bmp'      => [ 'allow' => false,	'type' => 'image',      'mime' => 'image/bmp'],
 			'webp'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/webp'],
 			'gif'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/gif'],
 			'jpeg'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
 			'jpg'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
 			'png'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/png'],
-			'tif'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/tiff'],
+			'tif'      => [ 'allow' => false,	'type' => 'image',      'mime' => 'image/tiff'],
 			'svg'      => [ 'allow' => false,	'type' => 'image',      'mime' => 'image/svg+xml'],
 			// pdf
 			'pdf'      => [ 'allow' => true,	'type' => 'pdf',        'mime' => 'application/pdf'],
@@ -42,16 +42,16 @@ class extentions
 			'mpg'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],
 			'mp4'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mp4'],
 			'mov'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/quicktime'],
-			'avi'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/x-msvideo'],
-			'dvi'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'application/x-dvi'],
+			'avi'      => [ 'allow' => false,	'type' => 'video',      'mime' => 'video/x-msvideo'],
+			'dvi'      => [ 'allow' => false,	'type' => 'video',      'mime' => 'application/x-dvi'],
 			// word
-			'doc'      => [ 'allow' => true,	'type' => 'word',       'mime' => 'application/msword'],
+			'doc'      => [ 'allow' => false,	'type' => 'word',       'mime' => 'application/msword'],
 			'docx'     => [ 'allow' => true,	'type' => 'word',       'mime' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
 			// excel
-			'xls'      => [ 'allow' => true,	'type' => 'excel',      'mime' => 'application/vnd.ms-excel'],
+			'xls'      => [ 'allow' => false,	'type' => 'excel',      'mime' => 'application/vnd.ms-excel'],
 			'xlsx'     => [ 'allow' => true,	'type' => 'excel',      'mime' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
 			// powerpoint
-			'ppt'      => [ 'allow' => true,	'type' => 'powerpoint', 'mime' => 'application/vnd.ms-powerpoint'],
+			'ppt'      => [ 'allow' => false,	'type' => 'powerpoint', 'mime' => 'application/vnd.ms-powerpoint'],
 			'pptx'     => [ 'allow' => true,	'type' => 'powerpoint', 'mime' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation'],
 			'ppsx'     => [ 'allow' => true,	'type' => 'powerpoint', 'mime' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'],
 			// code
@@ -117,7 +117,7 @@ class extentions
 		}
 
 		// force check some other format
-		if(in_array($_ext, ['php', 'php5', 'html', 'htaccess', 'exe', 'bat', 'bin']))
+		if(in_array($_ext, ['php', 'php5', 'html', 'htaccess', 'exe', 'bat', 'bin', 'js', 'svg', 'xml']))
 		{
 			$myResult['allow'] = false;
 		}
