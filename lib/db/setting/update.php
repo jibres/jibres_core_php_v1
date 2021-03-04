@@ -25,6 +25,11 @@ class update
 
 	public static function bind_value($_value, $_id)
 	{
+		if($_value)
+		{
+			$_value = stripcslashes($_value);
+		}
+
 		$now = date("Y-m-d H:i:s");
 		$args =
 		[
@@ -61,6 +66,11 @@ class update
 			}
 			else
 			{
+				if($_value)
+				{
+					$_value = stripcslashes($_value);
+				}
+
 				$args =
 				[
 					'query' => "UPDATE setting SET setting.datemodified = ? , setting.value = ?  WHERE setting.id = ? LIMIT 1",
@@ -75,6 +85,10 @@ class update
 		}
 		else
 		{
+			if($_value)
+			{
+				$_value = stripcslashes($_value);
+			}
 
 			$args =
 			[
