@@ -298,7 +298,16 @@ class ip
 
 	private static function checkIsolationRateLimit(&$_ipData)
 	{
-		self::plusData($_ipData, 'isolateRefresh', 1);
+		$currentTry = self::getData($_ipData, 'isolateRefresh', 0);
+		$currentTry = intval($currentTry) + 1;
+
+		if($currentTry > 5)
+		{
+			// block for too many refresh page
+			self::do_block($_ipData);
+		}
+
+		self::setData($_ipData, 'isolateRefresh', $currentTry);
 	}
 
 
