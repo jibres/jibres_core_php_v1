@@ -15,6 +15,16 @@ class race
 			$requestQty = 0;
 		}
 
+		// if we have more than one active request, block others
+		if($requestQty > 0)
+		{
+			// Use this if you want to reset counter
+			\dash\header::status(429, 'Please be patient');
+		}
+
+		// set busy mode
+		self::$isBusy = time();
+
 		// set race detection data
 		$race =
 		[
@@ -31,14 +41,6 @@ class race
 		{
 			// fail to save!
 		}
-
-		// if we have more than one active request, block others
-		if($requestQty > 0)
-		{
-			// Use this if you want to reset counter
-			\dash\header::status(429, 'Please be patient');
-		}
-		self::$isBusy = time();
 	}
 
 
@@ -52,12 +54,26 @@ class race
 		if(self::$isBusy)
 		{
 			// clean session temporary variable
-			\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
+			self::freeThisPageLock();
 		}
 		else
 		{
-			// check time
+			$urlMd5          = md5(\dash\url::current());
+			$thisPage        = \dash\system\session2::getLock($urlMd5, 'waf_race');
+			$lastRequestTime = a($thisPage, 'time');
+			$fromLast        = time() - $lastRequestTime;
+			if($fromLast > 10)
+			{
+				// check time
+				self::freeThisPageLock();
+			}
 		}
 	}
+
+	private static function freeThisPageLock()
+	{
+		\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
+	}
+
 }
 ?>
