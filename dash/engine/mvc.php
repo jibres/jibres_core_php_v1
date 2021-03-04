@@ -232,6 +232,11 @@ class mvc
 				}
 			}
 		}
+
+		// check user not send html if not alowed
+		\dash\allow::check_allow_html();
+
+
 	}
 
 
