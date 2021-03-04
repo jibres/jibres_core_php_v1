@@ -338,38 +338,38 @@ class ip
 	}
 
 
-	private static function do_isolate(&$_ipData)
+	private static function do_isolate(&$_ipData, $_reason = null)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'isolate', 'isolation');
+		self::resetRequestLimit($_ipData, 'isolate', 'isolation', $_reason);
 	}
 
 
-	private static function do_block(&$_ipData)
+	private static function do_block(&$_ipData, $_reason = null)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'block', 'ban');
+		self::resetRequestLimit($_ipData, 'block', 'ban', $_reason);
 	}
 
 
-	private static function do_unblock(&$_ipData)
+	private static function do_unblock(&$_ipData, $_reason = null)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'unblock', 'live');
+		self::resetRequestLimit($_ipData, 'unblock', 'live', $_reason);
 	}
 
 
-	private static function do_reactive(&$_ipData)
+	private static function do_reactive(&$_ipData, $_reason = null)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'reactive');
+		self::resetRequestLimit($_ipData, 'reactive', null, $_reason);
 	}
 
 
-	private static function do_revalidate(&$_ipData)
+	private static function do_revalidate(&$_ipData, $_reason = null)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'revalidate', 'live');
+		self::resetRequestLimit($_ipData, 'revalidate', 'live', $_reason);
 	}
 
 
@@ -399,7 +399,7 @@ class ip
 
 
 
-	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null)
+	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null, $_reason = null)
 	{
 		// set new zone
 		if($_newZone)
@@ -414,7 +414,14 @@ class ip
 		if($_newMode)
 		{
 			self::$lastAction = $_newMode;
-			$_ipData['log'][time()] = $_newMode;
+
+			$logDetail = $_newMode;
+			if($_reason)
+			{
+				$logDetail = ' - '. $_reason;
+			}
+			$_ipData['log'][time()] = $logDetail;
+
 		}
 
 		// reset request count
