@@ -157,7 +157,7 @@ class view
 		// $output .= '<a class="clear primary" href="'. \dash\url::this(). '?folder='.\dash\request::get('folder').'">Back!</a>';
 		$output .= '<a class="backbtnsu" href="'. \dash\url::this(). '?folder='.\dash\request::get('folder').  '">Back</a>';
 		$output .= '<a class="clear" href="'. \dash\url::this(). '?clear=1&folder='.\dash\request::get('folder').'&file='.\dash\request::get('file').'">Clear it!</a>';
-		$output .= '<a class="downloaditnow" href="'. \dash\url::this(). '?download=1&folder='.\dash\request::get('folder').'&file='.\dash\request::get('file').'">Download it!</a>';
+		$output .= '<a class="downloaditnow" data-direct href="'. \dash\url::this(). '?download=1&folder='.\dash\request::get('folder').'&file='.\dash\request::get('file').'">Download it!</a>';
 		$output .= '<a class="zip" href="?name='. $name. '&zip=true">ZIP it!</a>';
 		$output .= "<pre class=''>";
 		$output .= $fileData;

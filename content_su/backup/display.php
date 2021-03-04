@@ -111,7 +111,7 @@
   <tr>
     <td class="txtL">
       <span class="sf-database fs15 mR10"></span>
-      <a href="<?php echo \dash\url::here(); ?>/backup?download=<?php echo a($value, 'addr'); ?>" title='<?php echo T_("Click to download"); ?>'><?php echo a($value, 'name'); ?></a>
+      <a href="<?php echo \dash\url::here(); ?>/backup?download=<?php echo a($value, 'addr'); ?>" data-direct title='<?php echo T_("Click to download"); ?>'><?php echo a($value, 'name'); ?></a>
     </td>
     <td class="rtl s0"><?php echo a($value, 'ago'); ?></td>
     <td class="pR25-f rtl s0"><?php echo \dash\fit::number(a($value, 'size')); ?> <?php echo T_("MB"); ?></td>

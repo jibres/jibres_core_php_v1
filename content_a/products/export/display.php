@@ -26,7 +26,7 @@
 	<div class="c mLa5">
 		<?php if(\dash\data::countAll() < 50) {?>
 
-			<a href="<?php echo \dash\url::that(); ?>?download=now" class="mLa10"><?php echo T_("Download Now"); ?></a>
+			<a data-direct href="<?php echo \dash\url::that(); ?>?download=now" class="mLa10"><?php echo T_("Download Now"); ?></a>
 		<?php }elseif(\dash\data::countAll() >= 50) {?>
 
 			<a href="<?php echo \dash\url::that(); ?>" data-confirm data-data='{"export":"product"}' class="mLa10"><?php echo T_("Send export request"); ?></a>
