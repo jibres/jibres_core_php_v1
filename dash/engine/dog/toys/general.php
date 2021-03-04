@@ -32,5 +32,20 @@ class general
 		}
 	}
 
+
+
+	public static function array_count($_array, $_min, $_max)
+	{
+		$count = count($_array);
+		if($count < $_min)
+		{
+			\dash\header::status(428, 'No < '. $count);
+		}
+		if($count > $_max)
+		{
+			\dash\header::status(428, 'No > '. $count);
+		}
+	}
+
 }
 ?>

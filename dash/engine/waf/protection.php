@@ -42,9 +42,10 @@ class protection
 		// method
 		\dash\engine\dog\method::inspection();
 
+		// file
+		\dash\engine\dog\file::inspection();
 
 		// need to check
-		// file
 		//
 		// post field
 		// url
