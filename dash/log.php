@@ -44,11 +44,6 @@ class log
 
 	public static function to_supervisor($_text)
 	{
-		if(!\dash\engine\store::inStore())
-		{
-			return;
-		}
-
 		$log =
 		[
 			'my_text' => $_text,
@@ -851,10 +846,7 @@ class log
 			}
 		}
 
-		if(!\dash\engine\store::inStore())
-		{
-			self::to_supervisor('Auto archive file: '. $basename);
-		}
+		self::to_supervisor('Auto archive file: '. $basename);
 	}
 }
 ?>
