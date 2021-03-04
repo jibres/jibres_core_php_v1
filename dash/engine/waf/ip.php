@@ -189,7 +189,7 @@ class ip
 						$check_verify = \dash\captcha\recaptcha::verify_v2($recaptchaResponse);
 
 						// remove isolation Data if exist
-						self::unsetData($_ipData, 'isolateRefresh');
+						self::unsetData($_info, 'isolateRefresh');
 
 						if($check_verify)
 						{
