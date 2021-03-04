@@ -161,7 +161,7 @@ class ip
 				if (a($_info, 'diff') > (60 * 60))
 				{
 					// If first request was more than 1 hour, new ip file
-					self::reactive($_info);
+					self::do_reactive($_info);
 				}
 
 				if (a($_info, 'reqCounter') > 120)
@@ -171,7 +171,7 @@ class ip
 					{
 						// If there was more than 40 rpm -> isolation
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::isolate($_info);
+						self::do_isolate($_info);
 					}
 				}
 				break;
@@ -187,17 +187,17 @@ class ip
 
 						if($check_verify)
 						{
-							self::revalidate($_info);
+							self::do_revalidate($_info);
 						}
 						else
 						{
-							self::block($_info);
+							self::do_block($_info);
 						}
 					}
 					else
 					{
 						// block!
-						// self::block($_info);
+						// self::do_block($_info);
 						// first time we are not here, it's live mode
 					}
 				}
@@ -213,7 +213,7 @@ class ip
 				if (a($_info, 'diff') > (60 * 60 * 24))
 				{
 					// 24 hours in seconds.. if more delete ip file
-					self::unblock($_info);
+					self::do_free($_info);
 				}
 				break;
 
@@ -297,35 +297,35 @@ class ip
 	}
 
 
-	private static function isolate(&$_ipData)
+	private static function do_isolate(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'isolate', 'isolation');
 	}
 
 
-	private static function block(&$_ipData)
+	private static function do_block(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'block', 'ban');
 	}
 
 
-	private static function unblock(&$_ipData)
+	private static function do_free(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'unblock', 'live');
 	}
 
 
-	private static function reactive(&$_ipData)
+	private static function do_reactive(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'reactive');
 	}
 
 
-	private static function revalidate(&$_ipData)
+	private static function do_revalidate(&$_ipData)
 	{
 		// reset request count
 		self::resetRequestLimit($_ipData, 'revalidate', 'live');
