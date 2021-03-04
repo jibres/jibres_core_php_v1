@@ -52,7 +52,7 @@ class html
 	}
 
 
-	public static function html($_data, $_notif = false, $_element = null, $_field_title = null)
+	public static function html($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 
 		// Check if there is no invalid character in _data
@@ -70,7 +70,24 @@ class html
 
 		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
 
-		$allow_tag = self::allow_tag('get_string');
+		if($data === false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Something in html is wrong!"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		if(isset($_meta['html_basic']) && $_meta['html_basic'])
+		{
+	    	$allow_tag = self::allow_tag('get_string', 'basic');
+		}
+		else
+		{
+			$allow_tag = self::allow_tag('get_string');
+		}
 
 		$data = strip_tags($data, $allow_tag);
 
@@ -80,22 +97,11 @@ class html
 	}
 
 
-	public static function html_basic($_data, $_notif = false, $_element = null, $_field_title = null)
+	public static function html_basic($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = self::html(...func_get_args());
+		$_meta['html_basic'] = true;
 
-		if(!$data)
-		{
-			return $data;
-		}
-
-	    $allow_tag = self::allow_tag('get_string', 'basic');
-
-		$data = strip_tags($data, $allow_tag);
-
-		$data = trim($data);
-
-		return $data;
+		return self::html($_data, $_notif, $_element, $_field_title, $_meta);
 	}
 
 
@@ -128,9 +134,26 @@ class html
 
 					foreach ($detail['allow_attr'] as $attr)
 					{
+
 						$attr_value        = $nodeTagName->getAttribute($attr);
 						if(isset($attr_value) && $attr_value)
 						{
+							if($attr === 'src')
+							{
+								// check only image can load in src
+								if(!self::must_be_image_url($attr_value))
+								{
+									return false;
+								}
+							}
+							elseif($attr === 'url')
+							{
+								// url only use in oembed and this tag only use for youtube video
+								if(!self::must_be_youtube_url($attr_value))
+								{
+									return false;
+								}
+							}
 					    	$nodeNewTagname->setAttribute($attr, $attr_value);
 						}
 					}
@@ -170,7 +193,6 @@ class html
 	    return $innerHTML;
 	}
 
-
 	/**
 	* Clean img tag
 	*/
@@ -183,6 +205,52 @@ class html
 		    @$nodeNewImg->setAttribute('src', $src);
 		    @$nodeImg->parentNode->replaceChild($nodeNewImg, $nodeImg);
 		}
+	}
+
+
+	/**
+	 * Check the url only image url
+	 * by extension .jpg .png .webp .gif .jpeg
+	 *
+	 * @param      <type>   $_url   The url
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	private static function must_be_image_url($_url)
+	{
+		if(!is_string($_url))
+		{
+			return false;
+		}
+
+		if(preg_match("/\.(jpg|png|gif|webp|jpeg)$/", $_url))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	private static function  must_be_youtube_url($_url)
+	{
+		if(!is_string($_url))
+		{
+			return false;
+		}
+
+		if(substr($_url, 0, 20) === 'https://youtube.com/')
+		{
+			return true;
+		}
+
+		if(substr($_url, 0, 24) === 'https://www.youtube.com/')
+		{
+			return true;
+		}
+
+		return false;
+
 	}
 }
 ?>
