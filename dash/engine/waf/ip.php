@@ -164,7 +164,7 @@ class ip
 					self::do_reactive($_info);
 				}
 
-				if (a($_info, 'reqCounter') > 120)
+				if (a($_info, 'reqCounter') > 120000)
 				{
 					// We check rpm (request per minute) after 120 request to get a good ~value
 					if ( $_info['rpm'] > 40)
