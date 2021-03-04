@@ -177,7 +177,8 @@ class ip
 				break;
 
 			case 'isolation':
-				self::plusData($_info, 'isolateRefresh', 1);
+				// check limit of isolation
+				self::checkIsolationRateLimit($_info);
 
 				if(\dash\request::is('post'))
 				{
@@ -295,6 +296,24 @@ class ip
 	}
 
 
+	private static function checkIsolationRateLimit(&$_ipData)
+	{
+		self::plusData($_ipData, 'isolateRefresh', 1);
+	}
+
+
+	// set some data inside ipData
+	private static function getData($_ipData, $_key,  $_ifNull = null)
+	{
+		if(isset($_ipData[$_key]))
+		{
+			return $_ipData[$_key];
+		}
+
+		return $_ifNull;
+	}
+
+
 	// set some data inside ipData
 	private static function setData(&$_ipData, $_key, $_value)
 	{
@@ -304,12 +323,8 @@ class ip
 
 	private static function plusData(&$_ipData, $_key)
 	{
-		$old = 0;
-		if(isset($_ipData[$_key]) && is_int($_ipData[$_key]))
-		{
-			$old = $_ipData[$_key];
-		}
-
+		$old = self::getData($_ipData, $_key, 0);
+		$old = intval($old);
 		$_ipData[$_key] = $old + 1;
 	}
 
