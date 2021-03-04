@@ -7,6 +7,11 @@ class update
 
 	public static function bind_content($_content, $_id)
 	{
+		if($_content)
+		{
+			$_content = stripslashes($_content);
+		}
+
 		$args =
 		[
 			'query' => "UPDATE posts SET posts.content = ? WHERE posts.id = ? LIMIT 1 ",

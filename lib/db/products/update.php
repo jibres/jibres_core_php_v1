@@ -7,6 +7,11 @@ class update
 
 	public static function bind_desc($_desc, $_id)
 	{
+		if($_desc)
+		{
+			$_desc = stripslashes($_desc);
+		}
+
 		$args =
 		[
 			'query' => "UPDATE products SET products.desc = ? WHERE products.id = ? LIMIT 1 ",
