@@ -8,6 +8,9 @@ class ip
 
 	public static function monitor()
 	{
+		// start queue and lock
+		\dash\system\session2::startSession();
+
 		// try to create folders
 		self::checkAndCreateFolders();
 
@@ -25,6 +28,9 @@ class ip
 
 		// save judgment inside file
 		$saveResult = self::save_yaml_file($judgment);
+
+		// end queue and unlock
+		\dash\system\session2::closeSession();
 
 		// do judgment
 		self::prosecute($judgment);
