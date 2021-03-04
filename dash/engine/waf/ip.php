@@ -197,7 +197,8 @@ class ip
 					else
 					{
 						// block!
-						self::block($_info);
+						// self::block($_info);
+						// first time we are not here, it's live mode
 					}
 				}
 				else
@@ -231,6 +232,7 @@ class ip
 		{
 			if(\dash\request::is('post'))
 			{
+				\dash\notif::direct();
 				\dash\redirect::pwd();
 			}
 		}
@@ -256,6 +258,8 @@ class ip
 
 	private static function showIpBlockPage()
 	{
+		self::redirectOnce();
+
 		\dash\header::set(444);
 		require_once (core. 'layout/html/ipBan.php');
 		\dash\code::boom();
@@ -263,9 +267,31 @@ class ip
 
 	private static function showIpProtectionPage()
 	{
+		self::redirectOnce();
+
 		\dash\header::set(303);
 		require_once (core. 'layout/html/ipProtection.php');
 		\dash\code::boom();
+	}
+
+	private static function redirectOnce()
+	{
+		if(\dash\request::json_accept() || \dash\request::ajax())
+		{
+			if(\dash\url::kingdom().'/' === \dash\url::pwd())
+			{
+				// do nothing
+				// echo '{}';
+				// echo "\n";
+			}
+			else
+			{
+				// var_dump(15);
+				\dash\notif::direct();
+				\dash\redirect::to(\dash\url::kingdom());
+				// \dash\redirect::pwd();
+			}
+		}
 	}
 
 
