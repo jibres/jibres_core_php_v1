@@ -11,7 +11,7 @@ class add
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function add_new_ticket($args)
+	public static function add_new_ticket($args, $_type = null)
 	{
 		unset($args['sendmessage']);
 
@@ -100,7 +100,7 @@ class add
 			$args['guestid'] = $guestid;
 		}
 
-		$ticket_id = self::add_new_ticket($args);
+		$ticket_id = self::add_new_ticket($args, 'new');
 		if(!$ticket_id)
 		{
 			return false;
@@ -174,7 +174,7 @@ class add
 
 		$args['parent']      = $master['id'];
 
-		$ticket_id = self::add_new_ticket($args);
+		$ticket_id = self::add_new_ticket($args, 'add_to_my_ticket');
 		if(!$ticket_id)
 		{
 			return false;
@@ -239,7 +239,7 @@ class add
 			return false;
 		}
 
-		$ticket_id = self::add_new_ticket($args);
+		$ticket_id = self::add_new_ticket($args, 'add_by_admin');
 		if(!$ticket_id)
 		{
 			\dash\notif::error(T_("Can not add your ticket"));

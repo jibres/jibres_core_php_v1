@@ -54,7 +54,7 @@ class answer
 			$args['type'] = 'answer';
 		}
 
-		$message_id = \dash\app\ticket\add::add_new_ticket($args);
+		$message_id = \dash\app\ticket\add::add_new_ticket($args, 'answer');
 
 		if(!$message_id)
 		{

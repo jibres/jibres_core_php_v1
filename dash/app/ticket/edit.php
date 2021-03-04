@@ -102,7 +102,7 @@ class edit
 		{
 			foreach ($add_action as $key => $value)
 			{
-				\dash\app\ticket\add::add_new_ticket($value);
+				\dash\app\ticket\add::add_new_ticket($value, 'action');
 			}
 
 			\dash\notif::clean();
@@ -156,7 +156,7 @@ class edit
 			'user_id' => \dash\user::id(),
 		];
 
-		\dash\app\ticket\add::add_new_ticket($add_action);
+		\dash\app\ticket\add::add_new_ticket($add_action, 'action');
 
 		\dash\notif::ok(T_("Ticket was assigned to user"));
 		return true;
