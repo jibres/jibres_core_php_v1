@@ -3,6 +3,8 @@ namespace dash\engine\waf;
 
 class race
 {
+	private static $isBusy = null;
+
 	public static function escort()
 	{
 		$urlMd5     = md5(\dash\url::current());
@@ -36,6 +38,7 @@ class race
 			// Use this if you want to reset counter
 			\dash\header::status(429, 'Please be patient');
 		}
+		self::$isBusy = time();
 	}
 
 
@@ -46,8 +49,15 @@ class race
 			return null;
 		}
 
-		// clean session temporary variable
-		\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
+		if(self::$isBusy)
+		{
+			// clean session temporary variable
+			\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
+		}
+		else
+		{
+			// check time
+		}
 	}
 }
 ?>
