@@ -208,7 +208,7 @@ class add
 
 		unset($args['stock']);
 
-		$desc = null;
+		$desc = false;
 
 		if(array_key_exists('desc', $args))
 		{
@@ -239,7 +239,7 @@ class add
 			return false;
 		}
 
-		if($desc && $product_id)
+		if($desc !== false && $product_id)
 		{
 			\lib\db\products\update::bind_desc($desc, $product_id);
 		}

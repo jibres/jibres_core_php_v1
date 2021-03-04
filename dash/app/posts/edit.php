@@ -94,7 +94,7 @@ class edit
 				}
 			}
 
-			$content = null;
+			$content = false;
 			if(array_key_exists('content', $args))
 			{
 				$content = $args['content'];
@@ -106,7 +106,7 @@ class edit
 				\dash\db\posts::update($args, $id);
 			}
 
-			if($content)
+			if($content !== false)
 			{
 				\dash\db\posts\update::bind_content($content, $id);
 			}

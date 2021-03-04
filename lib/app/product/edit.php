@@ -353,6 +353,8 @@ class edit
 			{
 				\dash\temp::set('productHasChange', true);
 
+				$desc = false;
+
 				if(array_key_exists('desc', $args))
 				{
 					$desc = $args['desc'];
@@ -370,7 +372,7 @@ class edit
 					}
 				}
 
-				if($desc)
+				if($desc !== false)
 				{
 					\lib\db\products\update::bind_desc($desc, $id);
 				}

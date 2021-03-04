@@ -50,7 +50,7 @@ class add
 
 		$return         = [];
 
-		$content = null;
+		$content = false;
 		if(array_key_exists('content', $args))
 		{
 			$content = $args['content'];
@@ -69,7 +69,7 @@ class add
 			return false;
 		}
 
-		if($content && $post_id)
+		if($content !== false && $post_id)
 		{
 			\dash\db\posts\update::bind_content($content, $post_id);
 		}
