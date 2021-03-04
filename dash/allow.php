@@ -90,7 +90,7 @@ class allow
 			return true;
 		}
 
-		if($file)
+		if($files)
 		{
 			// ip block
 			\dash\header::status(403, T_("Can not send file on this page"));
