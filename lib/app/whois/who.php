@@ -8,7 +8,7 @@ class who
 
 	public static function is($_domain)
 	{
-		$_domain = \dash\validate::domain($_domain, false);
+		$_domain = \dash\validate::domain($_domain);
 
 		if(!$_domain)
 		{
