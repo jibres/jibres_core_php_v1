@@ -38,6 +38,17 @@ class protection
 
 		// get
 		\dash\engine\dog\get::inspection();
+
+		// need to check
+		// file
+		// post field
+		// get
+		// url
+		// request
+		// phpinput
+		// cookie
+		// method
+		// referer
 	}
 }
 ?>
