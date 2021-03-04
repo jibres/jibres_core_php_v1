@@ -160,6 +160,20 @@ class ip
 
 	private static function court($_info)
 	{
+		// whitelist
+		$myZone = a($_info, 'zone');
+		if($myZone === 'whitelist')
+		{
+			// do nothing, everything is okay!
+			return $_info;
+		}
+
+		if($myZone === 'blacklist')
+		{
+			// do nothing, block everything!
+			return $_info;
+		}
+
 		if (a($_info, 'diff') > (60 * 60 * 24 * 10))
 		{
 			// If first request was more than 10 days from last one
@@ -177,7 +191,7 @@ class ip
 			return $_info;
 		}
 
-		switch (a($_info, 'zone'))
+		switch ($myZone)
 		{
 			case 'live':
 			case 'human':
@@ -280,7 +294,13 @@ class ip
 			case 'ban':
 				// block until deadline
 				self::showIpBlockPage();
-				// \dash\header::status(417, 'Your IP is banned for 24 hours, because of too many requests!');
+				break;
+
+			case 'whitelist':
+				break;
+
+			case 'blacklist':
+				self::showIpBlockPage();
 				break;
 
 			default:
