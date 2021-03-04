@@ -213,8 +213,13 @@ class ip
 
 			case 'ban':
 				// if it was less than 24 hours and die if so
-				if (a($_info, 'diff') > (60 * 60 * 24))
+				if(self::getData($_info, 'autoUnblock') > 3)
 				{
+					// do nothing for someone with more than 3 times block!
+				}
+				elseif (a($_info, 'diff') > (60 * 60 * 24))
+				{
+					self::plusData($_info, 'autoUnblock');
 					// 24 hours in seconds.. if more delete ip file
 					self::do_unblock($_info, 'release after 24h');
 				}
@@ -267,6 +272,7 @@ class ip
 		\dash\code::boom();
 	}
 
+
 	private static function showIpProtectionPage()
 	{
 		self::redirectOnce();
@@ -275,6 +281,7 @@ class ip
 		require_once (core. 'layout/html/ipProtection.php');
 		\dash\code::boom();
 	}
+
 
 	private static function redirectOnce()
 	{
