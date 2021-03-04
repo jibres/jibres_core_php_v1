@@ -45,12 +45,14 @@ class protection
 		// file
 		\dash\engine\dog\file::inspection();
 
+		// phpinput
+		\dash\engine\dog\phpinput::inspection();
+
 		// need to check
 		//
 		// post field
 		// url
 		// request
-		// phpinput
 		// cookie
 		// referer
 	}
