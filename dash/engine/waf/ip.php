@@ -423,6 +423,20 @@ class ip
 	}
 
 
+	private static function do_whitelist(&$_ipData, $_reason = null)
+	{
+		// reset request count
+		self::resetRequestLimit($_ipData, 'whitelist', 'whitelist', $_reason);
+	}
+
+
+	private static function do_blacklist(&$_ipData, $_reason = null)
+	{
+		// reset request count
+		self::resetRequestLimit($_ipData, 'blacklist', 'blacklist', $_reason);
+	}
+
+
 	private static function do_reset(&$_ipData)
 	{
 		// reset everything
@@ -597,6 +611,8 @@ class ip
 			case 'bot':
 			case 'isolation':
 			case 'ban':
+			case 'whitelist':
+			case 'blacklist':
 				break;
 
 			default:
@@ -631,6 +647,8 @@ class ip
 			'bot'       => self::generate_file_path($_ip, 'bot'),
 			'isolation' => self::generate_file_path($_ip, 'isolation'),
 			'ban'       => self::generate_file_path($_ip, 'ban'),
+			'whitelist' => self::generate_file_path($_ip, 'whitelist'),
+			'blacklist' => self::generate_file_path($_ip, 'blacklist'),
 		];
 
 		$ipPath = null;
@@ -679,6 +697,8 @@ class ip
 			'bot'       => self::generate_addr_path('bot'),
 			'isolation' => self::generate_addr_path('isolation'),
 			'ban'       => self::generate_addr_path('ban'),
+			'whitelist' => self::generate_addr_path('whitelist'),
+			'blacklist' => self::generate_addr_path('blacklist'),
 		];
 
 		foreach ($myFolders as $key => $folder)
