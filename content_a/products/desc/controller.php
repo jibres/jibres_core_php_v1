@@ -15,7 +15,7 @@ class controller
 		}
 
 		// allow enter html
-		\dash\open::html();
+		\dash\allow::html();
 
 	}
 }

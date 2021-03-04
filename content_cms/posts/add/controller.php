@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\open::html();
+		\dash\allow::html();
 	}
 }
 ?>

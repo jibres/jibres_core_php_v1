@@ -45,7 +45,7 @@ class controller
 			}
 		}
 
-		\dash\open::html();
+		\dash\allow::html();
 	}
 }
 ?>

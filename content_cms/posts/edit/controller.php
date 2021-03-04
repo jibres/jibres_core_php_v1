@@ -16,7 +16,7 @@ class controller
 
 		\dash\data::dataRow($detail);
 
-		\dash\open::html();
+		\dash\allow::html();
 	}
 }
 ?>
