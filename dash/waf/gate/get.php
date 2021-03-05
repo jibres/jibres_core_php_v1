@@ -45,7 +45,7 @@ class get
 
 			\dash\waf\gate\toys\general::len($key, 1, 50);
 
-			\dash\waf\gate\toys\only::a_z0_9_($key);
+			\dash\waf\gate\toys\only::a_z0_9_dash($key);
 
 			// not allow tag in value of tag
 			\dash\waf\gate\toys\block::tags($value);
@@ -96,7 +96,7 @@ class get
 			\dash\waf\gate\toys\only::text($sort);
 			\dash\waf\gate\toys\block::tags($sort);
 			\dash\waf\gate\toys\general::len($sort, 1, 20);
-			\dash\waf\gate\toys\only::a_z0_9_($sort);
+			\dash\waf\gate\toys\only::a_z0_9_dash($sort);
 		}
 	}
 
