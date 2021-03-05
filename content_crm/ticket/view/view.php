@@ -6,7 +6,14 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Ticket"). ' '. \dash\fit::text(\dash\data::dataRow_id()));
+		if(\dash\data::dataRow_subtype() === 'bug')
+		{
+			\dash\face::title(T_("Bug report"). ' '. \dash\fit::text(\dash\data::dataRow_id()));
+		}
+		else
+		{
+			\dash\face::title(T_("Ticket"). ' '. \dash\fit::text(\dash\data::dataRow_id()));
+		}
 
 		// btn
 		\dash\data::back_text(T_('Back'));

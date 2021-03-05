@@ -18,7 +18,15 @@ echo '<nav class="items long">';
 
         echo a($value, 'statuclass');
 
-        echo '<div class="value">'. T_("Ticket"). ' '. $value['id']. '</div>';
+        if(a($value, 'subtype') === 'bug')
+        {
+          echo '<div class="value">'. T_("Bug report"). ' '. $value['id']. '</div>';
+        }
+        else
+        {
+          echo '<div class="value">'. T_("Ticket"). ' '. $value['id']. '</div>';
+        }
+
 
         echo "<i class='sf-retweet' data-count='". \dash\fit::number(a($value, 'plus')). "'></i>";
 
