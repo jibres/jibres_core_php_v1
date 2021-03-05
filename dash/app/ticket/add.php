@@ -44,6 +44,11 @@ class add
 			$args['ip'] = \dash\server::iplong();
 		}
 
+		if(!a($args, 'agent_id'))
+		{
+			$args['agent_id'] = \dash\agent::get(true);
+		}
+
 
 		$ticket_id = \dash\db\tickets\insert::new_record($args);
 		if(!$ticket_id)
