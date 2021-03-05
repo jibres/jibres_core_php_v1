@@ -20,7 +20,8 @@ class phpinput
 
 		\dash\engine\dog\toys\general::len($phpinput, 0, 50000); // for api add post by content
 
-		\dash\engine\dog\toys\only::json($phpinput);
+		// all post request have php input
+		// \dash\engine\dog\toys\only::json($phpinput);
 
 
 	}
