@@ -1,20 +1,3 @@
-<?php if(\dash\data::ipDetail()) {?>
-
-
-<div class="cbox">
-  <div class="f">
-    <?php foreach (\dash\data::ipDetail() as $key => $value) {?>
-
-    <div class="msg c3 mL5"><?php echo $key; ?> <span class="floatL"><?php echo $value; ?></span></div>
-  <?php } //endfor ?>
-  </div>
-</div>
-
-<?php } //endif ?>
-
-
-
-
 <?php
 if(\dash\data::dataTable())
 {

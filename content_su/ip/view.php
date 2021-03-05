@@ -10,10 +10,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-		$ip = \dash\server::get('REMOTE_ADDR');
-		$details = json_decode(@file_get_contents("http://ipinfo.io/{$ip}/json"), true);
-		\dash\data::ipDetail($details);
-
 		$args =
 		[
 
