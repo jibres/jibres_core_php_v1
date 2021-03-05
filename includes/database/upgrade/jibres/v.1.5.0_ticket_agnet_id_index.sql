@@ -1,0 +1,1 @@
+ALTER TABLE jibres.tickets  ADD INDEX `ticket_index_search_agent_id` (`agent_id`);
