@@ -39,5 +39,18 @@ class enter
 
 		return false;
 	}
+
+
+	public static function su_access()
+	{
+		self::load();
+
+		if(isset(self::$load['su_access']))
+		{
+			return self::$load['su_access'];
+		}
+
+		return false;
+	}
 }
 ?>

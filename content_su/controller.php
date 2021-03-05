@@ -31,6 +31,34 @@ class controller
 				\dash\temp::set('force_stop_visitor', true);
 			}
 		}
+
+		self::check_su_access();
+
+	}
+
+
+	/**
+	 * { function_description }
+	 */
+	private static function check_su_access()
+	{
+		$access = \dash\session::get('su_access');
+		if(!$access || !isset($access['time']))
+		{
+			if(\dash\url::module() !== 'passwd')
+			{
+				\dash\redirect::to(\dash\url::here(). '/passwd');
+			}
+			return;
+		}
+
+		if(time() - intval($access['time']) > (60*10))
+		{
+			\dash\session::clean('su_access');
+
+			\dash\redirect::to(\dash\url::here());
+		}
+
 	}
 }
 ?>
