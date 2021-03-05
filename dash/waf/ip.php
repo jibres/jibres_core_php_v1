@@ -641,7 +641,7 @@ class ip
 			return false;
 		}
 
-		return true;
+		return $_unlockTime;
 	}
 
 
