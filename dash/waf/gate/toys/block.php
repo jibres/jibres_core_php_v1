@@ -43,7 +43,9 @@ class block
 	{
 		if($_from	=== 'Booster_resultXML')
 		{
+			// @TODO
 			// need to fix
+			// used on jibres booster
 			return null;
 		}
 
