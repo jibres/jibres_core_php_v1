@@ -51,13 +51,7 @@ class protection
 		// post
 		\dash\engine\dog\post::inspection();
 
-		// need to check
-		//
-		// post field
-		// url
-		// request
-		// cookie
-		// referer
+		// needless to check request. the request is merge of get,post
 	}
 }
 ?>
