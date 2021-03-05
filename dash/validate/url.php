@@ -127,7 +127,7 @@ class url
 			return false;
 		}
 
-		if(preg_match("/\.{2,}/", $data))
+		if(preg_match("/\.\./", $data))
 		{
 			if($_notif)
 			{
