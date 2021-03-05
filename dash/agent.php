@@ -130,6 +130,7 @@ class agent
 			"Adsbot",
 			"UptimeRobot",
 			"AhrefsBot",
+			"DotBot",
 		];
 
 		foreach($botlist as $bot)

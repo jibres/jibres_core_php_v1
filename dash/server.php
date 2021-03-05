@@ -92,7 +92,6 @@ class server
 				break;
 
 			default:
-
 				break;
 		}
 
