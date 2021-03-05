@@ -653,6 +653,7 @@ class prepare
 			}
 		}
 
+		\dash\header::set(404);
 		self::html_raw_page('unknownMode');
 	}
 
