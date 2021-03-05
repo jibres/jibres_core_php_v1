@@ -90,35 +90,49 @@ class header
 			307 => 'Temporary Redirect',
 			308 => 'Permanent Redirect',
 
-			400 => 'Bad Request', // ----------------------- @Hive, @API and some other module
+			// @Hive, @API and some other module
+			400 => 'Bad Request',
 			401 => 'Unauthorized',
 			402 => 'Payment Required',
-			403 => 'Forbidden', // ------------------------- @Permission -> \dash\permission::access()
+			// @Permission -> \dash\permission::access()
+			403 => 'Forbidden',
 			404 => 'Not Found',
 			405 => 'Method Not Allowed',
-			406 => 'Not Acceptable', // -------------------- @process -> need stop process
+			// @process -> need stop process
+			406 => 'Not Acceptable',
 			407 => 'Proxy Authentication Required',
 			408 => 'Request Timeout',
 			409 => 'Conflict',
 			410 => 'Gone',
 			411 => 'Length Required',
-			412 => 'Precondition Failed', // --------------- @Baby -> SERVER['REQUEST_URI'] not set!
+			// @Baby -> SERVER['REQUEST_URI'] not set!
+			412 => 'Precondition Failed',
 			413 => 'Request Entity Too Large',
-			414 => 'Request-URI Too Long', // -------------- @Baby -> check length
-			415 => 'Unsupported Media Type', // ------------ @Baby -> send multi array
+			// @Baby -> check length
+			414 => 'Request-URI Too Long',
+			// @Baby -> send multi array
+			415 => 'Unsupported Media Type',
 			416 => 'Requested Range Not Satisfiable',
 			417 => 'Expectation Failed',
-			418 => 'I\'m a teapot', // --------------------- @Baby -> Have unauthorized character
-			421 => 'Misdirected Request', // --------------- @Baby -> Found dbl // in url
-			422 => 'Unprocessable Entity', //--------------- @Ticket add. Its very fast, try to send html content, Have 2 link in content
-			423 => 'Locked', // ---------------------------- @Cleanse -> Check input and validate args. \dash\clense::data()
-			424 => 'Failed Dependency', // ----------------- @MVC -> Model function is not callable
+			// @Baby -> Have unauthorized character
+			418 => 'I\'m a teapot',
+			// @Baby -> Found dbl // in url
+			421 => 'Misdirected Request',
+			// @Ticket add. Its very fast, try to send html content, Have 2 link in content
+			422 => 'Unprocessable Entity',
+			// @Cleanse -> Check input and validate args. \dash\clense::data()
+			423 => 'Locked',
+			// @MVC -> Model function is not callable
+			424 => 'Failed Dependency',
 			426 => 'Upgrade Required',
-			428 => 'Precondition Required', // ------------- @Baby -> check agent
+			// @Baby -> check agent
+			428 => 'Precondition Required',
 			429 => 'Too Many Requests',
 			431 => 'Request Header Fields Too Large',
-			444 => 'No Response', // ----- waf ip block
-			451 => 'Unavailable For Legal Reasons', // ----- @Baby have script in url
+			// waf ip block
+			444 => 'No Response',
+			// @Baby have script in url
+			451 => 'Unavailable For Legal Reasons',
 
 			500 => 'Internal Server Error',
 			501 => 'Not Implemented',
