@@ -9,6 +9,10 @@ class agent
 	{
 		$agent = \dash\agent::agent(false);
 
+		if($agent === null)
+		{
+			return null;
+		}
 		// only can be text
 		\dash\waf\gate\toys\only::something($agent);
 		\dash\waf\gate\toys\only::text($agent);
