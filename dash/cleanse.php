@@ -857,7 +857,7 @@ class cleanse
 		}
 		else
 		{
-			if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
+			if(\dash\request::json_accept() || \dash\request::ajax() || \dash\url::is_api())
 			{
 				\dash\header::set(423);
 			}

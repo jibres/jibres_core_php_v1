@@ -45,7 +45,7 @@ class find
 		// set header for some scenario
 		// if we dont have header
 		// and we are not in api content
-		if($myMain === null && !\dash\engine\content::api_content())
+		if($myMain === null && !\dash\url::is_api())
 		{
 			if(\dash\data::include_adminPanel())
 			{
@@ -103,7 +103,7 @@ class find
 		// set header for some scenario
 		// if we dont have header
 		// and we are not in api content
-		if($myHeader === null && !\dash\engine\content::api_content())
+		if($myHeader === null && !\dash\url::is_api())
 		{
 			$headerScroll = true;
 			$myContent = \dash\engine\content::get();
@@ -175,7 +175,7 @@ class find
 		// set footer for some scenario
 		// if we dont have footer
 		// and we are not in api content
-		if($myFooter === null && !\dash\engine\content::api_content())
+		if($myFooter === null && !\dash\url::is_api())
 		{
 			if(\dash\engine\content::get() === 'content')
 			{

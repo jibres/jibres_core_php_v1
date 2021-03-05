@@ -872,6 +872,20 @@ class url
 
 
 	/**
+	 * List of api contents
+	 */
+	public static function is_api()
+	{
+		if(in_array(\dash\url::subdomain(), ['core', 'api', 'business']))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	/**
 	 * Get the curren and real protocol
 	 *
 	 * @return     string  ( description_of_the_return_value )

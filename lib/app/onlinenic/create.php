@@ -408,7 +408,7 @@ class create
 
 					\lib\app\nic_domainaction\action::set('domain_buy_pay_link', $domain_action_detail);
 
-					if(\dash\engine\content::api_content())
+					if(\dash\url::is_api())
 					{
 						$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
 						\dash\notif::meta($result_pay);

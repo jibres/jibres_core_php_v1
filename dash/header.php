@@ -246,7 +246,7 @@ class header
 			}
 		}
 
-		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\engine\content::api_content())
+		if(\dash\request::json_accept() || \dash\request::ajax() || \dash\url::is_api())
 		{
 			$translatedDesc .= ' - '. $myCode;
 			// depending on title if exist or not

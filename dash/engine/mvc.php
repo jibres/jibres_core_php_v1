@@ -295,7 +295,7 @@ class mvc
 
 			if(!$nativeTemplate)
 			{
-				if(\dash\engine\content::api_content())
+				if(\dash\url::is_api())
 				{
 					// in api contenct not allow this method
 					\dash\header::status(405);

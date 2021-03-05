@@ -284,7 +284,7 @@ class check
 
 						if($product_id)
 						{
-							if(!\dash\engine\content::api_content())
+							if(!\dash\url::is_api())
 							{
 								$link = \dash\url::this(). '/edit?id='. $product_id;
 								$msg = "<a href='$link'>". $msg. '</a>';

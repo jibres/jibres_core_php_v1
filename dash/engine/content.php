@@ -76,19 +76,6 @@ class content
 		return null;
 	}
 
-	/**
-	 * List of api contents
-	 */
-	public static function api_content()
-	{
-		if(in_array(\dash\url::subdomain(), ['core', 'api', 'business']))
-		{
-			return true;
-		}
-
-		return false;
-	}
-
 
 	public static function set($_name, $_addr = null)
 	{

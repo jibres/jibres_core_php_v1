@@ -318,7 +318,7 @@ class cart
 
 			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
 			{
-				if(\dash\engine\content::api_content())
+				if(\dash\url::is_api())
 				{
 					$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
 					\dash\notif::meta($result_pay);
