@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.tickets  ADD `agent_id` bigint(20) UNSIGNED  NULL AFTER `ip`;
