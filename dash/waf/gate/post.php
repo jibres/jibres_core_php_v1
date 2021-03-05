@@ -35,7 +35,7 @@ class post
 			{
 				\dash\waf\gate\toys\only::string($key);
 
-				\dash\waf\gate\toys\general::len($value, 0, 50000);
+				\dash\waf\gate\toys\general::len($value, 0, 100000);
 				// ok can send html
 			}
 			else
@@ -53,14 +53,14 @@ class post
 
 						\dash\waf\gate\toys\general::len($key2, 1, 50);
 
-						\dash\waf\gate\toys\general::len($value2, 0, 500);
+						\dash\waf\gate\toys\general::len($value2, 0, 5000);
 						// not allow tag in value of post
-						\dash\waf\gate\toys\block::tags($value2);
+						\dash\waf\gate\toys\block::tags($value2, $key2);
 					}
 				}
 				else
 				{
-					\dash\waf\gate\toys\general::len($value, 0, 500);
+					\dash\waf\gate\toys\general::len($value, 0, 5000);
 					// not allow tag in value of post
 					\dash\waf\gate\toys\block::tags($value);
 				}

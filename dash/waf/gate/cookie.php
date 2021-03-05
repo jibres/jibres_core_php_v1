@@ -42,7 +42,6 @@ class cookie
 
 	private static function blacklist($txt)
 	{
-
 		// disallow html tags
 		\dash\waf\gate\toys\block::tags($txt);
 		// disallow some words

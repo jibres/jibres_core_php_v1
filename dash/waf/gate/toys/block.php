@@ -39,12 +39,17 @@ class block
 	}
 
 
-	public static function tags($_text)
+	public static function tags($_text, $_from = null)
 	{
 		$strippedText = strip_tags($_text);
 		if($_text !== $strippedText)
 		{
-			\dash\waf\dog::BITE('ooh Tag!', 428);
+			$msg = 'ooh Tag!';
+			if($_from)
+			{
+				$msg = 'ooh Tag inside '. $_from;
+			}
+			\dash\waf\dog::BITE($msg, 428);
 		}
 	}
 

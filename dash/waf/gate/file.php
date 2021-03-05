@@ -36,7 +36,7 @@ class file
 
 				\dash\waf\gate\toys\general::len($file_detail['name'], 1, 200);
 
-				\dash\waf\gate\toys\block::tags($file_detail['name']);
+				\dash\waf\gate\toys\block::tags($file_detail['name'], $file_name);
 
 				\dash\waf\gate\toys\block::word($file_detail['name'], 'script');
 				\dash\waf\gate\toys\block::word($file_detail['name'], 'javascript');
@@ -68,7 +68,7 @@ class file
 
 				\dash\waf\gate\toys\general::len($file_detail['type'], 1, 100); // for .docx type
 
-				\dash\waf\gate\toys\block::tags($file_detail['type']);
+				\dash\waf\gate\toys\block::tags($file_detail['type'], $file_name);
 
 				\dash\waf\gate\toys\block::word($file_detail['type'], 'script');
 				\dash\waf\gate\toys\block::word($file_detail['type'], 'svg');

@@ -48,7 +48,7 @@ class get
 			\dash\waf\gate\toys\only::a_z0_9_dash($key);
 
 			// not allow tag in value of tag
-			\dash\waf\gate\toys\block::tags($value);
+			\dash\waf\gate\toys\block::tags($value, $key);
 		}
 	}
 
