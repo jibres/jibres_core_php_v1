@@ -172,6 +172,7 @@ class header
 			424 => 'Failed Dependency',
 			426 => 'Upgrade Required',
 			// @Baby -> check agent
+			// dog toys
 			428 => 'Precondition Required',
 			429 => 'Too Many Requests',
 			431 => 'Request Header Fields Too Large',
