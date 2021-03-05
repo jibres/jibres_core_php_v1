@@ -93,7 +93,7 @@ class recaptcha
 		}
 		elseif($request === 'post')
 		{
-			if(!self::check())
+			if(!self::verify_v3())
 			{
 				\dash\header::status(400, T_("Are you robot?"));
 			}
@@ -107,7 +107,7 @@ class recaptcha
 
 
 
-	private static function check()
+	private static function verify_v3()
 	{
 		$recaptcha_token   = \dash\request::post('recaptcha_token');
 		$recaptcha_sitekey = \dash\request::post('recaptcha_sitekey');
@@ -161,13 +161,16 @@ class recaptcha
 		if($success)
 		{
 			@header('x-rec-score: '. $score);
-		    // Verified!
-		    return true;
+
+			if(floatval($score) >= 0.5)
+			{
+		    	return true;
+			}
 		}
-		else
-		{
-		    return false;
-		}
+
+		$reason = $recaptcha_action. '-'. (string) floatval($score);
+
+		// \dash\engine\waf\ip::isolateIP(1, $reason);
 
 		return false;
 	}
