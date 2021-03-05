@@ -218,7 +218,11 @@ class ip
 					self::do_reactive($_info, 'return after 1h');
 				}
 
-				if (a($_info, 'reqCounter') > 120)
+				if(\dash\url::is_api())
+				{
+					// do nothing on api
+				}
+				elseif (a($_info, 'reqCounter') > 120)
 				{
 					// We check rpm (request per minute) after 120 request to get a good ~value
 					if ( $_info['rpm'] > 40)
