@@ -534,7 +534,7 @@ class ip
 		// only request 5 times, after that request isolate and reset
 		if(self::getData($ipData, 'isolateRequested', 1) < 5)
 		{
-			if(self::getData($ipData, 'recaptchaSolvedCounter') > $_level)
+			if(self::getData($ipData, 'recaptchaSolvedCounter') >= $_level)
 			{
 				// do nothing, it's human for this kind of action
 				$isolateNeeded = false;
