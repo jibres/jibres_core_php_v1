@@ -625,6 +625,12 @@ class ip
 		}
 		// save changes
 		self::save_yaml_file($ipData);
+
+		if($isolateNeeded)
+		{
+			// prosecute commad
+			self::prosecute($ipData);
+		}
 		// return
 		return $isolateNeeded;
 	}
@@ -643,6 +649,8 @@ class ip
 		self::do_block($ipData, $_reason, $_minute);
 		// save changes
 		self::save_yaml_file($ipData);
+		// prosecute commad
+		self::prosecute($ipData);
 	}
 
 
@@ -659,6 +667,8 @@ class ip
 		self::do_unblock($ipData, $_reason);
 		// save changes
 		self::save_yaml_file($ipData);
+		// prosecute commad
+		self::prosecute($ipData);
 	}
 
 
