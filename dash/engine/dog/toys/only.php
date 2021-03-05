@@ -95,6 +95,15 @@ class only
 	}
 
 
+	public static function string($_string)
+	{
+		if(!is_numeric($_string) && !is_string($_string))
+		{
+			\dash\header::status(428, 'only S');
+		}
+	}
+
+
 	public static function a_z0_9_($_txt)
 	{
 		if(!preg_match("/^[A-Za-z0-9\_]+$/", $_txt))
