@@ -12,13 +12,13 @@ class protection
 		self::dog();
 
 		// block baby to not allow to harm yourself :/
-		\dash\engine\waf\baby::block();
+		\dash\waf\baby::block();
 
 		// check ip
-		\dash\engine\waf\ip::monitor();
+		\dash\waf\ip::monitor();
 
 		// disallow flood
-		\dash\engine\waf\race::escort();
+		\dash\waf\race::escort();
 	}
 
 

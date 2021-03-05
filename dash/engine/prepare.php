@@ -49,7 +49,7 @@ class prepare
 		// register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
 		// register_shutdown_function(['\dash\engine\runtime', 'shutdown']);
 
-		register_shutdown_function(['\dash\engine\waf\race', 'requestDone']);
+		register_shutdown_function(['\dash\waf\race', 'requestDone']);
 	}
 
 

@@ -170,7 +170,7 @@ class recaptcha
 
 		$reason = $recaptcha_action. '-'. (string) floatval($score);
 
-		// \dash\engine\waf\ip::isolateIP(1, $reason);
+		// \dash\waf\ip::isolateIP(1, $reason);
 
 		return false;
 	}

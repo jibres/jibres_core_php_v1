@@ -13,7 +13,7 @@ class redirect
 	public static function to($_url, $_php = true, $_arg = null)
 	{
 		// say request is done
-		\dash\engine\waf\race::requestDone();
+		\dash\waf\race::requestDone();
 
 		$statusCode = 302;
 		// set header for redirect via php

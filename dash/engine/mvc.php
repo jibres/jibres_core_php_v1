@@ -288,7 +288,7 @@ class mvc
 			\dash\engine\view::lastChanges();
 
 			// add header before echo anything
-			\dash\engine\waf\race::requestDone();
+			\dash\waf\race::requestDone();
 			\dash\engine\runtime::shutdown();
 
 			$nativeTemplate = \dash\layout\func::shoot();
@@ -344,7 +344,7 @@ class mvc
 			}
 
 			// add header febore echo anything
-			\dash\engine\waf\race::requestDone();
+			\dash\waf\race::requestDone();
 			\dash\engine\runtime::shutdown();
 
 			\dash\code::compile();

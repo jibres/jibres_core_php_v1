@@ -17,7 +17,7 @@ class power
 		\dash\language::detect_language();
 
 		// check waf
-		\dash\engine\waf\protection::start();
+		\dash\waf\protection::start();
 
 		// find store detail and set to connect to true store
 		\dash\engine\store::config();
