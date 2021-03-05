@@ -12,8 +12,8 @@ class post
 
 		if(!$post)
 		{
-			return;
 		}
+			return;
 
 		\dash\engine\dog\toys\only::array($post);
 
@@ -25,7 +25,7 @@ class post
 
 			\dash\engine\dog\toys\only::string($key);
 
-			\dash\engine\dog\toys\block::tags($key);
+			// \dash\engine\dog\toys\block::tags($key);
 
 			\dash\engine\dog\toys\general::len($key, 1, 50);
 
