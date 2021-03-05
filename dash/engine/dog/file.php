@@ -8,7 +8,7 @@ class file
 {
 	public static function inspection()
 	{
-		$file = \dash\request::files();
+		$file = $_FILES;
 
 		if(!$file)
 		{

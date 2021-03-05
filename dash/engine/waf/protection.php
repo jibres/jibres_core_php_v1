@@ -48,6 +48,9 @@ class protection
 		// phpinput
 		\dash\engine\dog\phpinput::inspection();
 
+		// post
+		\dash\engine\dog\post::inspection();
+
 		// need to check
 		//
 		// post field

@@ -16,6 +16,8 @@ class cookie
 			return;
 		}
 
+		// need check count of all cookie
+
 		foreach ($cookie as $key => $value)
 		{
 			// check key len

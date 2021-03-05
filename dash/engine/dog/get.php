@@ -8,7 +8,7 @@ class get
 {
 	public static function inspection()
 	{
-		$get = \dash\request::get();
+		$get = $_GET;
 
 		if(!$get)
 		{
@@ -29,6 +29,7 @@ class get
 		{
 			return;
 		}
+		\dash\engine\dog\toys\only::array($get);
 
 		\dash\engine\dog\toys\general::array_count($get, 0, 30);
 
