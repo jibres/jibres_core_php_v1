@@ -1,5 +1,5 @@
 <?php
-namespace dash\waf\dog;
+namespace dash\waf\gate;
 /**
  * dash main configure
  */
@@ -22,7 +22,7 @@ class headers
 		unset($headers['USER-AGENT']);
 
 		// only allow array
-		\dash\waf\dog\toys\only::array($headers);
+		\dash\waf\gate\toys\only::array($headers);
 
 		if(empty($headers))
 		{
@@ -32,10 +32,10 @@ class headers
 		foreach ($headers as $key => $value)
 		{
 			// check key len
-			\dash\waf\dog\toys\general::len($key, 1, 50);
+			\dash\waf\gate\toys\general::len($key, 1, 50);
 
 			// check value len
-			\dash\waf\dog\toys\general::len($value, 0, 500);
+			\dash\waf\gate\toys\general::len($value, 0, 500);
 
 
 			// check blacklist words
@@ -48,16 +48,16 @@ class headers
 	private static function blacklist($txt)
 	{
 		// only can be text
-		\dash\waf\dog\toys\only::something($txt);
-		\dash\waf\dog\toys\only::text($txt);
+		\dash\waf\gate\toys\only::something($txt);
+		\dash\waf\gate\toys\only::text($txt);
 
 		// disallow html tags
-		\dash\waf\dog\toys\block::tags($txt);
+		\dash\waf\gate\toys\block::tags($txt);
 		// disallow some words
 
-		\dash\waf\dog\toys\block::word($txt, "'");
-		\dash\waf\dog\toys\block::word($txt, "`");
-		\dash\waf\dog\toys\block::word($txt, "\n");
+		\dash\waf\gate\toys\block::word($txt, "'");
+		\dash\waf\gate\toys\block::word($txt, "`");
+		\dash\waf\gate\toys\block::word($txt, "\n");
 	}
 }
 ?>

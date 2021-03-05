@@ -933,7 +933,7 @@ class ip
 		if($_ip)
 		{
 			// check ip with dog for external requests
-			\dash\waf\dog\ip::inspection($_ip);
+			\dash\waf\gate\ip::inspection($_ip);
 			return $_ip;
 		}
 

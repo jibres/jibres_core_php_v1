@@ -6,31 +6,31 @@ class dog
 	public static function bark()
 	{
 		// ip
-		\dash\waf\dog\ip::inspection();
+		\dash\waf\gate\ip::inspection();
 
 		// agent
-		\dash\waf\dog\agent::inspection();
+		\dash\waf\gate\agent::inspection();
 
 		// cookie
-		\dash\waf\dog\cookie::inspection();
+		\dash\waf\gate\cookie::inspection();
 
 		// headers
-		\dash\waf\dog\headers::inspection();
+		\dash\waf\gate\headers::inspection();
 
 		// get
-		\dash\waf\dog\get::inspection();
+		\dash\waf\gate\get::inspection();
 
 		// method
-		\dash\waf\dog\method::inspection();
+		\dash\waf\gate\method::inspection();
 
 		// file
-		\dash\waf\dog\file::inspection();
+		\dash\waf\gate\file::inspection();
 
 		// phpinput
-		\dash\waf\dog\phpinput::inspection();
+		\dash\waf\gate\phpinput::inspection();
 
 		// post
-		\dash\waf\dog\post::inspection();
+		\dash\waf\gate\post::inspection();
 
 		// needless to check request. the request is merge of get,post
 	}

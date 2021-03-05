@@ -1,5 +1,5 @@
 <?php
-namespace dash\waf\dog\toys;
+namespace dash\waf\gate\toys;
 /**
  * dash main configure
  */

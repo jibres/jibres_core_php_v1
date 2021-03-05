@@ -1,5 +1,5 @@
 <?php
-namespace dash\waf\dog;
+namespace dash\waf\gate;
 /**
  * dash main configure
  */
@@ -18,16 +18,16 @@ class ip
 		}
 
 		// we need something for this
-		\dash\waf\dog\toys\only::something($ip);
+		\dash\waf\gate\toys\only::something($ip);
 		// only can be text
-		\dash\waf\dog\toys\only::text($ip);
+		\dash\waf\gate\toys\only::text($ip);
 
 		// disallow html tags
-		\dash\waf\dog\toys\block::tags($ip);
+		\dash\waf\gate\toys\block::tags($ip);
 		// disallow some char inside ip
-		\dash\waf\dog\toys\block::word($ip, '"');
-		\dash\waf\dog\toys\block::word($ip, "'");
-		\dash\waf\dog\toys\block::word($ip, "\n");
+		\dash\waf\gate\toys\block::word($ip, '"');
+		\dash\waf\gate\toys\block::word($ip, "'");
+		\dash\waf\gate\toys\block::word($ip, "\n");
 
 		// check ip is valid or not
 		if(!filter_var($ip, FILTER_VALIDATE_IP))
@@ -52,13 +52,13 @@ class ip
 
 	private static function ipv4($ip)
 	{
-		\dash\waf\dog\toys\general::len($ip, 7, 15);
+		\dash\waf\gate\toys\general::len($ip, 7, 15);
 	}
 
 
 	private static function ipv6($ip)
 	{
-		\dash\waf\dog\toys\general::len($ip, 2, 46);
+		\dash\waf\gate\toys\general::len($ip, 2, 46);
 	}
 }
 ?>
