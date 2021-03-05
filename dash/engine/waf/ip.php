@@ -625,6 +625,26 @@ class ip
 	}
 
 
+	public static function isLimit($_ip = null)
+	{
+		$ipData = self::fetch($_ip);
+		// read limit time
+		$_unlockTime = self::getData($ipData, 'ipLimitTime');
+
+		if(!$_unlockTime)
+		{
+			return null;
+		}
+
+		if(time() > $_unlockTime)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+
 	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null, $_reason = null)
 	{
 		// set new zone
