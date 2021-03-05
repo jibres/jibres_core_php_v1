@@ -17,6 +17,7 @@ class cookie
 		}
 
 		// need check count of all cookie
+		\dash\engine\dog\toys\general::array_count($cookie, 0, 100);
 
 		foreach ($cookie as $key => $value)
 		{
