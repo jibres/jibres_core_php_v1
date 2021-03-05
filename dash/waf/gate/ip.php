@@ -32,7 +32,7 @@ class ip
 		// check ip is valid or not
 		if(!filter_var($ip, FILTER_VALIDATE_IP))
 		{
-			\dash\header::status(412, 'Hi Father!!');
+			\dash\waf\dog::BITE('Invalid Father1', 412);
 		}
 
 		if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
@@ -45,7 +45,7 @@ class ip
 		}
 		else
 		{
-			\dash\header::status(412, 'Hi Father!!!');
+			\dash\waf\dog::BITE('Invalid Father2', 412);
 		}
 	}
 
