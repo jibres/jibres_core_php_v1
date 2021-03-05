@@ -10,31 +10,31 @@ class block
 		$myTxt = $_text;
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\header::status(428, 'Disallow 1');
+			\dash\waf\dog::BITE('Disallow 1', 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\header::status(428, 'Disallow 2');
+			\dash\waf\dog::BITE('Disallow 2', 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\header::status(428, 'Disallow 3');
+			\dash\waf\dog::BITE('Disallow 3', 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\header::status(428, 'Disallow 4');
+			\dash\waf\dog::BITE('Disallow 4', 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\header::status(428, 'Disallow 5');
+			\dash\waf\dog::BITE('Disallow 5', 428);
 		}
 	}
 
@@ -44,7 +44,7 @@ class block
 		$strippedText = strip_tags($_text);
 		if($_text !== $strippedText)
 		{
-			\dash\header::status(428, 'ooh Tag!');
+			\dash\waf\dog::BITE('ooh Tag!', 428);
 		}
 	}
 
@@ -53,7 +53,7 @@ class block
 	{
 		if(array_key_exists($_key, $_array))
 		{
-			\dash\header::status(428, 'Disallow index!');
+			\dash\waf\dog::BITE('Disallow index!', 428);
 		}
 	}
 }

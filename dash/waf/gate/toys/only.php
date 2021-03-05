@@ -9,7 +9,7 @@ class only
 	{
 		if(!$_txt)
 		{
-			\dash\header::status(428, 'need something...');
+			\dash\waf\dog::BITE('need something...', 428);
 		}
 	}
 
@@ -18,7 +18,7 @@ class only
 	{
 		if(!is_string($_txt))
 		{
-			\dash\header::status(428, 'only T');
+			\dash\waf\dog::BITE('only T', 428);
 		}
 	}
 
@@ -27,7 +27,7 @@ class only
 	{
 		if(!is_array($_arr))
 		{
-			\dash\header::status(428, 'only A');
+			\dash\waf\dog::BITE('only A', 428);
 		}
 	}
 
@@ -54,7 +54,7 @@ class only
 	{
 		if(!is_object($_obj))
 		{
-			\dash\header::status(428, 'only O');
+			\dash\waf\dog::BITE('only O', 428);
 		}
 	}
 
@@ -63,7 +63,7 @@ class only
 	{
 		if(!is_float($_num))
 		{
-			\dash\header::status(428, 'only F');
+			\dash\waf\dog::BITE('only F', 428);
 		}
 	}
 
@@ -72,7 +72,7 @@ class only
 	{
 		if(!is_int($_num))
 		{
-			\dash\header::status(428, 'only I');
+			\dash\waf\dog::BITE('only I', 428);
 		}
 	}
 
@@ -81,7 +81,7 @@ class only
 	{
 		if(!is_numberic($_num))
 		{
-			\dash\header::status(428, 'only N');
+			\dash\waf\dog::BITE('only N', 428);
 		}
 	}
 
@@ -90,7 +90,7 @@ class only
 	{
 		if(!is_bool($_num))
 		{
-			\dash\header::status(428, 'only B');
+			\dash\waf\dog::BITE('only B', 428);
 		}
 	}
 
@@ -99,7 +99,7 @@ class only
 	{
 		if(!is_numeric($_string) && !is_string($_string))
 		{
-			\dash\header::status(428, 'only S');
+			\dash\waf\dog::BITE('only S', 428);
 		}
 	}
 
@@ -108,7 +108,7 @@ class only
 	{
 		if(!preg_match("/^[A-Za-z0-9\_]+$/", $_txt))
 		{
-			\dash\header::status(428, 'only a-z0-9_');
+			\dash\waf\dog::BITE('only a-z0-9_', 428);
 		}
 	}
 
@@ -117,7 +117,7 @@ class only
 	{
 		if(!preg_match("/^[A-Za-z0-9\_\-]+$/", $_txt))
 		{
-			\dash\header::status(428, 'only a-z0-9_-');
+			\dash\waf\dog::BITE('only a-z0-9_-', 428);
 		}
 	}
 
@@ -130,7 +130,7 @@ class only
 		}
 		else
 		{
-			\dash\header::status(428, 'order !');
+			\dash\waf\dog::BITE('order !', 428);
 		}
 	}
 
@@ -143,7 +143,7 @@ class only
 		}
 		else
 		{
-			\dash\header::status(428, 'enum !');
+			\dash\waf\dog::BITE('enum !', 428);
 		}
 	}
 
