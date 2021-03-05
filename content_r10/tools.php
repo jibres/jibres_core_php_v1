@@ -13,7 +13,7 @@ class tools
 	{
 		if(\dash\url::store())
 		{
-			self::stop(403, T_("Can not set store in url"));
+			self::stop(404, T_("Can not set store in url"));
 			return false;
 		}
 

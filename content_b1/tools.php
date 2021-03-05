@@ -21,13 +21,13 @@ class tools
 
 		if(!\dash\url::store())
 		{
-			self::stop(403, T_("Please set store code in url"));
+			self::stop(404, T_("Please set store code in url"));
 			return false;
 		}
 
 		if(!\lib\store::id())
 		{
-			self::stop(403, T_("Store not found"));
+			self::stop(404, T_("Store not found"));
 		}
 	}
 
