@@ -39,11 +39,11 @@ class dog
 		\dash\waf\gate\file::inspection();
 
 		// phpinput
-		self::grade('file', false, 2);
+		self::grade('phpinput', false, 2);
 		\dash\waf\gate\phpinput::inspection();
 
 		// post
-		self::grade('file', false, 1);
+		self::grade('post', false, 1);
 		\dash\waf\gate\post::inspection();
 
 		// needless to check request. the request is merge of get,post
