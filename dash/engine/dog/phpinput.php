@@ -18,11 +18,11 @@ class phpinput
 		// only can be text
 		\dash\engine\dog\toys\only::text($phpinput);
 
-		\dash\engine\dog\toys\general::len($phpinput, 1, 50000); // for api add post by content
+		\dash\engine\dog\toys\general::len($phpinput, 0, 50000); // for api add post by content
 
-		$phpinput = json_decode($phpinput, true);
+		\dash\engine\dog\toys\only::json($phpinput);
 
-		\dash\engine\dog\toys\only::array($phpinput);
+
 	}
 
 }
