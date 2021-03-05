@@ -20,6 +20,35 @@ class get
 		self::check_sort($get);
 
 		self::check_q($get);
+
+		unset($get['q']);
+		unset($get['sort']);
+		unset($get['order']);
+
+		if(empty($get))
+		{
+			return;
+		}
+
+		\dash\engine\dog\toys\general::array_count($get, 0, 30);
+
+		\dash\engine\dog\toys\block::key_exists('html', $get);
+
+		foreach ($get as $key => $value)
+		{
+			\dash\engine\dog\toys\only::something($key);
+
+			\dash\engine\dog\toys\only::string($key);
+
+			\dash\engine\dog\toys\block::tags($key);
+
+			\dash\engine\dog\toys\general::len($key, 1, 50);
+
+			\dash\engine\dog\toys\only::a_z0_9_($key);
+
+			// not allow tag in value of tag
+			\dash\engine\dog\toys\block::tags($value);
+		}
 	}
 
 
