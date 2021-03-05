@@ -10,31 +10,31 @@ class block
 		$myTxt = $_text;
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\waf\dog::BITE('Disallow 1', 428);
+			\dash\waf\dog::BITE('Disallow l1 '. $_find, 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\waf\dog::BITE('Disallow 2', 428);
+			\dash\waf\dog::BITE('Disallow l2 '. $_find, 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\waf\dog::BITE('Disallow 3', 428);
+			\dash\waf\dog::BITE('Disallow l3 '. $_find, 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\waf\dog::BITE('Disallow 4', 428);
+			\dash\waf\dog::BITE('Disallow l4 '. $_find, 428);
 		}
 
 		$myTxt = urldecode($myTxt);
 		if(strpos($myTxt, $_find) !== false)
 		{
-			\dash\waf\dog::BITE('Disallow 5', 428);
+			\dash\waf\dog::BITE('Disallow l5 '. $_find, 428);
 		}
 	}
 
