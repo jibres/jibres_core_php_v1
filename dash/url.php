@@ -876,9 +876,28 @@ class url
 	 */
 	public static function is_api()
 	{
-		if(in_array(\dash\url::subdomain(), ['core', 'api', 'business']))
+		$subdomain = self::subdomain();
+
+		if(in_array($subdomain, ['core', 'api', 'business']))
 		{
-			return true;
+			$content = self::content();
+
+			if($subdomain === 'core' && $content === 'r10')
+			{
+				return true;
+			}
+			elseif($subdomain === 'api' && $content === 'v2')
+			{
+				return true;
+			}
+			elseif($subdomain === 'business' && $content === 'b1')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		return false;
