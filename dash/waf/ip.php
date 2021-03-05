@@ -79,6 +79,12 @@ class ip
 			'diff'       => null,
 			'rpm'        => null,
 			'rps'        => null,
+			'ratelimit'  =>
+			[
+				'limit'     => null,
+				'remaining' => null,
+				'reset'     => null,
+			],
 			'log'        => [],
 			'agent'      => [],
 		];
@@ -108,6 +114,9 @@ class ip
 		{
 			$data['reqFirst'] = time();
 		}
+		// check  ratelimit
+		$data['ratelimit'] = self::ratelimit($data['ratelimit']);
+
 		if(!$_onlyAnalyze)
 		{
 			// plus request count
@@ -388,6 +397,66 @@ class ip
 			// block 6 hour
 			self::do_block($_ipData, 'reach 10 times isolation limit', 60 * 6);
 		}
+	}
+
+
+	private static function ratelimit($_ratelimit)
+	{
+		// [
+		// 	'limit'     => null,
+		// 	'remaining' => null,
+		// 	'reset'     => null,
+		// ]
+		// define var
+		$limit5min = 1000;
+		$limit5minReset = time() + (60 * 5);
+
+
+		if($_ratelimit['reset'])
+		{
+			if(time() > $_ratelimit['reset'])
+			{
+				// reset limit 1000 request in 5 min
+				$_ratelimit =
+				[
+					'limit'     => $limit5min,
+					'remaining' => $limit5min - 1,
+					'reset'     => $limit5minReset,
+				];
+			}
+			else
+			{
+				// plus limit
+				$_ratelimit['remaining'] = $_ratelimit['remaining'] - 1;
+			}
+		}
+		else
+		{
+			// set limit 1000 request in 5 min
+			$_ratelimit =
+			[
+				'limit'     => $limit5min,
+				'remaining' => $limit5min - 1,
+				'reset'     => $limit5minReset,
+			];
+		}
+
+		// set header of ratelimit
+		// show only on api
+		if(\dash\url::is_api())
+		{
+			@header("X-Rate-Limit-Limit: ". $_ratelimit['limit']);
+			@header("X-Rate-Limit-Remaining: ". $_ratelimit['remaining']);
+			@header("X-Rate-Limit-Reset: ". $_ratelimit['reset']);
+		}
+
+		// block
+		if($_ratelimit['remaining'] <= 0)
+		{
+			\dash\header::status(429, 'Rate limit exceeded.');
+		}
+
+		return $_ratelimit;
 	}
 
 
