@@ -29,6 +29,7 @@ class recaptcha
 	}
 
 
+
 	/**
 	 * Get secret key of v3
 	 *
@@ -36,13 +37,13 @@ class recaptcha
 	 */
 	private static function secret_v3()
 	{
-		return '6LeLI84ZAAAAAKv12zC_fDlc8WVZzKCSkSqZd3Py';
+		return \dash\setting\recaptcha::secret_v3();
 	}
 
 
 	private static function secret_v2()
 	{
-		return '6Ldh0G8aAAAAAM5dwVsvw2OfW_05I3XZykq_CPLP';
+		return \dash\setting\recaptcha::secret_v2();
 	}
 
 
@@ -53,9 +54,7 @@ class recaptcha
 	 */
 	public static function sitekey_v3()
 	{
-		$site_key = '6LeLI84ZAAAAAD6NG_MHThUO4pKUIxCQW8Xkcr3a';
-
-		return $site_key;
+		return \dash\setting\recaptcha::sitekey_v3();
 	}
 
 
