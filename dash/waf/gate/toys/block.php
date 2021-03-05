@@ -41,6 +41,12 @@ class block
 
 	public static function tags($_text, $_from = null)
 	{
+		if($_from	=== 'Booster_resultXML')
+		{
+			// need to fix
+			return null;
+		}
+
 		$strippedText = strip_tags($_text);
 		if($_text !== $strippedText)
 		{
