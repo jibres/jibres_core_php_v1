@@ -77,11 +77,26 @@ class header
 			204 => 'No Content',
 			205 => 'Reset Content',
 			206 => 'Partial Content',
+
+			/**
+			 * @var 207
+			 *
+			 * content_hook/smile/controller
+			 */
 			207 => 'Multi-Status',
+
+
 			226 => 'IM Used',
 
 			300 => 'Multiple Choices',
+
+			/**
+			 * @var 301
+			 *
+			 * content_enter\logout
+			 */
 			301 => 'Moved Permanently',
+
 			302 => 'Found',
 			303 => 'See Other',
 			304 => 'Not Modified',
@@ -90,13 +105,44 @@ class header
 			307 => 'Temporary Redirect',
 			308 => 'Permanent Redirect',
 
-			// @Hive, @API and some other module
+			/**
+			 * @var 400
+			 *
+			 * CSRF
+			 * Recaptcha
+			 *
+			 * content_b1\product\gallery\remove > file id not send or is invalid
+			 * content_r10/tools > appkey not set
+			 * content_r10/tools > invalid appkey
+			 *
+			 *
+			 */
 			400 => 'Bad Request',
+
 			401 => 'Unauthorized',
 			402 => 'Payment Required',
-			// @Permission -> \dash\permission::access()
+
+			/**
+			 * @var 403
+			 *
+			 * \dash\permission::access()
+			 *
+			 * content_b1/tools > api key not set
+			 * content_r10/tools > appkey not set
+			 * content_r10/tools > accesstoken not set
+			 */
 			403 => 'Forbidden',
+
+			/**
+			 * @var 404
+			 *
+			 * content_b1/tools > store code not in url
+			 * content_b1/tools > store store not found
+			 * content_r10/tools > can not set store in url
+			 *
+			 */
 			404 => 'Not Found',
+
 			405 => 'Method Not Allowed',
 			// @process -> need stop process
 			406 => 'Not Acceptable',
