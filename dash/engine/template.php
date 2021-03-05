@@ -12,12 +12,6 @@ class template
 
 	public static function find()
 	{
-		// if is unload request need less to run template
-		if(\dash\request::is_unload())
-		{
-			return;
-		}
-
 		// find support link if exist
 		if(self::support_link())
 		{

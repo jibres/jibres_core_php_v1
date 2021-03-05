@@ -20,15 +20,6 @@ class prepare
 	}
 
 
-	private static function check_is_unload()
-	{
-		// if the request is a unload request needless to run anything!
-		if(\dash\request::is_unload())
-		{
-			\dash\code::boom();
-		}
-	}
-
 
 	public static function basics()
 	{
@@ -49,8 +40,6 @@ class prepare
 
 		// self::user_country_redirect();
 
-		// if the request is a unload request needless to run anything!
-		self::check_is_unload();
 	}
 
 

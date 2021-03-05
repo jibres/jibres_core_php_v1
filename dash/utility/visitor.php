@@ -32,11 +32,6 @@ class visitor
 			return;
 		}
 
-		if(\dash\request::is_unload())
-		{
-			self::save_avg_time();
-			return;
-		}
 
 		$visitor                  = [];
 		$visitor['visitor_ip']    = \dash\server::iplong();

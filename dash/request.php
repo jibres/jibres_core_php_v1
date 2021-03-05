@@ -401,16 +401,6 @@ class request
 	}
 
 
-	public static function is_unload()
-	{
-		if(isset($_REQUEST['cmd']) && $_REQUEST['cmd'] === 'unload')
-		{
-			return true;
-		}
-		return false;
-	}
-
-
 	/**
 	 * Determines if pwa.
 	 *
