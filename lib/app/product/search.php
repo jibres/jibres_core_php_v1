@@ -313,20 +313,23 @@ class search
 			self::$is_filtered             = true;
 		}
 
-		// tag
-		if(isset($data['t']) && $data['t'] === 'y')
+		if(!$data['tag_id'])
 		{
-			$and[]  = " producttagusage.producttag_id IS NOT NULL ";
-			$join[] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
-			self::$filter_args['weightt']       = T_("With tag");
-			self::$is_filtered             = true;
-		}
-		elseif(isset($data['t']) && $data['t'] === 'n')
-		{
-			$and[]  = " producttagusage.producttag_id IS NULL ";
-			$join[] = ' LEFT JOIN producttagusage ON producttagusage.product_id = products.id ';
-			self::$filter_args['weightt']       = T_("Without tag");
-			self::$is_filtered             = true;
+			// tag
+			if(isset($data['t']) && $data['t'] === 'y')
+			{
+				$and[]  = " producttagusage.producttag_id IS NOT NULL ";
+				$join[] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
+				self::$filter_args['weightt']       = T_("With tag");
+				self::$is_filtered             = true;
+			}
+			elseif(isset($data['t']) && $data['t'] === 'n')
+			{
+				$and[]  = " producttagusage.producttag_id IS NULL ";
+				$join[] = ' LEFT JOIN producttagusage ON producttagusage.product_id = products.id ';
+				self::$filter_args['weightt']       = T_("Without tag");
+				self::$is_filtered             = true;
+			}
 		}
 
 
@@ -346,7 +349,6 @@ class search
 			// $and[] = " products.instock = 'yes'";
 			$and[] = " products.parent IS NULL ";
 		}
-
 
 
 		$query_string = \dash\validate::search($_query_string, false);
@@ -434,6 +436,7 @@ class search
 		$and = array_merge($and, $_where);
 
 		$meta['join'] = $join;
+		// var_dump($and, $or, $meta);exit();
 
 		switch ($type)
 		{
