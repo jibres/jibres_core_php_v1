@@ -7,6 +7,16 @@ class controller
 
 	public static function routing()
 	{
+		$wafLimit = \dash\waf\ip::isLimit();
+
+		if($wafLimit)
+		{
+			if(\dash\url::module() !== 'block')
+			{
+				\dash\utility\enter::next_step('block');
+				\dash\utility\enter::go_to('block?e='. date("Y-m-d H:i:s", $wafLimit));
+			}
+		}
 
 		// all subdomain must be login to jibres
 		if(\dash\url::store())
