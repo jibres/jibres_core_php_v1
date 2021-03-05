@@ -20,9 +20,6 @@ class headers
 		unset($headers['COOKIE']);
 		// we check agent before this
 		unset($headers['USER-AGENT']);
-		// we check them seperate in url
-		unset($headers['REQUEST_URI']);
-		unset($headers['QUERY_STRING']);
 
 		// only allow array
 		\dash\waf\gate\toys\only::array($headers);
@@ -38,7 +35,7 @@ class headers
 			\dash\waf\gate\toys\general::len($key, 1, 50);
 
 			// check value len
-			\dash\waf\gate\toys\general::len($value, 0, 500);
+			\dash\waf\gate\toys\general::len($value, 0, 1000);
 
 
 			// only can be text
