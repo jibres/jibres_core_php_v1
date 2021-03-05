@@ -498,6 +498,26 @@ class ip
 	}
 
 
+	private static function do_limit(&$_ipData, $_reason = null, $_minute = null)
+	{
+		if(!is_int($_minute) || $_minute < 0)
+		{
+			// by default block 60 minute
+			$_minute = 15;
+		}
+		// change it to second and create expire datetime
+		$unblockTime = time() + ($_minute * 60);
+		// save unblock time
+		self::setData($_ipData, 'ipLimitTime', $unblockTime);
+		self::setData($_ipData, 'ipLimitPeriod', $_minute);
+
+		$_reason .= ' - '. $_minute. ' min';
+
+		// reset request count
+		self::resetRequestLimit($_ipData, 'limit', null, $_reason);
+	}
+
+
 	// some public function to access from outside
 	public static function isolate($_ip = null, $_reason = null, $_level = null)
 	{
@@ -510,14 +530,14 @@ class ip
 		{
 			$_level = 3;
 		}
-
+		$isolateNeeded = true;
 		// only request 5 times, after that request isolate and reset
 		if(self::getData($ipData, 'isolateRequested', 1) < 5)
 		{
 			if(self::getData($ipData, 'recaptchaSolvedCounter') > $_level)
 			{
 				// do nothing, it's human for this kind of action
-				return false;
+				$isolateNeeded = false;
 			}
 		}
 		else
@@ -525,10 +545,15 @@ class ip
 			self::setData($ipData, 'isolateRequested', 0);
 		}
 
-
-		// do action
-		self::do_isolate($ipData, $_reason);
-		return true;
+		if($isolateNeeded)
+		{
+			// do action
+			self::do_isolate($ipData, $_reason);
+		}
+		// save changes
+		self::save_yaml_file($ipData);
+		// return
+		return $isolateNeeded;
 	}
 
 
@@ -543,6 +568,8 @@ class ip
 		$ipData = self::fetch($_ip);
 		// do action
 		self::do_block($ipData, $_reason, $_minute);
+		// save changes
+		self::save_yaml_file($ipData);
 	}
 
 
@@ -557,6 +584,8 @@ class ip
 		$ipData = self::fetch($_ip);
 		// do action
 		self::do_unblock($ipData, $_reason);
+		// save changes
+		self::save_yaml_file($ipData);
 	}
 
 
@@ -565,6 +594,8 @@ class ip
 		$ipData = self::fetch($_ip);
 		// do action
 		self::do_whitelist($ipData, $_reason);
+		// save changes
+		self::save_yaml_file($ipData);
 	}
 
 
@@ -573,6 +604,8 @@ class ip
 		$ipData = self::fetch($_ip);
 		// do action
 		self::do_blacklist($ipData, $_reason);
+		// save changes
+		self::save_yaml_file($ipData);
 	}
 
 
