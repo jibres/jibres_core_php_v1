@@ -3,6 +3,65 @@ namespace dash\db\tickets;
 
 class get
 {
+
+	public static function count_unanswered_user_ticket($_user_id)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' AND tickets.user_id = $_user_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_unanswered_ip_ticket($_ip)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' AND tickets.ip = '$_ip' ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_unanswered_ip_agent_ticket($_ip, $_agent_id)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' AND tickets.ip = '$_ip' AND tickets.agent_id = $_agent_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_user_message($_parent)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id = (SELECT tickets.user_id FROM tickets WHERE tickets.id = $_parent LIMIT 1) ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_admin_message($_parent)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id != (SELECT tickets.user_id FROM tickets WHERE tickets.id = $_parent LIMIT 1) ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+	public static function count_user_message_guest($_parent)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id IS NULL ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_admin_message_guest($_parent)
+	{
+		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id IS NOT NULL ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+
+
+
 	public static function count_unanswered_ticket()
 	{
 		$query =

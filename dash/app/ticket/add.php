@@ -39,16 +39,79 @@ class add
 			}
 		}
 
+		$myIp     = \dash\server::iplong();
+		$agent_id = \dash\agent::get(true);
+
 		if(!a($args, 'ip'))
 		{
-			$args['ip'] = \dash\server::iplong();
+			$args['ip'] = $myIp;
 		}
 
 		if(!a($args, 'agent_id'))
 		{
-			$args['agent_id'] = \dash\agent::get(true);
+			$args['agent_id'] = $agent_id;
 		}
 
+		if($_type === 'new')
+		{
+			// check limit new ticket
+			if(\dash\user::id())
+			{
+				$count_unanswered_user_ticket = \dash\db\tickets\get::count_unanswered_user_ticket(\dash\user::id());
+
+				if($count_unanswered_user_ticket >= 5)
+				{
+					\dash\notif::error(T_("Please wait until your active ticket was answered"));
+					return false;
+				}
+			}
+			else
+			{
+				// first check per ip
+				$count_unanswered_ip_ticket = \dash\db\tickets\get::count_unanswered_ip_ticket($myIp);
+
+				if($count_unanswered_ip_ticket >= 10)
+				{
+					\dash\notif::error(T_("Please wait until your active ticket was answered!"));
+					return false;
+				}
+				else
+				{
+					// check per ip agent
+					$count_unanswered_ip_agent_ticket = \dash\db\tickets\get::count_unanswered_ip_agent_ticket($myIp, $agent_id);
+
+					if($count_unanswered_ip_agent_ticket >= 3)
+					{
+						\dash\notif::error(T_("Please wait until your active ticket was answered."));
+						return false;
+					}
+				}
+			}
+		}
+		elseif($_type === 'add_to_my_ticket' && a($args, 'parent'))
+		{
+
+			if(\dash\user::id())
+			{
+				$count_user_message  = \dash\db\tickets\get::count_user_message($args['parent']);
+				$count_admin_message = \dash\db\tickets\get::count_admin_message($args['parent']);
+				$index = 5;
+			}
+			else
+			{
+				$index = 3;
+				$count_user_message  = \dash\db\tickets\get::count_user_message_guest($args['parent']);
+				$count_admin_message = \dash\db\tickets\get::count_admin_message_guest($args['parent']);
+			}
+
+			$rate = $count_admin_message * $index + $index;
+
+			if($count_user_message >= $rate)
+			{
+				\dash\notif::error(T_("Please wait until ticket was answered"));
+				return false;
+			}
+		}
 
 		$ticket_id = \dash\db\tickets\insert::new_record($args);
 		if(!$ticket_id)
