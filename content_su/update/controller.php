@@ -40,8 +40,9 @@ class controller
 				\dash\notif::error('We have not any response from https://ermile.com!');
 				return false;
 			}
-
 		}
+
+		\dash\waf\race::requestDone();
 
 		\dash\log::set('su_gitUpdateStart');
 		// switch by name of repository
