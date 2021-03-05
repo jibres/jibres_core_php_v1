@@ -64,6 +64,7 @@ class allow
 		return true;
 	}
 
+
 	public static function check_allow_file()
 	{
 		$files = \dash\request::files();
@@ -82,7 +83,7 @@ class allow
 					else
 					{
 						// ip block
-						\dash\header::status(403, T_("Can not send file on this page"));
+						\dash\header::status(403, T_("Invalid upload name!"));
 						return false;
 					}
 				}
