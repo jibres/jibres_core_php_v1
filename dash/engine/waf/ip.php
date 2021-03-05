@@ -511,14 +511,24 @@ class ip
 			$_level = 3;
 		}
 
-		if(self::getData($ipData, 'recaptchaSolvedCounter') > $_level)
+		// only request 5 times, after that request isolate and reset
+		if(self::getData($ipData, 'isolateRequested', 1) < 5)
 		{
-			// do nothing, it's human for this kind of action
-			return false;
+			if(self::getData($ipData, 'recaptchaSolvedCounter') > $_level)
+			{
+				// do nothing, it's human for this kind of action
+				return false;
+			}
 		}
+		else
+		{
+			self::setData($ipData, 'isolateRequested', 0);
+		}
+
 
 		// do action
 		self::do_isolate($ipData, $_reason);
+		return true;
 	}
 
 
