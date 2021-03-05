@@ -33,7 +33,7 @@
           <?php if(!a($storeData, 'enamad')) {?>
 
             <label for="ienamad"><?php echo T_("Enamad code"); ?> <span class="fc-red">*</span></label>
-            <textarea class="txt ltr txtL" rows="5" name="enamad" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]" required placeholder='<?php echo T_("Paste you Enamad code here") ?>'></textarea>
+            <textarea class="txt ltr txtL" rows="5" name="html" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]" required placeholder='<?php echo T_("Paste you Enamad code here") ?>'></textarea>
           <?php } //endif ?>
         </div>
         <footer class="txtRa">

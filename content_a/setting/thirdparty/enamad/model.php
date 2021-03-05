@@ -13,9 +13,9 @@ class model
 		else
 		{
 			$enamad = null;
-			if(\dash\request::post_raw('enamad'))
+			if(\dash\request::post_html())
 			{
-				$enamad = \dash\request::post_raw('enamad');
+				$enamad = \dash\request::post_html();
 			}
 
 			if(!$enamad)

@@ -14,9 +14,9 @@ class model
 		else
 		{
 			$samandehi = null;
-			if(\dash\request::post_raw('samandehi'))
+			if(\dash\request::post_html())
 			{
-				$samandehi = \dash\request::post_raw('samandehi');
+				$samandehi = \dash\request::post_html();
 			}
 
 			if(!$samandehi)
