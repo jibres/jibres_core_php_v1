@@ -201,7 +201,7 @@ else
               </div>
           </li>
 <?php } else { ?>
-<?php if(\dash\data::dataRow_status() !== 'close' && \dash\data::dataRow_status() !== 'deleted') {?>
+<?php if(\dash\data::dataRow_status() !== 'close' && \dash\data::dataRow_status() !== 'deleted' && \dash\data::dataRow_status() !== 'spam') {?>
             <li>
               <div class="f item" data-confirm data-data='{"setstatus": "set", "status": "close"}' data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
                 <i class="sf-archive fc-mute"></i>
