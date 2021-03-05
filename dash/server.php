@@ -69,39 +69,69 @@ class server
 	private static function ipDetector()
 	{
 		$ipaddress = null;
-		if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+		switch (\dash\url::domain())
 		{
-			$ipaddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
-			$_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+			// cloudflare
+			case 'jibres.com':
+			case 'jibres.xyz':
+			case 'myjibres.com':
+				if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+				{
+					$ipaddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
+				}
+				break;
+
+			// cloudflare
+			case 'jibres.ir':
+			case 'jibres.store':
+			case 'myjibres.ir':
+				if (isset($_SERVER["HTTP_AR_REAL_IP"]))
+				{
+					$ipaddress = $_SERVER["HTTP_AR_REAL_IP"];
+				}
+				break;
+
+			default:
+
+				break;
 		}
-		elseif (isset($_SERVER['HTTP_CLIENT_IP']))
+
+		if(!$ipaddress)
 		{
-			$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+			if (isset($_SERVER["HTTP_AR_REAL_IP"]))
+			{
+				$ipaddress = $_SERVER["HTTP_AR_REAL_IP"];
+			}
+			elseif (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+			{
+				$ipaddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
+			}
+			elseif (isset($_SERVER['HTTP_CLIENT_IP']))
+			{
+				$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+			}
+			elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+			{
+				$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			}
+			elseif(isset($_SERVER['HTTP_X_FORWARDED']))
+			{
+				$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+			}
+			elseif(isset($_SERVER['HTTP_FORWARDED_FOR']))
+			{
+				$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+			}
+			elseif(isset($_SERVER['HTTP_FORWARDED']))
+			{
+				$ipaddress = $_SERVER['HTTP_FORWARDED'];
+			}
+			elseif(isset($_SERVER['REMOTE_ADDR']))
+			{
+				$ipaddress = $_SERVER['REMOTE_ADDR'];
+			}
 		}
-		elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-		{
-			$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		}
-		elseif(isset($_SERVER['HTTP_X_FORWARDED']))
-		{
-			$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-		}
-		elseif(isset($_SERVER['HTTP_FORWARDED_FOR']))
-		{
-			$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-		}
-		elseif(isset($_SERVER['HTTP_FORWARDED']))
-		{
-			$ipaddress = $_SERVER['HTTP_FORWARDED'];
-		}
-		elseif(isset($_SERVER['REMOTE_ADDR']))
-		{
-			$ipaddress = $_SERVER['REMOTE_ADDR'];
-		}
-		else
-		{
-			$ipaddress = null;
-		}
+
 
 		self::$IP = $ipaddress;
 		return $ipaddress;
