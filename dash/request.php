@@ -60,35 +60,6 @@ class request
 
 
 	/**
-	 * Return Raw post input
-	 * not safe for html editor
-	 * this record was safe in app level
-	 *
-	 * @param      <type>  $_name  The name
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function post_raw($_name = null)
-	{
-		if(isset($_name))
-		{
-			if(array_key_exists($_name, $_POST))
-			{
-				return $_POST[$_name];
-			}
-			else
-			{
-				return null;
-			}
-		}
-		else
-		{
-			return $_POST;
-		}
-	}
-
-
-	/**
 	 * Get request raw
 	 * Use in bank api gateway
 	 *
@@ -100,7 +71,7 @@ class request
 	{
 		if(!self::$REQUEST)
 		{
-			self::$REQUEST = \dash\safe::safe($_REQUEST, 'sqlinjection');
+			self::$REQUEST = array_merge(self::get(), self::post());
 		}
 
 		if(isset($_name))
@@ -200,6 +171,7 @@ class request
 		return self::fix_get($_args, true);
 	}
 
+
 	public static function fix_get($_args = [], $_full = false)
 	{
 		$get = self::get();
@@ -278,12 +250,12 @@ class request
 		{
 			self::$PHP_INPUT_CHECKED = true;
 
-			if(\dash\request::post())
+			if(self::post())
 			{
 				\dash\notif::warn(T_("Send your request as json not in post field"));
 			}
 
-			$request = \dash\request::php_input();
+			$request = self::php_input();
 
 			if(is_string($request))
 			{
