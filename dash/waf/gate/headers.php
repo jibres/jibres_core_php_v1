@@ -20,10 +20,12 @@ class headers
 		unset($headers['COOKIE']);
 		// we check agent before this
 		unset($headers['USER-AGENT']);
+		// check seperate
+		unset($headers['REFERER']);
+
 
 		// only allow array
 		\dash\waf\gate\toys\only::array($headers);
-
 		if(empty($headers))
 		{
 			return;
