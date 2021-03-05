@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\dog;
+namespace dash\waf\dog;
 
 /**
  * This class describes a method.
@@ -11,12 +11,12 @@ class method
 		$method = \dash\request::is();
 
 		// we need something for this
-		\dash\engine\dog\toys\only::something($method);
+		\dash\waf\dog\toys\only::something($method);
 		// only can be text
-		\dash\engine\dog\toys\only::text($method);
+		\dash\waf\dog\toys\only::text($method);
 
 		// disallow html tags
-		\dash\engine\dog\toys\block::tags($method);
+		\dash\waf\dog\toys\block::tags($method);
 
 		$allow_method =
 		[
@@ -29,7 +29,7 @@ class method
 			'options',
 		];
 
-		\dash\engine\dog\toys\only::enum($method, $allow_method);
+		\dash\waf\dog\toys\only::enum($method, $allow_method);
 	}
 
 }

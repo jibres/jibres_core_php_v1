@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\dog;
+namespace dash\waf\dog;
 
 /**
  * This class describes a phpinput.
@@ -16,12 +16,12 @@ class phpinput
 		}
 
 		// only can be text
-		\dash\engine\dog\toys\only::text($phpinput);
+		\dash\waf\dog\toys\only::text($phpinput);
 
-		\dash\engine\dog\toys\general::len($phpinput, 0, 50000); // for api add post by content
+		\dash\waf\dog\toys\general::len($phpinput, 0, 50000); // for api add post by content
 
 		// all post request have php input
-		// \dash\engine\dog\toys\only::json($phpinput);
+		// \dash\waf\dog\toys\only::json($phpinput);
 
 
 	}

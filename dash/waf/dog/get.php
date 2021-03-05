@@ -1,5 +1,5 @@
 <?php
-namespace dash\engine\dog;
+namespace dash\waf\dog;
 
 /**
  * This class describes a get.
@@ -29,26 +29,26 @@ class get
 		{
 			return;
 		}
-		\dash\engine\dog\toys\only::array($get);
+		\dash\waf\dog\toys\only::array($get);
 
-		\dash\engine\dog\toys\general::array_count($get, 0, 30);
+		\dash\waf\dog\toys\general::array_count($get, 0, 30);
 
-		\dash\engine\dog\toys\block::key_exists('html', $get);
+		\dash\waf\dog\toys\block::key_exists('html', $get);
 
 		foreach ($get as $key => $value)
 		{
-			\dash\engine\dog\toys\only::something($key);
+			\dash\waf\dog\toys\only::something($key);
 
-			\dash\engine\dog\toys\only::string($key);
+			\dash\waf\dog\toys\only::string($key);
 
-			\dash\engine\dog\toys\block::tags($key);
+			\dash\waf\dog\toys\block::tags($key);
 
-			\dash\engine\dog\toys\general::len($key, 1, 50);
+			\dash\waf\dog\toys\general::len($key, 1, 50);
 
-			\dash\engine\dog\toys\only::a_z0_9_($key);
+			\dash\waf\dog\toys\only::a_z0_9_($key);
 
 			// not allow tag in value of tag
-			\dash\engine\dog\toys\block::tags($value);
+			\dash\waf\dog\toys\block::tags($value);
 		}
 	}
 
@@ -65,19 +65,19 @@ class get
 			$q = $get['q'];
 
 			// only can be text
-			\dash\engine\dog\toys\only::text($q);
+			\dash\waf\dog\toys\only::text($q);
 
-			\dash\engine\dog\toys\general::len($q, 1, 70);
+			\dash\waf\dog\toys\general::len($q, 1, 70);
 
 			// disallow html tags
-			\dash\engine\dog\toys\block::tags($q);
+			\dash\waf\dog\toys\block::tags($q);
 
 			// disallow some char inside ip
-			\dash\engine\dog\toys\block::word($q, '<');
-			\dash\engine\dog\toys\block::word($q, '>');
-			\dash\engine\dog\toys\block::word($q, '"');
-			\dash\engine\dog\toys\block::word($q, "'");
-			\dash\engine\dog\toys\block::word($q, "\n");
+			\dash\waf\dog\toys\block::word($q, '<');
+			\dash\waf\dog\toys\block::word($q, '>');
+			\dash\waf\dog\toys\block::word($q, '"');
+			\dash\waf\dog\toys\block::word($q, "'");
+			\dash\waf\dog\toys\block::word($q, "\n");
 		}
 	}
 
@@ -93,10 +93,10 @@ class get
 		if(isset($get['sort']) && $get['sort'])
 		{
 			$sort = $get['sort'];
-			\dash\engine\dog\toys\only::text($sort);
-			\dash\engine\dog\toys\block::tags($sort);
-			\dash\engine\dog\toys\general::len($sort, 1, 20);
-			\dash\engine\dog\toys\only::a_z0_9_($sort);
+			\dash\waf\dog\toys\only::text($sort);
+			\dash\waf\dog\toys\block::tags($sort);
+			\dash\waf\dog\toys\general::len($sort, 1, 20);
+			\dash\waf\dog\toys\only::a_z0_9_($sort);
 		}
 	}
 
@@ -113,8 +113,8 @@ class get
 		{
 			$order = $get['order'];
 
-			\dash\engine\dog\toys\only::text($order);
-			\dash\engine\dog\toys\only::order($order);
+			\dash\waf\dog\toys\only::text($order);
+			\dash\waf\dog\toys\only::order($order);
 		}
 	}
 }

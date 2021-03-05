@@ -25,31 +25,31 @@ class protection
 	private static function dog()
 	{
 		// ip
-		\dash\engine\dog\ip::inspection();
+		\dash\waf\dog\ip::inspection();
 
 		// agent
-		\dash\engine\dog\agent::inspection();
+		\dash\waf\dog\agent::inspection();
 
 		// cookie
-		\dash\engine\dog\cookie::inspection();
+		\dash\waf\dog\cookie::inspection();
 
 		// headers
-		\dash\engine\dog\headers::inspection();
+		\dash\waf\dog\headers::inspection();
 
 		// get
-		\dash\engine\dog\get::inspection();
+		\dash\waf\dog\get::inspection();
 
 		// method
-		\dash\engine\dog\method::inspection();
+		\dash\waf\dog\method::inspection();
 
 		// file
-		\dash\engine\dog\file::inspection();
+		\dash\waf\dog\file::inspection();
 
 		// phpinput
-		\dash\engine\dog\phpinput::inspection();
+		\dash\waf\dog\phpinput::inspection();
 
 		// post
-		\dash\engine\dog\post::inspection();
+		\dash\waf\dog\post::inspection();
 
 		// needless to check request. the request is merge of get,post
 	}
