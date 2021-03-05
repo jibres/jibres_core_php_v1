@@ -609,6 +609,22 @@ class ip
 	}
 
 
+	public static function limit($_ip = null, $_reason = null, $_minute = null)
+	{
+		$ipData = self::fetch($_ip);
+		// do action
+		self::do_limit($ipData, $_reason, $_minute);
+		// save changes
+		self::save_yaml_file($ipData);
+	}
+
+
+	public static function limitIP($_minute = null, $_reason = null)
+	{
+		self::limit(null, $_reason, $_minute);
+	}
+
+
 	private static function resetRequestLimit(&$_ipData, $_newMode = null, $_newZone = null, $_reason = null)
 	{
 		// set new zone
