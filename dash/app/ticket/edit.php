@@ -15,6 +15,13 @@ class edit
 		}
 
 
+		if(isset($load['type']) && $load['type'] === 'action')
+		{
+			\dash\notif::error(T_("Can not edit this ticket"));
+			return false;
+		}
+
+
 
 		$args = \dash\app\ticket\check::variable($_args);
 		if(!$args)

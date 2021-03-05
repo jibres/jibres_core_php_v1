@@ -74,7 +74,7 @@ foreach (\dash\data::conversation() as $key => $value)
        }
 ?>
         <div class="c"></div>
-<?php if(!$customer_mode) {?>
+<?php if(!$customer_mode && a($value, 'type') !== 'action') {?>
         <div class="c-auto"><a href="<?php echo \dash\url::this(). '/edit?id='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a></div>
 <?php } //endif ?>
 <?php if(!$customer_mode) {?>
