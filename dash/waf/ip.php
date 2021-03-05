@@ -392,12 +392,12 @@ class ip
 		// try to save data of try
 		self::setData($_ipData, 'isolateRefresh', $currentTry);
 
-		if($currentTry > 5)
+		if($currentTry > 50)
 		{
 			self::unsetData($_ipData, 'isolateRefresh');
 			// block for too many refresh page
-			// block 15 minute
-			self::do_block($_ipData, 'reach 5 refresh limit', 15);
+			// block 1 day
+			self::do_block($_ipData, 'reach 50 refresh limit', 60 * 1);
 		}
 
 		if(self::getData($_ipData, 'recaptchaSolvedCounter') > 10)
