@@ -62,7 +62,7 @@ class post
 				{
 					\dash\waf\gate\toys\general::len($value, 0, 5000);
 					// not allow tag in value of post
-					\dash\waf\gate\toys\block::tags($value);
+					\dash\waf\gate\toys\block::tags($value, $key);
 				}
 			}
 		}
