@@ -499,9 +499,20 @@ class ip
 
 
 	// some public function to access from outside
-	public static function isolate($_ip, $_reason = null)
+	public static function isolate($_ip, $_reason = null, $_level = null)
 	{
 		$ipData = self::fetch($_ip);
+		if($_level < 0 || $_level > 10)
+		{
+			$_level = 3;
+		}
+
+		if(self::getData($ipData, 'recaptchaSolvedCounter') > $_level)
+		{
+			// do nothing, it's human for this kind of action
+			return false;
+		}
+
 		// do action
 		self::do_isolate($ipData, $_reason);
 	}
