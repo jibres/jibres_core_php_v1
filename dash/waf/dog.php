@@ -15,29 +15,35 @@ class dog
 		\dash\waf\gate\ip::inspection();
 
 		// agent
-		self::grade('ip', true, 10);
+		self::grade('agent', true, 9);
 		\dash\waf\gate\agent::inspection();
 
 		// cookie
-		self::grade('ip', true, 1);
+		self::grade('cookie', true, 3);
 		\dash\waf\gate\cookie::inspection();
 
 		// headers
+		self::grade('header', true, 5);
 		\dash\waf\gate\headers::inspection();
 
 		// get
+		self::grade('get', false, 3);
 		\dash\waf\gate\get::inspection();
 
 		// method
+		self::grade('method', true, 7);
 		\dash\waf\gate\method::inspection();
 
 		// file
+		self::grade('file', true, 8);
 		\dash\waf\gate\file::inspection();
 
 		// phpinput
+		self::grade('file', false, 2);
 		\dash\waf\gate\phpinput::inspection();
 
 		// post
+		self::grade('file', false, 1);
 		\dash\waf\gate\post::inspection();
 
 		// needless to check request. the request is merge of get,post
