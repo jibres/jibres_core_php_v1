@@ -16,8 +16,13 @@
     <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c-141.152344 0-256 114.847656-256 256s114.847656 256 256 256 256-114.847656 256-256-114.847656-256-256-256zm-192 256c0-105.871094 86.128906-192 192-192 41.40625 0 79.679688 13.296875 111.070312 35.679688l-267.390624 267.390624c-22.382813-31.390624-35.679688-69.679687-35.679688-111.070312zm192 192c-41.40625 0-79.679688-13.296875-111.070312-35.679688l267.390624-267.390624c22.382813 31.390624 35.679688 69.679687 35.679688 111.070312 0 105.871094-86.128906 192-192 192zm0 0" fill="#c80a5a"/></svg>
     <h2 class="txtB"><?php echo T_("Sorry, you have been blocked"); ?></h2>
     <p><?php echo T_("We have an attack from your IP! Make Calm! breathe!"); ?></p>
-    <pre class="msg minimal font-20" title="Your IP Address"><?php echo \dash\server::ip(); ?></pre>
-
+    <pre class="msg minimal font-20 mB10" title="Your IP Address"><?php echo \dash\server::ip(); ?></pre>
+<?php
+if(isset($_unblockDate) && $_unblockDate)
+{
+  echo '<time class="block msg">'. $_unblockDate. '</time>';
+}
+?>
     <div class="txtLa">
    		<h2 class="txtB font-18"><?php echo T_("Why have i been blocked?"); ?></h2>
       <p><?php echo T_("We are using a security service to protect ourselves from online attacks. The action you just performed triggered the security solution. Several actions could trigger this block including submitting a certain word or phrase, a SQL command, or malformed data."); ?></p>

@@ -321,7 +321,11 @@ class ip
 
 			case 'ban':
 				// block until deadline
-				self::showIpBlockPage();
+				$unblock_period = \dash\utility\human::timeSecond2Fit(self::getData($_order, 'autoUnblockPeriod') * 60, true);
+				$unblock_time   = date('Y-m-d H:i:s', self::getData($_order, 'autoUnblockTime'));
+				$unblock_msg    = T_("You are blocked for :period until :time", ['period' => $unblock_period, 'time' => $unblock_time]);
+
+				self::showIpBlockPage($unblock_msg);
 				break;
 
 			case 'whitelist':
@@ -337,7 +341,7 @@ class ip
 	}
 
 
-	private static function showIpBlockPage()
+	private static function showIpBlockPage($_unblockDate = null)
 	{
 		self::redirectOnce();
 

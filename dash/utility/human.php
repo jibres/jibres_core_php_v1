@@ -178,6 +178,57 @@ class human
 	}
 
 
+	public static function timeSecond2Fit($_time)
+	{
+		if(!is_numeric($_time))
+		{
+			return null;
+		}
+		// change from sec to min
+		$_time = floor($_time / 60);
+		$result = '';
+		$hour   = (int) floor($_time / 60);
+		$min    = (int) floor($_time % 60);
+		$days   = (int) floor($hour / 24);
+
+		// generate result by type of request
+		if(is_numeric($days) && $days)
+		{
+			$result = $days.' ';
+			if($days === 1)
+			{
+				$result .= T_('day');
+			}
+			else
+			{
+				$result .= T_('days');
+			}
+		}
+		else if(is_numeric($hour) && $hour)
+		{
+			$result = $hour.' '. T_('hour');
+			if($min)
+			{
+				$result .= ' '. T_(', :min minute', ['min'=> $min]);
+			}
+		}
+		else if(is_numeric($min) && $min)
+		{
+			$result = $min.' '. T_('minute');
+		}
+		else
+		{
+			$result = 0;
+		}
+
+		// fit number for current lang
+		$result = \dash\fit::number($result);
+
+		// return final result
+		return $result;
+	}
+
+
 	/**
 	 * Check if there RTL characters (Arabic, Persian, Hebrew)
 	 * @param  [type]  $_string [description]
