@@ -14,7 +14,7 @@ class general
 		}
 		if($myLen > $_max)
 		{
-			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max, 428);
+			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max. ' - '. $_text, 428);
 		}
 	}
 
@@ -24,11 +24,11 @@ class general
 		$myLen = mb_strlen($_text);
 		if($myLen < $_min)
 		{
-			\dash\waf\dog::BITE('No '. $myLen. '<'. $_min, 428);
+			\dash\waf\dog::BITE('mNo '. $myLen. '<'. $_min, 428);
 		}
 		if($myLen > $_max)
 		{
-			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max, 428);
+			\dash\waf\dog::BITE('mNo '. $myLen. '>'. $_max, 428);
 		}
 	}
 
