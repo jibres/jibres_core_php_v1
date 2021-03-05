@@ -31,18 +31,18 @@ class recaptcha
 	{
 		if(\dash\engine\store::inStore())
 		{
-			return 'business';
-		}
-		else
-		{
-			if(\dash\url::domain() === 'jibres.com')
+			if(\dash\engine\store::inBusinessDomain())
 			{
-				return 'com';
+				return 'others';
 			}
 			else
 			{
-				return 'ir';
+				return 'business';
 			}
+		}
+		else
+		{
+			return 'jibres';
 		}
 	}
 
