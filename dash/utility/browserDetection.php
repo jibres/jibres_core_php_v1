@@ -887,7 +887,7 @@ public static function browser_detection( $_which_test = 'full_assoc', $_test_ex
 			}
 		}
 	}
-	//$browser_number = $SERVER["REMOTE_ADDR"];
+
 	/**
 	This is where you return values based on what parameter you used to call the function
 	$_which_test is the passed parameter in the initial browser_detection('os') for example returns
