@@ -32,6 +32,24 @@ class only
 	}
 
 
+	public static function json($_str)
+	{
+		$arr = json_decode($_str, true);
+
+		self::array($arr);
+	}
+
+
+	public static function maybe_json($_str)
+	{
+		// if have { in string try to decode json
+		if(strpos($_str, '{') !== false)
+		{
+			self::json($_str);
+		}
+	}
+
+
 	public static function object($_obj)
 	{
 		if(!is_object($_obj))
