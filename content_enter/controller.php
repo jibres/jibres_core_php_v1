@@ -14,7 +14,7 @@ class controller
 			if(\dash\url::module() !== 'block')
 			{
 				\dash\utility\enter::next_step('block');
-				\dash\utility\enter::go_to('block?e='. date("Y-m-d H:i:s", $wafLimit));
+				\dash\utility\enter::go_to('block');
 			}
 		}
 

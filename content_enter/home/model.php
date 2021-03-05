@@ -269,7 +269,7 @@ class model
 				if(\dash\utility\enter::user_data('ban_expire'))
 				{
 					// go to block page
-					\dash\utility\enter::go_to('block?e='. \dash\utility\enter::user_data('ban_expire'));
+					\dash\utility\enter::go_to('block');
 				}
 				else
 				{
