@@ -223,7 +223,7 @@ class ip
 
 			case 'isolation':
 				// check limit of isolation
-				self::checkIsolationRateLimit($_info);
+				self::checkIsolationLimit($_info);
 
 				if(\dash\request::is('post'))
 				{
@@ -368,7 +368,7 @@ class ip
 	}
 
 
-	private static function checkIsolationRateLimit(&$_ipData)
+	private static function checkIsolationLimit(&$_ipData)
 	{
 		$currentTry = self::getData($_ipData, 'isolateRefresh', 1);
 		$currentTry = intval($currentTry) + 1;
