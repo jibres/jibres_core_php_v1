@@ -8,6 +8,8 @@ class view
 	{
 		\dash\face::title(T_('Hey! You are Blocked!!'));
 		\dash\face::desc(\dash\face::title());
+
+		\dash\data::wafLimitTime(\dash\waf\ip::isLimit());
 	}
 }
 ?>

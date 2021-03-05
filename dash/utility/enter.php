@@ -50,16 +50,9 @@ class enter
 
 						\dash\utility\enter::next_step('block');
 
-						if($load_user_data['ban_expire'])
-						{
-							// go to block page
-							\dash\utility\enter::go_to('block?e='. $load_user_data['ban_expire']);
-						}
-						else
-						{
-							// go to block page
-							\dash\utility\enter::go_to('block');
-						}
+						// go to block page
+						\dash\utility\enter::go_to('block');
+
 						return;
 					}
 
