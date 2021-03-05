@@ -499,9 +499,13 @@ class ip
 
 
 	// some public function to access from outside
-	public static function isolate($_ip, $_reason = null, $_level = null)
+	public static function isolate($_ip = null, $_reason = null, $_level = null)
 	{
 		$ipData = self::fetch($_ip);
+
+		// counter for request isolate
+		self::plusData($ipData, 'isolateRequested');
+
 		if($_level < 0 || $_level > 10)
 		{
 			$_level = 3;
@@ -518,7 +522,13 @@ class ip
 	}
 
 
-	public static function block($_ip, $_reason = null, $_minute = null)
+	public static function isolateIP($_level = null, $_reason = null)
+	{
+		self::isolate(null, $_reason, $_level);
+	}
+
+
+	public static function block($_ip = null, $_reason = null, $_minute = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
@@ -526,7 +536,13 @@ class ip
 	}
 
 
-	public static function unblock($_ip, $_reason = null)
+	public static function blockIP($_minute = null, $_reason = null)
+	{
+		self::block(null, $_reason, $_minute);
+	}
+
+
+	public static function unblock($_ip = null, $_reason = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
