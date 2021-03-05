@@ -38,6 +38,12 @@ class headers
 			\dash\waf\gate\toys\general::len($value, 0, 500);
 
 
+			// only can be text
+			\dash\waf\gate\toys\only::something($key);
+			\dash\waf\gate\toys\only::text($key);
+
+			\dash\waf\gate\toys\only::text($value);
+
 			// check blacklist words
 			self::blacklist($key);
 			self::blacklist($value);
@@ -47,10 +53,6 @@ class headers
 
 	private static function blacklist($txt)
 	{
-		// only can be text
-		\dash\waf\gate\toys\only::something($txt);
-		\dash\waf\gate\toys\only::text($txt);
-
 		// disallow html tags
 		\dash\waf\gate\toys\block::tags($txt);
 		// disallow some words
