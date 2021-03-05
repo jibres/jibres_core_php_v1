@@ -44,7 +44,7 @@ class block
 		$strippedText = strip_tags($_text);
 		if($_text !== $strippedText)
 		{
-			$msg = 'ooh Tag!';
+			$msg = 'ooh Tag! '. $_text;
 			if($_from)
 			{
 				$msg = 'ooh Tag inside '. $_from;
