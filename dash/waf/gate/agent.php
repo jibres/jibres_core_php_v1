@@ -9,7 +9,7 @@ class agent
 	{
 		$agent = \dash\agent::agent(false);
 
-		if($agent === null)
+		if($agent === null || $agent === '')
 		{
 			return null;
 		}
