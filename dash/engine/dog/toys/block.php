@@ -47,5 +47,14 @@ class block
 			\dash\header::status(428, 'ooh Tag!');
 		}
 	}
+
+
+	public static function key_exists($_key, $_array)
+	{
+		if(array_key_exists($_key, $_array))
+		{
+			\dash\header::status(428, 'Disallow index!');
+		}
+	}
 }
 ?>
