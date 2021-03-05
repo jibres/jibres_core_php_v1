@@ -5,19 +5,22 @@ class blacklist
 {
 	public static function dont_run_exception()
 	{
+		$path = \dash\url::path();
+		$path = mb_strtolower($path);
+
 		// files
-		if(strpos(\dash\url::path(), '/files') === 0)
+		if(strpos($path, '/files') === 0)
 		{
 			\dash\header::status(404);
 		}
 		// static
-		if(strpos(\dash\url::path(), '/static') === 0)
+		if(strpos($path, '/static') === 0)
 		{
 			\dash\header::status(404);
 		}
 
 		// static
-		if(strpos(\dash\url::path(), '/index.html') !== false || strpos(\dash\url::path(), '/index.php') !== false)
+		if(strpos($path, '/index.html') !== false || strpos($path, '/index.php') !== false)
 		{
 			\dash\header::status(404);
 
@@ -26,50 +29,55 @@ class blacklist
 			// \dash\redirect::to(\dash\url::base(). $myAddr);
 		}
 
+		$directory = \dash\url::directory();
+		$directory = mb_strtolower($directory); // .PHP .php .Php , ...
+
 		// block some ext in url
-		if(strpos(\dash\url::path(), '.php') !== false)
+		if(substr($directory, -4) === '.php')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.asp') !== false)
+		if(substr($directory, -4) === '.asp')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.aspx') !== false)
+		if(substr($directory, -5) === '.aspx')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.jsp') !== false)
+		if(substr($directory, -4) === '.jsp')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.js') !== false)
+		if(substr($directory, -3) === '.js')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.do') !== false)
+		if(substr($directory, -3) === '.do')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.git') !== false)
+		if(substr($directory, -4) === '.git')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.env') !== false)
+		if(substr($directory, -4) === '.env')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '.sh') !== false)
+		if(substr($directory, -3) === '.sh')
 		{
 			\dash\header::status(451);
 		}
-		if(strpos(\dash\url::path(), '[]') !== false)
+
+		// check array in the path
+		if(strpos($path, '[]') !== false)
 		{
 			\dash\header::status(451);
 		}
 
 		// favicon
-		if(strpos(\dash\url::path(), '/favicon.ico') !== false)
+		if(strpos($path, '/favicon.ico') !== false)
 		{
 			\dash\redirect::to(\dash\url::cdn(). '/favicons/favicon.ico');
 		}
