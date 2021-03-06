@@ -17,7 +17,7 @@ if(\dash\user::id())
 	}
 ?>
 
-<div class="btn warn block" data-confirm data-data='{"logoutapp": 1}' ><?php echo T_("Logout"); ?></div>
+<div class="btn warn block" data-confirm data-data='{"logoutapp": 1 <?php echo \dash\csrf::get_json() ?>}' ><?php echo T_("Logout"); ?></div>
 
 <?php
 }

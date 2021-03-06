@@ -1,5 +1,6 @@
 <?php
-namespace content_enter\pass\change;
+namespace content_enter\twostep;
+
 
 class controller
 {
@@ -7,7 +8,7 @@ class controller
 	{
 		if(!\dash\user::login())
 		{
-			\dash\header::status(403, T_("Login error"));
+			\dash\header::status(403, T_("Please login to continue"));
 		}
 
 		\dash\csrf::set();

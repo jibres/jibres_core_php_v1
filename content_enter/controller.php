@@ -111,7 +111,7 @@ class controller
 			'verify/sendsms',
 			'verify/telegram',
 			'verify/sms',
-			'verify/what',
+
 		];
 
 		$check_unlock = \dash\url::module();

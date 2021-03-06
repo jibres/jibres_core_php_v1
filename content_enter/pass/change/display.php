@@ -5,7 +5,7 @@
     </label>
     <input id='mobile' name="mobile" type='tel' maxlength="15" placeholder='<?php echo T_("Mobile"); ?>' data-invalid='<?php echo T_("Please enter valid mobile number"); ?>' value="<?php echo \dash\data::getMobile(); ?>" data-pl-user='<?php echo T_("Mobile"); ?>' autocomplete="off"  <?php if(\dash\language::current() === 'fa') { ?>pattern=".{10,14}" title='<?php echo T_("Enter correct iranian mobile starting with zero like 0935"); ?>' <?php }else{ ?> pattern=".{7,15}" title='<?php echo T_("Enter your mobile number"); ?>' <?php }//endif ?>  required  readonly >
    </div>
-
+<?php \dash\csrf::html(); ?>
 
  <div class='flex fix' id='eramzNew'>
     <label for='ramzNew'>**</label>
