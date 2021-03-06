@@ -2,9 +2,9 @@
 <?php if(\dash\data::countFile()) {?>
 <div class="avand-md ltr">
   <?php foreach (\dash\data::countFile() as $key => $value) {?>
-    <div class="msg row">
-      <div class="c"><?php echo $key ?></div>
-      <div class="c"><?php echo $value ?></div>
+    <div class="msg row font-14">
+      <div class="c txtB"><?php echo $key ?></div>
+      <div class="c"><?php echo \dash\fit::number_en($value) ?></div>
     </div>
   <?php } //endif ?>
 </div>
