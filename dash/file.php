@@ -523,5 +523,32 @@ class file
 	{
 		return @chmod($_path, $_perm);
 	}
+
+
+
+	/**
+	 * Counts the number of file in directory.
+	 *
+	 * @param      <type>   $_dir   The dir
+	 *
+	 * @return     Number of file.
+	 */
+	public static function count_file($_dir)
+	{
+		$count = 0;
+
+		try
+		{
+			$files = new \FilesystemIterator($_dir, \FilesystemIterator::SKIP_DOTS);
+			$count = iterator_count($files);
+
+		}
+		catch (\Exception $e)
+		{
+			// error in load dir
+		}
+
+		return $count;
+	}
 }
 ?>
