@@ -134,7 +134,7 @@ else
               </li>
 <?php }?>
               <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/status">
+                <a class="item f" href="https://jibresuptime.ir/">
                 <div class="key"><?php echo T_('System Status'); ?></div>
                 <div class="go"></div>
                 </a>
