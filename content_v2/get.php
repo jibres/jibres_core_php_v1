@@ -19,7 +19,7 @@ class get
 		}
 		elseif(\dash\url::domain() === 'jibres.local')
 		{
-			$myEndpoint = 'http://api.jibres.local'. $store. '/v2/';
+			$myEndpoint = 'https://api.jibres.local'. $store. '/v2/';
 		}
 		else
 		{
