@@ -30,7 +30,7 @@
 <?php } //endif ?>
     </a>
 <?php }else{ ?>
-    <a href="<?php echo \dash\url::kingdom(); ?>/enter?referer=<?php echo \dash\url::pwd() ?>" title='<?php echo T_("Enter to have better experience"); ?>'><i class="sf-hand-stop"></i></a>
+    <a href="<?php echo \dash\url::kingdom(); ?>/enter?referer=<?php echo urlencode(\dash\url::location()) ?>" title='<?php echo T_("Enter to have better experience"); ?>'><i class="sf-hand-stop"></i></a>
 <?php } //endif ?>
    </div>
   </div>

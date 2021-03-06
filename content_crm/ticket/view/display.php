@@ -144,7 +144,7 @@ else
 
         <?php }elseif($customer_mode) {?>
           <li>
-            <a class="f item" href="<?php echo \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::pwd());  ?>">
+            <a class="f item" href="<?php echo \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::location());  ?>">
               <i class="sf-sign-in"></i>
               <div class="key"><?php echo T_("Please login to save ticket") ?></div>
             </a>

@@ -101,7 +101,7 @@ class model
 
 		if(\dash\temp::get('domain_neeed_verify_mobile'))
 		{
-			\dash\redirect::to(\dash\url::kingdom(). '/enter/verify?referer='. urlencode(\dash\url::pwd()));
+			\dash\redirect::to(\dash\url::kingdom(). '/enter/verify?referer='. urlencode(\dash\url::location()));
 			return;
 		}
 
