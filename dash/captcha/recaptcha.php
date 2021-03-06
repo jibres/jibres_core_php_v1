@@ -41,6 +41,11 @@ class recaptcha
 	}
 
 
+	/**
+	 * Get secret v2
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	private static function secret_v2()
 	{
 		return \dash\setting\recaptcha::secret_v2();
@@ -48,7 +53,18 @@ class recaptcha
 
 
 	/**
-	 * Get sitekey
+	 * Get sitekey v2
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function sitekey_v2()
+	{
+		return \dash\setting\recaptcha::sitekey_v2();
+	}
+
+
+	/**
+	 * Get sitekey v3
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
@@ -67,6 +83,12 @@ class recaptcha
 		if($v3)
 		{
 			return $v3;
+		}
+
+		$v2 = self::sitekey_v2();
+		if($v2)
+		{
+			return $v2;
 		}
 
 		return false;

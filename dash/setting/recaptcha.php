@@ -85,5 +85,18 @@ class recaptcha
 		}
 	}
 
+
+	public static function sitekey_v2()
+	{
+		self::load();
+
+		$in = self::whereami();
+
+		if(isset(self::$load['v2'][$in]['sitekey']))
+		{
+			return self::$load['v2'][$in]['sitekey'];
+		}
+	}
+
 }
 ?>

@@ -18,7 +18,7 @@
     <p><?php echo T_("We have noticed an unusual activity from your ip and you are blocked. Please confirm that you are not a robot!"); ?></p>
 
     <form id='ipProtectionJibresRecaptcha' method="POST">
-      <div class="g-recaptcha" data-sitekey="6Ldh0G8aAAAAAPd12fs4wRTBshiTfeG8q1GwBv0E" data-callback="ipProtectionJibresRecaptcha"></div>
+      <div class="g-recaptcha" data-sitekey="<?php echo \dash\captcha\recaptcha::sitekey_v2(); ?>" data-callback="ipProtectionJibresRecaptcha"></div>
     </form>
  	</section>
  </body>
