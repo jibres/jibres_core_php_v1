@@ -28,7 +28,7 @@ class controller
 
 
 		\dash\csrf::set(true);
-		\dash\captcha\recaptcha::set();
+		\dash\captcha\recaptcha::set('enter');
 	}
 
 
