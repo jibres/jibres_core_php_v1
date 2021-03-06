@@ -132,7 +132,7 @@ class enter
 
 				\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*15))));
 
-				\dash\log::to_supervisor("User ban alert! user_id: ". $user_id. " ban for 15 minutes");
+				\dash\log::to_supervisor("User ban alert! user_id: (". \dash\coding::encode($user_id). ") ban for 15 minutes - ". $_module. ' - '. \dash\server::ip());
 				\dash\notif::error(T_("You are banned"));
 				self::set_logout($user_id);
 			}
@@ -151,7 +151,7 @@ class enter
 					\dash\waf\ip::limitIP(60, 'enter-'. $_module);
 
 					\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*60*1))));
-					\dash\log::to_supervisor("User ban alert! user_id: ". $user_id. " ban for 1 hour");
+					\dash\log::to_supervisor("User ban alert! user_id: (". \dash\coding::encode($user_id). ") ban for 1 hour - ". $_module. ' - '. \dash\server::ip());
 					\dash\notif::error(T_("You are banned"));
 					self::set_logout($user_id);
 
@@ -168,7 +168,7 @@ class enter
 						\dash\waf\ip::limitIP((60*24), 'enter-'. $_module);
 
 						\dash\app\user::ban($user_id, date("Y-m-d H:i:s", (time() + (60*60*24))));
-						\dash\log::to_supervisor("User ban alert! user_id: ". $user_id. " ban for 24 hour");
+						\dash\log::to_supervisor("User ban alert! user_id: (". \dash\coding::encode($user_id). ") ban for 24 hour - ". $_module. ' - '. \dash\server::ip());
 						\dash\notif::error(T_("You are banned"));
 						self::set_logout($user_id);
 					}
