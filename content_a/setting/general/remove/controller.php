@@ -8,6 +8,8 @@ class controller
 
 		\dash\permission::access('settingEdit');
 
+		\dash\csrf::set();
+
 	}
 }
 ?>

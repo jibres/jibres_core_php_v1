@@ -3,6 +3,7 @@ $storeData = \dash\data::store_store_data();
 ?>
 
 <form method="post" autocomplete="off">
+  <?php \dash\csrf::html(); ?>
   <div class="avand-md">
     <div class="box">
       <div class="pad">
