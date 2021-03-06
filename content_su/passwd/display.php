@@ -2,9 +2,9 @@
   <div class="avand-sm">
     <div class="box">
       <div class="pad">
-        <label for="passwd"><?php echo T_("Enter Password") ?></label>
+        <label for="a"><?php echo T_("Enter Password") ?></label>
         <div class="input ltr">
-          <input type="password" name="passwd" id="passwd" autocomplete="new-password" <?php \dash\layout\autofocus::html(); ?>>
+          <input type="password" name="a" id="a" autocomplete="new-password" <?php \dash\layout\autofocus::html(); ?>>
         </div>
       </div>
       <footer class="txtRa">

@@ -7,7 +7,7 @@ class model
 	{
 		$su_access = \dash\setting\enter::su_access();
 
-		if(\dash\utility::hasher(\dash\request::post('passwd'), $su_access))
+		if(\dash\utility::hasher(\dash\request::post('a'), $su_access))
 		{
 			$su_access_detail =
 			[
