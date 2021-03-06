@@ -59,6 +59,20 @@ class controller
 			\dash\redirect::to(\dash\url::here());
 		}
 
+		// in status page needless to update session
+		if(\dash\request::get('server') === 'status')
+		{
+			return;
+		}
+
+		// while supervisor active in su needless to set password again
+		$su_access_detail =
+		[
+			'time'    => time(),
+			'acccess' => true,
+		];
+
+		\dash\session::set('su_access', $su_access_detail);
 	}
 }
 ?>
