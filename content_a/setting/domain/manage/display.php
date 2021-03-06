@@ -14,29 +14,24 @@
     </div>
   </div>
 
-  <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() || \dash\data::domainDetail_cdn() === 'enterprise')) {?>
+  <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() || \dash\data::domainDetail_cdn() !== 'enterprise')) {?>
   <div class="box">
     <div class="body">
       <p>
         <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set A record for that subdomain at the following address:") ?>
-        <table class="tbl1 v4 minimal">
+        <table class="tbl1 v4 minimal ltr txtL">
           <thead class="font-12">
             <tr>
-              <th><?php echo T_("Type") ?></th>
-              <th><?php echo T_("Key") ?></th>
-              <th><?php echo T_("Value") ?></th>
+              <th class="ltr txtL">Type</th>
+              <th class="ltr txtL">Key</th>
+              <th class="ltr txtL">Value</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>A</td>
-              <td>@</td>
-              <td><span data-copy='business.jibres.com'><code>business.jibres.com</code> <span class="btn sm"><?php echo T_("Copy") ?></span></span></td>
-            </tr>
-            <tr>
-              <td>A</td>
-              <td>*</td>
-              <td><span data-copy='business.jibres.com'><code>business.jibres.com</code> <span class="btn sm"><?php echo T_("Copy") ?></span></span></td>
+            <tr class="ltr txtL">
+              <td class="ltr txtL">CNAME</td>
+              <td class="ltr txtL"><?php echo \dash\data::domainDetail_subdomain() ?></td>
+              <td class="ltr txtL"><span data-copy='business.jibres.com'><code>business.jibres.ir</code> <span class="btn sm">Copy</span></span></td>
             </tr>
           </tbody>
         </table>
@@ -72,12 +67,12 @@
     <div class="box">
       <header><h2><?php echo T_("DNS records") ?></h2></header>
       <div class="body">
-        <div class="row">
+        <div class="row ltr">
           <div class="c-xs-12 c-sm-2">
-            <div>
-              <label for="itype"><?php echo T_("Type") ?></label>
-              <select class="select22" name="type" id="itype">
-                <option value=""><?php echo T_("Type") ?></option>
+            <label for="itype">Type</label>
+            <div class="txtL">
+              <select class="select22 ltr txtL" name="type" id="itype">
+                <option value="">Type</option>
                 <option value="A">A</option>
                 <option value="AAAA">AAAA</option>
                 <option value="ANAME">ANAME</option>
@@ -94,13 +89,13 @@
             </div>
           </div>
           <div class="c-xs-12 c-sm-5">
-            <label for="ikey"><?php echo T_("Key") ?></label>
+            <label for="ikey">Key</label>
             <div class="input ltr">
               <input type="text" name="key" id="ikey" placeholder="Use @ for root">
             </div>
           </div>
           <div class="c-xs-12 c-sm-5">
-            <label for="ivalue"><?php echo T_("Value") ?></label>
+            <label for="ivalue">Value</label>
             <div class="input ltr">
               <input type="text" name="value" id="ivalue" placeholder="">
             </div>
@@ -108,8 +103,8 @@
         </div>
       </div>
       <footer class="f">
+        <div class="cauto"><button class="btn master">Add</button></div>
         <div class="c"></div>
-        <div class="cauto"><button class="btn master"><?php echo T_("Add") ?></button></div>
       </footer>
     </div>
   </form>
@@ -118,35 +113,37 @@
           <?php $have_any_record = false; foreach (\dash\data::dnsList() as $key => $value) { if(a($value, 'allow_remove')) { $have_any_record = true; } }?>
 
           <?php if($have_any_record) {?>
-          <table class="tbl1 v4 font-12 ">
-            <thead>
-              <tr>
-                <th><?php echo T_("Type") ?></th>
-                <th><?php echo T_("Key") ?></th>
-                <th><?php echo T_("Value") ?></th>
-                <th><?php echo T_("Status") ?></th>
-                <th class="collapsing"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach (\dash\data::dnsList() as $key => $value) {?>
-                      <?php if(a($value, 'allow_remove')) {?>
-                <tr>
-                  <td><?php echo a($value, 'type'); ?></td>
-                  <td><?php echo a($value, 'key'); ?></td>
-                  <td><?php echo a($value, 'value'); ?></td>
-                  <td><?php echo a($value, 'tstatus'); ?></td>
-                  <td class="collapsing">
-                    <?php if(a($value, 'status') !== 'pending_delete') {?>
-                        <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
+            <div class="tblBox">
+              <table class="tbl1 v4 font-12 ltr txtL">
+                <thead>
+                  <tr>
+                    <th class="ltr txtL">Type</th>
+                    <th class="ltr txtL">Key</th>
+                    <th class="ltr txtL">Value</th>
+                    <th class="ltr txtL s0">Status</th>
+                    <th class="ltr txtL"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach (\dash\data::dnsList() as $key => $value) {?>
+                          <?php if(a($value, 'allow_remove')) {?>
+                    <tr class="txtL">
+                      <td class="ltr txtL"><?php echo a($value, 'type'); ?></td>
+                      <td class="ltr txtL"><?php echo a($value, 'key'); ?></td>
+                      <td class="ltr txtL"><?php echo a($value, 'value'); ?></td>
+                      <td class="ltr txtL s0"><?php echo a($value, 'status'); ?></td>
+                      <td class="ltr txtL">
+                        <?php if(a($value, 'status') !== 'pending_delete') {?>
+                            <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
+                          <?php } //endif ?>
+                      </td>
                       <?php } //endif ?>
-                  </td>
-                  <?php } //endif ?>
 
-                </tr>
-              <?php } // endif ?>
-            </tbody>
-          </table>
+                    </tr>
+                  <?php } // endif ?>
+                </tbody>
+              </table>
+            </div>
         <?php } // endif ?>
         <?php } // endif ?>
 
