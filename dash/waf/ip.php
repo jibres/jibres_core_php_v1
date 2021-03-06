@@ -162,7 +162,7 @@ class ip
 				'ajax'    => \dash\request::ajax(),
 			];
 			// save history page
-			if(count($history) > 20)
+			if(count($history) > 10)
 			{
 				reset($history);
 				unset($history[key($history)]);
