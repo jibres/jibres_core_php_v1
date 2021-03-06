@@ -56,6 +56,11 @@ class controller
 			}
 
 		}
+		else
+		{
+			\dash\redirect::to(\dash\url::kingdom());
+
+		}
 	}
 }
 ?>
