@@ -60,7 +60,7 @@ class controller
 		}
 
 		// in status page needless to update session
-		if(\dash\request::get('server') === 'status')
+		if(\dash\request::get('cmd') === 'health')
 		{
 			return;
 		}
