@@ -599,15 +599,21 @@ class ip
 	public static function isolate($_ip = null, $_reason = null, $_level = null)
 	{
 		$ipData = self::fetch($_ip);
+		$isolateNeeded = true;
 
 		// counter for request isolate
 		self::plusData($ipData, 'isolateRequested');
+
+		// if true is passed, force isolate in level10
+		if($_level === true)
+		{
+			$_level = 10;
+		}
 
 		if($_level < 0 || $_level > 10)
 		{
 			$_level = 3;
 		}
-		$isolateNeeded = true;
 		// only request 5 times, after that request isolate and reset
 		if(self::getData($ipData, 'isolateRequested', 1) < 5)
 		{
