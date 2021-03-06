@@ -179,17 +179,47 @@ class recaptcha
 		$success    = a($get_result, 'success');
 		$score      = a($get_result, 'score');
 
+		$hostname   = a($get_result, 'hostname');
+		$action     = a($get_result, 'action');
+
+		$reason = 'in-action:'. $recaptcha_action. '-|score:'. (string) floatval($score);
+
+		$ok = true;
+
 		if($success)
 		{
 			@header('x-rec-score: '. $score);
 
+			// if in business domain needless to verify host name
+			if(!\dash\engine\store::inBusinessDomain())
+			{
+				if(\dash\url::domain() !== $hostname)
+				{
+					$ok = false;
+					$reason .= '|invalid-hostname:'. $hostname. '|current-hostname:'. \dash\url::domain();
+				}
+			}
+
+			if($recaptcha_action !== $action)
+			{
+				$ok = false;
+				$reason .= '|invalid-action:'. $action. '|current-action:'. $recaptcha_action;
+			}
+		}
+		else
+		{
+			$ok = false;
+			$reason .= '|request-not-success!';
+		}
+
+		if($ok)
+		{
 			if(floatval($score) >= 0.5)
 			{
-		    	return true;
+				return true;
 			}
 		}
 
-		$reason = $recaptcha_action. '-'. (string) floatval($score);
 
 		\dash\waf\ip::isolateIP(1, $reason);
 
