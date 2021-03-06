@@ -888,7 +888,15 @@ class ip
 	}
 
 
-	private static function open_ip_file($_ip)
+	/**
+	 * Opens an ip file.
+	 * Use in content_love/ip to load ip file detail
+	 *
+	 * @param      <type>  $_ip    { parameter_description }
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function open_ip_file($_ip)
 	{
 		$myFile = self::find_ip_path($_ip);
 		if($myFile)
@@ -970,6 +978,42 @@ class ip
 				\dash\file::makeDir($folder, null, true);
 			}
 		}
+	}
+
+
+
+	public static function countFileInFolder($_folder = null)
+	{
+		if($_folder)
+		{
+			$addr = self::generate_addr_path($_folder);
+			$count = \dash\file::count_file($addr);
+			return $count;
+		}
+		else
+		{
+			$result = [];
+
+			$myFolders =
+			[
+				'live'      => self::generate_addr_path('live'),
+				'human'     => self::generate_addr_path('human'),
+				'bot'       => self::generate_addr_path('bot'),
+				'isolation' => self::generate_addr_path('isolation'),
+				'ban'       => self::generate_addr_path('ban'),
+				'whitelist' => self::generate_addr_path('whitelist'),
+				'blacklist' => self::generate_addr_path('blacklist'),
+			];
+
+			foreach ($myFolders as $key => $folder)
+			{
+				$result[$key] = \dash\file::count_file($folder);
+			}
+
+			return $result;
+		}
+
+
 	}
 }
 ?>
