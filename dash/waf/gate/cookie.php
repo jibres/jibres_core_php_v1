@@ -22,7 +22,7 @@ class cookie
 		foreach ($cookie as $key => $value)
 		{
 			// check key len
-			\dash\waf\gate\toys\general::len($key, 1, 49);
+			\dash\waf\gate\toys\general::len($key, 1, 99);
 
 			// check value len
 			\dash\waf\gate\toys\general::len($value, 0, 220);
