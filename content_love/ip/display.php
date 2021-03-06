@@ -18,6 +18,15 @@
         <div class="input ltr">
           <input type="text" name="ip" value="<?php echo \dash\data::myIP() ?>">
         </div>
+        <?php if(\dash\data::ipDetail()) {?>
+          <div class="row">
+            <div class="c"><div class="btn block danger" data-confirm data-data='{"status": "block"}'>Block</div></div>
+            <div class="c"><div class="btn block warn" data-confirm data-data='{"status": "isolate"}'>Isolate</div></div>
+            <div class="c"><div class="btn block success" data-confirm data-data='{"status": "unblock"}'>Unblock</div></div>
+            <div class="c"><div class="btn block master" data-confirm data-data='{"status": "whitelist"}'>Whitelist</div></div>
+            <div class="c"><div class="btn block secondary" data-confirm data-data='{"status": "blacklist"}'>Blacklist</div></div>
+          </div>
+        <?php } //endif ?>
       </div>
       <footer class="txtLa">
         <button class="btn master">Check</button>
