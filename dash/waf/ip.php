@@ -575,7 +575,7 @@ class ip
 	}
 
 
-	private static function do_limit(&$_ipData, $_reason = null, $_minute = null)
+	private static function do_limit(&$_ipData, $_reason = null, $_minute = null, $_runNow = null)
 	{
 		if(!is_int($_minute) || $_minute < 0)
 		{
@@ -638,8 +638,11 @@ class ip
 
 		if($isolateNeeded)
 		{
-			// prosecute commad
-			self::prosecute($ipData);
+			if($_runNow)
+			{
+				// prosecute commad
+				self::prosecute($ipData);
+			}
 		}
 		// return
 		return $isolateNeeded;
@@ -652,33 +655,41 @@ class ip
 	}
 
 
-	public static function block($_ip = null, $_reason = null, $_minute = null)
+	public static function block($_ip = null, $_reason = null, $_minute = null, $_runNow = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
 		self::do_block($ipData, $_reason, $_minute);
 		// save changes
 		self::save_yaml_file($ipData);
-		// prosecute commad
-		self::prosecute($ipData);
+
+		if($_runNow)
+		{
+			// prosecute commad
+			self::prosecute($ipData);
+		}
 	}
 
 
 	public static function blockIP($_minute = null, $_reason = null)
 	{
-		self::block(null, $_reason, $_minute);
+		self::block(null, $_reason, $_minute, true);
 	}
 
 
-	public static function unblock($_ip = null, $_reason = null)
+	public static function unblock($_ip = null, $_reason = null, $_runNow = null)
 	{
 		$ipData = self::fetch($_ip);
 		// do action
 		self::do_unblock($ipData, $_reason);
 		// save changes
 		self::save_yaml_file($ipData);
-		// prosecute commad
-		self::prosecute($ipData);
+
+		if($_runNow)
+		{
+			// prosecute commad
+			self::prosecute($ipData);
+		}
 	}
 
 
