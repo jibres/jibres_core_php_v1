@@ -30,8 +30,8 @@
           <tbody>
             <tr class="ltr txtL">
               <td class="ltr txtL">CNAME</td>
-              <td class="ltr txtL"><?php echo \dash\data::domainDetail_subdomain() ?></td>
-              <td class="ltr txtL"><span data-copy='business.jibres.com'><code>business.jibres.ir</code> <span class="btn sm">Copy</span></span></td>
+              <td class="ltr txtL" data-copy='<?php echo \dash\data::domainDetail_subdomain() ?>'><?php echo \dash\data::domainDetail_subdomain() ?></td>
+              <td class="ltr txtL"><span data-copy='business.jibres.ir'><code>business.jibres.ir</code></span></td>
             </tr>
           </tbody>
         </table>
