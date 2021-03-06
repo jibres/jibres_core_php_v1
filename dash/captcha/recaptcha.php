@@ -235,10 +235,19 @@ class recaptcha
 
 		$get_result = \dash\captcha\recaptcha_curl::verify($secret, $_token, $myIp);
 
-		$success    = a($get_result, 'success');
+		$success  = a($get_result, 'success');
+		$hostname = a($get_result, 'hostname');
 
 		if($success)
 		{
+			// if in business domain needless to verify host name
+			if(!\dash\engine\store::inBusinessDomain())
+			{
+				if(\dash\url::domain() !== $hostname)
+				{
+					return false;
+				}
+			}
 		    // Verified!
 		    return true;
 		}
