@@ -106,7 +106,7 @@ class remove
 				$position = 'business';
 			}
 
-			$directory = \dash\upload\directory::move_to($position, $upload_other_server_scp);
+			$directory = \dash\upload\directory::move_to($position, $upload_other_server_scp, true);
 
 			$file_path = $directory. $load['path'];
 

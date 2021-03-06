@@ -17,7 +17,7 @@ class directory
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function move_to($_type, $_remote_server = false)
+	public static function move_to($_type, $_remote_server = false, $_remove_mode = false)
 	{
 		$addr = null;
 
@@ -35,7 +35,7 @@ class directory
 			$addr .= 'talambar_cloud/';
 		}
 
-		if(\dash\url::isLocal())
+		if(!$_remove_mode && \dash\url::isLocal())
 		{
 			$addr .= 'local/';
 		}
