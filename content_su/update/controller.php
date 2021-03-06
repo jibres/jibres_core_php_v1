@@ -44,7 +44,7 @@ class controller
 
 		\dash\waf\race::requestDone();
 
-		\dash\log::set('su_gitUpdateStart');
+		\dash\log::set('su_gitUpdateStart', ['my_domain' => \dash\url::domain()]);
 		// switch by name of repository
 		switch ($_name)
 		{
@@ -55,14 +55,14 @@ class controller
 				$result[] = "<h1>$_name</h1>";
 				$result[] = "<p>Project location is <b>". root. "</b></p><br><br>";
 				$result[] =  \dash\utility\git::pull(root, false);
-				\dash\log::set('su_gitUpdate');
+				\dash\log::set('su_gitUpdate', ['my_domain' => \dash\url::domain()]);
 				break;
 
 			case 'cdn':
 				$cdn_path = YARD . 'talambar_cdn/';
 				$result[] = "<p>CDN location is <b>". $cdn_path. "</b></p><br><br>";
 				$result[] =  \dash\utility\git::pull($cdn_path, false);
-				\dash\log::set('su_cdnUpdate');
+				\dash\log::set('su_cdnUpdate', ['my_domain' => \dash\url::domain()]);
 				break;
 
 			default:

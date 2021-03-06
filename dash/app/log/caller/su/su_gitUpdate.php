@@ -17,6 +17,8 @@ class su_gitUpdate
 			$excerpt = T_("You updated");
 		}
 
+		$excerpt .= self::get_domain_name($_args);
+
 
 		$result              = [];
 		$result['title']     = T_("Jibres core repository");
@@ -26,6 +28,18 @@ class su_gitUpdate
 		$result['excerpt']   = $excerpt;
 		return $result;
 	}
+
+
+	private static function get_domain_name($_args)
+	{
+		if(isset($_args['data']['my_domain']))
+		{
+			return ' '. $_args['data']['my_domain'];
+		}
+		return null;
+
+	}
+
 
 	public static function send_to()
 	{
@@ -60,6 +74,8 @@ class su_gitUpdate
 		$tg_msg .= "🛢#JibresUpdate";
 		$tg_msg .= " ";
 		$tg_msg .= "👨‍💻 ".\dash\log::from_name();
+		$tg_msg .= "\n";
+		$tg_msg .= self::get_domain_name($_args);
 		$tg_msg .= "\n";
 
 		$tg_msg .= "⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), 'shortDate');
