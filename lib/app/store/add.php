@@ -12,31 +12,27 @@ class add
 		// create new store by free plan
 		// just check count of free plan store
 		// check store count
+		$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
 
-		if(!\dash\permission::supervisor())
+		$businessMaxLimit = \dash\app\user\business::businesscount($user_id);
+
+		if($count_store_free >= $businessMaxLimit)
 		{
-			$count_store_free = intval(\lib\db\store\get::count_free_trial($user_id));
+			$msg = T_("You can not have more than :val free or trial stores.", ['val' => \dash\fit::number($businessMaxLimit)]). ' '. T_("Contact Us if you need more stores");
 
-			$businessMaxLimit = \dash\app\user\business::businesscount($user_id);
-
-			if($count_store_free >= $businessMaxLimit)
+			\dash\notif::code(1418);
+			if($_notif)
 			{
-				$msg = T_("You can not have more than :val free or trial stores.", ['val' => \dash\fit::number($businessMaxLimit)]). ' '. T_("Contact Us if you need more stores");
+				\dash\notif::error($msg);
+			}
 
-				\dash\notif::code(1418);
-				if($_notif)
-				{
-					\dash\notif::error($msg);
-				}
-
-				if($_get_detail)
-				{
-					return ['can' => false, 'msg' => $msg, 'type' => 'store3'];
-				}
-				else
-				{
-					return false;
-				}
+			if($_get_detail)
+			{
+				return ['can' => false, 'msg' => $msg, 'type' => 'store3'];
+			}
+			else
+			{
+				return false;
 			}
 		}
 

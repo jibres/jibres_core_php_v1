@@ -20,7 +20,7 @@ class contact
 			\dash\session::set($session_name, 1, null, $time);
 		}
 
-		if($count >= $max_count && !\dash\permission::supervisor())
+		if($count >= $max_count)
 		{
 			\dash\log::set('tryCount>inMins');
 			\dash\notif::error(T_("You hit our maximum try limit."). ' '. T_("Try again later!"));

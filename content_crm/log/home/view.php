@@ -38,10 +38,6 @@ class view
 			'show_type' => 'user',
 		];
 
-		// if(\dash\permission::supervisor())
-		// {
-		// 	$args['show_type'] = 'admin';
-		// }
 
 		$search_string   = \dash\validate::search(\dash\request::get('q'));
 		$logList = \dash\app\log\search::list($search_string, $args);

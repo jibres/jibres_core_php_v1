@@ -9,12 +9,6 @@ class controller
 
 	public static function routing()
 	{
-		if(\dash\permission::supervisor())
-		{
-			self::cronjob_run();
-			return;
-		}
-
 		$child = \dash\url::child();
 		if(!$child)
 		{

@@ -17,11 +17,7 @@ class model
 
 		$meta            = [];
 		$meta['user_id'] = \dash\user::id();
-
-		if(!\dash\permission::supervisor())
-		{
-			$meta['verify']  = 1;
-		}
+		$meta['verify']  = 1;
 
 		$billing_history = \dash\db\transactions::search(null, $meta);
 
