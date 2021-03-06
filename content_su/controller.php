@@ -16,21 +16,17 @@ class controller
 			\dash\notif::info(T_('Local mode'));
 			\dash\data::line_bottom(T_('You are in Supervisor Panel of Local Mode'));
 		}
-		// else
+
+		if(!\dash\permission::supervisor())
 		{
-			// Check permission and if user can do this operation
-			// allow to do it, else show related message in notify center
-
-			if(!\dash\permission::supervisor())
-			{
-				\dash\header::status(403);
-			}
-
-			if(\dash\request::get('server') === 'status')
-			{
-				\dash\temp::set('force_stop_visitor', true);
-			}
+			\dash\header::status(403);
 		}
+
+		if(\dash\request::get('server') === 'status')
+		{
+			\dash\temp::set('force_stop_visitor', true);
+		}
+
 
 		self::check_su_access();
 
