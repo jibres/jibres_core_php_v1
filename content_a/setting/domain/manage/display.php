@@ -18,7 +18,7 @@
   <div class="box">
     <div class="body">
       <p>
-        <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set A record for that subdomain at the following address:") ?>
+        <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set CNAME record for that subdomain at the following address:") ?>
         <table class="tbl1 v4 minimal ltr txtL">
           <thead class="font-12">
             <tr>
