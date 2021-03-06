@@ -62,6 +62,9 @@ class agent
 	public static function agent($_encode = true)
 	{
 		$agent = \dash\server::get('HTTP_USER_AGENT');
+		// always trim for someone with misconfig
+		$agent = trim($agent, '"');
+		$agent = trim($agent, "'");
 
 		// if user want encode referer
 		if($_encode)
