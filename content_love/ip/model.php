@@ -22,7 +22,7 @@ class model
 		switch ($status)
 		{
 			case 'isolate':
-				\dash\waf\ip::isolate($ip, $reason);
+				\dash\waf\ip::isolate($ip, $reason, true);
 				break;
 
 			case 'block':
@@ -46,6 +46,9 @@ class model
 				\dash\notif::ok("Invalid status");
 				break;
 		}
+
+		\dash\notif::ok("IP ". $ip. ' Set On '. $status);
+		return true;
 	}
 }
 ?>
