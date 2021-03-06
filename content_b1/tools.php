@@ -29,6 +29,14 @@ class tools
 		{
 			self::stop(404, T_("Store not found"));
 		}
+
+		// maybe some where have erro. but need fix other palce.
+		// this content need have any permission
+		if(!\dash\permission::has_permission())
+		{
+			\dash\permission::deny();
+		}
+
 	}
 
 
