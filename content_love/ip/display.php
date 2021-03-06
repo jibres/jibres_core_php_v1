@@ -1,12 +1,17 @@
 
 <?php if(\dash\data::countFile()) {?>
-<div class="avand-md ltr">
+
+
+<section class="row">
   <?php foreach (\dash\data::countFile() as $key => $value) {?>
-    <div class="msg row font-14">
-      <div class="c txtB"><?php echo $key ?></div>
-      <div class="c"><?php echo \dash\fit::number_en($value) ?></div>
-    </div>
+  <div class="c">
+    <a class="stat">
+      <h3><?php echo $key ?></h3>
+      <div class="val"><?php echo \dash\fit::number_en($value);?></div>
+    </a>
+  </div>
   <?php } //endif ?>
+</section>
 </div>
 <?php } //endif ?>
 
