@@ -7,6 +7,11 @@ class view
 	public static function config()
 	{
 
+		if(!\dash\permission::has_permission())
+		{
+			\dash\permission::deny();
+		}
+
 		$args =
 		[
 			'order'      => \dash\request::get('order'),
