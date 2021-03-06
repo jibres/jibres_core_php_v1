@@ -33,7 +33,7 @@ class agent
 		\dash\waf\gate\toys\block::word($agent, '<');
 		\dash\waf\gate\toys\block::word($agent, '>');
 		\dash\waf\gate\toys\block::word($agent, '"');
-		\dash\waf\gate\toys\block::word($agent, "'");
+
 		\dash\waf\gate\toys\block::word($agent, "\n");
 	}
 }
