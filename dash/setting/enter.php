@@ -28,17 +28,7 @@ class enter
 
 	}
 
-	public static function force_enter_passcode()
-	{
-		self::load();
 
-		if(isset(self::$load['force_enter_passcode']))
-		{
-			return self::$load['force_enter_passcode'];
-		}
-
-		return false;
-	}
 
 
 	public static function su_access()
