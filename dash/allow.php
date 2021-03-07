@@ -76,7 +76,24 @@ class allow
 			{
 				foreach ($files as $key => $value)
 				{
-					if(in_array($key, ["gallery","gallery1","logo","file","image","avatar","thumb","file1","file2"]) || preg_match("/^a\_\d+$/", $key))
+					$allowed_file_upload_name =
+					[
+						'gallery',
+						'gallery1',
+						'logo',
+						'file',
+						'image',
+						'avatar',
+						'thumb',
+						'file1',
+						'file2',
+						'upload',
+						'cover',
+						'nationalpic',
+						'shpic',
+					];
+
+					if(in_array($key, $allowed_file_upload_name) || preg_match("/^a\_\d+$/", $key))
 					{
 						// ok
 					}
