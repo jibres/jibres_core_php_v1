@@ -26,9 +26,9 @@ class dog
 		self::grade('header', true, 5);
 		\dash\waf\gate\headers::inspection();
 
-		// ip
-		self::grade('url', false, 3);
-		\dash\waf\gate\url::inspection();
+		// // ip
+		// self::grade('url', false, 3);
+		// \dash\waf\gate\url::inspection();
 
 		// get
 		self::grade('get', false, 3);
