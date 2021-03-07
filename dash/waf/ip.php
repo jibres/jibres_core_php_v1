@@ -1015,7 +1015,7 @@ class ip
 			$_ip = [$_ip];
 		}
 
-		if(in_array(self::validateIP(), $_ip))
+		if(!in_array(self::validateIP(), $_ip))
 		{
 			self::isolateIP(5, 'is not whitelist');
 			return false;
