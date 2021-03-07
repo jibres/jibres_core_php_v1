@@ -141,19 +141,19 @@ class recaptcha
 
 		if(!$recaptcha_token)
 		{
-			\dash\header::status(400, T_("Need ReCaptcha token!"));
+			\dash\header::status(401, T_("Error get google recaptcha detail! Please wait until google recaptcha is loaded"));
 			return false;
 		}
 
 		if(!$recaptcha_sitekey)
 		{
-			\dash\header::status(400, T_("Need ReCaptcha sitekey!"));
+			\dash\header::status(400, T_("Error get google recaptcha detail!"));
 			return false;
 		}
 
 		if(!$recaptcha_action)
 		{
-			\dash\header::status(400, T_("Need ReCaptcha action!"));
+			\dash\header::status(400, T_("Error get google recaptcha detail!"));
 			return false;
 		}
 

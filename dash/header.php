@@ -119,7 +119,14 @@ class header
 			 */
 			400 => 'Bad Request',
 
+			/**
+			 * @var 401
+			 *
+			 * Recaptcha > Please wait until google recaptcha is loaded
+			 * API b1, v2, r10 where api key or access token is invalid
+			 */
 			401 => 'Unauthorized',
+
 			402 => 'Payment Required',
 
 			/**
