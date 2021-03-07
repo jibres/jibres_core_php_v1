@@ -48,7 +48,7 @@ class block
 	{
 		$myTxt = $_text;
 
-		if(preg_match($_preg, $_txt))
+		if(preg_match($_preg, $myTxt))
 		{
 			\dash\waf\dog::BITE($_msg, 428);
 		}
