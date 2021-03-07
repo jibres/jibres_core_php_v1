@@ -74,7 +74,7 @@ class prepare
 			return;
 		}
 
-		$referer = \dash\server::get('HTTP_REFERER') ? true : false;
+		$referer = \dash\server::referer() ? true : false;
 		if($referer)
 		{
 			return false;

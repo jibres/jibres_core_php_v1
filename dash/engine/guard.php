@@ -32,11 +32,11 @@ class guard
 
 	private static function header_xframe_option($_readonly = null)
 	{
-		if(\dash\server::get('HTTP_REFERER'))
+		if(\dash\server::referer())
 		{
 			$enamad = 'https://trustseal.enamad.ir/';
 
-			if(strpos(\dash\server::get('HTTP_REFERER'), $enamad) !== false)
+			if(strpos(\dash\server::referer(), $enamad) !== false)
 			{
 				if(!$_readonly)
 				{
@@ -46,7 +46,7 @@ class guard
 				}
 				return true;
 			}
-			if(strpos(\dash\server::get('HTTP_REFERER'), '.local/') !== false)
+			if(strpos(\dash\server::referer(), '.local/') !== false)
 			{
 				if(!$_readonly)
 				{

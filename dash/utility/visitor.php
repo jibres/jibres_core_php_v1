@@ -150,9 +150,9 @@ class visitor
 	private static function referer_id($_url_id = null)
 	{
 		$referer = null;
-		if(\dash\server::get('HTTP_REFERER'))
+		if(\dash\server::referer())
 		{
-			$referer = \dash\server::get('HTTP_REFERER');
+			$referer = \dash\server::referer();
 		}
 
 		if(!$referer)
