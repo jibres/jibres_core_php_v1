@@ -638,7 +638,7 @@ class ip
 
 		if($isolateNeeded)
 		{
-			if($_runNow)
+			// if($_runNow)
 			{
 				// prosecute commad
 				self::prosecute($ipData);
