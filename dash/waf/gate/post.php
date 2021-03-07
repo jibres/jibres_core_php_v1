@@ -21,22 +21,11 @@ class post
 
 		foreach ($post as $key => $value)
 		{
-			\dash\waf\gate\toys\only::something($key);
-
-			\dash\waf\gate\toys\only::string($key);
-
-			\dash\waf\gate\toys\block::tags($key);
-
-			\dash\waf\gate\toys\general::len($key, 1, 50);
-
-			\dash\waf\gate\toys\only::a_z0_9_dash($key);
+			self::check_key($key);
 
 			if($key === 'html')
 			{
-				\dash\waf\gate\toys\only::string($key);
-
-				\dash\waf\gate\toys\general::len($value, 0, 100000);
-				// ok can send html
+				self::check_value($value, $key, true);
 			}
 			else
 			{
@@ -44,28 +33,51 @@ class post
 				{
 					foreach ($value as $key2 => $value2)
 					{
-						\dash\waf\gate\toys\only::string($key2);
-
-						if(!is_numeric($key2))
-						{
-							\dash\waf\gate\toys\block::tags($key2);
-						}
-
-						\dash\waf\gate\toys\general::len($key2, 1, 50);
-
-						\dash\waf\gate\toys\general::len($value2, 0, 5000);
-						// not allow tag in value of post
-						\dash\waf\gate\toys\block::tags($value2, $key2);
+						self::check_key($key2);
+						self::check_value($value2, $key2);
 					}
 				}
 				else
 				{
-					\dash\waf\gate\toys\general::len($value, 0, 5000);
-					// not allow tag in value of post
-					\dash\waf\gate\toys\block::tags($value, $key);
+					self::check_value($value, $key);
 				}
 			}
 		}
+	}
+
+
+
+	private static function check_value($value, $key = null, $_need_html = false)
+	{
+		\dash\waf\gate\toys\only::string($value);
+
+		\dash\waf\gate\toys\block::hex($value);
+
+		\dash\waf\gate\toys\block::script($value, true);
+
+		if($_need_html)
+		{
+			\dash\waf\gate\toys\general::len($value, 0, 50000);
+		}
+		else
+		{
+			\dash\waf\gate\toys\general::len($value, 0, 5000);
+			// not allow tag in value of post
+			\dash\waf\gate\toys\block::tags($value, $key);
+		}
+	}
+
+
+	private static function check_key($key)
+	{
+		\dash\waf\gate\toys\only::string($key);
+
+		\dash\waf\gate\toys\general::len($key, 1, 50);
+
+		\dash\waf\gate\toys\only::a_z0_9_dash($key);
+
+		// tag never go here a-z
+		// ' " \n //' never go here a-z
 	}
 }
 ?>

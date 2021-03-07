@@ -19,9 +19,6 @@ class get
 
 		self::check_sort($get);
 
-		self::check_q($get);
-
-		unset($get['q']);
 		unset($get['sort']);
 		unset($get['order']);
 
@@ -29,6 +26,7 @@ class get
 		{
 			return;
 		}
+
 		\dash\waf\gate\toys\only::array($get);
 
 		\dash\waf\gate\toys\general::array_count($get, 0, 30);
@@ -37,6 +35,7 @@ class get
 
 		foreach ($get as $key => $value)
 		{
+			// check key
 			\dash\waf\gate\toys\only::something($key);
 
 			\dash\waf\gate\toys\only::string($key);
@@ -45,45 +44,37 @@ class get
 
 			\dash\waf\gate\toys\general::len($key, 1, 50);
 
+			// only a-z0-o can be set on get index
 			\dash\waf\gate\toys\only::a_z0_9_dash($key);
+
+
+			// check value
+			\dash\waf\gate\toys\only::string($value);
+
+			\dash\waf\gate\toys\general::len($value, 0, 2000);
+
+			\dash\waf\gate\toys\block::word($value, "'");
+			\dash\waf\gate\toys\block::word($value, '"');
+			\dash\waf\gate\toys\block::word($value, "`");
+			\dash\waf\gate\toys\block::word($value, '<');
+			\dash\waf\gate\toys\block::word($value, '>');
+			\dash\waf\gate\toys\block::word($value, "\n");
 
 			// not allow tag in value of tag
 			\dash\waf\gate\toys\block::tags($value, $key);
-		}
-	}
 
+			\dash\waf\gate\toys\block::hex($value);
 
-	/**
-	 * Check q of search
-	 *
-	 * @param      <type>  $get    The get
-	 */
-	private static function check_q($get)
-	{
-		if(isset($get['q']) && $get['q'])
-		{
-			$q = $get['q'];
+			\dash\waf\gate\toys\block::script($value, true);
 
-			// only can be text
-			\dash\waf\gate\toys\only::text($q);
-
-			\dash\waf\gate\toys\general::len($q, 1, 70);
-
-			// disallow html tags
-			\dash\waf\gate\toys\block::tags($q);
-
-			// disallow some char inside ip
-			\dash\waf\gate\toys\block::word($q, '<');
-			\dash\waf\gate\toys\block::word($q, '>');
-			\dash\waf\gate\toys\block::word($q, '"');
-			\dash\waf\gate\toys\block::word($q, "'");
-			\dash\waf\gate\toys\block::word($q, "\n");
 		}
 	}
 
 
 	/**
 	 * Check sort args in url
+	 * key === sort
+	 * value a-z0-9_-
 	 *
 	 * @param      <type>  $get    The get
 	 */
