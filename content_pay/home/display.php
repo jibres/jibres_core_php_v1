@@ -135,10 +135,8 @@ if(\dash\data::payDetail_final_msg())
 			<form method="post">
 				<?php if(\dash\data::dataRow_condition() === 'request' || \dash\data::dataRow_condition() === 'redirect') {?>
 
-
-
-
-						<?php ipayBank(); ?>
+					<?php \dash\csrf::html(); ?>
+					<?php ipayBank(); ?>
 
 
 					<input type="hidden" name="ok" value="1">

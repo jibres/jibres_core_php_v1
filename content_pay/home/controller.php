@@ -16,6 +16,7 @@ class controller
 				\dash\data::dataRow($load);
 				\dash\open::get();
 				\dash\open::post();
+				\dash\csrf::set();
 			}
 
 		}
