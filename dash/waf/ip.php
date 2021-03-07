@@ -575,7 +575,7 @@ class ip
 	}
 
 
-	private static function do_limit(&$_ipData, $_reason = null, $_minute = null, $_runNow = null)
+	private static function do_limit(&$_ipData, $_reason = null, $_minute = null)
 	{
 		if(!is_int($_minute) || $_minute < 0)
 		{
@@ -651,7 +651,7 @@ class ip
 
 	public static function isolateIP($_level = null, $_reason = null)
 	{
-		self::isolate(null, $_reason, $_level);
+		self::isolate(null, $_reason, $_level, true);
 	}
 
 

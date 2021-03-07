@@ -83,6 +83,8 @@ class dog
 		{
 			\dash\waf\ip::isolateIP(self::$dogPeriod, $_reason);
 		}
+
+		\dash\header::status(418);
 	}
 }
 ?>
