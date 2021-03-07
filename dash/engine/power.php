@@ -16,6 +16,9 @@ class power
 		// detect language and if need set the new language
 		\dash\language::detect_language();
 
+		// redirect http to https, remove www
+		\dash\engine\prepare::hsts();
+
 		// check waf
 		\dash\waf\protection::start();
 

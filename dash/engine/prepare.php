@@ -29,7 +29,7 @@ class prepare
 		\dash\engine\guard::protect();
 
 		// check need redirect for lang or www or https or main domain
-		self::fix_url_host();
+		// self::fix_url_host();
 
 		// self::check_domain();
 
@@ -256,7 +256,7 @@ class prepare
 	 * set best domain and url
 	 * @return [type] [description]
 	 */
-	private static function fix_url_host()
+	public static function hsts()
 	{
 		// decalare target url
 		$target_host = '';
@@ -276,53 +276,11 @@ class prepare
 			$target_host .= \dash\url::subdomain(). '.';
 		}
 
-		// fix root domain
-		// if(\dash\option::url('root'))
-		// {
-		// 	if(\dash\option::url('root') !== \dash\url::root())
-		// 	{
-		// 		if(is_callable(['\lib\alias', 'url']) && \lib\alias::url())
-		// 		{
-		// 			$target_host .= \dash\url::root();
-		// 		}
-		// 		elseif(\dash\engine\content::enterprise_customers())
-		// 		{
-		// 			$target_host .= \dash\url::root();
-		// 		}
-		// 		else
-		// 		{
-		// 			$target_host .= \dash\option::url('root');
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		$target_host .= \dash\option::url('root');
-		// 	}
-
-		// }
-		// else
 		if(\dash\url::root())
 		{
 			$target_host .= \dash\url::root();
 		}
 
-		// fix tld
-		// if(\dash\option::url('tld'))
-		// {
-		// 	if(is_callable(['\lib\alias', 'url']) && \lib\alias::url())
-		// 	{
-		// 		$target_host .= '.'. \dash\url::tld();
-		// 	}
-		// 	elseif(\dash\engine\content::enterprise_customers())
-		// 	{
-		// 		$target_host .= '.'. \dash\url::tld();
-		// 	}
-		// 	else
-		// 	{
-		// 		$target_host .= '.'.\dash\option::url('tld');
-		// 	}
-		// }
-		// else
 		if(\dash\url::tld())
 		{
 			if(\dash\url::tld() === 'local')
@@ -351,11 +309,6 @@ class prepare
 			}
 		}
 
-		// if(\dash\option::url('port') && \dash\option::url('port') !== 80 && \dash\option::url('port') !== 443)
-		// {
-		// 	$target_host .= ':'.\dash\option::url('port');
-		// }
-		// else
 		if(\dash\url::port() && \dash\url::port() !== 80 && \dash\url::port() !== 443)
 		{
 			$target_host .= ':'.\dash\url::port();
@@ -365,20 +318,6 @@ class prepare
 		{
 			$target_host .= \dash\url::related_url();
 		}
-
-		// help new language detect in target site by set /fa
-		// if(!\dash\url::lang() && \dash\option::url('tld') && \dash\option::url('tld') !== \dash\url::tld())
-		// {
-		// 	switch (\dash\url::tld())
-		// 	{
-		// 		case 'ir':
-		// 			// $target_host .= '/fa';
-		// 			break;
-
-		// 		default:
-		// 			break;
-		// 	}
-		// }
 
 		$target_url = $target_host;
 		$myContent  = \dash\url::content();
@@ -424,7 +363,7 @@ class prepare
 
 
 		// if we have new target url, and dont on force show mode, try to change it
-		if(!\dash\request::get('force'))
+		// if(!\dash\request::get('force'))
 		{
 			if($target_host === \dash\url::base())
 			{
