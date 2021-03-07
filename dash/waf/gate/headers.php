@@ -20,7 +20,15 @@ class headers
 		unset($headers['COOKIE']);
 		// we check agent before this
 		unset($headers['USER-AGENT']);
+
 		// check seperate
+
+		$referer = null;
+		if(isset($headers['REFERER']))
+		{
+			$referer = $headers['REFERER'];
+		}
+
 		unset($headers['REFERER']);
 
 
@@ -50,6 +58,10 @@ class headers
 			self::blacklist($key);
 			self::blacklist($value);
 		}
+
+
+		self::check_referer($referer);
+
 	}
 
 
@@ -62,6 +74,52 @@ class headers
 		\dash\waf\gate\toys\block::word($txt, "'");
 		\dash\waf\gate\toys\block::word($txt, "`");
 		\dash\waf\gate\toys\block::word($txt, "\n");
+	}
+
+
+	private static function check_referer($_referer)
+	{
+		$referer = $_referer;
+
+		if(!is_string($referer))
+		{
+			$referer = null;
+		}
+
+		// set null if referer is long!
+		if($referer && mb_strlen($referer) > 1000)
+		{
+			$referer = null;
+		}
+
+		// if tag in referer set null
+		if($referer && $referer !== strip_tags($referer))
+		{
+			$referer = null;
+		}
+
+		if($referer && strpos($referer, "'") !== false)
+		{
+			$referer = null;
+		}
+
+		if($referer && strpos($referer, '"') !== false)
+		{
+			$referer = null;
+		}
+
+		if($referer && strpos($referer, "\n") !== false)
+		{
+			$referer = null;
+		}
+
+		if($referer && strpos($referer, "`") !== false)
+		{
+			$referer = null;
+		}
+
+		\dash\server::force_set_referer($referer);
+
 	}
 }
 ?>

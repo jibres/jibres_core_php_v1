@@ -35,9 +35,9 @@ class server
 	 *
 	 * @var        <type>
 	 */
-	private static $referer = null;
+	private static $referer = false;
 
-	public static function force_ser_referer($_referer)
+	public static function force_set_referer($_referer)
 	{
 		self::$referer = $_referer;
 	}
@@ -46,13 +46,13 @@ class server
 	// get referer
 	public static function referer()
 	{
-		if(self::$referer)
+		if(self::$referer === false)
 		{
-			return self::$referer;
+			return self::get("HTTP_REFERER");
 		}
 		else
 		{
-			return self::get("HTTP_REFERER");
+			return self::$referer;
 		}
 	}
 
