@@ -13,33 +13,33 @@ class block
 			\dash\waf\dog::BITE('Disallow l1 '. $_find, 428);
 		}
 
-		$myTxt = urldecode($myTxt);
-		if(strpos($myTxt, $_find) !== false)
+		if($myTxt !== ($decode2 = urldecode($myTxt)))
 		{
-			\dash\waf\dog::BITE('Disallow l2 '. $_find, 428);
-		}
+			if(strpos($decode2, $_find) !== false)
+			{
+				\dash\waf\dog::BITE('Disallow l2 '. $_find, 428);
+			}
 
-		$myTxt = urldecode($myTxt);
-		if(strpos($myTxt, $_find) !== false)
-		{
-			\dash\waf\dog::BITE('Disallow l3 '. $_find, 428);
-		}
+			if($decode2 !== ($decode3 = urldecode($decode2)))
+			{
+				if(strpos($decode3, $_find) !== false)
+				{
+					\dash\waf\dog::BITE('Disallow l3 '. $_find, 428);
+				}
 
-		$myTxt = urldecode($myTxt);
-		if(strpos($myTxt, $_find) !== false)
-		{
-			\dash\waf\dog::BITE('Disallow l4 '. $_find, 428);
-		}
+				if($decode3 !== ($decode4 = urldecode($decode3)))
+				{
+					if(strpos($decode4, $_find) !== false)
+					{
+						\dash\waf\dog::BITE('Disallow l4 '. $_find, 428);
+					}
 
-		$myTxt = urldecode($myTxt);
-		if(strpos($myTxt, $_find) !== false)
-		{
-			\dash\waf\dog::BITE('Disallow l5 '. $_find, 428);
-		}
-
-		if($myTxt !== urldecode($myTxt))
-		{
-			\dash\waf\dog::BITE('Disallow dbl coding 1', 428);
+					if($decode4 !== urldecode($decode4))
+					{
+						\dash\waf\dog::BITE('Disallow dbl coding 1', 428);
+					}
+				}
+			}
 		}
 	}
 
@@ -53,33 +53,33 @@ class block
 			\dash\waf\dog::BITE($_msg, 428);
 		}
 
-		$myTxt = urldecode($myTxt);
-		if(preg_match($_preg, $_txt))
+		if($myTxt !== ($decode2 = urldecode($myTxt)))
 		{
-			\dash\waf\dog::BITE($_msg, 428);
-		}
+			if(preg_match($_preg, $decode2) !== false)
+			{
+				\dash\waf\dog::BITE($_msg, 428);
+			}
 
-		$myTxt = urldecode($myTxt);
-		if(preg_match($_preg, $_txt))
-		{
-			\dash\waf\dog::BITE($_msg, 428);
-		}
+			if($decode2 !== ($decode3 = urldecode($decode2)))
+			{
+				if(preg_match($_preg, $decode3) !== false)
+				{
+					\dash\waf\dog::BITE($_msg, 428);
+				}
 
-		$myTxt = urldecode($myTxt);
-		if(preg_match($_preg, $_txt))
-		{
-			\dash\waf\dog::BITE($_msg, 428);
-		}
+				if($decode3 !== ($decode4 = urldecode($decode3)))
+				{
+					if(preg_match($_preg, $decode4) !== false)
+					{
+						\dash\waf\dog::BITE($_msg, 428);
+					}
 
-		$myTxt = urldecode($myTxt);
-		if(preg_match($_preg, $_txt))
-		{
-			\dash\waf\dog::BITE($_msg, 428);
-		}
-
-		if($myTxt !== urldecode($myTxt))
-		{
-			\dash\waf\dog::BITE('Disallow dbl coding 2', 428);
+					if($decode4 !== urldecode($decode4))
+					{
+						\dash\waf\dog::BITE('Disallow dbl coding 2', 428);
+					}
+				}
+			}
 		}
 	}
 
