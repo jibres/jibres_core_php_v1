@@ -68,6 +68,8 @@ class html
 
 		$data = $_data;
 
+		$data = htmlspecialchars_decode($data);
+
 		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
 
 		if($data === false)
