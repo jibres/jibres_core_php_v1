@@ -5,7 +5,7 @@
 <section class="row">
   <?php foreach (\dash\data::countFile() as $key => $value) {?>
   <div class="c">
-    <a class="stat">
+    <a href="<?php echo \dash\url::this(). '?folder='. $key ?>" class="stat">
       <h3><?php echo $key ?></h3>
       <div class="val"><?php echo \dash\fit::number_en($value);?></div>
     </a>
@@ -33,12 +33,33 @@
           </div>
         <?php } //endif ?>
       </div>
-      <footer class="txtLa">
-        <button class="btn master">Check</button>
+      <footer class="f">
+        <div class="cauto"><?php if(\dash\data::ipDetail()) {?><a href="<?php echo \dash\url::this(). \dash\request::full_get(['download' => 'download']); ?>" data-action target='_blank' class="btn">Download file</a><?php } //endif ?></div>
+        <div class="c"></div>
+        <div class="cauto"><button class="btn master">Check</button></div>
+
       </footer>
     </div>
   </div>
 </form>
+
+<?php if(\dash\data::folderList()) {?>
+  <div class="avand-md">
+
+ <nav class="items long">
+    <ul>
+      <?php foreach (\dash\data::folderList() as $key => $value) {?>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '?'. \dash\request::fix_get(['ip' => $value]) ;?>">
+          <div class="key"><?php echo $value;?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    <?php } //endif ?>
+      </ul>
+  </nav>
+  </div>
+<?php } //endif ?>
 
 <?php if(\dash\data::ipNotFound()) {?>
 <div class="avand-md">

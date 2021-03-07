@@ -15,7 +15,6 @@ class view
 		$count_file = \dash\waf\ip::countFileInFolder();
 		\dash\data::countFile($count_file);
 
-
 		$ip = \dash\request::get('ip');
 		if($ip)
 		{
@@ -32,6 +31,28 @@ class view
 				{
 					\dash\data::ipNotFound(true);
 				}
+			}
+		}
+
+		if(\dash\request::get('download') === 'download' && \dash\data::ipDetail())
+		{
+			\dash\code::jsonBoom(\dash\data::ipDetail());
+		}
+
+		$folder = \dash\request::get('folder');
+		if($folder)
+		{
+			if(isset($count_file[$folder]) && is_numeric($count_file[$folder]) && floatval($count_file[$folder]) <= 100)
+			{
+				$list = \dash\waf\ip::load_folder($folder);
+				if(is_array($list))
+				{
+					\dash\data::folderList($list);
+				}
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not open this folder!"));
 			}
 		}
 	}

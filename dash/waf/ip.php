@@ -905,6 +905,37 @@ class ip
 	}
 
 
+	public static function load_folder($_mode)
+	{
+		$addr = self::generate_addr_path($_mode);
+		if(!$addr)
+		{
+			return false;
+		}
+
+		$count_file = self::countFileInFolder($_mode);
+
+		if(is_numeric($count_file) && floatval($count_file) <= 100)
+		{
+			$list_files = glob($addr. '*');
+
+			$new_list = [];
+
+			if(is_array($list_files))
+			{
+				foreach ($list_files as $key => $value)
+				{
+					$new_list[] = str_replace('.yaml', '', basename($value));
+				}
+			}
+
+			return $new_list;
+		}
+
+		return false;
+	}
+
+
 	/**
 	 * Opens an ip file.
 	 * Use in content_love/ip to load ip file detail
