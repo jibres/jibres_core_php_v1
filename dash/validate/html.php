@@ -74,7 +74,14 @@ class html
 		{
 			if($_notif)
 			{
-				\dash\notif::error(T_("Something in html is wrong!"), ['element' => $_element, 'code' => 1605]);
+				if(\dash\temp::get('check_img_url_path'))
+				{
+					\dash\notif::error(\dash\temp::get('check_img_url_path'), ['element' => $_element, 'code' => 1605]);
+				}
+				else
+				{
+					\dash\notif::error(T_("Something in html is wrong!"), ['element' => $_element, 'code' => 1605]);
+				}
 				\dash\cleanse::$status = false;
 			}
 			return false;
@@ -223,13 +230,37 @@ class html
 			return false;
 		}
 
-		if(preg_match("/\.(jpg|png|gif|webp|jpeg)$/", $_url))
+		if(!preg_match("/\.(jpg|png|gif|webp|jpeg)$/", $_url))
 		{
-			return true;
+			\dash\temp::set('check_img_url_path', T_("Invalid image url!"));
+			return false;
 		}
 
-		return false;
+		$analyze_url = \dash\validate\url::parseUrl($_url);
+
+		if(!isset($analyze_url['root']))
+		{
+			\dash\temp::set('check_img_url_path', T_("Invalid url!"));
+			return false;
+		}
+
+		$allow_upload_provider =
+		[
+			'talambar',
+			'arvanstorage',
+			'digitaloceanspaces',
+			'amazonaws',
+		];
+
+		if(!in_array($analyze_url['root'], $allow_upload_provider))
+		{
+			\dash\temp::set('check_img_url_path', T_("We can not support this image url!"));
+			return false;
+		}
+
+		return true;
 	}
+
 
 
 	private static function  must_be_youtube_url($_url)
