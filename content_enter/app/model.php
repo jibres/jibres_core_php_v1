@@ -42,8 +42,7 @@ class model
 			\dash\session::set('count_try_to_login_app', 1, 'enter', 60 * 3);
 		}
 
-		$anotherPerm = \dash\permission::check('EnterByAnother');
-		if($count >= 3 && !$anotherPerm)
+		if($count >= 3)
 		{
 			\dash\log::set('try3>in60sAppMode');
 			\dash\notif::error(T_("You hit our maximum try limit."). ' '. T_("Try again later!"));

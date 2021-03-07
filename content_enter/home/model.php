@@ -6,7 +6,6 @@ class model
 {
 	public static function login_another_session()
 	{
-		// in other place use from permission EnterByAnother
 		// but this permissio caller added for our customer
 		if(!\dash\permission::supervisor())
 		{
@@ -178,8 +177,7 @@ class model
 			\dash\session::set('count_try_to_login', 1, 'enter', 60 * 3);
 		}
 
-		$anotherPerm = \dash\permission::check('EnterByAnother');
-		if($count >= 3 && !$anotherPerm)
+		if($count >= 3)
 		{
 			\dash\log::set('try3>in60s');
 			\dash\notif::error(T_("You hit our maximum try limit."). ' '. T_("Try again later!"));
