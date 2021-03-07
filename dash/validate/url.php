@@ -400,6 +400,7 @@ class url
 	 * user:pass@example.com:8080/path/to/index.html
 	 * http://127.0.0.2:2020/
 	 * https://username:password@x.subdomain.noshahr.gov.ir:9090/path?arg=value#anchor
+	 * https://rezamohiti.s3.ir-thr-at1.arvanstorage.com/local/jb2jr/202102/31-f281b1f2cfada600339a6e85b2fea613-w1100.webp
 	 *
 	 * @param      <type>   $_url   The url
 	 *
@@ -501,17 +502,26 @@ class url
 				if(count($my_domain) >= 4)
 				{
 
-					$subdomain = $my_domain[0];
+					$find_tld = array_slice($my_domain, -2, 2);
 
-					array_shift($my_domain);
-					reset($my_domain);
+					if(in_array(implode('.', $find_tld), self::special_tld()))
+					{
+						$tld = implode('.', $find_tld);
 
-					$root      = $my_domain[0];
+						array_pop($my_domain);
+						array_pop($my_domain);
+					}
+					else
+					{
+						$tld = end($my_domain);
+						array_pop($my_domain);
+					}
 
-					array_shift($my_domain);
-					reset($my_domain);
+					$root = end($my_domain);
+					array_pop($my_domain);
 
-					$tld       = implode('.', $my_domain);
+					$subdomain = implode('.', $my_domain);
+
 				}
 				elseif(count($my_domain) === 3)
 				{
