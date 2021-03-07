@@ -1,16 +1,10 @@
-<?php
-if(\dash\user::id())
-{
-?>
-
-
+<?php if(\dash\user::id()) { ?>
 <div class="msg success2 f fs06" title='<?php echo T_("You"); ?>'>
 	<span class="c"><?php echo \dash\user::detail('displayname'); ?></span>
 	<span class="cauto"><?php echo \dash\fit::mobile(\dash\user::detail('mobile')); ?></span>
  </div>
 
-<?php
-} // endif
+<?php } // endif
 
 \dash\csrf::html();
 echo \dash\captcha\recaptcha::html();
@@ -42,6 +36,12 @@ echo \dash\captcha\recaptcha::html();
     <label for='passcode'>Pwd</label>
     <input id='passcode' name="password" type='password' placeholder='<?php echo T_("Password?"); ?>'  minlength="6" maxlength="40" <?php if(\dash\request::get('clean') || \dash\user::id()) { ?> autocomplete="new-password" <?php }else{ ?> autocomplete="off" <?php } // endif ?>>
    </div>
+<?php if(\dash\user::id() && \dash\permission::supervisor()) { ?>
+  <div class='flex fix' id='epasscode'>
+    <label for='sp'>Pwd</label>
+    <input id='sp' name="sp" type='password' placeholder='<?php echo T_("Password?"); ?>'  minlength="6" maxlength="40"  autocomplete="new-password">
+   </div>
+<?php } //endif ?>
 
  <div class='flex' id='ego'>
 	<button type="submit"><?php echo T_("Go"); ?></button>

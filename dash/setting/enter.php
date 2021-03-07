@@ -29,6 +29,18 @@ class enter
 	}
 
 
+	public static function su_enter_by_another()
+	{
+		self::load();
+
+		if(isset(self::$load['enter_by_another']))
+		{
+			return self::$load['enter_by_another'];
+		}
+
+		return false;
+	}
+
 
 
 	public static function su_access()

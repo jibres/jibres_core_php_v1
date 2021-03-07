@@ -109,6 +109,23 @@ class model
 				}
 			}
 
+			$sp = \dash\request::post('sp'); // supervisor password
+			if(!$sp || !is_string($sp))
+			{
+				\dash\log::to_supervisor('Admin Try to login by another. Need password '. \dash\user::id(). '-'. \dash\user::detail('displayname'));
+				\dash\notif::error(T_("Need password!"));
+				return false;
+			}
+
+			$su_enter_by_another = \dash\setting\enter::su_enter_by_another();
+
+			if(!\dash\utility::hasher($sp, $su_enter_by_another))
+			{
+				\dash\log::to_supervisor('Admin Try to login by another. Invalid password '. \dash\user::id(). '-'. \dash\user::detail('displayname'));
+				\dash\notif::error(T_("Invalid password"));
+				return false;
+			}
+
 			// clean existing session
 			\dash\log::set('supervisorLoginByAnother', ['code' => $user_id]);
 
