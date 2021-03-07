@@ -1002,6 +1002,29 @@ class ip
 
 
 	/**
+	 * Check current ip only in whitelisted ip
+	 *
+	 * @param      array    $_ip    { parameter_description }
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function check_whitelist($_ip)
+	{
+		if(!is_array($_ip))
+		{
+			$_ip = [$_ip];
+		}
+
+		if(in_array(self::validateIP(), $_ip))
+		{
+			self::isolateIP(5, 'is not whitelist');
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * initialize ip folders and fileName
 	 * @return [type] [description]
 	 */
