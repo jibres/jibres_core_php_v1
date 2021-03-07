@@ -30,11 +30,30 @@ class server
 		return null;
 	}
 
+	/**
+	 * Dog maybe safe the referer and update it
+	 *
+	 * @var        <type>
+	 */
+	private static $referer = null;
+
+	public static function force_ser_referer($_referer)
+	{
+		self::$referer = $_referer;
+	}
+
 
 	// get referer
 	public static function referer()
 	{
-		return self::get("HTTP_REFERER");
+		if(self::$referer)
+		{
+			return self::$referer;
+		}
+		else
+		{
+			return self::get("HTTP_REFERER");
+		}
 	}
 
 
