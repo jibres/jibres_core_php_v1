@@ -106,13 +106,19 @@ class only
 
 	public static function a_z0_9_($_txt)
 	{
-		block::preg("/^[A-Za-z0-9\_]+$/", $_txt, 'only a-z0-9_');
+		if(!preg_match("/^[A-Za-z0-9\_]+$/", $_txt))
+		{
+			\dash\waf\dog::BITE('only a-z0-9_', 428);
+		}
 	}
 
 
 	public static function a_z0_9_dash($_txt)
 	{
-		block::preg("/^[A-Za-z0-9\_\-]+$/", $_txt, 'only a-z0-9_-');
+		if(!preg_match("/^[A-Za-z0-9\_\-]+$/", $_txt))
+		{
+			\dash\waf\dog::BITE('only a-z0-9_-', 428);
+		}
 	}
 
 
