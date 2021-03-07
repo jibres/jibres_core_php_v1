@@ -36,7 +36,7 @@ class baby
 			if(is_string($value) && mb_strlen($value) > 5000)
 			{
 
-				if(in_array($key, ['content', 'desc']) && mb_strlen($value) < 50000)
+				if(in_array($key, ['content', 'desc', 'html']) && mb_strlen($value) < 50000)
 				{
 					// no problem
 					// for post content and product desc we have an editor
