@@ -87,6 +87,8 @@ class model
 
 		$displayname = $data['displayname'];
 
+		\dash\utility\enter::set_session('temp_signup_displayname_unverify', $displayname);
+
 		$check_mobile = \dash\db\users::get_by_mobile($mobile);
 		if($check_mobile)
 		{

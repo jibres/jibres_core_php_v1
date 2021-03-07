@@ -1169,15 +1169,22 @@ class enter
 
 		}
 
-
+		$user_is_now_verified = false;
 		if(is_numeric(self::user_data('id')) && !self::user_data('verifymobile'))
 		{
+			$user_is_now_verified = self::user_data('id');
 			\dash\app\user::quick_update(['verifymobile' => 1], self::user_data('id'));
 		}
 
 		if(is_numeric(\dash\user::id()) && !\dash\user::detail('verifymobile'))
 		{
+			$user_is_now_verified = \dash\user::id();
 			\dash\app\user::quick_update(['verifymobile' => 1], \dash\user::id());
+		}
+
+		if($user_is_now_verified && is_numeric($user_is_now_verified) && self::get_session('temp_signup_displayname_unverify'))
+		{
+			\dash\app\user::quick_update(['displayname' => self::get_session('temp_signup_displayname_unverify')], $user_is_now_verified);
 		}
 
 		/**
