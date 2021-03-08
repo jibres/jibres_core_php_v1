@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 		// check server api
-		// \dash\waf\ip::check_whitelist(['127.0.0.2', '127.0.0.3']);
+		\dash\waf\ip::check_whitelist(['167.71.55.134']);
 	}
 }
 ?>
