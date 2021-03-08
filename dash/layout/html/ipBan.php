@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0" name="viewport"/>
   <meta content="Your IP Address is <?php echo \dash\server::ip(); ?>" name="description">
   <meta content="Javad Adib | Jibres" name="author">
-  <link href="<?php echo \dash\url::cdn(); ?>/css/jibres.min.css?1585664188" rel="stylesheet"/>
+  <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
   <link rel="shortcut icon" href="<?php echo \dash\url::cdn(); ?>/favicons/favicon-64x64.png" type="image/x-icon" />
   <script src="<?php echo \dash\url::cdn(); ?>/js/special/recaptchaAutoSubmit.js" async defer></script>
  </head>

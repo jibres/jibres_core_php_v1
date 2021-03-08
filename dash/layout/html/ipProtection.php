@@ -8,7 +8,7 @@
   <meta content="Your IP Address is <?php echo \dash\server::ip(); ?>" name="description">
   <meta content="Javad Adib | Jibres" name="author">
   <link rel="shortcut icon" href="<?php echo \dash\url::cdn(); ?>/favicons/favicon-64x64.png" type="image/x-icon" />
-  <link href="<?php echo \dash\url::cdn(); ?>/css/jibres.min.css?1585664188" rel="stylesheet"/>
+  <link href="<?php echo \dash\layout\func::staticmtime('css/jibres.min.css');?>" rel="stylesheet"/>
  </head>
  <body class="ipProtection">
  	<section class="avand-sm impact txtC">
