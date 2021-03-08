@@ -190,13 +190,13 @@ class recaptcha
 		{
 			@header('x-rec-score: '. $score);
 
-			// if in business domain needless to verify host name
+			// if in business host needless to verify host name
 			if(!\dash\engine\store::inBusinessDomain())
 			{
-				if(\dash\url::domain() !== $hostname)
+				if(\dash\url::host() !== $hostname)
 				{
 					$ok = false;
-					$reason .= '|invalid-hostname:'. $hostname. '|current-hostname:'. \dash\url::domain();
+					$reason .= '|invalid-hostname:'. $hostname. '|current-hostname:'. \dash\url::host();
 				}
 			}
 
