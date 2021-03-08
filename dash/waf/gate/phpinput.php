@@ -15,8 +15,11 @@ class phpinput
 			return;
 		}
 
+		// set all keys as lower case
+		$my_header = array_change_key_case($_SERVER);
+
 		// in all api module customer must set content type as application/json
-		if(headers::get_header_raw('CONTENT-TYPE') === 'application/json')
+		if(isset($my_header['content-type']) && $my_header['content-type'] === 'application/json')
 		{
 			// only can be text
 			\dash\waf\gate\toys\only::text($phpinput);

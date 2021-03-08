@@ -8,7 +8,12 @@ class method
 {
 	public static function inspection()
 	{
-		$method = \dash\request::is();
+		$method = null;
+
+		if(isset($_SERVER['REQUEST_METHOD']))
+		{
+			$method = $_SERVER['REQUEST_METHOD'];
+		}
 
 		// we need something for this
 		\dash\waf\gate\toys\only::something($method);
@@ -17,6 +22,8 @@ class method
 
 		// disallow html tags
 		\dash\waf\gate\toys\block::tags($method);
+
+		$method = mb_strtolower($method);
 
 		$allow_method =
 		[
