@@ -29,21 +29,19 @@ class recaptcha
 
 	private static function whereami()
 	{
-		if(\dash\engine\store::inStore())
-		{
-			if(\dash\engine\store::inBusinessDomain())
-			{
-				return 'others';
-			}
-			else
-			{
-				return 'business';
-			}
-		}
-		else
+		$domain = \dash\url::domain();
+
+		if(in_array($domain, ['jibres.ir', 'jibres.com', 'jibres.local']))
 		{
 			return 'jibres';
 		}
+
+		if(in_array($domain, ['myjibres.com', 'jibres.store', 'myjibres.local']))
+		{
+			return 'business';
+		}
+
+		return 'others';
 	}
 
 
