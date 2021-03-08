@@ -382,6 +382,11 @@ class ip
 				\dash\notif::direct();
 				\dash\redirect::to(\dash\url::kingdom(), 'jibres', 307);
 		}
+		elseif(\dash\url::kingdom().'/' !== \dash\url::pwd())
+		{
+				\dash\notif::direct();
+				\dash\redirect::to(\dash\url::kingdom(), true, 307);
+		}
 	}
 
 
