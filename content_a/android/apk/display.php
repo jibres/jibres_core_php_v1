@@ -53,7 +53,7 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
           </div>
 
           <div class="input txtL">
-            <span data-copy="#downloadLinkAPK" class="btn addon"><?php echo T_("Copy App Link"); ?></span>
+            <span data-copy="<?php echo \dash\data::downoadAPK(); ?>  b " class="btn addon"><?php echo T_("Copy App Link"); ?></span>
              <input id="downloadLinkAPK" type="text" value="<?php echo \dash\data::downoadAPK(); ?>" class='txtL' readonly>
           </div>
 
