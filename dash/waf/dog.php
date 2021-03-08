@@ -26,6 +26,10 @@ class dog
 		self::grade('header', true, 5);
 		\dash\waf\gate\headers::inspection();
 
+		// method
+		self::grade('method', true, 7);
+		\dash\waf\gate\method::inspection();
+
 		// // ip
 		self::grade('url', false, 3);
 		\dash\waf\gate\url::inspection();
@@ -34,25 +38,20 @@ class dog
 		self::grade('get', false, 3);
 		\dash\waf\gate\get::inspection();
 
-		// method
-		self::grade('method', true, 7);
-		\dash\waf\gate\method::inspection();
-
 		// file
 		self::grade('file', true, 8);
 		\dash\waf\gate\file::inspection();
-
-		// phpinput
-		self::grade('phpinput', false, 2);
-		\dash\waf\gate\phpinput::inspection();
 
 		// post
 		self::grade('post', false, 1);
 		\dash\waf\gate\post::inspection();
 
-		// needless to check request. the request is merge of get,post
+		// phpinput
+		self::grade('phpinput', false, 2);
+		\dash\waf\gate\phpinput::inspection();
 
-		// check
+
+		// needless to check request. the request is merge of get,post
 	}
 
 
