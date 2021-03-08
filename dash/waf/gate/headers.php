@@ -5,6 +5,15 @@ namespace dash\waf\gate;
  */
 class headers
 {
+	/**
+	 * Save temp hader to use in other function in gate
+	 * for example need to check header in phpinput function
+	 *
+	 * @var        <type>
+	 */
+	private static $temp_header = null;
+
+
 	public static function inspection()
 	{
 		$headers = [];
@@ -62,6 +71,24 @@ class headers
 
 		self::check_referer($referer);
 
+		self::$temp_header = $headers;
+
+	}
+
+
+	/**
+	 * Gets the header raw.
+	 *
+	 * @param      <type>  $_key   The key
+	 */
+	public static function get_header_raw($_key)
+	{
+		if(isset(self::$temp_header[$_key]))
+		{
+			return self::$temp_header[$_key];
+		}
+
+		return null;
 	}
 
 
