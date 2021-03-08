@@ -45,7 +45,12 @@ class allow
 	}
 
 
-
+	/**
+	 * Check is allowd html
+	 * call in mvc controler
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function check_allow_html()
 	{
 		// ok allowd html
@@ -56,7 +61,9 @@ class allow
 
 		if(\dash\request::request('html'))
 		{
-			// ip block
+			// isolate block
+			\dash\waf\ip::isolateIP(1, 'send html in not allowd page');
+
 			\dash\header::status(403, T_("Can not send html on this page"));
 			return false;
 		}
@@ -65,6 +72,12 @@ class allow
 	}
 
 
+	/**
+	 * Check is allowd file
+	 * call in mvc controller
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function check_allow_file()
 	{
 		$files = \dash\request::files();
@@ -99,7 +112,9 @@ class allow
 					}
 					else
 					{
-						// ip block
+						// isolate block
+						\dash\waf\ip::isolateIP(1, 'invalid upload name in allowd page!');
+
 						\dash\header::status(403, T_("Invalid upload name!"));
 						return false;
 					}
@@ -110,15 +125,14 @@ class allow
 
 		if($files)
 		{
-			// ip block
+			// isolate block
+			\dash\waf\ip::isolateIP(1, 'send file in not allowd page');
+
 			\dash\header::status(403, T_("Can not send file on this page"));
 			return false;
 		}
 
-
 		return true;
 	}
-
-
 }
 ?>
