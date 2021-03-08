@@ -370,7 +370,7 @@ class guard
 			{
 				if(substr($origin, 0, 8) !== 'https://')
 				{
-					\dash\waf\baby::pacifier(25);
+					\dash\header::status(418, 'origin 1');
 				}
 			}
 
@@ -441,7 +441,7 @@ class guard
 			}
 			else
 			{
-			\dash\waf\baby::pacifier(30);
+				\dash\header::status(418, 'origin 2');
 			}
 		}
 	}
