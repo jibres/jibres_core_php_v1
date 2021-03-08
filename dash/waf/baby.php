@@ -162,6 +162,10 @@ class baby
 		}
 
 		$msg = 'Hi Baby ('. $_level. ')';
+
+		// save log to remove baby !
+		\dash\log::file(date("Y-m-d H:i:s"). '-'. $msg, 'baby.log', 'baby');
+
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
 			\dash\header::status($_status_code, "Anomalous disturbance has occurred in the transmitted values. We are unable to respond to this request.". ' '. str_repeat('!', $_level));
