@@ -46,8 +46,14 @@ class post
 	}
 
 
-
-	private static function check_value($value, $key = null, $_need_html = false)
+	/**
+	 * Call self and in phpinput
+	 *
+	 * @param      <type>   $value       The value
+	 * @param      <type>   $key         The key
+	 * @param      boolean  $_need_html  The need html
+	 */
+	public static function check_value($value, $key = null, $_need_html = false)
 	{
 		\dash\waf\gate\toys\only::string($value);
 
@@ -67,8 +73,12 @@ class post
 		}
 	}
 
-
-	private static function check_key($key)
+	/**
+	 * call self and phpinput
+	 *
+	 * @param      <type>  $key    The key
+	 */
+	public static function check_key($key)
 	{
 		\dash\waf\gate\toys\only::string($key);
 
