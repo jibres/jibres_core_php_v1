@@ -35,7 +35,7 @@ class server
 	 *
 	 * @var        <type>
 	 */
-	private static $referer = false;
+	private static $referer = null;
 
 	public static function force_set_referer($_referer)
 	{
@@ -46,14 +46,7 @@ class server
 	// get referer
 	public static function referer()
 	{
-		if(self::$referer === false)
-		{
-			return self::get("HTTP_REFERER");
-		}
-		else
-		{
-			return self::$referer;
-		}
+		return self::$referer;
 	}
 
 
