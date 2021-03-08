@@ -37,6 +37,8 @@ class only
 		$arr = json_decode($_str, true);
 
 		self::array($arr);
+
+		return $arr;
 	}
 
 
