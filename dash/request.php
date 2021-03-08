@@ -303,6 +303,20 @@ class request
 
 
 	/**
+	 * php input Raw
+	 *
+	 * @var        <type>
+	 */
+	private static $php_input_raw = null;
+
+	// force set php input from gate
+	public static function force_set_php_input($_php_input)
+	{
+		self::$php_input_raw = $_php_input;
+	}
+
+
+	/**
 	 * Get php input for api
 	 * check value by baby check
 	 *
@@ -310,14 +324,7 @@ class request
 	 */
 	public static function php_input()
 	{
-		$input = @file_get_contents('php://input');
-
-		if(\dash\waf\baby::check_simple($input))
-		{
-			\dash\waf\baby::pacifier(null, 424);
-		}
-
-		return $input;
+		return self::$php_input_raw;
 	}
 
 
