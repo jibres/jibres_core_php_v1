@@ -55,21 +55,21 @@ class block
 
 		if($myTxt !== ($decode2 = urldecode($myTxt)))
 		{
-			if(preg_match($_preg, $decode2) !== false)
+			if(preg_match($_preg, $decode2))
 			{
 				\dash\waf\dog::BITE($_msg, 428);
 			}
 
 			if($decode2 !== ($decode3 = urldecode($decode2)))
 			{
-				if(preg_match($_preg, $decode3) !== false)
+				if(preg_match($_preg, $decode3))
 				{
 					\dash\waf\dog::BITE($_msg, 428);
 				}
 
 				if($decode3 !== ($decode4 = urldecode($decode3)))
 				{
-					if(preg_match($_preg, $decode4) !== false)
+					if(preg_match($_preg, $decode4))
 					{
 						\dash\waf\dog::BITE($_msg, 428);
 					}
