@@ -54,6 +54,8 @@ class model
 
 		if(floatval($get_count_log) > 5)
 		{
+			\dash\waf\ip::isolateIP(1, 'upload avatar more than 5 in last 24 hour');
+
 			\dash\notif::error(T_("You have changed your avatar several times. You can not change it at this time."));
 			return false;
 		}
