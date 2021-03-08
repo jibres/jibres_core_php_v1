@@ -49,12 +49,12 @@ class model
 		$check_log['caller'] = 'editProfileAvatar';
 		$check_log['from']   = \dash\user::id();
 
-		$this_hour           = date("Y-m-d H:i:s", (time() - (60*60)));
-		$get_count_log       = \dash\db\logs::count_where_date($check_log, $this_hour);
+		$today           = date("Y-m-d H:i:s", (time() - (60*60*24)));
+		$get_count_log       = \dash\db\logs::count_where_date($check_log, $today);
 
 		if(floatval($get_count_log) > 5)
 		{
-			\dash\notif::error(T_("You have changed your avatar several times in the past hour. You can not change it again at this time."));
+			\dash\notif::error(T_("You have changed your avatar several times. You can not change it at this time."));
 			return false;
 		}
 
