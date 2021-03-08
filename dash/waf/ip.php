@@ -1008,7 +1008,7 @@ class ip
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function check_whitelist($_ip)
+	public static function only_allow_ip($_ip)
 	{
 		if(!is_array($_ip))
 		{
