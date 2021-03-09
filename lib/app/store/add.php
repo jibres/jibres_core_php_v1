@@ -247,6 +247,8 @@ class add
 		$new_store['fuel']        = $_fuel;
 		$new_store['creator']     = $_creator;
 		$new_store['ip']          = \dash\server::iplong();
+		$new_store['ip_id']       = \dash\utility\ip::id();
+		$new_store['agent_id']    = \dash\agent::get(true);
 		$new_store['datecreated'] = date("Y-m-d H:i:s");
 
 		$new_store_id = \lib\db\store\insert::store($new_store);
