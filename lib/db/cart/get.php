@@ -5,6 +5,31 @@ namespace lib\db\cart;
 class get
 {
 
+	public static function count_cart_record_per_user($_user_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.user_id = $_user_id";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_cart_record_per_ip($_ip_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.ip_id = $_ip_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_cart_record_per_ip_agent($_ip_id, $_agent_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.ip_id = $_ip_id AND cart.agent_id = $_agent_id";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+
 	public static function must_deleted_expired($_date)
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.user_id IS NULL AND cart.datecreated < '$_date' ";

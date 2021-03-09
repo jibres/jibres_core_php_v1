@@ -39,12 +39,12 @@ class add
 			}
 		}
 
-		$myIp     = \dash\server::iplong();
+		$ip_id     = \dash\server::iplong();
 		$agent_id = \dash\agent::get(true);
 
 		if(!a($args, 'ip'))
 		{
-			$args['ip'] = $myIp;
+			$args['ip'] = $ip_id;
 		}
 
 		if(!a($args, 'agent_id'))
@@ -67,8 +67,17 @@ class add
 			}
 			else
 			{
+				if(!$ip_id || !$agent_id)
+				{
+					\dash\notif::error(T_("Who are you?"));
+
+					\dash\waf\ip::isolateIP(1, 'ip_id or agent id is null!');
+
+		            return false;
+				}
+
 				// first check per ip
-				$count_unanswered_ip_ticket = \dash\db\tickets\get::count_unanswered_ip_ticket($myIp);
+				$count_unanswered_ip_ticket = \dash\db\tickets\get::count_unanswered_ip_ticket($ip_id);
 
 				if($count_unanswered_ip_ticket >= 10)
 				{
@@ -78,7 +87,7 @@ class add
 				else
 				{
 					// check per ip agent
-					$count_unanswered_ip_agent_ticket = \dash\db\tickets\get::count_unanswered_ip_agent_ticket($myIp, $agent_id);
+					$count_unanswered_ip_agent_ticket = \dash\db\tickets\get::count_unanswered_ip_agent_ticket($ip_id, $agent_id);
 
 					if($count_unanswered_ip_agent_ticket >= 3)
 					{

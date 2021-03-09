@@ -153,7 +153,7 @@ class add
 			return false;
 		}
 
-
+		$user_id = null;
 		if($data['user_id'])
 		{
 			$user_id = \dash\coding::decode($data['user_id']);
@@ -180,6 +180,61 @@ class add
 			return false;
 		}
 
+		$ip_id    = \dash\utility\ip::id();
+		$agent_id = \dash\agent::get(true);
+
+
+		if($user_id)
+		{
+			$count_cart_record_per_user = \lib\db\cart\get::count_cart_record_per_user($user_id);
+
+			if($count_cart_record_per_user > 1000)
+			{
+				\dash\notif::error(T_("Maximum capacity of your cart is full"));
+
+				\dash\waf\ip::isolateIP(1, 'user max cart capacity');
+
+                return false;
+			}
+		}
+		else
+		{
+			if(!$ip_id || !$agent_id)
+			{
+				\dash\notif::error(T_("Who are you?"));
+
+				\dash\waf\ip::isolateIP(1, 'ip_id or agent id is null!');
+
+	            return false;
+			}
+
+			$count_cart_record_per_ip = \lib\db\cart\get::count_cart_record_per_ip($ip_id);
+
+			if($count_cart_record_per_ip > 300)
+			{
+				\dash\notif::error(T_("Maximum capacity of your cart is full. Please login to add more"));
+
+				\dash\waf\ip::isolateIP(1, 'user max cart capacity');
+
+                return false;
+			}
+			else
+			{
+				$count_cart_record_per_ip_agent = \lib\db\cart\get::count_cart_record_per_ip_agent($ip_id, $agent_id);
+
+				if($count_cart_record_per_ip_agent > 100)
+				{
+					\dash\notif::error(T_("Maximum capacity of your cart is full. Please login to add more"));
+
+					\dash\waf\ip::isolateIP(1, 'user max cart capacity');
+
+	                return false;
+				}
+			}
+
+		}
+
+
 		if(!$check_exist_record)
 		{
 			$price = null;
@@ -197,8 +252,8 @@ class add
 				'datecreated'     => date("Y-m-d H:i:s"),
 				'price'           => $price,
 				'productprice_id' => \lib\db\products\get::last_productprice_id($data['product']),
-				'ip_id'           => \dash\utility\ip::id(),
-				'agent_id'        => \dash\agent::get(true),
+				'ip_id'           => $ip_id,
+				'agent_id'        => $agent_id,
 			];
 
 			\lib\db\cart\insert::new_record($new_record);

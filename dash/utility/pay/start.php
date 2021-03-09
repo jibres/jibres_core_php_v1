@@ -201,9 +201,9 @@ class start
         }
 
 
-		$myIp = \dash\utility\ip::id();
+		$ip_id = \dash\utility\ip::id();
 
-		$myAgent = \dash\agent::get(true);
+		$agent_id = \dash\agent::get(true);
 
 		$filter_date = date("Y-m-d H:i:s", (time() - (60*60)));
 
@@ -222,7 +222,16 @@ class start
 		}
 		else
 		{
-			$count_transaction_per_ip = \dash\db\transactions\get::count_transaction_per_ip($myIp, $filter_date);
+			if(!$ip_id || !$agent_id)
+			{
+				\dash\notif::error(T_("Who are you?"));
+
+				\dash\waf\ip::isolateIP(1, 'ip_id or agent id is null!');
+
+	            return false;
+			}
+
+			$count_transaction_per_ip = \dash\db\transactions\get::count_transaction_per_ip($ip_id, $filter_date);
 
 			if($count_transaction_per_ip > 20)
 			{
@@ -234,7 +243,7 @@ class start
 			}
 			else
 			{
-				$count_transaction_per_ip_agent = \dash\db\transactions\get::count_transaction_per_ip_agent($myIp, $myAgent, $filter_date);
+				$count_transaction_per_ip_agent = \dash\db\transactions\get::count_transaction_per_ip_agent($ip_id, $agent_id, $filter_date);
 
 				if($count_transaction_per_ip_agent > 10)
 				{
