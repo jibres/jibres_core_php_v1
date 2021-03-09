@@ -23,6 +23,9 @@ class who
 		$result['domain']    = $_domain;
 		$result['available'] = false;
 
+		self::check_limit($_domain);
+
+
 		try
 		{
 
@@ -57,6 +60,45 @@ class who
 
 		return $result;
 
+	}
+
+
+	private static function check_limit($_domain)
+	{
+		$insert_log =
+		[
+			'data'   => $_domain
+		];
+
+		\dash\log::set('send_whois_request', $insert_log);
+
+		$this_hour           = date("Y-m-d H:i:s", (time() - (60*60)));
+
+		$check_log           = [];
+		$check_log['caller'] = 'send_whois_request';
+
+		if(\dash\user::id())
+		{
+			$check_log['from']   = \dash\user::id();
+
+			$get_count_log = \dash\db\logs::count_where_date($check_log, $this_hour);
+
+			if($get_count_log > 2)
+			{
+				\dash\waf\ip::isolateIP(2, 'send_whois_request per user');
+			}
+		}
+		else
+		{
+			$check_log['ip_id']   = \dash\utility\ip::id();
+
+			$get_count_log = \dash\db\logs::count_where_date($check_log, $this_hour);
+
+			if($get_count_log > 50)
+			{
+				\dash\waf\ip::isolateIP(2, 'send_whois_request per ip');
+			}
+		}
 	}
 
 
