@@ -1023,7 +1023,10 @@ class ip
 		if(!in_array(self::validateIP(), $_ip))
 		{
 			self::blockIP(15, 'is not whitelist');
-			return false;
+
+			// if this function is called by invalid ip
+			// the code should be ended !
+			\dash\code::boom();
 		}
 
 		return true;
