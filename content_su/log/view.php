@@ -68,17 +68,24 @@ class view
 					$auto_archive = true;
 				}
 
+				$is_new = false;
+				if(!$is_old && !$auto_rename && !$auto_archive)
+				{
+					$is_new = true;
+				}
+
 
 				$list[] =
 				[
-					'ext'         => a($pathinfo, 'extension'),
-					'size_raw'    => $filesize,
-					'name'        => $name,
-					'mtime'       => filemtime($value),
-					'size'        => round(($filesize / 1024) / 1024, 2),
-					'is_old'      => $is_old,
-					'auto_rename' => $auto_rename,
+					'ext'          => a($pathinfo, 'extension'),
+					'size_raw'     => $filesize,
+					'name'         => $name,
+					'mtime'        => filemtime($value),
+					'size'         => round(($filesize / 1024) / 1024, 2),
+					'is_old'       => $is_old,
+					'auto_rename'  => $auto_rename,
 					'auto_archive' => $auto_archive,
+					'new'          => $is_new,
 				];
 			}
 
