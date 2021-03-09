@@ -42,6 +42,8 @@ class usage
 			'discountpercent' => $data['discountpercent'],
 			'finalprice'      => $data['finalprice'],
 			'datecreated'     => date("Y-m-d H:i:s"),
+			'ip_id'           => \dash\utility\ip::id(),
+			'agent_id'        => \dash\agent::get(true),
 		];
 
 		$usage_id = \lib\db\gift\insert::new_record_usage($insert_usage);
