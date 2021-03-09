@@ -86,6 +86,11 @@ class apilog
 		self::$apilog['responselen']    = mb_strlen($_result);
 		self::$apilog['dateresponse']   = date("Y-m-d H:i:s");
 
+		// save ip id
+		self::$apilog['ip_id']    = \dash\utility\ip::id();
+		// save agent id
+		self::$apilog['agent_id'] = \dash\agent::get(true);
+
 		self::save_db();
 	}
 
@@ -146,6 +151,12 @@ class apilog
 	{
 		if(self::$apilog && self::$status)
 		{
+			// need to add api log table to customer database
+			if(\dash\engine\store::inStore())
+			{
+				return;
+			}
+
 			\dash\db\apilog::insert(self::$apilog);
 			self::$apilog = [];
 		}
