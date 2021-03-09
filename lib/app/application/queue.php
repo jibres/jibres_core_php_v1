@@ -203,6 +203,9 @@ class queue
 			'versionnumber' => 40,
 			'packagename'   => 'com.jibres.'. \dash\store_coding::encode_raw(),
 			'keystore'      => 'jibres',
+
+			'ip_id'         => \dash\utility\ip::id(),
+			'agent_id'      => \dash\agent::get(true),
 		];
 
 		\lib\db\store_app\insert::new_record($insert_queue);
