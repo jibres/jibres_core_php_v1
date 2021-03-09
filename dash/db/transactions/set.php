@@ -69,6 +69,13 @@ trait set
 
 		$insert = array_merge($other_field, $_args);
 
+		// save ip id
+		$insert['ip_id']    = \dash\utility\ip::id();
+
+		// save agent id
+		$insert['agent_id'] = \dash\agent::get(true);
+
+
 		$insert['payment'] = $_args['payment'];
 
 		// check and make error on user_id
