@@ -56,6 +56,8 @@ class csrf
 			'url'         => \dash\validate::string(\dash\url::pwd(), false),
 			'status'      => 'active',
 			'datecreated' => date("Y-m-d H:i:s"),
+			'ip_id'       => \dash\utility\ip::id(),
+			'agent_id'    => \dash\agent::get(true),
 		];
 
 		$csrf_id = \dash\db\csrf\insert::new_record($insert);
