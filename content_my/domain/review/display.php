@@ -197,14 +197,16 @@ $giftCode = \dash\data::giftDetail_discount();
 
 <?php if($giftCode) {?>
            <tr data-gift='<?php echo $giftCode; ?>'>
-            <th><?php echo T_("Your Gift") ?> (
+            <th><?php echo T_("Your Gift") ?>
                 <?php
                 if(\dash\data::giftDetail_type() === 'percent')
                 {
+                  echo '(';
                   echo \dash\fit::number(\dash\data::giftDetail_giftpercent());
                   echo T_("%");
+                  echo ')';
                 }
-                ?> )
+                ?>
             </th>
             <td class="txtRa">
               <span><?php echo \dash\fit::number($giftCode);?></span>
