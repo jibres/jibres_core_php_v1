@@ -63,7 +63,8 @@ class viewThirdParty
 			}
 		}
 
-		// return null; // force disable
+		// force disable
+		return null;
 
 		// for jibres
 		switch (\dash\url::tld())
