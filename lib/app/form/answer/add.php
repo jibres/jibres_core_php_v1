@@ -591,6 +591,12 @@ class add
 
 		if($insert_answerdetail)
 		{
+			// save ip id
+			$add_answer_args['ip_id']    = \dash\utility\ip::id();
+
+			// save agent id
+			$add_answer_args['agent_id'] = \dash\agent::get(true);
+
 			$add_answer = \lib\db\form_answer\insert::new_record($add_answer_args);
 
 			if(!$add_answer)
