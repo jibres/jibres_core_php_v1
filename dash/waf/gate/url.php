@@ -54,6 +54,8 @@ class url
 		\dash\waf\gate\toys\block::script($url);
 
 		\dash\waf\gate\toys\block::maybe_script($url);
+
+		\dash\waf\gate\toys\block::ascii($url);
 	}
 
 

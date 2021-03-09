@@ -171,7 +171,49 @@ class block
 
 		self::preg("#0x#", $_txt, 'Disallow hex 2!');
 
-		self::preg("/%00/", $_txt, 'Disallow hex 3!');
+	}
+
+
+	/**
+	 * Block ASCII code
+	 * The ASCII control characters %00-%1F were originally designed to control hardware devices.
+	 * https://www.w3schools.com/tags/ref_urlencode.ASP
+	 * @param      <type>  $_txt   The text
+	 */
+	public static function ascii($_txt)
+	{
+		self::preg("/%00/", $_txt, 'Disallow ascii 1!');
+		self::preg("/%01/", $_txt, 'Disallow ascii 2!');
+		self::preg("/%02/", $_txt, 'Disallow ascii 3!');
+		self::preg("/%03/", $_txt, 'Disallow ascii 4!');
+		self::preg("/%04/", $_txt, 'Disallow ascii 5!');
+		self::preg("/%05/", $_txt, 'Disallow ascii 6!');
+		self::preg("/%06/", $_txt, 'Disallow ascii 7!');
+		self::preg("/%07/", $_txt, 'Disallow ascii 8!');
+		self::preg("/%08/", $_txt, 'Disallow ascii 9!');
+		self::preg("/%09/", $_txt, 'Disallow ascii 10!');
+		self::preg("/%0A/", $_txt, 'Disallow ascii 11!');
+		self::preg("/%0B/", $_txt, 'Disallow ascii 12!');
+		self::preg("/%0C/", $_txt, 'Disallow ascii 13!');
+		self::preg("/%0D/", $_txt, 'Disallow ascii 14!');
+		self::preg("/%0E/", $_txt, 'Disallow ascii 15!');
+		self::preg("/%0F/", $_txt, 'Disallow ascii 16!');
+		self::preg("/%10/", $_txt, 'Disallow ascii 17!');
+		self::preg("/%11/", $_txt, 'Disallow ascii 18!');
+		self::preg("/%12/", $_txt, 'Disallow ascii 19!');
+		self::preg("/%13/", $_txt, 'Disallow ascii 20!');
+		self::preg("/%14/", $_txt, 'Disallow ascii 21!');
+		self::preg("/%15/", $_txt, 'Disallow ascii 22!');
+		self::preg("/%16/", $_txt, 'Disallow ascii 23!');
+		self::preg("/%17/", $_txt, 'Disallow ascii 24!');
+		self::preg("/%18/", $_txt, 'Disallow ascii 25!');
+		self::preg("/%19/", $_txt, 'Disallow ascii 26!');
+		self::preg("/%1A/", $_txt, 'Disallow ascii 27!');
+		self::preg("/%1B/", $_txt, 'Disallow ascii 28!');
+		self::preg("/%1C/", $_txt, 'Disallow ascii 29!');
+		self::preg("/%1D/", $_txt, 'Disallow ascii 30!');
+		self::preg("/%1E/", $_txt, 'Disallow ascii 31!');
+		self::preg("/%1F/", $_txt, 'Disallow ascii 32!');
 	}
 
 
