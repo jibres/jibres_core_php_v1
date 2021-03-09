@@ -1,1 +1,0 @@
-<?php require_once(root. 'content_business/ticket/home/ticketList.php') ?>
