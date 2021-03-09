@@ -65,17 +65,10 @@ class who
 
 	private static function check_limit($_domain)
 	{
-		$insert_log =
-		[
-			'data'   => $_domain
-		];
-
-		\dash\log::set('send_whois_request', $insert_log);
-
-		$this_hour           = date("Y-m-d H:i:s", (time() - (60*60)));
-
 		$check_log           = [];
 		$check_log['caller'] = 'send_whois_request';
+
+		$this_hour           = date("Y-m-d H:i:s", (time() - (60*60)));
 
 		if(\dash\user::id())
 		{
@@ -83,7 +76,7 @@ class who
 
 			$get_count_log = \dash\db\logs::count_where_date($check_log, $this_hour);
 
-			if($get_count_log > 2)
+			if($get_count_log > 50)
 			{
 				\dash\waf\ip::isolateIP(2, 'send_whois_request per user');
 			}
@@ -99,6 +92,14 @@ class who
 				\dash\waf\ip::isolateIP(2, 'send_whois_request per ip');
 			}
 		}
+
+		$insert_log =
+		[
+			'data'   => $_domain
+		];
+
+		\dash\log::set('send_whois_request', $insert_log);
+
 	}
 
 
