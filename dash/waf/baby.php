@@ -164,7 +164,7 @@ class baby
 		$msg = 'Hi Baby ('. $_level. ')';
 
 		// save log to remove baby !
-		\dash\log::file(date("Y-m-d H:i:s"). '-'. $msg, 'baby.log', 'baby');
+		\dash\log::file(date("Y-m-d H:i:s"). '-'. $msg . "\n". json_encode($_SERVER, JSON_UNESCAPED_UNICODE), 'baby.log', 'baby');
 
 		if(\dash\request::json_accept() || \dash\request::ajax())
 		{
