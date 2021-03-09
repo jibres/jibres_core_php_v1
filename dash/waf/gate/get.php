@@ -65,7 +65,7 @@ class get
 
 			\dash\waf\gate\toys\block::hex($value);
 
-			\dash\waf\gate\toys\block::script($value, true);
+			\dash\waf\gate\toys\block::script($value);
 
 		}
 	}

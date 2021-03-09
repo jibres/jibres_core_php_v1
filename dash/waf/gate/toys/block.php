@@ -175,7 +175,7 @@ class block
 	}
 
 
-	public static function script($_txt, $_simple = false)
+	public static function script($_txt)
 	{
 		self::preg("/<script>/i", $_txt, 'Disallow script 1!');
 
@@ -189,22 +189,7 @@ class block
 
 		self::preg("/prompt(.*)\(/i", $_txt, 'Disallow script 6!');
 
-		if(!$_simple)
-		{
-			self::preg("/<(.*)>/", $_txt, 'Disallow script 7!');
-
-			self::preg("/<(.*)\?/", $_txt, 'Disallow script 8!');
-
-			self::preg("/</", $_txt, 'Disallow script 9!');
-
-			self::preg("/\/([^\/]*)(and|or)(\s|\()+(.*)=(.*)/i", $_txt, 'Disallow script 10!');
-
-			self::preg("/\/([^\/]*)union(.*)(\(|\=|\))=(.*)/i", $_txt, 'Disallow script 11!');
-		}
-
 		self::preg("/eval(.*)\(/i", $_txt, 'Disallow script 12!');
-
-		self::preg("/sleep(.*)\((.*)\)/i", $_txt, 'Disallow script 13!');
 
 		self::preg("/extractvalue(.*)\(/i", $_txt, 'Disallow script 14!');
 
@@ -215,6 +200,23 @@ class block
 		self::preg("/http-equiv/i", $_txt, 'Disallow script 17!');
 
 		self::preg("/xmltype(.*)\(/i", $_txt, 'Disallow script 18!');
+	}
+
+
+
+	public static function maybe_script($_txt)
+	{
+		self::preg("/<(.*)>/", $_txt, 'Disallow script 7!');
+
+		self::preg("/<(.*)\?/", $_txt, 'Disallow script 8!');
+
+		self::preg("/</", $_txt, 'Disallow script 9!');
+
+		self::preg("/\/([^\/]*)(and|or)(\s|\()+(.*)=(.*)/i", $_txt, 'Disallow script 10!');
+
+		self::preg("/\/([^\/]*)union(.*)(\(|\=|\))=(.*)/i", $_txt, 'Disallow script 11!');
+
+		self::preg("/sleep(.*)\((.*)\)/i", $_txt, 'Disallow script 13!');
 	}
 }
 ?>
