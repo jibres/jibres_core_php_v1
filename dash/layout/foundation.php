@@ -110,7 +110,7 @@ if (\dash\url::canonical())
 {
   echo ' <link rel="canonical" href="'. \dash\url::canonical(). '"/>'. "\n";
 }
-if (\dash\url::root() === 'jibres')
+if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 {
  echo ' <link href="'. \dash\url::jibres_domain(). 'team" rel="author"/>'. "\n";
 }

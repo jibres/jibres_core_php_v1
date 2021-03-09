@@ -427,10 +427,10 @@ class url
 			{
 				$url .= 'ir';
 			}
-			// else
-			// {
-			// 	$url .= 'com';
-			// }
+			else
+			{
+				$url .= 'com';
+			}
 		}
 		$url .= '/';
 
