@@ -197,6 +197,8 @@ class add
 				'datecreated'     => date("Y-m-d H:i:s"),
 				'price'           => $price,
 				'productprice_id' => \lib\db\products\get::last_productprice_id($data['product']),
+				'ip_id'           => \dash\utility\ip::id(),
+				'agent_id'        => \dash\agent::get(true),
 			];
 
 			\lib\db\cart\insert::new_record($new_record);
