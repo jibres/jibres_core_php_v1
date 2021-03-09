@@ -241,13 +241,13 @@ class recaptcha
 		if($success)
 		{
 			// if in business domain needless to verify host name
-			if(!\dash\engine\store::inBusinessDomain())
-			{
-				if(\dash\url::domain() !== $hostname)
-				{
-					return false;
-				}
-			}
+			// if(!\dash\engine\store::inBusinessDomain())
+			// {
+			// 	if(\dash\url::domain() !== $hostname)
+			// 	{
+			// 		return false;
+			// 	}
+			// }
 		    // Verified!
 		    return true;
 		}
