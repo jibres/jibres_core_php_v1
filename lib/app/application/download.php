@@ -40,6 +40,12 @@ class download
 		$insert['user_id']      = \dash\user::id();
 		$insert['datedownload'] = date("Y-m-d H:i:s");
 
+		// save ip id
+		$insert['ip_id']    = \dash\utility\ip::id();
+
+		// save agent id
+		$insert['agent_id'] = \dash\agent::get(true);
+
 		\lib\db\app_download\insert::new_record($insert);
 	}
 
