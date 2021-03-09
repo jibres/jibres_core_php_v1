@@ -14,15 +14,69 @@ class add
 			return false;
 		}
 
+		$ip_id    = \dash\utility\ip::id();
+		$agent_id = \dash\agent::get(true);
+
 		$args['user_id']     = \dash\user::id();
-		$args['ip']          = \dash\server::iplong();
-		$args['agent_id']    = \dash\agent::get(true);
+		$args['ip_id']       = $ip_id;
+		$args['agent_id']    = $agent_id;
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
 		$is_duplicate = self::is_duplicate($args);
 		if($is_duplicate)
 		{
 			return false;
+		}
+
+
+		if(\dash\user::id())
+		{
+			$count_awaiting_comment_per_user = \dash\db\comments\get::count_awaiting_comment_per_user(\dash\user::id());
+
+			if($count_awaiting_comment_per_user > 100)
+			{
+				\dash\notif::error(T_("Please wait until your comment was approved"));
+
+				\dash\waf\ip::isolateIP(1, 'user max comment');
+
+                return false;
+			}
+		}
+		else
+		{
+			if(!$ip_id || !$agent_id)
+			{
+				\dash\notif::error(T_("Who are you?"));
+
+				\dash\waf\ip::isolateIP(1, 'ip_id or agent id is null!');
+
+	            return false;
+			}
+
+			$count_awaiting_comment_per_ip = \dash\db\comments\get::count_awaiting_comment_per_ip($ip_id);
+
+			if($count_awaiting_comment_per_ip > 20)
+			{
+				\dash\notif::error(T_("Please wait until your comment was approved or login to add more"));
+
+				\dash\waf\ip::isolateIP(1, 'ip max comment');
+
+                return false;
+			}
+			else
+			{
+				$count_awaiting_comment_per_ip_agent = \dash\db\comments\get::count_awaiting_comment_per_ip_agent($ip_id, $agent_id);
+
+				if($count_awaiting_comment_per_ip_agent > 10)
+				{
+					\dash\notif::error(T_("Please wait until your comment was approved or login to add more"));
+
+					\dash\waf\ip::isolateIP(1, 'ip agent max comment');
+
+	                return false;
+				}
+			}
+
 		}
 
  		$comment_id = \dash\db\comments\insert::new_record($args);
@@ -95,9 +149,9 @@ class add
 		else
 		{
 			$check_duplicate['agent_id'] = $args['agent_id'];
-			$check_duplicate['ip']       = $args['ip'];
+			$check_duplicate['ip_id']       = $args['ip_id'];
 
-			// not check duplicate in api mode
+			// not check duplicate in api mode. for example user try to move all comment from other site to jibres
 			if(\dash\temp::get('isApi'))
 			{
 				return false;
@@ -123,7 +177,7 @@ class add
 
 		if(isset($check_duplicate['id']))
 		{
-			\dash\notif::error(T_("This text is duplicate and you are sended something like this before!"), 'content');
+			\dash\notif::error(T_("You can not send comment on this page!"), 'content');
 			return true; // yes, Is duplicate
 		}
 

@@ -4,6 +4,28 @@ namespace dash\db\comments;
 
 class get
 {
+	public static function count_awaiting_comment_per_user($_user_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.user_id = $_user_id";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+	public static function count_awaiting_comment_per_ip($_ip_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.ip_id = $_ip_id";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+	public static function count_awaiting_comment_per_ip_agent($_ip_id, $_agent_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.ip_id = $_ip_id AND comments.agent_id = $_agent_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
 	public static function customer_review_product($_product_id)
 	{
 		$query =
