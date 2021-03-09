@@ -3,6 +3,31 @@ namespace lib\db\factors;
 
 class get
 {
+
+	public static function count_factor_record_per_user($_user_id, $_start_date)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.status = 'registered' AND factors.date > '$_start_date' ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_factor_record_per_ip($_ip_id, $_start_date)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.status = 'registered' AND factors.date > '$_start_date' AND factors.ip_id = $_ip_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function count_factor_record_per_ip_agent($_ip_id, $_agent_id, $_start_date)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.status = 'registered' AND factors.date > '$_start_date' AND factors.ip_id = $_ip_id AND factors.agent_id = $_agent_id  ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
 	public static function sum_all()
 	{
 		$query   = "SELECT SUM(factors.total) AS `sum` FROM factors where factors.status != 'deleted' ";
