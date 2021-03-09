@@ -230,7 +230,15 @@ class header
 			@header($status_header, true, $_code);
 		}
 
-		\dash\log::file($status_header. ' -- '. $_text, "$_code.log", 'header');
+		$header_log = $status_header. ' -- '. $_text;
+
+		if(intval($_code) >= 500)
+		{
+			$header_log .= ' -- ';
+			$header_log = json_encode($_SERVER, JSON_UNESCAPED_UNICODE);
+		}
+
+		\dash\log::file($header_log, "$_code.log", 'header');
 		// \dash\log::file(json_encode(debug_backtrace()), "$_code.log", 'header');
 
 
