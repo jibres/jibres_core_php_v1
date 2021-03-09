@@ -356,6 +356,9 @@ class file
 			'path'        => $directory['path'],
 
 			'ip'          => \dash\server::iplong(),
+			'ip_id'       => \dash\utility\ip::id(),
+			'agent_id'    => \dash\agent::get(true),
+
 			'domain'      => \dash\url::host(),
 			'creator'     => \dash\user::id(),
 			'status'      => 'publish',
