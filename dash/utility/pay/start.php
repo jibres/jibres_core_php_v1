@@ -172,10 +172,13 @@ class start
 
 		$user_id = $_args['user_id'];
 
+		$user_is_login = $user_id;
+
         if(!$user_id || !is_numeric($user_id))
         {
             if($user_id === 'unverify')
             {
+            	$user_is_login = null;
                 // pay as undefined user in some project
             }
             else
@@ -196,6 +199,53 @@ class start
             \dash\notif::error(T_("Invalid amount"));
             return self::endCompile($_args);
         }
+
+
+		$myIp = \dash\utility\ip::id();
+
+		$myAgent = \dash\agent::get(true);
+
+		$filter_date = date("Y-m-d H:i:s", (time() - (60*60)));
+
+		if($user_is_login)
+		{
+			$count_awating_transaction_per_user = \dash\db\transactions\get::count_awating_transaction_per_user($user_is_login, $filter_date);
+
+			if($count_awating_transaction_per_user > 30)
+			{
+				\dash\notif::error(T_("You have a lot of unpaid transactions, please try again in a few minutes."));
+
+				\dash\waf\ip::isolateIP(1, 'transactions count per hour. user is login');
+
+                return self::endCompile($_args);
+			}
+		}
+		else
+		{
+			$count_transaction_per_ip = \dash\db\transactions\get::count_transaction_per_ip($myIp, $filter_date);
+
+			if($count_transaction_per_ip > 20)
+			{
+				\dash\notif::error(T_("You have a lot of unpaid transactions, please login or try again in a few minutes!"));
+
+				\dash\waf\ip::isolateIP(1, 'transactions count per hour check by ip');
+
+                return self::endCompile($_args);
+			}
+			else
+			{
+				$count_transaction_per_ip_agent = \dash\db\transactions\get::count_transaction_per_ip_agent($myIp, $myAgent, $filter_date);
+
+				if($count_transaction_per_ip_agent > 10)
+				{
+					\dash\notif::error(T_("You have a lot of unpaid transactions, please login or try again in a few minutes."));
+
+					\dash\waf\ip::isolateIP(1, 'transactions count per hour check by ip and agent');
+
+	                return self::endCompile($_args);
+				}
+			}
+		}
 
 	    return self::generate_token($_args, $_return);
 	}
