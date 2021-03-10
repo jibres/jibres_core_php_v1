@@ -165,15 +165,6 @@ class block
 	}
 
 
-	public static function hex($_txt)
-	{
-		self::preg("#0x#Ui", $_txt, 'Disallow hex 1!');
-
-		self::preg("#0x#", $_txt, 'Disallow hex 2!');
-
-	}
-
-
 	/**
 	 * Block ASCII code
 	 * The ASCII control characters %00-%1F were originally designed to control hardware devices.

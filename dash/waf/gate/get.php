@@ -63,8 +63,6 @@ class get
 			// not allow tag in value of tag
 			\dash\waf\gate\toys\block::tags($value, $key);
 
-			\dash\waf\gate\toys\block::hex($value);
-
 			\dash\waf\gate\toys\block::script($value);
 
 		}

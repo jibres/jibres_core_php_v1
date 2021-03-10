@@ -57,8 +57,6 @@ class post
 	{
 		\dash\waf\gate\toys\only::string($value);
 
-		\dash\waf\gate\toys\block::hex($value);
-
 		\dash\waf\gate\toys\block::script($value);
 
 		if($_need_html)
