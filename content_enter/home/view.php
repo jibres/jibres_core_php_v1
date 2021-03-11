@@ -20,6 +20,11 @@ class view
 				\dash\face::desc(\dash\face::desc(). ' | '. T_('Jibres'));
 			}
 		}
+
+		$hideBtnSignup = \content_enter\controller::check_disallow_business_enter_signup();
+		\dash\data::hideBtnSignup($hideBtnSignup);
+
+
 		\dash\data::mobileReadonly(false);
 
 		// back

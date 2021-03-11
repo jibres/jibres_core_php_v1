@@ -67,6 +67,9 @@ if(\dash\url::module() === 'signup')
 }
 else
 {
+  if(!\dash\data::hideBtnSignup())
+  {
+
 ?>
 
 
@@ -76,6 +79,7 @@ else
    </a>
 
 <?php
+}
 } // endif
 ?>
 

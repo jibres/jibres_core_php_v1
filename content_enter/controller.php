@@ -43,6 +43,9 @@ class controller
 
 
 
+		self::check_disallow_business_enter();
+
+
 		self::check_unlock_page();
 		self::if_login_route();
 		self::if_login_not_route();
@@ -68,6 +71,42 @@ class controller
 		// }
 
 		\dash\session::set('enter_referer', $ref);
+	}
+
+
+	private static function check_disallow_business_enter()
+	{
+		if(!\dash\engine\store::inStore())
+		{
+			return;
+		}
+
+		if(\lib\store::detail('enterdisallow'))
+		{
+			\dash\redirect::to(\dash\url::kingdom());
+		}
+	}
+
+	public static function check_disallow_business_enter_signup($_redirect = false)
+	{
+		if(!\dash\engine\store::inStore())
+		{
+			return false;
+		}
+
+		if(\lib\store::detail('entersignupdisallow'))
+		{
+			if($_redirect)
+			{
+				\dash\redirect::to(\dash\url::kingdom());
+			}
+			else
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 
