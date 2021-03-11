@@ -21,6 +21,38 @@ if(\dash\data::domainDetail_needverifyemail())
   require_once(root. 'content_my/domain/need_verify_email.php');
 }
 
+if(a(\dash\data::domainDetail(), 'jibres_dns'))
+{
+  if(\dash\data::domainConnected() && \dash\data::domainConnectedToMyBusiness())
+  {
+      $result .= '<nav class="items long2">';
+      $result .= '<ul>';
+      $result .= '<li>';
+      $result .= '<a class="f item" href="'. a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name(). '">';
+      $result .= '<div class="key">'. T_("Connected to :val", ['val' => a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'title')]) . '</div>';
+      $result .= '<div class="value">'. T_("Manage Domain DNS record"). '</div>';
+      $result .= '<div class="go"></div>';
+      $result .= '</a>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</nav>';
+    }
+    else
+    {
+      $result .= '<nav class="items long2">';
+      $result .= '<ul>';
+      $result .= '<li>';
+      $result .= '<a class="f item" href="'. \dash\url::that(). '/business?domain='. \dash\request::get('domain'). '">';
+      $result .= '<div class="key">'. T_("Connect domain to business"). '</div>';
+      $result .= '<div class="go"></div>';
+      $result .= '</a>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</nav>';
+    }
+
+
+}
 
 $result .= '<div class="row">';
 
@@ -354,19 +386,7 @@ $result .= '</nav>';
     $result .= '</ul>';
     $result .= '</nav>';
 
-  if(a(\dash\data::domainDetail(), 'jibres_dns'))
-  {
-    $result .= '<nav class="items long2">';
-    $result .= '<ul>';
-    $result .= '<li>';
-    $result .= '<a class="f item" href="'. \dash\url::that(). '/business?domain='. \dash\request::get('domain'). '">';
-    $result .= '<div class="key">'. T_("Add to your business"). '</div>';
-    $result .= '<div class="go"></div>';
-    $result .= '</a>';
-    $result .= '</li>';
-    $result .= '</ul>';
-    $result .= '</nav>';
-  }
+
 
 
 

@@ -12,6 +12,14 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '?domain='. \dash\request::get('domain'));
 
+		self::check_business();
+
+	}
+
+
+	public static function check_business()
+	{
+
 		$myStore = \lib\app\store\mystore::list();
 
 		if(isset($myStore['owner']) && is_array($myStore['owner']))
