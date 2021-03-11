@@ -1,4 +1,38 @@
+<section class="f" data-option='cms-thumb-ratio'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Nameservers");?></h3>
+      <div class="body">
+        <p><?php echo T_("Nameservers define your domain's current DNS provider. With Jibres, you can either use our Free DNS or DNS provided with domain registration and hosting services.");?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a class="btn primary" href="">Update Name Serves</a>
+    </div>
+  </div>
+  <table class="tbl1 v1">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <td>Value</td>
+      </tr>
+    </thead>
+    <tr>
+      <th>Nameserver 1</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Nameserver 2</th>
+      <td></td>
+    </tr>
+  </table>
+</section>
 <?php
+
+
+
 $result = '';
 if(\dash\data::domainDetail_available() !== '0')
 {
