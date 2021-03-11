@@ -8,6 +8,7 @@ class view
 	{
 		\dash\face::title(T_('Build Your Unique Online Website'));
 
+		\dash\face::btnSetting(\dash\url::this(). '/advance');
 		// back
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
@@ -23,6 +24,13 @@ class view
 		$website_status = \lib\app\website\status\get::status();
 
 		\dash\data::websiteStatus($website_status);
+
+		$body_line_list = \lib\app\website\body\get::line_list();
+		\dash\data::bodyLineList($body_line_list);
+
+				// back
+		\dash\data::action_text(T_('Add line'));
+		\dash\data::action_link(\dash\url::this(). '/body/add');
 
 
 		if($website_status === false)

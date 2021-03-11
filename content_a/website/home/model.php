@@ -1,25 +1,22 @@
 <?php
-namespace content_a\android\download;
+namespace content_a\website\home;
 
 class model
 {
 	public static function post()
 	{
-		$post =
-		[
-			'googleplay'    => \dash\request::post('googleplay'),
-			'cafebazar'     => \dash\request::post('cafebazar'),
-			'myket'         => \dash\request::post('myket'),
-			'downloadtitle' => \dash\request::post('title'),
-			'downloaddesc'  => \dash\request::post('desc'),
-		];
 
-		$theme_detail = \lib\app\application\detail::set_android_download_detail($post);
+		$bodyline = \dash\request::post('bodyline');
 
-
-		if(\dash\engine\process::status())
+		if($bodyline && is_array($bodyline))
 		{
-			\dash\redirect::pwd();
+			\lib\app\website\body\edit::set_sort($bodyline);
+			\dash\notif::ok(T_("Sort saved"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::error(T_("No sort data received"));
 		}
 	}
 }
