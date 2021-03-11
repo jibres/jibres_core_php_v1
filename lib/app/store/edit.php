@@ -190,8 +190,6 @@ class edit
 			return false;
 		}
 
-
-
 		$args = \lib\app\store\check::variable($_args);
 
 		if($args === false || !\dash\engine\process::status())

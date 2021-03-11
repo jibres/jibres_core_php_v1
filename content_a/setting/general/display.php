@@ -20,6 +20,12 @@
       </ul>
     </nav>
 
+    <nav class="items">
+      <ul>
+        <li><a class="f" href="<?php echo \dash\url::that(); ?>/enteraccess"><div class="key"><?php echo T_("Access Enter customer"); ?></div><div class="go"></div></a></li>
+      </ul>
+    </nav>
+
      <nav class="items">
       <ul>
         <li><a class="f" href="<?php echo \dash\url::that(); ?>/nosale"><div class="key"><?php echo T_("No-Shopping Business"); ?></div><div class="go"></div></a></li>

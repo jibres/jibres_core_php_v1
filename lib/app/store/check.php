@@ -43,6 +43,9 @@ class check
 			'redirect_all_domain_to_master'       => 'bit',
 			'redirect_jibres_subdomain_to_master' => 'bit',
 			'special_upload_provider'             => 'bit',
+
+			'enterdisallow'                       => 'bit',
+			'entersignupdisallow'                 => 'bit',
 		];
 
 		$require = ['title'];
