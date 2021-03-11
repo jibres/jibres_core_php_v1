@@ -242,6 +242,8 @@ class transfer
 
 		$domain_code = \dash\coding::encode($domain_id);
 		\dash\temp::set('domain_code_url', $domain_code);
+		\dash\temp::set('domain_name_url', $domain);
+
 
 		// -------------------------------------------------- Check to redirec to review or register now ---------------------------------------------- //
 		if(!$data['register_now'])

@@ -46,9 +46,9 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_code_url'))
+			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_name_url'))
 			{
-				\dash\redirect::to(\dash\url::this(). '/?resultid='. \dash\temp::get('domain_code_url'));
+				\dash\redirect::to(\dash\url::here(). '/domain/setting?domain='. \dash\temp::get('domain_name_url'));
 			}
 			else
 			{
@@ -107,9 +107,9 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_code_url'))
+			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_name_url'))
 			{
-				\dash\redirect::to(\dash\url::this(). '/?resultid='. \dash\temp::get('domain_code_url'));
+				\dash\redirect::to(\dash\url::here(). '/domain/setting?domain='. \dash\temp::get('domain_name_url'));
 			}
 			else
 			{
@@ -159,9 +159,9 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_code_url'))
+			if(\dash\temp::get('need_show_domain_result') && \dash\temp::get('domain_name_url'))
 			{
-				\dash\redirect::to(\dash\url::this(). '/?resultid='. \dash\temp::get('domain_code_url'));
+				\dash\redirect::to(\dash\url::here(). '/domain/setting?domain='. \dash\temp::get('domain_name_url'));
 			}
 			else
 			{

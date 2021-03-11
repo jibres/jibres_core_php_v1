@@ -373,6 +373,8 @@ class renew
 		$result = \lib\onlinenic\api::renew_domain($ready);
 
 		\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
+		\dash\temp::set('domain_name_url', $domain);
+
 		\dash\temp::set('need_show_domain_result', true);
 
 		if($result && $domain_id && isset($result['data']['expdate']))
