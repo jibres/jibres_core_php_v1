@@ -42,6 +42,24 @@ class get
 		return $result;
 	}
 
+	public static function count_usaget_gift_id_user_id_by_category($_user_id, $_category)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				giftusage
+			WHERE
+				giftusage.user_id = $_user_id AND
+				giftusage.gift_id IN (SELECT gift.id FROM gift WHERE gift.category = '$_category')
+		";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
 
 	public static function category_list()
 	{

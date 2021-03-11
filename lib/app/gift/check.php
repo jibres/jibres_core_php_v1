@@ -234,7 +234,20 @@ class check
 				self::error(4, T_("You have used the maximum capacity of this discount code"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
+
+			if(isset($load['category']) && $load['category'])
+			{
+				// get count of usage
+				$get_usageperuser_category = \lib\db\gift\get::count_usaget_gift_id_user_id_by_category($data['user_id'], $load['category']);
+
+				if(floatval($get_usageperuser_category) >= floatval($load['usageperuser']))
+				{
+					self::error(4, T_("You have used the maximum capacity of this group discount code"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+					return false;
+				}
+			}
 		}
+
 
 
 		$result                = [];
