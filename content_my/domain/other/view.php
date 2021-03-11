@@ -24,7 +24,7 @@ class view
 
 		$urlGetList = \dash\request::get('list');
 
-		$data_list  = $urlGetList;
+		$data_list  = $urlGetList ? $urlGetList : 'renew';
 
 		$args =
 		[
