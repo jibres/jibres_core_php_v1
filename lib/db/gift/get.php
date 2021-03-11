@@ -43,6 +43,15 @@ class get
 	}
 
 
+	public static function category_list()
+	{
+		$query  = "SELECT DISTINCT gift.category AS `category` FROM gift WHERE gift.category IS NOT NULL";
+		$result = \dash\db::get($query, 'category');
+		return $result;
+
+	}
+
+
 
 }
 ?>

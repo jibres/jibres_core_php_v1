@@ -9,6 +9,7 @@
         <table class="tbl1 v1">
           <tbody>
             <tr><td><?php echo T_("Gift code"); ?></td><td class="txtL"><code class="link txtB"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
+            <tr><td><?php echo T_("Category"); ?></td><td class="txtL"><?php echo \dash\data::dataRow_category(); ?> </td></tr>
             <?php if(\dash\data::dataRow_giftpercent()) {?>
               <tr><td><?php echo T_("Gift percent"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_giftpercent()). ' '. T_("%"); ?></td></tr>
             <?php }else{ ?>

@@ -10,6 +10,7 @@ class model
 		$post =
 		[
 			'code'         => \dash\request::post('code'),
+			'category'     => \dash\request::post('category') ? \dash\request::post('category') : null,
 			'usagetotal'   => \dash\request::post('usagetotal'),
 			'usageperuser' => \dash\request::post('usageperuser'),
 			'desc'         => \dash\request::post('desc'),

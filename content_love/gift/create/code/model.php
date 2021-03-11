@@ -9,7 +9,8 @@ class model
 
 		$post =
 		[
-			'code'   => \dash\request::post('code'),
+			'code'     => \dash\request::post('code'),
+			'category' => \dash\request::post('category') ? \dash\request::post('category') : null,
 		];
 
 		$edit = \lib\app\gift\edit::edit($post, \dash\request::get('id'));

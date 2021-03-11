@@ -14,6 +14,8 @@ class view
 
 		\content_love\gift\create\stepGuide::set();
 
+		\lib\app\gift\get::category_list();
+
 	}
 }
 ?>

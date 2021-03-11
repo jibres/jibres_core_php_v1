@@ -59,6 +59,7 @@ else
 
                 <th data-sort="<?php echo a($sortLink, 'code', 'order'); ?>" ><a href="<?php echo a($sortLink, 'code', 'link'); ?>"><?php echo T_("Code"); ?></a></th>
 
+                <th class="txtC"><?php echo T_("Category"); ?></th>
                 <th class="txtC"><?php echo T_("Status"); ?></th>
                 <th class="txtC"><?php echo T_("View"); ?></th>
 
@@ -72,6 +73,7 @@ else
                 <td>
                     <a href="<?php echo \dash\url::this(); ?>/view?id=<?php echo a($value, 'id'); ?>" class="link"><code><?php echo a($value, 'code'); ?></code></a>
                 </td>
+                <td class="collapsing txtC"><?php echo a($value, 'category'); ?></td>
 
                 <td class="collapsing txtC"><?php echo T_(a($value, 'status')); ?></td>
                 <td class="collapsing txtC"><a class="btn light" href="<?php echo \dash\url::this() .'?id='. a($value, 'id'); ?>"><?php echo T_("Show gitft card") ?></a></td>

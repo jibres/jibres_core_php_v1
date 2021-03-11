@@ -5,11 +5,8 @@
 
 
 
-    <form method="post" autocomplete="off" class="box impact">
-      <header><h2><?php echo T_("Review gift detail and publish"); ?></h2></header>
 
-      <div class="body">
-        <table class="tbl1 v1">
+        <table class="tbl1 v1 font-14">
           <tbody>
               <tr><td><?php echo T_("Gift code"); ?></td><td class="txtL"><code class="link txtB"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
               <?php if(\dash\data::dataRow_giftpercent()) {?>
@@ -19,6 +16,7 @@
               <?php }//endif ?>
               <tr><td><?php echo T_("Price floor"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_pricefloor()); ?> <small><?php echo \lib\currency::unit() ?></small></td></tr>
               <tr><td><?php echo T_("Gift max"); ?></td><td class="txtL"><?php if(\dash\data::dataRow_giftmax()) { echo \dash\fit::number(\dash\data::dataRow_giftmax()); ?> <small><?php echo \lib\currency::unit();}else{ echo '-';}?></small></td></tr>
+              <tr><td><?php echo T_("Category"); ?></td><td class="txtL"><?php echo \dash\data::dataRow_category(); ?></td></tr>
 
               <tr><td><?php echo T_("Expire date"); ?></td><td class="txtL"><?php echo \dash\data::dataRow_dateexpire(); ?> </td></tr>
 
@@ -38,7 +36,7 @@
         </table>
 
 
-      </div>
+    <form method="post" autocomplete="off" class="box">
 
       <footer class="f">
         <div class="cauto">

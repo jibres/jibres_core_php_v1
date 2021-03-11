@@ -26,5 +26,15 @@ class get
 
 		return $load;
 	}
+
+
+	public static function category_list()
+	{
+		$list = \LIB\db\gift\get::category_list();
+
+		\dash\data::giftCategory($list);
+
+		return $list;
+	}
 }
 ?>
