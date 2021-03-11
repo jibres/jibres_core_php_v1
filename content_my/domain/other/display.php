@@ -4,7 +4,7 @@
     <?php if(\dash\data::groupByStatus_maybe() > 0) {?>
     <div class="c-xs-12 c-sm-4">
         <a href="<?php echo \dash\url::that(). '?list=renew' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'renew' || !\dash\request::get('list')) { echo ' active';} ?>" >
-            <h3><?php echo T_("Maybe Your domain"); ?></h3>
+            <h3><?php echo T_("Only renewed"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_maybe()); ?></div>
         </a>
     </div>
@@ -20,7 +20,7 @@
     <?php if(\dash\data::groupByStatus_available() > 0) {?>
     <div class="c-xs-12 c-sm-4">
         <a href="<?php echo \dash\url::that(). '?list=available' ?>" class="stat x70 <?php if(\dash\request::get('list') == 'available') { echo ' active';} ?>" >
-            <h3><?php echo T_("Free Domains"); ?></h3>
+            <h3><?php echo T_("Search History"); ?></h3>
             <div class="val"><?php echo \dash\fit::number(\dash\data::groupByStatus_available()); ?></div>
         </a>
     </div>

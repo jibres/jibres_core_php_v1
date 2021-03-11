@@ -11,7 +11,7 @@ foreach (\dash\data::dataTable() as $key => $value)
 
     $result .= '<time class="value datetime">'. \dash\fit::date(a($value, 'dateexpire')). '</time>';
 
-    $result .= '<div class="go '. a($value, 'status_icon') .'"></div>';
+    $result .= '<div class=" '. a($value, 'status_icon') .'"></div>';
 
     $result .= '</a>';
     $result .= '</li>';
