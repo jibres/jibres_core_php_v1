@@ -15,7 +15,6 @@ $storeData = \dash\data::store_store_data();
           <br>
           <?php echo T_("All your business information will be deleted and will not be recovered."); ?>
         </p>
-
         <div class="check1">
           <input type="checkbox" name="sure" id="sure">
           <label for="sure"><?php echo T_("Are you sure you want to delete your business?") ?></label>
@@ -27,7 +26,7 @@ $storeData = \dash\data::store_store_data();
             <input type="text" name="subdomain" id="subdomain">
           </div>
           <div class="fc-mute">
-            <?php echo T_("You can find your subdomain in setting > domain"); ?>
+            <?php echo T_("Your business subdomain is :val", ['val' => '<b>'. \lib\store::detail('subdomain'). '</b>']); ?>
           </div>
         </div>
       </div>
