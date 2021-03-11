@@ -54,16 +54,10 @@ $sendWayCod = \dash\data::sendWayCod();
 	</div>
 <?php } // endif ?>
 
+<?php if(!\dash\engine\store::inStore() && (in_array('sms', $sendWayCod) || in_array('call', $sendWayCod)) && !in_array('telegram', $sendWayCod)) { ?>
+   <a class='link' href="<?php echo \dash\url::this(); ?>/tg"><?php echo T_("Verify by Telegram"); ?></a>
 
-
-<?php if(in_array('later', $sendWayCod)) { ?>
-	<div class="radio1">
-		<input type="radio" name="sendCode" value="later" id="sRd5">
-		<label for="sRd5"><?php echo T_("Verify later"); ?></label>
-	</div>
 <?php } // endif ?>
-  </div>
-
 
 <div class='flex mT10-f' id='ego'>
     <button type="submit"><?php echo T_("Go"); ?></button>
