@@ -147,6 +147,46 @@ class search
 			self::$is_filtered = true;
 		}
 
+		$is_com_domain = " domain.registrar != 'irnic' ";
+
+		$not_prohibited_ir_status = "(".
+		"
+				SELECT
+					domainstatus.status
+				FROM
+					domainstatus
+				WHERE
+					domainstatus.domain = domain.name AND
+					domainstatus.active = 1 AND
+					domainstatus.status IN
+					(
+						'serverRenewProhibited',
+						'pendingDelete',
+						'pendingRenew',
+						'irnicRegistrationRejected',
+						'irnicRegistrationPendingHolderCheck',
+						'irnicRegistrationPendingDomainCheck',
+						'irnicRegistrationDocRequired',
+						'irnicRenewalPendingHolderCheck'
+					)
+				LIMIT 1
+
+			)
+			IS NULL	AND
+			(
+				SELECT
+					domainstatus.status
+				FROM
+					domainstatus
+				WHERE
+					domainstatus.domain = domain.name AND
+					domainstatus.active = 1 AND
+					domainstatus.status = 'ok'
+				LIMIT 1
+			)
+			IS NOT NULL
+		";
+
 		if($data['is_admin'])
 		{
 			// nothing
@@ -286,45 +326,8 @@ class search
 
 			$and[]      = " domain.available = 0 ";
 
-			$not_prohibited_ir_status = "(".
-			"
-					SELECT
-						domainstatus.status
-					FROM
-						domainstatus
-					WHERE
-						domainstatus.domain = domain.name AND
-						domainstatus.active = 1 AND
-						domainstatus.status IN
-						(
-							'serverRenewProhibited',
-							'pendingDelete',
-							'pendingRenew',
-							'irnicRegistrationRejected',
-							'irnicRegistrationPendingHolderCheck',
-							'irnicRegistrationPendingDomainCheck',
-							'irnicRegistrationDocRequired',
-							'irnicRenewalPendingHolderCheck'
-						)
-					LIMIT 1
 
-				)
-				IS NULL	AND
-				(
-					SELECT
-						domainstatus.status
-					FROM
-						domainstatus
-					WHERE
-						domainstatus.domain = domain.name AND
-						domainstatus.active = 1 AND
-						domainstatus.status = 'ok'
-					LIMIT 1
-				)
-				IS NOT NULL
-			";
 
-			$is_com_domain = " domain.registrar != 'irnic' ";
 
 			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 
@@ -382,6 +385,7 @@ class search
 
 		if($data['expireat'])
 		{
+			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 			switch ($data['expireat'])
 			{
 				case 'week':
