@@ -2,14 +2,14 @@
     <label for='mobile'>
      <i class="sf-mobile"></i>
     </label>
-    <input id='mobile' name="mobile" type='tel' maxlength="15" placeholder='<?php echo T_("Mobile"); ?>' data-invalid='<?php echo T_("Please enter valid mobile number"); ?>' value="<?php echo \dash\data::getMobile(); ?>" data-pl-user='<?php echo T_("Mobile"); ?>' autocomplete="off" <?php if(\dash\language::current() === 'fa') { ?> pattern=".{10,14}" title='<?php echo T_("Enter correct iranian mobile starting with zero like 0935"); ?>' <?php }else{ ?> pattern=".{7,15}" title='<?php echo T_("Enter your mobile number"); ?>'<?php } //endif ?> required autofocus>
+    <input id='mobile' name="mobile" type='tel' maxlength="15" placeholder='<?php echo T_("Mobile"); ?>' data-invalid='<?php echo T_("Please enter valid mobile number"); ?>' value="<?php echo \dash\data::getMobile(); ?>" data-pl-user='<?php echo T_("Mobile"); ?>' autocomplete="off" <?php if(\dash\language::current() === 'fa') { ?> pattern=".{10,14}" title='<?php echo T_("Enter correct iranian mobile starting with zero like 0935"); ?>' <?php }else{ ?> pattern=".{7,15}" title='<?php echo T_("Enter your mobile number"); ?>'<?php } //endif ?> required <?php if(\dash\data::getMobile()){/*nothing*/}else{ echo 'autofocus';} ?>>
    </div>
 
  <div class='flex fix' id='displaynameBox'>
     <label for='displayname'>
       <i class="sf-user"></i>
     </label>
-    <input id='displayname' name="displayname" type='text' placeholder='<?php echo T_("Name"); ?>' autocomplete="off" maxlength="50" value="<?php echo \dash\data::get_displayname(); ?>" required title='<?php echo T_("We will call you with this name"); ?>'>
+    <input id='displayname' name="displayname" type='text' placeholder='<?php echo T_("Name"); ?>' autocomplete="off" maxlength="50" value="<?php echo \dash\data::get_displayname(); ?>" required title='<?php echo T_("We will call you with this name"); ?>' <?php if(\dash\data::getMobile()){echo 'autofocus';} ?>>
    </div>
 
 <?php
