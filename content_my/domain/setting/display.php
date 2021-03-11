@@ -12,21 +12,23 @@
       <a class="btn primary" href="">Update Name Serves</a>
     </div>
   </div>
-  <table class="tbl1 v1">
+  <table class="tbl1 minimal">
     <thead>
       <tr>
         <th>Type</th>
-        <td>Value</td>
+        <th>Value</th>
       </tr>
     </thead>
-    <tr>
-      <th>Nameserver 1</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Nameserver 2</th>
-      <td></td>
-    </tr>
+    <tbody>
+      <tr>
+        <td>Nameserver 1</td>
+        <td>anna.ns.cloudflare.com</td>
+      </tr>
+      <tr>
+        <td>Nameserver 2</td>
+        <td>damon.ns.cloudflare.com</td>
+      </tr>
+    </tbody>
   </table>
 </section>
 <?php
