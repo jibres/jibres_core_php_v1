@@ -119,14 +119,16 @@ $result .= '<nav class="items long2">';
     {
         $result .= '<li>';
           $result .= '<a class="f item" ';
+          $go_class = 'detail';
           if(\dash\data::domainDetail_verify())
           {
+            $go_class = 'go';
             $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
           }
           $result .= '>';
           $result .= '<div class="key">'. T_("IRNIC holder"). '</div>';
           $result .= '<div class="value">'. \dash\data::domainDetail_holder(). '</div>';
-          $result .= '<div class="go"></div>';
+          $result .= '<div class="go '.$go_class.'"></div>';
           $result .= '</a>';
           $result .= '</li>';
 
@@ -139,7 +141,7 @@ $result .= '<nav class="items long2">';
           $result .= '>';
           $result .= '<div class="key">'. T_("IRNIC admin"). '</div>';
           $result .= '<div class="value">'. \dash\data::domainDetail_admin(). '</div>';
-          $result .= '<div class="go"></div>';
+          $result .= '<div class="go '.$go_class.'"></div>';
           $result .= '</a>';
           $result .= '</li>';
 
@@ -152,7 +154,7 @@ $result .= '<nav class="items long2">';
           $result .= '>';
           $result .= '<div class="key">'. T_("IRNIC billing"). '</div>';
           $result .= '<div class="value">'. \dash\data::domainDetail_bill(). '</div>';
-          $result .= '<div class="go"></div>';
+          $result .= '<div class="go '.$go_class.'"></div>';
           $result .= '</a>';
           $result .= '</li>';
 
@@ -165,7 +167,7 @@ $result .= '<nav class="items long2">';
           $result .= '>';
           $result .= '<div class="key">'. T_("IRNIC technical"). '</div>';
           $result .= '<div class="value">'. \dash\data::domainDetail_tech(). '</div>';
-          $result .= '<div class="go"></div>';
+          $result .= '<div class="go '.$go_class.'"></div>';
           $result .= '</a>';
           $result .= '</li>';
 
