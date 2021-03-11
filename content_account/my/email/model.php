@@ -17,7 +17,7 @@ class model
 			$result = \dash\app\user\email::remove($email, \dash\user::id());
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current());
 			}
 		}
 		elseif(\dash\request::post('primary') === 'primary')
@@ -25,7 +25,7 @@ class model
 			$result = \dash\app\user\email::primary($email, \dash\user::id());
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current());
 			}
 		}
 		elseif(\dash\request::post('verify') === 'verify')
@@ -33,7 +33,7 @@ class model
 			$result = \dash\app\user\email::verify($email, \dash\user::id());
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current());
 			}
 		}
 		else
@@ -48,7 +48,7 @@ class model
 				\dash\log::set('editProfileEmail', ['newemail' => \dash\request::post('email'), 'code' => \dash\user::id()]);
 
 				// \dash\notif::direct();
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current());
 			}
 		}
 

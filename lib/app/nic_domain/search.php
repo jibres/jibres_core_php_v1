@@ -341,7 +341,7 @@ class search
 				}
 
 				$emails = null;
-				$have_emails = \dash\user::email_list(true);
+				$have_emails = self::get_email_list();
 
 				if($have_emails)
 				{
@@ -473,6 +473,12 @@ class search
 			$list = \lib\db\nic_domain\search::list($and, $or, $order_sort, $meta);
 		}
 
+		if($list)
+		{
+			self::need_verify_email($list);
+		}
+
+
 		if($data['is_admin'])
 		{
 			$users_id = array_column($list, 'user_id');
@@ -536,6 +542,51 @@ class search
 
 		}
 		return $list;
+	}
+
+
+
+	/**
+	 * Get email list
+	 *
+	 * @var        boolean
+	 */
+	private static $my_email_list = false;
+
+
+	private static function get_email_list()
+	{
+		if(self::$my_email_list === false)
+		{
+			self::$my_email_list = \dash\user::email_list(true);
+		}
+
+		if(!is_array(self::$my_email_list))
+		{
+			self::$my_email_list = [];
+		}
+
+		return self::$my_email_list;
+	}
+
+
+	private static function need_verify_email($list)
+	{
+		$all_email = array_column($list, 'email');
+		$all_email = array_filter($all_email);
+		$all_email = array_unique($all_email);
+
+		if(!$all_email)
+		{
+			return;
+		}
+
+		$current_email = self::get_email_list();
+
+		$new_email = array_diff($all_email, $current_email);
+
+		\dash\data::needVerifyEmail($new_email);
+
 	}
 
 	private static function calc_pay_period_predict($_list, $_user_id)

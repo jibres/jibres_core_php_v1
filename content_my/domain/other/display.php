@@ -1,4 +1,4 @@
-
+<?php require_once(root. 'content_my/domain/need_verify_email.php'); ?>
 <div class="row">
 
     <?php if(\dash\data::groupByStatus_maybe() > 0) {?>

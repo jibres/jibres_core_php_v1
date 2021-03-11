@@ -15,6 +15,12 @@ class view
 
 		$my_email_list = \dash\app\user\email::get_my_list();
 		\dash\data::dataTable($my_email_list);
+
+		$email = \dash\request::get('email');
+		if($email && \dash\validate::email($email, false))
+		{
+			\dash\data::myEmail($email);
+		}
 	}
 }
 ?>

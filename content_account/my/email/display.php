@@ -6,9 +6,12 @@
         <?php \dash\csrf::html(); ?>
         <label for="email"><?php echo T_("Email"); ?></label>
         <div class="input">
-          <input type="email" name="email" id="email" placeholder='<?php echo T_("like"); ?> abc@example.com' maxlength='100'>
+          <input type="email" name="email" id="email" placeholder='<?php echo T_("like"); ?> abc@example.com' maxlength='100' <?php if(\dash\data::myEmail()){ echo 'value="'. \dash\data::myEmail(). '"'; } ?>>
           <span class="addon"><i class="sf-mail"></i></span>
         </div>
+        <?php if(\dash\request::get('v') == 1) {?>
+          <div class="msg"><?php echo T_("You need to verify email after add to your account") ?></div>
+        <?php } //endif ?>
       </div>
       <footer class="txtRa">
         <button class="btn success"><?php echo T_("Save"); ?></button>
