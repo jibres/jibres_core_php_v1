@@ -288,6 +288,12 @@ class ready
 						$result['verify'] = 1;
 					}
 				}
+
+
+				if(!$result['verify'] && isset($result['email']) && $result['email'])
+				{
+					$result['needverifyemail'] = $result['email'];
+				}
 			}
 
 		}
@@ -340,6 +346,7 @@ class ready
 			unset($result['jibres_dns']);
 			unset($result['dns']);
 			unset($result['nicstatus_array']);
+			unset($result['needverifyemail']);
 
 		}
 

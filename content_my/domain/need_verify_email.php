@@ -18,5 +18,9 @@ if(\dash\data::needVerifyEmail())
 
     $result .= '</div>';
 }
+
 echo $result;
+
+$result = ''; // need to this!
+
 ?>

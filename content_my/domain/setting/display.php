@@ -15,6 +15,12 @@ if(\dash\data::domainDetail_available() !== '0')
   return;
 }
 
+if(\dash\data::domainDetail_needverifyemail())
+{
+  \dash\data::needVerifyEmail([\dash\data::domainDetail_needverifyemail()]);
+  require_once(root. 'content_my/domain/need_verify_email.php');
+}
+
 
 $result .= '<div class="row">';
 
@@ -39,29 +45,38 @@ $result .= '<ul>';
     $result .= '</a>';
     $result .= '</li>';
 
-    $result .= '<li>';
-    $result .= '<a class="f item">';
-    $result .= '<div class="key">'. T_("Registrar"). '</div>';
-    $result .= '<div class="value">'. T_(ucfirst(\dash\data::domainDetail_registrar())). '</div>';
-    $result .= '<div class="go detail"></div>';
-    $result .= '</a>';
-    $result .= '</li>';
+    if(\dash\data::domainDetail_registrar())
+    {
+      $result .= '<li>';
+      $result .= '<a class="f item">';
+      $result .= '<div class="key">'. T_("Registrar"). '</div>';
+      $result .= '<div class="value">'. T_(ucfirst(\dash\data::domainDetail_registrar())). '</div>';
+      $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+      $result .= '</li>';
+    }
 
-    $result .= '<li>';
-    $result .= '<a class="f item">';
-    $result .= '<div class="key">'. T_("Registered on"). '</div>';
-    $result .= '<div class="value">'. \dash\fit::date(\dash\data::domainDetail_dateregister()). '</div>';
-    $result .= '<div class="go detail"></div>';
-    $result .= '</a>';
-    $result .= '</li>';
+    if(\dash\data::domainDetail_dateregister())
+    {
+      $result .= '<li>';
+      $result .= '<a class="f item">';
+      $result .= '<div class="key">'. T_("Registered on"). '</div>';
+      $result .= '<div class="value">'. \dash\fit::date(\dash\data::domainDetail_dateregister()). '</div>';
+      $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+      $result .= '</li>';
+    }
 
-    $result .= '<li>';
-    $result .= '<a class="f item">';
-    $result .= '<div class="key">'. T_("Expired on"). '</div>';
-    $result .= '<div class="value txtB">'. \dash\fit::date(\dash\data::domainDetail_dateexpire()). '</div>';
-    $result .= '<div class="go detail"></div>';
-    $result .= '</a>';
-    $result .= '</li>';
+    if(\dash\data::domainDetail_dateexpire())
+    {
+      $result .= '<li>';
+      $result .= '<a class="f item">';
+      $result .= '<div class="key">'. T_("Expired on"). '</div>';
+      $result .= '<div class="value txtB">'. \dash\fit::date(\dash\data::domainDetail_dateexpire()). '</div>';
+      $result .= '<div class="go detail"></div>';
+      $result .= '</a>';
+      $result .= '</li>';
+    }
 
     if(\dash\data::domainDetail_datemodified())
     {
