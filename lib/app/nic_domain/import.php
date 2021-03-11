@@ -95,10 +95,16 @@ class import
 
 		foreach ($valid_domain as $key => $value)
 		{
+			$registrar = null;
+			if(\dash\validate::ir_domain($value, false))
+			{
+				$registrar = 'irnic';
+			}
+
 			$insert_multi[] =
 			[
 				'name'        => $value,
-				'registrar'   => 'irnic',
+				'registrar'   => $registrar,
 				'autorenew'   => $autorenew,
 				'user_id'     => $user_id,
 				'status'      => 'awaiting',
@@ -117,7 +123,7 @@ class import
 			{
 				if(isset($value['name']))
 				{
-					\lib\app\nic_domain\get::force_fetch($value['name']);
+					// \lib\app\nic_domain\get::force_fetch($value['name']);
 				}
 			}
 
