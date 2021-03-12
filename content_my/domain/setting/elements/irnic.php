@@ -21,17 +21,23 @@
 
 
   <table class="tbl1 minimal">
+    <thead>
+      <tr>
+        <th><?php echo T_("Type"); ?></th>
+        <th><?php echo T_("Handle"); ?></th>
+      </tr>
+    </thead>
     <tbody>
       <tr>
-        <th><?php echo T_("IRNIC holder"); ?></th>
+        <td><?php echo T_("IRNIC holder"); ?></td>
         <td class="ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
       </tr>
       <tr>
-        <th><?php echo T_("IRNIC admin"); ?></th>
+        <td><?php echo T_("IRNIC admin"); ?></td>
         <td class="ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
       </tr>
       <tr>
-        <th><?php echo T_("IRNIC billing"); ?></th>
+        <td><?php echo T_("IRNIC billing"); ?></td>
 <?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
         <td><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
 <?php } else { ?>
@@ -39,7 +45,7 @@
 <?php } ?>
       </tr>
       <tr>
-        <th><?php echo T_("IRNIC technical"); ?></th>
+        <td><?php echo T_("IRNIC technical"); ?></td>
 <?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
         <td><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"><span class="compact"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
 <?php } else { ?>
