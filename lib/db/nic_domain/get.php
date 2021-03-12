@@ -69,55 +69,6 @@ class get
 		return $result;
 	}
 
-	public static function autorenew_list($_date, $_hour)
-	{
-		$query  =
-		"
-			SELECT
-				domain.*,
-				usersetting.autorenewperiod,
-				usersetting.domainlifetime,
-				domain.id AS `id`
-			FROM
-				domain
-			LEFT JOIN usersetting ON usersetting.user_id = domain.user_id
-			WHERE
-				domain.id IN
-				(
-					SELECT
-						domain.id
-					FROM
-						domain
-					LEFT JOIN domainstatus ON domainstatus.domain = domain.name
-					WHERE
-
-						domain.status != 'deleted' AND
-						domain.autorenew = 1 AND
-						domain.available = 0 AND
-						DATE(domain.dateexpire) < DATE('$_date') AND
-						HOUR(domain.dateexpire) = '$_hour' AND
-						domainstatus.active = 1 AND
-						domainstatus.status NOT IN
-						(
-							'serverRenewProhibited',
-							'pendingDelete',
-							'pendingRenew',
-							'irnicRegistrationRejected',
-							'irnicRegistrationPendingHolderCheck',
-							'irnicRegistrationPendingDomainCheck',
-							'irnicRegistrationDocRequired',
-							'irnicRenewalPendingHolderCheck'
-						)
-				)
-
-
-			ORDER BY domain.datemodified ASC, domain.dateexpire ASC
-		";
-		$result = \dash\db::get($query, null, false, 'nic');
-		return $result;
-	}
-
-
 	public static function user_list($_user_id)
 	{
 		$query  = "SELECT * FROM domain WHERE domain.user_id = $_user_id ORDER BY domain.id DESC";

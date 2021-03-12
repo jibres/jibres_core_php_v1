@@ -11,12 +11,6 @@ class defaultval
 	}
 
 
-	public static function domainlifetime()
-	{
-		return '1month';
-	}
-
-
 	public static function ns1($_domain = null)
 	{
 		if($_domain && \dash\validate::ir_domain($_domain, false))
