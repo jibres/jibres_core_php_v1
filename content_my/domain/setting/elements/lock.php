@@ -17,7 +17,7 @@
   <div class="c4 s12">
       <div class="action">
         <div class="switch1" <?php  if( (string) \dash\data::domainDetail_lock() === '1') { echo 'data-confirm data-data=\'{"myaction" : "unlock"}\''; }else{echo 'data-confirm data-data=\'{"myaction" : "lock"}\'';}?>>
-          <input type="checkbox" id="imyaction" name="myaction" value="<?php  if( (string) \dash\data::domainDetail_lock() === '1') { echo 'unlock'; }else{echo 'lock';}?>">
+          <input type="checkbox" id="imyaction" name="myaction" value="<?php  if( (string) \dash\data::domainDetail_lock() === '1') { echo 'unlock'; }else{echo 'lock';}?>" <?php  if( (string) \dash\data::domainDetail_lock() === '1') { echo 'checked'; }?>>
           <label for="imyaction" data-on='Lock' data-off='Unlock'></label>
           <label for="imyaction"></label>
         </div>
