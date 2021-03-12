@@ -28,21 +28,26 @@
       <?php if(\dash\data::domainDetail_dateregister()) {?>
         <tr>
           <td><?php echo T_("Registered on"); ?></td>
-          <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateregister()); ?></time></td>
+          <td><time class="ltr"><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateregister()); ?></time></td>
         </tr>
       <?php } //endif ?>
 
       <?php if(\dash\data::domainDetail_dateexpire()) {?>
         <tr>
           <td><?php echo T_("Expired on"); ?></td>
-          <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateexpire()); ?></time></td>
+          <td>
+            <time class="ltr"><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateexpire()); ?></time>
+<?php if(\dash\data::domainDetail_can_renew()) {?>
+            <a class="link mLa10" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew") ?></a>
+<?php } //endif ?>
+          </td>
         </tr>
       <?php } //endif ?>
 
       <?php if(\dash\data::domainDetail_datemodified()) {?>
         <tr>
           <td><a href="<?php echo \dash\url::that(). '/action?domain='. \dash\request::get('domain') ?>"><?php echo T_("Last activity"); ?></a></td>
-          <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_datemodified()); ?></time></td>
+          <td><time class="ltr"><?php echo \dash\fit::date_time(\dash\data::domainDetail_datemodified()); ?></time></td>
         </tr>
       <?php } //endif ?>
 
