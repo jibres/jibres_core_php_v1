@@ -26,6 +26,13 @@ trait add
 			$_args['displayname'] = null;
 		}
 
+		$is_statff = false;
+
+		if(isset($_args['permission']) && $_args['permission'])
+		{
+			$is_statff = true;
+		}
+
 		$user_id =  \dash\db\users\insert::signup($_args);
 
 		if(!$_non_jibres_user)
@@ -34,7 +41,7 @@ trait add
 			if(\dash\engine\store::inStore())
 			{
 				$load_user = \dash\db\users::get_by_id($user_id);
-				\dash\app\user::update_jibres_store_user($load_user, $_args);
+				\dash\app\user::update_jibres_store_user($load_user, $_args, $is_statff);
 			}
 		}
 

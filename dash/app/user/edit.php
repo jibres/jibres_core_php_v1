@@ -44,6 +44,8 @@ trait edit
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore())
 		{
+			$load_user = \dash\db\users::get_by_id($_id);
+
 			if(array_key_exists('mobile', $_args))
 			{
 				if($_args['mobile'])
@@ -60,10 +62,9 @@ trait edit
 				}
 			}
 
-			if(array_key_exists('permission', $_args))
+			if(array_key_exists('permission', $_args) || (isset($load_user['permission']) && $load_user['permission']))
 			{
-
-				$load_user = \dash\db\users::get_by_id($_id);
+				$is_staff = true;
 
 				if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'])
 				{
@@ -91,23 +92,21 @@ trait edit
 
 		if($result && isset($load_user))
 		{
-			self::update_jibres_store_user($load_user, $_args);
+			self::update_jibres_store_user($load_user, $_args, $is_staff);
 		}
 		return $result;
 
 	}
 
 
-	public static function update_jibres_store_user($load_user, $_args)
+	public static function update_jibres_store_user($load_user, $_args, $_is_staff)
 	{
-		$is_staff  = a($_args, 'permission') ? true : false;
-
-		if($is_staff === true || $is_staff === false)
+		if($_is_staff === true || $_is_staff === false)
 		{
 
 			if(isset($load_user['jibres_user_id']) || isset($_args['jibres_user_id']))
 			{
-				if($is_staff === true)
+				if($_is_staff === true)
 				{
 					$set = ['staff' => 'yes'];
 				}
