@@ -3,9 +3,10 @@
     <div class="data">
       <h3><?php echo T_("Domain Transfer Lock");?></h3>
       <div class="body">
-        <p><?php echo T_("In this section, you can manage domain transfer lock");?></p>
+        <p class="mB10-f"><?php echo T_("From here, you can transfer your domain name to another person. To transfer out, you will need to make sure that Domain Lock is turned OFF and get an Auth Code. After you place the request here, we'll send your Auth Code to the registrant email address specified for this domain. It may take up to 5 days for the transfer to be completed."); ?></p>
+
         <?php  if( (string) \dash\data::domainDetail_lock() === '1') {?>
-          <div class="msg minimal success2"><?php echo T_("Your domain is locked") ?></div>
+          <div class="msg minimal success2"><?php echo T_("Your domain is locked and safe.") ?></div>
         <?php  }elseif( (string) \dash\data::domainDetail_lock() === '0') {?>
           <div class="msg minimal danger2"><?php echo T_("Your domain is unlocked and ready to transfer!") ?></div>
         <?php } // nedif ?>

@@ -30,7 +30,7 @@
     <div class="row" data-space='high'>
 <?php if(\dash\data::domainDetail_can_renew()) {?>
       <div class="c-auto s0">
-          <a class="link" href="<?php echo  \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew now") ?></a>
+          <a class="link" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew now") ?></a>
       </div>
 <?php } //endif ?>
       <div class="c"></div>
