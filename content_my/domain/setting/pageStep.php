@@ -1,6 +1,6 @@
 <?php
 $result = '';
-$result .= '<nav class="items long">';
+$result .= '<nav class="items">';
 $result .= '<ul>';
 $result .= '<li>';
 $result .= '<a class="f item" href="'.\dash\url::that(). '?domain='. \dash\request::get('domain').'">';
