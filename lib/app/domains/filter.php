@@ -38,7 +38,17 @@ class filter
 
 		$list['autorenewon']  = ['key' => 'autorenewon', 	'group' => T_("Autorenew"), 'title' => T_('Autorenew on'), 	'query' => ['autorenew' => 'on'], 	'public' => true];
 		$list['autorenewoff'] = ['key' => 'autorenewoff', 	'group' => T_("Autorenew"), 'title' => T_('Autorenew off'), 'query' => ['autorenew' => 'off'], 	'public' => true];
-		$list['autorenewdefault'] = ['key' => 'autorenewoff', 	'group' => T_("Autorenew"), 'title' => T_('Autorenew default'), 'query' => ['autorenew' => 'default'], 	'public' => true];
+
+		$my_setting = \lib\app\nic_domain\ready::get_my_setting();
+
+		if(a($my_setting, 'defaultautorenew'))
+		{
+			$list['autorenewdefault'] = ['key' => 'autorenewoff', 	'group' => T_("Autorenew"), 'title' => T_('Default (Enable)'), 'query' => ['autorenew' => 'default'], 	'public' => true];
+		}
+		else
+		{
+			$list['autorenewdefault'] = ['key' => 'autorenewoff', 	'group' => T_("Autorenew"), 'title' => T_('Default (Disable)'), 'query' => ['autorenew' => 'default'], 	'public' => true];
+		}
 
 		$list['lockon']       = ['key' => 'lockon', 		'group' => T_("Lock"), 'title' => T_('lock on'), 			'query' => ['lock' => 'on'], 	'public' => true];
 		$list['lockoff']      = ['key' => 'lockoff', 		'group' => T_("Lock"), 'title' => T_('lock off'), 			'query' => ['lock' => 'off'], 	'public' => true];

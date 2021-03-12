@@ -376,7 +376,7 @@ class ready
 
 
 	private static $get_my_setting = false;
-	private static function get_my_setting($_key = null)
+	public static function get_my_setting($_key = null)
 	{
 		if(self::$get_my_setting === false && \dash\user::id())
 		{
