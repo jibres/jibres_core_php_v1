@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(\dash\data::domainDetail_name());
+		\dash\face::title(T_("Connect domain to business"));
 
 				// btn
 		\dash\data::back_text(T_('Back'));

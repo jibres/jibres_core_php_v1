@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(\dash\data::domainDetail_name());
+		\dash\face::title(T_("Domain lock setting"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
