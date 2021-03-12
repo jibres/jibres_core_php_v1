@@ -6,6 +6,8 @@ if(!\dash\data::internationalDomain())
   require_once "elements/irnic.php";
 }
 
+require_once "elements/renew.php";
+require_once "elements/lock.php";
 
 
 
