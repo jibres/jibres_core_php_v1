@@ -4,9 +4,6 @@
     <div class="pad">
 
       <p class="msg danger2"><?php echo T_("From here, you can transfer your domain name to another person. To transfer out, you will need to make sure that Domain Lock is turned OFF and get an Auth Code. After you place the request here, we'll send your Auth Code to the registrant email address specified for this domain. It may take up to 5 days for the transfer to be completed."); ?></p>
-      <?php if(\dash\data::domainDetail_alertholderaccessdeny()) {?>
-        <div class="fc-mute mB10"><?php echo T_("We do not find our contact ID in your domain details. If you want to update your domain transafe lock in jibres, you must set our contact ID (ji128-irnic) as the admin owner of your domain, or allow to all agents to access your domain. To do this, go to nic.ir and set this setting, otherwise we can not update your domain transafe lock") ?></div>
-      <?php } //endif ?>
       <div class="f fs06">
         <div class="c6 s12">
           <div class="dcard x1 <?php if(\dash\data::domainDetail_lock()) { echo ' active';} ?>" data-confirm data-data='{"myaction" : "lock"}'>

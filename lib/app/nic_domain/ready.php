@@ -295,10 +295,23 @@ class ready
 		if(isset($result['registrar']) && $result['registrar'] === 'irnic')
 		{
 			$jibres_nic_contact = 'ji128-irnic';
-			if(!in_array($jibres_nic_contact, $all_holder))
+			if(a($result, 'reseller') === $jibres_nic_contact || a($result, 'tech') === $jibres_nic_contact)
 			{
-				$result['alertholderaccessdeny'] = true;
+				$result['verifychangenameserver'] = true;
+				$result['verifychangelock'] = true;
 			}
+
+			if(a($result, 'reseller') === $jibres_nic_contact)
+			{
+				$result['verifychangeholder'] = true;
+			}
+		}
+		else
+		{
+			$result['verifychangeholder'] = true;
+			$result['verifychangelock'] = true;
+			$result['verifychangenameserver'] = true;
+
 		}
 
 
@@ -335,9 +348,11 @@ class ready
 				{
 					$result['needverifyemail'] = $result['email'];
 				}
+
 			}
 
 		}
+
 
 
 		$result['jibres_dns'] = false;
@@ -375,6 +390,9 @@ class ready
 
 		if(\dash\temp::get('isApi'))
 		{
+			unset($result['verifychangeholder']);
+			unset($result['verifychangelock']);
+			unset($result['verifychangenameserver']);
 			unset($result['autorenewdesign']);
 			unset($result['tstatus']);
 			unset($result['renewtry']);

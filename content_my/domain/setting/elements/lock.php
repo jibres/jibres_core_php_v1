@@ -1,3 +1,4 @@
+<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangelock()){ ?>
 <section class="f" data-option='domain-lock'>
   <div class="c8 s12">
     <div class="data">
@@ -15,7 +16,12 @@
   </div>
   <div class="c4 s12">
       <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Lock domain") ?></a>
+        <div class="switch1" <?php  if( (string) \dash\data::domainDetail_lock() === '1') { echo 'data-confirm data-data=\'{"myaction" : "unlock"}\''; }else{echo 'data-confirm data-data=\'{"myaction" : "lock"}\'';}?>>
+          <input type="checkbox" id="imyaction" name="myaction" value="<?php  if( (string) \dash\data::domainDetail_lock() === '1') { echo 'unlock'; }else{echo 'lock';}?>">
+          <label for="imyaction" data-on='Lock' data-off='Unlock'></label>
+          <label for="imyaction"></label>
+        </div>
       </div>
   </div>
 </section>
+<?php } //endif ?>

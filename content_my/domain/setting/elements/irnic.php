@@ -1,5 +1,5 @@
 <section class="f" data-option='domain-irnic'>
-<?php if(\dash\data::domainDetail_verify()){ ?>
+<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangeholder()){ ?>
   <div class="c8 s12">
 <?php } else {?>
   <div class="c12">
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-<?php if(\dash\data::domainDetail_verify()){ ?>
+<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangeholder()){ ?>
   <div class="c4 s12">
     <div class="action">
       <a class="btn primary" href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Domain Holders") ?></a>

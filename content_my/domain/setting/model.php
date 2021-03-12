@@ -6,6 +6,27 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('myaction') == 'lock')
+		{
+			$result = \lib\app\domains\lock::lock(\dash\data::myDomain());
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+		elseif(\dash\request::post('myaction') == 'unlock')
+		{
+			$result = \lib\app\domains\lock::unlock(\dash\data::myDomain());
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 		if(\dash\request::post('clean') == 'lastfetch' && \dash\permission::supervisor())
 		{
 			$result = \lib\app\nic_domain\edit::remove_last_fetch(\dash\data::domainDetail_id());
