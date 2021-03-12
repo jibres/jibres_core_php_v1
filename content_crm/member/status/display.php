@@ -54,6 +54,23 @@
 <?php } //endif ?>
 
 
+<?php if(\dash\data::dataRowMember_permission()) {?>
+  <section class="f" data-option='crm-user-remove'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Conver staff to customer");?></h3>
+      <div class="body">
+      <p><?php echo T_("This user have permission. If your want to remove user you must convert this staff to customer and then you can remove it"); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+          <div class="btn warn" data-confirm data-data='{"permission": "customer"}'><?php echo T_("Convert to customer") ?></div>
+    </div>
+  </form>
+</section>
+<?php }else{ ?>
 <section class="f" data-option='crm-user-remove'>
   <div class="c8 s12">
     <div class="data">
@@ -77,3 +94,4 @@
     </div>
   </form>
 </section>
+<?php } //endif ?>

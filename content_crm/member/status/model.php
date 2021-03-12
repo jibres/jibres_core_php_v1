@@ -29,6 +29,14 @@ class model
 				'status' => 'removed',
 			];
 		}
+		elseif(\dash\request::post('permission') === 'customer')
+		{
+			$post =
+			[
+				'permission' => null,
+			];
+
+		}
 		else
 		{
 			$post =
