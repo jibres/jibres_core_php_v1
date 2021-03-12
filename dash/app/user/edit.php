@@ -46,6 +46,25 @@ trait edit
 		{
 			$load_user = \dash\db\users::get_by_id($_id);
 
+			if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'] && \lib\store::detail('owner'))
+			{
+				if(floatval($load_user['jibres_user_id']) === floatval(\lib\store::detail('owner')))
+				{
+					unset($_args['mobile']);
+					unset($_args['permission']);
+
+					if(empty($_args))
+					{
+						\dash\notif::error(T_("Can not change business owner mobile or permission"));
+						return false;
+					}
+					else
+					{
+						\dash\notif::warn(T_("Can not change business owner mobile or permission"));
+					}
+				}
+			}
+
 			if(array_key_exists('mobile', $_args))
 			{
 				if($_args['mobile'])
