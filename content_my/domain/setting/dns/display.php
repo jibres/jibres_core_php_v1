@@ -33,6 +33,9 @@ if(\dash\data::domainDetail_jibres_dns())
         <div class="input ltr">
           <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::domainDetail_ns2(); ?>" >
         </div>
+        <?php if(\dash\data::domainDetail_alertholderaccessdeny()) {?>
+          <div class="fc-mute"><?php echo T_("We do not find our contact ID in your domain details. If you want to update your domain DNS record in jibres, you must set our contact ID (ji128-irnic) as the technical owner of your domain, or allow to all agents to access your domain. To do this, go to nic.ir and set this setting, otherwise we can not update your DNS record") ?></div>
+        <?php } //endif ?>
       </div>
       <footer class="txtRa">
         <button class="btn success"><?php echo T_("Update"); ?></button>

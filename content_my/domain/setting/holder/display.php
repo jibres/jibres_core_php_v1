@@ -24,6 +24,9 @@
         <div class="input ltr">
           <input type="text" name="bill" id="ibill" maxlength="15" value="<?php echo \dash\data::domainDetail_bill(); ?>" >
         </div>
+          <?php if(\dash\data::domainDetail_alertholderaccessdeny()) {?>
+          <div class="fc-mute"><?php echo T_("We do not find our contact ID in your domain details. If you want to update your domain holder in jibres, you must set our contact ID (ji128-irnic) as the admin owner of your domain, or allow to all agents to access your domain. To do this, go to nic.ir and set this setting, otherwise we can not update your domain holder") ?></div>
+        <?php } //endif ?>
       </div>
       <footer class="txtRa">
         <button class="btn success"><?php echo T_("Update"); ?></button>

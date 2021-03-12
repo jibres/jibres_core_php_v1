@@ -37,6 +37,8 @@ class ready
 
 		$result = [];
 
+		$all_holder = [];
+
 		if(!is_array($_data))
 		{
 			$_data = [];
@@ -274,9 +276,28 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'reseller':
+				case 'bill':
+				case 'tech':
+				case 'admin':
+				case 'holder':
+					$all_holder[] = $value;
+					$result[$key] = $value;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;
+			}
+		}
+
+
+		if(isset($result['registrar']) && $result['registrar'] === 'irnic')
+		{
+			$jibres_nic_contact = 'ji128-irnic';
+			if(!in_array($jibres_nic_contact, $all_holder))
+			{
+				$result['alertholderaccessdeny'] = true;
 			}
 		}
 
@@ -368,7 +389,7 @@ class ready
 			unset($result['dns']);
 			unset($result['nicstatus_array']);
 			unset($result['needverifyemail']);
-
+			unset($result['alertholderaccessdeny']);
 		}
 
 		return $result;
