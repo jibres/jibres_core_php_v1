@@ -58,7 +58,7 @@
 <?php } ?>
       </tr>
       <tr>
-        <td><?php echo T_("IRNIC Reseller"); ?></td>
+        <td><?php echo T_("Reseller"); ?></td>
         <td><span class="compact"><?php echo \dash\data::domainDetail_reseller(); ?></span></td>
 <?php if(\dash\data::domainDetail_reseller() === 'ji128-irnic') { ?>
         <td class="collapsing s0 txtRa"><img src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
