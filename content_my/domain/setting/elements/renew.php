@@ -4,9 +4,6 @@
       <h3><?php echo T_("Auto Renew");?></h3>
       <div class="body">
         <p><?php echo T_("In order to use the Auto-renew feature, you will need to deposit the amount necessary for domain renewal.");?></p>
-        <?php if(\dash\data::domainDetail_can_renew()) {?>
-          <a class="btn link" href="<?php echo  \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew now") ?></a>
-        <?php } //endif ?>
       </div>
     </div>
   </div>
@@ -29,4 +26,17 @@
       </div>
     </div>
   </form>
+  <footer>
+    <div class="row" data-space='high'>
+<?php if(\dash\data::domainDetail_can_renew()) {?>
+      <div class="c-auto s0">
+          <a class="link" href="<?php echo  \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew now") ?></a>
+      </div>
+<?php } //endif ?>
+      <div class="c"></div>
+      <div class="c-auto">
+        <a class="link" target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
+      </div>
+    </div>
+  </footer>
 </section>
