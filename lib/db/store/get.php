@@ -62,7 +62,7 @@ class get
 
 	public static function sum_store_analytics_factor()
 	{
-		$query = "SELECT SUM(store_analytics.sumfactor) AS `sumfactor` FROM store_analytics ";
+		$query = "SELECT SUM(store_analytics.sumfactor) AS `sumfactor` FROM store_analytics WHERE (store_analytics.sumfactor / store_analytics.factor) < 50000000 ";
 		$result = \dash\db::get($query, 'sumfactor', true);
 		return floatval($result);
 	}
