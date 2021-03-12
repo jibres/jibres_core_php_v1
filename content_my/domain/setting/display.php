@@ -1,6 +1,10 @@
 <?php
 
 require_once "elements/nameservers.php";
+if(!\dash\data::internationalDomain())
+{
+  require_once "elements/irnic.php";
+}
 
 
 
@@ -138,83 +142,6 @@ $result .= '</nav>';
 
 
 
-$result .= '<nav class="items long2">';
-  $result .= '<ul>';
-
-    if(!\dash\data::internationalDomain())
-    {
-        $result .= '<li>';
-          $result .= '<a class="f item" ';
-          $go_class = 'detail';
-          if(\dash\data::domainDetail_verify())
-          {
-            $go_class = 'go';
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC holder"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_holder(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-          $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC admin"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_admin(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-          $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC billing"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_bill(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-          $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC technical"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_tech(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-        if(\dash\data::domainDetail_reseller())
-        {
-          $result .= '<li>';
-          $result .= '<a class="f item">';
-          $result .= '<div class="key">'. T_("Reseller"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_reseller(). '</div>';
-          $result .= '<div class="go detail ok"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-        }
-
-    }
-
-$result .= '</ul>';
-$result .= '</nav>';
-
-
-
 
   if(\dash\data::domainDetail_nicstatus_array())
   {
@@ -334,24 +261,6 @@ $result .= '<nav class="items long2">';
   $result .= '</ul>';
 $result .= '</nav>';
 
-
-    if(!\dash\data::internationalDomain())
-    {
-       if(\dash\data::domainDetail_verify())
-        {
-            $result .= '<nav class="items long2">';
-            $result .= '<ul>';
-            $result .= '<li>';
-            $result .= '<a class="f item" ';
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '">';
-            $result .= '<div class="key">'. T_("Manage Domain Holder").'</div>';
-            $result .= '<div class="go"></div>';
-            $result .= '</a>';
-            $result .= '</li>';
-            $result .= '</ul>';
-            $result .= '</nav>';
-        }
-    }
 
 
     $result .= '<nav class="items long2">';

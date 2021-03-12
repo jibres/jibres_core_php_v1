@@ -1,4 +1,4 @@
-<section class="f" data-option='cms-thumb-ratio'>
+<section class="f" data-option='domain-nameservers'>
 <?php if(\dash\data::domainDetail_verify()){ ?>
   <div class="c8 s12">
 <?php } else {?>
