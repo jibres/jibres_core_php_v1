@@ -245,6 +245,26 @@ class ready
 					}
 					break;
 
+				case 'autorenew':
+					$result[$key] = $value;
+
+					if((string) $value === '1' || (string) $value === '0')
+					{
+						$result['autorenewdesign'] = $value;
+					}
+					else
+					{
+						if(self::get_my_setting('defaultautorenew'))
+						{
+							$result['autorenewdesign'] = 1;
+						}
+						else
+						{
+							$result['autorenewdesign'] = 0;
+						}
+					}
+					break;
+
 				case 'status':
 					$result[$key] = $value;
 					$result['tstatus'] = T_($value);
@@ -334,6 +354,7 @@ class ready
 
 		if(\dash\temp::get('isApi'))
 		{
+			unset($result['autorenewdesign']);
 			unset($result['tstatus']);
 			unset($result['renewtry']);
 			unset($result['renewnotif']);
@@ -352,6 +373,34 @@ class ready
 
 		return $result;
 	}
+
+
+	private static $get_my_setting = false;
+	private static function get_my_setting($_key = null)
+	{
+		if(self::$get_my_setting === false && \dash\user::id())
+		{
+			$get_setting = \lib\db\nic_usersetting\get::my_setting(\dash\user::id());
+			self::$get_my_setting = $get_setting;
+		}
+
+		if($_key)
+		{
+			if(isset(self::$get_my_setting[$_key]))
+			{
+				return self::$get_my_setting[$_key];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return self::$get_my_setting;
+		}
+	}
+
 
 
 	public static function is_verify($_detail)

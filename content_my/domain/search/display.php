@@ -11,13 +11,26 @@ foreach (\dash\data::dataTable() as $key => $value)
 
     $result .= '<div class="value s0">'. a($value, 'status_text'). '</div>';
 
-    if(isset($value['autorenew']) && $value['autorenew'])
+
+    if((string) a($value, 'autorenew') === '1')
     {
-      $result .= '<i class="sf-refresh fc-blue" title="'. T_("Autorenew is active").'"></i>';
+      $result .= '<i class="sf-refresh fc-blue"></i>';
+    }
+    elseif((string) a($value, 'autorenew') === '0')
+    {
+      $result .= '<i class="sf-refresh fc-mute"></i>';
     }
     else
     {
-      $result .= '<i class="sf-refresh fc-mute" title="'. T_("Autorenew is deactive").'"></i>';
+         if((string) a($value, 'autorenewdesign') === '1')
+        {
+          $result .= '<i class="sf-refresh fc-blue"></i>';
+        }
+        elseif((string) a($value, 'autorenewdesign') === '0')
+        {
+          $result .= '<i class="sf-refresh fc-mute"></i>';
+        }
+
     }
 
     if(isset($value['lock']) && $value['lock'] == 1 )
