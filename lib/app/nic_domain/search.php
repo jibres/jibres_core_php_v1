@@ -97,8 +97,6 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
-
 		$and         = [];
 		$meta        = [];
 		$or          = [];
@@ -197,7 +195,8 @@ class search
 			// $meta['fields'] = " DISTINCT domain.* ";
 			if($data['autorenew_mode'])
 			{
-				$and[]      = " domain.autorenew = 1 ";
+
+				$and[]      = " ( domain.autorenew = 1 OR ( domain.autorenew IS NULL AND usersetting.defaultautorenew = 1 )) ";
 				$meta['pagination'] = false;
 				$meta['fields'] =
 				'
@@ -210,35 +209,13 @@ class search
 					domain.status,
 					domain.user_id AS `owner`,
 					domain.available,
-					usersetting.domainlifetime,
 					usersetting.autorenewperiod,
 					usersetting.autorenewperiodcom
 				';
 
 				$meta['join'][] = "LEFT JOIN usersetting ON usersetting.user_id = domain.user_id ";
 
-				switch ($data['autorenew_mode'])
-				{
-					case '1week':
-						$and[]     = " usersetting.domainlifetime = '1week' ";
-						$expire_at = date("Y-m-d", strtotime("+7 days"));
-
-						break;
-
-					case '1month':
-						$and[]     = " usersetting.domainlifetime = '1month' ";
-						$expire_at = date("Y-m-d", strtotime("+1 month"));
-						break;
-
-					case '6month':
-						$and[]     = " usersetting.domainlifetime = '6month' ";
-						$expire_at = date("Y-m-d", strtotime("+6 month"));
-						break;
-
-					default:
-						$expire_at = date("Y-m-d", strtotime("+5 year"));
-						break;
-				}
+				$expire_at = date("Y-m-d", strtotime("+1 month"));
 
 				// only set notif
 				if($data['autorenew_notif'] === 'yes')
@@ -262,37 +239,12 @@ class search
 						$and[] = " domain.renewtry IS NULL ";
 						$meta['limit'] = 10;
 					}
-
-
 				}
 			}
 			else
 			{
-				// get user setting of life time domain
-				// if not set show 5 years
-				$my_setting = \lib\app\nic_usersetting\get::get();
-				if(isset($my_setting['domainlifetime']) && $my_setting['domainlifetime'])
-				{
-					if($my_setting['domainlifetime'] === 'off')
-					{
-						// user was disable autorenew
-						return [];
-					}
-					else
-					{
-						$expire_at = date("Y-m-d", strtotime("+". $my_setting['domainlifetime']));
-					}
-
-				}
-				else
-				{
-					// default autorenew is disable
-					return [];
-				}
-
 				if($data['predict_until'])
 				{
-
 					$calc_pay_period_predict_expire_at  = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
 					if($data['predict_until'] === 'week')
 					{
@@ -315,19 +267,14 @@ class search
 						// nothing
 					}
 				}
-
 			}
 
 			$and['predict_expire_at']      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
 
 			$order_sort = " ORDER BY domain.dateexpire ASC";
 			$and[]      = " domain.status = 'enable' ";
-			// $and[]   = " domain.verify = 1 ";
 
 			$and[]      = " domain.available = 0 ";
-
-
-
 
 			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 
