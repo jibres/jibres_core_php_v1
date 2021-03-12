@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><?php echo T_("Status & Validity"); ?></td>
+        <th><?php echo T_("Status & Validity"); ?></th>
         <td class="ltr"><?php echo \dash\data::domainDetail_status_text(); ?></td>
       </tr>
 

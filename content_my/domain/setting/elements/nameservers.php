@@ -8,7 +8,6 @@
       <h3><?php echo T_("Nameservers");?></h3>
       <div class="body">
         <p><?php echo T_("Nameservers define your domain's current DNS provider. With Jibres, you can either use our Free DNS or DNS provided with domain registration and hosting services.");?></p>
-        <a class="btn link" target="_blank" data-direct href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_name() ?>">DNS Checker <i class="sf-link-external"></i></a>
       </div>
     </div>
   </div>
@@ -75,4 +74,11 @@ if($ns1 || $ns2 || $ns3 || $ns4)
     </tbody>
   </table>
 <?php } ?>
+  <footer>
+    <div class="row">
+      <div class="c"></div>
+      <div class="c-auto"></div>
+      <div class="c-auto"><a class="btn link" target="_blank" data-direct href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("CHECK DNS PROPAGATION") ?> <i class="sf-link-external"></i></a></div>
+    </div>
+  </footer>
 </section>
