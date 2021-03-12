@@ -24,6 +24,8 @@ $ns2 = a(\dash\data::domainDetail(), 'ns2');
 $ns3 = a(\dash\data::domainDetail(), 'ns3');
 $ns4 = a(\dash\data::domainDetail(), 'ns4');
 
+$jibresNameServers = ['h.ns.arvancdn.com', 'p.ns.arvancdn.com'];
+
 if($ns1 || $ns2 || $ns3 || $ns4)
 {
 ?>
@@ -32,25 +34,41 @@ if($ns1 || $ns2 || $ns3 || $ns4)
 <?php if($ns1) {?>
       <tr>
         <th>Nameserver 1</th>
-        <td><?php echo $ns1; if(a(\dash\data::domainDetail(), 'ip1')) { echo ' '. a(\dash\data::domainDetail(), 'ip1');}?></td>
+        <td><?php echo $ns1;?></td>
+        <td class="collapsing pLa10-f"><?php
+          if(in_array($ns1, $jibresNameServers)) { echo "<i class='sf-check fc-green'></i>";}
+          if(a(\dash\data::domainDetail(), 'ip1')) { echo ' '. a(\dash\data::domainDetail(), 'ip1');}
+        ?></td>
       </tr>
 <?php }?>
 <?php if($ns2) {?>
       <tr>
         <th>Nameserver 2</th>
-        <td><?php echo $ns2; if(a(\dash\data::domainDetail(), 'ip2')) { echo ' '. a(\dash\data::domainDetail(), 'ip2');}?></td>
+        <td><?php echo $ns2;?></td>
+        <td class="collapsing pLa10-f"><?php
+          if(in_array($ns2, $jibresNameServers)) { echo "<i class='sf-check fc-green'></i>";}
+          if(a(\dash\data::domainDetail(), 'ip2')) { echo ' '. a(\dash\data::domainDetail(), 'ip2');}
+        ?></td>
       </tr>
 <?php }?>
 <?php if($ns3) {?>
       <tr>
         <th>Nameserver 3</th>
-        <td><?php echo $ns3; if(a(\dash\data::domainDetail(), 'ip3')) { echo ' '. a(\dash\data::domainDetail(), 'ip3');}?></td>
+        <td><?php echo $ns3;?></td>
+        <td class="collapsing pLa10-f"><?php
+          if(in_array($ns3, $jibresNameServers)) { echo "<i class='sf-check fc-green'></i>";}
+          if(a(\dash\data::domainDetail(), 'ip3')) { echo ' '. a(\dash\data::domainDetail(), 'ip3');}
+        ?></td>
       </tr>
 <?php }?>
 <?php if($ns4) {?>
       <tr>
         <th>Nameserver 4</th>
-        <td><?php echo $ns4; if(a(\dash\data::domainDetail(), 'ip4')) { echo ' '. a(\dash\data::domainDetail(), 'ip4');}?></td>
+        <td><?php echo $ns4;?></td>
+        <td class="collapsing pLa10-f"><?php
+          if(in_array($ns4, $jibresNameServers)) { echo "<i class='sf-check fc-green'></i>";}
+          if(a(\dash\data::domainDetail(), 'ip4')) { echo ' '. a(\dash\data::domainDetail(), 'ip4');}
+        ?></td>
       </tr>
 <?php }?>
     </tbody>

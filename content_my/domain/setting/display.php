@@ -137,35 +137,6 @@ $result .= '</ul>';
 $result .= '</nav>';
 
 
-$result .= '<nav class="items long2">';
-  $result .= '<ul>';
-    for ($i=1; $i <= 4 ; $i++)
-    {
-      if(a(\dash\data::domainDetail(), 'ns'. $i))
-      {
-         $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/dns?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-            $result .= '<div class="key">DNS #'.$i. '</div>';
-            $result .= '<div class="value">'. a(\dash\data::domainDetail(), 'ns'. $i). '</div>';
-            if(a(\dash\data::domainDetail(), 'ip'. $i))
-            {
-              $result .= '<div class="value">'. a(\dash\data::domainDetail(), 'ip'. $i). '</div>';
-            }
-            $result .= '<div class="go detail"></div>';
-          $result .= '</a>';
-        $result .= '</li>';
-
-      }
-    }
-
-  $result .= '</ul>';
-$result .= '</nav>';
-
 
 $result .= '<nav class="items long2">';
   $result .= '<ul>';
