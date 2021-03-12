@@ -1074,7 +1074,8 @@ class url
 	{
 		self::$url['icon'] = self::_talambar('cdn'). '/logo/icon/svg/Jibres-Logo-icon.svg';
 		self::$url['logo'] = self::_talambar('cdn'). '/logo/en/svg/Jibres-Logo-en.svg';
-		if(\dash\language::current() === 'fa')
+
+		if(\dash\language::current() === 'fa' || self::tld() === 'ir')
 		{
 			self::$url['logo'] = self::_talambar('cdn'). '/logo/fa/svg/Jibres-Logo-fa.svg';
 		}
