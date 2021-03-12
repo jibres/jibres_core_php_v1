@@ -75,10 +75,17 @@ if($ns1 || $ns2 || $ns3 || $ns4)
   </table>
 <?php } ?>
   <footer>
-    <div class="row">
+    <div class="row mLR0-f" data-space='high'>
       <div class="c"></div>
-      <div class="c-auto"></div>
-      <div class="c-auto"><a class="btn link" target="_blank" data-direct href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("CHECK DNS PROPAGATION") ?> <i class="sf-link-external"></i></a></div>
+      <div class="c-auto s0">
+        <a class="link" target="_blank" href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Check DNS Propagation") ?> <i class="sf-link-external"></i></a>
+      </div>
+      <div class="c-auto">
+        <a class="link" target="_blank" href="https://intodns.com/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Checks DNS health and configuration") ?> <i class="sf-link-external"></i></a>
+      </div>
+      <div class="c-auto">
+        <a class="link" target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
+      </div>
     </div>
   </footer>
 </section>
