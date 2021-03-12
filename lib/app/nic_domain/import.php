@@ -24,12 +24,6 @@ class import
 			return false;
 		}
 
-		$autorenew = null;
-		if(isset($_args['autorenew']) && $_args['autorenew'])
-		{
-			$autorenew = 1;
-		}
-
 		$domains_explode = explode("\n", $domains);
 
 		$valid_domain = [];
@@ -105,7 +99,6 @@ class import
 			[
 				'name'        => $value,
 				'registrar'   => $registrar,
-				'autorenew'   => $autorenew,
 				'user_id'     => $user_id,
 				'status'      => 'awaiting',
 				'datecreated' => date("Y-m-d H:i:s"),
