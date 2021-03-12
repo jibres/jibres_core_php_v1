@@ -18,8 +18,15 @@ class race
 		// if we have more than one active request, block others
 		if($requestQty > 0)
 		{
-			// Use this if you want to reset counter
-			\dash\header::status(429, 'Please be patient');
+			if(\dash\url::isLocal())
+			{
+				// nothing
+			}
+			else
+			{
+				// Use this if you want to reset counter
+				\dash\header::status(429, 'Please be patient');
+			}
 		}
 
 		// set busy mode
