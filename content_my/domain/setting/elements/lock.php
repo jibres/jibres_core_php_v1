@@ -14,7 +14,7 @@
   </div>
   <div class="c4 s12">
       <div class="action">
-        <a class="btn secondary" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Lock domain") ?></a>
+        <a class="btn primary" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Lock domain") ?></a>
       </div>
   </div>
 </section>

@@ -10,6 +10,7 @@ if(!\dash\data::internationalDomain())
 require_once "elements/renew.php";
 require_once "elements/lock.php";
 require_once "elements/business.php";
+require_once "elements/history.php";
 
 
 
