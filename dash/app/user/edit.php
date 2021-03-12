@@ -92,6 +92,13 @@ trait edit
 					}
 				}
 
+				if(isset($load_user['status']) && $load_user['status'] === 'removed')
+				{
+					\dash\notif::error(T_("Can not set permission on removed user!"));
+					return false;
+				}
+
+
 				$is_staff = true;
 
 				if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'])
