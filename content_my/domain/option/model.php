@@ -20,18 +20,6 @@ class model
 			return;
 		}
 
-		if(\dash\request::post('autorenewperiodcom'))
-		{
-			$post['autorenewperiodcom'] = \dash\request::post('autorenewperiodcom');
-			$update = \lib\app\nic_usersetting\set::set($post);
-			if(\dash\engine\process::status())
-			{
-				\dash\notif::clean();
-				\dash\notif::ok(T_("Setting of auto renew period set on :val", ['val' => $post['autorenewperiodcom']]));
-			}
-			return;
-		}
-
 
 		if(\dash\request::post('domainlifetime'))
 		{
