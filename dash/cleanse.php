@@ -670,6 +670,22 @@ class cleanse
 			case 'irnic_id': 			$data = \dash\validate\irnic::irnic_id(...$fn_args); 				break;
 			case 'bit': 				$data = $_data ? 1 : null; 											break;
 
+			// bit3 lever null | 0 | 1
+			case 'bit3':
+				if((string) $_data === '0')
+				{
+					$data = 0;
+				}
+				elseif((string) $_data === '1')
+				{
+					$data = 1;
+				}
+				else
+				{
+					$data = null;
+				}
+				break;
+
 
 			case 'bool':
 					if($_data === null)
