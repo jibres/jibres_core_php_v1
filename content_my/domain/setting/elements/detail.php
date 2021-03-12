@@ -1,11 +1,9 @@
 <section class="f" data-option='domain-detail'>
   <div class="c12">
     <div class="data ltr txtL">
-      <h3><?php echo \dash\data::domainDetail_name();?></h3>
-      <div class="body">
-        <p>
-         <a target="_blank" data-direct href="https://<?php echo \dash\data::domainDetail_name() ?>"><?php echo 'https://'. \dash\data::domainDetail_name(); ?> <i class="sf-link-external"></i></a>
-        </p>
+      <div class="row align-center fit">
+        <div class="c"><h2 class="mB0-f txtB"><?php echo \dash\data::domainDetail_name();?></h2></div>
+        <div class="c-auto"><a target="_blank" data-direct href="https://<?php echo \dash\data::domainDetail_name() ?>" rel="nofollow noopener"><?php echo T_("Visit Domain"); ?> <i class="sf-link-external"></i></a></div>
       </div>
     </div>
   </div>
