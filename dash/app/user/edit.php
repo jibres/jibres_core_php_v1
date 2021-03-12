@@ -83,6 +83,15 @@ trait edit
 
 			if(array_key_exists('permission', $_args) || (isset($load_user['permission']) && $load_user['permission']))
 			{
+				if(isset($_args['status']) && $_args['status'])
+				{
+					if($_args['status'] === 'removed')
+					{
+						\dash\notif::error(T_("Please remove user permission first!"));
+						return false;
+					}
+				}
+
 				$is_staff = true;
 
 				if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'])
