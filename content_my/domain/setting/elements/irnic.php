@@ -8,6 +8,9 @@
       <h3><?php echo T_("Domain Holders");?></h3>
       <div class="body">
         <p><?php echo T_("Check detail of domain holders for IRNIC.");?></p>
+        <p>
+         <a class="btn link" target="_blank" data-direct href="<?php echo \dash\url::kingdom(). '/whois/'. \dash\data::domainDetail_name() ?>">Whois detail <i class="sf-link-external"></i></a>
+        </p>
       </div>
     </div>
   </div>
@@ -25,31 +28,36 @@
       <tr>
         <th><?php echo T_("Type"); ?></th>
         <th><?php echo T_("Handle"); ?></th>
+        <th class="collapsing ltr txtL s0"></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><?php echo T_("IRNIC holder"); ?></td>
         <td class="ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
+        <td class="collapsing ltr txtL s0"></td>
       </tr>
       <tr>
         <td><?php echo T_("IRNIC admin"); ?></td>
         <td class="ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
+        <td class="collapsing ltr txtL s0"></td>
       </tr>
       <tr>
         <td><?php echo T_("IRNIC billing"); ?></td>
+        <td class=""><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
 <?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
-        <td><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"><span class="compact s0"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
+        <td class="collapsing ltr txtL s0"><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
 <?php } else { ?>
-        <td><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
+      <td class="collapsing ltr txtL s0"></td>
 <?php } ?>
       </tr>
       <tr>
         <td><?php echo T_("IRNIC technical"); ?></td>
-<?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
-        <td><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"><span class="compact s0"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
-<?php } else { ?>
         <td><span class="compact"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
+<?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
+        <td class="collapsing ltr txtL s0"><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
+<?php } else { ?>
+        <td class="collapsing ltr txtL s0"></td>
 <?php } ?>
       </tr>
 

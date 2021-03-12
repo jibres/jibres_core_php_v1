@@ -1,5 +1,6 @@
 <?php
 
+require_once "elements/detail.php";
 require_once "elements/nameservers.php";
 if(!\dash\data::internationalDomain())
 {
@@ -8,6 +9,7 @@ if(!\dash\data::internationalDomain())
 
 require_once "elements/renew.php";
 require_once "elements/lock.php";
+require_once "elements/business.php";
 
 
 

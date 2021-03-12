@@ -1005,6 +1005,12 @@ class TransStatic
 	echo T_('sended');
 	echo T_('Sended');
 
+	echo T_("Irnic");
+	echo T_("Onlinenic");
+
+	echo T_("irnic");
+	echo T_("onlinenic");
+
  }
 }
 ?>
