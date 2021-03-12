@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Domain Advance DNS"));
+		\dash\face::title(T_("Domain Advance Nameserver"));
 
 				// btn
 		\dash\data::back_text(T_('Back'));

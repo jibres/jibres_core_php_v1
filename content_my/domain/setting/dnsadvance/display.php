@@ -9,7 +9,7 @@
           <div class="f">
 
             <div class="c6 s12 pRa5">
-              <label for="ns1"><?php echo T_("DNS #1"); ?></label>
+              <label for="ns1"><?php echo T_("Nameserver #1"); ?></label>
               <div class="input ltr">
                 <input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::domainDetail_ns1(); ?>" >
               </div>
@@ -17,7 +17,7 @@
             </div>
             <div class="c6 s12">
 
-              <label for="ns2"><?php echo T_("DNS #2"); ?></label>
+              <label for="ns2"><?php echo T_("Nameserver #2"); ?></label>
               <div class="input ltr">
                 <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::domainDetail_ns2(); ?>" >
               </div>
@@ -25,13 +25,13 @@
             </div>
 
             <div class="c6 s12 pRa5">
-              <label for="ns3"><?php echo T_("DNS #3"); ?></label>
+              <label for="ns3"><?php echo T_("Nameserver #3"); ?></label>
               <div class="input ltr">
                 <input type="text" name="ns3" id="ns3" maxlength="50" value="<?php echo \dash\data::domainDetail_ns3(); ?>" >
               </div>
             </div>
             <div class="c6 s12">
-              <label for="ns4"><?php echo T_("DNS #4"); ?></label>
+              <label for="ns4"><?php echo T_("Nameserver #4"); ?></label>
               <div class="input ltr">
                 <input type="text" name="ns4" id="ns4" maxlength="50" value="<?php echo \dash\data::domainDetail_ns4(); ?>" >
               </div>
@@ -57,7 +57,7 @@
             <div class="f">
 
               <div class="c6 s12 pRa5">
-                <label for="ns1"><?php echo T_("DNS #1"); ?></label>
+                <label for="ns1"><?php echo T_("Nameserver #1"); ?></label>
                 <div class="input ltr">
                   <input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::domainDetail_ns1(); ?>" >
                 </div>
@@ -71,7 +71,7 @@
               </div>
 
               <div class="c6 s12 pRa5">
-                <label for="ns2"><?php echo T_("DNS #2"); ?></label>
+                <label for="ns2"><?php echo T_("Nameserver #2"); ?></label>
                 <div class="input ltr">
                   <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::domainDetail_ns2(); ?>" >
                 </div>
@@ -84,7 +84,7 @@
               </div>
 
               <div class="c6 s12 pRa5">
-                <label for="ns3"><?php echo T_("DNS #3"); ?></label>
+                <label for="ns3"><?php echo T_("Nameserver #3"); ?></label>
                 <div class="input ltr">
                   <input type="text" name="ns3" id="ns3" maxlength="50" value="<?php echo \dash\data::domainDetail_ns3(); ?>" >
                 </div>
@@ -96,7 +96,7 @@
                 </div>
               </div>
               <div class="c6 s12 pRa5">
-                <label for="ns4"><?php echo T_("DNS #4"); ?></label>
+                <label for="ns4"><?php echo T_("Nameserver #4"); ?></label>
                 <div class="input ltr">
                   <input type="text" name="ns4" id="ns4" maxlength="50" value="<?php echo \dash\data::domainDetail_ns4(); ?>" >
                 </div>
