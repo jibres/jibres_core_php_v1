@@ -1,5 +1,3 @@
-
-
 <section class="f" data-option='domain-lock'>
   <div class="c8 s12">
     <div class="data">
@@ -9,13 +7,9 @@
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
-    <input type="hidden" name="set_defaultcomment" value="1">
+  <div class="c4 s12">
       <div class="action">
-        <div class="switch1">
-          <input id="idefaultcomment" type="checkbox" name="defaultcomment" <?php if(\dash\data::cmsSettingSaved_defaultcomment() == 'open') { echo 'checked'; } ?>>
-          <label for="idefaultcomment"></label>
-        </div>
+        <a class="btn secondary" href="<?php echo \dash\url::that(). '/transfer?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Lock domain") ?></a>
       </div>
-  </form>
+  </div>
 </section>
