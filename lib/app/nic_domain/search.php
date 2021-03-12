@@ -80,7 +80,7 @@ class search
 			'user'                => 'code',
 			'autorenew_notif'     => 'yes_no',
 			'autorenew_adminlist' => 'yes_no',
-			'autorenew_mode'      => ['enum' => ['1week', '1month', '6month']],
+			'autorenew_mode'      => 'bit',
 			'pagination'          => 'y_n',
 
 		];

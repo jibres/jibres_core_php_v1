@@ -12,26 +12,16 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
+		$args =
+		[
+			'predict'             => true,
+			'autorenew_mode'      => 1,
+			'autorenew_adminlist' => 'yes',
+		];
 
-		$my_list = [];
-		foreach (['1week', '1month', '6month'] as $date)
-		{
-			$args =
-			[
-				'predict'             => true,
-				'autorenew_mode'      => $date,
-				'autorenew_adminlist' => 'yes',
-			];
+		$list = \lib\app\nic_domain\search::get_list(null, $args);
 
-			$list = \lib\app\nic_domain\search::get_list(null, $args);
-
-			if($list && is_array($list))
-			{
-				$my_list = array_merge($my_list, $list);
-			}
-		}
-
-		\dash\data::myList($my_list);
+		\dash\data::myList($list);
 
 
 
