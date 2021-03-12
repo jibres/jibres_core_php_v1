@@ -33,7 +33,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
     <tbody>
 <?php if($ns1) {?>
       <tr>
-        <th>Nameserver 1</th>
+        <th class="s0">Nameserver 1</th>
         <td><?php echo $ns1;?></td>
         <td class="collapsing pLa10-f"><?php
           if(in_array($ns1, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
@@ -43,7 +43,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
 <?php }?>
 <?php if($ns2) {?>
       <tr>
-        <th>Nameserver 2</th>
+        <th class="s0">Nameserver 2</th>
         <td><?php echo $ns2;?></td>
         <td class="collapsing pLa10-f"><?php
           if(in_array($ns2, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
@@ -53,7 +53,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
 <?php }?>
 <?php if($ns3) {?>
       <tr>
-        <th>Nameserver 3</th>
+        <th class="s0">Nameserver 3</th>
         <td><?php echo $ns3;?></td>
         <td class="collapsing pLa10-f"><?php
           if(in_array($ns3, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
@@ -63,7 +63,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
 <?php }?>
 <?php if($ns4) {?>
       <tr>
-        <th>Nameserver 4</th>
+        <th class="s0">Nameserver 4</th>
         <td><?php echo $ns4;?></td>
         <td class="collapsing pLa10-f"><?php
           if(in_array($ns4, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
