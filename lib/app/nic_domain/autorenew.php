@@ -6,7 +6,7 @@ class autorenew
 {
 	public static function run()
 	{
-		foreach (['1week', '1month', '6month'] as $date)
+		foreach (['1month'] as $date)
 		{
 			$args =
 			[
@@ -24,7 +24,7 @@ class autorenew
 		}
 
 
-		foreach (['1week', '1month', '6month'] as $date)
+		foreach (['1month'] as $date)
 		{
 			$args =
 			[
@@ -55,7 +55,7 @@ class autorenew
 			else
 			{
 				$is_ir = false;
-				$autorenewperiod = $value['autorenewperiodcom'];
+				$autorenewperiod = '1year';
 			}
 
 			if(!$autorenewperiod)
