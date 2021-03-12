@@ -483,7 +483,7 @@ class transfer
 				'status'       => 'enable',
 				'verify'       => 1,
 
-				'autorenew'    => 1,
+				'autorenew'    => null,
 				'lock'         => 1,
 				'available'    => 0,
 			];
