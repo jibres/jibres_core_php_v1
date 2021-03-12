@@ -8,9 +8,6 @@
       <h3><?php echo T_("Domain Holders");?></h3>
       <div class="body">
         <p><?php echo T_("Check detail of domain holders for IRNIC.");?></p>
-        <p>
-         <a class="btn link" target="_blank" data-direct href="<?php echo \dash\url::kingdom(). '/whois/'. \dash\data::domainDetail_name() ?>">Whois detail <i class="sf-link-external"></i></a>
-        </p>
       </div>
     </div>
   </div>
@@ -63,84 +60,15 @@
 
     </tbody>
   </table>
+  <footer>
+    <div class="row mLR0-f" data-space='high'>
+      <div class="c"></div>
+      <div class="c-auto">
+        <a class="link" target="_blank" href="<?php echo \dash\url::kingdom(). '/whois/'. \dash\data::domainDetail_name() ?>"><?php echo T_("Check Whois"); ?> <i class="sf-link-external"></i></a>
+      </div>
+      <div class="c-auto">
+        <a class="link" target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
+      </div>
+    </div>
+  </footer>
 </section>
-
-
-
-<?php
-$result = '';
-$result .= '<nav class="items long2">';
-  $result .= '<ul>';
-
-    if(!\dash\data::internationalDomain())
-    {
-        $result .= '<li>';
-          $result .= '<a class="f item" ';
-          $go_class = 'detail';
-          if(\dash\data::domainDetail_verify())
-          {
-            $go_class = 'go';
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC holder"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_holder(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-          $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC admin"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_admin(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-          $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC billing"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_bill(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-          $result .= '<li>';
-          $result .= '<a class="f item" ';
-          if(\dash\data::domainDetail_verify())
-          {
-            $result .= 'href="'. \dash\url::that(). '/holder?domain='. \dash\request::get('domain'). '"';
-          }
-          $result .= '>';
-          $result .= '<div class="key">'. T_("IRNIC technical"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_tech(). '</div>';
-          $result .= '<div class="go '.$go_class.'"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-
-        if(\dash\data::domainDetail_reseller())
-        {
-          $result .= '<li>';
-          $result .= '<a class="f item">';
-          $result .= '<div class="key">'. T_("Reseller"). '</div>';
-          $result .= '<div class="value">'. \dash\data::domainDetail_reseller(). '</div>';
-          $result .= '<div class="go detail ok"></div>';
-          $result .= '</a>';
-          $result .= '</li>';
-        }
-
-    }
-
-$result .= '</ul>';
-$result .= '</nav>';
-?>
