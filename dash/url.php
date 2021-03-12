@@ -988,7 +988,16 @@ class url
 	{
 		if(self::get('tld') === 'local')
 		{
-			return true;
+			$local_trust_file = root. 'islocal.me.conf';
+
+			if(is_file($local_trust_file))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		return false;
