@@ -36,7 +36,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
         <th class="s0">Nameserver 1</th>
         <td><?php echo $ns1;?></td>
         <td class="collapsing pLa10-f"><?php
-          if(in_array($ns1, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
+          if(in_array($ns1, $jibresNameServers)) { echo '<img src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
           if(a(\dash\data::domainDetail(), 'ip1')) { echo ' '. a(\dash\data::domainDetail(), 'ip1');}
         ?></td>
       </tr>
@@ -46,7 +46,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
         <th class="s0">Nameserver 2</th>
         <td><?php echo $ns2;?></td>
         <td class="collapsing pLa10-f"><?php
-          if(in_array($ns2, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
+          if(in_array($ns2, $jibresNameServers)) { echo '<img src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
           if(a(\dash\data::domainDetail(), 'ip2')) { echo ' '. a(\dash\data::domainDetail(), 'ip2');}
         ?></td>
       </tr>
@@ -56,7 +56,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
         <th class="s0">Nameserver 3</th>
         <td><?php echo $ns3;?></td>
         <td class="collapsing pLa10-f"><?php
-          if(in_array($ns3, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
+          if(in_array($ns3, $jibresNameServers)) { echo '<img src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
           if(a(\dash\data::domainDetail(), 'ip3')) { echo ' '. a(\dash\data::domainDetail(), 'ip3');}
         ?></td>
       </tr>
@@ -66,7 +66,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
         <th class="s0">Nameserver 4</th>
         <td><?php echo $ns4;?></td>
         <td class="collapsing pLa10-f"><?php
-          if(in_array($ns4, $jibresNameServers)) { echo '<img class="mRa10" src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
+          if(in_array($ns4, $jibresNameServers)) { echo '<img src="'. \dash\url::logo(). '" alt="'. T_("Jibres"). '">'; }
           if(a(\dash\data::domainDetail(), 'ip4')) { echo ' '. a(\dash\data::domainDetail(), 'ip4');}
         ?></td>
       </tr>
@@ -75,14 +75,14 @@ if($ns1 || $ns2 || $ns3 || $ns4)
   </table>
 <?php } ?>
   <footer>
-    <div class="row mLR0-f" data-space='high'>
-      <div class="c"></div>
+    <div class="row" data-space='high'>
       <div class="c-auto s0">
         <a class="link" target="_blank" href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Check DNS Propagation") ?> <i class="sf-link-external"></i></a>
       </div>
       <div class="c-auto">
         <a class="link" target="_blank" href="https://intodns.com/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Checks DNS health and configuration") ?> <i class="sf-link-external"></i></a>
       </div>
+      <div class="c"></div>
       <div class="c-auto">
         <a class="link" target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
       </div>

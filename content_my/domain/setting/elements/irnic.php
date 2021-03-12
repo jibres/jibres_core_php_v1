@@ -43,7 +43,7 @@
         <td><?php echo T_("IRNIC billing"); ?></td>
         <td class=""><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
 <?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
-        <td class="collapsing s0 txtRa"><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
+        <td class="collapsing s0 txtRa"><img src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
 <?php } else { ?>
       <td class="collapsing s0"></td>
 <?php } ?>
@@ -52,7 +52,7 @@
         <td><?php echo T_("IRNIC technical"); ?></td>
         <td><span class="compact"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
 <?php if(\dash\data::domainDetail_tech() === 'ji128-irnic') { ?>
-        <td class="collapsing s0 txtRa"><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
+        <td class="collapsing s0 txtRa"><img src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
 <?php } else { ?>
         <td class="collapsing s0"></td>
 <?php } ?>
@@ -61,11 +61,11 @@
     </tbody>
   </table>
   <footer>
-    <div class="row mLR0-f" data-space='high'>
-      <div class="c"></div>
+    <div class="row" data-space='high'>
       <div class="c-auto">
         <a class="link" target="_blank" href="<?php echo \dash\url::kingdom(). '/whois/'. \dash\data::domainDetail_name() ?>"><?php echo T_("Check Whois"); ?> <i class="sf-link-external"></i></a>
       </div>
+      <div class="c"></div>
       <div class="c-auto">
         <a class="link" target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
       </div>
