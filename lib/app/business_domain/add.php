@@ -174,7 +174,7 @@ class add
 
 		if(strpos($parse_url['domain'], '.local') !== false)
 		{
-			\dash\notif::error(T_("Can not user local domain!"));
+			\dash\notif::error(T_("Can not use local domain!"));
 			return false;
 		}
 
