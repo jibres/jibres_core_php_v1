@@ -172,6 +172,12 @@ class add
 			return false;
 		}
 
+		if(strpos($parse_url['domain'], '.local') !== false)
+		{
+			\dash\notif::error(T_("Can not user local domain!"));
+			return false;
+		}
+
 
 		$master_domain = null;
 
