@@ -43,7 +43,7 @@
 
       <?php if(\dash\data::domainDetail_datemodified()) {?>
         <tr>
-          <th><?php echo T_("Last activity"); ?></th>
+          <th><a href="<?php echo \dash\url::that(). '/action?domain='. \dash\request::get('domain') ?>"><?php echo T_("Last activity"); ?></a></th>
           <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_datemodified()); ?></time></td>
         </tr>
       <?php } //endif ?>

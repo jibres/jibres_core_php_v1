@@ -22,16 +22,16 @@ if(\dash\data::domainDetail_needverifyemail())
 }
 
 require_once "elements/detail.php";
+require_once "elements/business.php";
 require_once "elements/nameservers.php";
+require_once "elements/renew.php";
+
 if(!\dash\data::internationalDomain())
 {
   require_once "elements/irnic.php";
 }
 
-require_once "elements/renew.php";
 require_once "elements/lock.php";
-require_once "elements/business.php";
-require_once "elements/history.php";
 require_once "elements/remove.php";
 require_once "elements/superdetail.php";
 
