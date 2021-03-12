@@ -54,7 +54,7 @@
       <tr>
         <td><?php echo T_("IRNIC technical"); ?></td>
         <td><span class="compact"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
-<?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
+<?php if(\dash\data::domainDetail_tech() === 'ji128-irnic') { ?>
         <td class="collapsing ltr txtL s0"><img class="mRa10" src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
 <?php } else { ?>
         <td class="collapsing ltr txtL s0"></td>
