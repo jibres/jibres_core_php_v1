@@ -22,29 +22,29 @@
 
       <?php if(\dash\data::domainDetail_registrar()) {?>
         <tr>
-          <td><?php echo T_("Registrar"); ?></td>
+          <th><?php echo T_("Registrar"); ?></th>
           <td class="ltr"><?php echo T_(ucfirst(\dash\data::domainDetail_registrar())); ?></td>
         </tr>
       <?php } //endif ?>
 
       <?php if(\dash\data::domainDetail_dateregister()) {?>
         <tr>
-          <td><?php echo T_("Registered on"); ?></td>
-          <td class="ltr"><?php echo \dash\fit::date(\dash\data::domainDetail_dateregister()); ?></td>
+          <th><?php echo T_("Registered on"); ?></th>
+          <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateregister()); ?></time></td>
         </tr>
       <?php } //endif ?>
 
       <?php if(\dash\data::domainDetail_dateexpire()) {?>
         <tr>
-          <td><?php echo T_("Expired on"); ?></td>
-          <td class="ltr"><?php echo \dash\fit::date(\dash\data::domainDetail_dateexpire()); ?></td>
+          <th><?php echo T_("Expired on"); ?></th>
+          <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateexpire()); ?></time></td>
         </tr>
       <?php } //endif ?>
 
       <?php if(\dash\data::domainDetail_datemodified()) {?>
         <tr>
-          <td><?php echo T_("Last activity"); ?></td>
-          <td class="ltr"><?php echo \dash\fit::date(\dash\data::domainDetail_datemodified()); ?></td>
+          <th><?php echo T_("Last activity"); ?></th>
+          <td class="ltr"><time><?php echo \dash\fit::date_time(\dash\data::domainDetail_datemodified()); ?></time></td>
         </tr>
       <?php } //endif ?>
 
