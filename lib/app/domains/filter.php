@@ -38,6 +38,7 @@ class filter
 
 		$list['autorenewon']  = ['key' => 'autorenewon', 	'group' => T_("Autorenew"), 'title' => T_('Autorenew on'), 	'query' => ['autorenew' => 'on'], 	'public' => true];
 		$list['autorenewoff'] = ['key' => 'autorenewoff', 	'group' => T_("Autorenew"), 'title' => T_('Autorenew off'), 'query' => ['autorenew' => 'off'], 	'public' => true];
+		$list['autorenewdefault'] = ['key' => 'autorenewoff', 	'group' => T_("Autorenew"), 'title' => T_('Autorenew default'), 'query' => ['autorenew' => 'default'], 	'public' => true];
 
 		$list['lockon']       = ['key' => 'lockon', 		'group' => T_("Lock"), 'title' => T_('lock on'), 			'query' => ['lock' => 'on'], 	'public' => true];
 		$list['lockoff']      = ['key' => 'lockoff', 		'group' => T_("Lock"), 'title' => T_('lock off'), 			'query' => ['lock' => 'off'], 	'public' => true];

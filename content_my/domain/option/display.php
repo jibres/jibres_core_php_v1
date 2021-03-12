@@ -1,9 +1,9 @@
 <section class="f" data-option='renew-remain'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Domain Auto Renew Remain Time");?></h3>
+      <h3><?php echo T_("Default setting of autorenew");?></h3>
       <div class="body">
-        <p><?php echo T_("Minimum date until we try to auto renew your domain.");?></p>
+        <p><?php echo T_("Default setting of autorenew");?></p>
       </div>
     </div>
   </div>

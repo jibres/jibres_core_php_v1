@@ -67,7 +67,7 @@ class search
 			'sort'                => 'string_100',
 			'list'                => ['enum' => ['mydomain', 'renew', 'available', 'import']],
 			'lock'                => ['enum' => ['on', 'off', 'unknown']],
-			'autorenew'           => ['enum' => ['on', 'off']],
+			'autorenew'           => ['enum' => ['on', 'off', 'default']],
 			'reg'                 => ['enum' => ['com', 'ir']],
 			'predict_until'       => ['enum' => ['week', 'month', 'year']],
 			'expireat'       => ['enum' => ['week', 'month', 'year']],
@@ -418,7 +418,12 @@ class search
 		}
 		elseif($data['autorenew'] === 'off')
 		{
-			$and[] = " ( domain.autorenew IS NULL OR domain.autorenew = 0 ) ";
+			$and[] = " domain.autorenew = 0 ";
+			self::$is_filtered          = true;
+		}
+		elseif($data['autorenew'] === 'default')
+		{
+			$and[] = " domain.autorenew IS NULL  ";
 			self::$is_filtered          = true;
 		}
 
