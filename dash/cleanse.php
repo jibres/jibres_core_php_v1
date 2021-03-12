@@ -629,6 +629,7 @@ class cleanse
 			case 'filename_mime': 		$data = \dash\validate\text::filename_mime(...$fn_args); 			break;
 			case 'staticfilename': 		$data = \dash\validate\text::staticfilename(...$fn_args); 			break;
 			case 'staticfilecontent': 	$data = \dash\validate\text::staticfilecontent(...$fn_args); 		break;
+			case 'socialnetwork': 		$data = \dash\validate\text::socialnetwork(...$fn_args); 			break;
 			case 'subdomain': 			$data = \dash\validate\subdomain::subdomain(...$fn_args); 			break;
 			case 'subdomain_admin':  	$data = \dash\validate\subdomain::subdomain_admin(...$fn_args); 	break;
 			case 'iban': 				$data = \dash\validate\iban::check(...$fn_args); 					break;

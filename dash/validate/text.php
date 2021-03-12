@@ -165,6 +165,34 @@ class text
 	}
 
 
+
+	public static function socialnetwork($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$_meta['min'] = 3;
+		$_meta['max'] = 50;
+
+		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+
+		if(!preg_match("/^[A-Za-z0-9\_\-\.]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Only English character can be enter in field :val", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 	public static function filename($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);

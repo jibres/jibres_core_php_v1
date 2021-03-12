@@ -149,16 +149,16 @@ class edit
 	{
 		$condition =
 		[
-			'instagram' => 'string_50',
-			'telegram'  => 'string_50',
-			'youtube'   => 'string_50',
-			'twitter'   => 'string_50',
-			'linkedin'  => 'string_50',
-			'github'    => 'string_50',
-			'facebook'  => 'string_50',
-			'email'     => 'string_50',
-			'aparat'    => 'string_50',
-			'eitaa'     => 'string_50',
+			'instagram' => 'socialnetwork',
+			'telegram'  => 'socialnetwork',
+			'youtube'   => 'socialnetwork',
+			'twitter'   => 'socialnetwork',
+			'linkedin'  => 'socialnetwork',
+			'github'    => 'socialnetwork',
+			'facebook'  => 'socialnetwork',
+			'email'     => 'email',
+			'aparat'    => 'socialnetwork',
+			'eitaa'     => 'socialnetwork',
 		];
 
 		$require = [];
