@@ -273,21 +273,21 @@ class baby
 	 */
 	public static function hex($_txt)
 	{
-		if(preg_match("#0x#Ui", $_txt))
-		{
-			self::$level = 1;
-			return true;
-		}
-		if(preg_match("#0x#", $_txt))
-		{
-			self::$level = 2;
-			return true;
-		}
-		if(preg_match("/%00/", $_txt))
-		{
-			self::$level = 3;
-			return true;
-		}
+		// if(preg_match("#0x#Ui", $_txt))
+		// {
+		// 	self::$level = 1;
+		// 	return true;
+		// }
+		// if(preg_match("#0x#", $_txt))
+		// {
+		// 	self::$level = 2;
+		// 	return true;
+		// }
+		// if(preg_match("/%00/", $_txt))
+		// {
+		// 	self::$level = 3;
+		// 	return true;
+		// }
 		// if cant find something return false
 		return false;
 	}
