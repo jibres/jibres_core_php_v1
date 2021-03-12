@@ -101,14 +101,6 @@ class code
 		}
 	}
 
-	/**
-	 * eval code
-	 */
-	public static function whooa($_string)
-	{
-		eval($_string);
-	}
-
 
 	/**
 	 * return json and boom
