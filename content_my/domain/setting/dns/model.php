@@ -6,19 +6,17 @@ class model
 {
 	public static function post()
 	{
-
 		$post =
 		[
 			'ns1'   => \dash\request::post('ns1'),
 			'ns2'   => \dash\request::post('ns2'),
-			'ns3'   => \dash\request::post('ns3'),
-			'ns4'   => \dash\request::post('ns4'),
-
-			'ip1'   => \dash\request::post('ip1'),
-			'ip2'   => \dash\request::post('ip2'),
-			'ip3'   => \dash\request::post('ip3'),
-			'ip4'   => \dash\request::post('ip4'),
 		];
+
+		if(\dash\request::post('jibresdns') === 'jibresdns')
+		{
+			$post['ns1'] = \lib\app\nic_usersetting\defaultval::ns1();
+			$post['ns2'] = \lib\app\nic_usersetting\defaultval::ns2();
+		}
 
 		// $result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
 		$result = \lib\app\domains\edit::dns($post, \dash\data::domainDetail_id());

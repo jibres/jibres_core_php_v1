@@ -340,7 +340,7 @@ class ready
 			$arvan_ns1 = \lib\app\nic_usersetting\defaultval::ns1();
 			$arvan_ns2 = \lib\app\nic_usersetting\defaultval::ns2();
 
-			if(in_array($arvan_ns1, $check_dns) && in_array($arvan_ns2, $check_dns))
+			if(in_array($arvan_ns1, $check_dns) && in_array($arvan_ns2, $check_dns) && $result['ns1'] !== $result['ns2'])
 			{
 				$result['jibres_dns'] = true;
 			}

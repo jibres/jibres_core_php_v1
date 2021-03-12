@@ -24,7 +24,7 @@ $ns2 = a(\dash\data::domainDetail(), 'ns2');
 $ns3 = a(\dash\data::domainDetail(), 'ns3');
 $ns4 = a(\dash\data::domainDetail(), 'ns4');
 
-$jibresNameServers = ['h.ns.arvancdn.com', 'p.ns.arvancdn.com'];
+$jibresNameServers = \lib\app\nic_usersetting\defaultval::all_dns();
 
 if($ns1 || $ns2 || $ns3 || $ns4)
 {

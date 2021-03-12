@@ -11,6 +11,11 @@ class defaultval
 	}
 
 
+	public static function all_dns()
+	{
+		return [self::ns1(), self::ns2()];
+	}
+
 	public static function ns1($_domain = null)
 	{
 		if($_domain && \dash\validate::ir_domain($_domain, false))
