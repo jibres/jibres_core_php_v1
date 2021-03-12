@@ -45,6 +45,7 @@ class set
 			'postcode'        => 'enstring_20',
 			'address'         => 'enstring_50',
 			'mobile'          => 'mobile',
+			'defaultautorenew' => 'bit',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

@@ -8,6 +8,22 @@ class model
 	{
 		$post = [];
 
+
+		if(\dash\request::post('set_defaultautorenew'))
+		{
+			$post['defaultautorenew'] = \dash\request::post('defaultautorenew');
+			$update = \lib\app\nic_usersetting\set::set($post);
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::clean();
+				\dash\notif::ok(T_("Setting of default auto renew saved"));
+			}
+			return;
+		}
+
+
+
+
 		if(\dash\request::post('autorenewperiod'))
 		{
 			$post['autorenewperiod'] = \dash\request::post('autorenewperiod');
@@ -15,24 +31,21 @@ class model
 			if(\dash\engine\process::status())
 			{
 				\dash\notif::clean();
-				\dash\notif::ok(T_("Setting of auto renew period set on :val", ['val' => $post['autorenewperiod']]));
+
+				if($post['autorenewperiod'] === '1year')
+				{
+					$title = T_("1 Year");
+				}
+				else
+				{
+					$title = T_("5 Year");
+				}
+
+				\dash\notif::ok(T_("Setting of auto renew period set on :val", ['val' => $title]));
 			}
 			return;
 		}
 
-
-		if(\dash\request::post('domainlifetime'))
-		{
-			$post['domainlifetime'] = \dash\request::post('domainlifetime');
-			$update = \lib\app\nic_usersetting\set::set($post);
-
-			if(\dash\engine\process::status())
-			{
-				\dash\notif::clean();
-				\dash\notif::ok(T_("Setting of domain life set on :val", ['val' => $post['domainlifetime']]));
-			}
-			return;
-		}
 
 
 		if(\dash\request::post('defaultcontact'))

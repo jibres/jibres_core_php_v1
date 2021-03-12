@@ -9,12 +9,11 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-        <select name="domainlifetime" class="select22">
-          <option value="off" <?php if(\dash\data::dataRow_domainlifetime() === 'off' || !\dash\data::dataRow_domainlifetime()) {echo 'selected';} ?>><?php echo T_("Disable auto renew"). ' ('. T_("Default"). ')'; ?></option>
-          <option value="1week" <?php if(\dash\data::dataRow_domainlifetime() === '1week') {echo 'selected';} ?>><?php echo T_("1 Week"); ?></option>
-          <option value="1month" <?php if(\dash\data::dataRow_domainlifetime() === '1month' ) {echo 'selected';} ?>><?php echo T_("1 Month"); ?></option>
-          <option value="6month" <?php if(\dash\data::dataRow_domainlifetime() === '6month') {echo 'selected';} ?>><?php echo T_("6 Month"); ?></option>
-        </select>
+      <input type="hidden" name="set_defaultautorenew" value="1">
+      <div class="switch1">
+        <input type="checkbox" name="defaultautorenew" id="defaultautorenew" <?php if(\dash\data::dataRow_defaultautorenew()) { echo 'checked';} ?>>
+        <label for="defaultautorenew"></label>
+      </div>
     </div>
   </form>
 </section>
