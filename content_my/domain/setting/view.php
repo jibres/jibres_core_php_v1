@@ -17,6 +17,17 @@ class view
 		{
 			\content_my\domain\setting\business\view::check_business();
 		}
+
+		$my_setting = \lib\app\nic_usersetting\get::get();
+		if(isset($my_setting['defaultautorenew']) && $my_setting['defaultautorenew'])
+		{
+			\dash\data::defaultTitleautorenew(T_("Default (Enable)"));
+		}
+		else
+		{
+			\dash\data::defaultTitleautorenew(T_("Default (Disable)"));
+		}
+
 	}
 }
 ?>

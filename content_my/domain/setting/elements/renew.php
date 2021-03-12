@@ -12,16 +12,16 @@
       <input type="hidden" name="runaction_autorenew" value="1">
       <div>
         <div class="radio1">
-          <input type="radio" name="autorenew" value="default" id="autorenewdefault" <?php if(\dash\data::dataRow_autorenew() === 'default' || !\dash\data::dataRow_autorenew()) {echo 'checked';} ?>>
+          <input type="radio" name="autorenew" value="default" id="autorenewdefault" <?php if(is_null(\dash\data::domainDetail_autorenew())) {echo 'checked';} ?>>
           <label for="autorenewdefault"><?php echo \dash\data::defaultTitleautorenew(); ?></label>
         </div>
         <div class="radio1 green">
-          <input type="radio" name="autorenew" value="enable" id="autorenewenable" <?php if(\dash\data::dataRow_autorenew() === 'enable') {echo 'checked';} ?>>
-          <label for="autorenewopen"><?php echo T_("Enable"); ?></label>
+          <input type="radio" name="autorenew" value="enable" id="autorenewenable" <?php if((string) \dash\data::domainDetail_autorenew() === '1') {echo 'checked';} ?>>
+          <label for="autorenewenable"><?php echo T_("Enable"); ?></label>
         </div>
         <div class="radio1 red">
-          <input type="radio" name="autorenew" value="disable" id="autorenewdisable" <?php if(\dash\data::dataRow_autorenew() === 'disable') {echo 'checked';} ?>>
-          <label for="autorenewclosed"><?php echo T_("Disable"); ?></label>
+          <input type="radio" name="autorenew" value="disable" id="autorenewdisable" <?php if((string) \dash\data::domainDetail_autorenew() === '0') {echo 'checked';} ?>>
+          <label for="autorenewdisable"><?php echo T_("Disable"); ?></label>
         </div>
       </div>
     </div>

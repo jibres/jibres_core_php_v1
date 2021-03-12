@@ -15,9 +15,21 @@ class model
 		}
 
 
-		if(\dash\request::post('myaction') == 'autorenew')
+		if(\dash\request::post('runaction_autorenew'))
 		{
-			$autorenew = \dash\request::post('op') == 'set' ? 1 : 0;
+			$autorenew = \dash\request::post('autorenew');
+			if($autorenew === 'enable')
+			{
+				$autorenew = 1;
+			}
+			elseif($autorenew === 'disable')
+			{
+				$autorenew = 0;
+			}
+			else
+			{
+				$autorenew = null;
+			}
 
 			$result = \lib\app\nic_domain\edit::edit(['autorenew' => $autorenew], \dash\data::domainDetail_id());
 

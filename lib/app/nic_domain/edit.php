@@ -402,7 +402,7 @@ class edit
 
 		$condition =
 		[
-			'autorenew' => 'bit',
+			'autorenew' => 'bit3',
 			'verify'    => 'bit',
 			'status'    => ['enum' => ['awaiting','failed','pending','enable','disable','deleted','expire']],
 		];
