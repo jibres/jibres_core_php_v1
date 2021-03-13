@@ -6,6 +6,7 @@
 
         <p class="msg warn2"><?php echo T_('Filling the server IP address records (glue records) are required when you wish to set the name servers of a domain name to a hostname under the domain name itself.'); ?></p>
         <form method="post" autocomplete="off" >
+          <?php \dash\csrf::html(); ?>
           <div class="f">
 
             <div class="c6 s12 pRa5">
@@ -54,6 +55,7 @@
         <div class="cbox">
           <p class="msg warn2"><?php echo T_('Filling the server IP address records (glue records) are required when you wish to set the name servers of a domain name to a hostname under the domain name itself.'); ?></p>
           <form method="post" autocomplete="off" >
+            <?php \dash\csrf::html(); ?>
             <div class="f">
 
               <div class="c6 s12 pRa5">

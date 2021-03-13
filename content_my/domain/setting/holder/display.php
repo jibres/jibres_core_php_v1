@@ -1,5 +1,6 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 <form method="post" autocomplete="off" >
+  <?php \dash\csrf::html(); ?>
   <div class="avand-md">
     <div class="box">
       <div class="pad">

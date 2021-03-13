@@ -11,6 +11,7 @@ if(\dash\data::domainDetail_jibres_dns())
 ?>
 
 <form method="post" autocomplete="off" >
+  <?php \dash\csrf::html(); ?>
   <div class="avand-sm">
 
         <?php if(!\dash\data::domainDetail_jibres_dns()) {?>

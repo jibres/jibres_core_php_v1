@@ -11,6 +11,8 @@ class controller
 		{
 			\dash\header::status(404);
 		}
+
+		\dash\csrf::set();
 	}
 }
 ?>
