@@ -44,6 +44,8 @@ class ready
 			$_data = [];
 		}
 
+		$result['can_renew'] = true;
+
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
@@ -118,7 +120,7 @@ class ready
 						// irnicDeletionDocRequired
 						// irnicDeletionIsWithdrawn
 
-						$result['can_renew'] = true;
+
 						if(in_array('serverRenewProhibited', $nicstatus))
 						{
 							$result['can_renew'] = false;
@@ -351,6 +353,25 @@ class ready
 
 			}
 
+		}
+
+		if(isset($result['dateexpire']) && $result['dateexpire'])
+		{
+			$max_domain_age = null;
+
+			if(a($result, 'registrar') === 'irnic')
+			{
+				$max_domain_age = time() + (60*60*24*365*6);
+			}
+			else
+			{
+				$max_domain_age = time() + (60*60*24*365*9);
+			}
+
+			if($max_domain_age && strtotime($result['dateexpire']) > $max_domain_age)
+			{
+				$result['can_renew'] = false;
+			}
 		}
 
 
