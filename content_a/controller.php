@@ -31,6 +31,10 @@ class controller
 			\lib\app\store\config::first_setup();
 		}
 
+		if(\dash\request::get('bigopening') && \dash\request::get('domain') && !\dash\url::module())
+		{
+			\lib\app\store\config::first_setup_domain();
+		}
 
 		if(\dash\request::get('domain') && !\dash\url::module())
 		{
