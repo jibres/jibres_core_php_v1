@@ -34,10 +34,13 @@ class model
 
 			\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title]);
 
+			$domain = \dash\validate::domain(\dash\request::get('domain'), false);
+
 			$detail =
 			[
 				'title' => $title,
 				'st1'   => time(),
+				'domain' => $domain,
 			];
 
 			$business_token = \content_my\business\creating::cross_step('start', $detail);

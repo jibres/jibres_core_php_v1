@@ -421,13 +421,19 @@ class creating
 
 		$result = \lib\app\store\add::free($post);
 
+		$domain = null;
+		if(isset($get_session['domain']) && $get_session['domain'])
+		{
+			$domain = $get_session['domain'];
+		}
+
 		self::clean_session();
 
 		if(\dash\engine\process::status() && isset($result['store_id']))
 		{
 			\dash\notif::direct();
 
-			$url = \dash\url::kingdom(). '/'. \dash\store_coding::encode($result['store_id']). '/a?'. \dash\request::fix_get(['bigopening' => 1]);
+			$url = \dash\url::kingdom(). '/'. \dash\store_coding::encode($result['store_id']). '/a?'. \dash\request::fix_get(['bigopening' => 1, 'domain' => $domain]);
 
 			\dash\redirect::to($url);
 		}

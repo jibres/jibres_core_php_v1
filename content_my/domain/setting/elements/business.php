@@ -28,15 +28,15 @@ if(a(\dash\data::domainDetail(), 'jibres_dns'))
   <section class="f" data-option='domain-business'>
         <div class="c8 s12">
           <div class="data">
-            <h3><?php echo T_("Connect domain to business");?></h3>
+            <h3><?php echo T_("Need website?");?></h3>
             <div class="body">
-              <p><?php echo T_("In this section, you connect your domain to your business");?></p>
+              <p><?php echo T_("You can build a modern website and enjoy it");?></p>
             </div>
           </div>
         </div>
         <div class="c4 s12">
             <div class="action">
-              <a class="btn primary" href="<?php echo \dash\url::that(). '/business?domain='. \dash\request::get('domain') ?>"><?php echo T_("Connect") ?></a>
+              <a class="btn primary" href="<?php echo \dash\url::that(). '/business?domain='. \dash\request::get('domain') ?>"><?php echo T_("Build my website") ?></a>
             </div>
         </div>
       </section>
