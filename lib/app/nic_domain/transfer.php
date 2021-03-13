@@ -132,11 +132,42 @@ class transfer
 
 		$get_domain_detail = \lib\app\nic_domain\check::info($domain);
 
+		$transfer_self = false;
+		if(isset($get_domain_detail['holder']) && $data['irnic_new'] === $get_domain_detail['holder'])
+		{
+			$transfer_self = true;
+		}
+
+		if(isset($get_domain_detail['admin']) && $data['irnic_new'] === $get_domain_detail['admin'])
+		{
+			$transfer_self = true;
+		}
+
+		if($transfer_self)
+		{
+			$msg = T_("This domain belongs to the same ID entered.");
+			$msg .= '<br>';
+			$msg .= T_("The transfer process in IR domains is to transfer from one person to another.");
+			$msg .= '<br>';
+			$msg .= T_("Click here if you want to renew this domain");
+			$msg .= '<br>';
+			$msg .= '<a href="'.\dash\url::kingdom(). '/my/domain/renew?domain='. $data['domain']. '">'. T_("Renew :domain", ['domain' => $data['domain']]). '</a>';
+			$msg .= '<br>';
+
+			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
+
+			// \dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
+			return false;
+		}
+
+
 		if(!isset($get_domain_detail['exDate']))
 		{
 			// \dash\notif::error(T_("Domain is not exists"));
 			return false;
 		}
+
+
 
 
 		$price = \lib\app\nic_domain\price::transfer();

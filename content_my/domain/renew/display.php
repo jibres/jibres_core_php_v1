@@ -1,10 +1,10 @@
 <?php if(!\dash\data::myDomain()) {?>
-<form method="get" autocomplete="off">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>">
   <div class="avand-sm">
     <div class="box">
       <div class="body">
           <div class="input ltr mB10">
-            <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80>
+            <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80 required>
           </div>
       </div>
       <footer class="txtRa">
