@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-13 17:56+0330\n"
-"PO-Revision-Date: 2021-03-13 17:58+0330\n"
+"POT-Creation-Date: 2021-03-13 19:42+0330\n"
+"PO-Revision-Date: 2021-03-13 19:44+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -941,7 +941,8 @@ msgstr ""
 
 #: content/contact/display.php:22 content_a/accounting/irvat/add/display.php:389
 #: content_a/chap/size-receipt/receipt.php:102 content_a/order/address/display.php:144
-#: content_a/setting/fund/display.php:60 content_a/setting/general/title/display.php:11
+#: content_a/setting/buildwebsite/display.php:11 content_a/setting/fund/display.php:60
+#: content_a/setting/general/title/display.php:11
 #: content_a/setting/general/title/display.php:13 content_a/setting/pcpos/display.php:124
 #: content_account/address.php:25 content_business/shipping/display.php:101
 #: content_cms/comments/edit/display.php:11 content_cms/comments/view/display.php:17
@@ -2633,10 +2634,10 @@ msgstr "هزار تومان"
 
 #: content/home/view.php:82 content/ip/home/view.php:9 content_a/channels/home/view.php:10
 #: content_a/order/home/view.php:143 content_a/order/view.php:11
-#: content_a/products/home/view.php:14 content_a/setting/home/view.php:10
-#: content_a/setting/pos/view.php:10 content_a/website/home/view.php:13
-#: content_account/notification/view.php:14 content_cms/home/view.php:11
-#: content_crm/home/view.php:17 content_crm/home/view.php:24
+#: content_a/products/home/view.php:14 content_a/setting/buildwebsite/view.php:10
+#: content_a/setting/home/view.php:10 content_a/setting/pos/view.php:10
+#: content_a/website/home/view.php:13 content_account/notification/view.php:14
+#: content_cms/home/view.php:11 content_crm/home/view.php:17 content_crm/home/view.php:24
 #: content_love/application/home/view.php:12 content_love/business/domain/view.php:13
 #: content_love/business/home/view.php:13 content_love/domain/action/view.php:12
 #: content_love/domain/all/view.php:12 content_love/domain/autorenew/view.php:12
@@ -5367,7 +5368,8 @@ msgstr "ظرفیت گالری تکمیل است!"
 #: content_a/accounting/irvat/add/display.php:426 content_a/android/logo/display.php:10
 #: content_a/category/edit/display.php:89 content_a/form/inquiry/display.php:57
 #: content_a/form/setting/display.php:22 content_a/order/comment/display.php:39
-#: content_a/products/edit/block/gallery.php:15 content_a/setup/logo/display.php:14
+#: content_a/products/edit/block/gallery.php:15
+#: content_a/setting/buildwebsite/display.php:23 content_a/setup/logo/display.php:14
 #: content_a/website/header/box/header_logo.php:25
 #: content_business/ticket/add/add_ticket_form.php:15 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -5392,7 +5394,7 @@ msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:12 content_a/accounting/turnover/display.php:149
-#: lib/app/store/config.php:87
+#: lib/app/store/config.php:126
 msgid "Number"
 msgstr "شماره"
 
@@ -7901,7 +7903,7 @@ msgstr "ساخت نمایش از فرم"
 
 #: content_a/form/analytics/create/display.php:6 content_a/form/analytics/display.php:7
 #: content_a/form/analytics/table/display.php:116
-#: content_my/domain/setting/business/display.php:68
+#: content_my/domain/setting/business/display.php:57
 msgid "Buil it now"
 msgstr "همین الان بساز"
 
@@ -10606,6 +10608,63 @@ msgstr "نمایش برند جیبرس در وب‌سایت و اپلیکیشن"
 msgid "Branding"
 msgstr "نشان تجاری"
 
+#: content_a/setting/buildwebsite/display.php:9
+msgid "Website title"
+msgstr "عنوان وب‌سایت"
+
+#: content_a/setting/buildwebsite/display.php:14
+msgid "Website Description"
+msgstr "توضیحات وب‌سایت"
+
+#: content_a/setting/buildwebsite/display.php:20
+msgid "Website Logo"
+msgstr "لوگوی وب‌سایت"
+
+#: content_a/setting/buildwebsite/display.php:32
+#: content_a/setting/buildwebsite/display.php:35 content_a/setting/instagram/view.php:8
+#: content_a/setting/social-old/display.php:16 content_a/setting/social/display.php:15
+#: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
+#: content_account/my/social/display.php:41 content_account/my/social/display.php:44
+#: lib/app/website/init.php:82 lib/store.php:493
+msgid "Instagram"
+msgstr "اینستاگرام"
+
+#: content_a/setting/buildwebsite/display.php:39
+#: content_a/setting/buildwebsite/display.php:42 content_a/setting/fb/view.php:8
+#: content_a/setting/social-old/display.php:66 content_a/setting/social/display.php:29
+#: content_a/setting/social/display.php:30 content_account/my/home/display.php:165
+#: content_account/my/social/display.php:20 content_account/my/social/display.php:23
+#: lib/store.php:499
+msgid "Facebook"
+msgstr "فیس‌بوک"
+
+#: content_a/setting/buildwebsite/display.php:46
+#: content_a/setting/buildwebsite/display.php:49
+#: content_a/setting/social-old/display.php:45 content_a/setting/social/display.php:37
+#: content_a/setting/social/display.php:38 content_a/setting/tw/view.php:8
+#: content_account/my/home/display.php:170 content_account/my/social/display.php:27
+#: content_account/my/social/display.php:30 lib/store.php:496
+msgid "Twitter"
+msgstr "توییتر"
+
+#: content_a/setting/buildwebsite/display.php:53
+#: content_a/setting/buildwebsite/display.php:56 content_a/setting/linkedin/view.php:8
+#: content_a/setting/social-old/display.php:52 content_a/setting/social/display.php:46
+#: content_a/setting/social/display.php:47 content_account/my/home/display.php:175
+#: content_account/my/social/display.php:34 content_account/my/social/display.php:37
+#: includes/languages/trans_static_public.php:251 lib/store.php:497
+msgid "Linkedin"
+msgstr "لینکدین"
+
+#: content_a/setting/buildwebsite/display.php:63 content_enter/verifyemail/display.php:11
+#: content_my/business/start/display.php:17
+msgid "Let's go"
+msgstr "بزن بریم"
+
+#: content_a/setting/buildwebsite/view.php:8
+msgid "Build Website"
+msgstr "ساخت وب‌سایت"
+
 #: content_a/setting/cart/display.php:4
 msgid "Set cart page default text"
 msgstr "تنظیم متن ثابت صفحه سبد خرید"
@@ -10836,13 +10895,6 @@ msgstr "تنظیمات دامنه"
 #: content_a/setting/fb/display.php:7
 msgid "Enter your account username in facebook."
 msgstr "نام کاربری شما در فیسبوک."
-
-#: content_a/setting/fb/view.php:8 content_a/setting/social-old/display.php:66
-#: content_a/setting/social/display.php:29 content_a/setting/social/display.php:30
-#: content_account/my/home/display.php:165 content_account/my/social/display.php:20
-#: content_account/my/social/display.php:23 lib/store.php:499
-msgid "Facebook"
-msgstr "فیس‌بوک"
 
 #: content_a/setting/fund/controller.php:14 content_a/website/menu/item/controller.php:13
 #: content_b1/user/budget/detail/view.php:13 content_cms/posts/edit/controller.php:14
@@ -11194,24 +11246,9 @@ msgstr "مدیریت مشتریان بیزینس"
 msgid "Enter your account username in instagram."
 msgstr "نام کاربری شما در اینستاگرام."
 
-#: content_a/setting/instagram/view.php:8 content_a/setting/social-old/display.php:16
-#: content_a/setting/social/display.php:15 content_a/setting/social/display.php:16
-#: content_account/my/home/display.php:160 content_account/my/social/display.php:41
-#: content_account/my/social/display.php:44 lib/app/website/init.php:82 lib/store.php:493
-msgid "Instagram"
-msgstr "اینستاگرام"
-
 #: content_a/setting/linkedin/display.php:8
 msgid "Enter your account username in linkedin."
 msgstr "نام کاربری شما در لینکدین."
-
-#: content_a/setting/linkedin/view.php:8 content_a/setting/social-old/display.php:52
-#: content_a/setting/social/display.php:46 content_a/setting/social/display.php:47
-#: content_account/my/home/display.php:175 content_account/my/social/display.php:34
-#: content_account/my/social/display.php:37 includes/languages/trans_static_public.php:251
-#: lib/store.php:497
-msgid "Linkedin"
-msgstr "لینکدین"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
 #: lib/app/store/edit.php:244
@@ -11921,13 +11958,6 @@ msgstr "نام کاربری ادمین تلگرام"
 #: lib/store.php:495
 msgid "Youtube"
 msgstr "یوتیوب"
-
-#: content_a/setting/social-old/display.php:45 content_a/setting/social/display.php:37
-#: content_a/setting/social/display.php:38 content_a/setting/tw/view.php:8
-#: content_account/my/home/display.php:170 content_account/my/social/display.php:27
-#: content_account/my/social/display.php:30 lib/store.php:496
-msgid "Twitter"
-msgstr "توییتر"
 
 #: content_a/setting/social-old/display.php:87 lib/store.php:502
 msgid "Eitaa"
@@ -18500,10 +18530,6 @@ msgstr "کد اعتبارسنجی منقضی شده است"
 msgid "This email is already verified"
 msgstr "این ایمیل قبلا تایید شده است"
 
-#: content_enter/verifyemail/display.php:11 content_my/business/start/display.php:17
-msgid "Let's go"
-msgstr "بزن بریم"
-
 #: content_hook/smile/controller.php:46
 msgid "You have :val new message!"
 msgstr "شما :val پیام جدید دارید!"
@@ -20510,7 +20536,7 @@ msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وار
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
-#: content_my/business/start/model.php:52 content_my/business/start/model.php:53
+#: content_my/business/start/model.php:55 content_my/business/start/model.php:56
 msgid "Can not add new business!"
 msgstr "نمی‌توانید بیزینس جدیدی را اضافه کنید!"
 
@@ -21183,15 +21209,15 @@ msgstr "نوع درخواست اشتباه است"
 msgid "Review and Confirm Domain Detail"
 msgstr "بازبینی و تایید جزئیات دامنه"
 
-#: content_my/domain/setting/business/display.php:11
+#: content_my/domain/setting/business/display.php:6
 msgid "Your domain was conncted to"
 msgstr "دامنه شما متصل شده است به"
 
-#: content_my/domain/setting/business/display.php:14
+#: content_my/domain/setting/business/display.php:9
 msgid "Manage Domain"
 msgstr "مدیریت دامنه"
 
-#: content_my/domain/setting/business/display.php:23
+#: content_my/domain/setting/business/display.php:15
 msgid ""
 "Your domain was connected to a business but we can not find this business in you "
 "business list!"
@@ -21199,32 +21225,33 @@ msgstr ""
 "دامنه شما به یک بیزینس متصل شده است ولی ما آن بیزینس را در لیست بیزینس‌های شما پیدا "
 "نمی‌کنیم!"
 
-#: content_my/domain/setting/business/display.php:25
+#: content_my/domain/setting/business/display.php:17
 msgid "If you need to know what happened"
 msgstr "اگر می‌خواهید بدانید چه اتفاقی افتاده است"
 
-#: content_my/domain/setting/business/display.php:25
+#: content_my/domain/setting/business/display.php:17
 msgid "Contact with us"
 msgstr "با ما تماس بگیرید"
 
-#: content_my/domain/setting/business/display.php:35
-msgid "You can add domain to your business"
-msgstr "شما می‌توانید دامنه را به بیزینس خود متصل کنید"
+#: content_my/domain/setting/business/display.php:24
+msgid "To create your website You can add domain to your business or create new business"
+msgstr ""
+"برای ساخت وب‌سایت می‌توانید دامنه خود را به یکی از بیزینس‌ها متصل کنید و یا بیزینس جدیدی "
+"بسازید"
 
-#: content_my/domain/setting/business/display.php:56 content_my/home/display_site.php:58
+#: content_my/domain/setting/business/display.php:45 content_my/home/display_site.php:58
 msgid "Add New Business"
 msgstr "افزودن بیزینس جدید"
 
-#: content_my/domain/setting/business/display.php:64
+#: content_my/domain/setting/business/display.php:53
 msgid "Create your business now to connect your domain to your business"
 msgstr "همین الان بیزینس خود را ایجاد کنید تا دامنه به آن متصل شود"
 
-#: content_my/domain/setting/business/display.php:65
+#: content_my/domain/setting/business/display.php:54
 msgid "Make your website and online business quickly!"
 msgstr "وب‌سایت و بیزینس آنلاین خود را سریع بسازید!"
 
 #: content_my/domain/setting/business/view.php:9
-#: content_my/domain/setting/elements/business.php:31
 msgid "Connect domain to business"
 msgstr "اتصال دامنه به بیزینس"
 
@@ -21295,13 +21322,17 @@ msgstr "شما می‌توانید رکورد‌های دی‌ان‌اس دام
 msgid "Manage Domain DNS record"
 msgstr "مدیریت ردیف‌های دی‌ان‌اس دامنه"
 
+#: content_my/domain/setting/elements/business.php:31
+msgid "Need website?"
+msgstr "به وب‌سایت نیاز دارید؟"
+
 #: content_my/domain/setting/elements/business.php:33
-msgid "In this section, you connect your domain to your business"
-msgstr "در این بخش شما می‌توانید دامنه خود را به یک بیزینس متصل کنید"
+msgid "You can build a modern website and enjoy it"
+msgstr "شما می‌توانید یک وب‌سایت مدرن بسازید و از آن لذت ببرید"
 
 #: content_my/domain/setting/elements/business.php:39
-msgid "Connect"
-msgstr "اتصال"
+msgid "Build my website"
+msgstr "وب‌سایت من را بساز"
 
 #: content_my/domain/setting/elements/detail.php:6
 msgid "Visit Domain"
@@ -25415,7 +25446,7 @@ msgstr "همگام‌سازی با وب‌سایت"
 
 #: dash/social/telegram/commands/ermile.php:332
 #: dash/social/telegram/commands/ermile.php:528
-#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:111
+#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:150
 #: lib/app/website/init.php:56
 msgid "About"
 msgstr "درباره"
@@ -36694,43 +36725,43 @@ msgstr "آدرس‌ها"
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
-#: lib/app/store/config.php:74
+#: lib/app/store/config.php:113
 msgid "Example product 1"
 msgstr "محصول نمونه ۱"
 
-#: lib/app/store/config.php:77
+#: lib/app/store/config.php:116
 msgid "Description of example product 1"
 msgstr "توضیحاتی در مورد محصول نمونه ۱"
 
-#: lib/app/store/config.php:80
+#: lib/app/store/config.php:119
 msgid "Share this product by this text"
 msgstr "با این متن محصول خود را به اشتراک بگذارید"
 
-#: lib/app/store/config.php:84
+#: lib/app/store/config.php:123
 msgid "Example company"
 msgstr "شرکت سازنده نمونه"
 
-#: lib/app/store/config.php:85
+#: lib/app/store/config.php:124
 msgid "Example tag 1"
 msgstr "تگ نمونه ۱"
 
-#: lib/app/store/config.php:85
+#: lib/app/store/config.php:124
 msgid "Example tag 2"
 msgstr "تگ نمونه ۲"
 
-#: lib/app/store/config.php:86
+#: lib/app/store/config.php:125
 msgid "Example category 1"
 msgstr "دسته‌بندی نمونه ۱"
 
-#: lib/app/store/config.php:115
+#: lib/app/store/config.php:154
 msgid "Sample about page"
 msgstr "نمونه‌ای از صفحه درباره ما"
 
-#: lib/app/store/config.php:122
+#: lib/app/store/config.php:161
 msgid "Contact US"
 msgstr "تماس با ما"
 
-#: lib/app/store/config.php:126
+#: lib/app/store/config.php:165
 msgid "Sample contact page"
 msgstr "نمونه‌ای از صفحه ارتباط با ما"
 
@@ -38606,6 +38637,15 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "You can add domain to your business"
+#~ msgstr "شما می‌توانید دامنه را به بیزینس خود متصل کنید"
+
+#~ msgid "In this section, you connect your domain to your business"
+#~ msgstr "در این بخش شما می‌توانید دامنه خود را به یک بیزینس متصل کنید"
+
+#~ msgid "Connect"
+#~ msgstr "اتصال"
 
 #~ msgid "Powerd by Jibres"
 #~ msgstr "قدرت گرفته از جیبرس"
@@ -43068,9 +43108,6 @@ msgstr "یارد"
 
 #~ msgid "Creating your store"
 #~ msgstr "درحال ساخت فروشگاه شما"
-
-#~ msgid "Build my own store"
-#~ msgstr "فروشگاه من را بساز"
 
 #~ msgid "Store Lists"
 #~ msgstr "لیست فروشگاه‌ها"
