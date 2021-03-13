@@ -80,7 +80,7 @@ if($ns1 || $ns2 || $ns3 || $ns4)
         <a class="link" target="_blank" href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Check DNS Propagation") ?> <i class="sf-link-external"></i></a>
       </div>
       <div class="c-auto">
-        <a class="link" target="_blank" href="https://intodns.com/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Checks DNS health and configuration") ?> <i class="sf-link-external"></i></a>
+        <a class="link" target="_blank" href="https://intodns.com/<?php echo \dash\data::domainDetail_name() ?>"><?php echo T_("Check DNS health and configuration") ?> <i class="sf-link-external"></i></a>
       </div>
       <div class="c"></div>
       <div class="c-auto">

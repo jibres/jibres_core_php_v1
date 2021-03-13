@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-12 19:29+0330\n"
-"PO-Revision-Date: 2021-03-12 19:41+0330\n"
+"POT-Creation-Date: 2021-03-13 16:58+0330\n"
+"PO-Revision-Date: 2021-03-13 17:00+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -16744,6 +16744,8 @@ msgid ""
 "This user have permission. If your want to remove user you must convert this staff to "
 "customer and then you can remove it"
 msgstr ""
+"این کاربر دارای سطح دسترسی می‌باشد. برای حذف این کاربر ابتدا باید ایشان را از کارمند به "
+"مشتری تبدیل کنید و سپس می‌توانید مشتری را حذف کنید"
 
 #: content_crm/member/status/display.php:69
 msgid "Convert to customer"
@@ -21247,12 +21249,12 @@ msgstr "همین الان بخر"
 #: content_my/domain/setting/dns/display.php:20
 #: content_my/domain/setting/dns/display.php:31
 msgid "If you want to set your domain Nameserver as our jibres dns record"
-msgstr ""
+msgstr "اگر می‌خواهید نیم سرور‌های دامنه خود را بر روی نیم سرور‌های جیبرس تنظیم کنید"
 
 #: content_my/domain/setting/dns/display.php:21
 #: content_my/domain/setting/dns/display.php:32
 msgid "Are you sure to set your domain Nameserver record on Jibres Nameserver?"
-msgstr ""
+msgstr "آیا از تنظیم نیم سرورهای دامنه بر روی نیم سرورهای جیبرس اطمینان دارید؟"
 
 #: content_my/domain/setting/dns/display.php:37
 msgid "Powerd by Jibres"
@@ -21271,10 +21273,8 @@ msgid "Nameserver #2"
 msgstr "نیم سرور ۲"
 
 #: content_my/domain/setting/dns/view.php:9
-#, fuzzy
-#| msgid "Domain reserved"
 msgid "Domain Nameserver"
-msgstr "دامنه رزرو شده است"
+msgstr "نیم سرور دامنه"
 
 #: content_my/domain/setting/dnsadvance/display.php:28
 #: content_my/domain/setting/dnsadvance/display.php:87
@@ -21287,20 +21287,16 @@ msgid "Nameserver #4"
 msgstr "نیم سرور ۴"
 
 #: content_my/domain/setting/dnsadvance/view.php:9
-#, fuzzy
-#| msgid "Domain reserved"
 msgid "Domain Advance Nameserver"
-msgstr "دامنه رزرو شده است"
+msgstr "تنظیم پیشرفته نام سرور‌ها"
 
 #: content_my/domain/setting/elements/business.php:8
 msgid "Connected to :val"
 msgstr "متصل به :val"
 
 #: content_my/domain/setting/elements/business.php:15
-#, fuzzy
-#| msgid "We can not get your domain DNS record"
 msgid "You can manage your Domain DNS records"
-msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
+msgstr "شما می‌توانید رکورد‌های دی‌ان‌اس دامنه را مدیریت کنید"
 
 #: content_my/domain/setting/elements/business.php:21
 msgid "Manage Domain DNS record"
@@ -21315,18 +21311,16 @@ msgid "Connect"
 msgstr "اتصال"
 
 #: content_my/domain/setting/elements/detail.php:6
-#, fuzzy
-#| msgid "Register Domain"
 msgid "Visit Domain"
-msgstr "ثبت دامنه"
+msgstr "بازدید از دامنه"
 
 #: content_my/domain/setting/elements/irnic.php:8
 msgid "Domain Holders"
-msgstr ""
+msgstr "صاحب امتیاز دامنه"
 
 #: content_my/domain/setting/elements/irnic.php:10
 msgid "Check detail of domain holders for IRNIC."
-msgstr ""
+msgstr "بررسی جزئیات صاحب امتیاز دامنه در ایرنیک"
 
 #: content_my/domain/setting/elements/irnic.php:17
 msgid "Manage Domain Holders"
@@ -21337,10 +21331,8 @@ msgid "Handle"
 msgstr "شناسه"
 
 #: content_my/domain/setting/elements/irnic.php:75
-#, fuzzy
-#| msgid "Check logs"
 msgid "Check Whois"
-msgstr "بررسی ردپاها"
+msgstr "بررسی هوایز"
 
 #: content_my/domain/setting/elements/irnic.php:79
 #: content_my/domain/setting/elements/nameservers.php:87
@@ -21350,22 +21342,16 @@ msgid "Help"
 msgstr "راهنمایی"
 
 #: content_my/domain/setting/elements/lock.php:5
-#, fuzzy
-#| msgid "Domain is Lock"
 msgid "Domain Transfer Lock"
-msgstr "دامنه قفل شده است"
+msgstr "قفل انتقال دامنه"
 
 #: content_my/domain/setting/elements/lock.php:10
-#, fuzzy
-#| msgid "Your domain was transfered"
 msgid "Your domain is locked and safe."
-msgstr "دامنه شما انتقال یافت"
+msgstr "دامنه شما قفل شده و ایمن است."
 
 #: content_my/domain/setting/elements/lock.php:12
-#, fuzzy
-#| msgid "Your domain ready to register"
 msgid "Your domain is unlocked and ready to transfer!"
-msgstr "دامنه شما آماده ثبت است"
+msgstr "دامنه شما از حالت قفل خارج شده و آماده انتقال است!"
 
 #: content_my/domain/setting/elements/nameservers.php:8
 msgid "Nameservers"
@@ -21382,14 +21368,12 @@ msgid "Update Name Servers"
 msgstr "به روزرسانی نیم سرورها"
 
 #: content_my/domain/setting/elements/nameservers.php:80
-#, fuzzy
-#| msgid "Check domain"
 msgid "Check DNS Propagation"
-msgstr "بررسی دامنه"
+msgstr "بررسی انتشار دی‌ان‌اس"
 
 #: content_my/domain/setting/elements/nameservers.php:83
-msgid "Checks DNS health and configuration"
-msgstr ""
+msgid "Check DNS health and configuration"
+msgstr "بررسی وضعیت سلامت دی‌ان‌اس و پیکربندی"
 
 #: content_my/domain/setting/elements/remove.php:7
 msgid "Do you want to remove this domain from your account?"
@@ -21400,6 +21384,8 @@ msgid ""
 "In order to use the Auto-renew feature, you will need to deposit the amount necessary "
 "for domain renewal."
 msgstr ""
+"برای استفاده از قابلیت تمدید خودکار،‌ باید مبلغ لازم برای تمدید دامنه در حساب کاربری شما "
+"وجود داشته باشد."
 
 #: content_my/domain/setting/elements/renew.php:33
 msgid "Renew now"
@@ -21410,10 +21396,8 @@ msgid "IRNIC status"
 msgstr "وضعیت ایرنیک"
 
 #: content_my/domain/setting/elements/superdetail.php:17
-#, fuzzy
-#| msgid "Clean fetch"
 msgid "Clean domain fetch"
-msgstr "تمیزکردن دریافت"
+msgstr "تمیزکردن دریافت دامنه"
 
 #: content_my/domain/setting/elements/superdetail.php:24
 msgid "Translate"
@@ -21421,19 +21405,15 @@ msgstr "ترجمه"
 
 #: content_my/domain/setting/holder/view.php:9
 msgid "Domain holder"
-msgstr ""
+msgstr "شناسه دامنه"
 
 #: content_my/domain/setting/transfer/view.php:9
-#, fuzzy
-#| msgid "Domain setting"
 msgid "Domain lock setting"
-msgstr "تنظیمات دامنه"
+msgstr "تنظیمات قفل دامنه"
 
 #: content_my/domain/setting/view.php:9
-#, fuzzy
-#| msgid "Domain Detail"
 msgid "Domain detail"
-msgstr "جزئیات دامنه‌"
+msgstr "جزئیات دامنه"
 
 #: content_my/domain/setting/view.php:24 lib/app/domains/filter.php:46
 msgid "Default (Enable)"
@@ -33246,8 +33226,8 @@ msgid "Can not use jibres keywork in domain!"
 msgstr "نمی‌توانید از کلمه جیبرس در زیردامنه استفاده کنید!"
 
 #: lib/app/business_domain/add.php:177
-msgid "Can not user local domain!"
-msgstr ""
+msgid "Can not use local domain!"
+msgstr "نمی‌توانید از دامنه‌ی محلی (لوکال) استفاده کنید!"
 
 #: lib/app/business_domain/add.php:242
 msgid "Domain added"
