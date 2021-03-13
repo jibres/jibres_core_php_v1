@@ -70,7 +70,10 @@ class get
 									)
 									{
 										$log_meta['domainstatus'] = 'rejected';
-										// @reza need to check if pay money and back it
+
+										// remove verify from everyone
+										\lib\db\nic_domain\update::remove_verify_from_all($insert['domain']);
+
 										self::back_money($insert['domain']);
 									}
 									else
@@ -155,6 +158,9 @@ class get
 			\dash\log::to_supervisor('Domain reject money back. Refund money successfull. domain: '. $_domain);
 
 		}
+
+		// remove this domain verify for everysone
+		//
 		// check domain only for one user
 		// if this domain founded in more than one user accoutn check who pay for this domain
 		// if more than one person pay for this domain set log and return

@@ -65,7 +65,7 @@ class update
 
 	public static function remove_verify_from_all($_domain)
 	{
-		$query  = "UPDATE domain SET domain.verify = NULL WHERE domain.name = '$_domain' ";
+		$query  = "UPDATE domain SET domain.verify = NULL, domain.email = NULL, domain.mobile = NULL WHERE domain.name = '$_domain' ";
 		$result = \dash\db::query($query, 'nic');
 		return $result;
 	}
