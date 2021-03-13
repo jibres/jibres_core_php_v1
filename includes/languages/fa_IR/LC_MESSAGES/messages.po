@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-13 16:58+0330\n"
-"PO-Revision-Date: 2021-03-13 17:00+0330\n"
+"POT-Creation-Date: 2021-03-13 17:56+0330\n"
+"PO-Revision-Date: 2021-03-13 17:58+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -128,8 +128,7 @@ msgstr ""
 #: content_developers/home/view.php:9 content_developers/view.php:8
 #: content_enter/home/view.php:20 content_love/gift/home/giftcard.php:24
 #: content_love/gift/home/giftcard.php:27 content_my/domain/setting/dns/display.php:8
-#: content_my/domain/setting/dns/display.php:18
-#: content_my/domain/setting/dns/display.php:29
+#: content_my/domain/setting/dns/display.php:19
 #: content_my/domain/setting/elements/irnic.php:46
 #: content_my/domain/setting/elements/irnic.php:55
 #: content_my/domain/setting/elements/irnic.php:64
@@ -4856,10 +4855,10 @@ msgstr "پیگیری"
 #: content_crm/permission/edit/display.php:70 content_love/domain/detail/display.php:25
 #: content_love/domain/setting/display.php:125
 #: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:499
-#: lib/app/nic_domain/ready.php:148 lib/app/nic_domain/ready.php:150
-#: lib/app/nic_domain/ready.php:156 lib/app/nic_domain/ready.php:158
-#: lib/app/nic_domain/ready.php:225 lib/app/nic_domain/ready.php:227
-#: lib/app/nic_domain/ready.php:387
+#: lib/app/nic_domain/ready.php:150 lib/app/nic_domain/ready.php:152
+#: lib/app/nic_domain/ready.php:158 lib/app/nic_domain/ready.php:160
+#: lib/app/nic_domain/ready.php:227 lib/app/nic_domain/ready.php:229
+#: lib/app/nic_domain/ready.php:408
 msgid "Enable"
 msgstr "فعال"
 
@@ -9917,7 +9916,7 @@ msgstr "تعداد ردیف‌های دارای خطا:"
 
 #: content_a/products/import/display.php:55 content_pay/home/display.php:33
 #: dash/utility/pay/api/asanpardakht/bank.php:319 includes/languages/trans_static.php:583
-#: includes/languages/trans_static_public.php:182 lib/app/nic_domain/transfer.php:198
+#: includes/languages/trans_static_public.php:182 lib/app/nic_domain/transfer.php:229
 msgid "Error"
 msgstr "خطا"
 
@@ -11837,8 +11836,8 @@ msgid "To set your business currency"
 msgstr "برای تنظیم واحد‌های فروشگاه"
 
 #: content_a/setting/shipping/setting/display.php:24
-#: content_a/website/menu/item/display.php:94 content_my/domain/setting/dns/display.php:21
-#: content_my/domain/setting/dns/display.php:32 dash/app/user/email.php:212
+#: content_a/website/menu/item/display.php:94 content_my/domain/setting/dns/display.php:22
+#: dash/app/user/email.php:212
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
@@ -13456,10 +13455,10 @@ msgstr "نسبت"
 #: content_love/domain/detail/holder/display.php:30
 #: content_love/domain/setting/dns/display.php:67
 #: content_love/domain/setting/holder/display.php:30
-#: content_my/domain/setting/dns/display.php:55
-#: content_my/domain/setting/dnsadvance/display.php:43
-#: content_my/domain/setting/dnsadvance/display.php:115
-#: content_my/domain/setting/holder/display.php:29 content_su/home/display.php:73
+#: content_my/domain/setting/dns/display.php:43
+#: content_my/domain/setting/dnsadvance/display.php:44
+#: content_my/domain/setting/dnsadvance/display.php:117
+#: content_my/domain/setting/holder/display.php:30 content_su/home/display.php:73
 #: content_v2/android/update/display.php:4 content_v2/android/update/view.php:9
 #: dash/layout/admin/sidebar/sidebar-su.php:14
 #: includes/languages/trans_static_public.php:146
@@ -18257,7 +18256,7 @@ msgstr ""
 #: lib/app/nic_domain/transfer.php:85 lib/app/nic_domainaction/search.php:11
 #: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
 #: lib/app/nic_domainstatus/search.php:27 lib/app/nic_domainstatus/search.php:125
-#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:171 lib/app/nic_poll/get.php:184
+#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
 #: lib/app/nic_poll/search.php:27 lib/app/nic_poll/search.php:123
 #: lib/app/nic_usersetting/get.php:12 lib/app/nic_usersetting/search.php:27
 #: lib/app/nic_usersetting/search.php:134 lib/app/onlinenic/create.php:92
@@ -19138,8 +19137,8 @@ msgid "Transfer lock"
 msgstr "قفل انتقال دامنه"
 
 #: content_love/domain/detail/display.php:76 content_love/domain/setting/display.php:51
-#: includes/languages/trans_static_public.php:581 lib/app/nic_domain/ready.php:164
-#: lib/app/nic_domain/ready.php:166
+#: includes/languages/trans_static_public.php:581 lib/app/nic_domain/ready.php:166
+#: lib/app/nic_domain/ready.php:168
 msgid "Locked"
 msgstr "قفل شده"
 
@@ -19201,7 +19200,7 @@ msgstr "این دامنه را از حساب کاربری خود حذف کنید
 #: content_love/domain/detail/dns/display.php:7
 #: content_love/domain/setting/dns/display.php:7
 #: content_my/domain/setting/dnsadvance/display.php:7
-#: content_my/domain/setting/dnsadvance/display.php:55
+#: content_my/domain/setting/dnsadvance/display.php:56
 msgid ""
 "Filling the server IP address records (glue records) are required when you wish to set "
 "the name servers of a domain name to a hostname under the domain name itself."
@@ -19220,7 +19219,7 @@ msgstr "دی‌ان‌اس ۱"
 
 #: content_love/domain/detail/dns/display.php:19
 #: content_love/domain/setting/dns/display.php:19
-#: content_my/domain/setting/dnsadvance/display.php:67
+#: content_my/domain/setting/dnsadvance/display.php:69
 msgid "Server IP #1"
 msgstr "سرور آی‌پی ۱"
 
@@ -19234,7 +19233,7 @@ msgstr "دی‌ان‌اس ۲"
 
 #: content_love/domain/detail/dns/display.php:32
 #: content_love/domain/setting/dns/display.php:32
-#: content_my/domain/setting/dnsadvance/display.php:80
+#: content_my/domain/setting/dnsadvance/display.php:82
 msgid "Server IP #2"
 msgstr "سرور آی‌پی ۲"
 
@@ -19248,7 +19247,7 @@ msgstr "دی‌ان‌اس ۳"
 
 #: content_love/domain/detail/dns/display.php:45
 #: content_love/domain/setting/dns/display.php:45
-#: content_my/domain/setting/dnsadvance/display.php:93
+#: content_my/domain/setting/dnsadvance/display.php:95
 msgid "Server IP #3"
 msgstr "سرور آی‌پی ۳"
 
@@ -19262,13 +19261,13 @@ msgstr "دی‌ان‌اس ۴"
 
 #: content_love/domain/detail/dns/display.php:58
 #: content_love/domain/setting/dns/display.php:58
-#: content_my/domain/setting/dnsadvance/display.php:106
+#: content_my/domain/setting/dnsadvance/display.php:108
 msgid "Server IP #4"
 msgstr "سرور آی‌پی ۴"
 
 #: content_love/domain/detail/holder/display.php:7
 #: content_love/domain/setting/holder/display.php:7
-#: content_my/domain/setting/holder/display.php:7
+#: content_my/domain/setting/holder/display.php:8
 msgid ""
 "You can change domain technical and billing holder to another one to allow them to do "
 "some action."
@@ -19278,25 +19277,25 @@ msgstr ""
 
 #: content_love/domain/detail/holder/display.php:9
 #: content_love/domain/setting/holder/display.php:9
-#: content_my/domain/review/display.php:38 content_my/domain/setting/holder/display.php:8
+#: content_my/domain/review/display.php:38 content_my/domain/setting/holder/display.php:9
 msgid "Domain Holder"
 msgstr "صاحب امتیاز دامنه"
 
 #: content_love/domain/detail/holder/display.php:14
 #: content_love/domain/setting/holder/display.php:14
-#: content_my/domain/review/display.php:44 content_my/domain/setting/holder/display.php:13
+#: content_my/domain/review/display.php:44 content_my/domain/setting/holder/display.php:14
 msgid "Domain Admin"
 msgstr "رابط اداری دامنه"
 
 #: content_love/domain/detail/holder/display.php:19
 #: content_love/domain/setting/holder/display.php:19
-#: content_my/domain/review/display.php:50 content_my/domain/setting/holder/display.php:18
+#: content_my/domain/review/display.php:50 content_my/domain/setting/holder/display.php:19
 msgid "Domain Technical"
 msgstr "رابط فنی دامنه"
 
 #: content_love/domain/detail/holder/display.php:24
 #: content_love/domain/setting/holder/display.php:24
-#: content_my/domain/review/display.php:56 content_my/domain/setting/holder/display.php:23
+#: content_my/domain/review/display.php:56 content_my/domain/setting/holder/display.php:24
 msgid "Domain Billing"
 msgstr "رابط مالی دامنه"
 
@@ -19683,7 +19682,7 @@ msgstr "این دامنه آماده خرید است!"
 #: dash/app/user.php:129 dash/app/user.php:179 dash/app/visitor.php:112
 #: dash/app/visitor.php:141 includes/languages/trans_static.php:532
 #: lib/app/factor/ready.php:87 lib/app/factor/ready.php:126
-#: lib/app/nic_domain/ready.php:60 lib/app/nic_domain/ready.php:62
+#: lib/app/nic_domain/ready.php:62 lib/app/nic_domain/ready.php:64
 msgid "Unknown"
 msgstr "ناشناس"
 
@@ -21246,29 +21245,23 @@ msgstr "دامنه برای خرید موجود است"
 msgid "Buy now"
 msgstr "همین الان بخر"
 
-#: content_my/domain/setting/dns/display.php:20
-#: content_my/domain/setting/dns/display.php:31
+#: content_my/domain/setting/dns/display.php:21
 msgid "If you want to set your domain Nameserver as our jibres dns record"
 msgstr "اگر می‌خواهید نیم سرور‌های دامنه خود را بر روی نیم سرور‌های جیبرس تنظیم کنید"
 
-#: content_my/domain/setting/dns/display.php:21
-#: content_my/domain/setting/dns/display.php:32
+#: content_my/domain/setting/dns/display.php:22
 msgid "Are you sure to set your domain Nameserver record on Jibres Nameserver?"
 msgstr "آیا از تنظیم نیم سرورهای دامنه بر روی نیم سرورهای جیبرس اطمینان دارید؟"
 
-#: content_my/domain/setting/dns/display.php:37
-msgid "Powerd by Jibres"
-msgstr "قدرت گرفته از جیبرس"
-
-#: content_my/domain/setting/dns/display.php:42
-#: content_my/domain/setting/dnsadvance/display.php:12
-#: content_my/domain/setting/dnsadvance/display.php:60
+#: content_my/domain/setting/dns/display.php:30
+#: content_my/domain/setting/dnsadvance/display.php:13
+#: content_my/domain/setting/dnsadvance/display.php:62
 msgid "Nameserver #1"
 msgstr "نیم سرور ۱"
 
-#: content_my/domain/setting/dns/display.php:48
-#: content_my/domain/setting/dnsadvance/display.php:20
-#: content_my/domain/setting/dnsadvance/display.php:74
+#: content_my/domain/setting/dns/display.php:36
+#: content_my/domain/setting/dnsadvance/display.php:21
+#: content_my/domain/setting/dnsadvance/display.php:76
 msgid "Nameserver #2"
 msgstr "نیم سرور ۲"
 
@@ -21276,13 +21269,13 @@ msgstr "نیم سرور ۲"
 msgid "Domain Nameserver"
 msgstr "نیم سرور دامنه"
 
-#: content_my/domain/setting/dnsadvance/display.php:28
-#: content_my/domain/setting/dnsadvance/display.php:87
+#: content_my/domain/setting/dnsadvance/display.php:29
+#: content_my/domain/setting/dnsadvance/display.php:89
 msgid "Nameserver #3"
 msgstr "نیم سرور ۳"
 
-#: content_my/domain/setting/dnsadvance/display.php:34
-#: content_my/domain/setting/dnsadvance/display.php:99
+#: content_my/domain/setting/dnsadvance/display.php:35
+#: content_my/domain/setting/dnsadvance/display.php:101
 msgid "Nameserver #4"
 msgstr "نیم سرور ۴"
 
@@ -28214,8 +28207,8 @@ msgstr "کلیدواژه مجله"
 msgid "Help_tag"
 msgstr "تگ راهنمایی"
 
-#: includes/languages/trans_static.php:554 lib/app/nic_domain/ready.php:173
-#: lib/app/nic_domain/ready.php:175
+#: includes/languages/trans_static.php:554 lib/app/nic_domain/ready.php:175
+#: lib/app/nic_domain/ready.php:177
 msgid "Expired"
 msgstr "منقضی‌شده"
 
@@ -33834,7 +33827,7 @@ msgid "Pay order"
 msgstr "پرداخت سفارش"
 
 #: lib/app/factor/cart.php:323 lib/app/nic_domain/create.php:540
-#: lib/app/nic_domain/renew.php:353 lib/app/nic_domain/transfer.php:325
+#: lib/app/nic_domain/renew.php:353 lib/app/nic_domain/transfer.php:356
 #: lib/app/onlinenic/create.php:416 lib/app/onlinenic/renew.php:263
 #: lib/app/onlinenic/transfer.php:366
 msgid "Pay link :val"
@@ -35333,27 +35326,27 @@ msgstr "دامنه از حالت قفل خارج شده است"
 msgid "Can not unlock your domain"
 msgstr "نمی‌توانید دامنه را از حالت قفل خارج کنید"
 
-#: lib/app/nic_domain/ready.php:131 lib/app/nic_domain/ready.php:134
+#: lib/app/nic_domain/ready.php:133 lib/app/nic_domain/ready.php:136
 msgid "Reject"
 msgstr "رد شده"
 
-#: lib/app/nic_domain/ready.php:140 lib/app/nic_domain/ready.php:142
+#: lib/app/nic_domain/ready.php:142 lib/app/nic_domain/ready.php:144
 msgid "Pending Approved"
 msgstr "در انتظار تایید توسط واحد ثبت"
 
-#: lib/app/nic_domain/ready.php:182 lib/app/nic_domain/ready.php:184
+#: lib/app/nic_domain/ready.php:184 lib/app/nic_domain/ready.php:186
 msgid "Document required"
 msgstr "نیاز به ارائه مستندات"
 
-#: lib/app/nic_domain/ready.php:190 lib/app/nic_domain/ready.php:192
+#: lib/app/nic_domain/ready.php:192 lib/app/nic_domain/ready.php:194
 msgid "Register Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:204 lib/app/nic_domain/ready.php:206
+#: lib/app/nic_domain/ready.php:206 lib/app/nic_domain/ready.php:208
 msgid "Domain Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:363
+#: lib/app/nic_domain/ready.php:384
 msgid "Register now"
 msgstr "هم‌اکنون ثبت‌نام کنید"
 
@@ -35446,23 +35439,39 @@ msgstr "مبلغ پرداختی در یک سال آینده"
 msgid "Can not add your IRNIC handle"
 msgstr "نمی‌توانیم شناسه ایرنیک شما را اضافه کنیم"
 
-#: lib/app/nic_domain/transfer.php:219 lib/app/onlinenic/transfer.php:262
+#: lib/app/nic_domain/transfer.php:148
+msgid "This domain belongs to the same ID entered."
+msgstr "مالک این دامنه همین شناسه وارد شده است."
+
+#: lib/app/nic_domain/transfer.php:150
+msgid "The transfer process in IR domains is to transfer from one person to another."
+msgstr "فرایند انتقال در دامنه‌های آی‌آر به معنای انتقال از شخصی به شخص دیگر است."
+
+#: lib/app/nic_domain/transfer.php:152
+msgid "Click here if you want to renew this domain"
+msgstr "اگر می‌خواهید این دامنه را تمدید کنید اینجا کلیک کنید"
+
+#: lib/app/nic_domain/transfer.php:154
+msgid "Renew :domain"
+msgstr "تمدید دامنه :domain"
+
+#: lib/app/nic_domain/transfer.php:250 lib/app/onlinenic/transfer.php:262
 msgid "Domain ready to transfer"
 msgstr "دامنه برای انتقال آماده است"
 
-#: lib/app/nic_domain/transfer.php:298 lib/app/onlinenic/transfer.php:339
+#: lib/app/nic_domain/transfer.php:329 lib/app/onlinenic/transfer.php:339
 msgid "Transfer :domain"
 msgstr "انتقال دامنه :domain"
 
-#: lib/app/nic_domain/transfer.php:403 lib/app/onlinenic/transfer.php:405
+#: lib/app/nic_domain/transfer.php:434 lib/app/onlinenic/transfer.php:405
 msgid "Transfer domian :val"
 msgstr "انتقال دامنه :val"
 
-#: lib/app/nic_domain/transfer.php:420
+#: lib/app/nic_domain/transfer.php:451
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
 
-#: lib/app/nic_domain/transfer.php:465
+#: lib/app/nic_domain/transfer.php:496
 msgid "Can not transfer this domain"
 msgstr "نمی‌توان این دامنه را انتقال داد"
 
@@ -35534,11 +35543,11 @@ msgstr "تمدید خودکار ناموفق بود"
 msgid "Pay :price toman fro :action domain :domain"
 msgstr "پرداخت :price تومان برای :action دامنه :domain"
 
-#: lib/app/nic_poll/get.php:145
+#: lib/app/nic_poll/get.php:148
 msgid "Refund money for reject domain :val"
 msgstr "بازگشت هزینه دامنه به علت رد شدن دامنه :val"
 
-#: lib/app/nic_poll/get.php:204
+#: lib/app/nic_poll/get.php:210
 msgid "Your domain status was updated"
 msgstr "وضعیت دامنه شما به‌روز شده است"
 
@@ -38597,6 +38606,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Powerd by Jibres"
+#~ msgstr "قدرت گرفته از جیبرس"
 
 #~ msgid "Enable auto renew for this domains"
 #~ msgstr "فعال کردن تمدید خودکار برای این دامنه"
