@@ -109,7 +109,7 @@ class creating
 	 *
 	 * @return     <type>  The session.
 	 */
-	private static function get_session()
+	public static function get_session()
 	{
 		if(empty(self::$session_data))
 		{

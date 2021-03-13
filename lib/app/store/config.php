@@ -39,6 +39,45 @@ class config
 
 
 	/**
+	 * After create store user login in store and run this function if from domain
+	 */
+	public static function first_setup_domain()
+	{
+		$setup_before = \lib\db\setting\get::by_cat_key('business_first_setup_domain_data', 'execute');
+
+		if(!$setup_before)
+		{
+			\lib\db\setting\set::cat_key_value('business_first_setup_domain_data', 'execute', date("Y-m-d H:i:s"));
+			// continue function to init setup
+		}
+		else
+		{
+			// setup execute before needless to run again
+			return false;
+		}
+
+		$domain = \dash\request::get('domain');
+		$domain = \dash\validate::domain($domain, false);
+		if(!$domain)
+		{
+			return false;
+		}
+
+		$args =
+		[
+			'domain' => $domain,
+		];
+
+		$result = \lib\app\business_domain\add::store_add($args);
+
+		\dash\notif::clean();
+
+		\dash\redirect::to(\dash\url::here(). '/setting/buildwebsite', 'billboard');
+
+	}
+
+
+	/**
 	 * After create store user login in store and run this function
 	 */
 	public static function first_setup()
