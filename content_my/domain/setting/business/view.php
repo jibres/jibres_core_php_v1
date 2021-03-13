@@ -41,36 +41,42 @@ class view
 		$domainConnected                = [];
 		$domainConnectedToMyBusiness    = [];
 
-		if(isset($load_domain['id']))
+		if(a($load_domain, 'store_id'))
 		{
-			$domainConnected['ok'] = true;
 
-			if(isset($load_domain['store_id']))
+			if(isset($load_domain['id']))
 			{
-				if(in_array($load_domain['store_id'], $myStoreIDS))
+				$domainConnected['ok'] = true;
+
+				if(isset($load_domain['store_id']))
 				{
-
-					$domainConnectedToMyBusiness['ok'] = true;
-
-					foreach ($myStore as $key => $value)
+					if(in_array($load_domain['store_id'], $myStoreIDS))
 					{
-						if(isset($value['store_id']) && floatval($value['store_id']) === floatval($load_domain['store_id']))
+
+						$domainConnectedToMyBusiness['ok'] = true;
+
+						foreach ($myStore as $key => $value)
 						{
-							$domainConnectedToMyBusiness['detail'] = $value;
+							if(isset($value['store_id']) && floatval($value['store_id']) === floatval($load_domain['store_id']))
+							{
+								$domainConnectedToMyBusiness['detail'] = $value;
+							}
 						}
+						// connected to my store
 					}
-					// connected to my store
+				}
+				else
+				{
+					// unknown error!
 				}
 			}
 			else
 			{
-				// unknown error!
+				// not connected to my store
 			}
+
 		}
-		else
-		{
-			// not connected to my store
-		}
+
 
 		\dash\data::domainConnected($domainConnected);
 		\dash\data::domainConnectedToMyBusiness($domainConnectedToMyBusiness);
