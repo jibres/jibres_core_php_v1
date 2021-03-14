@@ -361,24 +361,25 @@ class prepare
 		// 	$full_target .= '?'. $query_string;
 		// }
 
-
-		// if we have new target url, and dont on force show mode, try to change it
-		// if(!\dash\request::get('force'))
+		if(strpos($full_target, '?') === false && \dash\request::get())
 		{
-			if($target_host === \dash\url::base())
+			$full_target .= '?'. \dash\request::fix_get();
+		}
+
+		if($target_host === \dash\url::base())
+		{
+			// only check last slash
+			if($target_url !== \dash\url::pwd())
 			{
-				// only check last slash
-				if($target_url !== \dash\url::pwd())
-				{
-					\dash\redirect::to($full_target, true, 301);
-				}
-			}
-			else
-			{
-				// change host and slash together
 				\dash\redirect::to($full_target, true, 301);
 			}
 		}
+		else
+		{
+			// change host and slash together
+			\dash\redirect::to($full_target, true, 301);
+		}
+
 	}
 
 
