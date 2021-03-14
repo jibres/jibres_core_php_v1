@@ -123,6 +123,11 @@ class edit
 
 				if(array_key_exists('tags', $_args))
 				{
+					if($content)
+					{
+						$tags = \dash\app\terms\find::tag($content, $tags);
+					}
+
 					\dash\app\posts\terms::save_post_term($tags, $id, 'tag');
 				}
 

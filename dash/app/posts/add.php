@@ -74,7 +74,12 @@ class add
 			\dash\db\posts\update::bind_content($content, $post_id);
 		}
 
-		if(array_key_exists('tags', $_args))
+		if($content)
+		{
+			$tags = \dash\app\terms\find::tag($content, $tags);
+		}
+
+		if(array_key_exists('tags', $_args) || $tags)
 		{
 			\dash\app\posts\terms::save_post_term($tags, $post_id, 'tag');
 		}
