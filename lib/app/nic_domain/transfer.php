@@ -321,7 +321,7 @@ class transfer
 				// $temp_args['discount']       = $discount;
 				$temp_args['minus_transaction'] = $pay_amount_budget + $pay_amount_bank;
 				$temp_args['user_id']           = $user_id;
-				$temp_args['my_domain']         = $domain;
+
 
 				// go to bank
 				$meta =
