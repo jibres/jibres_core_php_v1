@@ -8,7 +8,7 @@ class url
 
 	public static function url($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::absolute_url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -71,9 +71,11 @@ class url
 	}
 
 
-	public static function absolute_url($_data, $_notif = false, $_element = null, $_field_title = null)
+	public static function absolute_url($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$meta = array_merge(['min' => 3, 'max' => 100], $_meta);
+
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, $meta);
 
 		if($data === false || $data === null)
 		{
@@ -89,10 +91,14 @@ class url
 				\dash\notif::error(T_("We can not save this text 2!"), ['element' => $_element, 'code' => 1605]);
 				\dash\cleanse::$status = false;
 			}
-			return $data;
+			return false;
 		}
 
-		// jav`asc`ript:al`ert(document.domain)
+		// retrun for 0 and null and ''
+		if(!$data)
+		{
+			return $data;
+		}
 
 		$hidden_char =
 		[
@@ -170,7 +176,7 @@ class url
 		}
 
 
-		for ($i=1; $i <= 31 ; $i++)
+		for ($i = 1; $i <= 31 ; $i++)
 		{
 			if(strpos($data, chr($i)) !== false)
 			{
@@ -193,18 +199,36 @@ class url
 			return false;
 		}
 
+		if(strpos($data, '>') !== false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Url can not contain invalid character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+		if(strpos($data, '<') !== false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Url can not contain invalid character"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
 		return $data;
 	}
 
 
 	public static function domain($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::absolute_url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 		if($data === false || $data === null)
 		{
 			return $data;
 		}
-
 
 		if(strpos($data, '.') === false)
 		{
@@ -320,7 +344,7 @@ class url
 
 	public static function domain_root($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::absolute_url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 		if($data === false || $data === null)
 		{
 			return $data;
@@ -344,14 +368,7 @@ class url
 
 	public static function ir_domain($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
-
-		if($data === false || $data === null)
-		{
-			return $data;
-		}
-
-		$data = self::domain_clean($data, $_notif, $_element, $_field_title);
+		$data = self::domain($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -376,7 +393,7 @@ class url
 
 	public static function ip($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::absolute_url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -400,7 +417,7 @@ class url
 
 	public static function ipv4($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::ip($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -422,7 +439,7 @@ class url
 
 	public static function ipv6($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::ip($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -445,7 +462,7 @@ class url
 
 	public static function dns($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::domain($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
 
 		if($data === false || $data === null)
 		{
@@ -461,10 +478,6 @@ class url
 			}
 			return false;
 		}
-
-		$data = urldecode($data);
-		$data = mb_strtolower($data);
-
 
 		return $data;
 	}
