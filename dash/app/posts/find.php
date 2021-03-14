@@ -43,6 +43,11 @@ class find
 
 		$preview  = \dash\request::get('preview') ? true : false;
 
+		if(!$preview && isset($dataRow['status']) && $dataRow['status'] !== 'publish')
+		{
+			\dash\header::status(404, T_("This post is not published"));
+		}
+
 		if(isset($dataRow['redirecturl']) && $dataRow['redirecturl'])
 		{
 			if(!$preview)
