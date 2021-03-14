@@ -242,17 +242,17 @@ class html
 			return false;
 		}
 
-		if(!preg_match("/\.(jpg|png|gif|webp|jpeg)$/", $_url))
+		$analyze_url = \dash\validate\url::parseUrl($_url);
+
+		if(!isset($analyze_url['root']) || !isset($analyze_url['path']))
 		{
-			\dash\temp::set('check_img_url_path', T_("Invalid image url!"));
+			\dash\temp::set('check_img_url_path', T_("Invalid url!"));
 			return false;
 		}
 
-		$analyze_url = \dash\validate\url::parseUrl($_url);
-
-		if(!isset($analyze_url['root']))
+		if(!preg_match("/\.(jpg|png|gif|webp|jpeg)$/", $analyze_url['path']))
 		{
-			\dash\temp::set('check_img_url_path', T_("Invalid url!"));
+			\dash\temp::set('check_img_url_path', T_("Invalid image url!"));
 			return false;
 		}
 

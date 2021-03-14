@@ -61,7 +61,7 @@ class check
 			'width'             => 'int',
 			'height'            => 'int',
 			'filesize'          => 'int',
-			'fileaddress'       => 'url',
+			'fileaddress'       => 'external_url',
 			'optionname1'       => 'string_100',
 			'optionvalue1'      => 'string_100',
 			'optionname2'       => 'string_100',

@@ -561,6 +561,53 @@ class url
 	}
 
 
+	public static function external_url($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$analyze_url = \dash\validate\url::parseUrl($data);
+
+		if(!isset($analyze_url['root']) || !isset($analyze_url['path']))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid url"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		$allow_upload_provider =
+		[
+			'talambar',
+			'arvanstorage',
+			'digitaloceanspaces',
+			'amazonaws',
+		];
+
+		if(!in_array($analyze_url['root'], $allow_upload_provider))
+		{
+			if(!preg_match("/\.(zip)$/", $analyze_url['path']))
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Only zip file is supported for this URL"), ['element' => $_element, 'code' => 1605]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
+		return $data;
+	}
+
+
+
 
 	/**
 	 * This function tested by this domain

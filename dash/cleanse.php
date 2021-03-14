@@ -644,6 +644,7 @@ class cleanse
 			case 'ipv6': 				$data = \dash\validate\url::ipv6(...$fn_args); 						break;
 			case 'dns': 				$data = \dash\validate\url::dns(...$fn_args); 						break;
 			case 'absolute_url':		$data = \dash\validate\url::absolute_url(...$fn_args);				break;
+			case 'external_url':		$data = \dash\validate\url::external_url(...$fn_args);				break;
 			case 'birthdate': 			$data = \dash\validate\datetime::birthdate(...$fn_args); 			break;
 			case 'date': 				$data = \dash\validate\datetime::date(...$fn_args); 				break;
 			case 'datetime': 			$data = \dash\validate\datetime::datetime(...$fn_args); 			break;
