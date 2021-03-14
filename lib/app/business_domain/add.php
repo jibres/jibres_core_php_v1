@@ -76,6 +76,8 @@ class add
 
 		self::add($_args);
 
+		\lib\app\store\edit::selfedit(['redirect_jibres_subdomain_to_master' => 1]);
+
 		return true;
 	}
 
