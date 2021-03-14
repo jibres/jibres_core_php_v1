@@ -67,14 +67,7 @@ class ready
 
 
 				case 'content':
-					if(\dash\url::content() === 'cms')
-					{
-						$result[$key] = $value;
-					}
-					else
-					{
-						$result[$key] = \lib\shortcode::analyze_desc_html($value);
-					}
+					$result[$key] = $value;
 					break;
 
 				case 'thumb':
@@ -357,6 +350,31 @@ class ready
 
 
 		return $result;
+	}
+
+
+
+	/**
+	 * Analyze html and fix tag link
+	 * ready to show in website
+	 *
+	 * @param      <type>  $_data  The data
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function show($_data)
+	{
+		if(isset($_data['content']))
+		{
+			$_data['content'] = \lib\shortcode::analyze_desc_html($_data['content']);
+
+			if(isset($_data['tags']) && $_data['tags'] && is_array($_data['tags']))
+			{
+				$_data['content'] = \dash\app\terms\find::tags_link($_data['content'], $_data['tags']);
+			}
+		}
+
+		return $_data;
 	}
 }
 ?>

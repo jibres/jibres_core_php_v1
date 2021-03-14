@@ -40,9 +40,9 @@ class find
 			return false;
 		}
 
-
 		$preview  = \dash\request::get('preview') ? true : false;
 
+		// 404 on post not published
 		if(!$preview && isset($dataRow['status']) && $dataRow['status'] !== 'publish')
 		{
 			\dash\header::status(404, T_("This post is not published"));
@@ -94,6 +94,8 @@ class find
 
 		$dataRow['tags']     = $tag;
 
+		$dataRow = \dash\app\posts\ready::show($dataRow);
+
 		self::$dataRow = $dataRow;
 
 		if(!\dash\data::dataRow())
@@ -124,8 +126,6 @@ class find
 		$url = str_replace('`', '', $url);
 		$url = str_replace('%', '', $url);
 
-		$preview  = \dash\request::get('preview') ? true : false;
-
 		if(\dash\engine\store::inStore())
 		{
 			// not check language
@@ -144,11 +144,6 @@ class find
 		if($language)
 		{
 			$get_post['language'] = $language;
-		}
-
-		if(!$preview)
-		{
-			$get_post['status'] = 'publish';
 		}
 
 		$dataRow = \dash\db\posts\get::get_one($get_post);
