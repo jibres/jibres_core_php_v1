@@ -6,6 +6,16 @@ $storeData = \dash\data::store_store_data();
     <div class="box">
       <div class="pad">
         <?php \dash\csrf::html(); ?>
+        <div data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-preview-circle data-autoSend data-uploader-circle>
+              <input type="file" accept="image/jpeg, image/png" id="image1">
+              <label for="image1"><?php echo T_('Drag &amp; Drop website logo or Browse'); ?></label>
+              <?php if(a($storeData, 'logo')) {?>
+                <label for="image1">
+                  <img id='finalImage' src="<?php echo a($storeData, 'logo') ?>" alt='<?php echo T_("Your logo") ?>'>
+                </label>
+              <?php }?>
+            </div>
+
         <label for="ititle"><?php echo T_("Website title"); ?> <span class="fc-red">*</span></label>
         <div class="input">
           <input type="text" name="title" id="ititle" placeholder='<?php echo T_("Name"); ?>' value="<?php echo a($storeData, 'title'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
@@ -16,18 +26,6 @@ $storeData = \dash\data::store_store_data();
 
 
 
-
-        <label for="logo"><?php echo T_("Website Logo"); ?></label>
-        <div data-uploader data-name='logo' data-ratio="1" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage'<?php if(\dash\data::dataRow_logo()) { echo " data-fill"; }?>>
-          <input type="file" accept="image/jpeg, image/png" id="image1">
-          <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-<?php if(\dash\data::dataRow_logo()) {?>
-          <label for="image1">
-            <img id="finalImage" class="mA0-f" src="<?php echo \dash\data::dataRow_logo(); ?>">
-          </label>
-          <span class="imageDel hide" data-confirm data-data='{"deletefile" : 1}'></span>
-<?php }?>
-        </div>
 
           <label for="instagram"><?php echo T_("Instagram"); ?></label>
           <div class="input ltr">
