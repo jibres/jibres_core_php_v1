@@ -104,6 +104,17 @@ class text
 		}
 		else
 		{
+			$data = self::html_decode($data);
+			if($data === false)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("We can not save this text!", ['val' => $_field_title]), ['element' => $_element, 'code' => 1750]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+
 			$data = strip_tags($data);
 			$data = str_replace('"',   '', $data);
 			$data = str_replace("'",   '', $data);
@@ -138,6 +149,42 @@ class text
 		$data = trim($data);
 
 		return $data;
+	}
+
+
+	public static function html_decode($_text)
+	{
+		if(!$_text || !is_string($_text))
+		{
+			return $_text;
+		}
+
+		if($_text !== ($decoded1 = htmlspecialchars_decode($_text)))
+		{
+			if($decoded1 !== ($decoded2 = htmlspecialchars_decode($decoded1)))
+			{
+				if($decoded2 !== ($decoded3 = htmlspecialchars_decode($decoded2)))
+				{
+					// dbl encode!
+					return false;
+				}
+				else
+				{
+					// decode 2
+					return $decoded2;
+				}
+			}
+			else
+			{
+				// decode 1
+				return $decoded1;
+			}
+		}
+		else
+		{
+			// text is not decoded
+			return $_text;
+		}
 	}
 
 

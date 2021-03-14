@@ -68,7 +68,17 @@ class html
 
 		$data = $_data;
 
-		$data = htmlspecialchars_decode($data);
+		$data = \dash\validate\text::html_decode($data);
+
+		if($data === false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("We can not save this text!"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
 
 		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
 
