@@ -50,11 +50,9 @@ class view
 
 					\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
-					$my_domain = isset($get_msg['payment_response']['final_fn_args']['my_domain']) ? $get_msg['payment_response']['final_fn_args']['my_domain'] : null;
-
-					if($my_domain)
+					if($domain)
 					{
-						\dash\redirect::to(\dash\url::this(). '/setting?domain='. $my_domain);
+						\dash\redirect::to(\dash\url::this(). '/setting?domain='. $domain, 'pay');
 					}
 
 				}
@@ -70,7 +68,6 @@ class view
 				\dash\redirect::to(\dash\url::this());
 			}
 		}
-
 
 	}
 }
