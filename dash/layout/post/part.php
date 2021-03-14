@@ -335,7 +335,7 @@ class part
 		// facebook
 		{
 			$html .= '<a target="_blank" class="facebook" title="'. T_("Share of Facebook"). '"';
-			$html .= 'href="https://www.facebook.com/sharer/sharer.php?u='. \dash\url::pwd(). '"';
+			$html .= ' href="https://www.facebook.com/sharer/sharer.php?u='. \dash\url::pwd(). '"';
 			$html .= '>';
 			$html .= T_("Share of Facebook");
 			$html .= '</a>';
@@ -343,7 +343,7 @@ class part
 		// twitter
 		{
 			$html .= '<a target="_blank" class="twitter" title="'. T_("Share of Twitter"). '"';
-			$html .= 'href="https://twitter.com/home?status='. \dash\url::pwd(). '"';
+			$html .= ' href="https://twitter.com/home?status='. \dash\url::pwd(). '"';
 			$html .= '>';
 			$html .= T_("Share of Twitter");
 			$html .= '</a>';
@@ -351,7 +351,7 @@ class part
 		// linkedin
 		{
 			$html .= '<a target="_blank" class="linkedin" title="'. T_("Share of Linkedin"). '"';
-			$html .= 'href="https://www.linkedin.com/shareArticle?mini=true&url='. \dash\url::pwd(). '&title='. urlencode(\dash\face::title()).'&summary='. \dash\face::desc() . '"';
+			$html .= ' href="https://www.linkedin.com/shareArticle?mini=true&url='. \dash\url::pwd(). '&title='. urlencode(\dash\face::title()).'&summary='. urlencode(\dash\face::desc()) . '"';
 			$html .= '>';
 			$html .= T_("Share of Linkedin");
 			$html .= '</a>';
@@ -359,7 +359,7 @@ class part
 		// telegram
 		{
 			$html .= '<a target="_blank" class="telegram" title="'. T_("Share of Telegram"). '"';
-			$html .= 'href="https://t.me/share/url?url='. \dash\url::pwd(). '&text='. urlencode(\dash\face::title()). '"';
+			$html .= ' href="https://t.me/share/url?url='. \dash\url::pwd(). '&text='. urlencode(\dash\face::title()). '"';
 			$html .= '>';
 			$html .= T_("Share of Telegram");
 			$html .= '</a>';
@@ -367,8 +367,8 @@ class part
 		// copy shortLink
 		{
 			$html .= '<a class="copy" title="'. T_("Copy Shortlink"). '"';
-			$html .= 'data-copy="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '"';
-			$html .= 'data-copy-msg="'. T_("ShortLink of this page is copied. Paste in anywhere!"). '"';
+			$html .= ' data-copy="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '"';
+			$html .= ' data-copy-msg="'. T_("ShortLink of this page is copied. Paste in anywhere!"). '"';
 			$html .= '>';
 			$html .= T_("Copy Shortlink");
 			$html .= '</a>';
