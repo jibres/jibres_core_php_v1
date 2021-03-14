@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-13 19:42+0330\n"
-"PO-Revision-Date: 2021-03-13 19:44+0330\n"
+"POT-Creation-Date: 2021-03-14 11:06+0330\n"
+"PO-Revision-Date: 2021-03-14 11:10+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -17684,7 +17684,7 @@ msgstr "درخواست مجوز لازم را برای اجرا ندارد"
 
 #: content_developers/docs/004-responses.php:96 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:11 content_my/domain/renew/controller.php:13
-#: content_v2/check.php:23 content_v2/tools.php:175
+#: content_v2/check.php:23 content_v2/tools.php:175 dash/validate/url.php:579
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
 
@@ -23949,7 +23949,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:837
+#: dash/cleanse.php:839
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -26556,19 +26556,23 @@ msgstr "قالب ساعت اشتباه است. لطفا ساعت را به در�
 msgid "Can not send base64 image in this field"
 msgstr "نمی‌توانید متنی در قالب بیس۶۴ در این فیلد ارسال کنید"
 
-#: dash/validate/html.php:85
+#: dash/validate/html.php:77 dash/validate/text.php:112
+msgid "We can not save this text!"
+msgstr "نمی‌توانیم این متن را ذخیره کنیم!"
+
+#: dash/validate/html.php:95
 msgid "Something in html is wrong!"
 msgstr "برخی از مقادیر ارسال شده در اچ‌تی‌ام‌ال اشتباه هستند!"
 
-#: dash/validate/html.php:237
-msgid "Invalid image url!"
-msgstr "آدرس تصویر اشتباه است!"
-
-#: dash/validate/html.php:245
+#: dash/validate/html.php:249
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: dash/validate/html.php:259
+#: dash/validate/html.php:255
+msgid "Invalid image url!"
+msgstr "آدرس تصویر اشتباه است!"
+
+#: dash/validate/html.php:269
 msgid "We can not support this image url!"
 msgstr "ما این نوع فایل تصویری را پشتیبانی نمیکنیم!"
 
@@ -26752,157 +26756,189 @@ msgstr "مقدار :val  باید کوچکتر از :length حرف باشد"
 msgid "Field :val must be larger than :length character"
 msgstr "مقدار :val  باید بزرگتر از :length حرف باشد"
 
-#: dash/validate/text.php:132
+#: dash/validate/text.php:143
 msgid "We have removed some unauthorized characters from your text"
 msgstr "ما برخی از کاراکتر‌های غیر مجاز را از محتوای ارسالی شما حذف کردیم"
 
-#: dash/validate/text.php:158 dash/validate/text.php:186
+#: dash/validate/text.php:205 dash/validate/text.php:233
 msgid "Only English character can be enter in field :val"
 msgstr "تنها کاراکتر‌های لاتین می‌تواند در فیلد :val ارسال شود"
 
-#: dash/validate/text.php:220 dash/validate/text.php:252
+#: dash/validate/text.php:267 dash/validate/text.php:299
 msgid "Bad filename :val"
 msgstr "نام فایل نادرست است"
 
-#: dash/validate/text.php:275
+#: dash/validate/text.php:322
 msgid "Only A-Za-z0-9. can use in filename"
 msgstr "شما باید فقط از حروف و اعداد لاتین در نام فایل استفاده کنید"
 
-#: dash/validate/text.php:287
+#: dash/validate/text.php:334
 msgid "Can not use more than one dot character in filename"
 msgstr "نمی‌توانید از بیشتر از یک نقطه در نام فایل استفاده کنید"
 
-#: dash/validate/text.php:297
+#: dash/validate/text.php:344
 msgid "Invlid filename"
 msgstr "نام فایل اشتباه"
 
-#: dash/validate/text.php:321
+#: dash/validate/text.php:368
 msgid "Only A-Za-z0-9 Can be set on static file content"
 msgstr "شما باید فقط از حروف و اعداد لاتین در متن فایل استفاده کنید"
 
-#: dash/validate/text.php:351
+#: dash/validate/text.php:398
 msgid "Only Numeric character can be enter in field :val"
 msgstr "تنها کاراکتر‌های عددی می‌تواند در فیلد :val ارسال شود"
 
-#: dash/validate/text.php:388
+#: dash/validate/text.php:435
 msgid "Username should contain a valid Latin letter"
 msgstr "نام کاربری باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:396
+#: dash/validate/text.php:443
 msgid "We have removed _- characters from username"
 msgstr "ما کارکتر‌های ـ- را از نام کاربری شما حذف کردیم"
 
-#: dash/validate/text.php:404
+#: dash/validate/text.php:451
 msgid "Field username must be larger than 5 character"
 msgstr "نام کاربری باید بزرگتر از ۵ کاراکتر باشد"
 
-#: dash/validate/text.php:416
+#: dash/validate/text.php:463
 msgid "Only [A-Za-z0-9_-] can use in username"
 msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
 
-#: dash/validate/text.php:426
+#: dash/validate/text.php:473
 msgid "You must use a one character from [A-Za-z] in the username"
 msgstr "شما باید حتما از یک حرف لاتین در نام کاربری استفاده کنید"
 
-#: dash/validate/text.php:436
+#: dash/validate/text.php:483
 msgid "Username should contain a Latin letter"
 msgstr "نام کاربری باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:446
+#: dash/validate/text.php:493
 msgid "The username must begin with latin letters"
 msgstr "نام کاربری باید با حرف لاتین شروع شود"
 
-#: dash/validate/text.php:472
+#: dash/validate/text.php:519
 msgid "Email is invalid"
 msgstr "مقدار رایانامه اشتباه است"
 
-#: dash/validate/text.php:540
+#: dash/validate/text.php:587
 msgid "Field :val must be exactly 32 character"
 msgstr "فیلد :val باید دقیقا ۳۲ حرف باشد"
 
-#: dash/validate/text.php:550
+#: dash/validate/text.php:597
 msgid "Invalid md5"
 msgstr "مقدار کدگذاری شده اشتباه است"
 
-#: dash/validate/text.php:574
+#: dash/validate/text.php:621
 msgid "Invalid language"
 msgstr "مقدار رشته زبان اشتباه است"
 
-#: dash/validate/text.php:669
+#: dash/validate/text.php:716
 msgid "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی نمایید"
 
-#: dash/validate/text.php:692
+#: dash/validate/text.php:739
 msgid "Please set the sku less than 16 character"
 msgstr "لطفا کد محصول را کمتر از ۱۶ حرف وارد کنید"
 
-#: dash/validate/text.php:699
+#: dash/validate/text.php:746
 msgid "Only [A-Za-z0-9_-] can use in sku"
 msgstr "شما باید فقط از حروف و اعداد لاتین در کد محصول استفاده کنید"
 
-#: dash/validate/text.php:722 dash/validate/url.php:24
+#: dash/validate/text.php:769 dash/validate/url.php:24
 msgid "Url is invalid"
 msgstr "مقدار آدرس اینترنتی اشتباه است"
 
-#: dash/validate/url.php:47
+#: dash/validate/url.php:91
+msgid "We can not save this text 2!"
+msgstr "نمی‌توانیم این متن را ذخیره کنیم (۲)!"
+
+#: dash/validate/url.php:121
+msgid "Invalid url 1!"
+msgstr "مقدار آدرس اینترنتی اشتباه است (۱)!"
+
+#: dash/validate/url.php:142
+msgid "Url is invalid 3!"
+msgstr "مقدار آدرس اینترنتی اشتباه است (۳)!"
+
+#: dash/validate/url.php:171
+msgid "Url is invalid 4!"
+msgstr "مقدار آدرس اینترنتی اشتباه است (۴)!"
+
+#: dash/validate/url.php:185
+msgid "Url is invalid 5!"
+msgstr "مقدار آدرس اینترنتی اشتباه است (۵)!"
+
+#: dash/validate/url.php:196
+msgid "Url is invalid 6!"
+msgstr "مقدار آدرس اینترنتی اشتباه است (۶)!"
+
+#: dash/validate/url.php:206 dash/validate/url.php:215
+msgid "Url can not contain invalid character"
+msgstr "آدرس نمی‌تواند دارای کاراکتر‌های غیر‌مجاز باشد"
+
+#: dash/validate/url.php:237
 msgid "Domain must be contain one dot character."
 msgstr "دامنه حداقل باید دارای یک کاراکتر نقطه باشد."
 
-#: dash/validate/url.php:57 dash/validate/url.php:167
+#: dash/validate/url.php:247 dash/validate/url.php:357
 msgid "Domain can contain maximum 3 dot character"
 msgstr "دامنه حداکثر می‌توانید ۳ کاراکتر نقطه داشته باشد"
 
-#: dash/validate/url.php:66
+#: dash/validate/url.php:256
 msgid "This is not a valid domain. This is an IP!"
 msgstr "این یک دامنه معتبر نیست. این یک آدرس آی‌پی است!"
 
-#: dash/validate/url.php:95
+#: dash/validate/url.php:285
 msgid "Domain can not start by dot character"
 msgstr "دامنه نمی‌تواند با نقطه شروع شود"
 
-#: dash/validate/url.php:105 dash/validate/url.php:114
+#: dash/validate/url.php:295 dash/validate/url.php:304
 msgid "Domain can not contain invalid character"
 msgstr "دامنه نمی‌تواند دارای کاراکتر‌های غیر‌مجاز باشد"
 
-#: dash/validate/url.php:124
+#: dash/validate/url.php:314
 msgid "Domain must be less than 63 character"
 msgstr "دامنه باید کمتر از ۶۳ حرف باشد"
 
-#: dash/validate/url.php:134 dash/validate/url.php:144 lib/app/business_domain/add.php:162
+#: dash/validate/url.php:324 dash/validate/url.php:334 lib/app/business_domain/add.php:162
 #: lib/app/business_domain/edit.php:85 lib/app/nic_domain/get.php:26
 #: lib/app/nic_domain/lock.php:52 lib/app/nic_domain/lock.php:154
 #: lib/app/onlinenic/lock.php:52 lib/app/onlinenic/lock.php:155
 msgid "Invalid domain"
 msgstr "دامنه اشتباه است"
 
-#: dash/validate/url.php:199
+#: dash/validate/url.php:382
 msgid "This is not an IR domain"
 msgstr "این دامنه جزء دامنه‌های مجاز به ثبت در ایران نیست"
 
-#: dash/validate/url.php:224 dash/validate/url.php:248 dash/validate/url.php:270
+#: dash/validate/url.php:407 dash/validate/url.php:431 dash/validate/url.php:453
 msgid "IP is invalid"
 msgstr "آی‌پی نامعتبر است"
 
-#: dash/validate/url.php:293
+#: dash/validate/url.php:476
 msgid "DNS is invalid"
 msgstr "دی‌ان‌اس اشتباه است"
 
-#: dash/validate/url.php:314
+#: dash/validate/url.php:493
 msgid "You cannot select one character for addresses"
 msgstr "شما نمی‌توانید آدرس یک حرفی را انتخاب کنید"
 
-#: dash/validate/url.php:326
+#: dash/validate/url.php:505
 msgid "You cannot select two character for addresses"
 msgstr "شما نمی‌توانید آدرس دو حرفی را انتخاب کنید"
 
-#: dash/validate/url.php:333
+#: dash/validate/url.php:512
 msgid "You cannot use more than 3 slash in url"
 msgstr "شما‌ نمی‌توانید بیشتر از ۳ اسلش در آدرس خود استفاده کنید"
 
-#: dash/validate/url.php:377
+#: dash/validate/url.php:556
 msgid "This address is a system keyword and cannot be selected"
 msgstr "این آدرس یک کلمه کلیدی سیستم است و قابل انتخاب نیست"
+
+#: dash/validate/url.php:599
+msgid "Only zip file is supported for this URL"
+msgstr "تنها آدرس فایل فشرده (zip) پشتیبانی می‌شود"
 
 #: dash/waf/ip.php:326
 msgid "You are blocked for :period until :time"
