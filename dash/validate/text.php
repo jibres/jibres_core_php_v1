@@ -522,6 +522,27 @@ class text
 			return false;
 		}
 
+		if(!preg_match("/^[A-Za-z0-9_\-\@\.]+$/", $data))
+		{
+			\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in email"), ['element' => $_element, 'code' => 1750]);
+			\dash\cleanse::$status = false;
+			return false;
+		}
+
+		if(preg_match("/@{2,}/", $data))
+		{
+			\dash\notif::error(T_("Email contain only one @ character!"), ['element' => $_element, 'code' => 1750]);
+			\dash\cleanse::$status = false;
+			return false;
+		}
+
+		if(preg_match("/\.\./", $data))
+		{
+			\dash\notif::error(T_("Invalid email!"), ['element' => $_element, 'code' => 1750]);
+			\dash\cleanse::$status = false;
+			return false;
+		}
+
 		return $data;
 	}
 
