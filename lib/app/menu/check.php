@@ -10,7 +10,7 @@ class check
 		$condition =
 		[
 			'title'         => 'title',
-			'url'           => 'string_500',
+			'url'           => 'absolute_url',
 			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other', 'title', 'separator']],
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
@@ -24,7 +24,7 @@ class check
 			'post_id'       => 'code',
 			'form_id'       => 'id',
 			'tag_id'        => 'code',
-			'socialnetwork' => 'string_50',
+			'socialnetwork' => 'socialnetwork',
 			'hashtag_id'    => 'id',
 			'form_id'       => 'id',
 		];

@@ -31,6 +31,172 @@ class url
 	}
 
 
+	public static function dbl_decode($_text)
+	{
+		if(!$_text || !is_string($_text))
+		{
+			return $_text;
+		}
+
+		if($_text !== ($decode1 = urldecode($_text)))
+		{
+			if($decode1 !== ($decode2 = urldecode($decode1)))
+			{
+				if($decode2 !== ($decode3 = urldecode($decode2)))
+				{
+					if($decode3 !== ($decode4 = urldecode($decode3)))
+					{
+						return false;
+					}
+					else
+					{
+						return $decode3;
+					}
+				}
+				else
+				{
+					return $decode2;
+				}
+			}
+			else
+			{
+				return $decode1;
+			}
+		}
+		else
+		{
+			// not decoded
+			return $_text;
+		}
+	}
+
+
+	public static function absolute_url($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = self::dbl_decode($data);
+
+		if($data === false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("We can not save this text 2!"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return $data;
+		}
+
+		// jav`asc`ript:al`ert(document.domain)
+
+		$hidden_char =
+		[
+			'/[\x00-\x1F\x7F]/',
+			'/[\x00-\x1F\x7F]/u',
+			'/[\x00-\x1F\x7F\xA0]/u',
+			'/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/u',
+			'/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u',
+			'/[\x00-\x1F\x7F-\xA0\xAD]/u',
+			'/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/u',
+			'/(?>[\x00-\x1F]|\xC2[\x80-\x9F]|\xE2[\x80-\x8F]{2}|\xE2\x80[\xA4-\xA8]|\xE2\x81[\x9F-\xAF])/',
+		];
+
+		foreach ($hidden_char as $preg)
+		{
+			if(preg_match($preg, $data))
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Invalid url 1!"), ['element' => $_element, 'code' => 1605]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
+
+		$ascii =
+		[
+			"/%00/", "/%01/", "/%02/", "/%03/", "/%04/", "/%05/", "/%06/", "/%07/", "/%08/", "/%09/", "/%0A/",
+			"/%0B/", "/%0C/", "/%0D/", "/%0E/", "/%0F/", "/%10/", "/%11/", "/%12/", "/%13/", "/%14/", "/%15/",
+			"/%16/", "/%17/", "/%18/", "/%19/", "/%1A/", "/%1B/", "/%1C/", "/%1D/", "/%1E/", "/%1F/",
+		];
+
+		foreach ($ascii as $preg)
+		{
+			if(preg_match($preg, $data))
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Url is invalid 3!"), ['element' => $_element, 'code' => 1605]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
+		$script =
+		[
+			"/<script>/i",
+			"/<\/script>/i",
+			"/<\s+script/i",
+			"/<(.*)script/i",
+			"/alert(.*)\(/i",
+			"/prompt(.*)\(/i",
+			"/eval(.*)\(/i",
+			"/extractvalue(.*)\(/i",
+			"/fromCharCode/i",
+			"/javascript:/i",
+			"/http-equiv/i",
+			"/xmltype(.*)\(/i",
+		];
+
+		foreach ($script as $preg)
+		{
+			if(preg_match($preg, $data))
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Url is invalid 4!"), ['element' => $_element, 'code' => 1605]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
+
+		for ($i=1; $i <= 31 ; $i++)
+		{
+			if(strpos($data, chr($i)) !== false)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Url is invalid 5!"), ['element' => $_element, 'code' => 1605]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
+		}
+
+		if(strpos($data, chr(127)) !== false)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Url is invalid 6!"), ['element' => $_element, 'code' => 1605]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
 	public static function domain($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
