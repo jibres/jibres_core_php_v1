@@ -84,7 +84,11 @@ class part
 		{
 			return null;
 		}
-		return '<p class="excerpt">'. \dash\data::dataRow_excerpt(). '</p>';
+		if(\dash\data::dataRow_excerpt())
+		{
+			return '<p class="excerpt">'. \dash\data::dataRow_excerpt(). '</p>';
+		}
+			return '';
 	}
 
 
