@@ -40,7 +40,7 @@ class filter
 	{
 		$list                     = [];
 
-		$list['active']            = ['key' => 'active', 	'group' => T_("Status"), 'title' => T_('Active'), 	'query' => ['status' => 'active'], 	'public' => true];
+		$list['active']            = ['key' => 'active', 	'group' => T_("Status"), 'title' => T_('Active status and date'), 	'query' => ['status' => 'active'], 	'public' => true];
 		$list['enable']            = ['key' => 'enable', 	'group' => T_("Status"), 'title' => T_('Enable'), 	'query' => ['status' => 'enable'], 	'public' => true];
 		$list['draft']             = ['key' => 'draft', 	'group' => T_("Status"), 'title' => T_('Draft'), 	'query' => ['status' => 'draft'], 	'public' => true];
 		$list['expired']           = ['key' => 'expired', 	'group' => T_("Status"), 'title' => T_('Expired'), 	'query' => ['status' => 'expired'], 	'public' => true];
