@@ -10,7 +10,7 @@ class view
 
 		// btn
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/view?id='. \dash\request::get('gift_id'));
+		\dash\data::back_link(\dash\url::this());
 
 		$args =
 		[
