@@ -28,6 +28,29 @@ class get
 	}
 
 
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM gift ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function count_active()
+	{
+		$today = date("Y-m-d H:i:s");
+		$query  = "SELECT COUNT(*) AS `count` FROM gift WHERE gift.status = 'enable' AND (gift.dateexpire IS NULL OR gift.dateexpire > '$today') ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+	public static function count_expired()
+	{
+		$today = date("Y-m-d H:i:s");
+		$query  = "SELECT COUNT(*) AS `count` FROM gift WHERE gift.status = 'enable' AND gift.dateexpire IS NOT NULL AND gift.dateexpire < '$today' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 	public static function count_usaget_gift_id($_gift_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM giftusage WHERE giftusage.gift_id = $_gift_id";

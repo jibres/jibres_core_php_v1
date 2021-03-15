@@ -5,13 +5,13 @@
     <div id="chartdivcmsticket" class="box chart x310 s0" data-abc='crm/tickets'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
-        <div id="charttickettitle"><?php echo T_("Ticket") ?></div>
-        <div id="chartmessagetitle"><?php echo T_("Message") ?></div>
+        <div id="charttickettitle"><?php echo T_("Usage") ?></div>
+        <div id="chartmessagetitle"><?php echo T_("Lookup") ?></div>
 
-        <div id="charttitle"><?php echo T_("Thicket and message in last years") ?></div>
+        <div id="charttitle"><?php echo T_("Usage and lookup in last years") ?></div>
         <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
-        <div id="chartdataticket"><?php echo a($dashboardDetail, 'chart', 'dataticket') ?></div>
-        <div id="chartdatamessage"><?php echo a($dashboardDetail, 'chart', 'datamessage') ?></div>
+        <div id="chartdataticket"><?php echo a($dashboardDetail, 'chart', 'usage') ?></div>
+        <div id="chartdatamessage"><?php echo a($dashboardDetail, 'chart', 'lookup') ?></div>
       </div>
     </div>
 
@@ -101,19 +101,21 @@
 
 
 
+
+
+
 <div class="row font-14 mT5">
   <div class="c-xs-12 c-sm-12 c-md-6">
     <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/all?sort=datecreated&order=desc' ?>"><?php echo T_("Last usage") ?></a></p>
-  <?php if(\dash\data::dashboardDetail_lastticket()) {?>
+  <?php if(\dash\data::dashboardDetail_lastusage()) {?>
     <nav class="items long">
        <ul>
-  <?php foreach (\dash\data::dashboardDetail_lastticket() as $key => $value) {?>
+  <?php foreach (\dash\data::dashboardDetail_lastusage() as $key => $value) {?>
         <li>
           <a class="f align-center" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
             <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
             <div class="key"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
 
-            <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::text($value['id']);  ?></div>
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
             <div class="go"></div>
           </a>
@@ -129,16 +131,15 @@
 
   <div class="c-xs-12 c-sm-12 c-md-6">
     <p class="mB5-f font-14"><a class="fc-black" href="<?php echo \dash\url::this(). '/all?act=y' ?>"><?php echo T_("Last lookup") ?></a></p>
-    <?php if(\dash\data::dashboardDetail_activeticket()) {?>
+    <?php if(\dash\data::dashboardDetail_lastlookup()) {?>
     <nav class="items long">
        <ul>
-  <?php foreach (\dash\data::dashboardDetail_activeticket() as $key => $value) { ?>
+  <?php foreach (\dash\data::dashboardDetail_lastlookup() as $key => $value) { ?>
         <li>
           <a class="f align-center" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
-            <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
-            <div class="key"><?php echo \dash\fit::mobile(a($value, 'displayname')); ?></div>
+            <div class="key"><?php echo a($value, 'code'); ?></div>
 
-            <div class="key"><?php echo T_("Ticket"). ' '. \dash\fit::text($value['id']);  ?></div>
+
             <div class="value"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
             <div class="go"></div>
           </a>

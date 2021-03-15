@@ -1,22 +1,19 @@
 <?php
-namespace lib\app\giftusage;
+namespace lib\app\gift\usage;
 
 class search
 {
-	private static $filter_message = null;
-	private static $filter_args    = [];
 	private static $is_filtered    = false;
-
-
-	public static function filter_message()
-	{
-		return self::$filter_message;
-	}
 
 
 	public static function is_filtered()
 	{
 		return self::$is_filtered;
+	}
+
+	public static function last_5_usage()
+	{
+		return self::list(null, ['limit' => 5, 'pagination' => 'n', 'order' => 'desc', 'sort' => 'id' ]);
 	}
 
 
@@ -30,9 +27,10 @@ class search
 
 		$condition =
 		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['dateexpire', 'datecreated']],
-			'dns'   => 'code',
+			'order'      => 'order',
+			'sort'       => ['enum' => ['id', 'datecreated']],
+			'pagination' => 'y_n',
+			'limit'      => 'int',
 		];
 
 		$require = [];
@@ -54,20 +52,19 @@ class search
 
 		$meta['limit'] = 20;
 
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
+		}
+
+
 
 		$order_sort  = null;
-
-
-		// if($data['dns'])
-		// {
-		// 	$dns_id = \dash\coding::decode($data['dns']);
-		// 	if($dns_id)
-		// 	{
-		// 		$and[]                      = " gift.dns = $dns_id ";
-		// 		self::$filter_args[T_("DNS")] = $data['dns'];
-		// 		self::$is_filtered          = true;
-		// 	}
-		// }
 
 
 
@@ -96,6 +93,11 @@ class search
 					$order = mb_strtolower($data['order']);
 				}
 
+				if($sort === 'id')
+				{
+					$sort = 'giftusage.id';
+				}
+
 				$order_sort = " ORDER BY $sort $order";
 			}
 		}
@@ -109,29 +111,13 @@ class search
 
 		if(is_array($list))
 		{
-			$list = array_map(['\\lib\\app\\giftusage\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\gift\\usage\\ready', 'row'], $list);
 		}
 		else
 		{
 			$list = [];
 		}
 
-
-		$filter_args_data = [];
-
-		foreach (self::$filter_args as $key => $value)
-		{
-			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
-			{
-				$filter_args_data[substr($value, 1)] = $list[0][$key];
-			}
-			else
-			{
-				$filter_args_data[$key] = $value;
-			}
-		}
-
-		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
 		return $list;
 	}

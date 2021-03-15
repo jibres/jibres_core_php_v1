@@ -20,7 +20,7 @@ class view
 
 		$search_string = \dash\request::get('q');
 
-		$list = \lib\app\giftusage\search::list($search_string, $args);
+		$list = \lib\app\gift\usage\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
@@ -28,9 +28,7 @@ class view
 		\dash\data::sortLink($sortLink);
 
 
-		\dash\data::filterBox(\lib\app\giftusage\search::filter_message());
-
-		$isFiltered = \lib\app\giftusage\search::is_filtered();
+		$isFiltered = \lib\app\gift\usage\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 

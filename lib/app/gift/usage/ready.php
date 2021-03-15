@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\giftusage;
+namespace lib\app\gift\usage;
 
 
 class ready

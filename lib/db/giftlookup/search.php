@@ -16,6 +16,10 @@ class search
 		{
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
+		elseif($q['limit'])
+		{
+			$limit = "LIMIT $q[limit]";
+		}
 
 		$query = "SELECT * FROM giftlookup $q[where] $q[order] $limit ";
 

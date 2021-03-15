@@ -13,6 +13,11 @@ class search
 		return self::$is_filtered;
 	}
 
+	public static function last_5_lookup()
+	{
+		return self::list(null, ['limit' => 5, 'pagination' => 'n' , 'sort' => 'id', 'order' => 'desc' ]);
+	}
+
 
 	public static function list($_query_string, $_args)
 	{
@@ -24,9 +29,10 @@ class search
 
 		$condition =
 		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['dateexpire', 'datecreated']],
-
+			'order'      => 'order',
+			'sort'       => ['enum' => ['id', 'datecreated']],
+			'pagination' => 'y_n',
+			'limit'      => 'int',
 		];
 
 		$require = [];
@@ -47,6 +53,17 @@ class search
 		$or          = [];
 
 		$meta['limit'] = 20;
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
+		}
+
 
 
 		$order_sort  = null;
