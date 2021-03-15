@@ -84,7 +84,7 @@ class shortcode
 	                }
 	                else
 	                {
-	                    $r .= make_clickable( $chunk );
+	                    $r .= self::make_clickable_wp( $chunk );
 	                }
 	            }
 	        }
@@ -162,7 +162,7 @@ class shortcode
 	        return $matches[0];
 	    }
 
-	    return $matches[1] . "<a href=\"$url\">$url</a>" . $suffix;
+	    return $matches[1] . "<a href=\"$url\" target=\"_blank\" rel=\"nofollow noopener\">$url</a>" . $suffix;
 	}
 
 
