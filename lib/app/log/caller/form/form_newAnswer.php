@@ -39,8 +39,8 @@ class form_newAnswer
 
 	public static function expire()
 	{
-		// 7 days
-		return date("Y-m-d H:i:s", time() + (60*60*24*3));
+		// 10 days
+		return date("Y-m-d H:i:s", time() + (60*60*24*10));
 	}
 
 
