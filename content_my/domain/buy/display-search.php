@@ -97,7 +97,11 @@ elseif(!\dash\data::InvalidDomain() && \dash\request::get('q'))
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li>
-      <a href="<?php if(a($value, 'available') && !a($value, 'domain_premium')) { echo \dash\url::this(). '/buy/'. $key; }else{ echo \dash\url::this(). '/whois?domain='. $key;} //endif ?>" class="f item">
+<?php if(a($value, 'available') && !a($value, 'domain_premium')) { ?>
+      <a href="<?php echo \dash\url::this(). '/buy/'. $key; ?>" class="f item">
+<?php } else { ?>
+      <a href="<?php echo \dash\url::this(). '/whois?domain='. $key; ?>" class="f item" target="_blank">
+<?php } ?>
        <div class="key fit fc-mute"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
        <div class="key grow txtB">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available') && !a($value, 'domain_premium')) {?>
