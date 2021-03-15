@@ -13,11 +13,21 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\gift\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\gift\filter::sort_list());
+
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
+			'order'    => \dash\request::get('order'),
+			'sort'     => \dash\request::get('sort'),
+			'status'   => \dash\request::get('status'),
+			'user'     => \dash\request::get('user'),
+			'type'     => \dash\request::get('type'),
+			'forusein' => \dash\request::get('forusein'),
 		];
 
 		$search_string = \dash\request::get('q');
@@ -26,20 +36,9 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['dateexpire', 'datecreated'], \dash\url::this());
-		\dash\data::sortLink($sortLink);
-
-
-		\dash\data::filterBox(\lib\app\gift\search::filter_message());
-
 		$isFiltered = \lib\app\gift\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
-
-		if($isFiltered)
-		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
-		}
 
 	}
 }
