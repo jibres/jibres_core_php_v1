@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\gift;
+namespace lib\db\giftlookup;
 
 class search
 {
@@ -9,7 +9,7 @@ class search
 
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		$pagination_query = "SELECT COUNT(*) AS `count` FROM gift $q[where] ";
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM giftlookup $q[where] ";
 
 		$limit = null;
 		if($q['pagination'] !== false)
@@ -17,7 +17,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
-		$query = "SELECT * FROM gift $q[where] $q[order] $limit ";
+		$query = "SELECT * FROM giftlookup $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query, null, false);
 
