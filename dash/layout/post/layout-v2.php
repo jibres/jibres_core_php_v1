@@ -1,7 +1,7 @@
 <?php
 $cmsSetting = \lib\app\setting\get::cms_setting();
 $subType = \dash\data::dataRow_subtype();
-echo '<section class="postBlock" data-type="'. $subType. '">';
+echo '<div class="postBlock" data-type="'. $subType. '">';
 {
   echo '<div class="avand-md zero">';
   {
@@ -26,5 +26,5 @@ echo '<section class="postBlock" data-type="'. $subType. '">';
 }
 
 // close post Block
-echo '</section>';
+echo '</div>';
 ?>
