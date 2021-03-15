@@ -320,9 +320,9 @@ class part
     if(\dash\data::dataRow_readingtime())
     {
     	$val = ['val' => \dash\fit::number(\dash\data::dataRow_readingtime())];
-      $html .= '<attr title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+      $html .= '<abbr title="'. T_("We are estimate you can read this post within :val.", $val). '">';
       $html .= T_(":val read", $val);
-      $html .= '</attr>';
+      $html .= '</abbr>';
     }
 
     return $html;
