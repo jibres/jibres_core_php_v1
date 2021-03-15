@@ -76,7 +76,7 @@ else
                 <td class="collapsing txtC"><?php echo a($value, 'category'); ?></td>
 
                 <td class="collapsing txtC"><?php echo T_(a($value, 'status')); ?></td>
-                <td class="collapsing txtC"><a class="btn light" href="<?php echo \dash\url::this() .'?id='. a($value, 'id'); ?>"><?php echo T_("Show gitft card") ?></a></td>
+                <td class="collapsing txtC"><a class="btn light" href="<?php echo \dash\url::this() .'/card?id='. a($value, 'id'); ?>"><?php echo T_("Show gitft card") ?></a></td>
 
 
             </tr>
