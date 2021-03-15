@@ -12,6 +12,11 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
+
+		// btn
+		\dash\data::action_text(T_('Lookup'));
+		\dash\data::action_link(\dash\url::this(). '/lookup');
+
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
