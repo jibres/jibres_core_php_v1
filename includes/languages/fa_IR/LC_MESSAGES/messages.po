@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-15 17:28+0330\n"
-"PO-Revision-Date: 2021-03-15 17:31+0330\n"
+"POT-Creation-Date: 2021-03-15 19:22+0330\n"
+"PO-Revision-Date: 2021-03-15 19:23+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -126,8 +126,8 @@ msgstr ""
 #: content/press/view.php:9 content/privacy/view.php:9 content/view.php:33
 #: content_a/view.php:9 content_developers/home/layout/header.php:15
 #: content_developers/home/view.php:9 content_developers/view.php:8
-#: content_enter/home/view.php:20 content_love/gift/home/giftcard.php:24
-#: content_love/gift/home/giftcard.php:27 content_my/domain/setting/dns/display.php:8
+#: content_enter/home/view.php:20 content_love/gift/card/giftcard.php:24
+#: content_love/gift/card/giftcard.php:27 content_my/domain/setting/dns/display.php:8
 #: content_my/domain/setting/dns/display.php:19
 #: content_my/domain/setting/elements/irnic.php:46
 #: content_my/domain/setting/elements/irnic.php:55
@@ -1004,7 +1004,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_crm/ticket/view/display.php:165 content_love/domain/nicdetail/display.php:13
 #: content_love/domain/setting/display.php:202 content_love/log/home/logTable.php:62
 #: content_love/subscribe/display.php:19
-#: content_my/domain/whoisdetail/whoisDetailForm.php:355 dash/app/ticket/contact.php:108
+#: content_my/domain/whoisdetail/whoisDetailForm.php:105 dash/app/ticket/contact.php:108
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:355
 #: lib/store.php:500
@@ -1363,7 +1363,7 @@ msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
 #: content/domains/home/display.php:32 content_love/domain/home/display.php:216
-#: content_my/domain/setting/elements/detail.php:41
+#: content_my/domain/setting/elements/detail.php:46
 msgid "Renew"
 msgstr "تمدید"
 
@@ -2818,7 +2818,7 @@ msgstr "ایران، قم"
 #: content_account/address.php:33 content_business/orders/view/display.php:27
 #: content_business/profile/display-menu.php:6 content_business/shipping/display.php:142
 #: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
-#: content_my/domain/whoisdetail/whoisDetailForm.php:299
+#: content_my/domain/whoisdetail/whoisDetailForm.php:57
 #: dash/layout/admin/sidebar/sidebar-account.php:9 lib/app/store/analytics.php:30
 msgid "Address"
 msgstr "آدرس"
@@ -3089,7 +3089,7 @@ msgstr "استان"
 #: content_a/chap/size-a4/oneSide-buyer.php:53
 #: content_a/chap/size-a4/oneSide-seller.php:41 content_a/setup/address/display.php:33
 #: content_business/shipping/display.php:136 content_my/domain/irnic/add/display.php:72
-#: content_my/domain/whoisdetail/whoisDetailForm.php:284 dash/utility/location.php:164
+#: content_my/domain/whoisdetail/whoisDetailForm.php:49 dash/utility/location.php:164
 #: lib/app/form/answer/add.php:256
 msgid "City"
 msgstr "شهر"
@@ -4524,9 +4524,9 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_love/business/domain/dnslist/view.php:13
 #: content_love/business/question/view.php:12 content_love/files/datalist/view.php:14
 #: content_love/files/images/view.php:10 content_love/files/remove/view.php:11
-#: content_love/gift/create/add/view.php:12 content_love/gift/create/code/view.php:12
-#: content_love/gift/create/message/view.php:12 content_love/gift/create/price/view.php:12
-#: content_love/gift/create/review/view.php:12
+#: content_love/gift/card/view.php:12 content_love/gift/create/add/view.php:12
+#: content_love/gift/create/code/view.php:12 content_love/gift/create/message/view.php:12
+#: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
 #: content_love/gift/create/setting/view.php:12 content_love/gift/create/usage/view.php:12
 #: content_love/gift/edit/view.php:12 content_love/gift/home/view.php:12
 #: content_love/gift/lookup/view.php:12 content_love/gift/usage/view.php:12
@@ -4726,8 +4726,8 @@ msgstr "لطفا والد را انتخاب کنید"
 #: content_a/accounting/report/group/display.php:10
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
 #: content_love/gift/all/display.php:60
-#: content_my/domain/whoisdetail/whoisDetailForm.php:320
-#: content_my/domain/whoisdetail/whoisDetailForm.php:336 dash/app/files/ready.php:96
+#: content_my/domain/whoisdetail/whoisDetailForm.php:73
+#: content_my/domain/whoisdetail/whoisDetailForm.php:89 dash/app/files/ready.php:96
 #: includes/languages/trans_static.php:547 lib/app/onlinenic/create.php:75
 #: lib/app/onlinenic/create.php:76 lib/app/onlinenic/transfer.php:66
 #: lib/app/onlinenic/transfer.php:67 lib/app/product/site_list.php:154
@@ -4859,8 +4859,8 @@ msgstr "پیگیری"
 #: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:499
 #: lib/app/nic_domain/ready.php:150 lib/app/nic_domain/ready.php:152
 #: lib/app/nic_domain/ready.php:158 lib/app/nic_domain/ready.php:160
-#: lib/app/nic_domain/ready.php:227 lib/app/nic_domain/ready.php:229
-#: lib/app/nic_domain/ready.php:408
+#: lib/app/nic_domain/ready.php:231 lib/app/nic_domain/ready.php:233
+#: lib/app/nic_domain/ready.php:412
 msgid "Enable"
 msgstr "فعال"
 
@@ -5760,7 +5760,7 @@ msgstr "کدملی مدیرعامل"
 #: content_a/accounting/irvat/add/display.php:346 content_a/order/address/display.php:154
 #: content_a/setup/address/display.php:42 content_account/address.php:36
 #: content_business/shipping/display.php:148 content_my/domain/irnic/add/display.php:85
-#: content_my/domain/whoisdetail/whoisDetailForm.php:305
+#: content_my/domain/whoisdetail/whoisDetailForm.php:63
 msgid "Post code"
 msgstr "کدپستی"
 
@@ -5772,7 +5772,7 @@ msgstr "کدپستی"
 #: content_account/address.php:43 content_account/address.php:139
 #: content_business/orders/view/display.php:36 content_business/shipping/display.php:26
 #: content_business/shipping/display.php:154 content_love/domain/nicdetail/display.php:16
-#: content_my/domain/whoisdetail/whoisDetailForm.php:341 lib/app/form/item/type.php:288
+#: content_my/domain/whoisdetail/whoisDetailForm.php:94 lib/app/form/item/type.php:288
 msgid "Phone"
 msgstr "شماره تلفن"
 
@@ -5780,7 +5780,7 @@ msgstr "شماره تلفن"
 #: content_a/accounting/irvat/add/display.php:359
 #: content_a/chap/size-a4/oneSide-buyer.php:96
 #: content_a/chap/size-a4/oneSide-seller.php:80
-#: content_my/domain/whoisdetail/whoisDetailForm.php:325
+#: content_my/domain/whoisdetail/whoisDetailForm.php:78
 msgid "Fax"
 msgstr "فکس"
 
@@ -5792,7 +5792,7 @@ msgstr "ویرایش اطلاعات حقوقی"
 #: content_business/shipping/display.php:119
 #: content_crm/member/identification/display.php:63
 #: content_my/domain/irnic/add/display.php:57
-#: content_my/domain/whoisdetail/whoisDetailForm.php:31 dash/utility/location.php:36
+#: content_my/domain/whoisdetail/whoisDetailForm.php:34 dash/utility/location.php:36
 msgid "Choose your country"
 msgstr "کشور خود را انتخاب کنید"
 
@@ -19052,7 +19052,7 @@ msgstr "مجموع پاسخ‌ها و رد کرده‌ها"
 #: content_love/domain/detail/action/display.php:27
 #: content_love/domain/nicdetail/display.php:60
 #: content_love/domain/setting/action/display.php:59 content_my/domain/poll/display.php:26
-#: content_my/domain/setting/action/display.php:25
+#: content_my/domain/setting/action/display.php:28
 msgid "No action history founded"
 msgstr "تاریخچه تغییرات دامنه خالی است"
 
@@ -19072,7 +19072,8 @@ msgstr "تاریخ انقضا"
 msgid "Create date"
 msgstr "تاریخ ایجاد"
 
-#: content_love/domain/billing/display.php:91
+#: content_love/domain/billing/display.php:91 content_my/domain/history/display.php:10
+#: content_my/domain/setting/action/display.php:14
 msgid "Period"
 msgstr "بازه زمانی"
 
@@ -19131,23 +19132,23 @@ msgstr "نمایش ردپا"
 
 #: content_love/domain/detail/display.php:13 content_love/domain/detail/display.php:23
 #: content_love/domain/detail/display.php:38 content_love/domain/setting/display.php:17
-#: content_my/domain/setting/elements/detail.php:13
+#: content_my/domain/setting/elements/detail.php:18
 msgid "Status & Validity"
 msgstr "وضعیت دامنه"
 
 #: content_love/domain/detail/display.php:50 content_love/domain/setting/display.php:24
-#: content_my/domain/setting/elements/detail.php:23 lib/app/domains/filter.php:57
+#: content_my/domain/setting/elements/detail.php:28 lib/app/domains/filter.php:57
 #: lib/app/domains/filter.php:58
 msgid "Registrar"
 msgstr "ریجسترر"
 
 #: content_love/domain/detail/display.php:54 content_love/domain/setting/display.php:28
-#: content_my/domain/setting/elements/detail.php:30
+#: content_my/domain/setting/elements/detail.php:35
 msgid "Registered on"
 msgstr "ثبت شده در"
 
 #: content_love/domain/detail/display.php:58 content_love/domain/setting/display.php:32
-#: content_my/domain/setting/elements/detail.php:37
+#: content_my/domain/setting/elements/detail.php:42
 msgid "Expired on"
 msgstr "منقضی در"
 
@@ -19159,7 +19160,7 @@ msgid "Renew domain"
 msgstr "تمدید دامنه"
 
 #: content_love/domain/detail/display.php:67 content_love/domain/setting/display.php:41
-#: content_my/domain/setting/elements/detail.php:49
+#: content_my/domain/setting/elements/detail.php:55
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
@@ -19787,6 +19788,43 @@ msgstr "کارت‌های هدیه"
 msgid "Lookup"
 msgstr "جستجو"
 
+#: content_love/gift/card/giftcard.php:28 dash/layout/admin/admin-sidebar.php:124
+#: includes/languages/trans_static.php:734
+msgid "Sell & Enjoy"
+msgstr "بفروش و لذت ببر"
+
+#: content_love/gift/card/giftcard.php:32
+msgid "Max Gift"
+msgstr "سقف هدیه"
+
+#: content_love/gift/card/giftcard.php:36
+msgid "Expire Date"
+msgstr "تاریخ انقضا"
+
+#: content_love/gift/card/giftcard.php:41
+msgid "Total Usage for you"
+msgstr "مجموع دفعات قابل استفاده برای شما"
+
+#: content_love/gift/card/giftcard.php:42
+msgid "Times"
+msgstr "بار"
+
+#: content_love/gift/card/giftcard.php:49
+msgid "Jibres Gift Card"
+msgstr "کارت هدیه جیبرس"
+
+#: content_love/gift/card/giftcard.php:51
+msgid "Jibres Gift Code"
+msgstr "کد هدیه جیبرس"
+
+#: content_love/gift/card/giftcard.php:58
+msgid "You can use gift card on last step of your buy process."
+msgstr "شما می‌توانید از این کد هدیه در آخرین مرحله خرید خود استفاده کنید."
+
+#: content_love/gift/card/view.php:9
+msgid "Gift card preview"
+msgstr "پیش نمایش کارت هدیه"
+
 #: content_love/gift/create/add/display.php:9
 msgid "Create new gift card"
 msgstr "افزودن کارت هدیه جدید"
@@ -20024,39 +20062,6 @@ msgstr "مسدودشده"
 #: content_love/gift/home/display.php:9
 msgid "Create new gift"
 msgstr "افزودن کارت هدیه جدید"
-
-#: content_love/gift/home/giftcard.php:28 dash/layout/admin/admin-sidebar.php:124
-#: includes/languages/trans_static.php:734
-msgid "Sell & Enjoy"
-msgstr "بفروش و لذت ببر"
-
-#: content_love/gift/home/giftcard.php:32
-msgid "Max Gift"
-msgstr "سقف هدیه"
-
-#: content_love/gift/home/giftcard.php:36
-msgid "Expire Date"
-msgstr "تاریخ انقضا"
-
-#: content_love/gift/home/giftcard.php:41
-msgid "Total Usage for you"
-msgstr "مجموع دفعات قابل استفاده برای شما"
-
-#: content_love/gift/home/giftcard.php:42
-msgid "Times"
-msgstr "بار"
-
-#: content_love/gift/home/giftcard.php:49
-msgid "Jibres Gift Card"
-msgstr "کارت هدیه جیبرس"
-
-#: content_love/gift/home/giftcard.php:51
-msgid "Jibres Gift Code"
-msgstr "کد هدیه جیبرس"
-
-#: content_love/gift/home/giftcard.php:58
-msgid "You can use gift card on last step of your buy process."
-msgstr "شما می‌توانید از این کد هدیه در آخرین مرحله خرید خود استفاده کنید."
 
 #: content_love/gift/home/view.php:9
 msgid "Gift card Management"
@@ -20478,7 +20483,8 @@ msgid "Telegram bot"
 msgstr "ربات تلگرام"
 
 #: content_my/business/home/display_site.php:33
-#: content_my/business/home/display_site.php:108
+#: content_my/business/home/display_site.php:108 lib/app/nic_domain/dashboard.php:83
+#: lib/app/nic_domain/dashboard.php:84 lib/app/nic_domain/dashboard.php:85
 msgid "From"
 msgstr "از"
 
@@ -20594,7 +20600,7 @@ msgstr "این زیر دامنه قبلاً گرفته شده است"
 msgid "Business address"
 msgstr "آدرس‌های بیزینس"
 
-#: content_my/domain/buy/controller.php:41 content_my/domain/setting/controller.php:58
+#: content_my/domain/buy/controller.php:41 content_my/domain/setting/controller.php:72
 msgid "Invalid error syntax"
 msgstr "خطای ساختار اشتباه"
 
@@ -20871,7 +20877,7 @@ msgid "Street Infromation"
 msgstr "اطلاعات آدرس"
 
 #: content_my/domain/irnic/add/display.php:66
-#: content_my/domain/whoisdetail/whoisDetailForm.php:278
+#: content_my/domain/whoisdetail/whoisDetailForm.php:43
 msgid "State/Province"
 msgstr "استان"
 
@@ -21343,9 +21349,17 @@ msgstr "شما می‌توانید یک وب‌سایت مدرن بسازید و
 msgid "Build my website"
 msgstr "وب‌سایت من را بساز"
 
-#: content_my/domain/setting/elements/detail.php:6
+#: content_my/domain/setting/elements/detail.php:7
 msgid "Visit Domain"
 msgstr "بازدید از دامنه"
+
+#: content_my/domain/setting/elements/detail.php:11
+msgid "You registered this domain for :val."
+msgstr "شما این دامنه را برای بازه زمانی :val ثبت کرده‌اید."
+
+#: content_my/domain/setting/elements/detail.php:11
+msgid "After approved domain by IRNIC your domain expire date will be updated"
+msgstr "پس از تایید دامنه توسط ایرنیک،‌ تاریخ انقضای دامنه شما به‌روزرسانی خواهد شد"
 
 #: content_my/domain/setting/elements/irnic.php:8
 msgid "Domain Holders"
@@ -21487,7 +21501,7 @@ msgstr "اطلاعات کاربری دامنه"
 msgid "Full name"
 msgstr "نام کامل"
 
-#: content_my/domain/whoisdetail/whoisDetailForm.php:352
+#: content_my/domain/whoisdetail/whoisDetailForm.php:102
 msgid ""
 "Please enter the email you have access to. After registering any international domain, "
 "you must confirm the domain registration process by this image. Please be careful"
@@ -35442,7 +35456,7 @@ msgstr "ثبت دامنه تایید شد"
 msgid "Domain Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:384
+#: lib/app/nic_domain/ready.php:388
 msgid "Register now"
 msgstr "هم‌اکنون ثبت‌نام کنید"
 

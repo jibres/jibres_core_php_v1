@@ -8,7 +8,7 @@
         </div>
       </div>
       <?php if(\dash\data::tempPeriod()) {?>
-        <div class="font-12"><?php echo T_("You registered this domain for :val.", ['val' => \dash\data::tempPeriod()]). ' '. T_("After approved domain by IRNIC your domain expire date will be updated"); ?></div>
+        <div class="font-12">* <?php echo T_("You registered this domain for :val.", ['val' => '<b>'. \dash\data::tempPeriod(). '</b>']). ' '. T_("After approved domain by IRNIC your domain expire date will be updated"); ?></div>
         <?php }//endif ?>
     </div>
   </div>
@@ -42,6 +42,7 @@
           <td><?php echo T_("Expired on"); ?></td>
           <td>
             <time class="ltr"><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateexpire()); ?></time>
+            <?php if(\dash\data::tempPeriod()) { echo '*';}?>
 <?php if(\dash\data::domainDetail_can_renew()) {?>
             <a class="link mLa10" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew") ?></a>
 <?php } //endif ?>
