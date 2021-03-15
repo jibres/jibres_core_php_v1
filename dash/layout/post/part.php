@@ -101,7 +101,7 @@ class part
 	public static function postArticle()
 	{
 		$html = '';
-    $html .= '<div>';
+    $html .= '<div class="text">';
     $html .= \dash\data::dataRow_content();
     $html .= \dash\layout\post\part::tagLine();
     $html .= '</div>';
