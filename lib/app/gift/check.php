@@ -6,6 +6,8 @@ class check
 {
 	private static $user_id = null;
 	private static $gift_id = null;
+	private static $code    = null;
+	private static $valid   = false;
 
 	public static function check($_args)
 	{
@@ -26,20 +28,29 @@ class check
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+
+
+
 		self::$user_id = $data['user_id'];
 
 		$code = $data['code'];
+
 		if(!$code)
 		{
 			self::error(1, T_("Invalid gift code"), 'gift');
 			return false;
 		}
 
+		self::$code = $code;
+
 		$load = \lib\db\gift\get::by_code($code);
 
 		if(!$load || !isset($load['id']))
 		{
+			self::save_lookup('gift not found', T_("Invalid gift code"));
+
 			self::error(1, T_("Invalid gift code"), 'gift');
+
 			return false;
 		}
 
@@ -72,14 +83,20 @@ class check
 		{
 			if(!in_array(\dash\user::detail('mobile'), $dedicated))
 			{
+				self::save_lookup('invalid mobile', T_("This gift card is not enable for you"));
+
 				self::error(2, T_("This gift card is not enable for you"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+
 				return false;
 			}
 		}
 
 		if(floatval($data['price']) < floatval($pricefloor))
 		{
+			self::save_lookup('error floor price', T_("For use this gift code your cart amount must be larget than :val", ['val' => \dash\fit::number($pricefloor)]));
+
 			self::error(5, T_("For use this gift code your cart amount must be larget than :val", ['val' => \dash\fit::number($pricefloor)]), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+
 			return false;
 		}
 
@@ -118,7 +135,10 @@ class check
 								}
 								else
 								{
+									self::save_lookup('error only .ir domain', T_("This gift card only work on .ir domain"));
+
 									self::error(4, T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
+
 									return false;
 								}
 								break;
@@ -132,12 +152,16 @@ class check
 									}
 									else
 									{
+										self::save_lookup('error only .ir domain and period 1 year', T_("This gift card only work on .ir domain by domain period 1 year"));
+
 										self::error(4, T_("This gift card only work on .ir domain by domain period 1 year"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 										return false;
 									}
 								}
 								else
 								{
+									self::save_lookup('error only .ir domain in gift 1 year', T_("This gift card only work on .ir domain"));
+
 									self::error(4, T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 									return false;
 								}
@@ -152,12 +176,16 @@ class check
 									}
 									else
 									{
+										self::save_lookup('error only .ir domain in and period 5 year', T_("This gift card only work on .ir domain by domain period 5 year"));
+
 										self::error(4, T_("This gift card only work on .ir domain by domain period 5 year"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 										return false;
 									}
 								}
 								else
 								{
+									self::save_lookup('error only .ir domain in in gift 5 year', T_("This gift card only work on .ir domain"));
+
 									self::error(4, T_("This gift card only work on .ir domain"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 									return false;
 								}
@@ -167,6 +195,8 @@ class check
 					}
 					else
 					{
+						self::save_lookup('error invalid place', T_("This gift card not working here!"));
+
 						self::error(4, T_("This gift card not working here!"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 						return false;
 					}
@@ -191,6 +221,8 @@ class check
 		}
 		else
 		{
+			self::save_lookup('error gift is not enable', T_("This gift card is not enable"));
+
 			self::error(2, T_("This gift card is not enable"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 			return false;
 		}
@@ -204,6 +236,8 @@ class check
 
 			if($left_time <= 0)
 			{
+				self::save_lookup('error gift expired', T_("This gift card is expired"));
+
 				self::error(4, T_("This gift card is expired"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
@@ -219,6 +253,8 @@ class check
 			{
 				// update status
 				// set date finish
+				self::save_lookup('error gift capacity full', T_("Capacity of this gift card is full"));
+
 				self::error(4, T_("Capacity of this gift card is full"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
@@ -231,6 +267,8 @@ class check
 			$get_usageperuser = \lib\db\gift\get::count_usaget_gift_id_user_id($gift_id, $data['user_id']);
 			if(floatval($get_usageperuser) >= floatval($load['usageperuser']))
 			{
+				self::save_lookup('error gift per user capacity full', T_("You have used the maximum capacity of this discount code"));
+
 				self::error(4, T_("You have used the maximum capacity of this discount code"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 				return false;
 			}
@@ -242,13 +280,13 @@ class check
 
 				if(floatval($get_usageperuser_category) >= floatval($load['usageperuser']))
 				{
+					self::save_lookup('error gift category capacity full', T_("You have used the maximum capacity of this group discount code"));
+
 					self::error(4, T_("You have used the maximum capacity of this group discount code"), ['target1' => '#giftcardmessageerror', 'timeout' => 10000]);
 					return false;
 				}
 			}
 		}
-
-
 
 		$result                = [];
 		$result['price']       = $data['price'];
@@ -258,6 +296,10 @@ class check
 		$result['type']        = $type;
 
 		$result['msgsuccess'] = (isset($load['msgsuccess']) && $load['msgsuccess']) 	? $load['msgsuccess'] 	: null;
+
+		self::$valid = true;
+
+		self::save_lookup();
 
 		return $result;
 	}
@@ -298,6 +340,24 @@ class check
 		\dash\data::gitfErrorMessage($_msg);
 		\dash\notif::error($_msg);
 
+	}
+
+
+
+	private static function save_lookup( $_error_type = null, $_error_msg = null)
+	{
+		$insert                = [];
+		$insert['user_id']     = \dash\user::id();
+		$insert['code']        = self::$code;
+		$insert['gift_id']     = self::$gift_id;
+		$insert['valid']       = self::$valid ? 'yes' : 'no';
+		$insert['errortype']   = $_error_type;
+		$insert['message']     = $_error_msg;
+		$insert['datecreated'] = date("Y-m-d H:i:s");
+		$insert['ip_id']       = \dash\utility\ip::id();
+		$insert['agent_id']    = \dash\agent::get(true);
+
+		\lib\db\giftlookup\insert::new_record($insert);
 	}
 }
 ?>
