@@ -208,6 +208,10 @@ class ready
 							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Domain Approved").'</span><i class="sf-info-circle fc-blue"></i></div>';
 						}
 
+						if(in_array('irnicRegistrationPendingDomainCheck', $nicstatus) || in_array('irnicRegistrationDocRequired', $nicstatus))
+						{
+							$result['temp_period'] = true;
+						}
 
 						$other_status_html = '';
 
@@ -416,6 +420,7 @@ class ready
 
 		if(\dash\temp::get('isApi'))
 		{
+			unset($result['temp_period']);
 			unset($result['verifychangeholder']);
 			unset($result['verifychangelock']);
 			unset($result['verifychangenameserver']);

@@ -1,10 +1,15 @@
 <section class="f" data-option='domain-detail'>
   <div class="c12">
-    <div class="data ltr txtL">
-      <div class="row align-center fit">
-        <div class="c"><h2 class="mB0-f txtB"><?php echo \dash\data::domainDetail_name();?></h2></div>
-        <div class="c-auto"><a target="_blank" data-direct href="https://<?php echo \dash\data::domainDetail_name() ?>" rel="nofollow noopener"><?php echo T_("Visit Domain"); ?> <i class="sf-link-external"></i></a></div>
+    <div class="data">
+      <div class="ltr txtL">
+        <div class="row align-center fit">
+          <div class="c"><h2 class="mB0-f txtB"><?php echo \dash\data::domainDetail_name();?></h2></div>
+          <div class="c-auto"><a target="_blank" data-direct href="https://<?php echo \dash\data::domainDetail_name() ?>" rel="nofollow noopener"><?php echo T_("Visit Domain"); ?> <i class="sf-link-external"></i></a></div>
+        </div>
       </div>
+      <?php if(\dash\data::tempPeriod()) {?>
+        <div class="font-12"><?php echo T_("You registered this domain for :val.", ['val' => \dash\data::tempPeriod()]). ' '. T_("After approved domain by IRNIC your domain expire date will be updated"); ?></div>
+        <?php }//endif ?>
     </div>
   </div>
   <table class="tbl1 minimal">
@@ -43,6 +48,7 @@
           </td>
         </tr>
       <?php } //endif ?>
+
 
       <?php if(\dash\data::domainDetail_datemodified()) {?>
         <tr>
