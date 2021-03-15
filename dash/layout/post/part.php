@@ -98,13 +98,13 @@ class part
 	}
 
 
-	public static function article()
+	public static function postArticle()
 	{
 		$html = '';
-    $html .= '<article>';
+    $html .= '<div>';
     $html .= \dash\data::dataRow_content();
     $html .= \dash\layout\post\part::tagLine();
-    $html .= '</article>';
+    $html .= '</div>';
 
     return $html;
 	}
