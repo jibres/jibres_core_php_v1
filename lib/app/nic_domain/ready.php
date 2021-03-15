@@ -407,6 +407,11 @@ class ready
 		{
 			$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Enable").'</span><i class="sf-check fc-green"></i></div>';
 			$result['status_html'] = $status_html;
+
+			if(!a($_data, 'nicstatus'))
+			{
+				$result['can_renew'] = false;
+			}
 		}
 
 		if(\dash\temp::get('isApi'))
