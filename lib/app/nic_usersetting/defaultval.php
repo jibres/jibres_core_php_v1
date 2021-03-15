@@ -7,7 +7,7 @@ class defaultval
 
 	public static function autorenewperiod()
 	{
-		return '5year';
+		return '1year';
 	}
 
 
