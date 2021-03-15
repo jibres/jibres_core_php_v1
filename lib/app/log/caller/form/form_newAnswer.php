@@ -89,13 +89,15 @@ class form_newAnswer
 		$body = '';
 		$body .= '<p>';
 		$body .= T_("A new response to the form was registered");
+		$body .= '</p>';
 
+		$body .= '<p>';
 		if($my_form_id && is_numeric($my_form_id))
 		{
 			$form_detail = \lib\db\form\get::by_id($my_form_id);
 			if(isset($form_detail['title']))
 			{
-				$body .= " ". $form_detail['title'];
+				$body .= " ". $form_detail['title']. " ";
 			}
 		}
 
