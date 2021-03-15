@@ -50,19 +50,19 @@
     <section class="row s0">
       <div class="c">
         <a href="<?php echo \dash\url::this() ?>/search?autorenew=on" class="circularChartBox">
-          <?php $myPercent=a($myData, 'domain_autorenew_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+          <?php $myPercent=a($myData, 'domain_autorenew_percent');$myPercentTitle=a($myData, 'domain_autorenew_percent_title'); $myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Domain with Auto Renew");?></h3>
         </a>
       </div>
       <div class="c">
         <a href="<?php echo \dash\url::this() ?>/search?lock=on" class="circularChartBox">
-          <?php $myPercent=a($myData, 'domain_lock_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+          <?php $myPercent=a($myData, 'domain_lock_percent');$myPercentTitle=a($myData, 'domain_lock_percent_title'); $myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Domain Locked");?></h3>
         </a>
       </div>
       <div class="c">
         <a href="<?php echo \dash\url::this() ?>/search" class="circularChartBox">
-          <?php $myPercent=a($myData, 'domain_active_percent');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+          <?php $myPercent=a($myData, 'domain_active_percent');$myPercentTitle=a($myData, 'domain_active_percent_title'); $myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Active domain");?></h3>
         </a>
       </div>
