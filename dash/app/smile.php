@@ -72,7 +72,7 @@ class smile
 
 			if($myResult['notifCount'])
 			{
-				self::play_sound('notif_sound_new_notification', $notifCount, 'new-notification-2.mp3');
+				// self::play_sound('notif_sound_new_notification', $notifCount, 'new-notification-2.mp3');
 			}
 
 		}
