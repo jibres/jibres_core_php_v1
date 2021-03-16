@@ -1,14 +1,14 @@
-<?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 
 <div class="f justify-center">
   <div class="c6 s12">
 
-    <div class="box impact">
+    <div class="box">
       <header><h2><?php echo T_("Gift card detail"); ?></h2></header>
-      <div class="body zeroPad">
-        <table class="tbl1 v1">
+      <div class="pad">
+        <table class="tbl1">
           <tbody>
-            <tr><td><?php echo T_("Gift code"); ?></td><td class="txtL"><code class="link txtB"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
+            <td><td colspan="2" class="txtL"><a class="btn success2" href="<?php echo \dash\url::this(). '/card?id='. \dash\data::dataRow_id() ?>"><?php echo T_("View gift card") ?></a></td></td>
+            <tr class="active"><td><?php echo T_("Gift code"); ?></td><td class="txtL"><code class="link txtB"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
             <tr><td><?php echo T_("Category"); ?></td><td class="txtL"><?php echo \dash\data::dataRow_category(); ?> </td></tr>
             <?php if(\dash\data::dataRow_giftpercent()) {?>
               <tr><td><?php echo T_("Gift percent"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_giftpercent()). ' '. T_("%"); ?></td></tr>
@@ -38,10 +38,27 @@
     </div>
   </div>
   <div class="c6 s12">
-     <div class="box impact mLa5">
+     <div class="box  mLa5">
       <header><h2><?php echo T_("Gift card usage detail"); ?></h2></header>
-      <div class="body zeroPad">
-        <table class="tbl1 v1">
+      <div class="pad">
+        <table class="tbl1">
+          <tbody>
+
+            <tr><td><?php echo T_("Total usage"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
+            <tr><td><?php echo T_("Total user use this gift card"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
+            <tr><td><?php echo T_("First use date"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
+            <tr><td><?php echo T_("Last use date"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
+            <tr><td></td><td class="txtL"><a href="<?php echo \dash\url::this(). '/usage?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show usage list"); ?></a></td></tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="box  mLa5">
+      <header><h2><?php echo T_("Gift card lookup detail"); ?></h2></header>
+      <div class="pad">
+        <table class="tbl1">
           <tbody>
 
             <tr><td><?php echo T_("Total usage"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
