@@ -21,6 +21,7 @@ class dashboard
 
 		$result['chart'] = self::chart();
 
+
 		return $result;
 	}
 
@@ -78,14 +79,14 @@ class dashboard
 				$category[] = \dash\utility\jdate::date("F", $month_time);
 			}
 
-			$get_detail_ticket = \dash\db\tickets\get::chart_by_date_fa($last_12_month, $all_date, false);
-			$get_detail_message   = \dash\db\tickets\get::chart_by_date_fa($last_12_month, $all_date, true);
+			$get_detail_ticket = \lib\db\giftusage\get::chart_by_date_fa($last_12_month, $all_date, false);
+			$get_detail_message   = \lib\db\giftlookup\get::chart_by_date_fa($last_12_month, $all_date, true);
 
 		}
 		else
 		{
-			$get_detail_ticket = \dash\db\tickets\get::chart_by_date_en($last_12_month, false);
-			$get_detail_message   = \dash\db\tickets\get::chart_by_date_en($last_12_month, false);
+			$get_detail_ticket = \lib\db\giftusage\get::chart_by_date_en($last_12_month, false);
+			$get_detail_message   = \lib\db\giftlookup\get::chart_by_date_en($last_12_month, false);
 
 			for ($i=0; $i < 12 ; $i++)
 			{
@@ -133,10 +134,10 @@ class dashboard
 
 
 
-		$chart                = [];
-		$chart['category']    = json_encode($category , JSON_UNESCAPED_UNICODE);
-		$chart['dataticket'] = json_encode(array_values($month_list_ticket), JSON_UNESCAPED_UNICODE);
-		$chart['datamessage']   = json_encode(array_values($month_list_message), JSON_UNESCAPED_UNICODE);
+		$chart             = [];
+		$chart['category'] = json_encode($category , JSON_UNESCAPED_UNICODE);
+		$chart['lookup']   = json_encode(array_values($month_list_ticket), JSON_UNESCAPED_UNICODE);
+		$chart['usage']    = json_encode(array_values($month_list_message), JSON_UNESCAPED_UNICODE);
 
 		return $chart;
 	}

@@ -5,8 +5,8 @@
     <div id="chartdivcmsticket" class="box chart x310 s0" data-abc='crm/tickets'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
-        <div id="charttickettitle"><?php echo T_("Usage") ?></div>
-        <div id="chartmessagetitle"><?php echo T_("Lookup") ?></div>
+        <div id="charttickettitle"><?php echo T_("Lookup") ?></div>
+        <div id="chartmessagetitle"><?php echo T_("Usage") ?></div>
 
         <div id="charttitle"><?php echo T_("Usage and lookup in last years") ?></div>
         <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
@@ -42,7 +42,7 @@
       <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/all?status=awaiting">
         <i class="sf-heartbeat fc-hot"></i>
-        <div class="key"><?php echo T_('Active card');?></div>
+        <div class="key"><?php echo T_('Active cards');?></div>
         <div class="value txtB"><?php echo \dash\fit::number(a($dashboardDetail, 'active')); ?></div>
         <div class="go"></div>
        </a>
@@ -50,7 +50,7 @@
        <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/all?status=expired">
         <i class="sf-exclamation-circle"></i>
-        <div class="key"><?php echo T_('Expired card');?></div>
+        <div class="key"><?php echo T_('Expired cards');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'expired')); ?></div>
         <div class="go"></div>
        </a>
@@ -71,7 +71,7 @@
        <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/lookup?verify=no">
         <i class="sf-times-circle"></i>
-        <div class="key"><?php echo T_('Lookup failed');?></div>
+        <div class="key"><?php echo T_('Lookup failed history');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'lookupfaild')); ?></div>
         <div class="go"></div>
        </a>
