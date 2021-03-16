@@ -9,6 +9,9 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 		$result                            = [];
+		$result['yaml_emit_file'] =  function_exists('yaml_emit_file');
+		$result['extension_loaded_yaml'] =  extension_loaded('yaml');
+		// $result['extension_loaded_libwebp-dev'] =  extension_loaded('libwebp-dev');
 		$result['mbstring']                = extension_loaded('mbstring');
 		$result['soap']                    = class_exists("soapclient");
 		$result['ssh2']                    = function_exists("ssh2_connect");
@@ -28,6 +31,7 @@ class view
 		$result['error_reporting']         = ini_get('error_reporting');
 		$result['log_errors']              = ini_get('log_errors');
 		$result['session.name']            = ini_get('session.name');
+
 
 		$w                       = stream_get_wrappers();
 		$result['openssl']       = extension_loaded ('openssl');
