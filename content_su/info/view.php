@@ -11,7 +11,8 @@ class view
 		$result                            = [];
 		$result['yaml_emit_file'] =  function_exists('yaml_emit_file');
 		$result['extension_loaded_yaml'] =  extension_loaded('yaml');
-		// $result['extension_loaded_libwebp-dev'] =  extension_loaded('libwebp-dev');
+		// php8.0-xml
+		// libwebp-dev
 		$result['mbstring']                = extension_loaded('mbstring');
 		$result['soap']                    = class_exists("soapclient");
 		$result['ssh2']                    = function_exists("ssh2_connect");
