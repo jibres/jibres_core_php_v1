@@ -40,7 +40,17 @@
       </li>
     </ul>
   </nav>
-
+    <nav class="items">
+    <ul>
+      <li>
+        <a class="f item" href="<?php echo \dash\url::this(). '/transfer?id='. \dash\request::get('id'); ?>">
+          <i class="sf-exchange"></i>
+          <div class="key"><?php echo T_("Change business fuel") ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
   <?php if($dataRow['status'] === 'deleted') {?>
 
    <nav class="items">
