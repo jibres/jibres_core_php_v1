@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-16 14:18+0330\n"
-"PO-Revision-Date: 2021-03-16 14:25+0330\n"
+"POT-Creation-Date: 2021-03-16 14:55+0330\n"
+"PO-Revision-Date: 2021-03-16 14:55+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -17474,7 +17474,7 @@ msgstr "این رابط به روش‌های مختلف بسته به نوع د�
 msgid "Method"
 msgstr "متود"
 
-#: content_developers/docs/003-requests.php:13 content_love/gift/home/display.php:8
+#: content_developers/docs/003-requests.php:13 content_love/gift/home/display.php:9
 msgid "Usage"
 msgstr "استفاده"
 
@@ -20050,7 +20050,7 @@ msgstr "منقضی شده"
 msgid "blocked"
 msgstr "مسدودشده"
 
-#: content_love/gift/home/display.php:9
+#: content_love/gift/home/display.php:8
 msgid "Lookup"
 msgstr "جستجو"
 
@@ -20067,20 +20067,20 @@ msgid "Generate new gift card"
 msgstr "ساخت کارت هدیه جدید"
 
 #: content_love/gift/home/display.php:45
-msgid "Active card"
-msgstr "کارت فعال"
+msgid "Active cards"
+msgstr "کارت‌های فعال"
 
 #: content_love/gift/home/display.php:53
-msgid "Expired card"
-msgstr "تاریخ انقضای کارت"
+msgid "Expired cards"
+msgstr "کارت‌های منقضی شده"
 
 #: content_love/gift/home/display.php:66
 msgid "Lookup history"
 msgstr "تاریخچه فراخوانی"
 
 #: content_love/gift/home/display.php:74
-msgid "Lookup failed"
-msgstr "فراخوانی ناموفق"
+msgid "Lookup failed history"
+msgstr "تاریخچه فراخوانی ناموفق"
 
 #: content_love/gift/home/display.php:89
 msgid "Gift usage"
@@ -38875,6 +38875,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Lookup failed"
+#~ msgstr "فراخوانی ناموفق"
 
 #~ msgid "Show gitft card"
 #~ msgstr "نمایش کارت هدیه"
