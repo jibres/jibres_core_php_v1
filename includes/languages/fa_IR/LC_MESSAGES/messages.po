@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-03-15 19:22+0330\n"
-"PO-Revision-Date: 2021-03-15 19:23+0330\n"
+"POT-Creation-Date: 2021-03-16 14:18+0330\n"
+"PO-Revision-Date: 2021-03-16 14:25+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -771,7 +771,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_love/domain/onlineniclog/display.php:98
 #: content_love/domain/polls/display.php:57
 #: content_love/domain/setting/action/display.php:17
-#: content_love/gift/usage/display.php:64 content_love/log/home/logTable.php:11
+#: content_love/gift/usage/display.php:11 content_love/log/home/logTable.php:11
 #: content_love/transactions/display.php:70 content_pay/home/display.php:122
 #: content_su/ip/display.php:61 includes/languages/trans_static_public.php:195
 #: lib/app/factor/search.php:183 lib/app/form/item/type.php:178
@@ -1308,8 +1308,6 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_love/domain/log/display.php:79 content_love/domain/onlineniclog/display.php:78
 #: content_love/domain/onlineniclog/display.php:79
 #: content_love/domain/polls/display.php:38 content_love/domain/polls/display.php:39
-#: content_love/gift/all/display.php:44 content_love/gift/all/display.php:45
-#: content_love/gift/usage/display.php:44 content_love/gift/usage/display.php:45
 #: content_love/log/home/display.php:50 content_love/log/home/display.php:55
 #: content_love/notiflog/display.php:69 content_love/notiflog/display.php:70
 #: content_love/smslog/display.php:7 content_love/smslog/display.php:9
@@ -1363,7 +1361,7 @@ msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
 #: content/domains/home/display.php:32 content_love/domain/home/display.php:216
-#: content_my/domain/setting/elements/detail.php:46
+#: content_my/domain/setting/elements/detail.php:47
 msgid "Renew"
 msgstr "تمدید"
 
@@ -1717,8 +1715,8 @@ msgstr "تی‌ال‌دی دامنه"
 #: content_a/products/variants/display-add-product.php:69 content_a/sale/display.php:18
 #: content_business/p/home/display.php:84 content_business/p/home/view.php:109
 #: content_love/domain/billing/display.php:92
-#: content_love/domain/setting/action/display.php:44
-#: content_love/gift/usage/display.php:60 content_love/transactions/add/display.php:67
+#: content_love/domain/setting/action/display.php:44 content_love/gift/usage/display.php:7
+#: content_love/transactions/add/display.php:67
 #: content_love/transactions/minus/display.php:67 lib/app/product/filter.php:84
 #: lib/app/product/filter.php:93 lib/app/product/property.php:176
 #: lib/app/product/search.php:99 lib/app/product/site_list.php:266
@@ -4529,7 +4527,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
 #: content_love/gift/create/setting/view.php:12 content_love/gift/create/usage/view.php:12
 #: content_love/gift/edit/view.php:12 content_love/gift/home/view.php:12
-#: content_love/gift/lookup/view.php:12 content_love/gift/usage/view.php:12
+#: content_love/gift/lookup/view.php:32 content_love/gift/lookup/view.php:38
+#: content_love/gift/usage/view.php:41 content_love/gift/usage/view.php:47
 #: content_love/gift/view/view.php:12 content_love/log/caller/view.php:13
 #: content_love/log/show/view.php:12 content_love/notiflog/view.php:12
 #: content_love/smslog/view/view.php:12 content_love/store/setting/view.php:12
@@ -4669,7 +4668,7 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_my/domain/predict/display.php:6 content_my/domain/renew/display.php:7
 #: content_my/domain/renew/display.php:24 content_my/domain/setting/pageStep.php:7
 #: content_my/domain/transfer/display.php:7 content_my/domain/transfer/display.php:23
-#: content_my/domain/whois/display.php:6
+#: content_my/domain/whois/display.php:6 lib/app/gift/filter.php:55
 #: lib/app/log/caller/domain/domain_AutoRenewAlert.php:14
 #: lib/app/log/caller/domain/domain_creditLow.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:15
@@ -4725,7 +4724,6 @@ msgstr "لطفا والد را انتخاب کنید"
 #: content_a/accounting/report/balancesheet/display.php:10
 #: content_a/accounting/report/group/display.php:10
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
-#: content_love/gift/all/display.php:60
 #: content_my/domain/whoisdetail/whoisDetailForm.php:73
 #: content_my/domain/whoisdetail/whoisDetailForm.php:89 dash/app/files/ready.php:96
 #: includes/languages/trans_static.php:547 lib/app/onlinenic/create.php:75
@@ -4857,10 +4855,10 @@ msgstr "پیگیری"
 #: content_crm/permission/edit/display.php:70 content_love/domain/detail/display.php:25
 #: content_love/domain/setting/display.php:125
 #: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:499
-#: lib/app/nic_domain/ready.php:150 lib/app/nic_domain/ready.php:152
-#: lib/app/nic_domain/ready.php:158 lib/app/nic_domain/ready.php:160
-#: lib/app/nic_domain/ready.php:231 lib/app/nic_domain/ready.php:233
-#: lib/app/nic_domain/ready.php:412
+#: lib/app/gift/filter.php:44 lib/app/nic_domain/ready.php:150
+#: lib/app/nic_domain/ready.php:152 lib/app/nic_domain/ready.php:158
+#: lib/app/nic_domain/ready.php:160 lib/app/nic_domain/ready.php:231
+#: lib/app/nic_domain/ready.php:233 lib/app/nic_domain/ready.php:412
 msgid "Enable"
 msgstr "فعال"
 
@@ -4893,7 +4891,7 @@ msgstr "غیرفعال"
 #: content_love/business/domain/setting/display.php:118
 #: content_love/domain/all/display.php:62 content_love/domain/fetch/display.php:65
 #: content_love/domain/setting/display.php:120 content_love/domain/setting/display.php:304
-#: content_love/domain/setting/display.php:341 content_love/gift/all/display.php:63
+#: content_love/domain/setting/display.php:341
 #: content_love/gift/create/review/display.php:31 content_love/gift/edit/display.php:84
 #: content_love/gift/view/display.php:31
 #: content_my/domain/setting/elements/superdetail.php:23
@@ -4906,9 +4904,10 @@ msgstr "غیرفعال"
 #: dash/app/ticket/filter.php:42 dash/app/ticket/filter.php:44
 #: dash/app/ticket/filter.php:45 dash/app/user/filter.php:27 dash/app/user/filter.php:28
 #: dash/app/user/filter.php:29 lib/app/business_domain/search.php:87
-#: lib/app/business_domain/search_dns.php:59 lib/app/sms/filter.php:26
-#: lib/app/sms/filter.php:27 lib/app/sms/filter.php:28 lib/app/sms/filter.php:29
-#: lib/app/sms/filter.php:30
+#: lib/app/business_domain/search_dns.php:59 lib/app/gift/filter.php:43
+#: lib/app/gift/filter.php:44 lib/app/gift/filter.php:45 lib/app/gift/filter.php:46
+#: lib/app/sms/filter.php:26 lib/app/sms/filter.php:27 lib/app/sms/filter.php:28
+#: lib/app/sms/filter.php:29 lib/app/sms/filter.php:30
 msgid "Status"
 msgstr "وضعیت"
 
@@ -5121,7 +5120,6 @@ msgstr "تفصیل‌پذیر"
 #: content_love/domain/irnic/display.php:93 content_love/domain/log/display.php:149
 #: content_love/domain/onlineniclog/display.php:149
 #: content_love/domain/polls/display.php:94 content_love/domain/polls/display.php:102
-#: content_love/gift/all/display.php:97 content_love/gift/usage/display.php:106
 #: content_love/log/home/logTable.php:124 content_love/log/home/logTable.php:132
 #: content_love/notiflog/display.php:155 content_love/notiflog/display.php:163
 #: content_love/transactions/display.php:114 content_love/transactions/display.php:122
@@ -5174,8 +5172,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_love/application/home/display.php:143 content_love/domain/all/display.php:122
 #: content_love/domain/billing/display.php:152 content_love/domain/fetch/display.php:114
 #: content_love/domain/irnic/display.php:102 content_love/domain/log/display.php:161
-#: content_love/domain/onlineniclog/display.php:161 content_love/gift/all/display.php:109
-#: content_love/gift/usage/display.php:118 content_love/log/home/logTable.php:138
+#: content_love/domain/onlineniclog/display.php:161 content_love/log/home/logTable.php:138
 #: content_love/notiflog/display.php:169 content_love/transactions/display.php:128
 #: content_my/domain/irnic/display.php:102 content_my/domain/short/display.php:90
 #: content_su/dbtables/display.php:127 content_su/ip/display.php:120
@@ -5614,7 +5611,7 @@ msgid "Add income"
 msgstr "افزودن درآمد"
 
 #: content_a/accounting/home/display.php:204
-#: content_a/form/analytics/province/display.php:17 content_love/gift/home/display.php:18
+#: content_a/form/analytics/province/display.php:17
 msgid "List"
 msgstr "لیست"
 
@@ -5874,8 +5871,8 @@ msgstr "افزودن فاکتور جدید"
 #: content_crm/home/display.php:6 content_crm/sms/home/display.php:6
 #: content_crm/telegram/home/display.php:6 content_crm/ticket/home/display.php:6
 #: content_love/domain/home/display.php:219 content_love/files/home/display.php:36
-#: content_su/tg/system/display.php:10 content_su/tg/users/display.php:85
-#: includes/languages/trans_static_public.php:899
+#: content_love/gift/home/display.php:7 content_su/tg/system/display.php:10
+#: content_su/tg/users/display.php:85 includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -5933,7 +5930,6 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_love/domain/irnic/view.php:41 content_love/domain/log/view.php:47
 #: content_love/domain/onlineniclog/view.php:47 content_love/domain/polls/view.php:37
 #: content_love/files/choose/view.php:39 content_love/files/datalist/view.php:42
-#: content_love/gift/all/view.php:44 content_love/gift/usage/view.php:39
 #: content_love/smslog/view.php:40 content_love/store/view.php:41
 #: content_my/domain/irnic/view.php:43 content_my/domain/other/view.php:60
 #: content_my/domain/predict/view.php:48 content_my/domain/search/view.php:51
@@ -6842,10 +6838,10 @@ msgstr "مجموع"
 #: content_a/products/variants/display-add-product.php:75 content_a/sale/display.php:19
 #: content_business/cart/cartSummary.php:11 content_business/p/home/view.php:103
 #: content_love/domain/billing/display.php:93
-#: content_love/domain/setting/action/display.php:48
-#: content_love/gift/usage/display.php:61 lib/app/product/filter.php:103
-#: lib/app/product/filter.php:112 lib/app/product/property.php:170
-#: lib/app/product/search.php:113 lib/app/product/updateprice.php:129
+#: content_love/domain/setting/action/display.php:48 content_love/gift/usage/display.php:8
+#: lib/app/product/filter.php:103 lib/app/product/filter.php:112
+#: lib/app/product/property.php:170 lib/app/product/search.php:113
+#: lib/app/product/updateprice.php:129
 msgid "Discount"
 msgstr "تخفیف"
 
@@ -6961,9 +6957,8 @@ msgstr "گزینه"
 
 #: content_a/cart/home/display.php:168 content_a/order/address/display.php:96
 #: content_a/order/home/display.php:133 content_cms/posts/share/display.php:28
-#: content_crm/ticket/edit/display.php:11 content_love/gift/all/display.php:64
-#: dash/app/telegram/post.php:111 dash/layout/admin/admin-titlebox.php:33
-#: includes/languages/trans_static_public.php:142
+#: content_crm/ticket/edit/display.php:11 dash/app/telegram/post.php:111
+#: dash/layout/admin/admin-titlebox.php:33 includes/languages/trans_static_public.php:142
 msgid "View"
 msgstr "نمایش"
 
@@ -6976,10 +6971,11 @@ msgstr "نمایش"
 #: content_love/domain/log/view/display.php:40
 #: content_love/domain/onlineniclog/display.php:100
 #: content_love/domain/onlineniclog/view/display.php:30
-#: content_love/gift/usage/display.php:65 content_love/log/home/logTable.php:8
+#: content_love/gift/usage/display.php:12 content_love/log/home/logTable.php:8
 #: content_love/smslog/display.php:27 content_love/transactions/display.php:63
 #: content_su/tg/system/display.php:7 content_su/tg/users/display.php:82
-#: lib/app/nic_log/search.php:95 lib/app/onlinenic/log/search.php:95
+#: lib/app/gift/filter.php:48 lib/app/gift/filter.php:49 lib/app/nic_log/search.php:95
+#: lib/app/onlinenic/log/search.php:95
 msgid "User"
 msgstr "کاربر"
 
@@ -7319,8 +7315,8 @@ msgstr ""
 #: content_love/smslog/view/display.php:12 content_my/domain/setting/elements/irnic.php:26
 #: dash/app/ticket/filter.php:57 dash/app/ticket/filter.php:58
 #: lib/app/application/queue_search.php:66 lib/app/category/add.php:40
-#: lib/app/factor/search.php:137 lib/app/nic_log/search.php:69
-#: lib/app/onlinenic/log/search.php:69
+#: lib/app/factor/search.php:137 lib/app/gift/filter.php:51 lib/app/gift/filter.php:52
+#: lib/app/nic_log/search.php:69 lib/app/onlinenic/log/search.php:69
 msgid "Type"
 msgstr "نوع"
 
@@ -8465,10 +8461,11 @@ msgstr "درصد فراوانی"
 #: content_cms/files/home/display.php:175 content_cms/posts/analyze/display.php:31
 #: content_cms/posts/edit/display.php:112 content_cms/seo/display.php:11
 #: content_cms/seo/display.php:66 content_love/files/home/display.php:175
-#: content_love/gift/create/review/display.php:13 content_love/gift/view/display.php:14
-#: content_my/domain/review/display.php:206 dash/layout/comment/comment-list.php:21
-#: dash/layout/comment/comment-list.php:26 dash/layout/comment/comment-list.php:31
-#: dash/layout/comment/comment-list.php:36 dash/layout/comment/comment-list.php:41
+#: content_love/gift/all/display.php:17 content_love/gift/create/review/display.php:13
+#: content_love/gift/view/display.php:14 content_my/domain/review/display.php:206
+#: dash/layout/comment/comment-list.php:21 dash/layout/comment/comment-list.php:26
+#: dash/layout/comment/comment-list.php:31 dash/layout/comment/comment-list.php:36
+#: dash/layout/comment/comment-list.php:41
 msgid "%"
 msgstr "٪"
 
@@ -8549,7 +8546,7 @@ msgstr "ویرایش ترتیب سوالات"
 #: content_cms/home/display.php:10 content_cms/posts/advance/display.php:22
 #: dash/app/posts/filter.php:51 dash/app/posts/ready.php:86
 #: includes/languages/trans_static.php:512 lib/app/factor/action.php:61
-#: lib/app/factor/ready.php:112 lib/app/tax/doc/ready.php:40
+#: lib/app/factor/ready.php:112 lib/app/gift/filter.php:45 lib/app/tax/doc/ready.php:40
 #: lib/app/tax/docdetail/ready.php:26
 msgid "Draft"
 msgstr "پیش‌نویس"
@@ -9447,7 +9444,7 @@ msgid "Buy price"
 msgstr "قیمت خرید"
 
 #: content_a/pricehistory/display.php:41 content_a/products/home/display.php:175
-#: content_love/domain/billing/display.php:94 content_love/gift/usage/display.php:63
+#: content_love/domain/billing/display.php:94 content_love/gift/usage/display.php:10
 #: lib/app/product/updateprice.php:133
 msgid "Final price"
 msgstr "قیمت نهایی"
@@ -9711,10 +9708,9 @@ msgid "Description about product"
 msgstr "توضیحاتی در مورد این محصول"
 
 #: content_a/products/edit/display-master.php:52 content_a/products/home/filter.php:67
-#: content_business/collection/view.php:9 content_love/gift/all/display.php:62
-#: content_love/gift/create/review/display.php:19 content_love/gift/view/display.php:12
-#: dash/layout/pwa/pwa_menu.php:248 lib/app/product/property.php:247
-#: lib/app/product/search.php:123
+#: content_business/collection/view.php:9 content_love/gift/create/review/display.php:19
+#: content_love/gift/view/display.php:12 dash/layout/pwa/pwa_menu.php:248
+#: lib/app/product/property.php:247 lib/app/product/search.php:123
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -15050,7 +15046,7 @@ msgid "Related products"
 msgstr "محصولات مرتبط"
 
 #: content_business/p/home/shareBox.php:2 content_cms/posts/share/view.php:20
-#: dash/layout/post/part.php:281 dash/layout/post/share-box.php:2
+#: dash/layout/post/part.php:285 dash/layout/post/share-box.php:2
 msgid "Share"
 msgstr "اشتراک‌گذاری"
 
@@ -16199,7 +16195,7 @@ msgstr "همه پرداختی‌ها"
 #: content_crm/sms/datalist/view.php:12 content_crm/sms/home/view.php:9
 #: content_crm/sms/send/view.php:12 content_love/log/home/logTable.php:61
 #: includes/languages/trans_static_public.php:940
-#: includes/languages/trans_static_public.php:982
+#: includes/languages/trans_static_public.php:982 lib/app/gift/filter.php:57
 msgid "SMS"
 msgstr "پیام کوتاه"
 
@@ -17478,7 +17474,7 @@ msgstr "این رابط به روش‌های مختلف بسته به نوع د�
 msgid "Method"
 msgstr "متود"
 
-#: content_developers/docs/003-requests.php:13
+#: content_developers/docs/003-requests.php:13 content_love/gift/home/display.php:8
 msgid "Usage"
 msgstr "استفاده"
 
@@ -18276,8 +18272,8 @@ msgstr ""
 #: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
 #: lib/app/cart/add.php:168 lib/app/cart/add.php:275 lib/app/cart/checkout.php:14
 #: lib/app/cart/edit.php:19 lib/app/cart/remove.php:36 lib/app/domains/search.php:27
-#: lib/app/factor/cart.php:67 lib/app/gift/lookup/search.php:21 lib/app/gift/search.php:27
-#: lib/app/giftusage/search.php:27 lib/app/irvat/search.php:29
+#: lib/app/factor/cart.php:67 lib/app/gift/lookup/search.php:26 lib/app/gift/search.php:27
+#: lib/app/gift/usage/search.php:24 lib/app/irvat/search.php:29
 #: lib/app/nic_contact/add.php:21 lib/app/nic_contact/add.php:67
 #: lib/app/nic_contact/add.php:189 lib/app/nic_contact/edit.php:110
 #: lib/app/nic_contact/get.php:26 lib/app/nic_contact/search.php:28
@@ -18625,6 +18621,7 @@ msgid "Edit queue"
 msgstr "ویرایش صف"
 
 #: content_love/application/home/display.php:74 content_love/smslog/display.php:25
+#: lib/app/gift/filter.php:56
 msgid "Store"
 msgstr "فروشگاه"
 
@@ -19160,7 +19157,7 @@ msgid "Renew domain"
 msgstr "تمدید دامنه"
 
 #: content_love/domain/detail/display.php:67 content_love/domain/setting/display.php:41
-#: content_my/domain/setting/elements/detail.php:55
+#: content_my/domain/setting/elements/detail.php:56
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
@@ -19776,17 +19773,9 @@ msgstr "مراقب باش! شما در حالت مدیریتی هستید!"
 msgid "Connect to business"
 msgstr "متصل به بیزینس"
 
-#: content_love/gift/all/display.php:79
-msgid "Show gitft card"
-msgstr "نمایش کارت هدیه"
-
 #: content_love/gift/all/view.php:9 content_love/gift/lookup/view.php:9
 msgid "Gift cards"
 msgstr "کارت‌های هدیه"
-
-#: content_love/gift/all/view.php:17
-msgid "Lookup"
-msgstr "جستجو"
 
 #: content_love/gift/card/giftcard.php:28 dash/layout/admin/admin-sidebar.php:124
 #: includes/languages/trans_static.php:734
@@ -19918,7 +19907,9 @@ msgstr "مبلغ کارت هدیه"
 
 #: content_love/gift/create/review/display.php:23
 #: content_love/gift/create/usage/display.php:24 content_love/gift/edit/display.php:69
-#: content_love/gift/view/display.php:23
+#: content_love/gift/view/display.php:23 lib/app/gift/filter.php:54
+#: lib/app/gift/filter.php:55 lib/app/gift/filter.php:56 lib/app/gift/filter.php:57
+#: lib/app/gift/filter.php:59 lib/app/gift/filter.php:60 lib/app/gift/filter.php:61
 msgid "For use in"
 msgstr "برای استفاده در"
 
@@ -20060,18 +20051,66 @@ msgid "blocked"
 msgstr "مسدودشده"
 
 #: content_love/gift/home/display.php:9
-msgid "Create new gift"
-msgstr "افزودن کارت هدیه جدید"
+msgid "Lookup"
+msgstr "جستجو"
+
+#: content_love/gift/home/display.php:11
+msgid "Usage and lookup in last years"
+msgstr "استفاده و بررسی کد هدیه در یک سال گذشته"
+
+#: content_love/gift/home/display.php:25
+msgid "All gift card"
+msgstr "همه کارت‌های هدیه"
+
+#: content_love/gift/home/display.php:33
+msgid "Generate new gift card"
+msgstr "ساخت کارت هدیه جدید"
+
+#: content_love/gift/home/display.php:45
+msgid "Active card"
+msgstr "کارت فعال"
+
+#: content_love/gift/home/display.php:53
+msgid "Expired card"
+msgstr "تاریخ انقضای کارت"
+
+#: content_love/gift/home/display.php:66
+msgid "Lookup history"
+msgstr "تاریخچه فراخوانی"
+
+#: content_love/gift/home/display.php:74
+msgid "Lookup failed"
+msgstr "فراخوانی ناموفق"
+
+#: content_love/gift/home/display.php:89
+msgid "Gift usage"
+msgstr "موارد استفاده شده از کارت هدیه"
+
+#: content_love/gift/home/display.php:109
+msgid "Last usage"
+msgstr "آخرین استفاده"
+
+#: content_love/gift/home/display.php:127
+msgid "No usage so far"
+msgstr "هنوز هیچ کارت هدیه‌ای استفاده نشده است"
+
+#: content_love/gift/home/display.php:133
+msgid "Last lookup"
+msgstr "آخرین فراخوانی"
+
+#: content_love/gift/home/display.php:151
+msgid "No lookup founded"
+msgstr "هیچ فراخوانی یافت نشد"
 
 #: content_love/gift/home/view.php:9
 msgid "Gift card Management"
 msgstr "مدیریت کارت هدیه"
 
-#: content_love/gift/usage/display.php:59
+#: content_love/gift/usage/display.php:6
 msgid "Transaction ID"
 msgstr "شماره تراکنش‌"
 
-#: content_love/gift/usage/display.php:62
+#: content_love/gift/usage/display.php:9
 msgid "Discount Percent"
 msgstr "درصد تخفیف"
 
@@ -20079,33 +20118,57 @@ msgstr "درصد تخفیف"
 msgid "Gift card usage"
 msgstr "استفاده از کارت هدیه"
 
-#: content_love/gift/view/display.php:7
+#: content_love/gift/view/display.php:6
 msgid "Gift card detail"
 msgstr "جزئیات کارت هدیه"
 
-#: content_love/gift/view/display.php:42
+#: content_love/gift/view/display.php:10
+msgid "View gift card"
+msgstr "نمایش کارت هدیه"
+
+#: content_love/gift/view/display.php:44
 msgid "Gift card usage detail"
 msgstr "جزئیات استفاده از کارت هدیه"
 
-#: content_love/gift/view/display.php:47
+#: content_love/gift/view/display.php:49
 msgid "Total usage"
 msgstr "تعداد کل استفاده"
 
-#: content_love/gift/view/display.php:48
+#: content_love/gift/view/display.php:50
 msgid "Total user use this gift card"
 msgstr "تعداد کاربرانی که از این کارت استفاده کرده‌اند"
 
-#: content_love/gift/view/display.php:49
+#: content_love/gift/view/display.php:51
 msgid "First use date"
 msgstr "اولین استفاده"
 
-#: content_love/gift/view/display.php:50
+#: content_love/gift/view/display.php:52
 msgid "Last use date"
 msgstr "آخرین استفاده"
 
-#: content_love/gift/view/display.php:51
+#: content_love/gift/view/display.php:53
 msgid "Show usage list"
 msgstr "نمایش لیست استفاده شده"
+
+#: content_love/gift/view/display.php:61
+msgid "Gift card lookup detail"
+msgstr "جزئیات فراخوانی کارت هدیه"
+
+#: content_love/gift/view/display.php:66
+msgid "Total lookup"
+msgstr "مجموع فراخوانی"
+
+#: content_love/gift/view/display.php:67
+msgid "Total valid lookup"
+msgstr "مجموع فراخوانی‌های موفق"
+
+#: content_love/gift/view/display.php:68
+msgid "Total invalid lookup"
+msgstr "مجموع فراخوانی‌های ناموفق"
+
+#: content_love/gift/view/display.php:70
+msgid "Show lookup list"
+msgstr "نمایش لیست فراخوانی کد هدیه"
 
 #: content_love/home/display.php:7 dash/layout/admin/admin-sidebar-frame.php:36
 msgid "Supervisor Panel"
@@ -23983,11 +24046,15 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
-#: dash/csrf.php:27
+#: dash/csrf.php:25
+msgid "Can not connect to database service!"
+msgstr "ما نمی‌توانیم به سرویس دیتابیس متصل شویم!"
+
+#: dash/csrf.php:32
 msgid "Reload page to continue!"
 msgstr "برای ادامه، صفحه را مجددا بارگذاری نمایید!"
 
-#: dash/csrf.php:33
+#: dash/csrf.php:38
 msgid "You wander in a labyrinth!"
 msgstr "شما در یک دخمه پرپیچ‌وخم سرگردانید!"
 
@@ -23995,52 +24062,52 @@ msgstr "شما در یک دخمه پرپیچ‌وخم سرگردانید!"
 msgid "Clear Sort"
 msgstr "بدون مرتب‌سازی"
 
-#: dash/db/mysql/tools/connection.php:66
+#: dash/db/mysql/tools/connection.php:73
 msgid "We dont have Love!"
 msgstr "عشق من کجاست!"
 
-#: dash/db/mysql/tools/connection.php:66
+#: dash/db/mysql/tools/connection.php:73
 msgid "Please contact lovers!"
 msgstr "لطفا با مدیر دوست‌داشتنی سامانه تماس بگیرید!"
 
-#: dash/db/mysql/tools/connection.php:72
+#: dash/db/mysql/tools/connection.php:78
 msgid "We can't find database service!"
 msgstr "ما نمی‌توانیم سرویس دیتابیس را بیابیم!"
 
-#: dash/db/mysql/tools/connection.php:84
+#: dash/db/mysql/tools/connection.php:90
 msgid "Whats that name!"
 msgstr "این چه نامی است!"
 
-#: dash/db/mysql/tools/connection.php:88
+#: dash/db/mysql/tools/connection.php:94
 msgid "Whats that code!"
 msgstr "اون کلید کجاست!"
 
-#: dash/db/mysql/tools/connection.php:92
+#: dash/db/mysql/tools/connection.php:98
 msgid "Where is that home!"
 msgstr "اون خونه کجاست!"
 
-#: dash/db/mysql/tools/connection.php:96
+#: dash/db/mysql/tools/connection.php:102
 msgid "Where is that door!"
 msgstr "درب ورود کجاست!"
 
-#: dash/db/mysql/tools/connection.php:100
+#: dash/db/mysql/tools/connection.php:106
 msgid "Where is that bed room!"
 msgstr "اتاق خواب کجاست!"
 
-#: dash/db/mysql/tools/connection.php:118
+#: dash/db/mysql/tools/connection.php:124
 msgid "We can't connect to database service!"
 msgstr "ما نمی‌توانیم به سرویس دیتابیس متصل شویم!"
 
-#: dash/db/mysql/tools/connection.php:126
+#: dash/db/mysql/tools/connection.php:132
 msgid "Unable to connect to this store at this time"
 msgstr "در حال حاضر امکان اتصال به این فروشگاه وجود ندارد"
 
-#: dash/db/mysql/tools/connection.php:132
+#: dash/db/mysql/tools/connection.php:138
 msgid "Please contact administrator!"
 msgstr "لطفا با مدیر سیستم تماس بگیرید!"
 
-#: dash/db/mysql/tools/connection.php:144 dash/db/mysql/tools/connection.php:150
-#: dash/db/mysql/tools/connection.php:156 dash/social/telegram/commands/ermile.php:175
+#: dash/db/mysql/tools/connection.php:150 dash/db/mysql/tools/connection.php:156
+#: dash/db/mysql/tools/connection.php:162 dash/social/telegram/commands/ermile.php:175
 #: dash/social/telegram/commands/ermile.php:448
 msgid "Hello!"
 msgstr "سلام!"
@@ -24668,55 +24735,55 @@ msgstr "جهت انتشار در شبکه‌های اجتماعی"
 msgid "Short Code"
 msgstr "کد کوتاه"
 
-#: dash/layout/post/layout-v1.php:65 dash/layout/post/part.php:391
+#: dash/layout/post/layout-v1.php:65 dash/layout/post/part.php:395
 msgid "Recommended for you"
 msgstr "توصیه شده برای شما"
 
-#: dash/layout/post/part.php:224
+#: dash/layout/post/part.php:228
 msgid "Download PDF"
 msgstr "دانلود پی‌دی‌اف"
 
-#: dash/layout/post/part.php:235
+#: dash/layout/post/part.php:239
 msgid "Download ZIP"
 msgstr "دانلود زیپ"
 
-#: dash/layout/post/part.php:246
+#: dash/layout/post/part.php:250
 msgid "Download File"
 msgstr "دانلود فایل"
 
-#: dash/layout/post/part.php:306
+#: dash/layout/post/part.php:310
 msgid "This post published at :val"
 msgstr "این نوشته در تاریخ :val منتشر شده است"
 
-#: dash/layout/post/part.php:323
+#: dash/layout/post/part.php:327
 msgid "We are estimate you can read this post within :val."
 msgstr "ما تخمین می‌زنیم که شما این نوشته را در :val بخوانید."
 
-#: dash/layout/post/part.php:324
+#: dash/layout/post/part.php:328
 msgid ":val read"
 msgstr "در :val بخوانید"
 
-#: dash/layout/post/part.php:337 dash/layout/post/part.php:340
+#: dash/layout/post/part.php:341 dash/layout/post/part.php:344
 msgid "Share of Facebook"
 msgstr "اشتراک‌گذاری در فیس‌بوک"
 
-#: dash/layout/post/part.php:345 dash/layout/post/part.php:348
+#: dash/layout/post/part.php:349 dash/layout/post/part.php:352
 msgid "Share of Twitter"
 msgstr "اشتراک‌گذاری در توییتر"
 
-#: dash/layout/post/part.php:353 dash/layout/post/part.php:356
+#: dash/layout/post/part.php:357 dash/layout/post/part.php:360
 msgid "Share of Linkedin"
 msgstr "اشتراک‌گذاری در لینکدین"
 
-#: dash/layout/post/part.php:361 dash/layout/post/part.php:364
+#: dash/layout/post/part.php:365 dash/layout/post/part.php:368
 msgid "Share of Telegram"
 msgstr "اشتراک‌گذاری در تلگرام"
 
-#: dash/layout/post/part.php:369 dash/layout/post/part.php:373
+#: dash/layout/post/part.php:373 dash/layout/post/part.php:377
 msgid "Copy Shortlink"
 msgstr "کپی لینک کوتاه"
 
-#: dash/layout/post/part.php:371
+#: dash/layout/post/part.php:375
 msgid "ShortLink of this page is copied. Paste in anywhere!"
 msgstr "کد کوتاه این صفحه کپی شد. آن‌ را هر جا که خواستید قرار دهید!"
 
@@ -28316,8 +28383,8 @@ msgstr "کلیدواژه مجله"
 msgid "Help_tag"
 msgstr "تگ راهنمایی"
 
-#: includes/languages/trans_static.php:554 lib/app/nic_domain/ready.php:175
-#: lib/app/nic_domain/ready.php:177
+#: includes/languages/trans_static.php:554 lib/app/gift/filter.php:46
+#: lib/app/nic_domain/ready.php:175 lib/app/nic_domain/ready.php:177
 msgid "Expired"
 msgstr "منقضی‌شده"
 
@@ -34674,6 +34741,98 @@ msgstr "تنظیمات کارت هدیه ذخیره شد"
 msgid "Gift card saved without change"
 msgstr "کات هدیه بدون تغییر ذخیره شد"
 
+#: lib/app/gift/filter.php:12
+msgid "Date created, ASC"
+msgstr "تاریخ ثبت، صعودی"
+
+#: lib/app/gift/filter.php:13
+msgid "Date created, DESC"
+msgstr "تاریخ ثبت، نزولی"
+
+#: lib/app/gift/filter.php:15
+msgid "Date expire, ASC"
+msgstr "تاریخ انقضا،‌ صعودی"
+
+#: lib/app/gift/filter.php:16
+msgid "Date expire, DESC"
+msgstr "تاریخ انقضا، نزولی"
+
+#: lib/app/gift/filter.php:18
+msgid "Capacity, ASC"
+msgstr "ظرفیت، صعودی"
+
+#: lib/app/gift/filter.php:19
+msgid "Capacity, DESC"
+msgstr "ظرفیت، نزولی"
+
+#: lib/app/gift/filter.php:21
+msgid "Capacity per user, ASC"
+msgstr "ظرفیت برای هر کاربر، صعودی"
+
+#: lib/app/gift/filter.php:22
+msgid "Capacity per user, DESC"
+msgstr "ظرفیت برای هر کاربر، نزولی"
+
+#: lib/app/gift/filter.php:24
+msgid "Category, ASC"
+msgstr "دسته بندی، صعودی"
+
+#: lib/app/gift/filter.php:25
+msgid "Category, DESC"
+msgstr "دسته بندی،‌ نزولی"
+
+#: lib/app/gift/filter.php:27
+msgid "Maximum amount, ASC"
+msgstr "حداکثر مبلغ، صعودی"
+
+#: lib/app/gift/filter.php:28
+msgid "Maximum amount, DESC"
+msgstr "حداکثر مبلغ، نزولی"
+
+#: lib/app/gift/filter.php:31
+msgid "Price floor, ASC"
+msgstr "حداقل مبلغ، صعودی"
+
+#: lib/app/gift/filter.php:32
+msgid "Price floor, DESC"
+msgstr "حداقل مبلغ، نزولی"
+
+#: lib/app/gift/filter.php:43
+msgid "Active status and date"
+msgstr "فعال از نظر وضعیت و تاریخ"
+
+#: lib/app/gift/filter.php:48
+msgid "Special user"
+msgstr "محدود به کاربر خاص"
+
+#: lib/app/gift/filter.php:49
+msgid "Have limit per user"
+msgstr "دارای محدودیت به هر کاربر"
+
+#: lib/app/gift/filter.php:51
+msgid "By amount"
+msgstr "بر اساس مبلغ"
+
+#: lib/app/gift/filter.php:52
+msgid "By percent"
+msgstr "بر اساس درصد تخفیف"
+
+#: lib/app/gift/filter.php:54
+msgid "Any"
+msgstr "همه"
+
+#: lib/app/gift/filter.php:59
+msgid "IR domain"
+msgstr "دامنه آی‌آر"
+
+#: lib/app/gift/filter.php:60
+msgid "IR domain 1 year"
+msgstr "دامنه آی‌آر یک ساله"
+
+#: lib/app/gift/filter.php:61
+msgid "IR domain 5 year"
+msgstr "دامنه آی‌آر ۵ ساله"
+
 #: lib/app/import/add.php:66
 msgid "Can not save your import request"
 msgstr "نمی‌توانیم درخواست واردسازی دسته‌ای شما را ذخیره کنیم"
@@ -38716,6 +38875,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Show gitft card"
+#~ msgstr "نمایش کارت هدیه"
+
+#~ msgid "Create new gift"
+#~ msgstr "افزودن کارت هدیه جدید"
 
 #~ msgid "Website Logo"
 #~ msgstr "لوگوی وب‌سایت"
