@@ -21,7 +21,20 @@ class search
 			$limit = "LIMIT $q[limit]";
 		}
 
-		$query = "SELECT * FROM giftlookup $q[where] $q[order] $limit ";
+		$query =
+		"
+			SELECT
+				giftlookup.*,
+				users.mobile,
+				users.displayname,
+				users.avatar,
+				users.gender
+			FROM
+				giftlookup
+			LEFT JOIN users ON users.id = giftlookup.user_id
+			$q[where] $q[order] $limit
+		";
+
 
 		$result = \dash\db::get($query, null, false);
 

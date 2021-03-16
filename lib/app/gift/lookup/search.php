@@ -33,6 +33,7 @@ class search
 			'sort'       => ['enum' => ['id', 'datecreated']],
 			'pagination' => 'y_n',
 			'limit'      => 'int',
+			'gift_id'      => 'code',
 		];
 
 		$require = [];
@@ -64,6 +65,16 @@ class search
 			$meta['pagination'] = false;
 		}
 
+		if($data['gift_id'])
+		{
+			$gift_id = \dash\coding::decode($data['gift_id']);
+			if($gift_id)
+			{
+				$and[] = " giftlookup.gift_id = $gift_id";
+
+				self::$is_filtered = true;
+			}
+		}
 
 
 		$order_sort  = null;
