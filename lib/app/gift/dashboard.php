@@ -25,6 +25,33 @@ class dashboard
 	}
 
 
+	public static function card($_id)
+	{
+		$id = \dash\coding::decode($_id);
+		$id = \dash\validate::id($id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$result                  = [];
+
+		$result['lookup']        = floatval(\lib\db\giftlookup\get::count_lookup_id($id));
+		$result['lookupvalid']   = floatval(\lib\db\giftlookup\get::count_lookup_id_valid($id));
+		$result['lookupinvalid'] = floatval(\lib\db\giftlookup\get::count_lookup_id_invalid($id));
+
+		$result['usage']         = floatval(\lib\db\giftusage\get::count_usage_id($id));
+
+		$result['usageuser']     = floatval(\lib\db\giftusage\get::count_usage_user_id($id));
+
+		$result['lastusage']     = \lib\db\giftusage\get::last_usage_id($id);
+		$result['firstusage']    = \lib\db\giftusage\get::first_usage_id($id);
+
+
+		return $result;
+	}
+
+
 
 
 	private static function chart()

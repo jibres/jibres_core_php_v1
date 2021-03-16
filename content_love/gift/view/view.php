@@ -17,6 +17,9 @@ class view
 		\dash\data::action_text(T_('Edit gift card'));
 		\dash\data::action_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
+		$dashboard_detail = \lib\app\gift\dashboard::card(\dash\request::get('id'));
+		\dash\data::dashboardDetail($dashboard_detail);
+
 	}
 }
 ?>

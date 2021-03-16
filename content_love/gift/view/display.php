@@ -37,6 +37,8 @@
       </div>
     </div>
   </div>
+<?php $dashboard = \dash\data::dashboardDetail();  ?>
+
   <div class="c6 s12">
      <div class="box  mLa5">
       <header><h2><?php echo T_("Gift card usage detail"); ?></h2></header>
@@ -44,10 +46,10 @@
         <table class="tbl1">
           <tbody>
 
-            <tr><td><?php echo T_("Total usage"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td><?php echo T_("Total user use this gift card"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td><?php echo T_("First use date"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td><?php echo T_("Last use date"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
+            <tr><td><?php echo T_("Total usage"); ?></td><td class="txtL"><?php echo \dash\fit::number(a($dashboard, 'usage')); ?></td></tr>
+            <tr><td><?php echo T_("Total user use this gift card"); ?></td><td class="txtL"><?php echo \dash\fit::number(a($dashboard, 'usageuser')); ?></td></tr>
+            <tr><td><?php echo T_("First use date"); ?></td><td class="txtL ltr"><?php echo \dash\fit::date_time(a($dashboard, 'firstusage', 'datecreated')); ?></td></tr>
+            <tr><td><?php echo T_("Last use date"); ?></td><td class="txtL ltr"><?php echo \dash\fit::date_time(a($dashboard, 'lastusage', 'datecreated')); ?></td></tr>
             <tr><td></td><td class="txtL"><a href="<?php echo \dash\url::this(). '/usage?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show usage list"); ?></a></td></tr>
 
           </tbody>
@@ -61,11 +63,11 @@
         <table class="tbl1">
           <tbody>
 
-            <tr><td><?php echo T_("Total usage"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td><?php echo T_("Total user use this gift card"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td><?php echo T_("First use date"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td><?php echo T_("Last use date"); ?></td><td class="txtL"><?php echo \dash\fit::number(\dash\data::dataRow_totalusage()); ?></td></tr>
-            <tr><td></td><td class="txtL"><a href="<?php echo \dash\url::this(). '/usage?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show usage list"); ?></a></td></tr>
+            <tr><td><?php echo T_("Total lookup"); ?></td><td class="txtL"><?php echo \dash\fit::number(a($dashboard, 'lookup')); ?></td></tr>
+            <tr><td><?php echo T_("Total valid lookup"); ?></td><td class="txtL"><?php echo \dash\fit::number(a($dashboard, 'lookupvalid')); ?></td></tr>
+            <tr><td><?php echo T_("Total invalid lookup"); ?></td><td class="txtL"><?php echo \dash\fit::number(a($dashboard, 'lookupinvalid')); ?></td></tr>
+
+            <tr><td></td><td class="txtL"><a href="<?php echo \dash\url::this(). '/lookup?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show lookup list"); ?></a></td></tr>
 
           </tbody>
         </table>
