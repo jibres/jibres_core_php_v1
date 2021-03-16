@@ -6,8 +6,9 @@ class connection
 
 	// save link to database
 	private static $link;
-	private static $link_open  = [];
-	private static $lastDbName = null;
+	private static $link_open           = [];
+	private static $lastDbName          = null;
+	private static $db_connection_error = false;
 
 
 	public static function link()
@@ -25,6 +26,12 @@ class connection
 	public static function get_last_db_name()
 	{
 		return self::$lastDbName;
+	}
+
+
+	public static function db_connection_error()
+	{
+		return self::$db_connection_error;
 	}
 
 
@@ -63,13 +70,12 @@ class connection
 		// check database is exist.
 		if(!$_love)
 		{
-			self::make_error(500, T_("We dont have Love!"). T_("Please contact lovers!"), $_option);
-			return false;
+			return self::make_error(500, T_("We dont have Love!"). T_("Please contact lovers!"), $_option);
 		}
 		// if mysqli class does not exist or have some problem show related error
 		if(!class_exists('mysqli'))
 		{
-			self::make_error(503, T_("We can't find database service!"), $_option);
+			return self::make_error(503, T_("We can't find database service!"), $_option);
 		}
 
 		$link = \mysqli_init();
@@ -81,23 +87,23 @@ class connection
 
 		if(!isset($_love['user']))
 		{
-			self::make_error(503, T_("Whats that name!"), $_option);
+			return self::make_error(503, T_("Whats that name!"), $_option);
 		}
 		if(!isset($_love['pass']))
 		{
-			self::make_error(503, T_("Whats that code!"), $_option);
+			return self::make_error(503, T_("Whats that code!"), $_option);
 		}
 		if(!isset($_love['host']))
 		{
-			self::make_error(503, T_("Where is that home!"), $_option);
+			return self::make_error(503, T_("Where is that home!"), $_option);
 		}
 		if(!isset($_love['port']))
 		{
-			self::make_error(503, T_("Where is that door!"), $_option);
+			return self::make_error(503, T_("Where is that door!"), $_option);
 		}
 		if(!isset($_love['database']))
 		{
-			self::make_error(503, T_("Where is that bed room!"), $_option);
+			return self::make_error(503, T_("Where is that bed room!"), $_option);
 		}
 
 		if($_love['host'] === 'localhost')
@@ -115,7 +121,7 @@ class connection
 		{
 			// Access denied for user 'user'@'hostname' (using password: YES)
 			case 1045:
-				self::make_error(503, T_("We can't connect to database service!"), $_option);
+				return self::make_error(503, T_("We can't connect to database service!"), $_option);
 				break;
 
 
@@ -123,17 +129,17 @@ class connection
 			case 1049:
 				if(\dash\url::store())
 				{
-					self::make_error(503, T_("Unable to connect to this store at this time").  " 1049 ", $_option);
+					return self::make_error(503, T_("Unable to connect to this store at this time").  " 1049 ", $_option);
 				}
 				else
 				{
 					if(function_exists('T_'))
 					{
-						self::make_error(503, T_("Please contact administrator!"). " 1049 ", $_option);
+						return self::make_error(503, T_("Please contact administrator!"). " 1049 ", $_option);
 					}
 					else
 					{
-						self::make_error(503, "Please contact administrator!". " 1049 ", $_option);
+						return self::make_error(503, "Please contact administrator!". " 1049 ", $_option);
 					}
 				}
 				break;
@@ -141,19 +147,19 @@ class connection
 
 			case 2002:
 				// i dont know!
-				self::make_error(503, T_("Hello!"). " 2002 ", $_option);
+				return self::make_error(503, T_("Hello!"). " 2002 ", $_option);
 				break;
 
 
 			// MySQL server has gone away
 			case 2006:
-				self::make_error(503, T_("Hello!"). " 2006 ", $_option);
+				return self::make_error(503, T_("Hello!"). " 2006 ", $_option);
 				break;
 
 
 			// Connections using insecure transport are prohibited while --require_secure_transport=ON.
 			case 3159:
-				self::make_error(503, T_("Hello!"). " 3159 ", $_option);
+				return self::make_error(503, T_("Hello!"). " 3159 ", $_option);
 				break;
 
 			default:
@@ -169,14 +175,16 @@ class connection
 
 	private static function make_error($_header, $_msg, $_option = null)
 	{
+		self::$db_connection_error = true;
+
 		// ignore error
 		if(isset($_option['ignore_error']) && $_option['ignore_error'])
 		{
 			return false;
 		}
 
-		// \dash\notif::error($_msg);
-		\dash\header::status($_header, $_msg);
+		\dash\notif::error_once($_msg);
+		// \dash\header::status($_header, $_msg);
 		return false;
 	}
 

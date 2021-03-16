@@ -20,6 +20,11 @@ class csrf
 			{
 				if($_redirect)
 				{
+					if(\dash\db\mysql\tools\connection::db_connection_error())
+					{
+						\dash\header::status(503, T_("Can not connect to database service!"));
+					}
+
 					\dash\redirect::pwd();
 				}
 				else
