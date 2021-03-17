@@ -79,7 +79,7 @@ class servername
 			{
 				if(isset($value['dns_provider']) && $value['dns_provider'])
 				{
-					$list[] = $value;
+					$list[$key] = $value;
 				}
 			}
 		}

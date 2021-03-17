@@ -22,12 +22,15 @@ class view
 		$server_key = array_column($dnsList, 'serverkey');
 		$server_key = array_filter($server_key);
 		$server_key = array_unique($server_key);
+		$server_key = array_values($server_key);
+
 		if(count($server_key) === 1 && isset($server_key[0]))
 		{
 			\dash\data::currentServerKey($server_key[0]);
 		}
 
 		$server_list = \dash\setting\servername::dns_provider();
+
 		\dash\data::serverList($server_list);
 
 	}

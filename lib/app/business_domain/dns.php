@@ -149,12 +149,12 @@ class dns
 		{
 			if(isset($_data['key']) && isset($_data['value']))
 			{
-				foreach ($server_list as $k => $v)
+				foreach ($server_list as $server_ip => $server_detail)
 				{
-					if(isset($v['title']) && isset($v['ip']) && $v['ip'] === $k)
+					if($server_ip == $_data['value'])
 					{
-						$result['servertitle'] = $v['title'];
-						$result['serverkey'] = $k;
+						$result['servertitle'] = a($server_detail, 'title');
+						$result['serverkey'] = a($server_detail, 'code');
 					}
 				}
 			}

@@ -72,7 +72,7 @@
         <select class="select22" name="server" id="iserver">
           <option value="" readonly><?php echo T_("Choose server") ?></option>
           <?php foreach (\dash\data::serverList() as $key => $value) {?>
-            <option value="<?php echo $key ?>" <?php if($key == \dash\data::currentServerKey()) { echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
+            <option value="<?php echo a($value, 'code') ?>" <?php if(a($value, 'code') == \dash\data::currentServerKey()) { echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
           <?php } //endif ?>
         </select>
       </div>
