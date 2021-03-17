@@ -79,16 +79,17 @@ class run
 			return;
 		}
 
+		foreach ($pending_dns_remove as $key => $value)
+		{
+			\lib\app\business_domain\dns::remove($value['business_domain_id'], $value['id']);
+		}
+
 		foreach ($pending_dns_add as $key => $value)
 		{
 			\lib\app\business_domain\dns::add_dns_to_cdn_panel($value['business_domain_id'], $value['id']);
 		}
 
 
-		foreach ($pending_dns_remove as $key => $value)
-		{
-			\lib\app\business_domain\dns::remove($value['business_domain_id'], $value['id']);
-		}
 	}
 
 
