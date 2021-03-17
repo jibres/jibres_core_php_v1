@@ -119,7 +119,7 @@ class get
 				business_domain_dns.status = 'pending'
 			ORDER BY
 				business_domain_dns.datemodified ASC
-			LIMIT 2
+			LIMIT 6
 		";
 		$result = \dash\db::get($query, null, false, 'master');
 		return $result;
@@ -137,7 +137,7 @@ class get
 				business_domain_dns.status = 'pending_delete'
 			ORDER BY
 				business_domain_dns.datemodified ASC
-			LIMIT 10
+			LIMIT 6
 		";
 		$result = \dash\db::get($query, null, false, 'master');
 		return $result;
