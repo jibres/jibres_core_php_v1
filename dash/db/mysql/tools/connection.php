@@ -219,7 +219,7 @@ class connection
 		}
 		else
 		{
-			\dash\header::status(503, "!0123");
+			return self::make_error(503, "DB !0123");
 		}
 
 		// create link

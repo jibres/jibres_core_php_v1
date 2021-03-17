@@ -460,6 +460,12 @@ class db
 		{
 			$_link = \dash\db\mysql\tools\connection::link();
 		}
+
+		if(!$_link)
+		{
+			return false;
+		}
+
 		$last_id = @mysqli_insert_id($_link);
 		return $last_id;
 	}
@@ -475,6 +481,12 @@ class db
 		{
 			$_link = \dash\db\mysql\tools\connection::link();
 		}
+
+		if(!$_link)
+		{
+			return false;
+		}
+
 		preg_match_all ('/(\S[^:]+): (\d+)/', mysqli_info($_link), $matches);
 		$info = array_combine ($matches[1], $matches[2]);
 		if($_needle && isset($info[$_needle]))
