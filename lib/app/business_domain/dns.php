@@ -120,6 +120,17 @@ class dns
 					{
 						$value = T_("Connected to Jibres CDN");
 					}
+					else
+					{
+						$server_list = \dash\setting\servername::dns_provider();
+						foreach ($server_list as $server_ip => $server_detail)
+						{
+							if(strpos($value, $server_ip) !== false)
+							{
+								$value = T_("Connected to Jibres CDN");
+							}
+						}
+					}
 					$result[$key] = $value;
 					break;
 			}
@@ -199,8 +210,11 @@ class dns
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not remove this dns recrod from your domain"));
-			return false;
+			if(!\dash\temp::get('force_remove_dns_change_provider'))
+			{
+				\dash\notif::error(T_("Can not remove this dns recrod from your domain"));
+				return false;
+			}
 		}
 
 		if(isset($load_dns_record['id']))
@@ -611,7 +625,60 @@ class dns
 
 	public static function changeserver($_id, $_new_server)
 	{
-		var_dump(func_get_args());exit();
+
+		$dnsList = \lib\app\business_domain\dns::list($_id);
+
+
+		$server_key = array_column($dnsList, 'serverkey');
+		$server_key = array_filter($server_key);
+		$server_key = array_unique($server_key);
+		$server_key = array_values($server_key);
+
+		if(count($server_key) === 1 && isset($server_key[0]))
+		{
+			if($server_key[0] == $_new_server)
+			{
+				\dash\notif::info(T_("No change in dns provider"));
+				return false;
+			}
+		}
+		else
+		{
+			\dash\notif::error(T_("Current dns provider not found"));
+			return false;
+		}
+
+		$server_list = \dash\setting\servername::dns_provider();
+		foreach ($server_list as $server_ip => $server_detail)
+		{
+			if(isset($server_detail['code']) && $server_detail['code'] === $_new_server)
+			{
+
+				\dash\temp::set('force_remove_dns_change_provider', true);
+
+				foreach ($dnsList as $key => $value)
+				{
+					if(isset($value['type']) && $value['type'] === 'A' && isset($value['key']) && in_array($value['key'], ['@', '*']))
+					{
+						self::remove_by_user($_id, $value['id']);
+					}
+				}
+
+				self::add($_id, ['type' => 'A', 'key' => '@', 'value' => $server_ip]);
+				self::add($_id, ['type' => 'A', 'key' => '*', 'value' => $server_ip]);
+
+				if(\dash\engine\process::status())
+				{
+					\dash\notif::ok(T_("DNS provider changed"));
+				}
+
+				return;
+			}
+		}
+
+		\dash\notif::error(T_("Invalid dns provider server key!"));
+
+		return false;
 	}
 
 
