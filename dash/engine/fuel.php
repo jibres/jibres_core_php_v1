@@ -134,7 +134,7 @@ class fuel
 
 	public static function server_code_name($_ip)
 	{
-		$server_code_name = \dash\setting\fuel::server_name($_ip);
+		$server_code_name = \dash\setting\servername::code($_ip);
 
 		if($server_code_name)
 		{
