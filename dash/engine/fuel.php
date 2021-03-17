@@ -107,11 +107,6 @@ class fuel
 		$target = $target. '_from_'. $gethostname;
 		$result = \dash\setting\fuel::server($target);
 
-		if(\dash\url::tld() === 'xyz')
-		{
-			var_dump($target);
-			var_dump($result);
-		}
 		if(isset($result[$_requested_fuel]))
 		{
 			// return detail for master, nic, nic_log
