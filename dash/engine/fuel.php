@@ -105,7 +105,10 @@ class fuel
 		}
 
 		$target = $target. '_from_'. $gethostname;
-
+		if(\dash\url::tld() === 'xyz')
+		{
+			var_dump($target);
+		}
 		$result = \dash\setting\fuel::server($target);
 
 		if(isset($result[$_requested_fuel]))
