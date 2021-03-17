@@ -59,10 +59,32 @@
         <div class="cauto"><div data-confirm data-data='{"dnsfetch": "dnsfetch"}' class="btn link"><?php echo T_("Fetch DNS") ?></div></div>
         <div class="c"></div>
         <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
-
       </footer>
     </div>
   </form>
+
+<form method="post">
+  <div class="box">
+    <div class="pad">
+      <input type="hidden" name="changeserver" value="changeserver">
+      <div>
+        <label for="iserver"><?php echo T_("Server") ?></label>
+        <select class="select22" name="server" id="iserver">
+          <option value="" readonly><?php echo T_("Choose server") ?></option>
+          <?php foreach (\dash\data::serverList() as $key => $value) {?>
+            <option value="<?php echo $key ?>" <?php if($key == \dash\data::currentServerKey()) { echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
+          <?php } //endif ?>
+        </select>
+      </div>
+
+    </div>
+    <footer class="txtRa">
+      <button class="btn danger"><?php echo T_("Change source server") ?></button>
+    </footer>
+  </div>
+
+</form>
+
 
   <?php if(\dash\data::dnsList()) {?>
     <table class="tbl1 v4 font-12">

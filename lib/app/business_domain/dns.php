@@ -96,6 +96,7 @@ class dns
 
 		$jibres_ip = \dash\setting\dns_server::ip();
 
+
 		$result = [];
 		foreach ($_data as $key => $value)
 		{
@@ -137,6 +138,26 @@ class dns
 			}
 
 
+		}
+
+		$result['servertitle'] = null;
+		$result['serverkey']   = null;
+
+		$server_list = \dash\setting\servername::get_list();
+
+		if(is_array($server_list))
+		{
+			if(isset($_data['key']) && isset($_data['value']))
+			{
+				foreach ($server_list as $k => $v)
+				{
+					if(isset($v['title']) && isset($v['ip']) && $v['ip'] === $k)
+					{
+						$result['servertitle'] = $v['title'];
+						$result['serverkey'] = $k;
+					}
+				}
+			}
 		}
 
 		return $result;
@@ -585,6 +606,12 @@ class dns
 		}
 
 		return $current_list;
+	}
+
+
+	public static function changeserver($_id, $_new_server)
+	{
+		var_dump(func_get_args());exit();
 	}
 
 

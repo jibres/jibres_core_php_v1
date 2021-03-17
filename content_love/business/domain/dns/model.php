@@ -6,6 +6,12 @@ class model
 {
 	public static function post()
 	{
+
+		if(\dash\request::post('changeserver') === 'changeserver')
+		{
+			$result = \lib\app\business_domain\dns::changeserver(\dash\data::dataRow_id(), \dash\request::post('server'));
+		}
+
 		if(\dash\request::post('adddns') === 'adddns')
 		{
 			$post =

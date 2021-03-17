@@ -52,5 +52,18 @@ class servername
 		return null;
 	}
 
+
+	public static function get_list()
+	{
+		self::load();
+
+		if(is_array(self::$load))
+		{
+			return self::$load;
+		}
+
+		return [];
+	}
+
 }
 ?>
