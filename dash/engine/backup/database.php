@@ -124,12 +124,7 @@ class database
 	public static function make_backup_now($_force = false)
 	{
 
-		$all_store = [];
-		// run all store backup at 02:00 only
-		if(intval(date("H")) == 2)
-		{
-			$all_store = \lib\db\store\get::all_store_fuel_detail();
-		}
+		$all_store = \lib\db\store\get::all_store_fuel_detail();
 
 		$hour_folder = date("H");
 
