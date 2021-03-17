@@ -143,7 +143,7 @@ class dns
 		$result['servertitle'] = null;
 		$result['serverkey']   = null;
 
-		$server_list = \dash\setting\servername::get_list();
+		$server_list = \dash\setting\servername::dns_provider();
 
 		if(is_array($server_list))
 		{

@@ -65,5 +65,27 @@ class servername
 		return [];
 	}
 
+
+
+	public static function dns_provider()
+	{
+		self::load();
+
+		$list = [];
+
+		if(is_array(self::$load))
+		{
+			foreach (self::$load as $key => $value)
+			{
+				if(isset($value['dns_provider']) && $value['dns_provider'])
+				{
+					$list[] = $value;
+				}
+			}
+		}
+
+		return $list;
+	}
+
 }
 ?>

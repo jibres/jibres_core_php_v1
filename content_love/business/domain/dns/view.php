@@ -27,7 +27,7 @@ class view
 			\dash\data::currentServerKey($server_key[0]);
 		}
 
-		$server_list = \dash\setting\servername::get_list();
+		$server_list = \dash\setting\servername::dns_provider();
 		\dash\data::serverList($server_list);
 
 	}
