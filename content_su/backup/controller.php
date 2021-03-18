@@ -5,16 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		if(\dash\request::get('shfile') === 'shfile')
-		{
-			$addr = core . 'engine/backup/temp.me.exec';
-			if(is_file($addr))
-			{
-				\dash\file::download($addr);
-				return;
-			}
 
-		}
 
 		$download = \dash\request::get('download');
 

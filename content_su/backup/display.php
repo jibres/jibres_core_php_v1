@@ -28,9 +28,7 @@
         <li>Trafic received: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_received()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
         <li>Trafic send: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_sent()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
       </div>
-      <div class="msg ltr">
-        Download cronjob backup sh file <a href="<?php echo \dash\url::this(). '?shfile=shfile' ?>" target="_blank">Click Here</a>
-      </div>
+
     </div>
   </div>
 
