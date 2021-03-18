@@ -7,7 +7,8 @@ class race
 
 	public static function escort()
 	{
-		$urlMd5     = md5(\dash\url::current());
+		$url        = self::addr();
+		$urlMd5     = md5($url);
 		$thisPage   = \dash\system\session2::getLock($urlMd5, 'waf_race');
 		$requestQty = a($thisPage, 'request');
 		if(!$requestQty)
@@ -18,10 +19,6 @@ class race
 		// if we have more than one active request, block others
 		if($requestQty > 0)
 		{
-			// set as cookie for debug
-			\dash\utility\cookie::write('race_url', \dash\url::pwd(), 100);
-			\dash\utility\cookie::write('race_count', $requestQty, 100);
-
 			// Use this if you want to reset counter
 			\dash\header::status(429, 'Please be patient');
 		}
@@ -35,7 +32,7 @@ class race
 			'time'    => time(),
 			'request' => $requestQty + 1,
 			'ip'      => \dash\server::ip(),
-			'url'     => \dash\url::current(),
+			'url'     => $url,
 		];
 		if(\dash\system\session2::set_with_cat('waf_race', $urlMd5, $race))
 		{
@@ -55,10 +52,6 @@ class race
 			return null;
 		}
 
-		// save done request time
-		\dash\utility\cookie::write('race_done', time(), 100);
-		\dash\utility\cookie::write('race_done_url', \dash\url::pwd(), 100);
-
 		if(self::$isBusy)
 		{
 			// clean session temporary variable
@@ -66,7 +59,8 @@ class race
 		}
 		else
 		{
-			$urlMd5          = md5(\dash\url::current());
+			$url             = self::addr();
+			$urlMd5          = md5($url);
 			$thisPage        = \dash\system\session2::getLock($urlMd5, 'waf_race');
 			$lastRequestTime = a($thisPage, 'time');
 			$fromLast        = time() - $lastRequestTime;
@@ -80,8 +74,15 @@ class race
 
 	private static function freeThisPageLock()
 	{
-		\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
+		$url = self::addr();
+		\dash\system\session2::clean_child('waf_race', md5($url));
 	}
 
+
+	private static function addr()
+	{
+		$url = \dash\url::current();
+		return $url;
+	}
 }
 ?>
