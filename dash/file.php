@@ -519,7 +519,7 @@ class file
 	 * @param      <type>   $_url   The url
 	 * @param      integer  $_perm  The permission
 	 */
-	public function perm($_path, $_perm = 0644)
+	public static function perm($_path, $_perm = 0644)
 	{
 		return @chmod($_path, $_perm);
 	}
