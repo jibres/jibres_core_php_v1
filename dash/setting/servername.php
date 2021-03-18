@@ -87,5 +87,26 @@ class servername
 		return $list;
 	}
 
+
+	public static function database()
+	{
+		self::load();
+
+		$list = [];
+
+		if(is_array(self::$load))
+		{
+			foreach (self::$load as $key => $value)
+			{
+				if(isset($value['database']) && $value['database'])
+				{
+					$list[$key] = $value;
+				}
+			}
+		}
+
+		return $list;
+	}
+
 }
 ?>
