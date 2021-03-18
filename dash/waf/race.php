@@ -81,12 +81,16 @@ class race
 
 	private static function addr()
 	{
-		$url = \dash\url::pwa();
+		$url = \dash\url::current();
 
 		// use path for post request
 		if(\dash\request::is('post'))
 		{
 			$url = \dash\url::current();
+		}
+		else if(\dash\user::id())
+		{
+			$url = \dash\url::pwa();
 		}
 
 		return $url;
