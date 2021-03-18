@@ -193,6 +193,7 @@ class database
 
 		$cmd  = "mysqldump --single-transaction --databases --add-drop-table";
 		$cmd .= " --skip-lock-tables ";
+		$cmd .= " --column-statistics=0 ";
 		$cmd .= " --host='$_fuel[host]' --set-charset='$db_charset'";
 		$cmd .= " --user='$_fuel[user]'";
 		$cmd .= " --password='$_fuel[pass]' '$_database_name'";
