@@ -25,8 +25,8 @@ class race
 			else
 			{
 				// set as cookie for debug
-				\dash\cookie::write('race_url', \dash\url::pwd(), 100);
-				\dash\cookie::write('race_count', $requestQty, 100);
+				\dash\utility\cookie::write('race_url', \dash\url::pwd(), 100);
+				\dash\utility\cookie::write('race_count', $requestQty, 100);
 
 				// Use this if you want to reset counter
 				\dash\header::status(429, 'Please be patient');
@@ -59,7 +59,7 @@ class race
 	{
 		if(headers_sent())
 		{
-			\dash\cookie::write('race_sended', time(), 100);
+			\dash\utility\cookie::write('race_sended', time(), 100);
 			return null;
 		}
 
