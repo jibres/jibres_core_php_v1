@@ -13,7 +13,7 @@ class model
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public function send_sendsms_code()
+	public static function send_sendsms_code()
 	{
 
 		if(\dash\utility\enter::user_data('id'))
