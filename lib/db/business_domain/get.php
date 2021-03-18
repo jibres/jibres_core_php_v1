@@ -37,6 +37,49 @@ class get
 
 
 
+	public static function count_dns_by_value($_value)
+	{
+		$query  =
+		"
+			SELECT COUNT(*) AS `count`
+			FROM
+				business_domain_dns
+			INNER JOIN business_domain ON business_domain.id = business_domain_dns.business_domain_id
+			WHERE
+				business_domain_dns.value = '$_value' AND
+				business_domain.cdn = 'arvancloud' AND
+				business_domain.subdomain IS NULL
+		";
+		$result = \dash\db::get($query, 'count', true, 'master');
+		return floatval($result);
+	}
+
+	public static function dns_by_value_100($_value)
+	{
+		$query  =
+		"
+			SELECT
+				business_domain_dns.*,
+				business_domain.domain,
+				business_domain.status
+			FROM
+				business_domain_dns
+			INNER JOIN business_domain ON business_domain.id = business_domain_dns.business_domain_id
+			WHERE
+				business_domain_dns.value = '$_value' AND
+				business_domain.cdn = 'arvancloud' AND
+				business_domain.subdomain IS NULL
+			LIMIT 100
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+
+
+
 
 
 
