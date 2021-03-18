@@ -50,15 +50,14 @@ class race
 
 	public static function requestDone()
 	{
+		if(headers_sent())
+		{
+			return null;
+		}
+
 		// save done request time
 		\dash\utility\cookie::write('race_done', time(), 100);
 		\dash\utility\cookie::write('race_done_url', \dash\url::pwd(), 100);
-
-		if(headers_sent())
-		{
-			\dash\utility\cookie::write('race_sended', time(), 100);
-			return null;
-		}
 
 		if(self::$isBusy)
 		{
