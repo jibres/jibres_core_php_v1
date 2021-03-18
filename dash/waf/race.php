@@ -64,7 +64,7 @@ class race
 			$thisPage        = \dash\system\session2::getLock($urlMd5, 'waf_race');
 			$lastRequestTime = a($thisPage, 'time');
 			$fromLast        = time() - $lastRequestTime;
-			if($fromLast > 10)
+			if($fromLast > 1)
 			{
 				// check time
 				self::freeThisPageLock();
