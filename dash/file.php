@@ -401,14 +401,17 @@ class file
 			$_fileMime = $_fileMime['mime'];
 		}
 
-			// Force the download
-			header('Pragma: public');
-			header('Expires: 0');
-			header('Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0');
-			header('Last-Modified: '. gmdate ('D, d M Y H:i:s', filemtime ($_filePath)). ' GMT');
-			header("Content-disposition: attachment; filename=\"" .basename($_fileName) ."\"");
-			header('Content-Length: ' .filesize($_filePath));
-			header('Content-Transfer-Encoding: binary');
+		// request is done
+		\dash\waf\race::requestDone();
+
+		// Force the download
+		header('Pragma: public');
+		header('Expires: 0');
+		header('Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0');
+		header('Last-Modified: '. gmdate ('D, d M Y H:i:s', filemtime ($_filePath)). ' GMT');
+		header("Content-disposition: attachment; filename=\"" .basename($_fileName) ."\"");
+		header('Content-Length: ' .filesize($_filePath));
+		header('Content-Transfer-Encoding: binary');
 
 		// Generate the server headers to force the download process
 		if( strstr( \dash\server::get('HTTP_USER_AGENT'), "MSIE" ) )
