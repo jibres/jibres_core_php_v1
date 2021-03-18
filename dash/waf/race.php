@@ -11,6 +11,7 @@ class race
 		$urlMd5     = md5($url);
 		$thisPage   = \dash\system\session2::getLock($urlMd5, 'waf_race');
 		$requestQty = a($thisPage, 'request');
+
 		if(!$requestQty)
 		{
 			$requestQty = 0;
@@ -19,8 +20,36 @@ class race
 		// if we have more than one active request, block others
 		if($requestQty > 0)
 		{
-			// Use this if you want to reset counter
-			\dash\header::status(429, 'Please be patient');
+			$lastRequestTime = a($thisPage, 'time');
+			$fromLast        = time() - $lastRequestTime;
+			$expireAfter     = 100;
+
+			if(\dash\request::is('post'))
+			{
+				$expireAfter = 60;
+			}
+			elseif(\dash\request::is('get'))
+			{
+				if(\dash\user::id())
+				{
+					$expireAfter = 5;
+				}
+				else
+				{
+					$expireAfter = 10;
+				}
+			}
+
+			if($fromLast > $expireAfter)
+			{
+				// clean session temporary variable
+				self::freeThisPageLock();
+			}
+			else
+			{
+				// Use this if you want to reset counter
+				\dash\header::status(429, 'Please be patient');
+			}
 		}
 
 		// set busy mode
@@ -64,7 +93,7 @@ class race
 			$thisPage        = \dash\system\session2::getLock($urlMd5, 'waf_race');
 			$lastRequestTime = a($thisPage, 'time');
 			$fromLast        = time() - $lastRequestTime;
-			if($fromLast > 10)
+			if($fromLast > 100)
 			{
 				// check time
 				self::freeThisPageLock();
