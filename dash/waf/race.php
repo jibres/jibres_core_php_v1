@@ -18,19 +18,12 @@ class race
 		// if we have more than one active request, block others
 		if($requestQty > 0)
 		{
-			if(\dash\url::isLocal())
-			{
-				// nothing
-			}
-			else
-			{
-				// set as cookie for debug
-				\dash\utility\cookie::write('race_url', \dash\url::pwd(), 100);
-				\dash\utility\cookie::write('race_count', $requestQty, 100);
+			// set as cookie for debug
+			\dash\utility\cookie::write('race_url', \dash\url::pwd(), 100);
+			\dash\utility\cookie::write('race_count', $requestQty, 100);
 
-				// Use this if you want to reset counter
-				\dash\header::status(429, 'Please be patient');
-			}
+			// Use this if you want to reset counter
+			\dash\header::status(429, 'Please be patient');
 		}
 
 		// set busy mode
