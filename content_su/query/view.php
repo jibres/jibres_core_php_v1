@@ -11,6 +11,9 @@ class view
 
 		\dash\data::ipList(\dash\db\login\get::get_count_all_group_by_ip());
 
+		\dash\data::mysqlConf(\dash\db\mysql\tools\info::timeout_setting());
+
+
 
 	}
 }

@@ -1,5 +1,26 @@
 <div class="cbox">
 	<div class="tblBox">
+		<table class="tbl1 v1 ltr">
+			<thead>
+				<tr>
+					<th class="txtL">Variable_name</th>
+					<th class="txtL">Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach (\dash\data::mysqlConf() as $key => $value) { if(a($value, 'Variable_name') == 'ft_boolean_syntax') {continue;}?>
+					<tr class="txtL">
+						<td class="txtL"><?php echo a($value, 'Variable_name') ?></td>
+						<td class="txtL"><?php echo a($value, 'Value') ?></td>
+					</tr>
+				<?php } //endfor ?>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="cbox">
+	<div class="tblBox">
 		<table class="tbl1 v3 ltr">
 			<thead>
 				<tr>
