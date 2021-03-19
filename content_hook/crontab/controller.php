@@ -44,6 +44,8 @@ class controller
 
 		$server_detail = \dash\server::current_detail();
 
+		\dash\log::to_supervisor(\dash\url::pwd(). ' - '. json_encode($server_detail));
+
 		$run_jibres = false;
 		$run_business = false;
 
