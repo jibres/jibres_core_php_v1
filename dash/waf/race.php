@@ -7,8 +7,7 @@ class race
 
 	public static function escort()
 	{
-		$url        = self::addr();
-		$urlMd5     = md5($url);
+		$urlMd5     = md5(\dash\url::current());
 		$thisPage   = \dash\system\session2::getLock($urlMd5, 'waf_race');
 		$requestQty = a($thisPage, 'request');
 		if(!$requestQty)
@@ -32,7 +31,7 @@ class race
 			'time'    => time(),
 			'request' => $requestQty + 1,
 			'ip'      => \dash\server::ip(),
-			'url'     => $url,
+			'url'     => \dash\url::current(),
 		];
 		if(\dash\system\session2::set_with_cat('waf_race', $urlMd5, $race))
 		{
@@ -59,12 +58,11 @@ class race
 		}
 		else
 		{
-			$url             = self::addr();
-			$urlMd5          = md5($url);
+			$urlMd5          = md5(\dash\url::current());
 			$thisPage        = \dash\system\session2::getLock($urlMd5, 'waf_race');
 			$lastRequestTime = a($thisPage, 'time');
 			$fromLast        = time() - $lastRequestTime;
-			if($fromLast > 1)
+			if($fromLast > 10)
 			{
 				// check time
 				self::freeThisPageLock();
@@ -74,26 +72,8 @@ class race
 
 	private static function freeThisPageLock()
 	{
-		$url = self::addr();
-		\dash\system\session2::clean_child('waf_race', md5($url));
+		\dash\system\session2::clean_child('waf_race', md5(\dash\url::current()));
 	}
 
-
-	private static function addr()
-	{
-		$url = \dash\url::current();
-
-		// use path for post request
-		if(\dash\request::is('post'))
-		{
-			$url = \dash\url::current();
-		}
-		else if(\dash\user::id())
-		{
-			$url = \dash\url::pwa();
-		}
-
-		return $url;
-	}
 }
 ?>
