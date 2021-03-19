@@ -226,7 +226,6 @@ class db
 				}
 			}
 
-
 			if(!$error_code && !$error_string && \dash\url::content() === 'hook')
 			{
 				// @Reza @Javad Need to fix Cronjob error null sql
@@ -240,17 +239,20 @@ class db
 				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
 			}
 
-
 			if(\dash\url::isLocal())
 			{
 				\dash\notif::warn(nl2br($temp_error));
 			}
 
 			\dash\notif::turn_on_log();
+
 			return false;
 		}
 
 		\dash\notif::turn_on_log();
+
+		// query ok. ready for next query if have error 2006
+		self::$connection_again = false;
 
 		// return the mysql result
 		return $result;
