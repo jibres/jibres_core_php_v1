@@ -16,7 +16,8 @@ class race
 		}
 
 		// if we have more than one active request, block others
-		if($requestQty > 0)
+		// temporary disable
+		if($requestQty > 10)
 		{
 			// Use this if you want to reset counter
 			\dash\header::status(429, 'Please be patient');
