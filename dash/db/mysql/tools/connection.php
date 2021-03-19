@@ -37,9 +37,6 @@ class connection
 
 	public static function close($_link = null)
 	{
-		// not close db connection
-		return;
-
 		if($_link)
 		{
 			$link = [$_link];

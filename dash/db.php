@@ -6,6 +6,14 @@ class db
 {
 
 	/**
+	 * If mysql gone away reset connection and try again
+	 *
+	 * @var        boolean
+	 */
+	private static $connection_again = false;
+
+
+	/**
 	 * run query string and return result
 	 * now you don't need to check result
 	 * @param  [type] $_qry [description]
@@ -212,10 +220,30 @@ class db
 				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
 			}
 
+			// General error: 2006 MySQL server has gone away
+			// Error Code: 2013. Lost connection to MySQL server during query
+
+			if(intval($error_code) === 2006 || intval($error_code) === 2013)
+			{
+				if(self::$connection_again)
+				{
+					\dash\db\mysql\tools\log::log("Mysql Error 2006 after connection again  -- ". $temp_error, $qry_exec_time, 'error.sql');
+				}
+				else
+				{
+					self::$connection_again = true;
+
+					\dash\db\mysql\tools\connection::close();
+					// run query again
+					return self::query(...func_get_args());
+				}
+			}
+
 			if(\dash\url::isLocal())
 			{
 				\dash\notif::warn(nl2br($temp_error));
 			}
+
 			\dash\notif::turn_on_log();
 			return false;
 		}
