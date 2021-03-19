@@ -87,6 +87,7 @@ class ip
 			],
 			'log'        => [],
 			'agent'      => [],
+			'race'       => [],
 		];
 		$data = array_merge($defaultData, $_fileData);
 
@@ -167,6 +168,9 @@ class ip
 				reset($history);
 				unset($history[key($history)]);
 			}
+
+			// save history for race protection
+			$data['race'] = race2::init($data['race']);
 		}
 
 		return $data;

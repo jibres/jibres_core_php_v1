@@ -205,5 +205,10 @@ class session2
 		return null;
 	}
 
+
+	public static function id()
+	{
+		return session_id();
+	}
 }
 ?>
