@@ -17,7 +17,7 @@ class business
 
 		$domain_list = [];
 
-		if(is_file($addr))
+		if(is_file($addr) && \dash\engine\store::cache_file())
 		{
 			$load = \dash\file::read($addr);
 			$domain_list = json_decode($load, true);

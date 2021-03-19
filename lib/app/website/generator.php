@@ -33,7 +33,7 @@ class generator
 
 		$website_setting = [];
 
-		if(is_file($addr))
+		if(is_file($addr) && \dash\engine\store::cache_file())
 		{
 			$load = \dash\file::read($addr);
 			$load = json_decode($load, true);

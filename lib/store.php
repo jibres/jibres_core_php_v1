@@ -230,7 +230,7 @@ class store
 
 		$addr = \dash\engine\store::setting_addr(). $_store_detail['id']. \dash\engine\store::$ext;
 
-		if(is_file($addr))
+		if(is_file($addr) && \dash\engine\store::cache_file())
 		{
 			$getFile = \dash\file::read($addr);
 			if($getFile && is_string($getFile))

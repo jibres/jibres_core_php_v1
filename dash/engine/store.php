@@ -44,6 +44,11 @@ class store
 	private static $check_db = false;
 
 
+	public static function cache_file()
+	{
+		return false;
+	}
+
 	/**
 	 * this function use in every where need to check the store is loaded or no
 	 *
@@ -372,7 +377,12 @@ class store
 	 */
 	public static function init_by_id($_store_id)
 	{
-		$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id. self::$ext);
+		$get_store_detail = null;
+
+		if(\dash\engine\store::cache_file())
+		{
+			$get_store_detail = \dash\file::read(self::detail_addr(). $_store_id. self::$ext);
+		}
 
 		if(!$get_store_detail)
 		{
@@ -417,7 +427,7 @@ class store
 		$get_store_id     = null;
 		$get_store_detail = null;
 
-		if(file_exists($subdomain_addr))
+		if(file_exists($subdomain_addr) && \dash\engine\store::cache_file())
 		{
 			$get_store_id = \dash\file::read($subdomain_addr);
 			$get_store_id = trim($get_store_id);
@@ -593,7 +603,7 @@ class store
 
 		$load_detail = [];
 
-		if(!is_file($customer_domain))
+		if(!is_file($customer_domain) || !\dash\engine\store::cache_file())
 		{
 			$check_db = \lib\app\business_domain\get::is_customer_domain($_domain);
 			$load_detail = $check_db;

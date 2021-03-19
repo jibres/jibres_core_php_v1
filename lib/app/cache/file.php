@@ -54,7 +54,13 @@ class file
 	{
 		if(empty(self::$data))
 		{
-			$get = \dash\file::read(self::addr());
+			$get = [];
+
+			if(\dash\engine\store::cache_file())
+			{
+				$get = \dash\file::read(self::addr());
+			}
+
 			if(is_string($get))
 			{
 				$get = json_decode($get, true);
