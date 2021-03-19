@@ -207,6 +207,26 @@ class db
 			$temp_error .= $error_code. ' - ';
 			$temp_error .= $error_string." */";
 
+			// General error: 2006 MySQL server has gone away
+			// Error Code: 2013. Lost connection to MySQL server during query
+
+			if(intval($error_code) === 2006 || intval($error_code) === 2013)
+			{
+				if(self::$connection_again)
+				{
+					\dash\db\mysql\tools\log::log("Mysql Error 2006 after connection again  -- ", $qry_exec_time, 'error.sql');
+				}
+				else
+				{
+					self::$connection_again = true;
+
+					\dash\db\mysql\tools\connection::close();
+					// run query again
+					return self::query(...func_get_args());
+				}
+			}
+
+
 			if(!$error_code && !$error_string && \dash\url::content() === 'hook')
 			{
 				// @Reza @Javad Need to fix Cronjob error null sql
@@ -220,24 +240,6 @@ class db
 				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
 			}
 
-			// General error: 2006 MySQL server has gone away
-			// Error Code: 2013. Lost connection to MySQL server during query
-
-			if(intval($error_code) === 2006 || intval($error_code) === 2013)
-			{
-				if(self::$connection_again)
-				{
-					\dash\db\mysql\tools\log::log("Mysql Error 2006 after connection again  -- ". $temp_error, $qry_exec_time, 'error.sql');
-				}
-				else
-				{
-					self::$connection_again = true;
-
-					\dash\db\mysql\tools\connection::close();
-					// run query again
-					return self::query(...func_get_args());
-				}
-			}
 
 			if(\dash\url::isLocal())
 			{
