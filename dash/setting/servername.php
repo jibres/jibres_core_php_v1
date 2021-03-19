@@ -67,6 +67,24 @@ class servername
 
 
 
+	public static function current_detail()
+	{
+		self::load();
+
+		$hostname = gethostname();
+
+		foreach (self::$load as $key => $value)
+		{
+			if(isset($value['hostname']) && $value['hostname'] === $hostname)
+			{
+				return $value;
+			}
+		}
+		return null;
+	}
+
+
+
 	public static function dns_provider()
 	{
 		self::load();

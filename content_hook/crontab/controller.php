@@ -42,7 +42,7 @@ class controller
 	{
 		\dash\temp::set('run:by:system', true);
 
-		$server_detail = \dash\server::current_detail();
+		$server_detail = \dash\setting\servername::current_detail();
 
 		$run_jibres = false;
 		$run_business = false;
