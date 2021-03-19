@@ -50,6 +50,23 @@ class server
 	}
 
 
+	/**
+	 * Get current server detail
+	 */
+	public static function current_detail()
+	{
+		$server_ip = self::server_ip();
+		if(!$server_ip)
+		{
+			return false;
+		}
+
+		$detail = \dash\setting\servername::detail($server_ip);
+
+		return $detail;
+	}
+
+
 
 	public static function server_ip()
 	{

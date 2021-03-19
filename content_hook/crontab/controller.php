@@ -42,104 +42,156 @@ class controller
 	{
 		\dash\temp::set('run:by:system', true);
 
+		$server_detail = \dash\server::current_detail();
+
+		$run_jibres = false;
+		$run_business = false;
+
+		if(isset($server_detail['cronjob']))
+		{
+			if(is_array($server_detail['cronjob']) && in_array('jibres', $server_detail['cronjob']))
+			{
+				$run_jibres = true;
+			}
+
+			if(is_array($server_detail['cronjob']) && in_array('business', $server_detail['cronjob']))
+			{
+				$run_business = true;
+			}
+
+			if($server_detail['cronjob'] === 'jibres')
+			{
+				$run_jibres = true;
+			}
+
+			if($server_detail['cronjob'] === 'business')
+			{
+				$run_business = true;
+			}
+		}
+
+		if($run_jibres)
+		{
+			self::run_jibres();
+		}
+
+		if($run_business)
+		{
+			self::run_business();
+		}
+
+		self::check_error_file();
+
 		if(!\dash\engine\store::inStore())
 		{
-
-			\lib\app\domains\owner::check();
-
-			\lib\app\business_domain\run::run();
-
-			// to not check every min all backup setting!
-			// the backup setting have special schedule
-			if(self::every_hour())
-			{
-				\dash\engine\backup\database::run();
-
-				\lib\app\statistics\homepage::refresh();
-
-			}
-
-			// set expire notif
-			if(self::at('09:00'))
-			{
-				\lib\app\nic_domain\notif_expire::run();
-			}
-
-			// fetch credit of nic
-			if(self::at('10:00'))
-			{
-				\lib\app\nic_credit\get::fetch();
-			}
-
-			// from 8 to 20
-			if(intval(date("H")) > 8 && intval(date("H")) < 20)
-			{
-				\lib\app\nic_domain\autorenew::run();
-			}
-
-			if(self::in_hour(['07', '09', '11', '13', '15', '17', '19', '21', '23']))
-			{
-				\dash\app\ticket\get::check_unanswer_ticket();
-			}
-
-			// get nic pull request every 5 min
-			if(self::every_5_min())
-			{
-				\lib\app\nic_poll\get::cronjob_list();
-			}
-
-
-
-			self::check_error_file();
-
+			\lib\app\statistics\homepage::refresh();
 		}
 
+		if($run_jibres || $run_business)
+		{
+			\lib\app\sms\queue::send();
+
+			\dash\app\log\send::notification();
+
+			if(self::at('03:43'))
+			{
+				// sync every statistics between stores and jibres
+				\lib\app\sync\statistics::fire();
+			}
+
+			// remove all expire session
+			// clean csrf token used or expired
+			if(self::at('01:10'))
+			{
+				\dash\db\login\update::remove_old_expire();
+				\dash\csrf::clean();
+			}
+
+			if(self::every_10_min())
+			{
+				\dash\db\logs::expire_notif();
+				\dash\db\comments::close_solved_ticket();
+				\dash\utility\ip::block_new_ip();
+				\dash\db\comments::spam_by_block_ip();
+			}
+
+			if(self::at('01:00'))
+			{
+				\dash\app\dayevent::save();
+			}
+		}
+
+	}
+
+
+	private static function run_jibres()
+	{
+		// only run jibres cronjob
 		if(\dash\engine\store::inStore())
 		{
-			// check and auto expire order
-			\lib\app\factor\edit::auto_expire_order();
-
-			if(self::every_5_min())
-			{
-				// run export if exists
-				\lib\app\export\run::crontab();
-				// run import if exists
-				\lib\app\import\run::crontab();
-			}
+			return;
 		}
 
-		\lib\app\sms\queue::send();
+		\lib\app\domains\owner::check();
 
-		\dash\app\log\send::notification();
+		\lib\app\business_domain\run::run();
 
-		if(self::at('03:43'))
+		// to not check every min all backup setting!
+		// the backup setting have special schedule
+		if(self::every_hour())
 		{
-			// sync every statistics between stores and jibres
-			\lib\app\sync\statistics::fire();
+			\dash\engine\backup\database::run();
 		}
 
-		// remove all expire session
-		// clean csrf token used or expired
-		if(self::at('01:10'))
+		// set expire notif
+		if(self::at('09:00'))
 		{
-			\dash\db\login\update::remove_old_expire();
-			\dash\csrf::clean();
+			\lib\app\nic_domain\notif_expire::run();
 		}
 
-
-		if(self::every_10_min())
+		// fetch credit of nic
+		if(self::at('10:00'))
 		{
-
-			\dash\db\logs::expire_notif();
-			\dash\db\comments::close_solved_ticket();
-			\dash\utility\ip::block_new_ip();
-			\dash\db\comments::spam_by_block_ip();
+			\lib\app\nic_credit\get::fetch();
 		}
 
-
-		if(self::at('01:00'))
+		// from 8 to 20
+		if(intval(date("H")) > 8 && intval(date("H")) < 20)
 		{
-			\dash\app\dayevent::save();
+			\lib\app\nic_domain\autorenew::run();
+		}
+
+		if(self::in_hour(['07', '09', '11', '13', '15', '17', '19', '21', '23']))
+		{
+			\dash\app\ticket\get::check_unanswer_ticket();
+		}
+
+		// get nic pull request every 5 min
+		if(self::every_5_min())
+		{
+			\lib\app\nic_poll\get::cronjob_list();
+		}
+
+	}
+
+
+	public static function run_business()
+	{
+		// only run jibres cronjob
+		if(!\dash\engine\store::inStore())
+		{
+			return;
+		}
+
+		// check and auto expire order
+		\lib\app\factor\edit::auto_expire_order();
+
+		if(self::every_5_min())
+		{
+			// run export if exists
+			\lib\app\export\run::crontab();
+			// run import if exists
+			\lib\app\import\run::crontab();
 		}
 	}
 
