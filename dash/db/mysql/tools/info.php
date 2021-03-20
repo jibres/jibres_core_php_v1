@@ -76,8 +76,8 @@ class info
 			SELECT
 				ROUND(SUM(data_length + index_length) / 1024 / 1024, 4) AS `size`
 			FROM
-				information_schema.tables
-			WHERE table_schema = '$db_name'
+				INFORMATION_SCHEMA.TABLES
+			WHERE TABLE_SCHEMA = '$db_name'
 		";
 		$result = \dash\db::get($query, 'size', true);
 		return $result;
@@ -99,5 +99,67 @@ class info
 			return false;
 		}
 	}
+
+
+	public static function count_table($_fuel, $_db_name)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				INFORMATION_SCHEMA.TABLES
+			WHERE
+				TABLE_SCHEMA = '$_db_name'
+		";
+
+		$result = \dash\db::get($query, 'count', true, $_fuel, ['database' => $_db_name]);
+
+		return floatval($result);
+	}
+
+
+	public static function database_exist($_fuel, $_db_name)
+	{
+		$query =
+		"
+			SELECT
+				SCHEMA_NAME
+			FROM
+				INFORMATION_SCHEMA.SCHEMATA
+			WHERE
+				SCHEMA_NAME = '$_db_name'
+			LIMIT 1
+		";
+
+		$result = \dash\db::get($query, 'SCHEMA_NAME', true, $_fuel, ['database' => 'mysql']);
+
+		if($result)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+
+	/**
+	 * Creates a database.
+	 *
+	 * @param      <type>  $_fuel     The fuel
+	 * @param      <type>  $_db_name  The database name
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function create_database($_fuel, $_db_name)
+	{
+		$query = "CREATE DATABASE IF NOT EXISTS `$_db_name` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
+		$result = \dash\db::query($query, $_fuel, ['database' => 'mysql']);
+		return $result;
+	}
+
 }
 ?>
