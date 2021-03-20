@@ -45,6 +45,12 @@ class cronjob
 
 		// run jibres master crontab
 		$server['HTTP_HOST'] = 'jibres.ir';
+
+		if(gethostname() === 'reza-jibres')
+		{
+			$server['HTTP_HOST'] = 'jibres.local';
+		}
+
 		$store_exec          = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
 		$exec[]              = $store_exec;
 
