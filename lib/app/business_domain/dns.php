@@ -646,10 +646,10 @@ class dns
 				continue;
 			}
 
-			if($domain !== 'rezamohiti.ir')
-			{
-				continue;
-			}
+			// if($domain !== 'rezamohiti.ir')
+			// {
+			// 	continue;
+			// }
 
 			// start update dns record
 			$get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
