@@ -4,6 +4,13 @@ namespace lib\app\store;
 
 class changefuel
 {
+	/**
+	 * Current config file addr for each request
+	 *
+	 * @var        <type>
+	 */
+	private static $config_file_addr = null;
+
 
 	/**
 	 * Transfer config addr
@@ -119,7 +126,7 @@ class changefuel
 		// system is busy
 		if(self::is_busy())
 		{
-			// return;
+			return;
 		}
 
 		$store_conf = self::any_queue();
@@ -132,15 +139,18 @@ class changefuel
 
 		self::set_busy();
 
-
 		self::start_transfer($store_conf);
-
 
 		self::set_free();
 
 	}
 
 
+	/**
+	 * Check any store in queue
+	 *
+	 * @return     array|boolean  ( description_of_the_return_value )
+	 */
 	private static function any_queue()
 	{
 		$addr = self::addr();
@@ -170,33 +180,43 @@ class changefuel
 	}
 
 
-
+	/**
+	 * Starts transfer business fuel
+	 *
+	 * @param      <type>   $_detail  The detail
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	private static function start_transfer($_detail)
 	{
+		self::log(str_repeat('+', 50));
+		self::log('Start');
+
 		if(!isset($_detail['file_addr']))
 		{
+			self::log('file_addr_error', $_detail);
 			return false;
 		}
 
 		$config_file_addr = $_detail['file_addr'];
+		self::$config_file_addr = $config_file_addr;
 
 		if(!isset($_detail['new_fuel']))
 		{
-			// invalid json. Need to remove file
-			\dash\file::delete($config_file_addr);
+			self::end_log('invalid_new_fuel', $_detail);
 			return false;
 		}
 
 		if(!isset($_detail['store_id']))
 		{
-			// invalid json. Need to remove file
-			\dash\file::delete($config_file_addr);
+			self::end_log('invalid_store_id', $_detail);
 			return false;
 		}
 
 		$new_fuel = $_detail['new_fuel'];
 		$store_id = $_detail['store_id'];
 
+		// -----------------------------------------------
 		// load store detail
 		// check current fuel and new fuel is not equal
 		// test current fuel connection
@@ -207,9 +227,79 @@ class changefuel
 		// update fuel value in db record
 		// rename old database to *_transfered
 		// unlock store
+		// -----------------------------------------------
+
+		// load store setting
+		$store_detail = \lib\db\store\get::by_id($store_id);
+		if(!$store_detail)
+		{
+			self::end_log('store detail not found for transfer', $_detail);
+			return false;
+		}
+
+		if(!isset($store_detail['fuel']))
+		{
+			self::end_log('store fuel not found for transfer', $store_detail);
+			return false;
+		}
+
+		$current_fuel = $store_detail['fuel'];
+
+		// check current fuel and new fuel is not equal
+		if($current_fuel === $new_fuel)
+		{
+			self::end_log('Current fuel is equal with new fuel', $store_detail);
+			return false;
+		}
+
+		$db_name = \dash\engine\store::make_database_name($store_id);
+
+		// test current fuel connection
+		$current_fuel_connection = \dash\db::test_connection($current_fuel, $db_name);
+
+		if(!$current_fuel_connection)
+		{
+			self::end_log('Current fuel connection if failed', $store_detail);
+			return false;
+		}
+
+		// test new fuel connection
+		$new_fuel_connection = \dash\db::test_connection($new_fuel);
+
+		if(!$new_fuel_connection)
+		{
+			self::end_log('New fuel connection if failed', $store_detail);
+			return false;
+		}
+
+		// set business status on tranfer mode
+		\lib\db\store\update::set_transfer($store_id);
+		self::log('Change business status on tranfer');
 
 
-		var_dump($_detail);exit();
+		// backup database from old fuel
+
+		// import database to new fuel
+
+
+		// update fuel value in db record
+		\lib\db\store\update::new_fuel($store_id, $new_fuel);
+		self::log('Change business fuel record');
+
+		// rename old database to *_transfered
+		// \dash\db::rename_database($current_fuel, $db_name, $db_name. '_transfered');
+		self::log('Rename old business database');
+
+		// unlock store
+		\lib\db\store\update::set_enable($store_id);
+		self::log('Enable business status');
+
+
+		self::log('Finish');
+
+		self::log(str_repeat('-', 50));
+
+		return true;
 	}
 
 
@@ -275,5 +365,51 @@ class changefuel
 			\dash\file::write($addr, date("Y-m-d H:i:s"));
 		}
 	}
+
+
+	/**
+	 * End log. save log and remove config file addr
+	 */
+	private static function end_log()
+	{
+		self::log(...func_get_args());
+
+		self::log(str_repeat('<', 50));
+
+		if(self::$config_file_addr)
+		{
+			// \dash\file::delete(self::$config_file_addr);
+		}
+	}
+
+
+	/**
+	 * Save log history
+	 *
+	 * @param      <type>  $_text    The text
+	 * @param      <type>  $_detail  The detail
+	 */
+	private static function log($_text, $_detail = null)
+	{
+		$log = date("Y-m-d H:i:s");
+		$log .= ' '. $_text;
+		if($_detail)
+		{
+			if(is_array($_detail))
+			{
+				unset($_detail['file_addr']);
+				$_detail = json_encode($_detail, JSON_UNESCAPED_UNICODE);
+			}
+
+			if(is_string($_detail))
+			{
+				$log .= ' - '. $_detail;
+			}
+		}
+
+		\dash\log::file($log, 'transferfuel.log', 'transferfuel', true);
+	}
+
+
 }
 ?>
