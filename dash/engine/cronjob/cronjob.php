@@ -46,7 +46,7 @@ class cronjob
 		// run jibres master crontab
 		$server['HTTP_HOST'] = 'jibres.ir';
 
-		if(gethostname() === 'reza-jibres')
+		if(gethostname() === 'reza-jibres' || gethostname() === 'reza-home')
 		{
 			$server['HTTP_HOST'] = 'jibres.local';
 		}
