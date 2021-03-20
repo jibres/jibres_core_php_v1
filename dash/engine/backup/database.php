@@ -203,13 +203,12 @@ class database
 	}
 
 
-	public static function import_cmd($_fuel, $_database_name)
+	public static function import_cmd($_fuel)
 	{
 		$cmd  = "mysql ";
 		$cmd .= " --host='$_fuel[host]' ";
 		$cmd .= " --user='$_fuel[user]' ";
 		$cmd .= " --password='$_fuel[pass]' ";
-		$cmd .= " '$_database_name' ";
 
 		return $cmd;
 	}
