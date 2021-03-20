@@ -203,6 +203,18 @@ class database
 	}
 
 
+	public static function import_cmd($_fuel, $_database_name)
+	{
+		$cmd  = "mysql ";
+		$cmd .= " --host='$_fuel[host]' ";
+		$cmd .= " --user='$_fuel[user]' ";
+		$cmd .= " --password='$_fuel[pass]' ";
+		$cmd .= " '$_database_name' ";
+
+		return $cmd;
+	}
+
+
 	private static function backup_dump_exec($_dir, $_fuel, $_database_name)
 	{
 		$date       = date('Y-m-d_H-i-s');
