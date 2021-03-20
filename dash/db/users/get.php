@@ -26,5 +26,13 @@ class get
 		$result = \dash\db::get($query, ['permission', 'count']);
 		return $result;
 	}
+
+
+	public static function last_user_id_fuel_db_name($_fuel, $_db_name)
+	{
+		$query  = "SELECT users.id AS `id` FROM users ORDER BY users.id DESC LIMIT 1";
+		$result = \dash\db::get($query, 'id', true, $_fuel, ['database' => $_db_name]);
+		return $result;
+	}
 }
 ?>
