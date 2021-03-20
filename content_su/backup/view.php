@@ -18,7 +18,7 @@ class view
 		}
 
 
-		\dash\data::mysqlInfo(\dash\db::global_status());
+		\dash\data::mysqlInfo(\dash\db\mysql\tools\info::global_status());
 
 		$folder    = null;
 		$subfolder = null;
