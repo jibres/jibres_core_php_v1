@@ -13,7 +13,7 @@
         </div>
         <label for="newip"><?php echo T_("New DNS IP") ?></label>
         <div class="input ltr">
-          <input type="text" name="newip" id="newip" value="185.208.180.140" readonly disabled>
+          <input type="text" name="newip" id="newip" value="185.208.180.130" readonly disabled>
         </div>
       </div>
       <footer class="txtRa">

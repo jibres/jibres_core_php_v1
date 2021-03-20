@@ -10,7 +10,7 @@ class model
 		$old_ip = \dash\validate::ip($old_ip);
 
 		$new_ip = \dash\request::post('newip');
-		$new_ip = '185.208.180.140';
+		$new_ip = '185.208.180.130';
 		$new_ip = \dash\validate::ip($new_ip);
 
 		if(!$old_ip || !$new_ip)
