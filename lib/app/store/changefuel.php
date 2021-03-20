@@ -5,14 +5,34 @@ namespace lib\app\store;
 class changefuel
 {
 
-	private static function addr($_store_id)
+	/**
+	 * Transfer config addr
+	 *
+	 * @param      string  $_filename  The filename
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function addr($_filename = null)
 	{
 		$addr = YARD. 'jibres_temp/transferfuel/';
-		$addr .= $_store_id. '.conf';
+
+		if($_filename)
+		{
+			$addr .= $_filename. '.conf';
+		}
+
 		return $addr;
 	}
 
 
+	/**
+	 * Save request of new fuel transfer
+	 *
+	 * @param      <type>   $_store_id  The store identifier
+	 * @param      <type>   $_new_fuel  The new fuel
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function request($_store_id, $_new_fuel)
 	{
 		$store_id = \dash\validate::id($_store_id);
@@ -76,32 +96,184 @@ class changefuel
 			\dash\file::makeDir(dirname($addr));
 		}
 
-		$json = ['new_fuel'  => $trust_new_fuel];
+		$json =
+		[
+			'new_fuel' => $trust_new_fuel,
+			'store_id' => $store_id,
+		];
+
 		$json = json_encode($json, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 		\dash\file::write($addr, $json);
 
 		\dash\notif::ok(T_("Transfer request was saved"));
-
-
-
 		return true;
 	}
 
-	public static function change()
+
+	/**
+	 * Run transfer
+	 * By cronjob every min
+	 */
+	public static function run()
 	{
-		$store_id = \dash\validate::id($_store_id);
-		if(!$store_id)
+		// system is busy
+		if(self::is_busy())
+		{
+			// return;
+		}
+
+		$store_conf = self::any_queue();
+
+		// nothing in queue
+		if(!$store_conf)
+		{
+			return;
+		}
+
+		self::set_busy();
+
+
+		self::start_transfer($store_conf);
+
+
+		self::set_free();
+
+	}
+
+
+	private static function any_queue()
+	{
+		$addr = self::addr();
+
+		$list = glob($addr. '*.conf', GLOB_NOSORT);
+
+		if($list && isset($list[0]))
+		{
+			$queue = $list[0];
+
+			$detail = \dash\file::read($queue);
+
+			$detail = json_decode($detail, true);
+
+			if(!is_array($detail))
+			{
+				\dash\file::delete($queue);
+				return [];
+			}
+
+			$detail['file_addr'] = $queue;
+
+			return $detail;
+		}
+
+		return false;
+	}
+
+
+
+	private static function start_transfer($_detail)
+	{
+		if(!isset($_detail['file_addr']))
 		{
 			return false;
 		}
 
-		\lib\db\store\update::set_enable($store_id);
+		$config_file_addr = $_detail['file_addr'];
 
-		\lib\store::reset_cache($store_id);
+		if(!isset($_detail['new_fuel']))
+		{
+			// invalid json. Need to remove file
+			\dash\file::delete($config_file_addr);
+			return false;
+		}
 
-		\dash\notif::ok(T_("Store was enabled"));
-		return true;
+		if(!isset($_detail['store_id']))
+		{
+			// invalid json. Need to remove file
+			\dash\file::delete($config_file_addr);
+			return false;
+		}
+
+		$new_fuel = $_detail['new_fuel'];
+		$store_id = $_detail['store_id'];
+
+		// load store detail
+		// check current fuel and new fuel is not equal
+		// test current fuel connection
+		// test new fuel connection
+		// set business status on tranfer mode
+		// backup database from old fuel
+		// import database to new fuel
+		// update fuel value in db record
+		// rename old database to *_transfered
+		// unlock store
+
+
+		var_dump($_detail);exit();
 	}
 
+
+	/**
+	 * Determines if busy.
+	 *
+	 * @return     boolean  True if busy, False otherwise.
+	 */
+	private static function is_busy()
+	{
+		return self::busy(null);
+	}
+
+
+	/**
+	 * Sets the transfer is busy.
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function set_busy()
+	{
+		return self::busy(true);
+	}
+
+
+	/**
+	 * Sets the free.
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function set_free()
+	{
+		return self::busy(false);
+	}
+
+
+	/**
+	 * Manaage busy file
+	 *
+	 * @param      boolean  $_action  The action
+	 *
+	 * @return     <type>   ( description_of_the_return_value )
+	 */
+	private static function busy($_action = null)
+	{
+		$addr = self::addr();
+
+		$addr .= 'transfer_is_busy.log';
+
+		// check is busye
+		if($_action === null)
+		{
+			return is_file($addr);
+		}
+
+		if($_action === false)
+		{
+			\dash\file::delete($addr);
+		}
+
+		if($_action === true)
+		{
+			\dash\file::write($addr, date("Y-m-d H:i:s"));
+		}
+	}
 }
 ?>
