@@ -161,5 +161,13 @@ class info
 		return $result;
 	}
 
+
+	public static function drop_database($_fuel, $_db_name)
+	{
+		$query = "DROP DATABASE `$_db_name`; ";
+		$result = \dash\db::query($query, $_fuel, ['database' => 'mysql']);
+		return $result;
+	}
+
 }
 ?>
