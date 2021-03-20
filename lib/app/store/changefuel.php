@@ -19,9 +19,14 @@ class changefuel
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function addr($_filename = null)
+	private static function addr($_mode = null, $_filename = null)
 	{
 		$addr = YARD. 'jibres_temp/transferfuel/';
+
+		if($_mode)
+		{
+			$addr .= $_mode . '/';
+		}
 
 		if($_filename)
 		{
@@ -90,7 +95,7 @@ class changefuel
 		}
 
 
-		$addr = self::addr($store_id);
+		$addr = self::addr('queue', $store_id);
 
 		if(is_file($addr))
 		{
@@ -153,7 +158,7 @@ class changefuel
 	 */
 	private static function any_queue()
 	{
-		$addr = self::addr();
+		$addr = self::addr('queue');
 
 		$list = glob($addr. '*.conf', GLOB_NOSORT);
 
@@ -221,11 +226,13 @@ class changefuel
 		// check current fuel and new fuel is not equal
 		// test current fuel connection
 		// test new fuel connection
+		// check business database is not exist in new fuel
 		// set business status on tranfer mode
 		// backup database from old fuel
 		// import database to new fuel
+		// test count table is equal by old count table
 		// update fuel value in db record
-		// rename old database to *_transfered
+		// rename old database to *_transfered. (need fix)
 		// unlock store
 		// -----------------------------------------------
 
@@ -255,7 +262,7 @@ class changefuel
 		$db_name = \dash\engine\store::make_database_name($store_id);
 
 		// test current fuel connection
-		$current_fuel_connection = \dash\db::test_connection($current_fuel, $db_name);
+		$current_fuel_connection = \dash\db\mysql\tools\info::test_connection($current_fuel, $db_name);
 
 		if(!$current_fuel_connection)
 		{
@@ -263,8 +270,15 @@ class changefuel
 			return false;
 		}
 
+		$current_table_count = \dash\db\mysql\tools\info::count_table($current_fuel, $db_name);
+		if(!$current_table_count)
+		{
+			self::end_log('Count table is null!', $store_detail);
+			return false;
+		}
+
 		// test new fuel connection
-		$new_fuel_connection = \dash\db::test_connection($new_fuel);
+		$new_fuel_connection = \dash\db\mysql\tools\info::test_connection($new_fuel);
 
 		if(!$new_fuel_connection)
 		{
@@ -272,28 +286,68 @@ class changefuel
 			return false;
 		}
 
+		// check business database is not exist in new fuel
+		$check_database_exist = \dash\db\mysql\tools\info::database_exist($new_fuel, $db_name);
+
+		if($check_database_exist)
+		{
+			self::end_log('Database exists in new fuel', $store_detail);
+			return false;
+		}
+
 		// set business status on tranfer mode
 		\lib\db\store\update::set_transfer($store_id);
 		self::log('Change business status on tranfer');
 
+		$current_fuel_detail = \dash\engine\fuel::get($current_fuel);
 
 		// backup database from old fuel
+		$backup_addr = self::addr('backup');
+		$backup_addr .= $store_id. '.sql';
 
-		// import database to new fuel
+		$backup = \dash\engine\backup\database::backup_cmd($current_fuel_detail, $db_name);
+		$backup .= ' > '. $backup_addr;
 
+		self::log('Start backup cmd');
+		$sh = exec($backup);
+		self::log('Backup complete');
+
+		// import database to new fuel and temp database
+		$new_fuel_detail = \dash\engine\fuel::get($new_fuel);
+
+		$import = \dash\engine\backup\database::import_cmd($new_fuel_detail, $db_name);
+		$import .= ' < '. $backup_addr;
+
+		self::log('Start import backup');
+		$sh = exec($import);
+		self::log('import complete');
+
+
+		// test count table is equal by old count table
+		$new_table_count = \dash\db\mysql\tools\info::count_table($new_fuel, $db_name);
+		if(!$new_table_count)
+		{
+			self::end_log('Count table is null!', $store_detail);
+			return false;
+		}
+
+		if(floatval($current_table_count) !== floatval($new_table_count))
+		{
+			self::end_log('Old count table and new count table is not equal!', $store_detail);
+			return false;
+		}
 
 		// update fuel value in db record
 		\lib\db\store\update::new_fuel($store_id, $new_fuel);
 		self::log('Change business fuel record');
 
 		// rename old database to *_transfered
-		// \dash\db::rename_database($current_fuel, $db_name, $db_name. '_transfered');
+		// $rename_database = \dash\db\mysql\tools\info::rename_database($current_fuel, $db_name, $db_name. '_transfered');
 		self::log('Rename old business database');
 
 		// unlock store
 		\lib\db\store\update::set_enable($store_id);
 		self::log('Enable business status');
-
 
 		self::log('Finish');
 
@@ -378,7 +432,7 @@ class changefuel
 
 		if(self::$config_file_addr)
 		{
-			// \dash\file::delete(self::$config_file_addr);
+			\dash\file::delete(self::$config_file_addr);
 		}
 	}
 
