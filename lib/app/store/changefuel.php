@@ -128,7 +128,7 @@ class changefuel
 	 */
 	public static function run()
 	{
-		// return; // need to check in next year :)
+		return; // need to check in next year :)
 
 		// system is busy
 		if(self::is_busy())
