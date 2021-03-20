@@ -724,7 +724,7 @@ class log
 	}
 
 
-	public static function file($_text, $_file_name = null, $_folder = null)
+	public static function file($_text, $_file_name = null, $_folder = null, $_raw = false)
 	{
 		if(!$_file_name)
 		{
@@ -745,14 +745,22 @@ class log
 
 		$fileAddr .= $_file_name;
 
-		$my_text = "#". date("Y-m-d H:i:s"). ' '. str_repeat("-", 5);
-		$my_text .= '@'. \dash\user::id(). ' | ';
-		$my_text .= \dash\url::pwd();
-		$my_text .= "\n";
-		if($_text !== null)
+		if($_raw)
 		{
-			$my_text .= $_text;
+			$my_text = $_text;
 			$my_text .= "\r\n";
+		}
+		else
+		{
+			$my_text = "#". date("Y-m-d H:i:s"). ' '. str_repeat("-", 5);
+			$my_text .= '@'. \dash\user::id(). ' | ';
+			$my_text .= \dash\url::pwd();
+			$my_text .= "\n";
+			if($_text !== null)
+			{
+				$my_text .= $_text;
+				$my_text .= "\r\n";
+			}
 		}
 
 		self::append_file($fileAddr, $my_text);
