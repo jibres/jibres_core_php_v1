@@ -182,31 +182,39 @@ class database
 	}
 
 
-	private static function backup_dump_exec($_dir, $_fuel, $_database_name)
+	public static function backup_cmd($_fuel, $_database_name)
 	{
-
 		$db_charset = 'utf8mb4';
 
+		$cmd  = "mysqldump ";
+		$cmd .= " --single-transaction ";
+		$cmd .= " --databases ";
+		$cmd .= " --add-drop-table ";
+		$cmd .= " --skip-lock-tables ";
+		$cmd .= " --column-statistics=0 ";
+		$cmd .= " --host='$_fuel[host]' ";
+		$cmd .= " --set-charset='$db_charset' ";
+		// $cmd .= " --default-character-set='$db_charset' ";
+		$cmd .= " --user='$_fuel[user]' ";
+		$cmd .= " --password='$_fuel[pass]' ";
+		$cmd .= " '$_database_name' ";
+
+		return $cmd;
+	}
+
+
+	private static function backup_dump_exec($_dir, $_fuel, $_database_name)
+	{
 		$date       = date('Y-m-d_H-i-s');
 		$dest_file  = $_database_name. '_'. $date. '.sql.bz2';
 
-
-		$cmd  = "mysqldump --single-transaction --databases --add-drop-table";
-		$cmd .= " --skip-lock-tables ";
-		$cmd .= " --column-statistics=0 ";
-		// $cmd .= " --default-character-set='$db_charset' ";
-		$cmd .= " --host='$_fuel[host]' --set-charset='$db_charset'";
-		$cmd .= " --user='$_fuel[user]'";
-		$cmd .= " --password='$_fuel[pass]' '$_database_name'";
+		$cmd = self::backup_cmd($_fuel, $_database_name);
 		$cmd .= " | bzip2 -c > $_dir/$dest_file &&";
-
 		// $cmd .= " | bzip2 -c > $_dir/$dest_file 2>&1 &";
 
 		// to import this file
 		// bunzip2 < filename.sql.bz2 | mysql -u root -p $project_name
-		//
 		\dash\file::append(__DIR__.'/temp.me.exec', $cmd. "\n");
-
 	}
 
 
