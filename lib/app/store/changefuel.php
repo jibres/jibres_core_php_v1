@@ -128,7 +128,7 @@ class changefuel
 	 */
 	public static function run()
 	{
-		return; // need to check in next year :)
+		// return; // need to check in next year :)
 
 		// system is busy
 		if(self::is_busy())
@@ -272,13 +272,6 @@ class changefuel
 			return false;
 		}
 
-		$current_table_count = \dash\db\mysql\tools\info::count_table($current_fuel, $db_name);
-		if(!$current_table_count)
-		{
-			self::end_log('Count table is null!', $store_detail);
-			return false;
-		}
-
 		// test new fuel connection
 		$new_fuel_connection = \dash\db\mysql\tools\info::test_connection($new_fuel);
 
@@ -297,6 +290,17 @@ class changefuel
 			return false;
 		}
 
+		$current_table_count = \dash\db\mysql\tools\info::count_table($current_fuel, $db_name);
+		if(!$current_table_count)
+		{
+			self::end_log('Count table is null!', $store_detail);
+			return false;
+		}
+
+		$current_last_user_id = \lib\db\users\get::last_user_id_fuel_db_name($current_fuel, $db_name);
+
+
+
 		// set business status on tranfer mode
 		\lib\db\store\update::set_transfer($store_id);
 		self::log('Change business status on tranfer');
@@ -311,6 +315,7 @@ class changefuel
 		$backup .= ' > '. $backup_addr;
 
 		self::log('Start backup cmd');
+		self::log($backup);
 		$sh = exec($backup);
 		self::log('Backup complete');
 
@@ -321,6 +326,7 @@ class changefuel
 		$import .= ' < '. $backup_addr;
 
 		self::log('Start import backup');
+		self::log($import);
 		$sh = exec($import);
 		self::log('import complete');
 
@@ -339,12 +345,20 @@ class changefuel
 			return false;
 		}
 
+		$new_last_user_id = \lib\db\users\get::last_user_id_fuel_db_name($new_fuel, $db_name);
+
+		if($current_last_user_id != $new_last_user_id)
+		{
+			self::end_log('Last user id not match!', [$current_last_user_id, $new_last_user_id]);
+			return false;
+		}
+
 		// update fuel value in db record
 		\lib\db\store\update::new_fuel($store_id, $new_fuel);
 		self::log('Change business fuel record');
 
 		// rename old database to *_transfered
-		// $rename_database = \dash\db\mysql\tools\info::rename_database($current_fuel, $db_name, $db_name. '_transfered');
+		self::rename_database($current_fuel, $db_name, $db_name. '_transfered');
 		self::log('Rename old business database');
 
 		// unlock store
@@ -356,6 +370,37 @@ class changefuel
 		self::log(str_repeat('-', 50));
 
 		return true;
+	}
+
+
+	private static function rename_database($_fuel, $_db_name, $_new_db_name)
+	{
+		self::log('rename database');
+		$fuel_detail = \dash\engine\fuel::get($_fuel);
+
+		// backup database from old fuel
+		$rename_addr = self::addr('rename');
+		$rename_addr .= $_db_name. '.sql';
+
+		$rename = \dash\engine\backup\database::backup_cmd($fuel_detail, $_db_name);
+		$rename .= ' > '. $rename_addr;
+
+		$rename = str_replace('--add-drop-table', '--no-create-db', $rename);
+		self::log($rename);
+		exec($backup);
+
+		$create_new_database = \dash\db\mysql\tools\info::create_database($_fuel, $_new_db_name);
+		$import = \dash\engine\backup\database::import_cmd($fuel_detail, $_new_db_name);
+		$import .= ' < '. $rename_addr;
+
+		self::log($import);
+		exec($import);
+
+		// drop database
+		$drop_database = \dash\db\mysql\tools\info::drop_database($_fuel, $db_name);
+		self::log('drop old database');
+
+
 	}
 
 
