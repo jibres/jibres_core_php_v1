@@ -46,7 +46,7 @@ class statistics
 		$result['lastbuy']             = \lib\db\factors\get::last_buy_date();
 
 		$result['dbtrafic']            = null;
-		$result['dbsize']              = null; //floatval(\dash\db::db_size());
+		$result['dbsize']              = null;
 
 		$result['customer']            = floatval(\dash\db\users::get_count(['status' => [' != ', "'removed'"]]));
 		$result['staff']               = floatval(\dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]));
