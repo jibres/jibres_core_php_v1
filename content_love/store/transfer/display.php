@@ -13,7 +13,6 @@
   </nav>
 
 
-
   <form method="post" autocomplete="off">
     <input type="hidden" name="changefuel" value="1">
     <div class="box">
@@ -22,7 +21,7 @@
         <div>
           <select class="select22" name="newfuel" id="fuel">
             <?php foreach (\dash\data::serverList() as $key => $value) {?>
-            <option value="<?php echo a($value, 'fuelname'); ?>" <?php if(\dash\data::dataRowData_fuel() === a($value, 'fuelname')) { echo 'selected'; } ?>><?php echo a($value, 'title') ?></option>
+            <option value="<?php echo a($value, 'fuelname'); ?>" <?php if(\dash\data::dataRow_fuel() === a($value, 'fuelname')) { echo 'selected'; } ?>><?php echo a($value, 'title') ?></option>
             <?php } //endif ?>
           </select>
         </div>
