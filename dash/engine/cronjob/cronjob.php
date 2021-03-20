@@ -14,12 +14,6 @@ class cronjob
 		$list_stores_addr = substr($list_stores_addr, 0, -7);
 		$list_stores_addr .= 'jibres_temp/stores/subdomain/';
 
-		if(!is_dir($list_stores_addr))
-		{
-			self::save_log('stores subdomain addr not found!');
-			return;
-		}
-
 		// generate trust token by random
 		$trust_token = self::generate_trust_token();
 
@@ -54,8 +48,13 @@ class cronjob
 		$store_exec          = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
 		$exec[]              = $store_exec;
 
-		// load other store name
-		$list_stores = glob($list_stores_addr. '*.conf');
+		$list_stores = [];
+
+		if(is_dir($list_stores_addr))
+		{
+			// load other store name
+			$list_stores = glob($list_stores_addr. '*.conf');
+		}
 
 		if(empty($list_stores))
 		{
