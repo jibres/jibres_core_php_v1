@@ -286,7 +286,7 @@ class changefuel
 
 		if($check_database_exist)
 		{
-			self::end_log('Database exists in new fuel', $store_detail);
+			self::end_log('Database exists in new fuel', $check_database_exist);
 			return false;
 		}
 
@@ -297,7 +297,7 @@ class changefuel
 			return false;
 		}
 
-		$current_last_user_id = \lib\db\users\get::last_user_id_fuel_db_name($current_fuel, $db_name);
+		$current_last_user_id = \dash\db\users\get::last_user_id_fuel_db_name($current_fuel, $db_name);
 
 
 
@@ -311,13 +311,20 @@ class changefuel
 		$backup_addr = self::addr('backup');
 		$backup_addr .= $store_id. '.sql';
 
+		if(!is_dir(dirname($backup_addr)))
+		{
+			\dash\file::makeDir(dirname($backup_addr), null, true);
+		}
+
 		$backup = \dash\engine\backup\database::backup_cmd($current_fuel_detail, $db_name);
 		$backup .= ' > '. $backup_addr;
 
 		self::log('Start backup cmd');
 		self::log($backup);
-		$sh = exec($backup);
+		$sh = exec($backup, $output);
+		self::log(implode("\n", $output));
 		self::log('Backup complete');
+		self::log($sh);
 
 		// import database to new fuel and temp database
 		$new_fuel_detail = \dash\engine\fuel::get($new_fuel);
@@ -327,7 +334,10 @@ class changefuel
 
 		self::log('Start import backup');
 		self::log($import);
-		$sh = exec($import);
+		$sh = exec($import, $output);
+		self::log(implode("\n", $output));
+		self::log($sh);
+
 		self::log('import complete');
 
 
@@ -345,7 +355,7 @@ class changefuel
 			return false;
 		}
 
-		$new_last_user_id = \lib\db\users\get::last_user_id_fuel_db_name($new_fuel, $db_name);
+		$new_last_user_id = \dash\db\users\get::last_user_id_fuel_db_name($new_fuel, $db_name);
 
 		if($current_last_user_id != $new_last_user_id)
 		{
@@ -382,19 +392,28 @@ class changefuel
 		$rename_addr = self::addr('rename');
 		$rename_addr .= $_db_name. '.sql';
 
+		if(!is_dir(dirname($rename_addr)))
+		{
+			\dash\file::makeDir(dirname($rename_addr), null, true);
+		}
+
 		$rename = \dash\engine\backup\database::backup_cmd($fuel_detail, $_db_name);
 		$rename .= ' > '. $rename_addr;
 
 		$rename = str_replace('--add-drop-table', '--no-create-db', $rename);
-		self::log($rename);
-		exec($backup);
+		self::log($import);
+		$sh = exec($backup, $output);
+		self::log(implode("\n", $output));
+		self::log($sh);
 
 		$create_new_database = \dash\db\mysql\tools\info::create_database($_fuel, $_new_db_name);
 		$import = \dash\engine\backup\database::import_cmd($fuel_detail, $_new_db_name);
-		$import .= ' < '. $rename_addr;
+		$import .= " '$_new_db_name' < " . $rename_addr;
 
 		self::log($import);
-		exec($import);
+		$sh = exec($import, $output);
+		self::log(implode("\n", $output));
+		self::log($sh);
 
 		// drop database
 		$drop_database = \dash\db\mysql\tools\info::drop_database($_fuel, $db_name);
