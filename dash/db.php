@@ -574,5 +574,22 @@ class db
 		return $result;
 	}
 
+
+	public static function test_connection($_fuel, $_db_name = 'mysql')
+	{
+		$var = 'JIBRES_TEST_CONNECTION';
+
+		$result = self::get("SELECT '$var'; -- $_fuel ", $var, true, $_fuel, ['database' => $_db_name]);
+
+		if($result === $var)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 }
 ?>
