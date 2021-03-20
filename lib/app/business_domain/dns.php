@@ -692,7 +692,7 @@ class dns
 
 			// end update dns record
 
-			if(time() - $start_time > 5)
+			if(time() - $start_time > 59)
 			{
 				\dash\notif::info("Timeout. Update count :". $i);
 				return true;
