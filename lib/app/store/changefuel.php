@@ -105,7 +105,7 @@ class changefuel
 
 		if(!is_dir(dirname($addr)))
 		{
-			\dash\file::makeDir(dirname($addr));
+			\dash\file::makeDir(dirname($addr), null, true);
 		}
 
 		$json =
