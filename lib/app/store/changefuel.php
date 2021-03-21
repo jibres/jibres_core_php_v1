@@ -128,8 +128,6 @@ class changefuel
 	 */
 	public static function run()
 	{
-		return; // need to check in next year :)
-
 		// system is busy
 		if(self::is_busy())
 		{
@@ -299,8 +297,6 @@ class changefuel
 
 		$current_last_user_id = \dash\db\users\get::last_user_id_fuel_db_name($current_fuel, $db_name);
 
-
-
 		// set business status on tranfer mode
 		\lib\db\store\update::set_transfer($store_id);
 		self::log('Change business status on tranfer');
@@ -368,8 +364,8 @@ class changefuel
 		self::log('Change business fuel record');
 
 		// rename old database to *_transfered
-		self::rename_database($current_fuel, $db_name, $db_name. '_transfered');
-		self::log('Rename old business database');
+		// self::rename_database($current_fuel, $db_name, $db_name. '_transfered');
+		// self::log('Rename old business database');
 
 		// unlock store
 		\lib\db\store\update::set_enable($store_id);
