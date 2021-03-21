@@ -19,6 +19,8 @@ class model
 					\lib\app\store\changefuel::request($value['id'], '501');
 
 					\lib\app\store\changefuel::run();
+
+					\dash\db\mysql\tools\connection::close();
 				}
 			}
 		}
