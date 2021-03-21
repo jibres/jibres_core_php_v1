@@ -9,12 +9,29 @@
           <div class="value txtB"><?php echo $dataRow['fuel'] ?></div>
         </a>
       </li>
+
+       <li>
+        <a class="f item">
+          <div class="key">Status</div>
+          <div class="value txtB"><?php echo $dataRow['status'] ?></div>
+        </a>
+      </li>
     </ul>
   </nav>
 
 
+
+    <div class="box">
+      <footer class="f">
+        <div class="c"><div data-confirm data-data='{"changestatus": "changestatus", "status" : "transfer"}' class="btn block danger2">Set Transfer mode</div></div>
+        <div class="c mLa5"><div data-confirm data-data='{"changestatus": "changestatus", "status" : "enable"}' class="btn block success2">Set Normal mode</div></div>
+      </footer>
+    </div>
+
+
+
   <form method="post" autocomplete="off">
-    <input type="hidden" name="changefuel" value="1">
+    <input type="hidden" name="forceupdatefuel" value="1">
     <div class="box">
       <div class="body">
         <label for="fuel"><?php echo T_("Chage business fuel") ?></label>
@@ -27,7 +44,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn danger"><?php echo T_("Transfer") ?></button>
+        <button class="btn danger">Force update fuel</button>
       </footer>
     </div>
   </form>

@@ -122,6 +122,94 @@ class changefuel
 	}
 
 
+	public static function force_update_status($_store_id, $_new_status)
+	{
+		$store_id = \dash\validate::id($_store_id);
+		if(!$store_id)
+		{
+			\dash\notif::error(T_("Invalid store id"));
+			return false;
+		}
+
+		$store_detail = \lib\db\store\get::by_id($store_id);
+		if(!$store_detail)
+		{
+			\dash\notif::error(T_("Store detail not found"));
+			return false;
+		}
+
+		if($_new_status === 'transfer')
+		{
+			\lib\db\store\update::set_transfer($store_id);
+			\dash\notif::ok('Business status set on transfer');
+		}
+		else
+		{
+			\lib\db\store\update::set_enable($store_id);
+			\dash\notif::ok('Business status set on enable');
+		}
+		return true;
+
+	}
+
+	public static function force_update_fuel($_store_id, $_new_fuel)
+	{
+		$store_id = \dash\validate::id($_store_id);
+		if(!$store_id)
+		{
+			\dash\notif::error(T_("Invalid store id"));
+			return false;
+		}
+
+		$trust_new_fuel = null;
+
+		$server_list = \dash\setting\servername::database();
+
+		foreach ($server_list as $key => $value)
+		{
+			if(!$trust_new_fuel)
+			{
+				if(isset($value['fuelname']) && $value['fuelname'] === $_new_fuel)
+				{
+					$trust_new_fuel = $value['fuelname'];
+				}
+			}
+		}
+
+		if(!$trust_new_fuel)
+		{
+			\dash\notif::error(T_("Invalid fuel"));
+			return false;
+		}
+
+		$store_detail = \lib\db\store\get::by_id($store_id);
+		if(!$store_detail)
+		{
+			\dash\notif::error(T_("Store detail not found"));
+			return false;
+		}
+
+		if(!isset($store_detail['fuel']))
+		{
+			\dash\notif::error(T_("Store fuel not found"));
+			return false;
+		}
+
+		if($store_detail['fuel'] == $trust_new_fuel)
+		{
+			\dash\notif::error(T_("No change in business fuel"));
+			return false;
+		}
+
+		\lib\db\store\update::new_fuel($store_id, $trust_new_fuel);
+
+		\dash\notif::ok(T_("Fuel updated"));
+		return true;
+
+	}
+
+
+
 	/**
 	 * Run transfer
 	 * By cronjob every min
