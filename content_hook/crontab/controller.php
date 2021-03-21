@@ -80,11 +80,14 @@ class controller
 			self::run_business();
 		}
 
-		self::check_error_file();
-
 		if(!\dash\engine\store::inStore())
 		{
-			\lib\app\statistics\homepage::refresh();
+			self::check_error_file();
+
+			if(self::at('03:10'))
+			{
+				\lib\app\statistics\homepage::refresh();
+			}
 		}
 
 		if($run_jibres || $run_business)
@@ -131,6 +134,8 @@ class controller
 		{
 			return;
 		}
+
+		\lib\app\store\changefuel::run();
 
 		\lib\app\domains\owner::check();
 
