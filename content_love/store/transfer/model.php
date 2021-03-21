@@ -20,7 +20,7 @@ class model
 
 		if(\dash\request::post('forceupdatefuel'))
 		{
-			\lib\app\store\changefuel::force_update_fuel(\dash\request::get('id'), \dash\request::post('newfuel'));
+			\lib\app\store\changefuel::force_update_fuel(\dash\request::get('id'), \dash\request::post('newfuelforce'));
 			\dash\redirect::pwd();
 		}
 

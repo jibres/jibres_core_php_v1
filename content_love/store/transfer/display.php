@@ -36,7 +36,7 @@
       <div class="body">
         <label for="fuel"><?php echo T_("Chage business fuel") ?></label>
         <div>
-          <select class="select22" name="newfuel" id="fuel">
+          <select class="select22" name="newfuelforce" id="fuelforce">
             <?php foreach (\dash\data::serverList() as $key => $value) {?>
             <option value="<?php echo a($value, 'fuelname'); ?>" <?php if(\dash\data::dataRow_fuel() === a($value, 'fuelname')) { echo 'selected'; } ?>><?php echo a($value, 'title') ?></option>
             <?php } //endif ?>
@@ -45,6 +45,27 @@
       </div>
       <footer class="txtRa">
         <button class="btn danger">Force update fuel</button>
+      </footer>
+    </div>
+  </form>
+
+
+
+
+  <form method="post" autocomplete="off">
+    <div class="box">
+      <div class="body">
+        <label for="fuel"><?php echo T_("Chage business fuel") ?></label>
+        <div>
+          <select class="select22" name="newfuel" id="fuel">
+            <?php foreach (\dash\data::serverList() as $key => $value) {?>
+            <option value="<?php echo a($value, 'fuelname'); ?>" <?php if(\dash\data::dataRow_fuel() === a($value, 'fuelname')) { echo 'selected'; } ?>><?php echo a($value, 'title') ?></option>
+            <?php } //endif ?>
+          </select>
+        </div>
+      </div>
+      <footer class="txtRa">
+        <button class="btn danger">Update by process</button>
       </footer>
     </div>
   </form>
