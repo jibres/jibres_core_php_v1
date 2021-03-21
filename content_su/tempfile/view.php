@@ -5,10 +5,44 @@ class view
 {
 	public static function config()
 	{
-		if(\dash\request::get('folder'))
+		$dir = \dash\url::directory();
+		$dir = str_replace('tempfile', '', $dir);
+
+		if($dir)
 		{
+			$split_dir = explode('/', $dir);
+			array_pop($split_dir);
+
 			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::this());
+			\dash\data::back_link(\dash\url::here(). '/tempfile'. implode('/', $split_dir));
+
+			$addr = YARD. 'jibres_temp/'. $dir;
+			$addr = \autoload::fix_os_path($addr);
+			if(is_dir($addr))
+			{
+				$glob = glob($addr. '/*');
+
+				$list = [];
+				foreach ($glob as $key => $value)
+				{
+					$name = basename($value);
+
+					$list[] =
+					[
+						'name'  => $name,
+						'mtime' => filemtime($value),
+						'size'  => round((filesize($value) / 1024) / 1024, 2),
+
+					];
+				}
+
+				$list = array_reverse($list);
+				\dash\data::logFileList($list);
+			}
+			elseif(is_file($addr))
+			{
+				self::load_file($addr);
+			}
 
 		}
 		else
@@ -16,55 +50,13 @@ class view
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::here());
 
-		}
-		if(\dash\request::get('folder') && \dash\request::get('file'))
-		{
-			$addr = YARD. 'jibres_temp/stores/'. \dash\request::get('folder'). '/'. \dash\request::get('file');
-			$addr = \autoload::fix_os_path($addr);
-			if(!is_file($addr))
-			{
-				\dash\header::status(404, "File not Found");
-			}
-
-			self::load_file($addr);
-
-		}
-		elseif(\dash\request::get('folder'))
-		{
-			$folder = '/'. trim(\dash\request::get('folder'),'/');
-
-			$addr = YARD. 'jibres_temp/stores'. $folder. '/*';
-
-			$addr = \autoload::fix_os_path($addr);
-
-			$glob = glob($addr);
-
-			$list = [];
-			foreach ($glob as $key => $value)
-			{
-				$name = basename($value);
-
-				$list[] =
-				[
-					'name'  => $name,
-					'mtime' => filemtime($value),
-					'size'  => round((filesize($value) / 1024) / 1024, 2),
-
-				];
-			}
-
-			$list = array_reverse($list);
-			\dash\data::logFileList($list);
-		}
-		else
-		{
-			$addr = YARD. 'jibres_temp/stores/*';
+			$addr = YARD. 'jibres_temp/*';
 			$addr = \autoload::fix_os_path($addr);
 			$glob = glob($addr);
 			$list = [];
 			foreach ($glob as $key => $value)
 			{
-				$name = str_replace(YARD. 'jibres_temp/stores/', '', $value);
+				$name = str_replace(YARD. 'jibres_temp/', '', $value);
 
 				switch ($name)
 				{
