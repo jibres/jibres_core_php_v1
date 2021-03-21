@@ -94,7 +94,7 @@ class fuel
 				// case 'shaparak':
 				// case 'shaparak_log':
 				case 'visitor':
-					$target = 'jibres101';
+					$target = '400';
 					break;
 			}
 		}
