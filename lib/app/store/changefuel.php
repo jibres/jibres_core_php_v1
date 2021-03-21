@@ -131,6 +131,7 @@ class changefuel
 		// system is busy
 		if(self::is_busy())
 		{
+			\dash\notif::error("System is busy");
 			return;
 		}
 
@@ -139,6 +140,7 @@ class changefuel
 		// nothing in queue
 		if(!$store_conf)
 		{
+			\dash\notif::warn("Nothing to transfer");
 			return;
 		}
 
@@ -147,6 +149,8 @@ class changefuel
 		self::start_transfer($store_conf);
 
 		self::set_free();
+
+		\dash\notif::ok("Transfer done");
 
 	}
 

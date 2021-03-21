@@ -32,4 +32,9 @@
     </div>
   </form>
 
+
+   <form method="post" autocomplete="off" class="hide" id="formrun">
+    <input type="hidden" name="run" value="run">
+  </form>
+
 </div>
