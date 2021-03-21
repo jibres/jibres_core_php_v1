@@ -34,7 +34,7 @@
     <input type="hidden" name="forceupdatefuel" value="1">
     <div class="box">
       <div class="body">
-        <label for="fuel"><?php echo T_("Chage business fuel") ?></label>
+        <label for="fuel"><?php echo T_("Chage business fuel force") ?></label>
         <div>
           <select class="select22" name="newfuelforce" id="fuelforce">
             <?php foreach (\dash\data::serverList() as $key => $value) {?>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn danger">Force update fuel</button>
+        <button class="btn">Force update fuel</button>
       </footer>
     </div>
   </form>
