@@ -566,9 +566,16 @@ class prepare
 		}
 
 		// emergency domain
-		if($domain === 'jibres.xyz' || $domain === 'jibres.icu')
-		{
+		$emergency_domain =
+		[
+			'jibres.xyz',
+			'jibres.icu',
+			'jibres.me',
+			'jibres.club',
+		];
 
+		if(in_array($domain, $emergency_domain))
+		{
 			$is_bot = false;
 			if($is_bot)
 			{
