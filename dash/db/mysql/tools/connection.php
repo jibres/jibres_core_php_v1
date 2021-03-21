@@ -143,6 +143,9 @@ class connection
 
 
 			case 2002:
+
+				\dash\log::file(json_encode(func_get_args()), 'sql2002.log', 'database');
+
 				// i dont know!
 				return self::make_error(503, T_("Hello!"). " 2002 ", $_option);
 				break;
