@@ -21,6 +21,14 @@ class db
 	 */
 	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
+		// check no sql
+		$nosqlfile = root. 'nosql.conf';
+
+		if(is_file($nosqlfile))
+		{
+			return false;
+		}
+
 		\dash\notif::turn_off_log();
 
 		$default_options =
