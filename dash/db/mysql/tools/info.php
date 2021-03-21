@@ -104,7 +104,7 @@ class info
 	public static function show_databases($_fuel)
 	{
 		$query = "SHOW DATABASES;";
-		$result = \dash\db::get($query, 'count', true, $_fuel, ['database' => 'mysql']);
+		$result = \dash\db::get($query,null, false, $_fuel, ['database' => 'mysql']);
 		return $result;
 	}
 
