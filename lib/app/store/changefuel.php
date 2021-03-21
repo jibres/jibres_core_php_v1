@@ -463,7 +463,7 @@ class changefuel
 		\lib\db\store\update::set_enable($store_id);
 		self::log('Enable business status');
 
-		self::log('Finish');
+		self::end_log('Finish');
 
 		self::log(str_repeat('-', 50));
 
