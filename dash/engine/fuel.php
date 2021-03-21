@@ -104,8 +104,11 @@ class fuel
 			$target = $_requested_fuel;
 		}
 
+		self::set_header($target);
+
 		$target = $target. '_from_'. $gethostname;
 		$result = \dash\setting\fuel::server($target);
+
 
 		if(isset($result[$_requested_fuel]))
 		{
@@ -144,6 +147,7 @@ class fuel
 			return 'Unknown bedroom';
 		}
 	}
+
 
 
 	private static function set_header($_request)
