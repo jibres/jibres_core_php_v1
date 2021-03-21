@@ -11,7 +11,7 @@ class fuel
 
 	public static function who($_force_fuel = null)
 	{
-		if(isset($_force_fuel['fuel']) && $_force_fuel['fuel'] && is_string($_force_fuel['fuel']))
+		if(isset($_force_fuel['fuel']) && $_force_fuel['fuel'] && ( is_string($_force_fuel['fuel']) || is_numeric($_force_fuel['fuel']) ) )
 		{
 			$myFuel             = self::get($_force_fuel['fuel']);
 
