@@ -19,6 +19,9 @@
 	</div>
 </div>
 <pre>
+<?php print_r(\dash\data::allConnection()); ?>
+</pre>
+<pre>
 <?php print_r(\dash\data::showDatabases()) ?>
 </pre>
 

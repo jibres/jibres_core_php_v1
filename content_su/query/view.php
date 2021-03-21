@@ -17,6 +17,9 @@ class view
 		\dash\data::showDatabases_400(\dash\db\mysql\tools\info::show_databases('400'));
 		\dash\data::showDatabases_101(\dash\db\mysql\tools\info::show_databases('jibres101'));
 
+		$all_connection = \dash\db\mysql\tools\connection::link_open();
+		\dash\data::allConnection($all_connection);
+
 
 	}
 }
