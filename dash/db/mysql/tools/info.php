@@ -101,6 +101,14 @@ class info
 	}
 
 
+	public static function show_databases($_fuel)
+	{
+		$query = "SHOW DATABASES;";
+		$result = \dash\db::get($query, 'count', true, $_fuel, ['database' => 'mysql']);
+		return $result;
+	}
+
+
 	public static function count_table($_fuel, $_db_name)
 	{
 		$query =

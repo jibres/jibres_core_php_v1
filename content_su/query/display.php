@@ -18,6 +18,9 @@
 		</table>
 	</div>
 </div>
+<pre>
+<?php print_r(\dash\data::showDatabases()) ?>
+</pre>
 
 <div class="cbox">
 	<div class="tblBox">

@@ -13,6 +13,8 @@ class view
 
 		\dash\data::mysqlConf(\dash\db\mysql\tools\info::timeout_setting());
 
+		\dash\data::showDatabases_501(\dash\db\mysql\tools\info::show_databases('501'));
+		\dash\data::showDatabases_400(\dash\db\mysql\tools\info::show_databases('400'));
 
 
 	}
