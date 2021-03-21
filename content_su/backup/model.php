@@ -5,48 +5,68 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('backupnow') === 'jibres')
+		{
+			\dash\engine\backup\database::make_backup_now(true, 'jibres');
+			\dash\notif::ok("Jibres database backup complete");
+		}
 
-		if(\dash\request::post('backup') === 'schedule')
+		if(\dash\request::post('backupnow') === 'domain')
 		{
-			\dash\engine\backup\database::backup_schedule();
-			\dash\redirect::pwd();
+			\dash\engine\backup\database::make_backup_now(true, 'domain');
+			\dash\notif::ok("Domain database backup complete");
+
 		}
-		elseif(\dash\request::post('backup') === 'now')
+
+		if(\dash\request::post('backupnow') === 'business')
 		{
-			\dash\log::set('backupDb');
-			\dash\engine\backup\database::make_backup_now(true);
-			\dash\notif::ok(T_("Backup complete"));
-			\dash\redirect::pwd();
+			\dash\engine\backup\database::make_backup_now(true, 'business');
+			\dash\notif::ok("Business database backup complete");
 		}
-		elseif(\dash\request::post('backup') === 'now_log')
-		{
-			\dash\log::set('backupDbLogDataBase');
-			if(defined('db_log_name'))
-			{
-				self::backup_now(db_log_name);
-			}
-			else
-			{
-				\dash\notif::error(T_("Database of logs dose not exists"));
-				return false;
-			}
-		}
-		elseif(\dash\request::post('type') === 'remove' && \dash\request::post('file'))
-		{
-			$file_name = \dash\request::post('file');
-			if(\dash\file::delete(database. 'backup/file/'. $file_name))
-			{
-				\dash\log::set('backupRemoveDb');
-				\dash\notif::ok(T_("File successfully deleted"));
-				\dash\redirect::pwd();
-				return;
-			}
-		}
-		else
-		{
-			\dash\notif::ok(T_("Dont!"));
-			return false;
-		}
+
+		\dash\redirect::pwd();
+
+		// if(\dash\request::post('backup') === 'schedule')
+		// {
+		// 	\dash\engine\backup\database::backup_schedule();
+		// 	\dash\redirect::pwd();
+		// }
+		// elseif(\dash\request::post('backup') === 'now')
+		// {
+		// 	\dash\log::set('backupDb');
+		// 	\dash\engine\backup\database::make_backup_now(true);
+		// 	\dash\notif::ok(T_("Backup complete"));
+		// 	\dash\redirect::pwd();
+		// }
+		// elseif(\dash\request::post('backup') === 'now_log')
+		// {
+		// 	\dash\log::set('backupDbLogDataBase');
+		// 	if(defined('db_log_name'))
+		// 	{
+		// 		self::backup_now(db_log_name);
+		// 	}
+		// 	else
+		// 	{
+		// 		\dash\notif::error(T_("Database of logs dose not exists"));
+		// 		return false;
+		// 	}
+		// }
+		// elseif(\dash\request::post('type') === 'remove' && \dash\request::post('file'))
+		// {
+		// 	$file_name = \dash\request::post('file');
+		// 	if(\dash\file::delete(database. 'backup/file/'. $file_name))
+		// 	{
+		// 		\dash\log::set('backupRemoveDb');
+		// 		\dash\notif::ok(T_("File successfully deleted"));
+		// 		\dash\redirect::pwd();
+		// 		return;
+		// 	}
+		// }
+		// else
+		// {
+		// 	\dash\notif::ok(T_("Dont!"));
+		// 	return false;
+		// }
 	}
 
 }

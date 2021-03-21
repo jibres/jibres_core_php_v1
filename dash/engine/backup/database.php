@@ -121,9 +121,8 @@ class database
 	}
 
 
-	public static function make_backup_now($_force = false)
+	public static function make_backup_now($_force = false, $_only = null)
 	{
-
 		$all_store = \lib\db\store\get::all_store_fuel_detail();
 
 		$hour_folder = date("H");
@@ -146,33 +145,46 @@ class database
 
 		\dash\file::delete(__DIR__.'/temp.me.exec');
 
-		// make jibres backup
-		$fuel      = \dash\engine\fuel::get('master');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres');
-		// make nic backup
-		$fuel      = \dash\engine\fuel::get('nic');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic');
-
-		$fuel      = \dash\engine\fuel::get('nic_log');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic_log');
-
-		$fuel      = \dash\engine\fuel::get('onlinenic_log');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres_onlinenic_log');
-
-		$fuel      = \dash\engine\fuel::get('shaparak');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak');
-
-		$fuel      = \dash\engine\fuel::get('shaparak_log');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak_log');
-
-		$fuel      = \dash\engine\fuel::get('visitor');
-		self::backup_dump_exec($backup_dir, $fuel, 'jibres_visitor');
-
-		foreach ($all_store as $key => $value)
+		if(!$_only || $_only === 'jibres')
 		{
-			$fuel      = \dash\engine\fuel::get($value['fuel']);
-			$db_name   = \dash\engine\store::make_database_name($value['id']);
-			self::backup_dump_exec($backup_dir, $fuel, $db_name);
+			// make jibres backup
+			$fuel      = \dash\engine\fuel::get('master');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres');
+
+			$fuel      = \dash\engine\fuel::get('visitor');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_visitor');
+		}
+
+		if(!$_only || $_only === 'domain')
+		{
+			// make nic backup
+			$fuel      = \dash\engine\fuel::get('nic');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic');
+
+			$fuel      = \dash\engine\fuel::get('nic_log');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic_log');
+
+			$fuel      = \dash\engine\fuel::get('onlinenic_log');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_onlinenic_log');
+		}
+
+		if(!$_only || $_only === 'ipg')
+		{
+			$fuel      = \dash\engine\fuel::get('shaparak');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak');
+
+			$fuel      = \dash\engine\fuel::get('shaparak_log');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak_log');
+		}
+
+		if(!$_only || $_only === 'business')
+		{
+			foreach ($all_store as $key => $value)
+			{
+				$fuel      = \dash\engine\fuel::get($value['fuel']);
+				$db_name   = \dash\engine\store::make_database_name($value['id']);
+				self::backup_dump_exec($backup_dir, $fuel, $db_name);
+			}
 		}
 
 		\dash\file::append(__DIR__.'/temp.me.exec', ' echo end '. "\n");
