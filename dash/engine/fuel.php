@@ -156,7 +156,7 @@ class fuel
 		{
 			self::$last_get = $_request;
 			self::$header_count++;
-			@header('lastFuel_'. self::$header_count. ': '. $_request);
+			@header('x-node-fuel-'. self::$header_count. ': '. $_request);
 		}
 	}
 }
