@@ -225,7 +225,7 @@ class controller
 			}
 			else
 			{
-				\dash\log::set('su_sqlError', ['code' => $file_mtime]);
+				\dash\log::set('su_sqlError', ['code' => $file_mtime, 'my_domain' => \dash\url::domain()]);
 			}
 		}
 
@@ -241,7 +241,7 @@ class controller
 			}
 			else
 			{
-				\dash\log::set('su_phpBug', ['code' => $file_mtime]);
+				\dash\log::set('su_phpBug', ['code' => $file_mtime, 'my_domain' => \dash\url::domain()]);
 			}
 		}
 	}

@@ -20,11 +20,24 @@ class su_sqlError
 		$excerpt .= T_("Show");
 		$excerpt .= '</a>';
 
+		$excerpt .= self::get_domain_name($_args);
+
 
 		$result['excerpt']   = $excerpt;
 
 		return $result;
 	}
+
+	private static function get_domain_name($_args)
+	{
+		if(isset($_args['data']['my_domain']))
+		{
+			return ' '. $_args['data']['my_domain'];
+		}
+		return null;
+
+	}
+
 
 
 	public static function send_to()
@@ -64,6 +77,9 @@ class su_sqlError
 			$tg_msg .= $code;
 			// $tg_msg .= "\n";
 		}
+		$tg_msg .= "\n";
+		$tg_msg .= self::get_domain_name($_args);
+		$tg_msg .= "\n";
 
 
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), 'shortDate');
