@@ -53,7 +53,7 @@ class db
 
 		$myDbFuel =
 		[
-			'fuel'         => (is_string($_db_fuel) && $_db_fuel) ? $_db_fuel : null,
+			'fuel'         => ((is_string($_db_fuel) || is_numeric($_db_fuel)) && $_db_fuel) ? $_db_fuel : null,
 			'database'     => $_options['database'],
 			'ignore_error' => $_options['ignore_error'],
 		];
