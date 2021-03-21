@@ -149,10 +149,10 @@ class controller
 
 		// to not check every min all backup setting!
 		// the backup setting have special schedule
-		if(self::every_hour())
-		{
-			\dash\engine\backup\database::run();
-		}
+		// if(self::every_hour())
+		// {
+		// 	\dash\engine\backup\database::run();
+		// }
 
 		// set expire notif
 		if(self::at('09:00'))
