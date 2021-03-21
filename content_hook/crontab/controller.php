@@ -9,6 +9,12 @@ class controller
 
 	public static function routing()
 	{
+		if(\dash\url::isLocal())
+		{
+			\dash\header::status(400, 'Local!');
+			return;
+		}
+
 		$child = \dash\url::child();
 		if(!$child)
 		{
