@@ -109,7 +109,7 @@ class connection
 		}
 		else
 		{
-			$real_link = @mysqli_real_connect($link, $_love['host'], $_love['user'], $_love['pass'], $_love['database'], $_love['port'], NULL, MYSQLI_CLIENT_SSL);
+			$real_link = @mysqli_real_connect($link, $_love['host'], $_love['user'], $_love['pass'], $_love['database'], $_love['port'], NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
 		}
 
 
