@@ -506,11 +506,19 @@ class store
 			$db_name           = self::make_database_name($_store_id);
 
 			// check business status
+			if(isset($_store_detail['status']) && $_store_detail['status'] === 'transfer')
+			{
+				\dash\engine\prepare::html_raw_page('transfer');
+				return false;
+			}
+
+			// check business status
 			if(isset($_store_detail['status']) && $_store_detail['status'] !== 'enable')
 			{
 				\dash\header::status(404, T_("This business is currently unavailable!"));
 				return false;
 			}
+
 
 			$detail              = [];
 			$detail['id']        = $_store_id;
