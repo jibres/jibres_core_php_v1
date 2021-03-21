@@ -129,7 +129,7 @@ class fuel
 
 	public static function priority($_tld)
 	{
-		return "jibres101";
+		return "501";
 	}
 
 
