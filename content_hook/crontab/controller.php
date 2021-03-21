@@ -135,7 +135,7 @@ class controller
 			return;
 		}
 
-		\lib\app\store\changefuel::run();
+		// \lib\app\store\changefuel::run();
 
 		\lib\app\domains\owner::check();
 
