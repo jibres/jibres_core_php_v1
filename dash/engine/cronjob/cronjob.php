@@ -2,8 +2,61 @@
 
 class cronjob
 {
+	private static function server_detail()
+	{
+		$array = [];
+
+		$dir = '/home/nora/jibres/dash/setting/secret/servername.secret.json';
+
+		// $dir = '/home/reza/projects/jibres/dash/setting/secret/servername.secret.json';
+
+		if(is_file($dir))
+		{
+			$json = file_get_contents($dir);
+			$array = json_decode($json, true);
+			if(!is_array($array))
+			{
+				$array = [];
+			}
+		}
+
+		return $array;
+	}
+
+
 	public static function run()
 	{
+		$gethostname = gethostname();
+
+		$server_detail = self::server_detail();
+
+		// run jibres for public cronjob. sql error ...
+		$run_jibres   = true;
+
+		// run business cronjb if enabled
+		$run_business = false;
+
+		$tld = 'ir';
+
+		foreach ($server_detail as $key => $value)
+		{
+			if(isset($value['hostname']) && $value['hostname'] === $gethostname)
+			{
+				if(isset($value['cronjob_tld']) && $value['cronjob_tld'])
+				{
+					$tld = $value['cronjob_tld'];
+				}
+
+				if(isset($value['cronjob']) && is_array($value['cronjob']))
+				{
+					if(in_array('business', $value['cronjob']))
+					{
+						$run_business = true;
+					}
+				}
+			}
+		}
+
 		// this directory
 		$list_stores_addr = __DIR__;
 		$list_stores_addr = str_replace('dash/engine/cronjob', '', $list_stores_addr);
@@ -20,8 +73,7 @@ class cronjob
 		// index.php directory
 		$index_php_addr = $jibres_addr. "public_html/index.php";
 
-
-		$SERVER_NAME = 'jibres.store';
+		$SERVER_NAME = 'jibres.'. $tld;
 
 		// fake $SERVER
 		$server =
@@ -43,30 +95,29 @@ class cronjob
 		// execute list
 		$exec                = [];
 
-		// run jibres master crontab
-		$server['HTTP_HOST'] = 'jibres.ir';
-
-		if(gethostname() === 'reza-jibres' || gethostname() === 'reza-home')
+		if($tld === 'store')
 		{
-			$server['HTTP_HOST'] = 'jibres.local';
+			// run jibres master crontab
+			$server['HTTP_HOST'] = 'jibres.ir';
+		}
+		else
+		{
+			$server['HTTP_HOST'] = 'jibres.'. $tld;
 		}
 
-		$store_exec          = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
-		$exec[]              = $store_exec;
+		$store_exec = 'php '. $index_php_addr. " '". json_encode($server, JSON_UNESCAPED_UNICODE). "' ";
+		$exec[]     = $store_exec;
+
 
 		$list_stores = [];
 
-		if(is_dir($list_stores_addr))
+		if(is_dir($list_stores_addr) && $run_business)
 		{
 			// load other store name
 			$list_stores = glob($list_stores_addr. '*.conf');
 		}
 
-		if(empty($list_stores))
-		{
-			// self::save_log('stores subdomain folder is empty!');
-		}
-		else
+		if(!empty($list_stores))
 		{
 			foreach ($list_stores as $key => $value)
 			{
