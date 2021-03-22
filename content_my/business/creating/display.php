@@ -10,7 +10,7 @@
 </div>
 
 <div class="hiden">
-  <form method="post" id="createstoreform">
+  <form method="post" id="createstoreform" data-timeout=0 >
     <input type="hidden" name="create" value="store">
     <?php \dash\csrf::html(); ?>
   </form>
