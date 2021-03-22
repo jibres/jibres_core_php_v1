@@ -1,0 +1,1 @@
+UPDATE jibres.store SET store.fuel = '501' WHERE store.fuel = 'jibres101'
