@@ -99,8 +99,6 @@ class add
 			return false;
 		}
 
-
-
 		$args                = [];
 		$args['owner']       = $user_id;
 		$args['creator']     = $user_id;
@@ -138,6 +136,8 @@ class add
 
 			return false;
 		}
+
+		set_time_limit(600); // 10 min
 
 		\dash\db::transaction();
 
