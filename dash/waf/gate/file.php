@@ -90,37 +90,37 @@ class file
 				\dash\waf\gate\toys\block::word($file_detail['type'], "|");
 				\dash\waf\gate\toys\block::word($file_detail['type'], "\\");
 
-				$allow_type =
-				[
-					'application/zip',
-					'application/x-rar-compressed',
-					'audio/mpeg',
-					'audio/x-wav',
-					'audio/ogg',
-					'audio/x-ms-wma',
-					'audio/x-m4a',
-					'audio/aac',
-					'image/webp',
-					'image/gif',
-					'image/jpeg',
-					'image/jpeg',
-					'image/png',
-					'application/pdf',
-					'audio/ogg',
-					'video/webm',
-					'video/mpeg',
-					'video/mpeg',
-					'video/mp4',
-					'video/quicktime',
-					'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-					'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-					'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-					'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
-					'text/plain',
-					'text/csv',
-				];
+				// $allow_type =
+				// [
+				// 	'application/zip',
+				// 	'application/x-rar-compressed',
+				// 	'audio/mpeg',
+				// 	'audio/x-wav',
+				// 	'audio/ogg',
+				// 	'audio/x-ms-wma',
+				// 	'audio/x-m4a',
+				// 	'audio/aac',
+				// 	'image/webp',
+				// 	'image/gif',
+				// 	'image/jpeg',
+				// 	'image/jpeg',
+				// 	'image/png',
+				// 	'application/pdf',
+				// 	'audio/ogg',
+				// 	'video/webm',
+				// 	'video/mpeg',
+				// 	'video/mpeg',
+				// 	'video/mp4',
+				// 	'video/quicktime',
+				// 	'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+				// 	'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+				// 	'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+				// 	'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+				// 	'text/plain',
+				// 	'text/csv',
+				// ];
 
-				\dash\waf\gate\toys\only::enum($file_detail['type'], $allow_type);
+				// \dash\waf\gate\toys\only::enum($file_detail['type'], $allow_type);
 			}
 
 			if(isset($file_detail['tmp_name']))
