@@ -15,10 +15,13 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
-		$query = "SELECT
+		$query =
+		"
+			SELECT
 				store.*,
 				store.status AS `store_status`,
-				store_data.*
+				store_data.*,
+				store.id AS `id`
 			FROM
 				store
 				$q[join]
