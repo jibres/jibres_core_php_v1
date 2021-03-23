@@ -1,1 +1,0 @@
-ALTER TABLE jibres.tickets  ADD `subtype` VARCHAR(100) CHARACTER SET utf8mb4 NULL AFTER `type`;

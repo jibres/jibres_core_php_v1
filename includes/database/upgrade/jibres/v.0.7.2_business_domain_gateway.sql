@@ -1,1 +1,0 @@
-ALTER TABLE jibres.business_domain_action CHANGE `gateway` `gateway` ENUM('user', 'system') NULL DEFAULT NULL;

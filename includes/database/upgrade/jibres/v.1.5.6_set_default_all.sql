@@ -1,1 +1,0 @@
-UPDATE jibres_nic.domain SET domain.autorenew = NULL WHERE 1;

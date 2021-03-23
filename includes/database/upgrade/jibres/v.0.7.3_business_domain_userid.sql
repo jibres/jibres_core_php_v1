@@ -1,1 +1,0 @@
-ALTER TABLE jibres.business_domain_action ADD `user_id` int(10) UNSIGNED NULL DEFAULT NULL;

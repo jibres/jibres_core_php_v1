@@ -1,1 +1,0 @@
-ALTER TABLE jibres_nic.usersetting ADD `defaultautorenew` bit(1) NULL DEFAULT NULL AFTER `autorenewperiod`;

@@ -1,1 +1,0 @@
-ALTER TABLE jibres.business_domain ADD `dnsok` timestamp NULL DEFAULT NULL;

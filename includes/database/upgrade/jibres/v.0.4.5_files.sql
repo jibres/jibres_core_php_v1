@@ -1,1 +1,0 @@
-ALTER TABLE jibres.files CHANGE `ip` `ip` BIGINT(20) NULL DEFAULT NULL;

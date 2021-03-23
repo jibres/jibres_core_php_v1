@@ -1,1 +1,0 @@
-UPDATE jibres.business_domain SET jibres.business_domain.redirecttomaster = 1 WHERE jibres.business_domain.redirecttomaster IS NULL;

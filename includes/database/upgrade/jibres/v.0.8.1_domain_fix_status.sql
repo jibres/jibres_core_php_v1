@@ -1,2 +1,0 @@
-ALTER TABLE jibres.business_domain CHANGE `status` `status` ENUM('pending','failed','ok','pending_delete', 'deleted', 'inprogress') NULL DEFAULT NULL;
-ALTER TABLE jibres.business_domain_dns CHANGE `status` `status` ENUM('pending','failed','ok','pending_delete', 'deleted', 'inprogress') NULL DEFAULT NULL;

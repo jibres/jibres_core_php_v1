@@ -1,1 +1,0 @@
-ALTER TABLE jibres.login ADD `meta` text NULL DEFAULT NULL;

@@ -1,1 +1,0 @@
-ALTER TABLE jibres.files ADD `totalsize`  int(10) NULL DEFAULT NULL AFTER `size`;
