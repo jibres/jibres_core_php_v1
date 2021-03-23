@@ -205,6 +205,9 @@ class add
 
 		\dash\db::commit();
 
+		// enable business
+		\lib\db\store\update::set_enable($store_id);
+
 		$create_detail_file = self::create_detail_file($store_id);
 
 		$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);
@@ -246,6 +249,7 @@ class add
 		$new_store['subdomain']   = $_subdomain;
 		$new_store['fuel']        = $_fuel;
 		$new_store['creator']     = $_creator;
+		$new_store['status']      = 'creating';
 		$new_store['ip']          = \dash\server::iplong();
 		$new_store['ip_id']       = \dash\utility\ip::id();
 		$new_store['agent_id']    = \dash\agent::get(true);

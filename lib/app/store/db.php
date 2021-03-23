@@ -38,7 +38,7 @@ class db
 				if(!$is_ok)
 				{
 					\dash\log::set('errorInstallCustomerDb', ['db_file' => $sql_file, 'args' => $_args]);
-					break;
+					return false;
 				}
 			}
 		}
@@ -62,7 +62,7 @@ class db
 				if(!$is_ok)
 				{
 					\dash\log::set('errorUpgradeCustomerDb', ['db_file' => $sql_file, 'args' => $_args]);
-					break;
+					return false;
 				}
 			}
 		}
