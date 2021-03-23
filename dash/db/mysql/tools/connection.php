@@ -8,6 +8,7 @@ class connection
 	private static $link;
 	private static $link_open           = [];
 	private static $lastDbName          = null;
+	private static $lastFuelDetail      = null;
 	private static $db_connection_error = false;
 
 
@@ -26,6 +27,18 @@ class connection
 	public static function get_last_db_name()
 	{
 		return self::$lastDbName;
+	}
+
+
+
+	public static function get_last_fuel_detail()
+	{
+		if(self::$lastFuelDetail)
+		{
+			unset(self::$lastFuelDetail['pass']);
+		}
+
+		return json_encode(self::$lastFuelDetail);
 	}
 
 
@@ -203,6 +216,8 @@ class connection
 		}
 
 		self::$lastDbName = $myDbName;
+
+		self::$lastFuelDetail = $myLove;
 
 		// if link exist before this, use it
 		if(isset($myLove['code']))

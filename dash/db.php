@@ -214,6 +214,7 @@ class db
 			$temp_error .= "\n$_qry\n/* \tMYSQL ERROR\n";
 			$temp_error .= $error_code. ' - ';
 			$temp_error .= $error_string." */";
+			$temp_error .= ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail();
 
 			// General error: 2006 MySQL server has gone away
 			// Error Code: 2013. Lost connection to MySQL server during query
