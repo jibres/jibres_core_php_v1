@@ -35,6 +35,8 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`transactions` (
   `token` varchar(32) DEFAULT NULL,
   `banktoken` varchar(100) DEFAULT NULL,
   `finalmsg` bit(1) DEFAULT NULL,
+  `ip_id` BIGINT UNSIGNED NULL,
+  `agent_id` INT UNSIGNED NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `newtransactions_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `newtransactions_factor_id` FOREIGN KEY (`factor_id`) REFERENCES `factors` (`id`) ON UPDATE CASCADE,
@@ -46,5 +48,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`transactions` (
   KEY `transactions_index_plus` (`plus`),
   KEY `transactions_index_minus` (`minus`),
   KEY `index_search_condition` (`condition`),
-  KEY `transactions_currency_index` (`currency`)
+  KEY `transactions_currency_index` (`currency`),
+  INDEX `transactions_search_index_ip_id` (`ip_id`),
+  INDEX `transactions_search_index_agent_id` (`agent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

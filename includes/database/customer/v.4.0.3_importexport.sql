@@ -1,6 +1,8 @@
 CREATE TABLE `jibres_XXXXXXX`.`importexport` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `type` varchar(200) DEFAULT NULL,
+`related` varchar(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL,
+`related_id` bigint NULL DEFAULT NULL,
 `mode` enum('import', 'export') DEFAULT NULL,
 `file` varchar(500) DEFAULT NULL,
 `creator` int(10) UNSIGNED DEFAULT NULL,

@@ -41,7 +41,9 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`apilog` (
   `responselen` int(10) UNSIGNED DEFAULT NULL,
   `subdomain` varchar(100) DEFAULT NULL,
   `urlmd5` char(32) DEFAULT NULL,
-  `notif` mediumtext CHARACTER SET utf8mb4
+  `notif` mediumtext CHARACTER SET utf8mb4,
+  `ip_id` BIGINT UNSIGNED NULL,
+  `agent_id` INT UNSIGNED NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -170,6 +172,8 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`logs` (
   `notif` bit(1) DEFAULT NULL,
   `from` int(10) UNSIGNED DEFAULT NULL,
   `ip` bigint(20) DEFAULT NULL,
+  `ip_id` BIGINT UNSIGNED NULL,
+  `agent_id` INT UNSIGNED NULL,
   `readdate` timestamp NULL DEFAULT NULL,
   `data` text CHARACTER SET utf8mb4,
   `status` enum('enable','disable','expire','deliver','awaiting','deleted','cancel','block','notif','notifread','notifexpire') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -208,6 +212,10 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`telegrams` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `chatid` bigint(20) DEFAULT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `post_id` bigint(20) UNSIGNED NULL DEFAULT NULL,
+  `product_id` int(10) UNSIGNED NULL DEFAULT NULL,
+  `message_id` bigint NULL DEFAULT NULL,
+  `username` varchar(100) NULL DEFAULT NULL,
   `step` text CHARACTER SET utf8mb4,
   `hook` mediumtext CHARACTER SET utf8mb4,
   `hooktext` text CHARACTER SET utf8mb4,
@@ -307,7 +315,9 @@ ALTER TABLE `jibres_XXXXXXX`.`logs`
   ADD KEY `index_search_subdomain` (`subdomain`),
   ADD KEY `index_search_readdate` (`readdate`),
   ADD KEY `jibres_log_index_type` (`type`),
-  ADD KEY `index_search_datecreated` (`datecreated`);
+  ADD KEY `index_search_datecreated` (`datecreated`),
+  ADD INDEX `logs_search_index_ip_id` (`ip_id`),
+  ADD INDEX `logs_search_index_agent_id` (`agent_id`);
 
 
 ALTER TABLE `jibres_XXXXXXX`.`sessions`
@@ -321,7 +331,15 @@ ALTER TABLE `jibres_XXXXXXX`.`sessions`
 
 
 ALTER TABLE `jibres_XXXXXXX`.`telegrams`
-  ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY (`id`),
+ADD INDEX `telegrams_search_index_chatid` (`chatid`),
+ADD INDEX `telegrams_search_index_user_id` (`user_id`),
+ADD INDEX `telegrams_search_index_post_id` (`post_id`),
+ADD INDEX `telegrams_search_index_product_id` (`product_id`),
+ADD INDEX `telegrams_search_index_message_id` (`message_id`),
+ADD INDEX `telegrams_search_index_username` (`username`),
+ADD INDEX `telegrams_search_index_status` (`status`),
+ADD INDEX `telegrams_search_index_senddate` (`senddate`);
 
 
 ALTER TABLE `jibres_XXXXXXX`.`urls`

@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`setting` (
 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 `platform` enum('android','ios','telegram','website') DEFAULT NULL,
 `lang` char(2) DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
 `cat` varchar(50) DEFAULT NULL,
 `key` varchar(50) DEFAULT NULL,
 `value` text,

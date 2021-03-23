@@ -55,6 +55,8 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.form_answer (
   `datecreated` timestamp NULL DEFAULT NULL,
   `datemodified` timestamp NULL DEFAULT NULL,
   `analyze` timestamp NULL DEFAULT NULL,
+  `ip_id` BIGINT UNSIGNED NULL,
+  `agent_id` INT UNSIGNED NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `form_answer_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `form_answer_form_id` FOREIGN KEY (`form_id`) REFERENCES `form` (`id`) ON UPDATE CASCADE

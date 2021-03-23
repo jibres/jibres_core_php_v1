@@ -9,14 +9,29 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`files` (
 `folder` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
 `path` varchar(2000) CHARACTER SET utf8mb4 DEFAULT NULL,
 `size` int(10) UNSIGNED DEFAULT NULL,
+`height` int(10) NULL DEFAULT NULL,
+`width` int(10) NULL DEFAULT NULL,
+`ratio` decimal(5, 2) NULL DEFAULT NULL,
+`totalsize`  int(10) NULL DEFAULT NULL,
 `status` enum('awaiting','publish','block','filter','removed', 'spam') DEFAULT NULL,
 `datecreated` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 `datemodified` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 `ip` bigint(20) NULL DEFAULT NULL,
 `domain` varchar(200) NULL DEFAULT NULL,
+`ip_id` BIGINT UNSIGNED NULL,
+`agent_id` INT UNSIGNED NULL,
 PRIMARY KEY (`id`),
 CONSTRAINT `files_creator` FOREIGN KEY (`creator`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-KEY `files_md5_search` (`md5`)
+KEY `files_md5_search` (`md5`),
+INDEX `files_search_index_filename` (`filename`),
+INDEX `files_search_index_type` (`type`),
+INDEX `files_search_index_ext` (`ext`),
+INDEX `files_search_index_size` (`size`),
+INDEX `files_search_index_totalsize` (`totalsize`),
+INDEX `files_search_index_status` (`status`),
+INDEX `files_search_index_height` (`height`),
+INDEX `files_search_index_width` (`width`),
+INDEX `files_search_index_ratio` (`ratio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

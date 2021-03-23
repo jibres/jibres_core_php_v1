@@ -1,8 +1,3 @@
-ALTER TABLE jibres_XXXXXXX.sms_log CHANGE `status` `status` enum('pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other') DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.sms_log ADD `sender` enum('system','admin', 'customer') DEFAULT NULL AFTER `status`;
-ALTER TABLE jibres_XXXXXXX.sms_log ADD KEY `smslog_sender` (`sender`);
-UPDATE jibres_XXXXXXX.sms_log SET sms_log.status = 'send';
-
 
 CREATE TABLE jibres_XXXXXXX.email_log (
 `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -11,11 +6,11 @@ CREATE TABLE jibres_XXXXXXX.email_log (
 `template` varchar(100) DEFAULT NULL,
 `content` text,
 `type` enum('signup','login','twostep','twostepset','twostepunset','deleteaccount','recovermobile','callback_signup','changepassword','notif','other') DEFAULT NULL,
-`status` enum('pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other') DEFAULT NULL,
+`status` enum('pending', 'sending', 'send', 'sended', 'delivered','queue','failed','undelivered','cancel','block','other') DEFAULT NULL,
 `user_id` int UNSIGNED DEFAULT NULL,
 `url` text,
 `urlmd5` char(32) DEFAULT NULL,
-`ip_id` int UNSIGNED DEFAULT NULL,
+`ip_id` BIGINT UNSIGNED NULL,
 `agent_id` int UNSIGNED DEFAULT NULL,
 `send` text,
 `response` text,

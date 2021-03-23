@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.comments (
   `datecreated` timestamp NULL DEFAULT NULL,
   `datemodified` timestamp NULL DEFAULT NULL,
   `ip` bigint(20)  DEFAULT NULL,
+  `ip_id` BIGINT UNSIGNED NULL,
   `agent_id` int(10) UNSIGNED  DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `comments_posts_id`    FOREIGN KEY (`post_id`)     REFERENCES `posts` (`id`)     ON DELETE SET NULL ON UPDATE CASCADE,
@@ -28,5 +29,6 @@ CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.comments (
   KEY `index_search_for` (`for`),
   KEY `index_search_ip` (`ip`),
   KEY `index_search_agent_id` (`agent_id`),
-  KEY `index_search_status` (`status`)
+  KEY `index_search_status` (`status`),
+  INDEX `comments_search_index_ip_id` (`ip_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

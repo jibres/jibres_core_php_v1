@@ -1,13 +1,18 @@
 CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`tickets` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `guestid` varchar(50) NULL DEFAULT NULL,
   `title` varchar(500) DEFAULT NULL,
   `content` mediumtext CHARACTER SET utf8mb4 NOT NULL,
-  `meta` mediumtext CHARACTER SET utf8mb4,
-  `status` enum('approved','awaiting','unapproved','spam','deleted','filter','close','answered') NOT NULL DEFAULT 'awaiting',
+  `status` enum('new','awaiting','answered','close','spam','deleted','pending') NULL DEFAULT NULL,
   `parent` bigint(20) UNSIGNED DEFAULT NULL,
+  `base` bigint NULL DEFAULT NULL,
+  `branch` bigint NULL DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL,
+  `subtype` VARCHAR(100) CHARACTER SET utf8mb4 NULL,
   `ip` bigint(20) DEFAULT NULL,
+  `ip_id` BIGINT UNSIGNED NULL,
+  `agent_id` bigint(20) UNSIGNED  NULL,
   `file` varchar(2000) DEFAULT NULL,
   `plus` int(10) UNSIGNED DEFAULT NULL,
   `answertime` int(10) UNSIGNED DEFAULT NULL,
@@ -19,5 +24,10 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`tickets` (
   PRIMARY KEY (`id`),
   CONSTRAINT `tickets_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   KEY `index_search_status` (`status`),
-  KEY `index_search_type` (`type`)
+  INDEX `index_search_type` (`type`),
+  INDEX `ticket_index_search_plus` (`plus`),
+  INDEX `ticket_index_search_answertime` (`answertime`),
+  INDEX `ticket_index_search_guestid` (`guestid`),
+  INDEX `ticket_index_search_agent_id` (`agent_id`),
+  INDEX `tickets_search_index_ip_id` (`ip_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
