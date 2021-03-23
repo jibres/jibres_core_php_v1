@@ -95,41 +95,41 @@ class controller
 				\lib\app\statistics\homepage::refresh();
 			}
 		}
+	}
 
-		if($run_jibres || $run_business)
+
+	private static function public_cronjob()
+	{
+		\lib\app\sms\queue::send();
+
+		\dash\app\log\send::notification();
+
+		if(self::at('03:43'))
 		{
-			\lib\app\sms\queue::send();
-
-			\dash\app\log\send::notification();
-
-			if(self::at('03:43'))
-			{
-				// sync every statistics between stores and jibres
-				\lib\app\sync\statistics::fire();
-			}
-
-			// remove all expire session
-			// clean csrf token used or expired
-			if(self::at('01:10'))
-			{
-				\dash\db\login\update::remove_old_expire();
-				\dash\csrf::clean();
-			}
-
-			if(self::every_10_min())
-			{
-				\dash\db\logs::expire_notif();
-				\dash\db\comments::close_solved_ticket();
-				\dash\utility\ip::block_new_ip();
-				\dash\db\comments::spam_by_block_ip();
-			}
-
-			if(self::at('01:00'))
-			{
-				\dash\app\dayevent::save();
-			}
+			// sync every statistics between stores and jibres
+			\lib\app\sync\statistics::fire();
 		}
 
+		// remove all expire session
+		// clean csrf token used or expired
+		if(self::at('01:10'))
+		{
+			\dash\db\login\update::remove_old_expire();
+			\dash\csrf::clean();
+		}
+
+		if(self::every_10_min())
+		{
+			\dash\db\logs::expire_notif();
+			\dash\db\comments::close_solved_ticket();
+			\dash\utility\ip::block_new_ip();
+			\dash\db\comments::spam_by_block_ip();
+		}
+
+		if(self::at('01:00'))
+		{
+			\dash\app\dayevent::save();
+		}
 	}
 
 
@@ -183,6 +183,7 @@ class controller
 			\lib\app\nic_poll\get::cronjob_list();
 		}
 
+		self::public_cronjob();
 	}
 
 
@@ -204,6 +205,8 @@ class controller
 			// run import if exists
 			\lib\app\import\run::crontab();
 		}
+
+		self::public_cronjob();
 	}
 
 
