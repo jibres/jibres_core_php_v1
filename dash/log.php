@@ -46,7 +46,8 @@ class log
 	{
 		$log =
 		[
-			'my_text' => $_text,
+			'my_text'   => $_text,
+			'my_domain' => \dash\url::domain(),
 		];
 
 		\dash\log::set('sendToSupervisor', $log, ['fuel' => 'master']);

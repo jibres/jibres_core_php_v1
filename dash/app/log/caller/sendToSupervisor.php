@@ -28,12 +28,21 @@ class sendToSupervisor
 		$msg = '';
 		if(isset($_args['data']['my_text']))
 		{
-			$msg = $_args['data']['my_text'];
+			$msg .= $_args['data']['my_text'];
 		}
 		else
 		{
-			$msg = T_("Empty message!");
+			$msg .= T_("Empty message!");
 		}
+
+		if(isset($_args['data']['my_domain']))
+		{
+			$msg .= "\n";
+			$msg .= $_args['data']['my_domain'];
+			$msg .= "\n";
+		}
+
+
 
 		return $msg;
 	}
