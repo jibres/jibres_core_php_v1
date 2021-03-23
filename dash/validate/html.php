@@ -17,10 +17,10 @@ class html
 		$allow_tag['ol']         = ['allow_attr' => ['style', 'class']];
 		$allow_tag['ul']         = ['allow_attr' => ['style', 'class']];
 		$allow_tag['li']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['h1']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['h2']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['h3']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['h4']         = ['allow_attr' => ['style', 'class']];
+		$allow_tag['h1']         = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h2']         = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h3']         = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h4']         = ['allow_attr' => ['style', 'class', 'id']];
 
 		if($_mode !== 'basic')
 		{
@@ -36,6 +36,8 @@ class html
 			$allow_tag['figure']     = ['allow_attr' => ['style', 'class']];
 			$allow_tag['figcaption'] = ['allow_attr' => ['style', 'class']];
 			$allow_tag['blockquote'] = ['allow_attr' => ['style', 'class']];
+			$allow_tag['code']       = ['allow_attr' => ['class']];
+			$allow_tag['pre']        = ['allow_attr' => ['class', 'data-language', 'spellcheck']];
 		}
 
 		if($_type === 'get_string')
