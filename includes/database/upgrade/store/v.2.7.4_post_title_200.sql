@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.posts  CHANGE `title` `title` VARCHAR(255) CHARACTER SET utf8mb4 NULL;

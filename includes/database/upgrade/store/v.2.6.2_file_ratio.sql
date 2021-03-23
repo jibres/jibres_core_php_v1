@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.files CHANGE `ratio` `ratio` decimal(5, 2) NULL DEFAULT NULL;;

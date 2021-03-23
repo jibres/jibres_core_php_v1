@@ -1,1 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.posts CHANGE `status` `status` ENUM('publish','draft','deleted','pending_review') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'draft';

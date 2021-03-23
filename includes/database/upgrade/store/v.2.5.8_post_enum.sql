@@ -1,3 +1,0 @@
-ALTER TABLE jibres_XXXXXXX.posts  CHANGE `comment` `comment` ENUM('open','closed','default') CHARACTER SET utf8mb4 NULL DEFAULT NULL;
-ALTER TABLE jibres_XXXXXXX.posts  ADD `showwriter` ENUM('visible','hidden','default') CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `comment`;
-ALTER TABLE jibres_XXXXXXX.posts  ADD `showdate` ENUM('visible','hidden','default') CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `showwriter`;
