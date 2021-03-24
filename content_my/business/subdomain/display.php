@@ -10,7 +10,11 @@
             <?php \dash\csrf::html(); ?>
             <div class="input fix mB10">
               <input type="text" name="sd" id="sd" placeholder='<?php echo T_("Your subdomain"); ?>' maxlength="40" class="ltr" value="<?php echo \dash\data::tempSubdomain(); ?>" <?php \dash\layout\autofocus::html() ?> required>
-              <label class="addon ltr" for="sd">.Jibres.<?php echo \dash\url::tld(); ?></label>
+<?php if(\dash\url::tld() === 'ir') {?>
+              <label class="addon ltr" for="sd">.Jibres.store</label>
+<?php } else {?>
+              <label class="addon ltr" for="sd">.MyJibres.com</label>
+<?php }?>
             </div>
 
             <button class="btn success block"><?php echo T_("Build my online business"); ?></button>
