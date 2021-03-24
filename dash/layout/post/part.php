@@ -306,7 +306,10 @@ class part
     if(\dash\data::dataRow_allowshowpublishdate())
     {
       $html .= '<time class="ltr compact"';
-      $html .= ' datetime="'. \dash\data::dataRow_publishdate(). '"';
+      if(\dash\data::dataRow_publishdate())
+      {
+      	$html .= ' datetime="'. \dash\data::dataRow_publishdate(). '"';
+      }
       $html .= ' title="'. T_("This post published at :val", ['val' => \dash\fit::datetime_full(\dash\data::dataRow_publishdate()) ]). '"';
       $html .= '>';
       $html .= \dash\fit::date_time(\dash\data::dataRow_publishdate());
