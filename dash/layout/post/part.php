@@ -16,34 +16,34 @@ class part
 			$myGalleryTopMedia = $myGallery[0];
 		}
 
-    $html .= '<header>';
-    // show
-    switch ($_subType)
-    {
-      case 'video':
-        $html .= self::video($myGalleryTopMedia, \dash\data::dataRow_cover());
-        // $html .= self::postTitleBox();
-        $html .= self::title();
-        $html .= self::excerpt();
-        break;
+		$html .= '<header>';
+		// show
+		switch ($_subType)
+		{
+			case 'video':
+				$html .= self::video($myGalleryTopMedia, \dash\data::dataRow_cover());
+				// $html .= self::postTitleBox();
+				$html .= self::title();
+				$html .= self::excerpt();
+				break;
 
-      case 'audio':
-        $html .= self::postTitleBox();
-        $html .= self::audio($myGalleryTopMedia);
-        break;
+			case 'audio':
+				$html .= self::postTitleBox();
+				$html .= self::audio($myGalleryTopMedia);
+				break;
 
-      case 'standard':
-      case 'gallery':
-      default:
-        $html .= self::thumb(1100);
-        $html .= self::title();
-        $html .= self::excerpt();
-        break;
-    }
+			case 'standard':
+			case 'gallery':
+			default:
+				$html .= self::thumb(1100);
+				$html .= self::title();
+				$html .= self::excerpt();
+				break;
+		}
 
-    $html .= '</header>';
+		$html .= '</header>';
 
-    return $html;
+		return $html;
 	}
 
 
@@ -105,19 +105,19 @@ class part
 	public static function postArticle()
 	{
 		$html = '';
-    $html .= '<div class="text">';
-    $html .= \dash\data::dataRow_content();
-    $html .= \dash\layout\post\part::tagLine();
-    $html .= '</div>';
+		$html .= '<div class="text">';
+		$html .= \dash\data::dataRow_content();
+		$html .= \dash\layout\post\part::tagLine();
+		$html .= '</div>';
 
-    return $html;
+		return $html;
 	}
 
 
 	public static function tagLine()
 	{
 		$html = '';
-	  $tags = \dash\data::dataRow_tags();
+		$tags = \dash\data::dataRow_tags();
 
 		if($tags && is_array($tags))
 		{
@@ -131,7 +131,7 @@ class part
 			$html .= '</div>';
 		}
 
-    return $html;
+		return $html;
 	}
 
 
@@ -139,19 +139,19 @@ class part
 	{
 		$htmlVideo = '';
 
-    if(a($_data, 'type') === 'video')
-    {
-      $htmlVideo .= '<video controls preload="metadata"';
-      if($_poster)
-      {
-      	$htmlVideo .= ' poster="'. $_poster . '"';
-      }
-      $htmlVideo .= '>';
-      $htmlVideo .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
-      $htmlVideo .= '</video>';
-    }
+		if(a($_data, 'type') === 'video')
+		{
+			$htmlVideo .= '<video controls preload="metadata"';
+			if($_poster)
+			{
+				$htmlVideo .= ' poster="'. $_poster . '"';
+			}
+			$htmlVideo .= '>';
+			$htmlVideo .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
+			$htmlVideo .= '</video>';
+		}
 
-    return $htmlVideo;
+		return $htmlVideo;
 	}
 
 
@@ -160,13 +160,13 @@ class part
 		$htmlAudio = '';
 
 		if(a($_data, 'type') === 'audio')
-    {
-      $htmlAudio .= '<audio controls preload="metadata">';
-      $htmlAudio .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
-      $htmlAudio .= '</audio>';
-    }
+		{
+			$htmlAudio .= '<audio controls preload="metadata">';
+			$htmlAudio .= '<source src="'. a($_data, 'path'). '" type="'. a($_data, 'mime'). '">';
+			$htmlAudio .= '</audio>';
+		}
 
-    return $htmlAudio;
+		return $htmlAudio;
 	}
 
 
@@ -185,79 +185,79 @@ class part
 			return null;
 		}
 
-	  $html .= '<div class="gallery" id="lightgallery">';
-	  {
-	    $html .= '<div class="row">';
-	    foreach ($galleryArr as $key => $myMedia)
-	    {
-	      if(a($myMedia, 'path'))
-	      {
-	      	switch (a($myMedia, 'type'))
-	      	{
-	      		case 'image':
-		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
-		          {
-		            $html .= '<a data-action href="'. $myMedia['path'].'" data-fancybox="productGallery">';
-		            $html .= '<img src="'. \dash\fit::img($myMedia['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
-		            $html .= '</a>';
-		          }
-		          $html .= '</div>';
-	      			break;
+		$html .= '<div class="gallery" id="lightgallery">';
+		{
+			$html .= '<div class="row">';
+			foreach ($galleryArr as $key => $myMedia)
+			{
+				if(a($myMedia, 'path'))
+				{
+					switch (a($myMedia, 'type'))
+					{
+						case 'image':
+							$html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+							{
+								$html .= '<a data-action href="'. $myMedia['path'].'" data-fancybox="productGallery">';
+								$html .= '<img src="'. \dash\fit::img($myMedia['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
+								$html .= '</a>';
+							}
+							$html .= '</div>';
+							break;
 
-	      		case 'audio':
-		          $html .= '<div class="c-12" data-type="'. a($myMedia, 'type'). '">';
-		          {
-	      				$html .= self::audio($myMedia);
-		          }
-		          $html .= '</div>';
-	      			break;
+						case 'audio':
+							$html .= '<div class="c-12" data-type="'. a($myMedia, 'type'). '">';
+							{
+								$html .= self::audio($myMedia);
+							}
+							$html .= '</div>';
+							break;
 
-	      		case 'video':
-		          $html .= '<div class="c-12" data-type="'. a($myMedia, 'type'). '">';
-		          {
-	      				$html .= self::video($myMedia);
-		          }
-		          $html .= '</div>';
-	      			break;
+						case 'video':
+							$html .= '<div class="c-12" data-type="'. a($myMedia, 'type'). '">';
+							{
+								$html .= self::video($myMedia);
+							}
+							$html .= '</div>';
+							break;
 
-	      		case 'pdf':
-		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
-		          {
-		            $html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
-		            $html .= '<i class="sf-file-pdf-o"></i>';
-		            $html .= T_("Download PDF");
-		            $html .= '</a>';
-		          }
-		          $html .= '</div>';
-	      			break;
+						case 'pdf':
+							$html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+							{
+								$html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
+								$html .= '<i class="sf-file-pdf-o"></i>';
+								$html .= T_("Download PDF");
+								$html .= '</a>';
+							}
+							$html .= '</div>';
+							break;
 
-	      		case 'zip':
-		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
-		          {
-		            $html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
-		            $html .= '<i class="sf-file-archive-o"></i>';
-		            $html .= T_("Download ZIP");
-		            $html .= '</a>';
-		          }
-		          $html .= '</div>';
-	      			break;
+						case 'zip':
+							$html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+							{
+								$html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
+								$html .= '<i class="sf-file-archive-o"></i>';
+								$html .= T_("Download ZIP");
+								$html .= '</a>';
+							}
+							$html .= '</div>';
+							break;
 
-	      		default:
-		          $html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
-		          {
-		            $html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
-		            $html .= '<i class="sf-file-o"></i>';
-		            $html .= T_("Download File");
-		            $html .= '</a>';
-		          }
-		          $html .= '</div>';
-	      			break;
-	      	}
-	      }
-	    }
-	    $html .= '</div>';
-	  }
-	  $html .= '</div>';
+						default:
+							$html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+							{
+								$html .= '<a class="file" target="_blank" href="'. $myMedia['path'].'">';
+								$html .= '<i class="sf-file-o"></i>';
+								$html .= T_("Download File");
+								$html .= '</a>';
+							}
+							$html .= '</div>';
+							break;
+					}
+				}
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
 
 		 return $html;
 	}
@@ -303,20 +303,24 @@ class part
 	{
 		$html = '';
 
-    if(\dash\data::dataRow_allowshowpublishdate())
-    {
-      $html .= '<time class="ltr compact"';
-      if(\dash\data::dataRow_publishdate())
-      {
-      	$html .= ' datetime="'. \dash\data::dataRow_publishdate(). '"';
-      }
-      $html .= ' title="'. T_("This post published at :val", ['val' => \dash\fit::datetime_full(\dash\data::dataRow_publishdate()) ]). '"';
-      $html .= '>';
-      $html .= \dash\fit::date_time(\dash\data::dataRow_publishdate());
-      $html .= '</time>';
-    }
+		if(\dash\data::dataRow_allowshowpublishdate())
+		{
+			if(\dash\data::dataRow_publishdate())
+			{
+				$html .= '<time class="ltr compact"';
+				$html .= ' datetime="'. \dash\data::dataRow_publishdate(). '"';
+				$html .= ' title="'. T_("This post published at :val", ['val' => \dash\fit::datetime_full(\dash\data::dataRow_publishdate()) ]). '"';
+				$html .= '>';
+				$html .= \dash\fit::date_time(\dash\data::dataRow_publishdate());
+				$html .= '</time>';
+			}
+			else
+			{
 
-    return $html;
+			}
+		}
+
+		return $html;
 	}
 
 
@@ -324,15 +328,15 @@ class part
 	{
 		$html = '';
 
-    if(\dash\data::dataRow_readingtime())
-    {
-    	$val = ['val' => \dash\fit::number(\dash\data::dataRow_readingtime())];
-      $html .= '<abbr title="'. T_("We are estimate you can read this post within :val.", $val). '">';
-      $html .= T_(":val read", $val);
-      $html .= '</abbr>';
-    }
+		if(\dash\data::dataRow_readingtime())
+		{
+			$val = ['val' => \dash\fit::number(\dash\data::dataRow_readingtime())];
+			$html .= '<abbr title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+			$html .= T_(":val read", $val);
+			$html .= '</abbr>';
+		}
 
-    return $html;
+		return $html;
 	}
 
 
@@ -381,7 +385,7 @@ class part
 			$html .= '</a>';
 		}
 
-    return $html;
+		return $html;
 	}
 
 
@@ -409,19 +413,19 @@ class part
 
 			$html .= '</section>';
 		}
-    return $html;
+		return $html;
 	}
 
 
 	public static function commentBox()
 	{
-    // add new comment
-    if(\dash\data::dataRow_allowcomment())
-    {
-      require_once(core. 'layout/comment/comment-add.php');
-    }
-    // show list of comments
-    require_once(core. 'layout/comment/comment-list.php');
+		// add new comment
+		if(\dash\data::dataRow_allowcomment())
+		{
+			require_once(core. 'layout/comment/comment-add.php');
+		}
+		// show list of comments
+		require_once(core. 'layout/comment/comment-list.php');
 	}
 
 }
