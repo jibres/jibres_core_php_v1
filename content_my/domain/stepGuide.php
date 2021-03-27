@@ -36,7 +36,7 @@ class stepGuide
 			$choose      = 'complete';
 			$setting     = 'complete';
 			$review      = 'current';
-			$choose_link = \dash\url::that(). '?q='. \dash\data::dataRow_name();
+			$choose_link = \dash\url::this(). '/buy?q='. \dash\data::dataRow_name();
 			$setting_link = \dash\url::this(). '/buy/'. \dash\data::dataRow_name();
 		}
 
