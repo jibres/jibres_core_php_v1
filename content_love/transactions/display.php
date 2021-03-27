@@ -93,10 +93,7 @@ $sortLink = \dash\data::sortLink();
 
 		<td><a href="<?php echo \dash\url::here(); ?>/transactions?condition=<?php echo a($value, 'condition'); ?>"><?php echo T_(a($value, 'condition')); ?></a></td>
 		<td><?php if(isset($value['verify']) && $value['verify']) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php }//endif ?></td>
-		<td >
-			<?php echo \dash\fit::date($value['datecreated']); ?>
-
-		</td>
+		<td><time datetime="<?php echo $value['datecreated'] ?>"><?php echo \dash\fit::date($value['datecreated']); ?></time></td>
     <td><?php if(a($value, 'token')) {?><a href="<?php echo \dash\url::kingdom(). '/pay/'. a($value, 'token'); ?>"><?php echo T_("Show") ?></a><?php } //endif ?></td>
       </tr>
       <?php } //endfor ?>
