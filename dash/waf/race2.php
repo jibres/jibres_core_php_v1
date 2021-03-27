@@ -18,6 +18,15 @@ class race2
 		else
 		{
 			// add history
+			if(!isset($data))
+			{
+				$data = [];
+			}
+			if(!isset($data[$mySessionID]))
+			{
+				$data[$mySessionID] = [];
+			}
+
 			$data[$mySessionID][$pathAddr] =
 			[
 				'time'    => time(),
