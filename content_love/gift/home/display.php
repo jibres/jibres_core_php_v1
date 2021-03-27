@@ -40,7 +40,7 @@
    <nav class="items long">
      <ul>
       <li>
-       <a class="item f" href="<?php echo \dash\url::this();?>/all?status=awaiting">
+       <a class="item f" href="<?php echo \dash\url::this();?>/all?status=active">
         <i class="sf-heartbeat fc-hot"></i>
         <div class="key"><?php echo T_('Active cards');?></div>
         <div class="value txtB"><?php echo \dash\fit::number(a($dashboardDetail, 'active')); ?></div>

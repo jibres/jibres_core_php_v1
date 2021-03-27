@@ -32,6 +32,7 @@ class search
 			'order'      => 'order',
 			'sort'       => ['enum' => ['id', 'datecreated']],
 			'pagination' => 'y_n',
+			'verify' => 'yes_no',
 			'limit'      => 'int',
 			'gift_id'      => 'code',
 		];
@@ -74,6 +75,18 @@ class search
 
 				self::$is_filtered = true;
 			}
+		}
+
+
+		if($data['verify'] === 'yes')
+		{
+			$and[] = " giftlookup.valid = 'yes' ";
+			self::$is_filtered = true;
+		}
+		elseif($data['verify'] === 'no')
+		{
+			$and[] = " giftlookup.valid = 'no' ";
+			self::$is_filtered = true;
 		}
 
 

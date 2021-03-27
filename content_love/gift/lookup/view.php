@@ -13,6 +13,7 @@ class view
 			'order'   => \dash\request::get('order'),
 			'sort'    => \dash\request::get('sort'),
 			'gift_id' => \dash\request::get('gift_id'),
+			'verify' => \dash\request::get('verify'),
 
 		];
 
@@ -22,7 +23,7 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$isFiltered = \lib\app\gift\search::is_filtered();
+		$isFiltered = \lib\app\gift\lookup\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 
