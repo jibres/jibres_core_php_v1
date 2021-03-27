@@ -78,6 +78,30 @@ class get
 	}
 
 
+	public static function all_domain_connected()
+	{
+		$query  =
+		"
+			SELECT
+				business_domain.domain,
+				business_domain.status
+			FROM
+				business_domain
+			WHERE
+				business_domain.cdn = 'arvancloud' AND
+				business_domain.subdomain IS NULL
+			LIMIT 1000
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+
+
+
+
 
 
 

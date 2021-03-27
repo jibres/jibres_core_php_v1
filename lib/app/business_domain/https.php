@@ -184,5 +184,47 @@ class https
 		}
 
 	}
+
+
+
+	public static function force_update_all_https()
+	{
+		set_time_limit(0);
+
+		$list = \lib\db\business_domain\get::all_domain_connected();
+
+		if(!$list || !is_array($list))
+		{
+			\dash\notif::error(T_("No DNS record found by this ip"));
+			return false;
+		}
+
+		$start_time = time();
+
+		$i = 0;
+
+		foreach ($list as $key => $value)
+		{
+			$i++;
+			$domain = a($value, 'domain');
+
+			if(!$domain)
+			{
+				continue;
+			}
+
+			$add_https_args =
+			[
+				// "f_ssl_type"     => "arvan",
+				"f_ssl_redirect" => true,
+			];
+
+			\lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+		}
+
+		\dash\notif::ok("Operation complete successfull");
+		return true;
+	}
+
 }
 ?>
