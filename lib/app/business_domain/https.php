@@ -163,7 +163,8 @@ class https
 
 			$add_https_args =
 			[
-				"f_ssl_type" => "arvan",
+				"f_ssl_type"     => "arvan",
+				"f_ssl_redirect" => true,
 			];
 
 			$set_https['ssl_type'] = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
