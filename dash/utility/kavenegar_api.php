@@ -98,7 +98,7 @@ class kavenegar_api
 		}
 		\dash\temp::set('rawKavenegrarSendParam', json_encode($_data, JSON_UNESCAPED_UNICODE));
 		// for debug you can uncomment below line to see the send parameters
-		if($_long_time_out)
+		if($_long_time_out || true)
 		{
 			$CONNECTTIMEOUT = 30;
 			$TIMEOUT        = 40;
