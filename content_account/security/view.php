@@ -59,7 +59,7 @@ class view
 		{
 			@$mySessionData[$key]['id']         = $row['id'];
 			@$mySessionData[$key]['code']       = $row['code'];
-			@$mySessionData[$key]['ip']         = long2ip($row['ip']);
+			@$mySessionData[$key]['ip']         = long2ip(intval($row['ip']));
 			@$mySessionData[$key]['last']       = $row['last_seen'];
 			@$mySessionData[$key]['browser']    = T_(ucfirst($row['agent_name']));
 			@$mySessionData[$key]['browserVer'] = $row['agent_version'];
