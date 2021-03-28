@@ -157,12 +157,14 @@ else
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li class="title"><?php echo T_('Resources'); ?></li>
+<?php if (\dash\url::tld() === 'ir') {?>
               <li>
                 <a class="item f" target="_blank" href="https://blog.jibres.<?php if(\dash\language::current() == 'fa') {echo "ir";} else {echo "com";} ?>">
                 <div class="key"><?php echo T_('Blog'); ?>  <i class="sf-external-link"></i></div>
                 <div class="go"></div>
                 </a>
               </li>
+<?php } ?>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/terms">
                 <div class="key"><?php echo T_('Terms of Service'); ?></div>
