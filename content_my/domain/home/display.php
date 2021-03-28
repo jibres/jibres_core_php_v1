@@ -105,9 +105,9 @@
             <div class="go next"></div>
           </a>
         </li>
-        <li>
+        <li class="item">
           <a class="f" href="<?php echo \dash\url::this();?>/short">
-            <div class="key"><?php echo T_('Buy Short domains');?></div>
+            <div class="key"><?php echo T_('Buy 3 letter domains');?></div>
             <div class="go next"></div>
           </a>
         </li>
