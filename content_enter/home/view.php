@@ -17,7 +17,10 @@ class view
 			\dash\face::desc(\dash\face::desc(). ' | '. \dash\face::hereTitle());
 			if(mb_strlen(\dash\face::desc()) < 150)
 			{
-				\dash\face::desc(\dash\face::desc(). ' | '. T_('Jibres'));
+				if(\dash\face::hereTitle() !== T_('Jibres'))
+				{
+					\dash\face::desc(\dash\face::desc(). ' | '. T_('Jibres'));
+				}
 			}
 		}
 
