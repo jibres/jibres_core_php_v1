@@ -221,11 +221,14 @@ class setup
 	 * call from setting upload logo and setup upload logo
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function upload_logo()
+	public static function upload_logo($_silent = false)
 	{
 		if(!\lib\store::in_store())
 		{
-			\dash\notif::error(T_("Your are not in this store!"));
+			if(!$_silent)
+			{
+				\dash\notif::error(T_("Your are not in this store!"));
+			}
 			return false;
 		}
 
@@ -235,7 +238,10 @@ class setup
 
 		if(!$file && !$old_logo)
 		{
-			\dash\notif::error(T_("Please choose yoru file"), 'loog');
+			if(!$_silent)
+			{
+				\dash\notif::error(T_("Please choose yoru file"), 'loog');
+			}
 			return false;
 		}
 

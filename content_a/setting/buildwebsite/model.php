@@ -41,12 +41,12 @@ class model
 		\dash\notif::clean();
 
 
-		$result = \lib\app\setting\setup::upload_logo();
+		$result = \lib\app\setting\setup::upload_logo(true);
 
-		if(!\dash\engine\process::status())
-		{
-			return false;
-		}
+		// if(!\dash\engine\process::status())
+		// {
+		// 	return false;
+		// }
 
 		\dash\notif::clean();
 
