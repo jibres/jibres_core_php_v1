@@ -359,13 +359,15 @@ class search
 
 		if($data['autorenew'] === 'on')
 		{
-			$and[] = " domain.autorenew = 1 ";
+			$and[]      = " ( domain.autorenew = 1 OR ( domain.autorenew IS NULL AND usersetting.defaultautorenew = 1 )) ";
+			$meta['join'][] = "LEFT JOIN usersetting ON usersetting.user_id = domain.user_id ";
 			self::$is_filtered          = true;
 
 		}
 		elseif($data['autorenew'] === 'off')
 		{
-			$and[] = " domain.autorenew = 0 ";
+			$and[]      = " ( domain.autorenew = 0 OR ( domain.autorenew IS NULL AND usersetting.defaultautorenew = 0 )) ";
+			$meta['join'][] = "LEFT JOIN usersetting ON usersetting.user_id = domain.user_id ";
 			self::$is_filtered          = true;
 		}
 		elseif($data['autorenew'] === 'default')
