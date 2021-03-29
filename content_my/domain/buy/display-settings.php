@@ -77,7 +77,7 @@
      </div>
 
 
-     <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::support() ?>irnic/create-new-handle" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
+     <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::support() ?>/irnic/create-new-handle" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
      <div class="input ltr">
       <input type="text" name="irnicid-new" id="irnicid" maxlength="15" value="<?php echo \dash\data::myContactListDefault(); ?>">
      </div>
