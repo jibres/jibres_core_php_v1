@@ -200,7 +200,7 @@ class file
 		}
 		else
 		{
-			$myfilename = md5($myFile['filename']);
+			$myfilename = md5($myFile['filename']. '-'. $myFile['md5']);
 		}
 
 		$filename = $myfilename. '.'. $myFile['ext'];
