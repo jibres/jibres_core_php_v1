@@ -77,7 +77,7 @@
      </div>
 
 
-     <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::this() ?>/irnic/add?type=new" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
+     <label for="irnicid"><?php echo T_("IRNIC Handle"); ?> <a href="<?php echo \dash\url::support() ?>irnic/create-new-handle" target="_blank" ><?php echo T_("Don't have IRNIC Handle? Create one."); ?></a></label>
      <div class="input ltr">
       <input type="text" name="irnicid-new" id="irnicid" maxlength="15" value="<?php echo \dash\data::myContactListDefault(); ?>">
      </div>
@@ -156,7 +156,7 @@
 
 
      <div class="check1 mT20">
-      <input type="checkbox" id="sChk1" name="agree">
+      <input type="checkbox" id="sChk1" name="agree" checked>
       <label for="sChk1"><?php
       echo T_("By clicking Register, you are indicating that you have read the :nic and agree to the :terms.",
        [
