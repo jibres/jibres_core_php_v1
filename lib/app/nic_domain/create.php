@@ -299,7 +299,8 @@ class create
 		}
 		else
 		{
-			$irnic_tech = $jibres_nic_contact;
+			// $irnic_tech = $jibres_nic_contact; // set tech on jibres
+			$irnic_tech = $irnic_admin; // set tech on customer holder
 		}
 
 
