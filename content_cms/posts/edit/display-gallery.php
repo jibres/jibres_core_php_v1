@@ -33,11 +33,11 @@
   </form>
   <footer>
     <div class="row">
-        <div class="cauto"><a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryaudio', 'type' => 'audio', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
+        <div class="cauto"><a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryaudio', 'type' => 'audio', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
         <div class="c"></div>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <div class="cauto">
-          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove audio") ?></div>
+          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="link fc-red"><?php echo T_("Remove audio") ?></div>
         </div>
       <?php } //endif ?>
       </div>
@@ -73,11 +73,11 @@ if(a($dataRow, 'subtype') === 'video') {?>
   </form>
   <footer>
     <div class="row">
-        <div class="cauto"><a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryvideo', 'type' => 'video', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
+        <div class="cauto"><a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryvideo', 'type' => 'video', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
         <div class="c"></div>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <div class="cauto">
-          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="btn link fc-red"><?php echo T_("Remove video") ?></div>
+          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="link fc-red"><?php echo T_("Remove video") ?></div>
         </div>
       <?php } //endif ?>
       </div>
@@ -196,14 +196,14 @@ switch (a($value, 'type'))
   </form>
 
     <footer class="txtRa">
-      <div class="f">
-        <div class="cauto">
-          <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image', 'ratio' => \dash\data::ratioHtmlDetail_ratio_string()]) ?>"><?php echo T_("Choose from gallery") ?></a>
+      <div class="row">
+        <div class="c-auto">
+          <a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image', 'ratio' => \dash\data::ratioHtmlDetail_ratio_string()]) ?>"><?php echo T_("Choose from gallery") ?></a>
         </div>
         <div class="c"></div>
-        <div class="cauto">
+        <div class="c-auto">
           <?php if(\dash\data::dataRow_thumb()) {?>
-            <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="btn link fc-red"><?php echo T_("Remove featured image") ?></div>
+            <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="link fc-red"><?php echo T_("Remove featured image") ?></div>
           <?php } //endif ?>
         </div>
       </div>
