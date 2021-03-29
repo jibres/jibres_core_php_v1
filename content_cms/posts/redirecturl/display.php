@@ -17,7 +17,7 @@ $myFirstURL = '';
       <footer class="f">
         <div class="cauto">
           <?php if(a(\dash\data::dataRow(), 'redirecturl')) {?>
-            <a href="<?php echo a(\dash\data::dataRow(), 'redirecturl') ?>" target='_blank' class='btn link'><?php echo T_("Visit link") ?></a>
+            <a href="<?php echo a(\dash\data::dataRow(), 'redirecturl') ?>" target='_blank' class='link'><?php echo T_("Visit link") ?></a>
           <?php } //endif ?>
 
         </div>

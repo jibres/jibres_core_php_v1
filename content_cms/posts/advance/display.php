@@ -66,12 +66,12 @@ $myID = '?id='. \dash\request::get('id');
   <footer class="txtRa">
     <div class="f">
       <div class="cauto">
-        <a class="btn link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9']) ?>"><?php echo T_("Choose from gallery") ?></a>
+        <a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9']) ?>"><?php echo T_("Choose from gallery") ?></a>
       </div>
       <div class="c"></div>
       <div class="cauto">
         <?php if(\dash\data::dataRow_cover()) {?>
-         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="btn link fc-red"><?php echo T_("Remove post cover") ?></div>
+         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="link fc-red"><?php echo T_("Remove post cover") ?></div>
         <?php } //endif ?>
       </div>
     </div>
@@ -145,7 +145,7 @@ $myID = '?id='. \dash\request::get('id');
     </div>
   </form>
   <footer class="txtRa">
-    <a class="btn link" href="<?php echo \dash\url::here(). '/comments?post_id='. \dash\request::get('id'); ?>"><?php echo T_("Show comment") ?></a>
+    <a class="link" href="<?php echo \dash\url::here(). '/comments?post_id='. \dash\request::get('id'); ?>"><?php echo T_("Show comment") ?></a>
   </footer>
 </section>
 

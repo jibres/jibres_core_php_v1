@@ -33,7 +33,7 @@ $propertyList = \dash\data::propertyList();
           <?php $telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn'); ?>
 
           <?php if(empty($social) || !$telegrambtn) {?>
-            <a class="btn link" href="<?php echo \dash\url::here() ?>/setting/social"><?php echo T_("Manage your social network"); ?></a>
+            <a class="link" href="<?php echo \dash\url::here() ?>/setting/social"><?php echo T_("Manage your social network"); ?></a>
           <?php }else{ ?>
             <?php foreach ($social as $key => $value) {?>
               <?php if(a($social, $key) && a($telegrambtn, $key)) {?>
