@@ -40,21 +40,21 @@
         <td class="collapsing s0"></td>
       </tr>
       <tr>
-        <td><?php echo T_("IRNIC billing"); ?></td>
-        <td class=""><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
-<?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
-        <td class="collapsing s0 txtRa"><img src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
-<?php } else { ?>
-      <td class="collapsing s0"></td>
-<?php } ?>
-      </tr>
-      <tr>
         <td><?php echo T_("IRNIC technical"); ?></td>
         <td><span class="compact"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
 <?php if(\dash\data::domainDetail_tech() === 'ji128-irnic') { ?>
         <td class="collapsing s0 txtRa"><img src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
 <?php } else { ?>
         <td class="collapsing s0"></td>
+<?php } ?>
+      </tr>
+      <tr>
+        <td><?php echo T_("IRNIC billing"); ?></td>
+        <td class=""><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
+<?php if(\dash\data::domainDetail_bill() === 'ji128-irnic') { ?>
+        <td class="collapsing s0 txtRa"><img src="<?php echo \dash\url::logo(); ?>" alt="<?php echo T_("Jibres"); ?>"></td>
+<?php } else { ?>
+      <td class="collapsing s0"></td>
 <?php } ?>
       </tr>
       <tr>
