@@ -299,8 +299,18 @@ class create
 		}
 		else
 		{
-			// $irnic_tech = $jibres_nic_contact; // set tech on jibres
-			$irnic_tech = $irnic_admin; // set tech on customer holder
+			if($irnic_admin)
+			{
+				$irnic_tech = $irnic_admin; // set tech on customer holder
+			}
+			elseif($nic_id)
+			{
+				$irnic_tech = $nic_id; // set tech on customer holder
+			}
+			else
+			{
+				$irnic_tech = $jibres_nic_contact; // set tech on jibres
+			}
 		}
 
 
