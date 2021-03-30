@@ -1,5 +1,5 @@
 <?php
-namespace content\campaign;
+namespace content\campaign\nowruz1400;
 
 
 class view
@@ -14,16 +14,6 @@ class view
 
 		// \dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-campaign-1.jpg');
 
-		$target = \dash\url::this(). '/';
-		// current active campaign
-		$target .= 'nowruz1400';
-
-		if(\dash\url::query())
-		{
-			$target .= '?'. \dash\url::query();
-		}
-
-		\dash\redirect::to($target);
 	}
 }
 ?>
