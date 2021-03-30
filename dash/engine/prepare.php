@@ -571,7 +571,6 @@ class prepare
 			'jibres.xyz',
 			'jibres.icu',
 			'jibres.me',
-			'jibres.club',
 		];
 
 		if(in_array($domain, $emergency_domain))
@@ -598,6 +597,17 @@ class prepare
 
 				self::html_raw_page('emergencyMode');
 			}
+		}
+
+		// transfer club to campaign
+		if($domain === 'jibres.club')
+		{
+			$target = 'https://jibres.ir/campaign';
+			if(\dash\url::query()
+			{
+				$target .= '?'.\dash\url::query();
+			})
+			\dash\redirect::to($target);
 		}
 
 		\dash\header::set(404);
