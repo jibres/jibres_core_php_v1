@@ -603,10 +603,10 @@ class prepare
 		if($domain === 'jibres.club')
 		{
 			$target = 'https://jibres.ir/campaign';
-			if(\dash\url::query()
+			if(\dash\url::query())
 			{
 				$target .= '?'.\dash\url::query();
-			})
+			}
 			\dash\redirect::to($target);
 		}
 
