@@ -1,5 +1,8 @@
 <div class="jibresBanner">
+
+ <div class="avand impact">
 <?php include "domain-topBox.php"; ?>
+ </div>
 
  <div class="avand impact">
   <h3><?php echo T_("Jibres Domain Pricing Comparison"); ?></h3>
