@@ -11,4 +11,8 @@
  	</video>
  </div>
 
+ <div class="avand-lg zero">
+	<?php include root. "content/domains/home/definition.php"; ?>
+ </div>
+
 </div>
