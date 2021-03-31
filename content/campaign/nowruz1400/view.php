@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-		// \dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-campaign-1.jpg');
+		\dash\face::cover(\dash\url::cdn(). '/img/campaign/nowruz1400/Jibres-cover-campaign-nowruz1400.jpg');
 
 	}
 }
