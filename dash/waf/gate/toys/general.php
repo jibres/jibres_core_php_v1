@@ -7,6 +7,11 @@ class general
 {
 	public static function len($_text, $_min, $_max)
 	{
+		if(!is_string($_text))
+		{
+			\dash\waf\dog::BITE('only T on len'. ' - '. $_text, 428);
+		}
+
 		$myLen = strlen($_text);
 		if($myLen < $_min)
 		{
@@ -14,13 +19,18 @@ class general
 		}
 		if($myLen > $_max)
 		{
-			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max. ' - '. $_text, 428);
+			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max, 428);
 		}
 	}
 
 
 	public static function mb_len($_text, $_min, $_max)
 	{
+		if(!is_string($_text))
+		{
+			\dash\waf\dog::BITE('only T on len'. ' - '. $_text, 428);
+		}
+
 		$myLen = mb_strlen($_text);
 		if($myLen < $_min)
 		{
