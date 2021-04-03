@@ -88,18 +88,27 @@
               </select>
             </div>
           </div>
-          <div class="c-xs-12 c-sm-5">
+          <div class="c-xs-12 c-sm">
             <label for="ikey">Key</label>
             <div class="input ltr">
               <input type="text" name="key" id="ikey" placeholder="Use @ for root">
             </div>
           </div>
-          <div class="c-xs-12 c-sm-5">
+          <div class="c-xs-12 c-sm">
             <label for="ivalue">Value</label>
             <div class="input ltr">
               <input type="text" name="value" id="ivalue" placeholder="">
             </div>
           </div>
+          <div data-response='type' data-response-where='MX' data-response-hide>
+            <div class="c-xs-12 c-sm">
+              <label for="ipriority">Priority</label>
+              <div class="input ltr">
+                <input type="tel" name="priority" id="ipriority" placeholder="" maxlength="5" min="0" max="65535">
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
       <footer class="f">
@@ -130,7 +139,11 @@
                     <tr class="txtL">
                       <td class="ltr txtL"><?php echo a($value, 'type'); ?></td>
                       <td class="ltr txtL"><?php echo a($value, 'key'); ?></td>
-                      <td class="ltr txtL"><?php echo a($value, 'value'); ?></td>
+                      <td class="ltr txtL"><?php echo a($value, 'value'); ?>
+                        <?php if(a($value, 'priority')) { ?>
+                          <div class="badge" title="Priority"><?php echo a($value, 'priority'); ?></div>
+                        <?php }  // end if?>
+                      </td>
                       <td class="ltr txtL s0"><?php echo a($value, 'status'); ?></td>
                       <td class="ltr txtL">
                         <?php if(a($value, 'status') !== 'pending_delete') {?>

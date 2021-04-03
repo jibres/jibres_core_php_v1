@@ -10,9 +10,10 @@ class model
 		{
 			$post =
 			[
-				'type'             => \dash\request::post('type'),
-				'key'              => \dash\request::post('key'),
-				'value'            => \dash\request::post('value'),
+				'type'     => \dash\request::post('type'),
+				'key'      => \dash\request::post('key'),
+				'value'    => \dash\request::post('value'),
+				'priority' => \dash\request::post('priority'),
 			];
 
 			$result = \lib\app\business_domain\dns::add(\dash\data::domainID(), $post);

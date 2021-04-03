@@ -343,6 +343,7 @@ class dns
 			'type'             => ['enum' => ['A', 'AAAA', 'ANAME', 'CNAME','MX','NS','PTR',/*'SOA','SRV',*/ 'TXT']],
 			'key'              => 'string_100',
 			'value'            => 'string_100',
+			'priority'         => 'int',
 			'addtocdnpaneldns' => 'bit',
 		];
 
@@ -388,6 +389,7 @@ class dns
 			'type'               => $data['type'],
 			'key'                => $data['key'],
 			'value'              => $data['value'],
+			'priority'           => $data['priority'],
 			'status'             => 'pending',
 			'datecreated'        => date("Y-m-d H:i:s"),
 		];
@@ -464,7 +466,13 @@ class dns
 						break;
 
 					case 'MX':
-						$value = ['host' => $load_dns_record['value'], "priority" =>  1]; // get static value from user
+						$priority = 1;
+						if(isset($load_dns_record['priority']) && $load_dns_record['priority'])
+						{
+							$priority = $load_dns_record['priority'];
+						}
+
+						$value = ['host' => $load_dns_record['value'], "priority" =>  $priority]; // get static value from user
 						break;
 
 					case 'SRV':
