@@ -9,7 +9,7 @@
   <meta content="https://cdn.jibres.com/img/cover/Jibres-cover-bot-1.jpg?v=2" name="twitter:image"/>
   <link href="https://cdn.jibres.com/css/jibres.min.css?1585664188" rel="stylesheet"/>
   <link href="https://cdn.jibres.com/css/jibres-domain-pin.css" rel="stylesheet" type="text/css">
-  <link href="http://cdn.jibres.local/css/jibres-domain-pin.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jibres.local/css/jibres-domain-pin.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="https://cdn.jibres.com/favicons/favicon-64x64.png" type="image/x-icon" />
  </head>
  <body class="domainPin">
