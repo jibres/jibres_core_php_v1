@@ -11,7 +11,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-
+		self::fix_store();
 
 	}
 
@@ -29,38 +29,57 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			$query = "	SELECT * FROM posts  ";
+			$query = "	SELECT * FROM products where products.company_id is not null ";
 			$store_id = $value['id'];
 			$dbname = \dash\engine\store::make_database_name($store_id);
 			$resutl = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
+
 			if($resutl)
 			{
-				foreach ($resutl as $one_post)
+				foreach ($resutl as $one_product)
 				{
+					$query = "	SELECT *  FROM productcompany where productcompany.id  = '$one_product[company_id]' LIMIT 1 ";
+					$company_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
 
-					$query = "	SELECT terms.id AS `term_id`, terms.title, terms.url FROM termusages INNER JOIN terms ON terms.id = termusages.term_id WHERE termusages.post_id = $one_post[id] AND termusages.type = 'tag' ";
-					$tags = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
-
-					$seo_detail            = [];
-					$seo_detail['type']    = 'post';
-					$seo_detail['id']      = a($one_post, 'id');
-					$seo_detail['title']   = a($one_post, 'title');
-					$seo_detail['seodesc'] = a($one_post, 'excerpt');
-					$seo_detail['content'] = a($one_post, 'content');
-					$seo_detail['tags']    = $tags;
-
-					$seoAnalyze    = \dash\seo::analyze($seo_detail);
-
-					if(isset($seoAnalyze['rank']))
+					if(isset($company_detail['title']))
 					{
-						$args['seorank'] = $seoAnalyze['rank'];
-						\dash\db::query("UPDATE posts SET posts.seorank = $seoAnalyze[rank] WHERE posts.id = $one_post[id] LIMIT 1", $value['fuel'], ['database' => $dbname]);
+						$query = "	SELECT *  FROM producttag where producttag.title  = '$company_detail[title]' LIMIT 1 ";
+						$tag_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
 
+						if(isset($tag_detail['id']))
+						{
+							$tag_id = $tag_detail['id'];
+						}
+						else
+						{
+							$date = date("Y-m-d H:i:s");
+							$slug = \dash\validate::slug($company_detail['title']);
+							$query = " INSERT INTO producttag SET producttag.title = '$company_detail[title]', producttag.slug = '$slug', producttag.status = 'enable', producttag.datecreated = '$date' ";
+							\dash\db::query($query, $value['fuel'], ['database' => $dbname]);
+							$tag_id = \dash\db::insert_id();
+						}
+
+
+						if($tag_id)
+						{
+							$query = "	SELECT *  FROM producttagusage where producttagusage.producttag_id  = '$tag_id' AND producttagusage.product_id = '$one_product[id]' LIMIT 1 ";
+							$tag_usage_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
+
+							if(isset($tag_usage_detail['product_id']))
+							{
+								// this product have this tag
+							}
+							else
+							{
+								$query = " INSERT INTO producttagusage SET producttagusage.producttag_id = '$tag_id', producttagusage.product_id = '$one_product[id]' ";
+								\dash\db::query($query, $value['fuel'], ['database' => $dbname]);
+							}
+						}
 					}
-
-
 				}
 			}
+
+			\dash\db\mysql\tools\connection::close();
 		}
 
 		var_dump('ok');
