@@ -17,6 +17,7 @@
  <body class="domainPin">
  	<main>
  		<h1>Domain Name</h1>
+    <h1><?php echo \dash\url::domain(); ?></h1>
     <h2>This domain is registered by <a target="_blank" href="https://jibres.com">Jibres</a></h2>
  	</main>
  </body>

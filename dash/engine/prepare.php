@@ -664,7 +664,14 @@ class prepare
 	public static function html_raw_page($_file_name)
 	{
 		$emergencydomain = core. 'layout/html/'.$_file_name.'.html';
+
+		if(!is_file($emergencydomain))
+		{
+			$emergencydomain = core. 'layout/html/'.$_file_name.'.php';
+		}
+
 		require_once ($emergencydomain);
+
 		\dash\code::boom();
 	}
 }
