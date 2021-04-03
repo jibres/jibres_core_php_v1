@@ -184,6 +184,8 @@ class controller
 		}
 
 		self::public_cronjob();
+
+		\lib\app\store\reserve::create_business_as_reserved();
 	}
 
 

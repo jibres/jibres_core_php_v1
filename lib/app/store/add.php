@@ -122,10 +122,10 @@ class add
 
 		\dash\log::set('StartMakeNewStore', ['my_detail' => $args]);
 
-
-		$store_id = \lib\app\store\reserve::get($subdomain, $args['creator'], $fuel);
 		// is reserved business
 		$is_reserved = false;
+
+		$store_id = self::new_store_reserved($subdomain, $args['creator'], $fuel);
 
 		if($store_id)
 		{
@@ -202,6 +202,16 @@ class add
 				return false;
 			}
 		}
+		else
+		{
+			// in reserve mode need to save something
+
+			$customer_db_name = \dash\engine\store::make_database_name($store_id);
+
+			\lib\app\store\db::inner_query($args, $fuel, $customer_db_name);
+
+			\lib\app\store\config::init($store_id, $fuel, $customer_db_name, $args);
+		}
 
 		\dash\db::commit();
 
@@ -258,6 +268,38 @@ class add
 		$new_store_id = \lib\db\store\insert::store($new_store);
 
 		return $new_store_id;
+	}
+
+
+
+	private static function new_store_reserved($_subdomain, $_creator, $_fuel)
+	{
+		\dash\db::transaction();
+
+		$store_id = \lib\db\store\get::reserved_business();
+
+		if(!$store_id || !is_numeric($store_id))
+		{
+			\dash\db::commit();
+			return false;
+		}
+
+
+		$update_store                = [];
+		$update_store['subdomain']   = $_subdomain;
+		$update_store['fuel']        = $_fuel;
+		$update_store['creator']     = $_creator;
+		$update_store['status']      = 'creating';
+		$update_store['ip']          = \dash\server::iplong();
+		$update_store['ip_id']       = \dash\utility\ip::id();
+		$update_store['agent_id']    = \dash\agent::get(true);
+		$update_store['datecreated'] = date("Y-m-d H:i:s");
+
+		\lib\db\store\update::record($update_store, $store_id);
+
+		\dash\db::commit();
+
+		return $store_id;
 	}
 
 

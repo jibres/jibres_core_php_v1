@@ -4,7 +4,7 @@ namespace lib\app\store;
 
 class db
 {
-	public static function create($_store_id, $_args = [])
+	public static function create($_store_id, $_args = [], $_reserve = false)
 	{
 
 		$addr             = self::addr();
@@ -43,7 +43,7 @@ class db
 			}
 		}
 
-		if($is_ok)
+		if($is_ok && !$_reserve)
 		{
 			self::inner_query($_args, $fuel, $customer_db_name);
 		}
@@ -70,7 +70,11 @@ class db
 		if($is_ok)
 		{
 			self::set_last_db_version($update_sql_query, $_store_id);
-			\lib\app\store\config::init($_store_id, $fuel, $customer_db_name, $_args);
+
+			if(!$_reserve)
+			{
+				\lib\app\store\config::init($_store_id, $fuel, $customer_db_name, $_args);
+			}
 		}
 
 
@@ -100,7 +104,7 @@ class db
 	}
 
 
-	private static function inner_query($_args, $_fuel, $_database)
+	public static function inner_query($_args, $_fuel, $_database)
 	{
 		// insert current user to customer database
 		$set                   = [];
@@ -156,6 +160,59 @@ class db
 
 			}
 		}
+	}
+
+
+
+
+	public static function create_reserve_business()
+	{
+		$start = time();
+
+		\dash\db::transaction();
+
+		$reserve_store                = [];
+		$reserve_store['fuel']        = \dash\engine\fuel::priority(\dash\url::tld());
+		$reserve_store['status']      = 'reserve_creating';
+		$reserve_store['datecreated'] = date("Y-m-d H:i:s");
+
+		$reserve_store['subdomain']   = null;
+		$reserve_store['creator']     = null;
+		$reserve_store['ip']          = null;
+		$reserve_store['ip_id']       = null;
+		$reserve_store['agent_id']    = null;
+
+		$reserve_store_id = \lib\db\store\insert::store($reserve_store);
+
+		if(!$reserve_store)
+		{
+			\dash\db::rollback();
+			\dash\log::to_supervisor('can not create reserve business record');
+			return false;
+		}
+
+		$args['fuel'] = $reserve_store['fuel'];
+
+		$reserve_store_db = self::create($reserve_store_id, $args, true);
+
+		if(!$reserve_store_db)
+		{
+			\dash\db::rollback();
+			\dash\log::to_supervisor('can not create reserve business database');
+			return false;
+		}
+
+		$update_store                = [];
+		$update_store['status']      = 'awaiting';
+
+		\lib\db\store\update::record($update_store, $reserve_store_id);
+
+		\dash\db::commit();
+
+		\dash\log::to_supervisor('New business reserve created. time: '. time() - $start. ' second');
+
+		return true;
+
 	}
 }
 ?>

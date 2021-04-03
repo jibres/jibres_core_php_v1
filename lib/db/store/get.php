@@ -8,7 +8,14 @@ class get
 	public static function reserved_business()
 	{
 		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\db::get($query, 'id', true, 'master');
+		return $result;
+	}
+
+	public static function count_reserved_business()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ";
+		$result = \dash\db::get($query, 'count', true, 'master');
 		return $result;
 	}
 
