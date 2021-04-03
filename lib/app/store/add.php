@@ -123,19 +123,31 @@ class add
 		\dash\log::set('StartMakeNewStore', ['my_detail' => $args]);
 
 
-		// add store record in jibres table
-		$store_id = self::new_store($subdomain, $args['creator'], $fuel);
+		$store_id = \lib\app\store\reserve::get($subdomain, $args['creator'], $fuel);
+		// is reserved business
+		$is_reserved = false;
 
-		if(!$store_id)
+		if($store_id)
 		{
-			\dash\log::set('dbCanNotAddStore', ['request_subdomain' => $subdomain]);
-
-			\dash\notif::error(T_("Can not add your store"));
-
-			\dash\notif::code(1428);
-
-			return false;
+			$is_reserved = true;
 		}
+		else
+		{
+			// add store record in jibres table
+			$store_id = self::new_store($subdomain, $args['creator'], $fuel);
+
+			if(!$store_id)
+			{
+				\dash\log::set('dbCanNotAddStore', ['request_subdomain' => $subdomain]);
+
+				\dash\notif::error(T_("Can not add your store"));
+
+				\dash\notif::code(1428);
+
+				return false;
+			}
+		}
+
 
 		set_time_limit(600); // 10 min
 
@@ -157,21 +169,6 @@ class add
 			return false;
 		}
 
-		// // add store plan in jibres database
-		// $add_store_plan = self::new_store_plan($args, $store_id);
-
-		// if(!$add_store_plan)
-		// {
-		// 	\dash\db::rollback();
-
-		// 	\dash\log::set('dbCanNotAddStorePlan', ['request_subdomain' => $subdomain]);
-
-		// 	\dash\notif::error(T_("Can not add your store"));
-
-		// 	\dash\notif::code(1448);
-
-		// 	return false;
-		// }
 
 		// add store user in jibres database
 		$add_store_user = self::new_store_user($args, $store_id);
@@ -189,18 +186,21 @@ class add
 			return false;
 		}
 
-		// create database of store customer
-		$create_db = \lib\app\store\db::create($store_id, $args);
-
-		if(!$create_db)
+		if(!$is_reserved)
 		{
-			\dash\notif::error(T_("We can not create your store!"));
+			// create database of store customer
+			$create_db = \lib\app\store\db::create($store_id, $args);
 
-			\dash\log::set('createStoreDbOkCustormeDataBaseNOK', ['request_subdomain' => $subdomain, 'store_id' => $store_id]);
+			if(!$create_db)
+			{
+				\dash\notif::error(T_("We can not create your store!"));
 
-			\dash\notif::code(1468);
+				\dash\log::set('createStoreDbOkCustormeDataBaseNOK', ['request_subdomain' => $subdomain, 'store_id' => $store_id]);
 
-			return false;
+				\dash\notif::code(1468);
+
+				return false;
+			}
 		}
 
 		\dash\db::commit();

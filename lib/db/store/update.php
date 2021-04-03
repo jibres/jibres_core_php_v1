@@ -4,6 +4,18 @@ namespace lib\db\store;
 
 class update
 {
+	public static function record($_args, $_id)
+	{
+		$set = \dash\db\config::make_set($_args);
+
+		if($set)
+		{
+			$query  = "UPDATE store SET $set WHERE store.id = $_id LIMIT 1";
+			$result = \dash\db::query($query, 'master');
+			return $result;
+		}
+	}
+
 	public static function store_data($_field, $_value, $_store_id)
 	{
 		$query  = "UPDATE store_data SET store_data.$_field = '$_value' WHERE store_data.id = $_store_id LIMIT 1";

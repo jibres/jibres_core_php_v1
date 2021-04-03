@@ -5,7 +5,12 @@ namespace lib\db\store;
 class get
 {
 
-
+	public static function reserved_business()
+	{
+		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE ";
+		$result = \dash\db::get($query, 'id', true);
+		return $result;
+	}
 
 
 	public static function user_first_product($_user_id)
