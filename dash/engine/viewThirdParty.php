@@ -21,7 +21,7 @@ class viewThirdParty
 	{
 		// supersaeed guid
 		// UA-130946685-3
-		if(\dash\engine\store::inStore())
+		if(\dash\engine\store::inBusinessWebsite())
 		{
 			if(\lib\store::detail('google_analytics'))
 			{
