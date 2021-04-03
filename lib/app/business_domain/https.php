@@ -116,21 +116,18 @@ class https
 
 					\dash\notif::ok(T_("HTTPS request is OK"));
 
+					$send_log              = [];
+					$send_log['my_domain'] = $load['domain'];
+
 					if(isset($load['user_id']) && $load['user_id'])
 					{
-						$send_log =
-						[
-							'to'        => $load['user_id'],
-							'my_domain' => $load['domain'],
-						];
-
+						$send_log['to'] = $load['user_id'];
 						\dash\log::set('domain_successfullConnected', $send_log);
-
-						unset($send_log['to']);
-
-						\dash\log::set('domain_successfullConnectedSu', $send_log);
-
 					}
+
+					unset($send_log['to']);
+
+					\dash\log::set('domain_successfullConnectedSu', $send_log);
 
 					return true;
 				}
