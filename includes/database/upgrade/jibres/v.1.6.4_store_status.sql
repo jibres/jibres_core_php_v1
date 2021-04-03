@@ -1,0 +1,1 @@
+ALTER TABLE jibres.store  CHANGE `status` `status` enum('awaiting', 'enable', 'close', 'deleted', 'spam', 'hard_delete', 'upgrade', 'transfer', 'backup', 'lock', 'broken', 'limitation', 'creating', 'failed', 'error') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'enable';
