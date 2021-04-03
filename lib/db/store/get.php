@@ -7,7 +7,7 @@ class get
 
 	public static function reserved_business()
 	{
-		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE ";
+		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE SKIP LOCKED";
 		$result = \dash\db::get($query, 'id', true, 'master');
 		return $result;
 	}
