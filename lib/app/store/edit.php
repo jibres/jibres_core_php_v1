@@ -98,7 +98,7 @@ class edit
 
 		if(!$_storage)
 		{
-			$_storage = 0;
+			$_storage = null;
 		}
 
 		$_uploadsize = \dash\validate::bigint($_uploadsize);
@@ -119,15 +119,22 @@ class edit
 			return false;
 		}
 
-		$current_store_data = \lib\db\store\get::data($_id);
-
-		\lib\db\store\update::storage($storage, $load_store['id']);
-		\lib\db\store\update::uploadsize($uploadsize, $load_store['id']);
-
 		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
 
-		\lib\db\setting\update::overwirte_cat_key_fuel($storage, 'store_setting', 'storage', $load_store['fuel'], $my_store_db);
-		\lib\db\setting\update::overwirte_cat_key_fuel($uploadsize, 'store_setting', 'uploadsize', $load_store['fuel'], $my_store_db);
+		$current_store_data = \lib\db\store\get::data($_id);
+
+		if($storage)
+		{
+			\lib\db\store\update::storage($storage, $load_store['id']);
+			\lib\db\setting\update::overwirte_cat_key_fuel($storage, 'store_setting', 'storage', $load_store['fuel'], $my_store_db);
+		}
+
+		if($uploadsize)
+		{
+			\lib\db\store\update::uploadsize($uploadsize, $load_store['id']);
+			\lib\db\setting\update::overwirte_cat_key_fuel($uploadsize, 'store_setting', 'uploadsize', $load_store['fuel'], $my_store_db);
+		}
+
 
 		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
 
