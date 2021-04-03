@@ -46,10 +46,11 @@ class prepare
 	private static function dash_shutdown_function()
 	{
 		// 	register_shutdown_function(['\dash\utility\visitor', 'save']);
-		// register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
 		// register_shutdown_function(['\dash\engine\runtime', 'shutdown']);
-
 		register_shutdown_function(['\dash\waf\race', 'requestDone']);
+
+		// close all mysql connection
+		register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
 	}
 
 
