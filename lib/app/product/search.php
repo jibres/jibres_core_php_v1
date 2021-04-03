@@ -38,7 +38,6 @@ class search
 			'cat_id'      => 'id',
 			'tag_id'      => 'id',
 			'unit_id'     => 'id',
-			'company_id'  => 'id',
 
 			'dup'         => 'bit',
 			'bar'         => 'y_n',
@@ -137,14 +136,6 @@ class search
 			$and[] = "products.unit_id = $data[unit_id] ";
 			self::$filter_args['unit'] = '*'. T_('Unit');
 			self::$is_filtered = true;
-		}
-
-		if($data['company_id'])
-		{
-			$and[] = " products.company_id = $data[company_id] ";
-			self::$filter_args['company']     = '*'. T_('Company');
-			self::$is_filtered          = true;
-
 		}
 
 		// ------------------------------------------------------------------------------ SET FILTERS

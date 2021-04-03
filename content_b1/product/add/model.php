@@ -43,7 +43,6 @@ class model
 		if(\dash\request::isset_input_body('maxsale')) 			$post['maxsale']      = \dash\request::input_body('maxsale');
 		if(\dash\request::isset_input_body('salestep')) 		$post['salestep']     = \dash\request::input_body('salestep');
 		if(\dash\request::isset_input_body('oversale')) 		$post['oversale']     = \dash\request::input_body('oversale');
-		if(\dash\request::isset_input_body('company')) 			$post['company']      = \dash\request::input_body('company');
 		if(\dash\request::isset_input_body('unit')) 			$post['unit']         = \dash\request::input_body('unit');
 		if(\dash\request::isset_input_body('cat')) 				$post['cat_id']       = \dash\request::input_body('cat');
 		if(\dash\request::isset_input_body('tag')) 				$post['tag']          = \dash\request::input_body('tag');

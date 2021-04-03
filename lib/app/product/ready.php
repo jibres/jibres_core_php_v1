@@ -62,7 +62,6 @@ class ready
 
 				case 'cat_id':
 				case 'unit_id':
-				case 'company_id':
 					$result[$key] = $value;
 					break;
 

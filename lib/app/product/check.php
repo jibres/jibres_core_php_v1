@@ -73,9 +73,6 @@ class check
 			'price'             => 'price',
 			'discount'          => 'price',
 			'vat'               => 'bit',
-
-			'company'           => 'string_100',
-			'company_id'        => 'id',
 			'tag'               => 'tag',
 			'cat'               => 'tag',
 			'cat_id'            => 'int',

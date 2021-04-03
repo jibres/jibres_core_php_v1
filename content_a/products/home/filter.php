@@ -117,24 +117,6 @@ function BoxProductFilter()
       </div>
 
       <div class="mB10">
-        <div class="row align-center">
-          <div class="c"><label for='company'><?php echo T_("Brand"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-        </div>
-        <select name="companyid" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
-          <?php if(\dash\request::get('companyid')) {?>
-            <option value="0"><?php echo T_("None") ?></option>
-          <?php }else{?>
-            <option value="" readonly></option>
-          <?php } //endif ?>
-            <?php foreach (\dash\data::listCompanies() as $key => $value) {?>
-            <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('companyid') === $value['id']){echo 'selected';} ?> ><?php echo $value['title']; ?></option>
-          <?php } //endfor ?>
-
-        </select>
-      </div>
-
-      <div class="mB10">
         <label for='status'><?php echo T_("Status"); ?></label>
         <select name="status" id="status" class="select22" data-placeholder='<?php echo T_("Product Status"); ?>'>
           <?php if(\dash\request::get('status')) {?>

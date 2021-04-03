@@ -10,7 +10,7 @@ class add
 
 		foreach ($_args as $key => $value)
 		{
-			unset($value['company_id']);
+
 			unset($value['unit_id']);
 			if(isset($value['id']) && is_numeric($value['id']))
 			{
@@ -143,39 +143,6 @@ class add
 			}
 		}
 
-
-		if($args['company'])
-		{
-			\lib\app\product\company::$debug = false;
-			$add_company                     = \lib\app\product\company::check_add($args['company']);
-			if(isset($add_company['id']))
-			{
-				$args['company_id'] = $add_company['id'];
-			}
-		}
-
-		unset($args['company']);
-
-		if($args['company_id'])
-		{
-			\lib\app\product\company::$debug = false;
-			$check_company                     = \lib\app\product\company::inline_get($args['company_id']);
-			if(isset($check_company['id']))
-			{
-				$args['company_id'] = $check_company['id'];
-			}
-		}
-
-
-		// if($args['cat_id'])
-		// {
-		// 	$load_cat = \lib\app\category\get::inline_get($args['cat_id']);
-		// 	if(!isset($load_cat['id']))
-		// 	{
-		// 		\dash\notif::error(T_("Category not found"));
-		// 		return false;
-		// 	}
-		// }
 
 		$my_cat = [];
 		if(array_key_exists('cat', $args))
@@ -403,7 +370,6 @@ class add
 				case 'desc':
 				case 'cat_id':
 				case 'unit_id':
-				case 'company_id':
 				case 'salestep':
 				case 'minstock':
 				case 'maxstock':

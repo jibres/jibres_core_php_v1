@@ -19,8 +19,6 @@ class view
 
 		\dash\face::btnSave('form1');
 
-		$company_list = \lib\app\product\company::list();
-		\dash\data::listCompanies($company_list);
 
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);

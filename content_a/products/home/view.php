@@ -36,7 +36,6 @@ class view
 			'tag_id'       => \dash\request::get('tagid') ? \dash\request::get('tagid') : null,
 			// 'discount'     => \dash\request::get('discount'),
 			'unit_id'      => \dash\request::get('unitid') ? \dash\request::get('unitid') : null,
-			'company_id'   => \dash\request::get('companyid') ? \dash\request::get('companyid') : null,
 		];
 
 
@@ -94,9 +93,6 @@ class view
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
-
-		$company_list = \lib\app\product\company::list();
-		\dash\data::listCompanies($company_list);
 
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);

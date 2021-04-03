@@ -32,9 +32,6 @@ class view
 		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);
 
-		$company_list = \lib\app\product\company::list();
-		\dash\data::listCompanies($company_list);
-
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 

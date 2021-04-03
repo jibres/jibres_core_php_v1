@@ -18,10 +18,6 @@ class view
 		\dash\face::btnInsertValue('master');
 		\dash\face::btnInsertText(T_("Add"));
 
-
-		$company_list = \lib\app\product\company::list();
-		\dash\data::listCompanies($company_list);
-
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 

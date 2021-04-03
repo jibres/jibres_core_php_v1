@@ -85,15 +85,6 @@ class get
 		return 0;
 	}
 
-	public static function brand_count()
-	{
-		$result = \lib\db\productcompany\get::count_all();
-		if($result && is_numeric($result))
-		{
-			return $result;
-		}
-		return 0;
-	}
 
 
 	public static function unit_count()

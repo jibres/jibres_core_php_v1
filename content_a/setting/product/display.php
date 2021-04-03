@@ -1,8 +1,7 @@
 <?php $urlHere = \dash\url::here(); ?>
 
-<div class="avand">
-  <div class="row">
-    <div class="c-xs-12 c-sm-12 c-md-4">
+<div class="avand-md">
+
       <nav class="items">
       <ul>
           <li><a class="f" href="<?php echo $urlHere; ?>/products"><div class="key"><?php echo T_("Product list"); ?></div><div class="go"></div></a></li>
@@ -15,9 +14,6 @@
           <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/category"><div class="key"><?php echo T_("Categories of Product"); ?></div><div class="go"></div></a></li><?php } //endif ?>
           <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/tag"><div class="key"><?php echo T_("Product tag"); ?></div><div class="go"></div></a></li><?php } //endif ?>
           <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/units"><div class="key"><?php echo T_("Product Units"); ?></div><div class="go"></div></a></li><?php } //endif ?>
-          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/company"><div class="key"><?php echo T_("Product Compnay"); ?></div><div class="go"></div></a></li><?php } //endif ?>
-
-
         </ul>
       </nav>
 
@@ -67,5 +63,3 @@
 
 
 
-  </div>
-</div>

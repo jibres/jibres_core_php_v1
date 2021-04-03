@@ -55,24 +55,6 @@ $child_list         = \dash\data::productDataRow_child();
 <?php } //endfor ?>
         </select>
       </div>
-
-      <div class="mB10">
-        <div class="row align-center">
-          <div class="c"><label for='company'><?php echo T_("Brand"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/company"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-        </div>
-        <select name="company" id="company" class="select22" data-model="tag" data-placeholder='<?php echo T_("Product Brand"); ?>'>
-          <option value=""><?php echo T_("Product Brand"); ?></option>
-          <?php if(\dash\data::productDataRow_company_id()) {?>
-            <option value="0"><?php echo T_("Without Brand"); ?></option>
-          <?php } //endif ?>
-<?php foreach (\dash\data::listCompanies() as $key => $value) {?>
-            <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_company_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
-<?php } //endfor ?>
-
-        </select>
-      </div>
-
     </div>
   </div>
 

@@ -11,7 +11,6 @@ class model
 
 		$post                = [];
 
-		$post['company']     = \dash\request::post('company');
 		$post['unit']        = \dash\request::post('unit') ? \dash\request::post('unit') : null;
 		$post['type']        = \dash\request::post('type');
 		$post['filesize']    = \dash\request::post('filesize');

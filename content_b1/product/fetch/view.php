@@ -18,13 +18,6 @@ class view
 			$args['cat_id'] = $category;
 		}
 
-		$company  = \dash\request::get('company');
-
-		if($company)
-		{
-			$args['company_id'] = $company;
-		}
-
 		$search_query = \dash\request::get('q');
 
 		$myProductList  = \lib\app\product\search::variant_list($search_query, $args);
