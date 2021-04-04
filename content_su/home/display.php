@@ -154,8 +154,8 @@
           </a>
        </li>
        <li>
-          <a class="f" href="<?php echo \dash\url::here();?>/dnsprovider">
-            <div class="key"><?php echo T_('DNS provider');?></div>
+          <a class="f" href="<?php echo \dash\url::here();?>/dbversion">
+            <div class="key"><?php echo T_('Database version');?></div>
             <div class="go"></div>
           </a>
        </li>

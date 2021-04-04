@@ -87,6 +87,19 @@ class upgrade
 	}
 
 
+	public static function business_db_version_list()
+	{
+		$result = \lib\db\store\get::all_version_detail();
+
+		if(!$result || !is_array($result))
+		{
+			$result = [];
+		}
+
+		return $result;
+	}
+
+
 	public static function store_min_version()
 	{
 		$result = \lib\db\store\get::all_version();
