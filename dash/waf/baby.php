@@ -367,11 +367,11 @@ class baby
 			self::$level = 0;
 			return true;
 		}
-		if(preg_match("/sleep(.*)\((.*)\)/i", $_txt))
-		{
-			self::$level = 2;
-			return true;
-		}
+		// if(preg_match("/sleep(.*)\((.*)\)/i", $_txt))
+		// {
+		// 	self::$level = 2;
+		// 	return true;
+		// }
 		if(preg_match("/extractvalue(.*)\(/i", $_txt))
 		{
 			self::$level = 3;
