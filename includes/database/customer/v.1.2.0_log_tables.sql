@@ -138,7 +138,6 @@ CREATE TABLE IF NOT EXISTS `jibres_XXXXXXX`.`dayevent` (
 `productcategory` BIGINT(20) NULL DEFAULT NULL,
 `productcategoryusage` BIGINT(20) NULL DEFAULT NULL,
 `productcomment` BIGINT(20) NULL DEFAULT NULL,
-`productcompany` BIGINT(20) NULL DEFAULT NULL,
 `productinventory` BIGINT(20) NULL DEFAULT NULL,
 `productprices` BIGINT(20) NULL DEFAULT NULL,
 `productproperties` BIGINT(20) NULL DEFAULT NULL,
