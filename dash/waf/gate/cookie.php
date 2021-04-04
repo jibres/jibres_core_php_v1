@@ -21,15 +21,16 @@ class cookie
 
 		foreach ($cookie as $key => $value)
 		{
+			// only can be text
+			\dash\waf\gate\toys\only::something($key);
+			\dash\waf\gate\toys\only::text($key);
+
 			// check key len
 			\dash\waf\gate\toys\general::len($key, 1, 99);
 
 			// check value len
 			\dash\waf\gate\toys\general::len($value, 0, 220);
 
-			// only can be text
-			\dash\waf\gate\toys\only::something($key);
-			\dash\waf\gate\toys\only::text($key);
 
 			\dash\waf\gate\toys\only::text($value);
 

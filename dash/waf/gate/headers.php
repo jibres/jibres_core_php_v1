@@ -42,8 +42,13 @@ class headers
 
 		foreach ($headers as $key => $value)
 		{
+			\dash\waf\gate\toys\only::text($key);
+
 			// check key len
 			\dash\waf\gate\toys\general::len($key, 1, 50);
+
+
+			\dash\waf\gate\toys\only::text($value);
 
 			// check value len
 			\dash\waf\gate\toys\general::len($value, 0, 1000);
@@ -65,11 +70,10 @@ class headers
 
 	private static function blacklist($txt)
 	{
-		\dash\waf\gate\toys\only::text($txt);
 		// disallow html tags
 		\dash\waf\gate\toys\block::tags($txt);
-		// disallow some words
 
+		// disallow some words
 		\dash\waf\gate\toys\block::word($txt, "'");
 		\dash\waf\gate\toys\block::word($txt, "`");
 		\dash\waf\gate\toys\block::word($txt, "\n");
