@@ -132,17 +132,7 @@ class block
 
 		self::preg('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/u', $_txt, 'Disallow non-printing 7!');
 
-  		if(preg_match('/(?>[\x00-\x1F]|\xC2[\x80-\x9F]|\xE2[\x80-\x8F]{2}|\xE2\x80[\xA4-\xA8]|\xE2\x81[\x9F-\xAF])/', $_txt))
-		{
-			if(preg_match('/(\xE2[\x80-\x8F]{2})/', $_txt))
-			{
-				// the half space character
-			}
-			else
-			{
-				\dash\waf\dog::BITE('Disallow non-printing 8!', 428);
-			}
-		}
+  		self::preg('/(?>[\x00-\x1F]|\xC2[\x80-\x9F]|\xE2\x80[\xA4-\xA8]|\xE2\x81[\x9F-\xAF])/', $_txt, 'Disallow non-printing 8!');
 
 		$badchar =
 		[
