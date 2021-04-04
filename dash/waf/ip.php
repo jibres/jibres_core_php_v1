@@ -260,8 +260,8 @@ class ip
 						}
 						else
 						{
-							// block 60 minute
-							self::do_block($_info, 'recaptcha invalid!', 60);
+							// block 1 minute
+							self::do_block($_info, 'recaptcha invalid!', 1);
 						}
 					}
 					else
