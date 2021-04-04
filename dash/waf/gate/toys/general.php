@@ -7,9 +7,15 @@ class general
 {
 	public static function len($_text, $_min, $_max)
 	{
-		if(!is_string($_text))
+		if(!is_string($_text) && !is_numeric($_text))
 		{
-			\dash\waf\dog::BITE('only T on len'. ' - '. $_text, 428);
+			\dash\waf\dog::BITE('only T/N on len', 428);
+		}
+
+		// convert numeric to string
+		if(is_numeric($_text))
+		{
+			$_text = (string) $_text;
 		}
 
 		$myLen = strlen($_text);
