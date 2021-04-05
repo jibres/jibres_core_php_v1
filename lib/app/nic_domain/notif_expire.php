@@ -6,13 +6,18 @@ class notif_expire
 {
 	public static function run()
 	{
-		return; // @reza @todo need to fix
+		$log = [];
 
 		// get list of domains by expire 7 days late and auto renew is off
 		$next_week = date("Y-m-d", strtotime("+7 days"));
-		$expire_next_week = \lib\db\nic_domain\get::notif_expire($next_week);
 
-		$log = [];
+		$args =
+		[
+			'expireatdate' => $next_week,
+			'autorenew'    => 'off',
+		];
+
+		$expire_next_week = \lib\app\nic_domain\search::get_list(null, $args);
 
 		if(!empty($expire_next_week))
 		{
@@ -20,8 +25,15 @@ class notif_expire
 		}
 
 
-		$next_week = date("Y-m-d", strtotime("+1 days"));
-		$expire_next_day = \lib\db\nic_domain\get::notif_expire($next_week);
+		$next_day = date("Y-m-d", strtotime("+1 days"));
+
+		$args =
+		[
+			'expireatdate' => $next_day,
+			'autorenew'    => 'off',
+		];
+
+		$expire_next_day = \lib\app\nic_domain\search::get_list(null, $args);
 
 		$log = [];
 
@@ -29,7 +41,6 @@ class notif_expire
 		{
 			self::ready_notif($expire_next_day, 'domain_expireDomainInNextDay', $log);
 		}
-
 	}
 
 

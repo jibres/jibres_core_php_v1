@@ -70,7 +70,8 @@ class search
 			'autorenew'           => ['enum' => ['on', 'off', 'default']],
 			'reg'                 => ['enum' => ['com', 'ir']],
 			'predict_until'       => ['enum' => ['week', 'month', 'year']],
-			'expireat'       => ['enum' => ['week', 'month', 'year']],
+			'expireat'            => ['enum' => ['week', 'month', 'year']],
+			'expireatdate'        => 'date',
 			'predict'             => 'bit',
 			'get_total_predict'   => 'bit',
 			'status'              => 'string_100',
@@ -276,7 +277,7 @@ class search
 
 			$and[]      = " domain.available = 0 ";
 
-			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
+			$and['domain_status_expire_checker'] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 
 		}
 		else
@@ -332,7 +333,7 @@ class search
 
 		if($data['expireat'])
 		{
-			$and[] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
+			$and['domain_status_expire_checker'] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 			switch ($data['expireat'])
 			{
 				case 'week':
@@ -354,6 +355,12 @@ class search
 					// nothing
 					break;
 			}
+		}
+
+		if($data['expireatdate'])
+		{
+			$and['domain_status_expire_checker'] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
+			$and[] = " DATE(domain.dateexpire) = DATE('$data[expireatdate]') ";
 		}
 
 
