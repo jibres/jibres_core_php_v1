@@ -106,11 +106,10 @@ class get
 				store.id,
 				store.fuel,
 				store.subdomain,
-				store_data.dbversion,
-				store_data.dbversiondate
+				store.dbversion,
+				store.dbversiondate
 			FROM
 				store
-			INNER JOIN store_data ON store_data.id = store.id
 		";
 		$result = \dash\db::get($query);
 		return $result;
@@ -119,7 +118,7 @@ class get
 
 	public static function all_version()
 	{
-		$query = "SELECT dbversion FROM store_data";
+		$query = "SELECT dbversion FROM store ";
 		$result = \dash\db::get($query, 'dbversion');
 		return $result;
 	}

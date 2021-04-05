@@ -23,7 +23,7 @@ class get_string
 
 	public static function update_db_version($_version, $_versiondate, $_store_id)
 	{
-		$query = "UPDATE jibres.store_data SET jibres.store_data.dbversion = '$_version', jibres.store_data.dbversiondate = '$_versiondate' WHERE jibres.store_data.id = $_store_id LIMIT 1";
+		$query = "UPDATE jibres.store SET jibres.store.dbversion = '$_version', jibres.store.dbversiondate = '$_versiondate' WHERE jibres.store.id = $_store_id LIMIT 1";
 		return $query;
 	}
 }
