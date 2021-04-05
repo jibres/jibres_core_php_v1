@@ -6,6 +6,8 @@ class notif_expire
 {
 	public static function run()
 	{
+		return; // @reza @todo need to fix
+
 		// get list of domains by expire 7 days late and auto renew is off
 		$next_week = date("Y-m-d", strtotime("+7 days"));
 		$expire_next_week = \lib\db\nic_domain\get::notif_expire($next_week);
