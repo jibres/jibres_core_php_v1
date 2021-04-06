@@ -496,6 +496,7 @@ class renew
 
 			// \dash\notif::ok(, ['alerty' => true]);
 
+			\lib\app\nic_domain\edit::remove_last_fetch(\dash\coding::encode($domain_id));
 
 			return true;
 
