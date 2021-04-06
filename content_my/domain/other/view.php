@@ -18,6 +18,7 @@ class view
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(\lib\app\domains\filter::list());
+		\dash\data::listEngine_before(root. 'content_my/domain/other/display-search-before.php');
 		\dash\data::listEngine_sort(true);
 		\dash\data::sortList(\lib\app\domains\filter::sort_list());
 

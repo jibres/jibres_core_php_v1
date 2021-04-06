@@ -3,6 +3,11 @@
 	require_once ('admin-titlebox.php');
 	if(\dash\data::listEngine())
 	{
+		if(\dash\data::listEngine_before() && is_string(\dash\data::listEngine_before()) && is_file(\dash\data::listEngine_before()))
+		{
+			require_once \dash\data::listEngine_before();
+		}
+
 		if(\dash\data::dataTable())
 		{
 		    require_once(core. 'layout/search/search-bar.php');
