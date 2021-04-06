@@ -16,6 +16,10 @@
             <input type="checkbox" name="sendsms" id="sendsms">
             <label for="sendsms"><?php echo T_("Also send by sms") ?> <i class="sf-mobile"></i></label>
           </div>
+           <div class="check1">
+            <input type="checkbox" name="sendtelegram" id="sendtelegram">
+            <label for="sendtelegram"><?php echo T_("Also send by Telegram") ?> <i class="sf-paperplan"></i></label>
+          </div>
         <?php } //endif ?>
       </div>
 

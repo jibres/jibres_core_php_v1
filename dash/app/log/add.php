@@ -11,9 +11,10 @@ class add
 
 		$condition =
 		[
-			'user'    => 'code',
-			'text'    => 'desc',
-			'sendsms' => 'bit',
+			'user'         => 'code',
+			'text'         => 'desc',
+			'sendsms'      => 'bit',
+			'sendtelegram' => 'bit',
 		];
 
 		$require = ['user', 'text'];
@@ -39,11 +40,14 @@ class add
 		// in store or if not supervisor can not send notif by sms
 		if(\dash\engine\store::inStore() || !\dash\permission::supervisor())
 		{
-			$data['sendsms'] = null;
+			$data['sendsms']      = null;
+			$data['sendtelegram'] = null;
 		}
 
 
-		$log['notif_sendsms'] = $data['sendsms'];
+		$log['notif_sendsms']      = $data['sendsms'];
+		$log['notif_sendtelegram'] = $data['sendtelegram'];
+
 
 		$log_id = \dash\log::set('notif_text', $log);
 
