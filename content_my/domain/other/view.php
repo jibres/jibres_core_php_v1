@@ -23,9 +23,41 @@ class view
 		\dash\data::sortList(\lib\app\domains\filter::sort_list());
 
 
+		$count_group_by_status = \lib\app\nic_domain\dashboard::count_group_by_status();
+		\dash\data::groupByStatus($count_group_by_status);
+
 		$urlGetList = \dash\request::get('list');
 
-		$data_list  = $urlGetList ? $urlGetList : 'renew';
+		if($urlGetList)
+		{
+			$data_list  = $urlGetList; // ? $urlGetList : 'renew';
+		}
+		else
+		{
+			if(a($count_group_by_status, 'maybe') == 0)
+			{
+				if(a($count_group_by_status, 'imported') == 0)
+				{
+					if(a($count_group_by_status, 'available') == 0)
+					{
+						$data_list = 'renew';
+					}
+					else
+					{
+						$data_list = 'available';
+					}
+				}
+				else
+				{
+					$data_list = 'import';
+				}
+			}
+			else
+			{
+				$data_list = 'renew';
+			}
+		}
+
 
 		$args =
 		[
@@ -45,9 +77,6 @@ class view
 		$filterBox     = \lib\app\nic_domain\search::filter_message();
 		$isFiltered    = \lib\app\nic_domain\search::is_filtered();
 
-
-		$count_group_by_status = \lib\app\nic_domain\dashboard::count_group_by_status();
-		\dash\data::groupByStatus($count_group_by_status);
 
 		\dash\data::filterBox($filterBox);
 
