@@ -7,8 +7,10 @@
           <div class="c-auto"><a target="_blank" data-direct href="https://<?php echo \dash\data::domainDetail_name() ?>" rel="nofollow noopener"><?php echo T_("Visit Domain"); ?> <i class="sf-link-external"></i></a></div>
         </div>
       </div>
-      <?php if(\dash\data::tempPeriod()) {?>
+      <?php if(\dash\data::tempPeriod() === 'register') {?>
         <div class="font-12">* <?php echo T_("You registered this domain for :val.", ['val' => '<b>'. \dash\data::tempPeriod(). '</b>']). ' '. T_("After approved domain by IRNIC your domain expire date will be updated"); ?></div>
+      <?php }elseif(\dash\data::tempPeriod() === 'renew') {?>
+        <div class="font-12">* <?php echo T_("You renew this domain for :val.", ['val' => '<b>'. \dash\data::tempPeriod(). '</b>']). ' '. T_("After approved renew by IRNIC your domain expire date will be updated"); ?></div>
         <?php }//endif ?>
     </div>
   </div>

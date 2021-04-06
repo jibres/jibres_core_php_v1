@@ -210,7 +210,12 @@ class ready
 
 						if(in_array('irnicRegistrationPendingDomainCheck', $nicstatus) || in_array('irnicRegistrationDocRequired', $nicstatus))
 						{
-							$result['temp_period'] = true;
+							$result['temp_period'] = 'register';
+						}
+
+						if(in_array('pendingRenew', $nicstatus))
+						{
+							$result['temp_period'] = 'renew';
 						}
 
 						$other_status_html = '';
@@ -319,6 +324,7 @@ class ready
 			$result['verifychangenameserver'] = true;
 
 		}
+
 
 
 		/**

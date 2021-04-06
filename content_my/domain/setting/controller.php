@@ -58,7 +58,7 @@ class controller
 					$domain_id = \dash\coding::decode(\dash\data::domainDetail_id());
 					if($domain_id)
 					{
-						$register_action = \lib\app\nic_domainaction\get::last_record_domain_id_caller($domain_id, 'register');
+						$register_action = \lib\app\nic_domainaction\get::last_record_domain_id_caller($domain_id, $load_domain['temp_period']);
 						if(isset($register_action['period']) && $register_action['period'])
 						{
 							\dash\data::tempPeriod($register_action['period_title']);
