@@ -94,6 +94,10 @@ class connection
 		\mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
 		// \mysqli_options($link, MYSQLI_OPT_READ_TIMEOUT, 30);
 
+		// set charset on connection option
+		// TODO @reza check below line
+		// \mysqli_options($link, MYSQLI_SET_CHARSET_NAME, 'utf8');
+
 
 		if(!isset($_love['user']))
 		{
@@ -243,6 +247,32 @@ class connection
 		{
 			// set charset for link
 			@mysqli_set_charset($link, 'utf8mb4');
+
+
+			// TODO @reza check and test below line then insert on production
+			// printf("Initial character set: %s\n", $link->character_set_name());
+			// if (!$link->set_charset("utf8mb4"))
+			// {
+			// 	printf("Error loading character set utf8mb4: %s\n", $link->error);
+			// }
+			// else
+			// {
+			// 	printf("Current character set: %s\n", $link->character_set_name());
+			// }
+			//
+			// OR
+			//
+			// printf("Initial character set: %s\n", mysqli_character_set_name($link));
+
+			// /* change character set to utf8mb4 */
+			// if (!mysqli_set_charset($link, "utf8mb4")) {
+			//     printf("Error loading character set utf8mb4: %s\n", mysqli_error($link));
+			//     exit();
+			// } else {
+			//     printf("Current character set: %s\n", mysqli_character_set_name($link));
+			// }
+
+
 			// save link as global variable
 			self::$link = $link;
 			self::$link_open[$LinkKey] = $link;
