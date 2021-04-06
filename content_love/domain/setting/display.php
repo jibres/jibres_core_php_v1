@@ -211,6 +211,13 @@ else
       <td><?php echo T_("Last check domain owner with whois") ?></td>
       <td class="txtRa"><?php echo \dash\fit::date_time(\dash\data::domainDetail_ownercheckdate()) ?></td>
      </tr>
+     <tr>
+
+      <td colspan="2"><div class="btn link" data-ajaxify data-data='{"whois" : "fetch"}'><?php echo T_("Update now") ?></div></td>
+
+     </tr>
+
+
 
     </table>
   </div>

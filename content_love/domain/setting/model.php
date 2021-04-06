@@ -6,6 +6,13 @@ class model
 {
 	public static function post()
 	{
+		 if(\dash\request::post('whois') == 'fetch' && \dash\permission::supervisor())
+	    {
+	      \lib\app\domains\owner::fetch_domain_owner(\dash\data::domainDetail_name());
+	      \dash\notif::ok(T_("Domain owner fetched"));
+	      \dash\redirect::pwd();
+	      return;
+	    }
 		if(\dash\request::post('clean') == 'lastfetch' && \dash\permission::supervisor())
 		{
 			$result = \lib\app\nic_domain\edit::remove_last_fetch(\dash\data::domainDetail_id());
