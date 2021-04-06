@@ -343,6 +343,7 @@ class renew
 			'finalprice'     => $finalprice,
 			'transaction_id' => $transaction_id,
 			'giftusage_id'   => $gift_usage_id,
+			'detail'         => json_encode(['old_expire_date' => $current_expiredate], JSON_UNESCAPED_UNICODE),
 		];
 
 		\lib\app\nic_domainaction\action::set('renew', $domain_action_detail);
