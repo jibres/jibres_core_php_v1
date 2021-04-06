@@ -11,7 +11,14 @@
           </select>
         </div>
         <textarea name="text" class="txt mB10" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
+        <?php if(!\dash\engine\store::inStore() && \dash\permission::supervisor()) {?>
+          <div class="check1">
+            <input type="checkbox" name="sendsms" id="sendsms">
+            <label for="sendsms"><?php echo T_("Also send by sms") ?> <i class="sf-mobile"></i></label>
+          </div>
+        <?php } //endif ?>
       </div>
+
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Send") ?></button>
       </footer>
