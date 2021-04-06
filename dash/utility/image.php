@@ -92,7 +92,7 @@ class image
 			return false;
 		}
 
-		if(!isset(self::$img))
+		if(!isset(self::$img) || is_bool(self::$img) || !self::$img)
 		{
 			return false;
 		}
