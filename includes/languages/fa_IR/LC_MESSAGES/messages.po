@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-04-06 18:13+0430\n"
-"PO-Revision-Date: 2021-04-06 18:15+0430\n"
+"POT-Creation-Date: 2021-04-06 18:29+0430\n"
+"PO-Revision-Date: 2021-04-06 18:30+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -735,7 +735,7 @@ msgstr "نوروز ۱۴۰۰ با جشنواره ۱۰۰۰ دامنه جیبرس �
 
 #: content/campaign/nowruz1400/view.php:10
 msgid "We have a special gift for your. 1000 .ir domain for 1000 person."
-msgstr "هدیه‌ای ویژه برای شما داریم. ۱۰۰۰ دامنه آی‌آر برای ۱۰۰۰ نفر"
+msgstr "هدیه‌ای ویژه برای شما داریم. ۱۰۰۰ دامنه آی‌آر برای ۱۰۰۰ نفر."
 
 #: content/campaign/view.php:9
 msgid "Jibres Campaigns"
@@ -1413,7 +1413,7 @@ msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
 #: content/domains/home/domain-topBox.php:30 content_love/domain/home/display.php:216
-#: content_my/domain/setting/elements/detail.php:47
+#: content_my/domain/setting/elements/detail.php:51
 msgid "Renew"
 msgstr "تمدید"
 
@@ -4880,8 +4880,8 @@ msgstr "پیگیری"
 #: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:499
 #: lib/app/gift/filter.php:44 lib/app/nic_domain/ready.php:150
 #: lib/app/nic_domain/ready.php:152 lib/app/nic_domain/ready.php:158
-#: lib/app/nic_domain/ready.php:160 lib/app/nic_domain/ready.php:231
-#: lib/app/nic_domain/ready.php:233 lib/app/nic_domain/ready.php:412
+#: lib/app/nic_domain/ready.php:160 lib/app/nic_domain/ready.php:236
+#: lib/app/nic_domain/ready.php:238 lib/app/nic_domain/ready.php:418
 #: lib/app/store/filter.php:29
 msgid "Enable"
 msgstr "فعال"
@@ -19122,23 +19122,23 @@ msgstr "نمایش ردپا"
 
 #: content_love/domain/detail/display.php:13 content_love/domain/detail/display.php:23
 #: content_love/domain/detail/display.php:38 content_love/domain/setting/display.php:17
-#: content_my/domain/setting/elements/detail.php:18
+#: content_my/domain/setting/elements/detail.php:22
 msgid "Status & Validity"
 msgstr "وضعیت دامنه"
 
 #: content_love/domain/detail/display.php:50 content_love/domain/setting/display.php:24
-#: content_my/domain/setting/elements/detail.php:28 lib/app/domains/filter.php:57
+#: content_my/domain/setting/elements/detail.php:32 lib/app/domains/filter.php:57
 #: lib/app/domains/filter.php:58
 msgid "Registrar"
 msgstr "ریجسترر"
 
 #: content_love/domain/detail/display.php:54 content_love/domain/setting/display.php:28
-#: content_my/domain/setting/elements/detail.php:35
+#: content_my/domain/setting/elements/detail.php:39
 msgid "Registered on"
 msgstr "ثبت شده در"
 
 #: content_love/domain/detail/display.php:58 content_love/domain/setting/display.php:32
-#: content_my/domain/setting/elements/detail.php:42
+#: content_my/domain/setting/elements/detail.php:46
 msgid "Expired on"
 msgstr "منقضی در"
 
@@ -19150,7 +19150,7 @@ msgid "Renew domain"
 msgstr "تمدید دامنه"
 
 #: content_love/domain/detail/display.php:67 content_love/domain/setting/display.php:41
-#: content_my/domain/setting/elements/detail.php:56
+#: content_my/domain/setting/elements/detail.php:60
 msgid "Last activity"
 msgstr "آخرین فعالیت"
 
@@ -21371,13 +21371,21 @@ msgstr "وب‌سایت من را بساز"
 msgid "Visit Domain"
 msgstr "بازدید از دامنه"
 
-#: content_my/domain/setting/elements/detail.php:11
+#: content_my/domain/setting/elements/detail.php:12
 msgid "You registered this domain for :val."
 msgstr "شما این دامنه را برای بازه زمانی :val ثبت کرده‌اید."
 
-#: content_my/domain/setting/elements/detail.php:11
+#: content_my/domain/setting/elements/detail.php:12
 msgid "After approved domain by IRNIC your domain expire date will be updated"
 msgstr "پس از تایید دامنه توسط ایرنیک،‌ تاریخ انقضای دامنه شما به‌روزرسانی خواهد شد"
+
+#: content_my/domain/setting/elements/detail.php:15
+msgid "You renew this domain for :val."
+msgstr "شما این دامنه را برای بازه زمانی :val تمدید کرده‌اید."
+
+#: content_my/domain/setting/elements/detail.php:15
+msgid "After approved renew by IRNIC your domain expire date will be updated"
+msgstr "پس از تایید تمدید دامنه توسط ایرنیک،‌ تاریخ انقضای دامنه شما به‌روزرسانی خواهد شد"
 
 #: content_my/domain/setting/elements/irnic.php:8
 msgid "Domain Holders"
@@ -35553,7 +35561,7 @@ msgstr "ثبت دامنه تایید شد"
 msgid "Domain Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:388
+#: lib/app/nic_domain/ready.php:394
 msgid "Register now"
 msgstr "هم‌اکنون ثبت‌نام کنید"
 
