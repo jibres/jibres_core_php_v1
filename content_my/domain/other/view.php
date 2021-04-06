@@ -58,6 +58,18 @@ class view
 			}
 		}
 
+		$count_group_by_status_link = 0;
+
+		foreach ($count_group_by_status as $key => $value)
+		{
+			if(floatval($value) > 0)
+			{
+				$count_group_by_status_link++;
+			}
+		}
+
+		\dash\data::countGroupByStatusLink($count_group_by_status_link);
+
 
 		$args =
 		[

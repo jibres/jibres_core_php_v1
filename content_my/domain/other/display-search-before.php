@@ -1,4 +1,4 @@
-<?php require_once(root. 'content_my/domain/need_verify_email.php'); ?>
+<?php if(\dash\data::countGroupByStatusLink() > 1) {?>
 <div class="row">
 
     <?php if(\dash\data::groupByStatus_maybe() > 0) {?>
@@ -27,3 +27,5 @@
     <?php } //endif ?>
 
 </div>
+<?php } //endif ?>
+<?php require_once(root. 'content_my/domain/need_verify_email.php'); ?>
