@@ -162,15 +162,15 @@ class subdomain
 			return false;
 		}
 
-		if(self::jibres($data))
-		{
-			if($_notif)
-			{
-				\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
-				\dash\cleanse::$status = false;
-			}
-			return false;
-		}
+		// if(self::jibres($data))
+		// {
+		// 	if($_notif)
+		// 	{
+		// 		\dash\notif::error(T_("You can not choose this subdomain"), ['element' => $_element]);
+		// 		\dash\cleanse::$status = false;
+		// 	}
+		// 	return false;
+		// }
 
 		if(self::verybadwords($data))
 		{
