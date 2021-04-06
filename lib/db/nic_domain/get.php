@@ -85,6 +85,14 @@ class get
 	}
 
 
+	public static function for_anybody($_domain)
+	{
+		$query  = "SELECT * FROM domain WHERE domain.name = '$_domain'  LIMIT 1";
+		$result = \dash\db::get($query, null, true, 'nic');
+		return $result;
+	}
+
+
 
 
 	public static function who_verify_enable_domain($_domain)

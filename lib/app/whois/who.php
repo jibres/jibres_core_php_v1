@@ -58,6 +58,11 @@ class who
 			self::save_nic_contact_detail($result);
 		}
 
+		if($_domain && $result)
+		{
+			\lib\app\domains\owner::update_owner_detail($result, $_domain);
+		}
+
 		return $result;
 
 	}

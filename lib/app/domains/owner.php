@@ -27,25 +27,33 @@ class owner
 				self::fetch_domain_owner($value['name']);
 			}
 		}
-
-
 	}
 
 
 	public static function fetch_domain_owner($_domain)
 	{
-		$domain = $_domain;
+		\lib\db\nic_domain\update::update_by_domain(['ownercheckdate' => date("Y-m-d H:i:s")], $_domain);
 
-		\lib\db\nic_domain\update::update_by_domain(['ownercheckdate' => date("Y-m-d H:i:s")], $domain);
+		$whois_detail = \lib\app\whois\who::is($_domain);
 
-		$whois_detail = \lib\app\whois\who::is($domain);
+		self::update_owner_detail($whois_detail, $_domain);
+	}
+
+
+	public static function update_owner_detail($_whois_detail, $_domain)
+	{
+
+		if(!\lib\db\nic_domain\get::for_anybody($_domain))
+		{
+			return;
+		}
 
 		$email  = null;
 		$mobile = null;
 
-		if(isset($whois_detail['registrar']) && is_array($whois_detail['registrar']))
+		if(isset($_whois_detail['registrar']) && is_array($_whois_detail['registrar']))
 		{
-			foreach ($whois_detail['registrar'] as $key => $value)
+			foreach ($_whois_detail['registrar'] as $key => $value)
 			{
 				if(isset($value['e-mail']) && $value['e-mail'])
 				{
@@ -85,7 +93,7 @@ class owner
 				'ownercheckdate' => date("Y-m-d H:i:s"),
 			];
 
-			\lib\db\nic_domain\update::update_by_domain($update, $domain);
+			\lib\db\nic_domain\update::update_by_domain($update, $_domain);
 		}
 	}
 }
