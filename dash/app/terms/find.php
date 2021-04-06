@@ -36,7 +36,7 @@ class find
 		{
 			if(isset($value['title']) && isset($value['link']))
 			{
-				$link = '$1<a href="'. $value['link']. '"> #$2</a> ';
+				$link = '$1<a href="'. $value['link']. '" data-hashtag-dir > #$2</a> ';
 
 				$new_string = preg_replace("/(\s|\>)#(\w+)/u", $link, $_string);
 			}
