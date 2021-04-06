@@ -19,7 +19,7 @@
   </div>
 <?php } ?>
 
-
+  <?php if(\dash\data::domainDetail_holder() || \dash\data::domainDetail_admin() || \dash\data::domainDetail_tech() || \dash\data::domainDetail_bill() || \dash\data::domainDetail_reseller()) {?>
   <table class="tbl1 minimal">
     <thead>
       <tr>
@@ -29,16 +29,21 @@
       </tr>
     </thead>
     <tbody>
+      <?php if(\dash\data::domainDetail_holder()) {?>
       <tr>
         <td><?php echo T_("IRNIC holder"); ?></td>
         <td class="ltr"><?php echo \dash\data::domainDetail_holder(); ?></td>
         <td class="collapsing s0"></td>
       </tr>
+    <?php }//endif ?>
+      <?php if(\dash\data::domainDetail_admin()) {?>
       <tr>
         <td><?php echo T_("IRNIC admin"); ?></td>
         <td class="ltr"><?php echo \dash\data::domainDetail_admin(); ?></td>
         <td class="collapsing s0"></td>
       </tr>
+    <?php } //endif ?>
+      <?php if(\dash\data::domainDetail_tech()) {?>
       <tr>
         <td><?php echo T_("IRNIC technical"); ?></td>
         <td><span class="compact"><?php echo \dash\data::domainDetail_tech(); ?></span></td>
@@ -48,6 +53,8 @@
         <td class="collapsing s0"></td>
 <?php } ?>
       </tr>
+    <?php } //endif ?>
+    <?php if(\dash\data::domainDetail_bill()) {?>
       <tr>
         <td><?php echo T_("IRNIC billing"); ?></td>
         <td class=""><span class="compact"><?php echo \dash\data::domainDetail_bill(); ?></span></td>
@@ -57,6 +64,8 @@
       <td class="collapsing s0"></td>
 <?php } ?>
       </tr>
+    <?php  }//endif ?>
+    <?php if(\dash\data::domainDetail_reseller()) {?>
       <tr>
         <td><?php echo T_("Reseller"); ?></td>
         <td><span class="compact"><?php echo \dash\data::domainDetail_reseller(); ?></span></td>
@@ -66,9 +75,11 @@
         <td class="collapsing s0"></td>
 <?php } ?>
       </tr>
+    <?php } //endif ?>
 
     </tbody>
   </table>
+<?php  }//endif ?>
   <footer>
     <div class="row" data-space='high'>
       <div class="c-auto">
