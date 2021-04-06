@@ -6,7 +6,7 @@ class find
 {
 	public static function tag(string $_string, array $_current_tag = [])
 	{
-		$check = preg_match_all("/(\s|\>)#(\w+)/u", $_string, $split);
+		$check = preg_match_all('/(\s|\>)#([[:^print:]\w]+)/', $_string, $split);
 
 		if(isset($split[2]) && is_array($split[2]))
 		{
@@ -36,18 +36,13 @@ class find
 		{
 			if(isset($value['title']) && isset($value['link']))
 			{
-				$link = '$1<a href="'. $value['link']. '" data-hashtag-dir > #$2</a> ';
-
-				$new_string = preg_replace("/(\s|\>)#(\w+)/u", $link, $_string);
+				$link_string = '<a href="'. $value['link']. '" data-hashtag-dir > #'. $value['title'].'</a> ';
+				$_string = str_replace('#'. $value['title'], $link_string, $_string);
 			}
 		}
 
-		if($new_string === null)
-		{
-			$new_string = $_string;
-		}
+		return $_string;
 
-		return $new_string;
 	}
 }
 ?>
