@@ -118,7 +118,7 @@ class log
 			$_args = array_merge($_args, $before_add);
 		}
 
-		$is_notif = self::call_fn($_caller, 'is_notif');
+		$is_notif = self::call_fn($_caller, 'is_notif', $_args);
 
 		$field['notif'] = $is_notif ? 1 : null;
 
@@ -401,7 +401,7 @@ class log
 
 		$master_lang = \dash\language::current();
 
-		$telegram      = self::call_fn($_caller, 'telegram');
+		$telegram      = self::call_fn($_caller, 'telegram', $_args);
 		if($telegram)
 		{
 			foreach ($_user_detail as $key => $value)
@@ -441,7 +441,7 @@ class log
 			}
 		}
 
-		$sms      = self::call_fn($_caller, 'sms');
+		$sms      = self::call_fn($_caller, 'sms', $_args);
 
 		if($sms)
 		{
@@ -481,7 +481,7 @@ class log
 			}
 		}
 
-		$email      = self::call_fn($_caller, 'email');
+		$email      = self::call_fn($_caller, 'email', $_args);
 
 		if($email)
 		{
