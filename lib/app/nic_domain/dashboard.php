@@ -61,28 +61,40 @@ class dashboard
 
 
 		$my_all = $result['my_domain'];
-		if(!$my_all)
+		if($my_all)
 		{
-			$my_all = 1;
+			$result['domain_lock_percent']       = round($count_lock * 100 / $my_all);
+			$result['domain_lock_percent_title'] = \dash\fit::text("$count_lock ".T_("From"). " $my_all");
+		}
+		else
+		{
+			$result['domain_lock_percent']       = 0;
+			$result['domain_lock_percent_title'] = \dash\fit::text("0 ".T_("From"). " 0");
 		}
 
 		$my_active_domain = $result['my_domain'];
 
-		if(!$my_active_domain)
+		if($my_active_domain)
 		{
-			$my_active_domain = 1;
+			$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_active_domain);
+			$result['domain_autorenew_percent_title'] = \dash\fit::text("$count_autorenew ".T_("From"). " $my_active_domain");
+
+			$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_active_domain);
+			$result['domain_active_percent_title']    = \dash\fit::text("$result[my_domain] ".T_("From"). " $my_active_domain");
+		}
+		else
+		{
+			$result['domain_autorenew_percent'] = 0;
+			$result['domain_autorenew_percent_title'] = \dash\fit::text("0 ".T_("From"). " 0");
+
+			$result['domain_active_percent']       = 0;
+			$result['domain_active_percent_title'] = \dash\fit::text("0 ".T_("From"). " 0");
+
 		}
 
 		$result['expire_week']              = intval(\lib\app\nic_domain\search::list(null, ['get_count' => true, 'expireat' => 'week']));
 		$result['expire_month']             = intval(\lib\app\nic_domain\search::list(null, ['get_count' => true, 'expireat' => 'month']));;
 		$result['expire_year']              = intval(\lib\app\nic_domain\search::list(null, ['get_count' => true, 'expireat' => 'year']));;
-		$result['domain_autorenew_percent'] = round($count_autorenew * 100 / $my_active_domain);
-		$result['domain_lock_percent']      = round($count_lock * 100 / $my_all);
-		$result['domain_active_percent']    = round($result['my_domain'] * 100 / $my_active_domain);
-
-		$result['domain_autorenew_percent_title'] = \dash\fit::text("$count_autorenew ".T_("From"). " $my_active_domain");
-		$result['domain_lock_percent_title']      = \dash\fit::text("$count_lock ".T_("From"). " $my_all");
-		$result['domain_active_percent_title']    = \dash\fit::text("$result[my_domain] ".T_("From"). " $my_active_domain");
 
 		$result['user_budget']              = \dash\user::budget();
 		$result['user_unit']                = \lib\currency::unit();
