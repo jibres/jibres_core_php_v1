@@ -14,7 +14,7 @@ class owner
 		{
 			foreach ($not_checked as $key => $value)
 			{
-				self::check_owner($value);
+				self::fetch_domain_owner($value['name']);
 			}
 		}
 
@@ -24,7 +24,7 @@ class owner
 		{
 			foreach ($need_check_owner_again as $key => $value)
 			{
-				self::check_owner($value);
+				self::fetch_domain_owner($value['name']);
 			}
 		}
 
@@ -32,17 +32,11 @@ class owner
 	}
 
 
-	private static function check_owner($_detail)
+	public static function fetch_domain_owner($_domain)
 	{
-		if(!isset($_detail['name']) || !isset($_detail['id']))
-		{
-			return;
-		}
+		$domain = $_domain;
 
-		$domain = $_detail['name'];
-		$id     = $_detail['id'];
-
-		\lib\db\nic_domain\update::update(['ownercheckdate' => date("Y-m-d H:i:s")], $id);
+		\lib\db\nic_domain\update::update_by_domain(['ownercheckdate' => date("Y-m-d H:i:s")], $domain);
 
 		$whois_detail = \lib\app\whois\who::is($domain);
 
@@ -91,7 +85,7 @@ class owner
 				'ownercheckdate' => date("Y-m-d H:i:s"),
 			];
 
-			\lib\db\nic_domain\update::update($update, $id);
+			\lib\db\nic_domain\update::update_by_domain($update, $domain);
 		}
 	}
 }

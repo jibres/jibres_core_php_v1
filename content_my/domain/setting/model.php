@@ -35,6 +35,13 @@ class model
 			return;
 		}
 
+		if(\dash\request::post('whois') == 'fetch' && \dash\permission::supervisor())
+		{
+			\lib\app\domains\owner::fetch_domain_owner(\dash\data::domainDetail_name());
+			\dash\notif::ok(T_("Domain owner fetched"));
+			\dash\redirect::pwd();
+			return;
+		}
 
 		if(\dash\request::post('runaction_autorenew'))
 		{
