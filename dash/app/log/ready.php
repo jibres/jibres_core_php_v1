@@ -37,7 +37,7 @@ class ready
 				case 'data':
 					if($value && is_string($value))
 					{
-						$result['data'] = json_decode($value, true);
+						$result['data'] = \dash\json::decode($value, true);
 					}
 					break;
 
