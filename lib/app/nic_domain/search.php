@@ -282,37 +282,43 @@ class search
 		}
 		else
 		{
+			$mobile = null;
+			if(\dash\user::detail('verifymobile'))
+			{
+				$mobile = \dash\user::detail('mobile');
+			}
+
+			$emails = null;
+			$have_emails = self::get_email_list();
+
+			if($have_emails)
+			{
+				$emails = implode("','", $have_emails);
+			}
+
+			$mobile_emails_query     = null;
+			$mobile_emails_not_query = null;
+
+			if($emails && $mobile)
+			{
+				$mobile_emails_query = " OR domain.mobile = '$mobile' OR domain.email IN ('$emails') ";
+				$mobile_emails_not_query = " ( (domain.mobile IS NULL OR domain.mobile != '$mobile') AND (domain.email IS NULL OR domain.email NOT IN ('$emails')) ) ";
+			}
+			elseif($mobile)
+			{
+				$mobile_emails_query = " OR  domain.mobile = '$mobile' ";
+				$mobile_emails_not_query = "  (domain.mobile IS NULL OR domain.mobile != '$mobile') ";
+
+			}
+			elseif($emails)
+			{
+				$mobile_emails_query = " OR  domain.email IN ('$emails') ";
+				$mobile_emails_not_query = "  (domain.email IS NULL OR  domain.email NOT IN ('$emails')) ";
+			}
+
 
 			if(!$data['list'] || $data['list'] === 'mydomain')
 			{
-				$mobile = null;
-				if(\dash\user::detail('verifymobile'))
-				{
-					$mobile = \dash\user::detail('mobile');
-				}
-
-				$emails = null;
-				$have_emails = self::get_email_list();
-
-				if($have_emails)
-				{
-					$emails = implode("','", $have_emails);
-				}
-
-				$mobile_emails_query = null;
-				if($emails && $mobile)
-				{
-					$mobile_emails_query = " OR domain.mobile = '$mobile' OR domain.email IN ('$emails') ";
-				}
-				elseif($mobile)
-				{
-					$mobile_emails_query = " OR  domain.mobile = '$mobile' ";
-
-				}
-				elseif($emails)
-				{
-					$mobile_emails_query = " OR  domain.email IN ('$emails') ";
-				}
 				$and[] = " ( domain.available = 0 OR domain.available IS NULL) ";
 				$and[] = " ( domain.verify = 1  $mobile_emails_query )";
 
@@ -320,6 +326,7 @@ class search
 			elseif($data['list'] === 'renew')
 			{
 				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND ( domain.available = 0 OR domain.available IS NULL) AND (domain.gateway IS NULL OR domain.gateway != 'import') ";
+				$and[] = " ( $mobile_emails_not_query ) ";
 			}
 			elseif($data['list'] === 'available')
 			{
@@ -328,6 +335,7 @@ class search
 			elseif($data['list'] === 'import')
 			{
 				$and[] = " domain.gateway = 'import' AND ( domain.available = 0 OR domain.available IS NULL)AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
+				$and[] = " ( $mobile_emails_not_query ) ";
 			}
 		}
 
