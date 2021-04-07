@@ -9,7 +9,7 @@ class general
 	{
 		if(!is_string($_text) && !is_numeric($_text))
 		{
-			\dash\waf\dog::BITE('only T/N on len', 428);
+			\dash\waf\dog::BITE('only T/N on len', 416);
 		}
 
 		// convert numeric to string
@@ -21,11 +21,11 @@ class general
 		$myLen = strlen($_text);
 		if($myLen < $_min)
 		{
-			\dash\waf\dog::BITE('No '. $myLen. '<'. $_min, 428);
+			\dash\waf\dog::BITE('No '. $myLen. '<'. $_min, 411);
 		}
 		if($myLen > $_max)
 		{
-			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max, 428);
+			\dash\waf\dog::BITE('No '. $myLen. '>'. $_max, 413);
 		}
 	}
 
@@ -34,7 +34,7 @@ class general
 	{
 		if(!is_string($_text) && !is_numeric($_text))
 		{
-			\dash\waf\dog::BITE('only T/N on len', 428);
+			\dash\waf\dog::BITE('only T/N on len', 416);
 		}
 
 		// convert numeric to string
@@ -46,11 +46,11 @@ class general
 		$myLen = mb_strlen($_text);
 		if($myLen < $_min)
 		{
-			\dash\waf\dog::BITE('mNo '. $myLen. '<'. $_min, 428);
+			\dash\waf\dog::BITE('mNo '. $myLen. '<'. $_min, 411);
 		}
 		if($myLen > $_max)
 		{
-			\dash\waf\dog::BITE('mNo '. $myLen. '>'. $_max, 428);
+			\dash\waf\dog::BITE('mNo '. $myLen. '>'. $_max, 413);
 		}
 	}
 
@@ -61,11 +61,11 @@ class general
 		$count = count($_array);
 		if($count < $_min)
 		{
-			\dash\waf\dog::BITE('Arr '. $count. '<'. $_min, 428);
+			\dash\waf\dog::BITE('Arr '. $count. '<'. $_min, 411);
 		}
 		if($count > $_max)
 		{
-			\dash\waf\dog::BITE('Arr '. $count. '>'. $_max, 428);
+			\dash\waf\dog::BITE('Arr '. $count. '>'. $_max, 413);
 		}
 	}
 
