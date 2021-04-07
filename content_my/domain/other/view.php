@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_("Domains"));
 
 		// btn
-		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_text(T_('Domain Center'));
 		\dash\data::back_link(\dash\url::this());
 
 		\dash\face::btnImport(\dash\url::this().'/import');
