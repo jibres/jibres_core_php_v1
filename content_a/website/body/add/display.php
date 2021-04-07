@@ -121,4 +121,23 @@
   </div>
 </section>
 
+
+
+
+<section class="f" data-option='website-block-subscribe'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Subscribe box");?></h3>
+      <div class="body">
+        <p><?php echo T_("Add line for Subscribe input"); ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/subscribe"><?php echo T_("Add News subscribe") ?></a>
+    </div>
+  </div>
+</section>
+
 </div>

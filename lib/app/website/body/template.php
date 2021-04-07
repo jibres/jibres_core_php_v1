@@ -119,6 +119,15 @@ class template
 		];
 
 
+
+		$list[] =
+		[
+			'key'          => 'subscribe',
+			'title'        => T_("Subscribe"),
+			'version'      => 1,
+		];
+
+
 		return $list;
 	}
 
