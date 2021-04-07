@@ -134,6 +134,13 @@ class template
 			'version'      => 1,
 		];
 
+			$list[] =
+		[
+			'key'          => 'application',
+			'title'        => T_("Application"),
+			'version'      => 1,
+		];
+
 
 		return $list;
 	}

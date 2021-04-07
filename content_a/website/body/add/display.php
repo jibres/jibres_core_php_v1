@@ -161,4 +161,24 @@
 </section>
 
 
+
+
+
+<section class="f" data-option='website-block-application'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("application box");?></h3>
+      <div class="body">
+        <p><?php echo T_("Add line for application input"); ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/application"><?php echo T_("Add News application") ?></a>
+    </div>
+  </div>
+</section>
+
+
 </div>
