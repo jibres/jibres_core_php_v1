@@ -48,7 +48,7 @@ class controller
 			return;
 		}
 
-		if(time() - intval($access['time']) > (60*10))
+		if(time() - intval($access['time']) > (60*60))
 		{
 			\dash\session::clean('su_access');
 
