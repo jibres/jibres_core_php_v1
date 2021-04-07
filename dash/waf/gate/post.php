@@ -61,11 +61,11 @@ class post
 
 		if($_need_html)
 		{
-			\dash\waf\gate\toys\general::len($value, 0, 50000);
+			\dash\waf\gate\toys\general::mb_len($value, 0, 100000);
 		}
 		else
 		{
-			\dash\waf\gate\toys\general::len($value, 0, 5000);
+			\dash\waf\gate\toys\general::mb_len($value, 0, 5000);
 			// not allow tag in value of post
 			\dash\waf\gate\toys\block::tags($value, $key);
 		}
