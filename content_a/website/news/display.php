@@ -36,7 +36,7 @@
 
 <?php require_once(root. 'content_a/website/display-limit.php') ?>
 
-
+<?php if($lineSetting) {?>
 <section class="f" data-option='website-line-news-remove'>
   <div class="c8 s12">
     <div class="data">
@@ -52,3 +52,4 @@
       </div>
   </div>
 </section>
+<?php }// endif ?>

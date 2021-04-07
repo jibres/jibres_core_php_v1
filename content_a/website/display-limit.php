@@ -17,7 +17,16 @@
   </form>
 </section>
 <?php
-$puzzle = \lib\app\website\puzzle::list(a($lineSetting, 'limit'));
+
+if(!$lineSetting)
+{
+  $puzzle = \lib\app\website\puzzle::default_list();
+}
+else
+{
+  $puzzle = \lib\app\website\puzzle::list(a($lineSetting, 'limit'));
+}
+
 if($puzzle && count($puzzle) > 1)
 {
 ?>

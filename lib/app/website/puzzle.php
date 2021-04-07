@@ -17,6 +17,13 @@ class puzzle
 	}
 
 
+	public static function default_list()
+	{
+		// default list if no limit selected
+		return self::list(8);
+	}
+
+
 	public static function list($_limit)
 	{
 		$result = [];
