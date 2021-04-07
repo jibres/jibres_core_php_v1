@@ -34,11 +34,11 @@ class agent
 			[
 				'agent'    => $agent,
 				'agentmd5' => md5($agent),
-				'group'    => isset($agent_detail['browser_working']) ? $agent_detail['browser_working'] : null,
-				'name'     => isset($agent_detail['browser_name']) 	 ? $agent_detail['browser_name'] 	: null,
-				'version'  => isset($agent_detail['browser_number'])  ? $agent_detail['browser_number'] 	: null,
-				'os'       => isset($agent_detail['os']) 			 ? $agent_detail['os'] 				: null,
-				'osnum'    => isset($agent_detail['os_number']) 		 ? $agent_detail['os_number'] 		: null,
+				'group'    => isset($agent_detail['browser_working']) ? addslashes($agent_detail['browser_working']) : null,
+				'name'     => isset($agent_detail['browser_name']) 	  ? addslashes($agent_detail['browser_name']) 	 : null,
+				'version'  => isset($agent_detail['browser_number'])  ? addslashes($agent_detail['browser_number'])  : null,
+				'os'       => isset($agent_detail['os']) 			  ? addslashes($agent_detail['os']) 			 : null,
+				'osnum'    => isset($agent_detail['os_number']) 	  ? addslashes($agent_detail['os_number']) 		 : null,
 				'meta'     => json_encode($agent_detail, true),
 				'robot'    => $is_bot ? 1 : null,
 			];
