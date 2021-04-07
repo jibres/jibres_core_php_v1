@@ -127,6 +127,13 @@ class template
 			'version'      => 1,
 		];
 
+		$list[] =
+		[
+			'key'          => 'socialnetwork',
+			'title'        => T_("Socialnetwork"),
+			'version'      => 1,
+		];
+
 
 		return $list;
 	}
