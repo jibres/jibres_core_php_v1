@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Domains"));
+		\dash\face::title(T_("Other Domains"));
 
 		// btn
 		\dash\data::back_text(T_('Domain Center'));
@@ -31,6 +31,7 @@ class view
 		if($urlGetList)
 		{
 			$data_list  = $urlGetList; // ? $urlGetList : 'renew';
+			\dash\face::title(T_("Other Domains"). ' - '. T_($urlGetList));
 		}
 		else
 		{
