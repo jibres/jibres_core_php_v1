@@ -120,9 +120,9 @@ class dataarray
 		foreach ($data as $tag)
 		{
 			$count++;
-			if($count > 20)
+			if($count > 100)
 			{
-				\dash\notif::warn(T_("You can set maximum 20 tag"));
+				\dash\notif::warn(T_("You can set maximum 100 tag"));
 				break;
 			}
 
@@ -210,9 +210,9 @@ class dataarray
 		foreach ($data as $tag)
 		{
 			$count++;
-			if($count > 5)
+			if($count > 50)
 			{
-				\dash\notif::warn(T_("You can set maximum 5 cat"));
+				\dash\notif::warn(T_("You can set maximum 50 cat"));
 				break;
 			}
 
