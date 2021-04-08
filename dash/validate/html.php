@@ -114,6 +114,8 @@ class html
 
 		$data = trim($data);
 
+		$data = \dash\safe::persian_char($data);
+
 		return $data;
 	}
 
