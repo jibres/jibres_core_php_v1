@@ -85,7 +85,7 @@ echo "<i class='sf-". $fType. "' title='". a($dataRow, 't_type'). "'>". "</i>";
 			<li>
 				<a class="f item">
 					<div class="key"><?php echo T_("Ratio") ?></div>
-					<div class="value"><?php echo \dash\fit::text(\lib\ratio::ratio_title(a($dataRow, 'ratio'))); ?></div>
+					<div class="value"><?php $ratioTitle = \lib\ratio::ratio_title(a($dataRow, 'ratio')); if(!$ratioTitle) {$ratioTitle = round(a($dataRow, 'ratio'), 2);} echo \dash\fit::text($ratioTitle); ?></div>
 				</a>
 			</li>
 			<?php } //endif ?>
