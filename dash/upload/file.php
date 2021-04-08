@@ -278,7 +278,7 @@ class file
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
 		{
 
-			$ratio_detail = \dash\utility\image::get_ratio($directory['full'], true);
+			$ratio_detail = \dash\utility\image::get_ratio($real_addr, true);
 
 			if(isset($ratio_detail['height']))
 			{
