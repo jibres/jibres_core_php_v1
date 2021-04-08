@@ -303,12 +303,6 @@ class gallery
 			$gallery_array = $load_post['gallery']['files'];
 		}
 
-		$current_thumb_id = null;
-		if(isset($load_post['gallery']['thumbid']) && is_array($load_post['gallery']['thumbid']))
-		{
-			$current_thumb_id = $load_post['gallery']['thumbid'];
-		}
-
 
 		if(!$gallery_array)
 		{
