@@ -77,7 +77,7 @@ class check
 		else
 		{
 
-			$check_duplicate_args = ['type' => $data['type'], 'url' => $data['url'], 'language' => $data['language'], 'limit' => 1];
+			$check_duplicate_args = ['type' => $myType, 'url' => $data['url'], 'limit' => 1];
 			// check duplicate
 			// type+lang+slug
 			$check_duplicate = \dash\db\terms\get::get_raw($check_duplicate_args);
@@ -100,7 +100,7 @@ class check
 					}
 					else
 					{
-						\dash\notif::error(T_("Duplicate term"), 'title');
+						\dash\notif::error(T_("Duplicate term"), ['element' => ['url']]);
 					}
 
 					if($data['multiple_insert'])
