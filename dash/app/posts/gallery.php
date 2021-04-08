@@ -42,38 +42,38 @@ class gallery
 				}
 			}
 
-			$first_is_not_image = false;
+			// $first_is_not_image = false;
 
-			if(isset($gallery_raw[0]['type']) && $gallery_raw[0]['type'] !== 'image')
-			{
-				$first_is_not_image = true;
-			}
+			// if(isset($gallery_raw[0]['type']) && $gallery_raw[0]['type'] !== 'image')
+			// {
+			// 	$first_is_not_image = true;
+			// }
 
-			$new_gallery_raw = [];
-			$temp_gallery_raw = $gallery_raw;
+			// $new_gallery_raw = [];
+			// $temp_gallery_raw = $gallery_raw;
 
-			if($first_is_not_image && count($gallery_raw) >= 2)
-			{
-				foreach ($temp_gallery_raw as $key => $value)
-				{
-					$break = false;
+			// if($first_is_not_image && count($gallery_raw) >= 2)
+			// {
+			// 	foreach ($temp_gallery_raw as $key => $value)
+			// 	{
+			// 		$break = false;
 
-					if(isset($value['type']) && $value['type'] === 'image')
-					{
-						$new_gallery_raw[] = $value;
-						unset($temp_gallery_raw[$key]);
-						$break = true;
-					}
+			// 		if(isset($value['type']) && $value['type'] === 'image')
+			// 		{
+			// 			$new_gallery_raw[] = $value;
+			// 			unset($temp_gallery_raw[$key]);
+			// 			$break = true;
+			// 		}
 
-					if($break)
-					{
-						break;
-					}
-				}
+			// 		if($break)
+			// 		{
+			// 			break;
+			// 		}
+			// 	}
 
-				$new_gallery_raw = array_merge($new_gallery_raw, $temp_gallery_raw);
-				$gallery_raw = $new_gallery_raw;
-			}
+			// 	$new_gallery_raw = array_merge($new_gallery_raw, $temp_gallery_raw);
+			// 	$gallery_raw = $new_gallery_raw;
+			// }
 
 			return $gallery_raw;
 		}
