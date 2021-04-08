@@ -270,7 +270,7 @@ class html
 
 		if(!in_array($analyze_url['root'], $allow_upload_provider))
 		{
-			\dash\temp::set('check_img_url_path', T_("We can not support this image url!"));
+			\dash\temp::set('check_img_url_path', T_("We can not support this image host url!"));
 			return false;
 		}
 
