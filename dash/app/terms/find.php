@@ -6,7 +6,8 @@ class find
 {
 	public static function tag(string $_string, array $_current_tag = [])
 	{
-		$check = preg_match_all('/(\s|\>)#([[:^print:]\w]+)/', $_string, $split);
+
+		$check = preg_match_all('/(\s|\>)#([[:^print:]\w]+)/u', $_string, $split);
 
 		if(isset($split[2]) && is_array($split[2]))
 		{
