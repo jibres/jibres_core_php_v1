@@ -195,7 +195,7 @@ class part
 					switch (a($myMedia, 'type'))
 					{
 						case 'image':
-							$html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3 c-xxl-2" data-type="'. a($myMedia, 'type'). '">';
+							$html .= '<div class="c-xs-6 c-sm-6 c-md-4 c-lg-3" data-type="'. a($myMedia, 'type'). '">';
 							{
 								$html .= '<a data-action href="'. $myMedia['path'].'" data-fancybox="productGallery">';
 								$html .= '<img src="'. \dash\fit::img($myMedia['path'], 460). '" alt="'. \dash\data::dataRow_title(). '">';
