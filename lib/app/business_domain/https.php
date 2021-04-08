@@ -110,6 +110,15 @@ class https
 			{
 				if(isset($get_https_setting['data']['f_ssl_status']) && $get_https_setting['data']['f_ssl_status'])
 				{
+					// need to update f_ssl_redirect.
+					// arvan can not enable this option on first request https
+					$update_https_args =
+					[
+						"f_ssl_redirect" => true,
+					];
+
+					\lib\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
+
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
 
 					\lib\app\business_domain\edit::edit_raw(['status' => 'ok', 'httpsverify' => 1, 'httpsrequest' => date("Y-m-d H:i:s")], $_id);
