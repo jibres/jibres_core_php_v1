@@ -50,6 +50,8 @@
             <tr><td><?php echo T_("Total user use this gift card"); ?></td><td class="txtL"><?php echo \dash\fit::number(a($dashboard, 'usageuser')); ?></td></tr>
             <tr><td><?php echo T_("First use date"); ?></td><td class="txtL ltr"><?php echo \dash\fit::date_time(a($dashboard, 'firstusage', 'datecreated')); ?></td></tr>
             <tr><td><?php echo T_("Last use date"); ?></td><td class="txtL ltr"><?php echo \dash\fit::date_time(a($dashboard, 'lastusage', 'datecreated')); ?></td></tr>
+            <tr><td><?php echo T_("Total price"); ?> <small>(<?php echo \lib\currency::unit(); ?>)</small></td><td class="txtL ltr"><?php echo \dash\fit::number(a($dashboard, 'totalparice')); ?></td></tr>
+
             <tr><td></td><td class="txtL"><a href="<?php echo \dash\url::this(). '/usage?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show usage list"); ?></a></td></tr>
 
           </tbody>

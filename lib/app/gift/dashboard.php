@@ -48,6 +48,7 @@ class dashboard
 		$result['lastusage']     = \lib\db\giftusage\get::last_usage_id($id);
 		$result['firstusage']    = \lib\db\giftusage\get::first_usage_id($id);
 
+		$result['totalparice'] = \lib\db\giftusage\get::total_parice($id);
 
 		return $result;
 	}

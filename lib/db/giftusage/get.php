@@ -4,7 +4,12 @@ namespace lib\db\giftusage;
 
 class get
 {
-
+	public static function total_parice ($_id)
+	{
+		$query  = "SELECT SUM(domainbilling.price) AS `price` FROM domainbilling WHERE domainbilling.giftusage_id = $_id";
+		$result = \dash\db::get($query, 'price', true, 'nic');
+		return floatval($result);
+	}
 
 	public static function count_usage()
 	{
