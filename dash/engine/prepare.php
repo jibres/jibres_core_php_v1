@@ -49,6 +49,9 @@ class prepare
 		// register_shutdown_function(['\dash\engine\runtime', 'shutdown']);
 		register_shutdown_function(['\dash\waf\race', 'requestDone']);
 
+		// close all scp connection
+		register_shutdown_function(['\dash\scp', 'disconnect']);
+
 		// close all mysql connection
 		register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
 	}
