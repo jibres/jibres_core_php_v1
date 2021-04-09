@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.posts ADD `analyzecontent` text  CHARACTER SET utf8mb4  NULL DEFAULT NULL;
