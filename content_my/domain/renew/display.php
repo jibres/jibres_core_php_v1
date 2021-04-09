@@ -21,7 +21,7 @@
     <div class="body">
 
       <div class="input ltr mB10">
-          <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80>
+          <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" disabled maxlength=80>
       </div>
 
 
@@ -66,7 +66,7 @@
 
 
       <div class="check1 mT10">
-        <input type="checkbox" id="sChk1" name="agree">
+        <input type="checkbox" id="sChk1" name="agree" checked>
         <label for="sChk1"><?php
         echo T_("By clicking Renew, you are indicating that you have read the :nic and agree to the :terms.",
           [

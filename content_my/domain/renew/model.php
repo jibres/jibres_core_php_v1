@@ -9,7 +9,7 @@ class model
 
 		$post =
 		[
-			'domain' => \dash\request::post('domain'),
+			'domain' => \dash\request::get('domain'),
 			'period' => \dash\request::post('period'),
 			'agree'  => \dash\request::post('agree'),
 		];
