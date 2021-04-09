@@ -7,13 +7,14 @@ class find
 	public static function tag(string $_string, array $_current_tag = [])
 	{
 
-		$check = preg_match_all('/(\s|\>)#([[:^print:]\w]+)/u', $_string, $split);
+		// $check = preg_match_all('/(\s|\>)#([[:^print:]\w]+)/u', $_string, $split);
+		$check = preg_match_all('/(\s|\>)#([\p{L}+\p{C}+]+)/u', $_string, $split);
 
 		if(isset($split[2]) && is_array($split[2]))
 		{
 			foreach ($split[2] as $key => $value)
 			{
-				if(mb_strlen($value) < 50)
+				if(mb_strlen($value) < 50 && $value)
 				{
 					$_current_tag[] = $value;
 				}
