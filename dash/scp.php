@@ -47,6 +47,18 @@ class scp
 	}
 
 
+	public static function disconnect()
+	{
+		if(self::$connection)
+		{
+			@ssh2_disconnect(self::$connection);
+			self::$connection     = null;
+			self::$home_directory = null;
+		}
+	}
+
+
+
 	private static function fix_home_dir($_remote_file)
 	{
 		return self::$home_directory. '/'. $_remote_file;
@@ -205,6 +217,21 @@ class scp
 			return false;
 		}
 
+	}
+
+
+	public static function get_streams($_remote_path)
+	{
+		self::connect();
+
+		$sftp   = @ssh2_sftp(self::$connection);
+
+		$stream  = 'ssh2.sftp://';
+		$stream .= $sftp;
+		$stream .= self::$home_directory;
+		$stream .= '/';
+		$stream .= $_remote_path;
+		return $stream;
 	}
 
 
