@@ -6,8 +6,8 @@ class get
 {
 	public static function total_parice ($_id)
 	{
-		$query  = "SELECT SUM(domainbilling.price) AS `price` FROM domainbilling WHERE domainbilling.giftusage_id = $_id";
-		$result = \dash\db::get($query, 'price', true, 'nic');
+		$query  = "SELECT SUM(giftusage.price) AS `price` FROM giftusage WHERE giftusage.gift_id = $_id";
+		$result = \dash\db::get($query, 'price', true);
 		return floatval($result);
 	}
 
