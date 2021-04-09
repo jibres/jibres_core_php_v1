@@ -70,6 +70,20 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				case 'analyzecontent':
+					if($value && is_string($value))
+					{
+						$value = json_decode($value, true);
+					}
+
+					if(!is_array($value))
+					{
+						$value = [];
+					}
+
+					$result[$key] = $value;
+					break;
+
 				case 'thumb':
 				case 'cover':
 					if($value)
@@ -246,21 +260,7 @@ class ready
 		}
 
 
-		// unset some private variable in api
-		if(\dash\temp::get('isApi'))
-		{
-			unset($result['icon_list']);
-			unset($result['meta']);
-			unset($result['special']);
-			unset($result['autoexcerpt']);
-			unset($result['language']);
-			unset($result['post_title']);
-			unset($result['gallery']);
-			unset($result['publishdate_message']);
-			unset($result['tstatus']);
-			unset($result['seo_rank_star']);
 
-		}
 
 		if(is_null(a($result, 'comment')))
 		{
@@ -348,6 +348,33 @@ class ready
 			$result['readingtime'] = \dash\utility\human::time($readingtime * 60, true);
 		}
 
+		if(!a($result, 'thumb'))
+		{
+			if(isset($result['analyzecontent']['image_url'][0]) && is_string($result['analyzecontent']['image_url'][0]))
+			{
+				$result['thumb']            = $result['analyzecontent']['image_url'][0];
+				$result['thumbFromContent'] = true;
+			}
+		}
+
+
+
+			// unset some private variable in api
+		if(\dash\temp::get('isApi'))
+		{
+			unset($result['icon_list']);
+			unset($result['thumbFromContent']);
+			unset($result['meta']);
+			unset($result['special']);
+			unset($result['autoexcerpt']);
+			unset($result['language']);
+			unset($result['post_title']);
+			unset($result['gallery']);
+			unset($result['publishdate_message']);
+			unset($result['tstatus']);
+			unset($result['seo_rank_star']);
+
+		}
 
 		return $result;
 	}

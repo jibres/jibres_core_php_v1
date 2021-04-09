@@ -174,7 +174,17 @@ switch (a($value, 'type'))
 <?php
 } // don't show gallery bo
 // the gallery box only show when the post subtype is standart or gallery
- ?>
+
+
+
+
+// load thumb
+$thumbUrl = \dash\data::dataRow_thumb();
+if(\dash\data::dataRow_thumbFromContent())
+{
+  $thumbUrl = null;
+}
+?>
 
 
 <section class="f mB10-f" data-option='cms-post-thumb'>
@@ -187,11 +197,11 @@ switch (a($value, 'type'))
     </div>
   </div>
   <form class="c4 s12" method="post" >
-    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?> data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-type='featureImage'>
+    <div class="action" data-uploader data-name='thumb' <?php echo \dash\data::ratioHtml() ?> data-final='#finalImageThumb' data-autoSend <?php if($thumbUrl) { echo "data-fill";}?> data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-type='featureImage'>
       <input type="hidden" name="runaction_setthumb" value="1">
       <input type="file" accept="image/jpeg, image/png" id="image1thumb">
       <label for="image1thumb"><?php echo $chooseTxt ?></label>
-      <?php if(\dash\data::dataRow_thumb()) {?><label for="image1thumb"><img src="<?php echo \dash\fit::img(\dash\data::dataRow_thumb(), 460) ?>" alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb"></label><?php } //endif ?>
+      <?php if($thumbUrl) {?><label for="image1thumb"><img src="<?php echo \dash\fit::img($thumbUrl, 460) ?>" alt="<?php echo T_("Featured image"); ?>" id="finalImageThumb"></label><?php } //endif ?>
     </div>
   </form>
 
@@ -202,7 +212,7 @@ switch (a($value, 'type'))
         </div>
         <div class="c"></div>
         <div class="c-auto">
-          <?php if(\dash\data::dataRow_thumb()) {?>
+          <?php if($thumbUrl) {?>
             <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="link fc-red"><?php echo T_("Remove featured image") ?></div>
           <?php } //endif ?>
         </div>
