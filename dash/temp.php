@@ -46,5 +46,28 @@ class temp
 		}
 		return null;
 	}
+
+
+	/**
+	 * Append value to temp variable
+	 *
+	 * @param      <type>  $_key    The key
+	 * @param      <type>  $_value  The value
+	 */
+	public static function append($_key, $_value)
+	{
+		$get = self::get($_key);
+
+		if(is_array($get))
+		{
+			$get[] = $_value;
+
+			self::set($_key, $get);
+		}
+		else
+		{
+			self::set($_key, [$_value]);
+		}
+	}
 }
 ?>

@@ -140,6 +140,8 @@ class html
 
 		$allow_tag = self::allow_tag();
 
+		$analyze_content = [];
+
 		foreach ($allow_tag as $tag => $detail)
 		{
 
@@ -151,8 +153,16 @@ class html
 
 			if($nodes->length)
 			{
+
 				foreach( $nodes as $nodeTagName )
 				{
+					if(!isset($analyze_content['tag_counter'][$tag]))
+					{
+						$analyze_content['tag_counter'][$tag] = 0;
+					}
+
+					$analyze_content['tag_counter'][$tag]++;
+
 					$nodeNewTagname = $doc->createElement($tag, self::DOMinnerHTML($nodeTagName));
 
 					foreach ($detail['allow_attr'] as $attr)
@@ -192,6 +202,28 @@ class html
 			$data = $new_html;
 
 		}
+
+		if(\dash\temp::get('analyzeCotentImageUrl'))
+		{
+			$analyze_content['image_url'] = \dash\temp::get('analyzeCotentImageUrl');
+
+			if(is_array($analyze_content['image_url']))
+			{
+				$analyze_content['image_count'] = count($analyze_content['image_url']);
+			}
+		}
+
+		if(\dash\temp::get('analyzeCotentVideoUrl'))
+		{
+			$analyze_content['video_url'] = \dash\temp::get('analyzeCotentVideoUrl');
+
+			if(is_array($analyze_content['image_url']))
+			{
+				$analyze_content['image_count'] = count($analyze_content['image_url']);
+			}
+		}
+
+		\dash\temp::set('analyzeCotent', $analyze_content);
 
 		$data = htmlspecialchars_decode($data);
 		$data = preg_replace("/\n/", ' ', $data);
@@ -274,6 +306,8 @@ class html
 			return false;
 		}
 
+		\dash\temp::append('analyzeCotentImageUrl', $_url);
+
 		return true;
 	}
 
@@ -288,11 +322,13 @@ class html
 
 		if(substr($_url, 0, 20) === 'https://youtube.com/')
 		{
+			\dash\temp::append('analyzeCotentVideoUrl', $_url);
 			return true;
 		}
 
 		if(substr($_url, 0, 24) === 'https://www.youtube.com/')
 		{
+			\dash\temp::append('analyzeCotentVideoUrl', $_url);
 			return true;
 		}
 

@@ -57,6 +57,11 @@ class add
 			unset($args['content']);
 		}
 
+		if(\dash\temp::get('analyzeCotent') && is_array(\dash\temp::get('analyzeCotent')))
+		{
+			$args['analyzecontent'] = json_encode(\dash\temp::get('analyzeCotent'));
+		}
+
 		$post_id = null;
 		if(!empty($args))
 		{
