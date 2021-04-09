@@ -355,6 +355,21 @@ class ready
 				$result['thumb']            = $result['analyzecontent']['image_url'][0];
 				$result['thumbFromContent'] = true;
 			}
+			else
+			{
+				if(isset($result['gallery_array']) && is_array($result['gallery_array']))
+				{
+					foreach ($result['gallery_array'] as $one_gallery)
+					{
+						if(isset($one_gallery['type']) && $one_gallery['type'] === 'image' && isset($one_gallery['path']))
+						{
+							$result['thumb']            = $one_gallery['path'];
+							$result['thumbFromContent'] = true;
+							break;
+						}
+					}
+				}
+			}
 		}
 
 
