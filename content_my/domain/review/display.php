@@ -138,7 +138,7 @@
           <label for="gift"><?php echo T_("If you have gift cart enter here") ?> 🎁</label>
           <div class="input ltr">
             <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" maxlength="50" placeholder='<?php echo T_("Gift code") ?>'>
-            <button class="btn primary addon"><?php echo T_("Check"); ?></button>
+            <button class="btn primary addon"><?php echo T_("Apply"); ?></button>
           </div>
         </form>
 
@@ -215,13 +215,14 @@ $giftCode = \dash\data::giftDetail_discount();
 
            </tr>
 <?php } // endif ?>
+<?php $mypayedprice = \dash\data::myPrice() - $giftCode;  if($mypayedprice < 0) { $mypayedprice = 0; } ?>
 
-<?php if(\dash\data::userBudget()) {?>
+<?php if(\dash\data::userBudget() && $mypayedprice) {?>
            <tr data-budget='<?php echo \dash\data::userBudget(); ?>'>
             <th>
               <div><?php echo T_("Account Balance") ?></div>
               <div class="check1">
-                <input type="checkbox" name="usebudget" id="budget" checked>
+                <input type="checkbox" name="usebudget" id="budget" >
                 <label for="budget"><?php echo T_("Pay from my account balance"); ?></label>
               </div>
             </th>
@@ -235,7 +236,6 @@ $giftCode = \dash\data::giftDetail_discount();
            <tr data-payable>
             <th><?php echo T_("Amount payable") ?></th>
             <td class="txtRa collapsing">
-              <?php $mypayedprice = \dash\data::myPrice() - \dash\data::userBudget() - $giftCode;  if($mypayedprice < 0) { $mypayedprice = 0; } ?>
               <span class="txtB fs20" id='domainPayablePrice'><?php echo \dash\fit::number($mypayedprice) ?></span>
               <span class="fc-mute mLa5"><?php echo \lib\currency::unit();?></span>
             </td>
