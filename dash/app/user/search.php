@@ -121,6 +121,10 @@ class search
 			$and[] = " users.status = '$data[status]' ";
 			self::$is_filtered = true;
 		}
+		else
+		{
+			$and[] = " users.status NOT IN ('removed', 'unreachable') ";
+		}
 
 
 		$query_string = \dash\validate::search($_query_string, false);

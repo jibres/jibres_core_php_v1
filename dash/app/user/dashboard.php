@@ -166,7 +166,7 @@ class dashboard
 	public static function detail()
 	{
 		$dashboard_detail                 = [];
-		$dashboard_detail['users']        = \dash\db\users::get_count();
+		$dashboard_detail['users']        = \dash\db\users::count_ok_users();
 		$dashboard_detail['permissions']  = count(\dash\permission::groups());
 		$dashboard_detail['chart']        = self::chart_transaction();
 		$dashboard_detail['success_percent'] = self::transactions_success_percent();

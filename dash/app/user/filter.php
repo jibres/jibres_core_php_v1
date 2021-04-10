@@ -27,6 +27,10 @@ class filter
 		$list['active']            = ['key' => 'active', 'group' => T_("Status"), 'title' => T_('Active user'), 	'query' => ['status' => 'active'], 	'public' => true];
 		$list['awaiting']          = ['key' => 'awaiting', 'group' => T_("Status"), 'title' => T_('Awaiting user'), 	'query' => ['status' => 'awaiting'], 	'public' => true];
 		$list['ban']               = ['key' => 'ban', 'group' => T_("Status"), 'title' => T_('Banned user'), 	'query' => ['status' => 'ban'], 	'public' => true];
+		$list['unreachable']       = ['key' => 'unreachable', 'group' => T_("Status"), 'title' => T_('Unreachable user'), 	'query' => ['status' => 'unreachable'], 	'public' => true];
+		$list['removed']           = ['key' => 'removed', 'group' => T_("Status"), 'title' => T_('Removed user'), 	'query' => ['status' => 'removed'], 	'public' => true];
+
+
 
 		$list['havepermission']    = ['key' => 'havepermission', 'group' => T_("Permission"), 'title' => T_('Have permission'), 	'query' => ['hp' => 'y'], 	'public' => true];
 		$list['havenotpermission'] = ['key' => 'havenotpermission', 'group' => T_("Permission"), 'title' => T_('Have not permission'), 	'query' => ['hp' => 'n'], 	'public' => true];
