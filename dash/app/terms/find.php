@@ -34,13 +34,10 @@ class find
 	{
 		$new_string = null;
 
-		foreach ($_tags as $key => $value)
+		foreach ($_tags as $tag)
 		{
-			if(isset($value['title']) && isset($value['link']))
-			{
-				$link_string = '<a href="'. $value['link']. '" data-hashtag-dir > #'. $value['title'].'</a> ';
-				$_string = str_replace('#'. $value['title'], $link_string, $_string);
-			}
+			$link = '$1<a href="'. $tag['link']. '" data-hashtag-dir >#$2</a>$3';
+			$_string = preg_replace('/(\s|\>)#('.$tag['title'].')([^\p{L}+^\p{C}+]+)/u', $link, $_string);
 		}
 
 		return $_string;
