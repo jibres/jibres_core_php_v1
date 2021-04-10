@@ -3,6 +3,21 @@ namespace lib\app\business_domain;
 
 class dns
 {
+	public static function check_remove($_domain)
+	{
+		return; // i'm not sure!
+
+		$_domain = \dash\validate::string_200($_domain, false);
+		if($_domain)
+		{
+			$get     = \lib\db\business_domain\get::check_is_customer_domain($_domain);
+
+			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete')
+			{
+				\lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $get['id']);
+			}
+		}
+	}
 
 	private static function meta($_data, $_data2 = [])
 	{

@@ -77,6 +77,19 @@ class get
 		{
 			self::ir_domain_fetch($_domain, $_load_domain);
 		}
+
+		$load_domain = \lib\app\nic_domain\ready::row($_load_domain);
+
+		if(isset($domain_detail['jibres_dns']) && $domain_detail['jibres_dns'])
+		{
+			// ok. in jibres cdn
+		}
+		else
+		{
+			// if exists in business domain remove it
+			\lib\app\business_domain\dns::check_remove($_domain);
+		}
+
 	}
 
 	private static function com_domain_fetch($_domain, $_load_domain)
