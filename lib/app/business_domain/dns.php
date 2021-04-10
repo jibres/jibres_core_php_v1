@@ -5,7 +5,6 @@ class dns
 {
 	public static function check_remove($_domain)
 	{
-		return; // i'm not sure!
 
 		$_domain = \dash\validate::string_200($_domain, false);
 		if($_domain)
@@ -14,7 +13,9 @@ class dns
 
 			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete')
 			{
-				\lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $get['id']);
+				\dash\log::to_supervisor('Try to remove domain <b>'. $_domain .'</b> from arvancloud. But not removed yet. Just alert for cheking ok!');
+
+				// \lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $get['id']);
 			}
 		}
 	}
