@@ -183,7 +183,7 @@ class run
 		if($response === false)
 		{
 			// echo Errors
-			\dash\log::set('IRNIC:CurlError', ['message' => $CurlError]);
+			\dash\log::set('IRNIC:CurlError', ['message' => addslashes($CurlError)]);
 			\dash\notif::warn(T_("Can not connect to domain server"));
 
 			// \dash\notif::error(curl_error($ch));
