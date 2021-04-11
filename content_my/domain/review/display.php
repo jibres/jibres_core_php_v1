@@ -180,7 +180,7 @@ $giftCode = \dash\data::giftDetail_discount();
     </div>
 
 
-    <form method="post" autocomplete="off">
+    <form method="post" autocomplete="off" data-timeout="0">
     <div class="box impact">
      <div class="body">
         <table class="tbl1 v5">

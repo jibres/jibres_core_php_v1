@@ -15,7 +15,7 @@
 
   <?php }else{ ?>
 
-    <form method="post" autocomplete="off">
+    <form method="post" autocomplete="off" data-timeout="0">
       <div class="avand-sm">
         <div class="box">
           <div class="body">
