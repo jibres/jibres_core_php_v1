@@ -80,8 +80,11 @@ class edit
 			$mobile_list = array_filter($mobile_list);
 			$mobile_list = array_unique($mobile_list);
 			$mobiles = [];
+
 			foreach ($mobile_list as $key => $value)
 			{
+				$value = \dash\utility\convert::to_en_number($value);
+				$value = preg_replace("/\D/", '', $value);
 				$temp = \dash\validate::mobile($value, false);
 				if($temp)
 				{
@@ -101,9 +104,7 @@ class edit
 			}
 		}
 
-
 		$args = \dash\cleanse::patch_mode($_args, $data);
-
 
 		if(!empty($args))
 		{
