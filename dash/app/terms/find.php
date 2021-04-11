@@ -8,7 +8,7 @@ class find
 	{
 
 		// $check = preg_match_all('/(\s|\>)#([[:^print:]\w]+)/u', $_string, $split);
-		$check = preg_match_all('/(\s|\>)#([\p{L}+\p{C}+]+)/u', $_string, $split);
+		$check = preg_match_all('/(\s|\>)#([\p{L}\p{C}\_]+)/u', $_string, $split);
 
 		if(isset($split[2]) && is_array($split[2]))
 		{
@@ -37,7 +37,7 @@ class find
 		foreach ($_tags as $tag)
 		{
 			$link = '$1<a href="'. $tag['link']. '" data-hashtag-dir >#$2</a>$3';
-			$_string = preg_replace('/(\s|\>)#('.$tag['title'].')([^\p{L}+^\p{C}+]+)/u', $link, $_string);
+			$_string = preg_replace('/(\s|\>)#('.$tag['title'].')([^\p{L}^\p{C}^\_]+)/u', $link, $_string);
 		}
 
 		return $_string;
