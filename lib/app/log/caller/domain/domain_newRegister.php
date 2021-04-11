@@ -77,6 +77,14 @@ class domain_newRegister
 			$msg .= ' '. T_("Total payed :val ", ['val' => \dash\fit::number($my_finalprice)]);
 		}
 
+		if(isset($_args['data']['log_user_detail']['fullname']))
+		{
+			$msg .= ' | '. $_args['data']['log_user_detail']['fullname']. ' ';
+		}
+		if(isset($_args['data']['log_user_detail']['mobile']) && $_args['data']['log_user_detail']['mobile'])
+		{
+			$msg .= ' '. \dash\fit::mobile($_args['data']['log_user_detail']['mobile']). ' ';
+		}
 
 		return $msg;
 	}
@@ -94,6 +102,11 @@ class domain_newRegister
 		return date("Y-m-d H:i:s", time() + (60*60*24*7));
 	}
 
+
+	public static function save_user_detail()
+	{
+		return true;
+	}
 
 	public static function is_notif()
 	{
