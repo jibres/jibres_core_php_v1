@@ -80,7 +80,7 @@ class get
 
 		$load_domain = \lib\app\nic_domain\ready::row($_load_domain);
 
-		if(isset($domain_detail['jibres_dns']) && $domain_detail['jibres_dns'])
+		if(isset($load_domain['jibres_dns']) && $load_domain['jibres_dns'])
 		{
 			// ok. in jibres cdn
 		}
