@@ -16,6 +16,11 @@ class view
 		\dash\data::myContactList($list);
 
 		\dash\data::autorenewperiod(\lib\app\nic_usersetting\defaultval::user_autorenewperiod(\dash\user::id()));
+
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\face::help('https://help.jibres.ir/irnic/renew');
+		}
 	}
 }
 ?>

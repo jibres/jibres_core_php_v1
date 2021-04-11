@@ -16,6 +16,10 @@ class view
 		\dash\notif::clean();
 		\dash\engine\process::continue();
 
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\face::help('https://help.jibres.ir/irnic/buy-domain');
+		}
 
 		\dash\data::irOneYearPrice(\lib\app\nic_domain\price::register('1year'));
 

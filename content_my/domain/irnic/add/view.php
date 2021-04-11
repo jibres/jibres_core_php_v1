@@ -12,6 +12,12 @@ class view
 		{
 			\dash\face::title(T_("Create IRNIC handle"));
 		}
+
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\face::help('https://help.jibres.ir/irnic/create-new-handle');
+		}
+
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());

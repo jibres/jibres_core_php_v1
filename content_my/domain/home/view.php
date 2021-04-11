@@ -19,6 +19,12 @@ class view
 
 		\dash\face::btnImport(\dash\url::this().'/import');
 
+
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\face::help('https://help.jibres.ir/irnic/buy-domain');
+		}
+
 		$dashboard_detail = \lib\app\nic_domain\dashboard::user();
 		\dash\data::dashboardDetail($dashboard_detail);
 

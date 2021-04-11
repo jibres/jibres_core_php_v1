@@ -40,6 +40,11 @@ class view
 		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::that());
 		\dash\data::sortLink($sortLink);
 
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\face::help('https://help.jibres.ir/irnic/3letters');
+		}
+
 	}
 }
 ?>
