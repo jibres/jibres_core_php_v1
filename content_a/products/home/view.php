@@ -53,6 +53,10 @@ class view
 		if(\dash\request::get('t')) 	$args['t']    = \dash\request::get('t');
 		if(\dash\request::get('tq')) 	$args['tq']    = \dash\request::get('tq');
 
+		if(\dash\detect\device::detectPWA())
+		{
+			$args['limit'] = 30;
+		}
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
 
