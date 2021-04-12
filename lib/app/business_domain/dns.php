@@ -13,9 +13,10 @@ class dns
 
 			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete')
 			{
-				\dash\log::to_supervisor('Try to remove domain <b>'. $_domain .'</b> from arvancloud. But not removed yet. Just alert for cheking ok!');
+				\lib\app\business_domain\remove::force_remove($get['id']);
 
-				// \lib\app\business_domain\edit::edit_raw(['status' => 'pending_delete'], $get['id']);
+				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> Will be removed from ArvanCloud CDN panel.');
+
 			}
 		}
 	}

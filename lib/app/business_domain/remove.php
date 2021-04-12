@@ -25,15 +25,29 @@ class remove
 				\lib\store::reset_cache($load['store_id']);
 				\lib\app\business_domain\business::reset_list($load['store_id']);
 
-				\lib\db\business_domain\delete::all_domain_action($id);
-				\lib\db\business_domain\delete::all_domain_dns($id);
-				\lib\db\business_domain\delete::by_id($id);
+				// \lib\db\business_domain\delete::all_domain_action($id);
+				// \lib\db\business_domain\delete::all_domain_dns($id);
+				// \lib\db\business_domain\delete::by_id($id);
+				\lib\app\business_domain\edit::edit_raw(['status' => 'deleted'], $id);
 			}
 		}
 
 		\dash\notif::delete(T_("Domain removed"));
 
 		return true;
+	}
+
+
+	public static function force_remove($_id)
+	{
+		$remove_from_cdn_panel = \lib\app\business_domain\cdnpanel::remove($_id);
+		if($remove_from_cdn_panel)
+		{
+			\lib\app\business_domain\edit::edit_raw(['status' => 'deleted'], $_id);
+			// \lib\db\business_domain\delete::all_domain_action($_id);
+			// \lib\db\business_domain\delete::all_domain_dns($_id);
+			// \lib\db\business_domain\delete::by_id($_id);
+		}
 	}
 
 

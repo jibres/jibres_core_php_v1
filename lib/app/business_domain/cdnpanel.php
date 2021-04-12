@@ -30,8 +30,20 @@ class cdnpanel
 
 		if(isset($check_exist_domain_on_cdn_panel['data']['id']))
 		{
+			$get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
+
+			if(is_array($get_list_dns_record) && isset($get_list_dns_record['data']))
+			{
+				foreach ($get_list_dns_record['data'] as $dns_detail)
+				{
+					\lib\arvancloud\api::remove_dns_record($domain, $dns_detail['id']);
+				}
+			}
+
 			$arvan_domain_id = $check_exist_domain_on_cdn_panel['data']['id'];
+
 			$remove_domain = \lib\arvancloud\api::delete_domain($domain, $arvan_domain_id);
+
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_remove_domain', ['desc' => "Domain remove result", 'meta' => self::meta($remove_domain)]);
 		}
 		else
@@ -41,7 +53,7 @@ class cdnpanel
 		}
 
 
-		\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'httpsverify' => 0, 'httpsrequest' => null, 'cdnpanel' => null], $_id);
+		\lib\app\business_domain\edit::edit_raw(['status' => 'deleted', 'httpsverify' => 0, 'httpsrequest' => null, 'cdnpanel' => null], $_id);
 
 		\dash\notif::ok(T_("Domain successfully removed from CDN panel"));
 		return true;
