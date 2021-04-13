@@ -347,7 +347,7 @@ class check
 	private static function save_lookup( $_error_type = null, $_error_msg = null)
 	{
 		$insert                = [];
-		$insert['user_id']     = \dash\user::id();
+		$insert['user_id']     = self::$user_id;
 		$insert['code']        = self::$code;
 		$insert['gift_id']     = self::$gift_id;
 		$insert['valid']       = self::$valid ? 'yes' : 'no';
