@@ -42,6 +42,8 @@ class irnic
 			$data = $data. '-irnic';
 		}
 
+		$data = mb_strtolower($data);
+
 		return $data;
 	}
 
