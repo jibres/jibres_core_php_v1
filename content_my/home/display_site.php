@@ -185,7 +185,7 @@ if($listStore_staff && is_array($listStore_staff))
     </ul>
    </nav>
 
-   <?php if(\dash\permission::supervisor()) {?>
+   <?php if(\dash\permission::supervisor() && \dash\request::is_pwa()) {?>
     <nav class="items long">
     <ul>
      <li>
