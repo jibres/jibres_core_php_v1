@@ -272,7 +272,7 @@ if(a($dataRowMember,  'status') === 'ban')
             <div class="go<?php if(\dash\data::dataRowMember_status() == 'active') {echo ' ok check';} ?>"></div>
           </a>
         </li>
-        <?php if(!$inStore && \dash\permission::supervisor()) {?>
+        <?php if(\dash\permission::supervisor()) {?>
         <li>
           <a class="item f" target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?mobile='. \dash\data::dataRowMember_mobile();?>">
             <div class="key"><?php echo T_("Enter by this user") ?></div>
