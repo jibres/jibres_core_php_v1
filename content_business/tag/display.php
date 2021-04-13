@@ -1,5 +1,5 @@
 <?php if(\dash\data::dataTable()) {?>
-  <div class="avand">
+  <div class="avand-md">
     <nav class="items">
       <ul>
         <?php foreach (\dash\data::dataTable() as $key => $value) { ?>
