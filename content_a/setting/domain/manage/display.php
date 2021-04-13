@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() || \dash\data::domainDetail_cdn() !== 'enterprise')) {?>
+  <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() && \dash\data::domainDetail_cdn() !== 'enterprise')) {?>
   <div class="box">
     <div class="body">
       <p>
