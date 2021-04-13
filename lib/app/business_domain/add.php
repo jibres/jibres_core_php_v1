@@ -122,37 +122,45 @@ class add
 
 		if(isset($check_duplicate['id']))
 		{
-
-			$have_error = true;
-			$msg        = T_("Duplicate domain. This domain already added to domains list");
-
-			if(floatval($check_duplicate['store_id']) === floatval(\lib\store::id()))
+			if($check_duplicate['status'] === 'deleted')
 			{
-				$msg = T_("This domain is alreay exists in your business domain list");
-			}
-			elseif(isset($check_duplicate['store_id']))
-			{
-				$msg = T_("Duplicate domain. This domain already taken by another business");
+				$update_store_id = $check_duplicate['id'];
+				// nothing
 			}
 			else
 			{
-				// domain was connected to jibres but not in any store. we connecte first to this store by update this record and set store id in this record
-				$have_error      = false;
-				$update_store_id = $check_duplicate['id'];
-			}
 
-			if($check_duplicate['status'] === 'pending_delete')
-			{
-				$msg = T_("This domain is pending for delete. Please try it later");
-			}
+				$have_error = true;
+				$msg        = T_("Duplicate domain. This domain already added to domains list");
 
-			if($have_error)
-			{
-				if(self::$debug)
+				if(floatval($check_duplicate['store_id']) === floatval(\lib\store::id()))
 				{
-					\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
+					$msg = T_("This domain is alreay exists in your business domain list");
 				}
-				return false;
+				elseif(isset($check_duplicate['store_id']))
+				{
+					$msg = T_("Duplicate domain. This domain already taken by another business");
+				}
+				else
+				{
+					// domain was connected to jibres but not in any store. we connecte first to this store by update this record and set store id in this record
+					$have_error      = false;
+					$update_store_id = $check_duplicate['id'];
+				}
+
+				if($check_duplicate['status'] === 'pending_delete')
+				{
+					$msg = T_("This domain is pending for delete. Please try it later");
+				}
+
+				if($have_error)
+				{
+					if(self::$debug)
+					{
+						\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
+					}
+					return false;
+				}
 			}
 		}
 

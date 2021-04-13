@@ -77,7 +77,7 @@ class search
 
 		if($data['my_list'])
 		{
-			$and[] = " business_domain.status NOT IN ('pending_delete', 'delete') ";
+			$and[] = " business_domain.status NOT IN ('pending_delete', 'deleted') ";
 		}
 
 
