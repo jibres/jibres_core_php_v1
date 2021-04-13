@@ -1,6 +1,6 @@
 <div class="postBlock">
 
- <div class="avand-md">
+ <div class="avand-lg">
 <?php
 
   $myPostByThisCat = \dash\app\posts\search::by_tag_id(\dash\data::dataRow_id());
