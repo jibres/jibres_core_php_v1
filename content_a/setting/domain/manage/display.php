@@ -48,13 +48,13 @@
       <div class="body">
         <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
         <div class="mB20">
-          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail'; \dash\data::needUpdateNameServer(true);} ?>><?php echo T_("DNS resolved"); ?></a>
+          <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_cdnpanel()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Add to CDN panel"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsverify()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS verify"); ?></a>
         </div>
 
-        <?php if(\dash\data::needUpdateNameServer()) {?>
+        <?php if(!\dash\data::domainDetail_dnsok()) {?>
         <div class="msg minumal">
           <?php echo T_("To connect domain to jibres change your domain name server to below value") ?>
           <br>
@@ -69,7 +69,6 @@
             <div data-copy="<?php echo $ns2 ?>">
               <small>Name server #2</small> <code class="txtB"> <?php echo $ns2 ?></code>
             </div>
-
           </div>
         </div>
         <?php } //endif ?>

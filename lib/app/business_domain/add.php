@@ -198,7 +198,7 @@ class add
 
 		if($update_store_id)
 		{
-			\lib\app\business_domain\edit::edit_raw(['store_id' => $data['store_id'], 'master' => $master_domain], $update_store_id);
+			\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'store_id' => $data['store_id'], 'master' => $master_domain], $update_store_id);
 			$business_domain_id = $update_store_id;
 		}
 		else

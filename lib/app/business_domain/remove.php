@@ -78,6 +78,16 @@ class remove
 			$force_remove = true;
 		}
 
+		if(!a($load, 'dnsok'))
+		{
+			$force_remove = true;
+		}
+
+		if(!a($load, 'cdnpanel'))
+		{
+			$force_remove = true;
+		}
+
 		if($force_remove)
 		{
 			self::remove($_id);
