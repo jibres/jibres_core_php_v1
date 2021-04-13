@@ -185,5 +185,24 @@ if($listStore_staff && is_array($listStore_staff))
     </ul>
    </nav>
 
+   <?php if(\dash\permission::supervisor()) {?>
+    <nav class="items long">
+    <ul>
+     <li>
+      <a class="f" href="<?php echo \dash\url::kingdom(). '/love' ?>">
+       <div class="key"><i class="sf-heartbeat"></i> <?php echo T_('Jibres Management');?></div>
+       <div class="go"></div>
+      </a>
+     </li>
+
+     <li>
+      <a class="f" href="<?php echo \dash\url::kingdom(). '/su' ?>">
+       <div class="key"><i class="sf-cog"></i> <?php echo T_('Supervisor Panel');?></div>
+       <div class="go"></div>
+      </a>
+     </li>
+    </ul>
+   </nav>
+ <?php } //endif ?>
   </div>
  </div>
