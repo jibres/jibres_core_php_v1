@@ -1,0 +1,132 @@
+<?php
+namespace lib\app\pagebuilder\line;
+
+
+class tools
+{
+
+	/**
+	 * Call function
+	 *
+	 * @param      <type>  $_class          The class
+	 * @param      <type>  $_function_name  The function name
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function call_fn($_class, $_function_name, $_args = null)
+	{
+		$fn =
+		[
+			'\\lib\\app\\pagebuilder\\elements\\'. $_class,
+			$_function_name
+		];
+
+		if(is_callable($fn))
+		{
+			if($_args !== null)
+			{
+				return call_user_func_array($fn, [$_args]);
+			}
+			else
+			{
+				return call_user_func($fn);
+			}
+
+		}
+		return false;
+	}
+
+
+	/**
+	 * Call function by args
+	 *
+	 * @param      <type>  $_class          The class
+	 * @param      <type>  $_function_name  The function name
+	 * @param      <type>  $_args           The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function call_fn_args($_class, $_function_name, $_args)
+	{
+		return self::call_fn(...func_get_args());
+	}
+
+
+
+	/**
+	 * Global input
+	 * this variable was find in every elements
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function global_input_condition()
+	{
+		$condition =
+		[
+			'title' => 'string_100',
+			'avand' => ['enum' => 11],
+		];
+
+		return $condition;
+	}
+
+
+
+	/**
+	 * Clean input
+	 * some variable reapeat eat page need to clean before run
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function global_clean_input(array $_args)
+	{
+		unset($_args['csrf']);
+		unset($_args['submitall']);
+
+		return $_args;
+	}
+
+
+	public static function global_ready_for_save_db(array $_data)
+	{
+		$data = [];
+
+		if(array_key_exists('title', $_data))
+		{
+			$data['title'] = $_data['title'];
+		}
+
+		$titlesetting = [];
+
+		if(array_key_exists('set_title', $_data))
+		{
+			$titlesetting['set_title'] = $_data['set_title'];
+		}
+
+		if(array_key_exists('show_title', $_data))
+		{
+			$titlesetting['show_title'] = $_data['show_title'];
+		}
+
+		if(array_key_exists('more_link', $_data))
+		{
+			$titlesetting['more_link'] = $_data['more_link'];
+		}
+
+		if(array_key_exists('more_link_caption', $_data))
+		{
+			$titlesetting['more_link_caption'] = $_data['more_link_caption'];
+		}
+
+		if(!empty($titlesetting))
+		{
+			$titlesetting = json_encode($titlesetting, JSON_UNESCAPED_UNICODE);
+
+			$data['titlesetting'] = $titlesetting;
+		}
+
+		return $data;
+	}
+
+}
+?>
