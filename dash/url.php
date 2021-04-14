@@ -1107,6 +1107,22 @@ class url
 	}
 
 
+	/**
+	 * get url base to used in tag or links
+	 * @return sting of base
+	 */
+	public static function persianWebsite()
+	{
+		$link = 'https://jibres.ir';
+		if(self::tld() === 'local')
+		{
+			$link = self::protocol(). '://jibres.local/fa';
+		}
+
+		return $link ;
+	}
+
+
 	public static function canonical()
 	{
 		$myCanonical = self::protocol(). '://';
