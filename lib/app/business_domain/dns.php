@@ -3,7 +3,7 @@ namespace lib\app\business_domain;
 
 class dns
 {
-	public static function check_remove($_domain)
+	public static function check_remove($_domain, $_detail = [])
 	{
 
 		$_domain = \dash\validate::string_200($_domain, false);
@@ -15,7 +15,13 @@ class dns
 			{
 				// \lib\app\business_domain\remove::force_remove($get['id']);
 
-				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> Will be removed from ArvanCloud CDN panel.');
+				$log                           = [];
+				$log['ns1']                    = a($_detail, 'ns1');
+				$log['ns2']                    = a($_detail, 'ns2');
+				$log['jibres_dns']             = a($_detail, 'jibres_dns');
+				$log['business_domain_status'] = a($get, 'status');
+
+				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> Will be removed from ArvanCloud CDN panel. <br> ``` '. json_encode($log, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT). '```');
 
 			}
 		}

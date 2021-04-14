@@ -80,10 +80,10 @@ class get
 
 		$load_domain = \lib\app\nic_domain\ready::row($_load_domain);
 
-		if(a($load_domain, 'jibres_dns') === false)
+		if(a($load_domain, 'ns1') && a($load_domain, 'ns2') && a($load_domain, 'jibres_dns') === false)
 		{
 			// if exists in business domain remove it
-			\lib\app\business_domain\dns::check_remove($_domain);
+			\lib\app\business_domain\dns::check_remove($_domain, $load_domain);
 		}
 
 	}
