@@ -326,7 +326,7 @@ class search
 			elseif($data['list'] === 'renew')
 			{
 				$and[] = " ( domain.verify = 0 OR domain.verify IS NULL ) AND ( domain.available = 0 OR domain.available IS NULL) AND (domain.gateway IS NULL OR domain.gateway != 'import') ";
-				$and[] = " ( $mobile_emails_not_query ) ";
+				$and[] = " $mobile_emails_not_query ";
 			}
 			elseif($data['list'] === 'available')
 			{
@@ -335,7 +335,7 @@ class search
 			elseif($data['list'] === 'import')
 			{
 				$and[] = " domain.gateway = 'import' AND ( domain.available = 0 OR domain.available IS NULL)AND ( domain.verify = 0 OR domain.verify IS NULL ) ";
-				$and[] = " ( $mobile_emails_not_query ) ";
+				$and[] = " $mobile_emails_not_query ";
 			}
 		}
 
