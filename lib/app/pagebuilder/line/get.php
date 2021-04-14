@@ -87,7 +87,17 @@ class get
 		}
 
 		$result            = $detail;
-		$result['contain'] = \lib\app\pagebuilder\line\tools::call_fn($element, 'contain');
+
+		$the_contain = \lib\app\pagebuilder\line\tools::global_contain();
+
+		$element_contain = \lib\app\pagebuilder\line\tools::call_fn_args($element, 'contain', $the_contain);
+
+		if($element_contain)
+		{
+			$the_contain = $element_contain;
+		}
+
+		$result['contain'] = $the_contain;
 
 		if($contain)
 		{

@@ -17,23 +17,19 @@ class news
 	}
 
 
-	public static function contain()
+	/**
+	 * News element contain what
+	 *
+	 * @param      array  $_args  The public contains
+	 *
+	 * @return     array  The news contain
+	 */
+	public static function contain($_args = [])
 	{
-		return
-		[
-			'platform',
-			'title',
-			'titlesetting',
-			'background',
-			'avand',
-			'margin',
-			'padding',
-			'radius',
-			'ifloginshow',
-			'ifpermissionshow',
-			'puzzle',
-			'infoposition',
-		];
+		$_args[] = 'puzzle';
+		$_args[] = 'infoposition';
+
+		return $_args;
 	}
 
 

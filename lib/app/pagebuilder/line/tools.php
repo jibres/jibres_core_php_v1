@@ -54,6 +54,32 @@ class tools
 
 
 	/**
+	 * All line contain this elements
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function global_contain()
+	{
+		return
+		[
+			'platform',
+			'title',
+			'titlesetting',
+			'background',
+			'avand',
+			'margin',
+			'padding',
+			'radius',
+			'ifloginshow',
+			'ifpermissionshow',
+			// 'puzzle',
+			// 'infoposition',
+		];
+	}
+
+
+
+	/**
 	 * Global input
 	 * this variable was find in every elements
 	 *
