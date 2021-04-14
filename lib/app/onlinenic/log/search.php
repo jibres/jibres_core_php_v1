@@ -113,8 +113,6 @@ class search
 			}
 
 			$or[]        = " log.domain LIKE '%$query_string%'";
-			$or[]        = " log.nic_id LIKE '%$query_string%'";
-
 
 
 			self::$is_filtered = true;
