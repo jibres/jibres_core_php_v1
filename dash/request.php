@@ -473,5 +473,60 @@ class request
 			return null;
 		}
 	}
+
+
+	public static function from_iranian()
+	{
+		if(self::country() === 'IR')
+		{
+			return true;
+		}
+
+		if(self::accept_language('fa'))
+		{
+			return true;
+		}
+		if(self::accept_language('fa-IR'))
+		{
+			return true;
+		}
+
+		return null;
+	}
+
+
+	public static function accept_language($_exist = null)
+	{
+		// windows result sample of accept language list
+		// en-US,en;q=0.9,fa;q=0.8,ar;q=0.7,la;q=0.6,ur;q=0.5,de;q=0.4,pt;q=0.3,so;q=0.2,cy;q=0.1,ca;q=0.1,fr;q=0.1,az;q=0.1,no;q=0.1,ps;q=0.1
+
+		$langs = \dash\server::get('HTTP_ACCEPT_LANGUAGE');
+		if(!$langs)
+		{
+			return null;
+		}
+
+		$seperated = explode(",", $langs);
+		$clientLangList = [];
+
+		foreach ($seperated as $lqpair)
+		{
+			$clientLangList[] = strtok($lqpair, ';q=');
+		}
+
+		if($_exist)
+		{
+			if(in_array($_exist, $clientLangList))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		return $clientLangList;
+	}
 }
 ?>
