@@ -33,6 +33,23 @@ class news
 	}
 
 
+	public static function design_map()
+	{
+		$map =
+		[
+			'title',
+			'design' =>
+			[
+				'avand',
+				'radius',
+			],
+			'remove',
+		];
+
+		return $map;
+	}
+
+
 
 	public static function input_condition($_args = [])
 	{

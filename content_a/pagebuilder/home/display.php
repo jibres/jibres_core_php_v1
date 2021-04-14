@@ -1,12 +1,19 @@
 <?php
 $lineSetting = \dash\data::lineSetting();
-
+$subchild = \dash\url::subchild();
 if($lineSetting)
 {
-	if(is_array(a($lineSetting, 'contain')))
+	if(is_array(a($lineSetting, 'design_map')))
 	{
-		foreach ($lineSetting['contain'] as $box)
+		foreach ($lineSetting['design_map'] as $folder => $box)
 		{
+      if($subchild)
+      {
+        if($box !== $subchild && $folder !== $subchild)
+        {
+          continue;
+        }
+      }
 			$file = root. 'content_a/pagebuilder/box/'. $box. '.php';
 			if(is_file($file))
 			{

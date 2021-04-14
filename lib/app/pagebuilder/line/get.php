@@ -99,6 +99,14 @@ class get
 
 		$result['contain'] = $the_contain;
 
+		$design_map = \lib\app\pagebuilder\line\tools::call_fn($element, 'design_map');
+
+		if($design_map)
+		{
+			$result['design_map'] = $the_contain;
+		}
+
+
 		if($contain)
 		{
 			if(is_array($result['contain']) && in_array($contain, $result['contain']))
