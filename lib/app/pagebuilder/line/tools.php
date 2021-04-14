@@ -96,34 +96,18 @@ class tools
 			$data['title'] = $_data['title'];
 		}
 
-		$titlesetting = [];
+		\lib\app\pagebuilder\config\titlesetting::ready_for_save_db($data, $_data);
 
-		if(array_key_exists('set_title', $_data))
-		{
-			$titlesetting['set_title'] = $_data['set_title'];
-		}
+		return $data;
+	}
 
-		if(array_key_exists('show_title', $_data))
-		{
-			$titlesetting['show_title'] = $_data['show_title'];
-		}
 
-		if(array_key_exists('more_link', $_data))
-		{
-			$titlesetting['more_link'] = $_data['more_link'];
-		}
 
-		if(array_key_exists('more_link_caption', $_data))
-		{
-			$titlesetting['more_link_caption'] = $_data['more_link_caption'];
-		}
+	public static function global_ready_show(array $_data)
+	{
+		$data = $_data;
 
-		if(!empty($titlesetting))
-		{
-			$titlesetting = json_encode($titlesetting, JSON_UNESCAPED_UNICODE);
-
-			$data['titlesetting'] = $titlesetting;
-		}
+		\lib\app\pagebuilder\config\titlesetting::ready($data);
 
 		return $data;
 	}

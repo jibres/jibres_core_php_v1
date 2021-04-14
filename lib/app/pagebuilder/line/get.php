@@ -44,6 +44,8 @@ class get
 			$result['btnSave'] = 'form1';
 		}
 
+		$result = \lib\app\pagebuilder\line\tools::global_ready_show($result);
+
 		return $result;
 	}
 
@@ -103,29 +105,6 @@ class get
 		return $result;
 	}
 
-
-	/**
-	 * Call function
-	 *
-	 * @param      <type>  $_class          The class
-	 * @param      <type>  $_function_name  The function name
-	 *
-	 * @return     bool    ( description_of_the_return_value )
-	 */
-	private static function call_fn($_class, $_function_name)
-	{
-		$fn =
-		[
-			'\\lib\\app\\pagebuilder\\elements\\'. $_class,
-			$_function_name
-		];
-
-		if(is_callable($fn))
-		{
-			return call_user_func($fn);
-		}
-		return false;
-	}
 
 }
 ?>

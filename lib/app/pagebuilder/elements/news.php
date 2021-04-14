@@ -40,8 +40,6 @@ class news
 
 	public static function input_condition($_args = [])
 	{
-		$_args['set_title']         = 'string_100';
-		$_args['set_title']         = 'string_100';
 		$_args['show_title']        = 'string_100';
 		$_args['more_link']         = 'string_100';
 		$_args['more_link_caption'] = 'string_100';
