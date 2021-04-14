@@ -1,31 +1,78 @@
 <div class="postBlock">
-
  <div class="avand-lg">
 <?php
+$myPostByThisCat = \dash\app\posts\search::by_tag_id(\dash\data::dataRow_id());
 
-  $myPostByThisCat = \dash\app\posts\search::by_tag_id(\dash\data::dataRow_id());
+if($myPostByThisCat)
+{
+  echo "<article class='postList'>";
 
-  if($myPostByThisCat)
+  foreach ($myPostByThisCat as $key => $value)
   {
-    echo "<article class='postList'>";
+    if(\dash\detect\device::detectPWA())
+    {
+      echo "<nav class='items'>";
+      {
+        echo "<ul>";
+        {
+          echo "<li>";
+          {
+            echo "<a class='f item' href='". $value['link']. "'>";
+            {
+              if(isset($value['thumb']))
+              {
+                echo "<img src='". $value['thumb']. "' alt='". $value['title']. "'>";
+              }
 
-    foreach ($myPostByThisCat as $key => $value)
+              echo "<div class='key'>";
+              echo $value['title'];
+              echo "</div>";
+            }
+            echo "</a>";
+          }
+          echo "</li>";
+        }
+        echo "</ul>";
+      }
+      echo "</nav>";
+    }
+    else
     {
       echo "<div class='text'>";
-      echo "<section class='f'>";
-      if(isset($value['thumb']))
       {
-        echo "<div class='cauto s12 pRa10 txtC'><a href='$value[link]'><img class='box100' src='". $value['thumb']. "' alt='$value[title]'></a></div>";
-      }
-      echo "<div class='c s12'><h3><a href='$value[link]'>$value[title]</a></h3><p>$value[excerpt]</p></div>";
+        echo "<section class='f'>";
+        if(isset($value['thumb']))
+        {
+          echo "<div class='cauto s12 pRa10 txtC'>";
+          {
+            echo "<a href='". $value['link']. "'>";
+            echo "<img src='". $value['thumb']. "' alt='". $value['title']. "'>";
+            echo "</a>";
+          }
+          echo "</div>";
+        }
+        echo "<div class='c s12'>";
+        {
+          echo "<h3>";
+          echo "<a href='$value[link]'>$value[title]</a>";
+          echo "</h3>";
+          echo "<p>$value[excerpt]</p>";
+        }
+        echo "</div>";
 
-      echo "</section>";
+        echo "</section>";
+      }
       echo "</div>";
     }
-    echo "</article>";
-
-    \dash\utility\pagination::html();
   }
+  // show pagination
+  \dash\utility\pagination::html();
+  echo "</article>";
+}
+else
+{
+  // tag is empty
+}
 ?>
  </div>
 </div>
