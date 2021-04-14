@@ -90,7 +90,7 @@ class tools
 		$condition =
 		[
 			'title' => 'string_100',
-			'avand' => ['enum' => 11],
+			'avand' => \lib\app\pagebuilder\config\avand::input_condition(),
 		];
 
 		return $condition;
@@ -123,6 +123,7 @@ class tools
 		}
 
 		\lib\app\pagebuilder\config\titlesetting::ready_for_save_db($data, $_data);
+		\lib\app\pagebuilder\config\avand::ready_for_save_db($data, $_data);
 
 		return $data;
 	}
@@ -134,6 +135,7 @@ class tools
 		$data = $_data;
 
 		\lib\app\pagebuilder\config\titlesetting::ready($data);
+		\lib\app\pagebuilder\config\avand::ready($data);
 
 		return $data;
 	}
