@@ -477,18 +477,24 @@ class request
 
 	public static function from_iranian()
 	{
+		// ip
 		if(self::country() === 'IR')
 		{
-			return true;
+			return 'ip';
 		}
-
+		// timezone
+		if(\dash\utility\cookie::read('tz') === 'Asia/Tehran')
+		{
+			return 'timzone Tehran';
+		}
+		// language
 		if(self::accept_language('fa'))
 		{
-			return true;
+			return 'lang fa';
 		}
 		if(self::accept_language('fa-IR'))
 		{
-			return true;
+			return 'lang fa-IR';
 		}
 
 		return null;
