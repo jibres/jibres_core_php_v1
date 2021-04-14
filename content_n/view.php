@@ -16,6 +16,7 @@ class view
 				\dash\face::logo($store_logo);
 			}
 		}
+		\dash\face::titlePWA(\lib\store::title());
 	}
 }
 ?>
