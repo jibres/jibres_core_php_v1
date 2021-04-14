@@ -75,9 +75,9 @@ class avand
 	{
 		$avand = [];
 
-		if(array_key_exists('code', $_data))
+		if(array_key_exists('avand', $_data))
 		{
-			$avand['code'] = $_data['code'];
+			$avand['code'] = $_data['avand'];
 		}
 
 		if(!empty($avand))
