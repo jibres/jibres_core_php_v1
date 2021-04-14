@@ -54,7 +54,14 @@ class part
 		{
 			$html .= '<div class="c-xs-12 c-auto">';
 			{
-				$html .= self::thumb(220);
+				if(\dash\detect\device::detectPWA())
+				{
+					$html .= self::thumb(780);
+				}
+				else
+				{
+					$html .= self::thumb(220);
+				}
 			}
 			$html .= '</div>';
 
