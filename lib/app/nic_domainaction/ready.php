@@ -200,6 +200,11 @@ class ready
 							$result['icon']    = '<i class="sf-refresh fs12 fc-red"></i>';
 							break;
 
+						case 'domain_transfer_pay_link':
+							$result['title'] = T_("Domain transfer pay link created");
+							$result['icon']    = '<i class="sf-credit-card fs12 fc-green"></i>';
+							break;
+
 						case 'delete':
 						case 'expire':
 						default:

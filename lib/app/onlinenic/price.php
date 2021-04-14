@@ -115,7 +115,7 @@ class price
 
 		if(!isset($info['prices']))
 		{
-			\dash\notif::error(T_("Error in load domain price detail"));
+			\dash\notif::error_once(T_("Error in load domain price detail"));
 			return false;
 		}
 
@@ -129,7 +129,7 @@ class price
 
 		if(!isset($info['prices'][$_period]))
 		{
-			\dash\notif::error(T_("This period of domain have not price!"));
+			\dash\notif::error_once(T_("This period of domain have not price!"));
 			return false;
 		}
 
@@ -168,7 +168,7 @@ class price
 
 		if(!isset($info['prices']))
 		{
-			\dash\notif::error(T_("Error in load domain price detail"));
+			\dash\notif::error_once(T_("Error in load domain price detail"));
 			return false;
 		}
 
