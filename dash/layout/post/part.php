@@ -52,13 +52,13 @@ class part
 		$html = '';
 		$html .= '<div class="row align-center postTitleBox" data-space="high">';
 		{
-			$html .= '<div class="c-auto">';
+			$html .= '<div class="c-xs-12 c-auto">';
 			{
 				$html .= self::thumb(220);
 			}
 			$html .= '</div>';
 
-			$html .= '<div class="c">';
+			$html .= '<div class="x-xs-12 c">';
 			{
 				$html .= self::title();
 				$html .= self::excerpt();
