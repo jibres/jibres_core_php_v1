@@ -46,6 +46,7 @@ class news
 				'radius' => true,
 				'effect' => true,
 				'padding' => true,
+				'infoposition' => true,
 			],
 			'remove' => true,
 		];

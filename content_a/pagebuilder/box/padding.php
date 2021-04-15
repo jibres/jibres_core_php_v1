@@ -11,7 +11,7 @@
     <input type="hidden" name="set_padding" value="1">
       <div class="action">
           <select name="padding" class="select22" id="padding">
-            <?php echo \lib\app\website\padding::select_html(a($lineSetting, 'padding', 'code')); ?>
+            <?php echo \lib\app\pagebuilder\config\padding::select_html(a($lineSetting, 'padding', 'code')); ?>
         </select>
       </div>
   </form>
