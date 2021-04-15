@@ -98,6 +98,7 @@ class tools
 		[
 			'title' => 'string_100',
 			'avand' => \lib\app\pagebuilder\config\avand::input_condition(),
+			'radius' => \lib\app\pagebuilder\config\radius::input_condition(),
 		];
 
 		return $condition;
@@ -149,6 +150,7 @@ class tools
 
 		\lib\app\pagebuilder\config\titlesetting::ready_for_save_db($data, $_data);
 		\lib\app\pagebuilder\config\avand::ready_for_save_db($data, $_data);
+		\lib\app\pagebuilder\config\radius::ready_for_save_db($data, $_data);
 
 		return $data;
 	}
@@ -161,6 +163,7 @@ class tools
 
 		\lib\app\pagebuilder\config\titlesetting::ready($data);
 		\lib\app\pagebuilder\config\avand::ready($data);
+		\lib\app\pagebuilder\config\radius::ready($data);
 
 		return $data;
 	}

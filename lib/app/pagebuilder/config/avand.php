@@ -4,6 +4,10 @@ namespace lib\app\pagebuilder\config;
 
 class avand
 {
+	use \lib\app\pagebuilder\config\enum_variable;
+
+	public static $variable_name = 'avand';
+
 	public static function list()
 	{
 
@@ -20,94 +24,5 @@ class avand
 
 	}
 
-
-	public static function get($_key)
-	{
-		$list = self::list();
-
-		if(!isset($_key) || !array_key_exists($_key, $list))
-		{
-			foreach ($list as $key => $item)
-			{
-				if(isset($item['default']) && $item['default'])
-				{
-					$_key = $key;
-				}
-			}
-		}
-
-		return $_key;
-	}
-
-
-	public static function input_condition()
-	{
-		$list = self::list();
-		return ['enum' => array_keys($list)];
-	}
-
-
-	public static function select_html($_current_data = null)
-	{
-		$result = '';
-
-		$list = self::list();
-
-		foreach ($list as $key => $value)
-		{
-			$result.= '<option value="'. $key. '"';
-			if($key == $_current_data || (!$_current_data && $value['default']))
-			{
-				$result .= ' selected';
-			}
-			$result.= ' >';
-
-			$result .= $value['title'];
-
-			$result.= '</option>';
-		}
-
-		return $result;
-	}
-
-
-	public static function ready_for_save_db(&$data, $_data)
-	{
-		$avand = [];
-
-		if(array_key_exists('avand', $_data))
-		{
-			$avand['code'] = $_data['avand'];
-		}
-
-		if(!empty($avand))
-		{
-			$avand = json_encode($avand, JSON_UNESCAPED_UNICODE);
-
-			$data['avand'] = $avand;
-		}
-		else
-		{
-			$data['avand'] = null;
-		}
-
-	}
-
-
-	public static function ready(&$data)
-	{
-		if(isset($data['avand']) && is_string($data['avand']))
-		{
-			$avand = json_decode($data['avand'], true);
-
-			if(!is_array($avand))
-			{
-				$avand = []; // the default value
-			}
-
-
-			$data['avand'] = $avand;
-		}
-	}
 }
 ?>
