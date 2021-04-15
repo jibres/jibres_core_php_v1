@@ -74,7 +74,7 @@ class check
 			}
 		}
 
-		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', [$data, $_saved_detail]);
+		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', $data, $_saved_detail);
 
 		if($ready_for_db)
 		{

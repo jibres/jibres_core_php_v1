@@ -28,7 +28,7 @@ class tools
 	 *
 	 * @return     bool    ( description_of_the_return_value )
 	 */
-	public static function call_fn($_class, $_function_name, $_args = null)
+	public static function call_fn($_class, $_function_name, $_args = null, $_args2 = null)
 	{
 		$fn =
 		[
@@ -40,7 +40,7 @@ class tools
 		{
 			if($_args !== null)
 			{
-				return call_user_func_array($fn, [$_args]);
+				return call_user_func_array($fn, [$_args, $_args2]);
 			}
 			else
 			{
@@ -61,7 +61,7 @@ class tools
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function call_fn_args($_class, $_function_name, $_args)
+	public static function call_fn_args($_class, $_function_name, $_args, $_args2 = null)
 	{
 		return self::call_fn(...func_get_args());
 	}
@@ -182,6 +182,11 @@ class tools
 	public static function global_ready_show(string $_element, array $_data)
 	{
 		$data = $_data;
+
+		if(isset($data['detail']) && is_string($data['detail']))
+		{
+			$data['detail'] = json_decode($data['detail'], true);
+		}
 
 
 		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'contain');
