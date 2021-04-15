@@ -14,6 +14,12 @@ class edit
 			return false;
 		}
 
+		// remove element
+		if(isset($_args['remove']) && $_args['remove'] === 'line')
+		{
+			return self::remove($_id);
+		}
+
 		$update = \lib\app\pagebuilder\line\check::input($_element, $_contain, $_id, $_args);
 
 		if(!$update)
@@ -36,6 +42,19 @@ class edit
 		\dash\notif::ok(T_("Your data successfully updated"));
 
 		return true;
+	}
+
+
+
+	private static function remove($_id)
+	{
+		\lib\db\pagebuilder\delete::by_id($_id);
+
+		\dash\notif::ok(T_("Line removed"));
+
+		$result = [];
+		$result['url'] = \dash\url::this();
+		return $result;
 	}
 
 }

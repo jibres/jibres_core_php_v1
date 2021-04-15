@@ -31,6 +31,8 @@ class design
 
 		$subchild = \dash\url::subchild();
 
+		$file = root. 'content_a/pagebuilder/box/%s.php';
+
 		if(is_array(a($lineSetting, 'design_map')))
 		{
 			foreach ($lineSetting['design_map'] as $box => $inside)
@@ -41,25 +43,37 @@ class design
 					{
 						continue;
 					}
-				}
 
-				$file = root. 'content_a/pagebuilder/box/%s.php';
-
-				if(is_string($box))
-				{
-					$tmp_file = sprintf($file, $box);
-
-					if(is_file($tmp_file))
+					if(is_array($inside) && $subchild === $box)
 					{
-						require_once($tmp_file);
+						foreach ($inside as $inside_box => $inside_value)
+						{
+							$tmp_file = sprintf($file, $inside_box);
+
+							if(is_file($tmp_file))
+							{
+								require_once($tmp_file);
+							}
+						}
+					}
+					else
+					{
+						if(is_string($box))
+						{
+							$tmp_file = sprintf($file, $box);
+
+							if(is_file($tmp_file))
+							{
+								require_once($tmp_file);
+							}
+						}
 					}
 				}
-
-				if(is_array($inside) && $subchild === $box)
+				else
 				{
-					foreach ($inside as $inside_box => $inside_value)
+					if(is_string($box))
 					{
-						$tmp_file = sprintf($file, $inside_box);
+						$tmp_file = sprintf($file, $box);
 
 						if(is_file($tmp_file))
 						{
@@ -67,6 +81,7 @@ class design
 						}
 					}
 				}
+
 			}
 		}
 
