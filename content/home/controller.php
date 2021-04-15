@@ -7,6 +7,8 @@ class controller
 	// for routing check
 	public static function routing()
 	{
+		self::alias_module_redirect();
+
 		if(\dash\request::get('utm_campaign') === 'pwa' && \dash\detect\device::detectPWA())
 		{
 			if(\dash\user::id())
@@ -44,6 +46,23 @@ class controller
 			}
 
 			\dash\redirect::to(\dash\url::kingdom(). '/a');
+		}
+	}
+
+	public static function alias_module_redirect()
+	{
+		switch (\dash\url::directory())
+		{
+			case 'investment':
+			case 'business-plan':
+			case 'businessplan':
+			case 'bp':
+				\dash\redirect::to(\dash\url::kingdom(). '/business_plan');
+				break;
+
+			default:
+				// nothing
+				break;
 		}
 	}
 }
