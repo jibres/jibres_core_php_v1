@@ -84,6 +84,8 @@ trait enum_variable
 			$_data[self::$variable_name] = null;
 		}
 
+		unset($_data['set_'. self::$variable_name]);
+
 		return $_data;
 
 	}
