@@ -45,6 +45,7 @@ class news
 				'avand'  => true,
 				'radius' => true,
 				'effect' => true,
+				'padding' => true,
 			],
 			'remove' => true,
 		];
