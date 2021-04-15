@@ -6,10 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Build Your Unique Online Website'));
 
-		// generate back link
-		self::generate_back_link();
+
+		self::set_page_variable();
 
 		// show btn sve
 		if(\dash\data::lineSetting_btnSave())
@@ -32,10 +31,17 @@ class view
 
 
 	/**
-	 * Generate back link
+	 * set page variable
 	 */
-	private static function generate_back_link()
+	private static function set_page_variable()
 	{
+		\dash\face::title(T_('Build Your Unique Online Website'));
+
+		if(a(\dash\data::lineSetting(), 'page_title'))
+		{
+			\dash\face::title(a(\dash\data::lineSetting(), 'page_title'));
+		}
+
 		if(!\dash\data::lineSetting())
 		{
 			\dash\data::back_text(T_('Dashboard'));

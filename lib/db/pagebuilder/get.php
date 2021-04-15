@@ -19,5 +19,14 @@ class get
 		$result = \dash\db::get($query);
 		return $result;
 	}
+
+
+
+	public static function count_by_type(string $_type)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM pagebuilder WHERE pagebuilder.type = '$_type' ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 }
 ?>

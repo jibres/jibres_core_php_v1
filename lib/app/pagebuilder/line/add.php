@@ -34,7 +34,7 @@ class add
 		$insert['related']          = 'homepage';
 		$insert['related_id']       = null;
 
-		$insert['title']            = a($element, 'title');
+		$insert['title']            = self::get_suggested_name($element);
 		$insert['titlesetting']     = null;
 		$insert['background']       = null;
 		$insert['avand']            = null;
@@ -78,6 +78,34 @@ class add
 
 		return $result;
 
+	}
+
+
+
+	private static function get_suggested_name($_element)
+	{
+		if(isset($_element['key']) && isset($_element['title']))
+		{
+			$suggested_name = $_element['title'];
+
+			$count = \lib\db\pagebuilder\get::count_by_type($_element['key']);
+
+			if(is_numeric($count))
+			{
+				$count = intval($count) + 1;
+			}
+			else
+			{
+				$count = 1;
+			}
+		}
+		else
+		{
+			$suggested_name = T_("New line");
+			$count          = \dash\fit::number(rand(1, 99));
+		}
+
+		return $suggested_name. ' '. \dash\fit::text($count);
 	}
 
 }

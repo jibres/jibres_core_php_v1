@@ -54,20 +54,27 @@ class titlesetting
 
 	public static function ready($_data)
 	{
+
+		$default                                  = [];
+
+		$default['more_link_caption_placeholder'] = T_("Show more");
+
+		$titlesetting                             = [];
+
+		// default place holder
 		if(isset($_data['titlesetting']) && is_string($_data['titlesetting']))
 		{
 			$titlesetting = json_decode($_data['titlesetting'], true);
 
 			if(!is_array($titlesetting))
 			{
-				$titlesetting = []; // the default value
+				$titlesetting = [];
 			}
 
-			// default place holder
-			$titlesetting['more_link_caption_placeholder'] = T_("Show more");
-
-			$_data['titlesetting'] = $titlesetting;
 		}
+
+		$_data['titlesetting'] = array_merge($default, $titlesetting);;
+
 
 		return $_data;
 	}

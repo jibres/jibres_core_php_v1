@@ -10,9 +10,10 @@ class news
 		[
 			'key'         => 'news',
 			'mode'        => 'body',
-			'title'       => T_("News box"),
-			'description' => T_("New Description sample box"),
-			'btn_title'   => T_("Add new news box"),
+			'title'       => T_("Latest news"),
+			'page_title'  => T_("Latest news"),
+			'description' => T_("View some of the latest news"),
+			'btn_title'   => T_("Add latest news"),
 		];
 	}
 

@@ -1,20 +1,10 @@
-<?php
-if(!a($lineSetting, 'title') && a($lineSetting, 'title') !== '0')
-{
-  $currentTitle =  a($lineSetting, 'name_suggestion');
-}
-else
-{
-  $currentTitle = a($lineSetting, 'title');
-}
-?>
 <?php if(\dash\url::subchild() !== 'title') {?>
 <section class="f" data-option='website-line-title'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo $currentTitle; ?></h3>
+      <h3><?php echo a($lineSetting, 'title'); ?></h3>
       <div class="body">
-        <?php if(a($lineSetting, 'more_link') === 'show') {?>
+        <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'show') {?>
           <div class="fc-mute"><?php echo T_("Title with more link") ?></div>
         <?php } //endif ?>
       </div>
@@ -34,7 +24,7 @@ else
       <div class="pad">
         <label for="title"><?php echo T_("Line title"); ?></label>
         <div class="input">
-          <input type="text" name="title" id="title" value="<?php if(!a($lineSetting, 'title') && a($lineSetting, 'title') !== '0'){ echo a($lineSetting, 'name_suggestion'); }else{ echo a($lineSetting, 'title'); } ?>"  maxlength="200">
+          <input type="text" name="title" id="title" value="<?php  echo a($lineSetting, 'title'); ?>"  maxlength="200">
         </div>
         <div class="mB10">
            <div class="row">

@@ -4,7 +4,6 @@
       <h3><?php echo T_("Set filter");?></h3>
       <div class="body">
         <p><?php echo T_("You can extract your favorite posts with different filters");?></p>
-
       </div>
     </div>
   </div>
