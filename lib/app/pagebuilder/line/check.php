@@ -4,7 +4,7 @@ namespace lib\app\pagebuilder\line;
 
 class check
 {
-	public static function input($_element, $_id, $_args = [])
+	public static function input($_element, $_id, $_args = [], $_saved_detail = [])
 	{
 		$args = \lib\app\pagebuilder\line\tools::global_clean_input($_args);
 
@@ -70,11 +70,11 @@ class check
 
 			if(is_callable($fn))
 			{
-				$data = call_user_func_array($fn, [$data]);
+				$data = call_user_func_array($fn, [$data, $_saved_detail]);
 			}
 		}
 
-		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', $data);
+		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', [$data, $_saved_detail]);
 
 		if($ready_for_db)
 		{

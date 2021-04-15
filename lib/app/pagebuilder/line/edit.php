@@ -20,7 +20,7 @@ class edit
 			return self::remove($_id);
 		}
 
-		$update = \lib\app\pagebuilder\line\check::input($_element, $_id, $_args);
+		$update = \lib\app\pagebuilder\line\check::input($_element, $_id, $_args, $result);
 		if(!$update)
 		{
 			return false;
@@ -40,7 +40,15 @@ class edit
 
 		\dash\notif::ok(T_("Your data successfully updated"));
 
-		return true;
+		$result        = [];
+
+		$redirect = \lib\app\pagebuilder\line\tools::need_redirect();
+		if($redirect)
+		{
+			$result['url'] = $redirect;
+		}
+
+		return $result;
 	}
 
 

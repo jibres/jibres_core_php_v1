@@ -48,6 +48,7 @@ class news
 				'padding' => true,
 				'infoposition' => true,
 			],
+			'puzzle' => true,
 			'remove' => true,
 		];
 

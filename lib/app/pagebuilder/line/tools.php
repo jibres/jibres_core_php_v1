@@ -13,6 +13,14 @@ class tools
 
 
 	/**
+	 * Need redirect after save
+	 *
+	 * @var        <type>
+	 */
+	private static $need_redirect = null;
+
+
+	/**
 	 * Call function
 	 *
 	 * @param      <type>  $_class          The class
@@ -117,6 +125,26 @@ class tools
 		else
 		{
 			self::$input_exception[] = $_exception;
+		}
+	}
+
+
+	/**
+	 * Set redirect to
+	 *
+	 * @param      <type>  $_redirect_to  The redirect to
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function need_redirect($_redirect_to = null)
+	{
+		if($_redirect_to === null)
+		{
+			return self::$need_redirect;
+		}
+		else
+		{
+			self::$need_redirect = $_redirect_to;
 		}
 	}
 
