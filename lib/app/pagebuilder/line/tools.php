@@ -97,8 +97,6 @@ class tools
 		$condition =
 		[
 			'title' => 'string_100',
-			'avand' => \lib\app\pagebuilder\config\avand::input_condition(),
-			'radius' => \lib\app\pagebuilder\config\radius::input_condition(),
 		];
 
 		return $condition;
@@ -148,22 +146,37 @@ class tools
 			$data['title'] = $_data['title'];
 		}
 
-		\lib\app\pagebuilder\config\titlesetting::ready_for_save_db($data, $_data);
-		\lib\app\pagebuilder\config\avand::ready_for_save_db($data, $_data);
-		\lib\app\pagebuilder\config\radius::ready_for_save_db($data, $_data);
-
 		return $data;
 	}
 
 
 
-	public static function global_ready_show(array $_data)
+	public static function global_ready_show(string $_element, array $_data)
 	{
 		$data = $_data;
 
-		\lib\app\pagebuilder\config\titlesetting::ready($data);
-		\lib\app\pagebuilder\config\avand::ready($data);
-		\lib\app\pagebuilder\config\radius::ready($data);
+
+		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'contain');
+		if(!$contain)
+		{
+			$contain = [];
+		}
+
+		$global_contain = \lib\app\pagebuilder\line\tools::global_contain();
+
+		$contain = array_merge($global_contain, $contain);
+		$contain = array_filter($contain);
+		$contain = array_unique($contain);
+
+		foreach ($contain as $one_contain)
+		{
+			$fn = ['\\lib\\app\\pagebuilder\\config\\'. $one_contain, 'ready'];
+
+			if(is_callable($fn))
+			{
+				$data = call_user_func_array($fn, [$data]);
+			}
+		}
 
 		return $data;
 	}

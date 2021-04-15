@@ -23,10 +23,13 @@ trait enum_variable
 	}
 
 
-	public static function input_condition()
+	public static function input_condition($input_condition)
 	{
 		$list = self::list();
-		return ['enum' => array_keys($list)];
+		$input_condition[self::$variable_name] = ['enum' => array_keys($list)];
+		$input_condition['set_'. self::$variable_name] = 'bit';
+
+		return $input_condition;
 	}
 
 
@@ -55,34 +58,42 @@ trait enum_variable
 
 
 
-	public static function ready_for_save_db(&$data, $_data)
+	public static function ready_for_save_db($_data)
 	{
 		$variable = [];
+
+		if(!is_array($_data))
+		{
+			return $_data;
+		}
 
 		if(array_key_exists(self::$variable_name, $_data))
 		{
 			$variable['code'] = $_data[self::$variable_name];
+			unset($_data[self::$variable_name]);
 		}
 
 		if(!empty($variable))
 		{
 			$variable = json_encode($variable, JSON_UNESCAPED_UNICODE);
 
-			$data[self::$variable_name] = $variable;
+			$_data[self::$variable_name] = $variable;
 		}
 		else
 		{
-			$data[self::$variable_name] = null;
+			$_data[self::$variable_name] = null;
 		}
+
+		return $_data;
 
 	}
 
 
-	public static function ready(&$data)
+	public static function ready($_data)
 	{
-		if(isset($data[self::$variable_name]) && is_string($data[self::$variable_name]))
+		if(isset($_data[self::$variable_name]) && is_string($_data[self::$variable_name]))
 		{
-			$variable = json_decode($data[self::$variable_name], true);
+			$variable = json_decode($_data[self::$variable_name], true);
 
 			if(!is_array($variable))
 			{
@@ -90,8 +101,10 @@ trait enum_variable
 			}
 
 
-			$data[self::$variable_name] = $variable;
+			$_data[self::$variable_name] = $variable;
 		}
+
+		return $_data;
 	}
 }
 ?>

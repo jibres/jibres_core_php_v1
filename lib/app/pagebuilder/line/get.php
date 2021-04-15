@@ -44,7 +44,7 @@ class get
 			$result['btnSave'] = 'form1';
 		}
 
-		$result = \lib\app\pagebuilder\line\tools::global_ready_show($result);
+		$result = \lib\app\pagebuilder\line\tools::global_ready_show($_element, $result);
 
 		return $result;
 	}

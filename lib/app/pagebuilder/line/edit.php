@@ -20,8 +20,7 @@ class edit
 			return self::remove($_id);
 		}
 
-		$update = \lib\app\pagebuilder\line\check::input($_element, $_contain, $_id, $_args);
-
+		$update = \lib\app\pagebuilder\line\check::input($_element, $_id, $_args);
 		if(!$update)
 		{
 			return false;

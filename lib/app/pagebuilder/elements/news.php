@@ -26,6 +26,7 @@ class news
 	 */
 	public static function contain($_args = [])
 	{
+		$_args[] = 'effect';
 		$_args[] = 'design';
 		$_args[] = 'puzzle';
 		$_args[] = 'infoposition';
@@ -43,6 +44,7 @@ class news
 			[
 				'avand'  => true,
 				'radius' => true,
+				'effect' => true,
 			],
 			'remove' => true,
 		];

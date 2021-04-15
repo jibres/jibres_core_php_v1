@@ -4,18 +4,39 @@ namespace lib\app\pagebuilder\line;
 
 class check
 {
-	public static function input($_element, $_contain, $_id, $_args = [])
+	public static function input($_element, $_id, $_args = [])
 	{
 		$args = \lib\app\pagebuilder\line\tools::global_clean_input($_args);
 
 		$global_input_condition = \lib\app\pagebuilder\line\tools::global_input_condition();
 
 		$input_condition = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'input_condition', $global_input_condition);
-
 		// the module have not function check input
 		if($input_condition === false)
 		{
 			$input_condition = $global_input_condition;
+		}
+
+		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'contain');
+		if(!$contain)
+		{
+			$contain = [];
+		}
+
+		$global_contain = \lib\app\pagebuilder\line\tools::global_contain();
+
+		$contain = array_merge($global_contain, $contain);
+		$contain = array_filter($contain);
+		$contain = array_unique($contain);
+
+		foreach ($contain as $one_contain)
+		{
+			$fn = ['\\lib\\app\\pagebuilder\\config\\'. $one_contain, 'input_condition'];
+
+			if(is_callable($fn))
+			{
+				$input_condition = call_user_func_array($fn, [$input_condition]);
+			}
 		}
 
 		$require = [];
@@ -26,7 +47,6 @@ class check
 		{
 			$require = $input_required;
 		}
-
 
 		$meta = [];
 
@@ -44,7 +64,15 @@ class check
 			return false;
 		}
 
-		$data = \lib\app\pagebuilder\line\tools::global_ready_for_save_db($data);
+		foreach ($contain as $one_contain)
+		{
+			$fn = ['\\lib\\app\\pagebuilder\\config\\'. $one_contain, 'ready_for_save_db'];
+
+			if(is_callable($fn))
+			{
+				$data = call_user_func_array($fn, [$data]);
+			}
+		}
 
 		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', $data);
 
