@@ -103,7 +103,7 @@ class get
 
 		if($design_map)
 		{
-			$result['design_map'] = $the_contain;
+			$result['design_map'] = $design_map;
 		}
 
 

@@ -26,6 +26,7 @@ class news
 	 */
 	public static function contain($_args = [])
 	{
+		$_args[] = 'design';
 		$_args[] = 'puzzle';
 		$_args[] = 'infoposition';
 
@@ -37,13 +38,13 @@ class news
 	{
 		$map =
 		[
-			'title',
+			'title'  => true,
 			'design' =>
 			[
-				'avand',
-				'radius',
+				'avand'  => true,
+				'radius' => true,
 			],
-			'remove',
+			'remove' => true,
 		];
 
 		return $map;
@@ -53,6 +54,7 @@ class news
 
 	public static function input_condition($_args = [])
 	{
+		$_args['set_title']         = 'bit';
 		$_args['show_title']        = 'string_100';
 		$_args['more_link']         = 'string_100';
 		$_args['more_link_caption'] = 'string_100';

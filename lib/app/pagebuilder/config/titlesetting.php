@@ -6,6 +6,12 @@ class titlesetting
 {
 	public static function ready_for_save_db(&$data, $_data)
 	{
+		// needless to save title
+		if(!a($_data, 'set_title'))
+		{
+			return;
+		}
+
 		$titlesetting = [];
 
 		if(array_key_exists('set_title', $_data))
@@ -33,6 +39,8 @@ class titlesetting
 			$titlesetting = json_encode($titlesetting, JSON_UNESCAPED_UNICODE);
 
 			$data['titlesetting'] = $titlesetting;
+
+			\lib\app\pagebuilder\line\tools::input_exception('titlesetting');
 		}
 
 	}

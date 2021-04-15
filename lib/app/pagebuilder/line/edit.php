@@ -21,6 +21,16 @@ class edit
 			return false;
 		}
 
+		$exception = \lib\app\pagebuilder\line\tools::input_exception();
+
+		$update = \dash\cleanse::patch_mode($_args, $update, $exception);
+
+		if(empty($update))
+		{
+			\dash\notif::info(T_("No change in your data"));
+			return true;
+		}
+
 		\lib\db\pagebuilder\update::record($update, $_id);
 
 		\dash\notif::ok(T_("Your data successfully updated"));

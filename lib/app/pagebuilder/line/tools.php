@@ -4,6 +4,13 @@ namespace lib\app\pagebuilder\line;
 
 class tools
 {
+	/**
+	 * The exception input on pathc mode
+	 *
+	 * @var        array
+	 */
+	private static $input_exception = [];
+
 
 	/**
 	 * Call function
@@ -94,6 +101,24 @@ class tools
 		];
 
 		return $condition;
+	}
+
+
+	/**
+	 * Input exception in patch mode
+	 *
+	 * @param      <type>  $_exception  The exception
+	 */
+	public static function input_exception($_exception = null)
+	{
+		if($_exception === null)
+		{
+			return self::$input_exception;
+		}
+		else
+		{
+			self::$input_exception[] = $_exception;
+		}
 	}
 
 

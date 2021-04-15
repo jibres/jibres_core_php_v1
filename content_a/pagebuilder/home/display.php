@@ -1,26 +1,7 @@
 <?php
-$lineSetting = \dash\data::lineSetting();
-$subchild = \dash\url::subchild();
-if($lineSetting)
+if(\dash\data::lineSetting())
 {
-	if(is_array(a($lineSetting, 'design_map')))
-	{
-		foreach ($lineSetting['design_map'] as $folder => $box)
-		{
-      if($subchild)
-      {
-        if($box !== $subchild && $folder !== $subchild)
-        {
-          continue;
-        }
-      }
-			$file = root. 'content_a/pagebuilder/box/'. $box. '.php';
-			if(is_file($file))
-			{
-				require_once($file);
-			}
-		}
-	}
+  \lib\app\pagebuilder\line\design::draw();
 }
 else
 {
