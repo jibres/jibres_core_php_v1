@@ -9,6 +9,7 @@ class add
 		$list = [];
 
 		$list[] = \lib\app\pagebuilder\elements\news::detail();
+		$list[] = \lib\app\pagebuilder\elements\products::detail();
 
 		return $list;
 	}
