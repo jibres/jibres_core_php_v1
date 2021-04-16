@@ -4,7 +4,7 @@
     <div class="data">
       <h3><?php echo T_("Set count show");?></h3>
       <div class="body">
-        <p><?php echo T_("How many posts would you like to display?");?></p>
+        <p><?php echo T_("How many items would you like to display?");?></p>
       </div>
     </div>
   </div>
