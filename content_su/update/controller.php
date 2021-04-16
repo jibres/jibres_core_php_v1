@@ -32,12 +32,12 @@ class controller
 		{
 			if($_show_result)
 			{
-				$result[] = "<h1>We have not any response from https://ermile.com!</h1>";
+				$result[] = "<h1>We have not any response from https://github.com!</h1>";
 				return $result;
 			}
 			else
 			{
-				\dash\notif::error('We have not any response from https://ermile.com!');
+				\dash\notif::error('We have not any response from https://github.com!');
 				return false;
 			}
 		}
