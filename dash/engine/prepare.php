@@ -592,6 +592,9 @@ class prepare
 					return;
 				}
 
+				// route static files
+				self::static_files();
+
 				if(\dash\request::post('emergencydomain') === 'emergencydomain')
 				{
 					\dash\utility\cookie::write('emergencydomain', 'ok');
