@@ -18,6 +18,19 @@ class news
 	}
 
 
+	public static function default_value()
+	{
+		return
+		[
+			'titlesetting' =>
+			[
+				'show_title' => 'yes',
+				'more_link' => 'show'
+			],
+		];
+
+	}
+
 	/**
 	 * News element contain what
 	 *
@@ -35,7 +48,6 @@ class news
 				[
 					'page_title' => T_("Edit title"),
 					'btn_save' => true,
-					'default' => ['show_title' => 'yes', 'more_link' => 'show'],
 				],
 			],
 

@@ -70,23 +70,16 @@ class title
 		$default                                  = [];
 
 		$default['more_link_caption_placeholder'] = T_("Show more");
+		$default['show_title'] = 'no';
+		$default['more_link'] = 'hide';
 
-		if(isset($_data['elements']['title']['detail']['default']['show_title']))
+		if(isset($_data['key']) && $_data['key'] && is_string($_data['key']))
 		{
-			$default['show_title'] = $_data['elements']['title']['detail']['default']['show_title'];
-		}
-		else
-		{
-			$default['show_title'] = 'no';
-		}
-
-		if(isset($_data['elements']['title']['detail']['default']['more_link']))
-		{
-			$default['more_link'] = $_data['elements']['title']['detail']['default']['more_link'];
-		}
-		else
-		{
-			$default['more_link'] = 'hide';
+			$default_value = \lib\app\pagebuilder\line\tools::call_fn($_data['key'], 'default_value');
+			if(isset($default_value['titlesetting']) && is_array($default_value['titlesetting']))
+			{
+				$default = array_merge($default, $default_value['titlesetting']);
+			}
 		}
 
 		$titlesetting              = [];
