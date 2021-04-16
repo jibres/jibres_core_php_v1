@@ -113,11 +113,12 @@ class tools
 	 */
 	public static function global_input_condition()
 	{
-		$condition =
-		[
-			'title' => 'string_100',
-		];
-
+		$condition                      = [];
+		$condition['title']             = 'string_100';
+		$condition['set_title']         = 'bit';
+		$condition['show_title']        = 'string_100';
+		$condition['more_link']         = 'string_100';
+		$condition['more_link_caption'] = 'string_100';
 		return $condition;
 	}
 

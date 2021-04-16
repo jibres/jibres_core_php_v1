@@ -80,14 +80,8 @@ class products
 
 	public static function input_condition($_args = [])
 	{
-		$_args['set_title']         = 'bit';
-		$_args['show_title']        = 'string_100';
-		$_args['more_link']         = 'string_100';
-		$_args['more_link_caption'] = 'string_100';
-		$_args['tag_id']            = 'code';
-		$_args['subtype']           = ['enum' => ['any', 'standard', 'gallery', 'video', 'audio']];
-		$_args['play_item']         = ['enum' => ['none', 'first', 'all']];
-
+		$_args['cat_id'] = 'id';
+		$_args['type']   = ['enum' => ['latestproduct', 'randomproduct', 'bestselling']];
 		return $_args;
 	}
 
@@ -96,23 +90,23 @@ class products
 	{
 		$products = [];
 
-		if(array_key_exists('tag_id', $_data))
+		if(array_key_exists('cat_id', $_data))
 		{
-			$products['tag_id'] = $_data['tag_id'];
+			$products['cat_id'] = $_data['cat_id'];
 		}
-		elseif(a($_saved_detail, 'detail', 'tag_id'))
+		elseif(a($_saved_detail, 'detail', 'cat_id'))
 		{
-			$products['tag_id'] = a($_saved_detail, 'detail', 'tag_id');
+			$products['cat_id'] = a($_saved_detail, 'detail', 'cat_id');
 		}
 
 
-		if(array_key_exists('subtype', $_data))
+		if(array_key_exists('type', $_data))
 		{
-			$products['subtype'] = $_data['subtype'];
+			$products['type'] = $_data['type'];
 		}
-		elseif(a($_saved_detail, 'detail', 'subtype'))
+		elseif(a($_saved_detail, 'detail', 'type'))
 		{
-			$products['subtype'] = a($_saved_detail, 'detail', 'subtype');
+			$products['type'] = a($_saved_detail, 'detail', 'type');
 		}
 
 
@@ -136,9 +130,9 @@ class products
 
 		\lib\app\pagebuilder\line\tools::input_exception('detail');
 
-		unset($_data['tag_id']);
-		unset($_data['subtype']);
-		unset($_data['play_item']);
+		unset($_data['cat_id']);
+		unset($_data['type']);
+
 
 		return $_data;
 

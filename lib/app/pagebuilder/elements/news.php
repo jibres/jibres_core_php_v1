@@ -80,10 +80,6 @@ class news
 
 	public static function input_condition($_args = [])
 	{
-		$_args['set_title']         = 'bit';
-		$_args['show_title']        = 'string_100';
-		$_args['more_link']         = 'string_100';
-		$_args['more_link_caption'] = 'string_100';
 		$_args['tag_id']            = 'code';
 		$_args['subtype']           = ['enum' => ['any', 'standard', 'gallery', 'video', 'audio']];
 		$_args['play_item']         = ['enum' => ['none', 'first', 'all']];
