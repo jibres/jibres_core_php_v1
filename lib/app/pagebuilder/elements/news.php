@@ -25,34 +25,48 @@ class news
 	 *
 	 * @return     array  The news contain
 	 */
-	public static function contain($_args = [])
-	{
-		$_args[] = 'filter';
-		$_args[] = 'effect';
-		$_args[] = 'design';
-		$_args[] = 'puzzle';
-		$_args[] = 'infoposition';
-
-		return $_args;
-	}
-
-
-	public static function design_map()
+	public static function elements($_args = [])
 	{
 		$map =
 		[
-			'title'  => true,
+			'title'  =>
+			[
+				'detail' =>
+				[
+					'page_title' => T_("Edit title"),
+				],
+			],
+
 			'filter'  =>
 			[
-				'news_filter' => true,
+				'detail' =>
+				[
+					'page_title' => T_("Set Filter"),
+					'btn_save' => true,
+				],
+
+				'contain' =>
+				[
+					'news_filter' => true,
+				],
+
 			],
 			'design' =>
 			[
-				'avand'  => true,
-				'radius' => true,
-				'effect' => true,
-				'padding' => true,
-				'infoposition' => true,
+				'detail' =>
+				[
+					'page_title' => T_("Set design config"),
+					'btn_save'   => false,
+				],
+
+				'contain' =>
+				[
+					'avand'  => true,
+					'radius' => true,
+					'effect' => true,
+					'padding' => true,
+					'infoposition' => true,
+				],
 			],
 			'puzzle' => true,
 			'remove' => true,

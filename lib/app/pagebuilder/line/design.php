@@ -25,63 +25,66 @@ class design
 	}
 
 
+	/**
+	 * Load fine
+	 *
+	 * @param      <type>  $_filename  The filename
+	 */
+	private static function load($_filename)
+	{
+		if(is_string($_filename))
+		{
+			$file = root. 'content_a/pagebuilder/box/%s.php';
+
+			$tmp_file = sprintf($file, $_filename);
+
+			if(is_file($tmp_file))
+			{
+				require_once($tmp_file);
+			}
+		}
+	}
+
+
 	public static function draw()
 	{
 		$lineSetting = \dash\data::lineSetting();
 
 		$subchild = \dash\url::subchild();
 
-		$file = root. 'content_a/pagebuilder/box/%s.php';
-
-		if(is_array(a($lineSetting, 'design_map')))
+		if(!is_array(a($lineSetting, 'elements')))
 		{
-			foreach ($lineSetting['design_map'] as $box => $inside)
+			return;
+		}
+
+
+		foreach ($lineSetting['elements'] as $box => $inside)
+		{
+			if($subchild)
 			{
-				if($subchild)
+				if($box !== $subchild)
 				{
-					if($box !== $subchild)
-					{
-						continue;
-					}
+					continue;
+				}
+			}
 
-					if(is_array($inside) && $subchild === $box)
+			if(isset($inside['contain']) && is_array($inside['contain']))
+			{
+				if($box === $subchild)
+				{
+					foreach ($inside['contain'] as $inside_box => $inside_value)
 					{
-						foreach ($inside as $inside_box => $inside_value)
-						{
-							$tmp_file = sprintf($file, $inside_box);
-
-							if(is_file($tmp_file))
-							{
-								require_once($tmp_file);
-							}
-						}
-					}
-					else
-					{
-						if(is_string($box))
-						{
-							$tmp_file = sprintf($file, $box);
-
-							if(is_file($tmp_file))
-							{
-								require_once($tmp_file);
-							}
-						}
+						self::load($inside_box);
 					}
 				}
 				else
 				{
-					if(is_string($box))
-					{
-						$tmp_file = sprintf($file, $box);
-
-						if(is_file($tmp_file))
-						{
-							require_once($tmp_file);
-						}
-					}
+					self::load($box);
 				}
-
+			}
+			else
+			{
+				self::load($box);
 			}
 		}
 

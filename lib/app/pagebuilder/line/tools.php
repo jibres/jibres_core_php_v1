@@ -73,23 +73,34 @@ class tools
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function global_contain()
+	public static function get_contain($_element)
 	{
-		return
-		[
-			'platform',
-			'title',
-			'titlesetting',
-			'background',
-			'avand',
-			'margin',
-			'padding',
-			'radius',
-			'ifloginshow',
-			'ifpermissionshow',
-			// 'puzzle',
-			// 'infoposition',
-		];
+
+		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'elements');
+
+		if(!$contain || !is_array($contain))
+		{
+			return [];
+		}
+
+		$new_contain = [];
+
+		foreach ($contain as $box => $inside)
+		{
+			if(isset($inside['contain']) && is_array($inside['contain']))
+			{
+				foreach ($inside['contain'] as $inside_box => $inside_value)
+				{
+					$new_contain[] = $inside_box;
+				}
+			}
+			else
+			{
+				$new_contain[] = $box;
+			}
+		}
+
+		return $new_contain;
 	}
 
 
@@ -188,18 +199,7 @@ class tools
 			$data['detail'] = json_decode($data['detail'], true);
 		}
 
-
-		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'contain');
-		if(!$contain)
-		{
-			$contain = [];
-		}
-
-		$global_contain = \lib\app\pagebuilder\line\tools::global_contain();
-
-		$contain = array_merge($global_contain, $contain);
-		$contain = array_filter($contain);
-		$contain = array_unique($contain);
+		$contain = \lib\app\pagebuilder\line\tools::get_contain($_element);
 
 		foreach ($contain as $one_contain)
 		{

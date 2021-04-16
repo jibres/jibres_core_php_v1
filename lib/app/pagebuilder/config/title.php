@@ -2,7 +2,7 @@
 namespace lib\app\pagebuilder\config;
 
 
-class titlesetting
+class title
 {
 	public static function ready_for_save_db($_data)
 	{
@@ -74,7 +74,6 @@ class titlesetting
 		}
 
 		$_data['titlesetting'] = array_merge($default, $titlesetting);;
-
 
 		return $_data;
 	}

@@ -1,3 +1,4 @@
+<?php $lineSetting = \dash\data::lineSetting(); ?>
 <section class="f" data-option='website-line-avand'>
   <div class="c8 s12">
     <div class="data">

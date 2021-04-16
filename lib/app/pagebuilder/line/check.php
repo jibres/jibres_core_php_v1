@@ -17,17 +17,7 @@ class check
 			$input_condition = $global_input_condition;
 		}
 
-		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'contain');
-		if(!$contain)
-		{
-			$contain = [];
-		}
-
-		$global_contain = \lib\app\pagebuilder\line\tools::global_contain();
-
-		$contain = array_merge($global_contain, $contain);
-		$contain = array_filter($contain);
-		$contain = array_unique($contain);
+		$contain = \lib\app\pagebuilder\line\tools::get_contain($_element);
 
 		foreach ($contain as $one_contain)
 		{

@@ -88,28 +88,18 @@ class get
 
 		$result            = $detail;
 
-		$the_contain = \lib\app\pagebuilder\line\tools::global_contain();
+		$elements = \lib\app\pagebuilder\line\tools::call_fn($element, 'elements');
 
-		$element_contain = \lib\app\pagebuilder\line\tools::call_fn_args($element, 'contain', $the_contain);
-
-		if($element_contain)
+		if(!$elements)
 		{
-			$the_contain = $element_contain;
+			return false;
 		}
 
-		$result['contain'] = $the_contain;
-
-		$design_map = \lib\app\pagebuilder\line\tools::call_fn($element, 'design_map');
-
-		if($design_map)
-		{
-			$result['design_map'] = $design_map;
-		}
-
+		$result['elements'] = $elements;
 
 		if($contain)
 		{
-			if(is_array($result['contain']) && in_array($contain, $result['contain']))
+			if(is_array($result['elements']) && in_array($contain, $result['elements']))
 			{
 				// no problem
 			}

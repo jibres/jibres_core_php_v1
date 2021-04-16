@@ -1,4 +1,5 @@
 <?php
+$lineSetting = \dash\data::lineSetting();
 \dash\data::listTag(\dash\app\terms\get::get_all_tag());
 
 ?>

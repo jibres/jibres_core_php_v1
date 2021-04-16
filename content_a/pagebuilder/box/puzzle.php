@@ -1,3 +1,4 @@
+<?php $lineSetting = \dash\data::lineSetting(); ?>
 <section class="f" data-option='website-line-count-show'>
   <div class="c8 s12">
     <div class="data">
@@ -18,13 +19,13 @@
 </section>
 <?php
 
-if(!$lineSetting)
+if(!a($lineSetting,'puzzle', 'limit'))
 {
-  $puzzle = \lib\app\website\puzzle::default_list();
+  $puzzle = \lib\app\pagebuilder\config\puzzle::default_list();
 }
 else
 {
-  $puzzle = \lib\app\website\puzzle::list(a($lineSetting,'puzzle', 'limit'));
+  $puzzle = \lib\app\pagebuilder\config\puzzle::list(a($lineSetting,'puzzle', 'limit'));
 }
 
 if($puzzle && count($puzzle) > 1)

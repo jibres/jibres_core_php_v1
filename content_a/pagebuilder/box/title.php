@@ -1,3 +1,4 @@
+<?php $lineSetting = \dash\data::lineSetting(); ?>
 <?php if(\dash\url::subchild() !== 'title') {?>
 <section class="f" data-option='website-line-title'>
   <div class="c8 s12">
