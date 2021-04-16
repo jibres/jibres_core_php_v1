@@ -1,23 +1,5 @@
 <?php $lineSetting = \dash\data::lineSetting(); ?>
-<?php if(\dash\url::subchild() !== 'title') {?>
-<section class="f" data-option='website-line-title'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo a($lineSetting, 'title'); ?></h3>
-      <div class="body">
-        <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'show') {?>
-          <div class="fc-mute"><?php echo T_("Title with more link") ?></div>
-        <?php } //endif ?>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-      <div class="action">
-        <a class="btn master" href="<?php echo \dash\url::that(). '/title'. \dash\request::full_get(); ?>"><?php echo T_("Edit title"); ?></a>
-      </div>
-  </div>
-</section>
-<?php }else{  // url subchild is title ?>
+<?php if(\dash\url::subchild() === 'title' || (\dash\url::dir(3) && \dash\url::dir(3) === 'title')) {?>
 <form method="post" autocomplete="off" id="form1">
   <input type="hidden" name="set_title" value="1">
   <div class="avand-md">
@@ -71,4 +53,23 @@
     </div>
   </div>
 </form>
+
+<?php }else{  // url subchild is title ?>
+  <section class="f" data-option='website-line-title'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo a($lineSetting, 'title'); ?></h3>
+      <div class="body">
+        <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'show') {?>
+          <div class="fc-mute"><?php echo T_("Title with more link") ?></div>
+        <?php } //endif ?>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+      <div class="action">
+        <a class="btn master" href="<?php echo \dash\url::current(). '/title'. \dash\request::full_get(); ?>"><?php echo T_("Edit title"); ?></a>
+      </div>
+  </div>
+</section>
 <?php } //endif ?>

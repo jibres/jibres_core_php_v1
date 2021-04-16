@@ -6,15 +6,7 @@ class design
 {
 	public static function route()
 	{
-		$child = \dash\url::child();
-
-		$subchild = \dash\url::subchild();
-
-		$id   = \dash\request::get('id');
-
-		$args = [];
-
-		$data = \lib\app\pagebuilder\line\get::load_element($child, $subchild, $id, $args);
+		$data = \lib\app\pagebuilder\line\get::load_current_element();
 
 		if($data)
 		{
@@ -50,44 +42,42 @@ class design
 	{
 		$lineSetting = \dash\data::lineSetting();
 
-		$subchild = \dash\url::subchild();
+
+		$child    = \dash\url::dir(2);
+		$subchild = \dash\url::dir(3);
 
 		if(!is_array(a($lineSetting, 'elements')))
 		{
 			return;
 		}
-
-
-		foreach ($lineSetting['elements'] as $box => $inside)
+		if($child)
 		{
 			if($subchild)
 			{
-				if($box !== $subchild)
-				{
-					continue;
-				}
+				self::load($subchild);
 			}
-
-			if(isset($inside['contain']) && is_array($inside['contain']))
+			else
 			{
-				if($box === $subchild)
+				if(isset($lineSetting['elements'][$child]['contain']) && is_array($lineSetting['elements'][$child]['contain']))
 				{
-					foreach ($inside['contain'] as $inside_box => $inside_value)
+					foreach ($lineSetting['elements'][$child]['contain'] as $inside_box => $inside_detail)
 					{
 						self::load($inside_box);
 					}
 				}
 				else
 				{
-					self::load($box);
+					self::load($child);
 				}
 			}
-			else
+		}
+		else
+		{
+			foreach ($lineSetting['elements'] as $box => $inside)
 			{
 				self::load($box);
 			}
 		}
-
 	}
 }
 ?>

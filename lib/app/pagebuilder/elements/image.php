@@ -29,48 +29,33 @@ class image
 	{
 		$map =
 		[
-			'title'  =>
+			'image' =>
 			[
 				'detail' =>
 				[
-					'page_title'    => T_("Edit title"),
-					'btn_save'      => true,
+					'page_title' => T_("Images"),
+					'btn_save'   => true,
 				],
 			],
 
-			'filter'  =>
+			'advance' =>
 			[
-				'detail' =>
+				'detail'  =>
 				[
-					'page_title' => T_("Set Filter"),
-					'btn_save' => true,
-				],
-
-				'contain' =>
-				[
-					'image_filter' => true,
-				],
-
-			],
-			'design' =>
-			[
-				'detail' =>
-				[
-					'page_title' => T_("Set design config"),
+					'page_title' => T_("Edit image block setting"),
 					'btn_save'   => false,
 				],
-
 				'contain' =>
 				[
-					'avand'  => true,
-					'radius' => true,
-					'effect' => true,
-					'padding' => true,
+					'title'        => true,
+					'avand'        => true,
+					'radius'       => true,
+					'effect'       => true,
+					'padding'      => true,
 					'infoposition' => true,
-				],
+					'remove'       => true,
+				]
 			],
-			'puzzle' => true,
-			'remove' => true,
 		];
 
 		return $map;

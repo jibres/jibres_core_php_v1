@@ -34,6 +34,8 @@ class view
 
 		$subchild = \dash\url::subchild();
 
+		$dir_3 = \dash\url::dir(3);
+
 		\dash\face::title(T_('Build Your Unique Online Website'));
 
 		if(a($lineSetting, 'page_title'))
@@ -48,6 +50,15 @@ class view
 			if(a($elements, $subchild, 'detail', 'page_title'))
 			{
 				\dash\face::title(a($elements, $subchild, 'detail', 'page_title'));
+			}
+		}
+
+
+		if($subchild !== 'advance')
+		{
+			if(a($elements, 'advance'))
+			{
+				\dash\face::btnSetting(\dash\url::current(). '/advance'. \dash\request::full_get());
 			}
 		}
 
@@ -68,6 +79,11 @@ class view
 			}
 		}
 
+		if($subchild === 'title' || $dir_3 === 'title')
+		{
+			\dash\face::btnSave('form1');
+		}
+
 
 
 		if(!$lineSetting)
@@ -77,7 +93,13 @@ class view
 		}
 		else
 		{
-			if(\dash\url::subchild())
+			if($dir_3)
+			{
+				$dir_2 = \dash\url::dir(2);
+
+				$back = \dash\url::that(). '/'. $dir_2. \dash\request::full_get();
+			}
+			elseif($subchild)
 			{
 				$back = \dash\url::that(). \dash\request::full_get();
 			}

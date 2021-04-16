@@ -87,16 +87,13 @@ class tools
 
 		foreach ($contain as $box => $inside)
 		{
+			$new_contain[] = $box;
 			if(isset($inside['contain']) && is_array($inside['contain']))
 			{
 				foreach ($inside['contain'] as $inside_box => $inside_value)
 				{
 					$new_contain[] = $inside_box;
 				}
-			}
-			else
-			{
-				$new_contain[] = $box;
 			}
 		}
 

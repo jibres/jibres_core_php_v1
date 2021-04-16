@@ -4,9 +4,9 @@ namespace lib\app\pagebuilder\line;
 
 class edit
 {
-	public static function element($_element, $_contain, $_id, $_args = [])
+	public static function element($_args = [])
 	{
-		$result = \lib\app\pagebuilder\line\get::load_element($_element, $_contain, $_id);
+		$result = \lib\app\pagebuilder\line\get::load_current_element();
 
 		if(!$result)
 		{
@@ -14,13 +14,15 @@ class edit
 			return false;
 		}
 
+		$id = $result['id'];
+
 		// remove element
 		if(isset($_args['remove']) && $_args['remove'] === 'line')
 		{
-			return self::remove($_id);
+			return self::remove($id);
 		}
 
-		$update = \lib\app\pagebuilder\line\check::input($_element, $_id, $_args, $result);
+		$update = \lib\app\pagebuilder\line\check::input($result['key'], $id, $_args, $result);
 		if(!$update)
 		{
 			return false;
@@ -36,7 +38,7 @@ class edit
 			return true;
 		}
 
-		\lib\db\pagebuilder\update::record($update, $_id);
+		\lib\db\pagebuilder\update::record($update, $id);
 
 		\dash\notif::ok(T_("Your data successfully updated"));
 
