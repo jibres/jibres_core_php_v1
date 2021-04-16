@@ -32,74 +32,68 @@ class view
 	{
 		$lineSetting = \dash\data::lineSetting();
 
-		$subchild = \dash\url::subchild();
-
-		$dir_3 = \dash\url::dir(3);
-
 		\dash\face::title(T_('Build Your Unique Online Website'));
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::here());
 
-		if(a($lineSetting, 'page_title'))
+		if(isset($lineSetting['current_page_detail']))
 		{
-			\dash\face::title(a($lineSetting, 'page_title'));
-		}
+			$current_page_detail = [];
+			$current_page = $lineSetting['current_page_detail'];
 
-		$elements = a($lineSetting, 'elements');
-
-		if($subchild)
-		{
-			if(a($elements, $subchild, 'detail', 'page_title'))
+			if(isset($current_page['detail']))
 			{
-				\dash\face::title(a($elements, $subchild, 'detail', 'page_title'));
+				$current_page_detail = $current_page['detail'];
 			}
-		}
 
 
-		if($subchild !== 'advance')
-		{
-			if(a($elements, 'advance'))
+			if(isset($current_page_detail['page_title']))
 			{
-				\dash\face::btnSetting(\dash\url::current(). '/advance'. \dash\request::full_get());
+				\dash\face::title($current_page_detail['page_title']);
 			}
-		}
 
-
-
-		if($subchild)
-		{
-			if(a($elements, $subchild, 'detail', 'btn_save'))
+			if(isset($current_page_detail['btn_add']))
 			{
-				if(a($elements, $subchild, 'detail', 'btn_save') === true)
+				$btn_add = $current_page_detail['btn_add'];
+
+				if(a($btn_add, 'text') && a($btn_add, 'link') && \dash\url::pwd() !== a($btn_add, 'link'))
+				{
+					\dash\data::action_text(a($btn_add, 'text'));
+					\dash\data::action_link(a($btn_add, 'link'));
+				}
+			}
+
+			if(isset($current_page_detail['btn_save']))
+			{
+				if($current_page_detail['btn_save'] === true)
 				{
 					\dash\face::btnSave('form1');
 				}
 				else
 				{
-					\dash\face::btnSave(a($elements, $subchild, 'detail', 'btn_save'));
+					\dash\face::btnSave($current_page_detail['btn_save']);
 				}
 			}
+
+			if(isset($current_page['current_page']) && $current_page['current_page'] === 'title')
+			{
+				\dash\face::btnSave('form1');
+			}
+			// \dash\face::btnSetting(\dash\url::that(). '/advance'. \dash\request::full_get());
 		}
 
-		if($subchild === 'title' || $dir_3 === 'title')
-		{
-			\dash\face::btnSave('form1');
-		}
 
 
 
-		if(!$lineSetting)
+		if($lineSetting)
 		{
-			\dash\data::back_text(T_('Dashboard'));
-			\dash\data::back_link(\dash\url::here());
-		}
-		else
-		{
-			if($dir_3)
+			if(\dash\url::dir(3))
 			{
 				$dir_2 = \dash\url::dir(2);
 
 				$back = \dash\url::that(). '/'. $dir_2. \dash\request::full_get();
 			}
-			elseif($subchild)
+			elseif(\dash\url::subchild())
 			{
 				$back = \dash\url::that(). \dash\request::full_get();
 			}

@@ -11,7 +11,6 @@ class products
 			'key'         => 'products',
 			'mode'        => 'body',
 			'title'       => T_("Product Line"),
-			'page_title'  => T_("Product Line"),
 			'description' => T_("A block to show products like random products, products of special category, popular products, etc."),
 			'btn_title'   => T_("Add Products Block"),
 		];
@@ -42,48 +41,55 @@ class products
 	{
 		$map =
 		[
-			'title'  =>
+			'detail' =>
 			[
-				'detail' =>
-				[
-					'page_title' => T_("Edit title"),
-					'btn_save' => true,
-				],
+				'page_title' => T_("Product Line"),
 			],
 
-			'filter'  =>
+			'contain' =>
 			[
-				'detail' =>
+				'title' =>
 				[
-					'page_title' => T_("Set Filter"),
-					'btn_save' => true,
+					'detail' =>
+					[
+						'page_title' => T_("Edit title"),
+					],
 				],
 
-				'contain' =>
+				'filter' =>
 				[
-					'products_filter' => true,
-				],
+					'detail' =>
+					[
+						'page_title' => T_("Set Filter"),
+						'btn_save'   => true,
+					],
 
+					'contain' =>
+					[
+						'products_filter' => true,
+					],
+
+				],
+				'design' =>
+				[
+					'detail' =>
+					[
+						'page_title' => T_("Set design config"),
+						'btn_save'   => false,
+					],
+
+					'contain' =>
+					[
+						'avand'        => true,
+						'radius'       => true,
+						'effect'       => true,
+						'padding'      => true,
+						'infoposition' => true,
+					],
+				],
+				'puzzle' => true,
+				'remove' => true,
 			],
-			'design' =>
-			[
-				'detail' =>
-				[
-					'page_title' => T_("Set design config"),
-					'btn_save'   => false,
-				],
-
-				'contain' =>
-				[
-					'avand'  => true,
-					'radius' => true,
-					'effect' => true,
-					'padding' => true,
-					'infoposition' => true,
-				],
-			],
-			'puzzle' => true,
-			'remove' => true,
 		];
 
 		return $map;

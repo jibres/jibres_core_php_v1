@@ -42,40 +42,22 @@ class design
 	{
 		$lineSetting = \dash\data::lineSetting();
 
-
 		$child    = \dash\url::dir(2);
 		$subchild = \dash\url::dir(3);
 
-		if(!is_array(a($lineSetting, 'elements')))
+		if(isset($lineSetting['current_page_detail']['contain']) && is_array($lineSetting['current_page_detail']['contain']))
 		{
-			return;
-		}
-		if($child)
-		{
-			if($subchild)
+			foreach ($lineSetting['current_page_detail']['contain'] as $key => $value)
 			{
-				self::load($subchild);
+				self::load($key);
 			}
-			else
-			{
-				if(isset($lineSetting['elements'][$child]['contain']) && is_array($lineSetting['elements'][$child]['contain']))
-				{
-					foreach ($lineSetting['elements'][$child]['contain'] as $inside_box => $inside_detail)
-					{
-						self::load($inside_box);
-					}
-				}
-				else
-				{
-					self::load($child);
-				}
-			}
+
 		}
 		else
 		{
-			foreach ($lineSetting['elements'] as $box => $inside)
+			if(isset($lineSetting['current_page_detail']['current_page']))
 			{
-				self::load($box);
+				self::load($lineSetting['current_page_detail']['current_page']);
 			}
 		}
 	}

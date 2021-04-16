@@ -11,7 +11,7 @@ class image
 			'key'         => 'image',
 			'mode'        => 'body',
 			'title'       => T_("Image Block"),
-			'page_title'  => T_("Image Block"),
+
 			'description' => T_("Add an image block with a link to somewhere. You can use a beautiful image to engage your customers. for example a special offer."),
 			'btn_title'   => T_("Add Images Block"),
 		];
@@ -29,33 +29,45 @@ class image
 	{
 		$map =
 		[
-			'image' =>
+			'detail' =>
 			[
-				'detail' =>
+				'page_title' => T_("Image Block"),
+				'btn_add'    =>
 				[
-					'page_title' => T_("Images"),
-					'btn_save'   => true,
+					'text' => T_('Add new image'),
+					'link' => \dash\url::that(). '/addimage'. \dash\request::full_get()
 				],
 			],
 
-			'advance' =>
+			'contain' =>
 			[
-				'detail'  =>
+				'addimage' =>
 				[
-					'page_title' => T_("Edit image block setting"),
-					'btn_save'   => false,
+					'detail' =>
+					[
+						'page_title' => T_("Add new image"),
+					]
 				],
-				'contain' =>
+				'advance' =>
 				[
-					'title'        => true,
-					'avand'        => true,
-					'radius'       => true,
-					'effect'       => true,
-					'padding'      => true,
-					'infoposition' => true,
-					'remove'       => true,
-				]
+					'detail'  =>
+					[
+						'page_title' => T_("Edit image block setting"),
+						'btn_save'   => false,
+					],
+					'contain' =>
+					[
+						'title'        => true,
+						'avand'        => true,
+						'radius'       => true,
+						'effect'       => true,
+						'padding'      => true,
+						'infoposition' => true,
+						'remove'       => true,
+					]
+				],
 			],
+
 		];
 
 		return $map;

@@ -42,48 +42,55 @@ class news
 	{
 		$map =
 		[
-			'title'  =>
+			'detail' =>
 			[
-				'detail' =>
-				[
-					'page_title' => T_("Edit title"),
-					'btn_save' => true,
-				],
-			],
-
-			'filter'  =>
-			[
-				'detail' =>
-				[
-					'page_title' => T_("Set Filter"),
-					'btn_save' => true,
-				],
-
-				'contain' =>
-				[
-					'news_filter' => true,
-				],
+				'page_title' => T_("Edit title"),
 
 			],
-			'design' =>
+			'contain' =>
 			[
-				'detail' =>
+				'title'  =>
 				[
-					'page_title' => T_("Set design config"),
-					'btn_save'   => false,
+					'detail' =>
+					[
+						'page_title' => T_("Edit title"),
+					],
 				],
 
-				'contain' =>
+				'filter'  =>
 				[
-					'avand'  => true,
-					'radius' => true,
-					'effect' => true,
-					'padding' => true,
-					'infoposition' => true,
+					'detail' =>
+					[
+						'page_title' => T_("Set Filter"),
+						'btn_save' => true,
+					],
+
+					'contain' =>
+					[
+						'news_filter' => true,
+					],
+
 				],
+				'design' =>
+				[
+					'detail' =>
+					[
+						'page_title' => T_("Set design config"),
+						'btn_save'   => false,
+					],
+
+					'contain' =>
+					[
+						'avand'  => true,
+						'radius' => true,
+						'effect' => true,
+						'padding' => true,
+						'infoposition' => true,
+					],
+				],
+				'puzzle' => true,
+				'remove' => true,
 			],
-			'puzzle' => true,
-			'remove' => true,
 		];
 
 		return $map;

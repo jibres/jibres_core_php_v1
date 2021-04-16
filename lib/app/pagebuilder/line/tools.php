@@ -78,14 +78,15 @@ class tools
 
 		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'elements');
 
-		if(!$contain || !is_array($contain))
+		if(!$contain || !is_array($contain) || !isset($contain['contain']) || !is_array($contain['contain']))
 		{
 			return [];
 		}
 
+
 		$new_contain = [];
 
-		foreach ($contain as $box => $inside)
+		foreach ($contain['contain'] as $box => $inside)
 		{
 			$new_contain[] = $box;
 			if(isset($inside['contain']) && is_array($inside['contain']))
@@ -96,6 +97,7 @@ class tools
 				}
 			}
 		}
+
 
 		return $new_contain;
 	}

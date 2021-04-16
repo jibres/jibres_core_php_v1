@@ -25,7 +25,9 @@ class get
 		$args['child']    = $dir_2;
 		$args['subchild'] = $dir_3;
 
-		return self::load_element($dir_1, $id, $args);
+		$result =  self::load_element($dir_1, $id, $args);
+
+		return $result;
 	}
 
 
@@ -67,12 +69,18 @@ class get
 			return false;
 		}
 
+		$current_page_detail = [];
+		$current_page_lock = null;
+
+
 		if(isset($_args['child']) && $_args['child'])
 		{
 			if(isset($_args['subchild']) && $_args['subchild'])
 			{
-				if(isset($result['elements'][$_args['child']]['contain'][$_args['subchild']]))
+				if(isset($result['elements']['contain'][$_args['child']]['contain'][$_args['subchild']]))
 				{
+					$current_page_lock = 'subchild';
+					$current_page_detail = $result['elements']['contain'][$_args['child']]['contain'][$_args['subchild']];
 					// ok
 				}
 				else
@@ -82,8 +90,10 @@ class get
 			}
 			else
 			{
-				if(isset($result['elements'][$_args['child']]))
+				if(isset($result['elements']['contain'][$_args['child']]))
 				{
+					$current_page_lock = 'child';
+					$current_page_detail = $result['elements']['contain'][$_args['child']];
 					// ok
 				}
 				else
@@ -92,6 +102,25 @@ class get
 				}
 			}
 		}
+		else
+		{
+			$current_page_lock = 'module';
+
+			if(isset($result['elements']['detail']))
+			{
+				$current_page_detail = $result['elements'];
+			}
+		}
+
+		if(!is_array($current_page_detail))
+		{
+			$current_page_detail = [];
+		}
+
+		$current_page_detail['current_page'] = a($_args, $current_page_lock);
+
+		$result['current_page_detail'] = $current_page_detail;
+
 
 		$load_data = \lib\db\pagebuilder\get::by_id($id);
 
