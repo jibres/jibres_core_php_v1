@@ -2,28 +2,28 @@
 namespace lib\app\pagebuilder\elements;
 
 
-class products
+class image
 {
 	public static function detail()
 	{
 		return
 		[
-			'key'         => 'products',
+			'key'         => 'image',
 			'mode'        => 'body',
-			'title'       => T_("Product Line"),
-			'page_title'  => T_("Product Line"),
-			'description' => T_("A block to show products like random products, products of special category, popular products, etc."),
-			'btn_title'   => T_("Add Products Block"),
+			'title'       => T_("Image Block"),
+			'page_title'  => T_("Image Block"),
+			'description' => T_("Add an image block with a link to somewhere. You can use a beautiful image to engage your customers. for example a special offer."),
+			'btn_title'   => T_("Add Images Block"),
 		];
 	}
 
 
 	/**
-	 * Products element contain what
+	 * Images element contain what
 	 *
 	 * @param      array  $_args  The public contains
 	 *
-	 * @return     array  The products contain
+	 * @return     array  The image contain
 	 */
 	public static function elements($_args = [])
 	{
@@ -33,9 +33,8 @@ class products
 			[
 				'detail' =>
 				[
-					'page_title' => T_("Edit title"),
-					'btn_save' => true,
-					'default' => ['show_title' => 'yes', 'more_link' => 'show'],
+					'page_title'    => T_("Edit title"),
+					'btn_save'      => true,
 				],
 			],
 
@@ -49,7 +48,7 @@ class products
 
 				'contain' =>
 				[
-					'products_filter' => true,
+					'image_filter' => true,
 				],
 
 			],
@@ -89,40 +88,40 @@ class products
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$products = [];
+		$image = [];
 
 		if(array_key_exists('cat_id', $_data))
 		{
-			$products['cat_id'] = $_data['cat_id'];
+			$image['cat_id'] = $_data['cat_id'];
 		}
 		elseif(a($_saved_detail, 'detail', 'cat_id'))
 		{
-			$products['cat_id'] = a($_saved_detail, 'detail', 'cat_id');
+			$image['cat_id'] = a($_saved_detail, 'detail', 'cat_id');
 		}
 
 
 		if(array_key_exists('type', $_data))
 		{
-			$products['type'] = $_data['type'];
+			$image['type'] = $_data['type'];
 		}
 		elseif(a($_saved_detail, 'detail', 'type'))
 		{
-			$products['type'] = a($_saved_detail, 'detail', 'type');
+			$image['type'] = a($_saved_detail, 'detail', 'type');
 		}
 
 
 		if(array_key_exists('play_item', $_data))
 		{
-			$products['play_item'] = $_data['play_item'];
+			$image['play_item'] = $_data['play_item'];
 		}
 		elseif(a($_saved_detail, 'detail', 'play_item'))
 		{
-			$products['play_item'] = a($_saved_detail, 'detail', 'play_item');
+			$image['play_item'] = a($_saved_detail, 'detail', 'play_item');
 		}
 
-		if(!empty($products))
+		if(!empty($image))
 		{
-			$_data['detail'] = json_encode($products, JSON_UNESCAPED_UNICODE);
+			$_data['detail'] = json_encode($image, JSON_UNESCAPED_UNICODE);
 		}
 		else
 		{

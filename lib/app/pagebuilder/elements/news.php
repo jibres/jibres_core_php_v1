@@ -35,6 +35,7 @@ class news
 				[
 					'page_title' => T_("Edit title"),
 					'btn_save' => true,
+					'default' => ['show_title' => 'yes', 'more_link' => 'show'],
 				],
 			],
 

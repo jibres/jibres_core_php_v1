@@ -31,14 +31,14 @@
            <div class="row">
               <div class="c-xs-6 c-sm-6">
                 <div class="radio3">
-                  <input type="radio" name="show_title" value="yes" id="showtitleyes" <?php if(a($lineSetting, 'titlesetting', 'show_title') === 'yes' || !a($lineSetting, 'titlesetting', 'show_title')) { echo 'checked';} ?>>
-                  <label for="showtitleyes"><?php echo T_("Show title on website") ?></label>
+                  <input type="radio" name="show_title" value="no" id="showtitleno" <?php if(a($lineSetting, 'titlesetting', 'show_title') === 'no') { echo 'checked';} ?>>
+                  <label for="showtitleno"><?php echo T_("Do not show title on website") ?></label>
                 </div>
               </div>
               <div class="c-xs-6 c-sm-6">
                 <div class="radio3">
-                  <input type="radio" name="show_title" value="no" id="showtitleno" <?php if(a($lineSetting, 'titlesetting', 'show_title') === 'no') { echo 'checked';} ?>>
-                  <label for="showtitleno"><?php echo T_("Do not show title on website") ?></label>
+                  <input type="radio" name="show_title" value="yes" id="showtitleyes" <?php if(a($lineSetting, 'titlesetting', 'show_title') === 'yes' || !a($lineSetting, 'titlesetting', 'show_title')) { echo 'checked';} ?>>
+                  <label for="showtitleyes"><?php echo T_("Show title on website") ?></label>
                 </div>
               </div>
             </div>
@@ -48,14 +48,14 @@
               <div class="row">
                 <div class="c-xs-6 c-sm-6">
                   <div class="radio3">
-                    <input type="radio" name="more_link" value="show" id="showmorelink" <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'show' || !a($lineSetting, 'titlesetting', 'more_link')) { echo 'checked';} ?>>
-                    <label for="showmorelink"><?php echo T_("Show read more link") ?></label>
+                    <input type="radio" name="more_link" value="hide" id="hidemorelink" <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'hide') { echo 'checked';} ?>>
+                    <label for="hidemorelink"><?php echo T_("Hide read more link") ?></label>
                   </div>
                 </div>
                 <div class="c-xs-6 c-sm-6">
                   <div class="radio3">
-                    <input type="radio" name="more_link" value="hide" id="hidemorelink" <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'hide') { echo 'checked';} ?>>
-                    <label for="hidemorelink"><?php echo T_("Hide read more link") ?></label>
+                    <input type="radio" name="more_link" value="show" id="showmorelink" <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'show' || !a($lineSetting, 'titlesetting', 'more_link')) { echo 'checked';} ?>>
+                    <label for="showmorelink"><?php echo T_("Show read more link") ?></label>
                   </div>
                 </div>
               </div>

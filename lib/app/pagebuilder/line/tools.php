@@ -105,22 +105,7 @@ class tools
 
 
 
-	/**
-	 * Global input
-	 * this variable was find in every elements
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function global_input_condition()
-	{
-		$condition                      = [];
-		$condition['title']             = 'string_100';
-		$condition['set_title']         = 'bit';
-		$condition['show_title']        = 'string_100';
-		$condition['more_link']         = 'string_100';
-		$condition['more_link_caption'] = 'string_100';
-		return $condition;
-	}
+
 
 
 	/**

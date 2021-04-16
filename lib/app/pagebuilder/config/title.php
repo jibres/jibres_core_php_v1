@@ -4,6 +4,18 @@ namespace lib\app\pagebuilder\config;
 
 class title
 {
+
+	public static function input_condition($_args = [])
+	{
+		$_args['title']             = 'string_100';
+		$_args['set_title']         = 'bit';
+		$_args['show_title']        = 'yes_no';
+		$_args['more_link']         = ['enum' => ['show', 'hide']];
+		$_args['more_link_caption'] = 'string_100';
+		return $_args;
+	}
+
+
 	public static function ready_for_save_db($_data)
 	{
 		// needless to save title
@@ -59,7 +71,25 @@ class title
 
 		$default['more_link_caption_placeholder'] = T_("Show more");
 
-		$titlesetting                             = [];
+		if(isset($_data['elements']['title']['detail']['default']['show_title']))
+		{
+			$default['show_title'] = $_data['elements']['title']['detail']['default']['show_title'];
+		}
+		else
+		{
+			$default['show_title'] = 'no';
+		}
+
+		if(isset($_data['elements']['title']['detail']['default']['more_link']))
+		{
+			$default['more_link'] = $_data['elements']['title']['detail']['default']['more_link'];
+		}
+		else
+		{
+			$default['more_link'] = 'hide';
+		}
+
+		$titlesetting              = [];
 
 		// default place holder
 		if(isset($_data['titlesetting']) && is_string($_data['titlesetting']))
@@ -73,7 +103,8 @@ class title
 
 		}
 
-		$_data['titlesetting'] = array_merge($default, $titlesetting);;
+
+		$_data['titlesetting'] = array_merge($default, $titlesetting);
 
 		return $_data;
 	}

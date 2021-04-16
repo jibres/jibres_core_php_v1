@@ -8,13 +8,11 @@ class check
 	{
 		$args = \lib\app\pagebuilder\line\tools::global_clean_input($_args);
 
-		$global_input_condition = \lib\app\pagebuilder\line\tools::global_input_condition();
+		$input_condition = \lib\app\pagebuilder\line\tools::call_fn($_element, 'input_condition');
 
-		$input_condition = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'input_condition', $global_input_condition);
-		// the module have not function check input
 		if($input_condition === false)
 		{
-			$input_condition = $global_input_condition;
+			return false;
 		}
 
 		$contain = \lib\app\pagebuilder\line\tools::get_contain($_element);
