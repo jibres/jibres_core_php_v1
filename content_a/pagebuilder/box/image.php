@@ -1,17 +1,21 @@
+<?php
 
+$specialslider_ratio = round(a(\dash\data::lineSetting(), 'ratio_detail', 'ratio'), 2);
+$lineSetting         = \dash\data::lineSetting();
+$images = a($lineSetting, 'detail', 'list');
+if(!is_array($images))
+{
+  $images = [];
+}
 
-<?php if(\dash\data::lineSetting_specialslider() && is_array(\dash\data::lineSetting_specialslider()) && count(\dash\data::lineSetting_specialslider()) >= 5) {/*nothing*/}else{?>
-  <div class="msg warn fs14 txtC"><?php echo T_("You must have at least 5 pages or more to display this slider") ?></div>
-<?php } //endif ?>
-<?php $specialslider_ratio = round(a(\dash\data::lineSetting(), 'ratio_detail', 'ratio'), 2); ?>
+?>
 <form class="row" data-sortable method="post">
   <input type="hidden" name="sort" value="sort">
-  <?php if(\dash\data::lineSetting_specialslider() && is_array(\dash\data::lineSetting_specialslider())) {?>
-    <?php foreach (\dash\data::lineSetting_specialslider() as $key => $value) {?>
+    <?php foreach ($images as $key => $value) {?>
     <div class="c-3 c-xs-12 mB20">
       <div class="card">
         <input type="hidden" class="hide" name="specialslider[]" value="<?php echo $key; ?>">
-        <div class="img" data-handle><img src="<?php echo a($value, 'image') ?>" alt="<?php echo a($value, 'alt') ?>"></div>
+        <div class="img" data-handle><img src="<?php echo a($value, 'imageurl') ?>" alt="<?php echo a($value, 'alt') ?>"></div>
         <div class="body">
           <header>
             <div class="mB10 font-12"><?php echo a($value, 'alt'); ?></div>
@@ -32,5 +36,4 @@
       </div>
     </div>
     <?php } // endfor ?>
-  <?php } //endif ?>
 </form>

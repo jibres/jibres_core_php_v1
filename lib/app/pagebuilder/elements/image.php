@@ -46,10 +46,10 @@ class image
 				[
 					'detail' =>
 					[
-						'hidden'     => true,
-						'page_title' => T_("Add new image"),
+						'allow_upload_file' => true,
+						'hidden'            => true,
+						'page_title'        => T_("Add new image"),
 					],
-
 				],
 				'advance' =>
 				[
@@ -80,9 +80,30 @@ class image
 
 	public static function input_condition($_args = [])
 	{
-		$_args['cat_id'] = 'id';
-		$_args['type']   = ['enum' => ['latestproduct', 'randomproduct', 'bestselling']];
+		$_args['alt']    = 'string_200';
+		$_args['url']    = 'string_200';
+		$_args['sort']   = 'smallint';
+		$_args['image']  = 'bit';
+		$_args['target'] = 'bit';
+
 		return $_args;
+	}
+
+
+	public static function ready($_data)
+	{
+		if(isset($_data['detail']['list']) && is_array($_data['detail']['list']))
+		{
+			foreach ($_data['detail']['list'] as $key => $value)
+			{
+				if(isset($value['image']))
+				{
+					$_data['detail']['list'][$key]['imageurl'] = \lib\filepath::fix($value['image']);
+				}
+			}
+		}
+
+		return $_data;
 	}
 
 
@@ -90,34 +111,38 @@ class image
 	{
 		$image = [];
 
-		if(array_key_exists('cat_id', $_data))
+		$image_path = null;
+
+
+		$image_path = \dash\upload\website::upload_image('image');
+
+		if(!\dash\engine\process::status())
 		{
-			$image['cat_id'] = $_data['cat_id'];
-		}
-		elseif(a($_saved_detail, 'detail', 'cat_id'))
-		{
-			$image['cat_id'] = a($_saved_detail, 'detail', 'cat_id');
+			return false;
 		}
 
 
-		if(array_key_exists('type', $_data))
+		if(!$image_path)
 		{
-			$image['type'] = $_data['type'];
+			\dash\notif::error(T_("Please upload an image file"), 'image');
+			return false;
 		}
-		elseif(a($_saved_detail, 'detail', 'type'))
+
+		if(isset($_saved_detail['detail']['list']) && is_array($_saved_detail['detail']['list']))
 		{
-			$image['type'] = a($_saved_detail, 'detail', 'type');
+			$image['list'] = $_saved_detail['detail']['list'];
 		}
 
 
-		if(array_key_exists('play_item', $_data))
-		{
-			$image['play_item'] = $_data['play_item'];
-		}
-		elseif(a($_saved_detail, 'detail', 'play_item'))
-		{
-			$image['play_item'] = a($_saved_detail, 'detail', 'play_item');
-		}
+		$image['list'][] =
+		[
+			'image'  => $image_path,
+			'url'    => $_data['url'],
+			'alt'    => $_data['alt'],
+			'sort'   => $_data['sort'],
+			'target' => $_data['target'],
+		];
+
 
 		if(!empty($image))
 		{
@@ -130,9 +155,12 @@ class image
 
 		\lib\app\pagebuilder\line\tools::input_exception('detail');
 
-		unset($_data['cat_id']);
-		unset($_data['type']);
 
+		unset($_data['image']);
+		unset($_data['url']);
+		unset($_data['alt']);
+		unset($_data['sort']);
+		unset($_data['target']);
 
 		return $_data;
 

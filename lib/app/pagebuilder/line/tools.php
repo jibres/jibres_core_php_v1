@@ -20,6 +20,16 @@ class tools
 	private static $need_redirect = null;
 
 
+	private static function get_fn($_class, $_function_name)
+	{
+		$fn =
+		[
+			'\\lib\\app\\pagebuilder\\elements\\'. $_class,
+			$_function_name
+		];
+
+		return $fn;
+	}
 	/**
 	 * Call function
 	 *
@@ -30,11 +40,7 @@ class tools
 	 */
 	public static function call_fn($_class, $_function_name, $_args = null, $_args2 = null)
 	{
-		$fn =
-		[
-			'\\lib\\app\\pagebuilder\\elements\\'. $_class,
-			$_function_name
-		];
+		$fn = self::get_fn($_class, $_function_name);
 
 		if(is_callable($fn))
 		{
@@ -194,6 +200,11 @@ class tools
 			{
 				$data = call_user_func_array($fn, [$data]);
 			}
+		}
+
+		if(is_callable(self::get_fn($_element, 'ready')))
+		{
+			$data = self::call_fn_args($_element, 'ready', $data);
 		}
 
 		return $data;

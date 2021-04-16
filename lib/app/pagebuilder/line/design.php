@@ -11,8 +11,14 @@ class design
 		if($data)
 		{
 			\dash\data::lineSetting($data);
+
 			\dash\open::get();
 			\dash\open::post();
+
+			if(a($data, 'current_page_detail', 'detail', 'allow_upload_file'))
+			{
+				\dash\allow::file();
+			}
 		}
 	}
 
@@ -45,6 +51,12 @@ class design
 		$child    = \dash\url::dir(2);
 		$subchild = \dash\url::dir(3);
 
+		// load master module
+		if(!$child && isset($lineSetting['key']))
+		{
+			self::load($lineSetting['key']);
+		}
+
 		if(isset($lineSetting['current_page_detail']['contain']) && is_array($lineSetting['current_page_detail']['contain']))
 		{
 			foreach ($lineSetting['current_page_detail']['contain'] as $key => $value)
@@ -58,7 +70,6 @@ class design
 					self::load($key);
 				}
 			}
-
 		}
 		else
 		{

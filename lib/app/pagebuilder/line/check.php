@@ -64,14 +64,7 @@ class check
 
 		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', $data, $_saved_detail);
 
-		if($ready_for_db)
-		{
-			return $ready_for_db;
-		}
-		else
-		{
-			return $data;
-		}
+		return $ready_for_db;
 
 	}
 
