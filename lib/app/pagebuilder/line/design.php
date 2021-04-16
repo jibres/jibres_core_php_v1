@@ -49,7 +49,14 @@ class design
 		{
 			foreach ($lineSetting['current_page_detail']['contain'] as $key => $value)
 			{
-				self::load($key);
+				if(isset($value['detail']['hidden']) && $value['detail']['hidden'])
+				{
+					// nothing
+				}
+				else
+				{
+					self::load($key);
+				}
 			}
 
 		}

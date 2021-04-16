@@ -37,6 +37,7 @@ class image
 					'text' => T_('Add new image'),
 					'link' => \dash\url::that(). '/addimage'. \dash\request::full_get()
 				],
+				'btn_advance'    => \dash\url::that(). '/advance'. \dash\request::full_get(),
 			],
 
 			'contain' =>
@@ -45,8 +46,10 @@ class image
 				[
 					'detail' =>
 					[
+						'hidden'     => true,
 						'page_title' => T_("Add new image"),
-					]
+					],
+
 				],
 				'advance' =>
 				[

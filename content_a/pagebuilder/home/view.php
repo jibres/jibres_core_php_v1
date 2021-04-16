@@ -79,7 +79,12 @@ class view
 			{
 				\dash\face::btnSave('form1');
 			}
-			// \dash\face::btnSetting(\dash\url::that(). '/advance'. \dash\request::full_get());
+
+			if(isset($current_page_detail['btn_advance']))
+			{
+				\dash\face::btnSetting($current_page_detail['btn_advance']);
+			}
+
 		}
 
 
