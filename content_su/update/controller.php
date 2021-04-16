@@ -79,7 +79,7 @@ class controller
 	{
 	    if($_url === null)
 	    {
-	    	$_url = 'https://ermile.com/';
+	    	$_url = 'https://github.com/jibres/talambar_cdn';
 	    }
 
 	    $ch = curl_init($_url);
