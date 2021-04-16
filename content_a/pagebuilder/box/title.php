@@ -18,7 +18,7 @@
   </div>
 </section>
 <?php }else{  // url subchild is title ?>
-<form method="post" autocomplete="off" id="<?php echo a($lineSetting, 'btnSave') ?>">
+<form method="post" autocomplete="off" id="form1">
   <input type="hidden" name="set_title" value="1">
   <div class="avand-md">
     <div class="box">

@@ -34,6 +34,7 @@ class news
 				'detail' =>
 				[
 					'page_title' => T_("Edit title"),
+					'btn_save' => true,
 				],
 			],
 

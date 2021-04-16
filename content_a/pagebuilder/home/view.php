@@ -10,11 +10,6 @@ class view
 
 		self::set_page_variable();
 
-		// show btn sve
-		if(\dash\data::lineSetting_btnSave())
-		{
-			\dash\face::btnSave(\dash\data::lineSetting_btnSave());
-		}
 
 		if(!\dash\data::lineSetting())
 		{
@@ -35,14 +30,47 @@ class view
 	 */
 	private static function set_page_variable()
 	{
+		$lineSetting = \dash\data::lineSetting();
+
+		$subchild = \dash\url::subchild();
+
 		\dash\face::title(T_('Build Your Unique Online Website'));
 
-		if(a(\dash\data::lineSetting(), 'page_title'))
+		if(a($lineSetting, 'page_title'))
 		{
-			\dash\face::title(a(\dash\data::lineSetting(), 'page_title'));
+			\dash\face::title(a($lineSetting, 'page_title'));
 		}
 
-		if(!\dash\data::lineSetting())
+		$elements = a($lineSetting, 'elements');
+
+		if($subchild)
+		{
+			if(a($elements, $subchild, 'detail', 'page_title'))
+			{
+				\dash\face::title(a($elements, $subchild, 'detail', 'page_title'));
+			}
+		}
+
+
+
+		if($subchild)
+		{
+			if(a($elements, $subchild, 'detail', 'btn_save'))
+			{
+				if(a($elements, $subchild, 'detail', 'btn_save') === true)
+				{
+					\dash\face::btnSave('form1');
+				}
+				else
+				{
+					\dash\face::btnSave(a($elements, $subchild, 'detail', 'btn_save'));
+				}
+			}
+		}
+
+
+
+		if(!$lineSetting)
 		{
 			\dash\data::back_text(T_('Dashboard'));
 			\dash\data::back_link(\dash\url::here());

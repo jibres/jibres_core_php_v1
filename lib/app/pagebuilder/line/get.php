@@ -39,11 +39,6 @@ class get
 
 		$result = array_merge($result, $load_data);
 
-		if($_contain)
-		{
-			$result['btnSave'] = 'form1';
-		}
-
 		$result = \lib\app\pagebuilder\line\tools::global_ready_show($_element, $result);
 
 		return $result;
