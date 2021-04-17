@@ -14,6 +14,7 @@ class add
 		$list[] = \lib\app\pagebuilder\elements\text::detail();
 		$list[] = \lib\app\pagebuilder\elements\subscribe::detail();
 		$list[] = \lib\app\pagebuilder\elements\socialnetwork::detail();
+		$list[] = \lib\app\pagebuilder\elements\application::detail();
 
 		return $list;
 	}
