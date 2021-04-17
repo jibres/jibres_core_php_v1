@@ -13,7 +13,7 @@ class dns
 
 			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete')
 			{
-				// \lib\app\business_domain\remove::force_remove($get['id']);
+				\lib\app\business_domain\remove::force_remove($get['id']);
 
 				$log                           = [];
 				$log['ns1']                    = a($_detail, 'ns1');
