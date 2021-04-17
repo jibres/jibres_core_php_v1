@@ -25,7 +25,7 @@ class news
 			'titlesetting' =>
 			[
 				'show_title' => 'yes',
-				'more_link' => 'show'
+				'more_link'  => 'show'
 			],
 		];
 
@@ -62,7 +62,7 @@ class news
 					'detail' =>
 					[
 						'page_title' => T_("Set Filter"),
-						'btn_save' => true,
+						'btn_save'   => true,
 					],
 
 					'contain' =>
@@ -81,10 +81,10 @@ class news
 
 					'contain' =>
 					[
-						'avand'  => true,
-						'radius' => true,
-						'effect' => true,
-						'padding' => true,
+						'avand'        => true,
+						'radius'       => true,
+						'effect'       => true,
+						'padding'      => true,
 						'infoposition' => true,
 					],
 				],
@@ -100,9 +100,9 @@ class news
 
 	public static function input_condition($_args = [])
 	{
-		$_args['tag_id']            = 'code';
-		$_args['subtype']           = ['enum' => ['any', 'standard', 'gallery', 'video', 'audio']];
-		$_args['play_item']         = ['enum' => ['none', 'first', 'all']];
+		$_args['tag_id']    = 'code';
+		$_args['subtype']   = ['enum' => ['any', 'standard', 'gallery', 'video', 'audio']];
+		$_args['play_item'] = ['enum' => ['none', 'first', 'all']];
 
 		return $_args;
 	}
@@ -110,6 +110,17 @@ class news
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
+		$current_page = \lib\app\pagebuilder\line\tools::current_page();
+
+		if(isset($current_page['current_page']))
+		{
+			$current_page = $current_page['current_page'];
+		}
+		else
+		{
+			$current_page = 'news';
+		}
+
 		$news = [];
 
 		if(array_key_exists('tag_id', $_data))
@@ -121,7 +132,6 @@ class news
 			$news['tag_id'] = a($_saved_detail, 'detail', 'tag_id');
 		}
 
-
 		if(array_key_exists('subtype', $_data))
 		{
 			$news['subtype'] = $_data['subtype'];
@@ -130,7 +140,6 @@ class news
 		{
 			$news['subtype'] = a($_saved_detail, 'detail', 'subtype');
 		}
-
 
 		if(array_key_exists('play_item', $_data))
 		{
@@ -150,7 +159,10 @@ class news
 			$_data['detail'] = null;
 		}
 
-		\lib\app\pagebuilder\line\tools::input_exception('detail');
+		if($current_page === 'filter')
+		{
+			\lib\app\pagebuilder\line\tools::input_exception('detail');
+		}
 
 		unset($_data['tag_id']);
 		unset($_data['subtype']);
