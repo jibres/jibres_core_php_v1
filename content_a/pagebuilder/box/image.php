@@ -10,11 +10,10 @@ if(!is_array($images))
 
 ?>
 <form class="row" data-sortable method="post">
-  <input type="hidden" name="sort" value="sort">
     <?php foreach ($images as $key => $value) {?>
     <div class="c-3 c-xs-12 mB20">
       <div class="card">
-        <input type="hidden" class="hide" name="specialslider[]" value="<?php echo $key; ?>">
+        <input type="hidden" class="hide" name="sort[]" value="<?php echo $key; ?>">
         <div class="img" data-handle><img src="<?php echo a($value, 'imageurl') ?>" alt="<?php echo a($value, 'alt') ?>"></div>
         <div class="body">
           <header>

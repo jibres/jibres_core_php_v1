@@ -120,7 +120,7 @@ class image
 	{
 		$_args['alt']    = 'string_200';
 		$_args['url']    = 'string_200';
-		$_args['sort']   = 'smallint';
+		$_args['sort']   = 'sort';
 		$_args['image']  = 'bit';
 		$_args['target'] = 'bit';
 		$_args['remove'] = 'string_50';
@@ -159,12 +159,17 @@ class image
 			$current_page = 'addimage';
 		}
 
-
-		if($current_page === 'addimage' || $current_page === 'editimage')
+		if($_data['sort'])
 		{
-			$_data = self::image_process($_data, $_saved_detail, $current_page);
+			$_data = self::image_process($_data, $_saved_detail, '_set_sort');
 		}
-
+		else
+		{
+			if($current_page === 'addimage' || $current_page === 'editimage')
+			{
+				$_data = self::image_process($_data, $_saved_detail, $current_page);
+			}
+		}
 
 		return $_data;
 
@@ -200,7 +205,7 @@ class image
 		}
 
 
-		if(!$image_path)
+		if(!$image_path && $current_page !== '_set_sort')
 		{
 			\dash\notif::error(T_("Please upload an image file"), 'image');
 			return false;
@@ -217,7 +222,46 @@ class image
 			}
 		}
 
-		if($current_page === 'editimage')
+		if($current_page === '_set_sort')
+		{
+			if(!$image || !is_array(a($image, 'list')))
+			{
+				\dash\notif::error(T_("No item to sort"));
+				return false;
+			}
+
+			$sort = $_data['sort'];
+			$sort = array_map('intval', $sort);
+
+			foreach ($sort as $new_index => $old_index)
+			{
+				if(!array_key_exists($old_index, $image['list']))
+				{
+					\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
+					return;
+				}
+
+				$image['list'][$old_index]['sort'] = $new_index;
+			}
+
+
+			$sort_column = array_column($image['list'], 'sort');
+
+			if(count($sort_column) !== count($image['list']))
+			{
+				\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
+				return;
+			}
+
+			$my_sorted_list = $image['list'];
+
+			array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+
+			$my_sorted_list = array_values($my_sorted_list);
+
+			$image['list'] = $my_sorted_list;
+		}
+		elseif($current_page === 'editimage')
 		{
 			if(!isset($image['list'][self::$image_index]))
 			{
@@ -274,6 +318,7 @@ class image
 		unset($_data['sort']);
 		unset($_data['target']);
 		unset($_data['remove']);
+		unset($_data['sort']);
 
 		return $_data;
 	}
