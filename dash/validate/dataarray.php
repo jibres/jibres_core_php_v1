@@ -229,5 +229,42 @@ class dataarray
 
 		return $new_tag;
 	}
+
+
+
+	public static function sort_item($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		// var_dump($_data, $_POST['sort']);
+		$data = $_data;
+
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
+		if(!is_array($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be array", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		$new_sort = [];
+		foreach ($data as $key => $value)
+		{
+			$temp = \dash\validate::string_100($value);
+			if(isset($temp))
+			{
+				$new_sort[] = $temp;
+			}
+		}
+
+		return $new_sort;
+	}
+
+
 }
 ?>

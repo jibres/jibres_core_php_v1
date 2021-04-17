@@ -660,6 +660,7 @@ class cleanse
 			case 'tag': 				$data = \dash\validate\dataarray::tag(...$fn_args); 				break;
 			case 'cat': 				$data = \dash\validate\dataarray::cat(...$fn_args); 				break;
 			case 'tag_long': 			$data = \dash\validate\dataarray::tag_long(...$fn_args); 			break;
+			case 'sort':	 			$data = \dash\validate\dataarray::sort_item(...$fn_args); 			break;
 			case 'nationalcode': 		$data = \dash\validate\nationalcode::nationalcode(...$fn_args); 	break;
 			case 'number': 				$data = \dash\validate\number::number(...$fn_args); 				break;
 			case 'int': 				$data = \dash\validate\number::int(...$fn_args); 					break;
