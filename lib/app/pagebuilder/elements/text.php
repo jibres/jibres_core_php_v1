@@ -65,9 +65,21 @@ class text
 	public static function input_condition($_args = [])
 	{
 		$_args['html']    = 'real_html';
-
 		return $_args;
 	}
+
+
+	public static function input_required()
+	{
+		return ['html'];
+	}
+
+
+	public static function input_meta()
+	{
+		return ['field_title' => ['html' => T_("Text")]];
+	}
+
 
 
 	public static function ready_for_db($_data, $_saved_detail = [])
