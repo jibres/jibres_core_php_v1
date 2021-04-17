@@ -30,7 +30,7 @@ class text
 		[
 			'detail' =>
 			[
-				'page_title'  => T_("Edit title"),
+				'page_title'  => T_("Edit text"),
 				'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
 				'btn_save'    => true,
 				'allow_html'  => true,

@@ -12,6 +12,7 @@ class add
 		$list[] = \lib\app\pagebuilder\elements\products::detail();
 		$list[] = \lib\app\pagebuilder\elements\image::detail();
 		$list[] = \lib\app\pagebuilder\elements\text::detail();
+		$list[] = \lib\app\pagebuilder\elements\subscribe::detail();
 
 		return $list;
 	}
