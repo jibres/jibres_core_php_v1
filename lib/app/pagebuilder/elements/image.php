@@ -158,6 +158,21 @@ class image
 			$current_page = 'addimage';
 		}
 
+
+		if($current_page === 'addimage' || $current_page === 'editimage')
+		{
+			$_data = self::image_process($_data, $_saved_detail, $current_page);
+		}
+
+
+		return $_data;
+
+	}
+
+
+	private static function image_process($_data, $_saved_detail, $current_page)
+	{
+
 		$image = [];
 
 		$image_path = null;
@@ -252,7 +267,6 @@ class image
 		unset($_data['target']);
 
 		return $_data;
-
 	}
 }
 ?>
