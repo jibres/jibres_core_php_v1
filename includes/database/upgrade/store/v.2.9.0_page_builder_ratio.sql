@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.pagebuilder ADD `ratio` text CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `radius`;

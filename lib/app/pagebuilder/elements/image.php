@@ -104,6 +104,7 @@ class image
 						'effect'       => true,
 						'padding'      => true,
 						'infoposition' => true,
+						'ratio'        => true,
 						'remove'       => true,
 					]
 				],
