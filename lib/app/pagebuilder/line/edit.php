@@ -38,7 +38,17 @@ class edit
 			return true;
 		}
 
-		\lib\db\pagebuilder\update::record($update, $id);
+		if(array_key_exists('text', $update))
+		{
+			\lib\db\pagebuilder\update::bind_text($update['text'], $id);
+
+			unset($update['text']);
+		}
+
+		if(!empty($update))
+		{
+			\lib\db\pagebuilder\update::record($update, $id);
+		}
 
 		\dash\notif::ok(T_("Your data successfully updated"));
 

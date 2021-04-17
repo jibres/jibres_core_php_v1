@@ -19,6 +19,11 @@ class design
 			{
 				\dash\allow::file();
 			}
+
+			if(a($data, 'current_page_detail', 'detail', 'allow_html'))
+			{
+				\dash\allow::html();
+			}
 		}
 	}
 

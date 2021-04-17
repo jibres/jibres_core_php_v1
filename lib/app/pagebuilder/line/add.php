@@ -11,6 +11,7 @@ class add
 		$list[] = \lib\app\pagebuilder\elements\news::detail();
 		$list[] = \lib\app\pagebuilder\elements\products::detail();
 		$list[] = \lib\app\pagebuilder\elements\image::detail();
+		$list[] = \lib\app\pagebuilder\elements\text::detail();
 
 		return $list;
 	}
