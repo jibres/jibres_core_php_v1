@@ -123,6 +123,7 @@ class image
 		$_args['sort']   = 'smallint';
 		$_args['image']  = 'bit';
 		$_args['target'] = 'bit';
+		$_args['remove'] = 'string_50';
 
 		return $_args;
 	}
@@ -224,14 +225,23 @@ class image
 				return false;
 			}
 
-			$image['list'][self::$image_index] =
-			[
-				'image'  => $image_path,
-				'url'    => $_data['url'],
-				'alt'    => $_data['alt'],
-				'sort'   => $_data['sort'],
-				'target' => $_data['target'],
-			];
+			if($_data['remove'] === 'thisimage')
+			{
+				unset($image['list'][self::$image_index]);
+			}
+			else
+			{
+
+				$image['list'][self::$image_index] =
+				[
+					'image'  => $image_path,
+					'url'    => $_data['url'],
+					'alt'    => $_data['alt'],
+					'sort'   => $_data['sort'],
+					'target' => $_data['target'],
+				];
+
+			}
 		}
 		else
 		{
@@ -244,7 +254,6 @@ class image
 				'target' => $_data['target'],
 			];
 		}
-
 
 		if(!empty($image))
 		{
@@ -259,12 +268,12 @@ class image
 
 		\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
 
-
 		unset($_data['image']);
 		unset($_data['url']);
 		unset($_data['alt']);
 		unset($_data['sort']);
 		unset($_data['target']);
+		unset($_data['remove']);
 
 		return $_data;
 	}
