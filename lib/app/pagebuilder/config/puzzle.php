@@ -114,6 +114,21 @@ class puzzle
 
 	public static function ready($_data)
 	{
+		$default = [];
+		$puzzle  = [];
+
+		$default['puzzle_type'] = 'puzzle';
+
+
+		if(isset($_data['key']) && $_data['key'] && is_string($_data['key']))
+		{
+			$default_value = \lib\app\pagebuilder\line\tools::call_fn($_data['key'], 'default_value');
+			if(isset($default_value['puzzle']) && is_array($default_value['puzzle']))
+			{
+				$default = array_merge($default, $default_value['puzzle']);
+			}
+		}
+
 		if(isset($_data['puzzle']) && is_string($_data['puzzle']))
 		{
 			$puzzle = json_decode($_data['puzzle'], true);
@@ -123,9 +138,8 @@ class puzzle
 				$puzzle = []; // the default value
 			}
 
-
-			$_data['puzzle'] = $puzzle;
 		}
+		$_data['puzzle'] = array_merge($default, $puzzle);
 
 		return $_data;
 	}

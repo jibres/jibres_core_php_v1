@@ -22,6 +22,21 @@ class image
 	}
 
 
+	public static function default_value()
+	{
+		$default =
+		[
+			'puzzle' =>
+			[
+				'puzzle_type' => 'slider',
+				'slider_type' => 'special',
+			]
+		];
+
+		return $default;
+	}
+
+
 	public static function router($_args)
 	{
 		$index = \dash\request::get('index');
