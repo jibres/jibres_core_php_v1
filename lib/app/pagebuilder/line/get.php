@@ -121,6 +121,8 @@ class get
 
 		$result['current_page_detail'] = $current_page_detail;
 
+		// save curret page detail
+		\lib\app\pagebuilder\line\tools::current_page($current_page_detail);
 
 		$load_data = \lib\db\pagebuilder\get::by_id($id);
 
@@ -142,6 +144,15 @@ class get
 		$result = array_merge($result, $load_data);
 
 		$result = \lib\app\pagebuilder\line\tools::global_ready_show($_element, $result);
+
+		// if need load special router
+		if(isset($current_page_detail['detail']['router']) && $current_page_detail['detail']['router'])
+		{
+			if(is_callable(\lib\app\pagebuilder\line\tools::get_fn($_element, 'router')))
+			{
+				$result = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'router', $result);
+			}
+		}
 
 		return $result;
 	}

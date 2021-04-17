@@ -85,6 +85,14 @@ class view
 				\dash\face::btnSetting($current_page_detail['btn_advance']);
 			}
 
+
+		}
+
+		$back_args = [];
+
+		if(isset($current_page_detail['back_args']))
+		{
+			$back_args = $current_page_detail['back_args'];
 		}
 
 
@@ -96,11 +104,11 @@ class view
 			{
 				$dir_2 = \dash\url::dir(2);
 
-				$back = \dash\url::that(). '/'. $dir_2. \dash\request::full_get();
+				$back = \dash\url::that(). '/'. $dir_2. \dash\request::full_get($back_args);
 			}
 			elseif(\dash\url::subchild())
 			{
-				$back = \dash\url::that(). \dash\request::full_get();
+				$back = \dash\url::that(). \dash\request::full_get($back_args);
 			}
 			elseif(\dash\url::child())
 			{

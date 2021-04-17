@@ -4,6 +4,10 @@ namespace lib\app\pagebuilder\elements;
 
 class image
 {
+	// the index on image for edit or remove it
+	private static $image_index = null;
+
+
 	public static function detail()
 	{
 		return
@@ -15,6 +19,29 @@ class image
 			'description' => T_("Add an image block with a link to somewhere. You can use a beautiful image to engage your customers. for example a special offer."),
 			'btn_title'   => T_("Add Images Block"),
 		];
+	}
+
+
+	public static function router($_args)
+	{
+		$index = \dash\request::get('index');
+		$index = \dash\validate::int($index, false);
+
+		if(!is_numeric($index))
+		{
+			return false;
+		}
+
+		if(!isset($_args['detail']['list'][$index]))
+		{
+			return false;
+		}
+
+		self::$image_index = $index;
+
+		\dash\data::dataRow($_args['detail']['list'][$index]);
+
+		return $_args;
 	}
 
 
@@ -49,6 +76,17 @@ class image
 						'allow_upload_file' => true,
 						'hidden'            => true,
 						'page_title'        => T_("Add new image"),
+					],
+				],
+				'editimage' =>
+				[
+					'detail' =>
+					[
+						'router'            => true,
+						'allow_upload_file' => true,
+						'hidden'            => true,
+						'page_title'        => T_("Edit image"),
+						'back_args'         => ['index' => null,],
 					],
 				],
 				'advance' =>
@@ -109,16 +147,40 @@ class image
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
+		$current_page = \lib\app\pagebuilder\line\tools::current_page();
+
+		if(isset($current_page['current_page']))
+		{
+			$current_page = $current_page['current_page'];
+		}
+		else
+		{
+			$current_page = 'addimage';
+		}
+
 		$image = [];
 
 		$image_path = null;
 
-
-		$image_path = \dash\upload\website::upload_image('image');
-
-		if(!\dash\engine\process::status())
+		if(\dash\request::files('image'))
 		{
-			return false;
+			$image_path = \dash\upload\website::upload_image('image');
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+		else
+		{
+			// file not uploaded. get from saved detail
+			if(self::$image_index)
+			{
+				if(isset($_saved_detail['detail']['list'][self::$image_index]['image']))
+				{
+					$image_path = $_saved_detail['detail']['list'][self::$image_index]['image'];
+				}
+			}
 		}
 
 
@@ -131,17 +193,42 @@ class image
 		if(isset($_saved_detail['detail']['list']) && is_array($_saved_detail['detail']['list']))
 		{
 			$image['list'] = $_saved_detail['detail']['list'];
+
+			// unset ready variable
+			foreach ($image['list'] as $key => $value)
+			{
+				unset($image['list'][$key]['imageurl']);
+			}
 		}
 
+		if($current_page === 'editimage')
+		{
+			if(!isset($image['list'][self::$image_index]))
+			{
+				\dash\notif::error(T_("Can not find this image index in your list"));
+				return false;
+			}
 
-		$image['list'][] =
-		[
-			'image'  => $image_path,
-			'url'    => $_data['url'],
-			'alt'    => $_data['alt'],
-			'sort'   => $_data['sort'],
-			'target' => $_data['target'],
-		];
+			$image['list'][self::$image_index] =
+			[
+				'image'  => $image_path,
+				'url'    => $_data['url'],
+				'alt'    => $_data['alt'],
+				'sort'   => $_data['sort'],
+				'target' => $_data['target'],
+			];
+		}
+		else
+		{
+			$image['list'][] =
+			[
+				'image'  => $image_path,
+				'url'    => $_data['url'],
+				'alt'    => $_data['alt'],
+				'sort'   => $_data['sort'],
+				'target' => $_data['target'],
+			];
+		}
 
 
 		if(!empty($image))
@@ -154,6 +241,8 @@ class image
 		}
 
 		\lib\app\pagebuilder\line\tools::input_exception('detail');
+
+		\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
 
 
 		unset($_data['image']);

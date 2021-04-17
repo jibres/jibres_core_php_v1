@@ -31,7 +31,7 @@ if(!is_array($images))
           <?php } // endif ?>
         </div>
         <footer class="zeroPad font-14">
-          <a href="<?php echo a($value, 'edit_link'); ?>" class="btn  block"><?php if(a($value, 'mod') === 'add') { echo T_("Add new page"); }else{ echo T_("Edit"); } ?></a>
+          <a href="<?php echo \dash\url::that(). '/editimage'. \dash\request::full_get(['index' => $key]); ?>" class="btn  block"><?php echo T_("Edit"); ?></a>
         </footer>
       </div>
     </div>

@@ -20,7 +20,15 @@ class tools
 	private static $need_redirect = null;
 
 
-	private static function get_fn($_class, $_function_name)
+	/**
+	 * Get the curret page detail
+	 *
+	 * @var        <type>
+	 */
+	private static $current_page = null;
+
+
+	public static function get_fn($_class, $_function_name)
 	{
 		$fn =
 		[
@@ -109,6 +117,24 @@ class tools
 	}
 
 
+	/**
+	 * Save and get curret page detail
+	 *
+	 * @param      <type>  $_current_page  The current page
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function current_page($_current_page = null)
+	{
+		if($_current_page === null)
+		{
+			return self::$current_page;
+		}
+		else
+		{
+			self::$current_page = $_current_page;
+		}
+	}
 
 
 
