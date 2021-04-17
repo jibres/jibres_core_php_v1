@@ -15,10 +15,12 @@ class puzzle
 
 		$enum = ['enum' => array_keys($list)];
 
-		$input_condition['puzzle']     = $enum;
-		$input_condition['set_limit']  = 'bit';
-		$input_condition['set_puzzle'] = 'bit';
-		$input_condition['limit']      = 'int';
+		$input_condition['puzzle']      = $enum;
+		$input_condition['set_limit']   = 'bit';
+		$input_condition['set_puzzle']  = 'bit';
+		$input_condition['puzzle_type'] = ['enum' => ['puzzle', 'slider']];
+		$input_condition['slider_type'] = ['enum' => ['simple', 'special']];
+		$input_condition['limit']       = 'int';
 
 
 		return $input_condition;
@@ -46,12 +48,34 @@ class puzzle
 			$puzzle['code'] = a($_saved_detail, 'puzzle', 'code');
 		}
 
+
+		if(array_key_exists('puzzle_type', $_data))
+		{
+			$puzzle['puzzle_type'] = $_data['puzzle_type'];
+			unset($_data['puzzle_type']);
+		}
+
+		if(a($_saved_detail, 'puzzle', 'puzzle_type') && !a($puzzle, 'puzzle_type'))
+		{
+			$puzzle['puzzle_type'] = a($_saved_detail, 'puzzle', 'puzzle_type');
+		}
+
+
+		if(array_key_exists('slider_type', $_data))
+		{
+			$puzzle['slider_type'] = $_data['slider_type'];
+			unset($_data['slider_type']);
+		}
+
+		if(a($_saved_detail, 'puzzle', 'slider_type') && !a($puzzle, 'slider_type'))
+		{
+			$puzzle['slider_type'] = a($_saved_detail, 'puzzle', 'slider_type');
+		}
+
 		if(array_key_exists('limit', $_data))
 		{
 			$puzzle['limit'] = $_data['limit'];
 			unset($_data['limit']);
-
-
 		}
 
 		if(a($_saved_detail, 'puzzle', 'limit') && !a($puzzle, 'limit'))
@@ -80,6 +104,8 @@ class puzzle
 
 		unset($_data['set_limit']);
 		unset($_data['set_puzzle']);
+		unset($_data['puzzle_type']);
+		unset($_data['slider_type']);
 
 		return $_data;
 

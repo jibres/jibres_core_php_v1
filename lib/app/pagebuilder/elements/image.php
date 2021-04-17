@@ -99,6 +99,7 @@ class image
 					'contain' =>
 					[
 						'title'        => true,
+						'puzzle'       => true,
 						'avand'        => true,
 						'radius'       => true,
 						'effect'       => true,
