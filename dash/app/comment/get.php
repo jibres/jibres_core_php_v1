@@ -29,6 +29,12 @@ class get
 			return false;
 		}
 
+		if(isset($detail['for']) && $detail['for'] === 'quote')
+		{
+			\dash\notif::error(T_("Can not open quote from this place!"));
+			return false;
+		}
+
 		$temp = [];
 
 		if(is_array($detail))
@@ -57,6 +63,12 @@ class get
 		if(!is_array($detail))
 		{
 			$detail = [];
+		}
+
+		if(isset($detail['for']) && $detail['for'] === 'quote')
+		{
+			\dash\notif::error(T_("Can not open quote from this place!"));
+			return false;
 		}
 
 		return $detail;

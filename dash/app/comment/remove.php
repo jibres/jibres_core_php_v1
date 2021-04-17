@@ -21,12 +21,24 @@ class remove
 			return true;
 		}
 
+		if(isset($load['for']) && $load['for'] === 'quote')
+		{
+			\dash\notif::error(T_("Can not remove quote from this place!"));
+			return true;
+		}
 
 		\dash\db\comments\delete::full_by_id($_id);
 
 		\dash\notif::ok(T_("Comment removed"));
 		return true;
 
+	}
+
+
+
+	public static function quote($_id)
+	{
+		\dash\db\comments\delete::full_by_id($_id);
 	}
 
 }

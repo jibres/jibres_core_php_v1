@@ -24,7 +24,7 @@ class search
 		[
 			'order'      => 'order',
 			'sort'       => 'string_50',
-			'for'        => ['enum' => ['page','post','product']],
+			'for'        => ['enum' => ['page','post','product', 'quote']],
 			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
 			'post_id'    => 'code',
 			'user'    => 'code',
@@ -32,6 +32,7 @@ class search
 			'parent'     => 'id',
 			'limit'      => 'int',
 			'pagination' => 'y_n',
+			'get_count' => 'y_n',
 
 		];
 
@@ -69,6 +70,7 @@ class search
 			self::$is_filtered = true;
 		}
 
+		$and[] = " ( comments.for IS NULL OR comments.for != 'quote' ) ";
 
 		if($data['post_id'])
 		{
@@ -123,18 +125,27 @@ class search
 			$order_sort = " ORDER BY comments.id DESC ";
 		}
 
-		$list = \dash\db\comments\search::list($and, $or, $order_sort, $meta);
-
-		if(is_array($list))
+		if($data['get_count'] === 'y')
 		{
-			$list = array_map(['\\dash\\app\\comment\\ready', 'row'], $list);
+			$result = \dash\db\comments\search::get_count($and, $or, $order_sort, $meta);
+			return $result;
 		}
 		else
 		{
-			$list = [];
+			$list = \dash\db\comments\search::list($and, $or, $order_sort, $meta);
+
+			if(is_array($list))
+			{
+				$list = array_map(['\\dash\\app\\comment\\ready', 'row'], $list);
+			}
+			else
+			{
+				$list = [];
+			}
+
+			return $list;
 		}
 
-		return $list;
 	}
 
 
@@ -176,5 +187,36 @@ class search
 		$list = self::list(null, $args, true);
 		return $list;
 	}
+
+
+	public static function get_count_all()
+	{
+		$args =
+		[
+			'get_count' => 'y'
+		];
+
+		$list = self::list(null, $args, true);
+
+		return $list;
+	}
+
+
+	public static function get_count_status($_status)
+	{
+		$args =
+		[
+			'get_count' => 'y',
+			'status' => $_status,
+
+		];
+
+		$list = self::list(null, $args, true);
+
+		return $list;
+	}
+
+
+
 }
 ?>

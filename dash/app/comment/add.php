@@ -105,6 +105,36 @@ class add
 
 	}
 
+	/**
+	 * The quote contain start and content
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function quote($_args)
+	{
+		$args = \dash\app\comment\check::variable($_args);
+
+		if($args === false || !\dash\engine\process::status())
+		{
+			return false;
+		}
+
+		$args['datecreated'] = date("Y-m-d H:i:s");
+
+ 		$comment_id = \dash\db\comments\insert::new_record($args);
+
+		if(!$comment_id)
+		{
+			\dash\log::oops('dbCommentNotInserted', T_("No way to add new data"));
+			return false;
+		}
+
+		return $comment_id;
+
+	}
+
 
 
 	public static function answer($_answer, $_id)

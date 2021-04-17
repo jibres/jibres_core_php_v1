@@ -4,6 +4,26 @@ namespace dash\db\comments;
 
 class get
 {
+	public static function quote_list($_pagebuilder_id)
+	{
+		$query =
+		"
+			SELECT
+				comments.id,
+				comments.content,
+				comments.star,
+				comments.displayname
+			FROM
+				comments
+			WHERE
+				comments.pagebuilder_id = $_pagebuilder_id
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function count_awaiting_comment_per_user($_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.user_id = $_user_id";

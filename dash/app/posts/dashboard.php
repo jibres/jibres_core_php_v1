@@ -18,9 +18,12 @@ class dashboard
 		$dashboard_detail['video']             = floatval(\dash\db\posts::get_active_count_subtype('video'));
 		$dashboard_detail['audio']             = floatval(\dash\db\posts::get_active_count_subtype('audio'));
 
-		$dashboard_detail['comments']          = floatval(\dash\db\comments::get_count());
-		$dashboard_detail['comments_awaiting'] = floatval(\dash\db\comments::get_count(['status' => 'awaiting']));
-		$dashboard_detail['comments_approved'] = floatval(\dash\db\comments::get_count(['status' => 'approved']));
+		$dashboard_detail['comments']          = floatval(\dash\app\comment\search::get_count_all());
+
+		$dashboard_detail['comments_awaiting'] = floatval(\dash\app\comment\search::get_count_status('awaiting'));
+
+		$dashboard_detail['comments_approved'] = floatval(\dash\app\comment\search::get_count_status('approved'));
+
 
 		$dashboard_detail['files']             = floatval(\dash\db\files::count_all());
 		$dashboard_detail['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());

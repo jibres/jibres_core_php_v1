@@ -8,20 +8,21 @@ class check
 	{
 		$condition =
 		[
-			'content'     => 'desc',
-			'for'         => ['enum' => ['page','post','product']],
-			'status'      => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
-			'displayname' => 'displayname',
-			'user_id'     => 'id',
-			'post_id'     => 'code',
-			'product_id'  => 'id',
-			'factor_id'   => 'id',
-			'mobile'      => 'mobile',
-			'gallery'     => 'string_500', // need to fix
-			'title'       => 'title',
-			'parent'      => 'id',
-			'star'        => ['enum' => [1,2,3,4,5]],
-			'email'       => 'email',
+			'content'        => 'desc',
+			'for'            => ['enum' => ['page','post','product', 'quote']],
+			'status'         => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
+			'displayname'    => 'displayname',
+			'user_id'        => 'id',
+			'post_id'        => 'code',
+			'product_id'     => 'id',
+			'factor_id'      => 'id',
+			'pagebuilder_id' => 'id',
+			'mobile'         => 'mobile',
+			'gallery'        => 'string_500', // need to fix
+			'title'          => 'title',
+			'parent'         => 'id',
+			'star'           => ['enum' => [1,2,3,4,5]],
+			'email'          => 'email',
 		];
 
 		$require = ['content'];

@@ -44,5 +44,26 @@ class search
 
 		return $result;
 	}
+
+
+	public static function get_count($_and, $_or, $_order_sort = null, $_meta = [])
+	{
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				comments
+			LEFT JOIN users ON users.id = comments.user_id
+			$q[join]
+			$q[where]
+			$q[order]
+		";
+		$result = \dash\db::get($query, 'count', true);
+
+		return $result;
+	}
 }
 ?>

@@ -19,7 +19,7 @@ class edit
 		// remove element
 		if(isset($_args['remove']) && $_args['remove'] === 'line')
 		{
-			return self::remove($id);
+			return self::remove($result['key'], $id, $result);
 		}
 
 		$update = \lib\app\pagebuilder\line\check::input($result['key'], $id, $_args, $result);
@@ -65,8 +65,18 @@ class edit
 
 
 
-	private static function remove($_id)
+	private static function remove($_element, $_id, $_args)
 	{
+		if(is_callable(\lib\app\pagebuilder\line\tools::get_fn($_element, 'remove')))
+		{
+			$allow_remove = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'remove', $_args);
+
+			if(!$allow_remove)
+			{
+				return false;
+			}
+		}
+
 		\lib\db\pagebuilder\delete::by_id($_id);
 
 		\dash\notif::ok(T_("Line removed"));
