@@ -13,6 +13,7 @@ class add
 		$list[] = \lib\app\pagebuilder\elements\image::detail();
 		$list[] = \lib\app\pagebuilder\elements\text::detail();
 		$list[] = \lib\app\pagebuilder\elements\subscribe::detail();
+		$list[] = \lib\app\pagebuilder\elements\socialnetwork::detail();
 
 		return $list;
 	}
