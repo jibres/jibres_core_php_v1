@@ -86,5 +86,46 @@ class edit
 		return $result;
 	}
 
+
+
+	public static function set_sort($_sort)
+	{
+		$sort = \dash\validate::sort($_sort);
+
+		$list = \lib\app\pagebuilder\line\search::list();
+
+		if(!$list || !is_array($list))
+		{
+			\dash\notif::warn(T_("No data to sort"));
+			return false;
+		}
+
+		$current_ids = array_column($list, 'id');
+
+		$new_sort = [];
+
+		foreach ($sort as $key => $value)
+		{
+			if(in_array($value, $current_ids))
+			{
+				$new_sort[] = $value;
+			}
+		}
+
+		$set_sort = [];
+		foreach ($new_sort as $key => $value)
+		{
+			$new_key = floatval($key) * 10;
+
+			$set_sort[$new_key] = $value;
+		}
+
+		\lib\db\pagebuilder\update::set_sort($set_sort);
+
+		\dash\notif::ok(T_("Sort saved"));
+
+		return true;
+	}
+
 }
 ?>

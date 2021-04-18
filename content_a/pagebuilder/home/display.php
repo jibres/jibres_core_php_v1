@@ -11,6 +11,7 @@ if(\dash\data::lineList())
 
 ?>
 <form method="post">
+<input type="hidden" name="sortline" value="sortline">
 <nav class="items">
   <ul class="sortable" data-sortable>
   <?php foreach (\dash\data::lineList() as $key => $value) {?>
@@ -24,7 +25,7 @@ if(\dash\data::lineList())
               <div class="c mLa10"><?php echo a($value, 'title')?></div>
             </div>
           </div>
-          <div class="go <?php if(a($value, 'publish')) {echo 'check ok';}else{ echo 'info nok';}?>"></div>
+          <div class="go"></div>
         </a>
      </li>
   <?php } //endfor ?>

@@ -38,5 +38,19 @@ class update
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
+
+	public static function set_sort($_sort)
+	{
+		$query = [];
+
+		foreach ($_sort as $sort => $id)
+		{
+			$query[] = "UPDATE pagebuilder SET pagebuilder.sort = $sort WHERE pagebuilder.id = $id LIMIT 1 ";
+		}
+
+		$result = \dash\db::query(implode(';', $query), null, ['multi_query' => true]);
+		return $result;
+	}
 }
 ?>

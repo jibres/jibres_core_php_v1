@@ -18,6 +18,11 @@ class model
 				\dash\redirect::to($save['url']);
 			}
 		}
+
+		if(\dash\request::post('sortline') === 'sortline')
+		{
+			\lib\app\pagebuilder\line\edit::set_sort(\dash\request::post('bodyline'));
+		}
 	}
 }
 ?>
