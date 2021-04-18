@@ -28,5 +28,14 @@ class get
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
+
+
+	public static function last_sort($_args)
+	{
+		$where  = \dash\db\config::make_where($_args);
+		$query  = "SELECT pagebuilder.sort AS `sort` FROM pagebuilder WHERE $where ORDER BY pagebuilder.sort DESC, pagebuilder.id DESC LIMIT 1";
+		$result = \dash\db::get($query, 'sort', true);
+		return $result;
+	}
 }
 ?>

@@ -61,6 +61,24 @@ class add
 		$insert['datecreated']      = date("Y-m-d H:i:s");
 		$insert['datemodified']     = null;
 
+		$get_last_sort_args =
+		[
+			'related' => $insert['related'],
+			// need add some args later
+		];
+
+		$get_last_sort = \lib\db\pagebuilder\get::last_sort($get_last_sort_args);
+
+		if(!$get_last_sort || !is_numeric($get_last_sort))
+		{
+			$insert['sort'] = 10;
+		}
+		else
+		{
+			$insert['sort'] = (floor(intval($get_last_sort) / 10) * 10) + 10;
+
+		}
+
 		$id = \lib\db\pagebuilder\insert::new_record($insert);
 
 		if(!$id)
