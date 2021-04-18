@@ -77,14 +77,14 @@ class image
 				'btn_add'    =>
 				[
 					'text' => T_('Add new image'),
-					'link' => \dash\url::that(). '/image_add'. \dash\request::full_get()
+					'link' => \dash\url::that(). '/add'. \dash\request::full_get()
 				],
 				'btn_advance'    => \dash\url::that(). '/advance'. \dash\request::full_get(),
 			],
 
 			'contain' =>
 			[
-				'image_add' =>
+				'add' =>
 				[
 					'detail' =>
 					[
@@ -93,7 +93,7 @@ class image
 						'hidden'            => true,
 					],
 				],
-				'image_edit' =>
+				'edit' =>
 				[
 					'detail' =>
 					[
@@ -173,7 +173,7 @@ class image
 		}
 		else
 		{
-			$current_page = 'addimage';
+			$current_page = 'add';
 		}
 
 		if($_data['sort'])
@@ -182,7 +182,7 @@ class image
 		}
 		else
 		{
-			if($current_page === 'addimage' || $current_page === 'editimage')
+			if($current_page === 'add' || $current_page === 'edit')
 			{
 				$_data = self::image_process($_data, $_saved_detail, $current_page);
 			}
@@ -212,7 +212,7 @@ class image
 		else
 		{
 			// file not uploaded. get from saved detail
-			if(self::$image_index)
+			if(is_numeric(self::$image_index))
 			{
 				if(isset($_saved_detail['detail']['list'][self::$image_index]['image']))
 				{
@@ -220,7 +220,6 @@ class image
 				}
 			}
 		}
-
 
 		if(!$image_path && $current_page !== '_set_sort')
 		{
@@ -278,7 +277,7 @@ class image
 
 			$image['list'] = $my_sorted_list;
 		}
-		elseif($current_page === 'editimage')
+		elseif($current_page === 'edit')
 		{
 			if(!isset($image['list'][self::$image_index]))
 			{
