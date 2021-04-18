@@ -88,14 +88,14 @@ class quote
 				'btn_add'    =>
 				[
 					'text' => T_('Add new quote'),
-					'link' => \dash\url::that(). '/addquote'. \dash\request::full_get()
+					'link' => \dash\url::that(). '/add'. \dash\request::full_get()
 				],
 				'btn_advance'    => \dash\url::that(). '/advance'. \dash\request::full_get(),
 			],
 
 			'contain' =>
 			[
-				'addquote' =>
+				'add' =>
 				[
 					'detail' =>
 					[
@@ -104,7 +104,7 @@ class quote
 						'page_title'        => T_("Add new quote"),
 					],
 				],
-				'editquote' =>
+				'edit' =>
 				[
 					'detail' =>
 					[
@@ -213,7 +213,7 @@ class quote
 		}
 		else
 		{
-			$current_page = 'addquote';
+			$current_page = 'add';
 		}
 
 		if($_data['sort'])
@@ -222,7 +222,7 @@ class quote
 		}
 		else
 		{
-			if($current_page === 'addquote' || $current_page === 'editquote')
+			if($current_page === 'add' || $current_page === 'edit')
 			{
 				$_data = self::quote_process($_data, $_saved_detail, $current_page);
 			}
@@ -320,7 +320,7 @@ class quote
 
 			// $quote['list'] = $my_sorted_list;
 		}
-		elseif($current_page === 'editquote')
+		elseif($current_page === 'edit')
 		{
 			if(!isset($quote['list'][self::$quote_comment_id]))
 			{

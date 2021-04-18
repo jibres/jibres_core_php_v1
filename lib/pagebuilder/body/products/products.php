@@ -63,14 +63,8 @@ class products
 						'page_title' => T_("Set Filter"),
 						'btn_save'   => true,
 					],
-
-					'contain' =>
-					[
-						'products_filter' => true,
-					],
-
 				],
-				'design' =>
+				'view' =>
 				[
 					'detail' =>
 					[
