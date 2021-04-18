@@ -358,6 +358,17 @@ class quote
 		}
 		else
 		{
+			if(isset($quote['list']) && is_array($quote['list']))
+			{
+				$max_capacity = 50;
+
+				if((count($quote['list']) + 1) > $max_capacity)
+				{
+					\dash\notif::error(T_("Maximum capacity of quote block is :val quote!", ['val' => \dash\fit::number($max_capacity)]));
+					return false;
+				}
+			}
+
 			$comment_args =
 			[
 				'pagebuilder_id' => $_saved_detail['id'],
