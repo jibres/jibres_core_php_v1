@@ -1,5 +1,9 @@
 <div class="avand">
-<div class="msg info2 fs14"><?php echo T_("Please choose type of new block."); ?></div>
+  <?php if(\dash\data::chooseType() === 'header') {?>
+    <div class="msg info2 fs14"><?php echo T_("Please choose header."); ?></div>
+  <?php }else{ ?>
+    <div class="msg info2 fs14"><?php echo T_("Please choose footer."); ?></div>
+  <?php } //endif ?>
 <?php foreach(\dash\data::lineList() as $key => $value) {?>
 <section class="f" data-option='website-<?php echo a($value, 'key'); ?>'>
   <div class="c8 s12">

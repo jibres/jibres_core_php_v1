@@ -33,7 +33,7 @@ function HTML_header() {?>
         </li>
       <?php }else{ ?>
         <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/add/header">
+          <a class="f" href="<?php echo \dash\url::this();?>/choose/header">
             <div class="key"><?php echo T_('Choose header');?></div>
             <div class="go"></div>
           </a>
@@ -75,7 +75,7 @@ function HTML_line() {?>
   <nav class="items">
     <ul>
       <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/add/body">
+        <a class="f" href="<?php echo \dash\url::this();?>/add">
            <div class="key"><?php echo T_('Add new line');?></div>
            <div class="go plus ok"></div>
           </a>
@@ -106,7 +106,7 @@ function HTML_footer() {?>
         </li>
       <?php }else{ ?>
         <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/add/footer">
+          <a class="f" href="<?php echo \dash\url::this();?>/choose/footer">
             <div class="key"><?php echo T_('Choose footer');?></div>
             <div class="go"></div>
           </a>
