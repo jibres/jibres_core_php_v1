@@ -13,6 +13,7 @@ else
   }
   else
   {
+    HTML_allNewLine();
     // no any line list
   }
   HTML_footer();
@@ -50,14 +51,13 @@ function HTML_header() {?>
 
 
 function HTML_line() {?>
-  <form method="post">
-    <input type="hidden" name="sortline" value="sortline">
-    <nav class="items">
+<form method="post">
+  <input type="hidden" name="sortline" value="sortline">
+   <nav class="items">
       <ul class="sortable" data-sortable>
       <?php foreach (\dash\data::lineList() as $key => $value) {?>
-
          <li>
-            <a href="<?php echo \dash\url::this(). '/'. a($value,'type') .'?id='. a($value, 'id'); ?>" class="f">
+           <a href="<?php echo \dash\url::this(). '/'. a($value,'type') .'?id='. a($value, 'id'); ?>" class="f">
             <input type="hidden" class="hide" name="bodyline[]" value="<?php echo a($value, 'id'); ?>">
               <div class="key">
                 <div class="f">
@@ -69,26 +69,30 @@ function HTML_line() {?>
             </a>
          </li>
       <?php } //endfor ?>
-      </ul>
-    </nav>
-  </form>
-  <nav class="items">
-    <ul>
-      <li>
-        <a class="f" href="<?php echo \dash\url::this();?>/add">
-           <div class="key"><?php echo T_('Add new line');?></div>
-           <div class="go plus ok"></div>
-          </a>
-        </li>
-      </ul>
+    </ul>
   </nav>
-
+</form>
   <?php if(is_array(\dash\data::lineList()) && count(\dash\data::lineList()) >= 2) {?>
     <div class="msg fs12"><?php echo T_("Change the position of the rows with the help of the handle") ?> <kbd><i class="sf-sort"></i></kbd></div>
   <?php } //endif ?>
+<?php HTML_allNewLine(); ?>
 <?php } //enddfunction
 
 
+
+
+function HTML_allNewLine() {?>
+<nav class="items">
+  <ul>
+    <li>
+      <a class="f" href="<?php echo \dash\url::this();?>/add">
+       <div class="key"><?php echo T_('Add new line');?></div>
+       <div class="go plus ok"></div>
+      </a>
+    </li>
+  </ul>
+</nav>
+<?php } //enddfunction
 
 
 
