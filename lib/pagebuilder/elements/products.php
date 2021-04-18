@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
 class products
@@ -147,7 +147,7 @@ class products
 			$_data['detail'] = null;
 		}
 
-		\lib\app\pagebuilder\line\tools::input_exception('detail');
+		\lib\pagebuilder\line\tools::input_exception('detail');
 
 		unset($_data['cat_id']);
 		unset($_data['type']);

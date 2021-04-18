@@ -12,7 +12,7 @@
     <input type="hidden" name="set_effect" value="1">
       <div class="action">
           <select name="effect" class="select22" id="effect">
-            <?php echo \lib\app\pagebuilder\config\effect::select_html(a($lineSetting, 'effect', 'code')); ?>
+            <?php echo \lib\pagebuilder\config\effect::select_html(a($lineSetting, 'effect', 'code')); ?>
         </select>
       </div>
   </form>

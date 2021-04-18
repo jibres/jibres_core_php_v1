@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\line;
+namespace lib\pagebuilder\line;
 
 
 class tools
@@ -32,7 +32,7 @@ class tools
 	{
 		$fn =
 		[
-			'\\lib\\app\\pagebuilder\\elements\\'. $_class,
+			'\\lib\\pagebuilder\\elements\\'. $_class,
 			$_function_name
 		];
 
@@ -90,7 +90,7 @@ class tools
 	public static function get_contain($_element)
 	{
 
-		$contain = \lib\app\pagebuilder\line\tools::call_fn($_element, 'elements');
+		$contain = \lib\pagebuilder\line\tools::call_fn($_element, 'elements');
 
 		if(!$contain || !is_array($contain) || !isset($contain['contain']) || !is_array($contain['contain']))
 		{
@@ -216,7 +216,7 @@ class tools
 			$data['detail'] = json_decode($data['detail'], true);
 		}
 
-		$contain = \lib\app\pagebuilder\line\tools::get_contain($_element);
+		$contain = \lib\pagebuilder\line\tools::get_contain($_element);
 
 		foreach ($contain as $one_contain)
 		{

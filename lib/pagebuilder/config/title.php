@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\config;
+namespace lib\pagebuilder\config;
 
 
 class title
@@ -56,7 +56,7 @@ class title
 
 			$_data['titlesetting'] = $titlesetting;
 
-			\lib\app\pagebuilder\line\tools::input_exception('titlesetting');
+			\lib\pagebuilder\line\tools::input_exception('titlesetting');
 		}
 
 		return $_data;
@@ -75,7 +75,7 @@ class title
 
 		if(isset($_data['key']) && $_data['key'] && is_string($_data['key']))
 		{
-			$default_value = \lib\app\pagebuilder\line\tools::call_fn($_data['key'], 'default_value');
+			$default_value = \lib\pagebuilder\line\tools::call_fn($_data['key'], 'default_value');
 			if(isset($default_value['titlesetting']) && is_array($default_value['titlesetting']))
 			{
 				$default = array_merge($default, $default_value['titlesetting']);

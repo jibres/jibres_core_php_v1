@@ -12,7 +12,7 @@
     <input type="hidden" name="set_infoposition" value="1">
       <div class="action">
         <select name="infoposition" class="select22">
-            <?php echo \lib\app\pagebuilder\config\infoposition::select_html(a($lineSetting, 'infoposition', 'code')); ?>
+            <?php echo \lib\pagebuilder\config\infoposition::select_html(a($lineSetting, 'infoposition', 'code')); ?>
         </select>
       </div>
   </form>

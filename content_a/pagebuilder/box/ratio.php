@@ -12,7 +12,7 @@
     <input type="hidden" name="set_ratio" value="1">
       <div class="action">
           <select name="ratio" class="select22" id="ratio">
-            <?php echo \lib\app\pagebuilder\config\ratio::select_html(a($lineSetting, 'ratio', 'code')); ?>
+            <?php echo \lib\pagebuilder\config\ratio::select_html(a($lineSetting, 'ratio', 'code')); ?>
         </select>
       </div>
   </form>

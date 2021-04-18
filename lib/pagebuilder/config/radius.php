@@ -1,9 +1,9 @@
 <?php
-namespace lib\app\pagebuilder\config;
+namespace lib\pagebuilder\config;
 
 class radius
 {
-	use \lib\app\pagebuilder\config\enum_variable;
+	use \lib\pagebuilder\config\enum_variable;
 
 	public static $variable_name = 'radius';
 

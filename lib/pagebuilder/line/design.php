@@ -1,12 +1,12 @@
 <?php
-namespace lib\app\pagebuilder\line;
+namespace lib\pagebuilder\line;
 
 
 class design
 {
 	public static function route()
 	{
-		$data = \lib\app\pagebuilder\line\get::load_current_element();
+		$data = \lib\pagebuilder\line\get::load_current_element();
 
 		if($data)
 		{

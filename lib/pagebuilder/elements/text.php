@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
 class text
@@ -96,7 +96,7 @@ class text
 			$text['text'] = a($_saved_detail, 'text');
 		}
 
-		\lib\app\pagebuilder\line\tools::input_exception('text');
+		\lib\pagebuilder\line\tools::input_exception('text');
 
 
 		unset($_data['html']);

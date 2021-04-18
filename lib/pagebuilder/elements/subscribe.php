@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
 class subscribe

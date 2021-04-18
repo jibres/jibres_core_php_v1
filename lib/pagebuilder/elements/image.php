@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
 class image
@@ -84,7 +84,7 @@ class image
 
 			'contain' =>
 			[
-				'addimage' =>
+				'image_add' =>
 				[
 					'detail' =>
 					[
@@ -93,7 +93,7 @@ class image
 						'hidden'            => true,
 					],
 				],
-				'editimage' =>
+				'image_edit' =>
 				[
 					'detail' =>
 					[
@@ -165,7 +165,7 @@ class image
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\app\pagebuilder\line\tools::current_page();
+		$current_page = \lib\pagebuilder\line\tools::current_page();
 
 		if(isset($current_page['current_page']))
 		{
@@ -254,7 +254,7 @@ class image
 			{
 				if(!array_key_exists($old_index, $image['list']))
 				{
-					\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
+					\lib\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
 					return;
 				}
 
@@ -266,7 +266,7 @@ class image
 
 			if(count($sort_column) !== count($image['list']))
 			{
-				\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
+				\lib\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
 				return;
 			}
 
@@ -333,9 +333,9 @@ class image
 			$_data['detail'] = null;
 		}
 
-		\lib\app\pagebuilder\line\tools::input_exception('detail');
+		\lib\pagebuilder\line\tools::input_exception('detail');
 
-		\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
+		\lib\pagebuilder\line\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
 
 		unset($_data['image']);
 		unset($_data['url']);

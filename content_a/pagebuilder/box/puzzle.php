@@ -66,11 +66,11 @@
 
 if(!a($lineSetting,'puzzle', 'limit'))
 {
-  $puzzle = \lib\app\pagebuilder\config\puzzle::default_list();
+  $puzzle = \lib\pagebuilder\config\puzzle::default_list();
 }
 else
 {
-  $puzzle = \lib\app\pagebuilder\config\puzzle::list(a($lineSetting,'puzzle', 'limit'));
+  $puzzle = \lib\pagebuilder\config\puzzle::list(a($lineSetting,'puzzle', 'limit'));
 }
 
 if($puzzle && count($puzzle) > 1)

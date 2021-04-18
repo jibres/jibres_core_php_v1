@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\line;
+namespace lib\pagebuilder\line;
 
 
 class add
@@ -8,14 +8,14 @@ class add
 	{
 		$list = [];
 
-		$list[] = \lib\app\pagebuilder\elements\image::detail();
-		$list[] = \lib\app\pagebuilder\elements\news::detail();
-		$list[] = \lib\app\pagebuilder\elements\products::detail();
-		$list[] = \lib\app\pagebuilder\elements\text::detail();
-		$list[] = \lib\app\pagebuilder\elements\quote::detail();
-		$list[] = \lib\app\pagebuilder\elements\subscribe::detail();
-		$list[] = \lib\app\pagebuilder\elements\socialnetwork::detail();
-		$list[] = \lib\app\pagebuilder\elements\application::detail();
+		$list[] = \lib\pagebuilder\elements\image::detail();
+		$list[] = \lib\pagebuilder\elements\news::detail();
+		$list[] = \lib\pagebuilder\elements\products::detail();
+		$list[] = \lib\pagebuilder\elements\text::detail();
+		$list[] = \lib\pagebuilder\elements\quote::detail();
+		$list[] = \lib\pagebuilder\elements\subscribe::detail();
+		$list[] = \lib\pagebuilder\elements\socialnetwork::detail();
+		$list[] = \lib\pagebuilder\elements\application::detail();
 
 		return $list;
 	}
@@ -24,7 +24,7 @@ class add
 
 	public static function add($_element)
 	{
-		$element = \lib\app\pagebuilder\line\get::check_element($_element);
+		$element = \lib\pagebuilder\line\get::check_element($_element);
 
 		if(!$element)
 		{

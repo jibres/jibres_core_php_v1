@@ -1,18 +1,18 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
-class application
+class socialnetwork
 {
 	public static function detail()
 	{
 		return
 		[
-			'key'         => 'application',
+			'key'         => 'socialnetwork',
 			'mode'        => 'body',
-			'title'       => T_("Application box"),
-			'description' => T_("View information and application download links"),
-			'btn_title'   => T_("Add application box"),
+			'title'       => T_("Social network box"),
+			'description' => T_("Share your social network ID with customers"),
+			'btn_title'   => T_("Add socialnetwork box"),
 		];
 	}
 
@@ -22,7 +22,7 @@ class application
 	 *
 	 * @param      array  $_args  The public contains
 	 *
-	 * @return     array  The application contain
+	 * @return     array  The socialnetwork contain
 	 */
 	public static function elements($_args = [])
 	{
@@ -30,7 +30,7 @@ class application
 		[
 			'detail' =>
 			[
-				'page_title'  => T_("Application"),
+				'page_title'  => T_("Social network"),
 			],
 			'contain' =>
 			[

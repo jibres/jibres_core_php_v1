@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\line;
+namespace lib\pagebuilder\line;
 
 
 class search

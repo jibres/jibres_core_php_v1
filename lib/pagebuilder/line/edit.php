@@ -1,12 +1,12 @@
 <?php
-namespace lib\app\pagebuilder\line;
+namespace lib\pagebuilder\line;
 
 
 class edit
 {
 	public static function element($_args = [])
 	{
-		$result = \lib\app\pagebuilder\line\get::load_current_element();
+		$result = \lib\pagebuilder\line\get::load_current_element();
 
 		if(!$result)
 		{
@@ -22,13 +22,13 @@ class edit
 			return self::remove($result['key'], $id, $result);
 		}
 
-		$update = \lib\app\pagebuilder\line\check::input($result['key'], $id, $_args, $result);
+		$update = \lib\pagebuilder\line\check::input($result['key'], $id, $_args, $result);
 		if(!$update)
 		{
 			return false;
 		}
 
-		$exception = \lib\app\pagebuilder\line\tools::input_exception();
+		$exception = \lib\pagebuilder\line\tools::input_exception();
 
 		$update = \dash\cleanse::patch_mode($_args, $update, $exception);
 
@@ -54,7 +54,7 @@ class edit
 
 		$result        = [];
 
-		$redirect = \lib\app\pagebuilder\line\tools::need_redirect();
+		$redirect = \lib\pagebuilder\line\tools::need_redirect();
 		if($redirect)
 		{
 			$result['url'] = $redirect;
@@ -67,9 +67,9 @@ class edit
 
 	private static function remove($_element, $_id, $_args)
 	{
-		if(is_callable(\lib\app\pagebuilder\line\tools::get_fn($_element, 'remove')))
+		if(is_callable(\lib\pagebuilder\line\tools::get_fn($_element, 'remove')))
 		{
-			$allow_remove = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'remove', $_args);
+			$allow_remove = \lib\pagebuilder\line\tools::call_fn_args($_element, 'remove', $_args);
 
 			if(!$allow_remove)
 			{
@@ -92,7 +92,7 @@ class edit
 	{
 		$sort = \dash\validate::sort($_sort);
 
-		$list = \lib\app\pagebuilder\line\search::list();
+		$list = \lib\pagebuilder\line\search::list();
 
 		if(!$list || !is_array($list))
 		{

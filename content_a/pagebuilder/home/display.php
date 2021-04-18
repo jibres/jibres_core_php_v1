@@ -1,7 +1,7 @@
 <?php
 if(\dash\data::lineSetting())
 {
-  \lib\app\pagebuilder\line\design::draw();
+  \lib\pagebuilder\line\design::draw();
 }
 else
 {

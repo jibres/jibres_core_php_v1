@@ -11,7 +11,7 @@
   <form class="c4 s12" method="post" data-patch>
       <div class="action">
           <select name="avand" class="select22" id="avand">
-            <?php echo \lib\app\pagebuilder\config\avand::select_html(a($lineSetting, 'avand', 'code')); ?>
+            <?php echo \lib\pagebuilder\config\avand::select_html(a($lineSetting, 'avand', 'code')); ?>
         </select>
       </div>
   </form>

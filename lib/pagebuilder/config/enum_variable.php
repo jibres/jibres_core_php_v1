@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\config;
+namespace lib\pagebuilder\config;
 
 trait enum_variable
 {

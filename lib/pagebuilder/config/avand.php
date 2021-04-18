@@ -1,10 +1,10 @@
 <?php
-namespace lib\app\pagebuilder\config;
+namespace lib\pagebuilder\config;
 
 
 class avand
 {
-	use \lib\app\pagebuilder\config\enum_variable;
+	use \lib\pagebuilder\config\enum_variable;
 
 	public static $variable_name = 'avand';
 

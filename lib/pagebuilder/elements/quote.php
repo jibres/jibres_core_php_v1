@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
 class quote
@@ -205,7 +205,7 @@ class quote
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\app\pagebuilder\line\tools::current_page();
+		$current_page = \lib\pagebuilder\line\tools::current_page();
 
 		if(isset($current_page['current_page']))
 		{
@@ -296,7 +296,7 @@ class quote
 			// {
 			// 	if(!array_key_exists($old_index, $quote['list']))
 			// 	{
-			// 		\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
+			// 		\lib\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
 			// 		return;
 			// 	}
 
@@ -308,7 +308,7 @@ class quote
 
 			// if(count($sort_column) !== count($quote['list']))
 			// {
-			// 	\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
+			// 	\lib\pagebuilder\line\tools::need_redirect(\dash\url::pwd());
 			// 	return;
 			// }
 
@@ -405,9 +405,9 @@ class quote
 			$_data['detail'] = null;
 		}
 
-		\lib\app\pagebuilder\line\tools::input_exception('detail');
+		\lib\pagebuilder\line\tools::input_exception('detail');
 
-		\lib\app\pagebuilder\line\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
+		\lib\pagebuilder\line\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
 
 		unset($_data['displayname']);
 		unset($_data['job']);

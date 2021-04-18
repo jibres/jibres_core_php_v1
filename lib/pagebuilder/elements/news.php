@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\pagebuilder\elements;
+namespace lib\pagebuilder\elements;
 
 
 class news
@@ -109,7 +109,7 @@ class news
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\app\pagebuilder\line\tools::current_page();
+		$current_page = \lib\pagebuilder\line\tools::current_page();
 
 		if(isset($current_page['current_page']))
 		{
@@ -160,7 +160,7 @@ class news
 
 		if($current_page === 'filter')
 		{
-			\lib\app\pagebuilder\line\tools::input_exception('detail');
+			\lib\pagebuilder\line\tools::input_exception('detail');
 		}
 
 		unset($_data['tag_id']);

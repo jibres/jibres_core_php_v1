@@ -1,21 +1,21 @@
 <?php
-namespace lib\app\pagebuilder\line;
+namespace lib\pagebuilder\line;
 
 
 class check
 {
 	public static function input($_element, $_id, $_args = [], $_saved_detail = [])
 	{
-		$args = \lib\app\pagebuilder\line\tools::global_clean_input($_args);
+		$args = \lib\pagebuilder\line\tools::global_clean_input($_args);
 
-		$input_condition = \lib\app\pagebuilder\line\tools::call_fn($_element, 'input_condition');
+		$input_condition = \lib\pagebuilder\line\tools::call_fn($_element, 'input_condition');
 
 		if($input_condition === false)
 		{
 			return false;
 		}
 
-		$contain = \lib\app\pagebuilder\line\tools::get_contain($_element);
+		$contain = \lib\pagebuilder\line\tools::get_contain($_element);
 
 		foreach ($contain as $one_contain)
 		{
@@ -29,7 +29,7 @@ class check
 
 		$require = [];
 
-		$input_required = \lib\app\pagebuilder\line\tools::call_fn($_element, 'input_required');
+		$input_required = \lib\pagebuilder\line\tools::call_fn($_element, 'input_required');
 
 		if(is_array($input_required))
 		{
@@ -38,7 +38,7 @@ class check
 
 		$meta = [];
 
-		$input_meta = \lib\app\pagebuilder\line\tools::call_fn($_element, 'input_meta');
+		$input_meta = \lib\pagebuilder\line\tools::call_fn($_element, 'input_meta');
 
 		if(is_array($input_meta))
 		{
@@ -62,7 +62,7 @@ class check
 			}
 		}
 
-		$ready_for_db = \lib\app\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', $data, $_saved_detail);
+		$ready_for_db = \lib\pagebuilder\line\tools::call_fn_args($_element, 'ready_for_db', $data, $_saved_detail);
 
 		return $ready_for_db;
 
