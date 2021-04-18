@@ -314,6 +314,14 @@ class image
 				'sort'   => $_data['sort'],
 				'target' => $_data['target'],
 			];
+
+			$max_capacity = 50;
+
+			if(count($image['list']) > $max_capacity)
+			{
+				\dash\notif::error(T_("Maximum capacity of image block is :val image!", ['val' => \dash\fit::number($max_capacity)]));
+				return false;
+			}
 		}
 
 		if(!empty($image))
