@@ -15,7 +15,7 @@ class quote
 			'key'         => 'quote',
 			'mode'        => 'body',
 			'title'       => T_("Quote Block"),
-			'description' => T_("Add an quote block with a link to somewhere. You can use a beautiful quote to engage your customers. for example a special offer."),
+			'description' => T_("Show quote of some customers to engage your audience with beautiful design."),
 			'btn_title'   => T_("Add Quotes Block"),
 		];
 	}

@@ -5,7 +5,7 @@
     <div class="data">
       <h3><?php echo T_("Set show model");?></h3>
       <div class="body">
-        <p><?php echo T_("How would your like show items?");?></p>
+        <p><?php echo T_("How would you like show items?");?></p>
       </div>
     </div>
   </div>

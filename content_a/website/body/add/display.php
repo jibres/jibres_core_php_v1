@@ -116,7 +116,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::this();?>/titleline"><?php echo T_("Add News Title") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/titleline"><?php echo T_("Add Title") ?></a>
     </div>
   </div>
 </section>
@@ -129,13 +129,13 @@
     <div class="data">
       <h3><?php echo T_("Subscribe box");?></h3>
       <div class="body">
-        <p><?php echo T_("Add line for Subscribe input"); ?></p>
+
       </div>
     </div>
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::this();?>/subscribe"><?php echo T_("Add News subscribe") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/subscribe"><?php echo T_("Add subscribe") ?></a>
     </div>
   </div>
 </section>
@@ -149,13 +149,13 @@
     <div class="data">
       <h3><?php echo T_("socialnetwork box");?></h3>
       <div class="body">
-        <p><?php echo T_("Add line for socialnetwork input"); ?></p>
+
       </div>
     </div>
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::this();?>/socialnetwork"><?php echo T_("Add News socialnetwork") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/socialnetwork"><?php echo T_("Add socialnetwork") ?></a>
     </div>
   </div>
 </section>
@@ -169,13 +169,13 @@
     <div class="data">
       <h3><?php echo T_("application box");?></h3>
       <div class="body">
-        <p><?php echo T_("Add line for application input"); ?></p>
+
       </div>
     </div>
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary block" href="<?php echo \dash\url::this();?>/application"><?php echo T_("Add News application") ?></a>
+        <a class="btn primary block" href="<?php echo \dash\url::this();?>/application"><?php echo T_("Add application") ?></a>
     </div>
   </div>
 </section>
