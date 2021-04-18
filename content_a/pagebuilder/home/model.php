@@ -11,7 +11,7 @@ class model
 
 			$post = \dash\request::post();
 
-			$save = \lib\pagebuilder\line\edit::element($post);
+			$save = \lib\pagebuilder\tools\edit::element($post);
 
 			if(isset($save['url']))
 			{
@@ -21,7 +21,7 @@ class model
 
 		if(\dash\request::post('sortline') === 'sortline')
 		{
-			\lib\pagebuilder\line\edit::set_sort(\dash\request::post('bodyline'));
+			\lib\pagebuilder\tools\edit::set_sort(\dash\request::post('bodyline'));
 		}
 	}
 }

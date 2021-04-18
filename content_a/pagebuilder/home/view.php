@@ -18,7 +18,7 @@ class view
 		}
 
 		$get       = \dash\request::get();
-		$load_line = \lib\pagebuilder\line\search::list($get);
+		$load_line = \lib\pagebuilder\tools\search::list($get);
 		\dash\data::lineList($load_line);
 
 	}

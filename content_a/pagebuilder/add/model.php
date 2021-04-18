@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('line') === 'new' && \dash\request::post('key'))
 		{
-			$new_line = \lib\pagebuilder\line\add::add(\dash\request::post('key'));
+			$new_line = \lib\pagebuilder\tools\add::body(\dash\request::post('key'));
 
 			if(isset($new_line['url']))
 			{

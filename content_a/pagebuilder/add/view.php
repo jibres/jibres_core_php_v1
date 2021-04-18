@@ -12,7 +12,7 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
-		$all_line = \lib\pagebuilder\line\add::list();
+		$all_line = \lib\pagebuilder\tools\add::body_list();
 		\dash\data::lineList($all_line);
 
 	}

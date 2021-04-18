@@ -10,7 +10,7 @@ class controller
 
 		if($child)
 		{
-			\lib\pagebuilder\line\design::route();
+			\lib\pagebuilder\tools\admin_design::route();
 		}
 	}
 }

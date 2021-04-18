@@ -1,0 +1,19 @@
+<?php
+namespace lib\pagebuilder\tools;
+
+
+class search
+{
+
+
+	public static function list($_args = [])
+	{
+		$list = [];
+
+		$list = \lib\db\pagebuilder\get::by_related('homepage');
+
+		return $list;
+	}
+
+}
+?>
