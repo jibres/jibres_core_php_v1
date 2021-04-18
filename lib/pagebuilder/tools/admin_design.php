@@ -34,17 +34,26 @@ class admin_design
 	 *
 	 * @param      <type>  $_filename  The filename
 	 */
-	private static function load($_folder, $_filename)
+	private static function load($_folder, $_module, $_filename = 'design')
 	{
-		if(is_string($_filename))
+		if(is_string($_folder) && is_string($_module) && is_string($_filename))
 		{
-			$file = root. 'lib/pagebuilder/%s/%s/design.php';
+			$file = root. 'lib/pagebuilder/%s/%s/%s.php';
 
-			$tmp_file = sprintf($file, $_folder, $_filename);
+			$tmp_file = sprintf($file, $_folder, $_module, $_filename);
 
 			if(is_file($tmp_file))
 			{
 				require_once($tmp_file);
+			}
+			else
+			{
+				$tmp_file = sprintf($file, $_folder, $_filename, 'design');
+
+				if(is_file($tmp_file))
+				{
+					require_once($tmp_file);
+				}
 			}
 		}
 	}
@@ -73,7 +82,7 @@ class admin_design
 				}
 				else
 				{
-					self::load($lineSetting['mode'], $key);
+					self::load($lineSetting['mode'], $lineSetting['key'], $key);
 				}
 			}
 		}
@@ -81,7 +90,7 @@ class admin_design
 		{
 			if(isset($lineSetting['current_page_detail']['current_page']))
 			{
-				self::load($lineSetting['mode'], $lineSetting['current_page_detail']['current_page']);
+				self::load($lineSetting['mode'], $lineSetting['key'], $lineSetting['current_page_detail']['current_page']);
 			}
 		}
 	}

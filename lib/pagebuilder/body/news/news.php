@@ -62,15 +62,16 @@ class news
 					[
 						'page_title' => T_("Set Filter"),
 						'btn_save'   => true,
+						// 'hidden'     => true,
 					],
 
-					'contain' =>
-					[
-						'news_filter' => true,
-					],
+					// 'contain' =>
+					// [
+					// 	'news_filter' => true,
+					// ],
 
 				],
-				'design' =>
+				'view' =>
 				[
 					'detail' =>
 					[
