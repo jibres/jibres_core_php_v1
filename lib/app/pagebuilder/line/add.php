@@ -8,9 +8,9 @@ class add
 	{
 		$list = [];
 
+		$list[] = \lib\app\pagebuilder\elements\image::detail();
 		$list[] = \lib\app\pagebuilder\elements\news::detail();
 		$list[] = \lib\app\pagebuilder\elements\products::detail();
-		$list[] = \lib\app\pagebuilder\elements\image::detail();
 		$list[] = \lib\app\pagebuilder\elements\text::detail();
 		$list[] = \lib\app\pagebuilder\elements\quote::detail();
 		$list[] = \lib\app\pagebuilder\elements\subscribe::detail();

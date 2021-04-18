@@ -88,19 +88,19 @@ class image
 				[
 					'detail' =>
 					[
+						'page_title'        => T_("Add new image"),
 						'allow_upload_file' => true,
 						'hidden'            => true,
-						'page_title'        => T_("Add new image"),
 					],
 				],
 				'editimage' =>
 				[
 					'detail' =>
 					[
+						'page_title'        => T_("Edit image"),
 						'router'            => true,
 						'allow_upload_file' => true,
 						'hidden'            => true,
-						'page_title'        => T_("Edit image"),
 						'back_args'         => ['index' => null,],
 					],
 				],
@@ -108,7 +108,7 @@ class image
 				[
 					'detail'  =>
 					[
-						'page_title' => T_("Edit image block setting"),
+						'page_title' => T_("Image block setting"),
 						'btn_save'   => false,
 					],
 					'contain' =>

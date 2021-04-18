@@ -11,7 +11,7 @@ class text
 			'key'         => 'text',
 			'mode'        => 'body',
 			'title'       => T_("Text box"),
-			'description' => T_("Simple text"),
+			'description' => T_("Simple text!"),
 			'btn_title'   => T_("Add Text box"),
 		];
 	}
@@ -30,7 +30,7 @@ class text
 		[
 			'detail' =>
 			[
-				'page_title'  => T_("Edit text"),
+				'page_title'  => T_("Text box"),
 				'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
 				'btn_save'    => true,
 				'allow_html'  => true,
@@ -41,7 +41,7 @@ class text
 				[
 					'detail' =>
 					[
-						'page_title' => T_("Edit setting"),
+						'page_title' => T_("Setting"),
 						'btn_save'   => false,
 					],
 

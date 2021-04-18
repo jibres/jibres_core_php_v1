@@ -10,7 +10,7 @@ class products
 		[
 			'key'         => 'products',
 			'mode'        => 'body',
-			'title'       => T_("Product Line"),
+			'title'       => T_("Product Block"),
 			'description' => T_("A block to show products like random products, products of special category, popular products, etc."),
 			'btn_title'   => T_("Add Products Block"),
 		];
@@ -43,7 +43,7 @@ class products
 		[
 			'detail' =>
 			[
-				'page_title' => T_("Product Line"),
+				'page_title' => T_("Product Block"),
 			],
 
 			'contain' =>

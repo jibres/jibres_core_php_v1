@@ -11,7 +11,6 @@ class news
 			'key'         => 'news',
 			'mode'        => 'body',
 			'title'       => T_("Latest news"),
-			'page_title'  => T_("Latest news"),
 			'description' => T_("View some of the latest news"),
 			'btn_title'   => T_("Add latest news"),
 		];
@@ -44,7 +43,7 @@ class news
 		[
 			'detail' =>
 			[
-				'page_title' => T_("Edit title"),
+				'page_title' => T_("Latest news"),
 
 			],
 			'contain' =>

@@ -15,7 +15,6 @@ class quote
 			'key'         => 'quote',
 			'mode'        => 'body',
 			'title'       => T_("Quote Block"),
-
 			'description' => T_("Add an quote block with a link to somewhere. You can use a beautiful quote to engage your customers. for example a special offer."),
 			'btn_title'   => T_("Add Quotes Block"),
 		];
@@ -120,7 +119,7 @@ class quote
 				[
 					'detail'  =>
 					[
-						'page_title' => T_("Edit quote block setting"),
+						'page_title' => T_("Edit setting"),
 						'btn_save'   => false,
 					],
 					'contain' =>
