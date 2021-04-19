@@ -1,4 +1,4 @@
-
+<?php require "layout/persianRecommendBox.php"; ?>
 <section id="homeLanding">
   <div class="avand-sm">
     <h2 class="txtB"><?php echo T_('Everything you need to sell online'); ?></h2>
