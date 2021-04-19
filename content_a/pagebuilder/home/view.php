@@ -86,6 +86,12 @@ class view
 			}
 
 
+			if(isset($current_page_detail['btn_preview']))
+			{
+				\dash\face::btnPreview($current_page_detail['btn_preview']);
+			}
+
+
 		}
 
 		$back_args = [];
