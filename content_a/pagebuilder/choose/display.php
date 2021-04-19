@@ -1,5 +1,5 @@
 <div class="avand">
-  <?php if(\dash\data::chooseType() === 'header') {?>
+  <?php if(\dash\data::pagebuilderMode() === 'header') {?>
     <div class="msg info2 fs14"><?php echo T_("Please choose header."); ?></div>
   <?php }else{ ?>
     <div class="msg info2 fs14"><?php echo T_("Please choose footer."); ?></div>

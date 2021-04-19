@@ -1,21 +1,9 @@
 <?php
-namespace content_a\pagebuilder\add;
+namespace content_a\pagebuilder\choose;
 
 
-class model
+class model extends \content_a\pagebuilder\add\model
 {
-	public static function post()
-	{
 
-		if(\dash\request::post('line') === 'new' && \dash\request::post('key'))
-		{
-			$new_line = \lib\pagebuilder\tools\add::add(\dash\request::post('key'));
-
-			if(isset($new_line['url']))
-			{
-				\dash\redirect::to($new_line['url']);
-			}
-		}
-	}
 }
 ?>

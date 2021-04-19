@@ -6,18 +6,15 @@ class view
 {
 	public static function config()
 	{
-		$subchild = \dash\url::subchild();
-		\dash\data::chooseType($subchild);
-
-		if($subchild === 'header')
+		if(\dash\data::pagebuilderMode() === 'header')
 		{
 			\dash\face::title(T_('Choose header'));
-			$all_line = \lib\pagebuilder\header\add::list();
+			$all_line = \lib\pagebuilder\tools\add::header_list();
 		}
 		else
 		{
 			\dash\face::title(T_('Choose footer'));
-			$all_line = \lib\pagebuilder\footer\add::list();
+			$all_line = \lib\pagebuilder\tools\add::footer_list();
 		}
 
 		\dash\data::back_text(T_('Back'));

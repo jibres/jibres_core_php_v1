@@ -4,6 +4,17 @@ namespace lib\pagebuilder\tools;
 
 class add
 {
+	public static function header_list($_args = [])
+	{
+		$list = [];
+
+		$list[] = \lib\pagebuilder\header\h100\h100::detail();
+
+
+		return $list;
+	}
+
+
 	public static function body_list($_args = [])
 	{
 		$list = [];
@@ -21,10 +32,30 @@ class add
 	}
 
 
+	public static function footer_list($_args = [])
+	{
+		$list = [];
+
+		return $list;
+	}
+
+
+
+	public static function header($_element)
+	{
+		return self::add('header', $_element);
+	}
+
 
 	public static function body($_element)
 	{
-		$element = \lib\pagebuilder\tools\get::check_element('body', $_element);
+		return self::add('body', $_element);
+	}
+
+
+	private static function add($_mode, $_element)
+	{
+		$element = \lib\pagebuilder\tools\get::check_element($_mode, $_element);
 
 		if(!$element)
 		{

@@ -23,6 +23,8 @@ class controller
 			\dash\header::status(404);
 		}
 
+		\dash\data::pagebuilderMode($subchild);
+
 		\dash\open::get();
 		\dash\open::post();
 

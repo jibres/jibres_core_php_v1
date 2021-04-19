@@ -38,7 +38,7 @@ class get
 
 		if($_name)
 		{
-			if(!preg_match("/^[a-z\_]+$/", $_name))
+			if(!preg_match("/^[a-z][a-z0-9\_]+$/", $_name))
 			{
 				return false;
 			}
