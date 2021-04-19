@@ -230,7 +230,7 @@ class check
 		// check expire time
 		if(isset($load['dateexpire']) && $load['dateexpire'])
 		{
-			$expire_time = strtotime($load['dateexpire']. ' 23:59:59');
+			$expire_time = strtotime($load['dateexpire']);
 
 			$left_time = $expire_time - time();
 
