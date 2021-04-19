@@ -307,7 +307,7 @@ class url
 			return false;
 		}
 
-		if(mb_strlen($data) > 63)
+		if(mb_strlen($data) > 70)
 		{
 			if($_notif)
 			{
