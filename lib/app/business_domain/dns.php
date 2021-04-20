@@ -11,7 +11,7 @@ class dns
 		{
 			$get     = \lib\db\business_domain\get::check_is_customer_domain($_domain);
 
-			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete')
+			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete' && $get['status'] !== 'deleted')
 			{
 				\lib\app\business_domain\remove::force_remove($get['id']);
 
