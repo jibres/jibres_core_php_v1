@@ -7,8 +7,8 @@ class menu2
 
 	public static function input_condition($_args = [])
 	{
-		$_args['footer_menu_1']          = 'string_100';
-		$_args['set_menu_footer_menu_1'] = 'bit';
+		$_args['footer_menu_2']          = 'string_100';
+		$_args['set_menu_footer_menu_2'] = 'bit';
 		return $_args;
 	}
 
@@ -19,13 +19,13 @@ class menu2
 
 		$menu2 = [];
 
-		if(isset($_data['set_menu_footer_menu_1']) && $_data['set_menu_footer_menu_1'])
+		if(isset($_data['set_menu_footer_menu_2']) && $_data['set_menu_footer_menu_2'])
 		{
-			$menu2['footer_menu_1'] = $_data['footer_menu_1'];
+			$menu2['footer_menu_2'] = $_data['footer_menu_2'];
 		}
-		elseif(a($_saved_detail, 'detail', 'footer_menu_1'))
+		elseif(a($_saved_detail, 'detail', 'footer_menu_2'))
 		{
-			$menu2['footer_menu_1'] = a($_saved_detail, 'detail', 'footer_menu_1');
+			$menu2['footer_menu_2'] = a($_saved_detail, 'detail', 'footer_menu_2');
 		}
 
 		if(!is_array(a($_data, 'detail')))
@@ -37,8 +37,8 @@ class menu2
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-		unset($_data['footer_menu_1']);
-		unset($_data['set_menu_footer_menu_1']);
+		unset($_data['footer_menu_2']);
+		unset($_data['set_menu_footer_menu_2']);
 
 
 		return $_data;
