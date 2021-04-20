@@ -128,7 +128,6 @@ class h100
 
 		$h100['logo'] = $image_path;
 
-		unset($_data['detail']['logourl']);
 
 		$saved_detail = [];
 
@@ -138,6 +137,8 @@ class h100
 		}
 
 		$saved_detail = array_merge($saved_detail, $_data['detail'], $h100);
+
+		unset($saved_detail['logourl']);
 
 		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
