@@ -91,7 +91,6 @@ class h100
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-
 		$h100 = [];
 
 		if(array_key_exists('key', $_data))
@@ -133,7 +132,14 @@ class h100
 
 		if(!empty($h100))
 		{
-			$_data['detail'] = json_encode($h100, JSON_UNESCAPED_UNICODE);
+			if(!is_array(a($_data, 'detail')))
+			{
+				$_data['detail'] = [];
+			}
+
+			$_data['detail'] = array_merge($_data['detail'], $h100);
+
+			$_data['detail'] = json_encode($_data['detail'], JSON_UNESCAPED_UNICODE);
 		}
 		else
 		{

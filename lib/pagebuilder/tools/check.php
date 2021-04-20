@@ -54,7 +54,7 @@ class check
 
 		foreach ($contain as $one_contain)
 		{
-			$fn = \lib\pagebuilder\tools\tools::get_fn($_folder, $one_contain, 'ready_for_save_db');
+			$fn = \lib\pagebuilder\tools\tools::get_fn($_folder, $one_contain, 'ready_for_db');
 
 			if(is_callable($fn))
 			{

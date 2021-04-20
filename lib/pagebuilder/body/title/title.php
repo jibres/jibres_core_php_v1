@@ -16,7 +16,7 @@ class title
 	}
 
 
-	public static function ready_for_save_db($_data)
+	public static function ready_for_db($_data)
 	{
 		// needless to save title
 		if(!a($_data, 'set_title'))

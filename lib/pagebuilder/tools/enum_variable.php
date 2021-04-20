@@ -58,7 +58,7 @@ trait enum_variable
 
 
 
-	public static function ready_for_save_db($_data)
+	public static function ready_for_db($_data)
 	{
 		$variable = [];
 

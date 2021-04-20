@@ -27,7 +27,7 @@ class puzzle
 	}
 
 
-	public static function ready_for_save_db($_data, $_saved_detail = [])
+	public static function ready_for_db($_data, $_saved_detail = [])
 	{
 
 		$puzzle = [];

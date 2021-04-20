@@ -204,7 +204,7 @@ class tools
 	}
 
 
-	public static function global_ready_for_save_db(array $_data)
+	public static function global_ready_for_db(array $_data)
 	{
 		$data = [];
 
