@@ -8,6 +8,7 @@ class text
 	public static function input_condition($_args = [])
 	{
 		$_args['html']    = 'real_html';
+		$_args['settext'] = 'bit';
 		return $_args;
 	}
 
@@ -19,24 +20,18 @@ class text
 
 		$text = [];
 
-		if(array_key_exists('html', $_data))
+		if($_data['settext'])
 		{
-
 			$_data['text'] = \dash\request::post_html();
 
-			// \lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd(), true);
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd(), true);
 
+			\lib\pagebuilder\tools\tools::input_exception('text');
 		}
-		elseif(a($_saved_detail, 'text'))
-		{
-			$text['text'] = a($_saved_detail, 'text');
-		}
-
-		\lib\pagebuilder\tools\tools::input_exception('text');
-
 
 
 		unset($_data['html']);
+		unset($_data['settext']);
 
 		return $_data;
 

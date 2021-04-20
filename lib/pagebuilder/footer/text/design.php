@@ -25,6 +25,7 @@ if(!\lib\pagebuilder\tools\tools::in('text'))
 
 <div class="avand-lg">
   <form method="post" class="box" autocomplete="off" id="form1">
+    <input type="hidden" name="settext" value="1">
     <div class="body">
       <textarea class="txt" data-editor rows="10" name="html" placeholder="<?php echo T_("Type here...") ?>" id="text"><?php echo \dash\data::lineSetting_text(); ?></textarea>
     </div>
