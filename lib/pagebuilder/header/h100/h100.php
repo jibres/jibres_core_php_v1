@@ -146,7 +146,15 @@ class h100
 			$_data['detail'] = null;
 		}
 
-		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
+		if(\lib\pagebuilder\tools\tools::in('announcement'))
+		{
+			// needless to redirect
+		}
+		else
+		{
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
+		}
+
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
