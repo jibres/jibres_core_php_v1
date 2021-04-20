@@ -116,6 +116,19 @@ class tools
 	}
 
 
+	public static function get_element_title($_folder, $_element)
+	{
+		$detail = \lib\pagebuilder\tools\tools::call_fn($_folder, $_element, 'detail');
+
+		if(isset($detail['title']))
+		{
+			return $detail['title'];
+		}
+
+		return T_("Unknown");
+
+	}
+
 	/**
 	 * Save and get curret page detail
 	 *

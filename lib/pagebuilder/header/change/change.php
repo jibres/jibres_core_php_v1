@@ -38,8 +38,10 @@ class change
 		// \lib\pagebuilder\tools\tools::input_exception('detail');
 
 		$_data['type'] = $_data['key'];
+		$_data['title'] = \lib\pagebuilder\tools\tools::get_element_title('header', $_data['key']);
 
 		\lib\pagebuilder\tools\tools::input_exception('type');
+		\lib\pagebuilder\tools\tools::input_exception('title');
 
 		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::this(). '/'. $_data['key']. \dash\request::full_get());
 

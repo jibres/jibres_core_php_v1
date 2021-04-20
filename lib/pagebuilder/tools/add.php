@@ -64,11 +64,8 @@ class add
 			$load_element = \lib\pagebuilder\tools\get::load_element($check_header_exists['type'], $check_header_exists['id']);
 			$args =
 			[
-				'key'  => $element['key'],
-				'type' => $element['key'],
+				'key'   => $element['key'],
 			];
-
-			\lib\pagebuilder\tools\tools::input_exception('type');
 
 			$result = \lib\pagebuilder\tools\edit::edit($load_element, $args);
 
