@@ -130,21 +130,16 @@ class h100
 
 		unset($_data['detail']['logourl']);
 
-		if(!empty($h100))
-		{
-			if(!is_array(a($_data, 'detail')))
-			{
-				$_data['detail'] = [];
-			}
+		$saved_detail = [];
 
-			$_data['detail'] = array_merge($_data['detail'], $h100);
-
-			$_data['detail'] = json_encode($_data['detail'], JSON_UNESCAPED_UNICODE);
-		}
-		else
+		if(is_array($_saved_detail['detail']))
 		{
-			$_data['detail'] = null;
+			$saved_detail = $_saved_detail['detail'];
 		}
+
+		$saved_detail = array_merge($saved_detail, $_data['detail'], $h100);
+
+		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
 		if(\lib\pagebuilder\tools\tools::in('announcement'))
 		{
@@ -158,9 +153,6 @@ class h100
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-
-		unset($_data['line']);
-		unset($_data['key']);
 		unset($_data['remove_header_logo']);
 
 		return $_data;

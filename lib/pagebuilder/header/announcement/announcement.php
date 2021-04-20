@@ -47,7 +47,7 @@ class announcement
 		}
 		elseif(a($_saved_detail, 'detail', 'announcement'))
 		{
-			$announcement['announcement'] = a($_saved_detail, 'detail', 'announcement');
+			$announcement = a($_saved_detail, 'detail', 'announcement');
 		}
 
 		if(!is_array(a($_data, 'detail')))

@@ -78,10 +78,6 @@ class h300
 
 	public static function ready($_data)
 	{
-		if(isset($_data['detail']['logo']) && $_data['detail']['logo'])
-		{
-			$_data['detail']['logourl'] = \lib\filepath::fix($_data['detail']['logo']);
-		}
 
 		return $_data;
 	}
@@ -93,58 +89,17 @@ class h300
 	{
 		$h300 = [];
 
-		if(array_key_exists('key', $_data))
+		$saved_detail = [];
+
+		if(is_array($_saved_detail['detail']))
 		{
-			$h300['header_key'] = $_data['key'];
-		}
-		elseif(a($_saved_detail, 'detail', 'header_key'))
-		{
-			$h300['header_key'] = a($_saved_detail, 'detail', 'header_key');
+			$saved_detail = $_saved_detail['detail'];
 		}
 
-		$image_path = null;
+		$saved_detail = array_merge($saved_detail, $_data['detail'], $h300);
 
-		if(\dash\request::files('logo'))
-		{
-			$image_path = \dash\upload\website::upload_image('logo');
+		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		else
-		{
-			if(isset($_saved_detail['detail']['logo']))
-			{
-				$image_path = $_saved_detail['detail']['logo'];
-			}
-		}
-
-		if($_data['remove_header_logo'] === 'logo')
-		{
-			$image_path = null;
-		}
-
-		$h300['logo'] = $image_path;
-
-		unset($_data['detail']['logourl']);
-
-		if(!empty($h300))
-		{
-			if(!is_array(a($_data, 'detail')))
-			{
-				$_data['detail'] = [];
-			}
-
-			$_data['detail'] = array_merge($_data['detail'], $h300);
-
-			$_data['detail'] = json_encode($_data['detail'], JSON_UNESCAPED_UNICODE);
-		}
-		else
-		{
-			$_data['detail'] = null;
-		}
 
 		if(\lib\pagebuilder\tools\tools::in('announcement'))
 		{
@@ -154,7 +109,6 @@ class h300
 		{
 			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
 		}
-
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 

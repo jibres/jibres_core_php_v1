@@ -22,28 +22,17 @@ class change
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$change = [];
+		if(isset($_data['key']) && $_data['key'])
+		{
+			$_data['type'] = $_data['key'];
 
-		// if(array_key_exists('key', $_data))
-		// {
-		// 	$change['header_key'] = $_data['key'];
-		// }
-		// elseif(a($_saved_detail, 'detail', 'header_key'))
-		// {
-		// 	$change['header_key'] = a($_saved_detail, 'detail', 'header_key');
-		// }
+			$_data['title'] = \lib\pagebuilder\tools\tools::get_element_title('header', $_data['key']);
 
+			\lib\pagebuilder\tools\tools::input_exception('type');
+			\lib\pagebuilder\tools\tools::input_exception('title');
 
-
-		// \lib\pagebuilder\tools\tools::input_exception('detail');
-
-		$_data['type'] = $_data['key'];
-		$_data['title'] = \lib\pagebuilder\tools\tools::get_element_title('header', $_data['key']);
-
-		\lib\pagebuilder\tools\tools::input_exception('type');
-		\lib\pagebuilder\tools\tools::input_exception('title');
-
-		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::this(). '/'. $_data['key']. \dash\request::full_get());
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::this(). '/'. $_data['key']. \dash\request::full_get());
+		}
 
 
 		unset($_data['line']);
