@@ -35,6 +35,12 @@ class business
 			return false;
 		}
 
+		// load page builder by detect current page
+		$pagebuilder = \lib\pagebuilder\load\page::current_page();
+
+
+
+
 		$load_website_setting = \lib\app\website\generator::load_website_setting();
 
 		if(!$load_website_setting)
