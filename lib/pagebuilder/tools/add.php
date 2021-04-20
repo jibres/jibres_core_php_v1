@@ -43,25 +43,65 @@ class add
 
 	public static function header($_element)
 	{
-		return self::add('header', $_element);
-	}
-
-
-	public static function body($_element)
-	{
-		return self::add('body', $_element);
-	}
-
-
-	private static function add($_mode, $_element)
-	{
-		$element = \lib\pagebuilder\tools\get::check_element($_mode, $_element);
+		$element = \lib\pagebuilder\tools\get::check_element('header', $_element);
 
 		if(!$element)
 		{
 			\dash\notif::error(T_("Invalid detail!"));
 			return false;
 		}
+
+		$args =
+		[
+			'line_title' => a($element, 'title'),
+		];
+
+		$check_header_exists = \lib\db\pagebuilder\get::header_exists('homepage');
+
+		if(isset($check_header_exists['id']))
+		{
+			$load_element = \lib\pagebuilder\tools\get::load_element($_element, $check_header_exists['id']);
+
+			$args =
+			[
+				'key' => $element['key'],
+			];
+
+			$result = \lib\pagebuilder\tools\edit::edit($load_element, $args);
+
+			if(isset($result['url']))
+			{
+				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['id' => $check_header_exists['id']]);
+			}
+
+			return $result;
+
+		}
+		else
+		{
+			return self::add('header', $element, $args);
+		}
+
+	}
+
+
+	public static function body($_element)
+	{
+		$element = \lib\pagebuilder\tools\get::check_element('body', $_element);
+
+		if(!$element)
+		{
+			\dash\notif::error(T_("Invalid detail!"));
+			return false;
+		}
+
+		return self::add('body', $element);
+	}
+
+
+	private static function add($_mode, $_element, $_args = [])
+	{
+		$element = $_element;
 
 		$insert                     = [];
 		$insert['mode']             = a($element, 'mode');
@@ -72,7 +112,15 @@ class add
 		$insert['related']          = 'homepage';
 		$insert['related_id']       = null;
 
-		$insert['title']            = self::get_suggested_name($element);
+		if(a($_args['line_title']))
+		{
+			$insert['title'] = $_args['line_title'];
+		}
+		else
+		{
+			$insert['title']            = self::get_suggested_name($element);
+		}
+
 		$insert['titlesetting']     = null;
 		$insert['background']       = null;
 		$insert['avand']            = null;

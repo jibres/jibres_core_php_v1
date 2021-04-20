@@ -8,6 +8,13 @@ class edit
 	{
 		$result = \lib\pagebuilder\tools\get::load_current_element();
 
+		return self::edit($result, $_args);
+	}
+
+	public static function edit($_element, $_args)
+	{
+		$result = $_element;
+
 		if(!$result)
 		{
 			\dash\notif::error(T_("Invalid line detail"));

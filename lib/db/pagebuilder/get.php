@@ -13,6 +13,16 @@ class get
 	}
 
 
+	public static function header_exists(string $_related)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related = '$_related' AND pagebuilder.mode = 'header'  LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
+
 	public static function line_list(string $_related)
 	{
 		$query  =
