@@ -10,7 +10,7 @@ class search
 	{
 		$list = [];
 
-		$list = \lib\db\pagebuilder\get::by_related('homepage');
+		$list = \lib\db\pagebuilder\get::line_list('homepage');
 
 		return $list;
 	}

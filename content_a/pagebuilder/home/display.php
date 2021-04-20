@@ -6,32 +6,39 @@ if(\dash\data::lineSetting())
 else
 {
   echo '<div class="avand-md">';
-  HTML_header();
-  if(\dash\data::lineList())
-  {
+    HTML_header();
     HTML_line();
-  }
-  else
-  {
-    HTML_allNewLine();
-    // no any line list
-  }
-  HTML_footer();
+    HTML_footer();
   echo '</div>';
 }
 
 
-function HTML_header() {?>
+function HTML_header()
+{
+  $header = [];
+  if(\dash\data::lineList())
+  {
+    foreach (\dash\data::lineList() as $key => $value)
+    {
+      if(isset($value['mode']) && $value['mode'] === 'header')
+      {
+        $header[] = $value;
+      }
+    }
+  }
+?>
 <div class="avand-md">
   <nav class="items">
     <ul>
-      <?php if(\dash\data::issetHeader()) {?>
+      <?php if($header) {?>
+        <?php foreach ($header as $key => $value) {?>
         <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/header">
+          <a href="<?php echo \dash\url::this(). '/'. a($value,'type') .'?id='. a($value, 'id'); ?>" class="f">
             <div class="key"><?php echo T_('Customize header');?></div>
             <div class="go"></div>
           </a>
         </li>
+      <?php } //endif ?>
       <?php }else{ ?>
         <li>
           <a class="f" href="<?php echo \dash\url::this();?>/choose/header">
@@ -55,7 +62,7 @@ function HTML_line() {?>
   <input type="hidden" name="sortline" value="sortline">
    <nav class="items">
       <ul class="sortable" data-sortable>
-      <?php foreach (\dash\data::lineList() as $key => $value) {?>
+      <?php foreach (\dash\data::lineList() as $key => $value) { if(a($value, 'mode') !== 'body'){continue;} ?>
          <li>
            <a href="<?php echo \dash\url::this(). '/'. a($value,'type') .'?id='. a($value, 'id'); ?>" class="f">
             <input type="hidden" class="hide" name="bodyline[]" value="<?php echo a($value, 'id'); ?>">
@@ -97,17 +104,31 @@ function HTML_allNewLine() {?>
 
 
 
-function HTML_footer() {?>
-<nav class="items">
+function HTML_footer()
+{
+  $footer = [];
+  if(\dash\data::lineList())
+  {
+    foreach (\dash\data::lineList() as $key => $value)
+    {
+      if(isset($value['mode']) && $value['mode'] === 'footer')
+      {
+        $footer[] = $value;
+      }
+    }
+  }
+?>
+  <nav class="items">
     <ul>
-
-      <?php if(\dash\data::issetFooter()) {?>
+      <?php if($footer) {?>
+        <?php foreach ($footer as $key => $value) {?>
         <li>
-          <a class="f" href="<?php echo \dash\url::this();?>/footer">
+          <a href="<?php echo \dash\url::this(). '/'. a($value,'type') .'?id='. a($value, 'id'); ?>" class="f">
             <div class="key"><?php echo T_('Customize footer');?></div>
             <div class="go"></div>
           </a>
         </li>
+      <?php } //endif ?>
       <?php }else{ ?>
         <li>
           <a class="f" href="<?php echo \dash\url::this();?>/choose/footer">
@@ -116,6 +137,6 @@ function HTML_footer() {?>
           </a>
         </li>
       <?php } ?>
-        </ul>
+       </ul>
   </nav>
 <?php } //endfunction ?>

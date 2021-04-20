@@ -13,9 +13,22 @@ class get
 	}
 
 
-	public static function by_related(string $_id)
+	public static function line_list(string $_related)
 	{
-		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related = '$_id' ORDER BY pagebuilder.sort ASC, pagebuilder.id ASC LIMIT 1000";
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				pagebuilder
+			WHERE
+				pagebuilder.related = '$_related'
+			ORDER BY
+				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				pagebuilder.sort ASC,
+				pagebuilder.id ASC
+			LIMIT 1000
+		";
 		$result = \dash\db::get($query);
 		return $result;
 	}
