@@ -39,12 +39,12 @@ class h100
 			],
 			'contain' =>
 			[
-				'change'                   => true,
-				'announcement'             => true,
-				'logo'                     => true,
-				'menu1'                    => true,
-				'menu2'                    => true,
-				'business_general_setting' => true,
+				'change'         => true,
+				'announcement'   => true,
+				'logo'           => true,
+				'menu1'          => true,
+				'menu2'          => true,
+				'generalsetting' => true,
 
 			],
 		];
