@@ -1,16 +1,16 @@
 <?php
-namespace lib\pagebuilder\footer\f100;
+namespace lib\pagebuilder\footer\f201;
 
 
-class f100
+class f201
 {
 	public static function detail()
 	{
 		return
 		[
-			'key'         => 'f100',
+			'key'         => 'f201',
 			'mode'        => 'footer',
-			'title'       => T_("Footer 100"),
+			'title'       => T_("Footer 201"),
 			'description' => T_("Beautifull footer"),
 			'btn_title'   => T_("Choose this footer"),
 		];
@@ -22,7 +22,7 @@ class f100
 	 *
 	 * @param      array  $_args  The public contains
 	 *
-	 * @return     array  The f100 contain
+	 * @return     array  The f201 contain
 	 */
 	public static function elements($_args = [])
 	{
@@ -42,6 +42,10 @@ class f100
 				'change'         => true,
 				'text'           => ['detail' => ['btn_save' => true, 'allow_html' => true]],
 				'generalsetting' => true,
+				'menu1' => true,
+				'menu2' => true,
+				'menu3' => true,
+				'menu4' => true,
 			],
 		];
 
@@ -87,15 +91,15 @@ class f100
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$f100 = [];
+		$f201 = [];
 
 		if(array_key_exists('key', $_data))
 		{
-			$f100['footer_key'] = $_data['key'];
+			$f201['footer_key'] = $_data['key'];
 		}
 		elseif(a($_saved_detail, 'detail', 'footer_key'))
 		{
-			$f100['footer_key'] = a($_saved_detail, 'detail', 'footer_key');
+			$f201['footer_key'] = a($_saved_detail, 'detail', 'footer_key');
 		}
 
 		$image_path = null;
@@ -122,7 +126,8 @@ class f100
 			$image_path = null;
 		}
 
-		$f100['logo'] = $image_path;
+		$f201['logo'] = $image_path;
+
 
 		$saved_detail = [];
 
@@ -131,12 +136,7 @@ class f100
 			$saved_detail = $_saved_detail['detail'];
 		}
 
-		if(!is_array(a($_data, 'detail')))
-		{
-			$_data['detail'] = [];
-		}
-
-		$saved_detail = array_merge($saved_detail, $_data['detail'], $f100);
+		$saved_detail = array_merge($saved_detail, $_data['detail'], $f201);
 
 		unset($saved_detail['logourl']);
 

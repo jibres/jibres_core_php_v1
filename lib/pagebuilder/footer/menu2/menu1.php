@@ -1,8 +1,8 @@
 <?php
-namespace lib\pagebuilder\footer\menu1;
+namespace lib\pagebuilder\footer\menu2;
 
 
-class menu1
+class menu2
 {
 
 	public static function input_condition($_args = [])
@@ -17,15 +17,15 @@ class menu1
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
 
-		$menu1 = [];
+		$menu2 = [];
 
 		if(isset($_data['set_menu_footer_menu_1']) && $_data['set_menu_footer_menu_1'])
 		{
-			$menu1['footer_menu_1'] = $_data['footer_menu_1'];
+			$menu2['footer_menu_1'] = $_data['footer_menu_1'];
 		}
 		elseif(a($_saved_detail, 'detail', 'footer_menu_1'))
 		{
-			$menu1['footer_menu_1'] = a($_saved_detail, 'detail', 'footer_menu_1');
+			$menu2['footer_menu_1'] = a($_saved_detail, 'detail', 'footer_menu_1');
 		}
 
 		if(!is_array(a($_data, 'detail')))
@@ -33,7 +33,7 @@ class menu1
 			$_data['detail'] = [];
 		}
 
-		$_data['detail'] = array_merge($_data['detail'], $menu1);
+		$_data['detail'] = array_merge($_data['detail'], $menu2);
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 

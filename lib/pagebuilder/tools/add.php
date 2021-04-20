@@ -37,6 +37,7 @@ class add
 	{
 		$list = [];
 		$list[] = \lib\pagebuilder\footer\f100\f100::detail();
+		$list[] = \lib\pagebuilder\footer\f201\f201::detail();
 
 		return $list;
 	}
