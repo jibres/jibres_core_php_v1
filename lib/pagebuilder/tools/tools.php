@@ -179,7 +179,7 @@ class tools
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function need_redirect($_redirect_to = null)
+	public static function need_redirect($_redirect_to = null, $_force = false)
 	{
 		if($_redirect_to === null)
 		{
@@ -187,7 +187,10 @@ class tools
 		}
 		else
 		{
-			self::$need_redirect = $_redirect_to;
+			if($_force || is_null(self::$need_redirect))
+			{
+				self::$need_redirect = $_redirect_to;
+			}
 		}
 	}
 

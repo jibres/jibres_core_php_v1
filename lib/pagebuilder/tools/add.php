@@ -9,6 +9,7 @@ class add
 		$list = [];
 
 		$list[] = \lib\pagebuilder\header\h100\h100::detail();
+		$list[] = \lib\pagebuilder\header\h300\h300::detail();
 
 
 		return $list;
@@ -60,12 +61,14 @@ class add
 
 		if(isset($check_header_exists['id']))
 		{
-			$load_element = \lib\pagebuilder\tools\get::load_element($_element, $check_header_exists['id']);
-
+			$load_element = \lib\pagebuilder\tools\get::load_element($check_header_exists['type'], $check_header_exists['id']);
 			$args =
 			[
-				'key' => $element['key'],
+				'key'  => $element['key'],
+				'type' => $element['key'],
 			];
+
+			\lib\pagebuilder\tools\tools::input_exception('type');
 
 			$result = \lib\pagebuilder\tools\edit::edit($load_element, $args);
 
