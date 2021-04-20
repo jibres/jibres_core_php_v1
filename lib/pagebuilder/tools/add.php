@@ -36,6 +36,7 @@ class add
 	public static function footer_list($_args = [])
 	{
 		$list = [];
+		$list[] = \lib\pagebuilder\footer\f100\f100::detail();
 
 		return $list;
 	}
@@ -57,7 +58,7 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_header_exists = \lib\db\pagebuilder\get::header_exists('homepage');
+		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists('homepage', 'header');
 
 		if(isset($check_header_exists['id']))
 		{
@@ -83,6 +84,50 @@ class add
 		}
 
 	}
+
+
+	public static function footer($_element)
+	{
+		$element = \lib\pagebuilder\tools\get::check_element('footer', $_element);
+
+		if(!$element)
+		{
+			\dash\notif::error(T_("Invalid detail!"));
+			return false;
+		}
+
+		$args =
+		[
+			'line_title' => a($element, 'title'),
+		];
+
+		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists('homepage', 'footer');
+
+		if(isset($check_footer_exists['id']))
+		{
+			$load_element = \lib\pagebuilder\tools\get::load_element($check_footer_exists['type'], $check_footer_exists['id']);
+			$args =
+			[
+				'key'   => $element['key'],
+			];
+
+			$result = \lib\pagebuilder\tools\edit::edit($load_element, $args);
+
+			if(isset($result['url']))
+			{
+				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['id' => $check_footer_exists['id']]);
+			}
+
+			return $result;
+
+		}
+		else
+		{
+			return self::add('footer', $element, $args);
+		}
+
+	}
+
 
 
 	public static function body($_element)
