@@ -40,11 +40,8 @@ class f100
 			'contain' =>
 			[
 				'change'         => true,
-
-
-				'menu1'          => true,
-
-
+				'text'           => ['detail' => ['btn_save' => true, 'allow_html' => true]],
+				'generalsetting' => true,
 			],
 		];
 
