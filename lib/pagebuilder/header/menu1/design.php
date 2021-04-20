@@ -5,7 +5,15 @@ $lineSetting = \dash\data::lineSetting();
 $currentMenuID   = null;
 $currentMenuName = null;
 
-$box = 'header_menu_1';
+if(!isset($header_menu_key))
+{
+  $header_menu_key = 'header_menu_1';
+}
+
+if(!isset($header_menu_title))
+{
+  $header_menu_title = T_("Header menu #1");
+}
 
 $menu = \lib\app\menu\get::list_all_menu();
 
@@ -16,24 +24,25 @@ $menu = \lib\app\menu\get::list_all_menu();
 <section class="f" data-option='website-header-menu-1'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Header menu 1") ?></h3>
+      <h3><?php echo $header_menu_title ?></h3>
       <div class="body">
         <p><?php echo T_("A site menu is an essential part of your website. Every site should have one so that your site visitors can navigate between your pages or sections. If your menu is placed in the header or footer, it automatically shows on every page."); ?></p>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_menu_<?php echo $header_menu_key ?>" value="1">
     <div class="action">
       <?php if(\dash\data::allMenu()) {?>
 
-        <select name="<?php echo $box; ?>" id="idmenu<?php echo $box; ?>" class="select22" data-placeholder='<?php echo T_("Choose one menu") ?>'>
-          <?php if(a($lineSetting, 'detail', $box)) {?>
+        <select name="<?php echo $header_menu_key; ?>" id="idmenu<?php echo $header_menu_key; ?>" class="select22" data-placeholder='<?php echo T_("Choose one menu") ?>'>
+          <?php if(a($lineSetting, 'detail', $header_menu_key)) {?>
             <option value="0"><?php echo T_("Without menu"); ?></option>
           <?php }else{ ?>
             <option value=""><?php echo T_("Choose one menu") ?></option>
           <?php } //endif ?>
           <?php foreach (\dash\data::allMenu() as $key => $value) {?>
-            <option value="<?php echo a($value, 'id'); ?>" <?php if(a($lineSetting, 'detail', $box) == a($value, 'id')) { echo 'selected'; $currentMenuID = a($value, 'id'); $currentMenuName = a($value, 'title');} ?>><?php echo a($value, 'title'); ?></option>
+            <option value="<?php echo a($value, 'id'); ?>" <?php if(a($lineSetting, 'detail', $header_menu_key) == a($value, 'id')) { echo 'selected'; $currentMenuID = a($value, 'id'); $currentMenuName = a($value, 'title');} ?>><?php echo a($value, 'title'); ?></option>
           <?php } //endfor ?>
         </select>
 

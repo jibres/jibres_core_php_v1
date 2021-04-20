@@ -10,7 +10,8 @@ class menu1
 
 	public static function input_condition($_args = [])
 	{
-		$_args['header_menu_1']               = 'string_100';
+		$_args['header_menu_1']          = 'string_100';
+		$_args['set_menu_header_menu_1'] = 'bit';
 
 
 		return $_args;
@@ -43,7 +44,7 @@ class menu1
 	{
 		$menu1 = [];
 
-		if(array_key_exists('header_menu_1', $_data))
+		if(isset($_data['set_menu_header_menu_1']) && $_data['set_menu_header_menu_1'])
 		{
 			$menu1['header_menu_1'] = $_data['header_menu_1'];
 		}
@@ -62,6 +63,8 @@ class menu1
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
 		unset($_data['header_menu_1']);
+		unset($_data['set_menu_header_menu_1']);
+
 
 		return $_data;
 
