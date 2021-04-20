@@ -163,7 +163,11 @@ class tools
 		}
 		else
 		{
-			self::$input_exception[] = $_exception;
+			// set once
+			if(!in_array($_exception, self::$input_exception))
+			{
+				self::$input_exception[] = $_exception;
+			}
 		}
 	}
 
