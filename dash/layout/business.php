@@ -4,10 +4,23 @@ namespace dash\layout;
 
 class business
 {
-
+	/**
+	 * Need remoce after conver all business website
+	 *
+	 * @var        bool
+	 */
 	private static $website = false;
-
 	private static $website_setting = [];
+
+
+	/**
+	 * lock on page builder
+	 *
+	 * @var        bool
+	 */
+	private static $find_pagebuilder = false;
+
+	private static $pagebuilder_setting = [];
 
 
 	/**
@@ -17,6 +30,11 @@ class business
 	 */
 	public static function website()
 	{
+		if(self::$find_pagebuilder)
+		{
+			return self::$find_pagebuilder;
+		}
+
 		return self::$website;
 	}
 
@@ -35,8 +53,24 @@ class business
 			return false;
 		}
 
+
+
 		// load page builder by detect current page
 		$pagebuilder = \lib\pagebuilder\load\page::current_page();
+
+		if($pagebuilder)
+		{
+			self::$find_pagebuilder    = true;
+			self::$pagebuilder_setting = $pagebuilder;
+			\dash\data::website($pagebuilder_setting);
+			return true;
+		}
+		else
+		{
+			// after convert all business website to new version uncomment this line
+			// return false;
+		}
+
 
 
 
@@ -68,41 +102,19 @@ class business
 	}
 
 
-	public static function header_addr()
-	{
-		if(isset(self::$website_setting['header']['active']))
-		{
-			$header_name = self::$website_setting['header']['active'];
-			$addr = self::template_addr(). 'header.php';
-			if(is_file($addr))
-			{
-				return $addr;
-			}
-
-		}
-	}
-
-
-	public static function footer_addr()
-	{
-		if(isset(self::$website_setting['footer']['active']))
-		{
-			$footer_name = self::$website_setting['footer']['active'];
-			$addr = self::template_addr(). 'footer.php';
-			if(is_file($addr))
-			{
-				return $addr;
-			}
-
-		}
-	}
-
 
 	public static function body_addr()
 	{
-		if(!self::$website)
+		if(self::$find_pagebuilder)
 		{
-			return null;
+			// nothing
+		}
+		else
+		{
+			if(!self::$website)
+			{
+				return null;
+			}
 		}
 
 		if(\dash\engine\content::get() !== 'content_business')
