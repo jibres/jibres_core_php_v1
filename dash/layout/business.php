@@ -135,7 +135,7 @@ class business
 
 		if(self::$is_pagebuilder)
 		{
-			return \lib\pagebuilder\load\page::body_addr();
+			return root. 'lib/pagebuilder/load/body.php';
 		}
 		else
 		{

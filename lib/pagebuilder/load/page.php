@@ -4,6 +4,8 @@ namespace lib\pagebuilder\load;
 
 class page
 {
+	public static $is_page = false;
+
 	public static function current_page()
 	{
 		// check loaded post with pagebuilder
@@ -15,14 +17,9 @@ class page
 			return false;
 		}
 
+		self::$is_page = true;
+
 		return $check_current_page;
-	}
-
-
-
-	public static function body_addr()
-	{
-		return root. 'lib/pagebuilder/load/body.php';
 	}
 }
 ?>
