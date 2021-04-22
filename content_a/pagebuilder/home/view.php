@@ -33,8 +33,7 @@ class view
 		$lineSetting = \dash\data::lineSetting();
 
 		\dash\face::title(T_('Build Your Unique Online Website'));
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::here());
+
 
 		if(isset($lineSetting['current_page_detail']))
 		{
@@ -128,6 +127,11 @@ class view
 
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link($back);
+		}
+		else
+		{
+			\dash\data::back_text(T_('Setting'));
+			\dash\data::back_link(\dash\url::here(). '/setting');
 		}
 	}
 }
