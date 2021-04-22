@@ -159,7 +159,7 @@ class add
 		$insert['related']          = 'homepage';
 		$insert['related_id']       = null;
 
-		if(a($_args['line_title']))
+		if(a($_args, 'line_title'))
 		{
 			$insert['title'] = $_args['line_title'];
 		}
