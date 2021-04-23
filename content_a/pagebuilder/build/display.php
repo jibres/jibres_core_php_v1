@@ -92,7 +92,7 @@ function HTML_allNewLine() {?>
 <nav class="items">
   <ul>
     <li>
-      <a class="f" href="<?php echo \dash\url::that();?>/add">
+      <a class="f" href="<?php echo \dash\url::this(). '/additem'. \dash\request::full_get();?>">
        <div class="key"><?php echo T_('Add new line');?></div>
        <div class="go plus ok"></div>
       </a>

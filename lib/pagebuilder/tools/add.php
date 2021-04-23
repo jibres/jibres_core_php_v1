@@ -148,6 +148,14 @@ class add
 
 	private static function add($_mode, $_element, $_args = [])
 	{
+		$id = \dash\request::get('id');
+		$id = \dash\validate::code($id);
+		$id = \dash\coding::decode($id);
+		if(!$id)
+		{
+			return false;
+		}
+
 		$element = $_element;
 
 		$insert                     = [];
@@ -156,8 +164,8 @@ class add
 
 		$insert['platform']         = 'website';
 
-		$insert['related']          = 'homepage';
-		$insert['related_id']       = null;
+		$insert['related']          = 'posts';
+		$insert['related_id']       = $id;
 
 		if(a($_args, 'line_title'))
 		{
@@ -189,7 +197,8 @@ class add
 
 		$get_last_sort_args =
 		[
-			'related' => $insert['related'],
+			'related'    => $insert['related'],
+			'related_id' => $insert['related_id'],
 			// need add some args later
 		];
 

@@ -22,7 +22,7 @@ class get
 
 
 
-	public static function line_list(string $_related)
+	public static function line_list(int $_id)
 	{
 		$query  =
 		"
@@ -31,7 +31,7 @@ class get
 			FROM
 				pagebuilder
 			WHERE
-				pagebuilder.related = '$_related'
+				pagebuilder.related_id = $_id
 			ORDER BY
 				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
 				pagebuilder.sort ASC,
