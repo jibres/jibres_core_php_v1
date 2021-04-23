@@ -74,7 +74,7 @@ class add
 
 			if(isset($result['url']))
 			{
-				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['pid' => $check_header_exists['id']]);
+				$result['url'] = \dash\url::this(). '/build/'. $element['key']. \dash\request::full_get(['pid' => $check_header_exists['id']]);
 			}
 
 			return $result;
@@ -117,7 +117,7 @@ class add
 
 			if(isset($result['url']))
 			{
-				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['pid' => $check_footer_exists['id']]);
+				$result['url'] = \dash\url::this(). '/build/'. $element['key']. \dash\request::full_get(['pid' => $check_footer_exists['id']]);
 			}
 
 			return $result;
@@ -224,7 +224,7 @@ class add
 
 		$result        = [];
 		$result['id']  = $id;
-		$result['url'] = \dash\url::this(). '/'. $insert['type']. \dash\request::full_get(['pid' => $id]);
+		$result['url'] = \dash\url::this(). '/build/'. $insert['type']. \dash\request::full_get(['pid' => $id]);
 
 
 		return $result;

@@ -15,7 +15,7 @@ if(!\lib\pagebuilder\tools\tools::in('view'))
   </div>
   <div class="c4 s12">
       <div class="action">
-        <a class="btn master" href="<?php echo \dash\url::that(). '/view'. \dash\request::full_get(); ?>"><?php echo T_("Setup design") ?></a>
+        <a class="btn master" href="<?php echo \dash\url::current(). '/view'. \dash\request::full_get(); ?>"><?php echo T_("Setup design") ?></a>
       </div>
   </div>
 </section>

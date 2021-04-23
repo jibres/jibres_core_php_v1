@@ -15,7 +15,7 @@ if(!\lib\pagebuilder\tools\tools::in('filter'))
   </div>
   <div class="c4 s12">
       <div class="action">
-        <a class="btn master" href="<?php echo \dash\url::that(). '/filter'. \dash\request::full_get(); ?>"><?php echo T_("Set filter") ?></a>
+        <a class="btn master" href="<?php echo \dash\url::current(). '/filter'. \dash\request::full_get(); ?>"><?php echo T_("Set filter") ?></a>
       </div>
   </div>
 </section>

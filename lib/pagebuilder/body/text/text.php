@@ -31,7 +31,7 @@ class text
 			'detail' =>
 			[
 				'page_title'  => T_("Text box"),
-				'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
+				'btn_advance' => \dash\url::current(). '/advance'. \dash\request::full_get(),
 				'btn_save'    => true,
 				'allow_html'  => true,
 			],
