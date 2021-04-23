@@ -6,14 +6,15 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add new line'));
+		\dash\face::title(T_('Add new page'));
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-
-		$all_line = \lib\pagebuilder\tools\add::body_list();
-		\dash\data::lineList($all_line);
+		if(\dash\detect\device::detectPWA())
+		{
+			\dash\face::btnInsert('formAddPost');
+		}
 
 	}
 }

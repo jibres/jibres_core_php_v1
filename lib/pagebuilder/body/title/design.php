@@ -1,5 +1,5 @@
 <?php $lineSetting = \dash\data::lineSetting(); ?>
-<?php if(\dash\url::subchild() === 'title' || (\dash\url::dir(3) && \dash\url::dir(3) === 'title')) {?>
+<?php if(\lib\pagebuilder\tools\tools::in('title')) {?>
 <form method="post" autocomplete="off" id="form1">
   <input type="hidden" name="set_title" value="1">
   <div class="avand-md">

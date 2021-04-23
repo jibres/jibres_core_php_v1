@@ -6,25 +6,18 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('line') === 'new' && \dash\request::post('key'))
-		{
-			if(\dash\data::pagebuilderMode() === 'header')
-			{
-				$new_line = \lib\pagebuilder\tools\add::header(\dash\request::post('key'));
-			}
-			elseif(\dash\data::pagebuilderMode() === 'body')
-			{
-				$new_line = \lib\pagebuilder\tools\add::body(\dash\request::post('key'));
-			}
-			elseif(\dash\data::pagebuilderMode() === 'footer')
-			{
-				$new_line = \lib\pagebuilder\tools\add::footer(\dash\request::post('key'));
-			}
+		$post =
+		[
+			'title' => \dash\request::post('title'),
+			'type'  => 'pagebuilder',
+		];
 
-			if(isset($new_line['url']))
-			{
-				\dash\redirect::to($new_line['url']);
-			}
+		$post_detail = \dash\app\posts\add::add($post);
+
+		if(\dash\engine\process::status() && isset($post_detail['post_id']))
+		{
+			\dash\redirect::to(\dash\url::this(). '/build?id='. $post_detail['post_id']);
+			return;
 		}
 	}
 }

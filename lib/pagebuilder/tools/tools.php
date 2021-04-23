@@ -200,10 +200,7 @@ class tools
 		}
 		else
 		{
-			if($_force || is_null(self::$need_redirect))
-			{
-				self::$need_redirect = $_redirect_to;
-			}
+			self::$need_redirect = $_redirect_to;
 		}
 	}
 

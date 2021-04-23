@@ -1,19 +1,21 @@
-<div class="avand">
-<div class="msg info2 fs14"><?php echo T_("Please choose type of new block."); ?></div>
-<?php foreach(\dash\data::lineList() as $key => $value) {?>
-<section class="f" data-option='website-<?php echo a($value, 'key'); ?>'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo a($value, 'title');?></h3>
+<div class="avand-sm">
+  <form method="post" autocomplete="off" id="formAddPost">
+    <div class="box">
       <div class="body">
-        <p><?php echo a($value, 'description') ?></p>
+
+        <div class="mB10">
+          <div class="input">
+            <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *'  <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
+          </div>
+        </div>
+
+        <p class="fc-mute mB0-f s0"><?php echo T_("First type main title and save as draft, then complete and publish it."); ?></p>
       </div>
+<?php if(!\dash\detect\device::detectPWA()) {?>
+      <footer class="txtRa">
+        <button class="btn master"><?php echo T_("Add"); ?></button>
+      </footer>
+<?php } ?>
     </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-        <div data-ajaxify data-data='{"line" : "new", "key": "<?php echo a($value, 'key') ?>"}' class="btn primary block"><?php echo a($value, 'btn_title') ?></div>
-    </div>
-  </div>
-</section>
-<?php } //endif ?>
+  </form>
+</div>

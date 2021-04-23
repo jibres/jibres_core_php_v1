@@ -64,7 +64,7 @@ class add
 
 		if(isset($check_header_exists['id']))
 		{
-			$load_element = \lib\pagebuilder\tools\get::load_element($check_header_exists['type'], $check_header_exists['id']);
+			$load_element = \lib\pagebuilder\tools\get::load_element($check_header_exists['type'], \dash\request::get('id'), $check_header_exists['id']);
 			$args =
 			[
 				'key'   => $element['key'],
@@ -74,7 +74,7 @@ class add
 
 			if(isset($result['url']))
 			{
-				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['id' => $check_header_exists['id']]);
+				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['pid' => $check_header_exists['id']]);
 			}
 
 			return $result;
@@ -107,7 +107,7 @@ class add
 
 		if(isset($check_footer_exists['id']))
 		{
-			$load_element = \lib\pagebuilder\tools\get::load_element($check_footer_exists['type'], $check_footer_exists['id']);
+			$load_element = \lib\pagebuilder\tools\get::load_element($check_footer_exists['type'], \dash\request::get('id'), $check_footer_exists['id']);
 			$args =
 			[
 				'key'   => $element['key'],
@@ -117,7 +117,7 @@ class add
 
 			if(isset($result['url']))
 			{
-				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['id' => $check_footer_exists['id']]);
+				$result['url'] = \dash\url::this(). '/'. $element['key']. \dash\request::full_get(['pid' => $check_footer_exists['id']]);
 			}
 
 			return $result;
@@ -224,7 +224,7 @@ class add
 
 		$result        = [];
 		$result['id']  = $id;
-		$result['url'] = \dash\url::this(). '/'. $insert['type']. '?id='. $id;
+		$result['url'] = \dash\url::this(). '/'. $insert['type']. \dash\request::full_get(['pid' => $id]);
 
 
 		return $result;

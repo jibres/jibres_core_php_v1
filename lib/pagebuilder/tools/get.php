@@ -8,12 +8,13 @@ class get
 	{
 
 		$id   = \dash\request::get('id');
+		$pid   = \dash\request::get('pid');
 
 
-		$dir_1 = self::validate_element_name(\dash\url::dir(1));
-		$dir_2 = self::validate_element_name(\dash\url::dir(2));
-		$dir_3 = self::validate_element_name(\dash\url::dir(3));
-		$dir_4 = self::validate_element_name(\dash\url::dir(4));
+		$dir_1 = self::validate_element_name(\dash\url::dir(2));
+		$dir_2 = self::validate_element_name(\dash\url::dir(3));
+		$dir_3 = self::validate_element_name(\dash\url::dir(4));
+		$dir_4 = self::validate_element_name(\dash\url::dir(5));
 
 		if($dir_4)
 		{
@@ -25,7 +26,7 @@ class get
 		$args['child']    = $dir_2;
 		$args['subchild'] = $dir_3;
 
-		$result =  self::load_element($dir_1, $id, $args);
+		$result =  self::load_element($dir_1, $id, $pid, $args);
 
 		return $result;
 	}
@@ -53,16 +54,23 @@ class get
 
 
 
-	public static function load_element($_element, $_id, $_args = [])
+	public static function load_element($_element, $_id, $_pid, $_args = [])
 	{
-		$id = \dash\validate::id($_id);
+		$id = \dash\validate::code($_id);
 
 		if(!$id)
 		{
 			return false;
 		}
 
-		$load_data = \lib\db\pagebuilder\get::by_id($id);
+		$pid = \dash\validate::id($_pid);
+
+		if(!$pid)
+		{
+			return false;
+		}
+
+		$load_data = \lib\db\pagebuilder\get::by_id($pid);
 
 		if(!isset($load_data['id']))
 		{
@@ -102,7 +110,6 @@ class get
 				}
 				else
 				{
-					var_dump(__LINE__);
 					return false;
 				}
 			}
@@ -116,7 +123,6 @@ class get
 				}
 				else
 				{
-					var_dump(__LINE__);
 					return false;
 				}
 			}

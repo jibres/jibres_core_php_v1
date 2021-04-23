@@ -88,9 +88,9 @@ class quote
 				'btn_add'    =>
 				[
 					'text' => T_('Add new quote'),
-					'link' => \dash\url::that(). '/add'. \dash\request::full_get()
+					'link' => \dash\url::current(). '/add'. \dash\request::full_get()
 				],
-				'btn_advance'    => \dash\url::that(). '/advance'. \dash\request::full_get(),
+				'btn_advance'    => \dash\url::current(). '/advance'. \dash\request::full_get(),
 			],
 
 			'contain' =>
@@ -407,7 +407,7 @@ class quote
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
+		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). '/quote'. \dash\request::full_get(['index' => null]));
 
 		unset($_data['displayname']);
 		unset($_data['job']);

@@ -23,7 +23,7 @@ if(!is_array($images))
 
         </div>
         <footer class="zeroPad font-14">
-          <a href="<?php echo \dash\url::that(). '/edit'. \dash\request::full_get(['index' => $key]); ?>" class="btn  block"><?php echo T_("Edit"); ?></a>
+          <a href="<?php echo \dash\url::current(). '/edit'. \dash\request::full_get(['index' => $key]); ?>" class="btn  block"><?php echo T_("Edit"); ?></a>
         </footer>
       </div>
     </div>

@@ -32,7 +32,7 @@ class search
 			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'       => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
 			'user'    => 'code',
-			'type'         => ['enum' => ['post', 'page', 'help']],
+			'type'         => ['enum' => ['post', 'page', 'pagebuilder']],
 			'parent'       => 'string_100',
 			'language'     => 'language',
 			'limit'        => 'int',

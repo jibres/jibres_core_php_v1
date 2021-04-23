@@ -89,7 +89,7 @@ class edit
 		\dash\notif::ok(T_("Line removed"));
 
 		$result = [];
-		$result['url'] = \dash\url::this();
+		$result['url'] = \dash\url::this(). '/build'. \dash\request::full_get(['pid' => null]);
 		return $result;
 	}
 

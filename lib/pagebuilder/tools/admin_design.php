@@ -63,8 +63,8 @@ class admin_design
 	{
 		$lineSetting = \dash\data::lineSetting();
 
-		$child    = \dash\url::dir(2);
-		$subchild = \dash\url::dir(3);
+		$child    = \dash\url::dir(3);
+		$subchild = \dash\url::dir(4);
 
 		// load master module
 		if(!$child && isset($lineSetting['key']))

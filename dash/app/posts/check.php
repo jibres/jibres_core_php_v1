@@ -18,7 +18,7 @@ class check
 			'slug'            => 'string_100',
 			'url'             => 'url',
 			'content'         => 'real_html',
-			'type'            => ['enum' => ['post', 'page', 'help', 'mag']],
+			'type'            => ['enum' => ['post', 'pagebuilder']],
 			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'          => ['enum' => ['publish','draft', 'pending_review']],
 			'specialaddress'  => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
@@ -74,8 +74,15 @@ class check
 			}
 		}
 
-		// all record is page
-		$data['type']    = 'post';
+		if($data['type'] === 'pagebuilder')
+		{
+			// nothing
+		}
+		else
+		{
+			// all record is page
+			$data['type']    = 'post';
+		}
 
 		if(!$data['language'])
 		{

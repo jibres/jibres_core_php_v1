@@ -77,9 +77,9 @@ class image
 				'btn_add'    =>
 				[
 					'text' => T_('Add new image'),
-					'link' => \dash\url::that(). '/add'. \dash\request::full_get()
+					'link' => \dash\url::current(). '/add'. \dash\request::full_get()
 				],
-				'btn_advance'    => \dash\url::that(). '/advance'. \dash\request::full_get(),
+				'btn_advance'    => \dash\url::current(). '/advance'. \dash\request::full_get(),
 			],
 
 			'contain' =>
@@ -334,7 +334,9 @@ class image
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get(['index' => null]));
+		$url = \dash\url::that(). '/image'. \dash\request::full_get(['index' => null]);
+
+		\lib\pagebuilder\tools\tools::need_redirect($url);
 
 		unset($_data['image']);
 		unset($_data['url']);
