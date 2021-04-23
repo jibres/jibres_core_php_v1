@@ -9,11 +9,9 @@ class filter
 	{
 		// public => true means show in api and site
 
+
 		$sort_list[] = ['title' => T_("Title ASC"), 		'query' => ['sort' => 'title',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Title DESC"), 		'query' => ['sort' => 'title',		 'order' => 'desc'], 	'public' => false];
-
-		$sort_list[] = ['title' => T_("Best SEO rank"),		'query' => ['sort' => 'seorank', 	'order' => 'desc'], 	'public' => false];
-		$sort_list[] = ['title' => T_("Weakest SEO rank"), 	'query' => ['sort' => 'seorank', 	'order' => 'asc'], 		'public' => false];
 
 		$sort_list[] = ['title' => T_("Publish date DESC"), 'query' => ['sort' => 'publishdate', 'order' => 'desc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Publish date ASC"), 	'query' => ['sort' => 'publishdate', 'order' => 'asc'], 	'public' => false];
@@ -24,13 +22,21 @@ class filter
 		$sort_list[] = ['title' => T_("Date created DESC"),'query' => ['sort' => 'datecreated', 'order' => 'desc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Date created ASC"), 'query' => ['sort' => 'datecreated', 'order' => 'asc'], 		'public' => false];
 
+		if($_module !== 'pagebuilder')
+		{
+			$sort_list[] = ['title' => T_("Best SEO rank"),		'query' => ['sort' => 'seorank', 	'order' => 'desc'], 	'public' => false];
+			$sort_list[] = ['title' => T_("Weakest SEO rank"), 	'query' => ['sort' => 'seorank', 	'order' => 'asc'], 		'public' => false];
+		}
+
+
+
 		return $sort_list;
 	}
 
 
 
 
-	private static function list_of_filter()
+	private static function list_of_filter($_module = null)
 	{
 
 		$list = [];
@@ -258,6 +264,20 @@ class filter
 			'mode'   => 'users_search',
 			'public' => false,
 		];
+
+		if($_module === 'pagebuilder')
+		{
+			$new_list                  = [];
+			$new_list['published']     = $list['published'];
+			$new_list['draft']         = $list['draft'];
+			$new_list['trash']         = $list['trash'];
+			$new_list['with_cover']    = $list['with_cover'];
+			$new_list['whitout_cover'] = $list['whitout_cover'];
+			$new_list['url_none']      = $list['url_none'];
+			$new_list['url_special']   = $list['url_special'];
+
+			return $new_list;
+		}
 
 
 		return $list;
