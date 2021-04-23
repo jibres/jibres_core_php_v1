@@ -59,47 +59,47 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
       </div>
 
       <div class="mT10" data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
-          <label for="seoSlug"><?php echo T_("Url"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
-          <div class="input ltr">
-            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Url"); ?>' value="<?php echo a($dataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
-          </div>
+        <label for="seoSlug"><?php echo T_("Url"); ?> <small><?php echo T_("End part of your news url."); ?></small></label>
+        <div class="input ltr">
+          <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Url"); ?>' value="<?php echo a($dataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
+        </div>
       </div>
     </div>
   </div>
 
 
-<section class="f" data-option='cms-post-cover' id="cmspostcover">
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Post cover")?></h3>
-      <div class="body">
-        <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover.") ?></p>
+  <section class="f" data-option='cms-post-cover' id="cmspostcover">
+    <div class="c8 s12">
+      <div class="data">
+        <h3><?php echo T_("Post cover")?></h3>
+        <div class="body">
+          <p><?php echo T_("Setting up a post cover helps you to publish your post professionally on social networks. If you do not use this feature, the post thumb image will be used as a cover.") ?></p>
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="action" data-uploader data-name='cover' data-type='cover' data-ratio="1.7"  data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-final='#finalImage'  <?php if(\dash\data::dataRow_cover()) { echo "data-fill";}?>>
       <input type="hidden" name="runaction_setcover" value="1">
 
       <input type="file" accept="image/jpeg, image/png" id="image1">
       <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
-      <?php if(\dash\data::dataRow_cover()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_cover() ?>"></label><?php } //endif ?></label>
+      <?php if(\dash\data::dataRow_cover()) {?><label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_cover() ?>"></label><?php } //endif ?>
     </div>
 
-  <footer class="txtRa">
-    <div class="f">
-      <div class="cauto">
-        <a class="link" href="<?php echo \dash\url::kingdom(). '/cms/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9', 'bm' => 'pagebuilder']) ?>"><?php echo T_("Choose from gallery") ?></a>
+    <footer class="txtRa">
+      <div class="f">
+        <div class="cauto">
+          <a class="link" href="<?php echo \dash\url::kingdom(). '/cms/files/choose?'. \dash\request::build_query(['related' => 'postscover', 'related_id' => \dash\request::get('id'), 'type' => 'image',  'ratio' => '16:9', 'bm' => 'pagebuilder']) ?>"><?php echo T_("Choose from gallery") ?></a>
+        </div>
+        <div class="c"></div>
+        <div class="cauto">
+          <?php if(\dash\data::dataRow_cover()) {?>
+            <div data-confirm  data-data='{"remove_cover": "remove_cover"}' class="link fc-red"><?php echo T_("Remove post cover") ?></div>
+          <?php } //endif ?>
+        </div>
       </div>
-      <div class="c"></div>
-      <div class="cauto">
-        <?php if(\dash\data::dataRow_cover()) {?>
-         <div data-confirm  data-data='{"remove_cover": "remove_cover"}' class="link fc-red"><?php echo T_("Remove post cover") ?></div>
-        <?php } //endif ?>
-      </div>
-    </div>
-  </footer>
-</section>
+    </footer>
+  </section>
 
-  </form>
+</form>
 
