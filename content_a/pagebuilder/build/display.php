@@ -6,19 +6,36 @@ if(\dash\data::lineSetting())
 else
 {
   echo '<div class="avand-md">';
+    HTML_postDetail();
     HTML_header();
     HTML_line();
     HTML_footer();
+    HTML_postSeoDetail();
   echo '</div>';
 }
+
+
+
+
+function HTML_postDetail()
+{
+?>
+<div class="msg info2 font-14 row">
+  <div class="c"><?php echo a(\dash\data::lineList(), 'post_detail', 'title');?></div>
+  <div class="cauto"><a href="<?php echo \dash\url::this(). '/edittitle'. \dash\request::full_get() ?>"><?php echo T_("Edit") ?></a></div>
+
+</div>
+<?php } //endfunction
+
+
 
 
 function HTML_header()
 {
   $header = [];
-  if(\dash\data::lineList())
+  if(\dash\data::lineList_list())
   {
-    foreach (\dash\data::lineList() as $key => $value)
+    foreach (\dash\data::lineList_list() as $key => $value)
     {
       if(isset($value['mode']) && $value['mode'] === 'header')
       {
@@ -27,7 +44,7 @@ function HTML_header()
     }
   }
 ?>
-<div class="avand-md">
+
   <nav class="items">
     <ul>
       <?php if($header) {?>
@@ -62,7 +79,7 @@ function HTML_line() {?>
   <input type="hidden" name="sortline" value="sortline">
    <nav class="items">
       <ul class="sortable" data-sortable>
-      <?php foreach (\dash\data::lineList() as $key => $value) { if(a($value, 'mode') !== 'body'){continue;} ?>
+      <?php foreach (\dash\data::lineList_list() as $key => $value) { if(a($value, 'mode') !== 'body'){continue;} ?>
          <li>
            <a href="<?php echo \dash\url::that(). '/'. a($value,'type') .\dash\request::full_get(['pid' => a($value, 'id')]); ?>" class="f">
             <input type="hidden" class="hide" name="bodyline[]" value="<?php echo a($value, 'id'); ?>">
@@ -79,7 +96,7 @@ function HTML_line() {?>
     </ul>
   </nav>
 </form>
-  <?php if(is_array(\dash\data::lineList()) && count(\dash\data::lineList()) >= 2) {?>
+  <?php if(is_array(\dash\data::lineList_list()) && count(\dash\data::lineList_list()) >= 2) {?>
     <div class="msg fs12"><?php echo T_("Change the position of the rows with the help of the handle") ?> <kbd><i class="sf-sort"></i></kbd></div>
   <?php } //endif ?>
 <?php HTML_allNewLine(); ?>
@@ -107,9 +124,9 @@ function HTML_allNewLine() {?>
 function HTML_footer()
 {
   $footer = [];
-  if(\dash\data::lineList())
+  if(\dash\data::lineList_list())
   {
-    foreach (\dash\data::lineList() as $key => $value)
+    foreach (\dash\data::lineList_list() as $key => $value)
     {
       if(isset($value['mode']) && $value['mode'] === 'footer')
       {
@@ -139,4 +156,25 @@ function HTML_footer()
       <?php } ?>
        </ul>
   </nav>
+<?php } //endfunction
+
+
+
+
+function HTML_postSeoDetail()
+{
+?>
+ <nav class="items">
+    <ul>
+     <li>
+      <a class="f" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get();?>">
+        <div class="key"><?php echo T_('Customize SEO');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
 <?php } //endfunction ?>
+
+
+

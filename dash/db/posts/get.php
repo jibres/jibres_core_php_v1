@@ -4,6 +4,12 @@ namespace dash\db\posts;
 
 class get
 {
+	public static function by_id_type(int $_id, string $_type)
+	{
+		$query  = "SELECT * FROM posts WHERE posts.id = $_id AND posts.type = '$_type' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 	public static function sitemap_list($_from, $_to, $_lang = null)
 	{

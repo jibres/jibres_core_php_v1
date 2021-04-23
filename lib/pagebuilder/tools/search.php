@@ -17,9 +17,14 @@ class search
 			return false;
 		}
 
+		$post_detail = \lib\pagebuilder\tools\get::load_post_detail($id);
+
 		$list = \lib\db\pagebuilder\get::line_list($id);
 
-		return $list;
+		$result = [];
+		$result['post_detail'] = $post_detail;
+		$result['list'] = $list;
+		return $result;
 	}
 
 }

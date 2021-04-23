@@ -101,11 +101,13 @@ class edit
 
 		$list = \lib\pagebuilder\tools\search::list();
 
-		if(!$list || !is_array($list))
+		if(!is_array(a($list, 'list')))
 		{
 			\dash\notif::warn(T_("No data to sort"));
 			return false;
 		}
+
+		$list = a($list, 'list');
 
 		$current_ids = array_column($list, 'id');
 

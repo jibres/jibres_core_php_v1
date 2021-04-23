@@ -53,15 +53,28 @@ class get
 	}
 
 
+	public static function load_post_detail($_id)
+	{
+		// load post detail
+		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
+
+		$ready = \dash\app\posts\ready::row($post_detail);
+
+		return $ready;
+	}
+
+
 
 	public static function load_element($_element, $_id, $_pid, $_args = [])
 	{
 		$id = \dash\validate::code($_id);
-
+		$id = \dash\coding::decode($id);
 		if(!$id)
 		{
 			return false;
 		}
+
+		$post_detail = self::load_post_detail($id);
 
 		$pid = \dash\validate::id($_pid);
 
@@ -149,7 +162,7 @@ class get
 		// save curret page detail
 		\lib\pagebuilder\tools\tools::current_page($current_page_detail);
 
-
+		$result['post_detail'] = $post_detail;
 
 		$result = array_merge($result, $load_data);
 

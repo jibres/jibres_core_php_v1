@@ -53,8 +53,16 @@ class view
 		}
 		elseif($related === 'postscover' && $related_id)
 		{
-			$link  = \dash\url::here(). '/posts/advance?id='. $related_id;
-			$title = T_("Post setting");
+			if(\dash\request::get('bm') === 'pagebuilder')
+			{
+				$link  = \dash\url::kingdom(). '/a/pagebuilder/seo?id='. $related_id;
+				$title = T_("Back");
+			}
+			else
+			{
+				$link  = \dash\url::here(). '/posts/advance?id='. $related_id;
+				$title = T_("Post setting");
+			}
 		}
 		else
 		{
