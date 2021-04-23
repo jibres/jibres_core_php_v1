@@ -24,7 +24,7 @@ class text
 		{
 			$_data['text'] = \dash\request::post_html();
 
-			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd(), true);
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
 
 			\lib\pagebuilder\tools\tools::input_exception('text');
 		}

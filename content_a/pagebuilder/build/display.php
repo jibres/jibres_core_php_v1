@@ -41,7 +41,7 @@ function HTML_header()
       <?php } //endif ?>
       <?php }else{ ?>
         <li>
-          <a class="f" href="<?php echo \dash\url::that();?>/choose/header">
+          <a class="f" href="<?php echo \dash\url::this(). '/choose/header'. \dash\request::full_get();?>">
             <div class="key"><?php echo T_('Choose header');?></div>
             <div class="go"></div>
           </a>
@@ -131,7 +131,7 @@ function HTML_footer()
       <?php } //endif ?>
       <?php }else{ ?>
         <li>
-          <a class="f" href="<?php echo \dash\url::that();?>/choose/footer">
+          <a class="f" href="<?php echo \dash\url::this(). '/choose/footer'. \dash\request::full_get();?>">
             <div class="key"><?php echo T_('Choose footer');?></div>
             <div class="go"></div>
           </a>

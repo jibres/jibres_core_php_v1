@@ -16,7 +16,7 @@ if(!\lib\pagebuilder\tools\tools::in('announcement')){ ?>
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that(). '/announcement'. \dash\request::full_get();?>"><?php echo T_("Set Special Announcement") ?></a>
+        <a class="btn primary" href="<?php echo \dash\url::current(). '/announcement'. \dash\request::full_get();?>"><?php echo T_("Set Special Announcement") ?></a>
     </div>
   </div>
 </section>

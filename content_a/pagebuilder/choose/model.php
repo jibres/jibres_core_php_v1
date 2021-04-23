@@ -2,7 +2,7 @@
 namespace content_a\pagebuilder\choose;
 
 
-class model extends \content_a\pagebuilder\add\model
+class model extends \content_a\pagebuilder\additem\model
 {
 
 }

@@ -15,7 +15,7 @@ if(!\lib\pagebuilder\tools\tools::in('change'))
   </div>
   <div class="c4 s12">
     <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that(). '/change'. \dash\request::full_get();?>"><?php echo T_("Change Footer Template") ?></a>
+        <a class="btn primary" href="<?php echo \dash\url::current(). '/change'. \dash\request::full_get();?>"><?php echo T_("Change Footer Template") ?></a>
     </div>
   </div>
 </section>

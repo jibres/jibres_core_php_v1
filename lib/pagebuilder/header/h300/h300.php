@@ -101,7 +101,7 @@ class h300
 		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
 
-		if(\lib\pagebuilder\tools\tools::in('announcement'))
+		if(\lib\pagebuilder\tools\tools::in('announcement') || \lib\pagebuilder\tools\tools::in('change'))
 		{
 			// needless to redirect
 		}

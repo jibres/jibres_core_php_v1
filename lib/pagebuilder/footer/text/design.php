@@ -16,7 +16,7 @@ if(!\lib\pagebuilder\tools\tools::in('text'))
   </div>
   <form class="c4 s12" method="post" >
     <div class="action">
-      <a  href="<?php echo \dash\url::that(). '/text'. \dash\request::full_get();?>" class="btn primary"><?php echo T_("Customize footer text") ?></a>
+      <a  href="<?php echo \dash\url::current(). '/text'. \dash\request::full_get();?>" class="btn primary"><?php echo T_("Customize footer text") ?></a>
     </div>
   </form>
 </section>
