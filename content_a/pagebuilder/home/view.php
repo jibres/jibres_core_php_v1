@@ -6,9 +6,13 @@ class view
 {
 	public static function config()
 	{
+		\dash\face::title(T_('Page Builder'));
 
 		\dash\data::action_text(T_('Add New page'));
 		\dash\data::action_link(\dash\url::this(). '/add');
+
+		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_link(\dash\url::here(). '/setting');
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
