@@ -64,8 +64,19 @@ class validation_file
 		// force convert jpeg to png
 		if($fileExt !== 'png' && isset($_meta['force_png']) && $tmp_name)
 		{
-			imagepng(imagecreatefromstring(file_get_contents($tmp_name)), $tmp_name);
-			$fileExt = 'png';
+			$file_content = file_get_contents($tmp_name);
+			$create_image = imagecreatefromstring($file_content);
+
+			if($create_image && is_a($create_image, 'GdImage'))
+			{
+				imagepng($create_image, $tmp_name);
+				$fileExt = 'png';
+			}
+			else
+			{
+				\dash\notif::error(T_("Please upload a png file to continue"));
+				return false;
+			}
 		}
 
 
