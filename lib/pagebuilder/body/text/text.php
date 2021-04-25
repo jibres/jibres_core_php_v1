@@ -41,7 +41,7 @@ class text
 				[
 					'detail' =>
 					[
-						'page_title' => T_("Setting"),
+						'page_title' => T_("Text box Setting"),
 						'btn_save'   => false,
 					],
 
