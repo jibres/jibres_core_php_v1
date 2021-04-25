@@ -74,12 +74,14 @@ function HTML_header()
 
 
 
-function HTML_line() {?>
+function HTML_line() {
+  $count_body = 0;
+?>
 <form method="post">
   <input type="hidden" name="sortline" value="sortline">
    <nav class="items">
       <ul class="sortable" data-sortable>
-      <?php foreach (\dash\data::lineList_list() as $key => $value) { if(a($value, 'mode') !== 'body'){continue;} ?>
+      <?php foreach (\dash\data::lineList_list() as $key => $value) { if(a($value, 'mode') !== 'body'){continue;} $count_body++; ?>
          <li>
            <a href="<?php echo \dash\url::that(). '/'. a($value,'type') .\dash\request::full_get(['pid' => a($value, 'id')]); ?>" class="f">
             <input type="hidden" class="hide" name="bodyline[]" value="<?php echo a($value, 'id'); ?>">
@@ -96,7 +98,7 @@ function HTML_line() {?>
     </ul>
   </nav>
 </form>
-  <?php if(is_array(\dash\data::lineList_list()) && count(\dash\data::lineList_list()) >= 2) {?>
+  <?php if($count_body >= 2) {?>
     <div class="msg fs12"><?php echo T_("Change the position of the rows with the help of the handle") ?> <kbd><i class="sf-sort"></i></kbd></div>
   <?php } //endif ?>
 <?php HTML_allNewLine(); ?>
