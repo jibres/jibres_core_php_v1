@@ -10,7 +10,11 @@ class view
 		if(in_array(\dash\engine\content::get(), ['content_business', 'content_n']) && \dash\engine\store::inBusinessWebsite())
 		{
 			// load detail of business website
-			\dash\layout\business::check_website();
+			$have_website = \dash\layout\business::check_website();
+			if($have_website)
+			{
+				\dash\layout\business::set_view_variable();
+			}
 		}
 
 		\dash\face::title(null);

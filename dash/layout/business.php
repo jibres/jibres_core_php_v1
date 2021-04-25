@@ -107,6 +107,14 @@ class business
 	}
 
 
+	public static function set_view_variable()
+	{
+		// set page title
+		// cover
+		// seo desc
+	}
+
+
 
 	public static function body_addr()
 	{
@@ -127,15 +135,14 @@ class business
 			return null;
 		}
 
-		// load a post by display of content_n
-		if(\dash\engine\template::$finded_template)
-		{
-			return \dash\engine\template::$display_addr;
-		}
 
 		if(self::$is_pagebuilder)
 		{
 			return root. 'lib/pagebuilder/load/body.php';
+		}
+		elseif(\dash\engine\template::$finded_template)
+		{
+			return \dash\engine\template::$display_addr;
 		}
 		else
 		{
