@@ -134,7 +134,7 @@ class get
 
 		if(isset($detail['type']) && $detail['type'] === 'pagebuilder' && \dash\url::module() !== 'pagebuilder')
 		{
-			return false;
+			// return false;
 		}
 
 		return $detail;
@@ -162,7 +162,7 @@ class get
 
 		if(isset($load['type']) && $load['type'] === 'pagebuilder' && \dash\url::module() !== 'pagebuilder')
 		{
-			return false;
+			// return false;
 		}
 
 

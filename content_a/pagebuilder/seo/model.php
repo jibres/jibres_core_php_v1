@@ -34,6 +34,11 @@ class model
 
 		$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'));
 
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
+
 	}
 }
 ?>
