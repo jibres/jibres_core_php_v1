@@ -65,6 +65,7 @@ class text
 	public static function input_condition($_args = [])
 	{
 		$_args['html']    = 'real_html';
+		$_args['set_text']    = 'bit';
 		return $_args;
 	}
 
@@ -86,20 +87,23 @@ class text
 	{
 
 		$text = [];
-
-		if(array_key_exists('html', $_data))
+		if($_data['set_text'])
 		{
-			$_data['text'] = \dash\request::post_html();
-		}
-		elseif(a($_saved_detail, 'text'))
-		{
-			$text['text'] = a($_saved_detail, 'text');
-		}
+			if(array_key_exists('html', $_data))
+			{
+				$_data['text'] = \dash\request::post_html();
+			}
+			elseif(a($_saved_detail, 'text'))
+			{
+				$text['text'] = a($_saved_detail, 'text');
+			}
 
-		\lib\pagebuilder\tools\tools::input_exception('text');
+			\lib\pagebuilder\tools\tools::input_exception('text');
+		}
 
 
 		unset($_data['html']);
+		unset($_data['set_text']);
 
 		return $_data;
 
