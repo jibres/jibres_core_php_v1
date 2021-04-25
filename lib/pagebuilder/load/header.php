@@ -4,11 +4,16 @@ if(!\lib\pagebuilder\load\page::$is_page)
 	return null;
 }
 
-$website = \dash\data::website();
+$website_list = \dash\data::website_list();
+
+if(!is_array($website_list))
+{
+	$website_list = [];
+}
 
 $header = [];
 
-foreach ($website as $key => $value)
+foreach ($website_list as $key => $value)
 {
 	if(a($value, 'mode') === 'header')
 	{
