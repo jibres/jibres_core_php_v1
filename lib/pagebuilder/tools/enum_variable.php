@@ -23,6 +23,27 @@ trait enum_variable
 	}
 
 
+
+	private static function default_code()
+	{
+		$list = self::list();
+
+		if(!isset($_key) || !array_key_exists($_key, $list))
+		{
+			foreach ($list as $key => $item)
+			{
+				if(isset($item['default']) && $item['default'])
+				{
+					return $key;
+				}
+			}
+		}
+
+		return null;
+	}
+
+
+
 	public static function input_condition($input_condition)
 	{
 		$list = self::list();
@@ -104,6 +125,10 @@ trait enum_variable
 
 
 			$_data[self::$variable_name] = $variable;
+		}
+		else
+		{
+			$_data[self::$variable_name]['code'] = self::default_code();
 		}
 
 		return $_data;
