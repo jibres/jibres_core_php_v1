@@ -22,7 +22,7 @@ function HTML_postDetail()
 ?>
 <div class="msg info2 font-14 row">
   <div class="c"><?php echo a(\dash\data::lineList(), 'post_detail', 'title');?></div>
-  <div class="cauto"><a href="<?php echo \dash\url::this(). '/edittitle'. \dash\request::full_get() ?>"><?php echo T_("Edit") ?></a></div>
+  <div class="cauto"><a href="<?php echo \dash\url::this(). '/manage'. \dash\request::full_get() ?>"><?php echo T_("Edit") ?></a></div>
 
 </div>
 <?php } //endfunction

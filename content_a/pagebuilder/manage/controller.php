@@ -1,5 +1,5 @@
 <?php
-namespace content_a\pagebuilder\edittitle;
+namespace content_a\pagebuilder\manage;
 
 
 class controller
