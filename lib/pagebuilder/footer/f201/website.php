@@ -40,7 +40,7 @@
 		<hr>
 	<?php } //endif ?>
 		<div class="bottom ltr">
-			<p><?php echo a($website, 'footer', 'maintext', 'text') ?></p>
+			<p><?php echo a(\dash\data::website(), 'footer', 'maintext', 'text') ?></p>
 		</div>
 	</div>
 </div>
