@@ -55,14 +55,14 @@ class posts
 
 	public static function get_active_count()
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type != 'pagebuilder' ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
 	public static function avg_seorank()
 	{
-		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status = 'publish' ";
+		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status = 'publish' AND posts.type != 'pagebuilder' ";
 		$result = \dash\db::get($query, 'rank', true);
 		return $result;
 	}
@@ -73,7 +73,7 @@ class posts
 
 	public static function get_active_count_subtype($_subtype)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.subtype = '$_subtype' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type != 'pagebuilder' AND posts.subtype = '$_subtype' ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
@@ -81,21 +81,21 @@ class posts
 
 	public static function get_count_special_address()
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.specialaddress != 'independence' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type != 'pagebuilder' AND posts.specialaddress != 'independence' ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
 	public static function get_count_have_cover()
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.cover IS NOT NULL ";
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type != 'pagebuilder' AND posts.cover IS NOT NULL ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
 
 	public static function get_count_published()
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status = 'publish' ";
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status = 'publish' AND posts.type != 'pagebuilder' ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
@@ -188,38 +188,6 @@ class posts
 	}
 
 
-	/**
-	 * Determines if attachment.
-	 *
-	 * @param      <type>  $_id    The identifier
-	 */
-	public static function is_attachment($_id)
-	{
-		if(!$_id || !is_numeric($_id))
-		{
-			return false;
-		}
-
-		$query =
-		"
-			SELECT * FROM posts
-			WHERE id = $_id
-			AND type = 'attachment'
-			AND posts.status IN ('draft', 'publish')
-			LIMIT 1
-		";
-		$result = \dash\db::get($query, null, true);
-
-		if($result)
-		{
-			if(isset($result['meta']) && substr($result['meta'], 0,1) === '{')
-			{
-				$result['meta'] = json_decode($result['meta'], true);
-			}
-			return $result;
-		}
-		return false;
-	}
 
 
 	/**

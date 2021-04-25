@@ -84,6 +84,10 @@ class search
 		{
 			$and[] = " posts.type =  '$data[type]' ";
 		}
+		else
+		{
+			$and[] = " posts.type =  'post' ";
+		}
 
 		if($data['subtype'])
 		{

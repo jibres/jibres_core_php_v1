@@ -132,6 +132,11 @@ class get
 			$detail = [];
 		}
 
+		if(isset($detail['type']) && $detail['type'] === 'pagebuilder' && \dash\url::module() !== 'pagebuilder')
+		{
+			return false;
+		}
+
 		return $detail;
 	}
 
@@ -154,6 +159,12 @@ class get
 		{
 			return false;
 		}
+
+		if(isset($load['type']) && $load['type'] === 'pagebuilder' && \dash\url::module() !== 'pagebuilder')
+		{
+			return false;
+		}
+
 
 		$load = \dash\app\posts\ready::row($load);
 
