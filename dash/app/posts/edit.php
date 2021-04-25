@@ -43,7 +43,7 @@ class edit
 		}
 
 
-		if(isset($_args['tagurl']) || (isset($args['type']) && in_array($args['type'], ['help', 'page']) && isset($_args['slug'])))
+		if(isset($_args['tagurl']) || (isset($load_posts['type']) && in_array($load_posts['type'], ['pagebuilder', 'page']) && isset($_args['slug'])))
 		{
 			$exception[] = 'url';
 		}
