@@ -25,9 +25,7 @@ if(!empty($body))
 {
 	foreach ($body as $key => $value)
 	{
-		$draw = new \lib\pagebuilder\draw\body_item($value);
-
-		$html = $draw->get_html();
+		$html = \lib\pagebuilder\draw\body_item::get_html($value);
 
 		echo $html;
 	}

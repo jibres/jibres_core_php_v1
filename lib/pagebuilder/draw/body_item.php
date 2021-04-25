@@ -9,7 +9,7 @@ class body_item
 	 *
 	 * @var        <type>
 	 */
-	private $html = '';
+	private static $html = '';
 
 
 	/**
@@ -17,21 +17,20 @@ class body_item
 	 *
 	 * @var        array
 	 */
-	public $item  = [];
+	public static $item  = [];
 
-	private $item_type = null;
+	private static $item_type = null;
 
 
-	/**
-	 * Constructs a new instance.
-	 *
-	 * @param      <type>  $_item  The item
-	 */
-	public function __construct($_item)
+	private static $set_avand = null;
+
+
+
+	public static function get_html($_item)
 	{
 		if(isset($_item['type']))
 		{
-			$this->item_type = $_item['type'];
+			self::$item_type = $_item['type'];
 
 			$ready = \lib\pagebuilder\tools\tools::global_ready_show('body', $_item['type'], $_item);
 
@@ -40,33 +39,29 @@ class body_item
 				$ready = [];
 			}
 
-			$this->item = $ready;
+			self::$item = $ready;
 
-			$this->draw();
+			self::draw();
 		}
-	}
 
-
-	public function get_html()
-	{
-		return $this->html;
+		return self::$html;
 	}
 
 
 
-	private function draw()
+	private static function draw()
 	{
 		// var_dump($this);exit();
 
-		$this->avand();
+		self::avand();
 		{
-			$this->puzzle();
+			self::puzzle();
 			{
-				$this->element();
+				self::element();
 			}
-			$this->_puzzle();
+			self::_puzzle();
 		}
-		$this->_avand();
+		self::_avand();
 	}
 
 
@@ -74,12 +69,12 @@ class body_item
 	/**
 	 * Add avand element
 	 */
-	private function avand()
+	private static function avand()
 	{
-		if(isset($this->item['avand']['code']) && is_string($this->item['avand']['code']))
+		if(isset(self::$item['avand']['code']) && is_string(self::$item['avand']['code']))
 		{
-			$this->html .= '<div class="'. $this->item['avand']['code']. '">';
-			$this->set_avand = true;
+			self::$html .= '<div class="'. self::$item['avand']['code']. '">';
+			self::$set_avand = true;
 		}
 	}
 
@@ -87,26 +82,26 @@ class body_item
 	/**
 	 * Close avand element
 	 */
-	private function _avand()
+	private static function _avand()
 	{
-		if(isset($this->set_avand) && $this->set_avand)
+		if(isset(self::$set_avand) && self::$set_avand)
 		{
-			$this->html .= '</div>';
+			self::$html .= '</div>';
 		}
 	}
 
 
-	private function puzzle()
+	private static function puzzle()
 	{
-		$this->html .= '<div>';
+		self::$html .= '<div>';
 	}
 
-	private function _puzzle()
+	private static function _puzzle()
 	{
-		$this->html .= '</div>';
+		self::$html .= '</div>';
 	}
 
-	private function element()
+	private static function element()
 	{
 
 	}
