@@ -8,10 +8,19 @@ class search
 
 	public static function list($_args = [])
 	{
-		$list = [];
-		$id = \dash\request::get('id');
+		if(isset($_args['id']))
+		{
+			$id = $_args['id'];
+		}
+		else
+		{
+			$id = \dash\request::get('id');
+		}
+
 		$id = \dash\validate::code($id);
+
 		$id = \dash\coding::decode($id);
+
 		if(!$id)
 		{
 			return false;
@@ -21,9 +30,12 @@ class search
 
 		$list = \lib\db\pagebuilder\get::line_list($id);
 
-		$result = [];
+		$result                = [];
+
 		$result['post_detail'] = $post_detail;
-		$result['list'] = $list;
+
+		$result['list']        = $list;
+
 		return $result;
 	}
 
