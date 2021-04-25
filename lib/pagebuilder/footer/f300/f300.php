@@ -31,7 +31,7 @@ class f300
 			'detail' =>
 			[
 				'page_title'        => T_("Footer setting"),
-				'btn_preview'       => \lib\store::url(),
+				// 'btn_preview'       => \lib\store::url(),
 
 				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
 				// 'btn_save'    => true,

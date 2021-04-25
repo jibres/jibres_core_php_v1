@@ -31,7 +31,7 @@ class h100
 			'detail' =>
 			[
 				'page_title'        => T_("Header setting"),
-				'btn_preview'       => \lib\store::url(),
+				// 'btn_preview'       => \lib\store::url(),
 				'allow_upload_file' => true,
 				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
 				// 'btn_save'    => true,
