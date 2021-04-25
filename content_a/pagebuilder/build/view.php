@@ -7,9 +7,11 @@ class view
 	public static function config()
 	{
 
+		$get       = \dash\request::get();
+		$load_line = \lib\pagebuilder\tools\search::list($get);
+		\dash\data::lineList($load_line);
 
 		self::set_page_variable();
-
 
 		if(!\dash\data::lineSetting())
 		{
@@ -17,9 +19,6 @@ class view
 			\dash\data::action_link(\dash\url::this(). '/additem'. \dash\request::full_get());
 		}
 
-		$get       = \dash\request::get();
-		$load_line = \lib\pagebuilder\tools\search::list($get);
-		\dash\data::lineList($load_line);
 
 	}
 
@@ -136,6 +135,20 @@ class view
 		{
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::this());
+
+			$lineList = \dash\data::lineList();
+
+			if(isset($lineList['post_detail']['link']))
+			{
+				if(a($lineList, 'post_detail', 'status') === 'publish')
+				{
+					\dash\face::btnView($lineList['post_detail']['link']);
+				}
+				else
+				{
+					\dash\face::btnPreview($lineList['post_detail']['link']. '?preview=yes');
+				}
+			}
 		}
 	}
 }

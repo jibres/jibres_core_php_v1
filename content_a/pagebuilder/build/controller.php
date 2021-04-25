@@ -6,8 +6,6 @@ class controller
 {
 	public static function routing()
 	{
-		$homepage_builder = \dash\temp::get('homepage_builder');
-
 		$subchild    = \dash\url::subchild();
 
 		if($subchild)
