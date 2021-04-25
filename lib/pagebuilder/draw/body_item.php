@@ -104,6 +104,15 @@ class body_item
 	private static function element()
 	{
 
+		if(is_callable(\lib\pagebuilder\tools\tools::get_fn('body', self::$item_type, 'draw')))
+		{
+			$draw = \lib\pagebuilder\tools\tools::call_fn_args('body', self::$item_type, 'draw', self::$item);
+
+			if(is_string($draw))
+			{
+				self::$html .= $draw;
+			}
+		}
 	}
 
 

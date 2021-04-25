@@ -104,5 +104,16 @@ class text
 		return $_data;
 
 	}
+
+
+
+	public static function draw($_item)
+	{
+		if(isset($_item['text']))
+		{
+			return $_item['text'];
+		}
+		return null;
+	}
 }
 ?>
