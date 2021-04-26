@@ -11,6 +11,10 @@ if(!is_array($website_header))
 	$website_header = [];
 }
 
+// load announcement before header
+require_once(root. 'lib/pagebuilder/header/announcement/website.php');
+
+// load heade
 if(!empty($website_header))
 {
 	foreach ($website_header as $key => $value)
