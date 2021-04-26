@@ -16,7 +16,11 @@ if(!\lib\pagebuilder\tools\tools::in('announcement')){ ?>
   </div>
   <div class="c4 s12">
     <div class="action">
+      <?php if(a($announcement, 'status')) {?>
+        <a class="btn primary" href="<?php echo \dash\url::current(). '/announcement'. \dash\request::full_get();?>"><?php echo T_("Change Special Announcement") ?></a>
+      <?php }else{ ?>
         <a class="btn primary" href="<?php echo \dash\url::current(). '/announcement'. \dash\request::full_get();?>"><?php echo T_("Set Special Announcement") ?></a>
+      <?php } //endif ?>
     </div>
   </div>
 </section>

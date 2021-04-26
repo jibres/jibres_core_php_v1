@@ -32,14 +32,7 @@ class body_item
 		{
 			self::$item_type = $_item['type'];
 
-			$ready = \lib\pagebuilder\tools\tools::global_ready_show('body', $_item['type'], $_item);
-
-			if(!is_array($ready))
-			{
-				$ready = [];
-			}
-
-			self::$item = $ready;
+			self::$item = $_item;
 
 			self::draw();
 		}

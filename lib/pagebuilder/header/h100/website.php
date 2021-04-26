@@ -2,7 +2,7 @@
   <div class="actionBar row align-center">
     <div class="c-auto c-xs-0">
       <a class="logo" href="<?php echo \dash\url::kingdom(); ?>"><?php
-$logo = \lib\website::logo();
+$logo = \lib\pagebuilder::logo();
 if($logo)
 {
   echo '<img src="'. $logo. '" alt="'. \dash\face::site(). '">';
@@ -20,7 +20,7 @@ else
       <a class="search" href="<?php echo \dash\url::kingdom(); ?>/search"></a>
     </div>
     <div class="c-auto">
-      <a class="cart" href="<?php echo \dash\url::kingdom(); ?>/cart" data-count="<?php echo \dash\fit::number(\lib\website::cart_count()); ?>"><span class="d-xs-none"><?php echo T_("Cart"); ?></span></a>
+      <a class="cart" href="<?php echo \dash\url::kingdom(); ?>/cart" data-count="<?php echo \dash\fit::number(\lib\pagebuilder::cart_count()); ?>"><span class="d-xs-none"><?php echo T_("Cart"); ?></span></a>
     </div>
     <div class="c-auto">
       <?php if(\dash\user::login()) {?>
@@ -32,11 +32,10 @@ else
   <?php } //end nosale ?>
   </div>
 
-  <?php if(\lib\website::have_header_menu()) {?>
+  <?php if(\lib\pagebuilder::have_header_menu()) {?>
   <div class="menuBar row">
-    <div class="c"><?php  echo \lib\website::menu('header_menu_1'); ?></div>
-    <div class="c-auto os"><?php  echo \lib\website::menu('header_menu_2', 'xs0'); ?></div>
+    <div class="c"><?php  echo \lib\pagebuilder::menu('header_menu_1'); ?></div>
+    <div class="c-auto os"><?php  echo \lib\pagebuilder::menu('header_menu_2', 'xs0'); ?></div>
   </div>
 <?php } //endif ?>
-
 </div>

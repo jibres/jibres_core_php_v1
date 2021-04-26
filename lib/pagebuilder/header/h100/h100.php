@@ -31,7 +31,7 @@ class h100
 		[
 			'detail' =>
 			[
-				'page_title'        => T_("Header setting"),
+				'page_title'        => T_("Customize Your Website Header"),
 				'allow_upload_file' => true,
 			],
 			'contain' =>
@@ -78,6 +78,11 @@ class h100
 		if(isset($_data['detail']['logo']) && $_data['detail']['logo'])
 		{
 			$_data['detail']['logourl'] = \lib\filepath::fix($_data['detail']['logo']);
+		}
+
+		if((isset($_data['detail']['header_menu_1']) && $_data['detail']['header_menu_1']) || (isset($_data['detail']['header_menu_2']) && $_data['detail']['header_menu_2']))
+		{
+			$_data['detail']['have_header_menu'] = true;
 		}
 
 		return $_data;
@@ -136,6 +141,7 @@ class h100
 		$saved_detail = array_merge($saved_detail, $_data['detail'], $h100);
 
 		unset($saved_detail['logourl']);
+		unset($saved_detail['have_header_menu']);
 
 		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
@@ -145,7 +151,7 @@ class h100
 		}
 		else
 		{
-			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::current(). \dash\request::full_get());
 		}
 
 

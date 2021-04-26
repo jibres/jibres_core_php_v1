@@ -12,7 +12,7 @@ if(!isset($header_menu_key))
 
 if(!isset($header_menu_title))
 {
-  $header_menu_title = T_("Header menu #1");
+  $header_menu_title = T_("Header Primary Menu");
 }
 
 $menu = \lib\app\menu\get::list_all_menu();
