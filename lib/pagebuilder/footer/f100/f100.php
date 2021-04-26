@@ -6,6 +6,7 @@ class f100
 {
 	public static function detail()
 	{
+		// need to disable
 		return
 		[
 			'key'          => 'f100',
@@ -36,7 +37,7 @@ class f100
 			'contain' =>
 			[
 				'change'         => true,
-				'text'           => ['detail' => ['btn_save' => true, 'allow_html' => true]],
+				'text'           => ['detail' => ['btn_save' => true, 'allow_html' => true, 'page_title' => T_("Set footer Main text")]],
 				'generalsetting' => true,
 			],
 		];

@@ -9,30 +9,30 @@
 				</div>
 				<div class="c-xs-12 c-sm-12 c-md-auto">
 					<div class="certifications txtRa">
-						<?php \lib\website::load_enamd(); ?>
-						<?php \lib\website::load_samandehi(); ?>
+						<?php \lib\pagebuilder::load_enamd(); ?>
+						<?php \lib\pagebuilder::load_samandehi(); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 		<hr>
-		<?php if(\lib\website::have_footer_menu()) {?>
+		<?php if(\lib\pagebuilder::have_footer_menu()) { ?>
 		<nav class="mid">
 			<div class="f">
 				<div class="c3">
-					<?php echo \lib\website::menu('footer_menu_1'); ?>
+					<?php echo \lib\pagebuilder::menu('footer_menu_1'); ?>
 				</div>
 
 				<div class="c3">
-					<?php echo \lib\website::menu('footer_menu_2'); ?>
+					<?php echo \lib\pagebuilder::menu('footer_menu_2'); ?>
 				</div>
 
 				<div class="c3">
-					<?php echo \lib\website::menu('footer_menu_3'); ?>
+					<?php echo \lib\pagebuilder::menu('footer_menu_3'); ?>
 				</div>
 
 				<div class="c3">
-					<?php echo \lib\website::menu('footer_menu_4'); ?>
+					<?php echo \lib\pagebuilder::menu('footer_menu_4'); ?>
 				</div>
 
 			</div>

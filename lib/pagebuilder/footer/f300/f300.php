@@ -11,7 +11,7 @@ class f300
 			'key'          => 'f300',
 			'mode'         => 'footer',
 			'title'        => T_("Footer #300"),
-			'btn_title'    => T_("Choose this footer"),
+			'btn_title'    => T_("Choose this template"),
 			'description'  => T_("A modern and beautiful template to introduce your news \n This footer contain your store title and description"),
 			'sample_image' => \dash\url::cdn(). '/img/template/footer/footer300.png',
 		];

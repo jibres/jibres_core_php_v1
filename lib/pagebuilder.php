@@ -18,7 +18,15 @@ class pagebuilder
 
 	public static function menu($_key, $_class = null)
 	{
-		$menu_id = a(\dash\data::website_header(), 0, 'detail', $_key);
+		if(strpos($_key, 'header') !== false)
+		{
+			$menu_id = a(\dash\data::website_header(), 0, 'detail', $_key);
+		}
+		else
+		{
+			$menu_id = a(\dash\data::website_footer(), 0, 'detail', $_key);
+		}
+
 		if(is_numeric($menu_id))
 		{
 			return \lib\app\menu\generate2::menu($menu_id, $_class);
@@ -59,7 +67,7 @@ class pagebuilder
 
 	public static function have_footer_menu()
 	{
-		return a(\dash\data::website_header(), 0, 'detail', 'have_footer_menu');
+		return a(\dash\data::website_footer(), 0, 'detail', 'have_footer_menu');
 	}
 
 	public static function have_header_menu()

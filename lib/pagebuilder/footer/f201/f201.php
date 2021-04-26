@@ -79,6 +79,16 @@ class f201
 			$_data['detail']['logourl'] = \lib\filepath::fix($_data['detail']['logo']);
 		}
 
+		if(
+			(isset($_data['detail']['footer_menu_1']) && $_data['detail']['footer_menu_1']) ||
+			(isset($_data['detail']['footer_menu_2']) && $_data['detail']['footer_menu_2']) ||
+			(isset($_data['detail']['footer_menu_3']) && $_data['detail']['footer_menu_3']) ||
+			(isset($_data['detail']['footer_menu_4']) && $_data['detail']['footer_menu_4'])
+		  )
+		{
+			$_data['detail']['have_footer_menu'] = true;
+		}
+
 		return $_data;
 	}
 
@@ -135,6 +145,7 @@ class f201
 		$saved_detail = array_merge($saved_detail, $_data['detail'], $f201);
 
 		unset($saved_detail['logourl']);
+		unset($saved_detail['have_footer_menu']);
 
 		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
@@ -144,7 +155,7 @@ class f201
 		}
 		else
 		{
-			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::current(). \dash\request::full_get());
 		}
 
 
