@@ -8,11 +8,12 @@ class h300
 	{
 		return
 		[
-			'key'         => 'h300',
-			'mode'        => 'header',
-			'title'       => T_("Header 300"),
-			'description' => T_("Beautifull header"),
-			'btn_title'   => T_("Choose this header"),
+			'key'          => 'h300',
+			'mode'         => 'header',
+			'title'        => T_("Header #300"),
+			'description'  => T_("A modern and beautiful template to introduce your news \n This header contain your store title and description and have one menu at top"),
+			'btn_title'    => T_("Choose this template"),
+			'sample_image' => \dash\url::cdn(). '/img/template/header/header300.jpg',
 		];
 	}
 
@@ -31,19 +32,12 @@ class h300
 			'detail' =>
 			[
 				'page_title'        => T_("Header setting"),
-				// 'btn_preview'       => \lib\store::url(),
-
-				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
-				// 'btn_save'    => true,
-				// 'allow_html'  => true,
 			],
 			'contain' =>
 			[
-				'change'         => true,
-				'announcement'   => true,
-
+				'change'         => ['detail' => ['page_title' => T_("Choose header")]],
+				'announcement'   => ['detail' => ['page_title' => T_("Announcement")]],
 				'menu1'          => true,
-
 				'generalsetting' => true,
 
 			],

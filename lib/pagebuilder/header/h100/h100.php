@@ -8,11 +8,12 @@ class h100
 	{
 		return
 		[
-			'key'         => 'h100',
-			'mode'        => 'header',
-			'title'       => T_("Header 100"),
-			'description' => T_("Beautifull header"),
-			'btn_title'   => T_("Choose this header"),
+			'key'          => 'h100',
+			'mode'         => 'header',
+			'title'        => T_("Header #100"),
+			'description'  => T_("A modern and beautiful header"),
+			'btn_title'    => T_("Choose this template"),
+			'sample_image' => \dash\url::cdn(). '/img/template/header/header100.jpg',
 		];
 	}
 
@@ -31,16 +32,12 @@ class h100
 			'detail' =>
 			[
 				'page_title'        => T_("Header setting"),
-				// 'btn_preview'       => \lib\store::url(),
 				'allow_upload_file' => true,
-				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
-				// 'btn_save'    => true,
-				// 'allow_html'  => true,
 			],
 			'contain' =>
 			[
-				'change'         => true,
-				'announcement'   => true,
+				'change'         => ['detail' => ['page_title' => T_("Choose header")]],
+				'announcement'   => ['detail' => ['page_title' => T_("Announcement")]],
 				'logo'           => true,
 				'menu1'          => true,
 				'menu2'          => true,
