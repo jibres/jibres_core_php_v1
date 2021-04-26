@@ -49,8 +49,8 @@ class text
 					[
 						'title'   => true,
 						'avand'   => true,
-						'padding' => true,
-						'margin'  => true,
+						// 'padding' => true,
+						// 'margin'  => true,
 						'remove'  => true,
 					],
 				],
