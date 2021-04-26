@@ -101,7 +101,7 @@ class h300
 		}
 		else
 		{
-			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::current(). \dash\request::full_get());
 		}
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
