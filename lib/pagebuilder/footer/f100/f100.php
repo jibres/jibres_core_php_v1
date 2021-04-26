@@ -8,11 +8,12 @@ class f100
 	{
 		return
 		[
-			'key'         => 'f100',
-			'mode'        => 'footer',
-			'title'       => T_("Footer 100"),
-			'description' => T_("Beautifull footer"),
-			'btn_title'   => T_("Choose this footer"),
+			'key'          => 'f100',
+			'mode'         => 'footer',
+			'title'        => T_("Footer #100"),
+			'description'  => T_("This footer contain copy write text and phone number"),
+			'btn_title'    => T_("Choose this template"),
+			'sample_image' => \dash\url::cdn(). '/img/template/footer/footer100.png',
 		];
 	}
 
@@ -31,11 +32,6 @@ class f100
 			'detail' =>
 			[
 				'page_title'        => T_("Footer setting"),
-				// 'btn_preview'       => \lib\store::url(),
-
-				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
-				// 'btn_save'    => true,
-				// 'allow_html'  => true,
 			],
 			'contain' =>
 			[
@@ -148,7 +144,7 @@ class f100
 		}
 		else
 		{
-			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). \dash\request::full_get());
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::current(). \dash\request::full_get());
 		}
 
 

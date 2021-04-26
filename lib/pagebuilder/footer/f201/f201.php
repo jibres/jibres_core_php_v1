@@ -8,11 +8,12 @@ class f201
 	{
 		return
 		[
-			'key'         => 'f201',
-			'mode'        => 'footer',
-			'title'       => T_("Footer 201"),
-			'description' => T_("Beautifull footer"),
-			'btn_title'   => T_("Choose this footer"),
+			'key'          => 'f201',
+			'mode'         => 'footer',
+			'title'        => T_("Footer #201"),
+			'description'  => T_("This footer contain 4 menu and  your store title and description"),
+			'btn_title'    => T_("Choose this template"),
+			'sample_image' => \dash\url::cdn(). '/img/template/footer/footer201.jpg',
 		];
 	}
 
@@ -31,21 +32,16 @@ class f201
 			'detail' =>
 			[
 				'page_title'        => T_("Footer setting"),
-				// 'btn_preview'       => \lib\store::url(),
-
-				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
-				// 'btn_save'    => true,
-				// 'allow_html'  => true,
 			],
 			'contain' =>
 			[
 				'change'         => true,
 				'text'           => ['detail' => ['btn_save' => true, 'allow_html' => true]],
 				'generalsetting' => true,
-				'menu1' => true,
-				'menu2' => true,
-				'menu3' => true,
-				'menu4' => true,
+				'menu1'          => true,
+				'menu2'          => true,
+				'menu3'          => true,
+				'menu4'          => true,
 			],
 		];
 
