@@ -132,7 +132,7 @@ class cronjob
 
 		$exec_addr = __DIR__. '/exec.me.php';
 
-		$chunk = array_chunk($exec, 20);
+		$chunk = array_chunk($exec, 10);
 
 		$new_exec = [];
 
