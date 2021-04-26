@@ -4,32 +4,16 @@ if(!\lib\pagebuilder\load\page::$is_page)
 	return null;
 }
 
-$website_list = \dash\data::website_list();
+$website_footer = \dash\data::website_footer();
 
-if(!is_array($website_list))
+if(!is_array($website_footer))
 {
-	$website_list = [];
+	$website_footer = [];
 }
 
-$footer = [];
-
-foreach ($website_list as $key => $value)
+if(!empty($website_footer))
 {
-	if(a($value, 'mode') === 'footer')
-	{
-		$footer[] = $value;
-	}
-}
-
-if(!empty($footer))
-{
-	foreach ($footer as $key => $value)
-	{
-		$footer[$key] = \lib\pagebuilder\tools\tools::global_ready_show('footer', $value['type'], $value);
-		# code...
-	}
-
-	foreach ($footer as $key => $value)
+	foreach ($website_footer as $key => $value)
 	{
 		$footer_addr = root. 'lib/pagebuilder/footer/'. $value['type']. '/website.php';
 		if(is_file($footer_addr))
@@ -38,4 +22,5 @@ if(!empty($footer))
 		}
 	}
 }
+
 ?>

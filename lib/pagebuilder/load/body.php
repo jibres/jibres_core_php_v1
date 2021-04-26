@@ -4,26 +4,18 @@ if(!\lib\pagebuilder\load\page::$is_page)
 	return null;
 }
 
-$website_list = \dash\data::website_list();
+$website_body = \dash\data::website_body();
 
-if(!is_array($website_list))
+if(!is_array($website_body))
 {
-	$website_list = [];
+	$website_body = [];
 }
 
-$body = [];
 
-foreach ($website_list as $key => $value)
-{
-	if(a($value, 'mode') === 'body')
-	{
-		$body[] = $value;
-	}
-}
 
-if(!empty($body))
+if(!empty($website_body))
 {
-	foreach ($body as $key => $value)
+	foreach ($website_body as $key => $value)
 	{
 		$html = \lib\pagebuilder\draw\body_item::get_html($value);
 
