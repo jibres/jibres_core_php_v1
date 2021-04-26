@@ -35,6 +35,19 @@ class page
 				return false;
 			}
 		}
+		elseif(\dash\engine\content::get() === 'content_n')
+		{
+			$page_id = \dash\url::module();
+
+			if($page_id && ($page_id = \dash\validate::code($page_id, false)))
+			{
+				// ok
+			}
+			else
+			{
+				return false;
+			}
+		}
 		else
 		{
 			$page_id          = null;
@@ -44,9 +57,10 @@ class page
 		$args = [];
 
 		$args['id'] = $page_id;
+		$args['ready'] = true;
+
 
 		$check_current_page = \lib\pagebuilder\tools\search::list($args);
-
 
 		if(!$check_current_page)
 		{
