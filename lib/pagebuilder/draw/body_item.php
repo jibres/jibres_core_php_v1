@@ -54,8 +54,6 @@ class body_item
 
 	private static function draw()
 	{
-		// var_dump($this);exit();
-
 		self::avand();
 		{
 			self::puzzle();
@@ -99,10 +97,12 @@ class body_item
 		self::$html .= '<div>';
 	}
 
+
 	private static function _puzzle()
 	{
 		self::$html .= '</div>';
 	}
+
 
 	private static function element()
 	{
@@ -117,10 +117,5 @@ class body_item
 			}
 		}
 	}
-
-
-
-
-
 }
 ?>

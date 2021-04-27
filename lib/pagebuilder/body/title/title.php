@@ -102,5 +102,50 @@ class title
 		return $_data;
 	}
 
+
+
+	public static function draw($_args, $_link = null)
+	{
+
+		if(a($_args, 'titlesetting', 'show_title') === 'no')
+		{
+			return '';
+		}
+
+		$html              = '';
+		$title             = a($_args, 'title');
+		$more_link         = a($_args, 'titlesetting', 'more_link');
+		$more_link_caption = a($_args, 'titlesetting', 'more_link_caption');
+
+
+		if($more_link === 'hide' || !$_link)
+		{
+			$html .= '<div class="eTitle">';
+			{
+				$html .= '<h2 class="title">'. $title. '</h2>';
+			}
+			$html .= '</div>';
+		}
+		else
+		{
+			$html .= "<div class='eTitle row'>";
+			{
+				$html .= "<div class='c'>";
+				{
+					$html .= '<h2 class="title">'. $title .'</h2>';
+				}
+				$html .= "</div>";
+				$html .= "<div class='c-auto os'>";
+				{
+					$html .= "<a class='more' href='" . $_link . "'>". $more_link_caption . "</a>";
+				}
+				$html .= "</div>";
+			}
+			$html .= "</div>";
+		}
+
+		return $html;
+	}
+
 }
 ?>

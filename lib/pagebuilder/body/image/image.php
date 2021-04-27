@@ -354,5 +354,19 @@ class image
 
 		return $_data;
 	}
+
+
+
+
+	public static function draw($_args)
+	{
+		$link = null;
+
+		// first draw title
+		$html = \lib\pagebuilder\body\title\title::draw($_args, $link);
+
+		return $html;
+
+	}
 }
 ?>
