@@ -7,7 +7,7 @@ class subscribe
 
 	public static function allow()
 	{
-		return true;
+		return false;
 	}
 
 

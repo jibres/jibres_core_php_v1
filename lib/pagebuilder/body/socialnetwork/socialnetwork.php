@@ -7,7 +7,7 @@ class socialnetwork
 
 	public static function allow()
 	{
-		return true;
+		return false;
 	}
 
 

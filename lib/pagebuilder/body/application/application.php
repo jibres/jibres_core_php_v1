@@ -7,7 +7,7 @@ class application
 
 	public static function allow()
 	{
-		return true;
+		return false;
 	}
 
 	public static function detail()
