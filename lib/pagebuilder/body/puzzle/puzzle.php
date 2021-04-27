@@ -177,7 +177,7 @@ class puzzle
 
 			case 5:
 				$result['2+3'] = T_("2 item in first line, 3 item in next line");
-				$result['1+4'] = T_("1 item in first line, 2 item in next line");
+				$result['1+4'] = T_("1 item in first line, 4 item in next line");
 				break;
 
 			case 6:
