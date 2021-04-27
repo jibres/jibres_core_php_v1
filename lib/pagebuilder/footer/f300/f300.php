@@ -4,6 +4,13 @@ namespace lib\pagebuilder\footer\f300;
 
 class f300
 {
+	public static function allow()
+	{
+		// is duplicate by footer 100!
+		// need to check later
+		return false;
+	}
+
 	public static function detail()
 	{
 		return

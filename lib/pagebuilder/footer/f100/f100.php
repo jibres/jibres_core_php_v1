@@ -4,6 +4,11 @@ namespace lib\pagebuilder\footer\f100;
 
 class f100
 {
+	public static function allow()
+	{
+		return true;
+	}
+
 	public static function detail()
 	{
 		// need to disable

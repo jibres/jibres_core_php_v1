@@ -23,7 +23,11 @@ class add
 	{
 		$list = [];
 
-		$headers = ['h100', 'h300'];
+		$headers =
+		[
+			'h100',
+			'h300',
+		];
 
 
 		foreach ($headers as $key => $value)
@@ -33,10 +37,6 @@ class add
 				$list[] = self::call('header', $value, 'detail');
 			}
 		}
-
-		// $list[] = \lib\pagebuilder\header\h100\h100::detail();
-		// $list[] = \lib\pagebuilder\header\h300\h300::detail();
-
 
 		return $list;
 	}
@@ -62,11 +62,25 @@ class add
 	public static function footer_list($_args = [])
 	{
 		$list = [];
-		$list[] = \lib\pagebuilder\footer\f100\f100::detail();
-		$list[] = \lib\pagebuilder\footer\f201\f201::detail();
-		$list[] = \lib\pagebuilder\footer\f300\f300::detail();
+
+		$headers =
+		[
+			'f100',
+			'f201',
+			'f300',
+		];
+
+
+		foreach ($headers as $key => $value)
+		{
+			if(self::call('footer', $value, 'allow'))
+			{
+				$list[] = self::call('footer', $value, 'detail');
+			}
+		}
 
 		return $list;
+
 	}
 
 
