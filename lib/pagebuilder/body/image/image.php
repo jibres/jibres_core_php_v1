@@ -364,6 +364,21 @@ class image
 
 		$data = a($_args, 'detail', 'list');
 
+		if(!is_array($data))
+		{
+			$data = [];
+		}
+
+		$data = array_values($data);
+
+		$limit = a($_args, 'puzzle', 'limit');
+
+		if(a($_args, 'puzzle', 'puzzle_type') === 'puzzle' && is_numeric($limit) && count($data) > $limit)
+		{
+			$data = array_slice($data, 0, $limit);
+		}
+
+
 		$html = '';
 
 		// first draw title
