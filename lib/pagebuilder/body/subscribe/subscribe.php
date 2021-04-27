@@ -4,6 +4,13 @@ namespace lib\pagebuilder\body\subscribe;
 
 class subscribe
 {
+
+	public static function allow()
+	{
+		return true;
+	}
+
+
 	public static function detail()
 	{
 		return

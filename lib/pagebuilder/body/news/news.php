@@ -4,6 +4,13 @@ namespace lib\pagebuilder\body\news;
 
 class news
 {
+
+	public static function allow()
+	{
+		return true;
+	}
+
+
 	public static function detail()
 	{
 		return

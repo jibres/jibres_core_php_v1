@@ -4,6 +4,13 @@ namespace lib\pagebuilder\body\products;
 
 class products
 {
+
+	public static function allow()
+	{
+		return true;
+	}
+
+
 	public static function detail()
 	{
 		return

@@ -4,6 +4,12 @@ namespace lib\pagebuilder\body\application;
 
 class application
 {
+
+	public static function allow()
+	{
+		return true;
+	}
+
 	public static function detail()
 	{
 		return

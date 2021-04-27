@@ -8,6 +8,11 @@ class quote
 	private static $quote_comment_id = null;
 
 
+	public static function allow()
+	{
+		return true;
+	}
+
 	public static function detail()
 	{
 		return

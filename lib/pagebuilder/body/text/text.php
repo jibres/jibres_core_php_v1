@@ -4,6 +4,14 @@ namespace lib\pagebuilder\body\text;
 
 class text
 {
+
+
+	public static function allow()
+	{
+		return true;
+	}
+
+
 	public static function detail()
 	{
 		return

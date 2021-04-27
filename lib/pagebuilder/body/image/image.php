@@ -8,6 +8,12 @@ class image
 	private static $image_index = null;
 
 
+	public static function allow()
+	{
+		return true;
+	}
+
+
 	public static function detail()
 	{
 		return
