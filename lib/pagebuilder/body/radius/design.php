@@ -2,11 +2,10 @@
 
 $lineSetting = \dash\data::lineSetting();
 
-if(isset($lineSetting['puzzle']['puzzle_type']) && $lineSetting['puzzle']['puzzle_type'] === 'slider')
+if(in_array(a($lineSetting, 'puzzle', 'puzzle_type'), ['slider', 'rail']))
 {
   return;
 }
-
 ?>
 <section class="f" data-option='website-line-radius'>
   <div class="c8 s12">

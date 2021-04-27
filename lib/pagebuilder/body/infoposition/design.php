@@ -1,4 +1,11 @@
-<?php $lineSetting = \dash\data::lineSetting(); ?>
+<?php
+$lineSetting = \dash\data::lineSetting();
+
+if(in_array(a($lineSetting, 'puzzle', 'puzzle_type'), ['rail']))
+{
+  return;
+}
+?>
 <section class="f" data-option='website-info-position'>
   <div class="c8 s12">
     <div class="data">
