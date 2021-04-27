@@ -25,9 +25,19 @@ class body_item
 	private static $set_avand = null;
 
 
+	private static function reset()
+	{
+		self::$html      = '';
+		self::$item      = [];
+		self::$item_type = null;
+		self::$set_avand = null;
+	}
+
 
 	public static function get_html($_item)
 	{
+		self::reset();
+
 		if(isset($_item['type']))
 		{
 			self::$item_type = $_item['type'];
