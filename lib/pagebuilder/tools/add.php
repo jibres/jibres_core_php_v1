@@ -4,6 +4,16 @@ namespace lib\pagebuilder\tools;
 
 class add
 {
+
+	/**
+	 * Call function
+	 *
+	 * @param      string  $_mode      The mode
+	 * @param      string  $_class     The class
+	 * @param      string  $_function  The function
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	private static function call(string $_mode, string $_class, string $_function)
 	{
 		$namespace = '\\lib\\pagebuilder\\%s\\%s\\%s';
@@ -18,70 +28,95 @@ class add
 		return false;
 	}
 
-
-	public static function header_list($_args = [])
+	/**
+	 * Loads a list.
+	 * Checl allow to load list and if have permission load it
+	 *
+	 * @param      string  $_mode  The mode
+	 * @param      array   $_list  The list
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function load_list(string $_mode, array $_list)
 	{
 		$list = [];
 
+		foreach ($_list as $key => $value)
+		{
+			if(self::call($_mode, $value, 'allow'))
+			{
+				$list[] = self::call($_mode, $value, 'detail');
+			}
+		}
+
+		return $list;
+	}
+
+
+	/**
+	 * Headers list
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function header_list($_args = [])
+	{
 		$headers =
 		[
 			'h100',
 			'h300',
 		];
 
-
-		foreach ($headers as $key => $value)
-		{
-			if(self::call('header', $value, 'allow'))
-			{
-				$list[] = self::call('header', $value, 'detail');
-			}
-		}
-
-		return $list;
+		return self::load_list('header', $headers);
 	}
 
 
+	/**
+	 * Body items list
+	 *
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function body_list($_args = [])
 	{
-		$list = [];
+		$body =
+		[
+			'image',
+			'news',
+			'products',
+			'text',
+			'quote',
+			'subscribe',
+			'socialnetwork',
+			'application',
+		];
 
-		$list[] = \lib\pagebuilder\body\image\image::detail();
-		$list[] = \lib\pagebuilder\body\news\news::detail();
-		$list[] = \lib\pagebuilder\body\products\products::detail();
-		$list[] = \lib\pagebuilder\body\text\text::detail();
-		$list[] = \lib\pagebuilder\body\quote\quote::detail();
-		$list[] = \lib\pagebuilder\body\subscribe\subscribe::detail();
-		$list[] = \lib\pagebuilder\body\socialnetwork\socialnetwork::detail();
-		$list[] = \lib\pagebuilder\body\application\application::detail();
-
-		return $list;
+		return self::load_list('body', $body);
 	}
 
 
+	/**
+	 * Footer list
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function footer_list($_args = [])
 	{
-		$list = [];
-
-		$headers =
+		$footer =
 		[
 			'f100',
 			'f201',
 			'f300',
 		];
 
-
-		foreach ($headers as $key => $value)
-		{
-			if(self::call('footer', $value, 'allow'))
-			{
-				$list[] = self::call('footer', $value, 'detail');
-			}
-		}
-
-		return $list;
-
+		return self::load_list('footer', $footer);
 	}
+
 
 
 
