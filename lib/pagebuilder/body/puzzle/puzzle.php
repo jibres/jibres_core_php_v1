@@ -82,10 +82,6 @@ class puzzle
 		{
 			$puzzle['limit'] = a($_saved_detail, 'puzzle', 'limit');
 		}
-		else
-		{
-			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
-		}
 
 		if(!empty($puzzle))
 		{
@@ -95,6 +91,7 @@ class puzzle
 
 			\lib\pagebuilder\tools\tools::input_exception('puzzle');
 
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
 
 		}
 		else
