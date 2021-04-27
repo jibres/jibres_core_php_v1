@@ -18,7 +18,7 @@ class datablock
 			{
 				if($_args['puzzle']['slider_type'] === 'special')
 				{
-
+					return self::draw_special_slider($_args, $_data);
 				}
 				else
 				{
@@ -196,10 +196,14 @@ class datablock
 
 
 
+
 	private static function draw_simple_slider($_args, $_data)
 	{
 		$html = '';
-		$html .= '<div class="jSlider1 mB10" data-slider>';
+
+		$ratio = null; // need get ratio
+
+		$html .= '<div class="jSlider1 mB10" data-slider data-slider-ratio="'. $ratio. '">';
 
 		foreach ($_data as $key => $value)
 		{
@@ -217,6 +221,92 @@ class datablock
 			$html .= '</a>';
     	}
 		$html .= '</div>';
+
+		return $html;
+	}
+
+
+	private static function el_special_item($_data)
+	{
+		$html = '';
+		$html .= '<a class="roundedBox"';
+
+		if(a($_data, 'url'))
+		{
+			$html .= ' href="'.  a($_data, 'url'). '"';
+			if(a($_data, 0, 'target'))
+			{
+				$html .= ' target="_blank"';
+			}
+		}
+
+		$html .= '>';
+
+        $html .= '<figure class="overlay">';
+		$html .= '<img src="'. a($_data, 'imageurl').'" alt="' . a($_data, 0, 'alt'). '">';
+	    $html .= '<figcaption><h2>'. a($_data, 'alt'). '</h2></figcaption>';
+        $html .= '</figure>';
+        $html .= '</a>';
+
+        return $html;
+	}
+
+
+	private static function draw_special_slider($_args, $_data)
+	{
+		if(count($_data) < 5)
+		{
+			return '';
+		}
+
+		$ratio = null; // need get ratio
+		$html = '';
+
+		$html .= '<div class="row">';
+		$html .= '<div class="c-xs-12 c-sm-12 c-lg-6">';
+
+    	if(count($_data) === 5)
+    	{
+    		$html .= self::el_special_item($_data[0]);
+
+    		unset($_data[0]);
+    	}
+    	else
+    	{
+    		// count > 5
+	    	$html .= '<div class="jSlider1" data-slider data-slider-ratio="'.$ratio. '">';
+
+    		$count_foreach = count($_data) - 4;
+    		$count = 0;
+
+			foreach ($_data as $key => $value)
+			{
+				$count++;
+				$html .= self::el_special_item($value);
+
+			    unset($_data[$key]);
+			    if($count >= $count_foreach)
+			    {
+			    	break;
+			    }
+			}
+	  		$html .= '</div>';
+    	}
+
+    	$html .= '</div>';
+		$html .= '<div class="c-xs-12 c-sm-12 c-lg-6 ">';
+		$html .= '<div class="row">';
+
+        foreach ($_data as $key => $value)
+        {
+	        $html .= '<div class="c-6">';
+			$html .= self::el_special_item($value);
+	        $html .= '</div>';
+        }
+
+		$html .= '</div>';
+		$html .= '</div>';
+
 
 		return $html;
 	}
