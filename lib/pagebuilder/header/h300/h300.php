@@ -4,6 +4,12 @@ namespace lib\pagebuilder\header\h300;
 
 class h300
 {
+
+	public static function allow()
+	{
+		return true;
+	}
+
 	public static function detail()
 	{
 		return

@@ -4,12 +4,38 @@ namespace lib\pagebuilder\tools;
 
 class add
 {
+	private static function call(string $_mode, string $_class, string $_function)
+	{
+		$namespace = '\\lib\\pagebuilder\\%s\\%s\\%s';
+
+		$namespace = sprintf($namespace, $_mode, $_class, $_class);
+
+		if(is_callable([$namespace, $_function]))
+		{
+			return call_user_func([$namespace, $_function]);
+		}
+
+		return false;
+	}
+
+
 	public static function header_list($_args = [])
 	{
 		$list = [];
 
-		$list[] = \lib\pagebuilder\header\h100\h100::detail();
-		$list[] = \lib\pagebuilder\header\h300\h300::detail();
+		$headers = ['h100', 'h300'];
+
+
+		foreach ($headers as $key => $value)
+		{
+			if(self::call('header', $value, 'allow'))
+			{
+				$list[] = self::call('header', $value, 'detail');
+			}
+		}
+
+		// $list[] = \lib\pagebuilder\header\h100\h100::detail();
+		// $list[] = \lib\pagebuilder\header\h300\h300::detail();
 
 
 		return $list;

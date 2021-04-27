@@ -4,6 +4,11 @@ namespace lib\pagebuilder\header\h100;
 
 class h100
 {
+	public static function allow()
+	{
+		return true;
+	}
+
 	public static function detail()
 	{
 		return
