@@ -26,6 +26,10 @@ class datablock
 					return self::draw_simple_slider($_args, $_data);
 				}
 			}
+			elseif($puzzle_type === 'rail')
+			{
+				return rail::draw($_args, $_data);
+			}
 			else
 			{
 				// puzzle mode

@@ -14,6 +14,7 @@
         <select class="select22" name="puzzle_type" id="puzzle_type">
           <option value="puzzle" <?php if(a($lineSetting, 'puzzle',  'puzzle_type') == 'puzzle') { echo 'selected'; } ?> ><?php echo T_("Puzzle mode"); ?></option>
           <option value="slider" <?php if(a($lineSetting, 'puzzle',  'puzzle_type') == 'slider') { echo 'selected'; } ?> ><?php echo T_("Slider mode"); ?></option>
+          <option value="rail" <?php if(a($lineSetting, 'puzzle',  'puzzle_type') == 'rail') { echo 'selected'; } ?> ><?php echo T_("Rail mode"); ?></option>
         </select>
       </div>
   </form>

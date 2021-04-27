@@ -18,7 +18,7 @@ class puzzle
 		$input_condition['puzzle']      = $enum;
 		$input_condition['set_limit']   = 'bit';
 		$input_condition['set_puzzle']  = 'bit';
-		$input_condition['puzzle_type'] = ['enum' => ['puzzle', 'slider']];
+		$input_condition['puzzle_type'] = ['enum' => ['puzzle', 'slider', 'rail']];
 		$input_condition['slider_type'] = ['enum' => ['simple', 'special']];
 		$input_condition['limit']       = 'int';
 
