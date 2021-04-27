@@ -12,6 +12,7 @@ class title
 		$_args['show_title']        = 'yes_no';
 		$_args['more_link']         = ['enum' => ['show', 'hide']];
 		$_args['more_link_caption'] = 'string_100';
+		$_args['more_link_url']     = 'string_200';
 		return $_args;
 	}
 
@@ -48,6 +49,12 @@ class title
 		{
 			$titlesetting['more_link_caption'] = $_data['more_link_caption'];
 			unset($_data['more_link_caption']);
+		}
+
+		if(array_key_exists('more_link_url', $_data))
+		{
+			$titlesetting['more_link_url'] = $_data['more_link_url'];
+			unset($_data['more_link_url']);
 		}
 
 		if(!empty($titlesetting))
@@ -117,8 +124,10 @@ class title
 		$more_link         = a($_args, 'titlesetting', 'more_link');
 		$more_link_caption = a($_args, 'titlesetting', 'more_link_caption');
 
+		$link = a($_args, 'titlesetting', 'more_link_url');
 
-		if($more_link === 'hide' || !$_link)
+
+		if($more_link === 'hide' || !$link)
 		{
 			$html .= '<div class="eTitle">';
 			{
@@ -137,7 +146,7 @@ class title
 				$html .= "</div>";
 				$html .= "<div class='c-auto os'>";
 				{
-					$html .= "<a class='more' href='" . $_link . "'>". $more_link_caption . "</a>";
+					$html .= "<a class='more' href='" . $link . "'>". $more_link_caption . "</a>";
 				}
 				$html .= "</div>";
 			}

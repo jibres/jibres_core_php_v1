@@ -43,6 +43,10 @@
               </div>
             </div>
             <div data-response='more_link' data-response-where='show' <?php if(a($lineSetting, 'titlesetting', 'more_link') === 'show' || !a($lineSetting, 'titlesetting', 'more_link')) {}else{ echo 'data-response-hide';} ?>>
+              <label for="more_link_url"><?php echo T_("Url"); ?></label>
+              <div class="input ltr">
+                <input type="text" name="more_link_url" id="more_link_url" value="<?php echo a($lineSetting, 'titlesetting', 'more_link_url');  ?>"  maxlength="200">
+              </div>
               <label for="more_link_caption"><?php echo T_("Caption of more link"); ?></label>
               <div class="input">
                 <input type="text" name="more_link_caption" id="more_link_caption" placeholder="<?php echo a($lineSetting, 'titlesetting', 'more_link_caption_placeholder') ?>" value="<?php echo a($lineSetting, 'titlesetting', 'more_link_caption');  ?>"  maxlength="200">
@@ -53,7 +57,6 @@
     </div>
   </div>
 </form>
-
 <?php }else{  // url subchild is title ?>
   <section class="f" data-option='website-line-title'>
   <div class="c8 s12">
