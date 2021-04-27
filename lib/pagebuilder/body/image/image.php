@@ -362,8 +362,14 @@ class image
 	{
 		$link = null;
 
+		$data = a($_args, 'detail', 'list');
+
+		$html = '';
+
 		// first draw title
-		$html = \lib\pagebuilder\body\title\title::draw($_args, $link);
+		$html .= \lib\pagebuilder\body\title\title::draw($_args, $link);
+
+		$html .= \lib\pagebuilder\draw\datablock::draw($_args, $data);
 
 		return $html;
 
