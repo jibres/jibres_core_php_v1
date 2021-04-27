@@ -10,13 +10,13 @@ class datablock
 			return null;
 		}
 
-
 		if(isset($_args['puzzle']['puzzle_type']) && $_args['puzzle']['puzzle_type'])
 		{
-			// puzzle type [simple, special]
-			if(isset($_args['puzzle']['slider_type']) && $_args['puzzle']['slider_type'])
+			$puzzle_type = $_args['puzzle']['puzzle_type'];
+
+			if($puzzle_type === 'slider')
 			{
-				if($_args['puzzle']['slider_type'] === 'special')
+				if(isset($_args['puzzle']['slider_type']) && $_args['puzzle']['slider_type'] === 'special')
 				{
 					return self::draw_special_slider($_args, $_data);
 				}
@@ -28,76 +28,73 @@ class datablock
 			}
 			else
 			{
-				// ?
+				// puzzle mode
+				return self::draw_puzzle($_args, $_data);
 			}
-
 		}
 		else
 		{
-
+			// ? return null
 		}
+
+	}
+
+	private static function draw_puzzle($_args, $_data)
+	{
 
 		$dataList = $_data;
 
-		var_dump($_args);exit();
-
-		$_args = a($_args, 'value');
 
 		$html = '<section class="puzzle"';
 		$html .= ' data-mode="'. a($_args, 'type'). '"';
 		$html .= '>';
 		{
-			$html .= '<div class="'. a($_args, 'avand'). '">';
+			$spaceSize  = a($_args, 'padding', 'code');
+
+			$radiusSize = a($_args, 'radius', 'code');
+
+			$effectMode = a($_args, 'effect', 'code');
+
+
+			$html .= '<div class="row"';
+			if($spaceSize)
 			{
-				// get title line if need to show
-				$html .= \lib\app\website\generator\title::html($_args, a($_data, 'line_link'));
-
-				$spaceSize  = a($_args, 'padding');
-
-				$radiusSize = a($_args, 'radius');
-
-				$effectMode = a($_args, 'effect');
-
-
-				$html .= '<div class="row"';
-				if($spaceSize)
-				{
-					$html .= ' data-space="'. $spaceSize. '"';
-				}
-				if($radiusSize)
-				{
-					$html .= ' data-radius="'. $radiusSize. '"';
-				}
-				if($effectMode)
-				{
-					$html .= ' data-effect="'. $effectMode. '"';
-				}
-				$html .= '>';
-				{
-					$html .= self::everyItem($dataList, $_args);
-				}
-				$html .= '</div>';
+				$html .= ' data-space="'. $spaceSize. '"';
+			}
+			if($radiusSize)
+			{
+				$html .= ' data-radius="'. $radiusSize. '"';
+			}
+			if($effectMode)
+			{
+				$html .= ' data-effect="'. $effectMode. '"';
+			}
+			$html .= '>';
+			{
+				$html .= self::everyItem($_args, $dataList);
 			}
 			$html .= '</div>';
+
 		}
 		$html .= '</section>';
 		return $html;
 	}
 
 
-	private static function everyItem($_list, $_args)
+	private static function everyItem($_args, $_list)
 	{
 		$itemHtml = '';
-		$infoPos  = a($_args, 'info_position');
+
+		$infoPos  = a($_args, 'infoposition', 'code');
 
 		foreach ($_list as $key => $value)
 		{
 			$myItem = '';
-			$myPuzzle = \lib\app\website\puzzle::layout($key, $_args);
+			$myPuzzle = \lib\pagebuilder\body\puzzle\puzzle::layout($key, $_args);
 			$myItem .= '<div class="'. a($myPuzzle, 'class'). '">';
 			{
 				$playMode      = a($myPuzzle, 'playMode');
-				$galleryPath0  = a($value, 'gallery_array', 0, 'path');
+
 				// link data
 				$linkTitle  = a($value, 'title');
 				$link       = a($value, 'link');
@@ -130,7 +127,7 @@ class datablock
 					}
 					else
 					{
-						$imgSrc = a($value, 'thumb');
+						$imgSrc = a($value, 'imageurl');
 						if($imgSrc)
 						{
 							$myItem .= media::createPictureEl($imgSrc, $linkTitle);

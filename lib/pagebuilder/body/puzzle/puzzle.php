@@ -226,8 +226,9 @@ class puzzle
 
 	public static function layout($_index, $_line_detail)
 	{
-		$puzzle    = a($_line_detail, 'puzzle');
-		$limit     = a($_line_detail, 'limit');
+
+		$puzzle    = a($_line_detail, 'puzzle', 'code');
+		$limit     = a($_line_detail, 'puzzle', 'limit');
 		$play_item = a($_line_detail, 'play_item');
 
 		if(!$limit || !is_numeric($limit))

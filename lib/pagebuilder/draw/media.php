@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\website\generator;
+namespace lib\pagebuilder\draw;
 
 class media
 {
