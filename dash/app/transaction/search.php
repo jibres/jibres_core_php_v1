@@ -54,7 +54,8 @@ class search
 				 (
 				 	transactions.verify =  0 AND
 				 	transactions.condition = 'verify_error' AND
-				 	transactions.payment = 'zarinpal'
+				 	transactions.payment = 'zarinpal' AND
+				 	(transactions.payment_response3 IS NULL OR transactions.payment_response3 = '' OR transactions.payment_response3 = '[]' )
 				 )
 				)
 			";

@@ -31,6 +31,13 @@ class model
 			return false;
 		}
 
+
+		if(\dash\request::post('check') === 'again')
+		{
+			\dash\app\transaction\edit::verify_again(\dash\request::post('id'));
+			return;
+		}
+
 		$meta =
 		[
 			'turn_back' => \dash\url::pwd(),

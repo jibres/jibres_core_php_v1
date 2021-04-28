@@ -73,5 +73,43 @@ class back
             }
         }
     }
+
+
+
+    public static function verify_again($_args, $_id)
+    {
+        if(!\dash\setting\zarinpal::get('status'))
+        {
+            \dash\notif::error(T_("The zarinpal payment on this service is locked"));
+            return false;
+        }
+
+        if(!\dash\setting\zarinpal::get('MerchantID'))
+        {
+            \dash\notif::error(T_("The zarinpal payment MerchantID not set"));
+            return false;
+        }
+
+        $zarinpal               = [];
+        $zarinpal['MerchantID'] = \dash\setting\zarinpal::get('MerchantID');
+        $zarinpal['Authority']  = a($_args, 'Authority');
+        $zarinpal['Amount']     = a($_args, 'amount');
+
+        $is_ok = \dash\utility\pay\api\zarinpal\bank::verify($zarinpal);
+
+        $payment_response = \dash\utility\pay\api\zarinpal\bank::$payment_response;
+
+        $result                      = [];
+        $result['payment_response3'] = $payment_response;
+
+        if($is_ok)
+        {
+            $result['ok']                = true;
+            $result['condition']         = 'ok';
+        }
+
+        return $result;
+
+    }
 }
 ?>

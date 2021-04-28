@@ -71,6 +71,19 @@ class transaction
 			}
 		}
 
+
+		if(
+			!a($result, 'verify') &&
+			a($result, 'payment') === 'zarinpal' &&
+			(
+				(is_array(a($result, 'payment_response3')) && empty($result['payment_response3'])) ||
+				!a($result, 'payment_response3')
+			)
+		)
+		{
+			$result['verify_again'] = true;
+		}
+
 		if(\dash\temp::get('isApi'))
 		{
 			unset($result['user_id']);

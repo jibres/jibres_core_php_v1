@@ -36,7 +36,7 @@
 <?php foreach (\dash\data::history() as $key => $value) {?>
       <li>
          <a class="item f align-center"<?php
-if(a($value, 'token'))
+if(a($value, 'token') && !a($value, 'verify_again'))
 {
   echo 'href="';
   echo \dash\url::kingdom(). '/pay/'. a($value, 'token');
@@ -49,8 +49,11 @@ if(a($value, 'token'))
 <?php }else{ ?>
           <i class="sf-times fc-red"></i>
 <?php } //endif ?>
-          <div class="key"><?php echo a($value, 'title'); ?></div>
-
+          <div class="key"><?php echo a($value, 'title'); ?>
+          </div>
+          <?php if(a($value, 'verify_again')){?>
+            <div class="value" data-ajaxify data-data='{"check": "again", "id" : "<?php echo a($value, 'id') ?>" <?php echo \dash\csrf::get_json(true) ?>}'><span class="btn link"><?php echo T_("Check verify again"); ?></span></div>
+          <?php }// endif ?>
 <?php
 if(isset($value['plus']) && $value['plus'])
 {
