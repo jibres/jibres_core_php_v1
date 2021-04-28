@@ -77,7 +77,7 @@ class transaction
 			a($result, 'payment') === 'zarinpal' &&
 			(
 				(is_array(a($result, 'payment_response3')) && empty($result['payment_response3'])) ||
-				!a($result, 'payment_response3') || true
+				!a($result, 'payment_response3') || a($result, 'payment_response3') == '[]' || a($result, 'payment_response3') == '{}'
 			)
 		)
 		{
