@@ -15,11 +15,7 @@ class model
 			return false;
 		}
 
-		$meta            = [];
-		$meta['user_id'] = \dash\user::id();
-		$meta['verify']  = 1;
-
-		$billing_history = \dash\db\transactions::search(null, $meta);
+		$billing_history = \dash\app\transaction\search::user_history(\dash\user::id());
 
 		return $billing_history;
 	}
