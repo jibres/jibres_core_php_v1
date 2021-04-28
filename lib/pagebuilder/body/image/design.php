@@ -7,8 +7,10 @@ if(!is_array($images))
 {
   $images = [];
 }
-
 ?>
+<?php if(a($lineSetting, 'puzzle',  'slider_type') == 'special' && count($images) < 5) { ?>
+  <span class="msg warn2"><?php echo T_("There must be at least 5 items in your list to display this model") ?></span>
+<?php } //endif ?>
 <form method="post">
   <div class="row" data-sortable>
     <?php foreach ($images as $key => $value) {?>
