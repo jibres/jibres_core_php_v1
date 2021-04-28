@@ -12,6 +12,12 @@ class ratio
 
 		$list           = \lib\ratio::list();
 
+		// set default ratio
+		if(isset($list['1:1']))
+		{
+			$list['1:1']['default'] = true;
+		}
+
 		return $list;
 
 	}

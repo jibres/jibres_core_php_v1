@@ -1,3 +1,10 @@
+<?php
+$ratio = \dash\data::lineSetting_ratio();
+if(a($ratio, 'code'))
+{
+  \lib\ratio::data_ratio_html(a($ratio, 'code'));
+}
+?>
 <div class="avand-sm">
   <form method="post" autocomplete="off" >
     <div class="box">
