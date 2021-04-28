@@ -63,7 +63,7 @@ trait enum_variable
 		foreach ($list as $key => $value)
 		{
 			$result.= '<option value="'. $key. '"';
-			if($key == $_current_data || (!$_current_data && $value['default']))
+			if($key == $_current_data || (!$_current_data && $_current_data != '0' && $value['default']))
 			{
 				$result .= ' selected';
 			}
@@ -114,7 +114,7 @@ trait enum_variable
 
 	public static function ready($_data)
 	{
-		if(isset($_data[self::$variable_name]) && is_string($_data[self::$variable_name]))
+		if(isset($_data[self::$variable_name]) && (is_string($_data[self::$variable_name]) || is_numeric($_data[self::$variable_name])))
 		{
 			$variable = json_decode($_data[self::$variable_name], true);
 
