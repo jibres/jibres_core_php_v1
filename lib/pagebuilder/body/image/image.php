@@ -162,6 +162,16 @@ class image
 				{
 					$_data['detail']['list'][$key]['imageurl'] = \lib\filepath::fix($value['image']);
 				}
+
+				if(isset($value['alt']))
+				{
+					$_data['detail']['list'][$key]['title'] = $value['alt'];
+				}
+
+				if(isset($value['url']))
+				{
+					$_data['detail']['list'][$key]['link'] = $value['url'];
+				}
 			}
 		}
 
@@ -241,6 +251,8 @@ class image
 			foreach ($image['list'] as $key => $value)
 			{
 				unset($image['list'][$key]['imageurl']);
+				unset($image['list'][$key]['title']);
+				unset($image['list'][$key]['link']);
 			}
 		}
 
