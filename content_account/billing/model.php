@@ -34,8 +34,11 @@ class model
 
 		if(\dash\request::post('check') === 'again')
 		{
-			\dash\app\transaction\edit::verify_again(\dash\request::post('id'));
-			return;
+			$result = \dash\app\transaction\edit::verify_again(\dash\request::post('id'));
+			if($result)
+			{
+				\dash\redirect::pwd();
+			}
 		}
 
 		$meta =
