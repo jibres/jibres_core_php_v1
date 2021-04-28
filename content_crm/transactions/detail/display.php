@@ -68,5 +68,19 @@
      </li>
 
   <?php } //endif ?>
+
   </ul>
 </nav>
+
+<?php if(a(\dash\data::dataRow(), 'verify_again')) {?>
+<nav class="items">
+  <ul>
+    <li>
+      <div class="f item" data-ajaxify data-data='{"check" : "again"}'>
+        <div class="key"><?php echo T_("Verify again") ?></div>
+        <div class="go "></div>
+      </div>
+     </li>
+  </ul>
+</nav>
+<?php } //endif ?>
