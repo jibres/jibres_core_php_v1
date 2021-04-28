@@ -102,30 +102,35 @@ class rail
 				$html .= $title;
 				$html .= '</div>';
 			}
-			// show price line
-			$html .= '<footer class="f">';
+
+			if($allow_shop)
 			{
-					$html .= '<span class="unit cauto">';
 
-					if($price)
-					{
-						$html .= $currency;
-					}
-
-					$html .= '</span>';
-
-					$html .= '<span class="price c">';
-					$html .= $price;
-					$html .= '</span>';
-
-				if($discount)
+				// show price line
+				$html .= '<footer class="f">';
 				{
-					$html .= '<del class="compareAtPrice cauto os">';
-					$html .= $compareAtPrice;
-					$html .= '</del>';
+						$html .= '<span class="unit cauto">';
+
+						if($price)
+						{
+							$html .= $currency;
+						}
+
+						$html .= '</span>';
+
+						$html .= '<span class="price c">';
+						$html .= $price;
+						$html .= '</span>';
+
+					if($discount)
+					{
+						$html .= '<del class="compareAtPrice cauto os">';
+						$html .= $compareAtPrice;
+						$html .= '</del>';
+					}
 				}
+				$html .= '</footer>';
 			}
-			$html .= '</footer>';
 
 		}
 		$html .= '</a>';
