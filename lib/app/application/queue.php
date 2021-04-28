@@ -117,8 +117,12 @@ class queue
 
 	private static function check_detail_from_setting($_new_detail = null)
 	{
+
 		if($_new_detail === null)
 		{
+			return false;
+			// need to fix later
+
 			$app_queue_detail = \lib\db\setting\get::platform_cat_key('android', 'application', 'queue_detail');
 
 			if(isset($app_queue_detail['value']) && is_string($app_queue_detail['value']))
@@ -148,11 +152,15 @@ class queue
 
 	private static function check_detail_from_file($_new_detail = null)
 	{
+
 		$app_queue_detail_folder = YARD . 'jibres_temp/app/';
 		$app_queue_detail_addr = $app_queue_detail_folder . \lib\store::id();
 
 		if($_new_detail === null)
 		{
+			// need to fix later
+			return false;
+
 			if(is_file($app_queue_detail_addr))
 			{
 				$app_queue_detail = json_decode(\dash\file::read($app_queue_detail_addr), true);
