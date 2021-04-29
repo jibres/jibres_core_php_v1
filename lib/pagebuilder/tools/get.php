@@ -76,6 +76,11 @@ class get
 
 		$post_detail = self::load_post_detail($id);
 
+		if(!$post_detail)
+		{
+			return false;
+		}
+
 		$pid = \dash\validate::id($_pid);
 
 		if(!$pid)
