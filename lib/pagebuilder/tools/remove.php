@@ -22,6 +22,12 @@ class remove
 			return false;
 		}
 
+		if(isset($load['ishomepage']) && $load['ishomepage'])
+		{
+			\dash\notif::error(T_("Can not remove homepage"));
+			return false;
+		}
+
 		\lib\db\pagebuilder\delete::page_compelet($id);
 
 		\dash\notif::ok(T_("Page successfully removed"));

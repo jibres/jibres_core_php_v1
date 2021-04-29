@@ -100,6 +100,7 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
 
 
 
+<?php if(!\dash\data::dataRow_ishomepage()) {?>
 <section class="f" data-option='cms-post-remove'>
   <div class="c8 s12">
     <div class="data">
@@ -114,4 +115,4 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
     </div>
   </div>
 </section>
-
+<?php } //endif ?>
