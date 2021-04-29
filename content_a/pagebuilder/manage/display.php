@@ -5,6 +5,7 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
 \dash\data::dataRow($dataRow);
 
 ?>
+<?php if(!\dash\data::dataRow_ishomepage()) {?>
 <section class="f" data-option='cms-post-seo'>
   <div class="c8 s12">
     <div class="data">
@@ -20,6 +21,7 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
     </div>
   </div>
 </section>
+<?php } //endif ?>
 
 <?php if(\dash\data::dataRow_ishomepage()) {?>
 
@@ -88,29 +90,30 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
 
 
 
+<?php if(!\dash\data::dataRow_ishomepage()) {?>
 <section class="f" data-option='cms-post-set-as-homepage'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Set as homepage");?></h3>
       <div class="body">
         <p><?php echo T_("You can set this page as your business home page") ?></p>
+        <?php if(\dash\data::dataRow_status() !== 'publish') { ?>
+        <div class="msg minimal"><?php echo T_("To set this page as your website homepage publish it first") ?></div>
+        <?php } // endif ?>
       </div>
     </div>
   </div>
   <div class="c4 s12">
     <div class="action">
       <?php if(\dash\data::dataRow_status() !== 'publish') { ?>
-        <div><?php echo T_("First publish the page") ?></div>
-      <?php }else{ ?>
-        <?php if(\dash\data::dataRow_ishomepage()) {?>
-          <div class="fc-green"><?php echo T_("This page is homepage") ?></div>
+        <button class="btn disabled"><?php echo T_("Set as homepage"); ?></button>
         <?php }else{ ?>
         <button data-confirm data-data='{"setas": "homepage"}' class="btn master"><?php echo T_("Set as homepage"); ?></button>
         <?php } //endif ?>
-      <?php } //endif ?>
     </div>
   </div>
 </section>
+<?php } //endif ?>
 
 
 
