@@ -58,6 +58,22 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
   </form>
 </section>
 
+<section class="f" data-option='website-advance-staticfile'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Static file verification");?></h3>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a href="<?php echo \dash\url::here(); ?>/setting/staticfile" class="btn secondary"><?php echo T_("Config") ?></a>
+    </div>
+  </div>
+</section>
+
 <?php }else{ ?>
 
 <section class="f" data-option='cms-post-status'>
