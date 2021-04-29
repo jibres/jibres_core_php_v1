@@ -107,7 +107,7 @@ class news
 
 	public static function input_condition($_args = [])
 	{
-		$_args['tag_id']    = 'code';
+		$_args['tag_id']    = 'code_0';
 		$_args['subtype']   = ['enum' => ['any', 'standard', 'gallery', 'video', 'audio']];
 		$_args['play_item'] = ['enum' => ['none', 'first', 'all']];
 
