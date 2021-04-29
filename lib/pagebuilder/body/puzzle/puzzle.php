@@ -116,10 +116,22 @@ class puzzle
 
 		$default['puzzle_type'] = 'puzzle';
 
+		$element = null;
 
 		if(isset($_data['key']) && $_data['key'] && is_string($_data['key']))
 		{
-			$default_value = \lib\pagebuilder\tools\tools::call_fn('body', $_data['key'], 'default_value');
+			$element = $_data['key'];
+		}
+
+		if(isset($_data['type']) && $_data['type'] && is_string($_data['type']))
+		{
+			$element = $_data['type'];
+		}
+
+		if($element)
+		{
+			$default_value = \lib\pagebuilder\tools\tools::call_fn('body', $element, 'default_value');
+
 			if(isset($default_value['puzzle']) && is_array($default_value['puzzle']))
 			{
 				$default = array_merge($default, $default_value['puzzle']);
@@ -133,6 +145,11 @@ class puzzle
 			if(!is_array($puzzle))
 			{
 				$puzzle = []; // the default value
+			}
+
+			if(!a($puzzle, 'limit') && a($default, 'limit'))
+			{
+				$puzzle['limit'] = $default['limit'];
 			}
 
 		}
