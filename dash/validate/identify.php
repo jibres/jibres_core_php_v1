@@ -57,6 +57,18 @@ class identify
 		return $data;
 	}
 
+	public static function code_0($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		if(( is_string($_data) || is_numeric($_data) ) && (string) $_data === '0')
+		{
+			return null;
+		}
+
+		return self::code(...func_get_args());
+
+	}
+
+
 
 	public static function id_code($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
