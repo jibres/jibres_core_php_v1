@@ -157,5 +157,49 @@ class products
 		return $_data;
 
 	}
+
+	public static function draw($_args)
+	{
+		$link = null;
+
+		$line_detail =
+		[
+			'value' =>
+			[
+
+				'productline' =>
+				[
+					'type'   => a($_args, 'detail', 'type'),
+					'cat_id' => a($_args, 'detail', 'cat_id'),
+				],
+			],
+		];
+
+		$data = \lib\app\product\search::website_product_list($line_detail);
+
+		if(!is_array($data))
+		{
+			$data = [];
+		}
+
+
+		foreach ($data as $key => $value)
+		{
+			if(isset($value['thumb']))
+			{
+				$data[$key]['imageurl'] = $value['thumb'];
+			}
+		}
+
+		$html = '';
+
+		// first draw title
+		$html .= \lib\pagebuilder\body\title\title::draw($_args, $link);
+
+		$html .= \lib\pagebuilder\draw\datablock::draw($_args, $data);
+
+		return $html;
+
+	}
 }
 ?>
