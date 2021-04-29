@@ -68,7 +68,7 @@ class model
 
 		if(!empty($post))
 		{
-			$post_detail = \lib\pagebuilder\tools\current_post::edit($post, \dash\request::get('id'));
+			$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'));
 
 			if(\dash\engine\process::status())
 			{

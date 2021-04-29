@@ -35,12 +35,5 @@ class current_post
 		return $ready;
 	}
 
-
-
-	public static function edit($_args, $_id)
-	{
-		var_dump($_args, $_id);
-		exit();
-	}
 }
 ?>

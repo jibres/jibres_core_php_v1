@@ -38,16 +38,16 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
        <div>
 
         <div class="radio1 green">
-          <input type="radio" name="template" value="publish" id="templatepublish" <?php if(\dash\data::dataRow_template() === 'publish') {echo 'checked';} ?>>
+          <input type="radio" name="template" value="publish" id="templatepublish" <?php if(a(\dash\data::dataRow(), 'meta', 'template') === 'publish') {echo 'checked';} ?>>
           <label for="templatepublish"><?php echo T_("Customize page"); ?></label>
         </div>
         <div class="radio1 blue">
-          <input type="radio" name="template" value="visitcard" id="templatevisitcard" <?php if(\dash\data::dataRow_template() === 'visitcard') {echo 'checked';} ?>>
+          <input type="radio" name="template" value="visitcard" id="templatevisitcard" <?php if(a(\dash\data::dataRow(), 'meta', 'template') === 'visitcard') {echo 'checked';} ?>>
           <label for="templatevisitcard"><?php echo T_("Visit Card website"); ?></label>
         </div>
 
         <div class="radio1 black">
-          <input type="radio" name="template" value="comingsoon" id="templatecomingsoon" <?php if(\dash\data::dataRow_template() === 'comingsoon') {echo 'checked';} ?>>
+          <input type="radio" name="template" value="comingsoon" id="templatecomingsoon" <?php if(a(\dash\data::dataRow(), 'meta', 'template') === 'comingsoon') {echo 'checked';} ?>>
           <label for="templatecomingsoon"><?php echo T_("Coming Soon page"); ?></label>
         </div>
 

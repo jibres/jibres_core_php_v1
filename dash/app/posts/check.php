@@ -36,6 +36,9 @@ class check
 			'tags'            => 'tag',
 			'set_publishdate' => 'bit',
 			'set_seo'         => 'bit',
+
+			// just for pagebuilder
+			'template' => ['enum' => ['publish', 'visitcard', 'comingsoon']],
 		];
 
 		$require = ['title'];
@@ -318,10 +321,24 @@ class check
 			\dash\permission::access('cmsPostPublisher');
 		}
 
+		if($data['template'])
+		{
+			$meta = [];
+			$meta['template'] = $data['template'];
+
+			$data['meta'] = json_encode($meta);
+
+			\dash\temp::set('exception_post_meta', true);
+		}
+
+
 		unset($data['publishtime']);
 		unset($data['creator']);
 		unset($data['tagurl']);
 		unset($data['set_seo']);
+		unset($data['template']);
+
+
 
 
 		return $data;

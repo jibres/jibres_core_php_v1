@@ -53,6 +53,12 @@ class edit
 			$exception[] = 'publishdate';
 		}
 
+		if(\dash\temp::get('exception_post_meta'))
+		{
+			$exception[] = 'meta';
+		}
+
+
 		$tags = [];
 		if($args['tags'])
 		{

@@ -71,6 +71,7 @@ class ready
 					break;
 
 				case 'analyzecontent':
+				case 'meta':
 					if($value && is_string($value))
 					{
 						$value = json_decode($value, true);
