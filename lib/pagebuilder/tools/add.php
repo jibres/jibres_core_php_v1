@@ -64,6 +64,7 @@ class add
 	{
 		$headers =
 		[
+			'rafiei',
 			'h100',
 			'h300',
 		];
@@ -109,6 +110,7 @@ class add
 	{
 		$footer =
 		[
+			'rafiei',
 			'f100',
 			'f201',
 			'f300',
