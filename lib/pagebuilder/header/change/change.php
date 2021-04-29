@@ -26,6 +26,14 @@ class change
 		{
 			$_data['type'] = $_data['key'];
 
+
+			if(!\lib\pagebuilder\tools\tools::call_fn('header', $_data['key'], 'allow'))
+			{
+				\dash\notif::error(T_("Can not choose this header"));
+				return false;
+			}
+
+
 			$_data['title'] = \lib\pagebuilder\tools\tools::get_element_title('header', $_data['key']);
 
 			\lib\pagebuilder\tools\tools::input_exception('type');

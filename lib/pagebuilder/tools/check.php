@@ -59,6 +59,11 @@ class check
 			if(is_callable($fn))
 			{
 				$data = call_user_func_array($fn, [$data, $_saved_detail]);
+
+				if(!\dash\engine\process::status())
+				{
+					return false;
+				}
 			}
 		}
 

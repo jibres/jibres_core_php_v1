@@ -6,29 +6,6 @@ class add
 {
 
 	/**
-	 * Call function
-	 *
-	 * @param      string  $_mode      The mode
-	 * @param      string  $_class     The class
-	 * @param      string  $_function  The function
-	 *
-	 * @return     bool    ( description_of_the_return_value )
-	 */
-	private static function call(string $_mode, string $_class, string $_function)
-	{
-		$namespace = '\\lib\\pagebuilder\\%s\\%s\\%s';
-
-		$namespace = sprintf($namespace, $_mode, $_class, $_class);
-
-		if(is_callable([$namespace, $_function]))
-		{
-			return call_user_func([$namespace, $_function]);
-		}
-
-		return false;
-	}
-
-	/**
 	 * Loads a list.
 	 * Checl allow to load list and if have permission load it
 	 *
@@ -43,9 +20,9 @@ class add
 
 		foreach ($_list as $key => $value)
 		{
-			if(self::call($_mode, $value, 'allow'))
+			if(\lib\pagebuilder\tools\tools::call_fn($_mode, $value, 'allow'))
 			{
-				$list[] = self::call($_mode, $value, 'detail');
+				$list[] = \lib\pagebuilder\tools\tools::call_fn($_mode, $value, 'detail');
 			}
 		}
 
@@ -137,22 +114,14 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists('homepage', 'header');
+		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists(self::current_post_id(), 'header');
 
 		if(isset($check_header_exists['id']))
 		{
-			$load_element = \lib\pagebuilder\tools\get::load_element($check_header_exists['type'], \dash\request::get('id'), $check_header_exists['id']);
-			$args =
-			[
-				'key'   => $element['key'],
-			];
+			\dash\notif::warn(T_("This page header was choose before"));
 
-			$result = \lib\pagebuilder\tools\edit::edit($load_element, $args);
-
-			if(isset($result['url']))
-			{
-				$result['url'] = \dash\url::this(). '/build/'. $element['key']. \dash\request::full_get(['pid' => $check_header_exists['id']]);
-			}
+			$url           = [];
+			$result['url'] = \dash\url::this(). '/build/'. $check_header_exists['type']. \dash\request::full_get(['pid' => $check_header_exists['id']]);
 
 			return $result;
 
@@ -180,22 +149,16 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists('homepage', 'footer');
+		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists(self::current_post_id() , 'footer');
 
 		if(isset($check_footer_exists['id']))
 		{
-			$load_element = \lib\pagebuilder\tools\get::load_element($check_footer_exists['type'], \dash\request::get('id'), $check_footer_exists['id']);
-			$args =
-			[
-				'key'   => $element['key'],
-			];
+			\dash\notif::warn(T_("This page footer was choose before"));
 
-			$result = \lib\pagebuilder\tools\edit::edit($load_element, $args);
+			$url           = [];
+			$result['url'] = \dash\url::this(). '/build/'. $check_footer_exists['type']. \dash\request::full_get(['pid' => $check_footer_exists['id']]);
 
-			if(isset($result['url']))
-			{
-				$result['url'] = \dash\url::this(). '/build/'. $element['key']. \dash\request::full_get(['pid' => $check_footer_exists['id']]);
-			}
+			return $result;
 
 			return $result;
 
@@ -223,11 +186,24 @@ class add
 	}
 
 
-	private static function add($_mode, $_element, $_args = [])
+	private static function current_post_id()
 	{
 		$id = \dash\request::get('id');
 		$id = \dash\validate::code($id);
 		$id = \dash\coding::decode($id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		return $id;
+	}
+
+
+	private static function add($_mode, $_element, $_args = [])
+	{
+		$id = self::current_post_id();
+
 		if(!$id)
 		{
 			return false;

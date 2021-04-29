@@ -13,9 +13,9 @@ class get
 	}
 
 
-	public static function header_footer_exists(string $_related, string $_mode)
+	public static function header_footer_exists($_related_id, string $_mode)
 	{
-		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related = '$_related' AND pagebuilder.mode = '$_mode'  LIMIT 1";
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = '$_related_id' AND pagebuilder.mode = '$_mode'  LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

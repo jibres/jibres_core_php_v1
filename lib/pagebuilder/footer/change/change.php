@@ -26,6 +26,12 @@ class change
 		{
 			$_data['type'] = $_data['key'];
 
+			if(!\lib\pagebuilder\tools\tools::call_fn('footer', $_data['key'], 'allow'))
+			{
+				\dash\notif::error(T_("Can not choose this footer"));
+				return false;
+			}
+
 			$_data['title'] = \lib\pagebuilder\tools\tools::get_element_title('footer', $_data['key']);
 
 			\lib\pagebuilder\tools\tools::input_exception('type');
