@@ -86,6 +86,7 @@ class generate2
 	}
 
 
+    private static $loaded_menu = [];
     public static function menu($_menu_id, $_class = null)
     {
 
@@ -94,7 +95,16 @@ class generate2
         $menu_id = $_menu_id;
 
         $max_level = 1; // load maximum level
-        $load_menu = \lib\app\menu\get::load_menu($menu_id, $max_level);
+
+        if(isset(self::$loaded_menu[$menu_id]))
+        {
+            $load_menu = self::$loaded_menu[$menu_id];
+        }
+        else
+        {
+            $load_menu = \lib\app\menu\get::load_menu($menu_id, $max_level);
+            self::$loaded_menu[$menu_id] = $load_menu;
+        }
 
         if(!$load_menu)
         {
