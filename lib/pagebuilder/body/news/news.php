@@ -33,6 +33,10 @@ class news
 				'show_title' => 'yes',
 				'more_link'  => 'show'
 			],
+			'puzzle' =>
+			[
+				'limit' => 8
+			]
 		];
 
 	}
@@ -176,6 +180,54 @@ class news
 		unset($_data['play_item']);
 
 		return $_data;
+
+	}
+
+	public static function draw($_args)
+	{
+		$link = null;
+
+		$line_detail =
+		[
+			'value' =>
+			[
+				'title'     => a($_args, 'title'),
+				'tag_id'    => a($_args, 'detail', 'tag_id'),
+				'subtype'   => a($_args, 'detail', 'subtype'),
+				'limit'     => a($_args, 'puzzle', 'limit'),
+				'line_link' => a($_args, 'titlesetting', 'more_link_url'),
+			],
+		];
+
+		$data = \dash\app\posts\load::template($line_detail);
+
+		if(isset($data['list']))
+		{
+			$data = $data['list'];
+		}
+
+		if(!is_array($data))
+		{
+			$data = [];
+		}
+
+
+		foreach ($data as $key => $value)
+		{
+			if(isset($value['thumb']))
+			{
+				$data[$key]['imageurl'] = $value['thumb'];
+			}
+		}
+
+		$html = '';
+
+		// first draw title
+		$html .= \lib\pagebuilder\body\title\title::draw($_args, $link);
+
+		$html .= \lib\pagebuilder\draw\datablock::draw($_args, $data);
+
+		return $html;
 
 	}
 }
