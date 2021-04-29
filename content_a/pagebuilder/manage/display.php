@@ -31,6 +31,31 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
   </form>
 </section>
 
+
+<?php if(!\dash\data::dataRow_ishomepage()) {?>
+<section class="f" data-option='cms-post-set-as-homepage'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set as homepage");?></h3>
+      <div class="body">
+        <p><?php echo T_("You can set this page as your business home page") ?></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <?php if(\dash\data::dataRow_status() !== 'publish') { ?>
+        <div><?php echo T_("First publish the page") ?></div>
+      <?php }else{ ?>
+        <button data-confirm data-data='{"setas": "homepage"}' class="btn master"><?php echo T_("Set as homepage"); ?></button>
+      <?php } //endif ?>
+    </div>
+  </div>
+</section>
+<?php } //endif ?>
+
+
+
 <form method="post" autocomplete="off">
   <section class="f" data-option='cms-post-title'>
     <div class="c8 s12">

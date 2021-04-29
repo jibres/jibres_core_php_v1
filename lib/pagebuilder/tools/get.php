@@ -58,6 +58,11 @@ class get
 		// load post detail
 		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
 
+		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(\lib\store::detail('homepage_builder_post_id')))
+		{
+			$post_detail['ishomepage'] = true;
+		}
+
 		$ready = \dash\app\posts\ready::row($post_detail);
 
 		return $ready;

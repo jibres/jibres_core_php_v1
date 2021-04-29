@@ -52,6 +52,7 @@ class page
 		{
 			$page_id          = null;
 			$homepage_builder = true;
+
 		}
 
 		$args = [];

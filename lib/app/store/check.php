@@ -46,6 +46,8 @@ class check
 
 			'enterdisallow'                       => 'bit',
 			'entersignupdisallow'                 => 'bit',
+
+			'homepage_builder_post_id'            => 'id',
 		];
 
 		$require = ['title'];
