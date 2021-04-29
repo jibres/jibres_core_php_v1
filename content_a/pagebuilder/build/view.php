@@ -76,7 +76,7 @@ class view
 			if(isset($current_page['current_page']) && $current_page['current_page'] === 'title')
 			{
 				\dash\face::btnSave('form1');
-				\dash\face::title(T_('Edit element title'));
+				\dash\face::title(T_('Edit title'));
 			}
 
 			if(isset($current_page_detail['btn_advance']))
