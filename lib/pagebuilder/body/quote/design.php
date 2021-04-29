@@ -15,7 +15,8 @@ if(!is_array($images))
     <?php foreach ($images as $key => $value) {?>
     <div class="c-3 c-xs-12">
       <div class="card">
-        <div class="img"><img class="avatar" src="<?php echo a($value, 'imageurl') ?>" alt="<?php echo a($value, 'displayname') ?>"></div>
+        <input type="hidden" class="hide" name="sort[]" value="<?php echo $key; ?>">
+        <div class="img" data-handle><img class="avatar" src="<?php echo a($value, 'imageurl') ?>" alt="<?php echo a($value, 'displayname') ?>"></div>
         <div class="body">
           <header>
             <div class="mB10 font-12"><?php echo a($value, 'displayname'); ?> <small><?php echo a($value, 'job'); ?></small></div>

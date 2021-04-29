@@ -249,11 +249,11 @@ class quote
 	{
 		$quote = [];
 
-		$image_path = null;
+		$quote_path = null;
 
 		if(\dash\request::files('image'))
 		{
-			$image_path = \dash\upload\website::upload_image('image');
+			$quote_path = \dash\upload\website::upload_image('image');
 
 			if(!\dash\engine\process::status())
 			{
@@ -267,7 +267,7 @@ class quote
 			{
 				if(isset($_saved_detail['detail']['list'][self::$quote_comment_id]['image']))
 				{
-					$image_path = $_saved_detail['detail']['list'][self::$quote_comment_id]['image'];
+					$quote_path = $_saved_detail['detail']['list'][self::$quote_comment_id]['image'];
 				}
 			}
 		}
@@ -298,42 +298,45 @@ class quote
 
 		if($current_page === '_set_sort')
 		{
-			// if(!$quote || !is_array(a($quote, 'list')))
-			// {
-			// 	\dash\notif::error(T_("No item to sort"));
-			// 	return false;
-			// }
+			if(!$quote || !is_array(a($quote, 'list')))
+			{
+				\dash\notif::error(T_("No item to sort"));
+				return false;
+			}
 
-			// $sort = $_data['sort'];
-			// $sort = array_map('intval', $sort);
+			$sort = $_data['sort'];
+			$sort = array_map('intval', $sort);
 
-			// foreach ($sort as $new_index => $old_index)
-			// {
-			// 	if(!array_key_exists($old_index, $quote['list']))
-			// 	{
-			// 		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
-			// 		return;
-			// 	}
+			foreach ($sort as $new_index => $old_index)
+			{
+				if(!array_key_exists($old_index, $quote['list']))
+				{
+					\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
+					return;
+				}
 
-			// 	$quote['list'][$old_index]['sort'] = $new_index;
-			// }
+				$quote['list'][$old_index]['sort'] = $new_index;
+			}
 
 
-			// $sort_column = array_column($quote['list'], 'sort');
+			$sort_column = array_column($quote['list'], 'sort');
 
-			// if(count($sort_column) !== count($quote['list']))
-			// {
-			// 	\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
-			// 	return;
-			// }
+			if(count($sort_column) !== count($quote['list']))
+			{
+				\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
+				return;
+			}
 
-			// $my_sorted_list = $quote['list'];
+			$my_sorted_list = $quote['list'];
 
-			// array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+			array_multisort($my_sorted_list, SORT_ASC, SORT_NUMERIC, $sort_column);
 
-			// $my_sorted_list = array_values($my_sorted_list);
+			$my_sorted_list = array_values($my_sorted_list);
 
-			// $quote['list'] = $my_sorted_list;
+			$my_sorted_list = array_combine(array_column($my_sorted_list, 'comment_id'), $my_sorted_list);
+
+			$quote['list'] = $my_sorted_list;
+
 		}
 		elseif($current_page === 'edit')
 		{
@@ -364,7 +367,7 @@ class quote
 				$quote['list'][self::$quote_comment_id] =
 				[
 					'comment_id' => self::$quote_comment_id,
-					'image'      => $image_path,
+					'image'      => $quote_path,
 					'job'        => $_data['job'],
 					'sort'       => $_data['sort'],
 				];
@@ -406,7 +409,7 @@ class quote
 			$quote['list'][$comment_id] =
 			[
 				'comment_id' => $comment_id,
-				'image'      => $image_path,
+				'image'      => $quote_path,
 				'job'        => $_data['job'],
 				'sort'       => $_data['sort'],
 			];
