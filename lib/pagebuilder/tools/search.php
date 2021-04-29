@@ -26,7 +26,7 @@ class search
 			return false;
 		}
 
-		$post_detail = \lib\pagebuilder\tools\get::load_post_detail($id);
+		$post_detail = \lib\pagebuilder\tools\current_post::load($id);
 
 		$list = \lib\db\pagebuilder\get::line_list($id);
 

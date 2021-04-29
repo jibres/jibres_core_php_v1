@@ -16,7 +16,7 @@ class homepage
 			return false;
 		}
 
-		$load_post_detail = \lib\pagebuilder\tools\get::load_post_detail($post_id);
+		$load_post_detail = \lib\pagebuilder\tools\current_post::load($post_id);
 
 		if(!$load_post_detail)
 		{

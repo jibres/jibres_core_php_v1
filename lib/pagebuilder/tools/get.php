@@ -53,22 +53,6 @@ class get
 	}
 
 
-	public static function load_post_detail($_id)
-	{
-		// load post detail
-		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
-
-		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(\lib\store::detail('homepage_builder_post_id')))
-		{
-			$post_detail['ishomepage'] = true;
-		}
-
-		$ready = \dash\app\posts\ready::row($post_detail);
-
-		return $ready;
-	}
-
-
 
 	public static function load_element($_element, $_id, $_pid, $_args = [])
 	{
@@ -79,7 +63,7 @@ class get
 			return false;
 		}
 
-		$post_detail = self::load_post_detail($id);
+		$post_detail = \lib\pagebuilder\tools\current_post::load($id);
 
 		if(!$post_detail)
 		{

@@ -14,7 +14,7 @@ class remove
 			return false;
 		}
 
-		$load = \lib\pagebuilder\tools\get::load_post_detail($id);
+		$load = \lib\pagebuilder\tools\current_post::load($id);
 
 		if(!$load)
 		{

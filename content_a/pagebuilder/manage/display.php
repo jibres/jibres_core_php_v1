@@ -21,6 +21,42 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
   </div>
 </section>
 
+<?php if(\dash\data::dataRow_ishomepage()) {?>
+
+<section class="f" data-option='cms-post-template'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Choose your website status");?></h3>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+  <form method="post" class="c4 s12" data-patch>
+    <div class="action">
+      <input type="hidden" name="runaction_edittemplate" value="1">
+       <div>
+
+        <div class="radio1 green">
+          <input type="radio" name="template" value="publish" id="templatepublish" <?php if(\dash\data::dataRow_template() === 'publish') {echo 'checked';} ?>>
+          <label for="templatepublish"><?php echo T_("Customize page"); ?></label>
+        </div>
+        <div class="radio1 blue">
+          <input type="radio" name="template" value="visitcard" id="templatevisitcard" <?php if(\dash\data::dataRow_template() === 'visitcard') {echo 'checked';} ?>>
+          <label for="templatevisitcard"><?php echo T_("Visit Card website"); ?></label>
+        </div>
+
+        <div class="radio1 black">
+          <input type="radio" name="template" value="comingsoon" id="templatecomingsoon" <?php if(\dash\data::dataRow_template() === 'comingsoon') {echo 'checked';} ?>>
+          <label for="templatecomingsoon"><?php echo T_("Coming Soon page"); ?></label>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</section>
+
+<?php }else{ ?>
 
 <section class="f" data-option='cms-post-status'>
   <div class="c8 s12">
@@ -47,6 +83,9 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
     </div>
   </form>
 </section>
+<?php } //endif ?>
+
+
 
 
 <section class="f" data-option='cms-post-set-as-homepage'>

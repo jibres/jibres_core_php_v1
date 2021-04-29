@@ -114,7 +114,7 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists(self::current_post_id(), 'header');
+		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists(\lib\pagebuilder\tools\current_post::id(), 'header');
 
 		if(isset($check_header_exists['id']))
 		{
@@ -149,7 +149,7 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists(self::current_post_id() , 'footer');
+		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists(\lib\pagebuilder\tools\current_post::id() , 'footer');
 
 		if(isset($check_footer_exists['id']))
 		{
@@ -186,23 +186,10 @@ class add
 	}
 
 
-	private static function current_post_id()
-	{
-		$id = \dash\request::get('id');
-		$id = \dash\validate::code($id);
-		$id = \dash\coding::decode($id);
-		if(!$id)
-		{
-			return false;
-		}
-
-		return $id;
-	}
-
 
 	private static function add($_mode, $_element, $_args = [])
 	{
-		$id = self::current_post_id();
+		$id = \lib\pagebuilder\tools\current_post::id();
 
 		if(!$id)
 		{

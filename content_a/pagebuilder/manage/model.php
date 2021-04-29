@@ -36,6 +36,19 @@ class model
 		if(\dash\request::post('runaction_editstatus'))
 		{
 			$post['status'] = \dash\request::post('status');
+
+			if($post['status'] === 'draft')
+			{
+				$get       = \dash\request::get();
+				$load_line = \lib\pagebuilder\tools\search::list($get);
+
+
+				if(a($load_line, 'post_detail', 'ishomepage'))
+				{
+					\dash\notif::error(T_("Can not draft homepage"));
+					return false;
+				}
+			}
 		}
 
 		if(\dash\request::post('runaction_edittitle'))
@@ -43,9 +56,19 @@ class model
 			$post['title'] = \dash\request::post('title');
 		}
 
+		if(\dash\request::post('runaction_edittitle'))
+		{
+			$post['title'] = \dash\request::post('title');
+		}
+
+		if(\dash\request::post('runaction_edittemplate'))
+		{
+			$post['template'] = \dash\request::post('template');
+		}
+
 		if(!empty($post))
 		{
-			$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'));
+			$post_detail = \lib\pagebuilder\tools\current_post::edit($post, \dash\request::get('id'));
 
 			if(\dash\engine\process::status())
 			{
