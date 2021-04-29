@@ -63,8 +63,9 @@ class page
 
 		$args = [];
 
-		$args['id'] = $page_id;
-		$args['ready'] = true;
+		$args['id']               = $page_id;
+		$args['ready']            = true;
+		$args['homepage_builder'] = $homepage_builder;
 
 
 		$check_current_page = \lib\pagebuilder\tools\search::list($args);
@@ -75,6 +76,7 @@ class page
 		}
 
 		self::$is_page = true;
+
 
 		return $check_current_page;
 	}

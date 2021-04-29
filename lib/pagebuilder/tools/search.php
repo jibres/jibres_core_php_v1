@@ -28,7 +28,50 @@ class search
 
 		$post_detail = \lib\pagebuilder\tools\current_post::load($id);
 
-		$list = \lib\db\pagebuilder\get::line_list($id);
+		$need_load_body = true;
+
+		if(isset($_args['homepage_builder']) && $_args['homepage_builder'])
+		{
+			if(isset($post_detail['meta']['template']))
+			{
+				if(in_array($post_detail['meta']['template'], ['comingsoon', 'visitcard']))
+				{
+					\dash\temp::set('pagebuilder_template', $post_detail['meta']['template']);
+
+					switch ($post_detail['meta']['template'])
+					{
+						case 'comingsoon':
+							\dash\face::disablePWA_Header(true);
+							\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
+							break;
+
+						case 'visitcard':
+							\dash\face::disablePWA_Header(true);
+							\dash\face::css(
+								[
+									"business/visitcard-1/visitcard-1.css",
+									"https://fonts.googleapis.com/css?family=Quicksand:300,400"
+								]
+							);
+							\dash\face::twitterCard('summary_large_image');
+							break;
+
+						default:
+							break;
+					}
+
+
+					$need_load_body = false;
+				}
+			}
+		}
+
+		$list = [];
+
+		if($need_load_body)
+		{
+			$list = \lib\db\pagebuilder\get::line_list($id);
+		}
 
 		$result                = [];
 

@@ -4,6 +4,11 @@ if(!\lib\pagebuilder\load\page::$is_page)
 	return null;
 }
 
+if(\dash\temp::get('pagebuilder_template'))
+{
+	return;
+}
+
 $website_footer = \dash\data::website_footer();
 
 if(!is_array($website_footer))

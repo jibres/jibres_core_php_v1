@@ -4,6 +4,12 @@ if(!\lib\pagebuilder\load\page::$is_page)
 	return null;
 }
 
+if(\dash\temp::get('pagebuilder_template'))
+{
+	require_once('template/'. \dash\temp::get('pagebuilder_template'). '.php');
+	return;
+}
+
 $website_body = \dash\data::website_body();
 
 if(!is_array($website_body))
