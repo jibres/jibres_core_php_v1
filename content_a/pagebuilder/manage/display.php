@@ -49,7 +49,6 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
 </section>
 
 
-<?php if(!\dash\data::dataRow_ishomepage()) {?>
 <section class="f" data-option='cms-post-set-as-homepage'>
   <div class="c8 s12">
     <div class="data">
@@ -64,12 +63,15 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
       <?php if(\dash\data::dataRow_status() !== 'publish') { ?>
         <div><?php echo T_("First publish the page") ?></div>
       <?php }else{ ?>
+        <?php if(\dash\data::dataRow_ishomepage()) {?>
+          <div class="fc-green"><?php echo T_("This page is homepage") ?></div>
+        <?php }else{ ?>
         <button data-confirm data-data='{"setas": "homepage"}' class="btn master"><?php echo T_("Set as homepage"); ?></button>
+        <?php } //endif ?>
       <?php } //endif ?>
     </div>
   </div>
 </section>
-<?php } //endif ?>
 
 
 

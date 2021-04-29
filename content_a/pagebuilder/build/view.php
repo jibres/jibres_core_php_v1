@@ -150,6 +150,11 @@ class view
 					\dash\face::btnPreview($lineList['post_detail']['link']. '?preview=yes');
 				}
 			}
+
+			if(a($lineList, 'post_detail', 'ishomepage'))
+			{
+				\dash\face::title(T_('Manage homepage'));
+			}
 		}
 	}
 }
