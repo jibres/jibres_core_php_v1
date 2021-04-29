@@ -118,7 +118,7 @@ class add
 
 		if(isset($check_header_exists['id']))
 		{
-			\dash\notif::warn(T_("This page header was choose before"));
+			\dash\notif::warn(T_("This page header was chosen before"));
 
 			$url           = [];
 			$result['url'] = \dash\url::this(). '/build/'. $check_header_exists['type']. \dash\request::full_get(['pid' => $check_header_exists['id']]);
@@ -153,7 +153,7 @@ class add
 
 		if(isset($check_footer_exists['id']))
 		{
-			\dash\notif::warn(T_("This page footer was choose before"));
+			\dash\notif::warn(T_("This page footer was chosen before"));
 
 			$url           = [];
 			$result['url'] = \dash\url::this(). '/build/'. $check_footer_exists['type']. \dash\request::full_get(['pid' => $check_footer_exists['id']]);
