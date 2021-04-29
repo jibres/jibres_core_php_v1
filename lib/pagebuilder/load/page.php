@@ -50,7 +50,13 @@ class page
 		}
 		else
 		{
-			$page_id          = null;
+			$page_id          = \lib\store::detail('homepage_builder_post_id');
+
+			if($page_id)
+			{
+				$page_id = \dash\coding::encode($page_id);
+			}
+
 			$homepage_builder = true;
 
 		}
