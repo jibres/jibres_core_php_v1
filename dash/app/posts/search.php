@@ -54,6 +54,9 @@ class search
 			't'            => 'y_n', // tag
 			'r'            => 'y_n', // redirecturl
 
+
+			'homepage_id' => 'id',
+
 		];
 
 
@@ -286,6 +289,11 @@ class search
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY posts.id DESC ";
+		}
+
+		if($data['homepage_id'])
+		{
+		$order_sort = " ORDER BY FIELD(posts.id, $data[homepage_id], posts.id)";
 		}
 
 		$list = \dash\db\posts\search::list($and, $or, $order_sort, $meta);
