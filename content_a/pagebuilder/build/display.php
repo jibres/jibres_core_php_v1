@@ -10,7 +10,6 @@ else
     HTML_header();
     HTML_line();
     HTML_footer();
-    HTML_postSeoDetail();
   echo '</div>';
 }
 
@@ -112,7 +111,7 @@ function HTML_allNewLine() {?>
   <ul>
     <li>
       <a class="f" href="<?php echo \dash\url::this(). '/additem'. \dash\request::full_get();?>">
-       <div class="key"><?php echo T_('Add new line');?></div>
+       <div class="key fc-mute"><?php echo T_('Add new line');?></div>
        <div class="go plus ok"></div>
       </a>
     </li>
@@ -158,25 +157,7 @@ function HTML_footer()
       <?php } ?>
        </ul>
   </nav>
-<?php } //endfunction
-
-
-
-
-function HTML_postSeoDetail()
-{
-?>
- <nav class="items">
-    <ul>
-     <li>
-      <a class="f" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get();?>">
-        <div class="key"><?php echo T_('Customize SEO');?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-    </ul>
-  </nav>
-<?php } //endfunction ?>
+<?php } //endfunction?>
 
 
 
