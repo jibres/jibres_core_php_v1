@@ -9,7 +9,9 @@ if(!is_array($images))
 }
 
 ?>
-<form class="row" data-sortable method="post">
+<form  method="post">
+  <div class="row" data-sortable>
+
     <?php foreach ($images as $key => $value) {?>
     <div class="c-3 c-xs-12">
       <div class="card">
@@ -28,4 +30,18 @@ if(!is_array($images))
       </div>
     </div>
     <?php } // endfor ?>
+     <div class="c-3 c-xs-12 mB20">
+      <a class="card" href="<?php echo \dash\data::action_link() ?>">
+        <div class="img"><img class="" src="<?php echo \dash\url::cdn(); ?>/img/product/camera1.png" align='<?php echo \dash\data::action_text(); ?>'></div>
+        <div class="body">
+          <header>
+            <div class="mB10 fc-mute txtC mT20 font-12"><?php echo T_("Click to add new quote") ?></div>
+          </header>
+        </div>
+        <footer class="zeroPad font-14">
+          <div  class="btn success2  block"><i class="sf-plus"></i> <?php echo \dash\data::action_text(); ?></div>
+        </footer>
+      </a>
+    </div>
+  </div>
 </form>
