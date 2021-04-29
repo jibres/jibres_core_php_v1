@@ -123,6 +123,10 @@ class title
 		$title             = a($_args, 'title');
 		$more_link         = a($_args, 'titlesetting', 'more_link');
 		$more_link_caption = a($_args, 'titlesetting', 'more_link_caption');
+		if(!$more_link_caption)
+		{
+			$more_link_caption = a($_args, 'titlesetting', 'more_link_caption_placeholder');
+		}
 
 		$link = a($_args, 'titlesetting', 'more_link_url');
 
