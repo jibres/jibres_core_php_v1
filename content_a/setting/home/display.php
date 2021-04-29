@@ -201,11 +201,11 @@
             </div>
             <?php if(\dash\url::isLocal()) {?>
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/homepage">
-                    <div class="c-auto"><i class="sf-home"></i></div>
+                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/setting/menu">
+                    <div class="c-auto"><i class="sf-bars"></i></div>
                     <div class="c">
-                        <h2><?php echo T_("Edit homepage"); ?></h2>
-                        <p><?php echo T_("Edit homepage"); ?></p>
+                        <h2><?php echo T_("Menu"); ?></h2>
+                        <p><?php echo T_("Manage menu"); ?></p>
                     </div>
                 </a>
             </div>
