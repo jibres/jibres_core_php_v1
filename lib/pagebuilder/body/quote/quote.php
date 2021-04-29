@@ -130,13 +130,14 @@ class quote
 					'contain' =>
 					[
 						'title'        => true,
-						'puzzle'       => true,
+						// 'puzzle'       => true,
 						'avand'        => true,
-						'radius'       => true,
-						'effect'       => true,
-						'padding'      => true,
-						'infoposition' => true,
-						'ratio'        => true,
+						'itemshowmode'        => true,
+						// 'radius'       => true,
+						// 'effect'       => true,
+						// 'padding'      => true,
+						// 'infoposition' => true,
+						// 'ratio'        => true,
 						'remove'       => true,
 					]
 				],
@@ -151,12 +152,13 @@ class quote
 
 	public static function input_condition($_args = [])
 	{
-		$_args['displayname'] = 'displayname';
-		$_args['job']         = 'string_200';
-		$_args['text']        = 'desc';
-		$_args['star']        = 'star';
-		$_args['sort']        = 'sort';
-		$_args['remove']      = 'string_50';
+		$_args['displayname']  = 'displayname';
+		$_args['job']          = 'string_200';
+		$_args['text']         = 'desc';
+		$_args['star']         = 'star';
+		$_args['sort']         = 'sort';
+		$_args['remove']       = 'string_50';
+		$_args['itemshowmode'] = ['enum' => ['simple', 'special']];
 
 		return $_args;
 	}
@@ -227,11 +229,16 @@ class quote
 		}
 		else
 		{
-			if($current_page === 'add' || $current_page === 'edit')
-			{
-				$_data = self::quote_process($_data, $_saved_detail, $current_page);
-			}
+			$_data = self::quote_process($_data, $_saved_detail, $current_page);
 		}
+
+		unset($_data['displayname']);
+		unset($_data['job']);
+		unset($_data['text']);
+		unset($_data['sort']);
+		unset($_data['star']);
+		unset($_data['remove']);
+		unset($_data['itemshowmode']);
 
 		return $_data;
 
@@ -272,17 +279,20 @@ class quote
 		}
 
 
-		if(isset($_saved_detail['detail']['list']) && is_array($_saved_detail['detail']['list']))
+		if(isset($_saved_detail['detail']) && is_array($_saved_detail['detail']))
 		{
-			$quote['list'] = $_saved_detail['detail']['list'];
+			$quote = $_saved_detail['detail'];
 
-			// unset ready variable
-			foreach ($quote['list'] as $key => $value)
+			if(is_array(a($quote, 'list')))
 			{
-				unset($quote['list'][$key]['imageurl']);
-				unset($quote['list'][$key]['text']);
-				unset($quote['list'][$key]['star']);
-				unset($quote['list'][$key]['displayname']);
+				// unset ready variable
+				foreach ($quote['list'] as $key => $value)
+				{
+					unset($quote['list'][$key]['imageurl']);
+					unset($quote['list'][$key]['text']);
+					unset($quote['list'][$key]['star']);
+					unset($quote['list'][$key]['displayname']);
+				}
 			}
 		}
 
@@ -361,8 +371,9 @@ class quote
 
 			}
 		}
-		else
+		elseif($current_page === 'add')
 		{
+
 			if(isset($quote['list']) && is_array($quote['list']))
 			{
 				$max_capacity = 50;
@@ -400,6 +411,16 @@ class quote
 				'sort'       => $_data['sort'],
 			];
 		}
+		else
+		{
+			// in advance mode
+			if(isset($_data['itemshowmode']))
+			{
+				$quote['itemshowmode'] = $_data['itemshowmode'];
+			}
+
+			$need_redirect_pwd = true;
+		}
 
 		if(!empty($quote))
 		{
@@ -412,14 +433,17 @@ class quote
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-		\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). '/quote'. \dash\request::full_get(['index' => null]));
+		if((isset($need_redirect_pwd) && $need_redirect_pwd) || $current_page === 'edit' )
+		{
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
+		}
+		else
+		{
+			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). '/quote'. \dash\request::full_get(['index' => null]));
+		}
 
-		unset($_data['displayname']);
-		unset($_data['job']);
-		unset($_data['text']);
-		unset($_data['sort']);
-		unset($_data['star']);
-		unset($_data['remove']);
+
+
 
 		return $_data;
 	}
