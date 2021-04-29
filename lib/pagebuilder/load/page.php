@@ -15,6 +15,7 @@ class page
 		}
 
 		$homepage_builder = false;
+		$load_by_template = false;
 
 
 		// if(!\dash\temp::get('inHomePageOfBusiness'))
@@ -29,6 +30,10 @@ class page
 			{
 				// ok. load page builder
 				$page_id = \dash\data::dataRow_id();
+
+				$page_id = \dash\coding::decode($page_id);
+
+				$load_by_template = true;
 			}
 			else
 			{
@@ -42,6 +47,7 @@ class page
 			if($page_id && ($page_id = \dash\validate::code($page_id, false)))
 			{
 				// ok
+				$page_id = \dash\coding::decode($page_id);
 			}
 			else
 			{
@@ -52,26 +58,72 @@ class page
 		{
 			$page_id          = \lib\store::detail('homepage_builder_post_id');
 
-			if($page_id)
-			{
-				$page_id = \dash\coding::encode($page_id);
-			}
-
 			$homepage_builder = true;
 
 		}
 
 		$args = [];
 
-		$args['id']               = $page_id;
-		$args['ready']            = true;
-		$args['homepage_builder'] = $homepage_builder;
+
+		$post_detail = \lib\pagebuilder\tools\current_post::load($page_id);
 
 
+		// not route special post url when the post set as homepage
+		if($load_by_template && a($post_detail, 'ishomepage'))
+		{
+			\dash\redirect::to(\dash\url::kingdom());
+		}
 
-		$check_current_page = self::list($args);
+		$need_load_body = true;
 
-		if(!$check_current_page)
+
+		if(isset($post_detail['meta']['template']))
+		{
+			if(in_array($post_detail['meta']['template'], ['comingsoon', 'visitcard']))
+			{
+				\dash\temp::set('pagebuilder_template', $post_detail['meta']['template']);
+
+				switch ($post_detail['meta']['template'])
+				{
+					case 'comingsoon':
+						\dash\face::disablePWA_Header(true);
+						\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
+						break;
+
+					case 'visitcard':
+						\dash\face::disablePWA_Header(true);
+						\dash\face::css(
+							[
+								"business/visitcard-1/visitcard-1.css",
+								"https://fonts.googleapis.com/css?family=Quicksand:300,400"
+							]
+						);
+						\dash\face::twitterCard('summary_large_image');
+						break;
+
+					default:
+						break;
+				}
+
+				$need_load_body = false;
+			}
+		}
+
+
+		$list = [];
+
+		if($need_load_body)
+		{
+			$list = \lib\db\pagebuilder\get::line_list($page_id);
+		}
+
+		$result                = [];
+
+		$result['post_detail'] = $post_detail;
+
+		self::ready($result, $list);
+
+		if(!$result)
 		{
 			return false;
 		}
@@ -79,93 +131,9 @@ class page
 		self::$is_page = true;
 
 
-		return $check_current_page;
-	}
-
-
-	public static function list($_args = [])
-	{
-		if(isset($_args['id']))
-		{
-			$id = $_args['id'];
-		}
-		else
-		{
-			$id = \dash\request::get('id');
-		}
-
-		$id = \dash\validate::code($id);
-
-		$id = \dash\coding::decode($id);
-
-		if(!$id)
-		{
-			return false;
-		}
-
-		$post_detail = \lib\pagebuilder\tools\current_post::load($id);
-
-		$need_load_body = true;
-
-		if(isset($_args['homepage_builder']) && $_args['homepage_builder'])
-		{
-			if(isset($post_detail['meta']['template']))
-			{
-				if(in_array($post_detail['meta']['template'], ['comingsoon', 'visitcard']))
-				{
-					\dash\temp::set('pagebuilder_template', $post_detail['meta']['template']);
-
-					switch ($post_detail['meta']['template'])
-					{
-						case 'comingsoon':
-							\dash\face::disablePWA_Header(true);
-							\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
-							break;
-
-						case 'visitcard':
-							\dash\face::disablePWA_Header(true);
-							\dash\face::css(
-								[
-									"business/visitcard-1/visitcard-1.css",
-									"https://fonts.googleapis.com/css?family=Quicksand:300,400"
-								]
-							);
-							\dash\face::twitterCard('summary_large_image');
-							break;
-
-						default:
-							break;
-					}
-
-
-					$need_load_body = false;
-				}
-			}
-		}
-
-		$list = [];
-
-		if($need_load_body)
-		{
-			$list = \lib\db\pagebuilder\get::line_list($id);
-		}
-
-		$result                = [];
-
-		$result['post_detail'] = $post_detail;
-
-		if(isset($_args['ready']) && $_args['ready'])
-		{
-			self::ready($result, $list);
-		}
-		else
-		{
-			$result['list']        = $list;
-		}
-
-
 		return $result;
 	}
+
 
 
 	private static function ready(&$result, $list)

@@ -40,7 +40,7 @@ $dataRow = a(\dash\data::lineList(), 'post_detail');
        <div>
 
         <div class="radio1 green">
-          <input type="radio" name="template" value="publish" id="templatepublish" <?php if(a(\dash\data::dataRow(), 'meta', 'template') === 'publish') {echo 'checked';} ?>>
+          <input type="radio" name="template" value="publish" id="templatepublish" <?php if(a(\dash\data::dataRow(), 'meta', 'template') === 'publish' || !a(\dash\data::dataRow(), 'meta', 'template')) {echo 'checked';} ?>>
           <label for="templatepublish"><?php echo T_("Customize page"); ?></label>
         </div>
         <div class="radio1 blue">

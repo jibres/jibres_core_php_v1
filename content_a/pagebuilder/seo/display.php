@@ -1,11 +1,4 @@
-<?php
-
-$dataRow = a(\dash\data::lineList(), 'post_detail');
-
-\dash\data::dataRow($dataRow);
-
-?>
-
+<?php $dataRow = \dash\data::dataRow(); ?>
 <div class="box">
   <div class="pad">
     <div class="seoPreview">
