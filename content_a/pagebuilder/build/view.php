@@ -139,15 +139,22 @@ class view
 
 			$lineList = \dash\data::lineList();
 
-			if(isset($lineList['post_detail']['link']))
+			if(a($lineList, 'post_detail', 'ishomepage'))
 			{
-				if(a($lineList, 'post_detail', 'status') === 'publish')
+				\dash\face::btnView(\lib\store::url());
+			}
+			else
+			{
+				if(isset($lineList['post_detail']['link']))
 				{
-					\dash\face::btnView($lineList['post_detail']['link']);
-				}
-				else
-				{
-					\dash\face::btnPreview($lineList['post_detail']['link']. '?preview=yes');
+					if(a($lineList, 'post_detail', 'status') === 'publish')
+					{
+						\dash\face::btnView($lineList['post_detail']['link']);
+					}
+					else
+					{
+						\dash\face::btnPreview($lineList['post_detail']['link']. '?preview=yes');
+					}
 				}
 			}
 
