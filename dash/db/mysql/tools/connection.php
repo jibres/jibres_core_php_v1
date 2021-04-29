@@ -246,7 +246,7 @@ class connection
 		if($link)
 		{
 			// set charset for link
-			@mysqli_set_charset($link, 'utf8mb4');
+			// @mysqli_set_charset($link, 'utf8mb4');
 			// $link->set_charset("utf8mb4");
 
 			// save link as global variable
