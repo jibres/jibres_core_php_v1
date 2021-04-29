@@ -39,8 +39,7 @@ class model
 
 			if($post['status'] === 'draft')
 			{
-				$get       = \dash\request::get();
-				$load_line = \lib\pagebuilder\tools\search::list($get);
+				$load_line = \lib\pagebuilder\tools\get::current_line_list();
 
 
 				if(a($load_line, 'post_detail', 'ishomepage'))

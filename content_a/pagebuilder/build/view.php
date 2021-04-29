@@ -7,8 +7,8 @@ class view
 	public static function config()
 	{
 
-		$get       = \dash\request::get();
-		$load_line = \lib\pagebuilder\tools\search::list($get);
+
+		$load_line = \lib\pagebuilder\tools\get::current_line_list();
 		\dash\data::lineList($load_line);
 
 		self::set_page_variable();

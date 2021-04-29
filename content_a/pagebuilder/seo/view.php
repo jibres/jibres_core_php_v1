@@ -13,8 +13,7 @@ class view
 
 		\dash\face::btnSave('editFormSEO');
 
-		$get       = \dash\request::get();
-		$load_line = \lib\pagebuilder\tools\search::list($get);
+		$load_line = \lib\pagebuilder\tools\get::current_line_list();
 		\dash\data::lineList($load_line);
 
 	}

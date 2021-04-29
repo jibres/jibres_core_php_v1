@@ -11,8 +11,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/build'. \dash\request::full_get());
 
-		$get       = \dash\request::get();
-		$load_line = \lib\pagebuilder\tools\search::list($get);
+		$load_line = \lib\pagebuilder\tools\get::current_line_list();
 		\dash\data::lineList($load_line);
 	}
 }

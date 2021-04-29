@@ -99,7 +99,7 @@ class edit
 	{
 		$sort = \dash\validate::sort($_sort);
 
-		$list = \lib\pagebuilder\tools\search::list();
+		$list = \lib\pagebuilder\tools\get::current_line_list();
 
 		if(!is_array(a($list, 'list')))
 		{
