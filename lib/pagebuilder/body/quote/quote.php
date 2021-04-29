@@ -132,7 +132,7 @@ class quote
 						'title'        => true,
 						// 'puzzle'       => true,
 						'avand'        => true,
-						'itemshowmode'        => true,
+						// 'itemshowmode'        => true,
 						// 'radius'       => true,
 						// 'effect'       => true,
 						// 'padding'      => true,
@@ -445,9 +445,6 @@ class quote
 			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). '/quote'. \dash\request::full_get(['index' => null]));
 		}
 
-
-
-
 		return $_data;
 	}
 
@@ -467,20 +464,45 @@ class quote
 
 		$data = array_values($data);
 
-		$limit = a($_args, 'puzzle', 'limit');
-
-		if(a($_args, 'puzzle', 'puzzle_type') === 'puzzle' && is_numeric($limit) && count($data) > $limit)
-		{
-			$data = array_slice($data, 0, $limit);
-		}
-
-
 		$html = '';
 
 		// first draw title
 		$html .= \lib\pagebuilder\body\title\title::draw($_args, $link);
 
-		$html .= \lib\pagebuilder\draw\datablock::draw($_args, $data);
+		$html .= '<div class="row">';
+
+		foreach ($data as $key => $value)
+		{
+      		$html .= '<div class="c-xs-12 c-md-4  pA15">';
+        	$html .= '<div class="item f f-column justify-between">';
+          	$html .= '<p class="flex-1">'. a($value, 'text'). '</p>';
+          	$html .= '<div class="fiveStar">';
+
+          	if(a($value, 'star'))
+          	{
+          		$html .= str_repeat('<span></span>', a($value, 'star'));
+          	}
+
+          	$html .= '</div>';
+
+          	$html .= '<footer class="f align-center from">';
+            $html .= '<div class="cauto">';
+
+            if(a($value, 'image'))
+            {
+            	$html .= '<img class="avatar" src="'. \lib\filepath::fix(a($value, 'imageurl')). '" alt="'. a($value, 'displayname'). '"></div>';
+            }
+
+            $html .= '<div class="cauto pLa10">';
+            $html .= '<div class="name">'. a($value, 'displayname'). '</div>';
+            $html .= '<div class="position">'. a($value, 'job'). '</div>';
+            $html .= '</div>';
+          	$html .= '</footer>';
+    		$html .= '</div>';
+      		$html .= '</div>';
+    	}
+
+		$html .= '</div>';
 
 		return $html;
 
