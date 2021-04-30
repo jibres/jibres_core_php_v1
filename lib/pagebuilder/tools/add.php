@@ -99,7 +99,7 @@ class add
 
 
 
-	public static function header($_element)
+	public static function header($_element, $_id = null)
 	{
 		$element = \lib\pagebuilder\tools\get::check_element('header', $_element);
 
@@ -114,7 +114,7 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists(\lib\pagebuilder\tools\current_post::id(), 'header');
+		$check_header_exists = \lib\db\pagebuilder\get::header_footer_exists(\lib\pagebuilder\tools\current_post::id($_id), 'header');
 
 		if(isset($check_header_exists['id']))
 		{
@@ -128,13 +128,13 @@ class add
 		}
 		else
 		{
-			return self::add('header', $element, $args);
+			return self::add('header', $element, $args, $_id);
 		}
 
 	}
 
 
-	public static function footer($_element)
+	public static function footer($_element, $_id = null)
 	{
 		$element = \lib\pagebuilder\tools\get::check_element('footer', $_element);
 
@@ -149,7 +149,7 @@ class add
 			'line_title' => a($element, 'title'),
 		];
 
-		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists(\lib\pagebuilder\tools\current_post::id() , 'footer');
+		$check_footer_exists = \lib\db\pagebuilder\get::header_footer_exists(\lib\pagebuilder\tools\current_post::id($_id) , 'footer');
 
 		if(isset($check_footer_exists['id']))
 		{
@@ -165,14 +165,14 @@ class add
 		}
 		else
 		{
-			return self::add('footer', $element, $args);
+			return self::add('footer', $element, $args, $_id);
 		}
 
 	}
 
 
 
-	public static function body($_element)
+	public static function body($_element, $_id = null)
 	{
 		$element = \lib\pagebuilder\tools\get::check_element('body', $_element);
 
@@ -182,14 +182,14 @@ class add
 			return false;
 		}
 
-		return self::add('body', $element);
+		return self::add('body', $element, [], $_id);
 	}
 
 
 
-	private static function add($_mode, $_element, $_args = [])
+	private static function add($_mode, $_element, $_args = [], $_id = null)
 	{
-		$id = \lib\pagebuilder\tools\current_post::id();
+		$id = \lib\pagebuilder\tools\current_post::id($_id);
 
 		if(!$id)
 		{
@@ -230,7 +230,16 @@ class add
 
 		$insert['puzzle']           = null;
 		$insert['infoposition']     = null;
-		$insert['detail']           = null;
+
+		if(\dash\temp::get('init_force_pagebuilder_detail'))
+		{
+			$insert['detail'] = \dash\temp::get('init_force_pagebuilder_detail');
+		}
+		else
+		{
+			$insert['detail']           = null;
+		}
+
 		$insert['text']             = null;
 		$insert['datecreated']      = date("Y-m-d H:i:s");
 		$insert['datemodified']     = null;

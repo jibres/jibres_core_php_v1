@@ -97,6 +97,8 @@ class config
 		// first init website header, footer, body
 		\lib\app\website\init::first_init();
 
+		// \lib\pagebuilder\tools\first_init::init();
+
 		self::add_example_product();
 
 		self::add_example_page();

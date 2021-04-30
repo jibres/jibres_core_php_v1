@@ -6,11 +6,21 @@ class current_post
 {
 
 
-	public static function id()
+	public static function id($_id = null)
 	{
-		$id = \dash\request::get('id');
+		if($_id)
+		{
+			$id = $_id;
+		}
+		else
+		{
+			$id = \dash\request::get('id');
+		}
+
 		$id = \dash\validate::code($id);
+
 		$id = \dash\coding::decode($id);
+
 		if(!$id)
 		{
 			return false;
