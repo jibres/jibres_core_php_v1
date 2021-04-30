@@ -1,7 +1,5 @@
 <?php
 
-require_once (root. 'lib/pagebuilder/load/header.php');
-
 if(\dash\url::module() === 'app')
 {
 	// nothing

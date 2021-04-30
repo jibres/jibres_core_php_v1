@@ -14,8 +14,15 @@ class page
 			return false;
 		}
 
+		// app is not pagebuilder
+		if(\dash\url::module() === 'app')
+		{
+			return false;
+		}
+
 		$homepage_builder = false;
 		$load_by_template = false;
+		$in_content_n     = false;
 
 
 		// if(!\dash\temp::get('inHomePageOfBusiness'))
@@ -44,6 +51,8 @@ class page
 		{
 			$page_id = \dash\url::module();
 
+			$in_content_n = true;
+
 			if($page_id && ($page_id = \dash\validate::code($page_id, false)))
 			{
 				// ok
@@ -67,6 +76,10 @@ class page
 
 		$post_detail = \lib\pagebuilder\tools\current_post::load($page_id);
 
+		if(!$post_detail)
+		{
+			return false;
+		}
 
 		// not route special post url when the post set as homepage
 		if($load_by_template && a($post_detail, 'ishomepage'))
@@ -77,7 +90,7 @@ class page
 		$need_load_body = true;
 
 
-		if(isset($post_detail['meta']['template']))
+		if(isset($post_detail['meta']['template']) && $homepage_builder)
 		{
 			if(in_array($post_detail['meta']['template'], ['comingsoon', 'visitcard']))
 			{
@@ -112,7 +125,7 @@ class page
 
 		$list = [];
 
-		if($need_load_body)
+		if($need_load_body && $page_id && is_numeric($page_id))
 		{
 			$list = \lib\db\pagebuilder\get::line_list($page_id);
 		}

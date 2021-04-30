@@ -120,7 +120,11 @@ class find
 			}
 			elseif($myContent === 'content_n')
 			{
-				if(\dash\engine\store::inStore())
+				if(\dash\layout\business::is_pagebuilder())
+				{
+					$myHeader = root. 'lib/pagebuilder/load/header.php';
+				}
+				elseif(\dash\engine\store::inStore())
 				{
 					// subdomain of stores
 					$myHeader = root.'content_business/home/layout/header.php';
@@ -133,8 +137,15 @@ class find
 			}
 			elseif($myContent === 'content_business')
 			{
-				// subdomain of stores
-				$myHeader = root.'content_business/home/layout/header.php';
+				if(\dash\layout\business::is_pagebuilder())
+				{
+					$myHeader = root. 'lib/pagebuilder/load/header.php';
+				}
+				else
+				{
+					// subdomain of stores
+					$myHeader = root.'content_business/home/layout/header.php';
+				}
 			}
 			elseif($myContent === 'content_developers')
 			{
@@ -184,7 +195,11 @@ class find
 			}
 			elseif($myContent === 'content_n')
 			{
-				if(\dash\engine\store::inStore())
+				if(\dash\layout\business::is_pagebuilder())
+				{
+					$myFooter = root. 'lib/pagebuilder/load/footer.php';
+				}
+				elseif(\dash\engine\store::inStore())
 				{
 					// subdomain of stores
 					$myFooter = root.'content_business/home/layout/footer.php';
@@ -198,8 +213,15 @@ class find
 			}
 			elseif($myContent === 'content_business')
 			{
-				// subdomain of stores
-				$myFooter = root.'content_business/home/layout/footer.php';
+				if(\dash\layout\business::is_pagebuilder())
+				{
+					$myFooter = root. 'lib/pagebuilder/load/footer.php';
+				}
+				else
+				{
+					// subdomain of stores
+					$myFooter = root.'content_business/home/layout/footer.php';
+				}
 			}
 		}
 

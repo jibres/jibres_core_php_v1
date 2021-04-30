@@ -1,7 +1,5 @@
 <?php
 
-require_once (root. 'lib/pagebuilder/load/footer.php');
-
 if(\dash\url::module() === 'app')
 {
 	// nothing

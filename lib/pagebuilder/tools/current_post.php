@@ -22,6 +22,14 @@ class current_post
 
 	public static function load($_id)
 	{
+		if($_id && is_numeric($_id))
+		{
+			// ok
+		}
+		else
+		{
+			return false;
+		}
 		// load post detail
 		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
 

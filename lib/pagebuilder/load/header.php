@@ -9,10 +9,6 @@ if(\dash\temp::get('pagebuilder_template'))
 	return;
 }
 
-if(\dash\url::module() === 'app')
-{
-	return;
-}
 
 $website_header = \dash\data::website_header();
 

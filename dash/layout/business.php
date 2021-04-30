@@ -40,6 +40,12 @@ class business
 	}
 
 
+	public static function is_pagebuilder()
+	{
+		return self::$is_pagebuilder;
+	}
+
+
 	/**
 	 * Load business website
 	 *
@@ -107,20 +113,17 @@ class business
 	}
 
 
-	public static function set_view_variable()
-	{
-		// set page title
-		// cover
-		// seo desc
-	}
-
-
 
 	public static function body_addr()
 	{
 		if(!self::$website)
 		{
 			return null;
+		}
+
+		if(self::$is_pagebuilder)
+		{
+			return root. 'lib/pagebuilder/load/body.php';
 		}
 
 		if(\dash\engine\content::get() !== 'content_business')
