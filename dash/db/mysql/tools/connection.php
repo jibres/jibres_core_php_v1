@@ -123,10 +123,20 @@ class connection
 		if($_love['host'] === 'localhost')
 		{
 			$real_link = @mysqli_real_connect($link, $_love['host'], $_love['user'], $_love['pass'], $_love['database'], $_love['port']);
+
+			if(!$real_link)
+			{
+				return self::make_error(503, T_("Error in connecting to database!"), $_option);;
+			}
 		}
 		else
 		{
 			$real_link = @mysqli_real_connect($link, $_love['host'], $_love['user'], $_love['pass'], $_love['database'], $_love['port'], NULL, MYSQLI_CLIENT_SSL);
+
+			if(!$real_link)
+			{
+				return self::make_error(503, T_("Error in connecting to database!"), $_option);;
+			}
 		}
 
 
