@@ -19,7 +19,7 @@ foreach (\dash\data::dataTable() as $key => $value)
     $html .= '</div>';
     $html .= '<div class="c4 s12">';
     $html .= '<div class="action">';
-    $html .= '<a class="btn master" href="'. \dash\url::this(). '/build?id='. a($value, 'id'). '">'. T_("Homapage"). '</a>';
+    $html .= '<a class="btn master" href="'. \dash\url::this(). '/build?id='. a($value, 'id'). '">'. T_("Manage homepage"). '</a>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</section>';
