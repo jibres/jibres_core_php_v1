@@ -82,7 +82,7 @@ class page
 		}
 
 		// not route special post url when the post set as homepage
-		if($load_by_template && a($post_detail, 'ishomepage'))
+		if(!$homepage_builder && a($post_detail, 'ishomepage'))
 		{
 			\dash\redirect::to(\dash\url::kingdom());
 		}
