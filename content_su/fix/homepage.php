@@ -282,6 +282,8 @@ class homepage
 			$post_id = \dash\db::insert_id();
 		}
 
+		// ------------------------------------------------------ HEADER  ------------------------------------------------------------------------------------------- //
+
 		if(isset($store_website['header']['active']) && count($store_website['header']) === 1)
 		{
 			$check_duplicate_query = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = '$post_id' AND pagebuilder.mode = 'header' LIMIT 1 ";
@@ -297,6 +299,7 @@ class homepage
 				if($store_website['header']['active'] === 'header_100')
 				{
 					$header_title = T_("Header #100");
+					$header_code = 'h100';
 				}
 				else
 				{
@@ -312,7 +315,7 @@ class homepage
 						pagebuilder.platform = 'website',
 						pagebuilder.mode = 'header',
 						pagebuilder.related = 'posts',
-						pagebuilder.type = 'h100',
+						pagebuilder.type = '$header_code',
 						pagebuilder.sort = '$last_sort',
 						pagebuilder.status = 'draft',
 						pagebuilder.datecreated = '$date',
@@ -323,17 +326,147 @@ class homepage
 
 				$header_id = \dash\db::insert_id();
 			}
-				var_dump($header_id);
 
 		}
 		else
 		{
-			var_dump('specail headeer');
+			var_dump('specail header');
 			var_dump($store_website);
+		}
+		// ------------------------------------------------------ HEADER  ------------------------------------------------------------------------------------------- //
+
+		//
+		//
+		//
+		// ------------------------------------------------------ BODY  ------------------------------------------------------------------------------------------- //
+
+		foreach ($store_website['body'] as $key => $body_element)
+		{
+			if(!isset($body_element['type']))
+			{
+				var_dump('body elemen have not type');
+				var_dump($body_element);exit();
+			}
+
+			if($body_element['type'] === 'specialslider')
+			{
+				if(isset($body_element['specialslider']) && is_array($body_element['specialslider']))
+				{
+					$new_detail = json_encode(['list' => $body_element['specialslider']], JSON_UNESCAPED_UNICODE);
+
+					$last_sort = $last_sort + 10;
+
+					$query =
+					"
+						INSERT INTO pagebuilder SET
+							pagebuilder.title = '$body_element[title]',
+							pagebuilder.platform = 'website',
+							pagebuilder.mode = 'body',
+							pagebuilder.related = 'posts',
+							pagebuilder.type = 'image',
+							pagebuilder.sort = '$last_sort',
+							pagebuilder.status = 'draft',
+							pagebuilder.datecreated = '$date',
+							pagebuilder.detail = '$new_detail',
+							pagebuilder.related_id = '$post_id'
+					";
+
+					$add_new_image = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				}
+			}
+			elseif($body_element['type'] === 'productline')
+			{
+				if(isset($body_element['productline']) && is_array($body_element['productline']))
+				{
+					$new_detail = json_encode($body_element['productline'], JSON_UNESCAPED_UNICODE);
+
+					$last_sort = $last_sort + 10;
+
+
+					$query =
+					"
+						INSERT INTO pagebuilder SET
+							pagebuilder.title = '$body_element[title]',
+							pagebuilder.platform = 'website',
+							pagebuilder.mode = 'body',
+							pagebuilder.related = 'posts',
+							pagebuilder.type = 'products',
+							pagebuilder.sort = '$last_sort',
+							pagebuilder.status = 'draft',
+							pagebuilder.datecreated = '$date',
+							pagebuilder.detail = '$new_detail',
+							pagebuilder.related_id = '$post_id'
+					";
+
+					$add_new_image = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				}
+			}
+			else
+			{
+				var_dump('new body elemnt');
+				var_dump($body_element);exit();
+			}
 		}
 
 
-		var_dump($post_id);exit();
+		// ------------------------------------------------------ BODY  ------------------------------------------------------------------------------------------- //
+
+
+		// ------------------------------------------------------ FOOTER  ------------------------------------------------------------------------------------------- //
+
+
+		if(isset($store_website['footer']['active']) && count($store_website['footer']) === 1)
+		{
+			$check_duplicate_query = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = '$post_id' AND pagebuilder.mode = 'footer' LIMIT 1 ";
+
+			$check_duplicate = \dash\db::get($check_duplicate_query, null, true, $fuel, ['database' => $dbname]);
+
+			if(isset($check_duplicate['id']))
+			{
+				$footer_id = $check_duplicate['id'];
+			}
+			else
+			{
+				if($store_website['footer']['active'] === 'footer_100')
+				{
+					$footer_title = T_("Footer #100");
+					$footer_code = 'f100';
+				}
+				else
+				{
+					var_dump($store_website);exit();
+				}
+
+				$last_sort = $last_sort + 10;
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$footer_title',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'footer',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = '$footer_code',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.status = 'draft',
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_footer = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				$footer_id = \dash\db::insert_id();
+			}
+
+		}
+		else
+		{
+			var_dump('specail footer');
+			var_dump($store_website);
+		}
+		// ------------------------------------------------------ FOOTER  ------------------------------------------------------------------------------------------- //
 
 
 	}
