@@ -183,7 +183,7 @@ class db
 			}
 			else
 			{
-				\dash\db\mysql\tools\log::log($_qry, $qry_exec_time);
+				\dash\db\mysql\tools\log::log($_qry . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail(), $qry_exec_time);
 			}
 		}
 		// calc exex time in ms
