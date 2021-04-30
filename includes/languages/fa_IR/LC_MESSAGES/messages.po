@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-04-29 18:03+0430\n"
-"PO-Revision-Date: 2021-04-29 18:03+0430\n"
+"POT-Creation-Date: 2021-04-30 14:02+0430\n"
+"PO-Revision-Date: 2021-04-30 14:02+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5023,7 +5023,7 @@ msgstr "ویرایش"
 #: content_a/accounting/doc/add/display-doc.php:78
 #: content_a/accounting/year/add/display.php:39
 #: content_a/form/analytics/filter/display.php:34
-#: content_a/form/item/choice/display.php:32 content_a/pagebuilder/manage/display.php:156
+#: content_a/form/item/choice/display.php:32 content_a/pagebuilder/manage/display.php:172
 #: content_a/products/bullet/display.php:28 content_a/products/property/display.php:105
 #: content_a/setting/fund/display.php:40 content_a/setting/menu/item/display.php:114
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
@@ -5969,7 +5969,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 
 #: content_a/accounting/irvat/all/view.php:51 content_a/category/home/view.php:45
 #: content_a/form/tag/view.php:43 content_a/order/home/view.php:89
-#: content_a/pagebuilder/home/view.php:52 content_a/products/home/view.php:97
+#: content_a/pagebuilder/home/view.php:53 content_a/products/home/view.php:97
 #: content_a/setting/domain/view.php:51 content_a/tag/home/view.php:43
 #: content_business/search/view.php:38 content_business/ticket/home/view.php:52
 #: content_cms/comments/home/view.php:52 content_cms/files/choose/view.php:39
@@ -6434,7 +6434,7 @@ msgstr "مایکت"
 #: content_a/order/address/display.php:77 content_a/order/comment/display.php:17
 #: content_a/order/discount/display.php:32 content_a/order/editdate/display.php:46
 #: content_a/order/productList.php:68 content_a/order/status/display.php:116
-#: content_a/pagebuilder/manage/display.php:138 content_a/products/desc/display.php:12
+#: content_a/pagebuilder/manage/display.php:154 content_a/products/desc/display.php:12
 #: content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:4
 #: content_a/products/property/display.php:158 content_a/products/sharetext/display.php:22
@@ -8475,7 +8475,7 @@ msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:42
-#: content_a/pagebuilder/manage/display.php:78 content_cms/home/display.php:10
+#: content_a/pagebuilder/manage/display.php:94 content_cms/home/display.php:10
 #: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
 #: dash/app/posts/ready.php:101 includes/languages/trans_static.php:512
 #: lib/app/factor/action.php:61 lib/app/factor/ready.php:112 lib/app/gift/filter.php:45
@@ -8545,7 +8545,7 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
 #: content_a/tag/edit/controller.php:14 content_a/tag/remove/controller.php:13
-#: content_cms/tag/edit/controller.php:15 dash/app/posts/check.php:216
+#: content_cms/tag/edit/controller.php:15 dash/app/posts/check.php:218
 #: dash/app/terms/remove.php:18 dash/app/terms/remove.php:51 dash/app/terms/remove.php:82
 #: lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106 lib/app/form/tag/get.php:113
 #: lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
@@ -9345,7 +9345,7 @@ msgstr "افزودن سفارش"
 msgid "Order Edit"
 msgstr "ویرایش سفارش"
 
-#: content_a/pagebuilder/add/display.php:8 content_a/pagebuilder/manage/display.php:133
+#: content_a/pagebuilder/add/display.php:8 content_a/pagebuilder/manage/display.php:149
 #: content_cms/posts/add/display.php:37 content_cms/posts/edit/display.php:59
 msgid "Enter title here"
 msgstr "عنوان را اینجا وارد کنید"
@@ -9402,7 +9402,7 @@ msgstr "صفحه خود را بسازید"
 msgid "Edit title"
 msgstr "ویرایش عنوان"
 
-#: content_a/pagebuilder/build/view.php:156
+#: content_a/pagebuilder/build/view.php:163 content_a/pagebuilder/home/display.php:22
 msgid "Manage homepage"
 msgstr "مدیریت صفحه نخست"
 
@@ -9435,19 +9435,23 @@ msgstr ""
 msgid "Current Template"
 msgstr "قالب فعلی"
 
-#: content_a/pagebuilder/home/display.php:7 content_a/pricehistory/display.php:16
+#: content_a/pagebuilder/home/display.php:14
+msgid "Manage website homepage"
+msgstr "مدیریت صفحه نخست وب‌سایت"
+
+#: content_a/pagebuilder/home/display.php:41 content_a/pricehistory/display.php:16
 #: content_cms/posts/home/display.php:7 content_love/domain/all/display.php:65
 #: content_love/domain/fetch/display.php:64 content_love/domain/setting/display.php:314
 #: content_love/log/home/logTable.php:98
 msgid "Date modified"
 msgstr "تاریخ ویرایش"
 
-#: content_a/pagebuilder/home/display.php:11 content_cms/posts/advance/display.php:156
+#: content_a/pagebuilder/home/display.php:45 content_cms/posts/advance/display.php:156
 #: content_cms/posts/home/display.php:11 content_cms/posts/publishdate/display.php:37
 msgid "Publish date"
 msgstr "تاریخ انتشار"
 
-#: content_a/pagebuilder/home/display.php:17 content_cms/files/choose/display.php:5
+#: content_a/pagebuilder/home/display.php:52 content_cms/files/choose/display.php:5
 #: content_cms/files/datalist/display.php:6 content_cms/posts/home/display.php:17
 #: content_love/files/choose/display.php:5 content_love/files/datalist/display.php:6
 msgid "Post image"
@@ -9482,12 +9486,22 @@ msgstr "وب‌سایت کارت ویزیت"
 msgid "Coming Soon page"
 msgstr "حالت «بزودی»"
 
-#: content_a/pagebuilder/manage/display.php:66 content_cms/posts/advance/display.php:10
+#: content_a/pagebuilder/manage/display.php:64 content_a/website/advance/display.php:37
+msgid "Static file verification"
+msgstr "اعتبارسنجی از طریق فایل‌های ثابت"
+
+#: content_a/pagebuilder/manage/display.php:72 content_a/setting/search/controller.php:40
+#: content_a/website/advance/display.php:45 content_cms/home/display.php:135
+#: dash/app/posts/dropdown.php:39 dash/app/posts/dropdown.php:56
+msgid "Config"
+msgstr "پیکربندی"
+
+#: content_a/pagebuilder/manage/display.php:82 content_cms/posts/advance/display.php:10
 #: content_crm/ticket/setting/display.php:4 content_love/domain/setting/display.php:134
 msgid "Change status"
 msgstr "تغییر وضعیت"
 
-#: content_a/pagebuilder/manage/display.php:68 content_cms/posts/advance/display.php:12
+#: content_a/pagebuilder/manage/display.php:84 content_cms/posts/advance/display.php:12
 msgid ""
 "The status of a post determines how Jibres handles that post. For instance, public "
 "posts viewable by everyone are assigned the publish status, while drafts are assigned "
@@ -9497,30 +9511,30 @@ msgstr ""
 "وضعیت انتشاریافته دارند توسط همه قابل مشاهده هستند. در حالی که اگر وضعیت پیش‌نویس باشد، "
 "تنها برای شما به‌عنوان نویسنده قابل مشاهده است."
 
-#: content_a/pagebuilder/manage/display.php:82 content_cms/posts/advance/display.php:32
+#: content_a/pagebuilder/manage/display.php:98 content_cms/posts/advance/display.php:32
 #: dash/app/posts/filter.php:48 dash/app/posts/ready.php:106
 msgid "Published"
 msgstr "منتشر شده"
 
-#: content_a/pagebuilder/manage/display.php:97
-#: content_a/pagebuilder/manage/display.php:109
-#: content_a/pagebuilder/manage/display.php:111
+#: content_a/pagebuilder/manage/display.php:113
+#: content_a/pagebuilder/manage/display.php:125
+#: content_a/pagebuilder/manage/display.php:127
 msgid "Set as homepage"
 msgstr "تنظیم به عنوان صفحه نخست"
 
-#: content_a/pagebuilder/manage/display.php:99
+#: content_a/pagebuilder/manage/display.php:115
 msgid "You can set this page as your business home page"
 msgstr "شما می‌توانید این صفحه را به عنوان صفحه نخست وب‌سایت بیزینس خود قرار دهید"
 
-#: content_a/pagebuilder/manage/display.php:101
+#: content_a/pagebuilder/manage/display.php:117
 msgid "To set this page as your website homepage publish it first"
 msgstr "برای تنظیم این صفحه به عنوان صفحه نخست، ابتدا آن را منتشر کنید"
 
-#: content_a/pagebuilder/manage/display.php:124
+#: content_a/pagebuilder/manage/display.php:140
 msgid "Change Title"
 msgstr "ویرایش عنوان"
 
-#: content_a/pagebuilder/manage/display.php:149
+#: content_a/pagebuilder/manage/display.php:165
 msgid "Remove page"
 msgstr "حذف صفحه"
 
@@ -12187,12 +12201,6 @@ msgstr "نقشه"
 msgid "SEO"
 msgstr "سئو"
 
-#: content_a/setting/search/controller.php:40 content_a/website/advance/display.php:45
-#: content_cms/home/display.php:135 dash/app/posts/dropdown.php:39
-#: dash/app/posts/dropdown.php:56
-msgid "Config"
-msgstr "پیکربندی"
-
 #: content_a/setting/search/controller.php:41 dash/app/posts/dropdown.php:57
 msgid "setting"
 msgstr "تنظیمات"
@@ -13331,10 +13339,6 @@ msgstr "فروش یکپارچه و حسابداری آنلاین"
 #: content_a/website/advance/display.php:20
 msgid "Website status"
 msgstr "وضعیت وب‌سایت"
-
-#: content_a/website/advance/display.php:37
-msgid "Static file verification"
-msgstr "اعتبارسنجی از طریق فایل‌های ثابت"
 
 #: content_a/website/advance/view.php:9
 msgid "Website advance"
@@ -15907,7 +15911,7 @@ msgstr "ویرایش زبان نوشته"
 msgid "You can change your post language"
 msgstr "شما می‌توانید زبان این نوشته را به صورت دستی تغییر دهید"
 
-#: content_cms/posts/advance/display.php:241 dash/plan_list.php:189
+#: content_cms/posts/advance/display.php:241 dash/plan_list.php:191
 msgid "Remove post"
 msgstr "حذف نوشته"
 
@@ -21902,8 +21906,8 @@ msgid "Add Your Business"
 msgstr "بیزینس خودتون رو اضافه کنید"
 
 #: content_n/home/controller.php:21 dash/app/posts/remove.php:15 dash/upload/cms.php:18
-#: dash/upload/cms.php:53 dash/upload/cms.php:121 dash/upload/cms.php:154
-#: dash/upload/cms.php:193 dash/upload/cms.php:213 dash/upload/cms.php:272
+#: dash/upload/cms.php:53 dash/upload/cms.php:124 dash/upload/cms.php:157
+#: dash/upload/cms.php:196 dash/upload/cms.php:216 dash/upload/cms.php:275
 #: dash/upload/product.php:20 dash/upload/product.php:37 dash/upload/product.php:93
 #: dash/upload/tax_document.php:20 dash/upload/tax_document.php:37
 msgid "Post not found"
@@ -23288,65 +23292,65 @@ msgstr "شناسه سطح دسترسی اشتباه است"
 msgid "Permission removed"
 msgstr "سطح دسترسی حذف شد"
 
-#: dash/app/posts/add.php:20 lib/app/menu/check.php:47
+#: dash/app/posts/add.php:27 lib/app/menu/check.php:47
 msgid "Title is required"
 msgstr "عنوان الزامی است"
 
-#: dash/app/posts/add.php:73
+#: dash/app/posts/add.php:80
 msgid "No way to insert post"
 msgstr "هیچ راهی برای افزودن مطلب وجود ندارد"
 
-#: dash/app/posts/add.php:104
+#: dash/app/posts/add.php:111
 msgid "Post successfuly added"
 msgstr "مطلب با موفقیت اضافه شد"
 
-#: dash/app/posts/check.php:75
+#: dash/app/posts/check.php:76
 msgid "Can not access to edit this post!"
 msgstr "شما دسترسی لازم را برای ویرایش این نوشته را ندارید!"
 
-#: dash/app/posts/check.php:125 lib/app/menu/check.php:194
+#: dash/app/posts/check.php:127 lib/app/menu/check.php:194
 msgid "Please choose a tag"
 msgstr "لطفا تگ را انتخاب کنید"
 
-#: dash/app/posts/check.php:136
+#: dash/app/posts/check.php:138
 msgid "Please choose a post as parent"
 msgstr "لطفا یک نوشته را به عنوان والد انتخاب کنید"
 
-#: dash/app/posts/check.php:145
+#: dash/app/posts/check.php:147
 msgid "Url is required"
 msgstr "آدرس الزامی است"
 
-#: dash/app/posts/check.php:170
+#: dash/app/posts/check.php:172
 msgid "Invalid parameter parent"
 msgstr "پارامتر والد نامعتبر است"
 
-#: dash/app/posts/check.php:184
+#: dash/app/posts/check.php:186
 msgid "Only post by special address can set as parent of another post"
 msgstr ""
 "تنها نوشته‌هایی که دارای آدرس اختصاصی هستند می‌توانند به عنوان والد برای نوشته‌ای دیگر "
 "قرار گیرند"
 
-#: dash/app/posts/check.php:190
+#: dash/app/posts/check.php:192
 msgid "Parent post have not a special url"
 msgstr "مطلب والد دارای آدرس اختصاصی نیست"
 
-#: dash/app/posts/check.php:196
+#: dash/app/posts/check.php:198
 msgid "Can not set page as parent of self!"
 msgstr "نمی‌توانید صفحه‌ای را به‌عنوان والد خودش ثبت کنید!"
 
-#: dash/app/posts/check.php:231
+#: dash/app/posts/check.php:233
 msgid "Duplicate post url. This post url is already exists in your post list"
 msgstr "آدرس نوشته تکراری است. این آدرس نوشته در لیست نوشته‌های شما وجود دارد"
 
-#: dash/app/posts/check.php:288 dash/utility/pay/start.php:186 lib/app/cart/search.php:311
+#: dash/app/posts/check.php:290 dash/utility/pay/start.php:186 lib/app/cart/search.php:311
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
 
-#: dash/app/posts/check.php:309
+#: dash/app/posts/check.php:311
 msgid "Can not set the slug larger than 100 character"
 msgstr "نمی‌توانید نامک را بیشتر از ۱۰۰ کاراکتر تنظیم کنید"
 
-#: dash/app/posts/check.php:315
+#: dash/app/posts/check.php:317
 msgid "Can not set the url larger than 180 character"
 msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکتر تنظیم کنید"
 
@@ -23365,43 +23369,43 @@ msgstr "نتیجه‌ای یافت نشد!"
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
-#: dash/app/posts/edit.php:17
+#: dash/app/posts/edit.php:24
 msgid "Post id not set"
 msgstr "شناسه مطلب تنظیم نشده است"
 
-#: dash/app/posts/edit.php:25 dash/app/posts/get.php:99 dash/app/posts/get.php:124
+#: dash/app/posts/edit.php:32 dash/app/posts/get.php:99 dash/app/posts/get.php:124
 msgid "Invalid posts id"
 msgstr "شناسه مطلب اشتباه است"
 
-#: dash/app/posts/edit.php:98
+#: dash/app/posts/edit.php:106
 msgid "Publish date is required when post is published"
 msgstr "تاریخ انتشار برای نوشته‌های منتشرشده الزامی است"
 
-#: dash/app/posts/edit.php:163
+#: dash/app/posts/edit.php:172
 msgid "Post successfully updated"
 msgstr "مطلب با موفقیت به‌روزرسانی شد"
 
-#: dash/app/posts/edit.php:168
+#: dash/app/posts/edit.php:177
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
 
-#: dash/app/posts/edit.php:187
+#: dash/app/posts/edit.php:196
 msgid "When post set on type video you must be have fill the video file to publish"
 msgstr ""
 "وقتی نوع نوشته روی ویدئو تنظیم شده باشد شما باید یک فایل ویدئویی در این نوشته داشته "
 "باشید تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:202
+#: dash/app/posts/edit.php:211
 msgid "When post set on type audio you must be have fill the audio file to publish"
 msgstr ""
 "وقتی نوع نوشته روی پادکست تنظیم شده باشد شما باید یک فایل صوتی در این نوشته داشته باشید "
 "تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:291
+#: dash/app/posts/edit.php:300
 msgid "To convert to video you must have only one gallery items and that must be a video"
 msgstr "برای تغییر نوع به ویدئو شما باید یک فایل ویدئویی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/edit.php:311
+#: dash/app/posts/edit.php:320
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
@@ -25227,107 +25231,107 @@ msgstr "دریافت کننده پیام‌های سفارشات"
 msgid "Manage business setting"
 msgstr "مدیریت تنظیمات بیزینس"
 
-#: dash/plan_list.php:162
+#: dash/plan_list.php:164
 msgid "Manage Form"
 msgstr "مدیریت فرم‌ساز"
 
-#: dash/plan_list.php:163
+#: dash/plan_list.php:165
 msgid "Advance Form Analyze"
 msgstr "تجزیه و تحلیل پیشرفته"
 
-#: dash/plan_list.php:164
+#: dash/plan_list.php:166
 msgid "Manage Form Tags"
 msgstr "مدیریت کلیدواژه فرم‌ها"
 
-#: dash/plan_list.php:165
+#: dash/plan_list.php:167
 msgid "Remove form answer"
 msgstr "حذف پاسخ فرم‌ها"
 
-#: dash/plan_list.php:166
+#: dash/plan_list.php:168
 msgid "Form Description"
 msgstr "ثبت توضیحات برای پاسخ‌ فرم‌ها"
 
-#: dash/plan_list.php:171
+#: dash/plan_list.php:173
 msgid "Manage Customers"
 msgstr "مدیریت مشتریان"
 
-#: dash/plan_list.php:172
+#: dash/plan_list.php:174
 msgid "Manage customer payemnts"
 msgstr "مدیریت پرداختی‌های مشتریان"
 
-#: dash/plan_list.php:173
+#: dash/plan_list.php:175
 msgid "Permission Management"
 msgstr "مدیریت سطح دسترسی"
 
-#: dash/plan_list.php:174
+#: dash/plan_list.php:176
 msgid "Show Payemnt List"
 msgstr "نمایش لیست پرداختی‌ها"
 
-#: dash/plan_list.php:175
+#: dash/plan_list.php:177
 msgid "Show logs"
 msgstr "نمایش ردپا"
 
-#: dash/plan_list.php:176
+#: dash/plan_list.php:178
 msgid "Show sms list"
 msgstr "نمایش لیست پیامک‌ها"
 
-#: dash/plan_list.php:177
+#: dash/plan_list.php:179
 msgid "Show Telegram messages list"
 msgstr "نمایش لیست پیام‌های تلگرام"
 
-#: dash/plan_list.php:179
+#: dash/plan_list.php:181
 msgid "Show Tickets List"
 msgstr "نمایش لیست تیکت‌ها"
 
-#: dash/plan_list.php:180
+#: dash/plan_list.php:182
 msgid "Ticket Manager"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:182
+#: dash/plan_list.php:184
 msgid "Add New Notification"
 msgstr "افزودن پیام جدید"
 
-#: dash/plan_list.php:186
+#: dash/plan_list.php:188
 msgid "Manage Post"
 msgstr "مدیریت نوشته‌ها"
 
-#: dash/plan_list.php:187
+#: dash/plan_list.php:189
 msgid "Manage All Post"
 msgstr "مدیریت تمامی نوشته‌‌ها"
 
-#: dash/plan_list.php:188
+#: dash/plan_list.php:190
 msgid "Publish post"
 msgstr "انتشار نوشته"
 
-#: dash/plan_list.php:190
+#: dash/plan_list.php:192
 msgid "Manage Help Center"
 msgstr "مدیریت مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:192
+#: dash/plan_list.php:194
 msgid "View Comments"
 msgstr "نمایش دیدگاه‌ها"
 
-#: dash/plan_list.php:193
+#: dash/plan_list.php:195
 msgid "Manage Comments"
 msgstr "مدیریت دیدگاه‌ها"
 
-#: dash/plan_list.php:195
+#: dash/plan_list.php:197
 msgid "Manage Tags"
 msgstr "مدیریت تگ‌ها"
 
-#: dash/plan_list.php:197
+#: dash/plan_list.php:199
 msgid "View Attachment"
 msgstr "نمایش ضمیمه‌‌ها"
 
-#: dash/plan_list.php:198
+#: dash/plan_list.php:200
 msgid "Add New Attachment"
 msgstr "افزودن فایل ضمیمه جدید"
 
-#: dash/plan_list.php:199
+#: dash/plan_list.php:201
 msgid "Manage Attachments"
 msgstr "مدیریت ضمیمه‌ها"
 
-#: dash/plan_list.php:201
+#: dash/plan_list.php:203
 msgid "CMS customization"
 msgstr "سفارشی‌سازی سیستم مدیریت محتوا"
 
@@ -26098,15 +26102,15 @@ msgstr "شناسه دسته‌بندی تنظیم نشده"
 msgid "Can not set this file as post featured image!"
 msgstr "نمی‌توانید این فایل را به عنوان تصویر شاخص مطلب انتخاب کنید!"
 
-#: dash/upload/cms.php:171
+#: dash/upload/cms.php:174
 msgid "Can not set this file as post cover!"
 msgstr "نمی‌توانید این فایل را به عنوان کاور مطلب انتخاب کنید!"
 
-#: dash/upload/cms.php:235
+#: dash/upload/cms.php:238
 msgid "Can not set this file as post video!"
 msgstr "نمی‌توانید این فایل را به عنوان ویدئو انتخاب کنید!"
 
-#: dash/upload/cms.php:247
+#: dash/upload/cms.php:250
 msgid "Can not set this file as post audio!"
 msgstr "نمی‌توانید این فایل را به عنوان پادکست انتخاب کنید!"
 
