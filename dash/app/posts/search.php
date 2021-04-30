@@ -293,7 +293,7 @@ class search
 
 		if($data['homepage_id'])
 		{
-		$order_sort = " ORDER BY FIELD(posts.id, $data[homepage_id], posts.id)";
+			$and[] = " posts.id !=  $data[homepage_id]";
 		}
 
 		$list = \dash\db\posts\search::list($and, $or, $order_sort, $meta);

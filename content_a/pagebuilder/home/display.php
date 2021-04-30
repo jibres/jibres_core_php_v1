@@ -4,36 +4,28 @@ $html = '';
 $homepage_id     = \lib\store::detail('homepage_builder_post_id');
 $encode_homepage = \dash\coding::encode($homepage_id);
 
-foreach (\dash\data::dataTable() as $key => $value)
-{
-  if(a($value, 'id') == $encode_homepage)
-  {
+
+
     $html .= '<section class="f" data-option="hoempage">';
     $html .= '<div class="c8 s12">';
     $html .= '<div class="data">';
     $html .= '<h3>'. T_("Manage website homepage"). '</h3>';
     $html .= '<div class="body">';
-    $html .= '<p>'. a($value, 'title'). '</p>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '<div class="c4 s12">';
     $html .= '<div class="action">';
-    $html .= '<a class="btn master" href="'. \dash\url::this(). '/build?id='. a($value, 'id'). '">'. T_("Manage homepage"). '</a>';
+    $html .= '<a class="btn master" href="'. \dash\url::this(). '/build?id='. $encode_homepage. '">'. T_("Manage homepage"). '</a>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</section>';
-  }
-}
+
 
 $html .= '<nav class="items">';
 $html .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
 {
-  if(a($value, 'id') == $encode_homepage)
-  {
-      continue;
-  }
 
   $date_title = '';
   if(a($value, 'datemodified'))
