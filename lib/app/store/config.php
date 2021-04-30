@@ -140,6 +140,37 @@ class config
 			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
 		}
 
+
+		$args =
+		[
+			'title'         => T_("Example product 2"),
+			'stock'         => 10,
+			'weight'        => 10,
+			'desc'          => T_("Description of example product 2"),
+			'trackquantity' => 1,
+			'sku'           => '1234567',
+			'sharetext'     => T_("Share this product by this text"),
+			'buyprice'      => 1000,
+			'price'         => 1500,
+			'discount'      => 100,
+			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
+			'cat'           => [T_("Example category 1")],
+			'unit'          => T_("Number"), // in add manual user send the unit
+		];
+
+		$product_id = \lib\app\product\add::add($args);
+
+		if(isset($product_id['id']))
+		{
+			$file_detail =
+			[
+				'path' => \dash\url::cdn(). "/images/slider-sample/food/". rand(1, 40).".jpg",
+				'id' => null,
+			];
+
+			\lib\app\product\gallery::gallery($product_id['id'], $file_detail, 'add');
+		}
+
 	}
 
 
