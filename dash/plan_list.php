@@ -156,6 +156,8 @@ class plan_list
 
 		// --------------- SETTING
 		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
+		// $master['pagebuilder']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'pagebuilder', 					'title' => T_('Manage Pagebuilder'), 'require' => []];
+		// $master['homepagebuilder']              = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'homepagebuilder', 				'title' => T_('Manage Homepage'), 'require' => []];
 
 
 		// --------------- FORMS

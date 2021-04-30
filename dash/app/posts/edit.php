@@ -5,9 +5,16 @@ namespace dash\app\posts;
 class edit
 {
 
-	public static function edit($_args, $_id)
+	public static function edit($_args, $_id, $_force = false)
 	{
-		\dash\permission::access('cmsManagePost');
+		if($_force)
+		{
+			// force add new post. pagebuilder mode
+		}
+		else
+		{
+			\dash\permission::access('cmsManagePost');
+		}
 
 		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);
@@ -18,7 +25,7 @@ class edit
 			return false;
 		}
 
-		$load_posts = \dash\app\posts\get::load_post($_id);
+		$load_posts = \dash\app\posts\get::load_post($_id, $_force);
 
 		if(!isset($load_posts['id']))
 		{
@@ -27,7 +34,8 @@ class edit
 		}
 
 		// check args
-		$args = \dash\app\posts\check::variable($_args, $id);
+		$args = \dash\app\posts\check::variable($_args, $id, $_force);
+
 
 		if($args === false || !\dash\engine\process::status())
 		{
@@ -129,6 +137,7 @@ class edit
 				\lib\app\menu\update::post($id, true);
 			}
 
+
 			if(\dash\engine\process::status())
 			{
 
@@ -143,7 +152,7 @@ class edit
 				}
 
 				// calculate seo rank after save post
-				$load_posts = \dash\app\posts\get::load_post($_id);
+				$load_posts = \dash\app\posts\get::load_post($_id, $_force);
 
 				$seo_detail            = [];
 				$seo_detail['type']    = 'post';

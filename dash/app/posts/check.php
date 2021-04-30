@@ -4,7 +4,7 @@ namespace dash\app\posts;
 
 class check
 {
-	public static function variable($_args, $_id = null)
+	public static function variable($_args, $_id = null, $_force = false)
 	{
 		$condition =
 		[
@@ -63,16 +63,18 @@ class check
 				return false;
 			}
 
-
-			if(!\dash\permission::check('cmsManageAllPost'))
+			if(!$_force)
 			{
-				if(floatval(\dash\user::id()) === floatval($current_post_detail['user_id']))
+				if(!\dash\permission::check('cmsManageAllPost'))
 				{
-					/* no problem*/
-				}
-				else
-				{
-					\dash\permission::deny(T_("Can not access to edit this post!"));
+					if(floatval(\dash\user::id()) === floatval($current_post_detail['user_id']))
+					{
+						/* no problem*/
+					}
+					else
+					{
+						\dash\permission::deny(T_("Can not access to edit this post!"));
+					}
 				}
 			}
 		}
@@ -318,7 +320,10 @@ class check
 
 		if($data['status'] && $data['status'] === 'publish')
 		{
-			\dash\permission::access('cmsPostPublisher');
+			if(!$_force)
+			{
+				\dash\permission::access('cmsPostPublisher');
+			}
 		}
 
 		if($data['template'])

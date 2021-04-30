@@ -112,9 +112,12 @@ class cms
 
 
 
-	public static function set_post_cover($_post_id = null)
+	public static function set_post_cover($_post_id = null, $_force = false)
 	{
-		\dash\permission::access('cmsAttachmentAdd');
+		if(!$_force)
+		{
+			\dash\permission::access('cmsAttachmentAdd');
+		}
 
 		if(!$_post_id)
 		{

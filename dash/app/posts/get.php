@@ -141,9 +141,12 @@ class get
 	}
 
 
-	public static function load_post($_id)
+	public static function load_post($_id, $_force = false)
 	{
-		\dash\permission::access('cmsManagePost');
+		if(!$_force)
+		{
+			\dash\permission::access('cmsManagePost');
+		}
 
 		$id = \dash\validate::code($_id);
 		$id = \dash\coding::decode($id);

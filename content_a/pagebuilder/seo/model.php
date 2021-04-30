@@ -15,7 +15,7 @@ class model
 
 		if(\dash\request::files('cover'))
 		{
-			$file_cover = \dash\upload\cms::set_post_cover(\dash\coding::decode(\dash\request::get('id')));
+			$file_cover = \dash\upload\cms::set_post_cover(\dash\coding::decode(\dash\request::get('id')), true);
 			if(!$file_cover)
 			{
 				\dash\notif::error(T_("Please upload a photo"));
@@ -32,7 +32,7 @@ class model
 		$post['specialaddress'] = \dash\request::post('specialaddress');
 
 
-		$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'));
+		$post_detail = \dash\app\posts\edit::edit($post, \dash\request::get('id'), true);
 
 		if(\dash\engine\process::status())
 		{

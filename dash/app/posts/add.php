@@ -4,9 +4,16 @@ namespace dash\app\posts;
 class add
 {
 
-	public static function add($_args)
+	public static function add($_args, $_force = false)
 	{
-		\dash\permission::access('cmsManagePost');
+		if($_force)
+		{
+			// force add new post. pagebuilder mode
+		}
+		else
+		{
+			\dash\permission::access('cmsManagePost');
+		}
 		// check args
 		$args = \dash\app\posts\check::variable($_args);
 

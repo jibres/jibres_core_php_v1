@@ -12,7 +12,7 @@ class model
 			'type'  => 'pagebuilder',
 		];
 
-		$post_detail = \dash\app\posts\add::add($post);
+		$post_detail = \dash\app\posts\add::add($post, true);
 
 		if(\dash\engine\process::status() && isset($post_detail['post_id']))
 		{

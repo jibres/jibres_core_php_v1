@@ -41,7 +41,7 @@ class view
 		];
 
 		$search_string = \dash\validate::search(\dash\request::get('q'));
-		$postList      = \dash\app\posts\search::list($search_string, $args);
+		$postList      = \dash\app\posts\search::list($search_string, $args, true);
 
 		\dash\data::dataTable($postList);
 
