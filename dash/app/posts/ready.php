@@ -268,7 +268,15 @@ class ready
 			$result['comment'] = 'default';
 		}
 
-		$cms_setting = \lib\app\setting\get::cms_setting();
+		if(\dash\temp::get('not_load_cms_setting'))
+		{
+			// pagebuilder needless to load cms setting
+			// nothing
+		}
+		else
+		{
+			$cms_setting = \lib\app\setting\get::cms_setting();
+		}
 
 		switch ($result['comment'])
 		{

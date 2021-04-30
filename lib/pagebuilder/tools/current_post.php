@@ -30,6 +30,8 @@ class current_post
 			$post_detail['ishomepage'] = true;
 		}
 
+		\dash\temp::get('not_load_cms_setting', true);
+
 		$ready = \dash\app\posts\ready::row($post_detail);
 
 		return $ready;
