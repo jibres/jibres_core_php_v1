@@ -14,6 +14,7 @@ class viewThirdParty
 		\dash\data::addons_tawk(self::tawk());
 		\dash\data::addons_imber(self::imber());
 		\dash\data::addons_raychat(self::raychat());
+		\dash\data::addons_mediaad(self::mediaad());
 	}
 
 
@@ -140,6 +141,21 @@ class viewThirdParty
 		}
 	}
 
+
+	public static function mediaad()
+	{
+		if(\dash\engine\store::inBusinessWebsite())
+		{
+			if(\lib\store::detail('addon_mediaad'))
+			{
+				return \lib\store::detail('addon_mediaad');
+			}
+			else
+			{
+				return null;
+			}
+		}
+	}
 
 }
 ?>

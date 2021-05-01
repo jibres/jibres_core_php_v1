@@ -186,6 +186,11 @@ class guard
 		{
 			$policy['script-src'][] = "https://*.imber.live/";
 		}
+		// mediaadd
+		if(\dash\engine\viewThirdParty::mediaad())
+		{
+			$policy['script-src'][] = "https://s1.mediaad.org/";
+		}
 
 		// for local
 		if(\dash\url::isLocal())
