@@ -8,24 +8,32 @@ class homepage
 	{
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
-		$setting    = [];
-		$file_error = [];
-		$duplicate  = 0;
-		$run        = 0;
+		$setting          = [];
+		$file_error       = [];
+		$duplicate        = 0;
+		$run              = 0;
+
+		$res              = [];
+		$res['duplicate'] = 0;
+		$res['done']      = 0;
+
+		$dir = __DIR__ . '/homepage/';
+		if(!is_dir($dir))
+		{
+			\dash\file::makeDir($dir, null, true);
+		}
 
 		foreach ($list as $key => $store)
 		{
 
 			$store_id = $store['id'];
 
-			if(floatval($store_id) === floatval(1000155))
+			if(is_file($dir. $store_id. '.me.json'))
 			{
-				// ok
-			}
-			else
-			{
+				$res['duplicate']++;
 				continue;
 			}
+
 
 			$dbname = \dash\engine\store::make_database_name($store_id);
 
@@ -181,18 +189,25 @@ class homepage
 				var_dump($value);exit();
 			}
 
+			if(empty($store_website['header']) && empty($store_website['body']) && empty($store_website['footer']) && !a($store_website, 'status'))
+			{
+				$store_website['status'] = 'visitcard';
+			}
+
 			\dash\db::transaction($store['fuel']);
 
 			self::create_business_homepage($store, $store_website);
 
 			\dash\db::commit($store['fuel']);
 
+			file_put_contents($dir. $store_id. '.me.json', json_encode($store_website, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+
+			$res['done']++;
+
 			\dash\db\mysql\tools\connection::close();
 
-			continue;
-
 		}
-
+		var_dump($res);
 		var_dump('ok');
 		exit();
 	}
@@ -203,11 +218,6 @@ class homepage
 	{
 		if(!a($store_website, 'status'))
 		{
-			if($store['subdomain'] === 'rahimi')
-			{
-				return;
-			}
-
 			var_dump($store);
 			var_dump($store_website);
 			exit();
@@ -649,8 +659,15 @@ class homepage
 			}
 			elseif($body_element['type'] === 'quote')
 			{
-				var_dump($store);
-				var_dump('quote', $body_element);exit();
+				if(in_array(a($store, 'subdomain'), ['rebaran', 'sarahonar', 'haftpeykar', 'citycloth']))
+				{
+					// no thing
+				}
+				else
+				{
+					var_dump($store);
+					var_dump('quote', $body_element);exit();
+				}
 			}
 			elseif($body_element['type'] === 'imageblock')
 			{
@@ -661,7 +678,21 @@ class homepage
 					$ratio = "'". json_encode($ratio). "'";
 				}
 
-				$puzzle = '{"code":null,"puzzle_type":"puzzle","slider_type":"special","limit":1}';
+				$limit = 1;
+
+				if(count($body_element['imageblock']) >= 1  || count($body_element['imageblock']) <= 10  )
+				{
+					$limit = count($body_element['imageblock']);
+				}
+				else
+				{
+					var_dump($store);
+					var_dump('erro imagebloc limit', $body_element);exit();
+				}
+
+
+
+				$puzzle = '{"code":null,"puzzle_type":"puzzle","slider_type":"special","limit":'.$limit.'}';
 
 				if(isset($body_element['imageblock']) && is_array($body_element['imageblock']))
 				{
@@ -692,8 +723,15 @@ class homepage
 			}
 			elseif($body_element['type'] === 'titleline')
 			{
-				var_dump($store);
-				var_dump('titleline', $body_element);exit();
+				if(in_array(a($store, 'subdomain'), ['rebaran', 'colorfulpainting', 'sarahonar', 'shopqhkarimeh', 'sakou', 'winox', 'bikoo']))
+				{
+					// no thing
+				}
+				else
+				{
+					var_dump($store);
+					var_dump('titleline', $body_element);exit();
+				}
 			}
 			elseif($body_element['type'] === 'text')
 			{
@@ -722,8 +760,21 @@ class homepage
 
 				}
 			}
+			elseif($body_element['type'] === 'subscribe')
+			{
+				if(in_array(a($store, 'subdomain'), ['rasulrajabi']))
+				{
+					// no thing
+				}
+				else
+				{
+					var_dump($store);
+					var_dump('subscribe', $body_element);exit();
+				}
+			}
 			else
 			{
+				var_dump($store);
 				var_dump('new body elemnt');
 				var_dump($body_element);exit();
 			}
