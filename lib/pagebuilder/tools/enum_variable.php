@@ -120,7 +120,13 @@ trait enum_variable
 
 			if(!is_array($variable))
 			{
-				$variable = []; // the default value
+				$variable         = [];
+				$variable['code'] = self::default_code(); // the default value
+			}
+
+			if(!a($variable, 'code'))
+			{
+				$variable['code'] = self::default_code();
 			}
 
 
