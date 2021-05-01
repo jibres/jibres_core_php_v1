@@ -92,4 +92,18 @@
   </nav>
 <?php } ?>
 
+<?php if (\dash\language::current() === 'fa') { ?>
+  <h2><?php echo T_("Advertise"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/mediaad">
+          <div class="key"><?php echo T_("Media.ad"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+<?php } ?>
+
 </div>

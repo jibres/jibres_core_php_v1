@@ -35,6 +35,7 @@ class check
 			'addon_tawk'                          => 'string_50',
 			'addon_imber'                         => 'string_50',
 			'addon_raychat'                       => 'string_50',
+			'addon_mediaad'                       => 'intstring_10_4',
 			'enamad'                              => 'string_100',
 			'nosale'                              => 'bit',
 			'samandehi_link1'                     => 'url',
