@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-04-30 14:02+0430\n"
-"PO-Revision-Date: 2021-04-30 14:02+0430\n"
+"POT-Creation-Date: 2021-05-01 18:57+0430\n"
+"PO-Revision-Date: 2021-05-01 18:59+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -143,7 +143,7 @@ msgstr ""
 #: content_r10/android/view.php:12 content_su/dbversion/display.php:14
 #: content_su/dbversion/display.php:34 content_su/update/display.php:32
 #: content_su/update/display.php:98 content_v2/android/splash/view.php:20
-#: content_v2/android/view.php:26 dash/engine/view.php:26
+#: content_v2/android/view.php:26 dash/engine/view.php:22
 #: dash/layout/admin/admin-sidebar.php:123 dash/layout/admin/admin-sidebar.php:124
 #: dash/layout/html/ipBan.php:5 dash/layout/html/ipProtection.php:5
 #: dash/layout/schema.php:5 includes/languages/trans_static.php:7
@@ -1064,7 +1064,7 @@ msgstr "سرمایه‌گذاری در جیبرس"
 
 #: content/business_plan/view.php:9
 msgid "Jibres Business Plan"
-msgstr ""
+msgstr "بیزینس‌پلن جیبرس"
 
 #: content/business_plan/view.php:10
 msgid ""
@@ -2393,7 +2393,7 @@ msgstr ""
 "بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:27 content/home/view.php:11 content/view.php:17
-#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:262
+#: content_a/channels/home/display.php:8 content_a/setting/home/display.php:261
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2403,7 +2403,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:272
+#: content_a/channels/home/display.php:18 content_a/setting/home/display.php:271
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2431,7 +2431,7 @@ msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
 #: content/home/display.php:41 content_a/channels/home/display.php:28
-#: content_a/setting/home/display.php:282
+#: content_a/setting/home/display.php:281
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2456,7 +2456,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:292
+#: content_a/channels/home/display.php:38 content_a/setting/home/display.php:291
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -2854,7 +2854,7 @@ msgstr "مرکز پشتیبانی"
 
 #: content/home/layout/footer.php:124 content/home/layout/pwa-footer.php:124
 #: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:589
-#: lib/app/website/init.php:65
+#: lib/app/website/init.php:65 lib/pagebuilder/tools/first_init.php:109
 msgid "Contact"
 msgstr "تماس"
 
@@ -4596,7 +4596,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_su/tg/sendmessage/view.php:8 content_su/tg/sendphoto/view.php:9
 #: content_su/tg/system/view.php:9 content_su/tg/users/view.php:9
 #: content_su/tg/webhook/view.php:8 content_su/update/view.php:8
-#: content_su/usage/view.php:8 dash/engine/view.php:208
+#: content_su/usage/view.php:8 dash/engine/view.php:204
 msgid "Back"
 msgstr "بازگشت"
 
@@ -5449,7 +5449,7 @@ msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:12 content_a/accounting/turnover/display.php:149
-#: lib/app/store/config.php:125
+#: lib/app/store/config.php:127 lib/app/store/config.php:158
 msgid "Number"
 msgstr "شماره"
 
@@ -6469,6 +6469,7 @@ msgstr "مایکت"
 #: content_a/setting/thirdparty/gtag/display.php:19
 #: content_a/setting/thirdparty/imber/display.php:18
 #: content_a/setting/thirdparty/kavenegar/display.php:23
+#: content_a/setting/thirdparty/mediaad/display.php:19
 #: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
 #: content_a/setting/thirdparty/tawk/display.php:20 content_a/setting/tw/display.php:18
@@ -7466,27 +7467,27 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 msgid "Sort Product categories"
 msgstr "مرتب‌سازی دسته‌بندی محصولات"
 
-#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:263
+#: content_a/channels/home/display.php:9 content_a/setting/home/display.php:262
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:273
+#: content_a/channels/home/display.php:19 content_a/setting/home/display.php:272
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:283
+#: content_a/channels/home/display.php:29 content_a/setting/home/display.php:282
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:293
+#: content_a/channels/home/display.php:39 content_a/setting/home/display.php:292
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:302
+#: content_a/channels/home/display.php:48 content_a/setting/home/display.php:301
 msgid "Telegram settings"
 msgstr "تنظیمات تلگرام"
 
-#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:303
+#: content_a/channels/home/display.php:49 content_a/setting/home/display.php:302
 msgid "Manage your telegram marketing"
 msgstr "مدیریت فروش و بازاریابی از طریق تلگرام"
 
@@ -9397,12 +9398,12 @@ msgid "Build your page"
 msgstr "صفحه خود را بسازید"
 
 #: content_a/pagebuilder/build/view.php:79 content_a/website/display-title.php:30
-#: lib/pagebuilder/body/news/news.php:66 lib/pagebuilder/body/products/products.php:62
-#: lib/pagebuilder/body/title/design.php:74
+#: lib/pagebuilder/body/news/news.php:66 lib/pagebuilder/body/products/products.php:63
+#: lib/pagebuilder/body/title/design.php:91
 msgid "Edit title"
 msgstr "ویرایش عنوان"
 
-#: content_a/pagebuilder/build/view.php:163 content_a/pagebuilder/home/display.php:22
+#: content_a/pagebuilder/build/view.php:163 content_a/pagebuilder/home/display.php:19
 msgid "Manage homepage"
 msgstr "مدیریت صفحه نخست"
 
@@ -9435,23 +9436,23 @@ msgstr ""
 msgid "Current Template"
 msgstr "قالب فعلی"
 
-#: content_a/pagebuilder/home/display.php:14
+#: content_a/pagebuilder/home/display.php:12
 msgid "Manage website homepage"
 msgstr "مدیریت صفحه نخست وب‌سایت"
 
-#: content_a/pagebuilder/home/display.php:41 content_a/pricehistory/display.php:16
+#: content_a/pagebuilder/home/display.php:33 content_a/pricehistory/display.php:16
 #: content_cms/posts/home/display.php:7 content_love/domain/all/display.php:65
 #: content_love/domain/fetch/display.php:64 content_love/domain/setting/display.php:314
 #: content_love/log/home/logTable.php:98
 msgid "Date modified"
 msgstr "تاریخ ویرایش"
 
-#: content_a/pagebuilder/home/display.php:45 content_cms/posts/advance/display.php:156
+#: content_a/pagebuilder/home/display.php:37 content_cms/posts/advance/display.php:156
 #: content_cms/posts/home/display.php:11 content_cms/posts/publishdate/display.php:37
 msgid "Publish date"
 msgstr "تاریخ انتشار"
 
-#: content_a/pagebuilder/home/display.php:52 content_cms/files/choose/display.php:5
+#: content_a/pagebuilder/home/display.php:44 content_cms/files/choose/display.php:5
 #: content_cms/files/datalist/display.php:6 content_cms/posts/home/display.php:17
 #: content_love/files/choose/display.php:5 content_love/files/datalist/display.php:6
 msgid "Post image"
@@ -9570,7 +9571,7 @@ msgstr "خاص"
 #: content_love/business/datalist/display.php:8 content_love/log/home/logTable.php:63
 #: content_love/smslog/view/display.php:16 content_love/store/display.php:20
 #: content_su/apilog/home/display.php:80 lib/pagebuilder/body/image/add.php:29
-#: lib/pagebuilder/body/title/design.php:46
+#: lib/pagebuilder/body/title/design.php:63
 #: lib/pagebuilder/header/announcement/design.php:44
 msgid "Url"
 msgstr "نشانی اینترنتی"
@@ -10805,7 +10806,7 @@ msgstr "توضیحات وب‌سایت"
 #: content_a/setting/social-old/display.php:16 content_a/setting/social/display.php:15
 #: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: lib/app/website/init.php:82 lib/store.php:493
+#: lib/app/website/init.php:82 lib/pagebuilder/tools/first_init.php:126 lib/store.php:493
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -11388,6 +11389,7 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 #: content_a/setting/thirdparty/enamad/view.php:11
 #: content_a/setting/thirdparty/gtag/view.php:11
 #: content_a/setting/thirdparty/imber/view.php:11
+#: content_a/setting/thirdparty/mediaad/view.php:11
 #: content_a/setting/thirdparty/raychat/view.php:11
 #: content_a/setting/thirdparty/samandehi/view.php:11
 #: content_a/setting/thirdparty/tawk/view.php:11 content_a/setting/thirdparty/view.php:8
@@ -11431,7 +11433,7 @@ msgstr "صفحه‌ساز"
 msgid "Create online page and publish them."
 msgstr "صفحات آنلاین بسازید و آنها را منتشر کنید."
 
-#: content_a/setting/home/display.php:236 content_cms/comments/home/view.php:11
+#: content_a/setting/home/display.php:235 content_cms/comments/home/view.php:11
 #: content_cms/config/view.php:9 content_cms/files/choose/view.php:70
 #: content_cms/files/home/view.php:14 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_cms/tag/home/view.php:16
@@ -11444,15 +11446,15 @@ msgstr "صفحات آنلاین بسازید و آنها را منتشر کنی�
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/setting/home/display.php:237
+#: content_a/setting/home/display.php:236
 msgid "Manage your business news and contents"
 msgstr "مدیریت اخبار و محتوای بیزینس شما"
 
-#: content_a/setting/home/display.php:246 dash/panel.php:238
+#: content_a/setting/home/display.php:245 dash/panel.php:238
 msgid "Customers - CRM"
 msgstr "مشتریان - CRM"
 
-#: content_a/setting/home/display.php:247
+#: content_a/setting/home/display.php:246
 msgid "Manage business customers"
 msgstr "مدیریت مشتریان بیزینس"
 
@@ -12362,7 +12364,7 @@ msgstr "شبکه‌های اجتماعی متصل به اشتراک‌گذاری
 #: content_crm/ticket/view/display.php:174 content_love/log/home/logTable.php:60
 #: content_su/home/display.php:204 content_su/tg/home/view.php:11
 #: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
-#: lib/app/website/init.php:92 lib/store.php:494
+#: lib/app/website/init.php:92 lib/pagebuilder/tools/first_init.php:136 lib/store.php:494
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -12688,6 +12690,15 @@ msgstr "نماد اعتماد"
 #: content_a/setting/thirdparty/display.php:87 lib/pagebuilder.php:61 lib/website.php:47
 msgid "Samandehi"
 msgstr "ساماندهی"
+
+#: content_a/setting/thirdparty/display.php:96
+msgid "Advertise"
+msgstr "تبلیغات"
+
+#: content_a/setting/thirdparty/display.php:101
+#: content_a/setting/thirdparty/mediaad/view.php:8
+msgid "Media.ad"
+msgstr "مدیااد"
 
 #: content_a/setting/thirdparty/enamad/display.php:9
 msgid ""
@@ -13571,7 +13582,7 @@ msgstr "تنظیم فاصله بین آیتم‌ها"
 msgid "Set item radius"
 msgstr "تنظیم شعاع آیتم"
 
-#: content_a/website/display-title.php:23 lib/pagebuilder/body/title/design.php:67
+#: content_a/website/display-title.php:23 lib/pagebuilder/body/title/design.php:84
 msgid "Title with more link"
 msgstr "عنوان با لینک مشاهده بیشتر"
 
@@ -13583,15 +13594,15 @@ msgstr "نمایش عنوان در وب‌سایت"
 msgid "Do not show title on website"
 msgstr "عدم نمایش عنوان در وب‌سایت"
 
-#: content_a/website/display-title.php:69 lib/pagebuilder/body/title/design.php:40
+#: content_a/website/display-title.php:69 lib/pagebuilder/body/title/design.php:57
 msgid "Show read more link"
 msgstr "نمایش لینک مشاهده بیشتر"
 
-#: content_a/website/display-title.php:75 lib/pagebuilder/body/title/design.php:34
+#: content_a/website/display-title.php:75 lib/pagebuilder/body/title/design.php:51
 msgid "Hide read more link"
 msgstr "عدم نمایش لینک مشاهده بیشتر"
 
-#: content_a/website/display-title.php:82 lib/pagebuilder/body/title/design.php:50
+#: content_a/website/display-title.php:82 lib/pagebuilder/body/title/design.php:67
 msgid "Caption of more link"
 msgstr "عنوان لینک مشاهده بیشتر"
 
@@ -20863,7 +20874,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:62
+#: lib/app/store/check.php:63
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -22238,6 +22249,46 @@ msgstr "ردیف یافت شد"
 #: content_su/dnsprovider/display.php:32
 msgid "New DNS IP"
 msgstr "آی‌پی جدید دی‌ان‌اس"
+
+#: content_su/fix/homepage.php:244
+msgid "Default homepage"
+msgstr "صفحه نخست پیش‌فرض"
+
+#: content_su/fix/homepage.php:293 content_su/fix/homepage.php:385
+#: lib/app/website/header/template/header_100.php:11
+#: lib/pagebuilder/header/h100/h100.php:18
+msgid "Header #100"
+msgstr "سرصفحه شماره ۱۰۰"
+
+#: content_su/fix/homepage.php:298 content_su/fix/homepage.php:332
+#: lib/app/website/header/template/header_300.php:11
+#: lib/pagebuilder/header/h300/h300.php:19
+msgid "Header #300"
+msgstr "سرصفحه شماره ۳۰۰"
+
+#: content_su/fix/homepage.php:438
+msgid "Header #rafiei"
+msgstr "سرصفحه #رفیعی"
+
+#: content_su/fix/homepage.php:866 content_su/fix/homepage.php:922
+#: lib/pagebuilder/footer/f100/f100.php:19
+msgid "Footer #100"
+msgstr "فوتر ۱۰۰"
+
+#: content_su/fix/homepage.php:871
+msgid "Footer #rafiei"
+msgstr "فوتر #رفیعی"
+
+#: content_su/fix/homepage.php:876 content_su/fix/homepage.php:964
+#: lib/app/website/footer/template/footer_201.php:11
+#: lib/pagebuilder/footer/f201/f201.php:18
+msgid "Footer #201"
+msgstr "فوتر ۲۰۱"
+
+#: content_su/fix/homepage.php:881 lib/app/website/footer/template/footer_300.php:11
+#: lib/pagebuilder/footer/f300/f300.php:20
+msgid "Footer #300"
+msgstr "فوتر ۳۰۰"
 
 #: content_su/gitstatus/view.php:8
 msgid "Git Status"
@@ -24363,20 +24414,24 @@ msgstr "درب ورود کجاست!"
 msgid "Where is that bed room!"
 msgstr "اتاق خواب کجاست!"
 
-#: dash/db/mysql/tools/connection.php:138
+#: dash/db/mysql/tools/connection.php:129 dash/db/mysql/tools/connection.php:138
+msgid "Error in connecting to database!"
+msgstr "خطا در برقراری ارتباط با سرویس دیتابیس!"
+
+#: dash/db/mysql/tools/connection.php:148
 msgid "We can't connect to database service!"
 msgstr "ما نمی‌توانیم به سرویس دیتابیس متصل شویم!"
 
-#: dash/db/mysql/tools/connection.php:146
+#: dash/db/mysql/tools/connection.php:156
 msgid "Unable to connect to this store at this time"
 msgstr "در حال حاضر امکان اتصال به این فروشگاه وجود ندارد"
 
-#: dash/db/mysql/tools/connection.php:152
+#: dash/db/mysql/tools/connection.php:162
 msgid "Please contact administrator!"
 msgstr "لطفا با مدیر سیستم تماس بگیرید!"
 
-#: dash/db/mysql/tools/connection.php:164 dash/db/mysql/tools/connection.php:170
-#: dash/db/mysql/tools/connection.php:176 dash/social/telegram/commands/ermile.php:175
+#: dash/db/mysql/tools/connection.php:174 dash/db/mysql/tools/connection.php:180
+#: dash/db/mysql/tools/connection.php:186 dash/social/telegram/commands/ermile.php:175
 #: dash/social/telegram/commands/ermile.php:448
 msgid "Hello!"
 msgstr "سلام!"
@@ -24445,7 +24500,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:339
+#: dash/engine/guard.php:344
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -24477,7 +24532,7 @@ msgstr "نمی‌توانیم به درخواست از این آدرس در ای
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
-#: dash/engine/view.php:155 lib/pagebuilder/body/news/news.php:20
+#: dash/engine/view.php:151 lib/pagebuilder/body/news/news.php:20
 #: lib/pagebuilder/body/news/news.php:57
 msgid "Latest news"
 msgstr "آخرین اخبار"
@@ -25809,8 +25864,8 @@ msgstr "همگام‌سازی با وب‌سایت"
 
 #: dash/social/telegram/commands/ermile.php:332
 #: dash/social/telegram/commands/ermile.php:528
-#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:149
-#: lib/app/website/init.php:56
+#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:182
+#: lib/app/website/init.php:56 lib/pagebuilder/tools/first_init.php:100
 msgid "About"
 msgstr "درباره"
 
@@ -37235,43 +37290,51 @@ msgstr "درخواست جابجایی ذخیره شد"
 msgid "Fuel updated"
 msgstr "سوخت به‌روزرسانی شد"
 
-#: lib/app/store/check.php:70
+#: lib/app/store/check.php:71
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
-#: lib/app/store/config.php:113
+#: lib/app/store/config.php:115
 msgid "Example product 1"
 msgstr "محصول نمونه ۱"
 
-#: lib/app/store/config.php:116
+#: lib/app/store/config.php:118
 msgid "Description of example product 1"
 msgstr "توضیحاتی در مورد محصول نمونه ۱"
 
-#: lib/app/store/config.php:119
+#: lib/app/store/config.php:121 lib/app/store/config.php:152
 msgid "Share this product by this text"
 msgstr "با این متن محصول خود را به اشتراک بگذارید"
 
-#: lib/app/store/config.php:123
+#: lib/app/store/config.php:125 lib/app/store/config.php:156
 msgid "Example tag 1"
 msgstr "تگ نمونه ۱"
 
-#: lib/app/store/config.php:123
+#: lib/app/store/config.php:125 lib/app/store/config.php:156
 msgid "Example tag 2"
 msgstr "تگ نمونه ۲"
 
-#: lib/app/store/config.php:124
+#: lib/app/store/config.php:126 lib/app/store/config.php:157
 msgid "Example category 1"
 msgstr "دسته‌بندی نمونه ۱"
 
-#: lib/app/store/config.php:153
+#: lib/app/store/config.php:146
+msgid "Example product 2"
+msgstr "محصول نمونه ۲"
+
+#: lib/app/store/config.php:149
+msgid "Description of example product 2"
+msgstr "توضیحاتی در مورد محصول نمونه ۲"
+
+#: lib/app/store/config.php:186
 msgid "Sample about page"
 msgstr "نمونه‌ای از صفحه درباره ما"
 
-#: lib/app/store/config.php:160
+#: lib/app/store/config.php:193
 msgid "Contact US"
 msgstr "تماس با ما"
 
-#: lib/app/store/config.php:164
+#: lib/app/store/config.php:197
 msgid "Sample contact page"
 msgstr "نمونه‌ای از صفحه ارتباط با ما"
 
@@ -37738,7 +37801,7 @@ msgid "Application edited"
 msgstr "برنامه ویرایش شد"
 
 #: lib/app/website/body/line/datablock.php:76 lib/app/website/body/line/datablock.php:80
-#: lib/pagebuilder/body/title/title.php:79
+#: lib/pagebuilder/body/title/title.php:91
 msgid "Show more"
 msgstr "مشاهده بیشتر"
 
@@ -38007,11 +38070,6 @@ msgstr "#مدرن"
 msgid "Footer Phone number"
 msgstr "شماره تلفن در فوتر"
 
-#: lib/app/website/footer/template/footer_201.php:11
-#: lib/pagebuilder/footer/f201/f201.php:18
-msgid "Footer #201"
-msgstr "فوتر ۲۰۱"
-
 #: lib/app/website/footer/template/footer_201.php:12
 #: lib/app/website/footer/template/footer_private_rafiei.php:12
 #: lib/pagebuilder/footer/rafiei/rafiei.php:24
@@ -38067,11 +38125,6 @@ msgstr "فهرست چهارم فوتر"
 msgid "Part 4 of footer menu"
 msgstr "قسمت چهارم فهرست فوتر"
 
-#: lib/app/website/footer/template/footer_300.php:11
-#: lib/pagebuilder/footer/f300/f300.php:20
-msgid "Footer #300"
-msgstr "فوتر ۳۰۰"
-
 #: lib/app/website/footer/template/footer_300.php:12
 msgid ""
 "A modern and beautiful template to introduce your news \n"
@@ -38110,11 +38163,6 @@ msgstr "سرصفحه شما سفارشی‌سازی شد"
 #: lib/app/website/header/set.php:100
 msgid "Your website header saved without change"
 msgstr "سرصفحه وب‌سایت شما بدون تغییر ذخیره شد"
-
-#: lib/app/website/header/template/header_100.php:11
-#: lib/pagebuilder/header/h100/h100.php:18
-msgid "Header #100"
-msgstr "سرصفحه شماره ۱۰۰"
 
 #: lib/app/website/header/template/header_100.php:12
 #: lib/pagebuilder/header/h100/h100.php:19
@@ -38162,11 +38210,6 @@ msgstr "منوی ثانویه در سرصفحه"
 msgid "This menu is shown on left side of header menu bar."
 msgstr "این فهرست در سمت چپ سرصفحه شما نمایش داده خواهد شد."
 
-#: lib/app/website/header/template/header_300.php:11
-#: lib/pagebuilder/header/h300/h300.php:19
-msgid "Header #300"
-msgstr "سرصفحه شماره ۳۰۰"
-
 #: lib/app/website/header/template/header_300.php:12
 #: lib/pagebuilder/header/h300/h300.php:20
 msgid ""
@@ -38210,11 +38253,11 @@ msgstr "پایین"
 msgid "inside"
 msgstr "داخل"
 
-#: lib/app/website/init.php:47
+#: lib/app/website/init.php:47 lib/pagebuilder/tools/first_init.php:89
 msgid "Example menu 1"
 msgstr "فهرست نمونه ۱"
 
-#: lib/app/website/init.php:74
+#: lib/app/website/init.php:74 lib/pagebuilder/tools/first_init.php:118
 msgid "Example menu 2"
 msgstr "فهرست نمونه ۲"
 
@@ -38226,7 +38269,7 @@ msgstr "آخرین محصولات"
 msgid "Random products"
 msgstr "محصولات تصادفی"
 
-#: lib/app/website/init.php:179
+#: lib/app/website/init.php:179 lib/pagebuilder/tools/first_init.php:195
 msgid "Image :val"
 msgstr "تصویر :val"
 
@@ -39021,16 +39064,16 @@ msgstr "نمایش تعدادی از آخرین اخبار"
 msgid "Add latest news"
 msgstr "افزودن آخرین اخبار"
 
-#: lib/pagebuilder/body/news/news.php:74 lib/pagebuilder/body/products/products.php:70
+#: lib/pagebuilder/body/news/news.php:74 lib/pagebuilder/body/products/products.php:71
 msgid "Set Filter"
 msgstr "تنظیم فیلتر"
 
-#: lib/pagebuilder/body/news/news.php:89 lib/pagebuilder/body/products/products.php:78
+#: lib/pagebuilder/body/news/news.php:89 lib/pagebuilder/body/products/products.php:79
 msgid "Set design config"
 msgstr "تنظیمات ظاهری"
 
 #: lib/pagebuilder/body/products/products.php:20
-#: lib/pagebuilder/body/products/products.php:53
+#: lib/pagebuilder/body/products/products.php:54
 msgid "Product Block"
 msgstr "بخش محصولات"
 
@@ -39150,13 +39193,17 @@ msgstr "افزودن جعبه متن"
 msgid "Text box Setting"
 msgstr "تنظیمات جعبه متن"
 
+#: lib/pagebuilder/body/title/design.php:34
+msgid "Simple view"
+msgstr "حالت نمایشی ساده"
+
+#: lib/pagebuilder/body/title/design.php:40
+msgid "Special view"
+msgstr "حالت نمایشی ویژه"
+
 #: lib/pagebuilder/footer/change/change.php:31
 msgid "Can not choose this footer"
 msgstr "نمی‌توانید این فوتر را انتخاب کنید"
-
-#: lib/pagebuilder/footer/f100/f100.php:19
-msgid "Footer #100"
-msgstr "فوتر ۱۰۰"
 
 #: lib/pagebuilder/footer/f100/f100.php:20
 msgid "This footer contain copy write text and phone number"
@@ -39209,15 +39256,15 @@ msgstr "هدر این صفحه قبلا انتخاب شده است"
 msgid "This page footer was chosen before"
 msgstr "فوتر این صفحه قبلا انتخاب شده است"
 
-#: lib/pagebuilder/tools/add.php:261
+#: lib/pagebuilder/tools/add.php:270
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 
-#: lib/pagebuilder/tools/add.php:265
+#: lib/pagebuilder/tools/add.php:274
 msgid "Data successfully added"
 msgstr "اطلاعات با موفقیت اضافه شد"
 
-#: lib/pagebuilder/tools/add.php:304
+#: lib/pagebuilder/tools/add.php:313
 msgid "New line"
 msgstr "ردیف جدید"
 
@@ -39232,6 +39279,10 @@ msgstr "اطلاعات با موفقیت به‌روزرسانی شد"
 #: lib/pagebuilder/tools/edit.php:89
 msgid "Line removed"
 msgstr "ردیف حذف شد"
+
+#: lib/pagebuilder/tools/first_init.php:47
+msgid "Default Homepage"
+msgstr "صفحه نخست پیش‌فرض"
 
 #: lib/pagebuilder/tools/homepage.php:33
 msgid "Please publish the page and then set as homepage"
@@ -39823,12 +39874,6 @@ msgstr "یارد"
 
 #~ msgid "This text is duplicate and you are sended something like this before!"
 #~ msgstr "این متن تکراری است و شما قبلا چیزی شبیه این را ارسال کردید!"
-
-#~ msgid "Example product 2"
-#~ msgstr "محصول نمونه ۲"
-
-#~ msgid "Description of example product 2"
-#~ msgstr "توضیحاتی در مورد محصول نمونه ۲"
 
 #~ msgid "Example product 3"
 #~ msgstr "محصول نمونه ۳"
