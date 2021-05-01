@@ -92,9 +92,20 @@ class title
 		$default['show_title'] = 'no';
 		$default['more_link'] = 'hide';
 
+		$element = null;
 		if(isset($_data['key']) && $_data['key'] && is_string($_data['key']))
 		{
-			$default_value = \lib\pagebuilder\tools\tools::call_fn('body', $_data['key'], 'default_value');
+			$element = $_data['key'];
+		}
+
+		if(isset($_data['type']) && $_data['type'] && is_string($_data['type']))
+		{
+			$element = $_data['type'];
+		}
+
+		if($element)
+		{
+			$default_value = \lib\pagebuilder\tools\tools::call_fn('body', $element, 'default_value');
 			if(isset($default_value['titlesetting']) && is_array($default_value['titlesetting']))
 			{
 				$default = array_merge($default, $default_value['titlesetting']);
