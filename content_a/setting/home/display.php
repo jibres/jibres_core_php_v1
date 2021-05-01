@@ -199,7 +199,7 @@
                     </div>
                 </a>
             </div>
-            <?php if(\dash\url::isLocal()) {?>
+
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/setting/menu">
                     <div class="c-auto"><i class="sf-bars"></i></div>
@@ -220,7 +220,6 @@
                 </a>
             </div>
 
-        <?php } //endif ?>
         </div>
     </div>
 </div>

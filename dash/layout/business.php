@@ -61,28 +61,24 @@ class business
 		}
 
 
-		if(\dash\url::isLocal())
+
+		// load page builder by detect current page
+		$pagebuilder = \lib\pagebuilder\load\page::current_page();
+
+		if($pagebuilder)
 		{
-			// load page builder by detect current page
-			$pagebuilder = \lib\pagebuilder\load\page::current_page();
+			self::$is_pagebuilder  = true;
+			self::$website         = true;
+			self::$website_setting = $pagebuilder;
 
-			if($pagebuilder)
-			{
-				self::$is_pagebuilder  = true;
-				self::$website         = true;
-				self::$website_setting = $pagebuilder;
-
-				\dash\data::website($pagebuilder);
-				return true;
-			}
-			else
-			{
-				// after convert all business website to new version uncomment this line
-				// return false;
-			}
+			\dash\data::website($pagebuilder);
+			return true;
 		}
-
-
+		else
+		{
+			// after convert all business website to new version uncomment this line
+			// return false;
+		}
 
 
 
