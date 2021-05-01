@@ -120,13 +120,27 @@ class homepage
 
 				if(a($value, 'cat') === 'footer' && a($value, 'key') === 'maintext')
 				{
-					$store_website['footer']['maintext'] = a($value, 'value');
+					if(substr(a($value, 'value'), 0, 1) === '{' || substr(a($value, 'value'), 0, 1) === '[')
+					{
+						$store_website['footer']['maintext'] = json_decode(a($value, 'value'), true);
+					}
+					else
+					{
+						$store_website['footer']['maintext'] = a($value, 'value');
+					}
 					continue;
 				}
 
 				if(a($value, 'cat') === 'header' && a($value, 'key') === 'topline')
 				{
-					$store_website['header']['topline'] = a($value, 'value');
+					if(substr(a($value, 'value'), 0, 1) === '{' || substr(a($value, 'value'), 0, 1) === '[')
+					{
+						$store_website['header']['topline'] = json_decode(a($value, 'value'), true);
+					}
+					else
+					{
+						$store_website['header']['topline'] = a($value, 'value');
+					}
 					continue;
 				}
 
@@ -248,9 +262,16 @@ class homepage
 	{
 		if(!a($store_website, 'status'))
 		{
+				return;
+			if($store['subdomain'] === 'rahimi')
+			{
+			}
+
 			var_dump($store);
 			var_dump($store_website);
 			exit();
+
+
 		}
 
 		$fuel     = $store['fuel'];
@@ -301,6 +322,11 @@ class homepage
 					$header_title = T_("Header #100");
 					$header_code = 'h100';
 				}
+				elseif($store_website['header']['active'] === 'header_300')
+				{
+					$header_title = T_("Header #300");
+					$header_code = 'h300';
+				}
 				else
 				{
 					var_dump($store_website);exit();
@@ -330,8 +356,178 @@ class homepage
 		}
 		else
 		{
-			var_dump('specail header');
-			var_dump($store_website);
+			if(a($store_website, 'header', 'active') === 'header_300')
+			{
+				$header_title = T_("Header #300");
+				$header_code = 'h300';
+
+				$detail = [];
+
+				if(isset($store_website['header']['header_menu_1']))
+				{
+					$detail['header_menu_1'] = $store_website['header']['header_menu_1'];
+				}
+
+				if(isset($store_website['header']['header_menu_2']))
+				{
+					$detail['header_menu_2'] = $store_website['header']['header_menu_2'];
+				}
+
+				if(isset($store_website['header']['header_logo']))
+				{
+					$detail['logo'] = $store_website['header']['header_logo'];
+				}
+
+				if(isset($store_website['header']['topline']))
+				{
+					$detail['announcement'] = $store_website['header']['topline'];
+				}
+
+
+				$last_sort = $last_sort + 10;
+
+				$detail = json_encode($detail, JSON_UNESCAPED_UNICODE);
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$header_title',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'header',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = '$header_code',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.detail = '$detail',
+						pagebuilder.status = 'draft',
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_header = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+
+
+
+			}
+			elseif(a($store_website, 'header', 'active') === 'header_100')
+			{
+				$header_title = T_("Header #100");
+				$header_code = 'h100';
+
+				$detail = [];
+
+				if(isset($store_website['header']['header_menu_1']))
+				{
+					$detail['header_menu_1'] = $store_website['header']['header_menu_1'];
+				}
+
+				if(isset($store_website['header']['header_menu_2']))
+				{
+					$detail['header_menu_2'] = $store_website['header']['header_menu_2'];
+				}
+
+				if(isset($store_website['header']['header_logo']))
+				{
+					$detail['logo'] = $store_website['header']['header_logo'];
+				}
+
+				if(isset($store_website['header']['topline']))
+				{
+					$detail['announcement'] = $store_website['header']['topline'];
+				}
+
+
+				$last_sort = $last_sort + 10;
+
+				$detail = json_encode($detail, JSON_UNESCAPED_UNICODE);
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$header_title',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'header',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = '$header_code',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.detail = '$detail',
+						pagebuilder.status = 'draft',
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_header = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+
+
+
+			}
+			elseif(a($store_website, 'header', 'active') === 'header_private_rafiei')
+			{
+				$header_title = T_("Header #rafiei");
+				$header_code = 'rafiei';
+
+				$detail = [];
+
+				if(isset($store_website['header']['header_menu_1']))
+				{
+					$detail['header_menu_1'] = $store_website['header']['header_menu_1'];
+				}
+
+				if(isset($store_website['header']['header_menu_2']))
+				{
+					$detail['header_menu_2'] = $store_website['header']['header_menu_2'];
+				}
+
+				if(isset($store_website['header']['header_logo']))
+				{
+					$detail['logo'] = $store_website['header']['header_logo'];
+				}
+
+				if(isset($store_website['header']['topline']))
+				{
+					$detail['announcement'] = $store_website['header']['topline'];
+				}
+
+
+				$last_sort = $last_sort + 10;
+
+				$detail = json_encode($detail, JSON_UNESCAPED_UNICODE);
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$header_title',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'header',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = '$header_code',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.detail = '$detail',
+						pagebuilder.status = 'draft',
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_header = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+
+
+
+			}
+			elseif(a($store_website, 'status') === 'visitcard')
+			{
+				$query = " UPDATE posts SET posts.meta = '{\"template\": \"visitcard\"}' WHERE posts.id = $post_id LIMIT 1 ";
+
+				\dash\db::query($query, $fuel, ['database' => $dbname]);
+
+			}
+			else
+			{
+				var_dump('specail header');
+				var_dump($store_website);
+				exit();
+			}
 		}
 		// ------------------------------------------------------ HEADER  ------------------------------------------------------------------------------------------- //
 
@@ -344,12 +540,20 @@ class homepage
 		{
 			if(!isset($body_element['type']))
 			{
-				var_dump('body elemen have not type');
-				var_dump($body_element);exit();
+				continue;
 			}
 
 			if($body_element['type'] === 'specialslider')
 			{
+				$ratio = 'NULL';
+				if(isset($body_element['ratio']) && $body_element['ratio'])
+				{
+					$ratio = ['code' => $body_element['ratio']];
+					$ratio = "'". json_encode($ratio). "'";
+				}
+
+
+
 				if(isset($body_element['specialslider']) && is_array($body_element['specialslider']))
 				{
 					$new_detail = json_encode(['list' => $body_element['specialslider']], JSON_UNESCAPED_UNICODE);
@@ -364,6 +568,7 @@ class homepage
 							pagebuilder.mode = 'body',
 							pagebuilder.related = 'posts',
 							pagebuilder.type = 'image',
+							pagebuilder.ratio = '$ratio',
 							pagebuilder.sort = '$last_sort',
 							pagebuilder.status = 'draft',
 							pagebuilder.datecreated = '$date',
@@ -377,9 +582,12 @@ class homepage
 			}
 			elseif($body_element['type'] === 'productline')
 			{
+
 				if(isset($body_element['productline']) && is_array($body_element['productline']))
 				{
 					$new_detail = json_encode($body_element['productline'], JSON_UNESCAPED_UNICODE);
+
+					$puzzle = '{"code":null,"puzzle_type":"rail","slider_type":null,"limit":8}';
 
 					$last_sort = $last_sort + 10;
 
@@ -394,8 +602,163 @@ class homepage
 							pagebuilder.type = 'products',
 							pagebuilder.sort = '$last_sort',
 							pagebuilder.status = 'draft',
+							pagebuilder.puzzle = '$puzzle',
 							pagebuilder.datecreated = '$date',
 							pagebuilder.detail = '$new_detail',
+							pagebuilder.related_id = '$post_id'
+					";
+
+					$add_new_image = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				}
+			}
+			elseif($body_element['type'] === 'news')
+			{
+
+				$puzzle = json_encode(
+				[
+					'code' => a($body_element, 'puzzle'),
+					'puzzle_type' => 'puzzle',
+					'slider_type' => null,
+					'limit' => a($body_element, 'limit'),
+				], JSON_UNESCAPED_UNICODE);
+
+
+				$titlesetting = json_encode(
+				[
+					'show_title' => a($body_element, 'show_title'),
+					'more_link' => a($body_element, 'more_link'),
+					'more_link_caption' => a($body_element, 'more_link_caption'),
+				], JSON_UNESCAPED_UNICODE);
+
+				$infoposition = json_encode(
+				[
+					'code' => a($body_element, 'info_position'),
+				], JSON_UNESCAPED_UNICODE);
+
+				$avand = json_encode(
+				[
+					'code' => a($body_element, 'avand'),
+				], JSON_UNESCAPED_UNICODE);
+
+				$radius = json_encode(
+				[
+					'code' => a($body_element, 'radius'),
+				], JSON_UNESCAPED_UNICODE);
+
+				$padding = json_encode(
+				[
+					'code' => a($body_element, 'padding'),
+				], JSON_UNESCAPED_UNICODE);
+
+				$effect = json_encode(
+				[
+					'code' => a($body_element, 'effect'),
+				], JSON_UNESCAPED_UNICODE);
+
+
+				$detail =
+				[
+					'play_item' => a($body_element, 'play_item'),
+					'subtype'   => a($body_element, 'subtype'),
+					'tag_id'    => a($body_element, 'tag_id'),
+				];
+
+  				$detail = json_encode($detail, JSON_UNESCAPED_UNICODE);
+
+
+
+				$last_sort = $last_sort + 10;
+
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$body_element[title]',
+						pagebuilder.titlesetting = '$titlesetting',
+						pagebuilder.infoposition = '$infoposition',
+						pagebuilder.puzzle = '$puzzle',
+						pagebuilder.detail = '$detail',
+						pagebuilder.avand = '$avand',
+						pagebuilder.radius = '$radius',
+						pagebuilder.padding = '$padding',
+						pagebuilder.effect = '$effect',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'body',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = 'news',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.status = 'draft',
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_image = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+			}
+			elseif($body_element['type'] === 'quote')
+			{
+				var_dump('quote', $body_element);
+			}
+			elseif($body_element['type'] === 'imageblock')
+			{
+				$ratio = 'NULL';
+				if(isset($body_element['ratio']) && $body_element['ratio'])
+				{
+					$ratio = ['code' => $body_element['ratio']];
+					$ratio = "'". json_encode($ratio). "'";
+				}
+
+				if(isset($body_element['imageblock']) && is_array($body_element['imageblock']))
+				{
+					$new_detail = json_encode(['list' => $body_element['imageblock']], JSON_UNESCAPED_UNICODE);
+
+					$last_sort = $last_sort + 10;
+
+					$query =
+					"
+						INSERT INTO pagebuilder SET
+							pagebuilder.title = '$body_element[title]',
+							pagebuilder.platform = 'website',
+							pagebuilder.mode = 'body',
+							pagebuilder.related = 'posts',
+							pagebuilder.type = 'image',
+							pagebuilder.sort = '$last_sort',
+							pagebuilder.ratio = '$ratio',
+							pagebuilder.status = 'draft',
+							pagebuilder.datecreated = '$date',
+							pagebuilder.detail = '$new_detail',
+							pagebuilder.related_id = '$post_id'
+					";
+
+					$add_new_image = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				}
+			}
+			elseif($body_element['type'] === 'titleline')
+			{
+				var_dump('titleline', $body_element);
+			}
+			elseif($body_element['type'] === 'text')
+			{
+				if(isset($body_element['text']['text']))
+				{
+					$text = $body_element['text']['text'];
+
+					$last_sort = $last_sort + 10;
+
+					$query =
+					"
+						INSERT INTO pagebuilder SET
+							pagebuilder.title = '$body_element[title]',
+							pagebuilder.platform = 'website',
+							pagebuilder.mode = 'body',
+							pagebuilder.related = 'posts',
+							pagebuilder.type = 'text',
+							pagebuilder.sort = '$last_sort',
+							pagebuilder.status = 'draft',
+							pagebuilder.datecreated = '$date',
+							pagebuilder.text = '$text',
 							pagebuilder.related_id = '$post_id'
 					";
 
@@ -434,9 +797,24 @@ class homepage
 					$footer_title = T_("Footer #100");
 					$footer_code = 'f100';
 				}
+				elseif($store_website['footer']['active'] === 'footer_private_rafiei')
+				{
+					$footer_title = T_("Footer #rafiei");
+					$footer_code = 'rafiei';
+				}
+				elseif($store_website['footer']['active'] === 'footer_201')
+				{
+					$footer_title = T_("Footer #201");
+					$footer_code = 'f201';
+				}
+				elseif($store_website['footer']['active'] === 'footer_300')
+				{
+					$footer_title = T_("Footer #300");
+					$footer_code = 'f300';
+				}
 				else
 				{
-					var_dump($store_website);exit();
+					var_dump($store_website['footer']);exit();
 				}
 
 				$last_sort = $last_sort + 10;
@@ -463,8 +841,127 @@ class homepage
 		}
 		else
 		{
-			var_dump('specail footer');
-			var_dump($store_website);
+			if(a($store_website, 'footer', 'active') === 'footer_300' || a($store_website, 'footer', 'active') === 'footer_100')
+			{
+
+				if(count($store_website['footer']) > 2)
+				{
+					var_dump($store_website['footer']);
+					exit();
+				}
+
+				$footer_title = T_("Footer #100");
+				$footer_code = 'f100';
+
+				$detail = [];
+
+				$text = 'NULL';
+
+				if(isset($store_website['footer']['maintext']['text']))
+				{
+					$text = "'". $store_website['footer']['maintext']['text']. "'";
+				}
+
+
+				$last_sort = $last_sort + 10;
+
+				$detail = json_encode($detail, JSON_UNESCAPED_UNICODE);
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$footer_title',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'footer',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = '$footer_code',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.detail = '$detail',
+						pagebuilder.status = 'draft',
+						pagebuilder.text = $text,
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_header = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+
+
+
+			}
+			elseif(a($store_website, 'footer', 'active') === 'footer_201')
+			{
+
+				$footer_title = T_("Footer #201");
+				$footer_code = 'f201';
+
+				$detail = [];
+
+				if(isset($store_website['footer']['footer_menu_1']))
+				{
+					$detail['footer_menu_1'] = $store_website['footer']['footer_menu_1'];
+				}
+
+				if(isset($store_website['footer']['footer_menu_2']))
+				{
+					$detail['footer_menu_2'] = $store_website['footer']['footer_menu_2'];
+				}
+
+				if(isset($store_website['footer']['footer_menu_3']))
+				{
+					$detail['footer_menu_3'] = $store_website['footer']['footer_menu_3'];
+				}
+
+
+				if(isset($store_website['footer']['footer_menu_4']))
+				{
+					$detail['footer_menu_4'] = $store_website['footer']['footer_menu_4'];
+				}
+
+				$text = 'NULL';
+
+				if(isset($store_website['footer']['maintext']['text']))
+				{
+					$text = "'". $store_website['footer']['maintext']['text']. "'";
+				}
+
+
+				$last_sort = $last_sort + 10;
+
+				$detail = json_encode($detail, JSON_UNESCAPED_UNICODE);
+
+				$query =
+				"
+					INSERT INTO pagebuilder SET
+						pagebuilder.title = '$footer_title',
+						pagebuilder.platform = 'website',
+						pagebuilder.mode = 'footer',
+						pagebuilder.related = 'posts',
+						pagebuilder.type = '$footer_code',
+						pagebuilder.sort = '$last_sort',
+						pagebuilder.detail = '$detail',
+						pagebuilder.status = 'draft',
+						pagebuilder.text = $text,
+						pagebuilder.datecreated = '$date',
+						pagebuilder.related_id = '$post_id'
+				";
+
+				$add_new_header = \dash\db::query($query, $fuel, ['database' => $dbname]);
+
+
+
+
+			}
+			elseif(a($store_website, 'status') === 'visitcard')
+			{
+				// nothing
+			}
+			else
+			{
+				var_dump('specail footer');
+				var_dump($store_website);
+				exit();
+			}
 		}
 		// ------------------------------------------------------ FOOTER  ------------------------------------------------------------------------------------------- //
 
