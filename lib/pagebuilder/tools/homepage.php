@@ -5,6 +5,20 @@ namespace lib\pagebuilder\tools;
 class homepage
 {
 
+	public static function get_link()
+	{
+		$post_id = \lib\store::detail('homepage_builder_post_id');
+		if(!$post_id)
+		{
+			return null;
+		}
+
+		$post_id = \dash\coding::encode($post_id);
+		$url = \lib\store::admin_url(). '/a/pagebuilder/build?id='. $post_id;
+		return $url;
+	}
+
+
 	public static function set_as_homepage($_post_id)
 	{
 		$post_id = \dash\validate::code($_post_id);

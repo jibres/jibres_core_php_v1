@@ -255,7 +255,7 @@
     <div class="body">
         <div class="row">
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/website">
+                <a class="row" data-item href="<?php echo  \lib\pagebuilder\tools\homepage::get_link(); ?>">
                     <div class="c-auto"><i class="sf-monitor"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Online Store Website"); ?></h2>

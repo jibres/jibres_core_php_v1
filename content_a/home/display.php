@@ -124,9 +124,9 @@
 
     <nav class="items long">
       <ul>
-        <?php if(\dash\permission::check('_group_setting')) {?>
+        <?php if(\dash\permission::check('_group_setting')) { $url = \lib\pagebuilder\tools\homepage::get_link(); ?>
         <li>
-          <a class="item f" href="<?php echo \dash\url::here(); ?>/website">
+          <a class="item f" href="<?php echo $url ?>">
             <i class="sf-monitor"></i>
             <div class="key"><?php echo T_("Website setting"); ?></div>
             <div class="go"></div>
