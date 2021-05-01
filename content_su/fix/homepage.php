@@ -18,6 +18,15 @@ class homepage
 
 			$store_id = $store['id'];
 
+			if(floatval($store_id) === floatval(1000005))
+			{
+				// ok
+			}
+			else
+			{
+				continue;
+			}
+
 			$dbname = \dash\engine\store::make_database_name($store_id);
 
 
@@ -180,76 +189,6 @@ class homepage
 
 			continue;
 
-
-
-			var_dump($store_website);exit();
-
-
-		$query =
-		"
-			SELECT
-				*
-			FROM
-				setting
-			WHERE
-				setting.platform = 'website'
-			$sort
-
-			";
-
-
-			$query = "SELECT * FROM products where products.company_id is not null ";
-
-
-
-
-
-			if($resutl)
-			{
-				foreach ($resutl as $one_product)
-				{
-					$query = "	SELECT *  FROM productcompany where productcompany.id  = '$one_product[company_id]' LIMIT 1 ";
-					$company_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
-
-					if(isset($company_detail['title']))
-					{
-						$query = "	SELECT *  FROM producttag where producttag.title  = '$company_detail[title]' LIMIT 1 ";
-						$tag_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
-
-						if(isset($tag_detail['id']))
-						{
-							$tag_id = $tag_detail['id'];
-						}
-						else
-						{
-							$date = date("Y-m-d H:i:s");
-							$slug = \dash\validate::slug($company_detail['title']);
-							$query = " INSERT INTO producttag SET producttag.title = '$company_detail[title]', producttag.slug = '$slug', producttag.status = 'enable', producttag.datecreated = '$date' ";
-							\dash\db::query($query, $value['fuel'], ['database' => $dbname]);
-							$tag_id = \dash\db::insert_id();
-						}
-
-
-						if($tag_id)
-						{
-							$query = "	SELECT *  FROM producttagusage where producttagusage.producttag_id  = '$tag_id' AND producttagusage.product_id = '$one_product[id]' LIMIT 1 ";
-							$tag_usage_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
-
-							if(isset($tag_usage_detail['product_id']))
-							{
-								// this product have this tag
-							}
-							else
-							{
-								$query = " INSERT INTO producttagusage SET producttagusage.producttag_id = '$tag_id', producttagusage.product_id = '$one_product[id]' ";
-								\dash\db::query($query, $value['fuel'], ['database' => $dbname]);
-							}
-						}
-					}
-				}
-			}
-
-			\dash\db\mysql\tools\connection::close();
 		}
 
 		var_dump('ok');
@@ -262,9 +201,9 @@ class homepage
 	{
 		if(!a($store_website, 'status'))
 		{
-				return;
 			if($store['subdomain'] === 'rahimi')
 			{
+				return;
 			}
 
 			var_dump($store);
@@ -301,6 +240,16 @@ class homepage
 			$add_new_post = \dash\db::query($query, $fuel, ['database' => $dbname]);
 
 			$post_id = \dash\db::insert_id();
+		}
+
+		// set as homepage
+		$query                   = "SELECT * FROM setting WHERE setting.cat = 'store_setting' AND setting.key = 'homepage_builder_post_id'  LIMIT 1";
+		$check_added_to_homepage = \dash\db::get($query, null, true, $fuel, ['database' => $dbname]);
+
+		if(!isset($check_added_to_homepage['id']))
+		{
+			$query = "INSERT INTO  setting SET setting.cat = 'store_setting' , setting.key = 'homepage_builder_post_id', setting.value = '$post_id'";
+			\dash\db::query($query, $fuel, ['database' => $dbname]);
 		}
 
 		// ------------------------------------------------------ HEADER  ------------------------------------------------------------------------------------------- //
@@ -568,7 +517,7 @@ class homepage
 							pagebuilder.mode = 'body',
 							pagebuilder.related = 'posts',
 							pagebuilder.type = 'image',
-							pagebuilder.ratio = '$ratio',
+							pagebuilder.ratio = $ratio,
 							pagebuilder.sort = '$last_sort',
 							pagebuilder.status = 'draft',
 							pagebuilder.datecreated = '$date',
@@ -709,6 +658,8 @@ class homepage
 					$ratio = "'". json_encode($ratio). "'";
 				}
 
+				$puzzle = '{"code":null,"puzzle_type":"puzzle","slider_type":"special","limit":1}';
+
 				if(isset($body_element['imageblock']) && is_array($body_element['imageblock']))
 				{
 					$new_detail = json_encode(['list' => $body_element['imageblock']], JSON_UNESCAPED_UNICODE);
@@ -724,7 +675,8 @@ class homepage
 							pagebuilder.related = 'posts',
 							pagebuilder.type = 'image',
 							pagebuilder.sort = '$last_sort',
-							pagebuilder.ratio = '$ratio',
+							pagebuilder.ratio = $ratio,
+							pagebuilder.puzzle = '$puzzle',
 							pagebuilder.status = 'draft',
 							pagebuilder.datecreated = '$date',
 							pagebuilder.detail = '$new_detail',
