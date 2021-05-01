@@ -31,7 +31,8 @@ class products
 			'titlesetting' =>
 			[
 				'show_title' => 'yes',
-				'more_link' => 'show'
+				'more_link' => 'show',
+				'show_mode' => 'special',
 			],
 		];
 
