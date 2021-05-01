@@ -51,7 +51,6 @@ class rail
 
 	}
 
-
 	private static function create_element_product_1($_item)
 	{
 		$id              = a($_item, 'id');
@@ -102,40 +101,37 @@ class rail
 				$html .= $title;
 				$html .= '</div>';
 			}
-
-			if($allow_shop)
+			// show price line
+			$html .= '<footer class="f">';
 			{
+					$html .= '<span class="unit cauto">';
 
-				// show price line
-				$html .= '<footer class="f">';
-				{
-						$html .= '<span class="unit cauto">';
-
-						if($price)
-						{
-							$html .= $currency;
-						}
-
-						$html .= '</span>';
-
-						$html .= '<span class="price c">';
-						$html .= $price;
-						$html .= '</span>';
-
-					if($discount)
+					if($price)
 					{
-						$html .= '<del class="compareAtPrice cauto os">';
-						$html .= $compareAtPrice;
-						$html .= '</del>';
+						$html .= $currency;
 					}
+
+					$html .= '</span>';
+
+					$html .= '<span class="price c">';
+					$html .= $price;
+					$html .= '</span>';
+
+				if($discount)
+				{
+					$html .= '<del class="compareAtPrice cauto os">';
+					$html .= $compareAtPrice;
+					$html .= '</del>';
 				}
-				$html .= '</footer>';
 			}
+			$html .= '</footer>';
 
 		}
 		$html .= '</a>';
 
 		return $html;
 	}
+
+
 }
 ?>
