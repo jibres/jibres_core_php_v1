@@ -66,6 +66,8 @@ class title
 			\lib\pagebuilder\tools\tools::input_exception('titlesetting');
 		}
 
+		unset($_data['set_title']);
+
 		return $_data;
 
 	}
