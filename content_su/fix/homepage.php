@@ -16,6 +16,7 @@ class homepage
 		$res              = [];
 		$res['duplicate'] = 0;
 		$res['done']      = 0;
+		$res['delete']      = 0;
 
 		$dir = __DIR__ . '/homepage/';
 		if(!is_dir($dir))
@@ -28,14 +29,20 @@ class homepage
 
 			$store_id = $store['id'];
 
+			$dbname = \dash\engine\store::make_database_name($store_id);
+
 			if(is_file($dir. $store_id. '.me.json'))
 			{
 				$res['duplicate']++;
 				continue;
 			}
 
-
-			$dbname = \dash\engine\store::make_database_name($store_id);
+			if(is_file($dir. '--'. $store_id. '.me.json'))
+			{
+				$query = "DELETE FROM pagebuilder WHERE 1 ";
+				$sort_line = \dash\db::query($query, $store['fuel'], ['database' => $dbname]);
+				unlink($dir. '--'. $store_id. '.me.json');
+			}
 
 
 			$query = "SELECT * FROM setting WHERE setting.platform = 'website' AND setting.cat = 'body' AND setting.key = 'sort_line' LIMIT 1";
@@ -476,19 +483,29 @@ class homepage
 
 
 			}
-			elseif(a($store_website, 'status') === 'visitcard')
-			{
-				$query = " UPDATE posts SET posts.meta = '{\"template\": \"visitcard\"}' WHERE posts.id = $post_id LIMIT 1 ";
-
-				\dash\db::query($query, $fuel, ['database' => $dbname]);
-
-			}
 			else
 			{
 				var_dump('specail header');
 				var_dump($store_website);
 				exit();
 			}
+
+
+			if(a($store_website, 'status') === 'visitcard')
+			{
+				$query = " UPDATE posts SET posts.meta = '{\"template\": \"visitcard\"}' WHERE posts.id = $post_id LIMIT 1 ";
+
+				\dash\db::query($query, $fuel, ['database' => $dbname]);
+
+			}
+			elseif(a($store_website, 'status') === 'comingsoon')
+			{
+				$query = " UPDATE posts SET posts.meta = '{\"template\": \"comingsoon\"}' WHERE posts.id = $post_id LIMIT 1 ";
+
+				\dash\db::query($query, $fuel, ['database' => $dbname]);
+
+			}
+
 		}
 		// ------------------------------------------------------ HEADER  ------------------------------------------------------------------------------------------- //
 
@@ -770,6 +787,30 @@ class homepage
 				{
 					var_dump($store);
 					var_dump('subscribe', $body_element);exit();
+				}
+			}
+			elseif($body_element['type'] === 'socialnetwork')
+			{
+				if(in_array(a($store, 'subdomain'), ['jbqazvin']))
+				{
+					// no thing
+				}
+				else
+				{
+					var_dump($store);
+					var_dump('socialnetwork', $body_element);exit();
+				}
+			}
+			elseif($body_element['type'] === 'application')
+			{
+				if(in_array(a($store, 'subdomain'), ['jbqazvin']))
+				{
+					// no thing
+				}
+				else
+				{
+					var_dump($store);
+					var_dump('application', $body_element);exit();
 				}
 			}
 			else
