@@ -485,9 +485,27 @@ class homepage
 			}
 			else
 			{
-				var_dump('specail header');
-				var_dump($store_website);
-				exit();
+				if(a($store_website, 'status') === 'visitcard')
+				{
+					$query = " UPDATE posts SET posts.meta = '{\"template\": \"visitcard\"}' WHERE posts.id = $post_id LIMIT 1 ";
+
+					\dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				}
+				elseif(a($store_website, 'status') === 'comingsoon')
+				{
+					$query = " UPDATE posts SET posts.meta = '{\"template\": \"comingsoon\"}' WHERE posts.id = $post_id LIMIT 1 ";
+
+					\dash\db::query($query, $fuel, ['database' => $dbname]);
+
+				}
+				else
+				{
+
+					var_dump('specail header');
+					var_dump($store_website);
+					exit();
+				}
 			}
 
 
@@ -676,7 +694,7 @@ class homepage
 			}
 			elseif($body_element['type'] === 'quote')
 			{
-				if(in_array(a($store, 'subdomain'), ['rebaran', 'sarahonar', 'haftpeykar', 'citycloth']))
+				if(in_array(a($store, 'subdomain'), ['rebaran', 'sarahonar', 'haftpeykar', 'citycloth', 'jbqazvin', 'javadchmanchi']))
 				{
 					// no thing
 				}
@@ -740,7 +758,7 @@ class homepage
 			}
 			elseif($body_element['type'] === 'titleline')
 			{
-				if(in_array(a($store, 'subdomain'), ['rebaran', 'colorfulpainting', 'sarahonar', 'shopqhkarimeh', 'sakou', 'winox', 'bikoo']))
+				if(in_array(a($store, 'subdomain'), ['rebaran', 'colorfulpainting', 'sarahonar', 'shopqhkarimeh', 'sakou', 'winox', 'bikoo', 'royalestore']))
 				{
 					// no thing
 				}
@@ -779,7 +797,7 @@ class homepage
 			}
 			elseif($body_element['type'] === 'subscribe')
 			{
-				if(in_array(a($store, 'subdomain'), ['rasulrajabi']))
+				if(in_array(a($store, 'subdomain'), ['rasulrajabi', 'jbqazvin']))
 				{
 					// no thing
 				}
