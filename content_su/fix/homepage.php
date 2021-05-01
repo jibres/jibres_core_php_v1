@@ -18,7 +18,7 @@ class homepage
 
 			$store_id = $store['id'];
 
-			if(floatval($store_id) === floatval(1000005))
+			if(floatval($store_id) === floatval(1000155))
 			{
 				// ok
 			}
@@ -177,13 +177,15 @@ class homepage
 					continue;
 				}
 
-
-
 				var_dump($store_website);
 				var_dump($value);exit();
 			}
 
+			\dash\db::transaction($store['fuel']);
+
 			self::create_business_homepage($store, $store_website);
+
+			\dash\db::commit($store['fuel']);
 
 			\dash\db\mysql\tools\connection::close();
 
@@ -647,7 +649,8 @@ class homepage
 			}
 			elseif($body_element['type'] === 'quote')
 			{
-				var_dump('quote', $body_element);
+				var_dump($store);
+				var_dump('quote', $body_element);exit();
 			}
 			elseif($body_element['type'] === 'imageblock')
 			{
@@ -689,7 +692,8 @@ class homepage
 			}
 			elseif($body_element['type'] === 'titleline')
 			{
-				var_dump('titleline', $body_element);
+				var_dump($store);
+				var_dump('titleline', $body_element);exit();
 			}
 			elseif($body_element['type'] === 'text')
 			{
