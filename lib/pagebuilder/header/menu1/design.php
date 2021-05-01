@@ -47,16 +47,16 @@ $menu = \lib\app\menu\get::list_all_menu();
         </select>
 
     <?php }else{ ?>
-      <a class="btn primary" href="<?php echo \dash\url::here() ?>/website/menu/add"><?php echo T_("Add new menu") ?></a>
+      <a class="btn primary" href="<?php echo \dash\url::here() ?>/setting/menu/add"><?php echo T_("Add new menu") ?></a>
     <?php } //endif ?>
     </div>
   </form>
   <?php if(\dash\data::allMenu()) {?>
   <footer class="txtRa">
     <?php if($currentMenuID) {?>
-      <a href="<?php echo \dash\url::here(). '/website/menu/roster?id='. $currentMenuID; ?>" class="btn link"><?php echo T_("Edit menu :val", ['val' => $currentMenuName]); ?></a>
+      <a href="<?php echo \dash\url::here(). '/setting/menu/roster?id='. $currentMenuID; ?>" class="btn link"><?php echo T_("Edit menu :val", ['val' => $currentMenuName]); ?></a>
     <?php } //endif ?>
-   <a href="<?php echo \dash\url::here() ?>/website/menu/add" class="btn link"><?php echo T_("Add new menu") ?></a>
+   <a href="<?php echo \dash\url::here() ?>/setting/menu/add" class="btn link"><?php echo T_("Add new menu") ?></a>
   </footer>
     <?php } //endif ?>
 </section>
