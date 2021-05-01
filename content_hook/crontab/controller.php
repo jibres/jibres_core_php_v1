@@ -177,8 +177,8 @@ class controller
 			\dash\app\ticket\get::check_unanswer_ticket();
 		}
 
-		// get nic pull request every 5 min
-		if(self::every_5_min())
+		// get nic pull request every 10 min
+		if(self::every_10_min())
 		{
 			\lib\app\nic_poll\get::cronjob_list();
 		}
