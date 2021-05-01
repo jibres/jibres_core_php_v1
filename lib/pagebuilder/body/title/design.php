@@ -27,6 +27,23 @@
         </div>
           <div data-response='show_title' data-response-where='yes' <?php if(a($lineSetting, 'titlesetting', 'show_title') === 'yes' || !a($lineSetting, 'titlesetting', 'show_title')) {}else{ echo 'data-response-hide';} ?>>
             <div class="mB10">
+               <div class="row">
+                  <div class="c-xs-6 c-sm-6">
+                    <div class="radio3">
+                      <input type="radio" name="show_mode" value="simple" id="showtitlesimple" <?php if(a($lineSetting, 'titlesetting', 'show_mode') === 'simple') { echo 'checked';} ?>>
+                      <label for="showtitlesimple"><?php echo T_("Simple view") ?></label>
+                    </div>
+                  </div>
+                  <div class="c-xs-6 c-sm-6">
+                    <div class="radio3">
+                      <input type="radio" name="show_mode" value="special" id="showtitlespecial" <?php if(a($lineSetting, 'titlesetting', 'show_mode') === 'special' || !a($lineSetting, 'titlesetting', 'show_mode')) { echo 'checked';} ?>>
+                      <label for="showtitlespecial"><?php echo T_("Special view") ?></label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="mB10">
               <div class="row">
                 <div class="c-xs-6 c-sm-6">
                   <div class="radio3">

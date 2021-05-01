@@ -264,50 +264,58 @@ class datablock
 		$html = '';
 
 		$html .= '<div class="row">';
-		$html .= '<div class="c-xs-12 c-sm-12 c-lg-6">';
+		{
 
-    	if(count($_data) === 5)
-    	{
-    		$html .= self::el_special_item($_data[0]);
-
-    		unset($_data[0]);
-    	}
-    	else
-    	{
-    		// count > 5
-	    	$html .= '<div class="jSlider1" data-slider data-slider-ratio="'.$ratio. '">';
-
-    		$count_foreach = count($_data) - 4;
-    		$count = 0;
-
-			foreach ($_data as $key => $value)
+			$html .= '<div class="c-xs-12 c-sm-12 c-lg-6">';
 			{
-				$count++;
-				$html .= self::el_special_item($value);
+		    	if(count($_data) === 5)
+		    	{
+		    		$html .= self::el_special_item($_data[0]);
 
-			    unset($_data[$key]);
-			    if($count >= $count_foreach)
-			    {
-			    	break;
-			    }
+		    		unset($_data[0]);
+		    	}
+		    	else
+		    	{
+		    		// count > 5
+			    	$html .= '<div class="jSlider1" data-slider data-slider-ratio="'.$ratio. '">';
+
+		    		$count_foreach = count($_data) - 4;
+		    		$count = 0;
+
+					foreach ($_data as $key => $value)
+					{
+						$count++;
+						$html .= self::el_special_item($value);
+
+					    unset($_data[$key]);
+					    if($count >= $count_foreach)
+					    {
+					    	break;
+					    }
+					}
+			  		$html .= '</div>';
+		    	}
+
 			}
-	  		$html .= '</div>';
-    	}
 
-    	$html .= '</div>';
-		$html .= '<div class="c-xs-12 c-sm-12 c-lg-6 ">';
-		$html .= '<div class="row">';
+	    	$html .= '</div>';
 
-        foreach ($_data as $key => $value)
-        {
-	        $html .= '<div class="c-6">';
-			$html .= self::el_special_item($value);
-	        $html .= '</div>';
-        }
+			$html .= '<div class="c-xs-12 c-sm-12 c-lg-6 ">';
+			{
+				$html .= '<div class="row">';
 
+		        foreach ($_data as $key => $value)
+		        {
+			        $html .= '<div class="c-6">';
+					$html .= self::el_special_item($value);
+			        $html .= '</div>';
+		        }
+
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
 		$html .= '</div>';
-		$html .= '</div>';
-
 
 		return $html;
 	}

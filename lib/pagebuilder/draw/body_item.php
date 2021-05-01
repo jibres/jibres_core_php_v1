@@ -85,7 +85,7 @@ class body_item
 	 */
 	private static function _avand()
 	{
-		if(isset(self::$set_avand) && self::$set_avand)
+		if(self::$set_avand)
 		{
 			self::$html .= '</div>';
 		}
