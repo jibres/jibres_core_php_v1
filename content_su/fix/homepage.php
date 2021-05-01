@@ -34,6 +34,9 @@ class homepage
 			if(is_file($dir. $store_id. '.me.json'))
 			{
 				$res['duplicate']++;
+
+				// rename($dir. $store_id. '.me.json', $dir. '--'. $store_id. '.me.json');
+
 				continue;
 			}
 
@@ -758,15 +761,15 @@ class homepage
 			}
 			elseif($body_element['type'] === 'titleline')
 			{
-				if(in_array(a($store, 'subdomain'), ['rebaran', 'colorfulpainting', 'sarahonar', 'shopqhkarimeh', 'sakou', 'winox', 'bikoo', 'royalestore']))
-				{
-					// no thing
-				}
-				else
-				{
-					var_dump($store);
-					var_dump('titleline', $body_element);exit();
-				}
+				// if(in_array(a($store, 'subdomain'), ['rebaran', 'colorfulpainting', 'sarahonar', 'shopqhkarimeh', 'sakou', 'winox', 'bikoo', 'royalestore']))
+				// {
+				// 	// no thing
+				// }
+				// else
+				// {
+				// 	var_dump($store);
+				// 	var_dump('titleline', $body_element);exit();
+				// }
 			}
 			elseif($body_element['type'] === 'text')
 			{
@@ -797,39 +800,39 @@ class homepage
 			}
 			elseif($body_element['type'] === 'subscribe')
 			{
-				if(in_array(a($store, 'subdomain'), ['rasulrajabi', 'jbqazvin']))
-				{
-					// no thing
-				}
-				else
-				{
-					var_dump($store);
-					var_dump('subscribe', $body_element);exit();
-				}
+				// if(in_array(a($store, 'subdomain'), ['rasulrajabi', 'jbqazvin']))
+				// {
+				// 	// no thing
+				// }
+				// else
+				// {
+				// 	var_dump($store);
+				// 	var_dump('subscribe', $body_element);exit();
+				// }
 			}
 			elseif($body_element['type'] === 'socialnetwork')
 			{
-				if(in_array(a($store, 'subdomain'), ['jbqazvin']))
-				{
-					// no thing
-				}
-				else
-				{
-					var_dump($store);
-					var_dump('socialnetwork', $body_element);exit();
-				}
+				// if(in_array(a($store, 'subdomain'), ['jbqazvin', 'teachingideas']))
+				// {
+				// 	// no thing
+				// }
+				// else
+				// {
+				// 	var_dump($store);
+				// 	var_dump('socialnetwork', $body_element);exit();
+				// }
 			}
 			elseif($body_element['type'] === 'application')
 			{
-				if(in_array(a($store, 'subdomain'), ['jbqazvin']))
-				{
-					// no thing
-				}
-				else
-				{
-					var_dump($store);
-					var_dump('application', $body_element);exit();
-				}
+				// if(in_array(a($store, 'subdomain'), ['jbqazvin']))
+				// {
+				// 	// no thing
+				// }
+				// else
+				// {
+				// 	var_dump($store);
+				// 	var_dump('application', $body_element);exit();
+				// }
 			}
 			else
 			{
