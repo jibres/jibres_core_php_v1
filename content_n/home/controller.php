@@ -21,6 +21,11 @@ class controller
 			\dash\header::status(404, T_("Post not found"));
 		}
 
+		if(a($load, 'type') === 'pagebuilder')
+		{
+			\dash\temp::set('NeedToCheckPageBuilderLoad', true);
+		}
+
 		\dash\open::get();
 
 	}

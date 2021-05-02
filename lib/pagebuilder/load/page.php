@@ -25,7 +25,7 @@ class page
 		$in_content_n     = false;
 
 
-		// if(!\dash\temp::get('inHomePageOfBusiness'))
+		// if(!\dash\temp::get('NeedToCheckPageBuilderLoad'))
 		// {
 		// 	// in homepage
 		// }

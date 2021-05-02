@@ -118,14 +118,14 @@ class business
 			return null;
 		}
 
-		if(\dash\engine\content::get() !== 'content_business')
+		if(!in_array(\dash\engine\content::get(), ['content_business', 'content_n']))
 		{
 			return null;
 		}
 
 		// check only in home module
 		// this variable set on content business home controller
-		if(!\dash\temp::get('inHomePageOfBusiness'))
+		if(!\dash\temp::get('NeedToCheckPageBuilderLoad'))
 		{
 			return null;
 		}
