@@ -124,7 +124,7 @@ trait enum_variable
 				$variable['code'] = self::default_code(); // the default value
 			}
 
-			if(!a($variable, 'code'))
+			if(!a($variable, 'code') && a($variable, 'code') !== '0')
 			{
 				$variable['code'] = self::default_code();
 			}
