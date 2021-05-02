@@ -123,7 +123,8 @@ class get
 
 	public static function load_menu($_id, $_max_level = 1)
 	{
-		$id = \dash\validate::id($_id);
+
+		$id = \dash\validate::id($_id, false);
 
 		if(!$id)
 		{
