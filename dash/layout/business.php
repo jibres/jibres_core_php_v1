@@ -65,6 +65,7 @@ class business
 		// load page builder by detect current page
 		$pagebuilder = \lib\pagebuilder\load\page::current_page();
 
+
 		if($pagebuilder)
 		{
 			self::$is_pagebuilder  = true;
@@ -115,11 +116,6 @@ class business
 		if(!self::$website)
 		{
 			return null;
-		}
-
-		if(self::$is_pagebuilder)
-		{
-			return root. 'lib/pagebuilder/load/body.php';
 		}
 
 		if(\dash\engine\content::get() !== 'content_business')
