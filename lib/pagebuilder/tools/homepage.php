@@ -5,6 +5,19 @@ namespace lib\pagebuilder\tools;
 class homepage
 {
 
+	public static function get_header_and_footer()
+	{
+		$post_id = \lib\store::detail('homepage_builder_post_id');
+		if(!$post_id || !is_numeric($post_id))
+		{
+			return null;
+		}
+
+		$load = \lib\db\pagebuilder\get::homepage_header_footer($post_id);
+
+		return $load;
+	}
+
 	public static function get_link()
 	{
 		$post_id = \lib\store::detail('homepage_builder_post_id');

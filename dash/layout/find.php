@@ -120,7 +120,7 @@ class find
 			}
 			elseif($myContent === 'content_n')
 			{
-				if(\dash\layout\business::is_pagebuilder())
+				if(\dash\layout\business::have_header())
 				{
 					$myHeader = root. 'lib/pagebuilder/load/header.php';
 				}
@@ -137,7 +137,7 @@ class find
 			}
 			elseif($myContent === 'content_business')
 			{
-				if(\dash\layout\business::is_pagebuilder())
+				if(\dash\layout\business::have_header())
 				{
 					$myHeader = root. 'lib/pagebuilder/load/header.php';
 				}
@@ -195,7 +195,7 @@ class find
 			}
 			elseif($myContent === 'content_n')
 			{
-				if(\dash\layout\business::is_pagebuilder())
+				if(\dash\layout\business::have_footer())
 				{
 					$myFooter = root. 'lib/pagebuilder/load/footer.php';
 				}
@@ -213,7 +213,7 @@ class find
 			}
 			elseif($myContent === 'content_business')
 			{
-				if(\dash\layout\business::is_pagebuilder())
+				if(\dash\layout\business::have_footer())
 				{
 					$myFooter = root. 'lib/pagebuilder/load/footer.php';
 				}

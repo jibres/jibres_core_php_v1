@@ -1,24 +1,33 @@
 <?php
-if(!\lib\pagebuilder\load\page::$is_page)
+$website_header = [];
+
+if(isset(\lib\pagebuilder\load\page::$homepage_header_footer['header']))
 {
-	return null;
+	$website_header = \lib\pagebuilder\load\page::$homepage_header_footer['header'];
+}
+else
+{
+	if(!\lib\pagebuilder\load\page::$is_page)
+	{
+		return null;
+	}
+
+	if(\dash\temp::get('pagebuilder_template'))
+	{
+		return;
+	}
 }
 
-if(\dash\temp::get('pagebuilder_template'))
+
+$current_page_header = \dash\data::website_header();
+if(is_array($current_page_header))
 {
-	return;
+	$website_header = $current_page_header;
+
+	// load announcement before header
+	require_once(root. 'lib/pagebuilder/header/announcement/website.php');
 }
 
-
-$website_header = \dash\data::website_header();
-
-if(!is_array($website_header))
-{
-	$website_header = [];
-}
-
-// load announcement before header
-require_once(root. 'lib/pagebuilder/header/announcement/website.php');
 
 // load heade
 if(!empty($website_header))

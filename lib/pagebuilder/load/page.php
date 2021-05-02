@@ -6,6 +6,25 @@ class page
 {
 	public static $is_page = false;
 
+	public static $homepage_header_footer = [];
+
+	public static function homepage_header_footer()
+	{
+		$homepage_header_footer = \lib\pagebuilder\tools\homepage::get_header_and_footer();
+
+		$result = [];
+
+		self::ready($result, $homepage_header_footer);
+
+		unset($result['body']);
+
+		self::$homepage_header_footer = $result;
+
+		return $result;
+
+	}
+
+
 	public static function current_page()
 	{
 		// only check page builder in business content and content_n

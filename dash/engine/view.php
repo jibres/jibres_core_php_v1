@@ -6,12 +6,6 @@ class view
 
 	public static function variable()
 	{
-		// load customer business website
-		if(in_array(\dash\engine\content::get(), ['content_business', 'content_n']) && \dash\engine\store::inBusinessWebsite())
-		{
-			// load detail of business website
-			\dash\layout\business::check_website();
-		}
 
 		\dash\face::title(null);
 		\dash\face::seo(null);
@@ -61,6 +55,10 @@ class view
 		\dash\face::intro(T_(\dash\face::hereDesc()));
 		\dash\face::slogan(T_(\dash\face::siteSlogan()));
 		\dash\face::logo(\dash\face::hereIcon());
+
+
+		// load detail of business website
+		\dash\layout\business::check_website();
 
 		// set custom logo
 		// if(\dash\option::config('site', 'logo'))

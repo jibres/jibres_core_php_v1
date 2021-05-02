@@ -1,21 +1,32 @@
 <?php
-if(!\lib\pagebuilder\load\page::$is_page)
+$website_footer = [];
+
+if(isset(\lib\pagebuilder\load\page::$homepage_header_footer['footer']))
 {
-	return null;
+	$website_footer = \lib\pagebuilder\load\page::$homepage_header_footer['footer'];
+}
+else
+{
+	if(!\lib\pagebuilder\load\page::$is_page)
+	{
+		return null;
+	}
+
+	if(\dash\temp::get('pagebuilder_template'))
+	{
+		return;
+	}
 }
 
-if(\dash\temp::get('pagebuilder_template'))
+
+$current_page_footer = \dash\data::website_footer();
+if(is_array($current_page_footer))
 {
-	return;
+	$website_footer = $current_page_footer;
+
 }
 
 
-$website_footer = \dash\data::website_footer();
-
-if(!is_array($website_footer))
-{
-	$website_footer = [];
-}
 
 if(!empty($website_footer))
 {

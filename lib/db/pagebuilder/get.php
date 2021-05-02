@@ -21,6 +21,14 @@ class get
 	}
 
 
+	public static function homepage_header_footer($_related_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = '$_related_id' AND pagebuilder.mode IN ('header', 'footer') ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 
 	public static function line_list(int $_id)
 	{

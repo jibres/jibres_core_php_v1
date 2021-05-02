@@ -27,6 +27,9 @@ class business
 	 * @var        bool
 	 */
 	private static $is_pagebuilder = false;
+	private static $have_header    = false;
+	private static $have_footer    = false;
+
 
 
 	/**
@@ -46,6 +49,20 @@ class business
 	}
 
 
+
+	public static function have_header()
+	{
+		return self::$have_header;
+	}
+
+
+	public static function have_footer()
+	{
+		return self::$have_footer;
+	}
+
+
+
 	/**
 	 * Load business website
 	 *
@@ -53,6 +70,15 @@ class business
 	 */
 	public static function check_website()
 	{
+		if(in_array(\dash\engine\content::get(), ['content_business', 'content_n']) && \dash\engine\store::inBusinessWebsite())
+		{
+			// need to check website
+		}
+		else
+		{
+			return false;
+		}
+
 		$store_id = \lib\store::id();
 
 		if(!$store_id)
@@ -65,6 +91,28 @@ class business
 		// load page builder by detect current page
 		$pagebuilder = \lib\pagebuilder\load\page::current_page();
 
+		if(isset($pagebuilder['post_detail']['ishomepage']) && $pagebuilder['post_detail']['ishomepage'])
+		{
+			self::$have_header = true;
+			self::$have_footer = true;
+		}
+		else
+		{
+			// need to load homepage header and footer
+			$homepage_header_footer = \lib\pagebuilder\load\page::homepage_header_footer();
+
+			if(isset($homepage_header_footer['header']) && $homepage_header_footer['header'])
+			{
+				self::$have_header = true;
+			}
+
+
+			if(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
+			{
+				self::$have_footer = true;
+			}
+
+		}
 
 		if($pagebuilder)
 		{
@@ -78,35 +126,8 @@ class business
 		else
 		{
 			// after convert all business website to new version uncomment this line
-			// return false;
-		}
-
-
-
-		$load_website_setting = \lib\app\website\generator::load_website_setting();
-
-		if(!$load_website_setting)
-		{
 			return false;
 		}
-
-		if(isset($load_website_setting['template']))
-		{
-			// nothing
-		}
-		else
-		{
-			// site not published
-			return false;
-		}
-
-		self::$website = true;
-
-		self::$website_setting = $load_website_setting;
-
-		\dash\data::website($load_website_setting);
-
-		return true;
 	}
 
 
