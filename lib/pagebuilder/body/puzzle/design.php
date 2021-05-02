@@ -28,7 +28,7 @@
     <div class="data">
       <h3><?php echo T_("Set slider mode");?></h3>
       <div class="body">
-        <?php if(a($lineSetting, 'puzzle',  'slider_type') == 'special') { ?>
+        <?php if(a($lineSetting, 'puzzle',  'puzzle_type') == 'slider' && a($lineSetting, 'puzzle',  'slider_type') == 'special' && is_array(a($lineSetting, 'detail', 'list')) &&  count(a($lineSetting, 'detail', 'list')) < 5) { ?>
           <div class="msg minimal warn2"><?php echo T_("There must be at least 5 items in your list to display this model") ?></div>
         <?php } //endif ?>
       </div>
