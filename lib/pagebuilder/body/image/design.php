@@ -8,7 +8,7 @@ if(!is_array($images))
   $images = [];
 }
 ?>
-<?php if(a($lineSetting, 'puzzle',  'puzzle_type') == 'slider' && a($lineSetting, 'puzzle',  'slider_type') == 'special' && count($images) < 5) { ?>
+<?php if(a($lineSetting, 'puzzle',  'puzzle_type') == 'slider' && a($lineSetting, 'puzzle',  'slider_type') == 'special' && is_array(a($lineSetting, 'detail', 'list')) &&  count(a($lineSetting, 'detail', 'list')) < 5) { ?>
   <div class="msg warn2 txtC font-12"><?php echo T_("There must be at least 5 items in your list to display this model") ?></div>
 <?php } //endif ?>
 <form method="post">
