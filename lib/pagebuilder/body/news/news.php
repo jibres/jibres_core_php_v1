@@ -218,6 +218,11 @@ class news
 			{
 				$data[$key]['imageurl'] = $value['thumb'];
 			}
+
+			if(isset($value['link']))
+			{
+				$data[$key]['url'] = $value['link'];
+			}
 		}
 
 		$html = '';
