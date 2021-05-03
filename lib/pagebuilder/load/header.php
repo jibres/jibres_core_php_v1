@@ -25,8 +25,13 @@ if(is_array($current_module_header))
 	$website_header = $current_module_header;
 
 	// load announcement before header
-	require_once(root. 'lib/pagebuilder/header/announcement/website.php');
 }
+else
+{
+	\dash\data::website_header($website_header);
+}
+
+require_once(root. 'lib/pagebuilder/header/announcement/website.php');
 
 
 // load heade
