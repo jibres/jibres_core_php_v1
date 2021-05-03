@@ -10,7 +10,7 @@ class business
 	 *
 	 * @var        bool
 	 */
-	private static $website = false;
+	private static $pagebuilder = false;
 
 
 	/**
@@ -18,7 +18,7 @@ class business
 	 *
 	 * @var        array
 	 */
-	private static $website_setting = [];
+	private static $pagebuilder_setting = [];
 
 
 	/**
@@ -26,8 +26,14 @@ class business
 	 *
 	 * @var        bool
 	 */
-	private static $is_pagebuilder = false;
 	private static $have_header    = false;
+
+
+	/**
+	 * Have footer
+	 *
+	 * @var        bool
+	 */
 	private static $have_footer    = false;
 
 
@@ -39,15 +45,8 @@ class business
 	 */
 	public static function website()
 	{
-		return self::$website;
+		return self::$pagebuilder;
 	}
-
-
-	public static function is_pagebuilder()
-	{
-		return self::$is_pagebuilder;
-	}
-
 
 
 	public static function have_header()
@@ -62,7 +61,6 @@ class business
 	}
 
 
-
 	/**
 	 * Load business website
 	 *
@@ -70,22 +68,25 @@ class business
 	 */
 	public static function check_website()
 	{
-		if(in_array(\dash\engine\content::get(), ['content_business', 'content_n']) && \dash\engine\store::inBusinessWebsite())
-		{
-			// need to check website
-		}
-		else
+
+		if(!in_array(\dash\engine\content::get(), ['content_business', 'content_n']))
 		{
 			return false;
 		}
 
+		// only check in businessWebsite
+		if(!\dash\engine\store::inBusinessWebsite())
+		{
+			return false;
+		}
+
+		// store not found!
 		$store_id = \lib\store::id();
 
 		if(!$store_id)
 		{
 			return false;
 		}
-
 
 
 		// load page builder by detect current page
@@ -106,26 +107,23 @@ class business
 				self::$have_header = true;
 			}
 
-
 			if(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
 			{
 				self::$have_footer = true;
 			}
-
 		}
 
 		if($pagebuilder)
 		{
-			self::$is_pagebuilder  = true;
-			self::$website         = true;
-			self::$website_setting = $pagebuilder;
+			self::$pagebuilder         = true;
+			self::$pagebuilder_setting = $pagebuilder;
 
 			\dash\data::website($pagebuilder);
+
 			return true;
 		}
 		else
 		{
-			// after convert all business website to new version uncomment this line
 			return false;
 		}
 	}
@@ -134,12 +132,7 @@ class business
 
 	public static function body_addr()
 	{
-		if(!self::$website)
-		{
-			return null;
-		}
-
-		if(!in_array(\dash\engine\content::get(), ['content_business', 'content_n']))
+		if(!self::$pagebuilder)
 		{
 			return null;
 		}
@@ -151,8 +144,7 @@ class business
 			return null;
 		}
 
-
-		if(self::$is_pagebuilder)
+		if(self::$pagebuilder)
 		{
 			return root. 'lib/pagebuilder/load/body.php';
 		}
@@ -162,27 +154,8 @@ class business
 		}
 		else
 		{
-			$addr = self::template_addr(). 'body.php';
-			if(is_file($addr))
-			{
-				return $addr;
-			}
+			return null;
 		}
-
-
 	}
-
-
-	private static function template_addr($_folder = null)
-	{
-		$addr = root. 'content_business/home/layout/';
-		if($_folder)
-		{
-			$addr .= $_folder . '/';
-		}
-
-		return $addr;
-	}
-
 }
 ?>
