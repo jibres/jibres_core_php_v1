@@ -28,6 +28,6 @@ $exec_php = 'cd '. $jibres_addr. 'public_html && sh '. $exec_addr;
 
 $result = shell_exec($exec_php);
 
-var_dump($result);exit();
+file_put_contents(__DIR__. '/resultexect.me.log', $result);
 
 ?>
