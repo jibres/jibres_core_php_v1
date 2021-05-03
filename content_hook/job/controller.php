@@ -173,7 +173,7 @@ class controller
 		{
 			$fn = ['\\content_hook\\job\\controller', 'public_cronjob'];
 
-			\content_hook\job\business::run($fn);
+			\content_hook\job\business::run_once($fn);
 
 		}
 
