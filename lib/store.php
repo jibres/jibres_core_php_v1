@@ -144,6 +144,11 @@ class store
 		{
 			return \dash\url::domain();
 		}
+		elseif(\dash\engine\store::inStore())
+		{
+			// in cronjob mode
+			return true;
+		}
 	}
 
 
