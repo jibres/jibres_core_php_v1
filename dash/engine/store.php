@@ -499,6 +499,20 @@ class store
 	}
 
 
+	/**
+	 * Cronjob in one request lock force to all store!
+	 *
+	 * @param      <type>  $_store_detail  The store detail
+	 */
+	public static function force_lock($_store_detail)
+	{
+		if(isset($_store_detail['id']))
+		{
+			self::lock($_store_detail['id'], $_store_detail);
+		}
+	}
+
+
 	private static function lock($_store_id, $_store_detail)
 	{
 		if($_store_id)
