@@ -77,7 +77,7 @@
 
 
             <div class="c-auto c-xs-12">
-              <?php if(!a($value, 'allow_shop')) {?>
+              <?php if(false) {?>
                 <div class="availability" data-red data-type='view'><?php echo T_("This product was removed from your cart"); ?></div>
               <?php }else{ ?>
                 <div class="itemOperation">
