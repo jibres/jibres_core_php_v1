@@ -34,15 +34,18 @@ class homepage
 					if(isset($check_duplicate['id']))
 					{
 						$post_id = $check_duplicate['id'];
-						var_dump($post_id);
+
+						$query = " UPDATE posts SET posts.meta = '{\"template\": \"$active[value]\"}' WHERE posts.id = $post_id LIMIT 1 ";
+
+						\dash\db::query($query, $store['fuel'], ['database' => $dbname]);
+						var_dump($store);
 					}
 					else
 					{
 						var_dump('posts_ID NOT FOUND');
 					}
 
-					var_dump($store);
-					var_dump($active);
+
 				}
 			}
 
