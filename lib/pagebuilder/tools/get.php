@@ -101,8 +101,8 @@ class get
 			return false;
 		}
 
-		$current_page_detail = [];
-		$current_page_lock = null;
+		$current_module_detail = [];
+		$current_module_lock = null;
 
 
 		if(isset($_args['child']) && $_args['child'])
@@ -111,8 +111,8 @@ class get
 			{
 				if(isset($result['elements']['contain'][$_args['child']]['contain'][$_args['subchild']]))
 				{
-					$current_page_lock = 'subchild';
-					$current_page_detail = $result['elements']['contain'][$_args['child']]['contain'][$_args['subchild']];
+					$current_module_lock = 'subchild';
+					$current_module_detail = $result['elements']['contain'][$_args['child']]['contain'][$_args['subchild']];
 					// ok
 				}
 				else
@@ -124,8 +124,8 @@ class get
 			{
 				if(isset($result['elements']['contain'][$_args['child']]))
 				{
-					$current_page_lock = 'child';
-					$current_page_detail = $result['elements']['contain'][$_args['child']];
+					$current_module_lock = 'child';
+					$current_module_detail = $result['elements']['contain'][$_args['child']];
 					// ok
 				}
 				else
@@ -136,25 +136,25 @@ class get
 		}
 		else
 		{
-			$current_page_lock = 'module';
+			$current_module_lock = 'module';
 
 			if(isset($result['elements']['detail']))
 			{
-				$current_page_detail = $result['elements'];
+				$current_module_detail = $result['elements'];
 			}
 		}
 
-		if(!is_array($current_page_detail))
+		if(!is_array($current_module_detail))
 		{
-			$current_page_detail = [];
+			$current_module_detail = [];
 		}
 
-		$current_page_detail['current_page'] = a($_args, $current_page_lock);
+		$current_module_detail['current_module'] = a($_args, $current_module_lock);
 
-		$result['current_page_detail'] = $current_page_detail;
+		$result['current_module_detail'] = $current_module_detail;
 
 		// save curret page detail
-		\lib\pagebuilder\tools\tools::current_page($current_page_detail);
+		\lib\pagebuilder\tools\tools::current_module($current_module_detail);
 
 		$result['post_detail'] = $post_detail;
 
@@ -163,7 +163,7 @@ class get
 		$result = \lib\pagebuilder\tools\tools::global_ready_show($load_data['mode'], $_element, $result);
 
 		// if need load special router
-		if(isset($current_page_detail['detail']['router']) && $current_page_detail['detail']['router'])
+		if(isset($current_module_detail['detail']['router']) && $current_module_detail['detail']['router'])
 		{
 			if(is_callable(\lib\pagebuilder\tools\tools::get_fn($load_data['mode'], $_element, 'router')))
 			{

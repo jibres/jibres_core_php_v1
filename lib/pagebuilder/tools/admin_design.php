@@ -16,12 +16,12 @@ class admin_design
 			\dash\open::get();
 			\dash\open::post();
 
-			if(a($data, 'current_page_detail', 'detail', 'allow_upload_file'))
+			if(a($data, 'current_module_detail', 'detail', 'allow_upload_file'))
 			{
 				\dash\allow::file();
 			}
 
-			if(a($data, 'current_page_detail', 'detail', 'allow_html'))
+			if(a($data, 'current_module_detail', 'detail', 'allow_html'))
 			{
 				\dash\allow::html();
 			}
@@ -72,9 +72,9 @@ class admin_design
 			self::load($lineSetting['mode'], $lineSetting['key']);
 		}
 
-		if(isset($lineSetting['current_page_detail']['contain']) && is_array($lineSetting['current_page_detail']['contain']))
+		if(isset($lineSetting['current_module_detail']['contain']) && is_array($lineSetting['current_module_detail']['contain']))
 		{
-			foreach ($lineSetting['current_page_detail']['contain'] as $key => $value)
+			foreach ($lineSetting['current_module_detail']['contain'] as $key => $value)
 			{
 				if(isset($value['detail']['hidden']) && $value['detail']['hidden'])
 				{
@@ -88,9 +88,9 @@ class admin_design
 		}
 		else
 		{
-			if(isset($lineSetting['current_page_detail']['current_page']))
+			if(isset($lineSetting['current_module_detail']['current_page']))
 			{
-				self::load($lineSetting['mode'], $lineSetting['key'], $lineSetting['current_page_detail']['current_page']);
+				self::load($lineSetting['mode'], $lineSetting['key'], $lineSetting['current_module_detail']['current_page']);
 			}
 		}
 	}

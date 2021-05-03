@@ -25,7 +25,7 @@ class tools
 	 *
 	 * @var        <type>
 	 */
-	private static $current_page = null;
+	private static $current_module = null;
 
 
 	public static function get_fn($_folder, $_class, $_function_name)
@@ -132,26 +132,26 @@ class tools
 	/**
 	 * Save and get curret page detail
 	 *
-	 * @param      <type>  $_current_page  The current page
+	 * @param      <type>  $_current_module  The current page
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function current_page($_current_page = null)
+	public static function current_module($_current_module = null)
 	{
-		if($_current_page === null)
+		if($_current_module === null)
 		{
-			return self::$current_page;
+			return self::$current_module;
 		}
 		else
 		{
-			self::$current_page = $_current_page;
+			self::$current_module = $_current_module;
 		}
 	}
 
 
 	public static function in($_module)
 	{
-		if(isset(self::$current_page['current_page']) && self::$current_page['current_page'] === $_module)
+		if(isset(self::$current_module['current_module']) && self::$current_module['current_module'] === $_module)
 		{
 			return true;
 		}

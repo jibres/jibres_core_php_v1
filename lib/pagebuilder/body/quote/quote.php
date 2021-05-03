@@ -212,7 +212,7 @@ class quote
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\pagebuilder\tools\tools::current_page();
+		$current_page = \lib\pagebuilder\tools\tools::current_module();
 
 		if(isset($current_page['current_page']))
 		{

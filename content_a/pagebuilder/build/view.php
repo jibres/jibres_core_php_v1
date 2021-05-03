@@ -34,25 +34,25 @@ class view
 		\dash\face::title(T_('Build your page'));
 
 
-		if(isset($lineSetting['current_page_detail']))
+		if(isset($lineSetting['current_module_detail']))
 		{
-			$current_page_detail = [];
-			$current_page = $lineSetting['current_page_detail'];
+			$current_module_detail = [];
+			$current_module = $lineSetting['current_module_detail'];
 
-			if(isset($current_page['detail']))
+			if(isset($current_module['detail']))
 			{
-				$current_page_detail = $current_page['detail'];
+				$current_module_detail = $current_module['detail'];
 			}
 
 
-			if(isset($current_page_detail['page_title']))
+			if(isset($current_module_detail['page_title']))
 			{
-				\dash\face::title($current_page_detail['page_title']);
+				\dash\face::title($current_module_detail['page_title']);
 			}
 
-			if(isset($current_page_detail['btn_add']))
+			if(isset($current_module_detail['btn_add']))
 			{
-				$btn_add = $current_page_detail['btn_add'];
+				$btn_add = $current_module_detail['btn_add'];
 
 				if(a($btn_add, 'text') && a($btn_add, 'link') && \dash\url::pwd() !== a($btn_add, 'link'))
 				{
@@ -61,33 +61,33 @@ class view
 				}
 			}
 
-			if(isset($current_page_detail['btn_save']))
+			if(isset($current_module_detail['btn_save']))
 			{
-				if($current_page_detail['btn_save'] === true)
+				if($current_module_detail['btn_save'] === true)
 				{
 					\dash\face::btnSave('form1');
 				}
 				else
 				{
-					\dash\face::btnSave($current_page_detail['btn_save']);
+					\dash\face::btnSave($current_module_detail['btn_save']);
 				}
 			}
 
-			if(isset($current_page['current_page']) && $current_page['current_page'] === 'title')
+			if(isset($current_module['current_module']) && $current_module['current_module'] === 'title')
 			{
 				\dash\face::btnSave('form1');
 				\dash\face::title(T_('Edit title'));
 			}
 
-			if(isset($current_page_detail['btn_advance']))
+			if(isset($current_module_detail['btn_advance']))
 			{
-				\dash\face::btnSetting($current_page_detail['btn_advance']);
+				\dash\face::btnSetting($current_module_detail['btn_advance']);
 			}
 
 
-			if(isset($current_page_detail['btn_preview']))
+			if(isset($current_module_detail['btn_preview']))
 			{
-				\dash\face::btnPreview($current_page_detail['btn_preview']);
+				\dash\face::btnPreview($current_module_detail['btn_preview']);
 			}
 
 
@@ -95,9 +95,9 @@ class view
 
 		$back_args = [];
 
-		if(isset($current_page_detail['back_args']))
+		if(isset($current_module_detail['back_args']))
 		{
-			$back_args = $current_page_detail['back_args'];
+			$back_args = $current_module_detail['back_args'];
 		}
 
 
