@@ -135,7 +135,8 @@ class run
 
 		curl_setopt($ch, CURLOPT_POST, false);
 		//The URL to fetch.
-		curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
+		// curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
+		curl_setopt($ch, CURLOPT_URL,"https://7.7.7.138/nic-broker/");
 
 		//The full data to post in a HTTP "POST" operation.
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
