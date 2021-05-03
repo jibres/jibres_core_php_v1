@@ -143,9 +143,19 @@ class run
 		// grab URL and pass it to the browser
 		$response = curl_exec($ch);
 
+		$header_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+		// ssl certificatte error
+		if(is_string($response) && md5($response) === '728870f16dbabd6a69159537e44f1590')
+		{
+			\dash\log::to_supervisor('#Nic Error 400 ssl error');
+		}
+
+
 		$CurlError = curl_error($ch);
 
 		curl_close ($ch);
+
 
 
 		if($response && !is_string($response))
