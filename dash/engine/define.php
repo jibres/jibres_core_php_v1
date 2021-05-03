@@ -5,6 +5,7 @@
 
 function cronjob_server()
 {
+
 	// cun cronjob by this code
 	// php /home/reza/projects/jibres/public_html/index.php '{"trust_token":"123","HTTP_HOST":"mohiti.jibres.local","SERVER_NAME":"jibres.local","SERVER_PORT":"80","SERVER_PROTOCOL":"HTTP/1.1","REQUEST_URI":"/a","REQUEST_METHOD":"POST","SCRIPT_FILENAME":"/home/reza/projects/jibres/public_html/index.php"}' &
 	if(!isset($GLOBALS['argv'][1]))
@@ -12,37 +13,51 @@ function cronjob_server()
 		return false;
 	}
 
-	$newServer = $GLOBALS['argv'][1];
-	if(!is_string($newServer))
+	$argv = $GLOBALS['argv'][1];
+	if(!is_string($argv))
 	{
 		return false;
 	}
 
-	$newServer = json_decode($newServer, true);
-	if(!is_array($newServer))
+
+	if(!isset($GLOBALS['argv'][2]))
 	{
 		return false;
 	}
 
-	$trust_addr = __DIR__. '/cronjob_server.me.token';
-	if(!is_file($trust_addr))
+	$SCRIPT_FILENAME = $GLOBALS['argv'][2];
+	if(!is_string($SCRIPT_FILENAME))
 	{
 		return false;
 	}
 
-	$load_token = file_get_contents($trust_addr);
-	if(isset($newServer['trust_token']) && $newServer['trust_token'] === $load_token)
+	if(!in_array($argv, ['php_run_jibres_cronjob', 'php_run_business_cronjob_once', 'php_run_business_cronjob_force']))
 	{
-		$_SERVER = $newServer;
-		// define iscronjob
-		define('ISCRONJOB', true);
+		return false;
 	}
-	else
-	{
-		// invalid token
-		// be not continue
-		exit();
-	}
+
+	$newServer =
+	[
+		'HTTP_HOST'       => 'jibres.ir',
+		'SERVER_NAME'     => 'jibres.ir',
+		'SERVER_PORT'     => '443',
+		'SERVER_PROTOCOL' => 'HTTP/1.1',
+		'REQUEST_URI'     => '/hook/job',
+		'REQUEST_METHOD'  => 'POST',
+		'SERVER_ADDR'     => '1.1.1.1',
+		'REMOTE_ADDR'     => '1.1.1.1',
+		'HTTP_USER_AGENT' => 'Jibres-cronjob',
+		'HTTP_COOKIE'     => 'Jibres-cronjob-cookie',
+		'SCRIPT_FILENAME' => $SCRIPT_FILENAME,
+	];
+
+
+	$_SERVER = $newServer;
+	// define iscronjob
+	define('ISCRONJOB', true);
+
+	define('CRONJOB_MODE', $argv);
+
 }
 
 
