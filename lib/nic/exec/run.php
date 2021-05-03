@@ -125,7 +125,7 @@ class run
 		$ch = curl_init();
 
 		//FALSE to stop cURL from verifying the peer's certificate
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 
 		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -136,7 +136,7 @@ class run
 		curl_setopt($ch, CURLOPT_POST, false);
 		//The URL to fetch.
 		// curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
-		curl_setopt($ch, CURLOPT_URL,"https://7.7.7.138/nic-broker/");
+		curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/nic-broker/");
 
 		//The full data to post in a HTTP "POST" operation.
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
