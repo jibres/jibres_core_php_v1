@@ -88,9 +88,9 @@ class admin_design
 		}
 		else
 		{
-			if(isset($lineSetting['current_module_detail']['current_page']))
+			if(isset($lineSetting['current_module_detail']['current_module']))
 			{
-				self::load($lineSetting['mode'], $lineSetting['key'], $lineSetting['current_module_detail']['current_page']);
+				self::load($lineSetting['mode'], $lineSetting['key'], $lineSetting['current_module_detail']['current_module']);
 			}
 		}
 	}

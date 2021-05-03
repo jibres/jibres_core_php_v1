@@ -121,15 +121,15 @@ class news
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\pagebuilder\tools\tools::current_module();
+		$current_module = \lib\pagebuilder\tools\tools::current_module();
 
-		if(isset($current_page['current_page']))
+		if(isset($current_module['current_module']))
 		{
-			$current_page = $current_page['current_page'];
+			$current_module = $current_module['current_module'];
 		}
 		else
 		{
-			$current_page = 'news';
+			$current_module = 'news';
 		}
 
 		$news = [];
@@ -170,7 +170,7 @@ class news
 			$_data['detail'] = null;
 		}
 
-		if($current_page === 'filter')
+		if($current_module === 'filter')
 		{
 			\lib\pagebuilder\tools\tools::input_exception('detail');
 		}

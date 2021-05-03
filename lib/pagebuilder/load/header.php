@@ -19,10 +19,10 @@ else
 }
 
 
-$current_page_header = \dash\data::website_header();
-if(is_array($current_page_header))
+$current_module_header = \dash\data::website_header();
+if(is_array($current_module_header))
 {
-	$website_header = $current_page_header;
+	$website_header = $current_module_header;
 
 	// load announcement before header
 	require_once(root. 'lib/pagebuilder/header/announcement/website.php');

@@ -212,15 +212,15 @@ class quote
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\pagebuilder\tools\tools::current_module();
+		$current_module = \lib\pagebuilder\tools\tools::current_module();
 
-		if(isset($current_page['current_page']))
+		if(isset($current_module['current_module']))
 		{
-			$current_page = $current_page['current_page'];
+			$current_module = $current_module['current_module'];
 		}
 		else
 		{
-			$current_page = 'add';
+			$current_module = 'add';
 		}
 
 		if($_data['sort'])
@@ -229,7 +229,7 @@ class quote
 		}
 		else
 		{
-			$_data = self::quote_process($_data, $_saved_detail, $current_page);
+			$_data = self::quote_process($_data, $_saved_detail, $current_module);
 		}
 
 		unset($_data['displayname']);
@@ -245,7 +245,7 @@ class quote
 	}
 
 
-	private static function quote_process($_data, $_saved_detail, $current_page)
+	private static function quote_process($_data, $_saved_detail, $current_module)
 	{
 		$quote = [];
 
@@ -296,7 +296,7 @@ class quote
 			}
 		}
 
-		if($current_page === '_set_sort')
+		if($current_module === '_set_sort')
 		{
 			if(!$quote || !is_array(a($quote, 'list')))
 			{
@@ -338,7 +338,7 @@ class quote
 			$quote['list'] = $my_sorted_list;
 
 		}
-		elseif($current_page === 'edit')
+		elseif($current_module === 'edit')
 		{
 			if(!isset($quote['list'][self::$quote_comment_id]))
 			{
@@ -374,7 +374,7 @@ class quote
 
 			}
 		}
-		elseif($current_page === 'add')
+		elseif($current_module === 'add')
 		{
 
 			if(isset($quote['list']) && is_array($quote['list']))
@@ -436,7 +436,7 @@ class quote
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-		if((isset($need_redirect_pwd) && $need_redirect_pwd) || $current_page === 'edit' )
+		if((isset($need_redirect_pwd) && $need_redirect_pwd) || $current_module === 'edit' )
 		{
 			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::pwd());
 		}

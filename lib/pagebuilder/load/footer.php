@@ -19,10 +19,10 @@ else
 }
 
 
-$current_page_footer = \dash\data::website_footer();
-if(is_array($current_page_footer))
+$current_module_footer = \dash\data::website_footer();
+if(is_array($current_module_footer))
 {
-	$website_footer = $current_page_footer;
+	$website_footer = $current_module_footer;
 
 }
 

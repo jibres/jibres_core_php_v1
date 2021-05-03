@@ -181,15 +181,15 @@ class image
 
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
-		$current_page = \lib\pagebuilder\tools\tools::current_module();
+		$current_module = \lib\pagebuilder\tools\tools::current_module();
 
-		if(isset($current_page['current_page']))
+		if(isset($current_module['current_module']))
 		{
-			$current_page = $current_page['current_page'];
+			$current_module = $current_module['current_module'];
 		}
 		else
 		{
-			$current_page = 'add';
+			$current_module = 'add';
 		}
 
 		if($_data['sort'])
@@ -198,9 +198,9 @@ class image
 		}
 		else
 		{
-			if($current_page === 'add' || $current_page === 'edit')
+			if($current_module === 'add' || $current_module === 'edit')
 			{
-				$_data = self::image_process($_data, $_saved_detail, $current_page);
+				$_data = self::image_process($_data, $_saved_detail, $current_module);
 			}
 		}
 
@@ -209,7 +209,7 @@ class image
 	}
 
 
-	private static function image_process($_data, $_saved_detail, $current_page)
+	private static function image_process($_data, $_saved_detail, $current_module)
 	{
 
 		$image = [];
@@ -237,7 +237,7 @@ class image
 			}
 		}
 
-		if(!$image_path && $current_page !== '_set_sort')
+		if(!$image_path && $current_module !== '_set_sort')
 		{
 			\dash\notif::error(T_("Please upload an image file"), 'image');
 			return false;
@@ -256,7 +256,7 @@ class image
 			}
 		}
 
-		if($current_page === '_set_sort')
+		if($current_module === '_set_sort')
 		{
 			if(!$image || !is_array(a($image, 'list')))
 			{
@@ -295,7 +295,7 @@ class image
 
 			$image['list'] = $my_sorted_list;
 		}
-		elseif($current_page === 'edit')
+		elseif($current_module === 'edit')
 		{
 			if(!isset($image['list'][self::$image_index]))
 			{
