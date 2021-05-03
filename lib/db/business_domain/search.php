@@ -21,10 +21,7 @@ class search
 			SELECT
 				business_domain.*,
 				store_data.title,
-				store_data.logo,
-				(SELECT COUNT(*) FROM business_domain_action WHERE business_domain_action.business_domain_id = business_domain.id) AS `count_log`,
-				(SELECT COUNT(*) FROM business_domain_dns WHERE business_domain_dns.business_domain_id = business_domain.id) AS `count_dns`,
-				(SELECT business_domain_action.datecreated FROM business_domain_action WHERE business_domain_action.business_domain_id = business_domain.id ORDER BY business_domain_action.id DESC LIMIT 1) AS `last_log_time`
+				store_data.logo
 			FROM
 				business_domain
 			$q[join]
