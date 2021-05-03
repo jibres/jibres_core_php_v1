@@ -10,6 +10,11 @@ class page
 
 	public static function homepage_header_footer()
 	{
+		if(!empty(self::$homepage_header_footer))
+		{
+			return self::$homepage_header_footer;
+		}
+
 		$homepage_header_footer = \lib\pagebuilder\tools\homepage::get_header_and_footer();
 
 		$result = [];
@@ -50,14 +55,16 @@ class page
 			return false;
 		}
 
-		$homepage_builder = false;
-		$load_by_template = false;
-		$in_content_n     = false;
+		$page_id                             = null;
+		$post_detail                         = null;
+		$homepage_builder                    = false;
+		$need_homepage_body                  = false;
+		$need_homepage_header_footer         = false;
+		$comingsoon_visitcad_template        = false;
+		$need_explode_homepage_header_footer = false;
 
+		$homepage_id                  = \lib\pagebuilder\tools\homepage::id();
 
-		// InBusinessHomeController
-
-		// PageBuilderNeedlessToLoadBody
 
 
 		// load a post by display of content_n
@@ -70,46 +77,65 @@ class page
 
 				$page_id = \dash\coding::decode($page_id);
 
-				$load_by_template = true;
 			}
 			else
 			{
-				// need to load homepage header and footer
-				return false;
+				$need_homepage_header_footer = true;
 			}
 		}
-		elseif(\dash\engine\content::is('n'))
+		elseif(\dash\engine\content::is('n') && \dash\temp::get('inContentNHomeController'))
 		{
 			$page_id = \dash\url::module();
 
+			// ok
+			$page_id = \dash\coding::decode($page_id);
 
-			if($page_id && ($page_id = \dash\validate::code($page_id, false)))
+			$ThePostLoadedInContentN = \dash\temp::get('ThePostLoadedInContentN');
+
+			if(isset($ThePostLoadedInContentN['type']) && $ThePostLoadedInContentN['type'] === 'pagebuilder')
 			{
-				$in_content_n = true;
-				// ok
-				$page_id = \dash\coding::decode($page_id);
+				// needless to load homepage
 			}
 			else
 			{
-				// need to load homepage header and footer
-				return false;
+				$need_homepage_header_footer = true;
 			}
+		}
+		elseif(\dash\temp::get('InBusinessHomeController'))
+		{
+			$page_id                     = $homepage_id;
+
+			$homepage_builder            = true;
+
+			$need_homepage_body          = true;
+
+			$need_homepage_header_footer = true;
 		}
 		else
 		{
-			$page_id          = \lib\pagebuilder\tools\homepage::id();
-
-			$homepage_builder = true;
-
+			$need_homepage_header_footer = true;
 		}
 
-		$args = [];
+		if(!$page_id || !is_numeric($page_id))
+		{
+			if($need_homepage_header_footer)
+			{
+				// load homepage header and footer only
+				self::homepage_header_footer();
+			}
 
+			// only need homepage header and footer
+			return false;
+		}
+		else
+		{
+			$post_detail = \lib\pagebuilder\tools\current_post::load($page_id);
+		}
 
-		$post_detail = \lib\pagebuilder\tools\current_post::load($page_id);
 
 		if(!$post_detail)
 		{
+			// post not founded !!!
 			return false;
 		}
 
@@ -118,8 +144,6 @@ class page
 		{
 			\dash\redirect::to(\dash\url::kingdom());
 		}
-
-		$need_load_body = true;
 
 
 		if(isset($post_detail['meta']['template']) && $homepage_builder)
@@ -131,11 +155,13 @@ class page
 				switch ($post_detail['meta']['template'])
 				{
 					case 'comingsoon':
+						$comingsoon_visitcad_template = true;
 						\dash\face::disablePWA_Header(true);
 						\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
 						break;
 
 					case 'visitcard':
+						$comingsoon_visitcad_template = true;
 						\dash\face::disablePWA_Header(true);
 						\dash\face::css(
 							[
@@ -149,54 +175,82 @@ class page
 					default:
 						break;
 				}
-
-				$need_load_body = false;
 			}
 		}
 
-
 		$list = [];
 
-		if($need_load_body && $page_id && is_numeric($page_id))
+		if($comingsoon_visitcad_template)
 		{
-			$list = \lib\db\pagebuilder\get::line_list($page_id);
+			// nothing !
+		}
+		else
+		{
+			if($need_homepage_body)
+			{
+				// in homepage need to load full homepage detail
+				$list = \lib\db\pagebuilder\get::line_list($page_id);
+			}
+			else
+			{
+				if(floatval($page_id) === floatval($homepage_id))
+				{
+					// homepage id is equal with page id. load full page id detail
+					$list = \lib\db\pagebuilder\get::line_list($page_id);
+				}
+				else
+				{
+					// load full page id and homepage header and footer
+					$list = \lib\db\pagebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
+					$need_explode_homepage_header_footer = true;
+				}
+			}
+
 		}
 
 		$result                = [];
 
 		$result['post_detail'] = $post_detail;
 
-		self::ready($result, $list);
-
-		if(!$result)
-		{
-			return false;
-		}
+		self::ready($result, $list, $need_explode_homepage_header_footer, $homepage_id);
 
 		self::$is_page = true;
-
 
 		return $result;
 	}
 
 
-
-	private static function ready(&$result, $list)
+	private static function ready(&$result, $list, $need_explode_homepage_header_footer = null, $homepage_id = null)
 	{
-		$result['header'] = [];
-		$result['body']   = [];
-		$result['footer'] = [];
+		$result['header']      = [];
+		$result['body']        = [];
+		$result['footer']      = [];
 
 		foreach ($list as $key => $value)
 		{
 			if(isset($value['mode']) && isset($value['type']) && is_string($value['type']))
 			{
-				if(in_array($value['mode'], ['header', 'footer', 'body']))
+				if(!in_array($value['mode'], ['header', 'footer', 'body']))
 				{
-					$result[$value['mode']][] = \lib\pagebuilder\tools\tools::global_ready_show($value['mode'], $value['type'], $value);
+					continue;
 				}
+
+				if($need_explode_homepage_header_footer)
+				{
+					if(floatval(a($value, 'related_id')) === floatval($homepage_id))
+					{
+						self::$homepage_header_footer[$value['mode']][] = \lib\pagebuilder\tools\tools::global_ready_show($value['mode'], $value['type'], $value);
+						continue;
+					}
+				}
+
+				$result[$value['mode']][] = \lib\pagebuilder\tools\tools::global_ready_show($value['mode'], $value['type'], $value);
+
 			}
 		}
 	}
+
+
+
 }
 ?>

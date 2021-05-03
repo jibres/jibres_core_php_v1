@@ -21,6 +21,9 @@ class controller
 			\dash\header::status(404, T_("Post not found"));
 		}
 
+		\dash\temp::set('inContentNHomeController', true);
+		\dash\temp::set('ThePostLoadedInContentN', $load);
+
 		\dash\open::get();
 
 	}

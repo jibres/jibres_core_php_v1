@@ -50,6 +50,33 @@ class get
 		return $result;
 	}
 
+	public static function line_list_with_homepage_header_footer($_id, $_homepage_id)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				pagebuilder
+			WHERE
+				pagebuilder.related_id = $_id OR
+				(
+					pagebuilder.related_id = $_homepage_id AND
+					pagebuilder.mode IN ('header', 'footer')
+				)
+
+			ORDER BY
+				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				pagebuilder.sort ASC,
+				pagebuilder.id ASC
+			LIMIT 1000
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 
 
 	public static function count_by_type(string $_type)

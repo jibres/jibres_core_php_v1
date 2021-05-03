@@ -137,13 +137,6 @@ class business
 			return null;
 		}
 
-		// check only in home module
-		// this variable set on content business home controller
-		if(\dash\temp::get('PageBuilderNeedlessToLoadBody'))
-		{
-			return null;
-		}
-
 		if(self::$pagebuilder)
 		{
 			return root. 'lib/pagebuilder/load/body.php';
