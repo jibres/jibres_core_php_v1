@@ -13,6 +13,8 @@ class view
 
 		// self::image_ratio();
 
+		\content_su\fix\homepage::convert();
+
 	}
 
 
