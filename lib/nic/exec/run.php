@@ -112,52 +112,98 @@ class run
 	}
 
 
+	public static function raw_curl($_data = null)
+	{
+		$ch = curl_init();
+
+		// set some settings of curl
+		$apiURL = "https://epp.nic.ir/submit";
+
+		$pem = root. 'dash/setting/secret/pem/nic/v2-contract1400-2022/2-decrypte/nic.pem';
+
+		//The name of a file containing a PEM formatted certificate.
+		curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+
+		//The contents of the "User-Agent: "
+		// curl_setopt($ch, CURLOPT_USERAGENT, "Jibres-irnic");
+		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; Jibres irnic/1.2; +https://jibres.com/bot)");
+
+		curl_setopt($ch, CURLOPT_URL, $apiURL);
+		// turn on some setting
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_POST, true);
+		// turn off some setting
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+		// timeout setting
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 120);
+
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $_data);
+
+		$result = curl_exec($ch);
+
+		curl_close($ch);
+
+		return $result;
+	}
+
+
+
 	private static function nic_curl($_xml)
 	{
 
+		$CurlError = null;
+
 		$_xml = trim($_xml);
 
-		$data          = [];
-		$data['xml']   = $_xml;
-		$data['token'] = \dash\setting\nic::curl_token();
+		if(true)
+		{
+			$response = self::raw_curl($_xml);
+		}
+		else
+		{
 
-		// create a new cURL resource
-		$ch = curl_init();
+			$data          = [];
+			$data['xml']   = $_xml;
+			$data['token'] = \dash\setting\nic::curl_token();
 
-		//FALSE to stop cURL from verifying the peer's certificate
-		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+			// create a new cURL resource
+			$ch = curl_init();
 
-		//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+			//FALSE to stop cURL from verifying the peer's certificate
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 90); // 90 time out of nic-broker
-		curl_setopt($ch, CURLOPT_TIMEOUT, 90); // 90 time out of nic-broker
+			//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 
-		curl_setopt($ch, CURLOPT_POST, false);
-		//The URL to fetch.
-		// curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
-		curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/nic-broker/");
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 90); // 90 time out of nic-broker
+			curl_setopt($ch, CURLOPT_TIMEOUT, 90); // 90 time out of nic-broker
 
-		//The full data to post in a HTTP "POST" operation.
-		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+			curl_setopt($ch, CURLOPT_POST, false);
+			//The URL to fetch.
+			// curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
+			curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/nic-broker/");
 
-		// grab URL and pass it to the browser
-		$response = curl_exec($ch);
+			//The full data to post in a HTTP "POST" operation.
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 
-		$header_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			// grab URL and pass it to the browser
+			$response = curl_exec($ch);
+
+			$CurlError = curl_error($ch);
+
+			curl_close ($ch);
+
+
+		}
 
 		// ssl certificatte error
 		if(is_string($response) && md5($response) === '728870f16dbabd6a69159537e44f1590')
 		{
 			\dash\log::to_supervisor('#Nic Error 400 ssl error');
 		}
-
-
-		$CurlError = curl_error($ch);
-
-		curl_close ($ch);
-
-
 
 		if($response && !is_string($response))
 		{
