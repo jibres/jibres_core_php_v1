@@ -203,7 +203,7 @@ class run
 		// ssl certificatte error
 		if(is_string($response) && md5($response) === '728870f16dbabd6a69159537e44f1590')
 		{
-			\dash\log::to_supervisor('#Nic Error 400 ssl error');
+			// \dash\log::to_supervisor('#Nic Error 400 ssl error');
 		}
 
 		if($response && !is_string($response))
