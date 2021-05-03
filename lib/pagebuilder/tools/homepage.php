@@ -5,9 +5,21 @@ namespace lib\pagebuilder\tools;
 class homepage
 {
 
-	public static function get_header_and_footer()
+	public static function id()
 	{
 		$post_id = \lib\store::detail('homepage_builder_post_id');
+		if(!$post_id)
+		{
+			return false;
+		}
+
+		return $post_id;
+	}
+
+
+	public static function get_header_and_footer()
+	{
+		$post_id = self::id();
 		if(!$post_id || !is_numeric($post_id))
 		{
 			return null;
@@ -20,7 +32,7 @@ class homepage
 
 	public static function get_link()
 	{
-		$post_id = \lib\store::detail('homepage_builder_post_id');
+		$post_id = self::id();
 		if(!$post_id)
 		{
 			return null;

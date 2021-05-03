@@ -106,6 +106,27 @@ class content
 		return self::$name;
 	}
 
+
+
+	public static function is($_content_name)
+	{
+		$is = self::get();
+
+		if($is === $_content_name)
+		{
+			return true;
+		}
+
+		if($is === 'content_'. $_content_name)
+		{
+			return true;
+		}
+
+		return false;
+
+	}
+
+
 	public static function get_name()
 	{
 		$myName = self::get();

@@ -139,7 +139,7 @@ class business
 
 		// check only in home module
 		// this variable set on content business home controller
-		if(!\dash\temp::get('NeedToCheckPageBuilderLoad'))
+		if(\dash\temp::get('PageBuilderNeedlessToLoadBody'))
 		{
 			return null;
 		}

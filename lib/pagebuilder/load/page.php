@@ -24,17 +24,28 @@ class page
 
 	}
 
+	/**
+	 * Exception module
+	 * Needless to load pagebuilder
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	private static function exception_module()
+	{
+		// app is not pagebuilder
+		if(\dash\engine\content::is('business') && \dash\url::module() === 'app')
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 
 	public static function current_page()
 	{
-		// only check page builder in business content and content_n
-		if(\dash\engine\content::get() !== 'content_business' && \dash\engine\content::get() !== 'content_n')
-		{
-			return false;
-		}
-
-		// app is not pagebuilder
-		if(\dash\url::module() === 'app')
+		// exception module needless to load pagebuilder
+		if(self::exception_module())
 		{
 			return false;
 		}
@@ -44,10 +55,10 @@ class page
 		$in_content_n     = false;
 
 
-		// if(!\dash\temp::get('NeedToCheckPageBuilderLoad'))
-		// {
-		// 	// in homepage
-		// }
+		// InBusinessHomeController
+
+		// PageBuilderNeedlessToLoadBody
+
 
 		// load a post by display of content_n
 		if(\dash\engine\template::$finded_template)
@@ -63,28 +74,30 @@ class page
 			}
 			else
 			{
+				// need to load homepage header and footer
 				return false;
 			}
 		}
-		elseif(\dash\engine\content::get() === 'content_n')
+		elseif(\dash\engine\content::is('n'))
 		{
 			$page_id = \dash\url::module();
 
-			$in_content_n = true;
 
 			if($page_id && ($page_id = \dash\validate::code($page_id, false)))
 			{
+				$in_content_n = true;
 				// ok
 				$page_id = \dash\coding::decode($page_id);
 			}
 			else
 			{
+				// need to load homepage header and footer
 				return false;
 			}
 		}
 		else
 		{
-			$page_id          = \lib\store::detail('homepage_builder_post_id');
+			$page_id          = \lib\pagebuilder\tools\homepage::id();
 
 			$homepage_builder = true;
 

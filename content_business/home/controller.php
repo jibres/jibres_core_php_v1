@@ -5,7 +5,7 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\temp::set('NeedToCheckPageBuilderLoad', true);
+		\dash\temp::set('InBusinessHomeController', true);
 	}
 }
 ?>

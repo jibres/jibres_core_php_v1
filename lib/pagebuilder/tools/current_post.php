@@ -43,7 +43,7 @@ class current_post
 		// load post detail
 		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
 
-		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(\lib\store::detail('homepage_builder_post_id')))
+		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(\lib\pagebuilder\tools\homepage::id()))
 		{
 			$post_detail['ishomepage'] = true;
 		}

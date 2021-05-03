@@ -1,7 +1,7 @@
 <?php
 $html = '';
 
-$homepage_id     = \lib\store::detail('homepage_builder_post_id');
+$homepage_id     = \lib\pagebuilder\tools\homepage::id();
 $encode_homepage = \dash\coding::encode($homepage_id);
 
 
