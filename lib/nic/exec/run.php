@@ -158,13 +158,14 @@ class run
 
 		$_xml = trim($_xml);
 
-		if(true)
+		if(false)
 		{
+			// send request to nic
 			$response = self::raw_curl($_xml);
 		}
 		else
 		{
-
+			// send request to nic broker
 			$data          = [];
 			$data['xml']   = $_xml;
 			$data['token'] = \dash\setting\nic::curl_token();
