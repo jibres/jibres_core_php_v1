@@ -1,6 +1,5 @@
 <?php
-$header = \dash\data::website_header();
-$header = a($header, 0);
+$header = \dash\data::currentHeader();
 
 if(a($header, 'detail', 'announcement', 'status') && a($header, 'detail', 'announcement', 'text'))
 {

@@ -8,6 +8,9 @@ class page
 
 	public static $homepage_header_footer = [];
 
+	private static $comingsoon_visitcad_template = false;
+
+
 	public static function homepage_header_footer()
 	{
 		if(!empty(self::$homepage_header_footer))
@@ -150,8 +153,6 @@ class page
 		{
 			if(in_array($post_detail['meta']['template'], ['comingsoon', 'visitcard']))
 			{
-				\dash\temp::set('pagebuilder_template', $post_detail['meta']['template']);
-
 				switch ($post_detail['meta']['template'])
 				{
 					case 'comingsoon':
@@ -182,6 +183,7 @@ class page
 
 		if($comingsoon_visitcad_template)
 		{
+			self::$comingsoon_visitcad_template = true;
 			// nothing !
 		}
 		else
@@ -254,6 +256,17 @@ class page
 
 	public static function detect_header()
 	{
+		// exception module needless to load pagebuilder
+		if(self::exception_module())
+		{
+			return false;
+		}
+
+		if(self::$comingsoon_visitcad_template)
+		{
+			return false;
+		}
+
 		$currentHeader = [];
 
 		if(isset(self::$homepage_header_footer['header']))
@@ -276,18 +289,11 @@ class page
 			$currentHeader = $currentHeader[0];
 		}
 
-		// load heade
-		if(!empty($website_header))
-		{
-			foreach ($website_header as $key => $value)
-			{
-				$header_addr = root. 'lib/pagebuilder/header/'. $value['type']. '/website.php';
-				if(is_file($header_addr))
-				{
-					require_once($header_addr);
-				}
-			}
-		}
+
+		\dash\data::currentHeader($currentHeader);
+
+		return $currentHeader;
+
 	}
 
 
