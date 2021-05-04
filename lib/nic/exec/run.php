@@ -158,7 +158,7 @@ class run
 
 		$_xml = trim($_xml);
 
-		if(false)
+		if(\dash\request::get('nic') === 'raw')
 		{
 			// send request to nic
 			$response = self::raw_curl($_xml);
