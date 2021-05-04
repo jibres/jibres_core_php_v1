@@ -5,6 +5,23 @@ namespace lib\db\nic_domain;
 class get
 {
 
+	public static function search_in_our_domain_record($_domain)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				domain
+			WHERE
+				domain.name = '$_domain'
+			LIMIT 100
+		";
+
+		$result = \dash\db::get($query, null, false, 'nic');
+		return $result;
+	}
+
 
 	public static function need_check_owner_again()
 	{

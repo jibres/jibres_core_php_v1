@@ -49,22 +49,91 @@ class dns
 			return false;
 		}
 
+		$get_dns = self::search_in_our_domain_record($load['domain']);
+
+		if(!$get_dns)
+		{
+			$get_dns = self::get_from_php_dns_function($load['domain']);
+
+			if(!$get_dns)
+			{
+				$get_dns = self::get_from_whois($load['domain']);
+
+				if(!$get_dns)
+				{
+					// not found
+				}
+			}
+		}
+
+		if(!$get_dns)
+		{
+
+			\lib\app\business_domain\edit::set_date($_id, 'datemodified');
+			\lib\app\business_domain\action::new_action($_id, 'dns_failed', ['meta' => json_encode($get_dns)]);
+			\dash\notif::error(T_("Can not get DNS detail!"));
+			return false;
+		}
+
+		\lib\app\business_domain\edit::set_date($_id, 'checkdns');
+		\lib\app\business_domain\action::new_action($_id, 'dns_resolved', ['meta' => json_encode($get_dns)]);
+
+		$arvan_ns1 = \lib\app\nic_usersetting\defaultval::ns1();
+		$arvan_ns2 = \lib\app\nic_usersetting\defaultval::ns2();
+
+		if(in_array($arvan_ns1, $get_dns) && in_array($arvan_ns2, $get_dns))
+		{
+			\lib\app\business_domain\edit::set_date($_id, 'dnsok');
+			\lib\app\business_domain\action::new_action($_id, 'dns_ok', ['meta' => json_encode($get_dns), 'desc' => T_("DNS was set on our default DNS record")]);
+		}
+
+
+		\dash\notif::ok(T_("DNS detail saved"));
+		return true;
+	}
+
+
+	private static function search_in_our_domain_record($_domain)
+	{
+		$load_record = \lib\db\nic_domain\get::search_in_our_domain_record($_domain);
+
+		if(!$load_record || !is_array($load_record))
+		{
+			return false;
+		}
+
+		$dns = [];
+
+		if(count($load_record) === 1)
+		{
+			if(isset($load_record[0]['ns1']))
+			{
+				$dns[] = $load_record[0]['ns1'];
+			}
+
+			if(isset($load_record[0]['ns2']))
+			{
+				$dns[] = $load_record[0]['ns2'];
+			}
+
+		}
+		else
+		{
+			// need to foreach
+		}
+
+		return $dns;
+	}
+
+
+	private static function get_from_php_dns_function($_domain)
+	{
 		// $get_dns = \lib\app\business_domain\dns_broker::local_get($load['domain']);
-		$get_dns = \lib\app\business_domain\dns_broker::get($load['domain']);
+		$get_dns = \lib\app\business_domain\dns_broker::get($_domain);
 
 
 		if(!$get_dns || !is_array($get_dns))
 		{
-			\lib\app\business_domain\edit::set_date($_id, 'datemodified');
-			\lib\app\business_domain\action::new_action($_id, 'dns_failed', ['meta' => json_encode($get_dns)]);
-
-			if(isset($load['datecreated']) && $load['datecreated'] && (time() - strtotime($load['datecreated']) > (60*60*24*7)))
-			{
-				\lib\app\business_domain\action::new_action($_id, 'dns_failed_for_long_time', ['meta' => json_encode($get_dns)]);
-				// \lib\app\business_domain\edit::edit_raw(['status' => 'dns_not_resolved'], $_id);
-			}
-
-			\dash\notif::error(T_("Can not get DNS detail!"));
 			return false;
 		}
 
@@ -78,22 +147,30 @@ class dns
 			}
 		}
 
-		\lib\app\business_domain\edit::set_date($_id, 'checkdns');
-		\lib\app\business_domain\action::new_action($_id, 'dns_resolved', ['meta' => json_encode($dns)]);
+		return $dns;
+	}
 
-		$arvan_ns1 = \lib\app\nic_usersetting\defaultval::ns1();
-		$arvan_ns2 = \lib\app\nic_usersetting\defaultval::ns2();
 
-		if(in_array($arvan_ns1, $dns) && in_array($arvan_ns2, $dns))
+	private static function get_from_whois($_domain)
+	{
+		$whois = \lib\app\whois\who::is($_domain);
+
+		$dns = [];
+
+		if(isset($whois['name_servers']['ns1']))
 		{
-			\lib\app\business_domain\edit::set_date($_id, 'dnsok');
-			\lib\app\business_domain\action::new_action($_id, 'dns_ok', ['meta' => json_encode($dns), 'desc' => T_("DNS was set on our default DNS record")]);
+			$dns[] = $whois['name_servers']['ns1'];
 		}
 
+		if(isset($whois['name_servers']['ns2']))
+		{
+			$dns[] = $whois['name_servers']['ns2'];
+		}
 
-		\dash\notif::ok(T_("DNS detail saved"));
-		return true;
+		return $dns;
+
 	}
+
 
 
 	public static function get_count($_id)
