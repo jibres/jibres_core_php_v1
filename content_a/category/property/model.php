@@ -11,6 +11,9 @@ class model
 		{
 			$post        = [];
 			$post['cat'] = \dash\request::post('cat');
+
+			\dash\session::set('fill_category_property', $post['cat']);
+
 			$post['key'] = \dash\request::post('key');
 			\lib\app\category\add::property($post, $id);
 			if(\dash\engine\process::status())

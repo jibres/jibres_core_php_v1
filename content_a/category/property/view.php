@@ -44,6 +44,13 @@ class view
 			\dash\data::propertyGroup($list);
 		}
 
+		$fill_category_property = \dash\session::get('fill_category_property');
+		if($fill_category_property)
+		{
+			\dash\data::fillCategoryProperty($fill_category_property);
+		}
+
+
 	}
 }
 ?>

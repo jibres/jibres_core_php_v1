@@ -18,6 +18,9 @@
               <div>
                 <select name="cat" class="select22" data-model='tag' data-placeholder="<?php echo T_("Group"); ?>" >
                   <option></option>
+                  <?php if(\dash\data::fillCategoryProperty()) {?>
+                    <option value="<?php echo \dash\data::fillCategoryProperty() ?>" selected><?php echo \dash\data::fillCategoryProperty(); ?></option>
+                  <?php } //endif ?>
                   <?php foreach (\dash\data::catList() as $key => $value) {?>
                     <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
                   <?php } //endfor ?>
