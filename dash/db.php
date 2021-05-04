@@ -133,8 +133,8 @@ class db
 					{
 						self::$execute_query_again = true;
 
-						// close connection to run again
-						\dash\db\mysql\tools\connection::close();
+						// // close connection to run again
+						// \dash\db\mysql\tools\connection::close();
 
 						// run query again
 						return self::query(...func_get_args());
