@@ -14,6 +14,14 @@ class db
 
 
 	/**
+	 * In some error need to execute query again
+	 *
+	 * @var        bool
+	 */
+	private static $execute_query_again = false;
+
+
+	/**
 	 * run query string and return result
 	 * now you don't need to check result
 	 * @param  [type] $_qry [description]
@@ -117,6 +125,18 @@ class db
 				$have_error   = true;
 				$error_code   = @mysqli_errno($link);
 				$error_string = @mysqli_error($link);
+
+				// 1615 - Prepared statement needs to be re-prepared
+				if(intval($error_code) === 1615)
+				{
+					if(!self::$execute_query_again)
+					{
+						self::$execute_query_again = true;
+
+						// run query again
+						return self::query(...func_get_args());
+					}
+				}
 			}
 
 		}
