@@ -7,7 +7,10 @@ class pagebuilder
 
 	public static function logo()
 	{
-		$logo = a(\dash\data::website_header(), 0, 'detail', 'logourl');
+		$header = \dash\data::currentHeader();
+
+		$logo = a($header, 'detail', 'logourl');
+
 		if($logo)
 		{
 			return $logo;
@@ -20,11 +23,13 @@ class pagebuilder
 	{
 		if(strpos($_key, 'header') !== false)
 		{
-			$menu_id = a(\dash\data::website_header(), 0, 'detail', $_key);
+			$header = \dash\data::currentHeader();
+			$menu_id = a($header, 'detail', $_key);
 		}
 		else
 		{
-			$menu_id = a(\dash\data::website_footer(), 0, 'detail', $_key);
+			$footer = \dash\data::currentFooter();
+			$menu_id = a($footer, 'detail', $_key);
 		}
 
 		if(is_numeric($menu_id))
@@ -67,12 +72,12 @@ class pagebuilder
 
 	public static function have_footer_menu()
 	{
-		return a(\dash\data::website_footer(), 0, 'detail', 'have_footer_menu');
+		return a(\dash\data::currentFooter(), 'detail', 'have_footer_menu');
 	}
 
 	public static function have_header_menu()
 	{
-		return a(\dash\data::website_header(), 0, 'detail', 'have_header_menu');
+		return a(\dash\data::currentHeader(), 'detail', 'have_header_menu');
 	}
 
 
