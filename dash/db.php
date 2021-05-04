@@ -29,13 +29,13 @@ class db
 	 */
 	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
-		// check no sql
-		$nosqlfile = root. 'nosql.conf';
+		// // check no sql
+		// $nosqlfile = root. 'nosql.conf';
 
-		if(is_file($nosqlfile))
-		{
-			return false;
-		}
+		// if(is_file($nosqlfile))
+		// {
+		// 	return false;
+		// }
 
 		\dash\notif::turn_off_log();
 
@@ -132,6 +132,9 @@ class db
 					if(!self::$execute_query_again)
 					{
 						self::$execute_query_again = true;
+
+						// close connection to run again
+						\dash\db\mysql\tools\connection::close();
 
 						// run query again
 						return self::query(...func_get_args());
