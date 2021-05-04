@@ -80,6 +80,9 @@ class model
 			$post['outstanding'] = \dash\request::post('outstanding');
 
 			\lib\app\product\property::add($post, $id, \dash\request::get('pid'));
+
+			// save session
+			\dash\session::set('fill_product_property', $post['cat']);
 		}
 
 

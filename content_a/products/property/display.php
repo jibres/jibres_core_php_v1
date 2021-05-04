@@ -21,7 +21,7 @@ $productDataRow = \dash\data::productDataRow();
                 <select name="cat" class="select22" data-model='tag' data-placeholder="<?php echo T_("Group"); ?>" >
                   <option></option>
                   <?php foreach (\dash\data::catList() as $key => $value) {?>
-                    <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                    <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'cat') || $value === \dash\data::fillProductProperty()) { echo 'selected'; } ?> ><?php echo $value; ?></option>
                   <?php } //endfor ?>
                 </select>
               </div>

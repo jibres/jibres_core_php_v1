@@ -63,6 +63,14 @@ class view
 				}
 			}
 		}
+		else
+		{
+			$fill_product_property = \dash\session::get('fill_product_property');
+			if($fill_product_property)
+			{
+				\dash\data::fillProductProperty($fill_product_property);
+			}
+		}
 	}
 }
 ?>
