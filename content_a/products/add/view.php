@@ -29,16 +29,7 @@ class view
 		\dash\data::tagsSavedTitle([]);
 
 
-		$productSettingSaved = \lib\app\setting\get::product_setting();
-		\dash\data::productSettingSaved($productSettingSaved);
-
-		$productImageRatioHtml = ' data-ratio-free';
-		if(isset($productSettingSaved['ratio_detail']['ratio']))
-		{
-			$productImageRatioHtml = 'data-ratio='. $productSettingSaved['ratio_detail']['ratio'];
-		}
-		\dash\data::productImageRatioHtml($productImageRatioHtml);
-
+		\content_a\products\edit\view::product_ratio();
 
 	}
 }

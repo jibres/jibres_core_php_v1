@@ -99,6 +99,12 @@ class view
 			\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $id);
 		}
 
+		self::product_ratio();
+	}
+
+
+	public static function product_ratio()
+	{
 
 		$productSettingSaved = \lib\app\setting\get::product_setting();
 		\dash\data::productSettingSaved($productSettingSaved);
@@ -114,6 +120,7 @@ class view
 		}
 
 		\lib\ratio::data_ratio_html($ratio);
+
 	}
 }
 ?>
