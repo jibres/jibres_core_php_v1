@@ -252,5 +252,45 @@ class page
 
 
 
+	public static function detect_header()
+	{
+		$currentHeader = [];
+
+		if(isset(self::$homepage_header_footer['header']))
+		{
+			$currentHeader = self::$homepage_header_footer['header'];
+		}
+		else
+		{
+			$current_module_header = \dash\data::website_header();
+
+			if(is_array($current_module_header))
+			{
+				$currentHeader = $current_module_header;
+			}
+		}
+
+		// detect header
+		if(isset($currentHeader[0]))
+		{
+			$currentHeader = $currentHeader[0];
+		}
+
+		// load heade
+		if(!empty($website_header))
+		{
+			foreach ($website_header as $key => $value)
+			{
+				$header_addr = root. 'lib/pagebuilder/header/'. $value['type']. '/website.php';
+				if(is_file($header_addr))
+				{
+					require_once($header_addr);
+				}
+			}
+		}
+	}
+
+
+
 }
 ?>
