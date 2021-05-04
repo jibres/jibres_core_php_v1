@@ -144,6 +144,10 @@ class run
 
 		$result = curl_exec($ch);
 
+		$CurlError = curl_error($ch);
+
+		var_dump($result, $CurlError);exit();
+
 		curl_close($ch);
 
 		return $result;
