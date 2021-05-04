@@ -202,8 +202,6 @@ class add
 		$insert['mode']             = a($element, 'mode');
 		$insert['type']             = a($element, 'key');
 
-		$insert['platform']         = 'website';
-
 		$insert['related']          = 'posts';
 		$insert['related_id']       = $id;
 
