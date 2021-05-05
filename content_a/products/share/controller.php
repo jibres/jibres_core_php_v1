@@ -31,7 +31,8 @@ class controller
 
 		if(is_array($myProp) && count($myProp) > 0)
 		{
-			$propStr = '————————————'. "\n";
+			$seperatorLine = '————————————'. "\n";
+			$propStr = $seperatorLine;
 			$index = 0;
 			foreach ($myProp as $key => $group)
 			{
@@ -45,20 +46,21 @@ class controller
 			  {
 			    if(is_array($group['list']))
 			    {
-			      $propStr .= '🔹 '. $group['title'];
+			      $propStr .= '✅ '. $group['title'];
 			      $propStr .= "\n";
 			      $keyValue = '';
 			      foreach ($group['list'] as $key2 => $item)
 			      {
-			        $keyValue .= $item['key']. ' <b>'. $item['value']. '</b>, ';
+			        $keyValue .= \dash\fit::text($item['key']);
+			        $keyValue .= ' <b>'. \dash\fit::text($item['value']). '</b>, ';
 			      }
 			      $keyValue = trim($keyValue, ', ');
 			      $propStr .= $keyValue;
-			      $propStr .= "\n";
+			      $propStr .= $seperatorLine;;
 			    }
 			  }
 			}
-			$propStr .= '————————————';
+			$propStr .= "\n";
 			\dash\data::propStr($propStr);
 		}
 
