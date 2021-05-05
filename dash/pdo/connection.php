@@ -195,6 +195,8 @@ class connection
 				break;
 
 			case null;
+			case '00000':
+			case '':
 				return $link;
 				break;
 
