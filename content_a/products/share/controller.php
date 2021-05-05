@@ -22,6 +22,35 @@ class controller
 	{
 		$id = \dash\request::get('id');
 
+
+		$property_list = \lib\app\product\property::get_pretty($id, true);
+		\dash\data::propertyList($property_list);
+		\dash\data::propertyListSaved(\dash\data::propertyList_saved());
+
+		$propStr = '';
+		foreach (\dash\data::propertyListSaved() as $key => $group)
+		{
+		  if(isset($group['title']))
+		  {
+		    if(is_array($group['list']))
+		    {
+		      $propStr .= '▪️ '. $group['title'];
+		      $propStr .= "\n";
+		      $keyValue = '';
+		      foreach ($group['list'] as $key2 => $item)
+		      {
+		        $keyValue .= $item['key']. ' <b>'. $item['value']. '</b>, ';
+		      }
+		      $keyValue = trim($keyValue, ', ');
+		      $propStr .= $keyValue;
+		      $propStr .= "\n";
+		    }
+		  }
+		}
+		\dash\data::propStr($propStr);
+
+
+
 		$cat_list = \lib\app\category\get::product_cat($id);
 		if(is_array($cat_list) && $cat_list)
 		{

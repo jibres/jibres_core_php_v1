@@ -63,6 +63,11 @@ class model
 		$txt .= ' <code>'. \dash\fit::price_old(\dash\data::productDataRow_finalprice(), true). '</code> ';
 		$txt .= \lib\currency::unit(). "\n\n";
 
+		if(\dash\data::propStr())
+		{
+			$txt .= \dash\data::propStr(). "\n";
+		}
+
 		// product share text
 		if(\dash\data::productDataRow_sharetext())
 		{

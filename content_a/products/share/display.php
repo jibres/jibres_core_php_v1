@@ -31,6 +31,12 @@ $propertyList = \dash\data::propertyList();
               echo ' <code>'. \dash\fit::price_old(\dash\data::productDataRow_finalprice(), true). '</code> ';
               echo \lib\store::currency();
               ?></p>
+<?php
+if(\dash\data::propStr())
+{
+  echo '<p>'. nl2br(\dash\data::propStr()). '</p>';
+}
+?>
 
               <textarea class="txt mB10" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
 
