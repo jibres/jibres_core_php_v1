@@ -609,21 +609,14 @@ class store
 			foreach ($store_detail['store_data']['domain'] as $key => $value)
 			{
 				if(
-					isset($value['domain']) &&
-					$value['domain'] &&
-					isset($value['master']) &&
-					$value['master'] &&
+					a($value,'domain') &&
+					a($value, 'master') &&
 					(
-						(
-							isset($value['status']) &&
-							$value['status'] === 'ok'
-						)
-						||
-						(
-							isset($value['subdomain']) &&
-							$value['subdomain']
-						)
-					)
+						a($value, 'status') === 'ok' ||
+						a($value, 'subdomain')
+					) &&
+					a($value, 'status') !== 'deleted' &&
+					a($value, 'status') !== 'pending_delete'
 				  )
 				{
 
