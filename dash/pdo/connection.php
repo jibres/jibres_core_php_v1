@@ -117,7 +117,26 @@ class connection
 		$password = $_love['pass'];
 
 
-		$link = new \PDO($dsn, $user, $password);
+		if($_love['host'] === 'localhost')
+		{
+			$option =
+			[
+				// \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+			];
+		}
+		else
+		{
+			$option =
+			[
+				// \PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs/',
+				\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+
+			];
+		}
+
+
+
+		$link = new \PDO($dsn, $user, $password, $option);
 
 		if(!$link)
 		{
