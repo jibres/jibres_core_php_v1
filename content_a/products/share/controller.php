@@ -24,30 +24,43 @@ class controller
 
 
 		$property_list = \lib\app\product\property::get_pretty($id, true);
-		\dash\data::propertyList($property_list);
-		\dash\data::propertyListSaved(\dash\data::propertyList_saved());
-
-		$propStr = '';
-		foreach (\dash\data::propertyListSaved() as $key => $group)
+		if(isset($property_list['saved']))
 		{
-		  if(isset($group['title']))
-		  {
-		    if(is_array($group['list']))
-		    {
-		      $propStr .= '▪️ '. $group['title'];
-		      $propStr .= "\n";
-		      $keyValue = '';
-		      foreach ($group['list'] as $key2 => $item)
-		      {
-		        $keyValue .= $item['key']. ' <b>'. $item['value']. '</b>, ';
-		      }
-		      $keyValue = trim($keyValue, ', ');
-		      $propStr .= $keyValue;
-		      $propStr .= "\n";
-		    }
-		  }
+			$myProp = $property_list['saved'];
 		}
-		\dash\data::propStr($propStr);
+
+		if(is_array($myProp) && count($myProp) > 0)
+		{
+			$propStr = '————————————'. "\n";
+			$index = 0;
+			foreach ($myProp as $key => $group)
+			{
+				$index ++;
+				if($index === 1 )
+				{
+					continue;
+				}
+
+			  if(isset($group['title']))
+			  {
+			    if(is_array($group['list']))
+			    {
+			      $propStr .= '🔹 '. $group['title'];
+			      $propStr .= "\n";
+			      $keyValue = '';
+			      foreach ($group['list'] as $key2 => $item)
+			      {
+			        $keyValue .= $item['key']. ' <b>'. $item['value']. '</b>, ';
+			      }
+			      $keyValue = trim($keyValue, ', ');
+			      $propStr .= $keyValue;
+			      $propStr .= "\n";
+			    }
+			  }
+			}
+			$propStr .= '————————————';
+			\dash\data::propStr($propStr);
+		}
 
 
 
