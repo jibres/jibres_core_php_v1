@@ -34,6 +34,8 @@ class controller
 			$seperatorLine = '————————————'. "\n";
 			$propStr = $seperatorLine;
 			$index = 0;
+			// sort array
+			asort($myProp);
 			foreach ($myProp as $key => $group)
 			{
 				$index ++;
