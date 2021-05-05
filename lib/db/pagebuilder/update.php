@@ -8,7 +8,7 @@ class update
 	public static function bind_text($_text, $_id)
 	{
 
-		return self::PDO_bind_text(...func_get_args());
+		// return self::PDO_bind_text(...func_get_args());
 
 
 		if($_text)

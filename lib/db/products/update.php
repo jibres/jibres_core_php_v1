@@ -8,7 +8,7 @@ class update
 	public static function bind_desc($_desc, $_id)
 	{
 		// return by PDO
-		return self::PDO_bind_desc(...func_get_args());
+		// return self::PDO_bind_desc(...func_get_args());
 
 
 

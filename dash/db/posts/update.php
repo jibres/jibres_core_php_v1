@@ -7,7 +7,7 @@ class update
 
 	public static function bind_content($_content, $_id)
 	{
-		return self::PDO_bind_content(...func_get_args());
+		// return self::PDO_bind_content(...func_get_args());
 
 
 		if($_content)
