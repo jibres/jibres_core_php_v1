@@ -50,6 +50,8 @@ class pdo
 
 		$link = \dash\pdo\connection::link();
 
+		var_dump($link);
+
 		// check the mysql link
 		if(!$link)
 		{
@@ -58,6 +60,8 @@ class pdo
 		}
 
 		$sth = $link->prepare($_qry);
+
+		var_dump($sth);
 
 		// $sth->bindParam(':calories', $calories, PDO::PARAM_INT);
 
