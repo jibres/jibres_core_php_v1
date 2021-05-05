@@ -59,19 +59,20 @@ class model
 			$txt .= \dash\data::productDataRow_title2(). "\n";
 		}
 		// price
-		$txt .= T_("Price");
+		$txt .= '💰 '. T_("Price");
 		$txt .= ' <code>'. \dash\fit::price_old(\dash\data::productDataRow_finalprice(), true). '</code> ';
 		$txt .= \lib\currency::unit(). "\n\n";
 
 		// product share text
 		if(\dash\data::productDataRow_sharetext())
 		{
-			$txt     .= \dash\data::productDataRow_sharetext(). "\n";
+			$txt .= \dash\data::productDataRow_sharetext(). "\n";
 		}
+
 		// bussiness tg text footer
 		if(isset($telegram_setting['share_text']))
 		{
-			$txt     .= "\n". $telegram_setting['share_text'];
+			$txt     .= $telegram_setting['share_text'];
 		}
 
 
@@ -79,35 +80,35 @@ class model
 
 		$social = \lib\store::social();
 
-		$reply_markup =
-		[
-			[
-				'text' => T_("Website"),
-				'url'  => \lib\store::url(),
-			],
-		];
+		// $reply_markup =
+		// [
+		// 	[
+		// 		'text' => T_("Website"),
+		// 		'url'  => \lib\store::url(),
+		// 	],
+		// ];
 
 
-		$telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
+		// $telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
 
-		if(empty($social) || !$telegrambtn)
-		{
-		// nothing
-		}
-		else
-		{
-			foreach ($social as $key => $value)
-			{
-				if(a($social, $key) && a($telegrambtn, $key))
-				{
-					$reply_markup[] =
-					[
-						'text' => a($value, 'title'),
-						'url'  => a($social, $key, 'link'),
-					];
-				}
-			}
-		}
+		// if(empty($social) || !$telegrambtn)
+		// {
+		// // nothing
+		// }
+		// else
+		// {
+		// 	foreach ($social as $key => $value)
+		// 	{
+		// 		if(a($social, $key) && a($telegrambtn, $key))
+		// 		{
+		// 			$reply_markup[] =
+		// 			[
+		// 				'text' => a($value, 'title'),
+		// 				'url'  => a($social, $key, 'link'),
+		// 			];
+		// 		}
+		// 	}
+		// }
 
 
 		$msgData['reply_markup'] =
@@ -121,7 +122,7 @@ class model
 					],
 				],
 
-				$reply_markup,
+				// $reply_markup,
 
 				// [
 				// 	[

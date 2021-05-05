@@ -35,7 +35,7 @@ $propertyList = \dash\data::propertyList();
 
               <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
 
-              <p><?php echo \dash\data::telegramSetting_share_text() ?></p>
+              <p><?php echo nl2br(\dash\data::telegramSetting_share_text()); ?></p>
             </div>
 
             <?php $social = \lib\store::social(); ?>
@@ -44,23 +44,7 @@ $propertyList = \dash\data::propertyList();
                 <a class="btn block mB5" target="_blank" href='<?php echo a($social, 'telegram', 'link'); ?>'><?php echo T_("Register a new order"); ?></a>
               </footer>
             <?php } //endif ?>
-            <footer class="row">
 
-              <?php $telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn'); ?>
-
-              <?php if(empty($social) || !$telegrambtn) {?>
-                <a class="btn link" href="<?php echo \dash\url::here() ?>/setting/social"><?php echo T_("Manage your social network"); ?></a>
-              <?php }else{ ?>
-                <?php foreach ($social as $key => $value) {?>
-                  <?php if(a($social, $key) && a($telegrambtn, $key)) {?>
-                    <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo a($social, 'instagram', 'link'); ?>"><?php echo a($value, 'title'); ?></a></div>
-                  <?php } //endif ?>
-
-                <?php } //endfor ?>
-              <?php } //endif ?>
-
-              <div class="c"><a class="btn block mB5" target="_blank" href="<?php echo \lib\store::url(); ?>"><?php echo T_("Website"); ?></a></div>
-            </footer>
           </form>
         <?php } //endif ?>
       </div>
