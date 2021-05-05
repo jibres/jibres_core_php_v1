@@ -4,9 +4,9 @@ if(!\lib\pagebuilder\load\page::$is_page)
 	return null;
 }
 
-if(\dash\temp::get('pagebuilder_template'))
+if(\lib\pagebuilder\load\page::$comingsoon_visitcad_template)
 {
-	require_once('template/'. \dash\temp::get('pagebuilder_template'). '.php');
+	require_once('template/'. \lib\pagebuilder\load\page::$comingsoon_visitcad_template. '.php');
 	return;
 }
 

@@ -8,7 +8,7 @@ class page
 
 	public static $homepage_header_footer = [];
 
-	private static $comingsoon_visitcad_template = false;
+	public static $comingsoon_visitcad_template = false;
 
 
 	public static function homepage_header_footer()
@@ -156,13 +156,13 @@ class page
 				switch ($post_detail['meta']['template'])
 				{
 					case 'comingsoon':
-						$comingsoon_visitcad_template = true;
+						$comingsoon_visitcad_template = 'comingsoon';
 						\dash\face::disablePWA_Header(true);
 						\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
 						break;
 
 					case 'visitcard':
-						$comingsoon_visitcad_template = true;
+						$comingsoon_visitcad_template = 'visitcard';
 						\dash\face::disablePWA_Header(true);
 						\dash\face::css(
 							[
@@ -183,7 +183,7 @@ class page
 
 		if($comingsoon_visitcad_template)
 		{
-			self::$comingsoon_visitcad_template = true;
+			self::$comingsoon_visitcad_template = $comingsoon_visitcad_template;
 			// nothing !
 		}
 		else
