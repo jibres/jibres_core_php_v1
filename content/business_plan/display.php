@@ -16,6 +16,7 @@
    </div>
  </section>
 
+<?php require_once "display-company-info.php"; ?>
 
  <div class="avand-lg impact zero">
   <a target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-model-canvas/jibres-business-model-canvas-v1.jpg">
