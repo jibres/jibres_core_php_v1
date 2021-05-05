@@ -188,6 +188,8 @@ class connection
 
 			// Connections using insecure transport are prohibited while --require_secure_transport=ON.
 			case 3159:
+				return self::make_error(503, T_("SSL Connection error!"), $_option);
+
 				break;
 
 			case null;
