@@ -139,6 +139,8 @@ class connection
 
 		$link = new \PDO($dsn, $user, $password, $option);
 
+		var_dump($link->errorCode());
+		var_dump($link->errorInfo());
 		if(!$link)
 		{
 			return self::make_error(503, T_("Error in connecting to database!"), $_option);;
