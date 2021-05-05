@@ -35,7 +35,7 @@ class controller
 			$propStr = $seperatorLine;
 			$index = 0;
 			// sort array
-			asort($myProp);
+			// asort($myProp);
 			foreach ($myProp as $key => $group)
 			{
 				$index ++;
