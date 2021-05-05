@@ -14,14 +14,6 @@ class pdo
 	 */
 	public static function query($_qry, $_param = [], $_db_fuel = null, $_options = [])
 	{
-		// // check no sql
-		// $nosqlfile = root. 'nosql.conf';
-
-		// if(is_file($nosqlfile))
-		// {
-		// 	return false;
-		// }
-
 		\dash\notif::turn_off_log();
 
 		$default_options =
@@ -69,7 +61,34 @@ class pdo
 
 		// $sth->bindParam(':calories', $calories, PDO::PARAM_INT);
 
-		// $sth->bindValue(':colour', "%{$colour}%");
+		if(!is_array($_param))
+		{
+			$_param = [];
+		}
+
+		foreach ($_param as $key => $value)
+		{
+			$type = \PDO::PARAM_STR;
+
+			if(is_string($value))
+			{
+				$type = \PDO::PARAM_STR;
+			}
+			elseif(is_numeric($value))
+			{
+				$type = \PDO::PARAM_INT;
+			}
+			elseif(is_null($value))
+			{
+				$type = \PDO::PARAM_NULL;
+			}
+			elseif(is_bool($value))
+			{
+				$type = \PDO::PARAM_BOOL;
+			}
+
+			$sth->bindValue($key, $value, $type);
+		}
 
 		$result = $sth->execute();
 
@@ -78,9 +97,7 @@ class pdo
 			$result = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		}
 
-
 		\dash\notif::turn_on_log();
-
 
 		// return the mysql result
 		return $result;
