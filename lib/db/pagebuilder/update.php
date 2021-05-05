@@ -7,6 +7,10 @@ class update
 
 	public static function bind_text($_text, $_id)
 	{
+
+		return self::PDO_bind_text(...func_get_args());
+
+
 		if($_text)
 		{
 			$_text = stripslashes($_text);
@@ -24,6 +28,30 @@ class update
 
 		return $result;
 	}
+
+
+	public static function PDO_bind_text($_text, $_id)
+	{
+
+		if($_text)
+		{
+			$_text = stripslashes($_text);
+		}
+
+		$query = "UPDATE pagebuilder SET pagebuilder.text = :text WHERE pagebuilder.id = :id LIMIT 1 ";
+		$param =
+		[
+			':text' => $_text,
+			':id'   => $_id,
+		];
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
+	}
+
+
+
 
 
 	public static function record($_args, $_id)

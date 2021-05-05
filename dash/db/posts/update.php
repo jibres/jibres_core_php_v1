@@ -7,6 +7,9 @@ class update
 
 	public static function bind_content($_content, $_id)
 	{
+		return self::PDO_bind_content(...func_get_args());
+
+
 		if($_content)
 		{
 			$_content = stripslashes($_content);
@@ -24,6 +27,30 @@ class update
 
 		return $result;
 	}
+
+
+
+	public static function PDO_bind_content($_content, $_id)
+	{
+
+		if($_content)
+		{
+			$_content = stripslashes($_content);
+		}
+
+		$query = "UPDATE posts SET posts.content = :content WHERE posts.id = :id LIMIT 1 ";
+		$param =
+		[
+			':content' => $_content,
+			':id'   => $_id,
+		];
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
+	}
+
+
 
 	public static function record($_args, $_id)
 	{

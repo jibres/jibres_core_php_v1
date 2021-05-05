@@ -7,10 +7,9 @@ class update
 
 	public static function bind_desc($_desc, $_id)
 	{
-		if(\dash\request::get("PDO") === 'PDO')
-		{
-			return self::PDO_bind_desc(...func_get_args());
-		}
+		// return by PDO
+		return self::PDO_bind_desc(...func_get_args());
+
 
 
 		if($_desc)
@@ -34,7 +33,7 @@ class update
 
 	public static function PDO_bind_desc($_desc, $_id)
 	{
-		\dash\notif::warn('isPOD');
+
 		if($_desc)
 		{
 			$_desc = stripslashes($_desc);
