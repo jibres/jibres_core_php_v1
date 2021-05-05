@@ -228,6 +228,11 @@ class page
 		$result['body']        = [];
 		$result['footer']      = [];
 
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
 		foreach ($list as $key => $value)
 		{
 			if(isset($value['mode']) && isset($value['type']) && is_string($value['type']))
