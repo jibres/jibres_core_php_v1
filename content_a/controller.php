@@ -27,13 +27,6 @@ class controller
 			\dash\permission::deny();
 		}
 
-		if(\dash\request::get('testPDO') === 'testPDO')
-		{
-			$result = \dash\pdo::get('SELECT * FROM users where users.id < :userid  LIMIT :limit', [':userid' => 20, ':limit' => 1], null, true);
-			var_dump($result);exit();
-
-		}
-
 
 		if(\dash\request::get('bigopening'))
 		{
