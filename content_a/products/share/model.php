@@ -75,6 +75,10 @@ class model
 			$txt     .= $telegram_setting['share_text'];
 		}
 
+		if(\dash\data::catStr())
+		{
+		  $txt .= "\n". \dash\data::catStr();
+		}
 
 		$msgData['reply_markup'] = false;
 

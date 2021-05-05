@@ -30,14 +30,19 @@ $propertyList = \dash\data::propertyList();
               echo T_("Price");
               echo ' <code>'. \dash\fit::price_old(\dash\data::productDataRow_finalprice(), true). '</code> ';
               echo \lib\store::currency();
-
               ?></p>
 
-              <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
+              <textarea class="txt mB10" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
 
               <p><?php echo nl2br(\dash\data::telegramSetting_share_text()); ?></p>
-            </div>
 
+<?php
+if(\dash\data::catStr())
+{
+  echo '<p class="fc-blue">'. \dash\data::catStr(). '</p>';
+}
+?>
+            </div>
             <?php $social = \lib\store::social(); ?>
             <?php if(a($social, 'telegram')) {?>
               <footer>
