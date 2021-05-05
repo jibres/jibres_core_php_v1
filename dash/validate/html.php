@@ -217,7 +217,7 @@ class html
 		{
 			$analyze_content['video_url'] = \dash\temp::get('analyzeCotentVideoUrl');
 
-			if(is_array($analyze_content['image_url']))
+			if(isset($analyze_content['image_url']) && is_array($analyze_content['image_url']))
 			{
 				$analyze_content['image_count'] = count($analyze_content['image_url']);
 			}
