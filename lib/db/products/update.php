@@ -7,6 +7,12 @@ class update
 
 	public static function bind_desc($_desc, $_id)
 	{
+		if(\dash\request::get("PDO") === 'PDO')
+		{
+			return self::PDO_bind_desc(...func_get_args());
+		}
+
+
 		if($_desc)
 		{
 			$_desc = stripslashes($_desc);
@@ -21,6 +27,27 @@ class update
 		];
 
 		$result = \dash\db::bind($args);
+
+		return $result;
+	}
+
+
+	public static function PDO_bind_desc($_desc, $_id)
+	{
+		\dash\notif::warn('isPOD');
+		if($_desc)
+		{
+			$_desc = stripslashes($_desc);
+		}
+
+		$query = "UPDATE products SET products.desc = :desc WHERE products.id = :id LIMIT 1 ";
+		$param =
+		[
+			':desc' => $_desc,
+			':id'   => $_id,
+		];
+
+		$result = \dash\pdo::query($query, $param);
 
 		return $result;
 	}
