@@ -56,11 +56,11 @@ class controller
 			      }
 			      $keyValue = trim($keyValue, ', ');
 			      $propStr .= $keyValue;
-			      $propStr .= $seperatorLine;;
+			      $propStr .= "\n". $seperatorLine;;
 			    }
 			  }
 			}
-			$propStr .= "\n";
+			// $propStr .= "\n";
 			\dash\data::propStr($propStr);
 		}
 
