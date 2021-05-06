@@ -106,13 +106,30 @@ class connection
 		}
 		else
 		{
-			$option =
-			[
-				\PDO::MYSQL_ATTR_SSL_CA => '/var/lib/mysql/cert.pem',
-				// \PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs/',
-				\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+			if(\dash\request::get('PDO') === 'PDO')
+			{
+				\dash\notif::warn('test PDO');
 
-			];
+				$option =
+				[
+					\PDO::MYSQL_ATTR_SSL_CA => '/var/lib/mysql/cert.pem',
+					// \PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs/',
+					\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+
+				];
+
+			}
+			else
+			{
+				$option =
+				[
+					\PDO::MYSQL_ATTR_SSL_CA => '/var/lib/mysql/cert.pem',
+					// \PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs/',
+					\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+
+				];
+
+			}
 		}
 
 		$link = null;
