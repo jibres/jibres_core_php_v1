@@ -148,6 +148,8 @@ class run
 
 		curl_close($ch);
 
+		var_dump($result, $CurlError);exit();
+
 		return $result;
 	}
 
