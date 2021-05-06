@@ -140,6 +140,8 @@ class run
 
 		curl_setopt($ch, CURLOPT_SSLVERSION, 4);
 
+		curl_setopt($ch, CURLOPT_SSL_CIPHER_LIST, 'DEFAULT@SECLEVEL=1');
+
 		// timeout setting
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 120);
