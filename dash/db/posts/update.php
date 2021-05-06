@@ -7,32 +7,6 @@ class update
 
 	public static function bind_content($_content, $_id)
 	{
-		// return self::PDO_bind_content(...func_get_args());
-
-
-		if($_content)
-		{
-			$_content = stripslashes($_content);
-		}
-
-		$args =
-		[
-			'query' => "UPDATE posts SET posts.content = ? WHERE posts.id = ? LIMIT 1 ",
-			'mode'  => 'query',
-			'types' => 'sd',
-			'param' => [$_content, $_id]
-		];
-
-		$result = \dash\db::bind($args);
-
-		return $result;
-	}
-
-
-
-	public static function PDO_bind_content($_content, $_id)
-	{
-
 		if($_content)
 		{
 			$_content = stripslashes($_content);
