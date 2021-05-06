@@ -261,6 +261,24 @@ class controller
 			}
 		}
 
+
+		$PDOerror = YARD. 'jibres_log/database/pdo.sql';
+
+		if(is_file($PDOerror))
+		{
+			$file_mtime = filemtime($PDOerror);
+
+			if(\dash\app\log::check_caller_code('su_PDOError', $file_mtime))
+			{
+				/*nothing*/
+			}
+			else
+			{
+				\dash\log::set('su_PDOError', ['code' => $file_mtime, 'my_domain' => \dash\url::domain()]);
+			}
+		}
+
+
 		$phpBug = YARD. 'jibres_log/php/exception.log';
 
 		if(is_file($phpBug))
