@@ -126,7 +126,6 @@ class run
 
 		//The name of a file containing a PEM formatted certificate.
 
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		$pem = realpath($pem);
 		if(!$pem || !is_readable($pem))
 		{
@@ -134,6 +133,8 @@ class run
 		}
 
 		// curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+		curl_setopt($ch, CURLOPT_CAINFO, $pem);
+		curl_setopt($ch, CURLOPT_CAPATH, $pem);
 
 
 		$keyFile = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/seperated/irnic-ji128-june-key.pem';
@@ -142,19 +143,21 @@ class run
 		// $certPass = "xxxxxx";
 
 		// seperated cert file
-		curl_setopt($ch, CURLOPT_SSLKEY, $keyFile);
+		// curl_setopt($ch, CURLOPT_SSLKEY, $keyFile);
 
 		// The --cacert option
 		// curl_setopt($ch, CURLOPT_CAINFO, $caFile);
 
 		// The --cert option
-		curl_setopt($ch, CURLOPT_SSLCERT, $certFile);
+		// curl_setopt($ch, CURLOPT_SSLCERT, $certFile);
 		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $certPass);
 
 
 		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, '6858391123200405');
-		curl_setopt($ch, CURLOPT_VERBOSE, true );
-
+		//
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_VERBOSE, true);
 
 		//The contents of the "User-Agent: "
 		// curl_setopt($ch, CURLOPT_USERAGENT, "Jibres-irnic");
