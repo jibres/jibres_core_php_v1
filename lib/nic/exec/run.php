@@ -124,7 +124,16 @@ class run
 
 
 		//The name of a file containing a PEM formatted certificate.
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		$pem=realpath($pem);
+		if(!$pem || !is_readable($pem))
+		{
+    		die("error: myfile.pem is not readable! realpath: \"{$pem}\" - working dir: \"".getcwd()."\" effective user: ".print_r(posix_getpwuid(posix_geteuid()),true));
+		}
+
 		curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+		// curl_setopt($ch, CURLOPT_SSLCERT, $pem);
 
 		//The contents of the "User-Agent: "
 		// curl_setopt($ch, CURLOPT_USERAGENT, "Jibres-irnic");
@@ -136,7 +145,7 @@ class run
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_POST, true);
 		// turn off some setting
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 		curl_setopt($ch, CURLOPT_SSLVERSION, 4);
 
