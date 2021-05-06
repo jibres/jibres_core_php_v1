@@ -121,6 +121,7 @@ class run
 
 		// $pem = root. 'dash/setting/secret/pem/nic/v2-contract1400-2022/2-decrypte/nic.pem';
 		$pem = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/nic.pem';
+		$pem = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/nic-pass.pem';
 
 
 		//The name of a file containing a PEM formatted certificate.
