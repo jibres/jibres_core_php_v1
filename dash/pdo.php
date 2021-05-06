@@ -8,10 +8,10 @@ class pdo
 
 	/**
 	 * run query string and return result
-	 * @param  [type] $_qry [description]
+	 * @param  [type] $_query [description]
 	 * @return [type]       [description]
 	 */
-	public static function query($_qry, $_param = [], $_db_fuel = null, $_options = [])
+	public static function query($_query, $_param = [], $_db_fuel = null, $_options = [])
 	{
 		\dash\notif::turn_off_log();
 
@@ -52,6 +52,11 @@ class pdo
 			'ignore_error' => $_options['ignore_error'],
 		];
 
+		$_query_log = 'PDO; '. $_query;
+
+		// get time before execute query
+		$qry_exec_time = microtime(true);
+
 		\dash\pdo\connection::connect($myDbFuel);
 
 		$link = \dash\pdo\connection::link();
@@ -65,7 +70,7 @@ class pdo
 
 		try
 		{
-			$sth = $link->prepare($_qry);
+			$sth = $link->prepare($_query);
 
 			foreach ($_param as $key => $value)
 			{
@@ -100,14 +105,50 @@ class pdo
 		}
 		catch (\Exception $e)
 		{
-			\dash\pdo\log::log($e->getMessage());
+			$error = $_query_log;
+			$error .= "\n". $e->getMessage();
+
+			\dash\pdo\log::log($error);
 
 			return false;
 		}
 
+		// get diff of time after exec
+		$qry_exec_time = microtime(true) - $qry_exec_time;
+
+		// if debug mod is true save all string query
+		if(\dash\engine\error::debug_mode() && !\dash\temp::get('force_stop_query_log'))
+		{
+			if(\dash\url::directory() === 'smile')
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\db\mysql\tools\log::log($_query_log . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail(), $qry_exec_time);
+			}
+		}
+		// calc exex time in ms
+		$qry_exec_time_ms = round($qry_exec_time*1000);
+		// if spend more time, save it in special file
+		if($qry_exec_time_ms > 6000)
+		{
+			\dash\db\mysql\tools\log::log($_query_log, $qry_exec_time, 'log-hard-critical.sql');
+		}
+		elseif($qry_exec_time_ms > 3000)
+		{
+			\dash\db\mysql\tools\log::log($_query_log, $qry_exec_time, 'log-critical.sql');
+		}
+		elseif($qry_exec_time_ms > 1000)
+		{
+			\dash\db\mysql\tools\log::log($_query_log, $qry_exec_time, 'log-warn.sql');
+		}
+		elseif($qry_exec_time_ms > 500)
+		{
+			\dash\db\mysql\tools\log::log($_query_log, $qry_exec_time, 'log-check.sql');
+		}
 
 		\dash\notif::turn_on_log();
-
 
 		// return the mysql result
 		return $result;
@@ -116,16 +157,16 @@ class pdo
 
 	/**
 	 * run query and get result of this query
-	 * @param  [type]  $_qry          [description]
+	 * @param  [type]  $_query          [description]
 	 * @param  [type]  $_column       [description]
 	 * @param  boolean $_onlyOneValue [description]
 	 * @return [type]                 [description]
 	 */
-	public static function get($_qry, $_param = [], $_column = null, $_onlyOneValue = false, $_db_fuel = true, $_options = [])
+	public static function get($_query, $_param = [], $_column = null, $_onlyOneValue = false, $_db_fuel = true, $_options = [])
 	{
 		$_options['fetch_all'] = true;
 		// generate query and get result
-		$result = self::query($_qry, $_param, $_db_fuel, $_options);
+		$result = self::query($_query, $_param, $_db_fuel, $_options);
 
 		// if we have only one row of result only return this row
 		if($_onlyOneValue && is_array($result) && count($result) === 1)
