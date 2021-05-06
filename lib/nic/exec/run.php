@@ -51,7 +51,7 @@ class run
 			{
 				\lib\db\nic_log\insert::new_record($insert_log);
 				\dash\notif::warn("Can not send NICIR Request in local mode!");
-				return false;
+				// return false;
 			}
 		// }
 
@@ -153,7 +153,7 @@ class run
 		$CurlError = curl_error($ch);
 
 		curl_close($ch);
-
+		var_dump($pem);
 		var_dump($result, $CurlError);exit();
 
 		return $result;
@@ -168,7 +168,7 @@ class run
 
 		$_xml = trim($_xml);
 
-		if(\dash\request::get('nic') === 'raw')
+		if(\dash\request::get('nic') === 'raw' || \dash\url::isLocal())
 		{
 			// send request to nic
 			$response = self::raw_curl($_xml);
