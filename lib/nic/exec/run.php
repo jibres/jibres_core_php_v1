@@ -133,7 +133,25 @@ class run
     		die("error: myfile.pem is not readable! realpath: \"{$pem}\" - working dir: \"".getcwd()."\" effective user: ".print_r(posix_getpwuid(posix_geteuid()),true));
 		}
 
-		curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+		// curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+
+
+		$keyFile = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/seperated/irnic-ji128-june-key.pem';
+		// $caFile = "ca.pem";
+		$certFile = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/seperated/irnic-ji128-june-cert.pem';
+		// $certPass = "xxxxxx";
+
+		// seperated cert file
+		curl_setopt($ch, CURLOPT_SSLKEY, $keyFile);
+
+		// The --cacert option
+		// curl_setopt($ch, CURLOPT_CAINFO, $caFile);
+
+		// The --cert option
+		curl_setopt($ch, CURLOPT_SSLCERT, $certFile);
+		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $certPass);
+
+
 		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, '6858391123200405');
 		curl_setopt($ch, CURLOPT_VERBOSE, true );
 
