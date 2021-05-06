@@ -143,7 +143,7 @@ class run
 		// turn on some setting
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POST, false);
 		// turn off some setting
 		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
