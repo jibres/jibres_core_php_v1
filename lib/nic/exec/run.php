@@ -132,7 +132,7 @@ class run
     		die("error: myfile.pem is not readable! realpath: \"{$pem}\" - working dir: \"".getcwd()."\" effective user: ".print_r(posix_getpwuid(posix_geteuid()),true));
 		}
 
-		// curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+		curl_setopt($ch, CURLOPT_SSLCERT, $pem);
 		curl_setopt($ch, CURLOPT_CAINFO, $pem);
 		curl_setopt($ch, CURLOPT_CAPATH, $pem);
 
