@@ -7,33 +7,6 @@ class update
 
 	public static function bind_desc($_desc, $_id)
 	{
-		// return by PDO
-		// return self::PDO_bind_desc(...func_get_args());
-
-
-
-		if($_desc)
-		{
-			$_desc = stripslashes($_desc);
-		}
-
-		$args =
-		[
-			'query' => "UPDATE products SET products.desc = ? WHERE products.id = ? LIMIT 1 ",
-			'mode'  => 'query',
-			'types' => 'sd',
-			'param' => [$_desc, $_id]
-		];
-
-		$result = \dash\db::bind($args);
-
-		return $result;
-	}
-
-
-	public static function PDO_bind_desc($_desc, $_id)
-	{
-
 		if($_desc)
 		{
 			$_desc = stripslashes($_desc);
@@ -49,7 +22,9 @@ class update
 		$result = \dash\pdo::query($query, $param);
 
 		return $result;
+
 	}
+
 
 	// UPDATE VARIANTS FIELD
 	public static function variants($_variants, $_id)

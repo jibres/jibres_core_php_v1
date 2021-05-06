@@ -206,10 +206,6 @@ class add
 			return false;
 		}
 
-		if($desc !== false && $product_id)
-		{
-			\lib\db\products\update::bind_desc($desc, $product_id);
-		}
 
 
 		if($my_tag)
@@ -313,6 +309,12 @@ class add
 		if(!$_option['transaction'])
 		{
 			\dash\db::commit();
+		}
+
+		// update test by PDO connection after commit
+		if($desc !== false && $product_id)
+		{
+			\lib\db\products\update::bind_desc($desc, $product_id);
 		}
 
 		return $return;
