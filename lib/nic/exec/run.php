@@ -126,7 +126,7 @@ class run
 
 		//The name of a file containing a PEM formatted certificate.
 
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		$pem = realpath($pem);
 		if(!$pem || !is_readable($pem))
 		{
