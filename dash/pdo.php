@@ -8,7 +8,6 @@ class pdo
 
 	/**
 	 * run query string and return result
-	 * now you don't need to check result
 	 * @param  [type] $_qry [description]
 	 * @return [type]       [description]
 	 */
@@ -22,6 +21,7 @@ class pdo
 			'multi_query'  => false,
 			'database'     => null,
 			'bind'         => null, // buind query
+
 			// if have error in connection or anything ignore it and return false
 			'ignore_error' => false,
 			'fetch_all'    => false,
@@ -32,6 +32,12 @@ class pdo
 		if(!is_array($_options))
 		{
 			$_options = [];
+		}
+
+
+		if(!is_array($_param))
+		{
+			$_param = [];
 		}
 
 		$_options = array_merge($default_options, $_options);
@@ -57,47 +63,51 @@ class pdo
 			return null;
 		}
 
-		$sth = $link->prepare($_qry);
-
-		// $sth->bindParam(':calories', $calories, PDO::PARAM_INT);
-
-		if(!is_array($_param))
+		try
 		{
-			$_param = [];
-		}
+			$sth = $link->prepare($_qry);
 
-		foreach ($_param as $key => $value)
-		{
-			$type = \PDO::PARAM_STR;
-
-			if(is_string($value))
+			foreach ($_param as $key => $value)
 			{
 				$type = \PDO::PARAM_STR;
-			}
-			elseif(is_numeric($value))
-			{
-				$type = \PDO::PARAM_INT;
-			}
-			elseif(is_null($value))
-			{
-				$type = \PDO::PARAM_NULL;
-			}
-			elseif(is_bool($value))
-			{
-				$type = \PDO::PARAM_BOOL;
+
+				if(is_string($value))
+				{
+					$type = \PDO::PARAM_STR;
+				}
+				elseif(is_numeric($value))
+				{
+					$type = \PDO::PARAM_INT;
+				}
+				elseif(is_null($value))
+				{
+					$type = \PDO::PARAM_NULL;
+				}
+				elseif(is_bool($value))
+				{
+					$type = \PDO::PARAM_BOOL;
+				}
+
+				$sth->bindValue($key, $value, $type);
 			}
 
-			$sth->bindValue($key, $value, $type);
+			$result = $sth->execute();
+
+			if(isset($_options['fetch_all']) && $_options['fetch_all'])
+			{
+				$result = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			}
 		}
-
-		$result = $sth->execute();
-
-		if(isset($_options['fetch_all']) && $_options['fetch_all'])
+		catch (\Exception $e)
 		{
-			$result = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			\dash\pdo\log::log($e->getMessage());
+
+			return false;
 		}
+
 
 		\dash\notif::turn_on_log();
+
 
 		// return the mysql result
 		return $result;

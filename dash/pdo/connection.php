@@ -50,26 +50,6 @@ class connection
 
 	public static function close($_link = null)
 	{
-		if($_link)
-		{
-			$link = [$_link];
-		}
-		else
-		{
-			$link = self::$link_open;
-		}
-
-		if(is_array($link))
-		{
-			foreach ($link as $key => $value)
-			{
-				if($value)
-				{
-					@mysqli_close($value);
-				}
-			}
-		}
-
 		self::$link         = null;
 		self::$link_open    = [];
 	}
@@ -85,7 +65,7 @@ class connection
 
 		if(!defined('PDO::ATTR_DRIVER_NAME'))
 		{
-			return self::make_error(503, T_("We can't find database service!"), $_option);
+			return self::make_error(503, T_("PDO Extension is not enable!"), $_option);
 		}
 
 		if(!isset($_love['user']))
@@ -135,9 +115,21 @@ class connection
 			];
 		}
 
+		$link = null;
 
+		// try create PDO object
+		try
+		{
+			$link = new \PDO($dsn, $user, $password, $option);
+		}
+		catch (\Exception $e)
+		{
 
-		$link = new \PDO($dsn, $user, $password, $option);
+			\dash\pdo\log::log($e->getMessage());
+
+			return self::make_error(503, T_("Can not create PDO link!"), $_option);
+		}
+
 
 		if(!$link)
 		{
@@ -148,6 +140,14 @@ class connection
 		// if we have error on connection to this database
 		switch ($link->errorCode())
 		{
+			// connection successfull
+			case null;
+			case '00000':
+			case '':
+				return $link;
+				break;
+
+
 			// Access denied for user 'user'@'hostname' (using password: YES)
 			case 1045:
 				return self::make_error(503, T_("We can't connect to database service!"), $_option);
@@ -189,14 +189,8 @@ class connection
 			// Connections using insecure transport are prohibited while --require_secure_transport=ON.
 			case 3159:
 				return self::make_error(503, T_("SSL Connection error!"), $_option);
-
 				break;
 
-			case null;
-			case '00000':
-			case '':
-				return $link;
-				break;
 
 			default:
 				return self::make_error(503, T_("Connection error!"). " PDO ", $_option);
@@ -218,7 +212,7 @@ class connection
 		}
 
 		\dash\notif::error_once($_msg);
-		// \dash\header::status($_header, $_msg);
+
 		return false;
 	}
 
