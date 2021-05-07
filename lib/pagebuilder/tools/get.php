@@ -200,9 +200,61 @@ class get
 			return false;
 		}
 
+		$elements = self::check_allow_element($_folder, $_element, $elements);
+
+
 		$result['elements'] = $elements;
 
 		return $result;
+	}
+
+
+	private static function check_allow_element($_folder, $_element, $_elements)
+	{
+		if(!is_array($_elements))
+		{
+			return $_elements;
+		}
+
+		$new_contain = [];
+
+		foreach ($_elements as $key => $value)
+		{
+			if($key === 'detail')
+			{
+				$new_contain[$key] = $value;
+				continue;
+			}
+
+			// check allow element
+			if(is_callable(\lib\pagebuilder\tools\tools::get_fn($_folder, $key, 'allow')))
+			{
+				$allow = \lib\pagebuilder\tools\tools::call_fn($_folder, $key, 'allow');
+
+				if(!$allow)
+				{
+					continue;
+				}
+			}
+
+			if($key === 'contain')
+			{
+				$new_contain[$key] = self::check_allow_element($_folder, $_element, $value);
+			}
+			else
+			{
+				if(isset($value['contain']))
+				{
+					$new_contain[$key]['contain'] = self::check_allow_element($_folder, $_element, $value['contain']);
+				}
+				else
+				{
+					$new_contain[$key] = $value;
+				}
+			}
+		}
+
+		return $new_contain;
 	}
 
 
