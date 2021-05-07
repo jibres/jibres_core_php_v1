@@ -42,6 +42,22 @@ class device
 
 	public static function ready($_data)
 	{
+		if(!a($_data, 'device'))
+		{
+			$_data['device'] = 'all';
+		}
+
+		if(!a($_data, 'mobile'))
+		{
+			$_data['mobile'] = 'all';
+		}
+
+
+		if(!a($_data, 'os'))
+		{
+			$_data['os'] = 'all';
+		}
+
 		return $_data;
 	}
 

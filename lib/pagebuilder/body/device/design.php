@@ -122,7 +122,9 @@
       <div class="data">
         <h3><?php echo T_("Customize Device and platform") ?></h3>
         <div class="body">
-
+          <div class="badge light"><?php echo a($lineSetting, 'device'); ?></div>
+          <div class="badge light"><?php echo a($lineSetting, 'mobile'); ?></div>
+          <div class="badge light"><?php echo a($lineSetting, 'os'); ?></div>
         </div>
       </div>
     </div>
