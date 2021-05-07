@@ -83,7 +83,7 @@ class add
 
 		if($content !== false && $post_id)
 		{
-			\dash\db\posts\update::bind_content($content, $post_id);
+			\dash\db\posts\update::update_content($content, $post_id);
 		}
 
 		if($content)

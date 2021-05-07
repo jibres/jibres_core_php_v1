@@ -5,13 +5,8 @@ namespace lib\db\products;
 class update
 {
 
-	public static function bind_desc($_desc, $_id)
+	public static function update_desc($_desc, $_id)
 	{
-		if($_desc)
-		{
-			$_desc = stripslashes($_desc);
-		}
-
 		$query = "UPDATE products SET products.desc = :desc WHERE products.id = :id LIMIT 1 ";
 		$param =
 		[

@@ -5,13 +5,8 @@ namespace dash\db\posts;
 class update
 {
 
-	public static function bind_content($_content, $_id)
+	public static function update_content($_content, $_id)
 	{
-		if($_content)
-		{
-			$_content = stripslashes($_content);
-		}
-
 		$query = "UPDATE posts SET posts.content = :content WHERE posts.id = :id LIMIT 1 ";
 		$param =
 		[

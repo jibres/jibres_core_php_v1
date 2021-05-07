@@ -127,7 +127,7 @@ class edit
 
 			if($content !== false)
 			{
-				\dash\db\posts\update::bind_content($content, $id);
+				\dash\db\posts\update::update_content($content, $id);
 			}
 
 			self::check_update_sitemap($load_posts, $args);

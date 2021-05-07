@@ -341,7 +341,7 @@ class edit
 
 				if($desc !== false)
 				{
-					\lib\db\products\update::bind_desc($desc, $id);
+					\lib\db\products\update::update_desc($desc, $id);
 				}
 
 

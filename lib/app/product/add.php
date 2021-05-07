@@ -314,7 +314,7 @@ class add
 		// update test by PDO connection after commit
 		if($desc !== false && $product_id)
 		{
-			\lib\db\products\update::bind_desc($desc, $product_id);
+			\lib\db\products\update::update_desc($desc, $product_id);
 		}
 
 		return $return;
