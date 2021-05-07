@@ -37,11 +37,6 @@ class f0
 			'detail' =>
 			[
 				'page_title'        => T_("Footer setting"),
-				// 'btn_preview'       => \lib\store::url(),
-
-				// 'btn_advance' => \dash\url::that(). '/advance'. \dash\request::full_get(),
-				// 'btn_save'    => true,
-				// 'allow_html'  => true,
 			],
 			'contain' =>
 			[
@@ -56,10 +51,6 @@ class f0
 
 	public static function input_condition($_args = [])
 	{
-		$_args['line']               = 'string_100';
-		$_args['key']                = 'string_100';
-
-
 		return $_args;
 	}
 
@@ -69,15 +60,6 @@ class f0
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
 		$f0 = [];
-
-		if(array_key_exists('key', $_data))
-		{
-			$f0['footer_key'] = $_data['key'];
-		}
-		elseif(a($_saved_detail, 'detail', 'footer_key'))
-		{
-			$f0['footer_key'] = a($_saved_detail, 'detail', 'footer_key');
-		}
 
 
 		$saved_detail = [];
@@ -109,7 +91,6 @@ class f0
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-		unset($_data['remove_footer_logo']);
 
 		return $_data;
 

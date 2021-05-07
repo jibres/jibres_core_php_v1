@@ -53,19 +53,8 @@ class h0
 
 	public static function input_condition($_args = [])
 	{
-		$_args['line']               = 'string_100';
-		$_args['key']                = 'string_100';
-
 		return $_args;
 	}
-
-
-	public static function input_required()
-	{
-		return ['line', 'key'];
-	}
-
-
 
 
 	public static function ready($_data)

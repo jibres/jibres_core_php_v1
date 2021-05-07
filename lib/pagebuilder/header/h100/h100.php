@@ -58,38 +58,13 @@ class h100
 
 	public static function input_condition($_args = [])
 	{
-		$_args['line']               = 'string_100';
-		$_args['key']                = 'string_100';
-		$_args['remove_header_logo'] = 'string_100';
-
 		return $_args;
 	}
 
 
-	public static function input_required()
-	{
-		return ['line', 'key'];
-	}
-
-
-	public static function input_meta()
-	{
-		return [];
-	}
-
 
 	public static function ready($_data)
 	{
-		if(isset($_data['detail']['logo']) && $_data['detail']['logo'])
-		{
-			$_data['detail']['logourl'] = \lib\filepath::fix($_data['detail']['logo']);
-		}
-
-		if((isset($_data['detail']['header_menu_1']) && $_data['detail']['header_menu_1']) || (isset($_data['detail']['header_menu_2']) && $_data['detail']['header_menu_2']))
-		{
-			$_data['detail']['have_header_menu'] = true;
-		}
-
 		return $_data;
 	}
 
@@ -100,42 +75,6 @@ class h100
 	{
 		$h100 = [];
 
-		if(array_key_exists('key', $_data))
-		{
-			$h100['header_key'] = $_data['key'];
-		}
-		elseif(a($_saved_detail, 'detail', 'header_key'))
-		{
-			$h100['header_key'] = a($_saved_detail, 'detail', 'header_key');
-		}
-
-		$image_path = null;
-
-		if(\dash\request::files('logo'))
-		{
-			$image_path = \dash\upload\website::upload_image('logo');
-
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		else
-		{
-			if(isset($_saved_detail['detail']['logo']))
-			{
-				$image_path = $_saved_detail['detail']['logo'];
-			}
-		}
-
-		if($_data['remove_header_logo'] === 'logo')
-		{
-			$image_path = null;
-		}
-
-		$h100['logo'] = $image_path;
-
-
 		$saved_detail = [];
 
 		if(is_array($_saved_detail['detail']))
@@ -144,9 +83,6 @@ class h100
 		}
 
 		$saved_detail = array_merge($saved_detail, $_data['detail'], $h100);
-
-		unset($saved_detail['logourl']);
-		unset($saved_detail['have_header_menu']);
 
 		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
@@ -161,8 +97,6 @@ class h100
 
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
-
-		unset($_data['remove_header_logo']);
 
 		return $_data;
 

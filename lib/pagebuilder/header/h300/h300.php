@@ -56,23 +56,8 @@ class h300
 
 	public static function input_condition($_args = [])
 	{
-		$_args['line']               = 'string_100';
-		$_args['key']                = 'string_100';
-		$_args['remove_header_logo'] = 'string_100';
 
 		return $_args;
-	}
-
-
-	public static function input_required()
-	{
-		return ['line', 'key'];
-	}
-
-
-	public static function input_meta()
-	{
-		return [];
 	}
 
 
@@ -112,10 +97,6 @@ class h300
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
 
-
-		unset($_data['line']);
-		unset($_data['key']);
-		unset($_data['remove_header_logo']);
 
 		return $_data;
 

@@ -39,6 +39,10 @@ class change
 
 			\lib\pagebuilder\tools\tools::need_redirect(\dash\url::that(). '/'. $_data['key']. \dash\request::full_get(), true);
 		}
+		else
+		{
+			unset($_data['type']);
+		}
 
 
 		unset($_data['line']);

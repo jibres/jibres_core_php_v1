@@ -54,10 +54,6 @@ class f100
 
 	public static function input_condition($_args = [])
 	{
-		$_args['line']               = 'string_100';
-		$_args['key']                = 'string_100';
-		$_args['remove_footer_logo'] = 'string_100';
-
 		return $_args;
 	}
 
@@ -76,11 +72,6 @@ class f100
 
 	public static function ready($_data)
 	{
-		if(isset($_data['detail']['logo']) && $_data['detail']['logo'])
-		{
-			$_data['detail']['logourl'] = \lib\filepath::fix($_data['detail']['logo']);
-		}
-
 		return $_data;
 	}
 
@@ -90,41 +81,6 @@ class f100
 	public static function ready_for_db($_data, $_saved_detail = [])
 	{
 		$f100 = [];
-
-		if(array_key_exists('key', $_data))
-		{
-			$f100['footer_key'] = $_data['key'];
-		}
-		elseif(a($_saved_detail, 'detail', 'footer_key'))
-		{
-			$f100['footer_key'] = a($_saved_detail, 'detail', 'footer_key');
-		}
-
-		$image_path = null;
-
-		if(\dash\request::files('logo'))
-		{
-			$image_path = \dash\upload\website::upload_image('logo');
-
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
-		}
-		else
-		{
-			if(isset($_saved_detail['detail']['logo']))
-			{
-				$image_path = $_saved_detail['detail']['logo'];
-			}
-		}
-
-		if($_data['remove_footer_logo'] === 'logo')
-		{
-			$image_path = null;
-		}
-
-		$f100['logo'] = $image_path;
 
 		$saved_detail = [];
 
@@ -140,8 +96,6 @@ class f100
 
 		$saved_detail = array_merge($saved_detail, $_data['detail'], $f100);
 
-		unset($saved_detail['logourl']);
-
 		$_data['detail'] = json_encode($saved_detail, JSON_UNESCAPED_UNICODE);
 
 		if(\lib\pagebuilder\tools\tools::in('change') || \lib\pagebuilder\tools\tools::in('text'))
@@ -155,8 +109,6 @@ class f100
 
 
 		\lib\pagebuilder\tools\tools::input_exception('detail');
-
-		unset($_data['remove_footer_logo']);
 
 		return $_data;
 
