@@ -314,7 +314,14 @@ class add
 		// update test by PDO connection after commit
 		if($desc !== false && $product_id)
 		{
-			\lib\db\products\update::update_desc($desc, $product_id);
+			if(isset($_option['multi_add']) && $_option['multi_add'])
+			{
+				// needless to save desc
+			}
+			else
+			{
+				\lib\db\products\update::update_desc($desc, $product_id);
+			}
 		}
 
 		return $return;
