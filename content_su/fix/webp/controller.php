@@ -1,13 +1,14 @@
 <?php
-namespace content_crm;
+namespace content_su\fix\webp;
 
 class controller
 {
 
 	public static function routing()
 	{
+		set_time_limit(0);
 
-		$files = glob('/home/reza/projects/talambar_cdn/img/logo/*');
+		$files = glob('/home/reza/projects/talambar_cdn/images/slider-sample/iran/*');
 		foreach ($files as $file)
 		{
 			$width_list = \dash\utility\image::responsive_image_size();
@@ -26,6 +27,12 @@ class controller
 				$file_without_ext = substr($file, 0, -$extlen-1);
 
 				$new_path = $file_without_ext . '-w'. $width. '.webp';
+
+				if(is_file($new_path))
+				{
+					unlink($new_path);
+				}
+
 				if(!is_file($new_path) && strpos($file, '.webp') === false)
 				{
 					\dash\utility\image::make_webp_image($file, $new_path, $width);
@@ -34,6 +41,8 @@ class controller
 
 			}
 		}
+
+		var_dump($files);exit();
 	}
 }
 ?>
