@@ -120,17 +120,17 @@
   <section class="f" data-option='website-line-device'>
     <div class="c8 s12">
       <div class="data">
-        <h3><?php echo T_("Customize Device and platform") ?></h3>
+        <h3><?php echo T_("Customize for different devices") ?></h3>
         <div class="body">
-          <div class="badge light"><?php echo a($lineSetting, 'device'); ?></div>
-          <div class="badge light"><?php echo a($lineSetting, 'mobile'); ?></div>
-          <div class="badge light"><?php echo a($lineSetting, 'os'); ?></div>
+          <div class="badge light"><?php echo T_("Device"). ': '.  a($lineSetting, 'device'); ?></div>
+          <div class="badge light"><?php if(a($lineSetting, 'device') === 'mobile') { echo T_("Mobile Mode"). ': '. a($lineSetting, 'mobile');} ?></div>
+          <div class="badge light"><?php echo T_("OS"). ': '. a($lineSetting, 'os'); ?></div>
         </div>
       </div>
     </div>
     <div class="c4 s12">
       <div class="action">
-        <a class="btn master" href="<?php echo \dash\url::current(). '/device'. \dash\request::full_get(); ?>"><?php echo T_("Manage"); ?></a>
+        <a class="btn master" href="<?php echo \dash\url::current(). '/device'. \dash\request::full_get(); ?>"><?php echo T_("Customize"); ?></a>
       </div>
     </div>
   </section>

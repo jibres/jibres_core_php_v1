@@ -79,6 +79,12 @@ class view
 				\dash\face::title(T_('Edit title'));
 			}
 
+
+			if(isset($current_module['current_module']) && $current_module['current_module'] === 'device')
+			{
+				\dash\face::title(T_('Customize for different devices'));
+			}
+
 			if(isset($current_module_detail['btn_advance']))
 			{
 				\dash\face::btnSetting($current_module_detail['btn_advance']);
