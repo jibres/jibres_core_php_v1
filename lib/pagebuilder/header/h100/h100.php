@@ -42,6 +42,7 @@ class h100
 			'contain' =>
 			[
 				'change'         => ['detail' => ['page_title' => T_("Choose header")]],
+				'color'          => true,
 				'announcement'   => ['detail' => ['page_title' => T_("Announcement")]],
 				'logo'           => true,
 				'menu1'          => true,

@@ -85,6 +85,13 @@ class view
 				\dash\face::title(T_('Customize for different devices'));
 			}
 
+
+			if(isset($current_module['current_module']) && $current_module['current_module'] === 'color')
+			{
+				\dash\face::btnSave('form1');
+				\dash\face::title(T_('Customize Color'));
+			}
+
 			if(isset($current_module_detail['btn_advance']))
 			{
 				\dash\face::btnSetting($current_module_detail['btn_advance']);
