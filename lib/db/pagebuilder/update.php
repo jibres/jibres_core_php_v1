@@ -5,39 +5,8 @@ namespace lib\db\pagebuilder;
 class update
 {
 
-	public static function bind_text($_text, $_id)
+	public static function update_text($_text, $_id)
 	{
-
-		// return self::PDO_bind_text(...func_get_args());
-
-
-		if($_text)
-		{
-			$_text = stripslashes($_text);
-		}
-
-		$args =
-		[
-			'query' => "UPDATE pagebuilder SET pagebuilder.text = ? WHERE pagebuilder.id = ? LIMIT 1 ",
-			'mode'  => 'query',
-			'types' => 'sd',
-			'param' => [$_text, $_id]
-		];
-
-		$result = \dash\db::bind($args);
-
-		return $result;
-	}
-
-
-	public static function PDO_bind_text($_text, $_id)
-	{
-
-		if($_text)
-		{
-			$_text = stripslashes($_text);
-		}
-
 		$query = "UPDATE pagebuilder SET pagebuilder.text = :text WHERE pagebuilder.id = :id LIMIT 1 ";
 		$param =
 		[
@@ -48,9 +17,8 @@ class update
 		$result = \dash\pdo::query($query, $param);
 
 		return $result;
+
 	}
-
-
 
 
 

@@ -47,7 +47,7 @@ class edit
 
 		if(array_key_exists('text', $update))
 		{
-			\lib\db\pagebuilder\update::bind_text($update['text'], $id);
+			\lib\db\pagebuilder\update::update_text($update['text'], $id);
 
 			unset($update['text']);
 		}
