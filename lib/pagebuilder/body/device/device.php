@@ -4,6 +4,15 @@ namespace lib\pagebuilder\body\device;
 
 class device
 {
+	public static function allow()
+	{
+		if(\dash\url::isLocal())
+		{
+			return true;
+		}
+
+		return false;
+	}
 
 	public static function input_condition($_args = [])
 	{
