@@ -255,6 +255,19 @@ class page
 
 			}
 		}
+
+		$new_body = [];
+
+		foreach ($result['body'] as $key => $value)
+		{
+			if(\lib\pagebuilder\body\device\device::is_ok(a($value, 'device'), a($value, 'mobile'), a($value, 'os')))
+			{
+				$new_body[] = $value;
+			}
+		}
+
+		$result['body'] = $new_body;
+
 	}
 
 

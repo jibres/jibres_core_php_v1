@@ -4,6 +4,10 @@ namespace lib\pagebuilder\body\device;
 
 class device
 {
+	// current device detail
+	private static $current_device = [];
+
+
 	public static function allow()
 	{
 		if(\dash\url::isLocal())
@@ -61,8 +65,109 @@ class device
 		return $_data;
 	}
 
+	private static function detect_device()
+	{
+		$data = \dash\detect\device::data();
+		self::$current_device = $data;
+	}
 
 
+	public static function is_ok($_device, $_mobile, $_os)
+	{
+		if(empty(self::$current_device))
+		{
+			self::detect_device();
+		}
+
+		$detect = self::$current_device;
+
+		// device ('all','desktop', 'mobile', 'other')
+		// mobile ('all','browser','pwa', 'application','other')
+		// os ('all','windows','linux', 'mac', 'android', 'other')
+
+		switch ($_mobile)
+		{
+			// windows
+			case 'windows':
+				break;
+
+			case 'linux':
+				break;
+
+			// mac
+			case 'mac':
+				break;
+
+			// android
+			case 'android':
+				break;
+
+			// default mode
+			case 'all':
+			case '':
+			case null:
+			default:
+				// ok
+				break;
+		}
+
+		switch ($_device)
+		{
+			case 'desktop':
+				if(a($detect, 'mobile'))
+				{
+					return false;
+				}
+				break;
+
+			case 'mobile':
+				if(!a($detect, 'mobile'))
+				{
+					return false;
+				}
+
+				switch ($_mobile)
+				{
+					// browser
+					case 'browser':
+						break;
+
+					case 'pwa':
+						break;
+
+					// application
+					case 'application':
+						break;
+
+					// other
+					case 'other':
+						break;
+
+					// default mode
+					case 'all':
+					case '':
+					case null:
+					default:
+						// ok
+						break;
+				}
+				break;
+
+			case 'other':
+				// ??
+				break;
+
+			case 'all':
+			case '':
+			case null:
+			default:
+				// ok
+				break;
+
+		}
+
+		return true;
+	}
 
 }
 ?>
