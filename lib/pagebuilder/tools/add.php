@@ -44,6 +44,7 @@ class add
 			'rafiei',
 			'h100',
 			'h300',
+			'h0',
 		];
 
 		return self::load_list('header', $headers);
@@ -91,6 +92,7 @@ class add
 			'f100',
 			'f201',
 			'f300',
+			'f0',
 		];
 
 		return self::load_list('footer', $footer);
