@@ -653,6 +653,7 @@ class cleanse
 			case 'province': 			$data = \dash\validate\location::province(...$fn_args); 			break;
 			case 'city': 				$data = \dash\validate\location::city(...$fn_args); 				break;
 			case 'password': 			$data = \dash\validate\password::password(...$fn_args); 			break;
+			case 'color': 				$data = \dash\validate\color::color(...$fn_args); 					break;
 			case 'id': 					$data = \dash\validate\identify::id(...$fn_args); 					break;
 			case 'code': 				$data = \dash\validate\identify::code(...$fn_args); 				break;
 			case 'code_0': 				$data = \dash\validate\identify::code_0(...$fn_args); 				break;
