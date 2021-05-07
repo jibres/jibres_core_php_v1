@@ -120,7 +120,7 @@ class image
 					'contain' =>
 					[
 						'title'        => true,
-						'device'        => true,
+						'device'       => true,
 						'puzzle'       => true,
 						'avand'        => true,
 						'radius'       => true,

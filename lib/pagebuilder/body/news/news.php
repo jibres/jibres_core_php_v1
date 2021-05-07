@@ -67,7 +67,9 @@ class news
 					],
 				],
 
-				'filter'  =>
+				'device' => true,
+
+				'filter' =>
 				[
 					'detail' =>
 					[

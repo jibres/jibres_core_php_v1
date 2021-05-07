@@ -41,6 +41,7 @@ class application
 			'contain' =>
 			[
 				'title'   => true,
+				'device'  => true,
 				'avand'   => true,
 				'padding' => true,
 				'margin'  => true,

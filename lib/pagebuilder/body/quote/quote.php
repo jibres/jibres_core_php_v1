@@ -129,16 +129,17 @@ class quote
 					],
 					'contain' =>
 					[
-						'title'        => true,
+						'title'           => true,
+						'device'          => true,
 						// 'puzzle'       => true,
-						'avand'        => true,
-						// 'itemshowmode'        => true,
+						'avand'           => true,
+						// 'itemshowmode' => true,
 						// 'radius'       => true,
 						// 'effect'       => true,
 						// 'padding'      => true,
 						// 'infoposition' => true,
 						// 'ratio'        => true,
-						'remove'       => true,
+						'remove'          => true,
 					]
 				],
 			],

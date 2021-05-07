@@ -64,6 +64,8 @@ class products
 					],
 				],
 
+				'device' => true,
+
 				'filter' =>
 				[
 					'detail' =>

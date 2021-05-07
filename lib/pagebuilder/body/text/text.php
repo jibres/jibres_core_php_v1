@@ -55,11 +55,12 @@ class text
 
 					'contain' =>
 					[
-						'title'   => true,
-						'avand'   => true,
+						'title'      => true,
+						'device'     => true,
+						'avand'      => true,
 						// 'padding' => true,
 						// 'margin'  => true,
-						'remove'  => true,
+						'remove'     => true,
 					],
 				],
 			],
