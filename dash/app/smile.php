@@ -115,7 +115,7 @@ class smile
 			$alertyOpt['position'] = 'top-end';
 
 
-			self::play_sound('notif_sound_new_order', $count_order, 'new-order-2.mp3');
+			self::play_sound('notif_sound_new_order', $count_order, 'new-notification-2.mp3');
 
 			\dash\notif::ok(T_("You have :val new order!", ['val' => \dash\fit::number($count_order)]), $alertyOpt);
 		}
