@@ -1,14 +1,20 @@
-<?php $lineSetting = \dash\data::lineSetting(); ?>
+<?php $lineSetting = \dash\data::lineSetting();  ?>
 <?php if(\lib\pagebuilder\tools\tools::in('color')) {?>
   <form method="post" autocomplete="off" id="form1" data-patch>
     <input type="hidden" name="set_color" value="1">
-    <div class="avand-md">
+    <div class="avand-sm">
       <div class="box">
         <div class="pad">
 
           <label for="bg_color"><?php echo T_("Background Color") ?></label>
           <div class="input w100">
-            <input type="color" name="bg_color" id="bg_color" value="#ff0066">
+            <input type="color" name="bg_color" id="bg_color" value="<?php echo a($lineSetting, 'background', 'bg_color'); ?>">
+          </div>
+
+
+          <label for="txt_color"><?php echo T_("Text Color") ?></label>
+          <div class="input w100">
+            <input type="color" name="txt_color" id="txt_color" value="<?php echo a($lineSetting, 'background', 'txt_color'); ?>">
           </div>
 
         </div>

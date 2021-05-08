@@ -19,7 +19,8 @@ class color
 	public static function input_condition($_args = [])
 	{
 		$_args['set_color'] = 'bit';
-		$_args['bg_color']     = 'color';
+		$_args['bg_color']  = 'color';
+		$_args['txt_color'] = 'color';
 
 
 		return $_args;
@@ -34,8 +35,16 @@ class color
 			return $_data;
 		}
 
-		unset($_data['bg_color']);
+		$background              = [];
+		$background['txt_color'] = $_data['txt_color'];
+		$background['bg_color']  = $_data['bg_color'];
 
+		$_data['background'] = json_encode($background, JSON_UNESCAPED_UNICODE);
+
+		\lib\pagebuilder\tools\tools::input_exception('background');
+
+		unset($_data['bg_color']);
+		unset($_data['txt_color']);
 		unset($_data['set_color']);
 
 		return $_data;

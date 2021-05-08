@@ -244,6 +244,11 @@ class tools
 			$data['detail'] = json_decode($data['detail'], true);
 		}
 
+		if(isset($data['background']) && is_string($data['background']))
+		{
+			$data['background'] = json_decode($data['background'], true);
+		}
+
 		$contain = \lib\pagebuilder\tools\tools::get_contain($_folder, $_element);
 
 		foreach ($contain as $one_contain)
