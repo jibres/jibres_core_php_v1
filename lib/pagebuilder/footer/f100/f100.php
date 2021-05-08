@@ -43,6 +43,7 @@ class f100
 			[
 				'change'         => true,
 				'text'           => ['detail' => ['btn_save' => true, 'allow_html' => true, 'page_title' => T_("Set footer Main text")]],
+				'pwabtn'         => true,
 				'generalsetting' => true,
 			],
 		];
