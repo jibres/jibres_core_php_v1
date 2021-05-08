@@ -5,6 +5,32 @@ namespace lib\pagebuilder\header\color;
 class color
 {
 
+	public static function template()
+	{
+		$list = [];
+		$list[] =
+		[
+			'title'     => 'ABC',
+			'txt_color' => '#141414',
+			'bg_color'  => '#ababab',
+		];
+
+		$list[] =
+		[
+			'title'     => 'ABC 1',
+			'txt_color' => '#ffffff',
+			'bg_color'  => '#000000',
+		];
+
+		$list[] =
+		[
+			'title'     => 'ABC 2',
+			'txt_color' => '#e4de1b',
+			'bg_color'  => '#890ba2',
+		];
+
+		return $list;
+	}
 
 	public static function allow()
 	{
