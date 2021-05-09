@@ -120,13 +120,19 @@ class fit{
 
 	}
 
-	public static function stats($_txt)
+	public static function stats($_txt, $_round = false)
 	{
 		$number = $_txt;
 
 		if(!is_numeric($number))
 		{
 			return '-';
+		}
+
+		$round = 2;
+		if($_round)
+		{
+			$round = 0;
 		}
 
 		$result = null;
@@ -139,17 +145,17 @@ class fit{
 		}
 		elseif($number < 1000000)
 		{
-			$k = round(($number / 1000), 2);
+			$k = round(($number / 1000), $round);
 			$result = self::text($k). ' K';
 		}
 		elseif($number < 1000000000)
 		{
-			$k = round($number / 1000000, 2);
+			$k = round($number / 1000000, $round);
 			$result = self::text($k). ' M';
 		}
 		else
 		{
-			$k = round($number / 1000000000, 2);
+			$k = round($number / 1000000000, $round);
 			$result = self::text($k). ' B';
 		}
 
