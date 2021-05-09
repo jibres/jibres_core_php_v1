@@ -66,6 +66,11 @@ class h100
 
 	public static function ready($_data)
 	{
+		if((isset($_data['detail']['header_menu_1']) && $_data['detail']['header_menu_1']) || (isset($_data['detail']['header_menu_2']) && $_data['detail']['header_menu_2']))
+		{
+			$_data['detail']['have_header_menu'] = true;
+		}
+
 		return $_data;
 	}
 
