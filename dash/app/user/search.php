@@ -24,6 +24,7 @@ class search
 			'status'    => ['enum' => ['active','awaiting','deactive','removed','filter','unreachable', 'ban', 'block']],
 			'show_type' => ['enum' => ['staff', 'all']],
 			'permission'      => 'string_50',
+			'show_budget' => 'bit',
 
 			'hm'        => 'y_n',
 			'ho'        => 'y_n',
@@ -114,6 +115,21 @@ class search
 				self::$is_filtered = true;
 
 			}
+		}
+
+		if($data['show_budget'])
+		{
+			$meta['fields'] = " users.*,
+			(
+				SELECT (sum(IFNULL(transactions.plus,0)) - sum(IFNULL(transactions.minus,0)))
+				FROM
+					transactions
+				WHERE
+				transactions.user_id = users.id AND
+				transactions.verify  = 1
+			) AS `budget`
+			";
+			$order_sort = " ORDER BY budget DESC ";
 		}
 
 		if($data['status'])
