@@ -27,6 +27,13 @@ class homepage
 	}
 
 
+	public static function get_file()
+	{
+		$result = \dash\file::read(self::$dir);
+		return $result;
+	}
+
+
 	public static function get()
 	{
 		$result = \dash\file::read(self::$dir);
