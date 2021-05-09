@@ -203,7 +203,7 @@ class run
 
 		$_xml = trim($_xml);
 
-		if(\dash\request::get('nic') === 'raw' || \dash\url::isLocal())
+		if(false && \dash\request::get('nic') === 'raw' || \dash\url::isLocal())
 		{
 			// send request to nic
 			$response = self::raw_curl($_xml);
