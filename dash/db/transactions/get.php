@@ -5,6 +5,14 @@ namespace dash\db\transactions;
 class get
 {
 
+	public static function first_verify_transaction()
+	{
+		$query = "SELECT * FROM transactions WHERE transactions.verify = 1 ORDER BY transactions.id ASC LIMIT 1";
+		$result = \dash\pdo::get($query, [], null, true);
+		return $result;
+	}
+
+
 	public static function chart_by_date_fa($_enddate, $_month_list)
 	{
 		$CASE = [];
