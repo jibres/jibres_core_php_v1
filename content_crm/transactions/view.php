@@ -11,6 +11,8 @@ class view
 		\dash\data::back_text(T_('CRM'));
 		\dash\data::back_link(\dash\url::here());
 
+		\dash\face::btnSetting(\dash\url::this(). '/report');
+
 		// btn
 		// \dash\data::action_text(T_('Add New Transaction'));
 		// \dash\data::action_icon('plus');

@@ -16,20 +16,20 @@
 
     <section class="row">
      <div class="c-xs-0 c-sm-4 c-md-4">
-      <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
+      <a href="<?php echo \dash\url::this() ?>/transactions/report" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'success_percent', 'today');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Success Payments - Today");?></h3>
       </a>
      </div>
      <div class="c-xs-6 c-sm-4 c-md-4">
-      <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
+      <a href="<?php echo \dash\url::this() ?>/transactions/report" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'success_percent', 'month');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Success Payments - This month");?></h3>
       </a>
      </div>
 
      <div class="c-xs-6 c-sm-4 c-md-4">
-      <a href="<?php echo \dash\url::this() ?>/transactions" class="circularChartBox">
+      <a href="<?php echo \dash\url::this() ?>/transactions/report" class="circularChartBox">
        <?php $myPercent= a($dashboardDetail, 'success_percent', 'all');$myColor='auto';include core.'layout/elements/circularChart.php';?>
        <h3><?php echo T_("Total Success transactions percent");?></h3>
       </a>
