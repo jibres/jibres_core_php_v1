@@ -214,6 +214,15 @@ class page
 
 		$result['post_detail'] = $post_detail;
 
+		if(isset($post_detail['meta']['template']))
+		{
+			$result['template'] = $post_detail['meta']['template'];
+		}
+		else
+		{
+			$result['template'] = 'publish';
+		}
+
 		self::ready($result, $list, $need_explode_homepage_header_footer, $homepage_id);
 
 		self::$is_page = true;

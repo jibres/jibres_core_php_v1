@@ -47,6 +47,7 @@ class pwa_menu
 			return null;
 		}
 
+
 		switch (\dash\data::website_template())
 		{
 			case 'comingsoon':
@@ -233,34 +234,73 @@ class pwa_menu
 
 	public static function businessWebsite()
 	{
-		$myFooter =
-		[
-			'home' =>
+		$footer = \dash\data::currentFooter();
+
+		if(isset($footer['detail']['pwabtn']) && $footer['detail']['pwabtn'] && is_array($footer['detail']['pwabtn']))
+		{
+			$custom_footer = $footer['detail']['pwabtn'];
+
+			$myFooter =
 			[
-				'href' => \dash\url::kingdom(),
-				'icon' => 'home',
-				'title' => T_('Home'),
-			],
-			'category' =>
+				'home' =>
+				[
+					'href' => a($custom_footer, 'url_1'),
+					'icon' => a($custom_footer, 'icon_1'),
+					'title' => a($custom_footer, 'title_1'),
+				],
+				'category' =>
+				[
+					'href' => a($custom_footer, 'url_2'),
+					'icon' => a($custom_footer, 'icon_2'),
+					'title' => a($custom_footer, 'title_2'),
+				],
+				'cart' =>
+				[
+					'href' => a($custom_footer, 'url_3'),
+					'icon' => a($custom_footer, 'icon_3'),
+					'title' => a($custom_footer, 'title_3'),
+				],
+				'profile' =>
+				[
+					'href' => a($custom_footer, 'url_4'),
+					'icon' => a($custom_footer, 'icon_4'),
+					'title' => a($custom_footer, 'title_4'),
+				],
+			];
+
+		}
+		else
+		{
+			$myFooter =
 			[
-				'href' => \dash\url::kingdom(). '/collection',
-				'icon' => 'th-large',
-				'title' => T_('Category'),
-			],
-			'cart' =>
-			[
-				'href' => \dash\url::kingdom(). '/cart',
-				'icon' => 'shopping-cart',
-				'title' => T_('Cart'),
-				'cartItem' => \dash\fit::number(\lib\website::cart_count()),
-			],
-			'profile' =>
-			[
-				'href' => \dash\url::kingdom(). '/profile',
-				'icon' => 'user',
-				'title' => T_('Profile'),
-			],
-		];
+				'home' =>
+				[
+					'href' => \dash\url::kingdom(),
+					'icon' => 'home',
+					'title' => T_('Home'),
+				],
+				'category' =>
+				[
+					'href' => \dash\url::kingdom(). '/collection',
+					'icon' => 'th-large',
+					'title' => T_('Category'),
+				],
+				'cart' =>
+				[
+					'href' => \dash\url::kingdom(). '/cart',
+					'icon' => 'shopping-cart',
+					'title' => T_('Cart'),
+					'cartItem' => \dash\fit::number(\lib\website::cart_count()),
+				],
+				'profile' =>
+				[
+					'href' => \dash\url::kingdom(). '/profile',
+					'icon' => 'user',
+					'title' => T_('Profile'),
+				],
+			];
+
+		}
 
 		// select module if user select them
 		switch (\dash\url::module())
