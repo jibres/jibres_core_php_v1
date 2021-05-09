@@ -13,7 +13,7 @@
         </div>
         <textarea class="txt" name="content" rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php echo T_("Type here ...") ?>'></textarea>
 
-        <div class="mT10" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+        <div class="mT10" data-uploader data-name='file' data-ratio-free data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
           <input type="file"  id="file1">
           <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
         </div>
