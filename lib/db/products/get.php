@@ -3,6 +3,25 @@ namespace lib\db\products;
 
 class get
 {
+	public static function count_group_by_month_fuel($_fuel, $_dbname)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				CONCAT(YEAR(products.datecreated), '-', MONTH(products.datecreated)) AS `year_month`
+			FROM
+				products
+			GROUP by
+				`year_month`
+		";
+
+		$result = \dash\db::get($query, null, false, $_fuel, ['database' => $_dbname]);
+
+		return $result;
+	}
+
+
 	public static function check_duplicate_variants_add($_args)
 	{
 		$where = \dash\db\config::make_where($_args);

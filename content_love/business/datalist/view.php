@@ -23,8 +23,8 @@ class view
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 			'user'   => \dash\request::get('user'),
-			'status' => \dash\request::get('status'),
-			'dblsub' => \dash\request::get('dblsub'),
+			// 'status' => \dash\request::get('status'),
+			// 'dblsub' => \dash\request::get('dblsub'),
 		];
 
 

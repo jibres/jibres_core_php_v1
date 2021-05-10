@@ -5,6 +5,25 @@ namespace lib\db\store;
 class get
 {
 
+	public static function count_group_by_month()
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				CONCAT(YEAR(store.datecreated), '-', MONTH(store.datecreated)) AS `year_month`
+			FROM
+				store
+			GROUP by
+				`year_month`
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+
 	public static function reserved_business()
 	{
 		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE";

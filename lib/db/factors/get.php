@@ -4,6 +4,28 @@ namespace lib\db\factors;
 class get
 {
 
+	public static function count_group_by_month_fuel($_fuel, $_dbname)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				SUM(factors.total) AS `sum`,
+				SUM(IF(factors.total > 50000000, 0, 1)) AS `count_filtered`,
+				SUM(IF(factors.total > 50000000, 0, factors.total)) AS `sum_filtered`,
+				CONCAT(YEAR(factors.datecreated), '-', MONTH(factors.datecreated)) AS `year_month`
+			FROM
+				factors
+			GROUP by
+				`year_month`
+		";
+
+		$result = \dash\db::get($query, null, false, $_fuel, ['database' => $_dbname]);
+
+		return $result;
+	}
+
+
 	public static function count_factor_record_per_user($_user_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.status = 'registered' AND factors.date > '$_start_date' ";
