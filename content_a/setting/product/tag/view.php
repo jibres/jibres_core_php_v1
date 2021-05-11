@@ -13,6 +13,8 @@ class view
 
 
 
+		$all_tag = \lib\app\tag\get::all_category();
+		\dash\data::allTagList($all_tag);
 	}
 }
 ?>

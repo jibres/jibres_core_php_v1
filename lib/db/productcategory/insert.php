@@ -37,5 +37,17 @@ class insert
 			return false;
 		}
 	}
+
+
+	public static function apply_to_all_product($_tag_id)
+	{
+		$query_delete_current_tag = "DELETE FROM productcategoryusage WHERE productcategoryusage.productcategory_id = $_tag_id ";
+		\dash\db::query($query_delete_current_tag);
+
+		$query = "INSERT INTO `productcategoryusage` (`productcategory_id`,`product_id`) SELECT $_tag_id, products.id FROM products WHERE products.status != 'deleted' ";
+		$result = \dash\db::query($query);
+		return $result;
+
+	}
 }
 ?>

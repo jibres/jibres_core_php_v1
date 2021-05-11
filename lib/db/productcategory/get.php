@@ -4,6 +4,12 @@ namespace lib\db\productcategory;
 
 class get
 {
+	public static function check_duplicate_title($_title)
+	{
+		$query  = "SELECT * FROM productcategory WHERE productcategory.title = '$_title'  LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 	public static function count_all()
 	{

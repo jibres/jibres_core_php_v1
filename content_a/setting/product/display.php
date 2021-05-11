@@ -12,6 +12,7 @@
         <ul>
 
           <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/tag"><div class="key"><?php echo T_("Tag of products"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+          <li><a class="f" href="<?php echo \dash\url::that(); ?>/tag"><div class="key"><?php echo T_("Add tag to all product"); ?></div><div class="go"></div></a></li>
           <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/units"><div class="key"><?php echo T_("Product Units"); ?></div><div class="go"></div></a></li><?php } //endif ?>
         </ul>
       </nav>
@@ -48,7 +49,6 @@
         <ul>
           <li><a class="f" href="<?php echo \dash\url::that(); ?>/text"><div class="key"><?php echo T_("Product Default share text"); ?></div><div class="go"></div></a></li>
           <li><a class="f" href="<?php echo \dash\url::that(); ?>/viewtext"><div class="key"><?php echo T_("Product Default view text"); ?></div><div class="go"></div></a></li>
-          <li><a class="f" href="<?php echo \dash\url::that(); ?>/tag"><div class="key"><?php echo T_("Add tag to all product"); ?></div><div class="go"></div></a></li>
         </ul>
       </nav>
 

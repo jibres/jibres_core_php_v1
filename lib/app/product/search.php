@@ -118,8 +118,28 @@ class search
 			$and[]   = " productcategoryusage.productcategory_id =  $data[tag_id] ";
 			$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 			$type = 'catusage';
-			self::$filter_args['cat'] = '*'. T_('Category');
+			self::$filter_args['tag'] = '*'. T_('Tag');
 			self::$is_filtered        = true;
+		}
+		else
+		{
+
+			// tag
+			if(isset($data['t']) && $data['t'] === 'y')
+			{
+				$and[]  = " productcategoryusage.productcategory_id IS NOT NULL ";
+				$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
+				self::$filter_args['Tag']       = T_("With Tag");
+				self::$is_filtered             = true;
+			}
+			elseif(isset($data['t']) && $data['t'] === 'n')
+			{
+				$and[]  = " productcategoryusage.productcategory_id IS NULL ";
+				$join[] = ' LEFT JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
+				self::$filter_args['Tag']       = T_("Without tag");
+				self::$is_filtered             = true;
+			}
+
 		}
 
 
@@ -129,6 +149,7 @@ class search
 			self::$filter_args['unit'] = '*'. T_('Unit');
 			self::$is_filtered = true;
 		}
+
 
 		// ------------------------------------------------------------------------------ SET FILTERS
 		// set filter
