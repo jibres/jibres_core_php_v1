@@ -23,8 +23,8 @@ class view
 
 		\dash\data::productlineNameSuggestion(\lib\app\website\body\line\productline::suggest_new_name());
 
-		$category_list = \lib\app\category\search::list();
-		\dash\data::listCategory($category_list);
+		$category_list = \lib\app\tag\search::list();
+		\dash\data::listProductTag($category_list);
 
 	}
 }

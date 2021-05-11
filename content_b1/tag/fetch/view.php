@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\category\fetch;
+namespace content_b1\tag\fetch;
 
 
 class view
@@ -12,7 +12,7 @@ class view
 		$meta['parent2'] = null;
 		$meta['parent3'] = null;
 
-		$list = \lib\app\category\search::list(\dash\request::get('q'), $meta);
+		$list = \lib\app\tag\search::list(\dash\request::get('q'), $meta);
 
 		if(!is_array($list))
 		{

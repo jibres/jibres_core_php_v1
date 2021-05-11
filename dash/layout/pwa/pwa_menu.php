@@ -283,7 +283,7 @@ class pwa_menu
 				[
 					'href' => \dash\url::kingdom(). '/collection',
 					'icon' => 'th-large',
-					'title' => T_('Category'),
+					'title' => T_('Tags'),
 				],
 				'cart' =>
 				[

@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\category\edit;
+namespace content_b1\tag\child;
 
 
 class controller

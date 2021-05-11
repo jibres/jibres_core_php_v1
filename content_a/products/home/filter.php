@@ -75,7 +75,7 @@ function BoxProductFilter()
           <?php }else{?>
             <option value="" readonly></option>
           <?php } //endif ?>
-          <?php foreach (\dash\data::listCategory() as $key => $value) {?>
+          <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
             <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('tagid') === $value['id']){echo 'selected';} ?>><?php echo $value['title']; ?></option>
           <?php } //endfor ?>
         </select>

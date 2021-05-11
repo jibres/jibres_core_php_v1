@@ -18,7 +18,7 @@ class controller
 
 			$url = urldecode($url);
 
-			$load = \lib\app\category\get::by_url($url);
+			$load = \lib\app\tag\get::by_url($url);
 			if(!$load)
 			{
 				\dash\header::status(404, T_("Invalid category url"));

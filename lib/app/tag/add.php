@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\category;
+namespace lib\app\tag;
 
 
 class add
@@ -202,7 +202,7 @@ class add
 
 
 
-		$args = \lib\app\category\check::variable($_args);
+		$args = \lib\app\tag\check::variable($_args);
 		if(!$args)
 		{
 			return false;
@@ -241,7 +241,7 @@ class add
 			return false;
 		}
 
-		$load_cat = \lib\app\category\get::get($_cat_id);
+		$load_cat = \lib\app\tag\get::get($_cat_id);
 		if(!$load_cat)
 		{
 			return false;

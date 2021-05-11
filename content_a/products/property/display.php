@@ -120,7 +120,7 @@ if(\dash\data::propertyList_saved())
     <form method="post" autocomplete="off">
       <input type="hidden" name="multiproperty" value="multiproperty">
       <div class="box">
-        <header><h2><?php echo T_("Property of Category") ?></h2></header>
+        <header><h2><?php echo T_("Property of Tag") ?></h2></header>
         <div class="body">
           <table class="tbl1 v5 responsive">
             <thead>

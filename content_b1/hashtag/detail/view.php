@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tags\detail;
+namespace content_b1\hashtag\detail;
 
 
 class view

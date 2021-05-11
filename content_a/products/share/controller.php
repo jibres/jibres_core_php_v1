@@ -68,7 +68,7 @@ class controller
 
 
 
-		$cat_list = \lib\app\category\get::product_cat($id);
+		$cat_list = \lib\app\tag\get::product_cat($id);
 		if(is_array($cat_list) && $cat_list)
 		{
 			$cat_list = array_column($cat_list, 'title');

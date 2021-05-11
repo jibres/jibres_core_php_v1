@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\category;
+namespace lib\app\tag;
 
 
 class ready

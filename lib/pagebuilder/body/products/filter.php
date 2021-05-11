@@ -25,7 +25,7 @@ else
 {
 
 
-\dash\data::listCategory(\lib\app\category\search::list());
+\dash\data::listProductTag(\lib\app\tag\search::list());
 
 ?>
 <div class="avand-md">
@@ -45,7 +45,7 @@ else
           <label for='cat'><?php echo T_("Special category"); ?> <small><a href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Add"); ?></a></small></label>
           <select name="cat_id" id="cat" class="select22"  data-placeholder='<?php echo T_("Select or add new category"); ?>' >
             <option></option>
-            <?php foreach (\dash\data::listCategory() as $key => $value) {?>
+            <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
               <option value="<?php echo a($value, 'id'); ?>"<?php if(a($lineSetting, 'detail', 'cat_id') == $value['id']) { echo ' selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
             <?php } //endfor ?>
           </select>

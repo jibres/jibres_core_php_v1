@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\category;
+namespace lib\app\tag;
 
 
 class search
@@ -43,7 +43,7 @@ class search
 
 		$meta = [];
 
-		$load_category = \lib\app\category\get::inline_get($_category_id);
+		$load_category = \lib\app\tag\get::inline_get($_category_id);
 
 		$parent_field = null;
 
@@ -84,7 +84,7 @@ class search
 
 		foreach ($result as $key => $value)
 		{
-			$check = \lib\app\category\ready::row($value);
+			$check = \lib\app\tag\ready::row($value);
 			if($check)
 			{
 				$temp[] = $check;
@@ -167,7 +167,7 @@ class search
 
 		if(is_array($list))
 		{
-			$list = array_map(['\\lib\\app\\category\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\tag\\ready', 'row'], $list);
 		}
 		else
 		{

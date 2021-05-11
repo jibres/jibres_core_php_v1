@@ -9,7 +9,7 @@ class model
 
 		if($category_list && is_array($category_list))
 		{
-			\lib\app\category\edit::set_sort($category_list);
+			\lib\app\tag\edit::set_sort($category_list);
 			\dash\notif::ok(T_("Sort saved"));
 			return true;
 		}

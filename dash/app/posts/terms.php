@@ -83,7 +83,7 @@ class terms
 			{
 				if(mb_strlen($value) > 50)
 				{
-					\dash\notif::error(T_("Tag or Category is too long!"), 'cat');
+					\dash\notif::error(T_("Tag or Hashtag is too long!"), 'cat');
 					return false;
 				}
 

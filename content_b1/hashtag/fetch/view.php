@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tags\fetch;
+namespace content_b1\hashtag\fetch;
 
 
 class view

@@ -6,7 +6,7 @@ class controller
 	public static function routing()
 	{
 
-		$dataRow = \lib\app\category\get::get(\dash\request::get('id'));
+		$dataRow = \lib\app\tag\get::get(\dash\request::get('id'));
 		\dash\data::dataRow($dataRow);
 
 		if(!$dataRow)

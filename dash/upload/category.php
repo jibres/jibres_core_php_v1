@@ -13,7 +13,7 @@ class category
 	{
 		if(!$_category_id)
 		{
-			\dash\notif::error(T_("Category id not set"));
+			\dash\notif::error(T_("Tag id not set"));
 			return false;
 		}
 

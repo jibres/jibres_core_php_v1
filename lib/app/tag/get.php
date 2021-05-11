@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\category;
+namespace lib\app\tag;
 
 
 class get
@@ -66,7 +66,7 @@ class get
 
 		$load['count'] = \lib\db\productcategory\get::get_count_product($_id);
 
-		$load = \lib\app\category\ready::row($load);
+		$load = \lib\app\tag\ready::row($load);
 		return $load;
 	}
 
@@ -118,7 +118,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\app\category\ready::row($load);
+		$load = \lib\app\tag\ready::row($load);
 
 		if(isset($load['full_slug']) && $load['full_slug'] === $url)
 		{

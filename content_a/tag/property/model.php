@@ -15,7 +15,7 @@ class model
 			\dash\session::set('fill_category_property', $post['cat'], null, 60);
 
 			$post['key'] = \dash\request::post('key');
-			\lib\app\category\add::property($post, $id);
+			\lib\app\tag\add::property($post, $id);
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::pwd();
@@ -27,7 +27,7 @@ class model
 
 		if(\dash\request::post('remove') === 'remove')
 		{
-			\lib\app\category\add::remove_property(\dash\request::post('index'), $id);
+			\lib\app\tag\add::remove_property(\dash\request::post('index'), $id);
 
 			if(\dash\engine\process::status())
 			{

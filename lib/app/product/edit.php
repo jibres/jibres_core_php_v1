@@ -182,7 +182,7 @@ class edit
 
 		if(array_key_exists('tag', $args))
 		{
-			\lib\app\category\add::product_cat($args['tag'], $id);
+			\lib\app\tag\add::product_cat($args['tag'], $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;

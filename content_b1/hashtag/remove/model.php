@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tags\remove;
+namespace content_b1\hashtag\remove;
 
 
 class model

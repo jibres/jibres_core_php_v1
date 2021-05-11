@@ -14,7 +14,7 @@ class view
 
 		if(!\dash\data::dataRow())
 		{
-			$myCategoryList = \lib\app\category\search::list(null, ['showonwebsite' => 1]);
+			$myCategoryList = \lib\app\tag\search::list(null, ['showonwebsite' => 1]);
 
 			\dash\data::categoryDataTable($myCategoryList);
 		}

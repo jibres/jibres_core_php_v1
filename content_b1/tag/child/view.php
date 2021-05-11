@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\category\child;
+namespace content_b1\tag\child;
 
 
 class view
@@ -8,7 +8,7 @@ class view
 	public static function config()
 	{
 		$id = \dash\request::get('id');
-		$list = \lib\app\category\search::list_child($id, \dash\request::get('q'));
+		$list = \lib\app\tag\search::list_child($id, \dash\request::get('q'));
 
 		if(!is_array($list))
 		{

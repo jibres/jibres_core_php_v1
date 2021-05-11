@@ -197,7 +197,7 @@ class add
 
 		if($my_tag)
 		{
-			\lib\app\category\add::product_cat($my_tag, $product_id);
+			\lib\app\tag\add::product_cat($my_tag, $product_id);
 
 			if(!\dash\engine\process::status())
 			{
@@ -353,7 +353,6 @@ class add
 				case 'buyprice':
 				case 'seodesc':
 				case 'desc':
-				case 'cat_id':
 				case 'unit_id':
 				case 'salestep':
 				case 'minstock':

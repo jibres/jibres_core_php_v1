@@ -21,8 +21,8 @@ class view
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 
-		$category_list = \lib\app\category\search::list(null, ['pagination' => false]);
-		\dash\data::listCategory($category_list);
+		$category_list = \lib\app\tag\search::list(null, ['pagination' => false]);
+		\dash\data::listProductTag($category_list);
 
 
 		\content_a\products\edit\view::product_ratio();

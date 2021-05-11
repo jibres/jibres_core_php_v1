@@ -1,15 +1,12 @@
 <?php
-namespace content_b1\category\edit;
+namespace content_b1\tag\add;
 
 
 class model
 {
 
-	public static function put()
+	public static function post()
 	{
-		$id = \dash\request::get('id');
-		$id = \dash\validate::id($id);
-
 		$args             = [];
 		$args['title']    = \dash\request::input_body('title');
 		$args['slug']     = \dash\request::input_body('slug');
@@ -18,9 +15,7 @@ class model
 		$args['seotitle'] = \dash\request::input_body('seotitle');
 		$args['seodesc']  = \dash\request::input_body('seodesc');
 
-		$property  = \dash\request::input_body('property');
-
-		$result = \lib\app\category\edit::edit($args, $id, $property);
+		$result = \lib\app\tag\add::add($args);
 
 		\content_b1\tools::say($result);
 	}
