@@ -74,7 +74,7 @@ class add
 
 		if(!$_multiple)
 		{
-			\dash\utility\sitemap::tags($term_id);
+			\dash\utility\sitemap::hashtag($term_id);
 		}
 
 		return $return;

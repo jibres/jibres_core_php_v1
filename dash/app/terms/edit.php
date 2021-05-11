@@ -37,7 +37,7 @@ class edit
 				\lib\app\menu\update::tag($id, true);
 			}
 
-			\dash\utility\sitemap::tags($id);
+			\dash\utility\sitemap::hashtag($id);
 
 			\dash\notif::ok(T_("Tag successfully updated"));
 		}

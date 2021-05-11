@@ -43,4 +43,13 @@
 			</div>
 		</a>
 	</div>
+
+	<div class="c4 s12">
+		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/business/sitemap'>
+			<div class="statistic blue">
+				<div class="value"><i class="sf-sitemap"></i></div>
+				<div class="label"><?php echo T_("Update all business sitemap"); ?></div>
+			</div>
+		</a>
+	</div>
 </div>
