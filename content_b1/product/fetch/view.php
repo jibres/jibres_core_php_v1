@@ -12,10 +12,10 @@ class view
 			'sort'   => \dash\request::get('sort'),
 		];
 
-		$category = \dash\request::get('category');
-		if($category)
+		$tag = \dash\request::get('tag');
+		if($tag)
 		{
-			$args['cat_id'] = $category;
+			$args['tag_id'] = $tag;
 		}
 
 		$search_query = \dash\request::get('q');

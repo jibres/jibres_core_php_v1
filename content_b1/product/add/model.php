@@ -44,7 +44,7 @@ class model
 		if(\dash\request::isset_input_body('salestep')) 		$post['salestep']     = \dash\request::input_body('salestep');
 		if(\dash\request::isset_input_body('oversale')) 		$post['oversale']     = \dash\request::input_body('oversale');
 		if(\dash\request::isset_input_body('unit')) 			$post['unit']         = \dash\request::input_body('unit');
-		if(\dash\request::isset_input_body('cat')) 				$post['cat_id']       = \dash\request::input_body('cat');
+		if(\dash\request::isset_input_body('tag')) 				$post['tag_id']       = \dash\request::input_body('tag');
 		if(\dash\request::isset_input_body('minstock')) 		$post['minstock']     = \dash\request::input_body('minstock');
 		if(\dash\request::isset_input_body('maxstock')) 		$post['maxstock']     = \dash\request::input_body('maxstock');
 		if(\dash\request::isset_input_body('length')) 			$post['length']       = \dash\request::input_body('length');
