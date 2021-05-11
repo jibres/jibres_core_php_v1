@@ -223,28 +223,28 @@ class property
 
 		if($cat_list)
 		{
-			$cat_list = array_map(['\\lib\\app\\category\\ready', 'row'], $cat_list);
+			$cat_list = array_map(['\\lib\\app\\tag\\ready', 'row'], $cat_list);
 
 			$cat_url = null;
 			$cat_html = [];
-			foreach ($cat_list as $category)
+			foreach ($cat_list as $tag)
 			{
 				if(\dash\url::content() === 'a')
 				{
-					$cat_url = \dash\url::here(). '/category/edit?id='. a($category, 'productcategory_id');
+					$cat_url = \dash\url::here(). '/tag/edit?id='. a($tag, 'productcategory_id');
 				}
 				else
 				{
-					$cat_url = $category['url'];
+					$cat_url = $tag['url'];
 				}
 
-				$cat_html[] = '<a href="'.$cat_url .'">'. $category['title']. '</a>';
+				$cat_html[] = '<a href="'.$cat_url .'">'. $tag['title']. '</a>';
 
 			}
 
 			if($cat_html)
 			{
-				array_push($result[T_("General property")]['list'], ['key' => T_("Category"), 'value' => implode(T_(","). ' ' , $cat_html)]);
+				array_push($result[T_("General property")]['list'], ['key' => T_("Tag"), 'value' => implode(T_(","). ' ' , $cat_html)]);
 			}
 		}
 
@@ -381,10 +381,10 @@ class property
 					$all_category_property = [];
 					foreach ($load_multi_category_property as $value)
 					{
-						$category_property = json_decode($value, true);
-						if(is_array($category_property))
+						$tag_property = json_decode($value, true);
+						if(is_array($tag_property))
 						{
-							$all_category_property = array_merge($all_category_property, $category_property);
+							$all_category_property = array_merge($all_category_property, $tag_property);
 						}
 					}
 
@@ -486,7 +486,7 @@ class property
 			$parent_id = $load['parent'];
 		}
 
-		$category_property = [];
+		$tag_property = [];
 
 		if(isset($load['cat_id']) && $load['cat_id'])
 		{
@@ -498,7 +498,7 @@ class property
 				{
 					if(isset($value['properties']) && is_array($value['properties']))
 					{
-						$category_property = array_merge($category_property, $value['properties']);
+						$tag_property = array_merge($tag_property, $value['properties']);
 					}
 				}
 			}
@@ -507,14 +507,14 @@ class property
 
 			if(isset($load_cat['properties']) && $load_cat['properties'] && is_array($load_cat['properties']))
 			{
-				$category_property = array_merge($category_property, $load_cat['properties']);
+				$tag_property = array_merge($tag_property, $load_cat['properties']);
 			}
 
 		}
 
 		$result = [];
 
-		foreach ($category_property as $value)
+		foreach ($tag_property as $value)
 		{
 			$temp = [];
 			$group = null;
