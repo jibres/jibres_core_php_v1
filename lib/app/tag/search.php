@@ -160,7 +160,7 @@ class search
 			$order_sort = " ORDER BY productcategory.sort ASC";
 		}
 
-		$and[] = " productcategory.status != 'deleted' ";
+		$and[] = " (productcategory.status != 'deleted' OR productcategory.status IS NULL) ";
 
 		$list = \lib\db\productcategory\search::list($and, $or, $order_sort, $meta);
 
