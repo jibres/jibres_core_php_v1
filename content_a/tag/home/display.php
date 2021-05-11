@@ -154,8 +154,8 @@ if(!is_array($dataTable))
 
 <div class="fs14 msg info2 pTB20">
   <p><?php echo T_("Hi!"); ?></p>
-  <p><?php echo T_("No category founded."); ?> </p>
-  <p><a href="<?php echo \dash\url::that(); ?>/add"><?php echo T_("Try to start with add new category!"); ?></a></p>
+  <p><?php echo T_("No tag founded."); ?> </p>
+  <p><a href="<?php echo \dash\url::that(); ?>/add"><?php echo T_("Try to start with add new tag!"); ?></a></p>
 
 </div>
 

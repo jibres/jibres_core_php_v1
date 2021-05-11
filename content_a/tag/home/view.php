@@ -30,13 +30,13 @@ class view
 		$search_string = \dash\request::get('q');
 
 		// work with category list
-		$myCategoryList = \lib\app\category\search::list($search_string, $args);
+		$myCategoryList = \lib\app\tag\search::list($search_string, $args);
 
 		\dash\data::dataTable($myCategoryList);
 
-		\dash\data::filterBox(\lib\app\category\search::filter_message());
+		\dash\data::filterBox(\lib\app\tag\search::filter_message());
 
-		$isFiltered = \lib\app\category\search::is_filtered();
+		$isFiltered = \lib\app\tag\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 

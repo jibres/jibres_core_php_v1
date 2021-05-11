@@ -13,7 +13,7 @@ class model
 		// 	$post        = [];
 		// 	$post['cat'] = \dash\request::post('cat');
 		// 	$post['key'] = \dash\request::post('key');
-		// 	\lib\app\category\add::property($post, \dash\request::get('id'));
+		// 	\lib\app\tag\add::property($post, \dash\request::get('id'));
 		// 	if(\dash\engine\process::status())
 		// 	{
 		// 		\dash\redirect::pwd();
@@ -26,7 +26,7 @@ class model
 
 		if(\dash\request::post('delete') === 'delete')
 		{
-			\lib\app\category\remove::remove($id);
+			\lib\app\tag\remove::remove($id);
 
 			if(\dash\engine\process::status())
 			{
@@ -37,11 +37,11 @@ class model
 
 		if(\dash\request::post('deletefile'))
 		{
-			\lib\app\category\remove::remove_file($id);
+			\lib\app\tag\remove::remove_file($id);
 
 			if(\dash\engine\process::status())
 			{
-				\dash\notif::ok(T_("Category file deleted"));
+				\dash\notif::ok(T_("Tag file deleted"));
 				\dash\redirect::pwd();
 			}
 			return;
@@ -63,13 +63,13 @@ class model
 			$args['file'] = $file;
 		}
 
-		$result = \lib\app\category\edit::edit($args, $id);
+		$result = \lib\app\tag\edit::edit($args, $id);
 
 		$add_product_id = \dash\request::post('add_product_id');
 
 		if($add_product_id)
 		{
-			\lib\app\category\add::product_cat_plus(\dash\request::get('id'), $add_product_id);
+			\lib\app\tag\add::product_cat_plus(\dash\request::get('id'), $add_product_id);
 		}
 
 		if(\dash\engine\process::status())
