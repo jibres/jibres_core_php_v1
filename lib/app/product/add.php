@@ -143,16 +143,16 @@ class add
 			}
 		}
 
-		$my_cat = [];
-		if(array_key_exists('cat', $args))
+		$my_tag = [];
+		if(array_key_exists('tag', $args))
 		{
-			if($args['cat'])
+			if($args['tag'])
 			{
-				$my_cat = $args['cat'];
+				$my_tag = $args['tag'];
 			}
 		}
 
-		unset($args['cat']);
+		unset($args['tag']);
 
 		$stock = null;
 		if($args['stock'])
@@ -195,9 +195,9 @@ class add
 
 
 
-		if($my_cat)
+		if($my_tag)
 		{
-			\lib\app\category\add::product_cat($my_cat, $product_id);
+			\lib\app\category\add::product_cat($my_tag, $product_id);
 
 			if(!\dash\engine\process::status())
 			{

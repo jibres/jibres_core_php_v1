@@ -180,16 +180,16 @@ class edit
 			}
 		}
 
-		if(array_key_exists('cat', $args))
+		if(array_key_exists('tag', $args))
 		{
-			\lib\app\category\add::product_cat($args['cat'], $id);
+			\lib\app\category\add::product_cat($args['tag'], $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;
 			}
 		}
 
-		unset($args['cat']);
+		unset($args['tag']);
 
 		if(isset($args['type']))
 		{

@@ -21,7 +21,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/shipping?id=<?php echo a($productDataRow,'id'); ?>">
-            <i class="sf-flight"></i>
+            <i class="sf-plane-airport"></i>
             <div class="key"><?php echo T_("Shipping"); ?></div>
             <div class="value"><?php if(a($productDataRow,'weight')) { echo \dash\fit::number(a($productDataRow,'weight')). ' '. a($storData,'mass_detail','name'); }?></div>
             <div class="go"></div>

@@ -35,7 +35,7 @@ class search
 			'price'       => 'price',
 			'buyprice'    => 'price',
 			'discount'    => 'price',
-			'cat_id'      => 'id',
+			'tag_id'      => 'id',
 			'unit_id'     => 'id',
 
 			'dup'         => 'bit',
@@ -112,10 +112,10 @@ class search
 			self::$is_filtered        = true;
 		}
 
-		if($data['cat_id'])
+		if($data['tag_id'])
 		{
 
-			$and[]   = " productcategoryusage.productcategory_id =  $data[cat_id] ";
+			$and[]   = " productcategoryusage.productcategory_id =  $data[tag_id] ";
 			$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 			$type = 'catusage';
 			self::$filter_args['cat'] = '*'. T_('Category');
@@ -639,7 +639,7 @@ class search
 	public static function website_product_list($_option = null)
 	{
 		$type   = null;
-		$cat_id = null;
+		$tag_id = null;
 
 
 		if(isset($_option['value']['productline']['type']))
@@ -647,9 +647,9 @@ class search
 			$type = $_option['value']['productline']['type'];
 		}
 
-		if(isset($_option['value']['productline']['cat_id']))
+		if(isset($_option['value']['productline']['tag_id']))
 		{
-			$cat_id = $_option['value']['productline']['cat_id'];
+			$tag_id = $_option['value']['productline']['tag_id'];
 		}
 
 		$meta =
@@ -668,9 +668,9 @@ class search
 		$and[] = " products.parent IS NULL ";
 
 
-		if($cat_id)
+		if($tag_id)
 		{
-			$and[]  = " productcategoryusage.productcategory_id =  $cat_id ";
+			$and[]  = " productcategoryusage.productcategory_id =  $tag_id ";
 			$meta['join'][] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 		}
 

@@ -49,10 +49,10 @@
     <div class="pad">
       <div class="mB10">
         <div class="row align-center">
-          <div class="c"><label for='cat'><?php echo T_("Category"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
-        <select name="cat[]" id="cat" class="select22" data-model="tag" multiple="multiple">
+        <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
           <?php foreach (\dash\data::listCategory() as $key => $value) {?>
             <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['title'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
           <?php } //endfor ?>

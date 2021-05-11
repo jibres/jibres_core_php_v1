@@ -72,8 +72,8 @@ class check
 			'price'           => 'price',
 			'discount'        => 'price',
 			'vat'             => 'bit',
-			'cat'             => 'tag',
-			'cat_id'          => 'int',
+			'tag'             => 'tag',
+			'tag_id'          => 'int',
 			'unit'            => 'string_50', // in add manual user send the unit
 			'unit_id'         => 'id', // in add by variant we have the unit id
 		];
