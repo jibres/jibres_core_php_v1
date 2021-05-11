@@ -161,7 +161,7 @@ class template
 		$myUrl = \dash\url::directory();
 		$myUrl = \dash\url::urlfilterer($myUrl);
 
-		if(substr($myUrl, 0, 5) === 'hashtag/')
+		if(substr($myUrl, 0, 8) === 'hashtag/')
 		{
 			$myUrl = substr($myUrl, 8);
 		}

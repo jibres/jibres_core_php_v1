@@ -14,7 +14,7 @@ class view
 				'tag_id'       => \dash\data::dataRow_id(),
 			];
 
-			$myProductList = \lib\app\product\search::variant_list(null, $args);
+			$myProductList = \dash\app\posts\search::list(null, $args);
 			\dash\data::myProductList($myProductList);
 		}
 	}
