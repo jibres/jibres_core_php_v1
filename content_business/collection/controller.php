@@ -6,7 +6,14 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\redirect::to(\dash\url::kingdom(). '/tag');
+		$url = \dash\url::kingdom(). '/tag';
+
+		if(\dash\url::child())
+		{
+			$url .= '/'. \dash\url::child();
+		}
+
+		\dash\redirect::to($url);
 
 	}
 }
