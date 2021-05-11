@@ -19,8 +19,8 @@ $addChildMode = \dash\data::addChildMode();
             <option value="homepage" <?php if(\dash\data::dataRow_pointer() === 'homepage') {echo 'selected';} ?>><?php echo T_("Home page") ?></option>
             <option value="products" <?php if(\dash\data::dataRow_pointer() === 'products') {echo 'selected';} ?>><?php echo T_("Products") ?></option>
             <option value="posts" <?php if(\dash\data::dataRow_pointer() === 'posts') {echo 'selected';} ?>><?php echo T_("Posts") ?></option>
-            <option value="tags" <?php if(\dash\data::dataRow_pointer() === 'tags') {echo 'selected';} ?>><?php echo T_("Tag of posts") ?></option>
-            <option value="hashtag" <?php if(\dash\data::dataRow_pointer() === 'hashtag') {echo 'selected';} ?>><?php echo T_("Hashtag of products") ?></option>
+            <option value="tags" <?php if(\dash\data::dataRow_pointer() === 'tags') {echo 'selected';} ?>><?php echo T_("Tag of products") ?></option>
+            <option value="hashtag" <?php if(\dash\data::dataRow_pointer() === 'hashtag') {echo 'selected';} ?>><?php echo T_("Hashtag of posts") ?></option>
             <option value="forms" <?php if(\dash\data::dataRow_pointer() === 'forms') {echo 'selected';} ?>><?php echo T_("Forms") ?></option>
             <option value="socialnetwork" <?php if(\dash\data::dataRow_pointer() === 'socialnetwork') {echo 'selected';} ?>><?php echo T_("Social network") ?></option>
             <option value="other" <?php if(\dash\data::dataRow_pointer() === 'other') {echo 'selected';} ?>><?php echo T_("Something else") ?></option>

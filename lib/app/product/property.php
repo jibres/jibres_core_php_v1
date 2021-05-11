@@ -322,7 +322,7 @@ class property
 					}
 					else
 					{
-						$tag_url = \lib\store::url(). '/hashtag/'. $value['slug'];
+						$tag_url = \lib\store::url(). '/tag/'. $value['slug'];
 					}
 
 					$tag_html[] = '<a href="'.$tag_url .'">#'. $value['slug']. '</a>';
