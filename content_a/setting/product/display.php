@@ -11,7 +11,7 @@
       <nav class="items">
         <ul>
 
-          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/category"><div class="key"><?php echo T_("Categories of Product"); ?></div><div class="go"></div></a></li><?php } //endif ?>
+          <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/tag"><div class="key"><?php echo T_("Tag of products"); ?></div><div class="go"></div></a></li><?php } //endif ?>
           <?php if(\dash\permission::check('_group_products')) {?><li><a class="f" href="<?php echo $urlHere; ?>/units"><div class="key"><?php echo T_("Product Units"); ?></div><div class="go"></div></a></li><?php } //endif ?>
         </ul>
       </nav>

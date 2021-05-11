@@ -1,16 +1,16 @@
 <?php
-namespace content_a\category\home;
+namespace content_a\tag\home;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Product categories'));
+		\dash\face::title(T_('Product Tags'));
 
 
 		if(\dash\permission::check('manageProductCategory'))
 		{
-			\dash\data::action_text(T_('Add new category'));
+			\dash\data::action_text(T_('Add new tag'));
 			\dash\data::action_icon('plus');
 			\dash\data::action_link(\dash\url::this(). '/add');
 		}

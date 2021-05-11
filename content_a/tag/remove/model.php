@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\remove;
+namespace content_a\tag\remove;
 
 
 class model
@@ -19,7 +19,7 @@ class model
 			$wd = \dash\validate::enum($wd, false, ['enum' => ['wdn', 'wde']]);
 			if(!$wd)
 			{
-				\dash\notif::error(T_("This category used in some product. Please specify what you want to do with these products. Do you want to delete this category from them or select a new category for them?"), ['alerty' => true]);
+				\dash\notif::error(T_("This tag used in some product. Please specify what you want to do with these products. Do you want to delete this tag from them or select a new tag for them?"), ['alerty' => true]);
 				return false;
 			}
 
@@ -31,7 +31,7 @@ class model
 				$cat_id = \dash\validate::id($cat_id, false);
 				if(!$cat_id)
 				{
-					\dash\notif::error(T_("Please choose new category"), 'catid');
+					\dash\notif::error(T_("Please choose new tag"), 'catid');
 					return false;
 				}
 			}

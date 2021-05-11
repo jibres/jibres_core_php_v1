@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\remove;
+namespace content_a\tag\remove;
 
 class controller
 {
@@ -11,7 +11,7 @@ class controller
 
 		if(!$dataRow)
 		{
-			\dash\header::status(404, T_("Invalid category id"));
+			\dash\header::status(404, T_("Invalid tag id"));
 		}
 
 	}

@@ -28,7 +28,7 @@ class view
 			[
 				'order'        => \dash\request::get('order'),
 				'sort'         => \dash\request::get('sort'),
-				'cat_id'       => \dash\data::dataRow_id(),
+				'tag_id'       => \dash\data::dataRow_id(),
 				'limit'        => 50,
 			];
 

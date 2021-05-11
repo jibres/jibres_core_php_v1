@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\property;
+namespace content_a\tag\property;
 
 
 class model

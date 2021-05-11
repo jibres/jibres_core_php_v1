@@ -3,9 +3,9 @@
 		<div class="box">
 			<div class="body">
 
-				<label for="icatname"><?php echo T_("Title"); ?></label>
+				<label for="itagname"><?php echo T_("Title"); ?></label>
 				<div class="input">
-					<input type="text" name="cat" id="icatname" placeholder='<?php echo T_("Category name"); ?>'  <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
+					<input type="text" name="tag" id="itagname" placeholder='<?php echo T_("Tag name"); ?>'  <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
 				</div>
 			</div>
 			<footer class="txtRa">

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\edit;
+namespace content_a\tag\edit;
 
 
 class model

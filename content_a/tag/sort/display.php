@@ -5,7 +5,7 @@ if(!is_array($dataTable))
   $dataTable = [];
 }
 ?>
-<div class="msg fs14"><?php echo T_("Select any of the categories you want and move them to sort") ?></div>
+<div class="msg fs14"><?php echo T_("Select any of the tags you want and move them to sort") ?></div>
 <form method="post" data-sortable data-ratio='16x9' data-willy class="ltr">
 <?php foreach ($dataTable as $key => $value) {?>
 <?php $loopTitle = a($value, 'title'); ?>

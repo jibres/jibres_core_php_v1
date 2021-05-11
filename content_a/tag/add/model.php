@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\add;
+namespace content_a\tag\add;
 
 
 class model
@@ -7,7 +7,7 @@ class model
 	public static function post()
 	{
 		$args           = [];
-		$args['title']  = \dash\request::post('cat');
+		$args['title']  = \dash\request::post('tag');
 
 		$result = \lib\app\category\add::add($args);
 

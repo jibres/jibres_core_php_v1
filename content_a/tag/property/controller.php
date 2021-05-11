@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\edit;
+namespace content_a\tag\property;
 
 class controller
 {
@@ -11,10 +11,8 @@ class controller
 
 		if(!$dataRow)
 		{
-			\dash\header::status(404, T_("Invalid category id"));
+			\dash\header::status(404, T_("Invalid tag id"));
 		}
-
-		\dash\allow::file();
 
 	}
 }

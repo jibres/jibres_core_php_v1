@@ -1,11 +1,11 @@
 <?php
-namespace content_a\category\remove;
+namespace content_a\tag\remove;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Remove category'));
+		\dash\face::title(T_('Remove tag'));
 
 		if(\dash\data::dataRow_title())
 		{

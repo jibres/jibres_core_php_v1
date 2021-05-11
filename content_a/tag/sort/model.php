@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\sort;
+namespace content_a\tag\sort;
 
 class model
 {

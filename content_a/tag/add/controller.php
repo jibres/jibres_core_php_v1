@@ -1,5 +1,5 @@
 <?php
-namespace content_a\category\add;
+namespace content_a\tag\add;
 
 class controller
 {
