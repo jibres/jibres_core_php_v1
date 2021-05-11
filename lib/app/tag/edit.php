@@ -108,6 +108,8 @@ class edit
 
 				if($update)
 				{
+					// create sitemap
+					\dash\utility\sitemap::tag($_id);
 
 					\dash\log::set('productCategoryUpdated', ['old' => $get_category, 'change' => $args]);
 					\dash\notif::ok(T_("The category successfully updated"));

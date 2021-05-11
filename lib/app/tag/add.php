@@ -272,6 +272,8 @@ class add
 
 		\dash\notif::ok(T_("Category successfully added"));
 
+		// create sitemap
+		\dash\utility\sitemap::tag($id);
 
 		$result       = [];
 		$result['id'] = $id;
