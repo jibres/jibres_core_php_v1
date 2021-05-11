@@ -29,7 +29,7 @@ class dropdown
 
 		foreach ($resultRawTag as $key => $value)
 		{
-			$edit_link = \dash\url::kingdom(). '/cms/tag/edit?id='. a($value, 'id');
+			$edit_link = \dash\url::kingdom(). '/cms/hashtag/edit?id='. a($value, 'id');
 			$result['results'][] = self::getNeededFieldLink($value, T_("Tag"), $edit_link);
 		}
 

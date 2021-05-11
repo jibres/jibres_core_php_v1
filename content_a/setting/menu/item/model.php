@@ -41,6 +41,7 @@ class model
 			'product_id'    => \dash\request::post('product_id'),
 			'post_id'       => \dash\request::post('post_id'),
 			'tag_id'        => \dash\request::post('tag_id'),
+			'hashtag_id'        => \dash\request::post('hashtag_id'),
 			'socialnetwork' => \dash\request::post('socialnetwork'),
 			'hashtag_id'    => \dash\request::post('hashtag_id'),
 			'form_id'       => \dash\request::post('form_id'),

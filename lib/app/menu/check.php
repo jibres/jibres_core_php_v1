@@ -23,9 +23,9 @@ class check
 			'product_id'    => 'id',
 			'post_id'       => 'code',
 			'form_id'       => 'id',
-			'tag_id'        => 'code',
+			'tag_id'        => 'id',
 			'socialnetwork' => 'socialnetwork',
-			'hashtag_id'    => 'id',
+			'hashtag_id'    => 'code',
 			'form_id'       => 'id',
 		];
 
@@ -195,10 +195,34 @@ class check
 					return false;
 				}
 
-				$load_tag = \dash\app\terms\get::get($data['tag_id']);
+				$load_tag = \lib\app\tag\get::get($data['tag_id']);
 				if(!isset($load_tag['id']))
 				{
-					\dash\notif::error(T_("Invalid tag id"));
+					\dash\notif::error(T_("Invalid hashtag id"));
+					return false;
+				}
+				$data['related_id'] = $load_tag['id'];
+
+				if(isset($load_tag['link']))
+				{
+					$data['url'] = $load_tag['link'];
+				}
+
+				break;
+
+
+
+			case 'hashtag':
+				if(!$data['hashtag_id'])
+				{
+					\dash\notif::error(T_("Please choose a tag"));
+					return false;
+				}
+
+				$load_tag = \dash\app\terms\get::get($data['hashtag_id']);
+				if(!isset($load_tag['id']))
+				{
+					\dash\notif::error(T_("Invalid hashtag id"));
 					return false;
 				}
 				$data['related_id'] = \dash\coding::decode($load_tag['id']);

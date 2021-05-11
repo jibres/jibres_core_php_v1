@@ -52,11 +52,18 @@ $addChildMode = \dash\data::addChildMode();
             </select>
         </div>
 
-
-       <div data-response='pointer' data-response-where='tags' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
-          <select name="tag_id" class="select22" id="tagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in tags"); ?>'>
+         <div data-response='pointer' data-response-where='tags' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
+          <select name="tag_id" class="select22" id="tagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in tag"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
-              <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::tagTitle() ?></option>
+              <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::tagTitle() ?></option>
+            <?php } //endif ?>
+            </select>
+        </div>
+
+       <div data-response='pointer' data-response-where='hashtag' <?php if(\dash\data::dataRow_pointer() === 'hashtag'){}else{ echo 'data-response-hide';} ?>>
+          <select name="hashtag_id" class="select22" id="hashtagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/hashtag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in hashtag"); ?>'>
+            <?php if(\dash\data::dataRow_related_id()) {?>
+              <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::hashtagTitle() ?></option>
             <?php } //endif ?>
             </select>
         </div>
