@@ -5,6 +5,20 @@ namespace lib\app\tag;
 class get
 {
 
+	public static function sitemap_list($_from, $_to)
+	{
+		$list = \lib\db\productcategory\get::sitemap_list($_from, $_to);
+
+		if(!is_array($list))
+		{
+			return false;
+		}
+
+		$list = array_map(['\\lib\\app\\tag\\ready', 'row'], $list);
+
+		return $list;
+	}
+
 	public static function all_category()
 	{
 		$result = \lib\db\productcategory\get::all_category();

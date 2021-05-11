@@ -502,14 +502,14 @@ class sitemap
 		return self::make('posts', $_id, 'link', '\\dash\\app\\posts\\get');
 	}
 
-	public static function tags($_id)
-	{
-		return self::make('tags', $_id, 'link', '\\dash\\app\\terms\\get');
-	}
-
 	public static function hashtag($_id)
 	{
-		return self::make('hashtag', $_id, 'link', '\\lib\\app\\tag\\get');
+		return self::make('hashtag', $_id, 'link', '\\dash\\app\\terms\\get');
+	}
+
+	public static function tags($_id)
+	{
+		return self::make('tags', $_id, 'url', '\\lib\\app\\tag\\get');
 	}
 
 	public static function forms($_id)

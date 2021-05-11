@@ -4,6 +4,26 @@ namespace lib\db\productcategory;
 
 class get
 {
+
+	public static function sitemap_list($_from, $_to)
+	{
+		$query  =
+		"
+			SELECT
+				productcategory.id,
+				productcategory.title,
+				productcategory.slug,
+				productcategory.datecreated AS `datemodified`
+			FROM
+				productcategory
+			WHERE
+				productcategory.id >= $_from AND
+				productcategory.id < $_to
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function check_duplicate_title($_title)
 	{
 		$query  = "SELECT * FROM productcategory WHERE productcategory.title = '$_title'  LIMIT 1";
