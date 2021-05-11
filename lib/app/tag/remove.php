@@ -22,7 +22,7 @@ class remove
 
 		if(!isset($load['id']))
 		{
-			\dash\notif::error(T_("Invalid category id"));
+			\dash\notif::error(T_("Invalid tag id"));
 			return false;
 		}
 
@@ -37,13 +37,13 @@ class remove
 
 		if(isset($_action['type']) && $_action['type'] === 'select_new_category')
 		{
-			if(isset($_action['new_cat_id']))
+			if(isset($_action['new_tag_id']))
 			{
-				$load_new = \lib\app\tag\get::inline_get($_action['new_cat_id']);
+				$load_new = \lib\app\tag\get::inline_get($_action['new_tag_id']);
 
 				if(!isset($load_new['id']))
 				{
-					\dash\notif::error(T_("Invalid category id"));
+					\dash\notif::error(T_("Invalid tag id"));
 					return false;
 				}
 
@@ -51,7 +51,7 @@ class remove
 			}
 			else
 			{
-				\dash\notif::error(T_("Please select one category"));
+				\dash\notif::error(T_("Please select one tag"));
 				return false;
 			}
 		}
@@ -78,13 +78,13 @@ class remove
 
 		if(!isset($load['id']))
 		{
-			\dash\notif::error(T_("Invalid category id"));
+			\dash\notif::error(T_("Invalid tag id"));
 			return false;
 		}
 
 		if(isset($load['count']) && $load['count'])
 		{
-			\dash\notif::error(T_("Some product save by this category and you can not remove it"));
+			\dash\notif::error(T_("Some product save by this tag and you can not remove it"));
 			return false;
 		}
 

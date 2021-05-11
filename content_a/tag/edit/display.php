@@ -12,7 +12,7 @@
            <div class="switch1 mT10">
               <input type="checkbox" name="showonwebsite" id="showonwebsite"  <?php if(\dash\data::dataRow_showonwebsite()) {echo 'checked';}?> >
               <label for="showonwebsite" data-on="<?php echo T_("Yes") ?>" data-off="<?php echo T_("No") ?>"></label>
-              <label for="showonwebsite"><?php echo T_("Is displayed on the site tags screen?"); ?> <small><a target="_blank" href="<?php echo \lib\store::url(). '/collection'; ?>"><?php echo T_("Show tag page") ?></a></small></label>
+              <label for="showonwebsite"><?php echo T_("Is displayed on the site tags screen?"); ?> <small><a target="_blank" href="<?php echo \lib\store::url(). '/tag'; ?>"><?php echo T_("Show tag page") ?></a></small></label>
             </div>
         </div>
       </section>
@@ -56,7 +56,7 @@
         </div>
       </section>
 
-      <section class="box">
+      <section class="hide">
       <div class="pad mB50">
         <label for="productid"><?php echo T_("Choose product to add product to this Tag"); ?></label>
         <div>
