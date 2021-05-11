@@ -36,7 +36,6 @@ class search
 			'parent'       => 'string_100',
 			'language'     => 'language',
 			'limit'        => 'int',
-			'cat_id'       => 'code',
 			'tag_id'       => 'code',
 			'website_mode' => 'bit',
 			'pagination'   => 'y_n',

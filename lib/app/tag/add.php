@@ -175,7 +175,7 @@ class add
 		$_id = \dash\validate::id($_id);
 		if(!$_id || !is_numeric($_id))
 		{
-			\dash\notif::error(T_("Invalid category id"));
+			\dash\notif::error(T_("Invalid tag id"));
 			return false;
 		}
 
@@ -186,7 +186,7 @@ class add
 
 		if(!isset($get_category['id']))
 		{
-			\dash\notif::error(T_("Invalid category id"), 'category');
+			\dash\notif::error(T_("Invalid tag id"), 'tag');
 			return false;
 		}
 
@@ -280,7 +280,7 @@ class add
 
 
 
-	public static function product_cat_plus($_cat_id, $_product_id)
+	public static function product_cat_plus($_tag_id, $_product_id)
 	{
 		$product_detail = \lib\app\product\get::get($_product_id);
 		if(!$product_detail)
@@ -288,25 +288,25 @@ class add
 			return false;
 		}
 
-		$load_cat = \lib\app\tag\get::get($_cat_id);
+		$load_cat = \lib\app\tag\get::get($_tag_id);
 		if(!$load_cat)
 		{
 			return false;
 		}
 
 
-		$check_product_have_cat = \lib\db\productcategoryusage\get::check_product_have_cat($_product_id, $_cat_id);
+		$check_product_have_cat = \lib\db\productcategoryusage\get::check_product_have_cat($_product_id, $_tag_id);
 
 		if($check_product_have_cat)
 		{
-			\dash\notif::warn(T_("This product have this category"));
+			\dash\notif::warn(T_("This product have this tag"));
 			return true;
 		}
 		else
 		{
 			$insert =
 			[
-				'productcategory_id' => $_cat_id,
+				'productcategory_id' => $_tag_id,
 				'product_id'         => $_product_id,
 			];
 			\lib\db\productcategoryusage\insert::new_record($insert);

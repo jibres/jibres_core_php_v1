@@ -60,7 +60,6 @@ class ready
 					}
 					break;
 
-				case 'cat_id':
 				case 'unit_id':
 					$result[$key] = $value;
 					break;
