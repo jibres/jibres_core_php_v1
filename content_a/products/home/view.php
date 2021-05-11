@@ -33,7 +33,7 @@ class view
 			// 'buyprice'     => \dash\request::get('buyprice'),
 			// 'cat'          => \dash\request::get('cat'),
 			'cat_id'       => \dash\request::get('catid') ? \dash\request::get('catid') : null,
-			'tag_id'       => \dash\request::get('tagid') ? \dash\request::get('tagid') : null,
+
 			// 'discount'     => \dash\request::get('discount'),
 			'unit_id'      => \dash\request::get('unitid') ? \dash\request::get('unitid') : null,
 		];
@@ -104,11 +104,6 @@ class view
 		$category_list = \lib\app\category\get::all_category();
 		$category_list = array_reverse($category_list);
 		\dash\data::listCategory($category_list);
-
-		$all_tag = \lib\app\tag\get::all_tag();
-		\dash\data::allTagList($all_tag);
-
-
 
 	}
 }

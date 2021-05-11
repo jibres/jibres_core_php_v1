@@ -82,22 +82,6 @@ function BoxProductFilter()
         </div>
       </div>
 
-      <div class="row align-center">
-          <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-        </div>
-      <div>
-         <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one tag") ?>">
-          <?php if(\dash\request::get('tagid')) {?>
-            <option value="0"><?php echo T_("None") ?></option>
-          <?php }else{?>
-            <option value="" readonly></option>
-          <?php } //endif ?>
-          <?php foreach (\dash\data::allTagList() as $key => $value) {?>
-            <option value="<?php echo $value['id']; ?>" <?php if(\dash\request::get('tagid') === $value['id']){echo 'selected';} ?>><?php echo $value['title']; ?></option>
-          <?php } //endfor ?>
-        </select>
-      </div>
 
        <div class="mB10">
         <div class="row align-center">

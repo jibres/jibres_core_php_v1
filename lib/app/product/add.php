@@ -143,7 +143,6 @@ class add
 			}
 		}
 
-
 		$my_cat = [];
 		if(array_key_exists('cat', $args))
 		{
@@ -151,20 +150,8 @@ class add
 			{
 				$my_cat = $args['cat'];
 			}
-
 		}
 
-		$my_tag = [];
-		if(array_key_exists('tag', $args))
-		{
-			if($args['tag'])
-			{
-				$my_tag = $args['tag'];
-			}
-
-		}
-
-		unset($args['tag']);
 		unset($args['cat']);
 
 		$stock = null;
@@ -204,17 +191,6 @@ class add
 			}
 
 			return false;
-		}
-
-
-
-		if($my_tag)
-		{
-			\lib\app\tag\add::product_add($my_tag, $product_id);
-			if(!\dash\engine\process::status())
-			{
-				return false;
-			}
 		}
 
 

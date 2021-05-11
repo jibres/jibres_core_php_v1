@@ -36,16 +36,6 @@ class update
 			return $is_used;
 		}
 
-		if($is_used)
-		{
-			$load = \lib\app\tag\get::get($_id);
-
-			if(isset($load['link']))
-			{
-				return self::fix_update('hashtag', $_id, $load['link']);
-			}
-		}
-
 		return null;
 	}
 

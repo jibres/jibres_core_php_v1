@@ -12,9 +12,6 @@ class view
 		\dash\data::back_link(\dash\url::that());
 
 
-		$all_tag = \lib\app\tag\get::all_tag();
-		\dash\data::allTagList($all_tag);
-
 
 	}
 }

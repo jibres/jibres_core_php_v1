@@ -288,7 +288,7 @@ class property
 			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(a($load_parent, 'height')) . ' '. $length_name]);
 		}
 
-		$tag_list = \lib\app\tag\get::product_tag($id);
+		$tag_list = [];
 
 		if(!is_array($tag_list))
 		{
@@ -297,7 +297,7 @@ class property
 
 		if($tag_list && $parent_id)
 		{
-			$tag_list = \lib\app\tag\get::product_tag($parent_id);
+			$tag_list = [];
 			if(!is_array($tag_list))
 			{
 				$tag_list = [];

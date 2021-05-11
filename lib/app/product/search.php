@@ -36,7 +36,6 @@ class search
 			'buyprice'    => 'price',
 			'discount'    => 'price',
 			'cat_id'      => 'id',
-			'tag_id'      => 'id',
 			'unit_id'     => 'id',
 
 			'dup'         => 'bit',
@@ -123,13 +122,6 @@ class search
 			self::$is_filtered        = true;
 		}
 
-		if($data['tag_id'])
-		{
-			$and[]   = " producttagusage.producttag_id =  $data[tag_id] ";
-			$join[] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
-			self::$filter_args['tag'] = '*'. T_('Tag');
-			self::$is_filtered        = true;
-		}
 
 		if($data['unit_id'])
 		{
@@ -303,26 +295,6 @@ class search
 			self::$filter_args['weightt']       = T_("Without weight");
 			self::$is_filtered             = true;
 		}
-
-		if(!$data['tag_id'])
-		{
-			// tag
-			if(isset($data['t']) && $data['t'] === 'y')
-			{
-				$and[]  = " producttagusage.producttag_id IS NOT NULL ";
-				$join[] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
-				self::$filter_args['weightt']       = T_("With tag");
-				self::$is_filtered             = true;
-			}
-			elseif(isset($data['t']) && $data['t'] === 'n')
-			{
-				$and[]  = " producttagusage.producttag_id IS NULL ";
-				$join[] = ' LEFT JOIN producttagusage ON producttagusage.product_id = products.id ';
-				self::$filter_args['weightt']       = T_("Without tag");
-				self::$is_filtered             = true;
-			}
-		}
-
 
 		if($data['status'])
 		{
@@ -668,7 +640,7 @@ class search
 	{
 		$type   = null;
 		$cat_id = null;
-		$tag_id = null;
+
 
 		if(isset($_option['value']['productline']['type']))
 		{
@@ -700,12 +672,6 @@ class search
 		{
 			$and[]  = " productcategoryusage.productcategory_id =  $cat_id ";
 			$meta['join'][] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
-		}
-
-		if($tag_id)
-		{
-			$and[]  = " producttagusage.producttag_id =  $tag_id ";
-			$meta['join'][] = ' INNER JOIN producttagusage ON producttagusage.product_id = products.id ';
 		}
 
 

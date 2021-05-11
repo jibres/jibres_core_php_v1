@@ -210,27 +210,6 @@ class check
 
 				break;
 
-			case 'hashtag':
-				if(!$data['hashtag_id'])
-				{
-					\dash\notif::error(T_("Please choose a hashtag"));
-					return false;
-				}
-
-				$load_hashtag = \lib\app\tag\get::get($data['hashtag_id'], true);
-
-				if(!isset($load_hashtag['id']))
-				{
-					\dash\notif::error(T_("Invalid hashtag id"));
-					return false;
-				}
-				$data['related_id'] = $load_hashtag['id'];
-
-				if(isset($load_hashtag['link']))
-				{
-					$data['url'] = $load_hashtag['link'];
-				}
-				break;
 
 			case 'socialnetwork':
 				if(!$data['socialnetwork'])

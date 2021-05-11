@@ -39,17 +39,6 @@ class view
 		$category_list = array_reverse($category_list);
 		\dash\data::listCategory($category_list);
 
-		$all_tag = \lib\app\tag\get::all_tag();
-		\dash\data::allTagList($all_tag);
-
-		$tag_list = \lib\app\tag\get::product_tag($id);
-		if(!is_array($tag_list))
-		{
-			$tag_list = [];
-		}
-		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
-
-
 		$property_list = \lib\app\product\property::get_count($id);
 		\dash\data::propertyCount($property_list);
 

@@ -85,9 +85,6 @@
    <nav class="items">
     <ul>
 
-      <?php $tag_count = \lib\report\product\get::tag_count(); if($tag_count) {?>
-        <li><a class="f" href="<?php echo \dash\url::here(). '/products/tag'; ?>"><div class="key"><?php echo T_("Product tag");?></div><div class="value"><?php echo \dash\fit::number($tag_count);?></div><div class="go"></div></a></li>
-      <?php } // endif ?>
 
        <?php $category_count = \lib\report\product\get::category_count(); if($category_count) {?>
         <li><a class="f" href="<?php echo \dash\url::here(). '/category'; ?>"><div class="key"><?php echo T_("Product category");?></div><div class="value"><?php echo \dash\fit::number($category_count);?></div><div class="go"></div></a></li>

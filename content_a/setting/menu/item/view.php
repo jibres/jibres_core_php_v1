@@ -74,14 +74,6 @@ class view
 		}
 
 
-		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'hashtag' && isset($dataRow['related_id']) && $dataRow['related_id'])
-		{
-			$loadHashtag = \lib\app\tag\get::get($dataRow['related_id']);
-			if(isset($loadHashtag['title']))
-			{
-				\dash\data::hashtagTitle($loadHashtag['title']);
-			}
-		}
 
 		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'forms' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{

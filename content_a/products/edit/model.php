@@ -40,7 +40,6 @@ class model
 		}
 
 		$post['cat']       = \dash\request::post('cat');
-		$post['tag']       = \dash\request::post('tag');
 		$post['buyprice']  = \dash\request::post('buyprice');
 		$post['price']     = \dash\request::post('price');
 		$post['discount']  = \dash\request::post('discount');

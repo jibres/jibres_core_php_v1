@@ -24,10 +24,6 @@ class view
 		$category_list = \lib\app\category\search::list(null, ['pagination' => false]);
 		\dash\data::listCategory($category_list);
 
-		$all_tag = \lib\app\tag\get::all_tag();
-		\dash\data::allTagList($all_tag);
-		\dash\data::tagsSavedTitle([]);
-
 
 		\content_a\products\edit\view::product_ratio();
 
