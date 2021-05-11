@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\tag\edit;
+namespace content_cms\hashtag\edit;
 
 class controller
 {
@@ -12,7 +12,7 @@ class controller
 
 		if(!$dataRow)
 		{
-			\dash\header::status(404, T_("Invalid tag id"));
+			\dash\header::status(404, T_("Invalid hashtag id"));
 		}
 
 	}

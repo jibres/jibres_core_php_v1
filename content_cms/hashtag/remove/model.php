@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\tag\remove;
+namespace content_cms\hashtag\remove;
 
 
 class model

@@ -1,14 +1,14 @@
 <?php
-namespace content_cms\tag\home;
+namespace content_cms\hashtag\home;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Tags'));
+		\dash\face::title(T_('Hashtags'));
 
 
-		\dash\data::action_text(T_('Add new Tag'));
+		\dash\data::action_text(T_('Add new Hashtag'));
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
 

@@ -5,7 +5,7 @@
 
 				<label for="itagname"><?php echo T_("Title"); ?></label>
 				<div class="input">
-					<input type="text" name="title" id="itagname" placeholder='<?php echo T_("Tag name"); ?>'  <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
+					<input type="text" name="title" id="itagname" placeholder='<?php echo T_("Hashtag name"); ?>'  <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
 				</div>
 			</div>
 			<footer class="txtRa">

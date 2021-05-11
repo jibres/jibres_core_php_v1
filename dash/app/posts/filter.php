@@ -220,8 +220,8 @@ class filter
 		$list['have_tag'] =
 		[
 			'key'            => 'have_tag',
-			'group'          => T_("Tag"),
-			'title'          => T_("Have tag"),
+			'group'          => T_("Hashtag"),
+			'title'          => T_("Have hashtag"),
 			'query'			 => ['t' => 'y'],
 			'public'         => false,
 		];
@@ -230,8 +230,8 @@ class filter
 		$list['have_not_tag'] =
 		[
 			'key'            => 'have_not_tag',
-			'group'          => T_("Tag"),
-			'title'          => T_("Have not tag"),
+			'group'          => T_("Hashtag"),
+			'title'          => T_("Have not hashtag"),
 			'query'			 => ['t' => 'n'],
 			'public'         => false,
 		];

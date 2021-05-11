@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\tag\add;
+namespace content_cms\hashtag\add;
 
 class controller
 {

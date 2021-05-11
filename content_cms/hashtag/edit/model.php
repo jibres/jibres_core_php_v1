@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\tag\edit;
+namespace content_cms\hashtag\edit;
 
 
 class model

@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\tag\api;
+namespace content_cms\hashtag\api;
 
 
 class controller

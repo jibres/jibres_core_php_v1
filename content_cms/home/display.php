@@ -87,9 +87,9 @@
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::here();?>/tag">
-            <i class="sf-tags"></i>
-            <div class="key"><?php echo T_('Tags');?></div>
+          <a class="item f" href="<?php echo \dash\url::here();?>/hashtag">
+            <i class="sf-pound"></i>
+            <div class="key"><?php echo T_('Hashtag');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
             <div class="go"></div>
           </a>

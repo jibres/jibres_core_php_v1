@@ -4,11 +4,11 @@
       <div class="body">
         <label for="itagname"><?php echo T_("Title"); ?></label>
         <div class="input">
-          <input type="text" name="title" id="itagname" placeholder='<?php echo T_("Tag name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
+          <input type="text" name="title" id="itagname" placeholder='<?php echo T_("Hashtag name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
         </div>
         <label for="itagurl"><?php echo T_("Url"); ?></label>
         <div class="input ltr">
-          <input type="text" name="url" id="itagurl" placeholder='<?php echo T_("Tag name"); ?>' value="<?php echo \dash\data::dataRow_url(); ?>" maxlength='50' minlength="1" >
+          <input type="text" name="url" id="itagurl" placeholder='<?php echo T_("Hashtag name"); ?>' value="<?php echo \dash\data::dataRow_url(); ?>" maxlength='50' minlength="1" >
         </div>
       </div>
       <footer class="txtRa">
