@@ -668,9 +668,9 @@ class search
 			$type = $_option['value']['productline']['type'];
 		}
 
-		if(isset($_option['value']['productline']['tag_id']))
+		if(isset($_option['value']['productline']['cat_id']))
 		{
-			$tag_id = $_option['value']['productline']['tag_id'];
+			$tag_id = $_option['value']['productline']['cat_id'];
 		}
 
 		$meta =

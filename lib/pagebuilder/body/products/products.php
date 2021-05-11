@@ -165,6 +165,7 @@ class products
 	{
 		$link = null;
 
+
 		$line_detail =
 		[
 			'value' =>
@@ -192,7 +193,13 @@ class products
 			{
 				$data[$key]['imageurl'] = $value['thumb'];
 			}
+
+			if(isset($value['url']))
+			{
+				$data[$key]['link'] = $value['url'];
+			}
 		}
+
 
 		$html = '';
 

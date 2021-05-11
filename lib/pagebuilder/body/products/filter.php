@@ -42,8 +42,8 @@ else
           </select>
         </div>
         <div class="mB10">
-          <label for='cat'><?php echo T_("Special category"); ?> <small><a href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Add"); ?></a></small></label>
-          <select name="cat_id" id="cat" class="select22"  data-placeholder='<?php echo T_("Select or add new category"); ?>' >
+          <label for='cat'><?php echo T_("Special tag"); ?> <small><a href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Add"); ?></a></small></label>
+          <select name="cat_id" id="cat" class="select22"  data-placeholder='<?php echo T_("Select or add new tag"); ?>' >
             <option></option>
             <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
               <option value="<?php echo a($value, 'id'); ?>"<?php if(a($lineSetting, 'detail', 'cat_id') == $value['id']) { echo ' selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
