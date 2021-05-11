@@ -69,7 +69,7 @@ class add
 		$_id = \dash\validate::id($_id);
 		if(!$_id || !is_numeric($_id))
 		{
-			\dash\notif::error(T_("Invalid category id"));
+			\dash\notif::error(T_("Invalid tag id"));
 			return false;
 		}
 
@@ -93,7 +93,7 @@ class add
 
 		if(!isset($get_category['id']))
 		{
-			\dash\notif::error(T_("Invalid category id"), 'category');
+			\dash\notif::error(T_("Invalid tag id"), 'tag');
 			return false;
 		}
 

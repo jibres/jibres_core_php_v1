@@ -167,7 +167,7 @@ class template
 		}
 		else
 		{
-			// need to check url only by tag/ in url
+			// need to check url only by hashtag/ in url
 			if($_by_tag_url)
 			{
 				return false;
