@@ -203,9 +203,9 @@ class check
 				}
 				$data['related_id'] = $load_tag['id'];
 
-				if(isset($load_tag['link']))
+				if(isset($load_tag['url']))
 				{
-					$data['url'] = $load_tag['link'];
+					$data['url'] = $load_tag['url'];
 				}
 
 				break;
@@ -219,17 +219,17 @@ class check
 					return false;
 				}
 
-				$load_tag = \dash\app\terms\get::get($data['hashtag_id']);
-				if(!isset($load_tag['id']))
+				$load_hashtag = \dash\app\terms\get::get($data['hashtag_id']);
+				if(!isset($load_hashtag['id']))
 				{
 					\dash\notif::error(T_("Invalid hashtag id"));
 					return false;
 				}
-				$data['related_id'] = \dash\coding::decode($load_tag['id']);
+				$data['related_id'] = \dash\coding::decode($load_hashtag['id']);
 
-				if(isset($load_tag['link']))
+				if(isset($load_hashtag['link']))
 				{
-					$data['url'] = $load_tag['link'];
+					$data['url'] = $load_hashtag['link'];
 				}
 
 				break;
