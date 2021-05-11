@@ -54,7 +54,7 @@ class template
 			if(isset($data['url']))
 			{
 				// redirect /abc if exist in tags to /tag/abc
-				$new_url = \dash\url::kingdom().'/tag/'.$data['url'];
+				$new_url = \dash\url::kingdom().'/hashtag/'.$data['url'];
 				\dash\redirect::to($new_url);
 			}
 			return;
@@ -161,9 +161,9 @@ class template
 		$myUrl = \dash\url::directory();
 		$myUrl = \dash\url::urlfilterer($myUrl);
 
-		if(substr($myUrl, 0, 4) === 'tag/')
+		if(substr($myUrl, 0, 5) === 'hashtag/')
 		{
-			$myUrl = substr($myUrl, 4);
+			$myUrl = substr($myUrl, 8);
 		}
 		else
 		{

@@ -61,7 +61,7 @@ class ready
 
 			// if(isset($result['type']) && $result['type'] === 'tag')
 			{
-				$my_link.= 'tag/';
+				$my_link.= 'hashtag/';
 			}
 
 			$my_link.= $result['url'];
