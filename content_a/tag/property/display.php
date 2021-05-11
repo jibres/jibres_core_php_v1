@@ -3,6 +3,7 @@
     <section class="box">
       <header><h2><?php echo T_("General property"); ?></h2></header>
       <div class="body">
+        <div class="msg"><span class="txtB"><?php echo \dash\data::dataRow_title(); ?></span></div>
         <p>
           <?php echo T_("If the products in this tag have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
           <br>

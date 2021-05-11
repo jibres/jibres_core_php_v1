@@ -7,10 +7,6 @@ class view
 	{
 		\dash\face::title(T_('General property'));
 
-		if(\dash\data::dataRow_title())
-		{
-			\dash\face::title(\dash\data::dataRow_title());
-		}
 
 		$id = \dash\request::get('id');
 
