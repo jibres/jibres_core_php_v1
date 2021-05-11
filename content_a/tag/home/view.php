@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_('Product Tags'));
 
 
-		if(\dash\permission::check('manageProductCategory'))
+		if(\dash\permission::check('manageProductTag'))
 		{
 			\dash\data::action_text(T_('Add new tag'));
 			\dash\data::action_icon('plus');

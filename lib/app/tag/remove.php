@@ -68,7 +68,7 @@ class remove
 
 	public static function remove($_id)
 	{
-		if(!\dash\permission::check('manageProductCategory'))
+		if(!\dash\permission::check('manageProductTag'))
 		{
 			return false;
 		}
