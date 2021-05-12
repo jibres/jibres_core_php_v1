@@ -194,6 +194,10 @@ class add
 		}
 
 
+		if($desc)
+		{
+			$my_tag = \dash\app\terms\find::tag($desc, $my_tag);
+		}
 
 		if($my_tag)
 		{

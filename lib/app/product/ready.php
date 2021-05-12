@@ -272,7 +272,16 @@ class ready
 					break;
 
 				case 'desc':
+
 					$result[$key] = \lib\shortcode::analyze_desc_html($value);
+
+					if(\dash\engine\content::is('content_business'))
+					{
+						if(isset($_data['tags']) && $_data['tags'] && is_array($_data['tags']))
+						{
+							$result[$key] = \dash\app\terms\find::tags_link($result[$key], $_data['tags']);
+						}
+					}
 					break;
 
 				case 'country':
