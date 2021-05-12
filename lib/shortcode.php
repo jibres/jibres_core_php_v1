@@ -166,6 +166,17 @@ class shortcode
 	}
 
 
+	public static function remove_code($_string)
+	{
+		while(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_string, $split))
+		{
+			$_string = str_replace($split[0], ' ', $_string);
+		}
+
+		return $_string;
+	}
+
+
 
 	public static function analyze_desc_html($_data)
 	{

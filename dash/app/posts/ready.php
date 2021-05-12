@@ -132,7 +132,8 @@ class ready
 
 		if(a($result, 'content') && !a($result, 'excerpt'))
 		{
-			$result['excerpt'] = \dash\utility\excerpt::extractRelevant($result['content']);
+			$fix_content = \lib\shortcode::remove_code($result['content']);
+			$result['excerpt'] = \dash\utility\excerpt::extractRelevant($fix_content);
 			$result['autoexcerpt'] = true;
 		}
 
