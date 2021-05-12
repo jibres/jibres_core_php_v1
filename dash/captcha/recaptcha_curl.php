@@ -40,14 +40,29 @@ class recaptcha_curl
 
 		$response = curl_exec($ch);
 
+		$CurlError = curl_error($ch);
+
 		curl_close($ch);
+
+		$log = json_encode(['curl_error' => $CurlError, 'response' => $response ], JSON_UNESCAPED_UNICODE);
 
 		if(!$response || !is_string($response))
 		{
+			\dash\log::file($log, 'google_recaptcha_error.log', 'google');
 			return false;
 		}
 
 		$response = json_decode($response, true);
+
+		if(!is_array($response))
+		{
+			$response = [];
+		}
+
+		if(!array_key_exists('success', $response))
+		{
+			\dash\log::file($log, 'google_recaptcha_error.log', 'google');
+		}
 
 		return $response;
 
