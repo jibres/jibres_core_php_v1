@@ -209,7 +209,7 @@ class db
 
 		\dash\db::commit();
 
-		\dash\log::to_supervisor('New business reserve created. time: '. time() - $start. ' second');
+		\dash\log::to_supervisor("#New_business_reserve created. time: ". time() - $start. " second \n ID: ". $$reserve_store_id);
 
 		return true;
 

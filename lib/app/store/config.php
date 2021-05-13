@@ -123,7 +123,6 @@ class config
 			'price'         => 1500,
 			'discount'      => 100,
 			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
-			'cat'           => [T_("Example category 1")],
 			'unit'          => T_("Number"), // in add manual user send the unit
 		];
 
@@ -154,7 +153,6 @@ class config
 			'price'         => 1500,
 			'discount'      => 100,
 			'tag'           => [T_("Example tag 1"), T_("Example tag 2")],
-			'cat'           => [T_("Example category 1")],
 			'unit'          => T_("Number"), // in add manual user send the unit
 		];
 
