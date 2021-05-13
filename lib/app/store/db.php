@@ -184,7 +184,7 @@ class db
 
 		$reserve_store_id = \lib\db\store\insert::store($reserve_store);
 
-		if(!$reserve_store)
+		if(!$reserve_store_id)
 		{
 			\dash\db::rollback();
 			\dash\log::to_supervisor('can not create reserve business record');
