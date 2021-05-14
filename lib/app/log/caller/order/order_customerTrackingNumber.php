@@ -31,14 +31,12 @@ class order_customerTrackingNumber
 		$my_id            = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$my_tackingnumber = isset($_args['data']['my_tackingnumber']) ? $_args['data']['my_tackingnumber'] : null;
 		$msg         = '';
-		$msg .= "✈️ ". T_("By opening the following link, you can track the status of sending your order through the post site");
-		$msg .= "\n";
-		$msg .= sprintf('https://tracking.post.ir/?id=%s', $my_tackingnumber);
+		$msg .= "✈️ ". T_("By opening the following link, you can track the status of sending your order");
 
 		if($_link)
 		{
 			$msg .= "\n";
-			$msg .= \lib\store::url(). '/:'. $my_id;
+			$msg .= \lib\store::url(). '/:'. $my_id. 't';
 		}
 		$msg .= "\n";
 		$msg .= ' '. \lib\store::title();

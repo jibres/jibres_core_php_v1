@@ -22,10 +22,22 @@ class controller
 
 		// redirect factor short address to full address
 		$module = \dash\url::module();
-		if(!\dash\url::child() && $module && substr($module, 0, 1) === ':' && \dash\validate::id(substr($module, 1), false))
+		if(!\dash\url::child() && $module && substr($module, 0, 1) === ':')
 		{
-			$factor_id = \dash\validate::id(substr($module, 1), false);
-			$new_url = \dash\url::kingdom(). '/orders/view?id='. $factor_id;
+			if(preg_match("/^\:(\d+)(t?)$/", $module, $detect))
+			{
+				$factor_id = $detect[1];
+
+				if($detect[2] === 't')
+				{
+					$new_url = \dash\url::kingdom(). '/orders/track?id='. $factor_id;
+				}
+				else
+				{
+					$new_url = \dash\url::kingdom(). '/orders/view?id='. $factor_id;
+				}
+			}
+
 			\dash\redirect::to($new_url);
 			return;
 		}

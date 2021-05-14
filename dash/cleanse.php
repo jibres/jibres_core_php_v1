@@ -632,6 +632,7 @@ class cleanse
 			case 'socialnetwork': 		$data = \dash\validate\text::socialnetwork(...$fn_args); 			break;
 			case 'subdomain': 			$data = \dash\validate\subdomain::subdomain(...$fn_args); 			break;
 			case 'subdomain_admin':  	$data = \dash\validate\subdomain::subdomain_admin(...$fn_args); 	break;
+			case 'post_track_id': 		$data = \dash\validate\post::post_track_id(...$fn_args);			break;
 			case 'iban': 				$data = \dash\validate\iban::check(...$fn_args); 					break;
 			case 'iban_detail': 		$data = \dash\validate\iban::detail(...$fn_args); 					break;
 			case 'url': 				$data = \dash\validate\url::url(...$fn_args); 						break;

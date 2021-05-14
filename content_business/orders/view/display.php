@@ -21,9 +21,9 @@
 
           </div>
 
-          <div class="msg">
 
-            <?php $address = a(\dash\data::dataRow(), 'address'); if(a($address, 'address')){ ?>
+           <?php $address = a(\dash\data::dataRow(), 'address'); if(a($address, 'address')){ ?>
+          <div class="msg">
             <span class=" link"><?php echo T_("Address") ?></span>
             <?php if(isset($address['country']) && $address['country']) {?><i class="flag <?php echo mb_strtolower($address['country']); ?>"></i><?php } //endif ?>
             <span ><?php echo a($address, 'location_string'); ?></span>
@@ -35,14 +35,23 @@
             <?php if(isset($address['phone']) && $address['phone']) {?>
               <div title='<?php echo T_("Phone"); ?>'><i class="sf-phone"></i> <?php echo \dash\fit::text($address['phone']); ?></div>
             <?php } //endif ?>
-
-            <?php } //endif ?>
-
             <?php if(isset($address['mobile']) && $address['mobile']) {?>
               <div title='<?php echo T_("Mobile"); ?>' class="mT5"><i class="sf-mobile"></i> <?php echo \dash\fit::mobile($address['mobile']); ?></div>
             <?php } //endif ?>
-
           </div>
+            <?php } //endif ?>
+
+          <?php if(\dash\data::trackingDetail()) { $tracking_number = \dash\data::trackingDetail_desc(); ?>
+            <div class="msg success2">
+              <div class="font-20 txtB"><?php echo T_("Your tracking number is") ?>
+                <code data-copy='<?php echo $tracking_number ?>'><?php echo $tracking_number ?></code>
+              </div>
+              <?php if(\dash\validate::post_track_id($tracking_number, false)) {?>
+              <p><?php echo T_("By opening the following link, you can track the status of sending your order through the post site"); ?></p>
+              <a class="btn master" target="_blank" href="<?php echo sprintf('https://tracking.post.ir/?id=%s', $tracking_number) ?>"><?php echo T_("Tracking By Post") ?></a>
+            <?php } //endif ?>
+            </div>
+          <?php } //endif ?>
 
         </div>
 
