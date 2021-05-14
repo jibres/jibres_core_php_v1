@@ -19,7 +19,7 @@ class view
 		$keyList = \lib\app\product\property::property_key_name($id);
 		\dash\data::keyList($keyList);
 
-		var_dump(\dash\data::dataRow());exit();
+
 		if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
 		{
 			$property = \dash\data::dataRow_properties();
