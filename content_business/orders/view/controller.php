@@ -11,6 +11,11 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
+		if(!\dash\user::login() && !\dash\user::get_user_guest())
+		{
+			\dash\redirect::to_login();
+		}
+
 		$order_id = \dash\request::get('id');
 		if(!$order_id)
 		{
