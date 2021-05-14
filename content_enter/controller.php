@@ -69,8 +69,10 @@ class controller
 		// if($referer)
 		// {
 		// }
-
-		\dash\session::set('enter_referer', $ref);
+		if($ref)
+		{
+			\dash\session::set('enter_referer', $ref);
+		}
 	}
 
 
