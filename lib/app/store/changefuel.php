@@ -217,7 +217,7 @@ class changefuel
 	public static function run()
 	{
 		// system is busy
-		if(self::is_busy())
+		if(\dash\utility\busy::is_busy('changefuel_business'))
 		{
 			\dash\notif::error("System is busy");
 			return;
@@ -232,11 +232,11 @@ class changefuel
 			return;
 		}
 
-		self::set_busy();
+		\dash\utility\busy::set_busy('changefuel_business');
 
 		self::start_transfer($store_conf);
 
-		self::set_free();
+		\dash\utility\busy::set_free('changefuel_business');
 
 		\dash\notif::ok("Transfer done");
 
@@ -512,69 +512,6 @@ class changefuel
 
 	}
 
-
-	/**
-	 * Determines if busy.
-	 *
-	 * @return     boolean  True if busy, False otherwise.
-	 */
-	private static function is_busy()
-	{
-		return self::busy(null);
-	}
-
-
-	/**
-	 * Sets the transfer is busy.
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	private static function set_busy()
-	{
-		return self::busy(true);
-	}
-
-
-	/**
-	 * Sets the free.
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	private static function set_free()
-	{
-		return self::busy(false);
-	}
-
-
-	/**
-	 * Manaage busy file
-	 *
-	 * @param      boolean  $_action  The action
-	 *
-	 * @return     <type>   ( description_of_the_return_value )
-	 */
-	private static function busy($_action = null)
-	{
-		$addr = self::addr();
-
-		$addr .= 'transfer_is_busy.log';
-
-		// check is busye
-		if($_action === null)
-		{
-			return is_file($addr);
-		}
-
-		if($_action === false)
-		{
-			\dash\file::delete($addr);
-		}
-
-		if($_action === true)
-		{
-			\dash\file::write($addr, date("Y-m-d H:i:s"));
-		}
-	}
 
 
 	/**
