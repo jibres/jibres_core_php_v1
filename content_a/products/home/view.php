@@ -19,10 +19,16 @@ class view
 		\dash\data::action_icon('plus');
 		\dash\data::action_link(\dash\url::this(). '/add');
 
+
 		\dash\face::btnSetting(\dash\url::here().'/setting/product');
 
-		$productFilterList = \lib\app\product\filter::list();
-		\dash\data::productFilterList($productFilterList);
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\product\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\product\filter::sort_list());
+
 		$args =
 		[
 			'order'        => \dash\request::get('order'),
@@ -71,22 +77,12 @@ class view
 		// set back link
 		\lib\backlink::set_products();
 
-		if(a(\dash\data::productSettingSaved(), 'default_pirce_list'))
-		{
-			$myProductList = \lib\app\product\search::price_list($search_string, $args);
-		}
-		else
-		{
-			$myProductList = \lib\app\product\search::variant_list($search_string, $args);
-		}
+		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
+
 
 		\lib\app\product\load::barcode_is_scaned($myProductList, $search_string);
 
 		\dash\data::dataTable($myProductList);
-
-		\dash\data::filterBox(\lib\app\product\search::filter_message());
-
-		\dash\data::sortList(\lib\app\product\filter::sort_list());
 
 		$isFiltered = \lib\app\product\search::is_filtered();
 

@@ -274,6 +274,36 @@ class filter
 
 
 
+		$list['product_tag_search'] =
+		[
+			'key'    => 'product_tag_search',
+			'group'  => T_("Tag"),
+			'title'  => T_("Search in product tag"),
+			'mode'   => 'product_tag_search',
+			'public' => false,
+		];
+
+
+		$list['product_unit_search'] =
+		[
+			'key'    => 'product_unit_search',
+			'group'  => T_("Unit"),
+			'title'  => T_("Search in product unit"),
+			'mode'   => 'product_unit_search',
+			'public' => false,
+		];
+
+
+		$list['product_status_search'] =
+		[
+			'key'    => 'product_status_search',
+			'group'  => T_("Status"),
+			'title'  => T_("Search in product staus"),
+			'mode'   => 'product_status_search',
+			'public' => false,
+		];
+
+
 
 		return $list;
 

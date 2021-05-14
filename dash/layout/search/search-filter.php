@@ -19,44 +19,32 @@ if(is_array(\dash\data::listEngine_filter()))
     switch ($mode)
     {
       case 'posts_search':
-         $apply_filter_btn = true;
-        echo "<div class='mB10'>";
-        echo '<label>'. a($value, 'title'). '</label>';
-        echo '<select name="post_id" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/cms/posts/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
-        if(\dash\request::get('post_id'))
-        {
-          $userselected_detail = \dash\app\posts\get::get(\dash\request::get('post_id'));
-          if($userselected_detail)
-          {
-            echo '<option value="'. a($userselected_detail, 'id'). '">';
-            echo a($userselected_detail, 'title');
-            echo '</option>';
-          }
-          // echo "<option value=''>". T_("None"). '</option>';
-        }
-        echo '</select>';
-        echo "</div>";
+        $apply_filter_btn = true;
+        HTML_post_search($value);
         break;
 
       case 'users_search':
         $apply_filter_btn = true;
-        echo "<div class='mB10'>";
-        echo '<label>'. a($value, 'title'). '</label>';
-        echo '<select name="user" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
-        if(\dash\request::get('user'))
-        {
-          $userselected_detail = \dash\app\user::get(\dash\request::get('user'));
-          if($userselected_detail)
-          {
-            echo '<option value="'. a($userselected_detail, 'id'). '">';
-            echo a($userselected_detail, 'displayname');
-            echo '</option>';
-          }
-          // echo "<option value=''>". T_("None"). '</option>';
-        }
-        echo '</select>';
-        echo "</div>";
+        HTML_users_search($value);
         break;
+
+
+      case 'product_tag_search':
+        $apply_filter_btn = true;
+        HTML_product_tag_search($value);
+        break;
+
+
+      case 'product_unit_search':
+        $apply_filter_btn = true;
+        HTML_product_unit_search($value);
+        break;
+      case 'product_status_search':
+        $apply_filter_btn = true;
+        HTML_product_status_search($value);
+        break;
+
+
 
       // default
       default:
@@ -85,6 +73,157 @@ if(is_array(\dash\data::listEngine_filter()))
     $myClass = null;
     $first = false;
   }
+  echo '</div>';
+}
+
+
+function HTML_post_search($value)
+{
+  echo "<div class='mB10'>";
+  echo '<label>'. a($value, 'title'). '</label>';
+  echo '<select name="post_id" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/cms/posts/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
+  if(\dash\request::get('post_id'))
+  {
+    $userselected_detail = \dash\app\posts\get::get(\dash\request::get('post_id'));
+    if($userselected_detail)
+    {
+      echo '<option value="'. a($userselected_detail, 'id'). '">';
+      echo a($userselected_detail, 'title');
+      echo '</option>';
+    }
+    // echo "<option value=''>". T_("None"). '</option>';
+  }
+  echo '</select>';
+  echo "</div>";
+}
+
+
+function HTML_users_search($value)
+{
+  echo "<div class='mB10'>";
+  echo '<label>'. a($value, 'title'). '</label>';
+  echo '<select name="user" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
+  if(\dash\request::get('user'))
+  {
+    $userselected_detail = \dash\app\user::get(\dash\request::get('user'));
+    if($userselected_detail)
+    {
+      echo '<option value="'. a($userselected_detail, 'id'). '">';
+      echo a($userselected_detail, 'displayname');
+      echo '</option>';
+    }
+    // echo "<option value=''>". T_("None"). '</option>';
+  }
+  echo '</select>';
+  echo "</div>";
+}
+
+
+function HTML_product_tag_search($value)
+{
+  echo "<div class='mB10'>";
+  echo '<div class="row align-center">';
+  echo '<div class="c"><label for="tag">'. T_("Tag"). '</label></div>';
+  echo '<div class="c-auto os">';
+  echo '<a class="font-12"';
+  if(!\dash\detect\device::detectPWA())
+  { echo " target='_blank' ";
+  }
+  echo ' href="'. \dash\url::here(). '/tag">'. T_("Manage"). ' <i class="sf-link-external"></i></a>';
+  echo '</div>';
+  echo '</div>';
+
+  echo '<div>';
+  echo '<select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one tag"). '">';
+  if(\dash\request::get('tagid'))
+  {
+      echo '<option value="0">'. T_("None"). '</option>';
+  }
+  else
+  {
+      echo '<option value=""></option>';
+  }
+  foreach (\dash\data::listProductTag() as $k => $v)
+  {
+      echo '<option value="'. $v['id']. '" ';
+      if(\dash\request::get('tagid') === $v['id'])
+      {
+        echo 'selected';
+      }
+      echo '> '.$v['title']. '</option>';
+  }
+  echo '</select>';
+  echo '</div>';
+  echo "</div>";
+}
+
+
+
+function HTML_product_unit_search($value)
+{
+ echo "<div class='mB10'>";
+  echo '<div class="row align-center">';
+  echo '<div class="c"><label for="unit">'. T_("Unit"). '</label></div>';
+  echo '<div class="c-auto os">';
+  echo '<a class="font-12"';
+  if(!\dash\detect\device::detectPWA())
+  {
+    echo " target='_blank' ";
+  }
+  echo ' href="'. \dash\url::here(). '/units">'. T_("Manage"). ' <i class="sf-link-external"></i></a>';
+  echo '</div>';
+  echo '</div>';
+
+  echo '<div>';
+  echo '<select name="unitid" id="unit" class="select22" data-model="tag" data-placeholder="'. T_("like Qty, kg, etc"). '">';
+  if(\dash\request::get('unitid'))
+  {
+      echo '<option value="0">'. T_("None"). '</option>';
+  }
+  else
+  {
+      echo '<option value=""></option>';
+  }
+  foreach (\dash\data::listUnits() as $k => $v)
+  {
+      echo '<option value="'. $v['id']. '" ';
+      if(\dash\request::get('unitid') === $v['id'])
+      {
+        echo 'selected';
+      }
+      echo '> '.$v['title']. '</option>';
+  }
+  echo '</select>';
+  echo '</div>';
+  echo "</div>";
+}
+
+
+function HTML_product_status_search($value)
+{
+  echo "<div class='mB10'>";
+  echo '<label for="status">'. T_("Status"). '</label>';
+  echo '<div>';
+  echo '<select name="status" id="status" class="select22"  data-placeholder="'. T_("Product Status"). '">';
+  if(\dash\request::get('status'))
+  {
+      echo '<option value="0">'. T_("None"). '</option>';
+  }
+  else
+  {
+      echo '<option value=""></option>';
+  }
+  foreach (['available','unavailable','soon','discountinued', 'archive', 'deleted'] as $k => $v)
+  {
+      echo '<option value="'. $v. '" ';
+      if(\dash\request::get('status') === $v)
+      {
+        echo 'selected';
+      }
+      echo '> '. T_(ucfirst($v)). '</option>';
+  }
+  echo '</select>';
+  echo '</div>';
   echo '</div>';
 }
 ?>
