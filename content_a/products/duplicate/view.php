@@ -8,14 +8,7 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-		// set page title from product title
-		$product_title = \dash\data::productDataRow_title();
-		if(!isset($product_title))
-		{
-			$product_title = T_("Without name");
-		}
-
-		\dash\face::title(T_("Make copy from :val", ['val' => $product_title]));
+		\dash\face::title(T_("Make copy of product"));
 
 
 		// back

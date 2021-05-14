@@ -2,7 +2,7 @@
   $propertyList   = \dash\data::propertyList();
   $storData       = \dash\data::store_store_data();
   $productDataRow = \dash\data::productDataRow();
-
+require_once(root. 'content_a/products/productName.php');
   ?>
 
   <form method="post" autocomplete="off" id="form1">

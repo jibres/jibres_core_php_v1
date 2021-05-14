@@ -6,18 +6,9 @@ class view
 {
 	public static function config()
 	{
-			$id = \dash\request::get('id');
+		$id = \dash\request::get('id');
 
-		// set page title from product title
-		$title = \dash\data::productDataRow_title();
-		if(!isset($title))
-		{
-			$title = T_("Without name");
-		}
-
-		\dash\face::title(T_("Sort images in gallery"). ' | '. $title);
-
-
+		\dash\face::title(T_("Sort images in gallery"));
 
 		// back
 		\dash\data::back_text(T_('Back'));

@@ -5,6 +5,7 @@ $productDataRow     = \dash\data::productDataRow();
 $have_variant_child = \dash\data::productDataRow_variant_child();
 $child_list         = \dash\data::productDataRow_child();
 
+require_once(root. 'content_a/products/productName.php');
 ?>
 
 

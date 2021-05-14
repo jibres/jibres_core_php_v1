@@ -1,5 +1,7 @@
 <?php
 $propertyList = \dash\data::propertyList();
+
+require_once(root. 'content_a/products/productName.php');
 ?>
 
 

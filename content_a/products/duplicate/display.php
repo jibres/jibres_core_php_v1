@@ -1,4 +1,4 @@
-
+<?php require_once(root. 'content_a/products/productName.php'); ?>
 
 <form class="f justify-center" method="post" autocomplete="off">
   <div class="c6 s12">

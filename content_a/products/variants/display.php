@@ -1,4 +1,7 @@
 <?php
+
+require_once(root. 'content_a/products/productName.php');
+
 $variantsList = \dash\data::variantsList();
 
 if(\dash\data::productDataRow_first_sale())

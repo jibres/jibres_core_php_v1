@@ -20,14 +20,7 @@ class view extends \content_cms\comments\home\view
 		parent::config($args);
 
 
-		// set page title from product title
-		$title = \dash\data::productDataRow_title();
-		if(!isset($title))
-		{
-			$title = T_("Without name");
-		}
-
-		\dash\face::title(T_("Comments"). ' | '. $title);
+		\dash\face::title(T_("Comments"));
 
 
 		if($id)

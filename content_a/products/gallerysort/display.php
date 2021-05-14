@@ -4,6 +4,8 @@
   {
     $gallery = [];
   }
+
+  require_once(root. 'content_a/products/productName.php');
 ?>
 
 <div class="msg fs14"><?php echo T_("Select any of the image you want and move them to sort") ?></div>

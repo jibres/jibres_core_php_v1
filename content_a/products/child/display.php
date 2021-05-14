@@ -1,4 +1,5 @@
 <?php
+require_once(root. 'content_a/products/productName.php');
 
 $storData           = \dash\data::store_store_data();
 $productDataRow     = \dash\data::productDataRow();
