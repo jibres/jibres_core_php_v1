@@ -98,6 +98,11 @@ if(in_array(a($dataRow, 'subtype'), ['standard', 'gallery']))
   {
     $gallery = [];
   }
+
+  $add_html_form = true;
+  $is_auto_send = \dash\url::child() === 'edit';
+  $gallery_array = $gallery;
+
   $choose_gallery_link = \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgallery', 'related_id' => \dash\request::get('id')]);
 
   require_once(root. 'dash/layout/post/admin-gallery-box.php');
