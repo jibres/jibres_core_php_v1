@@ -119,7 +119,7 @@ class TransStatic
 	echo T_("Mobile or password is incorrect");
 	echo T_("Please forward this message to administrator");
 	echo T_("Please enter title");
-	echo T_("Assign keywords to your posts using tags");
+	echo T_("Assign keywords to your posts using hashtags");
 	echo T_("Use categories to define sections of your site and group related posts");
 	echo T_("Use categories to define sections of your site and group related files");
 	echo T_("Use posts to share your news in specefic category");

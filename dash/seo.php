@@ -508,7 +508,7 @@ class seo
 		if(isset($_detail['content']) && is_string($_detail['content']))
 		{
 			$ok  = null;
-			$msg = T_("No tag added and not use in first paragraph.");
+			$msg = T_("No hashtag added and not use in first paragraph.");
 
 			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 			{

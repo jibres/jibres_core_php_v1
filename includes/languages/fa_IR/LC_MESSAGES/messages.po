@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-05-14 13:46+0430\n"
-"PO-Revision-Date: 2021-05-14 13:46+0430\n"
+"POT-Creation-Date: 2021-05-14 15:32+0430\n"
+"PO-Revision-Date: 2021-05-14 15:33+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7544,7 +7544,7 @@ msgstr "تگ جدید وارد کنید یا یک تگ انتخاب کنید"
 
 #: content_a/form/answer/detail/model.php:17
 msgid "Tag saved"
-msgstr "کلیدواژه ذخیره شد"
+msgstr "تگ ذخیره شد"
 
 #: content_a/form/answer/display.php:53
 msgid "Count answer"
@@ -7886,7 +7886,7 @@ msgstr "مرتب‌سازی آیتم‌ها"
 #: content_a/tag/edit/view.php:13 content_a/tag/sort/view.php:10
 #: dash/layout/pwa/pwa_menu.php:286 includes/languages/trans_static_public.php:975
 msgid "Tags"
-msgstr "کلیدواژه‌ها"
+msgstr "تگ‌ها"
 
 #: content_a/form/itemLink.php:17
 msgid "Inquiry"
@@ -8256,7 +8256,7 @@ msgstr "لطفا تگ جدید را انتخاب کنید"
 
 #: content_a/form/tag/view.php:8
 msgid "Form Tags"
-msgstr "کلیدواژه فرم‌ها"
+msgstr "تگ فرم‌ها"
 
 #: content_a/form/tag/view.php:11 content_a/tag/home/view.php:13
 msgid "Add new tag"
@@ -10240,7 +10240,7 @@ msgstr "بیشترین محصول در سبد خرید"
 
 #: content_a/report/products/display.php:90 lib/app/store/analytics.php:71
 msgid "Product tag"
-msgstr "کلیدواژه محصولات"
+msgstr "تگ محصولات"
 
 #: content_a/report/products/display.php:94
 msgid "Product units"
@@ -12934,7 +12934,7 @@ msgstr "تصویر تگ حذف شد"
 
 #: content_a/tag/home/view.php:8
 msgid "Product Tags"
-msgstr "کلیدواژه محصولات"
+msgstr "تگ محصولات"
 
 #: content_a/tag/property/display.php:10
 msgid ""
@@ -23160,7 +23160,7 @@ msgstr "تیکت به وضعیت حل نشده تغییر کرد"
 
 #: dash/app/log/caller/ticket/ticket_ticketAddTag.php:10
 msgid "Add tag to ticket"
-msgstr "افزودن کلیدواژه برای برقرار ارتباط بین تیکت‌ها"
+msgstr "افزودن تگ برای برقرار ارتباط بین تیکت‌ها"
 
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:91
 msgid "For user"
@@ -25216,7 +25216,7 @@ msgstr "تجزیه و تحلیل پیشرفته"
 
 #: dash/plan_list.php:165
 msgid "Manage Form Tags"
-msgstr "مدیریت کلیدواژه فرم‌ها"
+msgstr "مدیریت تگ فرم‌ها"
 
 #: dash/plan_list.php:166
 msgid "Remove form answer"
@@ -25436,8 +25436,8 @@ msgstr ""
 "بنویسید :)"
 
 #: dash/seo.php:511
-msgid "No tag added and not use in first paragraph."
-msgstr "هیچ کلیدواژه‌ای ثبت نشده که از آن در اولین پاراگراف متن استفاده شود."
+msgid "No hashtag added and not use in first paragraph."
+msgstr "هیچ هشتگی ثبت نشده که از آن در اولین پاراگراف متن استفاده شود."
 
 #: dash/seo.php:516
 msgid "Tags not use in first paragraph."
@@ -28388,7 +28388,7 @@ msgstr "تگ"
 
 #: includes/languages/trans_static.php:420
 msgid "support_tag"
-msgstr "کلیدواژه‌های پشتیبانی"
+msgstr "تگ‌های پشتیبانی"
 
 #: includes/languages/trans_static.php:421
 msgid "mag"
@@ -28396,7 +28396,7 @@ msgstr "مجله"
 
 #: includes/languages/trans_static.php:422
 msgid "mag_tag"
-msgstr "کلیدواژه مجله"
+msgstr "تگ مجله"
 
 #: includes/languages/trans_static.php:424
 msgid "help_tag"
@@ -28617,7 +28617,7 @@ msgstr "عبارت"
 
 #: includes/languages/trans_static.php:549
 msgid "Support_tag"
-msgstr "کلیدواژه‌های پشتیبانی"
+msgstr "تگ‌های پشتیبانی"
 
 #: includes/languages/trans_static.php:550
 msgid "Mag"
@@ -28625,7 +28625,7 @@ msgstr "مجله"
 
 #: includes/languages/trans_static.php:551
 msgid "Mag_tag"
-msgstr "کلیدواژه مجله"
+msgstr "تگ مجله"
 
 #: includes/languages/trans_static.php:553
 msgid "Help_tag"
@@ -30509,8 +30509,8 @@ msgid "Please enter title"
 msgstr "لطفا عنوان را وارد کنید"
 
 #: includes/languages/trans_static_public.php:122
-msgid "Assign keywords to your posts using tags"
-msgstr "از عبارات کلیدی برای تعریف کلیدواژه‌ها و ارتباط آن به نوشته‌های استفاده کنید"
+msgid "Assign keywords to your posts using hashtags"
+msgstr "از عبارات کلیدی برای تعریف هشتگ‌ها و ارتباط آن به نوشته‌های استفاده کنید"
 
 #: includes/languages/trans_static_public.php:123
 msgid "Use categories to define sections of your site and group related posts"
@@ -30717,7 +30717,7 @@ msgstr "صفحه‌ها"
 
 #: includes/languages/trans_static_public.php:200
 msgid "tags"
-msgstr "کلیدواژه‌ها"
+msgstr "تگ‌ها"
 
 #: includes/languages/trans_static_public.php:201
 msgid "categories"
@@ -31344,7 +31344,7 @@ msgstr "افزودن دسته‌بندی جدید‌ در کنترل پنل"
 
 #: includes/languages/trans_static_public.php:450
 msgid "cpTagAdd"
-msgstr "افزودن کلیدواژه در کنترل پنل"
+msgstr "افزودن تگ در کنترل پنل"
 
 #: includes/languages/trans_static_public.php:451
 msgid "cpBackup"
@@ -36931,11 +36931,11 @@ msgstr "مقالات مرکز راهنمایی"
 
 #: lib/app/store/analytics.php:50
 msgid "Support tag"
-msgstr "کلیدواژه‌های پشتیبانی"
+msgstr "تگ‌های پشتیبانی"
 
 #: lib/app/store/analytics.php:51
 msgid "Help tag"
-msgstr "کلیدواژه‌های مرکز راهنمایی"
+msgstr "تگ‌های مرکز راهنمایی"
 
 #: lib/app/store/analytics.php:58
 msgid "Term usages"
@@ -36963,7 +36963,7 @@ msgstr "مشخصات محصول"
 
 #: lib/app/store/analytics.php:72
 msgid "Product tagusage"
-msgstr "موارد استفاده شده کلیدواژه محصولات"
+msgstr "موارد استفاده شده تگ محصولات"
 
 #: lib/app/store/analytics.php:73
 msgid "Product unit"
