@@ -63,7 +63,7 @@ if(a(\dash\data::productSettingSaved(), 'default_pirce_list'))
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
       <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
-        <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title'); ?>">
+        <img src="<?php echo \dash\fit::img(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
         <div class="key">
           <div class="line1"><?php echo a($value, 'title'); ?></div>
           <div class="line2 f">
@@ -88,7 +88,7 @@ if(a(\dash\data::productSettingSaved(), 'default_pirce_list'))
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
       <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
-        <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title'); ?>">
+        <img src="<?php echo \dash\fit::img(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
         <div class="key"><?php echo a($value, 'title'); ?></div>
 
             <?php if(isset($value['variants_detail']['stock'])) {?>
@@ -182,7 +182,7 @@ if(a(\dash\data::productSettingSaved(), 'default_pirce_list'))
 
 
       <tr>
-        <td class="collapsing"><img src="<?php echo a($value, 'thumb'); ?>" class="avatar fs14"></td>
+        <td class="collapsing"><img src="<?php echo \dash\fit::img(a($value, 'thumb')); ?>" class="avatar fs14"></td>
         <td class="collapsing">
           <div><a href="<?php echo \dash\url::this(); ?>/edit?id=<?php echo a($value, 'id'); ?>"><i class="sf-edit mRa10"></i><?php echo a($value, 'title'); ?></a></div>
           <?php if(isset($value['optionvalue1']) && $value['optionvalue1']) {?>
