@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-05-14 12:34+0430\n"
-"PO-Revision-Date: 2021-05-14 12:35+0430\n"
+"POT-Creation-Date: 2021-05-14 13:46+0430\n"
+"PO-Revision-Date: 2021-05-14 13:46+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1257,7 +1257,7 @@ msgstr "نام کامل"
 #: content_a/order/address/display.php:168 content_a/order/detail/display.php:61
 #: content_a/sale/display.php:44 content_account/address.php:49
 #: content_account/address.php:144 content_account/my/home/display.php:46
-#: content_business/orders/view/display.php:42 content_business/shipping/display.php:19
+#: content_business/orders/view/display.php:39 content_business/shipping/display.php:19
 #: content_business/shipping/display.php:108 content_cms/comments/edit/display.php:6
 #: content_cms/comments/view/display.php:26 content_crm/member/add/display.php:9
 #: content_crm/member/glance/display.php:249 content_crm/member/mobile/display.php:6
@@ -6860,7 +6860,7 @@ msgid "Temporarily out of stock."
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است."
 
 #: content_a/cart/add/display.php:184 content_business/cart/display.php:40
-#: content_business/orders/view/display.php:81
+#: content_business/orders/view/display.php:90
 msgid "This product was removed from your cart"
 msgstr "این محصول از سبد خرید شما حذف شد"
 
@@ -9383,7 +9383,7 @@ msgstr "مگابایت"
 
 #: content_a/products/cartlimit/display.php:19
 #: content_a/products/organization/display.php:72
-#: content_business/orders/view/display.php:92
+#: content_business/orders/view/display.php:101
 msgid "File Address"
 msgstr "آدرس فایل"
 
@@ -15020,13 +15020,17 @@ msgstr "تلگرام"
 msgid "No orders found"
 msgstr "هیچ سفارشی یافت نشد"
 
+#: content_business/orders/track/view.php:9
+msgid "Tracking Order"
+msgstr "رهگیری سفارش"
+
 #: content_business/orders/view.php:9 content_business/orders/view/view.php:9
 #: content_business/profile/display-menu.php:9
 #: content_business/profile/display-menu.php:33
 msgid "My orders"
 msgstr "سفارشات من"
 
-#: content_business/orders/view/controller.php:24
+#: content_business/orders/view/controller.php:29
 msgid "Order not found"
 msgstr "سفارش یافت نشد"
 
@@ -15034,19 +15038,34 @@ msgstr "سفارش یافت نشد"
 msgid "Order number"
 msgstr "شماره سفارش"
 
+#: content_business/orders/view/display.php:46
+msgid "Your tracking number is"
+msgstr "کد رهگیری شما"
+
+#: content_business/orders/view/display.php:50
+msgid ""
+"By opening the following link, you can track the status of sending your order through "
+"the post site"
+msgstr ""
+"با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو از طریق سایت پست رهگیری کنید"
+
 #: content_business/orders/view/display.php:51
+msgid "Tracking By Post"
+msgstr "رهگیری از طریق پست"
+
+#: content_business/orders/view/display.php:60
 msgid "Cancel order"
 msgstr "لغو سفارش"
 
-#: content_business/orders/view/display.php:90
+#: content_business/orders/view/display.php:99
 msgid "Download file"
 msgstr "دانلود فایل"
 
-#: content_business/orders/view/display.php:93
+#: content_business/orders/view/display.php:102
 msgid "Copy To Download"
 msgstr "برای دانلود آدرس فایل را کپی کنید"
 
-#: content_business/orders/view/display.php:97
+#: content_business/orders/view/display.php:106
 msgid "File have not address!"
 msgstr "این فایل دارای آدرس نیست!"
 
@@ -24244,7 +24263,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:842
+#: dash/cleanse.php:843
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -35357,11 +35376,8 @@ msgid "We have sent your order by post and it will be delivered to you soon."
 msgstr "سفارش شما رو از طریق پست ارسال کردیم و بزودی به‌دست شما خواهد رسید."
 
 #: lib/app/log/caller/order/order_customerTrackingNumber.php:34
-msgid ""
-"By opening the following link, you can track the status of sending your order through "
-"the post site"
-msgstr ""
-"با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو از طریق سایت پست رهگیری کنید"
+msgid "By opening the following link, you can track the status of sending your order"
+msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو رهگیری کنید"
 
 #: lib/app/menu/add.php:23
 msgid "Menu created"
