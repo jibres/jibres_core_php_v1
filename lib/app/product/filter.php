@@ -184,6 +184,27 @@ class filter
 		];
 
 
+		$list['have_property'] =
+		[
+			'key'            => 'have_property',
+			'group'          => T_("Property"),
+			'title'          => T_("Have property"),
+			'query'			 => ['pr' => 'y'],
+			'public'         => false,
+		];
+
+
+		$list['have_not_property'] =
+		[
+			'key'            => 'have_not_property',
+			'group'          => T_("Property"),
+			'title'          => T_("Have not property"),
+			'query'			 => ['pr' => 'n'],
+			'public'         => false,
+		];
+
+
+
 		$list['have_sold'] =
 		[
 			'key'            => 'have_sold',
@@ -243,6 +264,17 @@ class filter
 		];
 
 
+
+		$list['duplicate_title'] =
+		[
+			'key'            => 'duplicate_title',
+			'group'          => T_("Duplicate Title"),
+			'title'          => T_("Duplicate Title"),
+			'query'			 => ['dup' => 1],
+			'public'         => false,
+		];
+
+
 		$list['have_tag'] =
 		[
 			'key'            => 'have_tag',
@@ -261,17 +293,6 @@ class filter
 			'query'			 => ['t' => 'n'],
 			'public'         => false,
 		];
-
-
-		$list['duplicate_title'] =
-		[
-			'key'            => 'duplicate_title',
-			'group'          => T_("Duplicate Title"),
-			'title'          => T_("Duplicate Title"),
-			'query'			 => ['dup' => 1],
-			'public'         => false,
-		];
-
 
 
 		$list['product_tag_search'] =

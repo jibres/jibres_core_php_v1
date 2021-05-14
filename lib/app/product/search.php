@@ -51,6 +51,7 @@ class search
 			'w'           => 'y_n',
 			't'           => 'y_n',
 			'tq'          => 'y_n',
+			'pr'          => 'y_n', // property
 
 			'websitemode' => 'bit',
 
@@ -87,20 +88,17 @@ class search
 		if($data['barcode'])
 		{
 			$and[] = " products.barcode  = '$data[barcode]' ";
-			self::$filter_args['barcode']  = '*'. T_('Barcode');
 			self::$is_filtered       = true;
 		}
 
 		if($data['price'])
 		{
 			$and[] = " products.price = $data[price] ";
-			self::$filter_args['price']  = '*'. T_('Price');
 		}
 
 		if($data['buyprice'])
 		{
 			$and[] = " products.buyprice = $data[buyprice] ";
-			self::$filter_args['buyprice']  = '*'. T_('Buy price');
 			self::$is_filtered        = true;
 		}
 
@@ -108,7 +106,6 @@ class search
 		if($data['discount'])
 		{
 			$and[] = " products.discount = $data[discount] ";
-			self::$filter_args['discount']  = '*'. T_('Discount');
 			self::$is_filtered        = true;
 		}
 
@@ -118,7 +115,6 @@ class search
 			$and[]   = " productcategoryusage.productcategory_id =  $data[tag_id] ";
 			$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 			$type = 'catusage';
-			self::$filter_args['tag'] = '*'. T_('Tag');
 			self::$is_filtered        = true;
 		}
 		else
@@ -129,24 +125,36 @@ class search
 			{
 				$and[]  = " productcategoryusage.productcategory_id IS NOT NULL ";
 				$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
-				self::$filter_args['Tag']       = T_("With Tag");
 				self::$is_filtered             = true;
 			}
 			elseif(isset($data['t']) && $data['t'] === 'n')
 			{
 				$and[]  = " productcategoryusage.productcategory_id IS NULL ";
 				$join[] = ' LEFT JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
-				self::$filter_args['Tag']       = T_("Without tag");
 				self::$is_filtered             = true;
 			}
 
 		}
 
 
+		// property
+		if(isset($data['pr']) && $data['pr'] === 'y')
+		{
+			$and[]  = " productproperties.product_id IS NOT NULL ";
+			$join[] = ' INNER JOIN productproperties ON productproperties.product_id = products.id ';
+			self::$is_filtered             = true;
+		}
+		elseif(isset($data['pr']) && $data['pr'] === 'n')
+		{
+			$and[]  = " productproperties.product_id IS NULL ";
+			$join[] = ' LEFT JOIN productproperties ON productproperties.product_id = products.id ';
+			self::$is_filtered             = true;
+		}
+
+
 		if($data['unit_id'])
 		{
 			$and[] = "products.unit_id = $data[unit_id] ";
-			self::$filter_args['unit'] = '*'. T_('Unit');
 			self::$is_filtered = true;
 		}
 
@@ -156,7 +164,6 @@ class search
 
 		if(isset($data['dup']) && $data['dup'])
 		{
-			self::$filter_args['Duplicate title'] = null;
 			self::$is_filtered              = true;
 			$join[] = "	INNER JOIN 	(SELECT title FROM products GROUP BY title	HAVING COUNT(*) > 1) dup ON products.title = dup.title";
 
@@ -170,13 +177,11 @@ class search
 		if(isset($data['bar']) && $data['bar'] === 'y')
 		{
 			$and[] = " ( products.barcode IS NOT NULL OR products.barcode2 IS NOT NULL )";
-			self::$filter_args['barcode']  = T_("With barcode");
 			self::$is_filtered       = true;
 		}
 		elseif(isset($data['bar']) && $data['bar'] === 'n')
 		{
 			$and[] = " ( products.barcode IS NULL OR products.barcode2 IS NULL )";
-			self::$filter_args['barcode']  = T_("Without barcode");
 			self::$is_filtered       = true;
 		}
 
@@ -184,13 +189,11 @@ class search
 		if(isset($data['bup']) && $data['bup'] === 'y')
 		{
 			$and[] = "(products.buyprice IS NOT NULL )";
-			self::$filter_args['buyprice']      = T_("With buyprice");
 			self::$is_filtered            = true;
 		}
 		elseif(isset($data['bup']) && $data['bup'] === 'n')
 		{
 			$and[] = "(products.buyprice IS NULL OR products.buyprice = 0 )";
-			self::$filter_args['buyprice']      = T_("Without buyprice");
 			self::$is_filtered            = true;
 		}
 
@@ -198,13 +201,11 @@ class search
 		if(isset($data['p']) && $data['p'] === 'y')
 		{
 			$and[] = "(products.price IS NOT NULL )";
-			self::$filter_args['price']      = T_("With price");
 			self::$is_filtered            = true;
 		}
 		elseif(isset($data['p']) && $data['p'] === 'n')
 		{
 			$and[] = "(products.price IS NULL OR products.price = 0 )";
-			self::$filter_args['price']      = T_("Without price");
 			self::$is_filtered            = true;
 		}
 
@@ -227,14 +228,12 @@ class search
 		if(isset($data['d']) && $data['d'] === 'y')
 		{
 			$and[] = "(products.discount IS NOT NULL )";
-			self::$filter_args['discount']      = T_("With discount");
 			$type                         = 'discount';
 			self::$is_filtered            = true;
 		}
 		elseif(isset($data['d']) && $data['d'] === 'n')
 		{
 			$and[] = "(products.discount IS NULL OR products.discount = 0 )";
-			self::$filter_args['discount']      = T_("Without discount");
 			self::$is_filtered            = true;
 		}
 
@@ -243,13 +242,11 @@ class search
 		if(isset($data['st']) && $data['st'] === 'y')
 		{
 			$and[] = "products.instock  = 1";
-			self::$filter_args['Stock']   = T_("Instock");
 			self::$is_filtered        = true;
 		}
 		elseif(isset($data['st']) && $data['st'] === 'n')
 		{
 			$and[] = "( products.instock  = 0 OR products.instock  IS NULL )";
-			self::$filter_args['Stock']   = T_("Out of stock");
 			self::$is_filtered        = true;
 		}
 
@@ -257,7 +254,6 @@ class search
 		if(isset($data['nst']) && $data['nst'] === 'y')
 		{
 			$and[] = " (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) < 0 ";
-			self::$filter_args['Stock']   = T_("Negative");
 			self::$is_filtered        = true;
 		}
 
@@ -265,13 +261,11 @@ class search
 		if(isset($data['g']) && $data['g'] === 'y')
 		{
 			$and[] = "products.thumb IS NOT NULL";
-			self::$filter_args['Image']   = T_("With image");
 			self::$is_filtered        = true;
 		}
 		elseif(isset($data['g']) && $data['g'] === 'n')
 		{
 			$and[] = "products.thumb IS NULL";
-			self::$filter_args['Image']   = T_("Without image");
 			self::$is_filtered        = true;
 		}
 
@@ -279,13 +273,11 @@ class search
 		if(isset($data['v']) && $data['v'] === 'y')
 		{
 			$and[] = " products.variant_child  = 1 ";
-			self::$filter_args['Variants']   = T_("Have variants");
 			self::$is_filtered        = true;
 		}
 		elseif(isset($data['v']) && $data['v'] === 'n')
 		{
 			$and[] = " products.variant_child  != 1 ";
-			self::$filter_args['Variants']   = T_("Have not variants");
 			self::$is_filtered        = true;
 		}
 
@@ -293,13 +285,11 @@ class search
 		if(isset($data['so']) && $data['so'] === 'y')
 		{
 			$and[] = " (SELECT factordetails.product_id FROM factordetails WHERE factordetails.product_id = products.id AND factordetails.status = 'enable' LIMIT 1) IS NOT NULL ";
-			self::$filter_args['']   = T_("Solded");
 			self::$is_filtered        = true;
 		}
 		elseif(isset($data['so']) && $data['so'] === 'n')
 		{
 			$and[] = " (SELECT factordetails.product_id FROM factordetails WHERE factordetails.product_id = products.id AND factordetails.status = 'enable' LIMIT 1) IS NULL ";
-			self::$filter_args['']   = T_("Not sold");
 			self::$is_filtered        = true;
 		}
 
@@ -307,20 +297,17 @@ class search
 		if(isset($data['w']) && $data['w'] === 'y')
 		{
 			$and[] = "(products.weight IS NOT NULL OR products.weight != 0 )";
-			self::$filter_args['weightt']       = T_("With weight");
 			self::$is_filtered             = true;
 		}
 		elseif(isset($data['w']) && $data['w'] === 'n')
 		{
 			$and[] = "(products.weight IS NULL OR products.weight = 0 )";
-			self::$filter_args['weightt']       = T_("Without weight");
 			self::$is_filtered             = true;
 		}
 
 		if($data['status'])
 		{
 			$and[] = " products.status = '$data[status]' ";
-			self::$filter_args['status'] = T_($data['status']);
 			self::$is_filtered           = true;
 		}
 		else
@@ -447,22 +434,6 @@ class search
 		{
 			$list = [];
 		}
-
-		$filter_args_data = [];
-
-		foreach (self::$filter_args as $key => $value)
-		{
-			if(isset($list[0][$key]) && substr($value, 0, 1) === '*')
-			{
-				$filter_args_data[substr($value, 1)] = $list[0][$key];
-			}
-			else
-			{
-				$filter_args_data[$key] = $value;
-			}
-		}
-
-		self::$filter_message = \dash\app\sort::createFilterMsg($query_string, $filter_args_data);
 
 		return $list;
 	}
