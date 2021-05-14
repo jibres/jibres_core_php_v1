@@ -137,6 +137,12 @@ class property
 			]
 		];
 
+		if(a($load, 'id'))
+		{
+			array_push($result[T_("General property")]['list'], ['key' => T_("Product ID"), 'value' => a($load, 'id')]);
+		}
+
+
 		if(a($load, 'title'))
 		{
 			array_push($result[T_("General property")]['list'], ['key' => T_("Title"), 'value' => a($load, 'title')]);
