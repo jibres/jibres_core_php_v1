@@ -114,7 +114,7 @@
         </div>
         <hr>
         <footer>
-          <a target="_blank" class="special pad" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Get help"); ?> <i class="sf-link-external"></i></a>
+          <a class="special pad" href="<?php echo \dash\url::kingdom(). '/my/ticket'; ?>"><?php echo T_("Tickets"); ?></a>
         </footer>
       </div>
 
