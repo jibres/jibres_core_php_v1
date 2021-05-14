@@ -157,7 +157,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY productcategory.sort ASC";
+			$order_sort = " ORDER BY productcategory.sort ASC, productcategory.id DESC";
 		}
 
 		$and[] = " (productcategory.status != 'deleted' OR productcategory.status IS NULL) ";
