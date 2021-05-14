@@ -41,7 +41,6 @@ class set
 		$condition =
 		[
 			'comment'            => 'bit',
-			'default_pirce_list' => 'bit',
 			'variant_product'    => 'bit',
 			'defaulttracking'    => 'bit',
 			'ratio'              => \lib\ratio::check_input(),

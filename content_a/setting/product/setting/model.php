@@ -11,14 +11,6 @@ class model
 		$post = [];
 
 
-
-
-		if(array_key_exists('runaction_defaultpricelist', $all_post))
-		{
-			$post['default_pirce_list'] = \dash\request::post('defaultpricelist');
-		}
-
-
 		if(array_key_exists('runaction_variant_product', $all_post))
 		{
 			$post['variant_product'] = \dash\request::post('variant_product');
