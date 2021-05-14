@@ -59,7 +59,7 @@
           <div class="msg">
             <div class="txtB fs12"><?php echo $key ?></div>
             <?php foreach ($value as $k => $v) {?>
-              <div class="ibtn mA5"><?php echo $v ?> <i data-confirm data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}' class="sf-trash fc-red fs14"></i></div>
+              <div class="ibtn mA5"><?php echo $v ?> <i data-ajaxify data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}' class="sf-trash fc-red fs14"></i></div>
             <?php } //endif ?>
           </div>
         <?php } // endfor ?>
