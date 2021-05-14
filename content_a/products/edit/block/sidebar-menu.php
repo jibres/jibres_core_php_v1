@@ -1,6 +1,6 @@
 
   <?php if(\dash\url::child() == 'edit') {?>
-     <nav class="items long mT20">
+     <nav class="items long">
       <ul>
         <?php if(\dash\detect\device::detectPWA()) {?>
           <li>
