@@ -102,7 +102,7 @@ if(\dash\data::propertyList_saved())
             <?php if(a($value, 'id')) { $have_any_id = true; ?><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'). '&pid='. a($value, 'id') ?>" class="link"><?php echo T_("Edit") ?></div><?php } //endif ?>
           <?php } //endif ?>
         </td>
-         <td class="collapsing"><?php if(a($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-confirm  data-data='{"remove": "remove", "pid": "<?php echo a($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
+         <td class="collapsing"><?php if(a($value, 'id')) { $have_any_id = true; ?><div class="linkDel" data-ajaxify   data-data='{"remove": "remove", "pid": "<?php echo a($value, 'id'); ?>"}'><?php echo T_("Remove") ?></div><?php } //endif ?></td>
       </tr>
   <?php  } // endfor ?>
 <?php  } // end for category ?>
