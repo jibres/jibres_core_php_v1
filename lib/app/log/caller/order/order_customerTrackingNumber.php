@@ -18,7 +18,7 @@ class order_customerTrackingNumber
 		$result['txt']       = self::get_msg($_args, false);
 
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
+		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::url(). '/:'. $my_id. 't">'. T_("Show order"). '</a>';
 
 		return $result;
 
