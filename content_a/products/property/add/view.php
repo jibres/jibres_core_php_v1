@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\property;
+namespace content_a\products\property\add;
 
 
 class view
@@ -8,24 +8,14 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-		\dash\face::title(T_("Property"));
-
+		\dash\face::title(T_("Add new Property"));
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
-
-		\dash\face::btnSave('form1');
-
-		if(\dash\data::productDataRow_url())
-		{
-			\dash\face::btnView(\dash\data::productDataRow_url());
-		}
-
+		\dash\data::back_link(\dash\url::this(). '/property?id='. \dash\request::get('id'));
 
 		$property_list = \lib\app\product\property::get_pretty($id, true);
 		\dash\data::propertyList($property_list);
-
 
 		$catList = \lib\app\product\property::all_cat_name();
 		\dash\data::catList($catList);
