@@ -299,7 +299,7 @@ class filter
 		[
 			'key'    => 'product_tag_search',
 			'group'  => T_("Tag"),
-			'title'  => T_("Search in product tag"),
+			'title'  => T_("Filter by tag"),
 			'mode'   => 'product_tag_search',
 			'public' => false,
 		];
@@ -309,7 +309,7 @@ class filter
 		[
 			'key'    => 'product_unit_search',
 			'group'  => T_("Unit"),
-			'title'  => T_("Search in product unit"),
+			'title'  => T_("Filter by unit"),
 			'mode'   => 'product_unit_search',
 			'public' => false,
 		];
@@ -319,7 +319,7 @@ class filter
 		[
 			'key'    => 'product_status_search',
 			'group'  => T_("Status"),
-			'title'  => T_("Search in product staus"),
+			'title'  => T_("Filter by status"),
 			'mode'   => 'product_status_search',
 			'public' => false,
 		];
