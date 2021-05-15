@@ -1,18 +1,15 @@
 <?php
 namespace content_a\tag\property;
 
-class controller
+class controller extends \content_a\tag\edit\controller
 {
 	public static function routing()
 	{
 
-		$dataRow = \lib\app\tag\get::get(\dash\request::get('id'));
-		\dash\data::dataRow($dataRow);
+		parent::routing();
+		// disable allow file
+		\dash\allow::file(false);
 
-		if(!$dataRow)
-		{
-			\dash\header::status(404, T_("Invalid tag id"));
-		}
 
 	}
 }

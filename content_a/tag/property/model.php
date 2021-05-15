@@ -11,6 +11,7 @@ class model
 		if(\dash\request::post('itemsort') === 'itemsort')
 		{
 			\lib\app\tag\edit::set_sort_property(\dash\request::post('sortgroup'), \dash\request::post('sortkey'), $id);
+			\dash\redirect::pwd();
 			return;
 		}
 

@@ -1,10 +1,10 @@
+<?php require_once(root. 'content_a/tag/tagName.php') ?>
 <form method="post" autocomplete="off" >
   <div class="avand-lg">
     <section class="box">
       <header><h2><?php echo T_("Remove tag"); ?></h2></header>
       <div class="body">
         <div class="msg">
-          <div class="txtB"><?php echo \dash\data::dataRow_title() ?></div>
           <?php echo T_(":val products by this tag founded", ['val' => \dash\fit::number(\dash\data::dataRow_count())]) ?>
         <br>
           <a class="link" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show products by this tag"); ?></a>

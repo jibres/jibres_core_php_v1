@@ -94,6 +94,79 @@ class edit
 	}
 
 
+	public static function edit_group($_new_group, $_old_group, $_id)
+	{
+		if(!\dash\permission::check('manageProductTag'))
+		{
+			return false;
+		}
+
+		if(!$_id || !is_numeric($_id))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		$new_group = \dash\validate::string_50($_new_group);
+		$old_group = \dash\validate::string_50($_old_group);
+
+		if(!isset($new_group) || !isset($old_group))
+		{
+			\dash\notif::error(T_("Please enter the group name"));
+			return false;
+		}
+
+		$get_category = \lib\db\productcategory\get::one($_id);
+		if(!$get_category)
+		{
+			\dash\notif::error(T_("Tag not founded"));
+			return false;
+		}
+
+		$old_property = [];
+
+		if(isset($get_category['properties']) && is_array($get_category['properties']))
+		{
+			$old_property = $get_category['properties'];
+		}
+		elseif(isset($get_category['properties']) && is_string($get_category['properties']))
+		{
+			$old_property = json_decode($get_category['properties'], true);
+			if(!is_array($old_property))
+			{
+				$old_property = [];
+			}
+		}
+
+
+		$new_property = [];
+		foreach ($old_property as $key => $value)
+		{
+			if(isset($value['group']) && $value['group'] === $old_group)
+			{
+				$new_property[] =
+				[
+					'group' => $new_group,
+					'key'   => $value['key'],
+				];
+			}
+			else
+			{
+				$new_property[] = $value;
+			}
+		}
+
+		$update = [];
+		$update['properties'] = json_encode($new_property, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\productcategory\update::record($update, $_id);
+
+		\dash\notif::ok(T_("Saved"));
+
+		return true;
+	}
+
+
 	public static function edit($_args, $_id, $_properties = [])
 	{
 		if(!\lib\store::id())

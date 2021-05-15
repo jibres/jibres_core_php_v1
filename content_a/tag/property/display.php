@@ -1,9 +1,10 @@
-  <div class="avand-lg">
+<?php require_once(root. 'content_a/tag/tagName.php') ?>
+<div class="avand-lg">
 <form method="post" autocomplete="off" >
     <section class="box">
       <header><h2><?php echo T_("General property"); ?></h2></header>
       <div class="body">
-        <div class="msg"><span class="txtB"><?php echo \dash\data::dataRow_title(); ?></span></div>
+
         <p>
           <?php echo T_("If the products in this tag have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
           <br>
@@ -57,7 +58,7 @@
     <form method="post" data-patch>
       <input type="hidden" name="itemsort" value="itemsort">
         <?php foreach (\dash\data::propertyGroup() as $key => $value) {?>
-          <p class="txtB mB0-f font-16"><?php echo $key ?></p>
+          <p class="txtB mB0-f font-16"><?php echo $key ?> <a class="font-11" href="<?php echo \dash\url::this(). '/editgroup'. \dash\request::full_get(['group' => $key]); ?>"><?php echo T_("Edit") ?></a></p>
           <nav class="items long">
             <ul class="sortable" data-sortable>
             <?php foreach ($value as $k => $v) {?>
