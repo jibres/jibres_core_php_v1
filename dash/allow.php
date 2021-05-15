@@ -12,9 +12,9 @@ class allow
 	/**
 	 * SET allow send html
 	 */
-	public static function html()
+	public static function html(bool $_allow = true)
 	{
-		self::$html = true;
+		self::$html = $_allow;
 	}
 
 
@@ -30,9 +30,9 @@ class allow
 	/**
 	 * SET allow upload file
 	 */
-	public static function file()
+	public static function file(bool $_allow = true)
 	{
-		self::$file = true;
+		self::$file = $_allow;
 	}
 
 
