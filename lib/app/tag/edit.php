@@ -167,6 +167,111 @@ class edit
 	}
 
 
+	public static function clone($_clone, $_id)
+	{
+		if(!\dash\permission::check('manageProductTag'))
+		{
+			return false;
+		}
+
+		if(!$_id || !is_numeric($_id))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		if(!$_clone || !is_numeric($_clone))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		$get_category = \lib\db\productcategory\get::one($_id);
+		if(!$get_category)
+		{
+			\dash\notif::error(T_("Tag not founded"));
+			return false;
+		}
+
+		$get_clone = \lib\db\productcategory\get::one($_clone);
+		if(!$get_clone)
+		{
+			\dash\notif::error(T_("Tag not founded"));
+			return false;
+		}
+
+
+		$old_property = [];
+
+		if(isset($get_category['properties']) && is_array($get_category['properties']))
+		{
+			$old_property = $get_category['properties'];
+		}
+		elseif(isset($get_category['properties']) && is_string($get_category['properties']))
+		{
+			$old_property = json_decode($get_category['properties'], true);
+			if(!is_array($old_property))
+			{
+				$old_property = [];
+			}
+		}
+
+
+		$clone_property = [];
+
+		if(isset($get_clone['properties']) && is_array($get_clone['properties']))
+		{
+			$clone_property = $get_clone['properties'];
+		}
+		elseif(isset($get_clone['properties']) && is_string($get_clone['properties']))
+		{
+			$clone_property = json_decode($get_clone['properties'], true);
+			if(!is_array($clone_property))
+			{
+				$clone_property = [];
+			}
+		}
+
+		$check_duplicate = [];
+		foreach ($old_property as $key => $value)
+		{
+			$check_duplicate[] = a($value, 'group'). a($value, 'key');
+		}
+
+
+		$new_property = $old_property;
+
+		$count = 0;
+
+		foreach ($clone_property as $key => $value)
+		{
+			if(!in_array(a($value, 'group'). a($value, 'key'), $check_duplicate))
+			{
+				$new_property[] = $value;
+				$count++;
+			}
+		}
+
+		if(!$count)
+		{
+			\dash\notif::info(T_("No property found to add to list"));
+			return true;
+		}
+		else
+		{
+			\dash\notif::ok(T_(":val property added", ['val' => \dash\fit::number($count)]));
+		}
+
+		$update = [];
+		$update['properties'] = json_encode($new_property, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\productcategory\update::record($update, $_id);
+
+
+		return true;
+	}
+
+
 	public static function edit($_args, $_id, $_properties = [])
 	{
 		if(!\lib\store::id())
