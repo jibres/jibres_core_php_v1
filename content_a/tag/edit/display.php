@@ -56,6 +56,28 @@
         </div>
       </section>
 
+       <section class="box">
+        <header><h2><?php echo T_("General property"); ?></h2></header>
+        <div class="body">
+          <p>
+            <?php echo T_("If the products in this tag have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
+          </p>
+
+          <?php if(\dash\data::propertyGroup() && is_array(\dash\data::propertyGroup())) {?>
+              <?php foreach (\dash\data::propertyGroup() as $key => $value) {?>
+            <div class="msg minimal">
+                <span class="txtB fc-black "><?php echo $key ?></span>
+                <span><?php echo implode(T_(", "), $value) ?></span>
+            </div>
+              <?php } // endfor ?>
+        <?php } //endif ?>
+
+        </div>
+        <footer class="txtRa">
+          <a class="btn link" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
+        </footer>
+      </section>
+
       <section class="hide">
       <div class="pad mB50">
         <label for="productid"><?php echo T_("Choose product to add product to this Tag"); ?></label>
@@ -100,18 +122,7 @@
         </div>
       </section>
 
-      <section class="box">
-        <header><h2><?php echo T_("General property"); ?></h2></header>
-        <div class="body">
-          <p>
-            <?php echo T_("If the products in this tag have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
-          </p>
 
-        </div>
-        <footer class="txtRa">
-          <a class="btn link" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
-        </footer>
-      </section>
        <section class="box">
           <div class="pad">
             <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>

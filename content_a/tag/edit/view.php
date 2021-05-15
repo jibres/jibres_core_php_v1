@@ -16,6 +16,8 @@ class view
 		\dash\face::btnView(\dash\data::dataRow_url());
 		\dash\face::btnSave('form1');
 
+		\content_a\tag\property\view::load_property();
+
 	}
 }
 ?>

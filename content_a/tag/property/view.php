@@ -19,6 +19,20 @@ class view
 		$keyList = \lib\app\product\property::property_key_name($id);
 		\dash\data::keyList($keyList);
 
+		self::load_property();
+
+		$fill_category_property = \dash\session::get('fill_category_property');
+		if($fill_category_property)
+		{
+			\dash\data::fillCategoryProperty($fill_category_property);
+		}
+
+
+	}
+
+
+	public static function load_property()
+	{
 
 		if(\dash\data::dataRow_properties() && is_array(\dash\data::dataRow_properties()))
 		{
@@ -39,14 +53,6 @@ class view
 
 			\dash\data::propertyGroup($list);
 		}
-
-		$fill_category_property = \dash\session::get('fill_category_property');
-		if($fill_category_property)
-		{
-			\dash\data::fillCategoryProperty($fill_category_property);
-		}
-
-
 	}
 }
 ?>
