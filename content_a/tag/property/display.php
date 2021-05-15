@@ -1,5 +1,5 @@
-<form method="post" autocomplete="off" >
   <div class="avand-lg">
+<form method="post" autocomplete="off" >
     <section class="box">
       <header><h2><?php echo T_("General property"); ?></h2></header>
       <div class="body">
@@ -51,21 +51,34 @@
       <button class="btn master" name="save_default_property" value="save_default_property"><?php echo T_("Add") ?></button>
     </footer>
   </section>
+</form>
 
   <?php if(\dash\data::propertyGroup() && is_array(\dash\data::propertyGroup())) {?>
-    <div class="box">
-      <div class="body">
+    <form method="post" data-patch>
+      <input type="hidden" name="itemsort" value="itemsort">
         <?php foreach (\dash\data::propertyGroup() as $key => $value) {?>
-          <div class="msg">
-            <div class="txtB fs12"><?php echo $key ?></div>
+          <p class="txtB mB0-f font-16"><?php echo $key ?></p>
+          <nav class="items long">
+            <ul class="sortable" data-sortable>
             <?php foreach ($value as $k => $v) {?>
-              <div class="ibtn mA5"><?php echo $v ?> <i data-ajaxify data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}' class="sf-trash fc-red fs14"></i></div>
+              <li class="">
+                <div class="item f" >
+                  <input type="hidden" class="hide" name="sortgroup[]" value="<?php echo $key ?>">
+                  <input type="hidden" class="hide" name="sortkey[]" value="<?php echo $v ?>">
+                  <div class="f">
+                    <div data-handle class="cauto handle"><i class="sf-sort"></i></div>
+                    <div class="c mLa10"><?php echo $v?></div>
+                  </div>
+
+                  <div class="value" data-ajaxify data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}'><i class="sf-trash fc-red"></i></div>
+                </div>
+              </li>
             <?php } //endif ?>
-          </div>
+            </ul>
+          </nav>
         <?php } // endfor ?>
-      </div>
-    </div>
+    </form>
+
 
   <?php } //endif ?>
 </div>
-</form>

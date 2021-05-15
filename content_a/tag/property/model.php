@@ -7,6 +7,13 @@ class model
 	public static function post()
 	{
 		$id = \dash\request::get('id');
+
+		if(\dash\request::post('itemsort') === 'itemsort')
+		{
+			\lib\app\tag\edit::set_sort_property(\dash\request::post('sortgroup'), \dash\request::post('sortkey'), $id);
+			return;
+		}
+
 		if(\dash\request::post('save_default_property') === 'save_default_property')
 		{
 			$post        = [];

@@ -32,6 +32,68 @@ class edit
 	}
 
 
+	public static function set_sort_property($_group_sort, $_key_sort, $_id)
+	{
+		if(!\dash\permission::check('manageProductTag'))
+		{
+			return false;
+		}
+
+		if(!$_id || !is_numeric($_id))
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		if(!is_array($_group_sort))
+		{
+			\dash\notif::error(T_("Invalid sort item detail"));
+			return false;
+		}
+
+		if(!is_array($_key_sort))
+		{
+			\dash\notif::error(T_("Invalid sort item detail"));
+			return false;
+		}
+
+		if(count($_group_sort) !== count($_key_sort))
+		{
+			\dash\notif::error(T_("Count of group and key is not matched!"));
+			return false;
+		}
+
+		$group_sort = array_values($_group_sort);
+		$key_sort   = array_values($_key_sort);
+
+		$get_category = \lib\db\productcategory\get::one($_id);
+		if(!$get_category)
+		{
+			\dash\notif::error(T_("Tag not founded"));
+			return false;
+		}
+
+		$new_property = [];
+		foreach ($group_sort as $key => $value)
+		{
+			$new_property[] =
+			[
+				'group' => $value,
+				'key' => a($key_sort, $key),
+			];
+		}
+
+		$update = [];
+		$update['properties'] = json_encode($new_property, JSON_UNESCAPED_UNICODE);
+
+		\lib\db\productcategory\update::record($update, $_id);
+
+		\dash\notif::ok(T_("Saved"));
+
+		return true;
+	}
+
+
 	public static function edit($_args, $_id, $_properties = [])
 	{
 		if(!\lib\store::id())
