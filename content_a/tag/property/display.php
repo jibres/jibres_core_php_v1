@@ -11,7 +11,7 @@
           <?php echo T_("Here you just enter the group name and key of property. And you can set value of this property on product property edit page for each product contain this tag."); ?>
           <br>
         <?php echo T_("Also you can copy all property from another tag here") ?>
-        <a href="<?php echo \dash\url::this(). '/clone'. \dash\request::full_get() ?>" class="link"><?php echo T_("Copy from other tag") ?></span>
+        <a href="<?php echo \dash\url::this(). '/clone'. \dash\request::full_get() ?>" class="link"><?php echo T_("Copy from other tag") ?></a>
         </p>
         <div class="row">
           <div class="c-md-6 c-xs-12 c-sm-12">
@@ -23,11 +23,11 @@
               <div>
                 <select name="cat" class="select22" data-model='tag' data-placeholder="<?php echo T_("Group"); ?>" >
                   <option></option>
-                  <?php if(\dash\data::fillCategoryProperty()) {?>
+                  <?php if(\dash\data::fillCategoryProperty() && !in_array(\dash\data::fillCategoryProperty(), \dash\data::catList())) {?>
                     <option value="<?php echo \dash\data::fillCategoryProperty() ?>" selected><?php echo \dash\data::fillCategoryProperty(); ?></option>
                   <?php } //endif ?>
                   <?php foreach (\dash\data::catList() as $key => $value) {?>
-                    <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'cat')) { echo 'selected'; } ?> ><?php echo $value; ?></option>
+                    <option value="<?php echo $value; ?>" <?php if($value == a(\dash\data::dataRow(), 'cat') || $value === \dash\data::fillCategoryProperty()) { echo 'selected'; } ?> ><?php echo $value; ?></option>
                   <?php } //endfor ?>
                 </select>
               </div>
