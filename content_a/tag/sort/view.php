@@ -12,7 +12,7 @@ class view
 
 
 		// work with category list
-		\dash\data::dataTable(\lib\app\tag\search::list(null, ['pagination' => false, 'showonwebsite' => 1]));
+		\dash\data::dataTable(\lib\app\tag\search::list(null, ['pagination' => false, 'sort_list' => 1]));
 	}
 }
 ?>

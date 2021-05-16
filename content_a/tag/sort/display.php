@@ -18,7 +18,7 @@ $option =
 <div class="avand-md">
   <form method='post' data-patch>
     <input type="hidden" name="setsort" value="1">
-    <?php echo \lib\app\menu\generate::admin($dataTable, $option); ?>
+    <?php echo \lib\app\tag\get::sort_list($dataTable, $option); ?>
   </form>
   <nav class="items">
     <ul>

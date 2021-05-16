@@ -145,5 +145,204 @@ class get
 	}
 
 
+	private  static function make_menu($list)
+	{
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+
+
+		$list = array_map(function ($a){$a['child'] = []; return $a;}, $list);
+
+
+		$list = array_combine(array_column($list, 'id'), $list);
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+
+
+			if(!$parent1 && !$parent2 && !$parent3 && !$parent4)
+			{
+				$new_list[$key] = $value;
+			}
+		}
+
+
+		foreach ($list as $key => $value)
+		{
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+
+
+			if($parent1 && !$parent2 && !$parent3 && !$parent4)
+			{
+				$new_list[$parent1]['child'][$key] = $value;
+			}
+		}
+
+
+		foreach ($list as $key => $value)
+		{
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+
+			if($parent1 && $parent2 && !$parent3 && !$parent4)
+			{
+				$new_list[$parent1]['child'][$parent2]['child'][$key] = $value;
+			}
+		}
+
+
+		foreach ($list as $key => $value)
+		{
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+
+			if($parent1 && $parent2 && $parent3 && !$parent4)
+			{
+				$new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$key] = $value;
+			}
+
+		}
+
+		foreach ($list as $key => $value)
+		{
+			$parent1 = a($value, 'parent1');
+			$parent2 = a($value, 'parent2');
+			$parent3 = a($value, 'parent3');
+			$parent4 = a($value, 'parent4');
+
+
+			if($parent1 && $parent2 && $parent3 && $parent4)
+			{
+				$new_list[$parent1]['child'][$parent2]['child'][$parent3]['child'][$parent4]['child'][$key] = $value;
+			}
+		}
+
+
+		return $new_list;
+	}
+
+
+
+	public static function sort_list($_tag, $_option = [])
+	{
+		if(!is_array($_tag))
+		{
+			return null;
+		}
+
+		$_tag = self::make_menu($_tag);
+
+        if(!is_array($_option))
+        {
+            $_option = [];
+        }
+
+        $defaul_option =
+        [
+            'subaddtitle'   => T_("Add Subitem"),
+            'sublink'       => \dash\url::that(). '/item',
+            'sublink_args'  => [],
+            'editlink'      => \dash\url::that(). '/item',
+            'editlink_args' => [],
+        ];
+
+        $_option = array_merge($defaul_option, $_option);
+
+		$result = '';
+		$result .= '<ol class="items2" data-layer-limit="4" data-sortable>';
+		$result .= self::create_admin($_tag, $_option);
+		$result .= '</ol>';
+
+		return $result;
+
+	}
+
+
+
+	private static function create_admin($_tag, $_option = [])
+	{
+        $result = '';
+
+		foreach ($_tag as $index => $one_item)
+		{
+            $have_child = false;
+
+			if(isset($one_item['child']) && is_array($one_item['child']) && $one_item['child'])
+            {
+                $have_child = true;
+            }
+
+			$result .= '<li>';
+			$result .= '<div class="f item">';
+            {
+    			$result .= '<i class="sf-thumbnails" data-handle>';
+                {
+                    $result .= '<input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '">';
+                }
+                $result .= '</i>';
+
+                // $result .= '<i data-kerkere=".showMenu" data-kerkere-icon="open"></i>';
+
+    			$result .= '<div class="key">'. a($one_item, 'title');
+    			if(a($one_item, 'target'))
+    			{
+    				$result .= '<i class="sf-external-link fc-mute"></i>';
+    			}
+    			$result .= '</div>';
+
+    			$result .= '<div class="value addChild pRa20-f s0">';
+                {
+
+                    $sublink_args = array_merge(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')], $_option['sublink_args']);
+
+                    $result .= '<a href="'. $_option['sublink'] .'?'. \dash\request::build_query($sublink_args). '">'. $_option['subaddtitle']. '</a>';
+                }
+                $result .= '</div>';
+
+    			$result .= '<div class="value">';
+                {
+                    $editlink_args = array_merge(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')], $_option['editlink_args']);
+
+                    $result .= '<a href="'. $_option['editlink'] .'?'. \dash\request::build_query($editlink_args). '">'. T_("Edit"). '</a>';
+                }
+                $result .= '</div>';
+            }
+			$result .= '</div>';
+
+            if($have_child)
+			{
+				$result .= '<ol data-sortable>';
+				$result .= self::create_admin($one_item['child'], $_option);
+				$result .='</ol>';
+			}
+			else
+			{
+				$result .= '<ol data-sortable></ol>';
+			}
+
+			$result .= '</li>';
+		}
+
+        return $result;
+	}
+
+
 }
 ?>

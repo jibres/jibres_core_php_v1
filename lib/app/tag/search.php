@@ -106,6 +106,7 @@ class search
 			'sort'           => ['enum' => ['title']],
 			'pagination' => 'bit',
 			'showonwebsite' => 'bit',
+			'sort_list' => 'bit',
 		];
 
 		$require = [];
@@ -133,6 +134,12 @@ class search
 		if($data['showonwebsite'])
 		{
 			$and[] = " productcategory.showonwebsite IS NOT NULL ";
+		}
+
+		if($data['sort_list'])
+		{
+
+			$and[] = " ( productcategory.showonwebsite IS NOT NULL OR (productcategory.parent1 IS NOT NULL OR productcategory.parent2 IS NOT NULL OR productcategory.parent3 IS NOT NULL OR productcategory.parent4 IS NOT NULL )) ";
 		}
 
 		if($query_string)

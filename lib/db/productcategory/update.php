@@ -35,5 +35,25 @@ class update
 		$result = \dash\db::query(implode(';', $query), null, ['multi_query' => true]);
 		return $result;
 	}
+
+
+	public static function sort_level($_update)
+	{
+		$query = [];
+		foreach ($_update as $id => $set)
+		{
+			$make_set = \dash\db\config::make_set($set);
+			if($make_set)
+			{
+				$query[] = "UPDATE productcategory SET $make_set WHERE productcategory.id = $id LIMIT 1";
+			}
+		}
+
+		if(!empty($query))
+		{
+			\dash\db::query(implode(' ; ', $query), null, ['multi_query' => true]);
+		}
+
+	}
 }
 ?>
