@@ -38,13 +38,6 @@ class file
 
 				\dash\waf\gate\toys\block::tags($file_detail['name'], $file_name);
 
-				\dash\waf\gate\toys\block::word($file_detail['name'], 'script');
-				\dash\waf\gate\toys\block::word($file_detail['name'], 'javascript');
-				\dash\waf\gate\toys\block::word($file_detail['name'], 'prompt');
-				\dash\waf\gate\toys\block::word($file_detail['name'], 'delete');
-				\dash\waf\gate\toys\block::word($file_detail['name'], 'xss');
-				\dash\waf\gate\toys\block::word($file_detail['name'], '{');
-				\dash\waf\gate\toys\block::word($file_detail['name'], '}');
 				\dash\waf\gate\toys\block::word($file_detail['name'], "\n");
 
 				\dash\waf\gate\toys\block::word($file_detail['name'], '"');
