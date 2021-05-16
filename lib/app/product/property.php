@@ -626,11 +626,37 @@ class property
 	}
 
 
-	public static function add_multi($_args, $_id)
+	public static function add_multi($_args, $_id, $_sort = [])
 	{
+		if(!is_array($_sort))
+		{
+			$_sort = [];
+		}
+
+		$sort = array_values($_sort);
+		$sort = array_filter($sort);
+
 		foreach ($_args as $key => $value)
 		{
 			\dash\notif::clean();
+
+			$value['sort'] = null;
+
+			if(isset($value['id']) && $value['id'])
+			{
+				if(in_array($value['id'], $sort))
+				{
+					$value['sort'] = array_search($value['id'], $sort);
+				}
+			}
+			elseif(isset($value['temp_id']) && $value['temp_id'])
+			{
+				if(in_array('tid_'. $value['temp_id'], $sort))
+				{
+					$value['sort'] = array_search('tid_'. $value['temp_id'], $sort);
+				}
+			}
+
 			self::add($value, $_id);
 
 		}
@@ -643,6 +669,9 @@ class property
 			'cat'         => 'string_100',
 			'key'         => 'string_100',
 			'value'       => 'string_1000',
+			'id'          => 'id',
+			'sort'        => 'int',
+			'temp_id'     => 'string_50',
 			'outstanding' => 'bit',
 		];
 
@@ -674,7 +703,7 @@ class property
 			}
 			else
 			{
-				if($data['value'] != $check_duplicate['value'])
+				if($data['value'] != $check_duplicate['value'] || floatval(a($data, 'sort')) !== floatval(a($check_duplicate, 'sort')))
 				{
 					$_edit_id = $check_duplicate['id'];
 				}
@@ -704,9 +733,10 @@ class property
 
 			$update =
 			[
-				'cat' => $data['cat'],
-				'key' => $data['key'],
-				'value' => $data['value'],
+				'cat'          => $data['cat'],
+				'key'          => $data['key'],
+				'sort'         => $data['sort'],
+				'value'        => $data['value'],
 				'datemodified' => date("Y-m-d H:i:s"),
 
 			];
@@ -719,10 +749,11 @@ class property
 
 			$insert =
 			[
-				'product_id' => $id,
-				'cat' => $data['cat'],
-				'key' => $data['key'],
-				'value' => $data['value'],
+				'product_id'  => $id,
+				'cat'         => $data['cat'],
+				'key'         => $data['key'],
+				'sort'        => $data['sort'],
+				'value'       => $data['value'],
 				'datecreated' => date("Y-m-d H:i:s"),
 
 			];

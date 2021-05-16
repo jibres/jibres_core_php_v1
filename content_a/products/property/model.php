@@ -36,14 +36,30 @@ class model
 		{
 			if($value)
 			{
-				if(substr($key, 0, 4) === 'cat_' || substr($key, 0, 4) === 'key_' || substr($key, 0, 6) === 'value_')
+				if(in_array(substr($key, 0, 4), ['cat_', 'key_', 'val_', 'rid_', 'tid_']))
 				{
 					$myKey = substr($key, 4);
 					$myIndex = substr($key, 0, 3);
-					if(substr($key, 0, 6) === 'value_')
+
+					switch ($myIndex)
 					{
-						$myKey = substr($key, 6);
-						$myIndex = substr($key, 0, 5);
+						case 'tid':
+							$myIndex = 'temp_id';
+							break;
+
+						case 'rid':
+							$myIndex = 'id';
+							break;
+
+						case 'val':
+							$myIndex = 'value';
+							break;
+
+						case 'cat':
+						case 'key':
+						default:
+							$myIndex = $myIndex; // ;)
+							break;
 					}
 
 					if(!isset($multiproperty[$myKey]))
@@ -56,16 +72,17 @@ class model
 			}
 		}
 
+		$sort = \dash\request::post('sort');
+
 		$multiproperty = array_values($multiproperty);
-		\lib\app\product\property::add_multi($multiproperty, $id);
+
+		\lib\app\product\property::add_multi($multiproperty, $id, $sort);
 
 		if(\dash\engine\process::status())
 		{
+			\dash\notif::ok(T_("Saved"));
 			\dash\redirect::pwd();
 		}
-
-
-
 	}
 }
 ?>
