@@ -16,6 +16,16 @@ class remove
 	}
 
 
+	public static function first_level($_id)
+	{
+		$load = \lib\app\tag\get::inline_get($_id);
+		if($load)
+		{
+			\lib\db\productcategory\update::first_level($_id);
+		}
+	}
+
+
 	public static function remove_action($_id, $_action)
 	{
 		$load = \lib\app\tag\get::inline_get($_id);

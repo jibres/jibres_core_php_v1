@@ -8,7 +8,7 @@ class model
 	{
 		$args           = [];
 		$args['title']  = \dash\request::post('tag');
-		$args['showonwebsite'] = \dash\request::get('firstlevel') ? 1 : null;
+		$args['firstlevel'] = \dash\request::get('firstlevel') ? 1 : null;
 
 		$result = \lib\app\tag\add::add($args);
 
@@ -16,7 +16,7 @@ class model
 		{
 			if(isset($result['id']))
 			{
-				if($args['showonwebsite'])
+				if($args['firstlevel'])
 				{
 					\dash\redirect::to(\dash\url::this(). '/sort?id='. $result['id']);
 				}

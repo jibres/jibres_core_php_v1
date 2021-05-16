@@ -139,7 +139,7 @@ class search
 		if($data['sort_list'])
 		{
 
-			$and[] = " ( productcategory.showonwebsite IS NOT NULL OR (productcategory.parent1 IS NOT NULL OR productcategory.parent2 IS NOT NULL OR productcategory.parent3 IS NOT NULL OR productcategory.parent4 IS NOT NULL )) ";
+			$and[] = " productcategory.firstlevel = 1 ";
 		}
 
 		if($query_string)

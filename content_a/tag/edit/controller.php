@@ -6,10 +6,6 @@ class controller
 	public static function routing()
 	{
 		$id = \dash\request::get('id');
-		if(!$id)
-		{
-			$id = \dash\request::get('edit');
-		}
 
 		$dataRow = \lib\app\tag\get::get($id);
 		\dash\data::dataRow($dataRow);

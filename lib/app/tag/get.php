@@ -145,18 +145,15 @@ class get
 	}
 
 
-	private  static function make_menu($list)
+	private  static function make_child_ready($list)
 	{
 
 		if(!is_array($list))
 		{
 			$list = [];
 		}
-
-
-
+		// add child index
 		$list = array_map(function ($a){$a['child'] = []; return $a;}, $list);
-
 
 		$list = array_combine(array_column($list, 'id'), $list);
 
@@ -240,34 +237,31 @@ class get
 
 
 
-	public static function sort_list($_tag, $_option = [])
+	public static function sort_list()
 	{
-		if(!is_array($_tag))
+
+		$tag_list = \lib\app\tag\search::list(null, ['pagination' => false, 'sort_list' => 1]);
+
+		if(!is_array($tag_list))
 		{
 			return null;
 		}
 
-		$_tag = self::make_menu($_tag);
+		$tag_list = self::make_child_ready($tag_list);
 
-        if(!is_array($_option))
-        {
-            $_option = [];
-        }
 
         $defaul_option =
         [
-            'subaddtitle'   => T_("Add Subitem"),
-            'sublink'       => \dash\url::that(). '/item',
+            'subaddtitle'   => T_("Add sub tag"),
+            'sublink'       => \dash\url::this(). '/edit',
             'sublink_args'  => [],
-            'editlink'      => \dash\url::that(). '/item',
+            'editlink'      => \dash\url::this(). '/edit',
             'editlink_args' => [],
         ];
 
-        $_option = array_merge($defaul_option, $_option);
-
 		$result = '';
 		$result .= '<ol class="items2" data-layer-limit="4" data-sortable>';
-		$result .= self::create_admin($_tag, $_option);
+		$result .= self::generate_item($tag_list, $defaul_option);
 		$result .= '</ol>';
 
 		return $result;
@@ -276,7 +270,7 @@ class get
 
 
 
-	private static function create_admin($_tag, $_option = [])
+	private static function generate_item($_tag, $_option = [])
 	{
         $result = '';
 
@@ -310,7 +304,7 @@ class get
     			$result .= '<div class="value addChild pRa20-f s0">';
                 {
 
-                    $sublink_args = array_merge(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')], $_option['sublink_args']);
+                    $sublink_args = array_merge(['id' => a($one_item, 'id')], $_option['sublink_args']);
 
                     $result .= '<a href="'. $_option['sublink'] .'?'. \dash\request::build_query($sublink_args). '">'. $_option['subaddtitle']. '</a>';
                 }
@@ -318,9 +312,17 @@ class get
 
     			$result .= '<div class="value">';
                 {
-                    $editlink_args = array_merge(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')], $_option['editlink_args']);
+                    $editlink_args = array_merge(['id' => a($one_item, 'id')], $_option['editlink_args']);
 
                     $result .= '<a href="'. $_option['editlink'] .'?'. \dash\request::build_query($editlink_args). '">'. T_("Edit"). '</a>';
+                }
+                $result .= '</div>';
+
+                $result .= '<div class="value">';
+                {
+                    $editlink_args = array_merge(['id' => a($one_item, 'id')], $_option['editlink_args']);
+
+                    $result .= '<div data-ajaxify data-data=\'{"remove": "'.a($one_item, 'id') .'"}\' href="'. $_option['editlink'] .'?'. \dash\request::build_query($editlink_args). '"><i class="sf-trash font-10 fc-red"></i></div>';
                 }
                 $result .= '</div>';
             }
@@ -329,7 +331,7 @@ class get
             if($have_child)
 			{
 				$result .= '<ol data-sortable>';
-				$result .= self::create_admin($one_item['child'], $_option);
+				$result .= self::generate_item($one_item['child'], $_option);
 				$result .='</ol>';
 			}
 			else
@@ -342,7 +344,5 @@ class get
 
         return $result;
 	}
-
-
 }
 ?>

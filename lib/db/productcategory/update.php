@@ -24,6 +24,32 @@ class update
 	}
 
 
+	public static function first_level($_id)
+	{
+		$query  =
+		"
+			UPDATE
+				productcategory
+			SET
+				productcategory.parent1 = NULL,
+				productcategory.parent2 = NULL,
+				productcategory.parent3 = NULL,
+				productcategory.parent4 = NULL,
+				productcategory.firstlevel = NULL
+			WHERE
+
+				productcategory.id = $_id OR
+				productcategory.parent1 = $_id OR
+				productcategory.parent2 = $_id OR
+				productcategory.parent3 = $_id OR
+				productcategory.parent4 = $_id
+
+		";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function set_sort($_sort)
 	{
 		$query = [];

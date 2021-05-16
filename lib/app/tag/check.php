@@ -17,6 +17,7 @@ class check
 			'seotitle'      => 'seotitle',
 			'seodesc'       => 'seodesc',
 			'showonwebsite' => 'bit',
+			'firstlevel'    => 'bit',
 
 		];
 

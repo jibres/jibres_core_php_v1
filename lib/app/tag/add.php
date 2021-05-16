@@ -260,6 +260,7 @@ class add
 		$args['datecreated']   = date("Y-m-d H:i:s");
 		$args['status']        = 'enable';
 		$args['language']      = \dash\language::current();
+		$args['firstlevel'] = $args['firstlevel'];
 		$args['showonwebsite'] = $args['showonwebsite'];
 		$args['sort']          = floatval(\lib\db\productcategory\get::last_sort()) + 1;
 
