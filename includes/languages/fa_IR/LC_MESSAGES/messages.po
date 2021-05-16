@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-05-15 10:23+0430\n"
-"PO-Revision-Date: 2021-05-15 10:23+0430\n"
+"POT-Creation-Date: 2021-05-16 17:07+0430\n"
+"PO-Revision-Date: 2021-05-16 17:11+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4416,11 +4416,13 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/products/desc/view.php:14 content_a/products/duplicate/view.php:15
 #: content_a/products/gallerysort/view.php:14 content_a/products/inventory/view.php:15
 #: content_a/products/organization/view.php:19 content_a/products/poof/view.php:15
-#: content_a/products/property/view.php:15 content_a/products/share/view.php:15
-#: content_a/products/sharetext/view.php:15 content_a/products/shipping/view.php:21
-#: content_a/products/status/view.php:15 content_a/products/variants/view.php:14
-#: content_a/setting/aparat/view.php:10 content_a/setting/branding/view.php:10
-#: content_a/setting/company/view.php:11 content_a/setting/domain/add/view.php:11
+#: content_a/products/property/add/view.php:14
+#: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
+#: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
+#: content_a/products/shipping/view.php:21 content_a/products/status/view.php:15
+#: content_a/products/variants/view.php:14 content_a/setting/aparat/view.php:10
+#: content_a/setting/branding/view.php:10 content_a/setting/company/view.php:11
+#: content_a/setting/domain/add/view.php:11
 #: content_a/setting/domain/existdomain/view.php:11
 #: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/remove/view.php:11
 #: content_a/setting/domain/setting/view.php:11 content_a/setting/fb/view.php:10
@@ -4894,7 +4896,7 @@ msgstr "وضعیت"
 #: content_a/form/item/choice/display.php:11 content_a/form/tag/add/display.php:12
 #: content_a/order/products/display.php:66 content_a/pagebuilder/add/display.php:16
 #: content_a/products/add/view.php:19 content_a/products/bullet/display.php:21
-#: content_a/products/property/display.php:62
+#: content_a/products/property/add/display.php:60
 #: content_a/products/variants/display-add-new-child.php:58
 #: content_a/setting/menu/item/display.php:114
 #: content_a/setting/place/inventory/display.php:17
@@ -4926,8 +4928,8 @@ msgstr "افزودن"
 #: content_a/accounting/year/add/display.php:43 content_a/accounting/year/display.php:29
 #: content_a/form/item/choice/display.php:11 content_a/order/detail/display.php:39
 #: content_a/pricehistory/display.php:9 content_a/products/bullet/display.php:21
-#: content_a/products/bullet/display.php:28 content_a/products/property/display.php:58
-#: content_a/products/property/display.php:102 content_a/setting/fund/display.php:39
+#: content_a/products/bullet/display.php:28 content_a/products/property/add/display.php:56
+#: content_a/products/property/edit/display.php:17 content_a/setting/fund/display.php:39
 #: content_a/setting/menu/edit/display.php:11 content_a/setting/menu/item/display.php:114
 #: content_a/setting/place/inventory/display.php:19
 #: content_a/setting/place/inventory/display.php:47 content_a/tag/editgroup/display.php:13
@@ -4953,8 +4955,8 @@ msgstr "ویرایش"
 #: content_a/accounting/year/add/display.php:39
 #: content_a/form/analytics/filter/display.php:34
 #: content_a/form/item/choice/display.php:32 content_a/pagebuilder/manage/display.php:172
-#: content_a/products/bullet/display.php:29 content_a/products/property/display.php:105
-#: content_a/setting/fund/display.php:40 content_a/setting/menu/item/display.php:112
+#: content_a/products/bullet/display.php:29 content_a/setting/fund/display.php:40
+#: content_a/setting/menu/item/display.php:112
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
 #: content_a/setting/staticfile/display.php:36
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
@@ -5052,8 +5054,9 @@ msgstr "همه"
 #: content_a/accounting/turnover/display.php:151
 #: content_a/accounting/year/manage/display.php:50
 #: content_a/accounting/year/manage/display.php:128
-#: content_a/products/property/display.php:17 content_a/products/property/display.php:21
-#: content_a/products/property/display.php:128 content_a/tag/editgroup/display.php:9
+#: content_a/products/property/add/display.php:16
+#: content_a/products/property/add/display.php:20
+#: content_a/products/property/edit/display.php:13 content_a/tag/editgroup/display.php:9
 #: content_a/tag/property/display.php:20 content_a/tag/property/display.php:24
 #: lib/app/tag/add.php:87
 msgid "Group"
@@ -6365,7 +6368,7 @@ msgstr "مایکت"
 #: content_a/pagebuilder/manage/display.php:154 content_a/products/desc/display.php:13
 #: content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:3
-#: content_a/products/property/display.php:158 content_a/products/sharetext/display.php:23
+#: content_a/products/sharetext/display.php:23
 #: content_a/products/variants/display-add-product.php:98
 #: content_a/setting/accounting/currency/display.php:35
 #: content_a/setting/accounting/defaultdetail/display.php:54
@@ -7225,7 +7228,7 @@ msgstr "کوچکتر از"
 
 #: content_a/form/analytics/addcondition/display-condition.php:27
 #: content_a/form/analytics/addcondition/display-condition.php:29
-#: content_a/products/property/display.php:48 content_a/products/property/display.php:130
+#: content_a/products/property/add/display.php:47
 #: content_a/products/variants/display-add-variants.php:17
 #: content_a/products/variants/display-add-variants.php:38
 #: content_a/products/variants/display-add-variants.php:59
@@ -7239,7 +7242,7 @@ msgstr "مقدار"
 
 #: content_a/form/analytics/addcondition/display-condition.php:41
 #: content_a/form/analytics/remove/display.php:8 content_a/order/status/display.php:46
-#: content_a/products/property/display.php:56
+#: content_a/products/property/add/display.php:54
 #: content_a/setting/general/remove/display.php:34 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
 #: content_account/address.php:10 content_my/business/ask/display.php:52
@@ -8011,8 +8014,8 @@ msgid "Form item"
 msgstr "آیتم‌های فرم"
 
 #: content_a/form/report/display.php:7 content_a/order/home/display.php:75
-#: content_a/products/property/display.php:33 content_a/products/property/display.php:37
-#: content_a/products/property/display.php:129 content_a/tag/property/display.php:39
+#: content_a/products/property/add/display.php:32
+#: content_a/products/property/add/display.php:36 content_a/tag/property/display.php:39
 #: content_a/tag/property/display.php:43 content_a/website/productline/display.php:18
 #: content_cms/files/view/display.php:26 content_crm/ticket/view/display.php:125
 #: content_love/business/domain/dns/display.php:13
@@ -9933,35 +9936,38 @@ msgstr "بدون واحد"
 msgid "Image Asistant"
 msgstr "دستیار تصویر"
 
-#: content_a/products/property/display.php:9
-msgid "Set product property"
-msgstr "تنظیم مشخصات محصول"
+#: content_a/products/property/add/view.php:11
+msgid "Add new Property"
+msgstr "افزودن خصوصیات جدید"
 
-#: content_a/products/property/display.php:85
-msgid "Set as outstanding property"
-msgstr "تنظیم به عنوان خصوصیت برجسته"
+#: content_a/products/property/display.php:12
+msgid "Add new property"
+msgstr "افزودن خصوصیات جدید"
 
-#: content_a/products/property/display.php:87
-msgid "Unset from outstanding property"
-msgstr "حذف از مشخصات برجسته"
-
-#: content_a/products/property/display.php:100
-msgid "Please fill the top input and click on Edit to save it"
-msgstr "لطفا مقادیر بالای صفحه را تکمیل کنید و دکمه ویرایش را بزنید"
-
-#: content_a/products/property/display.php:113
+#: content_a/products/property/display.php:80
 msgid "By click on "
 msgstr "با کلیک بر "
 
-#: content_a/products/property/display.php:114
+#: content_a/products/property/display.php:81
 msgid "You can set one property as outstanding property or unset it"
 msgstr ""
 "شما می‌توانید یک مشخصه را به عنوان مشخصات برجسته انتخاب کنید و یا آن را به عنوان مشخصات "
 "عادی تنظیم کنید"
 
-#: content_a/products/property/display.php:123
-msgid "Property of Tag"
-msgstr "مشخصات عمومی تگ"
+#: content_a/products/property/edit/display.php:11 content_a/tag/clone/view.php:8
+#: content_a/tag/editgroup/view.php:8
+msgid "Edit group title"
+msgstr "ویرایش عنوان گروه"
+
+#: content_a/products/property/edit/view.php:11
+msgid "Edit Property"
+msgstr "ویرایش مشخصات"
+
+#: content_a/products/property/model.php:83 dash/app/permission/edit.php:157
+#: dash/app/permission/edit.php:229 lib/app/product/property.php:712
+#: lib/app/tag/edit.php:91 lib/app/tag/edit.php:164
+msgid "Saved"
+msgstr "ذخیره شد"
 
 #: content_a/products/property/view.php:11 lib/app/product/filter.php:190
 #: lib/app/product/filter.php:200
@@ -12810,10 +12816,6 @@ msgstr "دریافت خصوصیات از تگ"
 #: content_a/tag/clone/display.php:17
 msgid "Clone"
 msgstr "دریافت"
-
-#: content_a/tag/clone/view.php:8 content_a/tag/editgroup/view.php:8
-msgid "Edit group title"
-msgstr "ویرایش عنوان گروه"
 
 #: content_a/tag/edit/display.php:15
 msgid "Is displayed on the site tags screen?"
@@ -23178,11 +23180,6 @@ msgstr "صداکننده اشتباه است"
 #: dash/app/permission/edit.php:107
 msgid "Pleace open access to group :group first"
 msgstr "لطفا ابتدا دسترسی را به گروه :group باز کنید"
-
-#: dash/app/permission/edit.php:157 dash/app/permission/edit.php:229
-#: lib/app/tag/edit.php:91 lib/app/tag/edit.php:164
-msgid "Saved"
-msgstr "ذخیره شد"
 
 #: dash/app/permission/edit.php:194
 msgid "No change in your permission"
@@ -35357,7 +35354,7 @@ msgstr "لطفا یک محصول را انتخاب کنید"
 
 #: lib/app/menu/check.php:137 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
 #: lib/app/product/property.php:78 lib/app/product/property.php:96
-#: lib/app/product/property.php:481
+#: lib/app/product/property.php:470
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
@@ -36336,59 +36333,67 @@ msgstr "ارتفاع"
 msgid "Product ID"
 msgstr "شناسه محصول"
 
-#: lib/app/product/property.php:588
+#: lib/app/product/property.php:577
 msgid "Property removed"
 msgstr "مشخصه حذف شد"
 
-#: lib/app/product/property.php:606
+#: lib/app/product/property.php:595
 msgid "This property already set as outstanding"
 msgstr "این مشخصه قبلا به عنوان مشخصه برجسته انتخاب شده است"
 
-#: lib/app/product/property.php:612
+#: lib/app/product/property.php:601
 msgid "Property set as outstanding"
 msgstr "مشخصه برجسته تنظیم شد"
 
-#: lib/app/product/property.php:621
+#: lib/app/product/property.php:610
 msgid "Property remove from outstanding"
 msgstr "این مورد از مشخصات برجسته حذف شد"
 
-#: lib/app/product/property.php:626
+#: lib/app/product/property.php:615
 msgid "This property is not an outstanding property"
 msgstr "این مشخصه از مشخصات برجسته نیست"
 
-#: lib/app/product/property.php:633 lib/app/tag/add.php:216
+#: lib/app/product/property.php:622 lib/app/tag/add.php:216
 msgid "Property not found"
 msgstr "مشخصه یافت نشد"
 
-#: lib/app/product/property.php:663
+#: lib/app/product/property.php:681
 msgid "Property group"
 msgstr "گروه مشخصات"
 
-#: lib/app/product/property.php:683
-msgid "Duplicate property founded"
-msgstr "این مشخصه تکراری است"
-
-#: lib/app/product/property.php:693
+#: lib/app/product/property.php:730
 msgid "Invalid property id"
 msgstr "شناسه مشخصه اشتباه است"
 
-#: lib/app/product/property.php:706
+#: lib/app/product/property.php:744
 msgid "Property successfully edited"
 msgstr "مشخصه با موفقیت ویرایش شد"
 
-#: lib/app/product/property.php:722
+#: lib/app/product/property.php:761
 msgid "Property successfully added"
 msgstr "مشخصه با موفقیت اضافه شد"
 
-#: lib/app/product/property.php:780
+#: lib/app/product/property.php:773
+msgid "No change in group title"
+msgstr "هیچ تغییری در عنوان گروه رخ نداد"
+
+#: lib/app/product/property.php:782
+msgid "New group title is required"
+msgstr "عنوان جدید گروه الزامی است"
+
+#: lib/app/product/property.php:794
+msgid "Group title updated"
+msgstr "عنوان گروه تغییر یافت"
+
+#: lib/app/product/property.php:848
 msgid "Some detail was duplicate. We remove duplicate items"
 msgstr "بعضی از مقادیر تکراری بودند. ما مقادیر تکراری را حذف کردیم"
 
-#: lib/app/product/property.php:863
+#: lib/app/product/property.php:931
 msgid "Product property saved without chnage"
 msgstr "مشخصات محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/property.php:867
+#: lib/app/product/property.php:935
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
@@ -39483,6 +39488,24 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Set product property"
+#~ msgstr "تنظیم مشخصات محصول"
+
+#~ msgid "Set as outstanding property"
+#~ msgstr "تنظیم به عنوان خصوصیت برجسته"
+
+#~ msgid "Unset from outstanding property"
+#~ msgstr "حذف از مشخصات برجسته"
+
+#~ msgid "Please fill the top input and click on Edit to save it"
+#~ msgstr "لطفا مقادیر بالای صفحه را تکمیل کنید و دکمه ویرایش را بزنید"
+
+#~ msgid "Property of Tag"
+#~ msgstr "مشخصات عمومی تگ"
+
+#~ msgid "Duplicate property founded"
+#~ msgstr "این مشخصه تکراری است"
 
 #~ msgid "Make copy from :val"
 #~ msgstr "یک نسخه کپی از :val تهیه کنید"
