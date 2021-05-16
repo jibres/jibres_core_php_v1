@@ -23,9 +23,11 @@ require_once(root. 'content_a/products/productName.php');
     <form method="post" id="form1" data-patch>
           <?php $i=0; $XI = 1; foreach (\dash\data::propertyList() as $property => $cat) { $i++; ?>
             <div class="msg info2">
+              <?php if($i === 1) {echo '<div class="font-14">'. $cat['title']. '</div>';}else{ ?>
                  <a class="font-14" href="<?php echo \dash\url::that(). '/edit'. \dash\request::full_get(['group' => $cat['title'] ]) ?>">
                     <?php echo $cat['title']; ?>
                   </a>
+                <?php } //endif ?>
             </div>
               <nav class="items">
                 <ul data-sortable>
@@ -36,7 +38,7 @@ require_once(root. 'content_a/products/productName.php');
                         <div class="row">
                           <?php if((a($value, 'value') || a($value, 'value') == '0') && !a($value, 'lock')) {?>
                             <div class="cauto handle" data-handle><i class="sf-sort"></i></div>
-                          <?php }else{ ?>
+                          <?php }elseif($i !== 1){ ?>
                             <i class="sf-sort disabled"></i>
                           <?php } //endif ?>
                             <div class="c"><?php echo $value['key']; ?></div>
