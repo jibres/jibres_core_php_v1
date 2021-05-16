@@ -260,7 +260,9 @@ class add
 		$args['datecreated']   = date("Y-m-d H:i:s");
 		$args['status']        = 'enable';
 		$args['language']      = \dash\language::current();
-		$args['showonwebsite'] = null;
+		$args['showonwebsite'] = $args['showonwebsite'];
+		$args['sort']          = floatval(\lib\db\productcategory\get::last_sort()) + 1;
+
 
 		$id = \lib\db\productcategory\insert::new_record($args);
 		if(!$id)

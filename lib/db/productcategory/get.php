@@ -5,6 +5,13 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function last_sort()
+	{
+		$query  = "SELECT productcategory.sort AS `sort` FROM productcategory ORDER BY productcategory.sort DESC LIMIT 1 ";
+		$result = \dash\db::get($query, 'sort', true);
+		return $result;
+	}
+
 	public static function sitemap_list($_from, $_to)
 	{
 		$query  =
