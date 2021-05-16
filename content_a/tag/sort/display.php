@@ -4,14 +4,21 @@ if(!is_array($dataTable))
 {
   $dataTable = [];
 }
+
+$option =
+[
+  'subaddtitle'   => T_("Add sub tag"),
+  'sublink'       => \dash\url::this(). '/add',
+  'sublink_args'  => [],
+  'editlink'      => \dash\url::this(). '/edit',
+  'editlink_args' => [],
+];
+
 ?>
-<div class="msg fs14"><?php echo T_("Select any of the tags you want and move them to sort") ?></div>
-
-
 <div class="avand-md">
   <form method='post' data-patch>
     <input type="hidden" name="setsort" value="1">
-    <?php echo \lib\app\menu\generate::admin($dataTable); ?>
+    <?php echo \lib\app\menu\generate::admin($dataTable, $option); ?>
   </form>
   <nav class="items">
     <ul>

@@ -13,7 +13,7 @@ class model
 		// 	$post        = [];
 		// 	$post['cat'] = \dash\request::post('cat');
 		// 	$post['key'] = \dash\request::post('key');
-		// 	\lib\app\tag\add::property($post, \dash\request::get('id'));
+		// 	\lib\app\tag\add::property($post, \dash\data::myId());
 		// 	if(\dash\engine\process::status())
 		// 	{
 		// 		\dash\redirect::pwd();
@@ -22,7 +22,7 @@ class model
 		// }
 
 
-		$id = \dash\request::get('id');
+		$id = \dash\data::myId();
 
 		if(\dash\request::post('delete') === 'delete')
 		{
@@ -69,7 +69,7 @@ class model
 
 		if($add_product_id)
 		{
-			\lib\app\tag\add::product_cat_plus(\dash\request::get('id'), $add_product_id);
+			\lib\app\tag\add::product_cat_plus(\dash\data::myId(), $add_product_id);
 		}
 
 		if(\dash\engine\process::status())

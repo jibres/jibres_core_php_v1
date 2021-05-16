@@ -6,16 +6,32 @@ class generate
 {
 
 
-	public static function admin($_menu)
+	public static function admin($_menu, $_option = [])
 	{
 		if(!is_array($_menu))
 		{
 			return null;
 		}
 
+        if(!is_array($_option))
+        {
+            $_option = [];
+        }
+
+        $defaul_option =
+        [
+            'subaddtitle'   => T_("Add Subitem"),
+            'sublink'       => \dash\url::that(). '/item',
+            'sublink_args'  => [],
+            'editlink'      => \dash\url::that(). '/item',
+            'editlink_args' => [],
+        ];
+
+        $_option = array_merge($defaul_option, $_option);
+
 		$result = '';
 		$result .= '<ol class="items2" data-layer-limit="4" data-sortable>';
-		$result .= self::create_admin($_menu);
+		$result .= self::create_admin($_menu, $_option);
 		$result .= '</ol>';
 
 		return $result;
@@ -23,7 +39,7 @@ class generate
 	}
 
 
-	private static function create_admin($_menu)
+	private static function create_admin($_menu, $_option = [])
 	{
         $result = '';
 
@@ -56,13 +72,18 @@ class generate
 
     			$result .= '<div class="value addChild pRa20-f s0">';
                 {
-                    $result .= '<a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'parent' => a($one_item, 'id')]). '">'. T_("Add Subitem"). '</a>';
+
+                    $sublink_args = array_merge(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')], $_option['sublink_args']);
+
+                    $result .= '<a href="'. $_option['sublink'] .'?'. \dash\request::build_query($sublink_args). '">'. $_option['subaddtitle']. '</a>';
                 }
                 $result .= '</div>';
 
     			$result .= '<div class="value">';
                 {
-                    $result .= '<a href="'. \dash\url::that(). '/item?'. \dash\request::build_query(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')]). '">'. T_("Edit"). '</a>';
+                    $editlink_args = array_merge(['id' => a($one_item, 'parent1'), 'edit' => a($one_item, 'id')], $_option['editlink_args']);
+
+                    $result .= '<a href="'. $_option['editlink'] .'?'. \dash\request::build_query($editlink_args). '">'. T_("Edit"). '</a>';
                 }
                 $result .= '</div>';
             }
@@ -71,7 +92,7 @@ class generate
             if($have_child)
 			{
 				$result .= '<ol data-sortable>';
-				$result .= self::create_admin($one_item['child']);
+				$result .= self::create_admin($one_item['child'], $_option);
 				$result .='</ol>';
 			}
 			else

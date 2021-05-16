@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_('Edit tag'));
 
 
-		$id = \dash\request::get('id');
+		$id = \dash\data::myId();
 
 		\dash\data::back_text(T_('Tags'));
 		\dash\data::back_link(\dash\url::this());

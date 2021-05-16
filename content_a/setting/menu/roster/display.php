@@ -6,6 +6,15 @@ if(\dash\data::menuChild() && is_array(\dash\data::menuChild()))
   $list = \dash\data::menuChild();
 }
 
+$option =
+[
+  'subaddtitle'   => T_("Add Subitem"),
+  'sublink'       => \dash\url::that(). '/item',
+  'sublink_args'  => [],
+  'editlink'      => \dash\url::that(). '/item',
+  'editlink_args' => [],
+];
+
 ?>
 
 <div class="avand-md">
@@ -19,7 +28,7 @@ if(\dash\data::menuChild() && is_array(\dash\data::menuChild()))
   </div>
   <form method='post' data-patch>
     <input type="hidden" name="setsort" value="1">
-    <?php echo \lib\app\menu\generate::admin($list); ?>
+    <?php echo \lib\app\menu\generate::admin($list, $option); ?>
   </form>
   <nav class="items">
     <ul>
