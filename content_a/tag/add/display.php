@@ -1,8 +1,7 @@
-<div class="avand-md">
+<div class="avand-sm">
 	<form method="post" autocomplete="off">
 		<div class="box">
 			<div class="body">
-
 				<label for="itagname"><?php echo T_("Title"); ?></label>
 				<div class="input">
 					<input type="text" name="tag" id="itagname" placeholder='<?php echo T_("Tag name"); ?>'  <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
