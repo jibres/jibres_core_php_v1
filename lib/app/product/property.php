@@ -231,6 +231,8 @@ class property
 		{
 			$cat_list = array_map(['\\lib\\app\\tag\\ready', 'row'], $cat_list);
 
+			\dash\temp::set('TempProductLoadedTagList', $cat_list);
+
 			$cat_url = null;
 			$cat_html = [];
 			foreach ($cat_list as $tag)

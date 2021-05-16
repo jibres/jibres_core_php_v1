@@ -18,11 +18,6 @@ class view
 		\dash\data::back_link(\dash\url::kingdom());
 
 
-
-		$property_list = \lib\app\product\property::get_pretty($id);
-		\dash\data::propertyList($property_list);
-
-
 		$customer_review = \dash\app\comment\get::product_customer_review($id);
 		\dash\data::customerReview($customer_review);
 

@@ -36,6 +36,11 @@ class find
 
 		foreach ($_tags as $tag)
 		{
+			if(isset($tag['url']) && !isset($tag['link']))
+			{
+				$tag['link'] = $tag['url'];
+			}
+
 			$link = '$1<a href="'. $tag['link']. '" data-hashtag-dir >#$2</a>$3';
 			$_string = preg_replace('/(\s|\>)#('.$tag['title'].')([^\p{L}^\p{C}^\_]+)/u', $link, $_string);
 		}

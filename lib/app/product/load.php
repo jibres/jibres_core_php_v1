@@ -151,6 +151,20 @@ class load
 		}
 
 
+
+		$property_list = \lib\app\product\property::get_pretty($_id);
+		\dash\data::propertyList($property_list);
+
+
+		$cat = \dash\temp::get('TempProductLoadedTagList');
+
+		if(isset($detail['desc']) && $detail['desc'] && $cat)
+		{
+			$detail['desc'] = \dash\app\terms\find::tags_link($detail['desc'], $cat);
+		}
+
+
+
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
 			$detect_min_variant_price = [$detail];
