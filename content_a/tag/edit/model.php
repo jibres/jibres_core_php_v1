@@ -54,7 +54,7 @@ class model
 		$args['desc']          = \dash\request::post('desc');
 		$args['seotitle']      = \dash\request::post('seotitle');
 		$args['seodesc']       = \dash\request::post('seodesc');
-		$args['showonwebsite'] = \dash\request::post('showonwebsite');
+
 
 
 		$file = \dash\upload\category::set($id);
