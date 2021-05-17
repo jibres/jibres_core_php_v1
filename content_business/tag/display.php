@@ -45,6 +45,18 @@
           <img class="w300" src="<?php echo \dash\data::dataRow_file(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>">
         </div>
       </div>
+      <?php if(\dash\data::dataRow_child() && is_array(\dash\data::dataRow_child())) {?>
+        <?php foreach (\dash\data::dataRow_child() as $key => $value) {?>
+          <div>
+
+          <a href="<?php echo a($value, 'url') ?>">
+            <img class="w100" src="<?php echo a($value, 'file') ?>" alt="<?php echo a($value, 'title') ?>">
+            <?php echo a($value, 'title') ?>
+          </a>
+          </div>
+
+        <?php } //endif ?>
+      <?php } //endif ?>
     </div>
   </div>
 <?php } ?>

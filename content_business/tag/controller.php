@@ -12,6 +12,8 @@ class controller
 			unset($dir[0]);
 		}
 
+		$myCategoryList = [];
+
 		if($dir)
 		{
 			$url = implode('/', $dir);
@@ -19,6 +21,7 @@ class controller
 			$url = urldecode($url);
 
 			$load = \lib\app\tag\get::by_url($url);
+
 			if(!$load)
 			{
 				\dash\header::status(404, T_("Invalid tag url"));
@@ -26,6 +29,12 @@ class controller
 			\dash\data::dataRow($load);
 			\dash\open::get();
 		}
+		else
+		{
+			$myCategoryList = \lib\app\tag\search::site_list();
+		}
+
+		\dash\data::categoryDataTable($myCategoryList);
 	}
 }
 ?>

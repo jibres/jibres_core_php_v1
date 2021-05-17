@@ -5,6 +5,14 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function load_child($_where)
+	{
+		$where = \dash\db\config::make_where($_where);
+		$query  = "SELECT * FROM productcategory WHERE $where  ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function last_sort()
 	{
 		$query  = "SELECT productcategory.sort AS `sort` FROM productcategory ORDER BY productcategory.sort DESC LIMIT 1 ";
@@ -268,6 +276,26 @@ class get
 			 WHERE  productcategory.id = $_id LIMIT 1
 		";
 		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function by_url_in($_urls)
+	{
+		$urls = implode("','", $_urls);
+
+		$query  =
+		"
+			SELECT
+				productcategory.*
+			 FROM
+			 	productcategory
+			 WHERE
+			 	productcategory.slug IN ('$urls')
+			ORDER BY productcategory.sort ASC
+		";
+
+		$result = \dash\db::get($query);
 		return $result;
 	}
 

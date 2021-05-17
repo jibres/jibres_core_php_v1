@@ -8,15 +8,15 @@ class view
 	{
 		\dash\face::title(T_("Tag"));
 
-		\dash\data::categoryDataTable([]);
+
 
 		\dash\data::search_link(\dash\url::kingdom().'/search');
 
 		if(!\dash\data::dataRow())
 		{
-			$myCategoryList = \lib\app\tag\search::list(null, ['showonwebsite' => 1]);
 
-			\dash\data::categoryDataTable($myCategoryList);
+
+
 		}
 		else
 		{

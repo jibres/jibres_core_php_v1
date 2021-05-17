@@ -130,11 +130,19 @@ class get
 			return false;
 		}
 
+		$full_url = $split_url = explode('/', $url);
 
-		$split_url = explode('/', $url);
-		$end = end($split_url);
+		if(isset($split_url[0]))
+		{
+			$first = $split_url[0];
+			unset($split_url[0]);
+		}
+		else
+		{
+			return false;
+		}
 
-		$load = \lib\db\productcategory\get::by_url($end);
+		$load = \lib\db\productcategory\get::by_url($first);
 
 		if(!$load)
 		{
@@ -142,6 +150,10 @@ class get
 		}
 
 		$load = \lib\app\tag\ready::row($load);
+
+		$find_child = self::find_child($load, $full_url);
+
+		$load['child'] = $find_child;
 
 		if(isset($load['full_slug']) && $load['full_slug'] === $url)
 		{
@@ -151,6 +163,73 @@ class get
 		{
 			return false;
 		}
+	}
+
+
+
+	private static function find_child($load, $full_url)
+	{
+		if(a($load, 'parent4'))
+		{
+			return []; // have no child
+		}
+
+		$where = [];
+
+		if(!a($load, 'parent3'))
+		{
+			if(!a($load, 'parent2'))
+			{
+				if(!a($load, 'parent1'))
+				{
+					$where['parent1'] = a($load, 'id');
+					$where['parent2'] = null;
+					$where['parent3'] = null;
+					$where['parent4'] = null;
+				}
+				else
+				{
+					$where['parent2'] = a($load, 'id');
+					$where['parent3'] = null;
+					$where['parent4'] = null;
+				}
+			}
+			else
+			{
+				$where['parent3'] = a($load, 'id');
+				$where['parent4'] = null;
+			}
+		}
+		else
+		{
+			$where['parent4'] = a($load, 'id');
+		}
+
+		$get_child = [];
+
+		if(!empty($where))
+		{
+			$get_child = \lib\db\productcategory\get::load_child($where);
+
+			if(!is_array($get_child))
+			{
+				$get_child = [];
+			}
+
+			$new_list = [];
+
+			$first_url = implode('/', $full_url);
+
+			foreach ($get_child as $key => $value)
+			{
+				$new_list[] = \lib\app\tag\ready::row($value);
+			}
+
+			$get_child = $new_list;
+		}
+
+		return $get_child;
+
 	}
 
 

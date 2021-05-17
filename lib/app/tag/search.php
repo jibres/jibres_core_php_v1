@@ -102,11 +102,13 @@ class search
 	{
 		$condition =
 		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['title']],
-			'pagination' => 'bit',
+			'order'         => 'order',
+			'sort'          => ['enum' => ['title']],
+			'pagination'    => 'bit',
 			'showonwebsite' => 'bit',
-			'sort_list' => 'bit',
+			'sort_list'     => 'bit',
+			'firstlevel'    => 'bit',
+			'limit'         => 'int',
 		];
 
 		$require = [];
@@ -114,12 +116,20 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
 		$and         = [];
 		$meta        = [];
 		$or          = [];
 
-		$meta['limit'] = 20;
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
+		else
+		{
+			$meta['limit'] = 20;
+		}
+
+
 		if(array_key_exists('pagination', $_args) && $_args['pagination'] === false)
 		{
 			$meta['pagination'] = false;
@@ -127,9 +137,7 @@ class search
 
 		$order_sort  = null;
 
-
 		$query_string = \dash\validate::search($_query_string, false);
-
 
 		if($data['showonwebsite'])
 		{
@@ -138,8 +146,16 @@ class search
 
 		if($data['sort_list'])
 		{
-
 			$and[] = " productcategory.firstlevel = 1 ";
+		}
+
+		if($data['firstlevel'])
+		{
+			$and[] = " productcategory.firstlevel = 1 ";
+			$and[] = " productcategory.parent1 IS NULL ";
+			$and[] = " productcategory.parent2 IS NULL ";
+			$and[] = " productcategory.parent3 IS NULL ";
+			$and[] = " productcategory.parent4 IS NULL ";
 		}
 
 		if($query_string)
@@ -148,7 +164,6 @@ class search
 
 			self::$is_filtered = true;
 		}
-
 
 		if($data['sort'] && !$order_sort)
 		{
@@ -170,7 +185,6 @@ class search
 		$and[] = " (productcategory.status != 'deleted' OR productcategory.status IS NULL) ";
 
 		$list = \lib\db\productcategory\search::list($and, $or, $order_sort, $meta);
-
 
 		if(is_array($list))
 		{
@@ -201,7 +215,20 @@ class search
 	}
 
 
+	public static function site_list()
+	{
+		$args =
+		[
+			'firstlevel' => 1,
+			'limit'      => 100
+		];
 
+		$list = self::list(null, $args);
+
+		// need load first child
+
+		return $list;
+	}
 
 }
 ?>

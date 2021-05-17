@@ -4,7 +4,7 @@ namespace lib\app\tag;
 
 class ready
 {
-	public static function row($_data)
+	public static function row($_data, $_option = [])
 	{
 		if(!is_array($_data))
 		{
@@ -74,7 +74,7 @@ class ready
 			$result['last_parent'] = $result['parent1'];
 		}
 
-		self::fix_parent_detail($result);
+		self::fix_parent_detail($result, $_option);
 
 		return $result;
 	}
@@ -115,7 +115,7 @@ class ready
 
 
 
-	private static function fix_parent_detail(&$result)
+	private static function fix_parent_detail(&$result, $_option = [])
 	{
 		if(!isset($result['parent_json']))
 		{
@@ -171,7 +171,16 @@ class ready
 
 		$result['full_slug']  = $new_slug;
 		$result['full_title'] = $new_title;
-		$result['url'] = \lib\store::url(). '/tag/'. $new_slug;
+
+		$result['url'] = \lib\store::url(). '/tag';
+		if(isset($_option['first_url']) && $_option['first_url'])
+		{
+			$result['url'] .= '/'. $_option['first_url'];
+		}
+
+		$result['url'] .= '/'. $new_slug;
+
+
 	}
 }
 ?>
