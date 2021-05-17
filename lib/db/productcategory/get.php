@@ -53,6 +53,30 @@ class get
 		return $result;
 	}
 
+
+	public static function all_category_not_sorted()
+	{
+		$query  =
+		"
+			SELECT
+				productcategory.id,
+				productcategory.title
+			FROM
+				productcategory
+			WHERE
+				productcategory.firstlevel IS NULL AND
+				productcategory.parent1 IS NULL AND
+				productcategory.parent2 IS NULL AND
+				productcategory.parent3 IS NULL AND
+				productcategory.parent4 IS NULL
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
+
 	public static function multi_properties($_ids)
 	{
 		$query  = "SELECT productcategory.properties FROM productcategory WHERE productcategory.id IN ($_ids) AND productcategory.properties IS NOT NULL ";

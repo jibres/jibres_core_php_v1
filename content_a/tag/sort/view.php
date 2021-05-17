@@ -11,6 +11,9 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
+		$category_list = \lib\app\tag\get::all_category_not_sorted();
+		$category_list = array_reverse($category_list);
+		\dash\data::listProductTag($category_list);
 	}
 }
 ?>

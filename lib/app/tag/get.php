@@ -25,6 +25,15 @@ class get
 		return $result;
 	}
 
+
+	public static function all_category_not_sorted()
+	{
+		$result = \lib\db\productcategory\get::all_category_not_sorted();
+		return $result;
+	}
+
+
+
 	public static function product_cat($_product_id)
 	{
 		$get_usage = \lib\db\productcategoryusage\get::usage($_product_id);
@@ -301,14 +310,14 @@ class get
     			}
     			$result .= '</div>';
 
-    			$result .= '<div class="value addChild pRa20-f s0">';
-                {
+    			// $result .= '<div class="value addChild pRa20-f s0">';
+       //          {
 
-                    $sublink_args = array_merge(['id' => a($one_item, 'id')], $_option['sublink_args']);
+       //              $sublink_args = array_merge(['id' => a($one_item, 'id')], $_option['sublink_args']);
 
-                    $result .= '<a href="'. $_option['sublink'] .'?'. \dash\request::build_query($sublink_args). '">'. $_option['subaddtitle']. '</a>';
-                }
-                $result .= '</div>';
+       //              $result .= '<a href="'. $_option['sublink'] .'?'. \dash\request::build_query($sublink_args). '">'. $_option['subaddtitle']. '</a>';
+       //          }
+       //          $result .= '</div>';
 
     			$result .= '<div class="value">';
                 {

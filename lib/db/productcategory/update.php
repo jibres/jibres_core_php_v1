@@ -50,6 +50,27 @@ class update
 	}
 
 
+
+	public static function set_first_level($_id, $_sort)
+	{
+		self::first_level($_id);
+
+		$query  =
+		"
+			UPDATE
+				productcategory
+			SET
+				productcategory.firstlevel = 1,
+				productcategory.sort = $_sort
+			WHERE
+				productcategory.id = $_id
+			LIMIT 1
+		";
+		$result = \dash\db::query($query);
+		return $result;
+	}
+
+
 	public static function set_sort($_sort)
 	{
 		$query = [];

@@ -12,14 +12,24 @@ if(!is_array($dataTable))
     <input type="hidden" name="setsort" value="1">
     <?php echo \lib\app\tag\get::sort_list(); ?>
   </form>
-  <nav class="items">
-    <ul>
-      <li>
-        <a class="f" href="<?php echo \dash\url::this(). '/add'. \dash\request::full_get(['firstlevel' => 1]); ?>">
-          <div class="go plus ok"></div>
-          <div class="key"><?php echo T_("Add new tag");?></div>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <?php if(\dash\data::listProductTag()) {?>
+  <form method="post" autocomplete="off">
+    <input type="hidden" name="addtag" value="1">
+    <div class="box">
+      <div class="pad">
+       <div>
+        <select name="tag" class="select22" data-model='tag' data-placeholder="<?php echo T_("Tag"); ?>" >
+           <option></option>
+          <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
+          <option value="<?php echo a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></option>
+         <?php } //endfor ?>
+        </select>
+       </div>
+      </div>
+      <footer class="txtRa">
+        <button class="btn master"><?php echo T_("Add") ?></button>
+      </footer>
+    </div>
+  </form>
+<?php }//endif ?>
 </div>

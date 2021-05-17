@@ -5,6 +5,16 @@ namespace lib\app\tag;
 class add
 {
 
+	public static function first_level($_id)
+	{
+		$load = \lib\app\tag\get::inline_get($_id);
+		if($load)
+		{
+			$sort = floatval(\lib\db\productcategory\get::last_sort()) + 1;
+			\lib\db\productcategory\update::set_first_level($_id, $sort);
+		}
+	}
+
 	public static function apply_to_all($_args)
 	{
 		$condition =
