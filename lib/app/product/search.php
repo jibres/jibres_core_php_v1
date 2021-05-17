@@ -27,33 +27,34 @@ class search
 
 		$condition =
 		[
-			'order'       => 'order',
-			'sort'        => ['enum' => ['title','price','buyprice', 'finalprice', 'discount']],
-			'status'      => ['enum' => ['unset','available','unavailable','soon','discountinued', 'deleted', 'archive']],
-			'limit'       => 'int',
-			'barcode'     => 'barcode',
-			'price'       => 'price',
-			'buyprice'    => 'price',
-			'discount'    => 'price',
-			'tag_id'      => 'id',
-			'unit_id'     => 'id',
+			'order'          => 'order',
+			'sort'           => ['enum' => ['title','price','buyprice', 'finalprice', 'discount']],
+			'status'         => ['enum' => ['unset','available','unavailable','soon','discountinued', 'deleted', 'archive']],
+			'limit'          => 'int',
+			'barcode'        => 'barcode',
+			'price'          => 'price',
+			'buyprice'       => 'price',
+			'discount'       => 'price',
+			'tag_id'         => 'id',
+			'tag_with_child' => 'bit',
+			'unit_id'        => 'id',
 
-			'dup'         => 'bit',
-			'bar'         => 'y_n',
-			'bup'         => 'y_n',
-			'p'           => 'y_n',
-			'd'           => 'y_n',
-			'st'          => 'y_n',
-			'nst'         => 'y_n',
-			'g'           => 'y_n',
-			'v'           => 'y_n',
-			'so'          => 'y_n',
-			'w'           => 'y_n',
-			't'           => 'y_n',
-			'tq'          => 'y_n',
-			'pr'          => 'y_n', // property
+			'dup'            => 'bit',
+			'bar'            => 'y_n',
+			'bup'            => 'y_n',
+			'p'              => 'y_n',
+			'd'              => 'y_n',
+			'st'             => 'y_n',
+			'nst'            => 'y_n',
+			'g'              => 'y_n',
+			'v'              => 'y_n',
+			'so'             => 'y_n',
+			'w'              => 'y_n',
+			't'              => 'y_n',
+			'tq'             => 'y_n',
+			'pr'             => 'y_n', // property
 
-			'websitemode' => 'bit',
+			'websitemode'    => 'bit',
 
 		];
 
@@ -111,11 +112,31 @@ class search
 
 		if($data['tag_id'])
 		{
+			if($data['tag_with_child'])
+			{
+				$get_all_child_id = \lib\db\productcategory\get::all_child_id($data['tag_id']);
 
-			$and[]   = " productcategoryusage.productcategory_id =  $data[tag_id] ";
-			$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
-			$type = 'catusage';
-			self::$is_filtered        = true;
+				if(!is_array($get_all_child_id))
+				{
+					$get_all_child_id = [];
+				}
+
+				$get_all_child_id[] = $data['tag_id'];
+
+				$all_child_id = implode(",", $get_all_child_id);
+
+				$and[]   = " productcategoryusage.productcategory_id IN ($all_child_id) ";
+				$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
+				$type = 'catusage';
+				self::$is_filtered        = true;
+			}
+			else
+			{
+				$and[]   = " productcategoryusage.productcategory_id =  $data[tag_id] ";
+				$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
+				$type = 'catusage';
+				self::$is_filtered        = true;
+			}
 		}
 		else
 		{

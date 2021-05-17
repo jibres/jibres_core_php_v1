@@ -12,13 +12,7 @@ class view
 
 		\dash\data::search_link(\dash\url::kingdom().'/search');
 
-		if(!\dash\data::dataRow())
-		{
-
-
-
-		}
-		else
+		if(\dash\data::dataRow())
 		{
 			\dash\face::title(\dash\data::dataRow_seotitle());
 			\dash\face::desc(\dash\data::dataRow_seodesc());
@@ -26,10 +20,11 @@ class view
 
 			$args =
 			[
-				'order'        => \dash\request::get('order'),
-				'sort'         => \dash\request::get('sort'),
-				'tag_id'       => \dash\data::dataRow_id(),
-				'limit'        => 50,
+				'order'          => \dash\request::get('order'),
+				'sort'           => \dash\request::get('sort'),
+				'tag_id'         => \dash\data::dataRow_id(),
+				'tag_with_child' => 1,
+				'limit'          => 50,
 			];
 
 			$myProductList = \lib\app\product\search::website_product_search(null, $args);

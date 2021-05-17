@@ -13,6 +13,14 @@ class get
 		return $result;
 	}
 
+
+	public static function all_child_id($_id)
+	{
+		$query = "SELECT productcategory.id AS `id` FROM productcategory WHERE productcategory.id = $_id OR productcategory.parent1 = $_id OR productcategory.parent2 = $_id OR productcategory.parent3 = $_id OR productcategory.parent4 = $_id ";
+		$result = \dash\db::get($query, 'id');
+		return $result;
+	}
+
 	public static function last_sort()
 	{
 		$query  = "SELECT productcategory.sort AS `sort` FROM productcategory ORDER BY productcategory.sort DESC LIMIT 1 ";
