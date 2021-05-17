@@ -151,9 +151,16 @@ class get
 
 		$load = \lib\app\tag\ready::row($load);
 
-		$find_child = self::find_child($load, $full_url);
+
+		$find_parent = self::find_parent($load);
+
+		$load['parent'] = $find_parent;
+
+
+		$find_child = self::find_child($load);
 
 		$load['child'] = $find_child;
+
 
 		if(isset($load['full_slug']) && $load['full_slug'] === $url)
 		{
@@ -165,9 +172,39 @@ class get
 		}
 	}
 
+	private static function find_parent($load)
+	{
+		$parent = [];
+
+		$parent[] = a($load, 'parent1');
+		$parent[] = a($load, 'parent2');
+		$parent[] = a($load, 'parent3');
+		$parent[] = a($load, 'parent4');
+
+		$parent = array_filter($parent);
+		$parent = array_unique($parent);
+
+		if(!$parent)
+		{
+			return [];
+		}
+
+		$parent = implode(',', $parent);
+
+		$load_title_url = \lib\db\productcategory\get::parent_title_url($parent);
+
+		if(!is_array($load_title_url))
+		{
+			$load_title_url = [];
+		}
+
+		$load_title_url = array_map(['\\lib\\app\\tag\\ready', 'row'], $load_title_url);
+
+		return $load_title_url;
+	}
 
 
-	private static function find_child($load, $full_url)
+	private static function find_child($load)
 	{
 		if(a($load, 'parent4'))
 		{
@@ -217,8 +254,6 @@ class get
 			}
 
 			$new_list = [];
-
-			$first_url = implode('/', $full_url);
 
 			foreach ($get_child as $key => $value)
 			{

@@ -14,6 +14,14 @@ class get
 	}
 
 
+	public static function parent_title_url($_ids)
+	{
+		$query = "SELECT productcategory.id AS `id`, productcategory.title, productcategory.slug FROM productcategory WHERE productcategory.id IN ($_ids) ORDER BY productcategory.sort ASC";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function all_child_id($_id)
 	{
 		$query = "SELECT productcategory.id AS `id` FROM productcategory WHERE productcategory.id = $_id OR productcategory.parent1 = $_id OR productcategory.parent2 = $_id OR productcategory.parent3 = $_id OR productcategory.parent4 = $_id ";
