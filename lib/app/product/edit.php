@@ -184,7 +184,7 @@ class edit
 
 		if(array_key_exists('tag', $args))
 		{
-			if(a($args, 'desc'))
+			if(a($args, 'desc') && is_array($args['tag']))
 			{
 				$args['tag'] = \dash\app\terms\find::tag(a($args, 'desc'), $args['tag']);
 			}
