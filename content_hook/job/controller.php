@@ -79,7 +79,7 @@ class controller
 		{
 			self::check_error_file();
 
-			if(self::at('03:10'))
+			if(self::daily_on('03'))
 			{
 				\lib\app\statistics\homepage::refresh();
 			}
@@ -114,13 +114,13 @@ class controller
 		// }
 
 		// set expire notif
-		if(self::at('09:00'))
+		if(self::daily_on('09'))
 		{
 			\lib\app\nic_domain\notif_expire::run();
 		}
 
 		// fetch credit of nic
-		if(self::at('10:00'))
+		if(self::daily_on('10'))
 		{
 			\lib\app\nic_credit\get::fetch();
 		}
@@ -142,13 +142,13 @@ class controller
 			\lib\app\nic_poll\get::cronjob_list();
 		}
 
-		if(self::at('03:43'))
+		if(self::daily_on('03'))
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
 		}
 
-		if(self::at('01:00'))
+		if(self::daily_on('01'))
 		{
 			\dash\app\dayevent::save();
 		}
@@ -195,12 +195,12 @@ class controller
 			\lib\app\import\run::crontab();
 		}
 
-		if(self::at('10:50'))
+		if(self::daily_on('12'))
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
 		}
-		if(self::at('01:00'))
+		if(self::daily_on('01'))
 		{
 			\dash\app\dayevent::save();
 		}
@@ -215,7 +215,7 @@ class controller
 
 		// remove all expire session
 		// clean csrf token used or expired
-		if(self::at('01:10'))
+		if(self::daily_on('01'))
 		{
 			\dash\db\login\update::remove_old_expire();
 			\dash\csrf::clean();
