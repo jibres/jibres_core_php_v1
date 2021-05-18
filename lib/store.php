@@ -135,7 +135,7 @@ class store
 
 
 	// in api no user can set subdomain
-	public static function store_slug()
+	private static function store_slug()
 	{
 		if(\dash\url::store())
 		{
