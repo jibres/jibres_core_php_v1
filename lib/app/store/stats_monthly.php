@@ -6,7 +6,7 @@ class stats_monthly
 {
 	public static function calculate()
 	{
-		set_time_limit(0);
+		\dash\code::time_limit(0);
 
 		self::clean_all();
 

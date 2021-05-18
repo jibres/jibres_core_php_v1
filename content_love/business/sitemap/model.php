@@ -6,7 +6,7 @@ class model
 	public static function post()
 	{
 
-		set_time_limit(0);
+		\dash\code::time_limit(0);
 
 		\content_hook\job\business::run(['\\dash\\utility\\sitemap', 'create_all']);
 

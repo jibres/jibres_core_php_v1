@@ -286,7 +286,7 @@ class changefuel
 	 */
 	private static function start_transfer($_detail)
 	{
-		set_time_limit(0);
+		\dash\code::time_limit(0);
 
 		self::log(str_repeat('+', 50));
 		self::log('Start');

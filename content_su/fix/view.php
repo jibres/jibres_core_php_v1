@@ -27,7 +27,7 @@ class view
 		$duplicate = 0;
 		$run = 0;
 
-		set_time_limit(0);
+		\dash\code::time_limit(0);
 
 		foreach ($list as $key => $value)
 		{

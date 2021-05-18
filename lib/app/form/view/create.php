@@ -36,7 +36,7 @@ class create
 
 
 		ini_set('max_execution_time', 10000); //10000 seconds = 5 minutes
-		set_time_limit(10000);
+		\dash\code::time_limit(10000);
 
 		$form_id = $laod_form['id'];
 

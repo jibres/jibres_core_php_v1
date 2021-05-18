@@ -149,7 +149,7 @@ class add
 		}
 
 
-		set_time_limit(600); // 10 min
+		\dash\code::time_limit(600); // 10 min
 
 		\dash\db::transaction();
 

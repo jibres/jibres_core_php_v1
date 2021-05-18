@@ -6,7 +6,7 @@ class controller
 
 	public static function routing()
 	{
-		set_time_limit(0);
+		\dash\code::time_limit(0);
 
 		$files = glob('/home/reza/projects/talambar_cdn/images/slider-sample/iran/*');
 		foreach ($files as $file)

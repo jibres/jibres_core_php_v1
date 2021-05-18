@@ -195,7 +195,7 @@ class https
 
 	public static function force_update_all_https()
 	{
-		set_time_limit(0);
+		\dash\code::time_limit(0);
 
 		$list = \lib\db\business_domain\get::all_domain_connected();
 
