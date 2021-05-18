@@ -28,6 +28,14 @@ class store
 		}
 	}
 
+	/**
+	 * Call in engine store force lock
+	 */
+	public static function force_clean()
+	{
+		self::$store = [];
+	}
+
 
 
 	// clean session and init again store detail
