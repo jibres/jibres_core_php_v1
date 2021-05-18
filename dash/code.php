@@ -176,5 +176,17 @@ class code
 	{
 		sleep($_seconds);
 	}
+
+
+
+	/**
+	 * Set time limit
+	 *
+	 * @param      <type>  $_seconds  The seconds
+	 */
+	public static function time_limit($_seconds)
+	{
+		set_time_limit($_seconds);
+	}
 }
 ?>
