@@ -7,6 +7,7 @@ class view
 	{
 		\dash\face::title(T_('Product Tags'));
 
+		\dash\face::btnView(\lib\store::url(). '/tag');
 
 		if(\dash\permission::check('manageProductTag'))
 		{

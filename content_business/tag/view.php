@@ -8,9 +8,7 @@ class view
 	{
 		\dash\face::title(T_("Tag"));
 
-
-
-		\dash\data::search_link(\dash\url::kingdom().'/search');
+		// \dash\data::search_link(\dash\url::kingdom().'/search');
 
 		if(\dash\data::dataRow())
 		{
@@ -27,9 +25,14 @@ class view
 				'limit'          => 50,
 			];
 
-			$myProductList = \lib\app\product\search::website_product_search(null, $args);
+			$myProductList = \lib\app\product\search::website_product_search(\dash\validate::search_string(), $args);
 
 			\dash\data::productList($myProductList);
+
+		}
+		else
+		{
+			\dash\data::displayShowTagList(true);
 		}
 
 		// btn
