@@ -195,7 +195,7 @@ class controller
 			\lib\app\import\run::crontab();
 		}
 
-		if(self::at('03:43'))
+		if(self::at('10:50'))
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
