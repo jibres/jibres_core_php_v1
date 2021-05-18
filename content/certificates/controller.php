@@ -12,7 +12,8 @@ class controller
 			switch (\dash\url::child())
 			{
 				case 'nsr':
-					$link = "http://qom-new.irannsr.org/fa/page/107243-%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D9%87-%D8%A7%D8%B9%D8%B6%D8%A7.html?ctp_id=1086&id=22998";
+					// $link = "http://qom-new.irannsr.org/fa/page/107243-%D9%85%D8%B4%D8%A7%D9%87%D8%AF%D9%87-%D8%A7%D8%B9%D8%B6%D8%A7.html?ctp_id=1086&id=22998";
+					$link = "https://qom.irannsr.org/index.php?module=web_directory&wd_id=107243&ctp_id=1086&id=22998";
 					break;
 
 				case 'daneshbonyan':
