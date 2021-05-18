@@ -52,7 +52,7 @@ class backup
 
 		$sh = exec($backup, $output);
 
-		\dash\utility\zip::create($addr . '.zip', $addr);
+		$zip = \dash\utility\zip::create($addr. '.zip', $addr, basename($addr));
 
 		\dash\file::delete($addr);
 
