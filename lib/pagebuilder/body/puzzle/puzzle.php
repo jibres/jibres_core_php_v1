@@ -8,7 +8,7 @@ class puzzle
 	public static function input_condition($input_condition)
 	{
 		$list = [];
-		for ($i=1; $i <= 10 ; $i++)
+		foreach([1,2,3,4,5,6,7,8,9,10,20,30,40,50, 100] as $i)
 		{
 			$list = array_merge($list, self::list($i));
 		}
@@ -227,6 +227,15 @@ class puzzle
 				$result['2+4+4']   = T_("2 item in first line, then 4 item per line");
 				break;
 
+			case 20:
+			case 30:
+			case 40:
+			case 50:
+			case 100:
+				$result['4']   = T_("4 item in one line");
+				$result['6']   = T_("6 item in one line");
+				break;
+
 
 			default:
 				// nothing
@@ -308,6 +317,11 @@ class puzzle
 
 			case '4':
 				$class = 'c-xs-12 c-sm-3';
+				break;
+
+
+			case '6':
+				$class = 'c-xs-12 c-sm-2';
 				break;
 
 			case '1+2':

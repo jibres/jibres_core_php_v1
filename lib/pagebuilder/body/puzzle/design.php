@@ -60,7 +60,8 @@
     <input type="hidden" name="set_limit" value="1">
       <div class="action">
         <select class="select22" name="limit">
-          <?php for ($i=1; $i <= 10 ; $i++) { $selected = null; if(a($lineSetting, 'puzzle', 'limit') == $i || (!a($lineSetting, 'puzzle', 'limit') && $i == 8)) { $selected = 'selected'; } echo '<option value="'. $i .'" '. $selected .'>'. \dash\fit::number($i) . '</option>'; } ?>
+          <?php $limitList = [1,2,3,4,5,6,7,8,9,10,20,30,40,50, 100]; ?>
+          <?php foreach($limitList as $i) { $selected = null; if(a($lineSetting, 'puzzle', 'limit') == $i || (!a($lineSetting, 'puzzle', 'limit') && $i == 8)) { $selected = 'selected'; } echo '<option value="'. $i .'" '. $selected .'>'. \dash\fit::number($i) . '</option>'; } ?>
         </select>
       </div>
   </form>
