@@ -27,6 +27,14 @@ class get
 	}
 
 
+	public static function multi_product_stock($_ids)
+	{
+		$query = "SELECT productinventory.product_id, SUM(productinventory.count) AS `stock` FROM productinventory WHERE productinventory.product_id IN ($_ids) GROUP BY productinventory.product_id ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	/**
 	 * This product have child
 	 * Need to calculate all child inventory
@@ -40,17 +48,11 @@ class get
 		$query =
 		"
 			SELECT
-				SUM(productinventory.stock) AS `stock`
+				SUM(productinventory.count) AS `stock`
 			FROM
 				productinventory
 			WHERE
-				productinventory.id IN
-				(
-					SELECT MAX(productinventory.id)
-					FROM productinventory WHERE
-					productinventory.product_id IN (SELECT products.id FROM products WHERE products.parent = $_product_id AND products.status != 'deleted')
-					GROUP BY productinventory.product_id
-				)
+				productinventory.product_id IN (SELECT products.id FROM products WHERE products.parent = $_product_id AND products.status != 'deleted')
 		";
 		$result = \dash\db::get($query, 'stock', true);
 		return floatval($result);

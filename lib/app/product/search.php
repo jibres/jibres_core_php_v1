@@ -472,8 +472,9 @@ class search
 				break;
 		}
 
-		if(is_array($list))
+		if(is_array($list) && $list)
 		{
+			self::find_stock_list($list);
 			$list = array_map(['\\lib\\app\\product\\ready', 'row'], $list);
 		}
 		else
@@ -482,6 +483,36 @@ class search
 		}
 
 		return $list;
+	}
+
+
+	private static function find_stock_list(&$list)
+	{
+		// stock
+		$ids = array_column($list, 'id');
+
+		$myList = array_combine(array_column($list, 'id'), $list);
+
+		$ids = implode(',', $ids);
+
+		$load_multi_stock = \lib\db\productinventory\get::multi_product_stock($ids);
+
+		if(!is_array($load_multi_stock))
+		{
+			$load_multi_stock = [];
+		}
+
+		$load_multi_stock = array_combine(array_column($load_multi_stock, 'product_id'), $load_multi_stock);
+
+		foreach ($myList as $productID => $productDetail)
+		{
+			if(is_null(a($productDetail, 'variant_child')) && isset($load_multi_stock[$productID]['stock']))
+			{
+				$myList[$productID]['stock'] = $load_multi_stock[$productID]['stock'];
+			}
+		}
+
+		$list = array_values($myList);
 	}
 
 
