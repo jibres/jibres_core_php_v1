@@ -690,9 +690,15 @@ class search
 			$tag_id = $_option['value']['productline']['cat_id'];
 		}
 
+		$limit = 16;
+		if(isset($_option['value']['productline']['limit']))
+		{
+			$limit = $_option['value']['productline']['limit'];
+		}
+
 		$meta =
 		[
-			'limit' => 16,
+			'limit' => $limit,
 			'type' => $type,
 			'join' => [],
 		];

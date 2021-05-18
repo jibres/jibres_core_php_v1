@@ -170,11 +170,11 @@ class products
 		[
 			'value' =>
 			[
-
 				'productline' =>
 				[
 					'type'   => a($_args, 'detail', 'type'),
 					'cat_id' => a($_args, 'detail', 'cat_id'),
+					'limit'  => a($_args, 'puzzle', 'limit'),
 				],
 			],
 		];
