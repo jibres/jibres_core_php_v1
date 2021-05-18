@@ -6,6 +6,69 @@ class filter
 
 	use \dash\datafilter;
 
+	/**
+	 * Filter in /tag page
+	 */
+	public static function tag_filter_list()
+	{
+		$list = [];
+
+		$list['expensive'] =
+		[
+			'key'   => 'expensive',
+			'group' => T_("Stock"),
+			'title' => T_("Expensive"),
+			'query' => ['exp' => 'y', 'maxd' => null],
+		];
+
+		$list['inexpensive'] =
+		[
+			'key'   => 'inexpensive',
+			'group' => T_("Stock"),
+			'title' => T_("Inexpensive"),
+			'query' => ['exp' => 'n', 'maxd' => null],
+		];
+
+		$list['maximum_discount'] =
+		[
+			'key'   => 'maximum_discount',
+			'group' => T_("Stock"),
+			'title' => T_("Maximum discount"),
+			'query' => ['maxd' => 1, 'exp' => null],
+		];
+
+
+		$list['with_discount'] =
+		[
+
+			'key'            => 'with_discount',
+			'group'          => T_("Sort"),
+			'title'          => T_("Expensive"),
+			'query'			 => ['d' => 'y'],
+		];
+
+
+		$list['product_instork'] =
+		[
+			'key'            => 'product_instork',
+			'group'          => T_("Stock"),
+			'title'          => T_("Instock"),
+			'query'			 => ['st' => 'y'],
+		];
+
+		$list['with_discount'] =
+		[
+			'key'            => 'with_discount',
+			'group'          => T_("Discount"),
+			'title'          => T_("With Discount"),
+			'query'			 => ['d' => 'y'],
+		];
+
+
+
+		return $list;
+
+	}
 
 	public static function sort_list_array($_module = null)
 	{
@@ -35,8 +98,12 @@ class filter
 
 
 
-	private static function list_of_filter()
+	private static function list_of_filter($_module = null)
 	{
+		if($_module === 'tag_filter')
+		{
+			return self::tag_filter_list();
+		}
 
 		$list = [];
 

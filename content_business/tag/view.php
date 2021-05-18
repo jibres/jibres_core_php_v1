@@ -12,14 +12,21 @@ class view
 
 		if(\dash\data::dataRow())
 		{
+
+			\dash\data::tagFilterList(\lib\app\product\filter::list('tag_filter'));
+
 			\dash\face::title(\dash\data::dataRow_seotitle());
 			\dash\face::desc(\dash\data::dataRow_seodesc());
 			\dash\face::cover(\dash\data::dataRow_file());
 
 			$args =
 			[
-				'order'          => \dash\request::get('order'),
-				'sort'           => \dash\request::get('sort'),
+				// 'order'          => \dash\request::get('order'),
+				// 'sort'           => \dash\request::get('sort'),
+				'exp'            => \dash\request::get('exp'),
+				'maxd'           => \dash\request::get('maxd'),
+				'st'             => \dash\request::get('st'),
+				'd'              => \dash\request::get('d'),
 				'tag_id'         => \dash\data::dataRow_id(),
 				'tag_with_child' => 1,
 				'limit'          => 50,

@@ -54,6 +54,9 @@ class search
 			'tq'             => 'y_n',
 			'pr'             => 'y_n', // property
 
+			'exp'            => 'y_n',
+			'maxd'           => 'bit',
+
 			'websitemode'    => 'bit',
 
 		];
@@ -248,7 +251,7 @@ class search
 		// discount
 		if(isset($data['d']) && $data['d'] === 'y')
 		{
-			$and[] = "(products.discount IS NOT NULL )";
+			$and[] = "(products.discount IS NOT NULL AND products.discount > 0 )";
 			$type                         = 'discount';
 			self::$is_filtered            = true;
 		}
@@ -386,6 +389,8 @@ class search
 			self::$is_filtered = true;
 		}
 
+		$price_desc_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status NOT IN  ('deleted', 'archive') AND mSP.parent = products.id) ,products.%s) %s ";
+		$price_asc_sort  = " ORDER BY IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status NOT IN  ('deleted', 'archive') AND mSP.parent = products.id) ,products.%s) %s ";
 
 		if($data['sort'] && !$order_sort)
 		{
@@ -405,11 +410,11 @@ class search
 				{
 					if($order === 'asc')
 					{
-						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MIN(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status NOT IN  ('deleted', 'archive') AND sProducts.parent = products.id) ,products.$sort) $order";
+						$order_sort = sprintf($price_asc_sort, $sort, $sort, $order);
 					}
 					else
 					{
-						$order_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(sProducts.$sort) FROM products AS `sProducts` WHERE sProducts.status NOT IN  ('deleted', 'archive') AND sProducts.parent = products.id) ,products.$sort) $order";
+						$order_sort = sprintf($price_desc_sort, $sort, $sort, $order);
 					}
 				}
 				else
@@ -423,6 +428,26 @@ class search
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY products.id DESC";
+		}
+
+		if($data['maxd'] === 'y')
+		{
+			$sort       = 'discount';
+			$order      = 'desc';
+			$order_sort = sprintf($price_desc_sort, $sort, $sort, $order);
+		}
+
+		if($data['exp'] === 'y')
+		{
+			$sort       = 'finalprice';
+			$order      = 'desc';
+			$order_sort = sprintf($price_desc_sort, $sort, $sort, $order);
+		}
+		elseif($data['exp'] === 'n')
+		{
+			$sort       = 'finalprice';
+			$order      = 'asc';
+			$order_sort = sprintf($price_asc_sort, $sort, $sort, $order);
 		}
 
 		$and = array_merge($and, $_where);
