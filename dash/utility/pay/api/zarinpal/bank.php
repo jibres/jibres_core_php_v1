@@ -59,6 +59,8 @@ class bank
     }
 
 
+    private static $one_more_time = false;
+
     /**
      * { function_description }
      *
@@ -92,6 +94,16 @@ class bank
         }
         catch (\Exception $e)
         {
+
+            if(!self::$one_more_time)
+            {
+                self::$one_more_time = true;
+
+                \dash\log::set('payment:zarinpal:verify:try:one_more_time');
+
+                return self::verify(...func_get_args());
+            }
+
             \dash\log::set('payment:zarinpal:verify:error:load:web:services');
             \dash\notif::error(T_("Error in load web services"));
             return false;

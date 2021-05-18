@@ -8,7 +8,13 @@ class model
 
 		if(\dash\request::post('check') === 'again')
 		{
-			$result = \dash\app\transaction\edit::verify_again(\dash\request::get('id'));
+			$id = \dash\request::get('tid');
+			if(!$id)
+			{
+				$id = \dash\request::get('id');
+			}
+
+			$result = \dash\app\transaction\edit::verify_again($id);
 			if($result)
 			{
 				\dash\redirect::pwd();
