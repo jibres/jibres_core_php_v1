@@ -98,7 +98,7 @@ class store
 
 		\lib\app\business_domain\business::reset_list($id);
 
-		$domain_list = \lib\db\business_domain\get::by_store_id($id);
+		$domain_list = self::domain_list_once($id);
 		if($domain_list && is_array($domain_list))
 		{
 			foreach ($domain_list as $key => $value)
@@ -119,6 +119,18 @@ class store
 			self::$store = [];
 		}
 
+	}
+
+
+	private static $domain_list_once = [];
+	private static function domain_list_once($_id)
+	{
+		if(!isset(self::$domain_list_once[$_id]))
+		{
+			self::$domain_list_once[$_id] = \lib\db\business_domain\get::by_store_id($_id);
+		}
+
+		return self::$domain_list_once[$_id];
 	}
 
 
@@ -281,7 +293,7 @@ class store
 	public static function store_detail_setting_record($_store_id)
 	{
 
-		$store_detail_setting_record = \lib\app\setting\tools::get_cat('store_setting');
+		$store_detail_setting_record = \lib\app\setting\get::load_setting_once('store_setting');
 
 		if(!is_array($store_detail_setting_record))
 		{

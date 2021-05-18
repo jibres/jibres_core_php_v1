@@ -33,7 +33,8 @@ class business
 				\dash\file::makeDir(\dash\engine\store::domain_list_addr(), null, true);
 			}
 
-			$domain_list = \lib\db\business_domain\get::by_store_id($_store_id);
+			$domain_list = self::domain_list_once($_store_id);
+
 			if(!is_array($domain_list))
 			{
 				$domain_list = [];
@@ -46,6 +47,18 @@ class business
 
 		return $domain_list;
 	}
+
+	private static $domain_list_once = [];
+	private static function domain_list_once($_id)
+	{
+		if(!isset(self::$domain_list_once[$_id]))
+		{
+			self::$domain_list_once[$_id] = \lib\db\business_domain\get::by_store_id($_id);
+		}
+
+		return self::$domain_list_once[$_id];
+	}
+
 
 
 	public static function reset_list($_store_id)

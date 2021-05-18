@@ -105,13 +105,19 @@ class find
 
 		\dash\engine\view::set_cms_titles();
 
+		if(isset($dataRow['type']) && $dataRow['type'] === 'pagebuilder')
+		{
+			// not need to load comment
+		}
+		else
+		{
 
+			$customer_review = \dash\app\comment\get::post_customer_review($dataRow['id']);
+			\dash\data::customerReview($customer_review);
 
-		$customer_review = \dash\app\comment\get::post_customer_review($dataRow['id']);
-		\dash\data::customerReview($customer_review);
-
-		$commentList = \dash\app\comment\search::by_post($dataRow['id']);
-		\dash\data::commentList($commentList);
+			$commentList = \dash\app\comment\search::by_post($dataRow['id']);
+			\dash\data::commentList($commentList);
+		}
 
 
 		return $dataRow;
