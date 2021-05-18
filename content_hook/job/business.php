@@ -14,6 +14,8 @@ class business
 
 		foreach ($list as $key => $value)
 		{
+			\dash\engine\process::continue();
+
 			\dash\engine\store::force_lock($value);
 
 			call_user_func($_fn);
