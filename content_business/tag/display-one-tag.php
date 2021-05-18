@@ -40,6 +40,21 @@
       </div>
     </div>
   <?php } //endif ?>
+
+  <form method="get" action="<?php echo \dash\url::that(); ?>">
+    <div class="searchBox">
+      <div class="f">
+        <div class="c pRa10">
+          <div>
+            <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+              <input type="search" name="q" placeholder='<?php echo T_("Search products"); ?>' id="q" value="<?php echo \dash\validate::search_string(). \dash\request::get('barcode'); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
+              <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 <?php
 if(\dash\data::productList())
 {
