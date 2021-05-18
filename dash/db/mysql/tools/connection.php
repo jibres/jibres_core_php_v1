@@ -59,6 +59,9 @@ class connection
 			$link = self::$link_open;
 		}
 
+		self::$link         = null;
+		self::$link_open    = [];
+
 		if(is_array($link))
 		{
 			foreach ($link as $key => $value)
@@ -70,8 +73,6 @@ class connection
 			}
 		}
 
-		self::$link         = null;
-		self::$link_open    = [];
 	}
 
 
@@ -263,6 +264,10 @@ class connection
 			self::$link = $link;
 			self::$link_open[$LinkKey] = $link;
 			return true;
+		}
+		else
+		{
+			self::$link_open[$LinkKey] = false;
 		}
 		// if link is not created return false
 		return false;
