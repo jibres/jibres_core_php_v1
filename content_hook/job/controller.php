@@ -195,7 +195,7 @@ class controller
 			\lib\app\import\run::crontab();
 		}
 
-		if(self::daily_on('12'))
+		if(self::daily_on('03'))
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
