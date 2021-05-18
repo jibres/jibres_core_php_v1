@@ -16,7 +16,7 @@ class filter
 		$list['expensive'] =
 		[
 			'key'   => 'expensive',
-			'group' => T_("Stock"),
+			'group' => T_("Sort"),
 			'title' => T_("Expensive"),
 			'query' => ['exp' => 'y', 'maxd' => null],
 		];
@@ -24,7 +24,7 @@ class filter
 		$list['inexpensive'] =
 		[
 			'key'   => 'inexpensive',
-			'group' => T_("Stock"),
+			'group' => T_("Sort"),
 			'title' => T_("Inexpensive"),
 			'query' => ['exp' => 'n', 'maxd' => null],
 		];
@@ -32,7 +32,7 @@ class filter
 		$list['maximum_discount'] =
 		[
 			'key'   => 'maximum_discount',
-			'group' => T_("Stock"),
+			'group' => T_("Sort"),
 			'title' => T_("Maximum discount"),
 			'query' => ['maxd' => 1, 'exp' => null],
 		];
