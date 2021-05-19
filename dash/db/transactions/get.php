@@ -35,7 +35,7 @@ class get
 			WHERE
 				transactions.verify = 1 AND
 				transactions.datecreated >= '$_enddate'
-			GROUP BY $CASE
+			GROUP BY `month`
 		";
 
 		$result = \dash\db::get($query);
@@ -52,13 +52,13 @@ class get
 			SELECT
 				SUM(transactions.plus) AS `sum_plus`,
 				SUM(transactions.minus) AS `sum_minus`,
-				MONTH(transactions.datecreated) AS `month`
+				CONCAT(YEAR(transactions.datecreated), '-', MONTH(transactions.datecreated)) AS `month`
 			FROM
 				transactions
 			WHERE
 				transactions.verify = 1 AND
 				transactions.datecreated >= '$_enddate'
-			GROUP BY MONTH(transactions.datecreated)
+			GROUP BY `month`
 		";
 
 		$result = \dash\db::get($query);

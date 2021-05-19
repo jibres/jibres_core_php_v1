@@ -16,7 +16,7 @@ class report
 			$datetime2   = date_create(date("Y-m-d"));
 			$interval    = date_diff($datetime1, $datetime2);
 
-			$month_count =  $interval->m + ($interval->y * 12);
+			$month_count =  $interval->m + ($interval->y * 12) + 1;
 
 			if(intval($month_count) < 12)
 			{
@@ -103,7 +103,6 @@ class report
 				$month_list_minus[$value['month']] = floatval($value['sum_minus']);
 			}
 		}
-
 
 
 
