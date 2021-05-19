@@ -16,6 +16,8 @@ class model
 		[
 			'title'   => \dash\request::post('title'),
 			'amount'  => \dash\request::post('amount'),
+			'date'    => \dash\request::post('date'),
+			'time'    => \dash\request::post('time'),
 			'user_id' => \dash\request::get('id'),
 			'type'    => \dash\url::subchild(),
 		];

@@ -11,6 +11,8 @@ class plus_minus
 		[
 			'title'   => 'string_50',
 			'amount'  => 'price',
+			'date'    => 'date',
+			'time'    => 'time',
 			'user_id' => 'code',
 			'type'    => ['enum' => ['minus', 'plus']],
 		];
@@ -44,6 +46,20 @@ class plus_minus
 			$currency = \lib\currency::default();
 		}
 
+		if(!$data['date'])
+		{
+			$data['date'] = date("Y-m-d");
+		}
+
+		if(!$data['time'])
+		{
+			$data['time'] = date("H:i:s");
+		}
+
+
+		$date = $data['date']. ' '. $data['time'];
+
+
 
 		$insert =
 		[
@@ -53,7 +69,7 @@ class plus_minus
 			'payment'   => null,
 			'type'      => 'money',
 			'unit'      => $currency,
-			'date'      => date("Y-m-d H:i:s"),
+			'date'      => $date,
 			'verify'    => 1,
 			'dateverify' => time(),
 		];

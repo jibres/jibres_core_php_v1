@@ -27,6 +27,7 @@ trait set
 			'type'        => null,
 			'payment'     => null,
 			'factor_id'   => null,
+			'date'        => null,
 			'other_field' => [],
 
 		];
@@ -246,6 +247,16 @@ trait set
 
 		unset($insert['unit']);
 		unset($insert['unit_id']);
+
+		if(!a($_args, 'date'))
+		{
+			$insert['datecreated'] = date("Y-m-d H:i:s");
+		}
+		else
+		{
+			$insert['datecreated'] = $_args['date'];
+		}
+
 
 		$insert_id = self::insert($insert);
 
