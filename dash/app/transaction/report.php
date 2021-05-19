@@ -12,9 +12,9 @@ class report
 
 		if(isset($first_verify_transaction['datecreated']))
 		{
-			$datetime1   = date_create($first_verify_transaction['datecreated']);
-			$datetime2   = date_create(date("Y-m-d"));
-			$interval    = date_diff($datetime1, $datetime2);
+			$datetime1 = date_create($first_verify_transaction['datecreated']);
+			$datetime2 = date_create(date("Y-m-d"));
+			$interval  = date_diff($datetime1, $datetime2);
 
 			$month_count =  $interval->m + ($interval->y * 12) + 2;
 
@@ -35,15 +35,14 @@ class report
 		$month_list = [];
 		$category = [];
 
+		$today = date('Y-m-02 00:00:00');
+
 		if(\dash\language::current() === 'fa')
 		{
 			for ($i=0; $i < $month_count ; $i++)
 			{
-				// stard date on gregorian month must be plus 2 days and the convert to jalali month !
-				$month_time = strtotime("-$i month") + (60*60*24*2);
-
+				$month_time = strtotime("-$i month", strtotime($today));
 				$jalali_month = \dash\utility\jdate::date("m", $month_time, false);
-
 
 				list($startdate, $enddate) = \dash\utility\jdate::jalali_month(\dash\utility\jdate::date("Y", $month_time, false), $jalali_month);
 
@@ -57,7 +56,6 @@ class report
 
 			$plus_transaction = \dash\db\transactions\get::chart_by_date_fa($last_12_month, $all_date);
 
-
 		}
 		else
 		{
@@ -69,6 +67,7 @@ class report
 				$month_list[date("Y-m", strtotime("-$i month"))] = 0;
 				$category[] = date("Y F", strtotime("-$i month"));
 			}
+
 
 		}
 
