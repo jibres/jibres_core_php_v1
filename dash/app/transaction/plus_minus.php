@@ -9,7 +9,7 @@ class plus_minus
 
 		$condition =
 		[
-			'title'   => 'string_50',
+			'title'   => 'string_200',
 			'amount'  => 'price',
 			'date'    => 'date',
 			'time'    => 'time',

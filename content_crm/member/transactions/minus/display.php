@@ -6,7 +6,7 @@
         <p class="fc-red"><?php echo T_("You try to Reduce account recharge to customer account") ?></p>
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div class="input">
-          <input type="text" name="title" required  maxlength="50">
+          <input type="text" name="title" required  maxlength="200">
         </div>
 
          <label for="date"><?php echo T_("Date"); ?></label>
