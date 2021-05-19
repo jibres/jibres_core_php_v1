@@ -103,7 +103,7 @@ class datetime
 				return false;
 			}
 
-			if(intval($year) < 1000)
+			if(intval($year) < 1971)
 			{
 				if($_notif)
 				{
