@@ -225,6 +225,12 @@ class search
 
 		$list = self::list(null, $args);
 
+		if(!$list)
+		{
+			unset($args['firstlevel']);
+			$list = self::list(null, $args);
+		}
+
 		// need load first child
 
 		return $list;
