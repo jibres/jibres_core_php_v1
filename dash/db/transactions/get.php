@@ -52,7 +52,7 @@ class get
 			SELECT
 				SUM(transactions.plus) AS `sum_plus`,
 				SUM(transactions.minus) AS `sum_minus`,
-				CONCAT(YEAR(transactions.datecreated), '-', MONTH(transactions.datecreated)) AS `month`
+				CONCAT(YEAR(transactions.datecreated), '-', LPAD(MONTH(transactions.datecreated), 2, '0')) AS `month`
 			FROM
 				transactions
 			WHERE

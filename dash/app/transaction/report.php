@@ -16,7 +16,7 @@ class report
 			$datetime2   = date_create(date("Y-m-d"));
 			$interval    = date_diff($datetime1, $datetime2);
 
-			$month_count =  $interval->m + ($interval->y * 12) + 1;
+			$month_count =  $interval->m + ($interval->y * 12) + 2;
 
 			if(intval($month_count) < 12)
 			{
@@ -56,13 +56,13 @@ class report
 
 
 			$plus_transaction = \dash\db\transactions\get::chart_by_date_fa($last_12_month, $all_date);
-			$minus_transaction   = \dash\db\transactions\get::chart_by_date_fa($last_12_month, $all_date);
+
 
 		}
 		else
 		{
 			$plus_transaction = \dash\db\transactions\get::chart_by_date_en($last_12_month);
-			$minus_transaction   = \dash\db\transactions\get::chart_by_date_en($last_12_month);
+
 
 			for ($i=0; $i < $month_count ; $i++)
 			{
@@ -78,16 +78,12 @@ class report
 			$plus_transaction = [];
 		}
 
-		if(!is_array($minus_transaction))
-		{
-			$minus_transaction = [];
-		}
 
 
 		$month_list_plus = $month_list;
 		$month_list_minus   = $month_list;
 
-		foreach ($minus_transaction as $key => $value)
+		foreach ($plus_transaction as $key => $value)
 		{
 			if(isset($value['month']) && isset($month_list_plus[$value['month']]))
 			{
@@ -96,7 +92,7 @@ class report
 		}
 
 
-		foreach ($minus_transaction as $key => $value)
+		foreach ($plus_transaction as $key => $value)
 		{
 			if(isset($value['month']) && isset($month_list_minus[$value['month']]))
 			{
