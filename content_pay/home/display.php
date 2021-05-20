@@ -193,7 +193,7 @@ if(!is_array($myPayment))
 		<div class="msg pA5">
 			<?php if(isset($myPayment['parsian']['status']) && $myPayment['parsian']['status']) {?>
 			<div class="radioGateway" title='<?php echo T_("Parsian"); ?>'>
-			<input type="radio" name="bank" value="parsian" id="parsian"  checked>
+			<input type="radio" name="bank" value="parsian" id="parsian"  >
 			<label for='parsian' class="spay-64-parsian"></label>
 			</div>
 			<?php } //endif ?>
@@ -214,7 +214,7 @@ if(!is_array($myPayment))
 
 			<?php if(isset($myPayment['zarinpal']['status']) && $myPayment['zarinpal']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" >
+			<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" <?php if(!\dash\engine\store::inStore()) {echo 'checked';} ?>>
 			<label for='ZarinPal' class="spay-64-zarinpal"></label>
 			</div>
 			<?php } //endif ?>
