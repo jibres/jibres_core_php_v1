@@ -1,3 +1,4 @@
+<?php require_once(root. 'content_crm/member/userDetail.php'); ?>
 <nav class="items">
   <ul>
 
@@ -31,6 +32,15 @@
         <div class="key"><?php echo T_("Minus Amount") ?></div>
         <div class="value txtB">- <?php echo \dash\fit::number(\dash\data::dataRow_minus()); ?></div>
         <div class="go detail nok"></div>
+      </a>
+     </li>
+   <?php } //endif ?>
+      <?php if(\dash\data::dataRow_currency_name()) {?>
+     <li>
+      <a class="f item">
+        <div class="key"><?php echo T_("Currency") ?></div>
+        <div class="value txtB"><?php echo \dash\data::dataRow_currency_name(); ?></div>
+        <div class="go detail"></div>
       </a>
      </li>
    <?php } //endif ?>

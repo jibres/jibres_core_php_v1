@@ -1,5 +1,15 @@
 <?php
-$myID   = '?id='. \dash\request::get('id');
+if(\dash\data::myUserID())
+{
+  $myID = \dash\data::myUserID();
+}
+else
+{
+  $myID   = \dash\request::get('id');
+}
+
+$myID = '?id='. $myID;
+
 $myIcon = 'check';
 
 switch (\dash\data::dataRowMember_status())
@@ -17,7 +27,7 @@ switch (\dash\data::dataRowMember_status())
   <nav class="items long">
     <ul>
       <li>
-        <a class="item f" href="<?php echo \dash\url::this(). '/glance'. $myID;?>">
+        <a class="item f" href="<?php echo \dash\url::here(). '/member/glance'. $myID;?>">
           <img src="<?php echo \dash\fit::img(\dash\data::dataRowMember_avatar()); ?>">
           <div class="key"><?php echo \dash\data::dataRowMember_displayname();?></div>
           <div class="value"><?php echo T_(\dash\data::dataRowMember_status());?></div>

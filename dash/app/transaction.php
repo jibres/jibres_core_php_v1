@@ -44,6 +44,11 @@ class transaction
 						$result['currency_name'] = \lib\currency::name($value);
 					}
 					break;
+				case 'user_id':
+					$result[$key] = $value;
+					$result['user_code'] = \dash\coding::encode($value);
+
+					break;
 
 				case 'displayname':
 					if(!$value && $value != '0')
@@ -71,8 +76,8 @@ class transaction
 			}
 		}
 
-
 		if(
+			a($result, 'payment_response2') &&
 			!a($result, 'verify') &&
 			a($result, 'payment') === 'zarinpal' &&
 			(
