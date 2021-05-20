@@ -18,7 +18,7 @@ class get
 		$CASE = [];
 		foreach ($_month_list as $month => $date)
 		{
-			$CASE[] = "WHEN transactions.datecreated >= '$date[0] 00:00:00' AND transactions.datecreated <= '$date[1] 23:59:59' THEN '$month'";
+			$CASE[] = "WHEN transactions.date >= '$date[0] 00:00:00' AND transactions.date <= '$date[1] 23:59:59' THEN '$month'";
 		}
 
 		$CASE = " CASE ". implode(" ", $CASE). "  ELSE '0' END ";
@@ -34,7 +34,7 @@ class get
 				transactions
 			WHERE
 				transactions.verify = 1 AND
-				transactions.datecreated >= '$_enddate'
+				transactions.date >= '$_enddate'
 			GROUP BY `month`
 		";
 
@@ -52,12 +52,12 @@ class get
 			SELECT
 				SUM(transactions.plus) AS `sum_plus`,
 				SUM(transactions.minus) AS `sum_minus`,
-				CONCAT(YEAR(transactions.datecreated), '-', LPAD(MONTH(transactions.datecreated), 2, '0')) AS `month`
+				CONCAT(YEAR(transactions.date), '-', LPAD(MONTH(transactions.date), 2, '0')) AS `month`
 			FROM
 				transactions
 			WHERE
 				transactions.verify = 1 AND
-				transactions.datecreated >= '$_enddate'
+				transactions.date >= '$_enddate'
 			GROUP BY `month`
 		";
 
@@ -68,7 +68,7 @@ class get
 
 	public static function count_awating_transaction_per_user($_user_id, $_start_date)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.datecreated >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.user_id = $_user_id ";
+		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.date >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.user_id = $_user_id ";
 		$result = \dash\db::get($query, 'count', true);
 		return floatval($result);
 	}
@@ -76,7 +76,7 @@ class get
 
 	public static function count_transaction_per_ip($_ip_id, $_start_date)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.datecreated >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.ip_id = $_ip_id ";
+		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.date >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.ip_id = $_ip_id ";
 		$result = \dash\db::get($query, 'count', true);
 		return floatval($result);
 	}
@@ -84,7 +84,7 @@ class get
 
 	public static function count_transaction_per_ip_agent($_ip_id, $_agent_id, $_start_date)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.datecreated >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.ip_id = $_ip_id AND transactions.agent_id = $_agent_id ";
+		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.date >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.ip_id = $_ip_id AND transactions.agent_id = $_agent_id ";
 		$result = \dash\db::get($query, 'count', true);
 		return floatval($result);
 	}
@@ -129,7 +129,7 @@ class get
 
 		if($_date)
 		{
-			$date = " WHERE DATE(transactions.datecreated) >= DATE('$_date') ";
+			$date = " WHERE DATE(transactions.date) >= DATE('$_date') ";
 		}
 
 		$query =
@@ -156,14 +156,14 @@ class get
 		"
 			SELECT
 				COUNT(*) AS `count`,
-				DATE(transactions.datecreated) AS `datecreated`,
+				DATE(transactions.date) AS `date`,
 				transactions.verify
 			FROM
 				transactions
 			WHERE
-				DATE(transactions.datecreated) >= DATE('$_end_date')
+				DATE(transactions.date) >= DATE('$_end_date')
 			GROUP BY
-				DATE(transactions.datecreated), transactions.verify
+				DATE(transactions.date), transactions.verify
 		";
 
 		$result = \dash\db::get($query);

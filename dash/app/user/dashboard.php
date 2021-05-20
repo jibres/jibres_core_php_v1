@@ -247,16 +247,16 @@ class dashboard
 
 		foreach ($get_detail as $key => $value)
 		{
-			if(isset($all_date[$value['datecreated']]))
+			if(isset($all_date[$value['date']]))
 			{
 				if($value['verify'] === '0')
 				{
-					$all_date[$value['datecreated']]['unverify'] = floatval($value['count']);
+					$all_date[$value['date']]['unverify'] = floatval($value['count']);
 
 				}
 				elseif($value['verify'] === '1')
 				{
-					$all_date[$value['datecreated']]['verify'] = floatval($value['count']);
+					$all_date[$value['date']]['verify'] = floatval($value['count']);
 				}
 			}
 		}

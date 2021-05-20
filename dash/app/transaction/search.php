@@ -103,14 +103,14 @@ class search
 		if($data['start_date'])
 		{
 			$data['start_date'] = $data['start_date']. ' 00:00:00';
-			$and[] = " transactions.datecreated >= '$data[start_date]' ";
+			$and[] = " transactions.date >= '$data[start_date]' ";
 			self::$is_filtered = true;
 		}
 
 		if($data['end_date'])
 		{
 			$data['end_date'] = $data['end_date']. ' 23:59:59';
-			$and[] = " transactions.datecreated <= '$data[end_date]' ";
+			$and[] = " transactions.date <= '$data[end_date]' ";
 			self::$is_filtered = true;
 		}
 

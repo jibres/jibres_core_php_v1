@@ -10,9 +10,9 @@ class report
 
 		$first_verify_transaction = \dash\db\transactions\get::first_verify_transaction();
 
-		if(isset($first_verify_transaction['datecreated']))
+		if(isset($first_verify_transaction['date']))
 		{
-			$datetime1 = date_create($first_verify_transaction['datecreated']);
+			$datetime1 = date_create($first_verify_transaction['date']);
 			$datetime2 = date_create(date("Y-m-d"));
 			$interval  = date_diff($datetime1, $datetime2);
 
@@ -23,7 +23,7 @@ class report
 				$month_count = 12;
 			}
 
-			$last_12_month = $first_verify_transaction['datecreated'];
+			$last_12_month = $first_verify_transaction['date'];
 		}
 		else
 		{

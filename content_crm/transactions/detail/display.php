@@ -64,11 +64,20 @@
 
     <li>
       <a class="f item">
+        <div class="key"><?php echo T_("Date") ?></div>
+        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_date()); ?></div>
+        <div class="go detail"></div>
+      </a>
+     </li>
+     <?php if(\dash\data::dataRow_date() !== \dash\data::dataRow_datecreated()) {?>
+      <li>
+      <a class="f item">
         <div class="key"><?php echo T_("Date created") ?></div>
         <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
+     <?php } //endif ?>
    <?php if(a(\dash\data::dataRow(), 'token')) {?>
     <li>
       <a class="f item" href="<?php echo \dash\url::kingdom(). '/pay/'. a(\dash\data::dataRow(), 'token'); ?>">

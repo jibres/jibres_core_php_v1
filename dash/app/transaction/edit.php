@@ -130,8 +130,8 @@ class edit
 
 		$update = [];
 
-		$update['title'] = $data['title'];
-		$update['datecreated'] = $date;
+		$update['title']  = $data['title'];
+		$update['date']   = $date;
 		$update['verify'] = $data['verify'] ? 1 : 0;
 
 		if(isset($load['plus']) && floatval($load['plus']) > 0)

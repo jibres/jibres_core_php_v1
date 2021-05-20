@@ -13,7 +13,7 @@
 <?php }else{ ?>
         <div class="go times nok"></div>
 <?php }//endif ?>
-        <div class="value datetime s0"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
+        <div class="value datetime s0"><?php echo \dash\fit::date_time($value['date']); ?></div>
         <div class="go s0"></div>
       </a>
      </li>

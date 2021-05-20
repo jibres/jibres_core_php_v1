@@ -20,7 +20,7 @@
 
 
         <label for="date"><?php echo T_("Date & Time"); ?></label>
-        <?php $myDate = \dash\data::dataRow_datecreated(); $myTimeStemp = strtotime($myDate); ?>
+        <?php $myDate = \dash\data::dataRow_date(); $myTimeStemp = strtotime($myDate); ?>
         <div class="input">
           <label data-kerkere='.showTime' class="addon btn"><?php echo \dash\fit::text(date("H:i", $myTimeStemp)); ?></label>
           <input type="tel" name="date" id="date" placeholder='<?php echo \dash\fit::date($myDate); ?>' value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date($myDate)) ?>" data-format='date'>

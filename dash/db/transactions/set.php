@@ -250,13 +250,14 @@ trait set
 
 		if(!a($_args, 'date'))
 		{
-			$insert['datecreated'] = date("Y-m-d H:i:s");
+			$insert['date'] = date("Y-m-d H:i:s");
 		}
 		else
 		{
-			$insert['datecreated'] = $_args['date'];
+			$insert['date'] = $_args['date'];
 		}
 
+		$insert['datecreated'] = date("Y-m-d H:i:s");
 
 		$insert_id = self::insert($insert);
 

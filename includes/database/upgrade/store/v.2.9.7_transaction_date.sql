@@ -1,0 +1,1 @@
+UPDATE jibres_XXXXXXX.transactions SET transactions.date = transactions.datecreated WHERE transactions.date IS NULL;
