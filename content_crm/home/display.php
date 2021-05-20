@@ -83,7 +83,7 @@
      <ul>
 
        <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
+        <a class="item f" href="<?php echo \dash\url::here();?>/transactions?verify=y">
         <i class="sf-money"></i>
           <div class="key"><?php echo T_('Successful payments');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'transactions')); ?></div>
@@ -92,7 +92,7 @@
       </li>
 
        <li>
-        <a class="item f" href="<?php echo \dash\url::here();?>/transactions/all">
+        <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
         <i class="sf-receipt-shopping-streamline"></i>
           <div class="key"><?php echo T_('All payments');?></div>
           <div class="go"></div>

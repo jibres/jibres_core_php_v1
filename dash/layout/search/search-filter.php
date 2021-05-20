@@ -28,23 +28,32 @@ if(is_array(\dash\data::listEngine_filter()))
         HTML_users_search($value);
         break;
 
+      case 'daterange':
+        $apply_filter_btn = true;
+        HTML_daterange($value);
+        break;
 
       case 'product_tag_search':
         $apply_filter_btn = true;
         HTML_product_tag_search($value);
         break;
 
-
       case 'product_unit_search':
         $apply_filter_btn = true;
         HTML_product_unit_search($value);
         break;
+
       case 'product_status_search':
         $apply_filter_btn = true;
         HTML_product_status_search($value);
         break;
 
-
+      case 'raw_file':
+        if(isset($value['file_addr']) && is_string($value['file_addr']) && is_file($value['file_addr']))
+        {
+          require_once($value['file_addr']);
+        }
+        break;
 
       // default
       default:
@@ -94,6 +103,36 @@ function HTML_post_search($value)
     // echo "<option value=''>". T_("None"). '</option>';
   }
   echo '</select>';
+  echo "</div>";
+}
+
+
+
+function HTML_daterange($value)
+{
+  echo "<div class='mB10'>";
+  echo '<label>'. a($value, 'title'). '</label>';
+  $std = \dash\request::get('std');
+  $end = \dash\request::get('end');
+  $from = T_("Fron date");
+  $to = T_("To date");
+
+  $HTML = <<<HTML
+    <div class="row">
+      <div class="c-xs-6 c-sm-6">
+        <div class="input">
+          <input type="tel" name="std" value="$std" data-format='date' placeholder="$from">
+        </div>
+      </div>
+      <div class="c-xs-6 c-sm-6">
+        <div class="input">
+          <input type="tel" name="end" value="$end" data-format='date' placeholder="$to">
+        </div>
+      </div>
+    </div>
+HTML;
+
+  echo $HTML;
   echo "</div>";
 }
 

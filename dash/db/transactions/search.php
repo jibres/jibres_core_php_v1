@@ -29,6 +29,31 @@ class search
 	}
 
 
+	public static function list_sum($_and, $_or, $_order_sort = null, $_meta = [])
+	{
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+
+		$query =
+		"
+			SELECT
+				SUM(IFNULL(transactions.plus, 0)) AS `sum_plus`,
+				AVG(IFNULL(transactions.plus, 0)) AS `avg_plus`,
+				SUM(IF(transactions.plus > 0, 1, 0)) AS `count_plus`,
+				SUM(IFNULL(transactions.minus, 0)) AS `sum_minus`,
+				AVG(IFNULL(transactions.minus, 0)) AS `avg_minus`,
+				SUM(IF(transactions.minus > 0, 1, 0)) AS `count_minus`
+			FROM
+				transactions
+			$q[where]
+		";
+
+		$result = \dash\db::get($query, null, true);
+
+		return $result;
+	}
+
+
 
 }
 ?>

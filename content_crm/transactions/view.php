@@ -18,25 +18,29 @@ class view
 		// \dash\data::action_icon('plus');
 		// \dash\data::action_link(\dash\url::this(). '/add');
 
+		$statistics_file = root. 'content_crm/transactions/display-statistics.php';
+
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(\dash\app\transaction\filter::list(\dash\url::child()));
+		\dash\data::listEngine_filter(\dash\app\transaction\filter::list(\dash\url::child(), $statistics_file));
 		\dash\data::listEngine_sort(true);
+
 		\dash\data::sortList(\dash\app\transaction\filter::sort_list());
 
 		$args =
 		[
-			'order'     => \dash\request::get('order'),
-			'sort'      => \dash\request::get('sort'),
-			'status'    => \dash\request::get('status'),
-			'verify'    => \dash\request::get('verify'),
-			'show_type' => 'verify',
+			'order'         => \dash\request::get('order'),
+			'sort'          => \dash\request::get('sort'),
+			'status'        => \dash\request::get('status'),
+			'verify'        => \dash\request::get('verify'),
+			'user_code'     => \dash\request::get('user'),
+			'charge_type'   => \dash\request::get('ct'),
+			'start_date'    => \dash\request::get('std'),
+			'end_date'      => \dash\request::get('end'),
+			'need_calc_sum' => 1,
 		];
 
-		if(\dash\url::child() === 'all')
-		{
-			$args['show_type'] = 'all';
-		}
+
 
 		$search_string   = \dash\validate::search(\dash\request::get('q'));
 		$transactionList = \dash\app\transaction\search::list($search_string, $args);
@@ -50,6 +54,9 @@ class view
 		{
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
+
+		$calcSum = \dash\temp::get('transactionCalcSum');
+		\dash\data::calcSum($calcSum);
 	}
 }
 ?>

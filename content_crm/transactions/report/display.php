@@ -21,9 +21,13 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach (a(\dash\data::reportDetail(), 'plus_table') as $key => $value) {?>
+        <?php foreach (a(\dash\data::reportDetail(), 'plus_table') as $key => $value) {
+          $std = sprintf('%s/01', str_replace('-', '/', $key));
+          $end = sprintf('%s/31', str_replace('-', '/', $key));
+          $args = ['std' => $std, 'end' => $end, 'verify'=> 'y'];
+          ?>
           <tr>
-            <td><?php echo \dash\fit::number_en($key) ?></td>
+            <td><a href="<?php echo \dash\url::this(). \dash\request::full_get($args) ?>"><?php echo \dash\fit::number_en($key) ?></a></td>
             <td class="txtB"><?php echo \dash\fit::number_en($value) ?></td>
           </tr>
         <?php } //endif ?>

@@ -46,7 +46,7 @@ trait datafilter
 
 
 
-	public static function sort_list($_module = null)
+	public static function sort_list()
 	{
 		// public => true means show in api and site
 
@@ -80,7 +80,7 @@ trait datafilter
 			];
 		}
 
-		$sort_list   = array_merge($sort_list, self::sort_list_array($_module));
+		$sort_list   = array_merge($sort_list, self::sort_list_array(...func_get_args()));
 
 		$current_string_query = \dash\request::get();
 		unset($current_string_query['sort']);
@@ -97,9 +97,9 @@ trait datafilter
 	}
 
 
-	public static function list($_module = null)
+	public static function list()
 	{
-		$list = self::list_of_filter($_module);
+		$list = self::list_of_filter(...func_get_args());
 
 		$get = \dash\request::get();
 

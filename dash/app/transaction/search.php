@@ -17,13 +17,17 @@ class search
 	{
 		$condition =
 		[
-			'order'        => 'order',
-			'sort'         => 'string_50',
-			'status'       => ['enum' => ['sale', 'buy', 'saleorder']],
-			'show_type'    => ['enum' => ['verify', 'all']],
-			'user_code'    => 'code',
-			'user_history' => 'bit',
-			'verify'       => 'y_n',
+			'order'         => 'order',
+			'sort'          => 'string_50',
+			'status'        => ['enum' => ['sale', 'buy', 'saleorder']],
+			'show_type'     => ['enum' => ['verify', 'all']],
+			'user_code'     => 'code',
+			'start_date'    => 'date',
+			'end_date'      => 'date',
+			'user_history'  => 'bit',
+			'need_calc_sum' => 'bit',
+			'verify'        => 'y_n',
+			'charge_type'   => 'y_n',
 		];
 
 		$require = [];
@@ -85,6 +89,32 @@ class search
 		}
 
 
+		if($data['charge_type'] === 'y')
+		{
+			$and[] = " transactions.plus > 0 ";
+			self::$is_filtered = true;
+		}
+		elseif($data['charge_type'] === 'n')
+		{
+			$and[] = " transactions.minus > 0 ";
+			self::$is_filtered = true;
+		}
+
+		if($data['start_date'])
+		{
+			$data['start_date'] = $data['start_date']. ' 00:00:00';
+			$and[] = " transactions.datecreated >= '$data[start_date]' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['end_date'])
+		{
+			$data['end_date'] = $data['end_date']. ' 23:59:59';
+			$and[] = " transactions.datecreated <= '$data[end_date]' ";
+			self::$is_filtered = true;
+		}
+
+
 
 		$query_string = \dash\validate::search($_query_string, false);
 
@@ -125,6 +155,12 @@ class search
 		}
 
 		$list = \dash\db\transactions\search::list($and, $or, $order_sort, $meta);
+
+		if($data['need_calc_sum'])
+		{
+			$sum = \dash\db\transactions\search::list_sum($and, $or, $order_sort, $meta);
+			\dash\temp::set('transactionCalcSum', $sum);
+		}
 
 		if(is_array($list))
 		{
