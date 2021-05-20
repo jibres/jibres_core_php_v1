@@ -114,7 +114,7 @@ function HTML_daterange($value)
   echo '<label>'. a($value, 'title'). '</label>';
   $std = \dash\request::get('std');
   $end = \dash\request::get('end');
-  $from = T_("Fron date");
+  $from = T_("From date");
   $to = T_("To date");
 
   $HTML = <<<HTML
