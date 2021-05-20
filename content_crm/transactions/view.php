@@ -22,7 +22,7 @@ class view
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(\dash\app\transaction\filter::list(\dash\url::child(), $statistics_file));
+		\dash\data::listEngine_filter(\dash\app\transaction\filter::list(\dash\url::module(), $statistics_file));
 		\dash\data::listEngine_sort(true);
 
 		\dash\data::sortList(\dash\app\transaction\filter::sort_list());
@@ -39,6 +39,12 @@ class view
 			'end_date'      => \dash\request::get('end'),
 			'need_calc_sum' => 1,
 		];
+
+		$TransactioArgsSearch = \dash\temp::get('TransactioArgsSearch');
+		if(is_array($TransactioArgsSearch))
+		{
+			$args = array_merge($args, $TransactioArgsSearch);
+		}
 
 
 

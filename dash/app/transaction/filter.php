@@ -42,15 +42,18 @@ class filter
 			'public' => false,
 		];
 
+		if($_module !== 'member')
+		{
 
-		$list['user'] =
-		[
-			'key'    => 'user',
-			'group'  => T_("Customer"),
-			'title'  => T_("Search in customer"),
-			'mode'   => 'users_search',
-			'public' => false,
-		];
+			$list['user'] =
+			[
+				'key'    => 'user',
+				'group'  => T_("Customer"),
+				'title'  => T_("Search in customer"),
+				'mode'   => 'users_search',
+				'public' => false,
+			];
+		}
 
 		if($_statistics_file && \dash\url::content() === 'crm')
 		{
