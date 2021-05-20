@@ -85,5 +85,71 @@ class edit
 
 
 	}
+
+
+
+	public static function edit($_args, $_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$condition =
+		[
+			'amount' => 'price',
+			'title'  => 'title',
+			'verify' => 'bit',
+			'date'   => 'date',
+			'time'   => 'time',
+		];
+
+
+
+		$require = ['title', 'amount', 'date', 'time'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$load = \dash\db\transactions\get::by_id($id);
+		if(!$load || !is_array($load))
+		{
+			return false;
+		}
+
+		if(isset($load['payment']) && $load['payment'])
+		{
+			\dash\notif::error(T_("Can not edit payment record"));
+			return false;
+		}
+
+		$date = $data['date']. ' '. $data['time'];
+
+		$update = [];
+
+		$update['title'] = $data['title'];
+		$update['datecreated'] = $date;
+		$update['verify'] = $data['verify'] ? 1 : 0;
+
+		if(isset($load['plus']) && floatval($load['plus']) > 0)
+		{
+			$update['plus'] = $data['amount'];
+		}
+		elseif(isset($load['minus']) && floatval($load['minus']) > 0)
+		{
+			$update['minus'] = $data['amount'];
+		}
+
+
+		\dash\db\transactions\update::record($update, $id);
+
+		\dash\notif::ok(T_("Transactions updated"));
+
+		return true;
+
+	}
 }
 ?>

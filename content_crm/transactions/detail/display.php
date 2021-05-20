@@ -79,6 +79,16 @@
 
   <?php } //endif ?>
 
+   <?php if(!a(\dash\data::dataRow(), 'payment')) {?>
+    <li>
+      <a class="f item" href="<?php echo \dash\url::kingdom(). '/crm/transactions/edit?id='. \dash\data::dataRow_id() ?>">
+        <div class="key"><?php echo T_("Edit transactions") ?></div>
+        <div class="go "></div>
+      </a>
+     </li>
+
+  <?php } //endif ?>
+
   </ul>
 </nav>
 
