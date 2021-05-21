@@ -120,41 +120,39 @@ class run
 		$apiURL = "https://epp.nic.ir/submit";
 
 		// $pem = root. 'dash/setting/secret/pem/nic/v2-contract1400-2022/2-decrypte/nic.pem';
-		$pem = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/nic.pem';
+		// $pem = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/nic.pem';
 		// $pem = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/nic-pass.pem';
 
 
 		//The name of a file containing a PEM formatted certificate.
 
-		$pem = realpath($pem);
-		if(!$pem || !is_readable($pem))
-		{
-    		die("error: myfile.pem is not readable! realpath: \"{$pem}\" - working dir: \"".getcwd()."\" effective user: ".print_r(posix_getpwuid(posix_geteuid()),true));
-		}
+		// $pem = realpath($pem);
+		// if(!$pem || !is_readable($pem))
+		// {
+  //   		die("error: myfile.pem is not readable! realpath: \"{$pem}\" - working dir: \"".getcwd()."\" effective user: ".print_r(posix_getpwuid(posix_geteuid()),true));
+		// }
 
-		curl_setopt($ch, CURLOPT_SSLCERT, $pem);
-		curl_setopt($ch, CURLOPT_CAINFO, $pem);
-		curl_setopt($ch, CURLOPT_CAPATH, $pem);
+		// curl_setopt($ch, CURLOPT_SSLCERT, $pem);
+		// curl_setopt($ch, CURLOPT_CAINFO, $pem);
+		// curl_setopt($ch, CURLOPT_CAPATH, $pem);
 
 
-		$keyFile = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/seperated/irnic-ji128-june-key.pem';
+		$keyFile = root . 'dash/setting/secret/pem/nic/v4-contract1400-2022-new/converted/cert.key';
 		// $caFile = "ca.pem";
-		$certFile = root . 'dash/setting/secret/pem/nic/v3-contract1400-2022-renew/seperated/irnic-ji128-june-cert.pem';
-		// $certPass = "xxxxxx";
+		$certFile = root . 'dash/setting/secret/pem/nic/v4-contract1400-2022-new/converted/cert.crt';
+		// $certPass = "9481041242210517";
 
 		// seperated cert file
-		// curl_setopt($ch, CURLOPT_SSLKEY, $keyFile);
+		curl_setopt($ch, CURLOPT_SSLKEY, $keyFile);
 
 		// The --cacert option
 		// curl_setopt($ch, CURLOPT_CAINFO, $caFile);
 
 		// The --cert option
-		// curl_setopt($ch, CURLOPT_SSLCERT, $certFile);
+		curl_setopt($ch, CURLOPT_SSLCERT, $certFile);
 		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $certPass);
 
 
-		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, '6858391123200405');
-		//
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
@@ -203,7 +201,7 @@ class run
 
 		$_xml = trim($_xml);
 
-		if(false && \dash\request::get('nic') === 'raw' || \dash\url::isLocal())
+		if(\dash\request::get('nic') === 'raw' || \dash\url::isLocal())
 		{
 			// send request to nic
 			$response = self::raw_curl($_xml);
