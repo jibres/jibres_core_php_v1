@@ -140,7 +140,7 @@ class run
 		$keyFile = root . 'dash/setting/secret/pem/nic/v4-contract1400-2022-new/converted/cert.key';
 		// $caFile = "ca.pem";
 		$certFile = root . 'dash/setting/secret/pem/nic/v4-contract1400-2022-new/converted/cert.crt';
-		// $certPass = "9481041242210517";
+		$certPass = "9481041242210517";
 
 		// seperated cert file
 		curl_setopt($ch, CURLOPT_SSLKEY, $keyFile);
@@ -150,7 +150,7 @@ class run
 
 		// The --cert option
 		curl_setopt($ch, CURLOPT_SSLCERT, $certFile);
-		// curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $certPass);
+		curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $certPass);
 
 
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
