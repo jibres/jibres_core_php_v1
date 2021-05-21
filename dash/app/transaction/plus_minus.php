@@ -14,6 +14,7 @@ class plus_minus
 			'date'    => 'date',
 			'time'    => 'time',
 			'user_id' => 'code',
+			'dblm'    => 'bit',
 			'type'    => ['enum' => ['minus', 'plus']],
 		];
 
@@ -103,6 +104,14 @@ class plus_minus
 			\dash\log::set('transaction_addTransactionManualy', $log);
 
 			\dash\notif::ok(T_("Transaction inserted"));
+
+			if($data['type'] === 'plus' && $data['dblm'])
+			{
+				$new_data = $data;
+				$new_data['type'] = 'minus';
+				$new_data['dblm'] = null;
+				return self::set($new_data);
+			}
 
 			return true;
 			// \dash\redirect::to(\dash\url::this(). '/transactions'. \dash\request::full_get());

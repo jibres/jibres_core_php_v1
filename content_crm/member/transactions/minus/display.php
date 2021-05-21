@@ -3,7 +3,9 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
-        <p class="fc-red"><?php echo T_("You try to Reduce account recharge to customer account") ?></p>
+        <div class="msg danger2 minimal">
+          <p class=""><?php echo T_("You try to Reduce account recharge to customer account") ?></p>
+        </div>
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div class="input">
           <input type="text" name="title" required  maxlength="200">

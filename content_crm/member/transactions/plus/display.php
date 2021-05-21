@@ -3,7 +3,9 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
-        <p><?php echo T_("You try to Increase account recharge to customer account") ?></p>
+        <div class="msg success2 minimal">
+          <p><?php echo T_("You try to Increase account recharge to customer account") ?></p>
+        </div>
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
         <div class="input">
           <input type="text" name="title" required  maxlength="200">
@@ -26,6 +28,16 @@
         <div class="input">
           <input type="tel" name="amount" required data-format='price' maxlength="15">
         </div>
+
+
+         <div class="switch1">
+          <input id="dblm" type="checkbox" name="dblm" >
+          <label for="dblm" data-on='<?php echo T_("Yes") ?>' data-off='<?php echo T_("No") ?>'></label>
+          <label for="dblm"><?php echo T_("Minus transaction after create?") ?></label>
+        </div>
+        <p class="fc-mute">
+          <?php echo T_("If you want this amount to be automatically deducted from the person's account as soon as it is added to the account,  activate this option.") ?>
+        </p>
 
       </div>
       <footer class="txtRa">

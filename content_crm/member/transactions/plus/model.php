@@ -16,6 +16,7 @@ class model
 		[
 			'title'   => \dash\request::post('title'),
 			'amount'  => \dash\request::post('amount'),
+			'dblm'    => \dash\request::post('dblm'),
 			'date'    => \dash\request::post('date'),
 			'time'    => \dash\request::post('time'),
 			'user_id' => \dash\request::get('id'),
