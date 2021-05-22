@@ -1,13 +1,7 @@
 <?php $urlHere = \dash\url::here(); ?>
 
-<div class="avand-md">
+<div class="avand-sm">
 
-      <nav class="items">
-      <ul>
-          <li><a class="f" href="<?php echo $urlHere; ?>/products"><div class="key"><?php echo T_("Product list"); ?></div><div class="go"></div></a></li>
-          <?php if(\dash\permission::check('productAdd')) {?><li><a class="f" href="<?php echo $urlHere; ?>/products/add"><div class="key"><?php echo T_("Add new Product"); ?></div><div class="go"></div></a></li><?php } //endif ?>
-        </ul>
-      </nav>
       <nav class="items">
         <ul>
 
@@ -18,19 +12,6 @@
       </nav>
 
 
-      <nav class="items">
-        <ul>
-          <li><a class="f" href="<?php echo $urlHere; ?>/pricehistory"><div class="key"><?php echo T_("Price history"); ?></div><div class="go"></div></a></li>
-        </ul>
-      </nav>
-
-
-      <nav class="items">
-        <ul>
-          <li><a class="f" href="<?php echo $urlHere; ?>/report/products"><div class="key"><?php echo T_("Reports"); ?></div><div class="go"></div></a></li>
-          <li><a class="f" href="<?php echo $urlHere; ?>/report/productvalue"><div class="key"><?php echo T_("Products value"); ?></div><div class="go"></div></a></li>
-        </ul>
-      </nav>
 
       <nav class="items">
         <ul>
@@ -39,11 +20,6 @@
         </ul>
       </nav>
 
-      <nav class="items">
-        <ul>
-          <li><a class="f" href="<?php echo \dash\url::this(); ?>/units"><div class="key"><?php echo T_("Store Units"); ?></div><div class="go"></div></a></li>
-        </ul>
-      </nav>
 
       <nav class="items">
         <ul>

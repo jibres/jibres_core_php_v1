@@ -1,5 +1,12 @@
 <?php $urlHere = \dash\url::here(); ?>
 <div class="avand">
+
+      <nav class="items">
+        <ul>
+          <li><a class="f" href="<?php echo $urlHere; ?>/pricehistory"><div class="key"><?php echo T_("Price history"); ?></div><div class="go"></div></a></li>
+        </ul>
+      </nav>
+
   <nav class="items">
     <ul>
       <li><a class="f" href="<?php echo $urlHere; ?>/products"><div class="key"><?php echo T_("Total products"); ?></div><div class="value"><?php echo \dash\fit::stats(\lib\report\product\get::count_all());?></div><div class="go"></div></a></li>
