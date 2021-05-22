@@ -24,6 +24,7 @@ class controller
 
 
 		$property_list = \lib\app\product\property::get_pretty($id, true);
+		$myProp = null;
 		if(isset($property_list['saved']))
 		{
 			$myProp = $property_list['saved'];
