@@ -161,7 +161,7 @@
                 </a>
             </div>
 
-            <?php if(\dash\url::isLocal()) {?>
+            <?php if(\dash\url::isLocal() && false) {?>
              <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/branding">
                     <div class="c-auto"><i class="sf-check-circle fc-green"></i></div>
@@ -209,53 +209,17 @@
                     </div>
                 </a>
             </div>
+        </div>
+    </div>
+</div>
 
+
+
+<div class="box" data-settings>
+    <div class="body">
+        <div class="row">
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/pagebuilder">
-                    <div class="c-auto"><i class="sf-windows"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Page builder"); ?></h2>
-                        <p><?php echo T_("Create online page and publish them."); ?></p>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-<div class="box" data-settings>
-    <div class="body">
-        <div class="row">
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::kingdom(); ?>/cms">
-                    <div class="c-auto"><i class="sf-file-text"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("CMS"); ?></h2>
-                        <p><?php echo T_("Manage your business news and contents"); ?></p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::kingdom(); ?>/crm">
-                    <div class="c-auto"><i class="sf-atom"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Customers - CRM"); ?></h2>
-                        <p><?php echo T_("Manage business customers"); ?></p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="box" data-settings>
-    <div class="body">
-        <div class="row">
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo  \lib\pagebuilder\tools\homepage::get_link(); ?>">
                     <div class="c-auto"><i class="sf-monitor"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Online Store Website"); ?></h2>
