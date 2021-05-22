@@ -5,9 +5,9 @@
   <title><?php echo T_("Jibres Update Process"); ?></title>
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
   <meta content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0" name="viewport"/>
-  <link href="https://cdn.jibres.com/css/jibres.min.css?1585664187" rel="stylesheet"/>
-  <link href="https://cdn.jibres.com/css/jibres-special-page.css?v=2" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="https://cdn.jibres.com/favicons/favicon-64x64.png" type="image/x-icon" />
+  <link href="<?php echo \dash\url::cdn(); ?>/css/jibres.min.css?1585664187" rel="stylesheet"/>
+  <link href="<?php echo \dash\url::cdn(); ?>/css/jibres-special-page.css?v=2" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="<?php echo \dash\url::cdn(); ?>/favicons/favicon-64x64.png" type="image/x-icon" />
  </head>
  <body class="lockMode">
 
@@ -18,7 +18,7 @@
 
   <div id="maximage" class="mc-cycle"><div class="bg"></div></div>
   <div class="mesh"></div>
-  <script type="text/javascript" src="https://cdn.jibres.com/js/jibres.min.js?1583388701"></script>
-  <script type="text/javascript" src="https://cdn.jibres.com/js/page/reload.js"></script>
+  <script type="text/javascript" src="<?php echo \dash\url::cdn(); ?>/js/jibres.min.js?1583388701"></script>
+  <script type="text/javascript" src="<?php echo \dash\url::cdn(); ?>/js/page/reload.js"></script>
  </body>
 </html>
