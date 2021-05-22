@@ -147,14 +147,6 @@
 
     <nav class="items long">
       <ul>
-        <?php if(\dash\permission::check('_group_form')) {?>
-          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/form">
-            <i class="sf-edit"></i>
-            <div class="key"><?php echo T_("Form Builder"); ?></div>
-            <div class="go"></div>
-          </a></li>
-        <?php } //endif ?>
-
         <?php if(\dash\permission::check('_group_accounting')) {?>
           <li><a class="item f" href="<?php echo \dash\url::here(); ?>/accounting">
             <i class="sf-book"></i>

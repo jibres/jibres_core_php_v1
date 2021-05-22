@@ -1,7 +1,7 @@
 <?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
-    <div id="chartdivcrmhome" class="box chart x320 s0" data-abc='crm/homepage'>
+    <div id="chartdivcrmhome" class="box chart x380 s0" data-abc='crm/homepage'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
@@ -125,6 +125,18 @@
       </li>
 
 
+     </ul>
+   </nav>
+
+   <nav class="items long">
+    <ul>
+    <?php if(\dash\permission::check('_group_form')) {?>
+      <li><a class="item f" href="<?php echo \dash\url::kingdom(); ?>/a/form">
+        <i class="sf-edit"></i>
+        <div class="key"><?php echo T_("Form Builder"); ?></div>
+        <div class="go"></div>
+      </a></li>
+    <?php } //endif ?>
      </ul>
    </nav>
 
