@@ -66,7 +66,7 @@ class guard
 			}
 			else
 			{
-				@header('X-Frame-Options: DENY');
+				// @header('X-Frame-Options: DENY');
 			}
 		}
 		return false;
