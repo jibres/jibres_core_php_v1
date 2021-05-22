@@ -41,8 +41,8 @@ class guard
 				if(!$_readonly)
 				{
 					// redirect to billboard
+					@header('X-Frame-Options: *');
 					\dash\redirect::to(\dash\url::kingdom(). '/billboard', 'billboard');
-					// @header('X-Frame-Options: *');
 				}
 				return true;
 			}
