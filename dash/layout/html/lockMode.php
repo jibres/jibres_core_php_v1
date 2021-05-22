@@ -12,8 +12,8 @@
  <body class="lockMode">
 
    <div class="wedbox">
-    <div class="wed-title">Jibres <span>Sell & Enjoy</span></div>
-    <div class="wed-date">System update in progress ...</div>
+    <div class="wed-title"><?php echo T_("Jibres") ?> <span><?php echo T_("Sell & Enjoy") ?></span></div>
+    <div class="wed-date"><?php echo T_("System update in progress ...") ?></div>
    </div>
 
   <div id="maximage" class="mc-cycle"><div class="bg"></div></div>
