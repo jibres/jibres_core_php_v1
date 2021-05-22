@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#">
  <head>
   <meta charset="UTF-8" />
-  <title>Jibres Update Process</title>
+  <title><?php echo T_("Jibres Update Process"); ?></title>
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
   <meta content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0" name="viewport"/>
-  <meta content="Jibres is fantastic! new service is comming soon" name="description">
-  <meta content="Javad Adib | Jibres" name="author">
   <link href="https://cdn.jibres.com/css/jibres.min.css?1585664187" rel="stylesheet"/>
-  <link href="https://cdn.jibres.com/css/jibres-special-page.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jibres.com/css/jibres-special-page.css?v=2" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="https://cdn.jibres.com/favicons/favicon-64x64.png" type="image/x-icon" />
  </head>
  <body class="lockMode">

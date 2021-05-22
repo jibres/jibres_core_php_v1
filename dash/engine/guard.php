@@ -337,7 +337,9 @@ class guard
 		}
 
 		// set header processing ...
-		\dash\header::set(202);
+		// say te search engines to retry after 30 seconds
+		@header("Retry-After: 30");
+		\dash\header::set(503);
 
 		if(\dash\request::ajax())
 		{
@@ -357,7 +359,7 @@ class guard
 		}
 		else
 		{
-			require_once (core. 'layout/html/lockMode.html');
+			require_once (core. 'layout/html/lockMode.php');
 			\dash\code::boom();
 		}
 	}

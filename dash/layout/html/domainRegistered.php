@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#">
  <head>
   <meta charset="UTF-8" />
   <title><?php echo \dash\url::domain(); ?></title>
