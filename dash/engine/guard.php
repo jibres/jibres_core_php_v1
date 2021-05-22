@@ -35,12 +35,13 @@ class guard
 		if(\dash\server::referer())
 		{
 			$enamad = 'https://trustseal.enamad.ir/';
-			@header("X-ref: ". \dash\server::referer());
 
 			if(strpos(\dash\server::referer(), $enamad) !== false)
 			{
 				if(!$_readonly)
 				{
+					@header("X-frame: Enamad");
+
 					// redirect to billboard
 					@header('X-Frame-Options: *');
 					// \dash\redirect::to(\dash\url::kingdom(). '/billboard', 'billboard');
