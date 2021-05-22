@@ -8,7 +8,7 @@
   <meta content="summary" name="twitter:card"/>
   <meta content="<?php echo \dash\url::cdn(); ?>/img/cover/Jibres-cover-bot-1.jpg?v=2" name="twitter:image"/>
   <link href="<?php echo \dash\url::cdn(); ?>/css/jibres.min.css?1585664188" rel="stylesheet"/>
-  <link href="<?php echo \dash\url::cdn(); ?>/css/jibres-domain-pin.css?v=2" rel="stylesheet" type="text/css">
+  <link href="<?php echo \dash\url::cdn(); ?>/css/jibres-domain-pin.css?v=3" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="<?php echo \dash\url::cdn(); ?>/favicons/favicon-64x64.png" type="image/x-icon" />
  </head>
  <body class="domainPin">
