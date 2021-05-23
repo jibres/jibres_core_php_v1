@@ -53,11 +53,11 @@ class controller
 	{
 		switch (\dash\url::directory())
 		{
-			case 'investment':
+			case 'business_plan':
 			case 'business-plan':
 			case 'businessplan':
 			case 'bp':
-				\dash\redirect::to(\dash\url::kingdom(). '/business_plan');
+				\dash\redirect::to(\dash\url::kingdom(). '/investment');
 				break;
 
 			default:

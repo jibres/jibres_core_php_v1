@@ -1,5 +1,5 @@
 <?php
-namespace content\business_plan;
+namespace content\investment;
 
 
 class view
