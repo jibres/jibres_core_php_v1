@@ -60,6 +60,10 @@ class controller
 				\dash\redirect::to(\dash\url::kingdom(). '/investment');
 				break;
 
+			case 'pitchdeck':
+				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v1.pdf?v=1');
+				break;
+
 			default:
 				// nothing
 				break;
