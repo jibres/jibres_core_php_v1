@@ -10,10 +10,10 @@
 
  </section>
 
- <div class="avand txtC mB50">
-  <div class="row">
+ <div class="avand-md txtC mB25">
 
-    <div class="c-xs-12 c-sm-6 c-md-4">
+  <div class="row justify-center">
+    <div class="c-xs-12 c-sm-6">
       <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/pitch-deck/v1/Jibres-PitchDeck-v1.pdf">
         <div class="body maxPad">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/pitchdeck.svg" alt="Jibres PitchDeck"></div>
@@ -22,16 +22,11 @@
         </div>
       </a>
     </div>
-    <div class="c-xs-12 c-sm-6 c-md-4">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/financial/Jibres-Financial-Projection-v1.xlsx">
-        <div class="body maxPad">
-          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
-          <h2 class="title"><?php echo T_("Financial Projection"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Forecast of future revenues and expenses") ?></div>
-        </div>
-      </a>
-    </div>
-    <div class="c-xs-12 c-sm-6 c-md-4">
+  </div>
+
+  <div class="row">
+
+    <div class="c-xs-12 c-sm-6">
       <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/pitch-deck/v1/Jibres-PitchDeck-v1.pptx">
         <div class="body maxPad">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/pitchdeck-presentation.svg" alt="Jibres PitchDeck Presentation"></div>
@@ -41,17 +36,27 @@
       </a>
     </div>
 
-    <div class="c-xs-12 c-sm-6 c-md-4 mB-10">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-OnePage.jpg">
+    <div class="c-xs-12 c-sm-6">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/financial/Jibres-Financial-Projection-v1.xlsx">
         <div class="body maxPad">
-          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/onepage-bp.svg" alt="Jibres OnePage Business Plan"></div>
-          <h2 class="title"><?php echo T_("One Page Business Plan"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Essential information about Jibres strategy") ?></div>
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
+          <h2 class="title"><?php echo T_("Financial Projection"); ?></h2>
+          <div class="fc-mute"><?php echo T_("Forecast of future revenues and expenses") ?></div>
         </div>
       </a>
     </div>
 
-    <div class="c-xs-12 c-sm-6 c-md-4 mB-10">
+    <div class="c-xs-12 c-sm-6">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-model-canvas/jibres-business-model-canvas-v1.jpg">
+        <div class="body maxPad">
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/business-model-canvas.svg" alt="Jibres Business Plan"></div>
+          <h2 class="title"><?php echo T_("Business Model Canvas"); ?></h2>
+          <div class="fc-mute"><?php echo T_("Strategic management tool to define concept") ?></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="c-xs-12 c-sm-6">
       <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-SWOT.jpg">
         <div class="body maxPad">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/swot.svg" alt="Jibres SWOT"></div>
@@ -61,22 +66,22 @@
       </a>
     </div>
 
-    <div class="c-xs-12 c-sm-6 c-md-4">
+    <div class="c-xs-12 c-sm-6">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-OnePage.jpg">
+        <div class="body maxPad">
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/onepage-bp.svg" alt="Jibres OnePage Business Plan"></div>
+          <h2 class="title"><?php echo T_("One Page Business Plan"); ?></h2>
+          <div class="fc-mute"><?php echo T_("Essential information about Jibres strategy") ?></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="c-xs-12 c-sm-6">
       <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1.pdf">
         <div class="body maxPad">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/bp.svg" alt="Jibres Business Plan"></div>
           <h2 class="title"><?php echo T_("Business Plan"); ?></h2>
           <div class="fc-mute"><?php echo T_("A business plan is more than a document") ?></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c-xs-12 c-sm-6 c-md-4">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-model-canvas/jibres-business-model-canvas-v1.jpg">
-        <div class="body maxPad">
-          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/business-model-canvas.svg" alt="Jibres Business Plan"></div>
-          <h2 class="title"><?php echo T_("Business Model Canvas"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Strategic management tool to define concept") ?></div>
         </div>
       </a>
     </div>

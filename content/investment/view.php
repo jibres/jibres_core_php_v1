@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Jibres Business Plan'));
+		\dash\face::title(T_('Jibres Investment Opportunity'));
 		\dash\face::desc(T_('If you are interested in investing in Jibres, we have created this page for you to answer your questions'));
 		// btn
 		\dash\data::back_text(T_('Home'));
