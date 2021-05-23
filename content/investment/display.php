@@ -4,7 +4,7 @@
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-investment-1.jpg" alt='<?php echo T_("Jibres Investment Opportunity");?>'>
  </div>
 
-  <section class="avand-md impact font-16a">
+  <div class="avand-md impact font-16a">
    <p><?php echo T_("We have designed this page to answer your questions that you may be interested in investing in Jibres. These are just some of the questions that investors want to know about Jibres. Of course, you may have more and specific questions, so do not hesitate to contact us. We mentioned the version and the date of editing. So reading this page once will probably not be enough.") ?></p>
 
    <div class="row msg info2 mT25 mB0-f font-14">
@@ -12,7 +12,7 @@
      <div class="c txtRa"><?php echo T_("Last Update"). ' '. \dash\fit::date("2021-05-23"); ?></div>
    </div>
 
- </section>
+ </div>
 
  <div class="avand-md zero txtC mB25">
 

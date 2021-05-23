@@ -17,6 +17,7 @@
     <td class="txtRa"><?php echo T_("Company Registration Number"); ?></td>
     <td class="txtB ltr"><?php echo \dash\fit::number(13552, false); ?></td>
    </tr>
+   <tr>
     <td class="txtRa"><?php echo T_("Company Identification Number"); ?></td>
     <td class="txtB ltr"><?php echo \dash\fit::number(14005025553, false); ?></td>
    </tr>
