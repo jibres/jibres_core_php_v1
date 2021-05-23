@@ -71,6 +71,7 @@ class view
 		if($search_string && ctype_digit($search_string) && mb_strlen($search_string) === 13)
 		{
 			\dash\data::barcodeScaned('?barcode='. $search_string);
+			\dash\data::action_link(\dash\url::this(). '/add?barcode='. $search_string);
 		}
 
 		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
