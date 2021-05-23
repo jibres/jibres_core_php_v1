@@ -51,7 +51,7 @@
     </div>
 
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-model-canvas/jibres-business-model-canvas-v1.jpg">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-model-canvas/jibres-business-model-canvas-v1.jpg" data-fancybox="investment">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/business-model-canvas.svg" alt="Jibres Business Plan"></div>
           <h2 class="title"><?php echo T_("Business Model Canvas"); ?></h2>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-SWOT.jpg">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-SWOT.jpg" data-fancybox="investment">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/swot.svg" alt="Jibres SWOT"></div>
           <h2 class="title"><?php echo T_("SWOT Analysis"); ?></h2>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-OnePage.jpg">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1-OnePage.jpg" data-fancybox="investment">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/onepage-bp.svg" alt="Jibres OnePage Business Plan"></div>
           <h2 class="title"><?php echo T_("One Page Business Plan"); ?></h2>
