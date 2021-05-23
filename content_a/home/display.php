@@ -95,16 +95,6 @@
         </a>
        </li>
 <?php } //endif ?>
-<?php if(\dash\permission::check('crmPermissionManagement')) {?>
-       <li>
-        <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/staff">
-          <i class="sf-user-close-security"></i>
-          <div class="key"><?php echo T_('Staffs');?></div>
-          <div class="value"><?php echo \dash\fit::number(a($dashboardData, 'staff_count')); ?></div>
-          <div class="go search"></div>
-        </a>
-       </li>
-<?php } //endif ?>
      </ul>
    </nav>
 
@@ -114,30 +104,7 @@
         <li>
           <a class="item f" href="<?php echo \dash\url::kingdom(); ?>/cms">
             <i class="sf-file-text"></i>
-            <div class="key"><?php echo T_("Content Management"); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-      <?php } //endif ?>
-      </ul>
-    </nav>
-
-    <nav class="items long">
-      <ul>
-        <?php if(\dash\permission::check('_group_setting')) { $url = \lib\pagebuilder\tools\homepage::get_link(); ?>
-        <li>
-          <a class="item f" href="<?php echo $url ?>">
-            <i class="sf-monitor"></i>
-            <div class="key"><?php echo T_("Website setting"); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-      <?php } //endif ?>
-      <?php if(\dash\permission::check('_group_application')) {?>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::here(); ?>/android">
-            <i class="sf-mobile"></i>
-            <div class="key"><?php echo T_("Android app"); ?></div>
+            <div class="key"><?php echo T_("Content Management"). T_(" & "). T_("Blog"); ?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -150,13 +117,37 @@
         <?php if(\dash\permission::check('_group_accounting')) {?>
           <li><a class="item f" href="<?php echo \dash\url::here(); ?>/accounting">
             <i class="sf-book"></i>
-            <div class="key"><?php echo T_("Accounting"); ?></div>
+            <div class="key"><?php echo T_("Cloud Accounting"); ?></div>
             <div class="go"></div>
           </a></li>
         <?php  }//endif ?>
 
       </ul>
     </nav>
+
+    <nav class="items long">
+      <ul>
+        <?php if(\dash\permission::check('_group_setting')) { $url = \lib\pagebuilder\tools\homepage::get_link(); ?>
+        <li>
+          <a class="item f" href="<?php echo $url ?>">
+            <i class="sf-monitor"></i>
+            <div class="key"><?php echo T_("Website Builder"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      <?php } //endif ?>
+      <?php if(\dash\permission::check('_group_application')) {?>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/android">
+            <i class="sf-mobile"></i>
+            <div class="key"><?php echo T_("App Builder"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      <?php } //endif ?>
+      </ul>
+    </nav>
+
 
     <?php if(\dash\permission::check('_group_setting') && !\dash\request::is_pwa()) {?>
        <nav class="items long">

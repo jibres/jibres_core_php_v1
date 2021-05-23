@@ -14,7 +14,6 @@ class panel
 		if(\dash\url::content() === 'cms')
 		{
 			return self::sidebar_businsess();
-			// return self::sidebar_jibres_cms();
 		}
 		if(\dash\url::content() === 'crm')
 		{
@@ -26,7 +25,7 @@ class panel
 		// return [];
 	}
 
-	private static function jibresControlCenterLink($_onlyMenu = null)
+	private static function jibresControlCenterLink()
 	{
 		$menu =
 		[
@@ -40,12 +39,6 @@ class panel
 			]
 		];
 
-		if($_onlyMenu)
-		{
-			return $menu;
-		}
-		// add seperator
-		$menu[] = ['seperator' => true];
 		return $menu;
 	}
 
@@ -66,6 +59,7 @@ class panel
 	private static function sidebar_jibres_primary()
 	{
 		$menu = self::jibresControlCenterLink();
+		$menu[] = ['seperator' => true];
 		$menu[] =
 		[
 			'title'  => T_("Domain Center"),
@@ -101,13 +95,14 @@ class panel
 	{
 		if(\dash\engine\store::inStore())
 		{
-			$menu = self::jibresControlCenterLink(true);
+			$menu = self::jibresControlCenterLink();
 			$menu[] = self::businessDashboardLink();
 			$menu[] = ['seperator' => true];
 		}
 		else
 		{
 			$menu = self::jibresControlCenterLink();
+			$menu[] = ['seperator' => true];
 		}
 
 		$menu[] =
@@ -203,7 +198,7 @@ class panel
 
 	private static function sidebar_businsess()
 	{
-		$menu = self::jibresControlCenterLink();
+		$menu = [];
 
 		$menu[] =
 		[
@@ -211,14 +206,6 @@ class panel
 			'link'   => \dash\url::kingdom().'/a',
 			'icon'   => 'gauge',
 			'active' => 1,
-		];
-
-		$menu[] =
-		[
-			'title'  => T_("Products"),
-			'link'   => \dash\url::kingdom().'/a/products',
-			'icon'   => 'tags',
-			'active' => (\dash\url::module()==='products'? true :false)
 		];
 
 		if(\dash\permission::check('_group_orders'))
@@ -231,6 +218,15 @@ class panel
 				'active' => (\dash\url::module()==='order'? true :false)
 			];
 		}
+
+		$menu[] =
+		[
+			'title'  => T_("Products"),
+			'link'   => \dash\url::kingdom().'/a/products',
+			'icon'   => 'tags',
+			'active' => (\dash\url::module()==='products'? true :false)
+		];
+
 
 		{
 			$menu[] =
@@ -262,15 +258,6 @@ class panel
 			];
 		}
 
-		{
-			$menu[] =
-			[
-				'title'  => T_("Sales Channels"),
-				'link'   => \dash\url::kingdom().'/a/channels',
-				'icon'   => 'line-chart',
-				'active' => (\dash\url::module()==='channels'? true :false)
-			];
-		}
 
 		if(\dash\permission::check('_group_setting'))
 		{
@@ -282,8 +269,10 @@ class panel
 				'active' => (\dash\url::module()==='setting'? true :false)
 			];
 		}
+		$menu[] = ['seperator' => true];
+		$menuFinal = array_merge($menu, self::jibresControlCenterLink());
 
-		return $menu;
+		return $menuFinal;
 	}
 
 }
