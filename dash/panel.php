@@ -50,7 +50,7 @@ class panel
 				'title'  => T_("Business Dashboard"),
 				'link'   => \dash\url::kingdom().'/a',
 				'icon'   => 'gauge',
-				'active' => (\dash\url::content()==='a'? 1 :false)
+				'active' => (\dash\url::content()==='a' && \dash\url::module() === null? 1 :false)
 		];
 		return $menu;
 	}
@@ -200,13 +200,7 @@ class panel
 	{
 		$menu = [];
 
-		$menu[] =
-		[
-			'title'  => T_("Business Dashboard"),
-			'link'   => \dash\url::kingdom().'/a',
-			'icon'   => 'gauge',
-			'active' => 1,
-		];
+		$menu[] = self::businessDashboardLink();
 
 		if(\dash\permission::check('_group_orders'))
 		{
