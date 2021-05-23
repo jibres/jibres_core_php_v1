@@ -28,6 +28,7 @@
    </tr>
 <?php } ?>
 <?php if (\dash\language::current() === 'fa') { ?>
+   <tr>
     <td class="txtRa"><?php echo T_("Knowledge-based Company"); ?></td>
     <td class="txtB"><?php echo T_("New Type 2"); ?></td>
    </tr>
