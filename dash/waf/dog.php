@@ -19,7 +19,7 @@ class dog
 		\dash\waf\gate\agent::inspection();
 
 		// cookie
-		self::grade('cookie', true, 3);
+		self::grade('cookie', true, 1);
 		\dash\waf\gate\cookie::inspection();
 
 		// headers
