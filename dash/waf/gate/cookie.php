@@ -29,7 +29,7 @@ class cookie
 			\dash\waf\gate\toys\general::len($key, 1, 99);
 
 			// check value len
-			\dash\waf\gate\toys\general::len($value, 0, 220);
+			\dash\waf\gate\toys\general::len($value, 0, 500);
 
 
 			\dash\waf\gate\toys\only::text($value);
