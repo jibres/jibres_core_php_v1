@@ -29,7 +29,7 @@ class view
 
 			\dash\data::userUnit(\lib\currency::unit());
 
-			$user_cash_all = \dash\db\transactions::budget(\dash\user::id(), ['unit' => 'all']);
+			$user_cash_all = \dash\app\transaction\budget::user(\dash\user::id(), ['unit' => 'all']);
 
 			// if(is_array($user_cash_all))
 			// {

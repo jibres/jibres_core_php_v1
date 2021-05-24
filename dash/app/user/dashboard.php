@@ -115,7 +115,7 @@ class dashboard
 
 
 
-		$balance = \dash\db\transactions::budget($user_id);
+		$balance = \dash\app\transaction\budget::user($user_id);
 
 		if(!is_numeric($balance))
 		{

@@ -25,7 +25,7 @@ class model
 
 		$price = \lib\app\nic_domain\price::register(\dash\request::post('period'));
 
-		$user_budget = floatval(\dash\db\transactions::budget($user_id));
+		$user_budget = floatval(\dash\app\transaction\budget::user($user_id));
 
 		if(floatval($price) > $user_budget)
 		{

@@ -148,7 +148,7 @@ class user
 		}
 		else
 		{
-			$budget = floatval(\dash\db\transactions::budget($_user_id));
+			$budget = floatval(\dash\app\transaction\budget::user($_user_id));
 			\dash\temp::set('USER_BUDGET', $budget);
 			return $budget;
 		}

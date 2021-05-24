@@ -353,7 +353,7 @@ class create
 			}
 			else
 			{
-				$user_budget = floatval(\dash\db\transactions::budget($user_id));
+				$user_budget = floatval(\dash\app\transaction\budget::user($user_id));
 
 				if($data['usebudget'] && $user_budget)
 				{
