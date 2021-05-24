@@ -6,14 +6,14 @@ class model
 {
 	public static function post()
 	{
-		$to = \dash\request::get('to');
+		$to = \dash\request::post('to');
 
-		$send = \lib\email\send::test($to);
+		// $send = \lib\email\send::test($to);
 
-		var_dump($to);
-		var_dump($send);
-		exit();
-		\dash\code::jsonBoom($send);
+		\dash\notif::debug('salam');
+		// \dash\notif::info($send);
+
+		// \dash\code::jsonBoom($send);
 	}
 }
 ?>
