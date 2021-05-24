@@ -20,10 +20,17 @@ class model
 			'date'    => \dash\request::post('date'),
 			'time'    => \dash\request::post('time'),
 			'user_id' => \dash\request::get('id'),
-			'type'    => \dash\url::subchild(),
 		];
 
-		\dash\app\transaction\plus_minus::set($args);
+		if(\dash\url::subchild() === 'minus')
+		{
+			\dash\app\transaction\budget::minus($args);
+		}
+		elseif(\dash\url::subchild() === 'plus')
+		{
+			\dash\app\transaction\budget::plus($args);
+		}
+
 
 		if(\dash\engine\process::status())
 		{

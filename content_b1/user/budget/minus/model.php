@@ -12,10 +12,9 @@ class model
 			'title'   => \dash\request::input_body('title'),
 			'amount'  => \dash\request::input_body('amount'),
 			'user_id' => \dash\request::get('id'),
-			'type'    => 'minus',
 		];
 
-		$result = \dash\app\transaction\plus_minus::set($args);
+		$result = \dash\app\transaction\budget::minus($args);
 
 		\content_b1\tools::say($result);
 	}

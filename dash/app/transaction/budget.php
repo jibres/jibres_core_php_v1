@@ -18,18 +18,21 @@ class budget
 
 	public static function minus($_args)
 	{
-
+		$_args['type'] = 'minus';
+		return self::set($_args);
 
 	}
 
 	public static function plus($_args)
 	{
-
-
+		$_args['type'] = 'plus';
+		return self::set($_args);
 	}
 
-	public static function plus_minus($_args)
+
+	private static function set($_args)
 	{
+
 		$condition =
 		[
 			'title'   => 'string_200',
