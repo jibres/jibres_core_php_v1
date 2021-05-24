@@ -3,7 +3,6 @@ namespace dash\app;
 
 class transaction
 {
-	use \dash\app\transaction\datalist;
 
 	public static function total_paid($_where = null)
 	{
