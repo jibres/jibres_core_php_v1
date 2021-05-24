@@ -35,8 +35,6 @@ class get
 				domains.tld = 'ir' AND
 				(domains.root LIKE '$_first_char%' AND domains.root LIKE '%$_max_use_char%' ) AND
 				(SELECT domainactivity.available FROM domainactivity WHERE domainactivity.domain_id = domains.id ORDER BY domainactivity.id DESC LIMIT 1) = 1
-
-			ORDER BY RAND()
 			LIMIT 8
 		";
 
