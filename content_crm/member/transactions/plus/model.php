@@ -19,7 +19,7 @@ class model
 			'dblm'    => \dash\request::post('dblm'),
 			'date'    => \dash\request::post('date'),
 			'time'    => \dash\request::post('time'),
-			'user_id' => \dash\request::get('id'),
+			'user_code' => \dash\request::get('id'),
 		];
 
 		if(\dash\url::subchild() === 'minus')

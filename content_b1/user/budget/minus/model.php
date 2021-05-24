@@ -11,7 +11,7 @@ class model
 		[
 			'title'   => \dash\request::input_body('title'),
 			'amount'  => \dash\request::input_body('amount'),
-			'user_id' => \dash\request::get('id'),
+			'user_code' => \dash\request::get('id'),
 		];
 
 		$result = \dash\app\transaction\budget::minus($args);

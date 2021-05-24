@@ -154,9 +154,9 @@ class run
 		curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $certPass);
 
 
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_VERBOSE, true);
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	    curl_setopt($ch, CURLOPT_VERBOSE, true);
 
 		//The contents of the "User-Agent: "
 		// curl_setopt($ch, CURLOPT_USERAGENT, "Jibres-irnic");
@@ -186,7 +186,6 @@ class run
 
 		curl_close($ch);
 
-		var_dump($pem);
 		var_dump($ch);
 		var_dump($result, $CurlError);exit();
 
@@ -202,7 +201,7 @@ class run
 
 		$_xml = trim($_xml);
 
-		if(\dash\request::get('nic') === 'raw' || \dash\url::isLocal())
+		if(\dash\request::get('nic') === 'raw' && false)
 		{
 			// send request to nic
 			$response = self::raw_curl($_xml);
@@ -217,8 +216,6 @@ class run
 			// create a new cURL resource
 			$ch = curl_init();
 
-			//FALSE to stop cURL from verifying the peer's certificate
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 
 			//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -228,8 +225,18 @@ class run
 
 			curl_setopt($ch, CURLOPT_POST, false);
 			//The URL to fetch.
-			// curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
-			curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/nic-broker/");
+			if(\dash\url::isLocal())
+			{
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+				curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
+				// curl_setopt($ch, CURLOPT_URL,"https://185.208.180.138/nic-broker/");
+			}
+			else
+			{
+				//FALSE to stop cURL from verifying the peer's certificate
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+				curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/nic-broker/");
+			}
 
 			//The full data to post in a HTTP "POST" operation.
 			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));

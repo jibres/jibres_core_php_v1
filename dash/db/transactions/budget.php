@@ -60,16 +60,27 @@ trait budget
 		$update['budget']        = $budget;
 
 		return $update;
-
-
 	}
 
 
-	public static function budget($_user_id)
+	public static function budget_get_lock($_user_id)
+	{
+		return self::budget($_user_id, true);
+	}
+
+
+	public static function budget($_user_id, $_lock = false)
 	{
 		if(!$_user_id || !is_numeric($_user_id))
 		{
 			return false;
+		}
+
+		$lock = null;
+
+		if($_lock)
+		{
+			$lock = ' FOR UPDATE ';
 		}
 
 		$query =
@@ -80,7 +91,9 @@ trait budget
 			WHERE
 			transactions.user_id = $_user_id AND
 			transactions.verify  = 1
+			$lock
 		";
+
 
 		$budget = floatval(\dash\db::get($query, 'budget', true));
 

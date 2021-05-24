@@ -15,6 +15,18 @@ class budget
 	}
 
 
+	public static function get_and_lock($_user_id)
+	{
+		$user_id = \dash\validate::id($_user_id);
+
+		$budget = \dash\db\transactions::budget_get_lock($_user_id);
+
+		$budget = floatval($budget);
+
+		return $budget;
+	}
+
+
 
 	public static function minus($_args)
 	{
@@ -38,18 +50,28 @@ class budget
 			'amount'  => 'price',
 			'date'    => 'date',
 			'time'    => 'time',
-			'user_id' => 'code',
+			'user_id' => 'id',
+			'user_code' => 'code',
 			'dblm'    => 'bit',
 			'type'    => ['enum' => ['minus', 'plus']],
 		];
 
-		$require = ['title',  'amount', 'type', 'user_id'];
+		$require = ['title',  'amount', 'type',];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$user_id = \dash\coding::decode($data['user_id']);
+		$user_id = null;
+
+		if($data['user_code'])
+		{
+			$user_id = \dash\coding::decode($data['user_code']);
+		}
+		elseif($data['user_id'])
+		{
+			$user_id = $data['user_id'];
+		}
 
 		if(!$user_id)
 		{
@@ -132,6 +154,9 @@ class budget
 				$new_data = $data;
 				$new_data['type'] = 'minus';
 				$new_data['dblm'] = null;
+
+				\dash\notif::clean();
+
 				return self::set($new_data);
 			}
 
