@@ -146,12 +146,10 @@ class get
 			[
 				'user_id' => $result['user_id'],
 				'title'   => T_("Refund money for reject domain :val", ['val' => $_domain]),
-				'verify'  => 1,
-				'plus'    => floatval($result['finalprice']),
-				'type'    => 'money',
+				'amount'  => floatval($result['finalprice']),
 			];
 
-			$transaction_id = \dash\db\transactions::set($insert_transaction);
+			$transaction_id = \dash\app\transaction\budget::plus($insert_transaction);
 
 			\dash\log::set('domain_irnicRefundMoney', ['to' => $result['user_id'], 'mydomain' => $_domain]);
 

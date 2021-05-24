@@ -469,23 +469,6 @@ class transfer
 		}
 		else
 		{
-			// // have error
-			// // need to back money
-			// $insert_transaction =
-			// [
-			// 	'user_id' => $user_id,
-			// 	'title'   => T_("Transfer failed :val", ['val' => $domain]),
-			// 	'verify'  => 1,
-			// 	'plus'    => $price,
-			// 	'type'    => 'money',
-			// ];
-
-			// $transaction_id = \dash\db\transactions::set($insert_transaction);
-			// if(!$transaction_id)
-			// {
-			// 	\dash\notif::error(T_("No way to insert data"));
-			// 	return false;
-			// }
 
 
 			$domain_action_detail =

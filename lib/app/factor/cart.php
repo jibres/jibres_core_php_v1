@@ -367,6 +367,8 @@ class cart
 			$factor_id = \lib\app\factor\get::fix_id($_args['factor_id']);
 			if($factor_id)
 			{
+				// need to check budget before minus transaction
+				// @reza @todo
 
 				\lib\app\factor\action::set('successful_payment', $factor_id);
 
