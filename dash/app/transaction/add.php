@@ -42,6 +42,7 @@ class add
 		$insert['ip_id']    = \dash\utility\ip::id();
 		$insert['agent_id'] = \dash\agent::get(true);
 		$insert['payment']  = $data['payment'];
+		$insert['code']     = 251;
 		$insert['user_id']  = $data['user_id'];
 		$insert['title']    = $data['title'];
 		$insert['type']     = $data['type'];
