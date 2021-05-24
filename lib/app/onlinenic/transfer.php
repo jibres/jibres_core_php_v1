@@ -399,23 +399,30 @@ class transfer
 
 		if($data['minus_transaction'])
 		{
+			\dash\db::transaction();
+			// check budget
+			$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+
+			if($user_budget < floatval($data['minus_transaction']))
+			{
+				\dash\notif::error(T_("Your budget is low!"));
+				\dash\db::rollback();
+				return false;
+			}
+
 			$insert_transaction =
 			[
 				'user_id' => $user_id,
 				'title'   => T_("Transfer domian :val", ['val' => $domain]),
-				'verify'  => 1,
-				'minus'   => floatval($data['minus_transaction']),
-				'type'    => 'money',
+				'amount'  => floatval($data['minus_transaction']),
 			];
 
-			$transaction_id = \dash\db\transactions::set($insert_transaction);
+			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
-			if(!$transaction_id)
-			{
-				\dash\log::oops('transaction_db');
-				return false;
-			}
+			\dash\db::commit();
+
 		}
+
 
 
 		if($data['gift'])
@@ -504,22 +511,27 @@ class transfer
 		{
 			if(isset($result['code']) && is_numeric($result['code']) && floatval($result['code']) !== floatval(1000))
 			{
-				// onlinenic error. need to back money
+
 				if($data['minus_transaction'])
 				{
+
 					$insert_transaction =
 					[
 						'user_id' => $user_id,
-						'title'   => T_("Refund money for transfer domian :val", ['val' => $domain]),
-						'verify'  => 1,
-						'plus'    => floatval($data['minus_transaction']),
-						'type'    => 'money',
-					];
+						'title'   => T_("Refund money for cancel transfer domian :val", ['val' => $domain]),
+						'amount'  => floatval($data['minus_transaction']),
 
-					$transaction_id = \dash\db\transactions::set($insert_transaction);
+					];
 
 					\dash\log::to_supervisor($insert_transaction['title']);
 
+					$transaction_id = \dash\app\transaction\budget::plus($insert_transaction);
+
+					if(!$transaction_id)
+					{
+						\dash\log::oops('transaction_db');
+						return false;
+					}
 				}
 
 			}

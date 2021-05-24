@@ -376,6 +376,33 @@ class transfer
 		// -------------------------------------------------- Transfer now ---------------------------------------------- //
 
 
+		if($data['minus_transaction'])
+		{
+			\dash\db::transaction();
+			// check budget
+			$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+
+			if($user_budget < floatval($data['minus_transaction']))
+			{
+				\dash\notif::error(T_("Your budget is low!"));
+				\dash\db::rollback();
+				return false;
+			}
+
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Transfer domian :val", ['val' => $domain]),
+				'amount'  => floatval($data['minus_transaction']),
+			];
+
+			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+			\dash\db::commit();
+
+		}
+
+
 
 
 		$ready =
@@ -426,25 +453,7 @@ class transfer
 				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
-			if($data['minus_transaction'])
-			{
-				$insert_transaction =
-				[
-					'user_id' => $user_id,
-					'title'   => T_("Transfer domian :val", ['val' => $domain]),
-					'verify'  => 1,
-					'minus'   => floatval($data['minus_transaction']),
-					'type'    => 'money',
-				];
 
-				$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-				if(!$transaction_id)
-				{
-					\dash\log::oops('transaction_db');
-					return false;
-				}
-			}
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
@@ -489,6 +498,27 @@ class transfer
 
 			\lib\app\nic_domainaction\action::set('transfer_failed', $domain_action_detail);
 
+
+
+			if($data['minus_transaction'])
+			{
+
+				$insert_transaction =
+				[
+					'user_id' => $user_id,
+					'title'   => T_("Back money for cancel transfer domian :val", ['val' => $domain]),
+					'amount'  => floatval($data['minus_transaction']),
+
+				];
+
+				$transaction_id = \dash\app\transaction\budget::plus($insert_transaction);
+
+				if(!$transaction_id)
+				{
+					\dash\log::oops('transaction_db');
+					return false;
+				}
+			}
 
 
 			\dash\temp::set('domainHaveTransaction', true);

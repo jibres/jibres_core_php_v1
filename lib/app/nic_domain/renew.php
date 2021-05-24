@@ -371,6 +371,33 @@ class renew
 		}
 
 
+		if($data['minus_transaction'])
+		{
+			\dash\db::transaction();
+			// check budget
+			$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+
+			if($user_budget < floatval($data['minus_transaction']))
+			{
+				\dash\notif::error(T_("Your budget is low!"));
+				\dash\db::rollback();
+				return false;
+			}
+
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Renew domian :val", ['val' => $domain]),
+				'amount'  => floatval($data['minus_transaction']),
+			];
+
+			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+			\dash\db::commit();
+
+		}
+
+
 		$ready =
 		[
 			'domain'             => $domain,
@@ -407,26 +434,7 @@ class renew
 
 			\lib\db\nic_domain\update::update($update, $domain_id);
 
-			if($data['minus_transaction'])
-			{
 
-				$insert_transaction =
-				[
-					'user_id' => $user_id,
-					'title'   => T_("Renew domian :val", ['val' => $domain]),
-					'verify'  => 1,
-					'minus'   => floatval($data['minus_transaction']),
-					'type'    => 'money',
-				];
-
-				$transaction_id = \dash\db\transactions::set($insert_transaction);
-
-				if(!$transaction_id)
-				{
-					\dash\log::oops('transaction_db');
-					return false;
-				}
-			}
 
 
 			if($data['gift'])
@@ -517,6 +525,28 @@ class renew
 			\dash\log::to_supervisor('failed to renew domain '. $domain);
 
 			\dash\temp::set('domainHaveTransaction', true);
+
+
+			if($data['minus_transaction'])
+			{
+
+				$insert_transaction =
+				[
+					'user_id' => $user_id,
+					'title'   => T_("Back money for cancel renew domian :val", ['val' => $domain]),
+					'amount'  => floatval($data['minus_transaction']),
+
+				];
+
+				$transaction_id = \dash\app\transaction\budget::plus($insert_transaction);
+
+				if(!$transaction_id)
+				{
+					\dash\log::oops('transaction_db');
+					return false;
+				}
+			}
+
 
 			$msg = T_("We can not renew this domain because the bill holder of IRNIC can not access to renew");
 			$msg .= '<br>';
