@@ -300,7 +300,7 @@ class cart
 				'auto_back'     => false,
 				'final_msg'     => true,
 				'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
-				'user_id'       => \dash\user::id() ? \dash\user::id() : 'unverify',
+				'user_id'       => \dash\user::id(),
 				'amount'        => abs($result['price']),
 				'currency'      => \lib\store::currency('code'),
 				'factor_id'     => $result['factor_id'],

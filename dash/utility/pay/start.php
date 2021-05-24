@@ -160,7 +160,6 @@ class start
 			'currency'        => null,
 			'get_token'       => false,
 			'api_mode'        => false,
-			'other_field'     => [],
 		];
 
 		if(!is_array($_args))
@@ -176,16 +175,8 @@ class start
 
         if(!$user_id || !is_numeric($user_id))
         {
-            if($user_id === 'unverify')
-            {
-            	$user_is_login = null;
-                // pay as undefined user in some project
-            }
-            else
-            {
-            	\dash\notif::error(T_("Invalid user"));
-                return self::endCompile($_args);
-            }
+        	$user_is_login = null;
+            // pay as undefined user in some project
         }
 
         $_args['amount'] = \dash\validate::price($_args['amount']);
@@ -309,14 +300,9 @@ class start
 			'amount_request'   => $_args['amount'],
 			'payment'          => mb_strtolower($_args['bank']),
 			'user_id'          => $_args['user_id'],
-			'other_field'      => $_args['other_field'],
 			'payment_response' => $payment_response,
 		];
 
-		if(isset($_args['other_field']) && is_array($_args['other_field']))
-        {
-            $insert_transaction['other_field'] = $_args['other_field'];
-        }
 
 		$token = json_encode($insert_transaction);
 		$token .= (string) time();

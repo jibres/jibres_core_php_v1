@@ -32,7 +32,6 @@ class budget
 
 	private static function set($_args)
 	{
-
 		$condition =
 		[
 			'title'   => 'string_200',
@@ -83,12 +82,9 @@ class budget
 			$data['time'] = date("H:i:s");
 		}
 
-
 		$date = $data['date']. ' '. $data['time'];
 
-
-
-		$insert =
+		$add =
 		[
 			'caller'    => 'manually',
 			'title'     => $data['title'],
@@ -103,14 +99,14 @@ class budget
 
 		if($data['type'] === 'plus')
 		{
-			$insert['plus'] = $data['amount'];
+			$add['plus'] = $data['amount'];
 		}
 		else
 		{
-			$insert['minus'] = $data['amount'];
+			$add['minus'] = $data['amount'];
 		}
 
-		$transaction_id = \dash\db\transactions::set($insert);
+		$transaction_id = \dash\app\transaction\add::add($add);
 
 		if(\dash\engine\process::status())
 		{

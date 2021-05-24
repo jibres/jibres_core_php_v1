@@ -80,22 +80,7 @@ trait set
 		$insert['payment'] = $_args['payment'];
 
 		// check and make error on user_id
-		$insert['user_id'] = $_args['user_id'];
-
-		if($insert['user_id'] === 'unverify')
-		{
-			$insert['user_id'] = null;
-		}
-		elseif(!$insert['user_id'] || !is_numeric($insert['user_id']))
-		{
-			if($debug)
-			{
-				\dash\db\logs::set('transactions:set:user_id:is:null', null, $log_meta);
-				\dash\notif::error(T_("Transaction user_id can not be null"));
-			}
-			return false;
-		}
-
+		$insert['user_id'] = $_args['user_id'] ? $_args['user_id'] : null;
 
 		$insert['code'] = self::get_code($caller);
 		// check and make error on code
