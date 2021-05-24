@@ -4,7 +4,7 @@
      <li>
       <a class="f align-center" href="<?php echo \dash\url::here(). '/transactions/detail?id='.  a($value, 'id') ?>">
         <?php if(\dash\url::module() !== 'member') {?>
-        <img src="<?php echo a($value, 'avatar'); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
+        <img src="<?php echo \dash\fit::img(a($value, 'avatar')); ?>" alt="Avatar - <?php echo a($value, 'displayname'); ?>">
         <div class="key"><?php echo a($value, 'displayname'); ?></div>
         <?php } // endif ?>
 
