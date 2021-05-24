@@ -5,6 +5,7 @@ require (core.'bin/PHPMailer/Exception.php');
 require (core.'bin/PHPMailer/PHPMailer.php');
 require (core.'bin/PHPMailer/SMTP.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
 
 class mail
 {
@@ -13,43 +14,66 @@ class mail
 		$opt = self::prepare($_args);
 
 		//Instantiation and passing `true` enables exceptions
-		$mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+		$mail = new PHPMailer(true);
 
 		try {
 			//Server settings
-			$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-			$mail->isSMTP();                                            //Send using SMTP
-			$mail->Host       = 'smtp.example.com';                     //Set the SMTP server to send through
-			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-			$mail->Username   = 'user@example.com';                     //SMTP username
-			$mail->Password   = 'secret';                               //SMTP password
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-			$mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+			//Enable verbose debug output
+			$mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+
+			//Send using SMTP
+			$mail->isSMTP();
+
+			//Set the SMTP server to send through
+			$mail->Host       = 'smtp-relay.sendinblue.com';
+			//Enable SMTP authentication
+			$mail->SMTPAuth   = true;
+			//SMTP username
+			$mail->Username   = 'mr.javad.adib@gmail.com';
+			//SMTP password
+			$mail->Password   = 'Vx5k2LbmBXjd90Ep';
+			//Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+			//TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+			$mail->Port       = 587;
+			// check and find email provider
+
 
 			//Recipients
-			$mail->setFrom('from@example.com', 'Mailer');
-			$mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
-			$mail->addAddress('ellen@example.com');               //Name is optional
-			$mail->addReplyTo('info@example.com', 'Information');
-			$mail->addCC('cc@example.com');
-			$mail->addBCC('bcc@example.com');
+			$mail->setFrom($opt['from'], $opt['fromTitle']);
 
-			//Attachments
-			$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-			$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+			if(isset($opt['to']))
+			{
+				//Add a recipient
+				$mail->addAddress($opt['to']);
+			}
 
 			//Content
-			$mail->isHTML(true);                                  //Set email format to HTML
-			$mail->Subject = 'Here is the subject';
-			$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			//Set email format to HTML
+			$mail->isHTML(true);
+
+			if(isset($opt['subject']))
+			{
+				$mail->Subject = $opt['subject'];
+			}
+
+			if(isset($opt['body']))
+			{
+				$mail->Body = $opt['body'];
+			}
+
+			if(isset($opt['altbody']))
+			{
+				$mail->AltBody = $opt['altbody'];
+			}
 
 			$mail->send();
 			echo 'Message has been sent';
 			return true;
 		} catch (Exception $e)
 		{
-			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+			echo "11";
+			// echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 			return false;
 		}
 	}
@@ -74,8 +98,30 @@ class mail
 		}
 		$_args = array_merge($default_args, $_args);
 
-		return $args;
+		return $_args;
 	}
+
+
+	public static function sampleEmail($_to = null)
+	{
+		$sample =
+		[
+			'from'      => 'no-reply@jibres.store',
+			'fromTitle' => 'Jibres',
+			'to'        => "Mr.Javad.Adib@gmail.com",
+			'subject'   => "test1",
+			'body'      => "Salam 123",
+			'altbody'   => "Html is not loaded on this email",
+		];
+
+		if(isset($_to))
+		{
+			$sample['to'] = $_to;
+		}
+
+		return self::sendPHPMailer($sample);
+	}
+
 
 
 	public static function send($_args)
