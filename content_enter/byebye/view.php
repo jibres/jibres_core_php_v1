@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Come back to us!'));
+		\dash\face::title(T_('Delete Account'));
 		\dash\face::desc(\dash\face::title());
 		//put logout
 		\dash\log::set('userByeBye');
