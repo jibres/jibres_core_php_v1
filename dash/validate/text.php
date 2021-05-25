@@ -502,6 +502,37 @@ class text
 
 
 
+	public static function email_raw($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::email(...func_get_args());
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$local_part = strtok($data, '@');
+		$domain     = substr($data, strpos($data, '@'));
+
+		if($domain === '@gmail.com')
+		{
+			if(strpos($local_part, '.') !== false)
+			{
+				$local_part = str_replace('.', '', $local_part);
+			}
+		}
+
+		if(strpos($local_part, '+') !== false)
+		{
+			$local_part = strtok($local_part, '+');
+		}
+
+		$emailraw = $local_part. $domain;
+
+		return $emailraw;
+	}
+
+
 
 	public static function email($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
