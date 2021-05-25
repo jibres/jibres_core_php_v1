@@ -19,33 +19,56 @@
     </div>
   </form>
 
-  <?php if(\dash\data::dataTable() && is_array(\dash\data::dataTable())) {?>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-      <div class="box">
-        <div class="body">
-          <div class="txtL ltr txtB fs14"><?php echo a($value, 'email') ?> <?php if(a($value, 'verify')) {?><i class="sf-check fc-green"></i><?php }// endif ?></div>
-          <?php if(!a($value, 'verify')) {?>
+  <?php if(\dash\data::myList_primary()) {?>
+  <label><?php echo T_("Primary Email") ?></label>
+    <nav class="items long ltr txtL">
+     <ul>
+      <?php foreach (\dash\data::myList_primary() as $key => $value) {?>
+       <li>
+        <a class="item f">
+          <i class="sf-envelope s0"></i>
+          <div class="key txtB"><?php echo a($value, 'email');?></div>
+          <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
+        </a>
+       </li>
+      <?php } //endfor ?>
+     </ul>
+   </nav>
+  <?php } //eneif ?>
 
-            <div class="btn link" data-confirm data-data='{"verify":"verify","email":"<?php echo a($value, 'email') ?>" }'><?php echo T_("Send verify email") ?></div>
+   <?php if(\dash\data::myList_verify()) {?>
+    <label><?php echo T_("Verified Email") ?></label>
+    <nav class="items long ltr txtL">
+     <ul>
+      <?php foreach (\dash\data::myList_verify() as $key => $value) {?>
+       <li>
+        <a class="item f" >
+          <i class="sf-mail s0"></i>
+          <div class="key"><?php echo a($value, 'email');?></div>
+          <i class="sf-asterisk fc-blue" data-title="<?php echo T_("Set as primary email") ?>" data-confirm data-data='{"primary":"primary","id":"<?php echo a($value, 'id') ?>"}' title="<?php echo T_("Set as primary email") ?>"></i>
+          <i data-confirm  data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
+        </a>
+       </li>
+      <?php } //endfor ?>
+     </ul>
+   </nav>
+  <?php } //eneif ?>
 
-          <?php } //endif ?>
-          <?php if(a($value, 'verify')) {?>
-            <?php if(!a($value, 'primary') ) {?>
-              <div class="btn link" data-confirm data-data='{"primary":"primary","email":"<?php echo a($value, 'email') ?>" }'><?php echo T_("Set as primary email") ?></div>
-            <?php }else{ ?>
-              <div class="badge success"><?php echo T_("Primary email") ?></div>
-            <?php } //endif ?>
-          <?php } //endif ?>
-        </div>
-        <footer>
-          <div class="f">
-            <div class="cauto"><div data-confirm data-data='{"remove":"remove","email":"<?php echo a($value, 'email') ?>" }'><i class="sf-trash fc-red fs14"></i></div></div>
-            <div class="c"></div>
-
-          </div>
-        </footer>
-      </div>
-    <?php }//endfor ?>
-  <?php } // endif ?>
+   <?php if(\dash\data::myList_other()) {?>
+    <label><?php echo T_("Pending verification") ?></label>
+    <nav class="items long ltr txtL">
+     <ul>
+      <?php foreach (\dash\data::myList_other() as $key => $value) {?>
+       <li>
+        <a class="item f" >
+          <i class="sf-mail s0"></i>
+          <div class="key"><?php echo a($value, 'email');?></div>
+          <i class="sf-repeat fc-blue" data-title="<?php echo T_("Send verify email") ?>" data-confirm data-data='{"verify":"verify","id":"<?php echo a($value, 'id') ?>"}' title="<?php echo T_("Send verify email") ?>"></i>
+          <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
+        </a>
+       </li>
+      <?php } //endfor ?>
+     </ul>
+   </nav>
+  <?php } //eneif ?>
 </div>
-

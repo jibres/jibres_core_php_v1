@@ -6,7 +6,8 @@ class useremail
 {
 	public static function get_by_user_id($_user_id)
 	{
-		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id  AND useremail.status = 'enable' ";
+		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id  AND useremail.status = 'enable' ORDER BY  FIELD(useremail.primary, 1), FIELD(useremail.verify, 1) ";
+
 		$result = \dash\db::get($query);
 		return $result;
 	}
@@ -20,9 +21,9 @@ class useremail
 	}
 
 
-	public static function set_verify($_id, $_email)
+	public static function set_verify($_id)
 	{
-		$query = "UPDATE useremail SET useremail.verify = 1 WHERE useremail.id = $_id AND useremail.email = '$_email' LIMIT 1 ";
+		$query = "UPDATE useremail SET useremail.verify = 1 WHERE useremail.id = $_id  LIMIT 1 ";
 		$result = \dash\db::query($query);
 		return $result;
 	}
@@ -38,12 +39,27 @@ class useremail
 
 	public static function check_is_verify_for_other($_email)
 	{
-		$query = "SELECT * FROM useremail WHERE useremail.email = '$_email' AND useremail.verify = 1 LIMIT 1";
+		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_email' AND useremail.verify = 1 LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
 
-	public static function check_is_my_email($_email, $_user_id)
+	public static function check_is_my_email_raw($_emailraw, $_user_id)
+	{
+		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_emailraw' AND useremail.user_id = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+	public static function check_is_my_email_id($_id, $_user_id)
+	{
+		$query = "SELECT * FROM useremail WHERE useremail.id = '$_id' AND useremail.user_id = $_user_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+	public static function check_duplicate_email($_email, $_user_id)
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_email' AND useremail.user_id = $_user_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
@@ -58,16 +74,20 @@ class useremail
 		return $result;
 	}
 
+	public static function update()
+	{
+		return \dash\db\config::public_update('useremail', ...func_get_args());
+	}
 
 	public static function set_primary_id($_id)
 	{
-		$query = "UPDATE useremail SET useremail.primary = 1 WHERE useremail.id = $_id ";
+		$query = "UPDATE useremail SET useremail.primary = 1 WHERE useremail.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
 
 
-	public static function remove($_email, $_user_id)
+	public static function remove($_id, $_user_id)
 	{
 		$query =
 		"
@@ -78,7 +98,7 @@ class useremail
 				useremail.primary = NULL,
 				useremail.verify  = NULL
 			WHERE
-				useremail.email   = '$_email' AND
+				useremail.id   = '$_id' AND
 				useremail.user_id = $_user_id
 			LIMIT 1
 		";

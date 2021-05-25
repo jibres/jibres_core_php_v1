@@ -59,19 +59,20 @@ class controller
 					if(isset($find_log['email']) && isset($find_log['id']))
 					{
 						\dash\db\logs::update(['status' => 'deliver'], $find_log['id']);
+
 						$email_detail = $find_log['email'];
 						$email_detail = json_decode($email_detail, true);
 
-						if(isset($email_detail['email']) && isset($email_detail['useremail_id']))
+						if(isset($email_detail['emailraw']) && isset($email_detail['useremail_id']))
 						{
-							$check_is_verified = \dash\db\useremail::check_is_verify_for_other($email_detail['email']);
+							$check_is_verified = \dash\db\useremail::check_is_verify_for_other($email_detail['emailraw']);
 							if($check_is_verified)
 							{
 								\dash\data::verifyMesssage(T_("This email is verified before"));
 							}
 							else
 							{
-								\dash\db\useremail::set_verify($email_detail['useremail_id'], $email_detail['email']);
+								\dash\db\useremail::set_verify($email_detail['useremail_id']);
 								\dash\data::verifyMesssage(T_("Email was verified"));
 							}
 						}

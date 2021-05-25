@@ -14,7 +14,34 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 		$my_email_list = \dash\app\user\email::get_my_list();
-		\dash\data::dataTable($my_email_list);
+
+		if(!is_array($my_email_list))
+		{
+			$my_email_list = [];
+		}
+
+		$myList            = [];
+		$myList['primary'] = [];
+		$myList['verify']  = [];
+		$myList['other']   = [];
+
+		foreach ($my_email_list as $key => $value)
+		{
+			if(a($value, 'primary'))
+			{
+				$myList['primary'][] = $value;
+			}
+			elseif(a($value, 'verify'))
+			{
+				$myList['verify'][] = $value;
+			}
+			else
+			{
+				$myList['other'][] = $value;
+			}
+		}
+
+		\dash\data::myList($myList);
 
 		$email = \dash\request::get('email');
 		if($email && \dash\validate::email($email, false))

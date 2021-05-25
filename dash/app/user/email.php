@@ -65,12 +65,12 @@ class email
 		return $result;
 	}
 
-	public static function remove($_email)
+	public static function remove($_id)
 	{
-		$email = \dash\validate::email($_email);
-		if(!$email)
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
-			\dash\notif::error(T_("Please enter email"));
+			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
 
@@ -82,7 +82,7 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_is_my_email = \dash\db\useremail::check_is_my_email($email, $user_id);
+		$check_is_my_email = \dash\db\useremail::check_is_my_email_id($id, $user_id);
 
 		if(isset($check_is_my_email['id']))
 		{
@@ -94,7 +94,7 @@ class email
 			return false;
 		}
 
-		$remove = \dash\db\useremail::remove($email, $user_id);
+		$remove = \dash\db\useremail::remove($id, $user_id);
 
 		if(isset($check_is_my_email['primary']) && $check_is_my_email['primary'])
 		{
@@ -117,14 +117,15 @@ class email
 
 	}
 
-	public static function verify($_email)
+	public static function verify($_id)
 	{
-		$email = \dash\validate::email($_email);
-		if(!$email)
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
-			\dash\notif::error(T_("Please enter email"));
+			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
+
 
 		if(!\dash\user::id())
 		{
@@ -134,7 +135,7 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_is_my_email = \dash\db\useremail::check_is_my_email($email, $user_id);
+		$check_is_my_email = \dash\db\useremail::check_is_my_email_id($id, $user_id);
 
 		if(isset($check_is_my_email['id']))
 		{
@@ -153,8 +154,12 @@ class email
 			// ok. the email is verified
 		}
 
+		$email = $check_is_my_email['email'];
 
-		$check_any_verify_it = \dash\db\useremail::check_is_verify_for_other($email);
+		$emailraw   = \dash\validate::email_raw($check_is_my_email['email']);
+
+		$check_any_verify_it = \dash\db\useremail::check_is_verify_for_other($emailraw);
+
 		if(isset($check_any_verify_it['user_id']))
 		{
 			if(floatval($check_any_verify_it['user_id']) === floatval($user_id))
@@ -200,6 +205,7 @@ class email
 			[
 				'useremail_id' => $check_is_my_email['id'],
 				'email'        => $email,
+				'emailraw'     => \dash\validate::email_raw($email),
 			], JSON_UNESCAPED_UNICODE),
 		];
 
@@ -227,12 +233,12 @@ class email
 
 	}
 
-	public static function primary($_email)
+	public static function primary($_id)
 	{
-		$email = \dash\validate::email($_email);
-		if(!$email)
+		$id = \dash\validate::id($_id);
+		if(!$id)
 		{
-			\dash\notif::error(T_("Please enter email"));
+			\dash\notif::error(T_("Invalid id"));
 			return false;
 		}
 
@@ -244,7 +250,7 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_is_my_email = \dash\db\useremail::check_is_my_email($email, $user_id);
+		$check_is_my_email = \dash\db\useremail::check_is_my_email_id($id, $user_id);
 
 		if(isset($check_is_my_email['id']))
 		{
@@ -255,6 +261,8 @@ class email
 			\dash\notif::error(T_("Email not found"));
 			return false;
 		}
+
+		$email = $check_is_my_email['email'];
 
 		if(isset($check_is_my_email['primary']) && $check_is_my_email['primary'])
 		{
@@ -308,7 +316,9 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_is_verify_for_other = \dash\db\useremail::check_is_verify_for_other($email);
+		$emailraw   = \dash\validate::email_raw($email);
+
+		$check_is_verify_for_other = \dash\db\useremail::check_is_verify_for_other($emailraw);
 
 		if(isset($check_is_verify_for_other['user_id']))
 		{
@@ -324,63 +334,46 @@ class email
 			return false;
 		}
 
-		$emailraw   = $email;
-
-		$local_part = strtok($email, '@');
-		$domain     = substr($email, strpos($email, '@'));
-
-		if($domain === '@gmail.com')
-		{
-			if(strpos($local_part, '.') !== false)
-			{
-				$local_part = str_replace('.', '', $local_part);
-			}
-		}
-
-		if(strpos($local_part, '+') !== false)
-		{
-			$local_part = strtok($local_part, '+');
-		}
-
-		$emailraw = $local_part. $domain;
-
-		$check_is_my_email = \dash\db\useremail::check_is_my_email($emailraw, $user_id);
-
-		if(isset($check_is_my_email['id']))
-		{
-			\dash\notif::error(T_("This email is already exist in your list"));
-			return false;
-		}
 
 		$count_email = \dash\db\useremail::get_count_by_user_id($user_id);
 
-		if(floatval($count_email) >= 20)
+		if(floatval($count_email) >= 10)
 		{
-			\dash\notif::error(T_("Maximum email capacity is 20 per user"));
+			\dash\notif::error(T_("Maximum email capacity is 10 per user"));
 			return false;
 		}
 
+		$check_is_my_email = \dash\db\useremail::check_is_my_email_raw($emailraw, $user_id);
 
-		$insert_args =
-		[
-			'user_id'     => $user_id,
-			'email'       => $email,
-			'emailraw'    => $emailraw,
-			'status'      => 'enable',
-			'datecreated' => date("Y-m-d H:i:s"),
-		];
-
-		$insert = \dash\db\useremail::insert($insert_args);
-		if($insert)
+		if(isset($check_is_my_email['id']))
 		{
-			\dash\notif::ok(T_("Your email was added"));
-			return true;
+			if(isset($check_is_my_email['status']) && $check_is_my_email['status'] === 'delete')
+			{
+				\dash\db\useremail::update(['status' => 'enable', 'email' => $email], $check_is_my_email['id']);
+			}
+			else
+			{
+				\dash\notif::error(T_("This email is already exist in your list"));
+				return false;
+			}
 		}
 		else
 		{
-			\dash\log::oops('emailErrorDB');
-			return false;
+			$insert_args =
+			[
+				'user_id'     => $user_id,
+				'email'       => $email,
+				'emailraw'    => $emailraw,
+				'status'      => 'enable',
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			$insert = \dash\db\useremail::insert($insert_args);
+
 		}
+
+		\dash\notif::ok(T_("Your email was added"));
+		return true;
 
 
 

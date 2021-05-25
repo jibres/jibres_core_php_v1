@@ -12,9 +12,10 @@ class model
 	public static function post()
 	{
 		$email = \dash\request::post('email');
+		$id = \dash\request::post('id');
 		if(\dash\request::post('remove') === 'remove')
 		{
-			$result = \dash\app\user\email::remove($email, \dash\user::id());
+			$result = \dash\app\user\email::remove($id, \dash\user::id());
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::current());
@@ -22,7 +23,7 @@ class model
 		}
 		elseif(\dash\request::post('primary') === 'primary')
 		{
-			$result = \dash\app\user\email::primary($email, \dash\user::id());
+			$result = \dash\app\user\email::primary($id, \dash\user::id());
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::current());
@@ -30,7 +31,7 @@ class model
 		}
 		elseif(\dash\request::post('verify') === 'verify')
 		{
-			$result = \dash\app\user\email::verify($email, \dash\user::id());
+			$result = \dash\app\user\email::verify($id, \dash\user::id());
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::current());
