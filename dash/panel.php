@@ -105,16 +105,16 @@ class panel
 			$menu[] = ['seperator' => true];
 		}
 
-		$menu[] =
-		[
-			'title'  => T_("Content Management System"),
-			'link'   => \dash\url::here(),
-			'icon'   => 'file-text',
-			'active' => 1,
-		];
-
 		if(\dash\permission::check('_group_cms'))
 		{
+			$menu[] =
+			[
+				'title'  => T_("Content Management System"),
+				'link'   => \dash\url::here(),
+				'icon'   => 'file-text',
+				'active' => 1,
+			];
+
 			$menu[] =
 			[
 				'title'  => T_("News"),
@@ -213,6 +213,7 @@ class panel
 			];
 		}
 
+
 		$menu[] =
 		[
 			'title'  => T_("Products"),
@@ -222,6 +223,7 @@ class panel
 		];
 
 
+		if(\dash\permission::check('_group_crm'))
 		{
 			$menu[] =
 			[
@@ -232,6 +234,7 @@ class panel
 			];
 		}
 
+		if(\dash\permission::check('_group_cms'))
 		{
 			$menu[] =
 			[
