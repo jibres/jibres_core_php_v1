@@ -19,7 +19,7 @@ class mail
 		try {
 			//Server settings
 			//Enable verbose debug output
-			$mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+			// $mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
 
 			//Send using SMTP
 			$mail->isSMTP();
@@ -61,6 +61,8 @@ class mail
 			{
 				$mail->Body = $opt['body'];
 			}
+			$testFile = file_get_contents(\dash\url::cdn().'/email/campaign/nowruz1400/index.html');
+			$mail->Body = $testFile;
 
 			if(isset($opt['altbody']))
 			{
@@ -68,12 +70,12 @@ class mail
 			}
 
 			$mail->send();
-			echo 'Message has been sent';
+			// echo 'Message has been sent';
 			return true;
 		} catch (Exception $e)
 		{
 			echo "11";
-			// echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 			return false;
 		}
 	}
@@ -109,7 +111,7 @@ class mail
 			'from'      => 'no-reply@jibres.store',
 			'fromTitle' => 'Jibres',
 			'to'        => "Mr.Javad.Adib@gmail.com",
-			'subject'   => "test1",
+			'subject'   => "Test ". rand(1,100),
 			'body'      => "Salam 123",
 			'altbody'   => "Html is not loaded on this email",
 		];
