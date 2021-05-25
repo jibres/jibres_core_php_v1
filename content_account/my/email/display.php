@@ -63,7 +63,12 @@
         <a class="item f" >
           <i class="sf-mail s0"></i>
           <div class="key"><?php echo a($value, 'email');?></div>
+          <?php if(a($value, 'can_verify_again')) {?>
           <i class="sf-repeat fc-blue" data-title="<?php echo T_("Send verify email") ?>" data-confirm data-data='{"verify":"verify","id":"<?php echo a($value, 'id') ?>"}' title="<?php echo T_("Send verify email") ?>"></i>
+          <div class="value s0 fc-blue"><?php echo T_("Resend") ?></div>
+          <?php }else{ ?>
+          <div  class="value s0"><?php echo T_("Verify email sent") ?></div>
+          <?php } //endif ?>
           <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
         </a>
        </li>

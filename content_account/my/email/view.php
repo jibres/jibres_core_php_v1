@@ -37,6 +37,15 @@ class view
 			}
 			else
 			{
+				$value['can_verify_again'] = true;
+
+				if(isset($value['daterequestverify']) && $value['daterequestverify'])
+				{
+					if(time() - strtotime($value['daterequestverify']) < (60*10))
+					{
+						$value['can_verify_again'] = false;
+					}
+				}
 				$myList['other'][] = $value;
 			}
 		}

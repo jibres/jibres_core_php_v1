@@ -23,7 +23,9 @@ class useremail
 
 	public static function set_verify($_id)
 	{
-		$query = "UPDATE useremail SET useremail.verify = 1 WHERE useremail.id = $_id  LIMIT 1 ";
+
+		$now = date("Y-m-d H:i:s");
+		$query = "UPDATE useremail SET useremail.verify = 1, useremail.dateverify = '$now' WHERE useremail.id = $_id  LIMIT 1 ";
 		$result = \dash\db::query($query);
 		return $result;
 	}

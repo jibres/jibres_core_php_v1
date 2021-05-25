@@ -154,6 +154,8 @@ class email
 			// ok. the email is verified
 		}
 
+
+
 		$email = $check_is_my_email['email'];
 
 		$emailraw   = \dash\validate::email_raw($check_is_my_email['email']);
@@ -173,6 +175,17 @@ class email
 
 			return false;
 		}
+
+		if(isset($check_is_my_email['daterequestverify']) && $check_is_my_email['daterequestverify'])
+		{
+			if(time() - strtotime($check_is_my_email['daterequestverify']) < (60*10))
+			{
+				\dash\notif::error(T_("Can not send verification email at now!"));
+				return false;
+			}
+		}
+
+		\dash\db\useremail::update(['daterequestverify' => date("Y-m-d H:i:s")], $check_is_my_email['id']);
 
 		$code1 = '';
 		$code1 .= time();
@@ -350,6 +363,7 @@ class email
 			if(isset($check_is_my_email['status']) && $check_is_my_email['status'] === 'delete')
 			{
 				\dash\db\useremail::update(['status' => 'enable', 'email' => $email], $check_is_my_email['id']);
+				$new_id = $check_is_my_email['id'];
 			}
 			else
 			{
@@ -369,8 +383,13 @@ class email
 			];
 
 			$insert = \dash\db\useremail::insert($insert_args);
+			$new_id = $insert;
 
 		}
+
+		self::verify($new_id);
+
+		\dash\notif::clean();
 
 		\dash\notif::ok(T_("Your email was added"));
 		return true;
