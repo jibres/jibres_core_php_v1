@@ -6,14 +6,15 @@ class useremail
 {
 	public static function get_by_user_id($_user_id)
 	{
-		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id";
+		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id  AND useremail.status = 'enable' ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
 
+
 	public static function get_count_by_user_id($_user_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM useremail WHERE useremail.user_id = $_user_id";
+		$query = "SELECT COUNT(*) AS `count` FROM useremail WHERE useremail.user_id = $_user_id AND useremail.status = 'enable' ";
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
@@ -29,7 +30,7 @@ class useremail
 
 	public static function get_user_email_primary($_user_id)
 	{
-		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id ORDER BY useremail.id DESC, FIELD(useremail.verify, 1), FIELD(useremail.primary, 1) LIMIT 1";
+		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id AND useremail.status = 'enable' ORDER BY useremail.id DESC, FIELD(useremail.verify, 1), FIELD(useremail.primary, 1) LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
@@ -42,9 +43,9 @@ class useremail
 		return $result;
 	}
 
-	public static function check_duplicate_email($_email, $_user_id)
+	public static function check_is_my_email($_email, $_user_id)
 	{
-		$query = "SELECT * FROM useremail WHERE useremail.email = '$_email' AND useremail.user_id = $_user_id LIMIT 1";
+		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_email' AND useremail.user_id = $_user_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}
@@ -68,10 +69,24 @@ class useremail
 
 	public static function remove($_email, $_user_id)
 	{
-		$query = "DELETE FROM useremail WHERE useremail.email = '$_email' AND useremail.user_id = $_user_id LIMIT 1";
+		$query =
+		"
+			UPDATE
+				useremail
+			SET
+				useremail.status  = 'delete',
+				useremail.primary = NULL,
+				useremail.verify  = NULL
+			WHERE
+				useremail.email   = '$_email' AND
+				useremail.user_id = $_user_id
+			LIMIT 1
+		";
+
 		$result = \dash\db::query($query);
 		return $result;
 	}
+
 
 	public static function insert($_args)
 	{

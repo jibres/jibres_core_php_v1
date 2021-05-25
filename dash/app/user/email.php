@@ -82,9 +82,9 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_duplicate_email = \dash\db\useremail::check_duplicate_email($email, $user_id);
+		$check_is_my_email = \dash\db\useremail::check_is_my_email($email, $user_id);
 
-		if(isset($check_duplicate_email['id']))
+		if(isset($check_is_my_email['id']))
 		{
 			 // nothing
 		}
@@ -96,7 +96,7 @@ class email
 
 		$remove = \dash\db\useremail::remove($email, $user_id);
 
-		if(isset($check_duplicate_email['primary']) && $check_duplicate_email['primary'])
+		if(isset($check_is_my_email['primary']) && $check_is_my_email['primary'])
 		{
 			\dash\db\users::update(['email' => null], $user_id);
 		}
@@ -134,9 +134,9 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_duplicate_email = \dash\db\useremail::check_duplicate_email($email, $user_id);
+		$check_is_my_email = \dash\db\useremail::check_is_my_email($email, $user_id);
 
-		if(isset($check_duplicate_email['id']))
+		if(isset($check_is_my_email['id']))
 		{
 			 // nothing
 		}
@@ -146,7 +146,7 @@ class email
 			return false;
 		}
 
-		if(isset($check_duplicate_email['verify']) && $check_duplicate_email['verify'])
+		if(isset($check_is_my_email['verify']) && $check_is_my_email['verify'])
 		{
 			\dash\notif::info(T_("This email is already verified"));
 			return true;
@@ -198,7 +198,7 @@ class email
 			'code' => $code,
 			'email' => json_encode(
 			[
-				'useremail_id' => $check_duplicate_email['id'],
+				'useremail_id' => $check_is_my_email['id'],
 				'email'        => $email,
 			], JSON_UNESCAPED_UNICODE),
 		];
@@ -244,9 +244,9 @@ class email
 
 		$user_id = \dash\user::id();
 
-		$check_duplicate_email = \dash\db\useremail::check_duplicate_email($email, $user_id);
+		$check_is_my_email = \dash\db\useremail::check_is_my_email($email, $user_id);
 
-		if(isset($check_duplicate_email['id']))
+		if(isset($check_is_my_email['id']))
 		{
 			 // nothing
 		}
@@ -256,13 +256,13 @@ class email
 			return false;
 		}
 
-		if(isset($check_duplicate_email['primary']) && $check_duplicate_email['primary'])
+		if(isset($check_is_my_email['primary']) && $check_is_my_email['primary'])
 		{
 			\dash\notif::info(T_("This email is already set as primary email"));
 			return true;
 		}
 
-		if(isset($check_duplicate_email['verify']) && $check_duplicate_email['verify'])
+		if(isset($check_is_my_email['verify']) && $check_is_my_email['verify'])
 		{
 			// ok. the email is verified
 		}
@@ -274,7 +274,7 @@ class email
 
 
 		\dash\db\useremail::remove_all_other_primary($user_id);
-		\dash\db\useremail::set_primary_id($check_duplicate_email['id']);
+		\dash\db\useremail::set_primary_id($check_is_my_email['id']);
 
 
 		$primary = \dash\db\users::update(['email' => $email], $user_id);
@@ -324,9 +324,29 @@ class email
 			return false;
 		}
 
-		$check_duplicate_email = \dash\db\useremail::check_duplicate_email($email, $user_id);
+		$emailraw   = $email;
 
-		if(isset($check_duplicate_email['id']))
+		$local_part = strtok($email, '@');
+		$domain     = substr($email, strpos($email, '@'));
+
+		if($domain === '@gmail.com')
+		{
+			if(strpos($local_part, '.') !== false)
+			{
+				$local_part = str_replace('.', '', $local_part);
+			}
+		}
+
+		if(strpos($local_part, '+') !== false)
+		{
+			$local_part = strtok($local_part, '+');
+		}
+
+		$emailraw = $local_part. $domain;
+
+		$check_is_my_email = \dash\db\useremail::check_is_my_email($emailraw, $user_id);
+
+		if(isset($check_is_my_email['id']))
 		{
 			\dash\notif::error(T_("This email is already exist in your list"));
 			return false;
@@ -345,6 +365,7 @@ class email
 		[
 			'user_id'     => $user_id,
 			'email'       => $email,
+			'emailraw'    => $emailraw,
 			'status'      => 'enable',
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
