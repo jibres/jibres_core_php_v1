@@ -624,6 +624,7 @@ class cleanse
 			case 'sku': 				$data = \dash\validate\text::sku(...$fn_args); 						break;
 			case 'search': 				$data = \dash\validate\text::search(...$fn_args); 					break;
 			case 'email': 				$data = \dash\validate\text::email(...$fn_args); 					break;
+			case 'email_raw': 			$data = \dash\validate\text::email_raw(...$fn_args); 				break;
 			case 'md5': 				$data = \dash\validate\text::md5(...$fn_args); 						break;
 			case 'filename': 			$data = \dash\validate\text::filename(...$fn_args); 				break;
 			case 'filename_mime': 		$data = \dash\validate\text::filename_mime(...$fn_args); 			break;
