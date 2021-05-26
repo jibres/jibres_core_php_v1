@@ -8,7 +8,9 @@
 
   $add_html_form = false;
 
-  if(\dash\data::productDataRow_title())
+  $add_product_module = \dash\url::child() === 'add';
+
+  if(!$add_product_module && \dash\data::productDataRow_title())
   {
     $product_suggestion        = true;
     $product_suggestion_status = a(\dash\data::productSettingSaved(), 'product_suggestion');
@@ -21,20 +23,22 @@
 
   // runaction_product_suggestion
   // product_suggestion
-
-  if(isset($product_suggestion_status) && $product_suggestion_status)
+  if(!$add_product_module)
   {
-    $kerkere_content = " data-kerkere-content='hide' ";
-  }
-  else
-  {
-    $kerkere_content = '';
-  }
+    if(isset($product_suggestion_status) && $product_suggestion_status)
+    {
+      $kerkere_content = " data-kerkere-content='hide' ";
+    }
+    else
+    {
+      $kerkere_content = '';
+    }
 
-  echo "<div class='showProductSuggestion' ". $kerkere_content .">";
-    echo '<p>'. T_("Load suggest image"). '</p>';
-    // if have not product title not suggest product image. for example in add product module
-    echo '<div class="row" data-digikala-crawl='.  \dash\data::productDataRow_title(). '></div>';
-  echo "</div>";
+    echo "<div class='showProductSuggestion' ". $kerkere_content .">";
+      echo '<p>'. T_("Load suggest image"). '</p>';
+      // if have not product title not suggest product image. for example in add product module
+      echo '<div class="row" data-digikala-crawl='.  \dash\data::productDataRow_title(). '></div>';
+    echo "</div>";
+  }
 
 ?>
