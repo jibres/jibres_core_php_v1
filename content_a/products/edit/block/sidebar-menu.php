@@ -98,7 +98,7 @@
     </nav>
 
         <?php if(!\dash\data::productFamily()) {?>
-    <?php if(a(\dash\data::productSettingSaved(), 'variant_product') && !$have_variant_child) {?>
+    <?php if(!$have_variant_child) {?>
         <nav class="items long">
           <ul>
             <li>

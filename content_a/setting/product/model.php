@@ -11,12 +11,6 @@ class model
 		$post = [];
 
 
-		if(array_key_exists('runaction_variant_product', $all_post))
-		{
-			$post['variant_product'] = \dash\request::post('variant_product');
-		}
-
-
 		if(array_key_exists('runaction_defaulttracking', $all_post))
 		{
 			$post['defaulttracking'] = \dash\request::post('defaulttracking');

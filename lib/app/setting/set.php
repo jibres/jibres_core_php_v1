@@ -41,7 +41,6 @@ class set
 		$condition =
 		[
 			'comment'            => 'bit',
-			'variant_product'    => 'bit',
 			'defaulttracking'    => 'bit',
 			'ratio'              => \lib\ratio::check_input(),
 			'view_text'          => 'desc',
