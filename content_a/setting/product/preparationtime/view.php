@@ -9,7 +9,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::that(). '/setting');
+		\dash\data::back_link(\dash\url::that());
 
 		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
 

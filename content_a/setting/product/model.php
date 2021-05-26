@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\product\setting;
+namespace content_a\setting\product;
 
 
 class model

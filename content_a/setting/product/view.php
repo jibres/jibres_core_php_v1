@@ -10,9 +10,14 @@ class view
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::this());
 
-		// // operations
-		// \dash\face::btnImport(\dash\url::this().'/import');
-		// \dash\face::btnExport(\dash\url::this().'/export');
+
+		// back
+		\dash\data::back_text(T_('Product setting'));
+		\dash\data::back_link(\dash\url::that());
+
+		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
+
+		\dash\data::defaultRatioSlider(T_("Default (1:1)"));
 	}
 }
 ?>
