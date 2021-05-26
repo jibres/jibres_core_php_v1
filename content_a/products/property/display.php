@@ -39,8 +39,8 @@ require_once(root. 'content_a/products/productName.php');
                         <div class="row">
                           <?php if((a($value, 'value') || a($value, 'value') == '0') && !a($value, 'lock')) {?>
                             <div class="cauto handle" data-handle><i class="sf-sort"></i></div>
-                          <?php }elseif($i !== 1){ ?>
-                            <i class="sf-sort disabled"></i>
+                          <?php }elseif(!a($value, 'sortable')){ ?>
+                            <!-- <i class="sf-sort disabled"></i> -->
                           <?php } //endif ?>
                             <div class="c"><?php echo $value['key']; ?></div>
                             <input type="hidden" name="sort[]" value="<?php if(a($value, 'id')) { echo a($value, 'id'); }else{ echo 'tid_'. $XI; } ?>">
@@ -57,10 +57,25 @@ require_once(root. 'content_a/products/productName.php');
                             <input type="hidden" name="cat_<?php echo $XI; ?>" value="<?php echo a($cat, 'title') ?>">
                             <input type="hidden" name="key_<?php echo $XI; ?>" value="<?php echo a($value, 'key') ?>">
                           <?php } //endif ?>
+                          <?php if(a($value, 'field_name') === 'unit') {?>
+                            <div>
+                             <label for='unit'><?php echo T_("Unit"); ?></label>
+                              <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
+                                  <option value=""><?php echo T_("like Qty, kg, etc"); ?></option>
+                                <?php if(\dash\data::productDataRow_unit_id()) {?>
+                                  <option value="0"><?php echo T_("Without unit"); ?></option>
+                                <?php } //endif ?>
+                                  <?php foreach (\dash\data::listUnits() as $key => $value) {?>
+                                  <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_unit_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
+                                  <?php } //endfor ?>
+                              </select>
+                            </div>
+                          <?php }else{ ?>
                           <div class="input">
                             <input type="text" name="<?php if(a($value, 'field_name')){ echo a($value, 'field_name');}else{echo 'val_'. $XI;} ?>" <?php if(a($value, 'placeholder')) { echo "placeholder='". a($value, 'placeholder'). "'";} ?> value="<?php echo $value['value'] ?>">
                             <button class="hide addon btn"><i class="sf-save"></i></button>
                           </div>
+                          <?php } //endif ?>
                         <?php } //endif ?>
                       </div>
                       <?php if(a($value, 'id') && !a($value, 'outstanding')) {?>

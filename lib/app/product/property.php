@@ -88,6 +88,21 @@ class property
 		return floatval($load_count);
 	}
 
+	private static function push(&$result, $_group, $_element)
+	{
+		$default_option =
+		[
+			'lock'     => true,
+			'sortable' => false,
+
+		];
+
+		$_element = array_merge($default_option, $_element);
+
+		array_push($result[$_group]['list'], $_element);
+	}
+
+
 	public static function get_pretty($_id, $_admin = false)
 	{
 		$id = \dash\validate::id($_id, false);
@@ -139,23 +154,24 @@ class property
 
 		if(a($load, 'id'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Product ID"), 'value' => \dash\fit::text(a($load, 'id')), 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Product ID"), 'value' => \dash\fit::text(a($load, 'id')),]);
+
 		}
 
 
 		if(a($load, 'title'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Title"), 'value' => a($load, 'title'), 'lock' => true]);
+			self::push($result, T_("General property"),	[ 'key'   => T_("Title"), 'value' => a($load, 'title'),]);
 		}
 
 
 		if(a($load, 'title2'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => a($load, 'title2'), 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Technical title"), 'value' => a($load, 'title2'),]);
 		}
 		elseif(a($load_parent, 'title2'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Technical title"), 'value' => a($load_parent, 'title2'), 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Technical title"), 'value' => a($load_parent, 'title2'), ]);
 		}
 
 		if(isset($load['variant_child']) && $load['variant_child'])
@@ -168,39 +184,41 @@ class property
 			{
 				if(a($load, 'price'))
 				{
-					array_push($result[T_("General property")]['list'], ['key' => T_("List Price"), 'value' => \dash\fit::number(a($load, 'price')). ' '. $store_currency, 'lock' => true]);
+					self::push($result, T_("General property"), ['key' => T_("List Price"), 'value' => \dash\fit::number(a($load, 'price')). ' '. $store_currency, ]);
 				}
 
 				if(a($load, 'discount'))
 				{
-					array_push($result[T_("General property")]['list'], ['key' => T_("Discount"), 'value' => \dash\fit::number(a($load, 'discount')). ' '. $store_currency, 'lock' => true]);
+					self::push($result, T_("General property"), ['key' => T_("Discount"), 'value' => \dash\fit::number(a($load, 'discount')). ' '. $store_currency, ]);
 				}
 			}
 
 			if(a($load, 'finalprice'))
 			{
-				array_push($result[T_("General property")]['list'], ['key' => T_("Price"), 'value' => \dash\fit::number(a($load, 'finalprice')). ' '. $store_currency, 'bold' => true, 'lock' => true]);
+				self::push($result, T_("General property"), ['key' => T_("Price"), 'value' => \dash\fit::number(a($load, 'finalprice')). ' '. $store_currency, 'bold' => true,]);
 			}
 		}
 
 
 		if(a($load, 'optionvalue1') && a($load, 'optionname1'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname1'), 'value' => \dash\fit::number(a($load, 'optionvalue1')), 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => a($load, 'optionname1'), 'value' => \dash\fit::number(a($load, 'optionvalue1')),]);
 		}
 
 		if(a($load, 'optionvalue2') && a($load, 'optionname2'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname2'), 'value' => \dash\fit::number(a($load, 'optionvalue2')), 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => a($load, 'optionname2'), 'value' => \dash\fit::number(a($load, 'optionvalue2')),]);
 		}
 
 		if(a($load, 'optionvalue3') && a($load, 'optionname3'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname3'), 'value' => \dash\fit::number(a($load, 'optionvalue3')), 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => a($load, 'optionname3'), 'value' => \dash\fit::number(a($load, 'optionvalue3')),]);
 		}
 
-		array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => a($load, 'weight'), 'lock' => false, 'field_name' => 'weight', 'placeholder' => $mass_name, 'unit' => $mass_name]);
-		array_push($result[T_("General property")]['list'], ['key' => T_("Preparation time"), 'value' => a($load, 'preparationtime'), 'lock' => false, 'field_name' => 'preparationtime', 'placeholder' => T_('Hour'), 'unit' => T_('Hour')]);
+		self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => a($load, 'weight'), 'lock' => false, 'field_name' => 'weight', 'placeholder' => $mass_name, 'unit' => $mass_name]);
+		self::push($result, T_("General property"), ['key' => T_("Preparation time"), 'value' => a($load, 'preparationtime'), 'lock' => false, 'field_name' => 'preparationtime', 'placeholder' => T_('Hour'), 'unit' => T_('Hour')]);
+
+		self::push($result, T_("General property"), ['key' => T_("Unit"), 'value' => a($load, 'unit'), 'lock' => false, 'field_name' => 'unit']);
 
 
 		$cat_list = \lib\app\tag\get::product_cat($id);
@@ -254,48 +272,48 @@ class property
 
 			if($cat_html)
 			{
-				array_push($result[T_("General property")]['list'], ['key' => T_("Tag"), 'value' => implode(T_(","). ' ' , $cat_html), 'lock' => true]);
+				self::push($result, T_("General property"), ['key' => T_("Tag"), 'value' => implode(T_(","). ' ' , $cat_html),]);
 			}
 		}
 
 
 		if(a($load, 'weight'))
 		{
-			// array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load, 'weight'))) . ' '. $mass_name, 'lock' => true]);
+			// self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load, 'weight'))) . ' '. $mass_name,]);
 		}
 		elseif(a($load_parent, 'weight'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load_parent, 'weight'))) . ' '. $mass_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load_parent, 'weight'))) . ' '. $mass_name,]);
 		}
 
 
 		if(a($load, 'length'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(a($load, 'length')) . ' '. $length_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Length"), 'value' => \dash\fit::number(a($load, 'length')) . ' '. $length_name,]);
 		}
 		elseif(a($load_parent, 'length'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Length"), 'value' => \dash\fit::number(a($load_parent, 'length')) . ' '. $length_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Length"), 'value' => \dash\fit::number(a($load_parent, 'length')) . ' '. $length_name,]);
 		}
 
 
 		if(a($load, 'width'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(a($load, 'width')) . ' '. $length_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Width"), 'value' => \dash\fit::number(a($load, 'width')) . ' '. $length_name,]);
 		}
 		elseif(a($load_parent, 'width'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Width"), 'value' => \dash\fit::number(a($load_parent, 'width')) . ' '. $length_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Width"), 'value' => \dash\fit::number(a($load_parent, 'width')) . ' '. $length_name,]);
 		}
 
 
 		if(a($load, 'height'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(a($load, 'height')) . ' '. $length_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Height"), 'value' => \dash\fit::number(a($load, 'height')) . ' '. $length_name,]);
 		}
 		elseif(a($load_parent, 'height'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Height"), 'value' => \dash\fit::number(a($load_parent, 'height')) . ' '. $length_name, 'lock' => true]);
+			self::push($result, T_("General property"), ['key' => T_("Height"), 'value' => \dash\fit::number(a($load_parent, 'height')) . ' '. $length_name,]);
 		}
 
 		$tag_list = [];
@@ -341,7 +359,7 @@ class property
 			if($tag_html)
 			{
 				$tag_html = implode(' ', $tag_html);
-				array_push($result[T_("General property")]['list'], ['key' => T_("Tag"), 'value' => $tag_html, 'lock' => true]);
+				self::push($result, T_("General property"), ['key' => T_("Tag"), 'value' => $tag_html,]);
 			}
 		}
 
@@ -358,7 +376,7 @@ class property
 				$result[$value['cat']] = ['title' => $value['cat'], 'list' => []];
 			}
 
-			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value'], 'id' => $value['id'], 'outstanding' => $value['outstanding']];
+			$result[$value['cat']]['list'][] = ['key' => $value['key'], 'value' => $value['value'], 'id' => $value['id'], 'outstanding' => $value['outstanding'], 'sortable' => true, 'lock' => false];
 
 		}
 
@@ -419,7 +437,7 @@ class property
 								{
 									$result[$value['group']] = ['title' => $value['group'], 'list' => []];
 								}
-								array_push($result[$value['group']]['list'], ['key' => $value['key'], 'value' => null, 'input' => true]);
+								self::push($result, $value['group'], ['key' => $value['key'], 'value' => null, 'input' => true, 'lock' => false, 'sortable' => true]);
 							}
 						}
 					}

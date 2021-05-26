@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\organization;
+namespace content_a\products\advance;
 
 
 class view
@@ -8,12 +8,10 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-		\dash\face::title(T_("Organization"));
+		\dash\face::title(T_("Advance"));
 
 		\dash\face::btnSave('form1');
 
-		$unit_list = \lib\app\product\unit::list();
-		\dash\data::listUnits($unit_list);
 
 		// back
 		\dash\data::back_text(T_('Back'));

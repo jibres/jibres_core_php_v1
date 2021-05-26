@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\organization;
+namespace content_a\products\advance;
 
 
 class controller

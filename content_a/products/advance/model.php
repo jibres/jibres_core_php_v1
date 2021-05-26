@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\organization;
+namespace content_a\products\advance;
 
 
 class model
@@ -11,7 +11,7 @@ class model
 
 		$post                = [];
 
-		$post['unit']        = \dash\request::post('unit') ? \dash\request::post('unit') : null;
+		// $post['unit']        = \dash\request::post('unit') ? \dash\request::post('unit') : null;
 		$post['type']        = \dash\request::post('type');
 		$post['filesize']    = \dash\request::post('filesize');
 		$post['fileaddress'] = \dash\request::post('fileaddress');

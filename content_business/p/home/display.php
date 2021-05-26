@@ -254,7 +254,7 @@ if(count($myGallery) > 1)
             <?php if(a($value, 'bold')) {?>
               <div class="txtB">
             <?php } //endif ?>
-              <?php echo $value['value']; ?>
+              <?php if(is_numeric($value['value'])){echo \dash\fit::number($value['value']);}else{echo $value['value'];}; ?>
               <?php if(a($value, 'unit')) { echo '<small class="fc-mute">'. a($value, 'unit'). '</small>';} ?>
             <?php if(a($value, 'bold')) {?>
               </div>

@@ -42,6 +42,11 @@ class model
 			$post['preparationtime'] = \dash\request::post('preparationtime');
 		}
 
+		if(\dash\request::key_exists('unit', 'POST'))
+		{
+			$post['unit'] = \dash\request::post('unit') ? \dash\request::post('unit') : null;
+		}
+
 		if(!empty($post))
 		{
 			\lib\app\product\edit::edit($post, \dash\request::get('id'));

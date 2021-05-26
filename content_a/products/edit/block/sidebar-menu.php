@@ -20,7 +20,7 @@
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo a($productDataRow,'id'); ?>">
+          <a class="item f" href="<?php echo \dash\url::this(); ?>/advance?id=<?php echo a($productDataRow,'id'); ?>">
             <i class="sf-package"></i>
             <div class="key"><?php echo T_("Advance"); ?></div>
             <div class="value"><?php ?></div>
