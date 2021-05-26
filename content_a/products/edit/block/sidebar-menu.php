@@ -61,11 +61,15 @@
       <div class="pad">
         <label for="status"><?php echo T_("Status") ?></label>
         <div>
+
           <select class="select22" name="status">
             <option value="available" <?php if(\dash\data::productDataRow_status() === 'available') {echo 'selected';} ?>><?php echo T_("available") ?></option>
             <option value="soon" <?php if(\dash\data::productDataRow_status() === 'soon') {echo 'selected';} ?>><?php echo T_("soon") ?></option>
             <option value="unavailable" <?php if(\dash\data::productDataRow_status() === 'unavailable') {echo 'selected';} ?>><?php echo T_("unavailable") ?></option>
             <option value="discountinued" <?php if(\dash\data::productDataRow_status() === 'discountinued') {echo 'selected';} ?>><?php echo T_("discountinued") ?></option>
+            <?php if(\dash\data::productDataRow_status() === 'archive') { ?>
+              <option value="archive" selected><?php echo T_("archive") ?></option>
+            <?php } //endif ?>
             <?php if(\dash\data::productDataRow_status() === 'deleted') { ?>
               <option value="deleted" selected><?php echo T_("deleted") ?></option>
             <?php } //endif ?>

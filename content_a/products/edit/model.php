@@ -76,6 +76,11 @@ class model
 			return true;
 		}
 
+		if(self::archive_product($id))
+		{
+			return true;
+		}
+
 		if(self::upload_gallery($id))
 		{
 			return false;
@@ -196,6 +201,20 @@ class model
 	}
 
 
+	private static function archive_product($_id)
+	{
+		if(\dash\request::post('archive') === 'product')
+		{
+			$result = \lib\app\product\edit::edit(['status' => 'archive'], $_id);
+			if($result)
+			{
+				\dash\redirect::to(\lib\backlink::products());
+			}
+			return true;
+		}
+
+		return false;
+	}
 
 
 	private static function delete_product($_id)
