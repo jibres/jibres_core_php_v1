@@ -92,6 +92,11 @@ class model
 			return false;
 		}
 
+		if(self::update_suggestion())
+		{
+			return false;
+		}
+
 		$result = null;
 
 
@@ -120,6 +125,23 @@ class model
 		}
 
 		// \dash\redirect::pwd();
+
+	}
+
+	private static function update_suggestion()
+	{
+		$all_post  = \dash\request::post();
+
+		if(array_key_exists('runaction_product_suggestion', $all_post))
+		{
+			$post['product_suggestion'] = \dash\request::post('product_suggestion');
+
+			\lib\app\setting\set::product_setting($post);
+			\dash\notif::clean();
+			return true;
+		}
+
+		return false;
 
 	}
 

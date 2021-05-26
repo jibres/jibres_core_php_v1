@@ -1,7 +1,9 @@
 <?php
 
-$add_html_form = isset($add_html_form); // check defined this variable
-$is_auto_send  = isset($is_auto_send) && $is_auto_send;
+$add_html_form      = isset($add_html_form); // check defined this variable
+$is_auto_send       = isset($is_auto_send) && $is_auto_send;
+$product_suggestion = isset($product_suggestion) && $product_suggestion;
+
 
 if(!isset($gallery_array) || (isset($gallery_array) && !is_array($gallery_array)))
 {
@@ -83,6 +85,9 @@ switch (a($value, 'type'))
             <div class="cauto">
               <?php if(isset($choose_gallery_link)) {?>
                 <a class="link" href="<?php echo $choose_gallery_link ?>"><?php echo T_("Choose from gallery") ?></a>
+              <?php } //endif ?>
+              <?php if($product_suggestion) {?>
+                  <div class="link" data-ajaxify data-data='{"runaction_product_suggestion" : 1, "product_suggestion": "<?php echo !$product_suggestion_status ?>"}' data-kerkere='.showProductSuggestion' ><?php echo T_("Image suggestion") ?></div>
               <?php } //endif ?>
             </div>
             <div class="c"></div>
