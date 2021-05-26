@@ -5,11 +5,6 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 ?>
 
 
-<form method="post" autocomplete="off" id="form1">
-  <div class="avand-md">
-
-
-
     <section class="box">
 
       <header><h2><?php echo T_("Inventory"); ?></h2></header>
@@ -70,8 +65,3 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 
   </section>
 
-
-</div>
-
-
-</form>

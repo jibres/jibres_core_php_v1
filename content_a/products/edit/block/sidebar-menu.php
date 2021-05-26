@@ -29,21 +29,6 @@
         </li>
 
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo a($productDataRow,'id'); ?>">
-            <?php if(\dash\data::productDataRow_trackquantity()) {?>
-            <i class="sf-exchange fc-green"></i>
-            <div class="key"><?php echo T_("Inventory"); ?></div>
-            <div class="value"><?php if($have_variant_child){ echo \dash\fit::number(floatval(\dash\data::productDataRow_stockallchild()));}else{ echo \dash\fit::number(floatval(\dash\data::productDataRow_stock()));} ?></div>
-            <?php }else{ ?>
-            <i class="sf-exchange fc-red"></i>
-            <div class="key"><?php echo T_("Inventory"); ?></div>
-            <div class="value"><?php echo T_("Not tracking"); ?></div>
-            <?php } //endif ?>
-            <div class="go"></div>
-          </a>
-        </li>
-
-        <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo a($productDataRow,'id'); ?>">
             <i class="sf-package"></i>
             <div class="key"><?php echo T_("Advance"); ?></div>

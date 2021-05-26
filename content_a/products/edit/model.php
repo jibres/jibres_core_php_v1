@@ -52,6 +52,13 @@ class model
 		$post['seodesc']   = \dash\request::post('seodesc');
 		$post['scalecode'] = \dash\request::post('scalecode');
 
+		$post['trackquantity'] = \dash\request::post('trackquantity');
+		$post['oversale']      = \dash\request::post('oversale');
+		$post['stock']         = \dash\request::post('stock');
+		$post['minstock']      = \dash\request::post('minstock');
+		$post['maxstock']      = \dash\request::post('maxstock');
+		$post['sku']           = \dash\request::post('sku');
+
 
 		return $post;
 	}

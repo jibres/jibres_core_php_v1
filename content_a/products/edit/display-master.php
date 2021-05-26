@@ -43,12 +43,22 @@
         require_once('block/gallery.php');
         if($have_variant_child)
         {
-          /*  --------------- All detail for inventroy hide when the product is parent of other product*/
+          /*  --------------- All detail for inventory hide when the product is parent of other product*/
         }
         else
         {
           require_once('block/barcode.php');
         }
+
+        if(\dash\data::productDataRow_parent())
+        {
+          require_once('block/inventory-child.php');
+        }
+        else
+        {
+          require_once('block/inventory-master.php');
+        }
+
 
         if(\dash\data::editMode())
         {
