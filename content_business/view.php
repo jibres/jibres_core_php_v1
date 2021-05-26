@@ -58,6 +58,34 @@ class view
 
 		\dash\upload\size::set_default_file_size('business');
 
+		self::customStyle();
+	}
+
+
+	private static function customStyle()
+	{
+		if(!\lib\store::enterprise())
+		{
+			return null;
+		}
+		$style = null;
+
+		switch (\lib\store::enterprise())
+		{
+			case 'rafiei':
+				$style = [
+					'enterprise/'. \lib\store::enterprise(). '/style.css'
+				];
+				break;
+
+			default:
+				break;
+		}
+		// set style
+		if($style)
+		{
+			\dash\face::css($style);
+		}
 	}
 }
 ?>
