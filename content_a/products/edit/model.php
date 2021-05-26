@@ -39,18 +39,18 @@ class model
 			$post['desc']      = \dash\request::post_html();
 		}
 
-		$post['tag']       = \dash\request::post('tag');
-		$post['buyprice']  = \dash\request::post('buyprice');
-		$post['price']     = \dash\request::post('price');
-		$post['discount']  = \dash\request::post('discount');
-		$post['vat']       = \dash\request::post('vat');
-		$post['barcode']   = \dash\request::post('barcode');
-		$post['barcode2']  = \dash\request::post('barcode2');
-		$post['status']  = \dash\request::post('status');
+		$post['tag']           = \dash\request::post('tag');
+		$post['buyprice']      = \dash\request::post('buyprice');
+		$post['price']         = \dash\request::post('price');
+		$post['discount']      = \dash\request::post('discount');
+		$post['vat']           = \dash\request::post('vat');
+		$post['barcode']       = \dash\request::post('barcode');
+		$post['barcode2']      = \dash\request::post('barcode2');
+		$post['status']        = \dash\request::post('status');
 
-		$post['slug']      = \dash\request::post('slug');
-		$post['seodesc']   = \dash\request::post('seodesc');
-		$post['scalecode'] = \dash\request::post('scalecode');
+		$post['slug']          = \dash\request::post('slug');
+		$post['seodesc']       = \dash\request::post('seodesc');
+		$post['scalecode']     = \dash\request::post('scalecode');
 
 		$post['trackquantity'] = \dash\request::post('trackquantity');
 		$post['oversale']      = \dash\request::post('oversale');
@@ -89,6 +89,12 @@ class model
 		}
 
 		if(self::upload_gallery($id))
+		{
+			return false;
+		}
+
+
+		if(self::save_barcode_setting())
 		{
 			return false;
 		}
@@ -139,6 +145,27 @@ class model
 
 		// \dash\redirect::pwd();
 
+	}
+
+
+	private static function save_barcode_setting()
+	{
+		if(\dash\request::post('set_barcodesetting') === 'save')
+		{
+			$post =
+			[
+				'barcode' =>  \lib\store::detail('barcode') ? 0 : 1, // toggle barcode
+				'scale'   => 1, // \dash\request::post('scale')
+			];
+
+			\lib\app\setting\setup::save_pos($post);
+
+			\dash\notif::clean();
+
+			return true;
+		}
+
+		return false;
 	}
 
 	private static function update_suggestion()
