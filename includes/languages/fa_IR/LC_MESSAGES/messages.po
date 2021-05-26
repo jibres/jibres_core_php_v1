@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-05-26 15:34+0430\n"
-"PO-Revision-Date: 2021-05-26 15:42+0430\n"
+"POT-Creation-Date: 2021-05-26 16:06+0430\n"
+"PO-Revision-Date: 2021-05-26 16:07+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4449,7 +4449,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/menu/roster/view.php:15 content_a/setting/menu/setting/view.php:14
 #: content_a/setting/menu/view.php:13 content_a/setting/payment/bank/view.php:11
 #: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
-#: content_a/setting/place/inventory/view.php:10 content_a/setting/pos/pos/view.php:11
+#: content_a/setting/place/inventory/view.php:10
 #: content_a/setting/product/preparationtime/view.php:11
 #: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
@@ -5429,14 +5429,14 @@ msgid "Make copy from accounting document"
 msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
 #: content_a/accounting/doc/edit/model.php:147
-#: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:312
+#: content_a/accounting/irvat/edit/model.php:119 content_a/products/edit/model.php:339
 #: content_cms/files/add/model.php:35 content_cms/files/remove/model.php:32
 #: content_cms/posts/edit/model.php:144 content_love/files/remove/model.php:32
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
 #: content_a/accounting/doc/edit/model.php:166
-#: content_a/accounting/irvat/edit/model.php:95 content_a/products/edit/model.php:328
+#: content_a/accounting/irvat/edit/model.php:95 content_a/products/edit/model.php:355
 #: content_cms/posts/edit/model.php:106 lib/app/staticfile/remove.php:37
 msgid "File removed"
 msgstr "فایل حذف شد"
@@ -5451,7 +5451,7 @@ msgstr "سند حسابداری شماره"
 msgid "Closing Document"
 msgstr "بستن اسناد"
 
-#: content_a/accounting/doc/edit/view.php:33 content_a/setting/product/display.php:132
+#: content_a/accounting/doc/edit/view.php:33 content_a/setting/product/display.php:110
 #: content_su/update/display.php:14 includes/languages/trans_static.php:594
 #: lib/app/domains/filter.php:53 lib/app/domains/filter.php:54
 #: lib/app/domains/filter.php:55
@@ -9439,24 +9439,28 @@ msgstr "یک نسخه کپی از این محصول ایجاد کنید"
 msgid "Make copy of product"
 msgstr "یک نسخه کپی از محصول ایجاد کنید"
 
-#: content_a/products/edit/block/barcode.php:10 lib/app/product/filter.php:113
+#: content_a/products/edit/block/barcode.php:3
+msgid "Enable barcode"
+msgstr "فعال سازی بارکد"
+
+#: content_a/products/edit/block/barcode.php:7 lib/app/product/filter.php:113
 #: lib/app/product/filter.php:122 lib/app/product/site_list.php:143
 msgid "Barcode"
 msgstr "بارکد"
 
-#: content_a/products/edit/block/barcode.php:12
+#: content_a/products/edit/block/barcode.php:9
 msgid "Scan Barcode here..."
 msgstr "بارکد را اسکن کنید..."
 
-#: content_a/products/edit/block/barcode.php:20 includes/languages/trans_static.php:567
+#: content_a/products/edit/block/barcode.php:17 includes/languages/trans_static.php:567
 msgid "Barcode2"
 msgstr "ایران بارکد"
 
-#: content_a/products/edit/block/barcode.php:22
+#: content_a/products/edit/block/barcode.php:19
 msgid "Scan Barcode2 here..."
 msgstr "ایران بارکد را اسکن کنید..."
 
-#: content_a/products/edit/block/barcode.php:35
+#: content_a/products/edit/block/barcode.php:30
 msgid "Code on scale"
 msgstr "کد تعریف شده روی ترازو"
 
@@ -9662,7 +9666,7 @@ msgstr "آرشیو کردن محصول"
 msgid "Delete product"
 msgstr "حذف محصول"
 
-#: content_a/products/edit/model.php:339 content_b1/product/gallery/thumb/model.php:26
+#: content_a/products/edit/model.php:366 content_b1/product/gallery/thumb/model.php:26
 msgid "Product thumb set"
 msgstr "تصویر شاخص محصول تنظیم شد"
 
@@ -10750,7 +10754,7 @@ msgstr "افزودن کارتخوان جدید"
 msgid "Add fund"
 msgstr "افزودن صندوق"
 
-#: content_a/setting/fund/view.php:8 content_a/setting/pos/display.php:11
+#: content_a/setting/fund/view.php:8 content_a/setting/pos/display.php:6
 msgid "Fund"
 msgstr "صندوق"
 
@@ -10823,8 +10827,7 @@ msgstr "لطفا یک گزینه را انتخاب کنید"
 msgid "Language"
 msgstr "زبان"
 
-#: content_a/setting/general/nosale/display.php:15
-#: content_a/setting/product/display.php:109 content_account/address.php:58
+#: content_a/setting/general/nosale/display.php:15 content_account/address.php:58
 #: content_crm/member/transactions/plus/display.php:35
 #: content_crm/ticket/view/display.php:225 content_crm/transactions/detail/display.php:60
 #: content_crm/transactions/edit/display.php:37
@@ -10840,8 +10843,7 @@ msgstr "زبان"
 msgid "Yes"
 msgstr "بله"
 
-#: content_a/setting/general/nosale/display.php:15
-#: content_a/setting/product/display.php:109 content_account/address.php:58
+#: content_a/setting/general/nosale/display.php:15 content_account/address.php:58
 #: content_crm/member/transactions/plus/display.php:35
 #: content_crm/ticket/view/display.php:225 content_crm/transactions/detail/display.php:60
 #: content_crm/transactions/edit/display.php:37
@@ -11612,17 +11614,9 @@ msgstr "نوع نامعتبر"
 msgid "Place setting"
 msgstr "تنظیمات موقعیت‌ها"
 
-#: content_a/setting/pos/display.php:9
+#: content_a/setting/pos/display.php:5
 msgid "PC-POS setting"
 msgstr "تنظیمات دستگاه کارتخوان"
-
-#: content_a/setting/pos/display.php:10
-msgid "POS setting"
-msgstr "تنظیمات دستگاه کارتخوان"
-
-#: content_a/setting/pos/pos/view.php:9 content_a/setup/pos/view.php:9
-msgid "Point of sale hardwares"
-msgstr "سخت‌افزارهای صندوق فروشگاهی"
 
 #: content_a/setting/product/display.php:19 content_a/setting/product/tag/display.php:6
 #: content_a/setting/product/tag/view.php:8
@@ -11642,41 +11636,33 @@ msgstr "متن ثابت پیش‌فرض در صفحه نمایش محصول"
 msgid "Set"
 msgstr "تنظیم"
 
-#: content_a/setting/product/display.php:97
-msgid "The tracking option"
-msgstr "تنظیمات رهگیری محصول"
-
-#: content_a/setting/product/display.php:99
-msgid "Is the tracking inventory value on or off when adding a new product?"
-msgstr "آیا مقدار پیش‌فرض «رهگیری موجودی»‌ در هنگام افزودن محصول جدید روشن باشد یا خاموش؟"
-
-#: content_a/setting/product/display.php:120
+#: content_a/setting/product/display.php:98
 msgid "Product comments"
 msgstr "نظرات مشتریان در مورد محصول"
 
-#: content_a/setting/product/display.php:122
+#: content_a/setting/product/display.php:100
 msgid "Is it possible to receive comment from customers for each product?"
 msgstr ""
 "آیا می‌خواهید امکان دریافت نظرات مشتریان در صفحه هر محصول در وب‌سایت وجود داشته باشد؟"
 
-#: content_a/setting/product/display.php:132 content_cms/posts/advance/display.php:138
+#: content_a/setting/product/display.php:110 content_cms/posts/advance/display.php:138
 #: includes/languages/trans_static.php:542
 msgid "Open"
 msgstr "باز"
 
-#: content_a/setting/product/display.php:146
+#: content_a/setting/product/display.php:124
 msgid "Image ratio"
 msgstr "نسبت تصویر"
 
-#: content_a/setting/product/display.php:148
+#: content_a/setting/product/display.php:126
 msgid "Set default image ratio"
 msgstr "تنظیم نسبت تصویر پیش‌فرض"
 
-#: content_a/setting/product/display.php:167 content_a/setting/product/display.php:175
+#: content_a/setting/product/display.php:145 content_a/setting/product/display.php:153
 msgid "Set Preparation time"
 msgstr "تنظیم زمان آماده سازی"
 
-#: content_a/setting/product/display.php:169
+#: content_a/setting/product/display.php:147
 #: content_a/setting/product/preparationtime/display.php:8
 msgid ""
 "If it takes time for your product to be ready and can be sent to the customer, enter "
@@ -12607,6 +12593,10 @@ msgstr ""
 #: content_a/setup/pos/display.php:24
 msgid "Have scale with label printer?"
 msgstr "آیا ترازوی لیبل پرینتر دارید؟"
+
+#: content_a/setup/pos/view.php:9
+msgid "Point of sale hardwares"
+msgstr "سخت‌افزارهای صندوق فروشگاهی"
 
 #: content_a/setup/units/display.php:6
 msgid "Please choose your store default units."
@@ -36588,39 +36578,39 @@ msgstr "واحد‌های بیزینس"
 msgid "CMS setting saved"
 msgstr "تنظیمات سیستم مدیریت محتوا ذخیره شد"
 
-#: lib/app/setting/set.php:62
+#: lib/app/setting/set.php:61
 msgid "Product setting saved"
 msgstr "تنظیمات محصولات ذخیره شدند"
 
-#: lib/app/setting/set.php:91
+#: lib/app/setting/set.php:90
 msgid "Accounting setting saved"
 msgstr "تنظیمات حسابداری ذخیره شدند"
 
-#: lib/app/setting/set.php:116
+#: lib/app/setting/set.php:115
 msgid "SMS setting saved"
 msgstr "تنظیمات پیام کوتاه ذخیره شد"
 
-#: lib/app/setting/set.php:165 lib/app/setting/set.php:190
+#: lib/app/setting/set.php:164 lib/app/setting/set.php:189
 msgid "Telegram setting saved"
 msgstr "تنظیمات تلگرام ذخیره شد"
 
-#: lib/app/setting/set.php:218
+#: lib/app/setting/set.php:217
 msgid "Cart setting saved"
 msgstr "تنظیمات سبد خرید ذخیره شد"
 
-#: lib/app/setting/set.php:257
+#: lib/app/setting/set.php:256
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:324
+#: lib/app/setting/set.php:323
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:344
+#: lib/app/setting/set.php:343
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
-#: lib/app/setting/set.php:402
+#: lib/app/setting/set.php:401
 msgid ""
 "You already use from another s3 platform. To active this service please disable all "
 "other S3 service first"
@@ -36628,14 +36618,14 @@ msgstr ""
 "شما هم‌اکنون از یک پلتفرم فضای ابری دیگری استفاده می‌کنید. برای فعال کردن این سرویس لطفا "
 "ابتدا همه سرویس‌های فضای ابری دیگر را غیر فعال کنید"
 
-#: lib/app/setting/set.php:450
+#: lib/app/setting/set.php:449
 msgid ""
 "We can not connect to S3 service by this variable. This setting automatically disabled"
 msgstr ""
 "ما نتوانستیم به پلتفرم S3 با مقادیر وارد شده متصل شویم. وضعیت اتصال به صورت خودکار "
 "غیرفعال خواهد شد"
 
-#: lib/app/setting/set.php:461
+#: lib/app/setting/set.php:460
 msgid ""
 "The connection was successfully tested <br> From now on, all files uploaded to your "
 "service will be stored in this cloud service provider"
@@ -36643,7 +36633,7 @@ msgstr ""
 "اتصال با موفقیت آزمایش شد <br> از این پس، تمام پرونده‌های بارگذاری شده در سرویس شما، در "
 "زیرساخت این ارائه دهنده خدمات فضای ابری ذخیره می‌شوند"
 
-#: lib/app/setting/set.php:473
+#: lib/app/setting/set.php:472
 msgid "Upload provider setting saved"
 msgstr "تنظیمات سرویس ارائه دهنده خدمات ابری ذخیره شد"
 
@@ -39453,6 +39443,16 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "POS setting"
+#~ msgstr "تنظیمات دستگاه کارتخوان"
+
+#~ msgid "The tracking option"
+#~ msgstr "تنظیمات رهگیری محصول"
+
+#~ msgid "Is the tracking inventory value on or off when adding a new product?"
+#~ msgstr ""
+#~ "آیا مقدار پیش‌فرض «رهگیری موجودی»‌ در هنگام افزودن محصول جدید روشن باشد یا خاموش؟"
+
 #~ msgid "Not tracking"
 #~ msgstr "بدون رهگیری"
 
@@ -42105,9 +42105,6 @@ msgstr "یارد"
 
 #~ msgid "Non"
 #~ msgstr "هیچ"
-
-#~ msgid "Have barcode"
-#~ msgstr "دارای بارکد"
 
 #~ msgid "Just code"
 #~ msgstr "فقط دارای کد"
