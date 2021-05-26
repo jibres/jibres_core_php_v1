@@ -44,7 +44,6 @@ class set
 			'variant_product'    => 'bit',
 			'defaulttracking'    => 'bit',
 			'ratio'              => \lib\ratio::check_input(),
-			'share_text'         => 'desc',
 			'view_text'          => 'desc',
 			'preparationtime'    => 'smallint',
 			'product_suggestion' => 'bit',
