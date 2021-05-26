@@ -57,7 +57,7 @@ class model
 		$post['stock']         = \dash\request::post('stock');
 		$post['minstock']      = \dash\request::post('minstock');
 		$post['maxstock']      = \dash\request::post('maxstock');
-		$post['sku']           = \dash\request::post('sku');
+
 
 
 		return $post;

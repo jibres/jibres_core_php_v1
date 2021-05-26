@@ -47,6 +47,11 @@ class model
 			$post['unit'] = \dash\request::post('unit') ? \dash\request::post('unit') : null;
 		}
 
+		if(\dash\request::key_exists('sku', 'POST'))
+		{
+			$post['sku'] = \dash\request::post('sku');
+		}
+
 		if(!empty($post))
 		{
 			\lib\app\product\edit::edit($post, \dash\request::get('id'));
@@ -104,7 +109,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\notif::ok(T_("Saved"));
+			// \dash\notif::ok(T_("Saved"));
 			\dash\redirect::pwd();
 		}
 	}
