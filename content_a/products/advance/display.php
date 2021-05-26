@@ -14,7 +14,7 @@ require_once(root. 'content_a/products/productName.php');
 
 
   <div class="box">
-    <header><h2><?php echo T_("Organization") ?></h2></header>
+    <header><h2><?php echo T_("Advance") ?></h2></header>
     <div class="pad">
       <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
       <div class="row mB5">
@@ -41,29 +41,9 @@ require_once(root. 'content_a/products/productName.php');
 
       </div>
     <?php } //endif ?>
-      <div class="mB10">
-        <div class="row align-center">
-          <div class="c"><label for='unit'><?php echo T_("Unit"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/units"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-        </div>
-        <select name="unit" id="unit" class="select22" data-model='tag' data-placeholder='<?php echo T_("like Qty, kg, etc"); ?>' <?php if(\dash\data::productDataRow_parent()) echo 'disabled'; ?> >
-            <option value=""><?php echo T_("like Qty, kg, etc"); ?></option>
-          <?php if(\dash\data::productDataRow_unit_id()) {?>
-            <option value="0"><?php echo T_("Without unit"); ?></option>
-          <?php } //endif ?>
-<?php foreach (\dash\data::listUnits() as $key => $value) {?>
-            <option value="<?php echo $value['title']; ?>" <?php if($value['id'] == \dash\data::productDataRow_unit_id()) { echo 'selected'; } ?> ><?php echo $value['title']; ?></option>
-<?php } //endfor ?>
-        </select>
-      </div>
-    </div>
-  </div>
 
   <?php if(!$have_variant_child) {?>
 
-  <section class="box">
-        <header><h2><?php echo T_("Cart limit"); ?></h2></header>
-        <div class="body">
           <div data-response='type' data-response-where='file' <?php if(\dash\data::productDataRow_type() == 'file'){}else{echo 'data-response-hide';} ?>>
             <label for="iFileSize"><?php echo T_("File Size"); ?></label>
             <div class="input">
