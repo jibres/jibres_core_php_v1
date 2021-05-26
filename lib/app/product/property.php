@@ -199,6 +199,8 @@ class property
 			array_push($result[T_("General property")]['list'], ['key' => a($load, 'optionname3'), 'value' => \dash\fit::number(a($load, 'optionvalue3')), 'lock' => true]);
 		}
 
+		array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => a($load, 'weight'), 'lock' => false, 'field_name' => 'weight', 'placeholder' => $mass_name, 'unit' => $mass_name]);
+		array_push($result[T_("General property")]['list'], ['key' => T_("Preparation time"), 'value' => a($load, 'preparationtime'), 'lock' => false, 'field_name' => 'preparationtime', 'placeholder' => T_('Hour'), 'unit' => T_('Hour')]);
 
 
 		$cat_list = \lib\app\tag\get::product_cat($id);
@@ -259,7 +261,7 @@ class property
 
 		if(a($load, 'weight'))
 		{
-			array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load, 'weight'))) . ' '. $mass_name, 'lock' => true]);
+			// array_push($result[T_("General property")]['list'], ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load, 'weight'))) . ' '. $mass_name, 'lock' => true]);
 		}
 		elseif(a($load_parent, 'weight'))
 		{

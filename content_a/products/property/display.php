@@ -15,12 +15,13 @@ require_once(root. 'content_a/products/productName.php');
     </li>
   </ul>
 </nav>
+
 <?php
   if(\dash\data::propertyList())
   {
     $have_any_id = false;
     ?>
-    <form method="post" id="form1" data-patch>
+    <form method="post" id="form1" data-patch autocomplete="off">
           <?php $i=0; $XI = 1; foreach (\dash\data::propertyList() as $property => $cat) { $i++; ?>
             <div class="msg info2">
               <?php if($i === 1) {echo '<div class="font-14">'. $cat['title']. '</div>';}else{ ?>
@@ -50,12 +51,14 @@ require_once(root. 'content_a/products/productName.php');
                         <?php if(a($value, 'link')) { ?>
                           <a href="<?php echo a($value, 'link') ?>"><?php echo $value['value']; ?></a>
                         <?php }elseif(a($value, 'lock')){ echo $value['value']; }else{ ?>
-                          <input type="hidden" name="tid_<?php echo $XI; ?>" value="<?php echo $XI; ?>">
-                          <input type="hidden" name="rid_<?php echo $XI; ?>" value="<?php echo a($value, 'id') ?>">
-                          <input type="hidden" name="cat_<?php echo $XI; ?>" value="<?php echo a($cat, 'title') ?>">
-                          <input type="hidden" name="key_<?php echo $XI; ?>" value="<?php echo a($value, 'key') ?>">
+                          <?php if(!a($value, 'field_name')) {?>
+                            <input type="hidden" name="tid_<?php echo $XI; ?>" value="<?php echo $XI; ?>">
+                            <input type="hidden" name="rid_<?php echo $XI; ?>" value="<?php echo a($value, 'id') ?>">
+                            <input type="hidden" name="cat_<?php echo $XI; ?>" value="<?php echo a($cat, 'title') ?>">
+                            <input type="hidden" name="key_<?php echo $XI; ?>" value="<?php echo a($value, 'key') ?>">
+                          <?php } //endif ?>
                           <div class="input">
-                            <input type="text" name="val_<?php echo $XI; ?>" value="<?php echo $value['value'] ?>">
+                            <input type="text" name="<?php if(a($value, 'field_name')){ echo a($value, 'field_name');}else{echo 'val_'. $XI;} ?>" <?php if(a($value, 'placeholder')) { echo "placeholder='". a($value, 'placeholder'). "'";} ?> value="<?php echo $value['value'] ?>">
                             <button class="hide addon btn"><i class="sf-save"></i></button>
                           </div>
                         <?php } //endif ?>

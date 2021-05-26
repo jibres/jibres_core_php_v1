@@ -236,6 +236,7 @@ if(count($myGallery) > 1)
     </nav>
   </div>
 
+
 <?php if(\dash\data::propertyList()) { ?>
   <div class="box productInfo">
     <table class="tbl1 responsive v5">
@@ -254,6 +255,7 @@ if(count($myGallery) > 1)
               <div class="txtB">
             <?php } //endif ?>
               <?php echo $value['value']; ?>
+              <?php if(a($value, 'unit')) { echo '<small class="fc-mute">'. a($value, 'unit'). '</small>';} ?>
             <?php if(a($value, 'bold')) {?>
               </div>
             <?php } //endif ?>

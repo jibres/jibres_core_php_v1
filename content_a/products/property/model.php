@@ -30,6 +30,25 @@ class model
 			return;
 		}
 
+		$post = [];
+
+		if(\dash\request::key_exists('weight', 'POST'))
+		{
+			$post['weight'] = \dash\request::post('weight');
+		}
+
+		if(\dash\request::key_exists('preparationtime', 'POST'))
+		{
+			$post['preparationtime'] = \dash\request::post('preparationtime');
+		}
+
+		if(!empty($post))
+		{
+			\lib\app\product\edit::edit($post, \dash\request::get('id'));
+			\dash\notif::clean();
+		}
+
+
 		$post = \dash\request::post();
 		$multiproperty = [];
 		foreach ($post as $key => $value)
