@@ -46,6 +46,7 @@ class model
 		$post['vat']       = \dash\request::post('vat');
 		$post['barcode']   = \dash\request::post('barcode');
 		$post['barcode2']  = \dash\request::post('barcode2');
+		$post['status']  = \dash\request::post('status');
 
 		$post['slug']      = \dash\request::post('slug');
 		$post['seodesc']   = \dash\request::post('seodesc');

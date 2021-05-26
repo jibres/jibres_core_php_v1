@@ -46,24 +46,34 @@
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/organization?id=<?php echo a($productDataRow,'id'); ?>">
             <i class="sf-package"></i>
-            <div class="key"><?php echo T_("Organize"); ?></div>
-            <div class="value"><?php echo T_("Type, vendor, tags"); ?></div>
+            <div class="key"><?php echo T_("Advance"); ?></div>
+            <div class="value"><?php ?></div>
             <div class="go"></div>
           </a>
         </li>
 
 
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
-            <i class="sf-plug"></i>
-            <div class="key"><?php echo T_("Status"); ?></div>
-            <div class="value"><?php echo T_(\dash\data::productDataRow_status()); ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
 
       </ul>
     </nav>
+
+    <div class="box">
+      <div class="pad">
+        <label for="status"><?php echo T_("Status") ?></label>
+        <div>
+          <select class="select22" name="status">
+            <option value="available" <?php if(\dash\data::productDataRow_status() === 'available') {echo 'selected';} ?>><?php echo T_("available") ?></option>
+            <option value="soon" <?php if(\dash\data::productDataRow_status() === 'soon') {echo 'selected';} ?>><?php echo T_("soon") ?></option>
+            <option value="unavailable" <?php if(\dash\data::productDataRow_status() === 'unavailable') {echo 'selected';} ?>><?php echo T_("unavailable") ?></option>
+            <option value="discountinued" <?php if(\dash\data::productDataRow_status() === 'discountinued') {echo 'selected';} ?>><?php echo T_("discountinued") ?></option>
+            <?php if(\dash\data::productDataRow_status() === 'deleted') { ?>
+              <option value="deleted" selected><?php echo T_("deleted") ?></option>
+            <?php } //endif ?>
+          </select>
+        </div>
+      </div>
+    </div>
+
 
     <nav class="items long">
       <ul>
