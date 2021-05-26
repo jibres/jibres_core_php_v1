@@ -23,9 +23,10 @@ class find
 			return false;
 		}
 
-		$content_n = \dash\url::content() === 'n';
+		$load_in_n_module = \dash\engine\content::is('business') && \dash\url::module() === 'n' && \dash\url::child() && !\dash\url::subchild();
 
-		if($content_n)
+
+		if($load_in_n_module)
 		{
 			$dataRow = self::load_by_id();
 		}
@@ -78,7 +79,7 @@ class find
 			return false;
 		}
 
-		if($content_n && isset($dataRow['url']) && $dataRow['url'] && isset($dataRow['link']))
+		if($load_in_n_module && isset($dataRow['url']) && $dataRow['url'] && isset($dataRow['link']))
 		{
 			if($preview)
 			{
@@ -161,24 +162,10 @@ class find
 
 	private static function load_by_id()
 	{
-
-		$load_post = \dash\app\posts\get::get(\dash\url::module());
-
+		$load_post = \dash\app\posts\get::get(\dash\url::child());
 		if(!$load_post)
 		{
 			return false;
-		}
-
-		if(\dash\url::child())
-		{
-			if(isset($load_post['slug']) && $load_post['slug'] === \dash\url::child())
-			{
-				// ok. nothing
-			}
-			else
-			{
-				\dash\header::status(404, T_("Invalid slug of post"));
-			}
 		}
 
 		return $load_post;

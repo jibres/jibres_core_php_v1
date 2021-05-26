@@ -1,5 +1,5 @@
 <?php
-namespace content_n\home;
+namespace content_business\n;
 
 class view
 {

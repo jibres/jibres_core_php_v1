@@ -69,7 +69,7 @@ class business
 	public static function check_website()
 	{
 
-		if(!in_array(\dash\engine\content::get(), ['content_business', 'content_n']))
+		if(!\dash\engine\content::is('content_business'))
 		{
 			return false;
 		}

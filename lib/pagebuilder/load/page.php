@@ -68,8 +68,6 @@ class page
 
 		$homepage_id                  = \lib\pagebuilder\tools\homepage::id();
 
-
-
 		// load a post by display of content_n
 		if(\dash\engine\template::$finded_template)
 		{
@@ -86,9 +84,9 @@ class page
 				$need_homepage_header_footer = true;
 			}
 		}
-		elseif(\dash\engine\content::is('n') && \dash\temp::get('inContentNHomeController'))
+		elseif(\dash\temp::get('inContentNHomeController'))
 		{
-			$page_id = \dash\url::module();
+			$page_id = \dash\url::child();
 
 			// ok
 			$page_id = \dash\coding::decode($page_id);

@@ -1,5 +1,5 @@
 <?php
-namespace content_n\home;
+namespace content_business\n;
 
 class controller
 {
@@ -15,6 +15,7 @@ class controller
 		}
 
 		$load = \dash\app\posts\find::post();
+
 
 		if(!$load)
 		{

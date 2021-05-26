@@ -23,7 +23,6 @@ class content
 			'hook',
 			'love',
 			'my',
-			'n',
 			'pay',
 			'r10',
 			'su',

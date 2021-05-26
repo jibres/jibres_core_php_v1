@@ -118,23 +118,6 @@ class find
 				// jibres homepage webiste
 				$myHeader = root.'content/home/layout/header.php';
 			}
-			elseif($myContent === 'content_n')
-			{
-				if(\dash\layout\business::have_header())
-				{
-					$myHeader = root. 'lib/pagebuilder/load/header.php';
-				}
-				elseif(\dash\engine\store::inStore())
-				{
-					// subdomain of stores
-					$myHeader = root.'content_business/home/layout/header.php';
-				}
-				else
-				{
-					// jibres homepage webiste
-					$myHeader = root.'content/home/layout/header.php';
-				}
-			}
 			elseif($myContent === 'content_business')
 			{
 				if(\dash\layout\business::have_header())
@@ -192,24 +175,6 @@ class find
 			{
 				// jibres homepage webiste
 				$myFooter = root.'content/home/layout/footer.php';
-			}
-			elseif($myContent === 'content_n')
-			{
-				if(\dash\layout\business::have_footer())
-				{
-					$myFooter = root. 'lib/pagebuilder/load/footer.php';
-				}
-				elseif(\dash\engine\store::inStore())
-				{
-					// subdomain of stores
-					$myFooter = root.'content_business/home/layout/footer.php';
-				}
-				else
-				{
-					// jibres homepage webiste
-					$myFooter = root.'content/home/layout/footer.php';
-				}
-
 			}
 			elseif($myContent === 'content_business')
 			{
