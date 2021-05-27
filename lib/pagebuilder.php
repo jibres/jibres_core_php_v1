@@ -19,7 +19,7 @@ class pagebuilder
 	}
 
 
-	public static function menu($_key, $_class = null)
+	public static function menu($_key, $_args = null)
 	{
 		if(strpos($_key, 'header') !== false)
 		{
@@ -34,7 +34,7 @@ class pagebuilder
 
 		if(is_numeric($menu_id))
 		{
-			return \lib\app\menu\generate2::menu($menu_id, $_class);
+			return \lib\app\menu\generate2::menu($menu_id, $_args);
 		}
 		return null;
 

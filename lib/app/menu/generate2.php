@@ -86,8 +86,13 @@ class generate2
 	}
 
 
+    /**
+     * see wp args
+     * https://developer.wordpress.org/reference/functions/wp_nav_menu/
+     * @var array
+     */
     private static $loaded_menu = [];
-    public static function menu($_menu_id, $_class = null)
+    public static function menu($_menu_id, $_args = null)
     {
 
         $result = '';
@@ -112,13 +117,13 @@ class generate2
         }
 
         $result .= '<nav';
-        if($_class)
+        if(isset($_args['container_class']))
         {
-            $result .= ' class="'. $_class. '"';
+            $result .= ' class="'. $_args['container_class']. '"';
         }
         $result .= '>';
         // loop to create list item
-        $result .= self::menuLi($load_menu['list'], 1);
+        $result .= self::menuLi($load_menu['list'], $_args,  1);
 
         $result .= '</nav>';
 
@@ -126,22 +131,35 @@ class generate2
         return $result;
     }
 
-    private static function menuLi($_list, $_layer)
+    private static function menuLi($_list, $_args, $_layer)
     {
         if($_layer > 5)
         {
             return null;
         }
         $menuLi = '';
-        $menuLi .= '<ul>';
+        $menuLi .= '<ul';
+        if($_layer === 1 && isset($_args['menu_class']))
+        {
+            $menuLi .= ' class="'. $_args['menu_class']. '"';
+        }
+        $menuLi .= '>';
         foreach ($_list as $myLiData)
         {
-            $menuLi .= '<li data-test='. a($myLiData, 'id'). '>';
+            // $menuLi .= '<li data-test='. a($myLiData, 'id'). '>';
+            $menuLi .= '<li';
+            if(isset($_args['item_class']))
             {
-                $menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'));
+                $menuLi .= ' class="'. $_args['item_class']. '"';
+            }
+            $menuLi .= ' data-test='. a($myLiData, 'id');
+            $menuLi .= '>';
+            // item_class
+            {
+                $menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), $_args);
                 if(isset($myLiData['child']) && count($myLiData['child']))
                 {
-                    $menuLi .= self::menuLi($myLiData['child'], $_layer + 1);
+                    $menuLi .= self::menuLi($myLiData['child'], $_args, $_layer + 1);
                 }
             }
             $menuLi .= '</li>';
@@ -150,9 +168,13 @@ class generate2
         return $menuLi;
     }
 
-    private static function menuLink($_text, $_link = null, $_target = null)
+    private static function menuLink($_text, $_link = null, $_target = null, $_args = null)
     {
         $menuLinkEl = '<a';
+        if(isset($_args['link_class']))
+        {
+            $menuLinkEl .= ' class="'. $_args['link_class']. '"';
+        }
         if($_target)
         {
             $menuLinkEl .= ' target="_blank"';
