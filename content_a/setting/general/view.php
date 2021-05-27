@@ -9,6 +9,10 @@ class view
 
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::this());
+
+		\dash\data::currencyList(\lib\currency::list());
+		\dash\data::massList(\lib\units::mass());
+		\dash\data::lengthList(\lib\units::length());
 	}
 }
 ?>

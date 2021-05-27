@@ -475,5 +475,32 @@ class set
 
 	}
 
+
+
+	public static function set_units($_args)
+	{
+		$condition =
+		[
+			'currency'    => ['enum' => array_keys(\lib\currency::list())],
+			'length_unit' => ['enum' => array_keys(\lib\units::length())],
+			'mass_unit'   => ['enum' => array_keys(\lib\units::mass())],
+		];
+
+		$require = [];
+
+		$meta =	['field_title' => ['length_unit' => T_("Length unit"), 'mass_unit' => T_("Mass unit")]];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$cat  = 'store_setting';
+
+		foreach ($data as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		return true;
+	}
+
 }
 ?>

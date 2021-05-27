@@ -9,6 +9,29 @@ class model
 
 		$post = [];
 
+		$unit                = [];
+
+		if(\dash\request::post('set_currency'))
+		{
+			$unit['currency']    = \dash\request::post('currency');
+		}
+
+		if(\dash\request::post('set_mass'))
+		{
+			$unit['mass_unit']   = \dash\request::post('mass_unit');
+		}
+
+		if(\dash\request::post('set_length'))
+		{
+			$unit['length_unit'] = \dash\request::post('length_unit');
+		}
+
+
+		if(!empty($unit))
+		{
+			\lib\app\setting\set::set_units($unit);
+		}
+
 
 		if(\dash\request::post('set_lang'))
 		{
@@ -35,13 +58,11 @@ class model
 			$post['entersignupdisallow'] = \dash\request::post('entersignupdisallow') ? null : 1;
 		}
 
-		if(empty($post))
+		if(!empty($post))
 		{
-			\dash\notif::error(T_("Invalid request"));
-			return false;
+			\lib\app\store\edit::selfedit($post);
 		}
 
-		\lib\app\store\edit::selfedit($post);
 
 		\dash\redirect::pwd();
 	}
