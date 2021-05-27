@@ -53,7 +53,8 @@ class model
 
 		if(\dash\request::post('removedomain') === 'removedomain')
 		{
-			$result = \lib\app\business_domain\remove::remove(\dash\data::dataRow_id());
+
+			$result = \lib\app\business_domain\remove::remove_full(\dash\data::dataRow_id());
 			// if(\dash\engine\process::status())
 			{
 				\dash\redirect::to(\dash\url::that());
