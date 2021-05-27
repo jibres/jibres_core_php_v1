@@ -8,12 +8,16 @@ $storeData = \dash\data::store_store_data();
     <div class="data">
       <h3><?php echo T_("Business Title");?></h3>
       <div class="body">
+        <p class="txtB"><?php echo a($storeData, 'title') ?></p>
+        <?php if(a($storeData, 'shorttitle')) {?><small><?php echo a($storeData, 'shorttitle') ?></small><?php }//endif ?>
+        <p class="fc-mute"><?php echo a($storeData, 'desc') ?></p>
+
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/title' ?>"><?php echo T_("Business title") ?></a>
+      <a class="btn primary" href="<?php echo \dash\url::that(). '/title' ?>"><?php echo T_("Edit title") ?></a>
     </div>
   </form>
 </section>
