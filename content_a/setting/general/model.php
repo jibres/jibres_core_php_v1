@@ -6,9 +6,14 @@ class model
 {
 	public static function post()
 	{
-		$post               = [];
 
 		$post = [];
+
+		if(\dash\request::post('set_nosale'))
+		{
+			$post['nosale'] = \dash\request::post('nosale');
+		}
+
 
 		if(\dash\request::post('set_enterdisallow'))
 		{

@@ -20,13 +20,6 @@
     </nav>
 
 
-     <nav class="items">
-      <ul>
-        <li><a class="f" href="<?php echo \dash\url::that(); ?>/nosale"><div class="key"><?php echo T_("No-Shopping Business"); ?></div><div class="go"></div></a></li>
-      </ul>
-    </nav>
-
-
         <nav class="items">
       <ul>
         <li><a class="f" href="<?php echo \dash\url::that(); ?>/remove"><div class="key"><?php echo T_("Remove business"); ?></div><div class="go"></div></a></li>
@@ -42,7 +35,30 @@ $storeData = \dash\data::store_store_data();
 
 ?>
 
-<section class="f" data-option='cms-comment-defualt'>
+
+
+<section class="f" data-option='setting-nosale'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Is your business not able to sell goods or services?"); ?></h3>
+      <div class="body">
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_nosale" value="1">
+      <div class="action">
+        <div class="switch1">
+          <input id="inosale" type="checkbox" name="nosale" <?php if(\dash\data::storeData_nosale()){ echo 'checked'; } ?>>
+          <label for="inosale" data-on="<?php echo T_("Yes"); ?>" data-off="<?php echo T_("No") ?>"></label>
+        </div>
+      </div>
+  </form>
+</section>
+
+
+
+<section class="f" data-option='setting-allow-enter'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Allow customer to enter in your business");?></h3>
@@ -65,7 +81,7 @@ $storeData = \dash\data::store_store_data();
 
 <div data-response='enterdisallow' <?php if(\dash\data::storeData_enterdisallow()) { echo "data-response-hide";} ?>>
 
-<section class="f" data-option='cms-comment-defualt'>
+<section class="f" data-option='setting-allow-signup'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Allow customer to signup in your business");?></h3>
