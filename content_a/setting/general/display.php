@@ -9,12 +9,6 @@
 
     <nav class="items">
       <ul>
-        <li><a class="f" href="<?php echo \dash\url::this(); ?>/general/lang"><div class="key"><?php echo T_("Business language"); ?></div><div class="go"></div></a></li>
-      </ul>
-    </nav>
-
-    <nav class="items">
-      <ul>
         <li><a class="f" href="<?php echo \dash\url::this(); ?>/units"><div class="key"><?php echo T_("Business units"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
@@ -34,6 +28,34 @@ $storeData = \dash\data::store_store_data();
 \dash\data::storeData($storeData);
 
 ?>
+
+
+
+
+  <section class="f" data-option='setting-lang'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Business language"); ?></h3>
+      <div class="body">
+        <p><?php echo T_("Please choose your business default language"); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_lang" value="1">
+      <div class="action">
+
+
+        <select name="lang" class="select22">
+          <option value=""><i><?php echo T_("Please select one item"); ?></i></option>
+          <?php foreach (\dash\language::all(true) as $key => $value) {?>
+            <option value="<?php echo $key; ?>" <?php if(a($storeData, 'lang') == $key) {echo 'selected';} ?>><?php echo $value; ?></option>
+          <?php } //endfor ?>
+        </select>
+      </div>
+  </form>
+</section>
+
 
 
 

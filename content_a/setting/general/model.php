@@ -9,6 +9,12 @@ class model
 
 		$post = [];
 
+
+		if(\dash\request::post('set_lang'))
+		{
+			$post['lang']    = \dash\request::post('lang');
+		}
+
 		if(\dash\request::post('set_nosale'))
 		{
 			$post['nosale'] = \dash\request::post('nosale');
