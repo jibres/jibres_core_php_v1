@@ -23,6 +23,7 @@ class check
 		$condition =
 		[
 			'title'                               => 'title',
+			'shorttitle'                          => 'string_20',
 			'website'                             => 'website',
 			'desc'                                => 'desc',
 			'logo'                                => 'string_300',

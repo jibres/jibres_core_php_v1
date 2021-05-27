@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Setting'). ' | '. T_('General'));
+		\dash\face::title(T_('Business title'));
 
 
 		// back
