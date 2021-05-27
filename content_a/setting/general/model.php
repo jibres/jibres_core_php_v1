@@ -7,6 +7,23 @@ class model
 	public static function post()
 	{
 
+		if(\dash\request::post('set_logo'))
+		{
+			$result = \lib\app\setting\setup::upload_logo();
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return false;
+		}
+
+		if(\dash\request::post('remove_business_logo') === 'logo')
+		{
+			\lib\app\store\edit::selfedit(['logo' => null]);
+			\dash\redirect::pwd();
+			return;
+		}
+
 		$post = [];
 
 		$unit                = [];

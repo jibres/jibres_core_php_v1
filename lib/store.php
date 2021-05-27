@@ -323,6 +323,7 @@ class store
 		if(array_key_exists('logo', $result) && !$result['logo'])
 		{
 			$result['logo'] = \dash\app::static_logo_url();
+			$result['default_logo'] = true;
 		}
 
 

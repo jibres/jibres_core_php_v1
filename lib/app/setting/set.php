@@ -492,9 +492,11 @@ class set
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
 		$cat  = 'store_setting';
 
-		foreach ($data as $key => $value)
+		foreach ($args as $key => $value)
 		{
 			\lib\app\setting\tools::update($cat, $key, $value);
 		}

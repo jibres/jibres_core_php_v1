@@ -21,17 +21,28 @@ $storeData = \dash\data::store_store_data();
 <section class="f" data-option='setting-logo'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Business Logo");?></h3>
+      <h3><?php echo T_("Your Business Logo")?></h3>
       <div class="body">
+        <p class="meta"><?php echo T_("Maximum file size"); ?> <b><?php echo \dash\data::maxFileSizeTitle(); ?></b></p>
       </div>
     </div>
   </div>
-  <form class="c4 s12" method="post" data-patch>
-    <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::this(). '/logo' ?>"><?php echo T_("Business logo") ?></a>
+  <form class="c4 s12" method="post" >
+    <input type="hidden" name="set_logo" value="1">
+    <div class="action" data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-autoSend <?php if(a($storeData, 'logo') && a($storeData,  'logo')) { echo "data-fill";}?>>
+      <input type="file" accept="image/jpeg, image/png" id="image1">
+      <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+      <?php if(a($storeData, 'logo')) {?><label for="image1"><img id="finalImage" src="<?php echo a($storeData, 'logo') ?>"></label><?php } //endif ?></label>
     </div>
   </form>
+
+  <?php if(a($storeData, 'logo') && !a($storeData, 'default_logo')) {?>
+    <footer class="txtRa">
+     <div data-confirm data-data='{"remove_business_logo": "logo"}' class="btn link fc-red"><?php echo T_("Remove logo") ?></div>
+    </footer>
+  <?php } //endif ?>
 </section>
+
 
 <section class="f" data-option='setting-currency'>
   <div class="c8 s12">
