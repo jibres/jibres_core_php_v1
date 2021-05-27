@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\general\enteraccess;
+namespace content_a\setting\general;
 
 
 class model
