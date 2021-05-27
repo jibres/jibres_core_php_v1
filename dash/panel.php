@@ -6,23 +6,23 @@ class panel
 {
 	public static function sidebar()
 	{
+		if(\dash\engine\store::inStore())
+		{
+			switch (\dash\url::content())
+			{
+				case 'a':
+				case 'crm':
+				case 'cms':
+					return self::sidebar_businsess();
+					break;
 
-		if(\dash\url::content() === 'a')
-		{
-			return self::sidebar_businsess();
-		}
-		if(\dash\url::content() === 'cms')
-		{
-			return self::sidebar_businsess();
-		}
-		if(\dash\url::content() === 'crm')
-		{
-			return self::sidebar_businsess();
+				default:
+					break;
+			}
 		}
 
 		// show jibres menu
 		return self::sidebar_jibres_primary();
-		// return [];
 	}
 
 	private static function jibresControlCenterLink()
@@ -59,6 +59,18 @@ class panel
 	private static function sidebar_jibres_primary()
 	{
 		$menu = self::jibresControlCenterLink();
+
+		if(\dash\permission::check('_group_crm'))
+		{
+			$menu[] =
+			[
+				'title'  => T_("Customers - CRM"),
+				'link'   => \dash\url::kingdom().'/crm',
+				'icon'   => 'atom',
+				'active' => (\dash\url::content()==='crm'? true :false)
+			];
+		}
+
 		$menu[] = ['seperator' => true];
 		$menu[] =
 		[
