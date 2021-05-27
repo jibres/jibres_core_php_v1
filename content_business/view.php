@@ -13,6 +13,13 @@ class view
 		{
 			\dash\face::site($store_title);
 			\dash\face::title($store_title);
+
+			$store_short_title = \lib\store::detail('shorttitle');
+			if($store_short_title && \dash\request::is_pwa())
+			{
+				\dash\face::title($store_short_title);
+			}
+
 		}
 
 		$store_desc = \lib\store::detail('desc');
