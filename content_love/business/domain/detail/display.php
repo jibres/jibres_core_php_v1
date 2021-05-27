@@ -8,6 +8,16 @@
         </div>
           <?php if(\dash\data::dataRow_store_id()) {?>
           <div class="msg info2"><?php echo T_("This domain connected to Business") ?></div>
+            <div class="msg"><code><?php echo \dash\data::storeDetail_id(); ?></code></div>
+            <div class="msg">
+
+              <span><?php echo T_("Buinsess title") ?></span>
+              <a href="<?php echo \dash\url::kingdom(). '/'. \dash\store_coding::encode(\dash\data::storeDetail_id()) ?>"><?php echo \dash\data::storeDetail_title(); ?></a>
+            </div>
+            <div class="msg">
+              <span><?php echo T_("Owner detail") ?></span>
+              <a href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. \dash\data::ownerDetail_id() ?>"><?php echo \dash\data::ownerDetail_displayname() ?></a>
+            </div>
         <?php }elseif(\dash\data::dataRow_domain_id()) {?>
           <div class="msg info2"><?php echo T_("This domain connected to Domain") ?></div>
         <?php }else{ ?>

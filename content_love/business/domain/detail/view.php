@@ -15,6 +15,25 @@ class view
 		\content_love\business\domain\load::dashboardDetail();
 
 
+		if(\dash\data::dataRow_store_id())
+		{
+			$load_store = \lib\app\store\get::data_by_id(\dash\data::dataRow_store_id());
+			\dash\data::storeDetail($load_store);
+
+			if(isset($load_store['owner']))
+			{
+				$user_id = \dash\coding::encode($load_store['owner']);
+				$user_detail = \dash\app\user::get($user_id);
+				\dash\data::ownerDetail($user_detail);
+			}
+
+
+
+
+		}
+
+
+
 	}
 }
 ?>
