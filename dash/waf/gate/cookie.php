@@ -26,10 +26,10 @@ class cookie
 			\dash\waf\gate\toys\only::text($key);
 
 			// check key len
-			\dash\waf\gate\toys\general::len($key, 1, 99);
+			\dash\waf\gate\toys\general::len($key, 1, 200);
 
 			// check value len
-			\dash\waf\gate\toys\general::len($value, 0, 500);
+			\dash\waf\gate\toys\general::len($value, 0, 5000);
 
 
 			\dash\waf\gate\toys\only::text($value);
