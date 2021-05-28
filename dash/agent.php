@@ -39,7 +39,6 @@ class agent
 				'version'  => isset($agent_detail['browser_number'])  ? addslashes($agent_detail['browser_number'])  : null,
 				'os'       => isset($agent_detail['os']) 			  ? addslashes($agent_detail['os']) 			 : null,
 				'osnum'    => isset($agent_detail['os_number']) 	  ? addslashes($agent_detail['os_number']) 		 : null,
-				'meta'     => json_encode($agent_detail),
 				'robot'    => $is_bot ? 1 : null,
 			];
 
