@@ -176,6 +176,10 @@ if(\dash\data::include_adminPanel())
     echo " data-panel";
   }
 }
+if(\dash\data::include_adminPanelBuilder())
+{
+  echo " data-siteBuilder";
+}
 if(\dash\engine\store::inStore() && \lib\store::enterprise())
 {
     echo " data-enterprise='". \lib\store::enterprise(). "'";
