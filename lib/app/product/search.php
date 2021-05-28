@@ -389,8 +389,8 @@ class search
 			self::$is_filtered = true;
 		}
 
-		$price_desc_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status NOT IN  ('deleted', 'archive') AND mSP.parent = products.id) ,products.%s) %s ";
-		$price_asc_sort  = " ORDER BY IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status NOT IN  ('deleted', 'archive') AND mSP.parent = products.id) ,products.%s) %s ";
+		$price_desc_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s) %s ";
+		$price_asc_sort  = " ORDER BY IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s) %s ";
 
 		if($data['sort'] && !$order_sort)
 		{
@@ -738,7 +738,7 @@ class search
 		$or    = [];
 		$order = null;
 
-		$and[] = " products.status NOT IN ('deleted', 'archive') ";
+		$and[] = " products.status = 'active' ";
 		// $and[] = " products.instock = 'yes'";
 		$and[] = " products.parent IS NULL ";
 
@@ -749,23 +749,22 @@ class search
 			$meta['join'][] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 		}
 
-
 		if($type === 'latestproduct')
 		{
-			$order = " products.instock ASC, products.id DESC ";
+			$order = " FIELD(products.instock, 'yes', null, 'no') DESC, products.id DESC ";
 		}
 		elseif($type === 'randomproduct')
 		{
-			$order = " products.instock ASC, RAND() ";
+			$order = " FIELD(products.instock, 'yes', null, 'no') DESC, RAND() ";
 
 		}
 		elseif($type === 'bestselling')
 		{
-			$order = " products.instock ASC, products.id ASC ";
+			$order = " FIELD(products.instock, 'yes', null, 'no') DESC, products.id ASC ";
 		}
 		else
 		{
-			$order = " products.instock ASC, products.id DESC ";
+			$order = " FIELD(products.instock, 'yes', null, 'no') DESC, products.id DESC ";
 		}
 
 		$last_product = \lib\db\products\get::website_last_product($and, $or, $order, $meta);
