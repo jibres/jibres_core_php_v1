@@ -1,0 +1,2 @@
+UPDATE jibres_XXXXXXX.products SET products.status =  'active' WHERE products.status = 'available';
+UPDATE jibres_XXXXXXX.products SET products.status =  'draft' WHERE products.status IN ('unset','unavailable','soon','discountinued');

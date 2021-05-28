@@ -37,17 +37,14 @@
       <div class="pad">
         <label for="status"><?php echo T_("Status") ?></label>
         <div>
-
           <select class="select22" name="status">
-            <option value="available" <?php if(\dash\data::productDataRow_status() === 'available') {echo 'selected';} ?>><?php echo T_("available") ?></option>
-            <option value="soon" <?php if(\dash\data::productDataRow_status() === 'soon') {echo 'selected';} ?>><?php echo T_("soon") ?></option>
-            <option value="unavailable" <?php if(\dash\data::productDataRow_status() === 'unavailable') {echo 'selected';} ?>><?php echo T_("unavailable") ?></option>
-            <option value="discountinued" <?php if(\dash\data::productDataRow_status() === 'discountinued') {echo 'selected';} ?>><?php echo T_("discountinued") ?></option>
+            <option value="draft" <?php if(\dash\data::productDataRow_status() === 'draft') {echo 'selected';} ?>><?php echo T_("Draft") ?></option>
+            <option value="active" <?php if(\dash\data::productDataRow_status() === 'active') {echo 'selected';} ?>><?php echo T_("Active") ?></option>
             <?php if(\dash\data::productDataRow_status() === 'archive') { ?>
-              <option value="archive" selected><?php echo T_("archive") ?></option>
+              <option value="archive" <?php if(\dash\data::productDataRow_status() === 'archive') {echo 'selected';} ?>><?php echo T_("Archive") ?></option>
             <?php } //endif ?>
             <?php if(\dash\data::productDataRow_status() === 'deleted') { ?>
-              <option value="deleted" selected><?php echo T_("deleted") ?></option>
+              <option value="deleted" <?php if(\dash\data::productDataRow_status() === 'deleted') {echo 'selected';} ?>><?php echo T_("Deleted") ?></option>
             <?php } //endif ?>
           </select>
         </div>

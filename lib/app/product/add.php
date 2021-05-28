@@ -98,7 +98,8 @@ class add
 
 		if(!isset($args['status']) || (isset($args['status']) && !$args['status']))
 		{
-			$args['status']  = 'available';
+			// $args['status']  = 'available';
+			$args['status']  = 'active';
 		}
 
 		if(!$_option['multi_add'])
