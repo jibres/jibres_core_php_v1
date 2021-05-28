@@ -44,11 +44,20 @@ class recaptcha_curl
 
 		curl_close($ch);
 
+
+
 		$log = json_encode(['curl_error' => $CurlError, 'response' => $response ], JSON_UNESCAPED_UNICODE);
 
 		if(!$response || !is_string($response))
 		{
+
 			\dash\log::file($log, 'google_recaptcha_error.log', 'google');
+
+			if($CurlError === 'Could not resolve host: www.google.com')
+			{
+				return 'NotInternetConnection';
+			}
+
 			return false;
 		}
 

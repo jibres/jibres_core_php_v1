@@ -175,6 +175,10 @@ class recaptcha
 		$myIp       = \dash\server::ip();
 
 		$get_result = \dash\captcha\recaptcha_curl::verify($secret, $recaptcha_token, $myIp);
+		if($get_result === 'NotInternetConnection')
+		{
+			return true;
+		}
 
 		$success    = a($get_result, 'success');
 		$score      = a($get_result, 'score');
@@ -234,6 +238,10 @@ class recaptcha
 		$myIp       = \dash\server::ip();
 
 		$get_result = \dash\captcha\recaptcha_curl::verify($secret, $_token, $myIp);
+		if($get_result === 'NotInternetConnection')
+		{
+			return true;
+		}
 
 		$success  = a($get_result, 'success');
 		$hostname = a($get_result, 'hostname');
