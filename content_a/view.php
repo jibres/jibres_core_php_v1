@@ -19,7 +19,7 @@ class view
 		}
 
 		\dash\data::include_adminPanel(true);
-		if(\dash\url::module() === 'site')
+		if(\dash\url::module() === 'site' && \dash\url::child() !== null)
 		{
 			\dash\data::include_adminPanel(false);
 			\dash\data::include_adminPanelBuilder(true);
