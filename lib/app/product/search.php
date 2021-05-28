@@ -29,7 +29,7 @@ class search
 		[
 			'order'          => 'order',
 			'sort'           => ['enum' => ['title','price','buyprice', 'finalprice', 'discount']],
-			'status'         => ['enum' => ['unset','available','unavailable','soon','discountinued', 'deleted', 'archive']],
+			'status'         => ['enum' => ['draft','active','deleted', 'archive']],
 			'limit'          => 'int',
 			'barcode'        => 'barcode',
 			'price'          => 'price',

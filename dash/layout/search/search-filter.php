@@ -252,7 +252,7 @@ function HTML_product_status_search($value)
   {
       echo '<option value=""></option>';
   }
-  foreach (['available','unavailable','soon','discountinued', 'archive', 'deleted'] as $k => $v)
+  foreach (['draft','active','archive', 'deleted'] as $k => $v)
   {
       echo '<option value="'. $v. '" ';
       if(\dash\request::get('status') === $v)

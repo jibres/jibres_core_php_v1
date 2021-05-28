@@ -401,7 +401,7 @@ class ready
 
 		if(isset($result['status']))
 		{
-			if($result['status'] === 'available')
+			if($result['status'] === 'active')
 			{
 				if(isset($result['type']) && $result['type'] === 'file')
 				{
@@ -443,21 +443,6 @@ class ready
 				$allow_shop = false;
 				switch ($result['status'])
 				{
-					case 'unset':
-						$shop_message = T_("Product is not available");
-						break;
-
-					case 'unavailable':
-						$shop_message = T_("Product is not available");
-						break;
-
-					case 'soon':
-						$shop_message = T_("Will be available soon");
-						break;
-
-					case 'discountinued':
-						$shop_message = T_("Product is discountinued");
-						break;
 
 					case 'deleted':
 						$shop_message = T_("Product was deleted");

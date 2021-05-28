@@ -284,17 +284,6 @@ class edit
 			\lib\app\product\edit::in_stock($id);
 		}
 
-		if(isset($args['status']) && $args['status'])
-		{
-			if($args['status'] === 'available')
-			{
-				\lib\app\product\edit::in_stock($id);
-			}
-			else
-			{
-				\lib\app\product\edit::out_of_stock($id);
-			}
-		}
 
 
 

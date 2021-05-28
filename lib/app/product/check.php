@@ -36,7 +36,7 @@ class check
 			'minstock'        => 'count',
 			'maxstock'        => 'count',
 			'weight'          => 'float',
-			'status'          => ['enum' => ['unset','available','unavailable','soon','discountinued', 'deleted', 'archive', 'draft', 'active']],
+			'status'          => ['enum' => ['deleted', 'archive', 'draft', 'active']],
 			'type'            => ['enum' => ['product','file','service']],
 			'vat'             => 'bit',
 			'saleonline'      => 'bit',
