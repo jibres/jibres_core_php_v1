@@ -9,8 +9,6 @@ class view
 
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
-
-		\dash\data::settingSearch(\lib\app\setting\search::links());
 	}
 }
 ?>

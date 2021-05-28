@@ -22,7 +22,7 @@ $storeData = \dash\data::store_store_data();
   </form>
 </section>
 
-<section class="f" data-option='setting-logo'>
+<section class="f" data-option='setting-logo' id="setting-busienss-logo">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Your Business Logo")?></h3>
@@ -48,7 +48,7 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
-<section class="f" data-option='setting-currency'>
+<section class="f" data-option='setting-currency' id="setting-busienss-currency">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Store Currency"); ?></h3>
@@ -73,7 +73,7 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
-<section class="f" data-option='setting-weight'>
+<section class="f" data-option='setting-weight' id="setting-busienss-weight">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Weight Unit"); ?></h3>
@@ -98,7 +98,7 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
-<section class="f" data-option='setting-length'>
+<section class="f" data-option='setting-length' id="setting-busienss-length">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Dimensions Unit"); ?></h3>
@@ -122,7 +122,7 @@ $storeData = \dash\data::store_store_data();
   </form>
 </section>
 
-<section class="f" data-option='setting-lang'>
+<section class="f" data-option='setting-lang' id="setting-busienss-lang">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Business language"); ?></h3>
@@ -145,7 +145,7 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
-<section class="f" data-option='setting-nosale'>
+<section class="f" data-option='setting-nosale' id="setting-busienss-nosale">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Is your business not able to sell goods or services?"); ?></h3>
@@ -165,7 +165,7 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
-<section class="f" data-option='setting-allow-enter'>
+<section class="f" data-option='setting-allow-enter' id="setting-busienss-allow-enter">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Allow customer to enter in your business");?></h3>
@@ -208,7 +208,7 @@ $storeData = \dash\data::store_store_data();
   </section>
 </div>
 
-<section class="f" data-option='setting-remove'>
+<section class="f" data-option='setting-remove' id="setting-busienss-remove">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Remove business");?></h3>
