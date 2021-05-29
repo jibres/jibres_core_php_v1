@@ -101,6 +101,20 @@ class get
 	}
 
 
+	public static function product_count_ordered($_product_id)
+	{
+		$id = \dash\validate::id($_product_id);
+
+		if($id)
+		{
+			$count = \lib\db\factordetails\get::product_sold($id);
+			return floatval($count);
+		}
+
+		return null;
+	}
+
+
 
 	public static function fix_id($_id)
 	{

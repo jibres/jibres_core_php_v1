@@ -62,6 +62,14 @@
             <div class="go"></div>
           </a>
         </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(); ?>/order?product=<?php echo \dash\request::get('id'); ?>">
+            <i class="sf-shopping-cart"></i>
+            <div class="key"><?php echo T_("Count ordered"); ?></div>
+            <div class="value"><?php echo \dash\fit::number(\dash\data::countOrdered()); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
           <li>
             <a class="item f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>">
               <i class="sf-line-chart"></i>
