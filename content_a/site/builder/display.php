@@ -32,7 +32,8 @@ else
     // zoom icon
     echo '<div class="relative flex items-center space-x-3 px-5">';
     {
-      echo '<div class="sf-search-minus text-gray-300 hover:text-gray-500 text-3xl transition cursor-pointer"></div>';
+      echo '<div class="sf-mobile rounded-full hover:bg-gray-300 text-gray-700 hover:text-gray-900 text-3xl transition cursor-pointer"></div>';
+      echo '<div class="sf-monitor rounded-full hover:bg-gray-300 text-gray-700 hover:text-gray-900 text-3xl transition cursor-pointer"></div>';
     }
     echo '</div>';
   }
