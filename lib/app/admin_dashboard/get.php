@@ -14,11 +14,13 @@ class get
 		$result['staff_count']    = floatval(\dash\db\users::count_users_have_permission());
 		$result['chart']          = self::sale_time_chart();
 
-		$result['new_order'] = floatval(\lib\db\factors\get::count_new_order());
-
+		$result['new_order']      = floatval(\lib\db\factors\get::count_new_order());
+		$result['new_ticket']     = floatval(\dash\db\tickets\get::count_awaiting());
+		$result['new_comment']    = floatval(\dash\app\comment\search::get_count_status('awaiting'));;
 
 		return $result;
 	}
+
 
 
 	private static function sale_time_chart()

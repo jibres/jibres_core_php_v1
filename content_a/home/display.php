@@ -12,6 +12,23 @@
           </div>
         </a>
       <?php } //endif ?>
+      <?php if(a($dashboardData, 'new_ticket')) {?>
+        <a href="<?php echo \dash\url::kingdom(). '/crm/ticket/datalist?status=awaiting' ?>">
+          <div class="msg success2 txtB">
+            <?php echo T_("You have :val Unanswered ticket", ['val' => \dash\fit::number(a($dashboardData, 'new_ticket'))]) ?>
+          </div>
+        </a>
+      <?php } //endif ?>
+       <?php if(a($dashboardData, 'new_comment')) {?>
+        <a href="<?php echo \dash\url::kingdom(). '/cms/comments?status=awaiting' ?>">
+          <div class="msg success2 txtB">
+            <?php echo T_("You have :val awaiting comment", ['val' => \dash\fit::number(a($dashboardData, 'new_comment'))]) ?>
+          </div>
+        </a>
+      <?php } //endif ?>
+
+
+
     </div>
 
 
