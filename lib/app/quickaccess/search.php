@@ -64,6 +64,13 @@ class search
 			$result['results'][] = self::create_item($value);
 		}
 
+		$search_factors = \lib\app\quickaccess\factors::list($query);
+
+		foreach ($search_factors as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
 		\dash\code::jsonBoom($result);
 	}
 
