@@ -5,7 +5,73 @@ namespace lib\app\quickaccess;
 class search
 {
 
+	/**
+	 * Use in dashboard a search
+	 */
 	public static function search_in_all()
+	{
+		$query = \dash\validate::search(\dash\request::get('q'), false);
+
+		if(!$query)
+		{
+			return;
+		}
+
+		$result = [];
+
+		$search_setting_list = \lib\app\quickaccess\setting::list();
+
+		$search_setting = self::search_setting($query, $search_setting_list);
+
+		foreach ($search_setting as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
+		$search_products = \lib\app\quickaccess\products::list($query);
+
+		foreach ($search_products as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
+		$search_customers = \lib\app\quickaccess\customers::list($query);
+
+		foreach ($search_customers as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
+		$search_hashtags = \lib\app\quickaccess\hashtags::list($query);
+
+		foreach ($search_hashtags as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
+
+		$search_tags = \lib\app\quickaccess\tags::list($query);
+
+		foreach ($search_tags as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
+		$search_forms = \lib\app\quickaccess\forms::list($query);
+
+		foreach ($search_forms as $key => $value)
+		{
+			$result['results'][] = self::create_item($value);
+		}
+
+		\dash\code::jsonBoom($result);
+	}
+
+
+	/**
+	 * Only search in setting
+	 */
+	public static function search_in_setting()
 	{
 		$query = \dash\validate::search(\dash\request::get('q'), false);
 

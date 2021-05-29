@@ -4,6 +4,12 @@
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
 
+    <div class="box">
+      <div class='font-16'>
+        <select class="select22" data-model='html' data-ajax--url="<?php echo \dash\url::here() ?>/setting/search/full" data-shortkey-search data-placeholder="<?php echo T_("Search") ?>"></select>
+      </div>
+    </div>
+
     <div class="font-12">
       <?php if(a($dashboardData, 'new_order')) {?>
         <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">

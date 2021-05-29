@@ -13,9 +13,16 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_force = false)
 	{
-		\dash\permission::access('_group_crm');
+		if($_force)
+		{
+			// needless to check permission
+		}
+		else
+		{
+			\dash\permission::access('_group_crm');
+		}
 
 		$condition =
 		[
