@@ -72,7 +72,7 @@
 </section>
 
 
-<section class="f" data-option='product-viewtext'>
+<section class="f" data-option='product-viewtext' id="setting-product-viewtext">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Product Default view text") ?></h3>
@@ -92,7 +92,7 @@
 
 
 
-<section class="f" data-option='product-setting-default-comment'>
+<section class="f" data-option='product-setting-default-comment' id="setting-product-comment">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Product comments");?></h3>
@@ -118,7 +118,7 @@
 
 
 
-<section class="f" data-option='product-setting-image-ratio'>
+<section class="f" data-option='product-setting-image-ratio' id="setting-product-image-ratio">
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Image ratio");?></h3>
@@ -139,7 +139,7 @@
 
 
 
-<section class="f" data-option='product-setting-image-ratio'>
+<section class="f" data-option='product-setting-time'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Set Preparation time");?></h3>

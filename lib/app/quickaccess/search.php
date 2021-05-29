@@ -35,6 +35,7 @@ class search
 	{
 		$result = [];
 
+
 		foreach ($_list as $key => $value)
 		{
 			if(isset($value['title']))
@@ -71,6 +72,7 @@ class search
 				}
 			}
 		}
+
 
 		return $result;
 	}
