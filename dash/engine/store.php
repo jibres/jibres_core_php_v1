@@ -807,7 +807,6 @@ class store
 
 	/**
 	 * cache folder addr
-	 * use \lib\app\cache
 	 *
 	 * @return     string
 	 */

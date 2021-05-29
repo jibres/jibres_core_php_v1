@@ -3,6 +3,19 @@
 
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
+
+    <div class="font-12">
+      <?php if(a($dashboardData, 'new_order')) {?>
+        <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">
+          <div class="msg success2 txtB">
+            <?php echo T_("You have :val Unprocessed order", ['val' => \dash\fit::number(a($dashboardData, 'new_order'))]) ?>
+          </div>
+        </a>
+      <?php } //endif ?>
+    </div>
+
+
+
 <?php if(\dash\permission::check('_group_products')) {?>
    <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
 <?php } //endif ?>

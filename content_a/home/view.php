@@ -10,7 +10,7 @@ class view
 
 		\dash\face::desc(T_('Glance at your store summary and compare some important data together and enjoy Jibres!'). ' '. T_('Have a good day;)'));
 
-		\dash\data::dashboardData(\lib\app\cache\get::admin_dashboard());
+		\dash\data::dashboardData(\lib\app\admin_dashboard\get::get());
 
 		\dash\face::specialTitle(true);
 		// back
