@@ -17,9 +17,16 @@ else
     }
     echo '</div>';
     // address line
-    echo '<div class="relative flex flex-grow items-center px-10 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-xl text-gray-700 transition">';
+    echo '<div class="relative flex flex-grow items-center px-7 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-xl text-gray-700 transition">';
     {
+      echo '<div class="flex-grow">';
       echo \dash\url::pwd();
+      echo '</div>';
+
+      echo '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-green-200 text-gray-900 rounded-full text-base">';
+      echo '<div class="w-3 h-3 mx-1 bg-green-800 rounded-full animate-ping2 opacity-50"></div>';
+      echo '<div>'. T_("Live"). '</div>';
+      echo '</div>';
     }
     echo '</div>';
     // zoom icon
