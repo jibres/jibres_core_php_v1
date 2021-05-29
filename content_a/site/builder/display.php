@@ -5,12 +5,18 @@ if(\dash\data::lineSetting())
 }
 else
 {
-  echo '<div class="avand-md">';
-    HTML_postDetail();
-    HTML_header();
-    HTML_line();
-    HTML_footer();
+  echo '<div class="browserFrame">';
+  echo '<div class="toolbar">';
   echo '</div>';
+  echo '<iframe src="http://rafiei.local/"></iframe>';
+  echo '</div>';
+
+  // echo '<div class="avand-md">';
+  //   HTML_postDetail();
+  //   HTML_header();
+  //   HTML_line();
+  //   HTML_footer();
+  // echo '</div>';
 }
 
 
