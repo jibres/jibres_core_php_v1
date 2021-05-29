@@ -35,7 +35,7 @@ class view
 
 		\dash\data::formItems($load_items);
 
-		// \dash\face::btnSave('form1');
+
 
 		$all_tag = \lib\app\form\tag\get::all_tag();
 		\dash\data::allTagList($all_tag);
@@ -50,8 +50,21 @@ class view
 
 
 		$comment_list = \lib\app\form\comment\get::get(\dash\request::get('aid'));
-
 		\dash\data::commentList($comment_list);
+
+		$load_answer = \lib\app\form\answer\get::by_id(\dash\request::get('aid'));
+
+		if(isset($load_answer['review']) && $load_answer['review'])
+		{
+			// nothing
+		}
+		else
+		{
+
+			\dash\face::btnInsert('markasreview');
+			\dash\face::btnInsertText(T_("Mark as reviewd"));
+		}
+
 	}
 
 }

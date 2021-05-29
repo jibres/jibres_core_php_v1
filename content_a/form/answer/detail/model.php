@@ -8,6 +8,16 @@ class model
 	{
 
 		$answer_id = \dash\request::get('aid');
+
+		if(\dash\request::post('review') === 'review')
+		{
+			\lib\app\form\answer\edit::makr_as_review(\dash\request::get('id'), $answer_id);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
 		if(\dash\request::post('addtag') === 'addtag')
 		{
 			\lib\app\form\tag\add::answer_add(\dash\request::post('tag'), $answer_id, \dash\request::get('id'));

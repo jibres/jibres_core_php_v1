@@ -5,6 +5,13 @@ namespace lib\db\form;
 class get
 {
 
+	public static function by_multi_id($_ids)
+	{
+		$query = "SELECT * FROM form WHERE form.id IN ($_ids)";
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
 
 	public static function sitemap_list($_from, $_to)
 	{

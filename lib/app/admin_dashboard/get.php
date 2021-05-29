@@ -16,7 +16,8 @@ class get
 
 		$result['new_order']      = floatval(\lib\db\factors\get::count_new_order());
 		$result['new_ticket']     = floatval(\dash\db\tickets\get::count_awaiting());
-		$result['new_comment']    = floatval(\dash\app\comment\search::get_count_status('awaiting'));;
+		$result['new_comment']    = floatval(\dash\app\comment\search::get_count_status('awaiting'));
+		$result['new_form_answer']    = \lib\app\form\answer\get::need_review_form();
 
 		return $result;
 	}

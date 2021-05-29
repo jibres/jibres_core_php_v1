@@ -2,6 +2,15 @@
   <?php
   if(\dash\data::dataTable())
   {
+    if(\dash\data::countNotReviewed())
+    {
+     ?>
+     <div class="f msg info2 font-12">
+       <div class="c txtB"><?php echo T_("You have :val not reviewed answer", ['val' => \dash\fit::number(\dash\data::countNotReviewed())]) ?></div>
+       <div class="cauto"><div class="btn primary" data-confirm data-data='{"mark": "all"}'><?php echo T_("Mark all as review") ?></div></div>
+     </div>
+      <?php
+    }
     if(\dash\data::isFiltered())
     {
       htmlSearchBox();
@@ -31,6 +40,7 @@
   ?>
 
 <?php function htmlSearchBox() {?>
+
   <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
       <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
@@ -51,6 +61,7 @@
         <th><?php echo T_("Start date") ?></th>
         <th><?php echo T_("End date") ?></th>
         <th><?php echo T_("Count answer") ?></th>
+        <th class="collapsing"><?php echo T_("Review") ?></th>
         <th class="collapsing"><?php echo T_("Detail") ?></th>
 
       </tr>
@@ -62,6 +73,7 @@
           <td><?php echo \dash\fit::date_time(a($value, 'startdate')); ?></td>
           <td><?php echo \dash\fit::date_time(a($value, 'enddate')); ?></td>
           <td><?php echo \dash\fit::number(a($value, 'count_answer')); ?></td>
+          <td class="collapsing"><?php if(a($value, 'review')){echo "<i class='sf-check fc-black'></i>";}else{echo "<i class='sf-times fc-mute'></i>";} ?></td>
           <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
         </tr>
       <?php } //endif ?>

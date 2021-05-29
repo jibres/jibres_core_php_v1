@@ -5,6 +5,22 @@ namespace lib\db\form_answer;
 class get
 {
 
+	public static function need_review_form()
+	{
+		$query = "SELECT COUNT(*) AS `count`, form_answer.form_id FROM form_answer WHERE form_answer.review IS NULL GROUP BY form_answer.form_id";
+		$result = \dash\db::get($query);
+		return $result;
+
+	}
+
+
+	public static function need_review_form_id($_form_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.review IS NULL ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
 
 	public static function user_answer($_answer_id)
 	{

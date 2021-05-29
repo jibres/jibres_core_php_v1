@@ -68,6 +68,10 @@
 
   <div class="c-xs-12 c-sm-12 c-md-6">
 
+     <form method="post" id="markasreview">
+      <input type="hidden" name="review" value="review">
+    </form>
+
     <form method="post" id="form1">
       <input type="hidden" name="addtag" value="addtag">
       <div class="box">

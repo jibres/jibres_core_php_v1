@@ -12,6 +12,61 @@ class get
 	}
 
 
+	public static function need_review_form()
+	{
+		$need_review_form = \lib\db\form_answer\get::need_review_form();
+		if(!is_array($need_review_form) || !$need_review_form)
+		{
+			return null;
+		}
+
+		$form_id = array_column($need_review_form, 'form_id');
+
+		$form_id = array_filter($form_id);
+		$form_id = array_unique($form_id);
+		$form_id = array_map('floatval', $form_id);
+
+		if(!$form_id)
+		{
+			return null;
+		}
+
+		$load_multi_form = \lib\db\form\get::by_multi_id(implode(',', $form_id));
+
+		$load_multi_form = array_map(['\\lib\\app\\form\\form\\ready', 'row'], $load_multi_form);
+
+		$load_multi_form = array_combine(array_column($load_multi_form, 'id'), $load_multi_form);
+
+		foreach ($need_review_form as $key => $value)
+		{
+			if(isset($value['form_id']) && isset($load_multi_form[$value['form_id']]) && isset($value['count']))
+			{
+				$load_multi_form[$value['form_id']]['count_need_review'] = $value['count'];
+			}
+		}
+
+		return $load_multi_form;
+
+	}
+
+
+	public static function count_not_reviewd($_form_id)
+	{
+		$id = \dash\validate::id($_form_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		$need_review_form = \lib\db\form_answer\get::need_review_form_id($id);
+
+		return floatval($need_review_form);
+
+	}
+
+
+
 	public static function public_by_id($_id)
 	{
 

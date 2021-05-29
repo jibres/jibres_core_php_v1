@@ -29,6 +29,10 @@ class view
 		$isFiltered    = \lib\app\form\answer\search::is_filtered();
 
 
+		$count_not_reviewed = \lib\app\form\answer\get::count_not_reviewd(\dash\request::get('id'));
+		\dash\data::countNotReviewed($count_not_reviewed);
+
+
 		\dash\data::filterBox($filterBox);
 		\dash\data::isFiltered($isFiltered);
 
