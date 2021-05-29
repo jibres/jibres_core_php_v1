@@ -200,6 +200,7 @@ class guard
 			$policy['connect-src'][] = '*.jibres.local';
 			$policy['img-src'][] = '*.jibres.local';
 			$policy['font-src'][] = '*.jibres.local';
+			$policy['frame-src'][] = 'http:';
 			$policy['media-src'][] = "*.jibres.local";
 		}
 
