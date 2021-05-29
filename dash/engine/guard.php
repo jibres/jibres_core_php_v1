@@ -43,7 +43,11 @@ class guard
 					@header("X-frame: Enamad");
 
 					// redirect to billboard
-					@header('X-Frame-Options: *');
+					// @header('X-Frame-Options: *');
+
+					// below line is not supported in browsers yet
+					// @header('X-Frame-Options: allow-from '. $enamad);
+
 					// \dash\redirect::to(\dash\url::kingdom(). '/billboard', 'billboard');
 				}
 				return true;
@@ -52,7 +56,7 @@ class guard
 			{
 				if(!$_readonly)
 				{
-					@header('X-Frame-Options: *');
+					// @header('X-Frame-Options: allow-from '. \dash\server::referer());
 				}
 				return true;
 			}
@@ -62,7 +66,7 @@ class guard
 			if(\dash\url::module() === 'billboard')
 			{
 				// allow
-				@header('X-Frame-Options: *');
+				// @header('X-Frame-Options: *');
 			}
 			else
 			{
