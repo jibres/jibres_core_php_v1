@@ -32,6 +32,15 @@
           </div>
         </a>
       <?php } //endif ?>
+      <?php if(a($dashboardData, 'notif_count')) {?>
+        <a href="<?php echo \dash\url::kingdom(). '/crm/notification/me' ?>">
+          <div class="msg info2 txtB">
+            <?php echo T_("You have :val new message!", ['val' => \dash\fit::number(a($dashboardData, 'notif_count'))]) ?>
+          </div>
+        </a>
+      <?php } //endif ?>
+
+
 
       <?php if(a($dashboardData, 'new_form_answer')) {?>
         <?php foreach(a($dashboardData, 'new_form_answer') as $key => $value) {?>

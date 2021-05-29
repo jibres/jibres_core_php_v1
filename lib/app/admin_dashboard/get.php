@@ -19,6 +19,8 @@ class get
 		$result['new_comment']    = floatval(\dash\app\comment\search::get_count_status('awaiting'));
 		$result['new_form_answer']    = \lib\app\form\answer\get::need_review_form();
 
+		$result['notif_count'] = \dash\app\log::my_notif_count();
+
 		return $result;
 	}
 

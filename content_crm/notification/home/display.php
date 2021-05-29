@@ -1,6 +1,17 @@
 <div class="avand-md">
   <nav class="items long">
     <ul>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this();?>/me">
+          <i class="sf-bell"></i>
+          <div class="key"><?php echo T_('My notifications');?></div>
+          <div class="go search"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="items long">
+    <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist">
           <i class="sf-bell"></i>
@@ -8,6 +19,8 @@
           <div class="go search"></div>
         </a>
       </li>
+
+
     </ul>
   </nav>
   <nav class="items long">
