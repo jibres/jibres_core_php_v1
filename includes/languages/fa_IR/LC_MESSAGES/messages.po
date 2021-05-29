@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-05-29 17:15+0430\n"
-"PO-Revision-Date: 2021-05-29 17:17+0430\n"
+"POT-Creation-Date: 2021-05-29 17:34+0430\n"
+"PO-Revision-Date: 2021-05-29 17:34+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2164,7 +2164,7 @@ msgstr "صد البته با عشق ساختیمش 😍"
 msgid "Jibres has created for futuristic entrepreneurs"
 msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته شده است"
 
-#: content/home/display.php:100 content_a/home/display.php:107
+#: content/home/display.php:100 content_a/home/display.php:116
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:27
 #: content_a/setting/menu/item/display.php:20
@@ -2537,7 +2537,7 @@ msgid "Resources"
 msgstr "منابع"
 
 #: content/home/layout/footer.php:163 content/home/layout/pwa-footer.php:161
-#: content_a/home/display.php:153
+#: content_a/home/display.php:162
 msgid "Blog"
 msgstr "بلاگ"
 
@@ -2879,12 +2879,12 @@ msgstr "کلیدواژه‌ها"
 msgid "E-commerce"
 msgstr "تجارت الکترونیک"
 
-#: content/investment/display-company-info.php:83 content_a/home/display.php:180
+#: content/investment/display-company-info.php:83 content_a/home/display.php:189
 #: content_a/website/footer/view.php:12 content_a/website/header/view.php:12
 msgid "Website Builder"
 msgstr "سایت‌ساز"
 
-#: content/investment/display-company-info.php:84 content_a/home/display.php:189
+#: content/investment/display-company-info.php:84 content_a/home/display.php:198
 msgid "App Builder"
 msgstr "اپ ساز"
 
@@ -2900,7 +2900,7 @@ msgstr "دستیار فروش اینستاگرام"
 msgid "PWA Builder"
 msgstr "PWA ساز"
 
-#: content/investment/display-company-info.php:89 content_a/home/display.php:131
+#: content/investment/display-company-info.php:89 content_a/home/display.php:140
 #: content_crm/home/view.php:8 content_crm/log/enter/view.php:11
 #: content_crm/log/home/view.php:11 content_crm/log/home/view.php:20
 #: content_crm/member/home/view.php:16 content_crm/notification/home/view.php:12
@@ -4631,7 +4631,7 @@ msgid "Quickly Start Free!"
 msgstr "به‌سرعت و رایگان شروع کن!"
 
 #: content/view.php:17 content/view.php:18 content/view.php:19
-#: content_a/home/display.php:153
+#: content_a/home/display.php:162
 msgid " & "
 msgstr " + "
 
@@ -5871,7 +5871,7 @@ msgstr "افزودن فاکتور جدید"
 #: content_a/accounting/irvat/all/display.php:6 content_a/android/home/display.php:117
 #: content_a/cart/add/display.php:39 content_a/cart/add/display.php:41
 #: content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:219
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:228
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/sale/display.php:17 content_cms/files/home/display.php:36
 #: content_crm/home/display.php:6 content_crm/sms/home/display.php:6
@@ -6942,7 +6942,7 @@ msgid "Guest user add cart"
 msgstr "کاربر مهمان سبد خرید اضافه کرده"
 
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
-#: content_a/home/display.php:83 content_a/setting/home/display.php:127
+#: content_a/home/display.php:92 content_a/setting/home/display.php:127
 #: content_business/home/layout/header/header_100.php:23
 #: content_crm/member/glance/display.php:324 dash/layout/pwa/pwa_menu.php:292
 #: lib/app/store/analytics.php:84 lib/pagebuilder/header/h100/website.php:23
@@ -8308,51 +8308,55 @@ msgstr "شما :val تیکت در انتظار پاسخ دارید"
 msgid "You have :val awaiting comment"
 msgstr "شما :val نظر در انتظار تایید دارید"
 
-#: content_a/home/display.php:40
+#: content_a/home/display.php:38 content_hook/smile/controller.php:46
+msgid "You have :val new message!"
+msgstr "شما :val پیام جدید دارید!"
+
+#: content_a/home/display.php:49
 msgid "You have :val not reviewed answer in :form"
 msgstr "شما :val پاسخ از فرم :form دریافت کرده‌اید که هنوز بررسی نشده‌اند"
 
-#: content_a/home/display.php:64
+#: content_a/home/display.php:73
 msgid "Unprocessed Order"
 msgstr "سفارشات پردازش نشده"
 
-#: content_a/home/display.php:74
+#: content_a/home/display.php:83
 msgid "All Orders"
 msgstr "همه سفارشات"
 
-#: content_a/home/display.php:92
+#: content_a/home/display.php:101
 msgid "Sale Invoicing"
 msgstr "صدور فاکتور فروش"
 
-#: content_a/home/display.php:117
+#: content_a/home/display.php:126
 msgid "Add new Product"
 msgstr "افزودن محصول جدید"
 
-#: content_a/home/display.php:138 content_crm/home/display.php:46
+#: content_a/home/display.php:147 content_crm/home/display.php:46
 #: content_crm/member/add/view.php:12 content_crm/member/glance/view.php:19
 #: content_crm/staff/add/view.php:12 content_developers/docs/001-intro.php:17
 #: includes/languages/trans_static.php:62 lib/app/quickaccess/customers.php:30
 msgid "Customers"
 msgstr "مشتریان"
 
-#: content_a/home/display.php:153 dash/panel.php:253
+#: content_a/home/display.php:162 dash/panel.php:253
 msgid "Content Management"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/home/display.php:166
+#: content_a/home/display.php:175
 msgid "Cloud Accounting"
 msgstr "حسابداری ابری"
 
-#: content_a/home/display.php:201 content_my/domain/home/display.php:120
+#: content_a/home/display.php:210 content_my/domain/home/display.php:120
 #: dash/panel.php:275
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: content_a/home/display.php:217
+#: content_a/home/display.php:226
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:218
+#: content_a/home/display.php:227
 msgid "Sum price"
 msgstr "جمع مبالغ"
 
@@ -11011,7 +11015,7 @@ msgstr "سفارشی‌سازی روند پرداخت آنلاین"
 #: content_business/profile/display-menu.php:7 content_crm/home/display.php:122
 #: content_crm/notification/datalist/view.php:9
 #: content_crm/notification/datalist/view.php:12 content_crm/notification/home/view.php:9
-#: content_crm/notification/send/view.php:12
+#: content_crm/notification/me/view.php:14 content_crm/notification/send/view.php:12
 #: content_crm/notification/sendgroup/view.php:12 dash/layout/admin/admin-header.php:22
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
@@ -15016,6 +15020,7 @@ msgid "Login"
 msgstr "ورود به سیستم"
 
 #: content_business/profile/notifications/view.php:9
+#: content_crm/notification/home/display.php:7
 msgid "My notifications"
 msgstr "پیام‌های من"
 
@@ -16768,18 +16773,22 @@ msgstr "برای اضافه‌کردن‌تراکنش جدید باید وارد
 msgid "Transactions"
 msgstr "تراکنش‌ها"
 
-#: content_crm/notification/home/display.php:7
+#: content_crm/notification/home/display.php:18
 msgid "All notifications"
 msgstr "همه اطلاع‌رسانی‌ها"
 
-#: content_crm/notification/home/display.php:18
+#: content_crm/notification/home/display.php:31
 msgid "Send notifications to customer"
 msgstr "ارسال اطلاع‌رسانی به مشتری خاص"
 
-#: content_crm/notification/home/display.php:25
+#: content_crm/notification/home/display.php:38
 #: content_crm/notification/sendgroup/view.php:9
 msgid "Group sending notification"
 msgstr "ارسال اطلاع‌رسانی گروهی"
+
+#: content_crm/notification/me/view.php:11
+msgid "My Notifications"
+msgstr "پیام‌های من"
 
 #: content_crm/notification/send/display.php:13
 #: content_crm/notification/sendgroup/display.php:14 content_crm/sms/send/display.php:9
@@ -18526,10 +18535,6 @@ msgstr "کد اعتبارسنجی منقضی شده است"
 #: content_enter/verifyemail/controller.php:95 dash/app/user/email.php:152
 msgid "This email is already verified"
 msgstr "این ایمیل قبلا تایید شده است"
-
-#: content_hook/smile/controller.php:46
-msgid "You have :val new message!"
-msgstr "شما :val پیام جدید دارید!"
 
 #: content_love/application/edit/display.php:4
 msgid "Cancel request"
