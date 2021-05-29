@@ -221,6 +221,11 @@ class find
 			require_once core.'layout/admin/admin-sidebar.php';
 			echo "\n";
 		}
+		elseif(\dash\data::include_adminPanelBuilder())
+		{
+			// siteBuilder panels
+			require_once root.'content_a/site/layout/sidebar.php';
+		}
 		echo "</aside>";
 	}
 
