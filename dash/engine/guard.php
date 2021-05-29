@@ -207,6 +207,7 @@ class guard
 			$policy['font-src'][] = '*.jibres.local';
 			$policy['frame-src'][] = 'http:';
 			$policy['media-src'][] = "*.jibres.local";
+			$policy['frame-ancestors'][] = 'http:';
 		}
 
 		// create export txt

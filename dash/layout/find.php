@@ -113,6 +113,11 @@ class find
 				// admin panels
 				$myHeader = core.'layout/admin/admin-header.php';
 			}
+			elseif(\dash\data::include_adminPanelBuilder())
+			{
+				// siteBuilder panels
+				$myHeader = root.'content_a/site/layout/header.php';
+			}
 			elseif($myContent === 'content')
 			{
 				// jibres homepage webiste
