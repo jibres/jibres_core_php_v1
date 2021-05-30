@@ -349,7 +349,6 @@ class add
 
 				case 'title':
 				case 'title2':
-				case 'slug':
 				case 'unit':
 				case 'seotitle':
 				case 'discount':
@@ -384,6 +383,7 @@ class add
 					$copy_product[$key] = $value;
 					break;
 
+				case 'slug':
 				default:
 					// skip othe field
 					break;
