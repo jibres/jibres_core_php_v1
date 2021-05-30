@@ -315,7 +315,7 @@ class ready
 
 	private static function cart_limit(&$result)
 	{
-		$max_cart_limit = 100;
+		$max_cart_limit = 10;
 		$minsale        = 1;
 		$maxsale        = $max_cart_limit;
 		$salestep       = 1;
