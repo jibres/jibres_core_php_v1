@@ -33,6 +33,71 @@
 
 
 
+<section class="f" data-option='setting-order-payment-online-zarinpal' id="setting-order-payment-online-zarinpal">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("zarinpal payment"); ?></h3>
+      <div class="body">
+  		<i class="spay-32-zarinpal"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_zarinpal_payment_status" value="1">
+    <div class="action">
+	  <?php if(a($bank, 'zarinpal', 'empty')){  ?>
+	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irzarinpal?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  <?php }else{ ?>
+      <div class="switch1">
+        <input id="izarinpal_payment_status" type="checkbox" name="zarinpal_payment_status" <?php if(a($bank, 'zarinpal', 'status')){ echo 'checked'; } ?>>
+        <label for="izarinpal_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+	  <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+  	<?php if(!a($bank, 'zarinpal', 'empty')){  ?>
+  		<a class="btn link" href="<?php echo \dash\url::that(). '/irzarinpal' ?>"> <?php echo T_("Change connection setting") ?></a>
+  	<?php } //endif ?>
+
+  </footer>
+</section>
+
+
+
+
+<section class="f" data-option='setting-order-payment-online-asanpardakht' id="setting-order-payment-online-asanpardakht">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("asanpardakht payment"); ?></h3>
+      <div class="body">
+  		<i class="spay-32-asanpardakht"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_asanpardakht_payment_status" value="1">
+    <div class="action">
+	  <?php if(a($bank, 'asanpardakht', 'empty')){  ?>
+	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irasanpardakht?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  <?php }else{ ?>
+      <div class="switch1">
+        <input id="iasanpardakht_payment_status" type="checkbox" name="asanpardakht_payment_status" <?php if(a($bank, 'asanpardakht', 'status')){ echo 'checked'; } ?>>
+        <label for="iasanpardakht_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+	  <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+  	<?php if(!a($bank, 'asanpardakht', 'empty')){  ?>
+  		<a class="btn link" href="<?php echo \dash\url::that(). '/irasanpardakht' ?>"> <?php echo T_("Change connection setting") ?></a>
+  	<?php } //endif ?>
+
+  </footer>
+</section>
+
+
+
 
 
 <div class="avand-lg">
@@ -41,8 +106,7 @@
 			<header><h2><?php echo T_("Configuration bank payment setting") ?></h2></header>
 			<div class="body">
 				<?php
-					html_block_paymentMellat($bank);
-					html_block_paymentZarinpal($bank);
+
 					html_block_paymentAsanpardakht($bank);
 					html_block_paymentParsian($bank);
 					html_block_paymentPayir($bank);
@@ -63,69 +127,6 @@
 
 
 
-<?php function html_block_paymentMellat($bank) {?>
-<div class="switch1">
- <input type="checkbox" name="mellat" id="mellat" <?php if(a($bank, 'mellat', 'status')) { echo 'checked';} ?> >
- <label for="mellat"></label>
- <label for="mellat"><?php echo T_("Enable mellat payment"); ?></label>
-</div>
-
-<div class="f mT10" data-response='mellat' <?php if(a($bank, 'mellat', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
-	<div class="c4 pLa5">
-		<label for="TerminalId">TerminalId</label>
-		<div class="input">
-		  <input type="text" name="TerminalId" id="TerminalId" placeholder='TerminalId' value="<?php echo a($bank, 'mellat','TerminalId'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-
-	<div class="c4 pLa5">
-		<label for="UserName">UserName</label>
-		<div class="input">
-		  <input type="text" name="UserName" id="UserName" placeholder='UserName' value="<?php echo a($bank, 'mellat','UserName'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-
-	<div class="c4 pLa5">
-		<label for="UserPassword">UserPassword</label>
-		<div class="input">
-		  <input type="password" name="UserPassword" id="UserPassword" placeholder='UserPassword' value="<?php echo a($bank, 'mellat','UserPassword'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-
-</div>
-
-<?php } // endfunction ?>
-
-
-
-<?php function html_block_paymentZarinpal($bank) {?>
-<div class="switch1">
- <input type="checkbox" name="zarinpal" id="zarinpal" <?php if(a($bank, 'zarinpal', 'status')) { echo 'checked';} ?> >
- <label for="zarinpal"></label>
- <label for="zarinpal"><?php echo T_("Enable zarinpal payment"); ?></label>
-</div>
-
-<div class="f mT10" data-response='zarinpal' <?php if(a($bank, 'zarinpal', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
-	<div class="c mLa5">
-		<label for="zMerchantID">MerchantID</label>
-		<div class="input">
-		  <input type="text" name="zMerchantID" id="zMerchantID" placeholder='zMerchantID' value="<?php echo a($bank, 'zarinpal','MerchantID'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-	<div class="c mLa5">
-		<label for="Description">Description</label>
-		<div class="input">
-		  <input type="text" name="zDescription" id="Description" placeholder='Description' value="<?php echo a($bank, 'zarinpal','Description'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-</div>
-
-<?php } // endfunction ?>
 
 
 
