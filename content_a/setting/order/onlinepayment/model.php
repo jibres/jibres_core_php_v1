@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\payment\bank;
+namespace content_a\setting\order\onlinepayment;
 
 
 class model

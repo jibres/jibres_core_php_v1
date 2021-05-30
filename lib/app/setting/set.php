@@ -534,5 +534,36 @@ class set
 	}
 
 
+	public static function save_payment($_args)
+	{
+		$condition =
+		[
+			'payment_online'     => 'bit',
+			'payment_check'      => 'bit',
+			'payment_bank'       => 'bit',
+			'payment_on_deliver' => 'bit',
+		];
+
+
+		$require = [];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'store_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		return true;
+	}
+
+
+
 }
 ?>

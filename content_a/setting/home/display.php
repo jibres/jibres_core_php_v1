@@ -39,15 +39,6 @@
                 </a>
             </div>
 
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/payment">
-                    <div class="c-auto"><i class="sf-credit-card"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Payment Providers"); ?></h2>
-                        <p><?php echo T_("Enable and manage your business payment providers"); ?></p>
-                    </div>
-                </a>
-            </div>
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/shipping">
