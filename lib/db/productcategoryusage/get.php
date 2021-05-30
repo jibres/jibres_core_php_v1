@@ -24,6 +24,7 @@ class get
 			INNER JOIN productcategory ON productcategory.id = productcategoryusage.productcategory_id
 			WHERE
 				productcategoryusage.product_id = $_product_id
+			ORDER BY productcategoryusage.id ASC
 		";
 		$result = \dash\db::get($query);
 		return $result;

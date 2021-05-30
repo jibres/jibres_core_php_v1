@@ -317,52 +317,6 @@ class property
 			self::push($result, T_("General property"), ['key' => T_("Height"), 'value' => \dash\fit::number(a($load_parent, 'height')) . ' '. $length_name,]);
 		}
 
-		$tag_list = [];
-
-		if(!is_array($tag_list))
-		{
-			$tag_list = [];
-		}
-
-		if($tag_list && $parent_id)
-		{
-			$tag_list = [];
-			if(!is_array($tag_list))
-			{
-				$tag_list = [];
-			}
-		}
-
-		if($tag_list)
-		{
-			$tag_html = [];
-			$tag_url = null;
-			foreach ($tag_list as $key => $value)
-			{
-
-				if(isset($value['slug']))
-				{
-					if(\dash\url::content() === 'a')
-					{
-						if(isset($value['producttag_id']))
-						{
-							$tag_url = \dash\url::here(). '/products/tag?edit='. $value['producttag_id'];
-						}
-					}
-					else
-					{
-						$tag_url = \lib\store::url(). '/tag/'. $value['slug'];
-					}
-
-					$tag_html[] = '<a href="'.$tag_url .'">#'. $value['slug']. '</a>';
-				}
-			}
-			if($tag_html)
-			{
-				$tag_html = implode(' ', $tag_html);
-				self::push($result, T_("General property"), ['key' => T_("Tag"), 'value' => $tag_html,]);
-			}
-		}
 
 
 		foreach ($saved_property as $key => $value)

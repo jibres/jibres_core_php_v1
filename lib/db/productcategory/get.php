@@ -103,7 +103,7 @@ class get
 
 	public static function multi_properties($_ids)
 	{
-		$query  = "SELECT productcategory.properties FROM productcategory WHERE productcategory.id IN ($_ids) AND productcategory.properties IS NOT NULL ";
+		$query  = "SELECT productcategory.properties FROM productcategory WHERE productcategory.id IN ($_ids) AND productcategory.properties IS NOT NULL ORDER BY FIELD(productcategory.id, $_ids) ";
 		$result = \dash\db::get($query, 'properties');
 		return $result;
 	}
