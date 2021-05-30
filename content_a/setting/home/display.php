@@ -32,11 +32,11 @@
 
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/vat">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/factor">
                     <div class="c-auto"><i class="sf-receipt-shopping-streamline"></i></div>
                     <div class="c">
-                        <h2><?php echo T_("Taxes"); ?></h2>
-                        <p><?php echo T_("Manage how your business charges taxes"); ?></p>
+                        <h2><?php echo T_("Factors"); ?></h2>
+                        <p><?php echo T_("Manage how your business factors setting"); ?></p>
                     </div>
                 </a>
             </div>

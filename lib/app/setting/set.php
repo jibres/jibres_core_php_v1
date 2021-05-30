@@ -504,5 +504,35 @@ class set
 		return true;
 	}
 
+
+	public static function save_vat($_args)
+	{
+		$condition =
+		[
+			'tax_status'         => 'bit',
+			'tax_calc'           => 'bit',
+			'tax_calc_all_price' => 'bit',
+			'tax_shipping'       => 'bit',
+		];
+
+		$require = [];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'store_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		return true;
+	}
+
+
 }
 ?>
