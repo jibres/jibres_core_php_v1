@@ -442,6 +442,16 @@ class get
 			}
 		}
 
+		foreach ($bank_payment_setting as $key => $value)
+		{
+			$temp = $value;
+			unset($temp['status']);
+			if(!array_filter($value))
+			{
+				$bank_payment_setting[$key]['empty'] = true;
+			}
+		}
+
 		return $bank_payment_setting;
 
 	}

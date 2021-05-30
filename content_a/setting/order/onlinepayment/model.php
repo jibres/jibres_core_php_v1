@@ -32,12 +32,9 @@ class model
 		{
 			$payment['zarinpal']['status']      = true;
 			$payment['zarinpal']['MerchantID']  = \dash\request::post('zMerchantID');
-			$payment['zarinpal']['Description'] = \dash\request::post('zDescription');
+			// $payment['zarinpal']['Description'] = \dash\request::post('zDescription');
 		}
-		else
-		{
-			$payment['zarinpal']['status']      = false;
-		}
+
 
 		if(\dash\request::post('asanpardakht'))
 		{
@@ -51,33 +48,26 @@ class model
 			$payment['asanpardakht']['MerchantName']     = \dash\request::post('MerchantName');
 
 		}
-		else
+
+
+		if(\dash\request::post('set_mellat_payment_status'))
 		{
-			$payment['asanpardakht']['status']           = false;
+			$payment['mellat']['status']       = \dash\request::post('mellat_payment_status');
 		}
 
-		if(\dash\request::post('mellat'))
+		if(\dash\request::post('set_mellat'))
 		{
-			$payment['mellat']['status']       = true;
+			$payment['mellat']['status']       = \dash\request::get('init') ? true : false;
 			$payment['mellat']['TerminalId']   = \dash\request::post('TerminalId');
 			$payment['mellat']['UserName']     = \dash\request::post('UserName');
 			$payment['mellat']['UserPassword'] = \dash\request::post('UserPassword');
-
-
 		}
-		else
-		{
-			$payment['mellat']['status']           = false;
-		}
+
 
 		if(\dash\request::post('parsian'))
 		{
 			$payment['parsian']['status']       = true;
 			$payment['parsian']['LoginAccount'] = \dash\request::post('LoginAccount');
-		}
-		else
-		{
-			$payment['parsian']['status']       = false;
 		}
 
 		if(\dash\request::post('payir'))
@@ -85,31 +75,21 @@ class model
 			$payment['payir']['status'] = true;
 			$payment['payir']['api']    = \dash\request::post('api');
 		}
-		else
-		{
-			$payment['payir']['status'] = false;
-		}
+
 
 		if(\dash\request::post('idpay'))
 		{
 			$payment['idpay']['status'] = true;
 			$payment['idpay']['apikey'] = \dash\request::post('apikey');
 		}
-		else
-		{
-			$payment['idpay']['status'] = false;
-		}
+
 
 		if(\dash\request::post('irkish'))
 		{
 			$payment['irkish']['status']      = true;
 			$payment['irkish']['merchantId']  = \dash\request::post('imerchantId');
 			$payment['irkish']['sha1']        = \dash\request::post('sha1');
-			$payment['irkish']['description'] = \dash\request::post('idescription');
-		}
-		else
-		{
-			$payment['irkish']['status']      = false;
+			// $payment['irkish']['description'] = \dash\request::post('idescription');
 		}
 
 		return $payment;
@@ -149,6 +129,15 @@ class model
 		$post                       = self::getPost();
 
 		\lib\app\setting\set::bank_payment_setting($post);
+
+		if(\dash\request::post('delete') === 'delete')
+		{
+			\dash\redirect::to(\dash\url::this(). '/order/onlinepayment');
+		}
+		else
+		{
+			\dash\redirect::pwd();
+		}
 
 	}
 }

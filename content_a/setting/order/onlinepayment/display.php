@@ -1,4 +1,40 @@
 <?php $bank = \dash\data::bankSetting(); ?>
+
+
+<section class="f" data-option='setting-order-payment-online-mellat' id="setting-order-payment-online-mellat">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Mellat payment"); ?></h3>
+      <div class="body">
+  		<i class="spay-32-mellat"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_mellat_payment_status" value="1">
+    <div class="action">
+	  <?php if(a($bank, 'mellat', 'empty')){  ?>
+	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irmellat?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  <?php }else{ ?>
+      <div class="switch1">
+        <input id="imellat_payment_status" type="checkbox" name="mellat_payment_status" <?php if(a($bank, 'mellat', 'status')){ echo 'checked'; } ?>>
+        <label for="imellat_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+	  <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+  	<?php if(!a($bank, 'mellat', 'empty')){  ?>
+  		<a class="btn link" href="<?php echo \dash\url::that(). '/irmellat' ?>"> <?php echo T_("Change connection setting") ?></a>
+  	<?php } //endif ?>
+
+  </footer>
+</section>
+
+
+
+
+
 <div class="avand-lg">
 	<form method="post" autocomplete="off">
 		<div class="box">

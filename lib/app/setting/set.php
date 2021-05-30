@@ -326,9 +326,18 @@ class set
 
 		foreach ($_args as $key => $value)
 		{
+			unset($value['empty']);
+
 			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat', 'idpay']))
 			{
 				$data[$key] = \dash\cleanse::input($value, $$key, [], []);
+
+				$temp = $data[$key];
+				unset($temp['status']);
+				if(!array_filter($temp))
+				{
+					$data[$key]['status'] = 0;
+				}
 			}
 		}
 
