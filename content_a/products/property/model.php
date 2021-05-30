@@ -10,6 +10,11 @@ class model
 
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('addmode'))
+		{
+			return \content_a\products\property\add\model::post();
+		}
+
 		// if(\dash\request::post('remove') === 'remove')
 		// {
 		// 	\lib\app\product\property::remove(\dash\request::post('pid'), $id);
