@@ -26,7 +26,8 @@ class scp
 
 				if($connection)
 				{
-					if($_known_host)
+					// https://stackoverflow.com/questions/67762591
+					if($_known_host && PHP_OS !== 'WINNT')
 					{
 						$fingerprint = @ssh2_fingerprint($connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
 
