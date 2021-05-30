@@ -9,7 +9,7 @@ class scp
 	private static $home_directory = null;
 
 
-	public static function connect($_host = null, $_user = null, $_pass = null, $_port = 22)
+	public static function connect($_host = null, $_user = null, $_pass = null, $_port = 22, $_known_host = null)
 	{
 		if(!function_exists('ssh2_connect'))
 		{
@@ -26,6 +26,16 @@ class scp
 
 				if($connection)
 				{
+					if($_known_host)
+					{
+						$fingerprint = @ssh2_fingerprint($connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
+
+						if($fingerprint != $_known_host)
+						{
+							return false;
+						}
+					}
+
 					$ok = @ssh2_auth_password($connection, $_user, $_pass);
 
 					if($ok)
@@ -62,32 +72,6 @@ class scp
 	private static function fix_home_dir($_remote_file)
 	{
 		return self::$home_directory. '/'. $_remote_file;
-	}
-
-	public static function fingerprint($_known_host)
-	{
-		self::connect();
-
-		if(!self::$connection)
-		{
-			return false;
-		}
-
-		try
-		{
-			$fingerprint = @ssh2_fingerprint(self::$connection, SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX);
-
-			if($fingerprint != $_known_host)
-			{
-				return false;
-			}
-
-			return true;
-		}
-		catch (\Exception $e)
-		{
-			return false;
-		}
 	}
 
 
@@ -245,12 +229,9 @@ class scp
 		$port                 = \dash\setting\upload_scp::port();
 		self::$home_directory = '/home/'. $username;
 
-		if(self::connect($host, $username, $password, $port))
+		if(self::connect($host, $username, $password, $port, $known_host))
 		{
-			if(self::fingerprint($known_host))
-			{
-				return true;
-			}
+			return true;
 		}
 
 		return false;
