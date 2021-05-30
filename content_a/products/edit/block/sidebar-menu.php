@@ -100,7 +100,7 @@
               <a class="item f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo a($productDataRow,'id'); ?>">
                 <i class="sf-picture"></i>
                 <div class="key"><?php echo T_("Make product variants"); ?></div>
-                <div class="value"><?php echo \dash\fit::number(count($child_list)); ?></div>
+                <div class="value"><?php if(count($child_list)) { echo \dash\fit::number(count($child_list)); } ?></div>
                 <div class="go"></div>
               </a>
             </li>
@@ -114,7 +114,7 @@
               <a class="item f" href="<?php echo \dash\url::this(); ?>/child?id=<?php echo a($productDataRow,'id'); ?>">
                 <i class="sf-picture"></i>
                 <div class="key"><?php echo T_("Manage variants"); ?></div>
-                <div class="value"><?php echo \dash\fit::number(count($child_list)); ?></div>
+                <div class="value"><?php if(count($child_list)) { echo \dash\fit::number(count($child_list));} ?></div>
                 <div class="go"></div>
               </a>
             </li>
