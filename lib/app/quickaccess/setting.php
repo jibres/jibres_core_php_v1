@@ -324,6 +324,21 @@ class setting
 
 		$list[] =
 		[
+			'title'    => T_("Add tag to all prodcut"),
+			'keywords' =>
+			[
+				T_("tag"),
+				T_("add"),
+				T_("all"),
+			],
+			'url'      => \dash\url::kingdom(). '/a/setting/product/tag',
+			'addr'     => [T_("Setting"), T_("Products"), T_("Tag"), T_("Add tag to all prodcut")],
+			'icon'     => 'plus-circle',
+		];
+
+
+		$list[] =
+		[
 			'title'    => T_("Product units"),
 			'keywords' =>
 			[
@@ -361,6 +376,7 @@ class setting
 			[
 				T_("export"),
 				T_("csv"),
+				T_("all"),
 				T_('data'),
 				'csv',
 				'excel',
