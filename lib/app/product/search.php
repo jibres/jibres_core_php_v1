@@ -535,6 +535,7 @@ class search
 	{
 		$and   = [];
 		$and[] = "products.parent IS NULL ";
+		$_args['status'] = 'active';
 
 		$list = self::products_list('variants', $_query_string, $_args, $and);
 
