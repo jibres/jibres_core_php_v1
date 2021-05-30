@@ -97,142 +97,137 @@
 </section>
 
 
+<section class="f" data-option='setting-order-payment-online-parsian' id="setting-order-payment-online-parsian">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("parsian payment"); ?></h3>
+      <div class="body">
+  		<i class="spay-32-parsian"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_parsian_payment_status" value="1">
+    <div class="action">
+	  <?php if(a($bank, 'parsian', 'empty')){  ?>
+	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irparsian?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  <?php }else{ ?>
+      <div class="switch1">
+        <input id="iparsian_payment_status" type="checkbox" name="parsian_payment_status" <?php if(a($bank, 'parsian', 'status')){ echo 'checked'; } ?>>
+        <label for="iparsian_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+	  <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+  	<?php if(!a($bank, 'parsian', 'empty')){  ?>
+  		<a class="btn link" href="<?php echo \dash\url::that(). '/irparsian' ?>"> <?php echo T_("Change connection setting") ?></a>
+  	<?php } //endif ?>
+
+  </footer>
+</section>
 
 
 
-<div class="avand-lg">
-	<form method="post" autocomplete="off">
-		<div class="box">
-			<header><h2><?php echo T_("Configuration bank payment setting") ?></h2></header>
-			<div class="body">
-				<?php
+<section class="f" data-option='setting-order-payment-online-payir' id="setting-order-payment-online-payir">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("payir payment"); ?></h3>
+      <div class="body">
+  		<i class="spay-32-payir"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_payir_payment_status" value="1">
+    <div class="action">
+	  <?php if(a($bank, 'payir', 'empty')){  ?>
+	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irpayir?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  <?php }else{ ?>
+      <div class="switch1">
+        <input id="ipayir_payment_status" type="checkbox" name="payir_payment_status" <?php if(a($bank, 'payir', 'status')){ echo 'checked'; } ?>>
+        <label for="ipayir_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+	  <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+  	<?php if(!a($bank, 'payir', 'empty')){  ?>
+  		<a class="btn link" href="<?php echo \dash\url::that(). '/irpayir' ?>"> <?php echo T_("Change connection setting") ?></a>
+  	<?php } //endif ?>
 
-					html_block_paymentAsanpardakht($bank);
-					html_block_paymentParsian($bank);
-					html_block_paymentPayir($bank);
-					html_block_paymentIrankhis($bank);
-					html_block_idpay($bank);
-				 ?>
-			</div>
-			<footer class="f">
-				<div class="c"><a data-ajaxify data-data='{"test": "payment"}' data-method='post' class="btn link"><?php echo T_("Test payment"); ?></a></div>
-				<div class="cauto"><button class="btn success"><?php echo T_("Save"); ?></button></div>
-			</footer>
-		</div>
-	</form>
-</div>
-
-
-
-
-
-
-
-
-
-<?php function html_block_paymentAsanpardakht($bank) {?>
-<div class="switch1">
- <input type="checkbox" name="asanpardakht" id="asanpardakht" <?php if(a($bank, 'asanpardakht', 'status')) { echo 'checked';} ?> >
- <label for="asanpardakht"></label>
- <label for="asanpardakht"><?php echo T_("Enable asanpardakht payment"); ?></label>
-</div>
-
-<div class="f mT10" data-response='asanpardakht' <?php if(a($bank, 'asanpardakht', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
-	<div class="c6 pLa5">
-		<label for="MerchantID">MerchantID</label>
-		<div class="input">
-		  <input type="text" name="aMerchantID" id="MerchantID" placeholder='MerchantID' value="<?php echo a($bank, 'asanpardakht','MerchantID'); ?>" maxlength='300'>
-		</div>
-	</div>
-	<div class="c6 pLa5">
-		<label for="MerchantConfigID">MerchantConfigID</label>
-		<div class="input">
-		  <input type="text" name="MerchantConfigID" id="MerchantConfigID" placeholder='MerchantConfigID' value="<?php echo a($bank, 'asanpardakht','MerchantConfigID'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-
-	<div class="c6 pLa5">
-		<label for="Username">Username</label>
-		<div class="input">
-		  <input type="text" name="Username" id="Username" placeholder='Username' value="<?php echo a($bank, 'asanpardakht','Username'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-
-	<div class="c6 pLa5">
-		<label for="Password">Password</label>
-		<div class="input">
-		  <input type="password" name="Password" id="Password" placeholder='Password' value="<?php echo a($bank, 'asanpardakht','Password'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-
-	<div class="c6 pLa5">
-		<label for="EncryptionKey">EncryptionKey</label>
-		<div class="input">
-		  <input type="text" name="EncryptionKey" id="EncryptionKey" placeholder='EncryptionKey' value="<?php echo a($bank, 'asanpardakht','EncryptionKey'); ?>" maxlength='300'>
-		</div>
-	</div>
+  </footer>
+</section>
 
 
 
-	<div class="c6 pLa5">
-		<label for="EncryptionVector">EncryptionVector</label>
-		<div class="input">
-		  <input type="text" name="EncryptionVector" id="EncryptionVector" placeholder='EncryptionVector' value="<?php echo a($bank, 'asanpardakht','EncryptionVector'); ?>" maxlength='300'>
-		</div>
-	</div>
+<section class="f" data-option='setting-order-payment-online-irkish' id="setting-order-payment-online-irkish">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("irkish payment"); ?></h3>
+      <div class="body">
+      <i class="spay-32-irkish"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_irkish_payment_status" value="1">
+    <div class="action">
+    <?php if(a($bank, 'irkish', 'empty')){  ?>
+      <a class="btn primary" href="<?php echo \dash\url::that(). '/irirkish?init=1' ?>"><?php echo T_("Connect") ?></a>
+    <?php }else{ ?>
+      <div class="switch1">
+        <input id="iirkish_payment_status" type="checkbox" name="irkish_payment_status" <?php if(a($bank, 'irkish', 'status')){ echo 'checked'; } ?>>
+        <label for="iirkish_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+    <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+    <?php if(!a($bank, 'irkish', 'empty')){  ?>
+      <a class="btn link" href="<?php echo \dash\url::that(). '/irirkish' ?>"> <?php echo T_("Change connection setting") ?></a>
+    <?php } //endif ?>
+
+  </footer>
+</section>
 
 
-	<div class="c6 pLa5">
-		<label for="MerchantName">MerchantName</label>
-		<div class="input">
-		  <input type="text" name="MerchantName" id="MerchantName" placeholder='MerchantName' value="<?php echo a($bank, 'asanpardakht','MerchantName'); ?>" maxlength='300'>
-		</div>
-	</div>
-
-</div>
-
-<?php } // endfunction ?>
 
 
-<?php function html_block_paymentParsian($bank) {?>
-<div class="switch1">
- <input type="checkbox" name="parsian" id="parsian" <?php if(a($bank, 'parsian', 'status')) { echo 'checked';} ?> >
- <label for="parsian"></label>
- <label for="parsian"><?php echo T_("Enable parsian payment"); ?></label>
-</div>
+<section class="f" data-option='setting-order-payment-online-idpay' id="setting-order-payment-online-idpay">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("idpay payment"); ?></h3>
+      <div class="body">
+      <i class="spay-32-idpay"></i>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_idpay_payment_status" value="1">
+    <div class="action">
+    <?php if(a($bank, 'idpay', 'empty')){  ?>
+      <a class="btn primary" href="<?php echo \dash\url::that(). '/iridpay?init=1' ?>"><?php echo T_("Connect") ?></a>
+    <?php }else{ ?>
+      <div class="switch1">
+        <input id="iidpay_payment_status" type="checkbox" name="idpay_payment_status" <?php if(a($bank, 'idpay', 'status')){ echo 'checked'; } ?>>
+        <label for="iidpay_payment_status" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+    <?php } //endif ?>
+    </div>
+  </form>
+  <footer class="txtRa">
+    <?php if(!a($bank, 'idpay', 'empty')){  ?>
+      <a class="btn link" href="<?php echo \dash\url::that(). '/iridpay' ?>"> <?php echo T_("Change connection setting") ?></a>
+    <?php } //endif ?>
 
-<div class="f mT10" data-response='parsian' <?php if(a($bank, 'parsian', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
-	<div class="c12 mLa5">
-		<label for="LoginAccount">LoginAccount</label>
-		<div class="input">
-		  <input type="text" name="LoginAccount" id="LoginAccount" placeholder='LoginAccount' value="<?php echo a($bank, 'parsian','LoginAccount'); ?>" maxlength='300'>
-		</div>
-	</div>
-</div>
-
-<?php } // endfunction ?>
+  </footer>
+</section>
 
 
-<?php function html_block_paymentPayir($bank) {?>
-<div class="switch1">
- <input type="checkbox" name="payir" id="payir" <?php if(a($bank, 'payir', 'status')) { echo 'checked';} ?> >
- <label for="payir"></label>
- <label for="payir"><?php echo T_("Enable payir payment"); ?></label>
-</div>
 
-<div class="f mT10" data-response='payir' <?php if(a($bank, 'payir', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
-	<div class="c12 mLa5">
-		<label for="api">Api</label>
-		<div class="input">
-		  <input type="text" name="api" id="api" placeholder='api' value="<?php echo a($bank, 'payir','api'); ?>" maxlength='300'>
-		</div>
-	</div>
-</div>
 
-<?php } // endfunction ?>
+
 
 
 <?php function html_block_paymentIrankhis($bank) {?>
