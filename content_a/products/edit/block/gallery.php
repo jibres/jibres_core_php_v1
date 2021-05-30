@@ -12,7 +12,7 @@
 
   if(!$add_product_module && \dash\data::productDataRow_title())
   {
-    $product_suggestion        = true;
+    $product_suggestion        = false;
     $product_suggestion_status = a(\dash\data::productSettingSaved(), 'product_suggestion');
   }
 
@@ -21,6 +21,8 @@
 
   require_once(root. 'dash/layout/post/admin-gallery-box.php');
 
+    if(false)
+    {
   // runaction_product_suggestion
   // product_suggestion
   if(!$add_product_module)
@@ -40,5 +42,6 @@
       echo '<div class="row" data-digikala-crawl='.  \dash\data::productDataRow_title(). '></div>';
     echo "</div>";
   }
+}
 
 ?>
