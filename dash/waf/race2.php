@@ -5,7 +5,11 @@ class race2
 {
 	public static function init($_data)
 	{
-		$data = $_data;
+		$data = [];
+		if(is_array($_data))
+		{
+			$data = $_data;
+		}
 		// create key
 		$pathAddr = self::request_key();
 		$mySessionID = \dash\system\session2::id();
