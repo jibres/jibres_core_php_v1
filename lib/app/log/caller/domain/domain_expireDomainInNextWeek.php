@@ -69,11 +69,30 @@ class domain_expireDomainInNextWeek
 	}
 
 
+
 	public static function sms()
 	{
-		return false;
+		return true;
 	}
 
+
+	public static function sms_text($_args, $_mobile)
+	{
+		$title = self::get_msg($_args);
+
+		$sms =
+		[
+			'mobile' => $_mobile,
+			'text'   => $title,
+			'meta'   =>
+			[
+				'header' => false,
+				'footer' => false
+			]
+		];
+
+		return json_encode($sms, JSON_UNESCAPED_UNICODE);
+	}
 
 
 	public static function telegram_text($_args, $_chat_id)
