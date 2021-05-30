@@ -212,6 +212,27 @@ class setting
 			'addr'     => [T_("Setting"), T_("General") ],
 			'icon'     => 'trash',
 		];
+
+
+		$list[] =
+		[
+			'title'    => T_("Business address"),
+			'keywords' =>
+			[
+				T_("address"),
+				T_("location"),
+				T_("map"),
+				T_("country"),
+				T_("province"),
+				T_("city"),
+				T_("phone"),
+				T_("postal code"),
+				T_("postcode"),
+			],
+			'url'      => \dash\url::kingdom(). '/a/setting/general/address',
+			'addr'     => [T_("Setting"), T_("General"), T_("Address")],
+			'icon'     => 'map-marker',
+		];
 	}
 
 
