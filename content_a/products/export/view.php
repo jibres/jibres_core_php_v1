@@ -9,7 +9,7 @@ class view
 		// page title
 		\dash\face::title(T_("Export products"));
 		// back
-		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_text(T_('Product setting'));
 		\dash\data::back_link(\dash\url::here(). '/setting/product');
 
 		$count_all = \lib\app\product\export::count_all();

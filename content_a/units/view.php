@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_('Unit of products'));
 
 		// back
-		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_text(T_('Product setting'));
 		\dash\data::back_link(\dash\url::here(). '/setting/product');
 
 		if(\dash\data::editMode())
