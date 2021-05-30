@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.productcategoryusage ADD `id` INT PRIMARY KEY AUTO_INCREMENT FIRST;
