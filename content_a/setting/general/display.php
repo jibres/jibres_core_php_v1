@@ -48,6 +48,29 @@ $storeData = \dash\data::store_store_data();
 </section>
 
 
+<section class="f" data-option='setting-address' id="setting-busienss-address">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Business Address"); ?></h3>
+      <div class="body">
+        <?php if(a($storeData, 'country_detail', 'name')) { echo '<div class="mB5">'. T_("Country"). ' '. '<b>'. a($storeData, 'country_detail', 'name') .'</b></div>'; }; ?>
+        <?php if(a($storeData, 'province_detail', 'name')) { echo '<div class="mB5">'. T_("Province"). ' '. '<b>'. a($storeData, 'province_detail', 'name') .'</b></div>'; }; ?>
+        <?php if(a($storeData, 'city_detail', 'name')) { echo '<div class="mB5">'. T_("City"). ' '. '<b>'. a($storeData, 'city_detail', 'name') .'</b></div>'; }; ?>
+        <?php if(a($storeData, 'postcode')) { echo '<div class="mB5">'. T_("Postcode"). ' '. '<b>'. \dash\fit::text(a($storeData, 'postcode')) .'</b></div>'; }; ?>
+        <?php if(a($storeData, 'phone')) { echo '<div class="mB5">'. T_("Phone"). ' '. '<b>'. \dash\fit::text(a($storeData, 'phone')) .'</b></div>'; }; ?>
+        <?php if(a($storeData, 'address')) { echo '<div class="mB5">'. a($storeData, 'address') .'</div>'; }; ?>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+
+    <div class="action">
+      <a class="btn primary" href="<?php echo \dash\url::that(). '/address' ?>"><?php echo T_("Manage business address") ?></a>
+    </div>
+  </form>
+</section>
+
+
 <section class="f" data-option='setting-currency' id="setting-busienss-currency">
   <div class="c8 s12">
     <div class="data">

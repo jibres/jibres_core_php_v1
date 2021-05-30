@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\address;
+namespace content_a\setting\general\address;
 
 
 class view
@@ -8,8 +8,8 @@ class view
 	{
 		\dash\face::title(T_('Set your store address'));
 
-		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::this(). '/place');
+		\dash\data::back_text(T_('General setting'));
+		\dash\data::back_link(\dash\url::that());
 
 		self::static_var();
 	}

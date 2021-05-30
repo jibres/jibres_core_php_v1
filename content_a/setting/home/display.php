@@ -32,16 +32,6 @@
 
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/place">
-                    <div class="c-auto"><i class="sf-map-marker"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Locations"); ?></h2>
-                        <p><?php echo T_("Manage the place you stock inventory and sell products"); ?></p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/vat">
                     <div class="c-auto"><i class="sf-receipt-shopping-streamline"></i></div>
                     <div class="c">
@@ -189,8 +179,6 @@
                     </div>
                 </a>
             </div>
-
-
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/setting/menu">
                     <div class="c-auto"><i class="sf-bars"></i></div>
