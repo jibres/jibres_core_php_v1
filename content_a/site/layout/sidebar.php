@@ -1,4 +1,6 @@
+<div class="flex">
 
+</div>
 <?php
 if(\dash\data::lineSetting())
 {

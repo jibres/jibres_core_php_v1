@@ -1,5 +1,5 @@
 <?php
-namespace content_a\site\add;
+namespace content_a\site\new;
 
 
 class view
