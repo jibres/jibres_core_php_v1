@@ -18,7 +18,12 @@ class get
 	}
 
 
-
+	public static function last_sort_cat($_product_id, $_cat)
+	{
+		$query  = "SELECT IFNULL(productproperties.sort, 0) AS `sort` FROM productproperties WHERE productproperties.product_id = $_product_id AND productproperties.cat = '$_cat' ORDER BY productproperties.sort DESC LIMIT 1 ";
+		$result = \dash\db::get($query, 'sort', true);
+		return $result;
+	}
 
 	public static function count_product($_product_id)
 	{
@@ -32,7 +37,7 @@ class get
 	{
 		$query =
 		"
-			SELECT DISTINCT
+		SELECT DISTINCT
 				productproperties.cat AS `cat`
 			FROM
 				productproperties
