@@ -17,14 +17,21 @@ class controller
 			$alertyOpt =
 			[
 				'alerty'            => true,
-				'timeout'           => 1000,
+				'timeout'           => 5000,
 				'showConfirmButton' => false,
 				'priority'          => false,
+				'html'              => '<a href="'. \dash\url::sitelang(). '/account/notification">'. T_("You have :val new message!". '</a>', ['val' => \dash\fit::number($myResult['notifCount'])]),
 			];
 
 			// show alert as toast
 			$alertyOpt['toast']    = true;
-			$alertyOpt['position'] = 'top-end';
+			$alertyOpt['position'] = 'bottom-end';
+
+			if(\dash\detect\device::detectPWA())
+			{
+				// $alertyOpt['position'] = 'top-end';
+				$alertyOpt['timeout']  = 3000;
+			}
 
 
 			// if before this notif icon is off
@@ -43,7 +50,7 @@ class controller
 					}
 					else
 					{
-						\dash\notif::info(T_("You have :val new message!", ['val' => \dash\fit::number($myResult['notifCount'])]), $alertyOpt);
+						\dash\notif::info("1", $alertyOpt);
 					}
 
 				}
