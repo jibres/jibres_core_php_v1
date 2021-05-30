@@ -68,7 +68,7 @@ class send
 
 		if($sms_footer && $_options['footer'])
 		{
-			$message    .= "\n\n";
+			$message    .= "\n";
 			$message    .= $sms_footer;
 		}
 
@@ -89,7 +89,7 @@ class send
 
 			if($sms_footer && $_options['footer'])
 			{
-				$message    .= "\n\n";
+				$message    .= "\n";
 				$message    .= $sms_footer;
 			}
 		}
