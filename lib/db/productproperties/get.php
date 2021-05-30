@@ -5,14 +5,14 @@ class get
 {
 	public static function all_cat_name()
 	{
-		$query = "SELECT DISTINCT productproperties.cat AS `cat` FROM productproperties";
+		$query = "SELECT DISTINCT productproperties.cat AS `cat` FROM productproperties ORDER BY CHAR_LENGTH(productproperties.cat) ASC";
 		$result = \dash\db::get($query, 'cat');
 		return $result;
 	}
 
 	public static function all_key_name()
 	{
-		$query = "SELECT DISTINCT productproperties.key AS `key` FROM productproperties";
+		$query = "SELECT DISTINCT productproperties.key AS `key` FROM productproperties ORDER BY CHAR_LENGTH(productproperties.key) ASC";
 		$result = \dash\db::get($query, 'key');
 		return $result;
 	}
