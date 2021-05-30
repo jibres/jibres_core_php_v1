@@ -770,6 +770,10 @@ class property
 		else
 		{
 
+			if(is_null($data['sort']) && $data['cat'])
+			{
+				$data['sort'] = floatval(\lib\db\productproperties\get::last_sort_cat($id, $data['cat'])) + 1;
+			}
 			$insert =
 			[
 				'product_id'  => $id,
