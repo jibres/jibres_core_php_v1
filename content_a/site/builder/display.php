@@ -3,7 +3,7 @@
   echo '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
   {
     // dots
-    echo '<div class="relative flex flex-none items-center space-x-3 px-3">';
+    echo '<div class="relative flex flex-none items-center space-s-3 px-3">';
     {
       echo '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
       echo '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
@@ -11,7 +11,7 @@
     }
     echo '</div>';
     // address line
-    echo '<div class="relative flex flex-grow items-center px-7 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-xl text-gray-700 transition">';
+    echo '<div class="ltr relative flex flex-grow items-center px-7 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-xl text-gray-700 transition">';
     {
       echo '<a class="address flex-grow" href='. \lib\store::url(). '>';
       echo \lib\store::url();
