@@ -106,9 +106,34 @@
     </ul>
   </nav>
 <?php } ?>
+  <h2><?php echo T_("Bank payment"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irmellat">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/mellat-logo.svg" alt='Mellat'>
+          <div class="key"><?php echo T_("Mellat"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irirkish">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/irkish.jpg" alt='Irkish'>
+          <div class="key"><?php echo T_("IranKish"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irparsian">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
+          <div class="key"><?php echo T_("Parsian"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-
-  <h2><?php echo T_("Bank payment gateway"); ?></h2>
+  <h2><?php echo T_("Assistant payment"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -118,14 +143,6 @@
           <div class="go"></div>
         </a>
       </li>
-      <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/irmellat">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/mellat-logo.svg" alt='Mellat'>
-          <div class="key"><?php echo T_("Mellat"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-
        <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irasanpardakht">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/asanpardasht-logo.svg" alt='Asanpardasht'>
@@ -140,24 +157,6 @@
           <div class="go"></div>
         </a>
       </li>
-
-      <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/irirkish">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/irkish.jpg" alt='Irkish'>
-          <div class="key"><?php echo T_("IranKish"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-
-
-      <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/irparsian">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
-          <div class="key"><?php echo T_("Parsian"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irpayir">
           <i class="spay-32-payir"></i>
@@ -165,8 +164,6 @@
           <div class="go"></div>
         </a>
       </li>
-
     </ul>
   </nav>
-
 </div>
