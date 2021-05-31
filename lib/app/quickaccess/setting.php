@@ -21,6 +21,8 @@ class setting
 
 		self::bank_payment($list);
 
+		self::certification($list);
+
 		self::product_setting($list);
 
 		return $list;
@@ -185,6 +187,35 @@ class setting
 
 
 	}
+
+
+	/**
+	 * Thirdparty setting
+	 *
+	 * @param      <type>  $list   The list
+	 */
+	private static function certification(&$list)
+	{
+		$list[] =
+		[
+			'title'    => T_("Enamad"),
+			'keywords' => [T_("Enamad"), T_("certification"), 'enamad'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/enamad',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Enamad") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/enamad.jpg',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("Samandehi"),
+			'keywords' => [T_("Samandehi"), T_("certification"), 'samandehi'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/samandehi',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Samandehi") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/samandehi.jpg',
+		];
+
+	}
+
 
 
 	/**
