@@ -5,11 +5,9 @@
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">
-				<div class="txtC">
-					<i class="spay-128-parsian"></i>
-				</div>
-				<br>
-				<div class="switch1">
+				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
+
+				<div class="switch1 mT20">
 				 <input type="checkbox" name="parsian" id="parsian" <?php if(a($bank, 'parsian', 'status')) { echo 'checked';} ?> >
 				 <label for="parsian"></label>
 				 <label for="parsian"><?php echo T_("Enable parsian payment"); ?></label>
@@ -23,12 +21,8 @@
 					</div>
 				</div>
 			</div>
-			<footer class="f">
-				<?php if(!a($bank, 'parsian', 'empty')) {?>
-					<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"set_parsian": 1, "delete" : "delete"}'><?php echo T_("Remove") ?></div></div>
-				<?php } //endif ?>
-				<div class="c"></div>
-				<div class="cauto"><button class="btn master"><?php echo T_("Save") ?></button></div>
+			<footer class="txtRa">
+				<button class="btn master"><?php echo T_("Save") ?></button>
 			</footer>
 		</div>
 	</div>

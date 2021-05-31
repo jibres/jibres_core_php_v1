@@ -8,10 +8,8 @@ class view extends \content_a\setting\thirdparty\onlinepayment\view
 	{
 		parent::config();
 
-		\dash\face::title(T_('zarinpal payment'));
+		\dash\face::title(T_('Zarinpal Payment'));
 
-		\dash\data::back_text(T_('Online payment setting'));
-		\dash\data::back_link(\dash\url::that(). '/onlinepayment');
 
 	}
 }

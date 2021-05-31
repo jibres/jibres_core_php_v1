@@ -98,6 +98,7 @@
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/mediaad">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/mediaad-icon.svg" alt='Samandehi'>
           <div class="key"><?php echo T_("Media.ad"); ?></div>
           <div class="go"></div>
         </a>
@@ -112,14 +113,14 @@
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irzarinpal">
-          <i class="spay-32-zarinpal"></i>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/zarinpal-icon.svg" alt='ZarinPal'>
           <div class="key"><?php echo T_("Zarinpal"); ?></div>
           <div class="go"></div>
         </a>
       </li>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irmellat">
-          <i class="spay-32-mellat"></i>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/mellat-logo.svg" alt='Mellat'>
           <div class="key"><?php echo T_("Mellat"); ?></div>
           <div class="go"></div>
         </a>
@@ -127,14 +128,14 @@
 
        <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irasanpardakht">
-          <i class="spay-32-asanpardakht"></i>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/asanpardasht-logo.svg" alt='Asanpardasht'>
           <div class="key"><?php echo T_("Asanpardakht"); ?></div>
           <div class="go"></div>
         </a>
       </li>
         <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/iridpay">
-          <div class="hide"><i class="sf-card fc-blue font-25"></i></div>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/idpay-icon.png" alt='IDpay'>
           <div class="key"><?php echo T_("IDPay"); ?></div>
           <div class="go"></div>
         </a>
@@ -142,7 +143,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irirkish">
-          <i class="spay-32-irkish"></i>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/irkish.jpg" alt='Irkish'>
           <div class="key"><?php echo T_("IranKish"); ?></div>
           <div class="go"></div>
         </a>
@@ -151,7 +152,7 @@
 
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irparsian">
-          <i class="spay-32-parsian"></i>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
           <div class="key"><?php echo T_("Parsian"); ?></div>
           <div class="go"></div>
         </a>

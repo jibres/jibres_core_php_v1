@@ -8,7 +8,7 @@ class view extends \content_a\setting\thirdparty\onlinepayment\view
 	{
 		parent::config();
 
-		\dash\face::title(T_('idpay payment'));
+		\dash\face::title(T_('IDPay Payment'));
 
 
 	}

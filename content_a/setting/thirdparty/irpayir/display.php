@@ -5,12 +5,9 @@
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">
-				<div class="txtC">
-					<i class="spay-128-payir"></i>
-				</div>
-				<br>
+				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payir.png" alt='Payir'>
 
-				<div class="switch1">
+				<div class="switch1 mT20">
 				 <input type="checkbox" name="payir" id="payir" <?php if(a($bank, 'payir', 'status')) { echo 'checked';} ?> >
 				 <label for="payir"></label>
 				 <label for="payir"><?php echo T_("Enable payir payment"); ?></label>
@@ -24,12 +21,8 @@
 					</div>
 				</div>
 			</div>
-			<footer class="f">
-				<?php if(!a($bank, 'payir', 'empty')) {?>
-					<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"set_payir": 1, "delete" : "delete"}'><?php echo T_("Remove") ?></div></div>
-				<?php } //endif ?>
-				<div class="c"></div>
-				<div class="cauto"><button class="btn master"><?php echo T_("Save") ?></button></div>
+			<footer class="txtRa">
+				<button class="btn master"><?php echo T_("Save") ?></button>
 			</footer>
 		</div>
 	</div>

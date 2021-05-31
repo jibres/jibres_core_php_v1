@@ -5,24 +5,24 @@
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">
-				<div class="txtC">
-					<i class="spay-128-zarinpal"></i>
-				</div>
-				<br>
-					<div class="ltr">
-						<label for="zMerchantID">MerchantID</label>
-						<div class="input">
-						  <input type="text" name="zMerchantID" id="zMerchantID" placeholder='zMerchantID' value="<?php echo a($bank, 'zarinpal','MerchantID'); ?>" maxlength='300'>
-						</div>
-					</div>
-			</div>
-			<footer class="f">
-				<?php if(!a($bank, 'zarinpal', 'empty')) {?>
-					<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"set_zarinpal": 1, "delete" : "delete"}'><?php echo T_("Remove") ?></div></div>
-				<?php } //endif ?>
-				<div class="c"></div>
-				<div class="cauto"><button class="btn master"><?php echo T_("Save") ?></button></div>
+				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/zarinpal.svg" alt='ZarinPal'>
 
+				<div class="switch1 mT50">
+					<input type="checkbox" name="zarinpal" id="zarinpal" <?php if(a($bank, 'zarinpal', 'status')) { echo 'checked';} ?> >
+					<label for="zarinpal"></label>
+					<label for="zarinpal"><?php echo T_("Enable zarinpal payment"); ?></label>
+				</div>
+
+				<div class="ltr mT10" data-response='zarinpal' <?php if(a($bank, 'zarinpal', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+
+					<label for="zMerchantID">MerchantID</label>
+					<div class="input">
+						<input type="text" name="zMerchantID" id="zMerchantID" placeholder='zMerchantID' value="<?php echo a($bank, 'zarinpal','MerchantID'); ?>" maxlength='300'>
+					</div>
+				</div>
+			</div>
+			<footer class="txtRa">
+				<button class="btn master"><?php echo T_("Save") ?></button>
 			</footer>
 		</div>
 	</div>

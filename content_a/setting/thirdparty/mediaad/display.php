@@ -3,6 +3,7 @@
 <div class="avand-sm impact zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box">
+      <img class="block pA10" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/mediaad.svg" alt='Mediaad'>
         <div class="body">
           <div class="msg">
             <p>مدیااد، یک پلتفرم تبلیغات دیجیتال است که به تبلیغ‌دهندگان و صاحبان کسب‌وکارها کمک می‌کند تا تبلیغ برند، محصولات و خدمات خود را در فضای وب‌سایت‌های معتبر فارسی به مخاطبان هدفشان نمایش دهند و ترافیک باکیفیتی جذب کنند و از سوی دیگر، به صاحبان وب‌سایت‌های ایرانی کمک می‌کند تا از طریق نمایش تبلیغ در وب‌سایت خود، به درآمدزایی پایداری دست یابند.</p>

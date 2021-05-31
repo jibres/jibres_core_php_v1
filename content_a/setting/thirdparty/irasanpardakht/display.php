@@ -5,11 +5,9 @@
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">
-				<div class="txtC">
-					<i class="spay-128-asanpardakht"></i>
-				</div>
+				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/asanpardasht-logo.svg" alt='Asanpardasht'>
 				<br>
-				<div class="switch1">
+				<div class="switch1 mT20">
 				 <input type="checkbox" name="asanpardakht" id="asanpardakht" <?php if(a($bank, 'asanpardakht', 'status')) { echo 'checked';} ?> >
 				 <label for="asanpardakht"></label>
 				 <label for="asanpardakht"><?php echo T_("Enable asanpardakht payment"); ?></label>
