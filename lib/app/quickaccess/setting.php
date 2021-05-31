@@ -15,7 +15,11 @@ class setting
 
 		self::cms_setting($list);
 
-		self::thirdparty_setting($list);
+		self::s3_setting($list);
+
+		self::livechat_setting($list);
+
+		self::bank_payment($list);
 
 		self::product_setting($list);
 
@@ -29,17 +33,157 @@ class setting
 	 *
 	 * @param      <type>  $list   The list
 	 */
-	private static function thirdparty_setting(&$list)
+	private static function s3_setting(&$list)
 	{
+		$list[] =
+		[
+			'title'    => T_("Google Analytics"),
+			'keywords' => [T_("Google Analytics"), T_("Google"), T_("Analytics"), T_("Statistics"), 'Google Analytics', 'statistics'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/gtag',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Google Analytics") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/google_analytics.svg',
+		];
 
 		$list[] =
 		[
-			'title'    => T_("ArvanCloud"),
-			'keywords' => [T_("Arvan"), T_("ArvanCloud"), T_("Storage"), 'Arvan', "ArvanCloud", "Arvan Cloud", "File"],
+			'title'    => T_("Amazon S3"),
+			'keywords' => [T_("amazon"), T_("storage"), 'asw', "amazon", "file"],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/awss3',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Amazon S3") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/aws.svg',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("DigitalOcean S3"),
+			'keywords' => [T_("digitalOcean"), T_("Storage"), 's3', "digitalocean", "file"],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/digitaloceans3',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("DigitalOcean S3") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/digitalocean.svg',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("ArvanCloud S3"),
+			'keywords' => [T_("arvan"), T_("arvancloud"), T_("storage"), 'arvan', "arvancloud", "arvan cloud", "file"],
 			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/arvanclouds3',
-			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("S3") ],
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("ArvanCloud S3") ],
 			'img'      => \dash\url::cdn(). '/img/thirdparty/arvancloud.svg',
 		];
+	}
+
+
+		/**
+	 * Thirdparty setting
+	 *
+	 * @param      <type>  $list   The list
+	 */
+	private static function livechat_setting(&$list)
+	{
+		$list[] =
+		[
+			'title'    => T_("Tawk.to"),
+			'keywords' => [T_("chat"), T_("live chat"), 'chat', 'live'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/tawk',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Tawk.to") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/tawk.png',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("Imber"),
+
+			'keywords' => [T_("chat"), T_("live chat"), 'chat', 'live'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/imber',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Imber") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/imber.png',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("Raychat"),
+			'keywords' => [T_("chat"), T_("live chat"), 'chat', 'live'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/raychat',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Raychat") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/raychat.jpg',
+		];
+
+	}
+
+
+	/**
+	 * Thirdparty setting
+	 *
+	 * @param      <type>  $list   The list
+	 */
+	private static function bank_payment(&$list)
+	{
+		$list[] =
+		[
+			'title'    => T_("Mellat"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/irmellat',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Mellat") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/mellat-logo.svg',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("IranKish"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/irirkish',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("IranKish") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/irkish.jpg',
+		];
+
+			$list[] =
+		[
+			'title'    => T_("Parsian"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/irparsian',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Parsian") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/parsian.png',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("Zarinpal"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/irzarinpal',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Zarinpal") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/zarinpal-icon.svg',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("Asanpardakht"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/irasanpardakht',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Asanpardakht") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/asanpardasht-logo.svg',
+		];
+
+		$list[] =
+		[
+			'title'    => T_("IDPay"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/iridpay',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("IDPay") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/idpay-icon.png',
+		];
+
+
+		$list[] =
+		[
+			'title'    => T_("Payir"),
+			'keywords' => [T_("bank"), T_("payment"), T_("pay"), T_("gateway"), T_("online payment"), 'bank', 'payment'],
+			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/irpayir',
+			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Payir") ],
+			'img'      => \dash\url::cdn(). '/img/thirdparty/bank/payir.png',
+		];
+
+
+
 	}
 
 
