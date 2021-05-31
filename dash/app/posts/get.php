@@ -113,6 +113,35 @@ class get
 	}
 
 
+	public static function get_multi_post($_ids, $_options = [])
+	{
+
+		$ids = array_map(['\\dash\\coding', 'decode'], $_ids);
+
+		$ids = array_filter($ids);
+		$ids = array_unique($ids);
+
+
+		if($ids)
+		{
+			$ids = implode(',', $ids);
+
+			$list = \dash\db\posts\get::by_ids($ids);
+
+			if(!is_array($list))
+			{
+				$list = [];
+			}
+
+			$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
+
+			return $list;
+		}
+
+		return false;
+	}
+
+
 	public static function inline_get($_id)
 	{
 

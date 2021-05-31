@@ -68,6 +68,13 @@ class get
 		return $result;
 	}
 
+	public static function by_ids($_ids)
+	{
+		$query  = "SELECT * FROM posts WHERE posts.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 
 	public static function check_duplicate($_slug, $_language)
 	{

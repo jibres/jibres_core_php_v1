@@ -51,7 +51,7 @@
             </div>
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/company">
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/legal">
                     <div class="c-auto"><i class="sf-file"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Legal"); ?></h2>
