@@ -70,14 +70,7 @@ class post
 
 		$social = \lib\store::social();
 
-		$reply_markup =
-		[
-			[
-				'text' => T_("Website"),
-				'url'  => \lib\store::url(),
-			],
-		];
-
+		$reply_markup = [];
 
 		$telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
 
@@ -101,28 +94,53 @@ class post
 		}
 
 
-
-		$msgData['reply_markup'] =
-		[
-			'inline_keyboard' =>
+		if(!empty($reply_markup))
+		{
+			$msgData['reply_markup'] =
 			[
+				'inline_keyboard' =>
 				[
 					[
-						'text' => T_("View"),
-						'url'  => \lib\store::url(). '/n/'. a($post_detail , 'id'),
+						[
+							'text' => T_("View"),
+							'url'  => \lib\store::url(). '/n/'. a($post_detail , 'id'),
+						],
 					],
+
+					$reply_markup,
+
+					// [
+					// 	[
+					// 		'text'          => T_("Online Shopping"),
+					// 		'callback_data' => 'ticket',
+					// 	],
+					// ]
 				],
+			];
+		}
+		else
+		{
+			$msgData['reply_markup'] =
+			[
+				'inline_keyboard' =>
+				[
+					[
+						[
+							'text' => T_("View"),
+							'url'  => \lib\store::url(). '/n/'. a($post_detail , 'id'),
+						],
+					],
 
-				$reply_markup,
+					// [
+					// 	[
+					// 		'text'          => T_("Online Shopping"),
+					// 		'callback_data' => 'ticket',
+					// 	],
+					// ]
+				],
+			];
+		}
 
-				// [
-				// 	[
-				// 		'text'          => T_("Online Shopping"),
-				// 		'callback_data' => 'ticket',
-				// 	],
-				// ]
-			],
-		];
 
 
 
