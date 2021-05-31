@@ -136,7 +136,7 @@ class budget
 			[
 				'my_title'           => $data['title'],
 				'my_amount'          => $data['amount'],
-				'my_type'            => \dash\url::subchild(),
+				'my_type'            => $data['type'],
 				'my_for_user'        => $user_id,
 				'my_oprator'         => \dash\user::id(),
 				'my_currency'        => $currency,
