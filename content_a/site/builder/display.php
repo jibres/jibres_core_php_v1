@@ -13,8 +13,8 @@
     // address line
     echo '<div class="relative flex flex-grow items-center px-7 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-xl text-gray-700 transition">';
     {
-      echo '<a class="address flex-grow" href='. \dash\url::pwd(). '>';
-      echo \dash\url::pwd();
+      echo '<a class="address flex-grow" href='. \lib\store::url(). '>';
+      echo \lib\store::url();
       echo '</a>';
 
       echo '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-green-200 text-gray-900 rounded-full text-base">';
@@ -33,6 +33,6 @@
   }
   echo '</div>';
   // echo '<iframe src="http://rafiei.local/"></iframe>';
-  echo '<iframe class="flex-grow w-full h-full" src="http://jibres.local/billboard"></iframe>';
+  echo '<iframe class="flex-grow w-full h-full" src="'. \lib\store::url(). '"></iframe>';
   echo '</div>';
 ?>
