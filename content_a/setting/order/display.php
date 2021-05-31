@@ -34,7 +34,7 @@
     </div>
   </form>
   <footer class="txtRa">
-    <a class="link btn" href="<?php echo \dash\url::that(). '/onlinepayment' ?>"><?php echo T_("Manage Online payment config") ?></a>
+    <a class="link btn" href="<?php echo \dash\url::this(). '/thirdparty' ?>"><?php echo T_("Manage Online payment config") ?></a>
   </footer>
 </section>
 

@@ -9,6 +9,8 @@ class view
 
 		\dash\data::back_text(T_('Setting'));
 		\dash\data::back_link(\dash\url::this());
+
+		\dash\data::bankSetting(\lib\app\setting\get::bank_payment_setting());
 	}
 }
 ?>

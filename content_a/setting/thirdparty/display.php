@@ -106,4 +106,66 @@
   </nav>
 <?php } ?>
 
+
+  <h2><?php echo T_("Bank payment gateway"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irzarinpal">
+          <i class="spay-32-zarinpal"></i>
+          <div class="key"><?php echo T_("Zarinpal"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irmellat">
+          <i class="spay-32-mellat"></i>
+          <div class="key"><?php echo T_("Mellat"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+       <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irasanpardakht">
+          <i class="spay-32-asanpardakht"></i>
+          <div class="key"><?php echo T_("Asanpardakht"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+        <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/iridpay">
+          <div class="hide"><i class="sf-card fc-blue font-25"></i></div>
+          <div class="key"><?php echo T_("IDPay"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irirkish">
+          <i class="spay-32-irkish"></i>
+          <div class="key"><?php echo T_("IranKish"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irparsian">
+          <i class="spay-32-parsian"></i>
+          <div class="key"><?php echo T_("Parsian"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irpayir">
+          <i class="spay-32-payir"></i>
+          <div class="key"><?php echo T_("Payir"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
 </div>
