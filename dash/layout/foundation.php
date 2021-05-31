@@ -117,11 +117,11 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 ?>
 <?php // @todo add rel alternative ?>
 <?php
-if(\dash\engine\store::inBusinessWebsite())
+if(\dash\engine\store::inBusinessWebsite() || \dash\data::include_adminPanelBuilder())
 {
- echo'<link href='. \dash\layout\func::staticmtime('css/tailwind-v1.css'). ' rel="stylesheet"/>';
  // temporary load jibres.min
  echo'<link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>';
+ echo'<link href='. \dash\layout\func::staticmtime('css/tailwind-v1.css'). ' rel="stylesheet"/>';
 }
 else
 {

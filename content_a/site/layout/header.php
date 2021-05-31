@@ -1,6 +1,6 @@
 <div class="h-full flex flex-wrap content-center">
 
-  <a class="backBtn px-5 w-50 text-2xl text-gray-600 hover:text-gray-400 transition" href="">
+  <a class="backBtn px-5 w-50 text-2xl text-gray-600 hover:text-gray-400 transition" href="<?php echo \dash\url::this(); ?>">
     <i class="inline-block transition-none sf-chevron-left"></i>
     <span class="inline-block transition-none"><?php echo T_("Back"); ?></span>
   </a>
