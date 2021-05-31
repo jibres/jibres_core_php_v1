@@ -244,7 +244,7 @@ if(count($myGallery) > 1)
       <tr class="group">
         <th colspan="2"><?php echo $cat['title']; ?></th>
       </tr>
-<?php foreach ($cat['list'] as $key => $value) {?>
+<?php foreach ($cat['list'] as $key => $value) { if(is_null(a($value, 'value'))){ continue;}?>
       <tr>
         <th><?php echo $value['key']; ?></th>
         <td>
