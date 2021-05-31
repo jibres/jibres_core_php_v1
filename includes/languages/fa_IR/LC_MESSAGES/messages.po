@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-05-30 16:41+0430\n"
-"PO-Revision-Date: 2021-05-30 16:43+0430\n"
+"POT-Creation-Date: 2021-05-31 12:54+0430\n"
+"PO-Revision-Date: 2021-05-31 12:56+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1756,7 +1756,7 @@ msgid "Domain Price"
 msgstr "هزینه دامنه"
 
 #: content/domains/pricing/view.php:12 content/domains/search/view.php:12
-#: content/home/layout/header.php:19 content_a/setting/home/display.php:138
+#: content/home/layout/header.php:19 content_a/setting/home/display.php:88
 #: content_account/billing/view.php:17 content_developers/docs/home/display.php:49
 #: content_love/business/domain/action/view.php:12
 #: content_love/business/domain/add/view.php:12
@@ -2048,7 +2048,7 @@ msgstr ""
 "بیزینس خود را کاوش کنید."
 
 #: content/home/display.php:27 content/home/view.php:11 content/view.php:17
-#: content_a/setting/home/display.php:204
+#: content_a/setting/home/display.php:154
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
@@ -2058,7 +2058,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/setting/home/display.php:214
+#: content_a/setting/home/display.php:164
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2086,7 +2086,7 @@ msgstr "، "
 msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
-#: content/home/display.php:41 content_a/setting/home/display.php:224
+#: content/home/display.php:41 content_a/setting/home/display.php:174
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2111,7 +2111,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/setting/home/display.php:234
+#: content_a/setting/home/display.php:184
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -2166,7 +2166,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 
 #: content/home/display.php:100 content_a/home/display.php:116
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
-#: content_a/products/home/view.php:11 content_a/setting/home/display.php:27
+#: content_a/products/home/view.php:11 content_a/setting/home/display.php:25
 #: content_a/setting/menu/item/display.php:20 content_a/website/menu/item/display.php:20
 #: content_a/website/productline/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:6
 #: dash/panel.php:231 dash/plan_list.php:44 includes/languages/trans_static.php:560
@@ -2923,7 +2923,7 @@ msgid "Form Builder"
 msgstr "فرم‌ساز"
 
 #: content/investment/display-company-info.php:92 content_a/accounting/home/view.php:9
-#: content_a/setting/home/display.php:177 lib/app/store/analytics.php:91
+#: content_a/setting/home/display.php:127 lib/app/store/analytics.php:91
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
 msgid "Accounting"
@@ -4456,20 +4456,20 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/logo/view.php:15 content_a/setting/menu/add/view.php:13
 #: content_a/setting/menu/edit/view.php:12 content_a/setting/menu/item/view.php:15
 #: content_a/setting/menu/roster/view.php:15 content_a/setting/menu/setting/view.php:14
-#: content_a/setting/menu/view.php:13 content_a/setting/payment/bank/view.php:11
-#: content_a/setting/payment/way/view.php:11 content_a/setting/pcpos/view.php:12
+#: content_a/setting/menu/view.php:13 content_a/setting/pcpos/view.php:12
 #: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/setting/view.php:11 content_a/setting/shipping/view.php:11
 #: content_a/setting/social-old/view.php:14 content_a/setting/staticfile/view.php:15
 #: content_a/setting/telegram/view.php:10 content_a/setting/tw/view.php:10
-#: content_a/setting/youtube/view.php:10 content_a/site/add/view.php:11
-#: content_a/site/builder/view.php:145 content_a/site/builder/view.php:150
-#: content_a/site/layout/header.php:5 content_a/tag/clone/view.php:13
-#: content_a/tag/editgroup/view.php:13 content_a/tag/property/view.php:13
-#: content_a/tag/remove/view.php:13 content_a/units/view.php:29
-#: content_a/units/view.php:36 content_a/website/advance/view.php:12
-#: content_a/website/application/view.php:19 content_a/website/body/add/view.php:12
-#: content_a/website/body/view.php:12 content_a/website/imageblock/add/view.php:33
+#: content_a/setting/youtube/view.php:10 content_a/site/builder/view.php:145
+#: content_a/site/builder/view.php:150 content_a/site/layout/header.php:5
+#: content_a/site/new/view.php:11 content_a/site/section/view.php:11
+#: content_a/tag/clone/view.php:13 content_a/tag/editgroup/view.php:13
+#: content_a/tag/property/view.php:13 content_a/tag/remove/view.php:13
+#: content_a/units/view.php:29 content_a/units/view.php:36
+#: content_a/website/advance/view.php:12 content_a/website/application/view.php:19
+#: content_a/website/body/add/view.php:12 content_a/website/body/view.php:12
+#: content_a/website/imageblock/add/view.php:33
 #: content_a/website/imageblock/setting/view.php:20
 #: content_a/website/imageblock/view.php:19 content_a/website/menu/add/view.php:13
 #: content_a/website/menu/edit/view.php:12 content_a/website/menu/item/view.php:15
@@ -4845,6 +4845,14 @@ msgid "followup"
 msgstr "پیگیری"
 
 #: content_a/accounting/coding/add/display-add.php:153
+#: content_a/setting/order/display.php:32 content_a/setting/order/display.php:56
+#: content_a/setting/thirdparty/onlinepayment/display.php:21
+#: content_a/setting/thirdparty/onlinepayment/display.php:53
+#: content_a/setting/thirdparty/onlinepayment/display.php:86
+#: content_a/setting/thirdparty/onlinepayment/display.php:117
+#: content_a/setting/thirdparty/onlinepayment/display.php:149
+#: content_a/setting/thirdparty/onlinepayment/display.php:181
+#: content_a/setting/thirdparty/onlinepayment/display.php:214
 #: content_crm/permission/advance/display.php:66
 #: content_crm/permission/edit/display.php:70 content_love/domain/detail/display.php:25
 #: content_love/domain/setting/display.php:125
@@ -4858,6 +4866,14 @@ msgid "Enable"
 msgstr "فعال"
 
 #: content_a/accounting/coding/add/display-add.php:153
+#: content_a/setting/order/display.php:32 content_a/setting/order/display.php:56
+#: content_a/setting/thirdparty/onlinepayment/display.php:21
+#: content_a/setting/thirdparty/onlinepayment/display.php:53
+#: content_a/setting/thirdparty/onlinepayment/display.php:86
+#: content_a/setting/thirdparty/onlinepayment/display.php:117
+#: content_a/setting/thirdparty/onlinepayment/display.php:149
+#: content_a/setting/thirdparty/onlinepayment/display.php:181
+#: content_a/setting/thirdparty/onlinepayment/display.php:214
 #: content_crm/permission/advance/display.php:66
 #: content_crm/permission/edit/display.php:70 content_love/domain/setting/display.php:126
 #: content_my/domain/setting/elements/renew.php:24 includes/languages/trans_static.php:500
@@ -4920,7 +4936,7 @@ msgstr "وضعیت"
 #: content_a/products/property/display.php:73
 #: content_a/products/variants/display-add-new-child.php:58
 #: content_a/setting/menu/item/display.php:114 content_a/setting/staticfile/display.php:24
-#: content_a/site/add/display.php:17 content_a/tag/add/display.php:11
+#: content_a/site/new/display.php:17 content_a/tag/add/display.php:11
 #: content_a/tag/edit/display.php:93 content_a/tag/property/display.php:55
 #: content_a/tag/sort/display.php:30 content_a/units/display.php:84
 #: content_a/website/imageblock/add/display.php:51
@@ -6210,7 +6226,7 @@ msgstr "تنظیم به عنوان سال مالی جاری"
 #: content_a/form/analytics/tag/display.php:30 content_a/form/answer/detail/display.php:82
 #: content_a/pagebuilder/build/display.php:24
 #: content_a/products/edit/display-master.php:25
-#: content_a/setting/product/tag/display.php:12 content_a/site/layout/sidebar.php:23
+#: content_a/setting/product/tag/display.php:12 content_a/site/layout/sidebar.php:25
 #: content_love/domain/detail/display.php:72 content_love/domain/setting/display.php:47
 #: dash/engine/pwa.php:63 dash/engine/pwa.php:64 dash/layout/search/search-filter.php:171
 #: dash/layout/search/search-filter.php:212
@@ -6404,7 +6420,6 @@ msgstr "مایکت"
 #: content_a/setting/general/title/display.php:24 content_a/setting/github/display.php:15
 #: content_a/setting/instagram/display.php:15 content_a/setting/linkedin/display.php:15
 #: content_a/setting/order/validity/display.php:36
-#: content_a/setting/payment/bank/display.php:19
 #: content_a/setting/product/preparationtime/display.php:21
 #: content_a/setting/product/tag/display.php:23
 #: content_a/setting/product/viewtext/display.php:19
@@ -6423,8 +6438,15 @@ msgstr "مایکت"
 #: content_a/setting/thirdparty/enamad/display.php:41
 #: content_a/setting/thirdparty/gtag/display.php:19
 #: content_a/setting/thirdparty/imber/display.php:18
+#: content_a/setting/thirdparty/irasanpardakht/display.php:51
+#: content_a/setting/thirdparty/iridpay/display.php:22
+#: content_a/setting/thirdparty/irirkish/display.php:28
+#: content_a/setting/thirdparty/irmellat/display.php:33
+#: content_a/setting/thirdparty/irparsian/display.php:25
+#: content_a/setting/thirdparty/irpayir/display.php:25
+#: content_a/setting/thirdparty/irzarinpal/display.php:25
 #: content_a/setting/thirdparty/kavenegar/display.php:23
-#: content_a/setting/thirdparty/mediaad/display.php:19
+#: content_a/setting/thirdparty/mediaad/display.php:20
 #: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
 #: content_a/setting/thirdparty/tawk/display.php:20 content_a/setting/tw/display.php:18
@@ -6868,7 +6890,7 @@ msgstr "تخفیف"
 
 #: content_a/cart/add/display.php:127 content_a/order/discount/display.php:25
 #: content_a/order/home/display.php:67 content_a/order/summary.php:34
-#: content_a/setting/home/display.php:68 content_business/cart/cartSummary.php:25
+#: content_a/setting/home/display.php:47 content_business/cart/cartSummary.php:25
 msgid "Shipping"
 msgstr "حمل و نقل"
 
@@ -6950,7 +6972,7 @@ msgid "Guest user add cart"
 msgstr "کاربر مهمان سبد خرید اضافه کرده"
 
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
-#: content_a/home/display.php:92 content_a/setting/home/display.php:117
+#: content_a/home/display.php:92 content_a/setting/home/display.php:67
 #: content_business/home/layout/header/header_100.php:23
 #: content_crm/member/glance/display.php:324 dash/layout/pwa/pwa_menu.php:292
 #: lib/app/store/analytics.php:84 lib/pagebuilder/header/h100/website.php:23
@@ -8319,7 +8341,7 @@ msgstr "شما :val تیکت در انتظار پاسخ دارید"
 msgid "You have :val awaiting comment"
 msgstr "شما :val نظر در انتظار تایید دارید"
 
-#: content_a/home/display.php:38 content_hook/smile/controller.php:46
+#: content_a/home/display.php:38
 msgid "You have :val new message!"
 msgstr "شما :val پیام جدید دارید!"
 
@@ -8952,7 +8974,7 @@ msgstr "جمع مبالغ"
 msgid "Subdiscount"
 msgstr "جمع تخفیف‌ها"
 
-#: content_a/order/view.php:9 content_a/setting/home/display.php:127
+#: content_a/order/view.php:9 content_a/setting/home/display.php:77
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
 #: dash/layout/pwa/pwa_menu.php:190 dash/panel.php:221 dash/plan_list.php:52
 #: lib/app/quickaccess/factors.php:30
@@ -8972,7 +8994,7 @@ msgstr "ویرایش سفارش"
 msgid "Enter title here"
 msgstr "عنوان را اینجا وارد کنید"
 
-#: content_a/pagebuilder/add/display.php:12 content_a/site/add/display.php:13
+#: content_a/pagebuilder/add/display.php:12 content_a/site/new/display.php:13
 msgid "First type main title and save as draft, then complete and publish it."
 msgstr ""
 "در ابتدا عنوان را وارد کرده و به‌عنوان پیش‌نویس ذخیره کنید، سپس آن را تکمیل و منتشر کنید."
@@ -8982,40 +9004,41 @@ msgstr ""
 msgid "Add new page"
 msgstr "افزودن برگه جدید"
 
-#: content_a/pagebuilder/additem/display.php:2 content_a/website/body/add/display.php:2
+#: content_a/pagebuilder/additem/display.php:2 content_a/site/section/display.php:2
+#: content_a/website/body/add/display.php:2
 msgid "Please choose type of new block."
 msgstr "لطفا نوع بخش جدید را انتخاب کنید."
 
 #: content_a/pagebuilder/additem/view.php:9 content_a/pagebuilder/build/display.php:114
 #: content_a/pagebuilder/build/view.php:18 content_a/site/builder/view.php:18
-#: content_a/site/layout/sidebar.php:113
+#: content_a/site/layout/sidebar.php:115 content_a/site/section/view.php:9
 msgid "Add new line"
 msgstr "افزودن ردیف جدید"
 
-#: content_a/pagebuilder/build/display.php:53 content_a/site/layout/sidebar.php:52
+#: content_a/pagebuilder/build/display.php:53 content_a/site/layout/sidebar.php:54
 #: content_a/website/home/display.php:7
 msgid "Customize header"
 msgstr "سفارشی‌سازی سرصفحه"
 
 #: content_a/pagebuilder/build/display.php:61 content_a/pagebuilder/choose/view.php:11
-#: content_a/site/layout/sidebar.php:60 content_a/website/home/display.php:14
+#: content_a/site/layout/sidebar.php:62 content_a/website/home/display.php:14
 #: lib/pagebuilder/header/h0/h0.php:44 lib/pagebuilder/header/h100/h100.php:44
 #: lib/pagebuilder/header/h300/h300.php:44 lib/pagebuilder/header/rafiei/rafiei.php:51
 msgid "Choose header"
 msgstr "انتخاب سرصفحه"
 
-#: content_a/pagebuilder/build/display.php:101 content_a/site/layout/sidebar.php:100
+#: content_a/pagebuilder/build/display.php:101 content_a/site/layout/sidebar.php:102
 #: content_a/website/body/display.php:26
 msgid "Change the position of the rows with the help of the handle"
 msgstr "برای ذخیره ترتیب دلخواه، با استفاده از دستگیره محل قرارگیری ردیف‌ها را جابجا کنید"
 
-#: content_a/pagebuilder/build/display.php:145 content_a/site/layout/sidebar.php:144
+#: content_a/pagebuilder/build/display.php:145 content_a/site/layout/sidebar.php:146
 #: content_a/website/home/display.php:32
 msgid "Customize footer"
 msgstr "سفارشی‌سازی فوتر"
 
 #: content_a/pagebuilder/build/display.php:153 content_a/pagebuilder/choose/view.php:16
-#: content_a/site/layout/sidebar.php:152 content_a/website/home/display.php:39
+#: content_a/site/layout/sidebar.php:154 content_a/website/home/display.php:39
 msgid "Choose footer"
 msgstr "انتخاب فوتر"
 
@@ -9116,12 +9139,11 @@ msgstr "افزودن صفحه جدید"
 #: content_a/setting/domain/view.php:11 content_a/setting/factor/view.php:13
 #: content_a/setting/fund/view.php:8 content_a/setting/general/view.php:10
 #: content_a/setting/home/view.php:8 content_a/setting/order/view.php:11
-#: content_a/setting/payment/view.php:11 content_a/setting/pcpos/view.php:8
-#: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social-old/view.php:8
-#: content_a/setting/social/view.php:10 content_a/setting/staticfile/view.php:8
-#: content_a/setting/thirdparty/view.php:10 content_a/site/home/view.php:14
-#: content_love/business/datalist/display.php:15
+#: content_a/setting/pcpos/view.php:8 content_a/setting/pos/view.php:8
+#: content_a/setting/product/view.php:10 content_a/setting/shipping/text/view.php:11
+#: content_a/setting/social-old/view.php:8 content_a/setting/social/view.php:10
+#: content_a/setting/staticfile/view.php:8 content_a/setting/thirdparty/view.php:10
+#: content_a/site/home/view.php:14 content_love/business/datalist/display.php:15
 #: content_love/business/datalist/display.php:48
 #: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
 #: content_love/store/display.php:27 content_love/store/display.php:60
@@ -9541,7 +9563,7 @@ msgstr "ایران بارکد را اسکن کنید..."
 msgid "Code on scale"
 msgstr "کد تعریف شده روی ترازو"
 
-#: content_a/products/edit/block/gallery.php:38
+#: content_a/products/edit/block/gallery.php:40
 msgid "Load suggest image"
 msgstr "در حال بارگذاری تصاویر پیشنهادی"
 
@@ -10302,7 +10324,7 @@ msgstr "هیچ محصولی برای فروش انتخاب نشده است"
 msgid "Sale invoicing"
 msgstr "صدور فاکتور فروش"
 
-#: content_a/sale/view.php:14 content_a/setting/home/display.php:38
+#: content_a/sale/view.php:14 content_a/setting/home/display.php:36
 #: lib/app/store/analytics.php:76 lib/app/store/analytics.php:77
 #: lib/app/store/analytics.php:78 lib/app/store/analytics.php:79
 #: lib/app/store/analytics.php:80 lib/app/store/analytics.php:81
@@ -10421,7 +10443,7 @@ msgstr "حذف نشان تجاری جیبرس برای بیزینس شما در 
 msgid "Show jibres branding from website and application"
 msgstr "نمایش برند جیبرس در وب‌سایت و اپلیکیشن"
 
-#: content_a/setting/branding/view.php:8 content_a/setting/home/display.php:159
+#: content_a/setting/branding/view.php:8 content_a/setting/home/display.php:109
 msgid "Branding"
 msgstr "نشان تجاری"
 
@@ -11032,11 +11054,11 @@ msgstr "نام کاربری شما در گیت‌هاب."
 msgid "Github"
 msgstr "گیت‌هاب"
 
-#: content_a/setting/home/display.php:6
+#: content_a/setting/home/display.php:4
 msgid "Find a setting"
 msgstr "جستجو در تنظیمات"
 
-#: content_a/setting/home/display.php:18 lib/app/quickaccess/setting.php:102
+#: content_a/setting/home/display.php:16 lib/app/quickaccess/setting.php:102
 #: lib/app/quickaccess/setting.php:117 lib/app/quickaccess/setting.php:134
 #: lib/app/quickaccess/setting.php:146 lib/app/quickaccess/setting.php:157
 #: lib/app/quickaccess/setting.php:168 lib/app/quickaccess/setting.php:184
@@ -11045,95 +11067,43 @@ msgstr "جستجو در تنظیمات"
 msgid "General"
 msgstr "عمومی"
 
-#: content_a/setting/home/display.php:19
+#: content_a/setting/home/display.php:17
 msgid "View and update your business details"
 msgstr "نمایش و ویرایش اطلاعات بیزینس"
 
-#: content_a/setting/home/display.php:28
+#: content_a/setting/home/display.php:26
 msgid "Manage how your business products organized"
 msgstr "مدیریت و سازماندهی محصولات بیزینس شما"
 
-#: content_a/setting/home/display.php:39
+#: content_a/setting/home/display.php:37
 msgid "Manage how your business factors setting"
 msgstr "مدیریت تنظیمات صدور فاکتور"
 
 #: content_a/setting/home/display.php:48
-msgid "Payment Providers"
-msgstr "درگاه‌های پرداخت"
-
-#: content_a/setting/home/display.php:49
-msgid "Enable and manage your business payment providers"
-msgstr "مدیریت و فعال‌سازی درگاه‌های پرداخت بیزینس"
-
-#: content_a/setting/home/display.php:58 content_account/billing/view.php:13
-#: content_account/billing/view.php:23 content_account/home/view.php:9
-#: content_account/my/home/display.php:31 content_account/my/home/view.php:13
-#: content_account/notification/view.php:20
-#: content_account/personalization/home/view.php:13 content_account/security/view.php:13
-msgid "Account"
-msgstr "حساب کاربری"
-
-#: content_a/setting/home/display.php:59
-msgid "Manage your accounts and permissions"
-msgstr "مدیریت حساب‌کاربری و سطوح دسترسی"
-
-#: content_a/setting/home/display.php:69
 msgid "Manage how you ship orders to customers"
 msgstr "مدیریت نحوه ارسال سفارشات به مشتریان"
 
-#: content_a/setting/home/display.php:78 content_account/billing/display.php:15
-msgid "Checkout"
-msgstr "پرداخت"
-
-#: content_a/setting/home/display.php:79
-msgid "Customize your online checkout process"
-msgstr "سفارشی‌سازی روند پرداخت آنلاین"
-
-#: content_a/setting/home/display.php:88 content_account/home/display.php:88
-#: content_account/home/display.php:92 content_account/notification/view.php:9
-#: content_business/profile/display-menu.php:7 content_crm/home/display.php:122
-#: content_crm/notification/datalist/view.php:9
-#: content_crm/notification/datalist/view.php:12 content_crm/notification/home/view.php:9
-#: content_crm/notification/me/view.php:14 content_crm/notification/send/view.php:12
-#: content_crm/notification/sendgroup/view.php:12 dash/layout/admin/admin-header.php:22
-msgid "Notifications"
-msgstr "اطلاع‌رسانی‌ها"
-
-#: content_a/setting/home/display.php:89
-msgid "Manage notification send to you and your cusotmers"
-msgstr "مدیریت پیام‌های ارسالی به شما و و مشتریان"
-
-#: content_a/setting/home/display.php:98 content_account/home/display.php:128
-#: content_account/home/display.php:132 dash/layout/admin/sidebar/sidebar-account.php:4
-#: lib/app/nic_contact/search.php:100
-msgid "Billing"
-msgstr "مالی"
-
-#: content_a/setting/home/display.php:99
-msgid "Your billing information and view your invoices"
-msgstr "اطلاعات مالی و مشاهده فاکتورها"
-
-#: content_a/setting/home/display.php:107 lib/pardakhtyar/type.php:113
+#: content_a/setting/home/display.php:57 lib/pardakhtyar/type.php:113
 msgid "Legal"
 msgstr "حقوقی"
 
-#: content_a/setting/home/display.php:108
+#: content_a/setting/home/display.php:58
 msgid "Manage your business legal pages"
 msgstr "مدیریت صفحات حقوقی و قانونی بیزینس شما"
 
-#: content_a/setting/home/display.php:118
+#: content_a/setting/home/display.php:68
 msgid "Cart setting"
 msgstr "تنظیمات سبد خرید"
 
-#: content_a/setting/home/display.php:128
+#: content_a/setting/home/display.php:78
 msgid "Order setting"
 msgstr "تنظیمات سفارش"
 
-#: content_a/setting/home/display.php:139
+#: content_a/setting/home/display.php:89
 msgid "Connect business to your domain"
 msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 
-#: content_a/setting/home/display.php:148
+#: content_a/setting/home/display.php:98
 #: content_a/setting/thirdparty/arvanclouds3/view.php:11
 #: content_a/setting/thirdparty/awss3/view.php:11
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
@@ -11141,6 +11111,7 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 #: content_a/setting/thirdparty/gtag/view.php:11
 #: content_a/setting/thirdparty/imber/view.php:11
 #: content_a/setting/thirdparty/mediaad/view.php:11
+#: content_a/setting/thirdparty/onlinepayment/view.php:11
 #: content_a/setting/thirdparty/raychat/view.php:11
 #: content_a/setting/thirdparty/samandehi/view.php:11
 #: content_a/setting/thirdparty/tawk/view.php:11 content_a/setting/thirdparty/view.php:8
@@ -11148,40 +11119,40 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 msgid "Third Party Services"
 msgstr "سرویس‌های افزودنی دیگران"
 
-#: content_a/setting/home/display.php:149
+#: content_a/setting/home/display.php:99
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:160
+#: content_a/setting/home/display.php:110
 msgid "Remove jibres branding"
 msgstr "حذف نشان تجاری جیبرس"
 
-#: content_a/setting/home/display.php:178
+#: content_a/setting/home/display.php:128
 msgid "Manage your business accounting"
 msgstr "مدیریت حسابداری بیزینس شما"
 
-#: content_a/setting/home/display.php:186 content_a/website/advance/display.php:4
+#: content_a/setting/home/display.php:136 content_a/website/advance/display.php:4
 #: content_a/website/advance/display.php:12
 msgid "Menu"
 msgstr "منو"
 
-#: content_a/setting/home/display.php:187
+#: content_a/setting/home/display.php:137
 msgid "Manage menu"
 msgstr "مدیریت فهرست"
 
-#: content_a/setting/home/display.php:205
+#: content_a/setting/home/display.php:155
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/setting/home/display.php:215
+#: content_a/setting/home/display.php:165
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/setting/home/display.php:225
+#: content_a/setting/home/display.php:175
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/setting/home/display.php:235
+#: content_a/setting/home/display.php:185
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
@@ -11390,13 +11361,43 @@ msgstr "مرتب سازی آیتم‌های فهرست"
 msgid "Menu list"
 msgstr "لیست فهرست‌ها"
 
-#: content_a/setting/order/display.php:4
+#: content_a/setting/order/display.php:5
 msgid "Validity period of order"
 msgstr "مدت زمان اعتبار سفارش"
 
-#: content_a/setting/order/display.php:10
-msgid "Orders List"
-msgstr "لیست سفارشات"
+#: content_a/setting/order/display.php:12 content_a/setting/product/display.php:86
+#: content_a/setting/telegram/display.php:119 includes/languages/trans_static.php:599
+msgid "Set"
+msgstr "تنظیم"
+
+#: content_a/setting/order/display.php:21 content_a/setup/payment/display.php:13
+msgid "Online payment"
+msgstr "پرداخت به صورت آنلاین"
+
+#: content_a/setting/order/display.php:23 content_a/setup/payment/display.php:15
+msgid "Such as Credit card, PayPal and Stripe."
+msgstr "مثل کارت بانکی، کارت اعتباری، پی‌پل یا استریپ."
+
+#: content_a/setting/order/display.php:37
+msgid "Manage Online payment config"
+msgstr "مدیریت تنظیمات درگاه‌های پرداخت اینترنتی"
+
+#: content_a/setting/order/display.php:45 content_a/setup/payment/display.php:35
+msgid "Cash on delivery"
+msgstr "پرداخت در محل"
+
+#: content_a/setting/order/display.php:47 content_a/setup/payment/display.php:37
+msgid ""
+"Cash on Delivery (COD) is a payment gateway that required no payment be made online."
+msgstr "پول نقد روشی دیگر است که نیازی به آنلاین بودن ندارد."
+
+#: content_a/setting/order/display.php:47 content_a/setup/payment/display.php:37
+msgid ""
+"Orders using Cash on Delivery are set to Processing until payment is made upon delivery "
+"of the order by you or your shipping method."
+msgstr ""
+"سفارش‌های پرداختی با پول نقد به صورت پردازش‌شده ثبت باقی خواهند ماند تا تحویل توسط شما یا "
+"سرویس حمل و نقل انجام پذیرد."
 
 #: content_a/setting/order/validity/display.php:6
 msgid "Set Order validity time"
@@ -11458,65 +11459,6 @@ msgstr "اعتبار سفارش"
 msgid "Order Setting"
 msgstr "تنظیمات سفارش"
 
-#: content_a/setting/payment/bank/display.php:5
-msgid "Configuration bank payment setting"
-msgstr "تنظیمات درگاه پرداخت بانک"
-
-#: content_a/setting/payment/bank/display.php:18
-msgid "Test payment"
-msgstr "تست درگاه پرداخت"
-
-#: content_a/setting/payment/bank/display.php:34
-msgid "Enable mellat payment"
-msgstr "فعال‌سازی درگاه پرداخت بانک ملت"
-
-#: content_a/setting/payment/bank/display.php:72
-msgid "Enable zarinpal payment"
-msgstr "فعال‌سازی درگاه پرداخت زرین‌پال"
-
-#: content_a/setting/payment/bank/display.php:100
-msgid "Enable asanpardakht payment"
-msgstr "فعال‌سازی درگاه پرداخت آسان‌پرداخت"
-
-#: content_a/setting/payment/bank/display.php:167
-msgid "Enable parsian payment"
-msgstr "فعال‌سازی درگاه پرداخت پارسیان"
-
-#: content_a/setting/payment/bank/display.php:186
-msgid "Enable payir payment"
-msgstr "فعال‌سازی درگاه پرداخت پی‌آی‌آر"
-
-#: content_a/setting/payment/bank/display.php:205
-msgid "Enable irkish payment"
-msgstr "فعال‌سازی درگاه پرداخت ایران‌کیش"
-
-#: content_a/setting/payment/bank/display.php:238
-msgid "Enable idpay payment"
-msgstr "فعال‌سازی درگاه پرداخت آی‌دی‌پی"
-
-#: content_a/setting/payment/bank/model.php:125
-msgid "Pay test"
-msgstr "تست درگاه پرداخت"
-
-#: content_a/setting/payment/bank/view.php:9 content_a/setting/payment/way/view.php:9
-#: content_pay/home/display.php:126
-#: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:17
-#: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:17
-msgid "Payment"
-msgstr "درگاه"
-
-#: content_a/setting/payment/display.php:8
-msgid "Payment Gateway"
-msgstr "درگاه پرداخت"
-
-#: content_a/setting/payment/display.php:14
-msgid "Bank gateway setting"
-msgstr "تنظیمات درگاه بانک"
-
-#: content_a/setting/payment/view.php:9
-msgid "payment setting"
-msgstr "تنظیمات پرداخت"
-
 #: content_a/setting/pcpos/display.php:6
 msgid "Add new pos to you store"
 msgstr "افزودن دستگاه کارتخوان جدید به فروشگاه شما"
@@ -11525,7 +11467,8 @@ msgstr "افزودن دستگاه کارتخوان جدید به فروشگاه 
 msgid "Saderat"
 msgstr "بانک صادرات"
 
-#: content_a/setting/pcpos/display.php:11 includes/languages/trans_static_public.php:506
+#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:124
+#: includes/languages/trans_static_public.php:506
 msgid "Mellat"
 msgstr "بانک ملت"
 
@@ -11545,7 +11488,8 @@ msgstr "بانک سپه"
 msgid "Keshavarzi"
 msgstr "بانک کشاورزی"
 
-#: content_a/setting/pcpos/display.php:16 content_pay/home/display.php:195
+#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:156
+#: content_pay/home/display.php:195
 msgid "Parsian"
 msgstr "پارسیان"
 
@@ -11643,15 +11587,18 @@ msgstr "بانک مشترک ایران و ونزوئلا"
 msgid "Irkish"
 msgstr "ایران کیش"
 
-#: content_a/setting/pcpos/display.php:40 includes/languages/trans_static_public.php:534
+#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:132
+#: includes/languages/trans_static_public.php:534
 msgid "Asanpardakht"
 msgstr "آسان پرداخت"
 
-#: content_a/setting/pcpos/display.php:41 includes/languages/trans_static_public.php:535
+#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:117
+#: includes/languages/trans_static_public.php:535
 msgid "Zarinpal"
 msgstr "زرین پال"
 
-#: content_a/setting/pcpos/display.php:42 includes/languages/trans_static_public.php:536
+#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:164
+#: includes/languages/trans_static_public.php:536
 msgid "Payir"
 msgstr "پی‌آی‌آر"
 
@@ -11717,11 +11664,6 @@ msgstr "واحد‌های محصولات"
 #: content_a/setting/product/display.php:78
 msgid "Product Default view text"
 msgstr "متن ثابت پیش‌فرض در صفحه نمایش محصول"
-
-#: content_a/setting/product/display.php:86 content_a/setting/telegram/display.php:119
-#: includes/languages/trans_static.php:599
-msgid "Set"
-msgstr "تنظیم"
 
 #: content_a/setting/product/display.php:98
 msgid "Product comments"
@@ -12254,10 +12196,22 @@ msgstr "ساماندهی"
 msgid "Advertise"
 msgstr "تبلیغات"
 
-#: content_a/setting/thirdparty/display.php:101
+#: content_a/setting/thirdparty/display.php:102
 #: content_a/setting/thirdparty/mediaad/view.php:8
 msgid "Media.ad"
 msgstr "مدیااد"
+
+#: content_a/setting/thirdparty/display.php:111
+msgid "Bank payment gateway"
+msgstr "درگاه پرداخت بانکی"
+
+#: content_a/setting/thirdparty/display.php:139
+msgid "IDPay"
+msgstr "آی‌دی‌پی"
+
+#: content_a/setting/thirdparty/display.php:147
+msgid "IranKish"
+msgstr "ایران‌کیش"
 
 #: content_a/setting/thirdparty/enamad/display.php:9
 msgid ""
@@ -12334,6 +12288,64 @@ msgstr "توکن ایمبر"
 msgid "Imber"
 msgstr "ایمبر"
 
+#: content_a/setting/thirdparty/irasanpardakht/display.php:13
+msgid "Enable asanpardakht payment"
+msgstr "فعال‌سازی درگاه پرداخت آسان‌پرداخت"
+
+#: content_a/setting/thirdparty/irasanpardakht/view.php:11
+msgid "Asanpardakht Payment"
+msgstr "درگاه پرداخت آسان‌پرداخت"
+
+#: content_a/setting/thirdparty/iridpay/display.php:12
+#: content_a/setting/thirdparty/onlinepayment/display.php:270
+msgid "Enable idpay payment"
+msgstr "فعال‌سازی درگاه پرداخت آی‌دی‌پی"
+
+#: content_a/setting/thirdparty/iridpay/view.php:11
+msgid "IDPay Payment"
+msgstr "درگاه پرداخت آی‌دی‌پی"
+
+#: content_a/setting/thirdparty/irirkish/display.php:13
+#: content_a/setting/thirdparty/onlinepayment/display.php:237
+msgid "Enable irkish payment"
+msgstr "فعال‌سازی درگاه پرداخت ایران‌کیش"
+
+#: content_a/setting/thirdparty/irirkish/view.php:11
+msgid "IranKish Payment"
+msgstr "درگاه پرداخت ایران‌کیش"
+
+#: content_a/setting/thirdparty/irmellat/display.php:13
+msgid "Enable mellat payment"
+msgstr "فعال‌سازی درگاه پرداخت بانک ملت"
+
+#: content_a/setting/thirdparty/irmellat/view.php:11
+msgid "Mellat Payment"
+msgstr "درگاه پرداخت بانک ملت"
+
+#: content_a/setting/thirdparty/irparsian/display.php:13
+msgid "Enable parsian payment"
+msgstr "فعال‌سازی درگاه پرداخت پارسیان"
+
+#: content_a/setting/thirdparty/irparsian/view.php:11
+msgid "Parsian Payment"
+msgstr "درگاه پرداخت پارسیان"
+
+#: content_a/setting/thirdparty/irpayir/display.php:13
+msgid "Enable payir payment"
+msgstr "فعال‌سازی درگاه پرداخت پی‌آی‌آر"
+
+#: content_a/setting/thirdparty/irpayir/view.php:11
+msgid "Payir payment"
+msgstr "درگاه پرداخت پی‌آی‌آر"
+
+#: content_a/setting/thirdparty/irzarinpal/display.php:13
+msgid "Enable zarinpal payment"
+msgstr "فعال‌سازی درگاه پرداخت زرین‌پال"
+
+#: content_a/setting/thirdparty/irzarinpal/view.php:11
+msgid "Zarinpal Payment"
+msgstr "درگاه پرداخت زرین‌پال"
+
 #: content_a/setting/thirdparty/kavenegar/display.php:6
 #: content_a/setting/thirdparty/kavenegar/display.php:13
 msgid "Kavenegar API KEY"
@@ -12347,6 +12359,64 @@ msgstr "رابط برنامه‌نویسی"
 #: content_a/setting/thirdparty/kavenegar/view.php:8
 msgid "Kavenegar API"
 msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:7
+msgid "Mellat payment"
+msgstr "درگاه پرداخت بانک ملت"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:17
+#: content_a/setting/thirdparty/onlinepayment/display.php:49
+#: content_a/setting/thirdparty/onlinepayment/display.php:82
+#: content_a/setting/thirdparty/onlinepayment/display.php:113
+#: content_a/setting/thirdparty/onlinepayment/display.php:145
+#: content_a/setting/thirdparty/onlinepayment/display.php:177
+#: content_a/setting/thirdparty/onlinepayment/display.php:210
+msgid "Connect"
+msgstr "اتصال"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:28
+#: content_a/setting/thirdparty/onlinepayment/display.php:60
+#: content_a/setting/thirdparty/onlinepayment/display.php:93
+#: content_a/setting/thirdparty/onlinepayment/display.php:124
+#: content_a/setting/thirdparty/onlinepayment/display.php:156
+#: content_a/setting/thirdparty/onlinepayment/display.php:188
+#: content_a/setting/thirdparty/onlinepayment/display.php:221
+msgid "Change connection setting"
+msgstr "تغییر تنظیمات اتصال"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:39
+msgid "zarinpal payment"
+msgstr "درگاه پرداخت زرین‌پال"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:72
+msgid "asanpardakht payment"
+msgstr "درگاه پرداخت آسان‌پرداخت"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:103
+msgid "parsian payment"
+msgstr "درگاه پرداخت پارسیان"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:135
+msgid "payir payment"
+msgstr "درگاه پرداخت پی‌آی‌آر"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:167
+msgid "irkish payment"
+msgstr "درگاه پرداخت ایران‌کیش"
+
+#: content_a/setting/thirdparty/onlinepayment/display.php:200
+msgid "idpay payment"
+msgstr "درگاه پرداخت آی‌دی‌پی"
+
+#: content_a/setting/thirdparty/onlinepayment/model.php:154
+msgid "Pay test"
+msgstr "تست درگاه پرداخت"
+
+#: content_a/setting/thirdparty/onlinepayment/view.php:9 content_pay/home/display.php:126
+#: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:17
+#: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:17
+msgid "Payment"
+msgstr "درگاه"
 
 #: content_a/setting/thirdparty/raychat/display.php:9
 msgid ""
@@ -12525,14 +12595,6 @@ msgstr "پروفایل خود را تکمیل کنید"
 msgid "You need at least one payment method to collect payment from your customers."
 msgstr "شما نیازمند فعال‌سازی حداقل یک روش پرداخت برای دریافت مقادیر از مشتریان خود هستید."
 
-#: content_a/setup/payment/display.php:13
-msgid "Online payment"
-msgstr "پرداخت به صورت آنلاین"
-
-#: content_a/setup/payment/display.php:15
-msgid "Such as Credit card, PayPal and Stripe."
-msgstr "مثل کارت بانکی، کارت اعتباری، پی‌پل یا استریپ."
-
 #: content_a/setup/payment/display.php:20
 msgid "Check Payments"
 msgstr "پرداخت از طریق چک"
@@ -12553,23 +12615,6 @@ msgid ""
 msgstr ""
 "واریز بانکی یا سیستم تسویه مستقیم بانکی یک روش دیگر است که نیازمند آنلاین بودن برای "
 "پرداخت نیست."
-
-#: content_a/setup/payment/display.php:35
-msgid "Cash on delivery"
-msgstr "پرداخت در محل"
-
-#: content_a/setup/payment/display.php:37
-msgid ""
-"Cash on Delivery (COD) is a payment gateway that required no payment be made online."
-msgstr "پول نقد روشی دیگر است که نیازی به آنلاین بودن ندارد."
-
-#: content_a/setup/payment/display.php:37
-msgid ""
-"Orders using Cash on Delivery are set to Processing until payment is made upon delivery "
-"of the order by you or your shipping method."
-msgstr ""
-"سفارش‌های پرداختی با پول نقد به صورت پردازش‌شده ثبت باقی خواهند ماند تا تحویل توسط شما یا "
-"سرویس حمل و نقل انجام پذیرد."
 
 #: content_a/setup/payment/view.php:9
 msgid "Payment channels"
@@ -12632,18 +12677,6 @@ msgstr "مدیریت اینکه فروشگاه شما چطور مالیات را
 msgid "Tax settings"
 msgstr "تنظیمات مالیاتی"
 
-#: content_a/site/add/display.php:8
-msgid "Page Title"
-msgstr "عنوان صفحه"
-
-#: content_a/site/add/display.php:9
-msgid "Enter Page Title"
-msgstr "عنوان صفحه را وارد کنید"
-
-#: content_a/site/add/view.php:9
-msgid "Add new Page"
-msgstr "افزودن صفحه جدید"
-
 #: content_a/site/builder/display.php:22 lib/pardakhtyar/type.php:85
 msgid "Live"
 msgstr "زنده"
@@ -12660,6 +12693,18 @@ msgstr "افزودن صفحه جدید"
 #: includes/languages/trans_static_public.php:72
 msgid "Homepage"
 msgstr "صفحه نخست"
+
+#: content_a/site/new/display.php:8
+msgid "Page Title"
+msgstr "عنوان صفحه"
+
+#: content_a/site/new/display.php:9
+msgid "Enter Page Title"
+msgstr "عنوان صفحه را وارد کنید"
+
+#: content_a/site/new/view.php:9
+msgid "Add new Page"
+msgstr "افزودن صفحه جدید"
 
 #: content_a/tag/add/view.php:8
 msgid "Add new Tag"
@@ -13889,6 +13934,10 @@ msgstr "شارژ حساب کاربری"
 msgid "Enter an amount to charge your account"
 msgstr "میزان شارژ حساب کاربری خود را وارد کنید"
 
+#: content_account/billing/display.php:15
+msgid "Checkout"
+msgstr "پرداخت"
+
 #: content_account/billing/display.php:24
 msgid "Your credit"
 msgstr "اعتبار شما"
@@ -13912,6 +13961,13 @@ msgstr "برای دریافت جایزه، ابتدا باید وارد سیست
 #: content_account/billing/view.php:10
 msgid "Billing information"
 msgstr "اطلاعات مالی"
+
+#: content_account/billing/view.php:13 content_account/billing/view.php:23
+#: content_account/home/view.php:9 content_account/my/home/display.php:31
+#: content_account/my/home/view.php:13 content_account/notification/view.php:20
+#: content_account/personalization/home/view.php:13 content_account/security/view.php:13
+msgid "Account"
+msgstr "حساب کاربری"
 
 #: content_account/home/display.php:8 dash/layout/admin/admin-header.php:25
 #: dash/layout/admin/admin-sidebar.php:30
@@ -14001,6 +14057,15 @@ msgstr ""
 msgid "Manage your data & personalization"
 msgstr "مدیریت داده‌های شما و شخصی‌سازی آن‌ها"
 
+#: content_account/home/display.php:88 content_account/home/display.php:92
+#: content_account/notification/view.php:9 content_business/profile/display-menu.php:7
+#: content_crm/home/display.php:122 content_crm/notification/datalist/view.php:9
+#: content_crm/notification/datalist/view.php:12 content_crm/notification/home/view.php:9
+#: content_crm/notification/me/view.php:14 content_crm/notification/send/view.php:12
+#: content_crm/notification/sendgroup/view.php:12 dash/layout/admin/admin-header.php:22
+msgid "Notifications"
+msgstr "اطلاع‌رسانی‌ها"
+
 #: content_account/home/display.php:89
 msgid "Check your last messages."
 msgstr "آخرین پیام‌های خود را بررسی کنید."
@@ -14028,6 +14093,11 @@ msgstr ""
 #: includes/languages/trans_static.php:565
 msgid "Tickets"
 msgstr "تیکت‌ها"
+
+#: content_account/home/display.php:128 content_account/home/display.php:132
+#: dash/layout/admin/sidebar/sidebar-account.php:4 lib/app/nic_contact/search.php:100
+msgid "Billing"
+msgstr "مالی"
 
 #: content_account/home/display.php:129
 msgid "Check your account balance, charge your account, and bill your invoices!"
@@ -18529,6 +18599,10 @@ msgstr "کد اعتبارسنجی منقضی شده است"
 #: content_enter/verifyemail/controller.php:95 dash/app/user/email.php:152
 msgid "This email is already verified"
 msgstr "این ایمیل قبلا تایید شده است"
+
+#: content_hook/smile/controller.php:23
+msgid "You have :val new message!</a>"
+msgstr ""
 
 #: content_love/application/edit/display.php:4
 msgid "Cancel request"
@@ -36740,7 +36814,7 @@ msgstr "واحد وزن"
 msgid "length"
 msgstr "طول"
 
-#: lib/app/quickaccess/setting.php:154 lib/app/setting/set.php:491
+#: lib/app/quickaccess/setting.php:154 lib/app/setting/set.php:500
 #: lib/app/setting/setup.php:331
 msgid "Length unit"
 msgstr "واحد طول"
@@ -36914,11 +36988,11 @@ msgstr "تنظیمات ارسال سفارش ذخیره شد"
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:343
+#: lib/app/setting/set.php:352
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
-#: lib/app/setting/set.php:401
+#: lib/app/setting/set.php:410
 msgid ""
 "You already use from another s3 platform. To active this service please disable all "
 "other S3 service first"
@@ -36926,14 +37000,14 @@ msgstr ""
 "شما هم‌اکنون از یک پلتفرم فضای ابری دیگری استفاده می‌کنید. برای فعال کردن این سرویس لطفا "
 "ابتدا همه سرویس‌های فضای ابری دیگر را غیر فعال کنید"
 
-#: lib/app/setting/set.php:449
+#: lib/app/setting/set.php:458
 msgid ""
 "We can not connect to S3 service by this variable. This setting automatically disabled"
 msgstr ""
 "ما نتوانستیم به پلتفرم S3 با مقادیر وارد شده متصل شویم. وضعیت اتصال به صورت خودکار "
 "غیرفعال خواهد شد"
 
-#: lib/app/setting/set.php:460
+#: lib/app/setting/set.php:469
 msgid ""
 "The connection was successfully tested <br> From now on, all files uploaded to your "
 "service will be stored in this cloud service provider"
@@ -36941,11 +37015,11 @@ msgstr ""
 "اتصال با موفقیت آزمایش شد <br> از این پس، تمام پرونده‌های بارگذاری شده در سرویس شما، در "
 "زیرساخت این ارائه دهنده خدمات فضای ابری ذخیره می‌شوند"
 
-#: lib/app/setting/set.php:472
+#: lib/app/setting/set.php:481
 msgid "Upload provider setting saved"
 msgstr "تنظیمات سرویس ارائه دهنده خدمات ابری ذخیره شد"
 
-#: lib/app/setting/set.php:491 lib/app/setting/setup.php:331
+#: lib/app/setting/set.php:500 lib/app/setting/setup.php:331
 msgid "Mass unit"
 msgstr "واحد وزن"
 
@@ -39743,6 +39817,36 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Payment Providers"
+#~ msgstr "درگاه‌های پرداخت"
+
+#~ msgid "Enable and manage your business payment providers"
+#~ msgstr "مدیریت و فعال‌سازی درگاه‌های پرداخت بیزینس"
+
+#~ msgid "Manage your accounts and permissions"
+#~ msgstr "مدیریت حساب‌کاربری و سطوح دسترسی"
+
+#~ msgid "Customize your online checkout process"
+#~ msgstr "سفارشی‌سازی روند پرداخت آنلاین"
+
+#~ msgid "Manage notification send to you and your cusotmers"
+#~ msgstr "مدیریت پیام‌های ارسالی به شما و و مشتریان"
+
+#~ msgid "Your billing information and view your invoices"
+#~ msgstr "اطلاعات مالی و مشاهده فاکتورها"
+
+#~ msgid "Orders List"
+#~ msgstr "لیست سفارشات"
+
+#~ msgid "Configuration bank payment setting"
+#~ msgstr "تنظیمات درگاه پرداخت بانک"
+
+#~ msgid "Bank gateway setting"
+#~ msgstr "تنظیمات درگاه بانک"
+
+#~ msgid "payment setting"
+#~ msgstr "تنظیمات پرداخت"
+
 #~ msgid "Locations"
 #~ msgstr "موقعیت‌ها"
 
@@ -40535,9 +40639,6 @@ msgstr "یارد"
 
 #~ msgid "In this section, you connect your domain to your business"
 #~ msgstr "در این بخش شما می‌توانید دامنه خود را به یک بیزینس متصل کنید"
-
-#~ msgid "Connect"
-#~ msgstr "اتصال"
 
 #~ msgid "Powerd by Jibres"
 #~ msgstr "قدرت گرفته از جیبرس"
@@ -41337,9 +41438,6 @@ msgstr "یارد"
 
 #~ msgid "Your answer successfully added"
 #~ msgstr "پاسخ شما با موفقیت اضافه شد"
-
-#~ msgid "Manage security setting"
-#~ msgstr "مدیریت تنظیمات امنیتی"
 
 #~ msgid ""
 #~ "To do this, you must enter your business subdomain name. \n"
