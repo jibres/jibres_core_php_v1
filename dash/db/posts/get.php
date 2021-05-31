@@ -11,6 +11,14 @@ class get
 		return $result;
 	}
 
+
+	public static function have_any_published_post()
+	{
+		$query  = "SELECT * FROM posts WHERE posts.status = 'publish' AND posts.type != 'pagebuilder' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function sitemap_list($_from, $_to, $_lang = null)
 	{
 		$lang = null;

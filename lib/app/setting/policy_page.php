@@ -12,7 +12,7 @@ class policy_page
 			'aboutus_page'               => 'code',
 			'refund_policy_page'         => 'code',
 			'privacy_policy_page'        => 'code',
-			'termsofservice_policy_page' => 'code',
+			'termsofservice_page' => 'code',
 			'shipping_policy_page'       => 'code',
 		];
 
@@ -39,17 +39,31 @@ class policy_page
 	}
 
 
+	public static function get_page_key()
+	{
+		return
+		[
+			'aboutus_page'         => ['title' => T_("About Us page")],
+			'refund_policy_page'   => ['title' => T_("Refund policy page")],
+			'privacy_policy_page'  => ['title' => T_("Privacy policy page")],
+			'termsofservice_page'  => ['title' => T_("Terms of service page")],
+			'shipping_policy_page' => ['title' => T_("Shipping policy page")],
+		];
+
+	}
+
+
 
 	public static function admin_load()
 	{
 		$all_setting                        = \lib\store::detail();
 
-		$data                               = [];
-		$data['aboutus_page']               = a($all_setting, 'store_data', 'aboutus_page');
-		$data['refund_policy_page']         = a($all_setting, 'store_data', 'refund_policy_page');
-		$data['privacy_policy_page']        = a($all_setting, 'store_data', 'privacy_policy_page');
-		$data['termsofservice_policy_page'] = a($all_setting, 'store_data', 'termsofservice_policy_page');
-		$data['shipping_policy_page']       = a($all_setting, 'store_data', 'shipping_policy_page');
+		$data                         = [];
+		$data['aboutus_page']         = a($all_setting, 'store_data', 'aboutus_page');
+		$data['refund_policy_page']   = a($all_setting, 'store_data', 'refund_policy_page');
+		$data['privacy_policy_page']  = a($all_setting, 'store_data', 'privacy_policy_page');
+		$data['termsofservice_page']  = a($all_setting, 'store_data', 'termsofservice_page');
+		$data['shipping_policy_page'] = a($all_setting, 'store_data', 'shipping_policy_page');
 
 
 		$ids = array_filter($data);
@@ -61,6 +75,8 @@ class policy_page
 		{
 
 			$ids = array_map(['\\dash\\coding', 'encode'], $ids);
+
+			\dash\temp::set('cmsPostNeedEditLink', true);
 
 			$load_multi_post = \dash\app\posts\get::get_multi_post($ids);
 

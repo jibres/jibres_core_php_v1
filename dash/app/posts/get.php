@@ -27,6 +27,13 @@ class get
 	}
 
 
+	public static function have_any_published_post()
+	{
+		$have_any_published_post = \dash\db\posts\get::have_any_published_post();
+		return $have_any_published_post ? true : false;
+	}
+
+
 	public static function load_all_parent($_id)
 	{
 		$id = \dash\coding::decode($_id);

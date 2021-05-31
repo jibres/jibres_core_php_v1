@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\legal;
+namespace content_a\setting\legal\choosepage;
 
 class view
 {
@@ -15,8 +15,7 @@ class view
 
 		\dash\data::policyPageDetail($load);
 
-		$have_any_published_post = \dash\app\posts\get::have_any_published_post();
-		\dash\data::havePublishedPost($have_any_published_post);
+
 	}
 }
 ?>

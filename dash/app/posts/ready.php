@@ -383,6 +383,11 @@ class ready
 		}
 
 
+		if(\dash\temp::get('cmsPostNeedEditLink'))
+		{
+			$result['edit_link'] = \dash\url::kingdom(). '/cms/posts/edit?id='. a($result, 'id');
+		}
+
 
 			// unset some private variable in api
 		if(\dash\temp::get('isApi'))

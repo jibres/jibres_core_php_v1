@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\legal;
+namespace content_a\setting\legal\choosepage;
 
 
 class model
@@ -36,6 +36,8 @@ class model
 
 
 		\lib\app\setting\policy_page::set($post);
+
+		\dash\redirect::to(\dash\url::that());
 	}
 }
 ?>
