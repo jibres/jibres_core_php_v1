@@ -1,9 +1,9 @@
 <?php
   echo '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';
-  echo '<div class="toolbar flex-grow-0 flex-none flex content-center">';
+  echo '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
   {
     // dots
-    echo '<div class="relative flex flex-none items-center space-x-3 px-5">';
+    echo '<div class="relative flex flex-none items-center space-x-3 px-3">';
     {
       echo '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
       echo '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
@@ -24,7 +24,7 @@
     }
     echo '</div>';
     // zoom icon
-    echo '<div id="resizePreview" class="relative flex flex-none items-center space-x-3 px-5">';
+    echo '<div class="resizePreview relative flex flex-none items-center space-x-3 px-5">';
     {
       echo '<div data-mode="mobile" class="sf-mobile rounded-full hover:bg-gray-300 text-gray-700 hover:text-gray-900 text-3xl transition cursor-pointer"></div>';
       echo '<div data-mode="desktop" class="sf-monitor rounded-full hover:bg-gray-300 text-gray-700 hover:text-gray-900 text-3xl transition cursor-pointer"></div>';
