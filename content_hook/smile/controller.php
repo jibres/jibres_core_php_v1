@@ -14,13 +14,15 @@ class controller
 		{
 			$myResult = \dash\app\smile::get();
 
+			$msg = T_("You have :val new message!", ['val' => \dash\fit::number($myResult['notifCount'])]);
+
 			$alertyOpt =
 			[
 				'alerty'            => true,
 				'timeout'           => 5000,
 				'showConfirmButton' => false,
 				'priority'          => false,
-				'html'              => '<a href="'. \dash\url::sitelang(). '/account/notification">'. T_("You have :val new message!". '</a>', ['val' => \dash\fit::number($myResult['notifCount'])]),
+				'html'              => '<a href="'. \dash\url::sitelang(). '/account/notification">'. $msg. '</a>',
 			];
 
 			// show alert as toast
