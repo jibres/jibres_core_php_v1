@@ -241,7 +241,9 @@ class view
 	{
 		if(\dash\data::include_adminPanel())
 		{
-			\dash\data::global_panel(true);
+			\dash\data::global_panel('');
+			\dash\data::global_siteBuilder(null);
+
 			if(\dash\data::userToggleSidebar() === false)
 			{
 				\dash\data::global_panel('clean');
@@ -258,6 +260,13 @@ class view
 			}
 
 			\dash\data::userBadge_desc($txtDesc);
+		}
+		if(\dash\data::include_adminPanelBuilder())
+		{
+			\dash\data::global_panel(null);
+			\dash\data::global_siteBuilder('');
+
+			\dash\data::include_adminPanel(false);
 		}
 
 		if(!\dash\face::titlePWA())

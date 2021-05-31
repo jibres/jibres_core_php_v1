@@ -21,8 +21,7 @@ class view
 		\dash\data::include_adminPanel(true);
 		if(\dash\url::module() === 'site' && \dash\url::child() !== null)
 		{
-			\dash\data::include_adminPanel(false);
-			\dash\data::include_adminPanelBuilder(true);
+			\dash\data::include_adminPanelBuilder("true");
 		}
 		// use old version of chart until new version is being stable
 
