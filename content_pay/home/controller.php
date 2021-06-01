@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\csrf::set();
+
 		$token = \dash\url::module();
 		if($token && mb_strlen($token) === 32)
 		{
@@ -16,11 +18,15 @@ class controller
 				\dash\data::dataRow($load);
 				\dash\open::get();
 				\dash\open::post();
-				\dash\csrf::set();
+			}
+			else
+			{
+				\dash\header::status(T_("Invalid payment token!"));
 			}
 
 			\dash\data::transactionMode(true);
 		}
+
 
 	}
 }

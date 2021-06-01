@@ -1,4 +1,5 @@
 <form method="post" autocomplete="off" id="payformsubmit">
+	<?php \dash\csrf::html(); ?>
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">
