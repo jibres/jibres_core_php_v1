@@ -1,6 +1,6 @@
 <div id='content' class='scr'>
 <?php
-	if(\dash\data::include_adminPanelBuilder() === 'siteBuilder')
+	if(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
 	{
 		require_once(core. 'layout/panelBuilder/panelBuilder-iframe.php');
 	}

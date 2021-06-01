@@ -11,8 +11,19 @@ class view
 		\dash\face::slogan(T_("Integrated Sales and Online Accounting"));
 
 
-		\dash\data::include_adminPanelBuilder("siteBuilder");
-		// use old version of chart until new version is being stable
+		switch (\dash\url::module())
+		{
+			case Null:
+			case 'new':
+				\dash\data::include_adminPanelBuilder(true);
+				// code...
+				break;
+
+			default:
+				// show display inside sidebar and iframe in page center
+				\dash\data::include_adminPanelBuilder("siteLivePreview");
+				break;
+		}
 
 		\dash\face::site(\lib\store::title());
 		\dash\data::store(\lib\store::detail());

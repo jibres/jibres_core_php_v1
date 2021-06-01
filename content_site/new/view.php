@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_('Add new Page'));
 
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::here());
 
 		if(\dash\detect\device::detectPWA())
 		{

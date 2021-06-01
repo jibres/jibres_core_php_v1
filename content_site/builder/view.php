@@ -11,13 +11,11 @@ class view
 
 		self::set_page_variable();
 
-		if(!\dash\data::lineSetting())
-		{
-			\dash\data::action_text(T_('Add new line'));
-			\dash\data::action_link(\dash\url::this(). '/additem'. \dash\request::full_get());
-		}
-
-
+		// if(!\dash\data::lineSetting())
+		// {
+		// 	\dash\data::action_text(T_('Add new Section'));
+		// 	\dash\data::action_link(\dash\url::this(). '/additem'. \dash\request::full_get());
+		// }
 	}
 
 
@@ -146,7 +144,7 @@ class view
 		else
 		{
 			\dash\data::back_text(T_('Site Builder'));
-			\dash\data::back_link(\dash\url::this());
+			\dash\data::back_link(\dash\url::here());
 
 			$lineList = \dash\data::lineList();
 

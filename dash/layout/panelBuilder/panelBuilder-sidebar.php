@@ -1,6 +1,6 @@
 <?php
 
-if(\dash\data::include_adminPanelBuilder() === 'siteBuilder')
+if(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
 {
   require_once \dash\layout\func::display();
 }

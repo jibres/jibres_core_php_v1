@@ -6,6 +6,8 @@
   </a>
   <div class="flex-grow mx-5"><?php echo \dash\face::title(); ?></div>
 
-  <button href="<?php echo \dash\data::action_text(); ?>" class="inline-block mx-5 px-10 text-center text-white transition bg-blue-400 rounded-lg shadow hover:shadow-lg hover:bg-blue-500 focus:outline-none cursor-pointer "><?php echo \dash\data::action_text(); ?></button>
+<?php if(\dash\data::action_link() && \dash\data::action_text()) {?>
+  <a href="<?php echo \dash\data::action_link(); ?>" class="inline-block mx-5 px-10 text-center text-white transition bg-blue-400 rounded-lg shadow hover:shadow-lg hover:bg-blue-500 hover:text-gray-50 focus:outline-none cursor-pointer "><?php echo \dash\data::action_text(); ?></a>
+<?php }?>
 
 </div>
