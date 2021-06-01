@@ -8,7 +8,7 @@ class controller
 	{
 		if(!\dash\request::get('id'))
 		{
-			\dash\redirect::to(\dash\url::this());
+			\dash\redirect::to(\dash\url::here());
 		}
 	}
 }
