@@ -267,6 +267,7 @@ class view
 			\dash\data::global_siteBuilder('');
 
 			\dash\data::include_adminPanel(false);
+			\dash\data::global_scriptPage('a_site_builder.js');
 		}
 
 		if(!\dash\face::titlePWA())

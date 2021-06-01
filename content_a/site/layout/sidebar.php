@@ -111,8 +111,8 @@ function HTML_allNewLine() {?>
 <nav class="items">
   <ul>
     <li>
-      <a class="f" href="<?php echo \dash\url::this(). '/additem'. \dash\request::full_get();?>">
-       <div class="key fc-mute"><?php echo T_('Add new line');?></div>
+      <a class="f" href="<?php echo \dash\url::this(). '/section'. \dash\request::full_get();?>">
+       <div class="key fc-mute"><?php echo T_('Add new section');?></div>
        <div class="go plus ok"></div>
       </a>
     </li>

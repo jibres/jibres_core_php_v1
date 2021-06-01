@@ -7,8 +7,6 @@ class view
 	public static function config()
 	{
 		\dash\data::include_adminPanelBuilder("true");
-		\dash\data::global_scriptPage('a_site_builder.js');
-
 
 		$load_line = \lib\pagebuilder\tools\get::current_line_list();
 		\dash\data::lineList($load_line);
@@ -149,7 +147,7 @@ class view
 		}
 		else
 		{
-			\dash\data::back_text(T_('Back'));
+			\dash\data::back_text(T_('Site Builder'));
 			\dash\data::back_link(\dash\url::this());
 
 			$lineList = \dash\data::lineList();

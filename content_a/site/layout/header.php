@@ -1,8 +1,8 @@
 <div class="h-full flex flex-wrap content-center">
 
-  <a class="backBtn px-5 w-50 text-2xl text-gray-600 hover:text-gray-400 transition" href="<?php echo \dash\url::this(); ?>">
+  <a class="backBtn px-5 w-50 text-2xl text-gray-600 hover:text-gray-400 transition" href="<?php echo \dash\data::back_link(); ?>">
     <i class="inline-block transition-none sf-chevron-left"></i>
-    <span class="inline-block transition-none"><?php echo T_("Back"); ?></span>
+    <span class="inline-block transition-none"><?php echo \dash\data::back_text(); ?></span>
   </a>
   <div class="flex-grow mx-5"><?php echo T_("Homepage"); ?></div>
 

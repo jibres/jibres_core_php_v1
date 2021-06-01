@@ -32,7 +32,6 @@
     echo '</div>';
   }
   echo '</div>';
-  // echo '<iframe src="http://rafiei.local/"></iframe>';
   echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. \lib\store::url(). '"></iframe>';
   echo '</div>';
 ?>

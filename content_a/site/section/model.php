@@ -1,5 +1,5 @@
 <?php
-namespace content_a\site\additem;
+namespace content_a\site\section;
 
 
 class model
