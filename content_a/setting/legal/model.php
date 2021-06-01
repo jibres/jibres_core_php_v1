@@ -8,34 +8,16 @@ class model
 	{
 		$post                       = [];
 
-
-		if(\dash\request::post('set_aboutus_page'))
+		if(\dash\request::post('template') === 'template' && \dash\request::post('mode'))
 		{
-			$post['aboutus_page'] = \dash\request::post('aboutus_page');
+			$post_id = \lib\app\setting\policy_page::create_from_template(\dash\request::post('mode'));
+
+			if($post_id)
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/cms/posts/edit?id='. $post_id);
+			}
 		}
 
-		if(\dash\request::post('set_refund_policy_page'))
-		{
-			$post['refund_policy_page'] = \dash\request::post('refund_policy_page');
-		}
-
-		if(\dash\request::post('set_privacy_policy_page'))
-		{
-			$post['privacy_policy_page'] = \dash\request::post('privacy_policy_page');
-		}
-
-		if(\dash\request::post('set_termsofservice_page'))
-		{
-			$post['termsofservice_page'] = \dash\request::post('termsofservice_page');
-		}
-
-		if(\dash\request::post('set_shipping_policy_page'))
-		{
-			$post['shipping_policy_page'] = \dash\request::post('shipping_policy_page');
-		}
-
-
-		\lib\app\setting\policy_page::set($post);
 	}
 }
 ?>

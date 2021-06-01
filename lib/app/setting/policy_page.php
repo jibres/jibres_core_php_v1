@@ -43,11 +43,11 @@ class policy_page
 	{
 		return
 		[
-			'aboutus_page'         => ['title' => T_("About Us page")],
-			'refund_policy_page'   => ['title' => T_("Refund policy page")],
-			'privacy_policy_page'  => ['title' => T_("Privacy policy page")],
-			'termsofservice_page'  => ['title' => T_("Terms of service page")],
-			'shipping_policy_page' => ['title' => T_("Shipping policy page")],
+			'aboutus_page'         => ['title' => T_("About Us page"), 'slug' => 'about'],
+			'refund_policy_page'   => ['title' => T_("Refund policy page"), 'slug' => 'refund-policy'],
+			'privacy_policy_page'  => ['title' => T_("Privacy policy page"), 'slug' => 'privacy'],
+			'termsofservice_page'  => ['title' => T_("Terms of service page"), 'slug' => 'terms'],
+			'shipping_policy_page' => ['title' => T_("Shipping policy page"), 'slug' => 'shipping-policy'],
 		];
 
 	}
@@ -102,5 +102,88 @@ class policy_page
 
 		return $data;
 	}
+
+
+
+	public static function create_from_template($_mode)
+	{
+		$module = self::get_page_key();
+
+		if(is_string($_mode) && in_array($_mode, array_keys($module)))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Invalid mode"));
+			return false;
+		}
+
+
+
+		$content = self::static_page_template($_mode);
+
+		if($content)
+		{
+			$slug    = a($module, $_mode, 'slug');
+			$special = 'special';
+
+			if(\dash\db\posts\get::check_duplicate_slug($slug))
+			{
+				$slug    = null;
+				$special = 'independence';
+			}
+
+			$args =
+			[
+				'title'          => a($module, $_mode, 'title'),
+				'slug'           => $slug,
+				'specialaddress' => $special,
+				'status'         => 'publish',
+				'content'        => $content,
+			];
+
+			$post_id = \dash\app\posts\add::add($args);
+
+			if(isset($post_id['post_id']))
+			{
+				self::set([$_mode => $post_id['post_id']]);
+
+				return $post_id['post_id'];
+			}
+		}
+	}
+
+
+
+	private static function static_page_template($_mode)
+	{
+		$lang = \dash\language::current();
+
+		$addr = __DIR__. '/template_policy_page';
+
+		$file_addr = $addr . '/'. $_mode . '.php';
+
+		$file_addr_lang = $addr . '/'. $_mode. '_'. $lang . '.php';
+
+		if(is_file($file_addr_lang))
+		{
+			require_once($file_addr_lang);
+		}
+		elseif(is_file($file_addr))
+		{
+			require_once($file_addr);
+		}
+
+		if(isset($template))
+		{
+			return $template;
+		}
+
+		return null;
+
+	}
+
+
 }
 ?>

@@ -91,6 +91,13 @@ class get
 		return $result;
 	}
 
+	public static function check_duplicate_slug($_slug)
+	{
+		$query  = "SELECT * FROM posts WHERE posts.slug = '$_slug' LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 
 	public static function get_one($_args)
 	{
