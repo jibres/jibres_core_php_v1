@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_('Site Builder'));
 
 		\dash\data::action_text(T_('Add New Page'));
-		\dash\data::action_link(\dash\url::this(). '/new');
+		\dash\data::action_link(\dash\url::this(). '/page/new');
 
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::kingdom(). '/a');

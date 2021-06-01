@@ -21,7 +21,7 @@ foreach (\dash\data::dataTable() as $key => $value)
   }
 
     $html .= '<li>';
-    $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/builder?id='.  a($value, 'id'). '">';
+    $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/page?id='.  a($value, 'id'). '">';
     if(a($value, 'thumb'))
     {
        $html.= '<img src="'. \dash\fit::img(a($value, 'thumb')). '" alt="'. T_("Post image"). '">';

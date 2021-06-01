@@ -11,10 +11,10 @@ class view
 		\dash\face::slogan(T_("Integrated Sales and Online Accounting"));
 
 
-		switch (\dash\url::module())
+		switch (\dash\url::directory())
 		{
 			case Null:
-			case 'new':
+			case 'page/new':
 				\dash\data::include_adminPanelBuilder(true);
 				// code...
 				break;

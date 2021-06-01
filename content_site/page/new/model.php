@@ -1,5 +1,5 @@
 <?php
-namespace content_site\new;
+namespace content_site\page\new;
 
 
 class model
@@ -16,7 +16,7 @@ class model
 
 		if(\dash\engine\process::status() && isset($post_detail['post_id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/builder?id='. $post_detail['post_id']);
+			\dash\redirect::to(\dash\url::this(). '?id='. $post_detail['post_id']);
 			return;
 		}
 	}
