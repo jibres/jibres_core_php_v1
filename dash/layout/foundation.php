@@ -120,16 +120,16 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 if(\dash\engine\store::inBusinessWebsite() || \dash\data::include_adminPanelBuilder())
 {
  // temporary load jibres.min
- echo'<link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>';
- echo'<link href='. \dash\layout\func::staticmtime('css/tailwind-v1.css'). ' rel="stylesheet"/>';
+ echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
+ echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
 }
 else
 {
  if(\dash\user::id())
  {
-  echo'<link href='. \dash\layout\func::staticmtime('css/tailwind-v1.css'). ' rel="stylesheet"/>';
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
  }
- echo'<link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>';
+ echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
 }
 ?>
 <?php
