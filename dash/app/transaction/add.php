@@ -20,7 +20,17 @@ class add
 
 		$html = '';
 		$html .= '<a target="_blank" class="btn link" href="';
-		$html .= \dash\url::kingdom(). '/pay?'. \dash\request::build_query($query);
+
+		if(\dash\engine\store::inStore())
+		{
+			$html .= \lib\store::url();
+		}
+		else
+		{
+			$html .= \dash\url::kingdom();
+		}
+
+		$html .= '/pay?'. \dash\request::build_query($query);
 		$html .= '">';
 		$html .= '<i class="sf-link-external"></i> ';
 		$html .= T_("Test payment");
@@ -60,12 +70,20 @@ class add
 			'turn_back' => \dash\url::kingdom(),
 			'user_id'   => $user_id,
 			'amount'    => $data['amount'],
+			'bank'      => $data['payment'],
 		];
 
 		// tp = test peyment
 		if($data['tp'])
 		{
-			$meta['turn_back'] = \dash\url::kingdom(). '/a/setting/thirdparty';
+			if(\dash\engine\store::inStore())
+			{
+				$meta['turn_back'] = \lib\store::admin_url(). '/a/setting/thirdparty';
+			}
+			else
+			{
+				$meta['turn_back'] = \dash\url::kingdom();
+			}
 		}
 
 		\dash\utility\pay\start::site($meta);

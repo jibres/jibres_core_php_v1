@@ -324,6 +324,11 @@ class start
 
 		$url = \dash\url::kingdom(). '/pay/'. $token;
 
+		if($_args['bank'])
+		{
+			$url .= '?dp='. $_args['bank'];
+		}
+
 
 		if($_args['get_token'])
 		{

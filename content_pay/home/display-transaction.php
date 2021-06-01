@@ -185,6 +185,17 @@ if(!is_array($myPayment))
 {
 	$myPayment = [];
 }
+
+$dp = \dash\request::get('dp'); // default payment
+$dp = \dash\validate::string_100($dp, false);
+
+$selected = $dp;
+if(!\dash\engine\store::inStore())
+{
+	$selected = 'zarinpal';
+}
+
+
 ?>
 	<?php if(!array_filter($myPayment)) {?>
 		<p class="txtB txtC mT10"><?php echo T_("No payment gateway was founded") ?></p>
@@ -193,7 +204,7 @@ if(!is_array($myPayment))
 		<div class="msg pA5">
 			<?php if(isset($myPayment['parsian']['status']) && $myPayment['parsian']['status']) {?>
 			<div class="radioGateway" title='<?php echo T_("Parsian"); ?>'>
-			<input type="radio" name="bank" value="parsian" id="parsian"  >
+			<input type="radio" name="bank" value="parsian" id="parsian"  <?php if($selected === 'parsian') { echo 'checked';} ?>>
 			<label for='parsian' class="spay-64-parsian"></label>
 			</div>
 			<?php } //endif ?>
@@ -207,28 +218,28 @@ if(!is_array($myPayment))
 
 			<?php if(isset($myPayment['irkish']['status']) && $myPayment['irkish']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="irKish" id="irKish" >
+			<input type="radio" name="bank" value="irKish" id="irKish" <?php if($selected === 'irkish') { echo 'checked';} ?>>
 			<label for='irKish' class="spay-64-irkish"></label>
 			</div>
 			<?php } //endif ?>
 
 			<?php if(isset($myPayment['zarinpal']['status']) && $myPayment['zarinpal']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" <?php if(!\dash\engine\store::inStore()) {echo 'checked';} ?>>
+			<input type="radio" name="bank" value="ZarinPal" id="ZarinPal" <?php if($selected === 'zarinpal') { echo 'checked';} ?>>
 			<label for='ZarinPal' class="spay-64-zarinpal"></label>
 			</div>
 			<?php } //endif ?>
 
 			<?php if(isset($myPayment['payir']['status']) && $myPayment['payir']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="payir" id="payir" >
+			<input type="radio" name="bank" value="payir" id="payir" <?php if($selected === 'payir') { echo 'checked';} ?>>
 			<label for='payir' class="spay-64-payir"></label>
 			</div>
 			<?php } //endif ?>
 
 			<?php if(isset($myPayment['idpay']['status']) && $myPayment['idpay']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="idpay" id="idpay" >
+			<input type="radio" name="bank" value="idpay" id="idpay" <?php if($selected === 'idpay') { echo 'checked';} ?>>
 			<label for='idpay'>
 				<?php require_once('idpay.php') ?>
 			</label>
@@ -237,14 +248,14 @@ if(!is_array($myPayment))
 
 			<?php if(isset($myPayment['mellat']['status']) && $myPayment['mellat']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="mellat" id="mellat" >
+			<input type="radio" name="bank" value="mellat" id="mellat" <?php if($selected === 'mellat') { echo 'checked';} ?>>
 			<label for='mellat' class="spay-64-mellat"></label>
 			</div>
 			<?php } //endif ?>
 
 			<?php if(isset($myPayment['sep']['status']) && $myPayment['sep']['status']) {?>
 			<div class="radioGateway">
-			<input type="radio" name="bank" value="sep" id="sep" >
+			<input type="radio" name="bank" value="sep" id="sep" <?php if($selected === 'sep') { echo 'checked';} ?>>
 			<label for='sep' class="spay-64-sepah"></label>
 			</div>
 			<?php } //endif ?>
