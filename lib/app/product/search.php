@@ -384,6 +384,7 @@ class search
 
 				$or[] = "products.finalprice = ". \lib\price::up($search_price);
 				$or[] = "products.price = ". \lib\price::up($search_price);
+				$or[] = "products.id = ". \lib\price::up($search_price);
 			}
 
 			self::$is_filtered = true;

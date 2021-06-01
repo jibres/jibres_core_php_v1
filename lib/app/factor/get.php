@@ -107,8 +107,9 @@ class get
 
 		if($id)
 		{
-			$count = \lib\db\factordetails\get::product_sold($id);
-			return floatval($count);
+			$stat = \lib\db\factordetails\get::product_ordered_stat($id);
+
+			return $stat;
 		}
 
 		return null;

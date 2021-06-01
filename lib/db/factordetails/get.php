@@ -199,6 +199,23 @@ class get
 		return $result;
 	}
 
+	public static function product_ordered_stat($_product_id)
+	{
+		$query =
+		"
+			SELECT
+				SUM(factordetails.count) AS `total`,
+				COUNT(*) AS `count`
+			FROM
+				factordetails
+			WHERE
+				factordetails.product_id = $_product_id AND
+				factordetails.count > 0
+		";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
 	public static function product_sold($_product_id)
 	{
 		$query =

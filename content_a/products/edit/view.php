@@ -28,8 +28,9 @@ class view
 			\dash\face::btnView(\dash\data::productDataRow_url());
 		}
 
+		$countOrdered = \lib\app\factor\get::product_count_ordered(\dash\request::get('id'));
 
-		\dash\data::countOrdered(\lib\app\factor\get::product_count_ordered(\dash\request::get('id')));
+		\dash\data::countOrdered($countOrdered);
 
 		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);
