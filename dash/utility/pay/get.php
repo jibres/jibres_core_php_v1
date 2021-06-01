@@ -43,14 +43,14 @@ class get
 	public static function list()
 	{
 		$payment                 = [];
-		$payment['parsian']      = ['title' => T_('Parsian Payment'), 				'key' => 'parsian'];
-		$payment['asanpardakht'] = ['title' => T_('Asanpardakht payment'), 			'key' => 'asanpardakht'];
-		$payment['irkish']       = ['title' => T_('IranKish Payment'), 				'key' => 'irkish'];
-		$payment['zarinpal']     = ['title' => T_('Zarinpal payment'), 				'key' => 'zarinpal'];
-		$payment['payir']        = ['title' => T_('Payir Payment'), 				'key' => 'payir'];
-		$payment['mellat']       = ['title' => T_('Mellat payment'), 				'key' => 'mellat'];
-		$payment['sep']          = ['title' => T_('Sep payment'), 					'key' => 'sep'];
-		$payment['idpay']        = ['title' => T_('IDPay payment'), 				'key' => 'idpay'];
+		$payment['parsian']      = ['title' => T_('Parsian Payment'), 				'key' => 'parsian', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/parsian.png'];
+		$payment['asanpardakht'] = ['title' => T_('Asanpardakht payment'), 			'key' => 'asanpardakht', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/asanpardasht-logo.svg'];
+		$payment['irkish']       = ['title' => T_('IranKish Payment'), 				'key' => 'irkish', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/irkish.jpg'];
+		$payment['zarinpal']     = ['title' => T_('Zarinpal payment'), 				'key' => 'zarinpal', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/zarinpal-icon.svg'];
+		$payment['payir']        = ['title' => T_('Payir Payment'), 				'key' => 'payir', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/payir.png'];
+		$payment['mellat']       = ['title' => T_('Mellat payment'), 				'key' => 'mellat', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/mellat-logo.svg'];
+		$payment['sep']          = ['title' => T_('Sep payment'), 					'key' => 'sep', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/parsian.png'];
+		$payment['idpay']        = ['title' => T_('IDPay payment'), 				'key' => 'idpay', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/idpay-icon.png'];
 
 		return $payment;
 
@@ -81,6 +81,7 @@ class get
 			{
 				$value['title'] = a($detail, $key, 'title');
 				$value['key']   = a($detail, $key, 'key');
+				$value['icon']  = a($detail, $key, 'icon');
 				$result[]       = $value;
 			}
 		}

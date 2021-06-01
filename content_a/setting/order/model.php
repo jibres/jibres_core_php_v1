@@ -28,6 +28,7 @@ class model
 		\lib\app\setting\set::save_payment($post);
 
 		\dash\notif::ok(T_("Saved"));
+		\dash\redirect::pwd();
 	}
 }
 ?>

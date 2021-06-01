@@ -23,6 +23,9 @@
       <h3><?php echo T_("Online payment"); ?></h3>
       <div class="body">
         <p><?php echo T_("Such as Credit card, PayPal and Stripe."); ?></p>
+        <?php foreach (\dash\utility\pay\get::active_payment() as $key => $value) {?>
+          <span class=""><img class="avatar" src="<?php echo a($value, 'icon') ?>" alt="<?php echo a($value, 'title') ?>"></span>
+        <?php } //endif ?>
       </div>
     </div>
   </div>
@@ -48,6 +51,9 @@
       <h3><?php echo T_("Default payment"); ?></h3>
       <div class="body">
         <p><?php echo T_("Default payment"); ?></p>
+        <?php foreach (\dash\utility\pay\get::active_payment() as $key => $value) {  if(\lib\store::detail('default_payment') !== a($value, 'key')) { continue;} ?>
+          <span class=""><img class="avatar" src="<?php echo a($value, 'icon') ?>" alt="<?php echo a($value, 'title') ?>"></span>
+        <?php } //endif ?>
       </div>
     </div>
   </div>
