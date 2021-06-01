@@ -11,6 +11,11 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
+				\dash\data::storeCurrency(\lib\store::currency());
+
+
+		\dash\data::shippingSettingSaved(\lib\app\setting\get::shipping_setting());
+
 	}
 
 }
