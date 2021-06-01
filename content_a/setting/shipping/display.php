@@ -48,7 +48,7 @@
   <section class="f" data-option='setting-shipping-send-by-post' id="setting-shipping-send-by-post">
     <div class="c8 s12">
       <div class="data">
-        <h3><?php echo T_("Shipping cost by post?"); ?></h3>
+        <h3><?php echo T_("Shipping cost by post"); ?></h3>
         <div class="body">
 
         </div>
@@ -140,7 +140,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn" href="<?php echo \dash\url::that(); ?>/irpost"><?php echo T_("Calcuate") ?></a>
+      <a class="btn" href="<?php echo \dash\url::that(); ?>/irpost"><?php echo T_("Calculate") ?></a>
     </div>
   </form>
 </section>
