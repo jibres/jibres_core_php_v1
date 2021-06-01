@@ -32,6 +32,46 @@
   </form>
 </section>
 
+<section class="f" data-option='setting-factor-print-show-vat' id="setting-factor-print-show-vat">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Show VAT in factor?"); ?></h3>
+      <div class="body">
+        <p><?php echo T_("Should the VAT column be displayed on the invoice under any circumstances?"); ?><br> <?php echo T_("By default, if the invoice has a discount, we will show the discount column, otherwise we will hide it."); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_show_vat_column" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input type="checkbox" name="show_vat_column" id="set_show_vat_column" <?php if(\dash\data::dataRow_show_vat_column()) { echo 'checked'; } ?>>
+         <label for="set_show_vat_column" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="f" data-option='setting-factor-print-show-discount' id="setting-factor-print-show-discount">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Show discount in factor?"); ?></h3>
+      <div class="body">
+        <p><?php echo T_("Should the discount column be displayed on the invoice under any circumstances?"); ?><br> <?php echo T_("By default, if the invoice has a discount, we will show the discount column, otherwise we will hide it."); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_show_discount_column" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input type="checkbox" name="show_discount_column" id="set_show_discount_column" <?php if(\dash\data::dataRow_show_discount_column()) { echo 'checked'; } ?>>
+         <label for="set_show_discount_column" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+      </div>
+    </div>
+  </form>
+</section>
 
 <section class="f" data-option='setting-factor-vat' id="setting-factor-vat">
   <div class="c8 s12">

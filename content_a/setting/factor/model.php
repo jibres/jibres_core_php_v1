@@ -8,6 +8,17 @@ class model
 	{
 		$post = [];
 
+
+		if(\dash\request::post('set_show_vat_column'))
+		{
+			$post['show_vat_column'] = \dash\request::post('show_vat_column');
+		}
+
+		if(\dash\request::post('set_show_discount_column'))
+		{
+			$post['show_discount_column'] = \dash\request::post('show_discount_column');
+		}
+
 		if(\dash\request::post('set_tax_status'))
 		{
 			$post['tax_status'] = \dash\request::post('tax_status');
