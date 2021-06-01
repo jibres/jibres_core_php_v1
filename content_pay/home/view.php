@@ -23,6 +23,32 @@ class view
 	{
 		\dash\face::title(T_('Pay'));
 
+		if(\dash\request::get('amount'))
+		{
+			$amount = \dash\request::get('amount');
+
+			if($amount = \dash\validate::price($amount, false))
+			{
+				\dash\data::myAmount($amount);
+			}
+		}
+
+
+		if(\dash\request::get('mobile'))
+		{
+			$mobile = \dash\request::get('mobile');
+
+			if($mobile = \dash\validate::mobile($mobile, false))
+			{
+				\dash\data::myMobile($mobile);
+			}
+		}
+
+		if(\dash\request::get('autosend'))
+		{
+			\dash\data::global_scriptPage('pay_formsubmit.js');
+		}
+
 	}
 
 

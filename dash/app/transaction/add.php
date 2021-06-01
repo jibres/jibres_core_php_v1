@@ -3,12 +3,42 @@ namespace dash\app\transaction;
 
 class add
 {
+	public static function test_payment_link($_payment = null)
+	{
+		$query =
+		[
+			'amount'   => 1000,
+			'autosend' => 1,
+			'tp'       => 1,
+			'mobile'   => \dash\user::detail('mobile'),
+		];
+
+		if($_payment)
+		{
+			$query['payment'] = $_payment;
+		}
+
+		$html = '';
+		$html .= '<a target="_blank" class="btn link" href="';
+		$html .= \dash\url::kingdom(). '/pay?'. \dash\request::build_query($query);
+		$html .= '">';
+		$html .= '<i class="sf-link-external"></i> ';
+		$html .= T_("Test payment");
+		$html .= '</a>';
+
+		return $html;
+
+	}
+
+
 	public static function donate($_args)
 	{
 		$condition =
 		[
-			'amount' => 'price',
-			'mobile' => 'mobile',
+			'amount'  => 'price',
+			'mobile'  => 'mobile',
+			'tp'      => 'bit',
+			'payment' => 'string_200',
 		];
 
 		$require = ['amount'];
@@ -31,6 +61,12 @@ class add
 			'user_id'   => $user_id,
 			'amount'    => $data['amount'],
 		];
+
+		// tp = test peyment
+		if($data['tp'])
+		{
+			$meta['turn_back'] = \dash\url::kingdom(). '/a/setting/thirdparty';
+		}
 
 		\dash\utility\pay\start::site($meta);
 

@@ -1,4 +1,4 @@
-<form method="post" autocomplete="off" id="formfreedonate">
+<form method="post" autocomplete="off" id="payformsubmit">
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">

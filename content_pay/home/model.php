@@ -21,9 +21,11 @@ class model
 		{
 			if(\dash\request::post('donate') === 'donate')
 			{
-				$post           = [];
-				$post['mobile'] = \dash\request::post('mobile');
-				$post['amount'] = \dash\request::post('amount');
+				$post            = [];
+				$post['mobile']  = \dash\request::post('mobile');
+				$post['amount']  = \dash\request::post('amount');
+				$post['payment'] = \dash\request::get('payment');
+				$post['tp']      = \dash\request::get('tp');
 
 				\dash\app\transaction\add::donate($post);
 			}
