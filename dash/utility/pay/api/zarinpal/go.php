@@ -60,6 +60,11 @@ class go
             return \dash\utility\pay\setting::turn_back();
         }
 
+        if(!a($zarinpal, 'Description'))
+        {
+            $zarinpal['Description'] = T_("Transaction"). ': '. $transaction_id;
+        }
+
         $redirect = \dash\utility\pay\api\zarinpal\bank::pay($zarinpal);
 
         $payment_response = \dash\utility\pay\api\zarinpal\bank::$payment_response;
