@@ -574,5 +574,42 @@ class set
 
 
 
+	public static function seller_detail($_args)
+	{
+		$condition =
+		[
+			'companyeconomiccode'   => 'bigint',
+			'companynationalid'     => 'bigint',
+			'companyregisternumber' => 'bigint',
+			'ceonationalcode'       => 'nationalcode',
+			'companyname'           => 'string_100',
+			'website'               => 'url',
+			'seller_type'           => ['enum' => ['real', 'legal']],
+			'nationalcode'          => 'nationalcode',
+		];
+
+		$require = [];
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'store_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		return true;
+	}
+
+
+
+
+
+
 }
 ?>

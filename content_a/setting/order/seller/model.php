@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\company;
+namespace content_a\setting\order\seller;
 
 
 class model
@@ -12,9 +12,13 @@ class model
 		$post['companyregisternumber'] = \dash\request::post('companyregisternumber');
 		$post['ceonationalcode']       = \dash\request::post('ceonationalcode');
 		$post['companyname']           = \dash\request::post('companyname');
+		$post['website']               = \dash\request::post('website');
+		$post['seller_type']           = \dash\request::post('seller_type');
+		$post['nationalcode']          = \dash\request::post('nationalcode');
 
+		\lib\app\setting\set::seller_detail($post);
 
-		\lib\app\setting\setup::save_company($post);
+		\dash\notif::ok(T_("Saved"));
 
 	}
 }
