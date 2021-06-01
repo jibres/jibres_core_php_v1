@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\order\seller;
+namespace content_a\setting\factor\seller;
 
 
 class model
@@ -12,7 +12,7 @@ class model
 		$post['companyregisternumber'] = \dash\request::post('companyregisternumber');
 		$post['ceonationalcode']       = \dash\request::post('ceonationalcode');
 		$post['companyname']           = \dash\request::post('companyname');
-		$post['website']               = \dash\request::post('website');
+		$post['local_website']         = \dash\request::post('website');
 		$post['seller_type']           = \dash\request::post('seller_type');
 		$post['nationalcode']          = \dash\request::post('nationalcode');
 

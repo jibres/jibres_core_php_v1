@@ -265,8 +265,6 @@ class setup
 			'postcode' => 'postcode',
 			'phone'    => 'phone',
 			'fax'      => 'phone',
-			'local_website'  => 'url',
-
 		];
 
 		$require = ['country', 'address'];

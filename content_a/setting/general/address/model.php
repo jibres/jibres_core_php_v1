@@ -16,7 +16,7 @@ class model
 		$post['mobile']   = \dash\request::post('mobile');
 		$post['fax']      = \dash\request::post('fax');
 
-		\lib\app\setting\setup::save_address($post);
+		\lib\app\setting\set::store_address($post);
 	}
 }
 ?>

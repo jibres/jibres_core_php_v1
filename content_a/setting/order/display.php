@@ -1,20 +1,4 @@
 
-<section class="f" data-option='setting-order-seller-detail' id="setting-order-seller-detail">
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Seller detail"); ?></h3>
-      <div class="body">
-        <p><?php echo T_("Seller information displayed on the invoice"); ?></p>
-      </div>
-    </div>
-  </div>
-  <form class="c4 s12" method="post" data-patch>
-    <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/seller"><?php echo T_("Edit seller detail") ?></a>
-    </div>
-  </form>
-</section>
-
 
 
 <section class="f" data-option='setting-order-period' id="setting-order-validity-period">

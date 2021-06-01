@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\order\seller;
+namespace content_a\setting\factor\seller;
 
 
 class view
@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_('Store legal information'));
 
-		\dash\data::back_text(T_('Order setting'));
+		\dash\data::back_text(T_('Factor setting'));
 		\dash\data::back_link(\dash\url::that());
 	}
 }

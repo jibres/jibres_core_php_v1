@@ -583,7 +583,7 @@ class set
 			'companyregisternumber' => 'bigint',
 			'ceonationalcode'       => 'nationalcode',
 			'companyname'           => 'string_100',
-			'website'               => 'url',
+			'local_website'         => 'url',
 			'seller_type'           => ['enum' => ['real', 'legal']],
 			'nationalcode'          => 'nationalcode',
 		];
@@ -608,7 +608,98 @@ class set
 
 
 
+	public static function store_address($_args)
+	{
+		$condition =
+		[
+			'country'  => 'country',
+			'province' => 'province',
+			'city'     => 'city',
+			'address'  => 'address',
+			'mobile'   => 'mobile',
+			'postcode' => 'postcode',
+			'phone'    => 'phone',
+			'fax'      => 'phone',
+		];
 
+		$require = ['country', 'address'];
+
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['country'] === 'IR' && !$data['province'])
+		{
+			\dash\notif::error(T_("Please choose your province"), 'province');
+			return false;
+		}
+
+		if($data['country'] === 'IR' && !$data['city'])
+		{
+			\dash\notif::error(T_("Please choose your city"), 'city');
+			return false;
+		}
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'store_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		return true;
+	}
+
+
+
+
+	public static function factor_address($_args)
+	{
+		$condition =
+		[
+			'factor_country'  => 'country',
+			'factor_province' => 'province',
+			'factor_city'     => 'city',
+			'factor_address'  => 'address',
+			'factor_mobile'   => 'mobile',
+			'factor_postcode' => 'postcode',
+			'factor_phone'    => 'phone',
+			'factor_fax'      => 'phone',
+		];
+
+		$require = ['factor_country', 'factor_address'];
+
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['factor_country'] === 'IR' && !$data['factor_province'])
+		{
+			\dash\notif::error(T_("Please choose your province"), 'factor_province');
+			return false;
+		}
+
+		if($data['factor_country'] === 'IR' && !$data['factor_city'])
+		{
+			\dash\notif::error(T_("Please choose your city"), 'factor_city');
+			return false;
+		}
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		$cat  = 'store_setting';
+
+		foreach ($args as $key => $value)
+		{
+			\lib\app\setting\tools::update($cat, $key, $value);
+		}
+
+		return true;
+	}
 
 
 }

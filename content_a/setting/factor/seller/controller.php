@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\order\seller;
+namespace content_a\setting\factor\seller;
 
 
 class controller
