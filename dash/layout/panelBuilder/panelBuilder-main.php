@@ -1,4 +1,4 @@
-<div id='content' class='scr'>
+<div id='content' class='overflow-y-auto h-full'>
 <?php
 	if(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
 	{
