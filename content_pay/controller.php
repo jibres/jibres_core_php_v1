@@ -6,9 +6,20 @@ class controller
 {
 	public static function routing()
 	{
-		if(is_callable(['\\lib\\payment', 'config']))
+		if(\dash\engine\store::inStore())
 		{
-			\lib\payment::config();
+			$payment = \lib\store::payment_detail();
+
+			if($payment && is_array($payment))
+			{
+				foreach ($payment as $payment => $detail)
+				{
+					if(is_array($detail))
+					{
+						\dash\temp::set('payment_setting_'. $payment, $detail);
+					}
+				}
+			}
 		}
 
 	}
