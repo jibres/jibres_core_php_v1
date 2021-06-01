@@ -24,8 +24,10 @@
 					</div>
 				</div>
 			</div>
-			<footer class="txtRa">
-				<button class="btn master"><?php echo T_("Save") ?></button>
+			<footer class="f">
+				<div class="cauto"><?php if(a($bank, 'irkish', 'status')) { echo \dash\app\transaction\add::test_payment_link('irkish'); }?></div>
+				<div class="c"></div>
+				<div class="cauto"><button class="btn master"><?php echo T_("Save") ?></button></div>
 			</footer>
 		</div>
 	</div>
