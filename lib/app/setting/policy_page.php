@@ -53,6 +53,26 @@ class policy_page
 	}
 
 
+	public static function is_policy_page($_post_id)
+	{
+		$post_id = \dash\coding::decode($_post_id);
+
+		$all_setting                        = \lib\store::detail();
+
+		$pages = self::get_page_key();
+
+		foreach (array_keys($pages) as $key => $value)
+		{
+			if(floatval(a($all_setting, 'store_data', $value)) === floatval($post_id))
+			{
+				return a($pages, $value);
+			}
+		}
+
+		return false;
+	}
+
+
 
 	public static function admin_load()
 	{
@@ -144,6 +164,8 @@ class policy_page
 			];
 
 			$post_id = \dash\app\posts\add::add($args);
+
+			\dash\notif::clean();
 
 			if(isset($post_id['post_id']))
 			{

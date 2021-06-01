@@ -1,11 +1,13 @@
 <?php
-$dataRow = \dash\data::dataRow();
+$dataRow    = \dash\data::dataRow();
 $myFirstURL = '';
+$id         = \dash\request::get('id');
 
+$is_policy_page = \lib\app\setting\policy_page::is_policy_page($id);
 
 $type   = \dash\data::dataRow_type();
 
-$myID = '?id='. \dash\request::get('id');
+$myID = '?id='. $id;
 
 $myIcon = 'check';
 
@@ -23,7 +25,7 @@ switch (\dash\data::dataRow_status())
   </div>
 <?php } //endif ?>
 
-<?php if(a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'redirecturl')) {?>
+<?php if(a(\dash\data::dataRow(), 'will_be_published_on_future') || a(\dash\data::dataRow(), 'redirecturl') || $is_policy_page) {?>
   <nav class="items long">
     <ul>
       <?php if(a(\dash\data::dataRow(), 'will_be_published_on_future')) {?>
@@ -46,6 +48,15 @@ switch (\dash\data::dataRow_status())
           </a>
         </li>
       <?php } //endif ?>
+
+      <?php if($is_policy_page) {?>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/setting/legal'; ?>">
+            <div class="key"><?php echo T_("You are editing :page", ['page' => a($is_policy_page, 'title')]);  ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      <?php } // endif ?>
     </ul>
   </nav>
 
