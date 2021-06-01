@@ -52,6 +52,11 @@ class find
 				// admin panels
 				$myMain = core.'layout/admin/admin-main.php';
 			}
+			elseif(\dash\data::include_adminPanelBuilder())
+			{
+				// admin panels
+				$myMain = core.'layout/panelBuilder/panelBuilder-main.php';
+			}
 			elseif(\dash\engine\content::get() === 'content')
 			{
 				// jibres homepage webiste

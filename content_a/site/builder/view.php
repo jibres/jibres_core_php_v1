@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::include_adminPanelBuilder("true");
+		\dash\data::include_adminPanelBuilder("siteBuilder");
 
 		$load_line = \lib\pagebuilder\tools\get::current_line_list();
 		\dash\data::lineList($load_line);
