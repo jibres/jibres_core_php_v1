@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\cart\limit;
+namespace content_a\setting\order\cartlimit;
 
 
 class model

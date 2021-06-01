@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\cart\text;
+namespace content_a\setting\order\carttext;
 
 
 class model

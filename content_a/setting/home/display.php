@@ -61,16 +61,6 @@
             </div>
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/cart">
-                    <div class="c-auto"><i class="sf-shopping-cart"></i></div>
-                    <div class="c">
-                        <h2><?php echo T_("Cart"); ?></h2>
-                        <p><?php echo T_("Cart setting"); ?></p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::this(); ?>/order">
                     <div class="c-auto"><i class="sf-receipt-shopping-streamline"></i></div>
                     <div class="c">

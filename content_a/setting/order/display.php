@@ -101,3 +101,40 @@
     </div>
   </form>
 </section>
+
+
+
+
+
+
+<section class="f" data-option='setting-order-cartlimit' id="setting-order-validity-cartlimit">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set Cart limit"); ?></h3>
+      <div class="body">
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/cartlimit"><?php echo T_("Set") ?></a>
+    </div>
+  </form>
+</section>
+
+
+<section class="f" data-option='setting-order-cartlimit' id="setting-order-validity-cartlimit">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set cart page default text"); ?></h3>
+      <div class="body">
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/carttext"><?php echo T_("Set") ?></a>
+    </div>
+  </form>
+</section>
+

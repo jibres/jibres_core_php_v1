@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\cart;
+namespace content_a\setting\order\carttext;
 
 class view
 {
@@ -8,8 +8,8 @@ class view
 		\dash\face::title(T_('Cart Setting'));
 
 		// back
-		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_text(T_('Order Setting'));
+		\dash\data::back_link(\dash\url::that());
 
 		\dash\data::cartSettingSaved(\lib\app\setting\get::cart_setting());
 
