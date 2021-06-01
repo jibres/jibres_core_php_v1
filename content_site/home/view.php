@@ -1,5 +1,5 @@
 <?php
-namespace content_a\site\home;
+namespace content_site\home;
 
 
 class view
@@ -11,8 +11,8 @@ class view
 		\dash\data::action_text(T_('Add New Page'));
 		\dash\data::action_link(\dash\url::this(). '/new');
 
-		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::here(). '/setting');
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::kingdom(). '/a');
 
 		\dash\data::listEngine_start(true);
 		// \dash\data::listEngine_search(\dash\url::that());

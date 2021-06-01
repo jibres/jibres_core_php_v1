@@ -1,5 +1,5 @@
 <?php
-namespace content_a\site\builder;
+namespace content_site\builder;
 
 
 class model

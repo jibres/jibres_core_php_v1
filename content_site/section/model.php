@@ -1,5 +1,5 @@
 <?php
-namespace content_a\site\section;
+namespace content_site\section;
 
 
 class model
