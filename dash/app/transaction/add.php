@@ -3,6 +3,43 @@ namespace dash\app\transaction;
 
 class add
 {
+	public static function donate($_args)
+	{
+		$condition =
+		[
+			'amount' => 'price',
+			'mobile' => 'mobile',
+		];
+
+		$require = ['amount'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$user_id = null;
+
+		if($data['mobile'])
+		{
+			$user_id   = \dash\app\user::quick_add(['mobile' => $data['mobile']]);
+		}
+
+
+		$meta =
+		[
+			'turn_back' => \dash\url::kingdom(),
+			'user_id'   => $user_id,
+			'amount'    => $data['amount'],
+		];
+
+		\dash\utility\pay\start::site($meta);
+
+
+
+	}
+
+
+
 	public static function add($_args)
 	{
 		$condition =

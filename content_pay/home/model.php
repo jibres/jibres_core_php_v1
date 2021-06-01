@@ -6,15 +6,29 @@ class model
 {
 	public static function post()
 	{
-
-		if(\dash\request::post('ok') == '1')
+		if(\dash\data::transactionMode())
 		{
-			$args          = [];
-			$args['token'] = \dash\url::module();
-			$args['bank']  = \dash\request::post('bank');
+			if(\dash\request::post('ok') == '1')
+			{
+				$args          = [];
+				$args['token'] = \dash\url::module();
+				$args['bank']  = \dash\request::post('bank');
 
-			\dash\utility\pay\start::bank($args);
+				\dash\utility\pay\start::bank($args);
+			}
 		}
+		else
+		{
+			if(\dash\request::post('donate') === 'donate')
+			{
+				$post           = [];
+				$post['mobile'] = \dash\request::post('mobile');
+				$post['amount'] = \dash\request::post('amount');
+
+				\dash\app\transaction\add::donate($post);
+			}
+		}
+
 
 	}
 }

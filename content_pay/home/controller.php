@@ -19,11 +19,9 @@ class controller
 				\dash\csrf::set();
 			}
 
+			\dash\data::transactionMode(true);
 		}
-		else
-		{
-			\dash\header::status(404);
-		}
+
 	}
 }
 ?>

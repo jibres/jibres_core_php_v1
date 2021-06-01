@@ -6,7 +6,28 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Pay detail'));
+		\dash\data::userToggleSidebar(false);
+
+		if(\dash\data::transactionMode())
+		{
+			self::config_transaction_mode();
+		}
+		else
+		{
+			self::config_donate_mode();
+		}
+	}
+
+
+	private static function config_donate_mode()
+	{
+		\dash\face::title(T_('Pay'));
+
+	}
+
+
+	private static function config_transaction_mode()
+	{
 		\dash\face::desc(T_('Pay'));
 
 
@@ -19,7 +40,6 @@ class view
 		\dash\data::myPayment_sep(\dash\setting\sep::get());
 		\dash\data::myPayment_idpay(\dash\setting\idpay::get());
 
-		\dash\data::userToggleSidebar(false);
 
 
 		$result = \dash\data::dataRow();
