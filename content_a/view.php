@@ -19,11 +19,6 @@ class view
 		}
 
 		\dash\data::include_adminPanel(true);
-		if(\dash\url::module() === 'site' && \dash\url::child() !== null)
-		{
-			\dash\data::include_adminPanelBuilder("true");
-			\dash\data::global_scriptPage('a_site_builder.js');
-		}
 		// use old version of chart until new version is being stable
 
 		\dash\face::site(\lib\store::title());

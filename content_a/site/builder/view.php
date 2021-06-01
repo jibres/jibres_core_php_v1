@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\dash\data::include_adminPanelBuilder("true");
+		\dash\data::global_scriptPage('a_site_builder.js');
 
 
 		$load_line = \lib\pagebuilder\tools\get::current_line_list();

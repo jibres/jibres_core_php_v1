@@ -5,23 +5,6 @@ $homepage_id     = \lib\pagebuilder\tools\homepage::id();
 $encode_homepage = \dash\coding::encode($homepage_id);
 
 
-
-    $html .= '<section class="f" data-option="hoempage">';
-    $html .= '<div class="c8 s12">';
-    $html .= '<div class="data">';
-    $html .= '<h3>'. T_("Manage website homepage"). '</h3>';
-    $html .= '<div class="body">';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<div class="c4 s12">';
-    $html .= '<div class="action">';
-    $html .= '<a class="btn master" href="'. \dash\url::this(). '/builder?id='. $encode_homepage. '">'. T_("Manage homepage"). '</a>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '</section>';
-
-
 $html .= '<nav class="items">';
 $html .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
