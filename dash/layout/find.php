@@ -116,7 +116,7 @@ class find
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
 				// siteBuilder panels
-				$myHeader = root.'content_a/site/layout/header.php';
+				$myHeader = core.'layout/panelBuilder/panelBuilder-header.php';
 			}
 			elseif($myContent === 'content')
 			{
@@ -224,7 +224,7 @@ class find
 		elseif(\dash\data::include_adminPanelBuilder())
 		{
 			// siteBuilder panels
-			require_once root.'content_a/site/layout/sidebar.php';
+			require_once core.'layout/panelBuilder/panelBuilder-sidebar.php';
 		}
 		echo "</aside>";
 	}

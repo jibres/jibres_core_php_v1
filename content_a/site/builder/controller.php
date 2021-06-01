@@ -6,18 +6,9 @@ class controller
 {
 	public static function routing()
 	{
-		$subchild    = \dash\url::subchild();
-
-		if($subchild)
+		if(!\dash\request::get('id'))
 		{
-			\lib\pagebuilder\tools\admin_design::route();
-		}
-		else
-		{
-			if(!\dash\request::get('id'))
-			{
-				\dash\redirect::to(\dash\url::this());
-			}
+			\dash\redirect::to(\dash\url::this());
 		}
 	}
 }
