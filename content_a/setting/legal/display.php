@@ -16,7 +16,7 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'aboutus_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'aboutus_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
+        <a class="btn primary" href="<?php echo a($policyPageDetail, 'aboutus_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
         <button data-ajaxify data-data='{"template": "template", "mode": "aboutus_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
@@ -46,7 +46,7 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'refund_policy_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'refund_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
+        <a class="btn primary" href="<?php echo a($policyPageDetail, 'refund_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
         <button data-ajaxify data-data='{"template": "template", "mode": "refund_policy_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
@@ -78,7 +78,7 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'privacy_policy_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'privacy_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
+        <a class="btn primary" href="<?php echo a($policyPageDetail, 'privacy_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
         <button data-ajaxify data-data='{"template": "template", "mode": "privacy_policy_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
@@ -107,7 +107,7 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'termsofservice_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'termsofservice_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
+        <a class="btn primary" href="<?php echo a($policyPageDetail, 'termsofservice_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
         <button data-ajaxify data-data='{"template": "template", "mode": "termsofservice_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
