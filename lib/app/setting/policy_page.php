@@ -43,11 +43,11 @@ class policy_page
 	{
 		return
 		[
-			'aboutus_page'         => ['title' => T_("About Us page"), 'slug' => 'about'],
-			'refund_policy_page'   => ['title' => T_("Refund policy page"), 'slug' => 'refund-policy'],
-			'privacy_policy_page'  => ['title' => T_("Privacy policy page"), 'slug' => 'privacy'],
-			'termsofservice_page'  => ['title' => T_("Terms of service page"), 'slug' => 'terms'],
-			'shipping_policy_page' => ['title' => T_("Shipping policy page"), 'slug' => 'shipping-policy'],
+			'aboutus_page'         => ['key' => 'aboutus_page', 'title' => T_("About Us page"), 'slug' => 'about'],
+			'refund_policy_page'   => ['key' => 'refund_policy_page', 'title' => T_("Refund policy page"), 'slug' => 'refund-policy'],
+			'privacy_policy_page'  => ['key' => 'privacy_policy_page', 'title' => T_("Privacy policy page"), 'slug' => 'privacy'],
+			'termsofservice_page'  => ['key' => 'termsofservice_page', 'title' => T_("Terms of service page"), 'slug' => 'terms'],
+			'shipping_policy_page' => ['key' => 'shipping_policy_page', 'title' => T_("Shipping policy page"), 'slug' => 'shipping-policy'],
 		];
 
 	}

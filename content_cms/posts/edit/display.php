@@ -52,7 +52,7 @@ switch (\dash\data::dataRow_status())
       <?php if($is_policy_page) {?>
         <li>
           <a class="item f" href="<?php echo \dash\url::kingdom(). '/a/setting/legal'; ?>">
-            <div class="key"><?php echo T_("You are editing :page", ['page' => a($is_policy_page, 'title')]);  ?></div>
+            <div class="key"><?php echo T_("You are editing :page", ['page' => '<b>'. a($is_policy_page, 'title'). '</b>']);  ?></div>
             <div class="go"></div>
           </a>
         </li>

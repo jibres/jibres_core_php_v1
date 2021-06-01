@@ -33,6 +33,13 @@ class remove
 			return false;
 		}
 
+		$is_policy_page = \lib\app\setting\policy_page::is_policy_page($_id);
+		if($is_policy_page)
+		{
+			\lib\app\setting\policy_page::set([$is_policy_page['key'] => null]);
+			\dash\notif::clean();
+		}
+
 		// \dash\db\comments\delete::by_post_id($load['id']);
 
 		if($load['status'] === 'deleted')
