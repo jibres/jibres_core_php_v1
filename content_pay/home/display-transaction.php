@@ -195,6 +195,15 @@ if(!\dash\engine\store::inStore())
 	$selected = 'zarinpal';
 }
 
+if(!$selected && \dash\engine\store::inStore())
+{
+	$default_payment = \lib\store::detail('default_payment');
+	if($default_payment)
+	{
+		$selected = $default_payment;
+	}
+}
+
 
 ?>
 	<?php if(!array_filter($myPayment)) {?>

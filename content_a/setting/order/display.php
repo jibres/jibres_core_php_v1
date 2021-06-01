@@ -40,6 +40,35 @@
   </footer>
 </section>
 
+<div data-response='payment_online' <?php if(\lib\store::detail('payment_online')){ /*nothing*/ }else{ echo 'data-response-hide';} ?> data-response-effect='slide'>
+
+<section class="f" data-option='setting-order-payment-default' id="setting-order-payment-default">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default payment"); ?></h3>
+      <div class="body">
+        <p><?php echo T_("Default payment"); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_default_payment" value="1">
+    <div class="action">
+      <select class="select22" name="default_payment">
+        <option value=""><?php echo T_("Without Default") ?></option>
+        <?php foreach (\dash\utility\pay\get::active_payment() as $key => $value) {?>
+          <option value="<?php echo a($value, 'key') ?>" <?php if(\lib\store::detail('default_payment') === a($value, 'key')) { echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
+        <?php }//endif ?>
+
+      </select>
+    </div>
+  </form>
+  <footer class="txtRa">
+    <a class="link btn" href="<?php echo \dash\url::this(). '/thirdparty' ?>"><?php echo T_("Manage Online payment config") ?></a>
+  </footer>
+</section>
+</div>
+
 
 <section class="f" data-option='setting-order-payment-gateway' id="setting-order-payment-gateway">
   <div class="c8 s12">

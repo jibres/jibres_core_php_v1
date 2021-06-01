@@ -553,6 +553,7 @@ class set
 			'payment_check'      => 'bit',
 			'payment_bank'       => 'bit',
 			'payment_on_deliver' => 'bit',
+			'default_payment'    => 'payment',
 		];
 
 

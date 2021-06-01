@@ -57,14 +57,7 @@ class view
 		\dash\face::desc(T_('Pay'));
 
 
-		\dash\data::myPayment_parsian(\dash\setting\parsian::get());
-		\dash\data::myPayment_asanpardakht(\dash\setting\asanpardakht::get());
-		\dash\data::myPayment_irkish(\dash\setting\irkish::get());
-		\dash\data::myPayment_zarinpal(\dash\setting\zarinpal::get());
-		\dash\data::myPayment_payir(\dash\setting\payir::get());
-		\dash\data::myPayment_mellat(\dash\setting\mellat::get());
-		\dash\data::myPayment_sep(\dash\setting\sep::get());
-		\dash\data::myPayment_idpay(\dash\setting\idpay::get());
+		\dash\utility\pay\get::set_payment_setting();
 
 
 

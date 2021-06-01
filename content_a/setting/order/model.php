@@ -13,6 +13,12 @@ class model
 			$post['payment_online']     = \dash\request::post('payment_online');
 		}
 
+
+		if(\dash\request::post('set_default_payment'))
+		{
+			$post['default_payment']     = \dash\request::post('default_payment');
+		}
+
 		if(\dash\request::post('set_payment_on_deliver'))
 		{
 			$post['payment_on_deliver'] = \dash\request::post('payment_on_deliver');
@@ -20,6 +26,8 @@ class model
 
 
 		\lib\app\setting\set::save_payment($post);
+
+		\dash\notif::ok(T_("Saved"));
 	}
 }
 ?>
