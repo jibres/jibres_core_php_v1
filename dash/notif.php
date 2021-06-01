@@ -212,6 +212,12 @@ class notif
 	}
 
 
+	public static function reloadIframe($_name = 'liveIframe')
+	{
+		self::add_detail('reloadIframe', $_name);
+	}
+
+
 	public static function replaceState($_replaceState = true)
 	{
 		self::add_detail('replaceState', $_replaceState);
