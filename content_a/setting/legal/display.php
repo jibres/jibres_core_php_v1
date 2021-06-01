@@ -18,7 +18,7 @@ $choose_url = \dash\url::that(). '/choosepage';
      <?php if(a($policyPageDetail, 'aboutus_page', 'code')) {?>
         <a class="btn primary" href="<?php echo a($policyPageDetail, 'aboutus_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "aboutus_page"}' class="btn primary"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "aboutus_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
@@ -48,7 +48,7 @@ $choose_url = \dash\url::that(). '/choosepage';
      <?php if(a($policyPageDetail, 'refund_policy_page', 'code')) {?>
         <a class="btn primary" href="<?php echo a($policyPageDetail, 'refund_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "refund_policy_page"}' class="btn primary"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "refund_policy_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
@@ -80,7 +80,7 @@ $choose_url = \dash\url::that(). '/choosepage';
      <?php if(a($policyPageDetail, 'privacy_policy_page', 'code')) {?>
         <a class="btn primary" href="<?php echo a($policyPageDetail, 'privacy_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "privacy_policy_page"}' class="btn primary"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "privacy_policy_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
@@ -109,7 +109,7 @@ $choose_url = \dash\url::that(). '/choosepage';
      <?php if(a($policyPageDetail, 'termsofservice_page', 'code')) {?>
         <a class="btn primary" href="<?php echo a($policyPageDetail, 'termsofservice_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit about us page") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "termsofservice_page"}' class="btn primary"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "termsofservice_page"}' class="btn"><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>

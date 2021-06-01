@@ -186,6 +186,11 @@ class config
 
 		$post_id = \dash\app\posts\add::add($args);
 
+		if(isset($post_id['post_id']))
+		{
+			\lib\app\setting\policy_page::set(['aboutus_page' => $post_id['post_id']]);
+		}
+
 		$args =
 		[
 			'title'          => T_("Contact US"),
