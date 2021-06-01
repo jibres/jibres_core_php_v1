@@ -1,6 +1,8 @@
 <?php
-$template = <<<HTML
+$template =
+<<<HTML
 <p>About Us</p>
 HTML;
+
 
 ?>
