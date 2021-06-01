@@ -3,7 +3,7 @@
 $add_html_form      = isset($add_html_form); // check defined this variable
 $is_auto_send       = isset($is_auto_send) && $is_auto_send;
 $product_suggestion = isset($product_suggestion) && $product_suggestion;
-
+$gallery_capacity = isset($gallery_capacity) ? $gallery_capacity : 100;
 
 if(!isset($gallery_array) || (isset($gallery_array) && !is_array($gallery_array)))
 {
@@ -24,10 +24,10 @@ if(\dash\detect\device::detectPWA())
 ?>
     <div class="box">
       <div class="pad1">
-        <?php if(is_array($gallery_array) && count($gallery_array) > 100) {?>
+        <?php if(is_array($gallery_array) && count($gallery_array) > $gallery_capacity) {?>
           <div class="msg minimal mB0 warn2"><?php echo T_("Gallery is full!"); ?></div>
         <?php }else{ ?>
-          <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-name='gallery' data-ratio-free data-type='gallery' <?php if($is_auto_send) { echo 'data-autoSend'; }?>>
+          <div data-uploader data-max-w="1600" data-max-h="1600" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php echo \dash\data::ratioHtml(); if(isset($gallery_special_attr)){ echo $gallery_special_attr; } ?> data-name='gallery' <?php if(isset($gallery_is_not_free) && $gallery_is_not_free) {/*nothing*/}else{echo 'data-ratio-free';} ?>  data-type='gallery' <?php if($is_auto_send) { echo 'data-autoSend'; }?>>
             <input type="file" id="file1">
             <label for="file1">
               <div class="block"><?php echo T_("Gallery") ?></div>

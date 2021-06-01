@@ -6,6 +6,9 @@
     $gallery = [];
   }
 
+  $gallery_capacity = 20;
+  $gallery_is_not_free = true;
+
   $add_html_form = false;
 
   $add_product_module = \dash\url::child() === 'add';
