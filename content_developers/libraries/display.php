@@ -13,7 +13,7 @@
 				<div class="box">
 					<div class="body f">
 						<p class="c"><?php echo T_("jibres domain SDK for php"); ?></p>
-						<a class="btn2 blue cauto" href="https://github.com/jibres/jibres-domain-php-sdk" target="_blank" data-direct><?php echo T_("Visit on Github"); ?></a>
+						<a class="btn2 blue cauto" href="<?php echo \dash\url::this(). '/jibres-domain-php-sdk' ?>" target="_blank" data-direct><?php echo T_("Visit on Github"); ?></a>
 					</div>
 				</div>
 			</div>
