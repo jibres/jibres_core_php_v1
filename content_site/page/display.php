@@ -2,10 +2,9 @@
   <nav class="header items">
     <ul>
       <li>
-        <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
+        <a class="item f" href="<?php echo \dash\url::here() ?>/header">
           <img src="<?php echo \dash\utility\icon::url('Header'); ?>">
           <div class="key"><?php echo T_("Header") ?></div>
-          <div class="go"></div>
         </a>
       </li>
     </ul>
@@ -14,24 +13,33 @@
   <nav class="sections items">
     <ul>
       <li>
-        <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
+        <a class="item f" href="<?php echo \dash\url::here() ?>/section/image">
           <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
           <div class="key"><?php echo T_("Section") ?> 1</div>
-          <div class="go"></div>
+          <?php echo \dash\utility\icon::svg('hide', 'minor'); ?>
+          <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
         </a>
       </li>
       <li>
-        <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
+        <a class="item f" href="<?php echo \dash\url::here() ?>/section/gallery">
           <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
           <div class="key"><?php echo T_("Section") ?> 2</div>
-          <div class="go"></div>
+          <?php echo \dash\utility\icon::svg('view', 'minor'); ?>
+          <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
         </a>
       </li>
       <li>
-        <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
+        <a class="item f" href="<?php echo \dash\url::here() ?>/section/gallery">
           <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
           <div class="key"><?php echo T_("Section") ?> 3</div>
-          <div class="go"></div>
+          <?php echo \dash\utility\icon::svg('view', 'minor'); ?>
+          <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::here() ?>/section">
+          <?php echo \dash\utility\icon::svg('add'); ?>
+          <div class="key text-blue-500"><?php echo T_("Add Section") ?></div>
         </a>
       </li>
     </ul>
@@ -40,10 +48,9 @@
   <nav class="footer items">
     <ul>
       <li>
-        <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
+        <a class="item f" href="<?php echo \dash\url::here() ?>/footer">
           <img src="<?php echo \dash\utility\icon::url('Footer'); ?>">
           <div class="key"><?php echo T_("Footer") ?></div>
-          <div class="go"></div>
         </a>
       </li>
     </ul>
@@ -54,8 +61,8 @@
   <nav class="settings items">
     <ul>
       <li>
-        <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <img src="<?php echo \dash\utility\icon::url('Settings'); ?>">
+        <a class="item f" href="<?php echo \dash\url::here() ?>">
+          <img src="<?php echo \dash\utility\icon::url('Settings', 'minor'); ?>">
           <div class="key"><?php echo T_("Page Settings") ?></div>
           <div class="go"></div>
         </a>
