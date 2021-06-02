@@ -46,7 +46,7 @@ if(\dash\data::el_username())
     <input id='ramzNew' name="ramzNew" type='password' placeholder='<?php echo T_("New Password"); ?>' autocomplete="off" minlength="6" maxlength="40" pattern=".{6,40}" title='<?php echo T_("Enter a password between 7 and 40 characters"); ?> <?php if(\dash\language::current() === 'fa') { ?><br><?php echo T_("Password is password."); ?><?php }//endif ?>' required>
    </div>
 
-  <div class="agreement"><?php echo \dash\data::termOfService(); ?></div>
+  <?php if(\dash\data::termOfService()) {?><div class="agreement"><?php echo \dash\data::termOfService(); ?></div><?php }//endif ?>
 
 <div class='flex' id='esignup'>
     <button type="submit"><?php echo T_("Sign Up"); ?></button>
