@@ -55,7 +55,7 @@
     <ul>
       <li>
         <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <img src="<?php echo \dash\utility\icon::src('Setting'); ?>">
+          <img src="<?php echo \dash\utility\icon::url('Settings'); ?>">
           <div class="key"><?php echo T_("Page Settings") ?></div>
           <div class="go"></div>
         </a>
