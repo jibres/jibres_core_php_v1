@@ -346,8 +346,13 @@ class edit
 			{
 				$update = \lib\db\productcategory\update::record($args, $_id);
 
+
 				if($update)
 				{
+					if(isset($args['slug']))
+					{
+						\lib\app\menu\update::tag($_id, true);
+					}
 					// create sitemap
 					\dash\utility\sitemap::tags($_id);
 

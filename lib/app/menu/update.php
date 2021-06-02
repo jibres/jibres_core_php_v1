@@ -26,7 +26,6 @@ class update
 		return null;
 	}
 
-
 	public static function hashtag($_id, $_set = false)
 	{
 		$is_used = self::is_used('hashtag', $_id);
@@ -36,8 +35,44 @@ class update
 			return $is_used;
 		}
 
+		if($is_used)
+		{
+			$load = \dash\app\terms\get::get(\dash\coding::encode($_id));
+
+			if(isset($load['link']))
+			{
+				return self::fix_update('hashtag', $_id, $load['link']);
+			}
+		}
+
 		return null;
 	}
+
+
+
+	public static function socialnetwork($_key, $_url = null, $_set = false)
+	{
+		$used = \lib\db\menu\get::get_used_social($_key);
+
+		if($used && is_array($used))
+		{
+			if(!$_set)
+			{
+				return $used;
+			}
+			else
+			{
+				\lib\db\menu\update::update_related_url_social($_key, $_url);
+			}
+		}
+		else
+		{
+			return false;
+		}
+
+		return null;
+	}
+
 
 
 	public static function post($_id, $_set = false)
@@ -73,11 +108,11 @@ class update
 
 		if($is_used)
 		{
-			$load = \dash\app\terms\get::get(\dash\coding::encode($_id));
+			$load = \lib\app\tag\get::get($_id);
 
-			if(isset($load['link']))
+			if(isset($load['url']))
 			{
-				return self::fix_update('tags', $_id, $load['link']);
+				return self::fix_update('tags', $_id, $load['url']);
 			}
 		}
 

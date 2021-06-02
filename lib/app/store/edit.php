@@ -180,6 +180,7 @@ class edit
 		foreach ($data as $key => $value)
 		{
 			\lib\app\setting\tools::update('store_setting', $key, $value);
+			// \lib\app\menu\update::socialnetwork($key, $value, true);
 		}
 
 		\lib\store::reset_cache();

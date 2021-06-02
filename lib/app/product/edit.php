@@ -335,7 +335,7 @@ class edit
 					self::check_update_sitemap($args, $id);
 				}
 
-				if(isset($args['title']))
+				if(isset($args['title']) || isset($args['slug']))
 				{
 					\lib\app\menu\update::product($id, true);
 				}

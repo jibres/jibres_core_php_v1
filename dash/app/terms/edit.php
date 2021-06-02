@@ -31,10 +31,9 @@ class edit
 		{
 			\dash\db\terms\update::update($args, $id);
 
-
 			if(isset($args['url']))
 			{
-				\lib\app\menu\update::tag($id, true);
+				\lib\app\menu\update::hashtag($id, true);
 			}
 
 			\dash\utility\sitemap::hashtag($id);

@@ -73,7 +73,7 @@ class url
 
 	public static function absolute_url($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-		$meta = array_merge(['min' => 3, 'max' => 100], $_meta);
+		$meta = array_merge(['min' => 1, 'max' => 100], $_meta);
 
 		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, $meta);
 

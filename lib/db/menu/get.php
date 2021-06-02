@@ -28,6 +28,15 @@ class get
 	}
 
 
+
+	public static function get_used_social($_social_network)
+	{
+		$query = "SELECT * FROM menu WHERE menu.pointer = 'socialnetwork' AND menu.socialnetwork = '$_social_network' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function get_used($_pointer, $_related_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.pointer = '$_pointer' AND menu.related_id = $_related_id LIMIT 1";
