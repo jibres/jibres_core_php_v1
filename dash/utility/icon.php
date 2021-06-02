@@ -6,9 +6,9 @@ class icon
     // based on shopify polaris icon pack
     // https://polaris-icons.shopify.com/
 
-    public static function svg($_name = null)
+    public static function svg($_name, $_pack = null)
     {
-        $filePath = YARD.'talambar_cdn'. self::generateFileName($_name);
+        $filePath = YARD.'talambar_cdn'. self::generateFileName($_name, $_pack);
 
         if(is_file($filePath))
         {
@@ -18,15 +18,15 @@ class icon
     }
 
 
-    public static function url($_name = null)
+    public static function url($_name, $_pack = null)
     {
-        return \dash\url::cdn(). self::generateFileName($_name);
+        return \dash\url::cdn(). self::generateFileName($_name, $_pack);
     }
 
 
-    public static function src($_name = null)
+    public static function src($_name, $_pack = null)
     {
-        $fileContent = self::svg($_name);
+        $fileContent = self::svg($_name, $_pack);
         if($fileContent)
         {
             return 'data:image/svg+xml,'. rawurlencode($fileContent);
@@ -35,11 +35,34 @@ class icon
     }
 
 
-    private static function generateFileName($_name)
+    private static function generateFileName($_name, $_pack = null)
     {
+        if(!$_pack)
+        {
+            $_pack = 'major';
+        }
+
         $fileName = '/img/svg/icon/';
-        $fileName .= str_replace(' ', '', $_name);
-        $fileName .= 'Major';
+        switch ($_pack)
+        {
+            case 'major':
+            case 'minor':
+                $fileName .= $_pack. '/';
+
+                $_name = ucwords($_name);
+                $_name = str_replace(' ', '', $_name);
+                $_name .= ucwords($_pack);
+
+                $fileName .= $_name;
+
+                break;
+
+            default:
+                // use other folders
+                break;
+        }
+
+        // add svg extention
         $fileName .= '.svg';
 
         return $fileName;

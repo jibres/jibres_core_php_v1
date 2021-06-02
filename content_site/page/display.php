@@ -3,7 +3,7 @@
     <ul>
       <li>
         <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <img src="<?php echo \dash\utility\icon::src('Header'); ?>">
+          <img src="<?php echo \dash\utility\icon::url('Header'); ?>">
           <div class="key"><?php echo T_("Header") ?></div>
           <div class="go"></div>
         </a>
@@ -15,21 +15,21 @@
     <ul>
       <li>
         <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <i class="sf-cog"></i>
+          <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
           <div class="key"><?php echo T_("Section") ?> 1</div>
           <div class="go"></div>
         </a>
       </li>
       <li>
         <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <i class="sf-cog"></i>
+          <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
           <div class="key"><?php echo T_("Section") ?> 2</div>
           <div class="go"></div>
         </a>
       </li>
       <li>
         <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <i class="sf-cog"></i>
+          <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
           <div class="key"><?php echo T_("Section") ?> 3</div>
           <div class="go"></div>
         </a>
@@ -41,7 +41,7 @@
     <ul>
       <li>
         <a class="item f" href="http://jibres.local/$jb2mz/a/setting">
-          <img src="<?php echo \dash\utility\icon::src('Footer'); ?>">
+          <img src="<?php echo \dash\utility\icon::url('Footer'); ?>">
           <div class="key"><?php echo T_("Footer") ?></div>
           <div class="go"></div>
         </a>
