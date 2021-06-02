@@ -53,6 +53,20 @@ class redirect
 		\dash\code::bye();
 	}
 
+
+	/**
+	 * Redirect to external link
+	 *
+	 * @param      <type>  $_url   The url
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function to_external($_url)
+	{
+		return self::to($_url);
+	}
+
+
 	/**
 	 * redirect to current location
 	 */
