@@ -88,7 +88,7 @@ class search
 		}
 		else
 		{
-			$and[] = " posts.type =  'post' ";
+			$and[] = " posts.type !=  'pagebuilder' ";
 		}
 
 		if($data['subtype'])
@@ -121,6 +121,7 @@ class search
 		{
 			$and[] = " posts.status !=  'deleted' ";
 		}
+
 
 
 		if($data['tag_id'])
