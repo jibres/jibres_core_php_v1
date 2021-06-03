@@ -59,7 +59,10 @@ class filter
 
 		if($_module === 'admin_mode')
 		{
-			$list['user']       = ['key' => 'user', 		'group' => T_("User"), 'title' => T_('User'), 'mode'   => 'users_search', 	'public' => true];
+			$list['expireat_year']  = ['key' => 'expireat_year', 		'group' => T_("Expire at"), 'title' => T_('Year'), 'query' => ['expireat' => 'year'], 	'public' => true];
+			$list['expireat_month'] = ['key' => 'expireat_month', 		'group' => T_("Expire at"), 'title' => T_('Month'), 'query' => ['expireat' => 'month'], 	'public' => true];
+			$list['expireat_week']  = ['key' => 'expireat_week', 		'group' => T_("Expire at"), 'title' => T_('Week'), 'query' => ['expireat' => 'week'] ,	'public' => true];
+			$list['user']           = ['key' => 'user', 		'group' => T_("User"), 'title' => T_('User'), 'mode'   => 'users_search', 	'public' => true];
 		}
 		return $list;
 

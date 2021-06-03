@@ -347,16 +347,19 @@ class search
 				case 'week':
 					$expire_at = date("Y-m-d", strtotime("+7 days"));
 					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					self::$is_filtered          = true;
 					break;
 
 				case 'month':
 					$expire_at = date("Y-m-d", strtotime("+30 days"));
 					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					self::$is_filtered          = true;
 					break;
 
 				case 'year':
 					$expire_at = date("Y-m-d", strtotime("+365 days"));
 					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					self::$is_filtered          = true;
 					break;
 
 				default:
