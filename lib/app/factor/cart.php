@@ -163,6 +163,16 @@ class cart
 
 		$factor             = [];
 		$factor['customer'] = $user_id ? \dash\coding::encode($user_id): null;
+
+		if(!$factor['customer'] && $data['mobile'])
+		{
+			$new_user_id = \dash\app\user::quick_add(['mobile' => $data['mobile']]);
+			if(is_numeric($new_user_id))
+			{
+				$factor['customer']	= \dash\coding::encode($new_user_id);
+			}
+		}
+
 		$factor['guestid']  = $user_guest;
 		$factor['type']     = 'saleorder';
 		// $factor['status']   = '';
