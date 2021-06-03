@@ -30,13 +30,13 @@ class template
 			],
 		];
 
-		$footer = "If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.";
+		$footer = T_("If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.");
 
 
 		$args = self::globalEmailData();
 		$args['to']      = $_email;
 		$args['toTitle'] = $_name;
-		$args['subject'] = '['. T_('Jibres').']'. ' '. T_("Verify Your Account");
+		$args['subject'] = '['. T_('Jibres').']'. ' '. T_("Verify Your Email");
 
 		ob_start();
 		include(self::$templatePath);
@@ -44,7 +44,7 @@ class template
 		ob_end_clean();
 
 		$args['body']    = $body;
-		$args['altbody'] = 'Html is not loaded on this email';
+		// $args['altbody'] = T_('Html is not loaded on this email');
 
 		if($_send)
 		{

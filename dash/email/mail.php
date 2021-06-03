@@ -87,7 +87,7 @@ class mail
 			'to'        => null,
 			'subject'   => null,
 			'body'      => null,
-			'altbody'   => null,
+			'altbody'   => T_('Html is not loaded on this email'),
 			'is_html'   => true,
 			'debug'     => true,
 		];
