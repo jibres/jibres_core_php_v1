@@ -179,13 +179,13 @@ class pagination
 			$next = null;
 			$prev = null;
 		}
-		elseif($total_page === 2)
+		elseif($total_page == 2)
 		{
-			if($page === 1)
+			if($page == 1)
 			{
 				$next = 2;
 			}
-			elseif ($page === 2)
+			elseif ($page == 2)
 			{
 				$prev = 1;
 			}
