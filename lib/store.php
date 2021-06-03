@@ -666,7 +666,7 @@ class store
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function url()
+	public static function url($_mode = null)
 	{
 		$store_domain = self::master_domain();
 
@@ -685,6 +685,24 @@ class store
 				$store_domain = \dash\url::business_url(\lib\store::detail('subdomain'));
 			}
 
+		}
+
+		if($_mode === 'raw')
+		{
+			if(substr($store_domain, 0, 8) === 'https://')
+			{
+				$store_domain = substr($store_domain, 8);
+			}
+
+			if(substr($store_domain, 0, 7) === 'http://')
+			{
+				$store_domain = substr($store_domain, 7);
+			}
+
+			if(strpos($store_domain, '/') !== false)
+			{
+				$store_domain = strtok($store_domain, '/');
+			}
 		}
 
 		return $store_domain;

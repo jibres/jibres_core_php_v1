@@ -91,7 +91,20 @@
     </ul>
   </nav>
 <?php } ?>
-
+<?php if (\dash\language::current() === 'fa') { ?>
+  <h2><?php echo T_("Search engine"); ?></h2>
+  <nav class="items mB25-f">
+    <ul>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/torob">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/torob-logo.svg" alt='Torob'>
+          <div class="key"><?php echo T_("Torob"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+<?php } ?>
 <?php if (\dash\language::current() === 'fa') { ?>
   <h2><?php echo T_("Advertise"); ?></h2>
   <nav class="items mB25-f">
