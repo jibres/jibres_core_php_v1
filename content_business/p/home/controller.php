@@ -12,6 +12,7 @@ class controller
 
 		if(!$load_product)
 		{
+			\dash\redirect::to(\dash\url::kingdom());
 			return false;
 		}
 
