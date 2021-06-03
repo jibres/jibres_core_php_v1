@@ -52,9 +52,9 @@ p{margin-top: 0;margin-bottom: 15px;}
 
   <div style="direction:<?php echo \dash\language::dir();?>;padding-right:40px;padding-left:40px;padding-top:80px;padding-bottom:20px;overflow:hidden;background-color:#e8edfa;">
 <?php
-if(isset($body) && is_array($body))
+if(isset($dataLines) && is_array($dataLines))
 {
- foreach ($body as $line)
+ foreach ($dataLines as $line)
  {
   if(is_array($line))
   {
@@ -83,30 +83,34 @@ if(isset($body) && is_array($body))
   }
  }
 }
-elseif(isset($body))
+elseif(isset($dataLines))
 {
- echo $body;
+ echo $dataLines;
 }
 ?>
   </div>
 
   <img src="https://cdn.jibres.com/email/wave1.png" alt="Jibres Email Wave1" style="display:block;width:100%; margin-right:auto;margin-left:auto; max-width: 100%!important;max-height: 366px!important;">
 
-<?php if(isset($footer)) {?>
+<?php if(isset($dataLinesFooter)) {?>
   <div style="direction:<?php echo \dash\language::dir();?>;padding-right:40px;padding-left:40px;padding-top:20px;padding-bottom:20px;font-size: 14px;color:#777;">
-   <p><?php echo $footer; ?></p>
+   <p><?php echo $dataLinesFooter; ?></p>
   </div>
 <?php }?>
  </div>
  <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;padding-right:10px;padding-left:10px">
   <span><?php echo T_('Please do not reply to this email. Need help? Visit :link', ['link' => '<a target="_blank" href="'. \dash\url::support(). '">'. T_('Jibres Customer Support'). '</a>']); ?></span><br>
-<?php if(isset($to)) {?>
-  <span><?php echo T_('This email was sent to :link', ['link' => '<a target="_blank" href="mailto:'. $to. '">'.$to.'</a>']) ?></span><br><br>
+<?php if(isset($args['to'])) {?>
+  <span><?php echo T_('This email was sent to :link', ['link' => '<a target="_blank" href="mailto:'. $args['to']. '">'.$args['to'].'</a>']) ?></span><br><br>
 <?php }?>
-<?php $domainLink  = 'Jibres.store'; ?>
-<?php if(isset($domainLink)) {?>
+<?php
+$domainLink  = '<a target="_blank" href="https://jibres.com">Jibres.com</a>';
+if(\dash\language::current() === 'fa')
+{
+ $domainLink  = '<a target="_blank" href="https://jibres.ir">Jibres.ir</a>';
+}
+?>
   <span><?php echo T_("&#169; :year Jibres. All Rights Reserved.", ['year' => \dash\datetime::get(null, 'Y')]) ?> <?php echo $domainLink; ?></span>
-<?php }?>
  </p>
 </body>
 </html>

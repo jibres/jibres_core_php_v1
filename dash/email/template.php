@@ -19,7 +19,7 @@ class template
 	public static function verify($_send, $_email, $_name, $_verifyLink)
 	{
 		// set this template variables
-		$body =
+		$dataLines =
 		[
 			T_("Hey :val!", ['val' => $_name]),
 			T_("Thanks for joining Jibres. We got a request to add this email address to your Jibres account. Tap below to go ahead."),
@@ -30,7 +30,7 @@ class template
 			],
 		];
 
-		$footer = T_("If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.");
+		$dataLinesFooter = T_("If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.");
 
 
 		$args = self::globalEmailData();
