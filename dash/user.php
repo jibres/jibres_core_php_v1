@@ -269,13 +269,22 @@ class user
 
 	private static $email_list = [];
 	private static $load_emails_list = false;
-	public static function email_list($_verify = false, $_raw = false)
+	public static function email_list($_verify = false, $_raw = false, $_user_id = null)
 	{
-		if(!self::id())
+
+		if(!self::id() && !$_user_id)
 		{
 			return [];
 		}
 
+		if($_user_id)
+		{
+			$user_id = $_user_id;
+		}
+		else
+		{
+			$user_id = self::id();
+		}
 
 		if(self::$load_emails_list)
 		{
@@ -283,7 +292,7 @@ class user
 		}
 		else
 		{
-			$email_list             = \dash\db\useremail::get_by_user_id(self::id());
+			$email_list             = \dash\db\useremail::get_by_user_id($user_id);
 			self::$email_list       = $email_list;
 			self::$load_emails_list = true;
 		}

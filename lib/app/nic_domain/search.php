@@ -283,13 +283,24 @@ class search
 		else
 		{
 			$mobile = null;
-			if(\dash\user::detail('verifymobile'))
+			if($data['user_id'])
 			{
-				$mobile = \dash\user::detail('mobile');
+				$user_detail = \dash\db\users::get_by_id($data['user_id']);
+				if(isset($user_detail['mobile']))
+				{
+					$mobile = $user_detail['mobile'];
+				}
+			}
+			else
+			{
+				if(\dash\user::detail('verifymobile'))
+				{
+					$mobile = \dash\user::detail('mobile');
+				}
 			}
 
 			$emails = null;
-			$have_emails = self::get_email_list();
+			$have_emails = self::get_email_list($data['user_id']);
 
 			if($have_emails)
 			{
@@ -451,7 +462,7 @@ class search
 
 		if($list)
 		{
-			self::need_verify_email($list);
+			self::need_verify_email($list, $data['user_id']);
 		}
 
 
@@ -530,11 +541,11 @@ class search
 	private static $my_email_list = false;
 
 
-	private static function get_email_list()
+	private static function get_email_list($_user_id)
 	{
 		if(self::$my_email_list === false)
 		{
-			self::$my_email_list = \dash\user::email_list(true);
+			self::$my_email_list = \dash\user::email_list(true, false, $_user_id);
 		}
 
 		if(!is_array(self::$my_email_list))
@@ -546,7 +557,7 @@ class search
 	}
 
 
-	private static function need_verify_email($list)
+	private static function need_verify_email($list, $_user_id)
 	{
 		$all_email = array_column($list, 'email');
 		$all_email = array_filter($all_email);
@@ -557,7 +568,7 @@ class search
 			return;
 		}
 
-		$current_email = self::get_email_list();
+		$current_email = self::get_email_list($_user_id);
 
 		$new_email = array_diff($all_email, $current_email);
 
