@@ -41,6 +41,10 @@ class view
 					$result['product_id'] = $value;
 					break;
 
+				case 'title':
+					$result['title'] = $value;
+					break;
+
 				case 'url':
 					$result['page_url'] = $value;
 					break;
