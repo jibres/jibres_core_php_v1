@@ -85,6 +85,10 @@ class get
 			// if exists in business domain remove it
 			\lib\app\business_domain\dns::check_remove($_domain, $load_domain);
 		}
+		else
+		{
+			\lib\app\business_domain\add::from_domain_update($_domain);
+		}
 
 	}
 

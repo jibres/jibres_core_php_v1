@@ -6,6 +6,11 @@ class add
 {
 	private static $debug = true;
 
+	public static function from_domain_update($_domain)
+	{
+		return self::from_domain_approved($_domain);
+	}
+
 	public static function from_domain_approved($_domain)
 	{
 		$domain = \dash\validate::domain($_domain, false);
