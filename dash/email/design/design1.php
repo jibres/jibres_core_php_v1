@@ -98,7 +98,7 @@ elseif(isset($dataLines))
   </div>
 <?php }?>
  </div>
- <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;padding-right:10px;padding-left:10px">
+ <p style="direction:<?php echo \dash\language::dir();?>;white-space:normal;color:#8f8f8f;font-family:IRANYekan, IRANSansX, IRANSans, Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;padding-right:10px;padding-left:10px">
   <span><?php echo T_('Please do not reply to this email. Need help? Visit :link', ['link' => '<a target="_blank" href="'. \dash\url::support(). '">'. T_('Jibres Customer Support'). '</a>']); ?></span><br>
 <?php if(isset($args['to'])) {?>
   <span><?php echo T_('This email was sent to :link', ['link' => '<a target="_blank" href="mailto:'. $args['to']. '">'.$args['to'].'</a>']) ?></span><br><br>
