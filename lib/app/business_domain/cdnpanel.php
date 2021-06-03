@@ -30,15 +30,7 @@ class cdnpanel
 
 		if(isset($check_exist_domain_on_cdn_panel['data']['id']))
 		{
-			$get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
-
-			if(is_array($get_list_dns_record) && isset($get_list_dns_record['data']))
-			{
-				foreach ($get_list_dns_record['data'] as $dns_detail)
-				{
-					\lib\arvancloud\api::remove_dns_record($domain, $dns_detail['id']);
-				}
-			}
+			self::remove_all_dns_record($domain);
 
 			$arvan_domain_id = $check_exist_domain_on_cdn_panel['data']['id'];
 
@@ -57,6 +49,21 @@ class cdnpanel
 
 		\dash\notif::ok(T_("Domain successfully removed from CDN panel"));
 		return true;
+	}
+
+
+	private static function remove_all_dns_record($_domain)
+	{
+		$get_list_dns_record = \lib\arvancloud\api::get_dns_record($_domain);
+
+		if(is_array($get_list_dns_record) && isset($get_list_dns_record['data']))
+		{
+			foreach ($get_list_dns_record['data'] as $dns_detail)
+			{
+				\lib\arvancloud\api::remove_dns_record($_domain, $dns_detail['id']);
+			}
+		}
+
 	}
 
 
@@ -139,6 +146,9 @@ class cdnpanel
 
 			\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
 			\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+
+			self::remove_all_dns_record($domain);
+
 			return true;
 
 		}
@@ -157,6 +167,9 @@ class cdnpanel
 
 				\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
 				\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+
+				self::remove_all_dns_record($domain);
+
 				return true;
 			}
 			else
