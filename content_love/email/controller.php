@@ -11,7 +11,7 @@ class controller
 			switch (\dash\url::child())
 			{
 				case 'verify':
-					$args = \dash\email\template::verify(true, 'you@email.com', 'Javad Adib', 'https://jibres.ir/about');
+					$args = \dash\email\template::verify(false, 'you@email.com', 'Javad Adib', 'https://jibres.ir/about');
 
 					echo $args['body'];
 					\dash\code::boom();

@@ -36,7 +36,7 @@ class template
 		$args = self::globalEmailData();
 		$args['to']      = $_email;
 		$args['toTitle'] = $_name;
-		$args['subject'] = T_("[Jibres] Verify Your Account");
+		$args['subject'] = '['. T_('Jibres').']'. ' '. T_("Verify Your Account");
 
 		ob_start();
 		include(self::$templatePath);
