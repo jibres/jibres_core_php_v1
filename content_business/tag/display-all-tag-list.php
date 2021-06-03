@@ -1,5 +1,6 @@
+<?php $categoryDataTable = \dash\data::categoryDataTable(); ?>
+<?php if($categoryDataTable) {?>
 <div class="avand category">
-    <?php $categoryDataTable = \dash\data::categoryDataTable(); ?>
     <div class="row">
       <?php foreach ($categoryDataTable as $key => $value) {?>
         <div class="c-xs-6 c-sm-6 c-md-4 c-lg-4 c-xl-3 c-xxl-2">
@@ -16,3 +17,8 @@
     </div>
     <?php \dash\utility\pagination::html(); ?>
 </div>
+<?php }else{ ?>
+  <div class="avand-sm">
+    <div class="msg warn2 txtC"><?php echo T_("No tags founded!") ?></div>
+  </div>
+<?php } //endif ?>
