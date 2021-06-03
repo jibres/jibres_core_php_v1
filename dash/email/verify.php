@@ -81,27 +81,58 @@
 
 
   <div style="direction:<?php echo $direction;?>;padding-right:40px;padding-left:40px;padding-top:80px;padding-bottom:20px;overflow:hidden;background-color:#e8edfa;">
-   <p>Hey mradib!</p>
-   <p>Thanks for joining Docker. To finish registration, please click the button below to verify your account</p>
+<?php
+if(is_array($body))
+{
+  foreach ($body as $line)
+  {
+    if(is_array($line))
+    {
+      switch ($line['element'])
+      {
+        case 'btn.green':
+          echo '<div style="text-align:center;padding-top: 40px;padding-bottom: 20px;">';
+          echo '<a target="_blank"';
+          echo ' href="'. $line['link']. '"';
+          echo ' style="display:inline-block;border-radius:5px;color:#ffffff!important;font-size:18px;font-weight:bold;background-color:#80a555;padding:10px 20px;"';
+          echo '>';
+          echo $line['text'];
+          echo '</a>';
+          echo '</div>';
+          break;
+
+        default:
+          break;
+      }
+    }
+    elseif($line)
+    {
+      echo "<p>";
+      echo $line;
+      echo "</p>";
+    }
+  }
+}
+elseif($body)
+{
+  echo $body;
+}
+?>
   </div>
 
-  <img src="<?php echo \dash\url::cdn(); ?>/email/campaign/nowruz1400/wave1.png" alt="Jibres Nowruz 1400 festival" width="100%" style="display:block;margin-right:auto;margin-left:auto; max-width: 100% !important;max-height: 366px !important;">
+  <img src="<?php echo \dash\url::cdn(); ?>/email/wave1.png" alt="Jibres Email Wave1" width="100%" style="display:block;margin-right:auto;margin-left:auto; max-width: 100% !important;max-height: 366px !important;">
 
 
-  <div style="direction:<?php echo $direction;?>;padding-right:40px;padding-left:40px;padding-top:40px;padding-bottom:40px;">
-   <p>We got a request to add this email address to your Jibres account. Tap below to go ahead.</p>
-   <div style="text-align:center;padding-top: 40px;padding-bottom: 20px;">
-    <a target="_blank" href="https://jibres.ir/campaign/nowruz1400" style="display:inline-block;border-radius:5px;color:#ffffff!important;font-size:18px;font-weight:bold;background-color:#80a555;padding:10px 20px;margin-bottom:30px;">Verify my Email</a>
-    <p>If you did not sign up for Keybase, there is nothing to worry about, just disregard this email.</p>
-   </div>
+  <div style="direction:<?php echo $direction;?>;padding-right:40px;padding-left:40px;padding-top:20px;padding-bottom:20px;font-size: 14px;color:#777;">
+    <p><?php echo $footer; ?></p>
   </div>
 
 
  </div>
- <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;">
-  <span>Please do not reply to this email. Need help? Visit <a target="_blank" href="https://help.jibres.ir">Jibres Customer Support</a></span><br>
+ <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;paddin-rigth:10px;padding-left:10px">
+  <span>Please do not reply to this email. Need help? Visit <a target="_blank" href="<?php echo $supportLink ?>">Jibres Customer Support</a></span><br>
   <span>This email was sent to <a target="_blank" href="mailto:<?php echo $to;?>"><?php echo $to;?></a></span><br><br>
-  <span>&#169; 2021 Jibres. All Rights Reserved. Jibres.club</span>
+  <span>&#169; 2021 Jibres. All Rights Reserved. <?php echo $domainLink; ?></span>
  </p>
 </body>
 

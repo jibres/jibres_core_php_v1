@@ -29,15 +29,27 @@ class controller
 		switch ($_name)
 		{
 			case 'verify':
+				$domainLink = 'jibres.store';
+				$supportLink = \dash\url::support();
 				$from = 'no-reply@jibres.com';
 				$fromTitle = T_('Jibres');
 				$to = 'you@email.com';
 				$subject = "[Jibres] Verify Your Account";
-				// code...
+				$body =
+				[
+					T_("Hey :val!", ['val' => 'mradib']),
+					T_("Thanks for joining Jibres. We got a request to add this email address to your Jibres account. Tap below to go ahead."),
+					[
+						'element' => 'btn.green',
+						'text'    => T_('Verify my Email'),
+						'link'    => \dash\url::kingdom().'/123',
+					],
+				];
+				$footer = "If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.";
+
 				break;
 
 			default:
-				// code...
 				break;
 		}
 
