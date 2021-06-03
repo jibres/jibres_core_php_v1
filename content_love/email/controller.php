@@ -28,7 +28,7 @@ class controller
 
 		switch ($_name)
 		{
-			case 'verify':
+			case 'template1':
 				$domainLink = 'jibres.store';
 				$supportLink = \dash\url::support();
 				$from = 'no-reply@jibres.com';
