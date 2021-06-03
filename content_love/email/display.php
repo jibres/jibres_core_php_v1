@@ -18,5 +18,5 @@
   <pre></pre>
 
   <h2><?php echo T_("Templates"); ?></h2>
-  <a target="_blank" class="btn" href="<?php echo \dash\url::this(); ?>/template1?type=verify">Template 1</a>
+  <a target="_blank" class="btn" href="<?php echo \dash\url::this(); ?>/design1?type=verify">Template 1</a>
 </div>

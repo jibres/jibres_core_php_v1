@@ -1,5 +1,5 @@
 <?php
-namespace dash;
+namespace dash\email;
 
 require (core.'bin/PHPMailer/Exception.php');
 require (core.'bin/PHPMailer/PHPMailer.php');

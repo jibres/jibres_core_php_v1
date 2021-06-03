@@ -10,7 +10,7 @@ class model
 		$to = \dash\request::post('to');
 
 		// try to send
-		$sendLog = \dash\mail::sampleEmail($to);
+		$sendLog = \dash\email\mail::sampleEmail($to);
 
 		// show result
 		\dash\notif::debug($sendLog);
