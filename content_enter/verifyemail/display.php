@@ -6,7 +6,7 @@
 
 
  <div class="f" id='eMethods'>
-	 <a href="<?php echo \dash\url::kingdom(); ?>" id='ebusername' class="c" >
+	 <a href="<?php echo \dash\url::kingdom(). '/my'; ?>" id='ebusername' class="c" >
 	    <i class="sf-globe"></i>
 	    <span><?php echo T_("Let's go"); ?></span>
 	 </a>
