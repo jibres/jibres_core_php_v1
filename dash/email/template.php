@@ -15,7 +15,7 @@ class template
 	}
 
 
-	public static function verify($_send = null, $_email, $_name, $_verifyLink)
+	public static function verify($_send, $_email, $_name, $_verifyLink)
 	{
 		// set this template variables
 		$body =
@@ -33,9 +33,9 @@ class template
 
 
 		$args = self::globalEmailData();
-		$args['subject'] = T_("[Jibres] Verify Your Account");
 		$args['to']      = $_email;
 		$args['toTitle'] = $_name;
+		$args['subject'] = T_("[Jibres] Verify Your Account");
 		$args['body']    = '123';
 		$args['altbody'] = 'Html is not loaded on this email';
 
