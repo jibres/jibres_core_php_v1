@@ -16,7 +16,7 @@
         </div>
 
         <div data-response='torob_api' data-response-effect='slide' <?php if(!a($storeData, 'store_data', 'torob_api')) { echo 'data-response-hide'; }; ?>>
-          <?php $torob_link = \lib\store::url(). '/hook/torob/'. md5(\lib\store::url('raw')); ?>
+          <?php $torob_link = \lib\store::url(). '/api/torob/'. md5(\lib\store::url('raw')); ?>
           <pre class="" data-copy="<?php echo $torob_link ?>"><?php echo $torob_link ?></pre>
           <div class="msg"><?php echo T_("By sending the following link to Torb support, your site prices are updated twice a day by this search engine") ?></div>
         </div>

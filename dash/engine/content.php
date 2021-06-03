@@ -16,6 +16,7 @@ class content
 		[
 			'a',
 			'account',
+			'api',
 			'cms',
 			'crm',
 			'developers',

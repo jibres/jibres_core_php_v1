@@ -187,6 +187,7 @@ class store
 		$allow_content[] = 'enter';
 		$allow_content[] = 'pay';
 		$allow_content[] = 'n';
+		$allow_content[] = 'api'; // cronjob need this
 
 		if($_admin_mode)
 		{

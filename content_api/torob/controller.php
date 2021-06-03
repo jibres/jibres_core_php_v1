@@ -1,5 +1,5 @@
 <?php
-namespace content_hook\torob;
+namespace content_api\torob;
 
 
 class controller
