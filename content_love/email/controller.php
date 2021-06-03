@@ -15,7 +15,7 @@ class controller
 
 	private static function loadTemplate($_name)
 	{
-		$templatePath = core. 'email/'.$_name. '.php';
+		$templatePath = core. 'email/template/'.$_name. '.php';
 
 		if(!is_file($templatePath))
 		{
