@@ -225,22 +225,24 @@ class email
 		\dash\log::set('verifyEmail', $log);
 
 		$url = \dash\url::kingdom(). '/enter/verifyemail/'. $code;
-		$body = '';
-		$body .= '<p>';
-		$body .= T_("To confirm your email in Jibres"). ' ';
-		$body .= '<a href="'.$url.'" target="_blank" clicktracking=off >'. T_("Click here"). '</a>';
-		$body .= '</p>';
+		// $body = '';
+		// $body .= '<p>';
+		// $body .= T_("To confirm your email in Jibres"). ' ';
+		// $body .= '<a href="'.$url.'" target="_blank" clicktracking=off >'. T_("Click here"). '</a>';
+		// $body .= '</p>';
 
-		$email =
-		[
-			'to'       => $email,
-			'body'     => $body,
-			'template' => 'html',
-			'subject'  => T_("Verify your mail"),
-		];
+		// $email =
+		// [
+		// 	'to'       => $email,
+		// 	'body'     => $body,
+		// 	'template' => 'html',
+		// 	'subject'  => T_("Verify your mail"),
+		// ];
 
-		$send = \lib\email\send::send($email);
+		// $send = \lib\email\send::send($email);
 
+		$args = \dash\email\template::verify(true, $email, \dash\user::detail('displayname'), $url);
+		var_dump($args);exit;
 		\dash\notif::ok(T_("A verification email was send to your email"));
 		return true;
 
