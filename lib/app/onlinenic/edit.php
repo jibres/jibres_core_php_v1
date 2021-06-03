@@ -211,6 +211,9 @@ class edit
 
 
 				\lib\db\nic_domain\update::update($update_domian_record, $_id);
+
+				\lib\app\nic_domain\get::force_fetch($load_domain['name']);
+
 				\dash\notif::ok(T_("Domain detail updated"));
 				return true;
 
