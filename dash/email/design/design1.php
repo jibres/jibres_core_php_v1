@@ -53,7 +53,7 @@ p{margin-top:0;margin-bottom:15px;}
  <div class="content" style="width:650px;max-width:100%;margin-left:auto;margin-right:auto;margin-bottom:20px;border-top:10px solid #a80a5a;white-space:normal;padding-top:20px;background-color:#ffffff!important;border-radius:0 0 10px 10px;overflow:hidden;">
   <img src="<?php if(\dash\language::current() === 'fa') { echo 'https://cdn.jibres.com/logo/fa/png/Jibres-Logo-fa-5000.png'; } else { echo 'https://cdn.jibres.com/logo/en/png/Jibres-Logo-en-5000.png';}?>" alt="Jibres logo" height="60" style="display:block;margin-right:auto;margin-left:auto;margin-bottom:20px; max-width:200px!important;max-height:60px!important;">
 
-  <div style="direction:<?php echo \dash\language::dir();?>;padding-right:6%;padding-left:6%;padding-top:80px;padding-bottom:20px;overflow:hidden;background-color:#e8edfa;">
+  <div style="direction:<?php echo \dash\language::dir();?>;padding-right:7%;padding-left:7%;padding-top:60px;padding-bottom:0;overflow:hidden;background-color:#e8edfa;">
 <?php
 if(isset($dataLines) && is_array($dataLines))
 {
@@ -67,7 +67,7 @@ if(isset($dataLines) && is_array($dataLines))
      echo '<div style="text-align:center;padding-top:40px;padding-bottom:20px;">';
      echo '<a class="btn green" target="_blank"';
      echo ' href="'. $line['link']. '"';
-     echo ' style="display:inline-block;border-radius:5px;color:#ffffff!important;font-size:18px;font-weight:bold;background-color:#80a555;padding:10px 20px;"';
+     echo ' style="display:inline-block;border-radius:5px;color:#ffffff!important;font-size:18px;font-weight:bold;background-color:#80a555;padding:10px 20px;text-decoration:none;"';
      echo '>';
      echo $line['text'];
      echo '</a>';
@@ -112,7 +112,7 @@ elseif(isset($dataLines))
 </table>
 
 <?php if(isset($dataLinesFooter)) {?>
-  <div style="direction:<?php echo \dash\language::dir();?>;padding-right:6%;padding-left:6%;padding-top:20px;padding-bottom:20px;font-size:14px;color:#777;">
+  <div style="direction:<?php echo \dash\language::dir();?>;padding-right:7%;padding-left:7%;padding-top:10px;padding-bottom:20px;font-size:14px;color:#777;">
    <p><?php echo $dataLinesFooter; ?></p>
   </div>
 <?php }?>

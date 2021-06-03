@@ -34,9 +34,14 @@ class template
 
 
 		$args = self::globalEmailData();
+		$args['from']    = 'verify@jibres.store';
 		$args['to']      = $_email;
 		$args['toTitle'] = $_name;
 		$args['subject'] = '['. T_('Jibres').']'. ' '. T_("Verify Your Email");
+		if(\dash\language::current() === 'fa')
+		{
+			$args['subject'] = '[ '. T_('Jibres').' ]'. ' '. T_("Verify Your Email");
+		}
 
 		ob_start();
 		include(self::$templatePath);
