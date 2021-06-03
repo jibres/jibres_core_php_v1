@@ -12,6 +12,13 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\domains\filter::list('admin_mode'));
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\domains\filter::sort_list());
+
+
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
@@ -28,11 +35,6 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::that());
-		\dash\data::sortLink($sortLink);
-
-
-		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
 
 		$isFiltered = \lib\app\nic_domain\search::is_filtered();
 

@@ -31,7 +31,7 @@ class filter
 	}
 
 
-	private static function list_of_filter()
+	private static function list_of_filter($_module = null)
 	{
 
 		$list                 = [];
@@ -57,7 +57,10 @@ class filter
 		$list['registrarir']  = ['key' => 'registrarir', 	'group' => T_("Registrar"), 'title' => T_('IRNIC'), 		'query' => ['reg' => 'ir'], 	'public' => true];
 		$list['registrarcom'] = ['key' => 'registrarcom', 	'group' => T_("Registrar"), 'title' => T_('Onlinenic'), 	'query' => ['reg' => 'com'], 	'public' => true];
 
-
+		if($_module === 'admin_mode')
+		{
+			$list['user']       = ['key' => 'user', 		'group' => T_("User"), 'title' => T_('User'), 'mode'   => 'users_search', 	'public' => true];
+		}
 		return $list;
 
 	}
