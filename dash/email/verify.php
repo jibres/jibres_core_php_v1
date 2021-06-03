@@ -130,9 +130,9 @@ elseif($body)
 
  </div>
  <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;paddin-rigth:10px;padding-left:10px">
-  <span>Please do not reply to this email. Need help? Visit <a target="_blank" href="<?php echo $supportLink ?>">Jibres Customer Support</a></span><br>
-  <span>This email was sent to <a target="_blank" href="mailto:<?php echo $to;?>"><?php echo $to;?></a></span><br><br>
-  <span>&#169; 2021 Jibres. All Rights Reserved. <?php echo $domainLink; ?></span>
+  <span><?php echo T_('Please do not reply to this email. Need help? Visit :link', ['link' => '<a target="_blank" href="<?php echo $supportLink ?>">'. T_('Jibres Customer Support'). '</a>']); ?></span><br>
+  <span><?php echo T_('This email was sent to :link', ['link' => '<a target="_blank" href="mailto:'. $to. '">'.$to.'</a>']) ?></span><br><br>
+  <span><?php echo T_("&#169; :year Jibres. All Rights Reserved.", ['year' => \dash\datetime::get(null, 'Y')]) ?> <?php echo $domainLink; ?></span>
  </p>
 </body>
 
