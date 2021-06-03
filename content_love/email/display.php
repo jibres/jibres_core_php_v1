@@ -16,4 +16,7 @@
   </form>
 
   <pre></pre>
+
+  <h2><?php echo T_("Templates"); ?></h2>
+  <a target="_blank" class="btn" href="<?php echo \dash\url::this(); ?>/verify">Verify</a>
 </div>

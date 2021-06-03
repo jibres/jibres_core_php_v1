@@ -109,7 +109,7 @@ class mail
 		$sample =
 		[
 			'from'      => 'no-reply@jibres.store',
-			'fromTitle' => 'Jibres',
+			'fromTitle' => T_('Jibres'),
 			'to'        => "Mr.Javad.Adib@gmail.com",
 			'subject'   => "Test ". rand(1,100),
 			'body'      => "Salam 123",
