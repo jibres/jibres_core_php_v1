@@ -61,8 +61,6 @@ class mail
 			{
 				$mail->Body = $opt['body'];
 			}
-			$testFile = file_get_contents(\dash\url::cdn().'/email/campaign/nowruz1400/index.html');
-			$mail->Body = $testFile;
 
 			if(isset($opt['altbody']))
 			{

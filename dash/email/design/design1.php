@@ -48,7 +48,7 @@ p{margin-top: 0;margin-bottom: 15px;}
 </head>
 <body style="background:#f5f5ff;margin:0;padding:0;font-family: IRANYekan, IRANSansX, IRANSans,tahoma!important">
  <div class="content" style="width:650px;max-width:100%;margin-left:auto;margin-right:auto;margin-bottom:20px;border-top:10px solid #a80a5a;white-space:normal;padding-top:20px;background-color:#ffffff;border-radius: 0 0 10px 10px;overflow:hidden;">
-  <img src="<?php if(\dash\language::current() === 'fa') { echo \dash\url::cdn().'/logo/fa/png/Jibres-Logo-fa-5000.png'; } else { echo \dash\url::cdn().'/logo/en/png/Jibres-Logo-en-5000.png';}?>" alt="Jibres logo" height="60" style="display:block;margin-right:auto;margin-left:auto;margin-bottom: 20px; max-width: 200px!important;max-height: 60px!important;">
+  <img src="<?php if(\dash\language::current() === 'fa') { echo 'https://cdn.jibres.com/logo/fa/png/Jibres-Logo-fa-5000.png'; } else { echo 'https://cdn.jibres.com/logo/en/png/Jibres-Logo-en-5000.png';}?>" alt="Jibres logo" height="60" style="display:block;margin-right:auto;margin-left:auto;margin-bottom: 20px; max-width: 200px!important;max-height: 60px!important;">
 
   <div style="direction:<?php echo \dash\language::dir();?>;padding-right:40px;padding-left:40px;padding-top:80px;padding-bottom:20px;overflow:hidden;background-color:#e8edfa;">
 <?php
@@ -90,7 +90,7 @@ elseif(isset($body))
 ?>
   </div>
 
-  <img src="<?php echo \dash\url::cdn(); ?>/email/wave1.png" alt="Jibres Email Wave1" style="display:block;width:100%; margin-right:auto;margin-left:auto; max-width: 100%!important;max-height: 366px!important;">
+  <img src="https://cdn.jibres.com/email/wave1.png" alt="Jibres Email Wave1" style="display:block;width:100%; margin-right:auto;margin-left:auto; max-width: 100%!important;max-height: 366px!important;">
 
 <?php if(isset($footer)) {?>
   <div style="direction:<?php echo \dash\language::dir();?>;padding-right:40px;padding-left:40px;padding-top:20px;padding-bottom:20px;font-size: 14px;color:#777;">

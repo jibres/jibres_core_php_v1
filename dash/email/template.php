@@ -8,7 +8,7 @@ class template
 	{
 		$defaultSender =
 		[
-			'from'      => 'no-reply@jibres.com',
+			'from'      => 'no-reply@jibres.store',
 			'fromTitle' => T_('Jibres'),
 		];
 
