@@ -21,14 +21,15 @@ class controller
 		{
 			return null;
 		}
+		$subject = "[Jibres] Test Template";
 
 		// set direction
 		$direction = \dash\language::dir();
 		$language = \dash\language::current();
 
-		switch ($_name)
+		switch (\dash\request::get('type'))
 		{
-			case 'template1':
+			case 'verify':
 				$domainLink = 'jibres.store';
 				$supportLink = \dash\url::support();
 				$from = 'no-reply@jibres.com';

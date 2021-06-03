@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="<?php echo $direction;?>" translate="no" style="-webkit-text-size-adjust:none;">
+<html lang="<?php echo $language; ?>" dir="<?php echo $direction;?>" translate="no" style="-webkit-text-size-adjust:none;">
 <head>
  <meta charset="UTF-8"/>
 	<title><?php echo $subject;?></title>
@@ -75,14 +75,14 @@
 	</style>
 
 </head>
-<body bgcolor="#f5f5ff" style="background:#f5f5ff;margin:0;padding:0;mso-padding-alt:0px 0px 0px 0px;font-family: IRANSans,tahoma!important">
+<body bgcolor="#f5f5ff" style="background:#f5f5ff;margin:0;padding:0;mso-padding-alt:0px 0px 0px 0px;font-family: IRANYekan, IRANSansX, IRANSans,tahoma!important">
  <div class="content" style="width:650px;max-width:100%;margin-left:auto;margin-right:auto;margin-bottom:20px;border-top:10px solid #a80a5a;white-space:normal;padding-top:20px;background-color:#ffffff;border-radius: 0 0 10px 10px;overflow:hidden;">
   <img src="<?php if($language === 'fa') { echo \dash\url::cdn().'/logo/fa/png/Jibres-Logo-fa-5000.png'; } else { echo \dash\url::cdn().'/logo/en/png/Jibres-Logo-en-5000.png';}?>" alt="Jibres logo" height="60" style="display:block;margin-right:auto;margin-left:auto;margin-bottom: 20px; max-width: 200px !important;max-height: 60px !important;">
 
 
   <div style="direction:<?php echo $direction;?>;padding-right:40px;padding-left:40px;padding-top:80px;padding-bottom:20px;overflow:hidden;background-color:#e8edfa;">
 <?php
-if(is_array($body))
+if(isset($body) && is_array($body))
 {
   foreach ($body as $line)
   {
@@ -113,7 +113,7 @@ if(is_array($body))
     }
   }
 }
-elseif($body)
+elseif(isset($body))
 {
   echo $body;
 }
@@ -122,17 +122,22 @@ elseif($body)
 
   <img src="<?php echo \dash\url::cdn(); ?>/email/wave1.png" alt="Jibres Email Wave1" width="100%" style="display:block;margin-right:auto;margin-left:auto; max-width: 100% !important;max-height: 366px !important;">
 
-
+<?php if(isset($footer)) {?>
   <div style="direction:<?php echo $direction;?>;padding-right:40px;padding-left:40px;padding-top:20px;padding-bottom:20px;font-size: 14px;color:#777;">
     <p><?php echo $footer; ?></p>
   </div>
+<?php }?>
 
 
  </div>
  <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;paddin-rigth:10px;padding-left:10px">
   <span><?php echo T_('Please do not reply to this email. Need help? Visit :link', ['link' => '<a target="_blank" href="<?php echo $supportLink ?>">'. T_('Jibres Customer Support'). '</a>']); ?></span><br>
+<?php if(isset($to)) {?>
   <span><?php echo T_('This email was sent to :link', ['link' => '<a target="_blank" href="mailto:'. $to. '">'.$to.'</a>']) ?></span><br><br>
+<?php }?>
+<?php if(isset($domainLink)) {?>
   <span><?php echo T_("&#169; :year Jibres. All Rights Reserved.", ['year' => \dash\datetime::get(null, 'Y')]) ?> <?php echo $domainLink; ?></span>
+<?php }?>
  </p>
 </body>
 
