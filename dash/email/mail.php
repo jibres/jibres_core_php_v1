@@ -74,7 +74,6 @@ class mail
 			return true;
 		} catch (Exception $e)
 		{
-			echo "11";
 			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 			return false;
 		}
@@ -102,6 +101,11 @@ class mail
 
 		return $_args;
 	}
+
+
+
+
+
 
 
 	public static function sampleEmail($_to = null)

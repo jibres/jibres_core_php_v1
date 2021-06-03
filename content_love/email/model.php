@@ -9,8 +9,9 @@ class model
 		// get to
 		$to = \dash\request::post('to');
 
+		$sendLog = \dash\email\email_template::verify($to, 'Javad Adib', 'https://jibres.ir/about');
 		// try to send
-		$sendLog = \dash\email\mail::sampleEmail($to);
+		// $sendLog = \dash\email\mail::sampleEmail($to);
 
 		// show result
 		\dash\notif::debug($sendLog);

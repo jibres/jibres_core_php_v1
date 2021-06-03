@@ -6,14 +6,32 @@ class email_template
 	public static function globalEmailVariables()
 	{
 		// set direction
-		$direction = \dash\language::dir();
-		$language = \dash\language::current();
+		$direction   = \dash\language::dir();
+		$language    = \dash\language::current();
 
-		$domainLink = 'jibres.store';
+		$domainLink  = 'Jibres.store';
 		$supportLink = \dash\url::support();
-		$from = 'no-reply@jibres.com';
-		$fromTitle = T_('Jibres');
+		$from        = 'no-reply@jibres.com';
+		$fromTitle   = T_('Jibres');
 	}
+
+
+	public static function sendEmail()
+	{
+		$data =
+		[
+			'from'      => $from,
+			'fromTitle' => $fromTitle,
+			'to'        => $to,
+			'toTitle'   => $toTitle,
+			'subject'   => $subject,
+			'body'      => $emailBodyHTML,
+			'altbody'   => $emailBodyATL,
+		];
+
+		return \dash\email\mail::sendPHPMailer($data);
+	}
+
 
 
 	public static function verify($_email, $_name, $_verifyLink)
@@ -37,6 +55,12 @@ class email_template
 		];
 
 		$footer = "If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.";
+
+		// create html
+		$emailBodyATL = "Html is not loaded on this email";
+		$emailBodyHTML = '123';
+
+		return self::sendEmail();
 	}
 }
 ?>
