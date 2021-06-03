@@ -3,46 +3,21 @@ namespace dash\email;
 
 class email_template
 {
-	public static function globalEmailVariables()
+	public static function globalEmailData()
 	{
-		// set direction
-		$direction   = \dash\language::dir();
-		$language    = \dash\language::current();
-
-		$domainLink  = 'Jibres.store';
-		$supportLink = \dash\url::support();
-		$from        = 'no-reply@jibres.com';
-		$fromTitle   = T_('Jibres');
-	}
-
-
-	public static function sendEmail()
-	{
-		$data =
+		$defaultSender =
 		[
-			'from'      => $from,
-			'fromTitle' => $fromTitle,
-			'to'        => $to,
-			'toTitle'   => $toTitle,
-			'subject'   => $subject,
-			'body'      => $emailBodyHTML,
-			'altbody'   => $emailBodyATL,
+			'from'      => 'no-reply@jibres.com',
+			'fromTitle' => T_('Jibres'),
 		];
 
-		return \dash\email\mail::sendPHPMailer($data);
+		return $defaultSender;
 	}
 
 
-
-	public static function verify($_email, $_name, $_verifyLink)
+	public static function verify($_send = null, $_email, $_name, $_verifyLink)
 	{
-		self::globalEmailVariables();
-
 		// set this template variables
-		$subject = "[Jibres] Verify Your Account";
-		$to = $_email;
-		$toTitle = $_email;
-
 		$body =
 		[
 			T_("Hey :val!", ['val' => $_name]),
@@ -56,11 +31,21 @@ class email_template
 
 		$footer = "If you did not sign up for Jibres, there is nothing to worry about, just disregard this email.";
 
-		// create html
-		$emailBodyATL = "Html is not loaded on this email";
-		$emailBodyHTML = '123';
 
-		return self::sendEmail();
+		$args = self::globalEmailData();
+		$args['subject'] = T_("[Jibres] Verify Your Account");
+		$args['to']      = $_email;
+		$args['toTitle'] = $_name;
+		$args['body']    = '123';
+		$args['altbody'] = 'Html is not loaded on this email';
+
+		if($_send)
+		{
+			return \dash\email\mail::sendPHPMailer($args);
+		}
+		// show preview
+		return $args;
 	}
+
 }
 ?>
