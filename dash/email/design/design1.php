@@ -46,7 +46,7 @@ p{margin-top: 0;margin-bottom: 15px;}
 }
 </style>
 </head>
-<body bgcolor="#f5f5ff" style="background:#f5f5ff;margin:0;padding:0;mso-padding-alt:0px 0px 0px 0px;font-family: IRANYekan, IRANSansX, IRANSans,tahoma!important">
+<body style="background:#f5f5ff;margin:0;padding:0;font-family: IRANYekan, IRANSansX, IRANSans,tahoma!important">
  <div class="content" style="width:650px;max-width:100%;margin-left:auto;margin-right:auto;margin-bottom:20px;border-top:10px solid #a80a5a;white-space:normal;padding-top:20px;background-color:#ffffff;border-radius: 0 0 10px 10px;overflow:hidden;">
   <img src="<?php if(\dash\language::current() === 'fa') { echo \dash\url::cdn().'/logo/fa/png/Jibres-Logo-fa-5000.png'; } else { echo \dash\url::cdn().'/logo/en/png/Jibres-Logo-en-5000.png';}?>" alt="Jibres logo" height="60" style="display:block;margin-right:auto;margin-left:auto;margin-bottom: 20px; max-width: 200px!important;max-height: 60px!important;">
 
@@ -54,43 +54,43 @@ p{margin-top: 0;margin-bottom: 15px;}
 <?php
 if(isset($body) && is_array($body))
 {
-  foreach ($body as $line)
+ foreach ($body as $line)
+ {
+  if(is_array($line))
   {
-    if(is_array($line))
-    {
-      switch ($line['element'])
-      {
-        case 'btn.green':
-          echo '<div style="text-align:center;padding-top: 40px;padding-bottom: 20px;">';
-          echo '<a target="_blank"';
-          echo ' href="'. $line['link']. '"';
-          echo ' style="display:inline-block;border-radius:5px;color:#ffffff!important;font-size:18px;font-weight:bold;background-color:#80a555;padding:10px 20px;"';
-          echo '>';
-          echo $line['text'];
-          echo '</a>';
-          echo '</div>';
-          break;
+   switch ($line['element'])
+   {
+    case 'btn.green':
+     echo '<div style="text-align:center;padding-top: 40px;padding-bottom: 20px;">';
+     echo '<a target="_blank"';
+     echo ' href="'. $line['link']. '"';
+     echo ' style="display:inline-block;border-radius:5px;color:#ffffff!important;font-size:18px;font-weight:bold;background-color:#80a555;padding:10px 20px;"';
+     echo '>';
+     echo $line['text'];
+     echo '</a>';
+     echo '</div>';
+     break;
 
-        default:
-          break;
-      }
-    }
-    elseif($line)
-    {
-      echo "<p>";
-      echo $line;
-      echo "</p>";
-    }
+    default:
+     break;
+   }
   }
+  elseif($line)
+  {
+   echo "<p>";
+   echo $line;
+   echo "</p>";
+  }
+ }
 }
 elseif(isset($body))
 {
-  echo $body;
+ echo $body;
 }
 ?>
   </div>
 
-  <img src="<?php echo \dash\url::cdn(); ?>/email/wave1.png" alt="Jibres Email Wave1" width="100%" style="display:block;margin-right:auto;margin-left:auto; max-width: 100%!important;max-height: 366px!important;">
+  <img src="<?php echo \dash\url::cdn(); ?>/email/wave1.png" alt="Jibres Email Wave1" style="display:block;width:100%; margin-right:auto;margin-left:auto; max-width: 100%!important;max-height: 366px!important;">
 
 <?php if(isset($footer)) {?>
   <div style="direction:<?php echo \dash\language::dir();?>;padding-right:40px;padding-left:40px;padding-top:20px;padding-bottom:20px;font-size: 14px;color:#777;">
@@ -98,7 +98,7 @@ elseif(isset($body))
   </div>
 <?php }?>
  </div>
- <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;paddin-rigth:10px;padding-left:10px">
+ <p style="direction:ltr;white-space:normal;color:#8f8f8f;font-family:Open Sans, Helvetica, Arial, sans-serif;font-size:12px;padding-top:10px;padding-bottom:10px;text-align:center;padding-right:10px;padding-left:10px">
   <span><?php echo T_('Please do not reply to this email. Need help? Visit :link', ['link' => '<a target="_blank" href="'. \dash\url::support(). '">'. T_('Jibres Customer Support'). '</a>']); ?></span><br>
 <?php if(isset($to)) {?>
   <span><?php echo T_('This email was sent to :link', ['link' => '<a target="_blank" href="mailto:'. $to. '">'.$to.'</a>']) ?></span><br><br>
