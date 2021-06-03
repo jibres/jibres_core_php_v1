@@ -38,14 +38,29 @@ class search
 	{
 		$condition =
 		[
-			'order'       => 'order',
-			'sort'        => ['enum' => ['name','id']],
-			'store_id'    => 'id',
-			'my_list'     => 'bit',
+			'order'              => 'order',
+			'sort'               => ['enum' => ['name','id']],
+			'store_id'           => 'id',
+			'my_list'            => 'bit',
+
 			'filter_status'      => ['enum' => ['ok','pending','failed']],
 			'filter_addcdnpanel' => ['enum' => ['yes', 'no']],
 			'filter_dns'         => ['enum' => ['resolved', 'notresolved']],
 			'filter_https'       => ['enum' => ['request', 'requestok']],
+
+			'ws'                 => 'y_n', // with subdomain
+			'md'                 => 'y_n', // is master domain
+			'rtmd'               => 'y_n', // redirect to master domain
+			'hdid'               => 'y_n', // have domain id
+			'cb'                 => 'y_n', // connect to business
+			'checkdns'           => 'y_n',
+			'dnsok'              => 'y_n',
+			'cdnpanale'          => 'y_n',
+			'httpsrequest'       => 'y_n',
+			'httpsverify'        => 'y_n',
+			'cdn'                => ['enum' => ['arvancloud', 'cloudflare', 'enterprise',]],
+			'status'             => ['enum' => ['pending','failed','ok','pending_delete','deleted','inprogress','dns_not_resolved']],
+
 		];
 
 
@@ -100,6 +115,18 @@ class search
 			}
 		}
 
+		if($data['status'])
+		{
+			$and[] = " business_domain.status = '$data[status]' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['cdn'])
+		{
+			$and[] = " business_domain.cdn = '$data[cdn]' ";
+			self::$is_filtered = true;
+		}
+
 
 		if($data['filter_addcdnpanel'])
 		{
@@ -151,6 +178,121 @@ class search
 				self::$filter_args[T_("HTTPS")] = T_('Ok');
 			}
 		}
+
+		// with subdomain
+		if($data['ws'] === 'y')
+		{
+			$and[] = " business_domain.subdomain IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['ws'] === 'n')
+		{
+			$and[] = " business_domain.subdomain IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		//is master domain
+		if($data['md'] === 'y')
+		{
+			$and[] = " business_domain.master IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['md'] === 'n')
+		{
+			$and[] = " business_domain.master IS  NULL ";
+			self::$is_filtered = true;
+		}
+
+		// redirect to master
+		if($data['rtmd'] === 'y')
+		{
+			$and[] = " business_domain.redirecttomaster IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['rtmd'] === 'n')
+		{
+			$and[] = " business_domain.redirecttomaster IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		// have domain id
+		if($data['hdid'] === 'y')
+		{
+			$and[] = " business_domain.domain_id IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['hdid'] === 'n')
+		{
+			$and[] = " business_domain.domain_id IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['cb'] === 'y')
+		{
+			$and[] = " business_domain.store_id IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['cb'] === 'n')
+		{
+			$and[] = " business_domain.store_id IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['checkdns'] === 'y')
+		{
+			$and[] = " business_domain.checkdns IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['checkdns'] === 'n')
+		{
+			$and[] = " business_domain.checkdns IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['dnsok'] === 'y')
+		{
+			$and[] = " business_domain.dnsok IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['dnsok'] === 'n')
+		{
+			$and[] = " business_domain.dnsok IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['cdnpanale'] === 'y')
+		{
+			$and[] = " business_domain.cdnpanale IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['cdnpanale'] === 'n')
+		{
+			$and[] = " business_domain.cdnpanale IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['httpsrequest'] === 'y')
+		{
+			$and[] = " business_domain.httpsrequest IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['httpsrequest'] === 'n')
+		{
+			$and[] = " business_domain.httpsrequest IS NULL ";
+			self::$is_filtered = true;
+		}
+
+		if($data['httpsverify'] === 'y')
+		{
+			$and[] = " business_domain.httpsverify IS NOT NULL ";
+			self::$is_filtered = true;
+		}
+		elseif($data['httpsverify'] === 'n')
+		{
+			$and[] = " business_domain.httpsverify IS NULL ";
+			self::$is_filtered = true;
+		}
+
 
 
 		$query_string = \dash\validate::search($_query_string, false);

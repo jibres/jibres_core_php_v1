@@ -75,7 +75,7 @@ if(is_array(\dash\data::listEngine_filter()))
         {
          echo ' light';
         }
-        echo '" href="'. \dash\url::that(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
+        echo '" href="'. \dash\url::current(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
 
         break;
     }

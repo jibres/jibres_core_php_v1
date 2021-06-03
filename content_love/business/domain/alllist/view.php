@@ -18,41 +18,38 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::current());
+		\dash\data::listEngine_filter(\lib\app\business_domain\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\business_domain\filter::sort_list());
+
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
+			'order'              => \dash\request::get('order'),
+			'sort'               => \dash\request::get('sort'),
+
+
+			'ws'                 => \dash\request::get('ws'),
+			'md'                 => \dash\request::get('md'),
+			'rtmd'               => \dash\request::get('rtmd'),
+			'hdid'               => \dash\request::get('hdid'),
+			'cb'                 => \dash\request::get('cb'),
+			'checkdns'           => \dash\request::get('checkdns'),
+			'dnsok'              => \dash\request::get('dnsok'),
+			'cdnpanale'          => \dash\request::get('cdnpanale'),
+			'httpsrequest'       => \dash\request::get('httpsrequest'),
+			'httpsverify'        => \dash\request::get('httpsverify'),
+			'cdn'                => \dash\request::get('cdn'),
+			'status'             => \dash\request::get('status'),
 
 		];
 
-		if(\dash\request::get('status'))
-		{
-			$args['filter_status'] = \dash\request::get('status');
-		}
-
-		if(\dash\request::get('addcdnpanel'))
-		{
-			$args['filter_addcdnpanel'] = \dash\request::get("addcdnpanel");
-		}
-
-		if(\dash\request::get('dns'))
-		{
-			$args['filter_dns'] = \dash\request::get("dns");
-		}
-
-		if(\dash\request::get('https'))
-		{
-			$args['filter_https'] = \dash\request::get("https");
-		}
-
-
-		$search_string = \dash\request::get('q');
-
-		$list = \lib\app\business_domain\search::list($search_string, $args);
+		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$list          = \lib\app\business_domain\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
-
-		\dash\data::filterBox(\lib\app\business_domain\search::filter_message());
 
 		$isFiltered = \lib\app\business_domain\search::is_filtered();
 
