@@ -6,41 +6,54 @@ class autorenew
 {
 	public static function run()
 	{
-		foreach (['1month'] as $date)
+
+		$args =
+		[
+			'predict'         => true,
+			'autorenew_mode'  => '1month',
+			'autorenew_notif' => 'yes',
+		];
+
+		$list = \lib\app\nic_domain\search::get_list(null, $args);
+
+		if($list && is_array($list))
 		{
-			$args =
-			[
-				'predict'        => true,
-				'autorenew_mode' => $date,
-				'autorenew_notif' => 'yes',
-			];
-
-			$list = \lib\app\nic_domain\search::get_list(null, $args);
-
-			if($list && is_array($list))
+			foreach ($list as $key => $value)
 			{
-				self::set_notif($list, $date);
+				\lib\app\nic_domain\get::force_fetch($value['name']);
 			}
 		}
 
+		$list = \lib\app\nic_domain\search::get_list(null, $args);
 
-		foreach (['1month'] as $date)
+		if($list && is_array($list))
 		{
-			$args =
-			[
-				'predict'        => true,
-				'autorenew_mode' => $date,
-				'autorenew_notif' => 'no',
-			];
-
-			$list = \lib\app\nic_domain\search::get_list(null, $args);
-
-			if($list && is_array($list))
-			{
-				self::fire_renew($list, $date);
-			}
-
+			self::set_notif($list, $date);
 		}
+
+		$args =
+		[
+			'predict'         => true,
+			'autorenew_mode'  => '1month',
+			'autorenew_notif' => 'no',
+		];
+
+		$list = \lib\app\nic_domain\search::get_list(null, $args);
+
+		if($list && is_array($list))
+		{
+			foreach ($list as $key => $value)
+			{
+				\lib\app\nic_domain\get::force_fetch($value['name']);
+			}
+		}
+
+		if($list && is_array($list))
+		{
+			self::fire_renew($list, $date);
+		}
+
+
 	}
 
 	private static function fire_renew($_list, $_mode)
