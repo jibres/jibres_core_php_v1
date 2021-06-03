@@ -10,6 +10,7 @@ class dashboard
 		{
 			\dash\header::status(403);
 		}
+		$result                          = [];
 
 
 		$today      = date("Y-m-d");
@@ -18,7 +19,12 @@ class dashboard
 		$last_month = date("Y-m-d", strtotime("-1 month"));
 
 
-		$result                          = [];
+		$result['expire_week']              = intval(\lib\app\nic_domain\search::list_admin(null, ['get_count' => true, 'expireat' => 'week']));
+		$result['expire_month']             = intval(\lib\app\nic_domain\search::list_admin(null, ['get_count' => true, 'expireat' => 'month']));;
+		$result['expire_year']              = intval(\lib\app\nic_domain\search::list_admin(null, ['get_count' => true, 'expireat' => 'year']));;
+
+
+
 		$result['sale_count_today']      = \lib\db\nic_domainbilling\get::sale_count_date($today, true);
 		$result['sale_count_yesterday']  = \lib\db\nic_domainbilling\get::sale_count_date($yesterday, true);
 		$result['sale_count_last_week']  = \lib\db\nic_domainbilling\get::sale_count_date($last_week);

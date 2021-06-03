@@ -83,6 +83,29 @@ $myData = \dash\data::dashboardDetail();
 
 
 <div id="chartdiv" class="box chart x200"></div>
+
+<section class="row">
+      <div class="c">
+        <a href="<?php echo \dash\url::this() ?>/all?expireat=week" class="stat x70">
+          <h3><?php echo T_("Expire in next week");?></h3>
+          <div class="val"><?php echo \dash\fit::number(a($myData, 'expire_week'));?></div>
+        </a>
+      </div>
+      <div class="c">
+        <a href="<?php echo \dash\url::this() ?>/all?expireat=month" class="stat x70">
+          <h3><?php echo T_("Expire in next month");?></h3>
+          <div class="val"><?php echo \dash\fit::number(a($myData, 'expire_month'));?></div>
+        </a>
+      </div>
+      <div class="c">
+        <a href="<?php echo \dash\url::this() ?>/all?expireat=year" class="stat x70">
+          <h3><?php echo T_("Expire in next year");?></h3>
+          <div class="val"><?php echo \dash\fit::number(a($myData, 'expire_year'));?></div>
+        </a>
+      </div>
+    </section>
+
+
 <div id="chartdivonlinenic" class="box chart x200"></div>
 
 <div class="f">
