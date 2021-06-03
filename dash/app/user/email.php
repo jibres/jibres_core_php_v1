@@ -242,7 +242,7 @@ class email
 		// $send = \lib\email\send::send($email);
 
 		$args = \dash\email\template::verify(true, $email, \dash\user::detail('displayname'), $url);
-		var_dump($args);exit;
+
 		\dash\notif::ok(T_("A verification email was send to your email"));
 		return true;
 
