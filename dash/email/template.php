@@ -3,6 +3,7 @@ namespace dash\email;
 
 class template
 {
+	private static $templatePath = core.'/email/design/design1.php';
 	private static function globalEmailData()
 	{
 		$defaultSender =
@@ -36,7 +37,13 @@ class template
 		$args['to']      = $_email;
 		$args['toTitle'] = $_name;
 		$args['subject'] = T_("[Jibres] Verify Your Account");
-		$args['body']    = '123';
+
+		ob_start();
+		include(self::$templatePath);
+		$body = ob_get_contents(); // data is now in here
+		ob_end_clean();
+
+		$args['body']    = $body;
 		$args['altbody'] = 'Html is not loaded on this email';
 
 		if($_send)

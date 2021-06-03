@@ -8,21 +8,30 @@ class controller
 	{
 		if(\dash\url::child())
 		{
-			self::loadTemplate(\dash\url::child());
+			switch (\dash\url::child())
+			{
+				case 'verify':
+					$args = \dash\email\template::verify(null, 'you@email.com', 'Javad Adib', 'https://jibres.ir/about');
+
+					echo $args['body'];
+					\dash\code::boom();
+					break;
+
+				default:
+					break;
+			}
 		}
 	}
 
 
+
+
+
+
+
 	private static function loadTemplate($_name)
 	{
-		if(is_callable(['\dash\email\template', 'verify']))
-		{
-			$args = \dash\email\template::verify(null, 'you@email.com', 'Javad Adib', 'https://jibres.ir/about');
-			\dash\code::jsonBoom($args);
-		}
-
 		return false;
-
 		$templatePath = core. 'email/design/'.$_name. '.php';
 
 		if(!is_file($templatePath))
