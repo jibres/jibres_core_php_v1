@@ -19,7 +19,10 @@ class mail
 		try {
 			//Server settings
 			//Enable verbose debug output
-			// $mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+			if(\dash\url::content() === 'love' && \dash\url::module() === 'email')
+			{
+				$mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+			}
 
 			//Send using SMTP
 			$mail->isSMTP();
