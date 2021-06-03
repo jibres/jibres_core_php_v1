@@ -1,9 +1,9 @@
 <?php
 namespace dash\email;
 
-class email_template
+class template
 {
-	public static function globalEmailData()
+	private static function globalEmailData()
 	{
 		$defaultSender =
 		[
