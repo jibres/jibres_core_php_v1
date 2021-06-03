@@ -83,6 +83,23 @@ class pagination
         	$result['total_rows'] = $detail['total_rows'];
         }
 
+        $next = a($detail, 'next');
+        $prev = a($detail, 'prev');
+
+        if(is_numeric($next))
+        {
+        	$next = \dash\url::current(). \dash\request::full_get(['page' => $next]);
+        }
+
+        if(is_numeric($prev))
+        {
+        	$prev = \dash\url::current(). \dash\request::full_get(['page' => $prev]);
+        }
+
+        $result['next'] = $next;
+        $result['prev'] = $prev;
+
+
 
 		return $result;
 	}
@@ -152,6 +169,44 @@ class pagination
 		self::detail('total_page', $total_page);
 		self::detail('limit', $limit);
 		self::detail('total_rows', $_total_rows);
+
+
+		$next = null;
+		$prev = null;
+
+		if($total_page <= 1)
+		{
+			$next = null;
+			$prev = null;
+		}
+		elseif($total_page === 2)
+		{
+			if($page === 1)
+			{
+				$next = 2;
+			}
+			elseif ($page === 2)
+			{
+				$prev = 1;
+			}
+		}
+		else
+		{
+			if($page + 1 < $total_page)
+			{
+				$next = $page + 1;
+			}
+
+			if($page - 1 > 0)
+			{
+				$prev = $page - 1;
+			}
+		}
+
+		self::detail('next', $next);
+		self::detail('prev', $prev);
+
+
 
 		// set from and to
 		$record_from = $start_limit + 1;
