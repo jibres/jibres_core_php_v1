@@ -37,7 +37,7 @@
         </a>
       </li>
       <li>
-        <a class="item f" href="<?php echo \dash\url::here() ?>/section">
+        <a class="item f" href="<?php echo \dash\url::here(). '/section'. \dash\request::full_get(); ?>">
           <?php echo \dash\utility\icon::svg('add'); ?>
           <div class="key text-blue-500"><?php echo T_("Add Section") ?></div>
         </a>
