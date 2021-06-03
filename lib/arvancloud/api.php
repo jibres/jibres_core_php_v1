@@ -208,9 +208,9 @@ class api
 
 
 
-	public static function https_upstram($_domain)
+	public static function https_upstram($_domain, $_action = 'auto')
 	{
-		return self::run($_domain .'/origin-server/https-upstream', 'patch', null, ['f_ssl_https_upstram' => 'https']);
+		return self::run($_domain .'/origin-server/https-upstream', 'patch', null, ['f_ssl_https_upstram' => $_action]);
 	}
 
 

@@ -221,11 +221,13 @@ class https
 
 			$add_https_args =
 			[
-				// "f_ssl_type"     => "arvan",
-				"f_ssl_redirect" => true,
+				"f_ssl_redirect"      => true,
 			];
 
 			\lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+
+			\lib\arvancloud\api::https_upstram($domain, 'auto');
+
 		}
 
 		\dash\notif::ok("Operation complete successfull");
