@@ -1,4 +1,11 @@
 <?php
+
+$page_url = \lib\store::url();
+if(\dash\data::siteBuilder_url())
+{
+  $page_url = \dash\data::siteBuilder_url();
+}
+
   echo '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';
   echo '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
   {
@@ -13,8 +20,8 @@
     // address line
     echo '<div class="ltr relative flex flex-grow items-center px-7 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-xl text-gray-700 transition">';
     {
-      echo '<a class="address flex-grow" href='. \lib\store::url(). '>';
-      echo \lib\store::url();
+      echo '<a class="address flex-grow" href='. $page_url. '>';
+      echo $page_url;
       echo '</a>';
 
       echo '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-green-200 text-gray-900 rounded-full text-base">';
@@ -32,6 +39,6 @@
     echo '</div>';
   }
   echo '</div>';
-  echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. \lib\store::url(). '"></iframe>';
+  echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
   echo '</div>';
 ?>
