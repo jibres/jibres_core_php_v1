@@ -16,6 +16,33 @@ class template
 	}
 
 
+	private static function getHTML($args, $dataLines, $dataLinesFooter)
+	{
+		$html = null;
+
+		ob_start();
+		include(self::$templatePath);
+		$html = ob_get_contents(); // data is now in here
+		ob_end_clean();
+
+		// remove css comments
+		$html = str_replace("/*","_COMSTART",$html);
+		$html = str_replace("*/","COMEND_",$html);
+		$html = preg_replace("/_COMSTART.*?COMEND_/s","",$html);
+		// remove newlines
+		$html = str_replace(["\n", "\r"], ' ', $html);
+		// remove more than one space
+		$html = trim(preg_replace('/\s+/', ' ', $html));
+		// remove space between tags
+		$html = str_replace('> <', '><', $html);
+		// remove space after comma
+		$html = str_replace(', ', ',', $html);
+		// var_dump($html);exit();
+
+		return $html;
+	}
+
+
 	public static function verify($_send, $_email, $_name, $_verifyLink)
 	{
 		// set this template variables
@@ -43,12 +70,7 @@ class template
 			$args['subject'] = '[ '. T_('Jibres').' ]'. ' '. T_("Verify Your Email");
 		}
 
-		ob_start();
-		include(self::$templatePath);
-		$body = ob_get_contents(); // data is now in here
-		ob_end_clean();
-
-		$args['body']    = $body;
+		$args['body']    = self::getHTML($args, $dataLines, $dataLinesFooter);
 		// $args['altbody'] = T_('Html is not loaded on this email');
 
 		if($_send)
