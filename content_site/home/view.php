@@ -15,10 +15,10 @@ class view
 		\dash\data::back_link(\dash\url::kingdom(). '/a');
 
 		\dash\data::listEngine_start(true);
-		// \dash\data::listEngine_search(\dash\url::that());
-		// \dash\data::listEngine_filter(\dash\app\posts\filter::list('pagebuilder'));
-		// \dash\data::listEngine_sort(true);
-		// \dash\data::sortList(\dash\app\posts\filter::sort_list('pagebuilder'));
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\dash\app\posts\filter::list('pagebuilder'));
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\dash\app\posts\filter::sort_list('pagebuilder'));
 
 		$args =
 		[
