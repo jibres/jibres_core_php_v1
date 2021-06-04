@@ -9,6 +9,9 @@ class view
 		$load_line = \lib\pagebuilder\tools\get::current_line_list();
 		\dash\data::lineList($load_line);
 
+
+		\dash\data::siteBuilder_url(a($load_line, 'post_detail', 'link'). '?preview=yes');
+
 		self::set_page_variable();
 
 		// if(!\dash\data::lineSetting())
