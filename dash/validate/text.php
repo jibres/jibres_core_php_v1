@@ -614,9 +614,12 @@ class text
 			return $data;
 		}
 
-		$data = mb_ereg_replace('([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\^\&\-\=\_\+])+', ' ', $data);
-		$data = str_replace('%', '', $data);
-		$data = preg_replace("/\h+/", " ", $data);
+		$data = urldecode($data);
+
+		# $data = mb_ereg_replace('/([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\^\&\-\=\_\+\[\]\(\)]+/', ' ', $data);
+		$data = preg_replace('/[^\p{L}\p{N}\.\@\!\#\$\^\&\-\=\_\+\[\]\(\)]/u', ' ', $data);
+		$data = preg_replace("/\s{2,}/", " ", $data);
+		$data = preg_replace("/\n/", " ", $data);
 		$data = trim($data);
 
 		return $data;
