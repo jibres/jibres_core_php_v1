@@ -547,6 +547,30 @@ class search
 	}
 
 
+	/**
+	 * Return all product + variants
+	 *
+	 *
+	 * @param      <type>  $_query_string  The query string
+	 * @param      <type>  $_args          The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function website_all_product_search($_query_string, $_args)
+	{
+		$and   = [];
+
+		$_args['status'] = 'active';
+
+		$list = self::products_list('price', $_query_string, $_args, $and);
+
+		self::detect_min_variant_price($list);
+
+
+		return $list;
+	}
+
+
 
 
 	public static function list_in_sale($_query_string, $_args)

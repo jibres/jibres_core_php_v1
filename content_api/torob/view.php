@@ -9,7 +9,7 @@ class view
 	{
 		$args = [];
 		$args['limit'] = 100;
-		$myProductList  = \lib\app\product\search::website_product_search(null, $args);
+		$myProductList  = \lib\app\product\search::website_all_product_search(null, $args);
 
 		if(!is_array($myProductList))
 		{
