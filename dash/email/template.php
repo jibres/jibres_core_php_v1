@@ -37,7 +37,6 @@ class template
 		$html = str_replace('> <', '><', $html);
 		// remove space after comma
 		$html = str_replace(', ', ',', $html);
-		// var_dump($html);exit();
 
 		return $html;
 	}
