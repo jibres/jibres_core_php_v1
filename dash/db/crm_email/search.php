@@ -17,16 +17,7 @@ class search
 			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
-		$query =
-		"
-			SELECT
-				crm_email.*
-			FROM crm_email
-			$q[join]
-			$q[where]
-			$q[order]
-			$limit
-		";
+		$query = " SELECT crm_email.* FROM crm_email $q[join] $q[where] $q[order] $limit ";
 
 		$result = \dash\db::get($query);
 
