@@ -25,5 +25,36 @@ class controller
 			\dash\permission::deny();
 		}
 	}
+
+
+	/**
+	 * Loads a current page detail.
+	 * Check have id and this is is valid and load post detail
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function load_current_page_detail()
+	{
+		$page_id = \dash\request::get('id');
+
+		$page_id = \dash\validate::code($page_id);
+
+		if(!$page_id)
+		{
+			\dash\header::status(404);
+		}
+
+		$load = \lib\sitebuilder\get::load_page_detail($page_id);
+
+		if(!$load)
+		{
+			\dash\header::status(404);
+		}
+
+		\dash\data::currentPageDetail($load);
+
+		return $load;
+
+	}
 }
 ?>

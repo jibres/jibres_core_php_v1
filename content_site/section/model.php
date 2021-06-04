@@ -6,25 +6,31 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('line') === 'new' && \dash\request::post('key'))
+		if(\dash\request::post('section') === 'preview')
 		{
-			if(\dash\data::pagebuilderMode() === 'header')
+			$key = \dash\request::post('key');
+
+			$key = \dash\validate::string_100($key);
+
+			if(!$key)
 			{
-				$new_line = \lib\pagebuilder\tools\add::header(\dash\request::post('key'));
-			}
-			elseif(\dash\data::pagebuilderMode() === 'body')
-			{
-				$new_line = \lib\pagebuilder\tools\add::body(\dash\request::post('key'));
-			}
-			elseif(\dash\data::pagebuilderMode() === 'footer')
-			{
-				$new_line = \lib\pagebuilder\tools\add::footer(\dash\request::post('key'));
+				\dash\notif::error(T_("Invalid key"));
+				return false;
 			}
 
-			if(isset($new_line['url']))
+			$section_list = controller::section_list();
+			$all_key = array_column($section_list, 'key');
+
+			if(!in_array($key, $all_key))
 			{
-				\dash\redirect::to($new_line['url']);
+				\dash\notif::error(T_("Can not chose this section!"));
+				return false;
 			}
+
+			$page_id = \dash\request::get('id');
+
+
+			\lib\sitebuilder\add_section::preview($page_id, $key);
 		}
 	}
 }

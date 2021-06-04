@@ -7,6 +7,9 @@ class controller
 	public static function routing()
 	{
 		\dash\data::pagebuilderMode('body');
+
+		// load post detail
+		\content_site\controller::load_current_page_detail();
 	}
 
 
