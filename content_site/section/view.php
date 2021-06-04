@@ -16,7 +16,16 @@ class view
 		$section_list = self::show_in_group($section_list);
 		\dash\data::sectionList($section_list);
 
-		\content_site\controller::load_current_section_list();
+		$saved_section = \content_site\controller::load_current_section_list();
+
+		if(is_array($saved_section))
+		{
+			$end_section = end($saved_section);
+			if(isset($end_section['preview']['adding']))
+			{
+				\dash\data::adding(true);
+			}
+		}
 
 	}
 

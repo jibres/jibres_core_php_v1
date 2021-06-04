@@ -6,6 +6,9 @@ class model
 {
 	public static function post()
 	{
+		$page_id = \dash\request::get('id');
+
+
 		if(\dash\request::post('section') === 'preview')
 		{
 			$key = \dash\request::post('key');
@@ -27,10 +30,19 @@ class model
 				return false;
 			}
 
-			$page_id = \dash\request::get('id');
 
 
 			\lib\sitebuilder\add_section::preview($page_id, $key);
+		}
+
+		if(\dash\request::post('select') === 'adding')
+		{
+			$url = \lib\sitebuilder\add_section::select_adding($page_id);
+
+			if($url)
+			{
+				\dash\redirect::to($url);
+			}
 		}
 	}
 }

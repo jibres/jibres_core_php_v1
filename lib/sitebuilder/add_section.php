@@ -36,8 +36,38 @@ class add_section
 
 			self::add_section_record($add);
 		}
+	}
 
 
+	public static function select_adding($_page_id)
+	{
+		$page_detail = \lib\sitebuilder\get::load_page_detail($_page_id);
+
+		if(!$page_detail)
+		{
+			return false;
+		}
+
+		$page_id = \dash\coding::decode($_page_id);
+
+		$section_list = \lib\sitebuilder\get::body_section_list($_page_id);
+
+		$end_record = end($section_list);
+
+
+		if(isset($end_record['preview']['adding']))
+		{
+			unset($end_record['preview']['adding']);
+
+			$section_id = $end_record['id'];
+			$update = ['preview' => json_encode($end_record['preview'])];
+			\lib\db\pagebuilder\update::record($update, $section_id);
+		}
+		else
+		{
+			\dash\notif::error(T_("Please select one section"));
+			return false;
+		}
 	}
 
 
