@@ -8,7 +8,7 @@ class view
 	public static function config()
 	{
 		$id = \dash\request::get('id');
-		$list = \lib\app\tag\search::list_child($id, \dash\request::get('q'));
+		$list = \lib\app\tag\search::list_child($id, \dash\validate::search_string());
 
 		if(!is_array($list))
 		{

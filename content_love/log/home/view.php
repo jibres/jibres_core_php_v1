@@ -22,7 +22,7 @@ class view
 	public static function search_log($_args = [])
 	{
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 		if($search_string)
 		{
 			$myTitle .= ' | '. T_('Search for :search', ['search' => $search_string]);
@@ -101,7 +101,7 @@ class view
 		}
 
 
-		$dataTable = \dash\app\log::list(\dash\request::get('q'), $args);
+		$dataTable = \dash\app\log::list(\dash\validate::search_string(), $args);
 
 		\dash\data::dataTable($dataTable);
 

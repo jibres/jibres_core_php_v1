@@ -31,7 +31,7 @@ class view
 		];
 
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		// work with category list
 		$myCategoryList = \dash\app\terms\search::list($search_string, $args);

@@ -103,7 +103,7 @@ if(!is_array($dataTable))
       <div class="f">
         <div class="c pRa10">
           <div>
-            <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+            <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">
               <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(). \dash\request::get('barcode'); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
               <button class="addon btn light3 s0"><i class="sf-search"></i></button>
             </div>
@@ -112,9 +112,9 @@ if(!is_array($dataTable))
 
         <div class="cauto">
           <select class="select22 <?php if(\dash\request::get('sort') || \dash\request::get('order')) { echo 'apply'; }?>" data-link>
-            <option value="<?php echo \dash\url::this(); if(\dash\request::get('q')){ echo '?q='. \dash\request::get('q');} ?>"><?php echo T_("Sort"); ?></option>
-            <option value="<?php echo \dash\url::this(). '?sort=title&order=asc'; if(\dash\request::get('q')){ echo '&q='. \dash\request::get('q');} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'asc') { echo 'selected'; } ?>><?php echo T_("Sort by Title ASC") ?></option>
-            <option value="<?php echo \dash\url::this(). '?sort=title&order=desc'; if(\dash\request::get('q')){ echo '&q='. \dash\request::get('q');} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'desc') { echo 'selected'; } ?>><?php echo T_("Sort by Title DESC") ?></option>
+            <option value="<?php echo \dash\url::this(); if(\dash\validate::search_string()){ echo '?q='. \dash\validate::search_string();} ?>"><?php echo T_("Sort"); ?></option>
+            <option value="<?php echo \dash\url::this(). '?sort=title&order=asc'; if(\dash\validate::search_string()){ echo '&q='. \dash\validate::search_string();} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'asc') { echo 'selected'; } ?>><?php echo T_("Sort by Title ASC") ?></option>
+            <option value="<?php echo \dash\url::this(). '?sort=title&order=desc'; if(\dash\validate::search_string()){ echo '&q='. \dash\validate::search_string();} ?>" <?php if(\dash\request::get('sort') === 'title' && \dash\request::get('order') === 'desc') { echo 'selected'; } ?>><?php echo T_("Sort by Title DESC") ?></option>
             </select>
           </div>
         </div>

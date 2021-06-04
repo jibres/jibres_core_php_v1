@@ -20,7 +20,7 @@ class view
 
 		$args = [];
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 
 		$dataTable = \lib\app\form\form\search::list($q, $args);
 

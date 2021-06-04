@@ -15,7 +15,7 @@ class controller
 		$domain = urldecode($domain);
 		$domain = mb_strtolower($domain);
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 		$q = \dash\validate::string($q, false);
 
 		\dash\data::getDomain($q);
@@ -46,7 +46,7 @@ class controller
 
 			$info = \lib\app\domains\check::multi_check($q);
 
-			if(\dash\request::get('q') && !$info && \dash\engine\process::status())
+			if(\dash\validate::search_string() && !$info && \dash\engine\process::status())
 			{
 				\dash\data::InvalidDomain(true);
 			}

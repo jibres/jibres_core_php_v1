@@ -20,7 +20,7 @@ class view
 		];
 
 
-		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$search_string = \dash\validate::search_string();
 
 		$myProductList = \lib\app\product\search::website_product_search($search_string, $args);
 

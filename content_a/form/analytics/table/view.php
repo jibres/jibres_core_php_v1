@@ -29,7 +29,7 @@ class view
 		$args['table_name'] = $table_name;
 		$args['filter_id']  = \dash\request::get('fid');
 		$args['form_id']    = \dash\request::get('id');
-		$q                  = \dash\request::get('q');
+		$q                  = \dash\validate::search_string();
 
 		$form_id = \dash\request::get('id');
 

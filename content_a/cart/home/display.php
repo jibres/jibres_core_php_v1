@@ -78,7 +78,7 @@ else
                 </div>
                 <div class="c pRa10">
                     <div>
-                        <div class="input search <?php if(\dash\request::get('q')) { echo 'apply'; }?>">
+                        <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">
                             <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" data-default data-pass='submit' autocomplete='off' autofocus>
                             <button class="addon btn light3 s0"><i class="sf-search"></i></button>
                         </div>

@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::this());
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 		if($q)
 		{
 			if(\dash\validate::ir_domain($q, false))

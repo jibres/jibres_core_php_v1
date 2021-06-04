@@ -26,7 +26,7 @@ class view
 			// 'bill'   => \dash\request::get('bill'),
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list          = \lib\app\nic_contact\search::list($search_string, $args);
 		$filterBox     = \lib\app\nic_contact\search::filter_message();

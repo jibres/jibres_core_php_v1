@@ -17,7 +17,7 @@ class view
 
 
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 		if($search_string)
 		{
 			$myTitle .= ' | '. T_('Search for :search', ['search' => $search_string]);
@@ -58,7 +58,7 @@ class view
 
 		unset($args['page']);
 
-		$dataTable = \dash\db\telegrams::search(\dash\request::get('q'), $args);
+		$dataTable = \dash\db\telegrams::search(\dash\validate::search_string(), $args);
 
 		// if(is_array($dataTable))
 		// {

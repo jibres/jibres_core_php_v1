@@ -13,7 +13,7 @@ class view
 			'sort'       => \dash\request::get('sort'),
 		];
 
-		$result      = \dash\app\files\search::list(\dash\request::get('q'), $args);
+		$result      = \dash\app\files\search::list(\dash\validate::search_string(), $args);
 
 		\dash\notif::meta(['is_filtered' => \dash\app\files\search::is_filtered()]);
 

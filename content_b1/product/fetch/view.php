@@ -18,7 +18,7 @@ class view
 			$args['tag_id'] = $tag;
 		}
 
-		$search_query = \dash\request::get('q');
+		$search_query = \dash\validate::search_string();
 
 		$myProductList  = \lib\app\product\search::variant_list($search_query, $args);
 		$filter_message = \lib\app\product\search::filter_message();

@@ -24,7 +24,7 @@ class view
 			'caller'    => 'enter_NewAccountLogin',
 		];
 
-		$search_string   = \dash\validate::search(\dash\request::get('q'));
+		$search_string   = \dash\validate::search_string();
 		$logList = \dash\app\log\search::list($search_string, $args);
 
 		\dash\data::dataTable($logList);

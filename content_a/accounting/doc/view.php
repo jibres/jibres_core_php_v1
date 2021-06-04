@@ -71,7 +71,7 @@ class view
 			$args['export'] = true;
 		}
 
-		$dataTable = \lib\app\tax\doc\search::list(\dash\request::get('q'), $args);
+		$dataTable = \lib\app\tax\doc\search::list(\dash\validate::search_string(), $args);
 
 		if(\dash\request::get('export'))
 		{

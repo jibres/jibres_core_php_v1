@@ -57,7 +57,7 @@ class inquiry
 		}
 
 		$f = \dash\request::get('f');
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 
 		// $f = \dash\validate::id($f, false);
 		$q = \dash\validate::search($q, false);

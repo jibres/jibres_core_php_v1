@@ -113,7 +113,7 @@ class view
 		$args['form_id']    = \dash\request::get('id');
 		$args['export']     = true; // set 100 limit
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 
 		$dataTable = \lib\app\form\answerdetail\search::list($q, $args, $hot_query);
 

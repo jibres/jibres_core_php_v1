@@ -81,7 +81,7 @@ class view
 			$args['export']         = true;
 		}
 
-		$dataTable = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args);
+		$dataTable = \lib\app\tax\docdetail\search::list(\dash\validate::search_string(), $args);
 		\dash\data::dataTable($dataTable);
 
 
@@ -97,7 +97,7 @@ class view
 			$args_draft['summary_detail'] = false;
 
 
-			$dataTableDraft = \lib\app\tax\docdetail\search::list(\dash\request::get('q'), $args_draft);
+			$dataTableDraft = \lib\app\tax\docdetail\search::list(\dash\validate::search_string(), $args_draft);
 			\dash\data::dataTableDraft($dataTableDraft);
 		}
 

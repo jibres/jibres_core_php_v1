@@ -28,7 +28,7 @@ class view
 			'hu'    => \dash\request::get('hu'),
 		];
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 
 		$dataTable = \lib\app\cart\search::list($q, $args);
 

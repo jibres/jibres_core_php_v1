@@ -22,7 +22,7 @@ class view
 		];
 
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \lib\app\business_domain\action::list($search_string, $args);
 

@@ -46,7 +46,7 @@ class view
 
 		];
 
-		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$search_string = \dash\validate::search_string();
 		$list          = \lib\app\business_domain\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);

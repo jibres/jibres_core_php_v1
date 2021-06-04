@@ -63,7 +63,7 @@ class view
 
 		$args['limit'] = 200;
 
-		$dataTable = \lib\app\tax\doc\search::list(\dash\request::get('q'), $args);
+		$dataTable = \lib\app\tax\doc\search::list(\dash\validate::search_string(), $args);
 
 
 		\dash\data::dataTableAll($dataTable);

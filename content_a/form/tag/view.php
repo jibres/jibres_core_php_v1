@@ -25,7 +25,7 @@ class view
 		];
 
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		// work with tag list
 		$myTagList = \lib\app\form\tag\search::list($search_string, $args);

@@ -46,7 +46,7 @@ class view
 		}
 
 
-		$search_string   = \dash\request::get('q');
+		$search_string   = \dash\validate::search_string();
 
 		$dataTable = \dash\app\log::list($search_string, $args);
 		// select  and then update

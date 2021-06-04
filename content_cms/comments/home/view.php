@@ -39,7 +39,7 @@ class view
 		}
 
 
-		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$search_string = \dash\validate::search_string();
 		$postList      = \dash\app\comment\search::list($search_string, $args);
 
 		\dash\data::dataTable($postList);

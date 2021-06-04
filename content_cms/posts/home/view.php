@@ -72,7 +72,7 @@ class view
 			'r'       => \dash\request::get('r'),
 		];
 
-		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$search_string = \dash\validate::search_string();
 		$postList      = \dash\app\posts\search::list($search_string, $args);
 
 		\dash\data::dataTable($postList);

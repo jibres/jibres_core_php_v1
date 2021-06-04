@@ -19,7 +19,7 @@ class view
 
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \dash\app\log\search::list($search_string, $args);
 

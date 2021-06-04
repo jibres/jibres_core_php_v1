@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 		// show dropdown of product list
-		$result = \lib\app\tag\search::list(\dash\request::get('q'), []);
+		$result = \lib\app\tag\search::list(\dash\validate::search_string(), []);
 
 
 		if(!is_array($result))

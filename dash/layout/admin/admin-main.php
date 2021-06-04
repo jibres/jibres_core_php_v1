@@ -15,7 +15,7 @@
 		}
 		else
 		{
-		  if(\dash\data::isFiltered() || \dash\request::get('q'))
+		  if(\dash\data::isFiltered() || \dash\validate::search_string())
 		  {
 		    require_once(core. 'layout/search/search-bar.php');
 		    require_once(core. 'layout/search/search-empty.php');

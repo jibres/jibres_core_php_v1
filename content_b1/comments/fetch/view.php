@@ -26,7 +26,7 @@ class view
 		}
 
 
-		$result      = \dash\app\comment\search::list(\dash\request::get('q'), $args);
+		$result      = \dash\app\comment\search::list(\dash\validate::search_string(), $args);
 
 		\dash\notif::meta(['is_filtered' => \dash\app\comment\search::is_filtered()]);
 

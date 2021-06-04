@@ -65,7 +65,7 @@ class view
 			$args['limit'] = 30;
 		}
 
-		$search_string = \dash\validate::search(\dash\request::get('q'));
+		$search_string = \dash\validate::search_string();
 
 
 		if($search_string && ctype_digit($search_string) && mb_strlen($search_string) === 13)

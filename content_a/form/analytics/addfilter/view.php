@@ -27,7 +27,7 @@ class view
 		$args['sort']    = 'id';
 		$args['order']   = 'desc';
 		$args['table_name'] = $table_name;
-		$q               = \dash\request::get('q');
+		$q               = \dash\validate::search_string();
 
 
 		$dataTable = \lib\app\form\view\search_table::list($q, $args);

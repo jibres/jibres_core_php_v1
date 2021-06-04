@@ -16,7 +16,7 @@ class stepGuide
 		$choose_link = null;
 		$setting_link = null;
 
-		if(\dash\request::get('q'))
+		if(\dash\validate::search_string())
 		{
 			$search = 'complete';
 			$choose = 'current';

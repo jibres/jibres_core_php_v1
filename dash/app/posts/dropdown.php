@@ -11,7 +11,7 @@ class dropdown
 			return;
 		}
 
-		$query = \dash\validate::search(\dash\request::get('q'), false);
+		$query = \dash\validate::search(\dash\validate::search_string(), false);
 		if(!$query)
 		{
 			return;
@@ -95,7 +95,7 @@ class dropdown
 		$meta         = [];
 		$msg          = T_("Posts not found."). ' ';
 
-		$query = \dash\validate::search(\dash\request::get('q'), false);
+		$query = \dash\validate::search(\dash\validate::search_string(), false);
 
 
 		if($query)

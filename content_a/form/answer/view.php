@@ -21,7 +21,7 @@ class view
 		$args['order']   = 'desc';
 		$args['form_id'] = \dash\request::get('id');
 		$args['tag_id'] = \dash\request::get('tagid');
-		$q               = \dash\request::get('q');
+		$q               = \dash\validate::search_string();
 
 		$dataTable = \lib\app\form\answer\search::list($q, $args);
 

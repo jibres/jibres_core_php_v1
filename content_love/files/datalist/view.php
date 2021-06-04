@@ -30,7 +30,7 @@ class view
 			'ratio' => \dash\request::get('ratio'),
 		];
 
-		$postList      = \dash\app\files\search::list(\dash\request::get('q'), $args);
+		$postList      = \dash\app\files\search::list(\dash\validate::search_string(), $args);
 
 		\dash\data::dataTable($postList);
 

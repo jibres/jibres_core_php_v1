@@ -20,7 +20,7 @@ class site_list
 		$meta         = [];
 		$msg          = T_("Product not found."). ' ';
 
-		$query = \dash\validate::search(\dash\request::get('q'), false);
+		$query = \dash\validate::search(\dash\validate::search_string(), false);
 		if(!$query)
 		{
 			$query = \dash\validate::search(\dash\request::get('term'), false);

@@ -20,7 +20,7 @@ class view
 
 		\dash\temp::set('disableDomainFetch', true);
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \lib\app\nic_contact\search::get_list($search_string, $args);
 

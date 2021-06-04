@@ -54,7 +54,7 @@ class view
 			$args['get_unprocessed'] = true;
 		}
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		\lib\backlink::set_order();
 

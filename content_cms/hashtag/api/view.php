@@ -8,10 +8,10 @@ class view
 	{
 		$new_list = [];
 
-		if(\dash\request::get('q'))
+		if(\dash\validate::search_string())
 		{
 			// show dropdown of product list
-			$list = \dash\app\terms\search::list(\dash\request::get('q'), ['type' => 'tag', 'pagination' => false, 'limit' => 20, 'sort' => 'title', 'order' => 'asc']);
+			$list = \dash\app\terms\search::list(\dash\validate::search_string(), ['type' => 'tag', 'pagination' => false, 'limit' => 20, 'sort' => 'title', 'order' => 'asc']);
 			if(!is_array($list))
 			{
 				$list = [];

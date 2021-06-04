@@ -10,7 +10,7 @@ class search
 	 */
 	public static function search_in_all()
 	{
-		$query = \dash\validate::search(\dash\request::get('q'), false);
+		$query = \dash\validate::search(\dash\validate::search_string(), false);
 
 		if(!$query)
 		{
@@ -80,7 +80,7 @@ class search
 	 */
 	public static function search_in_setting()
 	{
-		$query = \dash\validate::search(\dash\request::get('q'), false);
+		$query = \dash\validate::search(\dash\validate::search_string(), false);
 
 		if(!$query)
 		{

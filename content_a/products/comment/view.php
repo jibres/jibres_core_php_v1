@@ -9,7 +9,7 @@ class view extends \content_cms\comments\home\view
 
 		$id            = \dash\request::get('id');
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$args =
 		[

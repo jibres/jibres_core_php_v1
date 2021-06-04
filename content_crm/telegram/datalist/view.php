@@ -26,7 +26,7 @@ class view
 
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \dash\app\telegram\search::list($search_string, $args);
 

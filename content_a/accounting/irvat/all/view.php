@@ -28,7 +28,7 @@ class view
 			'official' => \dash\request::get('official'),
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \lib\app\irvat\search::list($search_string, $args);
 

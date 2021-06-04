@@ -26,7 +26,7 @@ class view
 			'r'       => \dash\request::get('r'),
 		];
 
-		$result = \dash\app\posts\search::list(\dash\request::get('q'), $args);
+		$result = \dash\app\posts\search::list(\dash\validate::search_string(), $args);
 
 		$isFiltered = \dash\app\posts\search::is_filtered();
 		\dash\notif::meta(['is_filtered' => $isFiltered]);

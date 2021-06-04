@@ -26,7 +26,7 @@ class view
 			// 'bill'   => \dash\request::get('bill'),
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \lib\app\nic_log\search::list($search_string, $args);
 

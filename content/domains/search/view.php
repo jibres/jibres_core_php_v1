@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::kingdom(). '/domains');
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 		$q = \dash\validate::domain_root($q);
 		if($q)
 		{

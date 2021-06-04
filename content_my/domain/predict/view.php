@@ -30,7 +30,7 @@ class view
 			'autorenew' => \dash\request::get('autorenew'),
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list          = \lib\app\nic_domain\search::list($search_string, $args);
 		$filterBox     = \lib\app\nic_domain\search::filter_message();

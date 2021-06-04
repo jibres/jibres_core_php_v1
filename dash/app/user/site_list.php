@@ -20,7 +20,7 @@ class site_list
 		$meta         = [];
 		$msg          = T_("Customer not found."). ' ';
 
-		$q = \dash\validate::search(\dash\request::get('q'));
+		$q = \dash\validate::search_string();
 
 		if($q)
 		{

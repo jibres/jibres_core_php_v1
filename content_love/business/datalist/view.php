@@ -28,7 +28,7 @@ class view
 		];
 
 
-		$search_string   = \dash\validate::search(\dash\request::get('q'));
+		$search_string   = \dash\validate::search_string();
 		$list = \lib\app\store\search::list_admin($search_string, $args);
 
 		\dash\data::dataTable($list);

@@ -16,7 +16,7 @@ class view
 
 		$args = [];
 
-		$q = \dash\request::get('q');
+		$q = \dash\validate::search_string();
 
 		$dataTable = \dash\app\log_notif\search::list($q, $args);
 

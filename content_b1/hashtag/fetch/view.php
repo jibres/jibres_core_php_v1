@@ -14,7 +14,7 @@ class view
 
 		];
 
-		$result      = \dash\app\terms\search::list(\dash\request::get('q'), $args);
+		$result      = \dash\app\terms\search::list(\dash\validate::search_string(), $args);
 
 		\dash\notif::meta(['is_filtered' => \dash\app\terms\search::is_filtered()]);
 

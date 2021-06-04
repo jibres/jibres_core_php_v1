@@ -29,7 +29,7 @@ class view
 
 		\dash\temp::set('disableDomainFetch', true);
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \lib\app\nic_domain\search::list_admin($search_string, $args);
 

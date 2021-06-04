@@ -25,7 +25,7 @@ class view
 			'show_type'  => 'all',
 		];
 
-		$search_string   = \dash\validate::search(\dash\request::get('q'));
+		$search_string   = \dash\validate::search_string();
 
 		$userList = \dash\app\user\search::list($search_string, $args);
 

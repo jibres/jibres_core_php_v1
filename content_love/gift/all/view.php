@@ -30,7 +30,7 @@ class view
 			'forusein' => \dash\request::get('forusein'),
 		];
 
-		$search_string = \dash\request::get('q');
+		$search_string = \dash\validate::search_string();
 
 		$list = \lib\app\gift\search::list($search_string, $args);
 
