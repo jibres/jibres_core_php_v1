@@ -133,6 +133,7 @@ class notif
 	public static function debug($_data)
 	{
 		self::add_detail('debug', $_data);
+		@header("X-Debugger: pre");
 	}
 
 	public static function create($_text, $_meta = [])
