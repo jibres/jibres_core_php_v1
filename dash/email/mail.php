@@ -20,10 +20,10 @@ class mail
 
 		// in normal condition send it from local
 		// but because of network problem in Iran we need broker!
-		// self::smtp($_args, $providerData);
+		// return self::smtp($_args, $providerData);
 
 		// send to broker and broker send to service
-		\dash\email\broker::smtp($_args, $providerData);
+		return \dash\email\broker::transfer($_args, $providerData);
 	}
 
 
@@ -110,6 +110,7 @@ class mail
 		// select service
 		$provider['via'] = 'sendinblue';
 		// load service secrets
+		$provider['broker_token']  = \dash\setting\whisper::say('email/sendinblue', 'broker_token');
 		$provider['smtp_host']     = \dash\setting\whisper::say('email/sendinblue', 'smtp_host');
 		$provider['smtp_username'] = \dash\setting\whisper::say('email/sendinblue', 'smtp_username');
 		$provider['smtp_password'] = \dash\setting\whisper::say('email/sendinblue', 'smtp_password');
