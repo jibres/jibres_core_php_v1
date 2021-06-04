@@ -30,19 +30,25 @@ class model
 				return false;
 			}
 
-
-
 			\lib\sitebuilder\add_section::preview($page_id, $key);
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 		}
 
 		if(\dash\request::post('select') === 'adding')
 		{
 			$url = \lib\sitebuilder\add_section::select_adding($page_id);
 
+
 			if($url)
 			{
+				\dash\redirect::pwd();
 				\dash\redirect::to($url);
 			}
+
 		}
 	}
 }
