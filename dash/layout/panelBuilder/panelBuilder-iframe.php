@@ -5,6 +5,9 @@ if(\dash\data::siteBuilder_url())
 {
   $page_url = \dash\data::siteBuilder_url();
 }
+var_dump(\dash\data::currentSectionList());
+var_dump(\dash\data::currentPageDetail());
+return;
 
   echo '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';
   echo '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';

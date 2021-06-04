@@ -10,6 +10,8 @@ class controller
 
 		// load post detail
 		\content_site\controller::load_current_page_detail();
+
+
 	}
 
 

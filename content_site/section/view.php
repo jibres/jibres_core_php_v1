@@ -16,6 +16,8 @@ class view
 		$section_list = self::show_in_group($section_list);
 		\dash\data::sectionList($section_list);
 
+		\content_site\controller::load_current_section_list();
+
 	}
 
 

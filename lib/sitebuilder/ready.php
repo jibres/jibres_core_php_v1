@@ -27,6 +27,26 @@ class ready
 					$result[$key] = $value;
 					break;
 
+				// hide this field
+				case 'duplicate':
+				case 'titlesetting':
+				case 'background':
+				case 'avand':
+				case 'margin':
+				case 'padding':
+				case 'radius':
+				case 'ratio':
+				case 'meta':
+				case 'ifloginshow':
+				case 'ifpermissionshow':
+				case 'type':
+				case 'puzzle':
+				case 'infoposition':
+				case 'effect':
+				case 'detail':
+				case 'text':
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

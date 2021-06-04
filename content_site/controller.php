@@ -27,13 +27,7 @@ class controller
 	}
 
 
-	/**
-	 * Loads a current page detail.
-	 * Check have id and this is is valid and load post detail
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function load_current_page_detail()
+	private static function page_id()
 	{
 		$page_id = \dash\request::get('id');
 
@@ -43,6 +37,20 @@ class controller
 		{
 			\dash\header::status(404);
 		}
+
+		return $page_id;
+	}
+
+
+	/**
+	 * Loads a current page detail.
+	 * Check have id and this is is valid and load post detail
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function load_current_page_detail()
+	{
+		$page_id = self::page_id();
 
 		$load = \lib\sitebuilder\get::load_page_detail($page_id);
 
@@ -54,6 +62,19 @@ class controller
 		\dash\data::currentPageDetail($load);
 
 		return $load;
+
+	}
+
+
+	public static function load_current_section_list()
+	{
+		$page_id = self::page_id();
+
+		$section_list = \lib\sitebuilder\get::body_section_list($page_id);
+
+		\dash\data::currentSectionList($section_list);
+
+		return $section_list;
 
 	}
 }
