@@ -192,7 +192,7 @@ class pagination
 		}
 		else
 		{
-			if($page + 1 < $total_page)
+			if($page + 1 <= $total_page)
 			{
 				$next = $page + 1;
 			}
