@@ -12,7 +12,7 @@ class sendgrid
 	{
 		if(self::$load === null)
 		{
-			$json = \dash\file::read(__DIR__. '/secret/sendgrid.secret.json');
+			$json = \dash\file::read(__DIR__. '/secret/email/sendgrid.secret.json');
 
 			if($json && is_string($json))
 			{
