@@ -14,6 +14,9 @@ class mail
 		// prepare args
 		$emailData = self::prepare($_args);
 
+		// save log in history
+		\dash\email\history::set($emailData);
+
 		// send email
 		// detect service
 		// detect broker
@@ -91,9 +94,6 @@ class mail
 			{
 				$mail->AltBody = $opt['altbody'];
 			}
-
-			// save log in history
-			\dash\email\history::set($_args);
 
 			$mail->send();
 			// echo 'Message has been sent';
