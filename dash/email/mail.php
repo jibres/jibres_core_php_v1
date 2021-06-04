@@ -9,14 +9,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class mail
 {
-	public static function sendPHPMailerBroker($_args)
+	public static function smtp_sendinblue($_args)
 	{
 		// get settings
-		\dash\setting\sendgrid::smtp_host();
-		\dash\setting\sendgrid::smtp_username();
-		\dash\setting\sendgrid::smtp_password();
-		\dash\setting\sendgrid::smtp_port();
+
 	}
+
 
 	public static function sendPHPMailer($_args)
 	{
@@ -37,20 +35,23 @@ class mail
 
 			//Send using SMTP
 			$mail->isSMTP();
-
-			//Set the SMTP server to send through
-			$mail->Host       = 'smtp-relay.sendinblue.com';
 			//Enable SMTP authentication
 			$mail->SMTPAuth   = true;
-			//SMTP username
-			$mail->Username   = 'mr.javad.adib@gmail.com';
-			//SMTP password
-			$mail->Password   = 'Vx5k2LbmBXjd90Ep';
 			//Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-			//TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-			$mail->Port       = 587;
-			// check and find email provider
+
+			$via = 'sendinblue';
+			if($via === 'sendinblue')
+			{
+				//Set the SMTP server to send through
+				$mail->Host     = \dash\setting\whisper::say('email/sendinblue', 'smtp_host');
+				//SMTP username
+				$mail->Username = \dash\setting\whisper::say('email/sendinblue', 'smtp_username');
+				//SMTP password
+				$mail->Password = \dash\setting\whisper::say('email/sendinblue', 'smtp_password');
+				//TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+				$mail->Port     = \dash\setting\whisper::say('email/sendinblue', 'smtp_port');
+			}
 
 
 			//Recipients
