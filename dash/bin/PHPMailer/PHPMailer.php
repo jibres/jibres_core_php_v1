@@ -370,7 +370,7 @@ class PHPMailer
      *
      * @var int
      */
-    public $Timeout = 300;
+    public $Timeout = 30;
 
     /**
      * Comma separated list of DSN notifications
