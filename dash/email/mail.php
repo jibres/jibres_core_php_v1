@@ -9,14 +9,25 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class mail
 {
-	public static function smtp_sendinblue($_args)
+	public static function send($_args)
 	{
-		// get settings
+		// send email
+		// detect service
+		// detect broker
+		// and everything to send email
 
+		$providerData = self::emailProviderSelector();
+
+		// in normal condition send it from local
+		// but because of network problem in Iran we need broker!
+		// self::smtp($_args, $providerData);
+
+		// send to broker and broker send to service
+		\dash\email\broker::smtp($_args, $providerData);
 	}
 
 
-	public static function sendPHPMailer($_args)
+	private static function smtp($_args, $_provider)
 	{
 		$opt = self::prepare($_args);
 
@@ -40,19 +51,16 @@ class mail
 			//Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
-			$via = 'sendinblue';
-			if($via === 'sendinblue')
-			{
-				//Set the SMTP server to send through
-				$mail->Host     = \dash\setting\whisper::say('email/sendinblue', 'smtp_host');
-				//SMTP username
-				$mail->Username = \dash\setting\whisper::say('email/sendinblue', 'smtp_username');
-				//SMTP password
-				$mail->Password = \dash\setting\whisper::say('email/sendinblue', 'smtp_password');
-				//TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-				$mail->Port     = \dash\setting\whisper::say('email/sendinblue', 'smtp_port');
-			}
-
+			// fill provider data
+			$via = $_provider['via'];
+			//Set the SMTP server to send through
+			$mail->Host     = $_provider['smtp_host'];
+			//SMTP username
+			$mail->Username = $_provider['smtp_username'];
+			//SMTP password
+			$mail->Password = $_provider['smtp_password'];
+			//TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+			$mail->Port     = $_provider['smtp_port'];
 
 			//Recipients
 			$mail->setFrom($opt['from'], $opt['fromTitle']);
@@ -96,6 +104,21 @@ class mail
 	}
 
 
+	private static function emailProviderSelector()
+	{
+		$provider = [];
+		// select service
+		$provider['via'] = 'sendinblue';
+		// load service secrets
+		$provider['smtp_host']     = \dash\setting\whisper::say('email/sendinblue', 'smtp_host');
+		$provider['smtp_username'] = \dash\setting\whisper::say('email/sendinblue', 'smtp_username');
+		$provider['smtp_password'] = \dash\setting\whisper::say('email/sendinblue', 'smtp_password');
+		$provider['smtp_port']     = \dash\setting\whisper::say('email/sendinblue', 'smtp_port');
+
+		return $provider;
+	}
+
+
 	private static function prepare($_args)
 	{
 		$default_args =
@@ -119,7 +142,7 @@ class mail
 	}
 
 
-	public static function sampleEmail($_to = null)
+	public static function sample($_to = null)
 	{
 		$sample =
 		[
@@ -136,7 +159,7 @@ class mail
 			$sample['to'] = $_to;
 		}
 
-		return self::sendPHPMailer($sample);
+		return self::send($sample);
 	}
 }
 ?>

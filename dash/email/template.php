@@ -74,7 +74,7 @@ class template
 
 		if($_send)
 		{
-			return \dash\email\mail::sendPHPMailer($args);
+			return \dash\email\mail::send($args);
 		}
 		// show preview
 		return $args;
