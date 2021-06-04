@@ -21,7 +21,9 @@ class mail
 			//Enable verbose debug output
 			if(\dash\url::content() === 'love' && \dash\url::module() === 'email')
 			{
-				$mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+				// $mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+				// to debug connection
+				$mail->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_CONNECTION;
 			}
 
 			//Send using SMTP
