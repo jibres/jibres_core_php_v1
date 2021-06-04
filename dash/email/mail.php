@@ -72,6 +72,9 @@ class mail
 				$mail->AltBody = $opt['altbody'];
 			}
 
+			// save log in history
+			\dash\email\history::set($_args);
+
 			$mail->send();
 			// echo 'Message has been sent';
 			return true;
