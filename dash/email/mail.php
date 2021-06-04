@@ -26,10 +26,10 @@ class mail
 
 		// in normal condition send it from local
 		// but because of network problem in Iran we need broker!
-		return self::smtp($emailData, $providerData);
+		// return self::smtp($emailData, $providerData);
 
 		// send to broker and broker send to service
-		// return \dash\email\broker::transfer($emailData, $providerData);
+		return \dash\email\broker::transfer($emailData, $providerData);
 	}
 
 
