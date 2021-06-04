@@ -11,6 +11,9 @@ class mail
 {
 	public static function send($_args)
 	{
+		// prepare args
+		$emailData = self::prepare($_args);
+
 		// send email
 		// detect service
 		// detect broker
@@ -20,17 +23,16 @@ class mail
 
 		// in normal condition send it from local
 		// but because of network problem in Iran we need broker!
-		// return self::smtp($_args, $providerData);
+		return self::smtp($emailData, $providerData);
 
 		// send to broker and broker send to service
-		return \dash\email\broker::transfer($_args, $providerData);
+		// return \dash\email\broker::transfer($emailData, $providerData);
 	}
 
 
 	private static function smtp($_args, $_provider)
 	{
-		$opt = self::prepare($_args);
-
+		$opt = $_args;
 		//Instantiation and passing `true` enables exceptions
 		$mail = new PHPMailer(true);
 
@@ -108,7 +110,8 @@ class mail
 	{
 		$provider = [];
 		// select service
-		$provider['via'] = 'sendinblue';
+		$provider['via'] = 'smtp';
+		$provider['provider'] = 'sendinblue';
 		// load service secrets
 		$provider['broker_token']  = \dash\setting\whisper::say('email/sendinblue', 'broker_token');
 		$provider['smtp_host']     = \dash\setting\whisper::say('email/sendinblue', 'smtp_host');
