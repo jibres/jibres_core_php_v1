@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_('Add new line'));
 
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/site'. \dash\request::full_get());
+		\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get());
 
 
 		$section_list = controller::section_list();
@@ -44,6 +44,16 @@ class view
 		}
 
 		return $new_list;
+	}
+
+
+	public static function default_view_config()
+	{
+		\content_site\controller::load_current_section_list();
+
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
+
 	}
 }
 ?>
