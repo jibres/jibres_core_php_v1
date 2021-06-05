@@ -12,30 +12,17 @@
 
   <nav class="sections items">
     <ul>
-      <li>
-        <a class="item f" href="<?php echo \dash\url::here() ?>/section/image">
-          <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
-          <div class="key"><?php echo T_("Section") ?> 1</div>
-          <?php echo \dash\utility\icon::svg('hide', 'minor'); ?>
-          <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
-        </a>
-      </li>
-      <li>
-        <a class="item f" href="<?php echo \dash\url::here() ?>/section/gallery">
-          <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
-          <div class="key"><?php echo T_("Section") ?> 2</div>
-          <?php echo \dash\utility\icon::svg('view', 'minor'); ?>
-          <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
-        </a>
-      </li>
-      <li>
-        <a class="item f" href="<?php echo \dash\url::here() ?>/section/gallery">
-          <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
-          <div class="key"><?php echo T_("Section") ?> 3</div>
-          <?php echo \dash\utility\icon::svg('view', 'minor'); ?>
-          <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
-        </a>
-      </li>
+      <?php foreach (\dash\data::currentSectionList() as $key => $value) {?>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
+            <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
+            <div class="key"><?php echo a($value, 'preview', 'key') ?></div>
+            <?php echo \dash\utility\icon::svg('view', 'minor'); /* hide */ ?>
+            <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
+          </a>
+        </li>
+      <?php } //endfor ?>
+
       <li>
         <a class="item f" href="<?php echo \dash\url::here(). '/section'. \dash\request::full_get(); ?>">
           <?php echo \dash\utility\icon::svg('add'); ?>
