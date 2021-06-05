@@ -15,7 +15,7 @@ class add_section
 
 		$page_id = \dash\coding::decode($_page_id);
 
-		$section_list = \lib\sitebuilder\get::body_section_list($_page_id);
+		$section_list = \lib\sitebuilder\get::body_section_list($_page_id, 'with_adding');
 
 		$end_record = end($section_list);
 
@@ -25,8 +25,8 @@ class add_section
 		{
 			// update current preview link
 			$section_id = $end_record['id'];
-			$update = ['preview' => $preview];
-			\lib\db\pagebuilder\update::record($update, $section_id);
+
+			\lib\sitebuilder\section_tools::patch_field($section_id, 'preview', $preview);
 		}
 		else
 		{
@@ -50,7 +50,7 @@ class add_section
 
 		$page_id = \dash\coding::decode($_page_id);
 
-		$section_list = \lib\sitebuilder\get::body_section_list($_page_id);
+		$section_list = \lib\sitebuilder\get::body_section_list($_page_id, 'with_adding');
 
 		$end_record = end($section_list);
 
@@ -60,8 +60,8 @@ class add_section
 			unset($end_record['preview']['adding']);
 
 			$section_id = $end_record['id'];
-			$update = ['preview' => json_encode($end_record['preview'])];
-			\lib\db\pagebuilder\update::record($update, $section_id);
+
+			\lib\sitebuilder\section_tools::patch_field($section_id, 'preview', json_encode($end_record['preview']));
 
 
 			$result = ['sid' => $section_id, 'section' => $end_record['preview']['key']];

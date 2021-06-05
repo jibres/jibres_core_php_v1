@@ -17,7 +17,8 @@
           <a class="item f" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
             <img src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
             <div class="key"><?php echo a($value, 'preview', 'key') ?></div>
-            <?php echo \dash\utility\icon::svg('view', 'minor'); /* hide */ ?>
+
+            <?php if(a($value, 'status') === 'draft'){ echo \dash\utility\icon::svg('hide', 'minor'); }else{ echo \dash\utility\icon::svg('view', 'minor');}  ?>
             <?php echo \dash\utility\icon::svg('DragHandle', 'minor'); ?>
           </a>
         </li>
