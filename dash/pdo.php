@@ -18,13 +18,14 @@ class pdo
 		$default_options =
 		[
 			// run mysqli_multi_query
-			'multi_query'  => false,
-			'database'     => null,
-			'bind'         => null, // buind query
+			'multi_query'      => false,
+			'database'         => null,
+			'bind'             => null, // buind query
 
 			// if have error in connection or anything ignore it and return false
-			'ignore_error' => false,
-			'fetch_all'    => false,
+			'ignore_error'     => false,
+			'fetch_all'        => false,
+			'transaction_mode' => false,
 
 
 		];
@@ -60,6 +61,11 @@ class pdo
 		\dash\pdo\connection::connect($myDbFuel);
 
 		$link = \dash\pdo\connection::link();
+
+		if($_options['transaction_mode'])
+		{
+			return $link;
+		}
 
 		// check the mysql link
 		if(!$link)
@@ -198,19 +204,30 @@ class pdo
 	/**
 	 * transaction
 	 */
-	public static function transaction($_db_fuel = true)
+	public static function transaction($_db_fuel = null)
 	{
-		if($_link === null)
-		{
-			$_link = \dash\pdo\connection::link();
-		}
+		$link = self::query(null, [], $_db_fuel, ['transaction_mode' => true]);
 
-		if(!$_link)
+		if(!$link)
 		{
 			return false;
 		}
 
-		return $_link->beginTransaction();
+		try
+		{
+			return $link->beginTransaction();
+		}
+		catch (\Exception $e)
+		{
+
+			\dash\pdo\log::log($e->getMessage());
+
+			\dash\notif::error(T_("Can not start transaction on PDO link!"));
+
+			return false;
+		}
+
+
 
 	}
 
@@ -218,19 +235,29 @@ class pdo
 	/**
 	 * commit
 	 */
-	public static function commit($_db_fuel = true)
+	public static function commit($_db_fuel = null)
 	{
-		if($_link === null)
-		{
-			$_link = \dash\pdo\connection::link();
-		}
+		$link = self::query(null, [], $_db_fuel, ['transaction_mode' => true]);
 
-		if(!$_link)
+		if(!$link)
 		{
 			return false;
 		}
 
-		return $_link->commit();
+		try
+		{
+			return $link->commit();
+		}
+		catch (\Exception $e)
+		{
+
+			\dash\pdo\log::log($e->getMessage());
+
+			\dash\notif::error(T_("Can not commit PDO link!"));
+
+			return false;
+		}
+
 
 	}
 
@@ -238,20 +265,28 @@ class pdo
 	/**
 	 * rollback
 	 */
-	public static function rollback($_db_fuel = true)
+	public static function rollback($_db_fuel = null)
 	{
-		if($_link === null)
-		{
-			$_link = \dash\pdo\connection::link();
-		}
+		$link = self::query(null, [], $_db_fuel, ['transaction_mode' => true]);
 
-		if(!$_link)
+		if(!$link)
 		{
 			return false;
 		}
 
-		return $_link->rollBack();
+		try
+		{
+			return $link->rollBack();
+		}
+		catch (\Exception $e)
+		{
 
+			\dash\pdo\log::log($e->getMessage());
+
+			\dash\notif::error(T_("Can not rollback PDO link!"));
+
+			return false;
+		}
 	}
 
 
@@ -274,7 +309,21 @@ class pdo
 			return false;
 		}
 
-		return $_link->lastInsertId();
+		try
+		{
+			return $_link->lastInsertId();
+		}
+		catch (\Exception $e)
+		{
+
+			\dash\pdo\log::log($e->getMessage());
+
+			\dash\notif::error(T_("Can not get insert id in PDO link!"));
+
+			return false;
+		}
+
+
 
 	}
 
