@@ -3,6 +3,9 @@
 $result     = '';
 $last_group = null;
 
+$adding_detail = \dash\data::addingDetail();
+$adding_key = a($adding_detail, 'preview', 'key');
+
 foreach (\dash\data::sectionList() as $group => $items)
 {
   $result .= '<label>'. $group. '</label>';
@@ -10,11 +13,21 @@ foreach (\dash\data::sectionList() as $group => $items)
   $result .= '<ul>';
   foreach ($items as $item)
   {
+    $adding_this = false;
+    if(a($item, 'key') === $adding_key)
+    {
+      $adding_this = true;
+    }
+
     $data = json_encode(['key' => a($item, 'key'), 'section' => 'preview']);
     $result .= '<li>';
     $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
     $result .= '<img src="'. a($item, 'icon'). '">';
     $result .= '<div class="key">'. a($item, 'title'). '</div>';
+    if($adding_this)
+    {
+      $result .= '<img src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+    }
     $result .= '</a>';
     $result .= '</li>';
   }

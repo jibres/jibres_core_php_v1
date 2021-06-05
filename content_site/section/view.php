@@ -23,6 +23,7 @@ class view
 			$end_section = end($saved_section);
 			if(isset($end_section['preview']['adding']))
 			{
+				\dash\data::addingDetail($end_section);
 				\dash\data::adding(true);
 			}
 		}
