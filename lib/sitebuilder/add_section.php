@@ -85,7 +85,7 @@ class add_section
 		$insert['related_id']  = a($_args, 'page_id');
 		$insert['title']       = null;
 		$insert['preview']     = a($_args, 'preview');
-		$insert['status']      = 'draft';
+		$insert['status']      = 'enable';
 		$insert['datecreated'] = date("Y-m-d H:i:s");
 
 		$get_last_sort_args =
