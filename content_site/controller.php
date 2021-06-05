@@ -66,11 +66,11 @@ class controller
 	}
 
 
-	public static function load_current_section_list()
+	public static function load_current_section_list($_mode = null)
 	{
 		$page_id = self::page_id();
 
-		$section_list = \lib\sitebuilder\get::body_section_list($page_id);
+		$section_list = \lib\sitebuilder\get::body_section_list($page_id, $_mode);
 
 		\dash\data::currentSectionList($section_list);
 

@@ -43,7 +43,7 @@ class get
 
 
 
-	public static function body_section_list($_page_id)
+	public static function body_section_list($_page_id, $_mode = null)
 	{
 		$page_id = \dash\coding::decode($_page_id);
 
@@ -60,6 +60,24 @@ class get
 		}
 
 		$section_list = array_map(['\\lib\\sitebuilder\\ready', 'section_list'], $section_list);
+
+		if($_mode !== 'with_adding')
+		{
+			$new_list = [];
+			foreach ($section_list as $key => $value)
+			{
+				if(isset($value['preview']['adding']))
+				{
+					// nothing
+				}
+				else
+				{
+					$new_list[] = $value;
+				}
+			}
+
+			$section_list = $new_list;
+		}
 
 		return $section_list;
 

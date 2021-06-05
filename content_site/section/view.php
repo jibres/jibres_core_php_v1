@@ -16,7 +16,7 @@ class view
 		$section_list = self::show_in_group($section_list);
 		\dash\data::sectionList($section_list);
 
-		$saved_section = \content_site\controller::load_current_section_list();
+		$saved_section = \content_site\controller::load_current_section_list('with_adding');
 
 		if(is_array($saved_section))
 		{
