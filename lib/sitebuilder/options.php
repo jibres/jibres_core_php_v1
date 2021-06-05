@@ -14,7 +14,7 @@ class options
 
 			if(is_callable($fn))
 			{
-				$html .= call_user_func($fn, [$_section_detail]);
+				$html .= call_user_func($fn, $_section_detail);
 			}
 		}
 

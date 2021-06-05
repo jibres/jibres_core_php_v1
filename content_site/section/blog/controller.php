@@ -21,7 +21,7 @@ class controller
 		$options =
 		[
 			'padding',
-			'margin',
+			'radius',
 			'title',
 		];
 
