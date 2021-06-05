@@ -42,7 +42,7 @@ class padding
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
-    	$html .= '<input type="hidden" name="set_padding" value="1">';
+    	$html .= '<input type="hidden" name="option" value="padding">';
 		$html .= "<label for='padding'>$title</label>";
         $html .= '<select name="padding" class="select22" id="padding">';
 

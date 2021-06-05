@@ -5,6 +5,15 @@ namespace lib\db\pagebuilder;
 class get
 {
 
+	public static function by_id_lock(int $_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.id = :id LIMIT 1 FOR UPDATE";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		return $result;
+	}
+
 	public static function by_id(int $_id)
 	{
 		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.id = $_id LIMIT 1";
