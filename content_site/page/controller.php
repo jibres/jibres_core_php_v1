@@ -6,10 +6,8 @@ class controller
 {
 	public static function routing()
 	{
-		if(!\dash\request::get('id'))
-		{
-			\dash\redirect::to(\dash\url::here());
-		}
+		\content_site\controller::load_current_page_detail();
+		\content_site\controller::load_current_section_list();
 	}
 }
 ?>
