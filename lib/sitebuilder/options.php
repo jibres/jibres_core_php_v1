@@ -24,6 +24,25 @@ class options
 
 	public static function admin_save($_section_id, $_option, $_value)
 	{
+		if(!is_string($_option))
+		{
+			\dash\notif::error(T_("Invalid option"));
+			return false;
+		}
+
+		$fn = ['\\lib\\sitebuilder\\options\\'. $_option, 'validator'];
+
+		$value = $_value;
+
+		if(is_callable($fn))
+		{
+			$value = call_user_func($fn, $_value);
+		}
+		else
+		{
+			$value = \dash\validate::string_100($_value);
+		}
+
 		\dash\pdo::transaction();
 
 		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($_section_id);

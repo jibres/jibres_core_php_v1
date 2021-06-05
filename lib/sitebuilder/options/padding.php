@@ -15,9 +15,10 @@ class padding
 		return $enum;
 	}
 
-	public static function validator()
+	public static function validator($_data)
 	{
-
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Padding')]);
+		return $data;
 	}
 
 
