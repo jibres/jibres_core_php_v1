@@ -57,6 +57,10 @@ class view
 					$result['old_price'] = $value;
 					break;
 
+				case 'thumb':
+					$result['image_link'] = $value;
+					break;
+
 				case 'allow_shop':
 					$result['availability'] = $value ? 'instock' : false;
 					break;
