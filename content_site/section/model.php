@@ -40,12 +40,15 @@ class model
 
 		if(\dash\request::post('select') === 'adding')
 		{
-			$url = \lib\sitebuilder\add_section::select_adding($page_id);
+			$result = \lib\sitebuilder\add_section::select_adding($page_id);
 
 
-			if($url)
+			if($result)
 			{
-				\dash\redirect::pwd();
+				$url = \dash\url::this(). '/';
+				$url .= a($result, 'section');
+				$url .= \dash\request::full_get(['sid' => a($result, 'sid')]);
+
 				\dash\redirect::to($url);
 			}
 

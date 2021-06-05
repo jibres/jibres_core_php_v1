@@ -35,7 +35,7 @@ class controller
 
 		if(!$page_id)
 		{
-			\dash\header::status(404);
+			\dash\header::status(404, T_("Invalid page id"));
 		}
 
 		return $page_id;
@@ -56,7 +56,7 @@ class controller
 
 		if(!$load)
 		{
-			\dash\header::status(404);
+			\dash\header::status(404, T_("Page detail not found"));
 		}
 
 		\dash\data::currentPageDetail($load);
@@ -75,6 +75,32 @@ class controller
 		\dash\data::currentSectionList($section_list);
 
 		return $section_list;
+
+	}
+
+
+	public static function load_current_section_detail($_valid_section_key)
+	{
+		$sid = \dash\request::get('sid');
+		$sid = \dash\validate::id($sid);
+		if(!$sid)
+		{
+			\dash\header::status(404, T_("Invalid section id"));
+		}
+
+		$page_id = self::page_id();
+
+
+		$section_detail = \lib\sitebuilder\get::body_section_detail($page_id, $sid, $_valid_section_key);
+
+		if(!$section_detail)
+		{
+			\dash\header::status(404, T_("Invalid section detail"));
+		}
+
+		\dash\data::currentSectionDetail($section_detail);
+
+		return $section_detail;
 
 	}
 }

@@ -64,5 +64,37 @@ class get
 		return $section_list;
 
 	}
+
+
+	public static function body_section_detail($_page_id, $_section_id, $_valid_section_key)
+	{
+		$page_id = \dash\coding::decode($_page_id);
+
+		if(!$page_id)
+		{
+			return false;
+		}
+
+		$section_detail = \lib\db\pagebuilder\get::by_id_related_id($_section_id, $page_id);
+
+		if(!is_array($section_detail) || !$section_detail)
+		{
+			return false;
+		}
+
+		$section_detail = \lib\sitebuilder\ready::section_list($section_detail);
+
+		if(isset($section_detail['preview']['key']) && $section_detail['preview']['key'] === $_valid_section_key)
+		{
+			// ok
+		}
+		else
+		{
+			return false;
+		}
+
+		return $section_detail;
+
+	}
 }
 ?>

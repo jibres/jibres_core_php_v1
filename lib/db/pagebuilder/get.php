@@ -30,6 +30,16 @@ class get
 
 
 
+	public static function by_id_related_id($_id, $_related_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.id = $_id AND pagebuilder.related_id = $_related_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
+
 	public static function line_list(int $_id)
 	{
 		$query  =

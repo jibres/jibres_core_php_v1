@@ -63,7 +63,9 @@ class add_section
 			$update = ['preview' => json_encode($end_record['preview'])];
 			\lib\db\pagebuilder\update::record($update, $section_id);
 
-			return true;
+
+			$result = ['sid' => $section_id, 'section' => $end_record['preview']['key']];
+			return $result;
 		}
 		else
 		{

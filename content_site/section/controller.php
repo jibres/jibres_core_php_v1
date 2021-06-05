@@ -48,7 +48,7 @@ class controller
 		[
 			'group' => T_("Blog"),
 			'title' => T_("Blog posts"),
-			'key'   => 'blogpost',
+			'key'   => 'blog',
 			'icon'  => \dash\utility\icon::url('images'),
 		];
 	}
