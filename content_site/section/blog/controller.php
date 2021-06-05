@@ -20,9 +20,9 @@ class controller
 	{
 		$options =
 		[
+			'avand',
 			'padding',
 			'radius',
-			'title',
 		];
 
 		return $options;
