@@ -1,5 +1,5 @@
 <?php
-namespace content_site\section\blog;
+namespace content_site\section\gallery;
 
 
 class model
@@ -34,6 +34,7 @@ class model
 		$option_list = controller::options();
 
 		return \content_site\model::public_model($option_list);
+
 
 	}
 }

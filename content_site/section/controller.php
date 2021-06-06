@@ -80,7 +80,7 @@ class controller
 		[
 			'group' => T_("Image"),
 			'title' => T_("Gallery"),
-			'key'   => 'imagegallery',
+			'key'   => 'gallery',
 			'icon'  => \dash\utility\icon::url('images'),
 		];
 
