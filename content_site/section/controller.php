@@ -30,6 +30,8 @@ class controller
 
 		self::product($list);
 
+		self::promotional($list);
+
 		self::store_information($list);
 
 		self::text($list);
@@ -66,7 +68,7 @@ class controller
 			'group' => T_("Collection"),
 			'title' => T_("Collection list"),
 			'key'   => 'collectionlist',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('collections'),
 		];
 
 		$list[] =
@@ -74,7 +76,7 @@ class controller
 			'group' => T_("Collection"),
 			'title' => T_("Featured collection"),
 			'key'   => 'featuredcollection',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('collections'),
 		];
 	}
 
@@ -94,7 +96,7 @@ class controller
 			'group' => T_("Image"),
 			'title' => T_("Image with text"),
 			'key'   => 'imagewithtext',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('ImageWithText'),
 		];
 
 		$list[] =
@@ -102,7 +104,7 @@ class controller
 			'group' => T_("Image"),
 			'title' => T_("Image with text overlay"),
 			'key'   => 'imagewithtextoverlay',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('ImageWithTextOverlay'),
 		];
 
 		$list[] =
@@ -110,7 +112,7 @@ class controller
 			'group' => T_("Image"),
 			'title' => T_("Logo list"),
 			'key'   => 'logolist',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('LogoBlock'),
 		];
 
 		$list[] =
@@ -118,7 +120,7 @@ class controller
 			'group' => T_("Image"),
 			'title' => T_("Slideshow"),
 			'key'   => 'slideshow',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('Slideshow'),
 		];
 	}
 
@@ -130,7 +132,19 @@ class controller
 			'group' => T_("Product"),
 			'title' => T_("Featured product"),
 			'key'   => 'featuredproduct',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('Products'),
+		];
+	}
+
+
+	private static function promotional(&$list)
+	{
+		$list[] =
+		[
+			'group' => T_("Promotional"),
+			'title' => T_("Newsletter"),
+			'key'   => 'newsletter',
+			'icon'  => \dash\utility\icon::url('email'),
 		];
 	}
 
@@ -142,7 +156,7 @@ class controller
 			'group' => T_("Business Information"),
 			'title' => T_("Map"),
 			'key'   => 'businessmap',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('Location'),
 		];
 	}
 
@@ -154,7 +168,7 @@ class controller
 			'group' => T_("Text"),
 			'title' => T_("Rich text"),
 			'key'   => 'richtext',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('TextBlock'),
 		];
 
 		$list[] =
@@ -162,7 +176,7 @@ class controller
 			'group' => T_("Text"),
 			'title' => T_("Testimonials"),
 			'key'   => 'testimonials',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('Blockquote'),
 		];
 
 		$list[] =
@@ -170,7 +184,7 @@ class controller
 			'group' => T_("Text"),
 			'title' => T_("Text columns with images"),
 			'key'   => 'textcolumnswithimages',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('ColumnWithText'),
 		];
 	}
 
@@ -182,7 +196,7 @@ class controller
 			'group' => T_("Video"),
 			'title' => T_("Video"),
 			'key'   => 'video',
-			'icon'  => \dash\utility\icon::url('images'),
+			'icon'  => \dash\utility\icon::url('PlayCircle'),
 		];
 	}
 

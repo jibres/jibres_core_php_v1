@@ -22,7 +22,7 @@ foreach (\dash\data::sectionList() as $group => $items)
     $data = json_encode(['key' => a($item, 'key'), 'section' => 'preview']);
     $result .= '<li>';
     $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
-    $result .= '<img src="'. a($item, 'icon'). '">';
+    $result .= '<img class="icon" src="'. a($item, 'icon'). '">';
     $result .= '<div class="key">'. a($item, 'title'). '</div>';
     if($adding_this)
     {
