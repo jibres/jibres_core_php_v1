@@ -1,8 +1,8 @@
 <?php
-
-if(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
+$sidebarFile = \dash\layout\func::display_addr(). '-sidebar.php';
+if(is_file($sidebarFile))
 {
-  require_once \dash\layout\func::display();
+  require_once $sidebarFile;
 }
 else if(\dash\data::include_adminPanelBuilder() === 'siteLiveOptions')
 {
@@ -10,6 +10,6 @@ else if(\dash\data::include_adminPanelBuilder() === 'siteLiveOptions')
 }
 else
 {
-  // we don't have sidebar on another modes
+  /* we don't have footer*/
 }
 ?>

@@ -200,7 +200,6 @@ class find
 			}
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
-				// siteBuilder panels
 				$myFooter = core.'layout/panelBuilder/panelBuilder-footer.php';
 			}
 		}
