@@ -3,10 +3,12 @@
 $options_list   = \content_site\section\gallery\controller::options();
 $section_detail = \dash\data::currentSectionDetail();
 
+$image_list = [];
 ?>
 
 <nav class="items">
   <ul>
+    <?php  ?>
     <li>
       <div class="item f" data-ajaxify data-data='{"addimage": "addimage"}'>
         <img src="<?php echo \dash\utility\icon::url('Add', 'major'); ?>">
