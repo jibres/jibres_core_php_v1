@@ -24,6 +24,9 @@ function HTML_select_blog_tag($section_detail)
 ?>
 <form method="post" autocomplete="off" id="form1" data-patch>
 	<input type="hidden" name="postoption" value="postoption">
+
+		<input type="text" name="limit" data-rangeSlider data-min="1" data-max="100" data-from="4" data-step="2">
+
 	<div class="mB10">
 		<label for='tag'><?php echo T_("Special tag"); ?></label>
 		<select name="tag_id" id="tag" class="select22"  data-placeholder='<?php echo T_("Select tag"); ?>' >
