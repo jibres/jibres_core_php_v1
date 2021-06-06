@@ -26,10 +26,12 @@ class race2
 			{
 				$data = [];
 			}
-			if(!isset($data[$mySessionID]))
+			if(!isset($data[$mySessionID]) || !is_array($data[$mySessionID]))
 			{
 				$data[$mySessionID] = [];
 			}
+
+
 
 			$data[$mySessionID][$pathAddr] =
 			[
