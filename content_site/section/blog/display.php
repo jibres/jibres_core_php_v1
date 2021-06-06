@@ -25,7 +25,10 @@ function HTML_select_blog_tag($section_detail)
 <form method="post" autocomplete="off" id="form1" data-patch>
 	<input type="hidden" name="postoption" value="postoption">
 
-		<input type="text" name="limit" data-rangeSlider data-min="1" data-max="100" data-from="4" data-step="2">
+		<div class="py-5">
+			<label for='limit'><?php echo T_("Post Count"); ?></label>
+			<input type="text" name="limit" data-rangeSlider data-min="2" data-max="10" data-from="4" data-step="2" data-skin="round">
+		</div>
 
 	<div class="mB10">
 		<label for='tag'><?php echo T_("Special tag"); ?></label>
