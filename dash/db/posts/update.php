@@ -7,6 +7,12 @@ class update
 
 	public static function update_content($_content, $_id)
 	{
+		if(strpos($_content, '\\') !== false)
+		{
+			// Un-quote string quoted with addcslashes()
+			$_content = stripcslashes($_content);
+		}
+
 		$query = "UPDATE posts SET posts.content = :content WHERE posts.id = :id LIMIT 1 ";
 		$param =
 		[

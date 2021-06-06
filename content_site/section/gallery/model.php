@@ -27,6 +27,7 @@ class model
 			[
 				'imagekey'  => $imagekey,
 				'image'     => null,
+				'alt'       => T_("Image"),
 				'isdefault' => true,
 			];
 

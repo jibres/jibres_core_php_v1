@@ -7,6 +7,12 @@ class update
 
 	public static function update_text($_text, $_id)
 	{
+		if(strpos($_text, '\\') !== false)
+		{
+			// Un-quote string quoted with addcslashes()
+			$_text = stripcslashes($_text);
+		}
+
 		$query = "UPDATE pagebuilder SET pagebuilder.text = :text WHERE pagebuilder.id = :id LIMIT 1 ";
 		$param =
 		[

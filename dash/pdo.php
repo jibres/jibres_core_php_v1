@@ -85,13 +85,6 @@ class pdo
 				if(is_string($value))
 				{
 					$type = \PDO::PARAM_STR;
-
-					if(strpos($value, '\\') !== false)
-					{
-						// Un-quote string quoted with addcslashes()
-						$value = stripcslashes($value);
-					}
-
 				}
 				elseif(is_numeric($value))
 				{
