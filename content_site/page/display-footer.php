@@ -1,4 +1,4 @@
-  <nav class="settings items">
+  <nav class="settings items w-full mB0-f">
     <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::this(). '/settings'. \dash\request::full_get() ?>">
