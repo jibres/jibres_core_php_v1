@@ -22,6 +22,8 @@ class controller
 		[
 			'heading',
 			'view_all_btn',
+			'post_tag',
+			// 'post_subtype',
 			'avand',
 			'padding',
 			'radius',
