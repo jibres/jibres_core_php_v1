@@ -1,7 +1,16 @@
 <div class="h-full flex flex-wrap content-center">
 
-  <a class="backBtn px-5 w-50 text-2xl text-gray-600 hover:text-gray-400 transition" href="<?php echo \dash\data::back_link(); ?>">
-    <i class="inline-block transition-none sf-chevron-left"></i>
+  <a class="backBtn pe-5 ps-2 mx-5 rounded-xl w-50 text-2xl text-gray-600 hover:text-gray-900 transition bg-gray-50 hover:bg-gray-200" href="<?php echo \dash\data::back_link(); ?>">
+<?php
+if(\dash\language::dir() === 'rtl')
+{
+ echo \dash\utility\icon::svg('ChevronRight', 'minor');
+}
+else
+{
+ echo \dash\utility\icon::svg('ChevronLeft', 'minor');
+}
+?>
     <span class="inline-block transition-none"><?php echo \dash\data::back_text(); ?></span>
   </a>
   <div class="flex-grow mx-5"><?php echo \dash\face::title(); ?></div>
