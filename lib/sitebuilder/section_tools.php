@@ -10,13 +10,14 @@ class section_tools
 		$delete_json    = json_encode(['delete' => 'section']);
 		$hide_view_json = json_encode(['hide_view' => 'toggle']);
 
+		$remove_title = T_("Are you sure to remove this section?");
 
 
 		$html = '';
 		$html .= '<div class="box">';
 		$html .= '<div class="pad">';
 		$html .= '<div class="row">';
-		$html .= "<div class='cauto' data-ajaxify data-data='$delete_json'>";
+		$html .= "<div class='cauto' data-confirm data-title='$remove_title' data-data='$delete_json'>";
 		$html .= '<img class="avatar" src="'. \dash\utility\icon::url('Delete', 'minor'). '">';
 		$html .= '</div>';
 		$html .= '<div class="c"></div>';
