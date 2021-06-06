@@ -9,6 +9,38 @@ class model
 		$page_id      = \dash\request::get('id');
 		$section_id   = \dash\request::get('sid');
 
+		if(\dash\request::post('addimage') === 'addimage')
+		{
+			$currentSectionDetail = \dash\data::currentSectionDetail();
+			if(isset($currentSectionDetail['preview']['list']) && is_array($currentSectionDetail['preview']['list']))
+			{
+				// ok
+			}
+			else
+			{
+				$currentSectionDetail['preview']['list'] = [];
+			}
+
+			$imagekey = md5(rand(). \dash\user::id(). microtime(). rand());
+
+			$currentSectionDetail['preview']['list'][] =
+			[
+				'imagekey'  => $imagekey,
+				'image'     => null,
+				'isdefault' => true,
+			];
+
+			$preview = json_encode($currentSectionDetail['preview']);
+
+			\lib\sitebuilder\section_tools::patch_field($section_id, 'preview', $preview);
+
+			$url = \dash\url::that(). '/image'. \dash\request::full_get(['image' => $imagekey]);
+
+			\dash\redirect::to($url);
+
+			return;
+		}
+
 		// save post option
 		if(\dash\request::post('postoption') === 'postoption')
 		{

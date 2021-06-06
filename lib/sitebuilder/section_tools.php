@@ -41,6 +41,14 @@ class section_tools
 	}
 
 
+	/**
+	 * Remove and hide action
+	 *
+	 * @param      <type>       $_section_id  The section identifier
+	 * @param      <type>       $_page_id     The page identifier
+	 *
+	 * @return     bool|string  ( description_of_the_return_value )
+	 */
 	public static function action($_section_id, $_page_id)
 	{
 		if(\dash\request::post('delete') === 'section' || \dash\request::post('hide_view') === 'toggle')
