@@ -24,6 +24,7 @@ class controller
 			'view_all_btn',
 			'post_tag',
 			'post_template',
+			'rangeslider',
 			'avand',
 			'padding',
 			'radius',
