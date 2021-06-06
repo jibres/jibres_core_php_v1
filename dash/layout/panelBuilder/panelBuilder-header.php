@@ -1,6 +1,6 @@
 <div class="h-full flex flex-wrap content-center">
 
-  <a class="backBtn pe-5 ps-2 mx-5 rounded-xl w-50 text-2xl text-gray-600 hover:text-gray-900 transition bg-gray-50 hover:bg-gray-200" href="<?php echo \dash\data::back_link(); ?>">
+  <a class="backBtn pe-5 ps-2 mx-5 rounded-xl w-50 text-2xl text-gray-600 hover:text-gray-900 focus:text-gray-900 transition bg-gray-50 hover:bg-gray-200 focus:bg-gray-200" href="<?php echo \dash\data::back_link(); ?>">
 <?php
 if(\dash\language::dir() === 'rtl')
 {
