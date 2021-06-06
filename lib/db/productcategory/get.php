@@ -71,8 +71,7 @@ class get
 
 	public static function all_category()
 	{
-
-		$query  = "SELECT productcategory.id, productcategory.title FROM productcategory ";
+		$query  = "SELECT productcategory.id, productcategory.title FROM productcategory ORDER BY CHAR_LENGTH(productcategory.title) DESC ";
 		$result = \dash\db::get($query);
 		return $result;
 	}
