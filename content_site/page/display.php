@@ -1,4 +1,3 @@
-<div id="siteBuilderSidebar" class="h-full flex flex-col">
   <nav class="header items">
     <ul>
       <li>
@@ -62,4 +61,3 @@
       </li>
     </ul>
   </nav>
-</div>
