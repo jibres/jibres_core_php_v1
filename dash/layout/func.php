@@ -5,10 +5,11 @@ namespace dash\layout;
  */
 class func
 {
-	private static $DISPLAY     = null;
-	private static $PAGE_HEADER = null;
-	private static $PAGE_MAIN   = null;
-	private static $PAGE_FOOTER = null;
+	private static $DISPLAY      = null;
+	private static $DISPLAY_ADDR = null;
+	private static $PAGE_HEADER  = null;
+	private static $PAGE_MAIN    = null;
+	private static $PAGE_FOOTER  = null;
 
 
 	public static function shoot()
@@ -24,6 +25,8 @@ class func
 		$nativeTemplate = ltrim($nativeTemplate, '\\');
 		$nativeTemplate = root. $nativeTemplate;
 		$nativeTemplate = \autoload::fix_os_path($nativeTemplate);
+
+		self::$DISPLAY_ADDR = substr($nativeTemplate, 0, -4);
 
 		if(is_file($nativeTemplate))
 		{
@@ -88,6 +91,11 @@ class func
 		return self::$DISPLAY;
 	}
 
+
+	public static function display_addr()
+	{
+		return self::$DISPLAY_ADDR;
+	}
 
 	public static function page_header($_header = null)
 	{

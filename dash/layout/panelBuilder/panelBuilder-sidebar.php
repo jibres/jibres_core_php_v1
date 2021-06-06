@@ -10,7 +10,6 @@ else if(\dash\data::include_adminPanelBuilder() === 'siteLiveOptions')
 }
 else
 {
-
   // we don't have sidebar on another modes
 }
 ?>
