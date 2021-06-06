@@ -130,6 +130,13 @@ class notif
 	}
 
 
+	public static function complete()
+	{
+		self::$notif['ok'] = \dash\engine\process::status();
+	}
+
+
+
 	public static function debug($_data)
 	{
 		self::add_detail('debug', $_data);

@@ -50,6 +50,8 @@ class model
 
 		\lib\sitebuilder\options::admin_save($section_id, $option_key, $value);
 
+		\dash\notif::complete();
+
 	}
 }
 ?>
