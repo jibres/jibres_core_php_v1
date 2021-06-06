@@ -28,6 +28,7 @@ function HTML_select_blog_tag($section_detail)
 		<div class="py-5">
 			<label for='limit'><?php echo T_("Post Count"); ?></label>
 			<input type="text" name="limit" data-rangeSlider data-min="2" data-max="10" data-from="4" data-step="2" data-skin="round">
+			<input type="text" name="limit" data-rangeSlider data-skin="round" data-values="2,4,6,8,10,20,50,100">
 		</div>
 
 	<div class="mB10">
