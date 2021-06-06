@@ -1,4 +1,3 @@
-<div id="siteBuilderSidebar">
 <?php
 
 if(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
@@ -15,7 +14,3 @@ else
   // we don't have sidebar on another modes
 }
 ?>
-</div>
-<div id="siteBuilderSidebarFooter">
-123
-</div>
