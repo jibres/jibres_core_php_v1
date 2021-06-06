@@ -198,6 +198,11 @@ class find
 					$myFooter = root.'content_business/home/layout/footer.php';
 				}
 			}
+			elseif(\dash\data::include_adminPanelBuilder())
+			{
+				// siteBuilder panels
+				$myFooter = core.'layout/panelBuilder/panelBuilder-footer.php';
+			}
 		}
 
 
