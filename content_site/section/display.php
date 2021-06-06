@@ -22,11 +22,11 @@ foreach (\dash\data::sectionList() as $group => $items)
     $data = json_encode(['key' => a($item, 'key'), 'section' => 'preview']);
     $result .= '<li>';
     $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
-    $result .= '<img class="icon" src="'. a($item, 'icon'). '">';
+    $result .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
     $result .= '<div class="key">'. a($item, 'title'). '</div>';
     if($adding_this)
     {
-      $result .= '<img src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+      $result .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
     }
     $result .= '</a>';
     $result .= '</li>';
