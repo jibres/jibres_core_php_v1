@@ -2,7 +2,7 @@
 <?php
 	if(\dash\data::include_adminPanelBuilder() !== true)
 	{
-		require_once(core. 'layout/panelBuilder/panelBuilder-iframe.php');
+		require_once(core. 'layout/panelBuilder/panelBuilder-main-iframe.php');
 	}
 	else
 	{
