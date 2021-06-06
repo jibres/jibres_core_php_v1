@@ -46,10 +46,15 @@ class controller
 	{
 		$list[] =
 		[
-			'group' => T_("Blog"),
-			'title' => T_("Blog posts"),
-			'key'   => 'blog',
-			'icon'  => \dash\utility\icon::url('images'),
+			'group'   => T_("Blog"),
+			'title'   => T_("Blog posts"),
+			'key'     => 'blog',
+			'icon'    => \dash\utility\icon::url('Blog'),
+			'default' =>
+			[
+				'heading' => T_("Blog post"),
+				'limit'   => 2,
+			]
 		];
 	}
 
