@@ -91,6 +91,26 @@ class section_tools
 	}
 
 
+	public static function patch_preview_field(int $_section_id, array $_value)
+	{
+		$load_section_lock = \lib\db\pagebuilder\get::by_id($_section_id);
+
+		$load_section_lock = \lib\sitebuilder\ready::section_list($load_section_lock);
+
+		$preview           = $load_section_lock['preview'];
+
+
+		foreach ($_value as $index => $val)
+		{
+			$preview[$index] = $val;
+		}
+
+		$preview           = json_encode($preview);
+
+		\lib\sitebuilder\section_tools::patch_field($_section_id, 'preview', $preview);
+	}
+
+
 	public static function patch_field($_section_id, $_field, $_value)
 	{
 		\dash\pdo::transaction();
