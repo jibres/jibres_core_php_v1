@@ -20,6 +20,8 @@ class controller
 	{
 		$options =
 		[
+			'heading',
+			'view_all_btn',
 			'avand',
 			'padding',
 			'radius',
