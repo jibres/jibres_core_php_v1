@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add new line'));
+		\dash\face::title(T_('Add new Section'));
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get());
