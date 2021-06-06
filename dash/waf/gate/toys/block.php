@@ -208,11 +208,11 @@ class block
 
 		self::preg("/<(.*)script/i", $_txt, 'Disallow script 4!');
 
-		self::preg("/alert(.*)\(/i", $_txt, 'Disallow script 5!');
+		self::preg("/alert(.{0,5})\(/i", $_txt, 'Disallow script 5!');
 
-		self::preg("/prompt(.*)\(/i", $_txt, 'Disallow script 6!');
+		self::preg("/prompt(.{0,5})\(/i", $_txt, 'Disallow script 6!');
 
-		self::preg("/eval(.*)\(/i", $_txt, 'Disallow script 12!');
+		self::preg("/eval(.{0,5})\(/i", $_txt, 'Disallow script 12!');
 
 		self::preg("/extractvalue(.*)\(/i", $_txt, 'Disallow script 14!');
 
@@ -222,7 +222,7 @@ class block
 
 		self::preg("/http-equiv/i", $_txt, 'Disallow script 17!');
 
-		self::preg("/xmltype(.*)\(/i", $_txt, 'Disallow script 18!');
+		self::preg("/xmltype(.{0,5})\(/i", $_txt, 'Disallow script 18!');
 	}
 
 
