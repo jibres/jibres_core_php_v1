@@ -47,7 +47,7 @@ class race2
 		}
 
 		// don't save more than 10 page for each session
-		if(count($data[$mySessionID]) > 10)
+		if(is_array($data[$mySessionID]) && count($data[$mySessionID]) > 10)
 		{
 			reset($data[$mySessionID]);
 			unset($data[$mySessionID][key($data[$mySessionID])]);
