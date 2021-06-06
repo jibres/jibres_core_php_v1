@@ -12,10 +12,7 @@ class options
 		{
 			$fn = ['\\lib\\sitebuilder\\options\\'. $option, 'admin_html'];
 
-			if(is_callable($fn))
-			{
-				$html .= call_user_func($fn, $_section_detail);
-			}
+			$html .= call_user_func($fn, $_section_detail);
 		}
 
 		return $html;
@@ -32,23 +29,12 @@ class options
 
 		$fn = ['\\lib\\sitebuilder\\options\\'. $_option, 'validator'];
 
-		$value = $_value;
-
-		if(is_callable($fn))
-		{
-			$value = call_user_func($fn, $_value);
-		}
-		else
-		{
-			$value = \dash\validate::string_100($_value);
-		}
+		$value = call_user_func($fn, $_value);
 
 		$load_section_lock = \lib\db\pagebuilder\get::by_id($_section_id);
 
 		if(!$load_section_lock || !is_array($load_section_lock))
 		{
-			\dash\pdo::rollback();
-
 			\dash\notif::error(T_("Invalid section id"));
 
 			return false;
@@ -57,7 +43,20 @@ class options
 		$load_section_lock = \lib\sitebuilder\ready::section_list($load_section_lock);
 
 		$preview           = $load_section_lock['preview'];
-		$preview[$_option] = $_value;
+
+		// save multi option
+		if(is_array($value))
+		{
+			foreach ($value as $index => $val)
+			{
+				$preview[$index] = $val;
+			}
+		}
+		else
+		{
+			$preview[$_option] = $value;
+		}
+
 		$preview           = json_encode($preview);
 
 		\lib\sitebuilder\section_tools::patch_field($_section_id, 'preview', $preview);

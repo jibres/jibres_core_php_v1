@@ -7,8 +7,12 @@ class view_all_btn
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::string_100($_data);
-		return $data;
+		$new_data                       = [];
+
+		$new_data['view_all_btn_check'] = \dash\validate::bit(a($_data, 'view_all_btn_check'));
+		$new_data['view_all_btn']       = \dash\validate::string_100(a($_data, 'view_all_btn'));
+
+		return $new_data;
 	}
 
 
@@ -23,11 +27,15 @@ class view_all_btn
 		$checked            = null;
 		$data_response_hide = ' data-response-hide';
 
+		if(isset($_section_detail['preview']['view_all_btn_check']) && $_section_detail['preview']['view_all_btn_check'])
+		{
+			$checked            = ' checked';
+			$data_response_hide = null;
+		}
+
 		if(isset($_section_detail['preview']['view_all_btn']) && $_section_detail['preview']['view_all_btn'])
 		{
 			$default            = $_section_detail['preview']['view_all_btn'];
-			$checked            = ' checked';
-			$data_response_hide = null;
 		}
 		else
 		{
@@ -38,6 +46,7 @@ class view_all_btn
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
     	$html .= '<input type="hidden" name="option" value="view_all_btn">';
+    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
 		$html .= '<div class="check1">';
 		{

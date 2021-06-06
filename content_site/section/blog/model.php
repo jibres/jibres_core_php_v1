@@ -31,7 +31,15 @@ class model
 			return false;
 		}
 
-		$value = \dash\request::post($option_key);
+		// save multi option
+		if(\dash\request::post('multioption') === 'multi')
+		{
+			$value = \dash\request::post();
+		}
+		else
+		{
+			$value = \dash\request::post($option_key);
+		}
 
 		\lib\sitebuilder\options::admin_save($section_id, $option_key, $value);
 
