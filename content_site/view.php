@@ -19,6 +19,10 @@ class view
 				// code...
 				break;
 
+			case 'section/blog':
+				\dash\data::include_adminPanelBuilder("siteLiveOptions");
+				break;
+
 			default:
 				// show display inside sidebar and iframe in page center
 				\dash\data::include_adminPanelBuilder("siteLivePreview");
