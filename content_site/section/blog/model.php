@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		$option_list = controller::options();
+		$option_list = chante::options();
 
 		return \content_site\model::public_model($option_list);
 

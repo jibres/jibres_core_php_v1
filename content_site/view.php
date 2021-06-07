@@ -13,7 +13,7 @@ class view
 
 		switch (\dash\url::directory())
 		{
-			case Null:
+			case null:
 			case 'page/new':
 				\dash\data::include_adminPanelBuilder(true);
 				// code...

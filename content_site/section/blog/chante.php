@@ -1,8 +1,8 @@
 <?php
-namespace lib\sitebuilder\section;
+namespace content_site\section\blog;
 
 
-class blog
+class chante
 {
 
 	public static function allow()

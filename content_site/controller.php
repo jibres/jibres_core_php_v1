@@ -27,6 +27,12 @@ class controller
 	}
 
 
+
+	/**
+	 * Get page id
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	private static function page_id()
 	{
 		$page_id = \dash\request::get('id');
@@ -43,7 +49,7 @@ class controller
 
 
 	/**
-	 * Loads a current page detail.
+	 * Load a current page detail.
 	 * Check have id and this is is valid and load post detail
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
@@ -66,6 +72,14 @@ class controller
 	}
 
 
+
+	/**
+	 * Load current section list.
+	 *
+	 * @param      <type>  $_mode  The mode
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function load_current_section_list($_mode = null)
 	{
 		$page_id = self::page_id();
@@ -79,6 +93,15 @@ class controller
 	}
 
 
+
+	/**
+	 * Load current section detail.
+	 *
+	 * @param      <type>  $_valid_section_key  The valid section key
+	 * @param      array   $_options_list       The options list
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function load_current_section_detail($_valid_section_key, $_options_list = [])
 	{
 		$sid = \dash\request::get('sid');

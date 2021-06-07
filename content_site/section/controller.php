@@ -20,25 +20,48 @@ class controller
 	 */
 	public static function section_list()
 	{
-		$list = [];
+		$list =
+		[
+			'blog',
+			// 'gallery',
+		];
 
-		self::blog($list);
+		$section_list = [];
 
-		self::collection($list);
+		foreach ($list as $section)
+		{
+			$namespace = '\\content_site\\section\\'. $section. '\\chante';
 
-		self::image($list);
+			$allow = call_user_func([$namespace, 'allow']);
 
-		self::product($list);
+			if(!$allow)
+			{
+				continue;
+			}
 
-		self::promotional($list);
+			$section_list[] = call_user_func([$namespace, 'detail']);
+		}
 
-		self::store_information($list);
+		return $section_list;
 
-		self::text($list);
 
-		self::video($list);
+		// self::blog($list);
 
-		return $list;
+		// self::collection($list);
+
+		// self::image($list);
+
+		// self::product($list);
+
+		// self::promotional($list);
+
+		// self::store_information($list);
+
+		// self::text($list);
+
+		// self::video($list);
+
+		// return $list;
 
 	}
 

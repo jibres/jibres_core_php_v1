@@ -1,5 +1,6 @@
 <?php
-$options_list   = \content_site\section\blog\controller::options();
+
+$options_list   = \dash\data::currentOptionList();
 
 echo \lib\sitebuilder\options::admin_html($options_list, \dash\data::currentSectionDetail());
 ?>

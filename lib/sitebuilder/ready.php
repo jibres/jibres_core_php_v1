@@ -4,7 +4,7 @@ namespace lib\sitebuilder;
 
 class ready
 {
-	public static function section_list($_data, $_default_option = [])
+	public static function section_list($_data)
 	{
 		$result = [];
 
@@ -24,9 +24,36 @@ class ready
 						$value = [];
 					}
 
-					if($_default_option && is_array($_default_option))
+
+					if(isset($value['key']) && is_string($value['key']))
 					{
-						$value = array_merge($_default_option, $value);
+						$default = [];
+
+						$detail  = [];
+
+						$namespace = '\\content_site\\section\\'. $value['key']. '\\chante';
+
+						if(is_callable([$namespace, 'detail']))
+						{
+							$detail = call_user_func([$namespace, 'detail']);
+							if(!is_array($detail))
+							{
+								$detail = [];
+							}
+						}
+
+						if(is_callable([$namespace, 'default']))
+						{
+							$default = call_user_func([$namespace, 'default']);
+							if(!is_array($default))
+							{
+								$default = [];
+							}
+						}
+
+						$value = array_merge($detail, $default, $value);
+
+
 					}
 
 

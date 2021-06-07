@@ -15,8 +15,8 @@
       <?php foreach (\dash\data::currentSectionList() as $key => $value) {?>
         <li>
           <a class="item f" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo \dash\utility\icon::url('tick', 'minor'); ?>">
-            <div class="key"><?php echo a($value, 'preview', 'key') ?></div>
+            <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo a($value, 'preview', 'icon') ?>">
+            <div class="key"><?php echo a($value, 'preview', 'heading') ?></div>
 <?php if (count(\dash\data::currentSectionList()) > 1) { ?>
             <img class="p-5" data-handle src="<?php echo \dash\utility\icon::url('DragHandle', 'minor'); ?>">
 <?php } ?>
