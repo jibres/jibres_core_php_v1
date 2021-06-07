@@ -78,6 +78,13 @@ class controller
 	}
 
 
+	/**
+	 * Loads a current section list.
+	 *
+	 * @param      string      $_mode  The mode
+	 *
+	 * @return     array|bool  ( description_of_the_return_value )
+	 */
 	public static function load_current_section_list($_mode = null)
 	{
 		$page_id = \dash\coding::decode(\dash\request::get('id'));

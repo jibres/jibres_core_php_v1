@@ -105,7 +105,7 @@ class model
 		if(\dash\request::post('hide_view') === 'toggle')
 		{
 
-			$load_section_lock = \lib\sitebuilder\ready::section_list($load_section_lock);
+			$load_section_lock = view::ready_section_list($load_section_lock);
 
 			if($load_section_lock['status'] === 'draft')
 			{
@@ -117,6 +117,9 @@ class model
 			}
 
 			\content_site\update_record::patch_field($section_id, 'status', $new_status);
+
+			\dash\redirect::pwd();
+			\dash\notif::complete();
 
 			// set hide and view section
 			return true;

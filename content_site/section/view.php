@@ -9,6 +9,11 @@ class view
 		if(\dash\url::child())
 		{
 
+			\content_site\controller::load_current_section_list();
+
+			self::current_section_detail();
+
+
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
 		}
@@ -171,7 +176,7 @@ class view
 	public static function current_section_detail()
 	{
 		$page_id    = \dash\coding::decode(\dash\request::get('id'));
-		$section_id = \dash\coding::id(\dash\request::get('sid'));
+		$section_id = \dash\validate::id(\dash\request::get('sid'));
 
 		if(!$page_id || !$section_id)
 		{
@@ -185,7 +190,7 @@ class view
 			return false;
 		}
 
-		$section_detail = self::ready_section_list($section_detail, $_default_option);
+		$section_detail = self::ready_section_list($section_detail);
 
 		if(isset($section_detail['preview']['key']) && $section_detail['preview']['key'] === \dash\url::child())
 		{
@@ -195,6 +200,8 @@ class view
 		{
 			return false;
 		}
+
+		\dash\data::currentSectionDetail($section_detail);
 
 		return $section_detail;
 
