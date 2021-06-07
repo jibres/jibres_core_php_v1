@@ -54,8 +54,8 @@ class avand
 		$html .= '<form method="post" data-patch>';
     $html .= '<input type="hidden" name="option" value="avand">';
 		$html .= "<label for='avand'>$title</label>";
-		$html .= '<input type="text" name="avand" data-rangeSlider data-skin="round" data-force-edges data-from="3" data-values="'. implode(',', self::this_range()). '">';
-    $html .= '<select name="avand2" class="select22" id="avand">';
+		$html .= '<input type="text" name="avand-new" data-rangeSlider data-skin="round" data-force-edges data-from="3" data-values="'. implode(',', self::this_range()). '">';
+    $html .= '<select name="avand" class="select22" id="avand">';
 
     foreach (self::enum() as $key => $value)
     {

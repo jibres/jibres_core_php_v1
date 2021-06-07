@@ -87,13 +87,14 @@ class blog
 		}
 
 
+
 		$html = '';
 
-		$html .= '<div class="avand">';
+		$html .= '<div class="'. a($_args, 'avand').'">';
 		{
-			$html .= '<div class="box">';
+			$html .= '<div class="">';
 			{
-				$html .= '<div class="body">';
+				$html .= '<div class="">';
 				{
 					$html .= '<h2>';
 					{
