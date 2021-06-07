@@ -33,7 +33,7 @@ class chante
 			'view_all_btn',
 			'post_tag',
 			'post_template',
-			'rangeslider',
+			'limit',
 			'avand',
 			'padding',
 			'radius',
