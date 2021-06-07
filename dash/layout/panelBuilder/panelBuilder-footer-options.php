@@ -1,1 +1,0 @@
-<?php echo \lib\sitebuilder\section_tools::remove_hide_html(\dash\data::currentSectionDetail()); ?>
