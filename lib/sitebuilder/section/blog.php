@@ -11,7 +11,7 @@ class blog
 	}
 
 
-	private static function detail()
+	public static function detail()
 	{
 		$detail =
 		[
