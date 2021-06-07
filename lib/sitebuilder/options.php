@@ -25,6 +25,27 @@ class options
 		{
 			return $_options;
 		}
+
+		if($_mode === 'default')
+		{
+			$default = [];
+			foreach ($_options as $key => $value)
+			{
+				if(!is_array($value))
+				{
+					$default[$key] = $value;
+				}
+				else
+				{
+					foreach ($value as $k => $v)
+					{
+						$default[$k] = $v;
+					}
+				}
+			}
+
+			return $default;
+		}
 	}
 
 

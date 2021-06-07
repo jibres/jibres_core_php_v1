@@ -11,7 +11,7 @@ class controller
 		// load post detail
 		\content_site\controller::load_current_page_detail();
 
-		\content_site\controller::load_current_section_detail('blog', self::options('full'));
+		\content_site\controller::load_current_section_detail('blog', self::options('default'));
 	}
 
 
@@ -23,7 +23,7 @@ class controller
 			'heading'       => T_("Post blog"),
 			'view_all_btn'  => null,
 			'post_tag'      => null,
-			'post_template' => 'standard',
+			'post_template' => ['post_template' => 'video', 'post_play_item' => 'all'],
 			'rangeslider'   => 2,
 			'avand'         => null,
 			'padding'       => null,
