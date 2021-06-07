@@ -65,8 +65,10 @@ class model
 			return self::first_signup_sms($mobile);
 		}
 
+		$message = \dash\validate::verification_code($message);
+
 		// the message is not a verification code
-		if(!\dash\validate::verification_code($message))
+		if(!$message)
 		{
 			return false;
 		}
