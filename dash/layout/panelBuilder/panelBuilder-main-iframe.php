@@ -1,12 +1,20 @@
 <?php
 
 $page_url = \lib\store::url();
-if(\dash\data::siteBuilder_url())
+$section_list = [];
+
+if(\dash\data::currentSectionList() && is_array(\dash\data::currentSectionList()))
 {
-  $page_url = \dash\data::siteBuilder_url();
+  $section_list = \dash\data::currentSectionList();
 }
-var_dump(\dash\data::currentSectionList());
-var_dump(\dash\data::currentPageDetail());
+
+$html = '';
+foreach ($section_list as $key => $value)
+{
+  $html .= a($value, 'layout');
+}
+
+echo $html;
 return;
 
   echo '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';

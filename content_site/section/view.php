@@ -129,7 +129,9 @@ class view
 						$value = array_merge($detail, $default, $value);
 
 
+						$result['layout'] = call_user_func([$namespace, 'layout'], $value);
 					}
+
 
 
 					$result[$key] = $value;
