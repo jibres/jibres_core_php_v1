@@ -29,6 +29,7 @@ class view
 				break;
 		}
 
+
 		\dash\face::site(\lib\store::title());
 		\dash\data::store(\lib\store::detail());
 		\dash\face::logo(\lib\store::logo());

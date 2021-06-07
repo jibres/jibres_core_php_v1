@@ -6,12 +6,61 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\data::pagebuilderMode('body');
-
 		// load post detail
+		// all page route in this module need page id
 		\content_site\controller::load_current_page_detail();
 
 
+		$child = \dash\url::child();
+
+		// route section list
+		if(!$child)
+		{
+			return;
+		}
+
+
+		/**
+		 * Route one section
+		 */
+		if(!in_array($child, self::all_section_name()))
+		{
+			\dash\header::status(404, T_("Invalid section name"));
+			return;
+		}
+
+		// all section need to sid [section id] to load
+		\content_site\controller::load_current_section_detail($child);
+
+		// load section options
+		$namespace = '\\content_site\\section\\sections\\'. $child;
+
+		$options = call_user_func([$namespace, 'options']);
+
+		\dash\data::currentOptionList($options);
+
+		// allow to get and post on this page
+		\dash\open::get();
+		\dash\open::post();
+
+
+	}
+
+
+	/**
+	 * Get list of all section
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function all_section_name()
+	{
+		$list =
+		[
+			'blog',
+			// 'gallery',
+		];
+
+		return $list;
 	}
 
 
@@ -20,17 +69,13 @@ class controller
 	 */
 	public static function section_list()
 	{
-		$list =
-		[
-			'blog',
-			// 'gallery',
-		];
+		$list = self::all_section_name();
 
 		$section_list = [];
 
 		foreach ($list as $section)
 		{
-			$namespace = '\\content_site\\section\\'. $section. '\\chante';
+			$namespace = '\\content_site\\section\\sections\\'. $section;
 
 			$allow = call_user_func([$namespace, 'allow']);
 
@@ -43,27 +88,43 @@ class controller
 		}
 
 		return $section_list;
-
-
-		// self::blog($list);
-
-		// self::collection($list);
-
-		// self::image($list);
-
-		// self::product($list);
-
-		// self::promotional($list);
-
-		// self::store_information($list);
-
-		// self::text($list);
-
-		// self::video($list);
-
-		// return $list;
-
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

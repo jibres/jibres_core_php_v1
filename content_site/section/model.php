@@ -6,6 +6,21 @@ class model
 {
 	public static function post()
 	{
+		/**
+		 * Save option of one section
+		 */
+		if(\dash\url::child())
+		{
+			$option_list = \dash\data::currentOptionList();
+
+			return \content_site\model::public_model($option_list);
+		}
+
+
+
+		/**
+		 * Add or select new option
+		 */
 		$page_id = \dash\request::get('id');
 
 

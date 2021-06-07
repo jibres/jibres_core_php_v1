@@ -31,7 +31,7 @@ class ready
 
 						$detail  = [];
 
-						$namespace = '\\content_site\\section\\'. $value['key']. '\\chante';
+						$namespace = '\\content_site\\section\\sections\\'. $value['key'];
 
 						if(is_callable([$namespace, 'detail']))
 						{

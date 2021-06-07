@@ -5,41 +5,6 @@ namespace lib\sitebuilder;
 class section_tools
 {
 
-	public static function remove_hide_html($_section_detail)
-	{
-		$delete_json    = json_encode(['delete' => 'section']);
-		$hide_view_json = json_encode(['hide_view' => 'toggle']);
-
-		$remove_title = T_("Are you sure to remove this section?");
-
-
-		$html = '';
-		$html .= '<div class="row w-full">';
-		$html .= '<div class="cauto">';
-		$html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 hover:text-red-500 focus:text-red-600 active:text-red-700 transition p-3 rounded-lg' data-ajaxify data-confirm data-title='$remove_title' data-data='$delete_json'>";
-		$html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Delete', 'minor'). '">';
-		$html .= '<span class="inline-block align-middle ps-2">'. T_("Remove section").'<span>';
-		$html .= '</a>';
-		$html .= '</div>';
-		$html .= '<div class="c"></div>';
-		$html .= "<div class='cauto os' >";
-		$html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' data-ajaxify data-data='$hide_view_json'>";
-
-		if(a($_section_detail, 'status') === 'draft')
-		{
-			$html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('hide', 'minor'). '">';
-		}
-		else
-		{
-			$html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('view', 'minor'). '">';
-		}
-
-		$html .= '</a>';
-		$html .= '</div>';
-		$html .= '</div>';
-
-		return $html;
-	}
 
 
 	/**
