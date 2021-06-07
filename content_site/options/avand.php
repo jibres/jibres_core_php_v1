@@ -18,6 +18,12 @@ class avand
 		return $enum;
 	}
 
+	private static function this_range()
+	{
+		return ['None','Small','Medium','Large','X Large','XX Large'];
+	}
+
+
 	public static function validator($_data)
 	{
 		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Avand')]);
@@ -27,7 +33,7 @@ class avand
 
 	public static function default()
 	{
-		return '1x';
+		return 'Large';
 	}
 
 
@@ -42,28 +48,29 @@ class avand
 			$default = self::default();
 		}
 
-		$title = T_("Set item avand");
+		$title = T_("Container");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
-    	$html .= '<input type="hidden" name="option" value="avand">';
+    $html .= '<input type="hidden" name="option" value="avand">';
 		$html .= "<label for='avand'>$title</label>";
-        $html .= '<select name="avand" class="select22" id="avand">';
+		$html .= '<input type="text" name="avand" data-rangeSlider data-skin="round" data-force-edges data-from="3" data-values="'. implode(',', self::this_range()). '">';
+    $html .= '<select name="avand2" class="select22" id="avand">';
 
-        foreach (self::enum() as $key => $value)
-        {
-        	$selected = null;
+    foreach (self::enum() as $key => $value)
+    {
+    	$selected = null;
 
-        	if($value['key'] === $default)
-        	{
-        		$selected = ' selected';
-        	}
+    	if($value['key'] === $default)
+    	{
+    		$selected = ' selected';
+    	}
 
-        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-        }
+    	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+    }
 
-       	$html .= '</select>';
-  		$html .= '</form>';
+    $html .= '</select>';
+		$html .= '</form>';
 
 		return $html;
 	}
