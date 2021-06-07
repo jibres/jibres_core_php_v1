@@ -10,7 +10,6 @@ class controller
 		// all page route in this module need page id
 		\content_site\controller::load_current_page_detail();
 
-
 		$child = \dash\url::child();
 
 		// route section list
@@ -30,10 +29,10 @@ class controller
 		}
 
 		// all section need to sid [section id] to load
-		\content_site\controller::load_current_section_detail($child);
+
 
 		// load section options
-		$namespace = '\\content_site\\section\\sections\\'. $child;
+		$namespace = '\\content_site\\section\\ganje\\'. $child;
 
 		$options = call_user_func([$namespace, 'options']);
 
@@ -75,7 +74,7 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$namespace = '\\content_site\\section\\sections\\'. $section;
+			$namespace = '\\content_site\\section\\ganje\\'. $section;
 
 			$allow = call_user_func([$namespace, 'allow']);
 
@@ -128,161 +127,161 @@ class controller
 
 
 
-	private static function blog(&$list)
-	{
-		$list[] =
-		[
-			'group'   => T_("Blog"),
-			'title'   => T_("Blog posts"),
-			'key'     => 'blog',
-			'icon'    => \dash\utility\icon::url('Blog'),
-			'default' =>
-			[
-				'heading' => T_("Blog post"),
-				'limit'   => 2,
-			]
-		];
-	}
+	// private static function blog(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group'   => T_("Blog"),
+	// 		'title'   => T_("Blog posts"),
+	// 		'key'     => 'blog',
+	// 		'icon'    => \dash\utility\icon::url('Blog'),
+	// 		'default' =>
+	// 		[
+	// 			'heading' => T_("Blog post"),
+	// 			'limit'   => 2,
+	// 		]
+	// 	];
+	// }
 
 
-	private static function collection(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Collection"),
-			'title' => T_("Collection list"),
-			'key'   => 'collectionlist',
-			'icon'  => \dash\utility\icon::url('collections'),
-		];
+	// private static function collection(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Collection"),
+	// 		'title' => T_("Collection list"),
+	// 		'key'   => 'collectionlist',
+	// 		'icon'  => \dash\utility\icon::url('collections'),
+	// 	];
 
-		$list[] =
-		[
-			'group' => T_("Collection"),
-			'title' => T_("Featured collection"),
-			'key'   => 'featuredcollection',
-			'icon'  => \dash\utility\icon::url('collections'),
-		];
-	}
-
-
-	private static function image(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Image"),
-			'title' => T_("Gallery"),
-			'key'   => 'gallery',
-			'icon'  => \dash\utility\icon::url('images'),
-		];
-
-		$list[] =
-		[
-			'group' => T_("Image"),
-			'title' => T_("Image with text"),
-			'key'   => 'imagewithtext',
-			'icon'  => \dash\utility\icon::url('ImageWithText'),
-		];
-
-		$list[] =
-		[
-			'group' => T_("Image"),
-			'title' => T_("Image with text overlay"),
-			'key'   => 'imagewithtextoverlay',
-			'icon'  => \dash\utility\icon::url('ImageWithTextOverlay'),
-		];
-
-		$list[] =
-		[
-			'group' => T_("Image"),
-			'title' => T_("Logo list"),
-			'key'   => 'logolist',
-			'icon'  => \dash\utility\icon::url('LogoBlock'),
-		];
-
-		$list[] =
-		[
-			'group' => T_("Image"),
-			'title' => T_("Slideshow"),
-			'key'   => 'slideshow',
-			'icon'  => \dash\utility\icon::url('Slideshow'),
-		];
-	}
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Collection"),
+	// 		'title' => T_("Featured collection"),
+	// 		'key'   => 'featuredcollection',
+	// 		'icon'  => \dash\utility\icon::url('collections'),
+	// 	];
+	// }
 
 
-	private static function product(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Product"),
-			'title' => T_("Featured product"),
-			'key'   => 'featuredproduct',
-			'icon'  => \dash\utility\icon::url('Products'),
-		];
-	}
+	// private static function image(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Image"),
+	// 		'title' => T_("Gallery"),
+	// 		'key'   => 'gallery',
+	// 		'icon'  => \dash\utility\icon::url('images'),
+	// 	];
+
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Image"),
+	// 		'title' => T_("Image with text"),
+	// 		'key'   => 'imagewithtext',
+	// 		'icon'  => \dash\utility\icon::url('ImageWithText'),
+	// 	];
+
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Image"),
+	// 		'title' => T_("Image with text overlay"),
+	// 		'key'   => 'imagewithtextoverlay',
+	// 		'icon'  => \dash\utility\icon::url('ImageWithTextOverlay'),
+	// 	];
+
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Image"),
+	// 		'title' => T_("Logo list"),
+	// 		'key'   => 'logolist',
+	// 		'icon'  => \dash\utility\icon::url('LogoBlock'),
+	// 	];
+
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Image"),
+	// 		'title' => T_("Slideshow"),
+	// 		'key'   => 'slideshow',
+	// 		'icon'  => \dash\utility\icon::url('Slideshow'),
+	// 	];
+	// }
 
 
-	private static function promotional(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Promotional"),
-			'title' => T_("Newsletter"),
-			'key'   => 'newsletter',
-			'icon'  => \dash\utility\icon::url('email'),
-		];
-	}
+	// private static function product(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Product"),
+	// 		'title' => T_("Featured product"),
+	// 		'key'   => 'featuredproduct',
+	// 		'icon'  => \dash\utility\icon::url('Products'),
+	// 	];
+	// }
 
 
-	private static function store_information(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Business Information"),
-			'title' => T_("Map"),
-			'key'   => 'businessmap',
-			'icon'  => \dash\utility\icon::url('Location'),
-		];
-	}
+	// private static function promotional(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Promotional"),
+	// 		'title' => T_("Newsletter"),
+	// 		'key'   => 'newsletter',
+	// 		'icon'  => \dash\utility\icon::url('email'),
+	// 	];
+	// }
 
 
-	private static function text(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Text"),
-			'title' => T_("Rich text"),
-			'key'   => 'richtext',
-			'icon'  => \dash\utility\icon::url('TextBlock'),
-		];
-
-		$list[] =
-		[
-			'group' => T_("Text"),
-			'title' => T_("Testimonials"),
-			'key'   => 'testimonials',
-			'icon'  => \dash\utility\icon::url('Blockquote'),
-		];
-
-		$list[] =
-		[
-			'group' => T_("Text"),
-			'title' => T_("Text columns with images"),
-			'key'   => 'textcolumnswithimages',
-			'icon'  => \dash\utility\icon::url('ColumnWithText'),
-		];
-	}
+	// private static function store_information(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Business Information"),
+	// 		'title' => T_("Map"),
+	// 		'key'   => 'businessmap',
+	// 		'icon'  => \dash\utility\icon::url('Location'),
+	// 	];
+	// }
 
 
-	private static function video(&$list)
-	{
-		$list[] =
-		[
-			'group' => T_("Video"),
-			'title' => T_("Video"),
-			'key'   => 'video',
-			'icon'  => \dash\utility\icon::url('PlayCircle'),
-		];
-	}
+	// private static function text(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Text"),
+	// 		'title' => T_("Rich text"),
+	// 		'key'   => 'richtext',
+	// 		'icon'  => \dash\utility\icon::url('TextBlock'),
+	// 	];
+
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Text"),
+	// 		'title' => T_("Testimonials"),
+	// 		'key'   => 'testimonials',
+	// 		'icon'  => \dash\utility\icon::url('Blockquote'),
+	// 	];
+
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Text"),
+	// 		'title' => T_("Text columns with images"),
+	// 		'key'   => 'textcolumnswithimages',
+	// 		'icon'  => \dash\utility\icon::url('ColumnWithText'),
+	// 	];
+	// }
+
+
+	// private static function video(&$list)
+	// {
+	// 	$list[] =
+	// 	[
+	// 		'group' => T_("Video"),
+	// 		'title' => T_("Video"),
+	// 		'key'   => 'video',
+	// 		'icon'  => \dash\utility\icon::url('PlayCircle'),
+	// 	];
+	// }
 
 }
 ?>

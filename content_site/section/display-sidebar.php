@@ -47,6 +47,16 @@ else
   /**
    * Load options of one section
    */
-  echo \lib\sitebuilder\options::admin_html(\dash\data::currentOptionList(), \dash\data::currentSectionDetail());
+  $html = '';
+
+  foreach (\dash\data::currentOptionList() as $option)
+  {
+    $fn = ['\\content_site\\options\\'. $option, 'admin_html'];
+
+    $html .= call_user_func($fn, \dash\data::currentSectionDetail());
+  }
+
+  echo $html;
+
 }
 ?>

@@ -4,6 +4,14 @@ namespace content_site;
 
 class controller
 {
+
+	// load page detail once
+	private static $load_page_detail_once = [];
+
+
+	/**
+	 * Maste content controller
+	 */
 	public static function routing()
 	{
 		if(!\dash\url::store())
@@ -28,25 +36,6 @@ class controller
 
 
 
-	/**
-	 * Get page id
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	private static function page_id()
-	{
-		$page_id = \dash\request::get('id');
-
-		$page_id = \dash\validate::code($page_id);
-
-		if(!$page_id)
-		{
-			\dash\header::status(404, T_("Invalid page id"));
-		}
-
-		return $page_id;
-	}
-
 
 	/**
 	 * Load a current page detail.
@@ -56,14 +45,31 @@ class controller
 	 */
 	public static function load_current_page_detail()
 	{
-		$page_id = self::page_id();
+		$page_id = \dash\validate::code(\dash\request::get('id'));
 
-		$load = \lib\sitebuilder\get::load_page_detail($page_id);
+		$page_id = \dash\coding::decode($page_id);
 
-		if(!$load)
+		if(!$page_id)
 		{
-			\dash\header::status(404, T_("Page detail not found"));
+			\dash\header::status(404, T_("Invalid page id"));
 		}
+
+		if(isset(self::$load_page_detail_once[$page_id]))
+		{
+			return self::$load_page_detail_once[$page_id];
+		}
+
+
+		$post_detail = \dash\db\posts\get::by_id_type($page_id, 'pagebuilder');
+
+		if(!$post_detail)
+		{
+			return false;
+		}
+
+		$load = \dash\app\posts\ready::row($post_detail);
+
+		self::$load_page_detail_once[$page_id] = $load;
 
 		\dash\data::currentPageDetail($load);
 
@@ -72,58 +78,45 @@ class controller
 	}
 
 
-
-	/**
-	 * Load current section list.
-	 *
-	 * @param      <type>  $_mode  The mode
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
 	public static function load_current_section_list($_mode = null)
 	{
-		$page_id = self::page_id();
+		$page_id = \dash\coding::decode(\dash\request::get('id'));
 
-		$section_list = \lib\sitebuilder\get::body_section_list($page_id, $_mode);
+		if(!$page_id)
+		{
+			return false;
+		}
+
+		$section_list = \lib\db\pagebuilder\get::line_list($page_id);
+
+		if(!is_array($section_list))
+		{
+			$section_list = [];
+		}
+
+		$section_list = array_map(['\\content_site\\section\\view', 'ready_section_list'], $section_list);
+
+		if($_mode !== 'with_adding')
+		{
+			$new_list = [];
+			foreach ($section_list as $key => $value)
+			{
+				if(isset($value['preview']['adding']))
+				{
+					// nothing
+				}
+				else
+				{
+					$new_list[] = $value;
+				}
+			}
+
+			$section_list = $new_list;
+		}
 
 		\dash\data::currentSectionList($section_list);
 
 		return $section_list;
-
-	}
-
-
-
-	/**
-	 * Load current section detail.
-	 *
-	 * @param      <type>  $_valid_section_key  The valid section key
-	 * @param      array   $_options_list       The options list
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function load_current_section_detail($_valid_section_key, $_options_list = [])
-	{
-		$sid = \dash\request::get('sid');
-		$sid = \dash\validate::id($sid);
-		if(!$sid)
-		{
-			\dash\header::status(404, T_("Invalid section id"));
-		}
-
-		$page_id = self::page_id();
-
-
-		$section_detail = \lib\sitebuilder\get::body_section_detail($page_id, $sid, $_valid_section_key, $_options_list);
-
-		if(!$section_detail)
-		{
-			\dash\header::status(404, T_("Invalid section detail"));
-		}
-
-		\dash\data::currentSectionDetail($section_detail);
-
-		return $section_detail;
 
 	}
 }

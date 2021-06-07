@@ -1,5 +1,5 @@
 <?php
-namespace content_site\section\sections;
+namespace content_site\section\ganje;
 
 
 class blog

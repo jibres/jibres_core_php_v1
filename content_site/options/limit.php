@@ -1,5 +1,5 @@
 <?php
-namespace lib\sitebuilder\options;
+namespace content_site\options;
 
 
 class limit
