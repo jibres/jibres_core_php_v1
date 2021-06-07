@@ -4,6 +4,31 @@ namespace lib\sitebuilder;
 
 class options
 {
+
+	/**
+	 * Get option list
+	 * return everything need
+	 *
+	 * @param      <type>  $_options  The options
+	 * @param      array   $_args     The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function get($_options, $_mode = null)
+	{
+		if(!$_mode)
+		{
+			return array_keys($_options);
+		}
+
+		if($_mode === 'full')
+		{
+			return $_options;
+		}
+	}
+
+
+
 	public static function admin_html($_options, $_section_detail)
 	{
 		$html = '';

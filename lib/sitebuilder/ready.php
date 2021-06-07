@@ -4,7 +4,7 @@ namespace lib\sitebuilder;
 
 class ready
 {
-	public static function section_list($_data)
+	public static function section_list($_data, $_default_option = [])
 	{
 		$result = [];
 
@@ -23,6 +23,12 @@ class ready
 					{
 						$value = [];
 					}
+
+					if($_default_option && is_array($_default_option))
+					{
+						$value = array_merge($_default_option, $value);
+					}
+
 
 					$result[$key] = $value;
 					break;

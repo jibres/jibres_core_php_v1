@@ -84,7 +84,7 @@ class get
 	}
 
 
-	public static function body_section_detail($_page_id, $_section_id, $_valid_section_key)
+	public static function body_section_detail($_page_id, $_section_id, $_valid_section_key, $_default_option = [])
 	{
 		$page_id = \dash\coding::decode($_page_id);
 
@@ -100,7 +100,7 @@ class get
 			return false;
 		}
 
-		$section_detail = \lib\sitebuilder\ready::section_list($section_detail);
+		$section_detail = \lib\sitebuilder\ready::section_list($section_detail, $_default_option);
 
 		if(isset($section_detail['preview']['key']) && $section_detail['preview']['key'] === $_valid_section_key)
 		{

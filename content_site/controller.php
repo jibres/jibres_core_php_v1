@@ -79,7 +79,7 @@ class controller
 	}
 
 
-	public static function load_current_section_detail($_valid_section_key)
+	public static function load_current_section_detail($_valid_section_key, $_options_list = [])
 	{
 		$sid = \dash\request::get('sid');
 		$sid = \dash\validate::id($sid);
@@ -91,7 +91,7 @@ class controller
 		$page_id = self::page_id();
 
 
-		$section_detail = \lib\sitebuilder\get::body_section_detail($page_id, $sid, $_valid_section_key);
+		$section_detail = \lib\sitebuilder\get::body_section_detail($page_id, $sid, $_valid_section_key, $_options_list);
 
 		if(!$section_detail)
 		{
