@@ -14,59 +14,13 @@ class model
 			return self::save_options();
 		}
 
-
-
 		/**
 		 * Add or select new option
 		 */
-		$page_id = \dash\request::get('id');
-
-
-		if(\dash\request::post('section') === 'preview')
-		{
-			$key = \dash\request::post('key');
-
-			$key = \dash\validate::string_100($key);
-
-			if(!$key)
-			{
-				\dash\notif::error(T_("Invalid key"));
-				return false;
-			}
-
-			$section_list = controller::section_list();
-			$all_key = array_column($section_list, 'key');
-
-			if(!in_array($key, $all_key))
-			{
-				\dash\notif::error(T_("Can not chose this section!"));
-				return false;
-			}
-
-			self::preview($key);
-
-			if(\dash\engine\process::status())
-			{
-				\dash\redirect::pwd();
-			}
-		}
-
-		if(\dash\request::post('select') === 'adding')
-		{
-			$result = self::select_adding($page_id);
-
-
-			if($result)
-			{
-				$url = \dash\url::this(). '/';
-				$url .= a($result, 'section');
-				$url .= \dash\request::full_get(['sid' => a($result, 'sid')]);
-
-				\dash\redirect::to($url);
-			}
-
-		}
+		self::add_new_section();
 	}
+
+
 
 
 	/**
@@ -190,94 +144,129 @@ class model
 
 
 
-
-	private static function preview($_section)
+	/**
+	 * Adds a new section.
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	private static function add_new_section()
 	{
-		$page_id = \dash\coding::decode(\dash\request::get('id'));
+		$page_id = \dash\request::get('id');
+		$page_id = \dash\coding::decode($page_id);
 
-		$section_list = \content_site\controller::load_current_section_list('with_adding');
 
-		$end_record = end($section_list);
-
-		$preview = json_encode(['key' => $_section, 'adding' => true]);
-
-		if(isset($end_record['preview']['adding']))
+		if(\dash\request::post('section') === 'preview')
 		{
-			// update current preview link
-			$section_id = $end_record['id'];
+			$key = \dash\request::post('key');
 
-			\content_site\update_record::patch_field($section_id, 'preview', $preview);
-		}
-		else
-		{
-			// add new record by adding mode
+			$key = \dash\validate::string_100($key);
 
-			$insert                = [];
-			$insert['mode']        = 'body';
-			$insert['type']        = $_section;
-			$insert['related']     = 'posts';
-			$insert['related_id']  = $page_id;
-			$insert['title']       = null;
-			$insert['preview']     = $preview;
-			$insert['status']      = 'enable';
-			$insert['datecreated'] = date("Y-m-d H:i:s");
-
-			$get_last_sort_args =
-			[
-				'related'    => $insert['related'],
-				'related_id' => $insert['related_id'],
-				// need add some args later
-			];
-
-			$get_last_sort = \lib\db\pagebuilder\get::last_sort($get_last_sort_args);
-
-			if(!$get_last_sort || !is_numeric($get_last_sort))
+			if(!$key)
 			{
-				$insert['sort'] = 10;
+				\dash\notif::error(T_("Invalid key"));
+				return false;
+			}
+
+			$section_list = controller::section_list();
+			$all_key = array_column($section_list, 'key');
+
+			if(!in_array($key, $all_key))
+			{
+				\dash\notif::error(T_("Can not chose this section!"));
+				return false;
+			}
+
+			$section_list = \content_site\controller::load_current_section_list('with_adding');
+
+			$end_record = end($section_list);
+
+			$preview = json_encode(['key' => $key, 'adding' => true]);
+
+			if(isset($end_record['preview']['adding']))
+			{
+				// update current preview link
+				$section_id = $end_record['id'];
+
+				\content_site\update_record::patch_field($section_id, 'preview', $preview);
 			}
 			else
 			{
-				$insert['sort'] = (floor(intval($get_last_sort) / 10) * 10) + 10;
+				// add new record by adding mode
+
+				$insert                = [];
+				$insert['mode']        = 'body';
+				$insert['type']        = $key;
+				$insert['related']     = 'posts';
+				$insert['related_id']  = $page_id;
+				$insert['title']       = null;
+				$insert['preview']     = $preview;
+				$insert['status']      = 'enable';
+				$insert['datecreated'] = date("Y-m-d H:i:s");
+
+				$get_last_sort_args =
+				[
+					'related'    => $insert['related'],
+					'related_id' => $insert['related_id'],
+					// need add some args later
+				];
+
+				$get_last_sort = \lib\db\pagebuilder\get::last_sort($get_last_sort_args);
+
+				if(!$get_last_sort || !is_numeric($get_last_sort))
+				{
+					$insert['sort'] = 10;
+				}
+				else
+				{
+					$insert['sort'] = (floor(intval($get_last_sort) / 10) * 10) + 10;
+				}
+
+				$id = \lib\db\pagebuilder\insert::new_record($insert);
+
+				if(!$id)
+				{
+					\dash\notif::error(T_("No way to save data"));
+					return false;
+				}
 			}
 
-			$id = \lib\db\pagebuilder\insert::new_record($insert);
-
-			if(!$id)
+			if(\dash\engine\process::status())
 			{
-				\dash\notif::error(T_("No way to save data"));
+				\dash\redirect::pwd();
+			}
+		}
+
+		if(\dash\request::post('select') === 'adding')
+		{
+
+			$section_list = \content_site\controller::load_current_section_list('with_adding');
+
+			$end_record = end($section_list);
+
+			if(isset($end_record['preview']['adding']))
+			{
+				unset($end_record['preview']['adding']);
+
+				$section_id = $end_record['id'];
+
+				\content_site\update_record::patch_field($section_id, 'preview', json_encode($end_record['preview']));
+
+
+				$url = \dash\url::this(). '/';
+				$url .= $end_record['preview']['key'];
+				$url .= \dash\request::full_get(['sid' => $section_id]);
+
+				\dash\redirect::to($url);
+
+			}
+			else
+			{
+				\dash\notif::error(T_("Please select one section"));
 				return false;
 			}
 		}
 	}
 
-
-	private static function select_adding($_page_id)
-	{
-
-		$page_id = \dash\coding::decode($_page_id);
-
-		$section_list = \content_site\controller::load_current_section_list('with_adding');
-
-		$end_record = end($section_list);
-
-		if(isset($end_record['preview']['adding']))
-		{
-			unset($end_record['preview']['adding']);
-
-			$section_id = $end_record['id'];
-
-			\content_site\update_record::patch_field($section_id, 'preview', json_encode($end_record['preview']));
-
-
-			$result = ['sid' => $section_id, 'section' => $end_record['preview']['key']];
-			return $result;
-		}
-		else
-		{
-			\dash\notif::error(T_("Please select one section"));
-			return false;
-		}
-	}
 
 }
 ?>
