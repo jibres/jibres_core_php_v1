@@ -26,7 +26,13 @@ class race2
 			{
 				$data = [];
 			}
-			if(!isset($data[$mySessionID]) || !is_array($data[$mySessionID]))
+
+			if(!isset($data[$mySessionID]))
+			{
+				$data[$mySessionID] = [];
+			}
+
+			if(isset($data[$mySessionID]) && !is_array($data[$mySessionID]))
 			{
 				$data[$mySessionID] = [];
 			}
