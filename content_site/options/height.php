@@ -7,17 +7,17 @@ class height
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'auto', 'title' => T_("Adapt to image") ];
+		$enum[] = ['key' => 'auto', 'title' => T_("Auto") ];
 		// max-height:80vh; height:50vw; padding: 50px 0;
-		$enum[] = ['key' => 'xs',   'title' => T_("Extra Small") ];
+		$enum[] = ['key' => 'xs',   'title' => T_("Short") ];
 		// max-height:...; height:90px; md:height:125px; padding: 50px 0;
-		$enum[] = ['key' => 'sm',   'title' => T_("Small") ];
+		$enum[] = ['key' => 'sm',   'title' => T_("Fairly Short") ];
 		// max-height:..; height:225px; md:height:300px; padding: 50px 0;
 		$enum[] = ['key' => 'md',   'title' => T_("Medium") ];
 		// max-height:...; height:350px; md:height:475px; padding: 50px 0;
-		$enum[] = ['key' => 'lg',   'title' => T_("High") ];
+		$enum[] = ['key' => 'lg',   'title' => T_("Tall") ];
 		// max-height:...; height:470px; md:height:650px; padding: 50px 0;
-		$enum[] = ['key' => 'xl',   'title' => T_("Extra High") ];
+		$enum[] = ['key' => 'xl',   'title' => T_("Full Screen") ];
 		// max-height:... height:580px; md:height:775px; padding: 50px 0;
 		// min-height:100vh; min-height:100%; md:height:775px; padding: 50px 0;
 
