@@ -139,7 +139,7 @@ class option
 
 			'limit',
 			'container',
-			'padding',
+			'height',
 			'radius',
 		];
 
