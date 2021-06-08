@@ -56,7 +56,7 @@ class controller
 		$list =
 		[
 			'blog',
-			// 'gallery',
+			'image',
 		];
 
 		return $list;
@@ -126,22 +126,6 @@ class controller
 
 
 
-
-	// private static function blog(&$list)
-	// {
-	// 	$list[] =
-	// 	[
-	// 		'group'   => T_("Blog"),
-	// 		'title'   => T_("Blog posts"),
-	// 		'key'     => 'blog',
-	// 		'icon'    => \dash\utility\icon::url('Blog'),
-	// 		'default' =>
-	// 		[
-	// 			'heading' => T_("Blog post"),
-	// 			'limit'   => 2,
-	// 		]
-	// 	];
-	// }
 
 
 	// private static function collection(&$list)
