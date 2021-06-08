@@ -30,6 +30,14 @@ class image
 	{
 		$options =
 		[
+			'imagelist' =>
+			[
+				'file',
+				// 'title',
+				// 'url',
+				// 'target',
+			],
+			'addimage',
 			'heading',
 			'avand',
 			'padding',
@@ -61,8 +69,6 @@ class image
 	 */
 	public static function layout($_args)
 	{
-
-
 		$html = '';
 
 		$html .= '<div class="'. a($_args, 'avand').'">';

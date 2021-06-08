@@ -42,6 +42,10 @@ class controller
 		\dash\open::get();
 		\dash\open::post();
 
+		// load current section detail
+		// need in some option on save
+		view::current_section_detail();
+
 
 	}
 

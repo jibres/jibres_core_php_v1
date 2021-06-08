@@ -11,8 +11,6 @@ class view
 
 			\content_site\controller::load_current_section_list();
 
-			self::current_section_detail();
-
 
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));

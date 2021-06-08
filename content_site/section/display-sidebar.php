@@ -49,14 +49,46 @@ else
    */
   $html = '';
 
-  foreach (\dash\data::currentOptionList() as $option)
-  {
-    $fn = ['\\content_site\\options\\'. $option, 'admin_html'];
+  $options_list = \dash\data::currentOptionList();
+  $child        = \dash\url::child();
+  $subchild     = \dash\url::subchild();
 
-    $html .= call_user_func($fn, \dash\data::currentSectionDetail());
+  if($subchild && isset($options_list[$subchild]) && is_array($options_list[$subchild]))
+  {
+    foreach ($options_list[$subchild] as $key => $option)
+    {
+      HTML_load_option($option);
+    }
+  }
+  else
+  {
+    foreach ($options_list as $key => $option)
+    {
+      if(is_string($option))
+      {
+        HTML_load_option($option);
+      }
+      elseif(is_array($option))
+      {
+        HTML_load_option($key);
+      }
+    }
+
   }
 
   echo $html;
 
+}
+
+/**
+ * Load html option
+ *
+ * @param      <type>  $_option  The option
+ */
+function HTML_load_option($_option)
+{
+  $fn = ['\\content_site\\options\\'. $_option, 'admin_html'];
+
+  echo call_user_func($fn, \dash\data::currentSectionDetail());
 }
 ?>

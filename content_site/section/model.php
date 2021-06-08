@@ -100,6 +100,21 @@ class model
 		{
 			$value = \dash\request::post();
 		}
+		elseif(\dash\request::post('specialsave') === 'specialsave')
+		{
+			$fn = ['\\content_site\\options\\'. $option_key, 'specialsave'];
+
+			if(is_callable($fn))
+			{
+				call_user_func($fn, \dash\request::post());
+				return;
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not save this special option"));
+				return false;
+			}
+		}
 		else
 		{
 			$value = \dash\request::post($option_key);
