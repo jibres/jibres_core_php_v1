@@ -34,11 +34,7 @@ class controller
 		// need in some option on save
 		view::current_section_detail();
 
-
-		// load section options
-		$namespace = '\\content_site\\ganje\\'. $child. '\\option';
-
-		$options = call_user_func([$namespace, 'options']);
+		$options = \content_site\call_function::option();
 
 		\dash\data::currentOptionList($options);
 
@@ -76,16 +72,14 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$namespace = '\\content_site\\ganje\\'. $section. '\\option';
-
-			$allow = call_user_func([$namespace, 'allow']);
+			$allow = \content_site\call_function::allow($section);
 
 			if(!$allow)
 			{
 				continue;
 			}
 
-			$section_list[] = call_user_func([$namespace, 'detail']);
+			$section_list[] = \content_site\call_function::detail($section);
 		}
 
 		return $section_list;

@@ -57,7 +57,7 @@ else
   {
     foreach ($options_list[$subchild] as $key => $option)
     {
-      HTML_load_option($option);
+      $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
     }
   }
   else
@@ -66,11 +66,11 @@ else
     {
       if(is_string($option))
       {
-        HTML_load_option($option);
+        $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
       }
       elseif(is_array($option))
       {
-        HTML_load_option($key);
+        $html .= \content_site\call_function::option_admin_html($key, \dash\data::currentSectionDetail());
       }
     }
 
@@ -80,15 +80,4 @@ else
 
 }
 
-/**
- * Load html option
- *
- * @param      <type>  $_option  The option
- */
-function HTML_load_option($_option)
-{
-  $fn = ['\\content_site\\options\\'. $_option, 'admin_html'];
-
-  echo call_user_func($fn, \dash\data::currentSectionDetail());
-}
 ?>

@@ -102,28 +102,14 @@ class model
 		}
 		elseif(\dash\request::post('specialsave') === 'specialsave')
 		{
-			$fn = ['\\content_site\\options\\'. $option_key, 'specialsave'];
-
-			if(is_callable($fn))
-			{
-				call_user_func($fn, \dash\request::post());
-				return;
-			}
-			else
-			{
-				\dash\notif::error(T_("Can not save this special option"));
-				return false;
-			}
+			return \content_site\call_function::option_specialsave($option_key, \dash\request::post());
 		}
 		else
 		{
 			$value = \dash\request::post($option_key);
 		}
 
-
-		$fn = ['\\content_site\\options\\'. $option_key, 'validator'];
-
-		$value = call_user_func($fn, $value);
+		$value = \content_site\call_function::option_validator($option_key, $value);
 
 		$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
 

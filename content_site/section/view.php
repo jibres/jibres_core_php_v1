@@ -104,30 +104,27 @@ class view
 
 						$detail  = [];
 
-						$namespace = '\\content_site\\ganje\\'. $value['key']. '\\option';
 
-						if(is_callable([$namespace, 'detail']))
+						$detail = \content_site\call_function::detail($value['key']);
+
+						if(!is_array($detail))
 						{
-							$detail = call_user_func([$namespace, 'detail']);
-							if(!is_array($detail))
-							{
-								$detail = [];
-							}
+							$detail = [];
 						}
 
-						if(is_callable([$namespace, 'default']))
+						$default = \content_site\call_function::default($value['key']);
+
+						if(!is_array($default))
 						{
-							$default = call_user_func([$namespace, 'default']);
-							if(!is_array($default))
-							{
-								$default = [];
-							}
+							$default = [];
 						}
+
 
 						$value = array_merge($detail, $default, $value);
 
 
-						$result['layout'] = call_user_func(['\\content_site\\ganje\\'. $value['key']. '\\layout', 'layout'], $value);
+						$result['layout'] = \content_site\call_function::layout($value['key'], $value);
+
 					}
 
 

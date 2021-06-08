@@ -55,8 +55,8 @@ class option
 	{
 		return
 		[
-			['key' => 'style_1', 'title' => T_("Classic View")],
-			// ['key' => 'style_2', 'title' => T_("Modern View"), 'default' => true,]
+			['key' => 'style_1', 'title' => T_("Classic View"), 'default' => true],
+			['key' => 'style_2', 'title' => T_("Modern View"), 'default' => false,]
 		];
 	}
 
@@ -66,7 +66,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function options()
+	public static function option($_mode = null)
 	{
 		$currentSectionDetail = \dash\data::currentSectionDetail();
 
@@ -81,9 +81,23 @@ class option
 			$style = 'style_1';
 		}
 
-		$style_detail = call_user_func(['self', $style]);
+		if(is_callable(['self', $style]))
+		{
+			$style_detail = call_user_func(['self', $style]);
+		}
 
-		return $style_detail['options'];
+		// get full option
+		if($_mode === 'full')
+		{
+			return $style_detail;
+		}
+
+		if(isset($style_detail['options']))
+		{
+			return $style_detail['options'];
+		}
+
+		return [];
 
 	}
 
@@ -115,6 +129,7 @@ class option
 			'default'   => self::master_default(),
 			'options'   =>
 			[
+				'style',
 				'heading',
 				'view_all_btn',
 				'post_tag',
@@ -123,6 +138,34 @@ class option
 				'avand',
 				'padding',
 				'radius',
+			],
+		];
+	}
+
+
+	/**
+	 * Style 2
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function style_2()
+	{
+		return
+		[
+			'key'       => 'style_2',
+			'title'     => T_("Modern View"),
+			'default'   => self::master_default(),
+			'options'   =>
+			[
+				'style',
+				// 'heading',
+				// 'view_all_btn',
+				// 'post_tag',
+				// 'post_template',
+				// 'limit',
+				// 'avand',
+				// 'padding',
+				// 'radius',
 			],
 		];
 	}
