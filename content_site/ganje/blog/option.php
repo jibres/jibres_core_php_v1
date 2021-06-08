@@ -130,12 +130,12 @@ class option
 		[
 			'style',
 			'heading',
-			'view_all_btn',
 
 			'post_tag',
 			'post_template',
 			'post_show_author',
 			'post_show_date',
+			'view_all_btn',
 
 			'limit',
 			'container',
