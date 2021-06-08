@@ -218,6 +218,12 @@ class recaptcha
 
 		if($ok)
 		{
+			// if score is 0 maybe is human !!
+			if(floatval($score) === floatval(0))
+			{
+				return true;
+			}
+
 			if(floatval($score) >= 0.5)
 			{
 				return true;
