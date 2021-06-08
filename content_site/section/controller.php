@@ -30,9 +30,13 @@ class controller
 
 		// all section need to sid [section id] to load
 
+		// load current section detail
+		// need in some option on save
+		view::current_section_detail();
+
 
 		// load section options
-		$namespace = '\\content_site\\section\\ganje\\'. $child;
+		$namespace = '\\content_site\\ganje\\'. $child. '\\option';
 
 		$options = call_user_func([$namespace, 'options']);
 
@@ -41,12 +45,6 @@ class controller
 		// allow to get and post on this page
 		\dash\open::get();
 		\dash\open::post();
-
-		// load current section detail
-		// need in some option on save
-		view::current_section_detail();
-
-
 	}
 
 
@@ -60,7 +58,7 @@ class controller
 		$list =
 		[
 			'blog',
-			'image',
+			// 'image',
 		];
 
 		return $list;
@@ -78,7 +76,7 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$namespace = '\\content_site\\section\\ganje\\'. $section;
+			$namespace = '\\content_site\\ganje\\'. $section. '\\option';
 
 			$allow = call_user_func([$namespace, 'allow']);
 

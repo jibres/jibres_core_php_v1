@@ -104,7 +104,7 @@ class view
 
 						$detail  = [];
 
-						$namespace = '\\content_site\\section\\ganje\\'. $value['key'];
+						$namespace = '\\content_site\\ganje\\'. $value['key']. '\\option';
 
 						if(is_callable([$namespace, 'detail']))
 						{
@@ -127,7 +127,7 @@ class view
 						$value = array_merge($detail, $default, $value);
 
 
-						$result['layout'] = call_user_func([$namespace, 'layout'], $value);
+						$result['layout'] = call_user_func(['\\content_site\\ganje\\'. $value['key']. '\\layout', 'layout'], $value);
 					}
 
 
