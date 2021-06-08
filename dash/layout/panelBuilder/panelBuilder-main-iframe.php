@@ -8,14 +8,11 @@ if(\dash\data::currentSectionList() && is_array(\dash\data::currentSectionList()
   $section_list = \dash\data::currentSectionList();
 }
 
-$html = '';
+$previewHTML = '';
 foreach ($section_list as $key => $value)
 {
-  $html .= a($value, 'layout');
+  $previewHTML .= a($value, 'layout');
 }
-
-echo $html;
-return;
 
   echo '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';
   echo '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
@@ -50,6 +47,7 @@ return;
     echo '</div>';
   }
   echo '</div>';
-  echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
+  // echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
+  echo $previewHTML;
   echo '</div>';
 ?>
