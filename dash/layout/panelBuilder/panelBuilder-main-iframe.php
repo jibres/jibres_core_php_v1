@@ -47,7 +47,11 @@ foreach ($section_list as $key => $value)
     echo '</div>';
   }
   echo '</div>';
-  // echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
-  echo $previewHTML;
+  echo '<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">';
+  {
+    // echo '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
+    echo $previewHTML;
+  }
+  echo '</div>';
   echo '</div>';
 ?>
