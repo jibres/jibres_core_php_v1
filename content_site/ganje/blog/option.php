@@ -56,7 +56,7 @@ class option
 		return
 		[
 			['key' => 'style_1', 'title' => T_("Classic View"), 'default' => true],
-			['key' => 'style_2', 'title' => T_("Modern View"), 'default' => false,]
+			['key' => 'style_2', 'title' => T_("Modern View"), 'default' => false,],
 		];
 	}
 
@@ -78,6 +78,7 @@ class option
 		}
 		else
 		{
+			// Hey! if change this variable you must change the default style in style_list function
 			$style = 'style_1';
 		}
 
@@ -151,7 +152,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function style_1()
+	private static function style_1()
 	{
 		return
 		[
@@ -168,7 +169,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function style_2()
+	private static function style_2()
 	{
 		return
 		[
