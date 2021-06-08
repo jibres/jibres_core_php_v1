@@ -18,7 +18,7 @@
             <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo a($value, 'preview', 'icon') ?>">
             <div class="key"><?php echo a($value, 'preview', 'heading') ?></div>
 <?php if (count(\dash\data::currentSectionList()) > 1) { ?>
-            <img class="p-5" data-handle src="<?php echo \dash\utility\icon::url('DragHandle', 'minor'); ?>">
+            <img class="p-5 opacity-70 hover:bg-gray-200" data-handle src="<?php echo \dash\utility\icon::url('DragHandle', 'minor'); ?>">
 <?php } ?>
           </a>
         </li>
