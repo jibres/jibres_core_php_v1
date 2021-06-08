@@ -138,7 +138,7 @@ class option
 			'post_show_date',
 
 			'limit',
-			'avand',
+			'container',
 			'padding',
 			'radius',
 		];
@@ -175,6 +175,7 @@ class option
 		[
 			'key'     => __FUNCTION__,
 			'title'   => T_("Modern View"),
+			'premium' => true,
 			'default' => self::master_default(['style' => __FUNCTION__]),
 			'options' => self::master_option(),
 		];
