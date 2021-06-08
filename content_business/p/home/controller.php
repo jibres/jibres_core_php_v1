@@ -21,6 +21,19 @@ class controller
 			\dash\header::status(404, T_("Product not found"));
 		}
 
+
+		if(a($load_product, 'status') === 'draft')
+		{
+			if(\dash\request::get('preview'))
+			{
+				// ok
+			}
+			else
+			{
+				\dash\header::status(404, T_("Product is not published"));
+			}
+		}
+
 		\dash\data::dataRow($load_product);
 
 		$allow = false;
