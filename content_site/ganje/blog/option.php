@@ -117,6 +117,36 @@ class option
 
 
 	/**
+	 * Master option
+	 *
+	 * @param      array   $_special_default  The special default
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function master_option()
+	{
+		$option =
+		[
+			'style',
+			'heading',
+			'view_all_btn',
+
+			'post_tag',
+			'post_template',
+			'post_show_author',
+			'post_show_date',
+
+			'limit',
+			'avand',
+			'padding',
+			'radius',
+		];
+
+		return $option;
+	}
+
+
+	/**
 	 * Style 1
 	 *
 	 * @return     array  ( description_of_the_return_value )
@@ -125,21 +155,10 @@ class option
 	{
 		return
 		[
-			'key'       => __FUNCTION__,
-			'title'     => T_("Classic View"),
-			'default'   => self::master_default(['style' => __FUNCTION__]),
-			'options'   =>
-			[
-				'style',
-				'heading',
-				'view_all_btn',
-				'post_tag',
-				'post_template',
-				'limit',
-				'avand',
-				'padding',
-				'radius',
-			],
+			'key'     => __FUNCTION__,
+			'title'   => T_("Classic View"),
+			'default' => self::master_default(['style' => __FUNCTION__]),
+			'options' => self::master_option(),
 		];
 	}
 
@@ -153,21 +172,10 @@ class option
 	{
 		return
 		[
-			'key'       => __FUNCTION__,
-			'title'     => T_("Modern View"),
-			'default'   => self::master_default(['style' => __FUNCTION__]),
-			'options'   =>
-			[
-				'style',
-				// 'heading',
-				// 'view_all_btn',
-				// 'post_tag',
-				// 'post_template',
-				// 'limit',
-				// 'avand',
-				// 'padding',
-				// 'radius',
-			],
+			'key'     => __FUNCTION__,
+			'title'   => T_("Modern View"),
+			'default' => self::master_default(['style' => __FUNCTION__]),
+			'options' => self::master_option(),
 		];
 	}
 
