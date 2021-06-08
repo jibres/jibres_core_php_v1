@@ -23,9 +23,15 @@ class view
 		\dash\data::back_link(\lib\backlink::products());
 
 
-		if(\dash\data::productDataRow_url())
+		$productDataRow = \dash\data::productDataRow();
+
+		if(a($productDataRow, 'status') === 'active')
 		{
 			\dash\face::btnView(\dash\data::productDataRow_url());
+		}
+		elseif(a($productDataRow, 'status') === 'draft')
+		{
+			\dash\face::btnPreview(\dash\data::productDataRow_url(). '?preview=yes');
 		}
 
 		$countOrdered = \lib\app\factor\get::product_count_ordered(\dash\request::get('id'));
