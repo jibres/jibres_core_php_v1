@@ -15,7 +15,6 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-
 		$line_detail =
 		[
 			'title'     => a($_args, 'heading'),

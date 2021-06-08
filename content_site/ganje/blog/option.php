@@ -98,20 +98,21 @@ class option
 		}
 
 		return [];
-
 	}
 
 
 	/**
 	 * Public default
 	 */
-	private static function master_default()
+	private static function master_default($_special_default = [])
 	{
-		return
+		$master_default =
 		[
 			'heading'        => T_("Post blog"),
 			'post_template'  => 'standard',
 		];
+
+		return array_merge($master_default, $_special_default);
 	}
 
 
@@ -124,9 +125,9 @@ class option
 	{
 		return
 		[
-			'key'       => 'style_1',
+			'key'       => __FUNCTION__,
 			'title'     => T_("Classic View"),
-			'default'   => self::master_default(),
+			'default'   => self::master_default(['style' => __FUNCTION__]),
 			'options'   =>
 			[
 				'style',
@@ -152,9 +153,9 @@ class option
 	{
 		return
 		[
-			'key'       => 'style_2',
+			'key'       => __FUNCTION__,
 			'title'     => T_("Modern View"),
-			'default'   => self::master_default(),
+			'default'   => self::master_default(['style' => __FUNCTION__]),
 			'options'   =>
 			[
 				'style',
