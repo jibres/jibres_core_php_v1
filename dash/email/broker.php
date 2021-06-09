@@ -29,6 +29,8 @@ class broker
 		$response = curl_exec($ch);
 		$CurlError = curl_error($ch);
 
+		\dash\temp::set('rawBrokerEmailResponseForHistory', $response);
+
 		curl_close($ch);
 		if(!$response)
 		{

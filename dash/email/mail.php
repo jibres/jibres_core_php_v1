@@ -14,8 +14,6 @@ class mail
 		// prepare args
 		$emailData = self::prepare($_args);
 
-		// save log in history
-		\dash\email\history::set($emailData);
 
 		// send email
 		// detect service
@@ -29,7 +27,12 @@ class mail
 		// return self::smtp($emailData, $providerData);
 
 		// send to broker and broker send to service
-		return \dash\email\broker::transfer($emailData, $providerData);
+		$result = \dash\email\broker::transfer($emailData, $providerData);
+
+		$emailData['response'] = \dash\temp::get('rawBrokerEmailResponseForHistory');
+
+		// save log in history
+		\dash\email\history::set($emailData);
 	}
 
 
@@ -95,7 +98,8 @@ class mail
 				$mail->AltBody = $opt['altbody'];
 			}
 
-			$mail->send();
+			$send = $mail->send();
+
 			// echo 'Message has been sent';
 			return true;
 		} catch (Exception $e)

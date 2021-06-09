@@ -35,7 +35,7 @@ class history
 		$insert['user_id']      = \dash\user::id();
 		$insert['ip_id']        = \dash\utility\ip::id();
 		$insert['agent_id']     = \dash\agent::get(true);
-		$insert['response']     = null;
+		$insert['response']     = a($_args, 'response');
 		$insert['datesend']     = date("Y-m-d H:i:s");
 		$insert['dateresponse'] = null;
 		$insert['datecreated']  = date("Y-m-d H:i:s");
