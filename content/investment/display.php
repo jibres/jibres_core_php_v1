@@ -18,7 +18,7 @@
 
   <div class="row justify-center">
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/pitch-deck/v1/Jibres-PitchDeck-v1.pdf?v=1">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/pitchdeck">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/pitchdeck.svg" alt="Jibres PitchDeck"></div>
           <h2 class="title"><?php echo T_("Pitch Deck"); ?></h2>
@@ -31,7 +31,7 @@
   <div class="row">
 
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/pitch-deck/v1/Jibres-PitchDeck-v1.pptx?v=1">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/pitchdeck-ppt">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/pitchdeck-presentation.svg" alt="Jibres PitchDeck Presentation"></div>
           <h2 class="title"><?php echo T_("Pitch Deck Slides"); ?></h2>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/financial/Jibres-Financial-Projection-v1.xlsx?v=1">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/financial">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
           <h2 class="title"><?php echo T_("Financial Projection"); ?></h2>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="c-xs-6 c-sm-6">
-      <a class="box card1" target="_blank" href="<?php echo \dash\url::cdn(); ?>/business/business-plan/Jibres-BusinessPlan-v1.pdf?v=1">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/businessplan">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/bp.svg" alt="Jibres Business Plan"></div>
           <h2 class="title"><?php echo T_("Business Plan"); ?></h2>
