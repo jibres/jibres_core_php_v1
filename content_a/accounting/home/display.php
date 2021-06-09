@@ -107,6 +107,15 @@
       </a>
     </div>
 
+     <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal'; ?>'>
+        <div class="statistic pink">
+          <div class="value"><i class="sf-chart"></i></div>
+          <div class="label"><?php echo T_("Report journal"); ?></div>
+        </div>
+      </a>
+    </div>
+
 
     <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/assistant'; ?>'>

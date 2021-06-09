@@ -383,6 +383,81 @@ class get
 	}
 
 
+	public static function report_journal($_args)
+	{
+		$year = null;
+		if(isset($_args['year_id']) && $_args['year_id'])
+		{
+			$year = " AND tax_docdetail.year_id = $_args[year_id] ";
+		}
+
+		$startdate = null;
+		if(isset($_args['startdate']) && $_args['startdate'])
+		{
+			$startdate = " AND tax_document.date >= '$_args[startdate]' ";
+		}
+
+		$enddate = null;
+		if(isset($_args['enddate']) && $_args['enddate'])
+		{
+			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
+		}
+
+
+		$query =
+		"
+			SELECT
+				CONCAT(1, LPAD(IFNULL(MAX(tax_coding.parent1), 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0')) AS `string_id`,
+				MAX(tax_coding.parent1) AS `group_id`,
+				NULL AS `group_title`,
+				tax_coding.parent2 AS `total_id`,
+				MAX(tax_coding.title) AS `total_title`,
+				NULL AS `remain_debtor`,
+				NULL AS `remain_creditor`,
+				NULL AS `sum_debtor`,
+				NULL AS `sum_creditor`,
+				NULL AS `current`,
+				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
+				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
+			FROM
+				tax_docdetail
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
+			WHERE
+				tax_document.status != 'draft' AND
+				tax_document.type = '$_args[type]'
+				$year
+				$startdate
+				$enddate
+			GROUP BY tax_coding.parent2
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+
+	}
+
+
+	public static function report_journal_coding()
+	{
+		$query =
+		"
+			SELECT
+				tax_coding.*,
+				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0')) AS `string_id`
+			FROM tax_coding
+			WHERE tax_coding.type IN ('group', 'total')
+			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
+		";
+
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
+
 	public static function group_report($_args)
 	{
 		$year = null;

@@ -4,7 +4,8 @@ namespace lib\app\tax\doc;
 
 class report
 {
-	private static function analyze_args($_args)
+	// use in /report/journal
+	public static function analyze_args($_args)
 	{
 		$condition =
 		[
@@ -27,6 +28,8 @@ class report
 			{
 				$data['year_id'] = null;
 			}
+
+			$data['yearDetail'] = $load_year;
 		}
 
 		return $data;
@@ -979,7 +982,8 @@ class report
 	}
 
 
-	private static function my_array_sum($_data)
+	// use in /report/journal
+	public static function my_array_sum($_data)
 	{
 		$sum = 0;
 		foreach ($_data as $key => $value)
@@ -990,7 +994,8 @@ class report
 	}
 
 
-	private static function pretty_table($_data)
+	// use in /report/journal
+	public static function pretty_table($_data)
 	{
 		$pretty = [];
 		foreach ($_data as $key => $value)
