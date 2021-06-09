@@ -40,14 +40,15 @@
 
         <?php }else{ ?>
           <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
+          <td class="collapsing"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
           <td class="collapsing"></td>
           <td class="collapsing"></td>
-          <td class="collapsing"></td>
-          <td><?php echo a($value, 'total_title') ?></td>
           <?php if(a($value, 'mode') === 'debtor') {?>
+            <td><?php echo a($value, 'total_title') ?></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
             <td></td>
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
+            <td class="txtL"><?php echo a($value, 'total_title') ?></td>
             <td></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>

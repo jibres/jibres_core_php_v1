@@ -13,14 +13,35 @@ class journal
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	private static function break_message($_mode, $_args = [])
+	private static function break_message($_index, $_mode, $_args = [])
 	{
-		$break_message =
-		[
-			'type' => 'break_message',
-			'mode' => $_mode,
-			'message' => T_("For tax document"). ' '. $_mode,
-		];
+		$break_message             = [];
+		$break_message['type']     = 'break_message';
+		$break_message['mode']     = $_mode;
+		$message                   = T_("For tax document");
+		$break_message['myNumber'] = $_index + 1;
+
+		switch($_mode)
+		{
+			case 'end_of_page':
+				$message  = T_("End of page");
+				break;
+
+			case 'start_new_page':
+				$message  = T_("Start new page");
+				break;
+
+			case 'opening':
+				$message  = T_("For opening document");
+				break;
+
+			case 'next_part':
+				$message  = T_("For tax document");
+				break;
+
+
+		}
+		$break_message['message']     = $message;
 
 		return array_merge($break_message, $_args);
 	}
@@ -107,6 +128,8 @@ class journal
 		{
 			foreach ($one_month as $result)
 			{
+				$result['myNumber'] = $key + 1;
+
 				$final_report[] = $result;
 
 				$counter++;
@@ -120,8 +143,8 @@ class journal
 						'sum_current_on_page'  => $sum_current_on_page
 					];
 
-					$final_report[]       = self::break_message('end_of_page', $page_report);
-					$final_report[]       = self::break_message('start_new_page', $page_report);
+					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
+					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 					$counter              = 0;
 					$sum_debtor_on_page   = 0;
 					$sum_creditor_on_page = 0;
@@ -138,11 +161,11 @@ class journal
 
 			if($key === 0)
 			{
-				$final_report[] = self::break_message('opening');
+				$final_report[] = self::break_message($key, 'opening');
 			}
 			else
 			{
-				$final_report[] = self::break_message('next_part');
+				$final_report[] = self::break_message($key, 'next_part');
 			}
 
 			$counter++;
@@ -156,8 +179,8 @@ class journal
 					'sum_current_on_page'  => $sum_current_on_page
 				];
 
-				$final_report[]       = self::break_message('end_of_page', $page_report);
-				$final_report[]       = self::break_message('start_new_page', $page_report);
+				$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
+				$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 				$counter              = 0;
 				$sum_debtor_on_page   = 0;
 				$sum_creditor_on_page = 0;

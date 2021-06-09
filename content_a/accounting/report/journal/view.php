@@ -50,16 +50,16 @@ class view
 
 		\dash\data::reportDetail($report);
 
-		if(\dash\request::get('export'))
-		{
-			$export_name = "Accounting_report_total";
-			foreach ($report as $key => $value)
-			{
-				unset($report[$key]['string_id']);
-			}
+		// if(\dash\request::get('export'))
+		// {
+		// 	$export_name = "Accounting_report_total";
+		// 	foreach ($report as $key => $value)
+		// 	{
+		// 		unset($report[$key]['string_id']);
+		// 	}
 
-			\dash\utility\export::csv(['name' => $export_name, 'data' => \dash\data::reportDetail()]);
-		}
+		// 	\dash\utility\export::csv(['name' => $export_name, 'data' => \dash\data::reportDetail()]);
+		// }
 
 	}
 
