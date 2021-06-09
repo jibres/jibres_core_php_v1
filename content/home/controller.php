@@ -61,7 +61,7 @@ class controller
 				break;
 
 			case 'pitchdeck':
-				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v1.pdf?v=1');
+				\dash\redirect::to(\dash\url::kingdom(). '/investment/pitchdeck');
 				break;
 
 			default:
