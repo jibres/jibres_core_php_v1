@@ -50,23 +50,25 @@ class style
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
-    	$html .= '<input type="hidden" name="option" value="style">';
-		$html .= "<label for='style'>$title</label>";
-        $html .= '<select name="style" class="select22" id="style">';
+		{
+	    	$html .= '<input type="hidden" name="option" value="style">';
+			$html .= "<label for='style'>$title</label>";
+	        $html .= '<select name="style" class="select22" id="style">';
 
-        foreach (self::enum() as $key => $value)
-        {
-        	$selected = null;
+	        foreach (self::enum() as $key => $value)
+	        {
+	        	$selected = null;
 
-        	if($value['key'] === $default)
-        	{
-        		$selected = ' selected';
-        	}
+	        	if($value['key'] === $default)
+	        	{
+	        		$selected = ' selected';
+	        	}
 
-        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-        }
+	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+	        }
 
-       	$html .= '</select>';
+	       	$html .= '</select>';
+		}
   		$html .= '</form>';
 
 		return $html;

@@ -52,23 +52,25 @@ class height
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
-    	$html .= '<input type="hidden" name="option" value="height">';
-		$html .= "<label for='height'>$title</label>";
-        $html .= '<select name="height" class="select22" id="height">';
+		{
+	    	$html .= '<input type="hidden" name="option" value="height">';
+			$html .= "<label for='height'>$title</label>";
+	        $html .= '<select name="height" class="select22" id="height">';
 
-        foreach (self::enum() as $key => $value)
-        {
-        	$selected = null;
+	        foreach (self::enum() as $key => $value)
+	        {
+	        	$selected = null;
 
-        	if($value['key'] === $default)
-        	{
-        		$selected = ' selected';
-        	}
+	        	if($value['key'] === $default)
+	        	{
+	        		$selected = ' selected';
+	        	}
 
-        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-        }
+	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+	        }
 
-       	$html .= '</select>';
+	       	$html .= '</select>';
+		}
   		$html .= '</form>';
 
 		return $html;

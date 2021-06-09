@@ -76,43 +76,48 @@ class post_template
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
-    	$html .= '<input type="hidden" name="option" value="post_template">';
-    	$html .= '<input type="hidden" name="multioption" value="multi">';
+		{
+	    	$html .= '<input type="hidden" name="option" value="post_template">';
+	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
 
-    	$html .= "<label for='post_template'>". T_("Post template") ."</label>";
-        $html .= '<select name="post_template" class="select22" id="post_template">';
-        foreach (self::enum_post_template() as $key => $value)
-        {
-        	$selected = null;
+	    	$html .= "<label for='post_template'>". T_("Post template") ."</label>";
+	        $html .= '<select name="post_template" class="select22" id="post_template">';
 
-        	if($value['key'] === $default_post_template)
-        	{
-        		$selected = ' selected';
-        	}
+	        foreach (self::enum_post_template() as $key => $value)
+	        {
+	        	$selected = null;
 
-        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-        }
-        $html .= '</select>';
+	        	if($value['key'] === $default_post_template)
+	        	{
+	        		$selected = ' selected';
+	        	}
 
-		$html .= '<div data-response="post_template" data-response-where="video" '.$data_response_hide.'>';
+	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+	        }
+	        $html .= '</select>';
 
-		$html .= "<label for='post_play_item'>". T_("Show item in player") ."</label>";
-        $html .= '<select name="post_play_item" class="select22" id="post_play_item">';
-        foreach (self::enum_post_play_item() as $key => $value)
-        {
-        	$selected = null;
+			$html .= '<div data-response="post_template" data-response-where="video" '.$data_response_hide.'>';
+			{
 
-        	if($value['key'] === $default_play_item)
-        	{
-        		$selected = ' selected';
-        	}
+				$html .= "<label for='post_play_item'>". T_("Show item in player") ."</label>";
+		        $html .= '<select name="post_play_item" class="select22" id="post_play_item">';
+		        foreach (self::enum_post_play_item() as $key => $value)
+		        {
+		        	$selected = null;
 
-        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-        }
-        $html .= '</select>';
+		        	if($value['key'] === $default_play_item)
+		        	{
+		        		$selected = ' selected';
+		        	}
 
-		$html .= '</div>';
+		        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+		        }
+		        $html .= '</select>';
+			}
+
+			$html .= '</div>';
+		}
 
   		$html .= '</form>';
 

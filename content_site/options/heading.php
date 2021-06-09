@@ -31,11 +31,16 @@ class heading
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
-    	$html .= '<input type="hidden" name="option" value="heading">';
-    	$html .= '<label for="heading">'. T_("Heading"). '</label>';
-		$html .= '<div class="input">';
-    	$html .= '<input type="text" placeholder="" name="heading" value="'. $default. '">';
-		$html .= "</div>";
+		{
+	    	$html .= '<input type="hidden" name="option" value="heading">';
+	    	$html .= '<label for="heading">'. T_("Heading"). '</label>';
+
+			$html .= '<div class="input">';
+			{
+	    		$html .= '<input type="text" placeholder="" name="heading" value="'. $default. '">';
+			}
+			$html .= "</div>";
+		}
   		$html .= '</form>';
 
 		return $html;

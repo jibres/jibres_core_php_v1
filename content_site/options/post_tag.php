@@ -36,32 +36,34 @@ class post_tag
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
-    	$html .= '<input type="hidden" name="option" value="post_tag">';
-		$html .= "<label for='post_tag'>$title</label>";
-        $html .= '<select name="post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select tag"). '">';
-
-		if(a($_section_detail, 'preview', 'post_tag'))
 		{
-			$html .= '<option value="0">'. T_("None"). '</option>';
+	    	$html .= '<input type="hidden" name="option" value="post_tag">';
+			$html .= "<label for='post_tag'>$title</label>";
+	        $html .= '<select name="post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select tag"). '">';
+
+			if(a($_section_detail, 'preview', 'post_tag'))
+			{
+				$html .= '<option value="0">'. T_("None"). '</option>';
+			}
+			else
+			{
+				$html .= '<option value="">'. T_("Select tag"). '</option>';
+			}
+
+	        foreach ($tag_list as $key => $value)
+	        {
+	        	$selected = null;
+
+	        	if($value['id'] === $default)
+	        	{
+	        		$selected = ' selected';
+	        	}
+
+	        	$html .= "<option value='$value[id]'$selected>$value[title]</option>";
+	        }
+
+	       	$html .= '</select>';
 		}
-		else
-		{
-			$html .= '<option value="">'. T_("Select tag"). '</option>';
-		}
-
-        foreach ($tag_list as $key => $value)
-        {
-        	$selected = null;
-
-        	if($value['id'] === $default)
-        	{
-        		$selected = ' selected';
-        	}
-
-        	$html .= "<option value='$value[id]'$selected>$value[title]</option>";
-        }
-
-       	$html .= '</select>';
   		$html .= '</form>';
 
 		return $html;

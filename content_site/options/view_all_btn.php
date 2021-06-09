@@ -45,25 +45,27 @@ class view_all_btn
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
-    	$html .= '<input type="hidden" name="option" value="view_all_btn">';
-    	$html .= '<input type="hidden" name="multioption" value="multi">';
-
-		$html .= '<div class="check1">';
 		{
-			$html .= '<input type="checkbox" name="view_all_btn_check" id="view_all_btn_check"'.$checked.'>';
-			$html .= '<label for="view_all_btn_check">'. T_('Show "View all" button'). '</label>';
-		}
-		$html .= '</div>';
+	    	$html .= '<input type="hidden" name="option" value="view_all_btn">';
+	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
-		$html .= '<div data-response="view_all_btn_check" data-response-effect="slide"'.$data_response_hide.'>';
-		{
-			$html .= '<div class="input">';
+			$html .= '<div class="check1">';
 			{
-				$html .= '<input type="text" name="view_all_btn" placeholder="'.$default.'" value="'.$default.'">';
+				$html .= '<input type="checkbox" name="view_all_btn_check" id="view_all_btn_check"'.$checked.'>';
+				$html .= '<label for="view_all_btn_check">'. T_('Show "View all" button'). '</label>';
+			}
+			$html .= '</div>';
+
+			$html .= '<div data-response="view_all_btn_check" data-response-effect="slide"'.$data_response_hide.'>';
+			{
+				$html .= '<div class="input">';
+				{
+					$html .= '<input type="text" name="view_all_btn" placeholder="'.$default.'" value="'.$default.'">';
+				}
+				$html .= '</div>';
 			}
 			$html .= '</div>';
 		}
-		$html .= '</div>';
 
   		$html .= '</form>';
 

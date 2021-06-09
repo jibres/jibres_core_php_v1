@@ -32,14 +32,16 @@ class post_show_date
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
-    	$html .= '<input type="hidden" name="option" value="post_show_date">';
-
-		$html .= '<div class="check1">';
 		{
-			$html .= '<input type="checkbox" name="post_show_date" id="post_show_date"'.$checked.'>';
-			$html .= '<label for="post_show_date">'. T_('Show date'). '</label>';
+	    	$html .= '<input type="hidden" name="option" value="post_show_date">';
+
+			$html .= '<div class="check1">';
+			{
+				$html .= '<input type="checkbox" name="post_show_date" id="post_show_date"'.$checked.'>';
+				$html .= '<label for="post_show_date">'. T_('Show date'). '</label>';
+			}
+			$html .= '</div>';
 		}
-		$html .= '</div>';
 
   		$html .= '</form>';
 

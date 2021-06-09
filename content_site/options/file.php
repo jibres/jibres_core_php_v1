@@ -16,15 +16,15 @@ class file
 			$html .= ' data-uploader';
 			$html .= ' data-name="file"';
 			$html .= ' data-final="#finalImage"';
-			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
 			$html .= ' data-autoSend';
+			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
+			$html .= ' '. \dash\data::ratioHtml();
 
 			if(\dash\data::dataRow_imageurl())
 			{
 				$html .= " data-fill";
 			}
 
-			$html .= \dash\data::ratioHtml();
 			$html .= '>';
 
 			$html .= '<input type="file" accept="image/jpeg, image/png" id="myfile">';
