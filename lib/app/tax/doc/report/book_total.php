@@ -123,6 +123,7 @@ class book_total
 
 		foreach ($total_report as $key => $one_month)
 		{
+			$remain_value = 0;
 			foreach ($one_month as $result)
 			{
 				$result['myNumber'] = $key + 1;
@@ -132,10 +133,19 @@ class book_total
 					$final_report[$result['total_id']] = [];
 				}
 
+				if($result['mode'] === 'deptor')
+				{
+					$remain_value += abs($result['show_value']);
+				}
+				else
+				{
+					$remain_value -= abs($result['show_value']);
+				}
+
+				$result['remain_value'] = $remain_value;
+
 				$final_report[$result['total_id']][] = $result;
-
 			}
-
 		}
 
 		return $final_report;

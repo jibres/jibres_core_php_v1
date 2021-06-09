@@ -12,32 +12,14 @@
         <th><?php echo T_("Description") ?></th>
         <th class="txtR"><?php echo T_("Debtor") ?></th>
         <th class="txtR"><?php echo T_("Creditor") ?></th>
+        <th class="txtR"><?php echo T_("Remain") ?></th>
       </tr>
     </thead>
     <tbody>
   <?php foreach (\dash\data::reportDetail() as $key => $one_total) {?>
   <?php foreach ($one_total as $value) {?>
         <tr>
-        <?php if(a($value, 'type') === 'break_message') {?>
-          <?php if(a($value, 'mode') === 'end_of_page' || a($value, 'mode') === 'start_new_page') {?>
-            <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
-            <td class="collapsing"></td>
-            <td class="collapsing"></td>
-            <td class="txtB fs14 fc-blue"><?php echo a($value, 'message') ?></td>
-            <td data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
 
-          <?php }else{ ?>
-            <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
-            <td class="collapsing"></td>
-            <td class="collapsing"></td>
-            <td class="txtB fs14 fc-pink"><?php echo a($value, 'message') ?></td>
-            <td></td>
-            <td></td>
-
-          <?php } //endif ?>
-
-        <?php }else{ ?>
           <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
           <td class="collapsing"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
           <td class="collapsing"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("Y F", strtotime($value['enddate']) - (60*60*24*5)); } ?></td>
@@ -50,7 +32,8 @@
             <td></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>
-        <?php } //endif ?>
+            <td data-copy='<?php echo a($value, 'remain_value'); ?>' class="ltr txtR fc-black"><code><?php echo \dash\fit::number(a($value, 'remain_value'), true, 'en') ?></code></td>
+
         </tr>
       <?php } //enfor ?>
       <tr>
