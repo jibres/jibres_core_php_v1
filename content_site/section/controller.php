@@ -28,6 +28,13 @@ class controller
 			return;
 		}
 
+		// not route image/add/[anything]
+		if(\dash\url::dir(3))
+		{
+			\dash\header::status(404, T_("Invalid url"));
+			return;
+		}
+
 		// all section need to sid [section id] to load
 
 		// load current section detail
@@ -54,7 +61,7 @@ class controller
 		$list =
 		[
 			'blog',
-			// 'image',
+			'gallery',
 		];
 
 		return $list;
@@ -72,13 +79,6 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$allow = \content_site\call_function::allow($section);
-
-			if(!$allow)
-			{
-				continue;
-			}
-
 			$section_list[] = \content_site\call_function::detail($section);
 		}
 
