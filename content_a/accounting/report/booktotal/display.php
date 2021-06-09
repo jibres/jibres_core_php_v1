@@ -12,6 +12,7 @@
         <th><?php echo T_("Description") ?></th>
         <th class="txtR"><?php echo T_("Debtor") ?></th>
         <th class="txtR"><?php echo T_("Creditor") ?></th>
+        <th class="collapsing"><?php echo T_("Detect") ?></th>
         <th class="txtR"><?php echo T_("Remain") ?></th>
       </tr>
     </thead>
@@ -32,12 +33,13 @@
             <td></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>
+            <td class="collapsing"><?php echo a($value, 'bedbes') ?></td>
             <td data-copy='<?php echo a($value, 'remain_value'); ?>' class="ltr txtR fc-black"><code><?php echo \dash\fit::number(a($value, 'remain_value'), true, 'en') ?></code></td>
 
         </tr>
       <?php } //enfor ?>
       <tr>
-        <td colspan="6" class="txtC fc-pink txtB"><?php echo T_("Go to next page") ?></td>
+        <td colspan="8" class="txtC fc-pink txtB"><?php echo T_("Go to next page") ?></td>
       </tr>
       <?php } //enfor ?>
     </tbody>

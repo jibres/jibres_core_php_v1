@@ -120,10 +120,9 @@ class book_total
 
 		$final_report         = [];
 
-
 		foreach ($total_report as $key => $one_month)
 		{
-			$remain_value = 0;
+
 			foreach ($one_month as $result)
 			{
 				$result['myNumber'] = $key + 1;
@@ -133,18 +132,36 @@ class book_total
 					$final_report[$result['total_id']] = [];
 				}
 
-				if($result['mode'] === 'deptor')
+
+				$final_report[$result['total_id']][] = $result;
+			}
+		}
+
+		foreach ($final_report as $key => $value)
+		{
+			$remain_value = 0;
+			foreach ($value as $k => $result)
+			{
+				if($result['mode'] === 'debtor')
 				{
-					$remain_value += abs($result['show_value']);
+					$remain_value = floatval($remain_value) + floatval($result['show_value']);
 				}
 				else
 				{
-					$remain_value -= abs($result['show_value']);
+					$remain_value = floatval($remain_value) - floatval($result['show_value']);
 				}
 
-				$result['remain_value'] = $remain_value;
+				if($remain_value < 0)
+				{
+					$final_report[$key][$k]['bedbes'] = 'بس';
+				}
+				else
+				{
 
-				$final_report[$result['total_id']][] = $result;
+					$final_report[$key][$k]['bedbes'] = 'بد';
+				}
+
+				$final_report[$key][$k]['remain_value'] = abs($remain_value);
 			}
 		}
 
@@ -234,7 +251,6 @@ class book_total
 				$new_sort[] = $value;
 			}
 		}
-
 
 
 		return $new_sort;
