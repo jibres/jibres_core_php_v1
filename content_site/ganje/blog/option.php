@@ -5,16 +5,6 @@ namespace content_site\ganje\blog;
 class option
 {
 
-	/**
-	 * Call when try to add or choose section
-	 *
-	 * @return     bool  ( description_of_the_return_value )
-	 */
-	public static function allow()
-	{
-		return true;
-	}
-
 
 	/**
 	 * Call when publish the page
@@ -23,7 +13,7 @@ class option
 	 */
 	public static function premium()
 	{
-		return self::allow();
+		return true;
 	}
 
 
