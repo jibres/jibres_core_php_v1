@@ -41,7 +41,7 @@
         <?php }else{ ?>
           <td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
           <td class="collapsing"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
-          <td class="collapsing"></td>
+          <td class="collapsing"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("Y F", strtotime($value['enddate']) - (60*60*24*5)); } ?></td>
           <td class="collapsing"></td>
           <?php if(a($value, 'mode') === 'debtor') {?>
             <td><?php echo a($value, 'total_title') ?></td>

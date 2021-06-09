@@ -385,6 +385,9 @@ class get
 
 	public static function report_journal($_args)
 	{
+		$select_startdate = null;
+		$select_enddate = null;
+
 		$year = null;
 		if(isset($_args['year_id']) && $_args['year_id'])
 		{
@@ -395,12 +398,14 @@ class get
 		if(isset($_args['startdate']) && $_args['startdate'])
 		{
 			$startdate = " AND tax_document.date >= '$_args[startdate]' ";
+			$select_startdate = " '$_args[startdate]' AS `startdate`, ";
 		}
 
 		$enddate = null;
 		if(isset($_args['enddate']) && $_args['enddate'])
 		{
 			$enddate = " AND tax_document.date <= '$_args[enddate]' ";
+			$select_enddate = " '$_args[enddate]' AS `enddate`, ";
 		}
 
 
@@ -417,6 +422,7 @@ class get
 				NULL AS `sum_debtor`,
 				NULL AS `sum_creditor`,
 				NULL AS `current`,
+				$select_startdate $select_enddate
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
 			FROM

@@ -96,6 +96,8 @@ class journal
 		{
 			$my_data              = [];
 			$my_data['year_id']   = $data['year_id'];
+			$my_data['startdate'] = \dash\validate::date($month[0]);
+			$my_data['enddate']   = \dash\validate::date($month[1]);
 
 			if($key === 0)
 			{
@@ -107,8 +109,6 @@ class journal
 
 			}
 
-			$my_data['startdate'] = \dash\validate::date($month[0]);
-			$my_data['enddate']   = \dash\validate::date($month[1]);
 			$my_data['type']      = 'normal';
 
 			$result = \lib\db\tax_document\get::report_journal($my_data);
