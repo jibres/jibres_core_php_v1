@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-10 18:03+0430\n"
-"PO-Revision-Date: 2021-06-10 18:04+0430\n"
+"POT-Creation-Date: 2021-06-10 19:43+0430\n"
+"PO-Revision-Date: 2021-06-10 19:45+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -681,7 +681,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content/bug/display.php:104 content/changelog/display.php:12
 #: content_a/accounting/doc/add/display-docdetail.php:102
 #: content_a/accounting/irvat/add/display.php:124
-#: content_a/accounting/report/journal/display.php:12
+#: content_a/accounting/report/journal/display.php:18
 #: content_a/accounting/report/ledger/display.php:12
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
@@ -786,7 +786,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/doc/printall/display.php:35
 #: content_a/accounting/irvat/all/display.php:133
-#: content_a/accounting/report/journal/display.php:10
+#: content_a/accounting/report/journal/display.php:16
 #: content_a/accounting/report/ledger/display.php:10
 #: content_a/accounting/turnover/display.php:156 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:35 content_a/form/analytics/answer/display.php:110
@@ -4801,7 +4801,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/doc/add/display-docdetail.php:85
 #: content_a/accounting/doc/add/display-list.php:23
 #: content_a/accounting/doc/add/display-list.php:92
-#: content_a/accounting/report/journal/display.php:13
+#: content_a/accounting/report/journal/display.php:20
 #: content_a/accounting/report/ledger/display.php:13
 #: content_a/accounting/turnover/display.php:162
 #: content_a/accounting/year/manage/display.php:53
@@ -4814,7 +4814,7 @@ msgstr "بدهکار"
 #: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/doc/add/display-list.php:24
 #: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/report/journal/display.php:14
+#: content_a/accounting/report/journal/display.php:21
 #: content_a/accounting/report/ledger/display.php:14
 #: content_a/accounting/turnover/display.php:163
 #: content_a/accounting/year/manage/display.php:54
@@ -5446,7 +5446,6 @@ msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:12
-#: content_a/accounting/report/journal/display.php:9
 #: content_a/accounting/report/ledger/display.php:9
 #: content_a/accounting/turnover/display.php:149 lib/app/store/config.php:126
 #: lib/app/store/config.php:156
@@ -5657,6 +5656,7 @@ msgid "Balance sheet on detail level"
 msgstr "ترازنامه در سطح تفصیل"
 
 #: content_a/accounting/home/display.php:181
+#: content_a/accounting/report/journal/display.php:9
 #: content_a/accounting/report/journal/view.php:9
 msgid "General Journal"
 msgstr "دفتر روزنامه"
@@ -6214,6 +6214,32 @@ msgstr "گزارش تفصیل"
 #: content_a/accounting/report/group/view.php:9
 msgid "Accounting report group"
 msgstr "گزارش در سطح گروه"
+
+#: content_a/accounting/report/journal/display.php:15
+msgid "General Journal Number"
+msgstr "شماره روزنامه"
+
+#: content_a/accounting/report/journal/display.php:17
+msgid "Ledger Number"
+msgstr "شماره دفتر کل"
+
+#: content_a/accounting/report/journal/display.php:24 content_su/backup/display.php:152
+#: includes/languages/trans_static_public.php:524
+msgid "Day"
+msgstr "روز"
+
+#: content_a/accounting/report/journal/display.php:25
+#: content_crm/transactions/report/display.php:19
+#: content_love/business/monthly/display.php:14 content_su/backup/display.php:150
+#: lib/app/domains/filter.php:63
+msgid "Month"
+msgstr "ماه"
+
+#: content_a/accounting/report/journal/display.php:28
+#: content_a/accounting/report/journal/display.php:29 dash/utility/ir_post.php:85
+#: dash/utility/ir_post.php:156 lib/currency.php:13
+msgid "Rial"
+msgstr "ریال"
 
 #: content_a/accounting/report/ledger/display.php:15
 msgid "Detect"
@@ -17633,12 +17659,6 @@ msgstr "ویرایش تراکنش‌"
 msgid "Transaction Minus Plus in last year"
 msgstr "تراکنش‌های مثبت و منفی در یک سال گذشته"
 
-#: content_crm/transactions/report/display.php:19
-#: content_love/business/monthly/display.php:14 content_su/backup/display.php:150
-#: lib/app/domains/filter.php:63
-msgid "Month"
-msgstr "ماه"
-
 #: content_crm/transactions/report/view.php:8 content_love/business/monthly/view.php:8
 msgid "Transaction Report"
 msgstr "گزارش تراکنش‌ها"
@@ -22439,10 +22459,6 @@ msgstr "شروع عملیات پشتیبان گیری هر"
 msgid "Week"
 msgstr "هفته"
 
-#: content_su/backup/display.php:152 includes/languages/trans_static_public.php:524
-msgid "Day"
-msgstr "روز"
-
 #: content_su/backup/display.php:153 dash/utility/human.php:31 dash/utility/human.php:149
 #: dash/utility/human.php:209 includes/languages/trans_static.php:213
 #: includes/languages/trans_static_public.php:29
@@ -26883,10 +26899,6 @@ msgstr "آی‌پی شما معتبر نیست!"
 #: dash/utility/ir_post.php:53
 msgid "Please enter the package weight"
 msgstr "لطفا وزن بسته را وارد کنید"
-
-#: dash/utility/ir_post.php:85 dash/utility/ir_post.php:156 lib/currency.php:13
-msgid "Rial"
-msgstr "ریال"
 
 #: dash/utility/ir_post.php:228
 msgid "Can not send package more than 5 Kg By sefareshi post"
