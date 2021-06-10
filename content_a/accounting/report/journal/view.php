@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Journal Report'));
+		\dash\face::title(T_("General Journal"). ' - '. T_("Monthly"));
 
 		// back
 		\dash\data::back_text(T_('Back'));

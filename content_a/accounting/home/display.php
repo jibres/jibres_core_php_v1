@@ -107,24 +107,6 @@
       </a>
     </div>
 
-     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal'; ?>'>
-        <div class="statistic pink">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Report journal"); ?></div>
-        </div>
-      </a>
-    </div>
-        <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/booktotal'; ?>'>
-        <div class="statistic pink">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Report book total"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
     <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/assistant'; ?>'>
         <div class="statistic">
@@ -191,6 +173,24 @@
 
   </div>
 
+  <div class="f">
+     <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal'; ?>'>
+        <div class="statistic pink">
+          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="label"><?php echo T_("General Journal"). ' - '. T_("Monthly"); ?></div>
+        </div>
+      </a>
+    </div>
+        <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/booktotal'; ?>'>
+        <div class="statistic pink">
+          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="label"><?php echo T_("Ledger"). ' - '. T_("Monthly"); ?></div>
+        </div>
+      </a>
+    </div>
+  </div>
 
 
 <?php if(false) {?>
