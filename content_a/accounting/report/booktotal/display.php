@@ -1,4 +1,4 @@
-
+<?php require_once(root. '/content_a/accounting/filter_only_year.php'); ?>
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
@@ -29,7 +29,7 @@
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
             <td></td>
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
-            <td class="txtL"><?php echo a($value, 'total_title') ?></td>
+            <td class=""><?php echo a($value, 'total_title') ?></td>
             <td></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>

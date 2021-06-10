@@ -6,6 +6,8 @@ class journal
 {
 	private static $coding = [];
 
+	private static $page_counter = 0;
+
 	/**
 	 * Break message
 	 *
@@ -24,11 +26,13 @@ class journal
 		switch($_mode)
 		{
 			case 'end_of_page':
-				$message  = T_("End of page");
+				$page = ++self::$page_counter;
+				$message  = T_("End of page :page", ['page' => $page]);
 				break;
 
 			case 'start_new_page':
-				$message  = T_("Start new page");
+				$page = self::$page_counter;
+				$message  = T_("Start new page, Retrieved from page :page", ['page' => $page]);
 				break;
 
 			case 'opening':
@@ -126,8 +130,11 @@ class journal
 
 		foreach ($total_report as $key => $one_month)
 		{
+			$need_break_message = false;
+
 			foreach ($one_month as $result)
 			{
+				$need_break_message = true;
 				$result['myNumber'] = $key + 1;
 
 				$final_report[] = $result;
@@ -158,34 +165,37 @@ class journal
 
 			}
 
-
-			if($key === 0)
+			if($need_break_message)
 			{
-				$final_report[] = self::break_message($key, 'opening');
-			}
-			else
-			{
-				$final_report[] = self::break_message($key, 'next_part');
+				if($key === 0)
+				{
+					$final_report[] = self::break_message($key, 'opening');
+				}
+				else
+				{
+					$final_report[] = self::break_message($key, 'next_part');
+				}
+
+				$counter++;
+
+				if($counter >= 26)
+				{
+					$page_report =
+					[
+						'sum_debtor_on_page'   => $sum_debtor_on_page,
+						'sum_creditor_on_page' => $sum_creditor_on_page,
+						'sum_current_on_page'  => $sum_current_on_page
+					];
+
+					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
+					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
+					$counter              = 0;
+					// $sum_debtor_on_page   = 0;
+					// $sum_creditor_on_page = 0;
+					// $sum_current_on_page  = 0;
+				}
 			}
 
-			$counter++;
-
-			if($counter >= 26)
-			{
-				$page_report =
-				[
-					'sum_debtor_on_page'   => $sum_debtor_on_page,
-					'sum_creditor_on_page' => $sum_creditor_on_page,
-					'sum_current_on_page'  => $sum_current_on_page
-				];
-
-				$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
-				$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
-				$counter              = 0;
-				// $sum_debtor_on_page   = 0;
-				// $sum_creditor_on_page = 0;
-				// $sum_current_on_page  = 0;
-			}
 
 		}
 

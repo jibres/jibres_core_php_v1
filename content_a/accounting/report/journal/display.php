@@ -1,4 +1,4 @@
-
+<?php require_once(root. '/content_a/accounting/filter_only_year.php'); ?>
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
