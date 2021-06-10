@@ -26,8 +26,8 @@ class journal
 		switch($_mode)
 		{
 			case 'end_of_page':
-				$page = ++self::$page_counter;
-				$message  = T_("End of page :page", ['page' => $page]);
+				$page = ++self::$page_counter + 1;
+				$message  = T_("Move to page :page", ['page' => $page]);
 				break;
 
 			case 'start_new_page':
