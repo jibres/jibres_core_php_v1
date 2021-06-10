@@ -146,9 +146,9 @@ class journal
 					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
 					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 					$counter              = 0;
-					$sum_debtor_on_page   = 0;
-					$sum_creditor_on_page = 0;
-					$sum_current_on_page  = 0;
+					// $sum_debtor_on_page   = 0;
+					// $sum_creditor_on_page = 0;
+					// $sum_current_on_page  = 0;
 				}
 
 				$sum_current_on_page  += $result['current'];
@@ -182,9 +182,9 @@ class journal
 				$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
 				$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 				$counter              = 0;
-				$sum_debtor_on_page   = 0;
-				$sum_creditor_on_page = 0;
-				$sum_current_on_page  = 0;
+				// $sum_debtor_on_page   = 0;
+				// $sum_creditor_on_page = 0;
+				// $sum_current_on_page  = 0;
 			}
 
 		}
