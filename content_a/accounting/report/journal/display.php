@@ -34,14 +34,13 @@
         <tr data-index="<?php echo ($key + 1) ?>" class="border-solid border-b border-blue-100">
         <?php if(a($value, 'type') === 'break_message') {?>
           <?php if(a($value, 'mode') === 'end_of_page' || a($value, 'mode') === 'start_new_page') {?>
-            <td class="border-solid border-e border-blue-200 text-center"></td>
-            <td class="border-solid border-e border-blue-200 text-center"></td>
-            <td class="border-solid border-e border-blue-200 text-center"></td>
-            <td class="border-solid border-e border-blue-200 text-center"></td>
-            <td class="border-solid border-e border-blue-200 text-center txtB fs14 fc-pink"><?php echo a($value, 'message') ?></td>
-            <td class="border-solid border-e border-blue-200 text-center"></td>
-            <td class="border-solid border-e-2 border-purple-700 text-center" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></td>
-            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2" class="txtB fs14 text-blue-900 txtRa"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid border-e-2 border-purple-700 text-center" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
           <?php }else{ ?>
             <td class="border-solid border-e border-blue-200 text-center"></td>
             <td class="border-solid border-e border-blue-200 text-center"></td>
