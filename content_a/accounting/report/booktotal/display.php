@@ -33,7 +33,7 @@
             <td></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>
-            <td class="collapsing"><?php echo a($value, 'bedbes') ?></td>
+            <td class="collapsing"><?php echo a($value, 'detect_title') ?></td>
             <td data-copy='<?php echo a($value, 'remain_value'); ?>' class="ltr txtR fc-black"><code><?php echo \dash\fit::number(a($value, 'remain_value'), true, 'en') ?></code></td>
 
         </tr>

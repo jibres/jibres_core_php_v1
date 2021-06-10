@@ -153,12 +153,12 @@ class book_total
 
 				if($remain_value < 0)
 				{
-					$final_report[$key][$k]['bedbes'] = 'بس';
+					$final_report[$key][$k]['detect_title'] = T_("Creditor");
 				}
 				else
 				{
 
-					$final_report[$key][$k]['bedbes'] = 'بد';
+					$final_report[$key][$k]['detect_title'] = T_("Debtor");
 				}
 
 				$final_report[$key][$k]['remain_value'] = abs($remain_value);
