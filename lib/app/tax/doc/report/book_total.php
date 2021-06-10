@@ -117,6 +117,13 @@ class book_total
 
 		}
 
+		// add closing doc
+		{
+			$my_data['type'] = 'closing';
+			$result = \lib\db\tax_document\get::report_journal($my_data);
+			$total_report[] = self::one_month($result);
+		}
+
 
 		$final_report         = [];
 
@@ -165,6 +172,7 @@ class book_total
 			}
 		}
 
+		$final_report = array_values($final_report);
 		return $final_report;
 
 

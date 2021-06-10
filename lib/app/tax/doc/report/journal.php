@@ -39,6 +39,10 @@ class journal
 				$message  = T_("For opening document");
 				break;
 
+			case 'closing':
+				$message  = T_("For closing document");
+				break;
+
 			case 'next_part':
 				$message  = T_("For tax document");
 				break;
@@ -121,12 +125,22 @@ class journal
 
 		}
 
+		// add closing report
+		{
+			$my_data['type'] = 'closing';
+			$result = \lib\db\tax_document\get::report_journal($my_data);
+			$total_report[] = self::one_month($result);
+		}
+
 		$final_report         = [];
 
 		$counter              = 0;
 		$sum_debtor_on_page   = 0;
 		$sum_creditor_on_page = 0;
 		$sum_current_on_page  = 0;
+
+		$all_key = array_keys($total_report);
+		$end_key = end($all_key);
 
 		foreach ($total_report as $key => $one_month)
 		{
@@ -170,6 +184,10 @@ class journal
 				if($key === 0)
 				{
 					$final_report[] = self::break_message($key, 'opening');
+				}
+				elseif($key == $end_key)
+				{
+					$final_report[] = self::break_message($key, 'closing');
 				}
 				else
 				{
