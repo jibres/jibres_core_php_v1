@@ -45,7 +45,27 @@ class view
 
 		$report = \lib\app\tax\doc\report\journal::report($args);
 
-		// var_dump($report);exit;
+		$last_page = 0;
+
+		$per_page = [];
+
+		foreach ($report as $key => $value)
+		{
+
+			if(!isset($per_page[$last_page]))
+			{
+				$per_page[$last_page] = [];
+			}
+
+			$per_page[$last_page][] = $value;
+
+			if(isset($value['page']))
+			{
+				$last_page = $value['page'];
+			}
+		}
+
+		\dash\data::reportPerPage($per_page);
 
 
 		\dash\data::reportDetail($report);

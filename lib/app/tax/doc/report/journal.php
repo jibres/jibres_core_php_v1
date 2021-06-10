@@ -23,16 +23,18 @@ class journal
 		$message                   = T_("For tax document");
 		$break_message['myNumber'] = $_index + 1;
 
+		$page = self::$page_counter;
+
 		switch($_mode)
 		{
 			case 'end_of_page':
 				$page = ++self::$page_counter + 1;
-				$message  = T_("Move to page :page", ['page' => $page]);
+				$message  = T_("Qoute to page :page", ['page' => \dash\fit::number($page)]);
 				break;
 
 			case 'start_new_page':
 				$page = self::$page_counter;
-				$message  = T_("Start new page, Retrieved from page :page", ['page' => $page]);
+				$message  = T_("Qoute from page :page", ['page' => \dash\fit::number($page)]);
 				break;
 
 			case 'opening':
@@ -50,6 +52,8 @@ class journal
 
 		}
 		$break_message['message']     = $message;
+
+		$break_message['page']     = $page;
 
 		return array_merge($break_message, $_args);
 	}
