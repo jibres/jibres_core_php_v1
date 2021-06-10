@@ -39,8 +39,8 @@
             <td></td>
             <td></td>
             <td colspan="2" class="txtB fs14 text-blue-900 txtRa"><?php echo a($value, 'message') ?></td>
-            <td class="border-solid border-e-2 border-purple-700 text-center" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
+            <td class="border-solid border-e-2 border-purple-700 text-center border-solid border-double border-4 border-eight-blue-500" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>' class="ltr txtR fc-red border-solid border-double border-4 border-eight-blue-500"><code><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
           <?php }else{ ?>
             <td class="border-solid border-e border-blue-200 text-center"></td>
             <td class="border-solid border-e border-blue-200 text-center"></td>
