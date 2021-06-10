@@ -1,12 +1,12 @@
 <?php
-namespace content_a\accounting\report\booktotal;
+namespace content_a\accounting\report\ledger;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Book total Report'));
+		\dash\face::title(T_("Ledger"). ' - '. T_("Monthly"));
 
 		// back
 		\dash\data::back_text(T_('Back'));
