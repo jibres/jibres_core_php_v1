@@ -22,6 +22,27 @@ class cookie
 	// @var bool		If true, the cookie will be made accessible only through the HTTP protocol
 	const HTTPONLY	= true;
 
+
+	/**
+	 * Cookie
+	 *
+	 * @var        array
+	 */
+	private static $COOKIE = [];
+
+
+
+	/**
+	 * Set cookie from gate
+	 *
+	 * @param      <type>  $_cookie  The cookie
+	 */
+	public static function force_set_cookie($_cookie)
+	{
+		self::$COOKIE = $_cookie;
+	}
+
+
 	/**
 	 * Reads a cookie and returns its value
 	 *
@@ -30,9 +51,9 @@ class cookie
 	 */
 	public static function read($_name)
 	{
-		if(is_array($_COOKIE) && array_key_exists($_name, $_COOKIE))
+		if(is_array(self::$COOKIE) && array_key_exists($_name, self::$COOKIE))
 		{
-			return $_COOKIE[$_name];
+			return self::$COOKIE[$_name];
 		}
 
 		return null;
@@ -112,7 +133,7 @@ class cookie
 		];
 		setcookie($_name, $_value, $opt);
 
-		$_COOKIE[$_name] = $_value;
+		self::$COOKIE[$_name] = $_value;
 	}
 
 
@@ -131,6 +152,7 @@ class cookie
 		setcookie($_name, null, time()-3600*30, $_path, $_domain);
 
 		unset($_COOKIE[$_name]);
+		unset(self::$COOKIE[$_name]);
 	}
 
 
