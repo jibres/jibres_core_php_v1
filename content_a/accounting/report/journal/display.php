@@ -3,13 +3,14 @@
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
 <?php $pageNumber = 1; ?>
+<style type="text/css">.page-break{page-break-after:always}</style>
   <div class="printArea" data-size='A4.landscape'>
     <div class="msg f align-center txtC font-16">
       <div class="c3"></div>
       <div class="c6"><h2 class="txtB"><?php echo T_("General Journal"); ?></h2></div>
       <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
     </div>
-    <table class="table-fixed w-full border-solid border-double border-4 border-eight-blue-500">
+    <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
       <tr>
         <th class="w-10 h-32 font-10 border-solid border-b-2 border-e border-blue-900" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-5" style="--tw-rotate: 270deg;"><?php echo T_("General Journal Number") ?></span></th>
@@ -28,39 +29,42 @@
         <th class="border-solid border-b-2 border-blue-900 font-12 "><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="leading-10">
   <?php foreach (\dash\data::reportDetail() as $key => $value) {?>
-        <tr>
+        <tr data-index="<?php echo ($key + 1) ?>" class="border-solid border-b border-blue-100">
         <?php if(a($value, 'type') === 'break_message') {?>
           <?php if(a($value, 'mode') === 'end_of_page' || a($value, 'mode') === 'start_new_page') {?>
-            <td class="text-center"><?php echo \dash\fit::number($key + 1) ?></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="txtB fs14 fc-blue"><?php echo a($value, 'message') ?></td>
-            <td data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
-
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center txtB fs14 fc-pink"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e-2 border-purple-700 text-center" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></td>
+            <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></td>
           <?php }else{ ?>
-            <td class="text-center"><?php echo \dash\fit::number($key + 1) ?></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="txtB fs14 fc-pink"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center txtB fs14 fc-pink"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e-2 border-purple-700 text-center"></td>
             <td></td>
-            <td></td>
-
           <?php } //endif ?>
 
         <?php }else{ ?>
-          <td class="text-center"><?php echo \dash\fit::number($key + 1) ?></td>
-          <td class="text-center"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
-          <td class="text-center"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("Y F", strtotime($value['enddate']) - (60*60*24*5)); } ?></td>
+          <td class="border-solid border-e border-blue-200 text-center"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
+          <td class="border-solid border-e border-blue-200 text-center"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("d", strtotime($value['enddate'])); } ?></td>
+          <td class="border-solid border-e border-blue-200 text-center"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("n", strtotime($value['enddate']) - (60*60*24*5)); } ?></td>
+          <td class="border-solid border-e border-blue-200 text-center"></td>
+            <td class="border-solid border-e border-blue-200 text-center"><?php echo a($value, 'total_title') ?></td>
+            <td class="border-solid border-e border-blue-200 text-center"></td>
           <?php if(a($value, 'mode') === 'debtor') {?>
-            <td><?php echo a($value, 'total_title') ?></td>
-            <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
-            <td></td>
+            <td class="border-solid border-e-2 border-purple-700 text-center" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+            <td class=""></td>
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
-            <td class="txtL"><?php echo a($value, 'total_title') ?></td>
-            <td></td>
+            <td class="border-solid border-e-2 border-purple-700 text-center"></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>
         <?php } //endif ?>
