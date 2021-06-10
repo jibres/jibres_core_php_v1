@@ -34,33 +34,45 @@ class cookie
 
 			\dash\waf\gate\toys\only::text($value);
 
-			// check blacklist words
-			self::blacklist($key);
-			self::blacklist($value);
+			// disallow html tags
+			\dash\waf\gate\toys\block::tags($key);
+			// disallow some words
+			\dash\waf\gate\toys\block::word($key, 'script');
+			\dash\waf\gate\toys\block::word($key, 'javascript');
+			\dash\waf\gate\toys\block::word($key, 'prompt');
+			\dash\waf\gate\toys\block::word($key, 'delete');
+			\dash\waf\gate\toys\block::word($key, 'xss');
+			\dash\waf\gate\toys\block::word($key, '{');
+			\dash\waf\gate\toys\block::word($key, '}');
+			\dash\waf\gate\toys\block::word($key, '(');
+			\dash\waf\gate\toys\block::word($key, ')');
+			\dash\waf\gate\toys\block::word($key, '<');
+			\dash\waf\gate\toys\block::word($key, '>');
+			\dash\waf\gate\toys\block::word($key, '*');
+			\dash\waf\gate\toys\block::word($key, '"');
+			\dash\waf\gate\toys\block::word($key, "'");
+			\dash\waf\gate\toys\block::word($key, "\n");
+
+			// disallow html tags
+			\dash\waf\gate\toys\block::tags($value);
+			// disallow some words
+			\dash\waf\gate\toys\block::word($value, 'script');
+			\dash\waf\gate\toys\block::word($value, 'javascript');
+			\dash\waf\gate\toys\block::word($value, 'prompt');
+			\dash\waf\gate\toys\block::word($value, 'delete');
+			\dash\waf\gate\toys\block::word($value, 'xss');
+			// \dash\waf\gate\toys\block::word($value, '{');
+			// \dash\waf\gate\toys\block::word($value, '}');
+			// \dash\waf\gate\toys\block::word($value, '(');
+			// \dash\waf\gate\toys\block::word($value, ')');
+			\dash\waf\gate\toys\block::word($value, '<');
+			\dash\waf\gate\toys\block::word($value, '>');
+			\dash\waf\gate\toys\block::word($value, '*');
+			\dash\waf\gate\toys\block::word($value, '"');
+			\dash\waf\gate\toys\block::word($value, "'");
+			\dash\waf\gate\toys\block::word($value, "\n");
+
 		}
-	}
-
-
-	private static function blacklist($txt)
-	{
-		// disallow html tags
-		\dash\waf\gate\toys\block::tags($txt);
-		// disallow some words
-		\dash\waf\gate\toys\block::word($txt, 'script');
-		\dash\waf\gate\toys\block::word($txt, 'javascript');
-		\dash\waf\gate\toys\block::word($txt, 'prompt');
-		\dash\waf\gate\toys\block::word($txt, 'delete');
-		\dash\waf\gate\toys\block::word($txt, 'xss');
-		\dash\waf\gate\toys\block::word($txt, '{');
-		\dash\waf\gate\toys\block::word($txt, '}');
-		\dash\waf\gate\toys\block::word($txt, '(');
-		\dash\waf\gate\toys\block::word($txt, ')');
-		\dash\waf\gate\toys\block::word($txt, '<');
-		\dash\waf\gate\toys\block::word($txt, '>');
-		\dash\waf\gate\toys\block::word($txt, '*');
-		\dash\waf\gate\toys\block::word($txt, '"');
-		\dash\waf\gate\toys\block::word($txt, "'");
-		\dash\waf\gate\toys\block::word($txt, "\n");
 	}
 }
 ?>
