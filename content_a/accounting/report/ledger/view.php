@@ -41,7 +41,7 @@ class view
 		$args['enddate']   = $enddate ? $enddate : null;
 
 
-		$report = \lib\app\tax\doc\report\book_total::report($args);
+		$report = \lib\app\tax\doc\report\journal::ledger($args);
 
 		\dash\data::reportDetail($report);
 
