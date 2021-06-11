@@ -56,8 +56,8 @@
 
         <?php }else{ ?>
           <td class="border-solid border-e border-blue-900 text-center"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
-          <td class="border-solid border-e border-blue-900 text-center"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("d", strtotime($value['enddate'])); } ?></td>
-          <td class="border-solid border-e border-blue-900 text-center"><?php if(isset($value['enddate'])) { echo \dash\utility\jdate::date("n", strtotime($value['enddate']) - (60*60*24*5)); } ?></td>
+          <td class="border-solid border-e border-blue-900 text-center"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("j", strtotime($value['show_date'])); } ?></td>
+          <td class="border-solid border-e border-blue-900 text-center"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("n", strtotime($value['show_date'])); } ?></td>
           <td class="border-solid border-e border-blue-900"></td>
           <?php if(a($value, 'mode') === 'debtor') {?>
             <td class="border-solid border-e border-blue-900 pLa5"><?php echo a($value, 'total_title') ?></td>

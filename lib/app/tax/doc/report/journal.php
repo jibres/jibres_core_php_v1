@@ -89,7 +89,7 @@ class journal
 			[$year_jalali. '-09-01', $year_jalali. '-09-30'],
 			[$year_jalali. '-10-01', $year_jalali. '-10-30'],
 			[$year_jalali. '-11-01', $year_jalali. '-11-30'],
-			[$year_jalali. '-12-01', $year_jalali. '-12-30'],
+			[$year_jalali. '-12-01', $year_jalali. '-12-29'],
 		];
 
 
@@ -170,9 +170,7 @@ class journal
 					self::$page_counter++;
 					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 					$counter              = 0;
-					// $sum_debtor_on_page   = 0;
-					// $sum_creditor_on_page = 0;
-					// $sum_current_on_page  = 0;
+
 				}
 
 				$sum_current_on_page  += $result['current'];
@@ -212,9 +210,7 @@ class journal
 					self::$page_counter++;
 					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 					$counter              = 0;
-					// $sum_debtor_on_page   = 0;
-					// $sum_creditor_on_page = 0;
-					// $sum_current_on_page  = 0;
+
 				}
 			}
 
@@ -273,6 +269,15 @@ class journal
 			$diff_current = floatval($current_debtor) - floatval($current_creditor);
 
 			$result[$key]['current'] = $diff_current;
+
+			if($value['type'] === 'opening')
+			{
+				$result[$key]['show_date'] = $value['startdate'];
+			}
+			else
+			{
+				$result[$key]['show_date'] = $value['enddate'];
+			}
 
 		}
 

@@ -422,6 +422,7 @@ class get
 				NULL AS `sum_debtor`,
 				NULL AS `sum_creditor`,
 				NULL AS `current`,
+				'$_args[type]' AS `type`,
 				$select_startdate $select_enddate
 				SUM(IFNULL(tax_docdetail.debtor, 0)) AS `debtor`,
 				SUM(IFNULL(tax_docdetail.creditor, 0)) AS `creditor`
