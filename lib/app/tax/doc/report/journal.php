@@ -74,6 +74,13 @@ class journal
 			$year = substr($data['yearDetail']['startdate'], 0, 4);
 		}
 
+		$closing_detail = [];
+		if(isset($data['yearDetail']['closing']) && $data['yearDetail']['closing'] && is_string($data['yearDetail']['closing']))
+		{
+			$closing_detail = $data['yearDetail']['closing'];
+			$closing_detail = json_decode($closing_detail, true);
+		}
+
 		$year_jalali = \dash\utility\jdate::date("Y", strtotime($year. '-05-01 00:00:00'), false);
 
 		$month_list =
@@ -127,19 +134,13 @@ class journal
 
 		}
 
-		// add closing report
-		{
-			$my_data['type'] = 'closing';
-			$result = \lib\db\tax_document\get::report_journal($my_data);
-			$total_report[] = self::one_month($result);
-		}
 
 		$final_report         = [];
 
 		$counter              = 0;
 		$sum_debtor_on_page   = 0;
 		$sum_creditor_on_page = 0;
-		$sum_current_on_page  = 0;
+
 
 		$all_key = array_keys($total_report);
 		$end_key = end($all_key);
@@ -163,7 +164,7 @@ class journal
 					[
 						'sum_debtor_on_page'   => $sum_debtor_on_page,
 						'sum_creditor_on_page' => $sum_creditor_on_page,
-						'sum_current_on_page'  => $sum_current_on_page
+
 					];
 
 					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
@@ -173,9 +174,15 @@ class journal
 
 				}
 
-				$sum_current_on_page  += $result['current'];
-				$sum_creditor_on_page += $result['sum_creditor'];
-				$sum_debtor_on_page   += $result['sum_debtor'];
+
+				if($result['mode'] === 'creditor')
+				{
+					$sum_creditor_on_page += $result['show_value'];
+				}
+				else
+				{
+					$sum_debtor_on_page   += $result['show_value'];
+				}
 
 
 			}
@@ -203,7 +210,7 @@ class journal
 					[
 						'sum_debtor_on_page'   => $sum_debtor_on_page,
 						'sum_creditor_on_page' => $sum_creditor_on_page,
-						'sum_current_on_page'  => $sum_current_on_page
+
 					];
 
 					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
@@ -216,6 +223,15 @@ class journal
 
 
 		}
+
+		$page_report =
+		[
+			'sum_debtor_on_page'   => $sum_debtor_on_page,
+			'sum_creditor_on_page' => $sum_creditor_on_page,
+
+		];
+
+		$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
 
 		// var_dump($final_report);exit;
 
