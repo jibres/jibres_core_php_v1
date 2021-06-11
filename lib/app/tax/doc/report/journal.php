@@ -6,7 +6,7 @@ class journal
 {
 	private static $coding = [];
 
-	private static $page_counter = 0;
+	private static $page_counter = 1;
 
 	/**
 	 * Break message
@@ -28,13 +28,11 @@ class journal
 		switch($_mode)
 		{
 			case 'end_of_page':
-				$page = ++self::$page_counter + 1;
-				$message  = T_("Qoute to page :page", ['page' => \dash\fit::number($page)]);
+				$message  = T_("Qoute to page :page", ['page' => \dash\fit::number(self::$page_counter +1)]);
 				break;
 
 			case 'start_new_page':
-				$page = self::$page_counter;
-				$message  = T_("Qoute from page :page", ['page' => \dash\fit::number($page)]);
+				$message  = T_("Qoute from page :page", ['page' => \dash\fit::number(self::$page_counter - 1)]);
 				break;
 
 			case 'opening':
@@ -53,7 +51,7 @@ class journal
 		}
 		$break_message['message']     = $message;
 
-		$break_message['page']     = $page;
+		$break_message['page']     = self::$page_counter;
 
 		return array_merge($break_message, $_args);
 	}
@@ -169,6 +167,7 @@ class journal
 					];
 
 					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
+					self::$page_counter++;
 					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 					$counter              = 0;
 					// $sum_debtor_on_page   = 0;
@@ -210,6 +209,7 @@ class journal
 					];
 
 					$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
+					self::$page_counter++;
 					$final_report[]       = self::break_message($key, 'start_new_page', $page_report);
 					$counter              = 0;
 					// $sum_debtor_on_page   = 0;
@@ -220,6 +220,8 @@ class journal
 
 
 		}
+
+		// var_dump($final_report);exit;
 
 		return $final_report;
 
