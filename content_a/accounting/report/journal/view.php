@@ -39,6 +39,7 @@ class view
 
 		$args              = [];
 		$args['year_id']   = $year_id;
+		$args['daily']   = \dash\request::get('daily') ? true : false;
 		$args['startdate'] = $startdate ? $startdate : null;
 		$args['enddate']   = $enddate ? $enddate : null;
 

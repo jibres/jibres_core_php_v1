@@ -12,6 +12,7 @@ class report
 			'year_id'   => 'id',
 			'startdate' => 'date',
 			'enddate'   => 'date',
+			'daily'     => 'bit',
 		];
 
 		$require = [];
