@@ -363,6 +363,13 @@ class journal
 			[$year_jalali. '-12-01', $year_jalali. '-12-29'],
 		];
 
+			// laod coding once
+		{
+			$coding = \lib\db\tax_document\get::report_journal_coding();
+			$coding = array_combine(array_column($coding, 'id'), $coding);
+			self::$coding = $coding;
+		}
+
 
 
 		$total_report = [];
