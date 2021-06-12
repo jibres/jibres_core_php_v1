@@ -43,11 +43,13 @@ class journal
 				break;
 
 			case 'opening':
-				$message  = T_("Based on the details of the opening document");
+				// $message  = T_("Based on the details of the opening document");
+				$message  = T_("As described in the accounting document"). ' - '. T_("Opening document");
 				break;
 
 			case 'closing':
-				$message  = T_("Based on the details of the closing document");
+				// $message  = T_("Based on the details of the closing document");
+				$message  = T_("As described in the accounting document"). ' - '. T_("Closing document");
 				break;
 
 			case 'next_part':

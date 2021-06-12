@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-12 17:47+0430\n"
-"PO-Revision-Date: 2021-06-12 18:11+0430\n"
+"POT-Creation-Date: 2021-06-12 18:50+0430\n"
+"PO-Revision-Date: 2021-06-12 18:50+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4802,7 +4802,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/report/ledger/display.php:22
 #: content_a/accounting/turnover/display.php:162
 #: content_a/accounting/year/manage/display.php:53
-#: content_a/accounting/year/manage/display.php:131 lib/app/tax/doc/report/journal.php:464
+#: content_a/accounting/year/manage/display.php:131 lib/app/tax/doc/report/journal.php:466
 msgid "Debtor"
 msgstr "بدهکار"
 
@@ -4814,7 +4814,7 @@ msgstr "بدهکار"
 #: content_a/accounting/report/ledger/display.php:23
 #: content_a/accounting/turnover/display.php:163
 #: content_a/accounting/year/manage/display.php:54
-#: content_a/accounting/year/manage/display.php:132 lib/app/tax/doc/report/journal.php:459
+#: content_a/accounting/year/manage/display.php:132 lib/app/tax/doc/report/journal.php:461
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -5655,8 +5655,6 @@ msgstr "ترازنامه در سطح تفصیل"
 #: content_a/accounting/report/journal/display.php:94
 #: content_a/accounting/report/journal/view.php:9
 #: content_a/accounting/report/journal_cover.php:4
-#: content_a/accounting/report/ledger/display.php:12
-#: content_a/accounting/report/ledger/display.php:96
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
@@ -5666,7 +5664,9 @@ msgstr "روزانه"
 
 #: content_a/accounting/home/display.php:197
 #: content_a/accounting/report/journal_cover.php:4
+#: content_a/accounting/report/ledger/display.php:12
 #: content_a/accounting/report/ledger/display.php:18
+#: content_a/accounting/report/ledger/display.php:96
 #: content_a/accounting/report/ledger/view.php:9
 msgid "Ledger"
 msgstr "دفتر کل"
@@ -38620,19 +38620,28 @@ msgstr "نقل به صفحه :page"
 msgid "Quote from page :page"
 msgstr "منقول از صفحه :page"
 
-#: lib/app/tax/doc/report/journal.php:46 lib/app/tax/doc/report/journal.php:481
-msgid "Based on the details of the opening document"
-msgstr "به شرح سند افتتاحیه"
-
-#: lib/app/tax/doc/report/journal.php:50 lib/app/tax/doc/report/journal.php:486
-msgid "Based on the details of the closing document"
-msgstr "به شرح سند اختتامیه"
-
-#: lib/app/tax/doc/report/journal.php:54
+#: lib/app/tax/doc/report/journal.php:47 lib/app/tax/doc/report/journal.php:52
+#: lib/app/tax/doc/report/journal.php:56
 msgid "As described in the accounting document"
 msgstr "به شرح سند حسابداری"
 
-#: lib/app/tax/doc/report/journal.php:490
+#: lib/app/tax/doc/report/journal.php:47
+msgid "Opening document"
+msgstr "افتتاحیه"
+
+#: lib/app/tax/doc/report/journal.php:52
+msgid "Closing document"
+msgstr "اختتامیه"
+
+#: lib/app/tax/doc/report/journal.php:483
+msgid "Based on the details of the opening document"
+msgstr "به شرح سند افتتاحیه"
+
+#: lib/app/tax/doc/report/journal.php:488
+msgid "Based on the details of the closing document"
+msgstr "به شرح سند اختتامیه"
+
+#: lib/app/tax/doc/report/journal.php:492
 msgid "As described in the general journal"
 msgstr "به شرح دفتر روزنامه"
 
