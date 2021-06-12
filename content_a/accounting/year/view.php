@@ -16,6 +16,8 @@ class view
 		\dash\data::action_text(T_('Add accounting year'));
 		\dash\data::action_link(\dash\url::that(). '/add');
 
+		\dash\data::userToggleSidebar(false);
+
 
 		$dataTable = \lib\app\tax\year\search::list(null, []);
 		\dash\data::dataTable($dataTable);

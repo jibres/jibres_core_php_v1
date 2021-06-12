@@ -14,6 +14,9 @@ class view
 
 		\dash\face::btnSetting(\dash\url::here().'/setting/accounting');
 
+		\dash\data::userToggleSidebar(false);
+
+
 
 	}
 

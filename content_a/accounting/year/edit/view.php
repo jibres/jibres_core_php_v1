@@ -16,6 +16,9 @@ class view
 
 		\dash\data::editMode(true);
 
+		\dash\data::userToggleSidebar(false);
+
+
 	}
 }
 ?>

@@ -13,6 +13,7 @@ class view
 		$type = \dash\request::get('type');
 		\dash\data::parentList(\lib\app\tax\coding\get::parent_list($type));
 
+		\dash\data::userToggleSidebar(false);
 
 		self::static_var();
 

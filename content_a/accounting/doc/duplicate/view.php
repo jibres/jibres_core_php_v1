@@ -8,6 +8,8 @@ class view
 	{
 		\dash\face::title(T_("Make copy from accounting document"));
 
+		\dash\data::userToggleSidebar(false);
+
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '/edit?id='. \dash\request::get('id'));

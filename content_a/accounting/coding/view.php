@@ -17,6 +17,8 @@ class view
 		\dash\data::action_link(\dash\url::that(). '/add');
 
 
+		\dash\data::userToggleSidebar(false);
+
 		$args = [];
 
 		if(\dash\request::get('type'))

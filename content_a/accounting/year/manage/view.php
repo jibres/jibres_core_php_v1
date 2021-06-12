@@ -26,6 +26,9 @@ class view
 
 		\dash\data::closingList($closing_list);
 
+		\dash\data::userToggleSidebar(false);
+
+
 	}
 }
 ?>
