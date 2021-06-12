@@ -9,7 +9,7 @@
     <div class="msg f align-center txtC font-16">
       <div class="c3"></div>
       <div class="c6"><h2 class="txtB"><?php echo T_("General Journal"); ?></h2></div>
-      <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
+      <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span> <small>/ <?php echo \dash\fit::number(count(\dash\data::reportPerPage())) ?></small></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
@@ -59,7 +59,7 @@
           <td class="border-solid border-e border-gray-400 text-center"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
           <td class="border-solid border-e border-gray-400 text-center"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("j", strtotime($value['show_date'])); } ?></td>
           <td class="border-solid border-e border-gray-400 text-center"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("n", strtotime($value['show_date'])); } ?></td>
-          <td class="border-solid border-e border-gray-400"></td>
+          <td class="border-solid border-e border-gray-400 text-center"><?php echo \dash\fit::number(a($value, 'total_id')); ?></td>
           <?php if(a($value, 'mode') === 'debtor') {?>
             <td class="border-solid border-e border-gray-400 pLa10"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-gray-400"></td>
