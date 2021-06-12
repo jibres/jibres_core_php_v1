@@ -183,6 +183,20 @@ class journal
 
 		}
 
+		// add closing record
+		{
+
+			$my_data['type']      = 'closing';
+
+			$result = \lib\db\tax_document\get::report_journal($my_data);
+
+			$temp = self::one_month($result);
+			if($temp)
+			{
+				$total_report[] = $temp;
+			}
+		}
+
 
 		$final_report         = [];
 
@@ -346,7 +360,11 @@ class journal
 
 				$result = \lib\db\tax_document\get::report_journal($my_data);
 
-				$total_report[] = self::one_month($result);
+				$temp = self::one_month($result);
+				if($temp)
+				{
+					$total_report[] = $temp;
+				}
 
 			}
 
@@ -354,8 +372,25 @@ class journal
 
 			$result = \lib\db\tax_document\get::report_journal($my_data);
 
-			$total_report[] = self::one_month($result);
+			$temp = self::one_month($result);
+			if($temp)
+			{
+				$total_report[] = $temp;
+			}
 
+		}
+
+		// add closing report
+		{
+			$my_data['type']      = 'closing';
+
+			$result = \lib\db\tax_document\get::report_journal($my_data);
+
+			$temp = self::one_month($result);
+			if($temp)
+			{
+				$total_report[] = $temp;
+			}
 		}
 
 

@@ -444,7 +444,7 @@ class closing
 			'year_id'   => $_year_id,
 			'desc'      => T_("Closing document :year", ['year' => $load_year['title']]),
 			'date'      => $load_year['enddate'], // end of year
-			'type'      => 'normal', // closing - opening
+			'type'      => 'closing', // normal - opening
 		];
 
 		$result = \lib\app\tax\doc\add::add($post);
