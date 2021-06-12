@@ -462,6 +462,30 @@ class journal
 		}
 
 		$final_report = array_values($final_report);
+
+
+		foreach ($final_report as $key => $value)
+		{
+			foreach ($value as $k => $v)
+			{
+
+				if(a($v, 'type') === 'opening')
+				{
+					$final_report[$key][$k]['show_title'] = T_("Based on the details of the opening document");
+				}
+				elseif(a($v, 'type') === 'closing')
+				{
+
+					$final_report[$key][$k]['show_title'] = T_("Based on the details of the closing document");
+				}
+				else
+				{
+					$final_report[$key][$k]['show_title'] = T_("As described in the general journal");
+
+				}
+			}
+		}
+
 		return $final_report;
 
 
