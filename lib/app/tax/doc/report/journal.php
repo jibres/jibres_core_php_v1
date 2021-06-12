@@ -494,6 +494,11 @@ class journal
 				$result[$key]['total_title'] = $coding[$value['total_id']]['title'];
 			}
 
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$result[$key]['total_code'] = $coding[$value['total_id']]['code'];
+			}
+
 		}
 
 

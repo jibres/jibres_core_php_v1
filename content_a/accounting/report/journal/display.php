@@ -59,7 +59,7 @@
           <td class="border-solid border-e border-gray-400 text-center"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
           <td class="border-solid border-e border-gray-400 text-center"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("j", strtotime($value['show_date'])); } ?></td>
           <td class="border-solid border-e border-gray-400 text-center"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("n", strtotime($value['show_date'])); } ?></td>
-          <td class="border-solid border-e border-gray-400 text-center"><?php echo \dash\fit::number(a($value, 'total_id')); ?></td>
+          <td class="border-solid border-e border-gray-400 text-center"><?php echo \dash\fit::number(a($value, 'total_code')); ?></td>
           <?php if(a($value, 'mode') === 'debtor') {?>
             <td class="border-solid border-e border-gray-400 pLa10"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-gray-400"></td>
