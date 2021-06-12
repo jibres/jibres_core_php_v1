@@ -301,7 +301,8 @@ class journal
 
 		if($counter < 26)
 		{
-			for ($i=1; $i < $counter ; $i++)
+
+			for ($i=1; $i <= 26 - $counter ; $i++)
 			{
 				$final_report[] = self::break_message(null, 'empty_record', []);
 			}
