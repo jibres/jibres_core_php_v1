@@ -19,8 +19,8 @@
         <th class="w-10 font-10 border-solid border-b-2 border-e border-blue-900" rowspan="2"><span class="transform rotate-90 block whitespace-nowrap -translate-y-6" style="--tw-rotate: 270deg;"><?php echo T_("Ledger Number") ?></span></th>
         <th class="border-solid border-b-2 border-e border-blue-900" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="w-10 border-solid border-e border-blue-900"></th>
-        <th class="w-1/6 border-solid border-b border-e-2 border-blue-900"><?php echo T_("Debtor") ?></th>
-        <th class="w-1/6 border-solid border-b border-blue-900"><?php echo T_("Creditor") ?></th>
+        <th class="w-1/5 border-solid border-b border-e-2 border-blue-900"><?php echo T_("Debtor") ?></th>
+        <th class="w-1/5 border-solid border-b border-blue-900"><?php echo T_("Creditor") ?></th>
       </tr>
       <tr>
         <th class="border-solid border-b-2 border-blue-900 border-e font-12"><?php echo T_("Day"); ?></th>
@@ -41,7 +41,7 @@
             <td></td>
             <td class="txtB fs14 text-blue-900 txtRa"><?php echo a($value, 'message') ?></td>
             <td></td>
-            <td class="border-solid border-e-2 border-purple-700 border-solid border-double border-4 border-eight-blue-500" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+            <td class="border-solid border-e-2 border-blue-800 border-solid border-double border-4 border-eight-blue-500" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
             <td data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>' class="ltr txtR fc-red border-solid border-double border-4 border-eight-blue-500"><code><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
           <?php }else{ ?>
             <td class="border-solid border-e border-blue-900"></td>
@@ -50,7 +50,7 @@
             <td class="border-solid border-e border-blue-900"></td>
             <td class="border-solid border-e border-blue-900 txtB fs14 text-center fc-pink"><?php echo a($value, 'message') ?></td>
             <td class="border-solid border-e border-blue-900"></td>
-            <td class="border-solid border-e-2 border-purple-700"></td>
+            <td class="border-solid border-e-2 border-blue-800"></td>
             <td></td>
           <?php } //endif ?>
 
@@ -62,12 +62,12 @@
           <?php if(a($value, 'mode') === 'debtor') {?>
             <td class="border-solid border-e border-blue-900 pLa5"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-blue-900"></td>
-            <td class="border-solid border-e-2 border-purple-700" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+            <td class="border-solid border-e-2 border-blue-800" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
             <td class=""></td>
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
             <td class="border-solid border-e border-blue-900 txtRa pRa5"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-blue-900"></td>
-            <td class="border-solid border-e-2 border-purple-700"></td>
+            <td class="border-solid border-e-2 border-blue-800"></td>
             <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
           <?php } //endif ?>
         <?php } //endif ?>

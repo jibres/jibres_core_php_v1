@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-10 19:43+0430\n"
-"PO-Revision-Date: 2021-06-10 19:45+0430\n"
+"POT-Creation-Date: 2021-06-12 14:33+0430\n"
+"PO-Revision-Date: 2021-06-12 14:39+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -680,19 +680,16 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 
 #: content/bug/display.php:104 content/changelog/display.php:12
 #: content_a/accounting/doc/add/display-docdetail.php:102
-#: content_a/accounting/irvat/add/display.php:124
-#: content_a/accounting/report/journal/display.php:18
-#: content_a/accounting/report/ledger/display.php:12
-#: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
-#: content_a/android/review/display.php:92 content_a/android/review/display.php:99
-#: content_a/form/item/display.php:144 content_a/form/setting/display.php:15
-#: content_a/form/setting/display.php:16 content_a/form/tag/edit/display.php:12
-#: content_a/order/comment/display.php:13 content_a/order/detail/display.php:75
-#: content_a/products/desc/display.php:8 content_a/products/desc/display.php:11
-#: content_a/setting/fund/display.php:18 content_a/setting/fund/display.php:61
-#: content_a/setting/general/title/display.php:14 content_a/tag/edit/display.php:10
-#: content_a/tag/edit/display.php:11 content_developers/docs/004-responses.php:59
-#: content_love/domain/credit/display.php:31
+#: content_a/accounting/irvat/add/display.php:124 content_a/android/intro/display.php:23
+#: content_a/android/review/display.php:84 content_a/android/review/display.php:92
+#: content_a/android/review/display.php:99 content_a/form/item/display.php:144
+#: content_a/form/setting/display.php:15 content_a/form/setting/display.php:16
+#: content_a/form/tag/edit/display.php:12 content_a/order/comment/display.php:13
+#: content_a/order/detail/display.php:75 content_a/products/desc/display.php:8
+#: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
+#: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:14
+#: content_a/tag/edit/display.php:10 content_a/tag/edit/display.php:11
+#: content_developers/docs/004-responses.php:59 content_love/domain/credit/display.php:31
 #: content_love/gift/create/message/display.php:14
 #: content_love/gift/create/review/display.php:28 content_love/gift/edit/display.php:40
 #: content_love/gift/view/display.php:28 content_love/log/home/logTable.php:10
@@ -786,8 +783,8 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/doc/printall/display.php:35
 #: content_a/accounting/irvat/all/display.php:133
-#: content_a/accounting/report/journal/display.php:16
-#: content_a/accounting/report/ledger/display.php:10
+#: content_a/accounting/report/journal/display.php:18
+#: content_a/accounting/report/ledger/display.php:20
 #: content_a/accounting/turnover/display.php:156 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:35 content_a/form/analytics/answer/display.php:110
 #: content_a/form/answer/detail/display.php:139 content_a/order/editdate/display.php:31
@@ -3521,7 +3518,7 @@ msgstr "افزایش محدودیت‌های اولیه"
 
 #: content/pricing/priceTable.php:36 content/pricing/priceTable.php:61
 #: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:181
-#: content_a/accounting/home/display.php:189
+#: content_a/accounting/home/display.php:197
 #: content_a/accounting/report/journal/view.php:9
 #: content_a/accounting/report/ledger/view.php:9 includes/languages/trans_static.php:601
 msgid "Monthly"
@@ -4556,8 +4553,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_my/domain/setting/holder/view.php:12
 #: content_my/domain/setting/transfer/view.php:12
 #: content_pay/home/display-transaction.php:157 content_site/page/new/view.php:11
-#: content_site/page/view.php:11 content_site/section/view.php:15
-#: content_site/section/view.php:22 content_su/apilog/home/view.php:9
+#: content_site/page/view.php:11 content_site/section/view.php:20
+#: content_site/section/view.php:45 content_su/apilog/home/view.php:9
 #: content_su/apilog/view/view.php:9 content_su/backup/display.php:5
 #: content_su/backup/view.php:10 content_su/changeallfuel/view.php:8
 #: content_su/cronjob/view.php:9 content_su/dbversion/view.php:9
@@ -4801,12 +4798,11 @@ msgstr "نوع بالانس"
 #: content_a/accounting/doc/add/display-docdetail.php:85
 #: content_a/accounting/doc/add/display-list.php:23
 #: content_a/accounting/doc/add/display-list.php:92
-#: content_a/accounting/report/journal/display.php:20
-#: content_a/accounting/report/ledger/display.php:13
+#: content_a/accounting/report/journal/display.php:22
+#: content_a/accounting/report/ledger/display.php:23
 #: content_a/accounting/turnover/display.php:162
 #: content_a/accounting/year/manage/display.php:53
-#: content_a/accounting/year/manage/display.php:131
-#: lib/app/tax/doc/report/book_total.php:168
+#: content_a/accounting/year/manage/display.php:131 lib/app/tax/doc/report/journal.php:393
 msgid "Debtor"
 msgstr "بدهکار"
 
@@ -4814,12 +4810,11 @@ msgstr "بدهکار"
 #: content_a/accounting/doc/add/display-docdetail.php:91
 #: content_a/accounting/doc/add/display-list.php:24
 #: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/report/journal/display.php:21
-#: content_a/accounting/report/ledger/display.php:14
+#: content_a/accounting/report/journal/display.php:23
+#: content_a/accounting/report/ledger/display.php:24
 #: content_a/accounting/turnover/display.php:163
 #: content_a/accounting/year/manage/display.php:54
-#: content_a/accounting/year/manage/display.php:132
-#: lib/app/tax/doc/report/book_total.php:163
+#: content_a/accounting/year/manage/display.php:132 lib/app/tax/doc/report/journal.php:388
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -5391,7 +5386,9 @@ msgstr "معین"
 msgid "Document Detail"
 msgstr "تفصیل سند"
 
-#: content_a/accounting/doc/add/display-list.php:21 content_a/chap/size-a4/a4-1.php:48
+#: content_a/accounting/doc/add/display-list.php:21
+#: content_a/accounting/report/journal/display.php:20
+#: content_a/accounting/report/ledger/display.php:21 content_a/chap/size-a4/a4-1.php:48
 msgid "Explanation"
 msgstr "شرح"
 
@@ -5445,10 +5442,8 @@ msgstr "حداکثر اندازه فایل"
 msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/doc/display.php:12
-#: content_a/accounting/report/ledger/display.php:9
-#: content_a/accounting/turnover/display.php:149 lib/app/store/config.php:126
-#: lib/app/store/config.php:156
+#: content_a/accounting/doc/display.php:12 content_a/accounting/turnover/display.php:149
+#: lib/app/store/config.php:126 lib/app/store/config.php:156
 msgid "Number"
 msgstr "شماره"
 
@@ -5655,31 +5650,37 @@ msgstr "ترازنامه در سطح معین"
 msgid "Balance sheet on detail level"
 msgstr "ترازنامه در سطح تفصیل"
 
-#: content_a/accounting/home/display.php:181
-#: content_a/accounting/report/journal/display.php:9
+#: content_a/accounting/home/display.php:181 content_a/accounting/home/display.php:189
+#: content_a/accounting/report/journal/display.php:11
 #: content_a/accounting/report/journal/view.php:9
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
-#: content_a/accounting/home/display.php:189 content_a/accounting/report/ledger/view.php:9
+#: content_a/accounting/home/display.php:189
+msgid "Daily"
+msgstr ""
+
+#: content_a/accounting/home/display.php:197
+#: content_a/accounting/report/ledger/display.php:13
+#: content_a/accounting/report/ledger/view.php:9
 msgid "Ledger"
 msgstr "دفتر کل"
 
-#: content_a/accounting/home/display.php:197
+#: content_a/accounting/home/display.php:205
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:203
+#: content_a/accounting/home/display.php:211
 #: content_a/accounting/irvat/choosetype/display.php:18
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
-#: content_a/accounting/home/display.php:212
+#: content_a/accounting/home/display.php:220
 #: content_a/accounting/irvat/choosetype/display.php:26
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/home/display.php:221
+#: content_a/accounting/home/display.php:229
 #: content_a/form/analytics/province/display.php:17
 msgid "List"
 msgstr "لیست"
@@ -6046,7 +6047,7 @@ msgstr "ویرایش فاکتور"
 #: content_a/accounting/report/detail/display.php:3
 #: content_a/accounting/report/group/display.php:4
 #: content_a/accounting/report/journal/display.php:3
-#: content_a/accounting/report/ledger/display.php:3
+#: content_a/accounting/report/ledger/display.php:4
 #: content_a/accounting/report/total/display-old.php:3
 #: content_a/accounting/report/total/display.php:3
 msgid "No detail was founded"
@@ -6215,46 +6216,48 @@ msgstr "گزارش تفصیل"
 msgid "Accounting report group"
 msgstr "گزارش در سطح گروه"
 
-#: content_a/accounting/report/journal/display.php:15
+#: content_a/accounting/report/journal/display.php:17
+#: content_a/accounting/report/ledger/display.php:19
 msgid "General Journal Number"
 msgstr "شماره روزنامه"
 
-#: content_a/accounting/report/journal/display.php:17
+#: content_a/accounting/report/journal/display.php:19
 msgid "Ledger Number"
 msgstr "شماره دفتر کل"
 
-#: content_a/accounting/report/journal/display.php:24 content_su/backup/display.php:152
+#: content_a/accounting/report/journal/display.php:26
+#: content_a/accounting/report/ledger/display.php:29 content_su/backup/display.php:152
 #: includes/languages/trans_static_public.php:524
 msgid "Day"
 msgstr "روز"
 
-#: content_a/accounting/report/journal/display.php:25
+#: content_a/accounting/report/journal/display.php:27
+#: content_a/accounting/report/ledger/display.php:30
 #: content_crm/transactions/report/display.php:19
 #: content_love/business/monthly/display.php:14 content_su/backup/display.php:150
 #: lib/app/domains/filter.php:63
 msgid "Month"
 msgstr "ماه"
 
-#: content_a/accounting/report/journal/display.php:28
-#: content_a/accounting/report/journal/display.php:29 dash/utility/ir_post.php:85
+#: content_a/accounting/report/journal/display.php:29
+#: content_a/accounting/report/journal/display.php:30
+#: content_a/accounting/report/ledger/display.php:32
+#: content_a/accounting/report/ledger/display.php:33
+#: content_a/accounting/report/ledger/display.php:34 dash/utility/ir_post.php:85
 #: dash/utility/ir_post.php:156 lib/currency.php:13
 msgid "Rial"
 msgstr "ریال"
 
-#: content_a/accounting/report/ledger/display.php:15
+#: content_a/accounting/report/ledger/display.php:25
 msgid "Detect"
 msgstr "شناسایی"
 
-#: content_a/accounting/report/ledger/display.php:16
+#: content_a/accounting/report/ledger/display.php:26
 #: content_a/accounting/turnover/display.php:165
 #: content_a/form/analytics/chart/view.php:33 content_a/form/analytics/chart2/view.php:33
 #: content_a/form/analytics/filter/display.php:51
 msgid "Remain"
 msgstr "مانده"
-
-#: content_a/accounting/report/ledger/display.php:42
-msgid "Go to next page"
-msgstr "برو به صفحه بعد"
 
 #: content_a/accounting/report/total/view.php:9
 msgid "Accounting report total"
@@ -22126,7 +22129,7 @@ msgid "Classic View"
 msgstr ""
 
 #: content_site/ganje/blog/option.php:49 content_site/ganje/blog/option.php:167
-#: content_site/ganje/gallery/option.php:47 content_site/ganje/gallery/option.php:142
+#: content_site/ganje/gallery/option.php:47 content_site/ganje/gallery/option.php:148
 msgid "Modern View"
 msgstr ""
 
@@ -22138,7 +22141,7 @@ msgstr ""
 msgid "Gallery posts"
 msgstr ""
 
-#: content_site/ganje/gallery/option.php:48 content_site/ganje/gallery/option.php:159
+#: content_site/ganje/gallery/option.php:48 content_site/ganje/gallery/option.php:165
 msgid "Slider View"
 msgstr ""
 
@@ -22153,6 +22156,14 @@ msgstr "افزودن صفحه جدید"
 #: content_site/options/addimage.php:14
 msgid "Invalid section detail"
 msgstr ""
+
+#: content_site/options/alt.php:17
+msgid "Image alt"
+msgstr ""
+
+#: content_site/options/alt.php:36 content_site/options/heading.php:36
+msgid "Heading"
+msgstr "عنوان"
 
 #: content_site/options/container.php:13 lib/app/website/avand.php:11
 #: lib/pagebuilder/body/avand/avand.php:16
@@ -22205,10 +22216,6 @@ msgstr ""
 #: content_site/options/heading.php:17
 msgid "New section"
 msgstr "بخش جدید"
-
-#: content_site/options/heading.php:36
-msgid "Heading"
-msgstr "عنوان"
 
 #: content_site/options/height.php:10 includes/languages/trans_static.php:600
 msgid "Auto"
@@ -22353,7 +22360,7 @@ msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 msgid "Please select one section"
 msgstr ""
 
-#: content_site/section/view.php:20
+#: content_site/section/view.php:18
 msgid "Add new Section"
 msgstr "افزودن بخش جدید"
 
@@ -38567,7 +38574,7 @@ msgid "Permanent"
 msgstr "دائمی"
 
 #: lib/app/tax/doc/report/book_total.php:21 lib/app/tax/doc/report/book_total.php:39
-#: lib/app/tax/doc/report/journal.php:23 lib/app/tax/doc/report/journal.php:47
+#: lib/app/tax/doc/report/journal.php:23
 msgid "For tax document"
 msgstr ""
 
@@ -38579,21 +38586,29 @@ msgstr ""
 msgid "Start new page"
 msgstr ""
 
-#: lib/app/tax/doc/report/book_total.php:35 lib/app/tax/doc/report/journal.php:39
+#: lib/app/tax/doc/report/book_total.php:35
 msgid "For opening document"
 msgstr ""
 
-#: lib/app/tax/doc/report/journal.php:30
-msgid "End of page :page"
-msgstr ""
+#: lib/app/tax/doc/report/journal.php:31
+msgid "Quote to page :page"
+msgstr "نقل به صفحه :page"
 
 #: lib/app/tax/doc/report/journal.php:35
-msgid "Start new page, Retrieved from page :page"
-msgstr ""
+msgid "Quote from page :page"
+msgstr "نقل از صفحه :page"
+
+#: lib/app/tax/doc/report/journal.php:39
+msgid "Based on the details of the opening document"
+msgstr "به شرح سند افتتاحیه"
 
 #: lib/app/tax/doc/report/journal.php:43
-msgid "For closing document"
-msgstr ""
+msgid "Based on the details of the closing document"
+msgstr "به شرح سند اختتامیه"
+
+#: lib/app/tax/doc/report/journal.php:47
+msgid "As described in the accounting document"
+msgstr "به شرح سند حسابداری"
 
 #: lib/app/tax/docdetail/add.php:29
 msgid "Accounting docdetail successfully added"
@@ -40518,6 +40533,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Go to next page"
+#~ msgstr "برو به صفحه بعد"
 
 #~ msgid "Section"
 #~ msgstr "بخش"

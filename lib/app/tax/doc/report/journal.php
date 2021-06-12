@@ -28,23 +28,23 @@ class journal
 		switch($_mode)
 		{
 			case 'end_of_page':
-				$message  = T_("Qoute to page :page", ['page' => \dash\fit::number(self::$page_counter +1)]);
+				$message  = T_("Quote to page :page", ['page' => \dash\fit::number(self::$page_counter +1)]);
 				break;
 
 			case 'start_new_page':
-				$message  = T_("Qoute from page :page", ['page' => \dash\fit::number(self::$page_counter - 1)]);
+				$message  = T_("Quote from page :page", ['page' => \dash\fit::number(self::$page_counter - 1)]);
 				break;
 
 			case 'opening':
-				$message  = T_("For opening document");
+				$message  = T_("Based on the details of the opening document");
 				break;
 
 			case 'closing':
-				$message  = T_("For closing document");
+				$message  = T_("Based on the details of the closing document");
 				break;
 
 			case 'next_part':
-				$message  = T_("For tax document");
+				$message  = T_("As described in the accounting document");
 				break;
 
 
