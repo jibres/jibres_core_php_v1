@@ -5,7 +5,7 @@
   <?php foreach (\dash\data::reportPerPage() as $pageNumber => $one_page) {?>
 
 <style type="text/css">.page-break{page-break-after:always}</style>
-  <div class="printArea" data-size='A4.landscape'>
+  <div class="printArea" data-size='A4'>
     <div class="msg f align-center txtC font-16">
       <div class="c3"></div>
       <div class="c6"><h2 class="txtB"><?php echo T_("General Journal"); ?></h2></div>
