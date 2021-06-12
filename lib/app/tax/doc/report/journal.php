@@ -47,6 +47,10 @@ class journal
 				$message  = T_("As described in the accounting document");
 				break;
 
+			case 'empty_record':
+				$message  = "&nbsp;";
+				break;
+
 
 		}
 		$break_message['message']     = $message;
@@ -209,6 +213,8 @@ class journal
 		$end_key = end($all_key);
 
 
+		$final_report[]       = self::break_message(null, 'start_new_page', []);
+
 		foreach ($total_report as $key => $one_month)
 		{
 			$need_break_message = false;
@@ -284,9 +290,16 @@ class journal
 
 				}
 			}
-
-
 		}
+
+		if($counter < 26)
+		{
+			for ($i=1; $i < $counter ; $i++)
+			{
+				$final_report[] = self::break_message(null, 'empty_record', []);
+			}
+		}
+
 
 		$page_report =
 		[
@@ -296,8 +309,6 @@ class journal
 		];
 
 		$final_report[]       = self::break_message($key, 'end_of_page', $page_report);
-
-		// var_dump($final_report);exit;
 
 		return $final_report;
 
