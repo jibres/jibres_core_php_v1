@@ -28,7 +28,7 @@ class imagelist
 	    		{
 		      		$html .= '<li>';
 		      		{
-			      		$html .= '<a class="item f" href="'. \dash\url::that(). '/imagelist'. \dash\request::full_get(['image' => a($value, 'imagekey')]). '">';
+			      		$html .= '<a class="item f" href="'. \dash\url::that(). '/imagelist'. \dash\request::full_get(['index' => a($value, 'index')]). '">';
 			      		{
 			        		$html .= '<img src="'. \dash\utility\icon::url('Image', 'major'). '">';
 			        		$html .= '<div class="key">'. a($value, 'alt').' </div>';

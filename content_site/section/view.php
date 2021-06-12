@@ -56,7 +56,7 @@ class view
 		else
 		{
 			$url = \dash\url::here();
-			$url = '/page';
+			$url .= '/page';
 			$url .= \dash\request::full_get(['image' => null, 'sid' => null]);
 		}
 

@@ -24,11 +24,11 @@ class addimage
 			$currentSectionDetail['preview']['imagelist'] = [];
 		}
 
-		$imagekey = md5(rand(). \dash\user::id(). microtime(). rand());
+		$index = md5(rand(). \dash\user::id(). microtime(). rand());
 
 		$currentSectionDetail['preview']['imagelist'][] =
 		[
-			'imagekey'  => $imagekey,
+			'index'  => $index,
 			'image'     => null,
 			'alt'       => T_("Image"),
 			'isdefault' => true,
@@ -38,7 +38,7 @@ class addimage
 
 		\content_site\update_record::patch_field($currentSectionDetail['id'], 'preview', $preview);
 
-		$url = \dash\url::that(). '/imagelist'. \dash\request::full_get(['image' => $imagekey]);
+		$url = \dash\url::that(). '/imagelist'. \dash\request::full_get(['index' => $index]);
 
 		\dash\redirect::to($url);
 

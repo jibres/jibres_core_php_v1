@@ -119,6 +119,7 @@ class option
 			'imagelist' =>
 			[
 				'file',
+				'alt',
 			],
 			'addimage',
 			'style',
