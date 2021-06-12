@@ -32,7 +32,14 @@ class journal
 				break;
 
 			case 'start_new_page':
-				$message  = T_("Quote from page :page", ['page' => \dash\fit::number(self::$page_counter - 1)]);
+				if($_index === null)
+				{
+					$message  = T_("Quote from page :page", ['page' => '&nbsp;']);
+				}
+				else
+				{
+					$message  = T_("Quote from page :page", ['page' => \dash\fit::number(self::$page_counter - 1)]);
+				}
 				break;
 
 			case 'opening':
