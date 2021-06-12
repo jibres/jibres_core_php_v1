@@ -140,7 +140,6 @@ function wow_number($number, $_customClass = null)
     {
       $style .= 'border-bottom-color: rgba(156, 163, 175, var(--tw-border-opacity));';
     }
-    // fc-red
 
     switch ($i)
     {
