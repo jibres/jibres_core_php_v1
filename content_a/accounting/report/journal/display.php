@@ -19,8 +19,8 @@
         <th class="w-10 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 block whitespace-nowrap -translate-y-6" style="--tw-rotate: 270deg;"><?php echo T_("Ledger Number") ?></span></th>
         <th class="border-solid border-b-2 border-e border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="w-10 border-solid border-e border-gray-400"></th>
-        <th class="w-1/5 border-solid border-b border-e-2 border-gray-400" colspan="14"><?php echo T_("Debtor") ?></th>
-        <th class="w-1/5 border-solid border-b border-gray-400" colspan="14"><?php echo T_("Creditor") ?></th>
+        <th class="border-solid border-b border-e-2 border-gray-400" colspan="14" style="width:154px;"><?php echo T_("Debtor") ?></th>
+        <th class="border-solid border-b border-gray-400" colspan="14" style="width:154px;"><?php echo T_("Creditor") ?></th>
       </tr>
       <tr>
         <th class="border-solid border-b-2 border-gray-400 border-e font-12 bg-gray-200"><?php echo T_("Day"); ?></th>
@@ -54,9 +54,9 @@
             <td class="border-solid border-e border-gray-400 bg-gray-200"></td>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400 text-center fc-pink font-black"><?php echo a($value, 'message') ?></td>
-            <td class="border-solid border-e border-gray-400" colspan="14"></td>
-            <td class="border-solid border-e-2 border-gray-400" colspan="14"></td>
-            <td></td>
+            <td class="border-solid border-e border-gray-400"></td>
+            <?php wow_number(a($value, 'sum_debtor_on_page')) ?>
+            <?php wow_number(a($value, 'sum_creditor_on_page')) ?>
           <?php } //endif ?>
 
         <?php }else{ ?>
@@ -76,7 +76,6 @@
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
             <td class="border-solid border-e border-gray-400 txtRa pRa10"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-gray-400"></td>
-            <td class="border-solid border-e-2 border-gray-400"></td>
             <?php echo  wow_number(null); ?>
             <?php echo  wow_number(a($value, 'show_value')); ?>
 
@@ -111,35 +110,66 @@ function wow_number($number)
 {
   if($number === null)
   {
-    $number = '--------------';
+    $number = '';
   }
   $number = str_replace(',', '', $number);
   $number_split = str_split($number);
   $number_split = array_reverse($number_split);
-  if(count($number_split) < 14)
-  {
-    for ($i=1; $i <= 14 - count($number_split) ; $i++)
-    {
-      array_push($number_split, '-');
-    }
-  }
+  // if(count($number_split) < 14)
+  // {
+  //   for ($i=1; $i <= 14 - count($number_split) ; $i++)
+  //   {
+  //     array_push($number_split, '-');
+  //   }
+  // }
 
   $html = '';
-  foreach ($number_split as $one_number)
+  for ($i=1; $i <= 14 ; $i++)
   {
-    $html .= '<td class="ltr txtR fc-red font-15">';
-    if($one_number === '-')
+    $tdClass = 'ltr text-center font-15';
+    // fc-red
+
+    switch ($i)
     {
-      $html .= '&nbsp;';
+      case 1:
+      case 2:
+      case 3:
+      case 7:
+      case 8:
+      case 9:
+      case 13:
+        $tdClass .= ' bg-gray-200 border-solid border-e border-gray-300';
+        break;
+
+      case 4:
+      case 5:
+      case 6:
+      case 10:
+      case 11:
+      case 12:
+        $tdClass .= ' bg-white border-solid border-e border-gray-300';
+        break;
+
+      case 14:
+        $tdClass .= ' bg-gray-200 border-solid border-e border-s-4 border-gray-300';
+        break;
+
+      default:
+        break;
+    }
+
+    $html .= '<td style="width:11px;" class="'. $tdClass. '" data-col='. $i. '>';
+    if(isset($number_split[$i]))
+    {
+      $html .= \dash\fit::number($number_split[$i]);
     }
     else
     {
-      $html .= \dash\fit::number($one_number);
+      $html .= '&nbsp;';
     }
     $html .= '</td>';
 
   }
-
   echo $html;
 
 }
