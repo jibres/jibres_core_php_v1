@@ -49,7 +49,7 @@
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400"></td>
-            <td class="border-solid border-e border-gray-400 txtB text-center fc-pink"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid border-e border-gray-400 text-center fc-pink font-black"><?php echo a($value, 'message') ?></td>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e-2 border-gray-500"></td>
             <td></td>
@@ -77,9 +77,11 @@
     </tbody>
   </table>
   <div class="msg mT10 f align-center">
-    <div class="cauto pRa10"><?php echo \lib\store::title() ?></div>
-    <div class="c"><?php echo a(\dash\data::currentYearDetail(), 'title') ?></div>
-    <div class="cauto os txtRa"><?php echo T_("Page :page from :pages", ['page' => \dash\fit::number($pageNumber), 'pages' => \dash\fit::number(count(\dash\data::reportPerPage())) ]); ?></div>
+    <div class="cauto pRa10"><?php echo T_("General Journal"); ?></div>
+    <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
+    <div class="c pRa10"><?php echo a(\dash\data::currentYearDetail(), 'title'); ?></div>
+    <div class="c"><?php echo T_('National ID') ?> <?php echo \dash\fit::text(\lib\store::detail('companynationalid')); ?></div>
+    <div class="cauto os txtRa"><?php echo T_("Page :page from :total", ['page' => \dash\fit::number($pageNumber), 'total' => \dash\fit::number(count(\dash\data::reportPerPage())) ]); ?></div>
   </div>
  </div>
 <?php } //endfor ?>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-12 14:33+0430\n"
-"PO-Revision-Date: 2021-06-12 14:39+0430\n"
+"POT-Creation-Date: 2021-06-12 15:45+0430\n"
+"PO-Revision-Date: 2021-06-12 15:46+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4028,7 +4028,7 @@ msgid "Insurance"
 msgstr "بیمه"
 
 #: content/shipping/irpost/display-calculate.php:125
-#: content_a/accounting/doc/edit/view.php:133 content_a/order/productList.php:29
+#: content_a/accounting/doc/edit/view.php:135 content_a/order/productList.php:29
 #: content_a/order/summary.php:22 content_business/cart/cartSummary.php:18
 msgid "Vat"
 msgstr "مالیات بر ارزش افزوده"
@@ -4404,10 +4404,10 @@ msgid "Text of agreement for registering domains under .ir and .ایران.ir "
 msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 
 #: content/terms/irnic/view.php:13 content_a/accounting/coding/add/view.php:10
-#: content_a/accounting/coding/all/view.php:12
-#: content_a/accounting/coding/edit/view.php:12 content_a/accounting/coding/view.php:12
-#: content_a/accounting/doc/add/view.php:12 content_a/accounting/doc/duplicate/view.php:12
-#: content_a/accounting/doc/edit/view.php:22 content_a/accounting/doc/printall/view.php:12
+#: content_a/accounting/coding/all/view.php:14
+#: content_a/accounting/coding/edit/view.php:14 content_a/accounting/coding/view.php:12
+#: content_a/accounting/doc/add/view.php:14 content_a/accounting/doc/duplicate/view.php:14
+#: content_a/accounting/doc/edit/view.php:24 content_a/accounting/doc/printall/view.php:12
 #: content_a/accounting/doc/view.php:12 content_a/accounting/home/view.php:12
 #: content_a/accounting/irvat/add/view.php:12 content_a/accounting/irvat/all/view.php:12
 #: content_a/accounting/irvat/choosetype/view.php:12
@@ -4802,7 +4802,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/report/ledger/display.php:23
 #: content_a/accounting/turnover/display.php:162
 #: content_a/accounting/year/manage/display.php:53
-#: content_a/accounting/year/manage/display.php:131 lib/app/tax/doc/report/journal.php:393
+#: content_a/accounting/year/manage/display.php:131 lib/app/tax/doc/report/journal.php:448
 msgid "Debtor"
 msgstr "بدهکار"
 
@@ -4814,7 +4814,7 @@ msgstr "بدهکار"
 #: content_a/accounting/report/ledger/display.php:24
 #: content_a/accounting/turnover/display.php:163
 #: content_a/accounting/year/manage/display.php:54
-#: content_a/accounting/year/manage/display.php:132 lib/app/tax/doc/report/journal.php:388
+#: content_a/accounting/year/manage/display.php:132 lib/app/tax/doc/report/journal.php:443
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -5088,11 +5088,11 @@ msgstr "معین"
 msgid "Accounting details"
 msgstr "تفصیل"
 
-#: content_a/accounting/coding/add/view.php:28 content_a/accounting/coding/edit/view.php:9
+#: content_a/accounting/coding/add/view.php:29 content_a/accounting/coding/edit/view.php:9
 msgid "Edit accounting coding"
 msgstr "ویرایش سرفصل حسابداری"
 
-#: content_a/accounting/coding/add/view.php:32
+#: content_a/accounting/coding/add/view.php:33
 msgid "Add new accounting coding"
 msgstr "افزودن سرفصل حسابداری جدید"
 
@@ -5235,7 +5235,7 @@ msgstr "افزودن جدید"
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
-#: content_a/accounting/coding/all/view.php:16 content_a/accounting/coding/view.php:16
+#: content_a/accounting/coding/all/view.php:18 content_a/accounting/coding/view.php:16
 msgid "Add coding"
 msgstr "افزودن سرفصل حسابداری"
 
@@ -5294,7 +5294,7 @@ msgid "View Document"
 msgstr "نمایش سند"
 
 #: content_a/accounting/doc/add/display-doc.php:21 content_a/accounting/doc/display.php:30
-#: content_a/accounting/doc/edit/view.php:13
+#: content_a/accounting/doc/edit/view.php:15
 #: content_a/accounting/doc/printall/display.php:20
 msgid "Opening Document"
 msgstr "سند افتتاحیه"
@@ -5498,23 +5498,23 @@ msgstr "فایل حذف شد"
 msgid "Accounting Document Number"
 msgstr "سند حسابداری شماره"
 
-#: content_a/accounting/doc/edit/view.php:18
+#: content_a/accounting/doc/edit/view.php:20
 #: content_a/accounting/doc/printall/display.php:25
 msgid "Closing Document"
 msgstr "بستن اسناد"
 
-#: content_a/accounting/doc/edit/view.php:33 content_a/setting/product/display.php:110
+#: content_a/accounting/doc/edit/view.php:35 content_a/setting/product/display.php:110
 #: content_su/update/display.php:14 includes/languages/trans_static.php:594
 #: lib/app/domains/filter.php:53 lib/app/domains/filter.php:54
 #: lib/app/domains/filter.php:55
 msgid "Lock"
 msgstr "قفل"
 
-#: content_a/accounting/doc/edit/view.php:39 content_su/update/display.php:41
+#: content_a/accounting/doc/edit/view.php:41 content_su/update/display.php:41
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
-#: content_a/accounting/doc/edit/view.php:140
+#: content_a/accounting/doc/edit/view.php:142
 #: content_a/accounting/turnover/display.php:101
 msgid "Tax"
 msgstr "مالیات"
@@ -5653,14 +5653,16 @@ msgstr "ترازنامه در سطح تفصیل"
 #: content_a/accounting/home/display.php:181 content_a/accounting/home/display.php:189
 #: content_a/accounting/report/journal/display.php:11
 #: content_a/accounting/report/journal/view.php:9
+#: content_a/accounting/report/journal_cover.php:4
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
 #: content_a/accounting/home/display.php:189
 msgid "Daily"
-msgstr ""
+msgstr "روزانه"
 
 #: content_a/accounting/home/display.php:197
+#: content_a/accounting/report/journal_cover.php:4
 #: content_a/accounting/report/ledger/display.php:13
 #: content_a/accounting/report/ledger/view.php:9
 msgid "Ledger"
@@ -5800,9 +5802,10 @@ msgstr "نام شرکت"
 
 #: content_a/accounting/irvat/add/display.php:257
 #: content_a/accounting/irvat/add/display.php:299
-#: content_a/accounting/irvat/all/display.php:138 content_a/order/address/display.php:112
-#: content_a/setting/factor/seller/display.php:21 content_a/setup/company/display.php:30
-#: content_crm/member/legal/display.php:20
+#: content_a/accounting/irvat/all/display.php:138
+#: content_a/accounting/report/journal_cover.php:19
+#: content_a/order/address/display.php:112 content_a/setting/factor/seller/display.php:21
+#: content_a/setup/company/display.php:30 content_crm/member/legal/display.php:20
 msgid "Economic code"
 msgstr "کد اقتصادی"
 
@@ -5838,6 +5841,7 @@ msgstr "کدپستی"
 
 #: content_a/accounting/irvat/add/display.php:265
 #: content_a/accounting/irvat/add/display.php:354
+#: content_a/accounting/report/journal_cover.php:44
 #: content_a/chap/size-a4/oneSide-buyer.php:88
 #: content_a/chap/size-a4/oneSide-seller.php:72 content_a/order/address/display.php:161
 #: content_a/order/detail/display.php:64 content_a/setting/factor/address/display.php:42
@@ -6247,6 +6251,24 @@ msgstr "ماه"
 #: dash/utility/ir_post.php:156 lib/currency.php:13
 msgid "Rial"
 msgstr "ریال"
+
+#: content_a/accounting/report/journal/display.php:82
+#: content_a/accounting/report/journal_cover.php:25
+msgid "National ID"
+msgstr "شناسه ملی"
+
+#: content_a/accounting/report/journal/display.php:83
+msgid "Page :page from :total"
+msgstr "صفحه :page از :total"
+
+#: content_a/accounting/report/journal_cover.php:31
+msgid "Register number"
+msgstr "شماره ثبت"
+
+#: content_a/accounting/report/journal_cover.php:37
+#: content_a/setting/general/display.php:59 includes/languages/trans_static.php:660
+msgid "Postcode"
+msgstr "کدپستی"
 
 #: content_a/accounting/report/ledger/display.php:25
 msgid "Detect"
@@ -11053,10 +11075,6 @@ msgstr "حذف لوگو"
 #: content_a/setting/general/display.php:54
 msgid "Business Address"
 msgstr "آدرس‌ بیزینس"
-
-#: content_a/setting/general/display.php:59 includes/languages/trans_static.php:660
-msgid "Postcode"
-msgstr "کدپستی"
 
 #: content_a/setting/general/display.php:68
 msgid "Manage business address"
@@ -38592,11 +38610,11 @@ msgstr ""
 
 #: lib/app/tax/doc/report/journal.php:31
 msgid "Quote to page :page"
-msgstr "نقل به صفحه :page"
+msgstr "نقل از صفحه :page"
 
 #: lib/app/tax/doc/report/journal.php:35
 msgid "Quote from page :page"
-msgstr "نقل از صفحه :page"
+msgstr "منقول از صفحه :page"
 
 #: lib/app/tax/doc/report/journal.php:39
 msgid "Based on the details of the opening document"
@@ -40533,6 +40551,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Page :page from :pages"
+#~ msgstr "صفحه :page از :pages"
 
 #~ msgid "Go to next page"
 #~ msgstr "برو به صفحه بعد"
