@@ -19,15 +19,15 @@
         <th class="w-10 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 block whitespace-nowrap -translate-y-6" style="--tw-rotate: 270deg;"><?php echo T_("Ledger Number") ?></span></th>
         <th class="border-solid border-b-2 border-e border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="w-10 border-solid border-e border-gray-400"></th>
-        <th class="w-1/5 border-solid border-b border-e-2 border-gray-400"><?php echo T_("Debtor") ?></th>
-        <th class="w-1/5 border-solid border-b border-gray-400"><?php echo T_("Creditor") ?></th>
+        <th class="w-1/5 border-solid border-b border-e-2 border-gray-400" colspan="14"><?php echo T_("Debtor") ?></th>
+        <th class="w-1/5 border-solid border-b border-gray-400" colspan="14"><?php echo T_("Creditor") ?></th>
       </tr>
       <tr>
         <th class="border-solid border-b-2 border-gray-400 border-e font-12 bg-gray-200"><?php echo T_("Day"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 border-e font-12 bg-gray-200"><?php echo T_("Month"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 border-e"></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 border-e-2"><?php echo T_("Rial"); ?></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 "><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 font-12 border-e-2" colspan="14"><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 font-12 " colspan="14"><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
     <tbody class="leading-10 font-11">
@@ -42,16 +42,20 @@
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 text-blue-900 txtRa pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
-            <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr txtR fc-green font-bold"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
-            <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr txtR fc-red font-bold"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
+            <?php wow_number(a($value, 'sum_debtor_on_page')) ?>
+            <?php wow_number(a($value, 'sum_creditor_on_page')) ?>
+            <?php if(false) {?>
+              <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr txtR fc-green font-bold"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+              <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr txtR fc-red font-bold"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
+            <?php }// endif ?>
           <?php }else{ ?>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400 bg-gray-200"></td>
             <td class="border-solid border-e border-gray-400 bg-gray-200"></td>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400 text-center fc-pink font-black"><?php echo a($value, 'message') ?></td>
-            <td class="border-solid border-e border-gray-400"></td>
-            <td class="border-solid border-e-2 border-gray-400"></td>
+            <td class="border-solid border-e border-gray-400" colspan="14"></td>
+            <td class="border-solid border-e-2 border-gray-400" colspan="14"></td>
             <td></td>
           <?php } //endif ?>
 
@@ -63,13 +67,23 @@
           <?php if(a($value, 'mode') === 'debtor') {?>
             <td class="border-solid border-e border-gray-400 pLa10"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-gray-400"></td>
+            <?php echo  wow_number(a($value, 'show_value')); ?>
+            <?php echo  wow_number(null); ?>
+            <?php if(false) {?>
             <td class="border-solid border-e-2 border-gray-400 font-15" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
-            <td class=""></td>
+            <?php } //endif ?>
+
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
             <td class="border-solid border-e border-gray-400 txtRa pRa10"><?php echo a($value, 'total_title') ?></td>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e-2 border-gray-400"></td>
-            <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red font-15"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+            <?php echo  wow_number(null); ?>
+            <?php echo  wow_number(a($value, 'show_value')); ?>
+
+            <?php if(false) {?>
+              <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red font-15"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+            <?php } //endif ?>
+
           <?php } //endif ?>
         <?php } //endif ?>
         </tr>
@@ -88,3 +102,45 @@
 
 <?php require_once(root. '/content_a/accounting/report/journal_cover.php'); ?>
 <?php } //endif ?>
+
+
+
+
+<?php
+function wow_number($number)
+{
+  if($number === null)
+  {
+    $number = '--------------';
+  }
+  $number = str_replace(',', '', $number);
+  $number_split = str_split($number);
+  $number_split = array_reverse($number_split);
+  if(count($number_split) < 14)
+  {
+    for ($i=1; $i <= 14 - count($number_split) ; $i++)
+    {
+      array_push($number_split, '-');
+    }
+  }
+
+  $html = '';
+  foreach ($number_split as $one_number)
+  {
+    $html .= '<td class="ltr txtR fc-red font-15">';
+    if($one_number === '-')
+    {
+      $html .= '&nbsp;';
+    }
+    else
+    {
+      $html .= \dash\fit::number($one_number);
+    }
+    $html .= '</td>';
+
+  }
+
+  echo $html;
+
+}
+?>
