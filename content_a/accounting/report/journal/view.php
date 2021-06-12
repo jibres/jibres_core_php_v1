@@ -32,6 +32,14 @@ class view
 			}
 		}
 
+		foreach ($year as $key => $value)
+		{
+			if(isset($value['id']) && $value['id'] == $year_id)
+			{
+				\dash\data::currentYearDetail($value);
+			}
+		}
+
 		$startdate = \dash\request::get('startdate');
 		$startdate = \dash\validate::date($startdate, false);
 		$enddate = \dash\request::get('enddate');

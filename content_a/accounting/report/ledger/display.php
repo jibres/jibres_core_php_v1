@@ -58,5 +58,6 @@
   </table>
  </div>
 <?php } //endfor ?>
+<?php require_once(root. '/content_a/accounting/report/journal_cover.php'); ?>
 
 <?php } //endif ?>
