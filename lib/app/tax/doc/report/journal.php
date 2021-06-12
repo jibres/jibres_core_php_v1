@@ -163,7 +163,11 @@ class journal
 
 				$result = \lib\db\tax_document\get::report_journal($my_data);
 
-				$total_report[] = self::one_month($result);
+				$temp = self::one_month($result);
+				if($temp)
+				{
+					$total_report[] = $temp;
+				}
 
 			}
 
@@ -171,7 +175,11 @@ class journal
 
 			$result = \lib\db\tax_document\get::report_journal($my_data);
 
-			$total_report[] = self::one_month($result);
+			$temp = self::one_month($result);
+			if($temp)
+			{
+				$total_report[] = $temp;
+			}
 
 		}
 
@@ -185,6 +193,7 @@ class journal
 
 		$all_key = array_keys($total_report);
 		$end_key = end($all_key);
+
 
 		foreach ($total_report as $key => $one_month)
 		{
