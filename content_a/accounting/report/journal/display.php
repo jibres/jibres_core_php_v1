@@ -14,19 +14,19 @@
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
       <tr>
-        <th class="w-10 h-32 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-5" style="--tw-rotate: 270deg;"><?php echo T_("General Journal Number") ?></span></th>
-        <th class="w-20 font-16 border-solid border-b border-e border-gray-400 bg-gray-200" colspan="2"><?php echo T_("Date") ?></th>
-        <th class="w-10 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 block whitespace-nowrap -translate-y-6" style="--tw-rotate: 270deg;"><?php echo T_("Ledger Number") ?></span></th>
+        <th class="w-8 h-32 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-8" style="--tw-rotate: 270deg;"><?php echo T_("General Journal Number") ?></span></th>
+        <th class="w-16 font-14 border-solid border-b border-e border-gray-400 bg-gray-200" colspan="2"><?php echo T_("Date") ?></th>
+        <th class="w-8 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 block whitespace-nowrap -translate-y-8" style="--tw-rotate: 270deg;"><?php echo T_("Ledger Number") ?></span></th>
         <th class="border-solid border-b-2 border-e border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="w-10 border-solid border-e border-gray-400"></th>
-        <th class="border-solid border-b border-e-2 border-gray-400" colspan="14" style="width:154px;"><?php echo T_("Debtor") ?></th>
-        <th class="border-solid border-b border-gray-400" colspan="14" style="width:154px;"><?php echo T_("Creditor") ?></th>
+        <th class="border-solid border-b border-e border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Debtor") ?></th>
+        <th class="border-solid border-b border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Creditor") ?></th>
       </tr>
       <tr>
-        <th class="border-solid border-b-2 border-gray-400 border-e font-12 bg-gray-200"><?php echo T_("Day"); ?></th>
-        <th class="border-solid border-b-2 border-gray-400 border-e font-12 bg-gray-200"><?php echo T_("Month"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 border-e font-10 bg-gray-200"><?php echo T_("Day"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 border-e font-10 bg-gray-200"><?php echo T_("Month"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 border-e"></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 border-e-2" colspan="14"><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 font-12 border-e" colspan="14"><?php echo T_("Rial"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 font-12 " colspan="14"><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
@@ -42,11 +42,11 @@
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 text-blue-900 txtRa pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
-            <?php wow_number(a($value, 'sum_debtor_on_page')) ?>
-            <?php wow_number(a($value, 'sum_creditor_on_page')) ?>
+            <?php wow_number(a($value, 'sum_debtor_on_page'), $borderPosClass ) ?>
+            <?php wow_number(a($value, 'sum_creditor_on_page'), $borderPosClass) ?>
             <?php if(false) {?>
-              <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr txtR fc-green font-bold"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
-              <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr txtR fc-red font-bold"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
+              <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-14" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr txtR fc-green font-bold"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+              <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-14" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr txtR fc-red font-bold"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
             <?php }// endif ?>
           <?php }else{ ?>
             <td class="border-solid border-e border-gray-400"></td>
@@ -70,7 +70,7 @@
             <?php echo  wow_number(a($value, 'show_value')); ?>
             <?php echo  wow_number(null); ?>
             <?php if(false) {?>
-            <td class="border-solid border-e-2 border-gray-400 font-15" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+            <td class="border-solid border-e-2 border-gray-400 font-14" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-green"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
             <?php } //endif ?>
 
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
@@ -80,7 +80,7 @@
             <?php echo  wow_number(a($value, 'show_value')); ?>
 
             <?php if(false) {?>
-              <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red font-15"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr txtR fc-red font-14"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
             <?php } //endif ?>
 
           <?php } //endif ?>
@@ -106,7 +106,7 @@
 
 
 <?php
-function wow_number($number)
+function wow_number($number, $_customClass = null)
 {
   if($number === null)
   {
@@ -126,7 +126,20 @@ function wow_number($number)
   $html = '';
   for ($i=1; $i <= 14 ; $i++)
   {
-    $tdClass = 'ltr text-center font-15';
+    $tdClass = 'ltr text-center font-14';
+    $style = "width:10px;";
+    if($_customClass)
+    {
+      $tdClass .= ' '. $_customClass;
+    }
+    if($_customClass === 'border-t-4')
+    {
+      $style .= 'border-top-color: rgba(156, 163, 175, var(--tw-border-opacity));';
+    }
+    elseif($_customClass === 'border-b-4')
+    {
+      $style .= 'border-bottom-color: rgba(156, 163, 175, var(--tw-border-opacity));';
+    }
     // fc-red
 
     switch ($i)
@@ -138,7 +151,7 @@ function wow_number($number)
       case 8:
       case 9:
       case 13:
-        $tdClass .= ' bg-gray-200 border-solid border-e border-gray-300';
+        $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
         break;
 
       case 4:
@@ -147,18 +160,18 @@ function wow_number($number)
       case 10:
       case 11:
       case 12:
-        $tdClass .= ' bg-white border-solid border-e border-gray-300';
+        $tdClass .= ' bg-white border-solid border-s border-gray-300';
         break;
 
       case 14:
-        $tdClass .= ' bg-gray-200 border-solid border-e border-s-4 border-gray-300';
+        $tdClass .= ' bg-gray-200 border-solid border-s border-gray-700';
         break;
 
       default:
         break;
     }
 
-    $html .= '<td style="width:11px;" class="'. $tdClass. '" data-col='. $i. '>';
+    $html .= '<td style="'. $style. '" class="'. $tdClass. '" data-col='. $i. '>';
     if(isset($number_split[$i]))
     {
       $html .= \dash\fit::number($number_split[$i]);
