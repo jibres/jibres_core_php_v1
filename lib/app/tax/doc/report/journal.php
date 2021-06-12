@@ -235,6 +235,15 @@ class journal
 
 				$counter++;
 
+				if($result['mode'] === 'creditor')
+				{
+					$sum_creditor_on_page += $result['show_value'];
+				}
+				else
+				{
+					$sum_debtor_on_page   += $result['show_value'];
+				}
+
 				if($counter >= 26)
 				{
 					$page_report =
@@ -252,14 +261,6 @@ class journal
 				}
 
 
-				if($result['mode'] === 'creditor')
-				{
-					$sum_creditor_on_page += $result['show_value'];
-				}
-				else
-				{
-					$sum_debtor_on_page   += $result['show_value'];
-				}
 
 
 			}
