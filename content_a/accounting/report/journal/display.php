@@ -9,7 +9,7 @@
     <div class="msg f align-center txtC font-16">
       <div class="c3"></div>
       <div class="c6"><h2 class="txtB"><?php echo T_("General Journal"); ?></h2></div>
-      <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span> <small>/ <?php echo \dash\fit::number(count(\dash\data::reportPerPage())) ?></small></div>
+      <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
@@ -30,7 +30,7 @@
         <th class="border-solid border-b-2 border-gray-400 font-12 "><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
-    <tbody class="leading-10 fs12">
+    <tbody class="leading-10 font-11">
   <?php foreach ($one_page as $key => $value) {?>
         <tr data-index="<?php echo ($key + 1) ?>" class="border-solid border-b border-blue-100">
         <?php if(a($value, 'type') === 'break_message') {?>
@@ -40,10 +40,10 @@
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
-            <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 text-blue-900 txtRa pRa10 font-black" style="line-height:50px;"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 text-blue-900 txtRa pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
-            <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:50px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr txtR fc-green"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
-            <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:50px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr txtR fc-red"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
+            <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr txtR fc-green"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+            <td class="border-solid <?php echo $borderPosClass; ?> border-e-2 border-gray-400 font-15" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr txtR fc-red"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
           <?php }else{ ?>
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400"></td>
@@ -76,6 +76,11 @@
       <?php } //endif ?>
     </tbody>
   </table>
+  <div class="msg mT10 f align-center">
+    <div class="cauto pRa10"><?php echo \lib\store::title() ?></div>
+    <div class="c"><?php echo a(\dash\data::currentYearDetail(), 'title') ?></div>
+    <div class="cauto os txtRa"><?php echo T_("Page :page from :pages", ['page' => \dash\fit::number($pageNumber), 'pages' => \dash\fit::number(count(\dash\data::reportPerPage())) ]); ?></div>
+  </div>
  </div>
 <?php } //endfor ?>
 
