@@ -11,9 +11,7 @@ class view
 
 			\content_site\controller::load_current_section_list();
 
-
-			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
+			self::generate_back_url();
 		}
 		else
 		{
@@ -42,7 +40,28 @@ class view
 
 	}
 
+	private static function generate_back_url()
+	{
+		\dash\data::back_text(T_('Back'));
 
+		$dir = \dash\url::dir();
+		array_pop($dir);
+
+		if(count($dir) >= 2)
+		{
+			$url = \dash\url::here(). '/';
+			$url .= implode('/', $dir);
+			$url .= \dash\request::full_get(['image' => null]);
+		}
+		else
+		{
+			$url = \dash\url::here();
+			$url = '/page';
+			$url .= \dash\request::full_get(['image' => null, 'sid' => null]);
+		}
+
+		\dash\data::back_link($url);
+	}
 
 	/**
 	 * Shows the section in group.

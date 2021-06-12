@@ -116,6 +116,11 @@ class option
 	{
 		$option =
 		[
+			'imagelist' =>
+			[
+				'file',
+			],
+			'addimage',
 			'style',
 			'heading',
 
