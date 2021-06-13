@@ -417,7 +417,6 @@ class journal
 				$final_report[$result['total_id']][] = $result;
 			}
 		}
-
 		foreach ($final_report as $key => $value)
 		{
 			$remain_value = 0;
@@ -434,16 +433,17 @@ class journal
 
 				if($remain_value < 0)
 				{
-					$final_report[$key][$k]['detect_title'] = T_("Creditor");
+					$final_report[$key][$k]['detect_title'] = 'بس'; // T_("Debtor");
 				}
-				else
+				elseif($remain_value > 0)
 				{
-					$final_report[$key][$k]['detect_title'] = T_("Debtor");
+					$final_report[$key][$k]['detect_title'] = 'بد'; // T_("Creditor");
 				}
 
 				$final_report[$key][$k]['remain_value'] = abs($remain_value);
 			}
 		}
+
 
 		$final_report = array_values($final_report);
 
@@ -454,11 +454,11 @@ class journal
 			{
 				if(a($v, 'type') === 'opening')
 				{
-					$final_report[$key][$k]['show_title'] = T_("Based on the details of the opening document");
+					$final_report[$key][$k]['show_title'] = T_("As described in the general journal"). ' - '. T_("Opening document");
 				}
 				elseif(a($v, 'type') === 'closing')
 				{
-					$final_report[$key][$k]['show_title'] = T_("Based on the details of the closing document");
+					$final_report[$key][$k]['show_title'] = T_("As described in the general journal"). ' - '. T_("Closing document");
 				}
 				else
 				{
@@ -507,7 +507,7 @@ class journal
 					[
 						'sum_debtor_on_page'   => $sum_debtor_on_page,
 						'sum_creditor_on_page' => $sum_creditor_on_page,
-						'sum_remain_on_page' => $sum_remain_on_page,
+						'sum_remain_on_page'   => $sum_remain_on_page,
 
 					];
 

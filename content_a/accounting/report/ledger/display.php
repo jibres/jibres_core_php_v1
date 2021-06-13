@@ -61,17 +61,17 @@
           <td class="border-solid border-e border-gray-400 text-center"><?php echo \dash\fit::number(a($value, 'myNumber')); ?></td>
           <td class="border-solid border-e border-gray-400 text-center bg-gray-200"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("j", strtotime($value['show_date'])); } ?></td>
           <td class="border-solid border-e border-gray-400 text-center bg-gray-200"><?php if(isset($value['show_date'])) { echo \dash\utility\jdate::date("n", strtotime($value['show_date'])); } ?></td>
-          <?php if(a($value, 'mode') === 'debtor') {?>
             <td class="border-solid border-e border-gray-400 pLa10"><?php echo a($value, 'show_title') ?></td>
+          <?php if(a($value, 'mode') === 'debtor') {?>
             <?php echo  wow_number(a($value, 'show_value')); ?>
             <?php echo  wow_number(null); ?>
-            <td class="border-solid border-e border-gray-400"></td>
+
           <?php }elseif(a($value, 'mode') === 'creditor') {?>
-            <td class="border-solid border-e border-gray-400  pLa10"><?php echo a($value, 'show_title') ?></td>
+
             <?php echo  wow_number(null); ?>
             <?php echo  wow_number(a($value, 'show_value')); ?>
-            <td class="border-solid border-e border-gray-400"></td>
           <?php } //endif ?>
+            <td class="border-solid border-e border-gray-400 text-center"><?php echo a($value, 'detect_title');  ?></td>
             <?php echo  wow_number(a($value, 'remain_value'), null, true); ?>
         <?php } //endif ?>
         </tr>
