@@ -79,9 +79,12 @@ class add
 
 		$_args['store_id'] = $store_id;
 
+		\lib\app\store\edit::selfedit(['redirect_jibres_subdomain_to_master' => 1]);
+
+		\dash\notif::clean();
+
 		self::add($_args);
 
-		\lib\app\store\edit::selfedit(['redirect_jibres_subdomain_to_master' => 1]);
 
 		return true;
 	}

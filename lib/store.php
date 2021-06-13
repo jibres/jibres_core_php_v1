@@ -106,7 +106,7 @@ class store
 
 		\lib\app\business_domain\business::reset_list($id);
 
-		$domain_list = self::domain_list_once($id);
+		$domain_list = \lib\app\business_domain\business::domain_list($id);
 		if($domain_list && is_array($domain_list))
 		{
 			foreach ($domain_list as $key => $value)
@@ -129,17 +129,6 @@ class store
 
 	}
 
-
-	private static $domain_list_once = [];
-	private static function domain_list_once($_id)
-	{
-		if(!isset(self::$domain_list_once[$_id]))
-		{
-			self::$domain_list_once[$_id] = \lib\db\business_domain\get::by_store_id($_id);
-		}
-
-		return self::$domain_list_once[$_id];
-	}
 
 
 	// in api no user can set subdomain
