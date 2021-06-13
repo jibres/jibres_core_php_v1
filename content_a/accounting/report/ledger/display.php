@@ -7,10 +7,10 @@
 
 <style type="text/css">.page-break{page-break-after:always}</style>
   <div class="printArea" data-size='A4'>
-    <div class="msg f align-center txtC font-16">
+    <div class="msg f align-center font-16">
       <div class="c3"><span><?php echo \dash\fit::number(a($one_page, 1, 'total_code')); ?></span> <span><?php echo a($one_page, 1, 'total_title'); ?></span></div>
-      <div class="c6"><h2 class="txtB"><?php echo T_("Ledger"); ?></h2></div>
-      <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber + 1); ?></span></div>
+      <div class="c6 text-center"><h2 class="txtB"><?php echo T_("Ledger"); ?></h2></div>
+      <div class="c3 text-center"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber + 1); ?></span></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
