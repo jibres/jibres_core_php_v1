@@ -374,7 +374,7 @@ class get
 
 	public static function by_store_id($_store_id)
 	{
-		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id ";
+		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.status NOT IN ('deleted', 'pending_delete') ";
 		$result = \dash\db::get($query, null, false, 'master');
 		return $result;
 	}
