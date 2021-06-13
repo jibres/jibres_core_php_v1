@@ -109,42 +109,29 @@
 
 <?php if(\dash\data::editMode()) {?>
 <?php if(!\dash\data::printAllMode()) {?>
-<form method="post" class="p0">
-  <input type="hidden" name="uploaddoc" value="uploaddoc">
-    <div class="box">
-      <div class="pad1">
-        <?php if(is_array(\dash\data::dataRow_gallery_array()) && count(\dash\data::dataRow_gallery_array()) > 10) {?>
-          <div class="msg minimal mB0 warn2"><?php echo T_("Document gallery is full!"); ?></div>
-        <?php }else{ ?>
-          <div data-uploader data-ratio-free data-name='gallery' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-autoSend>
-            <input type="file" id="file1">
-            <label for="file1"><abbr><?php echo T_('Drag &amp; Drop your files or Browse'); ?></abbr> <small class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></small></label>
+<?php
 
-        <?php if(\dash\data::dataRow_gallery_array()) {?>
-          <div class="previewList">
-            <?php foreach (\dash\data::dataRow_gallery_array() as $key => $value) {?>
-                <div class="fileItem" data-removeElement data-type='<?php echo a($value, 'type'); ?>'>
-                  <?php if(a($value, 'type') === 'video') {?>
-                    <video controls>
-                      <source src="<?php echo a($value, 'path'); ?>" type="<?php echo a($value, 'mime'); ?>">
-                    </video>
-                  <?php }elseif(a($value, 'type') === 'image') {?>
-                    <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo a(\dash\data::dataRow(), 'title'); ?>">
-                  <?php } else { ?>
-                    <a target="_blank" class="btn xl" href="<?php echo a($value, 'path'); ?>" ><?php echo a($value, 'ext'); ?></a>
-                  <?php } ?>
-                  <div>
-                    <div class="imageDel" data-ajaxify data-data='{"fileaction": "remove", "fileid" : "<?php echo a($value, 'id'); ?>"}'></div>
-                  </div>
-                </div>
-            <?php } //endfor ?>
-          </div>
-        <?php } //endif ?>
-          </div>
-        <?php } //endif ?>
-      </div>
-    </div>
-</form>
+  $gallery = \dash\data::dataRow_gallery_array();
 
+  if(!is_array($gallery))
+  {
+    $gallery = [];
+  }
+
+  $gallery_capacity    = 10;
+  $gallery_is_not_free = true;
+  $add_html_form       = false;
+  $is_auto_send        = true;
+  $no_footer        = true;
+  $gallery_array       = $gallery;
+
+  echo '<form method="post" class="p0">';
+  {
+    echo '<input type="hidden" name="uploaddoc" value="uploaddoc">';
+    require_once(root. 'dash/layout/post/admin-gallery-box.php');
+  }
+  echo '</form>';
+
+?>
 <?php } //endif ?>
 <?php } //endif ?>

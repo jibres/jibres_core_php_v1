@@ -80,6 +80,7 @@ switch (a($value, 'type'))
           </div>
         <?php } //endif ?>
       </div>
+    <?php if(isset($no_footer) && $no_footer) {/*nothing*/}else{?>
         <footer>
           <div class="row">
             <div class="cauto">
@@ -94,6 +95,7 @@ switch (a($value, 'type'))
             <div class="cauto"><?php echo \dash\data::convertPostTo();  if(count($gallery) >= 2) {?><a class="block" href="<?php echo \dash\url::this().'/gallerysort?'. \dash\request::fix_get() ?>" class="link"><?php echo T_("Sort Gallery") ?></a><?php } //endif ?></div>
           </div>
         </footer>
+      <?php } //endif ?>
     </div>
 
 <?php
