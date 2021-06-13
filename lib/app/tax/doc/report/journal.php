@@ -60,6 +60,21 @@ class journal
 				$message  = "&nbsp;";
 				break;
 
+			case 'other':
+				$message  = "&nbsp;";
+				break;
+
+			case 'sum_of_page':
+				$break_message['mode']     = 'end_of_page';
+				$message  = T_("Quote to page :page", ['page' => '&nbsp;']);
+				break;
+
+			case 'sum_start_new_page':
+				$break_message['mode']     = 'start_new_page';
+				$message  = T_("Quote from page :page", ['page' => '&nbsp;']);
+				break;
+
+
 
 		}
 		$break_message['message']     = $message;
@@ -535,11 +550,13 @@ class journal
 				'sum_remain_on_page' => $sum_debtor_on_page - $sum_creditor_on_page,
 			];
 
-			$final_report_per_page[]       = self::break_message($key, 'end_of_page', $page_report);
+			$final_report_per_page[]       = self::break_message($key, 'sum_of_page', $page_report);
 
 			self::$page_counter++;
 
-			$final_report_per_page[]       = self::break_message(null, 'start_new_page', []);
+			$final_report_per_page[]       = self::break_message(null, 'sum_start_new_page', []);
+
+
 
 
 		}
