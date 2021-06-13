@@ -21,7 +21,7 @@
         <th class="border-solid border-b-2 border-e border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="border-solid border-b border-e border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Debtor") ?></th>
         <th class="border-solid border-b border-e border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Creditor") ?></th>
-        <th class="w-8 h-32 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-3" style="--tw-rotate: 270deg;"><?php echo T_("Detect") ?></span></th>
+        <th class="w-8 h-32 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-3" style="--tw-rotate: 270deg;"><?php echo T_("Diagnosis") ?></span></th>
         <th class="border-solid border-b border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Remain") ?></th>
       </tr>
       <tr>

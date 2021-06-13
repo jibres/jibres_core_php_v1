@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-12 18:50+0430\n"
-"PO-Revision-Date: 2021-06-12 18:50+0430\n"
+"POT-Creation-Date: 2021-06-13 12:44+0430\n"
+"PO-Revision-Date: 2021-06-13 12:46+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4802,7 +4802,7 @@ msgstr "نوع بالانس"
 #: content_a/accounting/report/ledger/display.php:22
 #: content_a/accounting/turnover/display.php:162
 #: content_a/accounting/year/manage/display.php:53
-#: content_a/accounting/year/manage/display.php:131 lib/app/tax/doc/report/journal.php:466
+#: content_a/accounting/year/manage/display.php:131
 msgid "Debtor"
 msgstr "بدهکار"
 
@@ -4814,7 +4814,7 @@ msgstr "بدهکار"
 #: content_a/accounting/report/ledger/display.php:23
 #: content_a/accounting/turnover/display.php:163
 #: content_a/accounting/year/manage/display.php:54
-#: content_a/accounting/year/manage/display.php:132 lib/app/tax/doc/report/journal.php:461
+#: content_a/accounting/year/manage/display.php:132
 msgid "Creditor"
 msgstr "بستانکار"
 
@@ -5658,34 +5658,34 @@ msgstr "ترازنامه در سطح تفصیل"
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
-#: content_a/accounting/home/display.php:189
+#: content_a/accounting/home/display.php:189 content_a/accounting/home/display.php:206
 msgid "Daily"
 msgstr "روزانه"
 
-#: content_a/accounting/home/display.php:197
+#: content_a/accounting/home/display.php:197 content_a/accounting/home/display.php:206
 #: content_a/accounting/report/journal_cover.php:4
 #: content_a/accounting/report/ledger/display.php:12
 #: content_a/accounting/report/ledger/display.php:18
-#: content_a/accounting/report/ledger/display.php:96
+#: content_a/accounting/report/ledger/display.php:82
 #: content_a/accounting/report/ledger/view.php:9
 msgid "Ledger"
 msgstr "دفتر کل"
 
-#: content_a/accounting/home/display.php:205
+#: content_a/accounting/home/display.php:214
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:211
+#: content_a/accounting/home/display.php:220
 #: content_a/accounting/irvat/choosetype/display.php:18
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
-#: content_a/accounting/home/display.php:220
+#: content_a/accounting/home/display.php:229
 #: content_a/accounting/irvat/choosetype/display.php:26
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/home/display.php:229
+#: content_a/accounting/home/display.php:238
 #: content_a/form/analytics/province/display.php:17
 msgid "List"
 msgstr "لیست"
@@ -6256,12 +6256,12 @@ msgstr "ریال"
 
 #: content_a/accounting/report/journal/display.php:97
 #: content_a/accounting/report/journal_cover.php:25
-#: content_a/accounting/report/ledger/display.php:99
+#: content_a/accounting/report/ledger/display.php:85
 msgid "National ID"
 msgstr "شناسه ملی"
 
 #: content_a/accounting/report/journal/display.php:98
-#: content_a/accounting/report/ledger/display.php:100
+#: content_a/accounting/report/ledger/display.php:86
 msgid "Page :page from :total"
 msgstr "صفحه :page از :total"
 
@@ -6275,8 +6275,8 @@ msgid "Postcode"
 msgstr "کدپستی"
 
 #: content_a/accounting/report/ledger/display.php:24
-msgid "Detect"
-msgstr "شناسایی"
+msgid "Diagnosis"
+msgstr "تشخیص"
 
 #: content_a/accounting/report/ledger/display.php:25
 #: content_a/accounting/turnover/display.php:165
@@ -22136,7 +22136,7 @@ msgstr "گالری تصویر"
 
 #: content_site/ganje/--gallery/image/view.php:11
 msgid "Gallery image"
-msgstr ""
+msgstr "گالری تصویر"
 
 #: content_site/ganje/--gallery/view.php:9
 msgid "Blog post"
@@ -38625,23 +38625,16 @@ msgstr "منقول از صفحه :page"
 msgid "As described in the accounting document"
 msgstr "به شرح سند حسابداری"
 
-#: lib/app/tax/doc/report/journal.php:47
+#: lib/app/tax/doc/report/journal.php:47 lib/app/tax/doc/report/journal.php:457
 msgid "Opening document"
 msgstr "افتتاحیه"
 
-#: lib/app/tax/doc/report/journal.php:52
+#: lib/app/tax/doc/report/journal.php:52 lib/app/tax/doc/report/journal.php:461
 msgid "Closing document"
 msgstr "اختتامیه"
 
-#: lib/app/tax/doc/report/journal.php:483
-msgid "Based on the details of the opening document"
-msgstr "به شرح سند افتتاحیه"
-
-#: lib/app/tax/doc/report/journal.php:488
-msgid "Based on the details of the closing document"
-msgstr "به شرح سند اختتامیه"
-
-#: lib/app/tax/doc/report/journal.php:492
+#: lib/app/tax/doc/report/journal.php:457 lib/app/tax/doc/report/journal.php:461
+#: lib/app/tax/doc/report/journal.php:465
 msgid "As described in the general journal"
 msgstr "به شرح دفتر روزنامه"
 
@@ -40568,6 +40561,15 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Detect"
+#~ msgstr "شناسایی"
+
+#~ msgid "Based on the details of the opening document"
+#~ msgstr "به شرح سند افتتاحیه"
+
+#~ msgid "Based on the details of the closing document"
+#~ msgstr "به شرح سند اختتامیه"
 
 #~ msgid "Go to next page"
 #~ msgstr "برو به صفحه بعد"
