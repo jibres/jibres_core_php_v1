@@ -214,7 +214,28 @@ class add
 
 		if($update_store_id)
 		{
-			\lib\app\business_domain\edit::edit_raw(['status' => 'pending', 'store_id' => $data['store_id'], 'master' => $master_domain], $update_store_id);
+			$add_by_update =
+			[
+				'status'              => 'pending',
+				'store_id'            => $data['store_id'],
+				'master'              => $master_domain,
+
+				'cdn'                 => null,
+
+				'checkdns'            => null,
+				'cdnpanel'            => null,
+				'httpsrequest'        => null,
+				'httpsverify'         => null,
+
+				'dnsok'               => null,
+				'arvan_result'        => null,
+				'f_ssl_https_upstram' => null,
+				'f_ssl_redirect'      => null,
+
+
+			];
+
+			\lib\app\business_domain\edit::edit_raw($add_by_update, $update_store_id);
 			$business_domain_id = $update_store_id;
 		}
 		else
