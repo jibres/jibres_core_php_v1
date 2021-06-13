@@ -1,11 +1,19 @@
 <?php
-function wow_number($number, $_customClass = null)
+function wow_number($number, $_customClass = null, $_print_zero = false)
 {
   if($number === null)
   {
-    $number = '';
+    if($_print_zero)
+    {
+      $number = 0;
+    }
+    else
+    {
+      $number = '';
+    }
   }
-  $number = str_replace(',', '', $number);
+
+  $number       = str_replace(',', '', $number);
   $number_split = str_split($number);
   $number_split = array_reverse($number_split);
   // if(count($number_split) < 14)
@@ -17,7 +25,7 @@ function wow_number($number, $_customClass = null)
   // }
 
   $html = '';
-  for ($i=1; $i <= 14 ; $i++)
+  for ($i=0; $i < 14 ; $i++)
   {
     $tdClass = 'ltr text-center font-14';
     $style = "width:10px;";
@@ -36,26 +44,29 @@ function wow_number($number, $_customClass = null)
 
     switch ($i)
     {
+      case 0:
       case 1:
       case 2:
-      case 3:
+
+      case 6:
       case 7:
       case 8:
-      case 9:
-      case 13:
+
+      case 12:
         $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
         break;
 
+      case 3:
       case 4:
       case 5:
-      case 6:
+
+      case 9:
       case 10:
       case 11:
-      case 12:
         $tdClass .= ' bg-white border-solid border-s border-gray-300';
         break;
 
-      case 14:
+      case 13:
         $tdClass .= ' bg-gray-200 border-solid border-s border-gray-700';
         break;
 

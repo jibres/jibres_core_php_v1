@@ -39,11 +39,37 @@ class view
 		$args['year_id']   = $year_id;
 		$args['startdate'] = $startdate ? $startdate : null;
 		$args['enddate']   = $enddate ? $enddate : null;
+		$args['daily']   = \dash\request::get('daily') ? true : false;
+
 
 
 		$report = \lib\app\tax\doc\report\journal::ledger($args);
 
 		\dash\data::reportDetail($report);
+
+		$last_page = 1;
+
+		$per_page = [];
+
+		foreach ($report as $key => $value)
+		{
+
+			if(isset($value['page']))
+			{
+				$last_page = $value['page'];
+			}
+
+			if(!isset($per_page[$last_page]))
+			{
+				$per_page[$last_page] = [];
+			}
+
+			$per_page[$last_page][] = $value;
+
+		}
+
+
+		\dash\data::reportPerPage($per_page);
 
 		// if(\dash\request::get('export'))
 		// {

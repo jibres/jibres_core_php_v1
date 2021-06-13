@@ -198,6 +198,15 @@
         </div>
       </a>
     </div>
+
+       <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/ledger?daily=1'; ?>'>
+        <div class="statistic pink">
+          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="label"><?php echo T_("Ledger"). ' - '. T_("Daily"); ?></div>
+        </div>
+      </a>
+    </div>
   </div>
 
 
