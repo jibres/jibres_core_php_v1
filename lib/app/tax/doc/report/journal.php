@@ -556,9 +556,6 @@ class journal
 
 			$final_report_per_page[]       = self::break_message(null, 'sum_start_new_page', []);
 
-
-
-
 		}
 
 		// var_dump($final_report_per_page);exit;

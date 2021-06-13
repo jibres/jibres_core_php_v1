@@ -83,7 +83,7 @@
     <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
     <div class="c pRa10"><?php echo a(\dash\data::currentYearDetail(), 'title'); ?></div>
     <div class="c"><?php echo T_('National ID') ?> <?php echo \dash\fit::text(\lib\store::detail('companynationalid')); ?></div>
-    <div class="cauto os "><?php echo T_("Page :page from :total", ['page' => \dash\fit::number($pageNumber + 1), 'total' => \dash\fit::number(count(\dash\data::reportDetail())) ]); ?></div>
+    <div class="cauto os "><?php echo T_("Page :page from :total", ['page' => \dash\fit::number($pageNumber + 1), 'total' => \dash\fit::number(count(\dash\data::reportPerPage())) ]); ?></div>
   </div>
  </div>
 <?php } //endfor ?>
