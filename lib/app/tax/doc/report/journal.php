@@ -440,7 +440,7 @@ class journal
 					$final_report[$key][$k]['detect_title'] = 'بد'; // T_("Creditor");
 				}
 
-				$final_report[$key][$k]['remain_value'] = abs($remain_value);
+				$final_report[$key][$k]['remain_value'] = $remain_value;
 			}
 		}
 
@@ -499,7 +499,7 @@ class journal
 					$sum_debtor_on_page   += $v['show_value'];
 				}
 
-				$sum_remain_on_page   += $v['remain_value'];
+				// $sum_remain_on_page   += $v['remain_value'];
 
 				if($counter >= 26)
 				{
@@ -507,7 +507,7 @@ class journal
 					[
 						'sum_debtor_on_page'   => $sum_debtor_on_page,
 						'sum_creditor_on_page' => $sum_creditor_on_page,
-						'sum_remain_on_page'   => $sum_remain_on_page,
+						'sum_remain_on_page'   => $sum_debtor_on_page - $sum_creditor_on_page,
 
 					];
 
@@ -532,7 +532,7 @@ class journal
 			[
 				'sum_debtor_on_page'   => $sum_debtor_on_page,
 				'sum_creditor_on_page' => $sum_creditor_on_page,
-				'sum_remain_on_page' => $sum_remain_on_page,
+				'sum_remain_on_page' => $sum_debtor_on_page - $sum_creditor_on_page,
 			];
 
 			$final_report_per_page[]       = self::break_message($key, 'end_of_page', $page_report);
@@ -544,7 +544,7 @@ class journal
 
 		}
 
-
+		// var_dump($final_report_per_page);exit;
 
 		return $final_report_per_page;
 

@@ -42,7 +42,7 @@
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 bg-gray-200"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 bg-gray-200"></td>
 
-            <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 text-blue-900  pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400 text-blue-900 txtRa  pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
             <?php wow_number(a($value, 'sum_debtor_on_page'), $borderPosClass ) ?>
             <?php wow_number(a($value, 'sum_creditor_on_page'), $borderPosClass) ?>
             <td class="border-solid <?php echo $borderPosClass; ?> border-e border-gray-400"></td>
@@ -51,7 +51,7 @@
             <td class="border-solid border-e border-gray-400"></td>
             <td class="border-solid border-e border-gray-400 bg-gray-200"></td>
             <td class="border-solid border-e border-gray-400 bg-gray-200"></td>
-            <td class="border-solid border-e border-gray-400 text-center fc-pink font-black"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid border-e border-gray-400 text-center fc-pink font-black txtRa"><?php echo a($value, 'message') ?></td>
             <?php wow_number(a($value, 'sum_debtor_on_page')) ?>
             <?php wow_number(a($value, 'sum_creditor_on_page')) ?>
             <td class="border-solid border-e border-gray-400"></td>
@@ -72,7 +72,7 @@
             <?php echo  wow_number(a($value, 'show_value')); ?>
           <?php } //endif ?>
             <td class="border-solid border-e border-gray-400 text-center"><?php echo a($value, 'detect_title');  ?></td>
-            <?php echo  wow_number(a($value, 'remain_value'), null, true); ?>
+            <?php echo  wow_number(abs(a($value, 'remain_value')), null, true); ?>
         <?php } //endif ?>
         </tr>
       <?php } //endif ?>
