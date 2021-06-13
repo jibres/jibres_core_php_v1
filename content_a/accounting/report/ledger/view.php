@@ -68,7 +68,7 @@ class view
 
 		}
 
-
+		// var_dump($per_page);exit;
 		\dash\data::reportPerPage($per_page);
 
 		// if(\dash\request::get('export'))

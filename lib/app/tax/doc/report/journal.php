@@ -492,14 +492,14 @@ class journal
 		$final_report_per_page[]       = self::break_message(null, 'start_new_page', []);
 
 
-		foreach ($final_report as $key => $value)
+		foreach ($final_report as $key => $one_total)
 		{
 			$counter              = 0;
 			$sum_debtor_on_page   = 0;
 			$sum_creditor_on_page = 0;
 			$sum_remain_on_page   = 0;
 
-			foreach ($value as $k => $v)
+			foreach ($one_total as $k => $v)
 			{
 				$final_report_per_page[] = $v;
 
@@ -518,18 +518,21 @@ class journal
 
 				if($counter >= 26)
 				{
-					$page_report =
-					[
-						'sum_debtor_on_page'   => $sum_debtor_on_page,
-						'sum_creditor_on_page' => $sum_creditor_on_page,
-						'sum_remain_on_page'   => $sum_debtor_on_page - $sum_creditor_on_page,
+					if(count($one_total) > 26)
+					{
+						$page_report =
+						[
+							'sum_debtor_on_page'   => $sum_debtor_on_page,
+							'sum_creditor_on_page' => $sum_creditor_on_page,
+							'sum_remain_on_page'   => $sum_debtor_on_page - $sum_creditor_on_page,
 
-					];
+						];
 
-					$final_report_per_page[]       = self::break_message($key, 'end_of_page', $page_report);
-					self::$page_counter++;
-					$final_report_per_page[]       = self::break_message($key, 'start_new_page', $page_report);
-					$counter              = 0;
+						$final_report_per_page[]       = self::break_message($key, 'end_of_page', $page_report);
+						self::$page_counter++;
+						$final_report_per_page[]       = self::break_message($key, 'start_new_page', $page_report);
+						$counter              = 0;
+					}
 
 				}
 
@@ -558,7 +561,7 @@ class journal
 
 		}
 
-		// var_dump($final_report_per_page);exit;
+		array_pop($final_report_per_page);
 
 		return $final_report_per_page;
 

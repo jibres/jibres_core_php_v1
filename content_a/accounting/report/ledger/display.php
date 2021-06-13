@@ -10,7 +10,7 @@
     <div class="msg f align-center font-16">
       <div class="c5"><span><?php echo \dash\fit::number(a($one_page, 1, 'total_code')); ?></span> <span><?php echo a($one_page, 1, 'total_title'); ?></span></div>
       <div class="c2 text-center"><h2 class="txtB"><?php echo T_("Ledger"); ?></h2></div>
-      <div class="c5 text-center"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber + 1); ?></span></div>
+      <div class="c5 text-center"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
@@ -83,7 +83,7 @@
     <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
     <div class="c pRa10"><?php echo a(\dash\data::currentYearDetail(), 'title'); ?></div>
     <div class="c"><?php echo T_('National ID') ?> <?php echo \dash\fit::text(\lib\store::detail('companynationalid')); ?></div>
-    <div class="cauto os "><?php echo T_("Page :page from :total", ['page' => \dash\fit::number($pageNumber + 1), 'total' => \dash\fit::number(count(\dash\data::reportPerPage())) ]); ?></div>
+    <div class="cauto os "><?php echo T_("Page :page from :total", ['page' => \dash\fit::number($pageNumber), 'total' => \dash\fit::number(count(\dash\data::reportPerPage())) ]); ?></div>
   </div>
  </div>
 <?php } //endfor ?>
