@@ -1,5 +1,11 @@
 <?php
-function wow_number($number, $_customClass = null, $_print_zero = false)
+
+function wow_number_creditor($number, $_customClass = null, $_print_zero = false)
+{
+  return wow_number($number, $_customClass, $_print_zero, true);
+}
+
+function wow_number($number, $_customClass = null, $_print_zero = false, $_odd = false)
 {
   if($number === null)
   {
@@ -42,36 +48,73 @@ function wow_number($number, $_customClass = null, $_print_zero = false)
       $style .= 'border-bottom-color: rgba(156, 163, 175, var(--tw-border-opacity));';
     }
 
-    switch ($i)
+    if($_odd)
     {
-      case 0:
-      case 1:
-      case 2:
+      switch ($i)
+      {
+        case 0:
+        case 1:
+        case 2:
 
-      case 6:
-      case 7:
-      case 8:
+        case 6:
+        case 7:
+        case 8:
 
-      case 12:
-        $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
-        break;
+        case 12:
+          $tdClass .= ' bg-white border-solid border-s border-gray-300';
+          break;
 
-      case 3:
-      case 4:
-      case 5:
+        case 3:
+        case 4:
+        case 5:
 
-      case 9:
-      case 10:
-      case 11:
-        $tdClass .= ' bg-white border-solid border-s border-gray-300';
-        break;
+        case 9:
+        case 10:
+        case 11:
+          $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
+          break;
 
-      case 13:
-        $tdClass .= ' bg-gray-200 border-solid border-s border-gray-700';
-        break;
+        case 13:
+          $tdClass .= ' bg-white border-solid border-s border-gray-700';
+          break;
 
-      default:
-        break;
+        default:
+          break;
+      }
+    }
+    else
+    {
+      switch ($i)
+      {
+        case 0:
+        case 1:
+        case 2:
+
+        case 6:
+        case 7:
+        case 8:
+
+        case 12:
+          $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
+          break;
+
+        case 3:
+        case 4:
+        case 5:
+
+        case 9:
+        case 10:
+        case 11:
+          $tdClass .= ' bg-white border-solid border-s border-gray-300';
+          break;
+
+        case 13:
+          $tdClass .= ' bg-gray-200 border-solid border-s border-gray-700';
+          break;
+
+        default:
+          break;
+      }
     }
 
     $html .= '<td style="'. $style. '" class="'. $tdClass. '" data-col='. $i. '>';
