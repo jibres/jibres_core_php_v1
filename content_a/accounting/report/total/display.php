@@ -1,10 +1,6 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
-<div class="printArea overflow-visible" data-size='A4.landscape'>
-  <div class="msg font-16 f">
-    <div class="c font-black"><?php echo \dash\face::title(); ?></div>
-    <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
-    <div class="cauto pRa10"><?php echo T_('National ID') ?> <?php echo \dash\fit::text(\lib\store::detail('companynationalid')); ?></div>
-  </div>
+
+<?php require_once(root. '/content_a/accounting/report/report_header.php'); ?>
 
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
@@ -151,5 +147,3 @@
   </table>
 
 <?php } //endif ?>
-
-</div>

@@ -1,5 +1,7 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
 
+<?php require_once(root. '/content_a/accounting/report/report_header.php'); ?>
+
   <?php if(!\dash\data::reportDetail()) {?>
     <div class="msg"><?php echo T_("No detail was founded") ?></div>
   <?php }else{ ?>
