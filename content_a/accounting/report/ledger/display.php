@@ -15,7 +15,7 @@
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-eight-blue-500">
     <thead class="text-center font-20">
       <tr>
-        <th class="w-8 h-32 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-3" style="--tw-rotate: 270deg;"><?php echo T_("General Journal Number"); ?></span></th>
+        <th class="w-8 h-32 font-10 border-solid border-b-2 border-e border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-8" style="--tw-rotate: 270deg;"><?php echo T_("General Journal Number"); ?></span></th>
         <th class="w-16 font-14 border-solid border-b border-e border-gray-400 bg-gray-200" colspan="2"><?php echo T_("Date") ?></th>
 
         <th class="border-solid border-b-2 border-e border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
