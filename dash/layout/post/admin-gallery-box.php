@@ -103,15 +103,15 @@ $html .= '<div class="box">';
             }
             else if(a($value, 'type') === 'pdf')
             {
-              $html .= '<div class="file"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</div>';
+              $html .= '<div class="file"><a target="_blank" href="'. a($value, 'path'). '"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</a></div>';
             }
             else if(a($value, 'type') === 'zip')
             {
-             $html .= '<div class="file"><i class="sf-file-archive-o"></i>'. T_("ZIP"). '</div>';
+             $html .= '<div class="file"><a target="_blank" href="'. a($value, 'path'). '"><i class="sf-file-archive-o"></i>'. T_("ZIP"). '</a></div>';
             }
             else
             {
-             $html .= '<div class="file"><i class="sf-file-o"></i>'. T_("File"). '</div>';
+             $html .= '<div class="file"><a target="_blank" href="'. a($value, 'path'). '"><i class="sf-file-o"></i>'. T_("File"). '</a></div>';
             }
             $html .= '<div>';
             $html .= '<div class="imageDel" data-ajaxify data-data=\'{"fileaction": "remove", "fileid" : "'. a($value, 'id').'"}\'></div>';
