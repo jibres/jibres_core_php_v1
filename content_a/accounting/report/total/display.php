@@ -1,10 +1,15 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
+<div class="printArea overflow-visible  " data-size='A4.landscape'>
+  <div class="msg font-16 f">
+    <div class="c font-black"><?php echo \dash\face::title(); ?></div>
+  </div>
+
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
-    <h5 class="mT50"><?php echo a($group, 'detail', 'title'); ?></h5>
-    <table class="tbl1 v4 font-10">
+    <h5 class="mT25"><?php echo a($group, 'detail', 'title'); ?></h5>
+    <table class="tbl1 v4 font-10 break-inside-avoid">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -86,8 +91,7 @@
   </table>
 
   <?php } //endfor ?>
-  <h5 class="mT50"><?php echo T_("Total") ?></h5>
-    <table class="tbl1 v6 font-10">
+    <table class="tbl1 v6 font-10 break-inside-avoid">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -144,3 +148,5 @@
   </table>
 
 <?php } //endif ?>
+
+</div>
