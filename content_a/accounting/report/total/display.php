@@ -1,5 +1,5 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
-<div class="printArea overflow-visible  " data-size='A4.landscape'>
+<div class="printArea overflow-visible" data-size='A4.landscape'>
   <div class="msg font-16 f">
     <div class="c font-black"><?php echo \dash\face::title(); ?></div>
   </div>
@@ -8,8 +8,9 @@
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
+   <div class="break-inside-avoid">
     <h5 class="mT25"><?php echo a($group, 'detail', 'title'); ?></h5>
-    <table class="tbl1 v4 font-10 break-inside-avoid">
+    <table class="tbl1 v4 font-10 break-inside-avoid minimal">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -88,10 +89,10 @@
           <?php } //endif ?>
           </tr>
       </tfoot>
-  </table>
-
+    </table>
+   </div>
   <?php } //endfor ?>
-    <table class="tbl1 v6 font-10 break-inside-avoid">
+    <table class="tbl1 v6 font-10 break-inside-avoid minimal">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>

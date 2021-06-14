@@ -1,4 +1,4 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p0">
   <div class="box">
     <div class="pad">
       <?php if(\dash\url::child() === 'doc') {?>
@@ -47,7 +47,7 @@
       <?php } //endif ?>
 
         <?php if(\dash\url::child() === 'report' && \dash\url::subchild() != 'balancesheet') {?>
-          <div class="c-xs-12 c-sm-4">
+          <div class="c-xs-12 c-sm-5">
             <label for="show" ><?php echo T_("Report type"); ?></label>
             <div class="row">
               <div class="c">
