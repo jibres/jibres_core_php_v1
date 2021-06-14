@@ -59,7 +59,7 @@
         </tr>
       <?php } //endif ?>
     </tbody>
-     <tfoot>
+     <tfoot class="dontRepeatFoot">
 
           <tr>
             <td class="collapsing"><?php echo T_("Total") ?></td>

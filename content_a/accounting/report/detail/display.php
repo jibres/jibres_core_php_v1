@@ -1,10 +1,13 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
+<?php require_once(root. '/content_a/accounting/report/report_header.php'); ?>
+
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
-    <h5 class="mT50"><?php echo a($group, 'detail', 'title'); ?></h5>
-    <table class="tbl1 v4 font-10">
+   <div class="break-inside-avoid">
+    <h5 class="mT25 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
+    <table class="tbl1 v4 font-10 minimal">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -62,7 +65,7 @@
         </tr>
       <?php } //endif ?>
     </tbody>
-     <tfoot>
+     <tfoot class="dontRepeatFoot">
 
           <tr>
             <td class="collapsing"><?php echo T_("Total") ?></td>
@@ -92,10 +95,12 @@
           <?php } //endif ?>
           </tr>
       </tfoot>
-  </table>
+    </table>
+   </div>
 
   <?php } //endfor ?>
-  <h5 class="mT50"><?php echo T_("Total") ?></h5>
+  <div class="break-inside-avoid">
+    <h5 class="mT25 font-black"><?php echo T_("Total") ?></h5>
     <table class="tbl1 v6 font-10">
     <thead>
       <tr class="font-10">
@@ -154,6 +159,7 @@
           <?php } //endif ?>
           </tr>
       </tfoot>
-  </table>
+    </table>
+   </div>
 
 <?php } //endif ?>
