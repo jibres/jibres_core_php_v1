@@ -2,6 +2,8 @@
 <div class="printArea overflow-visible" data-size='A4.landscape'>
   <div class="msg font-16 f">
     <div class="c font-black"><?php echo \dash\face::title(); ?></div>
+    <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
+    <div class="cauto pRa10"><?php echo T_('National ID') ?> <?php echo \dash\fit::text(\lib\store::detail('companynationalid')); ?></div>
   </div>
 
 <?php if(!\dash\data::reportDetail()) {?>
@@ -9,7 +11,7 @@
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
    <div class="break-inside-avoid">
-    <h5 class="mT25"><?php echo a($group, 'detail', 'title'); ?></h5>
+    <h5 class="mT25 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
     <table class="tbl1 v4 font-10 break-inside-avoid minimal">
     <thead>
       <tr class="font-10">
