@@ -1,10 +1,13 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
+<?php require_once(root. '/content_a/accounting/report/report_header.php'); ?>
+
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="msg"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
-    <h5 class="mT50"><?php echo a($group, 'detail', 'title'); ?></h5>
-    <table class="tbl1 v4 font-10">
+   <div class="break-inside-avoid">
+    <h5 class="mT25 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
+    <table class="tbl1 v4 font-10 minimal">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -35,7 +38,7 @@
         <tr>
           <td class="collapsing"><?php echo \dash\fit::number(floatval($key) + 1); ?></td>
           <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id')]); ?>"><?php echo a($value, 'total_title') ?></a></td>
-            <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>"><?php echo a($value, 'assistant_title') ?></a></td>
+            <td class="fs09"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>"><?php echo a($value, 'assistant_title') ?></a></td>
           <?php if(\dash\request::get('show') === 'col6') {?>
             <td data-copy='<?php echo a($value, 'opening_debtor'); ?>' class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'opening_debtor'), true, 'en') ?></code></td>
             <td data-copy='<?php echo a($value, 'opening_creditor'); ?>' class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'opening_creditor'), true, 'en') ?></code></td>
@@ -56,7 +59,7 @@
         </tr>
       <?php } //endif ?>
     </tbody>
-     <tfoot>
+     <tfoot class="dontRepeatFoot">
 
           <tr>
             <td class="collapsing"><?php echo T_("Total") ?></td>
@@ -85,11 +88,12 @@
           <?php } //endif ?>
           </tr>
       </tfoot>
-  </table>
+    </table>
+   </div>
 
   <?php } //endfor ?>
-  <h5 class="mT50"><?php echo T_("Total") ?></h5>
-    <table class="tbl1 v6 font-10">
+  <h5 class="mT25 font-black"><?php echo T_("Total") ?></h5>
+    <table class="tbl1 v6 font-10 break-inside-avoid minimal">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>

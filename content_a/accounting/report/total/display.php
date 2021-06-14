@@ -8,7 +8,7 @@
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
    <div class="break-inside-avoid">
     <h5 class="mT25 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
-    <table class="tbl1 v4 font-10 break-inside-avoid minimal">
+    <table class="tbl1 v4 font-10 minimal">
     <thead>
       <tr class="font-10">
         <th class="collapsing"></th>
@@ -90,6 +90,7 @@
     </table>
    </div>
   <?php } //endfor ?>
+  <h5 class="mT25 font-black"><?php echo T_("Total") ?></h5>
     <table class="tbl1 v6 font-10 break-inside-avoid minimal">
     <thead>
       <tr class="font-10">
