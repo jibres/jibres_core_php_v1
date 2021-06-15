@@ -174,7 +174,14 @@ class get
 
 	private static function ir_domain_fetch($_domain, $_load_domain)
 	{
-		$fetch = self::info($_domain);
+		if(\dash\temp::get('update_fetch_from_info_function'))
+		{
+			$fetch = \dash\temp::get('update_fetch_from_info_function_result');
+		}
+		else
+		{
+			$fetch = self::info($_domain);
+		}
 
 		if(isset($fetch[$_domain]))
 		{
@@ -424,6 +431,11 @@ class get
 		$result = \lib\nic\exec\domain_info::info($_domain);
 
 		\lib\app\domains\detect::domain_info($_domain, $result);
+
+		\dash\temp::set('update_fetch_from_info_function', true);
+		\dash\temp::set('update_fetch_from_info_function_result', $result);
+
+		self::force_fetch($_domain);
 
 		return $result;
 
