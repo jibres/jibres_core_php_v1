@@ -12,6 +12,7 @@ class view
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::this(). '/search');
 
+		\dash\face::help(\dash\url::support(). '/hashtag/domain');
 
 		if(a(\dash\data::domainDetail(), 'jibres_dns'))
 		{
