@@ -67,7 +67,7 @@ else
               </li>
               <li>
                 <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
-                  <div class="key">API</div>
+                  <div class="key">API <i class="sf-external-link"></i></div>
                   <div class="go"></div>
                 </a>
               </li>
@@ -135,7 +135,7 @@ else
 <?php }?>
               <li>
                 <a class="item f" href="https://jibresuptime.ir/">
-                <div class="key"><?php echo T_('System Status'); ?></div>
+                <div class="key"><?php echo T_('System Status'); ?> <i class="sf-external-link"></i></div>
                 <div class="go"></div>
                 </a>
               </li>
