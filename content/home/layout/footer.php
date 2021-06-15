@@ -114,7 +114,7 @@ else
             <ul>
               <li class="title"><?php echo T_('Support'); ?></li>
               <li>
-                <a target="_blank" class="item f" href="<?php echo \dash\url::support(); ?>">
+                <a class="item f" href="<?php echo \dash\url::support(); ?>" target="_blank" rel='follow'>
                 <div class="key"><?php echo T_('Support Center'); ?> <i class="sf-external-link"></i></div>
                 <div class="go"></div>
                 </a>
@@ -134,7 +134,7 @@ else
               </li>
 <?php }?>
               <li>
-                <a class="item f" href="https://jibresuptime.ir/">
+                <a class="item f" href="<?php echo $kingdom; ?>/uptime" target="_blank" rel='nofollow noopener'>
                 <div class="key"><?php echo T_('System Status'); ?> <i class="sf-external-link"></i></div>
                 <div class="go"></div>
                 </a>

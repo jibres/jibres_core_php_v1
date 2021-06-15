@@ -64,6 +64,11 @@ class controller
 				\dash\redirect::to(\dash\url::kingdom(). '/investment/pitchdeck');
 				break;
 
+			case 'status':
+			case 'uptime':
+				\dash\redirect::to('https://stats.uptimerobot.com/39MgXFm7x7');
+				break;
+
 			default:
 				// nothing
 				break;
