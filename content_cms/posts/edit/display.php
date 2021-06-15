@@ -81,7 +81,7 @@ switch (\dash\data::dataRow_status())
 
       <div class="box">
         <div class="pad">
-          <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::here(). '/tag/api?json=true'; ?>' data-placeholder="<?php echo T_('Enter your tags and seperate them by comma') ?>">
+          <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::here(). '/hashtag/api?json=true'; ?>' data-placeholder="<?php echo T_('Enter your tags and seperate them by comma') ?>">
             <?php foreach (\dash\data::dataRow_tags() as $key => $value) {?>
               <option value="<?php echo $value['title']; ?>" selected><?php echo $value['title']; ?></option>
             <?php } //endfor ?>
