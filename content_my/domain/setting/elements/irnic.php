@@ -87,7 +87,7 @@
       </div>
       <div class="c"></div>
       <div class="c-auto">
-        <a class="link" target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
+        <a class="link" target="_blank" href="<?php echo \dash\url::support('ir'); ?>/hashtag/nic-holder"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
       </div>
     </div>
   </footer>
