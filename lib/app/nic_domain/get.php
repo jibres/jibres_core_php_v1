@@ -214,30 +214,65 @@ class get
 			$update_domain['nicstatus'] = json_encode($fetch['status'], JSON_UNESCAPED_UNICODE);
 		}
 
+		$have_holder = false;
+
 		if(isset($fetch['holder']))
 		{
 			$update_domain['holder'] = \dash\validate::string($fetch['holder'], false);
+			$have_holder = true;
 		}
 
 		if(isset($fetch['admin']))
 		{
 			$update_domain['admin'] = \dash\validate::string($fetch['admin'], false);
 		}
+		else
+		{
+			if($have_holder)
+			{
+				$update_domain['admin'] = null;
+			}
+		}
 
 		if(isset($fetch['bill']))
 		{
 			$update_domain['bill'] = \dash\validate::string($fetch['bill'], false);
 		}
+		else
+		{
+			if($have_holder)
+			{
+				$update_domain['bill'] = null;
+			}
+		}
+
 
 		if(isset($fetch['tech']))
 		{
 			$update_domain['tech'] = \dash\validate::string($fetch['tech'], false);
 		}
+		else
+		{
+			if($have_holder)
+			{
+				$update_domain['tech'] = null;
+			}
+		}
+
 
 		if(isset($fetch['reseller']))
 		{
 			$update_domain['reseller'] = \dash\validate::string($fetch['reseller'], false);
 		}
+		else
+		{
+			if($have_holder)
+			{
+				$update_domain['reseller'] = null;
+			}
+		}
+
+
 
 		if(isset($fetch['ns'][0]))
 		{
