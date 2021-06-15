@@ -90,7 +90,6 @@ class url
 		self::$url['sitelang']  = self::_sitelang();
 		self::$url['kingdom']   = self::_kingdom();
 		self::$url['homepage']  = self::_homepage();
-		self::$url['support']   = self::_support();
 		self::$url['here']      = self::_here();
 		self::$url['this']      = self::_this();
 		self::$url['that']      = self::_that();
@@ -1095,10 +1094,10 @@ class url
 	 * get url base to used in tag or links
 	 * @return sting of base
 	 */
-	private static function _support()
+	public static function support($_request = null)
 	{
 		$mySupport = 'https://help.jibres.com';
-		if(self::tld() === 'ir' || self::lang() === 'fa')
+		if(self::tld() === 'ir' || self::lang() === 'fa' || $_request === 'ir')
 		{
 			$mySupport = 'https://help.jibres.ir';
 		}
