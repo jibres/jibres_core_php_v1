@@ -9,6 +9,8 @@ class controller
 
 		\dash\csrf::set();
 
+		\dash\allow::file();
+
 		\dash\temp::set('customer_mode', true);
 
 		$load = \dash\app\ticket\get::my_ticket(null, true);
