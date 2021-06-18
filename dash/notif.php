@@ -130,6 +130,12 @@ class notif
 	}
 
 
+	public static function ok_once($_text, $_meta = [])
+	{
+		self::add_once('ok', $_text, $_meta);
+	}
+
+
 	public static function complete()
 	{
 		self::$notif['ok'] = \dash\engine\process::status();

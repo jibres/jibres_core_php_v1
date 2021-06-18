@@ -125,17 +125,20 @@ class model
 		}
 
 
-		if(\dash\request::post('submitall') === 'master')
+		// if(\dash\request::post('submitall') === 'master')
 		{
+
 			$post = self::get_post();
 			$result = \lib\app\product\edit::edit($post, $id);
 		}
 
+		// \dash\notif::ok_once(T_("Product successfully edited"));
 
 		if(!$result)
 		{
 			return false;
 		}
+
 
 		// product no changed not redirect
 		if(\dash\temp::get('productNoChangeNotRedirect'))
