@@ -215,7 +215,7 @@ class cart
 		// check can add new factor
 		if(!isset($result['factor_id']) || !isset($result['price']))
 		{
-			\dash\notif::error(T_("Can not add your order."));
+			\dash\notif::error_once(T_("Can not add your order."));
 			\dash\log::set('orderErrorInsert');
 			return false;
 
