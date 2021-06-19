@@ -186,18 +186,23 @@ class add
 			return false;
 		}
 
-
-		$cart_setting = \lib\app\setting\get::cart_setting();
-		if(isset($cart_setting['minimumorderamount']) && $cart_setting['minimumorderamount'] && is_numeric($cart_setting['minimumorderamount']))
+		// only in customer mode check minimum order amount
+		// admin can add order by every amount
+		if($mode === 'customer')
 		{
-			if(floatval($factor['subtotal']) < floatval($cart_setting['minimumorderamount']))
+			$cart_setting = \lib\app\setting\get::cart_setting();
+			if(isset($cart_setting['minimumorderamount']) && $cart_setting['minimumorderamount'] && is_numeric($cart_setting['minimumorderamount']))
 			{
-				$minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => \lib\store::currency()]);
-				$minimumorderamount_html .= '<br>';
-				$minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number($cart_setting['minimumorderamount'] - $factor['subtotal']), 'currency' => \lib\store::currency()]);
-				\dash\notif::error('1', ['alerty' => true, 'html' => $minimumorderamount_html]);
-				return false;
+				if(floatval($factor['subtotal']) < floatval($cart_setting['minimumorderamount']))
+				{
+					$minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => \lib\store::currency()]);
+					$minimumorderamount_html .= '<br>';
+					$minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number($cart_setting['minimumorderamount'] - $factor['subtotal']), 'currency' => \lib\store::currency()]);
+					\dash\notif::error('1', ['alerty' => true, 'html' => $minimumorderamount_html]);
+					return false;
+				}
 			}
+
 		}
 
 
