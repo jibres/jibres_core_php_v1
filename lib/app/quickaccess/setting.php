@@ -25,6 +25,8 @@ class setting
 
 		self::product_setting($list);
 
+		self::order_setting($list);
+
 		return $list;
 	}
 
@@ -243,6 +245,32 @@ class setting
 			'keywords' => [T_("setting"), T_("config"), T_("ratio"), 'image', T_("image ratio")],
 			'url'      => \dash\url::kingdom(). '/cms/config',
 		];
+
+	}
+
+
+
+	/**
+	 * The Order setting
+	 *
+	 * @param      <type>  $list   The list
+	 */
+	private static function order_setting(&$list)
+	{
+
+
+
+		$list[] =
+		[
+			'title'    => T_("Minimum order amount"),
+			'keywords' => [T_("order"), T_("minimum"), T_("amount")],
+			'url'      => \dash\url::kingdom(). '/a/setting/order/minimum',
+			'addr'     => [T_("Setting"), T_("Order setting"), T_("Minimum order amount") ],
+			'icon'     => 'info',
+		];
+
+		// need to complete order setting
+		// @todo @reza
 
 	}
 
