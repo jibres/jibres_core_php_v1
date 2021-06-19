@@ -16,7 +16,7 @@ require_once(root. 'content_a/products/productName.php');
   <div class="box">
     <header><h2><?php echo T_("Advance") ?></h2></header>
     <div class="pad">
-      <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Show the unit and type*/}else{ /*Hide the unit and type*/ ?>
+      <?php if(\dash\data::productDataRow_parent() || $have_variant_child) { /* Hidden the unit and type*/}else{ /*Show the unit and type*/ ?>
       <div class="row mB5">
         <div class="c">
           <div class="radio3">
@@ -42,6 +42,7 @@ require_once(root. 'content_a/products/productName.php');
       </div>
     <?php } //endif ?>
 
+
   <?php if(!$have_variant_child) {?>
 
           <div data-response='type' data-response-where='file' <?php if(\dash\data::productDataRow_type() == 'file'){}else{echo 'data-response-hide';} ?>>
@@ -55,6 +56,8 @@ require_once(root. 'content_a/products/productName.php');
               <input type="url" name="fileaddress" id="iFileAddress" value="<?php echo a($productDataRow,'fileaddress'); ?>"   maxlength="500">
             </div>
           </div>
+    <?php } //endif ?>
+
           <div class="f">
             <div class="c s12 pRa5">
               <label for='minsale'><?php echo T_("Min quantity per order"); ?></label>
@@ -75,8 +78,7 @@ require_once(root. 'content_a/products/productName.php');
           </div>
 
         </div>
-      </section>
-    <?php } //endif ?>
+      </div>
 
   </div>
 
