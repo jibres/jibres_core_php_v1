@@ -36,7 +36,27 @@
       <dd><?php echo \dash\fit::number(\dash\data::cartSummary_total()); ?> <?php echo \lib\store::currency(); ?> </dd>
      </dl>
     </div>
-    <?php if(\dash\url::module() === 'shipping') {?>
+    <?php
+     $cart_setting = \lib\app\setting\get::cart_setting();
+    if(isset($cart_setting['minimumorderamount']) && $cart_setting['minimumorderamount'] && is_numeric($cart_setting['minimumorderamount']))
+    {
+      $total = \lib\website::cart_total();
+
+      if(floatval($total) < floatval($cart_setting['minimumorderamount']))
+      {
+        $minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => \lib\store::currency()]);
+        $minimumorderamount_html .= '<br>';
+        $minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number((floatval($cart_setting['minimumorderamount']) - floatval($total))), 'currency' => \lib\store::currency()]);
+        echo '<div class="msg danger2">'. $minimumorderamount_html. '</div>';
+      }
+    }
+
+    if(\dash\url::module() === 'shipping')
+    {
+
+
+    ?>
+
       <button type="submit" class="btn danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(\lib\website::cart_total(true)). ' )'; ?></button>
     <?php }else{ ?>
       <a class="btn danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\lib\website::cart_count()). ' )'; ?></a>
