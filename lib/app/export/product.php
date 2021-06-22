@@ -7,8 +7,8 @@ class product
 	public static function run($_detail = [])
 	{
 
-		ini_set('max_execution_time', 300); //300 seconds = 5 minutes
-		\dash\code::time_limit(300);
+		ini_set('max_execution_time', 10000); //300 seconds = 5 minutes
+		\dash\code::time_limit(0);
 
 		$start_limit = 0;
 		$step        = 1000;
