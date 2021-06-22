@@ -17,6 +17,7 @@ class run
 			return;
 		}
 
+		\dash\log::debug_line(__LINE__, $any_running);
 
 		// check have request
 		// if have not any request return
