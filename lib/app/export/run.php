@@ -17,7 +17,7 @@ class run
 			return;
 		}
 
-		\dash\log::debug_line(__LINE__, $any_running);
+		// \dash\log::debug_line(__LINE__, $any_running);
 
 		// check have request
 		// if have not any request return
@@ -54,7 +54,7 @@ class run
 				break;
 		}
 
-		\dash\log::debug_line(__LINE__, $link);
+		// \dash\log::debug_line(__LINE__, $link);
 
 		if(!$link)
 		{
