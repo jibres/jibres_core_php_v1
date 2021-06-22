@@ -53,6 +53,8 @@ class run
 				break;
 		}
 
+		\dash\log::debug_line(__LINE__, $link);
+
 		if(!$link)
 		{
 			\lib\db\export\update::set_failed($id, \dash\notif::json());

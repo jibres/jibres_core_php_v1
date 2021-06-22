@@ -8,6 +8,18 @@ class log
 	private static $from_detail = [];
 
 
+	public static function debug_line()
+	{
+		$args =
+		[
+			'func_get_args' => func_get_args(),
+			'notif'         => \dash\notif::get(),
+		];
+		$args = json_encode($args);
+
+		\dash\log::file($args, 'debug_line', 'debug');
+	}
+
 	/**
 	 * Critical error
 	 *
