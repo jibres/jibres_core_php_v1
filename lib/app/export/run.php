@@ -55,7 +55,7 @@ class run
 
 		if(!$link)
 		{
-			\lib\db\export\update::set_failed($id);
+			\lib\db\export\update::set_failed($id, \dash\notif::json());
 		}
 		else
 		{

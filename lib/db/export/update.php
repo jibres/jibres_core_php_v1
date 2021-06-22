@@ -19,9 +19,9 @@ class update
 		return $result;
 	}
 
-	public static function set_failed($_id)
+	public static function set_failed($_id, $_meta)
 	{
-		$query   = "UPDATE importexport SET importexport.status = 'failed' WHERE importexport.id = $_id LIMIT 1";
+		$query   = "UPDATE importexport SET importexport.status = 'failed', importexport.meta = '$_meta' WHERE importexport.id = $_id LIMIT 1";
 		$result = \dash\db::query($query);
 		return $result;
 	}
