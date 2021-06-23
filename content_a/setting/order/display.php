@@ -158,6 +158,27 @@
 
 
 
+
+<section class="f" data-option='setting-order-status' id="setting-order-status">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Business order status"); ?></h3>
+      <div class="body">
+        <p>
+          <?php echo nl2br(T_("You can disable ordering status in your business or receive orders on a weekly schedule")); ?>
+        </p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+        <a class="btn primary" href="<?php echo \dash\url::that(). '/schedule'; ?>"><?php echo T_("Set") ?></a>
+    </div>
+  </form>
+</section>
+
+
+
 <section class="f" data-option='setting-order-satisfaction' id="setting-order-validity-satisfaction">
   <div class="c8 s12">
     <div class="data">

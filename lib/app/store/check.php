@@ -54,7 +54,8 @@ class check
 			'homepage_builder_post_id'            => 'id',
 
 			'satisfaction_survey'                 => 'id',
-			'shipping_survey'					  => 'id',
+			'shipping_survey'                     => 'id',
+			'order_schedule'                      => 'json',
 		];
 
 		$require = ['title'];

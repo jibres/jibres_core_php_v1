@@ -29,6 +29,26 @@ class dataarray
 
 
 
+	public static function json($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = $_data;
+
+		$data = json_decode($data, true);
+		if(!is_array($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field :val must be json", ['val' => $_field_title]), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $_data;
+	}
+
+
+
 
 	public static function enum($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{

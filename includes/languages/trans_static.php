@@ -10,6 +10,17 @@ class TransStatic
 
 	echo T_(" ");
 
+
+
+	echo T_('Monday');
+	echo T_('Tuesday');
+	echo T_('Wednesday');
+	echo T_('Thursday');
+	echo T_('Friday');
+	echo T_('Saturday');
+	echo T_('Sunday');
+
+
 	echo T_("money");
 	echo T_("toman");
 
