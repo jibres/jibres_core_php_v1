@@ -243,6 +243,7 @@ class cart
 
 			if(!\dash\engine\process::status())
 			{
+				\dash\notif::clean_ok();
 				return false;
 			}
 

@@ -323,6 +323,24 @@ class notif
 	}
 
 
+	/**
+	 * Only clean ok notif
+	 */
+	public static function clean_ok()
+	{
+		if(isset(self::$notif['msg']) && is_array(self::$notif['msg']))
+		{
+			foreach (self::$notif['msg'] as $key => $value)
+			{
+				if(isset($value['type']) && $value['type'] === 'ok')
+				{
+					unset(self::$notif['msg'][$key]);
+				}
+			}
+		}
+	}
+
+
 	public static function get_in_html()
 	{
 		$notif = self::get();
