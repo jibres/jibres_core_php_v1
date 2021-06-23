@@ -62,6 +62,11 @@ class controller
 				}
 			}
 
+			if(a($load_form, 'privacy') === 'private')
+			{
+				\dash\header::status(403, T_("This form is private form!"));
+			}
+
 			$load_items = \lib\app\form\item\get::items($form_id);
 
 			\dash\data::formId($form_id);

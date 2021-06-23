@@ -15,7 +15,14 @@ class view
 		$form_id = \dash\request::get('id');
 
 		// preview
-		\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
+		if(\dash\data::dataRow_privacy() === 'private')
+		{
+			// nolink
+		}
+		else
+		{
+			\dash\face::btnPreview(\lib\store::url(). '/f/'. $form_id);
+		}
 		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
 
