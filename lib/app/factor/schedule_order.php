@@ -33,33 +33,42 @@ class schedule_order
 		}
 
 
-		$weekday = date('l');
 
-		if(isset($load[$weekday]))
+		if(isset($load['schedule']) && is_array($load['schedule']))
 		{
-			if(a($load, $weekday, 'status') === false)
-			{
-				\dash\notif::error(T_("Can not get order today!"));
-				return false;
-			}
-
-			$start = a($load, $weekday, 'start');
-			$end   = a($load, $weekday, 'end');
-
-			if($start && $end)
-			{
-				$start = floatval(str_replace(':', '', $start));
-				$end   = floatval(str_replace(':', '', $end));
-			}
-
-			return true;
-
+			$schedule = $load['schedule'];
 		}
 		else
 		{
-			// bug!
+			// error !
 			return true;
 		}
+
+		$weekday_now = date('l');
+		$time_now    = date("H:i:s");
+
+		$weekday_now = strtolower($weekday_now);
+
+		$find_this_time_in_list = false;
+
+		foreach ($schedule as $key => $value)
+		{
+			if(isset($value['weekday']) && $value['weekday'] === $weekday_now)
+			{
+				if(self::int_time($time_now) >= self::int_time($value['start']) && self::int_time($time_now) <= self::int_time($value['end']))
+				{
+					$find_this_time_in_list = true;
+				}
+			}
+		}
+
+		if(!$find_this_time_in_list)
+		{
+			\dash\notif::error(T_("Can not get your order at this time"));
+			return false;
+		}
+
+		return true;
 
 	}
 
