@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-23 17:47+0430\n"
-"PO-Revision-Date: 2021-06-23 17:50+0430\n"
+"POT-Creation-Date: 2021-06-23 20:36+0430\n"
+"PO-Revision-Date: 2021-06-23 20:39+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -970,7 +970,7 @@ msgstr ""
 #: content_a/chap/size-receipt/receipt.php:102 content_a/order/address/display.php:144
 #: content_a/setting/buildwebsite/display.php:21 content_a/setting/fund/display.php:60
 #: content_a/setting/pcpos/display.php:124 content_account/address.php:25
-#: content_business/shipping/display.php:102 content_cms/comments/edit/display.php:11
+#: content_business/shipping/display.php:103 content_cms/comments/edit/display.php:11
 #: content_cms/comments/view/display.php:17 content_crm/member/add/display.php:5
 #: content_crm/member/identification/display.php:8
 #: content_crm/member/identification/display.php:10 content_crm/staff/add/display.php:5
@@ -992,7 +992,7 @@ msgstr "نام کامل"
 #: content_a/sale/display.php:44 content_account/address.php:49
 #: content_account/address.php:144 content_account/my/home/display.php:46
 #: content_business/orders/view/display.php:40 content_business/shipping/display.php:19
-#: content_business/shipping/display.php:109 content_cms/comments/edit/display.php:6
+#: content_business/shipping/display.php:110 content_cms/comments/edit/display.php:6
 #: content_cms/comments/view/display.php:26 content_crm/member/add/display.php:9
 #: content_crm/member/glance/display.php:249 content_crm/member/mobile/display.php:6
 #: content_crm/sms/send/display.php:5 content_crm/sms/view/display.php:14
@@ -2817,7 +2817,7 @@ msgstr "ایران، قم"
 #: content_a/setting/factor/display.php:22
 #: content_a/setting/general/address/display.php:37 content_a/setup/address/display.php:39
 #: content_account/address.php:33 content_business/orders/view/display.php:28
-#: content_business/profile/display-menu.php:6 content_business/shipping/display.php:143
+#: content_business/profile/display-menu.php:6 content_business/shipping/display.php:144
 #: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.php:57
 #: dash/layout/admin/sidebar/sidebar-account.php:9 lib/app/quickaccess/setting.php:436
@@ -3057,7 +3057,7 @@ msgstr "آی‌پی"
 #: content_a/setting/factor/address/display.php:6
 #: content_a/setting/general/address/display.php:9
 #: content_a/setting/general/display.php:56 content_a/setup/address/display.php:11
-#: content_business/shipping/display.php:118 content_my/domain/irnic/add/display.php:55
+#: content_business/shipping/display.php:119 content_my/domain/irnic/add/display.php:55
 #: dash/utility/location.php:27 lib/app/form/item/type.php:224
 msgid "Country"
 msgstr "کشور"
@@ -3070,7 +3070,7 @@ msgstr "کشور"
 #: content_a/setting/factor/address/display.php:19
 #: content_a/setting/general/address/display.php:22
 #: content_a/setting/general/display.php:57 content_a/setup/address/display.php:24
-#: content_business/shipping/display.php:129 dash/utility/location.php:100
+#: content_business/shipping/display.php:130 dash/utility/location.php:100
 #: lib/app/form/item/type.php:242
 msgid "Province"
 msgstr "استان"
@@ -3083,7 +3083,7 @@ msgstr "استان"
 #: content_a/setting/factor/address/display.php:28
 #: content_a/setting/general/address/display.php:31
 #: content_a/setting/general/display.php:58 content_a/setup/address/display.php:33
-#: content_business/shipping/display.php:137 content_my/domain/irnic/add/display.php:72
+#: content_business/shipping/display.php:138 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.php:49 dash/utility/location.php:164
 #: lib/app/form/answer/add.php:257
 msgid "City"
@@ -4958,10 +4958,12 @@ msgstr "وضعیت"
 #: content_a/products/property/add/display.php:60
 #: content_a/products/property/display.php:73
 #: content_a/products/variants/display-add-new-child.php:58
-#: content_a/setting/menu/item/display.php:114 content_a/setting/staticfile/display.php:24
-#: content_a/tag/add/display.php:11 content_a/tag/edit/display.php:93
-#: content_a/tag/property/display.php:55 content_a/tag/sort/display.php:30
-#: content_a/units/display.php:84 content_a/website/imageblock/add/display.php:51
+#: content_a/setting/menu/item/display.php:114
+#: content_a/setting/order/schedule/display.php:89
+#: content_a/setting/staticfile/display.php:24 content_a/tag/add/display.php:11
+#: content_a/tag/edit/display.php:93 content_a/tag/property/display.php:55
+#: content_a/tag/sort/display.php:30 content_a/units/display.php:84
+#: content_a/website/imageblock/add/display.php:51
 #: content_a/website/menu/item/display.php:107
 #: content_a/website/productline/display.php:29 content_a/website/quote/add/display.php:65
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:79
@@ -5807,7 +5809,7 @@ msgstr "کدملی مدیرعامل"
 #: content_a/accounting/irvat/add/display.php:346 content_a/order/address/display.php:154
 #: content_a/setting/factor/address/display.php:37
 #: content_a/setting/general/address/display.php:40 content_a/setup/address/display.php:42
-#: content_account/address.php:36 content_business/shipping/display.php:149
+#: content_account/address.php:36 content_business/shipping/display.php:150
 #: content_my/domain/irnic/add/display.php:85
 #: content_my/domain/whoisdetail/whoisDetailForm.php:63
 msgid "Post code"
@@ -5823,7 +5825,7 @@ msgstr "کدپستی"
 #: content_a/setting/general/display.php:60 content_a/setup/address/display.php:47
 #: content_account/address.php:43 content_account/address.php:139
 #: content_business/orders/view/display.php:37 content_business/shipping/display.php:26
-#: content_business/shipping/display.php:155 content_love/domain/nicdetail/display.php:16
+#: content_business/shipping/display.php:156 content_love/domain/nicdetail/display.php:16
 #: content_my/domain/whoisdetail/whoisDetailForm.php:94 lib/app/form/item/type.php:288
 msgid "Phone"
 msgstr "شماره تلفن"
@@ -5843,7 +5845,7 @@ msgstr "ویرایش اطلاعات حقوقی"
 #: content_a/accounting/irvat/add/display.php:316
 #: content_a/setting/factor/address/display.php:8
 #: content_a/setting/general/address/display.php:11 content_a/setup/address/display.php:13
-#: content_business/shipping/display.php:120
+#: content_business/shipping/display.php:121
 #: content_crm/member/identification/display.php:63
 #: content_my/domain/irnic/add/display.php:57
 #: content_my/domain/whoisdetail/whoisDetailForm.php:34 dash/utility/location.php:36
@@ -5853,7 +5855,7 @@ msgstr "کشور خود را انتخاب کنید"
 #: content_a/accounting/irvat/add/display.php:329
 #: content_a/setting/factor/address/display.php:21
 #: content_a/setting/general/address/display.php:24 content_a/setup/address/display.php:26
-#: content_business/shipping/display.php:131 content_r10/location/country/view.php:22
+#: content_business/shipping/display.php:132 content_r10/location/country/view.php:22
 #: content_v2/location/country/view.php:22
 msgid "Please choose country"
 msgstr "لطفا کشور را انتخاب کنید"
@@ -5861,7 +5863,7 @@ msgstr "لطفا کشور را انتخاب کنید"
 #: content_a/accounting/irvat/add/display.php:338
 #: content_a/setting/factor/address/display.php:30
 #: content_a/setting/general/address/display.php:33 content_a/setup/address/display.php:35
-#: content_business/shipping/display.php:139 content_r10/location/province/view.php:28
+#: content_business/shipping/display.php:140 content_r10/location/province/view.php:28
 #: content_v2/location/province/view.php:28 dash/utility/location.php:110
 msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
@@ -6541,7 +6543,7 @@ msgstr "مایکت"
 #: content_a/setting/order/cartlimit/display.php:25
 #: content_a/setting/order/carttext/display.php:37
 #: content_a/setting/order/minimum/display.php:26
-#: content_a/setting/order/schedule/display.php:75
+#: content_a/setting/order/schedule/display.php:36
 #: content_a/setting/order/validity/display.php:36
 #: content_a/setting/product/preparationtime/display.php:21
 #: content_a/setting/product/tag/display.php:23
@@ -8634,7 +8636,7 @@ msgid "Name of person in this address"
 msgstr "نام شخصی که در این آدرس حضور دارد"
 
 #: content_a/order/address/display.php:151 content_account/address.php:33
-#: content_business/shipping/display.php:109 content_business/shipping/display.php:143
+#: content_business/shipping/display.php:110 content_business/shipping/display.php:144
 msgid "Require"
 msgstr "الزامی"
 
@@ -9825,8 +9827,8 @@ msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
 #: content_a/products/edit/block/sidebar-menu.php:11
-#: content_a/setting/order/schedule/display.php:12
-#: content_crm/member/status/display.php:17 includes/languages/trans_static.php:491
+#: content_a/setting/order/schedule/display.php:9 content_crm/member/status/display.php:17
+#: includes/languages/trans_static.php:491
 msgid "Active"
 msgstr "فعال"
 
@@ -11755,42 +11757,44 @@ msgstr ""
 "خود داشته باشند تا فرایند ثبت سفارش ادامه پیدا کند. در صورتی که این مبلغ را خالی رها "
 "کنید محدودیتی وجود نخواهد داشت."
 
-#: content_a/setting/order/schedule/display.php:13
+#: content_a/setting/order/schedule/display.php:10
 msgid "Receive orders 24 hours a day, 7 days a week"
 msgstr "دریافت سفارش به صورت ۲۴ ساعته و همه روزه"
 
-#: content_a/setting/order/schedule/display.php:22
+#: content_a/setting/order/schedule/display.php:18
 #: content_crm/member/status/display.php:19 includes/languages/trans_static.php:493
 msgid "Deactive"
 msgstr "غیر فعال"
 
-#: content_a/setting/order/schedule/display.php:23
+#: content_a/setting/order/schedule/display.php:19
 msgid "Failure to receive the order"
 msgstr "عدم دریافت سفارش"
 
-#: content_a/setting/order/schedule/display.php:32 includes/languages/trans_static.php:555
+#: content_a/setting/order/schedule/display.php:27 includes/languages/trans_static.php:555
 msgid "Schedule"
 msgstr "زمانبندی شده"
 
-#: content_a/setting/order/schedule/display.php:33
+#: content_a/setting/order/schedule/display.php:28
 msgid "Receive orders according to the weekly schedule"
 msgstr "دریافت سفارش طبق جدول زمانبندی هفتگی"
 
-#: content_a/setting/order/schedule/display.php:43
-msgid "Active in day?"
-msgstr "در این روز فعال است؟"
+#: content_a/setting/order/schedule/display.php:50 lib/app/factor/search.php:200
+msgid "Weekday"
+msgstr "روز هفته"
 
-#: content_a/setting/order/schedule/display.php:44
+#: content_a/setting/order/schedule/display.php:51
+#: content_a/setting/order/schedule/display.php:78
 msgid "Start time"
 msgstr "ساعت شروع"
 
-#: content_a/setting/order/schedule/display.php:45
+#: content_a/setting/order/schedule/display.php:52
+#: content_a/setting/order/schedule/display.php:83
 msgid "End time"
 msgstr "ساعت پایان"
 
-#: content_a/setting/order/schedule/model.php:32
-msgid "Start time must be before end time!"
-msgstr "ساعت شروع باید قبل از ساعت پایان باشد!"
+#: content_a/setting/order/schedule/display.php:69
+msgid "Add your active time in every day"
+msgstr "زمان فعالیت خود را در هر روز اضافه کنید"
 
 #: content_a/setting/order/schedule/view.php:8
 msgid "Order schedule"
@@ -15507,7 +15511,7 @@ msgid "If you have note about this order enter it here"
 msgstr ""
 "اگر مایل به ثبت یادداشتی درباره این سفارش برای ما هستید، آن را در این بخش وارد کنید"
 
-#: content_business/shipping/display.php:82
+#: content_business/shipping/display.php:83
 msgid "No product in your cart"
 msgstr "هیچ کالایی در سبد خرید شما یافت نشد"
 
@@ -35236,6 +35240,46 @@ msgstr "خطا در حذف سفارش. لطفا با مدیر سیستم تما�
 msgid "Order was deleted"
 msgstr "سفارش حذف شد"
 
+#: lib/app/factor/schedule_order.php:30 lib/app/factor/schedule_order.php:125
+msgid "Receiving the order is temporarily disabled"
+msgstr "امکان ثبت سفارش به صورت موقت غیرفعال شده است"
+
+#: lib/app/factor/schedule_order.php:77
+msgid "Can not get your order at this time"
+msgstr "در حال حاضر امکان دریافت سفارش نداریم"
+
+#: lib/app/factor/schedule_order.php:150
+msgid "Can not get order today"
+msgstr "با عرض پوزش، امروز امکان دریافت سفارش نداریم"
+
+#: lib/app/factor/schedule_order.php:154
+msgid "Today order time is :val"
+msgstr "ساعت فعالیت امروز :val"
+
+#: lib/app/factor/schedule_order.php:206
+msgid "Can not find this time in your list"
+msgstr "نمی‌توانیم شناسه این زمان را در لیست پیدا کنیم"
+
+#: lib/app/factor/schedule_order.php:218
+msgid "Please set the weekday"
+msgstr "لطفا روز هفته را وارد کنید"
+
+#: lib/app/factor/schedule_order.php:225
+msgid "Please set the start time"
+msgstr "لطفا ساعت شروع را وارد کنید"
+
+#: lib/app/factor/schedule_order.php:232
+msgid "Please set the end time"
+msgstr "لطفا ساعت پایان را وارد کنید"
+
+#: lib/app/factor/schedule_order.php:238
+msgid "Start time must be before end time!"
+msgstr "ساعت شروع باید قبل از ساعت پایان باشد!"
+
+#: lib/app/factor/schedule_order.php:248
+msgid "Conflict time in :weekday"
+msgstr "در روز :weekday تداخل ساعت وجود دارد"
+
 #: lib/app/factor/search.php:117
 msgid "Quick factor"
 msgstr "فاکتور سریع"
@@ -35247,10 +35291,6 @@ msgstr "شروع"
 #: lib/app/factor/search.php:163 lib/app/factor/search.php:175
 msgid "End"
 msgstr "پایان"
-
-#: lib/app/factor/search.php:200
-msgid "Weekday"
-msgstr "روز هفته"
 
 #: lib/app/factor/search.php:207
 msgid "Subprice larger than"
@@ -40727,6 +40767,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Active in day?"
+#~ msgstr "در این روز فعال است؟"
 
 #~ msgid "Set Satisfaction Survey"
 #~ msgstr "تنظیم فرم رضایت سنجی"
