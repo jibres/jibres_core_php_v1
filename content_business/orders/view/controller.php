@@ -42,6 +42,9 @@ class controller
 				\dash\data::satisfactionSurveyForm($satisfaction_survey);
 			}
 		}
+
+		\dash\allow::file();
+
 	}
 }
 ?>
