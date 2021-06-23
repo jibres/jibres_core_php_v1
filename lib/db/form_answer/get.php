@@ -7,14 +7,25 @@ class get
 
 	public static function is_answered_user_factor_id($_user_id, $_factor_id)
 	{
-		$query = "SELECT * FROM form_answer WHERE form_answer.user_id = :user_id AND form_answer.factor_id = :factor_id LIMIT 1";
+		$query =
+		"
+			SELECT
+				form_answer.*,
+				form.title
+			FROM
+				form_answer
+			INNER JOIN form ON form.id = form_answer.form_id
+			WHERE
+				form_answer.user_id = :user_id AND
+				form_answer.factor_id = :factor_id
+		";
 		$param =
 		[
 			':user_id'   => $_user_id,
 			':factor_id' => $_factor_id,
 		];
 
-		$result = \dash\pdo::get($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param);
 		return $result;
 
 	}

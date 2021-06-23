@@ -19,15 +19,17 @@
       </div>
     </form>
     <?php if(\dash\data::orderHaveFormAnswer()) {?>
+
       <div class="box">
         <div class="pad">
           <p><?php echo T_("User answer to your form in this order") ?></p>
-
+          <?php foreach (\dash\data::orderHaveFormAnswer() as $key => $value) {?>
+            <div class="msg">
+              <?php echo a($value, 'title') ?>
+              <a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/form/answer/detail?'. \dash\request::build_query(['id' => a($value, 'form_id'), 'aid' => a($value, 'id')]);  ?>"><?php   echo T_("Show answer") ?></a>
+            </div>
+          <?php } //endif ?>
         </div>
-        <footer class="txtRa">
-          <a class="btn master" href="<?php echo \dash\url::kingdom(). '/a/form/answer/detail?'. \dash\request::build_query(['id' => \dash\data::orderHaveFormAnswer_form_id(), 'aid' => \dash\data::orderHaveFormAnswer_id()]);  ?>"><?php echo T_("Show answer") ?></a>
-
-        </footer>
       </div>
     <?php } //endif ?>
 

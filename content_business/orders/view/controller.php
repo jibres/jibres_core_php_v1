@@ -40,10 +40,10 @@ class controller
 			if(!$is_answered_before)
 			{
 				\dash\data::satisfactionSurveyForm($satisfaction_survey);
+				\dash\allow::file();
 			}
 		}
 
-		\dash\allow::file();
 
 	}
 }

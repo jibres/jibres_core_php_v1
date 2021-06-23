@@ -6,6 +6,44 @@ class generator
 {
 	private static $html = '';
 
+
+	public static function shipping_survey($_form_id)
+	{
+		$load_form = \lib\app\form\form\get::public_get($_form_id);
+
+		if(!$load_form)
+		{
+			return null;
+		}
+
+		$load_items = \lib\app\form\item\get::items($_form_id);
+
+		self::$html .= '<div class="box">';
+		{
+			self::$html .= '<div class="pad" >';
+			{
+				self::$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
+				self::$html .= '<input type="hidden" name="answerform" value="answerform">';
+
+				if(a($load_form, 'file'))
+				{
+					self::$html .= '<img class="mB10" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
+				}
+				if(a($load_form, 'desc'))
+				{
+					self::$html .= '<div class="mB20">'. a($load_form, 'desc'). '</div>';
+				}
+
+				\lib\app\form\generator::items($load_items);
+			}
+			self::$html .= '</div>';
+		}
+		self::$html .= '</div>';
+
+
+		return self::$html;
+	}
+
 	public static function full_html($_form_id)
 	{
 		$load_form = \lib\app\form\form\get::public_get($_form_id);

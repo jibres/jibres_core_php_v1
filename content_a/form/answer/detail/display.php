@@ -52,7 +52,7 @@
 
       <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
     <div class="msg info2 txtL ltr txtB font-12">
-        <a href="<?php echo \dash\url::kingdom(). '/a/order/detail?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
+        <a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
       </div>
       <?php } //endif ?>
 

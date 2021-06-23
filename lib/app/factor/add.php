@@ -91,10 +91,11 @@ class add
 	{
 		$default_option =
 		[
-			'debug'     => true,
-			'factor_id' => null,
-			'from_cart' => false,
-			'fileMode'  => false,
+			'debug'             => true,
+			'factor_id'         => null,
+			'from_cart'         => false,
+			'fileMode'          => false,
+			'start_transaction' => true,
 		];
 
 		if(!is_array($_option))
@@ -267,8 +268,11 @@ class add
 			}
 		}
 
-		// start transaction of db
-		\dash\db::transaction();
+		if($_option['start_transaction'])
+		{
+			// start transaction of db
+			\dash\db::transaction();
+		}
 
 		if(!$_option['factor_id'])
 		{
@@ -284,7 +288,6 @@ class add
 		{
 			\dash\log::set('factor:no:way:to:insert:factor');
 			\dash\notif::error(T_("No way to insert factor"));
-			\dash\db::rollback();
 			return false;
 		}
 
@@ -315,7 +318,6 @@ class add
 
 		if(!$add_detail)
 		{
-			\dash\db::rollback();
 			return false;
 		}
 
@@ -334,7 +336,11 @@ class add
 
 		if(\dash\engine\process::status())
 		{
-			\dash\db::commit();
+			if($_option['start_transaction'])
+			{
+				\dash\db::commit();
+			}
+
 			\dash\notif::ok(T_("Factor successfuly added"));
 		}
 

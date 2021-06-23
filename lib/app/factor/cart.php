@@ -31,6 +31,8 @@ class cart
 			'phone'       => 'phone',
 			'fax'         => 'phone',
 
+			'shipping_form_answer' => 'bit', // just for skipp error
+
 
 
 			'desc'        => 'desc',
@@ -210,7 +212,20 @@ class cart
 
 		$return = [];
 
-		$result = \lib\app\factor\add::new_factor($factor, $factor_detail, ['from_cart' => true, 'fileMode' => $fileMode]);
+		$factor_option =
+		[
+			'from_cart' => true,
+			'fileMode' => $fileMode
+		];
+
+		if(isset($_args['shipping_form_answer']) && $_args['shipping_form_answer'])
+		{
+			$factor_option['start_transaction'] = false;
+			\dash\db::transaction();
+		}
+
+
+		$result = \lib\app\factor\add::new_factor($factor, $factor_detail, $factor_option);
 
 		// check can add new factor
 		if(!isset($result['factor_id']) || !isset($result['price']))
@@ -218,8 +233,22 @@ class cart
 			\dash\notif::error_once(T_("Can not add your order."));
 			\dash\log::set('orderErrorInsert');
 			return false;
-
 		}
+
+		if(isset($_args['shipping_form_answer']) && $_args['shipping_form_answer'])
+		{
+			$_args['shipping_form_answer']['factor_id'] = $result['factor_id'];
+
+			\lib\app\form\answer\add::public_new_answer($_args['shipping_form_answer']);
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			\dash\db::commit();
+		}
+
 
 		$return['factor_id'] = $result['factor_id'];
 

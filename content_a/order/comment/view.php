@@ -15,6 +15,7 @@ class view
 			if($user_id)
 			{
 				$load_have_form_answer = \lib\app\form\answer\get::is_answered_user_factor_id($user_id, \dash\request::get('id'));
+
 				if($load_have_form_answer)
 				{
 					\dash\data::orderHaveFormAnswer($load_have_form_answer);

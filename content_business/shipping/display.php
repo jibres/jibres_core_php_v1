@@ -42,6 +42,7 @@
         <?php } //endif ?>
         <?php addNewAddress(\dash\data::addressDataTable()); ?>
 
+        <?php if(\dash\data::shippingSurveyForm()) { echo \lib\app\form\generator::shipping_survey(\dash\data::shippingSurveyForm());} ?>
         <div class="box">
           <input type="hidden" name="payway" value="online">
 
