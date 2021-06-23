@@ -4,10 +4,32 @@ namespace lib\app\form\form;
 
 class add
 {
-	public static function add($_args)
+	public static function satisfaction_survey()
 	{
+		$args =
+		[
+			'title'   => T_("Satisfaction Survey"),
+			'privacy' => 'private',
+		];
 
-		\dash\permission::access('ManageForm');
+		$form_id = self::add($args, true);
+
+		if(isset($form_id['id']))
+		{
+			\lib\app\store\edit::selfedit(['satisfaction_survey' => $form_id['id']]);
+		}
+
+		return $form_id;
+	}
+
+
+
+	public static function add($_args, $_force = false)
+	{
+		if(!$_force)
+		{
+			\dash\permission::access('ManageForm');
+		}
 
 		$args = \lib\app\form\form\check::variable($_args);
 

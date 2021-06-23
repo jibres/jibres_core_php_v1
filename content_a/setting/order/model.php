@@ -8,6 +8,17 @@ class model
 	{
 		$post                       = [];
 
+		if(\dash\request::post('create') === 'satisfaction_survey')
+		{
+			$result = \lib\app\form\form\add::satisfaction_survey();
+			if(isset($result['id']))
+			{
+				\dash\redirect::to(\dash\url::here(). '/form/edit?id='. $result['id']);
+			}
+
+			return;
+		}
+
 		if(\dash\request::post('set_payment_online'))
 		{
 			$post['payment_online']     = \dash\request::post('payment_online');

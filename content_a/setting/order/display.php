@@ -155,3 +155,25 @@
   </form>
 </section>
 
+
+
+
+<section class="f" data-option='setting-order-cartlimit' id="setting-order-validity-cartlimit">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Set Satisfaction Survey"); ?></h3>
+      <div class="body">
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <?php if(\lib\store::detail('satisfaction_survey')) {?>
+        <a class="btn primary" href="<?php echo \dash\url::here(). '/form/edit?id='. \lib\store::detail('satisfaction_survey'); ?>"><?php echo T_("Edit") ?></a>
+      <?php }else{ ?>
+        <div class="btn primary" data-ajaxify data-data='{"create": "satisfaction_survey"}'><?php echo T_("Create") ?></div>
+      <?php } //endif ?>
+    </div>
+  </form>
+</section>
+

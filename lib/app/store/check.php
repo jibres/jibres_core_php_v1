@@ -49,9 +49,11 @@ class check
 			'enterdisallow'                       => 'bit',
 			'entersignupdisallow'                 => 'bit',
 
-			'torob_api'                 => 'bit',
+			'torob_api'                           => 'bit',
 
 			'homepage_builder_post_id'            => 'id',
+
+			'satisfaction_survey'                 => 'id',
 		];
 
 		$require = ['title'];

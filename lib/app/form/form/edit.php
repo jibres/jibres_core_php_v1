@@ -43,6 +43,11 @@ class edit
 				\dash\notif::error(T_("This form used in menu and can not be remove"));
 				return false;
 			}
+
+			if(floatval($_id) === floatval(\lib\store::detail('satisfaction_survey')))
+			{
+				\lib\app\store\edit::selfedit(['satisfaction_survey' => null]);
+			}
 		}
 
 		$args['datemodified'] = date("Y-m-d H:i:s");
