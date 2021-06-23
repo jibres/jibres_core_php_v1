@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-23 16:13+0430\n"
-"PO-Revision-Date: 2021-06-23 16:16+0430\n"
+"POT-Creation-Date: 2021-06-23 17:47+0430\n"
+"PO-Revision-Date: 2021-06-23 17:50+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -81,7 +81,7 @@ msgstr "صفحه نخست"
 #: content/press/display.php:8 content/pricing/priceTable.php:28
 #: content/pricing/priceTable.php:52 content/pricing/priceTable.php:77
 #: content/story/display.php:54 content_a/setup/payment/display.php:20
-#: content_a/setup/payment/display.php:27 includes/languages/trans_static.php:494
+#: content_a/setup/payment/display.php:27 includes/languages/trans_static.php:505
 msgid "Soon"
 msgstr "بزودی"
 
@@ -1045,7 +1045,7 @@ msgstr "پیام شما"
 msgid "jibres"
 msgstr "جیبرس"
 
-#: content/contact/display.php:65 includes/languages/trans_static.php:737
+#: content/contact/display.php:65 includes/languages/trans_static.php:748
 #: includes/languages/trans_static_public.php:57
 msgid "Iran"
 msgstr "ایران"
@@ -1396,7 +1396,7 @@ msgstr "دامنه من را بیاب"
 
 #: content/domains/home/domain-topBox.php:23 content_love/domain/detail/pageStep.php:34
 #: content_love/domain/home/display.php:238 content_love/domain/setting/pageStep.php:35
-#: includes/languages/trans_static.php:577 lib/app/store/filter.php:31
+#: includes/languages/trans_static.php:588 lib/app/store/filter.php:31
 msgid "Transfer"
 msgstr "انتقال"
 
@@ -1862,7 +1862,7 @@ msgstr "کی گرفته؟"
 
 #: content/domains/search/domainSearchResult.php:99
 #: content_my/domain/buy/domain-search-result-ir.php:130
-#: includes/languages/trans_static.php:493
+#: includes/languages/trans_static.php:504
 msgid "Unavailable"
 msgstr "ناموجود"
 
@@ -2172,7 +2172,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:25
 #: content_a/setting/menu/item/display.php:20 content_a/website/menu/item/display.php:20
 #: content_a/website/productline/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:6
-#: dash/panel.php:231 dash/plan_list.php:44 includes/languages/trans_static.php:560
+#: dash/panel.php:231 dash/plan_list.php:44 includes/languages/trans_static.php:571
 #: lib/app/export/product.php:57 lib/app/quickaccess/products.php:27
 #: lib/app/quickaccess/setting.php:461 lib/app/quickaccess/setting.php:476
 #: lib/app/quickaccess/setting.php:490 lib/app/quickaccess/setting.php:505
@@ -2516,7 +2516,7 @@ msgid "Support Center"
 msgstr "مرکز پشتیبانی"
 
 #: content/home/layout/footer.php:124 content/home/layout/pwa-footer.php:124
-#: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:589
+#: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:600
 #: lib/app/website/init.php:65 lib/pagebuilder/tools/first_init.php:109
 msgid "Contact"
 msgstr "تماس"
@@ -3520,7 +3520,7 @@ msgstr "افزایش محدودیت‌های اولیه"
 #: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:181
 #: content_a/accounting/home/display.php:197
 #: content_a/accounting/report/journal/view.php:9
-#: content_a/accounting/report/ledger/view.php:9 includes/languages/trans_static.php:601
+#: content_a/accounting/report/ledger/view.php:9 includes/languages/trans_static.php:612
 msgid "Monthly"
 msgstr "ماهانه"
 
@@ -4743,7 +4743,7 @@ msgstr "لطفا والد را انتخاب کنید"
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
 #: content_my/domain/whoisdetail/whoisDetailForm.php:73
 #: content_my/domain/whoisdetail/whoisDetailForm.php:89 dash/app/files/ready.php:96
-#: includes/languages/trans_static.php:547 lib/app/onlinenic/create.php:75
+#: includes/languages/trans_static.php:558 lib/app/onlinenic/create.php:75
 #: lib/app/onlinenic/create.php:76 lib/app/onlinenic/transfer.php:66
 #: lib/app/onlinenic/transfer.php:67 lib/app/product/site_list.php:154
 #: lib/app/product/site_list.php:155 lib/app/product/site_list.php:261
@@ -4827,7 +4827,7 @@ msgid "Nature"
 msgstr "ماهیت"
 
 #: content_a/accounting/coding/add/display-add.php:92 content_a/accounting/filter.php:75
-#: includes/languages/trans_static.php:664
+#: includes/languages/trans_static.php:675
 msgid "Balance sheet"
 msgstr "ترازنامه‌ای"
 
@@ -4879,7 +4879,7 @@ msgstr "پیگیری"
 #: content_crm/permission/advance/display.php:66
 #: content_crm/permission/edit/display.php:70 content_love/domain/detail/display.php:25
 #: content_love/domain/setting/display.php:125
-#: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:499
+#: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:510
 #: lib/app/gift/filter.php:44 lib/app/nic_domain/ready.php:150
 #: lib/app/nic_domain/ready.php:152 lib/app/nic_domain/ready.php:158
 #: lib/app/nic_domain/ready.php:160 lib/app/nic_domain/ready.php:236
@@ -4899,7 +4899,7 @@ msgstr "فعال"
 #: content_a/setting/thirdparty/onlinepayment/display.php:214
 #: content_crm/permission/advance/display.php:66
 #: content_crm/permission/edit/display.php:70 content_love/domain/setting/display.php:126
-#: content_my/domain/setting/elements/renew.php:24 includes/languages/trans_static.php:500
+#: content_my/domain/setting/elements/renew.php:24 includes/languages/trans_static.php:511
 #: lib/app/tax/coding/search.php:340
 msgid "Disable"
 msgstr "غیرفعال"
@@ -4993,7 +4993,7 @@ msgstr "افزودن"
 #: content_a/setting/legal/display.php:19 content_a/setting/legal/display.php:49
 #: content_a/setting/legal/display.php:81 content_a/setting/legal/display.php:110
 #: content_a/setting/menu/edit/display.php:11 content_a/setting/menu/item/display.php:114
-#: content_a/setting/order/display.php:175 content_a/setting/order/display.php:202
+#: content_a/setting/order/display.php:196 content_a/setting/order/display.php:223
 #: content_a/tag/editgroup/display.php:13 content_a/tag/property/display.php:64
 #: content_a/units/display.php:75 content_a/units/display.php:134
 #: content_a/website/imageblock/add/display.php:47
@@ -5129,7 +5129,7 @@ msgstr "گروه"
 
 #: content_a/accounting/coding/all/display.php:101
 #: content_a/accounting/coding/display-list.php:108
-#: includes/languages/trans_static.php:418
+#: includes/languages/trans_static.php:429
 msgid "code"
 msgstr "کد"
 
@@ -5142,7 +5142,7 @@ msgstr "ماهیت گروه"
 #: content_a/form/answer/display.php:66 content_a/form/answer/display.php:79
 #: content_love/log/home/logTable.php:9 content_pay/home/display-transaction.php:287
 #: content_su/apilog/home/display.php:103 content_su/smsclient/home/display.php:52
-#: includes/languages/trans_static.php:667
+#: includes/languages/trans_static.php:678
 msgid "Detail"
 msgstr "جزئیات"
 
@@ -5476,7 +5476,7 @@ msgid "Closing Document"
 msgstr "سند اختتامیه"
 
 #: content_a/accounting/doc/edit/view.php:35 content_a/setting/product/display.php:110
-#: content_su/update/display.php:14 includes/languages/trans_static.php:594
+#: content_su/update/display.php:14 includes/languages/trans_static.php:605
 #: lib/app/domains/filter.php:53 lib/app/domains/filter.php:54
 #: lib/app/domains/filter.php:55
 msgid "Lock"
@@ -5990,7 +5990,7 @@ msgstr "مجموع مبلغ مشمول مالیات"
 
 #: content_a/accounting/irvat/all/display.php:139
 #: content_a/setting/thirdparty/kavenegar/view.php:11
-#: includes/languages/trans_static.php:73
+#: includes/languages/trans_static.php:84
 msgid "Thirdparty"
 msgstr "طرف‌حساب"
 
@@ -6023,7 +6023,7 @@ msgstr "لیست فاکتور‌های درآمد و هزینه"
 #: content_love/store/view.php:41 content_my/domain/irnic/view.php:43
 #: content_my/domain/other/view.php:103 content_my/domain/predict/view.php:48
 #: content_my/domain/search/view.php:51 content_site/home/view.php:53
-#: includes/languages/trans_static.php:555
+#: includes/languages/trans_static.php:566
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -6267,7 +6267,7 @@ msgid "Register number"
 msgstr "شماره ثبت"
 
 #: content_a/accounting/report/journal_cover.php:37
-#: content_a/setting/general/display.php:59 includes/languages/trans_static.php:660
+#: content_a/setting/general/display.php:59 includes/languages/trans_static.php:671
 msgid "Postcode"
 msgstr "کدپستی"
 
@@ -6541,6 +6541,7 @@ msgstr "مایکت"
 #: content_a/setting/order/cartlimit/display.php:25
 #: content_a/setting/order/carttext/display.php:37
 #: content_a/setting/order/minimum/display.php:26
+#: content_a/setting/order/schedule/display.php:75
 #: content_a/setting/order/validity/display.php:36
 #: content_a/setting/product/preparationtime/display.php:21
 #: content_a/setting/product/tag/display.php:23
@@ -6853,7 +6854,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/application/home/display.php:83 content_love/files/home/display.php:37
 #: content_love/files/home/display.php:49 content_love/home/display.php:115
 #: content_su/log/display.php:52 dash/app/files/ready.php:107
-#: dash/layout/post/admin-gallery-box.php:115 includes/languages/trans_static.php:489
+#: dash/layout/post/admin-gallery-box.php:115 includes/languages/trans_static.php:500
 #: lib/app/form/generator.php:828
 msgid "File"
 msgstr "فایل"
@@ -7038,7 +7039,7 @@ msgstr "این محصول از سبد خرید شما حذف شد"
 
 #: content_a/cart/add/display.php:211 content_a/order/comment/display.php:83
 #: content_a/order/productList.php:76 content_account/address.php:73
-#: content_business/cart/display.php:52 includes/languages/trans_static.php:503
+#: content_business/cart/display.php:52 includes/languages/trans_static.php:514
 #: includes/languages/trans_static_public.php:88
 msgid "Delete"
 msgstr "حذف"
@@ -7071,7 +7072,7 @@ msgstr "تعداد محصولات"
 
 #: content_a/cart/home/display.php:77 content_a/form/analytics/filter/display.php:15
 #: content_a/order/home/filter.php:18 content_business/tag/display-one-tag.php:48
-#: dash/layout/search/search-bar.php:20 includes/languages/trans_static.php:484
+#: dash/layout/search/search-bar.php:20 includes/languages/trans_static.php:495
 msgid "Filter"
 msgstr "فیلتر"
 
@@ -7106,7 +7107,7 @@ msgstr "سبد خرید"
 #: content_a/cart/home/display.php:144 content_a/cart/home/display.php:183
 #: content_a/products/advance/display.php:24 content_a/sale/display.php:16
 #: content_a/tag/home/display.php:77 content_a/units/display.php:62
-#: content_my/business/home/display_site.php:63 includes/languages/trans_static.php:488
+#: content_my/business/home/display_site.php:63 includes/languages/trans_static.php:499
 #: lib/app/factor/search.php:153 lib/app/store/analytics.php:64
 #: lib/app/store/analytics.php:66 lib/app/store/analytics.php:67
 #: lib/app/store/analytics.php:68 lib/app/store/analytics.php:69
@@ -7357,7 +7358,7 @@ msgstr "پاسخ نداده است"
 
 #: content_a/form/analytics/addcondition/display-condition.php:16
 #: dash/app/ticket/filter.php:37 dash/layout/admin/sidebar/sidebar-support.php:17
-#: includes/languages/trans_static.php:517 includes/languages/trans_static_public.php:989
+#: includes/languages/trans_static.php:528 includes/languages/trans_static_public.php:989
 #: lib/app/form/filter/ready.php:65 lib/app/store/analytics.php:173
 msgid "Answered"
 msgstr "پاسخ داده شده"
@@ -7404,7 +7405,7 @@ msgstr "مقدار"
 #: dash/social/telegram/commands/step_ticketCreate.php:44
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/step.php:212 dash/social/telegram/step.php:367
-#: dash/social/telegram/step.php:382 includes/languages/trans_static.php:521
+#: dash/social/telegram/step.php:382 includes/languages/trans_static.php:532
 #: includes/languages/trans_static_public.php:86 lib/app/factor/action.php:65
 #: lib/app/factor/ready.php:116 lib/pardakhtyar/type.php:12
 msgid "Cancel"
@@ -7453,7 +7454,7 @@ msgstr "شناسه پاسخ"
 #: content_a/products/edit/display-master.php:24
 #: content_a/setting/product/tag/display.php:11 content_a/tag/sort/display.php:21
 #: content_business/tag/view.php:9 dash/app/posts/dropdown.php:33
-#: dash/layout/search/search-filter.php:165 includes/languages/trans_static.php:546
+#: dash/layout/search/search-filter.php:165 includes/languages/trans_static.php:557
 #: lib/app/product/filter.php:348 lib/app/product/filter.php:358
 #: lib/app/product/filter.php:368 lib/app/product/property.php:276
 #: lib/app/quickaccess/setting.php:490 lib/app/quickaccess/setting.php:505
@@ -7469,13 +7470,13 @@ msgstr "افزودن دیدگاه به این پاسخ"
 
 #: content_a/form/analytics/answer/display.php:82
 #: content_a/form/answer/detail/display.php:115 content_a/form/tag/edit/display.php:22
-#: includes/languages/trans_static.php:995
+#: includes/languages/trans_static.php:1006
 msgid "Public"
 msgstr "عمومی"
 
 #: content_a/form/analytics/answer/display.php:88
 #: content_a/form/answer/detail/display.php:121 content_a/form/tag/edit/display.php:28
-#: includes/languages/trans_static.php:998
+#: includes/languages/trans_static.php:1009
 msgid "Private"
 msgstr "خصوصی"
 
@@ -7497,7 +7498,7 @@ msgstr "دیدگاه"
 
 #: content_a/form/analytics/answer/display.php:109
 #: content_a/form/answer/detail/display.php:144 content_a/form/tag/edit/display.php:17
-#: includes/languages/trans_static.php:992
+#: includes/languages/trans_static.php:1003
 msgid "Privacy"
 msgstr "حریم خصوصی"
 
@@ -7536,7 +7537,7 @@ msgstr "همین الان بساز"
 #: content_a/form/analytics/table/model.php:14 content_crm/ticket/view/model.php:26
 #: content_enter/pass/change/model.php:54 content_enter/verify/tg/display.php:9
 #: content_love/business/domain/setting/display.php:125
-#: includes/languages/trans_static.php:528 includes/languages/trans_static_public.php:935
+#: includes/languages/trans_static.php:539 includes/languages/trans_static_public.php:935
 #: lib/app/application/queue.php:450 lib/app/business_domain/search.php:178
 #: lib/app/business_domain/search_dns.php:123 lib/app/import/product.php:17
 #: lib/pardakhtyar/type.php:15
@@ -8148,7 +8149,7 @@ msgstr "مقایسه با آیتم دیگر"
 
 #: content_a/form/report/answer/view.php:18 content_a/form/report/compare/view.php:29
 #: content_a/form/report/display.php:8 content_a/form/report/display.php:21
-#: content_a/form/report/view.php:18 includes/languages/trans_static.php:59
+#: content_a/form/report/view.php:18 includes/languages/trans_static.php:70
 msgid "Report"
 msgstr "گزارش"
 
@@ -8223,7 +8224,7 @@ msgstr "ویرایش ترتیب سوالات"
 #: content_a/pagebuilder/manage/display.php:94
 #: content_a/products/edit/block/sidebar-menu.php:10 content_cms/home/display.php:10
 #: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
-#: dash/app/posts/ready.php:101 includes/languages/trans_static.php:512
+#: dash/app/posts/ready.php:101 includes/languages/trans_static.php:523
 #: lib/app/factor/action.php:61 lib/app/factor/ready.php:112 lib/app/gift/filter.php:45
 #: lib/app/tax/doc/ready.php:40 lib/app/tax/docdetail/ready.php:26
 msgid "Draft"
@@ -8234,7 +8235,7 @@ msgid "The form is draft"
 msgstr "فرم پیش‌نویس است"
 
 #: content_a/form/status/display.php:29 content_cms/home/display.php:11
-#: content_love/gift/create/review/display.php:47 includes/languages/trans_static.php:518
+#: content_love/gift/create/review/display.php:47 includes/languages/trans_static.php:529
 msgid "Publish"
 msgstr "انتشار"
 
@@ -8243,7 +8244,7 @@ msgid "The form is publish"
 msgstr "فرم منتشر شده است"
 
 #: content_a/form/status/display.php:41 content_a/order/status/display.php:47
-#: content_love/domain/setting/display.php:128 includes/languages/trans_static.php:511
+#: content_love/domain/setting/display.php:128 includes/languages/trans_static.php:522
 #: lib/app/factor/action.php:66 lib/app/factor/ready.php:117
 msgid "Expire"
 msgstr "منقضی شده"
@@ -8254,7 +8255,7 @@ msgstr "فرم منقضی شده است"
 
 #: content_a/form/status/display.php:53 dash/app/posts/filter.php:67
 #: dash/app/posts/ready.php:111 dash/layout/admin/sidebar/sidebar-support.php:50
-#: includes/languages/trans_static.php:513
+#: includes/languages/trans_static.php:524
 msgid "Trash"
 msgstr "زباله‌دان"
 
@@ -8455,8 +8456,8 @@ msgstr "شما کجا هستید؟"
 msgid "Choose fund"
 msgstr "انتخاب صندوق"
 
-#: content_a/fund/view.php:12 includes/languages/trans_static.php:24
-#: includes/languages/trans_static.php:504 lib/app/factor/ready.php:79
+#: content_a/fund/view.php:12 includes/languages/trans_static.php:35
+#: includes/languages/trans_static.php:515 lib/app/factor/ready.php:79
 msgid "Sale"
 msgstr "فروش"
 
@@ -8499,7 +8500,7 @@ msgstr "افزودن محصول جدید"
 #: content_a/home/display.php:147 content_crm/home/display.php:46
 #: content_crm/member/add/view.php:12 content_crm/member/glance/view.php:19
 #: content_crm/staff/add/view.php:12 content_developers/docs/001-intro.php:17
-#: includes/languages/trans_static.php:62 lib/app/quickaccess/customers.php:30
+#: includes/languages/trans_static.php:73 lib/app/quickaccess/customers.php:30
 msgid "Customers"
 msgstr "مشتریان"
 
@@ -8549,13 +8550,13 @@ msgstr "حذف همه"
 #: content_love/business/datalist/display.php:7
 #: content_love/email/history/view/display.php:7 content_love/notiflog/display.php:88
 #: content_love/smslog/view/display.php:7 content_love/store/display.php:19
-#: includes/languages/trans_static.php:198 includes/languages/trans_static_public.php:398
+#: includes/languages/trans_static.php:209 includes/languages/trans_static_public.php:398
 msgid "id"
 msgstr "کد"
 
 #: content_a/notiflog/display.php:89 content_love/notiflog/display.php:89
-#: includes/languages/trans_static.php:230 includes/languages/trans_static.php:294
-#: includes/languages/trans_static.php:306 includes/languages/trans_static_public.php:411
+#: includes/languages/trans_static.php:241 includes/languages/trans_static.php:305
+#: includes/languages/trans_static.php:317 includes/languages/trans_static_public.php:411
 msgid "type"
 msgstr "نوع"
 
@@ -8602,7 +8603,7 @@ msgstr "لاگ اطلاع‌رسانی"
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:32
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:68
 #: dash/app/ticket/filter.php:52 dash/app/ticket/filter.php:53
-#: dash/app/transaction/filter.php:51 includes/languages/trans_static.php:61
+#: dash/app/transaction/filter.php:51 includes/languages/trans_static.php:72
 #: lib/app/factor/search.php:117 lib/app/factor/search.php:126
 #: lib/app/log/caller/business/business_creatingNew.php:42 lib/app/store/analytics.php:27
 msgid "Customer"
@@ -8879,13 +8880,13 @@ msgstr "تخفیف کوچکتر از ..."
 msgid "Discount is equal to ..."
 msgstr "تخفیف مساوی با ..."
 
-#: content_a/order/home/filter.php:360 includes/languages/trans_static.php:16
-#: includes/languages/trans_static.php:375
+#: content_a/order/home/filter.php:360 includes/languages/trans_static.php:27
+#: includes/languages/trans_static.php:386
 msgid "sale"
 msgstr "فروش"
 
-#: content_a/order/home/filter.php:367 includes/languages/trans_static.php:17
-#: includes/languages/trans_static.php:376
+#: content_a/order/home/filter.php:367 includes/languages/trans_static.php:28
+#: includes/languages/trans_static.php:387
 msgid "buy"
 msgstr "خرید"
 
@@ -8996,7 +8997,7 @@ msgstr "ثبت‌ شده"
 
 #: content_a/order/status/display.php:44 content_love/domain/setting/display.php:122
 #: dash/app/comment/filter.php:28 dash/app/ticket/filter.php:36
-#: includes/languages/trans_static.php:481 includes/languages/trans_static_public.php:936
+#: includes/languages/trans_static.php:492 includes/languages/trans_static_public.php:936
 #: lib/app/factor/action.php:63 lib/app/factor/ready.php:114 lib/pardakhtyar/type.php:13
 msgid "Awaiting"
 msgstr "در انتظار"
@@ -9026,13 +9027,13 @@ msgstr "تحویل داده شده"
 msgid "Revert"
 msgstr "بازگشت داده شده"
 
-#: content_a/order/status/display.php:52 includes/languages/trans_static.php:592
+#: content_a/order/status/display.php:52 includes/languages/trans_static.php:603
 #: lib/app/factor/action.php:71 lib/app/factor/ready.php:122
 msgid "Success"
 msgstr "موفقیت‌آمیز"
 
 #: content_a/order/status/display.php:53 content_a/products/edit/block/sidebar-menu.php:13
-#: dash/app/files/ready.php:61 includes/languages/trans_static.php:988
+#: dash/app/files/ready.php:61 includes/languages/trans_static.php:999
 #: lib/app/factor/action.php:72 lib/app/factor/ready.php:123
 msgid "Archive"
 msgstr "آرشیو"
@@ -9040,7 +9041,7 @@ msgstr "آرشیو"
 #: content_a/order/status/display.php:54 content_cms/comments/view/display.php:142
 #: dash/app/comment/filter.php:29 dash/app/ticket/filter.php:44
 #: dash/layout/admin/sidebar/sidebar-support.php:51
-#: includes/languages/trans_static.php:502 lib/app/factor/action.php:74
+#: includes/languages/trans_static.php:513 lib/app/factor/action.php:74
 #: lib/app/factor/ready.php:125
 msgid "Spam"
 msgstr "هرزنامه"
@@ -9536,7 +9537,7 @@ msgstr "افزودن محصول جدید"
 msgid "Advance"
 msgstr "پیشرفته"
 
-#: content_a/products/advance/display.php:30 includes/languages/trans_static.php:490
+#: content_a/products/advance/display.php:30 includes/languages/trans_static.php:501
 msgid "Service"
 msgstr "خدمت"
 
@@ -9572,7 +9573,7 @@ msgstr "تعداد پرش"
 #: content_cms/posts/advance/display.php:39
 #: content_love/business/domain/setting/display.php:127
 #: content_love/domain/setting/display.php:127 dash/app/ticket/filter.php:45
-#: includes/languages/trans_static.php:496 includes/languages/trans_static_public.php:1107
+#: includes/languages/trans_static.php:507 includes/languages/trans_static_public.php:1107
 #: lib/app/factor/action.php:73 lib/app/factor/ready.php:124 lib/app/product/load.php:132
 #: lib/app/store/filter.php:30
 msgid "Deleted"
@@ -9657,7 +9658,7 @@ msgstr "مدیریت تنوع محصول"
 #: content_a/products/comment/view.php:23
 #: content_a/products/edit/block/sidebar-menu.php:75 content_cms/comments/home/view.php:9
 #: content_cms/comments/view/view.php:14 dash/app/posts/filter.php:203
-#: dash/app/posts/filter.php:213 includes/languages/trans_static.php:563
+#: dash/app/posts/filter.php:213 includes/languages/trans_static.php:574
 #: includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
 msgid "Comments"
@@ -9692,7 +9693,7 @@ msgstr "بارکد"
 msgid "Scan Barcode here..."
 msgstr "بارکد را اسکن کنید..."
 
-#: content_a/products/edit/block/barcode.php:17 includes/languages/trans_static.php:567
+#: content_a/products/edit/block/barcode.php:17 includes/languages/trans_static.php:578
 msgid "Barcode2"
 msgstr "ایران بارکد"
 
@@ -9824,7 +9825,8 @@ msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
 #: content_a/products/edit/block/sidebar-menu.php:11
-#: content_crm/member/status/display.php:17 includes/languages/trans_static.php:480
+#: content_a/setting/order/schedule/display.php:12
+#: content_crm/member/status/display.php:17 includes/languages/trans_static.php:491
 msgid "Active"
 msgstr "فعال"
 
@@ -10053,7 +10055,7 @@ msgid "Count Record found whit error:"
 msgstr "تعداد ردیف‌های دارای خطا:"
 
 #: content_a/products/import/display.php:55 content_pay/home/display-transaction.php:33
-#: dash/utility/pay/api/asanpardakht/bank.php:319 includes/languages/trans_static.php:583
+#: dash/utility/pay/api/asanpardakht/bank.php:319 includes/languages/trans_static.php:594
 #: includes/languages/trans_static_public.php:182 lib/app/nic_domain/transfer.php:229
 msgid "Error"
 msgstr "خطا"
@@ -10896,7 +10898,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_static.php:497 lib/app/form/generator.php:949
+#: includes/languages/trans_static.php:508 lib/app/form/generator.php:949
 msgid "Yes"
 msgstr "بله"
 
@@ -10911,7 +10913,7 @@ msgstr "بله"
 #: content_love/gift/create/review/display.php:33
 #: content_love/gift/create/review/display.php:34 content_love/gift/view/display.php:33
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
-#: includes/languages/trans_static.php:498 lib/app/form/generator.php:960
+#: includes/languages/trans_static.php:509 lib/app/form/generator.php:960
 msgid "No"
 msgstr "خیر"
 
@@ -11446,7 +11448,7 @@ msgstr "صفحه نخست"
 
 #: content_a/setting/menu/item/display.php:21 content_a/website/menu/item/display.php:21
 #: content_cms/posts/home/view.php:9 dash/app/comment/filter.php:30
-#: includes/languages/trans_static.php:559 includes/languages/trans_static_public.php:90
+#: includes/languages/trans_static.php:570 includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
 msgid "Posts"
 msgstr "نوشته‌ها"
@@ -11599,6 +11601,7 @@ msgstr "تنظیمات سبد خرید"
 #: content_a/setting/order/cartlimit/view.php:11
 #: content_a/setting/order/carttext/view.php:11
 #: content_a/setting/order/minimum/view.php:11
+#: content_a/setting/order/schedule/view.php:11
 #: content_a/setting/order/validity/view.php:11 content_a/setting/order/view.php:8
 msgid "Order Setting"
 msgstr "تنظیمات سفارش"
@@ -11640,9 +11643,9 @@ msgstr "حداقل مبلغ سفارش"
 
 #: content_a/setting/order/display.php:14 content_a/setting/order/display.php:31
 #: content_a/setting/order/display.php:137 content_a/setting/order/display.php:153
-#: content_a/setting/product/display.php:86 content_a/setting/shipping/display.php:110
-#: content_a/setting/shipping/display.php:127 content_a/setting/telegram/display.php:119
-#: includes/languages/trans_static.php:599
+#: content_a/setting/order/display.php:175 content_a/setting/product/display.php:86
+#: content_a/setting/shipping/display.php:110 content_a/setting/shipping/display.php:127
+#: content_a/setting/telegram/display.php:119 includes/languages/trans_static.php:610
 msgid "Set"
 msgstr "تنظیم"
 
@@ -11695,11 +11698,22 @@ msgstr "تنظیم محدودیت سبد خرید"
 msgid "Set cart page default text"
 msgstr "تنظیم متن ثابت صفحه سبد خرید"
 
-#: content_a/setting/order/display.php:164 lib/app/form/form/add.php:30
+#: content_a/setting/order/display.php:165
+msgid "Business order status"
+msgstr "وضعیت دریافت سفارش بیزینس"
+
+#: content_a/setting/order/display.php:168
+msgid ""
+"You can disable ordering status in your business or receive orders on a weekly schedule"
+msgstr ""
+"شما می‌توانید وضعیت دریافت سفارش را در بیزینس خود غیرفعال کنید و یا طبق زمان‌بندی هفتگی "
+"سفارش دریافت کنید"
+
+#: content_a/setting/order/display.php:185 lib/app/form/form/add.php:30
 msgid "Satisfaction Survey"
 msgstr "فرم رضایت سنجی"
 
-#: content_a/setting/order/display.php:167
+#: content_a/setting/order/display.php:188
 msgid ""
 "This form will be displayed to the customer after placing the order. \n"
 "You can use this form as a satisfaction form or to receive any additional information "
@@ -11709,15 +11723,15 @@ msgstr ""
 "شما می‌توانید از این فرم برای رضایت سنجی مشتری و یا دریافت هر گونه اطلاعات دلخواه پس از "
 "ثبت سفارش استفاده کنید."
 
-#: content_a/setting/order/display.php:177 content_a/setting/order/display.php:204
+#: content_a/setting/order/display.php:198 content_a/setting/order/display.php:225
 msgid "Create"
 msgstr "ایجاد"
 
-#: content_a/setting/order/display.php:189 lib/app/form/form/add.php:11
+#: content_a/setting/order/display.php:210 lib/app/form/form/add.php:11
 msgid "Shipping Survey"
 msgstr "فرم صفحه ارسال سفارش"
 
-#: content_a/setting/order/display.php:192
+#: content_a/setting/order/display.php:213
 msgid ""
 "This form is displayed to the customer before placing the order.\n"
 "Note that if there is a mandatory question in this form, the order will not be "
@@ -11727,7 +11741,7 @@ msgstr ""
 "توجه داشته باشید در صورتی که سوال الزامی در این فرم وجود داشته باشد، مشتری حتما باید به "
 "سوالات پاسخ دهد تا سفارش او ثبت شود"
 
-#: content_a/setting/order/display.php:194
+#: content_a/setting/order/display.php:215
 msgid "You can use this form to receive additional information before ordering"
 msgstr "شما می‌توانید از این فرم برای دریافت اطلاعات دلخواه قبل از ثبت سفارش استفاده کنید"
 
@@ -11740,6 +11754,47 @@ msgstr ""
 "اگر این مبلغ را تنظیم کنید مشتریان باید حداقل به این میزان مبلغ قابل پرداخت در سبد خرید "
 "خود داشته باشند تا فرایند ثبت سفارش ادامه پیدا کند. در صورتی که این مبلغ را خالی رها "
 "کنید محدودیتی وجود نخواهد داشت."
+
+#: content_a/setting/order/schedule/display.php:13
+msgid "Receive orders 24 hours a day, 7 days a week"
+msgstr "دریافت سفارش به صورت ۲۴ ساعته و همه روزه"
+
+#: content_a/setting/order/schedule/display.php:22
+#: content_crm/member/status/display.php:19 includes/languages/trans_static.php:493
+msgid "Deactive"
+msgstr "غیر فعال"
+
+#: content_a/setting/order/schedule/display.php:23
+msgid "Failure to receive the order"
+msgstr "عدم دریافت سفارش"
+
+#: content_a/setting/order/schedule/display.php:32 includes/languages/trans_static.php:555
+msgid "Schedule"
+msgstr "زمانبندی شده"
+
+#: content_a/setting/order/schedule/display.php:33
+msgid "Receive orders according to the weekly schedule"
+msgstr "دریافت سفارش طبق جدول زمانبندی هفتگی"
+
+#: content_a/setting/order/schedule/display.php:43
+msgid "Active in day?"
+msgstr "در این روز فعال است؟"
+
+#: content_a/setting/order/schedule/display.php:44
+msgid "Start time"
+msgstr "ساعت شروع"
+
+#: content_a/setting/order/schedule/display.php:45
+msgid "End time"
+msgstr "ساعت پایان"
+
+#: content_a/setting/order/schedule/model.php:32
+msgid "Start time must be before end time!"
+msgstr "ساعت شروع باید قبل از ساعت پایان باشد!"
+
+#: content_a/setting/order/schedule/view.php:8
+msgid "Order schedule"
+msgstr "زمان بندی دریافت سفارش"
 
 #: content_a/setting/order/validity/display.php:6
 msgid "Set Order validity time"
@@ -12018,7 +12073,7 @@ msgstr ""
 "آیا می‌خواهید امکان دریافت نظرات مشتریان در صفحه هر محصول در وب‌سایت وجود داشته باشد؟"
 
 #: content_a/setting/product/display.php:110 content_cms/posts/advance/display.php:138
-#: includes/languages/trans_static.php:542
+#: includes/languages/trans_static.php:553
 msgid "Open"
 msgstr "باز"
 
@@ -12177,7 +12232,7 @@ msgstr "شبکه‌های اجتماعی متصل به اشتراک‌گذاری
 #: content_crm/telegram/home/view.php:9 content_crm/telegram/send/view.php:12
 #: content_crm/ticket/view/display.php:174 content_love/log/home/logTable.php:60
 #: content_su/home/display.php:204 content_su/tg/home/view.php:11
-#: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:587
+#: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:598
 #: lib/app/website/init.php:92 lib/pagebuilder/tools/first_init.php:136 lib/store.php:509
 msgid "Telegram"
 msgstr "تلگرام"
@@ -12898,14 +12953,14 @@ msgstr "نام و جزئیات عمومی خود را در فروشگاه‌تا
 #: content_a/setup/owner/display.php:17 content_account/my/profile/display.php:37
 #: content_business/profile/detail/display.php:36
 #: content_crm/member/identification/display.php:42
-#: includes/languages/trans_static.php:476 lib/pardakhtyar/type.php:104
+#: includes/languages/trans_static.php:487 lib/pardakhtyar/type.php:104
 msgid "Male"
 msgstr "مرد"
 
 #: content_a/setup/owner/display.php:18 content_account/my/profile/display.php:38
 #: content_business/profile/detail/display.php:37
 #: content_crm/member/identification/display.php:43
-#: includes/languages/trans_static.php:477 lib/pardakhtyar/type.php:103
+#: includes/languages/trans_static.php:488 lib/pardakhtyar/type.php:103
 msgid "Female"
 msgstr "زن"
 
@@ -14420,7 +14475,7 @@ msgstr ""
 #: content_crm/member/glance/display.php:371 content_crm/ticket/datalist/view.php:9
 #: content_crm/ticket/datalist/view.php:12 content_crm/ticket/home/view.php:9
 #: content_crm/ticket/message/view.php:12 dash/layout/admin/sidebar/sidebar-support.php:4
-#: includes/languages/trans_static.php:565
+#: includes/languages/trans_static.php:576
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
@@ -14444,7 +14499,7 @@ msgid "Logout from your account!"
 msgstr "خروج از حساب کاربری!"
 
 #: content_account/home/display.php:157 content_business/profile/display-menu.php:47
-#: content_enter/app/display.php:20 includes/languages/trans_static.php:527
+#: content_enter/app/display.php:20 includes/languages/trans_static.php:538
 #: includes/languages/trans_static_public.php:100
 msgid "Logout"
 msgstr "خروج از سیستم"
@@ -14643,7 +14698,7 @@ msgid "Lastname"
 msgstr "نام خانوادگی"
 
 #: content_account/my/profile/display.php:39
-#: content_business/profile/detail/display.php:38 includes/languages/trans_static.php:478
+#: content_business/profile/detail/display.php:38 includes/languages/trans_static.php:489
 msgid "Company"
 msgstr "شرکت"
 
@@ -15021,7 +15076,7 @@ msgid "Check ip address"
 msgstr "بررسی آدرس آی‌پی"
 
 #: content_account/security/sessions/display.php:68
-#: content_crm/member/sessions/display.php:35 includes/languages/trans_static.php:525
+#: content_crm/member/sessions/display.php:35 includes/languages/trans_static.php:536
 msgid "Terminate"
 msgstr "مسدودسازی"
 
@@ -15263,7 +15318,7 @@ msgstr "اینستاگرام"
 #: content_business/p/home/display.php:231 content_business/p/home/display.php:232
 #: content_business/p/home/shareBox.php:16 content_business/p/home/shareBox.php:17
 #: dash/app/log/support_tools.php:147 dash/layout/post/share-box.php:16
-#: dash/layout/post/share-box.php:17 includes/languages/trans_static.php:458
+#: dash/layout/post/share-box.php:17 includes/languages/trans_static.php:469
 #: lib/pagebuilder/load/template/socialnetwork.php:36
 msgid "telegram"
 msgstr "تلگرام"
@@ -15609,12 +15664,12 @@ msgid "You can change status of this comment"
 msgstr "شما می‌توانید وضعیت این دیدگاه را ویرایش کنید"
 
 #: content_cms/comments/view/display.php:140 dash/app/comment/filter.php:26
-#: includes/languages/trans_static.php:514 includes/languages/trans_static_public.php:937
+#: includes/languages/trans_static.php:525 includes/languages/trans_static_public.php:937
 msgid "Approved"
 msgstr "تایید شده"
 
 #: content_cms/comments/view/display.php:141 dash/app/comment/filter.php:27
-#: includes/languages/trans_static.php:515 includes/languages/trans_static_public.php:938
+#: includes/languages/trans_static.php:526 includes/languages/trans_static_public.php:938
 msgid "Unapproved"
 msgstr "تایید نشده"
 
@@ -15717,7 +15772,7 @@ msgstr "بارگذاری"
 #: content_cms/files/home/view.php:9 content_cms/files/view/view.php:11
 #: content_cms/home/display.php:151 content_love/files/datalist/view.php:9
 #: content_love/files/home/view.php:9 content_love/files/view/view.php:11
-#: includes/languages/trans_static.php:562 lib/app/store/analytics.php:116
+#: includes/languages/trans_static.php:573 lib/app/store/analytics.php:116
 msgid "Files"
 msgstr "فایل‌ها"
 
@@ -16054,7 +16109,7 @@ msgstr ""
 "آیا می‌خواهید امکان دریافت نظرات مشتریان در صفحه این مطلب در وب‌سایت وجود داشته باشد؟"
 
 #: content_cms/posts/advance/display.php:142 dash/app/ticket/filter.php:38
-#: includes/languages/trans_static.php:543
+#: includes/languages/trans_static.php:554
 msgid "Closed"
 msgstr "بسته"
 
@@ -16094,7 +16149,7 @@ msgstr "ویرایش نویسنده مطلب"
 #: dash/app/posts/filter.php:252 dash/redirect_html.php:5
 #: dash/utility/pay/api/asanpardakht/go.php:79 dash/utility/pay/api/irkish/go.php:74
 #: dash/utility/pay/api/mellat/go.php:89 dash/utility/pay/api/sep/go.php:68
-#: includes/languages/trans_static.php:581
+#: includes/languages/trans_static.php:592
 msgid "Redirect"
 msgstr "انتقال"
 
@@ -16525,7 +16580,7 @@ msgstr "درصد موفقیت تمامی تراکنش‌ها"
 msgid "Add new Customer"
 msgstr "افزودن مشتری جدید"
 
-#: content_crm/home/display.php:66 includes/languages/trans_static.php:66
+#: content_crm/home/display.php:66 includes/languages/trans_static.php:77
 msgid "Staffs"
 msgstr "کارمندان"
 
@@ -16838,12 +16893,12 @@ msgid "Marital"
 msgstr "وضعیت تاهل"
 
 #: content_crm/member/identification/display.php:52
-#: includes/languages/trans_static.php:486
+#: includes/languages/trans_static.php:497
 msgid "Single"
 msgstr "مجرد"
 
 #: content_crm/member/identification/display.php:53
-#: includes/languages/trans_static.php:487
+#: includes/languages/trans_static.php:498
 msgid "Married"
 msgstr "متاهل"
 
@@ -16948,7 +17003,7 @@ msgstr "پدر خوانده"
 msgid "Neighbor"
 msgstr "همسایه"
 
-#: content_crm/member/master.php:49 includes/languages/trans_static.php:538
+#: content_crm/member/master.php:49 includes/languages/trans_static.php:549
 msgid "Member"
 msgstr "عضو"
 
@@ -17066,22 +17121,18 @@ msgstr "شما می‌توانید وضعیت این مشتری را به صور
 msgid "Unverify"
 msgstr "تایید نشده"
 
-#: content_crm/member/status/display.php:19 includes/languages/trans_static.php:482
-msgid "Deactive"
-msgstr "غیر فعال"
-
 #: content_crm/member/status/display.php:20 content_su/ip/display.php:60
-#: includes/languages/trans_static.php:519
+#: includes/languages/trans_static.php:530
 msgid "Block"
 msgstr "قفل شده"
 
-#: content_crm/member/status/display.php:22 includes/languages/trans_static.php:356
+#: content_crm/member/status/display.php:22 includes/languages/trans_static.php:367
 #: includes/languages/trans_static_public.php:904
 msgid "unreachable"
 msgstr "غیر قابل دسترس"
 
-#: content_crm/member/status/display.php:26 includes/languages/trans_static.php:223
-#: includes/languages/trans_static.php:355 includes/languages/trans_static_public.php:859
+#: content_crm/member/status/display.php:26 includes/languages/trans_static.php:234
+#: includes/languages/trans_static.php:366 includes/languages/trans_static_public.php:859
 msgid "filter"
 msgstr "فیلتر شده"
 
@@ -17618,7 +17669,7 @@ msgstr "برای ذخیره تیکت لطفا وارد شوید"
 msgid "Assign to user"
 msgstr "اختصاص به مشتری"
 
-#: content_crm/ticket/view/display.php:188 includes/languages/trans_static.php:387
+#: content_crm/ticket/view/display.php:188 includes/languages/trans_static.php:398
 #: includes/languages/trans_static_public.php:860
 msgid "close"
 msgstr "بسته"
@@ -18942,10 +18993,10 @@ msgstr "ساخت"
 
 #: content_love/application/edit/display.php:11
 #: content_love/business/datalist/display.php:12 content_love/store/display.php:24
-#: includes/languages/trans_static.php:205 includes/languages/trans_static.php:232
-#: includes/languages/trans_static.php:256 includes/languages/trans_static.php:269
-#: includes/languages/trans_static.php:278 includes/languages/trans_static.php:298
-#: includes/languages/trans_static.php:335 includes/languages/trans_static_public.php:407
+#: includes/languages/trans_static.php:216 includes/languages/trans_static.php:243
+#: includes/languages/trans_static.php:267 includes/languages/trans_static.php:280
+#: includes/languages/trans_static.php:289 includes/languages/trans_static.php:309
+#: includes/languages/trans_static.php:346 includes/languages/trans_static_public.php:407
 msgid "status"
 msgstr "وضعیت"
 
@@ -18971,15 +19022,15 @@ msgstr "تاریخ دانلود"
 msgid "datemodified"
 msgstr "تاریخ ویرایش"
 
-#: content_love/application/edit/display.php:17 includes/languages/trans_static.php:360
+#: content_love/application/edit/display.php:17 includes/languages/trans_static.php:371
 msgid "file"
 msgstr "فایل‌"
 
-#: content_love/application/edit/display.php:18 includes/languages/trans_static.php:204
-#: includes/languages/trans_static.php:243 includes/languages/trans_static.php:255
-#: includes/languages/trans_static.php:267 includes/languages/trans_static.php:277
-#: includes/languages/trans_static.php:293 includes/languages/trans_static.php:311
-#: includes/languages/trans_static.php:334 includes/languages/trans_static_public.php:420
+#: content_love/application/edit/display.php:18 includes/languages/trans_static.php:215
+#: includes/languages/trans_static.php:254 includes/languages/trans_static.php:266
+#: includes/languages/trans_static.php:278 includes/languages/trans_static.php:288
+#: includes/languages/trans_static.php:304 includes/languages/trans_static.php:322
+#: includes/languages/trans_static.php:345 includes/languages/trans_static_public.php:420
 msgid "meta"
 msgstr "متا"
 
@@ -19062,8 +19113,8 @@ msgstr "زیردامنه"
 
 #: content_love/business/analytics/table/display.php:9
 #: content_love/business/datalist/display.php:10 content_love/store/display.php:22
-#: includes/languages/trans_static.php:241 includes/languages/trans_static.php:265
-#: includes/languages/trans_static.php:289 includes/languages/trans_static.php:307
+#: includes/languages/trans_static.php:252 includes/languages/trans_static.php:276
+#: includes/languages/trans_static.php:300 includes/languages/trans_static.php:318
 #: includes/languages/trans_static_public.php:224
 #: includes/languages/trans_static_public.php:402 lib/app/quickaccess/setting.php:290
 msgid "title"
@@ -19375,13 +19426,13 @@ msgid "You can change status of this domain maually"
 msgstr "شما می‌توانید وضعیت این دامنه را به صورت دستی ویرایش کنید"
 
 #: content_love/business/domain/setting/display.php:123
-#: content_love/domain/setting/display.php:124 includes/languages/trans_static.php:582
+#: content_love/domain/setting/display.php:124 includes/languages/trans_static.php:593
 #: lib/app/sms/filter.php:26
 msgid "Pending"
 msgstr "در انتظار"
 
 #: content_love/business/domain/setting/display.php:124
-#: content_love/domain/setting/display.php:123 includes/languages/trans_static.php:529
+#: content_love/domain/setting/display.php:123 includes/languages/trans_static.php:540
 #: lib/app/sms/filter.php:29
 msgid "Failed"
 msgstr "ناموفق"
@@ -19391,7 +19442,7 @@ msgid "Pending_delete"
 msgstr "در انتظار حذف"
 
 #: content_love/business/domain/setting/display.php:128
-#: includes/languages/trans_static.php:657
+#: includes/languages/trans_static.php:668
 msgid "Inprogress"
 msgstr "در حال انجام"
 
@@ -20158,7 +20209,7 @@ msgstr "کد نتیجه"
 #: content_love/domain/log/display.php:107 content_love/domain/log/view/display.php:85
 #: content_love/domain/onlineniclog/display.php:107
 #: content_love/domain/onlineniclog/view/display.php:75
-#: includes/languages/trans_static.php:580
+#: includes/languages/trans_static.php:591
 msgid "Request"
 msgstr "درخواست"
 
@@ -20245,7 +20296,7 @@ msgstr "این دامنه آماده خرید است!"
 #: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:148
 #: dash/app/log/ready.php:89 dash/app/log/ready.php:93 dash/app/user.php:87
 #: dash/app/user.php:129 dash/app/user.php:179 dash/app/visitor.php:112
-#: dash/app/visitor.php:141 includes/languages/trans_static.php:532
+#: dash/app/visitor.php:141 includes/languages/trans_static.php:543
 #: lib/app/factor/ready.php:87 lib/app/factor/ready.php:126
 #: lib/app/nic_domain/ready.php:62 lib/app/nic_domain/ready.php:64
 #: lib/pagebuilder/tools/tools.php:128
@@ -20290,7 +20341,7 @@ msgid "Domain is OK"
 msgstr "دامنه آماده است"
 
 #: content_love/domain/setting/display.php:341 content_my/domain/short/display.php:61
-#: includes/languages/trans_static.php:492
+#: includes/languages/trans_static.php:503
 msgid "Available"
 msgstr "موجود"
 
@@ -20366,7 +20417,7 @@ msgid "Gift cards"
 msgstr "کارت‌های هدیه"
 
 #: content_love/gift/card/giftcard.php:28 dash/layout/admin/admin-sidebar.php:124
-#: dash/layout/html/lockMode.php:15 includes/languages/trans_static.php:734
+#: dash/layout/html/lockMode.php:15 includes/languages/trans_static.php:745
 msgid "Sell & Enjoy"
 msgstr "بفروش و لذت ببر"
 
@@ -20572,7 +20623,7 @@ msgid "any"
 msgstr "همه"
 
 #: content_love/gift/create/usage/display.php:27 content_love/gift/edit/display.php:72
-#: includes/languages/trans_static.php:654
+#: includes/languages/trans_static.php:665
 msgid "domain"
 msgstr "دامنه"
 
@@ -20581,7 +20632,7 @@ msgid "store"
 msgstr "فروشگاه"
 
 #: content_love/gift/create/usage/display.php:29 content_love/gift/edit/display.php:74
-#: dash/app/log/support_tools.php:151 includes/languages/trans_static.php:459
+#: dash/app/log/support_tools.php:151 includes/languages/trans_static.php:470
 msgid "sms"
 msgstr "پیامک"
 
@@ -20610,34 +20661,34 @@ msgstr "هر موبایل در یک خط"
 msgid "Edit gift card"
 msgstr "ویرایش کارت هدیه"
 
-#: content_love/gift/edit/display.php:86 includes/languages/trans_static.php:286
-#: includes/languages/trans_static.php:383 includes/languages/trans_static_public.php:912
+#: content_love/gift/edit/display.php:86 includes/languages/trans_static.php:297
+#: includes/languages/trans_static.php:394 includes/languages/trans_static_public.php:912
 msgid "draft"
 msgstr "پیش نویس"
 
-#: content_love/gift/edit/display.php:87 includes/languages/trans_static.php:249
-#: includes/languages/trans_static.php:370 includes/languages/trans_static_public.php:225
+#: content_love/gift/edit/display.php:87 includes/languages/trans_static.php:260
+#: includes/languages/trans_static.php:381 includes/languages/trans_static_public.php:225
 #: includes/languages/trans_static_public.php:852
 msgid "enable"
 msgstr "فعال"
 
-#: content_love/gift/edit/display.php:88 includes/languages/trans_static.php:250
-#: includes/languages/trans_static.php:371 includes/languages/trans_static_public.php:226
+#: content_love/gift/edit/display.php:88 includes/languages/trans_static.php:261
+#: includes/languages/trans_static.php:382 includes/languages/trans_static_public.php:226
 #: includes/languages/trans_static_public.php:853
 msgid "disable"
 msgstr "غیرفعال"
 
-#: content_love/gift/edit/display.php:89 includes/languages/trans_static.php:197
-#: includes/languages/trans_static.php:367 includes/languages/trans_static_public.php:855
+#: content_love/gift/edit/display.php:89 includes/languages/trans_static.php:208
+#: includes/languages/trans_static.php:378 includes/languages/trans_static_public.php:855
 msgid "deleted"
 msgstr "حذف شده"
 
-#: content_love/gift/edit/display.php:90 includes/languages/trans_static.php:251
-#: includes/languages/trans_static.php:382 includes/languages/trans_static_public.php:854
+#: content_love/gift/edit/display.php:90 includes/languages/trans_static.php:262
+#: includes/languages/trans_static.php:393 includes/languages/trans_static_public.php:854
 msgid "expire"
 msgstr "منقضی شده"
 
-#: content_love/gift/edit/display.php:91 includes/languages/trans_static.php:427
+#: content_love/gift/edit/display.php:91 includes/languages/trans_static.php:438
 #: includes/languages/trans_static_public.php:923
 msgid "blocked"
 msgstr "مسدودشده"
@@ -20817,7 +20868,7 @@ msgid "User Profile"
 msgstr "پروفایل کاربر"
 
 #: content_love/log/home/logTable.php:45 content_love/log/home/logTable.php:46
-#: includes/languages/trans_static.php:537 lib/app/factor/search.php:145
+#: includes/languages/trans_static.php:548 lib/app/factor/search.php:145
 msgid "Guest"
 msgstr "میهمان"
 
@@ -21012,7 +21063,7 @@ msgstr "فروش در فروشگاه"
 msgid "Telegram bot"
 msgstr "ربات تلگرام"
 
-#: content_my/business/home/display_site.php:34 includes/languages/trans_static.php:65
+#: content_my/business/home/display_site.php:34 includes/languages/trans_static.php:76
 #: lib/app/store/analytics.php:28
 msgid "Staff"
 msgstr "کارمند"
@@ -21071,7 +21122,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:69
+#: lib/app/store/check.php:70
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -21899,7 +21950,7 @@ msgstr "بررسی هوایز"
 #: content_my/domain/setting/elements/irnic.php:90
 #: content_my/domain/setting/elements/nameservers.php:87
 #: content_my/domain/setting/elements/renew.php:38 dash/layout/admin/admin-titlebox.php:36
-#: dash/social/telegram/commands/ermile.php:434 includes/languages/trans_static.php:552
+#: dash/social/telegram/commands/ermile.php:434 includes/languages/trans_static.php:563
 msgid "Help"
 msgstr "راهنمایی"
 
@@ -22316,7 +22367,7 @@ msgstr ""
 msgid "New section"
 msgstr "بخش جدید"
 
-#: content_site/options/height.php:10 includes/languages/trans_static.php:600
+#: content_site/options/height.php:10 includes/languages/trans_static.php:611
 msgid "Auto"
 msgstr "خودکار"
 
@@ -22508,7 +22559,7 @@ msgstr "متن پاسخ"
 msgid "Datere sponse"
 msgstr "زمان پاسخ"
 
-#: content_su/apilog/home/display.php:92 includes/languages/trans_static.php:522
+#: content_su/apilog/home/display.php:92 includes/languages/trans_static.php:533
 msgid "Notif"
 msgstr "اطلاع‌رسانی"
 
@@ -22566,7 +22617,7 @@ msgid "Week"
 msgstr "هفته"
 
 #: content_su/backup/display.php:153 dash/utility/human.php:31 dash/utility/human.php:149
-#: dash/utility/human.php:209 includes/languages/trans_static.php:213
+#: dash/utility/human.php:209 includes/languages/trans_static.php:224
 #: includes/languages/trans_static_public.php:29
 msgid "hour"
 msgstr "ساعت"
@@ -22886,7 +22937,7 @@ msgid "Temp file removed"
 msgstr "فایل‌های موقتی حذف شدند"
 
 #: content_su/tg/home/display.php:10 dash/app/comment/filter.php:31
-#: includes/languages/trans_static.php:564 includes/languages/trans_static_public.php:96
+#: includes/languages/trans_static.php:575 includes/languages/trans_static_public.php:96
 #: includes/languages/trans_static_public.php:980 lib/app/store/analytics.php:26
 #: lib/app/store/analytics.php:27 lib/app/store/analytics.php:28
 #: lib/app/store/analytics.php:29 lib/app/store/analytics.php:30
@@ -23073,7 +23124,7 @@ msgstr "دریافت"
 msgid "Pull service"
 msgstr "دریافت سرویس"
 
-#: content_su/update/display.php:30 includes/languages/trans_static.php:597
+#: content_su/update/display.php:30 includes/languages/trans_static.php:608
 msgid "Upgrade"
 msgstr "ارتقا"
 
@@ -23322,12 +23373,12 @@ msgstr "پسوند صعودی"
 msgid "File Type"
 msgstr "نوع فایل"
 
-#: dash/app/files/filter.php:37 includes/languages/trans_static.php:989
+#: dash/app/files/filter.php:37 includes/languages/trans_static.php:1000
 msgid "archive"
 msgstr "آرشیو"
 
 #: dash/app/files/filter.php:46 dash/app/telegram/filter.php:40
-#: includes/languages/trans_static.php:530 lib/app/form/item/type.php:305
+#: includes/languages/trans_static.php:541 lib/app/form/item/type.php:305
 #: lib/app/form/item/type.php:432 lib/app/form/item/type.php:449
 #: lib/app/form/item/type.php:466 lib/app/sms/filter.php:30
 #: lib/app/store/analytics.php:114 lib/app/store/analytics.php:115
@@ -23808,7 +23859,7 @@ msgstr "نمی‌توانید نامک را بیشتر از ۱۰۰ کاراکت�
 msgid "Can not set the url larger than 180 character"
 msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکتر تنظیم کنید"
 
-#: dash/app/posts/dropdown.php:52 includes/languages/trans_static.php:457
+#: dash/app/posts/dropdown.php:52 includes/languages/trans_static.php:468
 #: lib/app/quickaccess/setting.php:236
 msgid "site"
 msgstr "سایت"
@@ -24754,9 +24805,9 @@ msgstr "مقادیر لازم برای اعتبار سنجی باید به صو�
 msgid "Enum option must be string or number"
 msgstr "مقادیر اعتبارسنجی باید متنی یا عددی باشد"
 
-#: dash/cleanse.php:207 dash/validate/dataarray.php:20 dash/validate/dataarray.php:112
-#: dash/validate/dataarray.php:157 dash/validate/dataarray.php:202
-#: dash/validate/dataarray.php:249
+#: dash/cleanse.php:207 dash/validate/dataarray.php:20 dash/validate/dataarray.php:132
+#: dash/validate/dataarray.php:177 dash/validate/dataarray.php:222
+#: dash/validate/dataarray.php:269
 msgid "Field :val must be array"
 msgstr "مقدار :val باید آرایه باشد"
 
@@ -24837,7 +24888,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:849
+#: dash/cleanse.php:850
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -25665,14 +25716,14 @@ msgstr "کپی لینک کوتاه"
 msgid "ShortLink of this page is copied. Paste in anywhere!"
 msgstr "کد کوتاه این صفحه کپی شد. آن‌ را هر جا که خواستید قرار دهید!"
 
-#: dash/layout/pwa/pwa_menu.php:184 includes/languages/trans_static.php:318
-#: includes/languages/trans_static.php:431 lib/app/quickaccess/setting.php:456
+#: dash/layout/pwa/pwa_menu.php:184 includes/languages/trans_static.php:329
+#: includes/languages/trans_static.php:442 lib/app/quickaccess/setting.php:456
 #: lib/app/quickaccess/setting.php:470
 msgid "products"
 msgstr "محصولات"
 
-#: dash/layout/pwa/pwa_menu.php:374 includes/languages/trans_static.php:25
-#: includes/languages/trans_static.php:505 lib/app/factor/ready.php:80
+#: dash/layout/pwa/pwa_menu.php:374 includes/languages/trans_static.php:36
+#: includes/languages/trans_static.php:516 lib/app/factor/ready.php:80
 msgid "Buy"
 msgstr "خرید"
 
@@ -26286,12 +26337,12 @@ msgid "Test <b>:name</b> bot on :site"
 msgstr "تست بات <b>:name</b> در :site"
 
 #: dash/social/telegram/commands/ermile.php:22 dash/social/telegram/step.php:321
-#: includes/languages/trans_static.php:225
+#: includes/languages/trans_static.php:236
 msgid "start"
 msgstr "شروع"
 
 #: dash/social/telegram/commands/ermile.php:29 dash/social/telegram/step.php:322
-#: includes/languages/trans_static.php:288 includes/languages/trans_static.php:305
+#: includes/languages/trans_static.php:299 includes/languages/trans_static.php:316
 #: includes/languages/trans_static_public.php:419 lib/app/quickaccess/setting.php:365
 msgid "language"
 msgstr "زبان"
@@ -26328,7 +26379,7 @@ msgstr "کیم"
 
 #: dash/social/telegram/commands/ermile.php:60
 #: dash/social/telegram/commands/ermileInline.php:43 dash/social/telegram/step.php:325
-#: includes/languages/trans_static.php:460
+#: includes/languages/trans_static.php:471
 msgid "contact"
 msgstr "تماس"
 
@@ -26350,7 +26401,7 @@ msgstr "تلفن"
 
 #: dash/social/telegram/commands/ermile.php:64
 #: dash/social/telegram/commands/ermileInline.php:47 dash/social/telegram/step.php:329
-#: includes/languages/trans_static.php:330 includes/languages/trans_static_public.php:404
+#: includes/languages/trans_static.php:341 includes/languages/trans_static_public.php:404
 msgid "mobile"
 msgstr "موبایل"
 
@@ -26362,7 +26413,7 @@ msgstr "تلفن"
 
 #: dash/social/telegram/commands/ermile.php:66
 #: dash/social/telegram/commands/ermileInline.php:49 dash/social/telegram/step.php:332
-#: includes/languages/trans_static.php:201 includes/languages/trans_static.php:331
+#: includes/languages/trans_static.php:212 includes/languages/trans_static.php:342
 #: includes/languages/trans_static_public.php:405
 msgid "email"
 msgstr "رایانامه"
@@ -26386,7 +26437,7 @@ msgid "connect"
 msgstr "اتصال"
 
 #: dash/social/telegram/commands/ermile.php:124 dash/social/telegram/step.php:336
-#: includes/languages/trans_static.php:423 includes/languages/trans_static_public.php:227
+#: includes/languages/trans_static.php:434 includes/languages/trans_static_public.php:227
 msgid "help"
 msgstr "کمک"
 
@@ -26690,7 +26741,7 @@ msgstr "پاسخ خالی از سرور"
 msgid "debug mode is off!"
 msgstr "حالت اشکال‌زدایی خاموش است!"
 
-#: dash/social/telegram/step.php:211 includes/languages/trans_static.php:392
+#: dash/social/telegram/step.php:211 includes/languages/trans_static.php:403
 #: includes/languages/trans_static_public.php:893
 msgid "cancel"
 msgstr "انصراف"
@@ -27544,24 +27595,28 @@ msgstr ""
 msgid "Invalid Color format"
 msgstr "قالب رنگ نادرست است"
 
-#: dash/validate/dataarray.php:46 dash/validate/datetime.php:22
+#: dash/validate/dataarray.php:41
+msgid "Field :val must be json"
+msgstr "مقدار :val باید جیسون باشد"
+
+#: dash/validate/dataarray.php:66 dash/validate/datetime.php:22
 #: dash/validate/datetime.php:214
 msgid "Field :val must be string or number"
 msgstr "فیلد :val باید به صورت عددی یا متی وارد شود"
 
-#: dash/validate/dataarray.php:78
+#: dash/validate/dataarray.php:98
 msgid "Your entered value is outside the approved list for field :val"
 msgstr "مقدار وارد شده در لیست مقادیر مجاز برای :val یافت نشد"
 
-#: dash/validate/dataarray.php:88
+#: dash/validate/dataarray.php:108
 msgid "Enum list must be array"
 msgstr "لیست اعتبارسنجی باید به صورت عددی وارد شود"
 
-#: dash/validate/dataarray.php:125 dash/validate/dataarray.php:170
+#: dash/validate/dataarray.php:145 dash/validate/dataarray.php:190
 msgid "You can set maximum 100 tag"
 msgstr "شما می‌توانید حداکثر ۱۰۰ کلید‌واژه اضافه کنید"
 
-#: dash/validate/dataarray.php:215
+#: dash/validate/dataarray.php:235
 msgid "You can set maximum 50 cat"
 msgstr "شما می‌توانید حداکثر ۵۰ دسته‌بندی اضافه کنید"
 
@@ -28006,1877 +28061,1901 @@ msgstr "تنظیم اعداد صفحه نخست"
 msgid " "
 msgstr " "
 
-#: includes/languages/trans_static.php:13 includes/languages/trans_static.php:450
+#: includes/languages/trans_static.php:15
+msgid "Monday"
+msgstr "دوشنبه"
+
+#: includes/languages/trans_static.php:16
+msgid "Tuesday"
+msgstr "سه‌شنبه"
+
+#: includes/languages/trans_static.php:17
+msgid "Wednesday"
+msgstr "چهارشنبه"
+
+#: includes/languages/trans_static.php:18
+msgid "Thursday"
+msgstr "پنج‌شنبه"
+
+#: includes/languages/trans_static.php:19
+msgid "Friday"
+msgstr "جمعه"
+
+#: includes/languages/trans_static.php:20
+msgid "Saturday"
+msgstr "شنبه"
+
+#: includes/languages/trans_static.php:21
+msgid "Sunday"
+msgstr "یک‌شنبه"
+
+#: includes/languages/trans_static.php:24 includes/languages/trans_static.php:461
 #: includes/languages/trans_static_public.php:920 lib/app/quickaccess/setting.php:332
 msgid "money"
 msgstr "پول"
 
-#: includes/languages/trans_static.php:14
+#: includes/languages/trans_static.php:25
 msgid "toman"
 msgstr "تومان"
 
-#: includes/languages/trans_static.php:18 includes/languages/trans_static.php:377
+#: includes/languages/trans_static.php:29 includes/languages/trans_static.php:388
 msgid "presell"
 msgstr "پیش فاکتور"
 
-#: includes/languages/trans_static.php:19 includes/languages/trans_static.php:378
+#: includes/languages/trans_static.php:30 includes/languages/trans_static.php:389
 msgid "lending"
 msgstr "امانی"
 
-#: includes/languages/trans_static.php:20 includes/languages/trans_static.php:379
+#: includes/languages/trans_static.php:31 includes/languages/trans_static.php:390
 msgid "backbuy"
 msgstr "بازگشت از خرید"
 
-#: includes/languages/trans_static.php:21 includes/languages/trans_static.php:380
+#: includes/languages/trans_static.php:32 includes/languages/trans_static.php:391
 msgid "backsell"
 msgstr "بازگشت از فروش"
 
-#: includes/languages/trans_static.php:22 includes/languages/trans_static.php:381
+#: includes/languages/trans_static.php:33 includes/languages/trans_static.php:392
 msgid "waste"
 msgstr "ضایعات"
 
-#: includes/languages/trans_static.php:26 includes/languages/trans_static.php:506
+#: includes/languages/trans_static.php:37 includes/languages/trans_static.php:517
 #: lib/app/factor/ready.php:81
 msgid "Presell"
 msgstr "پیش فاکتور"
 
-#: includes/languages/trans_static.php:27 includes/languages/trans_static.php:507
+#: includes/languages/trans_static.php:38 includes/languages/trans_static.php:518
 #: lib/app/factor/ready.php:82
 msgid "Lending"
 msgstr "امانی"
 
-#: includes/languages/trans_static.php:28 includes/languages/trans_static.php:508
+#: includes/languages/trans_static.php:39 includes/languages/trans_static.php:519
 msgid "Backbuy"
 msgstr "بازگشت از خرید"
 
-#: includes/languages/trans_static.php:29 includes/languages/trans_static.php:509
+#: includes/languages/trans_static.php:40 includes/languages/trans_static.php:520
 msgid "Backsell"
 msgstr "بازگشت از فروش"
 
-#: includes/languages/trans_static.php:30 includes/languages/trans_static.php:510
+#: includes/languages/trans_static.php:41 includes/languages/trans_static.php:521
 #: lib/app/factor/ready.php:85
 msgid "Waste"
 msgstr "ضایعات محصول"
 
-#: includes/languages/trans_static.php:32
+#: includes/languages/trans_static.php:43
 msgid "aThirdPartyPermissionChange"
 msgstr "تغییر سطح دسترسی طرف حساب"
 
-#: includes/languages/trans_static.php:33 includes/languages/trans_static.php:130
+#: includes/languages/trans_static.php:44 includes/languages/trans_static.php:141
 msgid "reportDaily"
 msgstr "نمایش گزارش روزانه"
 
-#: includes/languages/trans_static.php:34 includes/languages/trans_static.php:131
+#: includes/languages/trans_static.php:45 includes/languages/trans_static.php:142
 msgid "reportMonth"
 msgstr "نمایش گزارش ماهیانه"
 
-#: includes/languages/trans_static.php:35 includes/languages/trans_static.php:132
+#: includes/languages/trans_static.php:46 includes/languages/trans_static.php:143
 msgid "reportView"
 msgstr "نمایش گزارش‌ها"
 
-#: includes/languages/trans_static.php:36
+#: includes/languages/trans_static.php:47
 msgid "aThirdPartyEdit"
 msgstr "ویرایش طرف حساب"
 
-#: includes/languages/trans_static.php:37
+#: includes/languages/trans_static.php:48
 msgid "aThirdPartyAdd"
 msgstr "افزودن طرف حساب"
 
-#: includes/languages/trans_static.php:38
+#: includes/languages/trans_static.php:49
 msgid "aStaffAdd"
 msgstr "افزودن کارمند"
 
-#: includes/languages/trans_static.php:39
+#: includes/languages/trans_static.php:50
 msgid "aThirdPartyView"
 msgstr "نمایش لیست طرف حساب‌ها"
 
-#: includes/languages/trans_static.php:40
+#: includes/languages/trans_static.php:51
 msgid "aPermissionAddEdit"
 msgstr "افزودن سطح دسترسی"
 
-#: includes/languages/trans_static.php:41
+#: includes/languages/trans_static.php:52
 msgid "aPermissionDelete"
 msgstr "حذف سطح دسترسی"
 
-#: includes/languages/trans_static.php:42
+#: includes/languages/trans_static.php:53
 msgid "aPermissionView"
 msgstr "نمایش سطح دسترسی"
 
-#: includes/languages/trans_static.php:43 includes/languages/trans_static.php:128
+#: includes/languages/trans_static.php:54 includes/languages/trans_static.php:139
 msgid "settingEdit"
 msgstr "ویرایش تنظیمات فروشگاه"
 
-#: includes/languages/trans_static.php:44 includes/languages/trans_static.php:129
+#: includes/languages/trans_static.php:55 includes/languages/trans_static.php:140
 msgid "settingView"
 msgstr "نمایش تنظیمات فروشگاه"
 
-#: includes/languages/trans_static.php:45
+#: includes/languages/trans_static.php:56
 msgid "aProductEdit"
 msgstr "ویرایش محصول"
 
-#: includes/languages/trans_static.php:46
+#: includes/languages/trans_static.php:57
 msgid "aProductAdd"
 msgstr "افزودن محصول"
 
-#: includes/languages/trans_static.php:47
+#: includes/languages/trans_static.php:58
 msgid "aProductDelete"
 msgstr "حذف محصول"
 
-#: includes/languages/trans_static.php:48
+#: includes/languages/trans_static.php:59
 msgid "aProductExport"
 msgstr "تهیه خروجی از محصولات"
 
-#: includes/languages/trans_static.php:49
+#: includes/languages/trans_static.php:60
 msgid "aProductImport"
 msgstr "وارد کردن دسته ای محصول"
 
-#: includes/languages/trans_static.php:50
+#: includes/languages/trans_static.php:61
 msgid "aProductReport"
 msgstr "نمایش گزارش محصولات"
 
-#: includes/languages/trans_static.php:51
+#: includes/languages/trans_static.php:62
 msgid "aProductList"
 msgstr "نمایش لیست محصولات"
 
-#: includes/languages/trans_static.php:52
+#: includes/languages/trans_static.php:63
 msgid "aFactorFishPrint"
 msgstr "چاپ فاکتور"
 
-#: includes/languages/trans_static.php:53
+#: includes/languages/trans_static.php:64
 msgid "aFactorAdd"
 msgstr "افزودن فاکتور"
 
-#: includes/languages/trans_static.php:54
+#: includes/languages/trans_static.php:65
 msgid "aFactorExport"
 msgstr "تهیه فایل خروجی از فاکتور"
 
-#: includes/languages/trans_static.php:55
+#: includes/languages/trans_static.php:66
 msgid "aFactorList"
 msgstr "نمایش لیست فاکتور‌ها"
 
-#: includes/languages/trans_static.php:57
+#: includes/languages/trans_static.php:68
 msgid "Third party"
 msgstr "گزارش‌ها"
 
-#: includes/languages/trans_static.php:58
+#: includes/languages/trans_static.php:69
 msgid "Store setting"
 msgstr "تنظیمات فروشگاه"
 
-#: includes/languages/trans_static.php:63
+#: includes/languages/trans_static.php:74
 msgid "customer"
 msgstr "مشتری"
 
-#: includes/languages/trans_static.php:64
+#: includes/languages/trans_static.php:75
 msgid "customers"
 msgstr "مشتریان"
 
-#: includes/languages/trans_static.php:67
+#: includes/languages/trans_static.php:78
 msgid "staff"
 msgstr "کارمند"
 
-#: includes/languages/trans_static.php:68
+#: includes/languages/trans_static.php:79
 msgid "staffs"
 msgstr "کارمندان"
 
-#: includes/languages/trans_static.php:69
+#: includes/languages/trans_static.php:80
 msgid "Supplier"
 msgstr "تامین‌کننده"
 
-#: includes/languages/trans_static.php:70
+#: includes/languages/trans_static.php:81
 msgid "Suppliers"
 msgstr "تامین‌کنندگان"
 
-#: includes/languages/trans_static.php:71
+#: includes/languages/trans_static.php:82
 msgid "supplier"
 msgstr "تامین‌کننده"
 
-#: includes/languages/trans_static.php:72
+#: includes/languages/trans_static.php:83
 msgid "suppliers"
 msgstr "تامین‌کنندگان"
 
-#: includes/languages/trans_static.php:74
+#: includes/languages/trans_static.php:85
 msgid "thirdparty"
 msgstr "طرف‌حساب"
 
-#: includes/languages/trans_static.php:75
+#: includes/languages/trans_static.php:86
 msgid "Thirdparties"
 msgstr "طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:76
+#: includes/languages/trans_static.php:87
 msgid "thirdparties"
 msgstr "طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:78
+#: includes/languages/trans_static.php:89
 msgid "factorSaleView"
 msgstr "نمایش فاکتور‌های فروش"
 
-#: includes/languages/trans_static.php:79
+#: includes/languages/trans_static.php:90
 msgid "factorMySaleView"
 msgstr "فقط نمایش فاکتور‌های فروش خود"
 
-#: includes/languages/trans_static.php:80
+#: includes/languages/trans_static.php:91
 msgid "factorSaleAdd"
 msgstr "افزودن فاکتور فروش"
 
-#: includes/languages/trans_static.php:81
+#: includes/languages/trans_static.php:92
 msgid "factorSaleViewDetail"
 msgstr "نمایش جزئیات فاکتور فروش"
 
-#: includes/languages/trans_static.php:82
+#: includes/languages/trans_static.php:93
 msgid "factorBuyList"
 msgstr "نمایش فاکتور خرید"
 
-#: includes/languages/trans_static.php:83
+#: includes/languages/trans_static.php:94
 msgid "factorMyBuyList"
 msgstr "فقط نمایش فاکتور خرید خود"
 
-#: includes/languages/trans_static.php:84
+#: includes/languages/trans_static.php:95
 msgid "factorBuyAdd"
 msgstr "افزودن فاکتور خرید"
 
-#: includes/languages/trans_static.php:85
+#: includes/languages/trans_static.php:96
 msgid "factorBuyViewDetail"
 msgstr "نمایش جزئیات فاکتور خرید"
 
-#: includes/languages/trans_static.php:86
+#: includes/languages/trans_static.php:97
 msgid "productAdd"
 msgstr "افزودن محصول"
 
-#: includes/languages/trans_static.php:87
+#: includes/languages/trans_static.php:98
 msgid "productList"
 msgstr "نمایش لیست محصولات"
 
-#: includes/languages/trans_static.php:88
+#: includes/languages/trans_static.php:99
 msgid "productSummary"
 msgstr "نمایش خلاصه وضعیت محصولات"
 
-#: includes/languages/trans_static.php:89
+#: includes/languages/trans_static.php:100
 msgid "productAdvanceSearchView"
 msgstr "قابلیت فیلتر کردن محصولات با جستجوی پیشرفته"
 
-#: includes/languages/trans_static.php:90
+#: includes/languages/trans_static.php:101
 msgid "productPriceAccess"
 msgstr "دسترسی به قیمت محصول"
 
-#: includes/languages/trans_static.php:91
+#: includes/languages/trans_static.php:102
 msgid "productFinalpriceAccess"
 msgstr "دسترسی به قیمت نهایی محصول"
 
-#: includes/languages/trans_static.php:92
+#: includes/languages/trans_static.php:103
 msgid "productDatemodifiedAccess"
 msgstr "دسترسی به تاریخ ویرایش محصول"
 
-#: includes/languages/trans_static.php:93
+#: includes/languages/trans_static.php:104
 msgid "productBuypriceAccess"
 msgstr "دسترسی به قیمت خرید محصول"
 
-#: includes/languages/trans_static.php:94
+#: includes/languages/trans_static.php:105
 msgid "productDiscountAccess"
 msgstr "دسترسی به تخفیف محصول"
 
-#: includes/languages/trans_static.php:95
+#: includes/languages/trans_static.php:106
 msgid "productProfitAccess"
 msgstr "دسترسی به میزان سود محصول"
 
-#: includes/languages/trans_static.php:96
+#: includes/languages/trans_static.php:107
 msgid "productStockAccess"
 msgstr "دسترسی به موجودی محصول"
 
-#: includes/languages/trans_static.php:97
+#: includes/languages/trans_static.php:108
 msgid "productInitialbalanceEdit"
 msgstr "ویرایش موجودی اولیه محصول"
 
-#: includes/languages/trans_static.php:98
+#: includes/languages/trans_static.php:109
 msgid "productEditGeneral"
 msgstr "ویرایش عمومی محصول"
 
-#: includes/languages/trans_static.php:99
+#: includes/languages/trans_static.php:110
 msgid "productManagementView"
 msgstr "نمایش بخش مدیریت محصول"
 
-#: includes/languages/trans_static.php:100
+#: includes/languages/trans_static.php:111
 msgid "productStatusEdit"
 msgstr "ویرایش وضعیت محصول"
 
-#: includes/languages/trans_static.php:101
+#: includes/languages/trans_static.php:112
 msgid "productDelete"
 msgstr "حذف محصول"
 
-#: includes/languages/trans_static.php:102
+#: includes/languages/trans_static.php:113
 msgid "productGlance"
 msgstr "نمایش نگاه اجمالی محصول"
 
-#: includes/languages/trans_static.php:103
+#: includes/languages/trans_static.php:114
 msgid "productSite"
 msgstr "نمایش بخش سایت محصول"
 
-#: includes/languages/trans_static.php:104
+#: includes/languages/trans_static.php:115
 msgid "productThumbEdit"
 msgstr "ویرایش تصویر شاخص محصول"
 
-#: includes/languages/trans_static.php:105
+#: includes/languages/trans_static.php:116
 msgid "productGalleryEdit"
 msgstr "ویرایش گالری تصاویر محصول"
 
-#: includes/languages/trans_static.php:106
+#: includes/languages/trans_static.php:117
 msgid "productDescriptionEdit"
 msgstr "ویرایش توضیحات محصول"
 
-#: includes/languages/trans_static.php:107
+#: includes/languages/trans_static.php:118
 msgid "productPriceHistoryView"
 msgstr "نمایش نمودار تغییر قیمت محصول"
 
-#: includes/languages/trans_static.php:108
+#: includes/languages/trans_static.php:119
 msgid "productImport"
 msgstr "وارد کردن دسته محصولات"
 
-#: includes/languages/trans_static.php:109 includes/languages/trans_static.php:141
+#: includes/languages/trans_static.php:120 includes/languages/trans_static.php:152
 msgid "productExport"
 msgstr "خروجی از محصول"
 
-#: includes/languages/trans_static.php:110
+#: includes/languages/trans_static.php:121
 msgid "productCategoryListAdd"
 msgstr "افزودن دسته‌بندی محصول"
 
-#: includes/languages/trans_static.php:111
+#: includes/languages/trans_static.php:122
 msgid "productCategoryListEdit"
 msgstr "ویرایش دسته‌بندی محصول"
 
-#: includes/languages/trans_static.php:113
+#: includes/languages/trans_static.php:124
 msgid "productUnitListAdd"
 msgstr "افزودن واحد محصول"
 
-#: includes/languages/trans_static.php:114
+#: includes/languages/trans_static.php:125
 msgid "productUnitListEdit"
 msgstr "ویرایش واحد محصول"
 
-#: includes/languages/trans_static.php:115
+#: includes/languages/trans_static.php:126
 msgid "reportListChartHours"
 msgstr "نمایش گزارش فروش به تفکیک ساعت"
 
-#: includes/languages/trans_static.php:116
+#: includes/languages/trans_static.php:127
 msgid "permissionList"
 msgstr "نمایش لیست سطح دسترسی"
 
-#: includes/languages/trans_static.php:117
+#: includes/languages/trans_static.php:128
 msgid "permissionAddEdit"
 msgstr "افزودن و ویرایش سطح دسترسی"
 
-#: includes/languages/trans_static.php:118
+#: includes/languages/trans_static.php:129
 msgid "permissionDelete"
 msgstr "حذف سطح دسترسی"
 
-#: includes/languages/trans_static.php:119
+#: includes/languages/trans_static.php:130
 msgid "staffAccess"
 msgstr "دسترسی به کارمند"
 
-#: includes/languages/trans_static.php:120
+#: includes/languages/trans_static.php:131
 msgid "supplierAccess"
 msgstr "دسترسی به تامین‌کنندگان"
 
-#: includes/languages/trans_static.php:121
+#: includes/languages/trans_static.php:132
 msgid "customerAccess"
 msgstr "دسترسی به مشتریان"
 
-#: includes/languages/trans_static.php:122
+#: includes/languages/trans_static.php:133
 msgid "customerAdd"
 msgstr "افزودن مشتری"
 
-#: includes/languages/trans_static.php:123
+#: includes/languages/trans_static.php:134
 msgid "supplierAdd"
 msgstr "افزودن تامین‌کننده"
 
-#: includes/languages/trans_static.php:124
+#: includes/languages/trans_static.php:135
 msgid "staffAdd"
 msgstr "افزودن کارمند"
 
-#: includes/languages/trans_static.php:125
+#: includes/languages/trans_static.php:136
 msgid "staffExport"
 msgstr "خروجی از کارمندان"
 
-#: includes/languages/trans_static.php:126
+#: includes/languages/trans_static.php:137
 msgid "customerExport"
 msgstr "خروجی از مشتریان"
 
-#: includes/languages/trans_static.php:127
+#: includes/languages/trans_static.php:138
 msgid "supplierExport"
 msgstr "خروجی از طرف حساب‌ها"
 
-#: includes/languages/trans_static.php:134
+#: includes/languages/trans_static.php:145
 msgid "factorAccess"
 msgstr "دسترسی به فاکتور‌ها"
 
-#: includes/languages/trans_static.php:135
+#: includes/languages/trans_static.php:146
 msgid "factorEditAccess"
 msgstr "ویرایش فاکتور"
 
-#: includes/languages/trans_static.php:136
+#: includes/languages/trans_static.php:147
 msgid "factorSaleList"
 msgstr "نمایش لیست فروش"
 
-#: includes/languages/trans_static.php:137
+#: includes/languages/trans_static.php:148
 msgid "factorMySaleList"
 msgstr "فقط نمایش فروش‌های خود"
 
-#: includes/languages/trans_static.php:138
+#: includes/languages/trans_static.php:149
 msgid "productStock"
 msgstr "موجودی محصول"
 
-#: includes/languages/trans_static.php:139
+#: includes/languages/trans_static.php:150
 msgid "productReport"
 msgstr "گزارش محصول"
 
-#: includes/languages/trans_static.php:140
+#: includes/languages/trans_static.php:151
 msgid "productFactor"
 msgstr "فاکتور‌های محصول"
 
-#: includes/languages/trans_static.php:142
+#: includes/languages/trans_static.php:153
 msgid "productCategoryListDelete"
 msgstr "حذف دسته‌بندی کالا‌ها"
 
-#: includes/languages/trans_static.php:143
+#: includes/languages/trans_static.php:154
 msgid "productUnitListDelete"
 msgstr "حذف واحد کالا"
 
-#: includes/languages/trans_static.php:144
+#: includes/languages/trans_static.php:155
 msgid "thirdpartyBillingView"
 msgstr "نمایش بخش مالی طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:145
+#: includes/languages/trans_static.php:156
 msgid "settingEditPlan"
 msgstr "ویرایش پلن فروشگاه"
 
-#: includes/languages/trans_static.php:146
+#: includes/languages/trans_static.php:157
 msgid "settingEditPos"
 msgstr "ویرایش تنظیمات دستگاه کارتخوان"
 
-#: includes/languages/trans_static.php:147
+#: includes/languages/trans_static.php:158
 msgid "settingEditFactor"
 msgstr "ویرایش تنظیمات فاکتور"
 
-#: includes/languages/trans_static.php:148
+#: includes/languages/trans_static.php:159
 msgid "settingEditFund"
 msgstr "ویرایش باجه‌های فروش"
 
-#: includes/languages/trans_static.php:149
+#: includes/languages/trans_static.php:160
 msgid "settingEditInventory"
 msgstr "ویرایش انبار‌های فروشگاه"
 
-#: includes/languages/trans_static.php:150
+#: includes/languages/trans_static.php:161
 msgid "settingEditLogo"
 msgstr "ویرایش لوگو فروشگاه"
 
-#: includes/languages/trans_static.php:152
+#: includes/languages/trans_static.php:163
 msgid "trial"
 msgstr "آزمایشی"
 
-#: includes/languages/trans_static.php:153
+#: includes/languages/trans_static.php:164
 msgid "Trial"
 msgstr "آزمایشی"
 
-#: includes/languages/trans_static.php:154 includes/languages/trans_static.php:466
+#: includes/languages/trans_static.php:165 includes/languages/trans_static.php:477
 msgid "change"
 msgstr "تغییر"
 
-#: includes/languages/trans_static.php:155 includes/languages/trans_static.php:467
+#: includes/languages/trans_static.php:166 includes/languages/trans_static.php:478
 msgid "continuation"
 msgstr "تمدید"
 
-#: includes/languages/trans_static.php:156 includes/languages/trans_static.php:468
+#: includes/languages/trans_static.php:167 includes/languages/trans_static.php:479
 msgid "upgrade"
 msgstr "ارتقا"
 
-#: includes/languages/trans_static.php:157 includes/languages/trans_static.php:469
+#: includes/languages/trans_static.php:168 includes/languages/trans_static.php:480
 msgid "downgrade"
 msgstr "پایین آمدن"
 
-#: includes/languages/trans_static.php:158
+#: includes/languages/trans_static.php:169
 msgid "first_year"
 msgstr "سال اول"
 
-#: includes/languages/trans_static.php:159 includes/languages/trans_static.php:470
+#: includes/languages/trans_static.php:170 includes/languages/trans_static.php:481
 msgid "set"
 msgstr "تنظیم"
 
-#: includes/languages/trans_static.php:160 includes/languages/trans_static.php:472
+#: includes/languages/trans_static.php:171 includes/languages/trans_static.php:483
 msgid "monthly"
 msgstr "ماهیانه"
 
-#: includes/languages/trans_static.php:161 includes/languages/trans_static.php:473
+#: includes/languages/trans_static.php:172 includes/languages/trans_static.php:484
 msgid "yearly"
 msgstr "سالیانه"
 
-#: includes/languages/trans_static.php:163
+#: includes/languages/trans_static.php:174
 msgid "propertyAdd"
 msgstr "افزودن مشخصات محصول"
 
-#: includes/languages/trans_static.php:164
+#: includes/languages/trans_static.php:175
 msgid "propertyDelete"
 msgstr "حذف مشخصه محصول"
 
-#: includes/languages/trans_static.php:165
+#: includes/languages/trans_static.php:176
 msgid "thirdpartyNoteDelete"
 msgstr "حذف یادداشت طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:166
+#: includes/languages/trans_static.php:177
 msgid "thirdpartySold"
 msgstr "نمایش میزان فروش طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:167
+#: includes/languages/trans_static.php:178
 msgid "thirdpartyLogView"
 msgstr "نمایش لاگ طرف‌حساب"
 
-#: includes/languages/trans_static.php:168
+#: includes/languages/trans_static.php:179
 msgid "thirdpartyProfile"
 msgstr "نمایش پروفایل طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:169
+#: includes/languages/trans_static.php:180
 msgid "thirdpartyTransaction"
 msgstr "نمایش‌ تراکنش‌های طرف‌حساب‌ها"
 
-#: includes/languages/trans_static.php:170
+#: includes/languages/trans_static.php:181
 msgid "productPropertyEdit"
 msgstr "ویرایش مشخصات محصولات"
 
-#: includes/languages/trans_static.php:171
+#: includes/languages/trans_static.php:182
 msgid "productView"
 msgstr "نمایش محصولات"
 
-#: includes/languages/trans_static.php:173
+#: includes/languages/trans_static.php:184
 msgid "categoryPropertyAddEdit"
 msgstr ""
 "افزودن یا ویرایش مشخصات\n"
 " دسته‌بندی"
 
-#: includes/languages/trans_static.php:174
+#: includes/languages/trans_static.php:185
 msgid "categoryRemove"
 msgstr "حذف دسته‌بندی"
 
-#: includes/languages/trans_static.php:175
+#: includes/languages/trans_static.php:186
 msgid "categoryAdd"
 msgstr "افزودن دسته‌بندی"
 
-#: includes/languages/trans_static.php:176
+#: includes/languages/trans_static.php:187
 msgid "categoryEdit"
 msgstr "ویرایش دسته‌بندی"
 
-#: includes/languages/trans_static.php:178
+#: includes/languages/trans_static.php:189
 msgid "ultimateFactor"
 msgstr "تعداد نامحدود فاکتور"
 
-#: includes/languages/trans_static.php:179
+#: includes/languages/trans_static.php:190
 msgid "factorCount1000"
 msgstr "تعداد هزار فاکتور"
 
-#: includes/languages/trans_static.php:180
+#: includes/languages/trans_static.php:191
 msgid "factorCount100"
 msgstr "تعداد صد فاکتور"
 
-#: includes/languages/trans_static.php:181
+#: includes/languages/trans_static.php:192
 msgid "ultimateProduct"
 msgstr "تعداد نامحدود محصول"
 
-#: includes/languages/trans_static.php:182
+#: includes/languages/trans_static.php:193
 msgid "productCount1000"
 msgstr "تعداد هزار محصول"
 
-#: includes/languages/trans_static.php:183
+#: includes/languages/trans_static.php:194
 msgid "productCount100"
 msgstr "تعداد صد محصول"
 
-#: includes/languages/trans_static.php:184
+#: includes/languages/trans_static.php:195
 msgid "ultimateThirdparty"
 msgstr "تعداد نامحدود طرف‌حساب"
 
-#: includes/languages/trans_static.php:185
+#: includes/languages/trans_static.php:196
 msgid "thirdpartyCount1000"
 msgstr "تعداد هزار طرف‌حساب"
 
-#: includes/languages/trans_static.php:186
+#: includes/languages/trans_static.php:197
 msgid "thirdpartyCount100"
 msgstr "تعداد صد طرف‌حساب"
 
-#: includes/languages/trans_static.php:187
+#: includes/languages/trans_static.php:198
 msgid "ultimateFactorDetail"
 msgstr "تعداد نامحدود آیتم در هر فاکتور"
 
-#: includes/languages/trans_static.php:188
+#: includes/languages/trans_static.php:199
 msgid "factordetailCount100"
 msgstr "تعداد صد آیتم در هر فاکتور"
 
-#: includes/languages/trans_static.php:189
+#: includes/languages/trans_static.php:200
 msgid "factordetailCount10"
 msgstr "تعداد ده آیتم در هر فاکتور"
 
-#: includes/languages/trans_static.php:190
+#: includes/languages/trans_static.php:201
 msgid "Limitations"
 msgstr "محدودیت‌ها"
 
-#: includes/languages/trans_static.php:192 includes/languages/trans_static.php:321
-#: includes/languages/trans_static.php:434 lib/app/quickaccess/setting.php:601
+#: includes/languages/trans_static.php:203 includes/languages/trans_static.php:332
+#: includes/languages/trans_static.php:445 lib/app/quickaccess/setting.php:601
 msgid "comments"
 msgstr "نظرات"
 
-#: includes/languages/trans_static.php:193 includes/languages/trans_static.php:295
+#: includes/languages/trans_static.php:204 includes/languages/trans_static.php:306
 #: lib/app/quickaccess/setting.php:602
 msgid "comment"
 msgstr "دیدگاه"
 
-#: includes/languages/trans_static.php:194 includes/languages/trans_static.php:385
+#: includes/languages/trans_static.php:205 includes/languages/trans_static.php:396
 #: includes/languages/trans_static_public.php:933
 msgid "approved"
 msgstr "تایید شده"
 
-#: includes/languages/trans_static.php:195 includes/languages/trans_static.php:386
+#: includes/languages/trans_static.php:206 includes/languages/trans_static.php:397
 #: includes/languages/trans_static_public.php:934
 msgid "unapproved"
 msgstr "تایید نشده"
 
-#: includes/languages/trans_static.php:196 includes/languages/trans_static.php:373
+#: includes/languages/trans_static.php:207 includes/languages/trans_static.php:384
 #: includes/languages/trans_static_public.php:924
 msgid "spam"
 msgstr "هرزنامه"
 
-#: includes/languages/trans_static.php:199 includes/languages/trans_static.php:282
+#: includes/languages/trans_static.php:210 includes/languages/trans_static.php:293
 #: includes/languages/trans_static_public.php:131
 msgid "post"
 msgstr "نوشته"
 
-#: includes/languages/trans_static.php:200
+#: includes/languages/trans_static.php:211
 msgid "author"
 msgstr "کاربر"
 
-#: includes/languages/trans_static.php:202 includes/languages/trans_static.php:268
-#: includes/languages/trans_static.php:291 includes/languages/trans_static.php:309
+#: includes/languages/trans_static.php:213 includes/languages/trans_static.php:279
+#: includes/languages/trans_static.php:302 includes/languages/trans_static.php:320
 msgid "url"
 msgstr "نشانی اینترنتی"
 
-#: includes/languages/trans_static.php:203 includes/languages/trans_static.php:266
-#: includes/languages/trans_static.php:292
+#: includes/languages/trans_static.php:214 includes/languages/trans_static.php:277
+#: includes/languages/trans_static.php:303
 msgid "content"
 msgstr "محتوا"
 
-#: includes/languages/trans_static.php:206 includes/languages/trans_static.php:299
-#: includes/languages/trans_static.php:312 includes/languages/trans_static_public.php:409
+#: includes/languages/trans_static.php:217 includes/languages/trans_static.php:310
+#: includes/languages/trans_static.php:323 includes/languages/trans_static_public.php:409
 msgid "parent"
 msgstr "والد"
 
-#: includes/languages/trans_static.php:207 includes/languages/trans_static.php:329
+#: includes/languages/trans_static.php:218 includes/languages/trans_static.php:340
 msgid "user"
 msgstr "کاربر"
 
-#: includes/languages/trans_static.php:208 includes/languages/trans_static_public.php:147
+#: includes/languages/trans_static.php:219 includes/languages/trans_static_public.php:147
 msgid "visitor"
 msgstr "بازدیدکننده"
 
-#: includes/languages/trans_static.php:209
+#: includes/languages/trans_static.php:220
 msgid "modified"
 msgstr "آخرین زمان ویرایش"
 
-#: includes/languages/trans_static.php:212
+#: includes/languages/trans_static.php:223
 msgid "hours"
 msgstr "ساعات"
 
-#: includes/languages/trans_static.php:214
+#: includes/languages/trans_static.php:225
 msgid "nothing"
 msgstr "هیچی"
 
-#: includes/languages/trans_static.php:215
+#: includes/languages/trans_static.php:226
 msgid "base"
 msgstr "پایه"
 
-#: includes/languages/trans_static.php:216
+#: includes/languages/trans_static.php:227
 msgid "wplus"
 msgstr "همراه با ریموت"
 
-#: includes/languages/trans_static.php:217
+#: includes/languages/trans_static.php:228
 msgid "wminus"
 msgstr "همراه با هدررفت"
 
-#: includes/languages/trans_static.php:218 includes/languages/trans_static_public.php:875
+#: includes/languages/trans_static.php:229 includes/languages/trans_static_public.php:875
 #: lib/app/quickaccess/setting.php:535 lib/app/quickaccess/setting.php:582
 msgid "all"
 msgstr "همه"
 
-#: includes/languages/trans_static.php:219 includes/languages/trans_static.php:351
+#: includes/languages/trans_static.php:230 includes/languages/trans_static.php:362
 #: includes/languages/trans_static_public.php:872
 msgid "active"
 msgstr "فعال"
 
-#: includes/languages/trans_static.php:220 includes/languages/trans_static.php:352
+#: includes/languages/trans_static.php:231 includes/languages/trans_static.php:363
 #: includes/languages/trans_static_public.php:857
 #: includes/languages/trans_static_public.php:932
 msgid "awaiting"
 msgstr "در انتظار"
 
-#: includes/languages/trans_static.php:221 includes/languages/trans_static.php:353
+#: includes/languages/trans_static.php:232 includes/languages/trans_static.php:364
 #: includes/languages/trans_static_public.php:873
 msgid "deactive"
 msgstr "غیر فعال"
 
-#: includes/languages/trans_static.php:222 includes/languages/trans_static.php:354
+#: includes/languages/trans_static.php:233 includes/languages/trans_static.php:365
 #: includes/languages/trans_static_public.php:903
 msgid "removed"
 msgstr "حذف شده"
 
-#: includes/languages/trans_static.php:224 includes/languages/trans_static_public.php:887
+#: includes/languages/trans_static.php:235 includes/languages/trans_static_public.php:887
 msgid "date"
 msgstr "تاریخ"
 
-#: includes/languages/trans_static.php:226
+#: includes/languages/trans_static.php:237
 msgid "end"
 msgstr "پایان"
 
-#: includes/languages/trans_static.php:227
+#: includes/languages/trans_static.php:238
 msgid "diff"
 msgstr "تفاوت"
 
-#: includes/languages/trans_static.php:228
+#: includes/languages/trans_static.php:239
 msgid "minus"
 msgstr "هدر رفته"
 
-#: includes/languages/trans_static.php:229
+#: includes/languages/trans_static.php:240
 msgid "plus"
 msgstr "دور کاری"
 
-#: includes/languages/trans_static.php:231
+#: includes/languages/trans_static.php:242
 msgid "accepted"
 msgstr "تاییدشده"
 
-#: includes/languages/trans_static.php:235
+#: includes/languages/trans_static.php:246
 msgid "logitems"
 msgstr "مواردلاگ‌ها"
 
-#: includes/languages/trans_static.php:236 includes/languages/trans_static.php:253
+#: includes/languages/trans_static.php:247 includes/languages/trans_static.php:264
 msgid "logitem"
 msgstr "موارد لاگ"
 
-#: includes/languages/trans_static.php:237 includes/languages/trans_static_public.php:907
+#: includes/languages/trans_static.php:248 includes/languages/trans_static_public.php:907
 msgid "critical"
 msgstr "بحرانی"
 
-#: includes/languages/trans_static.php:238 includes/languages/trans_static_public.php:908
+#: includes/languages/trans_static.php:249 includes/languages/trans_static_public.php:908
 msgid "high"
 msgstr "بالا"
 
-#: includes/languages/trans_static.php:239 includes/languages/trans_static_public.php:909
+#: includes/languages/trans_static.php:250 includes/languages/trans_static_public.php:909
 msgid "medium"
 msgstr "متوسط"
 
-#: includes/languages/trans_static.php:240 includes/languages/trans_static_public.php:910
+#: includes/languages/trans_static.php:251 includes/languages/trans_static_public.php:910
 msgid "low"
 msgstr "کم"
 
-#: includes/languages/trans_static.php:242 includes/languages/trans_static.php:310
+#: includes/languages/trans_static.php:253 includes/languages/trans_static.php:321
 msgid "desc"
 msgstr "توضیح"
 
-#: includes/languages/trans_static.php:244
+#: includes/languages/trans_static.php:255
 msgid "priority"
 msgstr "اولویت"
 
-#: includes/languages/trans_static.php:247
+#: includes/languages/trans_static.php:258
 msgid "logs"
 msgstr "لاگ‌ها"
 
-#: includes/languages/trans_static.php:248
+#: includes/languages/trans_static.php:259
 msgid "log"
 msgstr "لاگ"
 
-#: includes/languages/trans_static.php:252 includes/languages/trans_static.php:391
+#: includes/languages/trans_static.php:263 includes/languages/trans_static.php:402
 #: includes/languages/trans_static_public.php:911
 msgid "deliver"
 msgstr "تحویل‌داده‌شده"
 
-#: includes/languages/trans_static.php:254 lib/app/quickaccess/setting.php:563
+#: includes/languages/trans_static.php:265 lib/app/quickaccess/setting.php:563
 #: lib/app/quickaccess/setting.php:583
 msgid "data"
 msgstr "داده"
 
-#: includes/languages/trans_static.php:257 includes/languages/trans_static.php:337
+#: includes/languages/trans_static.php:268 includes/languages/trans_static.php:348
 msgid "createdate"
 msgstr "تاریخ ایجاد"
 
-#: includes/languages/trans_static.php:260
+#: includes/languages/trans_static.php:271
 msgid "notifications"
 msgstr "پیام‌ها"
 
-#: includes/languages/trans_static.php:261
+#: includes/languages/trans_static.php:272
 msgid "notification"
 msgstr "پیام"
 
-#: includes/languages/trans_static.php:262
+#: includes/languages/trans_static.php:273
 msgid "read"
 msgstr "خوانده شده"
 
-#: includes/languages/trans_static.php:263
+#: includes/languages/trans_static.php:274
 msgid "unread"
 msgstr "خوانده نشده"
 
-#: includes/languages/trans_static.php:264
+#: includes/languages/trans_static.php:275
 msgid "user sender"
 msgstr "کاربر فرستنده"
 
-#: includes/languages/trans_static.php:272
+#: includes/languages/trans_static.php:283
 msgid "options"
 msgstr "تنظیمات"
 
-#: includes/languages/trans_static.php:273 includes/languages/trans_static_public.php:139
+#: includes/languages/trans_static.php:284 includes/languages/trans_static_public.php:139
 msgid "option"
 msgstr "تنظیمات"
 
-#: includes/languages/trans_static.php:274 includes/languages/trans_static.php:416
+#: includes/languages/trans_static.php:285 includes/languages/trans_static.php:427
 msgid "cat"
 msgstr "دسته"
 
-#: includes/languages/trans_static.php:275
+#: includes/languages/trans_static.php:286
 msgid "key"
 msgstr "کلید"
 
-#: includes/languages/trans_static.php:276
+#: includes/languages/trans_static.php:287
 msgid "value"
 msgstr "مقدار"
 
-#: includes/languages/trans_static.php:281 includes/languages/trans_static.php:317
-#: includes/languages/trans_static.php:430
+#: includes/languages/trans_static.php:292 includes/languages/trans_static.php:328
+#: includes/languages/trans_static.php:441
 msgid "posts"
 msgstr "نوشته‌ها"
 
-#: includes/languages/trans_static.php:283 includes/languages/trans_static.php:413
+#: includes/languages/trans_static.php:294 includes/languages/trans_static.php:424
 msgid "open"
 msgstr "باز"
 
-#: includes/languages/trans_static.php:284 includes/languages/trans_static.php:414
+#: includes/languages/trans_static.php:295 includes/languages/trans_static.php:425
 msgid "closed"
 msgstr "بسته"
 
-#: includes/languages/trans_static.php:285 includes/languages/trans_static.php:389
+#: includes/languages/trans_static.php:296 includes/languages/trans_static.php:400
 msgid "publish"
 msgstr "منتشر شده"
 
-#: includes/languages/trans_static.php:287 includes/languages/trans_static.php:415
+#: includes/languages/trans_static.php:298 includes/languages/trans_static.php:426
 msgid "schedule"
 msgstr "زمان بندی شده"
 
-#: includes/languages/trans_static.php:290 includes/languages/trans_static.php:308
+#: includes/languages/trans_static.php:301 includes/languages/trans_static.php:319
 msgid "slug"
 msgstr "نامک"
 
-#: includes/languages/trans_static.php:296
+#: includes/languages/trans_static.php:307
 msgid "count"
 msgstr "تعداد"
 
-#: includes/languages/trans_static.php:297 includes/languages/trans_static.php:325
+#: includes/languages/trans_static.php:308 includes/languages/trans_static.php:336
 #: lib/app/quickaccess/setting.php:266
 msgid "order"
 msgstr "سفارش"
 
-#: includes/languages/trans_static.php:300
+#: includes/languages/trans_static.php:311
 msgid "publishdate"
 msgstr "زمان انتشار"
 
-#: includes/languages/trans_static.php:303
+#: includes/languages/trans_static.php:314
 msgid "terms"
 msgstr "عبارت‌ها"
 
-#: includes/languages/trans_static.php:304 includes/languages/trans_static.php:322
-#: includes/languages/trans_static.php:419
+#: includes/languages/trans_static.php:315 includes/languages/trans_static.php:333
+#: includes/languages/trans_static.php:430
 msgid "term"
 msgstr "عبارت"
 
-#: includes/languages/trans_static.php:315
+#: includes/languages/trans_static.php:326
 msgid "termusages"
 msgstr "موارد استفاده عبارت"
 
-#: includes/languages/trans_static.php:316 includes/languages/trans_static.php:323
+#: includes/languages/trans_static.php:327 includes/languages/trans_static.php:334
 msgid "termusage"
 msgstr "محل استفاده عبارت"
 
-#: includes/languages/trans_static.php:319 includes/languages/trans_static.php:432
+#: includes/languages/trans_static.php:330 includes/languages/trans_static.php:443
 msgid "attachments"
 msgstr "ضمیمه‌ها"
 
-#: includes/languages/trans_static.php:320 includes/languages/trans_static.php:433
+#: includes/languages/trans_static.php:331 includes/languages/trans_static.php:444
 msgid "files"
 msgstr "فایل‌ها"
 
-#: includes/languages/trans_static.php:324
+#: includes/languages/trans_static.php:335
 msgid "foreign"
 msgstr "کلیدخارجی"
 
-#: includes/languages/trans_static.php:328 includes/languages/trans_static.php:435
+#: includes/languages/trans_static.php:339 includes/languages/trans_static.php:446
 #: includes/languages/trans_static_public.php:397
 msgid "users"
 msgstr "کاربران"
 
-#: includes/languages/trans_static.php:332
+#: includes/languages/trans_static.php:343
 msgid "pass"
 msgstr "گذرواژه"
 
-#: includes/languages/trans_static.php:333 includes/languages/trans_static_public.php:400
+#: includes/languages/trans_static.php:344 includes/languages/trans_static_public.php:400
 msgid "displayname"
 msgstr "نام برای نمایش عمومی"
 
-#: includes/languages/trans_static.php:336 includes/languages/trans_static_public.php:410
+#: includes/languages/trans_static.php:347 includes/languages/trans_static_public.php:410
 msgid "permission"
 msgstr "سطح دسترسی"
 
-#: includes/languages/trans_static.php:343
+#: includes/languages/trans_static.php:354
 msgid "barcode"
 msgstr "بارکد"
 
-#: includes/languages/trans_static.php:347 includes/languages/trans_static_public.php:861
+#: includes/languages/trans_static.php:358 includes/languages/trans_static_public.php:861
 msgid "male"
 msgstr "مرد"
 
-#: includes/languages/trans_static.php:348 includes/languages/trans_static_public.php:862
+#: includes/languages/trans_static.php:359 includes/languages/trans_static_public.php:862
 msgid "female"
 msgstr "زن"
 
-#: includes/languages/trans_static.php:349
+#: includes/languages/trans_static.php:360
 msgid "company"
 msgstr "شرکت"
 
-#: includes/languages/trans_static.php:350
+#: includes/languages/trans_static.php:361
 msgid "rather"
 msgstr "نسبتا"
 
-#: includes/languages/trans_static.php:357 includes/languages/trans_static_public.php:863
+#: includes/languages/trans_static.php:368 includes/languages/trans_static_public.php:863
 msgid "single"
 msgstr "مجرد"
 
-#: includes/languages/trans_static.php:358 includes/languages/trans_static_public.php:864
+#: includes/languages/trans_static.php:369 includes/languages/trans_static_public.php:864
 msgid "married"
 msgstr "متاهل"
 
-#: includes/languages/trans_static.php:359 lib/app/quickaccess/setting.php:457
+#: includes/languages/trans_static.php:370 lib/app/quickaccess/setting.php:457
 #: lib/app/quickaccess/setting.php:471
 msgid "product"
 msgstr "محصول"
 
-#: includes/languages/trans_static.php:361 includes/languages/trans_static_public.php:257
+#: includes/languages/trans_static.php:372 includes/languages/trans_static_public.php:257
 msgid "service"
 msgstr "سرویس"
 
-#: includes/languages/trans_static.php:362
+#: includes/languages/trans_static.php:373
 msgid "unset"
 msgstr "تنظیم‌نشده"
 
-#: includes/languages/trans_static.php:363
+#: includes/languages/trans_static.php:374
 msgid "available"
 msgstr "موجود"
 
-#: includes/languages/trans_static.php:364
+#: includes/languages/trans_static.php:375
 msgid "unavailable"
 msgstr "ناموجود"
 
-#: includes/languages/trans_static.php:365 includes/languages/trans_static_public.php:870
+#: includes/languages/trans_static.php:376 includes/languages/trans_static_public.php:870
 msgid "soon"
 msgstr "به زودی"
 
-#: includes/languages/trans_static.php:366
+#: includes/languages/trans_static.php:377
 msgid "discountinued"
 msgstr "توقف تولید"
 
-#: includes/languages/trans_static.php:368
+#: includes/languages/trans_static.php:379
 msgid "yes"
 msgstr "بله"
 
-#: includes/languages/trans_static.php:369
+#: includes/languages/trans_static.php:380
 msgid "no"
 msgstr "خیر"
 
-#: includes/languages/trans_static.php:372 includes/languages/trans_static_public.php:865
+#: includes/languages/trans_static.php:383 includes/languages/trans_static_public.php:865
 msgid "leave"
 msgstr "ترک کرد"
 
-#: includes/languages/trans_static.php:374 lib/app/quickaccess/setting.php:412
+#: includes/languages/trans_static.php:385 lib/app/quickaccess/setting.php:412
 msgid "delete"
 msgstr "حذف"
 
-#: includes/languages/trans_static.php:384
+#: includes/languages/trans_static.php:395
 msgid "trash"
 msgstr "زباله‌دان"
 
-#: includes/languages/trans_static.php:388 includes/languages/trans_static_public.php:988
+#: includes/languages/trans_static.php:399 includes/languages/trans_static_public.php:988
 msgid "answered"
 msgstr "پاسخ‌داده‌شده"
 
-#: includes/languages/trans_static.php:390 includes/languages/trans_static_public.php:858
+#: includes/languages/trans_static.php:401 includes/languages/trans_static_public.php:858
 msgid "block"
 msgstr "قفل شده"
 
-#: includes/languages/trans_static.php:393
+#: includes/languages/trans_static.php:404
 msgid "notif"
 msgstr "اطلاع‌رسانی"
 
-#: includes/languages/trans_static.php:394
+#: includes/languages/trans_static.php:405
 msgid "notifread"
 msgstr "خوانده شده"
 
-#: includes/languages/trans_static.php:395
+#: includes/languages/trans_static.php:406
 msgid "notifexpire"
 msgstr "پیام منقضی شده"
 
-#: includes/languages/trans_static.php:396
+#: includes/languages/trans_static.php:407
 msgid "terminate"
 msgstr "از بین رفته"
 
-#: includes/languages/trans_static.php:397
+#: includes/languages/trans_static.php:408
 msgid "changed"
 msgstr "تغییر یافته"
 
-#: includes/languages/trans_static.php:398 includes/languages/trans_static_public.php:206
+#: includes/languages/trans_static.php:409 includes/languages/trans_static_public.php:206
 msgid "logout"
 msgstr "خروج از سیستم"
 
-#: includes/languages/trans_static.php:399 includes/languages/trans_static_public.php:931
+#: includes/languages/trans_static.php:410 includes/languages/trans_static_public.php:931
 msgid "ok"
 msgstr "باشه"
 
-#: includes/languages/trans_static.php:400
+#: includes/languages/trans_static.php:411
 msgid "failed"
 msgstr "ناموفق"
 
-#: includes/languages/trans_static.php:401 includes/languages/trans_static_public.php:902
+#: includes/languages/trans_static.php:412 includes/languages/trans_static_public.php:902
 msgid "other"
 msgstr "سایر"
 
-#: includes/languages/trans_static.php:402
+#: includes/languages/trans_static.php:413
 msgid "bot"
 msgstr "ربات"
 
-#: includes/languages/trans_static.php:403
+#: includes/languages/trans_static.php:414
 msgid "unknown"
 msgstr "نامشخص"
 
-#: includes/languages/trans_static.php:404
+#: includes/languages/trans_static.php:415
 msgid "used"
 msgstr "استفاده شده"
 
-#: includes/languages/trans_static.php:405
+#: includes/languages/trans_static.php:416
 msgid "android"
 msgstr "اندروید"
 
-#: includes/languages/trans_static.php:406
+#: includes/languages/trans_static.php:417
 msgid "ios"
 msgstr "آی‌اواس"
 
-#: includes/languages/trans_static.php:407
+#: includes/languages/trans_static.php:418
 msgid "api"
 msgstr "ای‌پی‌آی"
 
-#: includes/languages/trans_static.php:408
+#: includes/languages/trans_static.php:419
 msgid "guest"
 msgstr "میهمان"
 
-#: includes/languages/trans_static.php:409
+#: includes/languages/trans_static.php:420
 msgid "member"
 msgstr "عضو"
 
-#: includes/languages/trans_static.php:410
+#: includes/languages/trans_static.php:421
 msgid "appkey"
 msgstr "کلید نرم‌افزار"
 
-#: includes/languages/trans_static.php:411
+#: includes/languages/trans_static.php:422
 msgid "inline"
 msgstr "داخلی"
 
-#: includes/languages/trans_static.php:412
+#: includes/languages/trans_static.php:423
 msgid "callback"
 msgstr "بازخورد"
 
-#: includes/languages/trans_static.php:417 includes/languages/trans_static_public.php:132
+#: includes/languages/trans_static.php:428 includes/languages/trans_static_public.php:132
 #: lib/app/quickaccess/setting.php:485 lib/app/quickaccess/setting.php:499
 #: lib/app/quickaccess/setting.php:515 lib/app/quickaccess/setting.php:533
 msgid "tag"
 msgstr "تگ"
 
-#: includes/languages/trans_static.php:420
+#: includes/languages/trans_static.php:431
 msgid "support_tag"
 msgstr "تگ‌های پشتیبانی"
 
-#: includes/languages/trans_static.php:421
+#: includes/languages/trans_static.php:432
 msgid "mag"
 msgstr "مجله"
 
-#: includes/languages/trans_static.php:422
+#: includes/languages/trans_static.php:433
 msgid "mag_tag"
 msgstr "تگ مجله"
 
-#: includes/languages/trans_static.php:424
+#: includes/languages/trans_static.php:435
 msgid "help_tag"
 msgstr "تگ راهنمایی"
 
-#: includes/languages/trans_static.php:425 includes/languages/trans_static_public.php:921
+#: includes/languages/trans_static.php:436 includes/languages/trans_static_public.php:921
 msgid "expired"
 msgstr "منقضی‌شده"
 
-#: includes/languages/trans_static.php:426 includes/languages/trans_static_public.php:922
+#: includes/languages/trans_static.php:437 includes/languages/trans_static_public.php:922
 msgid "filtered"
 msgstr "فیلترشده"
 
-#: includes/languages/trans_static.php:428
+#: includes/languages/trans_static.php:439
 msgid "violence"
 msgstr "خشونت‌آمیز"
 
-#: includes/languages/trans_static.php:429
+#: includes/languages/trans_static.php:440
 msgid "pornography"
 msgstr "پورنوگرافی"
 
-#: includes/languages/trans_static.php:436
+#: includes/languages/trans_static.php:447
 msgid "tickets"
 msgstr "تیکت‌"
 
-#: includes/languages/trans_static.php:437
+#: includes/languages/trans_static.php:448
 msgid "barcode1"
 msgstr "بارکد ۱"
 
-#: includes/languages/trans_static.php:438
+#: includes/languages/trans_static.php:449
 msgid "barcode2"
 msgstr "بارکد ۲"
 
-#: includes/languages/trans_static.php:439
+#: includes/languages/trans_static.php:450
 msgid "barcode3"
 msgstr "بارکد ۳"
 
-#: includes/languages/trans_static.php:440
+#: includes/languages/trans_static.php:451
 msgid "qrcode1"
 msgstr "کیوآرکد"
 
-#: includes/languages/trans_static.php:441
+#: includes/languages/trans_static.php:452
 msgid "qrcode2"
 msgstr "کیوآرکد ۲"
 
-#: includes/languages/trans_static.php:442
+#: includes/languages/trans_static.php:453
 msgid "qrcode3"
 msgstr "کیوآر کد"
 
-#: includes/languages/trans_static.php:443
+#: includes/languages/trans_static.php:454
 msgid "rfid1"
 msgstr "آر‌اف‌آیدی"
 
-#: includes/languages/trans_static.php:444
+#: includes/languages/trans_static.php:455
 msgid "rfid2"
 msgstr "آراف‌آیدی"
 
-#: includes/languages/trans_static.php:445
+#: includes/languages/trans_static.php:456
 msgid "rfid3"
 msgstr "آراف‌آیدی"
 
-#: includes/languages/trans_static.php:446 includes/languages/trans_static_public.php:916
+#: includes/languages/trans_static.php:457 includes/languages/trans_static_public.php:916
 msgid "gift"
 msgstr "هدیه"
 
-#: includes/languages/trans_static.php:447 includes/languages/trans_static_public.php:917
+#: includes/languages/trans_static.php:458 includes/languages/trans_static_public.php:917
 msgid "prize"
 msgstr "جایزه"
 
-#: includes/languages/trans_static.php:448 includes/languages/trans_static_public.php:918
+#: includes/languages/trans_static.php:459 includes/languages/trans_static_public.php:918
 msgid "transfer"
 msgstr "انتقال"
 
-#: includes/languages/trans_static.php:449 includes/languages/trans_static_public.php:919
+#: includes/languages/trans_static.php:460 includes/languages/trans_static_public.php:919
 msgid "promo"
 msgstr "کد تخفیف"
 
-#: includes/languages/trans_static.php:451 includes/languages/trans_static_public.php:925
+#: includes/languages/trans_static.php:462 includes/languages/trans_static_public.php:925
 msgid "request"
 msgstr "درخواست"
 
-#: includes/languages/trans_static.php:452 includes/languages/trans_static_public.php:926
+#: includes/languages/trans_static.php:463 includes/languages/trans_static_public.php:926
 msgid "redirect"
 msgstr "تغییر مسیر"
 
-#: includes/languages/trans_static.php:453 includes/languages/trans_static_public.php:927
+#: includes/languages/trans_static.php:464 includes/languages/trans_static_public.php:927
 msgid "pending"
 msgstr "در انتظار"
 
-#: includes/languages/trans_static.php:454 includes/languages/trans_static_public.php:928
+#: includes/languages/trans_static.php:465 includes/languages/trans_static_public.php:928
 msgid "error"
 msgstr "خطا"
 
-#: includes/languages/trans_static.php:455 includes/languages/trans_static_public.php:929
+#: includes/languages/trans_static.php:466 includes/languages/trans_static_public.php:929
 msgid "verify_request"
 msgstr "درخواست تایید ارسال شده"
 
-#: includes/languages/trans_static.php:456 includes/languages/trans_static_public.php:930
+#: includes/languages/trans_static.php:467 includes/languages/trans_static_public.php:930
 msgid "verify_error"
 msgstr "خطا در درخواست تایید"
 
-#: includes/languages/trans_static.php:461
+#: includes/languages/trans_static.php:472
 msgid "admincontact"
 msgstr "تماس با مدیریت"
 
-#: includes/languages/trans_static.php:462
+#: includes/languages/trans_static.php:473
 msgid "app"
 msgstr "اپلیکیشن"
 
-#: includes/languages/trans_static.php:463
+#: includes/languages/trans_static.php:474
 msgid "success"
 msgstr "موفقیت‌آمیز"
 
-#: includes/languages/trans_static.php:464
+#: includes/languages/trans_static.php:475
 msgid "fail"
 msgstr "خطا"
 
-#: includes/languages/trans_static.php:465 includes/languages/trans_static_public.php:207
+#: includes/languages/trans_static.php:476 includes/languages/trans_static_public.php:207
 #: includes/languages/trans_static_public.php:856
 msgid "lock"
 msgstr "قفل سیستم"
 
-#: includes/languages/trans_static.php:471
+#: includes/languages/trans_static.php:482
 msgid "auto"
 msgstr "خودکار"
 
-#: includes/languages/trans_static.php:474
+#: includes/languages/trans_static.php:485
 msgid "running"
 msgstr "درحال‌اجرا"
 
-#: includes/languages/trans_static.php:475
+#: includes/languages/trans_static.php:486
 msgid "done"
 msgstr "اتمام"
 
-#: includes/languages/trans_static.php:479
+#: includes/languages/trans_static.php:490
 msgid "Rather"
 msgstr "نسبتا"
 
-#: includes/languages/trans_static.php:483
+#: includes/languages/trans_static.php:494
 msgid "Removed"
 msgstr "حذف شده"
 
-#: includes/languages/trans_static.php:485
+#: includes/languages/trans_static.php:496
 msgid "Unreachable"
 msgstr "غیر قابل دسترسی"
 
-#: includes/languages/trans_static.php:491
+#: includes/languages/trans_static.php:502
 msgid "Unset"
 msgstr "تنظیم‌نشده"
 
-#: includes/languages/trans_static.php:495
+#: includes/languages/trans_static.php:506
 msgid "Discountinued"
 msgstr "توقف تولید"
 
-#: includes/languages/trans_static.php:501
+#: includes/languages/trans_static.php:512
 msgid "Leave"
 msgstr "ترک کرد"
 
-#: includes/languages/trans_static.php:516
+#: includes/languages/trans_static.php:527
 msgid "Close"
 msgstr "بستن"
 
-#: includes/languages/trans_static.php:520
+#: includes/languages/trans_static.php:531
 msgid "Deliver"
 msgstr "تحویل‌داده‌شده"
 
-#: includes/languages/trans_static.php:523
+#: includes/languages/trans_static.php:534
 msgid "Notifread"
 msgstr "خوانده شده"
 
-#: includes/languages/trans_static.php:524
+#: includes/languages/trans_static.php:535
 msgid "Notifexpire"
 msgstr "پیام منقضی شده"
 
-#: includes/languages/trans_static.php:526
+#: includes/languages/trans_static.php:537
 msgid "Changed"
 msgstr "تغییر یافته"
 
-#: includes/languages/trans_static.php:531
+#: includes/languages/trans_static.php:542
 msgid "Bot"
 msgstr "ربات"
 
-#: includes/languages/trans_static.php:533
+#: includes/languages/trans_static.php:544
 msgid "Used"
 msgstr "استفاده شده"
 
-#: includes/languages/trans_static.php:534 lib/pagebuilder/body/device/design.php:110
+#: includes/languages/trans_static.php:545 lib/pagebuilder/body/device/design.php:110
 msgid "Android"
 msgstr "اندروید"
 
-#: includes/languages/trans_static.php:535
+#: includes/languages/trans_static.php:546
 msgid "Ios"
 msgstr "آی‌اواس"
 
-#: includes/languages/trans_static.php:536
+#: includes/languages/trans_static.php:547
 msgid "Api"
 msgstr "ای‌پی‌آی"
 
-#: includes/languages/trans_static.php:539
+#: includes/languages/trans_static.php:550
 msgid "Appkey"
 msgstr "کلید برنامه"
 
-#: includes/languages/trans_static.php:540
+#: includes/languages/trans_static.php:551
 msgid "Inline"
 msgstr "داخلی"
 
-#: includes/languages/trans_static.php:541
+#: includes/languages/trans_static.php:552
 msgid "Callback"
 msgstr "بازخورد"
 
-#: includes/languages/trans_static.php:544
-msgid "Schedule"
-msgstr "زمانبندی شده"
-
-#: includes/languages/trans_static.php:545 lib/app/store/analytics.php:61
+#: includes/languages/trans_static.php:556 lib/app/store/analytics.php:61
 msgid "Cat"
 msgstr "دسته‌بندی"
 
-#: includes/languages/trans_static.php:548 lib/app/store/analytics.php:57
+#: includes/languages/trans_static.php:559 lib/app/store/analytics.php:57
 msgid "Term"
 msgstr "عبارت"
 
-#: includes/languages/trans_static.php:549
+#: includes/languages/trans_static.php:560
 msgid "Support_tag"
 msgstr "تگ‌های پشتیبانی"
 
-#: includes/languages/trans_static.php:550
+#: includes/languages/trans_static.php:561
 msgid "Mag"
 msgstr "مجله"
 
-#: includes/languages/trans_static.php:551
+#: includes/languages/trans_static.php:562
 msgid "Mag_tag"
 msgstr "تگ مجله"
 
-#: includes/languages/trans_static.php:553
+#: includes/languages/trans_static.php:564
 msgid "Help_tag"
 msgstr "تگ راهنمایی"
 
-#: includes/languages/trans_static.php:554 lib/app/gift/filter.php:46
+#: includes/languages/trans_static.php:565 lib/app/gift/filter.php:46
 #: lib/app/nic_domain/ready.php:175 lib/app/nic_domain/ready.php:177
 msgid "Expired"
 msgstr "منقضی‌شده"
 
-#: includes/languages/trans_static.php:556
+#: includes/languages/trans_static.php:567
 msgid "Blocked"
 msgstr "بسته‌شده"
 
-#: includes/languages/trans_static.php:557
+#: includes/languages/trans_static.php:568
 msgid "Violence"
 msgstr "خشونت آمیز"
 
-#: includes/languages/trans_static.php:558
+#: includes/languages/trans_static.php:569
 msgid "Pornography"
 msgstr "مستهجن"
 
-#: includes/languages/trans_static.php:561 includes/languages/trans_static_public.php:93
+#: includes/languages/trans_static.php:572 includes/languages/trans_static_public.php:93
 #: includes/languages/trans_static_public.php:977
 msgid "Attachments"
 msgstr "ضمیمه‌ها"
 
-#: includes/languages/trans_static.php:566
+#: includes/languages/trans_static.php:577
 msgid "Barcode1"
 msgstr "بارکد ۱"
 
-#: includes/languages/trans_static.php:568
+#: includes/languages/trans_static.php:579
 msgid "Barcode3"
 msgstr "بارکد ۳"
 
-#: includes/languages/trans_static.php:569
+#: includes/languages/trans_static.php:580
 msgid "Qrcode1"
 msgstr "کیوآرکد"
 
-#: includes/languages/trans_static.php:570
+#: includes/languages/trans_static.php:581
 msgid "Qrcode2"
 msgstr "کیوآرکد ۲"
 
-#: includes/languages/trans_static.php:571
+#: includes/languages/trans_static.php:582
 msgid "Qrcode3"
 msgstr "کیوآر کد"
 
-#: includes/languages/trans_static.php:572
+#: includes/languages/trans_static.php:583
 msgid "Rfid1"
 msgstr "آر‌اف‌آیدی"
 
-#: includes/languages/trans_static.php:573
+#: includes/languages/trans_static.php:584
 msgid "Rfid2"
 msgstr "آراف‌آیدی"
 
-#: includes/languages/trans_static.php:574
+#: includes/languages/trans_static.php:585
 msgid "Rfid3"
 msgstr "آراف‌آیدی"
 
-#: includes/languages/trans_static.php:575
+#: includes/languages/trans_static.php:586
 msgid "Gift"
 msgstr "هدیه"
 
-#: includes/languages/trans_static.php:576
+#: includes/languages/trans_static.php:587
 msgid "Prize"
 msgstr "جایزه"
 
-#: includes/languages/trans_static.php:578
+#: includes/languages/trans_static.php:589
 msgid "Promo"
 msgstr "کد تخفیف"
 
-#: includes/languages/trans_static.php:579
+#: includes/languages/trans_static.php:590
 msgid "Money"
 msgstr "پول"
 
-#: includes/languages/trans_static.php:584
+#: includes/languages/trans_static.php:595
 msgid "Verify_request"
 msgstr "درخواست تایید"
 
-#: includes/languages/trans_static.php:585
+#: includes/languages/trans_static.php:596
 msgid "Verify_error"
 msgstr "خطا در درخواست تایید"
 
-#: includes/languages/trans_static.php:586 includes/languages/trans_static_public.php:223
+#: includes/languages/trans_static.php:597 includes/languages/trans_static_public.php:223
 msgid "Site"
 msgstr "سایت"
 
-#: includes/languages/trans_static.php:588
+#: includes/languages/trans_static.php:599
 msgid "Sms"
 msgstr "پیامک"
 
-#: includes/languages/trans_static.php:590
+#: includes/languages/trans_static.php:601
 msgid "Admincontact"
 msgstr "تماس با مدیریت"
 
-#: includes/languages/trans_static.php:591
+#: includes/languages/trans_static.php:602
 msgid "App"
 msgstr "اپلیکیشن"
 
-#: includes/languages/trans_static.php:593
+#: includes/languages/trans_static.php:604
 msgid "Fail"
 msgstr "خطا"
 
-#: includes/languages/trans_static.php:595
+#: includes/languages/trans_static.php:606
 msgid "Change"
 msgstr "تغییر"
 
-#: includes/languages/trans_static.php:596
+#: includes/languages/trans_static.php:607
 msgid "Continuation"
 msgstr "تمدید"
 
-#: includes/languages/trans_static.php:598
+#: includes/languages/trans_static.php:609
 msgid "Downgrade"
 msgstr "پایین آوردن"
 
-#: includes/languages/trans_static.php:602
+#: includes/languages/trans_static.php:613
 msgid "Yearly"
 msgstr "سالانه"
 
-#: includes/languages/trans_static.php:603
+#: includes/languages/trans_static.php:614
 msgid "Running"
 msgstr "درحال اجرا"
 
-#: includes/languages/trans_static.php:604
+#: includes/languages/trans_static.php:615
 msgid "Done"
 msgstr "اتمام"
 
-#: includes/languages/trans_static.php:608
+#: includes/languages/trans_static.php:619
 msgid "serverHold"
 msgstr "دامنه رزرو گردیده است"
 
-#: includes/languages/trans_static.php:609
+#: includes/languages/trans_static.php:620
 msgid "irnicReserved"
 msgstr "دامنه در ایرنیک رزرو گردیده است"
 
-#: includes/languages/trans_static.php:610
+#: includes/languages/trans_static.php:621
 msgid "serverRenewProhibited"
 msgstr "امکان تمدید دامنه وجود ندارد"
 
-#: includes/languages/trans_static.php:611
+#: includes/languages/trans_static.php:622
 msgid "serverDeleteProhibited"
 msgstr "امکان لغو نمودن دامنه وجود ندارد"
 
-#: includes/languages/trans_static.php:612 includes/languages/trans_static.php:631
+#: includes/languages/trans_static.php:623 includes/languages/trans_static.php:642
 msgid "irnicRegistrationPendingDomainCheck"
 msgstr "در انتظار بررسی دامنه در فرایند ثبت دامنه"
 
-#: includes/languages/trans_static.php:613 includes/languages/trans_static.php:629
+#: includes/languages/trans_static.php:624 includes/languages/trans_static.php:640
 msgid "irnicRegistrationRejected"
 msgstr "درخواست ثبت دامنه رد شد"
 
-#: includes/languages/trans_static.php:614 includes/languages/trans_static.php:624
+#: includes/languages/trans_static.php:625 includes/languages/trans_static.php:635
 msgid "pendingUpdate"
 msgstr "در انتظار بروزآوری دامنه"
 
-#: includes/languages/trans_static.php:615
+#: includes/languages/trans_static.php:626
 msgid "serverUpdateProhibited"
 msgstr "امکان تغییر در مشخصات دامنه وجود ندارد"
 
-#: includes/languages/trans_static.php:616
+#: includes/languages/trans_static.php:627
 msgid "irnicUnapproved"
 msgstr "تایید نشده"
 
-#: includes/languages/trans_static.php:617
+#: includes/languages/trans_static.php:628
 msgid "irnicApproved"
 msgstr "تایید شده"
 
-#: includes/languages/trans_static.php:618
+#: includes/languages/trans_static.php:629
 msgid "irnicQueued"
 msgstr "در انتظار تایید نشانی شناسه"
 
-#: includes/languages/trans_static.php:619
+#: includes/languages/trans_static.php:630
 msgid "irnicRejected"
 msgstr "شناسه رد شده است"
 
-#: includes/languages/trans_static.php:620
+#: includes/languages/trans_static.php:631
 msgid "irnicLimited"
 msgstr "این شناسه از نوع شناسه محدود می‌باشد"
 
-#: includes/languages/trans_static.php:621
+#: includes/languages/trans_static.php:632
 msgid "inactive"
 msgstr "غیرفعال"
 
-#: includes/languages/trans_static.php:622
+#: includes/languages/trans_static.php:633
 msgid "pendingDelete"
 msgstr "در انتظار لغو دامنه"
 
-#: includes/languages/trans_static.php:623
+#: includes/languages/trans_static.php:634
 msgid "pendingRenew"
 msgstr "در انتظار تمدید دامنه"
 
-#: includes/languages/trans_static.php:625
+#: includes/languages/trans_static.php:636
 msgid "irnicRegistered"
 msgstr "دامنه ثبت و فعال است"
 
-#: includes/languages/trans_static.php:626
+#: includes/languages/trans_static.php:637
 msgid "irnicLocked"
 msgstr "دامنه قفل شده است"
 
-#: includes/languages/trans_static.php:627
+#: includes/languages/trans_static.php:638
 msgid "irnicExpired"
 msgstr "دامنه منقضی‌شده شده است"
 
-#: includes/languages/trans_static.php:628
+#: includes/languages/trans_static.php:639
 msgid "irnicRegistrationApproved"
 msgstr "درخواست ثبت دامنه تایید شد"
 
-#: includes/languages/trans_static.php:630
+#: includes/languages/trans_static.php:641
 msgid "irnicRegistrationPendingHolderCheck"
 msgstr "در انتظار بررسی صاحب امتیاز دامنه در فرایند ثبت دامنه"
 
-#: includes/languages/trans_static.php:632
+#: includes/languages/trans_static.php:643
 msgid "irnicRegistrationDocRequired"
 msgstr "برای تکمیل ثبت‌ دامنه مستندات نیاز است"
 
-#: includes/languages/trans_static.php:633
+#: includes/languages/trans_static.php:644
 msgid "irnicRegistrationIsWithdrawn"
 msgstr "درخواست ثبت دامنه توسط خود شخص یا رابط لغو شد"
 
-#: includes/languages/trans_static.php:634
+#: includes/languages/trans_static.php:645
 msgid "irnicRenewalApproved"
 msgstr "درخواست تمدید دامنه تایید شد"
 
-#: includes/languages/trans_static.php:635
+#: includes/languages/trans_static.php:646
 msgid "irnicRenewalRejected"
 msgstr "درخواست تمدید دامنه رد شد"
 
-#: includes/languages/trans_static.php:636
+#: includes/languages/trans_static.php:647
 msgid "irnicRenewalPendingHolderCheck"
 msgstr "در انتظار بررسی صاحب امتیاز در فرایند تمدید دامنه"
 
-#: includes/languages/trans_static.php:637
+#: includes/languages/trans_static.php:648
 msgid "irnicRenewalPendingDomainCheck"
 msgstr "در انتظار بررسی دامنه در فرانید تمدید دامنه"
 
-#: includes/languages/trans_static.php:638
+#: includes/languages/trans_static.php:649
 msgid "irnicRenewalDocRequired"
 msgstr "برای تمدید دامنه مستندات نیاز است"
 
-#: includes/languages/trans_static.php:639
+#: includes/languages/trans_static.php:650
 msgid "irnicRenewalIsWithdrawn"
 msgstr "درخواست تمدید دامنه توسط خود شخص یا رابط لغو شد"
 
-#: includes/languages/trans_static.php:640
+#: includes/languages/trans_static.php:651
 msgid "irnicHolderChangeApproved"
 msgstr "درخواست تغییر صاحب امتیاز دامنه تایید شد"
 
-#: includes/languages/trans_static.php:641
+#: includes/languages/trans_static.php:652
 msgid "irnicHolderChangeRejected"
 msgstr "درخواست تغییر صاحب امتیاز دامنه رد شد"
 
-#: includes/languages/trans_static.php:642
+#: includes/languages/trans_static.php:653
 msgid "irnicHolderChangePendingHolderCheck"
 msgstr "در انتظار بررسی صاحب امتیاز جدید در فرایند تغییر صاحب امتیاز دامنه"
 
-#: includes/languages/trans_static.php:643
+#: includes/languages/trans_static.php:654
 msgid "irnicHolderChangePendingDomainCheck"
 msgstr "در انتظار بررسی دامنه در فرایند تغییر صاحب امتیاز دامنه"
 
-#: includes/languages/trans_static.php:644
+#: includes/languages/trans_static.php:655
 msgid "irnicHolderChangeDocRequired"
 msgstr "برای تغییر صاحب امتیاز دامنه مستندات نیاز است"
 
-#: includes/languages/trans_static.php:645
+#: includes/languages/trans_static.php:656
 msgid "irnicHolderChangeIsWithdrawn"
 msgstr "درخواست تغییر در صاحب امتیاز دامنه توسط خود شخص لغو شد"
 
-#: includes/languages/trans_static.php:646
+#: includes/languages/trans_static.php:657
 msgid "irnicDeletionApproved"
 msgstr "درخواست لغو دامنه تایید شد"
 
-#: includes/languages/trans_static.php:647
+#: includes/languages/trans_static.php:658
 msgid "irnicDeletionRejected"
 msgstr "فرایند لغو دامنه رد شد"
 
-#: includes/languages/trans_static.php:648
+#: includes/languages/trans_static.php:659
 msgid "irnicDeletionPendingHolderCheck"
 msgstr "در انتظار بررسی شناسه صاحب امتیاز در فرایند لغو دامنه"
 
-#: includes/languages/trans_static.php:649
+#: includes/languages/trans_static.php:660
 msgid "irnicDeletionPendingDomainCheck"
 msgstr "در انتظار بررسی دامنه در فرایند لغو دامنه"
 
-#: includes/languages/trans_static.php:650
+#: includes/languages/trans_static.php:661
 msgid "irnicDeletionDocRequired"
 msgstr "برای لغو دامنه مستندات نیاز است"
 
-#: includes/languages/trans_static.php:651
+#: includes/languages/trans_static.php:662
 msgid "irnicDeletionIsWithdrawn"
 msgstr "درخواست لغو دامنه توسط رابط لغو شد"
 
-#: includes/languages/trans_static.php:653
+#: includes/languages/trans_static.php:664
 msgid "period"
 msgstr "زمان"
 
-#: includes/languages/trans_static.php:655
+#: includes/languages/trans_static.php:666
 msgid "queue"
 msgstr "در صف"
 
-#: includes/languages/trans_static.php:656
+#: includes/languages/trans_static.php:667
 msgid "Queue"
 msgstr "در صف"
 
-#: includes/languages/trans_static.php:658
+#: includes/languages/trans_static.php:669
 msgid "inprogress"
 msgstr "در حال انجام"
 
-#: includes/languages/trans_static.php:659 lib/app/quickaccess/setting.php:433
+#: includes/languages/trans_static.php:670 lib/app/quickaccess/setting.php:433
 msgid "postcode"
 msgstr "کدپستی"
 
-#: includes/languages/trans_static.php:661
+#: includes/languages/trans_static.php:672
 msgid "Fullname"
 msgstr "نام کامل"
 
-#: includes/languages/trans_static.php:662
+#: includes/languages/trans_static.php:673
 msgid "fullname"
 msgstr "نام کامل"
 
-#: includes/languages/trans_static.php:663
+#: includes/languages/trans_static.php:674
 msgid "Debtor-creditor"
 msgstr "بدهکار - بستانکار"
 
-#: includes/languages/trans_static.php:665
+#: includes/languages/trans_static.php:676
 msgid "Harmful profit"
 msgstr "سود - زیانی"
 
-#: includes/languages/trans_static.php:666
+#: includes/languages/trans_static.php:677
 msgid "Details"
 msgstr "تفصیل"
 
-#: includes/languages/trans_static.php:670 includes/languages/trans_static.php:698
+#: includes/languages/trans_static.php:681 includes/languages/trans_static.php:709
 msgid "sales costs"
 msgstr "هزینه‌های فروش"
 
-#: includes/languages/trans_static.php:671 includes/languages/trans_static.php:699
+#: includes/languages/trans_static.php:682 includes/languages/trans_static.php:710
 msgid "financial costs"
 msgstr "هزینه‌های مالی"
 
-#: includes/languages/trans_static.php:672 includes/languages/trans_static.php:697
+#: includes/languages/trans_static.php:683 includes/languages/trans_static.php:708
 msgid "administrative costs"
 msgstr "هزینه‌های اداری"
 
-#: includes/languages/trans_static.php:673 includes/languages/trans_static.php:700
+#: includes/languages/trans_static.php:684 includes/languages/trans_static.php:711
 msgid "general expenses"
 msgstr "هزینه‌های عمومی"
 
-#: includes/languages/trans_static.php:674 includes/languages/trans_static.php:701
+#: includes/languages/trans_static.php:685 includes/languages/trans_static.php:712
 msgid "intangible fixed assets"
 msgstr "دارایی‌های ثابت نامشهود"
 
-#: includes/languages/trans_static.php:677
+#: includes/languages/trans_static.php:688
 msgid "net sales"
 msgstr "فروش خالص"
 
-#: includes/languages/trans_static.php:678
+#: includes/languages/trans_static.php:689
 msgid "accumulated profit"
 msgstr "سود انباشته"
 
-#: includes/languages/trans_static.php:679
+#: includes/languages/trans_static.php:690
 msgid "orders and prepayments"
 msgstr "سفارشات و پیش پرداخت‌ها"
 
-#: includes/languages/trans_static.php:680
+#: includes/languages/trans_static.php:691
 msgid "short term investments"
 msgstr "سرمایه گذاری‌های کوتاه مدت"
 
-#: includes/languages/trans_static.php:681
+#: includes/languages/trans_static.php:692
 msgid "wealth"
 msgstr "سرمایه"
 
-#: includes/languages/trans_static.php:682
+#: includes/languages/trans_static.php:693
 msgid "other non-operating expenses"
 msgstr "سایر هزینه‌های غیرعملیاتی"
 
-#: includes/languages/trans_static.php:683
+#: includes/languages/trans_static.php:694
 msgid "other operating costs"
 msgstr "سایر هزینه‌های عملیاتی"
 
-#: includes/languages/trans_static.php:684
+#: includes/languages/trans_static.php:695
 msgid "other operating income"
 msgstr "سایر درآمد‌های عملیاتی"
 
-#: includes/languages/trans_static.php:685
+#: includes/languages/trans_static.php:696
 msgid "other accounts and documents receivable"
 msgstr "سایر حساب‌ها و اسناد دریافتنی"
 
-#: includes/languages/trans_static.php:686
+#: includes/languages/trans_static.php:697
 msgid "other accounts and documents payable"
 msgstr "سایر حساب‌ها و اسناد پرداختنی"
 
-#: includes/languages/trans_static.php:687
+#: includes/languages/trans_static.php:698
 msgid "save employee end-of-service benefits"
 msgstr "ذخیره مزایای پایان خدمت کارکنان"
 
-#: includes/languages/trans_static.php:688
+#: includes/languages/trans_static.php:699
 msgid "save taxes"
 msgstr "ذخیره مالیات"
 
-#: includes/languages/trans_static.php:689
+#: includes/languages/trans_static.php:700
 msgid "tangible fixed assets"
 msgstr "دارایی‌های ثابت مشهود"
 
-#: includes/languages/trans_static.php:690
+#: includes/languages/trans_static.php:701
 msgid "accounts receivable and commercial documents"
 msgstr "حساب‌ها و اسناد دریافتنی تجاری"
 
-#: includes/languages/trans_static.php:691
+#: includes/languages/trans_static.php:702
 msgid "business accounts and documents payable"
 msgstr "حساب‌های و اسناد پرداختنی تجاری"
 
-#: includes/languages/trans_static.php:692
+#: includes/languages/trans_static.php:703
 msgid "receivables"
 msgstr "پیش دریافت‌ها"
 
-#: includes/languages/trans_static.php:693
+#: includes/languages/trans_static.php:704
 msgid "prepayments"
 msgstr "پیش پرداخت‌ها"
 
-#: includes/languages/trans_static.php:694
+#: includes/languages/trans_static.php:705
 msgid "long-term accounts and documents"
 msgstr "حساب‌ها و اسناد پرداختنی بلند مدت"
 
-#: includes/languages/trans_static.php:695
+#: includes/languages/trans_static.php:706
 msgid "cash balance"
 msgstr "موجودی نقد"
 
-#: includes/languages/trans_static.php:696
+#: includes/languages/trans_static.php:707
 msgid "received financial facilities"
 msgstr "تسهیلات مالی دریافتی"
 
-#: includes/languages/trans_static.php:704
+#: includes/languages/trans_static.php:715
 msgid "Net sales"
 msgstr "فروش خالص"
 
-#: includes/languages/trans_static.php:705
+#: includes/languages/trans_static.php:716
 msgid "Accumulated profit"
 msgstr "سود انباشته"
 
-#: includes/languages/trans_static.php:706
+#: includes/languages/trans_static.php:717
 msgid "Orders and prepayments"
 msgstr "سفارشات و پیش پرداخت‌ها"
 
-#: includes/languages/trans_static.php:707
+#: includes/languages/trans_static.php:718
 msgid "Short term investments"
 msgstr "سرمایه گذاری‌های کوتاه مدت"
 
-#: includes/languages/trans_static.php:708
+#: includes/languages/trans_static.php:719
 msgid "Wealth"
 msgstr "سرمایه"
 
-#: includes/languages/trans_static.php:709
+#: includes/languages/trans_static.php:720
 msgid "Other non-operating expenses"
 msgstr "سایر هزینه‌های غیرعملیاتی"
 
-#: includes/languages/trans_static.php:710
+#: includes/languages/trans_static.php:721
 msgid "Other operating costs"
 msgstr "سایر هزینه‌های عملیاتی"
 
-#: includes/languages/trans_static.php:711
+#: includes/languages/trans_static.php:722
 msgid "Other operating income"
 msgstr "سایر درآمد‌های عملیاتی"
 
-#: includes/languages/trans_static.php:712
+#: includes/languages/trans_static.php:723
 msgid "Other accounts and documents receivable"
 msgstr "سایر حساب‌ها و اسناد دریافتنی"
 
-#: includes/languages/trans_static.php:713
+#: includes/languages/trans_static.php:724
 msgid "Other accounts and documents payable"
 msgstr "سایر حساب‌ها و اسناد پرداختنی"
 
-#: includes/languages/trans_static.php:714
+#: includes/languages/trans_static.php:725
 msgid "Save employee end-of-service benefits"
 msgstr "ذخیره مزایای پایان خدمت کارکنان"
 
-#: includes/languages/trans_static.php:715
+#: includes/languages/trans_static.php:726
 msgid "Save taxes"
 msgstr "ذخیره مالیات"
 
-#: includes/languages/trans_static.php:716
+#: includes/languages/trans_static.php:727
 msgid "Tangible fixed assets"
 msgstr "دارایی‌های ثابت مشهود"
 
-#: includes/languages/trans_static.php:717
+#: includes/languages/trans_static.php:728
 msgid "Accounts receivable and commercial documents"
 msgstr "حساب‌ها و اسناد دریافتنی تجاری"
 
-#: includes/languages/trans_static.php:718
+#: includes/languages/trans_static.php:729
 msgid "Business accounts and documents payable"
 msgstr "حساب‌های و اسناد پرداختنی تجاری"
 
-#: includes/languages/trans_static.php:719
+#: includes/languages/trans_static.php:730
 msgid "Rceivables"
 msgstr "دریافتنی"
 
-#: includes/languages/trans_static.php:720
+#: includes/languages/trans_static.php:731
 msgid "Prepayments"
 msgstr "پیش دریافت‌ها"
 
-#: includes/languages/trans_static.php:721
+#: includes/languages/trans_static.php:732
 msgid "Long-term accounts and documents"
 msgstr "حساب‌ها و اسناد پرداختنی بلند مدت"
 
-#: includes/languages/trans_static.php:722
+#: includes/languages/trans_static.php:733
 msgid "Cash balance"
 msgstr "موجودی نقد"
 
-#: includes/languages/trans_static.php:723
+#: includes/languages/trans_static.php:734
 msgid "Received financial facilities"
 msgstr "تسهیلات مالی دریافتی"
 
-#: includes/languages/trans_static.php:724
+#: includes/languages/trans_static.php:735
 msgid "Administrative costs"
 msgstr "هزینه‌های اداری"
 
-#: includes/languages/trans_static.php:725
+#: includes/languages/trans_static.php:736
 msgid "Sales costs"
 msgstr "هزینه‌های فروش"
 
-#: includes/languages/trans_static.php:726
+#: includes/languages/trans_static.php:737
 msgid "Financial costs"
 msgstr "هزینه‌های مالی"
 
-#: includes/languages/trans_static.php:727
+#: includes/languages/trans_static.php:738
 msgid "General expenses"
 msgstr "هزینه‌های عمومی"
 
-#: includes/languages/trans_static.php:728
+#: includes/languages/trans_static.php:739
 msgid "Intangible fixed assets"
 msgstr "دارایی‌های ثابت نامشهود"
 
-#: includes/languages/trans_static.php:730
+#: includes/languages/trans_static.php:741
 msgid "temp"
 msgstr "موقت"
 
-#: includes/languages/trans_static.php:731 lib/app/tax/doc/ready.php:48
+#: includes/languages/trans_static.php:742 lib/app/tax/doc/ready.php:48
 #: lib/app/tax/docdetail/ready.php:34
 msgid "Temp"
 msgstr "موقت"
 
-#: includes/languages/trans_static.php:733
+#: includes/languages/trans_static.php:744
 msgid ""
 "Jibres is not just an online accounting software; We try to create the best financial "
 "platform that has everything you need to sale and manage your financial life."
@@ -29884,1039 +29963,1039 @@ msgstr ""
 "جیبرس تنها یک نرم‌افزار حسابداری آنلاین نیست. ما در تلاش برای خلق برترین پلتفرم مالی "
 "جهان هستیم تا تمام نیازهای مالی دنیای شما را برطرف کنیم."
 
-#: includes/languages/trans_static.php:738
+#: includes/languages/trans_static.php:749
 msgid "Afghanistan"
 msgstr "افغانستان"
 
-#: includes/languages/trans_static.php:739
+#: includes/languages/trans_static.php:750
 msgid "Åland"
 msgstr "ایلند"
 
-#: includes/languages/trans_static.php:740
+#: includes/languages/trans_static.php:751
 msgid "Albania"
 msgstr "آلبانی"
 
-#: includes/languages/trans_static.php:741
+#: includes/languages/trans_static.php:752
 msgid "Algeria"
 msgstr "الجزیره"
 
-#: includes/languages/trans_static.php:742
+#: includes/languages/trans_static.php:753
 msgid "American Samoa"
 msgstr "ساموآی آمریکا"
 
-#: includes/languages/trans_static.php:743
+#: includes/languages/trans_static.php:754
 msgid "Andorra"
 msgstr "آندورا"
 
-#: includes/languages/trans_static.php:744
+#: includes/languages/trans_static.php:755
 msgid "Angola"
 msgstr "آنگولا"
 
-#: includes/languages/trans_static.php:745
+#: includes/languages/trans_static.php:756
 msgid "Anguilla"
 msgstr "آنگویلا"
 
-#: includes/languages/trans_static.php:746
+#: includes/languages/trans_static.php:757
 msgid "Antarctica"
 msgstr "قطب جنوب"
 
-#: includes/languages/trans_static.php:747
+#: includes/languages/trans_static.php:758
 msgid "Antigua And Barbuda"
 msgstr "آنتیگوآ و باربودا"
 
-#: includes/languages/trans_static.php:748
+#: includes/languages/trans_static.php:759
 msgid "Argentina"
 msgstr "آرژانتین"
 
-#: includes/languages/trans_static.php:749
+#: includes/languages/trans_static.php:760
 msgid "Armenia"
 msgstr "آرمانیا"
 
-#: includes/languages/trans_static.php:750
+#: includes/languages/trans_static.php:761
 msgid "Aruba"
 msgstr "آرابا"
 
-#: includes/languages/trans_static.php:751
+#: includes/languages/trans_static.php:762
 msgid "Australia"
 msgstr "استرالیا"
 
-#: includes/languages/trans_static.php:752
+#: includes/languages/trans_static.php:763
 msgid "Austria"
 msgstr "اتریش"
 
-#: includes/languages/trans_static.php:753
+#: includes/languages/trans_static.php:764
 msgid "Azerbaijan"
 msgstr "آذربایجان"
 
-#: includes/languages/trans_static.php:754
+#: includes/languages/trans_static.php:765
 msgid "Bahamas"
 msgstr "باهاما"
 
-#: includes/languages/trans_static.php:755
+#: includes/languages/trans_static.php:766
 msgid "Bahrain"
 msgstr "بحرین"
 
-#: includes/languages/trans_static.php:756
+#: includes/languages/trans_static.php:767
 msgid "Bangladesh"
 msgstr "بنگلادش"
 
-#: includes/languages/trans_static.php:757
+#: includes/languages/trans_static.php:768
 msgid "Barbados"
 msgstr "باربادوس"
 
-#: includes/languages/trans_static.php:758
+#: includes/languages/trans_static.php:769
 msgid "Belarus"
 msgstr "بلاروس"
 
-#: includes/languages/trans_static.php:759
+#: includes/languages/trans_static.php:770
 msgid "Belgium"
 msgstr "بلژیک"
 
-#: includes/languages/trans_static.php:760
+#: includes/languages/trans_static.php:771
 msgid "Belize"
 msgstr "بیگانه"
 
-#: includes/languages/trans_static.php:761
+#: includes/languages/trans_static.php:772
 msgid "Benin"
 msgstr "بنین"
 
-#: includes/languages/trans_static.php:762
+#: includes/languages/trans_static.php:773
 msgid "Bermuda"
 msgstr "برمودا"
 
-#: includes/languages/trans_static.php:763
+#: includes/languages/trans_static.php:774
 msgid "Bhutan"
 msgstr "بوتان"
 
-#: includes/languages/trans_static.php:764
+#: includes/languages/trans_static.php:775
 msgid "Bolivia"
 msgstr "بولیوی"
 
-#: includes/languages/trans_static.php:765
+#: includes/languages/trans_static.php:776
 msgid "Bonaire"
 msgstr "بونیر"
 
-#: includes/languages/trans_static.php:766
+#: includes/languages/trans_static.php:777
 msgid "Bosnia And Herzegovina"
 msgstr "بوسنی و هرزگوین"
 
-#: includes/languages/trans_static.php:767
+#: includes/languages/trans_static.php:778
 msgid "Botswana"
 msgstr "بوتسوانا"
 
-#: includes/languages/trans_static.php:768
+#: includes/languages/trans_static.php:779
 msgid "Bouvet Island"
 msgstr "جزیره بوک"
 
-#: includes/languages/trans_static.php:769
+#: includes/languages/trans_static.php:780
 msgid "Brazil"
 msgstr "برزیل"
 
-#: includes/languages/trans_static.php:770
+#: includes/languages/trans_static.php:781
 msgid "British Indian Ocean Territory"
 msgstr "قلمرو اقیانوس هند بریتانیا"
 
-#: includes/languages/trans_static.php:771
+#: includes/languages/trans_static.php:782
 msgid "British Virgin Islands"
 msgstr "جزایر ویرجین بریتانیایی"
 
-#: includes/languages/trans_static.php:772
+#: includes/languages/trans_static.php:783
 msgid "Brunei"
 msgstr "برونئی"
 
-#: includes/languages/trans_static.php:773
+#: includes/languages/trans_static.php:784
 msgid "Bulgaria"
 msgstr "بلغارستان"
 
-#: includes/languages/trans_static.php:774
+#: includes/languages/trans_static.php:785
 msgid "Burkina Faso"
 msgstr "بورکینافاسو"
 
-#: includes/languages/trans_static.php:775
+#: includes/languages/trans_static.php:786
 msgid "Burundi"
 msgstr "بوروندی"
 
-#: includes/languages/trans_static.php:776
+#: includes/languages/trans_static.php:787
 msgid "Cambodia"
 msgstr "کامبوج"
 
-#: includes/languages/trans_static.php:777
+#: includes/languages/trans_static.php:788
 msgid "Cameroon"
 msgstr "کامرون"
 
-#: includes/languages/trans_static.php:778
+#: includes/languages/trans_static.php:789
 msgid "Canada"
 msgstr "کانادایی"
 
-#: includes/languages/trans_static.php:779
+#: includes/languages/trans_static.php:790
 msgid "Cape Verde"
 msgstr "کلاه سرخ"
 
-#: includes/languages/trans_static.php:780
+#: includes/languages/trans_static.php:791
 msgid "Cayman Islands"
 msgstr "جزایر کیمن"
 
-#: includes/languages/trans_static.php:781
+#: includes/languages/trans_static.php:792
 msgid "Central African Republic"
 msgstr "جمهوری آفریقای مرکزی"
 
-#: includes/languages/trans_static.php:782
+#: includes/languages/trans_static.php:793
 msgid "Chad"
 msgstr "چاد"
 
-#: includes/languages/trans_static.php:783
+#: includes/languages/trans_static.php:794
 msgid "Chile"
 msgstr "شیلی"
 
-#: includes/languages/trans_static.php:784
+#: includes/languages/trans_static.php:795
 msgid "China"
 msgstr "چین"
 
-#: includes/languages/trans_static.php:785
+#: includes/languages/trans_static.php:796
 msgid "Christmas Island"
 msgstr "جزیره کریسمس"
 
-#: includes/languages/trans_static.php:786
+#: includes/languages/trans_static.php:797
 msgid "Cocos (Keeling) Islands"
 msgstr "جزایر کوکوس"
 
-#: includes/languages/trans_static.php:787
+#: includes/languages/trans_static.php:798
 msgid "Colombia"
 msgstr "کلمبیا"
 
-#: includes/languages/trans_static.php:788
+#: includes/languages/trans_static.php:799
 msgid "Comoros"
 msgstr "کومور"
 
-#: includes/languages/trans_static.php:789
+#: includes/languages/trans_static.php:800
 msgid "Cook Islands"
 msgstr "جزایر کوک"
 
-#: includes/languages/trans_static.php:790
+#: includes/languages/trans_static.php:801
 msgid "Costa Rica"
 msgstr "کاستاریکا"
 
-#: includes/languages/trans_static.php:791
+#: includes/languages/trans_static.php:802
 msgid "Croatia"
 msgstr "کرواتی"
 
-#: includes/languages/trans_static.php:792
+#: includes/languages/trans_static.php:803
 msgid "Cuba"
 msgstr "کوبا"
 
-#: includes/languages/trans_static.php:793
+#: includes/languages/trans_static.php:804
 msgid "Curacao"
 msgstr "کوراسائو"
 
-#: includes/languages/trans_static.php:794
+#: includes/languages/trans_static.php:805
 msgid "Cyprus"
 msgstr "قبرس"
 
-#: includes/languages/trans_static.php:795
+#: includes/languages/trans_static.php:806
 msgid "Czech Republic"
 msgstr "جمهوری چک"
 
-#: includes/languages/trans_static.php:796
+#: includes/languages/trans_static.php:807
 msgid "Democratic Republic Of The Congo"
 msgstr "جمهوری دموکراتیک کنگو"
 
-#: includes/languages/trans_static.php:797
+#: includes/languages/trans_static.php:808
 msgid "Denmark"
 msgstr "علامت"
 
-#: includes/languages/trans_static.php:798
+#: includes/languages/trans_static.php:809
 msgid "Djibouti"
 msgstr "جیبوتی"
 
-#: includes/languages/trans_static.php:799
+#: includes/languages/trans_static.php:810
 msgid "Dominica"
 msgstr "دومینیکا"
 
-#: includes/languages/trans_static.php:800
+#: includes/languages/trans_static.php:811
 msgid "Dominican Republic"
 msgstr "جمهوری دومینیکن"
 
-#: includes/languages/trans_static.php:801
+#: includes/languages/trans_static.php:812
 msgid "East Timor"
 msgstr "تایمر شرقی"
 
-#: includes/languages/trans_static.php:802
+#: includes/languages/trans_static.php:813
 msgid "Ecuador"
 msgstr "اکوادور"
 
-#: includes/languages/trans_static.php:803
+#: includes/languages/trans_static.php:814
 msgid "Egypt"
 msgstr "مصر"
 
-#: includes/languages/trans_static.php:804
+#: includes/languages/trans_static.php:815
 msgid "El Salvador"
 msgstr "السالوادور"
 
-#: includes/languages/trans_static.php:805
+#: includes/languages/trans_static.php:816
 msgid "Equatorial Guinea"
 msgstr "گینه استوایی"
 
-#: includes/languages/trans_static.php:806
+#: includes/languages/trans_static.php:817
 msgid "Eritrea"
 msgstr "اریتره"
 
-#: includes/languages/trans_static.php:807
+#: includes/languages/trans_static.php:818
 msgid "Estonia"
 msgstr "استونی"
 
-#: includes/languages/trans_static.php:808
+#: includes/languages/trans_static.php:819
 msgid "Ethiopia"
 msgstr "اتیوپی"
 
-#: includes/languages/trans_static.php:809
+#: includes/languages/trans_static.php:820
 msgid "Falkland Islands"
 msgstr "جزایر فالکلند"
 
-#: includes/languages/trans_static.php:810
+#: includes/languages/trans_static.php:821
 msgid "Faroe Islands"
 msgstr "جزایر فارو"
 
-#: includes/languages/trans_static.php:811
+#: includes/languages/trans_static.php:822
 msgid "Fiji"
 msgstr "فیجی"
 
-#: includes/languages/trans_static.php:812
+#: includes/languages/trans_static.php:823
 msgid "Finland"
 msgstr "مالزی"
 
-#: includes/languages/trans_static.php:813
+#: includes/languages/trans_static.php:824
 msgid "France"
 msgstr "فرانسه"
 
-#: includes/languages/trans_static.php:814
+#: includes/languages/trans_static.php:825
 msgid "French Guiana"
 msgstr "گویان فرانسوی"
 
-#: includes/languages/trans_static.php:815
+#: includes/languages/trans_static.php:826
 msgid "French Polynesia"
 msgstr "پلینزی فرانسوی"
 
-#: includes/languages/trans_static.php:816
+#: includes/languages/trans_static.php:827
 msgid "French Southern Territories"
 msgstr "سرزمین‌های جنوبی فرانسوی"
 
-#: includes/languages/trans_static.php:817
+#: includes/languages/trans_static.php:828
 msgid "Gabon"
 msgstr "گابون"
 
-#: includes/languages/trans_static.php:818
+#: includes/languages/trans_static.php:829
 msgid "Gambia"
 msgstr "گامبیا"
 
-#: includes/languages/trans_static.php:819
+#: includes/languages/trans_static.php:830
 msgid "Georgia"
 msgstr "جورجیا"
 
-#: includes/languages/trans_static.php:820
+#: includes/languages/trans_static.php:831
 msgid "Germany"
 msgstr "آلمان"
 
-#: includes/languages/trans_static.php:821
+#: includes/languages/trans_static.php:832
 msgid "Ghana"
 msgstr "غنا"
 
-#: includes/languages/trans_static.php:822
+#: includes/languages/trans_static.php:833
 msgid "Gibraltar"
 msgstr "جبل الطارق"
 
-#: includes/languages/trans_static.php:823
+#: includes/languages/trans_static.php:834
 msgid "Greece"
 msgstr "یونان"
 
-#: includes/languages/trans_static.php:824
+#: includes/languages/trans_static.php:835
 msgid "Greenland"
 msgstr "گرینلند"
 
-#: includes/languages/trans_static.php:825
+#: includes/languages/trans_static.php:836
 msgid "Grenada"
 msgstr "گرانادا"
 
-#: includes/languages/trans_static.php:826
+#: includes/languages/trans_static.php:837
 msgid "Guadeloupe"
 msgstr "گوادلوپ"
 
-#: includes/languages/trans_static.php:827
+#: includes/languages/trans_static.php:838
 msgid "Guam"
 msgstr "گام"
 
-#: includes/languages/trans_static.php:828
+#: includes/languages/trans_static.php:839
 msgid "Guatemala"
 msgstr "گواتمالا"
 
-#: includes/languages/trans_static.php:829
+#: includes/languages/trans_static.php:840
 msgid "Guernsey"
 msgstr "گرنسی"
 
-#: includes/languages/trans_static.php:830
+#: includes/languages/trans_static.php:841
 msgid "Guinea"
 msgstr "گینه"
 
-#: includes/languages/trans_static.php:831
+#: includes/languages/trans_static.php:842
 msgid "Guinea-bissau"
 msgstr "گینه بیسائو"
 
-#: includes/languages/trans_static.php:832
+#: includes/languages/trans_static.php:843
 msgid "Guyana"
 msgstr "گویانا"
 
-#: includes/languages/trans_static.php:833
+#: includes/languages/trans_static.php:844
 msgid "Haiti"
 msgstr "هیتی"
 
-#: includes/languages/trans_static.php:834
+#: includes/languages/trans_static.php:845
 msgid "Heard Island And Mcdonald Islands"
 msgstr "جزیره هرد و جزایر مک‌دونالد"
 
-#: includes/languages/trans_static.php:835
+#: includes/languages/trans_static.php:846
 msgid "Honduras"
 msgstr "هندوراس"
 
-#: includes/languages/trans_static.php:836
+#: includes/languages/trans_static.php:847
 msgid "Hong Kong"
 msgstr "هنگ کنگ"
 
-#: includes/languages/trans_static.php:837
+#: includes/languages/trans_static.php:848
 msgid "Hungary"
 msgstr "مجارستان"
 
-#: includes/languages/trans_static.php:838
+#: includes/languages/trans_static.php:849
 msgid "Iceland"
 msgstr "اقیانوس آرام"
 
-#: includes/languages/trans_static.php:839
+#: includes/languages/trans_static.php:850
 msgid "India"
 msgstr "هندوستان"
 
-#: includes/languages/trans_static.php:840
+#: includes/languages/trans_static.php:851
 msgid "Indonesia"
 msgstr "اندونزی"
 
-#: includes/languages/trans_static.php:841
+#: includes/languages/trans_static.php:852
 msgid "Iraq"
 msgstr "عراق"
 
-#: includes/languages/trans_static.php:842
+#: includes/languages/trans_static.php:853
 msgid "Ireland"
 msgstr "ایرلند"
 
-#: includes/languages/trans_static.php:843
+#: includes/languages/trans_static.php:854
 msgid "Isle Of Man"
 msgstr "جزیره من"
 
-#: includes/languages/trans_static.php:844
+#: includes/languages/trans_static.php:855
 msgid "Italy"
 msgstr "ایتالیا"
 
-#: includes/languages/trans_static.php:845
+#: includes/languages/trans_static.php:856
 msgid "Ivory Coast"
 msgstr "ساحل عاج"
 
-#: includes/languages/trans_static.php:846
+#: includes/languages/trans_static.php:857
 msgid "Jamaica"
 msgstr "جامائیکا"
 
-#: includes/languages/trans_static.php:847
+#: includes/languages/trans_static.php:858
 msgid "Japan"
 msgstr "ژاپن"
 
-#: includes/languages/trans_static.php:848
+#: includes/languages/trans_static.php:859
 msgid "Jersey"
 msgstr "جرزی"
 
-#: includes/languages/trans_static.php:849
+#: includes/languages/trans_static.php:860
 msgid "Jordan"
 msgstr "اردن"
 
-#: includes/languages/trans_static.php:850
+#: includes/languages/trans_static.php:861
 msgid "Kazakhstan"
 msgstr "قزاقستان"
 
-#: includes/languages/trans_static.php:851
+#: includes/languages/trans_static.php:862
 msgid "Kenya"
 msgstr "کنیا"
 
-#: includes/languages/trans_static.php:852
+#: includes/languages/trans_static.php:863
 msgid "Kiribati"
 msgstr "کریباتی"
 
-#: includes/languages/trans_static.php:853
+#: includes/languages/trans_static.php:864
 msgid "Kosovo"
 msgstr "کوزوو"
 
-#: includes/languages/trans_static.php:854
+#: includes/languages/trans_static.php:865
 msgid "Kuwait"
 msgstr "کویت"
 
-#: includes/languages/trans_static.php:855
+#: includes/languages/trans_static.php:866
 msgid "Kyrgyzstan"
 msgstr "قرقیزستان"
 
-#: includes/languages/trans_static.php:856
+#: includes/languages/trans_static.php:867
 msgid "Laos"
 msgstr "لاوس"
 
-#: includes/languages/trans_static.php:857
+#: includes/languages/trans_static.php:868
 msgid "Latvia"
 msgstr "لتونی"
 
-#: includes/languages/trans_static.php:858
+#: includes/languages/trans_static.php:869
 msgid "Lebanon"
 msgstr "لبنان"
 
-#: includes/languages/trans_static.php:859
+#: includes/languages/trans_static.php:870
 msgid "Lesotho"
 msgstr "لسوتو"
 
-#: includes/languages/trans_static.php:860
+#: includes/languages/trans_static.php:871
 msgid "Liberia"
 msgstr "لیبریا"
 
-#: includes/languages/trans_static.php:861
+#: includes/languages/trans_static.php:872
 msgid "Libya"
 msgstr "لیبیا"
 
-#: includes/languages/trans_static.php:862
+#: includes/languages/trans_static.php:873
 msgid "Liechtenstein"
 msgstr "لیختن اشتاین"
 
-#: includes/languages/trans_static.php:863
+#: includes/languages/trans_static.php:874
 msgid "Lithuania"
 msgstr "لیتوانی"
 
-#: includes/languages/trans_static.php:864
+#: includes/languages/trans_static.php:875
 msgid "Luxembourg"
 msgstr "لوکسبورگ"
 
-#: includes/languages/trans_static.php:865
+#: includes/languages/trans_static.php:876
 msgid "Macau"
 msgstr "ماکائو"
 
-#: includes/languages/trans_static.php:866
+#: includes/languages/trans_static.php:877
 msgid "Macedonia"
 msgstr "مقدونیه"
 
-#: includes/languages/trans_static.php:867
+#: includes/languages/trans_static.php:878
 msgid "Madagascar"
 msgstr "ماداگاسکار"
 
-#: includes/languages/trans_static.php:868
+#: includes/languages/trans_static.php:879
 msgid "Malawi"
 msgstr "مالاوی"
 
-#: includes/languages/trans_static.php:869
+#: includes/languages/trans_static.php:880
 msgid "Malaysia"
 msgstr "مالزی"
 
-#: includes/languages/trans_static.php:870
+#: includes/languages/trans_static.php:881
 msgid "Maldives"
 msgstr "مالدیو"
 
-#: includes/languages/trans_static.php:871
+#: includes/languages/trans_static.php:882
 msgid "Mali"
 msgstr "مالی"
 
-#: includes/languages/trans_static.php:872
+#: includes/languages/trans_static.php:883
 msgid "Malta"
 msgstr "مالتا"
 
-#: includes/languages/trans_static.php:873
+#: includes/languages/trans_static.php:884
 msgid "Marshall Islands"
 msgstr "جزایر مارشال"
 
-#: includes/languages/trans_static.php:874
+#: includes/languages/trans_static.php:885
 msgid "Martinique"
 msgstr "مارتینیک"
 
-#: includes/languages/trans_static.php:875
+#: includes/languages/trans_static.php:886
 msgid "Mauritania"
 msgstr "موریتانی"
 
-#: includes/languages/trans_static.php:876
+#: includes/languages/trans_static.php:887
 msgid "Mauritius"
 msgstr "موریس"
 
-#: includes/languages/trans_static.php:877
+#: includes/languages/trans_static.php:888
 msgid "Mayotte"
 msgstr "مایوته"
 
-#: includes/languages/trans_static.php:878
+#: includes/languages/trans_static.php:889
 msgid "Mexico"
 msgstr "مکزیکو"
 
-#: includes/languages/trans_static.php:879
+#: includes/languages/trans_static.php:890
 msgid "Micronesia"
 msgstr "میکرونزی"
 
-#: includes/languages/trans_static.php:880
+#: includes/languages/trans_static.php:891
 msgid "Moldova"
 msgstr "مولداوی"
 
-#: includes/languages/trans_static.php:881
+#: includes/languages/trans_static.php:892
 msgid "Monaco"
 msgstr "موناکو"
 
-#: includes/languages/trans_static.php:882
+#: includes/languages/trans_static.php:893
 msgid "Mongolia"
 msgstr "مغولستان"
 
-#: includes/languages/trans_static.php:883
+#: includes/languages/trans_static.php:894
 msgid "Montenegro"
 msgstr "مونته‌نگرو"
 
-#: includes/languages/trans_static.php:884
+#: includes/languages/trans_static.php:895
 msgid "Montserrat"
 msgstr "مونتسرات"
 
-#: includes/languages/trans_static.php:885
+#: includes/languages/trans_static.php:896
 msgid "Morocco"
 msgstr "مراکش"
 
-#: includes/languages/trans_static.php:886
+#: includes/languages/trans_static.php:897
 msgid "Mozambique"
 msgstr "موزامبیک"
 
-#: includes/languages/trans_static.php:887
+#: includes/languages/trans_static.php:898
 msgid "Myanmar (Burma)"
 msgstr "میانمار (بورام)"
 
-#: includes/languages/trans_static.php:888
+#: includes/languages/trans_static.php:899
 msgid "Namibia"
 msgstr "نامیبیا"
 
-#: includes/languages/trans_static.php:889
+#: includes/languages/trans_static.php:900
 msgid "Nauru"
 msgstr "نائورو"
 
-#: includes/languages/trans_static.php:890
+#: includes/languages/trans_static.php:901
 msgid "Nepal"
 msgstr "نپال"
 
-#: includes/languages/trans_static.php:891
+#: includes/languages/trans_static.php:902
 msgid "Netherlands"
 msgstr "هلند"
 
-#: includes/languages/trans_static.php:892
+#: includes/languages/trans_static.php:903
 msgid "New Caledonia"
 msgstr "کالدونیای جدید"
 
-#: includes/languages/trans_static.php:893
+#: includes/languages/trans_static.php:904
 msgid "New Zealand"
 msgstr "نیوزلند"
 
-#: includes/languages/trans_static.php:894
+#: includes/languages/trans_static.php:905
 msgid "Nicaragua"
 msgstr "نیکاراگوئه"
 
-#: includes/languages/trans_static.php:895
+#: includes/languages/trans_static.php:906
 msgid "Niger"
 msgstr "نایگر"
 
-#: includes/languages/trans_static.php:896
+#: includes/languages/trans_static.php:907
 msgid "Nigeria"
 msgstr "نیجریه"
 
-#: includes/languages/trans_static.php:897
+#: includes/languages/trans_static.php:908
 msgid "Niue"
 msgstr "نیچه"
 
-#: includes/languages/trans_static.php:898
+#: includes/languages/trans_static.php:909
 msgid "Norfolk Island"
 msgstr "جزیره نورفولک"
 
-#: includes/languages/trans_static.php:899
+#: includes/languages/trans_static.php:910
 msgid "North Korea"
 msgstr "کره شمالی"
 
-#: includes/languages/trans_static.php:900
+#: includes/languages/trans_static.php:911
 msgid "Northern Mariana Islands"
 msgstr "جزایر ماریانای شمالی"
 
-#: includes/languages/trans_static.php:901
+#: includes/languages/trans_static.php:912
 msgid "Norway"
 msgstr "نروژی"
 
-#: includes/languages/trans_static.php:902
+#: includes/languages/trans_static.php:913
 msgid "Oman"
 msgstr "عمان"
 
-#: includes/languages/trans_static.php:903
+#: includes/languages/trans_static.php:914
 msgid "Pakistan"
 msgstr "پاکستان"
 
-#: includes/languages/trans_static.php:904
+#: includes/languages/trans_static.php:915
 msgid "Palau"
 msgstr "پائولو"
 
-#: includes/languages/trans_static.php:905
+#: includes/languages/trans_static.php:916
 msgid "Palestine"
 msgstr "فلسطین"
 
-#: includes/languages/trans_static.php:906
+#: includes/languages/trans_static.php:917
 msgid "Panama"
 msgstr "پاناما"
 
-#: includes/languages/trans_static.php:907
+#: includes/languages/trans_static.php:918
 msgid "Papua New Guinea"
 msgstr "پاپو گینه جدید"
 
-#: includes/languages/trans_static.php:908
+#: includes/languages/trans_static.php:919
 msgid "Paraguay"
 msgstr "پاراگوئه"
 
-#: includes/languages/trans_static.php:909
+#: includes/languages/trans_static.php:920
 msgid "Peru"
 msgstr "پرو"
 
-#: includes/languages/trans_static.php:910
+#: includes/languages/trans_static.php:921
 msgid "Philippines"
 msgstr "فیلیپین"
 
-#: includes/languages/trans_static.php:911
+#: includes/languages/trans_static.php:922
 msgid "Pitcairn Islands"
 msgstr "جزایر پیت کرن"
 
-#: includes/languages/trans_static.php:912
+#: includes/languages/trans_static.php:923
 msgid "Poland"
 msgstr "لهستان"
 
-#: includes/languages/trans_static.php:913
+#: includes/languages/trans_static.php:924
 msgid "Portugal"
 msgstr "کشور پرتغال"
 
-#: includes/languages/trans_static.php:914
+#: includes/languages/trans_static.php:925
 msgid "Puerto Rico"
 msgstr "پورتوریکو"
 
-#: includes/languages/trans_static.php:915
+#: includes/languages/trans_static.php:926
 msgid "Qatar"
 msgstr "قطر"
 
-#: includes/languages/trans_static.php:916
+#: includes/languages/trans_static.php:927
 msgid "Republic Of The Congo"
 msgstr "جمهوری کنگو"
 
-#: includes/languages/trans_static.php:917
+#: includes/languages/trans_static.php:928
 msgid "Réunion"
 msgstr "تجدید دیدار"
 
-#: includes/languages/trans_static.php:918
+#: includes/languages/trans_static.php:929
 msgid "Romania"
 msgstr "رومانی"
 
-#: includes/languages/trans_static.php:919
+#: includes/languages/trans_static.php:930
 msgid "Russia"
 msgstr "روسیه"
 
-#: includes/languages/trans_static.php:920
+#: includes/languages/trans_static.php:931
 msgid "Rwanda"
 msgstr "رواندا"
 
-#: includes/languages/trans_static.php:921
+#: includes/languages/trans_static.php:932
 msgid "Saint Barthélemy"
 msgstr "سنت بارتملی"
 
-#: includes/languages/trans_static.php:922
+#: includes/languages/trans_static.php:933
 msgid "Saint Helena"
 msgstr "صلیب هلنا"
 
-#: includes/languages/trans_static.php:923
+#: includes/languages/trans_static.php:934
 msgid "Saint Kitts And Nevis"
 msgstr "کتیبه‌های سنت و نه"
 
-#: includes/languages/trans_static.php:924
+#: includes/languages/trans_static.php:935
 msgid "Saint Lucia"
 msgstr "سنت لوسیا"
 
-#: includes/languages/trans_static.php:925
+#: includes/languages/trans_static.php:936
 msgid "Saint Martin"
 msgstr "مارتین سنت"
 
-#: includes/languages/trans_static.php:926
+#: includes/languages/trans_static.php:937
 msgid "Saint Pierre And Miquelon"
 msgstr "سنت پرور و میکلون"
 
-#: includes/languages/trans_static.php:927
+#: includes/languages/trans_static.php:938
 msgid "Saint Vincent And The Grenadines"
 msgstr "سنت وینسنت و گرانادین"
 
-#: includes/languages/trans_static.php:928
+#: includes/languages/trans_static.php:939
 msgid "Samoa"
 msgstr "ساموا"
 
-#: includes/languages/trans_static.php:929
+#: includes/languages/trans_static.php:940
 msgid "San Marino"
 msgstr "سان مارینو"
 
-#: includes/languages/trans_static.php:930
+#: includes/languages/trans_static.php:941
 msgid "São Tomé And Príncipe"
 msgstr "سائوتومه و پرنسیپ"
 
-#: includes/languages/trans_static.php:931
+#: includes/languages/trans_static.php:942
 msgid "Saudi Arabia"
 msgstr "عربستان سعودی"
 
-#: includes/languages/trans_static.php:932
+#: includes/languages/trans_static.php:943
 msgid "Senegal"
 msgstr "سنگال"
 
-#: includes/languages/trans_static.php:933
+#: includes/languages/trans_static.php:944
 msgid "Serbia"
 msgstr "صربستان"
 
-#: includes/languages/trans_static.php:934
+#: includes/languages/trans_static.php:945
 msgid "Seychelles"
 msgstr "سیشل"
 
-#: includes/languages/trans_static.php:935
+#: includes/languages/trans_static.php:946
 msgid "Sierra Leone"
 msgstr "سیرا لئون"
 
-#: includes/languages/trans_static.php:936
+#: includes/languages/trans_static.php:947
 msgid "Singapore"
 msgstr "سیناپور"
 
-#: includes/languages/trans_static.php:937
+#: includes/languages/trans_static.php:948
 msgid "Sint Maarten"
 msgstr "سینت مارتین"
 
-#: includes/languages/trans_static.php:938
+#: includes/languages/trans_static.php:949
 msgid "Slovakia"
 msgstr "اسلواکی"
 
-#: includes/languages/trans_static.php:939
+#: includes/languages/trans_static.php:950
 msgid "Slovenia"
 msgstr "اسلوونی"
 
-#: includes/languages/trans_static.php:940
+#: includes/languages/trans_static.php:951
 msgid "Solomon Islands"
 msgstr "جزایر سلیمان"
 
-#: includes/languages/trans_static.php:941
+#: includes/languages/trans_static.php:952
 msgid "Somalia"
 msgstr "سومالی"
 
-#: includes/languages/trans_static.php:942
+#: includes/languages/trans_static.php:953
 msgid "South Africa"
 msgstr "آفریقای جنوبی"
 
-#: includes/languages/trans_static.php:943
+#: includes/languages/trans_static.php:954
 msgid "South Georgia And The South Sandwich Islands"
 msgstr "جورجیا جنوبی و جزایر ساندویچ جنوبی"
 
-#: includes/languages/trans_static.php:944
+#: includes/languages/trans_static.php:955
 msgid "South Korea"
 msgstr "کره جنوبی"
 
-#: includes/languages/trans_static.php:945
+#: includes/languages/trans_static.php:956
 msgid "South Sudan"
 msgstr "سودان جنوبی"
 
-#: includes/languages/trans_static.php:946
+#: includes/languages/trans_static.php:957
 msgid "Spain"
 msgstr "اسپانیا"
 
-#: includes/languages/trans_static.php:947
+#: includes/languages/trans_static.php:958
 msgid "Sri Lanka"
 msgstr "سری لانکا"
 
-#: includes/languages/trans_static.php:948
+#: includes/languages/trans_static.php:959
 msgid "Sudan"
 msgstr "سودان"
 
-#: includes/languages/trans_static.php:949
+#: includes/languages/trans_static.php:960
 msgid "Suriname"
 msgstr "سورینام"
 
-#: includes/languages/trans_static.php:950
+#: includes/languages/trans_static.php:961
 msgid "Svalbard And Jan Mayen"
 msgstr "سوالبارد و یان ماین"
 
-#: includes/languages/trans_static.php:951
+#: includes/languages/trans_static.php:962
 msgid "Swaziland"
 msgstr "سوازیلند"
 
-#: includes/languages/trans_static.php:952
+#: includes/languages/trans_static.php:963
 msgid "Sweden"
 msgstr "سوئد"
 
-#: includes/languages/trans_static.php:953
+#: includes/languages/trans_static.php:964
 msgid "Switzerland"
 msgstr "سوئیس"
 
-#: includes/languages/trans_static.php:954
+#: includes/languages/trans_static.php:965
 msgid "Syria"
 msgstr "سوریه"
 
-#: includes/languages/trans_static.php:955
+#: includes/languages/trans_static.php:966
 msgid "Taiwan"
 msgstr "تایوان"
 
-#: includes/languages/trans_static.php:956
+#: includes/languages/trans_static.php:967
 msgid "Tajikistan"
 msgstr "تاجیکستان"
 
-#: includes/languages/trans_static.php:957
+#: includes/languages/trans_static.php:968
 msgid "Tanzania"
 msgstr "تانزانیا"
 
-#: includes/languages/trans_static.php:958
+#: includes/languages/trans_static.php:969
 msgid "Thailand"
 msgstr "تایلند"
 
-#: includes/languages/trans_static.php:959
+#: includes/languages/trans_static.php:970
 msgid "Togo"
 msgstr "توگو"
 
-#: includes/languages/trans_static.php:960
+#: includes/languages/trans_static.php:971
 msgid "Tokelau"
 msgstr "توکلو"
 
-#: includes/languages/trans_static.php:961
+#: includes/languages/trans_static.php:972
 msgid "Tonga"
 msgstr "تنگا"
 
-#: includes/languages/trans_static.php:962
+#: includes/languages/trans_static.php:973
 msgid "Trinidad And Tobago"
 msgstr "ترینیداد و توباگو"
 
-#: includes/languages/trans_static.php:963
+#: includes/languages/trans_static.php:974
 msgid "Tunisia"
 msgstr "تونس"
 
-#: includes/languages/trans_static.php:964
+#: includes/languages/trans_static.php:975
 msgid "Turkey"
 msgstr "ترکیه"
 
-#: includes/languages/trans_static.php:965
+#: includes/languages/trans_static.php:976
 msgid "Turkmenistan"
 msgstr "تركمنستان"
 
-#: includes/languages/trans_static.php:966
+#: includes/languages/trans_static.php:977
 msgid "Turks And Caicos Islands"
 msgstr "جزایر تورک و کیکوس"
 
-#: includes/languages/trans_static.php:967
+#: includes/languages/trans_static.php:978
 msgid "Tuvalu"
 msgstr "تووالو"
 
-#: includes/languages/trans_static.php:968
+#: includes/languages/trans_static.php:979
 msgid "U.s. Minor Outlying Islands'"
 msgstr "جزایر جزر و مدی کوچک"
 
-#: includes/languages/trans_static.php:969
+#: includes/languages/trans_static.php:980
 msgid "U.s. Virgin Islands"
 msgstr "جزایر ویرجین بریتانیایی"
 
-#: includes/languages/trans_static.php:970
+#: includes/languages/trans_static.php:981
 msgid "Uganda"
 msgstr "اوگاندا"
 
-#: includes/languages/trans_static.php:971
+#: includes/languages/trans_static.php:982
 msgid "Ukraine"
 msgstr "اوکراین"
 
-#: includes/languages/trans_static.php:972
+#: includes/languages/trans_static.php:983
 msgid "United Arab Emirates"
 msgstr "امارات متحده عربی"
 
-#: includes/languages/trans_static.php:973
+#: includes/languages/trans_static.php:984
 msgid "United Kingdom"
 msgstr "انگلستان"
 
-#: includes/languages/trans_static.php:974
+#: includes/languages/trans_static.php:985
 msgid "United States"
 msgstr "ایالات متحده"
 
-#: includes/languages/trans_static.php:975
+#: includes/languages/trans_static.php:986
 msgid "Uruguay"
 msgstr "اروگوئه"
 
-#: includes/languages/trans_static.php:976
+#: includes/languages/trans_static.php:987
 msgid "Uzbekistan"
 msgstr "ازبکستان"
 
-#: includes/languages/trans_static.php:977
+#: includes/languages/trans_static.php:988
 msgid "Vanuatu"
 msgstr "وانواتو"
 
-#: includes/languages/trans_static.php:978
+#: includes/languages/trans_static.php:989
 msgid "Vatican City"
 msgstr "شهر واتیکان"
 
-#: includes/languages/trans_static.php:979
+#: includes/languages/trans_static.php:990
 msgid "Venezuela"
 msgstr "ونزوئلا"
 
-#: includes/languages/trans_static.php:980
+#: includes/languages/trans_static.php:991
 msgid "Vietnam"
 msgstr "ویتنام"
 
-#: includes/languages/trans_static.php:981
+#: includes/languages/trans_static.php:992
 msgid "Wallis And Futuna"
 msgstr "والیس و فوتونا"
 
-#: includes/languages/trans_static.php:982
+#: includes/languages/trans_static.php:993
 msgid "Western Sahara"
 msgstr "ساحره غرب"
 
-#: includes/languages/trans_static.php:983
+#: includes/languages/trans_static.php:994
 msgid "Yemen"
 msgstr "یمن"
 
-#: includes/languages/trans_static.php:984
+#: includes/languages/trans_static.php:995
 msgid "Zambia"
 msgstr "زامبیا"
 
-#: includes/languages/trans_static.php:985
+#: includes/languages/trans_static.php:996
 msgid "Zimbabwechoe"
 msgstr "زیمبابوه"
 
-#: includes/languages/trans_static.php:993
+#: includes/languages/trans_static.php:1004
 msgid "privacy"
 msgstr "حریم خصوصی"
 
-#: includes/languages/trans_static.php:996
+#: includes/languages/trans_static.php:1007
 msgid "public"
 msgstr "عمومی"
 
-#: includes/languages/trans_static.php:999
+#: includes/languages/trans_static.php:1010
 msgid "private"
 msgstr "خصوصی"
 
-#: includes/languages/trans_static.php:1001
+#: includes/languages/trans_static.php:1012
 msgid "saleorder"
 msgstr "سفارش فروش"
 
-#: includes/languages/trans_static.php:1002
+#: includes/languages/trans_static.php:1013
 msgid "Saleorder"
 msgstr "سفارش فروش"
 
-#: includes/languages/trans_static.php:1005
+#: includes/languages/trans_static.php:1016
 msgid "sended"
 msgstr "ارسال شده"
 
-#: includes/languages/trans_static.php:1006
+#: includes/languages/trans_static.php:1017
 msgid "Sended"
 msgstr "ارسال شده"
 
-#: includes/languages/trans_static.php:1008
+#: includes/languages/trans_static.php:1019
 msgid "Irnic"
 msgstr "ایرنیک"
 
-#: includes/languages/trans_static.php:1009 lib/app/domains/filter.php:58
+#: includes/languages/trans_static.php:1020 lib/app/domains/filter.php:58
 msgid "Onlinenic"
 msgstr "آنلاین‌نیک"
 
-#: includes/languages/trans_static.php:1011
+#: includes/languages/trans_static.php:1022
 msgid "irnic"
 msgstr "ایرنیک"
 
-#: includes/languages/trans_static.php:1012
+#: includes/languages/trans_static.php:1023
 msgid "onlinenic"
 msgstr "آنلاین‌نیک"
 
@@ -38199,7 +38278,7 @@ msgstr "درخواست جابجایی ذخیره شد"
 msgid "Fuel updated"
 msgstr "سوخت به‌روزرسانی شد"
 
-#: lib/app/store/check.php:77
+#: lib/app/store/check.php:78
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
