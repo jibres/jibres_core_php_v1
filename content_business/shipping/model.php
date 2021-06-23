@@ -6,6 +6,13 @@ class model
 {
 	public static function post()
 	{
+		$check_schedule_order = \lib\app\factor\schedule_order::check();
+
+		if(!$check_schedule_order)
+		{
+			return false;
+		}
+
 		$args = [];
 		if(\dash\user::login())
 		{
