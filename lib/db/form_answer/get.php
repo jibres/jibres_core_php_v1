@@ -5,7 +5,7 @@ namespace lib\db\form_answer;
 class get
 {
 
-	public static function is_answered_user_factor_id($_user_id, $_factor_id)
+	public static function is_answered_factor_id($_factor_id)
 	{
 		$query =
 		"
@@ -16,12 +16,10 @@ class get
 				form_answer
 			INNER JOIN form ON form.id = form_answer.form_id
 			WHERE
-				form_answer.user_id = :user_id AND
 				form_answer.factor_id = :factor_id
 		";
 		$param =
 		[
-			':user_id'   => $_user_id,
 			':factor_id' => $_factor_id,
 		];
 
@@ -31,13 +29,13 @@ class get
 	}
 
 
-	public static function is_answered_form_user_factor_id($_form_id, $_user_id, $_factor_id)
+	public static function is_answered_form_factor_id($_form_id, $_factor_id)
 	{
-		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.user_id = :user_id AND form_answer.factor_id = :factor_id LIMIT 1";
+		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.factor_id = :factor_id LIMIT 1";
 		$param =
 		[
 			':form_id'   => $_form_id,
-			':user_id'   => $_user_id,
+
 			':factor_id' => $_factor_id,
 		];
 

@@ -14,7 +14,7 @@ class view
 			$user_id = \dash\coding::decode(a($orderDetail, 'factor', 'customer'));
 			if($user_id)
 			{
-				$load_have_form_answer = \lib\app\form\answer\get::is_answered_user_factor_id($user_id, \dash\request::get('id'));
+				$load_have_form_answer = \lib\app\form\answer\get::is_answered_factor_id(\dash\request::get('id'));
 
 				if($load_have_form_answer)
 				{

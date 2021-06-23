@@ -34,9 +34,9 @@ class controller
 
 		$satisfaction_survey = \lib\store::detail('satisfaction_survey');
 
-		if($satisfaction_survey && \dash\user::id())
+		if($satisfaction_survey)
 		{
-			$is_answered_before = \lib\app\form\answer\get::is_answered_form_user_factor_id($satisfaction_survey, \dash\user::id(), \dash\request::get('id'));
+			$is_answered_before = \lib\app\form\answer\get::is_answered_form_factor_id($satisfaction_survey, \dash\request::get('id'));
 			if(!$is_answered_before)
 			{
 				\dash\data::satisfactionSurveyForm($satisfaction_survey);
