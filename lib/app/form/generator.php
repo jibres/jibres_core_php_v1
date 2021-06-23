@@ -28,6 +28,7 @@ class generator
 					self::$html .= '<div class="body" data-jform>';
 					{
 						self::$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
+						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 						if(a($load_form, 'file'))
 						{

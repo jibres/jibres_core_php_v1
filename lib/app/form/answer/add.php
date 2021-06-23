@@ -10,6 +10,7 @@ class add
 		[
 			'form_id'   => 'id',
 			'user_id'   => 'id',
+			'factor_id' => 'id',
 			'startdate' => 'datetime',
 			'answer'    => 'bit', // just for skip clean error
 		];
@@ -523,6 +524,7 @@ class add
 		[
 			'form_id'     => $form_id,
 			'user_id'     => $data['user_id'],
+			'factor_id'   => $data['factor_id'],
 			'datecreated' => date("Y-m-d H:i:s"),
 			'startdate'   => $data['startdate'],
 			'enddate'     => date("Y-m-d H:i:s"),
