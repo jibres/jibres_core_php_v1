@@ -63,6 +63,7 @@
       </div>
       <?php if(\dash\data::cartSummary()) {?>
         <div class="c-xs-12 c-sm-12 c-lg-4">
+          <?php echo \lib\app\factor\schedule_order::message_html(); ?>
           <?php require_once(root. '/content_business/cart/cartSummary.php') ?>
           <?php if(\dash\data::myCart()) {?>
                <nav class="items long">

@@ -6,7 +6,7 @@ class model
 {
 	public static function post()
 	{
-		$check_schedule_order = \lib\app\factor\schedule_order::check();
+		$check_schedule_order = \lib\app\factor\schedule_order::check(true);
 
 		if(!$check_schedule_order)
 		{

@@ -4,7 +4,10 @@ namespace lib\app\factor;
 
 class schedule_order
 {
-	public static function check()
+	private static $status_mode = null;
+
+
+	public static function check($_notif = false)
 	{
 		$load = \lib\store::detail('order_schedule');
 		$load = json_decode($load, true);
@@ -22,7 +25,12 @@ class schedule_order
 
 		if(a($load, 'status') === 'deactive')
 		{
-			\dash\notif::error(T_("Receiving the order is temporarily disabled"));
+			if($_notif)
+			{
+				\dash\notif::error(T_("Receiving the order is temporarily disabled"));
+			}
+			self::$status_mode = 'deactive';
+
 			return false;
 		}
 
@@ -64,7 +72,11 @@ class schedule_order
 
 		if(!$find_this_time_in_list)
 		{
-			\dash\notif::error(T_("Can not get your order at this time"));
+			if($_notif)
+			{
+				\dash\notif::error(T_("Can not get your order at this time"));
+			}
+			self::$status_mode = 'schedule';
 			return false;
 		}
 
@@ -87,6 +99,67 @@ class schedule_order
 		\dash\data::dataRow($load);
 
 		return $load;
+	}
+
+
+	public static function message_html()
+	{
+		$html = '';
+
+		$load = \lib\store::detail('order_schedule');
+		$load = json_decode($load, true);
+
+		// if not have schedule it is ok
+		if(!a($load, 'status'))
+		{
+			return null;
+		}
+
+		if(a($load, 'status') === 'active')
+		{
+			return null;
+		}
+
+		if(a($load, 'status') === 'deactive')
+		{
+			$html .= '<div class="msg  fs14 danger2">'. T_("Receiving the order is temporarily disabled") . '</div>';
+		}
+		elseif(!self::check())
+		{
+			$weekday_now = date('l');
+			$weekday_now = strtolower($weekday_now);
+
+			$schedule = a($load, 'schedule');
+			if(!is_array($schedule))
+			{
+				$schedule = [];
+			}
+
+			$active_time_today = [];
+
+			foreach ($schedule as $key => $value)
+			{
+				if(isset($value['weekday']) && $value['weekday'] === $weekday_now)
+				{
+					$active_time_today[] = \dash\fit::text(substr($value['start'], 0, 5)). ' - '. \dash\fit::text(substr($value['end'], 0, 5));
+				}
+			}
+
+			if(empty($active_time_today))
+			{
+				$html .= '<div class="msg  fs14 danger2">'. T_("Can not get order today") . '</div>';
+			}
+			else
+			{
+				$html .= '<div class="msg  fs14 danger2">'. T_("Today order time is :val", ['val' => '<br>'. implode("<br>", $active_time_today)]) . '</div>';
+
+			}
+
+		}
+
+		return $html;
+
+
 	}
 
 
