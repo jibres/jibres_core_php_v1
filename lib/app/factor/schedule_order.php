@@ -157,6 +157,18 @@ class schedule_order
 				return false;
 			}
 
+			foreach ($schedule as $key => $value)
+			{
+				if(isset($value['weekday']) && $value['weekday'] === $weekday)
+				{
+					if(self::int_time($start) < self::int_time($value['end']) && self::int_time($end) > self::int_time($value['start']))
+					{
+						\dash\notif::error(T_("Conflict time in :weekday", ['weekday' => T_($weekday)]));
+						return false;
+					}
+				}
+			}
+
 			$schedule[] = ['weekday' => $weekday, 'start' => $start, 'end' => $end];
 		}
 
@@ -164,6 +176,11 @@ class schedule_order
 
 		return \lib\app\store\edit::selfedit(['order_schedule' => json_encode($args)]);
 
+	}
+
+	private static function int_time($_time)
+	{
+		return floatval(str_replace(':', '', $_time));
 	}
 }
 ?>
