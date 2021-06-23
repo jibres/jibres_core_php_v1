@@ -5,6 +5,20 @@ namespace lib\db\form_answer;
 class get
 {
 
+	public static function is_answered_form_user_factor_id($_form_id, $_user_id, $_factor_id)
+	{
+		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.user_id = :user_id AND form_answer.factor_id = :factor_id LIMIT 1";
+		$param =
+		[
+			':form_id'   => $_form_id,
+			':user_id'   => $_user_id,
+			':factor_id' => $_factor_id,
+		];
+
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
 	public static function need_review_form()
 	{
 		$query = "SELECT COUNT(*) AS `count`, form_answer.form_id FROM form_answer WHERE form_answer.review IS NULL GROUP BY form_answer.form_id";

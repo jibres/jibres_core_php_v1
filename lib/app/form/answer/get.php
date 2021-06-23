@@ -4,6 +4,22 @@ namespace lib\app\form\answer;
 
 class get
 {
+	public static function is_answered_form_user_factor_id($_form_id, $_user_id, $_factor_id)
+	{
+		$form_id = \dash\validate::id($_form_id);
+		$factor_id = \dash\validate::id($_factor_id);
+
+		if(!$form_id || !$factor_id || !$_user_id)
+		{
+			return false;
+		}
+
+		$get = \lib\db\form_answer\get::is_answered_form_user_factor_id($form_id, $_user_id, $factor_id);
+
+		return $get;
+	}
+
+
 	public static function by_id($_id)
 	{
 		\dash\permission::access('_group_form');

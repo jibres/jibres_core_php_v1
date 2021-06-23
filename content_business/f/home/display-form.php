@@ -24,7 +24,7 @@ if(!is_array($formItems))
 				<?php if(\dash\data::formDetail_desc()) {?>
 					<div class="mB20"><?php echo \dash\data::formDetail_desc() ?></div>
 				<?php } // endif ?>
-				<?php if(\dash\data::accessLoadItem()) {\lib\app\form\generator::items($formItems);} ?>
+				<?php if(\dash\data::accessLoadItem()) {echo \lib\app\form\generator::items($formItems);} ?>
 			</div>
 			<?php if(\dash\data::accessLoadItem()) {?>
 			<footer class="txtRa">

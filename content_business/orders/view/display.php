@@ -5,6 +5,7 @@
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-8 c-xl-9">
 
+      <?php if(\dash\data::satisfactionSurveyForm()) { echo \lib\app\form\generator::full_html(\dash\data::satisfactionSurveyForm());} ?>
       <div class="box">
         <div class="body">
           <div class="row">

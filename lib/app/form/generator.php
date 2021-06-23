@@ -4,11 +4,66 @@ namespace lib\app\form;
 
 class generator
 {
+	private static $html = '';
+
+	public static function full_html($_form_id)
+	{
+		$load_form = \lib\app\form\form\get::public_get($_form_id);
+
+		if(!$load_form)
+		{
+			return null;
+		}
+
+		$load_items = \lib\app\form\item\get::items($_form_id);
+
+		self::$html .= '<form method="post" autocomplete="off">';
+		{
+			self::$html .= '<div class="">';
+			{
+
+				self::$html .= '<div class="box">';
+				{
+					self::$html .= '<header class="c-xs-0"><h2>'. a($load_form, 'title'). '</h2></header>';
+					self::$html .= '<div class="body" data-jform>';
+					{
+						self::$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
+
+						if(a($load_form, 'file'))
+						{
+							self::$html .= '<img class="mB10" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
+						}
+						if(a($load_form, 'desc'))
+						{
+							self::$html .= '<div class="mB20">'. a($load_form, 'desc'). '</div>';
+						}
+
+						\lib\app\form\generator::items($load_items);
+					}
+					self::$html .= '</div>';
+
+					self::$html .= '<footer class="txtRa">';
+					{
+						self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+					}
+					self::$html .= '</footer>';
+				}
+				self::$html .= '</div>';
+			}
+			self::$html .= '</div>';
+
+		}
+		self::$html .= '</form>';
+
+		return self::$html;
+	}
+
+
 	public static function items($_items)
 	{
 		if(!$_items || !is_array($_items))
 		{
-			return;
+			return null;
 		}
 
 		self::div('row');
@@ -55,6 +110,8 @@ class generator
 		}
 		self::_div();
 
+		return self::$html;
+
 	}
 
 
@@ -62,18 +119,18 @@ class generator
 	{
 		if($class)
 		{
-			echo '<div class="'. $class. '">';
+			self::$html .= '<div class="'. $class. '">';
 		}
 		else
 		{
-			echo '<div>';
+			self::$html .= '<div>';
 		}
 	}
 
 
 	private static function _div()
 	{
-		echo '</div>';
+		self::$html .= '</div>';
 	}
 
 
@@ -84,11 +141,11 @@ class generator
 		{
 			if($_html)
 			{
-		 		echo ' <small class="fc-red">* '.  T_("Required"). '</small>';
+		 		self::$html .= ' <small class="fc-red">* '.  T_("Required"). '</small>';
 			}
 			else
 			{
-				// echo ' required';
+				// self::$html .= ' required';
 			}
 		}
 	}
@@ -98,7 +155,7 @@ class generator
 	{
 		if(a($value, 'desc'))
 		{
-		 	echo ' <div class="fc-mute mB20 fs09">'.  a($value, 'desc'). '</div> ';
+		 	self::$html .= ' <div class="fc-mute mB20 fs09">'.  a($value, 'desc'). '</div> ';
 		}
 	}
 
@@ -113,7 +170,7 @@ class generator
 		}
 		else
 		{
-			echo $myName;
+			self::$html .= $myName;
 		}
 	}
 
@@ -128,7 +185,7 @@ class generator
 		}
 		else
 		{
-			echo $myID;
+			self::$html .= $myID;
 		}
 	}
 
@@ -139,11 +196,11 @@ class generator
 		{
 			if($_select_mode)
 			{
-				echo $value['setting'][$value['type']]['placeholder'];
+				self::$html .= $value['setting'][$value['type']]['placeholder'];
 			}
 			else
 			{
-				echo ' placeholder="'. $value['setting'][$value['type']]['placeholder']. '"';
+				self::$html .= ' placeholder="'. $value['setting'][$value['type']]['placeholder']. '"';
 			}
 		}
 		else
@@ -152,11 +209,11 @@ class generator
 			{
 				if($_special)
 				{
-					echo $_special;
+					self::$html .= $_special;
 				}
 				else
 				{
-					echo T_("Please select one item");
+					self::$html .= T_("Please select one item");
 				}
 			}
 		}
@@ -166,7 +223,7 @@ class generator
 	{
 		if(isset($value['type']) && isset($value['setting'][$value['type']]['min']) && $value['setting'][$value['type']]['min'] && is_numeric($value['setting'][$value['type']]['min']))
 		{
-			echo ' min="'. $value['setting'][$value['type']]['min']. '"';
+			self::$html .= ' min="'. $value['setting'][$value['type']]['min']. '"';
 		}
 	}
 
@@ -177,11 +234,11 @@ class generator
 		{
 			if($_raw)
 			{
-				echo $value['user_answer'];
+				self::$html .= $value['user_answer'];
 			}
 			else
 			{
-				echo ' value="'. $value['user_answer']. '"';
+				self::$html .= ' value="'. $value['user_answer']. '"';
 			}
 		}
 	}
@@ -190,7 +247,7 @@ class generator
 	{
 		if(isset($value['type']) && isset($value['setting'][$value['type']]['max']) && $value['setting'][$value['type']]['max'] && is_numeric($value['setting'][$value['type']]['max']))
 		{
-			echo ' max="'. $value['setting'][$value['type']]['max']. '"';
+			self::$html .= ' max="'. $value['setting'][$value['type']]['max']. '"';
 		}
 	}
 
@@ -198,98 +255,98 @@ class generator
 	{
 		if(isset($value['maxlen']) && is_numeric($value['maxlen']))
 		{
-			echo ' maxlength="'. $value['maxlen']. '"';
+			self::$html .= ' maxlength="'. $value['maxlen']. '"';
 		}
 	}
 
 	private static function label($value, $_special_text = null, $_special_id = null)
 	{
-		echo '<label class="q" for="';
+		self::$html .= '<label class="q" for="';
 		if($_special_id)
 		{
-			echo $_special_id;
+			self::$html .= $_special_id;
 		}
 		else
 		{
 			self::myID($value);
 		}
-		echo '">';
+		self::$html .= '">';
 		{
 			if($_special_text)
 			{
-				echo $_special_text;
+				self::$html .= $_special_text;
 			}
 			else
 			{
-				echo a($value, 'title');
+				self::$html .= a($value, 'title');
 			}
 			self::isRequired($value, true);
 		}
-		echo '</label>';
+		self::$html .= '</label>';
 	}
 
 
 	private static function label_raw($value)
 	{
-		echo '<label class="q">';
-		echo a($value, 'title');
+		self::$html .= '<label class="q">';
+		self::$html .= a($value, 'title');
 		self::isRequired($value, true);
-		echo '</label>';
+		self::$html .= '</label>';
 	}
 
 
 	private static function label_checkbox($value, $_special_text = null, $_special_id = null)
 	{
-		echo '<label for="';
+		self::$html .= '<label for="';
 		if($_special_id)
 		{
-			echo $_special_id;
+			self::$html .= $_special_id;
 		}
 		else
 		{
 			self::myID($value);
 		}
-		echo '">';
+		self::$html .= '">';
 		{
 			if($_special_text)
 			{
-				echo $_special_text;
+				self::$html .= $_special_text;
 			}
 			else
 			{
-				echo a($value, 'title');
+				self::$html .= a($value, 'title');
 			}
 		}
-		echo '</label>';
+		self::$html .= '</label>';
 	}
 
 
 	private static function input($type, $value, $_meta = null)
 	{
-		echo '<div class="input">';
+		self::$html .= '<div class="input">';
 		{
-			echo '<input type="'. $type. '" name="';
+			self::$html .= '<input type="'. $type. '" name="';
 			self::myName($value);
-			echo '" id="';
+			self::$html .= '" id="';
 			self::myID($value);
-			echo '" ';
+			self::$html .= '" ';
 			self::isRequired($value);
 			self::HtmlPlaceholder($value);
 			self::HtmlMaxLen($value);
 			self::HtmlMin($value);
 			self::HtmlMax($value);
 			self::HtmlValue($value);
-			echo $_meta;
-			echo '>';
+			self::$html .= $_meta;
+			self::$html .= '>';
 		}
-		echo '</div>';
+		self::$html .= '</div>';
 
 	}
 
 
 	private static function input_raw($type, $value, $_name, $_id, $_meta = null)
 	{
-		echo '<input type="'. $type. '" name="'. $_name. '" id="'. $_id. '"';
+		self::$html .= '<input type="'. $type. '" name="'. $_name. '" id="'. $_id. '"';
 		self::isRequired($value);
 		self::HtmlPlaceholder($value);
 		self::HtmlMaxLen($value);
@@ -297,8 +354,8 @@ class generator
 		self::HtmlMax($value);
 
 
-		echo $_meta;
-		echo '>';
+		self::$html .= $_meta;
+		self::$html .= '>';
 	}
 
 
@@ -338,18 +395,18 @@ class generator
 			self::div('mB10');
 			{
 				self::label($value);
-				echo '<textarea class="txt" rows="'. $rows. '" ';
-				echo ' id="';
+				self::$html .= '<textarea class="txt" rows="'. $rows. '" ';
+				self::$html .= ' id="';
 				self::myID($value);
-				echo '" name="';
+				self::$html .= '" name="';
 				self::myName($value);
-				echo '" ';
+				self::$html .= '" ';
 				self::isRequired($value);
 				self::HtmlPlaceholder($value);
 				self::HtmlMaxLen($value);
-				echo '>';
+				self::$html .= '>';
 				self::HtmlValue($value, true);
-				echo '</textarea>';
+				self::$html .= '</textarea>';
 				self::HtmlDesc($value);
 			}
 			self::_div();
@@ -471,18 +528,18 @@ class generator
 			self::label_raw($value);
 			self::div('mB10');
 			{
-				echo '<select class="select22" id="'; self::myID($value); echo '" name="'; self::myName($value); echo '" data-placeholder="'; self::HtmlPlaceholder($value, true); echo '">';
+				self::$html .= '<select class="select22" id="'; self::myID($value); self::$html .= '" name="'; self::myName($value); self::$html .= '" data-placeholder="'; self::HtmlPlaceholder($value, true); self::$html .= '">';
 				{
-					echo '<option value="">'; self::HtmlPlaceholder($value, true); echo '</option>';
+					self::$html .= '<option value="">'; self::HtmlPlaceholder($value, true); self::$html .= '</option>';
 					if(isset($value['choice']) && is_array($value['choice']))
 					{
 						foreach ($value['choice'] as $k => $v)
 						{
-							echo '<option value="'. a($v, 'title'). '">'. a($v, 'title'). '</option>';
+							self::$html .= '<option value="'. a($v, 'title'). '">'. a($v, 'title'). '</option>';
 						}
 					}
 				}
-				echo '</select>';
+				self::$html .= '</select>';
 			}
 			self::HtmlDesc($value);
 			self::_div();
@@ -724,14 +781,14 @@ class generator
 				$accept = "*";
 			}
 
-			echo '<div data-uploader data-file-max-size="'. \dash\data::maxFileSize() .'" data-name="'. self::myName($value, true). '" data-ratio-free data-final="#finalImage'. self::myID($value, true). '">';
+			self::$html .= '<div data-uploader data-file-max-size="'. \dash\data::maxFileSize() .'" data-name="'. self::myName($value, true). '" data-ratio-free data-final="#finalImage'. self::myID($value, true). '">';
 			{
-				echo '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
+				self::$html .= '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
 				// T_('Drag &amp; Drop your files or Browse')
 				self::label($value);
-				echo '<label for="'. self::myID($value, true). '"><img id="finalImage'. self::myID($value, true). '" alt="'. T_("File"). '"></label>';
+				self::$html .= '<label for="'. self::myID($value, true). '"><img id="finalImage'. self::myID($value, true). '" alt="'. T_("File"). '"></label>';
 			}
-			echo '</div>';
+			self::$html .= '</div>';
 
 			self::HtmlDesc($value);
 		}
@@ -770,30 +827,30 @@ class generator
 					$targetblank = $value['setting']['message']['targetblank'];
 				}
 
-				echo '<div class="msg '. $class .'">';
+				self::$html .= '<div class="msg '. $class .'">';
 
 				if($link)
 				{
-					echo '<a href="'. $link. '"';
+					self::$html .= '<a href="'. $link. '"';
 					if($targetblank)
 					{
-						 echo ' target="_blank"';
+						 self::$html .= ' target="_blank"';
 					}
-					echo '>';
+					self::$html .= '>';
 				}
 
-				echo $value['title'];
+				self::$html .= $value['title'];
 
 				if($link)
 				{
-					echo '</a>';
+					self::$html .= '</a>';
 				}
 
 				if(isset($value['desc']))
 				{
-					echo '<p>'. $value['desc'] .'</p>';
+					self::$html .= '<p>'. $value['desc'] .'</p>';
 				}
-				echo '</div>';
+				self::$html .= '</div>';
 			}
 			self::_div();
 		}
@@ -819,16 +876,16 @@ class generator
 						default: break;
 					}
 				}
-				echo '<div class="msg '. $class .'">';
+				self::$html .= '<div class="msg '. $class .'">';
 					if(isset($value['desc']))
 					{
-						echo '<p>'. $value['desc'] .'</p>';
+						self::$html .= '<p>'. $value['desc'] .'</p>';
 					}
-					echo '<div class="check1">';
-						echo '<input type="checkbox" name="'; self::myName($value); echo '" id="'; self::myID($value); echo '" value="1">';
-						echo '<label for="'; self::myID($value); echo '">'. $value['title'].'</label>';
-					echo '</div>';
-				echo '</div>';
+					self::$html .= '<div class="check1">';
+						self::$html .= '<input type="checkbox" name="'; self::myName($value); self::$html .= '" id="'; self::myID($value); self::$html .= '" value="1">';
+						self::$html .= '<label for="'; self::myID($value); self::$html .= '">'. $value['title'].'</label>';
+					self::$html .= '</div>';
+				self::$html .= '</div>';
 			}
 			self::_div();
 		}
@@ -883,7 +940,7 @@ class generator
 		{
 			$my_value = $value['setting']['hidden']['defaultvalue'];
 		}
-		echo '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
+		self::$html .= '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
 	}
 
 }

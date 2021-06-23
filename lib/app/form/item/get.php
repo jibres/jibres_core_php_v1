@@ -17,7 +17,6 @@ class get
 	public static function items($_form_id, $_load_choice = true)
 	{
 		$_form_id = \dash\validate::id($_form_id);
-
 		if(!$_form_id)
 		{
 			\dash\notif::error(T_("Invalid id"));
