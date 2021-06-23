@@ -53,7 +53,7 @@ class view
 		\dash\data::commentList($comment_list);
 
 		$load_answer = \lib\app\form\answer\get::by_id(\dash\request::get('aid'));
-
+		\dash\data::answerDetail($load_answer);
 		if(isset($load_answer['review']) && $load_answer['review'])
 		{
 			// nothing

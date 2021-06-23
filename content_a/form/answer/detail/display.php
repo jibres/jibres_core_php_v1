@@ -48,9 +48,15 @@
           <a class="font-14" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><i class="sf-print"></i></a>
         </div>
       </div>
-
-
     </div>
+
+      <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
+    <div class="msg info2 txtL ltr txtB font-12">
+        <a href="<?php echo \dash\url::kingdom(). '/a/order/detail?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
+      </div>
+      <?php } //endif ?>
+
+
   <table class="tbl1 v6">
     <tbody class="font-12">
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
