@@ -161,8 +161,11 @@
 <section class="f" data-option='setting-order-satisfaction' id="setting-order-validity-satisfaction">
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Set Satisfaction Survey"); ?></h3>
+      <h3><?php echo T_("Satisfaction Survey"); ?></h3>
       <div class="body">
+        <p>
+          <?php echo nl2br(T_("This form will be displayed to the customer after placing the order. \nYou can use this form as a satisfaction form or to receive any additional information from the customer after placing an order.")); ?>
+        </p>
       </div>
     </div>
   </div>
@@ -183,8 +186,13 @@
 <section class="f" data-option='setting-order-shipping' id="setting-order-validity-shipping">
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Set Shipping Survey"); ?></h3>
+      <h3><?php echo T_("Shipping Survey"); ?></h3>
       <div class="body">
+        <p>
+          <?php echo nl2br(T_("This form is displayed to the customer before placing the order.\nNote that if there is a mandatory question in this form, the order will not be registered before completing the form")); ?>
+          <br>
+          <?php echo T_("You can use this form to receive additional information before ordering") ?>
+        </p>
       </div>
     </div>
   </div>

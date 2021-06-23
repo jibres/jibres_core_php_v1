@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-06-23 16:01+0430\n"
-"PO-Revision-Date: 2021-06-23 16:04+0430\n"
+"POT-Creation-Date: 2021-06-23 16:13+0430\n"
+"PO-Revision-Date: 2021-06-23 16:16+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4993,7 +4993,7 @@ msgstr "افزودن"
 #: content_a/setting/legal/display.php:19 content_a/setting/legal/display.php:49
 #: content_a/setting/legal/display.php:81 content_a/setting/legal/display.php:110
 #: content_a/setting/menu/edit/display.php:11 content_a/setting/menu/item/display.php:114
-#: content_a/setting/order/display.php:172 content_a/setting/order/display.php:194
+#: content_a/setting/order/display.php:175 content_a/setting/order/display.php:202
 #: content_a/tag/editgroup/display.php:13 content_a/tag/property/display.php:64
 #: content_a/units/display.php:75 content_a/units/display.php:134
 #: content_a/website/imageblock/add/display.php:47
@@ -11695,17 +11695,41 @@ msgstr "تنظیم محدودیت سبد خرید"
 msgid "Set cart page default text"
 msgstr "تنظیم متن ثابت صفحه سبد خرید"
 
-#: content_a/setting/order/display.php:164
-msgid "Set Satisfaction Survey"
-msgstr "تنظیم فرم رضایت سنجی"
+#: content_a/setting/order/display.php:164 lib/app/form/form/add.php:30
+msgid "Satisfaction Survey"
+msgstr "فرم رضایت سنجی"
 
-#: content_a/setting/order/display.php:174 content_a/setting/order/display.php:196
+#: content_a/setting/order/display.php:167
+msgid ""
+"This form will be displayed to the customer after placing the order. \n"
+"You can use this form as a satisfaction form or to receive any additional information "
+"from the customer after placing an order."
+msgstr ""
+"این فرم پس از ثبت سفارش به مشتری نمایش داده خواهد شد.\n"
+"شما می‌توانید از این فرم برای رضایت سنجی مشتری و یا دریافت هر گونه اطلاعات دلخواه پس از "
+"ثبت سفارش استفاده کنید."
+
+#: content_a/setting/order/display.php:177 content_a/setting/order/display.php:204
 msgid "Create"
 msgstr "ایجاد"
 
-#: content_a/setting/order/display.php:186
-msgid "Set Shipping Survey"
-msgstr "تنظیم فرم صفحه ارسال سفارش"
+#: content_a/setting/order/display.php:189 lib/app/form/form/add.php:11
+msgid "Shipping Survey"
+msgstr "فرم صفحه ارسال سفارش"
+
+#: content_a/setting/order/display.php:192
+msgid ""
+"This form is displayed to the customer before placing the order.\n"
+"Note that if there is a mandatory question in this form, the order will not be "
+"registered before completing the form"
+msgstr ""
+"این فرم قبل از ثبت سفارش و در صفحه دریافت اطلاعات ارسال به مشتری نمایش داده خواهد شد\n"
+"توجه داشته باشید در صورتی که سوال الزامی در این فرم وجود داشته باشد، مشتری حتما باید به "
+"سوالات پاسخ دهد تا سفارش او ثبت شود"
+
+#: content_a/setting/order/display.php:194
+msgid "You can use this form to receive additional information before ordering"
+msgstr "شما می‌توانید از این فرم برای دریافت اطلاعات دلخواه قبل از ثبت سفارش استفاده کنید"
 
 #: content_a/setting/order/minimum/display.php:8
 msgid ""
@@ -35332,14 +35356,6 @@ msgstr "شرط حذف شد"
 msgid "Filter executed"
 msgstr "فیلتر اجرا شد"
 
-#: lib/app/form/form/add.php:11
-msgid "Shipping Survey"
-msgstr "فرم صفحه ارسال سفارش"
-
-#: lib/app/form/form/add.php:30
-msgid "Satisfaction Survey"
-msgstr "فرم رضایت سنجی"
-
 #: lib/app/form/form/add.php:69 lib/app/form/form/add.php:96 lib/app/form/item/add.php:33
 msgid "Contact form successfully added"
 msgstr "فرم تماس با موفقیت اضافه شد"
@@ -40632,6 +40648,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Set Satisfaction Survey"
+#~ msgstr "تنظیم فرم رضایت سنجی"
+
+#~ msgid "Set Shipping Survey"
+#~ msgstr "تنظیم فرم صفحه ارسال سفارش"
 
 #~ msgid "Document gallery is full!"
 #~ msgstr "ظرفیت گالری تکمیل است!"
