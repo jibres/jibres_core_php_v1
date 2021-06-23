@@ -4,6 +4,25 @@ namespace lib\app\form\form;
 
 class add
 {
+	public static function shipping_survey()
+	{
+		$args =
+		[
+			'title'   => T_("Shipping Survey"),
+			'privacy' => 'private',
+		];
+
+		$form_id = self::add($args, true);
+
+		if(isset($form_id['id']))
+		{
+			\lib\app\store\edit::selfedit(['shipping_survey' => $form_id['id']]);
+		}
+
+		return $form_id;
+	}
+
+
 	public static function satisfaction_survey()
 	{
 		$args =

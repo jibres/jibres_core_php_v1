@@ -19,6 +19,17 @@ class model
 			return;
 		}
 
+		if(\dash\request::post('create') === 'shipping_survey')
+		{
+			$result = \lib\app\form\form\add::shipping_survey();
+			if(isset($result['id']))
+			{
+				\dash\redirect::to(\dash\url::here(). '/form/edit?id='. $result['id']);
+			}
+
+			return;
+		}
+
 		if(\dash\request::post('set_payment_online'))
 		{
 			$post['payment_online']     = \dash\request::post('payment_online');

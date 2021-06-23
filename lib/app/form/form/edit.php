@@ -48,6 +48,13 @@ class edit
 			{
 				\lib\app\store\edit::selfedit(['satisfaction_survey' => null]);
 			}
+
+			if(floatval($_id) === floatval(\lib\store::detail('shipping_survey')))
+			{
+				\lib\app\store\edit::selfedit(['shipping_survey' => null]);
+			}
+
+
 		}
 
 		$args['datemodified'] = date("Y-m-d H:i:s");
