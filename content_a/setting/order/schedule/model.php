@@ -7,7 +7,11 @@ class model
 	public static function post()
 	{
 		\lib\app\factor\schedule_order::save(\dash\request::post());
-		\dash\redirect::pwd();
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
 	}
 }
 ?>

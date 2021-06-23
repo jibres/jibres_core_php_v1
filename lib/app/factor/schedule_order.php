@@ -66,51 +66,85 @@ class schedule_order
 
 	public static function load()
 	{
-		\dash\data::weekdayList(['Monday','Tuesday','Wednesday','Thursday','Friday', 'Saturday','Sunday',]);
+		\dash\data::weekdayList(['monday','tuesday','wednesday','thursday','friday', 'saturday','sunday',]);
 
 		if(\dash\language::current() === 'fa')
 		{
-			\dash\data::weekdayList(['Saturday','Sunday', 'Monday','Tuesday','Wednesday','Thursday','Friday',]);
+			\dash\data::weekdayList(['saturday','sunday', 'monday','tuesday','wednesday','thursday','friday',]);
 		}
-
-
 
 		$load = \lib\store::detail('order_schedule');
 		$load = json_decode($load, true);
 		\dash\data::dataRow($load);
+
+		return $load;
 	}
 
 
-	public static function save($_args)
+
+
+	public static function save()
 	{
 
-		$status = \dash\validate::enum(a($_args, 'status'), false, ['enum' => ['active', 'deactive', 'schedule']]);
+		$status = \dash\validate::enum(\dash\request::post('status'), false, ['enum' => ['active', 'deactive', 'schedule']]);
 		if(!$status)
 		{
 			$status = 'active';
 		}
-		$args = [];
-		$args['status'] = $status;
 
-		foreach (\dash\data::weekdayList() as  $weekday)
+		if(\dash\request::post('add') === 'schedule')
 		{
-			$args[$weekday] =
-			[
-				'status' => a($_args, $weekday. '_enable') ? true : false,
-				'start'  => \dash\validate::time(a($_args, $weekday. '_start'), false),
-				'end'    => \dash\validate::time(a($_args, $weekday. '_end'), false),
-			];
-
-			if($args[$weekday]['start'] && $args[$weekday]['end'])
-			{
-				if(floatval(str_replace(':', '', $args[$weekday]['start'])) > floatval(str_replace(':', '', $args[$weekday]['end'])))
-				{
-					\dash\notif::error(T_("Start time must be before end time!"), ['element' => [$weekday. '_start', $weekday. '_end']]);
-					return false;
-				}
-			}
+			$status = 'schedule';
 		}
 
+		$args = [];
+
+		$args['status'] = $status;
+
+		$dataRow = self::load();
+
+		if(isset($dataRow['schedule']) && is_array($dataRow['schedule']))
+		{
+			$schedule = $dataRow['schedule'];
+		}
+		else
+		{
+			$schedule = [];
+		}
+
+		if(\dash\request::post('add') === 'schedule')
+		{
+			$weekday = \dash\validate::weekday(\dash\request::post('weekday'));
+			if(!$weekday)
+			{
+				\dash\notif::error(T_("Please set the weekday"));
+				return false;
+			}
+
+			$start = \dash\validate::time(\dash\request::post('start'));
+			if(!$start)
+			{
+				\dash\notif::error(T_("Please set the start time"));
+				return false;
+			}
+
+			$end = \dash\validate::time(\dash\request::post('end'));
+			if(!$end)
+			{
+				\dash\notif::error(T_("Please set the end time"));
+				return false;
+			}
+
+			if(floatval(str_replace(':', '', $start)) > floatval(str_replace(':', '', $end)))
+			{
+				\dash\notif::error(T_("Start time must be before end time!"), ['element' => ['start', 'end']]);
+				return false;
+			}
+
+			$schedule[] = ['weekday' => $weekday, 'start' => $start, 'end' => $end];
+		}
+
+		$args['schedule'] = $schedule;
 
 		return \lib\app\store\edit::selfedit(['order_schedule' => json_encode($args)]);
 
