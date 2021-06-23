@@ -99,7 +99,6 @@ class schedule_order
 
 		$args = [];
 
-		$args['status'] = $status;
 
 		$dataRow = self::load();
 
@@ -111,6 +110,23 @@ class schedule_order
 		{
 			$schedule = [];
 		}
+
+		if(\dash\request::post('remove') === 'time')
+		{
+			$status = 'schedule';
+			$index = \dash\request::post('index');
+			if(isset($schedule[$index]))
+			{
+				unset($schedule[$index]);
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not find this time in your list"));
+				return false;
+			}
+		}
+
+		$args['status'] = $status;
 
 		if(\dash\request::post('add') === 'schedule')
 		{

@@ -66,7 +66,7 @@
               </tbody>
             </table>
           <?php } //endif ?>
-          <p><?php echo T_("Add your active time in every day") ?></p>
+          <label class="mT10"><?php echo T_("Add your active time in every day") ?></label>
             <div class="row">
               <div class="c-xs-12 c-sm-4">
                 <select name="weekday" class="select22">
@@ -75,12 +75,12 @@
               </div>
               <div class="c-xs-12 c-sm-4">
                 <div class="input">
-                  <input type="tel" name="start" data-format='time' >
+                  <input type="tel" name="start" placeholder="<?php echo T_("Start time") ?>" data-format='time' >
                 </div>
               </div>
               <div class="c-xs-12 c-sm-4">
                 <div class="input">
-                  <input type="tel" name="end" data-format='time' >
+                  <input type="tel" name="end" placeholder="<?php echo T_("End time") ?>" data-format='time' >
                 </div>
               </div>
             </div>
