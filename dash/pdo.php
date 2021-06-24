@@ -191,6 +191,24 @@ class pdo
 	}
 
 
+	/**
+	 * Run multi query
+	 */
+	public static function multi_query($_query, $_param, $_db_fuel = null, $_options = [])
+	{
+		$result = false;
+
+		foreach ($_query as $key => $value)
+		{
+			if(isset($_param[$key]))
+			{
+				$result = self::query($value, $_param[$key], $_db_fuel, $_options);
+			}
+		}
+		return $result;
+	}
+
+
 
 
 
