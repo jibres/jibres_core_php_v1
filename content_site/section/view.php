@@ -51,13 +51,13 @@ class view
 		{
 			$url = \dash\url::here(). '/';
 			$url .= implode('/', $dir);
-			$url .= \dash\request::full_get(['image' => null]);
+			$url .= \dash\request::full_get(['index' => null]);
 		}
 		else
 		{
 			$url = \dash\url::here();
 			$url .= '/page';
-			$url .= \dash\request::full_get(['image' => null, 'sid' => null]);
+			$url .= \dash\request::full_get(['index' => null, 'sid' => null]);
 		}
 
 		\dash\data::back_link($url);
