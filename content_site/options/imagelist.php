@@ -30,7 +30,16 @@ class imagelist
 		      		{
 			      		$html .= '<a class="item f" href="'. \dash\url::that(). '/imagelist'. \dash\request::full_get(['index' => a($value, 'index')]). '">';
 			      		{
-			        		$html .= '<img src="'. \dash\utility\icon::url('Image', 'major'). '">';
+			      			if(isset($value['file']) && $value['file'])
+			      			{
+			        			$file_url = \lib\filepath::fix($value['file']);
+			      			}
+			      			else
+			      			{
+			        			$file_url = \dash\utility\icon::url('Image', 'major');
+			      			}
+
+			        		$html .= '<img src="'. $file_url. '">';
 			        		$html .= '<div class="key">'. a($value, 'alt').' </div>';
 			        		$html .= '<div class="go"></div>';
 			      		}
