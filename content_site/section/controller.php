@@ -48,6 +48,15 @@ class controller
 		// allow to get and post on this page
 		\dash\open::get();
 		\dash\open::post();
+
+
+		// enable upload file in gallery section
+		if(in_array(\dash\url::child(), ['gallery']))
+		{
+			\dash\allow::file();
+		}
+
+
 	}
 
 
