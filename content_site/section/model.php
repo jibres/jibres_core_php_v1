@@ -211,7 +211,6 @@ class model
 			}
 		}
 
-
 		$preview           = json_encode($preview);
 
 		\content_site\update_record::patch_field($section_id, 'preview', $preview);
