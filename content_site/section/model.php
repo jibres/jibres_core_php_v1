@@ -47,6 +47,7 @@ class model
 		}
 
 
+
 		if(\dash\request::post('delete') === 'section')
 		{
 			// delete section
@@ -89,6 +90,13 @@ class model
 		}
 
 		$preview = json_decode($load_section_lock['preview'], true);
+
+
+
+		if(\dash\request::post('set_sort_child'))
+		{
+			return self::set_sort_child($section_id, $preview);
+		}
 
 		$subchild = \dash\url::subchild();
 		$index = \dash\request::get('index');
@@ -217,6 +225,64 @@ class model
 
 	}
 
+
+	private static function set_sort_child($section_id, $preview)
+	{
+		$sort_child = \dash\request::post('sort_child');
+		$sort_child = \dash\validate::sort($sort_child);
+		if(!$sort_child)
+		{
+			\dash\notif::error(T_("Invalid sort arguments"));
+			return false;
+		}
+
+		$sort_child = array_values($sort_child);
+
+		$subchild = \dash\request::post('child_key');
+
+		if(!isset($preview[$subchild]) || (isset($preview[$subchild]) && !is_array($preview[$subchild])))
+		{
+			\dash\notif::error(T_("This section have not sortable item!"));
+			return false;
+		}
+
+		if(count($sort_child) !== count($preview[$subchild]))
+		{
+			\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+			\dash\redirect::pwd();
+			return false;
+		}
+
+		foreach ($preview[$subchild] as $key => $value)
+		{
+			if(isset($value['index']) && in_array($value['index'], $sort_child))
+			{
+				$preview[$subchild][$key]['sort'] = array_search($value['index'], $sort_child);
+				// ok
+			}
+			else
+			{
+				\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+				\dash\redirect::pwd();
+				return false;
+			}
+		}
+
+		$child = $preview[$subchild];
+
+		$sort_index = array_column($child, 'sort');
+
+		array_multisort($child, SORT_ASC, SORT_NUMERIC, $sort_index);
+
+		$preview[$subchild] = array_values($child);
+
+		$preview           = json_encode($preview);
+
+		\content_site\update_record::patch_field($section_id, 'preview', $preview);
+
+		return true;
+
+	}
 
 
 	/**
