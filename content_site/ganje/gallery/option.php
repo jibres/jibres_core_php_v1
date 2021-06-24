@@ -122,9 +122,11 @@ class option
 				'alt',
 			],
 			'addimage',
+
+			'seperator',
+
 			'style',
 			'heading',
-
 			'limit',
 			'container',
 			'height',
