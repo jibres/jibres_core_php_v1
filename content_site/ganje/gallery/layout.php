@@ -15,10 +15,6 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-		return;
-		var_dump($_args);
-
-
 
 		$html = '';
 
@@ -34,11 +30,19 @@ class layout
 					}
 					$html .= '</h2>';
 
-					foreach ($data as $key => $value)
+					if(isset($_args['imagelist']) && is_array($_args['imagelist']))
 					{
 
-						$html .= '<div>';
-						$html .= a($value, 'title');
+						$html .= '<div class="row">';
+						foreach ($_args['imagelist'] as $key => $value)
+						{
+							if(isset($value['file']) && $value['file'])
+							{
+								$html .= '<div class="c-xs-12 c-sm-4">';
+								$html .= '<img src="'. \lib\filepath::fix($value['file']). '" alt="'. a($value, 'alt'). '">';
+								$html .= '</div>';
+							}
+						}
 						$html .= '</div>';
 					}
 				}
