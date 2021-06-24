@@ -26,7 +26,16 @@ class alt
 		}
 		else
 		{
-			$default = self::default();
+			$index_detail = \content_site\section\view::get_current_index_detail();
+
+			if(isset($index_detail['alt']))
+			{
+				$default = $index_detail['alt'];
+			}
+			else
+			{
+				$default = self::default();
+			}
 		}
 
 		$html = '';

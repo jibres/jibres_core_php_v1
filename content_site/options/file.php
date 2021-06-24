@@ -4,13 +4,63 @@ namespace content_site\options;
 
 class file
 {
+	public static function validator($_data)
+	{
+		if(\dash\request::files('file'))
+		{
+			$image_path = \dash\upload\website::upload_image('file');
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+
+			return $image_path;
+		}
+		else
+		{
+			\dash\notif::error(T_("Please upload a file"));
+			return false;
+		}
+	}
+
+
+	public static function default()
+	{
+		return null;
+	}
+
 
 	public static function admin_html()
 	{
+		if(isset($_section_detail['preview']['file']))
+		{
+			$default = $_section_detail['preview']['file'];
+		}
+		else
+		{
+			$index_detail = \content_site\section\view::get_current_index_detail();
+
+			if(isset($index_detail['file']))
+			{
+				$default = $index_detail['file'];
+			}
+			else
+			{
+				$default = null;
+			}
+		}
+
+		if($default)
+		{
+			$default = \lib\filepath::fix($default);
+		}
+
 		$html = '';
 
 		$html .= '<form method="post" autocomplete="off" >';
 		{
+			$html .= '<input type="hidden" name="option" value="file">';
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';
@@ -20,7 +70,7 @@ class file
 			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
 			$html .= ' '. \dash\data::ratioHtml();
 
-			if(\dash\data::dataRow_imageurl())
+			if($default)
 			{
 				$html .= " data-fill";
 			}
@@ -30,13 +80,13 @@ class file
 			$html .= '<input type="file" accept="image/jpeg, image/png" id="myfile">';
 			$html .= '<label for="myfile">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
 
-			if(\dash\data::dataRow_imageurl())
+			if($default)
 			{
-				$myExt = substr(\dash\data::dataRow_imageurl(), -3);
+				$myExt = substr($default, -3);
 
 				if(in_array($myExt, ['png', 'jpg', 'gif']))
 				{
-					$html .= '<label for="myfile"><img id="finalImage" src="'. \dash\data::dataRow_imageurl(). '" alt="'. \dash\data::dataRow_title(). '"></label>';
+					$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
 				}
 			}
 			else

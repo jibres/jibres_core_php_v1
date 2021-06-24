@@ -90,14 +90,16 @@ class model
 
 		$preview = json_decode($load_section_lock['preview'], true);
 
+		$subchild = \dash\url::subchild();
+		$index = \dash\request::get('index');
+
 		if(\dash\request::post('delete') === 'item' && \dash\request::get('index') && \dash\url::subchild())
 		{
-			$subchild = \dash\url::subchild();
 			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
 			{
 				foreach ($preview[$subchild] as $key => $value)
 				{
-					if(isset($value['index']) && $value['index'] === \dash\request::get('index'))
+					if(isset($value['index']) && $value['index'] === $index)
 					{
 						unset($preview[$subchild][$key]);
 
@@ -109,17 +111,25 @@ class model
 			else
 			{
 				\dash\notif::error(T_("Can not remove this item!"));
+				\dash\redirect::to(view::generate_back_url());
 				return false;
 			}
 		}
 		else
 		{
+
 			$options_list = \dash\data::currentOptionList();
+
+			if($subchild && isset($options_list[$subchild]))
+			{
+				$options_list = $options_list[$subchild];
+			}
 
 			$option_key   = \dash\request::post('option');
 
 			if(!$option_key || !is_string($option_key))
 			{
+				\dash\notif::error(T_("Option key not found!"));
 				return false;
 			}
 
@@ -145,22 +155,53 @@ class model
 
 			$value = \content_site\call_function::option_validator($option_key, $value);
 
-
-
-			// save multi option
-			if(is_array($value))
+			if($subchild)
 			{
-				foreach ($value as $index => $val)
+				if(isset($preview[$subchild]) && is_array($preview[$subchild]))
 				{
-					$preview[$index] = $val;
+					foreach ($preview[$subchild] as $k => $v)
+					{
+						if(isset($v['index']) && $v['index'] === $index)
+						{
+										// save multi option
+							if(is_array($value))
+							{
+								foreach ($value as $my_key => $val)
+								{
+									$preview[$subchild][$k][$my_key] = $val;
+								}
+							}
+							else
+							{
+								$preview[$subchild][$k][$option_key] = $value;
+							}
+						}
+					}
+				}
+				else
+				{
+					\dash\notif::error(T_("Can save this index!"));
+					return false;
 				}
 			}
 			else
 			{
-				$preview[$option_key] = $value;
+
+				// save multi option
+				if(is_array($value))
+				{
+					foreach ($value as $my_key => $val)
+					{
+						$preview[$my_key] = $val;
+					}
+				}
+				else
+				{
+					$preview[$option_key] = $value;
+				}
+
 			}
 		}
-
 
 
 		$preview           = json_encode($preview);
