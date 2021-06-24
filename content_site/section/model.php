@@ -30,7 +30,7 @@ class model
 	 */
 	public static function save_options()
 	{
-
+		$need_redirect_back = false;
 		$page_id      = \dash\request::get('id');
 		$section_id   = \dash\request::get('sid');
 
@@ -79,38 +79,6 @@ class model
 			return true;
 		}
 
-
-		$options_list = \dash\data::currentOptionList();
-
-		$option_key   = \dash\request::post('option');
-
-		if(!$option_key || !is_string($option_key))
-		{
-			return false;
-		}
-
-		if(!in_array($option_key, $options_list))
-		{
-			\dash\notif::error(T_("Invalid option"));
-			return false;
-		}
-
-		// save multi option
-		if(\dash\request::post('multioption') === 'multi')
-		{
-			$value = \dash\request::post();
-		}
-		elseif(\dash\request::post('specialsave') === 'specialsave')
-		{
-			return \content_site\call_function::option_specialsave($option_key, \dash\request::post());
-		}
-		else
-		{
-			$value = \dash\request::post($option_key);
-		}
-
-		$value = \content_site\call_function::option_validator($option_key, $value);
-
 		$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
 
 		if(!$load_section_lock || !is_array($load_section_lock))
@@ -122,22 +90,87 @@ class model
 
 		$preview = json_decode($load_section_lock['preview'], true);
 
-		// save multi option
-		if(is_array($value))
+		if(\dash\request::post('delete') === 'item' && \dash\request::get('index') && \dash\url::subchild())
 		{
-			foreach ($value as $index => $val)
+			$subchild = \dash\url::subchild();
+			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
 			{
-				$preview[$index] = $val;
+				foreach ($preview[$subchild] as $key => $value)
+				{
+					if(isset($value['index']) && $value['index'] === \dash\request::get('index'))
+					{
+						unset($preview[$subchild][$key]);
+
+						$need_redirect_back = true;
+					}
+				}
+
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not remove this item!"));
+				return false;
 			}
 		}
 		else
 		{
-			$preview[$option_key] = $value;
+			$options_list = \dash\data::currentOptionList();
+
+			$option_key   = \dash\request::post('option');
+
+			if(!$option_key || !is_string($option_key))
+			{
+				return false;
+			}
+
+			if(!in_array($option_key, $options_list))
+			{
+				\dash\notif::error(T_("Invalid option"));
+				return false;
+			}
+
+			// save multi option
+			if(\dash\request::post('multioption') === 'multi')
+			{
+				$value = \dash\request::post();
+			}
+			elseif(\dash\request::post('specialsave') === 'specialsave')
+			{
+				return \content_site\call_function::option_specialsave($option_key, \dash\request::post());
+			}
+			else
+			{
+				$value = \dash\request::post($option_key);
+			}
+
+			$value = \content_site\call_function::option_validator($option_key, $value);
+
+
+
+			// save multi option
+			if(is_array($value))
+			{
+				foreach ($value as $index => $val)
+				{
+					$preview[$index] = $val;
+				}
+			}
+			else
+			{
+				$preview[$option_key] = $value;
+			}
 		}
+
+
 
 		$preview           = json_encode($preview);
 
 		\content_site\update_record::patch_field($section_id, 'preview', $preview);
+
+		if($need_redirect_back)
+		{
+			\dash\redirect::to(view::generate_back_url());
+		}
 
 		\dash\notif::complete();
 

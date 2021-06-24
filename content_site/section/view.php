@@ -40,7 +40,7 @@ class view
 
 	}
 
-	private static function generate_back_url()
+	public static function generate_back_url()
 	{
 		\dash\data::back_text(T_('Back'));
 
@@ -61,6 +61,7 @@ class view
 		}
 
 		\dash\data::back_link($url);
+		return $url;
 	}
 
 	/**
