@@ -19,16 +19,14 @@ class post_show_date
 
 	public static function admin_html($_section_detail)
 	{
-		if(is_array(a($_section_detail, 'preview')) && array_key_exists('post_show_date', $_section_detail['preview']))
+		$default = \content_site\section\view::get_current_index_detail('post_show_date');
+
+		if(!$default)
 		{
-			$check = $_section_detail['preview']['post_show_date'];
-		}
-		else
-		{
-			$check = self::default();
+			$default = self::default();
 		}
 
-		$checked = $check ? ' checked' : null;
+		$checked = $default ? ' checked' : null;
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';

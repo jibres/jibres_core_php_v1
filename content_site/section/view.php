@@ -92,29 +92,39 @@ class view
 	 * Gets the current index detail from preview
 	 *
 	 */
-	public static function get_current_index_detail()
+	public static function get_current_index_detail($_need = null)
 	{
 		$subchild = \dash\url::subchild();
 		$index = \dash\request::get('index');
 
+		$detail = [];
+
+		$preview = \dash\data::currentSectionDetail_preview();
+
 		if($subchild && $index)
 		{
-			$preview = \dash\data::currentSectionDetail_preview();
 			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
 			{
 				foreach ($preview[$subchild] as $key => $value)
 				{
 					if(isset($value['index']) && $value['index'] === $index)
 					{
-						return $value;
+						$detail = $value;
 					}
 				}
 			}
-
-			return null;
+		}
+		else
+		{
+			$detail = $preview;
 		}
 
-		return false;
+		if($_need)
+		{
+			return a($detail, $_need);
+		}
+
+		return $detail;
 	}
 
 

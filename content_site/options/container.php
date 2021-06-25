@@ -36,11 +36,9 @@ class container
 	public static function admin_html($_section_detail)
 	{
 
-		if(isset($_section_detail['preview']['container']))
-		{
-			$default = $_section_detail['preview']['container'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('container');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}

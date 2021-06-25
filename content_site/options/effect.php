@@ -29,14 +29,13 @@ class effect
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['effect']))
-		{
-			$default = $_section_detail['preview']['effect'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('effect');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}
+
 
 		$title = T_("Set item effect");
 

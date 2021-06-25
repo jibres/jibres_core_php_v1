@@ -39,11 +39,9 @@ class height
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['height']))
-		{
-			$default = $_section_detail['preview']['height'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('height');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}

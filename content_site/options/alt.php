@@ -20,22 +20,11 @@ class alt
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['alt']))
-		{
-			$default = $_section_detail['preview']['alt'];
-		}
-		else
-		{
-			$index_detail = \content_site\section\view::get_current_index_detail();
+		$default = \content_site\section\view::get_current_index_detail('alt');
 
-			if(isset($index_detail['alt']))
-			{
-				$default = $index_detail['alt'];
-			}
-			else
-			{
-				$default = self::default();
-			}
+		if(!$default)
+		{
+			$default = self::default();
 		}
 
 		$html = '';

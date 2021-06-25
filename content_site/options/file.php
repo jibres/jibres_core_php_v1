@@ -33,23 +33,13 @@ class file
 
 	public static function admin_html()
 	{
-		if(isset($_section_detail['preview']['file']))
-		{
-			$default = $_section_detail['preview']['file'];
-		}
-		else
-		{
-			$index_detail = \content_site\section\view::get_current_index_detail();
+		$default = \content_site\section\view::get_current_index_detail('file');
 
-			if(isset($index_detail['file']))
-			{
-				$default = $index_detail['file'];
-			}
-			else
-			{
-				$default = null;
-			}
+		if(!$default)
+		{
+			$default = self::default();
 		}
+
 
 		if($default)
 		{

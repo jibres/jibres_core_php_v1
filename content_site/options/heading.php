@@ -20,11 +20,9 @@ class heading
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['heading']))
-		{
-			$default = $_section_detail['preview']['heading'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('heading');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}

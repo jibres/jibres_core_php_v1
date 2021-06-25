@@ -37,11 +37,9 @@ class style
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['style']))
-		{
-			$default = $_section_detail['preview']['style'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('style');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}

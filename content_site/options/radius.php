@@ -32,14 +32,14 @@ class radius
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['radius']))
-		{
-			$default = $_section_detail['preview']['radius'];
-		}
-		else
+
+		$default = \content_site\section\view::get_current_index_detail('radius');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}
+
 
 		$title = T_("Set item radius");
 

@@ -23,14 +23,13 @@ class post_tag
 
 		$tag_list = \dash\app\terms\get::get_all_tag();
 
-		if(isset($_section_detail['preview']['post_tag']))
-		{
-			$default = $_section_detail['preview']['post_tag'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('post_tag');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}
+
 
 		$title = T_("Special tag");
 

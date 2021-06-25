@@ -34,11 +34,9 @@ class limit
 	public static function admin_html($_section_detail)
 	{
 
-		if(isset($_section_detail['preview']['limit']) && $_section_detail['preview']['limit'])
-		{
-			$default            = $_section_detail['preview']['limit'];
-		}
-		else
+		$default = \content_site\section\view::get_current_index_detail('limit');
+
+		if(!$default)
 		{
 			$default = self::default();
 		}
