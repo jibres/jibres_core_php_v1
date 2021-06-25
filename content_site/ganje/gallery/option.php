@@ -121,6 +121,7 @@ class option
 				'file',
 				'caption',
 				'link',
+				'target',
 			],
 			'addimage',
 
