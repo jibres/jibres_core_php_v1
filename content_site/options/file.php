@@ -31,7 +31,7 @@ class file
 	}
 
 
-	public static function admin_html()
+	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('file');
 
@@ -40,11 +40,19 @@ class file
 			$default = self::default();
 		}
 
-
 		if($default)
 		{
 			$default = \lib\filepath::fix($default);
 		}
+
+		$ratio = \content_site\options\ratio::default();
+
+		if(isset($_section_detail['preview']['ratio']))
+		{
+			$ratio = $_section_detail['preview']['ratio'];
+		}
+
+		\lib\ratio::data_ratio_html($ratio);
 
 		$html = '';
 

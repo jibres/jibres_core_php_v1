@@ -133,6 +133,7 @@ class option
 			'container',
 			'height',
 			'radius',
+			'ratio',
 		];
 
 		return $option;
