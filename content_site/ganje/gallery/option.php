@@ -26,7 +26,7 @@ class option
 		$detail =
 		[
 			'group' => T_("Gallery"),
-			'title' => T_("Gallery posts"),
+			'title' => T_("Gallery"),
 			'key'   => 'gallery',
 			'icon'  => \dash\utility\icon::url('images'),
 		];
