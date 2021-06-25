@@ -5,23 +5,6 @@ namespace content_site;
 class update_record
 {
 
-	public static function patch_preview_field(int $_section_id, array $_value)
-	{
-		$load_section_lock = \lib\db\pagebuilder\get::by_id($_section_id);
-
-		$preview           = json_decode($load_section_lock['preview'], true);
-
-		foreach ($_value as $index => $val)
-		{
-			$preview[$index] = $val;
-		}
-
-		$preview           = json_encode($preview);
-
-		self::patch_field($_section_id, 'preview', $preview);
-	}
-
-
 	public static function patch_field($_section_id, $_field, $_value)
 	{
 		\dash\pdo::transaction();
@@ -32,7 +15,7 @@ class update_record
 		{
 			\dash\pdo::rollback();
 
-			\dash\notif::error(T_("Invalid section id"));
+			\dash\notif::error(T_("Section not found"));
 
 			return false;
 		}

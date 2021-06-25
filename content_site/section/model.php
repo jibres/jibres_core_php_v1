@@ -40,7 +40,7 @@ class model
 
 			if(!$load_section_lock || !is_array($load_section_lock))
 			{
-				\dash\notif::error(T_("Invalid section id"));
+				\dash\notif::error(T_("Section not found"));
 
 				return false;
 			}
@@ -84,7 +84,7 @@ class model
 
 		if(!$load_section_lock || !is_array($load_section_lock))
 		{
-			\dash\notif::error(T_("Invalid section id"));
+			\dash\notif::error(T_("Section not found"));
 
 			return false;
 		}
@@ -95,7 +95,7 @@ class model
 
 		if(\dash\request::post('set_sort_child'))
 		{
-			return self::set_sort_child($section_id, $preview);
+			return self::set_sort_child($section_id);
 		}
 
 		$subchild = \dash\url::subchild();
@@ -165,11 +165,20 @@ class model
 
 			// reload section detail to get last update
 			// for example in upload file need this line
+			\dash\pdo::transaction();
+
+			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+
+			if(!$load_section_lock)
 			{
-				$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
-				$preview = json_decode($load_section_lock['preview'], true);
+				\dash\pdo::rollback();
+
+				\dash\notif::error(T_("Section not found"));
+
+				return false;
 			}
 
+			$preview = json_decode($load_section_lock['preview'], true);
 
 
 			if($subchild)
@@ -198,6 +207,7 @@ class model
 				else
 				{
 					\dash\notif::error(T_("Can save this index!"));
+					\dash\pdo::rollback();
 					return false;
 				}
 			}
@@ -222,7 +232,9 @@ class model
 
 		$preview           = json_encode($preview);
 
-		\content_site\update_record::patch_field($section_id, 'preview', $preview);
+		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+		\dash\pdo::commit();
 
 		if($need_redirect_back)
 		{
@@ -234,13 +246,40 @@ class model
 	}
 
 
-	private static function set_sort_child($section_id, $preview)
+	private static function set_sort_child($section_id)
 	{
+		// reload section detail to get last update
+		// for example in upload file need this line
+		\dash\pdo::transaction();
+
+		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+
+		if(!$load_section_lock)
+		{
+			\dash\pdo::rollback();
+
+			\dash\notif::error(T_("Section not found"));
+
+			return false;
+		}
+
+		$preview = json_decode($load_section_lock['preview'], true);
+
+		if(!is_array($preview))
+		{
+			\dash\notif::error(T_("Invalid preview detail"));
+			\dash\pdo::rollback();
+			return false;
+		}
+
+
 		$sort_child = \dash\request::post('sort_child');
 		$sort_child = \dash\validate::sort($sort_child);
 		if(!$sort_child)
 		{
 			\dash\notif::error(T_("Invalid sort arguments"));
+			\dash\pdo::rollback();
+
 			return false;
 		}
 
@@ -251,12 +290,14 @@ class model
 		if(!isset($preview[$subchild]) || (isset($preview[$subchild]) && !is_array($preview[$subchild])))
 		{
 			\dash\notif::error(T_("This section have not sortable item!"));
+			\dash\pdo::rollback();
 			return false;
 		}
 
 		if(count($sort_child) !== count($preview[$subchild]))
 		{
 			\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+			\dash\pdo::rollback();
 			\dash\redirect::pwd();
 			return false;
 		}
@@ -271,6 +312,7 @@ class model
 			else
 			{
 				\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+				\dash\pdo::rollback();
 				\dash\redirect::pwd();
 				return false;
 			}
@@ -286,7 +328,9 @@ class model
 
 		$preview           = json_encode($preview);
 
-		\content_site\update_record::patch_field($section_id, 'preview', $preview);
+		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+		\dash\pdo::commit();
 
 		return true;
 
@@ -336,6 +380,7 @@ class model
 				// update current preview link
 				$section_id = $end_record['id'];
 
+				// @reza @TODO  need to check and lock all record to add adding mode to end of preview json
 				\content_site\update_record::patch_field($section_id, 'preview', $preview);
 			}
 			else
@@ -398,6 +443,7 @@ class model
 
 				$section_id = $end_record['id'];
 
+				// @reza @TODO  need to check and lock all record to add adding mode to end of preview json
 				\content_site\update_record::patch_field($section_id, 'preview', json_encode($end_record['preview']));
 
 

@@ -15,6 +15,22 @@ class addimage
 			return false;
 		}
 
+		\dash\pdo::transaction();
+
+		$currentSectionDetail = \lib\db\pagebuilder\get::by_id_lock($currentSectionDetail['id']);
+
+		if(!$currentSectionDetail || !is_array($currentSectionDetail) || !isset($currentSectionDetail['preview']))
+		{
+			\dash\pdo::rollback();
+
+			\dash\notif::error(T_("Section not found"));
+
+			return false;
+		}
+
+		$currentSectionDetail['preview'] = json_decode($currentSectionDetail['preview'], true);
+
+
 		if(isset($currentSectionDetail['preview']['imagelist']) && is_array($currentSectionDetail['preview']['imagelist']))
 		{
 			// ok
@@ -36,7 +52,10 @@ class addimage
 
 		$preview = json_encode($currentSectionDetail['preview']);
 
-		\content_site\update_record::patch_field($currentSectionDetail['id'], 'preview', $preview);
+		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $currentSectionDetail['id']);
+
+		\dash\pdo::commit();
+
 
 		$url = \dash\url::that(). '/imagelist'. \dash\request::full_get(['index' => $index]);
 
