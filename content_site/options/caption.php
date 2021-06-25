@@ -2,7 +2,7 @@
 namespace content_site\options;
 
 
-class alt
+class caption
 {
 
 	public static function validator($_data)
@@ -14,13 +14,13 @@ class alt
 
 	public static function default()
 	{
-		return T_('Image alt');
+		return T_('Image caption');
 	}
 
 
 	public static function admin_html($_section_detail)
 	{
-		$default = \content_site\section\view::get_current_index_detail('alt');
+		$default = \content_site\section\view::get_current_index_detail('caption');
 
 		if(!$default)
 		{
@@ -30,12 +30,12 @@ class alt
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="alt">';
-	    	$html .= '<label for="alt">'. T_("Heading"). '</label>';
+	    	$html .= '<input type="hidden" name="option" value="caption">';
+	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
 
 			$html .= '<div class="input">';
 			{
-	    		$html .= '<input type="text" placeholder="" name="alt" value="'. $default. '">';
+	    		$html .= '<input type="text" placeholder="" name="caption" value="'. $default. '">';
 			}
 			$html .= "</div>";
 		}

@@ -119,7 +119,7 @@ class option
 			'imagelist' =>
 			[
 				'file',
-				'alt',
+				'caption',
 				'link',
 			],
 			'addimage',

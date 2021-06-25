@@ -80,6 +80,8 @@ class model
 			return true;
 		}
 
+
+
 		$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
 
 		if(!$load_section_lock || !is_array($load_section_lock))
@@ -101,8 +103,23 @@ class model
 		$subchild = \dash\url::subchild();
 		$index = \dash\request::get('index');
 
-		if(\dash\request::post('delete') === 'item' && \dash\request::get('index') && \dash\url::subchild())
+		if(\dash\request::post('delete') === 'block' && \dash\request::get('index') && \dash\url::subchild())
 		{
+			\dash\pdo::transaction();
+
+			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+
+			if(!$load_section_lock)
+			{
+				\dash\pdo::rollback();
+
+				\dash\notif::error(T_("Section not found"));
+
+				return false;
+			}
+
+			$preview = json_decode($load_section_lock['preview'], true);
+
 			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
 			{
 				foreach ($preview[$subchild] as $key => $value)
@@ -118,7 +135,8 @@ class model
 			}
 			else
 			{
-				\dash\notif::error(T_("Can not remove this item!"));
+				\dash\notif::error(T_("Can not remove this block!"));
+				\dash\pdo::rollback();
 				\dash\redirect::to(view::generate_back_url());
 				return false;
 			}
