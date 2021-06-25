@@ -332,6 +332,8 @@ class model
 
 		\dash\pdo::commit();
 
+		\dash\notif::complete();
+
 		return true;
 
 	}
