@@ -163,6 +163,12 @@ class model
 
 			$value = \content_site\call_function::option_validator($option_key, $value);
 
+			if(!\dash\engine\process::status())
+			{
+				\dash\notif::error_once(T_("Please check your input"));
+				return false;
+			}
+
 			// reload section detail to get last update
 			// for example in upload file need this line
 			\dash\pdo::transaction();

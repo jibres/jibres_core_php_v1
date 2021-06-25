@@ -120,6 +120,7 @@ class option
 			[
 				'file',
 				'alt',
+				'link',
 			],
 			'addimage',
 
