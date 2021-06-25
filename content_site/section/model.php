@@ -163,6 +163,15 @@ class model
 
 			$value = \content_site\call_function::option_validator($option_key, $value);
 
+			// reload section detail to get last update
+			// for example in upload file need this line
+			{
+				$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
+				$preview = json_decode($load_section_lock['preview'], true);
+			}
+
+
+
 			if($subchild)
 			{
 				if(isset($preview[$subchild]) && is_array($preview[$subchild]))
