@@ -71,6 +71,7 @@ class controller
 		[
 			'blog',
 			'gallery',
+			'text',
 		];
 
 		return $list;

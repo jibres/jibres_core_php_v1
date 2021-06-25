@@ -55,7 +55,7 @@ class call_function
 		{
 			if(\dash\url::isLocal())
 			{
-				var_dump(func_get_args());exit;
+				// var_dump(func_get_args());exit;
 			}
 			return null;
 		}
