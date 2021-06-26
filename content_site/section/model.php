@@ -34,6 +34,8 @@ class model
 		$page_id      = \dash\request::get('id');
 		$section_id   = \dash\request::get('sid');
 
+
+		// delete or hide a section
 		if(\dash\request::post('delete') === 'section' || \dash\request::post('hide_view') === 'toggle')
 		{
 			$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
@@ -44,64 +46,49 @@ class model
 
 				return false;
 			}
-		}
 
-
-
-		if(\dash\request::post('delete') === 'section')
-		{
-			// delete section
-			\lib\db\pagebuilder\delete::by_id($section_id);
-
-			\dash\redirect::to(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
-			return;
-		}
-
-		if(\dash\request::post('hide_view') === 'toggle')
-		{
-
-			$load_section_lock = view::ready_section_list($load_section_lock);
-
-			if($load_section_lock['status'] === 'draft')
+			if(\dash\request::post('delete') === 'section')
 			{
-				$new_status = 'enable';
-			}
-			else
-			{
-				$new_status = 'draft';
+				// delete section
+				\lib\db\pagebuilder\delete::by_id($section_id);
+
+				\dash\redirect::to(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
+				return;
 			}
 
-			\content_site\update_record::patch_field($section_id, 'status', $new_status);
+			if(\dash\request::post('hide_view') === 'toggle')
+			{
 
-			\dash\redirect::pwd();
-			\dash\notif::complete();
+				$load_section_lock = view::ready_section_list($load_section_lock);
 
-			// set hide and view section
-			return true;
+				if($load_section_lock['status'] === 'draft')
+				{
+					$new_status = 'enable';
+				}
+				else
+				{
+					$new_status = 'draft';
+				}
+
+				\content_site\update_record::patch_field($section_id, 'status', $new_status);
+
+				\dash\redirect::pwd();
+				\dash\notif::complete();
+
+				// set hide and view section
+				return true;
+			}
 		}
 
-
-
-		$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
-
-		if(!$load_section_lock || !is_array($load_section_lock))
-		{
-			\dash\notif::error(T_("Section not found"));
-
-			return false;
-		}
-
-		$preview = json_decode($load_section_lock['preview'], true);
-
-
-
+		// set section sort
 		if(\dash\request::post('set_sort_child'))
 		{
 			return self::set_sort_child($section_id);
 		}
 
+
 		$subchild = \dash\url::subchild();
-		$index = \dash\request::get('index');
+		$index    = \dash\request::get('index');
 
 		if(\dash\request::post('delete') === 'block' && \dash\request::get('index') && \dash\url::subchild())
 		{
@@ -270,6 +257,14 @@ class model
 	}
 
 
+	/**
+	 * Sets the sort child.
+	 * for example set image sort in gallery
+	 *
+	 * @param      <type>  $section_id  The section identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	private static function set_sort_child($section_id)
 	{
 		// reload section detail to get last update

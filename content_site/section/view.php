@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		// in a section
 		if(\dash\url::child())
 		{
 
@@ -15,6 +16,8 @@ class view
 		}
 		else
 		{
+			// add new section
+
 			\dash\face::title(T_('Add new Section'));
 
 			\dash\data::back_text(T_('Back'));
@@ -27,6 +30,7 @@ class view
 
 			$saved_section = \content_site\controller::load_current_section_list('with_adding');
 
+			// detect addin mode
 			if(is_array($saved_section))
 			{
 				$end_section = end($saved_section);
@@ -40,6 +44,16 @@ class view
 
 	}
 
+
+	/**
+	 * Generate back url
+	 *
+	 * force remove index and sid in GET
+	 *
+	 * remove last directory of url
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function generate_back_url()
 	{
 		\dash\data::back_text(T_('Back'));
@@ -64,8 +78,11 @@ class view
 		return $url;
 	}
 
+
 	/**
 	 * Shows the section in group.
+	 *
+	 * Just for show pretty in current html (Not used anywhere else)
 	 *
 	 * @param      <type>  $section_list  The section list
 	 *
@@ -90,6 +107,9 @@ class view
 
 	/**
 	 * Gets the current index detail from preview
+	 *
+	 * if in a child index (for example in a file of gallery) return index of this
+	 * else return index of preview array
 	 *
 	 */
 	public static function get_current_index_detail($_need = null)

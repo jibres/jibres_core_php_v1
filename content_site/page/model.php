@@ -12,6 +12,12 @@ class model
 		}
 	}
 
+
+	/**
+	 * Set the section order
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
 	private static function set_sort()
 	{
 		$page_id = \dash\request::get('id');

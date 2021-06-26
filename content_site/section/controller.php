@@ -10,13 +10,14 @@ class controller
 		// all page route in this module need page id
 		\content_site\controller::load_current_page_detail();
 
-		$child = \dash\url::child();
 
 		// load current section detail
 		// need in some option on save
+		// in adding mode need end section detail as current section
 		self::current_section_detail();
 
 
+		$child = \dash\url::child();
 		// route section list
 		if(!$child)
 		{
@@ -112,6 +113,10 @@ class controller
 	/**
 	 * Load current section detail
 	 *
+	 * If in a section and have section_id in url => load section detail
+	 *
+	 * If in adding mode and have not section_id in url => get last section added (addin mode)
+	 *
 	 * @return     bool  ( description_of_the_return_value )
 	 */
 	public static function current_section_detail()
@@ -119,16 +124,17 @@ class controller
 		$page_id    = \dash\coding::decode(\dash\request::get('id'));
 		$section_id = \dash\validate::id(\dash\request::get('sid'));
 
-		if(!$section_id && $page_id)
+		$section_detail = [];
+
+		if(!$section_id && $page_id && !\dash\url::child())
 		{
 			$section_list = \content_site\controller::load_current_section_list('with_adding');
 
 			$section_detail = end($section_list);
-
+			// needless to ready_section_list
 		}
 		else
 		{
-
 			if(!$page_id || !$section_id)
 			{
 				return false;
