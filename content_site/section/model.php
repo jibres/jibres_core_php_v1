@@ -386,6 +386,16 @@ class model
 				return false;
 			}
 
+			$style = \dash\request::post('style');
+
+			$style = \dash\validate::string_100($style);
+
+			if(!$style)
+			{
+				\dash\notif::error(T_("Invalid style"));
+				return false;
+			}
+
 			$section_list = controller::section_list();
 			$all_key = array_column($section_list, 'key');
 
@@ -395,11 +405,27 @@ class model
 				return false;
 			}
 
+			$trust_style = false;
+
+			foreach ($section_list as $one_item)
+			{
+				if(isset($one_item['key']) && $one_item['key'] === $key && isset($one_item['style']) && $one_item['style'] === $style)
+				{
+					$trust_style = true;
+				}
+			}
+
+			if(!$trust_style)
+			{
+				\dash\notif::error(T_("Can not chose this section!"));
+				return false;
+			}
+
 			$section_list = \content_site\controller::load_current_section_list('with_adding');
 
 			$end_record = end($section_list);
 
-			$preview = json_encode(['key' => $key, 'adding' => true]);
+			$preview = json_encode(['key' => $key, 'style' => $style, 'adding' => true]);
 
 			if(isset($end_record['preview']['adding']))
 			{

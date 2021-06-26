@@ -64,7 +64,10 @@ class option
 
 		foreach ($style_list as $key => $value)
 		{
-			$list[] = array_merge($detail, $value);
+			$temp                = $detail;
+			$temp['style']       = a($value, 'key');
+			$temp['style_title'] = a($value, 'title');
+			$list[]              = $temp;
 		}
 
 		return $list;

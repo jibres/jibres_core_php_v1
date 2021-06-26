@@ -9,6 +9,7 @@ if(\dash\data::sectionList())
 
   $adding_detail = \dash\data::addingDetail();
   $adding_key = a($adding_detail, 'preview', 'key');
+  $adding_style = a($adding_detail, 'preview', 'style');
 
   foreach (\dash\data::sectionList() as $group => $items)
   {
@@ -18,16 +19,16 @@ if(\dash\data::sectionList())
     foreach ($items as $item)
     {
       $adding_this = false;
-      if(a($item, 'key') === $adding_key)
+      if(a($item, 'key') === $adding_key && a($item, 'style') === $adding_style)
       {
         $adding_this = true;
       }
 
-      $data = json_encode(['key' => a($item, 'key'), 'section' => 'preview']);
+      $data = json_encode(['key' => a($item, 'key'), 'style' => a($item, 'style'), 'section' => 'preview']);
       $result .= '<li>';
       $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
       $result .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
-      $result .= '<div class="key">'. a($item, 'title'). '</div>';
+      $result .= '<div class="key">'. a($item, 'title'). ' <small>'. a($item, 'style_title').'</small></div>';
       if($adding_this)
       {
         $result .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';

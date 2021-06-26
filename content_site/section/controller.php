@@ -96,7 +96,6 @@ class controller
 			}
 		}
 
-		// var_dump($section_list);exit;
 		return $section_list;
 	}
 
