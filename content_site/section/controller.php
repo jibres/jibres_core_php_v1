@@ -12,6 +12,11 @@ class controller
 
 		$child = \dash\url::child();
 
+		// load current section detail
+		// need in some option on save
+		self::current_section_detail();
+
+
 		// route section list
 		if(!$child)
 		{
@@ -37,9 +42,6 @@ class controller
 
 		// all section need to sid [section id] to load
 
-		// load current section detail
-		// need in some option on save
-		view::current_section_detail();
 
 		$options = \content_site\call_function::option();
 
@@ -107,7 +109,56 @@ class controller
 
 
 
+	/**
+	 * Load current section detail
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	public static function current_section_detail()
+	{
+		$page_id    = \dash\coding::decode(\dash\request::get('id'));
+		$section_id = \dash\validate::id(\dash\request::get('sid'));
 
+		if(!$section_id && $page_id)
+		{
+			$section_list = \content_site\controller::load_current_section_list('with_adding');
+
+			$section_detail = end($section_list);
+
+		}
+		else
+		{
+
+			if(!$page_id || !$section_id)
+			{
+				return false;
+			}
+
+			$section_detail = \lib\db\pagebuilder\get::by_id_related_id($section_id, $page_id);
+
+			if(!is_array($section_detail) || !$section_detail)
+			{
+				return false;
+			}
+
+			$section_detail = view::ready_section_list($section_detail);
+
+			if(isset($section_detail['preview']['key']) && $section_detail['preview']['key'] === \dash\url::child())
+			{
+				// ok
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		\dash\data::currentSectionDetail($section_detail);
+
+		return $section_detail;
+
+	}
 
 
 

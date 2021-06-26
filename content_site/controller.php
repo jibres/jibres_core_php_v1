@@ -64,6 +64,7 @@ class controller
 
 		if(!$post_detail)
 		{
+			\dash\header::status(404, T_("Invalid page id"));
 			return false;
 		}
 

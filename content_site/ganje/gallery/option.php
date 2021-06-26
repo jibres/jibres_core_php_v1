@@ -44,8 +44,9 @@ class option
 	{
 		return
 		[
-			['key' => 'style_1', 'title' => T_("Modern View"), 'default' => true],
-			['key' => 'style_2', 'title' => T_("Slider View"), 'default' => false,],
+			['key' => 'style_gallery', 		'title' => T_("Gallery"), 'default' => true],
+			['key' => 'style_slideshow', 	'title' => T_("Slide show"), 'default' => false,],
+			['key' => 'style_logolist', 	'title' => T_("Logo list"), 'default' => false,],
 		];
 	}
 
@@ -93,8 +94,10 @@ class option
 		else
 		{
 			// Hey! if change this variable you must change the default style in style_list function
-			$style = 'style_1';
+			$style = 'style_gallery';
 		}
+
+		$style_detail = [];
 
 		if(is_callable(['self', $style]))
 		{
@@ -116,88 +119,106 @@ class option
 	}
 
 
-	/**
-	 * Public default
-	 */
-	private static function master_default($_special_default = [])
+
+	private static function style_gallery()
 	{
-		$master_default =
+		return
 		[
-			'heading'        => T_("Image Gallery"),
-		];
-
-		return array_merge($master_default, $_special_default);
-	}
-
-
-	/**
-	 * Master option
-	 *
-	 * @param      array   $_special_default  The special default
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	private static function master_option()
-	{
-		$option =
-		[
-			'imagelist' =>
+			'key'     => __FUNCTION__,
+			'title'   => T_("Gallery"),
+			'default' =>
 			[
-				'file',
-				'caption',
-				'link',
-				'target',
+				'heading' => T_("Image Gallery"),
+				'style'   => __FUNCTION__,
 			],
-			'addimage',
+			'options' =>
+			[
+				'imagelist' =>
+				[
+					'file',
+					'caption',
+					'link',
+					'target',
+				],
+				'addimage',
 
-			'seperator',
+				'seperator', /* SEPERATOR */
 
-			'style',
-			'heading',
-			'limit',
-			'container',
-			'height',
-			'radius',
-			'ratio',
+				'style',
+				'heading',
+				'container',
+				'height',
+				'ratio',
+			],
 		];
-
-		return $option;
 	}
 
 
-	/**
-	 * Style 1
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	private static function style_1()
+	private static function style_slideshow()
 	{
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Modern View"),
-			'default' => self::master_default(['style' => __FUNCTION__]),
-			'options' => self::master_option(),
+			'title'   => T_("Slide show"),
+			'default' =>
+			[
+				'heading' => T_("Slide show"),
+				'style'   => __FUNCTION__,
+			],
+			'options' =>
+			[
+				'imagelist' =>
+				[
+					'file',
+					'caption',
+					'link',
+					'target',
+				],
+				'addimage',
+
+				'seperator', /* SEPERATOR */
+
+				'style',
+				'heading',
+				'container',
+				'height',
+				'ratio',
+			],
 		];
 	}
 
 
-	/**
-	 * Style 2
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	private static function style_2()
+	private static function style_logolist()
 	{
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Slider View"),
-			'premium' => true,
-			'default' => self::master_default(['style' => __FUNCTION__]),
-			'options' => self::master_option(),
+			'title'   => T_("Logo list"),
+			'default' =>
+			[
+				'heading' => T_("Logo list"),
+				'style'   => __FUNCTION__,
+			],
+			'options' =>
+			[
+				'imagelist' =>
+				[
+					'file',
+					'caption',
+					'link',
+					'target',
+				],
+				'addimage',
+
+				'seperator', /* SEPERATOR */
+
+				'style',
+				'heading',
+				'container',
+				'height',
+				'ratio',
+			],
 		];
 	}
-
 }
 ?>

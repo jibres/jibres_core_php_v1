@@ -220,46 +220,5 @@ class view
 
 	}
 
-
-
-
-	/**
-	 * Load current section detail
-	 *
-	 * @return     bool  ( description_of_the_return_value )
-	 */
-	public static function current_section_detail()
-	{
-		$page_id    = \dash\coding::decode(\dash\request::get('id'));
-		$section_id = \dash\validate::id(\dash\request::get('sid'));
-
-		if(!$page_id || !$section_id)
-		{
-			return false;
-		}
-
-		$section_detail = \lib\db\pagebuilder\get::by_id_related_id($section_id, $page_id);
-
-		if(!is_array($section_detail) || !$section_detail)
-		{
-			return false;
-		}
-
-		$section_detail = self::ready_section_list($section_detail);
-
-		if(isset($section_detail['preview']['key']) && $section_detail['preview']['key'] === \dash\url::child())
-		{
-			// ok
-		}
-		else
-		{
-			return false;
-		}
-
-		\dash\data::currentSectionDetail($section_detail);
-
-		return $section_detail;
-
-	}
 }
 ?>

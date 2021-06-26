@@ -28,7 +28,7 @@ if(\dash\data::sectionList())
       $result .= '<li>';
       $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
       $result .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
-      $result .= '<div class="key">'. a($item, 'title'). ' <small>'. a($item, 'style_title').'</small></div>';
+      $result .= '<div class="key">'. a($item, 'style_title'). '</div>';
       if($adding_this)
       {
         $result .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
