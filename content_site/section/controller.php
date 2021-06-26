@@ -89,9 +89,14 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$section_list[] = \content_site\call_function::detail($section);
+			$preview_list = \content_site\call_function::preview_list($section);
+			if($preview_list)
+			{
+				$section_list = array_merge($section_list, $preview_list);
+			}
 		}
 
+		// var_dump($section_list);exit;
 		return $section_list;
 	}
 

@@ -52,6 +52,27 @@ class option
 
 
 	/**
+	 * Make preview all style list
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function preview_list()
+	{
+		$list       = [];
+		$detail     = self::detail();
+		$style_list = self::style_list();
+
+		foreach ($style_list as $key => $value)
+		{
+			$list[] = array_merge($detail, $value);
+		}
+
+		return $list;
+
+	}
+
+
+	/**
 	 * Get current option by check style
 	 *
 	 * @return     array  ( description_of_the_return_value )

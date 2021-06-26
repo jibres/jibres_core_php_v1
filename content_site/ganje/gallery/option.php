@@ -25,7 +25,7 @@ class option
 	{
 		$detail =
 		[
-			'group' => T_("Gallery"),
+			'group' => T_("Image"),
 			'title' => T_("Gallery"),
 			'key'   => 'gallery',
 			'icon'  => \dash\utility\icon::url('images'),
@@ -47,6 +47,28 @@ class option
 			['key' => 'style_1', 'title' => T_("Modern View"), 'default' => true],
 			['key' => 'style_2', 'title' => T_("Slider View"), 'default' => false,],
 		];
+	}
+
+
+
+	/**
+	 * Make preview all style list
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function preview_list()
+	{
+		$list       = [];
+		$detail     = self::detail();
+		$style_list = self::style_list();
+
+		foreach ($style_list as $key => $value)
+		{
+			$list[] = array_merge($detail, $value);
+		}
+
+		return $list;
+
 	}
 
 
