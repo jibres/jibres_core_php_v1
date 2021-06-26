@@ -50,6 +50,33 @@ class option
 	}
 
 
+
+	/**
+	 * Make preview all style list
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function preview_list()
+	{
+		$list       = [];
+		$detail     = self::detail();
+		$style_list = self::style_list();
+
+		foreach ($style_list as $key => $value)
+		{
+			$temp                = $detail;
+			$temp['style']       = a($value, 'key');
+			$temp['style_title'] = a($value, 'title');
+			$list[]              = $temp;
+		}
+
+		return $list;
+
+	}
+
+
+
+
 	/**
 	 * Get current option by check style
 	 *
