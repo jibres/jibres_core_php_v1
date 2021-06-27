@@ -1,5 +1,5 @@
 <?php
-namespace content_site\ganje\gallery;
+namespace content_site\ganje\imagetext;
 
 
 class layout
@@ -7,7 +7,7 @@ class layout
 
 
 	/**
-	 * Layout gallery html
+	 * Layout imagetext html
 	 *
 	 * @param      <type>  $_args  The data
 	 *
@@ -15,6 +15,7 @@ class layout
 	 */
 	public static function layout($_args)
 	{
+
 		$html = '';
 
 		$html .= '<div class="'. a($_args, 'avand').'">';

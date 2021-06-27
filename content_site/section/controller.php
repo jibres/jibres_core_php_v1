@@ -92,10 +92,10 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$preview_list = \content_site\call_function::preview_list($section);
-			if($preview_list)
+			$style_list = \content_site\call_function::style_list($section);
+			if($style_list)
 			{
-				$section_list = array_merge($section_list, $preview_list);
+				$section_list = array_merge($section_list, $style_list);
 			}
 		}
 

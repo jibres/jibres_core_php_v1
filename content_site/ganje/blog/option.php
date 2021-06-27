@@ -13,27 +13,10 @@ class option
 	 */
 	public static function premium()
 	{
-		return true;
+		return false;
 	}
 
 
-	/**
-	 * Get detail
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function detail()
-	{
-		$detail =
-		[
-			'group' => T_("Blog"),
-			'title' => T_("Blog posts"),
-			'key'   => 'blog',
-			'icon'  => \dash\utility\icon::url('Blog'),
-		];
-
-		return $detail;
-	}
 
 
 	/**
@@ -45,35 +28,26 @@ class option
 	{
 		return
 		[
-			['key' => 'style_1', 'title' => T_("Classic View"), 'default' => true],
-			['key' => 'style_2', 'title' => T_("Modern View"), 'default' => false,],
+			[
+				'group'   => T_("Blog post"),
+				'key'     => 'blog',
+				'style'   => 'style_1',
+				'title'   => T_("Classic blog"),
+				'icon'    => \dash\utility\icon::url('Blog'),
+				'default' => true
+			],
+			[
+				'group'   => T_("Blog post"),
+				'key'     => 'blog',
+				'style'   => 'style_2',
+				'title'   => T_("Modern blog"),
+				'icon'    => \dash\utility\icon::url('Blog'),
+				'default' => false
+			],
 		];
-	}
-
-
-
-	/**
-	 * Make preview all style list
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function preview_list()
-	{
-		$list       = [];
-		$detail     = self::detail();
-		$style_list = self::style_list();
-
-		foreach ($style_list as $key => $value)
-		{
-			$temp                = $detail;
-			$temp['style']       = a($value, 'key');
-			$temp['style_title'] = a($value, 'title');
-			$list[]              = $temp;
-		}
-
-		return $list;
 
 	}
+
 
 
 	/**

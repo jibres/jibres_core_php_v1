@@ -12,7 +12,7 @@ class option
 	 */
 	public static function premium()
 	{
-		return true;
+		return false;
 	}
 
 
@@ -44,36 +44,24 @@ class option
 	{
 		return
 		[
-			['key' => 'style_1', 'title' => T_("Modern View"), 'default' => true],
-			['key' => 'style_2', 'title' => T_("Slider View"), 'default' => false,],
+			[
+				'group'   => T_("Text"),
+				'key'     => 'text',
+				'style'   => 'style_1',
+				'title'   => T_("Style 1"),
+				'icon'    => \dash\utility\icon::url('TextBlock'),
+				'default' => true
+			],
+			[
+				'group'   => T_("Text"),
+				'key'     => 'text',
+				'style'   => 'style_2',
+				'title'   => T_("Image with text"),
+				'icon'    => \dash\utility\icon::url('TextBlock'),
+				'default' => false
+			],
 		];
 	}
-
-
-
-	/**
-	 * Make preview all style list
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function preview_list()
-	{
-		$list       = [];
-		$detail     = self::detail();
-		$style_list = self::style_list();
-
-		foreach ($style_list as $key => $value)
-		{
-			$temp                = $detail;
-			$temp['style']       = a($value, 'key');
-			$temp['style_title'] = a($value, 'title');
-			$list[]              = $temp;
-		}
-
-		return $list;
-
-	}
-
 
 
 

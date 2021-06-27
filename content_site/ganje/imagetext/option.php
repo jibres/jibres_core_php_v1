@@ -1,5 +1,5 @@
 <?php
-namespace content_site\ganje\gallery;
+namespace content_site\ganje\imagetext;
 
 
 class option
@@ -17,7 +17,6 @@ class option
 
 
 
-
 	/**
 	 * Get style list
 	 *
@@ -29,31 +28,24 @@ class option
 		[
 			[
 				'group'   => T_("Image"),
-				'key'     => 'gallery',
-				'style'   => 'style_gallery',
-				'title'   => T_("Gallery"),
-				'icon'    => \dash\utility\icon::url('Image'),
+				'key'     => 'imagetext',
+				'style'   => 'style_imagewithtext',
+				'title'   => T_("Image with text"), 
+				'icon'    => \dash\utility\icon::url('ImageWithText'),
 				'default' => true
 			],
 			[
 				'group'   => T_("Image"),
-				'key'     => 'gallery',
-				'style'   => 'style_slideshow',
-				'title'   => T_("Slide show"),
-				'icon'    => \dash\utility\icon::url('Image'),
-				'default' => false
-			],
-			[
-				'group'   => T_("Image"),
-				'key'     => 'gallery',
-				'style'   => 'style_logolist',
-				'title'   => T_("Logo list"),
-				'icon'    => \dash\utility\icon::url('Image'),
+				'key'     => 'imagetext',
+				'style'   => 'style_imagewithtextoverlay',
+				'title'   => T_("Image with text"),
+				'icon'    => \dash\utility\icon::url('ImageWithTextOverlay'),
 				'default' => false
 			],
 
 		];
 	}
+
 
 
 	/**
@@ -74,7 +66,7 @@ class option
 		else
 		{
 			// Hey! if change this variable you must change the default style in style_list function
-			$style = 'style_gallery';
+			$style = 'style_imagetext';
 		}
 
 		$style_detail = [];
@@ -111,19 +103,19 @@ class option
 			[
 				"index"     => \content_site\options\addimage::generate_random_key(),
 				"image"     => null,
-				"caption"   => T_("Image"),
+				"alt"       => T_("Image"),
 				"isdefault" => true,
 			],
 			[
 				"index"     => \content_site\options\addimage::generate_random_key(),
 				"image"     => null,
-				"caption"   => T_("Image"),
+				"alt"       => T_("Image"),
 				"isdefault" => true,
 			],
 			[
 				"index"     => \content_site\options\addimage::generate_random_key(),
 				"image"     => null,
-				"caption"   => T_("Image"),
+				"alt"       => T_("Image"),
 				"isdefault" => true,
 			],
 		];
@@ -131,7 +123,7 @@ class option
 
 
 
-	private static function style_gallery()
+	private static function style_imagetext()
 	{
 		return
 		[
