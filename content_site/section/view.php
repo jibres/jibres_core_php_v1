@@ -182,13 +182,21 @@ class view
 
 						$detail  = [];
 
+						$style_list = \content_site\call_function::style_list($value['key']);
 
-						$detail = \content_site\call_function::detail($value['key']);
-
-						if(!is_array($detail))
+						if(!is_array($style_list))
 						{
-							$detail = [];
+							$style_list = [];
 						}
+
+						foreach ($style_list as $k => $v)
+						{
+							if(isset($v['style']) && $v['style'] === a($value, 'style'))
+							{
+								$detail = $v;
+							}
+						}
+
 
 						$default = \content_site\call_function::default($value['key']);
 
