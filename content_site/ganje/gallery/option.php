@@ -119,6 +119,37 @@ class option
 	}
 
 
+	/**
+	 * Fill by sample image
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	private static function default_image_list()
+	{
+		return
+		[
+			[
+				"index"     => \content_site\options\addimage::generate_random_key(),
+				"image"     => null,
+				"alt"       => T_("Image"),
+				"isdefault" => true,
+			],
+			[
+				"index"     => \content_site\options\addimage::generate_random_key(),
+				"image"     => null,
+				"alt"       => T_("Image"),
+				"isdefault" => true,
+			],
+			[
+				"index"     => \content_site\options\addimage::generate_random_key(),
+				"image"     => null,
+				"alt"       => T_("Image"),
+				"isdefault" => true,
+			],
+		];
+	}
+
+
 
 	private static function style_gallery()
 	{
@@ -128,8 +159,9 @@ class option
 			'title'   => T_("Gallery"),
 			'default' =>
 			[
-				'heading' => T_("Image Gallery"),
-				'style'   => __FUNCTION__,
+				'heading'   => T_("Image Gallery"),
+				'style'     => __FUNCTION__,
+				'imagelist' => self::default_image_list(),
 			],
 			'options' =>
 			[
@@ -162,8 +194,9 @@ class option
 			'title'   => T_("Slide show"),
 			'default' =>
 			[
-				'heading' => T_("Slide show"),
-				'style'   => __FUNCTION__,
+				'heading'   => T_("Slide show"),
+				'style'     => __FUNCTION__,
+				'imagelist' => self::default_image_list(),
 			],
 			'options' =>
 			[
@@ -196,8 +229,9 @@ class option
 			'title'   => T_("Logo list"),
 			'default' =>
 			[
-				'heading' => T_("Logo list"),
-				'style'   => __FUNCTION__,
+				'heading'   => T_("Logo list"),
+				'style'     => __FUNCTION__,
+				'imagelist' => self::default_image_list(),
 			],
 			'options' =>
 			[

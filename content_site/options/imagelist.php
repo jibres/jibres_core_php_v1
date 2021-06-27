@@ -49,8 +49,8 @@ class imagelist
 				        			$file_url = \dash\utility\icon::url('Image', 'major');
 				      			}
 
-				        		$html .= '<img src="'. $file_url. '">';
-				        		$html .= '<div class="key">'. a($value, 'alt').' </div>';
+				        		$html .= '<img src="'. $file_url. '" alt="'. a($value, 'caption'). '">';
+				        		$html .= '<div class="key">'. a($value, 'caption').' </div>';
 
             					if (count($currentSectionDetail['preview']['imagelist']) > 1)
             					{

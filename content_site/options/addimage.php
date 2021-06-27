@@ -40,7 +40,7 @@ class addimage
 			$currentSectionDetail['preview']['imagelist'] = [];
 		}
 
-		$index = md5(rand(). \dash\user::id(). microtime(). rand());
+		$index = self::generate_random_key();
 
 		$currentSectionDetail['preview']['imagelist'][] =
 		[
@@ -63,6 +63,19 @@ class addimage
 
 		return;
 	}
+
+
+	/**
+	 * Generate random key
+	 * use in this function and in gallery to add default image
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function generate_random_key()
+	{
+		return md5(rand(). \dash\user::id(). microtime(). rand(). time());
+	}
+
 
 	public static function admin_html()
 	{
