@@ -20,9 +20,9 @@ class layout
 
 		$html .= '<div class="'. a($_args, 'avand').'">';
 		{
-			$html .= '<div class="">';
+			$html .= '<div class="row">';
 			{
-				$html .= '<div class="">';
+				$html .= '<div class="c-xs-12 c-sm-6">';
 				{
 					$html .= '<h2>';
 					{
@@ -30,32 +30,31 @@ class layout
 					}
 					$html .= '</h2>';
 
-					if(isset($_args['imagelist']) && is_array($_args['imagelist']))
+					$html .= '<p>';
 					{
-						$html .= '<div class="row">';
-
-						foreach ($_args['imagelist'] as $key => $value)
-						{
-							$file = \dash\utility\icon::url('Image', 'major');
-
-							if(isset($value['file']) && $value['file'])
-							{
-								$file = \lib\filepath::fix($value['file']);
-							}
-
-							$html .= '<div class="c-xs-12 c-sm-4">';
-							$html .= '<img src="'. $file. '" alt="'. a($value, 'alt'). '">';
-							$html .= '</div>';
-						}
-						$html .= '</div>';
+						$html .= a($_args, 'text');
 					}
+					$html .= '</p>';
+
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="c-xs-12 c-sm-6">';
+				{
+					$file = \dash\utility\icon::url('Image', 'major');
+
+					if(isset($_args['file']) && $_args['file'])
+					{
+						$file = \lib\filepath::fix($_args['file']);
+					}
+
+					$html .= '<img class="w300" src="'. $file. '" alt="'. a($_args, 'heading'). '">';
 				}
 				$html .= '</div>';
 			}
 			$html .= '</div>';
 		}
 		$html .= '</div>';
-
 
 		return $html;
 	}

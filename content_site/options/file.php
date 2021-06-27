@@ -82,9 +82,13 @@ class file
 			{
 				$myExt = substr($default, -3);
 
-				if(in_array($myExt, ['png', 'jpg', 'gif']))
+				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']))
 				{
 					$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
+				}
+				else
+				{
+					$html .= '<label for="myfile"><img id="finalImage" src="" alt="'. \dash\data::dataRow_title(). '"></label>';
 				}
 			}
 			else

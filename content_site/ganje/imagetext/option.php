@@ -38,7 +38,7 @@ class option
 				'group'   => T_("Image"),
 				'key'     => 'imagetext',
 				'style'   => 'style_imagewithtextoverlay',
-				'title'   => T_("Image with text"),
+				'title'   => T_("Image with text overlay"),
 				'icon'    => \dash\utility\icon::url('ImageWithTextOverlay'),
 				'default' => false
 			],
@@ -66,7 +66,7 @@ class option
 		else
 		{
 			// Hey! if change this variable you must change the default style in style_list function
-			$style = 'style_imagetext';
+			$style = 'style_imagewithtext';
 		}
 
 		$style_detail = [];
@@ -91,140 +91,57 @@ class option
 	}
 
 
-	/**
-	 * Fill by sample image
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	private static function default_image_list()
-	{
-		return
-		[
-			[
-				"index"     => \content_site\options\addimage::generate_random_key(),
-				"image"     => null,
-				"alt"       => T_("Image"),
-				"isdefault" => true,
-			],
-			[
-				"index"     => \content_site\options\addimage::generate_random_key(),
-				"image"     => null,
-				"alt"       => T_("Image"),
-				"isdefault" => true,
-			],
-			[
-				"index"     => \content_site\options\addimage::generate_random_key(),
-				"image"     => null,
-				"alt"       => T_("Image"),
-				"isdefault" => true,
-			],
-		];
-	}
 
-
-
-	private static function style_imagetext()
+	private static function style_imagewithtext()
 	{
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Gallery"),
+			'title'   => T_("Image with text"),
 			'default' =>
 			[
-				'heading'   => T_("Image Gallery"),
-				'style'     => __FUNCTION__,
-				'imagelist' => self::default_image_list(),
+				'heading' => T_("Image with text"),
+				'style'   => __FUNCTION__,
+				'file'    => \dash\utility\icon::url('ImageWithText'),
+				'text'    => T_("Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."),
 			],
 			'options' =>
 			[
-				'imagelist' =>
-				[
-					'file',
-					'caption',
-					'link',
-					'target',
-				],
-				'addimage',
-
-				'seperator', /* SEPERATOR */
-
-				'style',
+				'file',
 				'heading',
+				'text',
 				'container',
 				'height',
-				'ratio',
+				'style',
 			],
 		];
 	}
 
 
-	private static function style_slideshow()
+	private static function style_imagewithtextoverlay()
 	{
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Slide show"),
+			'title'   => T_("Image with text overlay"),
 			'default' =>
 			[
-				'heading'   => T_("Slide show"),
+				'heading'   => T_("Image with text overlay"),
 				'style'     => __FUNCTION__,
-				'imagelist' => self::default_image_list(),
+				'imagelist' => \dash\utility\icon::url('ImageWithTextOverlay'),
+				'text'      => T_("Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story."),
 			],
 			'options' =>
 			[
-				'imagelist' =>
-				[
-					'file',
-					'caption',
-					'link',
-					'target',
-				],
-				'addimage',
-
-				'seperator', /* SEPERATOR */
-
-				'style',
+				'file',
 				'heading',
+				'text',
 				'container',
 				'height',
-				'ratio',
+				'style',
 			],
 		];
 	}
 
-
-	private static function style_logolist()
-	{
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Logo list"),
-			'default' =>
-			[
-				'heading'   => T_("Logo list"),
-				'style'     => __FUNCTION__,
-				'imagelist' => self::default_image_list(),
-			],
-			'options' =>
-			[
-				'imagelist' =>
-				[
-					'file',
-					'caption',
-					'link',
-					'target',
-				],
-				'addimage',
-
-				'seperator', /* SEPERATOR */
-
-				'style',
-				'heading',
-				'container',
-				'height',
-				'ratio',
-			],
-		];
-	}
 }
 ?>

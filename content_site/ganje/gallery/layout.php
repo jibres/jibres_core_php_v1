@@ -43,7 +43,7 @@ class layout
 							}
 
 							$html .= '<div class="c-xs-12 c-sm-4">';
-							$html .= '<img src="'. $file. '" alt="'. a($value, 'alt'). '">';
+							$html .= '<img src="'. $file. '" alt="'. a($value, 'caption'). '">';
 							$html .= '</div>';
 						}
 						$html .= '</div>';

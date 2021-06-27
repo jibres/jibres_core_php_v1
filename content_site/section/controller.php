@@ -54,12 +54,18 @@ class controller
 
 
 		// enable upload file in gallery section
-		if(in_array(\dash\url::child(), ['gallery']))
+		foreach ($options as $key => $value)
 		{
-			\dash\allow::file();
+			if(is_array($value) && in_array('file', $value))
+			{
+				\dash\allow::file();
+			}
+
+			if($value === 'file')
+			{
+				\dash\allow::file();
+			}
 		}
-
-
 	}
 
 
@@ -74,6 +80,7 @@ class controller
 		[
 			'blog',
 			'gallery',
+			'imagetext',
 			'text',
 		];
 
