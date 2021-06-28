@@ -53,6 +53,8 @@
 <?php } //endfunction ?>
 
 <?php function htmlTable() {?>
+  <div class="tblBox">
+
   <table class="tbl1 v1">
     <thead>
       <tr>
@@ -81,6 +83,7 @@
       <?php } //endif ?>
     </tbody>
   </table>
+  </div>
  <?php \dash\utility\pagination::html(); ?>
 
 <?php } //endif ?>
