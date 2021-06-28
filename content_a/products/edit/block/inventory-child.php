@@ -32,7 +32,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
                 <label for='stock'><?php echo T_("Current Stock Count"); ?> <span class="txtB pRa10"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></span>
                 </label>
                 <div class="input">
-                  <input type="text" name="stock" id="stock" data-format='number' placeholder="<?php echo T_('Current Stock Count'). ' '. \dash\fit::number(\dash\data::productDataRow_stock()); ?>" maxlength="7">
+                  <input type="tel" name="stock" id="stock" data-format='number' placeholder="<?php echo T_('Current Stock Count'). ' '. \dash\fit::number(\dash\data::productDataRow_stock()); ?>" maxlength="7">
                 </div>
                 <p class="fc-mute fs09"><?php echo T_("If you want to change the stock enter current stock here") ?></p>
               </div>
@@ -41,13 +41,13 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
               <div class="c s12 pRa10">
                 <label for='minstock'><?php echo T_("Min stock"); ?></label>
                 <div class="input">
-                  <input type="text" name="minstock" id="minstock" data-format='number' value="<?php echo a($productDataRow,'minstock'); ?>" maxlength="7">
+                  <input type="tel" name="minstock" id="minstock" data-format='number' value="<?php echo a($productDataRow,'minstock'); ?>" maxlength="7">
                 </div>
               </div>
               <div class="c s12">
                 <label for='maxstock'><?php echo T_("Max stock"); ?></label>
                 <div class="input">
-                  <input type="text" name="maxstock" id="maxstock" data-format='number' value="<?php echo a($productDataRow,'maxstock'); ?>" maxlength="11">
+                  <input type="tel" name="maxstock" id="maxstock" data-format='number' value="<?php echo a($productDataRow,'maxstock'); ?>" maxlength="11">
                 </div>
               </div>
             </div>
