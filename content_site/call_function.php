@@ -152,7 +152,14 @@ class call_function
 	 */
 	public static function default($_child = null)
 	{
-		$namespace = self::ganje_namespace($_child);
+		if(\dash\url::module() === 'header')
+		{
+  			$namespace = self::header_namespace($_child);
+		}
+		else
+		{
+			$namespace = self::ganje_namespace($_child);
+		}
 
 		$namespace = sprintf($namespace, 'option');
 
@@ -179,7 +186,14 @@ class call_function
 	 */
 	public static function layout($_child = null, $_args = [])
 	{
-		$namespace = self::ganje_namespace($_child);
+		if(\dash\url::module() === 'header')
+		{
+  			$namespace = self::header_namespace($_child);
+		}
+		else
+		{
+			$namespace = self::ganje_namespace($_child);
+		}
 
 		$namespace = sprintf($namespace, 'layout');
 

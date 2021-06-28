@@ -83,39 +83,6 @@ class option
 	}
 
 
-	/**
-	 * Public default
-	 */
-	private static function master_default($_special_default = [])
-	{
-		$master_default =
-		[
-			'heading'        => \lib\store::title(),
-			'post_template'  => 'standard',
-		];
-
-		return array_merge($master_default, $_special_default);
-	}
-
-
-	/**
-	 * Master option
-	 *
-	 * @param      array   $_special_default  The special default
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	private static function master_option()
-	{
-		$option =
-		[
-			'heading',
-			'height',
-
-		];
-
-		return $option;
-	}
 
 
 	/**
@@ -128,29 +95,19 @@ class option
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Classic View"),
-			'default' => self::master_default(['style' => __FUNCTION__]),
-			'options' => self::master_option(),
+			'title'   => T_("Header 1"),
+			'default' =>
+			[
+				'heading' => \lib\store::title(),
+			],
+			'options' =>
+			[
+				'heading',
+			],
 		];
 	}
 
 
-	/**
-	 * Style 2
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	private static function style_2()
-	{
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Modern View"),
-			'premium' => true,
-			'default' => self::master_default(['style' => __FUNCTION__]),
-			'options' => self::master_option(),
-		];
-	}
 
 }
 ?>

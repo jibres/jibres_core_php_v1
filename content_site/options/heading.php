@@ -14,7 +14,7 @@ class heading
 
 	public static function default()
 	{
-		return T_('New section');
+		return T_('Title');
 	}
 
 
