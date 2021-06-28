@@ -42,7 +42,13 @@ class controller
 		}
 
 		// all section need to sid [section id] to load
-
+		$section_id = \dash\request::get('sid');
+		$section_id = \dash\validate::id($section_id);
+		if(!$section_id)
+		{
+			\dash\header::status(403, T_("Invalid section id"));
+			return;
+		}
 
 		$options = \content_site\call_function::option();
 
