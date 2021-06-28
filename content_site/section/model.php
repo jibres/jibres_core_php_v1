@@ -31,8 +31,15 @@ class model
 	public static function save_options()
 	{
 		$need_redirect_back = false;
-		$page_id      = \dash\request::get('id');
-		$section_id   = \dash\request::get('sid');
+		$page_id            = \dash\request::get('id');
+		$section_id         = \dash\request::get('sid');
+		$section_id         = \dash\validate::id($section_id);
+
+		if(!$section_id)
+		{
+			\dash\notif::error(T_("Invalid section id"));
+			return false;
+		}
 
 
 		// delete or hide a section
@@ -367,6 +374,12 @@ class model
 	{
 		$page_id = \dash\request::get('id');
 		$page_id = \dash\coding::decode($page_id);
+
+		if(!$page_id)
+		{
+			\dash\notif::error(T_("Invali page id"));
+			return false;
+		}
 
 
 		if(\dash\request::post('section') === 'preview')
