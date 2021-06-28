@@ -54,6 +54,14 @@ class model
 			$currentSectionList = [];
 		}
 
+		foreach ($currentSectionList as $key => $value)
+		{
+			if(a($value, 'mode') === 'header' || a($value, 'mode') === 'footer')
+			{
+				unset($currentSectionList[$key]);
+			}
+		}
+
 		if(count($currentSectionList) !== count($sort))
 		{
 			\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));

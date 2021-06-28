@@ -418,7 +418,22 @@ class model
 
 			$section_list = \content_site\controller::load_current_section_list('with_adding');
 
-			$end_record = end($section_list);
+			$end_record = [];
+
+			if(\dash\url::module() === 'header')
+			{
+				foreach ($section_list as $v)
+				{
+					if(a($v, 'mode') === 'header')
+					{
+						$end_record = $v;
+					}
+				}
+			}
+			else
+			{
+				$end_record = end($section_list);
+			}
 
 			$preview = json_encode(['key' => $key, 'style' => $style, 'adding' => true]);
 
@@ -434,8 +449,15 @@ class model
 			{
 				// add new record by adding mode
 
+				$mode = 'body';
+
+				if(\dash\url::module() === 'header')
+				{
+					$mode = 'header';
+				}
+
 				$insert                = [];
-				$insert['mode']        = 'body';
+				$insert['mode']        = $mode;
 				$insert['type']        = $key;
 				$insert['related']     = 'posts';
 				$insert['related_id']  = $page_id;
@@ -482,7 +504,22 @@ class model
 
 			$section_list = \content_site\controller::load_current_section_list('with_adding');
 
-			$end_record = end($section_list);
+			$end_record = [];
+
+			if(\dash\url::module() === 'header')
+			{
+				foreach ($section_list as $v)
+				{
+					if(a($v, 'mode') === 'header')
+					{
+						$end_record = $v;
+					}
+				}
+			}
+			else
+			{
+				$end_record = end($section_list);
+			}
 
 			if(isset($end_record['preview']['adding']))
 			{

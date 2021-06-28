@@ -23,6 +23,27 @@ class call_function
 	}
 
 
+
+	/**
+	 * Get ganje namespace
+	 *
+	 * @param      string  $_child  The child
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function header_namespace($_child = null)
+	{
+		if(!$_child)
+		{
+			$_child = \dash\url::child();
+		}
+
+		return '\\content_site\\h\\'. $_child. '\\%s';
+	}
+
+
+
+
 	/**
 	 * Get option namespace
 	 *
@@ -95,11 +116,25 @@ class call_function
 			// call detail($_section)
 			if(isset($_args[0]) && is_string($_args[0]))
 			{
-				$namespace = self::ganje_namespace($_args[0]);
+				if(\dash\url::module() === 'header')
+				{
+		  			$namespace = self::header_namespace($_args[0]);
+				}
+				else
+				{
+					$namespace = self::ganje_namespace($_args[0]);
+				}
 			}
 			else
 			{
-				$namespace = self::ganje_namespace();
+				if(\dash\url::module() === 'header')
+				{
+		  			$namespace = self::header_namespace();
+				}
+				else
+				{
+					$namespace = self::ganje_namespace();
+				}
 			}
 
 			$namespace = sprintf($namespace, 'option');

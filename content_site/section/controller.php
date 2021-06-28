@@ -76,13 +76,23 @@ class controller
 	 */
 	private static function all_section_name()
 	{
-		$list =
-		[
-			'blog',
-			'gallery',
-			'imagetext',
-			'text',
-		];
+		if(\dash\url::module() === 'header')
+		{
+			$list =
+			[
+				'h1',
+			];
+		}
+		else
+		{
+			$list =
+			[
+				'blog',
+				'gallery',
+				'imagetext',
+				'text',
+			];
+		}
 
 		return $list;
 	}
