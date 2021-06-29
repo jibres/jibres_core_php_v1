@@ -103,6 +103,7 @@ class controller
 			$list =
 			[
 				'h1',
+				'h2',
 			];
 		}
 		else
