@@ -24,6 +24,22 @@ class controller
 			return;
 		}
 
+		// like header/change footer/change
+		if($child === 'change')
+		{
+			// not route image/add/[anything]
+			if(\dash\url::dir(2))
+			{
+				\dash\header::status(404, T_("Invalid url"));
+				return;
+			}
+
+			\dash\data::changeHeader(true);
+
+			\dash\open::get();
+			\dash\open::post();
+			return;
+		}
 
 		/**
 		 * Route one section

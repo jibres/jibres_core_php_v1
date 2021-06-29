@@ -8,8 +8,9 @@ if(\dash\data::sectionList())
   $last_group = null;
 
   $adding_detail = \dash\data::addingDetail();
-  $adding_key = a($adding_detail, 'preview', 'key');
-  $adding_style = a($adding_detail, 'preview', 'style');
+  $adding_key    = a($adding_detail, 'preview', 'key');
+  $adding_style  = a($adding_detail, 'preview', 'style');
+
 
   foreach (\dash\data::sectionList() as $group => $items)
   {

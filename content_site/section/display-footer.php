@@ -1,5 +1,5 @@
 <?php
-if(\dash\url::child())
+if(\dash\url::child() && \dash\url::child() !== 'change')
 {
 
   if(\dash\url::subchild())

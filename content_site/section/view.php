@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		// in a section
-		if(\dash\url::child())
+		if(\dash\url::child() && \dash\url::child() !== 'change')
 		{
 
 			\content_site\controller::load_current_section_list();
@@ -51,6 +51,7 @@ class view
 				if(isset($end_section['preview']['adding']))
 				{
 					\dash\data::addingDetail($end_section);
+
 					\dash\data::adding(true);
 				}
 			}

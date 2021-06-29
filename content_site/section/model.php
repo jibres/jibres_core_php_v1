@@ -6,6 +6,13 @@ class model
 {
 	public static function post()
 	{
+
+		// change header
+		if(\dash\data::changeHeader())
+		{
+			return self::add_new_section();
+		}
+
 		/**
 		 * Save option of one section
 		 */
@@ -448,9 +455,28 @@ class model
 				$end_record = end($section_list);
 			}
 
-			$preview = json_encode(['key' => $key, 'style' => $style, 'adding' => true]);
+			if(\dash\data::changeHeader())
+			{
+				if(isset($end_record['preview']))
+				{
+					$preview           = $end_record['preview'];
+					$preview['key']    = $key;
+					$preview['style']  = $style;
+					$preview['adding'] = true;
+					$preview           = json_encode($preview);
+				}
+				else
+				{
+					\dash\notif::error(T_("Invalid data"));
+					return false;
+				}
+			}
+			else
+			{
+				$preview = json_encode(['key' => $key, 'style' => $style, 'adding' => true]);
+			}
 
-			if(isset($end_record['preview']['adding']))
+			if(isset($end_record['preview']['adding']) || \dash\data::changeHeader())
 			{
 				// update current preview link
 				$section_id = $end_record['id'];
