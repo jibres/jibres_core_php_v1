@@ -4,8 +4,7 @@ namespace content_site;
 
 class call_function
 {
-
-	private static function get_namespace($_section_key)
+	public static function get_folder($_section_key)
 	{
 		if(substr($_section_key, 0, 1) === 'h' && is_numeric(substr($_section_key, 1, 1)))
 		{
@@ -19,6 +18,15 @@ class call_function
 		{
 			$folder = 'ganje';
 		}
+
+		return $folder;
+	}
+
+
+
+	private static function get_namespace($_section_key)
+	{
+		$folder = self::get_folder($_section_key);
 
 		return '\\content_site\\'. $folder .'\\'. $_section_key. '\\%s';
 	}

@@ -19,5 +19,11 @@ class update
 
 		return $result;
 	}
+
+
+	public static function record($_args, $_id)
+	{
+		return \dash\pdo\query_template::update('pagebuilder', $_args, $_id);
+	}
 }
 ?>

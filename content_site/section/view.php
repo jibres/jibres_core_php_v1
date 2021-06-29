@@ -105,14 +105,25 @@ class view
 	private static function show_section_in_group($section_list)
 	{
 		$new_list = [];
+
+		$get_list = \dash\request::get('list');
+
 		foreach ($section_list as $key => $value)
 		{
+			$mode = \content_site\call_function::get_folder(a($value, 'key'));
+
+			if($get_list && $get_list !== $mode)
+			{
+				continue;
+			}
+
 			if(!isset($new_list[a($value, 'group')]))
 			{
 				$new_list[a($value, 'group')] = [];
 			}
 
 			$new_list[a($value, 'group')][] = $value;
+
 		}
 
 		return $new_list;
