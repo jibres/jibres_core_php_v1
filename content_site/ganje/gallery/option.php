@@ -131,7 +131,7 @@ class option
 
 
 
-	private static function style_gallery()
+	public static function style_gallery()
 	{
 		return
 		[
@@ -166,7 +166,7 @@ class option
 	}
 
 
-	private static function style_slideshow()
+	public static function style_slideshow()
 	{
 		return
 		[
@@ -201,7 +201,7 @@ class option
 	}
 
 
-	private static function style_logolist()
+	public static function style_logolist()
 	{
 		return
 		[

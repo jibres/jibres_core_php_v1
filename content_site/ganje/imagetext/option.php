@@ -92,7 +92,7 @@ class option
 
 
 
-	private static function style_imagewithtext()
+	public static function style_imagewithtext()
 	{
 		return
 		[
@@ -118,7 +118,7 @@ class option
 	}
 
 
-	private static function style_imagewithtextoverlay()
+	public static function style_imagewithtextoverlay()
 	{
 		return
 		[

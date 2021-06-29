@@ -92,7 +92,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	private static function style_1()
+	public static function style_1()
 	{
 		return
 		[
