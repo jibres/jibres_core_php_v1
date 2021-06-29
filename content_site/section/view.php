@@ -214,7 +214,6 @@ class view
 							}
 						}
 
-
 						$default = \content_site\call_function::default($folder, $value['key']);
 
 						if(!is_array($default))

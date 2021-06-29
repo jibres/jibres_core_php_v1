@@ -15,9 +15,6 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-
-
-
 		$html = '';
 
 		$html .= '<h1 class="">';
