@@ -5,25 +5,22 @@ namespace content_site;
 class call_function
 {
 
-	private static function get_namespace($_folder, $_section_key)
+	private static function get_namespace($_section_key)
 	{
-		switch ($_folder)
+		if(substr($_section_key, 0, 1) === 'h' && is_numeric(substr($_section_key, 1, 1)))
 		{
-			case 'header':
-				$_folder = 'h';
-				break;
-
-			case 'footer':
-				$_folder = 'f';
-				break;
-
-			case 'body':
-			default:
-				$_folder = 'ganje';
-				break;
+			$folder = 'header';
+		}
+		elseif(substr($_section_key, 0, 1) === 'f' && is_numeric(substr($_section_key, 1, 1)))
+		{
+			$folder = 'footer';
+		}
+		else
+		{
+			$folder = 'ganje';
 		}
 
-		return '\\content_site\\'. $_folder .'\\'. $_section_key. '\\%s';
+		return '\\content_site\\'. $folder .'\\'. $_section_key. '\\%s';
 	}
 
 
@@ -61,7 +58,7 @@ class call_function
 		{
 			if(\dash\url::isLocal())
 			{
-				// var_dump(func_get_args());exit;
+				var_dump(func_get_args());exit;
 			}
 			return null;
 		}
@@ -98,15 +95,10 @@ class call_function
 		}
 		else
 		{
-			$folder      = a($_args, 0);
-			$section_key = a($_args, 1);
-			$args        = a($_args, 2);
+			$section_key = a($_args, 0);
+			$args        = a($_args, 1);
 
-			unset($_args[0]);
-			unset($_args[1]);
-
-
-			$namespace = self::get_namespace($folder, $section_key);
+			$namespace = self::get_namespace($section_key);
 
 			if($_fn === 'default')
 			{
@@ -126,6 +118,7 @@ class call_function
 			elseif($_fn === 'layout')
 			{
 				$namespace = sprintf($namespace, 'layout');
+
 				return self::_call([$namespace, 'layout'], $args);
 			}
 			else

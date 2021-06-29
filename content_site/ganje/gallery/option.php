@@ -156,7 +156,6 @@ class option
 
 				'seperator', /* SEPERATOR */
 
-				'style',
 				'heading',
 				'container',
 				'height',
@@ -191,7 +190,6 @@ class option
 
 				'seperator', /* SEPERATOR */
 
-				'style',
 				'heading',
 				'container',
 				'height',
@@ -226,7 +224,6 @@ class option
 
 				'seperator', /* SEPERATOR */
 
-				'style',
 				'heading',
 				'container',
 				'height',

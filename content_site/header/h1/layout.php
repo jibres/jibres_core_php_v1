@@ -1,5 +1,5 @@
 <?php
-namespace content_site\h\h1;
+namespace content_site\header\h1;
 
 
 class layout

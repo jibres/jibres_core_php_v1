@@ -7,9 +7,8 @@ class view
 	public static function config()
 	{
 		// in a section
-		if(\dash\url::child() && !\dash\data::inChangeHeaderFooter())
+		if(\dash\url::child())
 		{
-
 			\content_site\controller::load_current_section_list();
 
 			self::generate_back_url();
@@ -193,13 +192,11 @@ class view
 
 					if(isset($value['key']) && is_string($value['key']))
 					{
-						$folder = a($_data, 'mode');
-
 						$default = [];
 
 						$detail  = [];
 
-						$style_list = \content_site\call_function::style_list($folder, $value['key']);
+						$style_list = \content_site\call_function::style_list($value['key']);
 
 						if(!is_array($style_list))
 						{
@@ -214,7 +211,7 @@ class view
 							}
 						}
 
-						$default = \content_site\call_function::default($folder, $value['key']);
+						$default = \content_site\call_function::default($value['key']);
 
 						if(!is_array($default))
 						{
@@ -224,7 +221,7 @@ class view
 
 						$value = array_merge($detail, $default, $value);
 
-						$result['layout'] = \content_site\call_function::layout($folder, $value['key'], $value);
+						$result['layout'] = \content_site\call_function::layout($value['key'], $value);
 
 					}
 

@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 		// load post detail
-		// all page route in this module need page id
+		// all url route in this module need page id
 		\content_site\controller::load_current_page_detail();
 
 
@@ -21,23 +21,6 @@ class controller
 		// route section list
 		if(!$child)
 		{
-			return;
-		}
-
-		// like header/change footer/change
-		if($child === 'change')
-		{
-			// not route image/add/[anything]
-			if(\dash\url::dir(2))
-			{
-				\dash\header::status(404, T_("Invalid url"));
-				return;
-			}
-
-			\dash\data::inChangeHeaderFooter(true);
-
-			\dash\open::get();
-			\dash\open::post();
 			return;
 		}
 
@@ -66,13 +49,7 @@ class controller
 			return;
 		}
 
-		$folder = 'body';
-		if(\dash\url::module() === 'header')
-		{
-			$folder = 'header';
-		}
-
-		$options = \content_site\call_function::option($folder, $child);
+		$options = \content_site\call_function::option($child);
 
 		\dash\data::currentOptionList($options);
 
@@ -107,12 +84,11 @@ class controller
 	 */
 	private static function all_section_name()
 	{
-		if(\dash\url::module() === 'header')
+		if(\dash\request::get('list') === 'header')
 		{
 			$list =
 			[
 				'h1',
-				'h2',
 			];
 		}
 		else
@@ -139,15 +115,9 @@ class controller
 
 		$section_list = [];
 
-		$folder = 'body';
-		if(\dash\url::module() === 'header')
-		{
-			$folder = 'header';
-		}
-
 		foreach ($list as $section)
 		{
-			$style_list = \content_site\call_function::style_list($folder, $section);
+			$style_list = \content_site\call_function::style_list($section);
 			if($style_list)
 			{
 				$section_list = array_merge($section_list, $style_list);

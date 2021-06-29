@@ -119,7 +119,6 @@ class option
 	{
 		$option =
 		[
-			'style',
 			'heading',
 
 			'post_tag',

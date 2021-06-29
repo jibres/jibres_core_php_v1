@@ -3,7 +3,7 @@ $header = [];
 $body   = [];
 $footer = [];
 
-$header_link = \dash\url::here(). '/header'. \dash\request::full_get();
+$header_link = \dash\url::here(). '/section'. \dash\request::full_get(['list' => 'header']);
 
 $list = \dash\data::currentSectionList();
 
@@ -17,7 +17,7 @@ foreach ($list as $key => $value)
   if(a($value, 'mode')  === 'header')
   {
     $header = $value;
-    $header_link = \dash\url::here(). '/header/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]);
+    $header_link = \dash\url::here(). '/section/'. a($header, 'preview', 'key'). \dash\request::full_get(['sid' => a($header, 'id')]);
   }
   elseif(a($value, 'mode')  === 'body')
   {

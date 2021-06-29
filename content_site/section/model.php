@@ -6,13 +6,6 @@ class model
 {
 	public static function post()
 	{
-
-		// change header
-		if(\dash\data::inChangeHeaderFooter())
-		{
-			return self::add_new_section();
-		}
-
 		/**
 		 * Save option of one section
 		 */

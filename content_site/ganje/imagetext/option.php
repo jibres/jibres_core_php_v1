@@ -112,7 +112,7 @@ class option
 				'text',
 				'container',
 				'height',
-				'style',
+
 			],
 		];
 	}
@@ -138,7 +138,7 @@ class option
 				'text',
 				'container',
 				'height',
-				'style',
+
 			],
 		];
 	}
