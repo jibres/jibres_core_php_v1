@@ -83,7 +83,7 @@ require_once(root. 'content_a/products/productName.php');
   {
     $have_any_id = false;
     ?>
-    <form method="post" id="form1" data-patch autocomplete="off">
+    <form method="post" id="form1"  autocomplete="off">
           <?php $i=0; $XI = 1; foreach (\dash\data::propertyList() as $property => $cat) { $i++; ?>
             <div class="msg info2">
               <?php if($i === 1) {echo '<div class="font-14">'. $cat['title']. '</div>';}else{ ?>
