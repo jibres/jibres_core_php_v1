@@ -7,7 +7,14 @@ class style
 	private static function enum()
 	{
 		$enum = [];
-		$enum = \content_site\call_function::style_list();
+
+		$enum = \content_site\call_function::style_list(\dash\data::currentSectionDetail_mode(), a(\dash\data::currentSectionDetail(), 'preview', 'key'));
+
+		if(!is_array($enum))
+		{
+			$enum = [];
+		}
+
 		return $enum;
 	}
 

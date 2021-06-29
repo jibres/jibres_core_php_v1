@@ -63,6 +63,8 @@ class option
 			$style = 'style_1';
 		}
 
+		$style_detail = [];
+
 		if(is_callable(['self', $style]))
 		{
 			$style_detail = call_user_func(['self', $style]);

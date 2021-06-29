@@ -54,6 +54,7 @@ else
   $options_list = \dash\data::currentOptionList();
   $child        = \dash\url::child();
   $subchild     = \dash\url::subchild();
+  $folder       = \dash\data::currentSectionDetail_mode();
 
   if($subchild && isset($options_list[$subchild]) && is_array($options_list[$subchild]))
   {
@@ -62,7 +63,7 @@ else
       $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
     }
   }
-  else
+  elseif(is_array($options_list))
   {
     foreach ($options_list as $key => $option)
     {

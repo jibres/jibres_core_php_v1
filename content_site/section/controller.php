@@ -66,7 +66,13 @@ class controller
 			return;
 		}
 
-		$options = \content_site\call_function::option();
+		$folder = 'body';
+		if(\dash\url::module() === 'header')
+		{
+			$folder = 'header';
+		}
+
+		$options = \content_site\call_function::option($folder, $child);
 
 		\dash\data::currentOptionList($options);
 
@@ -74,7 +80,10 @@ class controller
 		\dash\open::get();
 		\dash\open::post();
 
-
+		if(!is_array($options))
+		{
+			$options = [];
+		}
 		// enable upload file in gallery section
 		foreach ($options as $key => $value)
 		{
@@ -130,9 +139,15 @@ class controller
 
 		$section_list = [];
 
+		$folder = 'body';
+		if(\dash\url::module() === 'header')
+		{
+			$folder = 'header';
+		}
+
 		foreach ($list as $section)
 		{
-			$style_list = \content_site\call_function::style_list($section);
+			$style_list = \content_site\call_function::style_list($folder, $section);
 			if($style_list)
 			{
 				$section_list = array_merge($section_list, $style_list);

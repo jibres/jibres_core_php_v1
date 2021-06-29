@@ -5,40 +5,25 @@ namespace content_site;
 class call_function
 {
 
-	/**
-	 * Get ganje namespace
-	 *
-	 * @param      string  $_child  The child
-	 *
-	 * @return     string  ( description_of_the_return_value )
-	 */
-	private static function ganje_namespace($_child = null)
+	private static function get_namespace($_folder, $_section_key)
 	{
-		if(!$_child)
+		switch ($_folder)
 		{
-			$_child = \dash\url::child();
+			case 'header':
+				$_folder = 'h';
+				break;
+
+			case 'footer':
+				$_folder = 'f';
+				break;
+
+			case 'body':
+			default:
+				$_folder = 'ganje';
+				break;
 		}
 
-		return '\\content_site\\ganje\\'. $_child. '\\%s';
-	}
-
-
-
-	/**
-	 * Get ganje namespace
-	 *
-	 * @param      string  $_child  The child
-	 *
-	 * @return     string  ( description_of_the_return_value )
-	 */
-	private static function header_namespace($_child = null)
-	{
-		if(!$_child)
-		{
-			$_child = \dash\url::child();
-		}
-
-		return '\\content_site\\h\\'. $_child. '\\%s';
+		return '\\content_site\\'. $_folder .'\\'. $_section_key. '\\%s';
 	}
 
 
@@ -47,7 +32,7 @@ class call_function
 	/**
 	 * Get option namespace
 	 *
-	 * @param      string  $_child  The child
+	 * @param      string  $_section_key  The child
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
@@ -113,91 +98,41 @@ class call_function
 		}
 		else
 		{
-			// call detail($_section)
-			if(isset($_args[0]) && is_string($_args[0]))
+			$folder      = a($_args, 0);
+			$section_key = a($_args, 1);
+
+			$namespace = self::get_namespace($folder, $section_key);
+
+			if($_fn === 'default')
 			{
-				if(\dash\url::module() === 'header')
+				$namespace = sprintf($namespace, 'option');
+
+				$full_option_list = self::_call([$namespace, 'option'], 'full');
+
+				if(isset($full_option_list['default']) && is_array($full_option_list['default']))
 				{
-		  			$namespace = self::header_namespace($_args[0]);
+					return $full_option_list['default'];
 				}
 				else
 				{
-					$namespace = self::ganje_namespace($_args[0]);
+					return [];
 				}
+			}
+			elseif($_fn === 'layout')
+			{
+				$namespace = sprintf($namespace, 'layout');
+
+				return self::_call([$namespace, 'layout'], $_args);
 			}
 			else
 			{
-				if(\dash\url::module() === 'header')
-				{
-		  			$namespace = self::header_namespace();
-				}
-				else
-				{
-					$namespace = self::ganje_namespace();
-				}
+				$namespace = sprintf($namespace, 'option');
+
+				return self::_call([$namespace, $_fn], ...$_args);
 			}
-
-			$namespace = sprintf($namespace, 'option');
-
-			return self::_call([$namespace, $_fn], ...$_args);
 		}
 
 	}
 
-
-
-	/**
-	 * Get default of section detail
-	 * by load option and get default detail
-	 */
-	public static function default($_child = null)
-	{
-		if(\dash\url::module() === 'header')
-		{
-  			$namespace = self::header_namespace($_child);
-		}
-		else
-		{
-			$namespace = self::ganje_namespace($_child);
-		}
-
-		$namespace = sprintf($namespace, 'option');
-
-		$full_option_list = self::_call([$namespace, 'option'], 'full');
-
-		if(isset($full_option_list['default']) && is_array($full_option_list['default']))
-		{
-			return $full_option_list['default'];
-		}
-
-		return [];
-	}
-
-
-
-
-	/**
-	 * Call layout of every section
-	 *
-	 * @param      <type>  $_child  The child
-	 * @param      array   $_args   The arguments
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function layout($_child = null, $_args = [])
-	{
-		if(\dash\url::module() === 'header')
-		{
-  			$namespace = self::header_namespace($_child);
-		}
-		else
-		{
-			$namespace = self::ganje_namespace($_child);
-		}
-
-		$namespace = sprintf($namespace, 'layout');
-
-		return self::_call([$namespace, 'layout'], $_args);
-	}
 }
 ?>
