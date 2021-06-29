@@ -29,7 +29,7 @@ class config
 
 		\lib\db\setting\insert::default_setting('store_setting', 'length_unit', 'cm', $_fuel, $_database);
 
-		\lib\db\setting\insert::default_setting('store_setting', 'mass_unit', 'kg', $_fuel, $_database);
+		\lib\db\setting\insert::default_setting('store_setting', 'mass_unit', 'g', $_fuel, $_database);
 
 		\lib\db\setting\insert::default_setting('product_setting', 'comment', '1', $_fuel, $_database);
 
