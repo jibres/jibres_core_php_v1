@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		// in a section
-		if(\dash\url::child() && \dash\url::child() !== 'change')
+		if(\dash\url::child() && !\dash\data::inChangeHeaderFooter())
 		{
 
 			\content_site\controller::load_current_section_list();

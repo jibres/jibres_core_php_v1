@@ -34,7 +34,7 @@ class controller
 				return;
 			}
 
-			\dash\data::changeHeader(true);
+			\dash\data::inChangeHeaderFooter(true);
 
 			\dash\open::get();
 			\dash\open::post();

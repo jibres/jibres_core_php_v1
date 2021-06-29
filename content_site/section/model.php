@@ -8,7 +8,7 @@ class model
 	{
 
 		// change header
-		if(\dash\data::changeHeader())
+		if(\dash\data::inChangeHeaderFooter())
 		{
 			return self::add_new_section();
 		}
@@ -455,7 +455,7 @@ class model
 				$end_record = end($section_list);
 			}
 
-			if(\dash\data::changeHeader())
+			if(\dash\data::inChangeHeaderFooter())
 			{
 				if(isset($end_record['preview']))
 				{
@@ -476,7 +476,7 @@ class model
 				$preview = json_encode(['key' => $key, 'style' => $style, 'adding' => true]);
 			}
 
-			if(isset($end_record['preview']['adding']) || \dash\data::changeHeader())
+			if(isset($end_record['preview']['adding']) || \dash\data::inChangeHeaderFooter())
 			{
 				// update current preview link
 				$section_id = $end_record['id'];

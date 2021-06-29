@@ -2,7 +2,7 @@
 /**
  * btn change header
  */
-if(\dash\url::child() !== 'change')
+if(!\dash\data::inChangeHeaderFooter())
 {
 	$link_change_header = \dash\url::this(). '/change'. \dash\request::full_get();
 
