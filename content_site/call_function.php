@@ -101,6 +101,9 @@ class call_function
 			$folder      = a($_args, 0);
 			$section_key = a($_args, 1);
 
+			unset($_args[0]);
+			unset($_args[1]);
+
 			$namespace = self::get_namespace($folder, $section_key);
 
 			if($_fn === 'default')
@@ -122,7 +125,7 @@ class call_function
 			{
 				$namespace = sprintf($namespace, 'layout');
 
-				return self::_call([$namespace, 'layout'], $_args);
+				return self::_call([$namespace, 'layout'], ...$_args);
 			}
 			else
 			{

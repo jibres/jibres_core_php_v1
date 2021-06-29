@@ -1,5 +1,5 @@
 <?php
-if(\dash\url::child() && \dash\url::child() !== 'change')
+if(\dash\url::child() && !\dash\data::inChangeHeaderFooter())
 {
 
   if(\dash\url::subchild())

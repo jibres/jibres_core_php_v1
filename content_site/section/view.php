@@ -225,7 +225,6 @@ class view
 
 						$value = array_merge($detail, $default, $value);
 
-
 						$result['layout'] = \content_site\call_function::layout($folder, $value['key'], $value);
 
 					}

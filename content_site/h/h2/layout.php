@@ -1,5 +1,5 @@
 <?php
-namespace content_site\h\h1;
+namespace content_site\h\h2;
 
 
 class layout
@@ -24,6 +24,7 @@ class layout
 			$html .= a($_args, 'heading');
 		}
 		$html .= '</h1>';
+		$html .= '<img src="'.\lib\filepath::fix(a($_args, 'file')).'">';
 
 		return $html;
 	}
