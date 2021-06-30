@@ -1,5 +1,5 @@
 <?php
-namespace content_site\ganje\gallery;
+namespace content_site\body\gallery;
 
 
 class option

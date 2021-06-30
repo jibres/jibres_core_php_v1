@@ -1,5 +1,5 @@
 <?php
-namespace content_site\ganje\imagetext;
+namespace content_site\body\imagetext;
 
 
 class option

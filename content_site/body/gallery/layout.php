@@ -1,5 +1,5 @@
 <?php
-namespace content_site\ganje\blog;
+namespace content_site\body\gallery;
 
 
 class layout
@@ -7,7 +7,7 @@ class layout
 
 
 	/**
-	 * Layout blog html
+	 * Layout gallery html
 	 *
 	 * @param      <type>  $_args  The data
 	 *
@@ -15,28 +15,6 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-		$line_detail =
-		[
-			'title'     => a($_args, 'heading'),
-			'tag_id'    => a($_args, 'tag_id'),
-			'subtype'   => a($_args, 'post_template'),
-			'limit'     => a($_args, 'limit'),
-		];
-
-		$data = \dash\app\posts\load::sitebuilder_template($line_detail);
-
-		if(isset($data['list']))
-		{
-			$data = $data['list'];
-		}
-
-		if(!is_array($data))
-		{
-			$data = [];
-		}
-
-
-
 		$html = '';
 
 		$html .= '<div class="'. a($_args, 'avand').'">';
@@ -51,11 +29,23 @@ class layout
 					}
 					$html .= '</h2>';
 
-					foreach ($data as $key => $value)
+					if(isset($_args['imagelist']) && is_array($_args['imagelist']))
 					{
+						$html .= '<div class="row">';
 
-						$html .= '<div>';
-						$html .= a($value, 'title');
+						foreach ($_args['imagelist'] as $key => $value)
+						{
+							$file = \dash\utility\icon::url('Image', 'major');
+
+							if(isset($value['file']) && $value['file'])
+							{
+								$file = \lib\filepath::fix($value['file']);
+							}
+
+							$html .= '<div class="c-xs-12 c-sm-4">';
+							$html .= '<img src="'. $file. '" alt="'. a($value, 'caption'). '">';
+							$html .= '</div>';
+						}
 						$html .= '</div>';
 					}
 				}

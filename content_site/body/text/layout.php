@@ -1,5 +1,5 @@
 <?php
-namespace content_site\ganje\gallery;
+namespace content_site\body\text;
 
 
 class layout
@@ -7,7 +7,7 @@ class layout
 
 
 	/**
-	 * Layout gallery html
+	 * Layout text html
 	 *
 	 * @param      <type>  $_args  The data
 	 *
@@ -15,6 +15,7 @@ class layout
 	 */
 	public static function layout($_args)
 	{
+
 		$html = '';
 
 		$html .= '<div class="'. a($_args, 'avand').'">';
@@ -43,7 +44,7 @@ class layout
 							}
 
 							$html .= '<div class="c-xs-12 c-sm-4">';
-							$html .= '<img src="'. $file. '" alt="'. a($value, 'caption'). '">';
+							$html .= '<img src="'. $file. '" alt="'. a($value, 'alt'). '">';
 							$html .= '</div>';
 						}
 						$html .= '</div>';

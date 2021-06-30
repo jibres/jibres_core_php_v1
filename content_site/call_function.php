@@ -16,7 +16,7 @@ class call_function
 		}
 		else
 		{
-			$folder = 'ganje';
+			$folder = 'body';
 		}
 
 		return $folder;

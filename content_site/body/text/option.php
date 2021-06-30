@@ -1,15 +1,14 @@
 <?php
-namespace content_site\ganje\blog;
+namespace content_site\body\text;
 
 
 class option
 {
 
-
 	/**
 	 * Call when publish the page
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
+	 * @return     bool  ( description_of_the_return_value )
 	 */
 	public static function premium()
 	{
@@ -17,6 +16,23 @@ class option
 	}
 
 
+	/**
+	 * Get detail
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function detail()
+	{
+		$detail =
+		[
+			'group' => T_("Text"),
+			'title' => T_("Text"),
+			'key'   => 'text',
+			'icon'  => \dash\utility\icon::url('TextBlock'),
+		];
+
+		return $detail;
+	}
 
 
 	/**
@@ -29,23 +45,22 @@ class option
 		return
 		[
 			[
-				'group'   => T_("Blog post"),
-				'key'     => 'blog',
+				'group'   => T_("Text"),
+				'key'     => 'text',
 				'style'   => 'style_1',
-				'title'   => T_("Classic blog"),
-				'icon'    => \dash\utility\icon::url('Blog'),
+				'title'   => T_("Style 1"),
+				'icon'    => \dash\utility\icon::url('TextBlock'),
 				'default' => true
 			],
 			[
-				'group'   => T_("Blog post"),
-				'key'     => 'blog',
+				'group'   => T_("Text"),
+				'key'     => 'text',
 				'style'   => 'style_2',
-				'title'   => T_("Modern blog"),
-				'icon'    => \dash\utility\icon::url('Blog'),
+				'title'   => T_("Image with text"),
+				'icon'    => \dash\utility\icon::url('TextBlock'),
 				'default' => false
 			],
 		];
-
 	}
 
 
@@ -100,8 +115,7 @@ class option
 	{
 		$master_default =
 		[
-			'heading'        => T_("Post blog"),
-			'post_template'  => 'standard',
+			'heading'        => T_("Rich text"),
 		];
 
 		return array_merge($master_default, $_special_default);
@@ -119,18 +133,12 @@ class option
 	{
 		$option =
 		[
+			'file',
 			'heading',
 
-			'post_tag',
-			'post_template',
-			'post_show_author',
-			'post_show_date',
-			'view_all_btn',
-
-			'limit',
 			'container',
 			'height',
-			'radius',
+
 		];
 
 		return $option;
@@ -147,7 +155,7 @@ class option
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Classic View"),
+			'title'   => T_("Modern View"),
 			'default' => self::master_default(['style' => __FUNCTION__]),
 			'options' => self::master_option(),
 		];
@@ -164,7 +172,7 @@ class option
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Modern View"),
+			'title'   => T_("Slider View"),
 			'premium' => true,
 			'default' => self::master_default(['style' => __FUNCTION__]),
 			'options' => self::master_option(),
