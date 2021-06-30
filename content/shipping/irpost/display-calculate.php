@@ -28,10 +28,10 @@
 						<div class="row mB10">
 							<div class="c-xs-6 c-sm-6">
 								<label><?php echo T_("Sender location") ?></label>
-								<?php \dash\utility\location::provinceSelectorHtml('IR', \dash\request::get('p1'),  \dash\request::get('c1'), 'p1', 'p1', 'c1', 'c1'); ?>
+								<?php echo \dash\utility\location::provinceSelectorHtml('IR', \dash\request::get('p1'),  \dash\request::get('c1'), 'p1', 'p1', 'c1', 'c1'); ?>
 							</div>
 							<div class="c-xs-6 c-sm-6">
-								<?php \dash\utility\location::citySelectorHtml(\dash\request::get('c1'),  'c1','c1'); ?>
+								<?php echo \dash\utility\location::citySelectorHtml(\dash\request::get('c1'),  'c1','c1'); ?>
 							</div>
 						</div>
 						<label><?php echo T_("Send to") ?></label>
@@ -53,10 +53,10 @@
 							<div class="row">
 								<div class="c-xs-6 c-sm-6">
 									<label><?php echo T_("Send to") ?></label>
-									<?php \dash\utility\location::provinceSelectorHtml('IR', \dash\request::get('p2'),  \dash\request::get('c2'), 'p2', 'p2', 'c2', 'c2'); ?>
+									<?php echo \dash\utility\location::provinceSelectorHtml('IR', \dash\request::get('p2'),  \dash\request::get('c2'), 'p2', 'p2', 'c2', 'c2'); ?>
 								</div>
 								<div class="c-xs-6 c-sm-6">
-									<?php \dash\utility\location::citySelectorHtml(\dash\request::get('c2'), 'c2','c2'); ?>
+									<?php echo \dash\utility\location::citySelectorHtml(\dash\request::get('c2'), 'c2','c2'); ?>
 								</div>
 							</div>
 						</div>

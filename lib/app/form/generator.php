@@ -149,6 +149,7 @@ class generator
 		}
 		self::_div();
 
+
 		return self::$html;
 
 	}
@@ -618,7 +619,7 @@ class generator
 			self::div('mB10');
 			{
 				self::label($value);
-				\dash\utility\location::countrySelectorHtml(null, null, self::myName($value, true), self::myID($value, true));
+				self::$html .= \dash\utility\location::countrySelectorHtml(null, null, self::myName($value, true), self::myID($value, true));
 				self::HtmlDesc($value);
 			}
 			self::_div();
@@ -632,7 +633,7 @@ class generator
 		self::div('c-xs-12 c-12');
 		{
 			self::label($value);
-			\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
+			self::$html .= \dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
 			self::HtmlDesc($value);
 		}
 		self::_div();
@@ -650,13 +651,13 @@ class generator
 				self::label($value);
 				self::div();
 				{
-					\dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
 				self::div();
 				{
-					\dash\utility\location::citySelectorHtml(null, self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::citySelectorHtml(null, self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 

@@ -7,65 +7,73 @@ class location
 
 	public static function pack($_country = null, $_province = null, $_city = null)
 	{
-		self::countrySelector($_country, $_province);
-		self::provinceSelector($_country, $_province, $_city);
-		self::citySelectorHtml($_city);
+		$html = '';
+		$html .= self::countrySelector($_country, $_province);
+		$html .= self::provinceSelector($_country, $_province, $_city);
+		$html .= self::citySelectorHtml($_city);
+		return $html;
 	}
 
 
 	public static function packIran($_province = null, $_city = null)
 	{
-		self::provinceSelector('IR', $_province, true);
-		self::citySelectorHtml($_city);
+		$html = '';
+		$html .= self::provinceSelector('IR', $_province, true);
+		$html .= self::citySelectorHtml($_city);
+		return $html;
 	}
 
 
 	public static function countrySelector($_country = null, $_province = null)
 	{
-		echo '<div class="countrySelector mB5">';
-		echo '<label for="country">';
-		echo T_("Country");
-		echo '</label>';
-		self::countrySelectorHtml(...func_get_args());
-    	echo '</div>';
+		$html = '';
+		$html .= '<div class="countrySelector mB5">';
+		$html .= '<label for="country">';
+		$html .= T_("Country");
+		$html .= '</label>';
+		$html .= self::countrySelectorHtml(...func_get_args());
+    	$html .= '</div>';
+    	return $html;
 	}
 
 
 	public static function countrySelectorHtml($_country = null, $_province = null, $_name = 'country', $_id = 'country')
 	{
+		$html = '';
+
 		$placeholder = T_("Choose your country");
-		echo '<select class="select22" name="'. $_name. '" id="'. $_id. '" data-model="country"';
-		echo ' data-next="#province"';
-		echo ' data-placeholder="'. $placeholder. '"';
+		$html .= '<select class="select22" name="'. $_name. '" id="'. $_id. '" data-model="country"';
+		$html .= ' data-next="#province"';
+		$html .= ' data-placeholder="'. $placeholder. '"';
 		if($_province)
 		{
-			echo ' data-next-default="'. $_province. '"';
+			$html .= ' data-next-default="'. $_province. '"';
 		}
-		echo '>';
+		$html .= '>';
 
 		{
-			echo '<option value="">'. $placeholder. '</option>';
+			$html .= '<option value="">'. $placeholder. '</option>';
 
 			$myCountryList = \dash\utility\location\countres::$data;
 			if(is_array($myCountryList) && $myCountryList)
 			{
 				foreach ($myCountryList as $key => $value)
 				{
-					echo '<option value="';
-					echo $key;
-					echo '"';
+					$html .= '<option value="';
+					$html .= $key;
+					$html .= '"';
 					if($_country == $key)
 					{
-						echo ' selected';
+						$html .= ' selected';
 					}
-					echo ">";
+					$html .= ">";
 					$countryName = ucfirst($value["name"]);
-					echo $countryName;
+					$html .= $countryName;
 					if(\dash\language::current() === 'en')
 					{
 						if(isset($value['localname']) && $value['localname'])
 						{
-							echo ' - '. $value['localname'];
+							$html .= ' - '. $value['localname'];
 						}
 					}
 					else
@@ -75,52 +83,58 @@ class location
 							$countryTransName = T_(ucfirst($value['name']));
 							if($countryName !== $countryTransName)
 							{
-								echo ' - '. $countryTransName;
+								$html .= ' - '. $countryTransName;
 
 							}
 						}
 					}
-					echo '</option>';
+					$html .= '</option>';
 				}
 			}
 		}
-		echo '</select>';
+		$html .= '</select>';
+		return $html;
 	}
 
 
 	public static function provinceSelector($_country = null, $_province = null, $_pack_iran = false)
 	{
-		echo '<div class="provinceSelector mB5"';
+		$html = '';
+
+		$html .= '<div class="provinceSelector mB5"';
 		if(!$_pack_iran)
 		{
-			echo ' data-status="hide"';
+			$html .= ' data-status="hide"';
 		}
-		echo '>';
-		echo '<label for="province">';
-		echo T_("Province");
-		echo '</label>';
-		self::provinceSelectorHtml(...func_get_args());
-	    echo '</div>';
+		$html .= '>';
+		$html .= '<label for="province">';
+		$html .= T_("Province");
+		$html .= '</label>';
+		$html .= self::provinceSelectorHtml(...func_get_args());
+	    $html .= '</div>';
+	    return $html;
 	}
 
 
 	public static function provinceSelectorHtml($_country = null, $_province = null, $_city = null, $_name = 'province', $_id = 'province', $_city_name = 'city', $_city_id = 'city')
 	{
+		$html = '';
+
 
 		$placeholder = T_("Please choose province");
 
-		echo '<select class="select22" name="'.$_name. '" id="'. $_id. '"';
-		echo ' data-next="#'.$_city_id. '"';
-		echo ' data-next-type="city"';
-		echo ' data-placeholder="'. $placeholder. '"';
+		$html .= '<select class="select22" name="'.$_name. '" id="'. $_id. '"';
+		$html .= ' data-next="#'.$_city_id. '"';
+		$html .= ' data-next-type="city"';
+		$html .= ' data-placeholder="'. $placeholder. '"';
 		if($_city)
 		{
-			echo ' data-next-default="'. $_city. '"';
+			$html .= ' data-next-default="'. $_city. '"';
 		}
-		echo '>';
+		$html .= '>';
 
 		{
-			echo '<option value="">'. $placeholder. '</option>';
+			$html .= '<option value="">'. $placeholder. '</option>';
 
 			if($_country === 'IR')
 			{
@@ -130,24 +144,25 @@ class location
 				{
 					foreach ($myProvinceList as $key => $value)
 					{
-						echo '<option value="';
-						echo $key;
-						echo '"';
+						$html .= '<option value="';
+						$html .= $key;
+						$html .= '"';
 						if($_province == $key)
 						{
-							echo ' selected';
+							$html .= ' selected';
 						}
-						echo ">";
+						$html .= ">";
 						if(isset($value))
 						{
-							echo ucfirst($value);
+							$html .= ucfirst($value);
 						}
-						echo '</option>';
+						$html .= '</option>';
 					}
 				}
 			}
 		}
-		echo '</select>';
+		$html .= '</select>';
+		return $html;
 	}
 
 
@@ -156,20 +171,22 @@ class location
 
 	public static function citySelectorHtml($_city = null, $_name = 'city', $_id = 'city')
 	{
-		$placeholder = T_("Please choose city");
-		echo '<div class="citySelector mB5"';
-		echo ' data-status="hide"';
-		echo '>';
-		echo '<label for="city">';
-		echo T_("City");
-		echo '</label>';
+		$html = '';
 
-		echo '<select class="select22" name="'. $_name. '" id="'. $_id. '"';
-		echo ' data-placeholder="'. $placeholder. '"';
-		echo '>';
+		$placeholder = T_("Please choose city");
+		$html .= '<div class="citySelector mB5"';
+		$html .= ' data-status="hide"';
+		$html .= '>';
+		$html .= '<label for="city">';
+		$html .= T_("City");
+		$html .= '</label>';
+
+		$html .= '<select class="select22" name="'. $_name. '" id="'. $_id. '"';
+		$html .= ' data-placeholder="'. $placeholder. '"';
+		$html .= '>';
 
 		{
-			echo '<option value="">'. $placeholder. '</option>';
+			$html .= '<option value="">'. $placeholder. '</option>';
 
 			// get city list
 			$myCityList = \dash\utility\location\cites::$data;
@@ -200,25 +217,26 @@ class location
 			{
 				foreach ($newCityList as $key => $value)
 				{
-					echo '<option value="';
-					echo $key;
-					echo '"';
+					$html .= '<option value="';
+					$html .= $key;
+					$html .= '"';
 					if($_city == $key)
 					{
-						echo ' selected';
+						$html .= ' selected';
 					}
-					echo ">";
+					$html .= ">";
 					if(isset($value['name']))
 					{
-						echo ucfirst($value["name"]);
+						$html .= ucfirst($value["name"]);
 					}
-					echo '</option>';
+					$html .= '</option>';
 				}
 			}
 		}
-		echo '</select>';
+		$html .= '</select>';
 
-    echo '</div>';
+    	$html .= '</div>';
+    	return $html;
 	}
 }
 ?>
