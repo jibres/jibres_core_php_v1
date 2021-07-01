@@ -27,4 +27,8 @@ else
 </form>
 <?php } // endif ?>
 
+<?php if(\dash\data::btnPreviewSiteBuilder()) { ?>
+<a href="<?php echo \dash\data::btnPreviewSiteBuilder() ?>" target="_blank" class="inline-block mx-5 px-10 text-center text-white transition bg-green-400 rounded-lg shadow hover:shadow-lg hover:bg-green-500 hover:text-gray-50 focus:outline-none cursor-pointer "><i class="sf-eye"></i></a>
+<?php } // endif ?>
+
 </div>

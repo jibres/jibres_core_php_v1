@@ -13,6 +13,14 @@ class view
 
 		\dash\data::btnSaveSiteBuilder(true);
 
+		$link = \dash\data::currentPageDetail_link();
+
+		if(\dash\data::currentPageDetail_status() !== 'publish')
+		{
+			$link .= '?preview=yes';
+		}
+		\dash\data::btnPreviewSiteBuilder($link);
+
 	}
 }
 ?>
