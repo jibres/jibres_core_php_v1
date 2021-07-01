@@ -56,11 +56,18 @@ class call_function
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function _call($_fn, $_args = [])
+	private static function _call($_fn, $_args = [], $_args2 = [])
 	{
 		if(is_callable($_fn))
 		{
-			return call_user_func($_fn, $_args);
+			if($_args2)
+			{
+				return call_user_func_array($_fn, [$_args, $_args2]);
+			}
+			else
+			{
+				return call_user_func($_fn, $_args);
+			}
 		}
 		else
 		{
@@ -112,7 +119,7 @@ class call_function
 			{
 				$namespace = sprintf($namespace, 'option');
 
-				$full_option_list = self::_call([$namespace, 'option'], 'full');
+				$full_option_list = self::_call([$namespace, 'option'], $args, 'full');
 
 				if(isset($full_option_list['default']) && is_array($full_option_list['default']))
 				{

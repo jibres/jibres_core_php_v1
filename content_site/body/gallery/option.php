@@ -61,15 +61,13 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function option($_mode = null)
+	public static function option($_data, $_mode = null)
 	{
-		$currentSectionDetail = \dash\data::currentSectionDetail();
-
 		$style = null;
 
-		if(isset($currentSectionDetail['preview']['style']) && $currentSectionDetail['preview']['style'])
+		if(isset($_data['preview']['style']) && $_data['preview']['style'])
 		{
-			$style = $currentSectionDetail['preview']['style'];
+			$style = $_data['preview']['style'];
 		}
 		else
 		{
@@ -78,6 +76,7 @@ class option
 		}
 
 		$style_detail = [];
+
 
 		if(is_callable(['self', $style]))
 		{
