@@ -10,6 +10,33 @@ class model
 		{
 			self::set_sort();
 		}
+
+		if(\dash\request::post('savepage') === 'savepage')
+		{
+			self::save_page();
+		}
+	}
+
+
+	private static function save_page()
+	{
+
+		$page_id = \dash\request::get('id');
+
+		$page_id = \dash\validate::code($page_id);
+		$page_id = \dash\coding::decode($page_id);
+		if(!$page_id)
+		{
+			\dash\notif::error(T_("Invali page id"));
+			return false;
+		}
+
+		\lib\db\sitebuilder\update::save_page($page_id);
+
+		\dash\notif::ok(T_("Data saved"));
+
+		return true;
+
 	}
 
 

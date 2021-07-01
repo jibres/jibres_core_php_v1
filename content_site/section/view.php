@@ -267,6 +267,11 @@ class view
 			}
 		}
 
+		if(!a($result, 'preview') && a($result, 'body'))
+		{
+			$result['preview'] = $result['body'];
+		}
+
 		return $result;
 
 	}
