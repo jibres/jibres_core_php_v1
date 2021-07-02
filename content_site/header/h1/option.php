@@ -118,6 +118,7 @@ class option
 			'options' =>
 			[
 				'heading',
+				'changeheader',
 			],
 		];
 	}

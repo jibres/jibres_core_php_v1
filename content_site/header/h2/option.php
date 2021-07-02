@@ -113,11 +113,14 @@ class option
 			'title'   => T_("Header 2"),
 			'default' =>
 			[
-				'heading' => \lib\store::title(),
+				'heading'     => \lib\store::title(),
+				'description' => \lib\store::desc(),
 			],
 			'options' =>
 			[
 				'heading',
+				'description',
+				'changeheader',
 			],
 		];
 	}
