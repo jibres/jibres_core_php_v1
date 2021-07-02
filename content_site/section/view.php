@@ -43,7 +43,8 @@ class view
 
 			\dash\data::sectionList($section_list);
 
-			\dash\data::include_adminPanelBuilder('preview');
+			\dash\data::include_adminPanelBuilder(true);
+
 		}
 
 	}

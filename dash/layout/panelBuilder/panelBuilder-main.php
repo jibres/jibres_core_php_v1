@@ -1,23 +1,10 @@
 <div id='content' class='overflow-y-auto h-full'>
 
+
 <?php
 if(\dash\data::include_adminPanelBuilder() !== true)
 {
-	$exception_display = null;
-
-	if(\dash\data::include_adminPanelBuilder() && is_string(\dash\data::include_adminPanelBuilder()))
-	{
-		$exception_display = \dash\layout\func::display_addr(). '-'.  \dash\data::include_adminPanelBuilder(). '.php';
-	}
-
-	if($exception_display && is_file($exception_display))
-	{
-		require_once $exception_display;
-	}
-	else
-	{
-		require_once(core. 'layout/panelBuilder/panelBuilder-main-iframe.php');
-	}
+	require_once(core. 'layout/panelBuilder/panelBuilder-main-iframe.php');
 }
 else
 {
