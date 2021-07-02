@@ -17,6 +17,23 @@ class option
 	}
 
 
+	/**
+	 * Get detail
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function detail()
+	{
+		return
+		[
+			'group'   => T_("Blog post"),
+			'key'     => 'blog',
+			'title'   => T_("Blog post"),
+			'icon'    => \dash\utility\icon::url('Blog'),
+		];
+	}
+
+
 
 
 	/**
@@ -29,19 +46,13 @@ class option
 		return
 		[
 			[
-				'group'   => T_("Blog post"),
-				'key'     => 'blog',
 				'style'   => 'style_1',
 				'title'   => T_("Classic blog"),
-				'icon'    => \dash\utility\icon::url('Blog'),
 				'default' => true
 			],
 			[
-				'group'   => T_("Blog post"),
-				'key'     => 'blog',
 				'style'   => 'style_2',
 				'title'   => T_("Modern blog"),
-				'icon'    => \dash\utility\icon::url('Blog'),
 				'default' => false
 			],
 		];
@@ -119,16 +130,20 @@ class option
 		[
 			'heading',
 
+			'seperator', /*SEPERATOR*/
+
 			'post_tag',
 			'post_template',
 			'post_show_author',
 			'post_show_date',
-			'view_all_btn',
-
+			'btn_viewall',
 			'limit',
+
+			'seperator', /*SEPERATOR*/
+
 			'container',
 			'height',
-			'radius',
+
 		];
 
 		return $option;
