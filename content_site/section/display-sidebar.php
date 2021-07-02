@@ -25,9 +25,12 @@ if(\dash\data::sectionList())
         $adding_this = true;
       }
 
-      $data = json_encode(['key' => a($item, 'key'), 'style' => a($item, 'style'), 'section' => 'preview']);
+      $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
+
+      // $data = json_encode(['key' => a($item, 'key'), 'style' => a($item, 'style'), 'section' => 'preview']);
       $result .= '<li>';
-      $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
+      // $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
+      $result .= "<a class='item f' href='". $show_preview_link. "'>";
       $result .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
       $result .= '<div class="key">'. a($item, 'title'). '</div>';
       if($adding_this)

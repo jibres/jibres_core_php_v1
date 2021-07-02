@@ -16,6 +16,22 @@ class option
 	}
 
 
+	/**
+	 * Get detail
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function detail()
+	{
+		return
+		[
+			'group'   => T_("Image"),
+			'key'     => 'gallery',
+			'title'   => T_("Gallery"),
+			'icon'    => \dash\utility\icon::url('Image'),
+		];
+	}
+
 
 
 	/**
@@ -28,30 +44,10 @@ class option
 		return
 		[
 			[
-				'group'   => T_("Image"),
-				'key'     => 'gallery',
-				'style'   => 'style_gallery',
+				'style'   => 'style_1',
 				'title'   => T_("Gallery"),
-				'icon'    => \dash\utility\icon::url('Image'),
 				'default' => true
 			],
-			[
-				'group'   => T_("Image"),
-				'key'     => 'gallery',
-				'style'   => 'style_slideshow',
-				'title'   => T_("Slide show"),
-				'icon'    => \dash\utility\icon::url('Image'),
-				'default' => false
-			],
-			[
-				'group'   => T_("Image"),
-				'key'     => 'gallery',
-				'style'   => 'style_logolist',
-				'title'   => T_("Logo list"),
-				'icon'    => \dash\utility\icon::url('Image'),
-				'default' => false
-			],
-
 		];
 	}
 
@@ -72,7 +68,7 @@ class option
 		else
 		{
 			// Hey! if change this variable you must change the default style in style_list function
-			$style = 'style_gallery';
+			$style = 'style_1';
 		}
 
 		$style_detail = [];
@@ -103,7 +99,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	private static function default_image_list()
+	public static function default_image_list()
 	{
 		return
 		[
@@ -130,7 +126,7 @@ class option
 
 
 
-	public static function style_gallery()
+	public static function style_1()
 	{
 		return
 		[
@@ -163,72 +159,5 @@ class option
 		];
 	}
 
-
-	public static function style_slideshow()
-	{
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Slide show"),
-			'default' =>
-			[
-				'heading'   => T_("Slide show"),
-				'style'     => __FUNCTION__,
-				'imagelist' => self::default_image_list(),
-			],
-			'options' =>
-			[
-				'imagelist' =>
-				[
-					'file',
-					'caption',
-					'link',
-					'target',
-				],
-				'addimage',
-
-				'seperator', /* SEPERATOR */
-
-				'heading',
-				'container',
-				'height',
-				'ratio',
-			],
-		];
-	}
-
-
-	public static function style_logolist()
-	{
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Logo list"),
-			'default' =>
-			[
-				'heading'   => T_("Logo list"),
-				'style'     => __FUNCTION__,
-				'imagelist' => self::default_image_list(),
-			],
-			'options' =>
-			[
-				'imagelist' =>
-				[
-					'file',
-					'caption',
-					'link',
-					'target',
-				],
-				'addimage',
-
-				'seperator', /* SEPERATOR */
-
-				'heading',
-				'container',
-				'height',
-				'ratio',
-			],
-		];
-	}
 }
 ?>

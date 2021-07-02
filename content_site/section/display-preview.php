@@ -29,9 +29,10 @@ foreach ($section_list as $group)
 						[
 							'section'     => 'preview',
 							'key'         => a($value, 'key'),
-							'style'       => a($value, 'style'),
+							'style'       => a($preview, 'preview_default', 'style'),
 							'preview_key' => a($preview, 'preview_key'),
 						];
+
 						$html .= "<div class='btn master' data-ajaxify data-data='".json_encode($select_preview)."'>";
 						$html .= T_("Select");
 						$html .= "</div>";

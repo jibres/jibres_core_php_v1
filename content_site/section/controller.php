@@ -88,13 +88,14 @@ class controller
 		[
 			/* headers */
 			'h1',
+			'h2',
 
 
 			/* body */
 			'blog',
 			'gallery',
 			'imagetext',
-			'text',
+			// 'text',
 
 
 			/* footer */
@@ -115,10 +116,11 @@ class controller
 
 		foreach ($list as $section)
 		{
-			$style_list = \content_site\call_function::style_list($section);
-			if($style_list)
+			$detail = \content_site\call_function::detail($section);
+
+			if($detail && is_array($detail))
 			{
-				$section_list = array_merge($section_list, $style_list);
+				$section_list[] = $detail;
 			}
 		}
 

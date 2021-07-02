@@ -9,9 +9,9 @@ class preview
 	{
 		return
 		[
+			'heading'   => T_("Image Gallery"),
 			'style'     => 'style_1',
-			'container' => 'xl',
-			'height'    => 'xs',
+			'imagelist' => option::default_image_list(),
 		];
 	}
 

@@ -410,21 +410,21 @@ class model
 			return false;
 		}
 
-		$trust_style = false;
+		// $trust_style = false;
 
-		foreach ($section_list as $one_item)
-		{
-			if(isset($one_item['key']) && $one_item['key'] === $key && isset($one_item['style']) && $one_item['style'] === $style)
-			{
-				$trust_style = true;
-			}
-		}
+		// foreach ($section_list as $one_item)
+		// {
+		// 	if(isset($one_item['key']) && $one_item['key'] === $key && isset($one_item['style']) && $one_item['style'] === $style)
+		// 	{
+		// 		$trust_style = true;
+		// 	}
+		// }
 
-		if(!$trust_style)
-		{
-			\dash\notif::error(T_("Can not chose this section!"));
-			return false;
-		}
+		// if(!$trust_style)
+		// {
+		// 	\dash\notif::error(T_("Can not chose this section!"));
+		// 	return false;
+		// }
 
 
 		$preview = json_encode(['key' => $key, 'style' => $style]);

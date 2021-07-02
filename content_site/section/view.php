@@ -4,6 +4,20 @@ namespace content_site\section;
 
 class view
 {
+	/**
+	 * { var_description }
+	 *
+	 * @var        array
+	 */
+	private static $remove_needless_get =
+	[
+		'index'   => null,
+		'section' => null,
+		'list'    => null,
+	];
+
+
+
 	public static function config()
 	{
 		// in a section
@@ -20,7 +34,7 @@ class view
 			\dash\face::title(T_('Add new Section'));
 
 			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get());
+			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(self::$remove_needless_get));
 
 
 			$section_list = controller::section_list();
@@ -78,17 +92,19 @@ class view
 		$dir = \dash\url::dir();
 		array_pop($dir);
 
+
+
 		if(count($dir) >= 2)
 		{
 			$url = \dash\url::here(). '/';
 			$url .= implode('/', $dir);
-			$url .= \dash\request::full_get(['index' => null]);
+			$url .= \dash\request::full_get(self::$remove_needless_get);
 		}
 		else
 		{
 			$url = \dash\url::here();
 			$url .= '/page';
-			$url .= \dash\request::full_get(['index' => null, 'sid' => null]);
+			$url .= \dash\request::full_get(array_merge(self::$remove_needless_get, ['sid' => null]));
 		}
 
 		\dash\data::back_link($url);
@@ -111,6 +127,8 @@ class view
 
 		$get_list = \dash\request::get('list');
 
+		$section = \dash\request::get('section');
+
 		foreach ($section_list as $key => $value)
 		{
 			$mode = \content_site\call_function::get_folder(a($value, 'key'));
@@ -120,17 +138,20 @@ class view
 				continue;
 			}
 
+
 			if(!isset($new_list[a($value, 'group')]))
 			{
 				$new_list[a($value, 'group')] = [];
 			}
 
-			$load_preview_list = \content_site\call_function::preview_list($value['key']);
+			if($section && a($value, 'key') === $section)
+			{
+				$load_preview_list = \content_site\call_function::preview_list($value['key']);
 
-			$value['preview_list'] = $load_preview_list;
+				$value['preview_list'] = $load_preview_list;
+			}
 
 			$new_list[a($value, 'group')][] = $value;
-
 		}
 
 		return $new_list;
@@ -214,19 +235,11 @@ class view
 
 						$detail  = [];
 
-						$style_list = \content_site\call_function::style_list($value['key']);
+						$detail = \content_site\call_function::detail($value['key']);
 
-						if(!is_array($style_list))
+						if(!is_array($detail))
 						{
-							$style_list = [];
-						}
-
-						foreach ($style_list as $k => $v)
-						{
-							if(isset($v['style']) && $v['style'] === a($value, 'style'))
-							{
-								$detail = $v;
-							}
+							$detail = [];
 						}
 
 						$default = \content_site\call_function::default($value['key']);
