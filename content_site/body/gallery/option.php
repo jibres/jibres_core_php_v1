@@ -104,19 +104,19 @@ class option
 		return
 		[
 			[
-				"index"     => \content_site\options\addimage::generate_random_key(),
+				"index"     => \content_site\options\image\image_add::generate_random_key(),
 				"image"     => null,
 				"caption"   => T_("Image"),
 				"isdefault" => true,
 			],
 			[
-				"index"     => \content_site\options\addimage::generate_random_key(),
+				"index"     => \content_site\options\image\image_add::generate_random_key(),
 				"image"     => null,
 				"caption"   => T_("Image"),
 				"isdefault" => true,
 			],
 			[
-				"index"     => \content_site\options\addimage::generate_random_key(),
+				"index"     => \content_site\options\image\image_add::generate_random_key(),
 				"image"     => null,
 				"caption"   => T_("Image"),
 				"isdefault" => true,
@@ -134,20 +134,20 @@ class option
 			'title'   => T_("Gallery"),
 			'default' =>
 			[
-				'heading'   => T_("Image Gallery"),
-				'style'     => __FUNCTION__,
-				'imagelist' => self::default_image_list(),
+				'heading'    => T_("Image Gallery"),
+				'style'      => __FUNCTION__,
+				'image_list' => self::default_image_list(),
 			],
 			'options' =>
 			[
-				'imagelist' =>
+				'image_list' =>
 				[
 					'file',
 					'caption',
 					'link',
 					'target',
 				],
-				'addimage',
+				'image_add',
 
 				'seperator', /* SEPERATOR */
 

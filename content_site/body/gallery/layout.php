@@ -29,11 +29,11 @@ class layout
 					}
 					$html .= '</h2>';
 
-					if(isset($_args['imagelist']) && is_array($_args['imagelist']))
+					if(isset($_args['image_list']) && is_array($_args['image_list']))
 					{
 						$html .= '<div class="row">';
 
-						foreach ($_args['imagelist'] as $key => $value)
+						foreach ($_args['image_list'] as $key => $value)
 						{
 							$file = \dash\utility\icon::url('Image', 'major');
 

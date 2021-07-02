@@ -93,7 +93,7 @@ class controller
 
 			/* body */
 			'blog',
-			// 'gallery',
+			'gallery',
 			// 'imagetext',
 			// 'text',
 

@@ -31,18 +31,18 @@ class image_add
 		$currentSectionDetail['preview'] = json_decode($currentSectionDetail['preview'], true);
 
 
-		if(isset($currentSectionDetail['preview']['imagelist']) && is_array($currentSectionDetail['preview']['imagelist']))
+		if(isset($currentSectionDetail['preview']['image_list']) && is_array($currentSectionDetail['preview']['image_list']))
 		{
 			// ok
 		}
 		else
 		{
-			$currentSectionDetail['preview']['imagelist'] = [];
+			$currentSectionDetail['preview']['image_list'] = [];
 		}
 
 		$index = self::generate_random_key();
 
-		$currentSectionDetail['preview']['imagelist'][] =
+		$currentSectionDetail['preview']['image_list'][] =
 		[
 			'index'  => $index,
 			'image'     => null,
@@ -57,7 +57,7 @@ class image_add
 		\dash\pdo::commit();
 
 
-		$url = \dash\url::that(). '/imagelist'. \dash\request::full_get(['index' => $index]);
+		$url = \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => $index]);
 
 		\dash\redirect::to($url);
 
