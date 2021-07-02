@@ -132,7 +132,14 @@ class find
 			{
 				if(\dash\layout\business::have_header())
 				{
-					$myHeader = root. 'lib/pagebuilder/load/header.php';
+					if(\dash\layout\business::$new_sitebuilder)
+					{
+						$myHeader = root. 'content_site/load/header.php';
+					}
+					else
+					{
+						$myHeader = root. 'lib/pagebuilder/load/header.php';
+					}
 				}
 				else
 				{
@@ -190,7 +197,14 @@ class find
 			{
 				if(\dash\layout\business::have_footer())
 				{
-					$myFooter = root. 'lib/pagebuilder/load/footer.php';
+					if(\dash\layout\business::$new_sitebuilder)
+					{
+						$myFooter = root. 'content_site/load/footer.php';
+					}
+					else
+					{
+						$myFooter = root. 'lib/pagebuilder/load/footer.php';
+					}
 				}
 				else
 				{

@@ -271,6 +271,7 @@ class ready
 
 		if(\dash\temp::get('not_load_cms_setting'))
 		{
+			$cms_setting = [];
 			// pagebuilder needless to load cms setting
 			// nothing
 		}
