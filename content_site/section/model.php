@@ -49,7 +49,7 @@ class model
 
 			if(!$load_section_lock || !is_array($load_section_lock))
 			{
-				\dash\notif::error(T_("Section not found"));
+				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
 
 				return false;
 			}
@@ -107,7 +107,7 @@ class model
 			{
 				\dash\pdo::rollback();
 
-				\dash\notif::error(T_("Section not found"));
+				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
 
 				return false;
 			}
@@ -191,7 +191,7 @@ class model
 			{
 				\dash\pdo::rollback();
 
-				\dash\notif::error(T_("Section not found"));
+				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
 
 				return false;
 			}
@@ -284,7 +284,7 @@ class model
 		{
 			\dash\pdo::rollback();
 
-			\dash\notif::error(T_("Section not found"));
+			\dash\notif::error(T_("Section not found"). ' '. __LINE__);
 
 			return false;
 		}
@@ -427,7 +427,7 @@ class model
 		// }
 
 
-		$preview = json_encode(['key' => $key, 'style' => $style]);
+		$preview = ['key' => $key, 'style' => $style];
 
 
 		$mode = \content_site\call_function::get_folder($key);
@@ -441,11 +441,22 @@ class model
 			{
 				$update_record = $check_duplicate['id'];
 			}
+
+			if(isset($check_duplicate['preview']) && is_string($check_duplicate['preview']))
+			{
+				$old_preview = json_decode($check_duplicate['preview'], true);
+				if(is_array($old_preview))
+				{
+					$preview = array_merge($old_preview, $preview);
+				}
+			}
 		}
 		else
 		{
 			$mode = 'body';
 		}
+
+		$preview = json_encode($preview);
 
 		$insert                = [];
 		$insert['mode']        = $mode;
@@ -477,7 +488,8 @@ class model
 
 		if($update_record)
 		{
-			$id = \lib\db\sitebuilder\update::record($insert, $update_record);
+			\lib\db\sitebuilder\update::record($insert, $update_record);
+			$id = $update_record;
 
 		}
 		else

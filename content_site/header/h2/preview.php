@@ -9,8 +9,6 @@ class preview
 	{
 		return
 		[
-			'heading'     => \lib\store::title(),
-			'description' => \lib\store::desc(),
 			'style'       => 'style_1',
 		];
 	}

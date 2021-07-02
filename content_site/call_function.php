@@ -138,6 +138,12 @@ class call_function
 			}
 			elseif($_fn === 'preview_list')
 			{
+				$default = \content_site\call_function::default($section_key);
+
+				if(!is_array($default))
+				{
+					$default = [];
+				}
 
 				$namespace_preview = sprintf($namespace, 'preview');
 
@@ -155,6 +161,8 @@ class call_function
 				foreach ($function_list as $key => $value)
 				{
 					$preview_default = self::_call([$namespace_preview, $value]);
+
+					$preview_default = array_merge($default, $preview_default);
 
 					$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
 
