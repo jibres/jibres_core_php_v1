@@ -143,7 +143,12 @@ class call_function
 
 				$namespace_layout  = sprintf($namespace, 'layout');
 
-				$function_list = get_class_methods($namespace_preview);
+				$function_list = [];
+
+				if(class_exists($namespace_preview))
+				{
+					$function_list = get_class_methods($namespace_preview);
+				}
 
 				$list = [];
 
