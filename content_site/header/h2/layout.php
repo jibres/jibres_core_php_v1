@@ -17,11 +17,25 @@ class layout
 	{
 		$html = '';
 
-		$html .= '<h1 class=""> h2 ';
+		$html .= '<div class="jHeader1">';
 		{
-			$html .= a($_args, 'heading');
+			$html .= '<h1>';
+			{
+				$html .= '<a href="'. \dash\url::kingdom(). '">'.a($_args, 'heading').'</a>';
+			}
+			$html .= '</h1>';
+
+			$html .= '<h2>';
+			{
+				$html .= a($_args, 'description');
+
+			}
+			$html .= '</h2>';
+
+			$html .= \lib\pagebuilder::menu('header_menu_1');
+
 		}
-		$html .= '</h1>';
+		$html .= '</div>';
 
 
 		return $html;

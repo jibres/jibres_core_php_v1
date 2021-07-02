@@ -88,7 +88,7 @@ class controller
 		[
 			/* headers */
 			'h1',
-			// 'h2',
+			'h2',
 
 
 			/* body */

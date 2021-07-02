@@ -18,6 +18,23 @@ class option
 
 
 
+	/**
+	 * Get detail
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function detail()
+	{
+		return
+		[
+			'group'   => T_("Header"),
+			'key'     => 'h2',
+			'title'   => T_("Header 2"),
+			'icon'    => \dash\utility\icon::url('Header'),
+		];
+	}
+
+
 
 	/**
 	 * Get style list
@@ -29,11 +46,8 @@ class option
 		return
 		[
 			[
-				'group'   => T_("Header"),
-				'key'     => 'h2',
 				'style'   => 'style_1',
 				'title'   => T_("Header 2"),
-				'icon'    => \dash\utility\icon::url('Header'),
 				'default' => true
 			],
 		];
@@ -96,7 +110,7 @@ class option
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Header 1"),
+			'title'   => T_("Header 2"),
 			'default' =>
 			[
 				'heading' => \lib\store::title(),

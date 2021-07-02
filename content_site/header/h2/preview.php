@@ -9,16 +9,11 @@ class preview
 	{
 		return
 		[
-			'heading' => 'salma h2',
+			'heading'     => \lib\store::title(),
+			'description' => \lib\store::desc(),
+			'style'       => 'style_1',
 		];
 	}
 
-	public static function preview_2()
-	{
-		return
-		[
-			'heading' => 'hale shoma h2',
-		];
-	}
 }
 ?>
