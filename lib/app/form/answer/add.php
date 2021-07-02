@@ -50,7 +50,6 @@ class add
 
 		if(!$check_true_item || !is_array($check_true_item))
 		{
-			\dash\notif::error(T_("Invalid item id"));
 			return false;
 		}
 
