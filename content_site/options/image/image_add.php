@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\image;
 
 
-class addimage
+class image_add
 {
 
 	public static function specialsave($_args)
@@ -86,9 +86,9 @@ class addimage
 	  		{
 	    		$html .= '<li>';
 	    		{
-	    			$addimage = json_encode(['specialsave' => 'specialsave', 'option' => 'addimage']);
+	    			$image_add = json_encode(['specialsave' => 'specialsave', 'option' => 'image_add']);
 
-		      		$html .= "<div class='item f' data-ajaxify data-data='$addimage'>";
+		      		$html .= "<div class='item f' data-ajaxify data-data='$image_add'>";
 		      		{
 		        		$html .= '<img src="'. \dash\utility\icon::url('Add', 'major'). '">';
 		        		$html .= '<div class="key">'. T_("Add image"). '</div>';

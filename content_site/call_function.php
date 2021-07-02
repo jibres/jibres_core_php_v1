@@ -43,7 +43,15 @@ class call_function
 	 */
 	private static function option_namespace($_option = null)
 	{
-		return '\\content_site\\options\\'.$_option;
+		$namespace = '\\content_site\\options\\';
+		if(strpos($_option, '_') !== false)
+		{
+			$namespace .= strtok($_option, '_'). '\\';
+		}
+
+		$namespace .= $_option;
+
+		return $namespace;
 	}
 
 

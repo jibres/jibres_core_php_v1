@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\post;
 
 
-class post_show_author
+class post_show_date
 {
 	public static function validator($_data)
 	{
@@ -19,7 +19,7 @@ class post_show_author
 
 	public static function admin_html($_section_detail)
 	{
-		$default = \content_site\section\view::get_current_index_detail('post_show_author');
+		$default = \content_site\section\view::get_current_index_detail('post_show_date');
 
 		if(!$default)
 		{
@@ -31,12 +31,12 @@ class post_show_author
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="post_show_author">';
+	    	$html .= '<input type="hidden" name="option" value="post_show_date">';
 
 			$html .= '<div class="check1">';
 			{
-				$html .= '<input type="checkbox" name="post_show_author" id="post_show_author"'.$checked.'>';
-				$html .= '<label for="post_show_author">'. T_('Show author'). '</label>';
+				$html .= '<input type="checkbox" name="post_show_date" id="post_show_date"'.$checked.'>';
+				$html .= '<label for="post_show_date">'. T_('Show date'). '</label>';
 			}
 			$html .= '</div>';
 		}

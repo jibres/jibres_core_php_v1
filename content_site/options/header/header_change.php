@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\header;
 
 
-class changeheader
+class header_change
 {
 
 

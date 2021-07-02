@@ -120,7 +120,7 @@ class option
 			[
 				'heading',
 				'description',
-				'changeheader',
+				'header_change',
 			],
 		];
 	}
