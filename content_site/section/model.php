@@ -401,6 +401,16 @@ class model
 			return false;
 		}
 
+		$preview_key = \dash\request::post('preview_key');
+
+		$preview_key = \dash\validate::string_100($preview_key);
+
+		if(!$preview_key)
+		{
+			\dash\notif::error(T_("Invalid preview_key"));
+			return false;
+		}
+
 		$section_list = controller::section_list();
 		$all_key = array_column($section_list, 'key');
 
@@ -410,25 +420,24 @@ class model
 			return false;
 		}
 
-		// $trust_style = false;
+		$load_preview = \content_site\call_function::preview($key, $preview_key);
 
-		// foreach ($section_list as $one_item)
-		// {
-		// 	if(isset($one_item['key']) && $one_item['key'] === $key && isset($one_item['style']) && $one_item['style'] === $style)
-		// 	{
-		// 		$trust_style = true;
-		// 	}
-		// }
+		if(!is_array($load_preview))
+		{
+			\dash\notif::error(T_("Invalid preview key"));
+			return false;
+		}
 
-		// if(!$trust_style)
-		// {
-		// 	\dash\notif::error(T_("Can not chose this section!"));
-		// 	return false;
-		// }
+		$load_default = \content_site\call_function::default($key);
 
+		if(!is_array($load_default))
+		{
+			$load_default = [];
+		}
 
 		$preview = ['key' => $key, 'style' => $style];
 
+		$preview = array_merge($preview,  $load_default, $load_preview);
 
 		$mode = \content_site\call_function::get_folder($key);
 
@@ -494,7 +503,7 @@ class model
 		}
 		else
 		{
-			$id = \lib\db\pagebuilder\insert::new_record($insert);
+			$id = \lib\db\sitebuilder\insert::new_record($insert);
 
 			if(!$id)
 			{

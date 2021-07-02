@@ -144,6 +144,12 @@ class call_function
 
 				return self::_call([$namespace, 'layout'], $args);
 			}
+			elseif($_fn === 'preview')
+			{
+				$namespace = sprintf($namespace, 'preview');
+
+				return self::_call([$namespace, $args]);
+			}
 			elseif($_fn === 'preview_list')
 			{
 				$default = \content_site\call_function::default($section_key);
