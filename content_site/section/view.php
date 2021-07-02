@@ -44,33 +44,6 @@ class view
 			\dash\data::sectionList($section_list);
 
 			\dash\data::include_adminPanelBuilder('preview');
-			// $saved_section = \content_site\controller::load_current_section_list('with_adding');
-
-			// detect addin mode
-			// if(is_array($saved_section))
-			// {
-			// 	if(\dash\url::module() === 'header')
-			// 	{
-			// 		foreach ($saved_section as $v)
-			// 		{
-			// 			if(a($v, 'mode') === 'header')
-			// 			{
-			// 				$end_section = $v;
-			// 			}
-			// 		}
-			// 	}
-			// 	else
-			// 	{
-			// 		$end_section = end($saved_section);
-			// 	}
-
-			// 	if(isset($end_section['preview']['adding']))
-			// 	{
-			// 		\dash\data::addingDetail($end_section);
-
-			// 		\dash\data::adding(true);
-			// 	}
-			// }
 		}
 
 	}

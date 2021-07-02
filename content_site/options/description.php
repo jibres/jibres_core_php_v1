@@ -32,7 +32,7 @@ class description
 		{
 	    	$html .= '<input type="hidden" name="option" value="description">';
 	    	$html .= '<label for="description">'. T_("Description"). '</label>';
-	    	$html .= '<textarea class="txt" rows="3">';
+	    	$html .= '<textarea class="txt" name="description" rows="3">';
 	    	$html .= $default;
 	    	$html .= '</textarea>';
 		}
