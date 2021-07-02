@@ -1,0 +1,18 @@
+<?php
+namespace content_site\body\slideshow;
+
+
+class preview
+{
+
+	public static function preview_1()
+	{
+		return
+		[
+			'style'     => 'style_1',
+		];
+	}
+
+
+}
+?>

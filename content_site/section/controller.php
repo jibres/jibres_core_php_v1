@@ -94,6 +94,7 @@ class controller
 			/* body */
 			'blog',
 			'gallery',
+			'slideshow',
 			// 'imagetext',
 			// 'text',
 
