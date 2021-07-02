@@ -136,6 +136,33 @@ class call_function
 
 				return self::_call([$namespace, 'layout'], $args);
 			}
+			elseif($_fn === 'preview_list')
+			{
+
+				$namespace_preview = sprintf($namespace, 'preview');
+
+				$namespace_layout  = sprintf($namespace, 'layout');
+
+				$function_list = get_class_methods($namespace_preview);
+
+				$list = [];
+
+				foreach ($function_list as $key => $value)
+				{
+					$preview_default = self::_call([$namespace_preview, $value]);
+
+					$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
+
+					$list[] =
+					[
+						'preview_key'     => $value,
+						'preview_default' => $preview_default,
+						'preview_html'    => $preview_html,
+					];
+				}
+
+				return $list;
+			}
 			else
 			{
 				$namespace = sprintf($namespace, 'option');

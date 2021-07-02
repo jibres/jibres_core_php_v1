@@ -1,40 +1,55 @@
 <div id='content' class='overflow-y-auto h-full'>
+
 <?php
-	if(\dash\data::include_adminPanelBuilder() !== true)
+if(\dash\data::include_adminPanelBuilder() !== true)
+{
+	$exception_display = null;
+
+	if(\dash\data::include_adminPanelBuilder() && is_string(\dash\data::include_adminPanelBuilder()))
 	{
-		require_once(core. 'layout/panelBuilder/panelBuilder-main-iframe.php');
+		$exception_display = \dash\layout\func::display_addr(). '-'.  \dash\data::include_adminPanelBuilder(). '.php';
+	}
+
+	if($exception_display && is_file($exception_display))
+	{
+		require_once $exception_display;
 	}
 	else
 	{
-		if(\dash\data::listEngine())
+		require_once(core. 'layout/panelBuilder/panelBuilder-main-iframe.php');
+	}
+}
+else
+{
+	if(\dash\data::listEngine())
+	{
+		if(\dash\data::listEngine_before() && is_string(\dash\data::listEngine_before()) && is_file(\dash\data::listEngine_before()))
 		{
-			if(\dash\data::listEngine_before() && is_string(\dash\data::listEngine_before()) && is_file(\dash\data::listEngine_before()))
-			{
-				require_once \dash\data::listEngine_before();
-			}
+			require_once \dash\data::listEngine_before();
+		}
 
-			if(\dash\data::dataTable())
-			{
-			    require_once(core. 'layout/search/search-bar.php');
-			    require_once \dash\layout\func::display();
-			}
-			else
-			{
-			  if(\dash\data::isFiltered() || \dash\validate::search_string())
-			  {
-			    require_once(core. 'layout/search/search-bar.php');
-			    require_once(core. 'layout/search/search-empty.php');
-			  }
-			  else
-			  {
-			    require_once(core. 'layout/tools/display-start.php');
-			  }
-			}
+		if(\dash\data::dataTable())
+		{
+		    require_once(core. 'layout/search/search-bar.php');
+		    require_once \dash\layout\func::display();
 		}
 		else
 		{
-			require_once \dash\layout\func::display();
+		  if(\dash\data::isFiltered() || \dash\validate::search_string())
+		  {
+		    require_once(core. 'layout/search/search-bar.php');
+		    require_once(core. 'layout/search/search-empty.php');
+		  }
+		  else
+		  {
+		    require_once(core. 'layout/tools/display-start.php');
+		  }
 		}
 	}
+	else
+	{
+		require_once \dash\layout\func::display();
+	}
+}
 ?>
 </div>
