@@ -243,7 +243,7 @@ class get
 				business_domain
 			WHERE
 				business_domain.subdomain IS NULL AND
-				business_domain.cdn != 'enterprise' AND
+				(business_domain.cdn IS NULL OR business_domain.cdn != 'enterprise') AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NULL
@@ -267,7 +267,7 @@ class get
 				business_domain
 			WHERE
 				business_domain.subdomain IS NULL AND
-				business_domain.cdn != 'enterprise' AND
+				(business_domain.cdn IS NULL OR business_domain.cdn != 'enterprise') AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NOT NULL
@@ -290,7 +290,7 @@ class get
 				business_domain
 			WHERE
 				business_domain.subdomain IS NULL AND
-				business_domain.cdn != 'enterprise' AND
+				(business_domain.cdn IS NULL OR business_domain.cdn != 'enterprise') AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NOT NULL AND
@@ -314,7 +314,7 @@ class get
 				business_domain
 			WHERE
 				business_domain.subdomain IS NULL AND
-				business_domain.cdn != 'enterprise' AND
+				(business_domain.cdn IS NULL OR business_domain.cdn != 'enterprise') AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NOT NULL AND
 				business_domain.cdnpanel IS NOT NULL AND
