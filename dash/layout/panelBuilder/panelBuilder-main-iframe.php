@@ -13,7 +13,7 @@ if(\dash\data::currentSectionList() && is_array(\dash\data::currentSectionList()
 $previewHTML = '';
 foreach ($section_list as $key => $value)
 {
-  $previewHTML .= a($value, 'layout');
+  $previewHTML .= a($value, 'preview_layout');
 }
 
 

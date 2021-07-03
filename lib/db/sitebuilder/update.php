@@ -23,9 +23,21 @@ class update
 
 	public static function save_page($_page_id)
 	{
-		$query  = "UPDATE pagebuilder SET pagebuilder.body = pagebuilder.preview, pagebuilder.preview = NULL WHERE pagebuilder.related_id = :page_id ";
 		$param  = [':page_id' => $_page_id];
+
+		\dash\pdo::transaction();
+
+		$query  = "SELECT * FROM  pagebuilder WHERE pagebuilder.related_id = :page_id FOR UPDATE";
 		$result = \dash\pdo::query($query, $param);
+
+		$query  = "UPDATE pagebuilder SET pagebuilder.body = pagebuilder.preview WHERE pagebuilder.related_id = :page_id ";
+		$result = \dash\pdo::query($query, $param);
+
+		$query  = "UPDATE pagebuilder SET pagebuilder.preview = NULL WHERE pagebuilder.related_id = :page_id ";
+		$result = \dash\pdo::query($query, $param);
+
+		\dash\db::commit();
+
 		return $result;
 	}
 

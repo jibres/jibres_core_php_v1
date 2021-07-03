@@ -5,7 +5,7 @@ if(is_array($website_footer))
 {
 	foreach ($website_footer as $key => $value)
 	{
-		echo a($value, 'layout');
+		echo a($value, 'body_layout');
 	}
 }
 

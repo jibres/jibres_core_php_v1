@@ -228,7 +228,7 @@ class view
 
 						$value = array_merge($detail, $default, $value);
 
-						$result['layout'] = \content_site\call_function::layout($value['key'], $value);
+						$result[$key. '_layout'] = \content_site\call_function::layout($value['key'], $value);
 
 					}
 
@@ -268,6 +268,12 @@ class view
 			$result['preview'] = $result['body'];
 		}
 
+		if(!a($result, 'preview_layout') && a($result, 'body_layout'))
+		{
+			$result['preview_layout'] = $result['body_layout'];
+		}
+
+		// var_dump($result);exit;
 		return $result;
 
 	}
