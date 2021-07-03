@@ -30,10 +30,11 @@ class model
 	 */
 	public static function save_options()
 	{
-		$need_redirect_back = false;
 		$page_id            = \dash\request::get('id');
 		$section_id         = \dash\request::get('sid');
 		$section_id         = \dash\validate::id($section_id);
+		$subchild           = \dash\url::subchild();
+		$index              = \dash\request::get('index');
 
 		if(!$section_id)
 		{
@@ -41,6 +42,168 @@ class model
 			return false;
 		}
 
+		// remove or hidden section
+		if(self::remove_section($section_id))
+		{
+			return;
+		}
+
+		// set section sort
+		if(\dash\request::post('set_sort_child'))
+		{
+			return self::set_sort_child($section_id);
+		}
+
+		// remove one block
+		if(self::remove_block($section_id))
+		{
+			return;
+		}
+
+
+		$options_list = \dash\data::currentOptionList();
+
+		if($subchild && isset($options_list[$subchild]))
+		{
+			$options_list = $options_list[$subchild];
+		}
+
+		$option_key   = \dash\request::post('option');
+
+		if(!$option_key || !is_string($option_key))
+		{
+			\dash\notif::error(T_("Option key not found!"));
+			return false;
+		}
+
+		if(!in_array($option_key, $options_list))
+		{
+			\dash\notif::error(T_("Invalid option"));
+			return false;
+		}
+
+		// save multi option
+		if(\dash\request::post('multioption') === 'multi')
+		{
+			$value = \dash\request::post();
+		}
+		elseif(\dash\request::post('specialsave') === 'specialsave')
+		{
+			return \content_site\call_function::option_specialsave($option_key, \dash\request::post());
+		}
+		else
+		{
+			$value = \dash\request::post($option_key);
+		}
+
+		$value = \content_site\call_function::option_validator($option_key, $value);
+
+		if(!\dash\engine\process::status())
+		{
+			\dash\notif::error_once(T_("Please check your input"));
+			return false;
+		}
+
+		// reload section detail to get last update
+		// for example in upload file need this line
+		\dash\pdo::transaction();
+
+		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+
+		if(!$load_section_lock)
+		{
+			\dash\pdo::rollback();
+
+			\dash\notif::error(T_("Section not found"). ' '. __LINE__);
+
+			return false;
+		}
+
+		$preview = json_decode($load_section_lock['preview'], true);
+
+
+		if($subchild)
+		{
+			if($index)
+			{
+				if(isset($preview[$subchild]) && is_array($preview[$subchild]))
+				{
+					foreach ($preview[$subchild] as $k => $v)
+					{
+						if(isset($v['index']) && $v['index'] === $index)
+						{
+										// save multi option
+							if(is_array($value))
+							{
+								foreach ($value as $my_key => $val)
+								{
+									$preview[$subchild][$k][$my_key] = $val;
+								}
+							}
+							else
+							{
+								$preview[$subchild][$k][$option_key] = $value;
+							}
+						}
+					}
+				}
+				else
+				{
+					// in mode galler we need the index
+					\dash\notif::error(T_("Can save this index!"));
+					\dash\pdo::rollback();
+					return false;
+				}
+			}
+			else
+			{
+				// save multi option
+				if(is_array($value))
+				{
+					foreach ($value as $my_key => $val)
+					{
+						$preview[$subchild][$my_key] = $val;
+					}
+				}
+				else
+				{
+					$preview[$subchild][$option_key] = $value;
+				}
+
+			}
+		}
+		else
+		{
+
+			// save multi option
+			if(is_array($value))
+			{
+				foreach ($value as $my_key => $val)
+				{
+					$preview[$my_key] = $val;
+				}
+			}
+			else
+			{
+				$preview[$option_key] = $value;
+			}
+
+		}
+
+
+		$preview           = json_encode($preview);
+
+		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+		\dash\pdo::commit();
+
+		\dash\notif::complete();
+
+	}
+
+
+	private static function remove_section($section_id)
+	{
 
 		// delete or hide a section
 		if(\dash\request::post('delete') === 'section' || \dash\request::post('hide_view') === 'toggle')
@@ -51,7 +214,7 @@ class model
 			{
 				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
 
-				return false;
+				return true;
 			}
 
 			if(\dash\request::post('delete') === 'section')
@@ -60,7 +223,7 @@ class model
 				\lib\db\pagebuilder\delete::by_id($section_id);
 
 				\dash\redirect::to(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
-				return;
+				return true;
 			}
 
 			if(\dash\request::post('hide_view') === 'toggle')
@@ -87,13 +250,12 @@ class model
 			}
 		}
 
-		// set section sort
-		if(\dash\request::post('set_sort_child'))
-		{
-			return self::set_sort_child($section_id);
-		}
+		return false;
+	}
 
 
+	private static function remove_block($section_id)
+	{
 		$subchild = \dash\url::subchild();
 		$index    = \dash\request::get('index');
 
@@ -109,7 +271,7 @@ class model
 
 				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
 
-				return false;
+				return true;
 			}
 
 			$preview = json_decode($load_section_lock['preview'], true);
@@ -121,148 +283,30 @@ class model
 					if(isset($value['index']) && $value['index'] === $index)
 					{
 						unset($preview[$subchild][$key]);
-
-						$need_redirect_back = true;
 					}
 				}
 
+				$preview           = json_encode($preview);
+
+				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+				\dash\pdo::commit();
+
+				\dash\redirect::to(view::generate_back_url());
+
+				return true;
 			}
 			else
 			{
 				\dash\notif::error(T_("Can not remove this block!"));
 				\dash\pdo::rollback();
 				\dash\redirect::to(view::generate_back_url());
-				return false;
-			}
-		}
-		else
-		{
-
-			$options_list = \dash\data::currentOptionList();
-
-			if($subchild && isset($options_list[$subchild]))
-			{
-				$options_list = $options_list[$subchild];
-			}
-
-			$option_key   = \dash\request::post('option');
-
-			if(!$option_key || !is_string($option_key))
-			{
-				\dash\notif::error(T_("Option key not found!"));
-				return false;
-			}
-
-			if(!in_array($option_key, $options_list))
-			{
-				\dash\notif::error(T_("Invalid option"));
-				return false;
-			}
-
-			// save multi option
-			if(\dash\request::post('multioption') === 'multi')
-			{
-				$value = \dash\request::post();
-			}
-			elseif(\dash\request::post('specialsave') === 'specialsave')
-			{
-				return \content_site\call_function::option_specialsave($option_key, \dash\request::post());
-			}
-			else
-			{
-				$value = \dash\request::post($option_key);
-			}
-
-			$value = \content_site\call_function::option_validator($option_key, $value);
-
-			if(!\dash\engine\process::status())
-			{
-				\dash\notif::error_once(T_("Please check your input"));
-				return false;
-			}
-
-			// reload section detail to get last update
-			// for example in upload file need this line
-			\dash\pdo::transaction();
-
-			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
-
-			if(!$load_section_lock)
-			{
-				\dash\pdo::rollback();
-
-				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
-
-				return false;
-			}
-
-			$preview = json_decode($load_section_lock['preview'], true);
-
-
-			if($subchild)
-			{
-				if(isset($preview[$subchild]) && is_array($preview[$subchild]))
-				{
-					foreach ($preview[$subchild] as $k => $v)
-					{
-						if(isset($v['index']) && $v['index'] === $index)
-						{
-										// save multi option
-							if(is_array($value))
-							{
-								foreach ($value as $my_key => $val)
-								{
-									$preview[$subchild][$k][$my_key] = $val;
-								}
-							}
-							else
-							{
-								$preview[$subchild][$k][$option_key] = $value;
-							}
-						}
-					}
-				}
-				else
-				{
-					\dash\notif::error(T_("Can save this index!"));
-					\dash\pdo::rollback();
-					return false;
-				}
-			}
-			else
-			{
-
-				// save multi option
-				if(is_array($value))
-				{
-					foreach ($value as $my_key => $val)
-					{
-						$preview[$my_key] = $val;
-					}
-				}
-				else
-				{
-					$preview[$option_key] = $value;
-				}
-
+				return true;
 			}
 		}
 
-		$preview           = json_encode($preview);
-
-		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
-
-		\dash\pdo::commit();
-
-		if($need_redirect_back)
-		{
-			\dash\redirect::to(view::generate_back_url());
-		}
-
-		\dash\notif::complete();
-
+		return false;
 	}
-
 
 	/**
 	 * Sets the sort child.

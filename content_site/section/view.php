@@ -163,6 +163,10 @@ class view
 				}
 			}
 		}
+		elseif($subchild)
+		{
+			$detail = a($preview, $subchild);
+		}
 		else
 		{
 			$detail = $preview;

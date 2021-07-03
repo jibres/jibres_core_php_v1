@@ -145,6 +145,12 @@ class option
 			'container',
 			'height',
 
+			'background' =>
+			[
+				'background_color',
+				// 'background_image',
+			],
+
 		];
 
 		return $option;
