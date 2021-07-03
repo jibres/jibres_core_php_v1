@@ -148,6 +148,7 @@ class option
 			'background' =>
 			[
 				'background_color',
+				'background_opacity',
 				// 'background_image',
 			],
 
