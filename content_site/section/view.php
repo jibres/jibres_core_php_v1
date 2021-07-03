@@ -188,6 +188,8 @@ class view
 	{
 		$result = [];
 
+		$section_key = null;
+
 		foreach ($_data as $key => $value)
 		{
 			switch ($key)
@@ -204,37 +206,13 @@ class view
 						$value = [];
 					}
 
+					$result[$key] = $value;
 
 					if(isset($value['key']) && is_string($value['key']))
 					{
-						$default = [];
-
-						$detail  = [];
-
-						$detail = \content_site\call_function::detail($value['key']);
-
-						if(!is_array($detail))
-						{
-							$detail = [];
-						}
-
-						$default = \content_site\call_function::default($value['key']);
-
-						if(!is_array($default))
-						{
-							$default = [];
-						}
-
-
-						$value = array_merge($detail, $default, $value);
-
-						$result[$key. '_layout'] = \content_site\call_function::layout($value['key'], $value);
-
+						$section_key = $value['key'];
 					}
 
-
-
-					$result[$key] = $value;
 					break;
 
 				// hide this field
@@ -273,9 +251,35 @@ class view
 			$result['preview_layout'] = $result['body_layout'];
 		}
 
-		// var_dump($result);exit;
-		return $result;
+		$default = [];
 
+		$detail  = [];
+
+		$detail = \content_site\call_function::detail($section_key);
+
+		if(!is_array($detail))
+		{
+			$detail = [];
+		}
+
+		$default = \content_site\call_function::default($section_key);
+
+		if(!is_array($default))
+		{
+			$default = [];
+		}
+
+		$result['preview']        = array_merge($detail, $default, $result['preview']);
+
+		$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
+
+		$result['body']           = array_merge($detail, $default, $result['body']);
+
+		$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+
+		$all_option = \content_site\call_function::option($section_key, $result);
+
+		return $result;
 	}
 
 }

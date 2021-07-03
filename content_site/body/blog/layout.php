@@ -15,6 +15,7 @@ class layout
 	 */
 	public static function layout($_args)
 	{
+		// var_dump($_args);exit;
 		$line_detail =
 		[
 			'title'     => a($_args, 'heading'),

@@ -30,13 +30,19 @@ class update
 		$query  = "SELECT * FROM  pagebuilder WHERE pagebuilder.related_id = :page_id FOR UPDATE";
 		$result = \dash\pdo::query($query, $param);
 
-		$query  = "UPDATE pagebuilder SET pagebuilder.body = pagebuilder.preview WHERE pagebuilder.related_id = :page_id ";
+		$query  =
+		"
+			UPDATE
+				pagebuilder
+			SET
+				pagebuilder.body = pagebuilder.preview,
+				pagebuilder.sort = pagebuilder.sort_preview
+			WHERE
+				pagebuilder.related_id = :page_id
+		";
 		$result = \dash\pdo::query($query, $param);
 
-		$query  = "UPDATE pagebuilder SET pagebuilder.preview = NULL WHERE pagebuilder.related_id = :page_id ";
-		$result = \dash\pdo::query($query, $param);
-
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 		return $result;
 	}
