@@ -141,6 +141,7 @@ class option
 
 			'seperator', /*SEPERATOR*/
 
+			'type',
 			'container',
 			'height',
 
