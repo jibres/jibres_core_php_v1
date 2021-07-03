@@ -36,11 +36,9 @@ class layout
 			$data = [];
 		}
 
-
-
 		$html = '';
 
-		$html .= '<div class="'. a($_args, 'avand').'">';
+		$html .= '<div class="'. \content_site\options\container::class_name(a($_args, 'container')).'">';
 		{
 			$html .= '<div class="">';
 			{

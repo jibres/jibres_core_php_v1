@@ -277,8 +277,6 @@ class view
 
 		$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
 
-		$all_option = \content_site\call_function::option($section_key, $result);
-
 		return $result;
 	}
 
