@@ -161,7 +161,7 @@ class get
 				business_domain
 			WHERE
 				business_domain.subdomain IS NULL AND
-				business_domain.cdn != 'enterprise' AND
+				(business_domain.cdn IS NULL OR business_domain.cdn != 'enterprise') AND
 				business_domain.status = 'pending' AND
 				business_domain.checkdns IS NULL
 			ORDER BY
