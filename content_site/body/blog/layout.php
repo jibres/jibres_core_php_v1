@@ -40,7 +40,8 @@ class layout
 
 		$html .= '<div class="'. \content_site\options\container::class_name(a($_args, 'container')).'">';
 		{
-			$html .= '<div class="">';
+
+			$html .= '<div class="'. \content_site\options\height::class_name(a($_args, 'height')).'">';
 			{
 				$html .= '<div class="">';
 				{
