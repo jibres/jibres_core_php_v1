@@ -651,6 +651,18 @@ class store
 
 
 	/**
+	 * Determines if connected to domain.
+	 *
+	 * @return     bool  True if connected to domain, False otherwise.
+	 */
+	public static function is_connected_to_domain()
+	{
+		return self::master_domain() ? true : false;
+	}
+
+
+
+	/**
 	 * Retrun the store url
 	 *
 	 * @return     string  ( description_of_the_return_value )

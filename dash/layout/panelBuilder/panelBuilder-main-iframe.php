@@ -16,6 +16,7 @@ foreach ($section_list as $key => $value)
   $previewHTML .= a($value, 'layout');
 }
 
+
 $html = '';
 
 $html .= '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';
@@ -35,6 +36,11 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
     $html .= '<a class="address flex-grow" href='. $page_url. '>';
     $html .= $page_url_view;
     $html .= '</a>';
+
+    if(!\lib\store::is_connected_to_domain())
+    {
+      $html .= '<a href="'.\lib\store::admin_url().'/a/setting/domain">'. T_("Try to connect to Domain"). '</a>';
+    }
 
     $html .= '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-green-200 text-gray-900 rounded-full text-base">';
     $html .= '<div class="w-3 h-3 mx-1 bg-green-800 rounded-full animate-ping2 opacity-50"></div>';
