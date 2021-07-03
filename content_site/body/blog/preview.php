@@ -9,7 +9,7 @@ class preview
 	{
 		return
 		[
-			'style' => 'style_1',
+			'type' => 'type_1',
 		];
 	}
 

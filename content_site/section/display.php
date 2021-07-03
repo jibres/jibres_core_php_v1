@@ -29,7 +29,7 @@ foreach ($section_list as $group)
 						[
 							'section'     => 'preview',
 							'key'         => a($value, 'key'),
-							'style'       => a($preview, 'preview_default', 'style'),
+							'type'       => a($preview, 'preview_default', 'type'),
 							'preview_key' => a($preview, 'preview_key'),
 						];
 

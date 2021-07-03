@@ -10,7 +10,7 @@ class preview
 		return
 		[
 			'heading' => \lib\store::title(),
-			'style' => 'style_1',
+			'type' => 'type_1',
 		];
 	}
 

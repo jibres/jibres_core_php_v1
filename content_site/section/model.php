@@ -391,13 +391,13 @@ class model
 			return false;
 		}
 
-		$style = \dash\request::post('style');
+		$type = \dash\request::post('type');
 
-		$style = \dash\validate::string_100($style);
+		$type = \dash\validate::string_100($type);
 
-		if(!$style)
+		if(!$type)
 		{
-			\dash\notif::error(T_("Invalid style"));
+			\dash\notif::error(T_("Invalid type"));
 			return false;
 		}
 
@@ -435,7 +435,7 @@ class model
 			$load_default = [];
 		}
 
-		$preview = ['key' => $key, 'style' => $style];
+		$preview = ['key' => $key, 'type' => $type];
 
 		$preview = array_merge($preview,  $load_default, $load_preview);
 

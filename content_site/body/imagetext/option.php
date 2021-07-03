@@ -18,18 +18,18 @@ class option
 
 
 	/**
-	 * Get style list
+	 * Get type list
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function style_list()
+	public static function type_list()
 	{
 		return
 		[
 			[
 				'group'   => T_("Image"),
 				'key'     => 'imagetext',
-				'style'   => 'style_imagewithtext',
+				'type'   => 'type_imagewithtext',
 				'title'   => T_("Image with text"), 
 				'icon'    => \dash\utility\icon::url('ImageWithText'),
 				'default' => true
@@ -37,7 +37,7 @@ class option
 			[
 				'group'   => T_("Image"),
 				'key'     => 'imagetext',
-				'style'   => 'style_imagewithtextoverlay',
+				'type'   => 'type_imagewithtextoverlay',
 				'title'   => T_("Image with text overlay"),
 				'icon'    => \dash\utility\icon::url('ImageWithTextOverlay'),
 				'default' => false
@@ -49,7 +49,7 @@ class option
 
 
 	/**
-	 * Get current option by check style
+	 * Get current option by check type
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
@@ -57,34 +57,34 @@ class option
 	{
 		$currentSectionDetail = \dash\data::currentSectionDetail();
 
-		$style = null;
+		$type = null;
 
-		if(isset($currentSectionDetail['preview']['style']) && $currentSectionDetail['preview']['style'])
+		if(isset($currentSectionDetail['preview']['type']) && $currentSectionDetail['preview']['type'])
 		{
-			$style = $currentSectionDetail['preview']['style'];
+			$type = $currentSectionDetail['preview']['type'];
 		}
 		else
 		{
-			// Hey! if change this variable you must change the default style in style_list function
-			$style = 'style_imagewithtext';
+			// Hey! if change this variable you must change the default type in type_list function
+			$type = 'type_imagewithtext';
 		}
 
-		$style_detail = [];
+		$type_detail = [];
 
-		if(is_callable(['self', $style]))
+		if(is_callable(['self', $type]))
 		{
-			$style_detail = call_user_func(['self', $style]);
+			$type_detail = call_user_func(['self', $type]);
 		}
 
 		// get full option
 		if($_mode === 'full')
 		{
-			return $style_detail;
+			return $type_detail;
 		}
 
-		if(isset($style_detail['options']))
+		if(isset($type_detail['options']))
 		{
-			return $style_detail['options'];
+			return $type_detail['options'];
 		}
 
 		return [];
@@ -92,7 +92,7 @@ class option
 
 
 
-	public static function style_imagewithtext()
+	public static function type_imagewithtext()
 	{
 		return
 		[
@@ -101,9 +101,9 @@ class option
 			'default' =>
 			[
 				'heading' => T_("Image with text"),
-				'style'   => __FUNCTION__,
+				'type'   => __FUNCTION__,
 				'file'    => \dash\utility\icon::url('ImageWithText'),
-				'text'    => T_("Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."),
+				'text'    => T_("Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, type, or even provide a review."),
 			],
 			'options' =>
 			[
@@ -118,7 +118,7 @@ class option
 	}
 
 
-	public static function style_imagewithtextoverlay()
+	public static function type_imagewithtextoverlay()
 	{
 		return
 		[
@@ -127,9 +127,9 @@ class option
 			'default' =>
 			[
 				'heading'   => T_("Image with text overlay"),
-				'style'     => __FUNCTION__,
+				'type'     => __FUNCTION__,
 				'imagelist' => \dash\utility\icon::url('ImageWithTextOverlay'),
-				'text'      => T_("Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story."),
+				'text'      => T_("Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your type and story."),
 			],
 			'options' =>
 			[

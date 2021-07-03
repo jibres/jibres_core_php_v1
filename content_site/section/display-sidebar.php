@@ -9,7 +9,7 @@ if(\dash\data::sectionList())
 
   $adding_detail = \dash\data::addingDetail();
   $adding_key    = a($adding_detail, 'preview', 'key');
-  $adding_style  = a($adding_detail, 'preview', 'style');
+  $adding_type  = a($adding_detail, 'preview', 'type');
 
 
   foreach (\dash\data::sectionList() as $group => $items)
@@ -20,14 +20,14 @@ if(\dash\data::sectionList())
     foreach ($items as $item)
     {
       $adding_this = false;
-      if(a($item, 'key') === $adding_key && a($item, 'style') === $adding_style)
+      if(a($item, 'key') === $adding_key && a($item, 'type') === $adding_type)
       {
         $adding_this = true;
       }
 
       $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
 
-      // $data = json_encode(['key' => a($item, 'key'), 'style' => a($item, 'style'), 'section' => 'preview']);
+      // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
       $result .= '<li>';
       // $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
       $result .= "<a class='item f' href='". $show_preview_link. "'>";
