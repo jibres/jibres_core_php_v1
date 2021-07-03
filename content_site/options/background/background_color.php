@@ -9,12 +9,90 @@ class background_color
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => T_("None"), 		'class' => 'class-none', 'default' => true ];
-		$enum[] = ['key' => 'sm', 	'title' => T_("Small"), 	'class' => 'class-sm' ];
-		$enum[] = ['key' => 'md', 	'title' => T_("Medium"), 	'class' => 'class-md' ];
-		$enum[] = ['key' => 'lg', 	'title' => T_("Large"), 	'class' => 'class-lg' ];
-		$enum[] = ['key' => 'xl', 	'title' => T_("X Large"), 	'class' => 'class-xl' ];
-		$enum[] = ['key' => 'xxl', 	'title' => T_("XX Large"), 	'class' => 'class-xxl' ];
+		$enum[] = ['key' => 'bg-black', 'default' => true ];
+		$enum[] = ['key' => 'bg-white', ];
+		$enum[] = ['key' => 'bg-gray-50',];
+		$enum[] = ['key' => 'bg-gray-100',];
+		$enum[] = ['key' => 'bg-gray-200',];
+		$enum[] = ['key' => 'bg-gray-300',];
+		$enum[] = ['key' => 'bg-gray-400',];
+		$enum[] = ['key' => 'bg-gray-500',];
+		$enum[] = ['key' => 'bg-gray-600',];
+		$enum[] = ['key' => 'bg-gray-700',];
+		$enum[] = ['key' => 'bg-gray-800',];
+		$enum[] = ['key' => 'bg-gray-900',];
+		$enum[] = ['key' => 'bg-red-50',];
+		$enum[] = ['key' => 'bg-red-100',];
+		$enum[] = ['key' => 'bg-red-200',];
+		$enum[] = ['key' => 'bg-red-300',];
+		$enum[] = ['key' => 'bg-red-400',];
+		$enum[] = ['key' => 'bg-red-500',];
+		$enum[] = ['key' => 'bg-red-600',];
+		$enum[] = ['key' => 'bg-red-700',];
+		$enum[] = ['key' => 'bg-red-800',];
+		$enum[] = ['key' => 'bg-red-900',];
+		$enum[] = ['key' => 'bg-yellow-50',];
+		$enum[] = ['key' => 'bg-yellow-100',];
+		$enum[] = ['key' => 'bg-yellow-200',];
+		$enum[] = ['key' => 'bg-yellow-300',];
+		$enum[] = ['key' => 'bg-yellow-400',];
+		$enum[] = ['key' => 'bg-yellow-500',];
+		$enum[] = ['key' => 'bg-yellow-600',];
+		$enum[] = ['key' => 'bg-yellow-700',];
+		$enum[] = ['key' => 'bg-yellow-800',];
+		$enum[] = ['key' => 'bg-yellow-900',];
+		$enum[] = ['key' => 'bg-green-50',];
+		$enum[] = ['key' => 'bg-green-100',];
+		$enum[] = ['key' => 'bg-green-200',];
+		$enum[] = ['key' => 'bg-green-300',];
+		$enum[] = ['key' => 'bg-green-400',];
+		$enum[] = ['key' => 'bg-green-500',];
+		$enum[] = ['key' => 'bg-green-600',];
+		$enum[] = ['key' => 'bg-green-700',];
+		$enum[] = ['key' => 'bg-green-800',];
+		$enum[] = ['key' => 'bg-green-900',];
+		$enum[] = ['key' => 'bg-blue-50',];
+		$enum[] = ['key' => 'bg-blue-100',];
+		$enum[] = ['key' => 'bg-blue-200',];
+		$enum[] = ['key' => 'bg-blue-300',];
+		$enum[] = ['key' => 'bg-blue-400',];
+		$enum[] = ['key' => 'bg-blue-500',];
+		$enum[] = ['key' => 'bg-blue-600',];
+		$enum[] = ['key' => 'bg-blue-700',];
+		$enum[] = ['key' => 'bg-blue-800',];
+		$enum[] = ['key' => 'bg-blue-900',];
+		$enum[] = ['key' => 'bg-indigo-50',];
+		$enum[] = ['key' => 'bg-indigo-100',];
+		$enum[] = ['key' => 'bg-indigo-200',];
+		$enum[] = ['key' => 'bg-indigo-300',];
+		$enum[] = ['key' => 'bg-indigo-400',];
+		$enum[] = ['key' => 'bg-indigo-500',];
+		$enum[] = ['key' => 'bg-indigo-600',];
+		$enum[] = ['key' => 'bg-indigo-700',];
+		$enum[] = ['key' => 'bg-indigo-800',];
+		$enum[] = ['key' => 'bg-indigo-900',];
+		$enum[] = ['key' => 'bg-purple-50',];
+		$enum[] = ['key' => 'bg-purple-100',];
+		$enum[] = ['key' => 'bg-purple-200',];
+		$enum[] = ['key' => 'bg-purple-300',];
+		$enum[] = ['key' => 'bg-purple-400',];
+		$enum[] = ['key' => 'bg-purple-500',];
+		$enum[] = ['key' => 'bg-purple-600',];
+		$enum[] = ['key' => 'bg-purple-700',];
+		$enum[] = ['key' => 'bg-purple-800',];
+		$enum[] = ['key' => 'bg-purple-900',];
+		$enum[] = ['key' => 'bg-pink-50',];
+		$enum[] = ['key' => 'bg-pink-100',];
+		$enum[] = ['key' => 'bg-pink-200',];
+		$enum[] = ['key' => 'bg-pink-300',];
+		$enum[] = ['key' => 'bg-pink-400',];
+		$enum[] = ['key' => 'bg-pink-500',];
+		$enum[] = ['key' => 'bg-pink-600',];
+		$enum[] = ['key' => 'bg-pink-700',];
+		$enum[] = ['key' => 'bg-pink-800',];
+		$enum[] = ['key' => 'bg-pink-900',];
+
+
 
 		return $enum;
 	}
@@ -29,7 +107,7 @@ class background_color
 
 	public static function default()
 	{
-		return 'lg';
+		return 'bg-black';
 	}
 
 
@@ -43,14 +121,14 @@ class background_color
 			{
 				if(isset($value['default']) && $value['default'])
 				{
-					return $value['class'];
+					return $value['key'];
 				}
 			}
 			else
 			{
 				if($value['key'] === $_key)
 				{
-					return $value['class'];
+					return $value['key'];
 				}
 			}
 		}
@@ -75,7 +153,7 @@ class background_color
 		{
 	    	$html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
-	        $html .= '<select name="background_color" class="select22" id="background_color">';
+	        $html .= '<select name="background_color" class="select22"  id="background_color">';
 
 	        foreach (self::enum() as $key => $value)
 	        {
@@ -86,7 +164,10 @@ class background_color
 	        		$selected = ' selected';
 	        	}
 
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+	        	$html .= "<option value='$value[key]'$selected>";
+	        	$html .= $value['key'];
+	        	// $html .= "<div class='$value[key]'>salam</div>";
+	        	$html .= "</option>";
 	        }
 
 	       	$html .= '</select>';
