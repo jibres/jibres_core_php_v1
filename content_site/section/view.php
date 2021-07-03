@@ -20,6 +20,8 @@ class view
 
 	public static function config()
 	{
+		\content_site\view::fill_page_detail();
+
 		// in a section
 		if(\dash\url::child())
 		{
