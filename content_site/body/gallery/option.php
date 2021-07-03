@@ -150,6 +150,7 @@ class option
 				'image_add',
 
 				'seperator', /* SEPERATOR */
+				'type',
 
 				'heading',
 				'container',
