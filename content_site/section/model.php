@@ -68,7 +68,23 @@ class model
 			$options_list = $options_list[$subchild];
 		}
 
-		$option_key   = \dash\request::post('option');
+		$option_key   = null;
+		$myPost = [];
+
+		$all_post = \dash\request::post();
+
+		foreach ($all_post as $key => $value)
+		{
+			if(substr($key, 0, 4) === 'opt_')
+			{
+				$option_key = substr($key, 4);
+				$myPost[$option_key] = $value;
+			}
+			else
+			{
+				$myPost[$key] = $value;
+			}
+		}
 
 		if(!$option_key || !is_string($option_key))
 		{
@@ -89,7 +105,7 @@ class model
 		}
 		elseif(\dash\request::post('specialsave') === 'specialsave')
 		{
-			return \content_site\call_function::option_specialsave($option_key, \dash\request::post());
+			return \content_site\call_function::option_specialsave($option_key, $myPost);
 		}
 		else
 		{
