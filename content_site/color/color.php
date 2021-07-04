@@ -58,14 +58,14 @@ class color
 
 		$enum = [];
 
-		$enum[] = ['key' => 'black'];
-		$enum[] = ['key' => 'white'];
+		$enum[] = ['color' => 'black'];
+		$enum[] = ['color' => 'white'];
 
 		foreach ($names as $name)
 		{
 			foreach ($levels as $level)
 			{
-				$enum[] = ['key' => $name. '-'. $level];
+				$enum[] = ['color' => $name. '-'. $level];
 			}
 		}
 
