@@ -151,6 +151,7 @@ class option
 				'background_opacity',
 				'background_position',
 				'background_repeat',
+				'background_size',
 				// 'background_image',
 			],
 
