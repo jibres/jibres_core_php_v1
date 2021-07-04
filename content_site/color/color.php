@@ -6,34 +6,41 @@ class color
 {
 	public static function list()
 	{
+		$enum = [];
+		$enum[] = ['color' => 'black'];
+		$enum[] = ['color' => 'white'];
 
+		foreach (self::color_name() as $name)
+		{
+			foreach (self::color_opacity() as $level)
+			{
+				$enum[] = ['color' => $name. '-'. $level];
+			}
+		}
+
+		return $enum;
+	}
+
+
+	public static function color_name()
+	{
 		$names =
 		[
-			// 'coolGray',
+			'gray',
 			'red',
-			// 'amber',
-			// 'emerald',
+			'yellow',
+			'green',
 			'blue',
 			'indigo',
-			// 'violet',
+			'purple',
 			'pink',
-
-			// 'blueGray',
-			// 'gray',
-			// 'trueGray',
-			// 'warmGray',
-			// 'orange',
-			'yellow',
-			// 'lime',
-			'green',
-			// 'teal',
-			// 'cyan',
-			// 'sky',
-			// 'purple',
-			// 'fuchsia',
-			// 'rose',
 		];
+		return $names;
+	}
 
+
+	public static function color_opacity()
+	{
 		$levels =
 		[
 			'50',
@@ -48,23 +55,7 @@ class color
 			'900',
 		];
 
-		$enum = [];
-
-		$enum[] = ['color' => 'black'];
-		$enum[] = ['color' => 'white'];
-
-		foreach ($names as $name)
-		{
-			foreach ($levels as $level)
-			{
-				$enum[] = ['color' => $name. '-'. $level];
-			}
-		}
-
-		// var_dump($enum);
-
-
-		return $enum;
+		return $levels;
 	}
 }
 ?>
