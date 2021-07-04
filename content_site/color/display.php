@@ -1,7 +1,7 @@
 <div class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 ltr bg-white">
   <?php foreach(\dash\data::myColor() as $color) {?>
     <div class="h-10 w-full rounded ring-1 bg-<?php echo a($color, 'color') ?>" >
-      Hi
+      <?php echo a($color, 'color') ?>
     </div>
   <?php } //endif ?>
 </div>
