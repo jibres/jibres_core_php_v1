@@ -62,26 +62,32 @@ class background_color
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="background_color">';
+	    $html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
-	        $html .= '<select name="background_color" class="select22" data-model="html" data-ajax--url="'.$color_ajax.'" id="background_color">';
+	    $html .= '<select name="background_color" class="select22" data-model="ajax" data-ajax--url="'.$color_ajax.'" data-ajax--cache="true" id="background_color">';
 
-	        // foreach (self::enum() as $key => $value)
-	        // {
-	        // 	$selected = null;
+	    // set default value
+	    if(false)
+	    {
+	    	$html .= "<option value='gray-500' selected >gray-500</option>";
+	    }
 
-	        // 	if($value['color'] === $default)
-	        // 	{
-	        // 		$selected = ' selected';
-	        // 	}
+      // foreach (self::enum() as $key => $value)
+      // {
+      // 	$selected = null;
 
-	        // 	$html .= "<option value='$value[color]'$selected>";
-	        // 	$html .= $value['color'];
-	        // 	// $html .= "<div class='$value[color]'>salam</div>";
-	        // 	$html .= "</option>";
-	        // }
+      // 	if($value['color'] === $default)
+      // 	{
+      // 		$selected = ' selected';
+      // 	}
 
-	       	$html .= '</select>';
+      // 	$html .= "<option value='$value[color]'$selected>";
+      // 	$html .= $value['color'];
+      // 	// $html .= "<div class='$value[color]'>salam</div>";
+      // 	$html .= "</option>";
+      // }
+
+	    $html .= '</select>';
 		}
   		$html .= '</form>';
 
