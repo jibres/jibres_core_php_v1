@@ -27,7 +27,6 @@ class background_color
 
 	public static function class_name($_key)
 	{
-
 		if(!$_key)
 		{
 			return self::default();
