@@ -64,12 +64,13 @@ class background_color
 		{
 	    $html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
-	    $html .= '<select name="background_color" class="select22" data-model="ajax" data-ajax--url="'.$color_ajax.'" data-ajax--cache="true" id="background_color">';
+	    $html .= '<select name="background_color" class="select22" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
 
 	    // set default value
-	    if(false)
+	    $selected_html = '<div>12345</div>';
+	    // if(false)
 	    {
-	    	$html .= "<option value='gray-500' selected >gray-500</option>";
+	    	$html .= "<option value='gray-500' selected data-selected_html='". $selected_html. "'>gray-500</option>";
 	    }
 
       // foreach (self::enum() as $key => $value)
