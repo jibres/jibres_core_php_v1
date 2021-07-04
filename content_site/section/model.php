@@ -212,6 +212,11 @@ class model
 
 		\dash\pdo::commit();
 
+		if(\dash\request::post('need_redirect'))
+		{
+			\dash\redirect::pwd();
+		}
+
 		\dash\notif::complete();
 
 	}

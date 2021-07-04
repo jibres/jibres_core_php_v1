@@ -58,30 +58,60 @@ class background_color
 		$title = T_("Background Color");
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= '<nav class="items mT20">';
 		{
-			$html .= "<label for='background_color'>$title</label>";
-		    $html .= '<div class="text-center">';
-		    {
-		    	foreach (\content_site\color\color::color_name() as $color)
-		    	{
-		    		$html .= '<div class="grid grid-cols-10">';
-			    	foreach (\content_site\color\color::color_opacity() as $opaicty)
-			    	{
-					    $html .= '<div class="h-12 bg-'. $color. '-'. $opaicty. '"></div>';
-			    	}
-		    		$html .= '</div>';
-		    	}
-		    	$html .= '<div class="grid grid-cols-2">';
-		    	{
-			    	$html .= '<div class="h-12 bg-white">'. T_("White"). '</div>';
-			    	$html .= '<div class="h-12 bg-black">'. T_("Black"). '</div>';
-		    	}
-		    	$html .= '</div>';
-		    }
-		    $html .= '</div>';
+	  		$html .= '<ul>';
+	  		{
+	    		$html .= '<li>';
+	    		{
+		      		$html .= "<div class='item f' data-kerkere='.showColorPreview'>";
+		      		{
+		        		$html .= "<div class='h-12 w-20 bg-". $default. "'></div>";
+		        		$html .= '<div class="key">'. T_("Background"). '</div>';
+		      		}
+		      		$html .= '</div>';
+	    		}
+	    		$html .= '</li>';
+	  		}
+	  		$html .= '</ul>';
 		}
-  		$html .= '</form>';
+		$html .= '</nav>';
+
+		$html .= '<div class="showColorPreview" data-kerkere-content="hide">';
+		{
+			$html .= '<form method="post" data-patch>';
+			{
+			    $html .= '<div class="text-center">';
+			    {
+			    	foreach (\content_site\color\color::color_name() as $color)
+			    	{
+			    		$html .= '<div class="grid grid-cols-10">';
+				    	foreach (\content_site\color\color::color_opacity() as $opaicty)
+				    	{
+				    		$myColor = $color. '-'. $opaicty;
+				    		$json = json_encode(['opt_background_color' => $myColor, 'need_redirect' => true]);
+						    $html .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'></a>";
+				    	}
+			    		$html .= '</div>';
+			    	}
+			    	$html .= '<div class="grid grid-cols-2">';
+			    	{
+				    	$myColor = 'white';
+			    		$json = json_encode(['opt_background_color' => $myColor, 'need_redirect' => true]);
+						$html .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
+
+						$myColor = 'black';
+			    		$json = json_encode(['opt_background_color' => $myColor, 'need_redirect' => true]);
+						$html .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
+
+			    	}
+			    	$html .= '</div>';
+			    }
+			    $html .= '</div>';
+			}
+	  		$html .= '</form>';
+		}
+	  	$html .= '</div>';
 
 		return $html;
 	}
