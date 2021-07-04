@@ -150,6 +150,7 @@ class option
 				'background_color',
 				'background_opacity',
 				'background_position',
+				'background_repeat',
 				// 'background_image',
 			],
 
