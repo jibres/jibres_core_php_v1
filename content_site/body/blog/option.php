@@ -152,7 +152,14 @@ class option
 				'background_position',
 				'background_repeat',
 				'background_size',
-				// 'background_image',
+
+				'seperator', /* SEPERATOR */
+
+				'file',
+				'background_gradient_from',
+				'background_gradient_via',
+				'background_gradient_to',
+				'background_gradient_type',
 			],
 
 		];
