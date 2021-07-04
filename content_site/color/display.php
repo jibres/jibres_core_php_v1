@@ -1,4 +1,4 @@
-<div class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16">
+<div class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 ltr bg-white">
   <div class="pb-10 border-b border-gray-200 mb-10">
     <div>
       <h1 class="inline-block text-3xl font-extrabold text-gray-900 tracking-tight">Customizing Colors</h1>
