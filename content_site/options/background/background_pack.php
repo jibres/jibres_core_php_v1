@@ -5,95 +5,103 @@ namespace content_site\options\background;
 class background_pack
 {
 
+	public static function validator($_data)
+	{
+		$data = \dash\validate::enum($_data, true, ['enum' => ['none', 'solid', 'gradient', 'image', 'video'], 'field_title' => T_('Background Type')]);
+		return $data;
+	}
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_pack');
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'solid';
 		}
 
-		$color_ajax = \dash\url::here(). '/color?json=1';
+
 
 		$title = T_("Background");
-
-		$background_opacity = "<label for='background_opacity'>Opacity</label>";
-		$background_opacity .= '<select name="background_opacity" class="select22" data-model="ajax" data-ajax--url="'.$color_ajax.'" data-ajax--cache="true" id="background_opacity">';
-		$background_opacity .= '</select>';
 
 		$html = '';
 
 
-
 		$html .= "<label for='background_pack'>Background Type</label>";
 
-		$html .= '<div class="row">';
+		$html .= '<form method="post" data-patch>';
 		{
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
+			// $html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= '<div class="row">';
 			{
-				$html .= '<div class="radio3">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
 				{
-					$html .= '<input type="radio" name="background_type" value="none" id="background_type_none">';
-					$html .= '<label for="background_type_none">None</label>';
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="opt_background_pack" value="none" id="background_pack_none" '.(($default === 'none') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_none">None</label>';
+					}
+					$html .= '</div>';
 				}
 				$html .= '</div>';
-			}
-			$html .= '</div>';
 
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
-			{
-				$html .= '<div class="radio3">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
 				{
-					$html .= '<input type="radio" name="background_type" value="solid" id="background_type_solid">';
-					$html .= '<label for="background_type_solid">Solid</label>';
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="opt_background_pack" value="solid" id="background_pack_solid" '.(($default === 'solid') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_solid">Solid</label>';
+					}
+					$html .= '</div>';
 				}
 				$html .= '</div>';
-			}
-			$html .= '</div>';
 
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
-			{
-				$html .= '<div class="radio3">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
 				{
-					$html .= '<input type="radio" name="background_type" value="gradient" id="background_type_gradient">';
-					$html .= '<label for="background_type_gradient">Gradient</label>';
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="opt_background_pack" value="gradient" id="background_pack_gradient" '.(($default === 'gradient') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_gradient">Gradient</label>';
+					}
+					$html .= '</div>';
 				}
 				$html .= '</div>';
-			}
-			$html .= '</div>';
 
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
-			{
-				$html .= '<div class="radio3">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
 				{
-					$html .= '<input type="radio" name="background_type" value="image" id="background_type_image">';
-					$html .= '<label for="background_type_image">Image</label>';
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="opt_background_pack" value="image" id="background_pack_image" '.(($default === 'image') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_image">Image</label>';
+					}
+					$html .= '</div>';
 				}
 				$html .= '</div>';
-			}
-			$html .= '</div>';
 
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
-			{
-				$html .= '<div class="radio3">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
 				{
-					$html .= '<input type="radio" name="background_type" value="video" id="background_type_video">';
-					$html .= '<label for="background_type_video">Video</label>';
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="opt_background_pack" value="video" id="background_pack_video" '.(($default === 'video') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_video">Video</label>';
+					}
+					$html .= '</div>';
 				}
 				$html .= '</div>';
 			}
 			$html .= '</div>';
 		}
-		$html .= '</div>';
+		$html .= '</form>';
 
-		$html .= '<div data-response="background_type" data-response-where="solid" data-response-hide>';
+
+		$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
 		{
 			$html .= background_color::admin_html(...func_get_args());
 		}
 		$html .= '</div>';
 
-		$html .= '<div data-response="background_type" data-response-where="gradient" data-response-hide>';
+		$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 		{
 			$html .= background_gradient_from::admin_html(...func_get_args());
 			$html .= background_gradient_via::admin_html(...func_get_args());
@@ -103,7 +111,7 @@ class background_pack
 		}
 		$html .= '</div>';
 
-		$html .= '<div data-response="background_type" data-response-where="image" data-response-hide>';
+		$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
 		{
 			$html .= \content_site\options\file::admin_html(...func_get_args());
 			$html .= background_position::admin_html(...func_get_args());
@@ -113,13 +121,13 @@ class background_pack
 		}
 		$html .= '</div>';
 
-		$html .= '<div data-response="background_type" data-response-where="video" data-response-hide>';
+		$html .= '<div data-response="opt_background_pack" data-response-where="video" '.(($default === 'video') ? null : 'data-response-hide').'>';
 		{
 			$html .= \content_site\options\video::admin_html(...func_get_args());
 		}
 		$html .= '</div>';
 
-		$html .= '<div data-response="background_type" data-response-where="image|solid|gradient|video" data-response-hide>';
+		$html .= '<div data-response="opt_background_pack" data-response-where="image|solid|gradient|video" data-response-hide>';
 		{
 			$html .= background_opacity::admin_html(...func_get_args());
 		}

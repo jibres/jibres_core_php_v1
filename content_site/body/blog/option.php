@@ -149,8 +149,13 @@ class option
 			'container',
 
 			// sub page
+
 			'background' =>
 			[
+				'background_pack',
+
+				// skip draw this option in html
+
 				'background_color',
 				'background_opacity',
 				'background_position',
