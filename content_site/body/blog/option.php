@@ -167,6 +167,8 @@ class option
 				'background_gradient_via',
 				'background_gradient_to',
 				'background_gradient_type',
+
+				'video',
 			],
 
 		];

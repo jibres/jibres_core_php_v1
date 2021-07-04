@@ -58,10 +58,11 @@ class file
 
 		$html .= '<form method="post" autocomplete="off" >';
 		{
+			$html .= '<input type="hidden" name="opt_file" value="1">';
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';
-			$html .= ' data-name="opt_file"';
+			$html .= ' data-name="file"';
 			$html .= ' data-final="#finalImage"';
 			$html .= ' data-autoSend';
 			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';

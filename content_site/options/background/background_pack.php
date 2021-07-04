@@ -107,7 +107,6 @@ class background_pack
 			$html .= background_gradient_via::admin_html(...func_get_args());
 			$html .= background_gradient_to::admin_html(...func_get_args());
 			$html .= background_gradient_type::admin_html(...func_get_args());
-
 		}
 		$html .= '</div>';
 
@@ -117,7 +116,6 @@ class background_pack
 			$html .= background_position::admin_html(...func_get_args());
 			$html .= background_repeat::admin_html(...func_get_args());
 			$html .= background_size::admin_html(...func_get_args());
-
 		}
 		$html .= '</div>';
 
@@ -127,7 +125,7 @@ class background_pack
 		}
 		$html .= '</div>';
 
-		$html .= '<div data-response="opt_background_pack" data-response-where="image|solid|gradient|video" data-response-hide>';
+		$html .= '<div data-response="opt_background_pack" data-response-where="image|solid|gradient|video" '.((in_array($default, ['image','solid','gradient','video'])) ? null : 'data-response-hide').'>';
 		{
 			$html .= background_opacity::admin_html(...func_get_args());
 		}
