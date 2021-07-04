@@ -5,25 +5,6 @@ namespace content_site\options\background;
 class background_pack
 {
 
-	public static function contain_option()
-	{
-		return
-		[
-			'background_color',
-			'background_opacity',
-			'background_position',
-			'background_repeat',
-			'background_size',
-
-			'file',
-			'background_gradient_from',
-			'background_gradient_via',
-			'background_gradient_to',
-			'background_gradient_type',
-		];
-	}
-
-
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_pack');
@@ -49,7 +30,7 @@ class background_pack
 
 		$html .= '<div class="row">';
 		{
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+			$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
 			{
 				$html .= '<div class="radio3">';
 				{
@@ -60,7 +41,7 @@ class background_pack
 			}
 			$html .= '</div>';
 
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+			$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
 			{
 				$html .= '<div class="radio3">';
 				{
@@ -71,7 +52,7 @@ class background_pack
 			}
 			$html .= '</div>';
 
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+			$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
 			{
 				$html .= '<div class="radio3">';
 				{
@@ -92,28 +73,55 @@ class background_pack
 				$html .= '</div>';
 			}
 			$html .= '</div>';
+
+			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+			{
+				$html .= '<div class="radio3">';
+				{
+					$html .= '<input type="radio" name="background_type" value="video" id="background_type_video">';
+					$html .= '<label for="background_type_video">Video</label>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
 		}
 		$html .= '</div>';
 
 		$html .= '<div data-response="background_type" data-response-where="solid" data-response-hide>';
 		{
 			$html .= background_color::admin_html(...func_get_args());
-			$html .= background_opacity::admin_html(...func_get_args());
 		}
 		$html .= '</div>';
 
 		$html .= '<div data-response="background_type" data-response-where="gradient" data-response-hide>';
 		{
-			// $html .= background_color::admin_html(...func_get_args());
-			// $html .= background_opacity::admin_html(...func_get_args());
+			$html .= background_gradient_from::admin_html(...func_get_args());
+			$html .= background_gradient_via::admin_html(...func_get_args());
+			$html .= background_gradient_to::admin_html(...func_get_args());
+			$html .= background_gradient_type::admin_html(...func_get_args());
+
 		}
 		$html .= '</div>';
 
 		$html .= '<div data-response="background_type" data-response-where="image" data-response-hide>';
 		{
 			$html .= \content_site\options\file::admin_html(...func_get_args());
-			// $html .= background_opacity::admin_html(...func_get_args());
+			$html .= background_position::admin_html(...func_get_args());
+			$html .= background_repeat::admin_html(...func_get_args());
+			$html .= background_size::admin_html(...func_get_args());
 
+		}
+		$html .= '</div>';
+
+		$html .= '<div data-response="background_type" data-response-where="video" data-response-hide>';
+		{
+			$html .= \content_site\options\video::admin_html(...func_get_args());
+		}
+		$html .= '</div>';
+
+		$html .= '<div data-response="background_type" data-response-where="image|solid|gradient|video" data-response-hide>';
+		{
+			$html .= background_opacity::admin_html(...func_get_args());
 		}
 		$html .= '</div>';
 
