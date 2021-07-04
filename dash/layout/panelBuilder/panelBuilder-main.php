@@ -1,4 +1,4 @@
-<div id='content' class='overflow-y-auto h-full'>
+<div id="content" class="h-full">
 
 
 <?php

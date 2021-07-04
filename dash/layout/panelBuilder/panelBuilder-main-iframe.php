@@ -39,7 +39,7 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
 
     if(!\lib\store::is_connected_to_domain())
     {
-      $html .= '<a href="'.\lib\store::admin_url().'/a/setting/domain">'. T_("Try to connect to Domain"). '</a>';
+      $html .= '<a class="connectDomain" href="'.\lib\store::admin_url().'/a/setting/domain">'. T_("Connect to your Domain"). '</a>';
     }
 
     $html .= '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-green-200 text-gray-900 rounded-full text-base">';

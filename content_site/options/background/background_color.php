@@ -61,14 +61,14 @@ class background_color
 
 		$color_ajax = \dash\url::here(). '/color?json=1';
 
-		$title = T_("Set item background_color");
+		$title = T_("Background Color");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
 	    	$html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
-	        $html .= '<select name="background_color" class="select22" data-model="html" data-ajax--url="'.$color_ajax.'"  id="background_color">';
+	        $html .= '<select name="background_color" class="select22" data-model="html" data-ajax--url="'.$color_ajax.'" id="background_color">';
 
 	        foreach (self::enum() as $key => $value)
 	        {
