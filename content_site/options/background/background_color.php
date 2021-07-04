@@ -21,29 +21,25 @@ class background_color
 
 	public static function default()
 	{
-		return 'bg-black';
+		return 'white';
 	}
 
 
 	public static function class_name($_key)
 	{
+
+		if(!$_key)
+		{
+			return self::default();
+		}
+
 		$enum = self::enum();
 
 		foreach ($enum as $key => $value)
 		{
-			if(!$_key)
+			if($value['color'] === $_key)
 			{
-				if(isset($value['default']) && $value['default'])
-				{
-					return $value['color'];
-				}
-			}
-			else
-			{
-				if($value['color'] === $_key)
-				{
-					return $value['color'];
-				}
+				return $value['color'];
 			}
 		}
 	}
