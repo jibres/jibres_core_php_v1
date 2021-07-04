@@ -55,45 +55,31 @@ class background_color
 			$default = self::default();
 		}
 
-		$color_ajax = \dash\url::here(). '/color?json=1';
-
 		$title = T_("Background Color");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= "<label for='background_color'>$title</label>";
-	    $html .= '<div class="text-center">';
-	    {
-	    	foreach (\content_site\color\color::color_name() as $color)
-	    	{
-	    		$html .= '<div class="grid grid-cols-10">';
-		    	foreach (\content_site\color\color::color_opacity() as $opaicty)
+		    $html .= '<div class="text-center">';
+		    {
+		    	foreach (\content_site\color\color::color_name() as $color)
 		    	{
-				    $html .= '<div class="h-12 bg-'. $color. '-'. $opaicty. '"></div>';
+		    		$html .= '<div class="grid grid-cols-10">';
+			    	foreach (\content_site\color\color::color_opacity() as $opaicty)
+			    	{
+					    $html .= '<div class="h-12 bg-'. $color. '-'. $opaicty. '"></div>';
+			    	}
+		    		$html .= '</div>';
 		    	}
-	    		$html .= '</div>';
-	    	}
-	    	$html .= '<div class="grid grid-cols-2">';
-	    	{
-		    	$html .= '<div class="h-12 bg-white">'. T_("White"). '</div>';
-		    	$html .= '<div class="h-12 bg-black">'. T_("Black"). '</div>';
-	    	}
-	    	$html .= '</div>';
-	    }
-	    $html .= '</div>';
-
-			$html .= "<label for='background_color'>$title</label>";
-	    $html .= '<select name="opt_background_color" class="select22" data-dropdown-css-class="SelectOptZeroPadding" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
-
-	    // set default value
-	    $selected_html = '<div>12345</div>';
-	    // if(false)
-	    {
-	    	$html .= "<option value='gray-500' selected data-selected_html='". $selected_html. "'>gray-500</option>";
-	    }
-
-	    $html .= '</select>';
+		    	$html .= '<div class="grid grid-cols-2">';
+		    	{
+			    	$html .= '<div class="h-12 bg-white">'. T_("White"). '</div>';
+			    	$html .= '<div class="h-12 bg-black">'. T_("Black"). '</div>';
+		    	}
+		    	$html .= '</div>';
+		    }
+		    $html .= '</div>';
 		}
   		$html .= '</form>';
 
