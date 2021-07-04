@@ -101,7 +101,7 @@ class model
 		// save multi option
 		if(\dash\request::post('multioption') === 'multi')
 		{
-			$value = \dash\request::post();
+			$value = $myPost;
 		}
 		elseif(\dash\request::post('specialsave') === 'specialsave')
 		{

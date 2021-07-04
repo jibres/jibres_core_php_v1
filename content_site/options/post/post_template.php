@@ -100,7 +100,7 @@ class post_template
 			{
 
 				$html .= "<label for='post_play_item'>". T_("Show item in player") ."</label>";
-		        $html .= '<select name="opt_post_play_item" class="select22" id="post_play_item">';
+		        $html .= '<select name="post_play_item" class="select22" id="post_play_item">';
 		        foreach (self::enum_post_play_item() as $key => $value)
 		        {
 		        	$selected = null;
