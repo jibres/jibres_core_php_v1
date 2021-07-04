@@ -13,9 +13,9 @@ class background_gradient_via extends background_color
 			$default = self::default();
 		}
 
-		$title = T_("Background Color");
+		$title = T_("Gradient via");
 
-		$html = self::color_html('opt_background_gradient_via', $default);
+		$html = self::color_html('opt_background_gradient_via', $default, $title);
 
 		return $html;
 	}

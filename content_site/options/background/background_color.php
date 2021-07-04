@@ -56,7 +56,7 @@ class background_color
 
 		$title = T_("Background Color");
 
-		$html = self::color_html('opt_background_color', $default);
+		$html = self::color_html('opt_background_color', $default, $title);
 
 		return $html;
 	}
@@ -68,7 +68,7 @@ class background_color
 	 * @param      string  $_name     The name
 	 * @param      string  $_default  The default
 	 */
-	public static function color_html($_name, $_default)
+	public static function color_html($_name, $_default, $_title)
 	{
 		$html = '';
 		$html .= '<nav class="items mT20">';
@@ -80,7 +80,7 @@ class background_color
 		      		$html .= "<div class='item f' data-kerkere='.showColorPreview_". $_name. "'>";
 		      		{
 		        		$html .= "<div class='h-12 w-20 bg-". $_default. "'></div>";
-		        		$html .= '<div class="key">'. T_("Background"). '</div>';
+		        		$html .= '<div class="key">'. $_title. '</div>';
 		      		}
 		      		$html .= '</div>';
 	    		}

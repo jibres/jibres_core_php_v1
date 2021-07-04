@@ -13,9 +13,9 @@ class background_gradient_to extends background_color
 			$default = self::default();
 		}
 
-		$title = T_("Background Color");
+		$title = T_("Gradient to");
 
-		$html = self::color_html('opt_background_gradient_to', $default);
+		$html = self::color_html('opt_background_gradient_to', $default, $title);
 
 		return $html;
 	}
