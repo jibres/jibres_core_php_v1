@@ -128,23 +128,27 @@ class option
 	{
 		$option =
 		[
+			// text
 			'heading',
 
-			'seperator', /*SEPERATOR*/
-
+			// select
 			'post_tag',
 			'post_template',
+			// range
+			'limit',
+			// select
+			'type',
+			'height',
+
+			// radio
 			'post_show_author',
 			'post_show_date',
 			'btn_viewall',
-			'limit',
 
-			'seperator', /*SEPERATOR*/
-
-			'type',
+			// range
 			'container',
-			'height',
 
+			// sub page
 			'background' =>
 			[
 				'background_color',
@@ -152,8 +156,6 @@ class option
 				'background_position',
 				'background_repeat',
 				'background_size',
-
-				'seperator', /* SEPERATOR */
 
 				'file',
 				'background_gradient_from',

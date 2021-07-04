@@ -33,7 +33,7 @@ class height
 
 	public static function default()
 	{
-		return 'normal';
+		return 'auto';
 	}
 
 
@@ -70,7 +70,7 @@ class height
 			$default = self::default();
 		}
 
-		$title = T_("Set item height");
+		$title = T_("Sectuin Height");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';

@@ -49,7 +49,7 @@ class btn_viewall
 	    	$html .= '<input type="hidden" name="option" value="btn_viewall">';
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
-			$html .= '<div class="check1">';
+			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="btn_viewall_check" id="btn_viewall_check"'.$checked.'>';
 				$html .= '<label for="btn_viewall_check">'. T_('Show "View all" button'). '</label>';
