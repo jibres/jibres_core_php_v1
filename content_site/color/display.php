@@ -1,4 +1,11 @@
 <div class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 ltr bg-white">
+  <?php foreach(\dash\data::myColor() as $color) {?>
+    <div class="h-10 w-full rounded ring-1 bg-<?php echo a($color, 'key') ?>" >
+      Hi
+    </div>
+  <?php } //endif ?>
+</div>
+<div class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 ltr bg-white">
   <div class="pb-10 border-b border-gray-200 mb-10">
     <div>
       <h1 class="inline-block text-3xl font-extrabold text-gray-900 tracking-tight">Customizing Colors</h1>

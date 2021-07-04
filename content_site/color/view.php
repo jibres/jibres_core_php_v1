@@ -13,6 +13,8 @@ class view
 
 		\dash\data::include_adminPanelBuilder(true);
 
+		\dash\data::myColor(color::list());
+
 	}
 }
 ?>
