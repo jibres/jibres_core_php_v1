@@ -109,7 +109,7 @@ class model
 		}
 		else
 		{
-			$value = \dash\request::post($option_key);
+			$value = \dash\request::post('opt_'. $option_key);
 		}
 
 		$value = \content_site\call_function::option_validator($option_key, $value);
@@ -205,7 +205,6 @@ class model
 			}
 
 		}
-
 
 		$preview           = json_encode($preview);
 
