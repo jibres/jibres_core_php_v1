@@ -7,17 +7,17 @@ class height
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'auto', 'title' => T_("Auto") , 'class' => 'max-height:80vh; height:50vw; padding: 50px 0;', 'default' => true];
+		$enum[] = ['key' => 'auto', 'title' => T_("Auto") , 'class' => 'height-auto', 'default' => true];
 		// max-height:80vh; height:50vw; padding: 50px 0;
-		$enum[] = ['key' => 'xs',   'title' => T_("Short") , 'class' => 'max-height:20vh; height:90px; md:height:125px; padding: 50px 0;', ];
+		$enum[] = ['key' => 'xs',   'title' => T_("Short") , 'class' => 'height-xs', ];
 		// max-height:...; height:90px; md:height:125px; padding: 50px 0;
-		$enum[] = ['key' => 'sm',   'title' => T_("Fairly Short") , 'class' => 'max-height:30vh; height:225px; md:height:300px; padding: 50px 0;', ];
+		$enum[] = ['key' => 'sm',   'title' => T_("Fairly Short") , 'class' => 'height-sm', ];
 		// max-height:..; height:225px; md:height:300px; padding: 50px 0;
-		$enum[] = ['key' => 'md',   'title' => T_("Medium") , 'class' => 'max-height:40vh; height:350px; md:height:475px; padding: 50px 0;', ];
+		$enum[] = ['key' => 'md',   'title' => T_("Medium") , 'class' => 'height-md', ];
 		// max-height:...; height:350px; md:height:475px; padding: 50px 0;
-		$enum[] = ['key' => 'lg',   'title' => T_("Tall") , 'class' => 'max-height:90vh; height:470px; md:height:650px; padding: 50px 0;', ];
+		$enum[] = ['key' => 'lg',   'title' => T_("Tall") , 'class' => 'height-lg', ];
 		// max-height:...; height:470px; md:height:650px; padding: 50px 0;
-		$enum[] = ['key' => 'xl',   'title' => T_("Full Screen") , 'class' => 'max-height:100vh height:580px; md:height:775px; padding: 50px 0;', ];
+		$enum[] = ['key' => 'xl',   'title' => T_("Full Screen") , 'class' => 'height-xl', ];
 		// max-height:... height:580px; md:height:775px; padding: 50px 0;
 		// min-height:100vh; min-height:100%; md:height:775px; padding: 50px 0;
 

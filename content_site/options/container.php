@@ -9,12 +9,12 @@ class container
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => T_("None"), 		'class' => 'class-none', 'default' => true ];
-		$enum[] = ['key' => 'sm', 	'title' => T_("Small"), 	'class' => 'class-sm' ];
-		$enum[] = ['key' => 'md', 	'title' => T_("Medium"), 	'class' => 'class-md' ];
-		$enum[] = ['key' => 'lg', 	'title' => T_("Large"), 	'class' => 'class-lg' ];
-		$enum[] = ['key' => 'xl', 	'title' => T_("X Large"), 	'class' => 'class-xl' ];
-		$enum[] = ['key' => 'xxl', 	'title' => T_("XX Large"), 	'class' => 'class-xxl' ];
+		$enum[] = ['key' => 'none', 'title' => T_("None"), 		'class'   => '' ];
+		$enum[] = ['key' => 'sm', 	'title' => T_("Small"), 	'class'   => 'avand-sm' ];
+		$enum[] = ['key' => 'md', 	'title' => T_("Medium"), 	'class'   => 'avand-md' ];
+		$enum[] = ['key' => 'lg', 	'title' => T_("Large"), 	'class'   => 'avand-lg' ];
+		$enum[] = ['key' => 'xl', 	'title' => T_("X Large"), 'class'   => 'avand-xl' ];
+		$enum[] = ['key' => 'auto', 'title' => T_("Auto"), 	  'class'   => 'avand', 'default' => true ];
 
 		return $enum;
 	}
@@ -29,7 +29,7 @@ class container
 
 	public static function default()
 	{
-		return 'lg';
+		return 'auto';
 	}
 
 

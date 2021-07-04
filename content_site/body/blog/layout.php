@@ -37,31 +37,27 @@ class layout
 		}
 
 		$html = '';
+		$container = \content_site\options\container::class_name(a($_args, 'container'));
+		$height = \content_site\options\height::class_name(a($_args, 'height'));
 
-		$html .= '<div class="'. \content_site\options\container::class_name(a($_args, 'container')).'">';
+		$html .= '<div class="'. $container . ' '. $height. '">';
 		{
-
-			$html .= '<div class="'. \content_site\options\height::class_name(a($_args, 'height')).'">';
+			$html .= '<h2>';
 			{
-				$html .= '<div class="">';
-				{
-					$html .= '<h2>';
-					{
-						$html .= a($_args, 'heading');
-					}
-					$html .= '</h2>';
-
-					foreach ($data as $key => $value)
-					{
-
-						$html .= '<div>';
-						$html .= a($value, 'title');
-						$html .= '</div>';
-					}
-				}
-				$html .= '</div>';
+				$html .= a($_args, 'heading');
 			}
-			$html .= '</div>';
+			$html .= '</h2>';
+
+			$html .= '<nav>';
+			{
+				foreach ($data as $key => $value)
+				{
+					$html .= '<a class="block" href="'. a($value, 'link'). '">';
+					$html .= a($value, 'title');
+					$html .= '</a>';
+				}
+			}
+			$html .= '</nav>';
 		}
 		$html .= '</div>';
 
