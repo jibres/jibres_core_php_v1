@@ -64,7 +64,7 @@ class background_color
 		{
 	    $html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
-	    $html .= '<select name="background_color" class="select22" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
+	    $html .= '<select name="background_color" class="select22" data-dropdown-css-class="SelectOptZeroPadding" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
 
 	    // set default value
 	    $selected_html = '<div>12345</div>';

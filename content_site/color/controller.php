@@ -16,8 +16,8 @@ class controller
 			{
 				$new_list[] =
 				[
-					'html'          => "<div class='h-10 w-full rounded ring-1 bg-$value[color]'>$value[color]</div>",
-					'selected_html' => "<div class='h-10 w-full rounded ring-1 bg-$value[color]'>123 $value[color]</div>",
+					'html'          => "<div class='bg-$value[color]'>$value[color]</div>",
+					'selected_html' => "<div class='bg-$value[color]'>123 $value[color]</div>",
 					'id'            => $value['color'],
 				];
 			}
