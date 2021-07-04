@@ -83,10 +83,8 @@ class background_color
 	    }
 	    $html .= '</div>';
 
-
-	    $html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
-	    $html .= '<select name="background_color" class="select22" data-dropdown-css-class="SelectOptZeroPadding" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
+	    $html .= '<select name="opt_background_color" class="select22" data-dropdown-css-class="SelectOptZeroPadding" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
 
 	    // set default value
 	    $selected_html = '<div>12345</div>';
@@ -94,21 +92,6 @@ class background_color
 	    {
 	    	$html .= "<option value='gray-500' selected data-selected_html='". $selected_html. "'>gray-500</option>";
 	    }
-
-      // foreach (self::enum() as $key => $value)
-      // {
-      // 	$selected = null;
-
-      // 	if($value['color'] === $default)
-      // 	{
-      // 		$selected = ' selected';
-      // 	}
-
-      // 	$html .= "<option value='$value[color]'$selected>";
-      // 	$html .= $value['color'];
-      // 	// $html .= "<div class='$value[color]'>salam</div>";
-      // 	$html .= "</option>";
-      // }
 
 	    $html .= '</select>';
 		}

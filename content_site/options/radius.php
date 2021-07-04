@@ -46,9 +46,8 @@ class radius
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="radius">';
 			$html .= "<label for='radius'>$title</label>";
-	        $html .= '<select name="radius" class="select22" id="radius">';
+	        $html .= '<select name="opt_radius" class="select22" id="radius">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

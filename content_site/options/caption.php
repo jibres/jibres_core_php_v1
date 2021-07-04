@@ -30,12 +30,11 @@ class caption
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="caption">';
 	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
 
 			$html .= '<div class="input">';
 			{
-	    		$html .= '<input type="text" placeholder="" name="caption" value="'. $default. '">';
+	    		$html .= '<input type="text" placeholder="" name="opt_caption" value="'. $default. '">';
 			}
 			$html .= "</div>";
 		}

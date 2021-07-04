@@ -30,9 +30,8 @@ class description
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="description">';
 	    	$html .= '<label for="description">'. T_("Description"). '</label>';
-	    	$html .= '<textarea class="txt" name="description" rows="3">';
+	    	$html .= '<textarea class="txt" name="opt_description" rows="3">';
 	    	$html .= $default;
 	    	$html .= '</textarea>';
 		}

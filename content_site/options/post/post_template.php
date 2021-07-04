@@ -77,12 +77,11 @@ class post_template
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="post_template">';
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
 
 	    	$html .= "<label for='post_template'>". T_("Post template") ."</label>";
-	        $html .= '<select name="post_template" class="select22" id="post_template">';
+	        $html .= '<select name="opt_post_template" class="select22" id="post_template">';
 
 	        foreach (self::enum_post_template() as $key => $value)
 	        {
@@ -101,7 +100,7 @@ class post_template
 			{
 
 				$html .= "<label for='post_play_item'>". T_("Show item in player") ."</label>";
-		        $html .= '<select name="post_play_item" class="select22" id="post_play_item">';
+		        $html .= '<select name="opt_post_play_item" class="select22" id="post_play_item">';
 		        foreach (self::enum_post_play_item() as $key => $value)
 		        {
 		        	$selected = null;

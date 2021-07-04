@@ -74,9 +74,8 @@ class background_repeat
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="background_repeat">';
 			$html .= "<label for='background_repeat'>$title</label>";
-	        $html .= '<select name="background_repeat" class="select22"  id="background_repeat">';
+	        $html .= '<select name="opt_background_repeat" class="select22"  id="background_repeat">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

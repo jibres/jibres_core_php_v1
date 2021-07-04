@@ -42,9 +42,8 @@ class effect
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="effect">';
 			$html .= "<label for='effect'>$title</label>";
-	        $html .= '<select name="effect" class="select22" id="effect">';
+	        $html .= '<select name="opt_effect" class="select22" id="effect">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

@@ -46,21 +46,20 @@ class btn_viewall
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="btn_viewall">';
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
 			$html .= '<div class="check1 py-0">';
 			{
-				$html .= '<input type="checkbox" name="btn_viewall_check" id="btn_viewall_check"'.$checked.'>';
+				$html .= '<input type="checkbox" name="opt_btn_viewall_check" id="btn_viewall_check"'.$checked.'>';
 				$html .= '<label for="btn_viewall_check">'. T_('Show "View all" button'). '</label>';
 			}
 			$html .= '</div>';
 
-			$html .= '<div data-response="btn_viewall_check" data-response-effect="slide"'.$data_response_hide.'>';
+			$html .= '<div data-response="opt_btn_viewall_check" data-response-effect="slide"'.$data_response_hide.'>';
 			{
 				$html .= '<div class="input">';
 				{
-					$html .= '<input type="text" name="btn_viewall" placeholder="'.$default.'" value="'.$default.'">';
+					$html .= '<input type="text" name="opt_btn_viewall" placeholder="'.$default.'" value="'.$default.'">';
 				}
 				$html .= '</div>';
 			}

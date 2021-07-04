@@ -31,11 +31,9 @@ class target
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="target">';
-
 			$html .= '<div class="check1">';
 			{
-				$html .= '<input type="checkbox" name="target" id="target"'.$checked.'>';
+				$html .= '<input type="checkbox" name="opt_target" id="target"'.$checked.'>';
 				$html .= '<label for="target">'. T_('Open in new windows'). '</label>';
 			}
 			$html .= '</div>';

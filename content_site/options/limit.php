@@ -44,12 +44,10 @@ class limit
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="limit">';
-
 			$html .= '<div class="pb-2">';
 			{
 				$html .= '<label for="limit">'. T_("Count Show"). '</label>';
-				$html .= '<input type="text" name="limit" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
+				$html .= '<input type="text" name="opt_limit" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
 			}
 			$html .= '</div>';
 		}

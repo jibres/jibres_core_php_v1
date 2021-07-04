@@ -36,9 +36,8 @@ class post_tag
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="post_tag">';
 			$html .= "<label for='post_tag'>$title</label>";
-	        $html .= '<select name="post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select tag"). '">';
+	        $html .= '<select name="opt_post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select tag"). '">';
 
 			if(a($_section_detail, 'preview', 'post_tag'))
 			{

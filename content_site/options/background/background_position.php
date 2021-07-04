@@ -76,9 +76,8 @@ class background_position
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="background_position">';
 			$html .= "<label for='background_position'>$title</label>";
-	        $html .= '<select name="background_position" class="select22"  id="background_position">';
+	        $html .= '<select name="opt_background_position" class="select22"  id="background_position">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

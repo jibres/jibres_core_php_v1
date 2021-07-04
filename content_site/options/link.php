@@ -30,12 +30,11 @@ class link
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="option" value="link">';
 	    	$html .= '<label for="link">'. T_("Link"). '</label>';
 
 			$html .= '<div class="input ltr">';
 			{
-	    		$html .= '<input type="url" name="link" value="'. $default. '">';
+	    		$html .= '<input type="url" name="opt_link" value="'. $default. '">';
 			}
 			$html .= "</div>";
 		}

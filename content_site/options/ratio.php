@@ -47,9 +47,8 @@ class ratio
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="ratio">';
 			$html .= "<label for='ratio'>$title</label>";
-	        $html .= '<select name="ratio" class="select22" id="ratio">';
+	        $html .= '<select name="opt_ratio" class="select22" id="ratio">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

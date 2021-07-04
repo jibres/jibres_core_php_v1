@@ -60,9 +60,8 @@ class type
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="type">';
 			$html .= "<label for='type'>$title</label>";
-	        $html .= '<select name="type" class="select22" id="type">';
+	        $html .= '<select name="opt_type" class="select22" id="type">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

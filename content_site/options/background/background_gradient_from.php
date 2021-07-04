@@ -151,9 +151,8 @@ class background_gradient_from
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="background_gradient_from">';
 			$html .= "<label for='background_gradient_from'>$title</label>";
-	        $html .= '<select name="background_gradient_from" class="select22"  id="background_gradient_from">';
+	        $html .= '<select name="opt_background_gradient_from" class="select22"  id="background_gradient_from">';
 
 	        foreach (self::enum() as $key => $value)
 	        {

@@ -58,11 +58,10 @@ class video
 
 		$html .= '<form method="post" autocomplete="off" >';
 		{
-			$html .= '<input type="hidden" name="option" value="video">';
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';
-			$html .= ' data-name="video"';
+			$html .= ' data-name="opt_video"';
 			$html .= ' data-final="#finalImage"';
 			$html .= ' data-autoSend';
 			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';

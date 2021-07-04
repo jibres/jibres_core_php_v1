@@ -76,9 +76,8 @@ class container
 
 		$html .= '<form method="post" data-patch>';
 		{
-	   		$html .= '<input type="hidden" name="option" value="container">';
 			$html .= "<label for='container'>$title</label>";
-			$html .= '<input type="text" name="container" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
+			$html .= '<input type="text" name="opt_container" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
 		}
 
 		$html .= '</form>';

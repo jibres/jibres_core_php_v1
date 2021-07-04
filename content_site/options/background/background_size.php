@@ -69,9 +69,8 @@ class background_size
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-	    	$html .= '<input type="hidden" name="option" value="background_size">';
 			$html .= "<label for='background_size'>$title</label>";
-	        $html .= '<select name="background_size" class="select22"  id="background_size">';
+	        $html .= '<select name="opt_background_size" class="select22"  id="background_size">';
 
 	        foreach (self::enum() as $key => $value)
 	        {
