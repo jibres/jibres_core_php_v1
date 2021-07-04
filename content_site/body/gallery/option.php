@@ -156,6 +156,25 @@ class option
 				'container',
 				'height',
 				'ratio',
+
+				'background' =>
+				[
+					'background_pack',
+
+					// skip draw this option in html
+
+					'background_color',
+					'background_opacity',
+					'background_position',
+					'background_repeat',
+					'background_size',
+
+					'file',
+					'background_gradient_from',
+					'background_gradient_via',
+					'background_gradient_to',
+					'background_gradient_type',
+				]
 			],
 		];
 	}

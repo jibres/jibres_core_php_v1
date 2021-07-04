@@ -63,7 +63,16 @@ else
   {
     foreach ($options_list[$subchild] as $key => $option)
     {
-      $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
+      if($option === 'background_pack')
+      {
+        $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
+        break;
+      }
+      else
+      {
+        $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
+
+      }
     }
   }
   elseif(is_array($options_list))
