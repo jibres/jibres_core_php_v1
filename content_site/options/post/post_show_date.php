@@ -31,9 +31,11 @@ class post_show_date
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
+			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= '<input type="hidden" name="opt_post_show_date" value="1">';
 			$html .= '<div class="check1 py-0">';
 			{
-				$html .= '<input type="checkbox" name="opt_post_show_date" id="post_show_date"'.$checked.'>';
+				$html .= '<input type="checkbox" name="post_show_date" id="post_show_date"'.$checked.'>';
 				$html .= '<label for="post_show_date">'. T_('Show date'). '</label>';
 			}
 			$html .= '</div>';
