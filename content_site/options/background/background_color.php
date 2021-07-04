@@ -62,6 +62,28 @@ class background_color
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
+			$html .= "<label for='background_color'>$title</label>";
+	    $html .= '<div class="text-center">';
+	    {
+	    	foreach (\content_site\color\color::color_name() as $color)
+	    	{
+	    		$html .= '<div class="grid grid-cols-10">';
+		    	foreach (\content_site\color\color::color_opacity() as $opaicty)
+		    	{
+				    $html .= '<div class="h-12 bg-'. $color. '-'. $opaicty. '"></div>';
+		    	}
+	    		$html .= '</div>';
+	    	}
+	    	$html .= '<div class="grid grid-cols-2">';
+	    	{
+		    	$html .= '<div class="h-12 bg-white">'. T_("White"). '</div>';
+		    	$html .= '<div class="h-12 bg-black">'. T_("Black"). '</div>';
+	    	}
+	    	$html .= '</div>';
+	    }
+	    $html .= '</div>';
+
+
 	    $html .= '<input type="hidden" name="option" value="background_color">';
 			$html .= "<label for='background_color'>$title</label>";
 	    $html .= '<select name="background_color" class="select22" data-dropdown-css-class="SelectOptZeroPadding" data-model="ajax" data-ajax--url="'.$color_ajax.'" id="background_color">';
