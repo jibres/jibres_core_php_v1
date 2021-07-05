@@ -38,6 +38,8 @@ class background_pack
 	}
 
 
+
+
 	/**
 	 * Get all class in backgroun
 	 *
@@ -45,19 +47,10 @@ class background_pack
 	 */
 	public static function get_full_backgroun_class($_data)
 	{
-		// 'background_color' => string 'green-400' (length=9)
-		// 'background_pack' => string 'gradient' (length=8)
-		// 'background_gradient_from' => string 'yellow-500' (length=10)
-		// 'background_gradient_via' => string 'green-400' (length=9)
-		// 'background_gradient_to' => string 'gray-800' (length=8)
-		// 'background_gradient_type' => string 'bg-gradient-to-r' (length=16)
-		// 'file' => string 'local/jb2jr/202107/96-4611c4e65f63b309800eba99ac9d60e1.png' (length=58)
-		// 'video' => string 'local/jb2jr/202107/97-8232f563ee0bc04da39a95f446ff3708.mp4' (length=58)
-		// 'background_opacity' => string '60' (length=2)
-
 		$pack = a($_data, 'background_pack');
 
 		$class = [];
+		$attr = [];
 
 		switch ($pack)
 		{
@@ -70,10 +63,92 @@ class background_pack
 				$class[] = 'bg-'. $_data['background_color'];
 				break;
 
-			case 'gradient';
 			case 'image';
-			case 'video';
 
+				// background file
+				if(a($_data, 'file'))
+				{
+					$attr[] = 'style="background-image: url('.\lib\filepath::fix($_data['file']).')"';
+				}
+
+				// backgroun repreat
+				if(!a($_data, 'background_repeat'))
+				{
+					$_data['background_repeat'] = background_repeat::default();
+				}
+
+				$class[] = 'bg-'. $_data['background_repeat'];
+
+
+				// backgroun attachemnt
+				if(!a($_data, 'background_attachment'))
+				{
+					$_data['background_attachment'] = background_attachment::default();
+				}
+
+				$class[] = 'bg-'. $_data['background_attachment'];
+
+				// backgroun position
+				if(!a($_data, 'background_position'))
+				{
+					$_data['background_position'] = background_position::default();
+				}
+
+				$class[] = 'bg-'. $_data['background_position'];
+
+
+				// backgroun size
+				if(!a($_data, 'background_size'))
+				{
+					$_data['background_size'] = background_size::default();
+				}
+
+				$class[] = 'bg-'. $_data['background_size'];
+				break;
+
+			case 'gradient';
+				// backgroun gradient type
+				if(!a($_data, 'background_gradient_type'))
+				{
+					$_data['background_gradient_type'] = background_gradient_type::default();
+				}
+
+				$class[] = 'bg-'. $_data['background_gradient_type'];
+
+				// backgroun gradient from
+				if(!a($_data, 'background_gradient_from'))
+				{
+					$_data['background_gradient_from'] = background_gradient_from::default();
+				}
+
+				$class[] = 'from-'. $_data['background_gradient_from'];
+
+				// backgroun gradient via
+				if(!a($_data, 'background_gradient_via'))
+				{
+					$_data['background_gradient_via'] = background_gradient_via::default();
+				}
+
+				$class[] = 'via-'. $_data['background_gradient_via'];
+
+
+				// backgroun gradient to
+				if(!a($_data, 'background_gradient_to'))
+				{
+					$_data['background_gradient_to'] = background_gradient_to::default();
+				}
+
+				$class[] = 'to-'. $_data['background_gradient_type'];
+
+				break;
+
+
+			case 'video';
+				// background video
+				if(a($_data, 'video'))
+				{
+					$attr[] = 'style="background-image: url('.\lib\filepath::fix($_data['video']).')"';
+				}
 				break;
 
 			case 'none';
@@ -83,7 +158,18 @@ class background_pack
 				break;
 		}
 
-		return implode(' ', $class);
+		if(!a($_data, 'background_opacity'))
+		{
+			$_data['background_opacity'] = background_opacity::default();
+		}
+
+		$class[] = 'bg-opacity-'. $_data['background_opacity'];
+
+		return
+		[
+			'class' => implode(' ', $class),
+			'attr'  => implode(' ', $attr),
+		];
 	}
 
 
