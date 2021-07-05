@@ -157,26 +157,8 @@ class option
 				'height',
 				'ratio',
 
-				'background' =>
-				[
-					'background_pack',
+				'background' => \content_site\options\background\background_pack::get_pack_option_list(),
 
-					// skip draw this option in html
-
-					'background_color',
-					'background_opacity',
-					'background_position',
-					'background_repeat',
-					'background_size',
-
-					'file',
-					'background_gradient_from',
-					'background_gradient_via',
-					'background_gradient_to',
-					'background_gradient_type',
-
-					'video',
-				]
 			],
 		];
 	}

@@ -5,6 +5,40 @@ namespace content_site\options\background;
 class background_pack
 {
 
+	/**
+	 * Everywhere need backgroun pack option use this function
+	 *
+	 * @return     array  The pack option list.
+	 */
+	public static function get_pack_option_list()
+	{
+		return
+		[
+			'background_pack',
+
+			// skip draw this option in html
+
+			'background_color',
+			'background_opacity',
+			'background_position',
+			'background_repeat',
+			'background_size',
+
+			'file',
+
+			'background_gradient_from',
+			'background_gradient_via',
+			'background_gradient_to',
+			'background_gradient_type',
+			'background_gradient_attachment',
+
+			'video',
+		];
+
+	}
+
+
+
 	public static function validator($_data)
 	{
 		$data = \dash\validate::enum($_data, true, ['enum' => ['none', 'solid', 'gradient', 'image', 'video'], 'field_title' => T_('Background Type')]);
@@ -113,6 +147,7 @@ class background_pack
 		$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
 		{
 			$html .= \content_site\options\file::admin_html(...func_get_args());
+			$html .= background_attachment::admin_html(...func_get_args());
 			$html .= background_position::admin_html(...func_get_args());
 			$html .= background_repeat::admin_html(...func_get_args());
 			$html .= background_size::admin_html(...func_get_args());
