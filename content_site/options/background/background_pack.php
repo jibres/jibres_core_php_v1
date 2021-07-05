@@ -41,11 +41,49 @@ class background_pack
 	/**
 	 * Get all class in backgroun
 	 *
-	 * @param      <type>  $_backgroun_pack_array  The backgroun pack array
+	 * @param      <type>  $_data  The backgroun pack array
 	 */
-	public static function get_full_backgroun_class($_backgroun_pack_array)
+	public static function get_full_backgroun_class($_data)
 	{
-		// var_dump($_backgroun_pack_array);exit;
+		// 'background_color' => string 'green-400' (length=9)
+		// 'background_pack' => string 'gradient' (length=8)
+		// 'background_gradient_from' => string 'yellow-500' (length=10)
+		// 'background_gradient_via' => string 'green-400' (length=9)
+		// 'background_gradient_to' => string 'gray-800' (length=8)
+		// 'background_gradient_type' => string 'bg-gradient-to-r' (length=16)
+		// 'file' => string 'local/jb2jr/202107/96-4611c4e65f63b309800eba99ac9d60e1.png' (length=58)
+		// 'video' => string 'local/jb2jr/202107/97-8232f563ee0bc04da39a95f446ff3708.mp4' (length=58)
+		// 'background_opacity' => string '60' (length=2)
+
+		$pack = a($_data, 'background_pack');
+
+		$class = [];
+
+		switch ($pack)
+		{
+			case 'solid';
+				if(!a($_data, 'background_color'))
+				{
+					$_data['background_color'] = background_color::default();
+				}
+
+				$class[] = 'bg-'. $_data['background_color'];
+				break;
+
+			case 'gradient';
+			case 'image';
+			case 'video';
+
+				break;
+
+			case 'none';
+			default:
+				// no backgroun class
+				return null;
+				break;
+		}
+
+		return implode(' ', $class);
 	}
 
 
