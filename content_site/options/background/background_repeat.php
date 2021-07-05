@@ -8,14 +8,12 @@ class background_repeat
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'bg-repeat', 'default' => true];
-		$enum[] = ['key' => 'bg-no-repeat'];
-		$enum[] = ['key' => 'bg-repeat-x'];
-		$enum[] = ['key' => 'bg-repeat-y'];
-		$enum[] = ['key' => 'bg-repeat-round'];
-		$enum[] = ['key' => 'bg-repeat-space'];
-		$enum[] = ['key' => 'bg-right-bottom'];
-
+		$enum[] = ['key' => 'repeat', 'default' => true];
+		$enum[] = ['key' => 'no-repeat'];
+		$enum[] = ['key' => 'repeat-x'];
+		$enum[] = ['key' => 'repeat-y'];
+		$enum[] = ['key' => 'repeat-round'];
+		$enum[] = ['key' => 'repeat-space'];
 
 		return $enum;
 	}
@@ -30,7 +28,7 @@ class background_repeat
 
 	public static function default()
 	{
-		return 'bg-black';
+		return 'repeat';
 	}
 
 
