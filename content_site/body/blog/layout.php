@@ -42,6 +42,9 @@ class layout
 		$background       = \content_site\options\background\background_pack::get_full_backgroun_class(a($_args, 'background'));
 		$background_class = a($background, 'class');
 		$background_attr  = a($background, 'attr');
+		$element          = a($background, 'element');
+
+		$html .= $element;
 
 		$html .= "<div class='$container $height $background_class ' $background_attr>";
 		{

@@ -47,10 +47,11 @@ class background_pack
 	 */
 	public static function get_full_backgroun_class($_data)
 	{
-		$pack = a($_data, 'background_pack');
+		$pack    = a($_data, 'background_pack');
 
-		$class = [];
-		$attr = [];
+		$class   = [];
+		$attr    = [];
+		$element = null;
 
 		switch ($pack)
 		{
@@ -147,7 +148,12 @@ class background_pack
 				// background video
 				if(a($_data, 'video'))
 				{
-					$attr[] = 'style="background-image: url('.\lib\filepath::fix($_data['video']).')"';
+					$element .= '<style type="text/css">#page_background_video { right: 0;  bottom: 0;  min-width: 100%;  min-height: 100%; }</style>';
+					$element .= '<video playsinline autoplay muted loop  id="page_background_video">';
+					{
+						$element .= '<source src="'.\lib\filepath::fix($_data['video']).'" type="video/mp4">';
+					}
+					$element .= '</video>';
 				}
 				break;
 
@@ -167,8 +173,9 @@ class background_pack
 
 		return
 		[
-			'class' => implode(' ', $class),
-			'attr'  => implode(' ', $attr),
+			'class'   => implode(' ', $class),
+			'attr'    => implode(' ', $attr),
+			'element' => $element,
 		];
 	}
 
