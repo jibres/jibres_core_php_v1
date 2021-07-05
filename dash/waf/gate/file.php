@@ -30,11 +30,11 @@ class file
 
 			if(isset($file_detail['name']))
 			{
-				\dash\waf\gate\toys\only::something($file_detail['name']);
+				// \dash\waf\gate\toys\only::something($file_detail['name']);
 
 				\dash\waf\gate\toys\only::text($file_detail['name']);
 
-				\dash\waf\gate\toys\general::len($file_detail['name'], 1, 200);
+				\dash\waf\gate\toys\general::len($file_detail['name'], 0, 200);
 
 				\dash\waf\gate\toys\block::tags($file_detail['name'], $file_name);
 
@@ -55,11 +55,11 @@ class file
 
 			if(isset($file_detail['type']))
 			{
-				\dash\waf\gate\toys\only::something($file_detail['type']);
+				// \dash\waf\gate\toys\only::something($file_detail['type']);
 
 				\dash\waf\gate\toys\only::text($file_detail['type']);
 
-				\dash\waf\gate\toys\general::len($file_detail['type'], 1, 100); // for .docx type
+				\dash\waf\gate\toys\general::len($file_detail['type'], 0, 100); // for .docx type
 
 				\dash\waf\gate\toys\block::tags($file_detail['type'], $file_name);
 
@@ -82,54 +82,24 @@ class file
 				\dash\waf\gate\toys\block::word($file_detail['type'], "*");
 				\dash\waf\gate\toys\block::word($file_detail['type'], "|");
 				\dash\waf\gate\toys\block::word($file_detail['type'], "\\");
-
-				// $allow_type =
-				// [
-				// 	'application/zip',
-				// 	'application/x-rar-compressed',
-				// 	'audio/mpeg',
-				// 	'audio/x-wav',
-				// 	'audio/ogg',
-				// 	'audio/x-ms-wma',
-				// 	'audio/x-m4a',
-				// 	'audio/aac',
-				// 	'image/webp',
-				// 	'image/gif',
-				// 	'image/jpeg',
-				// 	'image/jpeg',
-				// 	'image/png',
-				// 	'application/pdf',
-				// 	'audio/ogg',
-				// 	'video/webm',
-				// 	'video/mpeg',
-				// 	'video/mpeg',
-				// 	'video/mp4',
-				// 	'video/quicktime',
-				// 	'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-				// 	'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-				// 	'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-				// 	'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
-				// 	'text/plain',
-				// 	'text/csv',
-				// ];
-
-				// \dash\waf\gate\toys\only::enum($file_detail['type'], $allow_type);
 			}
 
 			if(isset($file_detail['tmp_name']))
 			{
-				\dash\waf\gate\toys\only::something($file_detail['tmp_name']);
+				// \dash\waf\gate\toys\only::something($file_detail['tmp_name']);
 
 				\dash\waf\gate\toys\only::text($file_detail['tmp_name']);
 
-				\dash\waf\gate\toys\general::len($file_detail['tmp_name'], 1, 100);
+				\dash\waf\gate\toys\general::len($file_detail['tmp_name'], 0, 100);
 
 				$basename = basename($file_detail['tmp_name']);
 
-				\dash\waf\gate\toys\only::something($basename);
+				if($basename)
+				{
+					\dash\waf\gate\toys\only::something($basename);
+				}
 
 				\dash\waf\gate\toys\only::text($basename);
-
 			}
 		}
 	}
