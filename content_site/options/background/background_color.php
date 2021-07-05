@@ -19,39 +19,13 @@ class background_color
 	}
 
 
-	public static function default()
-	{
-		return 'white';
-	}
-
-
-	public static function class_name($_key)
-	{
-		if(!$_key)
-		{
-			return self::default();
-		}
-
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if($value['color'] === $_key)
-			{
-				return $value['color'];
-			}
-		}
-	}
-
-
-
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_color');
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'white';
 		}
 
 		$title = T_("Background Color");
@@ -63,7 +37,8 @@ class background_color
 
 
 	/**
-	 * Use in gradient and other place
+	 * Use in gradient and other place need color html
+	 * Get option name + default value + option title to genetart color html selector
 	 *
 	 * @param      string  $_name     The name
 	 * @param      string  $_default  The default
@@ -101,21 +76,21 @@ class background_color
 			    		$html .= '<div class="grid grid-cols-10">';
 				    	foreach (\content_site\color\color::color_opacity() as $opaicty)
 				    	{
-				    		$myColor = $color. '-'. $opaicty;
-				    		$json = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						    $html .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'></a>";
+							$myColor = $color. '-'. $opaicty;
+							$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+							$html    .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'></a>";
 				    	}
 			    		$html .= '</div>';
 			    	}
 			    	$html .= '<div class="grid grid-cols-2">';
 			    	{
-				    	$myColor = 'white';
-			    		$json = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						$html .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
+						$myColor = 'white';
+						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$html    .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
 
 						$myColor = 'black';
-			    		$json = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						$html .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
+						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
 
 			    	}
 			    	$html .= '</div>';

@@ -41,7 +41,7 @@ class background_pack
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => ['none', 'solid', 'gradient', 'image', 'video'], 'field_title' => T_('Background Type')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => ['none', 'solid', 'gradient', 'image', 'video'], 'field_title' => T_('Background Pack')]);
 		return $data;
 	}
 
@@ -54,8 +54,6 @@ class background_pack
 		{
 			$default = 'solid';
 		}
-
-
 
 		$title = T_("Background");
 

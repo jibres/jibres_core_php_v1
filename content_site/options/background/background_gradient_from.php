@@ -10,10 +10,10 @@ class background_gradient_from extends background_color
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'white';
 		}
 
-		$title = T_("Gradient from");
+		$title = T_("Background Gradient from");
 
 		$html = self::color_html('opt_background_gradient_from', $default, $title);
 

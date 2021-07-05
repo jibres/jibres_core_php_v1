@@ -9,15 +9,15 @@ class background_position
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'bg-bottom'];
-		$enum[] = ['key' => 'bg-center'];
-		$enum[] = ['key' => 'bg-left'];
-		$enum[] = ['key' => 'bg-left-bottom'];
-		$enum[] = ['key' => 'bg-left-top'];
-		$enum[] = ['key' => 'bg-right'];
-		$enum[] = ['key' => 'bg-right-bottom'];
-		$enum[] = ['key' => 'bg-right-top'];
-		$enum[] = ['key' => 'bg-top', 'default' => true];
+		$enum[] = ['key' => 'bottom'];
+		$enum[] = ['key' => 'center'];
+		$enum[] = ['key' => 'left'];
+		$enum[] = ['key' => 'left-bottom'];
+		$enum[] = ['key' => 'left-top'];
+		$enum[] = ['key' => 'right'];
+		$enum[] = ['key' => 'right-bottom'];
+		$enum[] = ['key' => 'right-top'];
+		$enum[] = ['key' => 'top'];
 
 		return $enum;
 	}
@@ -30,48 +30,17 @@ class background_position
 	}
 
 
-	public static function default()
-	{
-		return 'bg-black';
-	}
-
-
-	public static function class_name($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if(isset($value['default']) && $value['default'])
-				{
-					return $value['key'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['key'];
-				}
-			}
-		}
-	}
-
-
-
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_position');
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'center';
 		}
 
 
-		$title = T_("Set item background_position");
+		$title = T_("Background Position");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -90,7 +59,6 @@ class background_position
 
 	        	$html .= "<option value='$value[key]'$selected>";
 	        	$html .= $value['key'];
-	        	// $html .= "<div class='$value[key]'>salam</div>";
 	        	$html .= "</option>";
 	        }
 

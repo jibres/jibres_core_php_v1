@@ -23,7 +23,7 @@ class background_opacity
 		$enum[] = ['key' => '80'];
 		$enum[] = ['key' => '90'];
 		$enum[] = ['key' => '95'];
-		$enum[] = ['key' => '100', 'default' => true];
+		$enum[] = ['key' => '100'];
 
 		return $enum;
 	}
@@ -36,20 +36,13 @@ class background_opacity
 	}
 
 
-	public static function default()
-	{
-		return '100';
-	}
-
-
-
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_opacity');
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = '100';
 		}
 
 

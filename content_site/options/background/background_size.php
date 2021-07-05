@@ -8,9 +8,9 @@ class background_size
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'bg-auto', 'default' => true];
-		$enum[] = ['key' => 'bg-cover'];
-		$enum[] = ['key' => 'bg-contain'];
+		$enum[] = ['key' => 'auto'];
+		$enum[] = ['key' => 'cover'];
+		$enum[] = ['key' => 'contain'];
 
 		return $enum;
 	}
@@ -23,48 +23,17 @@ class background_size
 	}
 
 
-	public static function default()
-	{
-		return 'bg-black';
-	}
-
-
-	public static function class_name($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if(isset($value['default']) && $value['default'])
-				{
-					return $value['key'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['key'];
-				}
-			}
-		}
-	}
-
-
-
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_size');
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'auto';
 		}
 
 
-		$title = T_("Set item background_size");
+		$title = T_("Background size");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -83,7 +52,6 @@ class background_size
 
 	        	$html .= "<option value='$value[key]'$selected>";
 	        	$html .= $value['key'];
-	        	// $html .= "<div class='$value[key]'>salam</div>";
 	        	$html .= "</option>";
 	        }
 

@@ -8,7 +8,7 @@ class background_repeat
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'repeat', 'default' => true];
+		$enum[] = ['key' => 'repeat'];
 		$enum[] = ['key' => 'no-repeat'];
 		$enum[] = ['key' => 'repeat-x'];
 		$enum[] = ['key' => 'repeat-y'];
@@ -26,36 +26,6 @@ class background_repeat
 	}
 
 
-	public static function default()
-	{
-		return 'repeat';
-	}
-
-
-	public static function class_name($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if(isset($value['default']) && $value['default'])
-				{
-					return $value['key'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['key'];
-				}
-			}
-		}
-	}
-
-
 
 	public static function admin_html($_section_detail)
 	{
@@ -63,11 +33,10 @@ class background_repeat
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'repeat';
 		}
 
-
-		$title = T_("Set item background_repeat");
+		$title = T_("Background Repeat");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -86,7 +55,6 @@ class background_repeat
 
 	        	$html .= "<option value='$value[key]'$selected>";
 	        	$html .= $value['key'];
-	        	// $html .= "<div class='$value[key]'>salam</div>";
 	        	$html .= "</option>";
 	        }
 

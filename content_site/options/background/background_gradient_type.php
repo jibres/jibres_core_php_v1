@@ -8,55 +8,24 @@ class background_gradient_type
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'bg-none', 'default' => true];
-		$enum[] = ['key' => 'bg-gradient-to-t'];
-		$enum[] = ['key' => 'bg-gradient-to-tr'];
-		$enum[] = ['key' => 'bg-gradient-to-r'];
-		$enum[] = ['key' => 'bg-gradient-to-br'];
-		$enum[] = ['key' => 'bg-gradient-to-b'];
-		$enum[] = ['key' => 'bg-gradient-to-bl'];
-		$enum[] = ['key' => 'bg-gradient-to-l'];
-		$enum[] = ['key' => 'bg-gradient-to-tl'];
+		$enum[] = ['key' => 'none'];
+		$enum[] = ['key' => 'gradient-to-t'];
+		$enum[] = ['key' => 'gradient-to-tr'];
+		$enum[] = ['key' => 'gradient-to-r'];
+		$enum[] = ['key' => 'gradient-to-br'];
+		$enum[] = ['key' => 'gradient-to-b'];
+		$enum[] = ['key' => 'gradient-to-bl'];
+		$enum[] = ['key' => 'gradient-to-l'];
+		$enum[] = ['key' => 'gradient-to-tl'];
 		return $enum;
 	}
 
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Type')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Gradient Type')]);
 		return $data;
 	}
-
-
-	public static function default()
-	{
-		return null;
-	}
-
-
-	public static function class_name($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if(isset($value['default']) && $value['default'])
-				{
-					return $value['key'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['key'];
-				}
-			}
-		}
-	}
-
 
 
 	public static function admin_html($_section_detail)
@@ -65,11 +34,11 @@ class background_gradient_type
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = 'none';
 		}
 
 
-		$title = T_("Set item background_gradient_type");
+		$title = T_("Background Gradient Type");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -88,7 +57,6 @@ class background_gradient_type
 
 	        	$html .= "<option value='$value[key]'$selected>";
 	        	$html .= $value['key'];
-	        	// $html .= "<div class='$value[key]'>salam</div>";
 	        	$html .= "</option>";
 	        }
 
