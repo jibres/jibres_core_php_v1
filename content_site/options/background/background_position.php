@@ -30,13 +30,19 @@ class background_position
 	}
 
 
+	public static function default()
+	{
+		return 'center';
+	}
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_position');
 
 		if(!$default)
 		{
-			$default = 'center';
+			$default = self::default();
 		}
 
 

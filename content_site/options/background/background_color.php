@@ -19,13 +19,19 @@ class background_color
 	}
 
 
+	public static function default()
+	{
+		return 'white';
+	}
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_color');
 
 		if(!$default)
 		{
-			$default = 'white';
+			$default = self::default();
 		}
 
 		$title = T_("Background Color");
@@ -91,6 +97,14 @@ class background_color
 						$myColor = 'black';
 						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
 						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
+
+						$myColor = 'transparent';
+						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("transparent")."</a>";
+
+						$myColor = 'current';
+						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("current")."</a>";
 
 			    	}
 			    	$html .= '</div>';

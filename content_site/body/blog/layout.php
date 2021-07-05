@@ -36,11 +36,12 @@ class layout
 			$data = [];
 		}
 
-		$html = '';
-		$container = \content_site\options\container::class_name(a($_args, 'container'));
-		$height = \content_site\options\height::class_name(a($_args, 'height'));
+		$html       = '';
+		$container  = \content_site\options\container::class_name(a($_args, 'container'));
+		$height     = \content_site\options\height::class_name(a($_args, 'height'));
+		$background = \content_site\options\background\background_pack::get_full_backgroun_class(a($_args, 'background'));
 
-		$html .= '<div class="'. $container . ' '. $height. '">';
+		$html .= "<div class='$container $height $background'>";
 		{
 			$html .= '<h2>';
 			{

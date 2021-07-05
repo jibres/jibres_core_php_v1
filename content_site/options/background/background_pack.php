@@ -38,6 +38,17 @@ class background_pack
 	}
 
 
+	/**
+	 * Get all class in backgroun
+	 *
+	 * @param      <type>  $_backgroun_pack_array  The backgroun pack array
+	 */
+	public static function get_full_backgroun_class($_backgroun_pack_array)
+	{
+		// var_dump($_backgroun_pack_array);exit;
+	}
+
+
 
 	public static function validator($_data)
 	{
@@ -46,13 +57,20 @@ class background_pack
 	}
 
 
+	public static function default()
+	{
+		return 'none';
+	}
+
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_pack');
 
 		if(!$default)
 		{
-			$default = 'solid';
+			$default = self::default();
 		}
 
 		$title = T_("Background");

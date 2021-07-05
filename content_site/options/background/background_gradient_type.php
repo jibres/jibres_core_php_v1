@@ -28,13 +28,20 @@ class background_gradient_type
 	}
 
 
+	public static function default()
+	{
+		return 'none';
+	}
+
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_gradient_type');
 
 		if(!$default)
 		{
-			$default = 'none';
+			$default = self::default();
 		}
 
 

@@ -36,13 +36,20 @@ class background_opacity
 	}
 
 
+	public static function default()
+	{
+		return '100';
+	}
+
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_opacity');
 
 		if(!$default)
 		{
-			$default = '100';
+			$default = self::default();
 		}
 
 

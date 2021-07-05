@@ -7,6 +7,11 @@ class color
 	public static function list()
 	{
 		$enum = [];
+
+
+		$enum[] = ['color' => 'transparent'];
+		$enum[] = ['color' => 'current'];
+
 		$enum[] = ['color' => 'black'];
 		$enum[] = ['color' => 'white'];
 

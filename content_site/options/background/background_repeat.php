@@ -26,6 +26,12 @@ class background_repeat
 	}
 
 
+	public static function default()
+	{
+		return 'repeat';
+	}
+
+
 
 	public static function admin_html($_section_detail)
 	{
@@ -33,7 +39,7 @@ class background_repeat
 
 		if(!$default)
 		{
-			$default = 'repeat';
+			$default = self::default();
 		}
 
 		$title = T_("Background Repeat");

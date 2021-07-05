@@ -24,6 +24,11 @@ class background_attachment
 	}
 
 
+	public static function default()
+	{
+		return 'scroll';
+	}
+
 
 	public static function admin_html($_section_detail)
 	{
@@ -31,7 +36,7 @@ class background_attachment
 
 		if(!$default)
 		{
-			$default = 'scroll';
+			$default = self::default();
 		}
 
 
