@@ -139,7 +139,7 @@ class background_pack
 					$_data['background_gradient_to'] = background_gradient_to::default();
 				}
 
-				$class[] = 'to-'. $_data['background_gradient_type'];
+				$class[] = 'to-'. $_data['background_gradient_to'];
 
 				break;
 

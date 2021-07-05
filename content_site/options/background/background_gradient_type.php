@@ -30,7 +30,7 @@ class background_gradient_type
 
 	public static function default()
 	{
-		return 'none';
+		return 'gradient-to-b';
 	}
 
 
