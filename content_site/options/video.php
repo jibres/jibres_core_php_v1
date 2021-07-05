@@ -59,44 +59,28 @@ class video
 		$html .= '<form method="post" autocomplete="off" >';
 		{
 			$html .= '<input type="hidden" name="opt_video" value="1">';
-			$html .= '<div ';
-			// upload attr
-			$html .= ' data-uploader';
-			$html .= ' data-name="video"';
-			$html .= ' data-final="#finalVideo"';
-			$html .= ' data-autoSend';
-			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
-			$html .= ' '. \dash\data::ratioHtml();
 
-			if($default)
+			$html .= '<div class="example">';
 			{
-				$html .= " data-fill";
-			}
+				$html .= '<input type="file" name="video" accept="video/*" id="myVideo">';
 
-			$html .= '>';
-
-			$html .= '<input type="file" accept="image/jpeg, image/png" id="myVideo">';
-			$html .= '<label for="myVideo">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
-
-			if($default)
-			{
-				$myExt = substr($default, -3);
-
-				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']))
+				$html .= '<div class="txtRa">';
 				{
-					$html .= '<label for="myVideo"><img id="finalVideo" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
+					$html .= '<button class="btn" type="submit">Upload</button>';
 				}
-				else
-				{
-					$html .= '<label for="myVideo"><img id="finalVideo" src="" alt="'. \dash\data::dataRow_title(). '"></label>';
-				}
-			}
-			else
-			{
-				$html .= '<label for="myVideo"><img id="finalVideo" alt="'. \dash\data::dataRow_title(). '"></label>';
-			}
+				$html .= '</div>';
 
+			}
 			$html .= '</div>';
+
+			if($default)
+			{
+				$html .= '<video width="" height="240" controls>';
+				{
+					$html .= '<source src="'.$default.'" type="video/mp4">';
+				}
+				$html .= '</video>';
+			}
 		}
 		$html .= '</form>';
 
