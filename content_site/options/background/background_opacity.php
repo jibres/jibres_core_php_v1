@@ -9,21 +9,21 @@ class background_opacity
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'bg-opacity-0'];
-		$enum[] = ['key' => 'bg-opacity-5'];
-		$enum[] = ['key' => 'bg-opacity-10'];
-		$enum[] = ['key' => 'bg-opacity-20'];
-		$enum[] = ['key' => 'bg-opacity-25'];
-		$enum[] = ['key' => 'bg-opacity-30'];
-		$enum[] = ['key' => 'bg-opacity-40'];
-		$enum[] = ['key' => 'bg-opacity-50'];
-		$enum[] = ['key' => 'bg-opacity-60'];
-		$enum[] = ['key' => 'bg-opacity-70'];
-		$enum[] = ['key' => 'bg-opacity-75'];
-		$enum[] = ['key' => 'bg-opacity-80'];
-		$enum[] = ['key' => 'bg-opacity-90'];
-		$enum[] = ['key' => 'bg-opacity-95'];
-		$enum[] = ['key' => 'bg-opacity-100', 'default' => true];
+		$enum[] = ['key' => '0'];
+		$enum[] = ['key' => '5'];
+		$enum[] = ['key' => '10'];
+		$enum[] = ['key' => '20'];
+		$enum[] = ['key' => '25'];
+		$enum[] = ['key' => '30'];
+		$enum[] = ['key' => '40'];
+		$enum[] = ['key' => '50'];
+		$enum[] = ['key' => '60'];
+		$enum[] = ['key' => '70'];
+		$enum[] = ['key' => '75'];
+		$enum[] = ['key' => '80'];
+		$enum[] = ['key' => '90'];
+		$enum[] = ['key' => '95'];
+		$enum[] = ['key' => '100', 'default' => true];
 
 		return $enum;
 	}
@@ -38,31 +38,7 @@ class background_opacity
 
 	public static function default()
 	{
-		return 'bg-black';
-	}
-
-
-	public static function class_name($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if(isset($value['default']) && $value['default'])
-				{
-					return $value['key'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['key'];
-				}
-			}
-		}
+		return '100';
 	}
 
 
@@ -77,32 +53,19 @@ class background_opacity
 		}
 
 
-		$title = T_("Set item background_opacity");
+		$title = T_("Background opacity");
+
+		$this_range = array_column(self::enum(), 'key');
 
 		$html = '';
+
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= "<label for='background_opacity'>$title</label>";
-	        $html .= '<select name="opt_background_opacity" class="select22"  id="background_opacity">';
-
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>";
-	        	$html .= $value['key'];
-	        	// $html .= "<div class='$value[key]'>salam</div>";
-	        	$html .= "</option>";
-	        }
-
-	       	$html .= '</select>';
+			$html .= "<label for='opt_background_opacity'>$title</label>";
+			$html .= '<input type="text" name="opt_background_opacity" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
 		}
-  		$html .= '</form>';
+
+		$html .= '</form>';
 
 		return $html;
 	}
