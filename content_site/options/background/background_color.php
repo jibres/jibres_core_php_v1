@@ -83,7 +83,7 @@ class background_color
 				    	foreach (\content_site\color\color::color_opacity() as $opaicty)
 				    	{
 							$myColor = $color. '-'. $opaicty;
-							$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+							$json    = json_encode([$_name => $myColor,]);
 							$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 bg-". $myColor. "'></a>";
 				    	}
 			    		$html .= '</div>';
@@ -91,19 +91,19 @@ class background_color
 			    	$html .= '<div class="grid grid-cols-2">';
 			    	{
 						$myColor = 'white';
-						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$json    = json_encode([$_name => $myColor,]);
 						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
 
 						$myColor = 'black';
-						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$json    = json_encode([$_name => $myColor,]);
 						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
 
 						$myColor = 'transparent';
-						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$json    = json_encode([$_name => $myColor,]);
 						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("transparent")."</a>";
 
 						$myColor = 'current';
-						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
+						$json    = json_encode([$_name => $myColor,]);
 						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("current")."</a>";
 
 			    	}

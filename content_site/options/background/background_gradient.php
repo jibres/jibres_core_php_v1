@@ -154,7 +154,7 @@ class background_gradient
 
 					$myColor = implode(' ', $myColor);
 
-					$json    = json_encode(array_merge($gradient, ['need_redirect' => true, 'multioption' => 'multi', 'opt_background_gradient' => true]));
+					$json    = json_encode(array_merge($gradient, ['multioption' => 'multi', 'opt_background_gradient' => true]));
 					$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 $myColor'></a>";
 	    		}
 	    		$html .= '</div>';
