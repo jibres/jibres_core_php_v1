@@ -26,6 +26,7 @@ class background_pack
 
 			'file',
 
+			'background_gradient',
 			'background_gradient_from',
 			'background_gradient_via',
 			'background_gradient_to',
@@ -282,13 +283,53 @@ class background_pack
 		}
 		$html .= '</div>';
 
-		$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
+
+		$html .= '<div data-response="opt_background_gradient" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 		{
-			$html .= \content_site\color\gradient::sample_selector();
-			$html .= background_gradient_from::admin_html(...func_get_args());
-			$html .= background_gradient_via::admin_html(...func_get_args());
-			$html .= background_gradient_to::admin_html(...func_get_args());
-			$html .= background_gradient_type::admin_html(...func_get_args());
+			$default_gradient = background_gradient::template_or_custom(...func_get_args());
+
+			$html .= '<div class="row">';
+			{
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+				{
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="gradient_custom" value="template" id="background_pack_template" '.(($default_gradient === 'template') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_template">Template</label>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+				{
+					$html .= '<div class="radio3">';
+					{
+						$html .= '<input type="radio" name="gradient_custom" value="custom" id="background_pack_custom" '.(($default_gradient === 'custom') ? "checked" : null ).'>';
+						$html .= '<label for="background_pack_custom">Costom</label>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+			$html .= '<div data-response="gradient_custom" data-response-where="template" '.(($default_gradient === 'template') ? null : 'data-response-hide').'>';
+			{
+				$html .= background_gradient::admin_html(...func_get_args());
+			}
+			$html .= '</div>';
+
+			$html .= '<div data-response="gradient_custom" data-response-where="custom" '.(($default_gradient === 'custom') ? null : 'data-response-hide').'>';
+			{
+
+				$html .= background_gradient_from::admin_html(...func_get_args());
+				$html .= background_gradient_via::admin_html(...func_get_args());
+				$html .= background_gradient_to::admin_html(...func_get_args());
+				$html .= background_gradient_type::admin_html(...func_get_args());
+			}
+			$html .= '</div>';
+
 		}
 		$html .= '</div>';
 

@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_gradient_type
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'none'];

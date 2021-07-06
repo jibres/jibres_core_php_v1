@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_color
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = \content_site\color\color::list();
 		return $enum;
