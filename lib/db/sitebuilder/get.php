@@ -18,5 +18,28 @@ class get
 
 		return $result;
 	}
+
+
+
+
+	public static function line_list_preview(int $_id)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				pagebuilder
+			WHERE
+				pagebuilder.related_id = $_id
+			ORDER BY
+				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				pagebuilder.sort_preview ASC,
+				pagebuilder.id ASC
+			LIMIT 1000
+		";
+		$result = \dash\db::get($query);
+		return $result;
+	}
 }
 ?>

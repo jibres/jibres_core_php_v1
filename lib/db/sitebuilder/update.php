@@ -11,7 +11,7 @@ class update
 
 		foreach ($_sort as $sort => $id)
 		{
-			$query[] = "UPDATE pagebuilder SET pagebuilder.sort = :sort WHERE pagebuilder.id = :id LIMIT 1 ";
+			$query[] = "UPDATE pagebuilder SET pagebuilder.sort_preview = :sort WHERE pagebuilder.id = :id LIMIT 1 ";
 			$param[] = [':sort' => $sort, ':id' => $id];
 		}
 

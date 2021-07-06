@@ -95,7 +95,7 @@ class controller
 			return false;
 		}
 
-		$section_list = \lib\db\pagebuilder\get::line_list($page_id);
+		$section_list = \lib\db\sitebuilder\get::line_list_preview($page_id);
 
 		if(!is_array($section_list))
 		{
