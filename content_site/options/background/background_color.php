@@ -60,7 +60,7 @@ class background_color
 	    		{
 		      		$html .= "<div class='item f' data-kerkere='.showColorPreview_". $_name. "'>";
 		      		{
-		        		$html .= "<div class='h-12 w-20 bg-". $_default. "'></div>";
+		        		$html .= "<div title='$_default' class='h-12 w-20 bg-". $_default. "'></div>";
 		        		$html .= '<div class="key">'. $_title. '</div>';
 		      		}
 		      		$html .= '</div>';
@@ -84,7 +84,7 @@ class background_color
 				    	{
 							$myColor = $color. '-'. $opaicty;
 							$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
-							$html    .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'></a>";
+							$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 bg-". $myColor. "'></a>";
 				    	}
 			    		$html .= '</div>';
 			    	}
@@ -92,19 +92,19 @@ class background_color
 			    	{
 						$myColor = 'white';
 						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						$html    .= "<a data-ajaxify data-data='$json' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
+						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
 
 						$myColor = 'black';
 						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
+						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
 
 						$myColor = 'transparent';
 						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("transparent")."</a>";
+						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("transparent")."</a>";
 
 						$myColor = 'current';
 						$json    = json_encode([$_name => $myColor, 'need_redirect' => true]);
-						$html    .= "<a data-ajaxify data-data='$json' class='h-12 text-white bg-". $myColor. "'>".T_("current")."</a>";
+						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("current")."</a>";
 
 			    	}
 			    	$html .= '</div>';
