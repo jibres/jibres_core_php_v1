@@ -165,7 +165,7 @@ class background_pack
 				break;
 		}
 
-		if(!a($_data, 'background_opacity'))
+		if(is_null(a($_data, 'background_opacity')))
 		{
 			$_data['background_opacity'] = background_opacity::default();
 		}

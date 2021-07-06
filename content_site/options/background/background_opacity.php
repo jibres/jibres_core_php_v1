@@ -31,7 +31,7 @@ class background_opacity
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Opacity')]);
+		$data = \dash\validate::enum(a($_data, 'background_opacity'), true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Opacity')]);
 		return $data;
 	}
 
@@ -47,11 +47,10 @@ class background_opacity
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_opacity');
 
-		if(!$default)
+		if(is_null($default))
 		{
 			$default = self::default();
 		}
-
 
 		$title = T_("Background opacity");
 
@@ -61,8 +60,10 @@ class background_opacity
 
 		$html .= '<form method="post" data-patch>';
 		{
+			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= '<input type="hidden" name="opt_background_opacity" value="1">';
 			$html .= "<label for='opt_background_opacity'>$title</label>";
-			$html .= '<input type="text" name="opt_background_opacity" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
+			$html .= '<input type="text" name="background_opacity" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
 		}
 
 		$html .= '</form>';
