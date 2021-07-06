@@ -47,6 +47,7 @@ class btn_viewall
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
+	    	$html .= '<input type="hidden" name="not_redirect" value="1">';
 
 			$html .= '<div class="check1 py-0">';
 			{

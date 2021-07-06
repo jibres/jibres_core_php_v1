@@ -212,7 +212,11 @@ class model
 
 		\dash\pdo::commit();
 
-		if(\dash\request::post('need_redirect'))
+		if(\dash\request::post('not_redirect'))
+		{
+			// needless to redirect
+		}
+		else
 		{
 			\dash\redirect::pwd();
 		}

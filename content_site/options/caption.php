@@ -30,6 +30,8 @@ class caption
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
+			$html .= '<input type="hidden" name="not_redirect" value="1">';
+
 	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
 
 			$html .= '<div class="input">';
