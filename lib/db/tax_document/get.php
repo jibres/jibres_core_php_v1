@@ -28,9 +28,15 @@ class get
 	}
 
 
-	public static function last_number()
+	public static function last_number($_year_id = null)
 	{
-		$query = "SELECT MAX(tax_document.number) as `number` FROM tax_document ";
+		$year_id = null;
+		if($_year_id)
+		{
+			$year_id = "WHERE tax_document.year_id = '$_year_id' ";
+		}
+		$query = "SELECT MAX(tax_document.number) as `number` FROM tax_document $year_id";
+
 		$result = \dash\db::get($query, 'number', true);
 		return $result;
 	}

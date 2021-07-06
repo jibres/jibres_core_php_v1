@@ -6,7 +6,16 @@ class get
 {
 	public static function new_doc_number()
 	{
-		$get_last = \lib\db\tax_document\get::last_number();
+		$default_year = \lib\app\tax\year\get::default_year();
+
+		$year_id = null;
+		if(isset($default_year['id']))
+		{
+			$year_id = $default_year['id'];
+		}
+
+		$get_last = \lib\db\tax_document\get::last_number($year_id);
+
 		if(!$get_last || !is_numeric($get_last))
 		{
 			return 1;
