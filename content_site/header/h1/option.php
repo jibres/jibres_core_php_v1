@@ -118,6 +118,9 @@ class option
 			'options' =>
 			[
 				'heading',
+				'menu_1',
+				'menu_2',
+				'background' => \content_site\options\background\background_pack::get_pack_option_list(),
 				'header_change',
 			],
 		];
