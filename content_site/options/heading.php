@@ -12,20 +12,9 @@ class heading
 	}
 
 
-	public static function default()
-	{
-		return T_('Title');
-	}
-
-
 	public static function admin_html($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('heading');
-
-		if(!$default)
-		{
-			$default = self::default();
-		}
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
