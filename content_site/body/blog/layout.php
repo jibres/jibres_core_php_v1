@@ -59,17 +59,17 @@ class layout
 		$previewMode = a($_args, 'preview_mode');
 		$id          = a($_args, 'id');
 		$type        = a($_args, 'type');
-		$type        = 'type1';
+		$type        = 'b1';
 
 
 
-		$html .= "<$cnElement class='$container $height $background_class' $background_attr>";
+		$html .= "<$cnElement data-type='$type' class='$container $height $background_class' $background_attr>";
 		{
 
 			switch ($type)
 			{
-				case 'type1':
-					$html .= type1::html($_args, $blogList, $id);
+				case 'b1':
+					$html .= b1::html($_args, $blogList, $id);
 					break;
 
 				default:

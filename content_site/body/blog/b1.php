@@ -2,7 +2,7 @@
 namespace content_site\body\blog;
 
 
-class type1
+class b1
 {
 	public static function html($_args, $_blogList, $_id)
 	{
