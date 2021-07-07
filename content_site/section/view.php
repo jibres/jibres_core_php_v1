@@ -273,9 +273,11 @@ class view
 			$default = [];
 		}
 
-		$result['preview']        = array_merge($detail, $default, $result['preview']);
+		$result['preview']                 = array_merge($detail, $default, $result['preview']);
+		$result['preview']['id']           = a($result, 'id');
+		$result['preview']['preview_mode'] = true;
 
-		$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview'], true, $result);
+		$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
 
 		$result['body']           = array_merge($detail, $default, $result['body']);
 
