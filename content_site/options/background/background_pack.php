@@ -34,6 +34,13 @@ class background_pack
 			'background_gradient_attachment',
 
 			'video',
+
+			'color_text',
+			'color_text_hover',
+			'color_text_focus',
+			'color_opacity',
+
+
 		];
 
 	}
@@ -324,6 +331,13 @@ class background_pack
 			$html .= background_opacity::admin_html(...func_get_args());
 		}
 		$html .= '</div>';
+
+		$html .= '<label class="mt-10">'. T_("Text Color"). '</label>';
+
+		$html .= \content_site\options\color\color_text::admin_html(...func_get_args());
+		$html .= \content_site\options\color\color_text_hover::admin_html(...func_get_args());
+		$html .= \content_site\options\color\color_text_focus::admin_html(...func_get_args());
+		$html .= \content_site\options\color\color_opacity::admin_html(...func_get_args());
 
 		return $html;
 	}

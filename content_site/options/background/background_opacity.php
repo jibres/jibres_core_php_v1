@@ -54,6 +54,22 @@ class background_opacity
 
 		$title = T_("Background opacity");
 
+		return self::opacity_html('opt_background_opacity', $default, $title);
+
+	}
+
+
+	/**
+	 * Use in color opacity
+	 *
+	 * @param      <type>  $_name     The name
+	 * @param      <type>  $_default  The default
+	 * @param      <type>  $_title    The title
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function opacity_html($_name, $_default, $_title)
+	{
 		$this_range = array_column(self::enum(), 'key');
 
 		$html = '';
@@ -61,14 +77,15 @@ class background_opacity
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
-			$html .= '<input type="hidden" name="opt_background_opacity" value="1">';
-			$html .= "<label for='opt_background_opacity'>$title</label>";
-			$html .= '<input type="text" name="background_opacity" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
+			$html .= "<input type='hidden' name='$_name' value='1'>";
+			$html .= "<label for='$_name'>$_title</label>";
+			$html .= '<input type="text" name="background_opacity" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($_default, $this_range).'" value="'.array_search($_default, $this_range).'" data-values="'. implode(',', $this_range). '">';
 		}
 
 		$html .= '</form>';
 
 		return $html;
+
 	}
 
 }
