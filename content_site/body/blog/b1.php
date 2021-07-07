@@ -12,27 +12,72 @@ class b1
 		{
 			$html .= '<header>';
 			{
-				$html .= '<h2';
+				$html .= '<h3';
+				$html .= ' class="font-bold text-6xl mb-10"';
 				$html .= " data-sync-apply='heading-$_id'";
 				$html .= '>';
 				{
 					$html .= a($_args, 'heading');
 				}
-				$html .= '</h2>';
+				$html .= '</h3>';
 			}
 			$html .= '</header>';
 		}
 
-		$html .= '<nav>';
+		$html .= '<div class="grid grid-cols-3 gap-6">';
 		{
 			foreach ($_blogList as $key => $value)
 			{
-				$html .= '<a class="block" href="'. a($value, 'link'). '">';
-				$html .= a($value, 'title');
-				$html .= '</a>';
+				// a img
+				// h2 a
+				$myLink    = a($value, 'link');
+				$myTitle   = a($value, 'title');
+				$myThumb   = a($value, 'thumb');
+				$myExcerpt = a($value, 'excerpt');
+
+				$card = '';
+				$card .= '<div class="max-w-sm rounded-lg overflow-hidden shadow-lg">';
+				{
+					// thumb
+					if($myThumb)
+					{
+						$card .= "<a class='block' href='$myLink'>";
+						{
+							$card .= "<img class='block w-full' src='$myThumb' alt='$myTitle'>";
+						}
+						$card .= "</a>";
+					}
+
+					$card .= "<div class='px-6 py-4'>";
+					{
+						// title
+						$card .= '<h2>';
+						{
+							$card .= "<a class='block font-bold text-xl mb-5' href='$myLink'>";
+							{
+								$card .= $myTitle;
+							}
+							$card .= "</a>";
+						}
+						$card .= '</h2>';
+
+						if($myExcerpt)
+						{
+							$card .= "<p class='text-gray-700 text-base'>";
+							$card .= $myExcerpt;
+							$card .= "</p>";
+
+						}
+					}
+					$card .= '</div>';
+				}
+				$card .= '</div>';
+
+				// save card
+				$html .= $card;
 			}
 		}
-		$html .= '</nav>';
+		$html .= '</div>';
 
 		return $html;
 	}
