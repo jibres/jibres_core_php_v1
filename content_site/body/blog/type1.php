@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class type1
 {
-	public static function html($_args, $_blogList)
+	public static function html($_args, $_blogList, $_id)
 	{
 		$html             = '';
 
@@ -13,15 +13,7 @@ class type1
 			$html .= '<header>';
 			{
 				$html .= '<h2';
-
-				if(a($_args, 'id'))
-				{
-					$sync = 'heading-'. a($_args, 'id');
-					if($sync)
-					{
-						$html .= " data-sync='$sync'";
-					}
-				}
+				$html .= " data-sync='heading-$_id'";
 				$html .= '>';
 				{
 					$html .= a($_args, 'heading');

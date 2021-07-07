@@ -15,7 +15,6 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-		// var_dump($_args);exit;
 		$line_detail =
 		[
 			'title'     => a($_args, 'heading'),
@@ -24,16 +23,19 @@ class layout
 			'limit'     => a($_args, 'limit'),
 		];
 
-		$blogList = \dash\app\posts\load::sitebuilder_template($line_detail);
+		$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
+		$blogList = null;
 
-		if(isset($blogList['list']))
+		if(isset($dataList['list']) && is_array($dataList['list']))
 		{
-			$blogList = $blogList['list'];
+			$blogList = $dataList['list'];
 		}
 
 		if(!is_array($blogList))
 		{
-			$blogList = [];
+			// error
+			// it will not happend because we fill it in all conditions
+			return null;
 		}
 
 		$html             = '';
@@ -45,27 +47,36 @@ class layout
 		$element          = a($background, 'element');
 
 		$html .= $element;
-		$containerElementType = 'div';
+
+		// element type
+		$cnElement = 'div';
 		if(a($_args, 'heading') !== null)
 		{
-			$containerElementType = 'section';
+			$cnElement = 'section';
 		}
 
-		$type = 'type1';
+		// define variables
+		$previewMode = a($_args, 'preview_mode');
+		$id          = a($_args, 'id');
+		$type        = a($_args, 'type');
+		$type        = 'type1';
 
-		$html .= "<$containerElementType class='$container $height $background_class' $background_attr>";
+
+
+		$html .= "<$cnElement class='$container $height $background_class' $background_attr>";
 		{
+
 			switch ($type)
 			{
 				case 'type1':
-					$html .= type1::html($_args, $blogList);
+					$html .= type1::html($_args, $blogList, $id);
 					break;
 
 				default:
 					break;
 			}
 		}
-		$html .= "</$containerElementType>";
+		$html .= "</$cnElement>";
 
 
 		return $html;
