@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_opacity
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 

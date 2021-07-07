@@ -188,10 +188,15 @@ class background_pack
 	}
 
 
+	public static function enum()
+	{
+		return ['none', 'solid', 'gradient', 'image', 'video'];
+	}
+
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => ['none', 'solid', 'gradient', 'image', 'video'], 'field_title' => T_('Background Pack')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => self::enum(), 'field_title' => T_('Background Pack')]);
 		return $data;
 	}
 
