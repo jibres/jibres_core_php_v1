@@ -24,7 +24,7 @@ class b1
 			$html .= '</header>';
 		}
 
-		$html .= '<div class="grid grid-cols-3 gap-6">';
+		$html .= '<div class="grid grid-cols-3 gap-6 justify-center">';
 		{
 			foreach ($_blogList as $key => $value)
 			{
@@ -36,7 +36,7 @@ class b1
 				$myExcerpt = a($value, 'excerpt');
 
 				$card = '';
-				$card .= '<div class="max-w-sm rounded-lg overflow-hidden shadow-lg">';
+				$card .= '<div data-card class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white ">';
 				{
 					// thumb
 					if($myThumb)

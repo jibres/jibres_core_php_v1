@@ -63,18 +63,22 @@ class layout
 
 
 
-		$html .= "<$cnElement data-type='$type' class='$container $height $background_class' $background_attr>";
+		$html .= "<$cnElement data-type='$type' class='$height $background_class' $background_attr>";
 		{
-
-			switch ($type)
+			$html .= "<div class='$container'>";
 			{
-				case 'b1':
-					$html .= b1::html($_args, $blogList, $id);
-					break;
+				switch ($type)
+				{
+					case 'b1':
+						$html .= b1::html($_args, $blogList, $id);
+						break;
 
-				default:
-					break;
+					default:
+						break;
+				}
+
 			}
+			$html .= "</div>";
 		}
 		$html .= "</$cnElement>";
 
