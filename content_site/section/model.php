@@ -38,7 +38,7 @@ class model
 
 		if(!$section_id)
 		{
-			\dash\notif::error(T_("Invalid section id"));
+			\dash\notif::error(T_("Invalid section id"). ' '. __LINE__);
 			return false;
 		}
 
@@ -88,13 +88,18 @@ class model
 
 		if(!$option_key || !is_string($option_key))
 		{
-			\dash\notif::error(T_("Option key not found!"));
+			\dash\notif::error(T_("Option key not found!"). ' '. __LINE__);
 			return false;
 		}
 
-		if(!in_array($option_key, $options_list))
+
+		if(in_array($option_key, $options_list) || (is_array(a($options_list, $option_key))))
 		{
-			\dash\notif::error(T_("Invalid option"));
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Invalid option"). ' '. __LINE__);
 			return false;
 		}
 
