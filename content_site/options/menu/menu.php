@@ -44,7 +44,6 @@ trait menu
 
 		$default = \content_site\section\view::get_current_index_detail($header_menu_key);
 
-
 		$title           = T_("Menu");
 
 		$html = '';
@@ -58,7 +57,7 @@ trait menu
 			{
 
 
-				$html .= '<select name="'. $header_menu_key. '" id="idmenu_'. $header_menu_key. '" class="select22" data-placeholder="'. T_("Choose one menu"). '">';
+				$html .= '<select name="opt_'. $header_menu_key. '" id="idmenu_'. $header_menu_key. '" class="select22" data-placeholder="'. T_("Choose one menu"). '">';
 				{
 					if($default)
 					{

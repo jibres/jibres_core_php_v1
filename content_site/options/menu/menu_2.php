@@ -8,7 +8,7 @@ class menu_2
 
 	public static function get_menu_name()
 	{
-		return 'opt_menu_2';
+		return 'menu_2';
 	}
 
 }
