@@ -13,7 +13,7 @@ class type1
 			$html .= '<header>';
 			{
 				$html .= '<h2';
-				$html .= " data-sync='heading-$_id'";
+				$html .= " data-sync-apply='heading-$_id'";
 				$html .= '>';
 				{
 					$html .= a($_args, 'heading');
