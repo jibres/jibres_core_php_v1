@@ -224,9 +224,9 @@ class background_pack
 			// $html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<div class="row">';
 			{
-				$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
 				{
-					$html .= '<div class="radio3">';
+					$html .= '<div class="radio1">';
 					{
 						$html .= '<input type="radio" name="opt_background_pack" value="none" id="background_pack_none" '.(($default === 'none') ? "checked" : null ).'>';
 						$html .= '<label for="background_pack_none">None</label>';
@@ -235,9 +235,9 @@ class background_pack
 				}
 				$html .= '</div>';
 
-				$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
 				{
-					$html .= '<div class="radio3">';
+					$html .= '<div class="radio1">';
 					{
 						$html .= '<input type="radio" name="opt_background_pack" value="solid" id="background_pack_solid" '.(($default === 'solid') ? "checked" : null ).'>';
 						$html .= '<label for="background_pack_solid">Solid</label>';
@@ -246,9 +246,9 @@ class background_pack
 				}
 				$html .= '</div>';
 
-				$html .= '<div class="c-xs-12 c-sm-12 c-md-4 mt-5">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
 				{
-					$html .= '<div class="radio3">';
+					$html .= '<div class="radio1">';
 					{
 						$html .= '<input type="radio" name="opt_background_pack" value="gradient" id="background_pack_gradient" '.(($default === 'gradient') ? "checked" : null ).'>';
 						$html .= '<label for="background_pack_gradient">Gradient</label>';
@@ -257,9 +257,9 @@ class background_pack
 				}
 				$html .= '</div>';
 
-				$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
 				{
-					$html .= '<div class="radio3">';
+					$html .= '<div class="radio1">';
 					{
 						$html .= '<input type="radio" name="opt_background_pack" value="image" id="background_pack_image" '.(($default === 'image') ? "checked" : null ).'>';
 						$html .= '<label for="background_pack_image">Image</label>';
@@ -268,9 +268,9 @@ class background_pack
 				}
 				$html .= '</div>';
 
-				$html .= '<div class="c-xs-12 c-sm-12 c-md-6 mt-5">';
+				$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
 				{
-					$html .= '<div class="radio3">';
+					$html .= '<div class="radio1">';
 					{
 						$html .= '<input type="radio" name="opt_background_pack" value="video" id="background_pack_video" '.(($default === 'video') ? "checked" : null ).'>';
 						$html .= '<label for="background_pack_video">Video</label>';
