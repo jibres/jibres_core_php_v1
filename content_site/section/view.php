@@ -275,7 +275,7 @@ class view
 
 		$result['preview']        = array_merge($detail, $default, $result['preview']);
 
-		$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
+		$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview'], true, $result);
 
 		$result['body']           = array_merge($detail, $default, $result['body']);
 
