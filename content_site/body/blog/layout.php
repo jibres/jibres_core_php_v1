@@ -24,16 +24,16 @@ class layout
 			'limit'     => a($_args, 'limit'),
 		];
 
-		$data = \dash\app\posts\load::sitebuilder_template($line_detail);
+		$blogList = \dash\app\posts\load::sitebuilder_template($line_detail);
 
-		if(isset($data['list']))
+		if(isset($blogList['list']))
 		{
-			$data = $data['list'];
+			$blogList = $blogList['list'];
 		}
 
-		if(!is_array($data))
+		if(!is_array($blogList))
 		{
-			$data = [];
+			$blogList = [];
 		}
 
 		$html             = '';
@@ -45,27 +45,27 @@ class layout
 		$element          = a($background, 'element');
 
 		$html .= $element;
-
-		$html .= "<div class='$container $height $background_class ' $background_attr>";
+		$containerElementType = 'div';
+		if(a($_args, 'heading') !== null)
 		{
-			$html .= '<h2>';
-			{
-				$html .= a($_args, 'heading');
-			}
-			$html .= '</h2>';
-
-			$html .= '<nav>';
-			{
-				foreach ($data as $key => $value)
-				{
-					$html .= '<a class="block" href="'. a($value, 'link'). '">';
-					$html .= a($value, 'title');
-					$html .= '</a>';
-				}
-			}
-			$html .= '</nav>';
+			$containerElementType = 'section';
 		}
-		$html .= '</div>';
+
+		$type = 'type1';
+
+		$html .= "<$containerElementType class='$container $height $background_class' $background_attr>";
+		{
+			switch ($type)
+			{
+				case 'type1':
+					$html .= type1::html($_args, $blogList);
+					break;
+
+				default:
+					break;
+			}
+		}
+		$html .= "</$containerElementType>";
 
 
 		return $html;
