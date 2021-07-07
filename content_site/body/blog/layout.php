@@ -41,7 +41,7 @@ class layout
 		$html             = '';
 		$container        = \content_site\options\container::class_name(a($_args, 'container'));
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background       = \content_site\options\background\background_pack::get_full_backgroun_class(a($_args, 'background'));
+		$background       = \content_site\options\background\background_pack::get_full_backgroun_class(a($_args, 'style'));
 		$background_class = a($background, 'class');
 		$background_attr  = a($background, 'attr');
 		$element          = a($background, 'element');
