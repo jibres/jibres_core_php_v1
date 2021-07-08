@@ -231,9 +231,9 @@ class model
 		{
 			\dash\notif::complete();
 
-			$url = \dash\url::current();
-			$url .= \dash\request::full_get(['xhr' => 'main']);
-			\dash\redirect::to($url);
+			\dash\notif::redirectHeaders(['x-xhr' => 'main']);
+
+			\dash\redirect::pwd();
 		}
 
 

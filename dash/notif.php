@@ -243,6 +243,11 @@ class notif
 		self::add_detail('redirect', $_url);
 	}
 
+	public static function redirectHeaders($_headers)
+	{
+		self::add_detail('redirectHeaders', $_headers);
+	}
+
 
 	public static function result($_result)
 	{
