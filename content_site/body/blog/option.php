@@ -132,19 +132,24 @@ class option
 			// text
 			'heading',
 
+
+			'group_filter',
 			// select
 			'post_tag',
 			'post_template',
-			// range
-			'count_3',
-			// select
-			'type',
-			'height',
-
 			// radio
 			'post_show_author',
 			'post_show_date',
 			'btn_viewall',
+			// range
+			'count_3',
+
+
+			'group_design',
+			// select
+			'type',
+			'height',
+
 
 			// range
 			'container',
