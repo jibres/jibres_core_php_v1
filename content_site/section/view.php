@@ -249,34 +249,36 @@ class view
 
 		$detail  = [];
 
+		$detail = \content_site\call_function::detail($section_key);
+
+		if(!is_array($detail))
+		{
+			$detail = [];
+		}
+
+		$default = \content_site\call_function::default($section_key);
+
+		if(!is_array($default))
+		{
+			$default = [];
+		}
+
+		$result['preview']                 = array_merge($detail, $default, $result['preview']);
+		$result['preview']['id']           = a($result, 'id');
+		$result['preview']['preview_mode'] = true;
+		$result['preview_layout']          = null;
+
 		if(a($result, 'status_preview') === 'hidden')
 		{
 			// needless to generate layout
 		}
 		else
 		{
-
-			$detail = \content_site\call_function::detail($section_key);
-
-			if(!is_array($detail))
-			{
-				$detail = [];
-			}
-
-			$default = \content_site\call_function::default($section_key);
-
-			if(!is_array($default))
-			{
-				$default = [];
-			}
-
-			$result['preview']                 = array_merge($detail, $default, $result['preview']);
-			$result['preview']['id']           = a($result, 'id');
-			$result['preview']['preview_mode'] = true;
-
 			$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
-
 		}
+
+
+
 
 		// $result['body']           = array_merge($detail, $default, $result['body']);
 

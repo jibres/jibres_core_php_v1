@@ -21,7 +21,7 @@ else
 
 
 <?php if(\dash\data::btnSaveSiteBuilder()) { ?>
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" action="<?php echo \dash\url::here(). '/page?id='. \dash\request::get('id'); ?>">
   <input type="hidden" name="savepage" value="savepage">
   <button class="inline-block mx-5 px-10 text-center text-white transition bg-blue-400 rounded-lg shadow hover:shadow-lg hover:bg-blue-500 hover:text-gray-50 focus:outline-none cursor-pointer "><?php echo T_("Save"); ?></button>
 </form>
