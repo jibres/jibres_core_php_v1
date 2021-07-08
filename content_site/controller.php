@@ -32,6 +32,11 @@ class controller
 		{
 			\dash\permission::deny();
 		}
+
+		if(in_array(\dash\url::module(), ['body', 'header', 'footer', 'options']))
+		{
+			\dash\header::status(404);
+		}
 	}
 
 
