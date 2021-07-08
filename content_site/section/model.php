@@ -229,19 +229,11 @@ class model
 		}
 		else
 		{
-			\dash\redirect::pwd();
-
-
 			\dash\notif::complete();
-			\dash\code::compile();
-			// echo '{"title":"sasadsadsadasd | رضا مارکت","subdomain":null,"content":"site","page":"page","panel":null,"env":"$jb2jr","siteBuilder":"","scriptPage":"a_site_builder.js"}';
-			echo "\n";
-			echo "\n";
-			echo '<div data-xhr="siteBuilderContent">';
-			echo 'salam';
-			echo '</div>';
-			\dash\code::boom();
 
+			$url = \dash\url::current();
+			$url .= \dash\request::full_get(['xhr' => 'main']);
+			\dash\redirect::to($url);
 		}
 
 
