@@ -7,7 +7,7 @@ function cronjob_server()
 {
 
 	// cun cronjob by this code
-	// php /home/reza/projects/jibres/public_html/index.php '{"trust_token":"123","HTTP_HOST":"mohiti.jibres.local","SERVER_NAME":"jibres.local","SERVER_PORT":"80","SERVER_PROTOCOL":"HTTP/1.1","REQUEST_URI":"/a","REQUEST_METHOD":"POST","SCRIPT_FILENAME":"/home/reza/projects/jibres/public_html/index.php"}' &
+	// php /home/reza/projects/jibres/public_html/index.php php_run_jibres_cronjob &
 	if(!isset($GLOBALS['argv'][1]))
 	{
 		return false;

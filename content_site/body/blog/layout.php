@@ -17,13 +17,15 @@ class layout
 	{
 		$line_detail =
 		[
-			'title'     => a($_args, 'heading'),
-			'tag_id'    => a($_args, 'tag_id'),
-			'subtype'   => a($_args, 'post_template'),
-			'limit'     => a($_args, 'limit'),
+			'tag_id'            => a($_args, 'post_tag'),
+			'subtype'           => a($_args, 'post_template'),
+			'limit'             => a($_args, 'limit'),
+			'post_show_author'  => a($_args, 'post_show_author'),
+			'btn_viewall_check' => a($_args, 'btn_viewall_check'),
 		];
 
 		$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
+
 		$blogList = null;
 
 		if(isset($dataList['list']) && is_array($dataList['list']))
@@ -37,6 +39,9 @@ class layout
 			// it will not happend because we fill it in all conditions
 			return null;
 		}
+
+		// link of view all btn
+		$btn_viewall_link = a($dataList, 'link');
 
 		$html             = '';
 		$container        = \content_site\options\container::class_name(a($_args, 'container'));

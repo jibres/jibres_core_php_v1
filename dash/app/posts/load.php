@@ -59,13 +59,25 @@ class load
 	}
 
 
+
+	/**
+	 * Load post by some condition
+	 *
+	 * @param      <type>  $_detail  The detail
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
 	public static function sitebuilder_template($_detail)
 	{
-		$line_title = a($_detail, 'title');
-		$tag_id     = a($_detail, 'tag_id');
-		$subtype    = a($_detail, 'subtype');
-		$limit      = a($_detail, 'limit');
-		$line_link  = a($_detail, 'line_link');
+
+		$tag_id            = $_detail['tag_id'];
+		$subtype           = $_detail['subtype'];
+		$limit             = $_detail['limit'];
+
+		$post_show_author  = $_detail['post_show_author'];
+		$btn_viewall_check = $_detail['btn_viewall_check'];
+
+		$link              = null;
 
 		if(!$limit)
 		{
@@ -77,12 +89,13 @@ class load
 			$subtype = null;
 		}
 
-		if(!$line_link && $tag_id)
+		if($tag_id)
 		{
 			$load_tag = \dash\app\terms\get::get($tag_id, true);
+
 			if(isset($load_tag['link']))
 			{
-				$line_link = $load_tag['link'];
+				$link = $load_tag['link'];
 			}
 		}
 
@@ -97,10 +110,9 @@ class load
 
 		$list = \dash\app\posts\search::list(null, $args, true);
 
-		$result              = [];
-		$result['title']     = $line_title;
-		$result['line_link'] = $line_link;
-		$result['list']      = $list;
+		$result         = [];
+		$result['link'] = $link;
+		$result['list'] = $list;
 
 		return $result;
 	}
