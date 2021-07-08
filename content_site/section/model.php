@@ -217,6 +217,12 @@ class model
 
 		\dash\pdo::commit();
 
+		self::end();
+	}
+
+
+	private static function end()
+	{
 		if(\dash\request::post('not_redirect'))
 		{
 			// needless to redirect
@@ -224,9 +230,20 @@ class model
 		else
 		{
 			\dash\redirect::pwd();
+
+
+			\dash\notif::complete();
+			\dash\code::compile();
+			// echo '{"title":"sasadsadsadasd | رضا مارکت","subdomain":null,"content":"site","page":"page","panel":null,"env":"$jb2jr","siteBuilder":"","scriptPage":"a_site_builder.js"}';
+			echo "\n";
+			echo "\n";
+			echo '<div data-xhr="siteBuilderContent">';
+			echo 'salam';
+			echo '</div>';
+			\dash\code::boom();
+
 		}
 
-		\dash\notif::complete();
 
 	}
 
