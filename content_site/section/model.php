@@ -142,6 +142,15 @@ class model
 
 		$preview = json_decode($load_section_lock['preview'], true);
 
+		// check option database name is different by option key
+		$option_db_key = $option_key;
+
+		$check_option_db_key = \content_site\call_function::option_db_key($option_key);
+
+		if($check_option_db_key && is_string($check_option_db_key))
+		{
+			$option_db_key = $check_option_db_key;
+		}
 
 		if($subchild)
 		{
@@ -163,7 +172,7 @@ class model
 							}
 							else
 							{
-								$preview[$subchild][$k][$option_key] = $value;
+								$preview[$subchild][$k][$option_db_key] = $value;
 							}
 						}
 					}
@@ -188,7 +197,7 @@ class model
 				}
 				else
 				{
-					$preview[$subchild][$option_key] = $value;
+					$preview[$subchild][$option_db_key] = $value;
 				}
 
 			}
@@ -206,7 +215,7 @@ class model
 			}
 			else
 			{
-				$preview[$option_key] = $value;
+				$preview[$option_db_key] = $value;
 			}
 
 		}

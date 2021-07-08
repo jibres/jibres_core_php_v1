@@ -20,12 +20,17 @@ trait count
 	}
 
 
+	public static function db_key()
+	{
+		return 'count';
+	}
+
 
 	public static function admin_html($_section_detail)
 	{
 		$option_name = self::option_name();
 
-		$default = \content_site\section\view::get_current_index_detail($option_name);
+		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		if(!$default)
 		{
