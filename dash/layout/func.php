@@ -67,6 +67,10 @@ class func
 				{
 					require_once self::live_addr();
 				}
+				elseif(\dash\data::xhrHtml())
+				{
+					echo \dash\data::xhrHtml();
+				}
 				else
 				{
 					\dash\layout\find::allBlocks();

@@ -231,7 +231,7 @@ class model
 		{
 			\dash\notif::complete();
 
-			\dash\notif::redirectHeaders(['x-xhr' => 'main']);
+			\dash\notif::redirectHeaders(['x-xhr-html' => 'blog']);
 
 			\dash\redirect::pwd();
 		}
