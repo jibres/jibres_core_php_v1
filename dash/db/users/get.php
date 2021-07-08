@@ -20,6 +20,14 @@ class get
 	}
 
 
+	public static function by_multi_id_for_view($_ids)
+	{
+		$query  = "SELECT users.id, users.mobile, users.avatar, users.displayname, users.gender  FROM users WHERE users.id IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function group_by_permission()
 	{
 		$query  = "SELECT COUNT(*) AS `count`, users.permission  FROM users WHERE users.permission IS NOT NULL GROUP BY users.permission ";

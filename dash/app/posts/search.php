@@ -27,34 +27,36 @@ class search
 
 		$condition =
 		[
-			'order'        => 'order',
-			'sort'         => 'string_50',
-			'subtype'      => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'status'       => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
-			'user'    => 'code',
-			'type'         => ['enum' => ['post', 'page', 'pagebuilder']],
-			'parent'       => 'string_100',
-			'language'     => 'language',
-			'limit'        => 'int',
-			'tag_id'       => 'code',
-			'website_mode' => 'bit',
-			'pagination'   => 'y_n',
+			'order'            => 'order',
+			'sort'             => 'string_50',
+			'subtype'          => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'status'           => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
+			'user'             => 'code',
+			'type'             => ['enum' => ['post', 'page', 'pagebuilder']],
+			'parent'           => 'string_100',
+			'language'         => 'language',
+			'limit'            => 'int',
+			'tag_id'           => 'code',
+			'website_mode'     => 'bit',
+			'pagination'       => 'y_n',
 
 			'multi_tag_search' => 'string_1000',
-			'not_current_id'       => 'id',
+			'not_current_id'   => 'id',
 
-			'pd'           => 'bit', // publish date in the future
-			'g'            => 'y_n', // with gallery
-			'fi'           => 'y_n', // feautred image. thumb
-			'co'           => 'y_n', // cover
-			'seo'          => ['enum' => ['full']],
-			'sa'           => ['enum' => ['n', 'y', 'yt', 'yp']], // special address
-			'com'          => 'y_n', // comment
-			't'            => 'y_n', // tag
-			'r'            => 'y_n', // redirecturl
+			'pd'               => 'bit', // publish date in the future
+			'g'                => 'y_n', // with gallery
+			'fi'               => 'y_n', // feautred image. thumb
+			'co'               => 'y_n', // cover
+			'seo'              => ['enum' => ['full']],
+			'sa'               => ['enum' => ['n', 'y', 'yt', 'yp']], // special address
+			'com'              => 'y_n', // comment
+			't'                => 'y_n', // tag
+			'r'                => 'y_n', // redirecturl
 
 
-			'homepage_id' => 'id',
+			'show_author'      => 'bit',
+
+			'homepage_id'      => 'id',
 
 		];
 
@@ -298,14 +300,42 @@ class search
 
 		$list = \dash\db\posts\search::list($and, $or, $order_sort, $meta);
 
-		if(is_array($list))
-		{
-			$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
-		}
-		else
+		if(!is_array($list))
 		{
 			$list = [];
 		}
+
+		if($data['show_author'])
+		{
+			$all_user_id = array_column($list, 'user_id');
+			$all_user_id = array_filter($all_user_id);
+			$all_user_id = array_unique($all_user_id);
+
+			if($all_user_id)
+			{
+				$load_some_user = \dash\db\users\get::by_multi_id_for_view(implode(',', $all_user_id));
+				if(is_array($load_some_user))
+				{
+					$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
+					foreach ($list as $key => $value)
+					{
+						if(isset($value['user_id']) && $value['user_id'] && isset($load_some_user[$value['user_id']]))
+						{
+							$user_detail = $load_some_user[$value['user_id']];
+							$user_detail = \dash\app\user::ready($user_detail);
+							$list[$key]['user_detail'] = $user_detail;
+						}
+						else
+						{
+							$list[$key]['user_detail'] = [];
+						}
+					}
+				}
+
+			}
+		}
+
+		$list = array_map(['\\dash\\app\\posts\\ready', 'row'], $list);
 
 		return $list;
 	}

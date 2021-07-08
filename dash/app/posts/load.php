@@ -77,6 +77,8 @@ class load
 		$post_show_author  = $_detail['post_show_author'];
 		$btn_viewall_check = $_detail['btn_viewall_check'];
 
+		$post_show_author  = $_detail['post_show_author'];
+
 		$link              = null;
 
 		if(!$limit)
@@ -106,6 +108,7 @@ class load
 			'subtype'      => $subtype,
 			'limit'        => $limit,
 			'tag_id'       => $tag_id,
+			'show_author'  => $post_show_author,
 		];
 
 		$list = \dash\app\posts\search::list(null, $args, true);
