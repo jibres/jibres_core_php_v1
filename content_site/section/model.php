@@ -43,7 +43,7 @@ class model
 		}
 
 		// remove or hidden section
-		if(self::remove_section($section_id))
+		if(self::remove_or_hidden_section($section_id))
 		{
 			return;
 		}
@@ -248,7 +248,7 @@ class model
 	}
 
 
-	private static function remove_section($section_id)
+	private static function remove_or_hidden_section($section_id)
 	{
 
 		// delete or hide a section
@@ -265,10 +265,21 @@ class model
 
 			if(\dash\request::post('delete') === 'section')
 			{
-				// delete section
-				\lib\db\pagebuilder\delete::by_id($section_id);
+
+				if(a($load_section_lock, 'status') === 'draft')
+				{
+					// delete section because the master status is draft
+					\lib\db\pagebuilder\delete::by_id($section_id);
+				}
+				else
+				{
+					// update preview status on deleted to delete when save page
+					\content_site\update_record::patch_field($section_id, 'status_preview', 'deleted');
+				}
+
 
 				\dash\redirect::to(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
+
 				return true;
 			}
 
@@ -277,16 +288,16 @@ class model
 
 				$load_section_lock = view::ready_section_list($load_section_lock);
 
-				if($load_section_lock['status'] === 'draft')
-				{
-					$new_status = 'enable';
-				}
-				else
+				if($load_section_lock['status_preview'] === 'hidden')
 				{
 					$new_status = 'draft';
 				}
+				else
+				{
+					$new_status = 'hidden';
+				}
 
-				\content_site\update_record::patch_field($section_id, 'status', $new_status);
+				\content_site\update_record::patch_field($section_id, 'status_preview', $new_status);
 
 				\dash\redirect::pwd();
 				\dash\notif::complete();
@@ -557,15 +568,16 @@ class model
 
 		$preview = json_encode($preview);
 
-		$insert                = [];
-		$insert['mode']        = $mode;
-		$insert['type']        = $key;
-		$insert['related']     = 'posts';
-		$insert['related_id']  = $page_id;
-		$insert['title']       = null;
-		$insert['preview']     = $preview;
-		$insert['status']      = 'enable';
-		$insert['datecreated'] = date("Y-m-d H:i:s");
+		$insert                   = [];
+		$insert['mode']           = $mode;
+		$insert['type']           = $key;
+		$insert['related']        = 'posts';
+		$insert['related_id']     = $page_id;
+		$insert['title']          = null;
+		$insert['preview']        = $preview;
+		$insert['status']         = 'draft';
+		$insert['status_preview'] = 'draft';
+		$insert['datecreated']    = date("Y-m-d H:i:s");
 
 		$get_last_sort_args =
 		[
@@ -584,6 +596,8 @@ class model
 		{
 			$insert['sort'] = (floor(intval($get_last_sort) / 10) * 10) + 10;
 		}
+
+		$insert['sort_preview'] = $insert['sort'];
 
 		if($update_record)
 		{

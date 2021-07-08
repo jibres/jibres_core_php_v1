@@ -51,11 +51,11 @@ if(\dash\url::child())
     $html .= "<div class='cauto os' >";
     $html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' data-ajaxify data-data='$hide_view_json'>";
 
-    if(a(\dash\data::currentSectionDetail(), 'status') === 'draft')
+    if(a(\dash\data::currentSectionDetail(), 'status_preview') === 'hidden')
     {
       $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('hide', 'minor'). '">';
     }
-    else
+    elseif(in_array(a(\dash\data::currentSectionDetail(), 'status_preview'), ['enable', 'draft', null]))
     {
       $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('view', 'minor'). '">';
     }
