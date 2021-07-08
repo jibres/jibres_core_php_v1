@@ -128,6 +128,7 @@ class option
 	{
 		$option =
 		[
+			'group_setting',
 			// text
 			'heading',
 
