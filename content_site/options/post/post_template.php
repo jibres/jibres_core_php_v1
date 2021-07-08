@@ -8,6 +8,7 @@ class post_template
 	private static function enum_post_template()
 	{
 		$enum   = [];
+		$enum[] = ['key' => 'any', 'title' => T_("Any"), 	];
 		$enum[] = ['key' => 'standard', 'title' => T_("Standard"), 	];
 		$enum[] = ['key' => 'gallery', 	'title' => T_("Gallery"), 	];
 		$enum[] = ['key' => 'video', 	'title' => T_("Video"), 	];
