@@ -19,7 +19,7 @@ class layout
 		[
 			'tag_id'            => a($_args, 'post_tag'),
 			'subtype'           => a($_args, 'post_template'),
-			'limit'             => a($_args, 'limit'),
+			'limit'             => a($_args, 'count_3'),
 			'post_show_author'  => a($_args, 'post_show_author'),
 			'btn_viewall_check' => a($_args, 'btn_viewall_check'),
 			'post_show_author'  => a($_args, 'post_show_author'),
