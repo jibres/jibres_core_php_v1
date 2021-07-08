@@ -68,6 +68,10 @@ class layout
 		$type        = 'b1';
 
 
+		if($previewMode)
+		{
+			$html .= "<div data-xhr='pageBuilderSection_$id'>";
+		}
 
 		$html .= "<$cnElement data-type='$type' class='$height $background_class' $background_attr>";
 		{
@@ -87,6 +91,12 @@ class layout
 			$html .= "</div>";
 		}
 		$html .= "</$cnElement>";
+
+		// xhr div
+		if($previewMode)
+		{
+			$html .= "</div>";
+		}
 
 
 		return $html;

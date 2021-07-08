@@ -217,12 +217,6 @@ class model
 
 		\dash\pdo::commit();
 
-		self::end();
-	}
-
-
-	private static function end()
-	{
 		if(\dash\request::post('not_redirect'))
 		{
 			// needless to redirect
@@ -231,13 +225,14 @@ class model
 		{
 			\dash\notif::complete();
 
-			\dash\notif::redirectHeaders(['x-xhr-html' => 'blog']);
+			\dash\notif::redirectHeaders(['x-xhr-html' => 'pageBuilderSection_'. $section_id]);
 
 			\dash\redirect::pwd();
 		}
 
 
 	}
+
 
 
 	private static function remove_or_hidden_section($section_id)

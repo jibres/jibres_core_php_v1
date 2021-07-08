@@ -278,6 +278,10 @@ class view
 		}
 
 
+		if(\dash\header::get('x-xhr-html') === "pageBuilderSection_". a($result, 'id'))
+		{
+			\dash\data::xhrHtml($result['preview_layout']);
+		}
 
 
 		// $result['body']           = array_merge($detail, $default, $result['body']);
