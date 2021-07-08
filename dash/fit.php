@@ -170,14 +170,15 @@ class fit{
 	}
 
 
-	public static function date($_date)
+	public static function date($_date, $_format = null)
 	{
 		if(!$_date)
 		{
 			return null;
 		}
-		return \dash\datetime::fit($_date, null, 'date');
+		return \dash\datetime::fit($_date, $_format, 'date');
 	}
+
 
 	public static function datetime_full($_date)
 	{
@@ -198,13 +199,13 @@ class fit{
 		return \dash\datetime::fit($_date, null, 'time');
 	}
 
-	public static function date_time($_date)
+	public static function date_time($_date, $_format = null)
 	{
 		if(!$_date)
 		{
 			return null;
 		}
-		return \dash\datetime::fit($_date);
+		return \dash\datetime::fit($_date, $_format);
 	}
 
 	public static function date_human($_date)
