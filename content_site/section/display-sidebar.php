@@ -1,10 +1,15 @@
 <?php
+
+
+$html     = '';
+
+$html .= '<div data-xhr="sitebuilderOptionXhr">';
+
 if(\dash\data::sectionList())
 {
   /**
    * Load section list to choose it
    */
-  $result     = '';
   $last_group = null;
 
   $adding_detail = \dash\data::addingDetail();
@@ -14,9 +19,9 @@ if(\dash\data::sectionList())
 
   foreach (\dash\data::sectionList() as $group => $items)
   {
-    $result .= '<label>'. $group. '</label>';
-    $result .= '<nav class="sections items">';
-    $result .= '<ul>';
+    $html .= '<label>'. $group. '</label>';
+    $html .= '<nav class="sections items">';
+    $html .= '<ul>';
     foreach ($items as $item)
     {
       $adding_this = false;
@@ -28,31 +33,30 @@ if(\dash\data::sectionList())
       $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
 
       // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
-      $result .= '<li>';
-      // $result .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
-      $result .= "<a class='item f' href='". $show_preview_link. "'>";
-      $result .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
-      $result .= '<div class="key">'. a($item, 'title'). '</div>';
+      $html .= '<li>';
+      // $html .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
+      $html .= "<a class='item f' href='". $show_preview_link. "'>";
+      $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
+      $html .= '<div class="key">'. a($item, 'title'). '</div>';
       if($adding_this)
       {
-        $result .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+        $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
       }
-      $result .= '</a>';
-      $result .= '</li>';
+      $html .= '</a>';
+      $html .= '</li>';
     }
-    $result .= '</ul>';
-    $result .= '</nav>';
+    $html .= '</ul>';
+    $html .= '</nav>';
 
   }
 
-  echo $result;
 }
 else
 {
   /**
    * Load options of one section
    */
-  $html = '';
+
 
   $options_list = \dash\data::currentOptionList();
   $child        = \dash\url::child();
@@ -91,8 +95,10 @@ else
 
   }
 
-  echo $html;
 
 }
 
+$html .= '</div>';
+
+echo $html;
 ?>
