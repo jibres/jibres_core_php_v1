@@ -8,9 +8,9 @@ class find
 
 	public static function allBlocks()
 	{
-		if(\dash\request::get('xhr'))
+		if(\dash\header::get('x-xhr'))
 		{
-			switch (\dash\request::get('xhr'))
+			switch (\dash\header::get('x-xhr'))
 			{
 					case 'sidebar':
 						self::sidebar();
