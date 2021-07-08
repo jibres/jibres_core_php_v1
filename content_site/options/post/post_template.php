@@ -8,7 +8,7 @@ class post_template
 	private static function enum_post_template()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'any', 'title' => T_("Any"), 	];
+		$enum[] = ['key' => 'any',		'title' => T_("Any"), 		];
 		$enum[] = ['key' => 'standard', 'title' => T_("Standard"), 	];
 		$enum[] = ['key' => 'gallery', 	'title' => T_("Gallery"), 	];
 		$enum[] = ['key' => 'video', 	'title' => T_("Video"), 	];
@@ -22,7 +22,7 @@ class post_template
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'none', 'title' => T_("None"), 	];
-		$enum[] = ['key' => 'first', 'title' => T_("First"),];
+		$enum[] = ['key' => 'first','title' => T_("First"), ];
 		$enum[] = ['key' => 'all', 	'title' => T_("All"), 	];
 
 		return $enum;
@@ -31,8 +31,9 @@ class post_template
 
 	public static function validator($_data)
 	{
+
 		$new_data                   = [];
-		$new_data['post_template']   = \dash\validate::enum(a($_data, 'post_template'), true, ['enum' => array_column(self::enum_post_template(), 'key'), 'field_title' => T_('Post subtype')]);
+		$new_data['post_template']  = \dash\validate::enum(a($_data, 'post_template'), true, ['enum' => array_column(self::enum_post_template(), 'key'), 'field_title' => T_('Post subtype')]);
 		$new_data['post_play_item'] = \dash\validate::enum(a($_data, 'post_play_item'), true, ['enum' => array_column(self::enum_post_play_item(), 'key'), 'field_title' => T_('Play imte')]);
 		return $new_data;
 	}
@@ -46,8 +47,6 @@ class post_template
 
 	public static function admin_html($_section_detail)
 	{
-
-
 
 		$data_response_hide = ' data-response-hide';
 
@@ -97,7 +96,7 @@ class post_template
 	        }
 	        $html .= '</select>';
 
-			$html .= '<div data-response="post_template" data-response-where="video" '.$data_response_hide.'>';
+			$html .= '<div data-response="opt_post_template" data-response-where="video" '.$data_response_hide.'>';
 			{
 
 				$html .= "<label for='post_play_item'>". T_("Show item in player") ."</label>";
