@@ -23,9 +23,13 @@ class datetime
 						break;
 
 					case false:
-					default:
 						// 2018-09-25
 						return 'Y-m-d';
+						break;
+
+					default:
+						// user request!
+						return $_model;
 						break;
 				}
 				break;
