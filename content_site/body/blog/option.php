@@ -132,8 +132,6 @@ class option
 			// text
 			'heading',
 
-
-			'group_filter',
 			// select
 			'post_tag',
 			'post_template',

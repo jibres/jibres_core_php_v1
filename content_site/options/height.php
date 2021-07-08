@@ -70,7 +70,7 @@ class height
 			$default = self::default();
 		}
 
-		$title = T_("Sectuin Height");
+		$title = T_("Section Height");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';

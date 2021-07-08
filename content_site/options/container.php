@@ -68,7 +68,7 @@ class container
 		}
 
 
-		$title = T_("Container");
+		$title = T_("Content Width");
 
 		$this_range = array_column(self::enum(), 'key');
 
