@@ -8,11 +8,38 @@ class find
 
 	public static function allBlocks()
 	{
-		self::sidebar();
-		self::header();
-		// self::nav();
-		self::main();
-		self::footer();
+		if(\dash\request::get('xhr'))
+		{
+			switch (\dash\request::get('xhr'))
+			{
+					case 'sidebar':
+						self::sidebar();
+						break;
+
+					case 'header':
+						self::header();
+						break;
+
+					case 'main':
+						self::main();
+						break;
+
+					case 'footer':
+						self::footer();
+						break;
+
+					default:
+						break;
+				}
+		}
+		else
+		{
+			self::sidebar();
+			self::header();
+			// self::nav();
+			self::main();
+			self::footer();
+		}
 	}
 
 
