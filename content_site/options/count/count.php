@@ -1,14 +1,9 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\count;
 
 
-class limit
+trait count
 {
-
-	private static function this_range()
-	{
-		return [2,4,6,8,10,20,50,100];
-	}
 
 
 	public static function validator($_data)
@@ -25,16 +20,12 @@ class limit
 	}
 
 
-	public static function default()
-	{
-		return 2;
-	}
-
 
 	public static function admin_html($_section_detail)
 	{
+		$option_name = self::option_name();
 
-		$default = \content_site\section\view::get_current_index_detail('limit');
+		$default = \content_site\section\view::get_current_index_detail($option_name);
 
 		if(!$default)
 		{
@@ -46,8 +37,8 @@ class limit
 		{
 			$html .= '<div class="pb-2">';
 			{
-				$html .= '<label for="limit">'. T_("Count Show"). '</label>';
-				$html .= '<input type="text" name="opt_limit" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
+				$html .= '<label for="'.$option_name.'">'. T_("Count Show"). '</label>';
+				$html .= '<input type="text" name="opt_'.$option_name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
 			}
 			$html .= '</div>';
 		}

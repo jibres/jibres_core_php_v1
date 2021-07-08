@@ -136,7 +136,7 @@ class option
 			'post_tag',
 			'post_template',
 			// range
-			'limit',
+			'count_3',
 			// select
 			'type',
 			'height',
