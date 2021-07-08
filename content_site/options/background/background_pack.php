@@ -23,6 +23,7 @@ class background_pack
 			'background_position',
 			'background_repeat',
 			'background_size',
+			'background_attachment',
 
 			'file',
 
