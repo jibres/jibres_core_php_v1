@@ -24,7 +24,37 @@ class b1
 			$html .= '</header>';
 		}
 
-		$html .= '<div class="grid grid-cols-3 gap-6 justify-center">';
+		$grid_cols = 'grid-cols-1 gap-4';
+		switch (a($_args, 'container'))
+		{
+			case 'sm':
+				$grid_cols = 'grid-cols-1 gap-4';
+				break;
+
+			case 'md':
+				$grid_cols = 'grid-cols-2 gap-4';
+				break;
+
+			case 'lg':
+			case 'auto':
+				$grid_cols = 'grid-cols-3 gap-4';
+				break;
+
+			case 'xl':
+				$grid_cols = 'grid-cols-4 gap-6';
+				break;
+
+			case '2xl':
+				$grid_cols = 'grid-cols-5 gap-6';
+				break;
+
+			case 'none':
+			default:
+				$grid_cols = 'grid-cols-5 gap-4';
+				break;
+		}
+
+		$html .= "<div class='grid $grid_cols justify-center'>";
 		{
 			foreach ($_blogList as $key => $value)
 			{
