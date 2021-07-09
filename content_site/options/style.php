@@ -10,34 +10,90 @@ class style
 		return
 		[
 			[
-				'title'                    => T_("White"),
-				'background_pack'          => 'gradient',
-				'background_gradient_type' => 'gradient-to-r',
-				'background_gradient_from' => 'pink-500',
-				'background_gradient_via'  => 'red-500',
-				'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'    => '50',
-				// 'background_color'      => 'indigo-400',
-				'color_text'               => 'yellow-400',
-				'color_text_hover'         => 'yellow-800',
-				'color_text_focus'         => 'gray-400',
-				'color_opacity'            => '5',
+				'title'                    => T_("White Minimal"),
+				'background_pack'          => 'solid',
+				// 'background_gradient_type' => 'gradient-to-r',
+				// 'background_gradient_from' => 'pink-500',
+				// 'background_gradient_via'  => 'red-500',
+				// 'background_gradient_to'   => 'yellow-500',
+				// 'background_opacity'       => '50',
+				'background_color'         => 'white',
+				'color_text'               => 'gray-800',
+				'color_text_hover'         => 'gray-900',
+				'color_text_focus'         => 'gray-900',
+				// 'color_opacity'            => '5',
+			],
+			[
+				'title'                    => T_("White Gold"),
+				'background_pack'          => 'solid',
+				// 'background_gradient_type' => 'gradient-to-r',
+				// 'background_gradient_from' => 'pink-500',
+				// 'background_gradient_via'  => 'red-500',
+				// 'background_gradient_to'   => 'yellow-500',
+				// 'background_opacity'       => '50',
+				'background_color'         => 'white',
+				'color_text'               => 'yellow-600',
+				'color_text_hover'         => 'yellow-700',
+				'color_text_focus'         => 'yellow-800',
+				// 'color_opacity'            => '5',
+			],
+			[
+				'title'                    => T_("Light Minimal"),
+				'background_pack'          => 'solid',
+				// 'background_gradient_type' => 'gradient-to-r',
+				// 'background_gradient_from' => 'pink-500',
+				// 'background_gradient_via'  => 'red-500',
+				// 'background_gradient_to'   => 'yellow-500',
+				// 'background_opacity'       => '50',
+				'background_color'         => 'purple-100',
+				'color_text'               => 'gray-800',
+				'color_text_hover'         => 'gray-900',
+				'color_text_focus'         => 'gray-900',
+				// 'color_opacity'            => '5',
+			],
+			[
+				'title'                    => T_("Light Gold"),
+				'background_pack'          => 'solid',
+				// 'background_gradient_type' => 'gradient-to-r',
+				// 'background_gradient_from' => 'pink-500',
+				// 'background_gradient_via'  => 'red-500',
+				// 'background_gradient_to'   => 'yellow-500',
+				// 'background_opacity'       => '50',
+				'background_color'         => 'indigo-100',
+				'color_text'               => 'yellow-600',
+				'color_text_hover'         => 'yellow-700',
+				'color_text_focus'         => 'yellow-800',
+				// 'color_opacity'            => '5',
+			],
+		[
+				'title'                    => T_("Light Minimal"),
+				'background_pack'          => 'solid',
+				// 'background_gradient_type' => 'gradient-to-r',
+				// 'background_gradient_from' => 'pink-500',
+				// 'background_gradient_via'  => 'red-500',
+				// 'background_gradient_to'   => 'yellow-500',
+				// 'background_opacity'       => '50',
+				'background_color'         => 'green-900',
+				'color_text'               => 'white',
+				'color_text_hover'         => 'gray-50',
+				'color_text_focus'         => 'gray-50',
+				// 'color_opacity'            => '5',
 			],
 
-			[
-				'title'                    => T_("White gold"),
-				'background_pack'          => 'gradient',
-				'background_gradient_type' => 'gradient-to-r',
-				'background_gradient_from' => 'pink-500',
-				'background_gradient_via'  => 'blue-500',
-				'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'    => '50',
-				// 'background_color'      => 'indigo-400',
-				'color_text'               => 'yellow-400',
-				'color_text_hover'         => 'yellow-800',
-				'color_text_focus'         => 'gray-400',
-				'color_opacity'            => '5',
-			],
+			// [
+			// 	'title'                    => T_("White gold"),
+			// 	'background_pack'          => 'gradient',
+			// 	'background_gradient_type' => 'gradient-to-r',
+			// 	'background_gradient_from' => 'pink-500',
+			// 	'background_gradient_via'  => 'blue-500',
+			// 	'background_gradient_to'   => 'yellow-500',
+			// 	// 'background_opacity'    => '50',
+			// 	// 'background_color'      => 'indigo-400',
+			// 	'color_text'               => 'yellow-400',
+			// 	'color_text_hover'         => 'yellow-800',
+			// 	'color_text_focus'         => 'gray-400',
+			// 	'color_opacity'            => '5',
+			// ],
 
 		];
 	}
@@ -131,24 +187,35 @@ class style
 
 		$selected = false;
 
+		$html .= "<div class='mt-5'>";
+		$html .= "<label for='style' class='mt-5'>". T_("Style"). "</label>";
+
 		foreach (self::style_template() as $key => $value)
 		{
+
 			$background = background\background_pack::get_full_backgroun_class($value);
 			$class      = a($background, 'class');
 			$attr       = a($background, 'attr');
+			if(self::template_or_custom($current_style, $value))
+			{
+				// selected
+				$selected = true;
+				$class .= " border-2 border-gray-800";
+			}
 
 			$json    = json_encode(array_merge($value, ['multioption' => 'multi', 'opt_style' => true]));
 
-			$html .= "<button data-ajaxify data-data='$json' class='btn mt-5 block $class' $attr>";
-
-			if(self::template_or_custom($current_style, $value))
+			$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 p-2.5 mb-2 $class' $attr>";
 			{
-				$html .= 'selected';
-				$selected = true;
+				$html .= '<div class="w-16">Aa</div>';
+				$html .= '<div class="flex-grow">'. a($value, 'title'). '</div>';
+				$html .= '<div class="">';
+				$html .= '</div>';
 			}
 
-			$html .= a($value, 'title'). '</button>';
+			$html .= '</div>';
 		}
+		$html .= "</div>";
 
 		$url = \dash\url::that(). '/style'. \dash\request::full_get();
 

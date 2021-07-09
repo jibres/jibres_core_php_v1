@@ -17,7 +17,6 @@ class background_pack
 			'background_pack',
 
 			// skip draw this option in html
-
 			'background_color',
 			'background_opacity',
 			'background_position',
@@ -40,10 +39,7 @@ class background_pack
 			'color_text_hover',
 			'color_text_focus',
 			'color_opacity',
-
-
 		];
-
 	}
 
 
