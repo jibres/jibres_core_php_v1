@@ -28,29 +28,26 @@ class b1
 		switch (a($_args, 'container'))
 		{
 			case 'sm':
-				$grid_cols = 'grid-cols-1 gap-4';
+				// $grid_cols = 'grid-cols-1';
 				break;
 
 			case 'md':
-				$grid_cols = 'grid-cols-2 gap-4';
+				$grid_cols .= ' md:grid-cols-2';
 				break;
 
 			case 'lg':
 			case 'auto':
-				$grid_cols = 'grid-cols-3 gap-4';
+				$grid_cols .= ' md:grid-cols-2 lg:grid-cols-3';
 				break;
 
 			case 'xl':
-				$grid_cols = 'grid-cols-4 gap-6';
+				$grid_cols .= ' md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6';
 				break;
 
 			case '2xl':
-				$grid_cols = 'grid-cols-5 gap-6';
-				break;
-
 			case 'none':
 			default:
-				$grid_cols = 'grid-cols-5 gap-4';
+				$grid_cols .= ' md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:grid-cols-5';
 				break;
 		}
 
