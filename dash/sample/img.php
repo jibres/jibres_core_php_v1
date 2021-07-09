@@ -1,7 +1,7 @@
 <?php
-namespace dash;
+namespace dash\sample;
 
-class sample
+class img
 {
 	public static function avatar($_type = null)
 	{
@@ -67,6 +67,30 @@ class sample
 		}
 
 		return $url;
+	}
+
+
+	public static function product()
+	{
+
+	}
+
+
+	public static function post()
+	{
+
+	}
+
+
+	public static function video()
+	{
+
+	}
+
+
+	public static function podcast()
+	{
+
 	}
 }
 ?>

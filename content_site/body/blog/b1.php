@@ -83,7 +83,7 @@ class b1
 						$writerName = T_("Javad Adib");
 						if($showAuthor)
 						{
-							$card .= "<img src='". \dash\fit::img(\dash\sample::avatar('semantic')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+							$card .= "<img src='". \dash\fit::img(\dash\sample\img::avatar('semantic')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
 							$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
 						}
 
