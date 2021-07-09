@@ -10,13 +10,25 @@ class sample
 		$semantic = ['1', '2', '3'];
 		$man      = ['man', 'man2', 'man3', 'man4', 'man5'];
 		$woman    = ['woman', 'woman-simple'];
-		$other    = ['default', 'guest', 'man-sample', 'unknown'];
+		$other    = ['default', 'guest', 'man-simple', 'unknown'];
 		$data     = array_merge($semantic, $man, $woman, $other);
 
 		$choosen  = null ;
 		if(in_array($_type, $data))
 		{
 			$choosen = $_type;
+		}
+		elseif($_type === 'semantic')
+		{
+			$choosen = $semantic[array_rand($semantic)];
+		}
+		elseif($_type === 'man')
+		{
+			$choosen = $man[array_rand($man)];
+		}
+		elseif($_type === 'woman')
+		{
+			$choosen = $woman[array_rand($woman)];
 		}
 		else
 		{

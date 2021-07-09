@@ -30,12 +30,14 @@ class b1
 			{
 				// a img
 				// h2 a
-				$myLink    = a($value, 'link');
-				$myTitle   = a($value, 'title');
-				$myThumb   = a($value, 'thumb');
-				$myExcerpt = a($value, 'excerpt');
-				$myDate    = a($value, 'publishdate');
-
+				$myLink      = a($value, 'link');
+				$myTitle     = a($value, 'title');
+				$myThumb     = a($value, 'thumb');
+				$myExcerpt   = a($value, 'excerpt');
+				$myDate      = a($value, 'publishdate');
+				// show some data
+				$showAuthor  = a($value, 'allowshowwriter');
+				$showPubDate = a($value, 'allowshowpublishdate');
 
 				$card = '';
 				$card .= '<div data-card class="flex flex-col max-w-sm rounded-lg overflow-hidden shadow-lg bg-white ">';
@@ -79,15 +81,21 @@ class b1
 					$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
 					{
 						$writerName = T_("Javad Adib");
-						$card .= "<img src='". \dash\sample::avatar(). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
-						$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
-
-						if($myDate)
+						if($showAuthor)
 						{
-							$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-							$card .= \dash\fit::date($myDate, 'readable');
+							$card .= "<img src='". \dash\fit::img(\dash\sample::avatar('semantic')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+							$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
+						}
 
-							$card .= "</time>";
+						if($showPubDate)
+						{
+							if($myDate)
+							{
+								$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+								$card .= \dash\fit::date($myDate, 'readable');
+
+								$card .= "</time>";
+							}
 						}
 					}
 
