@@ -75,15 +75,22 @@ class b1
 					}
 					$card .= '</div>';
 
-					$card .= '<footer class="px-6 py-4">';
 						// add footer line
+					$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
+					{
+						$writerName = T_("Javad Adib");
+						$card .= "<img src='". \dash\sample::avatar(). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+						$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
+
 						if($myDate)
 						{
-							$card .= "<time class='text-gray-700 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+							$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
 							$card .= \dash\fit::date($myDate, 'readable');
 
 							$card .= "</time>";
 						}
+					}
+
 					$card .= '</footer>';
 				}
 				$card .= '</div>';

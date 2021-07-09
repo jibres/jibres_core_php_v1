@@ -10,7 +10,7 @@ class sample
 		$semantic = ['1', '2', '3'];
 		$man      = ['man', 'man2', 'man3', 'man4', 'man5'];
 		$woman    = ['woman', 'woman-simple'];
-		$other    = ['baby', 'default', 'guest', 'man-sample', 'unknown'];
+		$other    = ['default', 'guest', 'man-sample', 'unknown'];
 		$data     = array_merge($semantic, $man, $woman, $other);
 
 		$choosen  = null ;
