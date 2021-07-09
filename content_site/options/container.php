@@ -9,12 +9,12 @@ class container
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => T_("None"), 		'class'   => '' ];
+		$enum[] = ['key' => 'auto', 'title' => T_("Auto"), 	  'class'   => 'avand', 'default' => true ];
 		$enum[] = ['key' => 'sm', 	'title' => T_("Small"), 	'class'   => 'avand-sm' ];
 		$enum[] = ['key' => 'md', 	'title' => T_("Medium"), 	'class'   => 'avand-md' ];
 		$enum[] = ['key' => 'lg', 	'title' => T_("Large"), 	'class'   => 'avand-lg' ];
 		$enum[] = ['key' => 'xl', 	'title' => T_("X Large"), 'class'   => 'avand-xl' ];
-		$enum[] = ['key' => 'auto', 'title' => T_("Auto"), 	  'class'   => 'avand', 'default' => true ];
+		$enum[] = ['key' => 'none', 'title' => T_("None"), 		'class'   => '' ];
 
 		return $enum;
 	}
