@@ -13,7 +13,7 @@ class b1
 			$html .= '<header>';
 			{
 				$html .= '<h3';
-				$html .= ' class="font-bold text-6xl mb-10"';
+				$html .= ' class="font-bold text-4xl mb-10"';
 				$html .= " data-sync-apply='heading-$_id'";
 				$html .= '>';
 				{
@@ -57,7 +57,7 @@ class b1
 						// title
 						$card .= '<h2>';
 						{
-							$card .= "<a class='block font-bold text-xl mb-5' href='$myLink'>";
+							$card .= "<a class='block font-bold mb-5' href='$myLink'>";
 							{
 								$card .= $myTitle;
 							}
@@ -67,7 +67,7 @@ class b1
 
 						if($myExcerpt)
 						{
-							$card .= "<p class='text-gray-700 text-base'>";
+							$card .= "<p class='text-gray-700 text-xs'>";
 							$card .= $myExcerpt;
 							$card .= "</p>";
 						}
@@ -79,8 +79,8 @@ class b1
 						// add footer line
 						if($myDate)
 						{
-							$card .= "<time class='text-gray-700 text-base' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-							$card .= \dash\fit::date($myDate, 'readable');
+							$card .= "<time class='text-gray-700 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+							$card .= \dash\fit::date($myDate, 'M');
 
 							$card .= "</time>";
 						}
