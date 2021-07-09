@@ -68,12 +68,12 @@ class layout
 		$type        = 'b1';
 
 
+		$html .= "<$cnElement data-type='$type' class='$height $background_class' $background_attr";
 		if($previewMode)
 		{
-			$html .= "<div data-xhr='pageBuilderSection_$id'>";
+			$html .= " data-xhr='pageBuilderSection_$id'";
 		}
-
-		$html .= "<$cnElement data-type='$type' class='$height $background_class' $background_attr>";
+		$html .= ">";
 		{
 			$html .= "<div class='$container'>";
 			{
@@ -91,13 +91,6 @@ class layout
 			$html .= "</div>";
 		}
 		$html .= "</$cnElement>";
-
-		// xhr div
-		if($previewMode)
-		{
-			$html .= "</div>";
-		}
-
 
 		return $html;
 	}

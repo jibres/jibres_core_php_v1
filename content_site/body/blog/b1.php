@@ -40,7 +40,7 @@ class b1
 				$showPubDate = a($value, 'allowshowpublishdate');
 
 				$card = '';
-				$card .= '<div data-card class="flex flex-col max-w-sm rounded-lg overflow-hidden shadow-lg bg-white ">';
+				$card .= '<div data-card class="flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
 				{
 					// thumb
 					if($myThumb)
