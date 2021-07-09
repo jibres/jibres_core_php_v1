@@ -200,12 +200,12 @@ class style
 			{
 				// selected
 				$selected = true;
-				$class .= " border-2 border-gray-800";
+				$class .= " border-2 border-gray-900";
 			}
 
 			$json    = json_encode(array_merge($value, ['multioption' => 'multi', 'opt_style' => true]));
 
-			$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 p-2.5 mb-2 $class' $attr>";
+			$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $class' $attr>";
 			{
 				$html .= '<div class="w-16">Aa</div>';
 				$html .= '<div class="flex-grow">'. a($value, 'title'). '</div>';
