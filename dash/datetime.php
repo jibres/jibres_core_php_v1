@@ -15,23 +15,29 @@ class datetime
 		switch ($_type)
 		{
 			case 'date':
-				switch ($_model)
+			if($_model === true)
+			{
+				// Tuesday 25 September 2018
+				return 'l j F Y';
+			}
+			elseif($_model === 'readable')
+			{
+				if(\dash\language::current() === 'fa')
 				{
-					case true:
-						// Tuesday 25 September 2018
-						return 'l j F Y';
-						break;
-
-					case false:
-						// 2018-09-25
-						return 'Y-m-d';
-						break;
-
-					default:
-						// user request!
-						return $_model;
-						break;
+					// 23 Jun 2021
+					return 'j F Y';
 				}
+
+				// Jun 23, 2021
+				return 'F j, Y';
+			}
+			elseif($_model)
+			{
+				return $_model;
+			}
+			// 2018-09-25
+			return 'Y-m-d';
+
 				break;
 
 			case 'time':

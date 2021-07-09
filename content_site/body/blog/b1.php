@@ -80,7 +80,7 @@ class b1
 						if($myDate)
 						{
 							$card .= "<time class='text-gray-700 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-							$card .= \dash\fit::date($myDate, 'M');
+							$card .= \dash\fit::date($myDate, 'readable');
 
 							$card .= "</time>";
 						}
