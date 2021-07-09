@@ -47,7 +47,7 @@ class b1
 			case '2xl':
 			case 'none':
 			default:
-				$grid_cols .= ' md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:grid-cols-5';
+				$grid_cols .= ' md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:grid-cols-5 px-5';
 				break;
 		}
 
