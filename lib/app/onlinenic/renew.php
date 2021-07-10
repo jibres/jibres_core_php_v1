@@ -120,7 +120,7 @@ class renew
 
 		$expiredate               = date("Y-m-d", $new_date_expire);
 
-		$year_9 = time() + (60*60*24*365*9);
+		$year_9 = time() + (60*60*24*365*10);
 
 		if($new_date_expire >= $year_9)
 		{
@@ -128,7 +128,7 @@ class renew
 			$msg .= '<br>';
 			$msg .= T_("You try to renew this domain for :val years", ['val' => \dash\fit::number($period)]);
 			$msg .= '<br>';
-			$msg .= T_("Because the maximum validity period of the domain is 9 years, and depending on the period you choose and the expiration date of the domain, your domain will be more than 9 years, and this is not possible.");
+			$msg .= T_("Because the maximum validity period of the domain is 10 years, and depending on the period you choose and the expiration date of the domain, your domain will be more than 10 years, and this is not possible.");
 			$msg .= '<br>';
 
 			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
