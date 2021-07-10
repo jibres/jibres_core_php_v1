@@ -10,11 +10,11 @@ if(\dash\data::currentSectionList() && is_array(\dash\data::currentSectionList()
   $section_list = \dash\data::currentSectionList();
 }
 
-$previewHTML = '';
-foreach ($section_list as $key => $value)
-{
-  $previewHTML .= a($value, 'preview_layout');
-}
+// $previewHTML = '';
+// foreach ($section_list as $key => $value)
+// {
+//   $previewHTML .= a($value, 'preview_layout');
+// }
 
 
 $html = '';
@@ -33,7 +33,7 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
   // address line
   $html .= '<div class="ltr relative flex flex-grow items-center px-7 bg-gray-100 hover:bg-gray-200 rounded-full my-3 text-gray-700 transition">';
   {
-    $html .= '<a class="address flex-grow text-xs" href='. $page_url. '>';
+    $html .= '<a target="_blank" class="address flex-grow text-xs" href='. $page_url. '>';
     $html .= $page_url_view;
     $html .= '</a>';
 

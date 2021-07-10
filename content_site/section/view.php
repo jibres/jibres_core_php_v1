@@ -289,7 +289,15 @@ class view
 			$result['body']           = array_merge($detail, $default, $result['body']);
 
 			$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+
 		}
+
+		if(\dash\server::get('HTTP_SEC_FETCH_DEST') === 'iframe')
+		{
+			$result['body']        = $result['preview'];
+			$result['body_layout'] = $result['preview_layout'];
+		}
+
 
 		return $result;
 	}
