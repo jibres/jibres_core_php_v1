@@ -228,6 +228,8 @@ class model
 
 		\dash\notif::complete();
 
+		\dash\notif::reloadIframe();
+
 		if(\dash\request::post('not_redirect'))
 		{
 			// needless to redirect
