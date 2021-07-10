@@ -59,8 +59,8 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
 $html .= '</div>';
 $html .= '<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">';
 {
-  // $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
-  $html .= $previewHTML;
+  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
+  // $html .= $previewHTML;
 }
 $html .= '</div>';
 $html .= '</div>';
