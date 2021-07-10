@@ -284,9 +284,12 @@ class view
 		}
 
 
-		// $result['body']           = array_merge($detail, $default, $result['body']);
+		if(!\dash\engine\content::is('site'))
+		{
+			$result['body']           = array_merge($detail, $default, $result['body']);
 
-		// $result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+			$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+		}
 
 		return $result;
 	}

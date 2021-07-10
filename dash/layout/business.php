@@ -97,7 +97,7 @@ class business
 		}
 
 		// check route sitebuilder
-		if(\dash\url::isLocal())
+		if(\dash\url::isLocal() && \dash\request::get('preview') === 'yes')
 		{
 			// load page builder by detect current page
 			$pagebuilder = \content_site\load\load::current_page();
