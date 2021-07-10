@@ -56,7 +56,7 @@ class btn_viewall
 			}
 			$html .= '</div>';
 
-			$html .= '<div data-response="opt_btn_viewall_check" data-response-effect="slide"'.$data_response_hide.'>';
+			$html .= '<div class="mt-5" data-response="opt_btn_viewall_check" data-response-effect="slide"'.$data_response_hide.'>';
 			{
 				$html .= '<div class="input">';
 				{

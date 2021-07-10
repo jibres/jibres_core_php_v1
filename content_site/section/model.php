@@ -226,13 +226,14 @@ class model
 
 		\dash\pdo::commit();
 
+		\dash\notif::complete();
+
 		if(\dash\request::post('not_redirect'))
 		{
 			// needless to redirect
 		}
 		else
 		{
-			\dash\notif::complete();
 
 			\dash\notif::redirectHeaders(['x-xhr-html' => 'pageBuilderSection_'. $section_id]);
 
