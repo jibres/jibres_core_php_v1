@@ -76,23 +76,22 @@ class height
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= "<label for='height'>$title</label>";
-	        $html .= '<select name="opt_height" class="select22" id="height">';
+			$html .= \content_site\options\generate_radio_line::html();
 
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
+			$html .= '<select name="opt_height" class="select22" id="height">';
+			foreach (self::enum() as $key => $value)
+			{
+				$selected = null;
+				if($value['key'] === $default)
+				{
+					$selected = ' selected';
+				}
+				$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+			}
 
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-	        }
-
-	       	$html .= '</select>';
+			$html .= '</select>';
 		}
-  		$html .= '</form>';
+			$html .= '</form>';
 
 		return $html;
 	}
