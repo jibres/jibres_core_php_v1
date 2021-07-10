@@ -216,10 +216,11 @@ class background_pack
 
 		$title = T_("Background");
 
+		$func_get_args = func_get_args();
+
 		$html = '';
 
-
-		$html .= "<label for='background_pack'>Background Type</label>";
+		$html .= \content_site\options\group\group_background::admin_html(...$func_get_args);
 
 		$html .= '<form method="post" data-patch>';
 		{
@@ -288,58 +289,57 @@ class background_pack
 
 		$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
 		{
-			$html .= background_color::admin_html(...func_get_args());
+			$html .= background_color::admin_html(...$func_get_args);
 		}
 		$html .= '</div>';
 
 
 		$html .= '<div data-response="opt_background_gradient" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 		{
-
-			$html .= background_gradient_from::admin_html(...func_get_args());
-			$html .= background_gradient_via::admin_html(...func_get_args());
-			$html .= background_gradient_to::admin_html(...func_get_args());
+			$html .= background_gradient_from::admin_html(...$func_get_args);
+			$html .= background_gradient_via::admin_html(...$func_get_args);
+			$html .= background_gradient_to::admin_html(...$func_get_args);
 
 			$html .= '<div class="btn link" data-kerkere=".showGradientTempalte">'. T_("Use as template").'</div>';
 
 			$html .= '<div class="showGradientTempalte" data-kerkere-content="hide">';
 			{
-				$html .= background_gradient::admin_html(...func_get_args());
+				$html .= background_gradient::admin_html(...$func_get_args);
 			}
 			$html .= '</div>';
 
-			$html .= background_gradient_type::admin_html(...func_get_args());
+			$html .= background_gradient_type::admin_html(...$func_get_args);
 		}
 		$html .= '</div>';
 
 		$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
 		{
-			$html .= \content_site\options\file::admin_html(...func_get_args());
-			$html .= background_attachment::admin_html(...func_get_args());
-			$html .= background_position::admin_html(...func_get_args());
-			$html .= background_repeat::admin_html(...func_get_args());
-			$html .= background_size::admin_html(...func_get_args());
+			$html .= \content_site\options\file::admin_html(...$func_get_args);
+			$html .= background_attachment::admin_html(...$func_get_args);
+			$html .= background_position::admin_html(...$func_get_args);
+			$html .= background_repeat::admin_html(...$func_get_args);
+			$html .= background_size::admin_html(...$func_get_args);
 		}
 		$html .= '</div>';
 
 		$html .= '<div data-response="opt_background_pack" data-response-where="video" '.(($default === 'video') ? null : 'data-response-hide').'>';
 		{
-			$html .= \content_site\options\video::admin_html(...func_get_args());
+			$html .= \content_site\options\video::admin_html(...$func_get_args);
 		}
 		$html .= '</div>';
 
 		$html .= '<div data-response="opt_background_pack" data-response-where="image|solid|video" '.((in_array($default, ['image','solid','video'])) ? null : 'data-response-hide').'>';
 		{
-			$html .= background_opacity::admin_html(...func_get_args());
+			$html .= background_opacity::admin_html(...$func_get_args);
 		}
 		$html .= '</div>';
 
-		$html .= '<label class="mt-10">'. T_("Text Color"). '</label>';
+		$html .= \content_site\options\group\group_design::admin_html(...$func_get_args);
 
-		$html .= \content_site\options\color\color_text::admin_html(...func_get_args());
-		$html .= \content_site\options\color\color_text_hover::admin_html(...func_get_args());
-		$html .= \content_site\options\color\color_text_focus::admin_html(...func_get_args());
-		$html .= \content_site\options\color\color_opacity::admin_html(...func_get_args());
+		$html .= \content_site\options\color\color_text::admin_html(...$func_get_args);
+		$html .= \content_site\options\color\color_text_hover::admin_html(...$func_get_args);
+		$html .= \content_site\options\color\color_text_focus::admin_html(...$func_get_args);
+		$html .= \content_site\options\color\color_opacity::admin_html(...$func_get_args);
 
 		return $html;
 	}
