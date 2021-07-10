@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class b1
 {
-	public static function html($_args, $_blogList, $_id)
+	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date)
 	{
 		$html             = '';
 
@@ -62,9 +62,7 @@ class b1
 				$myThumb     = a($value, 'thumb');
 				$myExcerpt   = a($value, 'excerpt');
 				$myDate      = a($value, 'publishdate');
-				// show some data
-				$showAuthor  = a($value, 'allowshowwriter');
-				$showPubDate = a($value, 'allowshowpublishdate');
+
 
 				$card = '';
 				$card .= '<div data-card class="flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
@@ -107,7 +105,7 @@ class b1
 						// add footer line
 					$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
 					{
-						if($showAuthor)
+						if($_show_author)
 						{
 
 							$writerName = a($value, 'user_detail', 'displayname');
@@ -115,7 +113,7 @@ class b1
 							$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
 						}
 
-						if($showPubDate)
+						if($_show_date)
 						{
 							if($myDate)
 							{

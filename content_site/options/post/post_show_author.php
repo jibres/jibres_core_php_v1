@@ -6,7 +6,7 @@ class post_show_author
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit($_data);
+		$data = \dash\validate::bit(a($_data, 'show_author'));
 		return $data;
 	}
 
@@ -36,7 +36,7 @@ class post_show_author
 
 			$html .= '<div class="check1 py-0">';
 			{
-				$html .= '<input type="checkbox" name="post_show_author" id="post_show_author"'.$checked.'>';
+				$html .= '<input type="checkbox" name="show_author" id="post_show_author"'.$checked.'>';
 				$html .= '<label for="post_show_author">'. T_('Show author'). '</label>';
 			}
 			$html .= '</div>';

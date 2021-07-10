@@ -22,7 +22,6 @@ class layout
 			'limit'             => a($_args, 'count'),
 			'post_show_author'  => a($_args, 'post_show_author'),
 			'btn_viewall_check' => a($_args, 'btn_viewall_check'),
-			'post_show_author'  => a($_args, 'post_show_author'),
 		];
 
 		$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
@@ -80,7 +79,7 @@ class layout
 				switch ($type)
 				{
 					case 'b1':
-						$html .= b1::html($_args, $blogList, $id);
+						$html .= b1::html($_args, $blogList, $id, a($_args, 'post_show_author'), a($_args, 'post_show_date'));
 						break;
 
 					default:
