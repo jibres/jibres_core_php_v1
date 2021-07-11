@@ -84,7 +84,7 @@ class layout
 				switch ($type)
 				{
 					case 'b1':
-						$html .= b1::html($_args, $blogList, $id, a($_args, 'post_show_author'), a($_args, 'post_show_date'));
+						$html .= b1::html($_args, $blogList, $id, a($_args, 'post_show_author'), a($_args, 'post_show_date'), a($_args, 'post_show_excerpt'));
 						break;
 
 					default:

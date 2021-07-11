@@ -109,9 +109,10 @@ class option
 	{
 		$master_default =
 		[
-			'heading'       => T_("Post blog"),
-			'post_template' => 'standard',
-			'count'         => 3,
+			'heading'           => T_("Post blog"),
+			'post_template'     => 'standard',
+			'count'             => 3,
+			'post_show_excerpt' => true,
 		];
 
 		return array_merge($master_default, $_special_default);
@@ -139,6 +140,7 @@ class option
 			// radio
 			'post_show_author',
 			'post_show_date',
+			'post_show_excerpt',
 			'btn_viewall',
 			// range
 			'count_post',

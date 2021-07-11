@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class b1
 {
-	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date)
+	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt)
 	{
 		$html             = '';
 
@@ -91,7 +91,7 @@ class b1
 						}
 						$card .= '</h2>';
 
-						if($myExcerpt)
+						if($myExcerpt && $_show_excerpt)
 						{
 							$card .= "<p class='text-gray-700 text-xs'>";
 							$card .= $myExcerpt;
