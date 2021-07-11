@@ -26,16 +26,14 @@ class generate_radio_line
 		$html = '';
 		$html .= '<li class="filter-switch-item flex-1 relative">';
 		{
-			$checkedBg = null;
 			$html .= "<input type='radio' name='$_name' id='$myId' value='$_value' class='sr-only'";
 			if($_checked)
 			{
-				$checkedBg = ' bg-white';
 				$html .= ' checked';
 			}
 			$html .= '>';
 
-			$html .= "<label for='$myId' class='block h-10 py-1 px-3 text-sm leading-6 text-gray-600 hover:text-gray-800 rounded-full shadow $checkedBg'>";
+			$html .= "<label for='$myId' class='block h-10 py-1 px-3 text-base text-gray-600 hover:text-gray-800 rounded-full shadow bg-white'>";
 			$html .= $_text;
 			$html .= '</label>';
 			// $html .= '<div aria-hidden="true" class="filter-active"></div>';
