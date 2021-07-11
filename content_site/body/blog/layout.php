@@ -40,6 +40,11 @@ class layout
 			return null;
 		}
 
+		if(empty($blogList))
+		{
+			$blogList = fill_default::get(a($_args, 'count'));
+		}
+
 		// link of view all btn
 		$btn_viewall_link = a($dataList, 'link');
 

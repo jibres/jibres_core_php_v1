@@ -109,8 +109,9 @@ class option
 	{
 		$master_default =
 		[
-			'heading'        => T_("Post blog"),
-			'post_template'  => 'standard',
+			'heading'       => T_("Post blog"),
+			'post_template' => 'standard',
+			'count'         => 3,
 		];
 
 		return array_merge($master_default, $_special_default);
