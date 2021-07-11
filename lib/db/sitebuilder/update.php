@@ -75,6 +75,9 @@ class update
 		$query  = "DELETE FROM pagebuilder WHERE pagebuilder.related_id = :page_id AND pagebuilder.status_preview = 'deleted' ";
 		$result = \dash\pdo::query($query, $param);
 
+		$query  = "UPDATE posts SET posts.status = 'publish' WHERE posts.id = :page_id LIMIT 1";
+		$result = \dash\pdo::query($query, $param);
+
 		return $result;
 	}
 
