@@ -54,10 +54,17 @@ class view
 
 		$link = \dash\data::currentPageDetail_link();
 
-		if(\dash\data::currentPageDetail_status() !== 'publish')
-		{
-			$link .= '?preview=yes';
-		}
+		$get = [];
+
+		// if(\dash\data::currentPageDetail_status() !== 'publish')
+		// {
+		// 	$get['preview'] = 'yes';
+		// }
+
+		$get['preview'] = md5(\dash\data::currentPageDetail_datecreated());
+
+		$link .= '?'. \dash\request::build_query($get);
+
 		\dash\data::btnPreviewSiteBuilder($link);
 	}
 
