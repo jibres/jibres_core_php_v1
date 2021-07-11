@@ -72,9 +72,9 @@ class heading
 			{
 
 				$radio_html = '';
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'left', T_("Left"), (($default_position === 'left')? true : false));
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'center', T_("Center"), (($default_position === 'center' || !$default_position)? true : false));
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'right', T_("Right"), (($default_position === 'right')? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'left', \dash\utility\icon::svg('TextAlignmentLeft'), (($default_position === 'left')? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'center', \dash\utility\icon::svg('TextAlignmentCenter'), (($default_position === 'center' || !$default_position)? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'right', \dash\utility\icon::svg('TextAlignmentRight'), (($default_position === 'right')? true : false));
 
 				$html .= \content_site\options\generate_radio_line::add_ul('heading_position', $radio_html);
 			}
