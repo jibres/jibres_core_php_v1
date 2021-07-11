@@ -43,7 +43,7 @@ trait count
 			$html .= '<div class="pb-2">';
 			{
 				$html .= '<label for="'.$option_name.'">'. T_("Count Show"). '</label>';
-				$html .= '<input type="text" name="opt_'.$option_name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
+				$html .= '<input type="text" name="opt_'.$option_name.'" id="'.$option_name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
 			}
 			$html .= '</div>';
 		}
