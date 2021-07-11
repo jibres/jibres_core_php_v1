@@ -188,7 +188,7 @@ class style
 		$selected = false;
 
 		$html .= "<div class='mt-5'>";
-		$html .= "<label for='style' class='mt-5'>". T_("Style"). "</label>";
+		$html .= "<label class='mt-5'>". T_("Style"). "</label>";
 
 		foreach (self::style_template() as $key => $value)
 		{

@@ -91,7 +91,7 @@ class height
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
-			$html .= "<label for='height'>$title</label>";
+			$html .= "<label>$title</label>";
 
 			$name       = 'opt_height';
 			$name_quick = $name. '_quick';

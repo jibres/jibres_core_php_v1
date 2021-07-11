@@ -94,7 +94,7 @@ class container
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
-			$html .= "<label for='container'>$title</label>";
+			$html .= "<label>$title</label>";
 
 			$name       = 'opt_container';
 			$name_quick = $name. '_quick';
