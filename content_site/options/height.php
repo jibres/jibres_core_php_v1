@@ -4,7 +4,7 @@ namespace content_site\options;
 
 class height
 {
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'auto', 'title' => T_("Auto") , 'class' => 'height-auto', 'default' => true];
@@ -76,22 +76,22 @@ class height
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= "<label for='height'>$title</label>";
-			$html .= \content_site\options\generate_radio_line::html();
+			$html .= \content_site\options\generate_radio_line::height($default);
 
-			$html .= '<select name="opt_height" class="select22" id="height">';
-			foreach (self::enum() as $key => $value)
-			{
-				$selected = null;
-				if($value['key'] === $default)
-				{
-					$selected = ' selected';
-				}
-				$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-			}
+			// $html .= '<select name="opt_height" class="select22" id="height">';
+			// foreach (self::enum() as $key => $value)
+			// {
+			// 	$selected = null;
+			// 	if($value['key'] === $default)
+			// 	{
+			// 		$selected = ' selected';
+			// 	}
+			// 	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+			// }
 
-			$html .= '</select>';
+			// $html .= '</select>';
 		}
-			$html .= '</form>';
+		$html .= '</form>';
 
 		return $html;
 	}
