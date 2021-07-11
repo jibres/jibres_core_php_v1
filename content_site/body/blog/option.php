@@ -130,7 +130,7 @@ class option
 	{
 		$option =
 		[
-			'group_setting',
+			// 'group_setting',
 			// text
 			'heading',
 
@@ -146,7 +146,7 @@ class option
 			'count_post',
 
 
-			'group_design',
+			// 'group_design',
 			// select
 			'type',
 			'height',
