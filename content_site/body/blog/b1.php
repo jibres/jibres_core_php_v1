@@ -12,10 +12,9 @@ class b1
 		{
 			$html .= '<header>';
 			{
-				$html .= '<h3';
-				$html .= ' class="font-bold text-4xl mb-10"';
-				$html .= " data-sync-apply='heading-$_id'";
-				$html .= '>';
+				$heading_class = \content_site\options\heading::class_name($_args);
+
+				$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class' data-sync-apply='heading-$_id'>";
 				{
 					$html .= a($_args, 'heading');
 				}

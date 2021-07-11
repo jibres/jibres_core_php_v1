@@ -18,6 +18,30 @@ class heading
 	}
 
 
+	public static function class_name($_args)
+	{
+		$class_name = null;
+
+		switch(a($_args, 'heading_position'))
+		{
+			case 'left':
+				$class_name = 'text-left';
+				break;
+
+			case 'right':
+				$class_name = 'text-right';
+				break;
+
+			case 'center':
+			default:
+				$class_name = 'text-center';
+				break;
+		}
+
+		return $class_name;
+	}
+
+
 	public static function admin_html($_section_detail)
 	{
 		$default          = \content_site\section\view::get_current_index_detail('heading');
@@ -47,7 +71,7 @@ class heading
 
 				$radio_html = '';
 				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'left', T_("Left"), (($default_position === 'left')? true : false));
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'center', T_("Center"), (($default_position === 'center')? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'center', T_("Center"), (($default_position === 'center' || !$default_position)? true : false));
 				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'right', T_("Right"), (($default_position === 'right')? true : false));
 
 				$html .= \content_site\options\generate_radio_line::add_ul('heading_position', $radio_html);
