@@ -140,7 +140,7 @@ class option
 			'post_show_date',
 			'btn_viewall',
 			// range
-			'count_3',
+			'count_post',
 
 
 			'group_design',
