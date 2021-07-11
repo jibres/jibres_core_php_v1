@@ -109,7 +109,7 @@ class option
 	{
 		$master_default =
 		[
-			'heading'           => T_("Post blog"),
+			'heading'           => T_("Blog Posts"),
 			'post_template'     => 'standard',
 			'count'             => 3,
 			'post_show_excerpt' => true,
