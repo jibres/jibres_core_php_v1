@@ -13,8 +13,9 @@ class b1
 			$html .= '<header>';
 			{
 				$heading_class = \content_site\options\heading::class_name($_args);
+				$text_color = \content_site\options\background\background_color::color_text_class_name($_args);
 
-				$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class' data-sync-apply='heading-$_id'>";
+				$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $text_color' data-sync-apply='heading-$_id'>";
 				{
 					$html .= a($_args, 'heading');
 				}

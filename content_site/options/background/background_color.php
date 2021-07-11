@@ -118,5 +118,42 @@ class background_color
 	  	return $html;
 	}
 
+
+	public static function color_text_class_name($_args)
+	{
+		$class = [];
+
+		$color_text       = a($_args, 'style', 'color_text');
+
+		if($color_text)
+		{
+			$class[] = 'text-'. $color_text;
+		}
+
+		$color_text_hover = a($_args, 'style', 'color_text_hover');
+
+		if($color_text_hover)
+		{
+			$class[] = 'hover:text-'. $color_text_hover;
+		}
+
+		$color_text_focus = a($_args, 'style', 'color_text_focus');
+
+		if($color_text_focus)
+		{
+			$class[] = 'focus:text-'. $color_text;
+		}
+
+		$color_opacity    = a($_args, 'style', 'color_opacity');
+
+		if($color_opacity)
+		{
+			$class[] = 'text-opacity-'. $color_text;
+		}
+
+
+		return implode(' ', $class);
+	}
+
 }
 ?>
