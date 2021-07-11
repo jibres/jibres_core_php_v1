@@ -22,8 +22,24 @@ class container
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Container')]);
+		$quick = a($_data, 'container_quick');
+		$quick = \dash\validate::enum($quick, true, ['enum' => ['sm', 'md', 'xl', 'more'], 'field_title' => T_('Height')]);
+
+		$data = a($_data, 'container');
+		$data = \dash\validate::enum($data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
+
+		if($quick === 'more' && !$data)
+		{
+			$data = self::default();
+		}
+
+		if($quick !== 'more')
+		{
+			return $quick;
+		}
+
 		return $data;
+
 	}
 
 
@@ -72,15 +88,41 @@ class container
 
 		$this_range = array_column(self::enum(), 'key');
 
-		$html = '';
 
+
+		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
+			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= "<label for='container'>$title</label>";
-			$html .= '<input type="text" name="opt_container" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
-		}
 
+			$name       = 'opt_container';
+			$name_quick = $name. '_quick';
+
+			$radio_html = '';
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'sm', 'S', (($default === 'sm')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'md', 'M', (($default === 'md')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['sm', 'md', 'xl']) ? true : false));
+
+			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+
+			$data_response_hide = null;
+
+			if(in_array($default, ['sm', 'md', 'xl']))
+			{
+				$data_response_hide = 'data-response-hide';
+			}
+
+			$this_range = array_column(self::enum(), 'key');
+
+			$html .= "<div data-response='$name_quick' data-response-where='more' $data_response_hide>";
+			$html .= '<input type="text" name="'.$name. '" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
+			$html .= '</div>';
+		}
 		$html .= '</form>';
+
+
 
 		return $html;
 	}

@@ -111,7 +111,7 @@ class height
 				$data_response_hide = 'data-response-hide';
 			}
 
-			$this_range = array_column(height::enum(), 'key');
+			$this_range = array_column(self::enum(), 'key');
 
 			$html .= "<div data-response='$name_quick' data-response-where='more' $data_response_hide>";
 			$html .= '<input type="text" name="'.$name. '" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
