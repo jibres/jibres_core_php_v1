@@ -346,7 +346,7 @@ class background_pack
 		$html .= '</div>';
 
 
-		$html .= '<div data-response="opt_background_gradient" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
+		$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 		{
 			$html .= background_gradient_from::admin_html(...$func_get_args);
 			$html .= background_gradient_via::admin_html(...$func_get_args);
