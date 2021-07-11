@@ -237,9 +237,9 @@ class model
 		else
 		{
 
-			\dash\notif::redirectHeaders(['x-xhr-html' => 'pageBuilderSection_'. $section_id]);
+			// \dash\notif::redirectHeaders(['x-xhr-html' => 'pageBuilderSection_'. $section_id]);
 
-			\dash\redirect::pwd();
+			// \dash\redirect::pwd();
 		}
 
 
