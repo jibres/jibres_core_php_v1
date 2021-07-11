@@ -17,7 +17,7 @@ if(\dash\url::child())
       $html .= '<div class="row w-full">';
       $html .= '<div class="cauto">';
       $html .= "<div tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 hover:text-red-500 focus:text-red-600 active:text-red-700 transition p-3 rounded-lg' data-confirm data-title='$remove_title' data-data='$delete_json'>";
-      $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Delete', 'minor'). '">';
+      $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Delete', 'minor'). '" alt="Delete">';
       $html .= '<span class="inline-block align-middle ps-2">'. T_("Remove block").'<span>';
       $html .= '</div>';
       $html .= '</div>';
@@ -41,28 +41,41 @@ if(\dash\url::child())
 
     $html = '';
     $html .= '<div class="row w-full">';
-    $html .= '<div class="cauto">';
-    $html .= "<div tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 hover:text-red-500 focus:text-red-600 active:text-red-700 transition p-3 rounded-lg' data-confirm data-title='$remove_title' data-data='$delete_json'>";
-    $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Delete', 'minor'). '">';
-    $html .= '<span class="inline-block align-middle ps-2">'. T_("Remove section").'<span>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<div class="c"></div>';
-    $html .= "<div class='cauto os' >";
-    $html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' data-ajaxify data-data='$hide_view_json'>";
-
-    if(a(\dash\data::currentSectionDetail(), 'status_preview') === 'hidden')
     {
-      $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('hide', 'minor'). '">';
-    }
-    elseif(in_array(a(\dash\data::currentSectionDetail(), 'status_preview'), ['enable', 'draft', null]))
-    {
-      $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('view', 'minor'). '">';
-    }
+      $html .= '<div class="cauto">';
+      {
+        $html .= "<div tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 hover:text-red-500 focus:text-red-600 active:text-red-700 transition p-3 rounded-lg' data-confirm data-title='$remove_title' data-data='$delete_json'>";
+        {
+          $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Delete', 'minor'). '" alt="Delete">';
+          $html .= '<span class="inline-block align-middle ps-2">'. T_("Remove section").'</span>';
+        }
+        $html .= '</div>';
+      }
+      $html .= '</div>';
 
-    $html .= '</a>';
+      $html .= '<div class="c"></div>';
+
+      $html .= "<div class='cauto os'>";
+      {
+        $html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' data-ajaxify data-data='$hide_view_json'>";
+        {
+          if(a(\dash\data::currentSectionDetail(), 'status_preview') === 'hidden')
+          {
+            $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('hide', 'minor'). '" alt="hide">';
+          }
+          elseif(in_array(a(\dash\data::currentSectionDetail(), 'status_preview'), ['enable', 'draft', null]))
+          {
+            $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('view', 'minor'). '" alt="view">';
+          }
+        }
+        $html .= '</a>';
+
+      }
+      $html .= '</div>';
+
+    }
     $html .= '</div>';
-    $html .= '</div>';
+
 
     echo $html;
 
