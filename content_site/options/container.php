@@ -23,7 +23,7 @@ class container
 	public static function validator($_data)
 	{
 		$quick = a($_data, 'container_quick');
-		$quick = \dash\validate::enum($quick, true, ['enum' => ['sm', 'md', 'xl', 'more'], 'field_title' => T_('Height')]);
+		$quick = \dash\validate::enum($quick, true, ['enum' => ['sm', 'auto', 'xl', 'more'], 'field_title' => T_('Height')]);
 
 		$data = a($_data, 'container');
 		$data = \dash\validate::enum($data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
@@ -101,15 +101,15 @@ class container
 
 			$radio_html = '';
 			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'sm', 'S', (($default === 'sm')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'md', 'M', (($default === 'md')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'auto', 'M', (($default === 'auto')? true : false));
 			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['sm', 'md', 'xl']) ? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['sm', 'auto', 'xl']) ? true : false));
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 
 			$data_response_hide = null;
 
-			if(in_array($default, ['sm', 'md', 'xl']))
+			if(in_array($default, ['sm', 'auto', 'xl']))
 			{
 				$data_response_hide = 'data-response-hide';
 			}
