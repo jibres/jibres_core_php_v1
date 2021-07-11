@@ -11,13 +11,19 @@ class model
 		 */
 		if(\dash\url::child())
 		{
-			return self::save_options();
+			self::save_options();
+		}
+		else
+		{
+			/**
+			 * Add or select new option
+			 */
+			self::add_new_section();
 		}
 
-		/**
-		 * Add or select new option
-		 */
-		self::add_new_section();
+		\dash\notif::complete();
+
+		\dash\notif::reloadIframe();
 	}
 
 
@@ -225,26 +231,7 @@ class model
 		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
 
 		\dash\pdo::commit();
-
-		\dash\notif::complete();
-
-		\dash\notif::reloadIframe();
-
-		if(\dash\request::post('not_redirect'))
-		{
-			// needless to redirect
-		}
-		else
-		{
-
-			// \dash\notif::redirectHeaders(['x-xhr-html' => 'pageBuilderSection_'. $section_id]);
-
-			// \dash\redirect::pwd();
-		}
-
-
 	}
-
 
 
 	private static function remove_or_hidden_section($section_id)
@@ -298,8 +285,8 @@ class model
 
 				\content_site\update_record::patch_field($section_id, 'status_preview', $new_status);
 
-				\dash\redirect::pwd();
-				\dash\notif::complete();
+				// \dash\redirect::pwd();
+				// \dash\notif::complete();
 
 				// set hide and view section
 				return true;
