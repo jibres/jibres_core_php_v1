@@ -50,18 +50,20 @@ class heading
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
+			$myId = 'heading';
+
+			if(a($_section_detail, 'id'))
+			{
+				$myId = 'heading-'. a($_section_detail, 'id');
+			}
+
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="not_redirect" value="1">';
-		    $html .= '<label for="heading">'. T_("Heading"). '</label>';
+		    $html .= '<label for="'.$myId.'">'. T_("Heading"). '</label>';
 
 			$html .= '<div class="input">';
 			{
-				$realtime = '';
-				if(a($_section_detail, 'id'))
-				{
-					$realtime = 'data-sync="heading-'. a($_section_detail, 'id'). '"';
-				}
-	    		$html .= "<input type='text' name='opt_heading' value='$default' placeholder='' $realtime>";
+	    		$html .= "<input type='text' name='opt_heading' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
 	    		$html .= '<label class="addon btn light" data-kerkere=".showHeadingOption">...</label>';
 			}
 			$html .= "</div>";
