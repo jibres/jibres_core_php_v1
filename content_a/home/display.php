@@ -192,7 +192,7 @@
         </li>
 <?php if (\dash\url::isLocal()) { ?>
         <li>
-          <a class="item f" href="<?php echo \dash\url::kingdom(); ?>/site">
+          <a data-direct class="item f" href="<?php echo \dash\url::kingdom(); ?>/site">
             <i class="sf-monitor"></i>
             <div class="key text-green-700"><?php echo T_("Website Builder"); ?></div>
             <div class="go"></div>
