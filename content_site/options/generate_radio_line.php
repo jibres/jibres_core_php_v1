@@ -33,7 +33,7 @@ class generate_radio_line
 			}
 			$html .= '>';
 
-			$html .= "<label for='$myId' class='block h-10 py-1 px-3 text-base text-gray-600 hover:text-gray-800 rounded-full shadow bg-white'>";
+			$html .= "<label for='$myId' class='block h-10 py-1 px-3 text-base text-gray-600 hover:text-gray-800 rounded-full shadow bg-white transition'>";
 			$html .= $_text;
 			$html .= '</label>';
 			// $html .= '<div aria-hidden="true" class="filter-active"></div>';
