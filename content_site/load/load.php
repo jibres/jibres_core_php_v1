@@ -241,6 +241,8 @@ class load
 
 		$result['post_detail'] = $post_detail;
 
+		\dash\data::currentPageDetail($post_detail);
+
 		if(isset($post_detail['meta']['template']))
 		{
 			$result['template'] = $post_detail['meta']['template'];

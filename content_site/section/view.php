@@ -268,7 +268,7 @@ class view
 		$result['preview']['preview_mode'] = true;
 		$result['preview_layout']          = null;
 
-		if(a($result, 'status_preview') === 'hidden')
+		if(a($result, 'status_preview') === 'hidden' || a($result, 'status_preview') === 'deleted')
 		{
 			// needless to generate layout
 		}
@@ -292,7 +292,7 @@ class view
 
 		}
 
-		if(\dash\server::get('HTTP_SEC_FETCH_DEST') === 'iframe')
+		if(\dash\request::get('preview') === md5(\dash\data::currentPageDetail_datecreated()))
 		{
 			$result['body']        = $result['preview'];
 			$result['body_layout'] = $result['preview_layout'];
