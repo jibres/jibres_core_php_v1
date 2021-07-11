@@ -30,7 +30,7 @@ class fill_default
 			'user_detail' =>
 			[
 				'displayname' => 'Author name',
-				'avatar'      => \dash\sample\img::avatar(),
+				'avatar'      => \dash\app::static_avatar_url(),
 			]
 
 		];
