@@ -59,7 +59,7 @@ class b1
 				// h2 a
 				$myLink      = a($value, 'link');
 				$myTitle     = a($value, 'title');
-				$myThumb     = a($value, 'thumb');
+				$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
 				$myExcerpt   = a($value, 'excerpt');
 				$myDate      = a($value, 'publishdate');
 
