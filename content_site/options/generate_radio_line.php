@@ -9,7 +9,7 @@ class generate_radio_line
 	{
 		$html = '';
 
-		$html .= '<ul id="'. $_uniqueName. '" class="filter-switch flex fix items-center relative p-2 space-x-2 bg-gray-100 text-center rounded-lg font-bold text-blue-600 mb-3">';
+		$html .= '<ul id="'. $_uniqueName. '" class="filter-switch flex fix items-center relative p-2 space-x-2 bg-gray-100 text-center font-mono rounded-lg font-bold text-blue-600 mb-3">';
 		{
 			$html .= $_html_child;
 		}
@@ -33,7 +33,7 @@ class generate_radio_line
 			}
 			$html .= '>';
 
-			$html .= "<label for='$myId' class='block h-10 py-1 px-3 text-base text-gray-600 hover:text-gray-800 rounded-full shadow bg-white transition'>";
+			$html .= "<label for='$myId' class='block py-1 px-3 text-md leading-7 text-gray-600 hover:text-gray-800 rounded-full shadow bg-white transition'>";
 			$html .= $_text;
 			$html .= '</label>';
 			// $html .= '<div aria-hidden="true" class="filter-active"></div>';
