@@ -26,7 +26,22 @@ class height
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
+		$quick = a($_data, 'height_quick');
+		$quick = \dash\validate::enum($quick, true, ['enum' => ['sm', 'md', 'xl', 'more'], 'field_title' => T_('Height')]);
+
+		$data = a($_data, 'height');
+		$data = \dash\validate::enum($data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
+
+		if($quick === 'more' && !$data)
+		{
+			$data = self::default();
+		}
+
+		if($quick !== 'more')
+		{
+			return $quick;
+		}
+
 		return $data;
 	}
 
@@ -61,7 +76,7 @@ class height
 	}
 
 
-	public static function admin_html($_section_detail)
+	public static function admin_html($_default)
 	{
 		$default = \content_site\section\view::get_current_index_detail('height');
 
@@ -75,26 +90,38 @@ class height
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
+			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= "<label for='height'>$title</label>";
-			$html .= \content_site\options\generate_radio_line::height($default);
 
-			// $html .= '<select name="opt_height" class="select22" id="height">';
-			// foreach (self::enum() as $key => $value)
-			// {
-			// 	$selected = null;
-			// 	if($value['key'] === $default)
-			// 	{
-			// 		$selected = ' selected';
-			// 	}
-			// 	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-			// }
+			$name       = 'opt_height';
+			$name_quick = $name. '_quick';
 
-			// $html .= '</select>';
+			$radio_html = '';
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'sm', 'S', (($default === 'sm')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'md', 'M', (($default === 'md')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['sm', 'md', 'xl']) ? true : false));
+
+			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+
+			$data_response_hide = null;
+
+			if(in_array($default, ['sm', 'md', 'xl']))
+			{
+				$data_response_hide = 'data-response-hide';
+			}
+
+			$this_range = array_column(height::enum(), 'key');
+
+			$html .= "<div data-response='$name_quick' data-response-where='more' $data_response_hide>";
+			$html .= '<input type="text" name="'.$name. '" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.array_search($default, $this_range).'" data-values="'. implode(',', $this_range). '">';
+			$html .= '</div>';
 		}
 		$html .= '</form>';
 
-		return $html;
-	}
 
+		return $html;
+
+	}
 }
 ?>
