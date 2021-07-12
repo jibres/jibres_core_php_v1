@@ -45,7 +45,7 @@ class post_tag
 			}
 			else
 			{
-				$html .= '<option value="">'. T_("Select tag"). '</option>';
+				$html .= '<option value="0">'. T_("Select tag"). '</option>';
 			}
 
 	        foreach ($tag_list as $key => $value)
