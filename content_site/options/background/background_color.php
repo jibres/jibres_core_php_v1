@@ -141,14 +141,14 @@ class background_color
 
 		if($color_text_focus)
 		{
-			$class[] = 'focus:text-'. $color_text;
+			$class[] = 'focus:text-'. $color_text_focus;
 		}
 
 		$color_opacity    = a($_args, 'style', 'color_opacity');
 
 		if($color_opacity)
 		{
-			$class[] = 'text-opacity-'. $color_text;
+			$class[] = 'text-opacity-'. $color_opacity;
 		}
 
 
