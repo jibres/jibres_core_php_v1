@@ -59,32 +59,37 @@ class type
 			$default = self::default();
 		}
 
-
-		$title = T_("Set item type");
-
 		$html = '';
-		$html .= '<form method="post" data-patch>';
-		{
-			$html .= "<label for='type'>$title</label>";
-	        $html .= '<select name="opt_type" class="select22" id="type">';
-
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-	        }
-
-	       	$html .= '</select>';
-		}
-  		$html .= '</form>';
-
+		$url = \dash\url::that(). '/type'. \dash\request::full_get();
+		$html .= "<a href='$url' class='btn mt-10 block'>". T_("Choose another preview"). '</a>';
 		return $html;
+
+
+		// $title = T_("Set item type");
+
+		// $html = '';
+		// $html .= '<form method="post" data-patch>';
+		// {
+		// 	$html .= "<label for='type'>$title</label>";
+	 //        $html .= '<select name="opt_type" class="select22" id="type">';
+
+	 //        foreach (self::enum() as $key => $value)
+	 //        {
+	 //        	$selected = null;
+
+	 //        	if($value['key'] === $default)
+	 //        	{
+	 //        		$selected = ' selected';
+	 //        	}
+
+	 //        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+	 //        }
+
+	 //       	$html .= '</select>';
+		// }
+  // 		$html .= '</form>';
+
+		// return $html;
 	}
 
 }

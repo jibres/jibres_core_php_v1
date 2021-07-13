@@ -51,6 +51,20 @@ class controller
 
 		$options = \content_site\call_function::option($child);
 
+		$subchild = \dash\url::subchild();
+		if($subchild)
+		{
+			if(isset($options[$subchild]) && is_array($options[$subchild]))
+			{
+				// ok.
+			}
+			else
+			{
+				\dash\header::status(403, T_("Invalid url!"));
+				return;
+			}
+		}
+
 		\dash\data::currentOptionList($options);
 
 		// allow to get and post on this page
