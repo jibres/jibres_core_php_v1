@@ -151,6 +151,13 @@ class background_color
 			$class[] = 'text-opacity-'. $color_opacity;
 		}
 
+		$font    = a($_args, 'style', 'font');
+
+		if($font)
+		{
+			$class[] = 'font-'. $font;
+		}
+
 
 		return implode(' ', $class);
 	}
