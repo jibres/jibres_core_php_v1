@@ -7,46 +7,53 @@ $html .= '<div data-xhr="sitebuilderOptionXhr">';
 
 if(\dash\data::sectionList())
 {
-  /**
-   * Load section list to choose it
-   */
-  $last_group = null;
-
-  $adding_detail = \dash\data::addingDetail();
-  $adding_key    = a($adding_detail, 'preview', 'key');
-  $adding_type  = a($adding_detail, 'preview', 'type');
-
-
-  foreach (\dash\data::sectionList() as $group => $items)
+  if(\dash\data::changeSectionTypeMode())
   {
-    $html .= '<label>'. $group. '</label>';
-    $html .= '<nav class="sections items">';
-    $html .= '<ul>';
-    foreach ($items as $item)
+    // nothing
+  }
+  else
+  {
+    /**
+     * Load section list to choose it
+     */
+    $last_group = null;
+
+    $adding_detail = \dash\data::addingDetail();
+    $adding_key    = a($adding_detail, 'preview', 'key');
+    $adding_type  = a($adding_detail, 'preview', 'type');
+
+
+    foreach (\dash\data::sectionList() as $group => $items)
     {
-      $adding_this = false;
-      if(a($item, 'key') === $adding_key && a($item, 'type') === $adding_type)
+      $html .= '<label>'. $group. '</label>';
+      $html .= '<nav class="sections items">';
+      $html .= '<ul>';
+      foreach ($items as $item)
       {
-        $adding_this = true;
-      }
+        $adding_this = false;
+        if(a($item, 'key') === $adding_key && a($item, 'type') === $adding_type)
+        {
+          $adding_this = true;
+        }
 
-      $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
+        $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
 
-      // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
-      $html .= '<li>';
-      // $html .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
-      $html .= "<a class='item f' href='". $show_preview_link. "'>";
-      $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
-      $html .= '<div class="key">'. a($item, 'title'). '</div>';
-      if($adding_this)
-      {
-        $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+        // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
+        $html .= '<li>';
+        // $html .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
+        $html .= "<a class='item f' href='". $show_preview_link. "'>";
+        $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
+        $html .= '<div class="key">'. a($item, 'title'). '</div>';
+        if($adding_this)
+        {
+          $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+        }
+        $html .= '</a>';
+        $html .= '</li>';
       }
-      $html .= '</a>';
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-    $html .= '</nav>';
+      $html .= '</ul>';
+      $html .= '</nav>';
+  }
 
   }
 

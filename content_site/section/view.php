@@ -28,6 +28,17 @@ class view
 			// \content_site\controller::load_current_section_list();
 
 			self::generate_back_url();
+
+			if(\dash\data::changeSectionTypeMode())
+			{
+				\dash\data::include_adminPanelBuilder(true);
+
+				$section_list = controller::section_list();
+
+				$section_list = self::show_section_preview_in_group($section_list, \dash\data::currentSectionDetail_mode(), \dash\url::child());
+
+				\dash\data::sectionList($section_list);
+			}
 		}
 		else
 		{
@@ -41,7 +52,7 @@ class view
 
 			$section_list = controller::section_list();
 
-			$section_list = self::show_section_preview_in_group($section_list);
+			$section_list = self::show_section_preview_in_group($section_list, \dash\request::get('list'), \dash\request::get('section'));
 
 			\dash\data::sectionList($section_list);
 
@@ -97,13 +108,13 @@ class view
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	private static function show_section_preview_in_group($section_list)
+	private static function show_section_preview_in_group($section_list, $_list, $_section)
 	{
 		$new_list = [];
 
-		$get_list = \dash\request::get('list');
+		$get_list = $_list; // \dash\request::get('list');
 
-		$section = \dash\request::get('section');
+		$section = $_section; // \dash\request::get('section');
 
 		foreach ($section_list as $key => $value)
 		{

@@ -219,6 +219,13 @@ class model
 		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
 
 		\dash\pdo::commit();
+
+		if(\dash\data::changeSectionTypeMode())
+		{
+			// \dash\notif::reloadIframe();
+			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
+
+		}
 	}
 
 

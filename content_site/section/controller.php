@@ -58,6 +58,11 @@ class controller
 			{
 				// ok.
 			}
+			elseif($subchild === 'type')
+			{
+				// ok
+				\dash\data::changeSectionTypeMode(true);
+			}
 			else
 			{
 				\dash\header::status(403, T_("Invalid url!"));
