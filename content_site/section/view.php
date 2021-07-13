@@ -25,7 +25,7 @@ class view
 		// in a section
 		if(\dash\url::child())
 		{
-			\content_site\controller::load_current_section_list();
+			// \content_site\controller::load_current_section_list();
 
 			self::generate_back_url();
 		}
