@@ -188,7 +188,7 @@ class view
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	public static function ready_section_list($_data)
+	public static function ready_section_list($_data, $_generate_layout = false)
 	{
 		$result = [];
 
@@ -274,17 +274,20 @@ class view
 		}
 		else
 		{
-			$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
+			if($_generate_layout)
+			{
+				$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
+			}
 		}
 
 
-		if(\dash\header::get('x-xhr-html') === "pageBuilderSection_". a($result, 'id'))
-		{
-			\dash\data::xhrHtml($result['preview_layout']);
-		}
+		// if(\dash\header::get('x-xhr-html') === "pageBuilderSection_". a($result, 'id'))
+		// {
+		// 	\dash\data::xhrHtml($result['preview_layout']);
+		// }
 
 
-		if(!\dash\engine\content::is('site'))
+		if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
 		{
 			$result['body']           = array_merge($detail, $default, $result['body']);
 

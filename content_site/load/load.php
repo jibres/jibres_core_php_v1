@@ -284,12 +284,12 @@ class load
 				{
 					if(floatval(a($value, 'related_id')) === floatval($homepage_id))
 					{
-						self::$homepage_header_footer[$value['mode']][] = \content_site\section\view::ready_section_list($value);
+						self::$homepage_header_footer[$value['mode']][] = \content_site\section\view::ready_section_list($value, true);
 						continue;
 					}
 				}
 
-				$result[$value['mode']][] = \content_site\section\view::ready_section_list($value);
+				$result[$value['mode']][] = \content_site\section\view::ready_section_list($value, true);
 
 			}
 		}
