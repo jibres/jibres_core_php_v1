@@ -40,7 +40,7 @@ class layout
 			return null;
 		}
 
-		if(empty($blogList))
+		if(empty($blogList) || a($_args, 'fill_defult_data'))
 		{
 			$blogList = fill_default::get(a($_args, 'count'));
 		}

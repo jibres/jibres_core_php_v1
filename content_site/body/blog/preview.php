@@ -9,7 +9,8 @@ class preview
 	{
 		return
 		[
-			'type'   => 'type_1',
+			'type'             => 'type_1',
+			'fill_defult_data' => true,
 		];
 	}
 
