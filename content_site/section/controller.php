@@ -139,7 +139,7 @@ class controller
 	 *
 	 * @return     bool  ( description_of_the_return_value )
 	 */
-	public static function current_section_detail()
+	private static function current_section_detail()
 	{
 		$page_id    = \dash\coding::decode(\dash\request::get('id'));
 		$section_id = \dash\validate::id(\dash\request::get('sid'));
@@ -157,6 +157,7 @@ class controller
 		{
 			if(!$page_id || !$section_id)
 			{
+				\dash\header::status(404, T_("Page id or section id not found"));
 				return false;
 			}
 
@@ -164,6 +165,7 @@ class controller
 
 			if(!is_array($section_detail) || !$section_detail)
 			{
+				\dash\header::status(404, T_("Invalid section id"));
 				return false;
 			}
 
@@ -175,6 +177,7 @@ class controller
 			}
 			else
 			{
+				\dash\header::status(404, T_("Invalid section type"));
 				return false;
 			}
 		}
