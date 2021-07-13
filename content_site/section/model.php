@@ -263,6 +263,7 @@ class model
 					\content_site\update_record::patch_field($section_id, 'status_preview', 'deleted');
 				}
 
+				\dash\notif::reloadIframe();
 
 				\dash\redirect::to(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
 
