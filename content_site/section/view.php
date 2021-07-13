@@ -263,7 +263,20 @@ class view
 			$default = [];
 		}
 
-		$result['preview']                 = array_merge($detail, $default, $result['preview']);
+		$options = \content_site\call_function::option($section_key);
+
+		$default_options = [];
+
+		foreach ($options as $option_name)
+		{
+			if(is_string($option_name))
+			{
+				$default_options[$option_name] = \content_site\call_function::option_default($option_name);
+			}
+		}
+
+
+		$result['preview']                 = array_merge($default_options, $detail, $default, $result['preview']);
 		$result['preview']['id']           = a($result, 'id');
 		$result['preview']['preview_mode'] = true;
 		$result['preview_layout']          = null;

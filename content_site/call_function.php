@@ -159,6 +159,18 @@ class call_function
 					$default = [];
 				}
 
+				$options = \content_site\call_function::option($section_key);
+
+				$default_options = [];
+
+				foreach ($options as $option_name)
+				{
+					if(is_string($option_name))
+					{
+						$default_options[$option_name] = self::option_default($option_name);
+					}
+				}
+
 				$namespace_preview = sprintf($namespace, 'preview');
 
 				$namespace_layout  = sprintf($namespace, 'layout');
@@ -176,7 +188,7 @@ class call_function
 				{
 					$preview_default = self::_call([$namespace_preview, $value]);
 
-					$preview_default = array_merge($default, $preview_default);
+					$preview_default = array_merge($default_options, $default, $preview_default);
 
 					$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
 

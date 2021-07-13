@@ -12,6 +12,11 @@ class type
 
 		$type_list = \content_site\call_function::type_list($section);
 
+		if(!is_array($type_list))
+		{
+			return [];
+		}
+
 		$enum   = [];
 
 		foreach ($type_list as $key => $value)
