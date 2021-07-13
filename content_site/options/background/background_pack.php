@@ -39,6 +39,8 @@ class background_pack
 			'color_text_hover',
 			'color_text_focus',
 			'color_opacity',
+
+			'font',
 		];
 	}
 
@@ -392,6 +394,8 @@ class background_pack
 		$html .= \content_site\options\color\color_text_hover::admin_html(...$func_get_args);
 		$html .= \content_site\options\color\color_text_focus::admin_html(...$func_get_args);
 		$html .= \content_site\options\color\color_opacity::admin_html(...$func_get_args);
+
+		$html .= \content_site\options\font::admin_html(...$func_get_args);
 
 		return $html;
 	}
