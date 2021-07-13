@@ -123,35 +123,35 @@ class background_color
 	{
 		$class = [];
 
-		$color_text       = a($_args, 'style', 'color_text');
+		$color_text       = a($_args,  'color_text');
 
 		if($color_text)
 		{
 			$class[] = 'text-'. $color_text;
 		}
 
-		$color_text_hover = a($_args, 'style', 'color_text_hover');
+		$color_text_hover = a($_args,  'color_text_hover');
 
 		if($color_text_hover)
 		{
 			$class[] = 'hover:text-'. $color_text_hover;
 		}
 
-		$color_text_focus = a($_args, 'style', 'color_text_focus');
+		$color_text_focus = a($_args,  'color_text_focus');
 
 		if($color_text_focus)
 		{
 			$class[] = 'focus:text-'. $color_text_focus;
 		}
 
-		$color_opacity    = a($_args, 'style', 'color_opacity');
+		$color_opacity    = a($_args,  'color_opacity');
 
 		if($color_opacity)
 		{
 			$class[] = 'text-opacity-'. $color_opacity;
 		}
 
-		$font    = a($_args, 'style', 'font');
+		$font    = a($_args,  'font');
 
 		if($font)
 		{

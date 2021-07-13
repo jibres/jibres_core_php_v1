@@ -66,16 +66,24 @@ class model
 			return;
 		}
 
+		$trust_options_list_raw = \dash\data::currentOptionList();
+		$trust_options_list     = [];
 
-		$options_list = \dash\data::currentOptionList();
-
-		if($subchild && isset($options_list[$subchild]))
+		foreach ($trust_options_list_raw as $key => $value)
 		{
-			$options_list = $options_list[$subchild];
+			if(is_array($value))
+			{
+				$trust_options_list[] = $key;
+				$trust_options_list = array_merge($trust_options_list, $value);
+			}
+			else
+			{
+				$trust_options_list[] = $value;
+			}
 		}
 
-		$option_key   = null;
-		$myPost = [];
+		$option_key = null;
+		$myPost     = [];
 
 		$all_post = \dash\request::post();
 
@@ -99,7 +107,7 @@ class model
 		}
 
 
-		if(in_array($option_key, $options_list) || (is_array(a($options_list, $option_key))))
+		if(in_array($option_key, $trust_options_list))
 		{
 			// ok
 		}
@@ -158,59 +166,40 @@ class model
 			$option_db_key = $check_option_db_key;
 		}
 
-		if($subchild)
+		if($subchild && $index)
 		{
-			if($index)
+			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
 			{
-				if(isset($preview[$subchild]) && is_array($preview[$subchild]))
+				foreach ($preview[$subchild] as $k => $v)
 				{
-					foreach ($preview[$subchild] as $k => $v)
+					if(isset($v['index']) && $v['index'] === $index)
 					{
-						if(isset($v['index']) && $v['index'] === $index)
+						// save multi option
+						if(is_array($value))
 						{
-										// save multi option
-							if(is_array($value))
+							foreach ($value as $my_key => $val)
 							{
-								foreach ($value as $my_key => $val)
-								{
-									$preview[$subchild][$k][$my_key] = $val;
-								}
-							}
-							else
-							{
-								$preview[$subchild][$k][$option_db_key] = $value;
+								$preview[$subchild][$k][$my_key] = $val;
 							}
 						}
+						else
+						{
+							$preview[$subchild][$k][$option_db_key] = $value;
+						}
 					}
-				}
-				else
-				{
-					// in mode galler we need the index
-					\dash\notif::error(T_("Can save this index!"));
-					\dash\pdo::rollback();
-					return false;
 				}
 			}
 			else
 			{
-				// save multi option
-				if(is_array($value))
-				{
-					foreach ($value as $my_key => $val)
-					{
-						$preview[$subchild][$my_key] = $val;
-					}
-				}
-				else
-				{
-					$preview[$subchild][$option_db_key] = $value;
-				}
-
+				// in mode galler we need the index
+				\dash\notif::error(T_("Can save this index!"));
+				\dash\pdo::rollback();
+				return false;
 			}
+
 		}
 		else
 		{
-
 			// save multi option
 			if(is_array($value))
 			{
@@ -223,7 +212,6 @@ class model
 			{
 				$preview[$option_db_key] = $value;
 			}
-
 		}
 
 		$preview           = json_encode($preview);
