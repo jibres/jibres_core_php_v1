@@ -435,8 +435,22 @@ class dns
 	}
 
 
+	/**
+	 * User try to add any dns record
+	 *
+	 * @param      <type>  $_id    The identifier
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function add_by_user($_id, $_args)
+	{
+		return self::add($_id, $_args, true);
+	}
 
-	public static function add($_id, $_args)
+
+
+	public static function add($_id, $_args, $_add_by_user = false)
 	{
 		$condition =
 		[
@@ -472,6 +486,24 @@ class dns
 		{
 			\dash\notif::error(T_("Duplicate DNS record"));
 			return false;
+		}
+
+		if($_add_by_user)
+		{
+			if($data['key'] === '*')
+			{
+				\dash\notif::error(T_("Can not add * in dns record"));
+				return false;
+			}
+
+			if($data['key'] === 'www' || $data['key'] === '@')
+			{
+				if(in_array($data['type'], ['A', 'AAAA', 'ANAME', 'CNAME']))
+				{
+					\dash\notif::error(T_("Can not add @ in dns record"));
+					return false;
+				}
+			}
 		}
 
 

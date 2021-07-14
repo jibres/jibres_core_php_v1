@@ -141,7 +141,7 @@
         <?php if(\dash\data::dnsList()) {?>
           <?php $have_any_record = false; foreach (\dash\data::dnsList() as $key => $value) { if(a($value, 'allow_remove')) { $have_any_record = true; } }?>
 
-          <?php if($have_any_record) {?>
+          <?php if($have_any_record || 1) {?>
             <div class="tblBox">
               <table class="tbl1 v4 font-12 ltr txtL">
                 <thead>
@@ -155,7 +155,7 @@
                 </thead>
                 <tbody>
                   <?php foreach (\dash\data::dnsList() as $key => $value) {?>
-                          <?php if(a($value, 'allow_remove')) {?>
+                          <?php if(a($value, 'allow_remove') || 1) {?>
                     <tr class="txtL">
                       <td class="ltr txtL"><?php echo a($value, 'type'); ?></td>
                       <td class="ltr txtL"><?php echo a($value, 'key'); ?></td>

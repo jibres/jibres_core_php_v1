@@ -16,7 +16,7 @@ class model
 				'priority' => \dash\request::post('priority'),
 			];
 
-			$result = \lib\app\business_domain\dns::add(\dash\data::domainID(), $post);
+			$result = \lib\app\business_domain\dns::add_by_user(\dash\data::domainID(), $post);
 		}
 
 
