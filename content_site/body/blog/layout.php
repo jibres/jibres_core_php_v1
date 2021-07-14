@@ -15,31 +15,37 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-		$line_detail =
-		[
-			'tag_id'            => a($_args, 'post_tag'),
-			'subtype'           => a($_args, 'post_template'),
-			'limit'             => a($_args, 'count'),
-			'post_show_author'  => a($_args, 'post_show_author'),
-			'btn_viewall_check' => a($_args, 'btn_viewall_check'),
-		];
+		$blogList = [];
+		$dataList = [];
 
-		$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
-
-		$blogList = null;
-
-		if(isset($dataList['list']) && is_array($dataList['list']))
+		if(!a($_args, 'fill_defult_data'))
 		{
-			$blogList = $dataList['list'];
+			$line_detail =
+			[
+				'tag_id'            => a($_args, 'post_tag'),
+				'subtype'           => a($_args, 'post_template'),
+				'limit'             => a($_args, 'count'),
+				'post_show_author'  => a($_args, 'post_show_author'),
+				'btn_viewall_check' => a($_args, 'btn_viewall_check'),
+			];
+
+			$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
+
+			if(isset($dataList['list']) && is_array($dataList['list']))
+			{
+				$blogList = $dataList['list'];
+			}
+
+			if(!is_array($blogList))
+			{
+				// error
+				// it will not happend because we fill it in all conditions
+				$blogList = [];
+			}
 		}
 
-		if(!is_array($blogList))
-		{
-			// error
-			// it will not happend because we fill it in all conditions
-			return null;
-		}
 
+		// fill_default_data receive from preview function
 		if(empty($blogList) || a($_args, 'fill_defult_data'))
 		{
 			$blogList = fill_default::get(a($_args, 'count'));
