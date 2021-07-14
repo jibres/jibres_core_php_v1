@@ -181,22 +181,19 @@ class datetime
         	}
         }
 
-
-        switch ($_format)
+        if($_format === 'humanTime')
         {
-        	case 'humanTime':
-				return \dash\utility\human::time($_datetime, $_type);
-        		break;
-
-        	case 'human':
-				return \dash\utility\human::timing($_datetime, $_type);
-        		break;
-
-        	default:
-        		break;
+			return \dash\utility\human::time($_datetime, $_type);
+        }
+        elseif($_format === 'human')
+        {
+			return \dash\utility\human::timing($_datetime, $_type);
+        }
+        else
+        {
+			return self::get($_datetime, $_format, $_type, $_calendar);
         }
 
-		return self::get($_datetime, $_format, $_type, $_calendar);
 	}
 
 }
