@@ -12,6 +12,7 @@ class preview
 			'type'              => 'type_1',
 			'fill_defult_data'  => true,
 			'post_show_excerpt' => false,
+			'background_pack'   => 'none',
 		];
 	}
 
