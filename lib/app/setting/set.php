@@ -396,15 +396,23 @@ class set
 
 		$analyze_url = \dash\validate\url::parseUrl($endpoint);
 
-		$check_domain = $analyze_url['root']. '.'. $analyze_url['tld'];
-
-		if(in_array($check_domain, ['arvanstorage.com', 'digitaloceanspaces.com', 'amazonaws.com']))
+		if(isset($analyze_url['root']) && isset($analyze_url['tld']))
 		{
-			// ok
+			$check_domain = $analyze_url['root']. '.'. $analyze_url['tld'];
+
+			if(in_array($check_domain, ['arvanstorage.com', 'digitaloceanspaces.com', 'amazonaws.com']))
+			{
+				// ok
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not support this endpoint!"));
+				return false;
+			}
 		}
 		else
 		{
-			\dash\notif::error(T_("Can not support this endpoint!"));
+			\dash\notif::error(T_("Invalid endpoint!"));
 			return false;
 		}
 
