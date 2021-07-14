@@ -9,28 +9,29 @@ class preview
 	{
 		return
 		[
-			'type'             => 'type_1',
-			'fill_defult_data' => true,
+			'type'              => 'type_1',
+			'fill_defult_data'  => true,
+			'post_show_excerpt' => false,
 		];
 	}
 
 
-	// public static function preview_gradient_1()
-	// {
-	// 	return
-	// 	[
-	// 		'type'          => 'type_1',
-	// 		'post_template' => 'standard',
-	// 		'background'    =>
-	// 		[
-	// 			'background_pack'          => 'gradient',
-	// 			'background_gradient_type' => 'gradient-to-r',
-	// 			'background_gradient_from' => 'pink-500',
-	// 			'background_gradient_via'  => 'red-500',
-	// 			'background_gradient_to'   => 'yellow-500',
-	// 		],
-	// 	];
-	// }
+	public static function preview_gradient_1()
+	{
+		return
+		[
+			'type'                     => 'type_1',
+			'fill_defult_data'         => true,
+			'post_show_excerpt'        => false,
+			// 'post_template'         => 'standard',
+			'background_pack'          => 'gradient',
+			'background_gradient_type' => 'gradient-to-r',
+			'background_gradient_from' => 'pink-500',
+			'background_gradient_via'  => 'red-500',
+			'background_gradient_to'   => 'yellow-500',
+
+		];
+	}
 
 
 

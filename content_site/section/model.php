@@ -36,11 +36,12 @@ class model
 	 */
 	public static function save_options()
 	{
-		$page_id            = \dash\request::get('id');
-		$section_id         = \dash\request::get('sid');
-		$section_id         = \dash\validate::id($section_id);
-		$subchild           = \dash\url::subchild();
-		$index              = \dash\request::get('index');
+		$page_id    = \dash\request::get('id');
+		$section_id = \dash\request::get('sid');
+		$section_id = \dash\validate::id($section_id);
+		$subchild   = \dash\url::subchild();
+		$child      = \dash\url::child();
+		$index      = \dash\request::get('index');
 
 		if(!$section_id)
 		{
@@ -137,6 +138,36 @@ class model
 		{
 			\dash\notif::error_once(T_("Please check your input"));
 			return false;
+		}
+
+		if(\dash\data::changeSectionTypeMode())
+		{
+			// need overwrite preview detail
+			// load preview setting from function
+			// remove preview index fox example fill_default_data
+
+			$preview_key = \dash\request::post('preview_key');
+
+			$preview_key = \dash\validate::string_100($preview_key);
+
+			if(!$preview_key)
+			{
+				\dash\notif::error(T_("Invalid preview_key"));
+				return false;
+			}
+
+			$load_preview = \content_site\call_function::preview($child, $preview_key);
+
+			if(!is_array($load_preview))
+			{
+				\dash\notif::error(T_("Invalid preview key"));
+				return false;
+			}
+
+			unset($load_preview['fill_defult_data']);
+
+			$value = $load_preview;
+
 		}
 
 		// reload section detail to get last update
