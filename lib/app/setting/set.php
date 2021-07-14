@@ -392,10 +392,29 @@ class set
 			'bucket'    => $data['bucket'],
 		];
 
+		$endpoint = $data['endpoint'];
+
+		$analyze_url = \dash\validate\url::parseUrl($endpoint);
+
+		$check_domain = $analyze_url['root']. '.'. $analyze_url['tld'];
+
+		if(in_array($check_domain, ['arvanstorage.com', 'digitaloceanspaces.com', 'amazonaws.com']))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not support this endpoint!"));
+			return false;
+		}
+
+
 		$cat   = 'upload_provider';
 		$key   = $data['provider'];
 
 		$load       = \lib\app\setting\get::upload_provider();
+
+
 		$any_active = false;
 
 		$test_connection = false;
@@ -414,7 +433,7 @@ class set
 			}
 
 			$test_connection = true;
-			\dash\db::transaction();
+			// \dash\db::transaction();
 		}
 		else
 		{
@@ -427,6 +446,7 @@ class set
 				}
 			}
 		}
+
 
 		$value = \dash\json::encode($args);
 		\lib\app\setting\tools::update($cat, $key, $value);
@@ -470,7 +490,7 @@ class set
 				\dash\notif::ok(' ', ['alerty' => true, 'html' => T_("The connection was successfully tested <br> From now on, all files uploaded to your service will be stored in this cloud service provider")]);
 			}
 
-			\dash\db::commit();
+			// \dash\db::commit();
 		}
 
 		if(isset($clean_message) && $clean_message)
