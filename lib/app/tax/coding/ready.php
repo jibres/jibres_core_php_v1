@@ -86,6 +86,12 @@ class ready
 			$full_title[] = $_data['total_title'];
 		}
 
+		if(isset($_data['assistant_title']) && $_data['assistant_title'])
+		{
+			$full_title[] = $_data['assistant_title'];
+		}
+
+
 		$result['full_title'] = implode(' - ', $full_title);
 		return $result;
 	}

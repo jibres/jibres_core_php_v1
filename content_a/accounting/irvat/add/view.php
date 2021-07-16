@@ -35,7 +35,8 @@ class view
 			\dash\data::accountingDetailsId($load);
 		}
 
-		\dash\data::assistantList(\lib\app\tax\coding\get::list_of('assistant'));
+		\dash\data::detailsList(\lib\app\tax\coding\get::current_list_of('details'));
+
 
 	}
 }

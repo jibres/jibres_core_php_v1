@@ -123,7 +123,6 @@ class get
 			case 'details':
 			default:
 				$list = \lib\db\tax_coding\get::list_details_raw($_group_id, $_total_id, $_assistant_id);
-				return $list;
 				break;
 		}
 
