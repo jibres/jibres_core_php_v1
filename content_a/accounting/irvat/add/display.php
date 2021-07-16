@@ -139,7 +139,7 @@
       </div>
 
       <div class="c-xs-12 c-sm-6 c-md-4">
-        <?php if(false) {?>
+        <?php if(true) {?>
         <div class="box">
           <header><h2><?php echo T_("Smart accounting") ?></h2></header>
           <div class="body">

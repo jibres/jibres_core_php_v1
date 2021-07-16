@@ -84,6 +84,39 @@
 
   </div>
 
+  <h2 class="mTB20"><?php echo T_("Income-cost management") ?></h2>
+  <div class="f">
+    <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/add?type=cost'>
+        <div class="statistic red">
+          <div class="value"><i class="sf-plus"></i></div>
+          <div class="label"><?php echo T_("Add cost"); ?></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/add?type=income'>
+        <div class="statistic red">
+          <div class="value"><i class="sf-plus"></i></div>
+          <div class="label"><?php echo T_("Add income"); ?></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="c s12">
+      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/all'>
+        <div class="statistic red">
+          <div class="value"><i class="sf-list-ul"></i></div>
+          <div class="label"><?php echo T_("List"); ?></div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+
+
   <h2><?php echo T_("Accounting Reports") ?></h2>
 
   <div class="f">
@@ -177,7 +210,7 @@
      <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal'; ?>'>
         <div class="statistic pink">
-          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
           <div class="label"><?php echo T_("General Journal"). ' - '. T_("Monthly"); ?></div>
         </div>
       </a>
@@ -185,7 +218,7 @@
     <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal?daily=1'; ?>'>
         <div class="statistic pink">
-          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
           <div class="label"><?php echo T_("General Journal"). ' - '. T_("Daily"); ?></div>
         </div>
       </a>
@@ -193,7 +226,7 @@
         <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/ledger'; ?>'>
         <div class="statistic pink">
-          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
           <div class="label"><?php echo T_("Ledger"). ' - '. T_("Monthly"); ?></div>
         </div>
       </a>
@@ -202,7 +235,7 @@
        <div class="c s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/ledger?daily=1'; ?>'>
         <div class="statistic pink">
-          <div class="value mB10"><img class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
+          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
           <div class="label"><?php echo T_("Ledger"). ' - '. T_("Daily"); ?></div>
         </div>
       </a>
@@ -210,38 +243,7 @@
   </div>
 
 
-<?php if(false) {?>
-  <h2 class="mTB20"><?php echo T_("Income-cost management") ?></h2>
-  <div class="f">
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/add?type=cost'>
-        <div class="statistic red">
-          <div class="value"><i class="sf-plus"></i></div>
-          <div class="label"><?php echo T_("Add cost"); ?></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/add?type=income'>
-        <div class="statistic red">
-          <div class="value"><i class="sf-plus"></i></div>
-          <div class="label"><?php echo T_("Add income"); ?></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/all'>
-        <div class="statistic red">
-          <div class="value"><i class="sf-list-ul"></i></div>
-          <div class="label"><?php echo T_("List"); ?></div>
-        </div>
-      </a>
-    </div>
-
-  <?php } //endif ?>
 
 
-  </div>
+
 
