@@ -61,7 +61,7 @@ $dataRow = \dash\data::dataRow();
         <div class="c-md-6">
           <label for="factordate" ><?php echo T_("Factor date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
           <div class="input">
-            <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo a($dataRow, 'tax_document', 'date'); ; ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
+            <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
           </div>
         </div>
         <div class="c-md-6">
@@ -114,6 +114,14 @@ $dataRow = \dash\data::dataRow();
       <button class="btn master"><?php echo T_("Add") ?></button>
     </footer>
   </div>
+
+  <?php
+    if(\dash\data::editMode())
+    {
+      require_once(root. 'content_a/accounting/doc/add/display-gallery.php');
+    }
+  ?>
+
   </div>
 </form>
 

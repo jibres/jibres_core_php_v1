@@ -150,16 +150,16 @@ class check
 		else
 		{
 			// in normal mode needless to this variable
-			usent($data['template']);
-			usent($data['pay_from']);
-			usent($data['put_on']);
-			usent($data['tax']);
-			usent($data['vat']);
-			usent($data['serialnumber']);
-			usent($data['total']);
-			usent($data['totaldiscount']);
-			usent($data['totalvat']);
-			usent($data['user_id']);
+			unset($data['template']);
+			unset($data['pay_from']);
+			unset($data['put_on']);
+			unset($data['tax']);
+			unset($data['vat']);
+			unset($data['serialnumber']);
+			unset($data['total']);
+			unset($data['totaldiscount']);
+			unset($data['totalvat']);
+			unset($data['user_id']);
 			unset($data['thirdparty']);
 		}
 

@@ -8,77 +8,41 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		if(self::upload_gallery($id))
-		{
-			return false;
-		}
 
+		if(\dash\request::post('uploaddoc') === 'uploaddoc' && \dash\request::files('gallery'))
+		{
+			\content_a\accounting\doc\edit\model::upload_gallery($id);
+			return;
+		}
 
 		if(\dash\request::post('fileaction') === 'remove')
 		{
-			self::remove_gallery($id);
+			\content_a\accounting\doc\edit\model::remove_gallery($id);
 			return false;
-		}
-
-
-		if(\dash\request::post('save') === 'legal')
-		{
-			$post =
-			[
-				'companyname'           => \dash\request::post('companyname'),
-				'companyregisternumber' => \dash\request::post('companyregisternumber'),
-				'companynationalid'     => \dash\request::post('companynationalid'),
-				'companyeconomiccode'   => \dash\request::post('companyeconomiccode'),
-				'ceonationalcode'       => \dash\request::post('ceonationalcode'),
-				'country'               => \dash\request::post('country'),
-				'province'              => \dash\request::post('province'),
-				'city'                  => \dash\request::post('city'),
-				'address'               => \dash\request::post('address'),
-				'postcode'              => \dash\request::post('postcode'),
-				'phone'                 => \dash\request::post('phone'),
-				'fax'                   => \dash\request::post('fax'),
-			];
-
-
-			// \dash\app\user\legal::set($post, \dash\request::post('legal_user'));
-
 		}
 
 		$post =
 		[
-			'title'             => \dash\request::post('title'),
-			'code'              => \dash\request::post('code'),
-			'serialnumber'      => \dash\request::post('serialnumber'),
-			'factordate'        => \dash\request::post('factordate'),
-			'type'              => \dash\data::dataRow_type(),
-			'total'             => \dash\request::post('total'),
-			'subtotalitembyvat' => \dash\request::post('subtotalitembyvat'),
-			'sumvat'            => \dash\request::post('sumvat'),
-			'items'             => \dash\request::post('items'),
-			'itemsvat'          => \dash\request::post('itemsvat'),
-			'official'          => \dash\request::post('official'),
-			'vat'               => \dash\request::post('vat'),
-			'desc'              => \dash\request::post('desc'),
+			'template'      => \dash\request::get('type'),
 
+			'year_id'       => \dash\request::post('year_id'),
 
-			'mobile'      => \dash\request::post('memberTl'),
-			'gender'      => \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null,
-			'displayname' => \dash\request::post('memberN'),
+			'pay_from'      => \dash\request::post('pay_from'),
+			'put_on'        => \dash\request::post('put_on'),
+			'tax'           => \dash\request::post('tax'),
+			'vat'           => \dash\request::post('vat'),
+			'thirdparty'    => \dash\request::post('thirdparty'),
 
+			'desc'          => \dash\request::post('title'),
+			'date'          => \dash\request::post('factordate'),
+			'serialnumber'  => \dash\request::post('serialnumber'),
+
+			'total'         => \dash\request::post('total'),
+			'totaldiscount' => \dash\request::post('totaldiscount'),
+			'totalvat'      => \dash\request::post('totalvat'),
 		];
 
-		if(\dash\request::post('customer'))
-		{
-			$post['customer'] = \dash\request::post('customer');
-		}
-
-		if(\dash\request::post('seller'))
-		{
-			$post['seller'] = \dash\request::post('seller');
-		}
-
-
-		$edit = \lib\app\irvat\edit::edit($post, $id);
+		$edit = \lib\app\tax\doc\template::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
@@ -87,43 +51,5 @@ class model
 
 	}
 
-
-	public static function remove_gallery($_id)
-	{
-		$fileid = \dash\request::post('fileid');
-		\lib\app\irvat\gallery::gallery($_id, $fileid, 'remove');
-		\dash\notif::ok(T_("File removed"));
-		// \dash\redirect::pwd();
-	}
-
-
-
-	public static function upload_gallery($_id)
-	{
-		if(\dash\request::files('gallery'))
-		{
-			$uploaded_file = \dash\upload\irvat::set_irvat_gallery($_id);
-
-			if(isset($uploaded_file['id']))
-			{
-				// save uploaded file
-				\lib\app\irvat\gallery::gallery($_id, $uploaded_file, 'add');
-			}
-
-			if(!\dash\engine\process::status())
-			{
-				// \dash\notif::error(T_("Can not upload file"));
-			}
-			else
-			{
-				\dash\notif::ok(T_("File successfully uploaded"));
- 				\dash\redirect::pwd();
-			}
-
-			return true;
-		}
-		return false;
-
-	}
 }
 ?>

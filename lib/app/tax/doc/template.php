@@ -41,6 +41,53 @@ class template
 
 	}
 
+
+	public static function edit($_args, $_id)
+	{
+		$tax_document = \lib\app\tax\doc\get::get($_id);
+		if(isset($tax_document['template']) && $tax_document['template'])
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not route this document in this page"));
+			return false;
+		}
+
+		$_args['template'] = $tax_document['template'];
+
+		\dash\db::transaction();
+
+		\lib\app\tax\doc\edit::edit_status(['status' => 'draft'], $_id);
+
+		$edit = edit::edit($_args, $_id, false, ['template_mode' => true]);
+
+		if(!$edit)
+		{
+			\dash\db::rollback();
+			\dash\notif::error_once(T_("Can not edit this document"));
+			return false;
+		}
+
+		$args = \lib\app\tax\doc\check::variable($_args, ['template_mode' => true]);
+		// remove all doc detail
+		\lib\db\tax_docdetail\delete::by_doc_id($_id);
+
+
+		if(!self::add_template_doc_detail($args, $_id))
+		{
+			return false;
+		}
+
+		\dash\notif::ok(T_("Accounting doc successfully edited"));
+
+		return true;
+
+	}
+
+
+
 	public static function add($_args)
 	{
 		$args = \lib\app\tax\doc\check::variable($_args, ['template_mode' => true]);
@@ -54,18 +101,9 @@ class template
 
 		$args['type'] = 'normal';
 
-		$load_coding_detail = self::load_coding_detail($args);
 
-		if(!$load_coding_detail)
-		{
-			return false;
-		}
 
-		$pay_from     = $args['pay_from'];
-		$put_on       = $args['put_on'];
-		$tax          = $args['tax'];
-		$vat          = $args['vat'];
-		$thirdparty   = $args['thirdparty'];
+		$doc_detail_args = $args;
 
 
 		unset($args['pay_from']);
@@ -85,6 +123,73 @@ class template
 			\dash\notif::error(T_("Can not add your data"));
 			return false;
 		}
+
+		if(!self::add_template_doc_detail($doc_detail_args, $tax_document_id))
+		{
+			return false;
+		}
+
+
+		\dash\notif::ok(T_("Accounting doc successfully added"));
+
+		return ['id' => $tax_document_id];
+	}
+
+
+	private static function load_coding_detail($_args)
+	{
+		$coding_id =
+		[
+			$_args['pay_from'],
+			$_args['put_on'],
+			$_args['tax'],
+			$_args['vat'],
+			$_args['thirdparty'],
+		];
+
+		$coding_id = array_filter($coding_id);
+		$coding_id = array_unique($coding_id);
+		$coding_id = array_map('intval', $coding_id);
+
+		if(!$coding_id)
+		{
+			\dash\notif::error(T_("Invalid coding id"));
+			return false;
+		}
+
+
+		$load_coding = \lib\db\tax_coding\get::by_multi_id(implode(',', $coding_id));
+
+		if(!is_array($load_coding))
+		{
+			$load_coding = [];
+		}
+
+		$load_coding = array_combine(array_column($load_coding, 'id'), $load_coding);
+
+		return $load_coding;
+
+
+
+
+	}
+
+
+	private static function add_template_doc_detail($args, $tax_document_id)
+	{
+
+		$load_coding_detail = self::load_coding_detail($args);
+
+		if(!$load_coding_detail)
+		{
+			return false;
+		}
+
+		$pay_from     = $args['pay_from'];
+		$put_on       = $args['put_on'];
+		$tax          = $args['tax'];
+		$vat          = $args['vat'];
+		$thirdparty   = $args['thirdparty'];
 
 		$add_doc_detail = [];
 
@@ -171,7 +276,7 @@ class template
 			if(!\dash\engine\process::status())
 			{
 				\dash\db::rollback();
-				return;
+				return false;
 			}
 		}
 
@@ -182,56 +287,13 @@ class template
 		if(\dash\engine\process::status())
 		{
 			\dash\db::commit();
+			return true;
 		}
 		else
 		{
 			\dash\db::rollback();
 			return false;
 		}
-
-
-		\dash\notif::ok(T_("Accounting doc successfully added"));
-
-		return ['id' => $tax_document_id];
-	}
-
-
-	private static function load_coding_detail($_args)
-	{
-		$coding_id =
-		[
-			$_args['pay_from'],
-			$_args['put_on'],
-			$_args['tax'],
-			$_args['vat'],
-			$_args['thirdparty'],
-		];
-
-		$coding_id = array_filter($coding_id);
-		$coding_id = array_unique($coding_id);
-		$coding_id = array_map('intval', $coding_id);
-
-		if(!$coding_id)
-		{
-			\dash\notif::error(T_("Invalid coding id"));
-			return false;
-		}
-
-
-		$load_coding = \lib\db\tax_coding\get::by_multi_id(implode(',', $coding_id));
-
-		if(!is_array($load_coding))
-		{
-			$load_coding = [];
-		}
-
-		$load_coding = array_combine(array_column($load_coding, 'id'), $load_coding);
-
-		return $load_coding;
-
-
-
-
 	}
 
 }

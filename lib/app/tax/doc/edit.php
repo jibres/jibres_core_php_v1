@@ -60,6 +60,7 @@ class edit
 
 		if(!$load || !isset($load['id']))
 		{
+			\dash\notif::error(T_("Document not found"));
 			return false;
 		}
 
@@ -100,10 +101,12 @@ class edit
 			\dash\notif::ok(T_("Accounting document Unlocked"));
 		}
 
+		return true;
+
 
 	}
 
-	public static function edit($_args, $_id, $_edit_status = false)
+	public static function edit($_args, $_id, $_edit_status = false, $_option = [])
 	{
 		$load = \lib\app\tax\doc\get::get($_id);
 
@@ -112,6 +115,8 @@ class edit
 			return false;
 		}
 
+		$load = array_merge($_option, $load);
+
 
 		$args = \lib\app\tax\doc\check::variable($_args, $load, $load['id']);
 
@@ -119,6 +124,13 @@ class edit
 		{
 			return false;
 		}
+
+
+		unset($args['pay_from']);
+		unset($args['put_on']);
+		unset($args['tax']);
+		unset($args['vat']);
+		unset($args['thirdparty']);
 
 		$data = \dash\cleanse::patch_mode($_args, $args);
 

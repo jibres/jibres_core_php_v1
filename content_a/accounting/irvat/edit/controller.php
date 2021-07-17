@@ -20,6 +20,8 @@ class controller
 			\dash\header::status(404, T_("ID not found"));
 		}
 
+		\dash\data::editMode(true);
+
 		\dash\data::dataRow($load);
 
 	}
