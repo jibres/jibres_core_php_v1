@@ -35,6 +35,23 @@ class view
 			\dash\data::accountingDetailsId($load);
 		}
 
+
+		$year = \lib\app\tax\year\get::list();
+		\dash\data::accountingYear($year);
+
+		$year_id = \dash\request::get('year_id');
+		if(!$year_id)
+		{
+			foreach ($year as $key => $value)
+			{
+				if(isset($value['isdefault']) && $value['isdefault'])
+				{
+					$year_id = $value['id'];
+					break;
+				}
+			}
+		}
+
 		\dash\data::detailsList(\lib\app\tax\coding\get::current_list_of('details'));
 
 
