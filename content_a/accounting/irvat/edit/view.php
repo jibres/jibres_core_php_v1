@@ -8,6 +8,8 @@ class view
 	{
 		\dash\face::title(T_("Edit factor"));
 
+		\dash\data::userToggleSidebar(false);
+
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '/all');

@@ -14,6 +14,8 @@ class view
 
 		\dash\data::titleList(\lib\app\irvat\get::title_list());
 
+		\dash\data::userToggleSidebar(false);
+
 		self::static_var();
 	}
 
