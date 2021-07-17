@@ -241,7 +241,8 @@ class get
 				tax_coding.*,
 				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent1 LIMIT 1) AS `group_title`,
 				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent2 LIMIT 1) AS `total_title`,
-				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent3 LIMIT 1) AS `assistant_title`
+				(SELECT myTax_coding.title FROM tax_coding AS `myTax_coding` WHERE myTax_coding.id = tax_coding.parent3 LIMIT 1) AS `assistant_title`,
+				tax_coding.title as `detail_title`
 			FROM
 				tax_coding
 			WHERE tax_coding.type = 'details'

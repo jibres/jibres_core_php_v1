@@ -80,6 +80,11 @@ class ready
 			$result['add_child_link'] = $add_child_link;
 		}
 
+		if(isset($_data['detail_title']) && $_data['detail_title'])
+		{
+			$full_title = [];
+			$full_title[] = a($result, 'code');
+		}
 
 		if(isset($_data['total_title']) && $_data['total_title'])
 		{
@@ -89,6 +94,12 @@ class ready
 		if(isset($_data['assistant_title']) && $_data['assistant_title'])
 		{
 			$full_title[] = $_data['assistant_title'];
+		}
+
+
+		if(isset($_data['detail_title']) && $_data['detail_title'])
+		{
+			$full_title[] = $_data['detail_title'];
 		}
 
 
