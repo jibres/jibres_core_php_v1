@@ -9,29 +9,27 @@ class model
 
 		$post =
 		[
-			'title'             => \dash\request::post('title'),
-			'code'              => \dash\request::post('code'),
-			'serialnumber'      => \dash\request::post('serialnumber'),
-			'factordate'        => \dash\request::post('factordate'),
-			'type'              => \dash\request::get('type'),
-			'customer'          => \dash\request::post('customer'),
-			'seller'            => \dash\request::post('seller'),
-			'total'             => \dash\request::post('total'),
-			'subtotalitembyvat' => \dash\request::post('subtotalitembyvat'),
-			'sumvat'            => \dash\request::post('sumvat'),
-			'items'             => \dash\request::post('items'),
-			'itemsvat'          => \dash\request::post('itemsvat'),
-			'official'          => \dash\request::post('official'),
-			'vat'               => \dash\request::post('vat'),
-			'desc'              => \dash\request::post('desc'),
+			'template'      => \dash\request::get('type'),
 
-			'mobile'      => \dash\request::post('memberTl'),
-			'gender'      => \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null,
-			'displayname' => \dash\request::post('memberN'),
+			'year_id'       => \dash\request::post('year_id'),
 
+			'pay_from'      => \dash\request::post('pay_from'),
+			'put_on'        => \dash\request::post('put_on'),
+			'tax'           => \dash\request::post('tax'),
+			'vat'           => \dash\request::post('vat'),
+			'thirdparty'    => \dash\request::post('thirdparty'),
+
+			'desc'          => \dash\request::post('title'),
+			'date'          => \dash\request::post('factordate'),
+			'serialnumber'  => \dash\request::post('serialnumber'),
+
+			'total'         => \dash\request::post('total'),
+			'totaldiscount' => \dash\request::post('totaldiscount'),
+			'totalvat'      => \dash\request::post('totalvat'),
+			'number'        => \lib\app\tax\doc\get::new_doc_number(), // auto doc number
 		];
 
-		$add = \lib\app\irvat\add::add($post);
+		$add = \lib\app\tax\doc\template::add($post);
 
 		if(\dash\engine\process::status())
 		{

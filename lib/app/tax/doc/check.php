@@ -30,16 +30,48 @@ class check
 	{
 		$condition =
 		[
-			'number'    => 'bigint',
-			'subnumber' => 'int',
-			'desc'      => 'string_300',
-			'date'      => 'date',
-			'year_id'   => 'id',
-			'status'    => ['enum' => ['draft', 'temp', 'lock']],
-			'type'      => ['enum' => ['normal', 'opening', 'closing']],
+			'number'        => 'bigint',
+			'subnumber'     => 'int',
+			'desc'          => 'string_300',
+			'date'          => 'date',
+			'year_id'       => 'id',
+			'status'        => ['enum' => ['draft', 'temp', 'lock']],
+			'type'          => ['enum' => ['normal', 'opening', 'closing']],
+
+			// template detail
+			'template'      => ['enum' => ['cost', 'income']],
+
+			'pay_from'      => 'id',
+			'put_on'        => 'id',
+			'tax'           => 'id',
+			'vat'           => 'id',
+			'thirdparty'    => 'id',
+
+			'user_id'       => 'id',
+
+			'serialnumber'  => 'string_100',
+			'total'         => 'price',
+			'totaldiscount' => 'price',
+			'totalvat'      => 'price',
 		];
 
 		$require = ['number', 'date', 'year_id'];
+
+		if(isset($_option['template_mode']) && $_option['template_mode'])
+		{
+			array_push($require, 'template');
+			array_push($require, 'pay_from');
+			array_push($require, 'put_on');
+			array_push($require, 'thirdparty');
+			array_push($require, 'serialnumber');
+			array_push($require, 'total');
+
+			if(isset($_args['totalvat']) && $_args['totalvat'])
+			{
+				array_push($require, 'tax');
+				array_push($require, 'vat');
+			}
+		}
 
 		$meta = [];
 
@@ -110,6 +142,27 @@ class check
 				}
 			}
 		}
+
+		if(isset($_option['template_mode']) && $_option['template_mode'])
+		{
+			// ok
+		}
+		else
+		{
+			// in normal mode needless to this variable
+			usent($data['template']);
+			usent($data['pay_from']);
+			usent($data['put_on']);
+			usent($data['tax']);
+			usent($data['vat']);
+			usent($data['serialnumber']);
+			usent($data['total']);
+			usent($data['totaldiscount']);
+			usent($data['totalvat']);
+			usent($data['user_id']);
+			unset($data['thirdparty']);
+		}
+
 
 		return $data;
 

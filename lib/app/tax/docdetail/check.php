@@ -18,7 +18,8 @@ class check
 			// 'creditor'     => 'float',
 			'type'            => ['enum' => ['debtor', 'creditor']],
 			'value'           => 'float',
-			'sort'           => 'int',
+			'sort'            => 'int',
+			'template'        => ['enum' => ['pay_from', 'put_on', 'thirdparty', 'tax', 'vat']],
 
 		];
 
@@ -84,10 +85,18 @@ class check
 		}
 		else
 		{
+
 			if(isset($load_assistant['detailable']) && $load_assistant['detailable'])
 			{
-				\dash\notif::error(T_("Please choose the detail"));
-				return false;
+				if($data['details_id'])
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("Please choose the detail"));
+					return false;
+				}
 			}
 			else
 			{
@@ -118,6 +127,9 @@ class check
 		unset($data['type']);
 		unset($data['details_title']);
 
+		$data['type'] = $data['template'];
+
+		unset($data['template']);
 
 		$load_doc = \lib\app\tax\doc\get::get($data['tax_document_id']);
 		if(!isset($load_doc['id']))

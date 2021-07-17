@@ -1,6 +1,13 @@
 <form method="post" autocomplete="off"  enctype="multipart/form-data">
   <div class="avand-lg">
   <div class="box">
+     <?php if(\dash\request::get('type') === 'cost') {?>
+        <header><h2><?php echo T_("Add new cost"); ?></h2></header>
+      <?php }elseif(\dash\request::get('type') === 'income'){ ?>
+        <header><h2><?php echo T_("Add new income"); ?></h2></header>
+      <?php }else{ ?>
+        <header><h2><?php echo T_("Add new factor"); ?></h2></header>
+      <?php } ?>
     <div class="pad">
       <?php if(\dash\data::accountingYear()) {?>
         <label for="parent"><?php echo T_("Accounting year") ?></label>
@@ -11,7 +18,7 @@
           <?php } // endfor ?>
         </select>
       <?php } // endif ?>
-      <h6><?php echo T_("Accounting Coding") ?></h6>
+
       <?php if(\dash\data::detailsList()) {?>
         <label for="pay_from"><?php echo T_("Pay from") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
         <select class="select22" name="pay_from">
@@ -27,26 +34,24 @@
             <option value="<?php echo a($value, 'id') ?>"><?php echo a($value, 'full_title'); ?></option>
           <?php } // endfor ?>
         </select>
-      <?php } // endif ?>
-      <div class="mT10">
-        <label class="customer"><?php echo T_("Choose customer") ?></label>
-        <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
+
+        <label for="thirdparty"><?php echo T_("Thirdparty") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+        <select class="select22" name="thirdparty">
+          <option value=""><?php echo T_("Please choose thirdparty") ?></option>
+          <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+            <option value="<?php echo a($value, 'id') ?>"><?php echo a($value, 'full_title'); ?></option>
+          <?php } // endfor ?>
         </select>
-      </div>
+      <?php } // endif ?>
+
 
       <div class="mT20"></div>
-      <?php if(\dash\request::get('type') === 'cost') {?>
-        <h6><?php echo T_("Add new cost"); ?></h6>
-      <?php }elseif(\dash\request::get('type') === 'income'){ ?>
-        <h6><?php echo T_("Add new income"); ?></h6>
-      <?php }else{ ?>
-        <h6><?php echo T_("Add new factor"); ?></h6>
-      <?php } ?>
 
-      <label for="title"><?php echo T_("Title"); ?></label>
+
+      <label for="title"><?php echo T_("Description"); ?></label>
 
       <div class="input">
-        <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>" id="title" maxlength="100" placeholder='need to fill by default'>
+        <input type="text" name="title" value="<?php echo \dash\data::dataRow_title(); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>'>
       </div>
       <div class="row">
         <div class="c-md-6">

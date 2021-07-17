@@ -100,6 +100,15 @@ class get
 		return $result;
 	}
 
+	public static function by_multi_id($_ids)
+	{
+		$query = "SELECT * FROM tax_coding WHERE tax_coding.id IN ($_ids)";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 
 	public static function parent_list_details()
 	{
