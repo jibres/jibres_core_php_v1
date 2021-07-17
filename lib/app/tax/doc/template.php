@@ -59,7 +59,7 @@ class template
 
 		\dash\db::transaction();
 
-		\lib\app\tax\doc\edit::edit_status(['status' => 'draft'], $_id);
+		// \lib\app\tax\doc\edit::edit_status(['status' => 'draft'], $_id);
 
 		$edit = edit::edit($_args, $_id, false, ['template_mode' => true]);
 
@@ -282,7 +282,7 @@ class template
 
 		\dash\notif::clean();
 
-		\lib\app\tax\doc\edit::edit_status(['status' => 'lock'], $tax_document_id);
+		// \lib\app\tax\doc\edit::edit_status(['status' => 'lock'], $tax_document_id);
 
 		if(\dash\engine\process::status())
 		{

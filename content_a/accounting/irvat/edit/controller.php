@@ -24,6 +24,11 @@ class controller
 
 		\dash\data::dataRow($load);
 
+		\dash\data::myType(a($load, 'tax_document', 'template'));
+
+		\dash\allow::file();
+
+
 	}
 }
 ?>

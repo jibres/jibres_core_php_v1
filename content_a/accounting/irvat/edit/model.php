@@ -9,6 +9,19 @@ class model
 		$id = \dash\request::get('id');
 
 
+		if(\dash\request::post('newlockstatus'))
+		{
+			$post =
+			[
+				'status' => \dash\request::post('newlockstatus'),
+			];
+
+			$result = \lib\app\tax\doc\edit::edit_status($post, \dash\request::get('id'));
+			\dash\redirect::pwd();
+
+		}
+
+
 		if(\dash\request::post('uploaddoc') === 'uploaddoc' && \dash\request::files('gallery'))
 		{
 			\content_a\accounting\doc\edit\model::upload_gallery($id);

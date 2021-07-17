@@ -11,6 +11,9 @@ class controller
 			\dash\redirect::to(\dash\url::that(). '/choosetype');
 		}
 
+
+		\dash\data::myType(\dash\request::get('type'));
+
 		\dash\allow::file();
 	}
 }
