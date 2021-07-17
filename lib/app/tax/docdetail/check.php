@@ -127,10 +127,6 @@ class check
 		unset($data['type']);
 		unset($data['details_title']);
 
-		$data['type'] = $data['template'];
-
-		unset($data['template']);
-
 		$load_doc = \lib\app\tax\doc\get::get($data['tax_document_id']);
 		if(!isset($load_doc['id']))
 		{
