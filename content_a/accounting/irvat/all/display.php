@@ -14,12 +14,6 @@
       <div class="val"><?php echo \dash\fit::number(a($myData, 'total'));?></div>
     </a>
   </div>
-  <div class="c pRa10">
-    <a class="stat x70">
-      <h3><?php echo T_("Total by vat");?></h3>
-      <div class="val"><?php echo \dash\fit::number(a($myData, 'subtotalitembyvat'));?></div>
-    </a>
-  </div>
    <div class="c pRa10">
     <a class="stat x70">
       <h3><?php echo T_("Sum vat");?></h3>
@@ -52,6 +46,7 @@
             <th><?php echo T_("Date") ?></th>
             <th><?php echo T_("Status") ?></th>
             <th><?php echo T_("Item count") ?></th>
+            <th><?php echo T_("Template") ?></th>
             <th><?php echo T_("Total") ?></th>
             <th><?php echo T_("Total discount") ?></th>
             <th><?php echo T_("Total vat") ?></th>
@@ -70,13 +65,14 @@
                 <?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
               </td>
               <td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
+              <td class=""><?php echo \dash\fit::number(a($value, 'template')) ?></td>
 
               <td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
             </tr>
             <tr>
-              <td class="pTB5-f" colspan="7"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
+              <td class="pTB5-f" colspan="8"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
             </tr>
           <?php } //endif ?>
         </tbody>
