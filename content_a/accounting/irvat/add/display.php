@@ -23,6 +23,19 @@ switch(\dash\data::myType())
   <div class="box">
     <header><h2><?php echo $title; ?></h2></header>
     <div class="pad">
+      <?php if(\dash\data::editMode()) {?>
+           <nav class="items">
+              <ul>
+                <li>
+                  <a class="item f" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\request::get('id'); ?>">
+                    <i class="sf-crosshairs"></i>
+                    <div class="key"><?php echo T_("Open document page") ?></div>
+                    <div class="go"></div>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+      <?php } //endif ?>
       <?php if(\dash\data::accountingYear()) {?>
         <label for="parent"><?php echo T_("Accounting year") ?></label>
         <select class="select22" name="year_id" <?php echo $disableInput; ?>>

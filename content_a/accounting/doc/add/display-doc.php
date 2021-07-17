@@ -95,6 +95,19 @@ $disableInput = $docIsLock ? 'disabled' : null;
       <?php } //endif ?>
     </div>
 
+      <?php if(in_array(\dash\data::dataRow_template(), ['cost', 'income'])) {?>
+       <nav class="items long mT10">
+          <ul>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::this(). '/irvat/edit?id='. \dash\request::get('id'); ?>">
+                <i class="sf-receipt-shopping-streamline"></i>
+                <div class="key"><?php echo T_("Open factor page") ?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      <?php } //endif ?>
   </div>
 
  </form>
