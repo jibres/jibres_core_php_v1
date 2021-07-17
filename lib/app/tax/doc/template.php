@@ -59,7 +59,11 @@ class template
 
 		\dash\db::transaction();
 
-		// \lib\app\tax\doc\edit::edit_status(['status' => 'draft'], $_id);
+
+		if(!a($_args, 'desc'))
+		{
+			$_args['desc'] = self::generate_auto_desc($_args);
+		}
 
 		$edit = edit::edit($_args, $_id, false, ['template_mode' => true]);
 
@@ -101,7 +105,10 @@ class template
 
 		$args['type'] = 'normal';
 
-
+		if(!a($args, 'desc'))
+		{
+			$args['desc'] = self::generate_auto_desc($args);
+		}
 
 		$doc_detail_args = $args;
 
@@ -168,10 +175,47 @@ class template
 		$load_coding = array_combine(array_column($load_coding, 'id'), $load_coding);
 
 		return $load_coding;
+	}
 
 
+	private static function generate_auto_desc($_args)
+	{
+		$desc = [];
 
+		switch (a($_args, 'template'))
+		{
+			case 'cost':
+				$desc[] = T_("Cost from");
+				break;
 
+			case 'income':
+				$desc[] = T_("Buy from");
+				break;
+
+			default:
+				$desc[] = T_("Factor");
+				break;
+		}
+
+		$thirdparty = a($_args, 'thirdparty');
+		$thirdparty = \dash\validate::id($thirdparty, false);
+		if($thirdparty)
+		{
+			$load_coding = \lib\db\tax_coding\get::by_id($thirdparty);
+
+			if(isset($load_coding['title']))
+			{
+				$desc[] = $load_coding['title'];
+			}
+		}
+
+		if(a($_args, 'serialnumber'))
+		{
+			$desc[] = T_("By serialnumber");
+			$desc[] = \dash\fit::text(a($_args, 'serialnumber'));
+		}
+
+		return implode(' ', $desc);
 	}
 
 
