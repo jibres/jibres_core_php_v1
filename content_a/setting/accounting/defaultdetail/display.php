@@ -47,6 +47,68 @@
                 <?php echo T_("On default used from 1901 Accounting assistant code. if exists") ?>
               </small>
             </div>
+
+              <div class="mB25">
+              <?php if(\dash\data::detailsList()) {?>
+                <label for="default_cost_vat"><?php echo T_("Default cost details id in vat") ?> </label>
+                <select class="select22" name="default_cost_vat" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a([], 'fill_value', 'put_on', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              <?php } // endif ?>
+              <small class="fc-mute">
+                <?php echo T_("On default used from 1901 Accounting assistant code. if exists") ?>
+              </small>
+            </div>
+
+              <div class="mB25">
+              <?php if(\dash\data::detailsList()) {?>
+                <label for="default_income_vat"><?php echo T_("Default income details id in vat") ?> </label>
+                <select class="select22" name="default_income_vat" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a([], 'fill_value', 'put_on', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              <?php } // endif ?>
+              <small class="fc-mute">
+                <?php echo T_("On default used from 1901 Accounting assistant code. if exists") ?>
+              </small>
+            </div>
+
+
+              <div class="mB25">
+              <?php if(\dash\data::detailsList()) {?>
+                <label for="default_cost_tax"><?php echo T_("Default cost details id in tax") ?> </label>
+                <select class="select22" name="default_cost_tax" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a([], 'fill_value', 'put_on', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              <?php } // endif ?>
+              <small class="fc-mute">
+                <?php echo T_("On default used from 1901 Accounting assistant code. if exists") ?>
+              </small>
+            </div>
+
+              <div class="mB25">
+              <?php if(\dash\data::detailsList()) {?>
+                <label for="default_income_tax"><?php echo T_("Default income details id in tax") ?> </label>
+                <select class="select22" name="default_income_tax" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a([], 'fill_value', 'put_on', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              <?php } // endif ?>
+              <small class="fc-mute">
+                <?php echo T_("On default used from 1901 Accounting assistant code. if exists") ?>
+              </small>
+            </div>
+
           </div>
         </div>
       </div>

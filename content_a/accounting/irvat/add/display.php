@@ -121,6 +121,25 @@ switch(\dash\data::myType())
       </div>
 
 
+       <?php if(\dash\data::detailsList()) {?>
+        <label for="tax"><?php echo T_("Tax") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+        <select class="select22" name="tax" <?php echo $disableInput; ?>>
+          <option value=""><?php echo T_("Please choose tax") ?></option>
+          <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+            <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'tax', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+          <?php } // endfor ?>
+        </select>
+        <label for="vat"><?php echo T_("Vat") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+        <select class="select22" name="vat" <?php echo $disableInput; ?>>
+          <option value=""><?php echo T_("Please choose vat") ?></option>
+          <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+            <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'vat', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+          <?php } // endfor ?>
+        </select>
+      <?php } // endif ?>
+
+
+
 
     </div>
     <?php if(!$disableInput) {?>

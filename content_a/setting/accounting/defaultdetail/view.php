@@ -14,6 +14,7 @@ class view
 		\dash\data::accountingSettingSaved(\lib\app\setting\get::accounting_setting());
 
 		\dash\data::assistantList(\lib\app\tax\coding\get::list_of('assistant'));
+		\dash\data::detailsList(\lib\app\tax\coding\get::current_list_of('details'));
 
 	}
 }
