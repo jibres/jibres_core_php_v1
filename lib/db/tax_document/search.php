@@ -4,73 +4,32 @@ namespace lib\db\tax_document;
 
 class search
 {
-
-	private static function ready_to_sql($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function summary_detail($_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
-		$where = null;
-		$q     = [];
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
-		if($_and)
-		{
-			$_and = implode(' AND ', $_and);
-			$q[] = "$_and";
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				SUM(tax_document.total) AS `total`,
+				SUM(tax_document.totaldiscount) AS `totaldiscount`,
+				SUM(tax_document.totalvat) AS `totalvat`
+			FROM tax_document
+				$q[join]
+				$q[where]
+				$q[order]
+		";
 
-		}
+		$result = \dash\db::get($query, null, true);
 
-		if($_or)
-		{
-			$_or = implode(' OR ', $_or);
-			$q[] = "($_or)";
-		}
-
-		if($q)
-		{
-			$where = 'WHERE '. implode(" AND ", $q);
-		}
-
-		$order = null;
-		if($_order_sort && is_string($_order_sort))
-		{
-			$order = $_order_sort;
-		}
-
-		$pagination = null;
-		if(array_key_exists('pagination', $_meta))
-		{
-			$pagination = $_meta['pagination'];
-		}
-
-		$limit = null;
-		if(array_key_exists('limit', $_meta))
-		{
-			$limit = $_meta['limit'];
-		}
-
-		if(isset($_meta['join']) && is_array($_meta['join']) && $_meta['join'])
-		{
-			$join = implode(' ', $_meta['join']);
-		}
-		else
-		{
-			$join = null;
-		}
-
-		return
-		[
-			'where'      => $where,
-			'order'      => $order,
-			'pagination' => $pagination,
-			'limit'      => $limit,
-			'join'      => $join,
-		];
+		return $result;
 	}
-
 
 
 	public static function list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
-
-		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM tax_document $q[join] $q[where] ";
 

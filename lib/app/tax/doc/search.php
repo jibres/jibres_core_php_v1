@@ -27,17 +27,18 @@ class search
 
 		$condition =
 		[
-			'order'     => 'order',
-			'sort'      => ['enum' => ['number', 'date']],
-			'year_id'   => 'id',
-			'contain'   => 'id',
-			'startdate' => 'date',
-			'enddate'   => 'date',
-			'month'     => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
-			'export'    => 'bit',
-			'limit'     => 'int',
-			'status'    => ['enum' => ['temp', 'draft', 'lock']],
-			'template'  => ['enum' => ['factor', 'cost', 'income']],
+			'order'        => 'order',
+			'sort'         => ['enum' => ['number', 'date']],
+			'year_id'      => 'id',
+			'contain'      => 'id',
+			'startdate'    => 'date',
+			'enddate'      => 'date',
+			'month'        => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
+			'export'       => 'bit',
+			'limit'        => 'int',
+			'status'       => ['enum' => ['temp', 'draft', 'lock']],
+			'template'     => ['enum' => ['factor', 'cost', 'income']],
+			'summary_mode' => 'bit',
 		];
 
 		$require = [];
@@ -172,7 +173,23 @@ class search
 			$order_sort = " ORDER BY tax_document.number ASC";
 		}
 
-		$list = \lib\db\tax_document\search::list($and, $or, $order_sort, $meta);
+		if($data['summary_mode'])
+		{
+			$summary = \lib\db\tax_document\search::summary_detail($and, $or, $order_sort, $meta);
+
+			if(a($summary, 'totalvat') && a($summary, 'total'))
+			{
+				$summary['totalvat6'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.06;
+				$summary['totalvat3'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.03;
+			}
+
+			return $summary;
+		}
+		else
+		{
+			$list = \lib\db\tax_document\search::list($and, $or, $order_sort, $meta);
+		}
+
 
 		if(!is_array($list))
 		{

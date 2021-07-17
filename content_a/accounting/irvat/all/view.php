@@ -8,6 +8,14 @@ class view
 	{
 		\content_a\accounting\doc\view::config(['template' => 'factor']);
 
+		$args = \dash\temp::get('irvatArgs');
+
+		$args['summary_mode'] = true;
+
+		$summaryDetail = \lib\app\tax\doc\search::list(null, $args);
+
+		\dash\data::summaryDetail($summaryDetail);
+
 		\dash\face::btnInsert('');
 		\dash\face::btnInsertText('');
 
@@ -15,6 +23,7 @@ class view
 		\dash\data::userToggleSidebar(false);
 
 		\dash\face::title(T_("Income-cost factor list"));
+
 
 		// // btn
 		// \dash\data::back_text(T_('Back'));

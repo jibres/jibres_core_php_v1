@@ -73,6 +73,8 @@ class view
 			$args['export'] = true;
 		}
 
+		\dash\temp::set('irvatArgs', $args);
+
 		$dataTable = \lib\app\tax\doc\search::list(\dash\validate::search_string(), $args);
 
 		if(\dash\request::get('export'))

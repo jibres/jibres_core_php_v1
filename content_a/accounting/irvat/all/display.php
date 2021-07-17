@@ -17,19 +17,19 @@
    <div class="c pRa10">
     <a class="stat x70">
       <h3><?php echo T_("Sum vat");?></h3>
-      <div class="val"><?php echo \dash\fit::number(a($myData, 'sumvat'));?></div>
+      <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a class="stat x70">
       <h3><?php echo \dash\fit::text("6%");?></h3>
-      <div class="val"><?php echo \dash\fit::number(a($myData, 'sumvat6'));?></div>
+      <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat6'));?></div>
     </a>
   </div>
   <div class="c pRa10">
     <a class="stat x70">
       <h3><?php echo \dash\fit::text("3%");?></h3>
-      <div class="val"><?php echo \dash\fit::number(a($myData, 'sumvat3'));?></div>
+      <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat3'));?></div>
     </a>
   </div>
 
