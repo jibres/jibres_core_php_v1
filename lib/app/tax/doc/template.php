@@ -4,6 +4,43 @@ namespace lib\app\tax\doc;
 
 class template
 {
+	public static function get($_id)
+	{
+		$result = [];
+
+		$tax_document = \lib\app\tax\doc\get::get($_id);
+		if(isset($tax_document['template']) && $tax_document['template'])
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not route this document in this page"));
+			return false;
+		}
+
+		$doc_detail = \lib\app\tax\docdetail\get::list($_id);
+
+		if(!is_array($doc_detail))
+		{
+			$doc_detail = [];
+		}
+
+		$fill_value = [];
+
+		foreach ($doc_detail as $key => $value)
+		{
+			$fill_value[$value['template']] = $value;
+		}
+
+		$result['tax_document'] = $tax_document;
+		$result['fill_value']   = $fill_value;
+		$result['doc_detail']   = $doc_detail;
+
+		return $result;
+
+	}
+
 	public static function add($_args)
 	{
 		$args = \lib\app\tax\doc\check::variable($_args, ['template_mode' => true]);

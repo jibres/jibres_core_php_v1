@@ -13,7 +13,7 @@ class controller
 			return;
 		}
 
-		$load = \lib\app\irvat\get::get($id);
+		$load = \lib\app\tax\doc\template::get($id);
 
 		if(!$load)
 		{
