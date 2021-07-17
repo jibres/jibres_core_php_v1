@@ -4,7 +4,7 @@ namespace content_a\accounting\doc;
 
 class view
 {
-	public static function config()
+	public static function config($_args = [])
 	{
 		\dash\face::title(T_('Accounting Documents'));
 
@@ -60,6 +60,8 @@ class view
 		$args['startdate'] = $startdate ? $startdate : null;
 		$args['enddate']   = $enddate ? $enddate : null;
 		$args['month']     = \dash\request::get('month');
+
+		$args = array_merge($args, $_args);
 
 		if(\dash\request::get('status'))
 		{

@@ -1,4 +1,5 @@
-<?php function pageStat() {?>
+<?php require_once(root. 'content_a/accounting/filter.php'); ?>
+
 <?php $myData = \dash\data::summaryDetail(); ?>
 <section class="f">
   <div class="c pRa10">
@@ -39,178 +40,50 @@
   </div>
 
 </section>
-<?php } //endfunction ?>
-
-<?php
-if(\dash\data::dataTable())
-{
-    if(\dash\data::isFiltered())
-    {
-        htmlSearchBox();
-        pageStat();
-        htmlTable();
-        htmlFilter();
-    }
-    else
-    {
-        htmlSearchBox();
-        pageStat();
-        htmlTable();
-    }
-
-}
-else
-{
-    if(\dash\data::isFiltered())
-    {
-        htmlSearchBox();
-
-        htmlFilter();
-    }
-    else
-    {
-        htmlStartAddNew();
-    }
-}
-?>
 
 
 
-
-
-
-
-<?php function htmlSearchBox() {?>
-<form method="get" autocomplete="off" class="mB20" action="<?php echo \dash\url::current(); ?>">
-  <div class="box">
-    <header data-kerkere='.showBoxSearch'><h2><?php echo T_("Search") ?></h2></header>
-    <div class="showBoxSearch"  data-kerkere-content='hide'>
-
-      <div class="body">
-
-            <div class="check1">
-              <input type="checkbox" name="vat" id="vat"  <?php if(\dash\request::get('vat')) { echo 'checked'; } ?> >
-              <label for="vat"><?php echo T_("Are you want to calculate in vat result?"); ?></label>
-            </div>
-
-            <div class="check1">
-              <input type="checkbox" name="official" id="official"  <?php if(\dash\request::get('official')) { echo 'checked'; } ?> >
-              <label for="official"><?php echo T_("Official factor?"); ?></label>
-            </div>
-
-            <div class="input mB10">
-              <input type="text" name="year" placeholder='<?php echo T_("Year"); ?>' value="<?php echo \dash\request::get('year'); ?>">
-            </div>
-            <div class="input mB10">
-              <input type="text" name="season" placeholder='<?php echo T_("Season"); ?>' value="<?php echo \dash\request::get('season'); ?>">
-            </div>
-            <div class="input mB10">
-              <input type="text" name="seller" placeholder='<?php echo T_("Seller"); ?>' value="<?php echo \dash\request::get('seller'); ?>">
-            </div>
-            <div class="input search">
-                <input type="text" name="q" placeholder='<?php echo T_("Search"); ?>' value="<?php echo \dash\validate::search_string(); ?>">
-            </div>
-      </div>
-      <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Search"); ?></button>
-      </footer>
-    </div>
-  </div>
-  </form>
-
-<?php } //endfunction ?>
-
-
-<?php function htmlTable() {?>
-<?php $sortLink = \dash\data::sortLink(); ?>
-
-<div class="fs12">
-    <table class="tbl1 v5 responsive">
+  <?php if(\dash\data::dataTable()) {?>
+    <div class="tblBox">
+      <table class="tbl1 v6  minimal font-12">
         <thead>
-            <tr class="fs09">
-
-                <th data-sort="<?php echo a($sortLink, 'title', 'order'); ?>" ><a href="<?php echo a($sortLink, 'title', 'link'); ?>"><?php echo T_("Title"); ?></a></th>
-                <th class="txtL collapsing" data-sort="<?php echo a($sortLink, 'factordate', 'order'); ?>" ><a href="<?php echo a($sortLink, 'factordate', 'link'); ?>"><?php echo T_("Date"); ?></a></th>
-                <th class="txtL collapsing"><?php echo T_("Season") ?></th>
-                <th class="txtL" data-sort="<?php echo a($sortLink, 'total', 'order'); ?>" ><a href="<?php echo a($sortLink, 'total', 'link'); ?>"><?php echo T_("Total pay"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo a($sortLink, 'subtotalitembyvat', 'order'); ?>" ><a href="<?php echo a($sortLink, 'subtotalitembyvat', 'link'); ?>"><?php echo T_("Total item by vat"); ?></a></th>
-                <th class="txtL" data-sort="<?php echo a($sortLink, 'sumvat', 'order'); ?>" ><a href="<?php echo a($sortLink, 'sumvat', 'link'); ?>"><?php echo T_("Sum vat"); ?></a></th>
-                <th class="txtL collapsing"><?php echo T_("Economic code") ?><br><?php echo T_("Company national id"); ?> </th>
-                <th class="txtC collapsing"><?php echo T_("Thirdparty") ?></th>
-
-            </tr>
+          <tr>
+            <th><?php echo T_("Number") ?></th>
+            <th><?php echo T_("Date") ?></th>
+            <th><?php echo T_("Status") ?></th>
+            <th><?php echo T_("Item count") ?></th>
+            <th><?php echo T_("Total") ?></th>
+            <th><?php echo T_("Total discount") ?></th>
+            <th><?php echo T_("Total vat") ?></th>
+          </tr>
         </thead>
-        <tbody class="">
+        <tbody>
+          <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+            <tr class="font-12">
+              <td class="font-14">
+                <a class="link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
+              </td>
+              <td class="txtB"><?php echo \dash\fit::date(a($value, 'date')) ?></td>
+              <td class="">
+                <?php if(a($value, 'status') === 'lock') { echo '<i class="compact sf-lock fc-red mRa10"></i>';} else { echo '<i class="compact sf-unlock fc-green mRa10"></i>';}  ?>
+                <a href="<?php echo \dash\url::that(). '?status='. a($value, 'status'); ?>"><?php echo T_(a($value, 'tstatus')) ?></a>
+                <?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
+              </td>
+              <td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
 
-            <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-
-            <tr>
-                <td>
-                    <a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>" class="link">
-
-                         <?php echo a($value, 'title'); ?>
-
-                    </a>
-                </td>
-
-                <td class="ltr txtL"><?php echo \dash\fit::date(a($value, 'factordate')); ?></td>
-                <td class="ltr txtL collapsing"><a href="<?php echo \dash\url::that(). '?year='. a($value, 'year'). '&season='. a($value, 'season'); ?>"><?php echo \dash\fit::text(a($value, 'year'). ' / '. a($value, 'season')); ?></a></td>
-                <td class="ltr txtL"><?php echo \dash\fit::number(a($value, 'total')); ?></td>
-                <td class="ltr txtL"><?php echo \dash\fit::number(a($value, 'subtotalitembyvat')); ?></td>
-                <td class="ltr txtL">
-                    <?php echo \dash\fit::number(a($value, 'sumvat')); ?>
-
-
-                    <?php if(!a($value, 'vat_ok')) {?>
-                        <i title="<?php echo \dash\fit::number(a($value, 'vat_9_percent')); ?>" class="sf-info fc-green fs14"></i>
-                    <?php } //endif ?>
-                </td>
-
-                <td class="fs08 txtL ltr ">
-                  <div><?php echo \dash\fit::text(a($value, 'user_detail_legal', 'companyeconomiccode')); ?></div>
-                  <div><?php echo \dash\fit::text(a($value, 'user_detail_legal', 'companynationalid')); ?></div>
-                </td>
-
-                <td class="">
-                  <a href="<?php echo \dash\url::that(). '?seller='. a($value, 'user_detail', 'id');?>"  class="f align-center userPack">
-                    <div class="c pRa10">
-                      <div class="mobile" data-copy="<?php echo a($value, 'user_detail_legal', 'mobile'); ?>"><?php echo \dash\fit::number(a($value, 'user_detail_legal', 'mobile')); ?></div>
-                      <div class="name"><?php echo a($value, 'user_detail_legal', 'companyname'); ?></div>
-                    </div>
-                    <img class="cauto" src="<?php echo a($value, 'user_detail', 'avatar'); ?>">
-                  </a>
-                </td>
+              <td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
+              <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
+              <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
             </tr>
-            <?php } //endfor ?>
+            <tr>
+              <td class="pTB5-f" colspan="7"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
+            </tr>
+          <?php } //endif ?>
         </tbody>
-    </table>
-</div>
-<?php \dash\utility\pagination::html(); ?>
-
-<?php } //endfunction ?>
-
-
-
-
-<?php function htmlFilter() {?>
-<p class="f fs14 msg warn2">
-  <span class="c"><?php echo \dash\data::filterBox(); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::current(); ?>"><?php echo T_("Clear filters"); ?></a>
-</p>
-
-<?php } //endfunction ?>
-
-
-
-
-
-<?php function htmlStartAddNew() {?>
-
-<div class="fs14 msg info2 pTB20">
-  <p><?php echo T_("Hi!"); ?></p>
-
-
-</div>
-
-<?php } //endfunction ?>
+      </table>
+    </div>
+    <?php \dash\utility\pagination::html(); ?>
+  <?php }else{ ?>
+    <div class="msg success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
+  <?php } //endif ?>
 
