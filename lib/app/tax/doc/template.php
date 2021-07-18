@@ -227,13 +227,22 @@ class template
 				$default_cost_tax = a($accounting_setting, 'default_cost_tax');
 				if(!$default_cost_tax)
 				{
-					$default_cost_tax = 21062;
+					$get_coding_id = \lib\db\tax_coding\get::by_code(21062);
+					if(isset($get_coding_id['id']))
+					{
+						$default_cost_tax = $get_coding_id['id'];
+					}
 				}
 
 				$default_cost_vat = a($accounting_setting, 'default_cost_vat');
 				if(!$default_cost_vat)
 				{
-					$default_cost_vat = 21061;
+					$get_coding_id = \lib\db\tax_coding\get::by_code(21061);
+					if(isset($get_coding_id['id']))
+					{
+						$default_cost_vat = $get_coding_id['id'];
+					}
+
 				}
 
 				$args['tax'] = $default_cost_tax;
@@ -244,13 +253,23 @@ class template
 				$default_income_tax = a($accounting_setting, 'default_income_tax');
 				if(!$default_income_tax)
 				{
-					$default_income_tax = 24052;
+					$get_coding_id = \lib\db\tax_coding\get::by_code(24052);
+					if(isset($get_coding_id['id']))
+					{
+						$default_income_tax = $get_coding_id['id'];
+					}
+
 				}
 
 				$default_income_vat = a($accounting_setting, 'default_income_vat');
 				if(!$default_income_vat)
 				{
-					$default_income_vat = 24051;
+					$get_coding_id = \lib\db\tax_coding\get::by_code(24051);
+					if(isset($get_coding_id['id']))
+					{
+						$default_income_vat = $get_coding_id['id'];
+					}
+
 				}
 
 				$args['tax'] = $default_income_tax;
@@ -262,7 +281,6 @@ class template
 				return false;
 				break;
 		}
-
 
 		$load_coding_detail = self::load_coding_detail($args);
 
