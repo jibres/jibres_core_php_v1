@@ -379,7 +379,7 @@ class template
 				'tax_document_id' => $tax_document_id,
 				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
 				'details_id'      => $thirdparty,
-				'type'            => 'debtor',
+				'type'            => 'creditor',
 				'value'           => $args['total'],
 				'sort'            => 5,
 				'template'        => 'thirdparty',
