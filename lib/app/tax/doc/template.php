@@ -183,11 +183,11 @@ class template
 		switch (a($_args, 'template'))
 		{
 			case 'cost':
-				$desc[] = T_("Cost from");
+				$desc[] = T_("Buy from");
 				break;
 
 			case 'income':
-				$desc[] = T_("Buy from");
+				$desc[] = T_("Sell to");
 				break;
 
 			default:
