@@ -322,6 +322,8 @@ class template
 		];
 
 
+
+
 		if($pay_from && $thirdparty)
 		{
 			$add_doc_detail[] =
@@ -334,10 +336,7 @@ class template
 				'sort'            => 4,
 				'template'            => 'thirdparty',
 			];
-		}
 
-		if($thirdparty)
-		{
 			$add_doc_detail[] =
 			[
 				'tax_document_id' => $tax_document_id,
@@ -348,9 +347,19 @@ class template
 				'sort'            => 5,
 				'template'        => 'thirdparty',
 			];
-		}
 
-		if($pay_from)
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
+				'details_id'      => $pay_from,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
+				'sort'            => 6,
+				'template'        => 'pay_from',
+			];
+		}
+		elseif($pay_from && !$thirdparty)
 		{
 			$add_doc_detail[] =
 			[
@@ -363,7 +372,19 @@ class template
 				'template'        => 'pay_from',
 			];
 		}
-
+		elseif(!$pay_from && $thirdparty)
+		{
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+				'details_id'      => $thirdparty,
+				'type'            => 'debtor',
+				'value'           => $args['total'],
+				'sort'            => 5,
+				'template'        => 'thirdparty',
+			];
+		}
 
 		foreach ($add_doc_detail as $key => $value)
 		{

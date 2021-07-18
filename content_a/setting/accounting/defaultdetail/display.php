@@ -50,7 +50,7 @@ $savedValue = \dash\data::accountingSettingSaved();
               <?php if(\dash\data::detailsList()) {?>
                 <label for="default_cost_tax"><?php echo T_("Default toll code in cost factors") ?> </label>
                 <select class="select22" name="default_cost_tax" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
-                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <option value="0"><?php echo T_("Please choose detail id") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($savedValue, 'default_cost_tax') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
@@ -64,7 +64,7 @@ $savedValue = \dash\data::accountingSettingSaved();
               <?php if(\dash\data::detailsList()) {?>
                 <label for="default_cost_vat"><?php echo T_("Default vat code in cost factors") ?> </label>
                 <select class="select22" name="default_cost_vat" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
-                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <option value="0"><?php echo T_("Please choose detail id") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($savedValue, 'default_cost_vat') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
@@ -78,7 +78,7 @@ $savedValue = \dash\data::accountingSettingSaved();
               <?php if(\dash\data::detailsList()) {?>
                 <label for="default_income_tax"><?php echo T_("Default toll code in income factor") ?> </label>
                 <select class="select22" name="default_income_tax" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
-                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <option value="0"><?php echo T_("Please choose detail id") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($savedValue, 'default_income_tax') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
@@ -92,7 +92,7 @@ $savedValue = \dash\data::accountingSettingSaved();
               <?php if(\dash\data::detailsList()) {?>
                 <label for="default_income_vat"><?php echo T_("Default vat code in income factor") ?> </label>
                 <select class="select22" name="default_income_vat" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
-                  <option value=""><?php echo T_("Please choose detail id") ?></option>
+                  <option value="0"><?php echo T_("Please choose detail id") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($savedValue, 'default_income_vat') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
