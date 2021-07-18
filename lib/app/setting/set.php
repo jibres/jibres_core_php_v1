@@ -69,10 +69,14 @@ class set
 
 		$condition =
 		[
-			'currency'                                                  => 'currency',
-			'assistant_close_harmful_profit'                            => 'id',
-			'assistant_close_accumulated' => 'id',
-			'assistant_closing'                                         => 'id',
+			'currency'                       => 'currency',
+			'assistant_close_harmful_profit' => 'id',
+			'assistant_close_accumulated'    => 'id',
+			'assistant_closing'              => 'id',
+			'default_cost_tax'               => 'id',
+			'default_cost_vat'               => 'id',
+			'default_income_tax'             => 'id',
+			'default_income_vat'             => 'id',
 		];
 
 
