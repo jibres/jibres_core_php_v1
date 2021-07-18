@@ -19,7 +19,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from 3803 Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(3803)]) ?>
               </small>
             </div>
             <div class="mB25">
@@ -31,7 +31,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from 3701 Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(3701)]) ?>
               </small>
             </div>
             <div class="mB25">
@@ -43,7 +43,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from 1901 Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(1901)]) ?>
               </small>
             </div>
             <div class="mB25">
@@ -57,7 +57,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from XXXX Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(21062)]) ?>
               </small>
             </div>
             <div class="mB25">
@@ -71,7 +71,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from XXXX Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(21061)]) ?>
               </small>
             </div>
             <div class="mB25">
@@ -85,7 +85,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from XXXX Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(24052)]) ?>
               </small>
             </div>
             <div class="mB25">
@@ -99,7 +99,7 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
               <small class="fc-mute">
-                <?php echo T_("On default used from XXXX Accounting assistant code. if exists") ?>
+                <?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(24051)]) ?>
               </small>
             </div>
           </div>

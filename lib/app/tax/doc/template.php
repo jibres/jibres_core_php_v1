@@ -227,36 +227,34 @@ class template
 				$default_cost_tax = a($accounting_setting, 'default_cost_tax');
 				if(!$default_cost_tax)
 				{
-					$default_cost_tax = 2301;
+					$default_cost_tax = 21062;
 				}
 
 				$default_cost_vat = a($accounting_setting, 'default_cost_vat');
 				if(!$default_cost_vat)
 				{
-					$default_cost_vat = 2301;
+					$default_cost_vat = 21061;
 				}
 
 				$args['tax'] = $default_cost_tax;
 				$args['vat'] = $default_cost_vat;
-
 				break;
 
 			case 'income':
 				$default_income_tax = a($accounting_setting, 'default_income_tax');
 				if(!$default_income_tax)
 				{
-					$default_income_tax = 2301;
+					$default_income_tax = 24052;
 				}
 
 				$default_income_vat = a($accounting_setting, 'default_income_vat');
 				if(!$default_income_vat)
 				{
-					$default_income_vat = 2301;
+					$default_income_vat = 24051;
 				}
 
 				$args['tax'] = $default_income_tax;
 				$args['vat'] = $default_income_vat;
-
 				break;
 
 			default:
@@ -323,44 +321,54 @@ class template
 			'template'        => 'put_on',
 		];
 
-		$add_doc_detail[] =
-		[
-			'tax_document_id' => $tax_document_id,
-			'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
-			'details_id'      => $thirdparty,
-			'type'            => 'creditor',
-			'value'           => $args['total'],
-			'sort'            => 4,
-			'template'            => 'thirdparty',
-		];
 
-		$add_doc_detail[] =
-		[
-			'tax_document_id' => $tax_document_id,
-			'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
-			'details_id'      => $thirdparty,
-			'type'            => 'debtor',
-			'value'           => $args['total'],
-			'sort'            => 5,
-			'template'        => 'thirdparty',
-		];
+		if($pay_from && $thirdparty)
+		{
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+				'details_id'      => $thirdparty,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
+				'sort'            => 4,
+				'template'            => 'thirdparty',
+			];
+		}
 
+		if($thirdparty)
+		{
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+				'details_id'      => $thirdparty,
+				'type'            => 'debtor',
+				'value'           => $args['total'],
+				'sort'            => 5,
+				'template'        => 'thirdparty',
+			];
+		}
 
-		$add_doc_detail[] =
-		[
-			'tax_document_id' => $tax_document_id,
-			'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
-			'details_id'      => $pay_from,
-			'type'            => 'creditor',
-			'value'           => $args['total'],
-			'sort'            => 6,
-			'template'        => 'pay_from',
-		];
+		if($pay_from)
+		{
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
+				'details_id'      => $pay_from,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
+				'sort'            => 6,
+				'template'        => 'pay_from',
+			];
+		}
 
 
 		foreach ($add_doc_detail as $key => $value)
 		{
 			\lib\app\tax\docdetail\add::add($value);
+
 			if(!\dash\engine\process::status())
 			{
 				\dash\db::rollback();

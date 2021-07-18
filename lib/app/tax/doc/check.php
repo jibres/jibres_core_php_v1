@@ -136,7 +136,11 @@ class check
 
 		if(isset($_option['template_mode']) && $_option['template_mode'])
 		{
-			// ok
+			if(!$data['pay_from'] && !$data['thirdparty'])
+			{
+				\dash\notif::error(T_("Pay from or thirdparty is required"));
+				return false;
+			}
 		}
 		else
 		{
