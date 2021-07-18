@@ -223,7 +223,7 @@ class model
 			else
 			{
 				// in mode galler we need the index
-				\dash\notif::error(T_("Can save this index!"));
+				\dash\notif::error(T_("Can not save this index!"));
 				\dash\pdo::rollback();
 				return false;
 			}

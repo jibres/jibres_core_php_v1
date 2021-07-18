@@ -34,7 +34,7 @@ class post_template
 
 		$new_data                   = [];
 		$new_data['post_template']  = \dash\validate::enum(a($_data, 'post_template'), true, ['enum' => array_column(self::enum_post_template(), 'key'), 'field_title' => T_('Post subtype')]);
-		$new_data['post_play_item'] = \dash\validate::enum(a($_data, 'post_play_item'), true, ['enum' => array_column(self::enum_post_play_item(), 'key'), 'field_title' => T_('Play imte')]);
+		$new_data['post_play_item'] = \dash\validate::enum(a($_data, 'post_play_item'), true, ['enum' => array_column(self::enum_post_play_item(), 'key'), 'field_title' => T_('Play Item')]);
 		return $new_data;
 	}
 

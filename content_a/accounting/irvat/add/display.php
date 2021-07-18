@@ -63,21 +63,21 @@ switch(\dash\data::myType())
         <?php if(\dash\data::detailsList()) {?>
           <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
           <select class="select22" name="put_on" <?php echo $disableInput; ?>>
-            <option value=""><?php echo T_("Please choose put_on") ?></option>
+            <option value=""><?php echo T_("Cost type") ?></option>
             <?php foreach (\dash\data::detailsList() as $key => $value) {?>
               <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
             <?php } // endfor ?>
           </select>
           <label for="thirdparty"><?php echo T_("Thirdparty") ?></label>
           <select class="select22" name="thirdparty" <?php echo $disableInput; ?>>
-            <option value=""><?php echo T_("Please choose thirdparty") ?></option>
+            <option value=""><?php echo T_("Thirdparty") ?></option>
             <?php foreach (\dash\data::detailsList() as $key => $value) {?>
               <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
             <?php } // endfor ?>
           </select>
           <label for="pay_from"><?php echo T_("Payer") ?></label>
           <select class="select22" name="pay_from" <?php echo $disableInput; ?>>
-            <option value=""><?php echo T_("Please choose pay_from") ?></option>
+            <option value=""><?php echo T_("Payer") ?></option>
             <?php foreach (\dash\data::detailsList() as $key => $value) {?>
               <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
             <?php } // endfor ?>
