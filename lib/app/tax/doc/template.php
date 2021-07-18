@@ -115,8 +115,6 @@ class template
 
 		unset($args['pay_from']);
 		unset($args['put_on']);
-		unset($args['tax']);
-		unset($args['vat']);
 		unset($args['thirdparty']);
 
 		\dash\db::transaction();
@@ -147,10 +145,10 @@ class template
 	{
 		$coding_id =
 		[
-			$_args['pay_from'],
-			$_args['put_on'],
 			$_args['tax'],
 			$_args['vat'],
+			$_args['pay_from'],
+			$_args['put_on'],
 			$_args['thirdparty'],
 		];
 
@@ -221,6 +219,52 @@ class template
 
 	private static function add_template_doc_detail($args, $tax_document_id)
 	{
+		$accounting_setting = \lib\app\setting\get::accounting_setting();
+
+		switch ($args['template'])
+		{
+			case 'cost':
+				$default_cost_tax = a($accounting_setting, 'default_cost_tax');
+				if(!$default_cost_tax)
+				{
+					$default_cost_tax = 2301;
+				}
+
+				$default_cost_vat = a($accounting_setting, 'default_cost_vat');
+				if(!$default_cost_vat)
+				{
+					$default_cost_vat = 2301;
+				}
+
+				$args['tax'] = $default_cost_tax;
+				$args['vat'] = $default_cost_vat;
+
+				break;
+
+			case 'income':
+				$default_income_tax = a($accounting_setting, 'default_income_tax');
+				if(!$default_income_tax)
+				{
+					$default_income_tax = 2301;
+				}
+
+				$default_income_vat = a($accounting_setting, 'default_income_vat');
+				if(!$default_income_vat)
+				{
+					$default_income_vat = 2301;
+				}
+
+				$args['tax'] = $default_income_tax;
+				$args['vat'] = $default_income_vat;
+
+				break;
+
+			default:
+				\dash\notif::error(T_("Can not support this document template"));
+				return false;
+				break;
+		}
+
 
 		$load_coding_detail = self::load_coding_detail($args);
 

@@ -43,8 +43,7 @@ class check
 
 			'pay_from'      => 'id',
 			'put_on'        => 'id',
-			'tax'           => 'id',
-			'vat'           => 'id',
+
 			'thirdparty'    => 'id',
 
 			'user_id'       => 'id',
@@ -60,17 +59,9 @@ class check
 		if(isset($_option['template_mode']) && $_option['template_mode'])
 		{
 			array_push($require, 'template');
-			array_push($require, 'pay_from');
 			array_push($require, 'put_on');
-			array_push($require, 'thirdparty');
 			array_push($require, 'serialnumber');
 			array_push($require, 'total');
-
-			if(isset($_args['totalvat']) && $_args['totalvat'])
-			{
-				array_push($require, 'tax');
-				array_push($require, 'vat');
-			}
 		}
 
 		$meta = [];
@@ -153,8 +144,6 @@ class check
 			unset($data['template']);
 			unset($data['pay_from']);
 			unset($data['put_on']);
-			unset($data['tax']);
-			unset($data['vat']);
 			unset($data['serialnumber']);
 			unset($data['total']);
 			unset($data['totaldiscount']);

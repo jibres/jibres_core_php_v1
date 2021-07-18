@@ -15,8 +15,7 @@ class model
 
 			'pay_from'      => \dash\request::post('pay_from'),
 			'put_on'        => \dash\request::post('put_on'),
-			'tax'           => \dash\request::post('tax'),
-			'vat'           => \dash\request::post('vat'),
+
 			'thirdparty'    => \dash\request::post('thirdparty'),
 
 			'desc'          => \dash\request::post('title'),
