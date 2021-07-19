@@ -98,6 +98,38 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
           </div>
         </div>
       </div>
+      <?php if(\dash\data::editMode()) {?>
+        <div class="tblbox font-14">
+          <table class="tbl1 v6">
+            <thead>
+              <tr>
+                <th><?php echo T_("Total Before discount"); ?></th>
+                <th><?php echo T_("Discount"); ?></th>
+                <th><?php echo T_("Total After discount"); ?></th>
+                <th><?php echo T_("Total vat"); ?></th>
+                <th><?php echo T_("Total payed"); ?></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <?php
+                  $total                = floatval(a($dataRow, 'tax_document', 'total'));
+                  $totaldiscount        = floatval(a($dataRow, 'tax_document', 'totaldiscount'));
+                  $totalvat             = floatval(a($dataRow, 'tax_document', 'totalvat'));
+                  $total_after_discount = $total - $totaldiscount;
+                  $final = $total_after_discount + $totalvat;
+                 ?>
+                <td data-copy='<?php echo $total; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($total, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $totaldiscount; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($totaldiscount, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $total_after_discount; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($total_after_discount, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $totalvat; ?>' class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number($totalvat, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $final; ?>' class="font-12 ltr txtB txtR fc-green"><code><?php echo \dash\fit::number($final, true, 'en') ?></code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      <?php } //endif ?>
       <?php
       \dash\data::dataRow_gallery_array(a($dataRow, 'tax_document', 'gallery_array'));
       $gallery = \dash\data::dataRow_gallery_array();
