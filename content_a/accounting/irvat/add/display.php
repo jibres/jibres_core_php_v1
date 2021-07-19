@@ -41,12 +41,12 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
             </div>
           </div>
           <?php if(\dash\data::detailsList()) {?>
-            <div class="mT10">
+            <div class="">
               <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
               <select class="select22" name="put_on" <?php echo $disableInput; ?>>
                 <option value=""><?php echo T_("Cost type") ?></option>
                 <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             </div>
@@ -55,7 +55,7 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
               <select class="select22" name="thirdparty" <?php echo $disableInput; ?>>
                 <option value=""><?php echo T_("Thirdparty") ?></option>
                 <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id') || \dash\request::get('thirdparty') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             </div>
@@ -64,7 +64,7 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
               <select class="select22" name="pay_from" <?php echo $disableInput; ?>>
                 <option value=""><?php echo T_("Payer") ?></option>
                 <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                 <?php } // endfor ?>
               </select>
             </div>
@@ -160,7 +160,7 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
           <ul>
             <li>
               <a class="item f" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\request::get('id'); ?>">
-                <div class="key"><?php echo T_("Description") ?></div>
+                <div class="key"></div>
                 <div class="value"><?php echo a($dataRow, 'tax_document', 'desc') ?></div>
                 <div class="go detail"></div>
               </a>
@@ -200,6 +200,13 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
               <a class="item f" href="<?php echo \dash\url::that(). '/add?type='. \dash\data::myType(); ?>">
                 <i class="sf-clone"></i>
                 <div class="key"><?php echo T_("Add another") ?></div>
+                <div class="go"></div>
+              </a>
+            </li>
+            <li>
+              <a class="item f" href="<?php echo \dash\url::that(). '/add?'. \dash\request::build_query(['type' => \dash\data::myType(), 'put_on' => a($dataRow, 'fill_value', 'put_on', 'details_id'), 'thirdparty' => a($dataRow, 'fill_value', 'thirdparty', 'details_id'), 'pay_from' => a($dataRow, 'fill_value', 'pay_from', 'details_id')]); ?>">
+                <i class="sf-clone"></i>
+                <div class="key"><?php echo T_("Add another by current details") ?></div>
                 <div class="go"></div>
               </a>
             </li>
