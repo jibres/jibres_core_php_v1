@@ -25,10 +25,10 @@ class model
 
 			'year_id'       => \dash\request::post('year_id'),
 
-			'pay_from'      => \dash\request::post('pay_from'),
-			'put_on'        => \dash\request::post('put_on'),
+			'pay_from'      => \dash\request::post('pay_from') ? \dash\request::post('pay_from') : null,
+			'put_on'        => \dash\request::post('put_on') ? \dash\request::post('put_on') : null,
 
-			'thirdparty'    => \dash\request::post('thirdparty'),
+			'thirdparty'    => \dash\request::post('thirdparty') ? \dash\request::post('thirdparty') : null,
 
 			'desc'          => \dash\request::post('title'),
 			'date'          => \dash\request::post('factordate'),
