@@ -289,16 +289,19 @@ class template
 			return false;
 		}
 
-		$pay_from     = $args['pay_from'];
-		$put_on       = $args['put_on'];
-		$tax          = $args['tax'];
-		$vat          = $args['vat'];
-		$thirdparty   = $args['thirdparty'];
+		$pay_from       = $args['pay_from'];
+		$put_on         = $args['put_on'];
+		$tax            = $args['tax'];
+		$vat            = $args['vat'];
+		$thirdparty     = $args['thirdparty'];
 
 		$add_doc_detail = [];
 
-		$vat_value = 0;
-		$tax_value = 0;
+		$totalMinusDiscount = $args['total'] - $args['totaldiscount'];
+		$final              = $totalMinusDiscount + $args['totalvat'];
+
+		$vat_value      = 0;
+		$tax_value      = 0;
 
 		if($args['totalvat'] && $tax)
 		{
@@ -308,7 +311,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $tax, 'parent3'),
 				'details_id'      => $tax,
 				'type'            => 'debtor',
-				'value'           => $tax_value = round((($args['total'] - $args['totalvat']) * 0.06)),
+				'value'           => $tax_value = round(($args['totalvat'] / 9) * 6),
 				'sort'            => 2,
 				'template'        => 'tax',
 			];
@@ -322,7 +325,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $vat, 'parent3'),
 				'details_id'      => $vat,
 				'type'            => 'debtor',
-				'value'           => $vat_value = round((($args['total'] - $args['totalvat']) * 0.03)),
+				'value'           => $vat_value = round(($args['totalvat'] / 9) * 3),
 				'sort'            => 3,
 				'template'        => 'vat',
 			];
@@ -334,7 +337,7 @@ class template
 			'assistant_id'    => a($load_coding_detail, $put_on, 'parent3'),
 			'details_id'      => $put_on,
 			'type'            => 'debtor',
-			'value'           => $args['total'] - $vat_value - $tax_value,
+			'value'           => $totalMinusDiscount,
 			'sort'            => 1,
 			'template'        => 'put_on',
 		];
@@ -350,7 +353,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
 				'details_id'      => $thirdparty,
 				'type'            => 'creditor',
-				'value'           => $args['total'],
+				'value'           => $final,
 				'sort'            => 4,
 				'template'            => 'thirdparty',
 			];
@@ -361,7 +364,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
 				'details_id'      => $thirdparty,
 				'type'            => 'debtor',
-				'value'           => $args['total'],
+				'value'           => $final,
 				'sort'            => 5,
 				'template'        => 'thirdparty',
 			];
@@ -372,7 +375,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
 				'details_id'      => $pay_from,
 				'type'            => 'creditor',
-				'value'           => $args['total'],
+				'value'           => $final,
 				'sort'            => 6,
 				'template'        => 'pay_from',
 			];
@@ -385,7 +388,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
 				'details_id'      => $pay_from,
 				'type'            => 'creditor',
-				'value'           => $args['total'],
+				'value'           => $final,
 				'sort'            => 6,
 				'template'        => 'pay_from',
 			];
@@ -398,7 +401,7 @@ class template
 				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
 				'details_id'      => $thirdparty,
 				'type'            => 'creditor',
-				'value'           => $args['total'],
+				'value'           => $final,
 				'sort'            => 5,
 				'template'        => 'thirdparty',
 			];

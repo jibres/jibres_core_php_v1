@@ -84,13 +84,15 @@ switch(\dash\data::myType())
           </select>
         <?php } // endif ?>
         <div class="mT20"></div>
-        <label for="title"><?php echo T_("Description"); ?></label>
-        <div class="input">
-          <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>' <?php echo $disableInput ?>>
-        </div>
+        <?php if(\dash\data::editMode()) {?>
+          <label for="title"><?php echo T_("Description"); ?></label>
+          <div class="input">
+            <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>' <?php echo $disableInput ?>>
+          </div>
+        <?php } //endif ?>
         <div class="row">
           <div class="c-md-4">
-            <label for="total"><?php echo T_("Total pay"); ?></label>
+            <label for="total"><?php echo T_("Total payment before deducting discount"); ?></label>
             <div class="input ltr">
               <input type="tel" name="total" value="<?php echo round(a($dataRow, 'tax_document', 'total')); ?>" id="total" max="9999999" data-format='price' <?php echo $disableInput ?>>
             </div>
