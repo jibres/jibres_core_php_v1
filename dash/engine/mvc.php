@@ -321,6 +321,11 @@ class mvc
 			// request option and send okay
 			\dash\header::status(200);
 		}
+		elseif(\dash\request::is('head'))
+		{
+			// request option and send okay
+			\dash\header::status(204);
+		}
 		elseif(!\dash\request::is('get'))
 		{
 			$my_model = self::$folder_addr. '\\model';
@@ -334,13 +339,13 @@ class mvc
 				else
 				{
 					// show not implemented message
-					\dash\header::status(501);
+					\dash\header::status(405);
 				}
 			}
 			else
 			{
 				// model does not exist in this folder, show not acceptable message
-				\dash\header::status(424);
+				\dash\header::status(405);
 			}
 
 			// add header febore echo anything

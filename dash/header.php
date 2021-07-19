@@ -150,6 +150,7 @@ class header
 			 */
 			404 => 'Not Found',
 
+			// @MVC -> Model function is not callable
 			405 => 'Method Not Allowed',
 			// @process -> need stop process
 			406 => 'Not Acceptable',
@@ -175,7 +176,6 @@ class header
 			422 => 'Unprocessable Entity',
 			// @Cleanse -> Check input and validate args. \dash\clense::data()
 			423 => 'Locked',
-			// @MVC -> Model function is not callable
 			424 => 'Failed Dependency',
 			426 => 'Upgrade Required',
 			// @Baby -> check agent
