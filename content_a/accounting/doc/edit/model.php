@@ -126,7 +126,7 @@ class model
 	 * Uploads a gallery.
 	 * Use this function in api
 	 */
-	public static function upload_gallery($_id)
+	public static function upload_gallery($_id, $_return = false)
 	{
 		if(\dash\request::files('gallery'))
 		{
@@ -144,6 +144,11 @@ class model
 			}
 			else
 			{
+				if($_return)
+				{
+					return;
+				}
+
 				\dash\notif::ok(T_("File successfully uploaded"));
  				\dash\redirect::pwd();
 

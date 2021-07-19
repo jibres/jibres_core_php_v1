@@ -34,6 +34,11 @@ class model
 		{
 			if(isset($add['id']))
 			{
+				if(\dash\request::post('uploaddoc') === 'uploaddoc' && \dash\request::files('gallery'))
+				{
+					\content_a\accounting\doc\edit\model::upload_gallery($add['id'], true);
+				}
+
 				\dash\redirect::to(\dash\url::that(). '/edit?id='. $add['id']);
 			}
 			else

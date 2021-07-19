@@ -122,11 +122,24 @@ switch(\dash\data::myType())
       <?php } //endif ?>
     </div>
     <?php
-    if(\dash\data::editMode())
-    {
       \dash\data::dataRow_gallery_array(a($dataRow, 'tax_document', 'gallery_array'));
-      require_once(root. 'content_a/accounting/doc/add/display-gallery.php');
-    }
+      $gallery = \dash\data::dataRow_gallery_array();
+
+      if(!is_array($gallery))
+      {
+        $gallery = [];
+      }
+
+      $gallery_capacity    = 10;
+      $gallery_is_not_free = true;
+      $add_html_form       = false;
+      $is_auto_send        = \dash\data::editMode() ? true : false;
+      $no_footer           = true;
+      $gallery_array       = a($dataRow, 'tax_document', 'gallery_array');
+
+      echo '<input type="hidden" name="uploaddoc" value="uploaddoc">';
+      require_once(root. 'dash/layout/post/admin-gallery-box.php');
+
     ?>
   </div>
 </form>
