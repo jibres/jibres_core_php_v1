@@ -77,6 +77,7 @@ class set
 			'default_cost_vat'               => 'id',
 			'default_income_tax'             => 'id',
 			'default_income_vat'             => 'id',
+			'default_cost_payer'             => 'id',
 		];
 
 

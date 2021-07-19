@@ -1,9 +1,13 @@
 <?php
-$dataRow = \dash\data::dataRow();
+$dataRow                = \dash\data::dataRow();
 
-$docIsLock = a($dataRow, 'tax_document', 'status') === 'lock';
+$docIsLock              = a($dataRow, 'tax_document', 'status') === 'lock';
 
-$disableInput = $docIsLock ? 'disabled' : null;
+$disableInput           = $docIsLock ? 'disabled' : null;
+
+$accountingSettingSaved = \lib\app\setting\get::accounting_setting();
+
+$default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
 
 $title = null;
 if(\dash\data::editMode())
@@ -18,6 +22,8 @@ else
     case 'income': if(\dash\data::editMode()) {  $title = T_("Edit income factor"); } else {  $title = T_("Add income factor"); } break;
   }
 }
+
+
 ?>
 <?php if(a($dataRow, 'tax_document', 'status') === 'temp' || a($dataRow, 'tax_document', 'status') === 'lock') {?>
 
@@ -71,7 +77,7 @@ else
           <select class="select22" name="pay_from" <?php echo $disableInput; ?>>
             <option value=""><?php echo T_("Payer") ?></option>
             <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-              <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+              <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
             <?php } // endfor ?>
           </select>
         <?php } // endif ?>
