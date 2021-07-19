@@ -60,7 +60,6 @@ class check
 		{
 			array_push($require, 'template');
 			array_push($require, 'put_on');
-			array_push($require, 'serialnumber');
 			array_push($require, 'total');
 		}
 
