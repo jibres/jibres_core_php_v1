@@ -6,7 +6,9 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Edit factor"));
+		$dataRow = \dash\data::dataRow();
+
+		\dash\face::title(T_('Accounting Document Number'). ' '. a($dataRow, 'tax_document', 'number'));
 
 		\dash\data::userToggleSidebar(false);
 
@@ -19,7 +21,6 @@ class view
 
 		\content_a\accounting\irvat\add\view::static_var();
 
-		$dataRow = \dash\data::dataRow();
 
 		$docIsLock = a($dataRow, 'tax_document', 'status') === 'lock';
 
