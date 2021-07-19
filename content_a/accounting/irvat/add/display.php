@@ -12,7 +12,7 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
 ?>
 <form method="post" autocomplete="off"  enctype="multipart/form-data" id="form1">
   <div class="row">
-    <div class="c-xs-12 c-sm-12 c-md-8">
+    <div class="c-xs-12 c-sm-12 c-md-9">
       <div class="box">
         <div class="pad">
           <div class="row">
@@ -152,7 +152,7 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
       ?>
     </div>
 
-    <div class="c-xs-12 c-sm-12 c-md-4">
+    <div class="c-xs-12 c-sm-12 c-md-3">
 
 
       <?php if(\dash\data::editMode()) {?>
