@@ -14,6 +14,10 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '/all');
 
+		// btn
+		\dash\data::action_text(T_('Add Another'));
+		\dash\data::action_link(\dash\url::that(). '/add?type='. \dash\data::myType());
+
 		\dash\data::titleList(\lib\app\irvat\get::title_list());
 
 		\content_a\accounting\irvat\add\view::static_var();
