@@ -58,6 +58,8 @@ class model
 
 		if(\dash\engine\process::status())
 		{
+			$result = \lib\app\tax\doc\edit::edit_status(['status' => 'lock'], \dash\request::get('id'));
+
 			\dash\redirect::pwd();
 		}
 

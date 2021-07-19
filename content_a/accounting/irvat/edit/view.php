@@ -18,18 +18,27 @@ class view
 
 		\content_a\accounting\irvat\add\view::static_var();
 
-		if(a(\dash\data::dataRow(), 'tax_document', 'status') === 'temp')
+		$dataRow = \dash\data::dataRow();
+
+		$docIsLock = a($dataRow, 'tax_document', 'status') === 'lock';
+
+		if(!$docIsLock)
 		{
-			\dash\face::btnSave('formlock1');
-			\dash\face::btnSaveValue('lock');
-			\dash\face::btnSaveText(T_("Lock"));
+			\dash\face::btnSave('form1');
 		}
-		elseif(a(\dash\data::dataRow(), 'tax_document', 'status') === 'lock')
-		{
-			\dash\face::btnInsert('formlock1');
-			\dash\face::btnInsertValue('unlock');
-			\dash\face::btnInsertText(T_("Unlock"));
-		}
+
+		// if(a(\dash\data::dataRow(), 'tax_document', 'status') === 'temp')
+		// {
+		// 	\dash\face::btnSave('formlock1');
+		// 	\dash\face::btnSaveValue('lock');
+		// 	\dash\face::btnSaveText(T_("Lock"));
+		// }
+		// elseif(a(\dash\data::dataRow(), 'tax_document', 'status') === 'lock')
+		// {
+		// 	\dash\face::btnInsert('formlock1');
+		// 	\dash\face::btnInsertValue('unlock');
+		// 	\dash\face::btnInsertText(T_("Unlock"));
+		// }
 
 	}
 }

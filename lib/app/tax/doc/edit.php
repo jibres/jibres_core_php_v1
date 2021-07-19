@@ -94,11 +94,11 @@ class edit
 
 		if($data['status'] === 'lock')
 		{
-			\dash\notif::ok(T_("Accounting document locked"));
+			\dash\notif::ok_once(T_("Accounting document locked"));
 		}
 		else
 		{
-			\dash\notif::ok(T_("Accounting document Unlocked"));
+			\dash\notif::ok_once(T_("Accounting document Unlocked"));
 		}
 
 		return true;

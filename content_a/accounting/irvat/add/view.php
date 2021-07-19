@@ -17,27 +17,14 @@ class view
 		\dash\data::userToggleSidebar(false);
 
 		self::static_var();
+
+		\dash\face::btnInsert('form1');
 	}
 
 
 
 	public static function static_var()
 	{
-		if(a(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'accounting_details_id'))
-		{
-			$load = \lib\app\tax\coding\get::get(a(\dash\data::dataRow(), 'customer_detail', 'legal_detail', 'accounting_details_id'));
-
-			\dash\data::accountingDetailsId($load);
-		}
-
-		if(a(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'accounting_details_id'))
-		{
-			$load = \lib\app\tax\coding\get::get(a(\dash\data::dataRow(), 'seller_detail', 'legal_detail', 'accounting_details_id'));
-
-			\dash\data::accountingDetailsId($load);
-		}
-
-
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
 

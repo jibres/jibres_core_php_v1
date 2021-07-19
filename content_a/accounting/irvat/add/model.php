@@ -7,6 +7,18 @@ class model
 	public static function post()
 	{
 
+		if(\dash\request::post('newlockstatus'))
+		{
+			$post =
+			[
+				'status' => \dash\request::post('newlockstatus'),
+			];
+
+			$result = \lib\app\tax\doc\edit::edit_status($post, \dash\request::get('id'));
+			\dash\redirect::pwd();
+
+		}
+
 		$post =
 		[
 			'template'      => \dash\request::get('type'),
@@ -38,6 +50,8 @@ class model
 				{
 					\content_a\accounting\doc\edit\model::upload_gallery($add['id'], true);
 				}
+
+				$result = \lib\app\tax\doc\edit::edit_status(['status' => 'lock'], $add['id']);
 
 				\dash\redirect::to(\dash\url::that(). '/edit?id='. $add['id']);
 			}
