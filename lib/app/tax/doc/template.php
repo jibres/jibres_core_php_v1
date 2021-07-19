@@ -209,7 +209,7 @@ class template
 
 		if(a($_args, 'serialnumber'))
 		{
-			$desc[] = T_("By serialnumber");
+			$desc[] = '-';
 			$desc[] = \dash\fit::text(a($_args, 'serialnumber'));
 		}
 
