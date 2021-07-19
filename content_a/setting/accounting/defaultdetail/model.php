@@ -17,7 +17,7 @@ class model
 		$post['default_income_tax']             = \dash\request::post('default_income_tax') ? \dash\request::post('default_income_tax') : null;
 		$post['default_income_vat']             = \dash\request::post('default_income_vat') ? \dash\request::post('default_income_vat') : null;
 		$post['default_cost_payer']             = \dash\request::post('default_cost_payer') ? \dash\request::post('default_cost_payer') : null;
-
+		$post['default_cost_bank']              = \dash\request::post('default_cost_bank') ? \dash\request::post('default_cost_bank') : null;
 
 		\lib\app\setting\set::accounting_setting($post);
 

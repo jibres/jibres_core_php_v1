@@ -115,6 +115,19 @@ $savedValue = \dash\data::accountingSettingSaved();
                 </select>
               <?php } // endif ?>
             </div>
+
+
+            <div class="mB25">
+              <?php if(\dash\data::detailsList()) {?>
+                <label for="default_cost_bank"><?php echo T_("Default bank in cost factors") ?> </label>
+                <select class="select22" name="default_cost_bank" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+                  <option value="0"><?php echo T_("Please choose detail id") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($savedValue, 'default_cost_bank') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              <?php } // endif ?>
+            </div>
           </div>
         </div>
       </div>
