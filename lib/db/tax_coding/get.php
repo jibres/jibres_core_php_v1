@@ -245,7 +245,7 @@ class get
 				tax_coding.title as `detail_title`
 			FROM
 				tax_coding
-			WHERE tax_coding.type = 'details'
+			WHERE tax_coding.type = 'details' ORDER BY tax_coding.code ASC
 		";
 
 		$result = \dash\db::get($query);
