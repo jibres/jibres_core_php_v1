@@ -76,6 +76,7 @@ class config
 			'start_limit' => $start_limit,
 			'join'        => $join,
 			'fields'      => $fields,
+			'limit_string' => "LIMIT $limit",
 		];
 
 		return $result;

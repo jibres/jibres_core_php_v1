@@ -8,8 +8,8 @@ class controller
 	{
 		\dash\permission::access('_group_accounting');
 
-		$have_any_coding = \lib\app\tax\coding\get::have_any_coding();
-		if(!$have_any_coding)
+		$check_need_welcome_message = \content_a\accounting\welcome\controller::check_need_welcome_message();
+		if($check_need_welcome_message)
 		{
 			\dash\redirect::to(\dash\url::this(). '/welcome');
 		}

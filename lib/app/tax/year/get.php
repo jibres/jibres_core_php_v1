@@ -81,8 +81,15 @@ class get
 			if($get_last_end_date)
 			{
 				$startdate = date("Y-m-d", strtotime($get_last_end_date) + (60*60*24));
-				self::$startdate = $startdate;
 			}
+			else
+			{
+				$myYear = \dash\utility\convert::to_en_number(\dash\fit::date(date("Y-m-d")));
+				$startdate = substr($myYear, 0, 4). '-01-01';
+				$startdate = \dash\validate::date($startdate);
+
+			}
+			self::$startdate = $startdate;
 		}
 
 		return self::$startdate;
@@ -93,7 +100,7 @@ class get
 		$startdate = self::startdate();
 		if($startdate)
 		{
-			$enddate = date("Y-m-d", strtotime($startdate) + (60*60*24*365));
+			$enddate = date("Y-m-d", strtotime($startdate) + (60*60*24*364));
 			return $enddate;
 		}
 		return null;

@@ -27,8 +27,10 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['startdate', 'enddate', 'title']],
+			'order'      => 'order',
+			'sort'       => ['enum' => ['startdate', 'enddate', 'title']],
+			'limit'      => 'int',
+			'pagination' => 'y_n',
 		];
 
 		$require = [];
@@ -42,7 +44,16 @@ class search
 		$or          = [];
 
 		$meta['limit'] = 20;
-		// $meta['pagination'] = false;
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['pagination'] === 'n')
+		{
+			$meta['pagination'] = false;
+		}
 
 		$order_sort  = null;
 
