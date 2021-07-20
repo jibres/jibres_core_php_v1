@@ -72,6 +72,10 @@ class ready
 							$tvalue = T_("Petty cash");
 							break;
 
+						case 'partner':
+							$tvalue = T_("Partner");
+							break;
+
 						default:
 							# code...
 							break;
