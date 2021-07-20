@@ -102,6 +102,7 @@ class ready
 			$full_title[] = $_data['detail_title'];
 		}
 
+		$full_title = array_unique($full_title);
 
 		$result['full_title'] = implode(' - ', $full_title);
 		return $result;
