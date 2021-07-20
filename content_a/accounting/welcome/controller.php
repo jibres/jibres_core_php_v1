@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\home;
+namespace content_a\accounting\welcome;
 
 
 class controller
@@ -11,8 +11,19 @@ class controller
 		$have_any_coding = \lib\app\tax\coding\get::have_any_coding();
 		if(!$have_any_coding)
 		{
-			\dash\redirect::to(\dash\url::this(). '/welcome');
+			\dash\data::firstInit(true);
 		}
+
+
+		// check year
+		// check default coding
+		// check currency
+
+		if($have_any_coding)
+		{
+			\dash\redirect::to(\dash\url::this());
+		}
+
 	}
 }
 ?>

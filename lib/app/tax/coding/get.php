@@ -4,6 +4,14 @@ namespace lib\app\tax\coding;
 
 class get
 {
+	public static function have_any_coding()
+	{
+		$one_coding = \lib\db\tax_coding\get::have_any_coding();
+		return $one_coding;
+	}
+
+
+
 	public static function generate_code_details($_assistant_id)
 	{
 		$last_code = \lib\db\tax_coding\get::last_code_assistant($_assistant_id);

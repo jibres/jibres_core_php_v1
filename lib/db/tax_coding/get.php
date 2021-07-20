@@ -5,6 +5,12 @@ namespace lib\db\tax_coding;
 class get
 {
 
+	public static function have_any_coding()
+	{
+		$query = "SELECT tax_coding.* FROM tax_coding LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
 
 
 	public static function all_to_assistant()
