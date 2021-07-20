@@ -1022,6 +1022,11 @@ class TransStatic
 	echo T_("irnic");
 	echo T_("onlinenic");
 
+	echo T_("Cost");
+	echo T_("Income");
+	echo T_("cost");
+	echo T_("income");
+
  }
 }
 ?>
