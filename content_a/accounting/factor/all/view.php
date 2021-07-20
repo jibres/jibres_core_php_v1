@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\irvat\all;
+namespace content_a\accounting\factor\all;
 
 
 class view
@@ -8,7 +8,7 @@ class view
 	{
 		\content_a\accounting\doc\view::config(['template' => 'factor']);
 
-		$args = \dash\temp::get('irvatArgs');
+		$args = \dash\temp::get('factorArgs');
 
 		$args['summary_mode'] = true;
 
@@ -47,7 +47,7 @@ class view
 
 		// $search_string = \dash\validate::search_string();
 
-		// $list = \lib\app\irvat\search::list($search_string, $args);
+		// $list = \lib\app\factor\search::list($search_string, $args);
 
 		// \dash\data::dataTable($list);
 
@@ -55,12 +55,12 @@ class view
 		// \dash\data::sortLink($sortLink);
 
 
-		// \dash\data::filterBox(\lib\app\irvat\search::filter_message());
+		// \dash\data::filterBox(\lib\app\factor\search::filter_message());
 
-		// $isFiltered = \lib\app\irvat\search::is_filtered();
+		// $isFiltered = \lib\app\factor\search::is_filtered();
 		// \dash\data::isFiltered($isFiltered);
 
-		// $summary = \lib\app\irvat\search::summary();
+		// $summary = \lib\app\factor\search::summary();
 		// \dash\data::summaryDetail($summary);
 
 		// if($isFiltered)

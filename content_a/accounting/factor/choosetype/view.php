@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\irvat\choosetype;
+namespace content_a\accounting\factor\choosetype;
 
 
 class view

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\irvat\edit;
+namespace content_a\accounting\factor\edit;
 
 
 class model

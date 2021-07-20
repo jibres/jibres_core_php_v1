@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\irvat;
+namespace content_a\accounting\factor;
 
 
 class controller

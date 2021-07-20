@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\irvat\add;
+namespace content_a\accounting\factor\add;
 
 
 class view
@@ -11,8 +11,6 @@ class view
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '/all');
-
-		\dash\data::titleList(\lib\app\irvat\get::title_list());
 
 		\dash\data::userToggleSidebar(false);
 

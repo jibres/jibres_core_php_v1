@@ -87,7 +87,7 @@
   <h2 class="mTB20"><?php echo T_("Income-cost management") ?></h2>
   <div class="f">
     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/add?type=cost'>
+      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/factor/add?type=cost'>
         <div class="statistic red">
           <div class="value"><i class="sf-plus"></i></div>
           <div class="label"><?php echo T_("Add cost"); ?></div>
@@ -96,7 +96,7 @@
     </div>
 
     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/add?type=income'>
+      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/factor/add?type=income'>
         <div class="statistic red">
           <div class="value"><i class="sf-plus"></i></div>
           <div class="label"><?php echo T_("Add income"); ?></div>
@@ -105,7 +105,7 @@
     </div>
 
     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/irvat/all'>
+      <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/factor/all'>
         <div class="statistic red">
           <div class="value"><i class="sf-list-ul"></i></div>
           <div class="label"><?php echo T_("List"); ?></div>

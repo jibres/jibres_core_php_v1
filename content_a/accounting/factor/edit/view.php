@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\irvat\edit;
+namespace content_a\accounting\factor\edit;
 
 
 class view
@@ -17,9 +17,7 @@ class view
 		\dash\data::back_link(\dash\url::that(). '/all');
 
 
-		\dash\data::titleList(\lib\app\irvat\get::title_list());
-
-		\content_a\accounting\irvat\add\view::static_var();
+		\content_a\accounting\factor\add\view::static_var();
 
 
 		$docIsLock = a($dataRow, 'tax_document', 'status') === 'lock';

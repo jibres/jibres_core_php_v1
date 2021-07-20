@@ -99,7 +99,7 @@ $disableInput = $docIsLock ? 'disabled' : null;
        <nav class="items long mT10">
           <ul>
             <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/irvat/edit?id='. \dash\request::get('id'); ?>">
+              <a class="item f" href="<?php echo \dash\url::this(). '/factor/edit?id='. \dash\request::get('id'); ?>">
                 <i class="sf-receipt-shopping-streamline"></i>
                 <div class="key"><?php echo T_("Open factor page") ?></div>
                 <div class="go"></div>
