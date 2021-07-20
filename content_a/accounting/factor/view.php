@@ -1,12 +1,12 @@
 <?php
-namespace content_a\accounting\factor\all;
+namespace content_a\accounting\factor;
 
 
 class view
 {
 	public static function config()
 	{
-		\content_a\accounting\doc\view::config(['template' => 'factor']);
+		\content_a\accounting\doc\view::config(['template_list' => true]);
 
 		$args = \dash\temp::get('factorArgs');
 

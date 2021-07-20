@@ -37,8 +37,9 @@ class search
 			'export'       => 'bit',
 			'limit'        => 'int',
 			'status'       => ['enum' => ['temp', 'draft', 'lock']],
-			'template'     => ['enum' => ['factor', 'cost', 'income']],
+			'template'     => ['enum' => ['cost', 'income']],
 			'summary_mode' => 'bit',
+			'template_list' => 'bit',
 		];
 
 		$require = [];
@@ -134,14 +135,14 @@ class search
 
 		if($data['template'])
 		{
-			if($data['template'] === 'factor')
-			{
-				$and[] = " tax_document.template IS NOT NULL ";
-			}
-			else
-			{
-				$and[] = " tax_document.template = '$data[template]' ";
-			}
+			$and[] = " tax_document.template = '$data[template]' ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['template_list'])
+		{
+			$and[] = " tax_document.template IS NOT NULL ";
 		}
 
 		$query_string = \dash\validate::search($_query_string, false);

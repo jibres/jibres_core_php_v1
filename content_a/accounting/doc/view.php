@@ -60,6 +60,7 @@ class view
 		$args['startdate'] = $startdate ? $startdate : null;
 		$args['enddate']   = $enddate ? $enddate : null;
 		$args['month']     = \dash\request::get('month');
+		$args['template']  = \dash\request::get('template');
 
 		$args = array_merge($args, $_args);
 

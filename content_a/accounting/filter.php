@@ -1,14 +1,14 @@
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p0">
   <div class="box">
     <div class="pad">
-      <?php if(\dash\url::child() === 'doc') {?>
+      <?php if(\dash\url::child() === 'doc' || \dash\url::child() === 'factor') {?>
         <div class="row">
-          <div class="c-xs-12 c-sm-6">
-        <div class="input">
-        <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-      </div>
+          <div class="c-xs-12 c-sm-6 c-md">
+            <div class="input">
+              <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
+            </div>
           </div>
-          <div class="c-xs-12 c-sm-6">
+          <div class="c-xs-12 c-sm-6 c-md">
             <select class="select22" name="month">
               <option value=""><?php echo T_("Choose month") ?></option>
               <?php for ($i=1; $i <= 12 ; $i++) {?>
@@ -16,6 +16,16 @@
               <?php } // endfor ?>
             </select>
           </div>
+          <?php if(\dash\url::child() === 'factor') {?>
+            <div class="c-xs-12 c-sm-6 c-md">
+              <select class="select22" name="template">
+                <option value=""><?php echo T_("Choose template") ?></option>
+              <?php foreach (['income', 'cost'] as $key => $value) {?>
+                  <option value="<?php echo $value ?>" <?php if(\dash\request::get('template') == $value) {echo 'selected';} ?>><?php echo T_($value); ?></option>
+                <?php } // endfor ?>
+              </select>
+            </div>
+          <?php } //endif ?>
 
         </div>
       <?php } //endif ?>
@@ -32,19 +42,19 @@
           </div>
         <?php } // endif ?>
         <?php if(\dash\url::subchild() != 'balancesheet') {?>
-        <div class="c-xs-12 c-sm">
-          <label for="startdate" ><?php echo T_("Start date"); ?></label>
-          <div class="input mB0-f">
-            <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="startdate" id="startdate" value="<?php echo \dash\request::get('startdate'); ?>" autocomplete='off'>
+          <div class="c-xs-12 c-sm">
+            <label for="startdate" ><?php echo T_("Start date"); ?></label>
+            <div class="input mB0-f">
+              <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="startdate" id="startdate" value="<?php echo \dash\request::get('startdate'); ?>" autocomplete='off'>
+            </div>
           </div>
-        </div>
-        <div class="c-xs-12 c-sm">
-          <label for="enddate" ><?php echo T_("End date"); ?></label>
-          <div class="input mB0-f">
-            <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="enddate" value="<?php echo \dash\request::get('enddate'); ?>" autocomplete='off'>
+          <div class="c-xs-12 c-sm">
+            <label for="enddate" ><?php echo T_("End date"); ?></label>
+            <div class="input mB0-f">
+              <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="enddate" value="<?php echo \dash\request::get('enddate'); ?>" autocomplete='off'>
+            </div>
           </div>
-        </div>
-      <?php } //endif ?>
+        <?php } //endif ?>
 
         <?php if(\dash\url::child() === 'report' && \dash\url::subchild() != 'balancesheet') {?>
           <div class="c-xs-12 c-sm-5">
@@ -81,15 +91,15 @@
         <?php } //endif ?>
         <div class="c-xs-12 c-sm-auto p0">
           <div class="mT25 txtRa">
-          <?php if(\dash\url::subchild() != 'balancesheet') {?>
-            <?php if(\dash\request::get('year_id')) {?>
-              <div class="btn outline" data-title='<?php echo T_("Reset document number?") ?>' data-confirm data-data='{"resetnumber": "resetnumber", "year_id" : "<?php echo \dash\request::get('year_id'); ?>"}'><i class="sf-refresh"></i></div>
+            <?php if(\dash\url::subchild() != 'balancesheet') {?>
+              <?php if(\dash\request::get('year_id')) {?>
+                <div class="btn outline" data-title='<?php echo T_("Reset document number?") ?>' data-confirm data-data='{"resetnumber": "resetnumber", "year_id" : "<?php echo \dash\request::get('year_id'); ?>"}'><i class="sf-refresh"></i></div>
+              <?php } //endif ?>
             <?php } //endif ?>
-          <?php } //endif ?>
-        <?php if(\dash\request::get()) {?>
-          <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Clear filter") ?></a>
-        <?php } //endif ?>
-        <button class="btn master"><?php echo T_("Apply") ?></button>
+            <?php if(\dash\request::get()) {?>
+              <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Clear filter") ?></a>
+            <?php } //endif ?>
+            <button class="btn master"><?php echo T_("Apply") ?></button>
           </div>
         </div>
 
