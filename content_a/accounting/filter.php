@@ -99,7 +99,7 @@
             <?php if(\dash\request::get()) {?>
               <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Clear filter") ?></a>
             <?php } //endif ?>
-            <button class="btn master"><?php echo T_("Apply") ?></button>
+            <button class="btn"><?php echo T_("Apply") ?></button>
           </div>
         </div>
 
