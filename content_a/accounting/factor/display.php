@@ -1,5 +1,6 @@
 <?php require_once(root. 'content_a/accounting/filter.php'); ?>
 
+<?php if(in_array(\dash\request::get('template'), ['cost', 'income'])) {?>
 <?php $myData = \dash\data::summaryDetail(); ?>
 <section class="f">
   <div class="c pRa10">
@@ -32,8 +33,8 @@
       <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat3'));?></div>
     </a>
   </div>
-
 </section>
+<?php } //endif ?>
 
 
 
@@ -65,7 +66,7 @@
                 <?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
               </td>
               <td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
-              <td class=""><?php echo T_(a($value, 'template')) ?></td>
+              <td class=""><?php echo T_(a($value, 'template_title')) ?></td>
 
               <td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>

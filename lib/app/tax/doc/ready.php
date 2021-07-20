@@ -55,6 +55,30 @@ class ready
 					$result['tstatus'] = $tvalue;
 					$result[$key] = $value;
 					break;
+
+				case 'template':
+					$tvalue = null;
+					switch ($value)
+					{
+						case 'cost':
+							$tvalue = T_("Cost");
+							break;
+
+						case 'income':
+							$tvalue = T_("Income");
+							break;
+
+						case 'petty_cash':
+							$tvalue = T_("Petty cash");
+							break;
+
+						default:
+							# code...
+							break;
+					}
+					$result['template_title'] = $tvalue;
+					$result[$key] = $value;
+					break;
 				default:
 					$result[$key] = $value;
 					break;
