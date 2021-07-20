@@ -107,7 +107,7 @@
       <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/factor/add?type=partner'>
         <div class="statistic red">
           <div class="value"><i class="sf-plus"></i></div>
-          <div class="label"><?php echo T_("Add partner"); ?></div>
+          <div class="label"><?php echo T_("Add petty cash from Accounting Partner"); ?></div>
         </div>
       </a>
     </div>

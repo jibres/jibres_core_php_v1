@@ -20,7 +20,7 @@
             <div class="c-xs-12 c-sm-6 c-md">
               <select class="select22" name="template">
                 <option value=""><?php echo T_("Choose template") ?></option>
-              <?php foreach (['income' => T_("Income"), 'cost' => T_("Cost"), 'petty_cash' => T_("Petty cash"), 'partner' => T_("Partner")] as $key => $value) {?>
+              <?php foreach (['income' => T_("Income"), 'cost' => T_("Cost"), 'petty_cash' => T_("Petty cash"), 'partner' => T_("Accounting Partner")] as $key => $value) {?>
                   <option value="<?php echo $key ?>" <?php if(\dash\request::get('template') == $key) {echo 'selected';} ?>><?php echo $value; ?></option>
                 <?php } // endfor ?>
               </select>

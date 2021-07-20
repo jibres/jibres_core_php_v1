@@ -112,8 +112,8 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
 
             <?php if(in_array($myType, ['partner'])) {?>
               <div class="mT10">
-                <label for="partner"><?php echo T_("Partner") ?></label>
-                <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Partner") ?>'>
+                <label for="partner"><?php echo T_("Accounting Partner") ?></label>
+                <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Accounting Partner") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'partner', 'details_id') === a($value, 'id') || \dash\request::get('partner') === a($value, 'id') || $default_partner === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>

@@ -73,7 +73,7 @@ class ready
 							break;
 
 						case 'partner':
-							$tvalue = T_("Partner");
+							$tvalue = T_("Accounting Partner");
 							break;
 
 						default:
