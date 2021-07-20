@@ -211,6 +211,28 @@
 </section>
 
 
+
+
+
+<section class="f" data-option='default_partner' id="set_default_partner">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default partner"); ?></h3>
+
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_default_partner" value="1">
+    <div class="action">
+        <select class="select22" name="default_partner" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+          <option value=""><?php echo T_("Please choose assistant_id") ?></option>
+          <?php show_assistant_list_html('default_partner', true) ?>
+        </select>
+    </div>
+  </form>
+</section>
+
+
 <?php } //endif ?>
 
 

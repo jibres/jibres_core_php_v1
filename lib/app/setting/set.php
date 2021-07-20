@@ -79,6 +79,7 @@ class set
 			'default_income_vat'             => 'id',
 			'default_cost_payer'             => 'id',
 			'default_cost_bank'              => 'id',
+			'default_partner'                => 'id',
 		];
 
 

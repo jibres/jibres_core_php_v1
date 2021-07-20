@@ -60,6 +60,10 @@ class model
 			$post['default_cost_bank']              = \dash\request::post('default_cost_bank') ? \dash\request::post('default_cost_bank') : null;
 		}
 
+		if(\dash\request::post('set_default_partner'))
+		{
+			$post['default_partner']              = \dash\request::post('default_partner') ? \dash\request::post('default_partner') : null;
+		}
 
 		\lib\app\setting\set::accounting_setting($post);
 
