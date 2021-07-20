@@ -1,4 +1,4 @@
-<div class="avand">
+
 	<?php if(\dash\data::firstInit()) {?>
 
 	<div class="welcome">
@@ -10,13 +10,77 @@
 	  </div>
 	</div>
 	<?php } //endif ?>
+
+	 <div class="cbox fs12">
+    <form method="get" action='<?php echo \dash\url::current(); ?>' >
+      <div class="input">
+        <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
+        <button class="addon btn "><?php echo T_("Search"); ?></button>
+      </div>
+    </form>
+  </div>
+
 	<div class="row">
 		<div class="c-xs-12 c-sm-6">
 			<?php echo \dash\data::dataTableAll(); ?>
 		</div>
 		<div class="c-xs-12 c-sm-6">
 			<?php if(\dash\data::loadDetail()) {?>
-				<div class="box">
+				<?php htmlLoadDetailCoding(); ?>
+			<?php }else{ ?>
+				<?php htmlListCoding(); ?>
+			<?php  }//endif ?>
+		</div>
+	</div>
+
+<?php function htmlListCoding() {?>
+	<div class="tblBox">
+
+ <table class="tbl1 v4 font-12 minimal">
+    <thead>
+      <tr>
+
+        <th class="collapsing"><?php echo T_("code") ?></th>
+        <th class="collapsing"><?php echo T_("Title") ?></th>
+        <th class="collapsing"><?php echo T_("Natuer group") ?></th>
+        <th class="collapsing"><?php echo T_("Balance type") ?></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+        <tr>
+
+
+          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
+          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo a($value, 'title') ?></a></td>
+          <td class="collapsing"><?php echo T_(ucfirst(a($value, 'naturegroup'))); ?></td>
+          <td class="collapsing"><?php echo T_(ucfirst(a($value, 'balancetype'))); ?></td>
+        </tr>
+        <tr class="hide">
+          <td colspan="4">
+          	<?php if(false) {?>
+              <div class="badge light"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
+          <?php } //endif ?>
+              <div class="badge light"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check fc-green"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
+          </td>
+
+        </tr>
+      <?php } //endif ?>
+    </tbody>
+  </table>
+
+
+	</div>
+
+
+  <?php \dash\utility\pagination::html(); ?>
+<?php } //endif ?>
+
+<?php function htmlLoadDetailCoding() {?>
+	<div class="box">
 					<header><h2><?php echo T_("Detail") ?> <?php echo T_(ucfirst(\dash\data::loadDetail_type())); ?></h2></header>
 					<div class="body">
 						<nav class="items long">
@@ -76,10 +140,4 @@
 
 					</footer>
 				</div>
-			<?php } //endif ?>
-		</div>
-	</div>
-
-</div>
-
-
+<?php } //end function ?>

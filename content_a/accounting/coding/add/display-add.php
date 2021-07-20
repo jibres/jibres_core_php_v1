@@ -1,5 +1,5 @@
 <form method="post" autocomplete="off">
-  <div class="avand">
+
     <div class="row">
       <div class="c-xs-12 c-sm-12 c-md-6">
         <?php echo \dash\data::dataTableAll(); ?>
@@ -177,5 +177,5 @@
 
   </div>
 
-</div>
+
 </form>
