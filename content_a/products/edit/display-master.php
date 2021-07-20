@@ -73,6 +73,8 @@
   </div>
 </form>
 
+<?php if(\dash\url::child() !== 'add') {?>
 
 <div class="btn secondary outline font-12" data-confirm data-data='{"archive": "product"}'><?php echo T_("Archive product") ?></div>
 <div class="btn danger outline font-12" data-confirm data-data='{"delete": "product"}'><?php echo T_("Delete product") ?></div>
+<?php } //endif ?>
