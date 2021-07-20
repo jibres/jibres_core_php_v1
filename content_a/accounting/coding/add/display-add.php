@@ -9,20 +9,6 @@
 
           <div class="body">
 
-            <nav class="items">
-              <ul>
-                <li>
-                  <?php if(\dash\data::dataRow_type() === 'details') { $detail_url = '/detail';}else{$detail_url = null;} ?>
-                  <a class="item f" href="<?php echo \dash\url::this(). '/turnover'.$detail_url .'?contain='. \dash\data::dataRow_id(); ?>">
-                    <i class="sf-retweet"></i>
-                    <div class="key"><?php echo T_("Check Turnover") ?></div>
-                    <div class="go"></div>
-
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
             <?php if(\dash\data::parentList()) {?>
               <label for="parent"><?php echo T_("Parent") ?><?php if(!\dash\request::get('parent')) {?> <small class="fc-red"><?php echo T_("Required") ?></small><?php } //endif ?></label>
               <select class="select22" name="parent" <?php if(\dash\request::get('parent')) {echo 'disabled';} ?>>
@@ -162,9 +148,7 @@
               <div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
             </div>
           <?php } //endif ?>
-          <?php if(a(\dash\data::loadDetail(), 'add_child_link')) {?>
-            <div class="cauto"><a class="btn secondary outline" href="<?php echo a(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo a(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
-          <?php } //endif ?>
+
           <div class="c"></div>
           <div class="cauto">
             <button class="btn success"><?php echo $buttonTitle; ?></button>
@@ -172,6 +156,36 @@
         </footer>
 
       </div>
+         <?php if(a(\dash\data::loadDetail(), 'add_child_link')) {?>
+             <nav class="items">
+              <ul>
+                <li>
+                  <a class="item f" href="<?php echo a(\dash\data::loadDetail(), 'add_child_link'); ?>">
+                    <i class="sf-plus"></i>
+                    <div class="key"><?php echo a(\dash\data::loadDetail(), 'add_child_text'); ?></div>
+                    <div class="go"></div>
+
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+          <?php } //endif ?>
+            <?php if(\dash\data::dataRow_id()) {?>
+            <nav class="items">
+              <ul>
+                <li>
+                  <?php if(\dash\data::dataRow_type() === 'details') { $detail_url = '/detail';}else{$detail_url = null;} ?>
+                  <a class="item f" href="<?php echo \dash\url::this(). '/turnover'.$detail_url .'?contain='. \dash\data::dataRow_id(); ?>">
+                    <i class="sf-retweet"></i>
+                    <div class="key"><?php echo T_("Check Turnover") ?></div>
+                    <div class="go"></div>
+
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          <?php } //endif ?>
     </div>
 
 
