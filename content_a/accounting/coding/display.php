@@ -11,8 +11,44 @@
 	</div>
 	<?php } //endif ?>
 
+        <?php $myData = \dash\data::myDataCount(); ?>
+  <section class="f">
+    <div class="c">
+      <a href="<?php echo \dash\url::current(); ?>" class="stat x70 <?php if(!\dash\request::get('type')) { echo 'active';} ?>">
+        <h3><?php echo T_("All");?></h3>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'all'));?></div>
+      </a>
+    </div>
+
+    <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=group'; ?>" class="stat x70 <?php if(\dash\request::get('type') === 'group') { echo 'active';} ?>">
+        <h3><?php echo T_("Group");?></h3>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'group'));?></div>
+      </a>
+    </div>
+    <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=total'; ?>" class="stat x70 <?php if(\dash\request::get('type') === 'total') { echo 'active';} ?>">
+        <h3><?php echo T_("Accounting total");?></h3>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'total'));?></div>
+      </a>
+    </div>
+    <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=assistant'; ?>" class="stat x70 <?php if(\dash\request::get('type') === 'assistant') { echo 'active';} ?>">
+        <h3><?php echo T_("Accounting assistant");?></h3>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'assistant'));?></div>
+      </a>
+    </div>
+
+    <div class="c">
+      <a href="<?php echo \dash\url::current(). '?type=details'; ?>" class="stat x70 <?php if(\dash\request::get('type') === 'details') { echo 'active';} ?>">
+        <h3><?php echo T_("Accounting details");?></h3>
+        <div class="val"><?php echo \dash\fit::stats(a($myData, 'details'));?></div>
+      </a>
+    </div>
+  </section>
 	 <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
+    	<?php if(\dash\request::get('type')) {?><input type="hidden" name="type" value="<?php echo \dash\request::get('type') ?>"><?php } //endif ?>
       <div class="input">
         <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
         <button class="addon btn "><?php echo T_("Search"); ?></button>
