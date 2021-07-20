@@ -17,6 +17,8 @@ if(a($accountingSettingSaved, 'currency'))
 
 $default_cost_payer = a($accountingSettingSaved, 'default_cost_payer');
 $default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
+$default_partner  = a($accountingSettingSaved, 'default_partner');
+
 
 
 ?>
@@ -82,7 +84,7 @@ $default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
                 </select>
               </div>
             <?php } //endif ?>
-            <?php if(in_array($myType, ['petty_cash'])) {?>
+            <?php if(in_array($myType, ['petty_cash', 'partner'])) {?>
               <div class="mT10">
                 <label for="petty_cash"><?php echo T_("Petty cash") ?></label>
                 <select class="select22" name="petty_cash" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Petty cash") ?>'>
@@ -92,13 +94,29 @@ $default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
                   <?php } // endfor ?>
                 </select>
               </div>
+            <?php } // endif ?>
 
+            <?php if(in_array($myType, ['petty_cash'])) {?>
               <div class="mT10">
                 <label for="bank"><?php echo T_("Bank") ?></label>
                 <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'bank', 'details_id') === a($value, 'id') || \dash\request::get('bank') === a($value, 'id') || $default_cost_bank === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              </div>
+
+            <?php } // endif ?>
+
+
+            <?php if(in_array($myType, ['partner'])) {?>
+              <div class="mT10">
+                <label for="partner"><?php echo T_("Partner") ?></label>
+                <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Partner") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'partner', 'details_id') === a($value, 'id') || \dash\request::get('partner') === a($value, 'id') || $default_partner === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
               </div>
@@ -138,7 +156,7 @@ $default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
             </div>
           </div>
         <?php } //endif ?>
-            <?php if(in_array($myType, ['petty_cash'])) {?>
+            <?php if(in_array($myType, ['petty_cash', 'partner'])) {?>
               <label for="total"><?php echo T_("Total"); ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="total"><?php echo $currency ?></label><?php } //endif ?>

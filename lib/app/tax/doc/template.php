@@ -118,6 +118,7 @@ class template
 		unset($args['thirdparty']);
 		unset($args['bank']);
 		unset($args['petty_cash']);
+		unset($args['partner']);
 
 		\dash\db::transaction();
 
@@ -151,6 +152,7 @@ class template
 			a($_args, 'vat'),
 			a($_args, 'bank'),
 			a($_args, 'petty_cash'),
+			a($_args, 'partner'),
 			a($_args, 'pay_from'),
 			a($_args, 'put_on'),
 			a($_args, 'thirdparty'),
@@ -197,6 +199,7 @@ class template
 				break;
 
 			case 'petty_cash':
+			case 'partner':
 				$thirdparty = a($_args, 'petty_cash');
 				$desc[] = T_("Charge petty cash");
 				break;
@@ -288,6 +291,7 @@ class template
 
 
 			case 'petty_cash':
+			case 'partner':
 				// nothing
 				break;
 
@@ -307,6 +311,7 @@ class template
 
 		$pay_from   = a($args, 'pay_from');
 		$put_on     = a($args, 'put_on');
+		$partner     = a($args, 'partner');
 		$tax        = a($args, 'tax');
 		$vat        = a($args, 'vat');
 		$bank       = a($args, 'bank');
@@ -452,6 +457,32 @@ class template
 				'value'           => $args['total'],
 				'sort'            => 2,
 				'template'        => 'bank',
+			];
+		}
+		elseif($args['template'] === 'partner')
+		{
+
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $petty_cash, 'parent3'),
+				'details_id'      => $petty_cash,
+				'type'            => 'debtor',
+				'value'           => $args['total'],
+				'sort'            => 1,
+				'template'        => 'petty_cash',
+			];
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $partner, 'parent3'),
+				'details_id'      => $partner,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
+				'sort'            => 2,
+				'template'        => 'partner',
 			];
 		}
 

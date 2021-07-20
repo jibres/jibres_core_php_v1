@@ -39,11 +39,12 @@ class check
 			'type'          => ['enum' => ['normal', 'opening', 'closing']],
 
 			// template detail
-			'template'      => ['enum' => ['cost', 'income', 'petty_cash']],
+			'template'      => ['enum' => ['cost', 'income', 'petty_cash', 'partner']],
 
 			'pay_from'      => 'id',
 			'put_on'        => 'id',
 			'bank'          => 'id',
+			'partner'          => 'id',
 			'petty_cash'    => 'id',
 
 			'thirdparty'    => 'id',
@@ -165,6 +166,7 @@ class check
 			unset($data['totalvat']);
 			unset($data['user_id']);
 			unset($data['thirdparty']);
+			unset($data['partner']);
 			unset($data['bank']);
 			unset($data['petty_cash']);
 		}
