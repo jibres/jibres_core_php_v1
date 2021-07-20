@@ -29,6 +29,7 @@ class model
 					'title'         => a($value, 'title'),
 					'parent1'       => a($value, 'parent1'),
 					'parent2'       => a($value, 'parent2'),
+					'parent3'       => a($value, 'parent3'),
 					'status'        => a($value, 'status'),
 					'naturegroup'   => a($value, 'naturegroup'),
 					'balancetype'   => a($value, 'balancetype'),
