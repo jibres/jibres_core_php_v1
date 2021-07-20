@@ -80,6 +80,6 @@
     </div>
     <?php \dash\utility\pagination::html(); ?>
   <?php }else{ ?>
-    <div class="msg success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
+    <div class="msg success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\data::action_link() ?>"><?php echo T_("Add new") ?></a></div>
   <?php } //endif ?>
 

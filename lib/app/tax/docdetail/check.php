@@ -19,7 +19,7 @@ class check
 			'type'            => ['enum' => ['debtor', 'creditor']],
 			'value'           => 'float',
 			'sort'            => 'int',
-			'template'        => ['enum' => ['pay_from', 'put_on', 'thirdparty', 'tax', 'vat']],
+			'template'        => ['enum' => ['pay_from', 'put_on', 'thirdparty', 'tax', 'vat', 'bank', 'petty_cash']],
 
 		];
 

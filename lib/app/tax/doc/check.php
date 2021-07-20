@@ -39,10 +39,12 @@ class check
 			'type'          => ['enum' => ['normal', 'opening', 'closing']],
 
 			// template detail
-			'template'      => ['enum' => ['cost', 'income']],
+			'template'      => ['enum' => ['cost', 'income', 'petty_cash']],
 
 			'pay_from'      => 'id',
 			'put_on'        => 'id',
+			'bank'          => 'id',
+			'petty_cash'    => 'id',
 
 			'thirdparty'    => 'id',
 
@@ -59,7 +61,6 @@ class check
 		if(isset($_option['template_mode']) && $_option['template_mode'])
 		{
 			array_push($require, 'template');
-			array_push($require, 'put_on');
 			array_push($require, 'total');
 		}
 
@@ -135,10 +136,21 @@ class check
 
 		if(isset($_option['template_mode']) && $_option['template_mode'])
 		{
-			if(!$data['pay_from'] && !$data['thirdparty'])
+			if(in_array($data['template'], ['cost', 'income']))
 			{
-				\dash\notif::error(T_("Pay from or thirdparty is required"));
-				return false;
+				if(!$data['pay_from'] && !$data['thirdparty'])
+				{
+					\dash\notif::error(T_("Pay from or thirdparty is required"));
+					return false;
+				}
+			}
+			elseif($data['template'] === 'petty_cash')
+			{
+				if(!$data['bank'] || !$data['petty_cash'])
+				{
+					\dash\notif::error(T_("Bank and petty cash is required"));
+					return false;
+				}
 			}
 		}
 		else
@@ -153,6 +165,8 @@ class check
 			unset($data['totalvat']);
 			unset($data['user_id']);
 			unset($data['thirdparty']);
+			unset($data['bank']);
+			unset($data['petty_cash']);
 		}
 
 

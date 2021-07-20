@@ -116,6 +116,8 @@ class template
 		unset($args['pay_from']);
 		unset($args['put_on']);
 		unset($args['thirdparty']);
+		unset($args['bank']);
+		unset($args['petty_cash']);
 
 		\dash\db::transaction();
 
@@ -145,11 +147,13 @@ class template
 	{
 		$coding_id =
 		[
-			$_args['tax'],
-			$_args['vat'],
-			$_args['pay_from'],
-			$_args['put_on'],
-			$_args['thirdparty'],
+			a($_args, 'tax'),
+			a($_args, 'vat'),
+			a($_args, 'bank'),
+			a($_args, 'petty_cash'),
+			a($_args, 'pay_from'),
+			a($_args, 'put_on'),
+			a($_args, 'thirdparty'),
 		];
 
 		$coding_id = array_filter($coding_id);
@@ -183,11 +187,18 @@ class template
 		switch (a($_args, 'template'))
 		{
 			case 'cost':
+				$thirdparty = a($_args, 'thirdparty');
 				$desc[] = T_("Buy from");
 				break;
 
 			case 'income':
+				$thirdparty = a($_args, 'thirdparty');
 				$desc[] = T_("Sell to");
+				break;
+
+			case 'petty_cash':
+				$thirdparty = a($_args, 'petty_cash');
+				$desc[] = T_("Charge petty cash");
 				break;
 
 			default:
@@ -195,7 +206,6 @@ class template
 				break;
 		}
 
-		$thirdparty = a($_args, 'thirdparty');
 		$thirdparty = \dash\validate::id($thirdparty, false);
 		if($thirdparty)
 		{
@@ -276,6 +286,12 @@ class template
 				$args['vat'] = $default_income_vat;
 				break;
 
+
+			case 'petty_cash':
+				// nothing
+				break;
+
+
 			default:
 				\dash\notif::error(T_("Can not support this document template"));
 				return false;
@@ -289,11 +305,13 @@ class template
 			return false;
 		}
 
-		$pay_from       = $args['pay_from'];
-		$put_on         = $args['put_on'];
-		$tax            = $args['tax'];
-		$vat            = $args['vat'];
-		$thirdparty     = $args['thirdparty'];
+		$pay_from   = a($args, 'pay_from');
+		$put_on     = a($args, 'put_on');
+		$tax        = a($args, 'tax');
+		$vat        = a($args, 'vat');
+		$bank       = a($args, 'bank');
+		$petty_cash = a($args, 'petty_cash');
+		$thirdparty = a($args, 'thirdparty');
 
 		$add_doc_detail = [];
 
@@ -303,109 +321,140 @@ class template
 		$vat_value      = 0;
 		$tax_value      = 0;
 
-		if($args['totalvat'] && $tax)
+		if(in_array($args['template'], ['cost', 'income']))
 		{
+			if($args['totalvat'] && $tax)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $tax, 'parent3'),
+					'details_id'      => $tax,
+					'type'            => 'debtor',
+					'value'           => $tax_value = round(($args['totalvat'] / 9) * 6),
+					'sort'            => 2,
+					'template'        => 'tax',
+				];
+			}
+
+			if($args['totalvat'] && $vat)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $vat, 'parent3'),
+					'details_id'      => $vat,
+					'type'            => 'debtor',
+					'value'           => $vat_value = round(($args['totalvat'] / 9) * 3),
+					'sort'            => 3,
+					'template'        => 'vat',
+				];
+			}
+
 			$add_doc_detail[] =
 			[
 				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $tax, 'parent3'),
-				'details_id'      => $tax,
+				'assistant_id'    => a($load_coding_detail, $put_on, 'parent3'),
+				'details_id'      => $put_on,
 				'type'            => 'debtor',
-				'value'           => $tax_value = round(($args['totalvat'] / 9) * 6),
+				'value'           => $totalMinusDiscount,
+				'sort'            => 1,
+				'template'        => 'put_on',
+			];
+
+
+
+
+			if($pay_from && $thirdparty)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+					'details_id'      => $thirdparty,
+					'type'            => 'creditor',
+					'value'           => $final,
+					'sort'            => 4,
+					'template'            => 'thirdparty',
+				];
+
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+					'details_id'      => $thirdparty,
+					'type'            => 'debtor',
+					'value'           => $final,
+					'sort'            => 5,
+					'template'        => 'thirdparty',
+				];
+
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
+					'details_id'      => $pay_from,
+					'type'            => 'creditor',
+					'value'           => $final,
+					'sort'            => 6,
+					'template'        => 'pay_from',
+				];
+			}
+			elseif($pay_from && !$thirdparty)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
+					'details_id'      => $pay_from,
+					'type'            => 'creditor',
+					'value'           => $final,
+					'sort'            => 6,
+					'template'        => 'pay_from',
+				];
+			}
+			elseif(!$pay_from && $thirdparty)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+					'details_id'      => $thirdparty,
+					'type'            => 'creditor',
+					'value'           => $final,
+					'sort'            => 5,
+					'template'        => 'thirdparty',
+				];
+			}
+
+
+		}
+		elseif($args['template'] === 'petty_cash')
+		{
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $petty_cash, 'parent3'),
+				'details_id'      => $petty_cash,
+				'type'            => 'debtor',
+				'value'           => $args['total'],
+				'sort'            => 1,
+				'template'        => 'petty_cash',
+			];
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $bank, 'parent3'),
+				'details_id'      => $bank,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
 				'sort'            => 2,
-				'template'        => 'tax',
+				'template'        => 'bank',
 			];
 		}
 
-		if($args['totalvat'] && $vat)
-		{
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $vat, 'parent3'),
-				'details_id'      => $vat,
-				'type'            => 'debtor',
-				'value'           => $vat_value = round(($args['totalvat'] / 9) * 3),
-				'sort'            => 3,
-				'template'        => 'vat',
-			];
-		}
-
-		$add_doc_detail[] =
-		[
-			'tax_document_id' => $tax_document_id,
-			'assistant_id'    => a($load_coding_detail, $put_on, 'parent3'),
-			'details_id'      => $put_on,
-			'type'            => 'debtor',
-			'value'           => $totalMinusDiscount,
-			'sort'            => 1,
-			'template'        => 'put_on',
-		];
-
-
-
-
-		if($pay_from && $thirdparty)
-		{
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
-				'details_id'      => $thirdparty,
-				'type'            => 'creditor',
-				'value'           => $final,
-				'sort'            => 4,
-				'template'            => 'thirdparty',
-			];
-
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
-				'details_id'      => $thirdparty,
-				'type'            => 'debtor',
-				'value'           => $final,
-				'sort'            => 5,
-				'template'        => 'thirdparty',
-			];
-
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
-				'details_id'      => $pay_from,
-				'type'            => 'creditor',
-				'value'           => $final,
-				'sort'            => 6,
-				'template'        => 'pay_from',
-			];
-		}
-		elseif($pay_from && !$thirdparty)
-		{
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
-				'details_id'      => $pay_from,
-				'type'            => 'creditor',
-				'value'           => $final,
-				'sort'            => 6,
-				'template'        => 'pay_from',
-			];
-		}
-		elseif(!$pay_from && $thirdparty)
-		{
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
-				'details_id'      => $thirdparty,
-				'type'            => 'creditor',
-				'value'           => $final,
-				'sort'            => 5,
-				'template'        => 'thirdparty',
-			];
-		}
 
 		foreach ($add_doc_detail as $key => $value)
 		{

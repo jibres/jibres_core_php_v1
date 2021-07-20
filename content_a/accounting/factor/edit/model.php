@@ -34,25 +34,7 @@ class model
 			return false;
 		}
 
-		$post =
-		[
-			'template'      => \dash\request::get('type'),
-
-			'year_id'       => \dash\request::post('year_id'),
-
-			'pay_from'      => \dash\request::post('pay_from'),
-			'put_on'        => \dash\request::post('put_on'),
-
-			'thirdparty'    => \dash\request::post('thirdparty'),
-
-			'desc'          => \dash\request::post('title'),
-			'date'          => \dash\request::post('factordate'),
-			'serialnumber'  => \dash\request::post('serialnumber'),
-
-			'total'         => \dash\request::post('total'),
-			'totaldiscount' => \dash\request::post('totaldiscount'),
-			'totalvat'      => \dash\request::post('totalvat'),
-		];
+		$post = \content_a\accounting\factor\add\model::getPost();
 
 		$edit = \lib\app\tax\doc\template::edit($post, \dash\request::get('id'));
 

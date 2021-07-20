@@ -1,4 +1,5 @@
 <?php
+$myType                 = \dash\data::myType();
 $dataRow                = \dash\data::dataRow();
 
 $docIsLock              = a($dataRow, 'tax_document', 'status') === 'lock';
@@ -14,7 +15,9 @@ if(a($accountingSettingSaved, 'currency'))
   $currency = \lib\currency::name($currency);
 }
 
-$default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
+$default_cost_payer = a($accountingSettingSaved, 'default_cost_payer');
+$default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
+
 
 ?>
 <form method="post" autocomplete="off"  enctype="multipart/form-data" id="form1">
@@ -34,47 +37,73 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
                 </select>
               <?php } // endif ?>
             </div>
-            <div class="c-xs-12 c-sm-4">
-              <label for="factordate" ><?php echo T_("Factor date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
+            <div class="c-xs-12 c-sm">
+              <label for="factordate" ><?php echo T_("Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
               <div class="input">
                 <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off' <?php echo $disableInput ?>>
               </div>
             </div>
-            <div class="c-xs-12 c-sm-4">
-              <label for="serialnumber"><?php echo T_("Factor serial number"); ?></label>
-              <div class="input ltr">
-                <input type="text" name="serialnumber" value="<?php echo a($dataRow, 'tax_document', 'serialnumber');  ?>" id="serialnumber" maxlength="100"  <?php echo $disableInput ?>>
+            <?php if(in_array($myType, ['cost', 'income'])) {?>
+              <div class="c-xs-12 c-sm">
+                <label for="serialnumber"><?php echo T_("Factor serial number"); ?></label>
+                <div class="input ltr">
+                  <input type="text" name="serialnumber" value="<?php echo a($dataRow, 'tax_document', 'serialnumber');  ?>" id="serialnumber" maxlength="100"  <?php echo $disableInput ?>>
+                </div>
               </div>
-            </div>
+            <?php } //endif ?>
           </div>
           <?php if(\dash\data::detailsList()) {?>
-            <div class="">
-              <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
-              <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
-                <option value="0"><?php echo T_("None") ?></option>
-                <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                <?php } // endfor ?>
-              </select>
-            </div>
-            <div class="mT10">
-              <label for="thirdparty"><?php echo T_("Thirdparty") ?></label>
-              <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
-                <option value="0"><?php echo T_("None") ?></option>
-                <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id') || \dash\request::get('thirdparty') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                <?php } // endfor ?>
-              </select>
-            </div>
-            <div class="mT10">
-              <label for="pay_from"><?php echo T_("Payer") ?></label>
-              <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
-                <option value="0"><?php echo T_("None") ?></option>
-                <?php foreach (\dash\data::detailsList() as $key => $value) {?>
-                  <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                <?php } // endfor ?>
-              </select>
-            </div>
+            <?php if(in_array($myType, ['cost', 'income'])) {?>
+              <div class="">
+                <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              </div>
+              <div class="mT10">
+                <label for="thirdparty"><?php echo T_("Thirdparty") ?></label>
+                <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id') || \dash\request::get('thirdparty') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              </div>
+              <div class="mT10">
+                <label for="pay_from"><?php echo T_("Payer") ?></label>
+                <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              </div>
+            <?php } //endif ?>
+            <?php if(in_array($myType, ['petty_cash'])) {?>
+              <div class="mT10">
+                <label for="petty_cash"><?php echo T_("Petty cash") ?></label>
+                <select class="select22" name="petty_cash" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Petty cash") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              </div>
+
+              <div class="mT10">
+                <label for="bank"><?php echo T_("Bank") ?></label>
+                <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'bank', 'details_id') === a($value, 'id') || \dash\request::get('bank') === a($value, 'id') || $default_cost_bank === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+                  <?php } // endfor ?>
+                </select>
+              </div>
+
+            <?php } // endif ?>
           <?php } // endif ?>
           <div class="mT20"></div>
           <div class="hide">
@@ -83,6 +112,8 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
               <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>'>
             </div>
           </div>
+            <?php if(in_array($myType, ['cost', 'income'])) {?>
+
           <div class="row">
             <div class="c-md-4">
               <label for="total"><?php echo T_("Total payment before deducting discount"); ?></label>
@@ -106,6 +137,15 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
               </div>
             </div>
           </div>
+        <?php } //endif ?>
+            <?php if(in_array($myType, ['petty_cash'])) {?>
+              <label for="total"><?php echo T_("Total"); ?></label>
+              <div class="input ltr">
+                <?php if($currency) {?><label class="btn addon" for="total"><?php echo $currency ?></label><?php } //endif ?>
+                <input type="tel" name="total" value="<?php echo round(a($dataRow, 'tax_document', 'total'));  ?>" id="total" max="9999999" data-format='price' <?php echo $disableInput ?>>
+              </div>
+        <?php } //endif ?>
+
         </div>
       </div>
       <?php if(\dash\data::editMode()) {?>
@@ -123,12 +163,12 @@ $default_cost_payer     = a($accountingSettingSaved, 'default_cost_payer');
             <tbody>
               <tr>
                 <?php
-                  $total                = floatval(a($dataRow, 'tax_document', 'total'));
-                  $totaldiscount        = floatval(a($dataRow, 'tax_document', 'totaldiscount'));
-                  $totalvat             = floatval(a($dataRow, 'tax_document', 'totalvat'));
-                  $total_after_discount = $total - $totaldiscount;
-                  $final = $total_after_discount + $totalvat;
-                 ?>
+                $total                = floatval(a($dataRow, 'tax_document', 'total'));
+                $totaldiscount        = floatval(a($dataRow, 'tax_document', 'totaldiscount'));
+                $totalvat             = floatval(a($dataRow, 'tax_document', 'totalvat'));
+                $total_after_discount = $total - $totaldiscount;
+                $final = $total_after_discount + $totalvat;
+                ?>
                 <td data-copy='<?php echo $total; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($total, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $totaldiscount; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($totaldiscount, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $total_after_discount; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($total_after_discount, true, 'en') ?></code></td>
