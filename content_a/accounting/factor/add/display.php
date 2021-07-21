@@ -32,7 +32,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
       <div class="box">
         <div class="pad">
           <div class="row">
-            <div class="c-xs-12 c-sm-4">
+            <div class="c-xs-6 c-sm-2">
               <?php if(\dash\data::accountingYear()) {?>
                 <label for="parent"><?php echo T_("Accounting year") ?></label>
                 <select class="select22" name="year_id" <?php echo $disableInput; ?>>
@@ -43,17 +43,25 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               <?php } // endif ?>
             </div>
-            <div class="c-xs-12 c-sm">
+            <div class="c-xs-6 c-sm-2">
               <label for="factordate" ><?php echo T_("Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
               <div class="input">
                 <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off' <?php echo $disableInput ?>>
               </div>
             </div>
             <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
-              <div class="c-xs-12 c-sm">
+
+
+              <div class="c-xs-6 c-sm-2">
                 <label for="serialnumber"><?php echo T_("Factor serial number"); ?></label>
                 <div class="input ltr">
                   <input type="text" name="serialnumber" value="<?php echo a($dataRow, 'tax_document', 'serialnumber');  ?>" id="serialnumber" maxlength="100"  <?php echo $disableInput ?>>
+                </div>
+              </div>
+              <div class="c-xs-6 c-sm">
+                <label for="title"><?php echo T_("Description"); ?></label>
+                <div class="input">
+                  <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>'>
                 </div>
               </div>
             <?php } //endif ?>
@@ -128,12 +136,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
             <?php } // endif ?>
           <?php } // endif ?>
           <div class="mT10"></div>
-          <div class="hide">
-            <label for="title"><?php echo T_("Description"); ?></label>
-            <div class="input">
-              <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>'>
-            </div>
-          </div>
+
             <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
 
           <div class="row">
