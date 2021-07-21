@@ -12,8 +12,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that());
 
-		\dash\face::btnSetting(\dash\url::here(). '/setting/accounting/defaultdetail');
-
 		\dash\data::accountingSettingSaved(\lib\app\setting\get::accounting_setting());
 
 
