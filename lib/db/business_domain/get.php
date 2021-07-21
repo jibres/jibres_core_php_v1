@@ -58,13 +58,19 @@ class get
 	{
 		$query  =
 		"
-			SELECT
-				*
-			FROM
-				business_domain
-			WHERE
-				business_domain.subdomain IS NULL
-			LIMIT 1000
+			SELECT * from business_domain where business_domain.subdomain is null and business_domain.id NOT in (select business_domain_dns.business_domain_id from business_domain_dns WHERE business_domain_dns.type = 'CNAME' and business_domain_dns.status = 'ok')
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+	public static function www_not_added()
+	{
+		$query  =
+		"
+			SELECT * from business_domain where business_domain.subdomain is null and business_domain.id NOT in (select business_domain_dns.business_domain_id from business_domain_dns WHERE  business_domain_dns.key = 'www')
 		";
 
 		$result = \dash\db::get($query, null, false, 'master');

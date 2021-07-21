@@ -769,6 +769,7 @@ class dns
 	{
 		$list = \lib\db\business_domain\get::dns_by_value_100();
 
+
 		if(!$list || !is_array($list))
 		{
 			\dash\notif::error(T_("No DNS record found by this ip"));
@@ -790,10 +791,7 @@ class dns
 			}
 
 
-			self::fetch(a($value, 'id'));
 
-
-			\dash\engine\process::continue();
 
 			// if($domain !== 'chelchin.ir')
 			// {
@@ -801,54 +799,56 @@ class dns
 			// }
 
 
-			// // start update dns record
-			// $get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
+			// start update dns record
+			$get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
 
-			// if(!is_array($get_list_dns_record) || !isset($get_list_dns_record['data']))
-			// {
-			// 	continue;
-			// }
+			if(!is_array($get_list_dns_record) || !isset($get_list_dns_record['data']))
+			{
+				continue;
+			}
 
 
-			// foreach ($get_list_dns_record['data'] as $dns_detail)
-			// {
-			// 	if(isset($dns_detail['type']) && strtolower($dns_detail['type']) === 'a' && isset($dns_detail['name']) && strtolower($dns_detail['name']) === '*')
-			// 	{
-			// 		$id = a($dns_detail, 'id');
+			foreach ($get_list_dns_record['data'] as $dns_detail)
+			{
+				if(isset($dns_detail['type']) && in_array(mb_strtoupper($dns_detail['type']), ['A', 'AAAA', 'CNAME', 'ANAME']) && isset($dns_detail['name']) && strtolower($dns_detail['name']) === '*')
+				{
+					$id = a($dns_detail, 'id');
 
-			// 		$result_remove = \lib\arvancloud\api::remove_dns_record($value['domain'], $id);
+					$result_remove = \lib\arvancloud\api::remove_dns_record($value['domain'], $id);
 
-			// 		\lib\db\business_domain\delete::dns_record($value['id']);
+					self::add(a($value, 'id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
 
-			// 		self::add(a($value, 'business_domain_id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
+					self::fetch(a($value, 'id'));
 
-			// 		// if(isset($dns_detail['value']))
-			// 		// {
+					\dash\engine\process::continue();
 
-			// 		// 	$temp = [["ip" => $_new_ip, /*"port" => null, "weight" => null , "country" => null*/]];
+					// if(isset($dns_detail['value']))
+					// {
 
-			// 		// 	$temp = json_encode($temp);
+					// 	$temp = [["ip" => $_new_ip, /*"port" => null, "weight" => null , "country" => null*/]];
 
-			// 		// 	$update_dns =
-			// 		// 	[
-			// 		// 		"type"           =>  $dns_detail['type'],
-			// 		// 		"name"           =>  $dns_detail['name'],
-			// 		// 		"value"          =>  $temp,
-			// 		// 		"ttl"            =>  120,
-			// 		// 		"cloud"          =>  true,
-			// 		// 		"upstream_https" =>  "default",
-			// 		// 		"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
-			// 		// 	];
+					// 	$temp = json_encode($temp);
 
-			// 		// 	$put_dns = \lib\arvancloud\api::update_dns_record($domain, $update_dns, $dns_detail['id']);
-			// 		// 	if($put_dns)
-			// 		// 	{
-			// 		// 		\lib\db\business_domain\update::update_dns(['value' => $_new_ip], $value['id']);
-			// 		// 	}
-			// 		// }
+					// 	$update_dns =
+					// 	[
+					// 		"type"           =>  $dns_detail['type'],
+					// 		"name"           =>  $dns_detail['name'],
+					// 		"value"          =>  $temp,
+					// 		"ttl"            =>  120,
+					// 		"cloud"          =>  true,
+					// 		"upstream_https" =>  "default",
+					// 		"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
+					// 	];
 
-			// 	}
-			// }
+					// 	$put_dns = \lib\arvancloud\api::update_dns_record($domain, $update_dns, $dns_detail['id']);
+					// 	if($put_dns)
+					// 	{
+					// 		\lib\db\business_domain\update::update_dns(['value' => $_new_ip], $value['id']);
+					// 	}
+					// }
+
+				}
+			}
 
 			// end update dns record
 
@@ -857,6 +857,17 @@ class dns
 				// \dash\notif::info("Timeout. Update count :". $i);
 				// return true;
 			}
+		}
+
+		$list = \lib\db\business_domain\get::www_not_added();
+
+		foreach ($list as $key => $value)
+		{
+			self::add(a($value, 'id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
+
+			self::fetch(a($value, 'id'));
+
+			\dash\engine\process::continue();
 		}
 
 		\dash\notif::ok("Operation complete successfull");
