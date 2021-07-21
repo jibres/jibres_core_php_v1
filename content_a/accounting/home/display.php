@@ -115,22 +115,15 @@
     </nav>
 
 
-
-
-
   </div>
   <div class="c-xs-12 c-sm-12 c-md-6">
 
-    <div id="chartdivcrmhome" class="box chart x370 s0" data-abc='crm/homepage'>
+    <div id="chartdivaccountinghome" class="box chart x370 s0" data-abc='a/accounting'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
-        <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
-        <div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
-
-        <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
-        <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
-        <div id="chartverify"><?php echo a($dashboardDetail, 'chart', 'verify') ?></div>
-        <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
+        <div id="charttitle"><?php echo T_("Accounting Documents per month") ?></div>
+        <div id="chardatacategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
+        <div id="chardatacount"><?php echo a($dashboardDetail, 'chart', 'count') ?></div>
       </div>
     </div>
 
