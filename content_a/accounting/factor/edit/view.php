@@ -13,6 +13,7 @@ class view
 		{
 			$myTitle .= ' [ '. a($dataRow, 'tax_document', 'desc'). ' ]';
 		}
+		$myTitle .= ' | '. \lib\app\tax\doc\ready::factor_type_translate(\dash\data::myType());
 		\dash\face::title($myTitle);
 
 		// btn

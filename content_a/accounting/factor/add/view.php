@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Add new factor"));
+		\dash\face::title(T_("Add new factor"). ' | '. \lib\app\tax\doc\ready::factor_type_translate(\dash\data::myType()));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
