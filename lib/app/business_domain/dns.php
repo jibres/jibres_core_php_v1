@@ -789,10 +789,10 @@ class dns
 				continue;
 			}
 
-			if($domain !== 'chelchin.ir')
-			{
-				continue;
-			}
+			// if($domain !== 'chelchin.ir')
+			// {
+			// 	continue;
+			// }
 
 
 			// start update dns record

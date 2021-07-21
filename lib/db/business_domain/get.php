@@ -66,7 +66,6 @@ class get
 				business_domain_dns
 			INNER JOIN business_domain ON business_domain.id = business_domain_dns.business_domain_id
 			WHERE
-				business_domain.domain = 'chelchin.ir' AND
 				business_domain_dns.key = '*' AND
 				business_domain.subdomain IS NULL
 			LIMIT 100
