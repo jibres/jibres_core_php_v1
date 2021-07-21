@@ -49,7 +49,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off' <?php echo $disableInput ?>>
               </div>
             </div>
-            <?php if(in_array($myType, ['cost', 'income'])) {?>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
               <div class="c-xs-12 c-sm">
                 <label for="serialnumber"><?php echo T_("Factor serial number"); ?></label>
                 <div class="input ltr">
