@@ -39,7 +39,7 @@ class check
 			'type'          => ['enum' => ['normal', 'opening', 'closing']],
 
 			// template detail
-			'template'      => ['enum' => ['cost', 'income', 'petty_cash', 'partner']],
+			'template'      => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bill']],
 
 			'pay_from'      => 'id',
 			'put_on'        => 'id',

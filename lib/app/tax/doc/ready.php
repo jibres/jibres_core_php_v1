@@ -93,6 +93,14 @@ class ready
 				$tvalue = T_("Accounting Partner");
 				break;
 
+			case 'asset':
+				$tvalue = T_("Asset");
+				break;
+
+			case 'bill':
+				$tvalue = T_("Billing");
+				break;
+
 			default:
 				$tvalue = T_("Accounting factor");
 				break;

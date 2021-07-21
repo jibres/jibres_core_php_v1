@@ -59,12 +59,12 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
             <?php } //endif ?>
           </div>
           <?php if(\dash\data::detailsList()) {?>
-            <?php if(in_array($myType, ['cost', 'income'])) {?>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
               <div class="">
-                <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }else{echo T_("Income type");} ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income type");} ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7'])) {/*ok*/}else{continue;} ?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7'])) {if($myType === 'cost' && substr(a($value, 'code'), 0, 1) === '1'){continue;}elseif($myType === 'aset' && substr(a($value, 'code'), 0, 1) === '7'){}}else{continue;} ?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -134,7 +134,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
               <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>'>
             </div>
           </div>
-            <?php if(in_array($myType, ['cost', 'income'])) {?>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
 
           <div class="row">
             <div class="c-md-4">

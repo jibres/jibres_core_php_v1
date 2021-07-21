@@ -37,7 +37,7 @@ class search
 			'export'       => 'bit',
 			'limit'        => 'int',
 			'status'       => ['enum' => ['temp', 'draft', 'lock']],
-			'template'     => ['enum' => ['cost', 'income', 'petty_cash', 'partner']],
+			'template'     => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bill']],
 			'summary_mode' => 'bit',
 			'template_list' => 'bit',
 		];

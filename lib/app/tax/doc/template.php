@@ -186,6 +186,8 @@ class template
 	{
 		$desc = [];
 
+		$thirdparty = null;
+
 		switch (a($_args, 'template'))
 		{
 			case 'cost':
@@ -196,6 +198,16 @@ class template
 			case 'income':
 				$thirdparty = a($_args, 'thirdparty');
 				$desc[] = T_("Sell to");
+				break;
+
+			case 'asset':
+				$thirdparty = a($_args, 'thirdparty');
+				$desc[] = T_("Buy from");
+				break;
+
+			case 'bill':
+				$thirdparty = a($_args, 'thirdparty');
+				$desc[] = T_("Buy from");
 				break;
 
 			case 'petty_cash':
@@ -209,15 +221,20 @@ class template
 				break;
 		}
 
-		$thirdparty = \dash\validate::id($thirdparty, false);
 		if($thirdparty)
 		{
-			$load_coding = \lib\db\tax_coding\get::by_id($thirdparty);
 
-			if(isset($load_coding['title']))
+			$thirdparty = \dash\validate::id($thirdparty, false);
+			if($thirdparty)
 			{
-				$desc[] = $load_coding['title'];
+				$load_coding = \lib\db\tax_coding\get::by_id($thirdparty);
+
+				if(isset($load_coding['title']))
+				{
+					$desc[] = $load_coding['title'];
+				}
 			}
+
 		}
 
 		if(a($_args, 'serialnumber'))
@@ -293,6 +310,8 @@ class template
 
 			case 'petty_cash':
 			case 'partner':
+			case 'bill':
+			case 'asset':
 				// nothing
 				break;
 
@@ -327,7 +346,7 @@ class template
 		$vat_value      = 0;
 		$tax_value      = 0;
 
-		if(in_array($args['template'], ['cost', 'income']))
+		if(in_array($args['template'], ['cost', 'income', 'asset', 'bill']))
 		{
 			if($args['totalvat'] && $tax)
 			{
