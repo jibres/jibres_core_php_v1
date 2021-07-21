@@ -767,7 +767,8 @@ class dns
 
 	public static function force_update_all_dns()
 	{
-		$list = \lib\db\business_domain\get::dns_by_value_100();
+		// $list = \lib\db\business_domain\get::dns_by_value_100();
+		$list = \lib\db\business_domain\get::www_not_added();
 
 
 		if(!$list || !is_array($list))
@@ -792,7 +793,6 @@ class dns
 
 
 
-
 			// if($domain !== 'chelchin.ir')
 			// {
 			// 	continue;
@@ -807,10 +807,9 @@ class dns
 				continue;
 			}
 
-
 			foreach ($get_list_dns_record['data'] as $dns_detail)
 			{
-				if(isset($dns_detail['type']) && in_array(mb_strtoupper($dns_detail['type']), ['A', 'AAAA', 'CNAME', 'ANAME']) && isset($dns_detail['name']) && strtolower($dns_detail['name']) === '*')
+				if(isset($dns_detail['type']) && in_array(mb_strtoupper($dns_detail['type']), ['A', 'AAAA','ANAME']) && isset($dns_detail['name']) && strtolower($dns_detail['name']) === 'www')
 				{
 					$id = a($dns_detail, 'id');
 
@@ -859,16 +858,16 @@ class dns
 			}
 		}
 
-		$list = \lib\db\business_domain\get::www_not_added();
+		// $list = \lib\db\business_domain\get::www_not_added();
 
-		foreach ($list as $key => $value)
-		{
-			self::add(a($value, 'id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
+		// foreach ($list as $key => $value)
+		// {
+		// 	self::add(a($value, 'id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
 
-			self::fetch(a($value, 'id'));
+		// 	self::fetch(a($value, 'id'));
 
-			\dash\engine\process::continue();
-		}
+		// 	\dash\engine\process::continue();
+		// }
 
 		\dash\notif::ok("Operation complete successfull");
 		return true;

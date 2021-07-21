@@ -70,7 +70,7 @@ class get
 	{
 		$query  =
 		"
-			SELECT * from business_domain where business_domain.subdomain is null and business_domain.id NOT in (select business_domain_dns.business_domain_id from business_domain_dns WHERE  business_domain_dns.key = 'www')
+			SELECT * from business_domain where business_domain.subdomain is null and business_domain.id  in (select business_domain_dns.business_domain_id from business_domain_dns WHERE  business_domain_dns.key = 'www' and business_domain_dns.type = 'A')
 		";
 
 		$result = \dash\db::get($query, null, false, 'master');
