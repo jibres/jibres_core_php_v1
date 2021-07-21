@@ -152,7 +152,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
               </div>
             </div>
             <div class="c-md-4">
-              <label for="totalvat"><?php echo T_("Total vat/tax"); ?></label>
+              <label for="totalvat"><?php echo T_("Total vat/tax"); ?> <?php if(!$docIsLock) {?><small class="link"><?php echo T_("Auto Calculate") ?></small><?php } ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="totalvat"><?php echo $currency ?></label><?php } //endif ?>
                 <input type="tel" name="totalvat" value="<?php echo round(a($dataRow, 'tax_document', 'totalvat'));  ?>" id="totalvat" max="9999999" data-format='price' <?php echo $disableInput ?>>
@@ -170,7 +170,34 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
 
         </div>
       </div>
-      <?php if(\dash\data::editMode()) {?>
+
+      <?php
+      \dash\data::dataRow_gallery_array(a($dataRow, 'tax_document', 'gallery_array'));
+      $gallery = \dash\data::dataRow_gallery_array();
+
+      if(!is_array($gallery))
+      {
+        $gallery = [];
+      }
+
+      $gallery_capacity    = 10;
+      $gallery_is_not_free = true;
+      $add_html_form       = false;
+      $is_auto_send        = \dash\data::editMode() ? true : false;
+      $no_footer           = true;
+      $gallery_array       = a($dataRow, 'tax_document', 'gallery_array');
+      if($docIsLock)
+      {
+        $gallery_lockMode    = true;
+      }
+
+      echo '<input type="hidden" name="uploaddoc" value="uploaddoc">';
+      require_once(root. 'dash/layout/post/admin-gallery-box.php');
+
+      ?>
+
+
+      <?php if(\dash\data::editMode() && $docIsLock) {?>
         <div class="tblBox">
           <table class="tbl1 v11 txtC">
             <thead>
@@ -202,30 +229,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
         </div>
 
       <?php } //endif ?>
-      <?php
-      \dash\data::dataRow_gallery_array(a($dataRow, 'tax_document', 'gallery_array'));
-      $gallery = \dash\data::dataRow_gallery_array();
 
-      if(!is_array($gallery))
-      {
-        $gallery = [];
-      }
-
-      $gallery_capacity    = 10;
-      $gallery_is_not_free = true;
-      $add_html_form       = false;
-      $is_auto_send        = \dash\data::editMode() ? true : false;
-      $no_footer           = true;
-      $gallery_array       = a($dataRow, 'tax_document', 'gallery_array');
-      if($docIsLock)
-      {
-        $gallery_lockMode    = true;
-      }
-
-      echo '<input type="hidden" name="uploaddoc" value="uploaddoc">';
-      require_once(root. 'dash/layout/post/admin-gallery-box.php');
-
-      ?>
     </div>
   </div>
 </form>
