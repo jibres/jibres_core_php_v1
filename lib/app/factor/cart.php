@@ -37,7 +37,7 @@ class cart
 
 			'desc'        => 'desc',
 			'address_id' => 'code',
-			'payway'     => ['enum' => ['online', 'bank', 'on_deliver', 'check']],
+			'payway'     => ['enum' => ['online', 'bank', 'on_deliver', 'check', 'card']],
 		];
 
 		$user_id = null;
@@ -142,10 +142,7 @@ class cart
 		}
 
 
-
-
-
-		if($data['payway'] === 'on_deliver')
+		if($data['payway'] === 'on_deliver' || $data['payway'] === 'card')
 		{
 			$first_desc = null;
 			switch ($data['payway'])
@@ -161,6 +158,9 @@ class cart
 					break;
 				case 'online':
 					$first_desc = T_("Online");
+					break;
+				case 'card':
+					$first_desc = T_("Card-to-card");
 					break;
 
 				default:
@@ -396,6 +396,10 @@ class cart
 			\lib\app\factor\action::set('awaiting_verify_payment', $factor_id);
 		}
 		elseif($data['payway'] === 'check')
+		{
+			\lib\app\factor\action::set('awaiting_verify_payment', $factor_id);
+		}
+		elseif($data['payway'] === 'card')
 		{
 			\lib\app\factor\action::set('awaiting_verify_payment', $factor_id);
 		}

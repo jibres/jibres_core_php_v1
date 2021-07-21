@@ -55,6 +55,9 @@ class get
 					case 'online':
 						$myPaymentKeyTrans = T_("Online");
 						break;
+					case 'card':
+						$myPaymentKeyTrans = T_("Card-to-card");
+						break;
 
 					default:
 						// nothing

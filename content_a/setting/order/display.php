@@ -121,6 +121,28 @@
 
 
 
+<section class="f" data-option='setting-order-payment-card' id="setting-order-payment-card">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Card-to-card"); ?></h3>
+      <div class="body">
+        <p><?php echo T_("By activating this option, the possibility of selecting the card-to-card option in the order registration process will be activated"); ?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_payment_card" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input id="ipayment_card" type="checkbox" name="payment_card" <?php if(\lib\store::detail('payment_card')){ echo 'checked'; } ?>>
+        <label for="ipayment_card" data-on="<?php echo T_("Enable"); ?>" data-off="<?php echo T_("Disable") ?>"></label>
+      </div>
+    </div>
+  </form>
+</section>
+
+
+
 
 
 

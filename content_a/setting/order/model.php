@@ -46,6 +46,11 @@ class model
 			$post['payment_on_deliver'] = \dash\request::post('payment_on_deliver');
 		}
 
+		if(\dash\request::post('set_payment_card'))
+		{
+			$post['payment_card'] = \dash\request::post('payment_card');
+		}
+
 
 		\lib\app\setting\set::save_payment($post);
 
