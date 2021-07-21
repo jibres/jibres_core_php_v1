@@ -55,6 +55,50 @@
      </ul>
    </nav>
 
+   <p class="mB5-f font-14"><?php echo T_("Legal offices Monthly") ?></p>
+   <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/report/journal'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('column with text'); ?>">
+          <div class="key"><?php echo T_("General Journal") ?></div>
+          <div class="value"><?php echo T_("Monthly"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/report/ledger'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('column with text'); ?>">
+          <div class="key"><?php echo T_("Ledger") ?></div>
+          <div class="value"><?php echo T_("Monthly"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
+   <p class="mB5-f font-14"><?php echo T_("Legal offices Daily") ?></p>
+   <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/report/journal?daily=1'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('edit'); ?>">
+          <div class="key"><?php echo T_("General Journal") ?></div>
+          <div class="value"><?php echo T_("Daily"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/report/Ledger?daily=1'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('edit'); ?>">
+          <div class="key"><?php echo T_("Ledger") ?></div>
+          <div class="value"><?php echo T_("Daily"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
   </div>
 </div>
 
@@ -119,47 +163,6 @@
       </a>
     </div>
 
-  </div>
-
-
-
-  <h2><?php echo T_("Accounting Reports") ?></h2>
-
-
-  <div class="f">
-     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal'; ?>'>
-        <div class="statistic pink">
-          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
-          <div class="label"><?php echo T_("General Journal"). ' - '. T_("Monthly"); ?></div>
-        </div>
-      </a>
-    </div>
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/journal?daily=1'; ?>'>
-        <div class="statistic pink">
-          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
-          <div class="label"><?php echo T_("General Journal"). ' - '. T_("Daily"); ?></div>
-        </div>
-      </a>
-    </div>
-        <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/ledger'; ?>'>
-        <div class="statistic pink">
-          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
-          <div class="label"><?php echo T_("Ledger"). ' - '. T_("Monthly"); ?></div>
-        </div>
-      </a>
-    </div>
-
-       <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/ledger?daily=1'; ?>'>
-        <div class="statistic pink">
-          <div class="value mB10"><img alt='Report' class="w-12 h-12" src="<?php echo \dash\utility\icon::url('column with text');?>"></div>
-          <div class="label"><?php echo T_("Ledger"). ' - '. T_("Daily"); ?></div>
-        </div>
-      </a>
-    </div>
   </div>
 
 
