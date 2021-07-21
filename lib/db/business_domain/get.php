@@ -64,7 +64,7 @@ class get
 				business_domain
 			WHERE
 				business_domain.subdomain IS NULL
-			LIMIT 100
+			LIMIT 1000
 		";
 
 		$result = \dash\db::get($query, null, false, 'master');

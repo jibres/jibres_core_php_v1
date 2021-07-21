@@ -854,8 +854,8 @@ class dns
 
 			if(time() - $start_time > 59)
 			{
-				\dash\notif::info("Timeout. Update count :". $i);
-				return true;
+				// \dash\notif::info("Timeout. Update count :". $i);
+				// return true;
 			}
 		}
 
