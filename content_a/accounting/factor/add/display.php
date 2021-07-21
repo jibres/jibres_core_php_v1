@@ -61,7 +61,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
           <?php if(\dash\data::detailsList()) {?>
             <?php if(in_array($myType, ['cost', 'income'])) {?>
               <div class="">
-                <label for="put_on"><?php echo T_("Cost type") ?> <?php echo T_("") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
@@ -171,15 +171,15 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
         </div>
       </div>
       <?php if(\dash\data::editMode()) {?>
-        <div class="tblBox font-14">
-          <table class="tbl1 v6">
+        <div class="tblBox">
+          <table class="tbl1 v11 txtC">
             <thead>
               <tr>
-                <th><?php echo T_("Total Before discount"); ?></th>
-                <th><?php echo T_("Discount"); ?></th>
-                <th><?php echo T_("Total After discount"); ?></th>
-                <th><?php echo T_("Total vat"); ?></th>
-                <th><?php echo T_("Total payed"); ?></th>
+                <th><?php echo T_("Subtotal"); ?></th>
+                <th><?php echo T_("Total Discount"); ?></th>
+                <th><?php echo T_("Total After Discount"); ?></th>
+                <th><?php echo T_("Total Vat"); ?></th>
+                <th><?php echo T_("Net Amount"); ?></th>
               </tr>
             </thead>
             <tbody>
@@ -191,11 +191,11 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 $total_after_discount = $total - $totaldiscount;
                 $final = $total_after_discount + $totalvat;
                 ?>
-                <td data-copy='<?php echo $total; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($total, true, 'en') ?></code></td>
-                <td data-copy='<?php echo $totaldiscount; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($totaldiscount, true, 'en') ?></code></td>
-                <td data-copy='<?php echo $total_after_discount; ?>' class="font-12 ltr txtR fc-black"><code><?php echo \dash\fit::number($total_after_discount, true, 'en') ?></code></td>
-                <td data-copy='<?php echo $totalvat; ?>' class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number($totalvat, true, 'en') ?></code></td>
-                <td data-copy='<?php echo $final; ?>' class="font-12 ltr txtB txtR fc-green"><code><?php echo \dash\fit::number($final, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $total; ?>' class="font-12 ltr fc-black"><code><?php echo \dash\fit::number($total, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $totaldiscount; ?>' class="font-12 ltr fc-black"><code><?php echo \dash\fit::number($totaldiscount, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $total_after_discount; ?>' class="font-12 ltr fc-black"><code><?php echo \dash\fit::number($total_after_discount, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $totalvat; ?>' class="font-12 ltr fc-red"><code><?php echo \dash\fit::number($totalvat, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $final; ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number($final, true, 'en') ?></code></td>
               </tr>
             </tbody>
           </table>
@@ -217,6 +217,10 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
       $is_auto_send        = \dash\data::editMode() ? true : false;
       $no_footer           = true;
       $gallery_array       = a($dataRow, 'tax_document', 'gallery_array');
+      if($docIsLock)
+      {
+        $gallery_lockMode    = true;
+      }
 
       echo '<input type="hidden" name="uploaddoc" value="uploaddoc">';
       require_once(root. 'dash/layout/post/admin-gallery-box.php');
