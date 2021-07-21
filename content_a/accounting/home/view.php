@@ -14,7 +14,7 @@ class view
 
 		\dash\face::btnSetting(\dash\url::this().'/config');
 
-		\dash\data::dashboardData(\lib\app\tax\doc\dashboard::detail());
+		\dash\data::dashboardDetail(\lib\app\tax\doc\dashboard::detail());
 
 	}
 }

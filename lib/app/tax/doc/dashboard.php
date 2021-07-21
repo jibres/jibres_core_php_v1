@@ -19,6 +19,16 @@ class dashboard
 		$result['count_all_coding']     = floatval(\lib\db\tax_coding\get::count_all());
 		$result['count_all_year']       = floatval(\lib\db\tax_year\get::count_all());
 
+		$div = $result['count_all_doc'];
+		if(!$div)
+		{
+			$div = 1;
+		}
+
+
+		$result['percent_lock'] = round(($result['count_all_locked'] * 100) / $div);
+		$result['percent_attachment'] = round(($result['count_all_attachment'] * 100) / $div);
+
 		return $result;
 
 	}

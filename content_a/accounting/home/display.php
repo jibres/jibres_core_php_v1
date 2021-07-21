@@ -1,3 +1,4 @@
+<?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-8">
 
@@ -52,10 +53,39 @@
 
       </div>
       <div class="c-8">
+
+        <section class="row">
+          <div class="c-xs-0 c-sm-6 c-md-6">
+            <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
+              <?php $myPercent= a($dashboardDetail, 'percent_lock');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+              <h3><?php echo T_("Percent lock Accounting Document");?></h3>
+            </a>
+          </div>
+
+          <div class="c-xs-6 c-sm-6 c-md-6">
+            <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
+              <?php $myPercent= a($dashboardDetail, 'percent_attachment');$myColor='auto';include core.'layout/elements/circularChart.php';?>
+              <h3><?php echo T_("Percent have attachment");?></h3>
+            </a>
+          </div>
+        </section>
+
       </div>
 
     </div>
 
+   <div id="chartdivcrmhome" class="box chart x370 s0" data-abc='crm/homepage'>
+      <div class="hide">
+        <div id="charttitleunit"><?php echo T_("Count") ?></div>
+        <div id="chartverifytitle"><?php echo T_("Success transactions") ?></div>
+        <div id="chartunverifytitle"><?php echo T_("Unsuccess transactions") ?></div>
+
+        <div id="charttitle"><?php echo T_("Chart transactions per day in last 3 month") ?></div>
+        <div id="chartcategory"><?php echo a($dashboardDetail, 'chart', 'category') ?></div>
+        <div id="chartverify"><?php echo a($dashboardDetail, 'chart', 'verify') ?></div>
+        <div id="chartunverify"><?php echo a($dashboardDetail, 'chart', 'unverify') ?></div>
+      </div>
+    </div>
 
 
 
@@ -68,6 +98,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/coding'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('code'); ?>">
           <div class="key"><?php echo T_('Accounting Coding');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'count_all_coding')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -75,6 +106,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/year'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('archive'); ?>">
           <div class="key"><?php echo T_('Accounting Year');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'count_all_year')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -87,6 +119,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/doc'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Categories'); ?>">
           <div class="key"><?php echo T_('Accounting Documents');?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'count_all_doc')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -120,14 +153,13 @@
    </nav>
 
 
-
-
    <nav class="items long">
      <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=cost'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Point Of Sale'); ?>">
           <div class="key"><?php echo T_("Cost purchases") ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'cost')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -135,6 +167,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=asset'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('capital'); ?>">
           <div class="key"><?php echo T_("Buy assets") ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'asset')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -142,6 +175,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bill'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Payments'); ?>">
           <div class="key"><?php echo T_("Payment bills") ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'bill')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -154,6 +188,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=income'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Managed Store'); ?>">
           <div class="key"><?php echo T_("Revenues and sales invoices") ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'income')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -166,6 +201,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=petty_cash'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Bank'); ?>">
           <div class="key"><?php echo T_("Charge Petty Cash from bank") ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'petty_cash')) ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -173,6 +209,7 @@
         <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=partner'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
           <div class="key"><?php echo T_("Charge Petty Cash from partners") ?></div>
+          <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'partner')) ?></div>
           <div class="go"></div>
         </a>
       </li>
