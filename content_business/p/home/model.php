@@ -19,7 +19,7 @@ class model
 			$result = \lib\app\cart\add::new_cart_website(\dash\request::post('product_id'), \dash\request::post('count'));
 			if($result)
 			{
-				\dash\redirect::to(\dash\url::pwd());
+				\dash\redirect::to(\dash\url::kingdom(). '/cart');
 			}
 		}
 
