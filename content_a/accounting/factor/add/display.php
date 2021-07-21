@@ -70,7 +70,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               </div>
               <div class="mT10">
-                <label for="thirdparty"><?php echo T_("Seller") ?></label>
+                <label for="thirdparty"><?php echo T_("Seller") ?> <small><?php echo T_("If the seller is not selected, a direct payment document will be made") ?></small></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
@@ -79,7 +79,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               </div>
               <div class="mT10">
-                <label for="pay_from"><?php echo T_("Payer") ?></label>
+                <label for="pay_from"><?php echo T_("Payer") ?> <small><?php echo T_("In case of non-payment, the credit document will be registered") ?></small></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
@@ -127,7 +127,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
 
             <?php } // endif ?>
           <?php } // endif ?>
-          <div class="mT20"></div>
+          <div class="mT10"></div>
           <div class="hide">
             <label for="title"><?php echo T_("Description"); ?></label>
             <div class="input">
