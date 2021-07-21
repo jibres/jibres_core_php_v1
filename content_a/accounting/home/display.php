@@ -77,8 +77,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     </nav>
 
 
-
-<p class="mB5-f font-14"><?php echo T_("Legal offices Monthly") ?></p>
     <nav class="items long">
       <ul>
         <li>
@@ -121,7 +119,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
   </div>
   <div class="c-xs-12 c-sm-12 c-md-6">
 
-    <div id="chartdivaccountinghome" class="box chart x370 s0" data-abc='a/accounting'>
+    <div id="chartdivaccountinghome" class="box chart x320 s0" data-abc='a/accounting'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="charttitle"><?php echo T_("Accounting Documents per month") ?></div>
@@ -132,14 +130,14 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 
     <section class="row">
       <div class="c-xs-0 c-sm-6 c-md-6">
-        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
+        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox pB25-f">
           <?php $myPercent= a($dashboardDetail, 'percent_lock');$myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Percent lock Accounting Document");?></h3>
         </a>
       </div>
 
       <div class="c-xs-6 c-sm-6 c-md-6">
-        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
+        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox pB25-f">
           <?php $myPercent= a($dashboardDetail, 'percent_attachment');$myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Percent have attachment");?></h3>
         </a>
@@ -235,14 +233,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('capital'); ?>">
             <div class="key"><?php echo T_("Buy assets") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'asset')) ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bill'; ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Payments'); ?>">
-            <div class="key"><?php echo T_("Payment bills") ?></div>
-            <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'bill')) ?></div>
             <div class="go"></div>
           </a>
         </li>
