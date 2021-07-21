@@ -41,6 +41,10 @@ $html .= '<div class="box">';
         {
           $html .= 'disabled ';
         }
+        if(is_array($gallery_array) && count($gallery_array))
+        {
+          $html .= 'data-uploader-count="'.count($gallery_array). '" ';
+        }
         $html .= 'data-max-w="1600" ';
         $html .= 'data-max-h="1600" ';
         $html .= 'data-file-max-size='. \dash\data::maxFileSize() .' ';
