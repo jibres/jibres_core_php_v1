@@ -258,4 +258,44 @@
 
 
 
+<div class="row font-14 mT5">
+  <div class="c-xs-12 c-sm-12 c-md-4">
+    <p class="mB5-f font-14"><?php echo T_("Accounting Reports") ?></p>
+    <nav class="items long">
+       <ul>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/group'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Report on group level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/total'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Report on total level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/assistant'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Report on assistant level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/detail'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Report on detail level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+       </ul>
+     </nav>
+  </div>
+
+</div>
+
+
 
