@@ -8,7 +8,12 @@ class view
 	{
 		$dataRow = \dash\data::dataRow();
 
-		\dash\face::title(T_('Accounting Document Number'). ' '. a($dataRow, 'tax_document', 'number'));
+		$myTitle = T_('Accounting Document Number'). ' '. a($dataRow, 'tax_document', 'number');
+		if(a($dataRow, 'tax_document', 'desc'))
+		{
+			$myTitle .= ' [ '. a($dataRow, 'tax_document', 'desc'). ' ]';
+		}
+		\dash\face::title($myTitle);
 
 		\dash\data::userToggleSidebar(false);
 
