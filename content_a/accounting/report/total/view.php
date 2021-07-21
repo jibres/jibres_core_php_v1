@@ -6,6 +6,8 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('_group_accounting');
+
 		\dash\face::title(T_('Accounting report total'));
 
 		// back

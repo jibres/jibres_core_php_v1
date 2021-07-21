@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+
+		\dash\permission::access('_group_setting');
 		$type = \dash\request::get('type');
 		if($type)
 		{
