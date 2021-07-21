@@ -4,6 +4,8 @@ $add_html_form      = isset($add_html_form); // check defined this variable
 $is_auto_send       = isset($is_auto_send) && $is_auto_send;
 $product_suggestion = isset($product_suggestion) && $product_suggestion;
 $gallery_capacity   = isset($gallery_capacity) ? $gallery_capacity : 100;
+$gallery_lockMode   = isset($gallery_lockMode) ? $gallery_lockMode : null;
+
 
 if(!isset($gallery_array) || (isset($gallery_array) && !is_array($gallery_array)))
 {
@@ -35,6 +37,10 @@ $html .= '<div class="box">';
       {
         $html .= '<div ';
         $html .= 'data-uploader ';
+        if($gallery_lockMode)
+        {
+          $html .= 'disabled ';
+        }
         $html .= 'data-max-w="1600" ';
         $html .= 'data-max-h="1600" ';
         $html .= 'data-file-max-size='. \dash\data::maxFileSize() .' ';
@@ -58,13 +64,22 @@ $html .= '<div class="box">';
           $html .= 'data-autoSend ';
         }
         $html .= '>';
-
-        $html .= '<input type="file" id="file1">';
+        if($gallery_lockMode)
+        {
+          $html .= '<input type="file" id="file1" disabled>';
+        }
+        else
+        {
+          $html .= '<input type="file" id="file1">';
+        }
+        if(!$gallery_lockMode)
+        {
         $html .= '<label for="file1">';
         $html .= '<div class="block">'. T_("Gallery"). '</div>';
-        $html .= '<abbr>'. $chooseTxt. '</abbr>';
-        $html .= '<small class="fc-mute block">'. T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(). '</small>';
+          $html .= '<abbr>'. $chooseTxt. '</abbr>';
+          $html .= '<small class="fc-mute block">'. T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(). '</small>';
         $html .= '</label>';
+        }
         if($gallery_array)
         {
           $html .= '<div class="previewList">';
@@ -115,7 +130,10 @@ $html .= '<div class="box">';
              $html .= '<div class="file"><a target="_blank" href="'. a($value, 'path'). '"><i class="sf-file-o"></i>'. T_("File"). '</a></div>';
             }
             $html .= '<div>';
-            $html .= '<div class="imageDel" data-ajaxify data-data=\'{"fileaction": "remove", "fileid" : "'. a($value, 'id').'"}\'></div>';
+            if(!$gallery_lockMode)
+            {
+              $html .= '<div class="imageDel" data-ajaxify data-data=\'{"fileaction": "remove", "fileid" : "'. a($value, 'id').'"}\'></div>';
+            }
             $html .= '</div>';
             $html .= '</div>';
           }
