@@ -5,7 +5,7 @@ class model
 {
 	public static function post()
 	{
-		\lib\app\business_domain\dns::force_update_all_dns();
+		// \lib\app\business_domain\dns::force_update_all_dns();
 
 	}
 }
