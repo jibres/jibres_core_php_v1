@@ -1,4 +1,7 @@
-<?php $dashboardDetail = \dash\data::dashboardDetail(); ?>
+<?php
+$dashboardDetail = \dash\data::dashboardDetail();
+$accountingSettingSaved = \lib\app\setting\get::accounting_setting();
+?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-3">
 
@@ -196,13 +199,23 @@
             <div class="go"></div>
           </a>
         </li>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/turnover?123'; ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Exchange'); ?>">
-            <div class="key"><?php echo T_('Petty Cash Turnover');?></div>
-            <div class="go"></div>
-          </a>
-        </li>
+        <?php if(a($accountingSettingSaved, 'default_cost_payer')) {?>
+          <li>
+            <a class="item f" href="<?php echo \dash\url::this(). '/turnover?details='. a($accountingSettingSaved, 'default_cost_payer'); ?>">
+              <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Exchange'); ?>">
+              <div class="key"><?php echo T_('Petty Cash Turnover');?></div>
+              <div class="go"></div>
+            </a>
+          </li>
+        <?php }else{ ?>
+          <li>
+            <a class="item f" href="<?php echo \dash\url::this(). '/config#set_default_cost_payer'; ?>">
+              <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Exchange'); ?>">
+              <div class="key"><?php echo T_('Petty Cash Turnover');?></div>
+              <div class="go"></div>
+            </a>
+          </li>
+        <?php } //endif ?>
       </ul>
     </nav>
 
