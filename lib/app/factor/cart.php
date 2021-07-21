@@ -134,6 +134,16 @@ class cart
 			return null;
 		}
 
+		if(\dash\url::content() !== 'a' && \lib\store::detail('forceloginorder') && !\dash\user::id())
+		{
+			$msg = '<a href="'. \lib\store::url(). '/enter?referer=cart'. '">'. T_("Please login to continue"). '</a>';
+			\dash\notif::error($msg);
+			return false;
+		}
+
+
+
+
 
 		if($data['payway'] === 'on_deliver')
 		{

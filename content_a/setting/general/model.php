@@ -75,6 +75,11 @@ class model
 			$post['entersignupdisallow'] = \dash\request::post('entersignupdisallow') ? null : 1;
 		}
 
+		if(\dash\request::post('set_forceloginorder'))
+		{
+			$post['forceloginorder'] = \dash\request::post('forceloginorder');
+		}
+
 		if(!empty($post))
 		{
 			\lib\app\store\edit::selfedit($post);

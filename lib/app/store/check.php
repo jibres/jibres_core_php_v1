@@ -48,6 +48,7 @@ class check
 
 			'enterdisallow'                       => 'bit',
 			'entersignupdisallow'                 => 'bit',
+			'forceloginorder'					  => 'bit',
 
 			'torob_api'                           => 'bit',
 

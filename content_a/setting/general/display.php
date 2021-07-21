@@ -173,6 +173,7 @@ $storeData = \dash\data::store_store_data();
     <div class="data">
       <h3><?php echo T_("Is your business not able to sell goods or services?"); ?></h3>
       <div class="body">
+        <p><?php echo T_("Disabling the possibility of selling in business disables the ability to add a product to the shopping cart for customers. Also, the Add to Cart button is hidden in each product and the shopping cart page is out of reach.") ?></p>
       </div>
     </div>
   </div>
@@ -229,6 +230,26 @@ $storeData = \dash\data::store_store_data();
       </div>
     </form>
   </section>
+
+  <section class="f" data-option='setting-force-login-order' id="setting-busienss-force-login-order">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Require users to register and login to register an order");?></h3>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_forceloginorder" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input id="iforceloginorder" type="checkbox" name="forceloginorder" <?php if(\dash\data::storeData_forceloginorder()) {echo 'checked'; } ?>>
+        <label for="iforceloginorder"></label>
+      </div>
+    </div>
+  </form>
+</section>
 </div>
 
 <section class="f" data-option='setting-remove' id="setting-busienss-remove">
