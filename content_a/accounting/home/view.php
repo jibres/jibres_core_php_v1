@@ -13,6 +13,9 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 		\dash\face::btnSetting(\dash\url::this().'/config');
+
+		\dash\data::dashboardData(\lib\app\tax\doc\dashboard::detail());
+
 	}
 }
 ?>

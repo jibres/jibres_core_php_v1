@@ -4,6 +4,126 @@ namespace lib\db\tax_document;
 
 class get
 {
+	public static function count_group_by_template($_year_id)
+	{
+		$year_id = null;
+		if($_year_id)
+		{
+			$year_id = "WHERE tax_document.year_id = $_year_id ";
+		}
+
+		$query  =
+		"
+			SELECT
+				count(*) AS `count`,
+				tax_document.template AS `template`
+			FROM
+				tax_document
+			$year_id
+
+			GROUP BY tax_document.template
+		";
+
+		$result = \dash\db::get($query, ['template', 'count']);
+		return $result;
+	}
+
+
+
+
+	public static function count_all_doc_with_attachment($_year_id)
+	{
+		$year_id = null;
+		if($_year_id)
+		{
+			$year_id = "AND tax_document.year_id = $_year_id ";
+		}
+
+		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.gallery IS NULL $year_id ";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function count_all_doc_lock($_year_id)
+	{
+		$year_id = null;
+		if($_year_id)
+		{
+			$year_id = "AND tax_document.year_id = $_year_id ";
+		}
+
+		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.status = 'lock' $year_id ";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function count_all_doc($_year_id)
+	{
+		$year_id = null;
+		if($_year_id)
+		{
+			$year_id = "WHERE tax_document.year_id = $_year_id ";
+		}
+
+		$query  = " SELECT count(*) AS `count` FROM tax_document ";
+
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function chart_by_date_fa($_enddate, $_end_year, $_month_list)
+	{
+		$CASE = [];
+		foreach ($_month_list as $month => $date)
+		{
+			$CASE[] = "WHEN tax_document.date >= '$date[0]' AND tax_document.date <= '$date[1]' THEN '$month'";
+		}
+
+		$CASE = " CASE ". implode(" ", $CASE). "  ELSE '0' END ";
+
+
+		$query  =
+		"
+			SELECT
+				count(*) AS `count`,
+				$CASE AS `month`
+			FROM
+				tax_document
+			WHERE
+				tax_document.date >= '$_enddate' AND tax_document.date <= '$_end_year'
+			GROUP BY `month`
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
+
+	public static function chart_by_date_en($_enddate, $_end_year)
+	{
+		$query  =
+		"
+			SELECT
+				count(*) AS `count`,
+				CONCAT(YEAR(tax_document.date), '-', LPAD(MONTH(tax_document.date), 2, '0')) AS `month`
+			FROM
+				tax_document
+			WHERE
+				tax_document.date >= '$_enddate' AND tax_document.date <= '$_end_year'
+			GROUP BY `month`
+		";
+
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
 
 	public static function check_duplicate_type($_year_id, $_type)
 	{

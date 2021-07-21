@@ -50,12 +50,21 @@ class get
 
 
 
+	public static function count_all()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tax_coding ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
 	public static function get_count_group()
 	{
 		$query = "SELECT COUNT(*) AS `count`, tax_coding.type FROM tax_coding GROUP BY tax_coding.type";
 		$result = \dash\db::get($query, ['type', 'count'], true);
 		return $result;
 	}
+
 	public static function check_duplicate_title($_where)
 	{
 		$make_where = \dash\db\config::make_where($_where);

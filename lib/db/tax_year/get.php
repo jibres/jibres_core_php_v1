@@ -26,6 +26,15 @@ class get
 	}
 
 
+	public static function count_all()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM tax_year ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+
 	public static function last_end_date()
 	{
 		$query = "SELECT MAX(tax_year.enddate) AS `enddate` FROM tax_year ";
