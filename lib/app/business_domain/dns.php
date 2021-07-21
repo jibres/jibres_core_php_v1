@@ -764,9 +764,11 @@ class dns
 		return $current_list;
 	}
 
-	public static function force_update_all_dns($_old_ip, $_new_ip)
+
+	public static function force_update_all_dns()
 	{
-		$list = \lib\db\business_domain\get::dns_by_value_100($_old_ip);
+		$list = \lib\db\business_domain\get::dns_by_value_100();
+
 		if(!$list || !is_array($list))
 		{
 			\dash\notif::error(T_("No DNS record found by this ip"));
@@ -787,13 +789,15 @@ class dns
 				continue;
 			}
 
-			// if($domain !== 'rezamohiti.ir')
-			// {
-			// 	continue;
-			// }
+			if($domain !== 'chelchin.ir')
+			{
+				continue;
+			}
+
 
 			// start update dns record
 			$get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
+
 			if(!is_array($get_list_dns_record) || !isset($get_list_dns_record['data']))
 			{
 				continue;
@@ -802,31 +806,40 @@ class dns
 
 			foreach ($get_list_dns_record['data'] as $dns_detail)
 			{
-				if(isset($dns_detail['type']) && strtolower($dns_detail['type']) === strtolower($value['type']))
+				if(isset($dns_detail['type']) && strtolower($dns_detail['type']) === 'a' && isset($dns_detail['name']) && strtolower($dns_detail['name']) === '*')
 				{
-					if(isset($dns_detail['name']) && strtolower($dns_detail['name']) === strtolower($value['key']))
-					{
-						$temp = [["ip" => $_new_ip, /*"port" => null, "weight" => null , "country" => null*/]];
+					$id = a($dns_detail, 'id');
 
-						$temp = json_encode($temp);
+					$result_remove = \lib\arvancloud\api::remove_dns_record($value['domain'], $id);
 
-						$update_dns =
-						[
-							"type"           =>  $dns_detail['type'],
-							"name"           =>  $dns_detail['name'],
-							"value"          =>  $temp,
-							"ttl"            =>  120,
-							"cloud"          =>  true,
-							"upstream_https" =>  "default",
-							"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
-						];
+					\lib\db\business_domain\delete::dns_record($value['id']);
 
-						$put_dns = \lib\arvancloud\api::update_dns_record($domain, $update_dns, $dns_detail['id']);
-						if($put_dns)
-						{
-							\lib\db\business_domain\update::update_dns(['value' => $_new_ip], $value['id']);
-						}
-					}
+					self::add(a($value, 'business_domain_id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
+
+					// if(isset($dns_detail['value']))
+					// {
+
+					// 	$temp = [["ip" => $_new_ip, /*"port" => null, "weight" => null , "country" => null*/]];
+
+					// 	$temp = json_encode($temp);
+
+					// 	$update_dns =
+					// 	[
+					// 		"type"           =>  $dns_detail['type'],
+					// 		"name"           =>  $dns_detail['name'],
+					// 		"value"          =>  $temp,
+					// 		"ttl"            =>  120,
+					// 		"cloud"          =>  true,
+					// 		"upstream_https" =>  "default",
+					// 		"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
+					// 	];
+
+					// 	$put_dns = \lib\arvancloud\api::update_dns_record($domain, $update_dns, $dns_detail['id']);
+					// 	if($put_dns)
+					// 	{
+					// 		\lib\db\business_domain\update::update_dns(['value' => $_new_ip], $value['id']);
+					// 	}
+					// }
 
 				}
 			}

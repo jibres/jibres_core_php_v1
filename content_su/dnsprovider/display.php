@@ -4,10 +4,11 @@
       <div class="pad">
 
         <div class="msg ltr">
-          Update all domain HTTPS request and eneable
-          <code>{"f_ssl_redirect":true}</code>
+          Update all domain dns record
           <br>
-          <code>{"f_ssl_https_upstram":"auto"}</code>
+          <code>*</code>
+          <br>
+          <code>www</code>
         </div>
       </div>
       <footer class="txtRa">

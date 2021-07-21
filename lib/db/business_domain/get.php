@@ -54,7 +54,7 @@ class get
 		return floatval($result);
 	}
 
-	public static function dns_by_value_100($_value)
+	public static function dns_by_value_100()
 	{
 		$query  =
 		"
@@ -66,8 +66,8 @@ class get
 				business_domain_dns
 			INNER JOIN business_domain ON business_domain.id = business_domain_dns.business_domain_id
 			WHERE
-				business_domain_dns.value = '$_value' AND
-				business_domain.cdn = 'arvancloud' AND
+				business_domain.domain = 'chelchin.ir' AND
+				business_domain_dns.key = '*' AND
 				business_domain.subdomain IS NULL
 			LIMIT 100
 		";
