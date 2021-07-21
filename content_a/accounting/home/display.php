@@ -131,92 +131,6 @@
 
   <h2><?php echo T_("Accounting Reports") ?></h2>
 
-  <div class="f">
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/group'; ?>'>
-        <div class="statistic">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Report on group level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/total'; ?>'>
-        <div class="statistic">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Report on total level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/assistant'; ?>'>
-        <div class="statistic">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Report on assistant level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/detail'; ?>'>
-        <div class="statistic">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Report on detail level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-
-  </div>
-
-   <div class="f">
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/group?show=balancesheet'; ?>'>
-        <div class="statistic blue">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Balance sheet on group level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/total?show=balancesheet'; ?>'>
-        <div class="statistic blue">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Balance sheet on total level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-    <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/assistant?show=balancesheet'; ?>'>
-        <div class="statistic blue">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Balance sheet on assistant level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-     <div class="c s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/report/detail?show=balancesheet'; ?>'>
-        <div class="statistic blue">
-          <div class="value"><i class="sf-chart"></i></div>
-          <div class="label"><?php echo T_("Balance sheet on detail level"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-
-  </div>
 
   <div class="f">
      <div class="c s12">
@@ -260,7 +174,7 @@
 
 <div class="row font-14 mT5">
   <div class="c-xs-12 c-sm-12 c-md-4">
-    <p class="mB5-f font-14"><?php echo T_("Accounting Reports") ?></p>
+    <p class="mB5-f font-14"><?php echo T_("Accounting reports at various levels") ?></p>
     <nav class="items long">
        <ul>
          <li>
@@ -295,7 +209,40 @@
      </nav>
   </div>
 
+  <div class="c-xs-12 c-sm-12 c-md-4">
+    <p class="mB5-f font-14"><?php echo T_("Trial balance") ?></p>
+    <nav class="items long">
+       <ul>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/group?show=balancesheet'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('reports'); ?>">
+            <div class="key"><?php echo T_("Trial balance at group level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/total?show=balancesheet'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('reports'); ?>">
+            <div class="key"><?php echo T_("Trial balance at total level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/assistant?show=balancesheet'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('reports'); ?>">
+            <div class="key"><?php echo T_("Trial balance at assistant level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/detail?show=balancesheet'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('reports'); ?>">
+            <div class="key"><?php echo T_("Trial balance at detail level"); ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+       </ul>
+     </nav>
+  </div>
+
 </div>
-
-
-
