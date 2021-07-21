@@ -64,7 +64,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7'])) {/*ok*/}else{continue;} ?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -73,7 +73,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <label for="thirdparty"><?php echo T_("Seller") ?> <small><?php echo T_("If the seller is not selected, a direct payment document will be made") ?></small></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['5'])) {/*ok*/}else{continue;}?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id') || \dash\request::get('thirdparty') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -82,7 +82,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <label for="pay_from"><?php echo T_("Payer") ?> <small><?php echo T_("In case of non-payment, the credit document will be registered") ?></small></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) {/*ok*/}else{continue;}?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -93,7 +93,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <label for="petty_cash"><?php echo T_("Petty cash") ?></label>
                 <select class="select22" name="petty_cash" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Petty cash") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 4), ['2605'])) {/*ok*/}else{continue;}?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -105,7 +105,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <label for="bank"><?php echo T_("Bank") ?></label>
                 <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) { if(substr(a($value, 'code'), 0, 4) === '2605'){continue;}/*ok*/}else{continue;}?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'bank', 'details_id') === a($value, 'id') || \dash\request::get('bank') === a($value, 'id') || $default_cost_bank === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -119,7 +119,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <label for="partner"><?php echo T_("Accounting Partner") ?></label>
                 <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Accounting Partner") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 4), ['5208'])) {/*ok*/}else{continue;}?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'partner', 'details_id') === a($value, 'id') || \dash\request::get('partner') === a($value, 'id') || $default_partner === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
