@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-21 16:39+0430\n"
-"PO-Revision-Date: 2021-07-21 17:03+0430\n"
+"POT-Creation-Date: 2021-07-21 17:24+0430\n"
+"PO-Revision-Date: 2021-07-21 17:28+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3510,9 +3510,8 @@ msgid "Increase Basic Limits"
 msgstr "افزایش محدودیت‌های اولیه"
 
 #: content/pricing/priceTable.php:36 content/pricing/priceTable.php:61
-#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:184
-#: content_a/accounting/home/display.php:200
-#: content_a/accounting/report/journal/view.php:9
+#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:16
+#: content_a/accounting/home/display.php:24 content_a/accounting/report/journal/view.php:9
 #: content_a/accounting/report/ledger/view.php:9 includes/languages/trans_static.php:612
 msgid "Monthly"
 msgstr "ماهانه"
@@ -5246,7 +5245,7 @@ msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید
 msgid "Accounting coding imported"
 msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
-#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:13
+#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:70
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
@@ -5374,7 +5373,7 @@ msgstr "تنظیمات حسابداری"
 
 #: content_a/accounting/config/view.php:8
 msgid "Cloud Accounting Configuration"
-msgstr ""
+msgstr "پیکربندی حسابداری ابری"
 
 #: content_a/accounting/config/view.php:10 content_a/accounting/home/view.php:9
 #: content_a/home/display.php:175
@@ -5570,7 +5569,7 @@ msgstr "مالیات"
 msgid "Print Accounting Documents"
 msgstr "چاپ اسناد حسابداری"
 
-#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:33
+#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:89
 msgid "Accounting Documents"
 msgstr "اسناد حسابداری"
 
@@ -5594,6 +5593,10 @@ msgstr "شماره سریال فاکتور"
 #: content_a/accounting/factor/add/display.php:65
 msgid "Cost type"
 msgstr "نوع هزینه"
+
+#: content_a/accounting/factor/add/display.php:64
+msgid "Income type"
+msgstr "نوع درآمد"
 
 #: content_a/accounting/factor/add/display.php:66
 #: content_a/accounting/factor/add/display.php:75
@@ -5639,7 +5642,7 @@ msgstr "در صورت عدم پرداخت کننده، سند نسیه ثبت خ
 
 #: content_a/accounting/factor/add/display.php:93
 #: content_a/accounting/factor/add/display.php:94 content_a/accounting/filter.php:23
-#: lib/app/tax/doc/ready.php:72
+#: lib/app/tax/doc/ready.php:89
 msgid "Petty cash"
 msgstr "تنخواه"
 
@@ -5651,7 +5654,7 @@ msgstr "بانک"
 
 #: content_a/accounting/factor/add/display.php:119
 #: content_a/accounting/factor/add/display.php:120 content_a/accounting/filter.php:23
-#: lib/app/tax/doc/ready.php:76
+#: lib/app/tax/doc/ready.php:93
 msgid "Accounting Partner"
 msgstr "جاری شرکا"
 
@@ -5675,7 +5678,7 @@ msgstr "جمع مالیات و عوارض"
 
 #: content_a/accounting/factor/add/display.php:155
 msgid "Auto Calculate"
-msgstr ""
+msgstr "محاسبه خودکار"
 
 #: content_a/accounting/factor/add/display.php:205 content_a/cart/add/display.php:115
 #: content_business/cart/cartSummary.php:5
@@ -5708,12 +5711,10 @@ msgid "Choose factor type"
 msgstr "نوع فاکتور را انتخاب کنید"
 
 #: content_a/accounting/factor/choosetype/display.php:18
-#: content_a/accounting/home/display.php:127
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
 #: content_a/accounting/factor/choosetype/display.php:26
-#: content_a/accounting/home/display.php:136
 msgid "Add income"
 msgstr "افزودن درآمد"
 
@@ -5757,8 +5758,8 @@ msgid "ID not found"
 msgstr "شناسه یافت نشد"
 
 #: content_a/accounting/factor/view.php:24
-msgid "Income-cost factor list"
-msgstr "لیست فاکتور‌های درآمد و هزینه"
+msgid "Factors list :val"
+msgstr ""
 
 #: content_a/accounting/filter.php:13
 msgid "Choose month"
@@ -5769,12 +5770,12 @@ msgid "Choose template"
 msgstr "انتخاب قالب"
 
 #: content_a/accounting/filter.php:23 includes/languages/trans_static.php:1026
-#: lib/app/tax/doc/ready.php:68
+#: lib/app/tax/doc/ready.php:85
 msgid "Income"
 msgstr "درآمد"
 
 #: content_a/accounting/filter.php:23 includes/languages/trans_static.php:1025
-#: lib/app/tax/doc/ready.php:64
+#: lib/app/tax/doc/ready.php:81
 msgid "Cost"
 msgstr "هزینه"
 
@@ -5823,52 +5824,11 @@ msgstr "پاک‌سازی فیلترها"
 msgid "Apply"
 msgstr "اعمال‌کردن"
 
-#: content_a/accounting/home/display.php:20 content_a/accounting/home/display.php:40
-msgid "Accounting Year"
-msgstr "سال مالی"
+#: content_a/accounting/home/display.php:9
+msgid "Legal offices Monthly"
+msgstr ""
 
-#: content_a/accounting/home/display.php:69
-msgid "Accounting Document"
-msgstr "سند حسابداری"
-
-#: content_a/accounting/home/display.php:78
-msgid "Add Accounting Document"
-msgstr "افزودن سند حسابداری"
-
-#: content_a/accounting/home/display.php:88
-msgid "Add Opening document"
-msgstr "افزودن سند افتتاحیه"
-
-#: content_a/accounting/home/display.php:98
-msgid "Print All Document"
-msgstr "چاپ همه اسناد"
-
-#: content_a/accounting/home/display.php:113 content_a/accounting/turnover/view.php:9
-msgid "Turnover"
-msgstr "گردش حساب"
-
-#: content_a/accounting/home/display.php:121
-msgid "Income-cost management"
-msgstr "مدیریت درآمد و هزینه"
-
-#: content_a/accounting/home/display.php:145
-msgid "Add petty cash"
-msgstr "افزودن تنخواه"
-
-#: content_a/accounting/home/display.php:154
-msgid "Add petty cash from Accounting Partner"
-msgstr "افزودن تنخواه از جاری شرکا"
-
-#: content_a/accounting/home/display.php:167
-#: content_a/form/analytics/province/display.php:17
-msgid "List"
-msgstr "لیست"
-
-#: content_a/accounting/home/display.php:176
-msgid "Accounting Reports"
-msgstr "گزارشات حسابداری"
-
-#: content_a/accounting/home/display.php:184 content_a/accounting/home/display.php:192
+#: content_a/accounting/home/display.php:15 content_a/accounting/home/display.php:37
 #: content_a/accounting/report/journal/display.php:12
 #: content_a/accounting/report/journal/display.php:94
 #: content_a/accounting/report/journal/view.php:9
@@ -5876,11 +5836,7 @@ msgstr "گزارشات حسابداری"
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
-#: content_a/accounting/home/display.php:192 content_a/accounting/home/display.php:209
-msgid "Daily"
-msgstr "روزانه"
-
-#: content_a/accounting/home/display.php:200 content_a/accounting/home/display.php:209
+#: content_a/accounting/home/display.php:23 content_a/accounting/home/display.php:45
 #: content_a/accounting/report/journal_cover.php:4
 #: content_a/accounting/report/ledger/display.php:12
 #: content_a/accounting/report/ledger/display.php:82
@@ -5888,49 +5844,97 @@ msgstr "روزانه"
 msgid "Ledger"
 msgstr "دفتر کل"
 
-#: content_a/accounting/home/display.php:221
-msgid "4 Column Accounting reports"
-msgstr ""
+#: content_a/accounting/home/display.php:31
+msgid "Legal offices Daily"
+msgstr "دتفر"
 
-#: content_a/accounting/home/display.php:227 content_a/accounting/home/display.php:263
+#: content_a/accounting/home/display.php:38 content_a/accounting/home/display.php:46
+msgid "Daily"
+msgstr "روزانه"
+
+#: content_a/accounting/home/display.php:77
+msgid "Accounting Year"
+msgstr "سال مالی"
+
+#: content_a/accounting/home/display.php:96
+msgid "Add Accounting Document"
+msgstr "افزودن سند حسابداری"
+
+#: content_a/accounting/home/display.php:108 content_a/accounting/turnover/view.php:9
+msgid "Turnover"
+msgstr "گردش حساب"
+
+#: content_a/accounting/home/display.php:115
+msgid "Petty Cash Turnover"
+msgstr "گردش حساب تنخواه"
+
+#: content_a/accounting/home/display.php:130
+msgid "Cost purchases"
+msgstr "خرید مصارف و هزینه‌ها"
+
+#: content_a/accounting/home/display.php:137
+msgid "Buy assets"
+msgstr "خرید دارایی"
+
+#: content_a/accounting/home/display.php:144
+msgid "Payment bills"
+msgstr "پرداخت قبوض"
+
+#: content_a/accounting/home/display.php:156
+msgid "Revenues and sales invoices"
+msgstr "درآمد و فاکتورهای فروش"
+
+#: content_a/accounting/home/display.php:168
+msgid "Charge Petty Cash from bank"
+msgstr "شارژ تنخواه از طریق حساب بانکی"
+
+#: content_a/accounting/home/display.php:175
+msgid "Charge Petty Cash from partners"
+msgstr "شارژ تنخواه از طریق جاری شرکا"
+
+#: content_a/accounting/home/display.php:189
+msgid "4 Column Accounting reports"
+msgstr "گزارشات حسابداری ۴ ستونه"
+
+#: content_a/accounting/home/display.php:195 content_a/accounting/home/display.php:231
 msgid "Report on group level"
 msgstr "گزارش در سطح گروه"
 
-#: content_a/accounting/home/display.php:234 content_a/accounting/home/display.php:270
+#: content_a/accounting/home/display.php:202 content_a/accounting/home/display.php:238
 msgid "Report on total level"
 msgstr "گزارش در سطح کل"
 
-#: content_a/accounting/home/display.php:241 content_a/accounting/home/display.php:277
+#: content_a/accounting/home/display.php:209 content_a/accounting/home/display.php:245
 msgid "Report on assistant level"
 msgstr "گزارش در سطح معین"
 
-#: content_a/accounting/home/display.php:248 content_a/accounting/home/display.php:284
+#: content_a/accounting/home/display.php:216 content_a/accounting/home/display.php:252
 msgid "Report on detail level"
 msgstr "گزارش در سطح تفصیل"
 
-#: content_a/accounting/home/display.php:257
+#: content_a/accounting/home/display.php:225
 msgid "6 Column Accounting reports"
-msgstr ""
+msgstr "گزارشات حسابداری ۶ ستونه"
 
-#: content_a/accounting/home/display.php:293
+#: content_a/accounting/home/display.php:261
 msgid "Trial balance"
-msgstr ""
+msgstr "تراز آزمایشی"
 
-#: content_a/accounting/home/display.php:299
+#: content_a/accounting/home/display.php:267
 msgid "Trial balance at group level"
-msgstr ""
+msgstr "تراز آزمایشی در سطح گروه"
 
-#: content_a/accounting/home/display.php:306
+#: content_a/accounting/home/display.php:274
 msgid "Trial balance at total level"
-msgstr ""
+msgstr "تراز آزمایشی در سطح کل"
 
-#: content_a/accounting/home/display.php:313
+#: content_a/accounting/home/display.php:281
 msgid "Trial balance at assistant level"
-msgstr ""
+msgstr "تراز آزمایشی در سطح معین"
 
-#: content_a/accounting/home/display.php:320
+#: content_a/accounting/home/display.php:288
 msgid "Trial balance at detail level"
-msgstr ""
+msgstr "تراز آزمایشی در سطح تفصیل"
 
 #: content_a/accounting/report/assistant/display-old.php:4
 #: content_a/accounting/report/assistant/display.php:5
@@ -7603,6 +7607,10 @@ msgstr "عملیات"
 #: content_a/form/analytics/province/display.php:8
 msgid "Result count group by province"
 msgstr "تعداد نتیجه به تفکیک استان"
+
+#: content_a/form/analytics/province/display.php:17
+msgid "List"
+msgstr "لیست"
 
 #: content_a/form/analytics/province/display.php:18
 #: content_a/setting/product/display.php:69 dash/layout/admin/admin-titlebox.php:21
@@ -39123,6 +39131,10 @@ msgstr "سند حسابداری با موفقیت ویرایش شد"
 msgid "Permanent"
 msgstr "دائمی"
 
+#: lib/app/tax/doc/ready.php:97
+msgid "Accounting factor"
+msgstr ""
+
 #: lib/app/tax/doc/report/book_total.php:21 lib/app/tax/doc/report/book_total.php:39
 #: lib/app/tax/doc/report/journal.php:23
 msgid "For tax document"
@@ -41114,6 +41126,30 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Income-cost factor list"
+#~ msgstr "لیست فاکتور‌های درآمد و هزینه"
+
+#~ msgid "Accounting Document"
+#~ msgstr "سند حسابداری"
+
+#~ msgid "Add Opening document"
+#~ msgstr "افزودن سند افتتاحیه"
+
+#~ msgid "Print All Document"
+#~ msgstr "چاپ همه اسناد"
+
+#~ msgid "Income-cost management"
+#~ msgstr "مدیریت درآمد و هزینه"
+
+#~ msgid "Add petty cash"
+#~ msgstr "افزودن تنخواه"
+
+#~ msgid "Add petty cash from Accounting Partner"
+#~ msgstr "افزودن تنخواه از جاری شرکا"
+
+#~ msgid "Accounting Reports"
+#~ msgstr "گزارشات حسابداری"
 
 #~ msgid "Balance sheet on group level"
 #~ msgstr "ترازنامه در سطح گروه"
