@@ -126,6 +126,7 @@ if(count($myGallery) > 1)
             }
           ?>
 
+
           <?php if(!\lib\store::nosale()) {?>
 
               <div>
@@ -197,13 +198,20 @@ if(count($myGallery) > 1)
 <?php } // endif ?>
           </div>
 
-
-
-
-
-<?php if(\dash\data::productSettingSaved_view_text()) {?>
-          <p class="msg globalMsg"><?php echo \dash\data::productSettingSaved_view_text(); ?></p>
-<?php } //endif ?>
+          <?php if(\dash\data::productSettingSaved_view_text() || (\dash\data::productSettingSaved_button_link() && \dash\data::productSettingSaved_button_title())) {?>
+            <div class="msg globalMsg success2">
+            <div class="row">
+              <div class="c-sm-auto">
+                <p><?php echo \dash\data::productSettingSaved_view_text(); ?></p>
+              </div>
+              <div class="c-sm"></div>
+              <div class="c-sm-auto">
+                <?php if(\dash\data::productSettingSaved_button_link() && \dash\data::productSettingSaved_button_title()) {?>
+                  <a class="btn success"  target="_blank" href="<?php echo \dash\data::productSettingSaved_button_link() ?>"><?php echo \dash\data::productSettingSaved_button_title(); ?></a>
+                <?php } //endif ?>
+              </div>
+            </div>
+          <?php } //endif ?>
 
         </div>
 

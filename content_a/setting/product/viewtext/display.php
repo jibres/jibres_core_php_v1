@@ -1,24 +1,25 @@
-<form method="post" autocomplete="off">
-
 <div class="avand-md">
-
-  <div  class="box impact mB25-f">
-    <header><h2><?php echo T_("Set Product view Text");?></h2></header>
-      <div class="body">
+  <form method="post" autocomplete="off">
+    <div class="box">
+      <div class="pad">
         <p><?php echo T_("You can set fixed text for when load a product on your website");?></p>
-        <div class="c4 s12" method="post" autocomplete="off">
-          <div class="action f">
-            <div class="c12 mB5">
-              <label for="view_text"><?php echo T_("Text"); ?></label>
-              <textarea name="view_text" id="view_text" class="txt" rows="5"><?php echo \dash\data::productSettingSaved_view_text(); ?></textarea>
-            </div>
-          </div>
+        <label for="view_text"><?php echo T_("Text"); ?></label>
+        <textarea name="view_text" id="view_text" class="txt mB10" rows="5"><?php echo \dash\data::productSettingSaved_view_text(); ?></textarea>
+
+        <label for="button_text"><?php echo T_("Button title"); ?></label>
+        <div class="input">
+          <input type="text" name="button_title" value="<?php echo \dash\data::productSettingSaved_button_title() ?>">
+        </div>
+
+        <label for="button_text"><?php echo T_("Button link"); ?></label>
+        <div class="input">
+          <input type="url" name="button_link" value="<?php echo \dash\data::productSettingSaved_button_link() ?>">
         </div>
       </div>
+
       <footer class="txtRa">
         <button  class="btn success" ><?php echo T_("Save"); ?></button>
       </footer>
-  </div>
+    </div>
+  </form>
 </div>
-
-</form>

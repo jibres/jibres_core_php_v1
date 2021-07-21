@@ -45,6 +45,8 @@ class set
 			'view_text'          => 'desc',
 			'preparationtime'    => 'smallint',
 			'product_suggestion' => 'bit',
+			'button_title'       => 'string_100',
+			'button_link'        => 'url',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
