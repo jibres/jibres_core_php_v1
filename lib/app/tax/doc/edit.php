@@ -131,6 +131,9 @@ class edit
 		unset($args['tax']);
 		unset($args['vat']);
 		unset($args['thirdparty']);
+		unset($args['bank']);
+		unset($args['petty_cash']);
+		unset($args['partner']);
 
 		$data = \dash\cleanse::patch_mode($_args, $args);
 
