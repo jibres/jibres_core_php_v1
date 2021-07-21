@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-21 15:47+0430\n"
-"PO-Revision-Date: 2021-07-21 15:48+0430\n"
+"POT-Creation-Date: 2021-07-21 16:39+0430\n"
+"PO-Revision-Date: 2021-07-21 17:03+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2927,10 +2927,10 @@ msgstr "سیستم مدیریت محتوا"
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
-#: content/investment/display-company-info.php:92 content_a/accounting/home/view.php:9
-#: content_a/setting/home/display.php:117 lib/app/store/analytics.php:91
-#: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
-#: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
+#: content/investment/display-company-info.php:92 content_a/setting/home/display.php:117
+#: lib/app/store/analytics.php:91 lib/app/store/analytics.php:92
+#: lib/app/store/analytics.php:93 lib/app/store/analytics.php:94
+#: lib/app/store/analytics.php:95
 msgid "Accounting"
 msgstr "حسابداری"
 
@@ -3510,8 +3510,8 @@ msgid "Increase Basic Limits"
 msgstr "افزایش محدودیت‌های اولیه"
 
 #: content/pricing/priceTable.php:36 content/pricing/priceTable.php:61
-#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:226
-#: content_a/accounting/home/display.php:242
+#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:184
+#: content_a/accounting/home/display.php:200
 #: content_a/accounting/report/journal/view.php:9
 #: content_a/accounting/report/ledger/view.php:9 includes/languages/trans_static.php:612
 msgid "Monthly"
@@ -4020,7 +4020,7 @@ msgid "Insurance"
 msgstr "بیمه"
 
 #: content/shipping/irpost/display-calculate.php:125
-#: content_a/accounting/doc/edit/view.php:135 content_a/order/productList.php:29
+#: content_a/accounting/doc/edit/view.php:133 content_a/order/productList.php:29
 #: content_a/order/summary.php:22 content_business/cart/cartSummary.php:18
 msgid "Vat"
 msgstr "مالیات بر ارزش افزوده"
@@ -4397,12 +4397,12 @@ msgid "Text of agreement for registering domains under .ir and .ایران.ir "
 msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 
 #: content/terms/irnic/view.php:13 content_a/accounting/coding/add/view.php:10
-#: content_a/accounting/coding/edit/view.php:14 content_a/accounting/coding/view.php:12
-#: content_a/accounting/doc/add/view.php:14 content_a/accounting/doc/duplicate/view.php:14
-#: content_a/accounting/doc/edit/view.php:24 content_a/accounting/doc/printall/view.php:12
+#: content_a/accounting/coding/edit/view.php:12 content_a/accounting/coding/view.php:12
+#: content_a/accounting/doc/add/view.php:12 content_a/accounting/doc/duplicate/view.php:12
+#: content_a/accounting/doc/edit/view.php:22 content_a/accounting/doc/printall/view.php:12
 #: content_a/accounting/doc/view.php:12 content_a/accounting/factor/add/view.php:12
-#: content_a/accounting/factor/choosetype/view.php:14
-#: content_a/accounting/factor/edit/view.php:21 content_a/accounting/home/view.php:12
+#: content_a/accounting/factor/choosetype/view.php:12
+#: content_a/accounting/factor/edit/view.php:19 content_a/accounting/home/view.php:12
 #: content_a/accounting/report/assistant/view.php:12
 #: content_a/accounting/report/balancesheet/view.php:12
 #: content_a/accounting/report/detail/view.php:12
@@ -5073,11 +5073,11 @@ msgstr "معین"
 msgid "Accounting details"
 msgstr "تفصیل"
 
-#: content_a/accounting/coding/add/view.php:29 content_a/accounting/coding/edit/view.php:9
+#: content_a/accounting/coding/add/view.php:26 content_a/accounting/coding/edit/view.php:9
 msgid "Edit accounting coding"
 msgstr "ویرایش سرفصل حسابداری"
 
-#: content_a/accounting/coding/add/view.php:33
+#: content_a/accounting/coding/add/view.php:30
 msgid "Add new accounting coding"
 msgstr "افزودن سرفصل حسابداری جدید"
 
@@ -5246,13 +5246,140 @@ msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید
 msgid "Accounting coding imported"
 msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
-#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:46
+#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:13
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
 #: content_a/accounting/coding/view.php:16
 msgid "Add coding"
 msgstr "افزودن سرفصل حسابداری"
+
+#: content_a/accounting/config/display.php:4 content_a/accounting/config/display.php:6
+msgid "Reset accounting document number"
+msgstr "تنظیم مجدد شماره‌های سند حسابداری"
+
+#: content_a/accounting/config/display.php:12
+msgid "Choose accounting year"
+msgstr "انتخاب سال مالی"
+
+#: content_a/accounting/config/display.php:20
+msgid "Set Accounting currency"
+msgstr "تنظیم واحد مالی سیستم حسابداری"
+
+#: content_a/accounting/config/display.php:45
+msgid "Default assistant id in close all harmful-profit document"
+msgstr "شناسه معین پیش‌فرض برای بستن حساب‌های سود و زیانی"
+
+#: content_a/accounting/config/display.php:46 content_a/accounting/config/display.php:65
+#: content_a/accounting/config/display.php:83 content_a/accounting/config/display.php:104
+#: content_a/accounting/config/display.php:122 content_a/accounting/config/display.php:141
+#: content_a/accounting/config/display.php:159
+msgid "On default used from :code Accounting assistant code. if exists"
+msgstr "به صورت پیش‌فرض از کد حسابداری :code استفاده می‌شود. اگر وجود داشته باشد"
+
+#: content_a/accounting/config/display.php:52 content_a/accounting/config/display.php:53
+#: content_a/accounting/config/display.php:71 content_a/accounting/config/display.php:72
+#: content_a/accounting/config/display.php:89 content_a/accounting/config/display.php:90
+#: content_a/accounting/config/display.php:111 content_a/accounting/config/display.php:129
+#: content_a/accounting/config/display.php:148 content_a/accounting/config/display.php:166
+#: content_a/accounting/config/display.php:186 content_a/accounting/config/display.php:206
+#: content_a/accounting/config/display.php:228
+#: content_a/accounting/doc/add/display-docdetail.php:12
+#: content_a/accounting/doc/add/display-docdetail.php:13
+msgid "Please choose assistant_id"
+msgstr "لطفا کد معین را انتخاب کنید"
+
+#: content_a/accounting/config/display.php:64
+msgid ""
+"Default assistant id in move all harmful-profit to accumulated harmful-profit document"
+msgstr "شناسه معین پیش‌فرض برای انتقال سود و زیان جاری به سود و زیان انباشته"
+
+#: content_a/accounting/config/display.php:82
+msgid "Default assistant id in closing year document"
+msgstr "شناسه معین پیش‌فرض در سند اختتامیه سال"
+
+#: content_a/accounting/config/display.php:103
+msgid "Default vat code in cost factors"
+msgstr "کد سرفصل مالیات پیشفرض در فاکتور‌های هزینه"
+
+#: content_a/accounting/config/display.php:110 content_a/accounting/config/display.php:128
+#: content_a/accounting/config/display.php:147 content_a/accounting/config/display.php:165
+#: content_a/accounting/config/display.php:185 content_a/accounting/config/display.php:205
+#: content_a/accounting/config/display.php:227
+msgid "Please choose detail id"
+msgstr "لطفا تفصیل را انتخاب کنید"
+
+#: content_a/accounting/config/display.php:121
+msgid "Default toll code in cost factors"
+msgstr "کد سرفصل عوارض پیشفرض در فاکتور‌های هزینه"
+
+#: content_a/accounting/config/display.php:140
+msgid "Default vat code in income factor"
+msgstr "کد سرفصل مالیات بر ارزش افزوده پیشفرض در فاکتور‌های درآمد"
+
+#: content_a/accounting/config/display.php:158
+msgid "Default toll code in income factor"
+msgstr "کد سرفصل عوارض پیشفرض در فاکتور‌های درآمد"
+
+#: content_a/accounting/config/display.php:178
+msgid "Default payer in cost factors"
+msgstr "تفصیل پیشفرض پرداخت کننده در فاکتور‌های هزینه"
+
+#: content_a/accounting/config/display.php:198
+msgid "Default bank in cost factors"
+msgstr "تفصیل پیشفرض پرداخت کننده از طریق بانک در فاکتور‌های هزینه"
+
+#: content_a/accounting/config/display.php:220
+msgid "Default partner"
+msgstr "جاری شرکای پیشفرض"
+
+#: content_a/accounting/config/resetnumber/display.php:6
+msgid "Reset Accounting document number"
+msgstr "تنظیم مجدد شماره‌های سند حسابداری"
+
+#: content_a/accounting/config/resetnumber/display.php:14
+#: content_a/accounting/doc/add/display-doc.php:38
+#: content_a/accounting/factor/add/display.php:37 content_a/accounting/filter.php:35
+#: content_a/accounting/filter_only_year.php:7
+#: content_a/accounting/turnover/display.php:12
+msgid "Accounting year"
+msgstr "سال مالی"
+
+#: content_a/accounting/config/resetnumber/display.php:16
+#: content_a/accounting/doc/add/display-doc.php:40
+#: content_a/accounting/factor/add/display.php:39 content_a/accounting/filter.php:37
+#: content_a/accounting/filter_only_year.php:9
+#: content_a/accounting/turnover/display.php:14
+msgid "Please choose year"
+msgstr "لطفا سال مالی را انتخاب کنید"
+
+#: content_a/accounting/config/resetnumber/display.php:22
+#: content_a/accounting/doc/add/display-doc.php:46
+msgid "Add new accounting year"
+msgstr "افزودن سال مالی جدید"
+
+#: content_a/accounting/config/resetnumber/display.php:31
+#: content_a/accounting/doc/view.php:24 content_a/accounting/turnover/detail/view.php:17
+#: content_a/accounting/turnover/view.php:16
+msgid "Reset"
+msgstr "تنظیم مجدد"
+
+#: content_a/accounting/config/resetnumber/view.php:8
+msgid "Accounting resetnumber setting"
+msgstr "تنظیم مجدد شماره سند حسابداری"
+
+#: content_a/accounting/config/resetnumber/view.php:11
+msgid "Accounting setting"
+msgstr "تنظیمات حسابداری"
+
+#: content_a/accounting/config/view.php:8
+msgid "Cloud Accounting Configuration"
+msgstr ""
+
+#: content_a/accounting/config/view.php:10 content_a/accounting/home/view.php:9
+#: content_a/home/display.php:175
+msgid "Cloud Accounting"
+msgstr "حسابداری ابری"
 
 #: content_a/accounting/doc/add/display-doc.php:14
 #: content_a/accounting/doc/add/display-doc.php:74
@@ -5269,32 +5396,11 @@ msgid "View Document"
 msgstr "نمایش سند"
 
 #: content_a/accounting/doc/add/display-doc.php:27 content_a/accounting/doc/display.php:30
-#: content_a/accounting/doc/edit/view.php:15
+#: content_a/accounting/doc/edit/view.php:13
 #: content_a/accounting/doc/printall/display.php:20
 #: content_a/accounting/factor/display.php:66
 msgid "Opening Document"
 msgstr "سند افتتاحیه"
-
-#: content_a/accounting/doc/add/display-doc.php:38
-#: content_a/accounting/factor/add/display.php:37 content_a/accounting/filter.php:35
-#: content_a/accounting/filter_only_year.php:7
-#: content_a/accounting/turnover/display.php:12
-#: content_a/setting/accounting/resetnumber/display.php:14
-msgid "Accounting year"
-msgstr "سال مالی"
-
-#: content_a/accounting/doc/add/display-doc.php:40
-#: content_a/accounting/factor/add/display.php:39 content_a/accounting/filter.php:37
-#: content_a/accounting/filter_only_year.php:9
-#: content_a/accounting/turnover/display.php:14
-#: content_a/setting/accounting/resetnumber/display.php:16
-msgid "Please choose year"
-msgstr "لطفا سال مالی را انتخاب کنید"
-
-#: content_a/accounting/doc/add/display-doc.php:46
-#: content_a/setting/accounting/resetnumber/display.php:22
-msgid "Add new accounting year"
-msgstr "افزودن سال مالی جدید"
 
 #: content_a/accounting/doc/add/display-doc.php:55
 msgid "Document Number"
@@ -5307,21 +5413,6 @@ msgstr "شماره فرعی"
 #: content_a/accounting/doc/add/display-doc.php:104
 msgid "Open factor page"
 msgstr "نمایش صفحه فاکتور"
-
-#: content_a/accounting/doc/add/display-docdetail.php:12
-#: content_a/accounting/doc/add/display-docdetail.php:13
-#: content_a/setting/accounting/display.php:52 content_a/setting/accounting/display.php:53
-#: content_a/setting/accounting/display.php:71 content_a/setting/accounting/display.php:72
-#: content_a/setting/accounting/display.php:89 content_a/setting/accounting/display.php:90
-#: content_a/setting/accounting/display.php:111
-#: content_a/setting/accounting/display.php:129
-#: content_a/setting/accounting/display.php:148
-#: content_a/setting/accounting/display.php:166
-#: content_a/setting/accounting/display.php:186
-#: content_a/setting/accounting/display.php:206
-#: content_a/setting/accounting/display.php:228
-msgid "Please choose assistant_id"
-msgstr "لطفا کد معین را انتخاب کنید"
 
 #: content_a/accounting/doc/add/display-docdetail.php:64
 #: content_a/accounting/doc/add/display-docdetail.php:65
@@ -5453,24 +5544,24 @@ msgstr "فایل حذف شد"
 msgid "Accounting Document Number"
 msgstr "سند حسابداری شماره"
 
-#: content_a/accounting/doc/edit/view.php:20
+#: content_a/accounting/doc/edit/view.php:18
 #: content_a/accounting/doc/printall/display.php:25
 msgid "Closing Document"
 msgstr "سند اختتامیه"
 
-#: content_a/accounting/doc/edit/view.php:35 content_a/setting/product/display.php:110
+#: content_a/accounting/doc/edit/view.php:33 content_a/setting/product/display.php:110
 #: content_su/update/display.php:14 includes/languages/trans_static.php:605
 #: lib/app/domains/filter.php:53 lib/app/domains/filter.php:54
 #: lib/app/domains/filter.php:55
 msgid "Lock"
 msgstr "قفل"
 
-#: content_a/accounting/doc/edit/view.php:41 content_a/accounting/factor/edit/view.php:32
+#: content_a/accounting/doc/edit/view.php:39 content_a/accounting/factor/edit/view.php:30
 #: content_su/update/display.php:41
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
-#: content_a/accounting/doc/edit/view.php:142
+#: content_a/accounting/doc/edit/view.php:140
 #: content_a/accounting/turnover/display.php:101
 msgid "Tax"
 msgstr "مالیات"
@@ -5479,19 +5570,13 @@ msgstr "مالیات"
 msgid "Print Accounting Documents"
 msgstr "چاپ اسناد حسابداری"
 
-#: content_a/accounting/doc/view.php:9
+#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:33
 msgid "Accounting Documents"
-msgstr "سند حسابداری"
+msgstr "اسناد حسابداری"
 
 #: content_a/accounting/doc/view.php:16
 msgid "Add doc"
 msgstr "افزودن سند"
-
-#: content_a/accounting/doc/view.php:24 content_a/accounting/turnover/detail/view.php:17
-#: content_a/accounting/turnover/view.php:17
-#: content_a/setting/accounting/resetnumber/display.php:31
-msgid "Reset"
-msgstr "تنظیم مجدد"
 
 #: content_a/accounting/factor/add/display.php:47
 #: content_a/accounting/year/add/display.php:11
@@ -5588,28 +5673,32 @@ msgstr "جمع تخفیف"
 msgid "Total vat/tax"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:178 content_a/cart/add/display.php:115
+#: content_a/accounting/factor/add/display.php:155
+msgid "Auto Calculate"
+msgstr ""
+
+#: content_a/accounting/factor/add/display.php:205 content_a/cart/add/display.php:115
 #: content_business/cart/cartSummary.php:5
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_a/accounting/factor/add/display.php:179
+#: content_a/accounting/factor/add/display.php:206
 msgid "Total Discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:180
+#: content_a/accounting/factor/add/display.php:207
 msgid "Total After Discount"
 msgstr "جمع پس از تخفیف"
 
-#: content_a/accounting/factor/add/display.php:181
+#: content_a/accounting/factor/add/display.php:208
 msgid "Total Vat"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:182
+#: content_a/accounting/factor/add/display.php:209
 msgid "Net Amount"
 msgstr "جمع مبلغ کل"
 
-#: content_a/accounting/factor/add/view.php:9 content_a/accounting/factor/view.php:29
+#: content_a/accounting/factor/add/view.php:9 content_a/accounting/factor/view.php:28
 msgid "Add new factor"
 msgstr "افزودن فاکتور جدید"
 
@@ -5619,12 +5708,12 @@ msgid "Choose factor type"
 msgstr "نوع فاکتور را انتخاب کنید"
 
 #: content_a/accounting/factor/choosetype/display.php:18
-#: content_a/accounting/home/display.php:83
+#: content_a/accounting/home/display.php:127
 msgid "Add cost"
 msgstr "افزودن هزینه"
 
 #: content_a/accounting/factor/choosetype/display.php:26
-#: content_a/accounting/home/display.php:92
+#: content_a/accounting/home/display.php:136
 msgid "Add income"
 msgstr "افزودن درآمد"
 
@@ -5667,7 +5756,7 @@ msgstr "جمع مالیات"
 msgid "ID not found"
 msgstr "شناسه یافت نشد"
 
-#: content_a/accounting/factor/view.php:25
+#: content_a/accounting/factor/view.php:24
 msgid "Income-cost factor list"
 msgstr "لیست فاکتور‌های درآمد و هزینه"
 
@@ -5734,84 +5823,52 @@ msgstr "پاک‌سازی فیلترها"
 msgid "Apply"
 msgstr "اعمال‌کردن"
 
-#: content_a/accounting/home/display.php:8
-msgid "Accounting Document"
-msgstr "سند حسابداری"
-
-#: content_a/accounting/home/display.php:17
-msgid "Add Accounting Document"
-msgstr "افزودن سند حسابداری"
-
-#: content_a/accounting/home/display.php:27
-msgid "Add Opening document"
-msgstr "افزودن سند افتتاحیه"
-
-#: content_a/accounting/home/display.php:37
-msgid "Print All Document"
-msgstr "چاپ همه اسناد"
-
-#: content_a/accounting/home/display.php:56
+#: content_a/accounting/home/display.php:20 content_a/accounting/home/display.php:40
 msgid "Accounting Year"
 msgstr "سال مالی"
 
-#: content_a/accounting/home/display.php:69 content_a/accounting/turnover/view.php:9
+#: content_a/accounting/home/display.php:69
+msgid "Accounting Document"
+msgstr "سند حسابداری"
+
+#: content_a/accounting/home/display.php:78
+msgid "Add Accounting Document"
+msgstr "افزودن سند حسابداری"
+
+#: content_a/accounting/home/display.php:88
+msgid "Add Opening document"
+msgstr "افزودن سند افتتاحیه"
+
+#: content_a/accounting/home/display.php:98
+msgid "Print All Document"
+msgstr "چاپ همه اسناد"
+
+#: content_a/accounting/home/display.php:113 content_a/accounting/turnover/view.php:9
 msgid "Turnover"
 msgstr "گردش حساب"
 
-#: content_a/accounting/home/display.php:77
+#: content_a/accounting/home/display.php:121
 msgid "Income-cost management"
 msgstr "مدیریت درآمد و هزینه"
 
-#: content_a/accounting/home/display.php:101
+#: content_a/accounting/home/display.php:145
 msgid "Add petty cash"
 msgstr "افزودن تنخواه"
 
-#: content_a/accounting/home/display.php:110
+#: content_a/accounting/home/display.php:154
 msgid "Add petty cash from Accounting Partner"
 msgstr "افزودن تنخواه از جاری شرکا"
 
-#: content_a/accounting/home/display.php:123
+#: content_a/accounting/home/display.php:167
 #: content_a/form/analytics/province/display.php:17
 msgid "List"
 msgstr "لیست"
 
-#: content_a/accounting/home/display.php:132
+#: content_a/accounting/home/display.php:176
 msgid "Accounting Reports"
 msgstr "گزارشات حسابداری"
 
-#: content_a/accounting/home/display.php:140
-msgid "Report on group level"
-msgstr "گزارش در سطح گروه"
-
-#: content_a/accounting/home/display.php:150
-msgid "Report on total level"
-msgstr "گزارش در سطح کل"
-
-#: content_a/accounting/home/display.php:159
-msgid "Report on assistant level"
-msgstr "گزارش در سطح معین"
-
-#: content_a/accounting/home/display.php:168
-msgid "Report on detail level"
-msgstr "گزارش در سطح تفصیل"
-
-#: content_a/accounting/home/display.php:183
-msgid "Balance sheet on group level"
-msgstr "ترازنامه در سطح گروه"
-
-#: content_a/accounting/home/display.php:193
-msgid "Balance sheet on total level"
-msgstr "ترازنامه در سطح کل"
-
-#: content_a/accounting/home/display.php:203
-msgid "Balance sheet on assistant level"
-msgstr "ترازنامه در سطح معین"
-
-#: content_a/accounting/home/display.php:212
-msgid "Balance sheet on detail level"
-msgstr "ترازنامه در سطح تفصیل"
-
-#: content_a/accounting/home/display.php:226 content_a/accounting/home/display.php:234
+#: content_a/accounting/home/display.php:184 content_a/accounting/home/display.php:192
 #: content_a/accounting/report/journal/display.php:12
 #: content_a/accounting/report/journal/display.php:94
 #: content_a/accounting/report/journal/view.php:9
@@ -5819,17 +5876,61 @@ msgstr "ترازنامه در سطح تفصیل"
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
-#: content_a/accounting/home/display.php:234 content_a/accounting/home/display.php:251
+#: content_a/accounting/home/display.php:192 content_a/accounting/home/display.php:209
 msgid "Daily"
 msgstr "روزانه"
 
-#: content_a/accounting/home/display.php:242 content_a/accounting/home/display.php:251
+#: content_a/accounting/home/display.php:200 content_a/accounting/home/display.php:209
 #: content_a/accounting/report/journal_cover.php:4
 #: content_a/accounting/report/ledger/display.php:12
 #: content_a/accounting/report/ledger/display.php:82
 #: content_a/accounting/report/ledger/view.php:9
 msgid "Ledger"
 msgstr "دفتر کل"
+
+#: content_a/accounting/home/display.php:221
+msgid "4 Column Accounting reports"
+msgstr ""
+
+#: content_a/accounting/home/display.php:227 content_a/accounting/home/display.php:263
+msgid "Report on group level"
+msgstr "گزارش در سطح گروه"
+
+#: content_a/accounting/home/display.php:234 content_a/accounting/home/display.php:270
+msgid "Report on total level"
+msgstr "گزارش در سطح کل"
+
+#: content_a/accounting/home/display.php:241 content_a/accounting/home/display.php:277
+msgid "Report on assistant level"
+msgstr "گزارش در سطح معین"
+
+#: content_a/accounting/home/display.php:248 content_a/accounting/home/display.php:284
+msgid "Report on detail level"
+msgstr "گزارش در سطح تفصیل"
+
+#: content_a/accounting/home/display.php:257
+msgid "6 Column Accounting reports"
+msgstr ""
+
+#: content_a/accounting/home/display.php:293
+msgid "Trial balance"
+msgstr ""
+
+#: content_a/accounting/home/display.php:299
+msgid "Trial balance at group level"
+msgstr ""
+
+#: content_a/accounting/home/display.php:306
+msgid "Trial balance at total level"
+msgstr ""
+
+#: content_a/accounting/home/display.php:313
+msgid "Trial balance at assistant level"
+msgstr ""
+
+#: content_a/accounting/home/display.php:320
+msgid "Trial balance at detail level"
+msgstr ""
 
 #: content_a/accounting/report/assistant/display-old.php:4
 #: content_a/accounting/report/assistant/display.php:5
@@ -8410,10 +8511,6 @@ msgstr "مشتریان"
 msgid "Content Management"
 msgstr "سیستم مدیریت محتوا"
 
-#: content_a/home/display.php:175
-msgid "Cloud Accounting"
-msgstr "حسابداری ابری"
-
 #: content_a/home/display.php:219 content_my/domain/home/display.php:120
 #: content_site/options/group/group_setting.php:12 dash/panel.php:275
 msgid "Settings"
@@ -9193,8 +9290,8 @@ msgstr "افزودن صفحه جدید"
 
 #: content_a/pagebuilder/home/view.php:14 content_a/pricehistory/choose/view.php:12
 #: content_a/pricehistory/view.php:12 content_a/report/products/view.php:10
-#: content_a/report/productvalue/view.php:10 content_a/setting/accounting/view.php:10
-#: content_a/setting/domain/add/view.php:8 content_a/setting/domain/existdomain/view.php:8
+#: content_a/report/productvalue/view.php:10 content_a/setting/domain/add/view.php:8
+#: content_a/setting/domain/existdomain/view.php:8
 #: content_a/setting/domain/manage/view.php:8 content_a/setting/domain/remove/view.php:8
 #: content_a/setting/domain/setting/view.php:8 content_a/setting/domain/view.php:8
 #: content_a/setting/domain/view.php:11 content_a/setting/factor/view.php:13
@@ -10411,91 +10508,6 @@ msgstr "صدور فاکتور فروش"
 #: lib/app/store/analytics.php:82 lib/app/store/analytics.php:84
 msgid "Factors"
 msgstr "فاکتورها"
-
-#: content_a/setting/accounting/display.php:4 content_a/setting/accounting/display.php:6
-msgid "Reset accounting document number"
-msgstr "تنظیم مجدد شماره‌های سند حسابداری"
-
-#: content_a/setting/accounting/display.php:12
-msgid "Choose accounting year"
-msgstr "انتخاب سال مالی"
-
-#: content_a/setting/accounting/display.php:20
-msgid "Set Accounting currency"
-msgstr "تنظیم واحد مالی سیستم حسابداری"
-
-#: content_a/setting/accounting/display.php:45
-msgid "Default assistant id in close all harmful-profit document"
-msgstr "شناسه معین پیش‌فرض برای بستن حساب‌های سود و زیانی"
-
-#: content_a/setting/accounting/display.php:46 content_a/setting/accounting/display.php:65
-#: content_a/setting/accounting/display.php:83
-#: content_a/setting/accounting/display.php:104
-#: content_a/setting/accounting/display.php:122
-#: content_a/setting/accounting/display.php:141
-#: content_a/setting/accounting/display.php:159
-msgid "On default used from :code Accounting assistant code. if exists"
-msgstr "به صورت پیش‌فرض از کد حسابداری :code استفاده می‌شود. اگر وجود داشته باشد"
-
-#: content_a/setting/accounting/display.php:64
-msgid ""
-"Default assistant id in move all harmful-profit to accumulated harmful-profit document"
-msgstr "شناسه معین پیش‌فرض برای انتقال سود و زیان جاری به سود و زیان انباشته"
-
-#: content_a/setting/accounting/display.php:82
-msgid "Default assistant id in closing year document"
-msgstr "شناسه معین پیش‌فرض در سند اختتامیه سال"
-
-#: content_a/setting/accounting/display.php:103
-msgid "Default vat code in cost factors"
-msgstr "کد سرفصل مالیات پیشفرض در فاکتور‌های هزینه"
-
-#: content_a/setting/accounting/display.php:110
-#: content_a/setting/accounting/display.php:128
-#: content_a/setting/accounting/display.php:147
-#: content_a/setting/accounting/display.php:165
-#: content_a/setting/accounting/display.php:185
-#: content_a/setting/accounting/display.php:205
-#: content_a/setting/accounting/display.php:227
-msgid "Please choose detail id"
-msgstr "لطفا تفصیل را انتخاب کنید"
-
-#: content_a/setting/accounting/display.php:121
-msgid "Default toll code in cost factors"
-msgstr "کد سرفصل عوارض پیشفرض در فاکتور‌های هزینه"
-
-#: content_a/setting/accounting/display.php:140
-msgid "Default vat code in income factor"
-msgstr "کد سرفصل مالیات بر ارزش افزوده پیشفرض در فاکتور‌های درآمد"
-
-#: content_a/setting/accounting/display.php:158
-msgid "Default toll code in income factor"
-msgstr "کد سرفصل عوارض پیشفرض در فاکتور‌های درآمد"
-
-#: content_a/setting/accounting/display.php:178
-msgid "Default payer in cost factors"
-msgstr "تفصیل پیشفرض پرداخت کننده در فاکتور‌های هزینه"
-
-#: content_a/setting/accounting/display.php:198
-msgid "Default bank in cost factors"
-msgstr "تفصیل پیشفرض پرداخت کننده از طریق بانک در فاکتور‌های هزینه"
-
-#: content_a/setting/accounting/display.php:220
-msgid "Default partner"
-msgstr "جاری شرکای پیشفرض"
-
-#: content_a/setting/accounting/resetnumber/display.php:6
-msgid "Reset Accounting document number"
-msgstr "تنظیم مجدد شماره‌های سند حسابداری"
-
-#: content_a/setting/accounting/resetnumber/view.php:8
-msgid "Accounting resetnumber setting"
-msgstr "تنظیم مجدد شماره سند حسابداری"
-
-#: content_a/setting/accounting/resetnumber/view.php:11
-#: content_a/setting/accounting/view.php:8
-msgid "Accounting setting"
-msgstr "تنظیمات حسابداری"
 
 #: content_a/setting/aparat/display.php:8
 msgid "Enter your account username in aparat."
@@ -34879,31 +34891,31 @@ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پن
 msgid "Can not connect to CDN panel"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
-#: lib/app/business_domain/dns.php:774 lib/app/business_domain/https.php:204
+#: lib/app/business_domain/dns.php:776 lib/app/business_domain/https.php:204
 msgid "No DNS record found by this ip"
 msgstr "هیچ رکورد دی‌ان‌اس با این آی‌پی یافت نشد"
 
-#: lib/app/business_domain/dns.php:884
+#: lib/app/business_domain/dns.php:894
 msgid "No change in dns provider"
 msgstr "تغییری در ارائه دهنده دی‌ان‌اس انجام نشد"
 
-#: lib/app/business_domain/dns.php:890
+#: lib/app/business_domain/dns.php:900
 msgid "Current dns provider not found"
 msgstr "ارائه دهنده فعلی دی‌ان‌اس یافت نشد"
 
-#: lib/app/business_domain/dns.php:915
+#: lib/app/business_domain/dns.php:925
 msgid "DNS provider changed"
 msgstr "ارائه دهنده دی‌ان‌اس تغییر یافت"
 
-#: lib/app/business_domain/dns.php:922
+#: lib/app/business_domain/dns.php:932
 msgid "Invalid dns provider server key!"
 msgstr "شناسه سرور ارائه دهنده دی‌ان‌اس اشتباه است!"
 
-#: lib/app/business_domain/dns.php:952
+#: lib/app/business_domain/dns.php:962
 msgid "Jibres DNS record added"
 msgstr "رکورد‌های دی‌ان‌اس جیبرس اضافه شدند"
 
-#: lib/app/business_domain/dns.php:1070
+#: lib/app/business_domain/dns.php:1080
 msgid "Fetch DNS successfully"
 msgstr "دریافت دی‌ان‌اس با موفقیت انجام شد"
 
@@ -41102,6 +41114,18 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Balance sheet on group level"
+#~ msgstr "ترازنامه در سطح گروه"
+
+#~ msgid "Balance sheet on total level"
+#~ msgstr "ترازنامه در سطح کل"
+
+#~ msgid "Balance sheet on assistant level"
+#~ msgstr "ترازنامه در سطح معین"
+
+#~ msgid "Balance sheet on detail level"
+#~ msgstr "ترازنامه در سطح تفصیل"
 
 #~ msgid "Total Before discount"
 #~ msgstr "مبلغ کل قبل از کسر تخفیف"
