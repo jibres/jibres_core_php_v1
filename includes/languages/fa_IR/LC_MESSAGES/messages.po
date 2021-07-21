@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-21 17:24+0430\n"
-"PO-Revision-Date: 2021-07-21 17:28+0430\n"
+"POT-Creation-Date: 2021-07-21 19:04+0430\n"
+"PO-Revision-Date: 2021-07-21 19:19+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -60,22 +60,35 @@ msgstr ""
 msgid "About Jibres"
 msgstr "درباره جیبرس"
 
-#: content/about/view.php:12 content/benefits/view.php:13 content/brand/view.php:12
-#: content/bug/view.php:14 content/campaign/nowruz1400/view.php:12
-#: content/campaign/view.php:12 content/careers/view.php:12
-#: content/certificates/view.php:15 content/changelog/view.php:15
-#: content/contact/view.php:24 content/domains/home/view.php:12
-#: content/enterprise/view.php:13 content/forceunlock/view.php:12 content/free/view.php:12
-#: content/investment/view.php:12 content/press/view.php:15 content/pricing/view.php:13
-#: content/privacy/view.php:15 content/shipping/irpost/view.php:12
-#: content/shipping/view.php:12 content/socialresponsibility/view.php:15
-#: content/status/view.php:12 content/story/view.php:12 content/team/view.php:15
-#: content/terms/view.php:15 content/whois/view.php:13 content_business/app/view.php:23
+#: content/about/view.php:12 content/accounting/view.php:12 content/benefits/view.php:13
+#: content/brand/view.php:12 content/bug/view.php:14
+#: content/campaign/nowruz1400/view.php:12 content/campaign/view.php:12
+#: content/careers/view.php:12 content/certificates/view.php:15
+#: content/changelog/view.php:15 content/contact/view.php:24
+#: content/domains/home/view.php:12 content/enterprise/view.php:13
+#: content/forceunlock/view.php:12 content/free/view.php:12 content/investment/view.php:12
+#: content/press/view.php:15 content/pricing/view.php:13 content/privacy/view.php:15
+#: content/shipping/irpost/view.php:12 content/shipping/view.php:12
+#: content/socialresponsibility/view.php:15 content/status/view.php:12
+#: content/story/view.php:12 content/team/view.php:15 content/terms/view.php:15
+#: content/whois/view.php:13 content_business/app/view.php:23
 #: content_business/p/home/view.php:17 content_enter/home/view.php:35
 #: content_love/subscribe/view.php:13 dash/layout/pwa/pwa_menu.php:280
 #: includes/languages/trans_static_public.php:70
 msgid "Home"
 msgstr "صفحه نخست"
+
+#: content/accounting/view.php:9
+msgid "Jibres Cloud Accounting"
+msgstr "حسابداری ابری جیبرس"
+
+#: content/accounting/view.php:10
+msgid ""
+"Don't Delay! Manage Invoicing, Expenses, Payment, Taxes and Everything with Jibres. "
+"Simple and Accurate."
+msgstr ""
+"معطل نکنید! مدیریت اسناد حسابداری، ثبت سریع هزینه‌ها و فروش‌ها، گزارش‌های مالیات فصلی و "
+"ارزش افزوده، تراز آزمایشی، دفتر کل و دفتر روزنامه با جیبرس. ساده و دقیق"
 
 #: content/benefits/display.php:42 content/changelog/display.php:25
 #: content/press/display.php:8 content/pricing/priceTable.php:28
@@ -3510,9 +3523,10 @@ msgid "Increase Basic Limits"
 msgstr "افزایش محدودیت‌های اولیه"
 
 #: content/pricing/priceTable.php:36 content/pricing/priceTable.php:61
-#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:16
-#: content_a/accounting/home/display.php:24 content_a/accounting/report/journal/view.php:9
-#: content_a/accounting/report/ledger/view.php:9 includes/languages/trans_static.php:612
+#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:88
+#: content_a/accounting/home/display.php:96
+#: content_a/accounting/report/journal/view.php:10
+#: content_a/accounting/report/ledger/view.php:10 includes/languages/trans_static.php:612
 msgid "Monthly"
 msgstr "ماهانه"
 
@@ -4398,17 +4412,17 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content/terms/irnic/view.php:13 content_a/accounting/coding/add/view.php:10
 #: content_a/accounting/coding/edit/view.php:12 content_a/accounting/coding/view.php:12
 #: content_a/accounting/doc/add/view.php:12 content_a/accounting/doc/duplicate/view.php:12
-#: content_a/accounting/doc/edit/view.php:22 content_a/accounting/doc/printall/view.php:12
+#: content_a/accounting/doc/edit/view.php:22 content_a/accounting/doc/printall/view.php:13
 #: content_a/accounting/doc/view.php:12 content_a/accounting/factor/add/view.php:12
-#: content_a/accounting/factor/choosetype/view.php:12
+#: content_a/accounting/factor/choosetype/view.php:13
 #: content_a/accounting/factor/edit/view.php:19 content_a/accounting/home/view.php:12
-#: content_a/accounting/report/assistant/view.php:12
-#: content_a/accounting/report/balancesheet/view.php:12
-#: content_a/accounting/report/detail/view.php:12
-#: content_a/accounting/report/group/view.php:12
-#: content_a/accounting/report/journal/view.php:12
-#: content_a/accounting/report/ledger/view.php:12
-#: content_a/accounting/report/total/view.php:12
+#: content_a/accounting/report/assistant/view.php:13
+#: content_a/accounting/report/balancesheet/view.php:13
+#: content_a/accounting/report/detail/view.php:13
+#: content_a/accounting/report/group/view.php:13
+#: content_a/accounting/report/journal/view.php:13
+#: content_a/accounting/report/ledger/view.php:13
+#: content_a/accounting/report/total/view.php:14
 #: content_a/accounting/turnover/detail/view.php:12
 #: content_a/accounting/turnover/view.php:12 content_a/accounting/welcome/view.php:12
 #: content_a/accounting/year/add/view.php:12 content_a/accounting/year/edit/view.php:12
@@ -5245,7 +5259,7 @@ msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید
 msgid "Accounting coding imported"
 msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
-#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:70
+#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:157
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
@@ -5565,11 +5579,11 @@ msgstr "بازکردن قفل"
 msgid "Tax"
 msgstr "مالیات"
 
-#: content_a/accounting/doc/printall/view.php:9
+#: content_a/accounting/doc/printall/view.php:10
 msgid "Print Accounting Documents"
 msgstr "چاپ اسناد حسابداری"
 
-#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:89
+#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:178
 msgid "Accounting Documents"
 msgstr "اسناد حسابداری"
 
@@ -5706,7 +5720,7 @@ msgid "Add new factor"
 msgstr "افزودن فاکتور جدید"
 
 #: content_a/accounting/factor/choosetype/display.php:8
-#: content_a/accounting/factor/choosetype/view.php:9
+#: content_a/accounting/factor/choosetype/view.php:10
 msgid "Choose factor type"
 msgstr "نوع فاکتور را انتخاب کنید"
 
@@ -5718,9 +5732,9 @@ msgstr "افزودن هزینه"
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/factor/display.php:8 content_a/android/home/display.php:117
-#: content_a/cart/add/display.php:39 content_a/cart/add/display.php:41
-#: content_a/form/analytics/chart/display.php:8
+#: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:126
+#: content_a/android/home/display.php:117 content_a/cart/add/display.php:39
+#: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:237
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/sale/display.php:17 content_cms/files/home/display.php:36
@@ -5751,7 +5765,7 @@ msgstr "قالب"
 msgid "Total vat"
 msgstr "جمع مالیات"
 
-#: content_a/accounting/factor/edit/controller.php:20
+#: content_a/accounting/factor/edit/controller.php:21
 #: content_love/gift/create/controller.php:29 content_love/gift/edit/controller.php:20
 #: content_love/gift/view/controller.php:20
 msgid "ID not found"
@@ -5824,117 +5838,113 @@ msgstr "پاک‌سازی فیلترها"
 msgid "Apply"
 msgstr "اعمال‌کردن"
 
-#: content_a/accounting/home/display.php:9
+#: content_a/accounting/home/display.php:17
+msgid "Report on group level"
+msgstr "گزارش در سطح گروه"
+
+#: content_a/accounting/home/display.php:24
+msgid "Report on total level"
+msgstr "گزارش در سطح کل"
+
+#: content_a/accounting/home/display.php:31
+msgid "Report on assistant level"
+msgstr "گزارش در سطح معین"
+
+#: content_a/accounting/home/display.php:38
+msgid "Report on detail level"
+msgstr "گزارش در سطح تفصیل"
+
+#: content_a/accounting/home/display.php:51
+msgid "Trial balance at group level"
+msgstr "تراز آزمایشی در سطح گروه"
+
+#: content_a/accounting/home/display.php:58
+msgid "Trial balance at total level"
+msgstr "تراز آزمایشی در سطح کل"
+
+#: content_a/accounting/home/display.php:65
+msgid "Trial balance at assistant level"
+msgstr "تراز آزمایشی در سطح معین"
+
+#: content_a/accounting/home/display.php:72
+msgid "Trial balance at detail level"
+msgstr "تراز آزمایشی در سطح تفصیل"
+
+#: content_a/accounting/home/display.php:81
 msgid "Legal offices Monthly"
 msgstr ""
 
-#: content_a/accounting/home/display.php:15 content_a/accounting/home/display.php:37
+#: content_a/accounting/home/display.php:87 content_a/accounting/home/display.php:104
 #: content_a/accounting/report/journal/display.php:12
 #: content_a/accounting/report/journal/display.php:94
-#: content_a/accounting/report/journal/view.php:9
+#: content_a/accounting/report/journal/view.php:10
 #: content_a/accounting/report/journal_cover.php:4
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
-#: content_a/accounting/home/display.php:23 content_a/accounting/home/display.php:45
+#: content_a/accounting/home/display.php:95 content_a/accounting/home/display.php:112
 #: content_a/accounting/report/journal_cover.php:4
 #: content_a/accounting/report/ledger/display.php:12
 #: content_a/accounting/report/ledger/display.php:82
-#: content_a/accounting/report/ledger/view.php:9
+#: content_a/accounting/report/ledger/view.php:10
 msgid "Ledger"
 msgstr "دفتر کل"
 
-#: content_a/accounting/home/display.php:31
-msgid "Legal offices Daily"
-msgstr "دتفر"
-
-#: content_a/accounting/home/display.php:38 content_a/accounting/home/display.php:46
+#: content_a/accounting/home/display.php:105 content_a/accounting/home/display.php:113
 msgid "Daily"
 msgstr "روزانه"
 
-#: content_a/accounting/home/display.php:77
+#: content_a/accounting/home/display.php:127
+msgid "Accounting Documents per month"
+msgstr ""
+
+#: content_a/accounting/home/display.php:137
+msgid "Percent lock Accounting Document"
+msgstr ""
+
+#: content_a/accounting/home/display.php:144
+msgid "Percent have attachment"
+msgstr ""
+
+#: content_a/accounting/home/display.php:165
 msgid "Accounting Year"
 msgstr "سال مالی"
 
-#: content_a/accounting/home/display.php:96
+#: content_a/accounting/home/display.php:186
 msgid "Add Accounting Document"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/home/display.php:108 content_a/accounting/turnover/view.php:9
+#: content_a/accounting/home/display.php:198 content_a/accounting/turnover/view.php:9
 msgid "Turnover"
 msgstr "گردش حساب"
 
-#: content_a/accounting/home/display.php:115
+#: content_a/accounting/home/display.php:206 content_a/accounting/home/display.php:214
 msgid "Petty Cash Turnover"
 msgstr "گردش حساب تنخواه"
 
-#: content_a/accounting/home/display.php:130
+#: content_a/accounting/home/display.php:228
 msgid "Cost purchases"
 msgstr "خرید مصارف و هزینه‌ها"
 
-#: content_a/accounting/home/display.php:137
+#: content_a/accounting/home/display.php:236
 msgid "Buy assets"
 msgstr "خرید دارایی"
 
-#: content_a/accounting/home/display.php:144
+#: content_a/accounting/home/display.php:244
 msgid "Payment bills"
 msgstr "پرداخت قبوض"
 
-#: content_a/accounting/home/display.php:156
+#: content_a/accounting/home/display.php:257
 msgid "Revenues and sales invoices"
 msgstr "درآمد و فاکتورهای فروش"
 
-#: content_a/accounting/home/display.php:168
+#: content_a/accounting/home/display.php:270
 msgid "Charge Petty Cash from bank"
 msgstr "شارژ تنخواه از طریق حساب بانکی"
 
-#: content_a/accounting/home/display.php:175
+#: content_a/accounting/home/display.php:278
 msgid "Charge Petty Cash from partners"
 msgstr "شارژ تنخواه از طریق جاری شرکا"
-
-#: content_a/accounting/home/display.php:189
-msgid "4 Column Accounting reports"
-msgstr "گزارشات حسابداری ۴ ستونه"
-
-#: content_a/accounting/home/display.php:195 content_a/accounting/home/display.php:231
-msgid "Report on group level"
-msgstr "گزارش در سطح گروه"
-
-#: content_a/accounting/home/display.php:202 content_a/accounting/home/display.php:238
-msgid "Report on total level"
-msgstr "گزارش در سطح کل"
-
-#: content_a/accounting/home/display.php:209 content_a/accounting/home/display.php:245
-msgid "Report on assistant level"
-msgstr "گزارش در سطح معین"
-
-#: content_a/accounting/home/display.php:216 content_a/accounting/home/display.php:252
-msgid "Report on detail level"
-msgstr "گزارش در سطح تفصیل"
-
-#: content_a/accounting/home/display.php:225
-msgid "6 Column Accounting reports"
-msgstr "گزارشات حسابداری ۶ ستونه"
-
-#: content_a/accounting/home/display.php:261
-msgid "Trial balance"
-msgstr "تراز آزمایشی"
-
-#: content_a/accounting/home/display.php:267
-msgid "Trial balance at group level"
-msgstr "تراز آزمایشی در سطح گروه"
-
-#: content_a/accounting/home/display.php:274
-msgid "Trial balance at total level"
-msgstr "تراز آزمایشی در سطح کل"
-
-#: content_a/accounting/home/display.php:281
-msgid "Trial balance at assistant level"
-msgstr "تراز آزمایشی در سطح معین"
-
-#: content_a/accounting/home/display.php:288
-msgid "Trial balance at detail level"
-msgstr "تراز آزمایشی در سطح تفصیل"
 
 #: content_a/accounting/report/assistant/display-old.php:4
 #: content_a/accounting/report/assistant/display.php:5
@@ -6096,19 +6106,19 @@ msgstr "مانده بستانکار"
 msgid "End value"
 msgstr "مقدار پایان دوره"
 
-#: content_a/accounting/report/assistant/view.php:9
+#: content_a/accounting/report/assistant/view.php:10
 msgid "Accounting report assistant"
 msgstr "گزارش حسابداری در سطح معین"
 
-#: content_a/accounting/report/balancesheet/view.php:9
+#: content_a/accounting/report/balancesheet/view.php:10
 msgid "Accounting report balancesheet"
 msgstr "گزارش ترازنامه حسابداری"
 
-#: content_a/accounting/report/detail/view.php:9
+#: content_a/accounting/report/detail/view.php:10
 msgid "Accounting report detail"
 msgstr "گزارش تفصیل"
 
-#: content_a/accounting/report/group/view.php:9
+#: content_a/accounting/report/group/view.php:10
 msgid "Accounting report group"
 msgstr "گزارش در سطح گروه"
 
@@ -6195,7 +6205,7 @@ msgstr "تشخیص"
 msgid "Remain"
 msgstr "مانده"
 
-#: content_a/accounting/report/total/view.php:9
+#: content_a/accounting/report/total/view.php:11
 msgid "Accounting report total"
 msgstr "گزارش در سطح کل"
 
@@ -41126,6 +41136,18 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Legal offices Daily"
+#~ msgstr "دتفر"
+
+#~ msgid "4 Column Accounting reports"
+#~ msgstr "گزارشات حسابداری ۴ ستونه"
+
+#~ msgid "6 Column Accounting reports"
+#~ msgstr "گزارشات حسابداری ۶ ستونه"
+
+#~ msgid "Trial balance"
+#~ msgstr "تراز آزمایشی"
 
 #~ msgid "Income-cost factor list"
 #~ msgstr "لیست فاکتور‌های درآمد و هزینه"
