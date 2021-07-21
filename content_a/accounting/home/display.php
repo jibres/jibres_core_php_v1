@@ -5,16 +5,16 @@
 
   </div>
   <div class="c-xs-12 c-sm-12 c-md-4">
-    <nav class="items long">
+   <nav class="items long">
      <ul>
-       <li>
+      <li>
         <a class="item f" href="<?php echo \dash\url::this(). '/coding'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('code'); ?>">
           <div class="key"><?php echo T_('Accounting Coding');?></div>
           <div class="go"></div>
         </a>
       </li>
-       <li>
+      <li>
         <a class="item f" href="<?php echo \dash\url::this(). '/year'; ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('archive'); ?>">
           <div class="key"><?php echo T_('Accounting Year');?></div>
@@ -24,7 +24,36 @@
      </ul>
    </nav>
 
+   <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/doc'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Categories'); ?>">
+          <div class="key"><?php echo T_('Accounting Documents');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '//doc/add'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Add Note'); ?>">
+          <div class="key"><?php echo T_('Add Accounting Document');?></div>
+          <div class="go plus"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
 
+   <nav class="items long">
+     <ul>
+      <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/turnover'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('refresh'); ?>">
+          <div class="key"><?php echo T_('Turnover');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
 
   </div>
 </div>
@@ -38,66 +67,6 @@
 
 
 
-
-
-
-  <div class="f">
-
-    <div class="c4 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc'; ?>'>
-        <div class="statistic green">
-          <div class="value"><i class="sf-list-ul"></i></div>
-          <div class="label"><?php echo T_("Accounting Document"); ?></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="c4 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc/add'; ?>'>
-        <div class="statistic red">
-          <div class="value"><i class="sf-plus"></i></div>
-          <div class="label"><?php echo T_("Add Accounting Document"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-    <div class="c2 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc/add?type=opening'; ?>'>
-        <div class="statistic brown">
-          <div class="value"><i class="sf-new-sign"></i></div>
-          <div class="label"><?php echo T_("Add Opening document"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-     <div class="c2 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/doc/printall'; ?>'>
-        <div class="statistic brown">
-          <div class="value"><i class="sf-print"></i></div>
-          <div class="label"><?php echo T_("Print All Document"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-
-
-
-
-
-    <div class="c4 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/turnover'; ?>'>
-        <div class="statistic gold">
-          <div class="value"><i class="sf-retweet"></i></div>
-          <div class="label"><?php echo T_("Turnover"); ?></div>
-        </div>
-      </a>
-    </div>
-
-
-  </div>
 
   <h2 class="mTB20"><?php echo T_("Income-cost management") ?></h2>
   <div class="f">
