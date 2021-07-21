@@ -19,7 +19,7 @@ class model
 
 		$post = \content_a\accounting\coding\add\model::getPost();
 
-		if(\dash\data::myType() !== 'details')
+		if(\dash\data::myType() !== 'details' && !\dash\request::get('editcode'))
 		{
 			unset($post['code']);
 		}
