@@ -499,7 +499,7 @@ class dns
 
 			if($data['key'] === 'www' || $data['key'] === '@')
 			{
-				if(in_array($data['type'], ['A', 'AAAA', 'ANAME', 'CNAME']))
+				if(in_array($data['type'], ['A', 'AAAA', 'ANAME', 'CNAME', 'NS']))
 				{
 					\dash\notif::error(T_("Can not add @ in dns record"));
 					return false;
