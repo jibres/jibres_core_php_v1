@@ -57,30 +57,7 @@ class ready
 					break;
 
 				case 'template':
-					$tvalue = null;
-					switch ($value)
-					{
-						case 'cost':
-							$tvalue = T_("Cost");
-							break;
-
-						case 'income':
-							$tvalue = T_("Income");
-							break;
-
-						case 'petty_cash':
-							$tvalue = T_("Petty cash");
-							break;
-
-						case 'partner':
-							$tvalue = T_("Accounting Partner");
-							break;
-
-						default:
-							# code...
-							break;
-					}
-					$result['template_title'] = $tvalue;
+					$result['template_title'] = self::factor_type_translate($value);
 					$result[$key] = $value;
 					break;
 				default:
@@ -92,6 +69,38 @@ class ready
 
 		return $result;
 	}
+
+
+
+
+	public static function factor_type_translate($_type)
+	{
+		switch ($_type)
+		{
+			case 'cost':
+				$tvalue = T_("Cost");
+				break;
+
+			case 'income':
+				$tvalue = T_("Income");
+				break;
+
+			case 'petty_cash':
+				$tvalue = T_("Petty cash");
+				break;
+
+			case 'partner':
+				$tvalue = T_("Accounting Partner");
+				break;
+
+			default:
+				$tvalue = T_("Accounting factor");
+				break;
+		}
+
+		return $tvalue;
+	}
+
 
 
 	public static function report($_data)

@@ -61,7 +61,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
           <?php if(\dash\data::detailsList()) {?>
             <?php if(in_array($myType, ['cost', 'income'])) {?>
               <div class="">
-                <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }else{echo T_("Income type");} ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7'])) {/*ok*/}else{continue;} ?>
