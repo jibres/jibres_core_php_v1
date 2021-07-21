@@ -27,10 +27,28 @@ class view
 
 		$docIsLock = a($dataRow, 'tax_document', 'status') === 'lock';
 
-		if(!$docIsLock)
+		if($docIsLock)
+		{
+			\dash\face::btnSaveText(T_("Unlock"));
+			\dash\face::btnSave('form1');
+			// data-ajaxify data-data='{"newlockstatus" : "temp"}
+		}
+		else
 		{
 			\dash\face::btnSave('form1');
 		}
+
+		// duplicate btn
+		$duplicateLink = \dash\url::that(). '/add?';
+		$duplicateLink .= \dash\request::build_query(['type' => \dash\data::myType(), 'put_on' => a($dataRow, 'fill_value', 'put_on', 'details_id'), 'thirdparty' => a($dataRow, 'fill_value', 'thirdparty', 'details_id'), 'pay_from' => a($dataRow, 'fill_value', 'pay_from', 'details_id')]);;
+		\dash\face::btnDuplicate($duplicateLink);
+
+		// save btn
+		\dash\face::btnNew(\dash\url::that(). '/add');
+
+		// view document btn
+		\dash\face::btnView(\dash\url::this(). '/doc/edit?id='. \dash\request::get('id'));
+
 
 		// if(a(\dash\data::dataRow(), 'tax_document', 'status') === 'temp')
 		// {

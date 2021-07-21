@@ -20,6 +20,9 @@ if(\dash\face::boxTitle() !== false)
 <?php if(\dash\face::btnExport()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnExport(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
 <?php } // endif ?>
+<?php if(\dash\face::btnNew()) { ?>
+     <a class="btn light" href="<?php echo \dash\face::btnNew(); ?>" target="_blank"><i class="pRa5 compact sf-plus-circle"></i><span><?php echo T_("New"); ?></span></a>
+<?php } // endif ?>
 <?php if(\dash\face::btnDuplicate()) { ?>
      <a class="btn light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
 <?php } // endif ?>

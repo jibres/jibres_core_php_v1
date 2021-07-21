@@ -23,8 +23,8 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
 
 ?>
 <form method="post" autocomplete="off"  enctype="multipart/form-data" id="form1">
-  <div class="row">
-    <div class="c-xs-12 c-sm-12 c-md-9">
+  <div class="row align-center justify-center">
+    <div class="c-xs-12 c-sm-12">
       <div class="box">
         <div class="pad">
           <div class="row">
@@ -218,69 +218,6 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
       require_once(root. 'dash/layout/post/admin-gallery-box.php');
 
       ?>
-    </div>
-
-    <div class="c-xs-12 c-sm-12 c-md-3">
-
-
-      <?php if(\dash\data::editMode()) {?>
-        <nav class="items long">
-          <ul>
-            <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\request::get('id'); ?>">
-                <div class="key"></div>
-                <div class="value"><?php echo a($dataRow, 'tax_document', 'desc') ?></div>
-                <div class="go detail"></div>
-              </a>
-            </li>
-            <li>
-              <a class="item f" href="<?php echo \dash\url::this(). '/doc/edit?id='. \dash\request::get('id'); ?>">
-                <i class="sf-crosshairs"></i>
-                <div class="key"><?php echo T_("Open document page") ?></div>
-                <div class="go"></div>
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <nav class="items long">
-          <ul>
-            <?php if(a(\dash\data::dataRow(), 'tax_document', 'status') === 'temp') {?>
-              <li>
-                <div class="item f" data-ajaxify data-data='{"newlockstatus" : "lock"}'>
-                  <i class="sf-unlock-alt fc-red"></i>
-                  <div class="key"><?php echo T_("Click to lock document") ?></div>
-                </div>
-              </li>
-            <?php }elseif(a(\dash\data::dataRow(), 'tax_document', 'status') === 'lock') {?>
-              <li>
-                <div class="item f" data-ajaxify data-data='{"newlockstatus" : "temp"}'>
-                  <i class="sf-lock fc-green"></i>
-                  <div class="key"><?php echo T_("Document is locked. Click to unlock") ?></div>
-                </div>
-              </li>
-            <?php } // endif ?>
-          </ul>
-        </nav>
-        <nav class="items long mT10">
-          <ul>
-            <li>
-              <a class="item f" href="<?php echo \dash\url::that(). '/add?type='. \dash\data::myType(); ?>">
-                <i class="sf-clone"></i>
-                <div class="key"><?php echo T_("Add another") ?></div>
-                <div class="go"></div>
-              </a>
-            </li>
-            <li>
-              <a class="item f" href="<?php echo \dash\url::that(). '/add?'. \dash\request::build_query(['type' => \dash\data::myType(), 'put_on' => a($dataRow, 'fill_value', 'put_on', 'details_id'), 'thirdparty' => a($dataRow, 'fill_value', 'thirdparty', 'details_id'), 'pay_from' => a($dataRow, 'fill_value', 'pay_from', 'details_id')]); ?>">
-                <i class="sf-clone"></i>
-                <div class="key"><?php echo T_("Add another by current details") ?></div>
-                <div class="go"></div>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      <?php } //endif ?>
     </div>
   </div>
 </form>
