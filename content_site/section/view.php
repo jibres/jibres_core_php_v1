@@ -278,11 +278,14 @@ class view
 
 		$default_options = [];
 
-		foreach ($options as $option_name)
+		if(is_array($options))
 		{
-			if(is_string($option_name))
+			foreach ($options as $option_name)
 			{
-				$default_options[$option_name] = \content_site\call_function::option_default($option_name);
+				if(is_string($option_name))
+				{
+					$default_options[$option_name] = \content_site\call_function::option_default($option_name);
+				}
 			}
 		}
 
