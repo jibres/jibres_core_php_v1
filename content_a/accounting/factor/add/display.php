@@ -167,7 +167,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
         </div>
       </div>
       <?php if(\dash\data::editMode()) {?>
-        <div class="tblbox font-14">
+        <div class="tblBox font-14">
           <table class="tbl1 v6">
             <thead>
               <tr>

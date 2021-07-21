@@ -62,7 +62,7 @@
 
 
 
-    <div class="c12 s12">
+    <div class="c4 s12">
       <a class="dcard x1" href='<?php echo \dash\url::this(). '/turnover'; ?>'>
         <div class="statistic gold">
           <div class="value"><i class="sf-retweet"></i></div>
