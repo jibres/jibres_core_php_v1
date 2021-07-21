@@ -59,14 +59,10 @@ class get
 		$query  =
 		"
 			SELECT
-				business_domain_dns.*,
-				business_domain.domain,
-				business_domain.status
+				*
 			FROM
-				business_domain_dns
-			INNER JOIN business_domain ON business_domain.id = business_domain_dns.business_domain_id
+				business_domain
 			WHERE
-				business_domain_dns.key = '*' AND
 				business_domain.subdomain IS NULL
 			LIMIT 100
 		";
