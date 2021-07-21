@@ -126,7 +126,7 @@ if(count($myGallery) > 1)
             }
           ?>
 
-
+          <?php if(!\lib\store::nosale()) {?>
 
               <div>
                 <?php if(a(\dash\data::dataRow(), 'allow_shop')) {?>
@@ -179,6 +179,7 @@ if(count($myGallery) > 1)
                       <div class="txtB mTB10"><?php echo a(\dash\data::dataRow(), 'shop_message'); ?></div>
                   <?php } //endif ?>
               </div>
+            <?php } //endif ?>
 
             </div>
 <?php if(\dash\data::propertyList()) { ?>

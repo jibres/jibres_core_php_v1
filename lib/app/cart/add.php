@@ -130,6 +130,13 @@ class add
 
 		$data    = \dash\cleanse::input($args, $condition, $require, $meta);
 
+		// check nosell
+		if($_mode === 'website' && \lib\store::nosale())
+		{
+			\dash\notif::error(T_("The possibility of selling in this business is disabled"));
+			return false;
+		}
+
 		$guestid = $data['guestid'];
 
 		$user_id = \dash\coding::decode($data['user_id']);

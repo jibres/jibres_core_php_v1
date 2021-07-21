@@ -715,6 +715,11 @@ class store
 		return self::detail('logo');
 	}
 
+	public static function nosale()
+	{
+		return self::detail('nosale');
+	}
+
 
 	public static function enterprise()
 	{
