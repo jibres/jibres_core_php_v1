@@ -223,6 +223,7 @@ class template
 		if(a($_args, 'serialnumber'))
 		{
 			$desc[] = '-';
+			$desc[] = T_("Factor");
 			$desc[] = \dash\fit::text(a($_args, 'serialnumber'));
 		}
 
