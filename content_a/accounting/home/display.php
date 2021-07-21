@@ -1,3 +1,45 @@
+<div class="row">
+  <div class="c-xs-12 c-sm-12 c-md-8">
+
+
+
+  </div>
+  <div class="c-xs-12 c-sm-12 c-md-4">
+    <nav class="items long">
+     <ul>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/coding'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('code'); ?>">
+          <div class="key"><?php echo T_('Accounting Coding');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+       <li>
+        <a class="item f" href="<?php echo \dash\url::this(). '/year'; ?>">
+          <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('archive'); ?>">
+          <div class="key"><?php echo T_('Accounting Year');?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+     </ul>
+   </nav>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="f">
 
@@ -39,24 +81,7 @@
       </a>
     </div>
 
-    <div class="c4 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/coding'; ?>'>
-        <div class="statistic blue">
-          <div class="value"><i class="sf-align-left"></i></div>
-          <div class="label"><?php echo T_("Accounting Coding"); ?></div>
-        </div>
-      </a>
-    </div>
 
-
-     <div class="c4 s12">
-      <a class="dcard x1" href='<?php echo \dash\url::this(). '/year'; ?>'>
-        <div class="statistic red">
-          <div class="value"><i class="sf-asterisk"></i></div>
-          <div class="label"><?php echo T_("Accounting Year"); ?></div>
-        </div>
-      </a>
-    </div>
 
 
 
