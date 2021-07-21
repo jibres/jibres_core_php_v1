@@ -25,10 +25,6 @@ class view
 		$closing_list = \lib\app\tax\doc\closing::closing_list(\dash\request::get('id'));
 
 		\dash\data::closingList($closing_list);
-
-		\dash\data::userToggleSidebar(false);
-
-
 	}
 }
 ?>

@@ -12,11 +12,8 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-
 		\dash\face::btnInsert('formreset');
 		\dash\face::btnInsertText(T_("Reset"));
-
-		\dash\data::userToggleSidebar(false);
 
 		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 

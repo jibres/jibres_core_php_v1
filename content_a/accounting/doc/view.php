@@ -23,8 +23,6 @@ class view
 		\dash\face::btnInsert('formreset');
 		\dash\face::btnInsertText(T_("Reset"));
 
-		\dash\data::userToggleSidebar(false);
-
 		\dash\face::btnExport(\dash\url::current(). '?'. \dash\request::fix_get(['export' => 1]));
 
 

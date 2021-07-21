@@ -20,7 +20,6 @@ class view
 		\dash\face::btnInsertText('');
 
 		\dash\data::docListModeFactor(true);
-		\dash\data::userToggleSidebar(false);
 
 		\dash\face::title(T_("Income-cost factor list"));
 

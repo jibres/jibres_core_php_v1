@@ -15,8 +15,6 @@ class view
 		}
 		\dash\face::title($myTitle);
 
-		\dash\data::userToggleSidebar(false);
-
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '?'. \dash\request::build_query(['template' => \dash\data::myType()]));

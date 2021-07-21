@@ -12,8 +12,6 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::that(). '?'. \dash\request::build_query(['template' => \dash\data::myType()]));
 
-		\dash\data::userToggleSidebar(false);
-
 		self::static_var();
 
 		\dash\face::btnInsert('form1');

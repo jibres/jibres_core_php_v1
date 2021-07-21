@@ -33,6 +33,16 @@ class view
 		\dash\upload\size::set_default_file_size();
 
 
+		// hide sidebar on accounting
+		switch (\dash\url::module())
+		{
+			case 'accounting':
+				\dash\data::userToggleSidebar(false);
+				break;
+
+			default:
+				break;
+		}
 
 		// $cache_key = 'staff_list_'.\dash\url::subdomain();
 		// $cache = \dash\session::get($cache_key, 'jibres_store');

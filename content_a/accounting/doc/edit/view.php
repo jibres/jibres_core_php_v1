@@ -8,8 +8,6 @@ class view
 	{
 		\dash\face::title(T_('Accounting Document Number'). ' '. \dash\data::dataRow_number());
 
-		\dash\data::userToggleSidebar(false);
-
 		if(\dash\data::dataRow_type() === 'opening')
 		{
 			\dash\face::title(\dash\face::title(). ' | '. T_("Opening Document"));

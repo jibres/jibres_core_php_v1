@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\accounting;
+namespace content_a\accounting\config;
 
 class controller
 {

@@ -15,10 +15,6 @@ class view
 		\dash\face::btnSetting(\dash\url::that(). '/manage?id='. \dash\request::get('id'));
 
 		\dash\data::editMode(true);
-
-		\dash\data::userToggleSidebar(false);
-
-
 	}
 }
 ?>

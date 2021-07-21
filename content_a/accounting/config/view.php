@@ -1,13 +1,13 @@
 <?php
-namespace content_a\setting\accounting;
+namespace content_a\accounting\config;
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Accounting setting'));
+		\dash\face::title(T_('Cloud Accounting Configuration'));
 
-		\dash\data::back_text(T_('Setting'));
+		\dash\data::back_text(T_('Cloud Accounting'));
 		\dash\data::back_link(\dash\url::this());
 
 		\dash\data::accountingSettingSaved(\lib\app\setting\get::accounting_setting());

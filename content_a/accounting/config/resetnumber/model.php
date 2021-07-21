@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\accounting\resetnumber;
+namespace content_a\accounting\config\resetnumber;
 
 
 class model
