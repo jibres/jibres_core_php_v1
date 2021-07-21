@@ -2,7 +2,11 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
-        <p><?php echo T_("You can set fixed text for when load a product on your website");?></p>
+        <p>
+          <?php echo T_("You can set fixed text for when load a product on your website");?>
+          <br>
+          <?php echo T_("You can also place a button under each product and redirect it to a page") ?>
+        </p>
         <label for="view_text"><?php echo T_("Text"); ?></label>
         <textarea name="view_text" id="view_text" class="txt mB10" rows="5"><?php echo \dash\data::productSettingSaved_view_text(); ?></textarea>
 
