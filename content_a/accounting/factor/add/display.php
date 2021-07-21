@@ -22,6 +22,10 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
 
 
 ?>
+<form method="post" autocomplete="off"  enctype="multipart/form-data" id="form2" class="hide">
+  <input type="hidden" name="newlockstatus" value='temp'>
+</form>
+
 <form method="post" autocomplete="off"  enctype="multipart/form-data" id="form1">
   <div class="row align-center justify-center">
     <div class="c-xs-12 c-sm-12">
@@ -57,7 +61,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
           <?php if(\dash\data::detailsList()) {?>
             <?php if(in_array($myType, ['cost', 'income'])) {?>
               <div class="">
-                <label for="put_on"><?php echo T_("Cost type") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                <label for="put_on"><?php echo T_("Cost type") ?> <?php echo T_("") ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>
@@ -66,7 +70,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               </div>
               <div class="mT10">
-                <label for="thirdparty"><?php echo T_("Thirdparty") ?></label>
+                <label for="thirdparty"><?php echo T_("Seller") ?></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {?>

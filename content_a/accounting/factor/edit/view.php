@@ -29,9 +29,8 @@ class view
 
 		if($docIsLock)
 		{
-			\dash\face::btnSaveText(T_("Unlock"));
-			\dash\face::btnSave('form1');
-			// data-ajaxify data-data='{"newlockstatus" : "temp"}
+			\dash\face::btnInsertText(T_("Unlock"));
+			\dash\face::btnInsert('form2');
 		}
 		else
 		{
