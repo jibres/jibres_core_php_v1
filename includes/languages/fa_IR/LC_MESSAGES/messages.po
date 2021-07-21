@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-21 09:53+0430\n"
-"PO-Revision-Date: 2021-07-21 09:58+0430\n"
+"POT-Creation-Date: 2021-07-21 12:47+0430\n"
+"PO-Revision-Date: 2021-07-21 12:57+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4847,6 +4847,7 @@ msgstr "پیگیری"
 
 #: content_a/accounting/coding/add/display-add.php:139
 #: content_a/setting/order/display.php:57 content_a/setting/order/display.php:116
+#: content_a/setting/order/display.php:138
 #: content_a/setting/thirdparty/onlinepayment/display.php:21
 #: content_a/setting/thirdparty/onlinepayment/display.php:53
 #: content_a/setting/thirdparty/onlinepayment/display.php:86
@@ -4868,6 +4869,7 @@ msgstr "فعال"
 
 #: content_a/accounting/coding/add/display-add.php:139
 #: content_a/setting/order/display.php:57 content_a/setting/order/display.php:116
+#: content_a/setting/order/display.php:138
 #: content_a/setting/thirdparty/onlinepayment/display.php:21
 #: content_a/setting/thirdparty/onlinepayment/display.php:53
 #: content_a/setting/thirdparty/onlinepayment/display.php:86
@@ -4970,7 +4972,7 @@ msgstr "افزودن"
 #: content_a/setting/legal/display.php:19 content_a/setting/legal/display.php:49
 #: content_a/setting/legal/display.php:81 content_a/setting/legal/display.php:110
 #: content_a/setting/menu/edit/display.php:11 content_a/setting/menu/item/display.php:114
-#: content_a/setting/order/display.php:196 content_a/setting/order/display.php:223
+#: content_a/setting/order/display.php:218 content_a/setting/order/display.php:245
 #: content_a/tag/editgroup/display.php:13 content_a/tag/property/display.php:64
 #: content_a/units/display.php:75 content_a/units/display.php:134
 #: content_a/website/imageblock/add/display.php:47
@@ -5011,7 +5013,7 @@ msgstr "ویرایش"
 #: content_a/website/specialslider/setting/display.php:39
 #: content_a/website/subscribe/display.php:13 content_a/website/text/display.php:14
 #: content_a/website/titleline/display.php:25 content_account/api/display.php:16
-#: content_business/p/home/display.php:154 content_cms/comments/view/display.php:143
+#: content_business/p/home/display.php:155 content_cms/comments/view/display.php:143
 #: content_crm/member/permission/display.php:59
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
@@ -5546,7 +5548,7 @@ msgstr "تنخواه"
 
 #: content_a/accounting/factor/add/display.php:101
 #: content_a/accounting/factor/add/display.php:102 content_a/setting/pcpos/display.php:123
-#: lib/app/factor/cart.php:154 lib/app/setting/get.php:47
+#: lib/app/factor/cart.php:151 lib/app/setting/get.php:47
 msgid "Bank"
 msgstr "بانک"
 
@@ -6387,9 +6389,9 @@ msgstr "مایکت"
 #: content_a/setting/order/validity/display.php:36
 #: content_a/setting/product/preparationtime/display.php:21
 #: content_a/setting/product/tag/display.php:23
-#: content_a/setting/product/viewtext/display.php:19
+#: content_a/setting/product/viewtext/display.php:25
 #: content_a/setting/shipping/display.php:62 content_a/setting/shipping/display.php:88
-#: content_a/setting/shipping/text/display.php:38
+#: content_a/setting/shipping/text/display.php:20
 #: content_a/setting/social-old/display.php:102
 #: content_a/setting/telegram/adminusername/display.php:21
 #: content_a/setting/telegram/bot/display.php:22
@@ -7102,7 +7104,7 @@ msgstr "شماره سریال"
 
 #: content_a/chap/size-a4/a4-1.php:49 content_a/chap/size-receipt/receipt.php:103
 #: content_a/order/home/display.php:58 content_business/orders/display.php:17
-#: content_business/p/home/display.php:162
+#: content_business/p/home/display.php:163
 msgid "Qty"
 msgstr "تعداد"
 
@@ -7863,12 +7865,12 @@ msgid "Default value"
 msgstr "مقدار پیش‌فرض"
 
 #: content_a/form/item/display.php:300 content_a/setting/order/carttext/display.php:14
-#: content_a/setting/shipping/text/display.php:14
+#: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
 #: content_a/form/item/display.php:303 content_a/setting/order/carttext/display.php:18
-#: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:18
+#: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:9
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
 #: content_love/domain/irnic/display.php:58 content_my/domain/irnic/display.php:58
@@ -7877,22 +7879,22 @@ msgid "Default"
 msgstr "پیش‌فرض"
 
 #: content_a/form/item/display.php:304 content_a/setting/order/carttext/display.php:19
-#: content_a/setting/shipping/text/display.php:19
+#: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
 #: content_a/form/item/display.php:305 content_a/setting/order/carttext/display.php:20
-#: content_a/setting/shipping/text/display.php:20
+#: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
 #: content_a/form/item/display.php:306 content_a/setting/order/carttext/display.php:21
-#: content_a/setting/shipping/text/display.php:21
+#: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
 #: content_a/form/item/display.php:307 content_a/setting/order/carttext/display.php:22
-#: content_a/setting/shipping/text/display.php:22
+#: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
@@ -10781,7 +10783,7 @@ msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
 
 #: content_a/setting/factor/address/model.php:21 content_a/setting/factor/model.php:34
-#: content_a/setting/factor/seller/model.php:21 content_a/setting/order/model.php:52
+#: content_a/setting/factor/seller/model.php:21 content_a/setting/order/model.php:57
 #: dash/app/permission/edit.php:157 dash/app/permission/edit.php:229
 #: lib/app/product/property.php:689 lib/app/setting/policy_page.php:35
 #: lib/app/tag/edit.php:91 lib/app/tag/edit.php:164
@@ -11596,8 +11598,8 @@ msgstr ""
 "پس از تنظیم این متن، نمونه‌ای از آن را در پایین همین صفحه مشاهده خواهید کرد"
 
 #: content_a/setting/order/carttext/display.php:28
-#: content_a/setting/product/viewtext/display.php:12
-#: content_a/setting/shipping/text/display.php:29
+#: content_a/setting/product/viewtext/display.php:10
+#: content_a/setting/shipping/text/display.php:16
 #: content_a/setting/telegram/starttext/display.php:12
 #: content_a/setting/telegram/text/display.php:12
 #: content_a/website/application/view.php:15 content_a/website/body/add/display.php:76
@@ -11619,8 +11621,8 @@ msgid "Minimum order amount"
 msgstr "حداقل مبلغ سفارش"
 
 #: content_a/setting/order/display.php:14 content_a/setting/order/display.php:31
-#: content_a/setting/order/display.php:137 content_a/setting/order/display.php:153
-#: content_a/setting/order/display.php:175 content_a/setting/product/display.php:86
+#: content_a/setting/order/display.php:159 content_a/setting/order/display.php:175
+#: content_a/setting/order/display.php:197 content_a/setting/product/display.php:86
 #: content_a/setting/shipping/display.php:110 content_a/setting/shipping/display.php:127
 #: content_a/setting/telegram/display.php:119 includes/languages/trans_static.php:610
 msgid "Set"
@@ -11667,30 +11669,42 @@ msgstr ""
 "سفارش‌های پرداختی با پول نقد به صورت پردازش‌شده ثبت باقی خواهند ماند تا تحویل توسط شما یا "
 "سرویس حمل و نقل انجام پذیرد."
 
-#: content_a/setting/order/display.php:130
+#: content_a/setting/order/display.php:127 lib/app/factor/cart.php:163
+#: lib/app/setting/get.php:59
+msgid "Card-to-card"
+msgstr "کارت به کارت"
+
+#: content_a/setting/order/display.php:129
+msgid ""
+"By activating this option, the possibility of selecting the card-to-card option in the "
+"order registration process will be activated"
+msgstr ""
+"با فعال سازی این گزینه امکان ثبت سفارش از طریق کارت به کارت برای مشتریان فعال می‌شود"
+
+#: content_a/setting/order/display.php:152
 msgid "Set Cart limit"
 msgstr "تنظیم محدودیت سبد خرید"
 
-#: content_a/setting/order/display.php:146
+#: content_a/setting/order/display.php:168
 msgid "Set cart page default text"
 msgstr "تنظیم متن ثابت صفحه سبد خرید"
 
-#: content_a/setting/order/display.php:165
+#: content_a/setting/order/display.php:187
 msgid "Business order status"
 msgstr "وضعیت دریافت سفارش بیزینس"
 
-#: content_a/setting/order/display.php:168
+#: content_a/setting/order/display.php:190
 msgid ""
 "You can disable ordering status in your business or receive orders on a weekly schedule"
 msgstr ""
 "شما می‌توانید وضعیت دریافت سفارش را در بیزینس خود غیرفعال کنید و یا طبق زمان‌بندی هفتگی "
 "سفارش دریافت کنید"
 
-#: content_a/setting/order/display.php:185 lib/app/form/form/add.php:30
+#: content_a/setting/order/display.php:207 lib/app/form/form/add.php:30
 msgid "Satisfaction Survey"
 msgstr "فرم رضایت سنجی"
 
-#: content_a/setting/order/display.php:188
+#: content_a/setting/order/display.php:210
 msgid ""
 "This form will be displayed to the customer after placing the order. \n"
 "You can use this form as a satisfaction form or to receive any additional information "
@@ -11700,15 +11714,15 @@ msgstr ""
 "شما می‌توانید از این فرم برای رضایت سنجی مشتری و یا دریافت هر گونه اطلاعات دلخواه پس از "
 "ثبت سفارش استفاده کنید."
 
-#: content_a/setting/order/display.php:198 content_a/setting/order/display.php:225
+#: content_a/setting/order/display.php:220 content_a/setting/order/display.php:247
 msgid "Create"
 msgstr "ایجاد"
 
-#: content_a/setting/order/display.php:210 lib/app/form/form/add.php:11
+#: content_a/setting/order/display.php:232 lib/app/form/form/add.php:11
 msgid "Shipping Survey"
 msgstr "فرم صفحه ارسال سفارش"
 
-#: content_a/setting/order/display.php:213
+#: content_a/setting/order/display.php:235
 msgid ""
 "This form is displayed to the customer before placing the order.\n"
 "Note that if there is a mandatory question in this form, the order will not be "
@@ -11718,7 +11732,7 @@ msgstr ""
 "توجه داشته باشید در صورتی که سوال الزامی در این فرم وجود داشته باشد، مشتری حتما باید به "
 "سوالات پاسخ دهد تا سفارش او ثبت شود"
 
-#: content_a/setting/order/display.php:215
+#: content_a/setting/order/display.php:237
 msgid "You can use this form to receive additional information before ordering"
 msgstr "شما می‌توانید از این فرم برای دریافت اطلاعات دلخواه قبل از ثبت سفارش استفاده کنید"
 
@@ -11897,7 +11911,7 @@ msgstr "بانک سینا"
 
 #: content_a/setting/pcpos/display.php:24 content_cms/hashtag/home/display.php:7
 #: dash/app/posts/dropdown.php:25 includes/languages/trans_static_public.php:518
-#: lib/app/setting/get.php:92 lib/app/store/analytics.php:56
+#: lib/app/setting/get.php:95 lib/app/store/analytics.php:56
 msgid "Post"
 msgstr "نوشته"
 
@@ -12097,12 +12111,20 @@ msgid "Default (1:1)"
 msgstr "پیش‌فرض (۱:۱)"
 
 #: content_a/setting/product/viewtext/display.php:6
-msgid "Set Product view Text"
-msgstr "تنظیم متن ثابت در صفحه نمایش محصول"
-
-#: content_a/setting/product/viewtext/display.php:8
 msgid "You can set fixed text for when load a product on your website"
 msgstr "هنگام نمایش محصول در وب‌سایت می‌توانید جمله ثابتی را زیر تمامی محصولات قرار دهید"
+
+#: content_a/setting/product/viewtext/display.php:8
+msgid "You can also place a button under each product and redirect it to a page"
+msgstr "همچنین شما می‌توانید دکمه‌ای در زیر صفحه هر محصول قرار دهید"
+
+#: content_a/setting/product/viewtext/display.php:13
+msgid "Button title"
+msgstr "عنوان دکمه"
+
+#: content_a/setting/product/viewtext/display.php:18
+msgid "Button link"
+msgstr "آدرس دکمه"
 
 #: content_a/setting/product/viewtext/view.php:8 lib/app/quickaccess/setting.php:619
 msgid "Product View Text"
@@ -12144,15 +12166,11 @@ msgstr "متن ثابت صفحه ارسال سفارش"
 msgid "Calculate IR POST Shipping price"
 msgstr "محاسبه هزینه ارسال با پست"
 
-#: content_a/setting/shipping/text/display.php:6
-msgid "Set Shipping Text"
-msgstr "تنظیم متن ثابت صفحه ارسال سفارش"
-
-#: content_a/setting/shipping/text/display.php:8
+#: content_a/setting/shipping/text/display.php:5
 msgid ""
 "If you want to show a message to all customers on the shopping shipping page, write it "
-"here. You can also adjust the color of this text. <br>\n"
-"After setting this text, you will see a sample of it at the bottom of this page"
+"here. You can also adjust the color of this text. <br> After setting this text, you "
+"will see a sample of it at the bottom of this page"
 msgstr ""
 "اگر می خواهید در صفحه ارسال سفارش پیامی را به همه مشتریان نشان دهید، آن را در اینجا "
 "بنویسید. همچنین می توانید رنگ این متن را تنظیم کنید. <br>\n"
@@ -15258,7 +15276,7 @@ msgid "Coming soon ..."
 msgstr "بزودی ..."
 
 #: content_business/home/layout/template/socialnetwork.php:6
-#: content_business/p/home/display.php:228 content_business/p/home/display.php:229
+#: content_business/p/home/display.php:236 content_business/p/home/display.php:237
 #: content_business/p/home/shareBox.php:12 content_business/p/home/shareBox.php:13
 #: dash/layout/post/share-box.php:12 dash/layout/post/share-box.php:13
 #: includes/languages/trans_static_public.php:425
@@ -15272,7 +15290,7 @@ msgid "github"
 msgstr "گیت‌هاب"
 
 #: content_business/home/layout/template/socialnetwork.php:16
-#: content_business/p/home/display.php:220 content_business/p/home/display.php:221
+#: content_business/p/home/display.php:228 content_business/p/home/display.php:229
 #: content_business/p/home/shareBox.php:4 content_business/p/home/shareBox.php:5
 #: dash/layout/post/share-box.php:4 dash/layout/post/share-box.php:5
 #: includes/languages/trans_static_public.php:422
@@ -15281,7 +15299,7 @@ msgid "facebook"
 msgstr "فیسبوک"
 
 #: content_business/home/layout/template/socialnetwork.php:21
-#: content_business/p/home/display.php:224 content_business/p/home/display.php:225
+#: content_business/p/home/display.php:232 content_business/p/home/display.php:233
 #: content_business/p/home/shareBox.php:8 content_business/p/home/shareBox.php:9
 #: dash/layout/post/share-box.php:8 dash/layout/post/share-box.php:9
 #: includes/languages/trans_static_public.php:423
@@ -15296,7 +15314,7 @@ msgid "instagram"
 msgstr "اینستاگرام"
 
 #: content_business/home/layout/template/socialnetwork.php:36
-#: content_business/p/home/display.php:232 content_business/p/home/display.php:233
+#: content_business/p/home/display.php:240 content_business/p/home/display.php:241
 #: content_business/p/home/shareBox.php:16 content_business/p/home/shareBox.php:17
 #: dash/app/log/support_tools.php:147 dash/layout/post/share-box.php:16
 #: dash/layout/post/share-box.php:17 includes/languages/trans_static.php:469
@@ -15411,20 +15429,20 @@ msgstr "سود شما"
 msgid "To buy select variants"
 msgstr "برای خرید تنوع را انتخاب کنید"
 
-#: content_business/p/home/display.php:169 dash/layout/pwa/pwa_menu.php:351
+#: content_business/p/home/display.php:170 dash/layout/pwa/pwa_menu.php:351
 msgid "In cart"
 msgstr "در سبد خرید"
 
-#: content_business/p/home/display.php:173
+#: content_business/p/home/display.php:174
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:104 dash/layout/pwa/pwa_menu.php:339
 msgid "Add to cart"
 msgstr "افزودن به سبد خرید"
 
-#: content_business/p/home/display.php:217
+#: content_business/p/home/display.php:225
 msgid "Product Code"
 msgstr "شناسه محصول"
 
-#: content_business/p/home/display.php:286
+#: content_business/p/home/display.php:294
 msgid "Related products"
 msgstr "محصولات مرتبط"
 
@@ -35320,15 +35338,15 @@ msgstr "اطلاعات وارد شده خارج از محدوده مجاز اس�
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
-#: lib/app/factor/cart.php:157 lib/app/setting/get.php:50
+#: lib/app/factor/cart.php:154 lib/app/setting/get.php:50
 msgid "Cheque"
 msgstr "چک"
 
-#: lib/app/factor/cart.php:160 lib/app/setting/get.php:53
+#: lib/app/factor/cart.php:157 lib/app/setting/get.php:53
 msgid "On deliver"
 msgstr "پرداخت در محل"
 
-#: lib/app/factor/cart.php:163 lib/app/setting/get.php:56
+#: lib/app/factor/cart.php:160 lib/app/setting/get.php:56
 msgid "Online"
 msgstr "آنلاین"
 
@@ -35351,7 +35369,7 @@ msgstr "پرداخت سفارش"
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/factor/cart.php:437
+#: lib/app/factor/cart.php:441
 msgid "Pay order :val"
 msgstr "پرداخت سفارش :val"
 
@@ -38024,7 +38042,7 @@ msgstr "واحد وزن"
 msgid "length"
 msgstr "طول"
 
-#: lib/app/quickaccess/setting.php:357 lib/app/setting/set.php:536
+#: lib/app/quickaccess/setting.php:357 lib/app/setting/set.php:538
 #: lib/app/setting/setup.php:329
 msgid "Length unit"
 msgstr "واحد طول"
@@ -38162,7 +38180,7 @@ msgstr "آماده سازی"
 msgid "products preparation  time"
 msgstr "زمان آماده سازی محصولات"
 
-#: lib/app/setting/get.php:93
+#: lib/app/setting/get.php:96
 msgid "Tipax"
 msgstr "تیپاکس"
 
@@ -38190,47 +38208,47 @@ msgstr "شناسه اشتباه است"
 msgid "CMS setting saved"
 msgstr "تنظیمات سیستم مدیریت محتوا ذخیره شد"
 
-#: lib/app/setting/set.php:61
+#: lib/app/setting/set.php:63
 msgid "Product setting saved"
 msgstr "تنظیمات محصولات ذخیره شدند"
 
-#: lib/app/setting/set.php:97
+#: lib/app/setting/set.php:99
 msgid "Accounting setting saved"
 msgstr "تنظیمات حسابداری ذخیره شدند"
 
-#: lib/app/setting/set.php:122
+#: lib/app/setting/set.php:124
 msgid "SMS setting saved"
 msgstr "تنظیمات پیام کوتاه ذخیره شد"
 
-#: lib/app/setting/set.php:171 lib/app/setting/set.php:196
+#: lib/app/setting/set.php:173 lib/app/setting/set.php:198
 msgid "Telegram setting saved"
 msgstr "تنظیمات تلگرام ذخیره شد"
 
-#: lib/app/setting/set.php:225
+#: lib/app/setting/set.php:227
 msgid "Cart setting saved"
 msgstr "تنظیمات سبد خرید ذخیره شد"
 
-#: lib/app/setting/set.php:264
+#: lib/app/setting/set.php:266
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:331
+#: lib/app/setting/set.php:333
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:360
+#: lib/app/setting/set.php:362
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
-#: lib/app/setting/set.php:416
+#: lib/app/setting/set.php:418
 msgid "Can not support this endpoint!"
 msgstr "این نقطه اتصال را پشتیبانی نمی‌کنیم!"
 
-#: lib/app/setting/set.php:422
+#: lib/app/setting/set.php:424
 msgid "Invalid endpoint!"
 msgstr "نقطه اتصال اشتباه است!"
 
-#: lib/app/setting/set.php:445
+#: lib/app/setting/set.php:447
 msgid ""
 "You already use from another s3 platform. To active this service please disable all "
 "other S3 service first"
@@ -38238,14 +38256,14 @@ msgstr ""
 "شما هم‌اکنون از یک پلتفرم فضای ابری دیگری استفاده می‌کنید. برای فعال کردن این سرویس لطفا "
 "ابتدا همه سرویس‌های فضای ابری دیگر را غیر فعال کنید"
 
-#: lib/app/setting/set.php:494
+#: lib/app/setting/set.php:496
 msgid ""
 "We can not connect to S3 service by this variable. This setting automatically disabled"
 msgstr ""
 "ما نتوانستیم به پلتفرم S3 با مقادیر وارد شده متصل شویم. وضعیت اتصال به صورت خودکار "
 "غیرفعال خواهد شد"
 
-#: lib/app/setting/set.php:505
+#: lib/app/setting/set.php:507
 msgid ""
 "The connection was successfully tested <br> From now on, all files uploaded to your "
 "service will be stored in this cloud service provider"
@@ -38253,19 +38271,19 @@ msgstr ""
 "اتصال با موفقیت آزمایش شد <br> از این پس، تمام پرونده‌های بارگذاری شده در سرویس شما، در "
 "زیرساخت این ارائه دهنده خدمات فضای ابری ذخیره می‌شوند"
 
-#: lib/app/setting/set.php:517
+#: lib/app/setting/set.php:519
 msgid "Upload provider setting saved"
 msgstr "تنظیمات سرویس ارائه دهنده خدمات ابری ذخیره شد"
 
-#: lib/app/setting/set.php:536 lib/app/setting/setup.php:329
+#: lib/app/setting/set.php:538 lib/app/setting/setup.php:329
 msgid "Mass unit"
 msgstr "واحد وزن"
 
-#: lib/app/setting/set.php:673 lib/app/setting/set.php:721 lib/app/setting/setup.php:279
+#: lib/app/setting/set.php:676 lib/app/setting/set.php:724 lib/app/setting/setup.php:279
 msgid "Please choose your province"
 msgstr "لطفا استان خود را انتخاب کنید"
 
-#: lib/app/setting/set.php:679 lib/app/setting/set.php:727 lib/app/setting/setup.php:285
+#: lib/app/setting/set.php:682 lib/app/setting/set.php:730 lib/app/setting/setup.php:285
 msgid "Please choose your city"
 msgstr "لطفا شهر خود را انتخاب کنید"
 
@@ -41089,6 +41107,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Set Product view Text"
+#~ msgstr "تنظیم متن ثابت در صفحه نمایش محصول"
+
+#~ msgid "Set Shipping Text"
+#~ msgstr "تنظیم متن ثابت صفحه ارسال سفارش"
 
 #~ msgid "Accounting Currency"
 #~ msgstr "واحد مالی حسابداری"
@@ -44237,9 +44261,6 @@ msgstr "یارد"
 
 #~ msgid "Adjust the display style of your post"
 #~ msgstr "قالب نمایش پست خود را تنظیم کنید"
-
-#~ msgid "Button title"
-#~ msgstr "عنوان دکمه"
 
 #~ msgid "Sourse"
 #~ msgstr "منبع"
