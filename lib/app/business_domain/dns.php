@@ -889,7 +889,7 @@ class dns
 				}
 
 				self::add($_id, ['type' => 'A', 'key' => '@', 'value' => $server_ip]);
-				self::add($_id, ['type' => 'CNAME', 'key' => 'www', 'value' => '@']);
+				// self::add($_id, ['type' => 'CNAME', 'key' => 'www', 'value' => '@']);
 
 				if(\dash\engine\process::status())
 				{
@@ -911,7 +911,13 @@ class dns
 		$jibres_ip = \dash\setting\dns_server::ip();
 
 		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'A', 'key' => '@', 'value' => $jibres_ip]);
-		self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => '@']);
+
+		$load = \lib\app\business_domain\get::get($_id);
+		if(isset($load['domain']))
+		{
+			self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $load['domain']]);
+		}
+
 
 		// self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'TXT', 'key' => '@', 'value' => 'v=spf1 mx include:spf.jibres.ir ~all']);
 		// self::add($_id, ['addtocdnpaneldns' => true, 'type' => 'TXT', 'key' => '_dmarc', 'value' => 'v=DMARC1; p=reject; pct=100; rua=mailto:dmarc@jibres.ir']);
@@ -949,7 +955,7 @@ class dns
 			{
 				if(
 					($value['type'] === 'A' && in_array($value['key'], ['@']) && strpos($value['value'], $jibres_ip) !== false) ||
-					($value['type'] === 'CNAME' && in_array($value['key'], ['www']) && $value['value'] === '@')
+					($value['type'] === 'CNAME' && in_array($value['key'], ['www']))
 				  )
 				{
 					$count_founded++;
@@ -980,7 +986,7 @@ class dns
 			{
 				if(
 					($value['type'] === 'A' && in_array($value['key'], ['@']) && strpos($value['value'], $jibres_ip) !== false) ||
-					($value['type'] === 'CNAME' && in_array($value['key'], ['www']) && $value['value'] === '@')
+					($value['type'] === 'CNAME' && in_array($value['key'], ['www']))
 				  )
 				{
 					$count_founded++;
