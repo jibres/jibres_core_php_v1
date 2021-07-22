@@ -106,5 +106,19 @@ class get
 		return null;
 	}
 
+
+	public static function new_title()
+	{
+		$startdate = self::startdate();
+		if($startdate)
+		{
+			$title = T_("Year"). ' ';
+			$title .= \dash\fit::text(mb_substr(\dash\fit::date($startdate), 0, 4));
+
+			return $title;
+		}
+		return null;
+	}
+
 }
 ?>

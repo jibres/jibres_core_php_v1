@@ -14,6 +14,7 @@ class view
 
 		\dash\data::dataRow_startdate(\lib\app\tax\year\get::startdate());
 		\dash\data::dataRow_enddate(\lib\app\tax\year\get::enddate());
+		\dash\data::dataRow_title(\lib\app\tax\year\get::new_title());
 	}
 }
 ?>

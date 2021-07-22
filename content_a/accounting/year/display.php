@@ -1,7 +1,7 @@
 <?php if(\dash\data::dataTable()) {?>
 	<div class="row">
 		<?php foreach (\dash\data::dataTable() as $key => $value) {?>
-			<div class="c-xs-12 c-sm-6 c-md-4">
+			<div class="c-xs-12 c-sm-6 c-md-3">
 
 				<div class="box">
 					<div class="body">

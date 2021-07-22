@@ -16,7 +16,7 @@ class model
 
 		if(\dash\engine\process::status() && isset($result['id']))
 		{
-			\dash\redirect::to(\dash\url::that(). '/edit?id='. $result['id']);
+			\dash\redirect::to(\dash\url::that());
 		}
 	}
 }

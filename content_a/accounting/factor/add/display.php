@@ -49,7 +49,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off' <?php echo $disableInput ?>>
               </div>
             </div>
-            <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
 
 
               <div class="c-xs-6 c-sm-2">
@@ -67,12 +67,27 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
             <?php } //endif ?>
           </div>
           <?php if(\dash\data::detailsList()) {?>
-            <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
               <div class="">
-                <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income type");} ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                <div class="row">
+                  <div class="c-auto">
+                    <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                  </div>
+                  <div class="c"></div>
+                  <div class="c-auto"><a target="_blank" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
+                </div>
+
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7'])) {if($myType === 'cost' && substr(a($value, 'code'), 0, 1) === '1'){continue;}elseif($myType === 'asset' && substr(a($value, 'code'), 0, 1) === '7'){continue;}}else{continue;} ?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value)
+                  {
+                    if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7', '6']))
+                    {
+                      if($myType === 'cost' && substr(a($value, 'code'), 0, 1) === '1'){continue;}
+                      elseif($myType === 'asset' && substr(a($value, 'code'), 0, 1) === '7'){continue;}
+                      elseif($myType === 'income' && substr(a($value, 'code'), 0, 1) !== '6'){continue;}
+                    }else{continue;}
+                    ?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
@@ -137,7 +152,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
           <?php } // endif ?>
           <div class="mT10"></div>
 
-            <?php if(in_array($myType, ['cost', 'income', 'asset', 'bill'])) {?>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
 
           <div class="row">
             <div class="c-md-4">
