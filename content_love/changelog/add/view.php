@@ -14,6 +14,8 @@ class view
 
 		\dash\data::listChangelogTag(\dash\app\changelog::list_changelog_tags());
 
+		\dash\data::dataRow_date(date("Y-m-d"));
+
 
 	}
 }
