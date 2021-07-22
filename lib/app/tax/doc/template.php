@@ -445,7 +445,7 @@ class template
 					'details_id'      => $thirdparty,
 					'type'            => 'debtor',
 					'value'           => $totalMinusDiscount,
-					'sort'            => 5,
+					'sort'            => 1,
 					'template'        => 'thirdparty',
 				];
 			}
