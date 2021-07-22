@@ -7,6 +7,38 @@ namespace dash\app;
 class changelog
 {
 
+	private static function send_tg($_args, $_data)
+	{
+		if(!a($_args, 'sendtg'))
+		{
+			return;
+		}
+
+		$msg = '';
+		$msg .= '☕️ '. '#ChangeLog'. "\n";
+		$msg .= '<b>'. a($_data, 'title'). '</b> ';
+
+		if(a($_data, 'link'))
+		{
+			$msg .= '<a href="'. a($_data, 'link'). '">'. T_("Read more"). '</a> ';
+		}
+
+		if(a($_data, 'tag1')) { $msg .= '#'. str_replace(' ', '_', $_data['tag1']). " "; }
+		if(a($_data, 'tag2')) { $msg .= '#'. str_replace(' ', '_', $_data['tag2']). " "; }
+		if(a($_data, 'tag3')) { $msg .= '#'. str_replace(' ', '_', $_data['tag3']). " "; }
+		if(a($_data, 'tag4')) { $msg .= '#'. str_replace(' ', '_', $_data['tag4']). " "; }
+		if(a($_data, 'tag5')) { $msg .= '#'. str_replace(' ', '_', $_data['tag5']). " "; }
+
+		$msg .= "\n🕰 ". \dash\datetime::fit(date("Y-m-d H:i:s", strtotime(a($_data, 'date'))), true);
+
+		$myData   = ['chat_id' => '-1001439876201', 'text' => $msg];
+		$myResult = \dash\social\telegram\tg::json_sendMessage($myData);
+
+
+
+	}
+
+
 	public static function get($_id)
 	{
 		$id = \dash\validate::id($_id);
@@ -164,6 +196,8 @@ class changelog
 
 		\dash\notif::ok(T_("Changelog added"));
 
+		self::send_tg($_args, $args);
+
 		return $changelog;
 	}
 
@@ -306,6 +340,8 @@ class changelog
 			$args['datemodified'] = date("Y-m-d H:i:s");
 
 			\dash\db\changelog::update($args, $id);
+
+			self::send_tg($_args, $args);
 		}
 
 		\dash\notif::ok(T_("Saved"));

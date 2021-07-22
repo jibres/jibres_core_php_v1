@@ -23,12 +23,10 @@
           <?php } //endfor ?>
         </select>
 
-        <?php if(!\dash\data::editMode()) {?>
-          <div class="check1 mT10">
-            <input type="checkbox" name="sendtg" id="sendtg">
-            <label for="sendtg"><?php echo T_("Send in Telegram"); ?></label>
-          </div>
-        <?php } //endif ?>
+        <div class="check1 mT10">
+          <input type="checkbox" name="sendtg" id="sendtg">
+          <label for="sendtg"><?php echo T_("Send in Telegram"); ?></label>
+        </div>
 
       </div>
       <footer>
