@@ -184,6 +184,7 @@ class changelog
 		[
 			'order'      => 'order',
 			'sort'       => 'string_50',
+			'tag'       => 'string_50',
 
 
 		];
@@ -201,12 +202,30 @@ class changelog
 		$meta['limit'] = 15;
 
 
+		if($data['tag'])
+		{
+			$and[] =
+			"
+				(changelog.tag1 = '$data[tag]' OR
+				changelog.tag2  = '$data[tag]' OR
+				changelog.tag3  = '$data[tag]' OR
+				changelog.tag4  = '$data[tag]' OR
+				changelog.tag5  = '$data[tag]')
+			";
+
+			self::$is_filtered = true;
+		}
 
 		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{
 			$or[] = " changelog.title LIKE '%$query_string%' ";
+			$or[] = " changelog.tag1 LIKE '%$query_string%' ";
+			$or[] = " changelog.tag2 LIKE '%$query_string%' ";
+			$or[] = " changelog.tag3 LIKE '%$query_string%' ";
+			$or[] = " changelog.tag4 LIKE '%$query_string%' ";
+			$or[] = " changelog.tag5 LIKE '%$query_string%' ";
 
 			self::$is_filtered = true;
 		}

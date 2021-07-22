@@ -26,6 +26,7 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
+			'tag'   => \dash\request::get('tag'),
 
 		];
 
