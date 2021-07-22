@@ -4,8 +4,13 @@
   </div>
 
   <div class="avand-lg impact zero">
-    <?php if(\dash\data::dataTable()) {?>
-
+    <?php if(\dash\data::dataTable() || \dash\request::get()) {?>
+        <?php if(\dash\request::get('tag')) {?>
+            <div class="msg">
+                <?php echo T_("Your are looking to :tag history", ['tag' => '#'.\dash\request::get('tag')]) ?>
+                <a href="<?php echo \dash\url::this() ?>"><?php echo T_("Show all changelog"); ?></a>
+            </div>
+        <?php } //ednif ?>
       <table class="tbl1 v10 fs09 mB0">
          <thead>
             <tr>
@@ -20,7 +25,7 @@
        </tr>
        <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-           <td class="collapsing"><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
+           <td class="collapsing"><?php if(a($value, 'date') && strtotime($value['date']) < time()) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
            <td class="w-full"><?php echo a($value, 'title'); ?>
                 <?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"> <?php echo T_("Read more") ?></a><?php } ?>
                <?php if(a($value, 'tag1')) { echo '<a href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag1')).'"> #'. $value['tag1']. '</a>';} ?>

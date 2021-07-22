@@ -6,7 +6,13 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Change log of Jibres'));
+		$myTitle = T_('Change log of Jibres');
+		if(\dash\request::get('tag'))
+		{
+			$myTitle .= ' | #'. \dash\request::get('tag');
+		}
+		\dash\face::title($myTitle);
+
 		\dash\face::desc(T_('We were born to do Best!'). ' ' . T_("We are Developers, please wait!"));
 
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-changelog-1.jpg');
@@ -17,6 +23,11 @@ class view
 
 		$list = \dash\app\changelog::public_list(\dash\request::get('tag'));
 		\dash\data::dataTable($list);
+
+		if(!$list && \dash\request::get())
+		{
+			\dash\redirect::to(\dash\url::this());
+		}
 
 	}
 }
