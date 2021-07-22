@@ -27,6 +27,8 @@ class setting
 
 		self::order_setting($list);
 
+		self::accounting_setting($list);
+
 		return $list;
 	}
 
@@ -651,6 +653,30 @@ class setting
 
 
 
+	}
+
+
+	/**
+	 * accounting setting
+	 *
+	 * @param      <type>  $list   The list
+	 */
+	private static function accounting_setting(&$list)
+	{
+		$list[] =
+		[
+			'title'    => T_("Cloud Accounting"),
+			'keywords' =>
+			[
+				T_("accounting"),
+				T_("tax"),
+				T_("vat"),
+				T_('document'),
+			],
+			'url'      => \dash\url::kingdom(). '/a/accounting',
+			'addr'     => [T_("Dashboard"), T_("Accounting"),],
+			'icon'     => 'book',
+		];
 	}
 }
 ?>
