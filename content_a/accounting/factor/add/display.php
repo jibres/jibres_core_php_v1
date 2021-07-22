@@ -68,7 +68,7 @@ if(!\dash\data::editMode())
               <div class="c-xs-6 c-sm">
                 <label for="title"><?php echo T_("Description"); ?></label>
                 <div class="input">
-                  <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>'>
+                  <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>' <?php echo $disableInput ?>>
                 </div>
               </div>
             <?php } //endif ?>

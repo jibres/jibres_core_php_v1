@@ -26,7 +26,7 @@ class model
 			{
 				$id = \dash\app\changelog::edit($post, \dash\request::get('id'));
 
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::this());
 			}
 		}
 		else
