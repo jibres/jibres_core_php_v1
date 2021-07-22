@@ -93,7 +93,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               </div>
               <div class="mT10">
-                <label for="thirdparty"><?php echo T_("Seller") ?> <small><?php echo T_("If the seller is not selected, a direct payment document will be made") ?></small></label>
+                <label for="thirdparty"><?php if($myType === 'income'){echo T_("Buy from");}else{ echo T_("Seller"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{ echo T_("If the seller is not selected, a direct payment document will be made"); }  ?></small></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 1), ['5'])) {/*ok*/}else{continue;}?>
@@ -102,10 +102,15 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               </div>
               <div class="mT10">
-                <label for="pay_from"><?php echo T_("Payer") ?> <small><?php echo T_("In case of non-payment, the credit document will be registered") ?></small></label>
+                <label for="pay_from"><?php if($myType === 'income'){echo T_("Reseiver");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) {/*ok*/}else{continue;}?>
+                  <?php foreach (\dash\data::detailsList() as $key => $value) {
+                    if($myType === 'income')
+                    {if(in_array(substr(a($value, 'code'), 0, 2), ['26', '52'])) {/*ok*/}else{continue;}}
+                    else
+                    {if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) {/*ok*/}else{continue;}}
+                  ?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
                 </select>
