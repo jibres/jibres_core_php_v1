@@ -11,6 +11,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+		\dash\face::btnView(\dash\url::kingdom(). '/changelog');
 		// btn
 		\dash\data::action_text(T_('Add'));
 		\dash\data::action_link(\dash\url::this(). '/add');
