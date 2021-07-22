@@ -21,11 +21,6 @@ class post_show_excerpt
 	{
 		$default = \content_site\section\view::get_current_index_detail('post_show_excerpt');
 
-		if(!$default)
-		{
-			$default = self::default();
-		}
-
 		$checked = $default ? ' checked' : null;
 
 		$html = '';

@@ -24,12 +24,12 @@ class fill_default
 		return
 		[
 			'title'       => T_("Your post's title"),
-			'excerpt'     => "Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog.",
+			'excerpt'     => T_("Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog."),
 			'thumb'       => \dash\app::static_image_url(),
 			'publishdate' => date("Y-m-d H:i:s"),
 			'user_detail' =>
 			[
-				'displayname' => 'Author name',
+				'displayname' => T_('Author name'),
 				'avatar'      => \dash\app::static_avatar_url(),
 			]
 
