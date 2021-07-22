@@ -10,6 +10,13 @@ class add
 
 		$args = \lib\app\tax\year\check::variable($_args);
 
+		$count = \lib\db\tax_year\get::count_all();
+
+		if(floatval($count) > 100)
+		{
+			\dash\notif::error(T_("You have used the maximum capacity to define the fiscal year"));
+			return false;
+		}
 
 		if(!$args)
 		{
