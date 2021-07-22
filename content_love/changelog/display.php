@@ -5,7 +5,7 @@
       <a class="item f align-center" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">
         <div class="key"><?php echo strip_tags(a($value, 'title')); ?></div>
         <div class="value"><?php echo htmlGenerateTag($value) ?></div>
-        <time class="value"><?php echo \dash\fit::date(a($value, 'date')); ?></time>
+        <time class="value"><?php if(a($value, 'date')) { echo \dash\fit::date(a($value, 'date'));}else{echo T_("Soon");} ?></time>
         <div class="go"></div>
       </a>
      </li>

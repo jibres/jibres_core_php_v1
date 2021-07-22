@@ -188,12 +188,10 @@ class changelog
 
 		$condition =
 		[
-			'order'      => 'order',
-			'sort'       => 'string_50',
-			'tag'       => 'string_50',
-			'language'       => 'language',
-
-
+			'order'    => 'order',
+			'sort'     => 'string_50',
+			'tag'      => 'string_50',
+			'language' => 'language',
 		];
 
 		$require = [];
@@ -206,7 +204,7 @@ class changelog
 		$meta['join']  = [];
 		$or            = [];
 		$order_sort    = null;
-		$meta['limit'] = 15;
+		$meta['limit'] = 100;
 
 		if($data['language'])
 		{
@@ -241,15 +239,8 @@ class changelog
 			self::$is_filtered = true;
 		}
 
+		$order_sort = " ORDER BY changelog.date DESC, changelog.id ASC ";
 
-
-		$order_sort = " ORDER BY changelog.date DESC ";
-
-
-		if(!$order_sort)
-		{
-			$order_sort = " ORDER BY changelog.id DESC ";
-		}
 
 		$list = \dash\db\changelog::list($and, $or, $order_sort, $meta);
 
@@ -263,7 +254,6 @@ class changelog
 		}
 
 		return $list;
-
 
 	}
 
@@ -307,8 +297,12 @@ class changelog
 
 		if(!empty($args))
 		{
+			$args['datemodified'] = date("Y-m-d H:i:s");
+
 			\dash\db\changelog::update($args, $id);
 		}
+
+		\dash\notif::ok(T_("Saved"));
 
 		return true;
 	}
