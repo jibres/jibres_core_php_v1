@@ -345,17 +345,17 @@ class get
 		}
 
 
-		// if(count($conversation) >= 3)
-		// {
-		// 	foreach ($conversation as $key => $value)
-		// 	{
-		// 		if(isset($value['type']) && $value['type'] === 'ticket')
-		// 		{
-		// 			$conversation[$key]['branchable'] = true;
-		// 			break;
-		// 		}
-		// 	}
-		// }
+		if(count($conversation) >= 3)
+		{
+			foreach ($conversation as $key => $value)
+			{
+				if(isset($value['type']) && $value['type'] === 'ticket')
+				{
+					$conversation[$key]['branchable'] = true;
+					break;
+				}
+			}
+		}
 
 		return $conversation;
 	}
