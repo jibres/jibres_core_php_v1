@@ -370,7 +370,7 @@ class template
 					'details_id'      => $tax,
 					'type'            => 'creditor',
 					'value'           => $tax_value = round(($args['totalvat'] / 9) * 3),
-					'sort'            => 3,
+					'sort'            => 4,
 					'template'        => 'tax',
 				];
 			}
@@ -384,7 +384,7 @@ class template
 					'details_id'      => $vat,
 					'type'            => 'creditor',
 					'value'           => $vat_value = round(($args['totalvat'] / 9) * 6),
-					'sort'            => 4,
+					'sort'            => 3,
 					'template'        => 'vat',
 				];
 			}
@@ -463,7 +463,7 @@ class template
 					'details_id'      => $tax,
 					'type'            => 'debtor',
 					'value'           => $tax_value = round(($args['totalvat'] / 9) * 3),
-					'sort'            => 2,
+					'sort'            => 3,
 					'template'        => 'tax',
 				];
 			}
@@ -477,7 +477,7 @@ class template
 					'details_id'      => $vat,
 					'type'            => 'debtor',
 					'value'           => $vat_value = round(($args['totalvat'] / 9) * 6),
-					'sort'            => 3,
+					'sort'            => 2,
 					'template'        => 'vat',
 				];
 			}
