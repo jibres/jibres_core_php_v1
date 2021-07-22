@@ -9,20 +9,20 @@
       <table class="tbl1 v10 fs09 mB0">
          <thead>
             <tr>
-               <th class="collapsing txtL"><a href="<?php echo \dash\url::this() ?>"><?php echo T_("Date"); ?></a></th>
+               <th class="collapsing "><a href="<?php echo \dash\url::this() ?>"><?php echo T_("Date"); ?></a></th>
                <th><a href="<?php echo \dash\url::this() ?>"><?php echo T_("Description"); ?></a></th>
                <th class="collapsing"></th>
            </tr>
        </thead>
        <tbody>
         <tr>
-           <td class="txtL">...</td>
+           <td class="">...</td>
            <td><?php echo T_("We are Developers, please wait!"); ?></td>
            <td class="collapsing"></td>
        </tr>
        <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-           <td class="txtL"><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
+           <td class=""><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
            <td><?php echo a($value, 'title'); ?>
                <?php if(a($value, 'tag1')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag1').'"> #'. $value['tag1']. '</a>';} ?>
                <?php if(a($value, 'tag2')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag2').'"> #'. $value['tag2']. '</a>';} ?>
