@@ -17,22 +17,37 @@
         </div>
 
         <label><?php echo T_("Tag"); ?></label>
-        <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
+        <select name="tag[]" id="tag" class="select22 mB20" data-model="tag" multiple="multiple">
           <?php foreach (\dash\data::listChangelogTag() as $key => $value) {?>
             <option value="<?php echo $value; ?>" <?php if(is_array(\dash\data::currentTag()) && in_array($value, \dash\data::currentTag())) {echo 'selected'; } ?>><?php echo $value; ?></option>
           <?php } //endfor ?>
         </select>
 
         <?php if(!\dash\data::editMode()) {?>
-        <div class="check1 mT10">
-          <input type="checkbox" name="sendtg" id="sendtg">
-          <label for="sendtg"><?php echo T_("Send in Telegram"); ?></label>
-        </div>
-      <?php } //endif ?>
+          <div class="check1 mT10">
+            <input type="checkbox" name="sendtg" id="sendtg">
+            <label for="sendtg"><?php echo T_("Send in Telegram"); ?></label>
+          </div>
+        <?php } //endif ?>
 
       </div>
-      <footer class="txtRa">
-        <button class="btn master"><?php echo T_("Save") ?></button>
+      <footer>
+        <div class="row">
+          <div class="c-auto">
+            <?php if(\dash\data::editMode()) {?>
+              <div class="btn danger outline" data-confirm data-data='{"remove":"remove"}'><?php echo T_("Remove") ?></div>
+            <?php } //endif ?>
+          </div>
+          <div class="c"></div>
+          <div class="c-auto">
+            <?php if(\dash\data::editMode()) {?>
+              <button class="btn primary"><?php echo T_("Edit") ?></button>
+            <?php }else{ ?>
+              <button class="btn success"><?php echo T_("Add") ?></button>
+            <?php } //endif ?>
+          </div>
+
+        </div>
       </footer>
     </div>
   </form>

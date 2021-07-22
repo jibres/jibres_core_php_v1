@@ -151,6 +151,7 @@ class changelog
 		$return              = [];
 		$args['user_id']     = \dash\user::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
+		$args['language'] = \dash\language::current();
 
 		$changelog = \dash\db\changelog::insert($args);
 
@@ -160,6 +161,8 @@ class changelog
 			\dash\notif::error(T_("No way to insert changelog"));
 			return false;
 		}
+
+		\dash\notif::ok(T_("Changelog added"));
 
 		return $changelog;
 	}

@@ -17,9 +17,17 @@ class model
 
 		if(\dash\data::editMode())
 		{
-			$id = \dash\app\changelog::edit($post, \dash\request::get('id'));
+			if(\dash\request::post('remove') === 'remove')
+			{
+				\dash\app\changelog::remove(\dash\request::get('id'));
+				\dash\redirect::to(\dash\url::this());
+			}
+			else
+			{
+				$id = \dash\app\changelog::edit($post, \dash\request::get('id'));
 
-			\dash\redirect::pwd();
+				\dash\redirect::pwd();
+			}
 		}
 		else
 		{

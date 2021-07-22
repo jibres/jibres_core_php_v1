@@ -20,22 +20,24 @@ class changelog
 	}
 
 
-	public static function insert()
+	public static function insert($_args)
 	{
-		\dash\db\config::public_insert('changelog', ...func_get_args());
-		return \dash\db::insert_id();
+		return \dash\pdo\query_template::insert('changelog', $_args);
 	}
 
 
-	public static function update()
+
+	public static function update($_args, $_id)
 	{
-		return \dash\db\config::public_update('changelog', ...func_get_args());
+		return \dash\pdo\query_template::update('changelog', $_args, $_id);
 	}
 
 
-	public static function delete()
+	public static function delete($_id)
 	{
-		return \dash\db\config::public_delete('changelog', ...func_get_args());
+		$query = "DELETE FROM changelog WHERE changelog.id = $_id LIMIT 1";
+		$result = \dash\db::query($query);
+		return $result;
 	}
 
 
