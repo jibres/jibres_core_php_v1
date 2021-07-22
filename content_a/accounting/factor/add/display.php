@@ -15,9 +15,16 @@ if(a($accountingSettingSaved, 'currency'))
   $currency = \lib\currency::name($currency);
 }
 
-$default_cost_payer = a($accountingSettingSaved, 'default_cost_payer');
-$default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
-$default_partner  = a($accountingSettingSaved, 'default_partner');
+$default_cost_payer = null;
+$default_cost_bank  = null;
+$default_partner    = null;
+
+if(!\dash\data::editMode())
+{
+  $default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
+  $default_cost_payer = a($accountingSettingSaved, 'default_cost_payer');
+  $default_partner    = a($accountingSettingSaved, 'default_partner');
+}
 
 
 
