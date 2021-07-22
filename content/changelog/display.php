@@ -16,13 +16,13 @@
        </thead>
        <tbody>
         <tr>
-           <td class="">...</td>
+           <td class="collapsing">...</td>
            <td><?php echo T_("We are Developers, please wait!"); ?></td>
            <td class="collapsing"></td>
        </tr>
        <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-           <td class=""><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
+           <td class="collapsing"><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
            <td><?php echo a($value, 'title'); ?>
                <?php if(a($value, 'tag1')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag1').'"> #'. $value['tag1']. '</a>';} ?>
                <?php if(a($value, 'tag2')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag2').'"> #'. $value['tag2']. '</a>';} ?>
@@ -30,7 +30,7 @@
                <?php if(a($value, 'tag4')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag4').'"> #'. $value['tag4']. '</a>';} ?>
                <?php if(a($value, 'tag5')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag5').'"> #'. $value['tag5']. '</a>';} ?>
            </td>
-           <td class="collapsing"><?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"><?php echo T_("Read more") ?></a><?php } ?></td>
+           <td class="collapsing txtL"><?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"><?php echo T_("Read more") ?></a><?php } ?></td>
        </tr>
    <?php } //endfor ?>
 </tbody>
