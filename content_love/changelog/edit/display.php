@@ -1,0 +1,1 @@
+<?php require_once(root. 'content_love/changelog/add/display.php'); ?>
