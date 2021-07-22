@@ -8,7 +8,7 @@ class model
 	{
 		$post =
 		[
-			'title'  => \dash\request::post_html(),
+			'title'  => \dash\request::post('html'),
 			'date'   => \dash\request::post('date'),
 			'link'   => \dash\request::post('link'),
 			'tag'    => \dash\request::post('tag'),

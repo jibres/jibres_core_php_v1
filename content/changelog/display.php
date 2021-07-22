@@ -15,18 +15,16 @@
     </tr>
    </thead>
    <tbody>
-
     <tr>
      <td>...</td>
      <td><?php echo T_("We are Developers, please wait!"); ?></td>
-     <td></td>
+     <td class="collapsing"></td>
     </tr>
-
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-         <td><?php echo \dash\fit::date(a($value, 'date')); ?></td>
+         <td><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'));}else{echo T_("Soon");} ?></td>
          <td><?php echo a($value, 'title'); ?></td>
-         <td></td>
+         <td class="collapsing"><?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"><?php echo T_("Read more") ?></a><?php } ?></td>
         </tr>
     <?php } //endfor ?>
     </tbody>

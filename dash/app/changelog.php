@@ -64,7 +64,7 @@ class changelog
 	{
 		$condition =
 		[
-			'title'  => 'real_html',
+			'title'  => 'desc',
 			'date'   => 'date',
 			'link'   => 'url',
 			'tag'    => 'tag',
@@ -72,7 +72,7 @@ class changelog
 
 		];
 
-		$require = ['date', 'title'];
+		$require = ['title'];
 		$meta    = [];
 
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);

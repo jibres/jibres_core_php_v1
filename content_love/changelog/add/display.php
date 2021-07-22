@@ -4,11 +4,11 @@
     <div class="box">
       <div class="pad">
 
-        <textarea class="txt" data-editor data-placeholder='<?php echo T_("Title") ?>'  name="html"><?php echo \dash\data::dataRow_title(); ?></textarea>
+        <textarea class="txt" rows="3" data-placeholder='<?php echo T_("Title") ?>'  name="html"><?php echo \dash\data::dataRow_title(); ?></textarea>
 
         <label><?php echo T_("Date"); ?></label>
         <div class="input">
-          <input type="tel" name="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" data-format='date'>
+          <input type="tel" name="date" placeholder="<?php echo T_("Soon"); ?>" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" data-format='date'>
         </div>
 
         <label><?php echo T_("Link"); ?></label>
