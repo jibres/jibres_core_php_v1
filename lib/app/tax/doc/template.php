@@ -284,7 +284,7 @@ class template
 				$default_income_tax = a($accounting_setting, 'default_income_tax');
 				if(!$default_income_tax)
 				{
-					$get_coding_id = \lib\db\tax_coding\get::by_code(24052);
+					$get_coding_id = \lib\db\tax_coding\get::by_code(52071);
 					if(isset($get_coding_id['id']))
 					{
 						$default_income_tax = $get_coding_id['id'];
@@ -295,7 +295,7 @@ class template
 				$default_income_vat = a($accounting_setting, 'default_income_vat');
 				if(!$default_income_vat)
 				{
-					$get_coding_id = \lib\db\tax_coding\get::by_code(24051);
+					$get_coding_id = \lib\db\tax_coding\get::by_code(52072);
 					if(isset($get_coding_id['id']))
 					{
 						$default_income_vat = $get_coding_id['id'];
@@ -346,7 +346,113 @@ class template
 		$vat_value      = 0;
 		$tax_value      = 0;
 
-		if(in_array($args['template'], ['cost', 'income', 'asset', 'bill']))
+		if(in_array($args['template'], ['income']))
+		{
+
+			if(!$put_on)
+			{
+				\dash\notif::error(T_("Income from is required"));
+				return false;
+			}
+
+			if(!$thirdparty)
+			{
+				\dash\notif::error(T_("Buyer is required"));
+				return false;
+			}
+
+			if($args['totalvat'] && $tax)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $tax, 'parent3'),
+					'details_id'      => $tax,
+					'type'            => 'creditor',
+					'value'           => $tax_value = round(($args['totalvat'] / 9) * 3),
+					'sort'            => 3,
+					'template'        => 'tax',
+				];
+			}
+
+			if($args['totalvat'] && $vat)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $vat, 'parent3'),
+					'details_id'      => $vat,
+					'type'            => 'creditor',
+					'value'           => $vat_value = round(($args['totalvat'] / 9) * 6),
+					'sort'            => 4,
+					'template'        => 'vat',
+				];
+			}
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $put_on, 'parent3'),
+				'details_id'      => $put_on,
+				'type'            => 'creditor',
+				'value'           => $totalMinusDiscount - $args['totalvat'],
+				'sort'            => 2,
+				'template'        => 'put_on',
+			];
+
+
+			if($pay_from)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+					'details_id'      => $thirdparty,
+					'type'            => 'creditor',
+					'value'           => $totalMinusDiscount,
+					'sort'            => 10, // ok
+					'template'            => 'thirdparty',
+				];
+
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+					'details_id'      => $thirdparty,
+					'type'            => 'debtor',
+					'value'           => $totalMinusDiscount,
+					'sort'            => 1,
+					'template'        => 'thirdparty',
+				];
+
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $pay_from, 'parent3'),
+					'details_id'      => $pay_from,
+					'type'            => 'debtor',
+					'value'           => $totalMinusDiscount,
+					'sort'            => 7,
+					'template'        => 'pay_from',
+				];
+			}
+			elseif(!$pay_from)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+					'details_id'      => $thirdparty,
+					'type'            => 'debtor',
+					'value'           => $totalMinusDiscount,
+					'sort'            => 5,
+					'template'        => 'thirdparty',
+				];
+			}
+
+
+		}
+		elseif(in_array($args['template'], ['cost', 'asset']))
 		{
 			if($args['totalvat'] && $tax)
 			{
@@ -356,7 +462,7 @@ class template
 					'assistant_id'    => a($load_coding_detail, $tax, 'parent3'),
 					'details_id'      => $tax,
 					'type'            => 'debtor',
-					'value'           => $tax_value = round(($args['totalvat'] / 9) * 6),
+					'value'           => $tax_value = round(($args['totalvat'] / 9) * 3),
 					'sort'            => 2,
 					'template'        => 'tax',
 				];
@@ -370,7 +476,7 @@ class template
 					'assistant_id'    => a($load_coding_detail, $vat, 'parent3'),
 					'details_id'      => $vat,
 					'type'            => 'debtor',
-					'value'           => $vat_value = round(($args['totalvat'] / 9) * 3),
+					'value'           => $vat_value = round(($args['totalvat'] / 9) * 6),
 					'sort'            => 3,
 					'template'        => 'vat',
 				];
@@ -504,6 +610,11 @@ class template
 				'sort'            => 2,
 				'template'        => 'partner',
 			];
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not support this template"));
+			return false;
 		}
 
 

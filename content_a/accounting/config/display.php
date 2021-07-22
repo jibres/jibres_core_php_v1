@@ -138,7 +138,7 @@
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Default vat code in income factor"); ?></h3>
-      <div class="body"><p><?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(24051)]) ?></p></div>
+      <div class="body"><p><?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(52071)]) ?></p></div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
@@ -156,7 +156,7 @@
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Default toll code in income factor"); ?></h3>
-      <div class="body"><p><?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(24052)]) ?></p></div>
+      <div class="body"><p><?php echo T_("On default used from :code Accounting assistant code. if exists", ['code' => \dash\fit::text(52072)]) ?></p></div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
