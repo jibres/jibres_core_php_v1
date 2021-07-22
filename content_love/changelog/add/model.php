@@ -26,7 +26,7 @@ class model
 			{
 				$id = \dash\app\changelog::edit($post, \dash\request::get('id'));
 
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::pwd(\dash\url::this());
 			}
 		}
 		else
@@ -35,7 +35,7 @@ class model
 
 			if($id)
 			{
-				\dash\redirect::to(\dash\url::this(). '/edit?id='. $id);
+				\dash\redirect::to(\dash\url::this());
 			}
 		}
 
