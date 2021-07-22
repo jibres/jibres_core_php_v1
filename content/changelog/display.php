@@ -29,6 +29,7 @@
    <?php } //endfor ?>
 </tbody>
 </table>
+<?php \dash\utility\pagination::html(); ?>
 
 <?php }else{ ?>
 

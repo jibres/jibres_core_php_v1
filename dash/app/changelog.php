@@ -179,7 +179,7 @@ class changelog
 
 	public static function public_list()
 	{
-		return self::list(null, ['language' => \dash\language::current()]);
+		return self::list(null, ['language' => \dash\language::current(), 'limit' => 1000]);
 	}
 
 
@@ -192,10 +192,11 @@ class changelog
 			'sort'     => 'string_50',
 			'tag'      => 'string_50',
 			'language' => 'language',
+			'limit'    => 'int',
 		];
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -205,6 +206,11 @@ class changelog
 		$or            = [];
 		$order_sort    = null;
 		$meta['limit'] = 100;
+
+		if($data['limit'])
+		{
+			$meta['limit'] = $data['limit'];
+		}
 
 		if($data['language'])
 		{
