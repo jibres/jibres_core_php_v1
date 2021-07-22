@@ -4,6 +4,14 @@ namespace dash\db;
 
 class changelog
 {
+
+	public static function list_changelog_tags()
+	{
+		$query = "SELECT changelog.tag1, changelog.tag2, changelog.tag3, changelog.tag4, changelog.tag5 FROM changelog ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 	public static function get_by_id($_id)
 	{
 		$query = "SELECT * FROM changelog WHERE changelog.id = $_id LIMIT 1";

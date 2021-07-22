@@ -18,8 +18,8 @@
 
         <label><?php echo T_("Tag"); ?></label>
         <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
-          <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
-            <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['title'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
+          <?php foreach (\dash\data::listChangelogTag() as $key => $value) {?>
+            <option value="<?php echo $value; ?>" <?php if(is_array(\dash\data::currentTag()) && in_array($value, \dash\data::currentTag())) {echo 'selected'; } ?>><?php echo $value; ?></option>
           <?php } //endfor ?>
         </select>
 

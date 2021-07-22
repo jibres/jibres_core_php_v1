@@ -34,6 +34,27 @@ class changelog
 	}
 
 
+	public static function list_changelog_tags()
+	{
+		$list = \dash\db\changelog::list_changelog_tags();
+		$tag = [];
+		foreach ($list as $key => $value)
+		{
+			$tag[] = a($value, 'tag1');
+			$tag[] = a($value, 'tag2');
+			$tag[] = a($value, 'tag3');
+			$tag[] = a($value, 'tag4');
+			$tag[] = a($value, 'tag5');
+		}
+
+		$tag = array_filter($tag);
+		$tag = array_unique($tag);
+
+		return $tag;
+	}
+
+
+
 	/**
 	 * check args
 	 *
@@ -64,14 +85,15 @@ class changelog
 
 		if($data['tag'])
 		{
-			for ($i=1; $i <= 5 ; $i++)
+			for ($i=0; $i <= 4 ; $i++)
 			{
 				if(isset($data['tag'][$i]))
 				{
-					$data['tag'. $i] = $data['tag'][$i];
+					$data['tag'. $i + 1] = $data['tag'][$i];
 				}
 			}
 		}
+
 
 		unset($data['tag']);
 		unset($data['sendtg']);
@@ -238,7 +260,17 @@ class changelog
 			return false;
 		}
 
-		$args = \dash\cleanse::patch_mode($_args, $args);
+		$exception = [];
+		if(isset($_args['tag']))
+		{
+			$exception[] = 'tag1';
+			$exception[] = 'tag2';
+			$exception[] = 'tag3';
+			$exception[] = 'tag4';
+			$exception[] = 'tag5';
+		}
+
+		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(!empty($args))
 		{
