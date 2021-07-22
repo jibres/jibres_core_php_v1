@@ -1,4 +1,5 @@
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p0">
+  <?php if(\dash\request::get('contain')) {?><input type="hidden" name="contain" value="<?php echo \dash\request::get('contain'); ?>"><?php }//endif ?>
   <div class="box">
     <div class="pad">
       <?php if(\dash\url::child() === 'doc' || \dash\url::child() === 'factor') {?>

@@ -4,6 +4,7 @@
 </form>
 
 <form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>">
+	<?php if(\dash\request::get('contain')) {?><input type="hidden" name="contain" value="<?php echo \dash\request::get('contain'); ?>"><?php }//endif ?>
 	<div class="box">
 		<div class="pad">
 			<div class="row">
