@@ -22,7 +22,7 @@
        </tr>
        <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-           <td><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'));}else{echo T_("Soon");} ?></td>
+           <td><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
            <td><?php echo a($value, 'title'); ?></td>
            <td class="collapsing"><?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"><?php echo T_("Read more") ?></a><?php } ?></td>
        </tr>
