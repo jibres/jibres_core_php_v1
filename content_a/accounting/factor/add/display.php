@@ -102,7 +102,7 @@ $default_partner  = a($accountingSettingSaved, 'default_partner');
                 </select>
               </div>
               <div class="mT10">
-                <label for="pay_from"><?php if($myType === 'income'){echo T_("Reseiver");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small></label>
+                <label for="pay_from"><?php if($myType === 'income'){echo T_("Receiver");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {

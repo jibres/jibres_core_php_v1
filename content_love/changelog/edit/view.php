@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Edit new changelog"));
+		\dash\face::title(T_("Edit changelog"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));

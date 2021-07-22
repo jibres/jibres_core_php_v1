@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-22 05:50+0430\n"
-"PO-Revision-Date: 2021-07-22 05:53+0430\n"
+"POT-Creation-Date: 2021-07-22 09:29+0430\n"
+"PO-Revision-Date: 2021-07-22 09:29+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -91,10 +91,11 @@ msgstr ""
 "ارزش افزوده، تراز آزمایشی، دفتر کل و دفتر روزنامه با جیبرس. ساده و دقیق"
 
 #: content/benefits/display.php:42 content/changelog/display.php:25
-#: content/press/display.php:8 content/pricing/priceTable.php:28
-#: content/pricing/priceTable.php:52 content/pricing/priceTable.php:77
-#: content/story/display.php:54 content_a/setup/payment/display.php:20
-#: content_a/setup/payment/display.php:27 includes/languages/trans_static.php:505
+#: content/changelog/display.php:52 content/press/display.php:8
+#: content/pricing/priceTable.php:28 content/pricing/priceTable.php:52
+#: content/pricing/priceTable.php:77 content/story/display.php:54
+#: content_a/setup/payment/display.php:20 content_a/setup/payment/display.php:27
+#: content_love/changelog/add/display.php:11 includes/languages/trans_static.php:505
 msgid "Soon"
 msgstr "بزودی"
 
@@ -691,8 +692,8 @@ msgid ""
 "A clear and concise title includes the type of vulnerability and the impacted asset."
 msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیری و میزان شدت آن."
 
-#: content/bug/display.php:104 content/changelog/display.php:12
-#: content_a/accounting/doc/add/display-docdetail.php:102
+#: content/bug/display.php:104 content/changelog/display.php:13
+#: content/changelog/display.php:39 content_a/accounting/doc/add/display-docdetail.php:102
 #: content_a/accounting/factor/add/display.php:62 content_a/android/intro/display.php:23
 #: content_a/android/review/display.php:84 content_a/android/review/display.php:92
 #: content_a/android/review/display.php:99 content_a/form/item/display.php:144
@@ -792,7 +793,8 @@ msgstr "گواهی‌نامه‌ها"
 msgid "We are get all of certificates!"
 msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را گرفته‌ایم!"
 
-#: content/changelog/display.php:11 content_a/accounting/doc/add/display-doc.php:12
+#: content/changelog/display.php:12 content/changelog/display.php:38
+#: content_a/accounting/doc/add/display-doc.php:12
 #: content_a/accounting/doc/add/display-doc.php:68 content_a/accounting/doc/display.php:13
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/doc/printall/display.php:35
@@ -806,7 +808,7 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 #: content_a/order/home/filter.php:228 content_business/orders/display.php:20
 #: content_crm/member/transactions/minus/display.php:14
 #: content_crm/member/transactions/plus/display.php:14
-#: content_crm/transactions/detail/display.php:67
+#: content_crm/transactions/detail/display.php:67 content_love/changelog/add/display.php:9
 #: content_love/domain/action/display.php:14 content_love/domain/billing/display.php:95
 #: content_love/domain/credit/display.php:28 content_love/domain/log/display.php:98
 #: content_love/domain/nicdetail/display.php:17
@@ -820,32 +822,43 @@ msgstr "ما تمام مجوزها و گواهینامه‌های ممکن را 
 msgid "Date"
 msgstr "تاریخ"
 
-#: content/changelog/display.php:20 content/changelog/view.php:10
+#: content/changelog/display.php:20 content/changelog/display.php:47
+#: content/changelog/view.php:10
 msgid "We are Developers, please wait!"
 msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 
-#: content/changelog/display.php:26
+#: content/changelog/display.php:27 content_my/business/home/display_pwa.php:54
+#: content_my/business/home/display_pwa.php:60 content_my/business/home/display_pwa.php:66
+#: content_my/business/home/display_pwa.php:72
+#: content_my/business/home/display_site.php:135
+#: content_my/business/home/display_site.php:141
+#: content_my/business/home/display_site.php:147
+#: content_my/business/home/display_site.php:153
+msgid "Read more"
+msgstr "بیشتر بخوانید"
+
+#: content/changelog/display.php:53
 msgid "Version 1 of Jibres will be released."
 msgstr "نسخه اول جیبرس به امید خدا منتشر خواهد شد."
 
-#: content/changelog/display.php:32
+#: content/changelog/display.php:59
 msgid "Upgrade our powerful ticketing system. Try it, Love it"
 msgstr "ما سیستم تیکتینگ رو پر قدرت بازنویسی کردیم. امتحانش کنید، عاشقش می‌شید"
 
-#: content/changelog/display.php:38 content/changelog/display.php:80
+#: content/changelog/display.php:65 content/changelog/display.php:107
 msgid "happy New Year"
 msgstr "سال نو مبارک"
 
-#: content/changelog/display.php:44
+#: content/changelog/display.php:71
 msgid "The first online sale was registered on our first online store website."
 msgstr "اولین فروش آنلاین در اولین وب‌سایت فروشگاه آنلاین ما ثبت شد."
 
-#: content/changelog/display.php:50 content_love/domain/irnic/view.php:9
+#: content/changelog/display.php:77 content_love/domain/irnic/view.php:9
 #: content_love/domain/nicdetail/display.php:11 lib/app/domains/filter.php:57
 msgid "IRNIC"
 msgstr "ایرنیک"
 
-#: content/changelog/display.php:50
+#: content/changelog/display.php:77
 msgid ""
 "Now Jibres is official reseller of :val. You can buy iranian national domain .ir via "
 "Jibres."
@@ -853,7 +866,7 @@ msgstr ""
 "اکنون جیبرس نماینده رسمی فروش :val است. شما می‌توانید دامنه ملی دات آی آر را از طریق "
 "جیبرس بخرید."
 
-#: content/changelog/display.php:56
+#: content/changelog/display.php:83
 msgid ""
 "Our app generator is finished. Now we have a factory to create android application for "
 "our business."
@@ -861,74 +874,74 @@ msgstr ""
 "کارهای اپلیکیشین ساز ما تمام شد. الان ما یک کارخانه مجهز برای ساخت سریع اپلیکیشن "
 "اندروید بیزینس‌هامون داریم."
 
-#: content/changelog/display.php:62
+#: content/changelog/display.php:89
 msgid "happy Nowruz"
 msgstr "نوروز مبارک"
 
-#: content/changelog/display.php:68
+#: content/changelog/display.php:95
 msgid ""
 "COVID-19 is come and we are release our 60 percent of our employees! GOD bless us..."
 msgstr ""
 "کرونا ویروس یا کووید۱۹ اومده و ما ۶۰ درصد از کارمندان خودمون رو مرخص کردیم! خدا همه ما "
 "را حفظ کند..."
 
-#: content/changelog/display.php:74
+#: content/changelog/display.php:101
 msgid "Jibres catalog"
 msgstr "کاتالوگ جیبرس"
 
-#: content/changelog/display.php:74
+#: content/changelog/display.php:101
 msgid ":val is ready."
 msgstr ":val آماده است."
 
-#: content/changelog/display.php:86
+#: content/changelog/display.php:113
 msgid ""
 "Jibres presend features at Advertising & Marketing 2019 Tehran, Iran. 17 - 20 Dec 2019."
 msgstr ""
 "جیبرس به معرفی امکانات خود در شانزدهمین نمایشگاه بین‌المللی تبلیغات و بازاریابی تهران "
 "پرداخت. ۲۶ تا ۲۹ آذرماه ۱۳۸."
 
-#: content/changelog/display.php:92
+#: content/changelog/display.php:119
 msgid "Jibres brand is reborn."
 msgstr "برند جیبرس دوباره متولد شد."
 
-#: content/changelog/display.php:98
+#: content/changelog/display.php:125
 msgid "Beta version is released."
 msgstr "نسخه بتا منتشر شد."
 
-#: content/changelog/display.php:104
+#: content/changelog/display.php:131
 msgid "add support of digital scale barcode and get weight of product automatically."
 msgstr ""
 "قابلیت پشتیبانی از بارکد ترازوهای دیجیتالی و افزودن خودکار وزن آن به فاکتور اضافه شد."
 
-#: content/changelog/display.php:110
+#: content/changelog/display.php:137
 msgid "We reach 1B+ Toman sold on Jibres."
 msgstr "رکورد بیش از یک میلیارد تومان فروش در جیبرس ثبت شد."
 
-#: content/changelog/display.php:116
+#: content/changelog/display.php:143
 msgid "We reach 100M+ Toman sold on Jibres."
 msgstr "رکورد بیش از ۱۰۰ میلیون تومان فروش توسط جیبرس ثبت شد."
 
-#: content/changelog/display.php:122
+#: content/changelog/display.php:149
 msgid "We reach 10000 factor records."
 msgstr "ما به رکورد ۱۰۰۰ فاکتور ثبت شده رسیدیم."
 
-#: content/changelog/display.php:128
+#: content/changelog/display.php:155
 msgid "First factor of first store is generated."
 msgstr "اولین فاکتور اولین فروشگاه صادر شد."
 
-#: content/changelog/display.php:134
+#: content/changelog/display.php:161
 msgid "Our first store on web is created and start add product to store."
 msgstr "اولین فروشگاه ما بر روی وب ساخته شد و شروع به ثبت کالا کرد."
 
-#: content/changelog/display.php:140
+#: content/changelog/display.php:167
 msgid "Alfa version is released."
 msgstr "نسخه آلفای جیبرس منتشر شد."
 
-#: content/changelog/display.php:146
+#: content/changelog/display.php:173
 msgid "We restart plans to run Jibres at Ermile."
 msgstr "برنامه‌ریزی جدیدی برای ارائه جیبرس توسط ارمایل داشتیم."
 
-#: content/changelog/display.php:152
+#: content/changelog/display.php:179
 msgid ""
 "The name of project selected as Jibres and <a href='https://Jibres.ir' "
 "target='_blank'>Jibres.ir</a> and <a href='https://Jibres.com'>Jibres.com</a> domains "
@@ -937,27 +950,27 @@ msgstr ""
 "جیبرس به‌عنوان نام این پروژه انتخاب و دامنه‌های <a href='https://Jibres.ir' "
 "target='_blank'>Jibres.ir</a> و <a href='https://Jibres.com'>Jibres.com</a> ثبت شدند."
 
-#: content/changelog/display.php:158
+#: content/changelog/display.php:185
 msgid "Create git repository and first commit is pushed."
 msgstr "ساخت مخزن گیت و شروع به کار."
 
-#: content/changelog/display.php:164
+#: content/changelog/display.php:191
 msgid "Database is completely designed and implementated."
 msgstr "طراحی و پیاده‌سازی دیتابیس به‌صورت کامل انجام شد."
 
-#: content/changelog/display.php:169
+#: content/changelog/display.php:196
 msgid "02:00 AM"
 msgstr "۰۲:۰۰ صبح"
 
-#: content/changelog/display.php:170
+#: content/changelog/display.php:197
 msgid "Start database analysis of Jibres."
 msgstr "شروع تجزیه و تحلیل دیتابیس جیبرس."
 
-#: content/changelog/display.php:176 content/changelog/view.php:10
+#: content/changelog/display.php:203 content/changelog/view.php:10
 msgid "We were born to do Best!"
 msgstr "ما برای انجام بهترین‌ها متولد شدیم!"
 
-#: content/changelog/display.php:185
+#: content/changelog/display.php:213
 msgid "We are preparing to create something amazing in Jibres."
 msgstr "ما در حال آماده‌سازی برای ایجاد اتفاقات شگفت انگیز در جیبرس هستیم."
 
@@ -2566,6 +2579,7 @@ msgid "Privacy Policy"
 msgstr "حریم خصوصی"
 
 #: content/home/layout/footer.php:182 content/home/layout/pwa-footer.php:179
+#: content_love/changelog/view.php:9 content_love/home/display.php:144
 msgid "Changelog"
 msgstr "پیشرفت پروژه"
 
@@ -3958,7 +3972,7 @@ msgstr "وزن"
 #: content_a/accounting/doc/add/display-docdetail.php:11
 #: content_a/accounting/doc/add/display-docdetail.php:95
 #: content_a/accounting/doc/duplicate/display.php:7
-#: content_a/accounting/factor/add/display.php:72 content_a/android/title/display.php:8
+#: content_a/accounting/factor/add/display.php:74 content_a/android/title/display.php:8
 #: content_a/form/add/display.php:6 content_a/form/item/add/display.php:23
 #: content_a/form/setting/display.php:9 content_a/setting/staticfile/display.php:11
 #: content_crm/member/transactions/minus/display.php:9
@@ -4046,7 +4060,7 @@ msgstr "۹٪"
 #: content_a/accounting/doc/add/display-list.php:74
 #: content_a/accounting/doc/add/display-list.php:92
 #: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/factor/add/display.php:167
+#: content_a/accounting/factor/add/display.php:187
 #: content_a/accounting/factor/display.php:51
 #: content_a/accounting/report/assistant/display-old.php:68
 #: content_a/accounting/report/assistant/display.php:65
@@ -4534,12 +4548,14 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_love/business/monthly/view.php:11 content_love/business/question/view.php:12
 #: content_love/business/setting/view.php:12 content_love/business/sitemap/view.php:10
 #: content_love/business/statistics/view.php:10 content_love/business/transfer/view.php:12
-#: content_love/email/history/view.php:12 content_love/email/history/view/view.php:12
-#: content_love/email/view.php:11 content_love/files/datalist/view.php:14
-#: content_love/files/images/view.php:10 content_love/files/remove/view.php:11
-#: content_love/gift/card/view.php:12 content_love/gift/create/add/view.php:12
-#: content_love/gift/create/code/view.php:12 content_love/gift/create/message/view.php:12
-#: content_love/gift/create/price/view.php:12 content_love/gift/create/review/view.php:12
+#: content_love/changelog/add/view.php:12 content_love/changelog/edit/view.php:12
+#: content_love/changelog/view.php:11 content_love/email/history/view.php:12
+#: content_love/email/history/view/view.php:12 content_love/email/view.php:11
+#: content_love/files/datalist/view.php:14 content_love/files/images/view.php:10
+#: content_love/files/remove/view.php:11 content_love/gift/card/view.php:12
+#: content_love/gift/create/add/view.php:12 content_love/gift/create/code/view.php:12
+#: content_love/gift/create/message/view.php:12 content_love/gift/create/price/view.php:12
+#: content_love/gift/create/review/view.php:12
 #: content_love/gift/create/setting/view.php:12 content_love/gift/create/usage/view.php:12
 #: content_love/gift/edit/view.php:12 content_love/gift/home/view.php:12
 #: content_love/gift/lookup/view.php:33 content_love/gift/lookup/view.php:39
@@ -4773,7 +4789,7 @@ msgstr "کد"
 #: content_crm/transactions/detail/display.php:14
 #: content_crm/transactions/edit/display.php:6
 #: content_love/business/analytics/display.php:35
-#: content_love/business/analytics/display.php:62
+#: content_love/business/analytics/display.php:62 content_love/changelog/add/display.php:7
 #: content_love/domain/action/display.php:11
 #: content_love/domain/setting/action/display.php:13
 #: content_love/files/view/display.php:20 content_my/domain/irnic/edit/display.php:11
@@ -4960,10 +4976,12 @@ msgstr "وضعیت"
 #: content_a/website/specialslider/add/display.php:51 content_account/address.php:79
 #: content_cms/hashtag/add/display.php:12 content_crm/member/add/display.php:15
 #: content_crm/permission/add/display.php:11 content_crm/staff/add/display.php:25
-#: content_love/business/domain/add/display.php:18 content_site/page/new/display.php:17
-#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:127
-#: includes/languages/trans_static_public.php:143 lib/pagebuilder/body/image/add.php:51
-#: lib/pagebuilder/body/products/filter.php:45 lib/pagebuilder/body/quote/add.php:51
+#: content_love/business/domain/add/display.php:18
+#: content_love/changelog/add/display.php:46 content_love/changelog/view.php:16
+#: content_site/page/new/display.php:17 dash/layout/admin/admin-titlebox.php:95
+#: dash/layout/pwa/pwa-header.php:127 includes/languages/trans_static_public.php:143
+#: lib/pagebuilder/body/image/add.php:51 lib/pagebuilder/body/products/filter.php:45
+#: lib/pagebuilder/body/quote/add.php:51
 msgid "Add"
 msgstr "افزودن"
 
@@ -4994,7 +5012,7 @@ msgstr "افزودن"
 #: content_a/website/specialslider/display.php:28 content_account/address.php:149
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:78
-#: content_my/domain/irnic/edit/display.php:25
+#: content_love/changelog/add/display.php:44 content_my/domain/irnic/edit/display.php:25
 #: includes/languages/trans_static_public.php:144 lib/app/menu/generate.php:86
 #: lib/app/menu/generate2.php:65 lib/app/tag/get.php:440
 #: lib/pagebuilder/body/image/add.php:47 lib/pagebuilder/body/image/design.php:34
@@ -5028,8 +5046,8 @@ msgstr "ویرایش"
 #: content_crm/member/permission/display.php:59
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
-#: content_love/domain/detail/display.php:195 content_love/store/backup/display.php:19
-#: content_my/domain/irnic/edit/display.php:24
+#: content_love/changelog/add/display.php:38 content_love/domain/detail/display.php:195
+#: content_love/store/backup/display.php:19 content_my/domain/irnic/edit/display.php:24
 #: content_my/domain/setting/elements/remove.php:13
 #: content_site/page/settings/display-sidebar.php:9 lib/pagebuilder/body/image/add.php:43
 #: lib/pagebuilder/body/quote/add.php:43 lib/pagebuilder/body/remove/design.php:12
@@ -5605,25 +5623,29 @@ msgstr "شماره سریال فاکتور"
 msgid "Leave it null to fill by default"
 msgstr "برای ثبت به صورت خودکار خالی بگذارید"
 
-#: content_a/accounting/factor/add/display.php:72
-#: content_a/accounting/factor/add/display.php:73
+#: content_a/accounting/factor/add/display.php:74
+#: content_a/accounting/factor/add/display.php:80
 msgid "Cost type"
 msgstr "نوع هزینه"
 
-#: content_a/accounting/factor/add/display.php:72
+#: content_a/accounting/factor/add/display.php:74
 msgid "Asset type"
 msgstr "نوع دارایی"
 
-#: content_a/accounting/factor/add/display.php:72
-msgid "Income type"
-msgstr "نوع درآمد"
-
 #: content_a/accounting/factor/add/display.php:74
-#: content_a/accounting/factor/add/display.php:83
-#: content_a/accounting/factor/add/display.php:92
-#: content_a/accounting/factor/add/display.php:103
-#: content_a/accounting/factor/add/display.php:115
-#: content_a/accounting/factor/add/display.php:129
+msgid "Income from"
+msgstr "درآمد از"
+
+#: content_a/accounting/factor/add/display.php:77 lib/app/tax/coding/ready.php:61
+msgid "Add new accounting details"
+msgstr "افزودن تفصیل جدید"
+
+#: content_a/accounting/factor/add/display.php:81
+#: content_a/accounting/factor/add/display.php:98
+#: content_a/accounting/factor/add/display.php:107
+#: content_a/accounting/factor/add/display.php:123
+#: content_a/accounting/factor/add/display.php:135
+#: content_a/accounting/factor/add/display.php:149
 #: content_a/form/tag/remove/display.php:37 content_a/tag/remove/display.php:38
 #: content_a/website/news/filter/display.php:10
 #: content_a/website/news/filter/display.php:33 content_cms/hashtag/remove/display.php:37
@@ -5637,81 +5659,91 @@ msgstr "نوع درآمد"
 msgid "None"
 msgstr "هیچ‌کدام"
 
-#: content_a/accounting/factor/add/display.php:81
+#: content_a/accounting/factor/add/display.php:96 lib/app/tax/doc/template.php:195
+#: lib/app/tax/doc/template.php:205 lib/app/tax/doc/template.php:210
+msgid "Buy from"
+msgstr "خرید از"
+
+#: content_a/accounting/factor/add/display.php:96
 msgid "Seller"
 msgstr "فروشنده"
 
-#: content_a/accounting/factor/add/display.php:81
+#: content_a/accounting/factor/add/display.php:96
 msgid "If the seller is not selected, a direct payment document will be made"
 msgstr "در صورت عدم ثبت فروشنده، سند پرداخت مستقیم ثبت خواهد شد"
 
-#: content_a/accounting/factor/add/display.php:82
+#: content_a/accounting/factor/add/display.php:97
 #: content_a/setting/thirdparty/kavenegar/view.php:11
 #: includes/languages/trans_static.php:84
 msgid "Thirdparty"
 msgstr "طرف‌حساب"
 
-#: content_a/accounting/factor/add/display.php:90
-#: content_a/accounting/factor/add/display.php:91
+#: content_a/accounting/factor/add/display.php:105 content_a/setting/pcpos/display.php:72
+#: content_a/setting/pcpos/display.php:74
+msgid "Receiver"
+msgstr "پذیرنده"
+
+#: content_a/accounting/factor/add/display.php:105
+#: content_a/accounting/factor/add/display.php:106
 msgid "Payer"
 msgstr "پرداخت کننده"
 
-#: content_a/accounting/factor/add/display.php:90
+#: content_a/accounting/factor/add/display.php:105
 msgid "In case of non-payment, the credit document will be registered"
 msgstr "در صورت عدم پرداخت کننده، سند نسیه ثبت خواهد شد"
 
-#: content_a/accounting/factor/add/display.php:101
-#: content_a/accounting/factor/add/display.php:102 lib/app/tax/doc/ready.php:89
+#: content_a/accounting/factor/add/display.php:121
+#: content_a/accounting/factor/add/display.php:122 lib/app/tax/doc/ready.php:89
 msgid "Petty cash"
 msgstr "تنخواه"
 
-#: content_a/accounting/factor/add/display.php:113
-#: content_a/accounting/factor/add/display.php:114 content_a/setting/pcpos/display.php:123
+#: content_a/accounting/factor/add/display.php:133
+#: content_a/accounting/factor/add/display.php:134 content_a/setting/pcpos/display.php:123
 #: lib/app/factor/cart.php:151 lib/app/setting/get.php:47
 msgid "Bank"
 msgstr "بانک"
 
-#: content_a/accounting/factor/add/display.php:127
-#: content_a/accounting/factor/add/display.php:128 lib/app/tax/doc/ready.php:93
+#: content_a/accounting/factor/add/display.php:147
+#: content_a/accounting/factor/add/display.php:148 lib/app/tax/doc/ready.php:93
 msgid "Accounting Partner"
 msgstr "جاری شرکا"
 
-#: content_a/accounting/factor/add/display.php:144
+#: content_a/accounting/factor/add/display.php:164
 msgid "Total payment before deducting discount"
 msgstr "مبلغ کل قبل از کسر تخفیف"
 
-#: content_a/accounting/factor/add/display.php:151
+#: content_a/accounting/factor/add/display.php:171
 #: content_a/accounting/factor/display.php:52 content_a/chap/size-a4/a4-1.php:53
 #: content_a/sale/display.php:68
 msgid "Total discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:158
+#: content_a/accounting/factor/add/display.php:178
 msgid "Total vat/tax"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:158
+#: content_a/accounting/factor/add/display.php:178
 msgid "Auto Calculate"
 msgstr "محاسبه خودکار"
 
-#: content_a/accounting/factor/add/display.php:208 content_a/cart/add/display.php:115
+#: content_a/accounting/factor/add/display.php:228 content_a/cart/add/display.php:115
 #: content_business/cart/cartSummary.php:5
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_a/accounting/factor/add/display.php:209
+#: content_a/accounting/factor/add/display.php:229
 msgid "Total Discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:210
+#: content_a/accounting/factor/add/display.php:230
 msgid "Total After Discount"
 msgstr "جمع پس از تخفیف"
 
-#: content_a/accounting/factor/add/display.php:211
+#: content_a/accounting/factor/add/display.php:231
 msgid "Total Vat"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:212
+#: content_a/accounting/factor/add/display.php:232
 msgid "Net Amount"
 msgstr "جمع مبلغ کل"
 
@@ -7438,13 +7470,13 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/tag/display.php:29 content_a/form/answer/detail/display.php:87
 #: content_a/products/edit/display-master.php:24
 #: content_a/setting/product/tag/display.php:11 content_a/tag/sort/display.php:21
-#: content_business/tag/view.php:9 dash/app/posts/dropdown.php:33
-#: dash/layout/search/search-filter.php:165 includes/languages/trans_static.php:557
-#: lib/app/product/filter.php:348 lib/app/product/filter.php:358
-#: lib/app/product/filter.php:368 lib/app/product/property.php:276
-#: lib/app/quickaccess/setting.php:490 lib/app/quickaccess/setting.php:505
-#: lib/app/quickaccess/setting.php:523 lib/app/quickaccess/setting.php:538
-#: lib/app/store/analytics.php:60
+#: content_business/tag/view.php:9 content_love/changelog/add/display.php:19
+#: dash/app/posts/dropdown.php:33 dash/layout/search/search-filter.php:165
+#: includes/languages/trans_static.php:557 lib/app/product/filter.php:348
+#: lib/app/product/filter.php:358 lib/app/product/filter.php:368
+#: lib/app/product/property.php:276 lib/app/quickaccess/setting.php:490
+#: lib/app/quickaccess/setting.php:505 lib/app/quickaccess/setting.php:523
+#: lib/app/quickaccess/setting.php:538 lib/app/store/analytics.php:60
 msgid "Tag"
 msgstr "تگ"
 
@@ -7997,7 +8029,7 @@ msgstr "زرد (برای پیام هشدار)"
 #: content_a/form/item/display.php:319 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_a/website/menu/display.php:9
 #: content_a/website/menu/roster/display.php:16 content_account/ref/display.php:30
-#: content_site/options/link.php:24
+#: content_love/changelog/add/display.php:14 content_site/options/link.php:24
 msgid "Link"
 msgstr "لینک"
 
@@ -8430,16 +8462,16 @@ msgstr "افزودن تگ جدید"
 #: content_love/business/datalist/view.php:41
 #: content_love/business/domain/action/view.php:39
 #: content_love/business/domain/alllist/view.php:60
-#: content_love/business/domain/dnslist/view.php:59 content_love/domain/all/view.php:45
-#: content_love/domain/fetch/view.php:48 content_love/domain/home/view.php:45
-#: content_love/domain/irnic/view.php:41 content_love/domain/log/view.php:47
-#: content_love/domain/onlineniclog/view.php:47 content_love/domain/polls/view.php:37
-#: content_love/email/history/view.php:41 content_love/files/choose/view.php:39
-#: content_love/files/datalist/view.php:42 content_love/smslog/view.php:40
-#: content_love/store/view.php:41 content_my/domain/irnic/view.php:43
-#: content_my/domain/other/view.php:103 content_my/domain/predict/view.php:48
-#: content_my/domain/search/view.php:51 content_site/home/view.php:53
-#: includes/languages/trans_static.php:566
+#: content_love/business/domain/dnslist/view.php:59 content_love/changelog/view.php:46
+#: content_love/domain/all/view.php:45 content_love/domain/fetch/view.php:48
+#: content_love/domain/home/view.php:45 content_love/domain/irnic/view.php:41
+#: content_love/domain/log/view.php:47 content_love/domain/onlineniclog/view.php:47
+#: content_love/domain/polls/view.php:37 content_love/email/history/view.php:41
+#: content_love/files/choose/view.php:39 content_love/files/datalist/view.php:42
+#: content_love/smslog/view.php:40 content_love/store/view.php:41
+#: content_my/domain/irnic/view.php:43 content_my/domain/other/view.php:103
+#: content_my/domain/predict/view.php:48 content_my/domain/search/view.php:51
+#: content_site/home/view.php:53 includes/languages/trans_static.php:566
 msgid "Filtered"
 msgstr "فیلتر شده"
 
@@ -12011,10 +12043,6 @@ msgstr "سریال"
 #: content_a/setting/pcpos/display.php:67 content_a/setting/pcpos/display.php:69
 msgid "Terminal"
 msgstr "ترمینال"
-
-#: content_a/setting/pcpos/display.php:72 content_a/setting/pcpos/display.php:74
-msgid "Receiver"
-msgstr "پذیرنده"
 
 #: content_a/setting/pcpos/display.php:85
 msgid "Enable asanpardakht PC POS"
@@ -19500,7 +19528,7 @@ msgstr "بیزینس"
 #: content_love/business/monthly/display.php:13 content_su/backup/display.php:149
 #: lib/app/domains/filter.php:62 lib/app/form/report.php:177
 #: lib/app/nic_domainaction/ready.php:60 lib/app/nic_domainbilling/ready.php:62
-#: lib/app/nic_domainbilling/ready.php:66
+#: lib/app/nic_domainbilling/ready.php:66 lib/app/tax/year/get.php:115
 msgid "Year"
 msgstr "سال"
 
@@ -19633,6 +19661,18 @@ msgstr "جابجایی سوخت بیزینس"
 #: content_su/shorturl/display.php:11
 msgid "Run"
 msgstr "اجرا"
+
+#: content_love/changelog/add/display.php:29
+msgid "Send in Telegram"
+msgstr "از طریق تلگرام هم ارسال شود"
+
+#: content_love/changelog/add/view.php:9
+msgid "Add new changelog"
+msgstr "افزودن پیشرفت پروژه جدید"
+
+#: content_love/changelog/edit/view.php:9
+msgid "Edit changelog"
+msgstr "ویرایش پیشرفت پروژه"
 
 #: content_love/domain/action/display.php:57 content_love/domain/buyers/display.php:46
 #: content_love/domain/detail/action/display.php:27
@@ -21061,15 +21101,6 @@ msgstr "جیبرس می‌تواند بدون دردسر و سریع به شما
 #: content_my/business/home/display_site.php:128
 msgid "Build my own business"
 msgstr "بیزینس من را بساز"
-
-#: content_my/business/home/display_pwa.php:54 content_my/business/home/display_pwa.php:60
-#: content_my/business/home/display_pwa.php:66 content_my/business/home/display_pwa.php:72
-#: content_my/business/home/display_site.php:135
-#: content_my/business/home/display_site.php:141
-#: content_my/business/home/display_site.php:147
-#: content_my/business/home/display_site.php:153
-msgid "Read more"
-msgstr "بیشتر بخوانید"
 
 #: content_my/business/home/display_pwa.php:59
 #: content_my/business/home/display_site.php:140
@@ -23589,6 +23620,34 @@ msgstr "شما دسترسی لازم برای حذف این آدرس را ندا
 #: dash/app/address.php:429 dash/app/address.php:466
 msgid "Address removed"
 msgstr "آدرس حذف شد"
+
+#: dash/app/changelog.php:16
+msgid "Invalid changelog id"
+msgstr "شماره پشرفت پروژه نادرست"
+
+#: dash/app/changelog.php:24
+msgid "Changelog not found"
+msgstr "پشرفت پروژه یافت نشد"
+
+#: dash/app/changelog.php:161
+msgid "No way to insert changelog"
+msgstr "هیچ راهی برای افزودن پشرفت پروژه نیست"
+
+#: dash/app/changelog.php:165
+msgid "Changelog added"
+msgstr "پیشرفت پروژه اضافه شد"
+
+#: dash/app/changelog.php:279
+msgid "Can not access to edit changelog"
+msgstr "دسترسی به ویرایش پشرفت پروژه ندارید"
+
+#: dash/app/changelog.php:323
+msgid "Can not access to remove this changelog"
+msgstr "شما دسترسی لازم برای حذف این پشرفت پروژه را ندارید"
+
+#: dash/app/changelog.php:334
+msgid "Changelog removed"
+msgstr "پشرفت پروژه حذف شد"
 
 #: dash/app/comment/add.php:38
 msgid "Please wait until your comment was approved"
@@ -38985,10 +39044,6 @@ msgstr "افزودن کل جدید"
 msgid "Add new accounting assistant"
 msgstr "افزودن معین جدید"
 
-#: lib/app/tax/coding/ready.php:61
-msgid "Add new accounting details"
-msgstr "افزودن تفصیل جدید"
-
 #: lib/app/tax/coding/remove.php:21
 msgid "This record is parent of some other record and cannot be remove"
 msgstr "این گزینه والد برای گزینه‌های دیگر است و امکان حذف آن وجود ندارد"
@@ -39207,11 +39262,6 @@ msgstr "نمی‌توانیم اطلاعات شما را ثبت کنیم"
 #: lib/app/tax/doc/template.php:167
 msgid "Invalid coding id"
 msgstr "شناسه سرفصل اشتباه است"
-
-#: lib/app/tax/doc/template.php:195 lib/app/tax/doc/template.php:205
-#: lib/app/tax/doc/template.php:210
-msgid "Buy from"
-msgstr "خرید از"
 
 #: lib/app/tax/doc/template.php:200
 msgid "Sell to"
@@ -41136,6 +41186,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Income type"
+#~ msgstr "نوع درآمد"
 
 #~ msgid "Payment bills"
 #~ msgstr "پرداخت قبوض"
@@ -43353,9 +43406,6 @@ msgstr "یارد"
 #~ msgid "Minutes"
 #~ msgstr "دقیقه"
 
-#~ msgid "Can not access to edit ticket"
-#~ msgstr "دسترسی به ویرایش تیکت ندارید"
-
 #~ msgid "Manage tag"
 #~ msgstr "مدیریت تگ"
 
@@ -45295,9 +45345,6 @@ msgstr "یارد"
 #~ msgid "Duplicate tag"
 #~ msgstr "تگ تکراری است"
 
-#~ msgid "No way to insert tag"
-#~ msgstr "هیچ راهی برای افزودن تگ نیست"
-
 #~ msgid "Server id"
 #~ msgstr "شناسه سرور"
 
@@ -45867,9 +45914,6 @@ msgstr "یارد"
 
 #~ msgid "Zero price!"
 #~ msgstr "مبلغ صفر است!"
-
-#~ msgid "Category not found"
-#~ msgstr "دسته بندی یافت نشد"
 
 #~ msgid "This category have some child and you can not change parent of it"
 #~ msgstr "این دسته‌بندی دارای زیرمجموعه است و شما ‌نمی‌توانید والد آن را تغییر دهید"
