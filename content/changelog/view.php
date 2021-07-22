@@ -24,6 +24,29 @@ class view
 		$list = \dash\app\changelog::public_list(\dash\request::get('tag'));
 		\dash\data::dataTable($list);
 
+
+		$new_list = [];
+		$new_list['soon'] = [];
+		foreach ($list as $key => $value)
+		{
+			if(strtotime(a($value, 'date')) > time())
+			{
+				$new_list['soon'][] = $value;
+			}
+			else
+			{
+				$year = mb_substr(\dash\utility\convert::to_en_number(\dash\fit::date(a($value, 'date'))), 0, 4);
+				if(!isset($new_list[$year]))
+				{
+					$new_list[$year] = [];
+				}
+
+				$new_list[$year][] = $value;
+			}
+		}
+
+		\dash\data::myTable($new_list);
+
 		if(!$list && \dash\request::get())
 		{
 			\dash\redirect::to(\dash\url::this());
