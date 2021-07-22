@@ -3,14 +3,19 @@
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-changelog-1.jpg" alt='<?php echo \dash\face::title();?>'>
   </div>
 
-  <div class="avand-lg impact zero">
-    <?php if(\dash\data::dataTable() || \dash\request::get()) {?>
+  <div class="avand-lg zero impact">
         <?php if(\dash\request::get('tag')) {?>
-            <div class="msg">
-                <?php echo T_("Your are looking to :tag history", ['tag' => '#'.\dash\request::get('tag')]) ?>
-                <a href="<?php echo \dash\url::this() ?>"><?php echo T_("Show all changelog"); ?></a>
+            <div class="msg dark mB0">
+                <div class="row align-center">
+                    <div class="c-auto"><?php echo T_("You are watching the changelog of the project with the :tag tag", ['tag' => '#'.\dash\request::get('tag')]) ?></div>
+                    <div class="c"></div>
+                    <div class="c-auto"><a class="btn secondary" href="<?php echo \dash\url::this() ?>"><?php echo T_("Click to view all"); ?></a></div>
+                </div>
             </div>
         <?php } //ednif ?>
+    </div>
+  <div class="avand-lg impact zero">
+    <?php if(\dash\data::dataTable() || \dash\request::get()) {?>
       <table class="tbl1 v10 fs09 mB0">
          <thead>
             <tr>

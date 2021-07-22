@@ -9,7 +9,7 @@ class view
 		$myTitle = T_('Change log of Jibres');
 		if(\dash\request::get('tag'))
 		{
-			$myTitle .= ' | #'. \dash\request::get('tag');
+			$myTitle .= ' #'. \dash\request::get('tag');
 		}
 		\dash\face::title($myTitle);
 
