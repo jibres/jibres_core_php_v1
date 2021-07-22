@@ -222,8 +222,8 @@
             </tbody>
         </table>
 
-    <?php } //endif ?>
 </div>
+    <?php } //endif ?>
 
 <div class="avand-lg impact zero">
     <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-changelog-2.jpg" alt='<?php echo T_('We are preparing to create something amazing in Jibres.')?>'>
