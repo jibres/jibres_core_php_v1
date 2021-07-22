@@ -177,6 +177,12 @@ class changelog
 	}
 
 
+	public static function public_list()
+	{
+		return self::list(null, ['language' => \dash\language::current()]);
+	}
+
+
 	public static function list($_query_string, $_args)
 	{
 
@@ -185,6 +191,7 @@ class changelog
 			'order'      => 'order',
 			'sort'       => 'string_50',
 			'tag'       => 'string_50',
+			'language'       => 'language',
 
 
 		];
@@ -201,6 +208,10 @@ class changelog
 		$order_sort    = null;
 		$meta['limit'] = 15;
 
+		if($data['language'])
+		{
+			$and[] = " changelog.language = '$data[language]' ";
+		}
 
 		if($data['tag'])
 		{

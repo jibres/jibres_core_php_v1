@@ -4,6 +4,35 @@
  </div>
 
  <div class="avand-lg impact zero">
+    <?php if(\dash\data::dataTable()) {?>
+
+  <table class="tbl1 v10 fs09 mB0">
+   <thead>
+    <tr>
+     <th class="collapsing"><?php echo T_("Date"); ?></th>
+     <th><?php echo T_("Description"); ?></th>
+     <th class="collapsing"></th>
+    </tr>
+   </thead>
+   <tbody>
+
+    <tr>
+     <td>...</td>
+     <td><?php echo T_("We are Developers, please wait!"); ?></td>
+     <td></td>
+    </tr>
+
+    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+        <tr>
+         <td><?php echo \dash\fit::date(a($value, 'date')); ?></td>
+         <td><?php echo a($value, 'title'); ?></td>
+         <td></td>
+        </tr>
+    <?php } //endfor ?>
+    </tbody>
+  </table>
+
+    <?php }else{ ?>
 
   <table class="tbl1 v10 fs09 mB0">
    <thead>
@@ -179,6 +208,7 @@
    </tbody>
   </table>
 
+<?php } //endif ?>
  </div>
 
  <div class="avand-lg impact zero">

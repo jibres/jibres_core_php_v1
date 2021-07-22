@@ -14,6 +14,12 @@ class view
 		// btn
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
+
+		if(\dash\permission::supervisor())
+		{
+			$list = \dash\app\changelog::public_list();
+			\dash\data::dataTable($list);
+		}
 	}
 }
 ?>
