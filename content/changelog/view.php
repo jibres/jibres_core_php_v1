@@ -15,7 +15,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-		$list = \dash\app\changelog::public_list();
+		$list = \dash\app\changelog::public_list(\dash\request::get('tag'));
 		\dash\data::dataTable($list);
 
 	}

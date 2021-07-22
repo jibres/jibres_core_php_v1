@@ -9,21 +9,27 @@
       <table class="tbl1 v10 fs09 mB0">
          <thead>
             <tr>
-               <th class="collapsing"><?php echo T_("Date"); ?></th>
-               <th><?php echo T_("Description"); ?></th>
+               <th class="collapsing txtL"><a href="<?php echo \dash\url::this() ?>"><?php echo T_("Date"); ?></a></th>
+               <th><a href="<?php echo \dash\url::this() ?>"><?php echo T_("Description"); ?></a></th>
                <th class="collapsing"></th>
            </tr>
        </thead>
        <tbody>
         <tr>
-           <td>...</td>
+           <td class="txtL">...</td>
            <td><?php echo T_("We are Developers, please wait!"); ?></td>
            <td class="collapsing"></td>
        </tr>
        <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-           <td><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
-           <td><?php echo a($value, 'title'); ?></td>
+           <td class="txtL"><?php if(a($value, 'date')) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
+           <td><?php echo a($value, 'title'); ?>
+               <?php if(a($value, 'tag1')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag1').'"> #'. $value['tag1']. '</a>';} ?>
+               <?php if(a($value, 'tag2')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag2').'"> #'. $value['tag2']. '</a>';} ?>
+               <?php if(a($value, 'tag3')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag3').'"> #'. $value['tag3']. '</a>';} ?>
+               <?php if(a($value, 'tag4')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag4').'"> #'. $value['tag4']. '</a>';} ?>
+               <?php if(a($value, 'tag5')) { echo '<a href="'.\dash\url::this(). '?tag='. a($value, 'tag5').'"> #'. $value['tag5']. '</a>';} ?>
+           </td>
            <td class="collapsing"><?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"><?php echo T_("Read more") ?></a><?php } ?></td>
        </tr>
    <?php } //endfor ?>

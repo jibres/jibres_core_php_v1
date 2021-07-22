@@ -177,9 +177,9 @@ class changelog
 	}
 
 
-	public static function public_list()
+	public static function public_list($_tag = null)
 	{
-		return self::list(null, ['language' => \dash\language::current(), 'limit' => 1000]);
+		return self::list(null, ['language' => \dash\language::current(), 'limit' => 1000, 'tag' => $_tag]);
 	}
 
 
