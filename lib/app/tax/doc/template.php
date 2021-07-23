@@ -196,6 +196,21 @@ class template
 				{
 					$desc[] = T_("Pay to");
 				}
+				elseif(!$thirdparty && a($_args, 'put_on'))
+				{
+					$desc[] = T_("Cost");
+
+					$put_on = \dash\validate::id(a($_args, 'put_on'), false);
+					if($put_on)
+					{
+						$load_coding = \lib\db\tax_coding\get::by_id($put_on);
+
+						if(isset($load_coding['title']))
+						{
+							$desc[] = $load_coding['title'];
+						}
+					}
+				}
 				else
 				{
 					$desc[] = T_("Buy from");
