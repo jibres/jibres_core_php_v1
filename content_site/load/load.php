@@ -229,8 +229,16 @@ class load
 				}
 				else
 				{
-					// load full page id and homepage header and footer
-					$list = \lib\db\pagebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
+
+					if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
+					{
+						$list = \lib\db\pagebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
+					}
+					else
+					{
+						// load full page id and homepage header and footer
+						$list = \lib\db\pagebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
+					}
 					$need_explode_homepage_header_footer = true;
 				}
 			}

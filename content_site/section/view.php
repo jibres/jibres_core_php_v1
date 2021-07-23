@@ -290,7 +290,9 @@ class view
 		}
 
 
-		$result['preview']                 = array_merge($default_options, $detail, $default, $result['preview']);
+		$thisDefault = array_merge($default_options, $detail, $default);
+
+		$result['preview']                 = array_merge($thisDefault, $result['preview']);
 		$result['preview']['id']           = a($result, 'id');
 		$result['preview']['preview_mode'] = true;
 		$result['preview_layout']          = null;
@@ -316,7 +318,7 @@ class view
 
 		if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
 		{
-			$result['body']           = array_merge($detail, $default, $result['body']);
+			$result['body']           = array_merge($thisDefault, $result['body']);
 
 			$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
 

@@ -102,6 +102,7 @@ class controller
 
 		$section_list = \lib\db\sitebuilder\get::line_list_preview($page_id);
 
+
 		if(!is_array($section_list))
 		{
 			$section_list = [];
