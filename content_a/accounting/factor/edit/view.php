@@ -42,7 +42,7 @@ class view
 		\dash\face::btnDuplicate($duplicateLink);
 
 		// save btn
-		\dash\face::btnNew(\dash\url::that(). '/add');
+		\dash\face::btnNew(\dash\url::that(). '/add?type='. \dash\data::myType());
 
 		// view document btn
 		\dash\face::btnView(\dash\url::this(). '/doc/edit?id='. \dash\request::get('id'));
