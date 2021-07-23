@@ -65,13 +65,13 @@ if(!\dash\data::editMode())
                   <input type="text" name="serialnumber" value="<?php echo a($dataRow, 'tax_document', 'serialnumber');  ?>" id="serialnumber" maxlength="100"  <?php echo $disableInput ?>>
                 </div>
               </div>
+            <?php } //endif ?>
               <div class="c-xs-6 c-sm">
                 <label for="title"><?php echo T_("Description"); ?></label>
                 <div class="input">
                   <input type="text" name="title" value="<?php echo a($dataRow, 'tax_document', 'desc'); ?>" id="title" maxlength="100" placeholder='<?php echo T_('Leave it null to fill by default') ?>' <?php echo $disableInput ?>>
                 </div>
               </div>
-            <?php } //endif ?>
           </div>
           <?php if(\dash\data::detailsList()) {?>
             <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
@@ -135,7 +135,7 @@ if(!\dash\data::editMode())
               </div>
             <?php } // endif ?>
 
-            <?php if(in_array($myType, ['petty_cash'])) {?>
+            <?php if(in_array($myType, ['petty_cash', 'bank_partner'])) {?>
               <div class="mT10">
                 <label for="bank"><?php echo T_("Bank") ?></label>
                 <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
@@ -149,7 +149,7 @@ if(!\dash\data::editMode())
             <?php } // endif ?>
 
 
-            <?php if(in_array($myType, ['partner'])) {?>
+            <?php if(in_array($myType, ['partner', 'bank_partner'])) {?>
               <div class="mT10">
                 <label for="partner"><?php echo T_("Accounting Partner") ?></label>
                 <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Accounting Partner") ?>'>
@@ -190,7 +190,7 @@ if(!\dash\data::editMode())
             </div>
           </div>
         <?php } //endif ?>
-            <?php if(in_array($myType, ['petty_cash', 'partner'])) {?>
+            <?php if(in_array($myType, ['petty_cash', 'partner', 'bank_partner'])) {?>
               <label for="total"><?php echo T_("Total"); ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="total"><?php echo $currency ?></label><?php } //endif ?>

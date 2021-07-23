@@ -39,7 +39,7 @@ class check
 			'type'          => ['enum' => ['normal', 'opening', 'closing']],
 
 			// template detail
-			'template'      => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bill']],
+			'template'      => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner']],
 
 			'pay_from'      => 'id',
 			'put_on'        => 'id',
@@ -152,6 +152,10 @@ class check
 					\dash\notif::error(T_("Bank and petty cash is required"));
 					return false;
 				}
+			}
+			elseif($data['template'] === 'bank_partner')
+			{
+				// check some error
 			}
 		}
 		else

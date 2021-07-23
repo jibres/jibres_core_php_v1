@@ -210,6 +210,7 @@ class template
 				$desc[] = T_("Buy from");
 				break;
 
+			case 'bank_partner':
 			case 'petty_cash':
 			case 'partner':
 				$thirdparty = a($_args, 'petty_cash');
@@ -309,6 +310,7 @@ class template
 
 
 			case 'petty_cash':
+			case 'bank_partner':
 			case 'partner':
 			case 'bill':
 			case 'asset':
@@ -610,6 +612,31 @@ class template
 				'sort'            => 2,
 				'template'        => 'partner',
 			];
+		}
+		elseif($args['template'] === 'bank_partner')
+		{
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $bank, 'parent3'),
+				'details_id'      => $bank,
+				'type'            => 'debtor',
+				'value'           => $args['total'],
+				'sort'            => 1,
+				'template'        => 'bank',
+			];
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $partner, 'parent3'),
+				'details_id'      => $partner,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
+				'sort'            => 2,
+				'template'        => 'partner',
+			];
+
 		}
 		else
 		{

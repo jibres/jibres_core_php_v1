@@ -4,11 +4,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 ?>
 <div class="row">
   <div class="c-xs-12 c-sm-12 c-md-3">
-
-
-
-
-
     <nav class="items long">
       <ul>
         <li>
@@ -41,8 +36,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
-
     <nav class="items long">
       <ul>
         <li>
@@ -75,8 +68,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
-
     <nav class="items long">
       <ul>
         <li>
@@ -114,11 +105,8 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
-
   </div>
   <div class="c-xs-12 c-sm-12 c-md-6">
-
     <div id="chartdivaccountinghome" class="box chart x320 s0" data-abc='a/accounting'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
@@ -127,7 +115,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         <div id="chardatacount"><?php echo a($dashboardDetail, 'chart', 'count') ?></div>
       </div>
     </div>
-
     <section class="row">
       <div class="c-xs-0 c-sm-6 c-md-6">
         <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox pB25-f">
@@ -135,7 +122,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
           <h3><?php echo T_("Percent lock Accounting Document");?></h3>
         </a>
       </div>
-
       <div class="c-xs-6 c-sm-6 c-md-6">
         <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox pB25-f">
           <?php $myPercent= a($dashboardDetail, 'percent_attachment');$myColor='auto';include core.'layout/elements/circularChart.php';?>
@@ -143,8 +129,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </a>
       </div>
     </section>
-
-
   </div>
   <div class="c-xs-12 c-sm-12 c-md-3">
     <nav class="items long">
@@ -167,7 +151,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
     <nav class="items long">
       <ul>
         <li>
@@ -187,7 +170,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
     <nav class="items long">
       <ul>
         <li>
@@ -216,8 +198,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         <?php } //endif ?>
       </ul>
     </nav>
-
-
     <nav class="items long">
       <ul>
         <li>
@@ -238,7 +218,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
     <nav class="items long">
       <ul>
         <li>
@@ -251,7 +230,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
     <nav class="items long">
       <ul>
         <li>
@@ -267,6 +245,14 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
             <div class="key"><?php echo T_("Charge Petty Cash from partners") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'partner')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bank_partner'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
+            <div class="key"><?php echo T_("Charge Bank from partners") ?></div>
+            <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'bank_partner')) ?></div>
             <div class="go"></div>
           </a>
         </li>

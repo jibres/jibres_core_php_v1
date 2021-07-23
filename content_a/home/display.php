@@ -39,9 +39,6 @@
           </div>
         </a>
       <?php } //endif ?>
-
-
-
       <?php if(a($dashboardData, 'new_form_answer')) {?>
         <?php foreach(a($dashboardData, 'new_form_answer') as $key => $value) {?>
           <a href="<?php echo \dash\url::kingdom(). '/a/form/answer?id='. a($value, 'id') ?>">
@@ -51,13 +48,7 @@
           </a>
         <?php } //endif ?>
       <?php } //endif ?>
-
-
-
     </div>
-
-
-
 <?php if(\dash\permission::check('_group_products')) {?>
    <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
 <?php } //endif ?>
@@ -65,7 +56,6 @@
   <div class="c-xs-12 c-sm-12 c-md-4">
    <nav class="items long">
      <ul>
-
 <?php if(\dash\permission::check('_group_orders')) {?>
        <li>
         <a class="item f unprocessedOrder" href="<?php echo \dash\url::here();?>/order/unprocessed">
@@ -103,10 +93,8 @@
         </a>
        </li>
 <?php } //endif ?>
-
      </ul>
    </nav>
-
    <nav class="items long">
      <ul>
 <?php if(\dash\permission::check('_group_products')) {?>
@@ -130,7 +118,6 @@
 <?php } //endif ?>
      </ul>
    </nav>
-
    <nav class="items long">
      <ul>
 <?php if(\dash\permission::check('_group_crm')) {?>
@@ -152,7 +139,6 @@
 <?php } //endif ?>
      </ul>
    </nav>
-
     <nav class="items long">
       <ul>
         <?php if(\dash\permission::check('_group_cms')) {?>
@@ -166,7 +152,6 @@
       <?php } //endif ?>
       </ul>
     </nav>
-
     <nav class="items long">
       <ul>
         <?php if(\dash\permission::check('_group_accounting')) {?>
@@ -176,10 +161,8 @@
             <div class="go"></div>
           </a></li>
         <?php  }//endif ?>
-
       </ul>
     </nav>
-
     <nav class="items long">
       <ul>
         <?php if(\dash\permission::check('_group_setting')) { $url = \lib\pagebuilder\tools\homepage::get_link(); ?>
@@ -211,8 +194,6 @@
       <?php } //endif ?>
       </ul>
     </nav>
-
-
     <?php if(\dash\permission::check('_group_setting') && !\dash\request::is_pwa()) {?>
        <nav class="items long">
       <ul>
@@ -220,14 +201,8 @@
       </ul>
     </nav>
     <?php  }//endif ?>
-
-
+ </div>
 </div>
-
-</div>
-
-
-
 <div class="hide">
   <div id="chartcategory"><?php echo a(\dash\data::dashboardData(), 'chart', 'categories'); ?></div>
   <div id="chartsum"><?php echo a(\dash\data::dashboardData(), 'chart', 'sum'); ?></div>

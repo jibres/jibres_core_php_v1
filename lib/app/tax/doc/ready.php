@@ -97,8 +97,8 @@ class ready
 				$tvalue = T_("Asset");
 				break;
 
-			case 'bill':
-				$tvalue = T_("Billing");
+			case 'bank_partner':
+				$tvalue = T_("Charge bank from partner");
 				break;
 
 			default:
