@@ -44,7 +44,7 @@ class layout
 
 						foreach ($_args['image_list'] as $key => $value)
 						{
-							$file = \dash\utility\icon::url('Image', 'major');
+							$file = \dash\app::static_image_url();
 
 							if(isset($value['file']) && $value['file'])
 							{
