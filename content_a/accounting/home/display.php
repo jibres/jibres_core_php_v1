@@ -36,6 +36,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
+
     <nav class="items long">
       <ul>
         <li>
@@ -68,6 +69,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
+    <p class="mB5-f font-14"><?php echo T_("Legal offices") ?></p>
     <nav class="items long">
       <ul>
         <li>
@@ -107,7 +109,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     </nav>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-6">
-    <div id="chartdivaccountinghome" class="box chart x320 s0" data-abc='a/accounting'>
+    <div id="chartdivaccountinghome" class="box chart x350 s0" data-abc='a/accounting'>
       <div class="hide">
         <div id="charttitleunit"><?php echo T_("Count") ?></div>
         <div id="charttitle"><?php echo T_("Accounting Documents per month") ?></div>
