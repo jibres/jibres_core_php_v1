@@ -55,6 +55,12 @@ class model
 			return;
 		}
 
+		// remove or hidden section
+		if(self::restore_section($section_id))
+		{
+			return;
+		}
+
 		// set section sort
 		if(\dash\request::post('set_sort_child'))
 		{
@@ -318,6 +324,40 @@ class model
 				// set hide and view section
 				return true;
 			}
+		}
+
+		return false;
+	}
+
+
+	private static function restore_section($section_id)
+	{
+
+		// delete or hide a section
+		if(\dash\request::post('restore') === 'section')
+		{
+			$load_section = \lib\db\pagebuilder\get::by_id($section_id);
+
+			if(!$load_section || !is_array($load_section))
+			{
+				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
+
+				return true;
+			}
+
+			$myStatus = 'draft';
+			if(a($load_section, 'status'))
+			{
+				$myStatus = $load_section['status'];
+			}
+
+			\content_site\update_record::patch_field($section_id, 'status_preview', $myStatus);
+
+			\dash\notif::reloadIframe();
+
+			\dash\redirect::pwd();
+
+			return true;
 		}
 
 		return false;

@@ -35,6 +35,8 @@ class model
 
 		\dash\notif::ok(T_("Data saved"));
 
+		\dash\redirect::pwd();
+
 		return true;
 
 	}

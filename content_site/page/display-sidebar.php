@@ -3,6 +3,8 @@ $header = [];
 $body   = [];
 $footer = [];
 
+$deleted_section = [];
+
 $header_link = \dash\url::here(). '/section'. \dash\request::full_get(['list' => 'header']);
 
 $list = \dash\data::currentSectionList();
@@ -45,7 +47,14 @@ foreach ($list as $key => $value)
   <input type="hidden" name="set_sort_section" value="1">
   <nav class="sections items">
     <ul data-sortable>
-      <?php foreach ($body as $key => $value) { ?>
+      <?php foreach ($body as $key => $value)
+      {
+        if(a($value, 'status_preview') === 'deleted')
+        {
+          $deleted_section[] = $value;
+          continue;
+        }
+      ?>
         <li>
           <a class="item f <?php if(a($value, 'status_preview') === 'hidden'){ echo 'opacity-30';} ?>" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
             <input type="hidden" name="sort_section[]" value="<?php echo a($value, 'id') ?>">
@@ -82,3 +91,22 @@ foreach ($list as $key => $value)
     </li>
   </ul>
 </nav>
+
+<?php if($deleted_section) {?>
+  <label class="mT25"><?php echo T_("Deleted section") ?> <small><?php echo T_("After save page this section completly removed") ?></small></label>
+
+  <nav class="sections items">
+    <ul data-sortable>
+      <?php foreach ($deleted_section as $key => $value) {?>
+        <li>
+          <a class="item f opacity-40" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo a($value, 'preview', 'icon') ?>">
+            <div class="key"><?php if(a($value, 'preview', 'heading') !== null) { echo a($value, 'preview', 'heading'); }else{ echo '<i class="fc-mute">'. T_("Without title"). '</i>';} ?></div>
+            <img class="p-5 opacity-70 hover:bg-gray-200" src="<?php echo \dash\utility\icon::url('Delete', 'minor'); ?>">
+          </a>
+        </li>
+      <?php } //endfor ?>
+    </ul>
+  </nav>
+
+  <?php } //endif ?>

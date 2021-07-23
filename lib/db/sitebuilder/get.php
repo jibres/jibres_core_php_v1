@@ -31,8 +31,7 @@ class get
 			FROM
 				pagebuilder
 			WHERE
-				pagebuilder.related_id = $_id AND
-				(pagebuilder.status_preview IS NULL OR pagebuilder.status_preview != 'deleted')
+				pagebuilder.related_id = $_id
 			ORDER BY
 				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
 				pagebuilder.sort_preview ASC,

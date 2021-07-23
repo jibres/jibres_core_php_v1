@@ -64,43 +64,74 @@ else
    * Load options of one section
    */
 
+  $currentSectionDetail = \dash\data::currentSectionDetail();
 
-  $options_list = \dash\data::currentOptionList();
-  $child        = \dash\url::child();
-  $subchild     = \dash\url::subchild();
-  $folder       = \dash\data::currentSectionDetail_mode();
-
-  if($subchild && isset($options_list[$subchild]) && is_array($options_list[$subchild]))
+  if(a($currentSectionDetail, 'status_preview') === 'deleted')
   {
-    foreach ($options_list[$subchild] as $key => $option)
-    {
-      if($option === 'background_pack')
+      /**
+       * btn restore
+       */
+      $restore_json    = json_encode(['restore' => 'section']);
+
+      $html .= '<p class="msg">';
+      $html .= T_("This setting was removed. But you can restore it. If you save page, this section completly removed and can not be restore");
+      $html .= '</p>';
+      $restore_title = T_("Are you sure to restore this section?");
+
+      $html .= '<div class="row w-full">';
       {
-        $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
-        break;
-      }
-      else
-      {
-        $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
+        $html .= "<div tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 hover:text-red-500 focus:text-red-600 active:text-red-700 transition p-3 rounded-lg' data-confirm data-title='$restore_title' data-data='$restore_json'>";
+        {
+          $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Redo', 'major'). '" alt="Delete">';
+          $html .= '<span class="inline-block align-middle ps-2">'. T_("Restore section").'</span>';
+        }
+        $html .= '</div>';
 
       }
-    }
-  }
-  elseif(is_array($options_list))
-  {
-    foreach ($options_list as $key => $option)
-    {
-      if(is_string($option))
-      {
-        $html .= \content_site\call_function::option_admin_html($option, \dash\data::currentSectionDetail());
-      }
-      elseif(is_array($option))
-      {
-        $html .= \content_site\call_function::option_admin_html($key, \dash\data::currentSectionDetail());
-      }
-    }
+      $html .= '</div>';
 
   }
+  else
+  {
+
+    $options_list = \dash\data::currentOptionList();
+    $child        = \dash\url::child();
+    $subchild     = \dash\url::subchild();
+    $folder       = \dash\data::currentSectionDetail_mode();
+
+    if($subchild && isset($options_list[$subchild]) && is_array($options_list[$subchild]))
+    {
+      foreach ($options_list[$subchild] as $key => $option)
+      {
+        if($option === 'background_pack')
+        {
+          $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
+          break;
+        }
+        else
+        {
+          $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
+
+        }
+      }
+    }
+    elseif(is_array($options_list))
+    {
+      foreach ($options_list as $key => $option)
+      {
+        if(is_string($option))
+        {
+          $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
+        }
+        elseif(is_array($option))
+        {
+          $html .= \content_site\call_function::option_admin_html($key, $currentSectionDetail);
+        }
+      }
+
+    }
+  }
+
 
 
 }
