@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-23 12:37+0430\n"
-"PO-Revision-Date: 2021-07-23 12:39+0430\n"
+"POT-Creation-Date: 2021-07-23 13:45+0430\n"
+"PO-Revision-Date: 2021-07-23 13:47+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2218,7 +2218,7 @@ msgstr "محصولات"
 
 #: content/home/display.php:104 content_my/business/home/display_site.php:65
 #: dash/layout/admin/sidebar/sidebar-a.php:10 lib/app/store/analytics.php:76
-#: lib/app/tax/doc/template.php:225 lib/app/tax/doc/template.php:253
+#: lib/app/tax/doc/template.php:232 lib/app/tax/doc/template.php:260
 msgid "Factor"
 msgstr "فاکتور"
 
@@ -3979,8 +3979,7 @@ msgstr "وزن"
 #: content_a/accounting/doc/add/display-doc.php:68
 #: content_a/accounting/doc/add/display-docdetail.php:11
 #: content_a/accounting/doc/add/display-docdetail.php:95
-#: content_a/accounting/doc/duplicate/display.php:7
-#: content_a/accounting/factor/add/display.php:81 content_a/android/title/display.php:8
+#: content_a/accounting/doc/duplicate/display.php:7 content_a/android/title/display.php:8
 #: content_a/form/add/display.php:6 content_a/form/item/add/display.php:23
 #: content_a/form/setting/display.php:9 content_a/setting/staticfile/display.php:11
 #: content_crm/member/transactions/minus/display.php:9
@@ -4068,7 +4067,7 @@ msgstr "۹٪"
 #: content_a/accounting/doc/add/display-list.php:74
 #: content_a/accounting/doc/add/display-list.php:92
 #: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/factor/add/display.php:194
+#: content_a/accounting/factor/add/display.php:191
 #: content_a/accounting/factor/display.php:51
 #: content_a/accounting/report/assistant/display-old.php:68
 #: content_a/accounting/report/assistant/display.php:65
@@ -5649,11 +5648,11 @@ msgid "Add new accounting details"
 msgstr "افزودن تفصیل جدید"
 
 #: content_a/accounting/factor/add/display.php:88
-#: content_a/accounting/factor/add/display.php:105
-#: content_a/accounting/factor/add/display.php:114
-#: content_a/accounting/factor/add/display.php:130
-#: content_a/accounting/factor/add/display.php:142
-#: content_a/accounting/factor/add/display.php:156
+#: content_a/accounting/factor/add/display.php:102
+#: content_a/accounting/factor/add/display.php:111
+#: content_a/accounting/factor/add/display.php:127
+#: content_a/accounting/factor/add/display.php:139
+#: content_a/accounting/factor/add/display.php:153
 #: content_a/form/tag/remove/display.php:37 content_a/tag/remove/display.php:38
 #: content_a/website/news/filter/display.php:10
 #: content_a/website/news/filter/display.php:33 content_cms/hashtag/remove/display.php:37
@@ -5667,89 +5666,89 @@ msgstr "افزودن تفصیل جدید"
 msgid "None"
 msgstr "هیچ‌کدام"
 
-#: content_a/accounting/factor/add/display.php:103
+#: content_a/accounting/factor/add/display.php:100
 msgid "Buyer"
 msgstr "خریدار"
 
-#: content_a/accounting/factor/add/display.php:103
+#: content_a/accounting/factor/add/display.php:100
 msgid "Seller"
 msgstr "فروشنده"
 
-#: content_a/accounting/factor/add/display.php:103
+#: content_a/accounting/factor/add/display.php:100
 msgid "If the seller is not selected, a direct payment document will be made"
 msgstr "در صورت عدم ثبت فروشنده، سند پرداخت مستقیم ثبت خواهد شد"
 
-#: content_a/accounting/factor/add/display.php:104
+#: content_a/accounting/factor/add/display.php:101
 #: content_a/setting/thirdparty/kavenegar/view.php:11
 #: includes/languages/trans_static.php:84
 msgid "Thirdparty"
 msgstr "طرف‌حساب"
 
-#: content_a/accounting/factor/add/display.php:112
+#: content_a/accounting/factor/add/display.php:109
 msgid "Recipient of money"
 msgstr "دریافت کننده پول"
 
-#: content_a/accounting/factor/add/display.php:112
-#: content_a/accounting/factor/add/display.php:113
+#: content_a/accounting/factor/add/display.php:109
+#: content_a/accounting/factor/add/display.php:110
 msgid "Payer"
 msgstr "پرداخت کننده"
 
-#: content_a/accounting/factor/add/display.php:112
+#: content_a/accounting/factor/add/display.php:109
 msgid "In case of non-payment, the credit document will be registered"
 msgstr "در صورت عدم پرداخت کننده، سند نسیه ثبت خواهد شد"
 
-#: content_a/accounting/factor/add/display.php:128
-#: content_a/accounting/factor/add/display.php:129 lib/app/tax/doc/ready.php:89
+#: content_a/accounting/factor/add/display.php:125
+#: content_a/accounting/factor/add/display.php:126 lib/app/tax/doc/ready.php:89
 msgid "Petty cash"
 msgstr "تنخواه"
 
-#: content_a/accounting/factor/add/display.php:140
-#: content_a/accounting/factor/add/display.php:141 content_a/setting/pcpos/display.php:123
+#: content_a/accounting/factor/add/display.php:137
+#: content_a/accounting/factor/add/display.php:138 content_a/setting/pcpos/display.php:123
 #: lib/app/factor/cart.php:151 lib/app/setting/get.php:47
 msgid "Bank"
 msgstr "بانک"
 
-#: content_a/accounting/factor/add/display.php:154
-#: content_a/accounting/factor/add/display.php:155 lib/app/tax/doc/ready.php:93
+#: content_a/accounting/factor/add/display.php:151
+#: content_a/accounting/factor/add/display.php:152 lib/app/tax/doc/ready.php:93
 msgid "Accounting Partner"
 msgstr "جاری شرکا"
 
-#: content_a/accounting/factor/add/display.php:171
+#: content_a/accounting/factor/add/display.php:168
 msgid "Total payment before deducting discount"
 msgstr "مبلغ کل قبل از کسر تخفیف"
 
-#: content_a/accounting/factor/add/display.php:178
+#: content_a/accounting/factor/add/display.php:175
 #: content_a/accounting/factor/display.php:52 content_a/chap/size-a4/a4-1.php:53
 #: content_a/sale/display.php:68
 msgid "Total discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:185
+#: content_a/accounting/factor/add/display.php:182
 msgid "Total vat/tax"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:185
+#: content_a/accounting/factor/add/display.php:182
 msgid "Auto Calculate"
 msgstr "محاسبه خودکار"
 
-#: content_a/accounting/factor/add/display.php:235 content_a/cart/add/display.php:115
+#: content_a/accounting/factor/add/display.php:232 content_a/cart/add/display.php:115
 #: content_business/cart/cartSummary.php:5
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_a/accounting/factor/add/display.php:236
+#: content_a/accounting/factor/add/display.php:233
 msgid "Total Discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:237
+#: content_a/accounting/factor/add/display.php:234
 msgid "Total After Discount"
 msgstr "جمع پس از تخفیف"
 
-#: content_a/accounting/factor/add/display.php:238
+#: content_a/accounting/factor/add/display.php:235
 msgid "Total Vat"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:239
+#: content_a/accounting/factor/add/display.php:236
 msgid "Net Amount"
 msgstr "جمع مبلغ کل"
 
@@ -6685,8 +6684,8 @@ msgstr "صفحه"
 #: content_cms/files/images/display.php:11 content_cms/files/remove/display.php:11
 #: content_love/files/home/display.php:92 content_love/files/images/display.php:11
 #: content_love/files/remove/display.php:11 content_site/body/gallery/option.php:28
-#: content_site/body/gallery/option.php:109 content_site/body/gallery/option.php:115
-#: content_site/body/gallery/option.php:121 content_site/body/imagetext/option.php:30
+#: content_site/body/gallery/option.php:116 content_site/body/gallery/option.php:122
+#: content_site/body/gallery/option.php:128 content_site/body/imagetext/option.php:30
 #: content_site/body/imagetext/option.php:38 content_site/body/slideshow/option.php:28
 #: content_site/body/slideshow/option.php:109 content_site/body/slideshow/option.php:115
 #: content_site/body/slideshow/option.php:121 content_site/options/image/image_add.php:49
@@ -13920,7 +13919,7 @@ msgid "Image Alt"
 msgstr "متن جایگزین عکس"
 
 #: content_a/website/imageblock/add/view.php:9 content_a/website/imageblock/view.php:27
-#: content_site/options/image/image_add.php:94
+#: content_site/options/image/image_add.php:95
 msgid "Add image"
 msgstr "افزودن تصویر جدید"
 
@@ -14025,8 +14024,7 @@ msgstr "استاندارد"
 
 #: content_a/website/news/filter/display.php:23 content_cms/home/display.php:64
 #: content_cms/posts/add/display.php:17 content_cms/posts/advance/display.php:102
-#: content_site/body/gallery/option.php:30 content_site/body/gallery/option.php:48
-#: content_site/body/gallery/option.php:134 content_site/options/post/post_template.php:13
+#: content_site/body/gallery/option.php:30 content_site/options/post/post_template.php:13
 #: dash/app/posts/filter.php:94 dash/app/posts/filter.php:104
 #: dash/layout/post/admin-gallery-box.php:82 lib/app/product/filter.php:217
 #: lib/app/product/filter.php:227 lib/pagebuilder/body/news/filter.php:53
@@ -22356,15 +22354,24 @@ msgstr "وبلاگ مدرن"
 msgid "Blog Posts"
 msgstr "پست‌های وبلاگ"
 
-#: content_site/body/blog/option.php:174
+#: content_site/body/blog/option.php:174 content_site/body/gallery/option.php:201
 msgid "Classic View"
 msgstr "نمایش کلاسیک"
 
-#: content_site/body/blog/option.php:191 content_site/body/text/option.php:158
+#: content_site/body/blog/option.php:191 content_site/body/gallery/option.php:218
+#: content_site/body/text/option.php:158
 msgid "Modern View"
 msgstr "نمایش مدرن"
 
-#: content_site/body/gallery/option.php:137
+#: content_site/body/gallery/option.php:48
+msgid "Classic gallery"
+msgstr "گالری کلاسیک"
+
+#: content_site/body/gallery/option.php:53
+msgid "Modern gallery"
+msgstr "گالری مدرن"
+
+#: content_site/body/gallery/option.php:144
 msgid "Image Gallery"
 msgstr "گالری تصویر"
 
@@ -22696,7 +22703,7 @@ msgstr "جزئیات بخش اشتباه است"
 #: content_site/options/image/image_add.php:26 content_site/section/model.php:195
 #: content_site/section/model.php:285 content_site/section/model.php:349
 #: content_site/section/model.php:379 content_site/section/model.php:418
-#: content_site/section/model.php:477 content_site/update_record.php:18
+#: content_site/section/model.php:479 content_site/update_record.php:18
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -22778,8 +22785,8 @@ msgstr "بخش‌های حذف شده"
 msgid "After save page this section completly removed"
 msgstr ""
 
-#: content_site/page/model.php:30 content_site/page/model.php:58
-#: content_site/page/settings/model.php:29 content_site/section/model.php:570
+#: content_site/page/model.php:30 content_site/page/model.php:62
+#: content_site/page/settings/model.php:29 content_site/section/model.php:572
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
 
@@ -22787,14 +22794,14 @@ msgstr "شماره صفحه نادرست"
 msgid "Data saved"
 msgstr "ذخیره شد"
 
-#: content_site/page/model.php:66 content_site/page/model.php:75
-#: content_site/section/model.php:496 dash/app/posts/gallery.php:280
+#: content_site/page/model.php:70 content_site/page/model.php:79
+#: content_site/section/model.php:498 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگو مرتب‌سازی اشتباه است"
 
-#: content_site/page/model.php:96 content_site/page/model.php:108
-#: content_site/section/model.php:515 content_site/section/model.php:530
+#: content_site/page/model.php:100 content_site/page/model.php:112
+#: content_site/section/model.php:517 content_site/section/model.php:532
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
@@ -22897,11 +22904,11 @@ msgstr "شناسه گزینه نامعتبر است"
 msgid "Please check your input"
 msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
-#: content_site/section/model.php:167 content_site/section/model.php:600
+#: content_site/section/model.php:167 content_site/section/model.php:602
 msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:175 content_site/section/model.php:617
+#: content_site/section/model.php:175 content_site/section/model.php:619
 msgid "Invalid preview key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
@@ -22909,33 +22916,33 @@ msgstr "کلید پیش‌نمایش نامعتبر است"
 msgid "Can not save this index!"
 msgstr "نمی‌توانیم این ایندکس را ذخیره کنیم!"
 
-#: content_site/section/model.php:447
+#: content_site/section/model.php:449
 msgid "Can not remove this block!"
 msgstr "نمی‌توانید این مورد را حذف کنید!"
 
-#: content_site/section/model.php:486
+#: content_site/section/model.php:488
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:508
+#: content_site/section/model.php:510
 msgid "This section have not sortable item!"
 msgstr "این بخش امکان مرتب سازی را ندارد!"
 
-#: content_site/section/model.php:580
+#: content_site/section/model.php:582
 msgid "Invalid key"
 msgstr "شناسه نامعتبر"
 
-#: content_site/section/model.php:590 content_su/update/model.php:42
+#: content_site/section/model.php:592 content_su/update/model.php:42
 #: lib/app/export/download.php:36 lib/app/factor/edit.php:89 lib/app/product/bullet.php:78
 #: lib/pagebuilder/tools/get.php:93
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
 
-#: content_site/section/model.php:609
+#: content_site/section/model.php:611
 msgid "Can not chose this section!"
 msgstr "نمی‌توانید این بخش را انتخاب کنید!"
 
-#: content_site/section/model.php:703 lib/pagebuilder/tools/add.php:270
+#: content_site/section/model.php:705 lib/pagebuilder/tools/add.php:270
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 
@@ -35389,7 +35396,7 @@ msgid "Can not remove running request"
 msgstr "نمی‌توانید درخواستی که در حال اجرا هست را حذف کنید"
 
 #: lib/app/export/remove.php:34 lib/app/factor/action.php:150
-#: lib/app/tax/coding/remove.php:27 lib/app/tax/doc/remove.php:29
+#: lib/app/tax/coding/remove.php:36 lib/app/tax/doc/remove.php:29
 #: lib/app/tax/docdetail/remove.php:39 lib/app/tax/year/remove.php:26
 msgid "Data removed"
 msgstr "اطلاعات با موفقیت حذف شد"
@@ -39113,6 +39120,10 @@ msgstr "افزودن معین جدید"
 msgid "This record is parent of some other record and cannot be remove"
 msgstr "این گزینه والد برای گزینه‌های دیگر است و امکان حذف آن وجود ندارد"
 
+#: lib/app/tax/coding/remove.php:29
+msgid "This record is used in some document and cannot be remove"
+msgstr "این گزینه در اسناد حسابداری استفاده شده است و امکان حذف آن وجود ندارد"
+
 #: lib/app/tax/doc/add.php:62
 msgid "This document already add to this year"
 msgstr "این نوع سند قبلا در این سال مالی ثبت شده است"
@@ -39336,40 +39347,44 @@ msgstr "نمی‌توانیم اطلاعات شما را ثبت کنیم"
 msgid "Invalid coding id"
 msgstr "شناسه سرفصل اشتباه است"
 
-#: lib/app/tax/doc/template.php:195 lib/app/tax/doc/template.php:205
-#: lib/app/tax/doc/template.php:210
+#: lib/app/tax/doc/template.php:197
+msgid "Pay to"
+msgstr "پرداخت در وجه"
+
+#: lib/app/tax/doc/template.php:201 lib/app/tax/doc/template.php:212
+#: lib/app/tax/doc/template.php:217
 msgid "Buy from"
 msgstr "خرید از"
 
-#: lib/app/tax/doc/template.php:200
+#: lib/app/tax/doc/template.php:207
 msgid "Sell to"
 msgstr "فروش به"
 
-#: lib/app/tax/doc/template.php:216
+#: lib/app/tax/doc/template.php:223
 msgid "Charge petty cash"
 msgstr "شارژ تنخواه"
 
-#: lib/app/tax/doc/template.php:221
+#: lib/app/tax/doc/template.php:228
 msgid "Charge bank"
 msgstr "شامل بانک"
 
-#: lib/app/tax/doc/template.php:247
+#: lib/app/tax/doc/template.php:254
 msgid "From partner"
 msgstr "از طریق جاری شرکا"
 
-#: lib/app/tax/doc/template.php:331
+#: lib/app/tax/doc/template.php:338
 msgid "Can not support this document template"
 msgstr "این مدل از الگوی سند را پشتیبانی نمی‌کنیم"
 
-#: lib/app/tax/doc/template.php:365
+#: lib/app/tax/doc/template.php:372
 msgid "Income from is required"
 msgstr "منبع درآمد الزامی است"
 
-#: lib/app/tax/doc/template.php:371
+#: lib/app/tax/doc/template.php:378
 msgid "Buyer is required"
 msgstr "خریدار الزامی است"
 
-#: lib/app/tax/doc/template.php:652
+#: lib/app/tax/doc/template.php:666
 msgid "Can not support this template"
 msgstr "این مدل از الگوی سند را پشتیبانی نمی‌کنیم"
 
