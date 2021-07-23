@@ -275,6 +275,14 @@ class get
 		return $result;
 	}
 
+	public static function check_not_use($_id)
+	{
+		$query = "SELECT * FROM tax_docdetail WHERE tax_docdetail.assistant_id = $_id OR tax_docdetail.details_id = $_id LIMIT 1 ";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	public static function by_title_assistant_id($_title, $_parent1, $_parent2, $_parent3)
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.title = '$_title' AND tax_coding.parent1 = $_parent1 AND tax_coding.parent2 = $_parent2 AND tax_coding.parent3 = $_parent3  AND tax_coding.type = 'details' LIMIT 1 ";

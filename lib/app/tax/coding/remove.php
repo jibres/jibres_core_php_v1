@@ -22,6 +22,15 @@ class remove
 			return false;
 		}
 
+		$check_this_not_use = \lib\db\tax_coding\get::check_not_use($load['id']);
+
+		if(isset($check_this_not_use['id']))
+		{
+			\dash\notif::error(T_("This record is used in some document and cannot be remove"));
+			return false;
+		}
+
+
 		\lib\db\tax_coding\delete::by_id($load['id']);
 
 		\dash\notif::ok(T_("Data removed"));
