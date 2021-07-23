@@ -51,6 +51,7 @@
             <th><?php echo T_("Total") ?></th>
             <th><?php echo T_("Total discount") ?></th>
             <th><?php echo T_("Total vat") ?></th>
+            <th><?php echo T_("Final") ?></th>
           </tr>
         </thead>
         <tbody>
@@ -71,9 +72,10 @@
               <td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
+              <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
             </tr>
             <tr>
-              <td class="pTB5-f" colspan="8"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
+              <td class="pTB5-f" colspan="9"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
             </tr>
           <?php } //endif ?>
         </tbody>
