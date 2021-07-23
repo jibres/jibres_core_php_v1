@@ -11,11 +11,22 @@ class edit
 			'year_id'  => 'id',
 		];
 
-		$require = ['year_id'];
+		$require = [];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['year_id'])
+		{
+			$data['year_id'] = \lib\app\tax\year\get::default_year('id');
+
+			if(!$data['year_id'])
+			{
+				\dash\notif::error(T_("Please choose your default year to continue"));
+				return false;
+			}
+		}
 
 		$load_year = \lib\app\tax\year\get::get($data['year_id']);
 		if(!isset($load_year['id']))
@@ -38,7 +49,7 @@ class edit
 		}
 
 		$update = \lib\db\tax_document\update::reset_number($doc_list);
-		\dash\notif::ok(T_("The number was reset"));
+		\dash\notif::ok_once(T_("The number was reset"));
 		return true;
 
 	}

@@ -42,6 +42,8 @@ class model
 		{
 			$result = \lib\app\tax\doc\edit::edit_status(['status' => 'lock'], \dash\request::get('id'));
 
+			\lib\app\tax\doc\edit::reset_number(['year_id' => a($post, 'year_id')]);
+
 			\dash\redirect::pwd();
 		}
 

@@ -65,6 +65,8 @@ class model
 
 				$result = \lib\app\tax\doc\edit::edit_status(['status' => 'lock'], $add['id']);
 
+				\lib\app\tax\doc\edit::reset_number(['year_id' => a($post, 'year_id')]);
+
 				\dash\redirect::to(\dash\url::that(). '/edit?id='. $add['id']);
 			}
 			else
