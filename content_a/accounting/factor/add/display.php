@@ -88,12 +88,9 @@ if(!\dash\data::editMode())
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value)
                   {
-                    if(in_array(substr(a($value, 'code'), 0, 1), ['1', '7', '6']))
-                    {
-                      if($myType === 'cost' && substr(a($value, 'code'), 0, 1) === '1'){continue;}
-                      elseif($myType === 'asset' && substr(a($value, 'code'), 0, 1) === '7'){continue;}
-                      elseif($myType === 'income' && substr(a($value, 'code'), 0, 1) !== '6'){continue;}
-                    }else{continue;}
+                    if($myType === 'asset'){if(in_array(substr(a($value, 'code'), 0, 1), ['1']) || in_array(substr(a($value, 'code'), 0, 2), ['22', '27'])){/*ok*/}else{continue;}}
+                    elseif($myType === 'cost'){if(in_array(substr(a($value, 'code'), 0, 1), ['7'])){/*ok*/}else{continue;}}
+                    elseif($myType === 'income'){if(in_array(substr(a($value, 'code'), 0, 1), ['6'])){/*ok*/}else{continue;}}
                     ?>
                     <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
                   <?php } // endfor ?>
