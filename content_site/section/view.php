@@ -256,9 +256,9 @@ class view
 			}
 		}
 
-		if(is_array(a($result, 'body')) && is_array(a($result, 'preview')))
+		if(is_array(a($result, 'body')) && $result['body'] && is_array(a($result, 'preview')) && $result['preview'])
 		{
-			$changelog = array_diff_assoc($result['preview'], $result['body']);
+			$changelog = self::array_recursive_diff($result['preview'], $result['body']);
 			if($changelog)
 			{
 				$result['discardable'] = true;
@@ -342,6 +342,49 @@ class view
 
 
 		return $result;
+	}
+
+
+	/**
+	 * Array diff recersive
+	 *
+	 * @param      <type>  $_array_1  The array 1
+	 * @param      <type>  $_array_2  The array 2
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
+	private static function array_recursive_diff($_array_1, $_array_2)
+	{
+		$result = [];
+
+		foreach ($_array_1 as $key => $value)
+		{
+			if (array_key_exists($key, $_array_2))
+			{
+				if (is_array($value))
+				{
+					$my_result = self::array_recursive_diff($value, $_array_2[$key]);
+
+					if (count($my_result))
+					{
+						$result[$key] = $my_result;
+					}
+				}
+				else
+				{
+					if ($value != $_array_2[$key])
+					{
+						$result[$key] = $value;
+					}
+				}
+			}
+			else
+			{
+				$result[$key] = $value;
+			}
+		}
+
+  		return $result;
 	}
 
 }
