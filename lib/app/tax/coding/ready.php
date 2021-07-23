@@ -104,7 +104,13 @@ class ready
 
 		$full_title = array_unique($full_title);
 
-		$result['full_title'] = implode(' - ', $full_title);
+		$seperator = ' < ';
+		if(\dash\language::current() === 'fa')
+		{
+			$seperator = ' > ';
+		}
+
+		$result['full_title'] = implode($seperator, $full_title);
 		return $result;
 	}
 
