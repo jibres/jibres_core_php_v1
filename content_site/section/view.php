@@ -256,6 +256,16 @@ class view
 			}
 		}
 
+		if(is_array(a($result, 'body')) && is_array(a($result, 'preview')))
+		{
+			$changelog = array_diff_assoc($result['preview'], $result['body']);
+			if($changelog)
+			{
+				$result['discardable'] = true;
+				$result['changelog']   = $changelog;
+			}
+		}
+
 		$default = [];
 
 		$detail  = [];

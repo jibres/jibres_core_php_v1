@@ -132,6 +132,11 @@ else
     }
   }
 
+  if(isset($currentSectionDetail['discardable']) && $currentSectionDetail['discardable'])
+  {
+    $html .= "<div data-confirm data-data='{\"discard\": \"discard\"}' class='btn mt-10 block'>" . T_("Discard change"). '</div>';
+  }
+
 
 
 }
