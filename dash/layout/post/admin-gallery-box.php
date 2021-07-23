@@ -118,7 +118,7 @@ $html .= '<div class="box">';
             }
             else if(a($value, 'type') === 'image')
             {
-             $html .= '<a target="_blank" href="'. a($value, 'path'). '"><img src="'. \dash\fit::img(a($value, 'path'), 460). '" alt="'. a(\dash\data::dataRow(), 'title'). '"></a>';
+             $html .= '<a data-fancybox="galleryPreview" target="_blank" href="'. a($value, 'path'). '"><img src="'. \dash\fit::img(a($value, 'path'), 460). '" alt="'. a(\dash\data::dataRow(), 'title'). '"></a>';
              // $html .= '<img src="'. \dash\fit::img(a($value, 'path'), 460). '" alt="'. a(\dash\data::dataRow(), 'title'). '">';
             }
             else if(a($value, 'type') === 'pdf')
