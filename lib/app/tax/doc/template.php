@@ -210,11 +210,15 @@ class template
 				$desc[] = T_("Buy from");
 				break;
 
-			case 'bank_partner':
 			case 'petty_cash':
 			case 'partner':
 				$thirdparty = a($_args, 'petty_cash');
 				$desc[] = T_("Charge petty cash");
+				break;
+
+			case 'bank_partner':
+				$thirdparty = a($_args, 'bank');
+				$desc[] = T_("Charge bank");
 				break;
 
 			default:
@@ -236,6 +240,11 @@ class template
 				}
 			}
 
+		}
+
+		if(a($_args, 'template') === 'bank_partner')
+		{
+			$desc[] = T_("From partner");
 		}
 
 		if(a($_args, 'serialnumber'))
