@@ -6,7 +6,17 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Cloud Accounting'));
+		$dashboardDetail = \lib\app\tax\doc\dashboard::detail();
+
+		\dash\data::dashboardDetail($dashboardDetail);
+
+		$title = T_('Cloud Accounting');
+
+		if(a($dashboardDetail, 'year_title'))
+		{
+			$title .= ' - '. a($dashboardDetail, 'year_title');
+		}
+		\dash\face::title($title);
 
 		// back
 		\dash\data::back_text(T_('Back'));
@@ -14,7 +24,6 @@ class view
 
 		\dash\face::btnSetting(\dash\url::this().'/config');
 
-		\dash\data::dashboardDetail(\lib\app\tax\doc\dashboard::detail());
 
 	}
 }

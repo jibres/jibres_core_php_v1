@@ -18,6 +18,7 @@ class dashboard
 		$result['count_all_attachment'] = floatval(\lib\db\tax_document\get::count_all_doc_with_attachment($default_year_id));
 		$result['count_all_coding']     = floatval(\lib\db\tax_coding\get::count_all());
 		$result['count_all_year']       = floatval(\lib\db\tax_year\get::count_all());
+		$result['year_title']           = \lib\app\tax\year\get::default_year('title');
 
 		$div = floatval($result['count_all_doc']);
 		if(!$div)
