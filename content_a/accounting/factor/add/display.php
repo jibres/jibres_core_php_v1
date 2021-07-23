@@ -53,7 +53,7 @@ if(!\dash\data::editMode())
             <div class="c-xs-6 c-sm-2">
               <label for="factordate" ><?php echo T_("Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
               <div class="input">
-                <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off' <?php echo $disableInput ?>>
+                <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" <?php \dash\layout\autofocus::html(); ?> autocomplete='off' <?php echo $disableInput ?>>
               </div>
             </div>
             <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
