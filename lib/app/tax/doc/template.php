@@ -192,7 +192,14 @@ class template
 		{
 			case 'cost':
 				$thirdparty = a($_args, 'thirdparty');
-				$desc[] = T_("Buy from");
+				if(!a($_args, 'put_on'))
+				{
+					$desc[] = T_("Pay to");
+				}
+				else
+				{
+					$desc[] = T_("Buy from");
+				}
 				break;
 
 			case 'income':
