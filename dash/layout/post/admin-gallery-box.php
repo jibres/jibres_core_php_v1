@@ -123,7 +123,7 @@ $html .= '<div class="box">';
             }
             else if(a($value, 'type') === 'pdf')
             {
-              $html .= '<div class="file"><a target="_blank" href="'. a($value, 'path'). '"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</a></div>';
+              $html .= '<div class="file"><a data-fancybox="galleryPreview" data-type="pdf" target="_blank" href="'. a($value, 'path'). '"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</a></div>';
             }
             else if(a($value, 'type') === 'zip')
             {
