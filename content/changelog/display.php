@@ -29,12 +29,12 @@
                                 <tr>
                                     <td class="collapsing"><?php if(a($value, 'date') && strtotime($value['date']) < time()) {echo \dash\fit::date(a($value, 'date'), 'readable');}else{echo T_("Soon");} ?></td>
                                     <td class="w-full"><?php echo a($value, 'title'); ?>
-                                    <?php if(a($value, 'link')) {?><a target="_blank" href="<?php echo a($value, 'link') ?>"> <?php echo T_("Read more") ?></a><?php } ?>
-                                    <?php if(a($value, 'tag1')) { echo '<a href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag1')).'"> #'. $value['tag1']. '</a>';} ?>
-                                    <?php if(a($value, 'tag2')) { echo '<a href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag2')).'"> #'. $value['tag2']. '</a>';} ?>
-                                    <?php if(a($value, 'tag3')) { echo '<a href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag3')).'"> #'. $value['tag3']. '</a>';} ?>
-                                    <?php if(a($value, 'tag4')) { echo '<a href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag4')).'"> #'. $value['tag4']. '</a>';} ?>
-                                    <?php if(a($value, 'tag5')) { echo '<a href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag5')).'"> #'. $value['tag5']. '</a>';} ?>
+                                    <?php if(a($value, 'link')) {?><a class="inline-block" target="_blank" href="<?php echo a($value, 'link') ?>"> <?php echo T_("Read more") ?></a><?php } ?>
+                                    <?php if(a($value, 'tag1')) { echo '<a class="inline-block" href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag1')).'"> #'. $value['tag1']. '</a>';} ?>
+                                    <?php if(a($value, 'tag2')) { echo '<a class="inline-block" href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag2')).'"> #'. $value['tag2']. '</a>';} ?>
+                                    <?php if(a($value, 'tag3')) { echo '<a class="inline-block" href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag3')).'"> #'. $value['tag3']. '</a>';} ?>
+                                    <?php if(a($value, 'tag4')) { echo '<a class="inline-block" href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag4')).'"> #'. $value['tag4']. '</a>';} ?>
+                                    <?php if(a($value, 'tag5')) { echo '<a class="inline-block" href="'.\dash\url::this(). '?tag='. urlencode(a($value, 'tag5')).'"> #'. $value['tag5']. '</a>';} ?>
                                 </td>
                             </tr>
                         <?php } //endfor ?>

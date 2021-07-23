@@ -279,7 +279,7 @@ class changelog
 			self::$is_filtered = true;
 		}
 
-		$order_sort = " ORDER BY changelog.date IS NULL DESC, changelog.date DESC, changelog.id ASC ";
+		$order_sort = " ORDER BY changelog.date IS NULL DESC, changelog.date DESC, changelog.id DESC ";
 
 
 		$list = \dash\db\changelog::list($and, $or, $order_sort, $meta);
