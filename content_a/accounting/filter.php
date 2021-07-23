@@ -93,7 +93,7 @@
         <div class="c-xs-12 c-sm-auto p0">
           <div class="mT25 txtRa">
             <?php if(\dash\url::subchild() != 'balancesheet') {?>
-              <?php if(\dash\request::get('year_id')) {?>
+              <?php if(\dash\request::get('year_id') || \lib\app\tax\year\get::default_year('id')) {?>
                 <div class="btn outline" data-title='<?php echo T_("Reset document number?") ?>' data-confirm data-data='{"resetnumber": "resetnumber", "year_id" : "<?php echo \dash\request::get('year_id'); ?>"}'><i class="sf-refresh"></i></div>
               <?php } //endif ?>
             <?php } //endif ?>
