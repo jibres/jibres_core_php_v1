@@ -35,6 +35,10 @@ class model
 
 		\dash\notif::ok(T_("Data saved"));
 
+		\dash\notif::complete();
+
+		\dash\notif::reloadIframe();
+
 		\dash\redirect::pwd();
 
 		return true;
@@ -112,6 +116,10 @@ class model
 		}
 
 		\lib\db\sitebuilder\update::set_sort($sort);
+
+		\dash\notif::complete();
+
+		\dash\notif::reloadIframe();
 
 		\dash\redirect::pwd();
 		return;
