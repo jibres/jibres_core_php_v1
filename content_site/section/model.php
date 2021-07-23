@@ -438,6 +438,8 @@ class model
 
 				\dash\pdo::commit();
 
+				\dash\notif::reloadIframe();
+
 				\dash\redirect::to(view::generate_back_url());
 
 				return true;

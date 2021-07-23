@@ -56,6 +56,7 @@ class image_add
 
 		\dash\pdo::commit();
 
+		\dash\notif::reloadIframe();
 
 		$url = \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => $index]);
 
@@ -86,7 +87,7 @@ class image_add
 	  		{
 	    		$html .= '<li>';
 	    		{
-	    			$image_add = json_encode(['specialsave' => 'specialsave', 'option' => 'image_add']);
+	    			$image_add = json_encode(['specialsave' => 'specialsave', 'opt_image_add' => '1']);
 
 		      		$html .= "<div class='item f' data-ajaxify data-data='$image_add'>";
 		      		{
