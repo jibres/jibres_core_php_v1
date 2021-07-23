@@ -19,7 +19,7 @@ class dashboard
 		$result['count_all_coding']     = floatval(\lib\db\tax_coding\get::count_all());
 		$result['count_all_year']       = floatval(\lib\db\tax_year\get::count_all());
 
-		$div = $result['count_all_doc'];
+		$div = floatval($result['count_all_doc']);
 		if(!$div)
 		{
 			$div = 1;

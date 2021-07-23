@@ -69,7 +69,7 @@ class get
 			$year_id = "WHERE tax_document.year_id = $_year_id ";
 		}
 
-		$query  = " SELECT count(*) AS `count` FROM tax_document ";
+		$query  = " SELECT count(*) AS `count` FROM tax_document $year_id ";
 
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
