@@ -30,10 +30,10 @@ if(\dash\face::boxTitle() !== false)
      <a class="btn light" href="<?php echo \dash\face::btnSetting(); ?>"><i class="pRa5 compact sf-tools"></i><span><?php echo T_("Advance"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnPreview()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>" target="_blank"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>" target="_blank" data-fancybox='btnPreview' data-type="iframe" data-preload="false"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnView()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnView(); ?>" target="_blank"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
+     <a class="btn light" href="<?php echo \dash\face::btnView(); ?>" target="_blank" data-fancybox='btnView' data-type="iframe" data-preload="false"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::help()) { ?>
      <a class="btn light" href="<?php echo \dash\face::help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
