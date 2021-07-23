@@ -141,7 +141,16 @@ class recaptcha
 
 		if(!$recaptcha_token)
 		{
-			\dash\header::status(401, T_("Error get google recaptcha detail! Please wait until google recaptcha is loaded"));
+			$errorMsg = T_("Error get google recaptcha detail! Please wait until google recaptcha is loaded");
+			if(\dash\request::ajax())
+			{
+				\dash\header::status(401, $errorMsg);
+			}
+			else
+			{
+				\dash\notif::error($errorMsg);
+				\dash\redirect::pwd();
+			}
 			return false;
 		}
 
