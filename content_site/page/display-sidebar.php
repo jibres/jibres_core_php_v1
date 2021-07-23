@@ -93,7 +93,7 @@ foreach ($list as $key => $value)
 </nav>
 
 <?php if($deleted_section) {?>
-  <label class="mT25"><?php echo T_("Deleted section") ?> <small><?php echo T_("After save page this section completly removed") ?></small></label>
+  <label class="mT25"><?php echo T_("Deleted section") ?> <small><?php echo T_("After saving the page, this section will be deleted completely") ?></small></label>
 
   <nav class="sections items">
     <ul data-sortable>

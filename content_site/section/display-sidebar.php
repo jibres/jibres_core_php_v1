@@ -74,7 +74,7 @@ else
       $restore_json    = json_encode(['restore' => 'section']);
 
       $html .= '<p class="msg">';
-      $html .= T_("This setting was removed. But you can restore it. If you save page, this section completly removed and can not be restore");
+      $html .= T_("This setting was removed. But you can restore it. If you save page, this section completely removed and can not be restore");
       $html .= '</p>';
       $restore_title = T_("Are you sure to restore this section?");
 

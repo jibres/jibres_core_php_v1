@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-23 13:45+0430\n"
-"PO-Revision-Date: 2021-07-23 13:47+0430\n"
+"POT-Creation-Date: 2021-07-23 14:43+0430\n"
+"PO-Revision-Date: 2021-07-23 14:48+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4436,7 +4436,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/accounting/doc/edit/view.php:22 content_a/accounting/doc/printall/view.php:13
 #: content_a/accounting/doc/view.php:12 content_a/accounting/factor/add/view.php:12
 #: content_a/accounting/factor/choosetype/view.php:13
-#: content_a/accounting/factor/edit/view.php:20 content_a/accounting/home/view.php:12
+#: content_a/accounting/factor/edit/view.php:20 content_a/accounting/home/view.php:22
 #: content_a/accounting/report/assistant/view.php:13
 #: content_a/accounting/report/balancesheet/view.php:13
 #: content_a/accounting/report/detail/view.php:13
@@ -5220,7 +5220,7 @@ msgid "Search with new keywords."
 msgstr "کلمه ای جدید جستجو کنید."
 
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:84
+#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:86
 #: content_a/accounting/turnover/display.php:221 content_a/form/answer/display.php:106
 #: content_a/form/answer/item/display.php:83 content_a/form/home/display.php:148
 #: content_a/form/tag/display.php:104 content_a/notiflog/display.php:169
@@ -5236,7 +5236,7 @@ msgid "Hi!"
 msgstr "سلام!"
 
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:84
+#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:86
 #: content_a/form/home/display.php:148
 msgid "Add new"
 msgstr "افزودن جدید"
@@ -5412,7 +5412,7 @@ msgstr "تنظیمات حسابداری"
 msgid "Cloud Accounting Configuration"
 msgstr "پیکربندی حسابداری ابری"
 
-#: content_a/accounting/config/view.php:10 content_a/accounting/home/view.php:9
+#: content_a/accounting/config/view.php:10 content_a/accounting/home/view.php:13
 #: content_a/home/display.php:160 lib/app/quickaccess/setting.php:668
 msgid "Cloud Accounting"
 msgstr "حسابداری ابری"
@@ -5434,7 +5434,7 @@ msgstr "نمایش سند"
 #: content_a/accounting/doc/add/display-doc.php:27 content_a/accounting/doc/display.php:30
 #: content_a/accounting/doc/edit/view.php:13
 #: content_a/accounting/doc/printall/display.php:20
-#: content_a/accounting/factor/display.php:66
+#: content_a/accounting/factor/display.php:67
 msgid "Opening Document"
 msgstr "سند افتتاحیه"
 
@@ -5801,6 +5801,10 @@ msgstr "قالب"
 #: content_a/accounting/factor/display.php:53
 msgid "Total vat"
 msgstr "جمع مالیات"
+
+#: content_a/accounting/factor/display.php:54
+msgid "Final"
+msgstr "نهایی"
 
 #: content_a/accounting/factor/edit/controller.php:21
 #: content_love/gift/create/controller.php:29 content_love/gift/edit/controller.php:20
@@ -22396,6 +22400,8 @@ msgid ""
 "Use overlay text to give your customers insight into your brand. Select imagery and "
 "text that relates to your type and story."
 msgstr ""
+"از متن با همپوشانی تصویر استفاده کنید تا به مشتریان خود را از برند خودتان آگاه کنید. "
+"تصاویر و متنی را انتخاب کنید که مربوط به نوع و داستان شما باشد."
 
 #: content_site/body/slideshow/option.php:30 content_site/body/slideshow/option.php:48
 #: content_site/body/slideshow/option.php:134
@@ -22525,7 +22531,7 @@ msgstr "استفاده از قالب"
 
 #: content_site/options/background/background_pack.php:411
 msgid "White Minimal"
-msgstr ""
+msgstr "حداقل سفیدی"
 
 #: content_site/options/background/background_pack.php:425
 msgid "White Gold"
@@ -22534,7 +22540,7 @@ msgstr "طلای سفید"
 #: content_site/options/background/background_pack.php:439
 #: content_site/options/background/background_pack.php:467
 msgid "Light Minimal"
-msgstr ""
+msgstr "حداقل نور"
 
 #: content_site/options/background/background_pack.php:453
 msgid "Light Gold"
@@ -22783,7 +22789,7 @@ msgstr "بخش‌های حذف شده"
 
 #: content_site/page/display-sidebar.php:96
 msgid "After save page this section completly removed"
-msgstr ""
+msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
 
 #: content_site/page/model.php:30 content_site/page/model.php:62
 #: content_site/page/settings/model.php:29 content_site/section/model.php:572
@@ -22879,6 +22885,8 @@ msgid ""
 "This setting was removed. But you can restore it. If you save page, this section "
 "completly removed and can not be restore"
 msgstr ""
+"این بخش حذف شده است اما شما می‌توانید آن را بازیابی کنید. در صورتی که صفحه را ذخیره کنید "
+"این بخش به صورت کامل حذف خواهد شد و امکان بازیابی آن وجود ندارد"
 
 #: content_site/section/display-sidebar.php:79
 msgid "Are you sure to restore this section?"
