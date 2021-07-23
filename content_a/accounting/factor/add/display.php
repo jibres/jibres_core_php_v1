@@ -78,7 +78,7 @@ if(!\dash\data::editMode())
               <div class="">
                 <div class="row">
                   <div class="c-auto">
-                    <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?> <small class="fc-red"><?php echo T_("Required") ?></small></label>
+                    <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?></label>
                   </div>
                   <div class="c"></div>
                   <div class="c-auto"><a target="_blank" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
