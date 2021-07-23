@@ -493,32 +493,39 @@ class template
 				];
 			}
 
-			$add_doc_detail[] =
-			[
-				'tax_document_id' => $tax_document_id,
-				'assistant_id'    => a($load_coding_detail, $put_on, 'parent3'),
-				'details_id'      => $put_on,
-				'type'            => 'debtor',
-				'value'           => $totalMinusDiscount,
-				'sort'            => 1,
-				'template'        => 'put_on',
-			];
+			if($put_on)
+			{
+				$add_doc_detail[] =
+				[
+					'tax_document_id' => $tax_document_id,
+					'assistant_id'    => a($load_coding_detail, $put_on, 'parent3'),
+					'details_id'      => $put_on,
+					'type'            => 'debtor',
+					'value'           => $totalMinusDiscount,
+					'sort'            => 1,
+					'template'        => 'put_on',
+				];
+			}
 
 
 
 
 			if($pay_from && $thirdparty)
 			{
-				$add_doc_detail[] =
-				[
-					'tax_document_id' => $tax_document_id,
-					'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
-					'details_id'      => $thirdparty,
-					'type'            => 'creditor',
-					'value'           => $final,
-					'sort'            => 4,
-					'template'            => 'thirdparty',
-				];
+				if($put_on)
+				{
+					$add_doc_detail[] =
+					[
+						'tax_document_id' => $tax_document_id,
+						'assistant_id'    => a($load_coding_detail, $thirdparty, 'parent3'),
+						'details_id'      => $thirdparty,
+						'type'            => 'creditor',
+						'value'           => $final,
+						'sort'            => 4,
+						'template'            => 'thirdparty',
+					];
+
+				}
 
 				$add_doc_detail[] =
 				[
