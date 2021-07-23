@@ -45,11 +45,18 @@ class option
 		[
 			[
 				'type'   => 'type_1',
-				'title'   => T_("Gallery"),
+				'title'   => T_("Classic gallery"),
 				'default' => true
 			],
+			[
+				'type'   => 'type_2',
+				'title'   => T_("Modern gallery"),
+				'default' => false
+			],
 		];
+
 	}
+
 
 
 	/**
@@ -126,40 +133,92 @@ class option
 
 
 
+
+	/**
+	 * Public default
+	 */
+	private static function master_default($_special_default = [])
+	{
+		$master_default =
+		[
+			'heading'           => T_("Image Gallery"),
+			'image_list' => self::default_image_list()
+
+		];
+
+		return array_merge($master_default, $_special_default);
+	}
+
+
+	/**
+	 * Master option
+	 *
+	 * @param      array   $_special_default  The special default
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function master_option()
+	{
+		$option =
+		[
+			'image_list' =>
+			[
+				'file',
+				'caption',
+				'link',
+				'target',
+			],
+			'image_add',
+			// 'group_setting',
+			// text
+			'heading',
+
+			// 'group_design',
+			// select
+			'type',
+			'height',
+			// range
+			'container',
+
+			// sub page
+			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
+		];
+
+		return $option;
+	}
+
+
+	/**
+	 * Style 1
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
 	public static function type_1()
 	{
 		return
 		[
 			'key'     => __FUNCTION__,
-			'title'   => T_("Gallery"),
-			'default' =>
-			[
-				'heading'    => T_("Image Gallery"),
-				'type'      => __FUNCTION__,
-				'image_list' => self::default_image_list(),
-			],
-			'options' =>
-			[
-				'image_list' =>
-				[
-					'file',
-					'caption',
-					'link',
-					'target',
-				],
-				'image_add',
+			'title'   => T_("Classic View"),
+			'default' => self::master_default(['type' => __FUNCTION__]),
+			'options' => self::master_option(),
+		];
+	}
 
-				'seperator', /* SEPERATOR */
-				'type',
 
-				'heading',
-				'container',
-				'height',
-				'ratio',
-
-				'background' => \content_site\options\background\background_pack::get_pack_option_list(),
-
-			],
+	/**
+	 * Style 2
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function type_2()
+	{
+		return
+		[
+			'key'     => __FUNCTION__,
+			'title'   => T_("Modern View"),
+			'premium' => true,
+			'default' => self::master_default(['type' => __FUNCTION__]),
+			'options' => self::master_option(),
 		];
 	}
 
