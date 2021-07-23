@@ -7,7 +7,7 @@
   }
 
   $gallery_capacity    = 10;
-  $gallery_is_not_free = true;
+  $gallery_is_not_free = false;
   $add_html_form       = false;
   $is_auto_send        = true;
   $no_footer        = true;
