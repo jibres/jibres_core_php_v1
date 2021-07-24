@@ -74,6 +74,35 @@ class view
 
 		\dash\data::otherList($otherList);
 
+
+		$myTitle = null;
+		switch(\dash\request::get('from') && \dash\language::current() === 'fa')
+		{
+			case 'default_cost_vat':
+				$myTitle = 'مالیات بر ارزش افزوده';
+				break;
+			case 'default_cost_tax':
+				$myTitle = "عوارض ";
+				break;
+			case 'default_income_vat':
+				$myTitle = "مالیات بر ارزش افزوده";
+				break;
+			case 'default_income_tax':
+				$myTitle = "عوارض";
+				break;
+			case 'default_cost_payer':
+				$myTitle = "تن‌خواه";
+				break;
+			case 'default_cost_bank':
+				$myTitle = "بانک";
+				break;
+			case 'default_partner':
+				$myTitle = "جاری شرکا";
+				break;
+		}
+
+		\dash\data::myTitle($myTitle);
+
 	}
 }
 ?>

@@ -27,7 +27,7 @@ class view
 
 		$dataTable = \lib\app\tax\coding\search::list($q, $args);
 
-		if(!$dataTable)
+		if(!$dataTable && !\dash\request::get())
 		{
 			\dash\data::firstInit(true);
 		}

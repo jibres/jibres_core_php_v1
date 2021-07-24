@@ -379,6 +379,7 @@ class search
 		if($query_string)
 		{
 			$or[] = " tax_coding.title LIKE '%$query_string%' ";
+			$or[] = " tax_coding.code LIKE '$query_string%' ";
 			self::$is_filtered = true;
 		}
 
