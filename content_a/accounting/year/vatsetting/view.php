@@ -10,7 +10,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::that());
+		\dash\data::back_link(\dash\url::that(). '/manage?id='. \dash\request::get('id'));
 
 		\dash\data::accountingSettingSaved(\lib\app\setting\get::accounting_setting());
 
