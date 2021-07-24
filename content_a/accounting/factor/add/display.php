@@ -252,7 +252,6 @@ if(!\dash\data::editMode())
                 <th><?php echo T_("Total After Discount"); ?></th>
                 <th><?php echo T_("Total Vat"); ?></th>
                 <th><?php echo T_("Net Amount"); ?></th>
-              </tr>
             </thead>
             <tbody>
               <tr>
@@ -272,9 +271,35 @@ if(!\dash\data::editMode())
             </tbody>
           </table>
         </div>
-
-      <?php } //endif ?>
-
+        <?php if(a($dataRow, 'tax_document', 'totalincludevat') || a($dataRow, 'tax_document', 'totalnotincludevat')) {?>
+          <div class="row">
+            <div class="c-xs-12 c-sm-6">
+              <nav class="items">
+                <ul>
+                  <li>
+                    <a class="item f">
+                      <div class="key"><?php echo T_("Total taxable amount") ?></div>
+                      <div class="value" data-copy='<?php echo a($dataRow, 'tax_document', 'totalincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($dataRow, 'tax_document', 'totalincludevat'), true, 'en') ?></code></div>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="c-xs-12 c-sm-6">
+              <nav class="items">
+                <ul>
+                  <li>
+                    <a class="item f">
+                      <div class="key"><?php echo T_("Total amount exempt from tax") ?></div>
+                      <div class="value" data-copy='<?php echo a($dataRow, 'tax_document', 'totalnotincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($dataRow, 'tax_document', 'totalnotincludevat'), true, 'en') ?></code></div>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <?php } //endif ?>
+        <?php } //endif ?>
     </div>
   </div>
 </form>

@@ -146,7 +146,13 @@ class edit
 		unset($args['petty_cash']);
 		unset($args['partner']);
 
-		$data = \dash\cleanse::patch_mode($_args, $args);
+		$exception = [];
+		if(isset($_option['template_mode']) && $_option['template_mode'])
+		{
+			$exception[] = 'totalincludevat';
+			$exception[] = 'totalnotincludevat';
+		}
+		$data = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(empty($data))
 		{

@@ -157,6 +157,29 @@ class check
 			{
 				// check some error
 			}
+
+			if($data['totalvat'] && $data['total'])
+			{
+				$total         = floatval($data['total']);
+				$totalvat      = floatval($data['totalvat']);
+				$totaldiscount = floatval($data['totaldiscount']);
+
+				$real_vat = ($total - $totaldiscount) * 0.09;
+
+				if($totalvat != $real_vat)
+				{
+					$totalincludevat            = ($totalvat / 9) * 100;
+					$totalnotincludevat         = $total - $totaldiscount - $totalincludevat;
+
+					if($totalnotincludevat < 0)
+					{
+						\dash\notif::error(T_("Vat larger than price!"));
+						return false;
+					}
+					$data['totalincludevat']    = $totalincludevat;
+					$data['totalnotincludevat'] = $totalnotincludevat;
+				}
+			}
 		}
 		else
 		{
