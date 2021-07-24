@@ -9,10 +9,13 @@ class check
 	{
 		$condition =
 		[
-			'startdate' => 'date',
-			'enddate'   => 'date',
-			'title'     => 'string_300',
-			'status'    => ['enum' => ['lock','enable']],
+			'startdate'         => 'date',
+			'enddate'           => 'date',
+			'title'             => 'string_300',
+			'status'            => ['enum' => ['lock','enable']],
+
+			'remainvatlastyear' => 'price',
+			'quorumprice'       => 'price',
 		];
 
 		$require = ['title', 'startdate', 'enddate'];

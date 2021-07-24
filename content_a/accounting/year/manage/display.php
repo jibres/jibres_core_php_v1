@@ -1,4 +1,21 @@
 
+<section class="f" data-option='accounting-vat'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Quarterly VAT report settings") ?></h3>
+      <div class="body">
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12" >
+      <div class="action">
+  			<a class="btn master" href='<?php echo \dash\url::that(). '/vatsetting'. \dash\request::full_get(); ?>'><?php echo T_("Change setting") ?></a>
+      </div>
+  </div>
+</section>
+
+
 <section class="f" data-option='accounting-opening'>
   <div class="c8 s12">
     <div class="data">
