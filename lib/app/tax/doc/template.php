@@ -282,10 +282,12 @@ class template
 
 	private static function add_template_doc_detail($args, $tax_document_id)
 	{
+
 		$accounting_setting = \lib\app\setting\get::accounting_setting();
 
 		switch ($args['template'])
 		{
+			case 'asset':
 			case 'cost':
 				$default_cost_tax = a($accounting_setting, 'default_cost_tax');
 				if(!$default_cost_tax)
@@ -344,7 +346,6 @@ class template
 			case 'bank_partner':
 			case 'partner':
 			case 'bill':
-			case 'asset':
 				// nothing
 				break;
 
