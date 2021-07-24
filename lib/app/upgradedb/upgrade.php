@@ -3,6 +3,8 @@ namespace lib\app\upgradedb;
 
 class upgrade
 {
+	private static $start_time;
+
 	// save all db version
 	private static $all_dbversion = [];
 
@@ -32,6 +34,8 @@ class upgrade
 
 	public static function run()
 	{
+		self::$start_time = time();
+
 		$jibres_last_upgrade_version = self::jibres_last_upgrade_version();
 		$jibres_last_version         = self::jibres_last_version();
 
@@ -48,6 +52,14 @@ class upgrade
 		{
 			self::upgrade_store_database();
 		}
+
+
+		$time = time() - self::$start_time;
+
+		$min = ceil($time / 60);
+
+		\dash\log::to_supervisor("#UpgradeDBComplete in ". $time . " second (". $min. " Min)");
+
 	}
 
 
