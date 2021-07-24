@@ -13,9 +13,9 @@ class model
 
 		$result = \lib\app\business_domain\add::store_add($post);
 
-		if(\dash\engine\process::status())
+		if(\dash\engine\process::status() && isset($result['domain']))
 		{
-			\dash\redirect::to(\dash\url::that(). '/manage?domain='. $post['domain']);
+			\dash\redirect::to(\dash\url::that(). '/manage?domain='. $result['domain']);
 		}
 	}
 

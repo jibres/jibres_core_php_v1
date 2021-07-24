@@ -83,10 +83,7 @@ class add
 
 		\dash\notif::clean();
 
-		self::add($_args);
-
-
-		return true;
+		return self::add($_args);
 	}
 
 
@@ -173,6 +170,7 @@ class add
 		}
 
 		$my_domain = $data['domain'];
+		$return_domain = $my_domain;
 
 		$parse_url = \dash\validate\url::parseUrl($my_domain);
 		if(!$parse_url)
@@ -241,6 +239,13 @@ class add
 		}
 		else
 		{
+			if($parse_url['subdomain'] === 'www')
+			{
+				$parse_url['subdomain'] = null;
+				$parse_url['domain'] = $parse_url['root']. '.'. $parse_url['tld'];
+				$return_domain = $parse_url['domain'];
+			}
+
 			$insert =
 			[
 				'domain'      => $parse_url['domain'],
@@ -284,7 +289,7 @@ class add
 
 
 
-		return ['id' => $business_domain_id];
+		return ['id' => $business_domain_id, 'domain' => $return_domain];
 	}
 }
 ?>
