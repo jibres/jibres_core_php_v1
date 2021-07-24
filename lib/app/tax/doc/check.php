@@ -164,7 +164,10 @@ class check
 				$totalvat      = floatval($data['totalvat']);
 				$totaldiscount = floatval($data['totaldiscount']);
 
-				$real_vat = ($total - $totaldiscount) * 0.09;
+				$real_vat = round(($total - $totaldiscount) * 0.09);
+
+				$data['totalincludevat']    = null;
+				$data['totalnotincludevat'] = null;
 
 				if($totalvat != $real_vat)
 				{
