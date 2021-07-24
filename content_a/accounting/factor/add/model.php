@@ -15,12 +15,13 @@ class model
 			'pay_from'      => \dash\request::post('pay_from') ? \dash\request::post('pay_from') : null,
 			'put_on'        => \dash\request::post('put_on') ? \dash\request::post('put_on') : null,
 			'bank'          => \dash\request::post('bank') ? \dash\request::post('bank') : null,
-			'partner'          => \dash\request::post('partner') ? \dash\request::post('partner') : null,
+			'partner'       => \dash\request::post('partner') ? \dash\request::post('partner') : null,
 			'petty_cash'    => \dash\request::post('petty_cash') ? \dash\request::post('petty_cash') : null,
 
 			'thirdparty'    => \dash\request::post('thirdparty') ? \dash\request::post('thirdparty') : null,
 
 			'desc'          => \dash\request::post('title'),
+			'producttitle'  => \dash\request::post('producttitle'),
 			'date'          => \dash\request::post('factordate'),
 			'serialnumber'  => \dash\request::post('serialnumber'),
 

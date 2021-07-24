@@ -55,6 +55,7 @@ class check
 			'total'         => 'price',
 			'totaldiscount' => 'price',
 			'totalvat'      => 'price',
+			'producttitle' => 'title',
 		];
 
 		$require = ['number', 'date', 'year_id'];

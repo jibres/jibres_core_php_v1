@@ -39,7 +39,7 @@ if(!\dash\data::editMode())
       <div class="box">
         <div class="pad">
           <div class="row">
-            <div class="c-xs-6 c-sm-2">
+            <div class="c-xs-6 c-sm-2 c-xxl-1">
               <?php if(\dash\data::accountingYear()) {?>
                 <label for="parent"><?php echo T_("Accounting year") ?></label>
                 <select class="select22" name="year_id" <?php echo $disableInput; ?>>
@@ -50,7 +50,7 @@ if(!\dash\data::editMode())
                 </select>
               <?php } // endif ?>
             </div>
-            <div class="c-xs-6 c-sm-2">
+            <div class="c-xs-6 c-sm-2 c-xxl-1">
               <label for="factordate" ><?php echo T_("Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
               <div class="input">
                 <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="factordate" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(a($dataRow, 'tax_document', 'date'))); ?>" id="factordate" value="<?php echo \dash\request::get('date'); ?>" <?php \dash\layout\autofocus::html(); ?> autocomplete='off' <?php echo $disableInput ?>>
@@ -59,12 +59,19 @@ if(!\dash\data::editMode())
             <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
 
 
-              <div class="c-xs-6 c-sm-2">
+              <div class="c-xs-6 c-sm-2 c-xxl-1">
                 <label for="serialnumber"><?php echo T_("Factor serial number"); ?></label>
                 <div class="input ltr">
                   <input type="text" name="serialnumber" value="<?php echo a($dataRow, 'tax_document', 'serialnumber');  ?>" id="serialnumber" maxlength="100"  <?php echo $disableInput ?>>
                 </div>
               </div>
+              <div class="c-xs-6 c-sm-3">
+                <label for="producttitle"><?php echo T_("Product title"); ?></label>
+                <div class="input">
+                  <input type="text" name="producttitle" value="<?php echo a($dataRow, 'tax_document', 'producttitle'); ?>" id="producttitle" maxlength="100"  <?php echo $disableInput ?>>
+                </div>
+              </div>
+
             <?php } //endif ?>
               <div class="c-xs-6 c-sm">
                 <label for="title"><?php echo T_("Description"); ?></label>
