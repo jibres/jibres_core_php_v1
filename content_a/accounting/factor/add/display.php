@@ -186,21 +186,21 @@ if(!\dash\data::editMode())
               <label for="total"><?php echo T_("Total payment before deducting discount"); ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="total"><?php echo $currency ?></label><?php } //endif ?>
-                <input type="tel" name="total" value="<?php echo round(a($dataRow, 'tax_document', 'total')); ?>" id="total" max="9999999" data-format='price' <?php echo $disableInput ?>>
+                <input type="tel" name="total" id="input-total" value="<?php echo round(a($dataRow, 'tax_document', 'total')); ?>" id="total" max="9999999" data-format='price' <?php echo $disableInput ?>>
               </div>
             </div>
             <div class="c-md-4">
               <label for="totaldiscount"><?php echo T_("Total discount"); ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="totaldiscount"><?php echo $currency ?></label><?php } //endif ?>
-                <input type="tel" name="totaldiscount" value="<?php echo round(a($dataRow, 'tax_document', 'totaldiscount'));  ?>" id="totaldiscount" max="9999999" data-format='price' <?php echo $disableInput ?>>
+                <input type="tel" name="totaldiscount" id="input-totaldiscount" value="<?php echo round(a($dataRow, 'tax_document', 'totaldiscount'));  ?>" id="totaldiscount" max="9999999" data-format='price' <?php echo $disableInput ?>>
               </div>
             </div>
             <div class="c-md-4">
-              <label for="totalvat"><?php echo T_("Total vat/tax"); ?> <?php if(!$docIsLock) {?><small class="link"><?php echo T_("Auto Calculate") ?></small><?php } ?></label>
+              <label for="totalvat"><?php echo T_("Total vat/tax"); ?> <?php if(!$docIsLock) {?><small id="factor-auto-calculate-vat" class="link cursor-pointer"><?php echo T_("Auto Calculate") ?></small><?php } ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="totalvat"><?php echo $currency ?></label><?php } //endif ?>
-                <input type="tel" name="totalvat" value="<?php echo round(a($dataRow, 'tax_document', 'totalvat'));  ?>" id="totalvat" max="9999999" data-format='price' <?php echo $disableInput ?>>
+                <input type="tel" name="totalvat" id="input-totalvat" value="<?php echo round(a($dataRow, 'tax_document', 'totalvat'));  ?>" id="totalvat" max="9999999" data-format='price' <?php echo $disableInput ?>>
               </div>
             </div>
           </div>
