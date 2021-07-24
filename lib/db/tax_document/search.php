@@ -12,9 +12,11 @@ class search
 		"
 			SELECT
 				COUNT(*) AS `count`,
-				SUM(tax_document.total) AS `total`,
-				SUM(tax_document.totaldiscount) AS `totaldiscount`,
-				SUM(tax_document.totalvat) AS `totalvat`
+				SUM(IFNULL(tax_document.total,0)) AS `total`,
+				SUM(IFNULL(tax_document.totaldiscount,0)) AS `totaldiscount`,
+				SUM(IFNULL(tax_document.totalvat,0)) AS `totalvat`,
+				SUM(IFNULL(tax_document.totalincludevat,0)) AS `totalincludevat`,
+				SUM(IFNULL(tax_document.totalnotincludevat,0)) AS `totalnotincludevat`
 			FROM tax_document
 				$q[join]
 				$q[where]

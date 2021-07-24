@@ -27,19 +27,19 @@ class search
 
 		$condition =
 		[
-			'order'        => 'order',
-			'sort'         => ['enum' => ['number', 'date']],
-			'year_id'      => 'id',
-			'contain'      => 'id',
-			'startdate'    => 'date',
-			'enddate'      => 'date',
-			'month'        => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
-			'export'       => 'bit',
-			'limit'        => 'int',
-			'status'       => ['enum' => ['temp', 'draft', 'lock']],
-			'template'     => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner']],
-			'summary_mode' => 'bit',
-			'template_list' => 'bit',
+			'order'           => 'order',
+			'sort'            => ['enum' => ['number', 'date']],
+			'year_id'         => 'id',
+			'contain'         => 'id',
+			'startdate'       => 'date',
+			'enddate'         => 'date',
+			'month'           => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
+			'export'          => 'bit',
+			'limit'           => 'int',
+			'status'          => ['enum' => ['temp', 'draft', 'lock']],
+			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner']],
+			'summary_mode'    => 'bit',
+			'template_list'   => 'bit',
 		];
 
 		$require = [];
