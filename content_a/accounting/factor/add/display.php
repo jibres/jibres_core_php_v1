@@ -76,7 +76,7 @@ if(!\dash\data::editMode())
           <?php if(!\dash\data::detailsList()) {?>
             <div class="msg warn2">
               <?php echo T_("You need to add some accounting details to add quick factor") ?>
-              <a target="_blank" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a>
+              <a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a>
             </div>
           <?php } //endif ?>
           <?php if(\dash\data::detailsList()) {?>
@@ -87,7 +87,7 @@ if(!\dash\data::editMode())
                     <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?></label>
                   </div>
                   <div class="c"></div>
-                  <div class="c-auto"><a target="_blank" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
+                  <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
                 </div>
 
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
@@ -140,7 +140,13 @@ if(!\dash\data::editMode())
 
             <?php if(in_array($myType, ['petty_cash', 'bank_partner'])) {?>
               <div class="mT10">
-                <label for="bank"><?php echo T_("Bank") ?></label>
+                 <div class="row">
+                  <div class="c-auto">
+                    <label for="bank"><?php echo T_("Bank") ?></label>
+                  </div>
+                  <div class="c"></div>
+                  <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
+                </div>
                 <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) { if(substr(a($value, 'code'), 0, 4) === '2605'){continue;}/*ok*/}else{continue;}?>
@@ -154,7 +160,13 @@ if(!\dash\data::editMode())
 
             <?php if(in_array($myType, ['partner', 'bank_partner'])) {?>
               <div class="mT10">
-                <label for="partner"><?php echo T_("Accounting Partner") ?></label>
+                 <div class="row">
+                  <div class="c-auto">
+                    <label for="partner"><?php echo T_("Accounting Partner") ?></label>
+                  </div>
+                  <div class="c"></div>
+                  <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
+                </div>
                 <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Accounting Partner") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 4), ['5208'])) {/*ok*/}else{continue;}?>
