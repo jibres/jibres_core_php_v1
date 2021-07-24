@@ -240,7 +240,7 @@ class template
 
 			case 'bank_partner':
 				$thirdparty = a($_args, 'bank');
-				$desc[] = T_("Charge bank");
+				$desc[] = T_("Deposit partner to");
 				break;
 
 			default:
@@ -262,11 +262,6 @@ class template
 				}
 			}
 
-		}
-
-		if(a($_args, 'template') === 'bank_partner')
-		{
-			$desc[] = T_("From partner");
 		}
 
 		if(a($_args, 'serialnumber'))
