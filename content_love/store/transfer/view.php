@@ -10,7 +10,7 @@ class view extends \content_love\store\setting\view
 
 		// btn
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::this(). '/setting?id='. \dash\request::get('id'));
 
 		\dash\face::btnInsert('formrun');
 		\dash\face::btnInsertText(T_("Run"));
