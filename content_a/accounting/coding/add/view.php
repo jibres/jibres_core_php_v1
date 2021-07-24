@@ -79,25 +79,25 @@ class view
 		switch(\dash\request::get('from') && \dash\language::current() === 'fa')
 		{
 			case 'default_cost_vat':
-				$myTitle = 'مالیات بر ارزش افزوده';
+				$myTitle = 'مالیات بر ارزش افزوده خرید';
 				break;
 			case 'default_cost_tax':
-				$myTitle = "عوارض ";
+				$myTitle = "عوارض بر ارزش افزوده خرید";
 				break;
 			case 'default_income_vat':
-				$myTitle = "مالیات بر ارزش افزوده";
+				$myTitle = "مالیات بر ارزش افزوده درآمد";
 				break;
 			case 'default_income_tax':
-				$myTitle = "عوارض";
+				$myTitle = "مالیات بر ارزش افزوده درآمد";
 				break;
 			case 'default_cost_payer':
-				$myTitle = "تن‌خواه";
+				$myTitle = "تنخواه";
 				break;
 			case 'default_cost_bank':
-				$myTitle = "بانک";
+				$myTitle = "حساب بانکی پیشفرض";
 				break;
 			case 'default_partner':
-				$myTitle = "جاری شرکا";
+				$myTitle = "جاری شرکا پیشفرض";
 				break;
 		}
 

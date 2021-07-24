@@ -290,6 +290,7 @@ function htmlLinkAddNewDetail($_parent_code = null, $_default_type = null)
       if(isset($get_coding_id['id']))
       {
         $get['parent'] = $get_coding_id['id'];
+        $get['view'] = $get_coding_id['id'];
       }
     }
     echo '<a class="link" target="_blank" href="'. \dash\url::this(). '/coding/add?'.\dash\request::build_query($get).'"><i class="sf-external-link"></i> '. T_("Add new accounting details").'</a>';
