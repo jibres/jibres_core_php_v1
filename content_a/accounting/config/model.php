@@ -16,17 +16,17 @@ class model
 
 		if(\dash\request::post('set_assistant_close_harmful_profit'))
 		{
-			$post['assistant_close_harmful_profit'] = \dash\request::post('assistant_close_harmful_profit');
+			$post['assistant_close_harmful_profit'] = \dash\request::post('assistant_close_harmful_profit') ? \dash\request::post('assistant_close_harmful_profit') : null;
 		}
 
 		if(\dash\request::post('set_assistant_close_accumulated'))
 		{
-			$post['assistant_close_accumulated']    = \dash\request::post('assistant_close_accumulated');
+			$post['assistant_close_accumulated']    = \dash\request::post('assistant_close_accumulated') ? \dash\request::post('assistant_close_accumulated') : null;
 		}
 
 		if(\dash\request::post('set_assistant_closing'))
 		{
-			$post['assistant_closing']              = \dash\request::post('assistant_closing');
+			$post['assistant_closing']              = \dash\request::post('assistant_closing') ? \dash\request::post('assistant_closing') : null;
 		}
 
 

@@ -310,6 +310,7 @@ function show_assistant_list_html($_index, $_details_mode = false)
     $list = \dash\data::assistantList();
   }
 
+  echo "<option value='0'>". T_("None"). '</option>';
 
   $lastCat = null;
   $showCat = null;
