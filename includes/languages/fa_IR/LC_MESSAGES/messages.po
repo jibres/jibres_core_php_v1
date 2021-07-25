@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-25 11:38+0430\n"
-"PO-Revision-Date: 2021-07-25 11:48+0430\n"
+"POT-Creation-Date: 2021-07-25 13:17+0430\n"
+"PO-Revision-Date: 2021-07-25 13:22+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -696,9 +696,10 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content/bug/display.php:104 content/changelog/display.php:55
 #: content_a/accounting/doc/add/display-docdetail.php:102
 #: content_a/accounting/factor/add/display.php:77
-#: content_a/accounting/year/vatreport/display.php:55
-#: content_a/accounting/year/vatreport/display.php:99
-#: content_a/accounting/year/vatreport/display.php:150
+#: content_a/accounting/year/vatreport/display.php:48
+#: content_a/accounting/year/vatreport/display.php:92
+#: content_a/accounting/year/vatreport/display.php:143
+#: content_a/accounting/year/vatreport/display.php:176
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/form/item/display.php:144 content_a/form/setting/display.php:15
@@ -4086,7 +4087,8 @@ msgstr "۹٪"
 #: content_a/accounting/report/total/display-old.php:65
 #: content_a/accounting/report/total/display.php:65
 #: content_a/accounting/report/total/display.php:93
-#: content_a/accounting/report/total/display.php:123 content_a/cart/add/display.php:136
+#: content_a/accounting/report/total/display.php:123
+#: content_a/accounting/year/vatreport/display.php:151 content_a/cart/add/display.php:136
 #: content_a/order/home/display.php:70 content_a/order/links.php:30
 #: content_a/order/productList.php:38 content_a/order/summary.php:44
 #: content_a/sale/display.php:20 content_business/cart/cartSummary.php:35
@@ -4768,9 +4770,9 @@ msgstr "لطفا والد را انتخاب کنید"
 #: content_a/accounting/coding/add/display-add.php:25
 #: content_a/accounting/report/balancesheet/display.php:10
 #: content_a/accounting/report/group/display.php:12
-#: content_a/accounting/year/vatreport/display.php:54
-#: content_a/accounting/year/vatreport/display.php:98
-#: content_a/accounting/year/vatreport/display.php:149
+#: content_a/accounting/year/vatreport/display.php:47
+#: content_a/accounting/year/vatreport/display.php:91
+#: content_a/accounting/year/vatreport/display.php:142
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:5
 #: content_my/domain/whoisdetail/whoisDetailForm.php:73
 #: content_my/domain/whoisdetail/whoisDetailForm.php:89 dash/app/files/ready.php:96
@@ -5128,7 +5130,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 
 #: content_a/accounting/coding/display-list.php:12
 #: content_a/accounting/coding/display.php:18
-#: content_a/accounting/year/vatreport/display.php:5
+#: content_a/accounting/year/vatreport/display.php:4
 #: content_a/form/analytics/chart/view.php:20
 #: content_a/form/analytics/filter/display.php:26
 #: content_a/website/news/filter/display.php:35 content_love/domain/log/display.php:4
@@ -6263,7 +6265,7 @@ msgstr "تشخیص"
 
 #: content_a/accounting/report/ledger/display.php:25
 #: content_a/accounting/turnover/display.php:166
-#: content_a/accounting/year/vatreport/display.php:170
+#: content_a/accounting/year/vatreport/display.php:163
 #: content_a/form/analytics/chart/view.php:33 content_a/form/analytics/chart2/view.php:33
 #: content_a/form/analytics/filter/display.php:51
 msgid "Remain"
@@ -6294,7 +6296,7 @@ msgid "Please choose details"
 msgstr "لطفا تفصیل را وارد کنید"
 
 #: content_a/accounting/turnover/display.php:104
-#: content_a/accounting/year/vatreport/display.php:56
+#: content_a/accounting/year/vatreport/display.php:49
 msgid "Total sales"
 msgstr "کل فروش"
 
@@ -6438,108 +6440,156 @@ msgstr "هم‌اکنون اجرا کن"
 msgid "Manage year"
 msgstr "مدیریت سال"
 
-#: content_a/accounting/year/vatreport/display.php:12
+#: content_a/accounting/year/vatreport/display.php:10
 msgid "Quarter 1"
 msgstr "فصل ۱"
 
-#: content_a/accounting/year/vatreport/display.php:13
+#: content_a/accounting/year/vatreport/display.php:11
 msgid "Spring"
 msgstr "بهار"
 
-#: content_a/accounting/year/vatreport/display.php:19
+#: content_a/accounting/year/vatreport/display.php:16
 msgid "Quarter 2"
 msgstr "فصل ۲"
 
-#: content_a/accounting/year/vatreport/display.php:20
+#: content_a/accounting/year/vatreport/display.php:17
 msgid "Summer"
 msgstr "تابستان"
 
-#: content_a/accounting/year/vatreport/display.php:26
+#: content_a/accounting/year/vatreport/display.php:22
 msgid "Quarter 3"
 msgstr "فصل ۳"
 
-#: content_a/accounting/year/vatreport/display.php:27
+#: content_a/accounting/year/vatreport/display.php:23
 msgid "Autumn"
 msgstr "پاییز"
 
-#: content_a/accounting/year/vatreport/display.php:33
+#: content_a/accounting/year/vatreport/display.php:28
 msgid "Quarter 4"
 msgstr "فصل ۴"
 
-#: content_a/accounting/year/vatreport/display.php:34
+#: content_a/accounting/year/vatreport/display.php:29
 msgid "Winter"
 msgstr "زمستان"
 
-#: content_a/accounting/year/vatreport/display.php:50
+#: content_a/accounting/year/vatreport/display.php:43
 msgid "Table #1. Sale product report and service"
 msgstr "جدول ۱: اطلاعات مربوط به فروش و صادرات کالاها و خدمات"
 
-#: content_a/accounting/year/vatreport/display.php:57
-#: content_a/accounting/year/vatreport/display.php:101
-#: content_a/accounting/year/vatreport/display.php:151
+#: content_a/accounting/year/vatreport/display.php:50
+#: content_a/accounting/year/vatreport/display.php:94
+#: content_a/accounting/year/vatreport/display.php:144
 msgid "Vat 6%"
 msgstr "مالیات ۶٪"
 
-#: content_a/accounting/year/vatreport/display.php:58
-#: content_a/accounting/year/vatreport/display.php:102
-#: content_a/accounting/year/vatreport/display.php:152
+#: content_a/accounting/year/vatreport/display.php:51
+#: content_a/accounting/year/vatreport/display.php:95
+#: content_a/accounting/year/vatreport/display.php:145
 msgid "Vat 3%"
 msgstr "عوارض ۳٪"
 
-#: content_a/accounting/year/vatreport/display.php:64
+#: content_a/accounting/year/vatreport/display.php:57
 msgid "Sale include vat products"
 msgstr "فروش کالاها و خدمات مشمول"
 
-#: content_a/accounting/year/vatreport/display.php:71
+#: content_a/accounting/year/vatreport/display.php:64
 msgid "Sale non-include vat products"
 msgstr "فروش کالاها و خدمات معاف"
 
-#: content_a/accounting/year/vatreport/display.php:78
+#: content_a/accounting/year/vatreport/display.php:71
 msgid "Export products include and not non-include vat"
 msgstr "صادرات کالاها و خدمات (معاف و مشمول)"
 
-#: content_a/accounting/year/vatreport/display.php:85
-#: content_a/accounting/year/vatreport/display.php:136
+#: content_a/accounting/year/vatreport/display.php:78
+#: content_a/accounting/year/vatreport/display.php:129
 msgid "Total vat in this quarter"
 msgstr "جمع مالیات این دوره"
 
-#: content_a/accounting/year/vatreport/display.php:94
+#: content_a/accounting/year/vatreport/display.php:87
 msgid "Table #2. Buy product report and service"
 msgstr "جدول ۲: اطلاعات مربوط به خرید و واردات کالاها و خدمات"
 
-#: content_a/accounting/year/vatreport/display.php:100
+#: content_a/accounting/year/vatreport/display.php:93
 msgid "Total cost"
 msgstr "مجموع هزینه‌"
 
-#: content_a/accounting/year/vatreport/display.php:108
+#: content_a/accounting/year/vatreport/display.php:101
 msgid "Cost include vat products"
 msgstr "خرید کالاها و خدمات مشمول"
 
-#: content_a/accounting/year/vatreport/display.php:115
+#: content_a/accounting/year/vatreport/display.php:108
 msgid "Cost non-include vat products"
 msgstr "خرید کالاها و خدمات معاف"
 
-#: content_a/accounting/year/vatreport/display.php:122
+#: content_a/accounting/year/vatreport/display.php:115
 msgid "Import products include vat"
 msgstr "واردات کالاها و خدمات مشمول"
 
-#: content_a/accounting/year/vatreport/display.php:129
+#: content_a/accounting/year/vatreport/display.php:122
 msgid "Import products non-include vat"
 msgstr "واردات کالاها و خدمات معاف"
 
-#: content_a/accounting/year/vatreport/display.php:145
+#: content_a/accounting/year/vatreport/display.php:138
 msgid "Table #3. Calculate remain vat"
 msgstr "جدول ۳: محاسبه مانده مالیات و عوارض پرداختنی قابل کسر یا استرداد"
 
-#: content_a/accounting/year/vatreport/display.php:158
-msgid "Total vat payed. (Calculate automatic)"
-msgstr "جمع کل مالیات و عوارض پرداختنی (این قسمت به صورت خودکار پرداخت می‌گردد)"
+#: content_a/accounting/year/vatreport/display.php:151
+#: content_a/accounting/year/vatreport/display.php:163
+#: content_a/accounting/year/vatreport/display.php:202
+msgid "This section calculate automatic"
+msgstr "این قسمت به صورت خودکار تکمیل می‌گردد"
 
-#: content_a/accounting/year/vatreport/display.php:164
+#: content_a/accounting/year/vatreport/display.php:157
 #: content_crm/transactions/edit/display.php:16
 #: content_crm/transactions/report/display.php:3
 msgid "Minus"
 msgstr "کاهش"
+
+#: content_a/accounting/year/vatreport/display.php:171
+msgid "B. Calculate remain vat"
+msgstr "ب. محاسبه مانده مالیات و عوارض"
+
+#: content_a/accounting/year/vatreport/display.php:175 content_a/sale/display.php:15
+msgid "Row"
+msgstr "ردیف"
+
+#: content_a/accounting/year/vatreport/display.php:177
+msgid "Accounting Vat"
+msgstr "مالیات بر ارزش افزوده"
+
+#: content_a/accounting/year/vatreport/display.php:178
+msgid "Accounting Tax"
+msgstr "عوارض بر ازرش افزوده"
+
+#: content_a/accounting/year/vatreport/display.php:184
+msgid "Total vat payed. (From table 1)"
+msgstr "جمع مالیات و عوارض متعلقه بابت فروش کالا و ارائه خدمات (نقل از جدول ۱)"
+
+#: content_a/accounting/year/vatreport/display.php:190
+msgid "Total vat. (From table 3)"
+msgstr ""
+"(کسر می‌شود) جمع مالیات و عوارض پرداختی قابل محاسبه به عنوان اعتبار مالیاتی (نقل از جدول "
+"۳)"
+
+#: content_a/accounting/year/vatreport/display.php:196
+msgid "Remain vat from last quarter or year."
+msgstr "(کسر می‌شود)‌ اضافه پرداختی مالیات و عوارض انتقالی از دوره قبل"
+
+#: content_a/accounting/year/vatreport/display.php:202
+msgid "Total remain. Negative number if creditor"
+msgstr "مانده بدهی/ بستانکاری مالیات و عوارض (بستانکاری به صورت عدد منفی)"
+
+#: content_a/accounting/year/vatreport/display.php:210
+msgid "C. Decide on overpayment"
+msgstr "ما"
+
+#: content_a/accounting/year/vatreport/display.php:215
+msgid "Move to next quarter"
+msgstr "درخواست انتقال اضافه پرداخت به دوره بعدی عملکرد مودی"
+
+#: content_a/accounting/year/vatreport/display.php:219
+msgid "Refund the vat"
+msgstr "درخواست ارترداد اضافه پرداخت به مودی"
 
 #: content_a/accounting/year/vatreport/view.php:9
 #: content_a/accounting/year/vatsetting/view.php:9
@@ -10675,10 +10725,6 @@ msgstr "ارزش محصول"
 #: content_a/sale/display.php:3
 msgid "You can add new empty tab if current tab is filled!"
 msgstr "اگر این برگه پر شود شما می‌توانید یک برگه خالی جدید اضافه کنید!"
-
-#: content_a/sale/display.php:15
-msgid "Row"
-msgstr "ردیف"
 
 #: content_a/sale/display.php:61
 msgid "Factor Price Detail"
@@ -28261,8 +28307,8 @@ msgid "Field :val is not a valid date field"
 msgstr "فیلد :val وارد شد شامل یک تاریخ صحیح نیست"
 
 #: dash/validate/datetime.php:100 dash/validate/datetime.php:110
-#: dash/validate/datetime.php:124 lib/app/tax/year/check.php:63
-#: lib/app/tax/year/check.php:70
+#: dash/validate/datetime.php:124 lib/app/tax/year/check.php:81
+#: lib/app/tax/year/check.php:88
 msgid "Invalid date"
 msgstr "تاریخ نامعتبر است"
 
@@ -39275,7 +39321,7 @@ msgid "Duplicate code. Try another code"
 msgstr "این کد تکراری است. لطفا کد دیگری را وارد کنید"
 
 #: lib/app/tax/coding/edit.php:87 lib/app/tax/doc/edit.php:159
-#: lib/app/tax/docdetail/edit.php:66 lib/app/tax/year/edit.php:47
+#: lib/app/tax/docdetail/edit.php:66 lib/app/tax/year/edit.php:54
 #: lib/pagebuilder/tools/edit.php:44
 msgid "No change in your data"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -39604,11 +39650,11 @@ msgstr "شما از حداکثر ظرفیت خود برای تعریف سال م
 msgid "Accounting year successfully added"
 msgstr "سال مالی با موفقیت ثبت شد"
 
-#: lib/app/tax/year/check.php:43
+#: lib/app/tax/year/check.php:61
 msgid "Invalid start date, start date can not larger than end date!"
 msgstr "تاریخ شروع اشتباه است. تاریخ شروع نباید بزرگتر از تاریخ پایان باشد!"
 
-#: lib/app/tax/year/check.php:57
+#: lib/app/tax/year/check.php:75
 msgid "Accounting year must exactly one year"
 msgstr "سال مالی باید دقیقا بازه زمانی یک سال را شامل شود"
 
@@ -39616,7 +39662,7 @@ msgstr "سال مالی باید دقیقا بازه زمانی یک سال را
 msgid "Default year set"
 msgstr "سال مالی جاری تنظیم شد"
 
-#: lib/app/tax/year/edit.php:53
+#: lib/app/tax/year/edit.php:60
 msgid "Accounting year successfully updated"
 msgstr "سال مالی با موفقیت ویرایش شد"
 
@@ -41732,9 +41778,6 @@ msgstr "یارد"
 
 #~ msgid "Based on the details of the closing document"
 #~ msgstr "به شرح سند اختتامیه"
-
-#~ msgid "Go to next page"
-#~ msgstr "برو به صفحه بعد"
 
 #~ msgid "Mailer Error :error"
 #~ msgstr "خطا در ارسال‌کننده ایمیل :error"
