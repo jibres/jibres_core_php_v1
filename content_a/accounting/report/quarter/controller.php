@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\report\vatreport;
+namespace content_a\accounting\report\quarter;
 
 
 class controller

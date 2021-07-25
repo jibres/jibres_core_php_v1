@@ -1,6 +1,6 @@
 <?php require_once(root. 'content_a/accounting/filter.php'); ?>
 
-<?php if(in_array(\dash\request::get('template'), ['cost', 'income', 'asset'])) {?>
+<?php if(in_array(\dash\request::get('template'), ['cost', 'income', 'asset', 'costasset'])) {?>
 <?php $myData = \dash\data::summaryDetail(); ?>
 <section class="f">
   <div class="c pRa10">

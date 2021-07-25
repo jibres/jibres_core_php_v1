@@ -21,7 +21,7 @@
             <div class="c-xs-12 c-sm-6 c-md">
               <select class="select22" name="template">
                 <option value=""><?php echo T_("Choose template") ?></option>
-              <?php foreach (['income', 'cost' , 'petty_cash', 'partner', 'asset', 'bank_partner'] as $key => $value) {?>
+              <?php foreach (['income', 'cost' , 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset'] as $key => $value) {?>
                   <option value="<?php echo $value ?>" <?php if(\dash\request::get('template') == $value) {echo 'selected';} ?>><?php echo \lib\app\tax\doc\ready::factor_type_translate($value); ?></option>
                 <?php } // endfor ?>
               </select>

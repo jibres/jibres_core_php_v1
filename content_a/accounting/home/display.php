@@ -270,6 +270,13 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
             <div class="go"></div>
           </a>
         </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/quarter'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Bank'); ?>">
+            <div class="key"><?php echo T_("Quarter report") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
       </ul>
     </nav>
 

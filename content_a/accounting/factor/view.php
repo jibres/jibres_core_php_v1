@@ -24,9 +24,16 @@ class view
 		\dash\face::title(T_("Factors list :val", ['val' => \lib\app\tax\doc\ready::factor_type_translate(\dash\request::get('template'))]));
 
 
-		// btn
-		\dash\data::action_text(T_('Add new factor'));
-		\dash\data::action_link(\dash\url::that(). '/add?'. \dash\request::build_query(['type' => \dash\request::get('template')]));
+		if(\dash\request::get('template') === 'costasset')
+		{
+			// nothing
+		}
+		else
+		{
+			// btn
+			\dash\data::action_text(T_('Add new factor'));
+			\dash\data::action_link(\dash\url::that(). '/add?'. \dash\request::build_query(['type' => \dash\request::get('template')]));
+		}
 
 
 	}

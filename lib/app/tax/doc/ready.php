@@ -100,6 +100,9 @@ class ready
 			case 'bank_partner':
 				$tvalue = T_("Charge bank from partner");
 				break;
+			case 'costasset':
+				$tvalue = T_("Cost + Asset");
+				break;
 
 			default:
 				$tvalue = T_("Accounting factor");
