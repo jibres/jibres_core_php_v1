@@ -73,7 +73,7 @@ class vatreport
 			}
 			else
 			{
-				if(a($vatsetting, $key - 1, 'decide') === 'move') // get from setting
+				if(a($vatsetting, $key - 1, 'decide') === 'move' || !a($vatsetting, $key - 1, 'decide'))
 				{
 					$last_remain = a($result, $key - 1, 'remain');
 					$remain = $remain  + $last_remain;

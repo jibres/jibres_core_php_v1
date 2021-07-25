@@ -217,11 +217,11 @@
 				<form method="post" autocomplete="off" data-patch>
 					<input type="hidden" name="quarter" value="<?php echo $key; ?>">
 					<div class="radio1">
-						<input type="radio" name="decide" value="move" id="<?php echo $key. '_move-id' ?>" <?php if(a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') === 'move'){ echo 'checked';} ?>>
+						<input type="radio" name="decide" value="move" id="<?php echo $key. '_move-id' ?>" <?php if(a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') === 'move' || (!a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') && $key != 4)){ echo 'checked';} ?>>
 						<label for="<?php echo $key. '_move-id' ?>"><?php echo T_("Move to next quarter") ?></label>
 					</div>
 					<div class="radio1">
-						<input type="radio" name="decide" value="refund" id="<?php echo $key. '_refund-id' ?>" <?php if(a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') === 'refund'){ echo 'checked';} ?>>
+						<input type="radio" name="decide" value="refund" id="<?php echo $key. '_refund-id' ?>" <?php if(a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') === 'refund' || (!a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') && $key == 4)){ echo 'checked';} ?>>
 						<label for="<?php echo $key. '_refund-id' ?>"><?php echo T_("Refund the vat") ?></label>
 					</div>
 				</form>
