@@ -159,21 +159,30 @@ class check
 				// check some error
 			}
 
-			if($data['totalvat'] && $data['total'])
+			if($data['total'])
 			{
 				$total         = floatval($data['total']);
 				$totalvat      = floatval($data['totalvat']);
 				$totaldiscount = floatval($data['totaldiscount']);
+				$final         = $total - $totaldiscount;
 
-				$real_vat = round(($total - $totaldiscount) * 0.09);
+				$real_vat      = round(($final) * 0.09);
 
-				$data['totalincludevat']    = $total - $totaldiscount;
-				$data['totalnotincludevat'] = 0;
+				if($totalvat)
+				{
+					$data['totalincludevat']    = $final;
+					$data['totalnotincludevat'] = 0;
+				}
+				else
+				{
+					$data['totalincludevat']    = 0;
+					$data['totalnotincludevat'] = $final;
+				}
 
 				if($totalvat != $real_vat)
 				{
 					$totalincludevat            = ($totalvat / 9) * 100;
-					$totalnotincludevat         = $total - $totaldiscount - $totalincludevat;
+					$totalnotincludevat         = $final - $totalincludevat;
 
 					if($totalnotincludevat < 0)
 					{

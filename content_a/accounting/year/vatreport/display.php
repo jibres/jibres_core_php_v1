@@ -25,7 +25,7 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td><?php echo T_("Sale non-include vat products") ?></td>
-							<td></td>
+							<td data-copy='<?php echo a($value, 'income', 'totalnotincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalnotincludevat'), true, 'en') ?></code></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -39,9 +39,9 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td><?php echo T_("Total vat in this quarter") ?></td>
-							<td data-copy='<?php echo a($value, 'income', 'this_totalincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'this_totalincludevat'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'income', 'this_totalvatinclude6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'this_totalvatinclude6'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'income', 'this_totalvatinclude3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'this_totalvatinclude3'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'income', 'final'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'final'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'income', 'totalvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalvat6'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'income', 'totalvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalvat3'), true, 'en') ?></code></td>
 						</tr>
 					</tbody>
 				</table>
@@ -69,7 +69,7 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td><?php echo T_("Cost non-include vat products") ?></td>
-							<td></td>
+							<td data-copy='<?php echo a($value, 'cost', 'totalnotincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalnotincludevat'), true, 'en') ?></code></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -83,9 +83,9 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td><?php echo T_("Total vat in this quarter") ?></td>
-							<td data-copy='<?php echo a($value, 'cost', 'this_totalincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'this_totalincludevat'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'cost', 'this_totalvatinclude6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'this_totalvatinclude6'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'cost', 'this_totalvatinclude3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'this_totalvatinclude3'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'cost', 'final'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'final'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?></code></td>
 						</tr>
 					</tbody>
 				</table>

@@ -59,6 +59,7 @@ class vatreport
 				$list['cost']     = \lib\app\tax\doc\search::list(null, $args);
 			}
 
+
 			$result[$key] = array_merge($temp, $list);
 		}
 

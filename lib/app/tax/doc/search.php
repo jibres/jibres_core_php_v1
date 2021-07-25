@@ -192,6 +192,10 @@ class search
 				$summary['totalvat3'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.03;
 			}
 
+			if(a($summary, 'total') || a($summary, 'totaldiscount'))
+			{
+				$summary['final'] = (floatval($summary['total']) - floatval($summary['totaldiscount']));
+			}
 
 			if(a($summary, 'totalincludevat'))
 			{
