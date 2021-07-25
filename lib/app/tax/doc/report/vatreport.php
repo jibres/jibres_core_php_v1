@@ -59,11 +59,33 @@ class vatreport
 				$list['cost']     = \lib\app\tax\doc\search::list(null, $args);
 			}
 
+			$current_remain = floatval(a($list, 'income', 'totalvat')) - floatval(a($list, 'cost', 'totalvat'));
+
+			$temp['current_remainvat6'] = $current_remain * 0.06;
+			$temp['current_remainvat3'] = $current_remain * 0.03;
+
+			$remain = $current_remain;
+
+			if($key === 1)
+			{
+				$remain = $remain + $remainvatlastyear;
+			}
+			else
+			{
+				if(true) // get from setting
+				{
+					$remain = $remain  + a($result, $key - 1, 'remain');
+				}
+			}
+
+			$temp['remain'] = $remain;
+			$temp['remainvat6'] = $remain * 0.06;
+			$temp['remainvat3'] = $remain * 0.03;
+
 
 			$result[$key] = array_merge($temp, $list);
 		}
 
-		// var_dump($result);exit;
 
 		return $result;
 	}
