@@ -63,15 +63,15 @@
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td class="w-10"><?php echo T_("Sale <b>non-include</b> vat products") ?></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalnotincludevat'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalnotincludevat'), true, 'en') ?>"></div></td>
-							<td class="w-4 bg-gray-300"></td>
-							<td class="w-4 bg-gray-300"></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
 							<td class="w-10"><?php echo T_("<b>Export</b> products <b>include and not non-include vat</b>") ?></td>
 							<td class="w-4" data-copy='0'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(0, true, 'en') ?>"></div></td>
-							<td class="w-4 bg-gray-300"></td>
-							<td class="w-4 bg-gray-300"></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
@@ -107,8 +107,8 @@
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td class="w-10"><?php echo T_("Buy products with <b>non-include vat</b>") ?></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalnotincludevat'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalnotincludevat'), true, 'en') ?>"></div></td>
-							<td class="w-4 bg-gray-300"></td>
-							<td class="w-4 bg-gray-300"></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
@@ -122,8 +122,8 @@
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
 							<td class="w-10"><?php echo T_("Import products <b>non-include vat</b>") ?></td>
 							<td class="w-4" data-copy='0'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(0, true, 'en') ?>"></div></td>
-							<td class="w-4 bg-gray-300"></td>
-							<td class="w-4 bg-gray-300"></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
+							<td class="w-4"><div class="bg-gray-300">&nbsp;</div></td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
@@ -163,7 +163,7 @@
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
-							<td class="w-10"><?php echo T_("Remain vat refundable") ?> <small class="fc-red"><?php echo T_("This section calculate automatic") ?></small></td>
+							<td class="w-10"><?php echo T_("<b>Remain</b> vat refundable") ?> <small class="fc-red"><?php echo T_("This section calculate automatic") ?></small></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
 
