@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Quarterly tax report settings'));
+		\dash\face::title(T_('Quarterly tax report'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
