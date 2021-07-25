@@ -1,5 +1,5 @@
 <?php
-namespace content_a\accounting\year\vatreport;
+namespace content_a\accounting\report\vatreport;
 
 class model
 {

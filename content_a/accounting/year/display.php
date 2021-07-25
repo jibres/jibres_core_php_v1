@@ -15,16 +15,8 @@
 						<?php } //endif ?>
 						<a target="_blank" class="block" href="<?php echo \dash\url::this(). '/doc/printall'; ?>"><?php echo T_("Print all accounting document") ?></a>
 					</div>
-					<footer class="">
-						<div class="row">
-							<div class="cauto">
-								<a class="btn secondary outline" href="<?php echo \dash\url::that(). '/manage?id='. a($value, 'id'); ?>"><?php echo T_("Manage") ?></a>
-							</div>
-							<div class="c"></div>
-							<div class="cauto">
-								<a class="btn primary" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a>
-							</div>
-						</div>
+					<footer class="txtRa">
+						<a class="btn master" href="<?php echo \dash\url::that(). '/manage?id='. a($value, 'id'); ?>"><?php echo T_("Manage") ?></a>
 					</footer>
 				</div>
 			</div>

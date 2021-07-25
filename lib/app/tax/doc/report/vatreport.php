@@ -4,19 +4,22 @@ namespace lib\app\tax\doc\report;
 
 class vatreport
 {
-	public static function get($_year_detail)
+	public static function get()
 	{
-		$remainvatlastyear = floatval(a($_year_detail, 'remainvatlastyear'));
 
-		$vatsetting = a($_year_detail, 'vatsetting');
+		$year_detail = \lib\app\tax\year\get::default_year();
+
+		$remainvatlastyear = floatval(a($year_detail, 'remainvatlastyear'));
+
+		$vatsetting = a($year_detail, 'vatsetting');
 
 		if(!is_array($vatsetting))
 		{
 			$vatsetting = [];
 		}
 
-		$startdate = a($_year_detail, 'startdate');
-		$enddate   = a($_year_detail, 'enddate');
+		$startdate = a($year_detail, 'startdate');
+		$enddate   = a($year_detail, 'enddate');
 
 		$myYear = \dash\utility\convert::to_en_number(\dash\fit::date(date("Y-m-d", strtotime($startdate))));
 		$myYear = substr($myYear, 0, 4);

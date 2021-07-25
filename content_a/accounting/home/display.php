@@ -261,6 +261,18 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
       </ul>
     </nav>
 
+     <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/vatreport'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Bank'); ?>">
+            <div class="key"><?php echo T_("Vat report") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
   </div>
 </div>
 
