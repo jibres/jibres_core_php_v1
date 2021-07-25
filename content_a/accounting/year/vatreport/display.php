@@ -38,7 +38,7 @@
 
   </section>
 <div class="bg-green-200">
-	<div class="tblBox">
+	<div class="tblBox fs12">
 
 		<?php foreach (\dash\data::dataTable() as $key => $value) {
 			if(\dash\request::get('quarter') && intval(\dash\request::get('quarter')) !== intval($key))
@@ -46,6 +46,7 @@
 				continue;
 			}
 			?>
+			<?php if(!\dash\request::get('quarter')) {?><hr><h2><?php echo T_("Quarter $key") ?></h2><?php } //endif ?>
 			<div class="mA20">
 				<h3><?php echo T_("Table #1. Sale product report and service") ?></h3>
 				<table class="tbl1 v6">
