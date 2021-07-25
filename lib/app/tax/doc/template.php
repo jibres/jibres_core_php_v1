@@ -416,7 +416,7 @@ class template
 					'assistant_id'    => a($load_coding_detail, $tax, 'parent3'),
 					'details_id'      => $tax,
 					'type'            => 'creditor',
-					'value'           => $tax_value = round(($args['totalvat'] / 9) * 3),
+					'value'           => $tax_value = round(($args['totalvat'] / 9) * 6),
 					'sort'            => 4,
 					'template'        => 'tax',
 				];
@@ -430,7 +430,7 @@ class template
 					'assistant_id'    => a($load_coding_detail, $vat, 'parent3'),
 					'details_id'      => $vat,
 					'type'            => 'creditor',
-					'value'           => $vat_value = round(($args['totalvat'] / 9) * 6),
+					'value'           => $vat_value = round(($args['totalvat'] / 9) * 3),
 					'sort'            => 3,
 					'template'        => 'vat',
 				];
