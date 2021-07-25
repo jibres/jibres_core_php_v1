@@ -33,6 +33,7 @@ class vatreport
 
 		$args = [];
 		$args['summary_mode'] = true;
+		$args['status'] = 'lock';
 
 		$result = [];
 		foreach ($quarter as $key => $value)
