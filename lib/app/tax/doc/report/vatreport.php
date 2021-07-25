@@ -6,6 +6,19 @@ class vatreport
 {
 	public static function get($_year_detail)
 	{
+		$remainvatlastyear = floatval(a($_year_detail, 'remainvatlastyear'));
+
+		$vatsetting = a($_year_detail, 'vatsetting');
+		if(!is_string($vatsetting))
+		{
+			$vatsetting = json_decode($vatsetting, true);
+		}
+
+		if(!is_array($vatsetting))
+		{
+			$vatsetting = [];
+		}
+
 		$startdate = a($_year_detail, 'startdate');
 		$enddate   = a($_year_detail, 'enddate');
 
@@ -30,16 +43,26 @@ class vatreport
 			$temp['startdate'] = $args['startdate'] = $value[0];
 			$temp['enddate']   = $args['enddate']   = $value[1];
 
-			$list              = \lib\app\tax\doc\search::list(null, $args);
+			$list = [];
 
-			if(a($list, 'totalincludevat'))
+			// income
 			{
-				$list['totalvatinclude6'] = floatval($list['totalincludevat']) * 0.06;
-				$list['totalvatinclude3'] = floatval($list['totalincludevat']) * 0.03;
+				$args['template'] = 'income';
+
+				$list['income']   = \lib\app\tax\doc\search::list(null, $args);
 			}
 
-			$result[] = array_merge($temp, $list);
+			// cost + asset
+			{
+				$args['template'] = 'costasset';
+
+				$list['cost']     = \lib\app\tax\doc\search::list(null, $args);
+			}
+
+			$result[$key] = array_merge($temp, $list);
 		}
+
+		// var_dump($result);exit;
 
 		return $result;
 	}

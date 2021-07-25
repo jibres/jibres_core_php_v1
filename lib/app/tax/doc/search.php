@@ -37,7 +37,7 @@ class search
 			'export'          => 'bit',
 			'limit'           => 'int',
 			'status'          => ['enum' => ['temp', 'draft', 'lock']],
-			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner']],
+			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
 		];
@@ -135,8 +135,16 @@ class search
 
 		if($data['template'])
 		{
-			$and[] = " tax_document.template = '$data[template]' ";
-			self::$is_filtered = true;
+			if($data['template'] === 'costasset')
+			{
+				$and[] = " tax_document.template IN ('cost', 'asset') ";
+				self::$is_filtered = true;
+			}
+			else
+			{
+				$and[] = " tax_document.template = '$data[template]' ";
+				self::$is_filtered = true;
+			}
 		}
 
 
@@ -183,6 +191,14 @@ class search
 				$summary['totalvat6'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.06;
 				$summary['totalvat3'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.03;
 			}
+
+
+			if(a($summary, 'totalincludevat'))
+			{
+				$summary['totalvatinclude6'] = floatval($summary['totalincludevat']) * 0.06;
+				$summary['totalvatinclude3'] = floatval($summary['totalincludevat']) * 0.03;
+			}
+
 
 			return $summary;
 		}
