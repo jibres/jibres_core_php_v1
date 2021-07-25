@@ -32,6 +32,12 @@ class vatreport
 
 			$list              = \lib\app\tax\doc\search::list(null, $args);
 
+			if(a($list, 'totalincludevat'))
+			{
+				$list['totalvatinclude6'] = floatval($list['totalincludevat']) * 0.06;
+				$list['totalvatinclude3'] = floatval($list['totalincludevat']) * 0.03;
+			}
+
 			$result[] = array_merge($temp, $list);
 		}
 
