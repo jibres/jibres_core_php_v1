@@ -60,8 +60,8 @@ class vatreport
 
 			$current_remain = floatval(a($list, 'income', 'totalincludevat')) - floatval(a($list, 'cost', 'totalincludevat'));
 
-			$temp['current_remainvat6'] = $current_remain * 0.06;
-			$temp['current_remainvat3'] = $current_remain * 0.03;
+			$temp['current_remainvat6'] = round($current_remain * 0.06);
+			$temp['current_remainvat3'] = round($current_remain * 0.03);
 
 			$remain = $current_remain;
 			$last_remain = 0;
@@ -81,13 +81,13 @@ class vatreport
 			}
 
 			$temp['remain'] = $remain;
-			$temp['remainvat6'] = $remain * 0.06;
-			$temp['remainvat3'] = $remain * 0.03;
+			$temp['remainvat6'] = round($remain * 0.06);
+			$temp['remainvat3'] = round($remain * 0.03);
 
 
 			$temp['last_remain'] = $last_remain;
-			$temp['last_remainvat6'] = $last_remain * 0.06;
-			$temp['last_remainvat3'] = $last_remain * 0.03;
+			$temp['last_remainvat6'] = round($last_remain * 0.06);
+			$temp['last_remainvat3'] = round($last_remain * 0.03);
 
 
 			$result[$key] = array_merge($temp, $list);

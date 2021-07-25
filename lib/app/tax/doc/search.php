@@ -188,8 +188,8 @@ class search
 
 			if(a($summary, 'totalvat') && a($summary, 'total'))
 			{
-				$summary['totalvat6'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.06;
-				$summary['totalvat3'] = (floatval($summary['total']) - floatval($summary['totalvat'])) * 0.03;
+				$summary['totalvat6'] = round((floatval($summary['total']) - floatval($summary['totalvat'])) * 0.06);
+				$summary['totalvat3'] = round((floatval($summary['total']) - floatval($summary['totalvat'])) * 0.03);
 			}
 
 			if(a($summary, 'total') || a($summary, 'totaldiscount'))
@@ -199,8 +199,8 @@ class search
 
 			if(a($summary, 'totalincludevat'))
 			{
-				$summary['totalvatinclude6'] = floatval($summary['totalincludevat']) * 0.06;
-				$summary['totalvatinclude3'] = floatval($summary['totalincludevat']) * 0.03;
+				$summary['totalvatinclude6'] = round(floatval($summary['totalincludevat']) * 0.06);
+				$summary['totalvatinclude3'] = round(floatval($summary['totalincludevat']) * 0.03);
 			}
 
 
