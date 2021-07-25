@@ -7,17 +7,15 @@ class model
 	{
 		$post =
 		[
-			'remainvatlastyear' => \dash\request::post('remainvatlastyear'),
-			'quorumprice'            => \dash\request::post('quorumprice'),
+			'quarter' => \dash\request::post('quarter'),
+			'decide'  => \dash\request::post('decide'),
 		];
-
-
-
 
 		$result = \lib\app\tax\year\edit::edit($post, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{
+			\dash\notif::clean();
 			\dash\redirect::pwd();
 		}
 	}

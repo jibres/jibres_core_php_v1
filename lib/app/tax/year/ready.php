@@ -18,6 +18,22 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'vatsetting':
+					$vatsetting = [];
+
+					if(is_string($value) && $value)
+					{
+						$vatsetting = json_decode($value, true);
+					}
+
+					if(!is_array($vatsetting))
+					{
+						$vatsetting = [];
+					}
+
+					$result['vatsetting'] = $vatsetting;
+					break;
+
 				default:
 					$result[$key] = $value;
 					break;

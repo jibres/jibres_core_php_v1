@@ -30,7 +30,7 @@ class edit
 			return false;
 		}
 
-		$args = \lib\app\tax\year\check::variable($_args);
+		$args = \lib\app\tax\year\check::variable($_args, $load);
 
 		if(!$args)
 		{
@@ -40,7 +40,14 @@ class edit
 		unset($args['startdate']);
 		unset($args['enddate']);
 
-		$data = \dash\cleanse::patch_mode($_args, $args);
+		$exception = [];
+
+		if(isset($_args['quarter']) || isset($_args['decide']))
+		{
+			$exception[] = 'vatsetting';
+		}
+
+		$data = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(empty($data))
 		{

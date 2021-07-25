@@ -1,4 +1,3 @@
-
 <section class="f">
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>" class="stat x70 <?php if(!\dash\request::get('quarter')) { echo 'active';} ?>">
@@ -6,40 +5,33 @@
 			<div class="val"><?php echo \dash\data::dataRow_title() ?></div>
 		</a>
 	</div>
-
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '1') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 1");?></h3>
 			<div class="val"><?php echo T_("Spring");?></div>
 		</a>
 	</div>
-
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '2') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 2");?></h3>
 			<div class="val"><?php echo T_("Summer");?></div>
 		</a>
 	</div>
-
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '3') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 3");?></h3>
 			<div class="val"><?php echo T_("Autumn");?></div>
 		</a>
 	</div>
-
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '4') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 4");?></h3>
 			<div class="val"><?php echo T_("Winter");?></div>
 		</a>
 	</div>
-
-
 </section>
 <div class="bg-green-200">
 	<div class="tblBox fs12">
-
 		<?php foreach (\dash\data::dataTable() as $key => $value) {
 			if(\dash\request::get('quarter') && intval(\dash\request::get('quarter')) !== intval($key))
 			{
@@ -85,8 +77,8 @@
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td><?php echo T_("Total vat in this quarter") ?></td>
 							<td data-copy='<?php echo a($value, 'income', 'final'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'final'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'income', 'totalvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalvat6'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'income', 'totalvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalvat3'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'income', 'totalvatinclude6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude6'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'income', 'totalvatinclude3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude3'), true, 'en') ?></code></td>
 						</tr>
 					</tbody>
 				</table>
@@ -136,8 +128,8 @@
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td><?php echo T_("Total vat in this quarter") ?></td>
 							<td data-copy='<?php echo a($value, 'cost', 'final'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'final'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?></code></td>
 						</tr>
 					</tbody>
 				</table>
@@ -157,8 +149,8 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(1) ?></td>
 							<td><?php echo T_("Total") ?> <small class="fc-red"><?php echo T_("This section calculate automatic") ?></small></td>
-							<td data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'current_remainvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'current_remainvat6'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'current_remainvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'current_remainvat3'), true, 'en') ?></code></td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
@@ -202,8 +194,8 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
 							<td><?php echo T_("Remain vat from last quarter or year.") ?></td>
-							<td data-copy='<?php echo a($value, 'current_remainvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'current_remainvat6'), true, 'en') ?></code></td>
-							<td data-copy='<?php echo a($value, 'current_remainvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'current_remainvat3'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'last_remainvat6'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'last_remainvat6'), true, 'en') ?></code></td>
+							<td data-copy='<?php echo a($value, 'last_remainvat3'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'last_remainvat3'), true, 'en') ?></code></td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
@@ -213,6 +205,20 @@
 						</tr>
 					</tbody>
 				</table>
+			</div>
+			<div class="mA20">
+				<h3><?php echo T_("C. Decide on overpayment") ?></h3>
+				<form method="post" autocomplete="off" data-patch>
+					<input type="hidden" name="quarter" value="<?php echo $key; ?>">
+					<div class="radio1">
+						<input type="radio" name="decide" value="move" id="<?php echo $key. '_move-id' ?>" <?php if(a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') === 'move'){ echo 'checked';} ?>>
+						<label for="<?php echo $key. '_move-id' ?>"><?php echo T_("Move to next quarter") ?></label>
+					</div>
+					<div class="radio1">
+						<input type="radio" name="decide" value="refund" id="<?php echo $key. '_refund-id' ?>" <?php if(a(\dash\data::dataRow(), 'vatsetting', $key, 'decide') === 'refund'){ echo 'checked';} ?>>
+						<label for="<?php echo $key. '_refund-id' ?>"><?php echo T_("Refund the vat") ?></label>
+					</div>
+				</form>
 			</div>
 		<?php } //endfor ?>
 	</div>

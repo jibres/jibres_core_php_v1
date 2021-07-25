@@ -9,10 +9,6 @@ class vatreport
 		$remainvatlastyear = floatval(a($_year_detail, 'remainvatlastyear'));
 
 		$vatsetting = a($_year_detail, 'vatsetting');
-		if(!is_string($vatsetting))
-		{
-			$vatsetting = json_decode($vatsetting, true);
-		}
 
 		if(!is_array($vatsetting))
 		{
@@ -59,28 +55,36 @@ class vatreport
 				$list['cost']     = \lib\app\tax\doc\search::list(null, $args);
 			}
 
-			$current_remain = floatval(a($list, 'income', 'totalvat')) - floatval(a($list, 'cost', 'totalvat'));
+			$current_remain = floatval(a($list, 'income', 'totalincludevat')) - floatval(a($list, 'cost', 'totalincludevat'));
 
 			$temp['current_remainvat6'] = $current_remain * 0.06;
 			$temp['current_remainvat3'] = $current_remain * 0.03;
 
 			$remain = $current_remain;
+			$last_remain = 0;
 
 			if($key === 1)
 			{
+				$last_remain = $remainvatlastyear;
 				$remain = $remain + $remainvatlastyear;
 			}
 			else
 			{
-				if(true) // get from setting
+				if(a($vatsetting, $key - 1, 'decide') === 'move') // get from setting
 				{
-					$remain = $remain  + a($result, $key - 1, 'remain');
+					$last_remain = a($result, $key - 1, 'remain');
+					$remain = $remain  + $last_remain;
 				}
 			}
 
 			$temp['remain'] = $remain;
 			$temp['remainvat6'] = $remain * 0.06;
 			$temp['remainvat3'] = $remain * 0.03;
+
+
+			$temp['last_remain'] = $last_remain;
+			$temp['last_remainvat6'] = $last_remain * 0.06;
+			$temp['last_remainvat3'] = $last_remain * 0.03;
 
 
 			$result[$key] = array_merge($temp, $list);

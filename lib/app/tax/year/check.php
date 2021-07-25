@@ -5,7 +5,7 @@ namespace lib\app\tax\year;
 class check
 {
 
-	public static function variable($_args)
+	public static function variable($_args, $_current_year_detail = [])
 	{
 		$condition =
 		[
@@ -16,6 +16,9 @@ class check
 
 			'remainvatlastyear' => 'price',
 			'quorumprice'       => 'price',
+
+			'quarter' => ['enum' => ['1', '2', '3', '4']],
+			'decide'  => ['enum' => ['move', 'refund']],
 		];
 
 		$require = ['title', 'startdate', 'enddate'];
@@ -23,6 +26,21 @@ class check
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if($data['quarter'])
+		{
+			$data['vatsetting'] = a($_current_year_detail,'vatsetting');
+			if(!is_array($data['vatsetting']))
+			{
+				$data['vatsetting'] = [];
+			}
+
+			$data['vatsetting'][$data['quarter']] = ['decide' => $data['decide'], 'quarter' => $data['quarter']];
+
+			$data['vatsetting'] = json_encode($data['vatsetting']);
+		}
+		unset($data['quarter']);
+		unset($data['decide']);
 
 		if($data['startdate'] && $data['enddate'])
 		{
