@@ -26,15 +26,15 @@
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td><?php echo T_("Sale non-include vat products") ?></td>
 							<td data-copy='<?php echo a($value, 'income', 'totalnotincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'income', 'totalnotincludevat'), true, 'en') ?></code></td>
-							<td></td>
-							<td></td>
+							<td>-</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
 							<td><?php echo T_("Export products include and not non-include vat") ?></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td data-copy='0' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(0, true, 'en') ?></code></td>
+							<td>-</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
@@ -70,15 +70,22 @@
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td><?php echo T_("Cost non-include vat products") ?></td>
 							<td data-copy='<?php echo a($value, 'cost', 'totalnotincludevat'); ?>' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(a($value, 'cost', 'totalnotincludevat'), true, 'en') ?></code></td>
-							<td></td>
-							<td></td>
+							<td>-</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
-							<td><?php echo T_("Export products include and not non-include vat") ?></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td><?php echo T_("Import products include vat") ?></td>
+							<td data-copy='0' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(0, true, 'en') ?></code></td>
+							<td data-copy='0' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(0, true, 'en') ?></code></td>
+							<td data-copy='0' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(0, true, 'en') ?></code></td>
+						</tr>
+						<tr>
+							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
+							<td><?php echo T_("Import products non-include vat") ?></td>
+							<td data-copy='0' class="font-12 ltr txtB fc-green"><code><?php echo \dash\fit::number(0, true, 'en') ?></code></td>
+							<td>-</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(4) ?></td>
@@ -111,14 +118,14 @@
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td><?php echo T_("Minus") ?></td>
-							<td></td>
-							<td></td>
+							<td>-</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td class="collapsing"><?php echo \dash\fit::number(3) ?></td>
 							<td><?php echo T_("Remain") ?></td>
-							<td></td>
-							<td></td>
+							<td>-</td>
+							<td>-</td>
 						</tr>
 					</tbody>
 				</table>
