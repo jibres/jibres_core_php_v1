@@ -22,7 +22,7 @@ class view
 	public static function static_var()
 	{
 
-		\dash\data::global_scriptPage('a_accounting_factor.js?v=3');
+		\dash\data::global_scriptPage('a_accounting_factor.js?v=4');
 
 		$year = \lib\app\tax\year\get::list();
 		\dash\data::accountingYear($year);
