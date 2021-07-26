@@ -1,30 +1,41 @@
+<?php
+
+$thisQurarter = \dash\request::get('quarter');
+if(!$thisQurarter)
+{
+	$thisQurarter = 1;
+}
+
+?>
 <section class="f">
+	<?php if(false) {?>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>" class="stat x70 <?php if(!\dash\request::get('quarter')) { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>" class="stat x70 <?php if(!$thisQurarter) { echo 'active';} ?>">
 			<h3><?php echo T_("All");?></h3>
 			<div class="val"><?php echo \dash\data::dataRow_title() ?></div>
 		</a>
 	</div>
+<?php } //endif ?>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '1') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1]); ?>" class="stat x70 <?php if($thisQurarter === '1' || !$thisQurarter) { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 1");?></h3>
 			<div class="val"><?php echo T_("Spring");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '2') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2]); ?>" class="stat x70 <?php if($thisQurarter === '2') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 2");?></h3>
 			<div class="val"><?php echo T_("Summer");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '3') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3]); ?>" class="stat x70 <?php if($thisQurarter === '3') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 3");?></h3>
 			<div class="val"><?php echo T_("Autumn");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4]); ?>" class="stat x70 <?php if(\dash\request::get('quarter') === '4') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4]); ?>" class="stat x70 <?php if($thisQurarter === '4') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 4");?></h3>
 			<div class="val"><?php echo T_("Winter");?></div>
 		</a>
@@ -33,12 +44,12 @@
 <div class="bg-green-100">
 	<div class="tblBox fs12">
 		<?php foreach (\dash\data::dataTable() as $key => $value) {
-			if(\dash\request::get('quarter') && intval(\dash\request::get('quarter')) !== intval($key))
+			if($thisQurarter && intval($thisQurarter) !== intval($key))
 			{
 				continue;
 			}
 			?>
-			<?php if(!\dash\request::get('quarter')) {?><hr><h2><?php echo T_("Quarter $key") ?></h2><?php } //endif ?>
+			<?php if(!$thisQurarter) {?><hr><h2><?php echo T_("Quarter $key") ?></h2><?php } //endif ?>
 			<div class="mA20">
 				<h5><?php echo T_("Table #1. Sale product report and service") ?></h5>
 				<table class="tbl1 v1 minimal">
