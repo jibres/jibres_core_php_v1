@@ -60,7 +60,7 @@ foreach ($debug_backtrace as $key => $value):?>
  </div>
  <div id="no"><?php echo $_code?></div>
 
- <script src="<?php echo(\dash\url::siftal()); ?>/js/jibres.min.js"></script>
- <script src="<?php echo(\dash\url::siftal()); ?>/js/error_page.js"></script>
+ <script src="<?php echo(\dash\url::cdn()); ?>/js/jibres.min.js"></script>
+ <script src="<?php echo(\dash\url::cdn()); ?>/js/page/error_page.js"></script>
 </body>
 </html>
