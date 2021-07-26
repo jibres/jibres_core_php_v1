@@ -6,6 +6,8 @@ $docIsLock              = a($dataRow, 'tax_document', 'status') === 'lock';
 
 $disableInput           = $docIsLock ? 'disabled' : null;
 
+\dash\data::docIsLock($docIsLock);
+
 $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 
 $currency = null;
@@ -91,7 +93,7 @@ if(!\dash\data::editMode())
               <div class="">
                 <div class="row">
                   <div class="c-auto">
-                    <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?></label>
+                    <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?> <?php htmlTurnoverLink('put_on') ?></label>
                   </div>
                   <div class="c"></div>
                   <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
@@ -110,7 +112,7 @@ if(!\dash\data::editMode())
                 </select>
               </div>
               <div class="mT10">
-                <label for="thirdparty"><?php if($myType === 'income'){echo T_("Buyer");}else{ echo T_("Seller"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{ echo T_("If the seller is not selected, a direct payment document will be made"); }  ?></small></label>
+                <label for="thirdparty"><?php if($myType === 'income'){echo T_("Buyer");}else{ echo T_("Seller"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{ echo T_("If the seller is not selected, a direct payment document will be made"); }  ?></small> <?php htmlTurnoverLink('thirdparty') ?></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) { if($myType === 'income') {if(in_array(substr(a($value, 'code'), 0, 2), ['23'])) {/*ok*/}else{continue;}}else{ if(in_array(substr(a($value, 'code'), 0, 1), ['5'])) {/*ok*/}else{continue;}}?>
@@ -119,7 +121,7 @@ if(!\dash\data::editMode())
                 </select>
               </div>
               <div class="mT10">
-                <label for="pay_from"><?php if($myType === 'income'){echo T_("Recipient of money");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small></label>
+                <label for="pay_from"><?php if($myType === 'income'){echo T_("Recipient of money");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small> <?php htmlTurnoverLink('pay_from') ?></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) {
@@ -135,7 +137,7 @@ if(!\dash\data::editMode())
             <?php } //endif ?>
             <?php if(in_array($myType, ['petty_cash', 'partner'])) {?>
               <div class="mT10">
-                <label for="petty_cash"><?php echo T_("Petty cash") ?></label>
+                <label for="petty_cash"><?php echo T_("Petty cash") ?> <?php htmlTurnoverLink('petty_cash') ?></label>
                 <select class="select22" name="petty_cash" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Petty cash") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 4), ['2605'])) {/*ok*/}else{continue;}?>
@@ -149,7 +151,7 @@ if(!\dash\data::editMode())
               <div class="mT10">
                  <div class="row">
                   <div class="c-auto">
-                    <label for="bank"><?php echo T_("Bank") ?></label>
+                    <label for="bank"><?php echo T_("Bank") ?> <?php htmlTurnoverLink('bank') ?></label>
                   </div>
                   <div class="c"></div>
                   <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
@@ -169,7 +171,7 @@ if(!\dash\data::editMode())
               <div class="mT10">
                  <div class="row">
                   <div class="c-auto">
-                    <label for="partner"><?php echo T_("Accounting Partner") ?></label>
+                    <label for="partner"><?php echo T_("Accounting Partner") ?> <?php htmlTurnoverLink('partner') ?></label>
                   </div>
                   <div class="c"></div>
                   <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
@@ -323,3 +325,18 @@ if(!\dash\data::editMode())
     </div>
   </div>
 </form>
+
+
+<?php
+function htmlTurnoverLink($_type)
+{
+  $docIsLock = \dash\data::docIsLock();
+  $dataRow = \dash\data::dataRow();
+
+  if($docIsLock && a($dataRow, 'fill_value', $_type, 'details_id'))
+  {
+    echo '<a class="link" target="_blank" href="'. \dash\url::this(). '/turnover?contain='. a($dataRow, 'fill_value', $_type, 'details_id'). '"><i class="sf-external-link"></i> '. T_("Turnover"). '</a>';
+  }
+}
+
+?>
