@@ -186,9 +186,9 @@ class check
 
 					if($totalnotincludevat < 0)
 					{
-						\dash\notif::error(T_("Vat larger than price!"));
-						return false;
+						\dash\notif::warn(T_("Vat larger than price!"));
 					}
+
 					$data['totalincludevat']    = $totalincludevat;
 					$data['totalnotincludevat'] = $totalnotincludevat;
 				}
