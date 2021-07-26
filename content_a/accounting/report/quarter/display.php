@@ -7,43 +7,86 @@ if(!$thisQurarter)
 }
 
 ?>
-<section class="row">
-		<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'type' => 'costasset']); ?>" class="stat x70 <?php if(\dash\request::get('type') === 'costasset' || !\dash\request::get('type')) { echo 'active';} ?>">
-			<h3><?php echo T_("Reprot on");?></h3>
-			<div class="val"><?php echo T_("Cost + Asset");?></div>
+<?php if(!\dash\request::get('detail')) {?>
+<div class="row">
+  <?php foreach(\dash\data::dataTable() as $key => $value) {
+  	$link = \dash\url::current(). \dash\request::full_get(['detail' => 1, 'quarter' => $key]);
+  	?>
+  <div class="c-xs-12 c-sm-12 c-md-3">
+    <p class="mB5-f font-14"><?php echo a($value, 'title'); ?></p>
+    <nav class="items long">
+      <ul>
+
+        <li>
+          <a class="item f" href="<?php echo $link ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Total") ?></div>
+            <div class="value" data-copy='<?php echo a($value, 'total') ?>'><?php echo \dash\fit::number(a($value, 'total')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
+             <li>
+          <a class="item f" href="<?php echo $link ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Total discount") ?></div>
+            <div class="value" data-copy='<?php echo a($value, 'totaldiscount') ?>'><?php echo \dash\fit::number(a($value, 'totaldiscount')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
+             <li>
+          <a class="item f" href="<?php echo $link ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Total vat 6%") ?></div>
+            <div class="value" data-copy='<?php echo a($value, 'totalvat6') ?>'><?php echo \dash\fit::number(a($value, 'totalvat6')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
+             <li>
+          <a class="item f" href="<?php echo $link ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Total vat 3%") ?></div>
+            <div class="value" data-copy='<?php echo a($value, 'totalvat3') ?>'><?php echo \dash\fit::number(a($value, 'totalvat3')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
+
+      </ul>
+    </nav>
+  </div>
+<?php } //endfor ?>
+</div>
+<?php }else{ ?>
+	<section class="row">
+	<div class="c">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'type' => \dash\request::get('type'), 'detail' => null]); ?>" class="stat x70 <?php if(!\dash\request::get('detail') ) { echo 'active';} ?>">
+			<h3><?php echo T_("Total year");?></h3>
+			<div class="val"><?php echo T_("Summary");?></div>
 		</a>
 	</div>
-
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'type' => 'income']); ?>" class="stat x70 <?php if(\dash\request::get('type') === 'income') { echo 'active';} ?>">
-			<h3><?php echo T_("Reprot on");?></h3>
-			<div class="val"><?php echo T_("Income");?></div>
-		</a>
-	</div>
-</section>
-<section class="row">
-
-	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1, 'type' => \dash\request::get('type')]); ?>" class="stat x70 <?php if($thisQurarter == '1' || !$thisQurarter) { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1, 'type' => \dash\request::get('type'), 'detail' => 1]); ?>" class="stat x70 <?php if($thisQurarter == '1' || !$thisQurarter) { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 1");?></h3>
 			<div class="val"><?php echo T_("Spring");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2, 'type' => \dash\request::get('type')]); ?>" class="stat x70 <?php if($thisQurarter == '2') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2, 'type' => \dash\request::get('type'), 'detail' => 1]); ?>" class="stat x70 <?php if($thisQurarter == '2') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 2");?></h3>
 			<div class="val"><?php echo T_("Summer");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3, 'type' => \dash\request::get('type')]); ?>" class="stat x70 <?php if($thisQurarter == '3') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3, 'type' => \dash\request::get('type'), 'detail' => 1]); ?>" class="stat x70 <?php if($thisQurarter == '3') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 3");?></h3>
 			<div class="val"><?php echo T_("Autumn");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4, 'type' => \dash\request::get('type')]); ?>" class="stat x70 <?php if($thisQurarter == '4') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4, 'type' => \dash\request::get('type'), 'detail' => 1]); ?>" class="stat x70 <?php if($thisQurarter == '4') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 4");?></h3>
 			<div class="val"><?php echo T_("Winter");?></div>
 		</a>
@@ -92,3 +135,4 @@ if(!$thisQurarter)
 		<?php } //endfor ?>
 	</div>
 </div>
+<?php } //endif ?>

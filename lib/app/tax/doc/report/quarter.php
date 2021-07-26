@@ -4,12 +4,23 @@ namespace lib\app\tax\doc\report;
 
 class quarter
 {
-	public static function get($_type = 'costasset')
+	public static function get($_args)
 	{
+		$condition =
+		[
+			'type'   => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
+			'detail' => 'bit',
+		];
 
-		if(!$_type)
+		$require = [];
+
+		$meta    =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['type'])
 		{
-			$_type = 'costasset';
+			$data['type'] = 'costasset';
 		}
 
 		$year_detail = \lib\app\tax\year\get::default_year();
@@ -37,7 +48,16 @@ class quarter
 		$quarter[4] = ["$myYear-10-01", "$myYear-12-30"];
 
 		$args = [];
-		// $args['summary_mode'] = true;
+
+		if($data['detail'])
+		{
+			// show the list
+		}
+		else
+		{
+			$args['summary_mode'] = true;
+		}
+
 		$args['status'] = 'lock';
 
 		$result = [];
@@ -45,12 +65,18 @@ class quarter
 		{
 			$temp              = [];
 			$temp['quarter']   = $key;
+
 			$temp['startdate'] = $args['startdate'] = $value[0];
 			$temp['enddate']   = $args['enddate']   = $value[1];
 
-			$args['template']  = $_type;
+			$args['template']  = $data['type'];
 
 			$result[$key] = \lib\app\tax\doc\search::list(null, $args);
+
+			if(!$data['detail'])
+			{
+				$result[$key]['title'] = \lib\app\tax\doc\ready::factor_type_translate($data['type']). ' '. T_("Quarter"). ' '. \dash\fit::number($key);
+			}
 		}
 
 		return $result;

@@ -107,16 +107,25 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-    <p class="mB5-f font-14"><?php echo T_("Report list") ?></p>
+
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/report'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/quarter?type=costasset'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
-            <div class="key"><?php echo T_("Reports") ?></div>
+            <div class="key"><?php echo T_("Buy Quarter report") ?></div>
             <div class="go"></div>
           </a>
         </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/quarter?type=income'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
+            <div class="key"><?php echo T_("Sell Quarter report") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
+
       </ul>
     </nav>
   </div>
@@ -299,20 +308,23 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report/vatreport'; ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Bank'); ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
             <div class="key"><?php echo T_("Vat report") ?></div>
             <div class="go"></div>
           </a>
         </li>
+
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/report/quarter'; ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Bank'); ?>">
-            <div class="key"><?php echo T_("Quarter report") ?></div>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
+            <div class="key"><?php echo T_("Reports") ?></div>
             <div class="go"></div>
           </a>
         </li>
+
       </ul>
     </nav>
+
 
   </div>
 </div>

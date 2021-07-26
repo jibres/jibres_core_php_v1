@@ -6,16 +6,26 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Quarterly sell and buy report'));
 
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::dataRow(\lib\app\tax\year\get::default_year());
 
-		$type      = \dash\request::get('type');
+		$args = [];
+		$args['type'] = \dash\request::get('type');
+		$args['detail'] = \dash\request::get('detail');
 
-		$dataTable = \lib\app\tax\doc\report\quarter::get($type);
+		if($args['type'] === 'income')
+		{
+			\dash\face::title(T_('Quarterly sell report'));
+		}
+		else
+		{
+			\dash\face::title(T_('Quarterly buy report'));
+		}
+
+		$dataTable = \lib\app\tax\doc\report\quarter::get($args);
 
 		if(!is_array($dataTable))
 		{
