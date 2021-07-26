@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-26 16:56+0430\n"
-"PO-Revision-Date: 2021-07-26 16:57+0430\n"
+"POT-Creation-Date: 2021-07-26 17:33+0430\n"
+"PO-Revision-Date: 2021-07-26 17:33+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6322,8 +6322,8 @@ msgid "Total vat 3%"
 msgstr "جمع مالیات ۳٪"
 
 #: content_a/accounting/report/quarter/display.php:62
-msgid "Total year"
-msgstr ""
+msgid "The whole year"
+msgstr "کل سال"
 
 #: content_a/accounting/report/quarter/display.php:63
 msgid "Summary"
@@ -39669,7 +39669,11 @@ msgstr "اختتامیه"
 msgid "As described in the general journal"
 msgstr "به شرح دفتر روزنامه"
 
-#: lib/app/tax/doc/report/quarter.php:141
+#: lib/app/tax/doc/report/quarter.php:122
+msgid "Merged document"
+msgstr "سند ادغام شده"
+
+#: lib/app/tax/doc/report/quarter.php:144
 msgid "Quarter"
 msgstr "فصل"
 

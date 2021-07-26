@@ -59,7 +59,7 @@ $quorumprice = floatval(\dash\data::dataRow_quorumprice());
 	<section class="row">
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'type' => \dash\request::get('type'), 'detail' => null]); ?>" class="stat x70 <?php if(!\dash\request::get('detail') ) { echo 'active';} ?>">
-			<h3><?php echo T_("Total year");?></h3>
+			<h3><?php echo T_("The whole year");?></h3>
 			<div class="val"><?php echo T_("Summary");?></div>
 		</a>
 	</div>
