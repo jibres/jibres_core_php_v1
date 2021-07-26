@@ -181,8 +181,8 @@ class check
 
 				if($totalvat != $real_vat)
 				{
-					$totalincludevat            = ($totalvat / 9) * 100;
-					$totalnotincludevat         = $final - $totalincludevat;
+					$totalincludevat    = ($totalvat / 9) * 100;
+					$totalnotincludevat = $final - $totalincludevat + $totalvat;
 
 					if($totalnotincludevat < 0)
 					{
