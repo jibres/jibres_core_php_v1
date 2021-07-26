@@ -88,6 +88,7 @@ class quarter
 							$new_list['merged'] =
 							[
 								'merged'             => true,
+								'desc_merge'         => null,
 								'id'                 => null,
 								'number'             => null,
 								'date'               => null,
@@ -118,6 +119,8 @@ class quarter
 						$new_list['merged'] = array_merge($new_list['merged'],
 						[
 							'merged'             => true,
+							'desc'               => T_("Merged document"),
+							'desc_merge'         => $new_list['merged']['desc_merge']. ', '. $v['desc'],
 							'total'              => floatval($new_list['merged']['total']) + floatval($v['total']),
 							'totaldiscount'      => floatval($new_list['merged']['totaldiscount']) + floatval($v['totaldiscount']),
 							'totalvat'           => floatval($new_list['merged']['totalvat']) + floatval($v['totalvat']),

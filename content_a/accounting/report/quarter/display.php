@@ -112,7 +112,7 @@ $quorumprice = floatval(\dash\data::dataRow_quorumprice());
 				<tbody>
 				<?php foreach ($value as $k => $v) { ?>
 					<tr>
-						<td><?php echo a($v, 'desc') ?></td>
+						<td><?php echo a($v, 'desc'); ?></td>
 						<td><?php echo \dash\fit::date(a($v, 'date')) ?></td>
 						<td class="font-12 ltr txtR">
 							<code data-copy='<?php echo a($v, 'total') ?>'><?php echo \dash\fit::number(a($v, 'total'), true, 'en') ?></code>
@@ -128,6 +128,11 @@ $quorumprice = floatval(\dash\data::dataRow_quorumprice());
 						<td data-copy='<?php echo a($v, 'totalincludevat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalincludevat'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalnotincludevat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalnotincludevat'), true, 'en') ?></code></td>
 					</tr>
+					<?php if(a($v, 'desc_merge')) {?>
+						<tr>
+							<td colspan="7"><?php echo a($v, 'desc_merge'); ?></td>
+						</tr>
+					<?php } //endif ?>
 				<?php } //endif ?>
 				</tbody>
 			</table>
