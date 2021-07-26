@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-26 17:33+0430\n"
-"PO-Revision-Date: 2021-07-26 17:33+0430\n"
+"POT-Creation-Date: 2021-07-26 19:12+0430\n"
+"PO-Revision-Date: 2021-07-26 19:13+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2878,7 +2878,7 @@ msgstr "شماره دفتر تهران"
 #: content/investment/display-company-info.php:61
 #: content_a/setting/factor/seller/display.php:29 content_a/setup/address/display.php:52
 #: content_account/my/home/display.php:154 content_account/my/social/display.php:12
-#: content_cms/posts/share/display.php:46 content_crm/member/legal/display.php:33
+#: content_cms/posts/share/display.php:46 content_crm/member/legal/display.php:32
 #: content_my/business/home/display_pwa.php:53
 #: content_my/business/home/display_site.php:134
 #: dash/social/telegram/commands/ermile.php:346
@@ -2892,7 +2892,7 @@ msgid "Email Address"
 msgstr "آدرس ایمیل"
 
 #: content/investment/display-company-info.php:70
-#: content_a/setting/factor/seller/display.php:25 content_crm/member/legal/display.php:27
+#: content_a/setting/factor/seller/display.php:25 content_crm/member/legal/display.php:26
 msgid "CEO"
 msgstr "مدیرعامل"
 
@@ -4074,7 +4074,7 @@ msgstr "۹٪"
 #: content_a/accounting/doc/add/display-list.php:74
 #: content_a/accounting/doc/add/display-list.php:92
 #: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/factor/add/display.php:216
+#: content_a/accounting/factor/add/display.php:219
 #: content_a/accounting/factor/display.php:51
 #: content_a/accounting/report/assistant/display-old.php:68
 #: content_a/accounting/report/assistant/display.php:65
@@ -5392,7 +5392,8 @@ msgstr "جاری شرکای پیشفرض"
 #: content_a/accounting/factor/add/display.php:86
 #: content_a/accounting/factor/add/display.php:97
 #: content_a/accounting/factor/add/display.php:155
-#: content_a/accounting/factor/add/display.php:175 lib/app/tax/coding/ready.php:61
+#: content_a/accounting/factor/add/display.php:175 content_crm/member/legal/display.php:67
+#: lib/app/tax/coding/ready.php:61
 msgid "Add new accounting details"
 msgstr "افزودن تفصیل جدید"
 
@@ -5406,9 +5407,9 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/form/tag/remove/display.php:37 content_a/tag/remove/display.php:38
 #: content_a/website/news/filter/display.php:10
 #: content_a/website/news/filter/display.php:33 content_cms/hashtag/remove/display.php:37
-#: content_love/business/setting/display.php:87 content_love/store/setting/display.php:58
-#: content_site/options/container.php:17 content_site/options/effect.php:10
-#: content_site/options/post/post_tag.php:44
+#: content_crm/member/legal/display.php:70 content_love/business/setting/display.php:87
+#: content_love/store/setting/display.php:58 content_site/options/container.php:17
+#: content_site/options/effect.php:10 content_site/options/post/post_tag.php:44
 #: content_site/options/post/post_template.php:24 dash/layout/search/search-filter.php:179
 #: dash/layout/search/search-filter.php:220 dash/layout/search/search-filter.php:249
 #: lib/app/website/effect.php:10 lib/pagebuilder/body/effect/effect.php:15
@@ -5505,6 +5506,7 @@ msgstr "لطفا تفصیل را انتخاب کنید"
 #: content_a/accounting/doc/add/display-docdetail.php:71
 #: content_a/accounting/year/manage/display.php:86
 #: content_a/accounting/year/manage/display.php:164
+#: content_crm/member/legal/display.php:69
 msgid "Accounting detail"
 msgstr "تفصیل"
 
@@ -5746,11 +5748,11 @@ msgstr "بانک"
 msgid "Accounting Partner"
 msgstr "جاری شرکا"
 
-#: content_a/accounting/factor/add/display.php:193
+#: content_a/accounting/factor/add/display.php:196
 msgid "Total payment before deducting discount"
 msgstr "مبلغ کل قبل از کسر تخفیف"
 
-#: content_a/accounting/factor/add/display.php:200
+#: content_a/accounting/factor/add/display.php:203
 #: content_a/accounting/factor/display.php:52
 #: content_a/accounting/report/quarter/display.php:32
 #: content_a/accounting/report/quarter/display.php:106 content_a/chap/size-a4/a4-1.php:53
@@ -5758,40 +5760,45 @@ msgstr "مبلغ کل قبل از کسر تخفیف"
 msgid "Total discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:207
+#: content_a/accounting/factor/add/display.php:210
 msgid "Total vat/tax"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:207
+#: content_a/accounting/factor/add/display.php:210
 msgid "Auto Calculate"
 msgstr "محاسبه خودکار"
 
-#: content_a/accounting/factor/add/display.php:257 content_a/cart/add/display.php:115
+#: content_a/accounting/factor/add/display.php:229
+#: content_a/accounting/factor/add/display.php:230
+msgid "Calculate in quarterly report"
+msgstr "محاسبه در گزارش فصلی"
+
+#: content_a/accounting/factor/add/display.php:270 content_a/cart/add/display.php:115
 #: content_business/cart/cartSummary.php:5
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_a/accounting/factor/add/display.php:258
+#: content_a/accounting/factor/add/display.php:271
 msgid "Total Discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:259
+#: content_a/accounting/factor/add/display.php:272
 msgid "Total After Discount"
 msgstr "جمع پس از تخفیف"
 
-#: content_a/accounting/factor/add/display.php:260
+#: content_a/accounting/factor/add/display.php:273
 msgid "Total Vat"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:261
+#: content_a/accounting/factor/add/display.php:274
 msgid "Net Amount"
 msgstr "جمع مبلغ کل"
 
-#: content_a/accounting/factor/add/display.php:288
+#: content_a/accounting/factor/add/display.php:301
 msgid "Total taxable amount"
 msgstr "جمع مبلغ مشمول مالیات"
 
-#: content_a/accounting/factor/add/display.php:300
+#: content_a/accounting/factor/add/display.php:313
 msgid "Total amount exempt from tax"
 msgstr "مبلغ کل معاف از مالیات"
 
@@ -6796,7 +6803,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_cms/posts/redirecturl/display.php:26 content_crm/member/business/display.php:13
 #: content_crm/member/detail/display.php:10 content_crm/member/email/display.php:12
 #: content_crm/member/identification/display.php:129
-#: content_crm/member/legal/display.php:63 content_crm/member/mobile/display.php:12
+#: content_crm/member/legal/display.php:79 content_crm/member/mobile/display.php:12
 #: content_crm/member/transactions/minus/display.php:34
 #: content_crm/member/transactions/plus/display.php:44
 #: content_crm/permission/advance/display.php:90 content_crm/ticket/edit/display.php:26
@@ -9006,17 +9013,17 @@ msgid "Not set"
 msgstr "تنظیم نشده است"
 
 #: content_a/order/address/display.php:108 content_a/setting/factor/seller/display.php:34
-#: content_a/setup/company/display.php:14 content_crm/member/legal/display.php:42
+#: content_a/setup/company/display.php:14 content_crm/member/legal/display.php:41
 msgid "Company name"
 msgstr "نام شرکت"
 
 #: content_a/order/address/display.php:116 content_a/setting/factor/seller/display.php:42
-#: content_a/setup/company/display.php:25 content_crm/member/legal/display.php:54
+#: content_a/setup/company/display.php:25 content_crm/member/legal/display.php:53
 msgid "Company national id"
 msgstr "شناسه ملی"
 
 #: content_a/order/address/display.php:120 content_a/setting/factor/seller/display.php:38
-#: content_a/setup/company/display.php:20 content_crm/member/legal/display.php:48
+#: content_a/setup/company/display.php:20 content_crm/member/legal/display.php:47
 msgid "Company register number"
 msgstr "شماره ثبت"
 
@@ -11317,7 +11324,7 @@ msgstr "حساب کاربری حقیقی"
 msgid "Legal account"
 msgstr "حساب کاربری حقوقی"
 
-#: content_a/setting/factor/seller/display.php:25 content_crm/member/legal/display.php:27
+#: content_a/setting/factor/seller/display.php:25 content_crm/member/legal/display.php:26
 #: lib/app/form/item/type.php:321
 msgid "Nationalcode"
 msgstr "کدملی"
@@ -15041,7 +15048,7 @@ msgstr "تاریخ تولد"
 #: content_account/my/home/display.php:119 content_account/my/profile/display.php:27
 #: content_account/my/profile/display.php:29
 #: content_business/profile/detail/display.php:28
-#: content_business/profile/detail/display.php:30 dash/app/user.php:321
+#: content_business/profile/detail/display.php:30 dash/app/user.php:322
 msgid "Display name"
 msgstr "نام برای نمایش"
 
@@ -17309,6 +17316,10 @@ msgstr "تصویر کارت ملی"
 msgid "Member identification detail"
 msgstr "جزئیات شناسنامه‌ای"
 
+#: content_crm/member/legal/display.php:64
+msgid "Details in accounting topics to display and record quarterly reports"
+msgstr "اتصال به تفصیل در اسناد حسابداری جهت نمایش و محاسبه گزارشات فصلی"
+
 #: content_crm/member/legal/view.php:13
 msgid "Edit user legal detail"
 msgstr "ویرایش اطلاعات حقوقی مشتری"
@@ -17760,7 +17771,7 @@ msgstr "نمایش جزئیات لاگ پیامک"
 msgid "Please choose a permission"
 msgstr "لطفا یک سطح دسترسی را انتخاب کنید"
 
-#: content_crm/staff/add/model.php:19 dash/app/user.php:332
+#: content_crm/staff/add/model.php:19 dash/app/user.php:333
 msgid "Mobile is required"
 msgstr "موبایل الزامی است"
 
@@ -25273,11 +25284,11 @@ msgstr "آمار"
 msgid "Show statistics of this result"
 msgstr "آمار نتایج فعلی"
 
-#: dash/app/user.php:539
+#: dash/app/user.php:540
 msgid "Can not remove user by permission"
 msgstr "نمی‌توانید کاربری که داری سطح دسترسی هست را حذف کنید"
 
-#: dash/app/user.php:545
+#: dash/app/user.php:546
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
@@ -39470,29 +39481,29 @@ msgstr "سند حسابداری با موفقیت ثبت شد"
 msgid "This document is locked"
 msgstr "این سند قفل شده است"
 
-#: lib/app/tax/doc/check.php:91 lib/app/tax/doc/closing.php:54
+#: lib/app/tax/doc/check.php:92 lib/app/tax/doc/closing.php:54
 #: lib/app/tax/doc/closing.php:262 lib/app/tax/doc/closing.php:413
 #: lib/app/tax/doc/closing.php:573 lib/app/tax/doc/edit.php:34
 msgid "Invalid year"
 msgstr "سال اشتباه است"
 
-#: lib/app/tax/doc/check.php:102
+#: lib/app/tax/doc/check.php:103
 msgid "Accounting document date is not in Accounting year date!"
 msgstr "تاریخ سند با تاریخ شروع و پایان سال مالی مطابقت ندارد!"
 
-#: lib/app/tax/doc/check.php:130
+#: lib/app/tax/doc/check.php:131
 msgid "Duplicate accounting document number"
 msgstr "شناسه سند حسابداری تکراری است"
 
-#: lib/app/tax/doc/check.php:143
+#: lib/app/tax/doc/check.php:153
 msgid "Pay from or thirdparty is required"
 msgstr "پرداخت کننده یا طرف حساب الزامی است"
 
-#: lib/app/tax/doc/check.php:151
+#: lib/app/tax/doc/check.php:161
 msgid "Bank and petty cash is required"
 msgstr "بانک و تنخواه الزامی است"
 
-#: lib/app/tax/doc/check.php:187
+#: lib/app/tax/doc/check.php:197
 msgid "Vat larger than price!"
 msgstr "مقدار مالیات بیشتر از مبلغ است!"
 
@@ -39669,11 +39680,11 @@ msgstr "اختتامیه"
 msgid "As described in the general journal"
 msgstr "به شرح دفتر روزنامه"
 
-#: lib/app/tax/doc/report/quarter.php:122
+#: lib/app/tax/doc/report/quarter.php:123
 msgid "Merged document"
 msgstr "سند ادغام شده"
 
-#: lib/app/tax/doc/report/quarter.php:144
+#: lib/app/tax/doc/report/quarter.php:145
 msgid "Quarter"
 msgstr "فصل"
 
