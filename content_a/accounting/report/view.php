@@ -45,13 +45,14 @@ class view
 
 		$templates      =
 		[
+			'doc',
 			'income',
 			'cost' ,
 			// 'petty_cash',
 			// 'partner',
 			'asset',
 			// 'bank_partner',
-			// 'costasset',
+			'costasset',
 		];
 
 		if(\dash\language::current() === 'fa')
@@ -80,19 +81,30 @@ class view
 
 		$urlThis = \dash\url::this();
 		$urlFactors = $urlThis. '/factor';
+		$urlDoc = $urlThis. '/doc';
 
 		foreach ($templates as $template)
 		{
+
+			$myUrl = $urlFactors;
+
+			if($template === 'doc')
+			{
+				$myUrl = $urlDoc;
+			}
 			foreach ($quarter as $one_quarter => $start_end_date)
 			{
 				$temp = [];
 				$temp['title'] = \lib\app\tax\doc\ready::factor_type_translate($template). ' - '. a($quarter_title, $one_quarter);
 				$temp['list'] = [];
 
-				$get['template'] = $template;
+				if($template !== 'doc')
+				{
+					$get['template'] = $template;
+				}
 				$get['startdate'] = $start_end_date[0];
-				$get['enddate'] = $start_end_date[1];
-				$temp['list'][] = ['title' => T_("The whole season :val", ['val' => a($quarter_title, $one_quarter)]), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
+				$get['enddate']   = $start_end_date[1];
+				$temp['list'][]   = ['title' => T_("The whole season :val", ['val' => a($quarter_title, $one_quarter)]), 'link' => $myUrl.'?'. \dash\request::build_query($get)];
 
 				for ($i = ((($one_quarter - 1) * 3) + 1); $i <= ($one_quarter * 3) ; $i++)
 				{
@@ -105,7 +117,7 @@ class view
 					$get['startdate'] = $myYear. '-'. $i. '-01';
 					$get['enddate']   = $myYear. '-'. $i. '-'. $end_month;
 
-					$temp['list'][] = ['title' => self::getMonthNames($i), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
+					$temp['list'][] = ['title' => self::getMonthNames($i), 'link' => $myUrl.'?'. \dash\request::build_query($get)];
 				}
 
 

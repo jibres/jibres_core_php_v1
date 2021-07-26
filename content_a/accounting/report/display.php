@@ -11,7 +11,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
       <?php foreach($value['list'] as $k => $v) {?>
         <li>
           <a class="item f" href="<?php echo a($v, 'link') ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="<?php echo a($v, 'title') ?>" src="<?php echo \dash\utility\icon::url('list'); ?>">
             <div class="key"><?php echo a($v, 'title') ?></div>
             <div class="go"></div>
           </a>

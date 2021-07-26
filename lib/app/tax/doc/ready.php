@@ -104,6 +104,10 @@ class ready
 				$tvalue = T_("Cost + Asset");
 				break;
 
+			case 'doc':
+				$tvalue = T_("Accounting Documents");
+				break;
+
 			default:
 				$tvalue = T_("Accounting factor");
 				break;
