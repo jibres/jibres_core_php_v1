@@ -54,7 +54,15 @@ class view
 			// 'costasset',
 		];
 
-		$quarter_title = ['1' => T_("Spring"), '2' => T_("Summer") , '3' => T_("Autumn"), '4' => T_("Winter")];
+		if(\dash\language::current() === 'fa')
+		{
+			$quarter_title = ['1' => T_("Spring"), '2' => T_("Summer") , '3' => T_("Autumn"), '4' => T_("Winter")];
+		}
+		else
+		{
+			$quarter_title = ['1' => T_("Winter"), '2' => T_("Spring") , '3' => T_("Summer"), '4' => T_("Autumn")];
+		}
+
 
 		$year_detail   = \lib\app\tax\year\get::default_year();
 
@@ -84,7 +92,7 @@ class view
 				$get['template'] = $template;
 				$get['startdate'] = $start_end_date[0];
 				$get['enddate'] = $start_end_date[1];
-				$temp['list'][] = ['title' => T_("The whole season"), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
+				$temp['list'][] = ['title' => T_("The whole season :val", ['val' => a($quarter_title, $one_quarter)]), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
 
 				for ($i = ((($one_quarter - 1) * 3) + 1); $i <= ($one_quarter * 3) ; $i++)
 				{
