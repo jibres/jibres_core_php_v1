@@ -260,7 +260,17 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-
+    <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
+            <div class="key"><?php echo T_("Reports") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
      <nav class="items long">
       <ul>
         <li>
