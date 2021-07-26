@@ -170,6 +170,18 @@ class fit{
 	}
 
 
+	public static function date_en($_date, $_format = null)
+	{
+		$date = self::date(...func_get_args());
+		if($date)
+		{
+			$date = \dash\utility\convert::to_en_number($date);
+		}
+
+		return $date;
+	}
+
+
 	public static function date($_date, $_format = null)
 	{
 		if(!$_date)
