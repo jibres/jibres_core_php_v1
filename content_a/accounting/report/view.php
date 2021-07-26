@@ -86,55 +86,18 @@ class view
 				$get['enddate'] = $start_end_date[1];
 				$temp['list'][] = ['title' => T_("The whole season"), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
 
-				switch ($one_quarter)
+				for ($i = ((($one_quarter - 1) * 3) + 1); $i <= ($one_quarter * 3) ; $i++)
 				{
-					case 1:
-						$get['startdate'] = "$myYear-01-01"; $get['enddate'] = "$myYear-01-31";
-						$temp['list'][] = ['title' => self::getMonthNames(1), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
+					$end_month = 31;
+					if($i > 6)
+					{
+						$end_month = 30;
+					}
 
-						$get['startdate'] = "$myYear-02-01"; $get['enddate'] = "$myYear-02-31";
-						$temp['list'][] = ['title' => self::getMonthNames(2), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
+					$get['startdate'] = $myYear. '-'. $i. '-01';
+					$get['enddate']   = $myYear. '-'. $i. '-'. $end_month;
 
-						$get['startdate'] = "$myYear-03-01"; $get['enddate'] = "$myYear-03-31";
-						$temp['list'][] = ['title' => self::getMonthNames(3), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-						break;
-
-					case 2:
-						$get['startdate'] = "$myYear-04-01"; $get['enddate'] = "$myYear-04-31";
-						$temp['list'][] = ['title' => self::getMonthNames(4), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-
-						$get['startdate'] = "$myYear-05-01"; $get['enddate'] = "$myYear-05-31";
-						$temp['list'][] = ['title' => self::getMonthNames(5), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-
-						$get['startdate'] = "$myYear-06-01"; $get['enddate'] = "$myYear-06-31";
-						$temp['list'][] = ['title' => self::getMonthNames(6), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-						break;
-
-					case 3:
-						$get['startdate'] = "$myYear-07-01"; $get['enddate'] = "$myYear-07-30";
-						$temp['list'][] = ['title' => self::getMonthNames(7), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-
-						$get['startdate'] = "$myYear-08-01"; $get['enddate'] = "$myYear-08-30";
-						$temp['list'][] = ['title' => self::getMonthNames(8), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-
-						$get['startdate'] = "$myYear-09-01"; $get['enddate'] = "$myYear-09-30";
-						$temp['list'][] = ['title' => self::getMonthNames(9), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-						break;
-
-					case 4:
-						$get['startdate'] = "$myYear-10-01"; $get['enddate'] = "$myYear-10-30";
-						$temp['list'][] = ['title' => self::getMonthNames(10), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-
-						$get['startdate'] = "$myYear-11-01"; $get['enddate'] = "$myYear-11-30";
-						$temp['list'][] = ['title' => self::getMonthNames(11), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-
-						$get['startdate'] = "$myYear-12-01"; $get['enddate'] = "$myYear-12-30";
-						$temp['list'][] = ['title' => self::getMonthNames(12), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
-						break;
-
-					default:
-						// code...
-						break;
+					$temp['list'][] = ['title' => self::getMonthNames($i), 'link' => $urlFactors.'?'. \dash\request::build_query($get)];
 				}
 
 
