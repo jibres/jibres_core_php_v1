@@ -12,7 +12,7 @@
 	<?php } //endif ?>
 
         <?php $myData = \dash\data::myDataCount(); ?>
-  <section class="f">
+  <section class="row">
     <div class="c">
       <a href="<?php echo \dash\url::current(); ?>" class="stat x70 <?php if(!\dash\request::get('type')) { echo 'active';} ?>">
         <h3><?php echo T_("All");?></h3>

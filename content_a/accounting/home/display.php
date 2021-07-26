@@ -145,22 +145,24 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
       </div>
     </section>
 
-  <section class="f">
+    <section class="row">
 
-    <div class="c">
-      <a href="<?php echo \dash\url::this(). '/factor?template=income'; ?>" class="stat">
-        <h3><?php echo T_("Total Sell");?></h3>
-        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_income'));?></div>
-      </a>
-    </div>
+      <div class="c-xs-6 c-sm-6 c-md-6">
 
-    <div class="c">
-      <a href="<?php echo \dash\url::this(). '/factor?template=costasset'; ?>" class="stat">
-        <h3><?php echo T_("Total buy");?></h3>
-        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_costasset'));?></div>
-      </a>
-    </div>
-  </section>
+        <a href="<?php echo \dash\url::this(). '/factor?template=income'; ?>" class="stat">
+          <h3><?php echo T_("Total Sell");?></h3>
+          <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_income'));?></div>
+        </a>
+      </div>
+
+      <div class="c-xs-6 c-sm-6 c-md-6">
+
+        <a href="<?php echo \dash\url::this(). '/factor?template=costasset'; ?>" class="stat">
+          <h3><?php echo T_("Total buy");?></h3>
+          <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_costasset'));?></div>
+        </a>
+      </div>
+    </section>
 
 
   </div>
@@ -293,7 +295,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
       </ul>
     </nav>
 
-     <nav class="items long">
+    <nav class="items long">
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report/vatreport'; ?>">

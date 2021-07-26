@@ -1,4 +1,4 @@
-<section class="f">
+<section class="row">
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>" class="stat x70 <?php if(!\dash\request::get('quarter')) { echo 'active';} ?>">
 			<h3><?php echo T_("All");?></h3>

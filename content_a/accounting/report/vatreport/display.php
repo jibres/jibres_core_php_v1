@@ -7,7 +7,7 @@ if(!$thisQurarter)
 }
 
 ?>
-<section class="f">
+<section class="row">
 	<?php if(false) {?>
 	<div class="c">
 		<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>" class="stat x70 <?php if(!$thisQurarter) { echo 'active';} ?>">
