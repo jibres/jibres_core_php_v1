@@ -102,8 +102,6 @@ class check
 				\dash\notif::error(T_("Accounting document date is not in Accounting year date!"), ['element' => ['date', 'year_id']]);
 				return false;
 			}
-
-
 		}
 
 		if($data['number'])
