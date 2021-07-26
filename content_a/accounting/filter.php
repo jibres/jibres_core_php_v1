@@ -56,6 +56,20 @@
             </div>
           </div>
         <?php } //endif ?>
+          <?php if(\dash\url::child() === 'factor') {?>
+          <div class="c-xs-12 c-sm">
+            <label for="totallarger" ><?php echo T_("Total larger than"); ?></label>
+            <div class="input mB0-f">
+              <input class="ltr" type="tel" data-format="price" maxlength="24" name="totallarger" id="totallarger" value="<?php echo \dash\request::get('totallarger'); ?>" autocomplete='off'>
+            </div>
+          </div>
+            <div class="c-xs-12 c-sm">
+            <label for="totalless" ><?php echo T_("Total less than"); ?></label>
+            <div class="input mB0-f">
+              <input class="ltr" type="tel" data-format="price" maxlength="24" name="totalless" id="totalless" value="<?php echo \dash\request::get('totalless'); ?>" autocomplete='off'>
+            </div>
+          </div>
+          <?php } //endif ?>
 
         <?php if(\dash\url::child() === 'report' && \dash\url::subchild() != 'balancesheet') {?>
           <div class="c-xs-12 c-sm-5">

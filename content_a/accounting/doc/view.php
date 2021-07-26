@@ -59,6 +59,8 @@ class view
 		$args['enddate']   = $enddate ? $enddate : null;
 		$args['month']     = \dash\request::get('month');
 		$args['template']  = \dash\request::get('template');
+		$args['totalless']  = \dash\request::get('totalless');
+		$args['totallarger']  = \dash\request::get('totallarger');
 
 		$args = array_merge($args, $_args);
 

@@ -40,6 +40,9 @@ class search
 			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
+
+			'totallarger' => 'price',
+			'totalless' => 'price',
 		];
 
 		$require = [];
@@ -131,6 +134,22 @@ class search
 			$and[] = " tax_document.status = '$data[status]' ";
 			self::$is_filtered = true;
 		}
+
+		if($data['totallarger'])
+		{
+			$and[] = " tax_document.total >= $data[totallarger] ";
+			self::$is_filtered = true;
+		}
+
+		if($data['totalless'])
+		{
+			$and[] = " tax_document.total <= $data[totalless] ";
+			self::$is_filtered = true;
+		}
+
+
+
+
 
 
 		if($data['template'])
