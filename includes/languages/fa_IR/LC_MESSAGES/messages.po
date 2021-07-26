@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-26 16:25+0430\n"
-"PO-Revision-Date: 2021-07-26 16:28+0430\n"
+"POT-Creation-Date: 2021-07-26 16:56+0430\n"
+"PO-Revision-Date: 2021-07-26 16:57+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -696,7 +696,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content/bug/display.php:104 content/changelog/display.php:55
 #: content_a/accounting/doc/add/display-docdetail.php:102
 #: content_a/accounting/factor/add/display.php:77
-#: content_a/accounting/report/quarter/display.php:107
+#: content_a/accounting/report/quarter/display.php:103
 #: content_a/accounting/report/vatreport/display.php:59
 #: content_a/accounting/report/vatreport/display.php:103
 #: content_a/accounting/report/vatreport/display.php:156
@@ -831,7 +831,7 @@ msgstr "بیشتر بخوانید"
 #: content_a/accounting/factor/display.php:47
 #: content_a/accounting/report/journal/display.php:19
 #: content_a/accounting/report/ledger/display.php:19
-#: content_a/accounting/report/quarter/display.php:108
+#: content_a/accounting/report/quarter/display.php:104
 #: content_a/accounting/turnover/display.php:157 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:35 content_a/form/analytics/answer/display.php:110
 #: content_a/form/answer/detail/display.php:145 content_a/order/editdate/display.php:31
@@ -4086,8 +4086,8 @@ msgstr "۹٪"
 #: content_a/accounting/report/detail/display.php:103
 #: content_a/accounting/report/detail/display.php:135
 #: content_a/accounting/report/group/display.php:67
-#: content_a/accounting/report/quarter/display.php:23
-#: content_a/accounting/report/quarter/display.php:111
+#: content_a/accounting/report/quarter/display.php:24
+#: content_a/accounting/report/quarter/display.php:105
 #: content_a/accounting/report/total/display-old.php:65
 #: content_a/accounting/report/total/display.php:65
 #: content_a/accounting/report/total/display.php:93
@@ -5753,7 +5753,7 @@ msgstr "مبلغ کل قبل از کسر تخفیف"
 #: content_a/accounting/factor/add/display.php:200
 #: content_a/accounting/factor/display.php:52
 #: content_a/accounting/report/quarter/display.php:32
-#: content_a/accounting/report/quarter/display.php:112 content_a/chap/size-a4/a4-1.php:53
+#: content_a/accounting/report/quarter/display.php:106 content_a/chap/size-a4/a4-1.php:53
 #: content_a/sale/display.php:68
 msgid "Total discount"
 msgstr "جمع تخفیف"
@@ -5837,13 +5837,12 @@ msgid "Sum vat"
 msgstr "مجموع مالیات"
 
 #: content_a/accounting/factor/display.php:50
-#: content_a/accounting/report/quarter/display.php:109
 #: content_site/options/group/group_template.php:12
 msgid "Template"
 msgstr "قالب"
 
 #: content_a/accounting/factor/display.php:53
-#: content_a/accounting/report/quarter/display.php:113
+#: content_a/accounting/report/quarter/display.php:107
 msgid "Total vat"
 msgstr "جمع مالیات"
 
@@ -6314,83 +6313,87 @@ msgstr "تشخیص"
 msgid "Remain"
 msgstr "مانده"
 
-#: content_a/accounting/report/quarter/display.php:41
+#: content_a/accounting/report/quarter/display.php:40
 msgid "Total vat 6%"
 msgstr "جمع مالیات ۶٪"
 
-#: content_a/accounting/report/quarter/display.php:50
+#: content_a/accounting/report/quarter/display.php:48
 msgid "Total vat 3%"
 msgstr "جمع مالیات ۳٪"
 
-#: content_a/accounting/report/quarter/display.php:66
+#: content_a/accounting/report/quarter/display.php:62
 msgid "Total year"
 msgstr ""
 
-#: content_a/accounting/report/quarter/display.php:67
+#: content_a/accounting/report/quarter/display.php:63
 msgid "Summary"
 msgstr "خلاصه"
 
-#: content_a/accounting/report/quarter/display.php:72
+#: content_a/accounting/report/quarter/display.php:68
 #: content_a/accounting/report/vatreport/display.php:21
 msgid "Quarter 1"
 msgstr "فصل ۱"
 
-#: content_a/accounting/report/quarter/display.php:73
+#: content_a/accounting/report/quarter/display.php:69
 #: content_a/accounting/report/vatreport/display.php:22
 #: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Spring"
 msgstr "بهار"
 
-#: content_a/accounting/report/quarter/display.php:78
+#: content_a/accounting/report/quarter/display.php:74
 #: content_a/accounting/report/vatreport/display.php:27
 msgid "Quarter 2"
 msgstr "فصل ۲"
 
-#: content_a/accounting/report/quarter/display.php:79
+#: content_a/accounting/report/quarter/display.php:75
 #: content_a/accounting/report/vatreport/display.php:28
 #: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Summer"
 msgstr "تابستان"
 
-#: content_a/accounting/report/quarter/display.php:84
+#: content_a/accounting/report/quarter/display.php:80
 #: content_a/accounting/report/vatreport/display.php:33
 msgid "Quarter 3"
 msgstr "فصل ۳"
 
-#: content_a/accounting/report/quarter/display.php:85
+#: content_a/accounting/report/quarter/display.php:81
 #: content_a/accounting/report/vatreport/display.php:34
 #: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Autumn"
 msgstr "پاییز"
 
-#: content_a/accounting/report/quarter/display.php:90
+#: content_a/accounting/report/quarter/display.php:86
 #: content_a/accounting/report/vatreport/display.php:39
 msgid "Quarter 4"
 msgstr "فصل ۴"
 
-#: content_a/accounting/report/quarter/display.php:91
+#: content_a/accounting/report/quarter/display.php:87
 #: content_a/accounting/report/vatreport/display.php:40
 #: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Winter"
 msgstr "زمستان"
 
-#: content_a/accounting/report/quarter/display.php:110 content_a/chap/size-a4/a4-1.php:31
-msgid "Serial Number"
-msgstr "شماره سریال"
-
-#: content_a/accounting/report/quarter/display.php:114
+#: content_a/accounting/report/quarter/display.php:108
 msgid "Total include vat"
 msgstr "مجموع مبلغ مشمول مالیات"
 
-#: content_a/accounting/report/quarter/display.php:115
+#: content_a/accounting/report/quarter/display.php:109
 msgid "Total non-include vat"
 msgstr "مجموع مبلغ معاف از مالیات"
 
-#: content_a/accounting/report/quarter/view.php:21
+#: content_a/accounting/report/quarter/display.php:120
+msgid "Split"
+msgstr "تفکیک"
+
+#: content_a/accounting/report/quarter/display.php:123
+msgid "Merge"
+msgstr "ادغام"
+
+#: content_a/accounting/report/quarter/view.php:22
 msgid "Quarterly sell report"
 msgstr "گزارش فصلی فروش"
 
-#: content_a/accounting/report/quarter/view.php:25
+#: content_a/accounting/report/quarter/view.php:26
 msgid "Quarterly buy report"
 msgstr "گزارش فصلی خرید"
 
@@ -7567,6 +7570,10 @@ msgstr "صورت‌حساب فروش کالا و خدمات"
 #: content_a/chap/size-a4/a4-1.php:26
 msgid "Invoice"
 msgstr "صورت‌حساب"
+
+#: content_a/chap/size-a4/a4-1.php:31
+msgid "Serial Number"
+msgstr "شماره سریال"
 
 #: content_a/chap/size-a4/a4-1.php:49 content_a/chap/size-receipt/receipt.php:103
 #: content_a/order/home/display.php:58 content_business/orders/display.php:17
@@ -39662,7 +39669,7 @@ msgstr "اختتامیه"
 msgid "As described in the general journal"
 msgstr "به شرح دفتر روزنامه"
 
-#: lib/app/tax/doc/report/quarter.php:78
+#: lib/app/tax/doc/report/quarter.php:141
 msgid "Quarter"
 msgstr "فصل"
 
