@@ -23,7 +23,6 @@
 				</div>
 			</div>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-
 				<label for="inationalcode"><?php echo T_("Nationalcode"); ?> <small data-response='accounttype' data-response-where='legal' <?php if(\dash\data::dataRowMember_accounttype() !== 'legal') { echo 'data-response-hide'; } ?>><?php echo T_("CEO"); ?></small></label>
 				<div class="input">
 					<input type="text" name="nationalcode" id="inationalcode" value="<?php echo \dash\data::dataRowMember_nationalcode(); ?>" data-format='nationalCode'>
@@ -58,6 +57,23 @@
 				</div>
 			</div>
 		</div>
+		<?php if(\dash\data::haveCoding()) {?>
+			<div class="">
+				<div class="row">
+					<div class="c-auto">
+						<label for="accounting_detail_id"><?php echo T_("Details in accounting topics to display and record quarterly reports"); ?></label>
+					</div>
+					<div class="c"></div>
+					<div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::kingdom(). '/a/accounting/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
+				</div>
+				<select class="select22" name="accounting_detail_id"  data-placeholder='<?php echo T_("Accounting detail") ?>'>
+					<option value="0"><?php echo T_("None") ?></option>
+					<?php foreach (\dash\data::detailsList() as $key => $value){ ?>
+						<option value="<?php echo a($value, 'id') ?>" <?php if(a(\dash\data::dataRowMember(), 'accounting_detail_id') === a($value, 'id')){ echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
+					<?php } // endfor ?>
+				</select>
+			</div>
+		<?php } //endif ?>
 	</div>
 	<footer class="txtRa">
 		<button class="btn primary" name="btn" value="add"><?php echo T_("Save"); ?></button>

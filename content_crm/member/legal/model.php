@@ -11,12 +11,13 @@ class model
 		$post =
 		[
 			'website'               => \dash\request::post('website'),
-			'accounttype'             => \dash\request::post('accounttype'),
+			'accounttype'           => \dash\request::post('accounttype'),
 			'companyname'           => \dash\request::post('companyname'),
 			'companyregisternumber' => \dash\request::post('companyregisternumber'),
 			'companynationalid'     => \dash\request::post('companynationalid'),
 			'companyeconomiccode'   => \dash\request::post('companyeconomiccode'),
 			'nationalcode'          => \dash\request::post('nationalcode'),
+			'accounting_detail_id'  => \dash\request::post('accounting_detail_id') ? \dash\request::post('accounting_detail_id') : null,
 		];
 
 

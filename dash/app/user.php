@@ -311,6 +311,7 @@ class user
 			'companyregisternumber' => 'bigint',
 			'companynationalid'     => 'bigint',
 			'companyeconomiccode'   => 'bigint',
+			'accounting_detail_id'  => 'id',
 		];
 
 		$require = ['displayname'];
