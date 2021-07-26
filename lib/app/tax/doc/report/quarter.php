@@ -7,6 +7,11 @@ class quarter
 	public static function get($_type = 'costasset')
 	{
 
+		if(!$_type)
+		{
+			$_type = 'costasset';
+		}
+
 		$year_detail = \lib\app\tax\year\get::default_year();
 
 		$remainvatlastyear = floatval(a($year_detail, 'remainvatlastyear'));
@@ -47,7 +52,6 @@ class quarter
 
 			$result[$key] = \lib\app\tax\doc\search::list(null, $args);
 		}
-
 
 		return $result;
 	}
