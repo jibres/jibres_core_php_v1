@@ -10,6 +10,7 @@ class quarter
 		[
 			'type'   => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
 			'detail' => 'bit',
+			'merge' => 'bit',
 		];
 
 		$require = [];
@@ -24,6 +25,8 @@ class quarter
 		}
 
 		$year_detail = \lib\app\tax\year\get::default_year();
+
+		$quorumprice = floatval(a($year_detail, 'quorumprice'));
 
 		$remainvatlastyear = floatval(a($year_detail, 'remainvatlastyear'));
 
@@ -71,7 +74,67 @@ class quarter
 
 			$args['template']  = $data['type'];
 
-			$result[$key] = \lib\app\tax\doc\search::list(null, $args);
+			$list = \lib\app\tax\doc\search::list(null, $args);
+
+			if($data['merge'])
+			{
+				$new_list = [];
+				foreach ($list as $k => $v)
+				{
+					if(floatval($v['total']) < floatval($quorumprice))
+					{
+						if(!isset($new_list['merged']))
+						{
+							$new_list['merged'] =
+							[
+								'merged'             => true,
+								'id'                 => null,
+								'number'             => null,
+								'date'               => null,
+								'desc'               => null,
+								'tstatus'            => null,
+								'status'             => null,
+								'datecreated'        => null,
+								'datemodified'       => null,
+								'year_id'            => null,
+								'gallery'            => null,
+								'subnumber'          => null,
+								'template_title'     => null,
+								'template'           => null,
+								'serialnumber'       => null,
+								'total'              => null,
+								'totaldiscount'      => null,
+								'totalvat'           => null,
+								'user_id'            => null,
+								'producttitle'       => null,
+								'totalnotincludevat' => null,
+								'totalincludevat'    => null,
+								'sum_debtor'         => null,
+								'sum_creditor'       => null,
+								'item_count'         => null,
+							];
+						}
+
+						$new_list['merged'] = array_merge($new_list['merged'],
+						[
+							'merged'             => true,
+							'total'              => floatval($new_list['merged']['total']) + floatval($v['total']),
+							'totaldiscount'      => floatval($new_list['merged']['totaldiscount']) + floatval($v['totaldiscount']),
+							'totalvat'           => floatval($new_list['merged']['totalvat']) + floatval($v['totalvat']),
+							'totalnotincludevat' => floatval($new_list['merged']['totalnotincludevat']) + floatval($v['totalnotincludevat']),
+							'totalincludevat'    => floatval($new_list['merged']['totalincludevat']) + floatval($v['totalincludevat']),
+						]);
+					}
+					else
+					{
+						$new_list[] = $v;
+					}
+					$list = $new_list;
+				}
+
+			}
+
+			$result[$key] = $list;
 
 			if(!$data['detail'])
 			{

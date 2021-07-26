@@ -6,6 +6,8 @@ if(!$thisQurarter)
 	$thisQurarter = 1;
 }
 
+$quorumprice = floatval(\dash\data::dataRow_quorumprice());
+
 ?>
 <?php if(!\dash\request::get('detail')) {?>
 <div class="row">
@@ -16,7 +18,6 @@ if(!$thisQurarter)
     <p class="mB5-f font-14"><?php echo a($value, 'title'); ?></p>
     <nav class="items long">
       <ul>
-
         <li>
           <a class="item f" href="<?php echo $link ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
@@ -25,8 +26,7 @@ if(!$thisQurarter)
             <div class="go"></div>
           </a>
         </li>
-
-             <li>
+        <li>
           <a class="item f" href="<?php echo $link ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
             <div class="key"><?php echo T_("Total discount") ?></div>
@@ -34,8 +34,7 @@ if(!$thisQurarter)
             <div class="go"></div>
           </a>
         </li>
-
-             <li>
+        <li>
           <a class="item f" href="<?php echo $link ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
             <div class="key"><?php echo T_("Total vat 6%") ?></div>
@@ -43,8 +42,7 @@ if(!$thisQurarter)
             <div class="go"></div>
           </a>
         </li>
-
-             <li>
+        <li>
           <a class="item f" href="<?php echo $link ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
             <div class="key"><?php echo T_("Total vat 3%") ?></div>
@@ -52,8 +50,6 @@ if(!$thisQurarter)
             <div class="go"></div>
           </a>
         </li>
-
-
       </ul>
     </nav>
   </div>
@@ -106,8 +102,6 @@ if(!$thisQurarter)
 					<tr>
 						<th><?php echo T_("Description") ?></th>
 						<th><?php echo T_("Date") ?></th>
-						<th><?php echo T_("Template") ?></th>
-						<th><?php echo T_("Serial Number") ?></th>
 						<th><?php echo T_("Total") ?></th>
 						<th><?php echo T_("Total discount") ?></th>
 						<th><?php echo T_("Total vat") ?></th>
@@ -120,16 +114,21 @@ if(!$thisQurarter)
 					<tr>
 						<td><?php echo a($v, 'desc') ?></td>
 						<td><?php echo \dash\fit::date(a($v, 'date')) ?></td>
-						<td><?php echo \lib\app\tax\doc\ready::factor_type_translate(a($v, 'template')); ?></td>
-						<td><?php echo a($v, 'serialnumber'); ?></td>
-						<td data-copy='<?php echo a($v, 'total') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'total'), true, 'en') ?></code></td>
+						<td class="font-12 ltr txtR">
+							<code data-copy='<?php echo a($v, 'total') ?>'><?php echo \dash\fit::number(a($v, 'total'), true, 'en') ?></code>
+								<?php if(\dash\request::get('merge') && a($v, 'merged')) {?>
+									<a href="<?php echo \dash\url::current(). \dash\request::full_get(['merge' => 0]) ?>" class="badge"><?php echo T_("Split") ?></a>
+								<?php } //endif ?>
+							<?php if(floatval(a($v, 'total')) < $quorumprice && !\dash\request::get('merge')) {?>
+									<a href="<?php echo \dash\url::current(). \dash\request::full_get(['merge' => 1]) ?>" class="badge primary"><?php echo T_("Merge") ?></a>
+							<?php } //endif ?>
+						</td>
 						<td data-copy='<?php echo a($v, 'totaldiscount') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totaldiscount'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalvat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalincludevat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalincludevat'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalnotincludevat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalnotincludevat'), true, 'en') ?></code></td>
 					</tr>
 				<?php } //endif ?>
-
 				</tbody>
 			</table>
 		<?php } //endfor ?>

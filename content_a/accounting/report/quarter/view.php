@@ -12,9 +12,10 @@ class view
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::dataRow(\lib\app\tax\year\get::default_year());
 
-		$args = [];
-		$args['type'] = \dash\request::get('type');
+		$args           = [];
+		$args['type']   = \dash\request::get('type');
 		$args['detail'] = \dash\request::get('detail');
+		$args['merge']  = \dash\request::get('merge');
 
 		if($args['type'] === 'income')
 		{
