@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-26 12:08+0430\n"
-"PO-Revision-Date: 2021-07-26 12:08+0430\n"
+"POT-Creation-Date: 2021-07-26 12:49+0430\n"
+"PO-Revision-Date: 2021-07-26 12:50+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5305,7 +5305,7 @@ msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید
 msgid "Accounting coding imported"
 msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
-#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:141
+#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:173
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
@@ -5657,7 +5657,8 @@ msgstr "مالیات"
 msgid "Print Accounting Documents"
 msgstr "چاپ اسناد حسابداری"
 
-#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:161
+#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:193
+#: lib/app/tax/doc/ready.php:108
 msgid "Accounting Documents"
 msgstr "اسناد حسابداری"
 
@@ -5813,7 +5814,7 @@ msgstr "افزودن هزینه"
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:114
+#: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:126
 #: content_a/android/home/display.php:117 content_a/cart/add/display.php:39
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:212
@@ -5969,68 +5970,80 @@ msgstr "دفتر کل"
 msgid "Daily"
 msgstr "روزانه"
 
-#: content_a/accounting/home/display.php:115
-msgid "Accounting Documents per month"
-msgstr "تعداد سند‌های حسابداری به تفکیک ماه"
+#: content_a/accounting/home/display.php:110
+msgid "Report list"
+msgstr "لیست گزارشات"
 
-#: content_a/accounting/home/display.php:124
-msgid "Percent lock Accounting Document"
-msgstr "درصد سند‌های حسابداری دائم"
-
-#: content_a/accounting/home/display.php:130
-msgid "Percent have attachment"
-msgstr "درصد سند‌های حسابداری دارای ضمیمه"
-
-#: content_a/accounting/home/display.php:149
-msgid "Accounting Year"
-msgstr "سال مالی"
-
-#: content_a/accounting/home/display.php:169
-msgid "Add Accounting Document"
-msgstr "افزودن سند حسابداری"
-
-#: content_a/accounting/home/display.php:180 content_a/accounting/turnover/view.php:9
-msgid "Turnover"
-msgstr "گردش حساب"
-
-#: content_a/accounting/home/display.php:188 content_a/accounting/home/display.php:196
-msgid "Petty Cash Turnover"
-msgstr "گردش حساب تنخواه"
-
-#: content_a/accounting/home/display.php:208
-msgid "Cost purchases"
-msgstr "خرید مصارف و هزینه‌ها"
-
-#: content_a/accounting/home/display.php:216
-msgid "Buy assets"
-msgstr "خرید دارایی"
-
-#: content_a/accounting/home/display.php:228
-msgid "Revenues and sales invoices"
-msgstr "درآمد و فاکتورهای فروش"
-
-#: content_a/accounting/home/display.php:240
-msgid "Charge Petty Cash from bank"
-msgstr "شارژ تنخواه از طریق حساب بانکی"
-
-#: content_a/accounting/home/display.php:248
-msgid "Charge Petty Cash from partners"
-msgstr "شارژ تنخواه از طریق جاری شرکا"
-
-#: content_a/accounting/home/display.php:256
-msgid "Charge Bank from partners"
-msgstr "شارژ حساب بانکی از طریق جاری شرکا"
-
-#: content_a/accounting/home/display.php:268 content_a/form/itemLink.php:25
+#: content_a/accounting/home/display.php:116 content_a/form/itemLink.php:25
 #: dash/panel.php:263
 msgid "Reports"
 msgstr "گزارش‌ها"
 
-#: content_a/accounting/home/display.php:279
+#: content_a/accounting/home/display.php:127
+msgid "Accounting Documents per month"
+msgstr "تعداد سند‌های حسابداری به تفکیک ماه"
+
+#: content_a/accounting/home/display.php:136
+msgid "Percent lock Accounting Document"
+msgstr "درصد سند‌های حسابداری دائم"
+
+#: content_a/accounting/home/display.php:143
+msgid "Percent have attachment"
+msgstr "درصد سند‌های حسابداری دارای ضمیمه"
+
+#: content_a/accounting/home/display.php:152
+msgid "Total Sell"
+msgstr "مجموع فروش‌"
+
+#: content_a/accounting/home/display.php:159 content_crm/member/glance/display.php:164
+msgid "Total buy"
+msgstr "مجموع خرید"
+
+#: content_a/accounting/home/display.php:181
+msgid "Accounting Year"
+msgstr "سال مالی"
+
+#: content_a/accounting/home/display.php:201
+msgid "Add Accounting Document"
+msgstr "افزودن سند حسابداری"
+
+#: content_a/accounting/home/display.php:212 content_a/accounting/turnover/view.php:9
+msgid "Turnover"
+msgstr "گردش حساب"
+
+#: content_a/accounting/home/display.php:220 content_a/accounting/home/display.php:228
+msgid "Petty Cash Turnover"
+msgstr "گردش حساب تنخواه"
+
+#: content_a/accounting/home/display.php:240
+msgid "Cost purchases"
+msgstr "خرید مصارف و هزینه‌ها"
+
+#: content_a/accounting/home/display.php:248
+msgid "Buy assets"
+msgstr "خرید دارایی"
+
+#: content_a/accounting/home/display.php:260
+msgid "Revenues and sales invoices"
+msgstr "درآمد و فاکتورهای فروش"
+
+#: content_a/accounting/home/display.php:272
+msgid "Charge Petty Cash from bank"
+msgstr "شارژ تنخواه از طریق حساب بانکی"
+
+#: content_a/accounting/home/display.php:280
+msgid "Charge Petty Cash from partners"
+msgstr "شارژ تنخواه از طریق جاری شرکا"
+
+#: content_a/accounting/home/display.php:288
+msgid "Charge Bank from partners"
+msgstr "شارژ حساب بانکی از طریق جاری شرکا"
+
+#: content_a/accounting/home/display.php:301
 msgid "Vat report"
 msgstr "گزارش فصلی مالیات بر ازرش افزوده"
 
-#: content_a/accounting/home/display.php:286
+#: content_a/accounting/home/display.php:308
 msgid "Quarter report"
 msgstr "گزارش فصلی"
 
@@ -6300,7 +6313,7 @@ msgstr "فصل ۱"
 
 #: content_a/accounting/report/quarter/display.php:11
 #: content_a/accounting/report/vatreport/display.php:22
-#: content_a/accounting/report/view.php:59 content_a/accounting/report/view.php:63
+#: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Spring"
 msgstr "بهار"
 
@@ -6311,7 +6324,7 @@ msgstr "فصل ۲"
 
 #: content_a/accounting/report/quarter/display.php:17
 #: content_a/accounting/report/vatreport/display.php:28
-#: content_a/accounting/report/view.php:59 content_a/accounting/report/view.php:63
+#: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Summer"
 msgstr "تابستان"
 
@@ -6322,7 +6335,7 @@ msgstr "فصل ۳"
 
 #: content_a/accounting/report/quarter/display.php:23
 #: content_a/accounting/report/vatreport/display.php:34
-#: content_a/accounting/report/view.php:59 content_a/accounting/report/view.php:63
+#: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Autumn"
 msgstr "پاییز"
 
@@ -6333,7 +6346,7 @@ msgstr "فصل ۴"
 
 #: content_a/accounting/report/quarter/display.php:29
 #: content_a/accounting/report/vatreport/display.php:40
-#: content_a/accounting/report/view.php:59 content_a/accounting/report/view.php:63
+#: content_a/accounting/report/view.php:60 content_a/accounting/report/view.php:64
 msgid "Winter"
 msgstr "زمستان"
 
@@ -6528,7 +6541,7 @@ msgstr "گزارش فصلی مالیات بر ارزش افزوده"
 msgid "Report Accounting"
 msgstr "گزارشات حسابداری"
 
-#: content_a/accounting/report/view.php:95
+#: content_a/accounting/report/view.php:107
 msgid "The whole season :val"
 msgstr "کل فصل :val"
 
@@ -17148,10 +17161,6 @@ msgstr "آخرین پرداختی"
 #: content_crm/member/glance/display.php:157
 msgid "Total payed"
 msgstr "مجموع پرداختی‌ها"
-
-#: content_crm/member/glance/display.php:164
-msgid "Total buy"
-msgstr "مجموع خرید"
 
 #: content_crm/member/glance/display.php:171
 msgid "Average order pay"
@@ -39606,7 +39615,7 @@ msgstr "شارژ حساب بانکی از طریق جاری شرکا"
 msgid "Cost + Asset"
 msgstr "دارایی + هزینه"
 
-#: lib/app/tax/doc/ready.php:108
+#: lib/app/tax/doc/ready.php:112
 msgid "Accounting factor"
 msgstr "فاکتور‌های حسابداری"
 
