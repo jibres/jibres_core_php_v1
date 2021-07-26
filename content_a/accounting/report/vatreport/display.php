@@ -17,25 +17,25 @@ if(!$thisQurarter)
 	</div>
 <?php } //endif ?>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1]); ?>" class="stat x70 <?php if($thisQurarter === '1' || !$thisQurarter) { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 1]); ?>" class="stat x70 <?php if($thisQurarter == '1' || !$thisQurarter) { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 1");?></h3>
 			<div class="val"><?php echo T_("Spring");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2]); ?>" class="stat x70 <?php if($thisQurarter === '2') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 2]); ?>" class="stat x70 <?php if($thisQurarter == '2') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 2");?></h3>
 			<div class="val"><?php echo T_("Summer");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3]); ?>" class="stat x70 <?php if($thisQurarter === '3') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 3]); ?>" class="stat x70 <?php if($thisQurarter == '3') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 3");?></h3>
 			<div class="val"><?php echo T_("Autumn");?></div>
 		</a>
 	</div>
 	<div class="c">
-		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4]); ?>" class="stat x70 <?php if($thisQurarter === '4') { echo 'active';} ?>">
+		<a href="<?php echo \dash\url::current(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'quarter' => 4]); ?>" class="stat x70 <?php if($thisQurarter == '4') { echo 'active';} ?>">
 			<h3><?php echo T_("Quarter 4");?></h3>
 			<div class="val"><?php echo T_("Winter");?></div>
 		</a>
