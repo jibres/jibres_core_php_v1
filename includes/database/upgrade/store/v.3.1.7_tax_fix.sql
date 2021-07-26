@@ -1,0 +1,2 @@
+ALTER TABLE jibres_XXXXXXX.tax_document ADD `quarterlyreport` ENUM('yes', 'no') DEFAULT 'yes';
+ALTER TABLE jibres_XXXXXXX.tax_document ADD INDEX `tax_document_index_quarterlyreport` (`quarterlyreport`);
