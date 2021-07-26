@@ -49,8 +49,8 @@
                <?php if(!\dash\data::descEmpty()) {?>
                   <td class="collapsing"><?php echo a($value, 'desc') ?></td>
                <?php } //endif ?>
-              <td class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
-              <td class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
               <td class="p0 txtRa">
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
@@ -72,8 +72,8 @@
             <?php } //endif ?>
 
               <td><?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?></td>
-             <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
-             <td class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
+             <td data-copy='<?php echo \dash\data::summary_debtor() ?>' class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
+             <td data-copy='<?php echo \dash\data::summary_creditor() ?>' class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
                 <td class="p0 txtRa txtB">
                    <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
