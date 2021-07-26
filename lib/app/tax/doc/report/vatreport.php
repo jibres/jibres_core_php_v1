@@ -32,7 +32,9 @@ class vatreport
 		$quarter[4] = ["$myYear-10-01", "$myYear-12-30"];
 
 		$args = [];
+
 		$args['summary_mode'] = true;
+		$args['quarterlyreport'] = true;
 		$args['status'] = 'lock';
 
 		$result = [];

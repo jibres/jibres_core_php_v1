@@ -186,6 +186,9 @@ if(!\dash\data::editMode())
           <?php } // endif ?>
           <div class="mT10"></div>
 
+          <div class="row">
+            <div class="c">
+
             <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
 
           <div class="row">
@@ -219,6 +222,16 @@ if(!\dash\data::editMode())
                 <input type="tel" name="total" value="<?php echo round(a($dataRow, 'tax_document', 'total'));  ?>" id="total" maxlength="20" data-format='price' <?php echo $disableInput ?>>
               </div>
         <?php } //endif ?>
+            </div>
+            <div class="cauto">
+        <div class="switch1 mT25 <?php if($docIsLock) { echo 'disabled'; } ?>">
+          <input type="checkbox" name="quarterlyreport" id="quarterlyreport" <?php echo $disableInput;  if(a($dataRow, 'tax_document', 'quarterlyreport') === 'yes' || !a($dataRow, 'tax_document', 'quarterlyreport')) {echo ' checked';} ?>>
+          <label for="quarterlyreport"><?php echo T_("Calculate in quarterly report") ?></label>
+          <label for="quarterlyreport"><?php echo T_("Calculate in quarterly report") ?></label>
+        </div>
+            </div>
+          </div>
+
 
         </div>
       </div>

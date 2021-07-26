@@ -61,6 +61,7 @@ class quarter
 			$args['summary_mode'] = true;
 		}
 
+		$args['quarterlyreport'] = true;
 		$args['status'] = 'lock';
 
 		$result = [];

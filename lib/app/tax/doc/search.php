@@ -40,6 +40,7 @@ class search
 			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
+			'quarterlyreport' => 'bit',
 
 			'totallarger' => 'price',
 			'totalless' => 'price',
@@ -117,6 +118,12 @@ class search
 			{
 				$and[] = " MONTH(tax_document.date) = $data[month] ";
 			}
+		}
+
+		if($data['quarterlyreport'])
+		{
+			$and[] = " tax_document.quarterlyreport = 'yes' ";
+
 		}
 
 		if($data['startdate'])

@@ -56,6 +56,7 @@ class check
 			'totaldiscount' => 'price',
 			'totalvat'      => 'price',
 			'producttitle' => 'title',
+			'quarterlyreport' => 'bit',
 		];
 
 		$require = ['number', 'date', 'year_id'];
@@ -132,6 +133,15 @@ class check
 					}
 				}
 			}
+		}
+
+		if($data['quarterlyreport'])
+		{
+			$data['quarterlyreport'] = 'yes';
+		}
+		else
+		{
+			$data['quarterlyreport'] = 'no';
 		}
 
 		if(isset($_option['template_mode']) && $_option['template_mode'])

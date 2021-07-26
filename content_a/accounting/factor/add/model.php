@@ -8,26 +8,27 @@ class model
 	{
 		$post =
 		[
-			'template'      => \dash\request::get('type'),
+			'template'        => \dash\request::get('type'),
 
-			'year_id'       => \dash\request::post('year_id'),
+			'year_id'         => \dash\request::post('year_id'),
 
-			'pay_from'      => \dash\request::post('pay_from') ? \dash\request::post('pay_from') : null,
-			'put_on'        => \dash\request::post('put_on') ? \dash\request::post('put_on') : null,
-			'bank'          => \dash\request::post('bank') ? \dash\request::post('bank') : null,
-			'partner'       => \dash\request::post('partner') ? \dash\request::post('partner') : null,
-			'petty_cash'    => \dash\request::post('petty_cash') ? \dash\request::post('petty_cash') : null,
+			'pay_from'        => \dash\request::post('pay_from') ? \dash\request::post('pay_from') : null,
+			'put_on'          => \dash\request::post('put_on') ? \dash\request::post('put_on') : null,
+			'bank'            => \dash\request::post('bank') ? \dash\request::post('bank') : null,
+			'partner'         => \dash\request::post('partner') ? \dash\request::post('partner') : null,
+			'petty_cash'      => \dash\request::post('petty_cash') ? \dash\request::post('petty_cash') : null,
 
-			'thirdparty'    => \dash\request::post('thirdparty') ? \dash\request::post('thirdparty') : null,
+			'thirdparty'      => \dash\request::post('thirdparty') ? \dash\request::post('thirdparty') : null,
 
-			'desc'          => \dash\request::post('title'),
-			'producttitle'  => \dash\request::post('producttitle'),
-			'date'          => \dash\request::post('factordate'),
-			'serialnumber'  => \dash\request::post('serialnumber'),
+			'desc'            => \dash\request::post('title'),
+			'producttitle'    => \dash\request::post('producttitle'),
+			'date'            => \dash\request::post('factordate'),
+			'serialnumber'    => \dash\request::post('serialnumber'),
 
-			'total'         => \dash\request::post('total'),
-			'totaldiscount' => \dash\request::post('totaldiscount'),
-			'totalvat'      => \dash\request::post('totalvat'),
+			'total'           => \dash\request::post('total'),
+			'totaldiscount'   => \dash\request::post('totaldiscount'),
+			'totalvat'        => \dash\request::post('totalvat'),
+			'quarterlyreport' => \dash\request::post('quarterlyreport'),
 		];
 
 		return $post;
