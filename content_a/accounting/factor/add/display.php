@@ -65,7 +65,7 @@ if(!\dash\data::editMode())
                   <input type="text" name="serialnumber" value="<?php echo a($dataRow, 'tax_document', 'serialnumber');  ?>" id="serialnumber" maxlength="100"  <?php echo $disableInput ?>>
                 </div>
               </div>
-              <div class="c-xs-6 c-sm-3 c-xl-1 c-xxl-1">
+              <div class="c-xs-6 c-sm-3 c-xl-2 c-xxl-2">
                 <label for="producttitle"><?php echo T_("Product title"); ?></label>
                 <div class="input">
                   <input type="text" name="producttitle" value="<?php echo a($dataRow, 'tax_document', 'producttitle'); ?>" id="producttitle" maxlength="100"  <?php echo $disableInput ?>>
