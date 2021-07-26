@@ -33,11 +33,36 @@ class guard
 
 	private static function header_xframe_option($_readonly = null)
 	{
-		if(\dash\server::referer())
+		$referer = \dash\server::referer();
+		if($referer)
 		{
 			$enamad = 'https://trustseal.enamad.ir/';
 
-			if(strpos(\dash\server::referer(), $enamad) !== false)
+			$allow_domain =
+			[
+				'https://jibres.ir',
+				'https://jibres.ir/',
+
+				'https://jibres.com',
+				'https://jibres.com/',
+
+				'https://jibres.local',
+				'https://jibres.local/',
+
+				'http://jibres.local',
+				'http://jibres.local/',
+			];
+
+			if(in_array($referer, $allow_domain))
+			{
+				if(!$_readonly)
+				{
+					@header("X-frame: Jibres");
+				}
+
+				return true;
+			}
+			elseif(strpos($referer, $enamad) !== false)
 			{
 				if(!$_readonly)
 				{
@@ -53,14 +78,15 @@ class guard
 				}
 				return true;
 			}
-			if(strpos(\dash\server::referer(), '.local/') !== false)
-			{
-				if(!$_readonly)
-				{
-					// @header('X-Frame-Options: allow-from '. \dash\server::referer());
-				}
-				return true;
-			}
+
+			// if(strpos($referer, '.local/') !== false)
+			// {
+			// 	if(!$_readonly)
+			// 	{
+			// 		// @header('X-Frame-Options: allow-from '. $referer);
+			// 	}
+			// 	return true;
+			// }
 		}
 		if(!$_readonly)
 		{
