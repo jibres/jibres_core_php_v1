@@ -30,7 +30,6 @@ class get
 
 
 
-
 	public static function count_all_doc_with_attachment($_year_id)
 	{
 		$year_id = null;

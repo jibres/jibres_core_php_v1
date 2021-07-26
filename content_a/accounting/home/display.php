@@ -70,7 +70,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
       </ul>
     </nav>
     <p class="mB5-f font-14"><?php echo T_("Legal offices") ?></p>
-    <nav class="items long">
+    <nav class="items long mB10-f">
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report/journal'; ?>">
@@ -107,6 +107,18 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
+    <p class="mB5-f font-14"><?php echo T_("Report list") ?></p>
+    <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
+            <div class="key"><?php echo T_("Reports") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-6">
     <div id="chartdivaccountinghome" class="box chart x350 s0" data-abc='a/accounting'>
@@ -119,18 +131,38 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     </div>
     <section class="row">
       <div class="c-xs-0 c-sm-6 c-md-6">
-        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox pB25-f">
+        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
           <?php $myPercent= a($dashboardDetail, 'percent_lock');$myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Percent lock Accounting Document");?></h3>
         </a>
       </div>
+
       <div class="c-xs-6 c-sm-6 c-md-6">
-        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox pB25-f">
+        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
           <?php $myPercent= a($dashboardDetail, 'percent_attachment');$myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Percent have attachment");?></h3>
         </a>
       </div>
     </section>
+
+  <section class="f">
+
+    <div class="c">
+      <a href="<?php echo \dash\url::this(). '/factor?template=income'; ?>" class="stat">
+        <h3><?php echo T_("Total Sell");?></h3>
+        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_income'));?></div>
+      </a>
+    </div>
+
+    <div class="c">
+      <a href="<?php echo \dash\url::this(). '/factor?template=costasset'; ?>" class="stat">
+        <h3><?php echo T_("Total buy");?></h3>
+        <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_costasset'));?></div>
+      </a>
+    </div>
+  </section>
+
+
   </div>
   <div class="c-xs-12 c-sm-12 c-md-3">
     <nav class="items long">
@@ -260,17 +292,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-    <nav class="items long">
-      <ul>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/report'; ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
-            <div class="key"><?php echo T_("Reports") ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-      </ul>
-    </nav>
+
      <nav class="items long">
       <ul>
         <li>
