@@ -4,6 +4,15 @@ namespace dash\db\users;
 
 class get
 {
+	public static function check_duplicate_accounting_detail($_accounting_detail_id)
+	{
+		$query  = "SELECT users.id AS `id` FROM users WHERE users.accounting_detail_id = '$_accounting_detail_id' LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
+
 	public static function jibres_user_id($_mobile)
 	{
 		$query  = "SELECT users.id AS `id` FROM users WHERE users.mobile = '$_mobile' LIMIT 1";

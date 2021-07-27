@@ -342,6 +342,23 @@ class user
 		}
 
 
+		if($data['accounting_detail_id'])
+		{
+			$check_duplicate_accounting_detail = \dash\db\users\get::check_duplicate_accounting_detail($data['accounting_detail_id']);
+			if(isset($check_duplicate_accounting_detail['id']) && $check_duplicate_accounting_detail['id'])
+			{
+				if(floatval($check_duplicate_accounting_detail['id']) === floatval($_id))
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("This accounting detail already in use for another user"));
+					return false;
+				}
+			}
+		}
+
 		if(!\dash\permission::check("crmPermissionManagement"))
 		{
 			unset($data['permission']);
