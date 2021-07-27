@@ -8,6 +8,14 @@ class controller
 	{
 		\dash\permission::access('_group_accounting');
 
+		if(\dash\request::get('fid'))
+		{
+			$fid = \dash\validate::id(\dash\request::get('fid'));
+			if($fid)
+			{
+				\dash\data::oneFactorId($fid);
+			}
+		}
 
 	}
 }

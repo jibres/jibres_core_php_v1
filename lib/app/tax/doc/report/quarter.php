@@ -11,6 +11,7 @@ class quarter
 			'type'   => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
 			'detail' => 'bit',
 			'merge' => 'bit',
+			'doc_id' => 'id',
 		];
 
 		$require = [];
@@ -64,6 +65,7 @@ class quarter
 		$args['quarterlyreport'] = true;
 		$args['status'] = 'lock';
 		$args['pagination'] = 'n';
+		$args['doc_id'] = $data['doc_id'];
 
 		$result = [];
 		foreach ($quarter as $key => $value)
@@ -146,10 +148,19 @@ class quarter
 
 			}
 
-			// if($data['detail'])
-			// {
-			// 	self::fill_customer_detail($list);
-			// }
+			if($data['detail'])
+			{
+				self::fill_customer_detail($list, $data);
+
+				foreach ($list as $k => $v)
+				{
+					if(a($v, 'totalincludevat'))
+					{
+						$list[$k]['totalvatinclude6'] = round(floatval($v['totalincludevat']) * 0.06);
+						$list[$k]['totalvatinclude3'] = round(floatval($v['totalincludevat']) * 0.03);
+					}
+				}
+			}
 
 			$result[$key] = $list;
 
@@ -163,7 +174,7 @@ class quarter
 	}
 
 
-	private static function fill_customer_detail(&$list)
+	private static function fill_customer_detail(&$list, $data)
 	{
 		$all_doc_id = array_column($list, 'id');
 		$all_doc_id = array_filter($all_doc_id);
@@ -196,13 +207,17 @@ class quarter
 			if(isset($user_detail[$value['id']]))
 			{
 				$list[$key]['user_detail'] = a($user_detail,$value['id']);
-				$user_id = a($user_detail, $value['id'], 'id');
-				if($user_id)
+				if($data['doc_id'])
 				{
-					$load_primary_address = \dash\db\address::get_primary_user_address($user_id);
-					if($load_primary_address)
+					$user_id = a($user_detail, $value['id'], 'id');
+					if($user_id)
 					{
-						$list[$key]['user_address'] = $load_primary_address;
+						$load_primary_address = \dash\db\address::get_primary_user_address($user_id);
+						if($load_primary_address)
+						{
+							$load_primary_address = \dash\app\address::ready($load_primary_address);
+							$list[$key]['address_detail'] = $load_primary_address;
+						}
 					}
 				}
 			}

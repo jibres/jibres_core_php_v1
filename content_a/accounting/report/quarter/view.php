@@ -26,6 +26,8 @@ class view
 			\dash\face::title(T_('Quarterly buy report'));
 		}
 
+		$args['doc_id'] = \dash\data::oneFactorId();
+
 		$dataTable = \lib\app\tax\doc\report\quarter::get($args);
 
 		if(!is_array($dataTable))
@@ -44,6 +46,16 @@ class view
 		{
 			\dash\data::action_text(T_('Merge'));
 			\dash\data::action_link(\dash\url::current(). \dash\request::full_get(['merge' => 1]));
+		}
+
+		if(\dash\data::oneFactorId())
+		{
+			// back
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::current(). \dash\request::full_get(['fid' => null]));
+
+			\dash\data::action_text('');
+			\dash\data::action_link('');
 		}
 	}
 }

@@ -45,6 +45,7 @@ class search
 
 			'totallarger'     => 'price',
 			'totalless'       => 'price',
+			'doc_id'          => 'id',
 		];
 
 		$require = [];
@@ -81,6 +82,11 @@ class search
 		if($data['year_id'])
 		{
 			$and[] = " tax_document.year_id = $data[year_id] ";
+		}
+
+		if($data['doc_id'])
+		{
+			$and[] = " tax_document.id = $data[doc_id] ";
 		}
 
 		if($data['contain'])
