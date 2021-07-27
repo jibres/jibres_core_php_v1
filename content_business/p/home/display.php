@@ -56,6 +56,6 @@ $html .= '<div class="avand productPage">';
   }
 
 }
-$html .= '</div>';
-echo $html;
+echo '</div>';
+
 ?>

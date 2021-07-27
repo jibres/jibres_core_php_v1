@@ -66,13 +66,13 @@ class search
 		$query =
 		"
 			SELECT
-				producttagusage.producttag_id AS `producttag_id`
-			FROM producttagusage
+				productcategoryusage.productcategory_id AS `productcategory_id`
+			FROM productcategoryusage
 			WHERE
-				producttagusage.product_id = $_id
+				productcategoryusage.product_id = $_id
 		";
 
-		$ids = \dash\db::get($query, 'producttag_id');
+		$ids = \dash\db::get($query, 'productcategory_id');
 
 		if(!$ids || !is_array($ids))
 		{
@@ -100,11 +100,11 @@ class search
 				SELECT
 					products.id
 				FROM products
-				INNER JOIN producttagusage ON producttagusage.product_id = products.id
+				INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id
 				WHERE
-					products.status = 'available' AND
+					products.status = 'active' AND
 					products.id != $_id AND
-					producttagusage.producttag_id IN ($ids)
+					productcategoryusage.productcategory_id IN ($ids)
 				GROUP BY products.id
 				ORDER BY products.instock ASC, (SELECT COUNT(*) FROM factordetails WHERE factordetails.product_id = products.id)  DESC
 			)

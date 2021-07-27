@@ -819,6 +819,7 @@ class search
 			return [];
 		}
 
+
 		$limit = 6;
 
 		$list = \lib\db\products\search::get_similar_product($_product_id, $limit);
