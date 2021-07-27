@@ -1,12 +1,13 @@
 <div class="avand productPage">
   <div class="box">
-      <div class="row">
-        <div class="c-xs-12 c-auto">
-          <?php require_once('blocks/gallery.php'); ?>
+        <div class="row">
+          <div class="c-xs-12 c-auto">
+            <?php require_once('blocks/gallery.php'); ?>
+          </div>
+          <div class="c-xs-12 c">
+            <?php require_once('blocks/detail.php'); ?>
         </div>
-        <div class="c-xs-12 c">
-          <?php require_once('blocks/detail.php'); ?>
-      </div>
+    </div>
   </div>
 
   <?php if(\dash\data::dataRow_desc()) {?><div class="box productDesc"><?php echo \dash\data::dataRow_desc();?></div><?php } //endif ?>
@@ -87,7 +88,6 @@ if(\dash\data::productSettingSaved_comment())
 <?php } //endif ?>
 
 
-</div>
 
 
 </div>
