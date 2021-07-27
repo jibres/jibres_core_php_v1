@@ -68,7 +68,7 @@
 				</div>
 				<select class="select22" name="accounting_detail_id"  data-placeholder='<?php echo T_("Accounting detail") ?>'>
 					<option value="0"><?php echo T_("None") ?></option>
-					<?php foreach (\dash\data::detailsList() as $key => $value){ ?>
+					<?php foreach (\dash\data::detailsList() as $key => $value){ if(in_array(substr(a($value, 'code'), 0, 2), ['52', '51', '42', '41'])) {/*ok*/}else{continue;} ?>
 						<option value="<?php echo a($value, 'id') ?>" <?php if(a(\dash\data::dataRowMember(), 'accounting_detail_id') === a($value, 'id')){ echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
 					<?php } // endfor ?>
 				</select>
