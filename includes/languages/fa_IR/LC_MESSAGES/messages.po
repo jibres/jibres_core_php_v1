@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-27 12:54+0430\n"
-"PO-Revision-Date: 2021-07-27 12:56+0430\n"
+"POT-Creation-Date: 2021-07-27 13:28+0430\n"
+"PO-Revision-Date: 2021-07-27 13:29+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4076,7 +4076,7 @@ msgstr "۹٪"
 #: content_a/accounting/doc/add/display-list.php:74
 #: content_a/accounting/doc/add/display-list.php:92
 #: content_a/accounting/doc/add/display-list.php:94
-#: content_a/accounting/factor/add/display.php:221
+#: content_a/accounting/factor/add/display.php:230
 #: content_a/accounting/factor/display.php:51
 #: content_a/accounting/report/assistant/display-old.php:68
 #: content_a/accounting/report/assistant/display.php:65
@@ -5243,7 +5243,7 @@ msgid "Search with new keywords."
 msgstr "کلمه ای جدید جستجو کنید."
 
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:86
+#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:88
 #: content_a/accounting/turnover/display.php:221 content_a/form/answer/display.php:106
 #: content_a/form/answer/item/display.php:83 content_a/form/home/display.php:148
 #: content_a/form/tag/display.php:104 content_a/notiflog/display.php:169
@@ -5259,7 +5259,7 @@ msgid "Hi!"
 msgstr "سلام!"
 
 #: content_a/accounting/coding/display-list.php:173
-#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:86
+#: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:88
 #: content_a/form/home/display.php:148
 msgid "Add new"
 msgstr "افزودن جدید"
@@ -5396,20 +5396,20 @@ msgstr "جاری شرکای پیشفرض"
 
 #: content_a/accounting/config/display.php:296
 #: content_a/accounting/factor/add/display.php:88
-#: content_a/accounting/factor/add/display.php:99
-#: content_a/accounting/factor/add/display.php:157
-#: content_a/accounting/factor/add/display.php:177 content_crm/member/legal/display.php:67
+#: content_a/accounting/factor/add/display.php:108
+#: content_a/accounting/factor/add/display.php:166
+#: content_a/accounting/factor/add/display.php:186 content_crm/member/legal/display.php:67
 #: lib/app/tax/coding/ready.php:61
 msgid "Add new accounting details"
 msgstr "افزودن تفصیل جدید"
 
 #: content_a/accounting/config/display.php:313
-#: content_a/accounting/factor/add/display.php:103
-#: content_a/accounting/factor/add/display.php:117
+#: content_a/accounting/factor/add/display.php:112
 #: content_a/accounting/factor/add/display.php:126
-#: content_a/accounting/factor/add/display.php:142
-#: content_a/accounting/factor/add/display.php:160
-#: content_a/accounting/factor/add/display.php:180
+#: content_a/accounting/factor/add/display.php:135
+#: content_a/accounting/factor/add/display.php:151
+#: content_a/accounting/factor/add/display.php:169
+#: content_a/accounting/factor/add/display.php:189
 #: content_a/form/tag/remove/display.php:37 content_a/tag/remove/display.php:38
 #: content_a/website/news/filter/display.php:10
 #: content_a/website/news/filter/display.php:33 content_cms/hashtag/remove/display.php:37
@@ -5488,7 +5488,7 @@ msgstr "نمایش سند"
 #: content_a/accounting/doc/add/display-doc.php:27 content_a/accounting/doc/display.php:30
 #: content_a/accounting/doc/edit/view.php:13
 #: content_a/accounting/doc/printall/display.php:20
-#: content_a/accounting/factor/display.php:67
+#: content_a/accounting/factor/display.php:68
 msgid "Opening Document"
 msgstr "سند افتتاحیه"
 
@@ -5696,7 +5696,7 @@ msgid "You need to add some accounting details to add quick factor"
 msgstr "برای افزودن سریع فاکتور شما باید برخی از تفصیل‌ها را ثبت کرده باشید"
 
 #: content_a/accounting/factor/add/display.php:96
-#: content_a/accounting/factor/add/display.php:102
+#: content_a/accounting/factor/add/display.php:111
 msgid "Cost type"
 msgstr "نوع هزینه"
 
@@ -5708,59 +5708,67 @@ msgstr "نوع دارایی"
 msgid "Income from"
 msgstr "درآمد از"
 
-#: content_a/accounting/factor/add/display.php:115
+#: content_a/accounting/factor/add/display.php:101
+msgid "Convert to asset factor"
+msgstr "تبدیل به فاکتور دارایی"
+
+#: content_a/accounting/factor/add/display.php:103
+msgid "Convert to cost factor"
+msgstr "تبدیل به فاکتور هزینه"
+
+#: content_a/accounting/factor/add/display.php:124
 msgid "Buyer"
 msgstr "خریدار"
 
-#: content_a/accounting/factor/add/display.php:115
+#: content_a/accounting/factor/add/display.php:124
 #: content_a/accounting/report/quarter/display-list.php:54
 msgid "Seller"
 msgstr "فروشنده"
 
-#: content_a/accounting/factor/add/display.php:115
+#: content_a/accounting/factor/add/display.php:124
 msgid "If the seller is not selected, a direct payment document will be made"
 msgstr "در صورت عدم ثبت فروشنده، سند پرداخت مستقیم ثبت خواهد شد"
 
-#: content_a/accounting/factor/add/display.php:116
+#: content_a/accounting/factor/add/display.php:125
 #: content_a/setting/thirdparty/kavenegar/view.php:11
 #: includes/languages/trans_static.php:84
 msgid "Thirdparty"
 msgstr "طرف‌حساب"
 
-#: content_a/accounting/factor/add/display.php:124
+#: content_a/accounting/factor/add/display.php:133
 msgid "Recipient of money"
 msgstr "دریافت کننده پول"
 
-#: content_a/accounting/factor/add/display.php:124
-#: content_a/accounting/factor/add/display.php:125
+#: content_a/accounting/factor/add/display.php:133
+#: content_a/accounting/factor/add/display.php:134
 msgid "Payer"
 msgstr "پرداخت کننده"
 
-#: content_a/accounting/factor/add/display.php:124
+#: content_a/accounting/factor/add/display.php:133
 msgid "In case of non-payment, the credit document will be registered"
 msgstr "در صورت عدم پرداخت کننده، سند نسیه ثبت خواهد شد"
 
-#: content_a/accounting/factor/add/display.php:140
-#: content_a/accounting/factor/add/display.php:141 lib/app/tax/doc/ready.php:89
+#: content_a/accounting/factor/add/display.php:149
+#: content_a/accounting/factor/add/display.php:150 lib/app/tax/doc/ready.php:89
 msgid "Petty cash"
 msgstr "تنخواه"
 
-#: content_a/accounting/factor/add/display.php:154
-#: content_a/accounting/factor/add/display.php:159 content_a/setting/pcpos/display.php:123
+#: content_a/accounting/factor/add/display.php:163
+#: content_a/accounting/factor/add/display.php:168 content_a/setting/pcpos/display.php:123
 #: lib/app/factor/cart.php:151 lib/app/setting/get.php:47
 msgid "Bank"
 msgstr "بانک"
 
-#: content_a/accounting/factor/add/display.php:174
-#: content_a/accounting/factor/add/display.php:179 lib/app/tax/doc/ready.php:93
+#: content_a/accounting/factor/add/display.php:183
+#: content_a/accounting/factor/add/display.php:188 lib/app/tax/doc/ready.php:93
 msgid "Accounting Partner"
 msgstr "جاری شرکا"
 
-#: content_a/accounting/factor/add/display.php:198
+#: content_a/accounting/factor/add/display.php:207
 msgid "Total payment before deducting discount"
 msgstr "مبلغ کل قبل از کسر تخفیف"
 
-#: content_a/accounting/factor/add/display.php:205
+#: content_a/accounting/factor/add/display.php:214
 #: content_a/accounting/factor/display.php:52
 #: content_a/accounting/report/quarter/display-list.php:51
 #: content_a/accounting/report/quarter/display-summary.php:20
@@ -5768,49 +5776,49 @@ msgstr "مبلغ کل قبل از کسر تخفیف"
 msgid "Total discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:212
+#: content_a/accounting/factor/add/display.php:221
 msgid "Total vat/tax"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:212
+#: content_a/accounting/factor/add/display.php:221
 msgid "Auto Calculate"
 msgstr "محاسبه خودکار"
 
-#: content_a/accounting/factor/add/display.php:231
-#: content_a/accounting/factor/add/display.php:232
+#: content_a/accounting/factor/add/display.php:240
+#: content_a/accounting/factor/add/display.php:241
 msgid "Calculate in quarterly report"
 msgstr "محاسبه در گزارش فصلی"
 
-#: content_a/accounting/factor/add/display.php:272 content_a/cart/add/display.php:115
+#: content_a/accounting/factor/add/display.php:281 content_a/cart/add/display.php:115
 #: content_business/cart/cartSummary.php:5
 msgid "Subtotal"
 msgstr "مجموع"
 
-#: content_a/accounting/factor/add/display.php:273
+#: content_a/accounting/factor/add/display.php:282
 msgid "Total Discount"
 msgstr "جمع تخفیف"
 
-#: content_a/accounting/factor/add/display.php:274
+#: content_a/accounting/factor/add/display.php:283
 msgid "Total After Discount"
 msgstr "جمع پس از تخفیف"
 
-#: content_a/accounting/factor/add/display.php:275
+#: content_a/accounting/factor/add/display.php:284
 msgid "Total Vat"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/accounting/factor/add/display.php:276
+#: content_a/accounting/factor/add/display.php:285
 msgid "Net Amount"
 msgstr "جمع مبلغ کل"
 
-#: content_a/accounting/factor/add/display.php:303
+#: content_a/accounting/factor/add/display.php:312
 msgid "Total taxable amount"
 msgstr "جمع مبلغ مشمول مالیات"
 
-#: content_a/accounting/factor/add/display.php:315
+#: content_a/accounting/factor/add/display.php:324
 msgid "Total amount exempt from tax"
 msgstr "مبلغ کل معاف از مالیات"
 
-#: content_a/accounting/factor/add/display.php:338
+#: content_a/accounting/factor/add/display.php:347
 #: content_a/accounting/home/display.php:223 content_a/accounting/turnover/view.php:9
 msgid "Turnover"
 msgstr "گردش حساب"
@@ -5868,6 +5876,10 @@ msgstr "جمع مالیات"
 #: content_a/accounting/factor/display.php:54
 msgid "Final"
 msgstr "نهایی"
+
+#: content_a/accounting/factor/display.php:55
+msgid "Quarter report"
+msgstr "گزارش فصلی"
 
 #: content_a/accounting/factor/edit/controller.php:21
 #: content_love/gift/create/controller.php:29 content_love/gift/edit/controller.php:20
