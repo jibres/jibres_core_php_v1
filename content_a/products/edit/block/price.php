@@ -18,8 +18,9 @@
   </div>
 </div>
 <?php } //endif ?>
+<?php if($have_variant_child) {?>
 <div data-response='wholeeditequalprice' <?php if($showPriceWholeEdit) {/*nothing*/}else{echo 'data-response-hide'; } //endif ?>>
-
+<?php } //endif ?>
  <div class="box">
       <div class="pad jboxPrice">
 
@@ -88,4 +89,6 @@
         </div>
       </div>
     </div>
+<?php if($have_variant_child) {?>
 </div>
+<?php } //endif ?>

@@ -6,7 +6,7 @@
       <div class="pad">
         <label for="status"><?php echo T_("Status") ?></label>
         <div>
-          <select class="select22" name="status">
+          <select class="select22" name="status" id="status">
             <option value="draft" <?php if(\dash\data::productDataRow_status() === 'draft') {echo 'selected';} ?>><?php echo T_("Draft") ?></option>
             <option value="active" <?php if(\dash\data::productDataRow_status() === 'active') {echo 'selected';} ?>><?php echo T_("Active") ?></option>
             <?php if(\dash\data::productDataRow_status() === 'archive') { ?>
