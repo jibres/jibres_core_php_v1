@@ -2,45 +2,7 @@
   <div class="box">
       <div class="row">
         <div class="c-xs-12 c-auto">
-          <div class="featureImgBlock">
-            <a class="featureImg" data-fancybox='productGallery' href="<?php echo \dash\data::dataRow_thumb(); ?>">
-              <img src="<?php echo \dash\data::dataRow_thumb(); ?>" alt='<?php echo \dash\data::dataRow_title(); ?>'>
-            </a>
-          </div>
-<?php $myGallery = a(\dash\data::dataRow(), 'gallery_array');
-if(!is_array($myGallery))
-{
-  $myGallery = [];
-}
-if(count($myGallery) > 1)
-{
-  echo "<div class='thumbs'>";
-  foreach ($myGallery as $key => $item)
-  {
-    if($key < 5 && isset($item['path']))
-    {
-?>
-              <a href='<?php echo $item['path']; ?>' data-fancybox="productGallery" class="f justify-center align-center thumb">
-               <?php if ($item['type'] === 'video') { ?>
-                <video><source src="<?php echo $item['path']; ?>" type="<?php echo $item['mime']; ?>"></video>
-               <?php } else { ?>
-                <img src="<?php echo $item['path']; ?>" alt=" <?php echo \dash\data::dataRow_title().' '.$key; ?>">
-               <?php } ?>
-              </a>
-<?php
-    }
-    else
-    {
-?>
-              <a data-fancybox='productGallery' class="hide" href='<?php echo $item['path']; ?>'></a>
-<?php
-    }
-  }
-  echo "</div>";
-}
-// @TODO @reza @javad
-// if have one item in gallery and this item is not image not show this video (for example) in website
-?>
+          <?php require_once('blocks/gallery.php'); ?>
         </div>
         <div class="c-xs-12 c">
           <h1><?php echo \dash\data::dataRow_title(); ?></h1>
