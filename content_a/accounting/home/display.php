@@ -140,14 +140,14 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     </div>
     <section class="row">
       <div class="c-xs-0 c-sm-6 c-md-6">
-        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
+        <a href="<?php echo \dash\url::this() ?>/doc?status=temp" class="circularChartBox">
           <?php $myPercent= a($dashboardDetail, 'percent_lock');$myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Percent lock Accounting Document");?></h3>
         </a>
       </div>
 
       <div class="c-xs-6 c-sm-6 c-md-6">
-        <a href="<?php echo \dash\url::this() ?>/doc" class="circularChartBox">
+        <a href="<?php echo \dash\url::this() ?>/doc?havegallery=no" class="circularChartBox">
           <?php $myPercent= a($dashboardDetail, 'percent_attachment');$myColor='auto';include core.'layout/elements/circularChart.php';?>
           <h3><?php echo T_("Percent have attachment");?></h3>
         </a>

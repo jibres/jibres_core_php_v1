@@ -46,6 +46,7 @@ class search
 			'totallarger'     => 'price',
 			'totalless'       => 'price',
 			'doc_id'          => 'id',
+			'havegallery'     => 'yes_no',
 		];
 
 		$require = [];
@@ -139,6 +140,15 @@ class search
 		elseif($data['quarterlyreport'] === 'no')
 		{
 			$and[] = " tax_document.quarterlyreport = 'no' ";
+		}
+
+		if($data['havegallery'] === 'yes')
+		{
+			$and[] = " tax_document.gallery IS NOT NULL ";
+		}
+		elseif($data['havegallery'] === 'no')
+		{
+			$and[] = " (tax_document.gallery IS NULL OR tax_document.gallery = '' OR tax_document.gallery = '[]' ) ";
 		}
 
 
