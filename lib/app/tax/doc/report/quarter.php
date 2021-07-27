@@ -156,8 +156,8 @@ class quarter
 				{
 					if(a($v, 'totalincludevat'))
 					{
-						$list[$k]['totalvatinclude6'] = round(floatval($v['totalincludevat']) * 0.06);
-						$list[$k]['totalvatinclude3'] = round(floatval($v['totalincludevat']) * 0.03);
+						$list[$k]['totalvat6'] = round((floatval($v['totalvat'])  / 9) * 6);
+						$list[$k]['totalvat3'] = round((floatval($v['totalvat']) / 9) * 3);
 					}
 				}
 			}

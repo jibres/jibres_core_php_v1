@@ -59,19 +59,27 @@
 				<tbody>
 					<tr>
 						<td><?php echo T_("Total") ?></td>
-						<td class="txtB" data-copy='<?php echo round(a($v, 'total')); ?>'><?php echo round(a($v, 'total')); ?></td>
+						<td class="txtB" data-copy='<?php echo round(a($v, 'total')); ?>'><?php echo \dash\fit::number_en(round(a($v, 'total'))); ?></td>
 					</tr>
 					<tr>
 						<td><?php echo T_("Discount") ?></td>
-						<td class="txtB" data-copy='<?php echo round(a($v, 'totaldiscount')); ?>'><?php echo round(a($v, 'totaldiscount')); ?></td>
+						<td class="txtB" data-copy='<?php echo round(a($v, 'totaldiscount')); ?>'><?php echo \dash\fit::number_en(round(a($v, 'totaldiscount'))); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo T_("Minus vat") ?></td>
+						<td class="txtB" data-copy='0'>0</td>
 					</tr>
 					<tr>
 						<td><?php echo T_("Vat 6%") ?></td>
-						<td class="txtB" data-copy='<?php echo round(a($v, 'totalvatinclude6')); ?>'><?php echo round(a($v, 'totalvatinclude6')); ?></td>
+						<td class="txtB" data-copy='<?php echo round(a($v, 'totalvat6')); ?>'><?php echo \dash\fit::number_en(round(a($v, 'totalvat6'))); ?></td>
 					</tr>
 					<tr>
 						<td><?php echo T_("Vat 3%") ?></td>
-						<td class="txtB" data-copy='<?php echo round(a($v, 'totalvatinclude3')); ?>'><?php echo round(a($v, 'totalvatinclude3')); ?></td>
+						<td class="txtB" data-copy='<?php echo round(a($v, 'totalvat3')); ?>'><?php echo \dash\fit::number_en(round(a($v, 'totalvat3'))); ?></td>
+					</tr>
+					<tr>
+						<td><?php echo T_("Other vat") ?></td>
+						<td class="txtB" data-copy='0'>0</td>
 					</tr>
 				</tbody>
 			</table>

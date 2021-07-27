@@ -67,8 +67,8 @@
 						</td>
 
 						<td data-copy='<?php echo a($v, 'totaldiscount') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totaldiscount'), true, 'en') ?></code></td>
-						<td data-copy='<?php echo a($v, 'totalvatinclude6') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvatinclude6'), true, 'en') ?></code></td>
-						<td data-copy='<?php echo a($v, 'totalvatinclude3') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvatinclude3'), true, 'en') ?></code></td>
+						<td data-copy='<?php echo a($v, 'totalvat6') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat6'), true, 'en') ?></code></td>
+						<td data-copy='<?php echo a($v, 'totalvat3') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat3'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'user_detail', 'companyname'); ?>'><?php echo a($v, 'user_detail', 'companyname'); ?></td>
 						<td class="collapsing"><?php if(!a($v, 'merged')) { ?><a class="link txtB " href="<?php echo \dash\url::current(). \dash\request::full_get(['fid' => a($v, 'id')]) ?>"><?php echo T_("Detail") ?></a><?php } //endif ?></td>
 					</tr>
