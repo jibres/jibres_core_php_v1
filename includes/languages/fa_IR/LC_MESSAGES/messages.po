@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-27 13:28+0430\n"
-"PO-Revision-Date: 2021-07-27 13:29+0430\n"
+"POT-Creation-Date: 2021-07-27 14:17+0430\n"
+"PO-Revision-Date: 2021-07-27 14:17+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6422,6 +6422,10 @@ msgid "Discount"
 msgstr "تخفیف"
 
 #: content_a/accounting/report/quarter/display-detail.php:69
+msgid "Minus vat"
+msgstr "مالیات مکسوره"
+
+#: content_a/accounting/report/quarter/display-detail.php:73
 #: content_a/accounting/report/quarter/display-list.php:52
 #: content_a/accounting/report/vatreport/display.php:61
 #: content_a/accounting/report/vatreport/display.php:105
@@ -6429,13 +6433,17 @@ msgstr "تخفیف"
 msgid "Vat 6%"
 msgstr "مالیات ۶٪"
 
-#: content_a/accounting/report/quarter/display-detail.php:73
+#: content_a/accounting/report/quarter/display-detail.php:77
 #: content_a/accounting/report/quarter/display-list.php:53
 #: content_a/accounting/report/vatreport/display.php:62
 #: content_a/accounting/report/vatreport/display.php:106
 #: content_a/accounting/report/vatreport/display.php:158
 msgid "Vat 3%"
 msgstr "عوارض ۳٪"
+
+#: content_a/accounting/report/quarter/display-detail.php:81
+msgid "Other vat"
+msgstr "سایر مالیات‌ها"
 
 #: content_a/accounting/report/quarter/display-list.php:5
 msgid "The whole year"
