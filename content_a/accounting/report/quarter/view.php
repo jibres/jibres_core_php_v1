@@ -50,6 +50,7 @@ class view
 
 		if(\dash\data::oneFactorId())
 		{
+			\dash\face::btnView(\dash\url::this(). '/factor/edit?id='. \dash\data::oneFactorId());
 			// back
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::current(). \dash\request::full_get(['fid' => null]));
