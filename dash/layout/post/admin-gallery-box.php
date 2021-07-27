@@ -1,6 +1,6 @@
 <?php
 
-$add_html_form      = isset($add_html_form); // check defined this variable
+$add_html_form      = isset($add_html_form) && $add_html_form; // check defined this variable
 $is_auto_send       = isset($is_auto_send) && $is_auto_send;
 $product_suggestion = isset($product_suggestion) && $product_suggestion;
 $gallery_capacity   = isset($gallery_capacity) ? $gallery_capacity : 100;
@@ -45,10 +45,19 @@ $html .= '<div class="box">';
         {
           $html .= 'data-uploader-count="'.count($gallery_array). '" ';
         }
-        $html .= 'data-max-w="1600" ';
-        $html .= 'data-max-h="1600" ';
-        $html .= 'data-file-max-size='. \dash\data::maxFileSize() .' ';
         $html .= \dash\data::ratioHtml();
+
+        if(strpos($html, 'data-max-w') === false)
+        {
+          $html .= 'data-max-w="1600" ';
+        }
+
+        if(strpos($html, 'data-max-h') === false)
+        {
+          $html .= 'data-max-h="1600" ';
+        }
+
+        $html .= 'data-file-max-size='. \dash\data::maxFileSize() .' ';
         if(isset($gallery_special_attr))
         {
           $html .= $gallery_special_attr;
@@ -79,7 +88,7 @@ $html .= '<div class="box">';
         if(!$gallery_lockMode)
         {
         $html .= '<label for="file1">';
-        $html .= '<div class="block">'. T_("Gallery"). '</div>';
+        $html .= '<span class="block">'. T_("Gallery"). '</span>';
           $html .= '<abbr>'. $chooseTxt. '</abbr>';
           $html .= '<small class="fc-mute block">'. T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(). '</small>';
         $html .= '</label>';
@@ -178,7 +187,7 @@ $html .= '<div class="box">';
 
           if(count($gallery) >= 2)
           {
-            $html .= '<a class="block" href="'. \dash\url::this().'/gallerysort?'. \dash\request::fix_get() .'" class="link">'. T_("Sort Gallery"). '</a>';
+            $html .= '<a class="block link" href="'. \dash\url::this().'/gallerysort?'. \dash\request::fix_get() .'">'. T_("Sort Gallery"). '</a>';
           }
         }
         $html .= '</div>';
