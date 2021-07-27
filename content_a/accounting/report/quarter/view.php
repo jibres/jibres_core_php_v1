@@ -34,6 +34,17 @@ class view
 		}
 
 		\dash\data::dataTable($dataTable);
+
+		if(\dash\request::get('merge'))
+		{
+			\dash\data::action_text(T_('Split'));
+			\dash\data::action_link(\dash\url::current(). \dash\request::full_get(['merge' => null]));
+		}
+		else
+		{
+			\dash\data::action_text(T_('Merge'));
+			\dash\data::action_link(\dash\url::current(). \dash\request::full_get(['merge' => 1]));
+		}
 	}
 }
 ?>

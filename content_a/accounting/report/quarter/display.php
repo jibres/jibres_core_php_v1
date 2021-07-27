@@ -116,23 +116,12 @@ $quorumprice = floatval(\dash\data::dataRow_quorumprice());
 						<td><?php echo \dash\fit::date(a($v, 'date')) ?></td>
 						<td class="font-12 ltr txtR">
 							<code data-copy='<?php echo a($v, 'total') ?>'><?php echo \dash\fit::number(a($v, 'total'), true, 'en') ?></code>
-								<?php if(\dash\request::get('merge') && a($v, 'merged')) {?>
-									<a href="<?php echo \dash\url::current(). \dash\request::full_get(['merge' => 0]) ?>" class="badge primary"><?php echo T_("Split") ?></a>
-								<?php } //endif ?>
-							<?php if(floatval(a($v, 'total')) < $quorumprice && !\dash\request::get('merge')) {?>
-									<a href="<?php echo \dash\url::current(). \dash\request::full_get(['merge' => 1]) ?>" class="badge "><?php echo T_("Merge") ?></a>
-							<?php } //endif ?>
 						</td>
 						<td data-copy='<?php echo a($v, 'totaldiscount') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totaldiscount'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalvat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalincludevat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalincludevat'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalnotincludevat') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalnotincludevat'), true, 'en') ?></code></td>
 					</tr>
-					<?php if(a($v, 'desc_merge')) {?>
-						<tr>
-							<td colspan="7"><?php echo a($v, 'desc_merge'); ?></td>
-						</tr>
-					<?php } //endif ?>
 				<?php } //endif ?>
 				</tbody>
 			</table>
