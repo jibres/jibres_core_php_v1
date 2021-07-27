@@ -37,6 +37,42 @@ class get
 	}
 
 
+	public static function user_accounting_detail_from_doc_ids($_ids)
+	{
+		$query =
+		"
+			SELECT
+				tax_docdetail.tax_document_id,
+				users.id,
+				users.displayname,
+				users.gender,
+				users.mobile,
+				users.accounttype,
+				users.avatar,
+				users.firstname,
+				users.lastname,
+				users.nationalcode,
+				users.pasportcode,
+				users.marital,
+				users.phone,
+				users.companyname,
+				users.companyeconomiccode,
+				users.companynationalid,
+				users.companyregisternumber,
+				users.accounting_detail_id
+			FROM
+				tax_docdetail
+			INNER JOIN users ON users.accounting_detail_id = tax_docdetail.details_id
+			WHERE
+				tax_docdetail.template IN ('thirdparty') AND
+				tax_docdetail.tax_document_id IN ($_ids)
+		";
+		$result = \dash\db::get($query);
+
+		return $result;
+	}
+
+
 
 }
 ?>

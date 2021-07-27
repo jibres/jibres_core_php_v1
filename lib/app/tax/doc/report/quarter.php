@@ -78,6 +78,13 @@ class quarter
 
 			$list = \lib\app\tax\doc\search::list(null, $args);
 
+			if(!is_array($list))
+			{
+				$list = [];
+			}
+
+
+
 			if($data['merge'])
 			{
 				$new_list = [];
@@ -139,6 +146,11 @@ class quarter
 
 			}
 
+			// if($data['detail'])
+			// {
+			// 	self::fill_customer_detail($list);
+			// }
+
 			$result[$key] = $list;
 
 			if(!$data['detail'])
@@ -148,6 +160,53 @@ class quarter
 		}
 
 		return $result;
+	}
+
+
+	private static function fill_customer_detail(&$list)
+	{
+		$all_doc_id = array_column($list, 'id');
+		$all_doc_id = array_filter($all_doc_id);
+		$all_doc_id = array_unique($all_doc_id);
+
+		if(!$all_doc_id)
+		{
+			return;
+		}
+
+		$get_all_user_accounting_detail = \lib\db\tax_docdetail\get::user_accounting_detail_from_doc_ids(implode(',', $all_doc_id));
+
+		if(!is_array($get_all_user_accounting_detail))
+		{
+			$get_all_user_accounting_detail = [];
+		}
+
+		$user_detail = [];
+
+		foreach ($get_all_user_accounting_detail as $key => $value)
+		{
+			if(!isset($user_detail[$value['tax_document_id']]))
+			{
+				$user_detail[$value['tax_document_id']] = $value;
+			}
+		}
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($user_detail[$value['id']]))
+			{
+				$list[$key]['user_detail'] = a($user_detail,$value['id']);
+				$user_id = a($user_detail, $value['id'], 'id');
+				if($user_id)
+				{
+					$load_primary_address = \dash\db\address::get_primary_user_address($user_id);
+					if($load_primary_address)
+					{
+						$list[$key]['user_address'] = $load_primary_address;
+					}
+				}
+			}
+		}
 	}
 }
 ?>
