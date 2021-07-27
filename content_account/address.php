@@ -53,39 +53,37 @@
       </div>
     </div>
 
-    <div class="switch1 mB20 mT20">
+    <div class="switch1 mT20">
      <input type="checkbox" name="company" id="company" <?php if(\dash\data::dataRowAddress_company())  { echo 'checked'; } ?>>
      <label for="company" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
      <label for="company" ><?php echo T_("Is this a company's address?"); ?></label>
     </div>
+
+     <div class="switch1 mB20 mT20">
+     <input type="checkbox" name="isdefault" id="isdefault" <?php if(\dash\data::dataRowAddress_isdefault())  { echo 'checked'; } ?>>
+     <label for="isdefault" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
+     <label for="isdefault" ><?php echo T_("Set as default address?"); ?></label>
+    </div>
   </div>
-
-    <footer class="txtRa">
-
-    <?php if(\dash\data::dataRowAddress()) {?>
-
-      <div class="f">
-        <div class="c pRa5">
-            <button class="btn master" name="btn" value="add"><?php echo T_("Save"); ?></button>
-        </div>
-
-        <div class="cauto os">
+   <footer class="">
+     <?php if(\dash\data::dataRowAddress()) {?>
+      <div class="row">
+        <div class="cauto">
           <div class="btn linkDel" data-confirm data-data='<?php echo json_encode(['addressid' => \dash\data::dataRowAddress_id(), 'btnremove' => 'delete']); ?>' name="btnremove" value="delete"><?php echo T_("Delete"); ?></div>
         </div>
+        <div class="c"></div>
+        <div class="cauto">
+            <button class="btn master" name="btn" value="add"><?php echo T_("Save"); ?></button>
+        </div>
       </div>
-
     <?php }else{ ?>
-
-      <button class="btn master" name="save_address" value="new_address" cvalue="add"><?php echo T_("Add"); ?></button>
-
+      <div class="txtRa">
+        <button class="btn master" name="save_address" value="new_address" cvalue="add"><?php echo T_("Add"); ?></button>
+      </div>
     <?php } //endif ?>
-
     </footer>
   </div>
-
 <?php } //endfunction ?>
-
-
 
 
 <?php function bAddressList() {?>

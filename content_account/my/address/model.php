@@ -15,18 +15,19 @@ class model
 			return;
 		}
 
-		$post                = [];
-		$post['title']       = \dash\request::post('title');
-		$post['name']        = \dash\request::post('name');
-		$post['country']     = \dash\request::post('country');
-		$post['city']        = \dash\request::post('city');
-		$post['postcode']    = \dash\request::post('postcode');
-		$post['phone']       = \dash\request::post('phone');
-		$post['province']    = null;
-		$post['mobile']      = \dash\request::post('mobile');
-		$post['address']     = \dash\request::post('address');
-		$post['address2']    = \dash\request::post('address2');
-		$post['company']     = \dash\request::post('company');
+		$post                   = [];
+		$post['title']          = \dash\request::post('title');
+		$post['name']           = \dash\request::post('name');
+		$post['country']        = \dash\request::post('country');
+		$post['city']           = \dash\request::post('city');
+		$post['postcode']       = \dash\request::post('postcode');
+		$post['phone']          = \dash\request::post('phone');
+		$post['province']       = null;
+		$post['mobile']         = \dash\request::post('mobile');
+		$post['address']        = \dash\request::post('address');
+		$post['address2']       = \dash\request::post('address2');
+		$post['company']        = \dash\request::post('company');
+		$post['isdefault']      = \dash\request::post('isdefault');
 		// $post['companyname'] = \dash\request::post('companyname');
 		// $post['jobtitle']    = \dash\request::post('jobtitle');
 
