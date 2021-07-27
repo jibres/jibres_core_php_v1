@@ -1,5 +1,5 @@
 <?php
-$html = '';
+
 $html .= '<div class="featureImgBlock">';
 {
   $html .= '<a class="featureImg" data-fancybox="productGallery" href="'. \dash\data::dataRow_thumb(). '">';
@@ -40,7 +40,7 @@ if(count($myGallery) > 1)
   }
   $html .= "</div>";
 }
-echo $html;
+
 // @TODO @reza @javad
 // if have one item in gallery and this item is not image not show this video (for example) in website
 ?>

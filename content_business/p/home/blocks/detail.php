@@ -1,5 +1,5 @@
 <?php
-$html = '';
+
 $html .= '<h1>'. \dash\data::dataRow_title().'</h1>';
 if(\dash\data::dataRow_title2())
 {
@@ -269,7 +269,4 @@ if(\dash\data::productSettingSaved_view_text() || (\dash\data::productSettingSav
   $html .= '</div>';
 }
 
-
-
-echo $html;
 ?>
