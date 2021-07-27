@@ -20,8 +20,8 @@ class dashboard
 		$result['count_all_year']       = floatval(\lib\db\tax_year\get::count_all());
 		$result['year_title']           = \lib\app\tax\year\get::default_year('title');
 
-		$total_income = \lib\app\tax\doc\search::list(null, ['template' => 'income', 'year_id' => $default_year_id, 'summary_mode' => true]);
-		$total_cost   = \lib\app\tax\doc\search::list(null, ['template' => 'costasset', 'year_id' => $default_year_id, 'summary_mode' => true]);
+		$total_income = \lib\app\tax\doc\search::list(null, ['template' => 'income', 'quarterlyreport' => 'yes', 'year_id' => $default_year_id, 'summary_mode' => true]);
+		$total_cost   = \lib\app\tax\doc\search::list(null, ['template' => 'costasset', 'quarterlyreport' => 'yes', 'year_id' => $default_year_id, 'summary_mode' => true]);
 
 		$result['total_income']    = floatval(a($total_income, 'total'));
 		$result['total_costasset'] = floatval(a($total_cost, 'total'));
