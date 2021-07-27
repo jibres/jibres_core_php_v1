@@ -53,17 +53,22 @@ class validate
 			return true;
 		}
 
-		if(is_array($_a) || is_array($_b))
+		if(is_array($_a) || is_array($_b) || is_object($_a) || is_object($_b))
 		{
 			return false;
 		}
 
-		if((string) $_a == (string) $_b)
+		if(is_string($_a) && is_string($_b) && (string) $_a === (string) $_b)
 		{
 			return true;
 		}
 
-		if(($_a == '' || is_null($_a) || $_a == null) && ($_b == '' || is_null($_b) || $_b == null))
+		if(is_numeric($_a) && is_numeric($_b) && floatval($_a) === floatval($_b))
+		{
+			return true;
+		}
+
+		if(($_a === '' || is_null($_a) || $_a === null) && ($_b === '' || is_null($_b) || $_b === null))
 		{
 			return true;
 		}
