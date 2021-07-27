@@ -41,9 +41,10 @@ class search
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
 			'quarterlyreport' => 'bit',
+			'pagination'      => 'y_n',
 
-			'totallarger' => 'price',
-			'totalless' => 'price',
+			'totallarger'     => 'price',
+			'totalless'       => 'price',
 		];
 
 		$require = [];
@@ -66,6 +67,11 @@ class search
 		}
 
 		if($data['export'])
+		{
+			$meta['pagination'] = false;
+		}
+
+		if($data['pagination'] === 'n')
 		{
 			$meta['pagination'] = false;
 		}

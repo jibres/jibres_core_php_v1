@@ -63,6 +63,7 @@ class quarter
 
 		$args['quarterlyreport'] = true;
 		$args['status'] = 'lock';
+		$args['pagination'] = 'n';
 
 		$result = [];
 		foreach ($quarter as $key => $value)
