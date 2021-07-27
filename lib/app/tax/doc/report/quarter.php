@@ -62,7 +62,7 @@ class quarter
 			$args['summary_mode'] = true;
 		}
 
-		$args['quarterlyreport'] = true;
+		$args['quarterlyreport'] = 'yes';
 		$args['status'] = 'lock';
 		$args['pagination'] = 'n';
 		$args['doc_id'] = $data['doc_id'];

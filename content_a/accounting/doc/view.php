@@ -61,6 +61,8 @@ class view
 		$args['template']  = \dash\request::get('template');
 		$args['totalless']  = \dash\request::get('totalless');
 		$args['totallarger']  = \dash\request::get('totallarger');
+		$args['quarterlyreport']  = \dash\request::get('quarterlyreport');
+
 
 		$args = array_merge($args, $_args);
 

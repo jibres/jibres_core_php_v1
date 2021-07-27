@@ -40,7 +40,7 @@ class search
 			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
-			'quarterlyreport' => 'bit',
+			'quarterlyreport' => 'yes_no',
 			'pagination'      => 'y_n',
 
 			'totallarger'     => 'price',
@@ -132,11 +132,15 @@ class search
 			}
 		}
 
-		if($data['quarterlyreport'])
+		if($data['quarterlyreport'] === 'yes')
 		{
 			$and[] = " tax_document.quarterlyreport = 'yes' ";
-
 		}
+		elseif($data['quarterlyreport'] === 'no')
+		{
+			$and[] = " tax_document.quarterlyreport = 'no' ";
+		}
+
 
 		if($data['startdate'])
 		{

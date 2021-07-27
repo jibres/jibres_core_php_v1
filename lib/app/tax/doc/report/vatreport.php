@@ -34,7 +34,7 @@ class vatreport
 		$args = [];
 
 		$args['summary_mode'] = true;
-		$args['quarterlyreport'] = true;
+		$args['quarterlyreport'] = 'yes';
 		$args['status'] = 'lock';
 
 		$result = [];

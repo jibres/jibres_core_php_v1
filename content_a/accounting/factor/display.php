@@ -2,32 +2,32 @@
 
 <?php if(in_array(\dash\request::get('template'), ['cost', 'income', 'asset', 'costasset'])) {?>
 <?php $myData = \dash\data::summaryDetail(); ?>
-<section class="f">
-  <div class="c pRa10">
+<section class="row">
+  <div class="c">
     <a class="stat x70">
       <h3><?php echo T_("Count");?></h3>
       <div class="val"><?php echo \dash\fit::number(a($myData, 'count'));?></div>
     </a>
   </div>
-  <div class="c pRa10">
+  <div class="c">
     <a class="stat x70">
       <h3><?php echo T_("Total pay");?></h3>
       <div class="val"><?php echo \dash\fit::number(a($myData, 'total'));?></div>
     </a>
   </div>
-   <div class="c pRa10">
+   <div class="c">
     <a class="stat x70">
       <h3><?php echo T_("Sum vat");?></h3>
       <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat'));?></div>
     </a>
   </div>
-  <div class="c pRa10">
+  <div class="c">
     <a class="stat x70">
       <h3><?php echo \dash\fit::text("6%");?></h3>
       <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat6'));?></div>
     </a>
   </div>
-  <div class="c pRa10">
+  <div class="c">
     <a class="stat x70">
       <h3><?php echo \dash\fit::text("3%");?></h3>
       <div class="val"><?php echo \dash\fit::number(a($myData, 'totalvat3'));?></div>
@@ -74,7 +74,7 @@
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
-              <td class="txtRa"><?php if(a($value, 'quarterlyreport') === 'yes') { ?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } //endif ?></td>
+              <td class="txtRa"><?php if(a($value, 'quarterlyreport') === 'yes') { echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'yes']). '"><i class="sf-check fc-green"></i></a>'; }else{ echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'no']). '"><i class="sf-times fc-red"></i></a>'; } //endif ?></td>
             </tr>
             <tr>
               <td class="pTB5-f" colspan="10"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
