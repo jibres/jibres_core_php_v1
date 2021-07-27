@@ -52,6 +52,7 @@
             <th><?php echo T_("Total discount") ?></th>
             <th><?php echo T_("Total vat") ?></th>
             <th><?php echo T_("Final") ?></th>
+            <th class="collapsing"><?php echo T_("Quarter report") ?></th>
           </tr>
         </thead>
         <tbody>
@@ -73,9 +74,10 @@
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
               <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
+              <td class="txtRa"><?php if(a($value, 'quarterlyreport') === 'yes') { ?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } //endif ?></td>
             </tr>
             <tr>
-              <td class="pTB5-f" colspan="9"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
+              <td class="pTB5-f" colspan="10"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>
             </tr>
           <?php } //endif ?>
         </tbody>
