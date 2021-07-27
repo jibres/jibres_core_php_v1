@@ -205,7 +205,7 @@ class check
 		else
 		{
 			// in normal mode needless to this variable
-			unset($data['template']);
+			// unset($data['template']);
 			unset($data['pay_from']);
 			unset($data['put_on']);
 			unset($data['serialnumber']);

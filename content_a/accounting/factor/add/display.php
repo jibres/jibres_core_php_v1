@@ -95,7 +95,16 @@ if(!\dash\data::editMode())
                   <div class="c-auto">
                     <label for="put_on"><?php if($myType === 'cost') {echo T_("Cost type"); }elseif($myType === 'asset'){echo T_("Asset type");}else{echo T_("Income from");} ?> <?php htmlTurnoverLink('put_on') ?></label>
                   </div>
-                  <div class="c"></div>
+                  <div class="c">
+                    <?php if(in_array($myType, ['cost', 'asset',]) && !$docIsLock && \dash\data::editMode()) {?>
+                      <?php if(a($dataRow, 'tax_document', 'template') === 'cost') {?>
+                        <div class="link fs08 mT5" data-confirm data-data='{"changetemplate": "asset"}'><?php echo T_("Convert to asset factor"); ?></div>
+                      <?php }else{ ?>
+                        <div class="link fs08 mT5" data-confirm data-data='{"changetemplate": "cost"}'><?php echo T_("Convert to cost factor"); ?></div>
+                      <?php } //endif ?>
+                    <?php } //endif ?>
+
+                  </div>
                   <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
                 </div>
 

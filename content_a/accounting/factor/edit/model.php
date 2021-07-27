@@ -8,6 +8,17 @@ class model
 	{
 		$id = \dash\request::get('id');
 
+		if(\dash\request::post('changetemplate'))
+		{
+			$post =
+			[
+				'template' => \dash\request::post('changetemplate'),
+			];
+
+			$result = \lib\app\tax\doc\edit::edit($post, \dash\request::get('id'));
+			\dash\redirect::pwd();
+		}
+
 
 		if(\dash\request::post('newlockstatus'))
 		{
