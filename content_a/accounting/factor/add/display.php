@@ -234,6 +234,7 @@ if(!\dash\data::editMode())
               </div>
         <?php } //endif ?>
             </div>
+            <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
             <div class="cauto">
         <div class="switch1 mT25 <?php if($docIsLock) { echo 'disabled'; } ?>">
           <input type="checkbox" name="quarterlyreport" id="quarterlyreport" <?php echo $disableInput;  if(a($dataRow, 'tax_document', 'quarterlyreport') === 'yes' || !a($dataRow, 'tax_document', 'quarterlyreport')) {echo ' checked';} ?>>
@@ -241,6 +242,9 @@ if(!\dash\data::editMode())
           <label for="quarterlyreport"><?php echo T_("Calculate in quarterly report") ?></label>
         </div>
             </div>
+            <?php }else{ ?>
+              <input type="hidden" name="quarterlyreport" value="0">
+            <?php } //endif ?>
           </div>
 
 
