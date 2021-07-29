@@ -95,7 +95,7 @@ $disableInput = $docIsLock ? 'disabled' : null;
       <?php } //endif ?>
     </div>
 
-      <?php if(in_array(\dash\data::dataRow_template(), ['cost', 'income'])) {?>
+      <?php if(\dash\data::dataRow_template()) {?>
        <nav class="items long mT10">
           <ul>
             <li>
