@@ -41,9 +41,12 @@
               <td>
                 <div class="font-12">
                   <a href="<?php echo \dash\url::this(). '/coding?view='. a($value, 'assistant_id') ?>"><code><?php echo a($value, 'assistant_code'); ?></code></a>
-                  <span class="compact"><?php echo a($value, 'total_title') . ' - '. a($value, 'assistant_title'); ?></span>
+                  <a class="link" target="_blank" href="<?php echo \dash\url::this(). '/turnover?contain='. a($value, 'assistant_id') ?>"><i class="sf-retweet" title="<?php echo T_("Turnover") ?>"></i> </a>
+                  <span class="compact"> <?php echo a($value, 'total_title') . ' - '. a($value, 'assistant_title'); ?> </span>
                 </div>
-                <div class="font-11 pLa10"><?php echo a($value, 'details_title'); ?></div>
+                <div class="font-11 pLa10"><?php echo a($value, 'details_title'); ?>
+
+                </div>
               </td>
 
                <?php if(!\dash\data::descEmpty()) {?>
