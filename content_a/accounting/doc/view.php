@@ -71,6 +71,10 @@ class view
 		{
 			$args['status'] = \dash\request::get('status');
 		}
+		else
+		{
+			$args['active_status'] = true;
+		}
 
 		if(\dash\request::get('export'))
 		{

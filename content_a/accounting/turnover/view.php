@@ -72,6 +72,16 @@ class view
 		$args['enddate']        = $enddate ? $enddate : null;
 		$args['summary_detail'] = true;
 
+		if(\dash\request::get('status'))
+		{
+			$args['status'] = \dash\request::get('status');
+		}
+		else
+		{
+			$args['active_status'] = true;
+		}
+
+
 		if(\dash\request::get('export'))
 		{
 			$args['summary_detail'] = false;

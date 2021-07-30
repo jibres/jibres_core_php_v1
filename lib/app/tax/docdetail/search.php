@@ -49,6 +49,7 @@ class search
 			'limit'           => 'int',
 			'pagination'      => 'bool',
 			'summary_detail'  => 'bool',
+			'active_status' => 'bit',
 
 
 		];
@@ -198,6 +199,12 @@ class search
 		{
 			$and[] = " tax_document.status = 'draft' ";
 			$where_date[] = " myTaxDoc.status = 'draft' ";
+		}
+
+		if($data['active_status'])
+		{
+			$and[] = " tax_document.status = 'lock' ";
+			$where_date[] = " myTaxDoc.status = 'lock' ";
 		}
 
 

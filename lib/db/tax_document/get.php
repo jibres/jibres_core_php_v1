@@ -9,7 +9,7 @@ class get
 		$year_id = null;
 		if($_year_id)
 		{
-			$year_id = "WHERE tax_document.year_id = $_year_id ";
+			$year_id = " AND tax_document.year_id = $_year_id ";
 		}
 
 		$query  =
@@ -19,6 +19,7 @@ class get
 				tax_document.template AS `template`
 			FROM
 				tax_document
+			WHERE tax_document.status NOT IN ('deleted')
 			$year_id
 
 			GROUP BY tax_document.template
@@ -38,7 +39,7 @@ class get
 			$year_id = "AND tax_document.year_id = $_year_id ";
 		}
 
-		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.gallery IS NULL $year_id ";
+		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.status IN ('draft', 'lock') AND tax_document.gallery IS NULL $year_id ";
 
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
@@ -65,10 +66,10 @@ class get
 		$year_id = null;
 		if($_year_id)
 		{
-			$year_id = "WHERE tax_document.year_id = $_year_id ";
+			$year_id = "AND tax_document.year_id = $_year_id ";
 		}
 
-		$query  = " SELECT count(*) AS `count` FROM tax_document $year_id ";
+		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.status NOT IN ('deleted') $year_id ";
 
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
@@ -94,6 +95,7 @@ class get
 			FROM
 				tax_document
 			WHERE
+				tax_document.status IN ('draft', 'lock') AND
 				tax_document.date >= '$_enddate' AND tax_document.date <= '$_end_year'
 			GROUP BY `month`
 		";
@@ -115,6 +117,7 @@ class get
 			FROM
 				tax_document
 			WHERE
+				tax_document.status IN ('draft', 'lock') AND
 				tax_document.date >= '$_enddate' AND tax_document.date <= '$_end_year'
 			GROUP BY `month`
 		";

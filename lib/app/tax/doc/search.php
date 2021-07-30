@@ -47,6 +47,7 @@ class search
 			'totalless'       => 'price',
 			'doc_id'          => 'id',
 			'havegallery'     => 'yes_no',
+			'active_status' => 'bit',
 		];
 
 		$require = [];
@@ -84,6 +85,13 @@ class search
 		{
 			$and[] = " tax_document.year_id = $data[year_id] ";
 		}
+
+
+		if($data['active_status'])
+		{
+			$and[] = " tax_document.status IN ('draft', 'lock', 'temp') ";
+		}
+
 
 		if($data['doc_id'])
 		{
