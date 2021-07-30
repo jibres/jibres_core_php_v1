@@ -20,6 +20,27 @@ class update
 		return $result;
 	}
 
+	public static function whole_reset_number($_year_id)
+	{
+		\dash\db::query("SET @cnt = 0;");
+		$query =
+		"
+			UPDATE
+				tax_document
+			SET
+				tax_document.number = @cnt := @cnt + 1
+			WHERE
+				tax_document.year_id = $_year_id
+			ORDER BY
+				tax_document.date ASC,
+				tax_document.subnumber ASC,
+				tax_document.id ASC
+		";
+
+		return \dash\db::query($query);
+
+	}
+
 	public static function reset_number($_data)
 	{
 		$query = [];

@@ -35,6 +35,11 @@ class edit
 			return false;
 		}
 
+		$update = \lib\db\tax_document\update::whole_reset_number($data['year_id']);
+		\dash\notif::ok_once(T_("The number was reset"));
+		return true;
+
+
 		$doc_list = \lib\db\tax_document\get::list_reset_number($data['year_id']);
 
 		if(!is_array($doc_list))
