@@ -22,7 +22,8 @@ class get
 				assistant.title AS `assistant_title`,
 				assistant.code AS `assistant_code`,
 				details.title AS `details_title`,
-				details.code AS `details_code`
+				details.code AS `details_code`,
+				(SELECT tax_coding.title FROM tax_coding WHERE tax_coding.id = assistant.parent2 LIMIT 1) AS `total_title`
 			FROM
 				tax_docdetail
 			LEFT JOIN tax_coding AS `assistant` ON assistant.id = tax_docdetail.assistant_id
