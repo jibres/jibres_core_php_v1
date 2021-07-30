@@ -119,6 +119,7 @@ class template
 		unset($args['bank']);
 		unset($args['petty_cash']);
 		unset($args['partner']);
+		unset($args['bank_profit']);
 
 		\dash\db::transaction();
 
@@ -156,6 +157,7 @@ class template
 			a($_args, 'pay_from'),
 			a($_args, 'put_on'),
 			a($_args, 'thirdparty'),
+			a($_args, 'bank_profit'),
 		];
 
 		$coding_id = array_filter($coding_id);
@@ -186,17 +188,17 @@ class template
 	{
 		$desc = [];
 
-		$thirdparty = null;
+		$my_detail_id = null;
 
 		switch (a($_args, 'template'))
 		{
 			case 'cost':
-				$thirdparty = a($_args, 'thirdparty');
+				$my_detail_id = a($_args, 'thirdparty');
 				if(!a($_args, 'put_on'))
 				{
 					$desc[] = T_("Pay to");
 				}
-				elseif(!$thirdparty && a($_args, 'put_on'))
+				elseif(!$my_detail_id && a($_args, 'put_on'))
 				{
 					$desc[] = T_("Cost");
 
@@ -218,17 +220,17 @@ class template
 				break;
 
 			case 'income':
-				$thirdparty = a($_args, 'thirdparty');
+				$my_detail_id = a($_args, 'thirdparty');
 				$desc[] = T_("Sell to");
 				break;
 
 			case 'asset':
-				$thirdparty = a($_args, 'thirdparty');
-				if($thirdparty)
+				$my_detail_id = a($_args, 'thirdparty');
+				if($my_detail_id)
 				{
 					$desc[] = T_("Buy from");
 				}
-				elseif(!$thirdparty && a($_args, 'put_on'))
+				elseif(!$my_detail_id && a($_args, 'put_on'))
 				{
 					$desc[] = T_("Buy");
 
@@ -246,19 +248,25 @@ class template
 				break;
 
 			case 'bill':
-				$thirdparty = a($_args, 'thirdparty');
+				$my_detail_id = a($_args, 'thirdparty');
 				$desc[] = T_("Buy from");
 				break;
 
 			case 'petty_cash':
 			case 'partner':
-				$thirdparty = a($_args, 'petty_cash');
+				$my_detail_id = a($_args, 'petty_cash');
 				$desc[] = T_("Charge petty cash");
 				break;
 
 			case 'bank_partner':
-				$thirdparty = a($_args, 'bank');
+				$my_detail_id = a($_args, 'bank');
 				$desc[] = T_("Deposit partner to");
+				break;
+
+			case 'bank_profit':
+				$my_detail_id = a($_args, 'bank');
+				$desc[] = T_("Payment of interest");
+
 				break;
 
 			default:
@@ -266,13 +274,13 @@ class template
 				break;
 		}
 
-		if($thirdparty)
+		if($my_detail_id)
 		{
 
-			$thirdparty = \dash\validate::id($thirdparty, false);
-			if($thirdparty)
+			$my_detail_id = \dash\validate::id($my_detail_id, false);
+			if($my_detail_id)
 			{
-				$load_coding = \lib\db\tax_coding\get::by_id($thirdparty);
+				$load_coding = \lib\db\tax_coding\get::by_id($my_detail_id);
 
 				if(isset($load_coding['title']))
 				{
@@ -377,14 +385,15 @@ class template
 			return false;
 		}
 
-		$pay_from   = a($args, 'pay_from');
-		$put_on     = a($args, 'put_on');
+		$pay_from    = a($args, 'pay_from');
+		$put_on      = a($args, 'put_on');
 		$partner     = a($args, 'partner');
-		$tax        = a($args, 'tax');
-		$vat        = a($args, 'vat');
-		$bank       = a($args, 'bank');
-		$petty_cash = a($args, 'petty_cash');
-		$thirdparty = a($args, 'thirdparty');
+		$tax         = a($args, 'tax');
+		$vat         = a($args, 'vat');
+		$bank        = a($args, 'bank');
+		$petty_cash  = a($args, 'petty_cash');
+		$thirdparty  = a($args, 'thirdparty');
+		$bank_profit = a($args, 'bank_profit');
 
 		$add_doc_detail = [];
 
@@ -688,6 +697,31 @@ class template
 				'value'           => $args['total'],
 				'sort'            => 2,
 				'template'        => 'partner',
+			];
+
+		}
+		elseif($args['template'] === 'bank_profit')
+		{
+
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $bank, 'parent3'),
+				'details_id'      => $bank,
+				'type'            => 'debtor',
+				'value'           => $args['total'],
+				'sort'            => 1,
+				'template'        => 'bank',
+			];
+			$add_doc_detail[] =
+			[
+				'tax_document_id' => $tax_document_id,
+				'assistant_id'    => a($load_coding_detail, $bank_profit, 'parent3'),
+				'details_id'      => $bank_profit,
+				'type'            => 'creditor',
+				'value'           => $args['total'],
+				'sort'            => 2,
+				'template'        => 'bank_profit',
 			];
 
 		}

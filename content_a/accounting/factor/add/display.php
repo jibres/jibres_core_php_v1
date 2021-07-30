@@ -17,15 +17,17 @@ if(a($accountingSettingSaved, 'currency'))
   $currency = \lib\currency::name($currency);
 }
 
-$default_cost_payer = null;
-$default_cost_bank  = null;
-$default_partner    = null;
+$default_cost_payer  = null;
+$default_cost_bank   = null;
+$default_partner     = null;
+$default_bank_profit = null;
 
 if(!\dash\data::editMode())
 {
-  $default_cost_bank  = a($accountingSettingSaved, 'default_cost_bank');
-  $default_cost_payer = a($accountingSettingSaved, 'default_cost_payer');
-  $default_partner    = a($accountingSettingSaved, 'default_partner');
+  $default_cost_bank   = a($accountingSettingSaved, 'default_cost_bank');
+  $default_cost_payer  = a($accountingSettingSaved, 'default_cost_payer');
+  $default_partner     = a($accountingSettingSaved, 'default_partner');
+  $default_bank_profit = a($accountingSettingSaved, 'default_bank_profit');
 }
 
 
@@ -138,7 +140,7 @@ if(!\dash\data::editMode())
               </div>
             <?php } // endif ?>
 
-            <?php if(in_array($myType, ['petty_cash', 'bank_partner'])) {?>
+            <?php if(in_array($myType, ['petty_cash', 'bank_partner', 'bank_profit'])) {?>
               <div class="mT10">
                  <div class="row">
                   <div class="c-auto">
@@ -150,6 +152,23 @@ if(!\dash\data::editMode())
                 <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php htmlDetailsSelectList('bank', $default_cost_bank); ?>
+                </select>
+              </div>
+
+            <?php } // endif ?>
+
+            <?php if(in_array($myType, ['bank_profit'])) {?>
+              <div class="mT10">
+                 <div class="row">
+                  <div class="c-auto">
+                    <label for="bank_profit"><?php echo T_("Bank profit") ?> <?php htmlTurnoverLink('profit') ?></label>
+                  </div>
+                  <div class="c"></div>
+                  <div class="c-auto"><a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a></div>
+                </div>
+                <select class="select22" name="bank_profit" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank profit") ?>'>
+                  <option value="0"><?php echo T_("None") ?></option>
+                  <?php htmlDetailsSelectList('bank_profit', $default_bank_profit); ?>
                 </select>
               </div>
 
@@ -204,7 +223,7 @@ if(!\dash\data::editMode())
             </div>
           </div>
         <?php } //endif ?>
-            <?php if(in_array($myType, ['petty_cash', 'partner', 'bank_partner'])) {?>
+            <?php if(in_array($myType, ['petty_cash', 'partner', 'bank_partner', 'bank_profit'])) {?>
               <label for="total"><?php echo T_("Total"); ?></label>
               <div class="input ltr">
                 <?php if($currency) {?><label class="btn addon" for="total"><?php echo $currency ?></label><?php } //endif ?>

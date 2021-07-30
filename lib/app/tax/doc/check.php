@@ -30,32 +30,33 @@ class check
 	{
 		$condition =
 		[
-			'number'        => 'bigint',
-			'subnumber'     => 'int',
-			'desc'          => 'string_300',
-			'date'          => 'date',
-			'year_id'       => 'id',
-			'status'        => ['enum' => ['draft', 'temp', 'lock']],
-			'type'          => ['enum' => ['normal', 'opening', 'closing']],
+			'number'          => 'bigint',
+			'subnumber'       => 'int',
+			'desc'            => 'string_300',
+			'date'            => 'date',
+			'year_id'         => 'id',
+			'status'          => ['enum' => ['draft', 'temp', 'lock']],
+			'type'            => ['enum' => ['normal', 'opening', 'closing']],
 
 			// template detail
-			'template'      => ['enum' => \lib\app\tax\doc\ready::factor_template_list()],
+			'template'        => ['enum' => \lib\app\tax\doc\ready::factor_template_list()],
 
-			'pay_from'      => 'id',
-			'put_on'        => 'id',
-			'bank'          => 'id',
-			'partner'          => 'id',
-			'petty_cash'    => 'id',
+			'pay_from'        => 'id',
+			'put_on'          => 'id',
+			'bank'            => 'id',
+			'partner'         => 'id',
+			'petty_cash'      => 'id',
+			'bank_profit'     => 'id',
 
-			'thirdparty'    => 'id',
+			'thirdparty'      => 'id',
 
-			'user_id'       => 'id',
+			'user_id'         => 'id',
 
-			'serialnumber'  => 'string_100',
-			'total'         => 'price',
-			'totaldiscount' => 'price',
-			'totalvat'      => 'price',
-			'producttitle' => 'title',
+			'serialnumber'    => 'string_100',
+			'total'           => 'price',
+			'totaldiscount'   => 'price',
+			'totalvat'        => 'price',
+			'producttitle'    => 'title',
 			'quarterlyreport' => 'bit',
 		];
 
@@ -217,6 +218,7 @@ class check
 			unset($data['partner']);
 			unset($data['bank']);
 			unset($data['petty_cash']);
+			unset($data['bank_profit']);
 		}
 
 

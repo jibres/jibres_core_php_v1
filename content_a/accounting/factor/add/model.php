@@ -17,6 +17,7 @@ class model
 			'bank'            => \dash\request::post('bank') ? \dash\request::post('bank') : null,
 			'partner'         => \dash\request::post('partner') ? \dash\request::post('partner') : null,
 			'petty_cash'      => \dash\request::post('petty_cash') ? \dash\request::post('petty_cash') : null,
+			'bank_profit'      => \dash\request::post('bank_profit') ? \dash\request::post('bank_profit') : null,
 
 			'thirdparty'      => \dash\request::post('thirdparty') ? \dash\request::post('thirdparty') : null,
 

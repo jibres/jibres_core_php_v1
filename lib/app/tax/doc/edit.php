@@ -157,6 +157,7 @@ class edit
 			$exception[] = 'totalincludevat';
 			$exception[] = 'totalnotincludevat';
 		}
+
 		$data = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(empty($data))
