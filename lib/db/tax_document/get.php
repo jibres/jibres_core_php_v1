@@ -228,7 +228,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.details_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type IN ('normal', 'closing')
 				$year
 				$startdate
@@ -267,7 +267,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.details_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type = 'opening'
 				$year
 				$startdate
@@ -345,7 +345,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type IN ('normal', 'closing')
 				$year
 				$startdate
@@ -382,7 +382,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type = 'opening'
 				$year
 				$startdate
@@ -457,7 +457,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type IN ('normal', 'closing')
 				$year
 				$startdate
@@ -492,7 +492,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type = 'opening'
 				$year
 				$startdate
@@ -566,7 +566,7 @@ class get
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
 			LEFT JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
 			WHERE
-				tax_document.status != 'draft' AND
+				tax_document.status = 'lock' AND
 				tax_document.type = '$_args[type]'
 				$year
 				$startdate
@@ -643,7 +643,7 @@ class get
 				tax_docdetail
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' AND tax_document.type IN ('normal', 'closing') $year $startdate $enddate
+			WHERE tax_document.status = 'lock' AND tax_document.type IN ('normal', 'closing') $year $startdate $enddate
 			GROUP BY group.parent1
 			ORDER BY group.parent1 ASC
 		";
@@ -670,7 +670,7 @@ class get
 				tax_docdetail
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' AND tax_document.type = 'opening' $year $startdate $enddate
+			WHERE tax_document.status = 'lock' AND tax_document.type = 'opening' $year $startdate $enddate
 			GROUP BY group.parent1
 			ORDER BY group.parent1 ASC
 		";
@@ -733,7 +733,7 @@ class get
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
 			LEFT JOIN tax_coding AS `balancesheet` ON balancesheet.id = group.parent1
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' AND tax_document.type IN ('normal', 'closing') $year $startdate $enddate
+			WHERE tax_document.status = 'lock' AND tax_document.type IN ('normal', 'closing') $year $startdate $enddate
 			GROUP BY group.parent1
 			ORDER BY group.parent1 ASC
 		";
@@ -762,7 +762,7 @@ class get
 			LEFT JOIN tax_coding AS `group` ON group.id = tax_docdetail.assistant_id
 			LEFT JOIN tax_coding AS `balancesheet` ON balancesheet.id = group.parent1
 			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
-			WHERE tax_document.status != 'draft' AND tax_document.type = 'opening' $year $startdate $enddate
+			WHERE tax_document.status = 'lock' AND tax_document.type = 'opening' $year $startdate $enddate
 			GROUP BY group.parent1
 			ORDER BY group.parent1 ASC
 		";
