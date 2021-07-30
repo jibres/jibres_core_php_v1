@@ -30,6 +30,7 @@ class update
 			SET
 				tax_document.number = @cnt := @cnt + 1
 			WHERE
+				tax_document.status IN ('draft', 'temp', 'lock') AND
 				tax_document.year_id = $_year_id
 			ORDER BY
 				tax_document.date ASC,
