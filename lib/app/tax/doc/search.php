@@ -36,7 +36,7 @@ class search
 			'month'           => ['enum' => [1,2,3,4,5,6,7,8,9,10,11,12]],
 			'export'          => 'bit',
 			'limit'           => 'int',
-			'status'          => ['enum' => ['temp', 'draft', 'lock']],
+			'status'          => ['enum' => ['temp', 'draft', 'lock' ,'deleted', 'archive']],
 			'template'        => ['enum' => ready::factor_template_list()],
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
