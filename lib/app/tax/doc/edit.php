@@ -150,6 +150,7 @@ class edit
 		unset($args['bank']);
 		unset($args['petty_cash']);
 		unset($args['partner']);
+		unset($args['bank_profit']);
 
 		$exception = [];
 		if(isset($_option['template_mode']) && $_option['template_mode'])
