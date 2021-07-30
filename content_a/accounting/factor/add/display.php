@@ -110,37 +110,21 @@ if(!\dash\data::editMode())
 
                 <select class="select22" name="put_on" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Cost type") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value)
-                  {
-                    if($myType === 'asset'){if(in_array(substr(a($value, 'code'), 0, 1), ['1']) || in_array(substr(a($value, 'code'), 0, 2), ['22', '27'])){/*ok*/}else{continue;}}
-                    elseif($myType === 'cost'){if(in_array(substr(a($value, 'code'), 0, 1), ['7'])){/*ok*/}else{continue;}}
-                    elseif($myType === 'income'){if(in_array(substr(a($value, 'code'), 0, 1), ['6'])){/*ok*/}else{continue;}}
-                    ?>
-                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'put_on', 'details_id') === a($value, 'id') || \dash\request::get('put_on') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                  <?php } // endfor ?>
+                    <?php htmlDetailsSelectList('put_on'); ?>
                 </select>
               </div>
               <div class="mT10">
                 <label for="thirdparty"><?php if($myType === 'income'){echo T_("Buyer");}else{ echo T_("Seller"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{ echo T_("If the seller is not selected, a direct payment document will be made"); }  ?></small> <?php htmlTurnoverLink('thirdparty') ?></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) { if($myType === 'income') {if(in_array(substr(a($value, 'code'), 0, 2), ['23'])) {/*ok*/}else{continue;}}else{ if(in_array(substr(a($value, 'code'), 0, 1), ['5'])) {/*ok*/}else{continue;}}?>
-                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'thirdparty', 'details_id') === a($value, 'id') || \dash\request::get('thirdparty') === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                  <?php } // endfor ?>
+                  <?php htmlDetailsSelectList('thirdparty'); ?>
                 </select>
               </div>
               <div class="mT10">
                 <label for="pay_from"><?php if($myType === 'income'){echo T_("Recipient of money");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small> <?php htmlTurnoverLink('pay_from') ?></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {
-                    if($myType === 'income')
-                    {if(in_array(substr(a($value, 'code'), 0, 2), ['26', '52'])) {/*ok*/}else{continue;}}
-                    else
-                    {if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) {/*ok*/}else{continue;}}
-                  ?>
-                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'pay_from', 'details_id') === a($value, 'id') || \dash\request::get('pay_from') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                  <?php } // endfor ?>
+                    <?php htmlDetailsSelectList('pay_from', $default_cost_payer); ?>
                 </select>
               </div>
             <?php } //endif ?>
@@ -149,9 +133,7 @@ if(!\dash\data::editMode())
                 <label for="petty_cash"><?php echo T_("Petty cash") ?> <?php htmlTurnoverLink('petty_cash') ?></label>
                 <select class="select22" name="petty_cash" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Petty cash") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 4), ['2605'])) {/*ok*/}else{continue;}?>
-                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'petty_cash', 'details_id') === a($value, 'id') || \dash\request::get('petty_cash') === a($value, 'id') || $default_cost_payer === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                  <?php } // endfor ?>
+                  <?php htmlDetailsSelectList('petty_cash', $default_cost_payer); ?>
                 </select>
               </div>
             <?php } // endif ?>
@@ -167,9 +149,7 @@ if(!\dash\data::editMode())
                 </div>
                 <select class="select22" name="bank" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Bank") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) {if(in_array(substr(a($value, 'code'), 0, 2), ['26'])) { if(substr(a($value, 'code'), 0, 4) === '2605'){continue;}/*ok*/}else{continue;}?>
-                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'bank', 'details_id') === a($value, 'id') || \dash\request::get('bank') === a($value, 'id') || $default_cost_bank === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                  <?php } // endfor ?>
+                  <?php htmlDetailsSelectList('bank', $default_cost_bank); ?>
                 </select>
               </div>
 
@@ -187,9 +167,7 @@ if(!\dash\data::editMode())
                 </div>
                 <select class="select22" name="partner" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Accounting Partner") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
-                  <?php foreach (\dash\data::detailsList() as $key => $value) { if(in_array(substr(a($value, 'code'), 0, 4), ['5208'])) {/*ok*/}else{continue;}?>
-                    <option value="<?php echo a($value, 'id') ?>" <?php if(a($dataRow, 'fill_value', 'partner', 'details_id') === a($value, 'id') || \dash\request::get('partner') === a($value, 'id') || $default_partner === a($value, 'id')) { echo 'selected'; } ?>><?php echo a($value, 'full_title'); ?></option>
-                  <?php } // endfor ?>
+                  <?php htmlDetailsSelectList('partner', $default_partner); ?>
                 </select>
               </div>
 
@@ -350,6 +328,149 @@ function htmlTurnoverLink($_type)
   {
     echo '<a class="link" target="_blank" href="'. \dash\url::this(). '/turnover?contain='. a($dataRow, 'fill_value', $_type, 'details_id'). '"><i class="sf-external-link"></i> '. T_("Turnover"). '</a>';
   }
+}
+
+
+function htmlDetailsSelectList($_type, $_default_selected = null)
+{
+  $dataRow = \dash\data::dataRow();
+  $myType = \dash\data::myType();
+
+  foreach (\dash\data::detailsList() as $key => $value)
+  {
+    if($_type === 'put_on')
+    {
+      if($myType === 'asset')
+      {
+        if(in_array(substr(a($value, 'code'), 0, 1), ['1']) || in_array(substr(a($value, 'code'), 0, 2), ['22', '27']))
+        {
+          /*ok*/
+        }
+        else
+        {
+          continue;
+        }
+      }
+      elseif($myType === 'cost')
+      {
+        if(in_array(substr(a($value, 'code'), 0, 1), ['7']))
+        {
+          /*ok*/
+        }
+        else
+        {
+          continue;
+        }
+      }
+      elseif($myType === 'income')
+      {
+        if(in_array(substr(a($value, 'code'), 0, 1), ['6']))
+        {
+          /*ok*/
+        }
+        else
+        {
+          continue;
+        }
+      }
+    }
+    elseif($_type === 'pay_from')
+    {
+      if($myType === 'income')
+      {
+        if(in_array(substr(a($value, 'code'), 0, 2), ['26', '52']))
+        {
+          /*ok*/
+        }
+        else
+        {
+          continue;
+        }
+      }
+      else
+      {
+        if(in_array(substr(a($value, 'code'), 0, 2), ['26']))
+        {
+          /*ok*/
+        }
+        else
+        {
+          continue;
+        }
+      }
+
+    }
+    elseif($_type === 'petty_cash')
+    {
+      if(in_array(substr(a($value, 'code'), 0, 4), ['2605']))
+      {
+        /*ok*/
+      }
+      else
+      {
+        continue;
+      }
+    }
+    elseif($_type === 'thirdparty')
+    {
+      if($myType === 'income')
+      {
+        if(in_array(substr(a($value, 'code'), 0, 2), ['23']))
+        {
+          /*ok*/
+        }
+        else
+        {
+        continue;
+        }
+      }
+      else
+      {
+        if(in_array(substr(a($value, 'code'), 0, 1), ['5']))
+        {
+          /*ok*/
+        }
+        else
+        {
+          continue;
+        }
+      }
+    }
+    elseif($_type === 'bank')
+    {
+      if(in_array(substr(a($value, 'code'), 0, 2), ['26']))
+      {
+        if(substr(a($value, 'code'), 0, 4) === '2605')
+        {
+          continue;
+        }
+        /*ok*/
+      }
+      else
+      {
+        continue;
+      }
+    }
+    elseif($_type === 'partner')
+    {
+      if(in_array(substr(a($value, 'code'), 0, 4), ['5208']))
+      {
+        /*ok*/
+      }
+      else
+      {
+        continue;
+      }
+    }
+
+    echo '<option value="'. a($value, 'id'). '" ';
+    if(a($dataRow, 'fill_value', $_type, 'details_id') === a($value, 'id') || \dash\request::get($_type) === a($value, 'id') || $_default_selected === a($value, 'id'))
+    {
+      echo 'selected';
+    }
+    echo '> '. a($value, 'full_title'). '</option>';
+  }
+
 }
 
 ?>
