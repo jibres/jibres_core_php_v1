@@ -55,7 +55,7 @@ class edit
 			return false;
 		}
 
-		// $data = \dash\cleanse::patch_mode($_args, $args);
+		$args = \dash\cleanse::patch_mode($_args, $args);
 		$tax_document_id = a($args, 'tax_document_id');
 		unset($args['tax_document_id']);
 		unset($args['year_id']);
