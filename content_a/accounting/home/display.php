@@ -301,6 +301,14 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
             <div class="go"></div>
           </a>
         </li>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bank_profit'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
+            <div class="key"><?php echo T_("Bank profit") ?></div>
+            <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'bank_profit')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
       </ul>
     </nav>
 

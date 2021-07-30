@@ -37,7 +37,7 @@ class search
 			'export'          => 'bit',
 			'limit'           => 'int',
 			'status'          => ['enum' => ['temp', 'draft', 'lock']],
-			'template'        => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
+			'template'        => ['enum' => ready::factor_template_list()],
 			'summary_mode'    => 'bit',
 			'template_list'   => 'bit',
 			'quarterlyreport' => 'yes_no',

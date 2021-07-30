@@ -39,7 +39,7 @@ class check
 			'type'          => ['enum' => ['normal', 'opening', 'closing']],
 
 			// template detail
-			'template'      => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner']],
+			'template'      => ['enum' => \lib\app\tax\doc\ready::factor_template_list()],
 
 			'pay_from'      => 'id',
 			'put_on'        => 'id',

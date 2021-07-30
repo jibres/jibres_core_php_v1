@@ -356,6 +356,7 @@ class template
 
 
 			case 'petty_cash':
+			case 'bank_profit':
 			case 'bank_partner':
 			case 'partner':
 			case 'bill':

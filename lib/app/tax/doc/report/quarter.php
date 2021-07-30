@@ -8,7 +8,7 @@ class quarter
 	{
 		$condition =
 		[
-			'type'   => ['enum' => ['cost', 'income', 'petty_cash', 'partner', 'asset', 'bank_partner', 'costasset']],
+			'type'   => ['enum' => \lib\app\tax\doc\ready::factor_template_list()],
 			'detail' => 'bit',
 			'merge' => 'bit',
 			'doc_id' => 'id',

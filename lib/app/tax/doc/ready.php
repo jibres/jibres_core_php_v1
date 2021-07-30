@@ -71,6 +71,22 @@ class ready
 	}
 
 
+	public static function factor_template_list()
+	{
+		return
+		[
+			'income',
+			'cost' ,
+			'petty_cash',
+			'partner',
+			'asset',
+			'bank_partner',
+			'costasset',
+			'bank_profit',
+		];
+	}
+
+
 
 
 	public static function factor_type_translate($_type)
@@ -100,8 +116,13 @@ class ready
 			case 'bank_partner':
 				$tvalue = T_("Charge bank from partner");
 				break;
+
 			case 'costasset':
 				$tvalue = T_("Cost + Asset");
+				break;
+
+			case 'bank_profit':
+				$tvalue = T_("Bank profit");
 				break;
 
 			case 'doc':
