@@ -114,8 +114,14 @@ class view
 						$end_month = 30;
 					}
 
-					$get['startdate'] = $myYear. '-'. $i. '-01';
-					$get['enddate']   = $myYear. '-'. $i. '-'. $end_month;
+					$month = $i;
+					if($month < 10)
+					{
+						$month = '0'. $month;
+					}
+
+					$get['startdate'] = $myYear. '-'. $month. '-01';
+					$get['enddate']   = $myYear. '-'. $month. '-'. $end_month;
 
 					$temp['list'][] = ['title' => self::getMonthNames($i), 'link' => $myUrl.'?'. \dash\request::build_query($get)];
 				}

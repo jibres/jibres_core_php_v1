@@ -677,7 +677,7 @@ class jdate
                 '0631' => '0701',
             ];
 
-            if(in_array(self::substr_month_day($_date), array_keys($different_days)))
+            if(mb_strlen($_date) === 10 && in_array(self::substr_month_day($_date), array_keys($different_days)))
             {
                 $year  = (new \DateTime($_date))->format("Y");
                 $month = substr(self::substr_month_day($_date), 0, 2);
