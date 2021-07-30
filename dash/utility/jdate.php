@@ -690,6 +690,21 @@ class jdate
                 $day   = (new \DateTime($_date))->format("d");
             }
 
+            if(mb_strlen($year) !== 4)
+            {
+                return false;
+            }
+
+            if(intval($month) < 0 || intval($month) < 12)
+            {
+                return false;
+            }
+
+            if(intval($day) < 0 || intval($day) < 31)
+            {
+                return false;
+            }
+
             list($year, $month, $day) = self::toGregorian($year, $month, $day);
             return date($_format, strtotime("$year-$month-$day"));
         }
