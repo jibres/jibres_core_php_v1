@@ -655,6 +655,19 @@ class jdate
 
         if(self::check_is_date($_date))
         {
+
+            $raw_date    = preg_replace("/\D/", '', $_date);
+            $check_month = substr($raw_date, 4, 2);
+            $check_day   = substr($raw_date, 6, 2);
+
+            if(intval($check_month) > 6)
+            {
+                if(intval($check_day) > 30)
+                {
+                    return false;
+                }
+            }
+
             $different_days =
             [
                 '0229' => '0301',

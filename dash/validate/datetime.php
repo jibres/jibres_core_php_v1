@@ -75,7 +75,18 @@ class datetime
 				$time = date("H:i:s", strtotime($data));
 			}
 
+
 			$data = \dash\utility\jdate::to_gregorian($data);
+
+			if(!$data)
+			{
+				if($_notif)
+				{
+					\dash\notif::error(T_("Field :val is not a valid date field", ['val' => $_field_title]), ['element' => $_element]);
+					\dash\cleanse::$status = false;
+				}
+				return false;
+			}
 
 			if($time)
 			{
