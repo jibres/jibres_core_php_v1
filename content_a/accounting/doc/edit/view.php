@@ -112,6 +112,11 @@ class view
 		}
 
 
+				// save btn
+		\dash\face::btnNew(\dash\url::that(). '/add');
+
+
+
 
 		if(\dash\request::get('calcvat'))
 		{
