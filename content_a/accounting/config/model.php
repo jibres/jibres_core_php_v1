@@ -65,6 +65,11 @@ class model
 			$post['default_partner']              = \dash\request::post('default_partner') ? \dash\request::post('default_partner') : null;
 		}
 
+		if(\dash\request::post('set_default_bank_profit'))
+		{
+			$post['default_bank_profit']              = \dash\request::post('default_bank_profit') ? \dash\request::post('default_bank_profit') : null;
+		}
+
 		\lib\app\setting\set::accounting_setting($post);
 
 		\dash\redirect::pwd();

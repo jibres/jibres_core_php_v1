@@ -82,6 +82,7 @@ class set
 			'default_cost_payer'             => 'id',
 			'default_cost_bank'              => 'id',
 			'default_partner'                => 'id',
+			'default_bank_profit'            => 'id',
 		];
 
 

@@ -266,6 +266,29 @@
 </section>
 
 
+<section class="f" data-option='default_bank_profit' id="set_default_bank_profit">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default bank profit accounting detail"); ?></h3>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_default_bank_profit" value="1">
+    <div class="action">
+      <select class="select22" name="default_bank_profit" data-placeholder='<?php echo T_("Please choose detail id") ?>'>
+        <option value=""><?php echo T_("Please choose assistant_id") ?></option>
+        <?php show_assistant_list_html('default_bank_profit', true) ?>
+      </select>
+    </div>
+  </form>
+  <?php if(!a($savedValue, 'default_bank_profit')) {?>
+    <footer class="txtRa">
+      <?php htmlLinkAddNewDetail(7704, 'default_bank_profit'); ?>
+    </footer>
+  <?php } //endif ?>
+</section>
+
+
 
 
 
