@@ -211,6 +211,8 @@ class get
 				NULL AS `assistant_title`,
 				tax_docdetail.details_id,
 				tax_coding.title AS `details_title`,
+				NULL AS `total_code`,
+				NULL AS `assistant_code`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -248,6 +250,8 @@ class get
 				NULL AS `assistant_title`,
 				tax_docdetail.details_id,
 				tax_coding.title AS `details_title`,
+				NULL AS `total_code`,
+				NULL AS `assistant_code`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -324,6 +328,8 @@ class get
 				NULL AS `total_title`,
 				tax_docdetail.assistant_id,
 				tax_coding.title AS `assistant_title`,
+				NULL AS `total_code`,
+				NULL AS `assistant_code`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -359,6 +365,8 @@ class get
 				NULL AS `total_title`,
 				tax_docdetail.assistant_id,
 				tax_coding.title AS `assistant_title`,
+				NULL AS `total_code`,
+				NULL AS `assistant_code`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -390,7 +398,7 @@ class get
 				tax_coding.*,
 				CONCAT(1, LPAD(IFNULL(tax_coding.parent1, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent2, 0), 6, '0'), LPAD(IFNULL(tax_coding.parent3, 0), 6, '0'), LPAD(tax_coding.id, 6, '0')) AS `string_id`
 			FROM tax_coding
-			WHERE tax_coding.type IN ('group', 'total')
+			WHERE tax_coding.type IN ('group', 'total', 'assistant')
 			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
 		";
 
@@ -433,6 +441,7 @@ class get
 				NULL AS `group_title`,
 				tax_coding.parent2 AS `total_id`,
 				MAX(tax_coding.title) AS `total_title`,
+				NULL AS `total_code`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,
@@ -467,6 +476,7 @@ class get
 				NULL AS `group_title`,
 				tax_coding.parent2 AS `total_id`,
 				MAX(tax_coding.title) AS `total_title`,
+				NULL AS `total_code`,
 				NULL AS `remain_debtor`,
 				NULL AS `remain_creditor`,
 				NULL AS `sum_debtor`,

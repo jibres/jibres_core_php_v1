@@ -37,8 +37,15 @@
       <?php foreach ($group['list'] as $key => $value) {?>
         <tr>
           <td class="collapsing"><?php echo \dash\fit::number(floatval($key) + 1); ?></td>
-          <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id')]); ?>"><?php echo a($value, 'total_title') ?></a></td>
-            <td class="fs09"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>"><?php echo a($value, 'assistant_title') ?></a></td>
+          <td>
+            <a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id')]); ?>">
+              <code><?php echo a($value, 'total_code') ?></code>
+            <?php echo a($value, 'total_title') ?></a>
+          </td>
+            <td class="fs09"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>">
+              <code><?php echo a($value, 'assistant_code') ?></code>
+              <?php echo a($value, 'assistant_title') ?></a>
+            </td>
           <?php if(\dash\request::get('show') === 'col6') {?>
             <td data-copy='<?php echo a($value, 'opening_debtor'); ?>' class="font-12 ltr txtR fc-green"><code><?php echo \dash\fit::number(a($value, 'opening_debtor'), true, 'en') ?></code></td>
             <td data-copy='<?php echo a($value, 'opening_creditor'); ?>' class="font-12 ltr txtR fc-red"><code><?php echo \dash\fit::number(a($value, 'opening_creditor'), true, 'en') ?></code></td>

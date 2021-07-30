@@ -85,6 +85,16 @@ class report
 				$opening[$key]['total_title'] = $coding[$value['total_id']]['title'];
 			}
 
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$opening[$key]['total_code'] = $coding[$value['total_id']]['code'];
+			}
+
+			if(isset($value['assistant_id']) && isset($coding[$value['assistant_id']]) && $coding[$value['assistant_id']]['code'])
+			{
+				$opening[$key]['assistant_code'] = $coding[$value['assistant_id']]['code'];
+			}
+
 			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
 			{
 				$opening[$key]['group_title'] = $coding[$value['group_id']]['title'];
@@ -103,6 +113,17 @@ class report
 			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
 			{
 				$normal[$key]['total_title'] = $coding[$value['total_id']]['title'];
+			}
+
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$normal[$key]['total_code'] = $coding[$value['total_id']]['code'];
+			}
+
+			if(isset($value['assistant_id']) && isset($coding[$value['assistant_id']]) && $coding[$value['assistant_id']]['code'])
+			{
+				$normal[$key]['assistant_code'] = $coding[$value['assistant_id']]['code'];
 			}
 
 			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
@@ -282,6 +303,18 @@ class report
 				$opening[$key]['total_title'] = $coding[$value['total_id']]['title'];
 			}
 
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$opening[$key]['total_code'] = $coding[$value['total_id']]['code'];
+			}
+
+			if(isset($value['assistant_id']) && isset($coding[$value['assistant_id']]) && $coding[$value['assistant_id']]['code'])
+			{
+				$opening[$key]['assistant_code'] = $coding[$value['assistant_id']]['code'];
+			}
+
+
 			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
 			{
 				$opening[$key]['group_title'] = $coding[$value['group_id']]['title'];
@@ -295,6 +328,16 @@ class report
 			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
 			{
 				$normal[$key]['total_title'] = $coding[$value['total_id']]['title'];
+			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$normal[$key]['total_code'] = $coding[$value['total_id']]['code'];
+			}
+
+			if(isset($value['assistant_id']) && isset($coding[$value['assistant_id']]) && $coding[$value['assistant_id']]['code'])
+			{
+				$normal[$key]['assistant_code'] = $coding[$value['assistant_id']]['code'];
 			}
 
 			if(isset($value['group_id']) && isset($coding[$value['group_id']]) && $coding[$value['group_id']]['title'])
@@ -437,6 +480,7 @@ class report
 
 		$result = \lib\db\tax_document\get::total_report($data);
 
+		// var_dump($result);exit;
 		if(!is_array($result))
 		{
 			$result = [];
@@ -477,6 +521,11 @@ class report
 			{
 				$opening[$key]['total_title'] = $coding[$value['total_id']]['title'];
 			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$opening[$key]['total_code'] = $coding[$value['total_id']]['code'];
+			}
 		}
 
 		$normal = array_map(['\\lib\\app\\tax\\doc\\ready', 'report'], $normal);
@@ -491,6 +540,11 @@ class report
 			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['title'])
 			{
 				$normal[$key]['total_title'] = $coding[$value['total_id']]['title'];
+			}
+
+			if(isset($value['total_id']) && isset($coding[$value['total_id']]) && $coding[$value['total_id']]['code'])
+			{
+				$normal[$key]['total_code'] = $coding[$value['total_id']]['code'];
 			}
 
 		}

@@ -45,7 +45,6 @@ class view
 
 		$report = \lib\app\tax\doc\report::total_report($args);
 
-
 		\dash\data::reportDetail($report);
 
 		if(\dash\request::get('export'))

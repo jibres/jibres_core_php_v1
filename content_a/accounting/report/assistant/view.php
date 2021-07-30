@@ -43,6 +43,7 @@ class view
 		$args['enddate']   = $enddate ? $enddate : null;
 
 		$report = \lib\app\tax\doc\report::assistant_report($args);
+
 		\dash\data::reportDetail($report);
 
 		if(\dash\request::get('export'))
