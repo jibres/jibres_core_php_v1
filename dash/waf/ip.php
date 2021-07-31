@@ -150,9 +150,24 @@ class ip
 			}
 			else
 			{
+				if(!isset($data['agent'][$myAgentMd5]) || (isset($data['agent'][$myAgentMd5]) && !is_array($data['agent'][$myAgentMd5])))
+				{
+					$data['agent'][$myAgentMd5] = [];
+				}
+
 				$data['agent'][$myAgentMd5]['name']    = $myAgent;
 				$data['agent'][$myAgentMd5]['history'] = [];
 			}
+
+			if(isset($data['agent'][$myAgentMd5]['history']) && is_array($data['agent'][$myAgentMd5]['history']))
+			{
+				// nothing
+			}
+			else
+			{
+				$data['agent'][$myAgentMd5]['history'] = [];
+			}
+
 			// add history
 			$history = &$data['agent'][$myAgentMd5]['history'];
 
