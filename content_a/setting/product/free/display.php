@@ -3,7 +3,9 @@
     <div class="box">
       <div class="pad">
         <p>
-          <?php echo T_("If you set the price of the product to 0, the free phrase will be displayed. It is also possible to add to the shopping cart and order for products with a price of 0. <br>But if you leave the price of the product blank, the possibility of registering an order for that product will be disabled and the call button will appear instead of the purchase button. <br>You can set the title and address of the call button");?>
+          <?php echo T_("If you set the price of the product to 0, the free phrase will be displayed. It is also possible to add to the shopping cart and order for products with a price of 0. <br>But if you leave the price of the product blank, the possibility of registering an order for that product will be disabled. <br>You can set the title and address of the call button");?>
+          <br>
+          <?php echo T_("For example you can add Contact Us Button by link in your social networks address") ?>
         </p>
 
         <label for="free_button_title"><?php echo T_("Button title"); ?></label>
