@@ -695,12 +695,12 @@ class jdate
                 return false;
             }
 
-            if(intval($month) < 0 || intval($month) < 12)
+            if(intval($month) < 0 || intval($month) > 12)
             {
                 return false;
             }
 
-            if(intval($day) < 0 || intval($day) < 31)
+            if(intval($day) < 0 || intval($day) > 31)
             {
                 return false;
             }
