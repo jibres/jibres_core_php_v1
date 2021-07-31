@@ -9,12 +9,21 @@
               <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
             </div>
           </div>
-          <div class="c-xs-12 c-sm-6 c-md">
+          <div class="c-xs-12 c-sm-3 c-md">
             <select class="select22" name="month">
               <option value=""><?php echo T_("Choose month") ?></option>
               <?php for ($i=1; $i <= 12 ; $i++) {?>
                 <option value="<?php echo $i ?>" <?php if(\dash\request::get('month') == $i) {echo 'selected';} ?>><?php echo \dash\fit::number($i); ?></option>
               <?php } // endfor ?>
+            </select>
+          </div>
+          <div class="c-xs-12 c-sm-3 c-md">
+            <select class="select22" name="status">
+              <option value=""><?php echo T_("Choose status") ?></option>
+              <!-- <option value="draft" <?php if(\dash\request::get('status') === 'draft') {echo 'selected';} ?>><?php echo T_("Draft") ?></option> -->
+              <option value="lock" <?php if(\dash\request::get('status') === 'lock') {echo 'selected';} ?>><?php echo T_("Lock") ?></option>
+              <option value="temp" <?php if(\dash\request::get('status') === 'temp') {echo 'selected';} ?>><?php echo T_("Temporary") ?></option>
+              <option value="deleted" <?php if(\dash\request::get('status') === 'deleted') {echo 'selected';} ?>><?php echo T_("Deleted") ?></option>
             </select>
           </div>
           <?php if(\dash\url::child() === 'factor') {?>

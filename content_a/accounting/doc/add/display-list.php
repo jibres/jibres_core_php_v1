@@ -1,3 +1,4 @@
+<?php $locDelMode = (\dash\data::dataRow_status() === 'lock' || \dash\data::dataRow_status() === 'deleted') ?>
 <?php if(\dash\data::editMode() && \dash\data::docDetail()) {?>
 
   <?php if(\dash\data::dataRow_status() === 'temp' || \dash\data::dataRow_status() === 'lock') {?>
@@ -22,7 +23,7 @@
              <?php } //endif ?>
              <th class="collapsing txtR"><?php echo T_("Debtor") ?></th>
              <th class="collapsing txtR"><?php echo T_("Creditor") ?></th>
-             <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+             <?php if($locDelMode) {}else{?>
              <th class="collapsing p0"></th>
              <?php } //endif ?>
            </tr>
@@ -31,7 +32,7 @@
            <?php foreach (\dash\data::docDetail() as $key => $value) {?>
             <tr title="<?php echo ($key + 1); ?>" <?php if(\dash\request::get('did') == a($value, 'id')) { echo " class='negative' ";} ?>>
               <td class="collapsing">
-             <?php if(\dash\data::dataRow_status() === 'lock') {?>
+             <?php if($locDelMode) {?>
                 <span><?php echo \dash\fit::number($key + 1) ?></span>
              <?php }else{?>
                 <i data-handle class="sf-sort p0"></i>
@@ -54,7 +55,7 @@
                <?php } //endif ?>
               <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
               <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
-              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+              <?php if($locDelMode) {}else{?>
               <td class="p0 txtRa">
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
                   <span class="fc-mute"><i><?php echo T_("Editing") ?>...</i></span>
@@ -77,7 +78,7 @@
               <td><?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?></td>
              <td data-copy='<?php echo \dash\data::summary_debtor() ?>' class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
              <td data-copy='<?php echo \dash\data::summary_creditor() ?>' class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
-              <?php if(\dash\data::dataRow_status() === 'lock') {}else{?>
+              <?php if($locDelMode) {}else{?>
                 <td class="p0 txtRa txtB">
                    <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
                   <a class="fc-white  block" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><span class="compact mRa10"><?php echo T_("Diff"); ?></span><span class="compact ltr"><?php echo  \dash\fit::number_decimal($remain_doc, 'en'); ?></span></a>

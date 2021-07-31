@@ -1,7 +1,8 @@
 <?php
 $docIsLock = \dash\data::dataRow_status() === 'lock';
+$docIsDel = \dash\data::dataRow_status() === 'deleted';
 
-$disableInput = $docIsLock ? 'disabled' : null;
+$disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
 
 ?>
  <div class="box hide d-print-block">
@@ -80,12 +81,18 @@ $disableInput = $docIsLock ? 'disabled' : null;
       <?php if(\dash\data::editMode()) {?>
         <?php if($docIsLock) {}else{?>
           <?php if(!\dash\request::get('did')) {?>
-      <div class="c-xs c-auto p0">
-        <div class="btn mT10 linkDel outline" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
-      </div>
-      <div class="c-xs-auto c-auto p0">
-        <button class="btn mT10 secondary outline"><?php echo T_("Edit") ?></button>
-      </div>
+            <?php if($docIsDel) {?>
+              <div class="c-xs c-auto p0">
+                <div class="btn mT10 secondary" data-confirm data-data='{"newlockstatus": "temp"}'><?php echo T_("Restore") ?></div>
+              </div>
+            <?php }else{ ?>
+              <div class="c-xs c-auto p0">
+                <div class="btn mT10 linkDel outline" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
+              </div>
+              <div class="c-xs-auto c-auto p0">
+                <button class="btn mT10 secondary outline"><?php echo T_("Edit") ?></button>
+              </div>
+            <?php }//endif ?>
         <?php } //endif ?>
         <?php } //endif ?>
       <?php }else{ ?>
