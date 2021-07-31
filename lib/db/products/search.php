@@ -69,7 +69,7 @@ class search
 				productcategoryusage.productcategory_id AS `productcategory_id`
 			FROM productcategoryusage
 			WHERE
-				productcategoryusage.product_id = $_id
+				productcategoryusage.product_id = $_id OR productcategoryusage.product_id = (SELECT products.parent FROM products WHERE products.id = $_id LIMIT 1)
 		";
 
 		$ids = \dash\db::get($query, 'productcategory_id');

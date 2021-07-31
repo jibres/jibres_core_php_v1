@@ -342,7 +342,7 @@ class search
 		if($data['websitemode'])
 		{
 			// $and[] = " products.instock = 'yes'";
-			$and[] = " products.parent IS NULL ";
+			$and['parent_is_null'] = " products.parent IS NULL ";
 		}
 
 
@@ -385,10 +385,14 @@ class search
 				$or[] = "products.finalprice = ". \lib\price::up($search_price);
 				$or[] = "products.price = ". \lib\price::up($search_price);
 				$or[] = "products.id = ". \lib\price::up($search_price);
+
+				// unset($and['parent_is_null']);
+				// unset($_where['parent_is_null']);
 			}
 
 			self::$is_filtered = true;
 		}
+
 
 		$price_desc_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s) %s ";
 		$price_asc_sort  = " ORDER BY IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s) %s ";
@@ -520,7 +524,7 @@ class search
 	public static function variant_list($_query_string, $_args)
 	{
 		$and   = [];
-		$and[] = "products.parent IS NULL ";
+		$and['parent_is_null'] = "products.parent IS NULL ";
 
 		$list = self::products_list('variants', $_query_string, $_args, $and);
 
@@ -535,7 +539,7 @@ class search
 	public static function website_product_search($_query_string, $_args)
 	{
 		$and   = [];
-		$and[] = "products.parent IS NULL ";
+		$and['parent_is_null'] = "products.parent IS NULL ";
 		$_args['status'] = 'active';
 
 		$list = self::products_list('variants', $_query_string, $_args, $and);
@@ -766,7 +770,7 @@ class search
 
 		$and[] = " products.status = 'active' ";
 		// $and[] = " products.instock = 'yes'";
-		$and[] = " products.parent IS NULL ";
+		$and['parent_is_null'] = " products.parent IS NULL ";
 
 
 		if($tag_id)
