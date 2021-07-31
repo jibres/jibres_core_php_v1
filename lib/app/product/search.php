@@ -384,7 +384,13 @@ class search
 
 				$or[] = "products.finalprice = ". \lib\price::up($search_price);
 				$or[] = "products.price = ". \lib\price::up($search_price);
-				$or[] = "products.id = ". \lib\price::up($search_price);
+
+				if($search_product_id = \dash\validate::id($search_price, false))
+				{
+					$or[] = "products.id = ". $search_product_id;
+					$or[] = " (products.id = (SELECT products.parent FROM products WHERE products.id = $search_product_id LIMIT 1)) ";
+				}
+				// $or[] = "products.parent = ". $search_price;
 
 				// unset($and['parent_is_null']);
 				// unset($_where['parent_is_null']);
