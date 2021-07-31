@@ -69,6 +69,7 @@ $html .= '<div class="row align-center">';
       {
         if(a($productSettingSaved, 'free_button_title') && a($productSettingSaved, 'free_button_link'))
         {
+          \dash\data::pawContactUsShopBtn(['title' => a($productSettingSaved, 'free_button_title'), 'link' => a($productSettingSaved, 'free_button_link')]);
           $html .= '<a class="btnBuy" href="'. a($productSettingSaved, 'free_button_link'). '" target="_blank">'. a($productSettingSaved, 'free_button_title'). '</a>';
         }
       }

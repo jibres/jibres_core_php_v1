@@ -341,6 +341,19 @@ class pwa_menu
 				],
 			];
 		}
+
+		if(\dash\data::pawContactUsShopBtn())
+		{
+			$myFooter =
+			[
+				'cart' =>
+				[
+					'href' => \dash\data::pawContactUsShopBtn_link(),
+					'title' => \dash\data::pawContactUsShopBtn_title(),
+					'class' => 'pwafooterAddToCart',
+				],
+			];
+		}
 		if(\dash\data::productInCart())
 		{
 			$myFooter =
