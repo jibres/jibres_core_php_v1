@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-31 13:49+0430\n"
-"PO-Revision-Date: 2021-07-31 13:57+0430\n"
+"POT-Creation-Date: 2021-07-31 17:05+0430\n"
+"PO-Revision-Date: 2021-07-31 17:06+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -73,7 +73,7 @@ msgstr "درباره جیبرس"
 #: content/story/view.php:12 content/team/view.php:15 content/terms/view.php:15
 #: content/whois/view.php:13 content_business/app/view.php:23
 #: content_business/p/home/view.php:17 content_enter/home/view.php:35
-#: content_love/subscribe/view.php:13 dash/layout/pwa/pwa_menu.php:280
+#: content_love/subscribe/view.php:13 dash/layout/pwa/pwa_menu.php:292
 #: includes/languages/trans_static_public.php:70
 msgid "Home"
 msgstr "صفحه نخست"
@@ -2109,7 +2109,8 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 #: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
 #: content_a/cart/add/display.php:131 content_a/order/summary.php:38
-#: content_business/cart/cartSummary.php:29 content_business/p/home/blocks/detail.php:66
+#: content_a/products/edit/block/price.php:86 content_business/cart/cartSummary.php:29
+#: content_business/p/home/blocks/detail.php:66
 msgid "Free"
 msgstr "رایگان"
 
@@ -2643,12 +2644,12 @@ msgid "Why Free?"
 msgstr "چرا رایگان؟"
 
 #: content/home/layout/header.php:21 dash/layout/admin/admin-header.php:19
-#: dash/layout/admin/admin-sidebar-frame.php:47 dash/layout/pwa/pwa_menu.php:122
+#: dash/layout/admin/admin-sidebar-frame.php:47 dash/layout/pwa/pwa_menu.php:134
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
 #: content/home/layout/header.php:27 content_a/home/view.php:17 content_my/home/view.php:9
-#: dash/layout/pwa/pwa_menu.php:103 dash/panel.php:33
+#: dash/layout/pwa/pwa_menu.php:115 dash/panel.php:33
 msgid "Control Center"
 msgstr "مرکز کنترل"
 
@@ -2726,7 +2727,7 @@ msgstr "هزار تومان"
 #: content_my/business/home/view.php:12 content_my/domain/home/view.php:13
 #: content_site/home/view.php:14 dash/layout/admin/sidebar/sidebar-a.php:4
 #: dash/layout/admin/sidebar/sidebar-domain.php:4
-#: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:178
+#: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:190
 #: includes/languages/trans_static_public.php:89 lib/app/quickaccess/setting.php:463
 #: lib/app/quickaccess/setting.php:478 lib/app/quickaccess/setting.php:677
 msgid "Dashboard"
@@ -5070,7 +5071,7 @@ msgstr "ویرایش"
 #: content_a/website/specialslider/setting/display.php:39
 #: content_a/website/subscribe/display.php:13 content_a/website/text/display.php:14
 #: content_a/website/titleline/display.php:25 content_account/api/display.php:16
-#: content_business/p/home/blocks/detail.php:167 content_cms/comments/view/display.php:143
+#: content_business/p/home/blocks/detail.php:168 content_cms/comments/view/display.php:143
 #: content_crm/member/permission/display.php:59
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
@@ -6385,7 +6386,7 @@ msgid "Remain"
 msgstr "مانده"
 
 #: content_a/accounting/report/quarter/display-detail.php:9
-#: dash/layout/pwa/pwa_menu.php:387 includes/languages/trans_static.php:36
+#: dash/layout/pwa/pwa_menu.php:399 includes/languages/trans_static.php:36
 #: includes/languages/trans_static.php:516 lib/app/factor/ready.php:80
 #: lib/app/tax/doc/template.php:235
 msgid "Buy"
@@ -7602,7 +7603,7 @@ msgstr "کاربر مهمان سبد خرید اضافه کرده"
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
 #: content_a/home/display.php:82 content_business/home/layout/header/header_100.php:23
 #: content_crm/member/glance/display.php:324 content_site/header/h1/layout.php:57
-#: dash/layout/pwa/pwa_menu.php:292 lib/app/store/analytics.php:84
+#: dash/layout/pwa/pwa_menu.php:304 lib/app/store/analytics.php:84
 #: lib/pagebuilder/header/h100/website.php:23
 msgid "Cart"
 msgstr "سبد خرید"
@@ -7716,7 +7717,7 @@ msgstr "شماره سریال"
 
 #: content_a/chap/size-a4/a4-1.php:49 content_a/chap/size-receipt/receipt.php:103
 #: content_a/order/home/display.php:58 content_business/orders/display.php:17
-#: content_business/p/home/blocks/detail.php:189
+#: content_business/p/home/blocks/detail.php:190
 msgid "Qty"
 msgstr "تعداد"
 
@@ -7738,7 +7739,7 @@ msgstr "مبلغ کل پس از تخفیف"
 msgid "Total VAT"
 msgstr "جمع مالیات و عوارض"
 
-#: content_a/chap/size-a4/a4-1.php:56 content_a/products/edit/block/price.php:81
+#: content_a/chap/size-a4/a4-1.php:56 content_a/products/edit/block/price.php:82
 msgid "Final Price"
 msgstr "قیمت نهایی"
 
@@ -8564,7 +8565,7 @@ msgstr "مرتب‌سازی آیتم‌ها"
 #: content_a/form/itemLink.php:16 content_a/form/tag/add/view.php:10
 #: content_a/form/tag/edit/view.php:17 content_a/tag/add/view.php:10
 #: content_a/tag/edit/view.php:13 content_a/tag/sort/view.php:10
-#: content_business/tag/display-one-tag.php:4 dash/layout/pwa/pwa_menu.php:286
+#: content_business/tag/display-one-tag.php:4 dash/layout/pwa/pwa_menu.php:298
 #: includes/languages/trans_static_public.php:975 lib/app/quickaccess/tags.php:30
 msgid "Tags"
 msgstr "تگ‌ها"
@@ -9619,7 +9620,7 @@ msgstr "جمع تخفیف‌ها"
 
 #: content_a/order/view.php:9 content_a/setting/home/display.php:67
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
-#: dash/layout/pwa/pwa_menu.php:190 dash/panel.php:221 dash/plan_list.php:52
+#: dash/layout/pwa/pwa_menu.php:202 dash/panel.php:221 dash/plan_list.php:52
 #: lib/app/quickaccess/factors.php:30
 msgid "Orders"
 msgstr "سفارشات"
@@ -9783,7 +9784,7 @@ msgstr "افزودن صفحه جدید"
 #: content_love/store/display.php:27 content_love/store/display.php:60
 #: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
 #: content_my/domain/whoisdetail/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:21
-#: dash/layout/pwa/pwa_menu.php:203 lib/app/quickaccess/setting.php:49
+#: dash/layout/pwa/pwa_menu.php:215 lib/app/quickaccess/setting.php:49
 #: lib/app/quickaccess/setting.php:58 lib/app/quickaccess/setting.php:67
 #: lib/app/quickaccess/setting.php:76 lib/app/quickaccess/setting.php:94
 #: lib/app/quickaccess/setting.php:104 lib/app/quickaccess/setting.php:113
@@ -10301,6 +10302,10 @@ msgstr "قیمت فروش"
 #: content_a/products/edit/block/price.php:69
 msgid "Charge taxes"
 msgstr "شامل مالیات"
+
+#: content_a/products/edit/block/price.php:84
+msgid "Manage free product button"
+msgstr "تنظیمات محصولات رایگان"
 
 #: content_a/products/edit/block/seo.php:2 content_a/tag/edit/display.php:15
 msgid "Customize for SEO"
@@ -15115,7 +15120,7 @@ msgstr "شما می‌توانید با نام کاربری یا موبایل و
 #: content_account/my/profile/view.php:10
 #: content_business/home/layout/header/header_100.php:27
 #: content_business/profile/display-menu.php:4 content_site/header/h1/layout.php:65
-#: dash/layout/pwa/pwa_menu.php:128 dash/layout/pwa/pwa_menu.php:299
+#: dash/layout/pwa/pwa_menu.php:140 dash/layout/pwa/pwa_menu.php:311
 #: includes/languages/trans_static_public.php:98
 #: includes/languages/trans_static_public.php:381
 #: lib/pagebuilder/header/h100/website.php:27
@@ -15684,7 +15689,7 @@ msgstr "شما باید :val :currency دیگر به سبد خرید خود اض
 #: content_love/domain/setting/action/display.php:37 content_my/domain/stepGuide.php:65
 #: content_pay/home/display-donate.php:19 content_pay/home/display-transaction.php:18
 #: content_pay/home/display-transaction.php:144 content_pay/home/view.php:24
-#: content_pay/home/view.php:57 dash/layout/pwa/pwa_menu.php:417
+#: content_pay/home/view.php:57 dash/layout/pwa/pwa_menu.php:429
 #: dash/utility/pay/api/zarinpal/bank.php:29 lib/app/factor/filter.php:50
 #: lib/app/factor/filter.php:59
 msgid "Pay"
@@ -15912,16 +15917,16 @@ msgstr "قیمت مصرف کننده"
 msgid "You Save"
 msgstr "سود شما"
 
-#: content_business/p/home/blocks/detail.php:90
+#: content_business/p/home/blocks/detail.php:91
 msgid "To buy select variants"
 msgstr "برای خرید تنوع را انتخاب کنید"
 
-#: content_business/p/home/blocks/detail.php:199 dash/layout/pwa/pwa_menu.php:364
+#: content_business/p/home/blocks/detail.php:200 dash/layout/pwa/pwa_menu.php:376
 msgid "In cart"
 msgstr "در سبد خرید"
 
-#: content_business/p/home/blocks/detail.php:205
-#: dash/layout/admin/sidebar/sidebar-api-v2.php:104 dash/layout/pwa/pwa_menu.php:339
+#: content_business/p/home/blocks/detail.php:206
+#: dash/layout/admin/sidebar/sidebar-api-v2.php:104 dash/layout/pwa/pwa_menu.php:351
 msgid "Add to cart"
 msgstr "افزودن به سبد خرید"
 
@@ -17343,7 +17348,7 @@ msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
 #: content_crm/member/glance/display.php:378 content_crm/ticket/message/view.php:9
-#: content_love/gift/create/stepGuide.php:98 dash/layout/pwa/pwa_menu.php:109
+#: content_love/gift/create/stepGuide.php:98 dash/layout/pwa/pwa_menu.php:121
 msgid "Messages"
 msgstr "پیام‌ها"
 
@@ -19978,7 +19983,7 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 #: content_love/smslog/view/display.php:15 content_my/home/display_site.php:9
 #: content_su/dbversion/display.php:22 content_su/dbversion/display.php:35
 #: content_su/update/display.php:33 content_su/update/display.php:106
-#: dash/layout/pwa/pwa_menu.php:116 lib/app/business_domain/filter.php:69
+#: dash/layout/pwa/pwa_menu.php:128 lib/app/business_domain/filter.php:69
 #: lib/app/business_domain/filter.php:70
 #: lib/app/log/caller/business/business_createNew.php:19
 #: lib/app/log/caller/business/business_creatingNew.php:19
@@ -26625,7 +26630,7 @@ msgstr "کپی لینک کوتاه"
 msgid "ShortLink of this page is copied. Paste in anywhere!"
 msgstr "کد کوتاه این صفحه کپی شد. آن‌ را هر جا که خواستید قرار دهید!"
 
-#: dash/layout/pwa/pwa_menu.php:184 includes/languages/trans_static.php:329
+#: dash/layout/pwa/pwa_menu.php:196 includes/languages/trans_static.php:329
 #: includes/languages/trans_static.php:442 lib/app/quickaccess/setting.php:458
 #: lib/app/quickaccess/setting.php:472
 msgid "products"
@@ -28949,7 +28954,7 @@ msgstr "این آدرس یک کلمه کلیدی سیستم است و قابل �
 msgid "Only zip file is supported for this URL"
 msgstr "تنها آدرس فایل فشرده (zip) پشتیبانی می‌شود"
 
-#: dash/waf/ip.php:330
+#: dash/waf/ip.php:345
 msgid "You are blocked for :period until :time"
 msgstr "شما به مدت :period تا :time مسدود شده‌اید"
 
