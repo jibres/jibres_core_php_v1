@@ -63,6 +63,7 @@ class search
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
+
 		$query =
 		"
 			SELECT
@@ -76,6 +77,29 @@ class search
 			$q[order]
 		";
 		$result = \dash\db::get($query, null, true);
+
+		$_and[] = "tax_document.type = 'opening' ";
+
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+
+		$query =
+		"
+			SELECT
+				SUM(IFNULL(tax_docdetail.debtor, 0))  AS `debtor_opening`,
+				SUM(IFNULL(tax_docdetail.creditor, 0))  AS `creditor_opening`,
+				(SUM(IFNULL(tax_docdetail.debtor, 0)) - SUM(IFNULL(tax_docdetail.creditor, 0))) AS `balance_opening`
+			FROM tax_docdetail
+			INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id
+			$q[join]
+			$q[where]
+			$q[order]
+		";
+		$result_opening = \dash\db::get($query, null, true);
+
+		if(is_array($result_opening) && is_array($result))
+		{
+			$result = array_merge($result_opening, $result);
+		}
 
 		return $result;
 

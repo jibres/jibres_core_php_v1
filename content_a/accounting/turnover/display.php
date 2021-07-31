@@ -121,6 +121,15 @@
 	</div>
 </form>
 <section class="row">
+	<?php if(\dash\data::summaryDetail_openingvalue()) {?>
+	<div class="c">
+		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_openingvalue(); ?>'>
+			<h3><?php echo T_("Opening value");?></h3>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_openingvalue());?></div>
+		</a>
+	</div>
+	<?php } //endif ?>
+
 	<div class="c">
 		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_debtor(); ?>'>
 			<h3><?php echo T_("Sum Debtor");?></h3>
