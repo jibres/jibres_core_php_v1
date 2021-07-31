@@ -203,5 +203,74 @@ class stats_monthly
 			}
 		}
 	}
+
+
+
+	public static function chart_datecreated()
+	{
+		$result          = [];
+
+		$result['day']   = self::chart_datecreated_day();
+		$result['month'] = self::chart_datecreated_month();
+		$result['year']  = self::chart_datecreated_year();
+
+		return $result;
+	}
+
+
+
+
+	private static function chart_datecreated_day()
+	{
+		$chart = [];
+		$day   = \lib\db\store\get::all_store_group_by_datecreated();
+
+		if(!is_array($day))
+		{
+			$day = [];
+		}
+
+		$chart['categories'] = json_encode(array_column($day, 'myDate'));
+		$chart['data']       = json_encode(array_map('intval', array_column($day, 'count')));
+
+		return $chart;
+	}
+
+
+	private static function chart_datecreated_month()
+	{
+		$chart = [];
+		$month = \lib\db\store\get::count_group_by_month();
+
+		if(!is_array($month))
+		{
+			$month = [];
+		}
+
+		$chart['categories'] = json_encode(array_column($month, 'year_month'));
+		$chart['data']       = json_encode(array_map('intval', array_column($month, 'count')));
+
+
+		return $chart;
+	}
+
+
+	private static function chart_datecreated_year()
+	{
+		$chart = [];
+		$year  = \lib\db\store\get::count_group_by_year();
+
+		if(!is_array($year))
+		{
+			$year = [];
+		}
+
+		$chart['categories'] = json_encode(array_column($year, 'year'));
+		$chart['data']       = json_encode(array_map('intval', array_column($year, 'count')));
+
+
+
+		return $chart;
+	}
 }
 ?>

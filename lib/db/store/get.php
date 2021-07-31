@@ -24,6 +24,45 @@ class get
 	}
 
 
+	public static function count_group_by_year()
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				YEAR(store.datecreated) AS `year`
+			FROM
+				store
+			GROUP by
+				`year`
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+
+	public static function all_store_group_by_datecreated()
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				DATE(store.datecreated) AS `myDate`
+			FROM
+				store
+			GROUP by
+				`myDate`
+			ORDER BY myDate ASC
+		";
+
+		$result = \dash\db::get($query, null, false, 'master');
+
+		return $result;
+	}
+
+
 	public static function reserved_business()
 	{
 		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE";
