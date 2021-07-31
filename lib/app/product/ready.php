@@ -42,7 +42,6 @@ class ready
 			return null;
 		}
 
-
 		$currency = \lib\currency::name(\lib\store::detail('currency'));
 
 
@@ -297,11 +296,22 @@ class ready
 			}
 		}
 
+
 		$result['category_list'] = [];
 
-		if($_option['check_allow_shop'])
+		// set null on return final price to show contact us button
+		if(is_null(a($result, 'price')) && is_null(a($result, 'discount')) && floatval(a($result, 'finalprice')) === floatval(0))
 		{
-			self::allow_shop($result);
+			$result['finalprice']      = null;
+			$result['vatprice']        = null;
+			$result['discountpercent'] = null;
+		}
+		else // if have not proce can not shop this product
+		{
+			if($_option['check_allow_shop'])
+			{
+				self::allow_shop($result);
+			}
 		}
 
 		if($_option['check_cart_limit'])

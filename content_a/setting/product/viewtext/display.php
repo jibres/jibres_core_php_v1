@@ -10,14 +10,14 @@
         <label for="view_text"><?php echo T_("Text"); ?></label>
         <textarea name="view_text" id="view_text" class="txt mB10" rows="5"><?php echo \dash\data::productSettingSaved_view_text(); ?></textarea>
 
-        <label for="button_text"><?php echo T_("Button title"); ?></label>
+        <label for="button_title"><?php echo T_("Button title"); ?></label>
         <div class="input">
-          <input type="text" name="button_title" value="<?php echo \dash\data::productSettingSaved_button_title() ?>">
+          <input type="text" name="button_title" id="button_title" value="<?php echo \dash\data::productSettingSaved_button_title() ?>">
         </div>
 
-        <label for="button_text"><?php echo T_("Button link"); ?></label>
+        <label for="button_link"><?php echo T_("Button link"); ?></label>
         <div class="input">
-          <input type="url" name="button_link" value="<?php echo \dash\data::productSettingSaved_button_link() ?>">
+          <input type="url" name="button_link" id="button_link" value="<?php echo \dash\data::productSettingSaved_button_link() ?>">
         </div>
       </div>
 

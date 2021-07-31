@@ -90,6 +90,24 @@
 
 
 
+<section class="f" data-option='product-free' id="setting-product-free">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Free product setting") ?></h3>
+      <div class="body">
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="c4 s12">
+    <div class="action">
+      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/free"><?php echo T_("Set") ?></a>
+    </div>
+  </div>
+</section>
+
+
+
 
 
 <section class="f" data-option='product-setting-default-comment' id="setting-product-comment">

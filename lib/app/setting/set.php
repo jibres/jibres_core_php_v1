@@ -47,6 +47,8 @@ class set
 			'product_suggestion' => 'bit',
 			'button_title'       => 'string_100',
 			'button_link'        => 'url',
+			'free_button_title'  => 'string_50',
+			'free_button_link'   => 'url',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);

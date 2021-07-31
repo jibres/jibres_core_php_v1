@@ -54,7 +54,7 @@ if(\dash\data::propertyList())
 
 			            if(a($value, 'unit'))
 			            {
-			            	$html .= '<small class="fc-mute">'. a($value, 'unit'). '</small>';
+			            	$html .= '<small class="fc-mute"> '. a($value, 'unit'). '</small>';
 			            }
 
 			            if(a($value, 'bold'))

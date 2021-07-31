@@ -1,4 +1,5 @@
 <?php
+$productSettingSaved = \dash\data::productSettingSaved();
 
 $html .= '<h1>'. \dash\data::dataRow_title().'</h1>';
 if(\dash\data::dataRow_title2())
@@ -59,6 +60,17 @@ $html .= '<div class="row align-center">';
           $html .= '<span class="unit">'. \lib\store::currency().'</span>';
         }
         $html .= '</div>';
+      }
+      elseif((string) \dash\data::dataRow_finalprice() === '0')
+      {
+        $html .= '<span class="txtB fc-green">'. T_("Free"). '</span>';
+      }
+      elseif(is_null(\dash\data::dataRow_finalprice()))
+      {
+        if(a($productSettingSaved, 'free_button_title') && a($productSettingSaved, 'free_button_link'))
+        {
+          $html .= '<a class="btnBuy" href="'. a($productSettingSaved, 'free_button_link'). '" target="_blank">'. a($productSettingSaved, 'free_button_title'). '</a>';
+        }
       }
     }
     $html .= '</div>';
