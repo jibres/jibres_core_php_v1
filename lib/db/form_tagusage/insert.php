@@ -15,7 +15,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `form_tagusage` SET $set ";
+			$query = " INSERT IGNORE INTO `form_tagusage` SET $set ";
 			if(\dash\db::query($query))
 			{
 				$id = \dash\db::insert_id();
