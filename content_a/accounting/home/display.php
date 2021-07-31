@@ -69,8 +69,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
         </li>
       </ul>
     </nav>
-    <p class="mB5-f font-14"><?php echo T_("Legal offices") ?></p>
-    <nav class="items long mB10-f">
+    <nav class="items long">
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report/journal'; ?>">
@@ -110,6 +109,13 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 
     <nav class="items long">
       <ul>
+        <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/vatreport'; ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
+            <div class="key"><?php echo T_("Vat report") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report/quarter?type=costasset'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
@@ -314,14 +320,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 
     <nav class="items long">
       <ul>
-        <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/report/vatreport'; ?>">
-            <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
-            <div class="key"><?php echo T_("Vat report") ?></div>
-            <div class="go"></div>
-          </a>
-        </li>
-
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Report', 'minor'); ?>">
