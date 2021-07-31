@@ -230,7 +230,7 @@ class stats_monthly
 			$day = [];
 		}
 
-		$chart['categories'] = json_encode(array_column($day, 'myDate'));
+		$chart['categories'] = json_encode(array_map(['\\dash\\fit', 'date'], array_column($day, 'myDate')));
 		$chart['data']       = json_encode(array_map('intval', array_column($day, 'count')));
 
 		return $chart;
