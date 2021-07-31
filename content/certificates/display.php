@@ -40,10 +40,12 @@ if(\dash\language::current() === 'fa')
     <div class="c9 s12"><p>نماد اعتماد الکترونیکی که توسط مرکز توسعه تجارت الکترونیکی در وزارت صنعت، معدن و تجارت صادر می‌شود از تاریخ ۱۸ اسفندماه ۱۳۹۷ توسط جیبرس اخذ شده است تا علاوه‌بر مجوز فعالیت، منجر به افزایش اعتماد مخاطبان جیبرس برای پرداخت‌های اینترنتی گردد.</p></div>
    </div>
 
+   <?php if(false) {?>
    <div class="f align-center mB20">
     <div class="c3 s12 pRa10"><img id="samandehiCert" src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png" alt='جیبرس دارای نماد ساماندهی' data-open="https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe"></div>
     <div class="c9 s12"><p>صلاحیت فعالیت جیبرس از تاریخ ۹ آذرماه ۱۳۹۸ توسط مرکز فناوری اطلاعات و رسانه‌های دیجیتال وزارت فرهنگ و ارشاد اسلامی ایران احراز شده است. این مجوز فعالیت با کد شامد 1-2-709257-65-0-6 برای جیبرس به ثبت رسیده است و بدین ترتیب لوگوی طلایی رسانه برخط به جیبرس اعطا شده است.</p></div>
    </div>
+ <?php } //endif ?>
 
    <div class="f align-center mB20 fix">
     <div class="c3 s12 pRa10"><a tabindex='-1' target="_blank" rel='nofollow' href="<?php echo \dash\url::this(); ?>/irnic"><img src="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-irnic.png" alt='جیبرس نماینده رسمی ایرنیک'></a></div>

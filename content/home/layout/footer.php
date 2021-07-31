@@ -17,7 +17,10 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates' 
       <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo $kingdom ?>/certificates/enamad"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-enamad-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad.png  2x" alt='جیبرس دارای نماد اعتماد الکترونیکی'></a></div>
       <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo $kingdom ?>/certificates/nsr"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-nsr-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-nsr.png  2x" alt='جیبرس عضو رسمی سازمان نظام صنفی رایانه'></a></div>
       <div class="c3 s6 ph4"><a tabindex='-1' href="<?php echo $kingdom ?>/brand"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-brand-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png  2x" alt='جیبرس برند ثبت شده'></a></div>
+
+      <?php if(false) {?>
       <div class="c3 s6 ph4"><a tabindex='-1'><img id="samandehiCert" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-samandehi-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-samandehi.png  2x" alt='جیبرس دارای نماد ساماندهی' data-open="https://logo.samandehi.ir/Verify.aspx?id=162977&p=rfthgvkauiwkpfvljyoejyoe"></a></div>
+      <?php } //endif ?>
       <div class="c3 s6 ph4"><a tabindex='-1'><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-chambertrust-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-chambertrust.png  2x" alt='جیبرس عضو اتاق بازرگانی ایران'></a></div>
     </div>
   </div>
