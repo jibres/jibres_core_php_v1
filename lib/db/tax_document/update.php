@@ -34,6 +34,7 @@ class update
 				tax_document.year_id = $_year_id
 			ORDER BY
 				tax_document.date ASC,
+				ISNULL(tax_document.subnumber),
 				tax_document.subnumber ASC,
 				tax_document.id ASC
 		";
