@@ -42,12 +42,6 @@ class pwa_menu
 
 	public static function businessWebsiteMenu()
 	{
-		if(\dash\data::nosale())
-		{
-			return null;
-		}
-
-
 		switch (\dash\data::website_template())
 		{
 			case 'comingsoon':
@@ -66,10 +60,22 @@ class pwa_menu
 						break;
 
 					case 'cart':
+						// disable menu if nosale is active
+						if(\dash\data::nosale())
+						{
+							return null;
+						}
+
 						return self::businessCartPage();
 						break;
 
 					case 'shipping':
+						// disable menu if nosale is active
+						if(\dash\data::nosale())
+						{
+							return null;
+						}
+
 						return self::businessShippingPage();
 						break;
 
@@ -80,6 +86,12 @@ class pwa_menu
 
 					default:
 					case null:
+						// disable menu if nosale is active
+						if(\dash\data::nosale())
+						{
+							return null;
+						}
+
 						return self::businessWebsite();
 						break;
 

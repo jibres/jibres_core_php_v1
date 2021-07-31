@@ -78,9 +78,17 @@
         <div>
           <div class="msg mT10 mB0 minimal">
             <div class="f align-center">
-              <div class="cauto"><?php echo T_("Final Price"); ?></div>
-              <div class="c ltr txtRa pLR5 fs16" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
-              <div class="cauto" id="moneyUnit"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
+                <div class="cauto">
+                  <?php echo T_("Final Price"); ?>
+                    <?php if(is_null(a($productDataRow,'finalprice'))) {?>
+                      <a class="link txtL" href="<?php echo \dash\url::here(). '/setting/product/free'; ?>"><?php echo T_("Manage free product button") ?></a>
+                    <?php }elseif((string) a($productDataRow,'finalprice') === '0') {?>
+                      <span class="fc-green txtB"><?php echo T_("Free") ?></span>
+                    <?php }else{ ?>
+                    <?php } //endif ?>
+                  </div>
+                <div class="c ltr txtRa pLR5 fs16" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
+                <div class="cauto" id="moneyUnit"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
           <?php if(\dash\language::current() === 'fa') {?>
