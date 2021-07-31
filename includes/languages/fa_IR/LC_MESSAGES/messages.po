@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-30 14:10+0430\n"
-"PO-Revision-Date: 2021-07-30 14:11+0430\n"
+"POT-Creation-Date: 2021-07-31 08:11+0430\n"
+"PO-Revision-Date: 2021-07-31 08:11+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -823,8 +823,8 @@ msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 msgid "Read more"
 msgstr "بیشتر بخوانید"
 
-#: content/changelog/display.php:54 content_a/accounting/doc/add/display-doc.php:12
-#: content_a/accounting/doc/add/display-doc.php:68 content_a/accounting/doc/display.php:13
+#: content/changelog/display.php:54 content_a/accounting/doc/add/display-doc.php:13
+#: content_a/accounting/doc/add/display-doc.php:69 content_a/accounting/doc/display.php:13
 #: content_a/accounting/doc/duplicate/display.php:7
 #: content_a/accounting/doc/printall/display.php:35
 #: content_a/accounting/factor/add/display.php:58
@@ -3984,8 +3984,8 @@ msgstr "وزن"
 #: content_a/accounting/coding/add/display-add.php:30
 #: content_a/accounting/coding/add/display-add.php:39
 #: content_a/accounting/coding/add/display-add.php:71
-#: content_a/accounting/doc/add/display-doc.php:55
-#: content_a/accounting/doc/add/display-doc.php:68
+#: content_a/accounting/doc/add/display-doc.php:56
+#: content_a/accounting/doc/add/display-doc.php:69
 #: content_a/accounting/doc/add/display-docdetail.php:11
 #: content_a/accounting/doc/add/display-docdetail.php:95
 #: content_a/accounting/doc/duplicate/display.php:7 content_a/android/title/display.php:8
@@ -4073,9 +4073,9 @@ msgid "9%"
 msgstr "۹٪"
 
 #: content/shipping/irpost/display-calculate.php:138
-#: content_a/accounting/doc/add/display-list.php:77
-#: content_a/accounting/doc/add/display-list.php:95
-#: content_a/accounting/doc/add/display-list.php:97
+#: content_a/accounting/doc/add/display-list.php:78
+#: content_a/accounting/doc/add/display-list.php:96
+#: content_a/accounting/doc/add/display-list.php:98
 #: content_a/accounting/factor/add/display.php:227
 #: content_a/accounting/factor/display.php:51
 #: content_a/accounting/report/assistant/display-old.php:68
@@ -4833,8 +4833,8 @@ msgstr "نوع بالانس"
 
 #: content_a/accounting/coding/add/display-add.php:46
 #: content_a/accounting/doc/add/display-docdetail.php:85
-#: content_a/accounting/doc/add/display-list.php:23
-#: content_a/accounting/doc/add/display-list.php:95
+#: content_a/accounting/doc/add/display-list.php:24
+#: content_a/accounting/doc/add/display-list.php:96
 #: content_a/accounting/report/journal/display.php:23
 #: content_a/accounting/report/ledger/display.php:22
 #: content_a/accounting/turnover/display.php:163
@@ -4845,8 +4845,8 @@ msgstr "بدهکار"
 
 #: content_a/accounting/coding/add/display-add.php:53
 #: content_a/accounting/doc/add/display-docdetail.php:91
-#: content_a/accounting/doc/add/display-list.php:24
-#: content_a/accounting/doc/add/display-list.php:97
+#: content_a/accounting/doc/add/display-list.php:25
+#: content_a/accounting/doc/add/display-list.php:98
 #: content_a/accounting/report/journal/display.php:24
 #: content_a/accounting/report/ledger/display.php:23
 #: content_a/accounting/turnover/display.php:164
@@ -4863,7 +4863,7 @@ msgstr "بدهکار - بستانکار"
 msgid "Nature"
 msgstr "ماهیت"
 
-#: content_a/accounting/coding/add/display-add.php:78 content_a/accounting/filter.php:100
+#: content_a/accounting/coding/add/display-add.php:78 content_a/accounting/filter.php:109
 #: includes/languages/trans_static.php:675
 msgid "Balance sheet"
 msgstr "ترازنامه‌ای"
@@ -4941,8 +4941,8 @@ msgstr "غیرفعال"
 
 #: content_a/accounting/coding/add/display-add.php:140
 #: content_a/accounting/coding/display.php:138
-#: content_a/accounting/doc/add/display-list.php:105
-#: content_a/accounting/doc/add/display-list.php:107
+#: content_a/accounting/doc/add/display-list.php:106
+#: content_a/accounting/doc/add/display-list.php:108
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:159 content_a/android/apk/display.php:32
 #: content_a/form/answer/export/display.php:42 content_a/form/itemLink.php:14
@@ -4982,7 +4982,7 @@ msgid "Status"
 msgstr "وضعیت"
 
 #: content_a/accounting/coding/add/display-add.php:146
-#: content_a/accounting/doc/add/display-doc.php:93
+#: content_a/accounting/doc/add/display-doc.php:100
 #: content_a/accounting/doc/add/display-docdetail.php:111
 #: content_a/accounting/year/add/display.php:40 content_a/cart/add/display.php:54
 #: content_a/form/analytics/addfilter/display.php:11
@@ -5016,9 +5016,9 @@ msgstr "افزودن"
 #: content_a/accounting/coding/display-list.php:112
 #: content_a/accounting/coding/display-list.php:124
 #: content_a/accounting/coding/display.php:175
-#: content_a/accounting/doc/add/display-doc.php:87
+#: content_a/accounting/doc/add/display-doc.php:93
 #: content_a/accounting/doc/add/display-docdetail.php:109
-#: content_a/accounting/doc/add/display-list.php:62
+#: content_a/accounting/doc/add/display-list.php:63
 #: content_a/accounting/year/add/display.php:34
 #: content_a/accounting/year/manage/display.php:14
 #: content_a/form/item/choice/display.php:11 content_a/order/detail/display.php:39
@@ -5049,7 +5049,7 @@ msgid "Edit"
 msgstr "ویرایش"
 
 #: content_a/accounting/coding/add/display-add.php:148
-#: content_a/accounting/doc/add/display-doc.php:84
+#: content_a/accounting/doc/add/display-doc.php:90
 #: content_a/accounting/year/add/display.php:30
 #: content_a/form/analytics/filter/display.php:34
 #: content_a/form/item/choice/display.php:32 content_a/pagebuilder/manage/display.php:172
@@ -5434,23 +5434,23 @@ msgid "Reset Accounting document number"
 msgstr "تنظیم مجدد شماره‌های سند حسابداری"
 
 #: content_a/accounting/config/resetnumber/display.php:14
-#: content_a/accounting/doc/add/display-doc.php:38
-#: content_a/accounting/factor/add/display.php:48 content_a/accounting/filter.php:36
+#: content_a/accounting/doc/add/display-doc.php:39
+#: content_a/accounting/factor/add/display.php:48 content_a/accounting/filter.php:45
 #: content_a/accounting/filter_only_year.php:7
 #: content_a/accounting/turnover/display.php:13
 msgid "Accounting year"
 msgstr "سال مالی"
 
 #: content_a/accounting/config/resetnumber/display.php:16
-#: content_a/accounting/doc/add/display-doc.php:40
-#: content_a/accounting/factor/add/display.php:50 content_a/accounting/filter.php:38
+#: content_a/accounting/doc/add/display-doc.php:41
+#: content_a/accounting/factor/add/display.php:50 content_a/accounting/filter.php:47
 #: content_a/accounting/filter_only_year.php:9
 #: content_a/accounting/turnover/display.php:15
 msgid "Please choose year"
 msgstr "لطفا سال مالی را انتخاب کنید"
 
 #: content_a/accounting/config/resetnumber/display.php:22
-#: content_a/accounting/doc/add/display-doc.php:46
+#: content_a/accounting/doc/add/display-doc.php:47
 msgid "Add new accounting year"
 msgstr "افزودن سال مالی جدید"
 
@@ -5477,36 +5477,40 @@ msgstr "پیکربندی حسابداری ابری"
 msgid "Cloud Accounting"
 msgstr "حسابداری ابری"
 
-#: content_a/accounting/doc/add/display-doc.php:14
-#: content_a/accounting/doc/add/display-doc.php:74
+#: content_a/accounting/doc/add/display-doc.php:15
+#: content_a/accounting/doc/add/display-doc.php:75
 #: content_a/accounting/doc/printall/display.php:37
 msgid "Document Description"
 msgstr "توضیح سند"
 
-#: content_a/accounting/doc/add/display-doc.php:25
+#: content_a/accounting/doc/add/display-doc.php:26
 msgid "You already add Opening Document in this year!"
 msgstr "شما قبلا سند افتتاحیه در این سال ثبت کرده‌اید!"
 
-#: content_a/accounting/doc/add/display-doc.php:25
+#: content_a/accounting/doc/add/display-doc.php:26
 msgid "View Document"
 msgstr "نمایش سند"
 
-#: content_a/accounting/doc/add/display-doc.php:27 content_a/accounting/doc/display.php:30
+#: content_a/accounting/doc/add/display-doc.php:28 content_a/accounting/doc/display.php:30
 #: content_a/accounting/doc/edit/view.php:13
 #: content_a/accounting/doc/printall/display.php:20
 #: content_a/accounting/factor/display.php:68
 msgid "Opening Document"
 msgstr "سند افتتاحیه"
 
-#: content_a/accounting/doc/add/display-doc.php:55
+#: content_a/accounting/doc/add/display-doc.php:56
 msgid "Document Number"
 msgstr "شماره سند"
 
-#: content_a/accounting/doc/add/display-doc.php:61
+#: content_a/accounting/doc/add/display-doc.php:62
 msgid "Sub-Number"
 msgstr "شماره فرعی"
 
-#: content_a/accounting/doc/add/display-doc.php:104
+#: content_a/accounting/doc/add/display-doc.php:86
+msgid "Restore"
+msgstr "بازگردادن"
+
+#: content_a/accounting/doc/add/display-doc.php:111
 msgid "Open factor page"
 msgstr "نمایش صفحه فاکتور"
 
@@ -5549,41 +5553,41 @@ msgstr "قیمت مالیات بر ارزش افزوده"
 msgid "Tax price"
 msgstr "عوارض"
 
-#: content_a/accounting/doc/add/display-list.php:19
+#: content_a/accounting/doc/add/display-list.php:20
 #: content_a/accounting/year/manage/display.php:85
 #: content_a/accounting/year/manage/display.php:163
 msgid "Assistant"
 msgstr "معین"
 
-#: content_a/accounting/doc/add/display-list.php:19
+#: content_a/accounting/doc/add/display-list.php:20
 msgid "Document Detail"
 msgstr "تفصیل سند"
 
-#: content_a/accounting/doc/add/display-list.php:21
+#: content_a/accounting/doc/add/display-list.php:22
 #: content_a/accounting/report/journal/display.php:21
 #: content_a/accounting/report/ledger/display.php:21 content_a/chap/size-a4/a4-1.php:48
 msgid "Explanation"
 msgstr "شرح"
 
-#: content_a/accounting/doc/add/display-list.php:44
+#: content_a/accounting/doc/add/display-list.php:45
 #: content_a/accounting/factor/add/display.php:348
 #: content_a/accounting/home/display.php:223 content_a/accounting/turnover/view.php:9
 msgid "Turnover"
 msgstr "گردش حساب"
 
-#: content_a/accounting/doc/add/display-list.php:60
+#: content_a/accounting/doc/add/display-list.php:61
 msgid "Editing"
 msgstr "در حال ویرایش"
 
-#: content_a/accounting/doc/add/display-list.php:83
+#: content_a/accounting/doc/add/display-list.php:84
 msgid "Diff"
 msgstr "تفاوت"
 
-#: content_a/accounting/doc/add/display-list.php:105
+#: content_a/accounting/doc/add/display-list.php:106
 msgid "Document balance"
 msgstr "سند در تعادل است"
 
-#: content_a/accounting/doc/add/display-list.php:107
+#: content_a/accounting/doc/add/display-list.php:108
 msgid "Accounting document is not balance!"
 msgstr "سند در تعادل نیست!"
 
@@ -5652,10 +5656,10 @@ msgstr "سند حسابداری شماره"
 msgid "Closing Document"
 msgstr "سند اختتامیه"
 
-#: content_a/accounting/doc/edit/view.php:34 content_a/setting/product/display.php:110
-#: content_su/update/display.php:14 includes/languages/trans_static.php:605
-#: lib/app/domains/filter.php:53 lib/app/domains/filter.php:54
-#: lib/app/domains/filter.php:55
+#: content_a/accounting/doc/edit/view.php:34 content_a/accounting/filter.php:24
+#: content_a/setting/product/display.php:110 content_su/update/display.php:14
+#: includes/languages/trans_static.php:605 lib/app/domains/filter.php:53
+#: lib/app/domains/filter.php:54 lib/app/domains/filter.php:55
 msgid "Lock"
 msgstr "قفل"
 
@@ -5908,59 +5912,88 @@ msgstr "لیست تمامی فاکتور‌های :val"
 msgid "Choose month"
 msgstr "لطفا ماه را انتخاب کنید"
 
-#: content_a/accounting/filter.php:23
+#: content_a/accounting/filter.php:22
+msgid "Choose status"
+msgstr "انتخاب وضعیت"
+
+#: content_a/accounting/filter.php:23 content_a/form/status/display.php:17
+#: content_a/order/status/display.php:42 content_a/pagebuilder/manage/display.php:94
+#: content_a/products/edit/block/sidebar-menu.php:10 content_cms/home/display.php:10
+#: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
+#: dash/app/posts/ready.php:101 includes/languages/trans_static.php:523
+#: lib/app/factor/action.php:61 lib/app/factor/ready.php:112 lib/app/gift/filter.php:45
+#: lib/app/tax/doc/ready.php:40 lib/app/tax/docdetail/ready.php:26
+msgid "Draft"
+msgstr "پیش‌نویس"
+
+#: content_a/accounting/filter.php:25
+msgid "Temporary"
+msgstr "موقت"
+
+#: content_a/accounting/filter.php:26 content_a/products/advance/view.php:23
+#: content_a/products/child/view.php:23 content_a/products/edit/block/sidebar-menu.php:16
+#: content_cms/posts/advance/display.php:39
+#: content_love/business/domain/setting/display.php:127
+#: content_love/domain/setting/display.php:127 dash/app/ticket/filter.php:45
+#: includes/languages/trans_static.php:507 includes/languages/trans_static_public.php:1107
+#: lib/app/factor/action.php:73 lib/app/factor/ready.php:124 lib/app/product/load.php:132
+#: lib/app/store/filter.php:30
+msgid "Deleted"
+msgstr "حذف شده"
+
+#: content_a/accounting/filter.php:32
 msgid "Choose template"
 msgstr "انتخاب قالب"
 
-#: content_a/accounting/filter.php:47 content_a/accounting/turnover/display.php:25
+#: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
 #: content_a/accounting/year/display.php:9 content_a/form/answer/display.php:63
 #: content_a/order/home/filter.php:245 content_a/pricehistory/display.php:36
 msgid "Start date"
 msgstr "تاریخ شروع"
 
-#: content_a/accounting/filter.php:53 content_a/accounting/turnover/display.php:31
+#: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
 #: content_a/accounting/year/display.php:10 content_a/form/answer/display.php:64
 #: content_a/order/home/filter.php:251 content_a/pricehistory/display.php:37
 msgid "End date"
 msgstr "تاریخ پایان"
 
-#: content_a/accounting/filter.php:61
+#: content_a/accounting/filter.php:70
 msgid "Total larger than"
 msgstr "مجموع بزرگتر از"
 
-#: content_a/accounting/filter.php:67
+#: content_a/accounting/filter.php:76
 msgid "Total less than"
 msgstr "مجموع کوچکتر از"
 
-#: content_a/accounting/filter.php:76
+#: content_a/accounting/filter.php:85
 #: content_a/accounting/report/quarter/display-detail.php:8
 msgid "Report type"
 msgstr "نوع گزارش"
 
-#: content_a/accounting/filter.php:81
+#: content_a/accounting/filter.php:90
 msgid "2 column"
 msgstr "۲ ستونه"
 
-#: content_a/accounting/filter.php:87
+#: content_a/accounting/filter.php:96
 msgid "4 column"
 msgstr "۴ ستونه"
 
-#: content_a/accounting/filter.php:93
+#: content_a/accounting/filter.php:102
 msgid "6 column"
 msgstr "۶ ستونه"
 
-#: content_a/accounting/filter.php:111
+#: content_a/accounting/filter.php:120
 msgid "Reset document number?"
 msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 
-#: content_a/accounting/filter.php:115 content_a/accounting/filter_only_year.php:19
+#: content_a/accounting/filter.php:124 content_a/accounting/filter_only_year.php:19
 #: content_a/accounting/turnover/display.php:114
 #: content_a/website/footer/template/display.php:11
 #: content_a/website/header/template/display.php:11
 msgid "Clear filter"
 msgstr "پاک‌سازی فیلترها"
 
-#: content_a/accounting/filter.php:117 content_a/accounting/filter_only_year.php:21
+#: content_a/accounting/filter.php:126 content_a/accounting/filter_only_year.php:21
 #: content_a/accounting/turnover/display.php:116 content_a/order/home/filter.php:78
 #: content_my/domain/review/display.php:141
 msgid "Apply"
@@ -8671,16 +8704,6 @@ msgstr ""
 msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
-#: content_a/form/status/display.php:17 content_a/order/status/display.php:42
-#: content_a/pagebuilder/manage/display.php:94
-#: content_a/products/edit/block/sidebar-menu.php:10 content_cms/home/display.php:10
-#: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
-#: dash/app/posts/ready.php:101 includes/languages/trans_static.php:523
-#: lib/app/factor/action.php:61 lib/app/factor/ready.php:112 lib/app/gift/filter.php:45
-#: lib/app/tax/doc/ready.php:40 lib/app/tax/docdetail/ready.php:26
-msgid "Draft"
-msgstr "پیش‌نویس"
-
 #: content_a/form/status/display.php:18
 msgid "The form is draft"
 msgstr "فرم پیش‌نویس است"
@@ -10048,17 +10071,6 @@ msgstr "حداکثر تعداد در هر سفارش"
 #: content_a/products/advance/display.php:75 content_a/products/cartlimit/display.php:38
 msgid "Step quantity"
 msgstr "تعداد پرش"
-
-#: content_a/products/advance/view.php:23 content_a/products/child/view.php:23
-#: content_a/products/edit/block/sidebar-menu.php:16
-#: content_cms/posts/advance/display.php:39
-#: content_love/business/domain/setting/display.php:127
-#: content_love/domain/setting/display.php:127 dash/app/ticket/filter.php:45
-#: includes/languages/trans_static.php:507 includes/languages/trans_static_public.php:1107
-#: lib/app/factor/action.php:73 lib/app/factor/ready.php:124 lib/app/product/load.php:132
-#: lib/app/store/filter.php:30
-msgid "Deleted"
-msgstr "حذف شده"
 
 #: content_a/products/bullet/display.php:9
 msgid "Set product feacher bullet"
@@ -35811,7 +35823,7 @@ msgid "Can not remove running request"
 msgstr "نمی‌توانید درخواستی که در حال اجرا هست را حذف کنید"
 
 #: lib/app/export/remove.php:34 lib/app/factor/action.php:150
-#: lib/app/tax/coding/remove.php:36 lib/app/tax/doc/remove.php:29
+#: lib/app/tax/coding/remove.php:36 lib/app/tax/doc/remove.php:38
 #: lib/app/tax/docdetail/remove.php:39 lib/app/tax/year/remove.php:26
 msgid "Data removed"
 msgstr "اطلاعات با موفقیت حذف شد"
@@ -39706,22 +39718,9 @@ msgstr "دارایی + هزینه"
 msgid "Accounting factor"
 msgstr "فاکتور‌های حسابداری"
 
-#: lib/app/tax/doc/report/book_total.php:21 lib/app/tax/doc/report/book_total.php:39
 #: lib/app/tax/doc/report/journal.php:23
 msgid "For tax document"
 msgstr "به شرح سند حسابداری"
-
-#: lib/app/tax/doc/report/book_total.php:27
-msgid "End of page"
-msgstr "پایان صفحه"
-
-#: lib/app/tax/doc/report/book_total.php:31
-msgid "Start new page"
-msgstr "شروع صفحه جدید"
-
-#: lib/app/tax/doc/report/book_total.php:35
-msgid "For opening document"
-msgstr "به شرح سند حسابداری - افتتاحیه"
 
 #: lib/app/tax/doc/report/journal.php:31 lib/app/tax/doc/report/journal.php:69
 msgid "Quote to page :page"
@@ -41734,6 +41733,15 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "End of page"
+#~ msgstr "پایان صفحه"
+
+#~ msgid "Start new page"
+#~ msgstr "شروع صفحه جدید"
+
+#~ msgid "For opening document"
+#~ msgstr "به شرح سند حسابداری - افتتاحیه"
 
 #~ msgid "Total include vat"
 #~ msgstr "مجموع مبلغ مشمول مالیات"
