@@ -22,17 +22,18 @@ class search
 
 		$condition =
 		[
-			'order'      => 'order',
-			'sort'       => 'string_50',
-			'for'        => ['enum' => ['page','post','product', 'quote']],
-			'status'     => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
-			'post_id'    => 'code',
-			'user'    => 'code',
-			'product_id' => 'id',
-			'parent'     => 'id',
-			'limit'      => 'int',
-			'pagination' => 'y_n',
-			'get_count' => 'y_n',
+			'order'        => 'order',
+			'sort'         => 'string_50',
+			'for'          => ['enum' => ['page','post','product', 'quote']],
+			'status'       => ['enum' => ['approved','awaiting','unapproved','spam','deleted','filter']],
+			'post_id'      => 'code',
+			'user'         => 'code',
+			'product_id'   => 'id',
+			'parent'       => 'id',
+			'limit'        => 'int',
+			'pagination'   => 'y_n',
+			'get_count'    => 'y_n',
+			'website_mode' => 'bit',
 
 		];
 
@@ -100,6 +101,11 @@ class search
 			self::$is_filtered = true;
 		}
 
+		if($data['website_mode'])
+		{
+			$and[] = " comments.parent IS NULL ";
+		}
+
 
 		$query_string = \dash\validate::search($_query_string, false);
 
@@ -163,16 +169,59 @@ class search
 
 
 
-	public static function by_product($_id)
+	public static function for_website_by_product_id($_id)
 	{
 		$args =
 		[
-			'product_id' => $_id,
-			'status' => 'approved',
+			'product_id'   => $_id,
+			'status'       => 'approved',
+			'website_mode' => true,
+			'limit'        => 100,
 		];
 
 		$list = self::list(null, $args, true);
+
+		self::fill_answers($list);
+
 		return $list;
+	}
+
+
+	private static function fill_answers(&$list)
+	{
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$ids = array_column($list, 'id');
+		$ids = array_filter($ids);
+		$ids = array_unique($ids);
+		$ids = array_map('floatval', $ids);
+		if($ids)
+		{
+			$load_answer = \dash\db\comments\get::answer_list_by_ids(implode(',', $ids));
+
+			if(!is_array($load_answer))
+			{
+				$load_answer = [];
+			}
+
+			$list = array_combine(array_column($list, 'id'), $list);
+
+			foreach ($load_answer as $key => $value)
+			{
+				if(isset($value['parent']) && isset($list[$value['parent']]))
+				{
+					if(!isset($list[$value['parent']]['answers']))
+					{
+						$list[$value['parent']]['answers'] = [];
+					}
+
+					$list[$value['parent']]['answers'][] = \dash\app\comment\ready::row($value);
+				}
+			}
+		}
 	}
 
 
@@ -180,11 +229,16 @@ class search
 	{
 		$args =
 		[
-			'post_id' => $_id,
-			'status' => 'approved',
+			'post_id'      => $_id,
+			'status'       => 'approved',
+			'website_mode' => true,
+			'limit'        => 100,
 		];
 
 		$list = self::list(null, $args, true);
+
+		self::fill_answers($list);
+
 		return $list;
 	}
 

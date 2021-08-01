@@ -147,9 +147,17 @@ class get
 	}
 
 
+	public static function answer_list_by_ids($_ids)
+	{
+		$query  = "SELECT comments.*, users.displayname AS `user_displayname`, users.mobile AS `user_mobile`, users.avatar AS `avatar` FROM comments  LEFT JOIN users ON users.id = comments.user_id WHERE comments.parent IN ($_ids) ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	public static function answer_list($_parent)
 	{
-		$query  = "SELECT * FROM comments WHERE comments.parent = $_parent ORDER BY comments.id DESC LIMIT 100";
+		$query  = "SELECT comments.*, users.displayname AS `user_displayname`, users.mobile AS `user_mobile`, users.avatar AS `avatar` FROM comments  LEFT JOIN users ON users.id = comments.user_id WHERE comments.parent = $_parent ORDER BY comments.id DESC LIMIT 100";
 		$result = \dash\db::get($query);
 		return $result;
 	}

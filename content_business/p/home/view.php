@@ -21,7 +21,7 @@ class view
 		$customer_review = \dash\app\comment\get::product_customer_review($id);
 		\dash\data::customerReview($customer_review);
 
-		$commentList = \dash\app\comment\search::by_product(\dash\data::dataRow_id());
+		$commentList = \dash\app\comment\search::for_website_by_product_id(\dash\data::dataRow_id());
 		\dash\data::commentList($commentList);
 
 

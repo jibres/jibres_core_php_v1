@@ -63,11 +63,32 @@
             <div class="c-auto ltr txtRa"><?php echo \dash\fit::date_time($value['datecreated']); ?></div>
           </div>
           <p><?php echo $value['content']; ?></p>
+
         </div>
       </div>
+       <?php if(isset($value['answers']) && is_array($value['answers'])) {?>
+        <div class="mA10">
+
+            <?php foreach ($value['answers'] as $k => $v) {?>
+              <div class="row align-center">
+                <div class="c-auto c-xs-12">
+                  <img class="customerImg mT5-f" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
+                </div>
+                <div class="c c-xs-12">
+                  <div class="msg minimal row align-center">
+                    <div class="c"><?php echo a($v, 'displayname'); ?></div>
+                    <div class="c-auto ltr txtRa"><?php echo \dash\fit::date_time($v['datecreated']); ?></div>
+                  </div>
+                  <p><?php echo $v['content']; ?></p>
+                </div>
+              </div>
+            <?php } //endif ?>
+        </div>
+          <?php } // endif ?>
      </div>
 <?php   } // end for ?>
     </div>
+<?php \dash\utility\pagination::html(); ?>
 <?php } // end if ?>
   </div>
 </section>
