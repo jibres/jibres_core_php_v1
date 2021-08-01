@@ -17,8 +17,6 @@
   </div>
 <?php } //endfor ?>
 
-
-<?php \dash\utility\pagination::html(); ?>
 <nav class="items">
   <ul>
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
