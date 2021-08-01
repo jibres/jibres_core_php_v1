@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-01 11:58+0430\n"
-"PO-Revision-Date: 2021-08-01 12:00+0430\n"
+"POT-Creation-Date: 2021-08-01 16:34+0430\n"
+"PO-Revision-Date: 2021-08-01 16:35+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -710,7 +710,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/setting/fund/display.php:18 content_a/setting/fund/display.php:61
 #: content_a/setting/general/title/display.php:14 content_a/tag/edit/display.php:10
 #: content_a/tag/edit/display.php:11 content_developers/docs/004-responses.php:59
-#: content_love/domain/credit/display.php:31
+#: content_love/domain/credit/display.php:35
 #: content_love/gift/create/message/display.php:14
 #: content_love/gift/create/review/display.php:28 content_love/gift/edit/display.php:40
 #: content_love/gift/view/display.php:28 content_love/log/home/logTable.php:10
@@ -5534,7 +5534,7 @@ msgstr "تفصیل"
 #: content_crm/member/transactions/plus/display.php:27
 #: content_crm/transactions/edit/display.php:11
 #: content_crm/transactions/report/display.php:20
-#: content_love/domain/credit/display.php:30 content_pay/home/display-donate.php:13
+#: content_love/domain/credit/display.php:31 content_pay/home/display-donate.php:13
 msgid "Amount"
 msgstr "مقدار"
 
@@ -5842,7 +5842,7 @@ msgstr "جمع مبلغ مشمول مالیات"
 msgid "Total amount exempt from tax"
 msgstr "مبلغ کل معاف از مالیات"
 
-#: content_a/accounting/factor/add/view.php:9 content_a/accounting/factor/view.php:34
+#: content_a/accounting/factor/add/view.php:9
 msgid "Add new factor"
 msgstr "افزودن فاکتور جدید"
 
@@ -5907,8 +5907,12 @@ msgid "ID not found"
 msgstr "شناسه یافت نشد"
 
 #: content_a/accounting/factor/view.php:24
-msgid "Factors list :val"
-msgstr "لیست تمامی فاکتور‌های :val"
+msgid "Document list :val"
+msgstr "لیست اسناد مربوط به :val"
+
+#: content_a/accounting/factor/view.php:34
+msgid "Quick add"
+msgstr "افزودن سریع"
 
 #: content_a/accounting/filter.php:14
 msgid "Choose month"
@@ -15948,7 +15952,7 @@ msgid "Related products"
 msgstr "محصولات مرتبط"
 
 #: content_business/p/home/shareBox.php:2 content_cms/posts/share/view.php:20
-#: dash/layout/post/part.php:292 dash/layout/post/share-box.php:2
+#: dash/layout/post/part.php:295 dash/layout/post/share-box.php:2
 msgid "Share"
 msgstr "اشتراک‌گذاری"
 
@@ -20229,7 +20233,7 @@ msgstr "خریداران دامنه"
 msgid "Last amount"
 msgstr "آخرین مبلغ"
 
-#: content_love/domain/credit/display.php:50
+#: content_love/domain/credit/display.php:54
 msgid "No credit history founded"
 msgstr "تاریخچه دریافت اعتبار نیک خالی است"
 
@@ -24210,7 +24214,7 @@ msgstr "هیچ راهی برای افزودن اطلاعات وجود ندارد
 msgid "Your comment successfully added"
 msgstr "دیدگاه شما با موفقیت اضافه شد"
 
-#: dash/app/comment/add.php:210
+#: dash/app/comment/add.php:215
 msgid "You can not send comment on this page!"
 msgstr "شما نمی‌توانید در این صفحه دیدگاهی ارسال کنید!"
 
@@ -26599,55 +26603,55 @@ msgstr "جهت انتشار در شبکه‌های اجتماعی"
 msgid "Short Code"
 msgstr "کد کوتاه"
 
-#: dash/layout/post/layout-v1.php:65 dash/layout/post/part.php:409
+#: dash/layout/post/layout-v1.php:65 dash/layout/post/part.php:412
 msgid "Recommended for you"
 msgstr "توصیه شده برای شما"
 
-#: dash/layout/post/part.php:235
+#: dash/layout/post/part.php:238
 msgid "Download PDF"
 msgstr "دانلود پی‌دی‌اف"
 
-#: dash/layout/post/part.php:246
+#: dash/layout/post/part.php:249
 msgid "Download ZIP"
 msgstr "دانلود زیپ"
 
-#: dash/layout/post/part.php:257
+#: dash/layout/post/part.php:260
 msgid "Download File"
 msgstr "دانلود فایل"
 
-#: dash/layout/post/part.php:319
+#: dash/layout/post/part.php:322
 msgid "This post published at :val"
 msgstr "این نوشته در تاریخ :val منتشر شده است"
 
-#: dash/layout/post/part.php:341
+#: dash/layout/post/part.php:344
 msgid "We are estimate you can read this post within :val."
 msgstr "ما تخمین می‌زنیم که شما این نوشته را در :val بخوانید."
 
-#: dash/layout/post/part.php:342
+#: dash/layout/post/part.php:345
 msgid ":val read"
 msgstr "در :val بخوانید"
 
-#: dash/layout/post/part.php:355 dash/layout/post/part.php:358
+#: dash/layout/post/part.php:358 dash/layout/post/part.php:361
 msgid "Share of Facebook"
 msgstr "اشتراک‌گذاری در فیس‌بوک"
 
-#: dash/layout/post/part.php:363 dash/layout/post/part.php:366
+#: dash/layout/post/part.php:366 dash/layout/post/part.php:369
 msgid "Share of Twitter"
 msgstr "اشتراک‌گذاری در توییتر"
 
-#: dash/layout/post/part.php:371 dash/layout/post/part.php:374
+#: dash/layout/post/part.php:374 dash/layout/post/part.php:377
 msgid "Share of Linkedin"
 msgstr "اشتراک‌گذاری در لینکدین"
 
-#: dash/layout/post/part.php:379 dash/layout/post/part.php:382
+#: dash/layout/post/part.php:382 dash/layout/post/part.php:385
 msgid "Share of Telegram"
 msgstr "اشتراک‌گذاری در تلگرام"
 
-#: dash/layout/post/part.php:387 dash/layout/post/part.php:391
+#: dash/layout/post/part.php:390 dash/layout/post/part.php:394
 msgid "Copy Shortlink"
 msgstr "کپی لینک کوتاه"
 
-#: dash/layout/post/part.php:389
+#: dash/layout/post/part.php:392
 msgid "ShortLink of this page is copied. Paste in anywhere!"
 msgstr "کد کوتاه این صفحه کپی شد. آن‌ را هر جا که خواستید قرار دهید!"
 
@@ -38288,32 +38292,32 @@ msgstr "فردا"
 msgid "Today"
 msgstr "امروز"
 
-#: lib/app/product/ready.php:410
+#: lib/app/product/ready.php:413
 msgid "Product is not available for shop"
 msgstr "محصول برای فروش موجود نیست"
 
-#: lib/app/product/ready.php:419
+#: lib/app/product/ready.php:422
 msgid "Product is ready for shop"
 msgstr "محصول برای فروش آماده است"
 
-#: lib/app/product/ready.php:430 lib/app/product/ready.php:441
-#: lib/app/product/ready.php:447
+#: lib/app/product/ready.php:433 lib/app/product/ready.php:444
+#: lib/app/product/ready.php:450
 msgid "Buy now"
 msgstr "همین الان بخر"
 
-#: lib/app/product/ready.php:435
+#: lib/app/product/ready.php:438
 msgid "Temporary out of stock"
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است"
 
-#: lib/app/product/ready.php:458
+#: lib/app/product/ready.php:461
 msgid "Product was deleted"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/ready.php:462
+#: lib/app/product/ready.php:465
 msgid "Product is not available"
 msgstr "محصول موجود نیست"
 
-#: lib/app/product/ready.php:471
+#: lib/app/product/ready.php:474
 msgid "Please choose a variants of this product to buy"
 msgstr "لطفا یکی از انواع این محصول را برای خرید انتخاب کنید"
 
@@ -39403,7 +39407,7 @@ msgstr "بیزینس شما حذف شد"
 msgid "Store was enabled"
 msgstr "فروشگاه فعال شد"
 
-#: lib/app/store/search.php:175
+#: lib/app/store/search.php:180
 msgid "Field"
 msgstr "فیلد"
 
@@ -41784,6 +41788,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Factors list :val"
+#~ msgstr "لیست تمامی فاکتور‌های :val"
 
 #~ msgid "Legal offices"
 #~ msgstr "دفاتر قانونی"
@@ -48489,9 +48496,6 @@ msgstr "یارد"
 
 #~ msgid "We are waiting for you to come back:)"
 #~ msgstr "ما در انتظار بازگشت دوباره شما هستیم:)"
-
-#~ msgid "Quick send"
-#~ msgstr "ارسال سریع"
 
 #~ msgid "Invalid file size"
 #~ msgstr "حجم فایل نامعتبر است"
