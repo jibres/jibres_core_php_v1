@@ -388,6 +388,13 @@ if(a($dataRowMember,  'status') === 'ban')
           </a>
         </li>
 
+         <li>
+          <a class="item f" href="<?php echo \dash\url::kingdom(). '/cms/comments?user='. \dash\request::get('id') ?>">
+            <div class="key"><?php echo T_("Comments") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/sessions'. $myID;?>">
             <div class="key"><?php echo T_("Sessions") ?></div>
