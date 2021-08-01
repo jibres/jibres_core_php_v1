@@ -300,7 +300,10 @@ class ready
 		$result['category_list'] = [];
 
 		// set null on return final price to show contact us button
-		if(is_null(a($result, 'price')) && is_null(a($result, 'discount')) && floatval(a($result, 'finalprice')) === floatval(0))
+		if(
+			array_key_exists('price', $result) &&  is_null(a($result, 'price')) &&
+			array_key_exists('discount', $result) && is_null(a($result, 'discount')) &&
+			array_key_exists('finalprice', $result) &&  floatval(a($result, 'finalprice')) === floatval(0))
 		{
 			$result['finalprice']      = null;
 			$result['vatprice']        = null;
