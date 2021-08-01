@@ -155,7 +155,7 @@ class add
 			'title'          => a($_answer, 'title'),
 			'parent'         => $_id,
 			'for'            => a($load, 'for'),
-			'post_id'        => a($load, 'post_id'),
+			'post_id'        => a($load, 'post_id') ? \dash\coding::encode(a($load, 'post_id')) : null,
 			'product_id'     => a($load, 'product_id'),
 			'factor_id'      => a($load, 'factor_id'),
 			'pagebuilder_id' => a($load, 'pagebuilder_id'),
