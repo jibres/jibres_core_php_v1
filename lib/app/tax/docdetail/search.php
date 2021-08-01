@@ -254,7 +254,10 @@ class search
 			if($calc_opening_value)
 			{
 				$summary_list['openingvalue'] = a($summary_list, 'balance_opening');
-				// var_dump($summary_list);exit;
+
+				$summary_list['current_debtor']   = floatval(a($summary_list, 'debtor')) - floatval(a($summary_list, 'debtor_opening'));
+				$summary_list['current_creditor'] = floatval(a($summary_list, 'creditor')) - floatval(a($summary_list, 'creditor_opening'));
+
 			}
 
 			self::$summary_detail = $summary_list;

@@ -131,18 +131,34 @@
 	<?php } //endif ?>
 
 	<div class="c">
-		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_debtor(); ?>'>
-			<h3><?php echo T_("Sum Debtor");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_debtor());?></div>
+		<a class="stat">
+			<h3>
+				<?php if(\dash\data::summaryDetail_current_debtor()) {?>
+					<?php echo T_("Current Debtor");?>
+					<small data-copy='<?php echo \dash\data::summaryDetail_debtor(); ?>'><?php echo \dash\fit::price(\dash\data::summaryDetail_debtor());?></small>
+				<?php }else{ ?>
+					<?php echo T_("Sum Debtor");?>
+				<?php } //endif ?>
+			</h3>
+			<?php if(\dash\data::summaryDetail_current_debtor()) {$myPrice = \dash\data::summaryDetail_current_debtor();}else{ $myPrice = \dash\data::summaryDetail_debtor();}?>
+			<div class="val ltr" data-copy="<?php echo $myPrice ?>"><?php echo \dash\fit::price($myPrice); ?></div>
+		</a>
+	</div>
+	<div class="c">
+		<a class="stat">
+			<h3>
+				<?php if(\dash\data::summaryDetail_current_creditor()) {?>
+				<?php echo T_("Current Creditor");?>
+					<small data-copy='<?php echo \dash\data::summaryDetail_creditor(); ?>'><?php echo \dash\fit::price(\dash\data::summaryDetail_creditor());?></small>
+				<?php }else{ ?>
+				<?php echo T_("Sum Creditor");?>
+				<?php } //endif ?>
+			</h3>
+			<?php if(\dash\data::summaryDetail_current_creditor()) {$myPrice = \dash\data::summaryDetail_current_creditor();}else{ $myPrice = \dash\data::summaryDetail_creditor();}?>
+			<div class="val ltr" data-copy="<?php echo $myPrice ?>"><?php echo \dash\fit::price($myPrice); ?></div>
 		</a>
 	</div>
 
-	<div class="c">
-		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_creditor(); ?>'>
-			<h3><?php echo T_("Sum Creditor");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_creditor());?></div>
-		</a>
-	</div>
 
 	<div class="c">
 		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_balance(); ?>'>
