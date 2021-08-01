@@ -21,7 +21,7 @@ class view
 
 		\dash\data::docListModeFactor(true);
 
-		\dash\face::title(T_("Factors list :val", ['val' => \lib\app\tax\doc\ready::factor_type_translate(\dash\request::get('template'))]));
+		\dash\face::title(T_("Document list :val", ['val' => \lib\app\tax\doc\ready::factor_type_translate(\dash\request::get('template'))]));
 
 
 		if(\dash\request::get('template') === 'costasset')
@@ -31,7 +31,7 @@ class view
 		else
 		{
 			// btn
-			\dash\data::action_text(T_('Add new factor'));
+			\dash\data::action_text(T_('Quick add'));
 			\dash\data::action_link(\dash\url::that(). '/add?'. \dash\request::build_query(['type' => \dash\request::get('template')]));
 		}
 

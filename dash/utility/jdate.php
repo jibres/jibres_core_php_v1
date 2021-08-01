@@ -736,7 +736,7 @@ class jdate
             '09' => 30,
             '10' => 30,
             '11' => 30,
-            '12' => 29
+            '12' => 29,
         ];
 
         if(intval($_month) < 10)
@@ -745,9 +745,21 @@ class jdate
         }
 
         $start_day  = 1;
-        $end_day    = $j_days_in_month[$_month];
 
         $start_date = (int)self::mktime(0, 0, 0, $_month, $start_day, $_year, true);
+
+        $jyear = \dash\utility\jdate::date("Y", $start_date, false);
+        $jmonth = \dash\utility\jdate::date("m", $start_date, false);
+
+        if(intval($jmonth) === 12)
+        {
+            if(intval($jyear) % 4 == 3)
+            {
+                $j_days_in_month['12'] = 30;
+            }
+        }
+
+        $end_day    = $j_days_in_month[$_month];
         $end_date   = (int)self::mktime(0, 0, 0, $_month, $end_day, $_year, true);
 
 
