@@ -112,10 +112,13 @@ class part
 	public static function postArticle()
 	{
 		$html = '';
-		$html .= '<div class="text">';
-		$html .= \dash\data::dataRow_content();
-		$html .= \dash\layout\post\part::tagLine();
-		$html .= '</div>';
+		if(\dash\data::dataRow_content())
+		{
+			$html .= '<div class="text">';
+			$html .= \dash\data::dataRow_content();
+			$html .= \dash\layout\post\part::tagLine();
+			$html .= '</div>';
+		}
 
 		return $html;
 	}
