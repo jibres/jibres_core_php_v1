@@ -481,6 +481,17 @@ function htmlDetailsSelectList($_type, $_default_selected = null)
         continue;
       }
     }
+    elseif($_type === 'bank_profit')
+    {
+      if(in_array(substr(a($value, 'code'), 0, 4), ['7704']))
+      {
+        /*ok*/
+      }
+      else
+      {
+        continue;
+      }
+    }
 
     echo '<option value="'. a($value, 'id'). '" ';
     if(a($dataRow, 'fill_value', $_type, 'details_id') === a($value, 'id') || \dash\request::get($_type) === a($value, 'id') || $_default_selected === a($value, 'id'))
