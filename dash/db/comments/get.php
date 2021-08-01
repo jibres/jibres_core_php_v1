@@ -147,6 +147,13 @@ class get
 	}
 
 
+	public static function answer_list($_parent)
+	{
+		$query  = "SELECT * FROM comments WHERE comments.parent = $_parent ORDER BY comments.id DESC LIMIT 100";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 
 	public static function answer_count($_parent)
 	{

@@ -16,6 +16,10 @@ class view
 		$answer_count = \dash\app\comment\get::answer_count($cid);
 		\dash\data::answerCount($answer_count);
 
+
+		$answer_list = \dash\app\comment\get::answer_list($cid);
+		\dash\data::answerList($answer_list);
+
 	}
 }
 ?>

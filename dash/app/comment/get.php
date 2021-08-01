@@ -74,6 +74,27 @@ class get
 		return $detail;
 	}
 
+	public static function answer_list($_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid comments id"));
+			return false;
+		}
+
+		$answer_list = \dash\db\comments\get::answer_list($id);
+
+		if(!is_array($answer_list))
+		{
+			$answer_list = [];
+		}
+
+		$answer_list = array_map(['\\dash\\app\\comment\\ready', 'row'], $answer_list);
+
+		return $answer_list;
+	}
+
 
 	public static function answer_count($_id)
 	{

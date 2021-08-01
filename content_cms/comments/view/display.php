@@ -200,3 +200,19 @@ if(a($dataRow, 'status') === 'unapproved')
     </div>
   </form>
 </div>
+<?php if(\dash\data::answerList()) {?>
+  <label><?php echo T_("Answert to this comment") ?></label>
+  <nav class="items long">
+  <ul>
+    <?php foreach (\dash\data::answerList() as $key => $value) {?>
+    <li>
+      <a class="item f" href="<?php echo \dash\url::this(). '/view?cid='. a($value, 'id'); ?>">
+        <div class="key"><?php echo a($value, 'content');?></div>
+        <time class="value"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></time>
+        <div class="go"></div>
+      </a>
+    </li>
+  <?php } //endif ?>
+  </ul>
+</nav>
+<?php } //endif ?>
