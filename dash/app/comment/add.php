@@ -151,9 +151,14 @@ class add
 
 		$args =
 		[
-			'content' => a($_answer, 'content'),
-			'title'   => a($_answer, 'title'),
-			'parent'  => $_id,
+			'content'        => a($_answer, 'content'),
+			'title'          => a($_answer, 'title'),
+			'parent'         => $_id,
+			'for'            => a($load, 'for'),
+			'post_id'        => a($load, 'post_id'),
+			'product_id'     => a($load, 'product_id'),
+			'factor_id'      => a($load, 'factor_id'),
+			'pagebuilder_id' => a($load, 'pagebuilder_id'),
 		];
 
 		if(\dash\permission::check('cmsManageComment'))
