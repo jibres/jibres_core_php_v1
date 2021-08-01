@@ -27,7 +27,11 @@
 
                 <th class="collapsing"><?php echo T_("Date"); ?></th>
                 <th class="collapsing"><?php echo T_("Balance"); ?></th>
-                <th class="collapsing"><?php echo T_("Amount"); ?></th>
+                <th class="collapsing">
+                  <?php echo T_("Amount"); ?>
+                  <a href="<?php echo \dash\url::that(). \dash\request::full_get(['order' => 'desc', 'sort' => 'amount']) ?>"><i class="sf-chevron-up"></i></a>
+                  <a href="<?php echo \dash\url::that(). \dash\request::full_get(['order' => 'asc', 'sort' => 'amount']) ?>"><i class="sf-chevron-down"></i></a>
+                </th>
                 <th class="txtL"><?php echo T_("Description"); ?></th>
 
             </thead>

@@ -25,7 +25,7 @@ class search
 		$condition =
 		[
 			'order'   => 'order',
-			'sort'    => ['enum' => ['title', 'nicid', 'status']],
+			'sort'    => ['enum' => ['title', 'nicid', 'status', 'amount']],
 
 		];
 
@@ -67,7 +67,7 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			if(in_array($data['sort'], ['title', 'nicid', 'status']))
+			if($data['sort'])
 			{
 
 				$sort = mb_strtolower($data['sort']);
