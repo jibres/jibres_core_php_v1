@@ -34,11 +34,6 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
             <div class="go"></div>
           </a>
         </li>
-      </ul>
-    </nav>
-
-    <nav class="items long">
-      <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/report/group?show=balancesheet'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('reports'); ?>">
