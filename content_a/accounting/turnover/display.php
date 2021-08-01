@@ -133,7 +133,7 @@
 	<div class="c">
 		<a class="stat">
 			<h3><?php echo T_("Debtor");?></h3>
-			<?php $myPrice = \dash\data::summaryDetail_current_debtor();?>
+			<?php $myPrice = \dash\data::summaryDetail_debtor();?>
 			<div class="val ltr" data-copy="<?php echo $myPrice ?>"><?php echo \dash\fit::price($myPrice); ?></div>
 		</a>
 	</div>
@@ -141,7 +141,7 @@
 	<div class="c">
 		<a class="stat">
 			<h3><?php echo T_("Creditor");?></h3>
-			<?php $myPrice = \dash\data::summaryDetail_current_creditor();?>
+			<?php $myPrice = \dash\data::summaryDetail_creditor();?>
 			<div class="val ltr" data-copy="<?php echo $myPrice ?>"><?php echo \dash\fit::price($myPrice); ?></div>
 		</a>
 	</div>
