@@ -221,7 +221,7 @@ class search
 				'no_limit'   => true,
 			];
 
-			$load_answer = self::list(null, $args_load_answer);
+			$load_answer = self::list(null, $args_load_answer, true);
 
 			if(!is_array($load_answer))
 			{
