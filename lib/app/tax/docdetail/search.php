@@ -248,10 +248,13 @@ class search
 		{
 			$summary_list = \lib\db\tax_docdetail\search::summary_list($and, $or, $order_sort, $meta);
 
+			// var_dump($summary_list);exit;
+
 			$summary_list['openingvalue'] = a($summary_list, 'balance_opening');
 
 			$summary_list['current_debtor']   = floatval(a($summary_list, 'debtor')) - floatval(a($summary_list, 'debtor_opening'));
 			$summary_list['current_creditor'] = floatval(a($summary_list, 'creditor')) - floatval(a($summary_list, 'creditor_opening'));
+			$summary_list['balance'] = floatval(a($summary_list, 'current_debtor')) + floatval(a($summary_list, 'current_creditor')) + floatval(a($summary_list, 'openingvalue'));
 
 			self::$summary_detail = $summary_list;
 		}

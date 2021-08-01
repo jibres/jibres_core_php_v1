@@ -61,7 +61,7 @@ class search
 
 	public static function summary_list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
-		$_and['special_type'] = "tax_document.type = 'normal' ";
+		$_and['special_type'] = "tax_document.type != 'opening' ";
 
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
