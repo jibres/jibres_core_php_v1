@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-07-31 18:25+0430\n"
-"PO-Revision-Date: 2021-07-31 18:25+0430\n"
+"POT-Creation-Date: 2021-08-01 11:58+0430\n"
+"PO-Revision-Date: 2021-08-01 12:00+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3082,7 +3082,7 @@ msgstr ""
 
 #: content/ip/home/display.php:11 content/ip/home/view.php:32
 #: content_a/setting/pcpos/display.php:90 content_a/setting/pcpos/display.php:92
-#: content_cms/comments/view/display.php:82 content_crm/ticket/view/display.php:270
+#: content_cms/comments/view/display.php:83 content_crm/ticket/view/display.php:270
 #: content_love/domain/log/display.php:99 content_love/domain/onlineniclog/display.php:99
 #: content_love/home/display.php:125 content_love/ip/view.php:9
 #: content_love/smslog/display.php:24 content_love/smslog/view/display.php:14
@@ -4809,7 +4809,7 @@ msgstr "کد"
 #: content_a/units/display.php:41 content_a/website/body/add/display.php:111
 #: content_a/website/menu/item/display.php:17 content_a/website/menu/item/display.php:31
 #: content_a/website/specialslider/add/display.php:18
-#: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:162
+#: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:163
 #: content_cms/files/view/display.php:20 content_cms/hashtag/add/display.php:6
 #: content_cms/hashtag/edit/display.php:5
 #: content_crm/member/transactions/minus/display.php:9
@@ -4950,7 +4950,7 @@ msgstr "غیرفعال"
 #: content_a/form/answer/export/display.php:42 content_a/form/itemLink.php:14
 #: content_a/order/detail/display.php:30 content_a/products/edit/block/sidebar-menu.php:7
 #: content_a/products/export/display.php:57 content_a/website/advance/display.php:28
-#: content_business/orders/display.php:21 content_cms/comments/view/display.php:126
+#: content_business/orders/display.php:21 content_cms/comments/view/display.php:127
 #: content_crm/member/glance/display.php:270 content_crm/sms/view/display.php:30
 #: content_crm/ticket/view/display.php:187 content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
@@ -5072,7 +5072,7 @@ msgstr "ویرایش"
 #: content_a/website/specialslider/setting/display.php:39
 #: content_a/website/subscribe/display.php:13 content_a/website/text/display.php:14
 #: content_a/website/titleline/display.php:25 content_account/api/display.php:16
-#: content_business/p/home/blocks/detail.php:168 content_cms/comments/view/display.php:143
+#: content_business/p/home/blocks/detail.php:168 content_cms/comments/view/display.php:144
 #: content_crm/member/permission/display.php:59
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
@@ -9542,7 +9542,7 @@ msgstr "موفقیت‌آمیز"
 msgid "Archive"
 msgstr "آرشیو"
 
-#: content_a/order/status/display.php:54 content_cms/comments/view/display.php:142
+#: content_a/order/status/display.php:54 content_cms/comments/view/display.php:143
 #: dash/app/comment/filter.php:29 dash/app/ticket/filter.php:44
 #: dash/layout/admin/sidebar/sidebar-support.php:51
 #: includes/languages/trans_static.php:513 lib/app/factor/action.php:74
@@ -10150,9 +10150,9 @@ msgstr "مدیریت تنوع محصول"
 
 #: content_a/products/comment/view.php:23
 #: content_a/products/edit/block/sidebar-menu.php:75 content_cms/comments/home/view.php:9
-#: content_cms/comments/view/view.php:14 dash/app/posts/filter.php:203
-#: dash/app/posts/filter.php:213 includes/languages/trans_static.php:574
-#: includes/languages/trans_static_public.php:94
+#: content_cms/comments/view/view.php:14 content_crm/member/glance/display.php:393
+#: dash/app/posts/filter.php:203 dash/app/posts/filter.php:213
+#: includes/languages/trans_static.php:574 includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
 msgid "Comments"
 msgstr "نظرات"
@@ -15498,7 +15498,7 @@ msgstr "بررسی تمام نشست‌های فعال"
 
 #: content_account/security/display.php:104 content_account/security/display.php:143
 #: content_account/security/sessions/display.php:5
-#: content_crm/member/glance/display.php:393 content_crm/member/sessions/view.php:12
+#: content_crm/member/glance/display.php:400 content_crm/member/sessions/view.php:12
 #: includes/languages/trans_static_public.php:1122
 msgid "Sessions"
 msgstr "نشست‌ها"
@@ -16109,7 +16109,7 @@ msgstr "ضعیف"
 msgid "Very Poor"
 msgstr "خیلی ضعیف"
 
-#: content_cms/comments/edit/view.php:9 content_cms/comments/view/display.php:185
+#: content_cms/comments/edit/view.php:9 content_cms/comments/view/display.php:186
 msgid "Edit comment"
 msgstr "ویرایش نظر"
 
@@ -16147,53 +16147,57 @@ msgstr "شناسه دیدگاه اشتباه است"
 msgid "Datemodified"
 msgstr "تاریخ ویرایش"
 
-#: content_cms/comments/view/display.php:91
+#: content_cms/comments/view/display.php:92
 msgid "In response to the comment"
 msgstr "در پاسخ به دیدگاه"
 
-#: content_cms/comments/view/display.php:103
+#: content_cms/comments/view/display.php:104
 msgid "Star"
 msgstr "ستاره"
 
-#: content_cms/comments/view/display.php:115
+#: content_cms/comments/view/display.php:116
 msgid "Number of responses received"
 msgstr "تعداد پاسخ‌های دریافت شده"
 
-#: content_cms/comments/view/display.php:139
+#: content_cms/comments/view/display.php:140
 msgid "You can change status of this comment"
 msgstr "شما می‌توانید وضعیت این دیدگاه را ویرایش کنید"
 
-#: content_cms/comments/view/display.php:140 dash/app/comment/filter.php:26
+#: content_cms/comments/view/display.php:141 dash/app/comment/filter.php:26
 #: includes/languages/trans_static.php:525 includes/languages/trans_static_public.php:937
 msgid "Approved"
 msgstr "تایید شده"
 
-#: content_cms/comments/view/display.php:141 dash/app/comment/filter.php:27
+#: content_cms/comments/view/display.php:142 dash/app/comment/filter.php:27
 #: includes/languages/trans_static.php:526 includes/languages/trans_static_public.php:938
 msgid "Unapproved"
 msgstr "تایید نشده"
 
-#: content_cms/comments/view/display.php:148
+#: content_cms/comments/view/display.php:149
 msgid "Click on Approve to make a comment publicly visible on your website."
 msgstr "برای تایید نظر و نمایش آن در وب‌سایت روی تایید کلیک کنید."
 
-#: content_cms/comments/view/display.php:149
+#: content_cms/comments/view/display.php:150
 msgid "If you see a comment that looks or feel spammy, then you can mark it as Spam."
 msgstr ""
 "اگر نظری را مشاهده کردید که به نظر اسپم می‌رسید یا احساس ناخوشایندی داشتید می‌توانید آن "
 "را به عنوان هرزنامه ثبت کنید."
 
-#: content_cms/comments/view/display.php:181
+#: content_cms/comments/view/display.php:182
 msgid "Answer to comment"
 msgstr "پاسخ به دیدگاه"
 
-#: content_cms/comments/view/display.php:195
+#: content_cms/comments/view/display.php:196
 msgid "Write your answer"
 msgstr "پاسخ خود را بنویسید"
 
-#: content_cms/comments/view/display.php:198
+#: content_cms/comments/view/display.php:199
 msgid "Save answer"
 msgstr "ذخیره پاسخ"
+
+#: content_cms/comments/view/display.php:205
+msgid "Answert to this comment"
+msgstr "پاسخ‌های این دیدگاه"
 
 #: content_cms/config/display.php:14
 msgid "An aspect ratio of Featured image for standard post"
@@ -17358,7 +17362,7 @@ msgstr "پیام‌ها"
 msgid "Send message"
 msgstr "ارسال پیام"
 
-#: content_crm/member/glance/display.php:400
+#: content_crm/member/glance/display.php:407
 msgid "Customer Logs History"
 msgstr "تاریخچه ردپای مشتری"
 
@@ -24235,7 +24239,7 @@ msgid "You can not answer to an answer comment!"
 msgstr "شما نمی‌توانید به پاسخ یک دیگاه پاسخ دهید!"
 
 #: dash/app/comment/edit.php:35 dash/app/comment/get.php:21 dash/app/comment/get.php:57
-#: dash/app/comment/get.php:83
+#: dash/app/comment/get.php:82 dash/app/comment/get.php:104
 msgid "Invalid comments id"
 msgstr "شناسه دیدگاه اشتباه است"
 
@@ -43805,9 +43809,6 @@ msgstr "یارد"
 
 #~ msgid "Write your review about this product..."
 #~ msgstr "نظر خودتون رو در مورد این محصول بنویسید ..."
-
-#~ msgid "Show Answer to this comment"
-#~ msgstr "نمایش پاسخ‌های این دیدگاه"
 
 #~ msgid "Share this post in social networks"
 #~ msgstr "اشتراک‌گذاری این نوشته از طریق شبکه‌های اجتماعی"
