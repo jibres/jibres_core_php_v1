@@ -72,6 +72,11 @@ class search
 			$or[]        = " users.displayname LIKE '%$query_string%'";
 			$or[]        = " users.mobile LIKE '%$query_string%'";
 
+			if($my_store_id = \dash\store_coding::decode('$'. $query_string))
+			{
+				$or[]        = " store.id = $my_store_id ";
+			}
+
 			self::$is_filtered = true;
 		}
 
