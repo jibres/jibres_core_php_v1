@@ -34,6 +34,8 @@ class search
 			'pagination'   => 'y_n',
 			'get_count'    => 'y_n',
 			'website_mode' => 'bit',
+			'parent_ids'   => 'string',
+			'no_limit'     => 'bit',
 
 		];
 
@@ -52,6 +54,11 @@ class search
 		if($data['limit'])
 		{
 			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['no_limit'])
+		{
+			unset($meta['limit']);
 		}
 
 		if($data['pagination'] === 'n')
@@ -104,6 +111,12 @@ class search
 		if($data['website_mode'])
 		{
 			$and[] = " comments.parent IS NULL ";
+		}
+
+
+		if($data['parent_ids'])
+		{
+			$and[] = " comments.parent IN ($data[parent_ids]) ";
 		}
 
 
@@ -200,7 +213,15 @@ class search
 		$ids = array_map('floatval', $ids);
 		if($ids)
 		{
-			$load_answer = \dash\db\comments\get::answer_list_by_ids(implode(',', $ids));
+			$args_load_answer =
+			[
+				'parent_ids' => implode(',', $ids),
+				'status'     => 'approved',
+				'pagination' => 'n',
+				'no_limit'   => true,
+			];
+
+			$load_answer = self::list(null, $args_load_answer);
 
 			if(!is_array($load_answer))
 			{
@@ -218,7 +239,7 @@ class search
 						$list[$value['parent']]['answers'] = [];
 					}
 
-					$list[$value['parent']]['answers'][] = \dash\app\comment\ready::row($value);
+					$list[$value['parent']]['answers'][] = $value;
 				}
 			}
 		}
