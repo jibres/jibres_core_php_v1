@@ -22,6 +22,13 @@ class ip
 		}
 	}
 
+	public static function get_by_id($_id)
+	{
+		$query  = "SELECT * FROM ip WHERE ip.id = '$_id' LIMIT 1";
+		$result = \dash\db::get($query, null, true, self::ip_fuel());
+		return $result;
+	}
+
 
 	public static function get_ipv4($_ip)
 	{

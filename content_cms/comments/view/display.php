@@ -77,10 +77,11 @@
     </li>
   <?php } //endif ?>
 
+    <?php $myIp = \dash\utility\ip::show_by_id(a($dataRow, 'ip_id')); ?>
       <li>
-      <a class="item f" href="<?php echo 'https://jibres.'. \dash\url::jibres_tld(). '/ip/'. long2ip(a($dataRow, 'ip')) ?>" target="_blank">
+      <a class="item f" href="<?php echo 'https://jibres.'. \dash\url::jibres_tld(). '/ip/'. $myIp; ?>" target="_blank">
         <div class="key"><?php echo T_("IP");?></div>
-        <div class="value txtB ltr"><?php echo \dash\fit::text(long2ip(a($dataRow, 'ip'))); ?></div>
+        <div class="value txtB ltr"><?php echo $myIp; ?></div>
         <div class="go external"></div>
       </a>
     </li>

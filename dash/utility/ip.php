@@ -330,5 +330,39 @@ class ip
 		return $list;
 	}
 
+
+
+	public static function get_by_id($_id)
+	{
+		$id = \dash\validate::id($_id, false);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$load = \dash\db\ip::get_by_id($id);
+
+		return $load;
+	}
+
+
+	public static function show_by_id($_id)
+	{
+		$get = self::get_by_id($_id);
+
+		if(isset($get['ipv4']) && $get['ipv4'])
+		{
+			return $get['ipv4'];
+		}
+		elseif(isset($get['ipv6']) && $get['ipv6'])
+		{
+			return $get['ipv6'];
+		}
+		else
+		{
+			return null;
+		}
+	}
+
 }
 ?>
