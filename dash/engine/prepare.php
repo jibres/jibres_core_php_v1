@@ -54,6 +54,51 @@ class prepare
 
 		// close all mysql connection
 		register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
+
+		register_shutdown_function(['\dash\engine\prepare', 'engine_time']);
+	}
+
+
+	public static function engine_time()
+	{
+		if(!defined('ENGINE_START_TIME'))
+		{
+			return;
+		}
+
+		$start  = ENGINE_START_TIME;
+
+		$now    = microtime(true);
+
+		$diff   = $now - $start;
+
+		$data   = json_encode(['diff' => $diff, /*'server' => \dash\server::get()*/]);
+
+		$folder = 'engine_time';
+
+		if(defined('ISCRONJOB') && ISCRONJOB)
+		{
+			// default cronjob mode
+			if($diff > 120)
+			{
+				\dash\log::file($data, "engine_time_cronjob_critical.log", $folder);
+			}
+
+			return;
+		}
+
+		if($diff > 10)
+		{
+			\dash\log::file($data, "engine_time_critical.log", $folder);
+		}
+		elseif($diff > 5)
+		{
+			\dash\log::file($data, "engine_time_warn.log", $folder);
+		}
+		elseif($diff > 2)
+		{
+			\dash\log::file($data, "engine_time_check.log", $folder);
+		}
 	}
 
 

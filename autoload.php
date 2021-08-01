@@ -1,4 +1,8 @@
 <?php
+
+// save engine start time
+define('ENGINE_START_TIME', microtime(true));
+
 /**
  * require default define
  */
