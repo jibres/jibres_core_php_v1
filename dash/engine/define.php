@@ -61,6 +61,9 @@ function cronjob_server()
 }
 
 
+// save engine start time
+define('ENGINE_START_TIME', microtime(true));
+
 /**
  * Find $_SERVER !
  */
