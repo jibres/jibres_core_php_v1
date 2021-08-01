@@ -67,8 +67,6 @@ class search
 		$or           = [];
 		$meta['join'] = [];
 
-		$calc_opening_value = false;
-
 		$meta['limit'] = 50;
 		if($data['limit'])
 		{
@@ -102,7 +100,7 @@ class search
 
 		if($data['contain'])
 		{
-			$calc_opening_value = true;
+
 			$and[] =
 			"
 				(
@@ -141,7 +139,7 @@ class search
 
 		if($data['group'])
 		{
-			$calc_opening_value = true;
+
 			$and[] =
 			"
 				(
@@ -156,7 +154,7 @@ class search
 
 		if($data['total'])
 		{
-			$calc_opening_value = true;
+
 			$myGroupQuery = null;
 
 			if($data['group'])
@@ -172,7 +170,7 @@ class search
 
 		if($data['assistant'])
 		{
-			$calc_opening_value = true;
+
 			$and[] = " tax_docdetail.assistant_id = $data[assistant] ";
 		}
 
@@ -192,7 +190,7 @@ class search
 
 		if($data['details'])
 		{
-			$calc_opening_value = true;
+
 			$and[] = " tax_docdetail.details_id = $data[details] ";
 		}
 
@@ -249,16 +247,11 @@ class search
 		if($data['summary_detail'])
 		{
 			$summary_list = \lib\db\tax_docdetail\search::summary_list($and, $or, $order_sort, $meta);
-			$summary_list['openingvalue'] = 0;
 
-			if($calc_opening_value)
-			{
-				$summary_list['openingvalue'] = a($summary_list, 'balance_opening');
+			$summary_list['openingvalue'] = a($summary_list, 'balance_opening');
 
-				$summary_list['current_debtor']   = floatval(a($summary_list, 'debtor')) - floatval(a($summary_list, 'debtor_opening'));
-				$summary_list['current_creditor'] = floatval(a($summary_list, 'creditor')) - floatval(a($summary_list, 'creditor_opening'));
-
-			}
+			$summary_list['current_debtor']   = floatval(a($summary_list, 'debtor')) - floatval(a($summary_list, 'debtor_opening'));
+			$summary_list['current_creditor'] = floatval(a($summary_list, 'creditor')) - floatval(a($summary_list, 'creditor_opening'));
 
 			self::$summary_detail = $summary_list;
 		}

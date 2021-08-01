@@ -61,8 +61,9 @@ class search
 
 	public static function summary_list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$_and['special_type'] = "tax_document.type = 'normal' ";
 
+		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$query =
 		"
@@ -78,7 +79,9 @@ class search
 		";
 		$result = \dash\db::get($query, null, true);
 
-		$_and[] = "tax_document.type = 'opening' ";
+		unset($_and['special_type']);
+
+		$_and['special_type'] = "tax_document.type = 'opening' ";
 
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
