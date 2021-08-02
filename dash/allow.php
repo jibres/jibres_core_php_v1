@@ -99,6 +99,7 @@ class allow
 						'video',
 						'opt_video',
 						'image',
+						'import',
 						'avatar',
 						'thumb',
 						'file1',
