@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-01 17:11+0430\n"
-"PO-Revision-Date: 2021-08-01 17:12+0430\n"
+"POT-Creation-Date: 2021-08-03 13:58+0430\n"
+"PO-Revision-Date: 2021-08-03 13:59+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3555,8 +3555,8 @@ msgid "Increase Basic Limits"
 msgstr "افزایش محدودیت‌های اولیه"
 
 #: content/pricing/priceTable.php:36 content/pricing/priceTable.php:61
-#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:78
-#: content_a/accounting/home/display.php:86
+#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:73
+#: content_a/accounting/home/display.php:81
 #: content_a/accounting/report/journal/view.php:10
 #: content_a/accounting/report/ledger/view.php:10 includes/languages/trans_static.php:612
 msgid "Monthly"
@@ -5311,7 +5311,7 @@ msgstr "شما تعدادی سرفصل حسابداری ثبت کرده‌اید
 msgid "Accounting coding imported"
 msgstr "لیست سرفصل‌های حسابداری اضافه شد"
 
-#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:190
+#: content_a/accounting/coding/view.php:9 content_a/accounting/home/display.php:185
 msgid "Accounting Coding"
 msgstr "سرفصل‌های حسابداری"
 
@@ -5575,7 +5575,7 @@ msgstr "شرح"
 
 #: content_a/accounting/doc/add/display-list.php:45
 #: content_a/accounting/factor/add/display.php:348
-#: content_a/accounting/home/display.php:229 content_a/accounting/turnover/view.php:9
+#: content_a/accounting/home/display.php:224 content_a/accounting/turnover/view.php:9
 msgid "Turnover"
 msgstr "گردش حساب"
 
@@ -5681,7 +5681,7 @@ msgstr "مالیات"
 msgid "Print Accounting Documents"
 msgstr "چاپ اسناد حسابداری"
 
-#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:210
+#: content_a/accounting/doc/view.php:9 content_a/accounting/home/display.php:205
 #: lib/app/tax/doc/ready.php:129
 msgid "Accounting Documents"
 msgstr "اسناد حسابداری"
@@ -5781,7 +5781,7 @@ msgstr "بانک"
 
 #: content_a/accounting/factor/add/display.php:164
 #: content_a/accounting/factor/add/display.php:169
-#: content_a/accounting/home/display.php:313 lib/app/tax/doc/ready.php:125
+#: content_a/accounting/home/display.php:308 lib/app/tax/doc/ready.php:125
 msgid "Bank profit"
 msgstr "سود بانکی"
 
@@ -5861,7 +5861,7 @@ msgstr "افزودن هزینه"
 msgid "Add income"
 msgstr "افزودن درآمد"
 
-#: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:141
+#: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:136
 #: content_a/android/home/display.php:117 content_a/cart/add/display.php:39
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:212
@@ -6023,23 +6023,23 @@ msgstr "گزارش در سطح معین"
 msgid "Report on detail level"
 msgstr "گزارش در سطح تفصیل"
 
-#: content_a/accounting/home/display.php:45
+#: content_a/accounting/home/display.php:40
 msgid "Trial balance at group level"
 msgstr "تراز آزمایشی در سطح گروه"
 
-#: content_a/accounting/home/display.php:52
+#: content_a/accounting/home/display.php:47
 msgid "Trial balance at total level"
 msgstr "تراز آزمایشی در سطح کل"
 
-#: content_a/accounting/home/display.php:59
+#: content_a/accounting/home/display.php:54
 msgid "Trial balance at assistant level"
 msgstr "تراز آزمایشی در سطح معین"
 
-#: content_a/accounting/home/display.php:66
+#: content_a/accounting/home/display.php:61
 msgid "Trial balance at detail level"
 msgstr "تراز آزمایشی در سطح تفصیل"
 
-#: content_a/accounting/home/display.php:77 content_a/accounting/home/display.php:94
+#: content_a/accounting/home/display.php:72 content_a/accounting/home/display.php:89
 #: content_a/accounting/report/journal/display.php:12
 #: content_a/accounting/report/journal/display.php:94
 #: content_a/accounting/report/journal/view.php:10
@@ -6047,7 +6047,7 @@ msgstr "تراز آزمایشی در سطح تفصیل"
 msgid "General Journal"
 msgstr "دفتر روزنامه"
 
-#: content_a/accounting/home/display.php:85 content_a/accounting/home/display.php:102
+#: content_a/accounting/home/display.php:80 content_a/accounting/home/display.php:97
 #: content_a/accounting/report/journal_cover.php:4
 #: content_a/accounting/report/ledger/display.php:12
 #: content_a/accounting/report/ledger/display.php:82
@@ -6055,82 +6055,94 @@ msgstr "دفتر روزنامه"
 msgid "Ledger"
 msgstr "دفتر کل"
 
-#: content_a/accounting/home/display.php:95 content_a/accounting/home/display.php:103
+#: content_a/accounting/home/display.php:90 content_a/accounting/home/display.php:98
 msgid "Daily"
 msgstr "روزانه"
 
-#: content_a/accounting/home/display.php:115
+#: content_a/accounting/home/display.php:110
 msgid "Vat report"
 msgstr "گزارش فصلی مالیات بر ازرش افزوده"
 
-#: content_a/accounting/home/display.php:122
+#: content_a/accounting/home/display.php:117
 msgid "Buy Quarter report"
 msgstr "گزارش فصلی خرید"
 
-#: content_a/accounting/home/display.php:129
+#: content_a/accounting/home/display.php:124
 msgid "Sell Quarter report"
 msgstr "گزارش فصلی فروش"
 
-#: content_a/accounting/home/display.php:142
+#: content_a/accounting/home/display.php:137
 msgid "Accounting Documents per month"
 msgstr "تعداد سند‌های حسابداری به تفکیک ماه"
 
-#: content_a/accounting/home/display.php:151
+#: content_a/accounting/home/display.php:146
 msgid "Percent lock Accounting Document"
 msgstr "درصد سند‌های حسابداری دائم"
 
-#: content_a/accounting/home/display.php:158
+#: content_a/accounting/home/display.php:153
 msgid "Percent have attachment"
 msgstr "درصد سند‌های حسابداری دارای ضمیمه"
 
-#: content_a/accounting/home/display.php:168
+#: content_a/accounting/home/display.php:163
 msgid "Total Sell"
 msgstr "مجموع فروش‌"
 
-#: content_a/accounting/home/display.php:176 content_crm/member/glance/display.php:164
+#: content_a/accounting/home/display.php:171 content_crm/member/glance/display.php:164
 msgid "Total buy"
 msgstr "مجموع خرید"
 
-#: content_a/accounting/home/display.php:198
+#: content_a/accounting/home/display.php:193
 msgid "Accounting Year"
 msgstr "سال مالی"
 
-#: content_a/accounting/home/display.php:218
+#: content_a/accounting/home/display.php:213
 msgid "Add Accounting Document"
 msgstr "افزودن سند حسابداری"
 
-#: content_a/accounting/home/display.php:237 content_a/accounting/home/display.php:245
+#: content_a/accounting/home/display.php:232 content_a/accounting/home/display.php:240
 msgid "Petty Cash Turnover"
 msgstr "گردش حساب تنخواه"
 
-#: content_a/accounting/home/display.php:257
+#: content_a/accounting/home/display.php:252
 msgid "Cost purchases"
 msgstr "خرید مصارف و هزینه‌ها"
 
-#: content_a/accounting/home/display.php:265
+#: content_a/accounting/home/display.php:260
 msgid "Buy assets"
 msgstr "خرید دارایی"
 
-#: content_a/accounting/home/display.php:277
+#: content_a/accounting/home/display.php:272
 msgid "Revenues and sales invoices"
 msgstr "درآمد و فاکتورهای فروش"
 
-#: content_a/accounting/home/display.php:289
+#: content_a/accounting/home/display.php:284
 msgid "Charge Petty Cash from bank"
 msgstr "شارژ تنخواه از طریق حساب بانکی"
 
-#: content_a/accounting/home/display.php:297
+#: content_a/accounting/home/display.php:292
 msgid "Charge Petty Cash from partners"
 msgstr "شارژ تنخواه از طریق جاری شرکا"
 
-#: content_a/accounting/home/display.php:305
+#: content_a/accounting/home/display.php:300
 msgid "Charge Bank from partners"
 msgstr "شارژ حساب بانکی از طریق جاری شرکا"
 
-#: content_a/accounting/home/display.php:326 content_a/form/itemLink.php:25
+#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:25
 #: dash/panel.php:263
 msgid "Reports"
 msgstr "گزارش‌ها"
+
+#: content_a/accounting/home/display.php:337
+msgid "Costs"
+msgstr "هزینه‌ها"
+
+#: content_a/accounting/home/display.php:344
+msgid "Rights"
+msgstr "حقوق و دستمزد"
+
+#: content_a/accounting/home/display.php:351
+msgid "Cost and Benefit"
+msgstr "سود و زیان"
 
 #: content_a/accounting/report/assistant/display-old.php:4
 #: content_a/accounting/report/assistant/display.php:5
@@ -6722,6 +6734,16 @@ msgstr "کل فصل :val"
 #: content_a/accounting/turnover/detail/view.php:9
 msgid "Turnover of Details"
 msgstr "گردش حساب در سطح تفصیل"
+
+#: content_a/accounting/turnover/display.php:39
+#: content_a/accounting/turnover/display.php:52
+#: content_a/accounting/turnover/display.php:64 content_a/cart/home/display.php:168
+#: content_a/order/address/display.php:96 content_a/order/home/display.php:133
+#: content_cms/posts/share/display.php:28 content_crm/ticket/edit/display.php:11
+#: dash/app/telegram/post.php:105 dash/app/telegram/post.php:129
+#: dash/layout/admin/admin-titlebox.php:36 includes/languages/trans_static_public.php:142
+msgid "View"
+msgstr "نمایش"
 
 #: content_a/accounting/turnover/display.php:41
 msgid "Please choose group"
@@ -7640,14 +7662,6 @@ msgstr "محصول"
 #: content_a/form/answer/item/display.php:48 content_a/report/products/display.php:28
 msgid "Item"
 msgstr "گزینه"
-
-#: content_a/cart/home/display.php:168 content_a/order/address/display.php:96
-#: content_a/order/home/display.php:133 content_cms/posts/share/display.php:28
-#: content_crm/ticket/edit/display.php:11 dash/app/telegram/post.php:105
-#: dash/app/telegram/post.php:129 dash/layout/admin/admin-titlebox.php:36
-#: includes/languages/trans_static_public.php:142
-msgid "View"
-msgstr "نمایش"
 
 #: content_a/cart/home/display.php:172 content_love/application/home/display.php:75
 #: content_love/business/question/display.php:16
@@ -24148,11 +24162,11 @@ msgstr "در خواست خود را به صورت جیسون ارسال کنید
 msgid "Can not send html on this page"
 msgstr "در این صفحه نمی‌توانید اچ‌تی‌ام‌ال ارسال کنید"
 
-#: dash/allow.php:121
+#: dash/allow.php:122
 msgid "Invalid upload name!"
 msgstr "نام فایل آپلود شده اشتباه است!"
 
-#: dash/allow.php:134
+#: dash/allow.php:135
 msgid "Can not send file on this page"
 msgstr "در این صفحه نمی‌توانید فایل ارسال کنید"
 
@@ -47686,9 +47700,6 @@ msgstr "یارد"
 
 #~ msgid "You can not choose this slug"
 #~ msgstr "شما نمی توانید نامک را انتخاب کنید"
-
-#~ msgid "Night"
-#~ msgstr "شب"
 
 #~ msgid "Light"
 #~ msgstr "روشن"
