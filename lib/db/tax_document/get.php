@@ -36,7 +36,7 @@ class get
 				break;
 
 			case 'rights':
-				$type = " AND tax_coding.code LIKE '6%' AND tax_coding.code LIKE '77%'  ";
+				$type = " AND (tax_coding.code LIKE '6%' OR tax_coding.code LIKE '77%' ) ";
 				break;
 
 			case 'costandbenefit':
