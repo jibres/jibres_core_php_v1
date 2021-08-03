@@ -32,7 +32,7 @@ class get
 		switch ($_type)
 		{
 			case 'costs':
-				$type = " AND tax_coding.code LIKE '7%' AND tax_coding.code NOT LIKE '77%' ";
+				$type = " AND tax_coding.code LIKE '7%' AND tax_coding.code NOT LIKE '77%' AND tax_coding.code NOT LIKE '71%' ";
 				break;
 
 			case 'rights':
@@ -50,7 +50,7 @@ class get
 		$query  =
 		"
 			SELECT
-				(SUM(IFNULL(tax_docdetail.debtor, 0)) - SUM(IFNULL(tax_docdetail.creditor, 0))) AS `balance`
+				SUM(IFNULL(tax_docdetail.debtor, 0) - IFNULL(tax_docdetail.creditor, 0)) AS `balance`
 			FROM
 				tax_docdetail
 			INNER JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
