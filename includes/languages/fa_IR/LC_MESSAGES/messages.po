@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-03 13:58+0430\n"
-"PO-Revision-Date: 2021-08-03 13:59+0430\n"
+"POT-Creation-Date: 2021-08-03 14:38+0430\n"
+"PO-Revision-Date: 2021-08-03 14:38+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6136,13 +6136,18 @@ msgstr "گزارش‌ها"
 msgid "Costs"
 msgstr "هزینه‌ها"
 
-#: content_a/accounting/home/display.php:344
-msgid "Rights"
-msgstr "حقوق و دستمزد"
+#: content_a/accounting/home/display.php:344 includes/languages/trans_static.php:1026
+#: lib/app/tax/doc/ready.php:101
+msgid "Income"
+msgstr "درآمد"
 
 #: content_a/accounting/home/display.php:351
 msgid "Cost and Benefit"
 msgstr "سود و زیان"
+
+#: content_a/accounting/home/display.php:358
+msgid "Salary"
+msgstr "حقوق و دستمزد"
 
 #: content_a/accounting/report/assistant/display-old.php:4
 #: content_a/accounting/report/assistant/display.php:5
@@ -31962,10 +31967,6 @@ msgstr "آنلاین‌نیک"
 msgid "Cost"
 msgstr "هزینه"
 
-#: includes/languages/trans_static.php:1026 lib/app/tax/doc/ready.php:101
-msgid "Income"
-msgstr "درآمد"
-
 #: includes/languages/trans_static.php:1027
 msgid "cost"
 msgstr "هزینه"
@@ -41816,6 +41817,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Rights"
+#~ msgstr "حقوق و دستمزد"
 
 #~ msgid "Factors list :val"
 #~ msgstr "لیست تمامی فاکتور‌های :val"
