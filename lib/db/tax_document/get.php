@@ -10,15 +10,21 @@ class get
 		return self::summary_special_dashboard_number('costs', $_year_id);
 	}
 
-	public static function summary_rights($_year_id)
+	public static function summary_salary($_year_id)
 	{
-		return self::summary_special_dashboard_number('rights', $_year_id);
+		return self::summary_special_dashboard_number('salary', $_year_id);
 	}
 
 	public static function summary_costandbenefit($_year_id)
 	{
 		return self::summary_special_dashboard_number('costandbenefit', $_year_id);
 	}
+
+	public static function summary_income($_year_id)
+	{
+		return self::summary_special_dashboard_number('income', $_year_id);
+	}
+
 
 	private static function summary_special_dashboard_number($_type, $_year_id)
 	{
@@ -35,12 +41,16 @@ class get
 				$type = " AND tax_coding.code LIKE '7%' AND tax_coding.code NOT LIKE '77%' AND tax_coding.code NOT LIKE '71%' ";
 				break;
 
-			case 'rights':
-				$type = " AND (tax_coding.code LIKE '6%' OR tax_coding.code LIKE '77%' ) ";
+			case 'salary':
+				$type = " AND tax_coding.code LIKE '71%'  ";
 				break;
 
 			case 'costandbenefit':
 				$type = " AND tax_coding.code LIKE '37%'  ";
+				break;
+
+			case 'income':
+				$type = " AND (tax_coding.code LIKE '6%' OR tax_coding.code LIKE '77%' ) ";
 				break;
 
 			default:

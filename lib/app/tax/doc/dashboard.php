@@ -36,8 +36,10 @@ class dashboard
 		$result['percent_attachment'] = round(($result['count_all_attachment'] * 100) / $div);
 
 		$result['costs']          = floatval(\lib\db\tax_document\get::summary_costs($default_year_id));
-		$result['rights']         = floatval(\lib\db\tax_document\get::summary_rights($default_year_id));
+		$result['income']         = floatval(\lib\db\tax_document\get::summary_income($default_year_id));
+		$result['salary']         = floatval(\lib\db\tax_document\get::summary_salary($default_year_id));
 		$result['costandbenefit'] = floatval(\lib\db\tax_document\get::summary_costandbenefit($default_year_id));
+
 
 		return $result;
 
