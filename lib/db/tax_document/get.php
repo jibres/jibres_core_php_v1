@@ -4,6 +4,69 @@ namespace lib\db\tax_document;
 
 class get
 {
+
+	public static function summary_costs($_year_id)
+	{
+		return self::summary_special_dashboard_number('costs', $_year_id);
+	}
+
+	public static function summary_rights($_year_id)
+	{
+		return self::summary_special_dashboard_number('rights', $_year_id);
+	}
+
+	public static function summary_costandbenefit($_year_id)
+	{
+		return self::summary_special_dashboard_number('costandbenefit', $_year_id);
+	}
+
+	private static function summary_special_dashboard_number($_type, $_year_id)
+	{
+		$year_id = null;
+		if($_year_id)
+		{
+			$year_id = " AND tax_document.year_id = $_year_id ";
+		}
+
+		$type = null;
+		switch ($_type)
+		{
+			case 'costs':
+				$type = " AND tax_coding.code LIKE '7%' AND tax_coding.code NOT LIKE '77%' ";
+				break;
+
+			case 'rights':
+				$type = " AND tax_coding.code LIKE '6%' AND tax_coding.code LIKE '77%'  ";
+				break;
+
+			case 'costandbenefit':
+				$type = " AND tax_coding.code LIKE '37%'  ";
+				break;
+
+			default:
+				break;
+		}
+
+		$query  =
+		"
+			SELECT
+				(SUM(IFNULL(tax_docdetail.debtor, 0)) - SUM(IFNULL(tax_docdetail.creditor, 0))) AS `balance`
+			FROM
+				tax_docdetail
+			INNER JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
+			INNER JOIN tax_document ON tax_docdetail.tax_document_id = tax_document.id
+			WHERE
+				tax_document.status NOT IN ('deleted')
+			$year_id
+			$type
+		";
+
+		$result = \dash\db::get($query, 'balance', true);
+
+		return $result;
+
+	}
+
 	public static function count_group_by_template($_year_id)
 	{
 		$year_id = null;

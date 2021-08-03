@@ -330,4 +330,29 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
   </div>
 </div>
 
+<section class="row">
+
+  <div class="c-xs-6 c-sm-4 c-md-4">
+    <a href="<?php echo \dash\url::this(). '/factor?template=income'; ?>" class="stat">
+      <h3><?php echo T_("Costs");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'costs'));?></div>
+    </a>
+  </div>
+
+  <div class="c-xs-6 c-sm-4 c-md-4">
+    <a href="<?php echo \dash\url::this(). '/factor?template=costasset'; ?>" class="stat">
+      <h3><?php echo T_("Rights");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'rights'));?></div>
+    </a>
+  </div>
+
+  <div class="c-xs-6 c-sm-4 c-md-4">
+    <a href="<?php echo \dash\url::this(). '/factor?template=costasset'; ?>" class="stat">
+      <h3><?php echo T_("Cost and Benefit");?></h3>
+      <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'costandbenefit'));?></div>
+    </a>
+  </div>
+
+</section>
+
 

@@ -36,7 +36,7 @@
 
 				<div class="c-xs-12	c-sm-4 c-lg-3">
 					<?php if(\dash\data::groupList()) {?>
-						<label for="group"><?php echo T_("Group") ?></label>
+						<label for="group"><?php echo T_("Group") ?> <?php if(\dash\request::get('group')) {?><small><a target="_blank" class="link" href="<?php echo \dash\url::this(). '/coding?view='. \dash\request::get('group'); ?>"><i class="sf-external-link"></i> <?php echo T_("View"); ?></a></small><?php }//endif ?></label>
 						<select class="select22" name="group">
 							<option value=""><?php echo T_("Please choose group") ?></option>
 							<?php foreach (\dash\data::groupList() as $key => $value) {?>
@@ -49,7 +49,7 @@
 
 				<div class="c-xs-12	c-sm-8 c-lg-3">
 					<?php if(\dash\data::totalList()) {?>
-						<label for="total"><?php echo T_("Accounting total") ?></label>
+						<label for="total"><?php echo T_("Accounting total") ?> <?php if(\dash\request::get('total')) {?><small><a target="_blank" class="link" href="<?php echo \dash\url::this(). '/coding?view='. \dash\request::get('total'); ?>"><i class="sf-external-link"></i> <?php echo T_("View"); ?></a></small><?php }//endif ?></label>
 						<select class="select22" name="total">
 							<option value=""><?php echo T_("Please choose total") ?></option>
 							<?php foreach (\dash\data::totalList() as $key => $value) {?>
@@ -61,7 +61,7 @@
 
 				<div class="c-xs-12	c-sm-6 c-lg-6">
 					<?php if(\dash\data::assistantList()) {?>
-						<label for="assistant"><?php echo T_("Accounting assistant") ?></label>
+						<label for="assistant"><?php echo T_("Accounting assistant") ?> <?php if(\dash\request::get('assistant')) {?><small><a target="_blank" class="link" href="<?php echo \dash\url::this(). '/coding?view='. \dash\request::get('assistant'); ?>"><i class="sf-external-link"></i> <?php echo T_("View"); ?></a></small><?php }//endif ?></label>
 						<select class="select22" name="assistant">
 							<option value=""><?php echo T_("Please choose assistant") ?></option>
 							<?php foreach (\dash\data::assistantList() as $key => $value) {?>
