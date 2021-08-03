@@ -53,10 +53,11 @@ class get
 				SUM(IFNULL(tax_docdetail.debtor, 0) - IFNULL(tax_docdetail.creditor, 0)) AS `balance`
 			FROM
 				tax_docdetail
-			INNER JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
-			INNER JOIN tax_document ON tax_docdetail.tax_document_id = tax_document.id
+			JOIN tax_coding ON tax_coding.id = tax_docdetail.assistant_id
+			JOIN tax_document ON tax_docdetail.tax_document_id = tax_document.id
 			WHERE
 				tax_document.status NOT IN ('deleted')
+				 -- AND tax_document.type != 'opening'
 			$year_id
 			$type
 		";
