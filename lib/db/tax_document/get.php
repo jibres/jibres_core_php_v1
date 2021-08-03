@@ -67,7 +67,6 @@ class get
 			JOIN tax_document ON tax_docdetail.tax_document_id = tax_document.id
 			WHERE
 				tax_document.status NOT IN ('deleted')
-				 -- AND tax_document.type != 'opening'
 			$year_id
 			$type
 		";
