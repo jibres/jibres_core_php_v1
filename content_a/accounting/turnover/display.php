@@ -124,14 +124,22 @@
 <section class="row">
 
 	<div class="c">
-		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_openingvalue(); ?>'>
-			<h3><?php echo T_("Remain from opening");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_openingvalue());?></div>
+		<a class="stat" title="<?php echo \dash\fit::price(\dash\data::summaryDetail_balance_opening()); ?>" data-copy='<?php echo \dash\data::summaryDetail_debtor_opening(); ?>'>
+			<h3><?php echo T_("Debtor from opening");?></h3>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_debtor_opening());?></div>
 		</a>
 	</div>
 
 	<div class="c">
-		<a class="stat">
+		<a class="stat" title="<?php echo \dash\fit::price(\dash\data::summaryDetail_balance_opening()); ?>" data-copy='<?php echo \dash\data::summaryDetail_creditor_opening(); ?>'>
+			<h3><?php echo T_("Creditor from opening");?></h3>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_creditor_opening());?></div>
+		</a>
+	</div>
+
+
+	<div class="c">
+		<a class="stat" title="<?php echo \dash\fit::price(\dash\data::summaryDetail_balance()); ?>">
 			<h3><?php echo T_("Debtor");?></h3>
 			<?php $myPrice = \dash\data::summaryDetail_debtor();?>
 			<div class="val ltr" data-copy="<?php echo $myPrice ?>"><?php echo \dash\fit::price($myPrice); ?></div>
@@ -139,7 +147,7 @@
 	</div>
 
 	<div class="c">
-		<a class="stat">
+		<a class="stat" title="<?php echo \dash\fit::price(\dash\data::summaryDetail_balance()); ?>">
 			<h3><?php echo T_("Creditor");?></h3>
 			<?php $myPrice = \dash\data::summaryDetail_creditor();?>
 			<div class="val ltr" data-copy="<?php echo $myPrice ?>"><?php echo \dash\fit::price($myPrice); ?></div>
@@ -148,9 +156,9 @@
 
 
 	<div class="c">
-		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_balance(); ?>'>
+		<a class="stat" data-copy='<?php echo \dash\data::summaryDetail_final_balance(); ?>'>
 			<h3><?php echo T_("End of period");?></h3>
-			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_balance());?></div>
+			<div class="val ltr"><?php echo \dash\fit::price(\dash\data::summaryDetail_final_balance());?></div>
 		</a>
 	</div>
 
