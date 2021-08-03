@@ -105,6 +105,11 @@
 					</div>
 
 				</div>
+				<?php if(\dash\request::get('contain')) {?>
+					<div class="cauto">
+						<a class="btn" href="<?php echo \dash\url::this(). '/coding?view='. \dash\request::get('contain') ?>"><?php echo T_("View Accounting coding") ?></a>
+					</div>
+				<?php }// endif ?>
 				<div class="c"></div>
 				<div class="cauto">
 					<?php if(\dash\data::dataTableDraft()) {?>
@@ -115,6 +120,7 @@
 					<?php } //endif ?>
 					<button class="btn sm master"><?php echo T_("Apply") ?></button>
 				</div>
+
 			</div>
 
 		</footer>
