@@ -42,8 +42,8 @@ class convert
     public static function to_barcode($_barcode)
     {
     	$result = self::to_en_number($_barcode);
-    	$wrong  = ['چ', 'ژ'];
-        $right  = [']', 'C'];
+    	$wrong  = ['چ', 'ژ', 'ز'];
+        $right  = [']', 'C', 'C'];
         $result = str_replace($wrong, $right, $result);
         return $result;
     }
