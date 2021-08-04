@@ -80,7 +80,7 @@
             <div class="f align-center">
                 <div class="cauto">
                   <?php echo T_("Final Price"); ?>
-                    <?php if(is_null(a($productDataRow,'finalprice'))) {?>
+                    <?php if(is_null(a($productDataRow,'finalprice')) && \dash\url::child() !== 'add') {?>
                       <a class="link txtL" href="<?php echo \dash\url::here(). '/setting/product/free'; ?>"><?php echo T_("Manage free product button") ?></a>
                     <?php }elseif((string) a($productDataRow,'finalprice') === '0') {?>
                       <span class="fc-green txtB"><?php echo T_("Free") ?></span>
