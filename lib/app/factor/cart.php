@@ -185,6 +185,16 @@ class cart
 			}
 		}
 
+		if(isset($factor['customer']) && $factor['customer'])
+		{
+			$factor_user_id = \dash\coding::decode($factor['customer']);
+		}
+		else
+		{
+			\dash\notif::error(T_("Plese set mobile or login to contineu"));
+			return false;
+		}
+
 		$factor['guestid']  = $user_guest;
 		$factor['type']     = 'saleorder';
 		// $factor['status']   = '';
@@ -350,16 +360,16 @@ class cart
 				'auto_back'     => false,
 				'final_msg'     => true,
 				'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
-				'user_id'       => \dash\user::id(),
+				'user_id'       => $factor_user_id,
 				'amount'        => abs($result['price']),
 				'currency'      => \lib\store::currency('code'),
 				'factor_id'     => $result['factor_id'],
 				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
 				'final_fn_args' =>
 				[
-					'factor_id'     => $result['factor_id'],
-					'user_id'       => \dash\user::id(),
-					'amount'        => abs($result['price']),
+					'factor_id' => $result['factor_id'],
+					'user_id'   => $factor_user_id,
+					'amount'    => abs($result['price']),
 				],
 			];
 
@@ -404,9 +414,9 @@ class cart
 			\lib\app\factor\action::set('awaiting_verify_payment', $factor_id);
 		}
 
-		if(\dash\user::id())
+		if($factor_user_id)
 		{
-			\dash\log::set('order_customerNewOrder', ['to' => \dash\user::id(), 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
+			\dash\log::set('order_customerNewOrder', ['to' => $factor_user_id, 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
 		}
 
 		return $return;
