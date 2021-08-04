@@ -342,14 +342,14 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
   <div class="c-xs-6 c-sm-3 c-md-3">
     <a class="stat">
       <h3><?php echo T_("Income");?></h3>
-      <div class="val ltr compact"><?php echo \dash\fit::number(a($dashboardDetail, 'income'));?></div>
+      <div class="val ltr compact"><?php echo \dash\fit::number(abs(floatval(a($dashboardDetail, 'income'))));?></div>
     </a>
   </div>
 
   <div class="c-xs-6 c-sm-3 c-md-3">
     <a class="stat">
       <h3><?php echo T_("Cost and Benefit");?></h3>
-      <div class="val ltr compact"><?php echo \dash\fit::number(a($dashboardDetail, 'costandbenefit'));?></div>
+      <div class="val ltr compact"><?php echo \dash\fit::number(floatval(a($dashboardDetail, 'costandbenefit')) * -1);?></div>
     </a>
   </div>
 
