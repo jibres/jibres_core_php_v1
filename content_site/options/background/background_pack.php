@@ -285,7 +285,7 @@ class background_pack
 		$html .= "<div data-kerkere='.ShowCustomizeSetting' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $kerkere_class'>";
 		{
 			$html .= '<div class="w-16">Aa</div>';
-			$html .= '<div class="flex-grow">'. T_("Costomize"). '</div>';
+			$html .= '<div class="flex-grow">'. T_("Customize"). '</div>';
 			$html .= '<div class="">';
 			$html .= '</div>';
 		}
@@ -407,9 +407,8 @@ class background_pack
 			}
 			$html .= '</div>';
 
-			// $html .= \content_site\options\group\group_design::admin_html(...$func_get_args);
-
 			$html .= \content_site\options\color\color_text::admin_html(...$func_get_args);
+
 			// // $html .= \content_site\options\color\color_text_hover::admin_html(...$func_get_args);
 			// // $html .= \content_site\options\color\color_text_focus::admin_html(...$func_get_args);
 			// $html .= \content_site\options\color\color_opacity::admin_html(...$func_get_args);
