@@ -63,12 +63,6 @@ else
                 </a>
               </li>
               <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/pricing">
-                  <div class="key"><?php echo T_('Jibres Pricing'); ?></div>
-                  <div class="go"></div>
-                </a>
-              </li>
-              <li>
                 <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
                   <div class="key">API <i class="sf-external-link"></i></div>
                   <div class="go"></div>

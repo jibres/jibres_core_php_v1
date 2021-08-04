@@ -61,12 +61,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates')
                   <div class="go"></div>
                 </a>
               </li>
-              <li>
-                <a class="f" href="<?php echo $kingdom; ?>/pricing">
-                  <div class="key"><?php echo T_('Pricing'); ?></div>
-                  <div class="go"></div>
-                </a>
-              </li>
+
               <li>
                 <a class="f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
                   <div class="key"><?php echo T_('Developers API'); ?></div>
