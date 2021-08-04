@@ -305,7 +305,7 @@ class background_pack
 						$html .= '<div class="radio1">';
 						{
 							$html .= '<input type="radio" name="opt_background_pack" value="none" id="background_pack_none" '.(($default === 'none') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_none">None</label>';
+							$html .= '<label for="background_pack_none">'. T_("None"). '</label>';
 						}
 						$html .= '</div>';
 					}
@@ -316,7 +316,7 @@ class background_pack
 						$html .= '<div class="radio1">';
 						{
 							$html .= '<input type="radio" name="opt_background_pack" value="solid" id="background_pack_solid" '.(($default === 'solid') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_solid">Solid</label>';
+							$html .= '<label for="background_pack_solid">'. T_("Solid"). '</label>';
 						}
 						$html .= '</div>';
 					}
@@ -327,7 +327,7 @@ class background_pack
 						$html .= '<div class="radio1">';
 						{
 							$html .= '<input type="radio" name="opt_background_pack" value="gradient" id="background_pack_gradient" '.(($default === 'gradient') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_gradient">Gradient</label>';
+							$html .= '<label for="background_pack_gradient">'. T_("Gradient"). '</label>';
 						}
 						$html .= '</div>';
 					}
@@ -338,7 +338,7 @@ class background_pack
 						$html .= '<div class="radio1">';
 						{
 							$html .= '<input type="radio" name="opt_background_pack" value="image" id="background_pack_image" '.(($default === 'image') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_image">Image</label>';
+							$html .= '<label for="background_pack_image">'. T_("Image"). '</label>';
 						}
 						$html .= '</div>';
 					}
