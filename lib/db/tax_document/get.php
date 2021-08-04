@@ -25,6 +25,13 @@ class get
 		return self::summary_special_dashboard_number('income', $_year_id);
 	}
 
+	public static function summary_asset($_year_id)
+	{
+		return self::summary_special_dashboard_number('asset', $_year_id);
+	}
+
+
+
 
 	private static function summary_special_dashboard_number($_type, $_year_id)
 	{
@@ -51,6 +58,11 @@ class get
 
 			case 'income':
 				$type = " AND (tax_coding.code LIKE '6%' OR tax_coding.code LIKE '77%' ) ";
+				break;
+
+
+			case 'asset':
+				$type = " AND (tax_coding.code LIKE '1%' OR tax_coding.code LIKE '2%' ) ";
 				break;
 
 			default:
