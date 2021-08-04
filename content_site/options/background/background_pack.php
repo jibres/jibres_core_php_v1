@@ -297,7 +297,7 @@ class background_pack
 		{
 			$html .= '<form method="post" data-patch>';
 			{
-				// $html .= '<input type="hidden" name="multioption" value="multi">';
+				$html .= '<input type="hidden" name="notredirect" value="1">';
 				$html .= '<div class="row">';
 				{
 					$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
@@ -524,6 +524,7 @@ class background_pack
 	public static function template_or_custom($_data, $_template)
 	{
 		if(
+			a($_data, 'background_pack')          == a($_template, 'background_pack') &&
 			a($_data, 'background_gradient_type') == a($_template, 'background_gradient_type') &&
 			a($_data, 'background_gradient_from') == a($_template, 'background_gradient_from') &&
 			a($_data, 'background_gradient_via')  == a($_template, 'background_gradient_via') &&

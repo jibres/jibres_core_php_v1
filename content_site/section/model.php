@@ -263,12 +263,28 @@ class model
 
 		\dash\pdo::commit();
 
+
 		if(\dash\data::changeSectionTypeMode())
 		{
-			// \dash\notif::reloadIframe();
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
-
+			$need_redirect = true;
 		}
+
+		if(\dash\url::subchild() === 'style')
+		{
+			\dash\notif::reloadIframe();
+
+			if(\dash\request::post('notredirect'))
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
+
 	}
 
 
