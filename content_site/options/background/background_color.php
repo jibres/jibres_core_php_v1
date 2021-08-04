@@ -52,77 +52,18 @@ class background_color
 	public static function color_html($_name, $_default, $_title)
 	{
 		$html = '';
-		// $html .= '<nav class="items mT20">';
-		// {
-	 //  		$html .= '<ul>';
-	 //  		{
-	 //    		$html .= '<li>';
-	 //    		{
-		//       		$html .= "<div class='item f' data-kerkere='.showColorPreview_". $_name. "'>";
-		//       		{
-		//         		$html .= "<div title='$_default' class='h-12 w-20 bg-". $_default. "'></div>";
-		//         		$html .= '<div class="key">'. $_title. '</div>';
-		//       		}
-		//       		$html .= '</div>';
-	 //    		}
-	 //    		$html .= '</li>';
-	 //  		}
-	 //  		$html .= '</ul>';
-		// }
-		// $html .= '</nav>';
 
-		// $html .= '<div class="showColorPreview_'.$_name.'" data-kerkere-content="hide">';
+		$html .= '<form method="post" data-patch>';
 		{
-			$html .= '<form method="post" data-patch>';
-			{
 
-		    	$html .= '<label for="color-'. $_name. '">'. $_title. '</label>';
-		    	$html .= '<div class="input">';
-		    	{
-		    		$html .= '<input type="color" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
-		    	}
-		    	$html .= '</div>';
-
-			    // $html .= '<div class="text-center">';
-			    // {
-			    // 	foreach (\content_site\color\color::color_name() as $color)
-			    // 	{
-			    // 		$html .= '<div class="grid grid-cols-10">';
-				   //  	foreach (\content_site\color\color::color_opacity() as $opaicty)
-				   //  	{
-							// $myColor = $color. '-'. $opaicty;
-							// $json    = json_encode([$_name => $myColor,]);
-							// $html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 bg-". $myColor. "'></a>";
-				   //  	}
-			    // 		$html .= '</div>';
-			    // 	}
-			   //  	$html .= '<div class="grid grid-cols-2">';
-			   //  	{
-						// $myColor = 'white';
-						// $json    = json_encode([$_name => $myColor,]);
-						// $html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 bg-". $myColor. "'>".T_("White")."</a>";
-
-						// $myColor = 'black';
-						// $json    = json_encode([$_name => $myColor,]);
-						// $html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("Black")."</a>";
-
-						// $myColor = 'transparent';
-						// $json    = json_encode([$_name => $myColor,]);
-						// $html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("Transparent")."</a>";
-
-						// $myColor = 'current';
-						// $json    = json_encode([$_name => $myColor,]);
-						// $html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("current")."</a>";
-
-			   //  	}
-			   //  	$html .= '</div>';
-
-			    // }
-			    // $html .= '</div>';
-			}
-	  		$html .= '</form>';
+	    	$html .= '<label for="color-'. $_name. '">'. $_title. '</label>';
+	    	$html .= '<div class="input">';
+	    	{
+	    		$html .= '<input type="color" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
+	    	}
+	    	$html .= '</div>';
 		}
-	  	// $html .= '</div>';
+  		$html .= '</form>';
 
 	  	return $html;
 	}
