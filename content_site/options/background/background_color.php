@@ -100,12 +100,18 @@ class background_color
 
 						$myColor = 'transparent';
 						$json    = json_encode([$_name => $myColor,]);
-						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("transparent")."</a>";
+						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("Transparent")."</a>";
 
 						$myColor = 'current';
 						$json    = json_encode([$_name => $myColor,]);
 						$html    .= "<a data-ajaxify data-data='$json' title='$myColor' class='h-12 text-white bg-". $myColor. "'>".T_("current")."</a>";
 
+			    	}
+			    	$html .= '</div>';
+
+			    	$html .= '<div class="input">';
+			    	{
+			    		$html .= '<input type="color" name="raw_color_'.$_name. '">';
 			    	}
 			    	$html .= '</div>';
 			    }
