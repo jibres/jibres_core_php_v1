@@ -55,7 +55,6 @@ class option
 				'title'   => T_("Modern blog"),
 				'default' => false
 			],
-			,
 			[
 				'type'   => 'b3',
 				'title'   => T_("Simple blog"),
