@@ -18,6 +18,7 @@ class b1
 
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
 		$background_style = \content_site\assemble\background::full_style($_args);
+		$text_color       = \content_site\assemble\text_color::full_style($_args);
 
 		// element type
 		$cnElement = 'div';
@@ -40,8 +41,6 @@ class b1
 					$html .= '<header class="overflow-hidden">';
 					{
 						$heading_class = \content_site\options\heading::class_name($_args);
-						$text_color    = \content_site\assemble\text_color::full_style($_args);
-						$font_class    = \content_site\assemble\font::class($_args);
 
 						$html .= "<h2 class='text-4xl leading-10 $heading_class' $text_color>";
 						{
@@ -59,8 +58,8 @@ class b1
 					foreach ($_blogList as $key => $value)
 					{
 						// a img
-						// h2 a
-						$myLink      = a($value, 'link');
+						// h3 a
+						$myLinkHref  = " href='". a($value, 'link'). "'";
 						$myTitle     = a($value, 'title');
 						$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
 						$myExcerpt   = a($value, 'excerpt');
@@ -74,7 +73,7 @@ class b1
 							if($myThumb)
 							{
 								$card .= '<header>';
-								$card .= "<a class='block $coverRatio' href='$myLink'>";
+								$card .= "<a class='block $coverRatio'$myLinkHref>";
 								{
 									$card .= "<img class='block h-full w-full object-center object-cover' src='$myThumb' alt='$myTitle'>";
 								}
@@ -85,25 +84,25 @@ class b1
 							$card .= "<div class='flex-grow px-6 pt-4'>";
 							{
 								// title
-								$card .= '<h3 class="mb-5">';
+								$card .= '<h3>';
 								{
-									$card .= "<a class='block font-bold' href='$myLink'>";
+									$card .= "<a class='block leading-8 font-semibold hover:text-indigo-900 focus:text-blue-800 transition'$myLinkHref>";
 									{
 										$card .= $myTitle;
 									}
 									$card .= "</a>";
 
-									if(a($_args, 'post_show_readingtime') && a($value, 'readingtime'))
-									{
-										$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
-										$card .= '<small class="text-gray-700" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
-										$card .= T_(":val read", $val);
-										$card .= '</small>';
-
-									}
 								}
 								$card .= '</h3>';
 
+								if(a($_args, 'post_show_readingtime') && a($value, 'readingtime'))
+								{
+									$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
+									$card .= '<small class="text-gray-700" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+									$card .= T_(":val read", $val);
+									$card .= '</small>';
+
+								}
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
