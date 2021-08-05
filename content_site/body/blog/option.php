@@ -160,6 +160,8 @@ class option
 			'type',
 			'height',
 
+			'coverratio',
+
 
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
@@ -193,13 +195,17 @@ class option
 	 */
 	public static function b2()
 	{
+		$my_option = self::master_option();
+
+		\content_site\utility::unset_option($my_option, 'coverratio');
+
 		return
 		[
 			'key'     => __FUNCTION__,
 			'title'   => T_("Modern View"),
 			'premium' => true,
 			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => self::master_option(),
+			'options' => $my_option,
 		];
 	}
 
@@ -211,13 +217,17 @@ class option
 	 */
 	public static function b3()
 	{
+		$my_option = self::master_option();
+
+		\content_site\utility::unset_option($my_option, 'coverratio');
+
 		return
 		[
 			'key'     => __FUNCTION__,
 			'title'   => T_("Modern View"),
 			'premium' => true,
 			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => self::master_option(),
+			'options' => $my_option,
 		];
 	}
 
