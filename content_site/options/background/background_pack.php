@@ -93,64 +93,62 @@ class background_pack
 		}
 
 
-		$selected = false;
+		// $selected = false;
 
-		$html .= "<span class='mb-5 block'>". T_("Style"). "</span>";
+		// $html .= "<span class='mb-5 block'>". T_("Style"). "</span>";
 
-		$selected_class = " border-2 border-gray-900";
-		foreach (self::style_template() as $key => $value)
-		{
+		// $selected_class = " border-2 border-gray-900";
+		// foreach (self::style_template() as $key => $value)
+		// {
 
-			$class = null;
+		// 	$class = null;
 
-			$value['background_pack'] = a($value, 'opt_background_pack');
+		// 	$value['background_pack'] = a($value, 'opt_background_pack');
 
-			$background_style = \content_site\assemble\background::style($value);
-			$text_style = \content_site\assemble\text_color::style($value);
+		// 	$background_style = \content_site\assemble\background::style($value);
+		// 	$text_style = \content_site\assemble\text_color::style($value);
 
-			if(self::template_or_custom($current_style, $value))
-			{
-				// selected
-				$selected = true;
-				$class .= $selected_class;
-			}
+		// 	if(self::template_or_custom($current_style, $value))
+		// 	{
+		// 		// selected
+		// 		$selected = true;
+		// 		$class .= $selected_class;
+		// 	}
 
-			$json    = json_encode(array_merge($value, ['multioption' => 'multi', 'set_template' => true]));
+		// 	$json    = json_encode(array_merge($value, ['multioption' => 'multi', 'set_template' => true]));
 
-			$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $class' style='$background_style $text_style'>";
-			{
-				$html .= '<div class="w-16">Aa</div>';
-				$html .= '<div class="flex-grow">'. a($value, 'title'). '</div>';
-				$html .= '<div class="">';
-				$html .= '</div>';
-			}
+		// 	$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $class' style='$background_style $text_style'>";
+		// 	{
+		// 		$html .= '<div class="w-16">Aa</div>';
+		// 		$html .= '<div class="flex-grow">'. a($value, 'title'). '</div>';
+		// 		$html .= '<div class="">';
+		// 		$html .= '</div>';
+		// 	}
 
-			$html .= '</div>';
-		}
+		// 	$html .= '</div>';
+		// }
 
-		$kerkere_class = null;
-		// if selected one template hide the customize setting
-		if($selected)
-		{
-			$customize_kerkere = "data-kerkere-content='hide'";
-		}
-		else
-		{
+		// $kerkere_class = null;
+		// // if selected one template hide the customize setting
+		// if($selected)
+		// {
+		// 	$customize_kerkere = "data-kerkere-content='hide'";
+		// }
+		// else
+		// {
 			$customize_kerkere = '';
-			$kerkere_class = $selected_class;
-		}
+		// 	$kerkere_class = $selected_class;
+		// }
 
 
-		$html .= "<div data-kerkere='.ShowCustomizeSetting' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $kerkere_class'>";
-		{
-			$html .= '<div class="w-16">Aa</div>';
-			$html .= '<div class="flex-grow">'. T_("Customize"). '</div>';
-			$html .= '<div class="">';
-			$html .= '</div>';
-		}
-		$html .= '</div>';
-
-
+		// $html .= "<div data-kerkere='.ShowCustomizeSetting' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $kerkere_class'>";
+		// {
+		// 	$html .= '<div class="w-16">Aa</div>';
+		// 	$html .= '<div class="flex-grow">'. T_("Customize"). '</div>';
+		// 	$html .= '<div class="">';
+		// 	$html .= '</div>';
+		// }
+		// $html .= '</div>';
 
 		$html .= "<div class='ShowCustomizeSetting' $customize_kerkere>";
 		{
@@ -159,54 +157,68 @@ class background_pack
 
 			$html .= '<form method="post" class="mb-5" data-patch>';
 			{
-				$html .= "<span class='mt-5 block'>". T_("Background Type"). "</span>";
 
 				$html .= '<input type="hidden" name="notredirect" value="1">';
-				$html .= '<div class="row">';
-				{
-					$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
-					{
-						$html .= '<div class="radio1">';
-						{
-							$html .= '<input type="radio" name="opt_background_pack" value="none" id="background_pack_none" '.(($default === 'none') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_none">'. T_("None"). '</label>';
-						}
-						$html .= '</div>';
-					}
-					$html .= '</div>';
+				$html .= "<label for='background_pack'>". T_("Background Type") ."</label>";
 
-					$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
-					{
-						$html .= '<div class="radio1">';
-						{
-							$html .= '<input type="radio" name="opt_background_pack" value="solid" id="background_pack_solid" '.(($default === 'solid') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_solid">'. T_("Solid"). '</label>';
-						}
-						$html .= '</div>';
-					}
-					$html .= '</div>';
+				$name       = 'opt_background_pack';
 
-					$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
-					{
-						$html .= '<div class="radio1">';
-						{
-							$html .= '<input type="radio" name="opt_background_pack" value="gradient" id="background_pack_gradient" '.(($default === 'gradient') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_gradient">'. T_("Gradient"). '</label>';
-						}
-						$html .= '</div>';
-					}
-					$html .= '</div>';
+				$radio_html = '';
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'none', T_('Transparent'), (($default === 'none')? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'solid', T_("Solid"), (($default === 'solid')? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'gradient', T_("Gradient"), (($default === 'gradient')? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'image', T_("Image"), (($default === 'image')? true : false));
 
-					$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
-					{
-						$html .= '<div class="radio1">';
-						{
-							$html .= '<input type="radio" name="opt_background_pack" value="image" id="background_pack_image" '.(($default === 'image') ? "checked" : null ).'>';
-							$html .= '<label for="background_pack_image">'. T_("Image"). '</label>';
-						}
-						$html .= '</div>';
-					}
-					$html .= '</div>';
+				$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+
+
+				// $html .= "<span class='mt-5 block'>". T_("Background Type"). "</span>";
+
+				// $html .= '<div class="row">';
+				// {
+				// 	$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
+				// 	{
+				// 		$html .= '<div class="radio1">';
+				// 		{
+				// 			$html .= '<input type="radio" name="opt_background_pack" value="none" id="background_pack_none" '.(($default === 'none') ? "checked" : null ).'>';
+				// 			$html .= '<label for="background_pack_none">'. T_("None"). '</label>';
+				// 		}
+				// 		$html .= '</div>';
+				// 	}
+				// 	$html .= '</div>';
+
+				// 	$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
+				// 	{
+				// 		$html .= '<div class="radio1">';
+				// 		{
+				// 			$html .= '<input type="radio" name="opt_background_pack" value="solid" id="background_pack_solid" '.(($default === 'solid') ? "checked" : null ).'>';
+				// 			$html .= '<label for="background_pack_solid">'. T_("Solid"). '</label>';
+				// 		}
+				// 		$html .= '</div>';
+				// 	}
+				// 	$html .= '</div>';
+
+				// 	$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
+				// 	{
+				// 		$html .= '<div class="radio1">';
+				// 		{
+				// 			$html .= '<input type="radio" name="opt_background_pack" value="gradient" id="background_pack_gradient" '.(($default === 'gradient') ? "checked" : null ).'>';
+				// 			$html .= '<label for="background_pack_gradient">'. T_("Gradient"). '</label>';
+				// 		}
+				// 		$html .= '</div>';
+				// 	}
+				// 	$html .= '</div>';
+
+				// 	$html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
+				// 	{
+				// 		$html .= '<div class="radio1">';
+				// 		{
+				// 			$html .= '<input type="radio" name="opt_background_pack" value="image" id="background_pack_image" '.(($default === 'image') ? "checked" : null ).'>';
+				// 			$html .= '<label for="background_pack_image">'. T_("Image"). '</label>';
+				// 		}
+				// 		$html .= '</div>';
+				// 	}
+				// 	$html .= '</div>';
 
 					// $html .= '<div class="c-xs-12 c-sm-12 c-md-12">';
 					// {
@@ -218,8 +230,8 @@ class background_pack
 					// 	$html .= '</div>';
 					// }
 					// $html .= '</div>';
-				}
-				$html .= '</div>';
+				// }
+				// $html .= '</div>';
 			}
 			$html .= '</form>';
 
@@ -243,10 +255,16 @@ class background_pack
 			$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
 			{
 				$html .= \content_site\options\file::admin_html(...$func_get_args);
-				$html .= background_attachment::admin_html(...$func_get_args);
 				$html .= background_position::admin_html(...$func_get_args);
-				$html .= background_repeat::admin_html(...$func_get_args);
+
+				$html .= background_attachment::admin_html(...$func_get_args);
+
 				$html .= background_size::admin_html(...$func_get_args);
+
+				if(background_size::get_value(...$func_get_args) !== 'cover')
+				{
+					$html .= background_repeat::admin_html(...$func_get_args);
+				}
 			}
 			$html .= '</div>';
 

@@ -29,7 +29,7 @@ class background_size
 	}
 
 
-	public static function admin_html($_section_detail)
+	public static function get_value($_section_detail)
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_size');
 
@@ -37,6 +37,15 @@ class background_size
 		{
 			$default = self::default();
 		}
+
+		return $default;
+	}
+
+
+	public static function admin_html($_section_detail)
+	{
+
+		$default = self::get_value($_section_detail);
 
 
 		$title = T_("Background size");
