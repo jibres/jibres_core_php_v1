@@ -24,9 +24,9 @@ class b1
 			$html .= '</header>';
 		}
 
-		$html .= "<div class='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl'>";
+		foreach ($_blogList as $key => $value)
 		{
-			foreach ($_blogList as $key => $value)
+			$html .= "<div class='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-10'>";
 			{
 				// a img
 				// h2 a
@@ -43,7 +43,7 @@ class b1
 					{
 						$html .= "<div class='md:flex-shrink-0'>";
 						{
-							$html .= "<img class='h-48 w-full object-cover md:w-48' src='$myThumb' alt='$myTitle'>";
+							$html .= "<img class='h-full w-full object-cover md:w-48' src='$myThumb' alt='$myTitle'>";
 						}
 						$html .= "</div>";
 					}
@@ -63,8 +63,8 @@ class b1
 				}
 				$html .= '</div>';
 			}
+			$html .= '</div>';
 		}
-		$html .= '</div>';
 
 		return $html;
 	}
