@@ -49,7 +49,7 @@ class controller
 			return;
 		}
 
-		$options = \content_site\call_function::option($child);
+		$options = \content_site\call_function::option($child, \dash\data::currentSectionDetail());
 
 		$subchild = \dash\url::subchild();
 		if($subchild)

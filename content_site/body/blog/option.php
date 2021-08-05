@@ -85,6 +85,8 @@ class option
 			$type = 'b1';
 		}
 
+		// var_dump($_data);
+
 		$type_detail = [];
 
 		if(is_callable(['self', $type]))
@@ -190,13 +192,17 @@ class option
 	 */
 	public static function b2()
 	{
+		$my_option = self::master_option();
+
+		unset($my_option[array_search('container', $my_option)]);
+
 		return
 		[
 			'key'     => __FUNCTION__,
 			'title'   => T_("Modern View"),
 			'premium' => true,
 			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => self::master_option(),
+			'options' => $my_option,
 		];
 	}
 

@@ -23,13 +23,10 @@ class preview
 		[
 			'type'                     => 'b2',
 			'fill_defult_data'         => true,
-			'post_show_excerpt'        => false,
+			'post_show_excerpt'        => true,
 			// 'post_template'         => 'standard',
-			'background_pack'          => 'gradient',
-			'background_gradient_type' => 'gradient-to-r',
-			'background_gradient_from' => 'pink-500',
-			'background_gradient_via'  => 'red-500',
-			'background_gradient_to'   => 'yellow-500',
+			'background_pack'          => 'solid',
+			'background_color'   => '#e0e7ff',
 
 		];
 	}

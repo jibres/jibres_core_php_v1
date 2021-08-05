@@ -284,7 +284,7 @@ class view
 			$default = [];
 		}
 
-		$options = \content_site\call_function::option($section_key);
+		$options = \content_site\call_function::option($section_key, $result);
 
 		$default_options = [];
 
