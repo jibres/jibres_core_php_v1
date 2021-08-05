@@ -119,7 +119,12 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 <?php
 if(\dash\engine\store::inBusinessWebsite())
 {
- echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
+  // temporary condition
+  if(!\dash\data::newPageBuilder())
+  {
+    echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
+  }
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
 }
 else if(\dash\data::include_adminPanelBuilder())
 {

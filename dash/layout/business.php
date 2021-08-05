@@ -142,6 +142,8 @@ class business
 				self::$pagebuilder         = true;
 				self::$pagebuilder_setting = $pagebuilder;
 
+				\dash\data::newPageBuilder(true);
+
 				\dash\data::website($pagebuilder);
 
 				return true;
