@@ -8,16 +8,22 @@ class font
 	{
 
 		$enum   = [];
-		$enum[] = ['key' => 'IRANSansX', 		'title' =>  'IRANSansX',];
-		$enum[] = ['key' => 'IRANYekan', 		'title' =>  'IRANYekan',];
-		$enum[] = ['key' => 'LatoLatinWeb', 	'title' =>  'LatoLatinWeb',];
-		$enum[] = ['key' => 'Vazir', 			'title' =>  'Vazir',];
-		$enum[] = ['key' => 'tahoma', 			'title' =>  'tahoma',];
-		$enum[] = ['key' => 'GanjNamehSans', 	'title' =>  'GanjNamehSans',];
-		$enum[] = ['key' => 'NikaWeb', 			'title' =>  'NikaWeb',];
-		$enum[] = ['key' => 'BehdadWeb', 		'title' =>  'BehdadWeb',];
-		$enum[] = ['key' => 'WebNastaliq', 		'title' =>  'WebNastaliq',];
-		$enum[] = ['key' => 'Lalezar', 			'title' =>  'Lalezar',];
+
+		$enum[] = ['key' => '', 				'title' =>  T_("Default"),];
+
+		if(\dash\language::current() === 'fa')
+		{
+			$enum[] = ['key' => 'IRANYekan', 		'title' =>  T_('IRANYekan'),];
+			$enum[] = ['key' => 'Vazir', 			'title' =>  T_('Vazir'),];
+			$enum[] = ['key' => 'tahoma', 			'title' =>  T_('tahoma'),];
+			$enum[] = ['key' => 'GanjNamehSans', 	'title' =>  T_('GanjNamehSans'),];
+			$enum[] = ['key' => 'WebNastaliq', 		'title' =>  T_('WebNastaliq'),];
+			$enum[] = ['key' => 'NikaWeb', 			'title' =>  T_('NikaWeb'),];
+			$enum[] = ['key' => 'BehdadWeb', 		'title' =>  T_('BehdadWeb'),];
+			$enum[] = ['key' => 'Lalezar', 			'title' =>  T_('Lalezar'),];
+		}
+
+		$enum[] = ['key' => 'LatoLatinWeb', 	'title' =>  T_('LatoLatinWeb'),];
 
 		return $enum;
 	}
@@ -31,7 +37,7 @@ class font
 
 	public static function default()
 	{
-		return 'none';
+		return null;
 	}
 
 
