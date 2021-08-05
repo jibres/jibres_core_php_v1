@@ -49,19 +49,38 @@ class background_color
 	 * @param      string  $_name     The name
 	 * @param      string  $_default  The default
 	 */
-	public static function color_html($_name, $_default, $_title)
+	public static function color_html($_name, $_default, $_title, $_only_input = false)
 	{
+		$block_class = null;
+		$form_class  = 'inline-block pe-3';
+
+		if(!$_only_input)
+		{
+			$block_class = 'block';
+			$form_class  = null;
+		}
+
+		$input = '<input type="color" class="circle '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
+
+
 		$html = '';
 
-		$html .= '<form method="post" data-patch>';
+		$html .= '<form method="post" class="'.$form_class.'" data-patch>';
 		{
+			if(!$_only_input)
+			{
+	    		$html .= '<label for="color-'. $_name. '">'. $_title. '</label>';
+		    	$html .= '<div>';
+		    	{
+		    		$html .= $input;
+		    	}
+		    	$html .= '</div>';
+			}
+			else
+			{
+				$html .= $input;
+			}
 
-	    	$html .= '<label for="color-'. $_name. '">'. $_title. '</label>';
-	    	$html .= '<div>';
-	    	{
-	    		$html .= '<input type="color" class="circle block" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
-	    	}
-	    	$html .= '</div>';
 		}
   		$html .= '</form>';
 

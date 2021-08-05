@@ -295,7 +295,7 @@ class background_pack
 
 		$html .= "<div class='ShowCustomizeSetting' $customize_kerkere>";
 		{
-			$html .= '<form method="post" data-patch>';
+			$html .= '<form method="post" class="mb-5" data-patch>';
 			{
 				$html .= '<input type="hidden" name="notredirect" value="1">';
 				$html .= '<div class="row">';
@@ -369,17 +369,20 @@ class background_pack
 
 			$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 			{
+
+				$html .= '<div>'. T_("Gradient colors").'</div>';
 				$html .= background_gradient_from::admin_html(...$func_get_args);
 				$html .= background_gradient_via::admin_html(...$func_get_args);
 				$html .= background_gradient_to::admin_html(...$func_get_args);
 
-				$html .= '<div class="btn link" data-kerkere=".showGradientTempalte">'. T_("Use as template").'</div>';
 
-				$html .= '<div class="showGradientTempalte" data-kerkere-content="hide">';
-				{
-					$html .= background_gradient::admin_html(...$func_get_args);
-				}
-				$html .= '</div>';
+				// $html .= '<div class="btn link" data-kerkere=".showGradientTempalte">'. T_("Use as template").'</div>';
+
+				// $html .= '<div class="showGradientTempalte" data-kerkere-content="hide">';
+				// {
+				// 	$html .= background_gradient::admin_html(...$func_get_args);
+				// }
+				// $html .= '</div>';
 
 				$html .= background_gradient_type::admin_html(...$func_get_args);
 			}
