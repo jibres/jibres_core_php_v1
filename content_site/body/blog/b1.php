@@ -32,118 +32,122 @@ class b1
 
 		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style>";
 		{
-			if(a($_args, 'heading') !== null)
+			$html .= '<div class="max-w-screen-lg mx-auto px-2">';
 			{
-				$html .= '<header class="overflow-hidden">';
+				if(a($_args, 'heading') !== null)
 				{
-					$heading_class = \content_site\options\heading::class_name($_args);
-					$text_color    = \content_site\assemble\text_color::full_style($_args);
-					$font_class    = \content_site\assemble\font::class($_args);
-
-					$html .= "<h2 class='font-bold text-4xl leading-10 $heading_class' $text_color>";
+					$html .= '<header class="overflow-hidden">';
 					{
-						$html .= a($_args, 'heading');
-					}
-					$html .= '</h2>';
-				}
-				$html .= '</header>';
-			}
+						$heading_class = \content_site\options\heading::class_name($_args);
+						$text_color    = \content_site\assemble\text_color::full_style($_args);
+						$font_class    = \content_site\assemble\font::class($_args);
 
-			$grid_cols = \content_site\grid\analyze::get_class($_args);
-
-			$html .= "<div class='grid $grid_cols justify-center'>";
-			{
-				foreach ($_blogList as $key => $value)
-				{
-					// a img
-					// h2 a
-					$myLink      = a($value, 'link');
-					$myTitle     = a($value, 'title');
-					$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
-					$myExcerpt   = a($value, 'excerpt');
-					$myDate      = a($value, 'publishdate');
-
-
-					$card = '';
-					$card .= '<div data-card class="flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
-					{
-						// thumb
-						if($myThumb)
+						$html .= "<h2 class='font-bold text-4xl leading-10 $heading_class' $text_color>";
 						{
-							$card .= '<header>';
-							$card .= "<a class='block' href='$myLink'>";
-							{
-								$card .= "<img class='block w-full' src='$myThumb' alt='$myTitle'>";
-							}
-							$card .= "</a>";
-							$card .= '</header>';
+							$html .= a($_args, 'heading');
 						}
+						$html .= '</h2>';
+					}
+					$html .= '</header>';
+				}
 
-						$card .= "<div class='flex-grow px-6 pt-4'>";
+				$grid_cols = \content_site\grid\analyze::get_class($_args);
+
+				$html .= "<div class='grid $grid_cols justify-center'>";
+				{
+					foreach ($_blogList as $key => $value)
+					{
+						// a img
+						// h2 a
+						$myLink      = a($value, 'link');
+						$myTitle     = a($value, 'title');
+						$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
+						$myExcerpt   = a($value, 'excerpt');
+						$myDate      = a($value, 'publishdate');
+
+
+						$card = '';
+						$card .= '<div data-card class="flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
 						{
-							// title
-							$card .= '<h3 class="mb-5">';
+							// thumb
+							if($myThumb)
 							{
-								$card .= "<a class='block font-bold' href='$myLink'>";
+								$card .= '<header>';
+								$card .= "<a class='block' href='$myLink'>";
 								{
-									$card .= $myTitle;
+									$card .= "<img class='block w-full' src='$myThumb' alt='$myTitle'>";
 								}
 								$card .= "</a>";
+								$card .= '</header>';
+							}
 
-								if(a($_args, 'post_show_readingtime') && a($value, 'readingtime'))
+							$card .= "<div class='flex-grow px-6 pt-4'>";
+							{
+								// title
+								$card .= '<h3 class="mb-5">';
 								{
-									$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
-									$card .= '<small class="text-gray-700" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
-									$card .= T_(":val read", $val);
-									$card .= '</small>';
+									$card .= "<a class='block font-bold' href='$myLink'>";
+									{
+										$card .= $myTitle;
+									}
+									$card .= "</a>";
 
+									if(a($_args, 'post_show_readingtime') && a($value, 'readingtime'))
+									{
+										$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
+										$card .= '<small class="text-gray-700" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+										$card .= T_(":val read", $val);
+										$card .= '</small>';
+
+									}
+								}
+								$card .= '</h3>';
+
+
+								if($myExcerpt && a($_args, 'post_show_excerpt'))
+								{
+									$card .= "<p class='text-gray-700 text-xs'>";
+									$card .= $myExcerpt;
+									$card .= "</p>";
+								}
+
+							}
+							$card .= '</div>';
+
+								// add footer line
+							$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
+							{
+								if(a($_args, 'post_show_author'))
+								{
+
+									$writerName = a($value, 'user_detail', 'displayname');
+									$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+									$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
+								}
+
+								if(a($_args, 'post_show_date'))
+								{
+									if($myDate)
+									{
+										$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+										$card .= \dash\fit::date($myDate, 'readable');
+
+										$card .= "</time>";
+									}
 								}
 							}
-							$card .= '</h3>';
 
-
-							if($myExcerpt && a($_args, 'post_show_excerpt'))
-							{
-								$card .= "<p class='text-gray-700 text-xs'>";
-								$card .= $myExcerpt;
-								$card .= "</p>";
-							}
-
+							$card .= '</footer>';
 						}
 						$card .= '</div>';
 
-							// add footer line
-						$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
-						{
-							if(a($_args, 'post_show_author'))
-							{
-
-								$writerName = a($value, 'user_detail', 'displayname');
-								$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
-								$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
-							}
-
-							if(a($_args, 'post_show_date'))
-							{
-								if($myDate)
-								{
-									$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-									$card .= \dash\fit::date($myDate, 'readable');
-
-									$card .= "</time>";
-								}
-							}
-						}
-
-						$card .= '</footer>';
+						// save card
+						$html .= $card;
 					}
-					$card .= '</div>';
-
-					// save card
-					$html .= $card;
 				}
+				$html .= '</div>';
+
 			}
-			$html .= '</div>';
 		}
 		$html .= "</$cnElement>";
 

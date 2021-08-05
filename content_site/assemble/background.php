@@ -10,7 +10,7 @@ class background
 		$style = self::style($_data);
 		if($style)
 		{
-			$style = "style='$style'";
+			$style = " style='$style'";
 		}
 
 		return $style;
@@ -44,7 +44,7 @@ class background
 				// background file
 				if(a($_data, 'file'))
 				{
-					$style[] = 'background-image: url('.\lib\filepath::fix($_data['file']).');';
+					$style[] = 'background-image:url('.\lib\filepath::fix($_data['file']).');';
 				}
 
 				// backgroun repreat
@@ -117,7 +117,7 @@ class background
 
 				$to = $_data['background_gradient_to'];
 
-				$style[] = "background: linear-gradient($gradient_type, $from,  $to);";
+				$style[] = "background:linear-gradient($gradient_type,$from,$to);";
 
 				break;
 
@@ -142,7 +142,7 @@ class background
 				break;
 		}
 
-		return implode(' ', $style);
+		return implode('', $style);
 	}
 }
 ?>
