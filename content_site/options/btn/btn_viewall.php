@@ -52,7 +52,7 @@ class btn_viewall
 			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="opt_btn_viewall_check" id="btn_viewall_check"'.$checked.'>';
-				$html .= '<label for="btn_viewall_check">'. T_('Show "View all" button'). '</label>';
+				$html .= '<label for="btn_viewall_check">'. T_('Show <b>View all</b> button'). '</label>';
 			}
 			$html .= '</div>';
 

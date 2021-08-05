@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class b2
 {
-	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt)
+	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt, $_show_readingtime)
 	{
 		$html             = '';
 		if(a($_args, 'heading') !== null)

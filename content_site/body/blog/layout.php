@@ -73,6 +73,17 @@ class layout
 		$type        = a($_args, 'type');
 		// $type        = 'b1';
 
+		$my_args =
+		[
+			$_args,
+			$blogList,
+			$id,
+			a($_args, 'post_show_author'),
+			a($_args, 'post_show_date'),
+			a($_args, 'post_show_excerpt'),
+			a($_args, 'post_show_readingtime'),
+		];
+
 
 		$html .= "<$cnElement data-type='$type' class='$height' $background_style";
 		if($previewMode)
@@ -86,11 +97,11 @@ class layout
 				switch ($type)
 				{
 					case 'b1':
-						$html .= b1::html($_args, $blogList, $id, a($_args, 'post_show_author'), a($_args, 'post_show_date'), a($_args, 'post_show_excerpt'));
+						$html .= b1::html(...$my_args);
 						break;
 
 					case 'b2':
-						$html .= b2::html($_args, $blogList, $id, a($_args, 'post_show_author'), a($_args, 'post_show_date'), a($_args, 'post_show_excerpt'));
+						$html .= b2::html(...$my_args);
 						break;
 
 					default:

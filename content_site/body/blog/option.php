@@ -148,6 +148,7 @@ class option
 			'post_show_author',
 			'post_show_date',
 			'post_show_excerpt',
+			'post_show_readingtime',
 			'btn_viewall',
 			// range
 			'count_post',

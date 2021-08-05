@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class b1
 {
-	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt)
+	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt, $_show_readingtime)
 	{
 		$html             = '';
 
@@ -58,15 +58,25 @@ class b1
 					$card .= "<div class='flex-grow px-6 pt-4'>";
 					{
 						// title
-						$card .= '<h2>';
+						$card .= '<h2 class="mb-5">';
 						{
-							$card .= "<a class='block font-bold mb-5' href='$myLink'>";
+							$card .= "<a class='block font-bold' href='$myLink'>";
 							{
 								$card .= $myTitle;
 							}
 							$card .= "</a>";
+
+							if($_show_readingtime && a($value, 'readingtime'))
+							{
+								$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
+								$card .= '<small class="text-gray-700" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+								$card .= T_(":val read", $val);
+								$card .= '</small>';
+
+							}
 						}
 						$card .= '</h2>';
+
 
 						if($myExcerpt && $_show_excerpt)
 						{
