@@ -61,7 +61,7 @@ class type
 
 		$html = '';
 		$url = \dash\url::that(). '/type'. \dash\request::full_get();
-		$html .= "<a href='$url' class='btn mt-10 block'>". T_("Choose another preview"). '</a>';
+		$html .= "<a href='$url' class='link text-xs mt-10 block'>". T_("Choose another preview"). '</a>';
 		return $html;
 
 
