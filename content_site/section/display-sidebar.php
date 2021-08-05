@@ -132,7 +132,7 @@ else
     }
   }
 
-  if(isset($currentSectionDetail['discardable']) && $currentSectionDetail['discardable'] && !$subchild)
+  if(isset($currentSectionDetail['discardable']) && $currentSectionDetail['discardable'] && \dash\url::subchild())
   {
     $html .= "<div data-confirm data-data='{\"discard\": \"discard\"}' class='btn mt-10 block'>" . T_("Discard change"). '</div>';
   }
