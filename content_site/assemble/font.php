@@ -9,8 +9,11 @@ class font
 	public static function full_class($_data)
 	{
 		$class = self::class($_data);
-
-		return "class='$class' ";
+		if($class)
+		{
+			$class = "class='$class' ";
+		}
+		return $class;
 	}
 
 

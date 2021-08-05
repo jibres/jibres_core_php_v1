@@ -5,12 +5,15 @@ namespace content_site\assemble;
 class text_color
 {
 
-
 	public static function full_style($_data)
 	{
 		$style = self::style($_data);
+		if($style)
+		{
+			$style = " style='$style'";
+		}
 
-		return "style='$style' ";
+		return $style;
 	}
 
 
