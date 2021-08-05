@@ -86,7 +86,7 @@ class b1
 								// title
 								$card .= '<h3>';
 								{
-									$card .= "<a class='block leading-8 font-semibold hover:text-indigo-900 focus:text-blue-800 transition'$myLinkHref>";
+									$card .= "<a class='block text-lg leading-8 font-semibold hover:text-indigo-900 focus:text-blue-800 transition'$myLinkHref>";
 									{
 										$card .= $myTitle;
 									}
