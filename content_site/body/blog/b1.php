@@ -10,17 +10,17 @@ class b1
 
 		if(a($_args, 'heading') !== null)
 		{
-			$html .= '<header>';
+			$html .= '<header class="overflow-hidden">';
 			{
 				$heading_class = \content_site\options\heading::class_name($_args);
 				$text_color    = \content_site\assemble\text_color::full_style($_args);
 				$font_class    = \content_site\assemble\font::class($_args);
 
-				$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $text_color data-sync-apply='heading-$_id'>";
+				$html .= "<h2 class='font-bold text-4xl leading-10 $heading_class' $text_color data-sync-apply='heading-$_id'>";
 				{
 					$html .= a($_args, 'heading');
 				}
-				$html .= '</h3>';
+				$html .= '</h2>';
 			}
 			$html .= '</header>';
 		}
@@ -58,7 +58,7 @@ class b1
 					$card .= "<div class='flex-grow px-6 pt-4'>";
 					{
 						// title
-						$card .= '<h2 class="mb-5">';
+						$card .= '<h3 class="mb-5">';
 						{
 							$card .= "<a class='block font-bold' href='$myLink'>";
 							{
@@ -75,7 +75,7 @@ class b1
 
 							}
 						}
-						$card .= '</h2>';
+						$card .= '</h3>';
 
 
 						if($myExcerpt && $_show_excerpt)

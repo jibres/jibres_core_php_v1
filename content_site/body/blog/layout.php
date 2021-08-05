@@ -71,6 +71,7 @@ class layout
 		$previewMode = a($_args, 'preview_mode');
 		$id          = a($_args, 'id');
 		$type        = a($_args, 'type');
+		$font_class  = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
 
 		$my_args =
@@ -85,7 +86,7 @@ class layout
 		];
 
 
-		$html .= "<$cnElement data-type='$type' class='$height' $background_style>";
+		$html .= "<$cnElement data-type='$type' class='$height $font_class' $background_style>";
 		{
 			switch ($type)
 			{
