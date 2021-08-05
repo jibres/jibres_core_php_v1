@@ -38,7 +38,7 @@ if($listStore_owner && is_array($listStore_owner))
 ?>
        <li>
         <a class="f" href="<?php echo a($value, 'url'); ?>/a">
-         <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
+         <img src="<?php echo \dash\fit::img(a($value, 'logo')); ?>" alt="<?php echo a($value, 'title'); ?>">
          <div class="key"><?php echo a($value, 'title'); ?></div>
          <div class="value"><?php echo a($value, 'subdomain'); ?></div>
          <div class="go next"></div>
@@ -74,7 +74,7 @@ if($listStore_staff && is_array($listStore_staff))
  foreach ($listStore_staff as $key => $value) {?>
        <li>
         <a class="f" href="<?php echo a($value, 'url'); ?>/a">
-         <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
+         <img src="<?php echo \dash\fit::img(a($value, 'logo')); ?>" alt="<?php echo a($value, 'title'); ?>">
          <div class="key"><?php echo a($value, 'title'); ?></div>
          <div class="value"><?php echo a($value, 'subdomain'); ?></div>
          <div class="go next"></div>
