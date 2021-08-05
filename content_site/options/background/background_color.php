@@ -53,7 +53,7 @@ class background_color
 			$form_class  = null;
 		}
 
-		$input = '<input type="color" class="circle '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
+		$input = '<input type="color" class="picker '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
 
 
 		$html = '';
