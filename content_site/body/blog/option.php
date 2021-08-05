@@ -144,6 +144,7 @@ class option
 			// select
 			'post_tag',
 			'post_template',
+			'post_order',
 			// radio
 			'post_show_author',
 			'post_show_date',
