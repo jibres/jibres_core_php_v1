@@ -56,7 +56,6 @@ class layout
 		$btn_viewall_link = a($dataList, 'link');
 
 		$html             = '';
-		$container        = \content_site\options\container::class_name(a($_args, 'container'));
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
 		$background_style = \content_site\assemble\background::full_style($_args);
 
@@ -86,31 +85,27 @@ class layout
 		];
 
 
-		$html .= "<$cnElement data-type='$type' class='$height' $background_style";
-		if($previewMode)
+		$html .= "<$cnElement data-type='$type' class='$height' $background_style>";
 		{
-			$html .= " data-xhr='pageBuilderSection_$id'";
-		}
-		$html .= ">";
-		{
-			$html .= "<div class='$container'>";
+			switch ($type)
 			{
-				switch ($type)
-				{
-					case 'b1':
-						$html .= b1::html(...$my_args);
-						break;
+				case 'b1':
+					$html .= b1::html(...$my_args);
+					break;
 
-					case 'b2':
-						$html .= b2::html(...$my_args);
-						break;
+				case 'b2':
+					$html .= b2::html(...$my_args);
+					break;
 
-					default:
-						break;
-				}
 
+				case 'b3':
+					$html .= b3::html(...$my_args);
+					break;
+
+				default:
+					break;
 			}
-			$html .= "</div>";
+
 		}
 		$html .= "</$cnElement>";
 
