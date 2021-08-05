@@ -9,7 +9,7 @@ class preview
 	{
 		return
 		[
-			'type'              => 'type_1',
+			'type'              => 'b1',
 			'fill_defult_data'  => true,
 			'post_show_excerpt' => false,
 			'background_pack'   => 'none',
@@ -21,7 +21,7 @@ class preview
 	{
 		return
 		[
-			'type'                     => 'type_1',
+			'type'                     => 'b2',
 			'fill_defult_data'         => true,
 			'post_show_excerpt'        => false,
 			// 'post_template'         => 'standard',

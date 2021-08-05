@@ -7,7 +7,6 @@ class b1
 	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt)
 	{
 		$html             = '';
-
 		if(a($_args, 'heading') !== null)
 		{
 			$html .= '<header>';
@@ -25,9 +24,7 @@ class b1
 			$html .= '</header>';
 		}
 
-		$grid_cols = \content_site\grid\analyze::get_class($_args);
-
-		$html .= "<div class='grid $grid_cols justify-center'>";
+		$html .= "<div class='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl'>";
 		{
 			foreach ($_blogList as $key => $value)
 			{
@@ -39,74 +36,32 @@ class b1
 				$myExcerpt   = a($value, 'excerpt');
 				$myDate      = a($value, 'publishdate');
 
-
-				$card = '';
-				$card .= '<div data-card class="flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
+				$html .= '<div class="md:flex">';
 				{
 					// thumb
 					if($myThumb)
 					{
-						$card .= '<header>';
-						$card .= "<a class='block' href='$myLink'>";
+						$html .= "<div class='md:flex-shrink-0'>";
 						{
-							$card .= "<img class='block w-full' src='$myThumb' alt='$myTitle'>";
+							$html .= "<img class='h-48 w-full object-cover md:w-48' src='$myThumb' alt='$myTitle'>";
 						}
-						$card .= "</a>";
-						$card .= '</header>';
+						$html .= "</div>";
 					}
 
-					$card .= "<div class='flex-grow px-6 pt-4'>";
-					{
-						// title
-						$card .= '<h2>';
-						{
-							$card .= "<a class='block font-bold mb-5' href='$myLink'>";
-							{
-								$card .= $myTitle;
-							}
-							$card .= "</a>";
-						}
-						$card .= '</h2>';
+
+				    $html .= "<div class='p-8'>";
+				    {
+						// $html .= "<div class='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>Case study</div>";
+						$html .= "<a href='$myLink' class='block mt-1 text-lg leading-tight font-medium text-black hover:underline'>$myTitle</a>";
 
 						if($myExcerpt && $_show_excerpt)
 						{
-							$card .= "<p class='text-gray-700 text-xs'>";
-							$card .= $myExcerpt;
-							$card .= "</p>";
+							$html .= "<p class='mt-2 text-gray-500'>$myExcerpt</p>";
 						}
-
-					}
-					$card .= '</div>';
-
-						// add footer line
-					$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
-					{
-						if($_show_author)
-						{
-
-							$writerName = a($value, 'user_detail', 'displayname');
-							$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
-							$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
-						}
-
-						if($_show_date)
-						{
-							if($myDate)
-							{
-								$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-								$card .= \dash\fit::date($myDate, 'readable');
-
-								$card .= "</time>";
-							}
-						}
-					}
-
-					$card .= '</footer>';
+				    }
+				    $html .= "</div>";
 				}
-				$card .= '</div>';
-
-				// save card
-				$html .= $card;
+				$html .= '</div>';
 			}
 		}
 		$html .= '</div>';

@@ -46,12 +46,12 @@ class option
 		return
 		[
 			[
-				'type'   => 'type_1',
+				'type'   => 'b1',
 				'title'   => T_("Classic blog"),
 				'default' => true
 			],
 			[
-				'type'   => 'type_2',
+				'type'   => 'b2',
 				'title'   => T_("Modern blog"),
 				'default' => false
 			],
@@ -77,7 +77,7 @@ class option
 		else
 		{
 			// Hey! if change this variable you must change the default type in type_list function
-			$type = 'type_1';
+			$type = 'b1';
 		}
 
 		$type_detail = [];
@@ -166,7 +166,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_1()
+	public static function b1()
 	{
 		return
 		[
@@ -183,7 +183,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_2()
+	public static function b2()
 	{
 		return
 		[
