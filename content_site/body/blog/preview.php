@@ -17,7 +17,7 @@ class preview
 	}
 
 
-	public static function preview_gradient_1()
+	public static function preview_2()
 	{
 		return
 		[
@@ -27,6 +27,22 @@ class preview
 			// 'post_template'         => 'standard',
 			'background_pack'          => 'solid',
 			'background_color'   => '#e0e7ff',
+
+		];
+	}
+
+
+
+	public static function preview_3()
+	{
+		return
+		[
+			'type'                     => 'b3',
+			'fill_defult_data'         => true,
+			'post_show_excerpt'        => true,
+			// 'post_template'         => 'standard',
+			// 'background_pack'          => 'solid',
+			// 'background_color'   => '#e0e7ff',
 
 		];
 	}
