@@ -9,16 +9,14 @@ class b1
 		$html             = '';
 
 		// define variables
-		$previewMode = a($_args, 'preview_mode');
+		// $previewMode = a($_args, 'preview_mode');
 		$id          = a($_args, 'id');
 		$type        = a($_args, 'type');
 		$font_class  = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
 
-
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
 		$background_style = \content_site\assemble\background::full_style($_args);
-
 
 		// element type
 		$cnElement = 'div';
@@ -26,10 +24,14 @@ class b1
 		{
 			$cnElement = 'section';
 		}
-		$html .= "<$cnElement data-type='$type' class='$height $font_class' $background_style>";
+		$classNames = $height;
+		if($font_class)
 		{
+			$classNames .= ' '. $font_class;
+		}
 
-
+		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style>";
+		{
 			if(a($_args, 'heading') !== null)
 			{
 				$html .= '<header class="overflow-hidden">';
