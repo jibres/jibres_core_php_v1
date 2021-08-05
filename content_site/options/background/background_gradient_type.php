@@ -8,15 +8,16 @@ class background_gradient_type
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'none'];
-		$enum[] = ['key' => 'gradient-to-t'];
-		$enum[] = ['key' => 'gradient-to-tr'];
-		$enum[] = ['key' => 'gradient-to-r'];
-		$enum[] = ['key' => 'gradient-to-br'];
-		$enum[] = ['key' => 'gradient-to-b'];
-		$enum[] = ['key' => 'gradient-to-bl'];
-		$enum[] = ['key' => 'gradient-to-l'];
-		$enum[] = ['key' => 'gradient-to-tl'];
+		$enum[] = ['key' => ''];
+		$enum[] = ['key' => 'to top'];
+		$enum[] = ['key' => 'to top right'];
+		$enum[] = ['key' => 'to right'];
+		$enum[] = ['key' => 'to bottom right'];
+		$enum[] = ['key' => 'to bottom'];
+		$enum[] = ['key' => 'to bottom left'];
+		$enum[] = ['key' => 'to left'];
+		$enum[] = ['key' => 'to top left'];
+
 		return $enum;
 	}
 

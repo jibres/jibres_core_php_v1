@@ -57,12 +57,8 @@ class layout
 		$html             = '';
 		$container        = \content_site\options\container::class_name(a($_args, 'container'));
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background       = \content_site\options\background\background_pack::get_full_backgroun_class($_args);
-		$background_class = a($background, 'class');
-		$background_attr  = a($background, 'attr');
-		$element          = a($background, 'element');
+		$background_style = \content_site\assemble\background::full_style($_args);
 
-		$html .= $element;
 
 		// element type
 		$cnElement = 'div';
@@ -78,7 +74,7 @@ class layout
 		$type        = 'b1';
 
 
-		$html .= "<$cnElement data-type='$type' class='$height $background_class' $background_attr";
+		$html .= "<$cnElement data-type='$type' class='$height' $background_style";
 		if($previewMode)
 		{
 			$html .= " data-xhr='pageBuilderSection_$id'";

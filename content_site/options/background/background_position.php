@@ -12,11 +12,11 @@ class background_position
 		$enum[] = ['key' => 'bottom'];
 		$enum[] = ['key' => 'center'];
 		$enum[] = ['key' => 'left'];
-		$enum[] = ['key' => 'left-bottom'];
-		$enum[] = ['key' => 'left-top'];
+		$enum[] = ['key' => 'left bottom'];
+		$enum[] = ['key' => 'left top'];
 		$enum[] = ['key' => 'right'];
-		$enum[] = ['key' => 'right-bottom'];
-		$enum[] = ['key' => 'right-top'];
+		$enum[] = ['key' => 'right bottom'];
+		$enum[] = ['key' => 'right top'];
 		$enum[] = ['key' => 'top'];
 
 		return $enum;

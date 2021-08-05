@@ -18,7 +18,7 @@ class background_pack
 
 			// skip draw this option in html
 			'background_color',
-			'background_opacity',
+			// 'background_opacity',
 			'background_position',
 			'background_repeat',
 			'background_size',
@@ -47,144 +47,6 @@ class background_pack
 
 
 
-	/**
-	 * Get all class in backgroun
-	 *
-	 * @param      <type>  $_data  The backgroun pack array
-	 */
-	public static function get_full_backgroun_class($_data)
-	{
-		$pack    = a($_data, 'background_pack');
-
-		$class   = [];
-		$attr    = [];
-		$element = null;
-
-		switch ($pack)
-		{
-			case 'solid';
-				if(!a($_data, 'background_color'))
-				{
-					$_data['background_color'] = background_color::default();
-				}
-
-				$class[] = 'bg-'. $_data['background_color'];
-				break;
-
-			case 'image';
-
-				// background file
-				if(a($_data, 'file'))
-				{
-					$attr[] = 'style="background-image: url('.\lib\filepath::fix($_data['file']).')"';
-				}
-
-				// backgroun repreat
-				if(!a($_data, 'background_repeat'))
-				{
-					$_data['background_repeat'] = background_repeat::default();
-				}
-
-				$class[] = 'bg-'. $_data['background_repeat'];
-
-
-				// backgroun attachemnt
-				if(!a($_data, 'background_attachment'))
-				{
-					$_data['background_attachment'] = background_attachment::default();
-				}
-
-				$class[] = 'bg-'. $_data['background_attachment'];
-
-				// backgroun position
-				if(!a($_data, 'background_position'))
-				{
-					$_data['background_position'] = background_position::default();
-				}
-
-				$class[] = 'bg-'. $_data['background_position'];
-
-
-				// backgroun size
-				if(!a($_data, 'background_size'))
-				{
-					$_data['background_size'] = background_size::default();
-				}
-
-				$class[] = 'bg-'. $_data['background_size'];
-				break;
-
-			case 'gradient';
-				// backgroun gradient type
-				if(!a($_data, 'background_gradient_type'))
-				{
-					$_data['background_gradient_type'] = background_gradient_type::default();
-				}
-
-				$class[] = 'bg-'. $_data['background_gradient_type'];
-
-				// backgroun gradient from
-				if(!a($_data, 'background_gradient_from'))
-				{
-					$_data['background_gradient_from'] = background_gradient_from::default();
-				}
-
-				$class[] = 'from-'. $_data['background_gradient_from'];
-
-				// backgroun gradient via
-				if(!a($_data, 'background_gradient_via'))
-				{
-					$_data['background_gradient_via'] = background_gradient_via::default();
-				}
-
-				$class[] = 'via-'. $_data['background_gradient_via'];
-
-
-				// backgroun gradient to
-				if(!a($_data, 'background_gradient_to'))
-				{
-					$_data['background_gradient_to'] = background_gradient_to::default();
-				}
-
-				$class[] = 'to-'. $_data['background_gradient_to'];
-
-				break;
-
-
-			case 'video';
-				// background video
-				if(a($_data, 'video'))
-				{
-					$element .= '<style type="text/css">#page_background_video { right: 0;  bottom: 0;  min-width: 100%;  min-height: 100%; }</style>';
-					$element .= '<video playsinline autoplay muted loop  id="page_background_video">';
-					{
-						$element .= '<source src="'.\lib\filepath::fix($_data['video']).'" type="video/mp4">';
-					}
-					$element .= '</video>';
-				}
-				break;
-
-			case 'none';
-			default:
-				// no backgroun class
-				return null;
-				break;
-		}
-
-		if(is_null(a($_data, 'background_opacity')))
-		{
-			$_data['background_opacity'] = background_opacity::default();
-		}
-
-		$class[] = 'bg-opacity-'. $_data['background_opacity'];
-
-		return
-		[
-			'class'   => implode(' ', $class),
-			'attr'    => implode(' ', $attr),
-			'element' => $element,
-		];
-	}
 
 
 	public static function enum()
@@ -246,7 +108,8 @@ class background_pack
 
 			$value['background_pack'] = a($value, 'opt_background_pack');
 
-			$background = self::get_full_backgroun_class($value);
+			// $background = self::get_full_backgroun_class($value);
+			$background = null;
 			$class      = a($background, 'class');
 			$attr       = a($background, 'attr');
 			if(self::template_or_custom($current_style, $value))
@@ -406,11 +269,6 @@ class background_pack
 			}
 			$html .= '</div>';
 
-			$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.((in_array($default, ['solid'])) ? null : 'data-response-hide').'>';
-			{
-				$html .= background_opacity::admin_html(...$func_get_args);
-			}
-			$html .= '</div>';
 
 			$html .= \content_site\options\color\color_text::admin_html(...$func_get_args);
 

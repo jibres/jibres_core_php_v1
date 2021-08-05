@@ -9,11 +9,11 @@ class background_repeat
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'repeat'];
-		$enum[] = ['key' => 'no-repeat'];
-		$enum[] = ['key' => 'repeat-x'];
-		$enum[] = ['key' => 'repeat-y'];
-		$enum[] = ['key' => 'repeat-round'];
-		$enum[] = ['key' => 'repeat-space'];
+		$enum[] = ['key' => 'no repeat'];
+		$enum[] = ['key' => 'repeat x'];
+		$enum[] = ['key' => 'repeat y'];
+		$enum[] = ['key' => 'repeat round'];
+		$enum[] = ['key' => 'repeat space'];
 
 		return $enum;
 	}
