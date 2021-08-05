@@ -42,7 +42,7 @@ class b1
 						$text_color    = \content_site\assemble\text_color::full_style($_args);
 						$font_class    = \content_site\assemble\font::class($_args);
 
-						$html .= "<h2 class='font-bold text-4xl leading-10 $heading_class' $text_color>";
+						$html .= "<h2 class='text-4xl leading-10 $heading_class' $text_color>";
 						{
 							$html .= a($_args, 'heading');
 						}
@@ -72,10 +72,37 @@ class b1
 							// thumb
 							if($myThumb)
 							{
+								$coverRatio = 'l';
+								$coverHeight = '';
+								switch ($coverRatio)
+								{
+									case 's':
+										$coverHeight = ' h-32';
+										break;
+
+									case 'm':
+										$coverHeight = ' h-44';
+										break;
+
+									case 'l':
+										$coverHeight = ' h-72';
+										break;
+
+									case 'xl':
+										$coverHeight = ' h-96';
+										break;
+
+									case 'free':
+										$coverHeight = '';
+										break;
+
+									default:
+										break;
+								}
 								$card .= '<header>';
 								$card .= "<a class='block' href='$myLink'>";
 								{
-									$card .= "<img class='block w-full' src='$myThumb' alt='$myTitle'>";
+									$card .= "<img class='block w-full object-cover$coverHeight' src='$myThumb' alt='$myTitle'>";
 								}
 								$card .= "</a>";
 								$card .= '</header>';
