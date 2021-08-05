@@ -107,9 +107,9 @@ class b3
 				}
 				$html .= '</ul>';
 			}
-			$html .= '<div>';
+			$html .= '</div>';
 		}
-		$html .= '<div>';
+		$html .= '</div>';
 
 		return $html;
 	}
