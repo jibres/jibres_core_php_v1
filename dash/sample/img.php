@@ -51,7 +51,10 @@ class img
 	public static function unsplash($_dimensions = null, $_search = null)
 	{
 		$url = 'https://source.unsplash.com/';
-		$url .= $_dimensions. '/';
+		if($_dimensions)
+		{
+			$url .= $_dimensions. '/';
+		}
 
 		if($_search === 'daily')
 		{
@@ -61,8 +64,17 @@ class img
 		{
 			$url .= $_search;
 		}
+		elseif($_search === null)
+		{
+			$url .=  'random';
+		}
 		else
 		{
+			if(!$_dimensions)
+			{
+				$url .= 'featured';
+			}
+
 			$url .= '?'. $_search;
 		}
 

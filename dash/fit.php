@@ -285,6 +285,11 @@ class fit{
 
 	public static function img($_src, $_size = null)
 	{
+		if(substr($_src, 0, 28) === 'https://source.unsplash.com/')
+		{
+			return $_src;
+		}
+
 		$dotPosition = strrpos($_src, '.');
 		if(!$dotPosition)
 		{
