@@ -55,6 +55,12 @@ class option
 				'title'   => T_("Modern blog"),
 				'default' => false
 			],
+			,
+			[
+				'type'   => 'b3',
+				'title'   => T_("Simple blog"),
+				'default' => false
+			],
 		];
 
 	}
@@ -184,6 +190,24 @@ class option
 	 * @return     array  ( description_of_the_return_value )
 	 */
 	public static function b2()
+	{
+		return
+		[
+			'key'     => __FUNCTION__,
+			'title'   => T_("Modern View"),
+			'premium' => true,
+			'default' => self::master_default(['type' => __FUNCTION__]),
+			'options' => self::master_option(),
+		];
+	}
+
+
+	/**
+	 * Style 3
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function b3()
 	{
 		return
 		[
