@@ -18,7 +18,7 @@ class background_pack
 
 			// skip draw this option in html
 			'background_color',
-			// 'background_opacity',
+
 			'background_position',
 			'background_repeat',
 			'background_size',
@@ -33,12 +33,7 @@ class background_pack
 			'background_gradient_type',
 			'background_gradient_attachment',
 
-			'video',
-
 			'color_text',
-			'color_text_hover',
-			'color_text_focus',
-			'color_opacity',
 
 			'font',
 		];
@@ -106,12 +101,13 @@ class background_pack
 		foreach (self::style_template() as $key => $value)
 		{
 
+			$class = null;
+
 			$value['background_pack'] = a($value, 'opt_background_pack');
 
-			// $background = self::get_full_backgroun_class($value);
-			$background = null;
-			$class      = a($background, 'class');
-			$attr       = a($background, 'attr');
+			$background_style = \content_site\assemble\background::style($value);
+			$text_style = \content_site\assemble\text_color::style($value);
+
 			if(self::template_or_custom($current_style, $value))
 			{
 				// selected
@@ -121,7 +117,7 @@ class background_pack
 
 			$json    = json_encode(array_merge($value, ['multioption' => 'multi', 'set_template' => true]));
 
-			$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $class' $attr>";
+			$html .= "<div data-ajaxify data-data='$json' class='flex rounded ring-1 ring-gray-200 hover:ring-blue-200 transition p-2.5 mb-2 $class' style='$background_style $text_style'>";
 			{
 				$html .= '<div class="w-16">Aa</div>';
 				$html .= '<div class="flex-grow">'. a($value, 'title'). '</div>';
@@ -239,16 +235,6 @@ class background_pack
 				$html .= background_gradient_from::admin_html(...$func_get_args);
 				$html .= background_gradient_via::admin_html(...$func_get_args);
 				$html .= background_gradient_to::admin_html(...$func_get_args);
-
-
-				// $html .= '<div class="btn link" data-kerkere=".showGradientTempalte">'. T_("Use as template").'</div>';
-
-				// $html .= '<div class="showGradientTempalte" data-kerkere-content="hide">';
-				// {
-				// 	$html .= background_gradient::admin_html(...$func_get_args);
-				// }
-				// $html .= '</div>';
-
 				$html .= background_gradient_type::admin_html(...$func_get_args);
 			}
 			$html .= '</div>';
@@ -269,13 +255,7 @@ class background_pack
 			}
 			$html .= '</div>';
 
-
 			$html .= \content_site\options\color\color_text::admin_html(...$func_get_args);
-
-			// // $html .= \content_site\options\color\color_text_hover::admin_html(...$func_get_args);
-			// // $html .= \content_site\options\color\color_text_focus::admin_html(...$func_get_args);
-			// $html .= \content_site\options\color\color_opacity::admin_html(...$func_get_args);
-
 			$html .= \content_site\options\font::admin_html(...$func_get_args);
 
 		}
@@ -294,91 +274,17 @@ class background_pack
 		return
 		[
 			[
-				'title'                    => T_("White Minimal"),
+				'title'                    => T_("ABC def"),
 				'opt_background_pack'          => 'solid',
-				// 'background_gradient_type' => 'gradient-to-r',
-				// 'background_gradient_from' => 'pink-500',
-				// 'background_gradient_via'  => 'red-500',
-				// 'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'       => '50',
-				'background_color'         => 'white',
-				'color_text'               => 'gray-800',
-				'color_text_hover'         => 'gray-900',
-				'color_text_focus'         => 'gray-900',
-				// 'color_opacity'            => '5',
+				'background_color'         => '#ffffff',
+				'color_text'               => '#000000',
 			],
-			[
-				'title'                    => T_("White Gold"),
+				[
+				'title'                    => T_("ABC def"),
 				'opt_background_pack'          => 'solid',
-				// 'background_gradient_type' => 'gradient-to-r',
-				// 'background_gradient_from' => 'pink-500',
-				// 'background_gradient_via'  => 'red-500',
-				// 'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'       => '50',
-				'background_color'         => 'white',
-				'color_text'               => 'yellow-600',
-				'color_text_hover'         => 'yellow-700',
-				'color_text_focus'         => 'yellow-800',
-				// 'color_opacity'            => '5',
+				'background_color'         => '#000000',
+				'color_text'               => '#ffffff',
 			],
-			[
-				'title'                    => T_("Light Minimal"),
-				'opt_background_pack'          => 'solid',
-				// 'background_gradient_type' => 'gradient-to-r',
-				// 'background_gradient_from' => 'pink-500',
-				// 'background_gradient_via'  => 'red-500',
-				// 'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'       => '50',
-				'background_color'         => 'purple-100',
-				'color_text'               => 'gray-800',
-				'color_text_hover'         => 'gray-900',
-				'color_text_focus'         => 'gray-900',
-				// 'color_opacity'            => '5',
-			],
-			[
-				'title'                    => T_("Light Gold"),
-				'opt_background_pack'          => 'solid',
-				// 'background_gradient_type' => 'gradient-to-r',
-				// 'background_gradient_from' => 'pink-500',
-				// 'background_gradient_via'  => 'red-500',
-				// 'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'       => '50',
-				'background_color'         => 'indigo-100',
-				'color_text'               => 'yellow-600',
-				'color_text_hover'         => 'yellow-700',
-				'color_text_focus'         => 'yellow-800',
-				// 'color_opacity'            => '5',
-			],
-		[
-				'title'                    => T_("Light Minimal"),
-				'opt_background_pack'          => 'solid',
-				// 'background_gradient_type' => 'gradient-to-r',
-				// 'background_gradient_from' => 'pink-500',
-				// 'background_gradient_via'  => 'red-500',
-				// 'background_gradient_to'   => 'yellow-500',
-				// 'background_opacity'       => '50',
-				'background_color'         => 'green-900',
-				'color_text'               => 'white',
-				'color_text_hover'         => 'gray-50',
-				'color_text_focus'         => 'gray-50',
-				// 'color_opacity'            => '5',
-			],
-
-			// [
-			// 	'title'                    => T_("White gold"),
-			// 	'opt_background_pack'          => 'gradient',
-			// 	'background_gradient_type' => 'gradient-to-r',
-			// 	'background_gradient_from' => 'pink-500',
-			// 	'background_gradient_via'  => 'blue-500',
-			// 	'background_gradient_to'   => 'yellow-500',
-			// 	// 'background_opacity'    => '50',
-			// 	// 'background_color'      => 'indigo-400',
-			// 	'color_text'               => 'yellow-400',
-			// 	'color_text_hover'         => 'yellow-800',
-			// 	'color_text_focus'         => 'gray-400',
-			// 	'color_opacity'            => '5',
-			// ],
-
 		];
 	}
 
@@ -391,7 +297,6 @@ class background_pack
 			a($_data, 'background_gradient_from') == a($_template, 'background_gradient_from') &&
 			a($_data, 'background_gradient_via')  == a($_template, 'background_gradient_via') &&
 			a($_data, 'background_gradient_to')   == a($_template, 'background_gradient_to') &&
-			a($_data, 'background_opacity')       == a($_template, 'background_opacity') &&
 			a($_data, 'background_color')         == a($_template, 'background_color') &&
 			a($_data, 'color_text')               == a($_template, 'color_text')
 		  )
@@ -409,15 +314,13 @@ class background_pack
 		[
 			'background_pack'          => ['enum' => \content_site\options\background\background_pack::enum()],
 			'background_gradient_type' => ['enum' => array_column(\content_site\options\background\background_gradient_type::enum(), 'key')],
-			'background_gradient_from' => ['enum' => array_column(\content_site\options\background\background_gradient_from::enum(), 'color')],
-			'background_gradient_via'  => ['enum' => array_column(\content_site\options\background\background_gradient_via::enum(), 'color')],
-			'background_gradient_to'   => ['enum' => array_column(\content_site\options\background\background_gradient_to::enum(), 'color')],
-			'background_opacity'       => ['enum' => array_column(\content_site\options\background\background_opacity::enum(), 'key')],
-			'background_color'         => ['enum' => array_column(\content_site\options\background\background_color::enum(), 'color')],
-			'color_text'               => ['enum' => array_column(\content_site\options\background\background_color::enum(), 'color')],
-			'color_text_hover'         => ['enum' => array_column(\content_site\options\background\background_color::enum(), 'color')],
-			'color_text_focus'         => ['enum' => array_column(\content_site\options\background\background_color::enum(), 'color')],
-			'color_opacity'            => ['enum' => array_column(\content_site\options\background\background_opacity::enum(), 'key')],
+			'background_gradient_from' => 'color',
+			'background_gradient_via'  => 'color',
+			'background_gradient_to'   => 'color',
+			'background_color'         => 'color',
+			'color_text'               => 'color',
+			'color_text_hover'         => 'color',
+			'color_text_focus'         => 'color',
 		];
 
 		$args =
@@ -427,12 +330,10 @@ class background_pack
 			'background_gradient_from' => a($_data, 'background_gradient_from'),
 			'background_gradient_via'  => a($_data, 'background_gradient_via'),
 			'background_gradient_to'   => a($_data, 'background_gradient_to'),
-			'background_opacity'       => a($_data, 'background_opacity'),
 			'background_color'         => a($_data, 'background_color'),
 			'color_text'               => a($_data, 'color_text'),
 			'color_text_hover'         => a($_data, 'color_text_hover'),
 			'color_text_focus'         => a($_data, 'color_text_focus'),
-			'color_opacity'            => a($_data, 'color_opacity'),
 		];
 
 		$require = [];
