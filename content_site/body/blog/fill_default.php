@@ -24,7 +24,7 @@ class fill_default
 		return
 		[
 			'title'       => T_("Your post's title"),
-			'excerpt'     => T_("Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog."),
+			'excerpt'     => T_("Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers."),
 			'thumb'       => \dash\app::static_image_url(),
 			'readingtime' => \dash\utility\human::time(5*60, true),
 			'publishdate' => date("Y-m-d H:i:s"),

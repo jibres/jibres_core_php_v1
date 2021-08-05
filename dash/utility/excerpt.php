@@ -72,7 +72,7 @@ class excerpt
 
 	// 1/6 ratio on _prevcount tends to work pretty well and puts the terms
 	// in the middle of the extract
-	public static function extractRelevant($_fulltext, $_words=null, $_rellength=300, $_prevcount=50, $_indicator='...', $_strip=true)
+	public static function extractRelevant($_fulltext, $_words=null, $_rellength=158, $_prevcount=50, $_indicator='...', $_strip=true)
 	{
 		if($_strip)
 		{
