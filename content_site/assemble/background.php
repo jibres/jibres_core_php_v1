@@ -96,13 +96,13 @@ class background
 
 				$from = $_data['background_gradient_from'];
 
-				// backgroun gradient via
-				if(!a($_data, 'background_gradient_via'))
-				{
-					$_data['background_gradient_via'] = \content_site\options\background\background_gradient_via::default();
-				}
+				// // backgroun gradient via
+				// if(!a($_data, 'background_gradient_via'))
+				// {
+				// 	$_data['background_gradient_via'] = \content_site\options\background\background_gradient_via::default();
+				// }
 
-				$via =  $_data['background_gradient_via'];
+				// $via =  $_data['background_gradient_via'];
 
 
 				// backgroun gradient to
@@ -113,7 +113,7 @@ class background
 
 				$to = $_data['background_gradient_to'];
 
-				$style[] = "background: linear-gradient($gradient_type, $from, $via, $to);";
+				$style[] = "background: linear-gradient($gradient_type, $from,  $to);";
 
 				break;
 

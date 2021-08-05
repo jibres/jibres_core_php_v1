@@ -233,7 +233,7 @@ class background_pack
 
 				$html .= '<div>'. T_("Gradient colors").'</div>';
 				$html .= background_gradient_from::admin_html(...$func_get_args);
-				$html .= background_gradient_via::admin_html(...$func_get_args);
+				// $html .= background_gradient_via::admin_html(...$func_get_args);
 				$html .= background_gradient_to::admin_html(...$func_get_args);
 				$html .= background_gradient_type::admin_html(...$func_get_args);
 			}
