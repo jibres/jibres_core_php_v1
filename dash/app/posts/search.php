@@ -58,6 +58,8 @@ class search
 
 			'homepage_id'      => 'id',
 
+			'order_rand'       => 'bit',
+
 		];
 
 
@@ -291,6 +293,11 @@ class search
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY posts.id DESC ";
+		}
+
+		if($data['order_rand'])
+		{
+			$order_sort = " ORDER BY RAND() ";
 		}
 
 		if($data['homepage_id'])

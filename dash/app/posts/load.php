@@ -77,7 +77,7 @@ class load
 		$post_show_author  = $_detail['post_show_author'];
 		$btn_viewall_check = $_detail['btn_viewall_check'];
 
-		$post_show_author  = $_detail['post_show_author'];
+		$post_order        = $_detail['post_order'];
 
 		$link              = null;
 
@@ -110,6 +110,19 @@ class load
 			'tag_id'       => $tag_id,
 			'show_author'  => $post_show_author,
 		];
+
+
+		switch($post_order)
+		{
+			case 'random':
+				$args['order_rand'] = true;
+				break;
+
+			case 'latest':
+			default:
+				// nothing
+				break;
+		}
 
 		$list = \dash\app\posts\search::list(null, $args, true);
 

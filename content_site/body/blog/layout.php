@@ -27,6 +27,7 @@ class layout
 				'limit'             => a($_args, 'count'),
 				'post_show_author'  => a($_args, 'post_show_author'),
 				'btn_viewall_check' => a($_args, 'btn_viewall_check'),
+				'post_order'        => a($_args, 'post_order'),
 			];
 
 			$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
