@@ -9,15 +9,15 @@ class background_position
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'bottom'];
-		$enum[] = ['key' => 'center'];
-		$enum[] = ['key' => 'left'];
-		$enum[] = ['key' => 'left bottom'];
-		$enum[] = ['key' => 'left top'];
-		$enum[] = ['key' => 'right'];
-		$enum[] = ['key' => 'right bottom'];
-		$enum[] = ['key' => 'right top'];
-		$enum[] = ['key' => 'top'];
+		$enum[] = ['key' => 'bottom', 			'title' => T_('Bottom'),];
+		$enum[] = ['key' => 'center', 			'title' => T_('Center'),];
+		$enum[] = ['key' => 'left', 			'title' => T_('Left'),];
+		$enum[] = ['key' => 'left bottom', 		'title' => T_('Left Bottom'),];
+		$enum[] = ['key' => 'left top', 		'title' => T_('Left Top'),];
+		$enum[] = ['key' => 'right', 			'title' => T_('Right'),];
+		$enum[] = ['key' => 'right bottom', 	'title' => T_('Right Bottom'),];
+		$enum[] = ['key' => 'right top', 		'title' => T_('Right Top'),];
+		$enum[] = ['key' => 'top', 				'title' => T_('Top'),];
 
 		return $enum;
 	}
@@ -64,7 +64,7 @@ class background_position
 	        	}
 
 	        	$html .= "<option value='$value[key]'$selected>";
-	        	$html .= $value['key'];
+	        	$html .= $value['title'];
 	        	$html .= "</option>";
 	        }
 

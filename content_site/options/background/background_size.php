@@ -25,7 +25,7 @@ class background_size
 
 	public static function default()
 	{
-		return 'auto';
+		return 'cover';
 	}
 
 
@@ -45,23 +45,17 @@ class background_size
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= "<label for='background_size'>$title</label>";
-	        $html .= '<select name="opt_background_size" class="select22"  id="background_size">';
 
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
+	        $html .= "<label for='background_size'>$title</label>";
 
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
+			$name       = 'opt_background_size';
 
-	        	$html .= "<option value='$value[key]'$selected>";
-	        	$html .= $value['key'];
-	        	$html .= "</option>";
-	        }
+			$radio_html = '';
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'auto', 'Auto', (($default === 'auto')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'cover', 'Cover', (($default === 'cover')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'contain', 'Contain', (($default === 'contain')? true : false));
 
-	       	$html .= '</select>';
+			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 		}
   		$html .= '</form>';
 

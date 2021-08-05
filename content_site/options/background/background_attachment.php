@@ -26,7 +26,7 @@ class background_attachment
 
 	public static function default()
 	{
-		return 'scroll';
+		return 'fixed';
 	}
 
 
@@ -40,29 +40,24 @@ class background_attachment
 		}
 
 
-		$title = T_("Background Attachment Type");
+
+		$title = 'Background Attachment';
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
+
 			$html .= "<label for='background_attachment'>$title</label>";
-	        $html .= '<select name="opt_background_attachment" class="select22"  id="background_attachment">';
 
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
+			$name       = 'opt_background_attachment';
 
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
+			$radio_html = '';
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'fixed', 'Fixed', (($default === 'fixed')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'local', 'Local', (($default === 'local')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'scroll', 'Scroll', (($default === 'scroll')? true : false));
 
-	        	$html .= "<option value='$value[key]'$selected>";
-	        	$html .= $value['key'];
-	        	$html .= "</option>";
-	        }
+			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 
-	       	$html .= '</select>';
 		}
   		$html .= '</form>';
 
