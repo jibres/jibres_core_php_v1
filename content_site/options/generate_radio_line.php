@@ -33,7 +33,7 @@ class generate_radio_line
 			}
 			$html .= '>';
 
-			$html .= "<label for='$myId' class='block pt-1.5 px-3 h-12 text-md leading-6 text-gray-600 hover:text-gray-800 rounded-lg shadow bg-white transition'>";
+			$html .= "<label for='$myId' class='block pt-2 px-3 h-12 text-md text-gray-600 hover:text-gray-800 rounded-lg shadow bg-white transition'>";
 			if($_value === 'more')
 			{
 				$html .= '<svg class="mt-1 block mx-auto opacity-70" height="22" viewBox="0 0 22 22" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 11a1.8 1.8 0 11-3.6 0 1.8 1.8 0 013.6 0zM4.8 11a1.8 1.8 0 11-3.6 0 1.8 1.8 0 013.6 0zM19 12.8a1.8 1.8 0 100-3.6 1.8 1.8 0 000 3.6z"></path></svg>';
