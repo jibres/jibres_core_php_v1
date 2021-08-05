@@ -59,7 +59,7 @@ class background_color
 	    	$html .= '<label for="color-'. $_name. '">'. $_title. '</label>';
 	    	$html .= '<div>';
 	    	{
-	    		$html .= '<input type="color" class="block" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
+	    		$html .= '<input type="color" class="circle block" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
 	    	}
 	    	$html .= '</div>';
 		}
