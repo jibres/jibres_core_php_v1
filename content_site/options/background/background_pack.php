@@ -297,6 +297,8 @@ class background_pack
 		{
 			$html .= '<form method="post" class="mb-5" data-patch>';
 			{
+				$html .= "<span class='mt-5 block'>". T_("Background Type"). "</span>";
+
 				$html .= '<input type="hidden" name="notredirect" value="1">';
 				$html .= '<div class="row">';
 				{
