@@ -81,7 +81,7 @@ class b1
 								$card .= '</header>';
 							}
 
-							$card .= "<div class='flex-grow px-6 pt-4'>";
+							$card .= "<div class='flex-grow px-6 py-4'>";
 							{
 								// title
 								$card .= '<h3>';
@@ -98,15 +98,15 @@ class b1
 								if(a($_args, 'post_show_readingtime') && a($value, 'readingtime'))
 								{
 									$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
-									$card .= '<small class="text-gray-700" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+									$card .= '<div class="text-gray-400 leading-8 text-sm" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
 									$card .= T_(":val read", $val);
-									$card .= '</small>';
+									$card .= '</div>';
 
 								}
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
-									$card .= "<p class='text-gray-700 text-xs'>";
+									$card .= "<p class='mt-2 text-gray-500 text-sm leading-6'>";
 									$card .= $myExcerpt;
 									$card .= "</p>";
 								}
@@ -114,30 +114,35 @@ class b1
 							}
 							$card .= '</div>';
 
-								// add footer line
-							$card .= '<footer class="flex items-center px-6 py-4 hover:bg-gray-50 transition">';
+							// add footer line
+							if(a($_args, 'post_show_author') || a($_args, 'post_show_date'))
 							{
-								if(a($_args, 'post_show_author'))
+								$card .= '<footer class="flex items-center px-6 py-3 hover:bg-gray-50 transition">';
 								{
-
-									$writerName = a($value, 'user_detail', 'displayname');
-									$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
-									$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
-								}
-
-								if(a($_args, 'post_show_date'))
-								{
-									if($myDate)
+									if(a($_args, 'post_show_author'))
 									{
-										$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-										$card .= \dash\fit::date($myDate, 'readable');
 
-										$card .= "</time>";
+										$writerName = a($value, 'user_detail', 'displayname');
+										$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+										$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
+									}
+									$card .= "<span class='flex-grow'></span>";
+
+									if(a($_args, 'post_show_date'))
+									{
+										if($myDate)
+										{
+											$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+											$card .= \dash\fit::date($myDate, 'readable');
+
+											$card .= "</time>";
+										}
 									}
 								}
-							}
 
-							$card .= '</footer>';
+								$card .= '</footer>';
+
+							}
 						}
 						$card .= '</div>';
 
