@@ -8,100 +8,106 @@ class b3
 	{
 
 		$html             = '';
-		$html .= '<div class="divide-y divide-gray-200">';
+
+		$html .= '<div class="avand-xl">';
 		{
-			$text_color    = \content_site\assemble\text_color::full_style($_args);
-			$font_class    = \content_site\assemble\font::class($_args);
 
-			if(a($_args, 'heading') !== null)
+			$html .= '<div class="divide-y divide-gray-200">';
 			{
-				$html .= '<header>';
+				$text_color    = \content_site\assemble\text_color::full_style($_args);
+				$font_class    = \content_site\assemble\font::class($_args);
+
+				if(a($_args, 'heading') !== null)
 				{
-					$heading_class = \content_site\options\heading::class_name($_args);
-
-					$html .= '<div class="pt-6 pb-8 space-y-2 md:space-y-5">';
+					$html .= '<header>';
 					{
-						$html .= '<h2 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-[4rem] md:leading-[3.5rem]">'. a($_args, 'heading'). '</h2>';
-						// <p class="text-lg text-gray-500">All the latest Tailwind CSS news, straight from the team.</p>
-					}
-					$html .= '</div>';
-				}
-				$html .= '</header>';
-			}
+						$heading_class = \content_site\options\heading::class_name($_args);
 
-
-			$html .= '<ul class="divide-y divide-gray-200">';
-			{
-
-				foreach ($_blogList as $key => $value)
-				{
-					// a img
-					// h2 a
-					$myLink      = a($value, 'link');
-					$myTitle     = a($value, 'title');
-					$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
-					$myExcerpt   = a($value, 'excerpt');
-					$myDate      = a($value, 'publishdate');
-
-					$html .= '<li class="py-12">';
-					{
-						$html .= '<article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">';
+						$html .= '<div class="pt-6 pb-8 space-y-2 md:space-y-5">';
 						{
-							$html .= '<dl>';
+							$html .= '<h2 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-[4rem] md:leading-[3.5rem]">'. a($_args, 'heading'). '</h2>';
+							// <p class="text-lg text-gray-500">All the latest Tailwind CSS news, straight from the team.</p>
+						}
+						$html .= '</div>';
+					}
+					$html .= '</header>';
+				}
+
+
+				$html .= '<ul class="divide-y divide-gray-200">';
+				{
+
+					foreach ($_blogList as $key => $value)
+					{
+						// a img
+						// h2 a
+						$myLink      = a($value, 'link');
+						$myTitle     = a($value, 'title');
+						$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
+						$myExcerpt   = a($value, 'excerpt');
+						$myDate      = a($value, 'publishdate');
+
+						$html .= '<li class="py-12">';
+						{
+							$html .= '<article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">';
 							{
-								$html .= '<dt class="sr-only">'. T_("Published on").'</dt>';
-								$html .= '<dd class="text-base font-medium text-gray-500">';
+								$html .= '<dl>';
 								{
-									$html .= "<time datetime='$myDate'>".\dash\fit::date($myDate, 'readable')."</time>";
-								}
-								$html .= '</dd>';
-
-							}
-							$html .= '</dl>';
-
-							$html .= '<div class="space-y-5 xl:col-span-3">';
-							{
-
-								$html .= '<div class="space-y-6">';
-								{
-
-									$html .= '<h3 class="text-2xl font-bold tracking-tight">';
+									$html .= '<dt class="sr-only">'. T_("Published on").'</dt>';
+									$html .= '<dd class="text-base font-medium text-gray-500">';
 									{
-										$html .= "<a class='text-gray-900' href='$myLink'>$myTitle</a>";
+										$html .= "<time datetime='$myDate'>".\dash\fit::date($myDate, 'readable')."</time>";
 									}
-									$html .= '</h3>';
+									$html .= '</dd>';
 
-									$html .= '<div class="prose max-w-none text-gray-500">';
+								}
+								$html .= '</dl>';
+
+								$html .= '<div class="space-y-5 xl:col-span-3">';
+								{
+
+									$html .= '<div class="space-y-6">';
 									{
 
-										$html .= '<div class="prose max-w-none">';
+										$html .= '<h3 class="text-2xl font-bold tracking-tight">';
 										{
-											if($myExcerpt && a($_args, 'post_show_excerpt'))
+											$html .= "<a class='text-gray-900' href='$myLink'>$myTitle</a>";
+										}
+										$html .= '</h3>';
+
+										$html .= '<div class="prose max-w-none text-gray-500">';
+										{
+
+											$html .= '<div class="prose max-w-none">';
 											{
-												$html .= "<p>$myExcerpt</p>";
+												if($myExcerpt && a($_args, 'post_show_excerpt'))
+												{
+													$html .= "<p>$myExcerpt</p>";
+												}
 											}
+											$html .= '</div>';
 										}
 										$html .= '</div>';
 									}
 									$html .= '</div>';
-								}
-								$html .= '</div>';
 
-								$html .= '<div class="text-base font-medium">';
-								{
-									$html .= "<a class='text-teal-600 hover:text-teal-700' href='$myLink'>Read more →</a>";
+									$html .= '<div class="text-base font-medium">';
+									{
+										$html .= "<a class='text-teal-600 hover:text-teal-700' href='$myLink'>Read more →</a>";
+									}
+									$html .= '</div>';
 								}
 								$html .= '</div>';
 							}
-							$html .= '</div>';
+							$html .= '</article>';
 						}
-						$html .= '</article>';
-					}
-					$html .= '</li>';
+						$html .= '</li>';
 
-				} // endfor
+					} // endfor
+				}
+				$html .= '</ul>';
 			}
-			$html .= '</ul>';
+			$html .= '<div>';
 		}
 		$html .= '<div>';
 

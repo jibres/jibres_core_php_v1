@@ -38,7 +38,7 @@ class b1
 					$text_color    = \content_site\assemble\text_color::full_style($_args);
 					$font_class    = \content_site\assemble\font::class($_args);
 
-					$html .= "<h2 class='font-bold text-4xl leading-10 $heading_class' $text_color data-sync-apply='heading-$_id'>";
+					$html .= "<h2 class='font-bold text-4xl leading-10 $heading_class' $text_color>";
 					{
 						$html .= a($_args, 'heading');
 					}
