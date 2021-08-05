@@ -12,6 +12,7 @@ class b1
 		// $previewMode = a($_args, 'preview_mode');
 		$id          = a($_args, 'id');
 		$type        = a($_args, 'type');
+		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
 		$font_class  = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
 
@@ -72,37 +73,10 @@ class b1
 							// thumb
 							if($myThumb)
 							{
-								$coverRatio = 'l';
-								$coverHeight = '';
-								switch ($coverRatio)
-								{
-									case 's':
-										$coverHeight = ' h-32';
-										break;
-
-									case 'm':
-										$coverHeight = ' h-44';
-										break;
-
-									case 'l':
-										$coverHeight = ' h-72';
-										break;
-
-									case 'xl':
-										$coverHeight = ' h-96';
-										break;
-
-									case 'free':
-										$coverHeight = '';
-										break;
-
-									default:
-										break;
-								}
 								$card .= '<header>';
-								$card .= "<a class='block' href='$myLink'>";
+								$card .= "<a class='block $coverRatio' href='$myLink'>";
 								{
-									$card .= "<img class='block w-full object-cover$coverHeight' src='$myThumb' alt='$myTitle'>";
+									$card .= "<img class='block h-full w-full object-center object-cover' src='$myThumb' alt='$myTitle'>";
 								}
 								$card .= "</a>";
 								$card .= '</header>';
