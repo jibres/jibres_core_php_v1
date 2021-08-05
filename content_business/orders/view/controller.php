@@ -24,8 +24,14 @@ class controller
 
 
 		$load = \lib\app\factor\get::load_my_order($order_id);
-		if(!$load)
+		if($load === null)
 		{
+			// return null
+			\dash\header::status(403, T_("This is not your order"));
+		}
+		else
+		{
+			// return false
 			\dash\header::status(404, T_("Order not found"));
 		}
 

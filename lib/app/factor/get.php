@@ -253,6 +253,7 @@ class get
 		{
 			if(!$guest)
 			{
+				\dash\redirect::to_login();
 				return null;
 			}
 		}
@@ -273,7 +274,11 @@ class get
 
 		if(!isset($factor['id']))
 		{
-			return false;
+			if($guest)
+			{
+				\dash\redirect::to_login();
+			}
+			return null;
 		}
 
 		$products = \lib\db\factordetails\get::get_product_by_factor_id($factor['id']);
