@@ -154,6 +154,9 @@ class background_pack
 
 		$html .= "<div class='ShowCustomizeSetting' $customize_kerkere>";
 		{
+			$html .= \content_site\options\font::admin_html(...$func_get_args);
+			$html .= \content_site\options\color\color_text::admin_html(...$func_get_args);
+
 			$html .= '<form method="post" class="mb-5" data-patch>';
 			{
 				$html .= "<span class='mt-5 block'>". T_("Background Type"). "</span>";
@@ -220,7 +223,6 @@ class background_pack
 			}
 			$html .= '</form>';
 
-
 			$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
 			{
 				$html .= background_color::admin_html(...$func_get_args);
@@ -254,9 +256,6 @@ class background_pack
 				$html .= \content_site\options\video::admin_html(...$func_get_args);
 			}
 			$html .= '</div>';
-
-			$html .= \content_site\options\color\color_text::admin_html(...$func_get_args);
-			$html .= \content_site\options\font::admin_html(...$func_get_args);
 
 		}
 		$html .= '</div>';
