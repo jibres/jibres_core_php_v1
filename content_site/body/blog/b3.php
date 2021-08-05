@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class b3
 {
-	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt, $_show_readingtime)
+	public static function html($_args, $_blogList)
 	{
 
 		$html             = '';
@@ -52,7 +52,7 @@ class b3
 								$html .= '<dt class="sr-only">'. T_("Published on").'</dt>';
 								$html .= '<dd class="text-base font-medium text-gray-500">';
 								{
-									$html .= "<time datetime='$myDate'>".\dash\fit::date_human($myDate)."</time>";
+									$html .= "<time datetime='$myDate'>".\dash\fit::date($myDate, 'readable')."</time>";
 								}
 								$html .= '</dd>';
 
@@ -76,7 +76,7 @@ class b3
 
 										$html .= '<div class="prose max-w-none">';
 										{
-											if($myExcerpt && $_show_excerpt)
+											if($myExcerpt && a($_args, 'post_show_excerpt'))
 											{
 												$html .= "<p>$myExcerpt</p>";
 											}

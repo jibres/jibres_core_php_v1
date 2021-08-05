@@ -4,7 +4,7 @@ namespace content_site\body\blog;
 
 class b2
 {
-	public static function html($_args, $_blogList, $_id, $_show_author, $_show_date, $_show_excerpt, $_show_readingtime)
+	public static function html($_args, $_blogList)
 	{
 		$html             = '';
 		if(a($_args, 'heading') !== null)
@@ -15,7 +15,7 @@ class b2
 				$text_color    = \content_site\assemble\text_color::full_style($_args);
 				$font_class    = \content_site\assemble\font::class($_args);
 
-				$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $text_color data-sync-apply='heading-$_id'>";
+				$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $text_color>";
 				{
 					$html .= a($_args, 'heading');
 				}
@@ -54,7 +54,7 @@ class b2
 						// $html .= "<div class='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>Case study</div>";
 						$html .= "<a href='$myLink' class='block mt-1 text-lg leading-tight font-medium text-black hover:underline'>$myTitle</a>";
 
-						if($myExcerpt && $_show_excerpt)
+						if($myExcerpt && a($_args, 'post_show_excerpt'))
 						{
 							$html .= "<p class='mt-2 text-gray-500'>$myExcerpt</p>";
 						}
