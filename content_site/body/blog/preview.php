@@ -24,7 +24,6 @@ class preview
 			'type'                     => 'b2',
 			'fill_defult_data'         => true,
 			'post_show_excerpt'        => true,
-			// 'post_template'         => 'standard',
 			'background_pack'          => 'solid',
 			'background_color'   => '#e0e7ff',
 
@@ -40,7 +39,6 @@ class preview
 			'type'                     => 'b3',
 			'fill_defult_data'         => true,
 			'post_show_excerpt'        => true,
-			// 'post_template'         => 'standard',
 			// 'background_pack'          => 'solid',
 			// 'background_color'   => '#e0e7ff',
 

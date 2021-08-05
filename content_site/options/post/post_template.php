@@ -41,7 +41,7 @@ class post_template
 
 	public static function default()
 	{
-		return null;
+		return 'any';
 	}
 
 
@@ -61,7 +61,7 @@ class post_template
 		}
 		else
 		{
-			$default_post_template = null;
+			$default_post_template = self::default();
 		}
 
 		if(isset($_section_detail['preview']['post_play_item']) && $_section_detail['preview']['post_play_item'])
