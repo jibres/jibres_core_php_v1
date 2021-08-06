@@ -40,6 +40,8 @@ class background_pack
 			'color_text',
 
 			'font',
+
+			'type',
 		];
 	}
 
@@ -282,8 +284,10 @@ class background_pack
 			$html .= '</div>';
 
 		}
+
 		$html .= '</div>';
 
+		$html .= \content_site\options\type::admin_html(...$func_get_args);
 
 
 		return $html;

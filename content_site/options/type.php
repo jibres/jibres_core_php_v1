@@ -61,7 +61,30 @@ class type
 
 		$html = '';
 		$url = \dash\url::that(). '/type'. \dash\request::full_get();
-		$html .= "<a href='$url' class='link text-xs mt-10 block'>". T_("Choose another preview"). '</a>';
+
+
+		$html .= '<nav class="items long mT20">';
+		{
+	 		$html .= '<ul>';
+	 		{
+		   		$html .= '<li>';
+		   		{
+		      		$html .= "<a class='item f' href='$url'>";
+		      		{
+		        		$html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Exchange'). '">';
+		        		$html .= '<div class="key">'. T_("Choose another preview"). '</div>';
+		        		$html .= '<div class="go"></div>';
+		      		}
+		      		$html .= '</a>';
+		   		}
+		   		$html .= '</li>';
+	 		}
+	 		$html .= '</ul>';
+		}
+		$html .= '</nav>';
+
+
+		// $html .= "<a href='$url' class='link text-xs mt-10 block'>". T_("Choose another preview"). '</a>';
 		return $html;
 
 

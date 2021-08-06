@@ -174,7 +174,6 @@ class option
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
 
-			'type',
 		];
 
 		return $option;
