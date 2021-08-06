@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-05 17:55+0430\n"
-"PO-Revision-Date: 2021-08-05 17:57+0430\n"
+"POT-Creation-Date: 2021-08-06 19:07+0430\n"
+"PO-Revision-Date: 2021-08-06 19:14+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8527,7 +8527,7 @@ msgstr "نوع پیام"
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
 #: content_love/domain/irnic/display.php:58 content_my/domain/irnic/display.php:58
-#: content_site/options/font.php:12 lib/ratio.php:72
+#: content_site/options/font.php:14 content_site/options/font.php:18 lib/ratio.php:72
 msgid "Default"
 msgstr "پیش‌فرض"
 
@@ -9891,7 +9891,7 @@ msgstr ""
 "تنها برای شما به‌عنوان نویسنده قابل مشاهده است."
 
 #: content_a/pagebuilder/manage/display.php:98 content_cms/posts/advance/display.php:32
-#: content_site/body/blog/b1.php:96 dash/app/posts/filter.php:48
+#: content_site/body/blog/b1.php:149 dash/app/posts/filter.php:48
 #: dash/app/posts/ready.php:106
 msgid "Published"
 msgstr "منتشر شده"
@@ -22841,19 +22841,35 @@ msgstr "کلید برنامه نامعتبر است"
 msgid "Invalid accesstoken"
 msgstr "کلید دسترسی اشتباه است"
 
+#: content_site/body/blog/b1.php:112 dash/layout/post/part.php:344
+msgid "We are estimate you can read this post within :val."
+msgstr "ما تخمین می‌زنیم که شما این نوشته را در :val بخوانید."
+
+#: content_site/body/blog/b1.php:113 dash/layout/post/part.php:345
+msgid ":val read"
+msgstr "در :val بخوانید"
+
+#: content_site/body/blog/b3.php:56
+msgid "Published on"
+msgstr "منتشر شده در"
+
+#: content_site/body/blog/b4.php:57
+msgid "Continue Reading"
+msgstr "ادامه خواندن"
+
 #: content_site/body/blog/fill_default.php:26
 msgid "Your post's title"
 msgstr "عنوان نوشته‌ی شما"
 
 #: content_site/body/blog/fill_default.php:27
 msgid ""
-"Your store hasn’t published any blog posts yet. A blog can be used to talk about new "
-"product launches, tips, or other news you want to share with your customers. You can "
-"check out Shopify’s ecommerce blog for inspiration and advice for your own store and "
-"blog."
+"Your business hasn't published any posts yet. A post can be used to talk about new "
+"product launches, tips, or other news you want to share with your customers."
 msgstr ""
+"شما در بیزینس خودتون هنوز نوشته‌ای منتشر نکرده‌اید. یک نوشته می‌تونه درباره‌ی نکات، مقالات، "
+"یا اخباری باشه که مایل به انتشار اون با مشتریان خودتون هستید."
 
-#: content_site/body/blog/fill_default.php:32
+#: content_site/body/blog/fill_default.php:35
 msgid "Author name"
 msgstr "نام نویسنده"
 
@@ -22871,20 +22887,44 @@ msgstr "وبلاگ مدرن"
 
 #: content_site/body/blog/option.php:60
 msgid "Simple blog"
+msgstr "بلاگ ساده"
+
+#: content_site/body/blog/option.php:65
+msgid "Blog 4"
 msgstr ""
 
-#: content_site/body/blog/option.php:117
+#: content_site/body/blog/option.php:70
+msgid "Blog 5"
+msgstr ""
+
+#: content_site/body/blog/option.php:75
+msgid "Blog 6"
+msgstr ""
+
+#: content_site/body/blog/option.php:134
 msgid "Blog Posts"
 msgstr "پست‌های وبلاگ"
 
-#: content_site/body/blog/option.php:179 content_site/body/gallery/option.php:201
+#: content_site/body/blog/option.php:201 content_site/body/gallery/option.php:201
 msgid "Classic View"
 msgstr "نمایش کلاسیک"
 
-#: content_site/body/blog/option.php:196 content_site/body/blog/option.php:214
+#: content_site/body/blog/option.php:222 content_site/body/blog/option.php:244
 #: content_site/body/gallery/option.php:218 content_site/body/text/option.php:158
 msgid "Modern View"
 msgstr "نمایش مدرن"
+
+#: content_site/body/blog/option.php:266
+msgid "Block b4"
+msgstr ""
+
+#: content_site/body/blog/option.php:289
+msgid "Block b5"
+msgstr ""
+
+#: content_site/body/blog/option.php:312
+msgid "Block b6"
+msgstr ""
 
 #: content_site/body/gallery/option.php:48
 msgid "Classic gallery"
@@ -23014,11 +23054,11 @@ msgstr "پس‌زمینه"
 
 #: content_site/options/background/background_pack.php:162
 msgid "Background Type"
-msgstr ""
+msgstr "نوع پس‌زمینه"
 
 #: content_site/options/background/background_pack.php:167
 msgid "Transparent"
-msgstr ""
+msgstr "شفاف"
 
 #: content_site/options/background/background_pack.php:168
 msgid "Solid"
@@ -23100,8 +23140,8 @@ msgid "View all"
 msgstr "نمایش همه"
 
 #: content_site/options/btn/btn_viewall.php:55
-msgid "Show \"View all\" button"
-msgstr "نمایش دکمه \"نمایش همه\""
+msgid "Show <b>View all</b> button"
+msgstr "نمایش دکمه <b>مشاهده همه</b>"
 
 #: content_site/options/caption.php:26 content_su/tg/sendphoto/display.php:24
 msgid "Caption"
@@ -23158,6 +23198,14 @@ msgstr "این بازه تعریف نشده است!"
 msgid "Count Show"
 msgstr "تعداد نمایش"
 
+#: content_site/options/coverratio.php:30
+msgid "Cover ratio"
+msgstr "نسبت تصویر کاور"
+
+#: content_site/options/coverratio.php:77
+msgid "Cover image ratio"
+msgstr "نسبت تصویر عکس کاور"
+
 #: content_site/options/effect.php:11 lib/app/website/effect.php:11
 #: lib/pagebuilder/body/effect/effect.php:16
 msgid "Zoom"
@@ -23181,47 +23229,47 @@ msgstr "افکت"
 msgid "Please upload a file"
 msgstr "لطفا فایلی را بارگذاری کنید"
 
-#: content_site/options/font.php:16
+#: content_site/options/font.php:14 content_site/options/font.php:23
 msgid "IRANYekan"
 msgstr "ایران یکان"
 
-#: content_site/options/font.php:17
+#: content_site/options/font.php:18
+msgid "Lato"
+msgstr "لاتو"
+
+#: content_site/options/font.php:24
 msgid "Vazir"
 msgstr "وزیر"
 
-#: content_site/options/font.php:18
-msgid "tahoma"
-msgstr "تاهوما"
-
-#: content_site/options/font.php:19
-msgid "GanjNamehSans"
-msgstr "گنج‌نامه"
-
-#: content_site/options/font.php:20
-msgid "WebNastaliq"
-msgstr "ایران نستعلیق"
-
-#: content_site/options/font.php:21
-msgid "NikaWeb"
-msgstr "نیکا"
-
-#: content_site/options/font.php:22
-msgid "BehdadWeb"
+#: content_site/options/font.php:25
+msgid "Behdad"
 msgstr "بهداد"
 
-#: content_site/options/font.php:23
+#: content_site/options/font.php:26
+msgid "Nika"
+msgstr "نیکا"
+
+#: content_site/options/font.php:27
+msgid "GanjNameh"
+msgstr "گنج‌نامه"
+
+#: content_site/options/font.php:28
 msgid "Lalezar"
 msgstr "لاله‌زار"
 
-#: content_site/options/font.php:26
-msgid "LatoLatinWeb"
-msgstr ""
+#: content_site/options/font.php:29
+msgid "Nastaliq"
+msgstr "نستعلیق"
 
-#: content_site/options/font.php:33
+#: content_site/options/font.php:30
+msgid "Tahoma"
+msgstr "تاهوما"
+
+#: content_site/options/font.php:40
 msgid "Font"
 msgstr "فونت"
 
-#: content_site/options/font.php:54
+#: content_site/options/font.php:61
 msgid "Set item font"
 msgstr "تنظیم فونت آیتم"
 
@@ -23281,6 +23329,23 @@ msgstr "بخش یافت نشد"
 msgid "Choose one menu"
 msgstr "لطفا یکی از فهرست‌ها را انتخاب کنید"
 
+#: content_site/options/post/post_order.php:11
+msgid "Latest"
+msgstr "آخرین"
+
+#: content_site/options/post/post_order.php:12
+msgid "Random"
+msgstr "تصادفی"
+
+#: content_site/options/post/post_order.php:19
+#: content_site/options/post/post_template.php:36
+msgid "Post subtype"
+msgstr "نوع نوشته"
+
+#: content_site/options/post/post_order.php:46
+msgid "Post Order"
+msgstr "ترتیب نمایش نوشته"
+
 #: content_site/options/post/post_show_author.php:40
 msgid "Show author"
 msgstr "نمایش نام نویسنده"
@@ -23293,13 +23358,17 @@ msgstr "نمایش تاریخ"
 msgid "Show excerpt"
 msgstr "نمایش چکیده"
 
+#: content_site/options/post/post_show_image.php:40
+msgid "Show image"
+msgstr "نمایش عکس"
+
+#: content_site/options/post/post_show_readingtime.php:40
+msgid "Show estimated read time"
+msgstr "نمایش زمان تخمینی مطالعه"
+
 #: content_site/options/post/post_template.php:11 lib/app/gift/filter.php:54
 msgid "Any"
 msgstr "همه"
-
-#: content_site/options/post/post_template.php:36
-msgid "Post subtype"
-msgstr "نوع نوشته"
 
 #: content_site/options/post/post_template.php:37
 msgid "Play Item"
@@ -25145,19 +25214,19 @@ msgstr "هیچ تصویری برای مرتب سازی یافت نشد"
 msgid "Please reload page to sort all image in this post gallery"
 msgstr "لطفا برای مرتب سازی همه تصاویر موجود در این نوشته، صفحه را مجددا بارگذاری نمایید"
 
-#: dash/app/posts/ready.php:211
+#: dash/app/posts/ready.php:224
 msgid "will be published on future"
 msgstr "در آینده منتشر خواهد شد"
 
-#: dash/app/posts/ready.php:221
+#: dash/app/posts/ready.php:234
 msgid "Post will be published at :val"
 msgstr "نوشته در تاریخ :val منتشر خواهد شد"
 
-#: dash/app/posts/ready.php:225
+#: dash/app/posts/ready.php:238
 msgid "Post published at :val"
 msgstr "نوشته در تاریخ :val منتشر شده است"
 
-#: dash/app/posts/ready.php:230
+#: dash/app/posts/ready.php:243
 msgid "Post will be published at when status set on publish"
 msgstr "نوشته در زمانی مشخص‌شده در تاریخ انتشار، منتشر می‌شود"
 
@@ -26104,7 +26173,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:387
+#: dash/engine/guard.php:388
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -26715,14 +26784,6 @@ msgstr "دانلود فایل"
 #: dash/layout/post/part.php:322
 msgid "This post published at :val"
 msgstr "این نوشته در تاریخ :val منتشر شده است"
-
-#: dash/layout/post/part.php:344
-msgid "We are estimate you can read this post within :val."
-msgstr "ما تخمین می‌زنیم که شما این نوشته را در :val بخوانید."
-
-#: dash/layout/post/part.php:345
-msgid ":val read"
-msgstr "در :val بخوانید"
 
 #: dash/layout/post/part.php:358 dash/layout/post/part.php:361
 msgid "Share of Facebook"
@@ -41877,6 +41938,24 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Show \"View all\" button"
+#~ msgstr "نمایش دکمه \"نمایش همه\""
+
+#~ msgid "tahoma"
+#~ msgstr "تاهوما"
+
+#~ msgid "GanjNamehSans"
+#~ msgstr "گنج‌نامه"
+
+#~ msgid "WebNastaliq"
+#~ msgstr "ایران نستعلیق"
+
+#~ msgid "NikaWeb"
+#~ msgstr "نیکا"
+
+#~ msgid "BehdadWeb"
+#~ msgstr "بهداد"
 
 #~ msgid "Jibres Pricing"
 #~ msgstr "پلن‌ها و هزینه‌های جیبرس"
