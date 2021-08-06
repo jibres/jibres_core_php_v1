@@ -16,6 +16,10 @@ class background_pack
 		[
 			'background_pack',
 
+
+			'height',
+			'coverratio',
+
 			// skip draw this option in html
 			'background_color',
 
@@ -149,6 +153,9 @@ class background_pack
 		// 	$html .= '</div>';
 		// }
 		// $html .= '</div>';
+
+		$html .= \content_site\options\height::admin_html(...$func_get_args);
+		$html .= \content_site\options\coverratio::admin_html(...$func_get_args);
 
 		$html .= "<div class='ShowCustomizeSetting' $customize_kerkere>";
 		{

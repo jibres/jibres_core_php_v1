@@ -171,13 +171,6 @@ class option
 			// range
 			'count_post',
 
-
-			// 'group_design',
-			// select
-			'height',
-
-			'coverratio',
-
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
 
