@@ -8,15 +8,15 @@ class background_gradient_type
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => ''];
-		$enum[] = ['key' => 'to top'];
-		$enum[] = ['key' => 'to top right'];
-		$enum[] = ['key' => 'to right'];
-		$enum[] = ['key' => 'to bottom right'];
-		$enum[] = ['key' => 'to bottom'];
-		$enum[] = ['key' => 'to bottom left'];
-		$enum[] = ['key' => 'to left'];
-		$enum[] = ['key' => 'to top left'];
+		$enum[] = ['key' => 'to top', 'title' => T_("To top")];
+		$enum[] = ['key' => 'to top right', 'title' => T_("To top right")];
+		$enum[] = ['key' => 'to right', 'title' => T_("To right")];
+		$enum[] = ['key' => 'to bottom right', 'title' => T_("To bottom right")];
+		$enum[] = ['key' => 'to bottom', 'title' => T_("To bottom")];
+		$enum[] = ['key' => 'to bottom left', 'title' => T_("To bottom left")];
+		$enum[] = ['key' => 'to left', 'title' => T_("To left")];
+		$enum[] = ['key' => 'to top left', 'title' => T_("To top left")];
+		// $enum[] = ['key' => 'redial', 'title' => T_("Redial")];
 
 		return $enum;
 	}
@@ -46,7 +46,7 @@ class background_gradient_type
 		}
 
 
-		$title = T_("Background Gradient Type");
+		$title = T_("Gradient direction");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -64,7 +64,7 @@ class background_gradient_type
 	        	}
 
 	        	$html .= "<option value='$value[key]'$selected>";
-	        	$html .= $value['key'];
+	        	$html .= $value['title'];
 	        	$html .= "</option>";
 	        }
 

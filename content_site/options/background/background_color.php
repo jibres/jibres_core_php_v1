@@ -45,7 +45,7 @@ class background_color
 	public static function color_html($_name, $_default, $_title, $_only_input = false)
 	{
 		$block_class = null;
-		$form_class  = 'inline-block pe-3';
+		$form_class  = 'inline-block pe-3 mT0-f';
 
 		if(!$_only_input)
 		{

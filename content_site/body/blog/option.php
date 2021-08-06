@@ -168,10 +168,10 @@ class option
 			'post_show_image',
 			'post_show_readingtime',
 			'post_show_excerpt',
-			'post_show_date',
 			'post_show_author',
 
 			'btn_viewall',
+			'post_show_date',
 
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),

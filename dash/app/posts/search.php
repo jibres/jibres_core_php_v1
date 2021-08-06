@@ -59,6 +59,7 @@ class search
 			'homepage_id'      => 'id',
 
 			'order_rand'       => 'bit',
+			'order_oldest'     => 'bit',
 
 		];
 

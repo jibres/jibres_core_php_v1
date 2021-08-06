@@ -74,7 +74,7 @@ class coverratio
 		}
 
 
-		$title = T_("Cover image ratio");
+		$title = T_("Featured image ratio");
 
 		$this_range = array_column(self::enum(), 'key');
 

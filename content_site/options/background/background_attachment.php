@@ -41,7 +41,7 @@ class background_attachment
 
 
 
-		$title = 'Background Attachment';
+		$title = T_('Background Attachment');
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -52,9 +52,9 @@ class background_attachment
 			$name       = 'opt_background_attachment';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'fixed', 'Fixed', (($default === 'fixed')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'local', 'Local', (($default === 'local')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'scroll', 'Scroll', (($default === 'scroll')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'fixed', T_('Fixed'), (($default === 'fixed')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'local', T_('Local'), (($default === 'local')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'scroll', T_('Scroll'), (($default === 'scroll')? true : false));
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 

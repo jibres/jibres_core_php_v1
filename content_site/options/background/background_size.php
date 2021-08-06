@@ -55,8 +55,6 @@ class background_size
 		{
 			$html .= "<label for='background_size'>$title</label>";
 
-	        $html .= "<label for='background_size'>$title</label>";
-
 			$name       = 'opt_background_size';
 
 			$radio_html = '';

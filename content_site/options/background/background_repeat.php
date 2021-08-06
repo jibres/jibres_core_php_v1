@@ -46,9 +46,6 @@ class background_repeat
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= "<label for='background_repeat'>$title</label>";
-
-	        $html .= "<label for='background_repeat'>$title</label>";
-
 			$name       = 'opt_background_repeat';
 
 			$radio_html = '';

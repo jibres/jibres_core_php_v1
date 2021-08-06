@@ -37,7 +37,7 @@ class post_show_readingtime
 			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="show_author" id="post_show_readingtime"'.$checked.'>';
-				$html .= '<label for="post_show_readingtime">'. T_('Show estimated read time'). '</label>';
+				$html .= '<label for="post_show_readingtime">'. T_('Display estimated reading time'). '</label>';
 			}
 			$html .= '</div>';
 		}

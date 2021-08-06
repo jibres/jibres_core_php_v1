@@ -37,7 +37,7 @@ class post_show_author
 			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="show_author" id="post_show_author"'.$checked.'>';
-				$html .= '<label for="post_show_author">'. T_('Show author'). '</label>';
+				$html .= '<label for="post_show_author">'. T_('Display author name'). '</label>';
 			}
 			$html .= '</div>';
 		}

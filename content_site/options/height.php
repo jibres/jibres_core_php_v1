@@ -90,6 +90,7 @@ class height
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
+			$html .= '<input type="hidden" name="notredirect" value="1">';
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= "<label>$title</label>";
 

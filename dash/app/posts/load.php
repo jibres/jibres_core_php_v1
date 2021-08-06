@@ -118,7 +118,12 @@ class load
 				$args['order_rand'] = true;
 				break;
 
+			case 'oldest':
+				$args['order_oldest'] = true;
+				break;
+
 			case 'latest':
+				$args['order_oldest'] = true;
 			default:
 				// nothing
 				break;

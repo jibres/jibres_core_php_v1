@@ -58,7 +58,7 @@ class font
 		}
 
 
-		$title = T_("Set item font");
+		$title = T_("Font");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
