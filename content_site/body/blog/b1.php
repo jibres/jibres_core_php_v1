@@ -144,7 +144,7 @@ class b1
 											$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
 											$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
 										}
-										$html .= '</a>';
+										$card .= '</a>';
 									}
 									$card .= "<span class='flex-grow'></span>";
 
