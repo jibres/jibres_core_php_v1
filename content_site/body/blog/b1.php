@@ -28,6 +28,15 @@ class b1
 		switch ($totalCount)
 		{
 			case '4':
+			case '8':
+			case '10':
+			case '12':
+			case '16':
+			case '20':
+			case '40':
+			case '60':
+			case '80':
+			case '100':
 				$containerMaxWidth = 'max-w-screen-xl px-2 lg:px-4';
 				break;
 
