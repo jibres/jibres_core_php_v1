@@ -61,5 +61,20 @@ class preview
 
 
 
+	public static function preview_5()
+	{
+		return
+		[
+			'type'                     => 'b5',
+			'fill_defult_data'         => true,
+			'post_show_excerpt'        => true,
+			// 'background_pack'          => 'solid',
+			// 'background_color'   => '#e0e7ff',
+
+		];
+	}
+
+
+
 }
 ?>
