@@ -156,6 +156,8 @@ class ready
 			$my_link = \dash\url::kingdom(). '/';
 		}
 
+
+
 		// only jibres have post language
 		// all business have not any lanuage
 		if(!\dash\engine\store::inStore())
@@ -165,6 +167,17 @@ class ready
 				$my_link .=  $result['language']. '/';
 			}
 		}
+
+		// ganerate author page
+		$authorpage = null;
+		if(isset($result['user_id']) && $result['user_id'])
+		{
+			// need get domain and language
+			$authorpage = $my_link;
+			$authorpage .= 'author/'. $result['user_id'];
+		}
+
+		$result['authorpage'] = $authorpage;
 
 		if(isset($result['url']) && $result['url'])
 		{
