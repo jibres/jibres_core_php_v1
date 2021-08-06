@@ -45,8 +45,34 @@ class analyze
 				break;
 
 			case '4':
+			case '8':
+			case '20':
+			case '40':
 				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
 				break;
+
+			case '6':
+			case '9':
+			case '12':
+			case '15':
+			// case '18':
+			// case '21':
+			// case '24':
+			// case '27':
+			case '30':
+			// case '33':
+			// case '36':
+			// case '39':
+			// case '42':
+			// case '45':
+			// case '48':
+			// case '51':
+			// case '54':
+			// case '57':
+			// case '60':
+				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
+				break;
+
 
 			default:
 
