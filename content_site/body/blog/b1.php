@@ -24,24 +24,9 @@ class b1
 		$totalCount = a($_args, 'count');
 
 		$containerMaxWidth = 'max-w-screen-lg px-2 lg:px-4';
-
-		switch ($totalCount)
+		if($totalCount > 3)
 		{
-			case '4':
-			case '8':
-			case '10':
-			case '12':
-			case '16':
-			case '20':
-			case '40':
-			case '60':
-			case '80':
-			case '100':
-				$containerMaxWidth = 'max-w-screen-xl px-2 lg:px-4';
-				break;
-
-			default:
-				break;
+			$containerMaxWidth = 'max-w-screen-xl px-2 lg:px-4';
 		}
 
 		// element type

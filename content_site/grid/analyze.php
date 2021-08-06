@@ -44,6 +44,22 @@ class analyze
 				}
 				break;
 
+
+			case '7':
+				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
+				switch ($_index)
+				{
+					case '0':
+					case '1':
+					case '2':
+						$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-4';
+						break;
+					case '6':
+						$colStart   = 'md:col-start-4 lg:col-start-auto';
+						break;
+				}
+				break;
+
 			case '10':
 				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
 				switch ($_index)
@@ -58,13 +74,6 @@ class analyze
 					case '4':
 					case '5':
 						$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-4';
-						break;
-
-					case '6':
-					case '7':
-					case '8':
-					case '9':
-						// $colSpan = 'col-span-12 sm:col-span-6 lg:col-span-4';
 						break;
 
 					default:
