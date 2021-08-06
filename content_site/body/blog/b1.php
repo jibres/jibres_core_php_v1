@@ -86,7 +86,7 @@ class b1
 								$card .= '<header>';
 								$card .= "<a class='block $coverRatio'$myLinkHref>";
 								{
-									$card .= "<img class='block h-full w-full object-center object-cover' src='$myThumb' alt='$myTitle'>";
+									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' data-src='$myThumb' alt='$myTitle'>";
 								}
 								$card .= "</a>";
 								$card .= '</header>';
@@ -135,7 +135,7 @@ class b1
 										$card .= "<a class='inline-block' href='$myAuthorPage'>";
 										{
 											$writerName = a($value, 'user_detail', 'displayname');
-											$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+											$card .= "<img loading='lazy' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
 											$card .= "<span class='text-2xs me-2 inline-block'>". $writerName. "</span>";
 										}
 										$card .= '</a>';
