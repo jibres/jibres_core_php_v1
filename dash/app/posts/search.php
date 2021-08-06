@@ -375,6 +375,19 @@ class search
 	}
 
 
+	public static function website_post($_search = null, $_args = [])
+	{
+		$default =
+		[
+			'website_mode' => true
+		];
+
+		$_args = array_merge($default, $_args);
+
+		$list = self::list(null, $_args, true);
+		return $list;
+	}
+
 
 
 	public static function api_lates_post($_args = [])
