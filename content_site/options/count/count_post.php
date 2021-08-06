@@ -8,7 +8,7 @@ class count_post
 
 	public static function this_range()
 	{
-		return [1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50];
+		return [1,2,3,4,6,8,9,12,15,20,30,40];
 	}
 
 	public static function default()
