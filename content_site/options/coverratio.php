@@ -9,16 +9,16 @@ class coverratio
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => '3:1', 'class' => ' aspect-w-3 aspect-h-1'];
-		$enum[] = ['key' => '16:9', 'class' => ' aspect-w-16 aspect-h-9'];
-		$enum[] = ['key' => '1:1', 'class' => ' aspect-w-1 aspect-h-1'];
+		$enum[] = ['key' => '3:1', 'class' => 'aspect-w-3 aspect-h-1'];
+		$enum[] = ['key' => '16:9', 'class' => 'aspect-w-16 aspect-h-9'];
+		$enum[] = ['key' => '1:1', 'class' => 'aspect-w-1 aspect-h-1'];
 
-		// $enum[] = ['key' => '4:1', 'class' => ' aspect-w-4 aspect-h-1'];
-		// $enum[] = ['key' => '4:3', 'class' => ' aspect-w-4 aspect-h-3'];
+		// $enum[] = ['key' => '4:1', 'class' => 'aspect-w-4 aspect-h-1'];
+		// $enum[] = ['key' => '4:3', 'class' => 'aspect-w-4 aspect-h-3'];
 
 		// vertical
-		$enum[] = ['key' => '3:4', 'class' => ' aspect-w-3 aspect-h-4'];
-		$enum[] = ['key' => '9:16', 'class' => ' aspect-w-9 aspect-h-16'];
+		$enum[] = ['key' => '3:4', 'class' => 'aspect-w-3 aspect-h-4'];
+		$enum[] = ['key' => '9:16', 'class' => 'aspect-w-9 aspect-h-16'];
 
 		// free
 		$enum[] = ['key' => 'free', 'class' => ''];

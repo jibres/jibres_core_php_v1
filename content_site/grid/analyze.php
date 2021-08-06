@@ -4,6 +4,14 @@ namespace content_site\grid;
 
 class analyze
 {
+	public static function className($_index, $_totalExist)
+	{
+		$class = '';
+
+		return $class;
+	}
+
+
 	public static function get_class($_args)
 	{
 		$grid_cols = 'grid-cols-1 gap-4';

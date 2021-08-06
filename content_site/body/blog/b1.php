@@ -51,9 +51,8 @@ class b1
 					$html .= '</header>';
 				}
 
-				$grid_cols = \content_site\grid\analyze::get_class($_args);
-
-				$html .= "<div class='grid $grid_cols justify-center'>";
+				$totalRow = count($_blogList);
+				$html .= "<div class='grid grid-cols-6 gap-4'>";
 				{
 					foreach ($_blogList as $key => $value)
 					{
@@ -66,9 +65,11 @@ class b1
 						$myDate       = a($value, 'publishdate');
 						$myAuthorPage = a($value, 'authorpage');
 
+						// get grid class name by analyse
+						$gridCol = \content_site\grid\analyze::className($key, $totalRow);
 
 						$card = '';
-						$card .= '<div data-card class="flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
+						$card .= '<div data-card class="col-span-2 flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
 						{
 							// thumb
 							if($myThumb)
