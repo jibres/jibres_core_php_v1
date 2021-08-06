@@ -78,6 +78,10 @@ class layout
 				$html .= b5::html($_args, $blogList);
 				break;
 
+			case 'b6':
+				$html .= b6::html($_args, $blogList);
+				break;
+
 			default:
 				break;
 		}

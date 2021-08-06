@@ -70,6 +70,11 @@ class option
 				'title'   => T_("Blog 5"),
 				'default' => false
 			],
+			[
+				'type'   => 'b6',
+				'title'   => T_("Blog 6"),
+				'default' => false
+			],
 		];
 
 	}
@@ -280,6 +285,29 @@ class option
 		[
 			'key'     => __FUNCTION__,
 			'title'   => T_("Block b5"),
+			'premium' => true,
+			'default' => self::master_default(['type' => __FUNCTION__]),
+			'options' => $my_option,
+		];
+	}
+
+
+
+	/**
+	 * Style 3
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function b6()
+	{
+		$my_option = self::master_option();
+
+		\content_site\utility::unset_option($my_option, 'coverratio');
+
+		return
+		[
+			'key'     => __FUNCTION__,
+			'title'   => T_("Block b6"),
 			'premium' => true,
 			'default' => self::master_default(['type' => __FUNCTION__]),
 			'options' => $my_option,
