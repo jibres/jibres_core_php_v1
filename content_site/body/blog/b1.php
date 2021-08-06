@@ -174,6 +174,7 @@ class b1
 
 			}
 		}
+		$html .= "</div>";
 		$html .= "</$cnElement>";
 
 		return $html;
