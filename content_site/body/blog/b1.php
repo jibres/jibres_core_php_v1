@@ -20,6 +20,21 @@ class b1
 		$background_style = \content_site\assemble\background::full_style($_args);
 		$text_color       = \content_site\assemble\text_color::full_style($_args);
 
+		$totalExist = count($_blogList);
+		$totalCount = a($_args, 'count');
+
+		$containerMaxWidth = 'max-w-screen-lg px-2';
+
+		switch ($totalCount)
+		{
+			case '4':
+				$containerMaxWidth = 'max-w-screen-xl px-4';
+				break;
+
+			default:
+				break;
+		}
+
 		// element type
 		$cnElement = 'div';
 		if(a($_args, 'heading') !== null)
@@ -34,7 +49,7 @@ class b1
 
 		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style>";
 		{
-			$html .= '<div class="max-w-screen-lg mx-auto px-2">';
+			$html .= "<div class='$containerMaxWidth mx-auto'>";
 			{
 				if(a($_args, 'heading') !== null)
 				{
@@ -51,8 +66,8 @@ class b1
 					$html .= '</header>';
 				}
 
-				$totalRow = count($_blogList);
-				$html .= "<div class='grid grid-cols-6 gap-4'>";
+
+				$html .= "<div class='grid grid-cols-12 gap-4'>";
 				{
 					foreach ($_blogList as $key => $value)
 					{
@@ -66,10 +81,10 @@ class b1
 						$myAuthorPage = a($value, 'authorpage');
 
 						// get grid class name by analyse
-						$gridCol = \content_site\grid\analyze::className($key, $totalRow);
+						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= '<div data-card class="col-span-2 flex flex-col max-w-lg rounded-lg overflow-hidden shadow-lg bg-white ">';
+						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden shadow-lg bg-white'>";
 						{
 							// thumb
 							if($myThumb)
