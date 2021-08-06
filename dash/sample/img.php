@@ -42,6 +42,16 @@ class img
 	}
 
 
+
+	public static function image()
+	{
+		$rand = rand(1, 313);
+		$name = str_pad($rand, 3, '0', STR_PAD_LEFT);
+		$url  = \dash\url::cdn(). '/img/sample/bg-'. $name. '.jpg';
+		return $url;
+	}
+
+
 	/**
 	 * [unsplash description]
 	 * @param  [type] $_dimensions some width and height like 800x600
@@ -80,6 +90,8 @@ class img
 
 		return $url;
 	}
+
+
 
 
 	public static function product()
