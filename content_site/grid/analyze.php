@@ -18,7 +18,7 @@ class analyze
 	public static function className($_totalCount, $_totalExist, $_index)
 	{
 		$class   = '';
-		$colSpan = '';
+		$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
 		$colStart = '';
 
 		switch ($_totalExist)
@@ -48,6 +48,8 @@ class analyze
 			case '8':
 			case '20':
 			case '40':
+			case '80':
+			case '100':
 				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
 				break;
 
@@ -69,7 +71,7 @@ class analyze
 			// case '51':
 			// case '54':
 			// case '57':
-			// case '60':
+			case '60':
 				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
 				break;
 
