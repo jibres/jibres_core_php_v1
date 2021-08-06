@@ -138,11 +138,11 @@ class b1
 								{
 									if(a($_args, 'post_show_author'))
 									{
-										$card .= "<a href='$myAuthorPage'>";
+										$card .= "<a class='inline-block' href='$myAuthorPage'>";
 										{
 											$writerName = a($value, 'user_detail', 'displayname');
-											$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
-											$card .= "<span class='text-2xs me-2'>". $writerName. "</span>";
+											$card .= "<img src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
+											$card .= "<span class='text-2xs me-2 inline-block'>". $writerName. "</span>";
 										}
 										$card .= '</a>';
 									}
