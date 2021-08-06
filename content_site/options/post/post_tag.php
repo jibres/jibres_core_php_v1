@@ -31,13 +31,13 @@ class post_tag
 		}
 
 
-		$title = T_("Filter by special tag");
+		$title = T_("Filter by special hashtag");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= "<label for='post_tag'>$title</label>";
-	        $html .= '<select name="opt_post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select tag"). '">';
+	        $html .= '<select name="opt_post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select hashtag"). '">';
 
 			$html .= '<option value="0">'. T_("All"). '</option>';
 
