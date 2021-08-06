@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-06 19:07+0430\n"
-"PO-Revision-Date: 2021-08-06 19:14+0430\n"
+"POT-Creation-Date: 2021-08-06 20:47+0430\n"
+"PO-Revision-Date: 2021-08-06 20:52+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -845,7 +845,8 @@ msgstr "بیشتر بخوانید"
 #: content_love/domain/polls/display.php:57
 #: content_love/domain/setting/action/display.php:17
 #: content_love/gift/usage/display.php:11 content_love/log/home/logTable.php:11
-#: content_pay/home/display-transaction.php:122 content_su/ip/display.php:61
+#: content_pay/home/display-transaction.php:122
+#: content_site/options/post/post_show_date.php:15 content_su/ip/display.php:61
 #: dash/app/transaction/filter.php:39 includes/languages/trans_static_public.php:195
 #: lib/app/factor/search.php:183 lib/app/form/item/type.php:178
 msgid "Date"
@@ -5139,6 +5140,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_a/website/news/filter/display.php:35 content_love/domain/log/display.php:4
 #: content_love/domain/log/display.php:22 content_love/domain/onlineniclog/display.php:4
 #: content_love/domain/onlineniclog/display.php:22
+#: content_site/options/post/post_tag.php:42
 #: content_site/options/post/post_template.php:26
 #: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:814
 #: lib/app/form/report_advance.php:112 lib/pagebuilder/body/device/design.php:14
@@ -5414,11 +5416,11 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/website/news/filter/display.php:33 content_cms/hashtag/remove/display.php:37
 #: content_crm/member/legal/display.php:70 content_love/business/setting/display.php:87
 #: content_love/store/setting/display.php:58 content_site/options/container.php:17
-#: content_site/options/effect.php:10 content_site/options/post/post_tag.php:44
-#: content_site/options/post/post_template.php:24 dash/layout/search/search-filter.php:179
-#: dash/layout/search/search-filter.php:220 dash/layout/search/search-filter.php:249
-#: lib/app/website/effect.php:10 lib/pagebuilder/body/effect/effect.php:15
-#: lib/pagebuilder/body/news/filter.php:40 lib/pagebuilder/body/news/filter.php:63
+#: content_site/options/effect.php:10 content_site/options/post/post_template.php:24
+#: dash/layout/search/search-filter.php:179 dash/layout/search/search-filter.php:220
+#: dash/layout/search/search-filter.php:249 lib/app/website/effect.php:10
+#: lib/pagebuilder/body/effect/effect.php:15 lib/pagebuilder/body/news/filter.php:40
+#: lib/pagebuilder/body/news/filter.php:63
 msgid "None"
 msgstr "هیچ‌کدام"
 
@@ -6761,7 +6763,7 @@ msgstr "لطفا تفصیل را وارد کنید"
 
 #: content_a/accounting/turnover/display.php:110
 msgid "View Accounting coding"
-msgstr ""
+msgstr "سرفصل‌های حسابداری"
 
 #: content_a/accounting/turnover/display.php:116
 msgid "You have some draft document!"
@@ -7229,7 +7231,7 @@ msgstr "صفحه"
 #: content_site/body/imagetext/option.php:38 content_site/body/slideshow/option.php:28
 #: content_site/body/slideshow/option.php:109 content_site/body/slideshow/option.php:115
 #: content_site/body/slideshow/option.php:121
-#: content_site/options/background/background_pack.php:170
+#: content_site/options/background/background_pack.php:179
 #: content_site/options/image/image_add.php:49 dash/app/files/filter.php:35
 #: dash/app/files/ready.php:54 lib/app/website/body/line/imageblock.php:12
 msgid "Image"
@@ -11353,7 +11355,7 @@ msgstr ""
 #: content_love/gift/create/review/display.php:33
 #: content_love/gift/create/review/display.php:34 content_love/gift/view/display.php:33
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
-#: content_site/options/background/background_repeat.php:55
+#: content_site/options/background/background_repeat.php:52
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
@@ -11373,8 +11375,9 @@ msgstr "بله"
 #: content_love/gift/create/review/display.php:33
 #: content_love/gift/create/review/display.php:34 content_love/gift/view/display.php:33
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
-#: content_site/options/background/background_repeat.php:58
-#: includes/languages/trans_static.php:509 lib/app/form/generator.php:961
+#: content_site/options/background/background_repeat.php:55
+#: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
+#: lib/app/form/generator.php:961
 msgid "No"
 msgstr "خیر"
 
@@ -11932,8 +11935,9 @@ msgid "Home page"
 msgstr "صفحه نخست"
 
 #: content_a/setting/menu/item/display.php:21 content_a/website/menu/item/display.php:21
-#: content_cms/posts/home/view.php:9 dash/app/comment/filter.php:30
-#: includes/languages/trans_static.php:570 includes/languages/trans_static_public.php:90
+#: content_cms/posts/home/view.php:9 content_site/body/blog/option.php:31
+#: dash/app/comment/filter.php:30 includes/languages/trans_static.php:570
+#: includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
 msgid "Posts"
 msgstr "نوشته‌ها"
@@ -14480,21 +14484,19 @@ msgstr "حذف ردیف اخبار"
 msgid "Are you sure to remove this news line?"
 msgstr "آیا از حذف این ردیف خبر اطمینان دارید؟"
 
-#: content_a/website/news/filter/display.php:8 content_site/options/post/post_tag.php:34
-#: lib/pagebuilder/body/news/filter.php:38 lib/pagebuilder/body/products/filter.php:45
+#: content_a/website/news/filter/display.php:8 lib/pagebuilder/body/news/filter.php:38
+#: lib/pagebuilder/body/products/filter.php:45
 msgid "Special tag"
 msgstr "تگ خاص"
 
 #: content_a/website/news/filter/display.php:9
 #: content_a/website/news/filter/display.php:10 content_cms/posts/seo/display.php:95
 #: content_cms/posts/seo/display.php:96 content_site/options/post/post_tag.php:40
-#: content_site/options/post/post_tag.php:48 lib/pagebuilder/body/news/filter.php:39
-#: lib/pagebuilder/body/news/filter.php:40
+#: lib/pagebuilder/body/news/filter.php:39 lib/pagebuilder/body/news/filter.php:40
 msgid "Select tag"
 msgstr "انتخاب تگ"
 
-#: content_a/website/news/filter/display.php:19
-#: content_site/options/post/post_template.php:83 lib/pagebuilder/body/news/filter.php:49
+#: content_a/website/news/filter/display.php:19 lib/pagebuilder/body/news/filter.php:49
 msgid "Post template"
 msgstr "قالب نوشته"
 
@@ -14533,8 +14535,7 @@ msgstr "ویدیو"
 msgid "Audio"
 msgstr "صوتی"
 
-#: content_a/website/news/filter/display.php:31
-#: content_site/options/post/post_template.php:102 lib/pagebuilder/body/news/filter.php:61
+#: content_a/website/news/filter/display.php:31 lib/pagebuilder/body/news/filter.php:61
 msgid "Show item in player"
 msgstr "نمایش آیتم در پخش کننده"
 
@@ -16170,12 +16171,13 @@ msgstr "تایید نشده"
 #: content_cms/files/choose/view.php:70 content_cms/files/home/view.php:14
 #: content_cms/hashtag/home/view.php:16 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_love/files/choose/view.php:62
-#: content_love/files/home/view.php:14 dash/layout/admin/admin-sidebar-frame.php:17
-#: dash/plan_list.php:103 lib/app/quickaccess/hashtags.php:29
-#: lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
-#: lib/app/store/analytics.php:56 lib/app/store/analytics.php:57
-#: lib/app/store/analytics.php:58 lib/app/store/analytics.php:59
-#: lib/app/store/analytics.php:60 lib/app/store/analytics.php:61
+#: content_love/files/home/view.php:14 content_site/body/blog/option.php:29
+#: dash/layout/admin/admin-sidebar-frame.php:17 dash/plan_list.php:103
+#: lib/app/quickaccess/hashtags.php:29 lib/app/store/analytics.php:54
+#: lib/app/store/analytics.php:55 lib/app/store/analytics.php:56
+#: lib/app/store/analytics.php:57 lib/app/store/analytics.php:58
+#: lib/app/store/analytics.php:59 lib/app/store/analytics.php:60
+#: lib/app/store/analytics.php:61
 msgid "CMS"
 msgstr "سیستم مدیریت محتوا"
 
@@ -16595,7 +16597,7 @@ msgstr "در انتظار تایید"
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:177
+#: content_cms/home/display.php:177 content_site/body/blog/option.php:134
 msgid "Latest Posts"
 msgstr "آخرین نوشته‌ها"
 
@@ -22873,10 +22875,6 @@ msgstr ""
 msgid "Author name"
 msgstr "نام نویسنده"
 
-#: content_site/body/blog/option.php:29 content_site/body/blog/option.php:31
-msgid "Blog post"
-msgstr "پست‌ وبلاگ"
-
 #: content_site/body/blog/option.php:50
 msgid "Classic blog"
 msgstr "وبلاگ کلاسیک"
@@ -22901,28 +22899,24 @@ msgstr ""
 msgid "Blog 6"
 msgstr ""
 
-#: content_site/body/blog/option.php:134
-msgid "Blog Posts"
-msgstr "پست‌های وبلاگ"
-
-#: content_site/body/blog/option.php:201 content_site/body/gallery/option.php:201
+#: content_site/body/blog/option.php:195 content_site/body/gallery/option.php:201
 msgid "Classic View"
 msgstr "نمایش کلاسیک"
 
-#: content_site/body/blog/option.php:222 content_site/body/blog/option.php:244
+#: content_site/body/blog/option.php:216 content_site/body/blog/option.php:238
 #: content_site/body/gallery/option.php:218 content_site/body/text/option.php:158
 msgid "Modern View"
 msgstr "نمایش مدرن"
 
-#: content_site/body/blog/option.php:266
+#: content_site/body/blog/option.php:260
 msgid "Block b4"
 msgstr ""
 
-#: content_site/body/blog/option.php:289
+#: content_site/body/blog/option.php:283
 msgid "Block b5"
 msgstr ""
 
-#: content_site/body/blog/option.php:312
+#: content_site/body/blog/option.php:306
 msgid "Block b6"
 msgstr ""
 
@@ -23014,14 +23008,27 @@ msgid "Homepage was changed"
 msgstr "صفحه نخست تغییر یافت"
 
 #: content_site/options/background.php:23
-#: content_site/options/background/background_pack.php:81
+#: content_site/options/background/background_pack.php:87
 #: content_site/options/group/group_background.php:12
 msgid "Background"
 msgstr "تصویر پس‌زمینه"
 
 #: content_site/options/background/background_attachment.php:22
+#: content_site/options/background/background_attachment.php:44
 msgid "Background Attachment"
-msgstr "تصویر پس‌زمینه"
+msgstr "وضعیت پس‌زمینه هنگام اسکرول صفحه"
+
+#: content_site/options/background/background_attachment.php:55
+msgid "Fixed"
+msgstr "ثابت"
+
+#: content_site/options/background/background_attachment.php:56
+msgid "Local"
+msgstr "محلی"
+
+#: content_site/options/background/background_attachment.php:57
+msgid "Scroll"
+msgstr "اسکرول"
 
 #: content_site/options/background/background_color.php:30
 #: lib/pagebuilder/header/color/design.php:37
@@ -23029,55 +23036,90 @@ msgid "Background Color"
 msgstr "رنگ پس‌زمینه"
 
 #: content_site/options/background/background_gradient_from.php:16
-#: content_site/options/background/background_pack.php:362
+#: content_site/options/background/background_pack.php:373
 msgid "Background Gradient from"
-msgstr "شیب زمینه از"
+msgstr "طیف از"
 
 #: content_site/options/background/background_gradient_to.php:16
-#: content_site/options/background/background_pack.php:364
+#: content_site/options/background/background_pack.php:375
 msgid "Background Gradient to"
-msgstr "شیب زمینه به"
+msgstr "طیف به"
+
+#: content_site/options/background/background_gradient_type.php:11
+msgid "To top"
+msgstr "به بالا"
+
+#: content_site/options/background/background_gradient_type.php:12
+msgid "To top right"
+msgstr "به بالا راست"
+
+#: content_site/options/background/background_gradient_type.php:13
+msgid "To right"
+msgstr "به راست"
+
+#: content_site/options/background/background_gradient_type.php:14
+msgid "To bottom right"
+msgstr "به پایین راست"
+
+#: content_site/options/background/background_gradient_type.php:15
+msgid "To bottom"
+msgstr "به پایین"
+
+#: content_site/options/background/background_gradient_type.php:16
+msgid "To bottom left"
+msgstr "به پایین چپ"
+
+#: content_site/options/background/background_gradient_type.php:17
+msgid "To left"
+msgstr "به چپ"
+
+#: content_site/options/background/background_gradient_type.php:18
+msgid "To top left"
+msgstr "به بالا چپ"
 
 #: content_site/options/background/background_gradient_type.php:27
-#: content_site/options/background/background_gradient_type.php:49
 msgid "Background Gradient Type"
-msgstr "نوع شیب زمینه"
+msgstr "نوع طیف"
+
+#: content_site/options/background/background_gradient_type.php:49
+msgid "Gradient direction"
+msgstr "جهت طیف"
 
 #: content_site/options/background/background_gradient_via.php:16
-#: content_site/options/background/background_pack.php:363
+#: content_site/options/background/background_pack.php:374
 msgid "Background Gradient via"
-msgstr "شیب زمینه با"
+msgstr "طیف با"
 
-#: content_site/options/background/background_pack.php:60
+#: content_site/options/background/background_pack.php:66
 msgid "Background Pack"
 msgstr "پس‌زمینه"
 
-#: content_site/options/background/background_pack.php:162
+#: content_site/options/background/background_pack.php:171
 msgid "Background Type"
 msgstr "نوع پس‌زمینه"
 
-#: content_site/options/background/background_pack.php:167
+#: content_site/options/background/background_pack.php:176
 msgid "Transparent"
 msgstr "شفاف"
 
-#: content_site/options/background/background_pack.php:168
+#: content_site/options/background/background_pack.php:177
 msgid "Solid"
 msgstr "ثابت"
 
-#: content_site/options/background/background_pack.php:169
+#: content_site/options/background/background_pack.php:178
 msgid "Gradient"
 msgstr "طیف"
 
-#: content_site/options/background/background_pack.php:247
+#: content_site/options/background/background_pack.php:256
 msgid "Gradient colors"
 msgstr "رنگ‌های طیف"
 
-#: content_site/options/background/background_pack.php:293
-#: content_site/options/background/background_pack.php:299
+#: content_site/options/background/background_pack.php:304
+#: content_site/options/background/background_pack.php:310
 msgid "ABC def"
 msgstr ""
 
-#: content_site/options/background/background_pack.php:361
+#: content_site/options/background/background_pack.php:372
 msgid "Background Gradient type"
 msgstr "نوع شیب زمینه"
 
@@ -23194,17 +23236,21 @@ msgstr "عرض محتوا"
 msgid "This range is not defined!"
 msgstr "این بازه تعریف نشده است!"
 
-#: content_site/options/count/count.php:45
+#: content_site/options/count/count.php:31
 msgid "Count Show"
 msgstr "تعداد نمایش"
+
+#: content_site/options/count/count_post.php:27
+msgid "Number of posts to show"
+msgstr "تعداد نوشته برای نمایش"
 
 #: content_site/options/coverratio.php:30
 msgid "Cover ratio"
 msgstr "نسبت تصویر کاور"
 
 #: content_site/options/coverratio.php:77
-msgid "Cover image ratio"
-msgstr "نسبت تصویر عکس کاور"
+msgid "Featured image ratio"
+msgstr "نسبت تصویر شاخص"
 
 #: content_site/options/effect.php:11 lib/app/website/effect.php:11
 #: lib/pagebuilder/body/effect/effect.php:16
@@ -23265,13 +23311,9 @@ msgstr "نستعلیق"
 msgid "Tahoma"
 msgstr "تاهوما"
 
-#: content_site/options/font.php:40
+#: content_site/options/font.php:40 content_site/options/font.php:61
 msgid "Font"
 msgstr "فونت"
-
-#: content_site/options/font.php:61
-msgid "Set item font"
-msgstr "تنظیم فونت آیتم"
 
 #: content_site/options/group/group_design.php:12
 msgid "Design"
@@ -23318,9 +23360,9 @@ msgid "Invalid section detail"
 msgstr "جزئیات بخش اشتباه است"
 
 #: content_site/options/image/image_add.php:26 content_site/section/model.php:195
-#: content_site/section/model.php:301 content_site/section/model.php:365
-#: content_site/section/model.php:395 content_site/section/model.php:434
-#: content_site/section/model.php:495 content_site/update_record.php:18
+#: content_site/section/model.php:301 content_site/section/model.php:366
+#: content_site/section/model.php:396 content_site/section/model.php:435
+#: content_site/section/model.php:496 content_site/update_record.php:18
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -23330,41 +23372,61 @@ msgid "Choose one menu"
 msgstr "لطفا یکی از فهرست‌ها را انتخاب کنید"
 
 #: content_site/options/post/post_order.php:11
-msgid "Latest"
-msgstr "آخرین"
+msgid "Newest to Oldest (default)"
+msgstr "جدیدترین به قدیمی‌ترین (پیش‌فرض)"
 
 #: content_site/options/post/post_order.php:12
-msgid "Random"
-msgstr "تصادفی"
+msgid "Oldest to Newest"
+msgstr "قدیمی‌ترین به جدیدترین"
 
-#: content_site/options/post/post_order.php:19
+#: content_site/options/post/post_order.php:13
+msgid "Random posts"
+msgstr "نوشته‌های تصادفی"
+
+#: content_site/options/post/post_order.php:20
 #: content_site/options/post/post_template.php:36
 msgid "Post subtype"
 msgstr "نوع نوشته"
 
-#: content_site/options/post/post_order.php:46
-msgid "Post Order"
-msgstr "ترتیب نمایش نوشته"
+#: content_site/options/post/post_order.php:47
+msgid "Order by"
+msgstr "مرتب‌سازی براساس"
 
 #: content_site/options/post/post_show_author.php:40
-msgid "Show author"
+msgid "Display author name"
 msgstr "نمایش نام نویسنده"
 
-#: content_site/options/post/post_show_date.php:39
+#: content_site/options/post/post_show_date.php:16
+msgid "DateTime"
+msgstr "تاریخ زمان"
+
+#: content_site/options/post/post_show_date.php:17
+msgid "Relative"
+msgstr "نسبی"
+
+#: content_site/options/post/post_show_date.php:25
 msgid "Show date"
 msgstr "نمایش تاریخ"
 
+#: content_site/options/post/post_show_date.php:49
+msgid "Display publish date"
+msgstr "نمایش تاریخ انتشار"
+
 #: content_site/options/post/post_show_excerpt.php:34
-msgid "Show excerpt"
-msgstr "نمایش چکیده"
+msgid "Display post summary"
+msgstr "نمایش خلاصه‌ی نوشته"
 
 #: content_site/options/post/post_show_image.php:40
-msgid "Show image"
-msgstr "نمایش عکس"
+msgid "Display featured image"
+msgstr "نمایش تصویر شاخص"
 
 #: content_site/options/post/post_show_readingtime.php:40
-msgid "Show estimated read time"
-msgstr "نمایش زمان تخمینی مطالعه"
+msgid "Display estimated reading time"
+msgstr "نمایش برآورد زمان خواندن"
+
+#: content_site/options/post/post_tag.php:34
+msgid "Filter by special tag"
+msgstr "فیلتر با تگ خاص"
 
 #: content_site/options/post/post_template.php:11 lib/app/gift/filter.php:54
 msgid "Any"
@@ -23373,6 +23435,10 @@ msgstr "همه"
 #: content_site/options/post/post_template.php:37
 msgid "Play Item"
 msgstr "حالت پخش آیتم‌ها"
+
+#: content_site/options/post/post_template.php:83
+msgid "Filter by post type"
+msgstr "فیلتر با نوع نوشته"
 
 #: content_site/options/radius.php:15 lib/app/website/radius.php:15
 #: lib/pagebuilder/body/radius/radius.php:19
@@ -23387,7 +23453,7 @@ msgstr "شعاع"
 msgid "Set item ratio"
 msgstr "تنظیم نسبت تصویر"
 
-#: content_site/options/style.php:11
+#: content_site/options/style.php:22
 msgid "Personalization Desgin"
 msgstr "سفارشی‌سازی ظاهر"
 
@@ -23399,7 +23465,7 @@ msgstr "باز کردن در صفحه جدید"
 msgid "Enter your text here"
 msgstr "متن خود را اینجا بنویسید"
 
-#: content_site/options/type.php:64
+#: content_site/options/type.php:75
 msgid "Choose another preview"
 msgstr "انتخاب پیش‌نمایش دیگر"
 
@@ -23424,7 +23490,7 @@ msgid "After saving the page, this section will be deleted completely"
 msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
 
 #: content_site/page/model.php:30 content_site/page/model.php:62
-#: content_site/page/settings/model.php:29 content_site/section/model.php:588
+#: content_site/page/settings/model.php:29 content_site/section/model.php:589
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
 
@@ -23433,13 +23499,13 @@ msgid "Data saved"
 msgstr "ذخیره شد"
 
 #: content_site/page/model.php:70 content_site/page/model.php:79
-#: content_site/section/model.php:514 dash/app/posts/gallery.php:280
+#: content_site/section/model.php:515 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگو مرتب‌سازی اشتباه است"
 
 #: content_site/page/model.php:100 content_site/page/model.php:112
-#: content_site/section/model.php:533 content_site/section/model.php:548
+#: content_site/section/model.php:534 content_site/section/model.php:549
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
@@ -23524,11 +23590,11 @@ msgstr ""
 msgid "Are you sure to restore this section?"
 msgstr "آیا از بازگرداندن این بخش مطمئن هستید؟"
 
-#: content_site/section/display-sidebar.php:86
+#: content_site/section/display-sidebar.php:91
 msgid "Restore section"
 msgstr "بازگرداندن بخش"
 
-#: content_site/section/display-sidebar.php:137
+#: content_site/section/display-sidebar.php:156
 msgid "Discard change"
 msgstr "نادیده گرفتن تغییرات"
 
@@ -23544,11 +23610,11 @@ msgstr "شناسه گزینه نامعتبر است"
 msgid "Please check your input"
 msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
-#: content_site/section/model.php:167 content_site/section/model.php:618
+#: content_site/section/model.php:167 content_site/section/model.php:619
 msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:175 content_site/section/model.php:635
+#: content_site/section/model.php:175 content_site/section/model.php:636
 msgid "Invalid preview key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
@@ -23556,33 +23622,33 @@ msgstr "کلید پیش‌نمایش نامعتبر است"
 msgid "Can not save this index!"
 msgstr "نمی‌توانیم این ایندکس را ذخیره کنیم!"
 
-#: content_site/section/model.php:465
+#: content_site/section/model.php:466
 msgid "Can not remove this block!"
 msgstr "نمی‌توانید این مورد را حذف کنید!"
 
-#: content_site/section/model.php:504
+#: content_site/section/model.php:505
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:526
+#: content_site/section/model.php:527
 msgid "This section have not sortable item!"
 msgstr "این بخش امکان مرتب سازی را ندارد!"
 
-#: content_site/section/model.php:598
+#: content_site/section/model.php:599
 msgid "Invalid key"
 msgstr "شناسه نامعتبر"
 
-#: content_site/section/model.php:608 content_su/update/model.php:42
+#: content_site/section/model.php:609 content_su/update/model.php:42
 #: lib/app/export/download.php:36 lib/app/factor/edit.php:89 lib/app/product/bullet.php:78
 #: lib/pagebuilder/tools/get.php:93
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
 
-#: content_site/section/model.php:627
+#: content_site/section/model.php:628
 msgid "Can not chose this section!"
 msgstr "نمی‌توانید این بخش را انتخاب کنید!"
 
-#: content_site/section/model.php:721 lib/pagebuilder/tools/add.php:270
+#: content_site/section/model.php:722 lib/pagebuilder/tools/add.php:270
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 
@@ -41938,6 +42004,39 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Blog post"
+#~ msgstr "پست‌ وبلاگ"
+
+#~ msgid "Blog Posts"
+#~ msgstr "پست‌های وبلاگ"
+
+#~ msgid "Cover image ratio"
+#~ msgstr "نسبت تصویر عکس کاور"
+
+#~ msgid "Set item font"
+#~ msgstr "تنظیم فونت آیتم"
+
+#~ msgid "Latest"
+#~ msgstr "آخرین"
+
+#~ msgid "Random"
+#~ msgstr "تصادفی"
+
+#~ msgid "Post Order"
+#~ msgstr "ترتیب نمایش نوشته"
+
+#~ msgid "Show author"
+#~ msgstr "نمایش نام نویسنده"
+
+#~ msgid "Show excerpt"
+#~ msgstr "نمایش چکیده"
+
+#~ msgid "Show image"
+#~ msgstr "نمایش عکس"
+
+#~ msgid "Show estimated read time"
+#~ msgstr "نمایش زمان تخمینی مطالعه"
 
 #~ msgid "Show \"View all\" button"
 #~ msgstr "نمایش دکمه \"نمایش همه\""
