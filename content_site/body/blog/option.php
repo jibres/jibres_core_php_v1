@@ -135,6 +135,7 @@ class option
 			'post_template'     => 'any',
 			'count'             => 3,
 			'post_show_excerpt' => true,
+			'post_show_image' => true,
 		];
 
 		return array_merge($master_default, $_special_default);
@@ -165,6 +166,7 @@ class option
 			'post_show_date',
 			'post_show_excerpt',
 			'post_show_readingtime',
+			'post_show_image',
 			'btn_viewall',
 			// range
 			'count_post',
