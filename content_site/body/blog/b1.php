@@ -87,7 +87,7 @@ class b1
 						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden shadow-lg bg-white'>";
 						{
 							// thumb
-							if($myThumb)
+							if($myThumb && a($_args, 'post_show_image'))
 							{
 								$card .= '<header>';
 								$card .= "<a class='block $coverRatio'$myLinkHref>";
