@@ -8,8 +8,9 @@ class post_order
 	private static function enum_post_order()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'latest',		'title' => T_("Latest posts"), 		];
-		$enum[] = ['key' => 'random', 'title' => T_("Random posts"), 	];
+		$enum[] = ['key' => 'latest', 'title' => T_("Newest to Oldest (default)"), ];
+		$enum[] = ['key' => 'oldest', 'title' => T_("Oldest to Newest"), ];
+		$enum[] = ['key' => 'random', 'title' => T_("Random posts"), 	 ];
 
 		return $enum;
 	}

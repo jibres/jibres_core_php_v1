@@ -36,7 +36,7 @@ class post_show_date
 			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="show_date" id="post_show_date"'.$checked.'>';
-				$html .= '<label for="post_show_date">'. T_('Show date'). '</label>';
+				$html .= '<label for="post_show_date">'. T_('Display post date'). '</label>';
 			}
 			$html .= '</div>';
 		}

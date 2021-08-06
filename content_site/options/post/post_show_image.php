@@ -37,7 +37,7 @@ class post_show_image
 			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="show_author" id="post_show_image"'.$checked.'>';
-				$html .= '<label for="post_show_image">'. T_('Show image'). '</label>';
+				$html .= '<label for="post_show_image">'. T_('Display featured image'). '</label>';
 			}
 			$html .= '</div>';
 		}
