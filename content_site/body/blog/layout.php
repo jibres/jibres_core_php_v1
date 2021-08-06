@@ -18,7 +18,7 @@ class layout
 		$blogList = [];
 		$dataList = [];
 
-		if(!a($_args, 'fill_defult_data'))
+		if(!\content_site\utility::fill_by_default_data())
 		{
 			$line_detail =
 			[
@@ -46,7 +46,7 @@ class layout
 		}
 
 		// fill_default_data receive from preview function
-		if(empty($blogList) || a($_args, 'fill_defult_data'))
+		if(empty($blogList) || \content_site\utility::fill_by_default_data())
 		{
 			$blogList = fill_default::get(a($_args, 'count'));
 		}

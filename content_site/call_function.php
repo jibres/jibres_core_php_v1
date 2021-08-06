@@ -182,6 +182,8 @@ class call_function
 					$function_list = get_class_methods($namespace_preview);
 				}
 
+				\content_site\utility::fill_by_default_data(true);
+
 				$list = [];
 
 				foreach ($function_list as $key => $value)
@@ -199,6 +201,8 @@ class call_function
 						'preview_html'    => $preview_html,
 					];
 				}
+
+				\content_site\utility::fill_by_default_data(false);
 
 				return $list;
 			}
