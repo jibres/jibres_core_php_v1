@@ -8,8 +8,8 @@ class post_order
 	private static function enum_post_order()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'latest',		'title' => T_("Latest"), 		];
-		$enum[] = ['key' => 'random', 'title' => T_("Random"), 	];
+		$enum[] = ['key' => 'latest',		'title' => T_("Latest posts"), 		];
+		$enum[] = ['key' => 'random', 'title' => T_("Random posts"), 	];
 
 		return $enum;
 	}
@@ -43,7 +43,7 @@ class post_order
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 
-	    	$html .= "<label for='post_order'>". T_("Post Order") ."</label>";
+	    	$html .= "<label for='post_order'>". T_("Order by") ."</label>";
 	        $html .= '<select name="opt_post_order" class="select22" id="post_order">';
 
 	        foreach (self::enum_post_order() as $key => $value)

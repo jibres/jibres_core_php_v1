@@ -78,17 +78,27 @@ else
       $html .= '</p>';
       $restore_title = T_("Are you sure to restore this section?");
 
-      $html .= '<div class="row w-full">';
-      {
-        $html .= "<div tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 hover:text-red-500 focus:text-red-600 active:text-red-700 transition p-3 rounded-lg' data-confirm data-title='$restore_title' data-data='$restore_json'>";
-        {
-          $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Redo', 'major'). '" alt="Delete">';
-          $html .= '<span class="inline-block align-middle ps-2">'. T_("Restore section").'</span>';
-        }
-        $html .= '</div>';
 
+      $html .= '<nav class="items long mT20">';
+      {
+          $html .= '<ul>';
+          {
+            $html .= '<li>';
+            {
+                $html .= "<div class='item f' data-confirm data-title='$restore_title' data-data='$restore_json'>";
+                {
+                  $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Undo'). '">';
+                  $html .= '<div class="key">'. T_("Restore section"). '</div>';
+                  $html .= '<div class="go"></div>';
+                }
+                $html .= '</div>';
+            }
+            $html .= '</li>';
+          }
+          $html .= '</ul>';
       }
-      $html .= '</div>';
+      $html .= '</nav>';
+
 
   }
   else

@@ -26,9 +26,9 @@ class option
 	{
 		return
 		[
-			'group'   => T_("Blog post"),
+			'group'   => T_("CMS"),
 			'key'     => 'blog',
-			'title'   => T_("Blog post"),
+			'title'   => T_("Posts"),
 			'icon'    => \dash\utility\icon::url('Blog'),
 		];
 	}
@@ -131,7 +131,7 @@ class option
 	{
 		$master_default =
 		[
-			'heading'           => T_("Blog Posts"),
+			'heading'           => T_("Latest Posts"),
 			'post_template'     => 'any',
 			'count'             => 3,
 			'post_show_excerpt' => true,
@@ -160,16 +160,18 @@ class option
 			// select
 			'post_tag',
 			'post_template',
+
 			'post_order',
-			// radio
-			'post_show_author',
-			'post_show_date',
-			'post_show_excerpt',
-			'post_show_readingtime',
-			'post_show_image',
-			'btn_viewall',
 			// range
 			'count_post',
+
+			'post_show_image',
+			'post_show_readingtime',
+			'post_show_excerpt',
+			'post_show_date',
+			'post_show_author',
+
+			'btn_viewall',
 
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),

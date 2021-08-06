@@ -31,7 +31,7 @@ class post_tag
 		}
 
 
-		$title = T_("Special tag");
+		$title = T_("Filter by special tag");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -39,14 +39,7 @@ class post_tag
 			$html .= "<label for='post_tag'>$title</label>";
 	        $html .= '<select name="opt_post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select tag"). '">';
 
-			if(a($_section_detail, 'preview', 'post_tag'))
-			{
-				$html .= '<option value="0">'. T_("None"). '</option>';
-			}
-			else
-			{
-				$html .= '<option value="0">'. T_("Select tag"). '</option>';
-			}
+			$html .= '<option value="0">'. T_("All"). '</option>';
 
 	        foreach ($tag_list as $key => $value)
 	        {

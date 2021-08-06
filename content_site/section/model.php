@@ -340,7 +340,8 @@ class model
 
 				\content_site\update_record::patch_field($section_id, 'status_preview', $new_status);
 
-				// \dash\redirect::pwd();
+				\dash\notif::reloadIframe();
+				\dash\redirect::pwd();
 				// \dash\notif::complete();
 
 				// set hide and view section

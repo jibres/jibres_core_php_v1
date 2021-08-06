@@ -21,5 +21,11 @@ class count_post
 		return 'count_post';
 	}
 
+
+	public static function title()
+	{
+		return T_("Number of posts to show");
+	}
+
 }
 ?>
