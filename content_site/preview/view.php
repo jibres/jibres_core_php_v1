@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::include_adminPanelBuilder('previewMode');
+		\dash\data::include_adminPanelBuilder(false);
 	}
 }
 ?>

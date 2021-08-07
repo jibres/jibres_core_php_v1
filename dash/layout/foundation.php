@@ -132,6 +132,10 @@ else if(\dash\data::include_adminPanelBuilder())
  echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
 }
+elseif(\dash\url::content() === 'site' && \dash\url::module() === 'preview')
+{
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
+}
 else
 {
  if(\dash\user::id())
