@@ -42,7 +42,7 @@ class background_color
 	 * @param      string  $_name     The name
 	 * @param      string  $_default  The default
 	 */
-	public static function color_html($_name, $_default, $_title, $_only_input = true, $_show_label = true, $_random_color = false)
+	public static function color_html($_name, $_default, $_title, $_only_input = false, $_show_label = true, $_random_color = false)
 	{
 		$block_class = null;
 		$form_class  = 'inline-block pe-3 mT0-f';
