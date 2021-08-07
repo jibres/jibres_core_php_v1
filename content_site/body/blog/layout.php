@@ -18,6 +18,8 @@ class layout
 		$blogList = [];
 		$dataList = [];
 
+		$view_all_link = \dash\url::kingdom(). '/n';
+
 		if(!\content_site\utility::fill_by_default_data())
 		{
 			$line_detail =
@@ -37,6 +39,11 @@ class layout
 				$blogList = $dataList['list'];
 			}
 
+			if(isset($dataList['link']))
+			{
+				$view_all_link = $dataList['link'];
+			}
+
 			if(!is_array($blogList))
 			{
 				// error
@@ -50,6 +57,9 @@ class layout
 		{
 			$blogList = fill_default::get(a($_args, 'count'));
 		}
+
+		// send the view all link to every layout of blog
+		$_args['view_all_link'] = $view_all_link;
 
 
 		$html             = '';

@@ -73,13 +73,14 @@ class load
 		$tag_id            = $_detail['tag_id'];
 		$subtype           = $_detail['subtype'];
 		$limit             = $_detail['limit'];
-
 		$post_show_author  = $_detail['post_show_author'];
 		$btn_viewall_check = $_detail['btn_viewall_check'];
-
 		$post_order        = $_detail['post_order'];
 
-		$link              = null;
+		$link              = \dash\url::kingdom(). '/n';
+
+		$link_get          = [];
+		$link_get['order'] = $post_order;
 
 		if(!$limit)
 		{
@@ -90,6 +91,10 @@ class load
 		{
 			$subtype = null;
 		}
+		else
+		{
+			$link_get['subtype'] = $subtype;
+		}
 
 		if($tag_id)
 		{
@@ -97,25 +102,27 @@ class load
 
 			if(isset($load_tag['link']))
 			{
+				// replace link
 				$link = $load_tag['link'];
 			}
 		}
 
 		$args =
 		[
-			'pagination'   => 'n',
-			'website_mode' => true,
-			'subtype'      => $subtype,
-			'limit'        => $limit,
-			'tag_id'       => $tag_id,
-			'show_author'  => $post_show_author,
+			'pagination'    => 'n',
+			'website_mode'  => true,
+			'subtype'       => $subtype,
+			'limit'         => $limit,
+			'tag_id'        => $tag_id,
+			'show_author'   => $post_show_author,
 			'website_order' => $post_order,
 		];
 
 		$list = \dash\app\posts\search::list(null, $args, true);
 
+
 		$result         = [];
-		$result['link'] = $link;
+		$result['link'] = $link. '?'. \dash\request::build_query($link_get);
 		$result['list'] = $list;
 
 		return $result;
