@@ -51,7 +51,7 @@ class generate_radio_line
 			}
 			$html .= '>';
 
-			$classList = 'block pt-2 px-3 h-12 text-gray-600 hover:text-gray-800 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
+			$classList = 'block pt-2 px-3 h-12 text-gray-600 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
 
 			$html .= "<label for='$myId' class='$classList'>";
 			if($_value === 'more')

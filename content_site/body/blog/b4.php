@@ -38,13 +38,13 @@ class b4
 				            // <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
 				            $html .= '<h3>';
 				            {
-				            	$html .= "<a href='$myLink' class='text-3xl font-bold hover:text-gray-700 pb-4'>$myTitle</a>";
+				            	$html .= "<a href='$myLink' class='text-3xl font-bold pb-4'>$myTitle</a>";
 				            }
 				            $html .= '</h3>';
 
 				            $html .= '<p class="text-sm pb-3">';
 				            {
-				                $html .= 'By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on April 25th, 2020';
+				                $html .= 'By <a href="#" class="font-semibold">David Grzyb</a>, Published on April 25th, 2020';
 				            }
 				            $html .= '</p>';
 
@@ -54,7 +54,7 @@ class b4
 				            }
 				            $html .= '</a>';
 
-				            $html .= "<a href='$myLink' class='uppercase text-gray-800 hover:text-black'>". T_("Continue Reading");
+				            $html .= "<a href='$myLink' class='uppercase text-gray-800'>". T_("Continue Reading");
 				            {
 					            // need icon
 				            }

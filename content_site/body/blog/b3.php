@@ -93,7 +93,7 @@ class b3
 
 									$html .= '<div class="text-base font-medium">';
 									{
-										$html .= "<a class='text-teal-600 hover:text-teal-700' href='$myLink'>Read more →</a>";
+										$html .= "<a class='text-teal-600' href='$myLink'>Read more →</a>";
 									}
 									$html .= '</div>';
 								}
