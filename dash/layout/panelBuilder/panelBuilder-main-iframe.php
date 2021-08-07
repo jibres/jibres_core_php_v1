@@ -23,11 +23,11 @@ $html .= '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden roun
 $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
 {
   // dots
-  $html .= '<div class="relative flex flex-none items-center space-s-3 px-3">';
+  $html .= '<div class="relative flex flex-none items-center px-3">';
   {
-    $html .= '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
-    $html .= '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
-    $html .= '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full"></div>';
+    $html .= '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full mRa5"></div>';
+    $html .= '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full mRa5"></div>';
+    $html .= '<div class="w-3 h-3 bg-gray-300 hover:bg-gray-500 transition rounded-full mRa5"></div>';
   }
   $html .= '</div>';
   // address line
@@ -42,8 +42,8 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
       $html .= '<a class="connectDomain text-xs" href="'.\lib\store::admin_url().'/a/setting/domain">'. T_("Connect to your Domain"). '</a>';
     }
 
-    $html .= '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-green-200 text-gray-900 rounded-full text-sm">';
-    $html .= '<div class="w-3 h-3 mx-1 bg-green-800 rounded-full animate-ping2 opacity-50"></div>';
+    $html .= '<div class="mx-2 relative flex items-center space-x-1 px-3 bg-blue-200 text-gray-900 rounded-full text-sm">';
+    $html .= '<div class="w-3 h-3 mx-1 bg-blue-800 rounded-full animate-ping2 opacity-50"></div>';
     $html .= '<div>'. T_("Live"). '</div>';
     $html .= '</div>';
   }
@@ -59,7 +59,7 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
 $html .= '</div>';
 $html .= '<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">';
 {
-  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '"></iframe>';
+  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '" style="zoom:0.75"></iframe>';
   // $html .= $previewHTML;
 }
 $html .= '</div>';
