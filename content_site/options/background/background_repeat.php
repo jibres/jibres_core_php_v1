@@ -8,10 +8,10 @@ class background_repeat
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'repeat'];
-		$enum[] = ['key' => 'no repeat'];
-		$enum[] = ['key' => 'repeat x'];
-		$enum[] = ['key' => 'repeat y'];
+		$enum[] = ['key' => 'repeat', 'title' => T_('Yes')];
+		$enum[] = ['key' => 'repeat x', 'title' => 'X'];
+		$enum[] = ['key' => 'repeat y', 'title' => 'Y'];
+		$enum[] = ['key' => 'no repeat', 'title' => T_('No')];
 
 		return $enum;
 	}
@@ -49,10 +49,19 @@ class background_repeat
 			$name       = 'opt_background_repeat';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'repeat', T_('Yes'), (($default === 'repeat')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'repeat x', 'X', (($default === 'repeat x')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'repeat y', 'Y', (($default === 'repeat y')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'no repeat', T_('No'), (($default === 'no repeat')? true : false));
+
+			foreach (self::enum() as $key => $value)
+			{
+				$selected = false;
+
+				if($default === $value['key'])
+				{
+					$selected = true;
+				}
+
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $value['key'], $value['title'], $selected);
+			}
+
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 

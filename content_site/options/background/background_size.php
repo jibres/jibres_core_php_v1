@@ -8,9 +8,9 @@ class background_size
 	private static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'auto'];
-		$enum[] = ['key' => 'cover'];
-		$enum[] = ['key' => 'contain'];
+		$enum[] = ['key' => 'auto', 'title' => T_('Auto')];
+		$enum[] = ['key' => 'cover', 'title' => T_('Cover')];
+		$enum[] = ['key' => 'contain', 'title' => T_('Contain')];
 
 		return $enum;
 	}
@@ -58,9 +58,19 @@ class background_size
 			$name       = 'opt_background_size';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'auto', 'Auto', (($default === 'auto')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'cover', 'Cover', (($default === 'cover')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'contain', 'Contain', (($default === 'contain')? true : false));
+
+			foreach (self::enum() as $key => $value)
+			{
+				$selected = false;
+
+				if($default === $value['key'])
+				{
+					$selected = true;
+				}
+
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $value['key'], $value['title'], $selected);
+			}
+
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 		}

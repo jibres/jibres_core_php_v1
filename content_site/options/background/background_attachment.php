@@ -9,9 +9,9 @@ class background_attachment
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'fixed'];
-		$enum[] = ['key' => 'local'];
-		$enum[] = ['key' => 'scroll'];
+		$enum[] = ['key' => 'fixed', 'title' => T_('Fixed')];
+		$enum[] = ['key' => 'local', 'title' => T_('Local')];
+		$enum[] = ['key' => 'scroll', 'title' => T_('Scroll')];
 
 		return $enum;
 	}
@@ -52,9 +52,18 @@ class background_attachment
 			$name       = 'opt_background_attachment';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'fixed', T_('Fixed'), (($default === 'fixed')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'local', T_('Local'), (($default === 'local')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'scroll', T_('Scroll'), (($default === 'scroll')? true : false));
+
+			foreach (self::enum() as $key => $value)
+			{
+				$selected = false;
+
+				if($default === $value['key'])
+				{
+					$selected = true;
+				}
+
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $value['key'], $value['title'], $selected);
+			}
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 
