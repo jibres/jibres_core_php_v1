@@ -21,6 +21,7 @@ class fill_default
 
 	private static function get_one_random_post($i)
 	{
+		$date = date('Y-m-d H:i:s', strtotime( '-'.mt_rand(0,32).' days'));
 		return
 		[
 			'title'       => T_("Your post's title"),
@@ -29,7 +30,8 @@ class fill_default
 			// 'thumb'       => \dash\sample\img::unsplash(null, $collection[array_rand($collection)]),
 			'thumb'       => \dash\sample\img::image(),
 			'readingtime' => \dash\utility\human::time(5*60, true),
-			'publishdate' => date("Y-m-d H:i:s"),
+			// 'publishdate' => date("Y-m-d H:i:s", $date),
+			'publishdate' => $date,
 			'user_detail' =>
 			[
 				'displayname' => T_('Author name'),
