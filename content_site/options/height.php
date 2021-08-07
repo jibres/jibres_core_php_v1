@@ -82,9 +82,9 @@ class height
 			$name       = 'opt_height';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'xs', 'S', (($default === 'xs')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'auto', 'M', (($default === 'auto')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'xl', 'L', (($default === 'xl')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'sm', 'S', (($default === 'sm')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'md', 'M', (($default === 'md')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'lg', 'L', (($default === 'lg')? true : false));
 			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'fullscreen', T_("FullScreen"), (($default === 'fullscreen')? true : false));
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
