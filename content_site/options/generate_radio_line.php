@@ -37,7 +37,11 @@ class generate_radio_line
 		{
 			$fontSize = 'leading-6 text-xs';
 		}
-		if(mb_strlen($_text) > 6)
+		if(substr($_text, 0, 4) === '<svg')
+		{
+			// do noting
+		}
+		else if(mb_strlen($_text) > 6)
 		{
 			$flexMode = '';
 		}
