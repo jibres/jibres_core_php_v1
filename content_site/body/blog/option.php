@@ -131,11 +131,15 @@ class option
 	{
 		$master_default =
 		[
-			'heading'           => T_("Latest Posts"),
-			'post_template'     => 'any',
-			'count'             => 3,
-			'post_show_excerpt' => true,
-			'post_show_image'   => true,
+			'heading'               => T_("Latest Posts"),
+			'post_template'         => 'any',
+			'count'                 => 3,
+			'post_show_excerpt'     => true,
+			'post_show_image'       => true,
+			'post_show_date'        => 'relative',
+			'post_show_author'      => true,
+			'post_show_readingtime' => true,
+			'btn_viewall'           => true,
 		];
 
 		return array_merge($master_default, $_special_default);

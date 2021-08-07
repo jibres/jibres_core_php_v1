@@ -9,19 +9,16 @@ class coverratio
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => '3:1', 'class' => 'aspect-w-3 aspect-h-1'];
-		$enum[] = ['key' => '16:9', 'class' => 'aspect-w-16 aspect-h-9'];
-		$enum[] = ['key' => '1:1', 'class' => 'aspect-w-1 aspect-h-1'];
-
-		// $enum[] = ['key' => '4:1', 'class' => 'aspect-w-4 aspect-h-1'];
-		// $enum[] = ['key' => '4:3', 'class' => 'aspect-w-4 aspect-h-3'];
+		$enum[] = ['key' => '3:1', 'title' => '3:1', 'class' => 'aspect-w-3 aspect-h-1'];
+		$enum[] = ['key' => '16:9', 'title' => '16:9', 'class' => 'aspect-w-16 aspect-h-9'];
+		$enum[] = ['key' => '1:1', 'title' => '1:1', 'class' => 'aspect-w-1 aspect-h-1'];
 
 		// vertical
-		$enum[] = ['key' => '3:4', 'class' => 'aspect-w-3 aspect-h-4'];
-		// $enum[] = ['key' => '9:16', 'class' => 'aspect-w-9 aspect-h-16'];
+		$enum[] = ['key' => '3:4', 'title' => '3:4', 'class' => 'aspect-w-3 aspect-h-4'];
 
 		// free
-		$enum[] = ['key' => 'free', 'class' => ''];
+		$enum[] = ['key' => 'free',  'title' => 'Free' ,'class' => ''];
+
 		return $enum;
 	}
 
@@ -34,7 +31,7 @@ class coverratio
 
 	public static function default()
 	{
-		return 'm';
+		return '16:9';
 	}
 
 
@@ -91,10 +88,15 @@ class coverratio
 
 			foreach (self::enum() as $key => $value)
 			{
-				$myValue = $value['key'];
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $myValue, $myValue, (($default === $myValue)? true : false));
-			}
+				$selected = false;
 
+				if($default === $value['key'])
+				{
+					$selected = true;
+				}
+
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $value['key'], $value['title'], $selected);
+			}
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 		}
 		$html .= '</form>';

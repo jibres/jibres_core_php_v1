@@ -10,9 +10,6 @@ class preview
 		return
 		[
 			'type'              => 'b1',
-			'fill_defult_data'  => true,
-			'post_show_excerpt' => false,
-			'background_pack'   => 'none',
 		];
 	}
 
@@ -22,11 +19,6 @@ class preview
 		return
 		[
 			'type'                     => 'b2',
-			'fill_defult_data'         => true,
-			'post_show_excerpt'        => true,
-			'background_pack'          => 'solid',
-			'background_color'   => '#e0e7ff',
-
 		];
 	}
 
@@ -37,11 +29,6 @@ class preview
 		return
 		[
 			'type'                     => 'b3',
-			'fill_defult_data'         => true,
-			'post_show_excerpt'        => true,
-			// 'background_pack'          => 'solid',
-			// 'background_color'   => '#e0e7ff',
-
 		];
 	}
 
@@ -51,11 +38,6 @@ class preview
 		return
 		[
 			'type'                     => 'b4',
-			'fill_defult_data'         => true,
-			'post_show_excerpt'        => true,
-			// 'background_pack'          => 'solid',
-			// 'background_color'   => '#e0e7ff',
-
 		];
 	}
 
@@ -66,11 +48,6 @@ class preview
 		return
 		[
 			'type'                     => 'b5',
-			'fill_defult_data'         => true,
-			'post_show_excerpt'        => true,
-			// 'background_pack'          => 'solid',
-			// 'background_color'   => '#e0e7ff',
-
 		];
 	}
 
@@ -80,11 +57,6 @@ class preview
 		return
 		[
 			'type'                     => 'b6',
-			'fill_defult_data'         => true,
-			'post_show_excerpt'        => true,
-			// 'background_pack'          => 'solid',
-			// 'background_color'   => '#e0e7ff',
-
 		];
 	}
 
