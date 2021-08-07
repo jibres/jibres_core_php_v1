@@ -99,9 +99,9 @@ class background_color_random
 	{
 		$html = '';
 
-		$html .= "<div data-ajaxify data-data='$_json' class='inline-block pe-3 mt0-f btn xl'>";
+		$html .= "<div data-ajaxify data-data='$_json' class='picker reset inline-block align-middle mRa10 mB10'>";
 		{
-			$html .= '<img src="'. \dash\utility\icon::url('redo'). '" alt="random">';
+			$html .= '<img src="'. \dash\utility\icon::url('refresh'). '" alt="random" class="block">';
 		}
 		$html .= "</div>";
 
