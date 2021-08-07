@@ -11,11 +11,11 @@ class height
 		// max-height:80vh; height:50vw; padding: 50px 0;
 		// $enum[] = ['key' => 'xs',   'title' => T_("Short") , 'class' => 'height-xs', ];
 		// max-height:...; height:90px; md:height:125px; padding: 50px 0;
-		$enum[] = ['key' => 'sm',   'title' => T_("Fairly Short") , 'class' => 'flex min-h-1/4 py-5', ];
+		$enum[] = ['key' => 'sm',   'title' => T_("Fairly Short") , 'class' => 'flex min-h-1/4 py-2 lg:py-5', ];
 		// max-height:..; height:225px; md:height:300px; padding: 50px 0;
-		$enum[] = ['key' => 'md',   'title' => T_("Medium") , 'class' => 'flex min-h-1/2 py-16', ];
+		$enum[] = ['key' => 'md',   'title' => T_("Medium") , 'class' => 'flex min-h-1/2 lg:py-10 lg:py-16', ];
 		// max-height:...; height:350px; md:height:475px; padding: 50px 0;
-		$enum[] = ['key' => 'lg',   'title' => T_("Tall") , 'class' => 'flex min-h-3/4 py-28', ];
+		$enum[] = ['key' => 'lg',   'title' => T_("Tall") , 'class' => 'flex min-h-3/4 py-20 lg:py-28', ];
 		// max-height:...; height:470px; md:height:650px; padding: 50px 0;
 		// $enum[] = ['key' => 'xl',   'title' => T_("Full Screen") , 'class' => 'height-xl', ];
 		// max-height:... height:580px; md:height:775px; padding: 50px 0;
