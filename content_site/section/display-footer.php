@@ -2,8 +2,6 @@
 if(\dash\url::child())
 {
 
-  if(\dash\url::subchild())
-  {
     if(\dash\request::get('index'))
     {
      /**
@@ -28,6 +26,10 @@ if(\dash\url::child())
 
       echo $html;
     }
+
+  if(\dash\url::subchild() && \dash\url::subchild() === 'type')
+  {
+    // in type moudle needless tho show delete or hide button
   }
   else
   {
