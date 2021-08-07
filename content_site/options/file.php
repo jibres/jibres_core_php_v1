@@ -19,8 +19,15 @@ class file
 		}
 		else
 		{
-			\dash\notif::error(T_("Please upload a file"));
-			return false;
+			if(a($_data, 'deletefile'))
+			{
+				return null;
+			}
+			else
+			{
+				\dash\notif::error(T_("Please upload a file"));
+				return false;
+			}
 		}
 	}
 
@@ -96,6 +103,11 @@ class file
 			else
 			{
 				$html .= '<label for="myfile"><img id="finalImage" alt="'. \dash\data::dataRow_title(). '"></label>';
+			}
+
+			if($default)
+			{
+				$html .= '<span class="imageDel" data-confirm data-data=\'{"opt_file" : 1, "multioption" : "multi", "deletefile" : 1}\'></span>';
 			}
 
 			$html .= '</div>';
