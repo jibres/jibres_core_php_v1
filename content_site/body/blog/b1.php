@@ -44,7 +44,7 @@ class b1
 
 		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style $section_id>";
 		{
-			$html .= "<div class='$containerMaxWidth mx-auto'>";
+			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{
 				if(a($_args, 'heading') !== null)
 				{
