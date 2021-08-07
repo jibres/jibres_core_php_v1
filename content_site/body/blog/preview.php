@@ -5,58 +5,58 @@ namespace content_site\body\blog;
 class preview
 {
 
-	public static function preview_1()
+	public static function p1()
 	{
 		return
 		[
-			'type'              => 'b1',
+			'type' => 'b1',
 		];
 	}
 
 
-	public static function preview_2()
+	public static function p2()
 	{
 		return
 		[
-			'type'                     => 'b2',
-		];
-	}
-
-
-
-	public static function preview_3()
-	{
-		return
-		[
-			'type'                     => 'b3',
-		];
-	}
-
-
-	public static function preview_4()
-	{
-		return
-		[
-			'type'                     => 'b4',
+			'type' => 'b2',
 		];
 	}
 
 
 
-	public static function preview_5()
+	public static function p3()
 	{
 		return
 		[
-			'type'                     => 'b5',
+			'type' => 'b3',
 		];
 	}
 
 
-	public static function preview_6()
+	public static function p4()
 	{
 		return
 		[
-			'type'                     => 'b6',
+			'type' => 'b4',
+		];
+	}
+
+
+
+	public static function p5()
+	{
+		return
+		[
+			'type' => 'b5',
+		];
+	}
+
+
+	public static function p6()
+	{
+		return
+		[
+			'type' => 'b6',
 		];
 	}
 

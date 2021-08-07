@@ -216,5 +216,62 @@ class call_function
 
 	}
 
+
+
+	public static function generate_preview($_section, $_preview)
+	{
+		$namespace = self::get_namespace($_section);
+
+		$default = \content_site\call_function::default($_section);
+
+		if(!is_array($default))
+		{
+			$default = [];
+		}
+
+		$options = \content_site\call_function::option($_section);
+
+		$default_options = [];
+
+		foreach ($options as $option_name)
+		{
+			if(is_string($option_name))
+			{
+				$default_options[$option_name] = self::option_default($option_name);
+			}
+		}
+
+		$namespace_preview = sprintf($namespace, 'preview');
+
+		if(!is_callable([$namespace_preview, $_preview]))
+		{
+			return false;
+		}
+
+		$namespace_layout  = sprintf($namespace, 'layout');
+
+
+		\content_site\utility::fill_by_default_data(true);
+
+		$preview_default = self::_call([$namespace_preview, $_preview]);
+
+		$preview_default = array_merge($default_options, $default, $preview_default);
+
+		$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
+
+		$result =
+		[
+			'preview_key'     => $_preview,
+			'preview_default' => $preview_default,
+			'preview_html'    => $preview_html,
+		];
+
+
+		\content_site\utility::fill_by_default_data(false);
+
+		return $result;
+
+	}
+
 }
 ?>
