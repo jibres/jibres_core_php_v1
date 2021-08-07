@@ -19,6 +19,7 @@ class background_size
 	public static function validator($_data)
 	{
 		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Size')]);
+		\content_site\utility::need_redirect(true);
 		return $data;
 	}
 
