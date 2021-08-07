@@ -27,13 +27,13 @@ class height
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => ['xs', 'auto', 'xl', 'fullscreen'], 'field_title' => T_('Height')]);
+		return \dash\validate::enum($_data, true, ['enum' => ['sm', 'md', 'lg', 'fullscreen'], 'field_title' => T_('Height')]);
 	}
 
 
 	public static function default()
 	{
-		return 'auto';
+		return 'sm';
 	}
 
 
