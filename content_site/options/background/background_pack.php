@@ -36,6 +36,7 @@ class background_pack
 			'background_gradient_to',
 			'background_gradient_type',
 			'background_gradient_attachment',
+			'background_color_random',
 
 			'color_text',
 

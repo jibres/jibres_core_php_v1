@@ -5,88 +5,107 @@ namespace content_site\options\background;
 class background_color_random
 {
 
-
-	public static function admin_html()
+	public static function validator($_data)
 	{
-		$default = \content_site\section\view::get_current_index_detail('background_color');
-
-		if(!$default)
+		if($_data === 'random_bg_color')
 		{
-			$default = self::default();
+			$_data = self::postel_color_solid();
+		}
+		elseif($_data === 'random_bg_gradient')
+		{
+			$_data = self::gradient_sample_color();
 		}
 
-		$title = T_("Background Color");
-
-		$html = self::color_html('opt_background_color', $default, $title);
-
-		return $html;
+		return $_data;
 	}
 
 
-	private static function postel_color_solid()
+	public static function postel_color_solid()
 	{
 		$list =
 		[
-			'#F7F6CF',			'#B6D8F2',			'#F4CFDF',			'#5784BA',			'#9AC8EB',			'#CCD4BF',			'#E7CBA9',			'#EEBAB2',
-			'#F5F3E7',			'#F5E2E4',			'#F5BFD2',			'#E5DB9C',			'#D0BCAC',			'#BEB4C5',			'#E6A57E',			'#218B82',
-			'#9AD9DB',			'#E5DBD9',			'#98D4BB',			'#EB96AA',			'#B8E0F6',			'#A4CCE3',			'#37667E',			'#DEC4D6',
-			'#7B92AA',			'#DDF2F4',			'#84A6D6',			'#4382BB',			'#E4CEE0',			'#A15D98',			'#DC828F',			'#F7CE76',
-			'#E8D6CF',			'#8C7386',			'#9C9359',			'#F4C815',			'#F9CAD7',			'#A57283',			'#C1D5DE',			'#DEEDE6',
-			'#E9BBB5',			'#E7CBA9',			'#AAD9CD',			'#E8D595',			'#8DA47E',			'#CAE7E3',			'#B2B2B2',			'#EEB8C5',
-			'#DCDBD9',			'#FEC7BC',			'#FBECDB',			'#F3CBBD',			'#90CDC3',			'#AF8C72',			'#938F43',			'#B8A390',
-			'#E6D1D2',			'#DAD5D6',			'#B2B5B9',			'#8FA2A6',			'#8EA4C8',			'#C3B8AA',			'#DEDCE4',			'#DB93A5',
-			'#C7CDC5',			'#698396',			'#A9C8C0',			'#DBBC8E',			'#AE8A8C',			'#7C98AB',			'#C2D9E1',			'#D29F8C',
-			'#D9D3D2',			'#81B1CC',			'#FFD9CF',			'#C6AC85',			'#E2E5CB',			'#D9C2BD',			'#A2C4C6',			'#82B2B8',
+			'#f7f6cf',			'#b6d8f2',			'#f4cfdf',			'#5784ba',			'#9ac8eb',			'#ccd4bf',			'#e7cba9',			'#eebab2',
+			'#f5f3e7',			'#f5e2e4',			'#f5bfd2',			'#e5db9c',			'#d0bcac',			'#beb4c5',			'#e6a57e',			'#218b82',
+			'#9ad9db',			'#e5dbd9',			'#98d4bb',			'#eb96aa',			'#b8e0f6',			'#a4cce3',			'#37667e',			'#dec4d6',
+			'#7b92aa',			'#ddf2f4',			'#84a6d6',			'#4382bb',			'#e4cee0',			'#a15d98',			'#dc828f',			'#f7ce76',
+			'#e8d6cf',			'#8c7386',			'#9c9359',			'#f4c815',			'#f9cad7',			'#a57283',			'#c1d5de',			'#deede6',
+			'#e9bbb5',			'#e7cba9',			'#aad9cd',			'#e8d595',			'#8da47e',			'#cae7e3',			'#b2b2b2',			'#eeb8c5',
+			'#dcdbd9',			'#fec7bc',			'#fbecdb',			'#f3cbbd',			'#90cdc3',			'#af8c72',			'#938f43',			'#b8a390',
+			'#e6d1d2',			'#dad5d6',			'#b2b5b9',			'#8fa2a6',			'#8ea4c8',			'#c3b8aa',			'#dedce4',			'#db93a5',
+			'#c7cdc5',			'#698396',			'#a9c8c0',			'#dbbc8e',			'#ae8a8c',			'#7c98ab',			'#c2d9e1',			'#d29f8c',
+			'#d9d3d2',			'#81b1cc',			'#ffd9cf',			'#c6ac85',			'#e2e5cb',			'#d9c2bd',			'#a2c4c6',			'#82b2b8',
 		];
 
-		return $list[array_rand($list)];
+		return ['background_color' => $list[array_rand($list)]];
 	}
 
 
 	public static function gradient_sample_color()
 	{
-		return
+		$list =
 		[
-			['to bottom right', '#4BF140', '#FD2D5E',],
-			['to bottom right', '#CC0FA2', '#A7B168',],
-			['to bottom right', '#E09DD4', '#C75856',],
-			['to bottom right', '#09B5C7', '#757089',],
-			['to bottom right', '#CAE971', '#7CFBE9',],
-			['to bottom right', '#33E885', '#0F542D',],
-			['to bottom right', '#0FF53B', '#1663A9',],
-			['to bottom right', '#915118', '#E6A691',],
-			['to bottom right', '#39ECAD', '#2A8196',],
-			['to bottom right', '#F81B73', '#1E19C5',],
-			['to bottom right', '#0B2365', '#0DB8D9',],
-			['to bottom right', '#9EF5E6', '#E378D1',],
-			['to bottom right', '#2D1C60', '#961C3A',],
-			['to bottom right', '#1F1004', '#674C4B',],
-			['to bottom right', '#DBCABB', '#24F3B0',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#4bf140', 'background_gradient_to' => '#fd2d5e',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cc0fa2', 'background_gradient_to' => '#a7b168',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#e09dd4', 'background_gradient_to' => '#c75856',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#09b5c7', 'background_gradient_to' => '#757089',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cae971', 'background_gradient_to' => '#7cfbe9',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#33e885', 'background_gradient_to' => '#0f542d',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#0ff53b', 'background_gradient_to' => '#1663a9',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#915118', 'background_gradient_to' => '#e6a691',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#39ecad', 'background_gradient_to' => '#2a8196',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#f81b73', 'background_gradient_to' => '#1e19c5',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#0b2365', 'background_gradient_to' => '#0db8d9',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#9ef5e6', 'background_gradient_to' => '#e378d1',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#2d1c60', 'background_gradient_to' => '#961c3a',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#1f1004', 'background_gradient_to' => '#674c4b',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#dbcabb', 'background_gradient_to' => '#24f3b0',],
 		];
+
+		$result = $list[array_rand($list)];
+
+		return $result;
 	}
 
 
 	public static function admin_html_solid()
 	{
-		$html  = '';
 
-		$random = self::postel_color_solid();
+		$json =
+		[
+			'opt_background_color_random' => 'random_bg_color',
+		];
 
-		$html .= "<div data-ajaxify data-data='{\"opt_background_color\": \"$random\"}' class='btn xl'>";
-		{
-			$html .= '<img src="'. \dash\utility\icon::url('Redo'). '" alt="Random">';
-		}
-		$html .= "</div>";
+		$json = json_encode($json);
+		return self::admin_html($json);
 
-
-		return $html;
 	}
 
 	public static function admin_html_gradient()
 	{
+		$json =
+		[
+			'opt_background_color_random' => 'random_bg_gradient',
+		];
 
+		$json = json_encode($json);
+
+		return self::admin_html($json);
 	}
 
+
+	public static function admin_html($_json)
+	{
+		$html = '';
+
+		$html .= "<div data-ajaxify data-data='$_json' class='inline-block pe-3 mt0-f btn xl'>";
+		{
+			$html .= '<img src="'. \dash\utility\icon::url('redo'). '" alt="random">';
+		}
+		$html .= "</div>";
+
+		return $html;
+
+	}
 
 }
 ?>
