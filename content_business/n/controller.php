@@ -8,24 +8,24 @@ class controller
 
 		// <link href="URL OF ORIGINAL PAGE" rel="canonical" />
 
-		$module = \dash\url::module();
-		if(!$module)
+		$child = \dash\url::child();
+		if($child)
 		{
-			\dash\redirect::to(\dash\url::kingdom());
+
+			$load = \dash\app\posts\find::post();
+
+
+			if(!$load)
+			{
+				\dash\header::status(404, T_("Post not found"));
+			}
+
+			\dash\temp::set('inContentNHomeController', true);
+			\dash\temp::set('ThePostLoadedInContentN', $load);
+
+			\dash\open::get();
+
 		}
-
-		$load = \dash\app\posts\find::post();
-
-
-		if(!$load)
-		{
-			\dash\header::status(404, T_("Post not found"));
-		}
-
-		\dash\temp::set('inContentNHomeController', true);
-		\dash\temp::set('ThePostLoadedInContentN', $load);
-
-		\dash\open::get();
 
 	}
 }
