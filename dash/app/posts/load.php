@@ -109,25 +109,8 @@ class load
 			'limit'        => $limit,
 			'tag_id'       => $tag_id,
 			'show_author'  => $post_show_author,
+			'website_order' => $post_order,
 		];
-
-
-		switch($post_order)
-		{
-			case 'random':
-				$args['order_rand'] = true;
-				break;
-
-			case 'oldest':
-				$args['order_oldest'] = true;
-				break;
-
-			case 'latest':
-				$args['order_oldest'] = true;
-			default:
-				// nothing
-				break;
-		}
 
 		$list = \dash\app\posts\search::list(null, $args, true);
 

@@ -58,9 +58,7 @@ class search
 
 			'homepage_id'      => 'id',
 
-			'order_rand'       => 'bit',
-			'order_oldest'     => 'bit',
-
+			'website_order'       => 'string_50',
 		];
 
 
@@ -296,9 +294,23 @@ class search
 			$order_sort = " ORDER BY posts.id DESC ";
 		}
 
-		if($data['order_rand'])
+		if($data['website_order'])
 		{
-			$order_sort = " ORDER BY RAND() ";
+			switch ($data['website_order'])
+			{
+				case 'oldest':
+					$order_sort = " ORDER BY posts.publishdate ASC ";
+					break;
+
+				case 'random':
+					$order_sort = " ORDER BY RAND() ";
+					break;
+
+				case 'latest':
+				default:
+					$order_sort = " ORDER BY posts.publishdate DESC ";
+					break;
+			}
 		}
 
 		if($data['homepage_id'])
