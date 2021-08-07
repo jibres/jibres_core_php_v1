@@ -43,7 +43,7 @@ class coverratio
 		{
 			if(!$_key)
 			{
-				if(isset($value['default']) && $value['default'])
+				if($value['key'] === self::default())
 				{
 					return $value['class'];
 				}
