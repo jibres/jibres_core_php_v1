@@ -61,7 +61,7 @@ class post_show_date
 			foreach (self::enum() as $key => $value)
 			{
 				$myValue = $value['key'];
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false));
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);
 			}
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
