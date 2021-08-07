@@ -32,7 +32,7 @@ trait count
 	}
 
 
-	public static function admin_html($_section_detail)
+	public static function admin_html()
 	{
 		$option_name = self::option_name();
 

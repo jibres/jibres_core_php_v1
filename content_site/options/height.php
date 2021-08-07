@@ -61,7 +61,7 @@ class height
 	}
 
 
-	public static function admin_html($_default)
+	public static function admin_html()
 	{
 		$default = \content_site\section\view::get_current_index_detail('height');
 

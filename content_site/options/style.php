@@ -4,7 +4,7 @@ namespace content_site\options;
 
 class style
 {
-	public static function admin_html($_section_detail)
+	public static function admin_html()
 	{
 		$html = '';
 		$url = \dash\url::that(). '/style'. \dash\request::full_get();

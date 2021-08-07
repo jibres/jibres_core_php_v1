@@ -18,7 +18,7 @@ class post_tag
 	}
 
 
-	public static function admin_html($_section_detail)
+	public static function admin_html()
 	{
 
 		$tag_list = \dash\app\terms\get::get_all_tag();

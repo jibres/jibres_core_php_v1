@@ -30,7 +30,7 @@ class background_attachment
 	}
 
 
-	public static function admin_html($_section_detail)
+	public static function admin_html()
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_attachment');
 
