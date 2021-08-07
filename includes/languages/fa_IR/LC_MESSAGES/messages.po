@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-06 20:47+0430\n"
-"PO-Revision-Date: 2021-08-06 20:52+0430\n"
+"POT-Creation-Date: 2021-08-07 17:50+0430\n"
+"PO-Revision-Date: 2021-08-07 17:50+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -26,13 +26,13 @@ msgid "Jibres Values"
 msgstr "ارزش‌های جیبرس"
 
 #: content/about/display.php:16 content/about/display.php:17
-#: content/home/layout/footer.php:227 content/home/layout/pwa-footer.php:206
+#: content/home/layout/footer.php:229 content/home/layout/pwa-footer.php:206
 #: content/mission/view.php:9
 msgid "Jibres Mission"
 msgstr "ماموریت جیبرس"
 
 #: content/about/display.php:22 content/about/display.php:23
-#: content/home/layout/footer.php:233 content/home/layout/pwa-footer.php:212
+#: content/home/layout/footer.php:235 content/home/layout/pwa-footer.php:212
 #: content/vision/view.php:9
 msgid "Jibres Vision"
 msgstr "چشم‌انداز جیبرس"
@@ -53,7 +53,7 @@ msgstr ""
 "جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار بیزینس‌های مدرن و "
 "همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
 
-#: content/about/view.php:9 content/home/layout/footer.php:221
+#: content/about/view.php:9 content/home/layout/footer.php:223
 #: content/home/layout/pwa-footer.php:200 content/mission/view.php:15
 #: content/values/view.php:15 content/vision/view.php:15
 #: content_r10/android/about/view.php:9
@@ -352,7 +352,7 @@ msgstr ""
 msgid "Jibres Brand"
 msgstr "برند جیبرس"
 
-#: content/brand/view.php:14 content/home/layout/footer.php:197
+#: content/brand/view.php:14 content/home/layout/footer.php:199
 #: content/home/layout/pwa-footer.php:236 content/logo/section-icon.php:10
 #: content/logo/section-icon.php:16 content/logo/section-icon.php:17
 #: content/logo/section-icon.php:18 content/logo/section-icon.php:62
@@ -741,7 +741,7 @@ msgstr "ارسال"
 msgid "Bug"
 msgstr "باگ"
 
-#: content/bug/view.php:11 content/home/layout/footer.php:147
+#: content/bug/view.php:11 content/home/layout/footer.php:149
 #: content/home/layout/pwa-footer.php:146
 msgid "Jibres Bug Program"
 msgstr "برنامه گزارش باگ جیبرس"
@@ -791,7 +791,7 @@ msgstr "کاتالوگ جیبرس"
 msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
-#: content/certificates/view.php:9 content/home/layout/footer.php:185
+#: content/certificates/view.php:9 content/home/layout/footer.php:187
 #: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:74
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
@@ -1998,7 +1998,7 @@ msgstr ""
 "یا نه. اگر پسوند دات کام گرفته شده بود یادتون باشه صدها پسوند دیگه هم در دسترس هستند. "
 "در نهایت از هر کدوم خوشتون اومد تعلل نکنید و اون رو با جیبرس بخرید."
 
-#: content/domains/search/view.php:9 content/home/layout/footer.php:79
+#: content/domains/search/view.php:9 content/home/layout/footer.php:81
 #: content/home/layout/pwa-footer.php:79
 msgid "Domain Name Search"
 msgstr "جستجو نام دامنه"
@@ -2459,23 +2459,23 @@ msgstr ""
 "حریم‌خصوصی یکی از مهم‌ترین ارزش‌های ماست. در دنیایی سرشار از پیچیدگی، ما با قاطعیت معتقدیم "
 "که داده‌های شما برای شماست و تنها به شما تعلق دارد."
 
-#: content/home/layout/footer.php:31 content/home/layout/pwa-footer.php:29
+#: content/home/layout/footer.php:33 content/home/layout/pwa-footer.php:29
 msgid "Need Help?"
 msgstr "کمک نیاز دارید؟"
 
-#: content/home/layout/footer.php:31 content/home/layout/pwa-footer.php:29
+#: content/home/layout/footer.php:33 content/home/layout/pwa-footer.php:29
 msgid "We're here for you."
 msgstr "ما برای شما اینجا هستیم."
 
-#: content/home/layout/footer.php:32 content/home/layout/pwa-footer.php:30
+#: content/home/layout/footer.php:34 content/home/layout/pwa-footer.php:30
 msgid "Contact with a Live Person"
 msgstr "با یک شخص زنده تماس بگیرید"
 
-#: content/home/layout/footer.php:49 content/view.php:10
+#: content/home/layout/footer.php:51 content/view.php:10
 msgid "Integrated Ecommerce Platform Software"
 msgstr "پلتفرم نرم‌افزاری تجارت الکترونیکی یکپارچه"
 
-#: content/home/layout/footer.php:49
+#: content/home/layout/footer.php:51
 msgid ""
 "Quickly Start Free! Online Store Website & Mobile Online Store & Social Marketing & POS "
 "Software"
@@ -2483,25 +2483,25 @@ msgstr ""
 "به‌سرعت و رایگان شروع کن! وب‌سایت فروشگاه آنلاین و اپلیکیشن موبایل فروشگاهی و فروش در "
 "شبکه‌های اجتماعی و نرم‌افزار صندوق فروشگاهی"
 
-#: content/home/layout/footer.php:49
+#: content/home/layout/footer.php:51
 msgid "Accept Credit Cards - Fully Hosted - SEO Optimized - SSL Certificate - Fully API."
 msgstr ""
 "پذیرش کارت‌های اعتباری - هاست رایگان - دوستدار موتورهای جستجو - گواهی امنیتی SSL - "
 "ای‌پی‌آی کامل."
 
-#: content/home/layout/footer.php:49 content/home/layout/pwa-footer.php:48
+#: content/home/layout/footer.php:51 content/home/layout/pwa-footer.php:48
 msgid "Learn more about Jibres"
 msgstr "درباره جیبرس بیشتر بدانید"
 
-#: content/home/layout/footer.php:58 content/home/layout/pwa-footer.php:57
+#: content/home/layout/footer.php:60 content/home/layout/pwa-footer.php:57
 msgid "eCommerce"
 msgstr "تجارت الکترونیک"
 
-#: content/home/layout/footer.php:61 content/home/layout/pwa-footer.php:60
+#: content/home/layout/footer.php:63 content/home/layout/pwa-footer.php:60
 msgid "Benefits"
 msgstr "مزایا"
 
-#: content/home/layout/footer.php:76 content/home/layout/pwa-footer.php:76
+#: content/home/layout/footer.php:78 content/home/layout/pwa-footer.php:76
 #: content_my/domain/buy/view.php:13 content_my/domain/history/view.php:12
 #: content_my/domain/home/view.php:9 content_my/domain/option/view.php:12
 #: content_my/domain/other/view.php:12 content_my/domain/payments/view.php:12
@@ -2512,27 +2512,27 @@ msgstr "مزایا"
 msgid "Domain Center"
 msgstr "مرکز دامنه"
 
-#: content/home/layout/footer.php:85 content/home/layout/pwa-footer.php:85
+#: content/home/layout/footer.php:87 content/home/layout/pwa-footer.php:85
 #: content_a/setting/domain/add/display.php:10
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:19
 msgid "Buy new domain"
 msgstr "خرید دامنه جدید"
 
-#: content/home/layout/footer.php:91 content/home/layout/pwa-footer.php:91
+#: content/home/layout/footer.php:93 content/home/layout/pwa-footer.php:91
 #: content_my/domain/transfer/display.php:11 content_my/domain/transfer/display.php:62
 #: lib/app/nic_domainaction/ready.php:101 lib/app/nic_domainbilling/ready.php:115
 msgid "Transfer Domain"
 msgstr "انتقال دامنه"
 
-#: content/home/layout/footer.php:97 content/home/layout/pwa-footer.php:97
+#: content/home/layout/footer.php:99 content/home/layout/pwa-footer.php:97
 msgid "Renew your Domain"
 msgstr "تمدید دامنه"
 
-#: content/home/layout/footer.php:103 content/home/layout/pwa-footer.php:103
+#: content/home/layout/footer.php:105 content/home/layout/pwa-footer.php:103
 msgid "Whois Lookup"
 msgstr "جستجوی‌ دامنه"
 
-#: content/home/layout/footer.php:112 content/home/layout/pwa-footer.php:112
+#: content/home/layout/footer.php:114 content/home/layout/pwa-footer.php:112
 #: content_account/home/display.php:108 content_account/home/display.php:112
 #: dash/app/log/caller/ticket/ticket_AddNoteTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AddToTicket.php:13
@@ -2547,92 +2547,92 @@ msgstr "جستجوی‌ دامنه"
 msgid "Support"
 msgstr "پشتیبانی"
 
-#: content/home/layout/footer.php:115 content/home/layout/pwa-footer.php:115
+#: content/home/layout/footer.php:117 content/home/layout/pwa-footer.php:115
 msgid "Support Center"
 msgstr "مرکز پشتیبانی"
 
-#: content/home/layout/footer.php:121 content/home/layout/pwa-footer.php:121
+#: content/home/layout/footer.php:123 content/home/layout/pwa-footer.php:121
 #: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:600
 #: lib/app/website/init.php:65 lib/pagebuilder/tools/first_init.php:109
 msgid "Contact"
 msgstr "تماس"
 
-#: content/home/layout/footer.php:128 content/home/layout/pwa-footer.php:127
+#: content/home/layout/footer.php:130 content/home/layout/pwa-footer.php:127
 msgid "FAQ"
 msgstr "سوالات پرتکرار"
 
-#: content/home/layout/footer.php:135 content/home/layout/pwa-footer.php:133
+#: content/home/layout/footer.php:137 content/home/layout/pwa-footer.php:133
 msgid "System Status"
 msgstr "وضعیت سیستم"
 
-#: content/home/layout/footer.php:141 content/home/layout/pwa-footer.php:139
+#: content/home/layout/footer.php:143 content/home/layout/pwa-footer.php:139
 msgid "Send us Feedback"
 msgstr "ارسال بازخورد"
 
-#: content/home/layout/footer.php:156 content/home/layout/pwa-footer.php:155
+#: content/home/layout/footer.php:158 content/home/layout/pwa-footer.php:155
 msgid "Resources"
 msgstr "منابع"
 
-#: content/home/layout/footer.php:160 content/home/layout/pwa-footer.php:158
+#: content/home/layout/footer.php:162 content/home/layout/pwa-footer.php:158
 #: content_a/home/display.php:148
 msgid "Blog"
 msgstr "بلاگ"
 
-#: content/home/layout/footer.php:167 content/home/layout/pwa-footer.php:164
+#: content/home/layout/footer.php:169 content/home/layout/pwa-footer.php:164
 #: content_enter/signup/view.php:29 content_enter/signup/view.php:39
 #: content_my/business/start/view.php:11
 msgid "Terms of Service"
 msgstr "شرایط استفاده از خدمات"
 
-#: content/home/layout/footer.php:173 content/home/layout/pwa-footer.php:170
+#: content/home/layout/footer.php:175 content/home/layout/pwa-footer.php:170
 #: content/privacy/view.php:9 content_enter/signup/view.php:30
 #: content_enter/signup/view.php:40
 msgid "Privacy Policy"
 msgstr "حریم خصوصی"
 
-#: content/home/layout/footer.php:179 content/home/layout/pwa-footer.php:176
+#: content/home/layout/footer.php:181 content/home/layout/pwa-footer.php:176
 #: content_love/changelog/view.php:9 content_love/home/display.php:144
 msgid "Changelog"
 msgstr "پیشرفت پروژه"
 
-#: content/home/layout/footer.php:191 content/home/layout/pwa-footer.php:188
+#: content/home/layout/footer.php:193 content/home/layout/pwa-footer.php:188
 msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
-#: content/home/layout/footer.php:203 content/home/layout/pwa-footer.php:242
+#: content/home/layout/footer.php:205 content/home/layout/pwa-footer.php:242
 msgid "Brand Style Guide"
 msgstr "راهنمای نشان تجاری"
 
-#: content/home/layout/footer.php:212 content/home/layout/pwa-footer.php:197
+#: content/home/layout/footer.php:214 content/home/layout/pwa-footer.php:197
 msgid "Jibres Company"
 msgstr "شرکت جیبرس"
 
-#: content/home/layout/footer.php:215 content/story/view.php:9
+#: content/home/layout/footer.php:217 content/story/view.php:9
 msgid "Jibres Story"
 msgstr "داستان جیبرس"
 
-#: content/home/layout/footer.php:239 content/home/layout/pwa-footer.php:218
+#: content/home/layout/footer.php:241 content/home/layout/pwa-footer.php:218
 msgid "Our Values"
 msgstr "ارزش‌های ما"
 
-#: content/home/layout/footer.php:245 content/home/layout/pwa-footer.php:224
+#: content/home/layout/footer.php:247 content/home/layout/pwa-footer.php:224
 msgid "Our Team"
 msgstr "تیم ما"
 
-#: content/home/layout/footer.php:252 content/home/layout/pwa-footer.php:230
+#: content/home/layout/footer.php:254 content/home/layout/pwa-footer.php:230
 msgid "Careers"
 msgstr "فرصت‌های شغلی"
 
-#: content/home/layout/footer.php:259 content/home/layout/pwa-footer.php:248
+#: content/home/layout/footer.php:261 content/home/layout/pwa-footer.php:248
 #: content/press/view.php:9
 msgid "Press and Media"
 msgstr "مطبوعات و رسانه‌ها"
 
-#: content/home/layout/footer.php:269 content/home/layout/pwa-footer.php:258
+#: content/home/layout/footer.php:271 content/home/layout/pwa-footer.php:258
 msgid "All rights reserved."
 msgstr "تمام حقوق محفوظ است."
 
-#: content/home/layout/footer.php:269 content/home/layout/pwa-footer.php:258
+#: content/home/layout/footer.php:271 content/home/layout/pwa-footer.php:258
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
@@ -5877,7 +5877,6 @@ msgid "Sum vat"
 msgstr "مجموع مالیات"
 
 #: content_a/accounting/factor/display.php:50
-#: content_site/options/group/group_template.php:12
 msgid "Template"
 msgstr "قالب"
 
@@ -7231,7 +7230,7 @@ msgstr "صفحه"
 #: content_site/body/imagetext/option.php:38 content_site/body/slideshow/option.php:28
 #: content_site/body/slideshow/option.php:109 content_site/body/slideshow/option.php:115
 #: content_site/body/slideshow/option.php:121
-#: content_site/options/background/background_pack.php:179
+#: content_site/options/background/background_pack.php:156
 #: content_site/options/image/image_add.php:49 dash/app/files/filter.php:35
 #: dash/app/files/ready.php:54 lib/app/website/body/line/imageblock.php:12
 msgid "Image"
@@ -7298,7 +7297,7 @@ msgstr "تنظیم لوگوی برنامه"
 #: content_crm/member/identification/display.php:106
 #: content_crm/member/identification/display.php:118 content_crm/ticket/add/display.php:18
 #: content_crm/ticket/edit/display.php:18 content_crm/ticket/view/display-answer.php:34
-#: content_site/options/file.php:81 dash/layout/post/admin-gallery-box.php:15
+#: content_site/options/file.php:88 dash/layout/post/admin-gallery-box.php:15
 #: lib/pagebuilder/body/image/add.php:13 lib/pagebuilder/header/logo/design.php:17
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل را انتخاب کرده یا در اینجا بندازید"
@@ -8938,17 +8937,17 @@ msgstr "افزودن تگ جدید"
 #: content_a/form/tag/view.php:43 content_a/order/home/view.php:89
 #: content_a/pagebuilder/home/view.php:53 content_a/products/home/view.php:95
 #: content_a/setting/domain/view.php:51 content_a/tag/home/view.php:46
-#: content_business/search/view.php:37 content_business/ticket/home/view.php:52
-#: content_cms/comments/home/view.php:52 content_cms/files/choose/view.php:39
-#: content_cms/files/datalist/view.php:42 content_cms/hashtag/home/view.php:47
-#: content_cms/posts/home/view.php:85 content_crm/log/enter/view.php:37
-#: content_crm/log/home/view.php:52 content_crm/member/home/view.php:57
-#: content_crm/member/log/view.php:50 content_crm/notification/datalist/view.php:42
-#: content_crm/sms/conversation/view.php:45 content_crm/sms/datalist/view.php:47
-#: content_crm/telegram/conversation/view.php:43 content_crm/telegram/datalist/view.php:42
-#: content_crm/ticket/datalist/view.php:51 content_crm/ticket/message/view.php:43
-#: content_crm/transactions/userbudget/view.php:49 content_crm/transactions/view.php:61
-#: content_love/business/datalist/view.php:41
+#: content_business/n/view.php:35 content_business/search/view.php:37
+#: content_business/ticket/home/view.php:52 content_cms/comments/home/view.php:52
+#: content_cms/files/choose/view.php:39 content_cms/files/datalist/view.php:42
+#: content_cms/hashtag/home/view.php:47 content_cms/posts/home/view.php:85
+#: content_crm/log/enter/view.php:37 content_crm/log/home/view.php:52
+#: content_crm/member/home/view.php:57 content_crm/member/log/view.php:50
+#: content_crm/notification/datalist/view.php:42 content_crm/sms/conversation/view.php:45
+#: content_crm/sms/datalist/view.php:47 content_crm/telegram/conversation/view.php:43
+#: content_crm/telegram/datalist/view.php:42 content_crm/ticket/datalist/view.php:51
+#: content_crm/ticket/message/view.php:43 content_crm/transactions/userbudget/view.php:49
+#: content_crm/transactions/view.php:61 content_love/business/datalist/view.php:41
 #: content_love/business/domain/action/view.php:39
 #: content_love/business/domain/alllist/view.php:60
 #: content_love/business/domain/dnslist/view.php:59 content_love/changelog/view.php:46
@@ -9037,7 +9036,7 @@ msgid "Content Management"
 msgstr "سیستم مدیریت محتوا"
 
 #: content_a/home/display.php:200 content_my/domain/home/display.php:120
-#: content_site/options/group/group_setting.php:12 dash/panel.php:275
+#: dash/panel.php:275
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -9893,7 +9892,7 @@ msgstr ""
 "تنها برای شما به‌عنوان نویسنده قابل مشاهده است."
 
 #: content_a/pagebuilder/manage/display.php:98 content_cms/posts/advance/display.php:32
-#: content_site/body/blog/b1.php:149 dash/app/posts/filter.php:48
+#: content_site/body/blog/b1.php:155 dash/app/posts/filter.php:48
 #: dash/app/posts/ready.php:106
 msgid "Published"
 msgstr "منتشر شده"
@@ -11355,7 +11354,7 @@ msgstr ""
 #: content_love/gift/create/review/display.php:33
 #: content_love/gift/create/review/display.php:34 content_love/gift/view/display.php:33
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
-#: content_site/options/background/background_repeat.php:52
+#: content_site/options/background/background_repeat.php:11
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
@@ -11375,7 +11374,7 @@ msgstr "بله"
 #: content_love/gift/create/review/display.php:33
 #: content_love/gift/create/review/display.php:34 content_love/gift/view/display.php:33
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
-#: content_site/options/background/background_repeat.php:55
+#: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
 #: lib/app/form/generator.php:961
 msgid "No"
@@ -14491,8 +14490,8 @@ msgstr "تگ خاص"
 
 #: content_a/website/news/filter/display.php:9
 #: content_a/website/news/filter/display.php:10 content_cms/posts/seo/display.php:95
-#: content_cms/posts/seo/display.php:96 content_site/options/post/post_tag.php:40
-#: lib/pagebuilder/body/news/filter.php:39 lib/pagebuilder/body/news/filter.php:40
+#: content_cms/posts/seo/display.php:96 lib/pagebuilder/body/news/filter.php:39
+#: lib/pagebuilder/body/news/filter.php:40
 msgid "Select tag"
 msgstr "انتخاب تگ"
 
@@ -15861,7 +15860,7 @@ msgstr "اینستاگرام"
 msgid "telegram"
 msgstr "تلگرام"
 
-#: content_business/n/controller.php:22 dash/app/posts/remove.php:15
+#: content_business/n/controller.php:20 dash/app/posts/remove.php:15
 #: dash/upload/cms.php:18 dash/upload/cms.php:53 dash/upload/cms.php:124
 #: dash/upload/cms.php:157 dash/upload/cms.php:196 dash/upload/cms.php:216
 #: dash/upload/cms.php:275 dash/upload/product.php:20 dash/upload/product.php:37
@@ -22843,11 +22842,11 @@ msgstr "کلید برنامه نامعتبر است"
 msgid "Invalid accesstoken"
 msgstr "کلید دسترسی اشتباه است"
 
-#: content_site/body/blog/b1.php:112 dash/layout/post/part.php:344
+#: content_site/body/blog/b1.php:113 dash/layout/post/part.php:344
 msgid "We are estimate you can read this post within :val."
 msgstr "ما تخمین می‌زنیم که شما این نوشته را در :val بخوانید."
 
-#: content_site/body/blog/b1.php:113 dash/layout/post/part.php:345
+#: content_site/body/blog/b1.php:114 dash/layout/post/part.php:345
 msgid ":val read"
 msgstr "در :val بخوانید"
 
@@ -23008,27 +23007,26 @@ msgid "Homepage was changed"
 msgstr "صفحه نخست تغییر یافت"
 
 #: content_site/options/background.php:23
-#: content_site/options/background/background_pack.php:87
-#: content_site/options/group/group_background.php:12
+#: content_site/options/background/background_pack.php:122
 msgid "Background"
 msgstr "تصویر پس‌زمینه"
+
+#: content_site/options/background/background_attachment.php:12
+msgid "Fixed"
+msgstr "ثابت"
+
+#: content_site/options/background/background_attachment.php:13
+msgid "Local"
+msgstr "محلی"
+
+#: content_site/options/background/background_attachment.php:14
+msgid "Scroll"
+msgstr "اسکرول"
 
 #: content_site/options/background/background_attachment.php:22
 #: content_site/options/background/background_attachment.php:44
 msgid "Background Attachment"
 msgstr "وضعیت پس‌زمینه هنگام اسکرول صفحه"
-
-#: content_site/options/background/background_attachment.php:55
-msgid "Fixed"
-msgstr "ثابت"
-
-#: content_site/options/background/background_attachment.php:56
-msgid "Local"
-msgstr "محلی"
-
-#: content_site/options/background/background_attachment.php:57
-msgid "Scroll"
-msgstr "اسکرول"
 
 #: content_site/options/background/background_color.php:30
 #: lib/pagebuilder/header/color/design.php:37
@@ -23036,12 +23034,10 @@ msgid "Background Color"
 msgstr "رنگ پس‌زمینه"
 
 #: content_site/options/background/background_gradient_from.php:16
-#: content_site/options/background/background_pack.php:373
 msgid "Background Gradient from"
 msgstr "طیف از"
 
 #: content_site/options/background/background_gradient_to.php:16
-#: content_site/options/background/background_pack.php:375
 msgid "Background Gradient to"
 msgstr "طیف به"
 
@@ -23086,42 +23082,32 @@ msgid "Gradient direction"
 msgstr "جهت طیف"
 
 #: content_site/options/background/background_gradient_via.php:16
-#: content_site/options/background/background_pack.php:374
 msgid "Background Gradient via"
 msgstr "طیف با"
 
-#: content_site/options/background/background_pack.php:66
+#: content_site/options/background/background_pack.php:64
 msgid "Background Pack"
 msgstr "پس‌زمینه"
 
-#: content_site/options/background/background_pack.php:171
+#: content_site/options/background/background_pack.php:148
 msgid "Background Type"
 msgstr "نوع پس‌زمینه"
 
-#: content_site/options/background/background_pack.php:176
+#: content_site/options/background/background_pack.php:153
 msgid "Transparent"
 msgstr "شفاف"
 
-#: content_site/options/background/background_pack.php:177
+#: content_site/options/background/background_pack.php:154
 msgid "Solid"
 msgstr "ثابت"
 
-#: content_site/options/background/background_pack.php:178
+#: content_site/options/background/background_pack.php:155
 msgid "Gradient"
 msgstr "طیف"
 
-#: content_site/options/background/background_pack.php:256
+#: content_site/options/background/background_pack.php:173
 msgid "Gradient colors"
 msgstr "رنگ‌های طیف"
-
-#: content_site/options/background/background_pack.php:304
-#: content_site/options/background/background_pack.php:310
-msgid "ABC def"
-msgstr ""
-
-#: content_site/options/background/background_pack.php:372
-msgid "Background Gradient type"
-msgstr "نوع شیب زمینه"
 
 #: content_site/options/background/background_position.php:12
 msgid "Bottom"
@@ -23169,6 +23155,20 @@ msgstr "محل قرارگیری پس‌زمینه"
 msgid "Background Repeat"
 msgstr "تکرار تصویر پس‌زمینه"
 
+#: content_site/options/background/background_size.php:11
+#: content_site/options/container.php:12 content_site/options/height.php:10
+#: includes/languages/trans_static.php:611
+msgid "Auto"
+msgstr "خودکار"
+
+#: content_site/options/background/background_size.php:12
+msgid "Cover"
+msgstr "کاور"
+
+#: content_site/options/background/background_size.php:13
+msgid "Contain"
+msgstr "شامل"
+
 #: content_site/options/background/background_size.php:21
 msgid "Background Size"
 msgstr "اندازه پس‌زمینه"
@@ -23201,11 +23201,6 @@ msgstr "رنگ متن در حالت فوکوس"
 msgid "Text Color Hover"
 msgstr "رنگ متن در حالت هاور"
 
-#: content_site/options/container.php:12 content_site/options/height.php:10
-#: includes/languages/trans_static.php:611
-msgid "Auto"
-msgstr "خودکار"
-
 #: content_site/options/container.php:13 lib/app/website/avand.php:11
 #: lib/pagebuilder/body/avand/avand.php:16
 msgid "Small"
@@ -23222,9 +23217,8 @@ msgid "X Large"
 msgstr "خیلی بزرگ"
 
 #: content_site/options/container.php:26 content_site/options/container.php:29
-#: content_site/options/height.php:30 content_site/options/height.php:33
-#: lib/app/product/property.php:66 lib/app/product/property.php:313
-#: lib/app/product/property.php:317
+#: content_site/options/height.php:30 lib/app/product/property.php:66
+#: lib/app/product/property.php:313 lib/app/product/property.php:317
 msgid "Height"
 msgstr "ارتفاع"
 
@@ -23271,7 +23265,7 @@ msgstr "سایه سفید"
 msgid "Effect"
 msgstr "افکت"
 
-#: content_site/options/file.php:22
+#: content_site/options/file.php:28
 msgid "Please upload a file"
 msgstr "لطفا فایلی را بارگذاری کنید"
 
@@ -23315,14 +23309,6 @@ msgstr "تاهوما"
 msgid "Font"
 msgstr "فونت"
 
-#: content_site/options/group/group_design.php:12
-msgid "Design"
-msgstr "ظاهر"
-
-#: content_site/options/group/group_filter.php:12
-msgid "Filters"
-msgstr "فیلترها"
-
 #: content_site/options/header/header_change.php:23
 msgid "Change header"
 msgstr "تغییر سرصفحه"
@@ -23335,10 +23321,6 @@ msgstr "محل قرارگیری عنوان"
 msgid "Heading"
 msgstr "عنوان"
 
-#: content_site/options/height.php:12
-msgid "Short"
-msgstr "کوتاه"
-
 #: content_site/options/height.php:14
 msgid "Fairly Short"
 msgstr "تقریبا کوتاه"
@@ -23347,22 +23329,26 @@ msgstr "تقریبا کوتاه"
 msgid "Tall"
 msgstr "بلند"
 
-#: content_site/options/height.php:20
+#: content_site/options/height.php:23
 msgid "Full Screen"
 msgstr "تمام صفحه"
 
-#: content_site/options/height.php:88
+#: content_site/options/height.php:73
 msgid "Section Height"
 msgstr "ارتفاع بخش"
+
+#: content_site/options/height.php:88
+msgid "FullScreen"
+msgstr "تمام صفحه"
 
 #: content_site/options/image/image_add.php:14
 msgid "Invalid section detail"
 msgstr "جزئیات بخش اشتباه است"
 
 #: content_site/options/image/image_add.php:26 content_site/section/model.php:195
-#: content_site/section/model.php:301 content_site/section/model.php:366
-#: content_site/section/model.php:396 content_site/section/model.php:435
-#: content_site/section/model.php:496 content_site/update_record.php:18
+#: content_site/section/model.php:308 content_site/section/model.php:373
+#: content_site/section/model.php:403 content_site/section/model.php:442
+#: content_site/section/model.php:503 content_site/update_record.php:18
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -23425,8 +23411,12 @@ msgid "Display estimated reading time"
 msgstr "نمایش برآورد زمان خواندن"
 
 #: content_site/options/post/post_tag.php:34
-msgid "Filter by special tag"
-msgstr "فیلتر با تگ خاص"
+msgid "Filter by special hashtag"
+msgstr "فیلتر با هشتگ خاص"
+
+#: content_site/options/post/post_tag.php:40
+msgid "Select hashtag"
+msgstr "انتخاب هشتگ"
 
 #: content_site/options/post/post_template.php:11 lib/app/gift/filter.php:54
 msgid "Any"
@@ -23490,7 +23480,7 @@ msgid "After saving the page, this section will be deleted completely"
 msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
 
 #: content_site/page/model.php:30 content_site/page/model.php:62
-#: content_site/page/settings/model.php:29 content_site/section/model.php:589
+#: content_site/page/settings/model.php:29 content_site/section/model.php:596
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
 
@@ -23499,13 +23489,13 @@ msgid "Data saved"
 msgstr "ذخیره شد"
 
 #: content_site/page/model.php:70 content_site/page/model.php:79
-#: content_site/section/model.php:515 dash/app/posts/gallery.php:280
+#: content_site/section/model.php:522 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگو مرتب‌سازی اشتباه است"
 
 #: content_site/page/model.php:100 content_site/page/model.php:112
-#: content_site/section/model.php:534 content_site/section/model.php:549
+#: content_site/section/model.php:541 content_site/section/model.php:556
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
@@ -23558,23 +23548,23 @@ msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 msgid "Invalid section type"
 msgstr "نوع بخش اشتباه است"
 
-#: content_site/section/display-footer.php:14
+#: content_site/section/display-footer.php:12
 msgid "Are you sure to remove this block?"
 msgstr "آیا از حذف این بلوک اطمینان دارید؟"
 
-#: content_site/section/display-footer.php:21
+#: content_site/section/display-footer.php:19
 msgid "Remove block"
 msgstr "حذف بلوک"
 
-#: content_site/section/display-footer.php:82
+#: content_site/section/display-footer.php:84
 msgid "Are you sure to remove this section?"
 msgstr "آیا درباه‌ی حذف این بخش مطمئن هستید؟"
 
-#: content_site/section/display-footer.php:91
+#: content_site/section/display-footer.php:93
 msgid "Remove section"
 msgstr "حذف بخش"
 
-#: content_site/section/display-footer.php:139 content_site/section/display.php:38
+#: content_site/section/display-footer.php:141 content_site/section/display.php:38
 msgid "Select"
 msgstr "انتخاب"
 
@@ -23610,11 +23600,11 @@ msgstr "شناسه گزینه نامعتبر است"
 msgid "Please check your input"
 msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
-#: content_site/section/model.php:167 content_site/section/model.php:619
+#: content_site/section/model.php:167 content_site/section/model.php:626
 msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:175 content_site/section/model.php:636
+#: content_site/section/model.php:175 content_site/section/model.php:643
 msgid "Invalid preview key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
@@ -23622,33 +23612,33 @@ msgstr "کلید پیش‌نمایش نامعتبر است"
 msgid "Can not save this index!"
 msgstr "نمی‌توانیم این ایندکس را ذخیره کنیم!"
 
-#: content_site/section/model.php:466
+#: content_site/section/model.php:473
 msgid "Can not remove this block!"
 msgstr "نمی‌توانید این مورد را حذف کنید!"
 
-#: content_site/section/model.php:505
+#: content_site/section/model.php:512
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:527
+#: content_site/section/model.php:534
 msgid "This section have not sortable item!"
 msgstr "این بخش امکان مرتب سازی را ندارد!"
 
-#: content_site/section/model.php:599
+#: content_site/section/model.php:606
 msgid "Invalid key"
 msgstr "شناسه نامعتبر"
 
-#: content_site/section/model.php:609 content_su/update/model.php:42
+#: content_site/section/model.php:616 content_su/update/model.php:42
 #: lib/app/export/download.php:36 lib/app/factor/edit.php:89 lib/app/product/bullet.php:78
 #: lib/pagebuilder/tools/get.php:93
 msgid "Invalid type"
 msgstr "نوع نامعتبر"
 
-#: content_site/section/model.php:628
+#: content_site/section/model.php:635
 msgid "Can not chose this section!"
 msgstr "نمی‌توانید این بخش را انتخاب کنید!"
 
-#: content_site/section/model.php:722 lib/pagebuilder/tools/add.php:270
+#: content_site/section/model.php:729 lib/pagebuilder/tools/add.php:270
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 
@@ -42004,6 +41994,21 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Background Gradient type"
+#~ msgstr "نوع شیب زمینه"
+
+#~ msgid "Design"
+#~ msgstr "ظاهر"
+
+#~ msgid "Filters"
+#~ msgstr "فیلترها"
+
+#~ msgid "Short"
+#~ msgstr "کوتاه"
+
+#~ msgid "Filter by special tag"
+#~ msgstr "فیلتر با تگ خاص"
 
 #~ msgid "Blog post"
 #~ msgstr "پست‌ وبلاگ"
