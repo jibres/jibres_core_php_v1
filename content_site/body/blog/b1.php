@@ -19,6 +19,7 @@ class b1
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
 		$background_style = \content_site\assemble\background::full_style($_args);
 		$text_color       = \content_site\assemble\text_color::full_style($_args);
+		$section_id       = \content_site\assemble\tools::section_id('blog', $id);
 
 		$totalExist = count($_blogList);
 		$totalCount = a($_args, 'count');
@@ -41,7 +42,7 @@ class b1
 			$classNames .= ' '. $font_class;
 		}
 
-		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style>";
+		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style $section_id>";
 		{
 			$html .= "<div class='$containerMaxWidth mx-auto'>";
 			{
