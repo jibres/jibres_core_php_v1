@@ -45,9 +45,9 @@ class background
 			case 'image';
 
 				// background file
-				if(a($_data, 'file') && is_string($_data['file']))
+				if(a($_data, 'background_image') && is_string($_data['background_image']))
 				{
-					$style[] = 'background-image:url('.\lib\filepath::fix($_data['file']).');';
+					$style[] = 'background-image:url('.\lib\filepath::fix($_data['background_image']).');';
 				}
 
 				// backgroun repreat

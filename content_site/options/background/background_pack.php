@@ -28,7 +28,7 @@ class background_pack
 			'background_size',
 			'background_attachment',
 
-			'file',
+			'background_image',
 
 			'background_gradient',
 			'background_gradient_type',
@@ -87,9 +87,9 @@ class background_pack
 				break;
 
 			case 'image':
-				if(!a($current, 'file'))
+				if(!a($current, 'background_image'))
 				{
-					$result['file'] = \dash\sample\img::background();
+					$result['background_image'] = \dash\sample\img::background();
 					\content_site\utility::need_redirect(true);
 				}
 				break;
@@ -180,7 +180,7 @@ class background_pack
 
 			$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
 			{
-				$html .= \content_site\options\file::admin_html();
+				$html .= background_image::admin_html();
 				$html .= background_position::admin_html();
 
 				$html .= background_attachment::admin_html();

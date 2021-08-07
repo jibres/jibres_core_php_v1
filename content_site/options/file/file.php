@@ -1,14 +1,14 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\file;
 
 
-class file
+trait file
 {
 	public static function validator($_data)
 	{
-		if(\dash\request::files('file'))
+		if(\dash\request::files(self::option_key()))
 		{
-			$image_path = \dash\upload\website::upload_image('file');
+			$image_path = \dash\upload\website::upload_image(self::option_key());
 
 			if(!\dash\engine\process::status())
 			{
@@ -38,9 +38,18 @@ class file
 	}
 
 
+	public static function option_key()
+	{
+		return 'file';
+	}
+
+
 	public static function admin_html($_section_detail = null)
 	{
-		$default = \content_site\section\view::get_current_index_detail('file');
+
+		$option_key = self::option_key();
+
+		$default = \content_site\section\view::get_current_index_detail($option_key);
 
 		if(!$default)
 		{
@@ -65,11 +74,11 @@ class file
 
 		$html .= '<form method="post" autocomplete="off" >';
 		{
-			$html .= '<input type="hidden" name="opt_file" value="1">';
+			$html .= '<input type="hidden" name="'.$option_key.'" value="1">';
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';
-			$html .= ' data-name="file"';
+			$html .= ' data-name="'.$option_key.'"';
 			$html .= ' data-final="#finalImage"';
 			$html .= ' data-autoSend';
 			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
@@ -107,7 +116,7 @@ class file
 
 			if($default)
 			{
-				$html .= '<span class="imageDel" data-confirm data-data=\'{"opt_file" : 1, "multioption" : "multi", "deletefile" : 1}\'></span>';
+				$html .= '<span class="imageDel" data-confirm data-data=\'{"'.$option_key.'" : 1, "multioption" : "multi", "deletefile" : 1}\'></span>';
 			}
 
 			$html .= '</div>';
