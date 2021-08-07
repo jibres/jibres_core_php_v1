@@ -64,11 +64,9 @@ class layout
 				$html .= b2::html($_args, $blogList);
 				break;
 
-
 			case 'b3':
 				$html .= b3::html($_args, $blogList);
 				break;
-
 
 			case 'b4':
 				$html .= b4::html($_args, $blogList);
