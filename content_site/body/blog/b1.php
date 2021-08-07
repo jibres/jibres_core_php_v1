@@ -152,7 +152,12 @@ class b1
 									{
 										if($myDate)
 										{
-											$card .= "<time class='text-gray-600 text-2xs ltr' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+											$ltrDate = 'ltr';
+											if(a($_args, 'post_show_date') === 'relative')
+											{
+												$ltrDate = '';
+											}
+											$card .= "<time class='text-gray-600 text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate'>";
 
 											$card .= \content_site\assemble\tools::date($myDate, a($_args, 'post_show_date'));
 
