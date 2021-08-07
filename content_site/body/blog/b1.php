@@ -147,7 +147,7 @@ class b1
 									{
 										if($myDate)
 										{
-											$card .= "<time class='text-gray-600 text-2xs' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+											$card .= "<time class='text-gray-600 text-2xs ltr' datetime='$myDate' title='". T_("Published"). " $myDate'>";
 
 											$card .= \content_site\assemble\tools::date($myDate, a($_args, 'post_show_date'));
 
