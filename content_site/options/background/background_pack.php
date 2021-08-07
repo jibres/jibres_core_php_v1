@@ -59,13 +59,45 @@ class background_pack
 
 	public static function validator($_data)
 	{
-		if(a($_data, 'set_template'))
+		$data = \dash\validate::enum($_data, true, ['enum' => self::enum(), 'field_title' => T_('Background Pack')]);
+
+		$result                    = [];
+
+		$result['background_pack'] = $data;
+
+		$current = \content_site\section\view::get_current_index_detail();
+
+		switch ($data)
 		{
-			return self::validator_template($_data);
+			case 'solid':
+				if(!a($current, 'background_color'))
+				{
+					$result = array_merge($result, background_color_random::postel_color_solid());
+					\content_site\utility::need_redirect(true);
+				}
+				break;
+			case 'gradient':
+				if(!a($current, 'background_gradient_from'))
+				{
+					$result = array_merge($result, background_color_random::gradient_sample_color());
+					\content_site\utility::need_redirect(true);
+				}
+				break;
+
+			case 'image':
+				if(!a($current, 'file'))
+				{
+					$result['file'] = \dash\sample\img::background();
+					\content_site\utility::need_redirect(true);
+				}
+				break;
+
+			default:
+				// nothing
+				break;
 		}
 
-		$data = \dash\validate::enum($_data, true, ['enum' => self::enum(), 'field_title' => T_('Background Pack')]);
-		return $data;
+		return $result;
 	}
 
 
@@ -175,95 +207,6 @@ class background_pack
 
 		return $html;
 	}
-
-
-
-
-	public static function style_template()
-	{
-		return
-		[
-			[
-				'title'                    => T_("ABC def"),
-				'opt_background_pack'          => 'solid',
-				'background_color'         => '#ffffff',
-				'color_text'               => '#000000',
-			],
-				[
-				'title'                    => T_("ABC def"),
-				'opt_background_pack'          => 'solid',
-				'background_color'         => '#000000',
-				'color_text'               => '#ffffff',
-			],
-		];
-	}
-
-
-	public static function template_or_custom($_data, $_template)
-	{
-		if(
-			a($_data, 'background_pack')          == a($_template, 'background_pack') &&
-			a($_data, 'background_gradient_type') == a($_template, 'background_gradient_type') &&
-			a($_data, 'background_gradient_from') == a($_template, 'background_gradient_from') &&
-			a($_data, 'background_gradient_via')  == a($_template, 'background_gradient_via') &&
-			a($_data, 'background_gradient_to')   == a($_template, 'background_gradient_to') &&
-			a($_data, 'background_color')         == a($_template, 'background_color') &&
-			a($_data, 'color_text')               == a($_template, 'color_text')
-		  )
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-
-	public static function validator_template($_data)
-	{
-		$condition =
-		[
-			'background_pack'          => ['enum' => \content_site\options\background\background_pack::enum()],
-			'background_gradient_type' => ['enum' => array_column(\content_site\options\background\background_gradient_type::enum(), 'key')],
-			'background_gradient_from' => 'color',
-			'background_gradient_via'  => 'color',
-			'background_gradient_to'   => 'color',
-			'background_color'         => 'color',
-			'color_text'               => 'color',
-			'color_text_hover'         => 'color',
-			'color_text_focus'         => 'color',
-		];
-
-		$args =
-		[
-			'background_pack'          => a($_data, 'background_pack'),
-			'background_gradient_type' => a($_data, 'background_gradient_type'),
-			'background_gradient_from' => a($_data, 'background_gradient_from'),
-			'background_gradient_via'  => a($_data, 'background_gradient_via'),
-			'background_gradient_to'   => a($_data, 'background_gradient_to'),
-			'background_color'         => a($_data, 'background_color'),
-			'color_text'               => a($_data, 'color_text'),
-			'color_text_hover'         => a($_data, 'color_text_hover'),
-			'color_text_focus'         => a($_data, 'color_text_focus'),
-		];
-
-		$require = [];
-
-		$meta =
-		[
-			'field_title' =>
-			[
-				'background_gradient_type' => T_("Background Gradient type"),
-				'background_gradient_from' => T_("Background Gradient from"),
-				'background_gradient_via'  => T_("Background Gradient via"),
-				'background_gradient_to'   => T_("Background Gradient to"),
-			],
-		];
-
-		$data = \dash\cleanse::input($args, $condition, $require, $meta);
-
-		return $data;
-	}
-
 
 }
 ?>

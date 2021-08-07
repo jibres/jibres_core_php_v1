@@ -136,7 +136,6 @@ class option
 			'count'             => 3,
 			'post_show_excerpt' => true,
 			'post_show_image'   => true,
-			'file'              => \dash\sample\img::background(),
 		];
 
 		return array_merge($master_default, $_special_default);

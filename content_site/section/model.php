@@ -270,6 +270,13 @@ class model
 			$need_redirect = true;
 		}
 
+		// force set redirect
+		if(\content_site\utility::need_redirect())
+		{
+			\dash\notif::reloadIframe();
+			\dash\redirect::pwd();
+		}
+
 		if(\dash\url::subchild() === 'style')
 		{
 			\dash\notif::reloadIframe();

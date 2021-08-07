@@ -36,13 +36,16 @@ class background
 					$_data['background_color'] = \content_site\options\background\background_color::default();
 				}
 
-				$style[] = 'background:'. $_data['background_color']. ';';
+				if(is_string($_data['background_color']))
+				{
+					$style[] = 'background:'. $_data['background_color']. ';';
+				}
 				break;
 
 			case 'image';
 
 				// background file
-				if(a($_data, 'file'))
+				if(a($_data, 'file') && is_string($_data['file']))
 				{
 					$style[] = 'background-image:url('.\lib\filepath::fix($_data['file']).');';
 				}
@@ -53,7 +56,11 @@ class background
 					$_data['background_repeat'] = \content_site\options\background\background_repeat::default();
 				}
 
-				$style[] = 'background-repeat:'. $_data['background_repeat']. ';';
+
+				if(is_string($_data['background_repeat']))
+				{
+					$style[] = 'background-repeat:'. $_data['background_repeat']. ';';
+				}
 
 
 				// backgroun attachemnt
@@ -62,7 +69,10 @@ class background
 					$_data['background_attachment'] = \content_site\options\background\background_attachment::default();
 				}
 
-				$style[] = 'background-attachment:'. $_data['background_attachment']. ';';
+				if(is_string($_data['background_attachment']))
+				{
+					$style[] = 'background-attachment:'. $_data['background_attachment']. ';';
+				}
 
 				// backgroun position
 				if(!a($_data, 'background_position'))
@@ -70,7 +80,10 @@ class background
 					$_data['background_position'] = \content_site\options\background\background_position::default();
 				}
 
-				$style[] = 'background-position:'. $_data['background_position']. ';';
+				if(is_string($_data['background_position']))
+				{
+					$style[] = 'background-position:'. $_data['background_position']. ';';
+				}
 
 
 				// backgroun size
@@ -79,7 +92,10 @@ class background
 					$_data['background_size'] = \content_site\options\background\background_size::default();
 				}
 
-				$style[] = 'background-size:'. $_data['background_size']. ';';
+				if(is_string($_data['background_size']))
+				{
+					$style[] = 'background-size:'. $_data['background_size']. ';';
+				}
 				break;
 
 			case 'gradient';
@@ -117,7 +133,10 @@ class background
 
 				$to = $_data['background_gradient_to'];
 
-				$style[] = "background:linear-gradient($gradient_type,$from,$to);";
+				if(is_string($from) && is_string($to) && is_string($gradient_type))
+				{
+					$style[] = "background:linear-gradient($gradient_type,$from,$to);";
+				}
 
 				break;
 
