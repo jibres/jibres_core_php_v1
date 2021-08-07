@@ -30,7 +30,7 @@ class post_show_date
 
 	public static function default()
 	{
-		return null;
+		return 'no';
 	}
 
 
