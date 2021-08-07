@@ -277,19 +277,19 @@ class model
 			\dash\redirect::pwd();
 		}
 
-		if(\dash\url::subchild() === 'style')
-		{
-			\dash\notif::reloadIframe();
+		// if(\dash\url::subchild() === 'style')
+		// {
+		// 	\dash\notif::reloadIframe();
 
-			if(\dash\request::post('notredirect'))
-			{
-				// nothing
-			}
-			else
-			{
-				\dash\redirect::pwd();
-			}
-		}
+		// 	if(\dash\request::post('notredirect'))
+		// 	{
+		// 		// nothing
+		// 	}
+		// 	else
+		// 	{
+		// 		\dash\redirect::pwd();
+		// 	}
+		// }
 
 
 	}
