@@ -141,7 +141,7 @@ class background_pack
 			$html .= \content_site\options\font::admin_html();
 			$html .= \content_site\options\color\color_text::admin_html();
 
-			$html .= '<form method="post" class="mb-5" data-patch>';
+			$html .= '<form method="post" class="mb-5 mT0-f" data-patch>';
 			{
 
 				$html .= '<input type="hidden" name="notredirect" value="1">';
