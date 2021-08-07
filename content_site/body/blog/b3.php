@@ -66,7 +66,7 @@ class b3
 								$html .= '<div class="space-y-5 xl:col-span-3">';
 								{
 
-									$html .= '<div class="space-y-6">';
+									$html .= '<div class="space-y-5">';
 									{
 
 										$html .= '<h3 class="text-2xl font-bold tracking-tight">';
