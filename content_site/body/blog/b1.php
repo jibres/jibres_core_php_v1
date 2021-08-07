@@ -136,8 +136,13 @@ class b1
 										$card .= "<a class='inline-block' href='$myAuthorPage'>";
 										{
 											$writerName = a($value, 'user_detail', 'displayname');
-											$card .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full me-2 bg-gray-100 overflow-hidden'>";
-											$card .= "<span class='text-2xs me-2 inline-block'>". $writerName. "</span>";
+											$marginClass = 'mr-2';
+											if(\dash\language::dir() === 'rtl')
+											{
+												$marginClass = 'ml-2';
+											}
+											$card .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full $marginClass bg-gray-100 overflow-hidden'>";
+											$card .= "<span class='text-2xs mLa5 inline-block'>". $writerName. "</span>";
 										}
 										$card .= '</a>';
 									}
