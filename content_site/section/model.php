@@ -170,13 +170,12 @@ class model
 
 			$load_preview = \content_site\call_function::preview($child, $preview_key);
 
+
 			if(!is_array($load_preview))
 			{
 				\dash\notif::error(T_("Invalid preview key"));
 				return false;
 			}
-
-			unset($load_preview['fill_defult_data']);
 
 			$value = $load_preview;
 

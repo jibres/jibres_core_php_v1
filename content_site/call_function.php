@@ -152,28 +152,7 @@ class call_function
 			}
 			elseif($_fn === 'preview_list')
 			{
-				$default = \content_site\call_function::default($section_key);
-
-				if(!is_array($default))
-				{
-					$default = [];
-				}
-
-				$options = \content_site\call_function::option($section_key);
-
-				$default_options = [];
-
-				foreach ($options as $option_name)
-				{
-					if(is_string($option_name))
-					{
-						$default_options[$option_name] = self::option_default($option_name);
-					}
-				}
-
 				$namespace_preview = sprintf($namespace, 'preview');
-
-				$namespace_layout  = sprintf($namespace, 'layout');
 
 				$function_list = [];
 
@@ -182,27 +161,22 @@ class call_function
 					$function_list = get_class_methods($namespace_preview);
 				}
 
-				\content_site\utility::fill_by_default_data(true);
-
 				$list = [];
 
 				foreach ($function_list as $key => $value)
 				{
-					$preview_default = self::_call([$namespace_preview, $value]);
+					$load_preview = self::_call([$namespace_preview, $value]);
 
-					$preview_default = array_merge($default_options, $default, $preview_default);
-
-					$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
+					$myType = a($load_preview, 'type');
 
 					$list[] =
 					[
-						'preview_key'     => $value,
-						'preview_default' => $preview_default,
-						'preview_html'    => $preview_html,
+						'preview_key' => $value,
+						'opt_type'    => $myType,
+						'iframe_url'  => \dash\url::here(). '/preview/'. $section_key. '/'. $value,
 					];
-				}
 
-				\content_site\utility::fill_by_default_data(false);
+				}
 
 				return $list;
 			}
