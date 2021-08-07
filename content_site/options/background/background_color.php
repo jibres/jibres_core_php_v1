@@ -29,7 +29,7 @@ class background_color
 
 		$title = T_("Background Color");
 
-		$html = self::color_html('opt_background_color', $default, $title);
+		$html = self::color_html('opt_background_color', $default, $title, false, true, true);
 
 		return $html;
 	}
@@ -42,7 +42,7 @@ class background_color
 	 * @param      string  $_name     The name
 	 * @param      string  $_default  The default
 	 */
-	public static function color_html($_name, $_default, $_title, $_only_input = false)
+	public static function color_html($_name, $_default, $_title, $_only_input = true, $_show_label = true, $_random_color = false)
 	{
 		$block_class = null;
 		$form_class  = 'inline-block pe-3 mT0-f';
@@ -60,18 +60,19 @@ class background_color
 
 		$html .= '<form method="post" class="'.$form_class.'" data-patch>';
 		{
-			if(!$_only_input)
+			if($_show_label)
 			{
-	    		$html .= '<label for="color-'. $_name. '">'. $_title. '</label>';
-		    	$html .= '<div>';
-		    	{
-		    		$html .= $input;
-		    	}
-		    	$html .= '</div>';
+	    		$html .= '<label class="block" for="color-'. $_name. '">'. $_title. '</label>';
+	    		$html .= $input;
 			}
 			else
 			{
 				$html .= $input;
+			}
+
+			if($_random_color)
+			{
+				$html .= background_color_random::admin_html_solid();
 			}
 
 		}

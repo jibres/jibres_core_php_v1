@@ -31,10 +31,12 @@ class background_pack
 			'file',
 
 			'background_gradient',
+			'background_gradient_type',
+
 			'background_gradient_from',
 			'background_gradient_via',
 			'background_gradient_to',
-			'background_gradient_type',
+
 			'background_gradient_attachment',
 			'background_color_random',
 
@@ -160,19 +162,19 @@ class background_pack
 			$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
 			{
 				$html .= background_color::admin_html();
-				$html .= background_color_random::admin_html_solid();
 			}
 			$html .= '</div>';
 
 
 			$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 			{
+				$html .= background_gradient_type::admin_html();
+
 				$html .= "<label for='color-opt_background_gradient_from' class='block'>". T_("Gradient colors"). "</label>";
 				$html .= background_gradient_from::admin_html();
 				// $html .= background_gradient_via::admin_html();
 				$html .= background_gradient_to::admin_html();
 				$html .= background_color_random::admin_html_gradient();
-				$html .= background_gradient_type::admin_html();
 			}
 			$html .= '</div>';
 
