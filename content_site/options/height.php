@@ -27,23 +27,7 @@ class height
 
 	public static function validator($_data)
 	{
-		$quick = a($_data, 'height_quick');
-		$quick = \dash\validate::enum($quick, true, ['enum' => ['xs', 'auto', 'xl', 'more'], 'field_title' => T_('Height')]);
-
-		$data = a($_data, 'height');
-		$data = \dash\validate::enum($data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
-
-		if($quick === 'more' && !$data)
-		{
-			$data = self::default();
-		}
-
-		if($quick !== 'more')
-		{
-			return $quick;
-		}
-
-		return $data;
+		return \dash\validate::enum($_data, true, ['enum' => ['xs', 'auto', 'xl', 'fullscreen'], 'field_title' => T_('Height')]);
 	}
 
 
@@ -92,32 +76,18 @@ class height
 		$html .= '<form method="post" data-patch>';
 		{
 			$html .= '<input type="hidden" name="notredirect" value="1">';
-			$html .= '<input type="hidden" name="multioption" value="multi">';
+
 			$html .= "<label>$title</label>";
 
 			$name       = 'opt_height';
-			$name_quick = $name. '_quick';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xs', 'S', (($default === 'xs')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'auto', 'M', (($default === 'auto')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['xs', 'auto', 'xl']) ? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'xs', 'S', (($default === 'xs')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'auto', 'M', (($default === 'auto')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'xl', 'L', (($default === 'xl')? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'fullscreen', T_("FullScreen"), (($default === 'fullscreen')? true : false));
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
-
-			$data_response_hide = null;
-
-			if(in_array($default, ['xs', 'auto', 'xl']))
-			{
-				$data_response_hide = 'data-response-hide';
-			}
-
-			$this_range = array_column(self::enum(), 'key');
-
-			$html .= "<div data-response='$name_quick' data-response-where='more' $data_response_hide>";
-			$html .= '<input type="text" name="'.$name. '" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.$default.'" data-values="'. implode(',', $this_range). '">';
-			$html .= '</div>';
 		}
 		$html .= '</form>';
 
