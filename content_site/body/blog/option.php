@@ -57,7 +57,6 @@ class option
 
 
 
-
 	/**
 	 * Public default
 	 */

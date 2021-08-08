@@ -106,6 +106,7 @@ class view
 			}
 		}
 
+		$view_template = null;
 
 		$section_list = controller::section_list();
 
@@ -124,29 +125,53 @@ class view
 			{
 				if(a($value, 'key') === $section_requested)
 				{
-					$load_preview_list = \content_site\call_function::preview_list($value['key'], $type_requested);
 
-					// filter by preview requested
-					if(!$load_preview_list)
-					{
-						continue;
-					}
+					// if($type_requested)
+					// {
+						$view_template = 'preview_list';
 
-					$value['preview_list'] = $load_preview_list;
+						$load_preview_list = \content_site\call_function::preview_list($value['key'], $type_requested);
+
+						// filter by preview requested
+						if(!$load_preview_list)
+						{
+							continue;
+						}
+
+						$value['preview_list'] = $load_preview_list;
+
+						$result[a($value, 'group')][] = $value;
+
+					// }
+					// else
+					// {
+					// 	$view_template = 'type_list';
+					// 	$load_type_list = \content_site\call_function::type_list($value['key']);
+					// 	var_dump($load_type_list);
+					// 	exit;
+					// }
 				}
 				else
 				{
 					continue;
 				}
 			}
-
-			if(!isset($result[a($value, 'group')]))
+			else
 			{
-				$result[a($value, 'group')] = [];
-			}
+				$view_template = 'all_group';
+				// show all group
+				if(!isset($result[a($value, 'group')]))
+				{
+					$result[a($value, 'group')] = [];
+				}
 
-			$result[a($value, 'group')][] = $value;
+				$result[a($value, 'group')][] = $value;
+			}
 		}
+
+		// var_dump($result, $view_template);exit;
+
+		\dash\data::viewTemplate($view_template);
 
 		if($section_requested)
 		{
