@@ -9,7 +9,8 @@ class preview
 	{
 		return
 		[
-			'type' => 'b1',
+			'type'           => 'b1',
+			'master_preview' => true,
 		];
 	}
 
@@ -18,7 +19,8 @@ class preview
 	{
 		return
 		[
-			'type' => 'b2',
+			'type'           => 'b2',
+			'master_preview' => true,
 		];
 	}
 
@@ -28,7 +30,8 @@ class preview
 	{
 		return
 		[
-			'type' => 'b3',
+			'type'           => 'b3',
+			'master_preview' => true,
 		];
 	}
 
@@ -37,7 +40,8 @@ class preview
 	{
 		return
 		[
-			'type' => 'b4',
+			'type'           => 'b4',
+			'master_preview' => true,
 		];
 	}
 
@@ -47,7 +51,8 @@ class preview
 	{
 		return
 		[
-			'type' => 'b5',
+			'type'           => 'b5',
+			'master_preview' => true,
 		];
 	}
 
@@ -56,7 +61,8 @@ class preview
 	{
 		return
 		[
-			'type' => 'b6',
+			'type'           => 'b6',
+			'master_preview' => true,
 		];
 	}
 
