@@ -252,24 +252,25 @@ class call_function
 
 	private static function replace_paw_value($_data)
 	{
-		$new_data = $_data;
-
 		$is_pwa = \dash\request::is_pwa();
 
 		foreach ($_data as $key => $value)
 		{
-			if(substr($key, 0, 12) === 'preview_pwa:' && $is_pwa)
+			if(substr($key, 0, 4) === 'pwa:' && $is_pwa)
 			{
-				$new_data[substr($key, 12)] = $value;
-			}
-
-			if(substr($key, 0, 8) === 'preview:')
-			{
-				$new_data[substr($key, 8)] = $value;
+				$_data[substr($key, 4)] = $value;
 			}
 		}
 
-		return $new_data;
+		foreach ($_data as $key => $value)
+		{
+			if(substr($key, 0, 8) === 'preview:')
+			{
+				$_data[substr($key, 8)] = $value;
+			}
+		}
+
+		return $_data;
 	}
 
 

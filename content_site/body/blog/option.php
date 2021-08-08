@@ -134,7 +134,7 @@ class option
 			'heading'               => T_("Latest Posts"),
 			'post_template'         => 'any',
 			'count'                 => 3,
-			'preview_pwa:count'     => 1,
+			'pwa:preview:count'     => 1,
 			'preview:count'         => 2,
 			'preview:height'        => 'fullscreen',
 			'post_show_excerpt'     => true,
