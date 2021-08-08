@@ -191,7 +191,7 @@ class cart
 		}
 		else
 		{
-			\dash\notif::error(T_("Plese set mobile or login to contineu"));
+			\dash\notif::error(T_("Plese set mobile or login to continue"));
 			return false;
 		}
 
