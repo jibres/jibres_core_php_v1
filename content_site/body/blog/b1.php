@@ -107,14 +107,8 @@ class b1
 								}
 								$card .= '</h3>';
 
-								if(a($_args, 'post_show_readingtime') && a($value, 'readingtime'))
-								{
-									$val = ['val' => \dash\fit::number(a($value, 'readingtime'))];
-									$card .= '<div class="text-gray-400 leading-8 text-sm" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
-									$card .= T_(":val read", $val);
-									$card .= '</div>';
+								$card .= \content_site\assemble\tools::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
 
-								}
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
