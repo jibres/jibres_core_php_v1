@@ -73,14 +73,35 @@ class post_template
 			$default_play_item = null;
 		}
 
+		$subtypeSearchLink = \dash\url::kingdom(). '/cms/posts';
+
+		if($default_post_template  && $default_post_template !== 'any')
+		{
+			$subtypeSearchLink .= '?subtype='. $default_post_template;
+		}
+
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
+	    	$html .= "<div class='row'>";
+			{
+				$html .= "<div class='c'>";
+				{
+	    			$html .= "<label for='post_template'>". T_("Filter by post type") ."</label>";
+				}
+				$html .= "</div>";
 
-	    	$html .= "<label for='post_template'>". T_("Filter by post type") ."</label>";
+				$html .= "<div class='c-auto'>";
+				{
+					$html .= "<a target='_blank' class='link'  href='$subtypeSearchLink'><i class='sf-external-link'></i></a>";
+				}
+				$html .= "</div>";
+			}
+			$html .= "</div>";
+
 	        $html .= '<select name="opt_post_template" class="select22" id="post_template">';
 
 	        foreach (self::enum_post_template() as $key => $value)
