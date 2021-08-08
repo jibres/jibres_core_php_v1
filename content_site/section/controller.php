@@ -49,9 +49,12 @@ class controller
 			return;
 		}
 
-		$options = \content_site\call_function::option($child, \dash\data::currentSectionDetail());
+		$current_section_detail = \dash\data::currentSectionDetail();
+
+		$options = \content_site\call_function::option($child, a($current_section_detail, 'preview', 'type'));
 
 		$subchild = \dash\url::subchild();
+
 		if($subchild)
 		{
 			if(isset($options[$subchild]) && is_array($options[$subchild]))

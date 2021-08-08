@@ -56,45 +56,6 @@ class option
 
 
 
-	/**
-	 * Get current option by check type
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function option($_data, $_mode = null)
-	{
-		$type = null;
-
-		if(isset($_data['preview']['type']) && $_data['preview']['type'])
-		{
-			$type = $_data['preview']['type'];
-		}
-		else
-		{
-			// Hey! if change this variable you must change the default type in type_list function
-			$type = 'b1';
-		}
-
-		$type_detail = [];
-
-		if(is_callable([__NAMESPACE__. '\\'.$type, 'option']))
-		{
-			$type_detail = call_user_func([__NAMESPACE__. '\\'.$type, 'option']);
-		}
-
-		// get full option
-		if($_mode === 'full')
-		{
-			return $type_detail;
-		}
-
-		if(isset($type_detail['options']))
-		{
-			return $type_detail['options'];
-		}
-
-		return [];
-	}
 
 
 	/**
@@ -107,11 +68,6 @@ class option
 			'heading'               => T_("Latest Posts"),
 			'post_template'         => 'any',
 			'count'                 => 3,
-
-			'pwa:preview:count'     => 1,
-			'preview:heading'       => null,
-			'preview:count'         => 2,
-			'preview:height'        => 'fullpreview',
 
 			'post_show_excerpt'     => true,
 			'post_show_image'       => true,

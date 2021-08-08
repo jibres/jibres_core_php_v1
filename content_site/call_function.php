@@ -124,22 +124,8 @@ class call_function
 
 			$namespace = self::get_namespace($section_key);
 
-			if($_fn === 'default')
-			{
-				$namespace = sprintf($namespace, 'option');
 
-				$full_option_list = self::_call([$namespace, 'option'], $args, 'full');
-
-				if(isset($full_option_list['default']) && is_array($full_option_list['default']))
-				{
-					return $full_option_list['default'];
-				}
-				else
-				{
-					return [];
-				}
-			}
-			elseif($_fn === 'layout')
+			if($_fn === 'layout')
 			{
 				$namespace = sprintf($namespace, 'layout');
 
@@ -155,12 +141,53 @@ class call_function
 			}
 			else
 			{
-				$namespace = sprintf($namespace, 'option');
-
-				return self::_call([$namespace, $_fn], $args);
+				return false;
 			}
 		}
 
+	}
+
+	/**
+	 * Get current option by check type
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function default($_section_key, $_type)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_type);
+
+		$type_detail = self::_call([$namespace, 'option']);
+
+		if(isset($type_detail['default']))
+		{
+			return $type_detail['default'];
+		}
+
+		return null;
+	}
+
+
+	/**
+	 * Get current option by check type
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function option($_section_key, $_type)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_type);
+
+		$type_detail = self::_call([$namespace, 'option']);
+
+		if(isset($type_detail['options']))
+		{
+			return $type_detail['options'];
+		}
+
+		return null;
 	}
 
 

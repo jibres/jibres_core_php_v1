@@ -318,14 +318,14 @@ class view
 			$detail = [];
 		}
 
-		$default = \content_site\call_function::default($section_key);
+		$default = \content_site\call_function::default($section_key, a($result, 'preview', 'type'));
 
 		if(!is_array($default))
 		{
 			$default = [];
 		}
 
-		$options = \content_site\call_function::option($section_key, $result);
+		$options = \content_site\call_function::option($section_key, a($result, 'preview', 'type'));
 
 		$default_options = [];
 
