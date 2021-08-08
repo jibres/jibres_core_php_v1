@@ -106,7 +106,6 @@ class view
 			}
 		}
 
-		\dash\data::include_adminPanelBuilder(true);
 
 		$section_list = controller::section_list();
 
@@ -149,6 +148,10 @@ class view
 			$result[a($value, 'group')][] = $value;
 		}
 
+		if($section_requested)
+		{
+			\dash\data::include_adminPanelBuilder(true);
+		}
 		// save result to show in dispaly
 		\dash\data::sectionList($result);
 
