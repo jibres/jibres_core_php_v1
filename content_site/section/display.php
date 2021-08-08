@@ -23,8 +23,11 @@ foreach ($section_list as $group)
 					'type'        => a($preview, 'opt_type'),
 					'preview_key' => a($preview, 'preview_key'),
 				];
+
 				// $html .= "<div data-ajaxify data-data='".json_encode($select_preview)."'>HiM</div>";
-				$html .='<iframe data-ajaxify data-data="'.json_encode($select_preview).'" class="flex-grow w-full bg-white rounded-lg overflow-hidden mb-10 min-h-1/4 max-h-full h-4/5" src="'. a($preview, 'iframe_url'). '" style="zoom:0.75"></iframe>';
+				$html .= "<div class='bg-white rounded-lg overflow-hidden mb-10 max-h-screen h-4/6 w-full'>";
+				$html .='<iframe data-ajaxify data-data="'.json_encode($select_preview).'" class="flex-grow1 w-full h-full" src="'. a($preview, 'iframe_url'). '" style="zoom:0.75"></iframe>';
+				$html .= "</div>";
 
 				// $html .= '<div class="box">';
 				// {
