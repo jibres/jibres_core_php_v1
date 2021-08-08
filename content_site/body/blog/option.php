@@ -134,12 +134,13 @@ class option
 			'heading'               => T_("Latest Posts"),
 			'post_template'         => 'any',
 			'count'                 => 3,
+			'preview_pwa:count'     => 1,
 			'post_show_excerpt'     => true,
 			'post_show_image'       => true,
 			'post_show_date'        => 'relative',
 			'post_show_author'      => true,
 			'post_show_readingtime' => true,
-			'btn_viewall_check'           => true,
+			'btn_viewall_check'     => true,
 		];
 
 		return array_merge($master_default, $_special_default);

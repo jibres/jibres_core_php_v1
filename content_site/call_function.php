@@ -231,6 +231,8 @@ class call_function
 
 		$preview_default = array_merge($default_options, $default, $preview_default);
 
+		$preview_default = self::replace_paw_value($preview_default);
+
 		$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
 
 		$result =
@@ -246,6 +248,25 @@ class call_function
 		return $result;
 
 	}
+
+
+	private static function replace_paw_value($_data)
+	{
+		$new_data = $_data;
+
+		$is_pwa = \dash\request::is_pwa();
+
+		foreach ($_data as $key => $value)
+		{
+			if(substr($key, 0, 12) === 'preview_pwa:' && $is_pwa)
+			{
+				$new_data[substr($key, 12)] = $value;
+			}
+		}
+
+		return $new_data;
+	}
+
 
 }
 ?>
