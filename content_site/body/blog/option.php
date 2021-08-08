@@ -77,9 +77,9 @@ class option
 
 		$type_detail = [];
 
-		if(is_callable(['self', $type]))
+		if(is_callable([__NAMESPACE__. '\\'.$type, 'option']))
 		{
-			$type_detail = call_user_func(['self', $type]);
+			$type_detail = call_user_func([__NAMESPACE__. '\\'.$type, 'option']);
 		}
 
 		// get full option

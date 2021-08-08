@@ -381,7 +381,6 @@ class view
 			$result['body_layout'] = $result['preview_layout'];
 		}
 
-
 		return $result;
 	}
 
