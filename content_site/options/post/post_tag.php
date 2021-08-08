@@ -30,13 +30,35 @@ class post_tag
 			$default = self::default();
 		}
 
+		$tagSearchLink = \dash\url::kingdom(). '/cms/posts';
+
+		if($default)
+		{
+			$tagSearchLink .= '?tagid='. $default;
+		}
 
 		$title = T_("Filter by special hashtag");
 
 		$html = '';
+
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= "<label for='post_tag'>$title</label>";
+			$html .= "<div class='row'>";
+			{
+				$html .= "<div class='c'>";
+				{
+					$html .= "<label for='post_tag'>$title</label>";
+				}
+				$html .= "</div>";
+
+				$html .= "<div class='c-auto'>";
+				{
+					$html .= "<a target='_blank' class='link'  href='$tagSearchLink'><i class='sf-external-link'></i></a>";
+				}
+				$html .= "</div>";
+			}
+			$html .= "</div>";
+
 	        $html .= '<select name="opt_post_tag" class="select22" id="post_tag" data-placeholder="'. T_("Select hashtag"). '">';
 
 			$html .= '<option value="0">'. T_("All"). '</option>';
