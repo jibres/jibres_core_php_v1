@@ -143,8 +143,7 @@ class view
 			$result[a($value, 'group')][] = $value;
 		}
 
-
-
+		// save result to show in dispaly
 		\dash\data::sectionList($result);
 
 
@@ -152,15 +151,13 @@ class view
 
 		if($folder && $section_requested && $type_requested)
 		{
+			\dash\face::title(\dash\face::title() . ' | '. $section_requested . ' | '. $type_requested);
 			unset($all_get['typekey']);
 		}
 		elseif($folder && $section_requested && !$type_requested)
 		{
+			\dash\face::title(\dash\face::title() . ' | '. $section_requested);
 			unset($all_get['section']);
-		}
-		elseif($folder && !$section_requested && !$type_requested)
-		{
-			unset($all_get['folder']);
 		}
 
 		if($folder)
@@ -172,7 +169,6 @@ class view
 		}
 
 		// var_dump($result);exit;
-		return $result;
 	}
 
 
