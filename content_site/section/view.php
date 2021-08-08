@@ -22,42 +22,21 @@ class view
 	{
 		\content_site\view::fill_page_detail();
 
+		// load section list if needed
+		self::show_section_preview_in_group();
+
 		// in a section
 		if(\dash\url::child())
 		{
 			// \content_site\controller::load_current_section_list();
-
 			self::generate_back_url();
-
-			if(\dash\data::changeSectionTypeMode())
-			{
-				\dash\data::include_adminPanelBuilder(true);
-
-				$section_list = controller::section_list();
-
-				$section_list = self::show_section_preview_in_group($section_list, \dash\data::currentSectionDetail_mode(), \dash\url::child());
-
-				\dash\data::sectionList($section_list);
-			}
 		}
 		else
 		{
 			// add new section
-
 			\dash\face::title(T_('Add new Section'));
-
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(self::$remove_needless_get));
-
-
-			$section_list = controller::section_list();
-
-			$section_list = self::show_section_preview_in_group($section_list, \dash\request::get('list'), \dash\request::get('section'));
-
-			\dash\data::sectionList($section_list);
-
-			\dash\data::include_adminPanelBuilder(true);
-
 		}
 
 	}
@@ -79,8 +58,6 @@ class view
 		$dir = \dash\url::dir();
 		array_pop($dir);
 
-
-
 		if(count($dir) >= 2)
 		{
 			$url = \dash\url::here(). '/';
@@ -101,47 +78,75 @@ class view
 
 	/**
 	 * Shows the section in group.
-	 *
-	 * Just for show pretty in current html (Not used anywhere else)
-	 *
-	 * @param      <type>  $section_list  The section list
-	 *
-	 * @return     array   ( description_of_the_return_value )
 	 */
-	private static function show_section_preview_in_group($section_list, $_list, $_section)
+	private static function show_section_preview_in_group()
 	{
-		$new_list = [];
+		$folder            = \dash\validate::string_100(\dash\request::get('folder'));
+		$section_requested = \dash\validate::string_100(\dash\request::get('section'));
+		$type_requested    = \dash\validate::string_100(\dash\request::get('typekey'));
 
-		$get_list = $_list; // \dash\request::get('list');
+		if(\dash\url::child())
+		{
+			if(\dash\data::changeSectionTypeMode())
+			{
+				$folder            = \dash\data::currentSectionDetail_mode();
+				$section_requested = \dash\url::child();
+			}
+			else
+			{
+				// needless to load preview key
+				return;
+			}
+		}
 
-		$section = $_section; // \dash\request::get('section');
+		\dash\data::include_adminPanelBuilder(true);
+
+		$section_list = controller::section_list();
+
+		$result = [];
 
 		foreach ($section_list as $key => $value)
 		{
 			$mode = \content_site\call_function::get_folder(a($value, 'key'));
 
-			if($get_list && $get_list !== $mode)
+			if($folder && $folder !== $mode)
 			{
 				continue;
 			}
 
-
-			if(!isset($new_list[a($value, 'group')]))
+			if($section_requested)
 			{
-				$new_list[a($value, 'group')] = [];
+				if(a($value, 'key') === $section_requested)
+				{
+					$load_preview_list = \content_site\call_function::preview_list($value['key'], $type_requested);
+
+					// filter by preview requested
+					if(!$load_preview_list)
+					{
+						continue;
+					}
+
+					$value['preview_list'] = $load_preview_list;
+				}
+				else
+				{
+					continue;
+				}
 			}
 
-			if($section && a($value, 'key') === $section)
+			if(!isset($result[a($value, 'group')]))
 			{
-				$load_preview_list = \content_site\call_function::preview_list($value['key']);
-
-				$value['preview_list'] = $load_preview_list;
+				$result[a($value, 'group')] = [];
 			}
 
-			$new_list[a($value, 'group')][] = $value;
+			$result[a($value, 'group')][] = $value;
+
 		}
 
-		return $new_list;
+		\dash\data::sectionList($result);
+
+		// var_dump($result);exit;
+		return $result;
 	}
 
 

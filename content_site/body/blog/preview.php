@@ -9,6 +9,19 @@ class preview
 	{
 		return
 		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'type'           => 'b1',
+			'master_preview' => true,
+		];
+	}
+
+
+	public static function p122()
+	{
+		return
+		[
+			'preview_title'  => T_("Card 2"),
 			'version'        => 1,
 			'type'           => 'b1',
 			'master_preview' => true,
