@@ -104,6 +104,8 @@ class view
 
 		$section_list = controller::section_list();
 
+		// var_dump($section_list);exit;
+
 		$result = [];
 
 		foreach ($section_list as $key => $value)
@@ -160,13 +162,21 @@ class view
 			unset($all_get['section']);
 		}
 
-		if($folder)
+		\dash\data::back_text(T_('Back'));
+
+		if($section_requested)
 		{
-		 	// if have not folder leave back link
 			$url = \dash\url::this(). '?'.\dash\request::build_query($all_get);
-			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link($url);
 		}
+		else
+		{
+			$url = \dash\url::here();
+			$url .= '/page';
+			$url .= '?'.\dash\request::build_query(['id' => \dash\request::get('id')]);
+			// $url = \dash\url::this(). '?'.\dash\request::build_query($all_get);
+		}
+
+		\dash\data::back_link($url);
 
 		// var_dump($result);exit;
 	}
