@@ -24,10 +24,20 @@ foreach ($section_list as $group)
 					'preview_key' => a($preview, 'preview_key'),
 				];
 
-				// $html .= "<div data-ajaxify data-data='".json_encode($select_preview)."'>HiM</div>";
-				$html .= "<div class='bg-white rounded-lg overflow-hidden mb-10 max-h-screen h-4/6 w-full'>";
-				$html .='<iframe data-ajaxify data-data="'.json_encode($select_preview).'" class="flex-grow1 w-full h-full" src="'. a($preview, 'iframe_url'). '" style="zoom:0.75"></iframe>';
+				$version = a($preview, 'version');
+
+				$preview_image = \dash\url::cdn(). sprintf('/img/%s/%s/%s.jpg?v=%s', 'sitebuilder', a($value, 'key'), a($preview, 'preview_key'), $version);
+
+				$html .= "<div data-ajaxify data-data='".json_encode($select_preview)."'>";
+				{
+					$html .= '<img src="'. $preview_image. '" alt="'.a($preview, 'key').'">';
+				}
 				$html .= "</div>";
+
+				// $html .= "<div data-ajaxify data-data='".json_encode($select_preview)."'>HiM</div>";
+				// $html .= "<div class='bg-white rounded-lg overflow-hidden mb-10 max-h-screen h-4/6 w-full'>";
+				// $html .='<iframe data-ajaxify data-data="'.json_encode($select_preview).'" class="flex-grow1 w-full h-full" src="'. a($preview, 'iframe_url'). '" style="zoom:0.75"></iframe>';
+				// $html .= "</div>";
 
 				// $html .= '<div class="box">';
 				// {

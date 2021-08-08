@@ -9,6 +9,7 @@ class preview
 	{
 		return
 		[
+			'version'        => 1,
 			'type'           => 'b1',
 			'master_preview' => true,
 		];
@@ -19,6 +20,7 @@ class preview
 	{
 		return
 		[
+			'version'        => 2,
 			'type'           => 'b2',
 			'master_preview' => true,
 		];
@@ -30,6 +32,7 @@ class preview
 	{
 		return
 		[
+			'version'        => null, // default version is 1
 			'type'           => 'b3',
 			'master_preview' => true,
 		];

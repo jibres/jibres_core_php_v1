@@ -172,6 +172,7 @@ class call_function
 					$list[] =
 					[
 						'preview_key' => $value,
+						'version' => (a($load_preview, 'version') ? $load_preview['version'] : 1),
 						'opt_type'    => $myType,
 						'iframe_url'  => \dash\url::here(). '/preview/'. $section_key. '/'. $value,
 					];
