@@ -141,7 +141,9 @@ class call_function
 			}
 			else
 			{
-				return false;
+				$namespace = sprintf($namespace, 'option');
+
+				return self::_call([$namespace, $_fn], $args);
 			}
 		}
 

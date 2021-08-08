@@ -643,7 +643,7 @@ class model
 			return false;
 		}
 
-		$load_default = \content_site\call_function::default($key);
+		$load_default = \content_site\call_function::default($type, $key);
 
 		if(!is_array($load_default))
 		{
