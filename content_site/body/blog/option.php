@@ -139,7 +139,7 @@ class option
 			'post_show_date'        => 'relative',
 			'post_show_author'      => true,
 			'post_show_readingtime' => true,
-			'btn_viewall'           => true,
+			'btn_viewall_check'           => true,
 		];
 
 		return array_merge($master_default, $_special_default);
