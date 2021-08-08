@@ -135,6 +135,7 @@ class option
 			'post_template'         => 'any',
 			'count'                 => 3,
 			'preview_pwa:count'     => 1,
+			'preview:count'         => 2,
 			'post_show_excerpt'     => true,
 			'post_show_image'       => true,
 			'post_show_date'        => 'relative',

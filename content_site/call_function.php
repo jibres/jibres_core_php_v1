@@ -262,6 +262,11 @@ class call_function
 			{
 				$new_data[substr($key, 12)] = $value;
 			}
+
+			if(substr($key, 0, 8) === 'preview:')
+			{
+				$new_data[substr($key, 8)] = $value;
+			}
 		}
 
 		return $new_data;
