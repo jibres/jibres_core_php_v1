@@ -22,8 +22,6 @@ class view
 	{
 		\content_site\view::fill_page_detail();
 
-		// load section list if needed
-		self::show_section_preview_in_group();
 
 		// in a section
 		if(\dash\url::child())
@@ -38,6 +36,9 @@ class view
 			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::here(). '/page'. \dash\request::full_get(self::$remove_needless_get));
 		}
+
+		// load section list if needed
+		self::show_section_preview_in_group();
 
 	}
 
@@ -140,10 +141,35 @@ class view
 			}
 
 			$result[a($value, 'group')][] = $value;
-
 		}
 
+
+
 		\dash\data::sectionList($result);
+
+
+		$all_get = \dash\request::get();
+
+		if($folder && $section_requested && $type_requested)
+		{
+			unset($all_get['typekey']);
+		}
+		elseif($folder && $section_requested && !$type_requested)
+		{
+			unset($all_get['section']);
+		}
+		elseif($folder && !$section_requested && !$type_requested)
+		{
+			unset($all_get['folder']);
+		}
+
+		if($folder)
+		{
+		 	// if have not folder leave back link
+			$url = \dash\url::this(). '?'.\dash\request::build_query($all_get);
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link($url);
+		}
 
 		// var_dump($result);exit;
 		return $result;
