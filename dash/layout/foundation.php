@@ -202,6 +202,12 @@ if(\dash\request::get('iframe'))
 {
   echo " data-iframe";
 }
+
+if(\dash\data::bodyClass())
+{
+  echo " class='".\dash\data::bodyClass(). "'";
+}
+
 echo " data-preload";
 ?>><?php
 \dash\layout\find::allBlocks();
