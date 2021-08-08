@@ -73,7 +73,7 @@ foreach ($list as $key => $value)
 <nav class="sections items">
   <ul>
     <li>
-      <a class="item f" href="<?php echo \dash\url::here(). '/section'. \dash\request::full_get(['list' => 'body']); ?>">
+      <a class="item f" href="<?php echo \dash\url::here(). '/section'. \dash\request::full_get(['folder' => 'body']); ?>">
         <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo \dash\utility\icon::url('add'); ?>">
         <div class="key text-blue-500"><?php echo T_("Add Section") ?></div>
       </a>
