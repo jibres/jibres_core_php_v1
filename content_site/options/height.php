@@ -11,6 +11,7 @@ class height
 		$enum[] = ['key' => 'm',   'title' => T_("Medium") , 'class' => 'flex min-h-1/2 lg:py-10 lg:py-16', ];
 		$enum[] = ['key' => 'l',   'title' => T_("Tall") , 'class' => 'flex min-h-3/4 py-20 lg:py-28', ];
 		$enum[] = ['key' => 'fullscreen',   'title' => T_("Full Screen") , 'class' => 'flex min-h-screen py-20', ];
+		$enum[] = ['key' => 'fullpreview',   'title' => T_("Full Screen") , 'class' => 'flex min-h-screen py-20', 'system' => true ];
 
 		return $enum;
 	}
@@ -75,6 +76,11 @@ class height
 
 			foreach (self::enum() as $key => $value)
 			{
+				if(isset($value['system']) && $value['system'])
+				{
+					continue;
+				}
+
 				$selected = false;
 
 				if($default === $value['key'])
