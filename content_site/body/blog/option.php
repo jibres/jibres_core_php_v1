@@ -136,6 +136,7 @@ class option
 			'count'                 => 3,
 			'preview_pwa:count'     => 1,
 			'preview:count'         => 2,
+			'preview:height'        => 's',
 			'post_show_excerpt'     => true,
 			'post_show_image'       => true,
 			'post_show_date'        => 'relative',
