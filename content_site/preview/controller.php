@@ -7,20 +7,23 @@ class controller
 	public static function routing()
 	{
 		$section = \dash\url::child();
-		$preview = \dash\url::subchild();
+		$type    = \dash\url::subchild();
+		$preview = \dash\url::dir(3);
+
 
 		$section = \dash\validate::string_100($section);
-		$preview = \dash\validate::string_100($preview);
+		$type    = \dash\validate::string_100($type);
+		$preview    = \dash\validate::string_100($preview);
 
 
-		if(!$section || !$preview)
+		if(!$section || !$type || !$preview)
 		{
 			\dash\header::status(404, T_("Invalid section name or preview key"));
 			return false;
 		}
 
 
-		$result = \content_site\call_function::generate_preview($section, $preview);
+		$result = \content_site\call_function::generate_preview($section, $type, $preview);
 		if(!$result)
 		{
 			\dash\header::status(404, T_("Invalid preview detail"));

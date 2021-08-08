@@ -233,7 +233,7 @@ class call_function
 						'preview_key'   => $preview_function,
 						'version'       => (a($load_preview, 'version') ? $load_preview['version'] : 1),
 						'opt_type'      => $type,
-						'iframe_url'    => \dash\url::here(). '/preview/'. $_section_key. '/'. $preview_function,
+						'iframe_url'    => \dash\url::here(). '/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
 					];
 				}
 			}
@@ -244,18 +244,18 @@ class call_function
 
 
 
-	public static function generate_preview($_section, $_preview)
+	public static function generate_preview($_section, $_type, $_preview)
 	{
 		$namespace = self::get_namespace($_section);
 
-		$default = \content_site\call_function::default($_section);
+		$default = self::default($_section, $_type);
 
 		if(!is_array($default))
 		{
 			$default = [];
 		}
 
-		$options = \content_site\call_function::option($_section);
+		$options = self::option($_section, $_type);
 
 		$default_options = [];
 
@@ -267,7 +267,7 @@ class call_function
 			}
 		}
 
-		$namespace_preview = sprintf($namespace, 'preview');
+		$namespace_preview = sprintf($namespace, $_type);
 
 		if(!is_callable([$namespace_preview, $_preview]))
 		{
