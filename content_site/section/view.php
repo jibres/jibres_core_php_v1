@@ -83,6 +83,12 @@ class view
 	private static function show_section_preview_in_group()
 	{
 		$folder            = \dash\validate::string_100(\dash\request::get('folder'));
+
+		if(!$folder)
+		{
+			$folder = 'body';
+		}
+
 		$section_requested = \dash\validate::string_100(\dash\request::get('section'));
 		$type_requested    = \dash\validate::string_100(\dash\request::get('typekey'));
 
@@ -103,8 +109,6 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 		$section_list = controller::section_list();
-
-		// var_dump($section_list);exit;
 
 		$result = [];
 

@@ -55,7 +55,7 @@ class layout
 		// fill_default_data receive from preview function
 		if(empty($blogList) || \content_site\utility::fill_by_default_data())
 		{
-			$blogList = fill_default::get(a($_args, 'count'));
+			$blogList = \content_site\assemble\fill_default::blog(a($_args, 'count'));
 		}
 
 		// send the view all link to every layout of blog
@@ -67,27 +67,27 @@ class layout
 		switch (a($_args, 'type'))
 		{
 			case 'b1':
-				$html .= b1::html($_args, $blogList);
+				$html .= html\b1::html($_args, $blogList);
 				break;
 
 			case 'b2':
-				$html .= b2::html($_args, $blogList);
+				$html .= html\b2::html($_args, $blogList);
 				break;
 
 			case 'b3':
-				$html .= b3::html($_args, $blogList);
+				$html .= html\b3::html($_args, $blogList);
 				break;
 
 			case 'b4':
-				$html .= b4::html($_args, $blogList);
+				$html .= html\b4::html($_args, $blogList);
 				break;
 
 			case 'b5':
-				$html .= b5::html($_args, $blogList);
+				$html .= html\b5::html($_args, $blogList);
 				break;
 
 			case 'b6':
-				$html .= b6::html($_args, $blogList);
+				$html .= html\b6::html($_args, $blogList);
 				break;
 
 			default:

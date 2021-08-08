@@ -1,16 +1,16 @@
 <?php
-namespace content_site\body\blog;
+namespace content_site\assemble;
 
 
 class fill_default
 {
 
-	public static function get($_count)
+	public static function blog($_count)
 	{
 		$list = [];
 		for ($i=1; $i <= $_count ; $i++)
 		{
-			$list[] = self::get_one_random_post($i);
+			$list[] = self::get_one_random_blog($i);
 		}
 
 		return $list;
@@ -19,18 +19,15 @@ class fill_default
 
 
 
-	private static function get_one_random_post($i)
+	private static function get_one_random_blog($i)
 	{
 		$date = date('Y-m-d H:i:s', strtotime( '-'.mt_rand(0,5).' days'));
 		return
 		[
 			'title'       => T_("Your post's title"),
 			'excerpt'     => T_("Your business hasn't published any posts yet. A post can be used to talk about new product launches, tips, or other news you want to share with your customers."),
-			// 'thumb'       => \dash\app::static_image_url(),
-			// 'thumb'       => \dash\sample\img::unsplash(null, $collection[array_rand($collection)]),
 			'thumb'       => \dash\sample\img::image(),
 			'readingtime' => \dash\utility\human::time(60* rand(1, 5), true),
-			// 'publishdate' => date("Y-m-d H:i:s", $date),
 			'publishdate' => $date,
 			'user_detail' =>
 			[

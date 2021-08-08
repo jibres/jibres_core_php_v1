@@ -45,38 +45,13 @@ class option
 	{
 		return
 		[
-			[
-				'type'   => 'b1',
-				'title'   => T_("Classic blog"),
-				'default' => true
-			],
-			[
-				'type'   => 'b2',
-				'title'   => T_("Modern blog"),
-				'default' => false
-			],
-			[
-				'type'   => 'b3',
-				'title'   => T_("Simple blog"),
-				'default' => false
-			],
-			[
-				'type'   => 'b4',
-				'title'   => T_("Blog 4"),
-				'default' => false
-			],
-			[
-				'type'   => 'b5',
-				'title'   => T_("Blog 5"),
-				'default' => false
-			],
-			[
-				'type'   => 'b6',
-				'title'   => T_("Blog 6"),
-				'default' => false
-			],
+			'b1',
+			'b2',
+			'b3',
+			'b4',
+			'b5',
+			'b6',
 		];
-
 	}
 
 
@@ -99,8 +74,6 @@ class option
 			// Hey! if change this variable you must change the default type in type_list function
 			$type = 'b1';
 		}
-
-		// var_dump($_data);
 
 		$type_detail = [];
 
@@ -127,7 +100,7 @@ class option
 	/**
 	 * Public default
 	 */
-	private static function master_default($_special_default = [])
+	public static function master_default($_special_default = [])
 	{
 		$master_default =
 		[
@@ -159,7 +132,7 @@ class option
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function master_option()
+	public static function master_option()
 	{
 		$option =
 		[
@@ -189,139 +162,6 @@ class option
 		];
 
 		return $option;
-	}
-
-
-	/**
-	 * Style 1
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function b1()
-	{
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Classic View"),
-			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => self::master_option(),
-		];
-	}
-
-
-	/**
-	 * Style 2
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function b2()
-	{
-		$my_option = self::master_option();
-
-		\content_site\utility::unset_option($my_option, 'post_show_author');
-		\content_site\utility::unset_option($my_option, 'post_show_date');
-
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Modern View"),
-			'premium' => true,
-			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => $my_option,
-		];
-	}
-
-
-	/**
-	 * Style 3
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function b3()
-	{
-		$my_option = self::master_option();
-
-		\content_site\utility::unset_option($my_option, 'coverratio');
-		\content_site\utility::unset_option($my_option, 'post_show_image');
-		\content_site\utility::unset_option($my_option, 'post_show_readingtime');
-		\content_site\utility::unset_option($my_option, 'post_show_author');
-
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Modern View"),
-			'premium' => true,
-			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => $my_option,
-		];
-	}
-
-
-	/**
-	 * Style 3
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function b4()
-	{
-		$my_option = self::master_option();
-
-		\content_site\utility::unset_option($my_option, 'coverratio');
-
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Block b4"),
-			'premium' => true,
-			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => $my_option,
-		];
-	}
-
-
-
-	/**
-	 * Style 3
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function b5()
-	{
-		$my_option = self::master_option();
-
-		\content_site\utility::unset_option($my_option, 'coverratio');
-
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Block b5"),
-			'premium' => true,
-			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => $my_option,
-		];
-	}
-
-
-
-	/**
-	 * Style 3
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function b6()
-	{
-		$my_option = self::master_option();
-
-		\content_site\utility::unset_option($my_option, 'coverratio');
-
-		return
-		[
-			'key'     => __FUNCTION__,
-			'title'   => T_("Block b6"),
-			'premium' => true,
-			'default' => self::master_default(['type' => __FUNCTION__]),
-			'options' => $my_option,
-		];
 	}
 
 }

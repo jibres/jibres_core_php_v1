@@ -635,7 +635,7 @@ class model
 			return false;
 		}
 
-		$load_preview = \content_site\call_function::preview($key, $preview_key);
+		$load_preview = \content_site\call_function::preview($key, $type, $preview_key);
 
 		if(!is_array($load_preview))
 		{
@@ -733,7 +733,7 @@ class model
 
 		$url = \dash\url::this(). '/';
 		$url .= $key;
-		$url .= \dash\request::full_get(['sid' => $id, 'list' => null, 'preview' => null]);
+		$url .= \dash\request::full_get(['sid' => $id, 'folder' => null, 'section' => null,]);
 
 		\dash\redirect::to($url);
 

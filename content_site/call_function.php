@@ -120,6 +120,7 @@ class call_function
 		{
 			$section_key = a($_args, 0);
 			$args        = a($_args, 1);
+			$args2       = a($_args, 2);
 
 			$namespace = self::get_namespace($section_key);
 
@@ -146,45 +147,11 @@ class call_function
 			}
 			elseif($_fn === 'preview')
 			{
-				$namespace = sprintf($namespace, 'preview');
+				$namespace = sprintf($namespace, $args);
 
-				return self::_call([$namespace, $args]);
-			}
-			elseif($_fn === 'preview_list')
-			{
-				$namespace_preview = sprintf($namespace, 'preview');
+				$load_preview = self::_call([$namespace, $args2]);
 
-				$function_list = [];
-
-				if(class_exists($namespace_preview))
-				{
-					$function_list = get_class_methods($namespace_preview);
-				}
-
-				$list = [];
-
-				foreach ($function_list as $key => $value)
-				{
-					$load_preview = self::_call([$namespace_preview, $value]);
-
-					$myType = a($load_preview, 'type');
-
-					if($args && $args !== $myType)
-					{
-						continue;
-					}
-
-					$list[] =
-					[
-						'preview_key' => $value,
-						'version'     => (a($load_preview, 'version') ? $load_preview['version'] : 1),
-						'opt_type'    => $myType,
-						'iframe_url'  => \dash\url::here(). '/preview/'. $section_key. '/'. $value,
-					];
-
-				}
-
-				return $list;
+				return $load_preview;
 			}
 			else
 			{
@@ -194,6 +161,56 @@ class call_function
 			}
 		}
 
+	}
+
+
+	public static function preview_list($_section_key, $_filter_type)
+	{
+		$namespace = self::get_namespace($_section_key);
+
+		$namespace_option = sprintf($namespace, 'option');
+
+		$type_list = self::_call([$namespace_option, 'type_list']);
+
+		if(!is_array($type_list))
+		{
+			$type_list = [];
+		}
+
+		$list = [];
+
+		foreach ($type_list as $key => $type)
+		{
+			if($_filter_type && $_filter_type !== $type)
+			{
+				continue;
+			}
+
+			$namespace_type = sprintf($namespace, $type);
+
+			$load_type_option = self::_call([$namespace_type, 'option']);
+
+			if(isset($load_type_option['preview_list']) && is_array($load_type_option['preview_list']))
+			{
+				foreach ($load_type_option['preview_list'] as $preview_function)
+				{
+					$load_preview = self::_call([$namespace_type, $preview_function]);
+
+					$list[] =
+					[
+						'type_title'    => a($load_type_option, 'title'),
+						'preview_title' => a($load_preview, 'preview_title'),
+						'preview_image' => a($load_preview, 'preview_image'),
+						'preview_key'   => $preview_function,
+						'version'       => (a($load_preview, 'version') ? $load_preview['version'] : 1),
+						'opt_type'      => $type,
+						'iframe_url'    => \dash\url::here(). '/preview/'. $_section_key. '/'. $preview_function,
+					];
+				}
+			}
+		}
+
+		return $list;
 	}
 
 
@@ -265,14 +282,6 @@ class call_function
 			if(substr($key, 0, 4) === 'pwa:' && $is_pwa)
 			{
 				$_data[substr($key, 4)] = $value;
-			}
-		}
-
-		foreach ($_data as $key => $value)
-		{
-			if(substr($key, 0, 8) === 'preview:')
-			{
-				$_data[substr($key, 8)] = $value;
 			}
 		}
 
