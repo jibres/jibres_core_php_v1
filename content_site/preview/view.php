@@ -7,6 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\data::include_adminPanelBuilder(false);
+		\dash\data::HtmlPointerEventsNone(true);
 	}
 }
 ?>
