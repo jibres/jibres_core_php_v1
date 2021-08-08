@@ -212,7 +212,6 @@ class option
 	{
 		$my_option = self::master_option();
 
-		\content_site\utility::unset_option($my_option, 'coverratio');
 		\content_site\utility::unset_option($my_option, 'post_show_author');
 		\content_site\utility::unset_option($my_option, 'post_show_date');
 
@@ -237,6 +236,9 @@ class option
 		$my_option = self::master_option();
 
 		\content_site\utility::unset_option($my_option, 'coverratio');
+		\content_site\utility::unset_option($my_option, 'post_show_image');
+		\content_site\utility::unset_option($my_option, 'post_show_readingtime');
+		\content_site\utility::unset_option($my_option, 'post_show_author');
 
 		return
 		[

@@ -9,7 +9,44 @@ class b3
 
 		$html             = '';
 
-		$html .= '<div class="avand-xl">';
+		$id          = a($_args, 'id');
+		$type        = a($_args, 'type');
+
+		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
+		$font_class  = \content_site\assemble\font::class($_args);
+
+
+		$height           = \content_site\options\height::class_name(a($_args, 'height'));
+		$background_style = \content_site\assemble\background::style($_args);
+		$text_color       = \content_site\assemble\text_color::style($_args);
+		$section_id       = \content_site\assemble\tools::section_id($type, $id);
+
+		$backgroundAttr = null;
+		if($background_style || $text_color)
+		{
+			$backgroundAttr = "style='$background_style $text_color'";
+		}
+
+		$onlyTextColorStyle = null;
+		if($text_color)
+		{
+			$onlyTextColorStyle = "style='$text_color'";
+		}
+
+		// element type
+		$cnElement = 'div';
+		if(a($_args, 'heading') !== null)
+		{
+			$cnElement = 'section';
+		}
+
+		$classNames = $height;
+		if($font_class)
+		{
+			$classNames .= ' '. $font_class;
+		}
+
+		$html .= "<$cnElement data-type='$type' class='$classNames $font_class' $backgroundAttr $section_id>";
 		{
 
 			$html .= '<div class="divide-y divide-gray-200">';
@@ -23,9 +60,13 @@ class b3
 					{
 						$heading_class = \content_site\options\heading::class_name($_args);
 
-						$html .= '<div class="pt-6 pb-8 space-y-2 md:space-y-5">';
+						$html .= "<div class='pt-6 pb-8 space-y-2 md:space-y-5' $onlyTextColorStyle>";
 						{
-							$html .= '<h2 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-[4rem] md:leading-[3.5rem]">'. a($_args, 'heading'). '</h2>';
+							$html .= "<h2 class='text-3xl font-extrabold tracking-tight sm:text-4xl md:text-[4rem] md:leading-[3.5rem] $heading_class' $onlyTextColorStyle>";
+							{
+							 $html .= a($_args, 'heading');
+							}
+							$html .= '</h2>';
 							// <p class="text-lg text-gray-500">All the latest Tailwind CSS news, straight from the team.</p>
 						}
 						$html .= '</div>';
@@ -49,14 +90,18 @@ class b3
 
 						$html .= '<li class="py-12">';
 						{
-							$html .= '<article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">';
+							$html .= "<article class='space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline' $onlyTextColorStyle>";
 							{
 								$html .= '<dl>';
 								{
 									$html .= '<dt class="sr-only">'. T_("Published on").'</dt>';
 									$html .= '<dd class="text-base font-medium text-gray-500">';
 									{
-										$html .= "<time datetime='$myDate'>".\dash\fit::date($myDate, 'readable')."</time>";
+										$html .= "<time $onlyTextColorStyle datetime='$myDate'>";
+										{
+											$html .= \content_site\assemble\tools::date($myDate, a($_args, 'post_show_date'));
+										}
+										$html .= "</time>";
 									}
 									$html .= '</dd>';
 
@@ -71,7 +116,7 @@ class b3
 
 										$html .= '<h3 class="text-2xl font-bold tracking-tight">';
 										{
-											$html .= "<a class='text-gray-900' href='$myLink'>$myTitle</a>";
+											$html .= "<a class='' $onlyTextColorStyle href='$myLink'>$myTitle</a>";
 										}
 										$html .= '</h3>';
 
@@ -82,7 +127,7 @@ class b3
 											{
 												if($myExcerpt && a($_args, 'post_show_excerpt'))
 												{
-													$html .= "<p>$myExcerpt</p>";
+													$html .= "<p $onlyTextColorStyle>$myExcerpt</p>";
 												}
 											}
 											$html .= '</div>';
@@ -109,7 +154,8 @@ class b3
 			}
 			$html .= '</div>';
 		}
-		$html .= '</div>';
+		$html .= "</$cnElement>";
+
 
 		return $html;
 	}
