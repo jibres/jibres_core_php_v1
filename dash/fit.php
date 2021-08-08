@@ -290,11 +290,6 @@ class fit{
 			return $_src;
 		}
 
-		if(strpos($_src, 'img/sample/bg-') !== false || strpos($_src, 'img/background/bg-') !== false)
-		{
-			return $_src;
-		}
-
 		$dotPosition = strrpos($_src, '.');
 		if(!$dotPosition)
 		{
