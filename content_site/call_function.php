@@ -204,7 +204,36 @@ class call_function
 			$category = [];
 		}
 
-		if(!$_filter_category)
+		$filter_category = [];
+
+		if($_filter_category === 'all')
+		{
+			$filter_category['list'] = [];
+
+			$type_list = self::type_list($_section_key);
+
+			if(!is_array($type_list))
+			{
+				$type_list = [];
+			}
+
+			foreach ($type_list as $value)
+			{
+				$namespace_type = sprintf($namespace, $value);
+
+				$temp_load_type_option = self::_call([$namespace_type, 'option']);
+
+				if(isset($temp_load_type_option['preview_list']) && is_array($temp_load_type_option['preview_list']))
+				{
+					foreach ($temp_load_type_option['preview_list'] as $temp_preview_list)
+					{
+						$filter_category['list'][] = "$value:$temp_preview_list";
+					}
+				}
+			}
+
+		}
+		elseif(!$_filter_category)
 		{
 			if(isset($category['popular']))
 			{

@@ -13,33 +13,59 @@ if(\dash\data::sidebarSectionList())
   $sectionRequestedDetail = \dash\data::sectionRequestedDetail();
 
   $html .= '<label>'. a($sectionRequestedDetail, 'group'). '</label>';
-
-
   $html .= '<nav class="sections items">';
-  $html .= '<ul>';
-
-  foreach (\dash\data::sidebarSectionList() as $key => $item)
   {
-      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => $key]);
+    $html .= '<ul>';
+    {
+      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => 'all']);
 
-      // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
       $html .= '<li>';
-      // $html .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
-      $html .= "<a class='item f' href='". $show_preview_link. "'>";
-      $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
-      $html .= '<div class="key">'. a($item, 'title'). '</div>';
-      if(false) // selected
       {
-        $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+        $html .= "<a class='item f' href='". $show_preview_link. "'>";
+        {
+          $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+          $html .= '<div class="key">'. T_("All"). '</div>';
+          if(false) // selected
+          {
+            $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+          }
+          $html .= '</a>';
+        }
       }
-      $html .= '</a>';
       $html .= '</li>';
+    }
+    $html .= '</ul>';
   }
-
-  $html .= '</ul>';
   $html .= '</nav>';
 
 
+  $html .= '<nav class="sections items">';
+  {
+    $html .= '<ul>';
+    {
+      foreach (\dash\data::sidebarSectionList() as $key => $item)
+      {
+        $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => $key]);
+
+        $html .= '<li>';
+        {
+          $html .= "<a class='item f' href='". $show_preview_link. "'>";
+          {
+            $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+            $html .= '<div class="key">'. a($item, 'title'). '</div>';
+            if(false) // selected
+            {
+              $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+            }
+            $html .= '</a>';
+          }
+        }
+        $html .= '</li>';
+      } // endfor
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
 
 }
 elseif(\dash\data::groupSectionList())
