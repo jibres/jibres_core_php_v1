@@ -18,9 +18,9 @@ if(\dash\data::sidebarSectionList())
   $html .= '<nav class="sections items">';
   $html .= '<ul>';
 
-  foreach (\dash\data::sidebarSectionList() as $group => $item)
+  foreach (\dash\data::sidebarSectionList() as $key => $item)
   {
-      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => a($item, 'slug')]);
+      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => $key]);
 
       // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
       $html .= '<li>';
