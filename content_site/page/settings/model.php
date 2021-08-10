@@ -38,6 +38,25 @@ class model
 			$post['title'] = \dash\request::post('title');
 		}
 
+		if(\dash\request::post('set_seo'))
+		{
+
+			$post =
+			[
+				'set_seo'        => true,
+				'slug'           => \dash\request::post('slug'),
+				'excerpt'        => \dash\request::post('excerpt'),
+				'seotitle'       => \dash\request::post('seotitle'),
+				'tagurl'         => \dash\request::post('tagurl'),
+				'specialaddress' => \dash\request::post('specialaddress'),
+				'parent'         => \dash\request::post('parent') ? \dash\request::post('parent') : null,
+			];
+		}
+
+
+
+
+
 
 		\dash\app\posts\edit::edit($post, \dash\data::currentPageDetail_id());
 
