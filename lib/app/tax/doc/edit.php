@@ -40,23 +40,6 @@ class edit
 		return true;
 
 
-		$doc_list = \lib\db\tax_document\get::list_reset_number($data['year_id']);
-
-		if(!is_array($doc_list))
-		{
-			$doc_list = [];
-		}
-
-		if(!$doc_list)
-		{
-			\dash\notif::warn(T_("This accounting year is empty!"));
-			return false;
-		}
-
-		$update = \lib\db\tax_document\update::reset_number($doc_list);
-		\dash\notif::ok_once(T_("The number was reset"));
-		return true;
-
 	}
 
 	public static function edit_status($_args, $_id)
@@ -110,6 +93,9 @@ class edit
 
 		if($data['status'] === 'lock')
 		{
+			self::reset_number(['year_id' => a($load, 'year_id')]);
+			\dash\notif::clean();
+
 			\dash\notif::ok_once(T_("Accounting document locked"));
 		}
 		else
