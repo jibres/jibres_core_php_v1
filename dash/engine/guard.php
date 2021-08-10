@@ -11,6 +11,7 @@ class guard
 		self::header_content_security_policy();
 		self::header_referrer_policy();
 		// self::header_feature_policy();
+		self::header_XSS_Protection();
 		self::header_permissions_policy();
 		// self::header_expect_ct();
 		// check server lock status
@@ -270,6 +271,19 @@ class guard
 		// when a scheme downgrade happens (the user is navigating from HTTPS to HTTP).
 
 		@header("Referrer-Policy: strict-origin-when-cross-origin");
+	}
+
+
+	private static function header_XSS_Protection()
+	{
+		// The HTTP X-XSS-Protection response header is a feature of Internet Explorer, Chrome and Safari
+		// that stops pages from loading when they detect reflected cross-site scripting (XSS) attacks.
+		// Although these protections are largely unnecessary in modern browsers
+		// when sites implement a strong Content-Security-Policy that disables
+		// the use of inline JavaScript ('unsafe-inline'),
+		// they can still provide protections for users of older web browsers that don't yet support CSP.
+
+		@header('X-XSS-Protection: 1; mode=block');
 	}
 
 
