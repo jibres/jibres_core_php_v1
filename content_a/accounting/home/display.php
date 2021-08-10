@@ -159,7 +159,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 
       <div class="c-xs-6 c-sm-6 c-md-6">
 
-        <a href="<?php echo \dash\url::this(). '/factor?template=income'; ?>" class="stat">
+        <a href="<?php echo \dash\url::this(). '/factor?template=income&status=lock&quarterlyreport=yes'; ?>" class="stat">
           <h3><?php echo T_("Total Sell");?></h3>
           <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_income'));?></div>
         </a>
@@ -167,7 +167,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
 
       <div class="c-xs-6 c-sm-6 c-md-6">
 
-        <a href="<?php echo \dash\url::this(). '/factor?template=costasset'; ?>" class="stat">
+        <a href="<?php echo \dash\url::this(). '/factor?template=costasset&status=lock&quarterlyreport=yes'; ?>" class="stat">
           <h3><?php echo T_("Total buy");?></h3>
           <div class="val"><?php echo \dash\fit::number(a($dashboardDetail, 'total_costasset'));?></div>
         </a>
@@ -247,7 +247,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=cost'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=cost&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Point Of Sale'); ?>">
             <div class="key"><?php echo T_("Cost purchases") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'cost')) ?></div>
@@ -255,7 +255,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=asset'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=asset&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('capital'); ?>">
             <div class="key"><?php echo T_("Buy assets") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'asset')) ?></div>
@@ -267,7 +267,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=income'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=income&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Managed Store'); ?>">
             <div class="key"><?php echo T_("Revenues and sales invoices") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'income')) ?></div>
@@ -279,7 +279,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
     <nav class="items long">
       <ul>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=petty_cash'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=petty_cash&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Bank'); ?>">
             <div class="key"><?php echo T_("Charge Petty Cash from bank") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'petty_cash')) ?></div>
@@ -287,7 +287,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=partner'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=partner&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
             <div class="key"><?php echo T_("Charge Petty Cash from partners") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'partner')) ?></div>
@@ -295,7 +295,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bank_partner'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bank_partner&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
             <div class="key"><?php echo T_("Charge Bank from partners") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'bank_partner')) ?></div>
@@ -303,7 +303,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bank_profit'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/factor?template=bank_profit&status=lock'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('Incoming'); ?>">
             <div class="key"><?php echo T_("Bank profit") ?></div>
             <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'factor_type', 'bank_profit')) ?></div>
