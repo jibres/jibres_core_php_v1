@@ -55,6 +55,18 @@ class option
 	}
 
 
+	public static function category()
+	{
+		return
+		[
+			'popular' => ['slug' => 'p',  'title' => T_("Popular"), 'list' => ['b1:p1', 'b1:p2', 'b2:p1']],
+			'b1'      => ['slug' => 'b1', 'title' => T_("Blog 1"),  'list' => ['b1']],
+			'b2'      => ['slug' => 'b2', 'title' => T_("Blog 2"),  'list' => ['b2']],
+			'b3'      => ['slug' => 'b3', 'title' => T_("Blog 3"),  'list' => ['b3']],
+			'b4'      => ['slug' => 'b4', 'title' => T_("Blog 4"),  'list' => ['b4']],
+		];
+	}
+
 
 
 	/**

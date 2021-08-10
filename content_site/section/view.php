@@ -90,7 +90,7 @@ class view
 		}
 
 		$section_requested = \dash\validate::string_100(\dash\request::get('section'));
-		$type_requested    = \dash\validate::string_100(\dash\request::get('typekey'));
+		$category    = \dash\validate::string_100(\dash\request::get('category'));
 
 		if(\dash\url::child())
 		{
@@ -106,11 +106,12 @@ class view
 			}
 		}
 
-		$view_template = null;
-
 		$section_list = controller::section_list();
 
-		$result = [];
+		$sidebar_list             = [];
+		$group_list               = [];
+		$preview_list             = [];
+		$section_requested_detail = [];
 
 		foreach ($section_list as $key => $value)
 		{
@@ -125,70 +126,68 @@ class view
 			{
 				if(a($value, 'key') === $section_requested)
 				{
+					$section_requested_detail = \content_site\call_function::detail($value['key']);
 
-					// if($type_requested)
-					// {
-						$view_template = 'preview_list';
+					$category_list = \content_site\call_function::category($value['key']);
 
-						$load_preview_list = \content_site\call_function::preview_list($value['key'], $type_requested);
+					// replace sidebar_list
+					$sidebar_list = $category_list;
 
-						// filter by preview requested
-						if(!$load_preview_list)
-						{
-							continue;
-						}
+					if($category)
+					{
+						$load_preview_list = \content_site\call_function::preview_list($value['key'], $category);
+					}
+					else
+					{
+						$load_preview_list = \content_site\call_function::preview_list($value['key']);
+					}
 
-						$value['preview_list'] = $load_preview_list;
+					// filter by preview requested
+					if(!$load_preview_list)
+					{
+						continue;
+					}
 
-						$result[a($value, 'group')][] = $value;
-
-					// }
-					// else
-					// {
-					// 	$view_template = 'type_list';
-					// 	$load_type_list = \content_site\call_function::type_list($value['key']);
-					// 	var_dump($load_type_list);
-					// 	exit;
-					// }
+					$preview_list = $load_preview_list;
 				}
 				else
 				{
+					// skip section by other key
 					continue;
 				}
 			}
 			else
 			{
-				$view_template = 'all_group';
 				// show all group
-				if(!isset($result[a($value, 'group')]))
+				if(!isset($group_list[a($value, 'group')]))
 				{
-					$result[a($value, 'group')] = [];
+					$group_list[a($value, 'group')] = [];
 				}
 
-				$result[a($value, 'group')][] = $value;
+				$group_list[a($value, 'group')][] = $value;
 			}
 		}
-
-		// var_dump($result, $view_template);exit;
-
-		\dash\data::viewTemplate($view_template);
 
 		if($section_requested)
 		{
 			\dash\data::include_adminPanelBuilder(true);
 		}
-		// save result to show in dispaly
-		\dash\data::sectionList($result);
 
+		// save sidebar_list to show in dispaly
+		\dash\data::groupSectionList($group_list);
+		\dash\data::sidebarSectionList($sidebar_list);
+		\dash\data::previewSectionList($preview_list);
+		\dash\data::sectionRequestedDetail($section_requested_detail);
 
 		$all_get = \dash\request::get();
 
-		if($folder && $section_requested && $type_requested)
+		if($folder && $section_requested && $category)
 		{
-			\dash\face::title(\dash\face::title() . ' | '. $section_requested . ' | '. $type_requested);
-			unset($all_get['typekey']);
+			\dash\face::title(\dash\face::title() . ' | '. $section_requested . ' | '. $category);
+			unset($all_get['category']);
+			unset($all_get['section']);
 		}
-		elseif($folder && $section_requested && !$type_requested)
+		elseif($folder && $section_requested && !$category)
 		{
 			\dash\face::title(\dash\face::title() . ' | '. $section_requested);
 			unset($all_get['section']);

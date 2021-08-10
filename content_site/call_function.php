@@ -193,49 +193,107 @@ class call_function
 	}
 
 
-	public static function preview_list($_section_key, $_filter_type)
+	public static function preview_list($_section_key, $_filter_category = null)
 	{
 		$namespace = self::get_namespace($_section_key);
 
-		$namespace_option = sprintf($namespace, 'option');
+		$category = self::category($_section_key);
 
-		$type_list = self::_call([$namespace_option, 'type_list']);
-
-		if(!is_array($type_list))
+		if(!is_array($category))
 		{
-			$type_list = [];
+			$category = [];
+		}
+
+		if(!$_filter_category)
+		{
+			if(isset($category['popular']))
+			{
+				$filter_category = $category['popular'];
+			}
+			else
+			{
+				// get first index
+				$filter_category = current($category);
+			}
+		}
+		else
+		{
+			if(isset($category[$_filter_category]))
+			{
+				$filter_category = $category[$_filter_category];
+			}
+			else
+			{
+				$filter_category = [];
+			}
+		}
+
+		if(isset($filter_category['list']) && is_array($filter_category['list']))
+		{
+			// ok
+		}
+		else
+		{
+			$filter_category['list'] = [];
 		}
 
 		$list = [];
 
-		foreach ($type_list as $key => $type)
+		foreach ($filter_category['list'] as $key => $preview_key)
 		{
-			if($_filter_type && $_filter_type !== $type)
+			$type    = null;
+			$preview = null;
+			if(strpos($preview_key, ':') !== false)
 			{
-				continue;
+				$split   = explode(':', $preview_key);
+
+				$type    = $split[0];
+				$preview = $split[1];
+			}
+			else
+			{
+				$type    = $preview_key;
+				$preview = null;
 			}
 
 			$namespace_type = sprintf($namespace, $type);
 
 			$load_type_option = self::_call([$namespace_type, 'option']);
 
-			if(isset($load_type_option['preview_list']) && is_array($load_type_option['preview_list']))
-			{
-				foreach ($load_type_option['preview_list'] as $preview_function)
-				{
-					$load_preview = self::_call([$namespace_type, $preview_function]);
+			$need_load_preview = [];
 
-					$list[] =
-					[
-						'type_title'    => a($load_type_option, 'title'),
-						'preview_title' => a($load_preview, 'preview_title'),
-						'preview_image' => a($load_preview, 'preview_image'),
-						'preview_key'   => $preview_function,
-						'version'       => (a($load_preview, 'version') ? $load_preview['version'] : 1),
-						'opt_type'      => $type,
-						'iframe_url'    => \dash\url::here(). '/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
-					];
+			if($preview)
+			{
+				$need_load_preview[] = $preview;
+			}
+			else
+			{
+				$load_type_option = self::_call([$namespace_type, 'option']);
+
+				if(isset($load_type_option['preview_list']) && is_array($load_type_option['preview_list']))
+				{
+					$need_load_preview = $load_type_option['preview_list'];
 				}
+			}
+
+			foreach ($need_load_preview as $preview_function)
+			{
+				$load_preview = self::_call([$namespace_type, $preview_function]);
+
+				$version = (a($load_preview, 'version') ? $load_preview['version'] : 1);
+
+				$list[] =
+				[
+					'key'           => $_section_key,
+					'type_title'    => a($load_type_option, 'title'),
+					'preview_title' => a($load_preview, 'preview_title'),
+					'preview_image' => a($load_preview, 'preview_image'),
+					'preview_key'   => $preview_function,
+					'version'       => $version,
+					'opt_type'      => $type,
+					'iframe_url'    => \dash\url::here(). '/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
+					'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $type, $preview_function, $version),
+				];
 			}
 		}
 
