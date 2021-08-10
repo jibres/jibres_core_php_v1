@@ -262,6 +262,11 @@ class load
 
 		self::ready($result, $list, $need_explode_homepage_header_footer, $homepage_id);
 
+		if(empty(array_merge($result['header'], $result['body'], $result['footer'])))
+		{
+			\dash\data::emptySectionList(true);
+		}
+
 		self::$is_page = true;
 
 		return $result;
