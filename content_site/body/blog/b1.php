@@ -38,7 +38,7 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'count' => 1,
+
 			],
 		];
 	}

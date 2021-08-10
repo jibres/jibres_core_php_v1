@@ -652,7 +652,7 @@ class model
 
 		$preview = ['key' => $key, 'type' => $type];
 
-		$load_default = \content_site\call_function::default($type, $key);
+		$load_default = \content_site\call_function::default($key, $type);
 
 		if(!is_array($load_default))
 		{
