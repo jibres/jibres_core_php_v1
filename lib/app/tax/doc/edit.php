@@ -91,11 +91,11 @@ class edit
 		$data['datemodified'] = date("Y-m-d H:i:s");
 		\lib\db\tax_document\update::update($data, $load['id']);
 
+		self::reset_number(['year_id' => a($load, 'year_id')]);
+		\dash\notif::clean();
+
 		if($data['status'] === 'lock')
 		{
-			self::reset_number(['year_id' => a($load, 'year_id')]);
-			\dash\notif::clean();
-
 			\dash\notif::ok_once(T_("Accounting document locked"));
 		}
 		else

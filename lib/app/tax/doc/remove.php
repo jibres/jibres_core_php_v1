@@ -23,10 +23,19 @@ class remove
 
 		if(a($load, 'type') === 'normal')
 		{
-			$data = [];
-			$data['datemodified'] = date("Y-m-d H:i:s");
-			$data['status'] = 'deleted';
-			\lib\db\tax_document\update::update($data, $load['id']);
+			if(a($load,'status') === 'deleted')
+			{
+				\lib\db\tax_docdetail\delete::by_doc_id($load['id']);
+				\lib\db\tax_document\delete::by_id($load['id']);
+			}
+			else
+			{
+				$data = [];
+				$data['datemodified'] = date("Y-m-d H:i:s");
+				$data['status'] = 'deleted';
+				\lib\db\tax_document\update::update($data, $load['id']);
+			}
+
 		}
 		else
 		{
