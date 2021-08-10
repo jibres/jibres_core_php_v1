@@ -23,7 +23,7 @@ if(\dash\data::sidebarSectionList())
       {
         $html .= "<a class='item f' href='". $show_preview_link. "'>";
         {
-          $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+          // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
           $html .= '<div class="key">'. T_("All"). '</div>';
           if(\dash\request::get('category') === 'all') // selected
           {
@@ -48,9 +48,9 @@ if(\dash\data::sidebarSectionList())
       {
         $html .= "<a class='item f' href='". $show_preview_link. "'>";
         {
-          $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+          // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
           $html .= '<div class="key">'. T_("Popular"). '</div>';
-          if(\dash\request::get('category') === 'popular') // selected
+          if(\dash\request::get('category') === 'popular' || !\dash\request::get('category')) // selected
           {
             $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
           }
@@ -76,9 +76,9 @@ if(\dash\data::sidebarSectionList())
         {
           $html .= "<a class='item f' href='". $show_preview_link. "'>";
           {
-            $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+            // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
             $html .= '<div class="key">'. a($item, 'title'). '</div>';
-            if(\dash\request::get('category') === $key || ($key === 'popular' && !\dash\request::get('category')))
+            if(\dash\request::get('category') === $key)
             {
               $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
             }
