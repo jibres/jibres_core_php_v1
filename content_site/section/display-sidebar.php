@@ -25,7 +25,7 @@ if(\dash\data::sidebarSectionList())
         {
           $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
           $html .= '<div class="key">'. T_("All"). '</div>';
-          if(false) // selected
+          if(\dash\request::get('category') === 'all') // selected
           {
             $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
           }
@@ -53,7 +53,7 @@ if(\dash\data::sidebarSectionList())
           {
             $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
             $html .= '<div class="key">'. a($item, 'title'). '</div>';
-            if(false) // selected
+            if(\dash\request::get('category') === $key || ($key === 'popular' && !\dash\request::get('category')))
             {
               $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
             }
