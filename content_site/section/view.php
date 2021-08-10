@@ -11,9 +11,10 @@ class view
 	 */
 	private static $remove_needless_get =
 	[
-		'index'   => null,
-		'section' => null,
-		'list'    => null,
+		'index'    => null,
+		'section'  => null,
+		'folder'   => null,
+		'category' => null,
 	];
 
 
