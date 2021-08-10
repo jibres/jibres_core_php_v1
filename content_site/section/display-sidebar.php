@@ -38,6 +38,31 @@ if(\dash\data::sidebarSectionList())
   }
   $html .= '</nav>';
 
+  $html .= '<nav class="sections items">';
+  {
+    $html .= '<ul>';
+    {
+      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => 'popular']);
+
+      $html .= '<li>';
+      {
+        $html .= "<a class='item f' href='". $show_preview_link. "'>";
+        {
+          $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+          $html .= '<div class="key">'. T_("Popular"). '</div>';
+          if(\dash\request::get('category') === 'popular') // selected
+          {
+            $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+          }
+          $html .= '</a>';
+        }
+      }
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
+
 
   $html .= '<nav class="sections items">';
   {
@@ -45,7 +70,7 @@ if(\dash\data::sidebarSectionList())
     {
       foreach (\dash\data::sidebarSectionList() as $key => $item)
       {
-        $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => $key]);
+        $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => a($item, 'default', 'type')]);
 
         $html .= '<li>';
         {

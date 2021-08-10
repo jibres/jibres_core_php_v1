@@ -113,6 +113,7 @@ class view
 		$group_list               = [];
 		$preview_list             = [];
 		$section_requested_detail = [];
+		$popular                  = null;
 
 		foreach ($section_list as $key => $value)
 		{
@@ -129,10 +130,8 @@ class view
 				{
 					$section_requested_detail = \content_site\call_function::detail($value['key']);
 
-					$category_list = \content_site\call_function::category($value['key']);
-
-					// replace sidebar_list
-					$sidebar_list = $category_list;
+					// $popular = \content_site\call_function::popular($value['key']);
+					$sidebar_list = \content_site\call_function::ready_type_list($value['key']);
 
 					if($category)
 					{

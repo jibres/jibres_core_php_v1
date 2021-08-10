@@ -208,23 +208,56 @@ class call_function
 	}
 
 
+	public static function ready_type_list($_section_key)
+	{
+		$namespace = self::get_namespace($_section_key);
+
+		$type_list = self::type_list($_section_key);
+
+		if(!is_array($type_list))
+		{
+			$type_list = [];
+		}
+
+		$list = [];
+
+		foreach ($type_list as $value)
+		{
+			$namespace_type = sprintf($namespace, $value);
+
+			$temp_load_type_option = self::_call([$namespace_type, 'option']);
+			$list[]                = $temp_load_type_option;
+
+		}
+
+		return $list;
+
+	}
+
 	public static function preview_list($_section_key, $_filter_category = null)
 	{
 		$namespace = self::get_namespace($_section_key);
 
-		$category = self::category($_section_key);
-
-		if(!is_array($category))
-		{
-			$category = [];
-		}
-
 		$filter_category = [];
 
-		if($_filter_category === 'all')
-		{
-			$filter_category['list'] = [];
+		$popular = [];
 
+		if(!$_filter_category || $_filter_category === 'popular')
+		{
+			$popular = self::popular($_section_key);
+
+			if(!is_array($popular))
+			{
+				$popular = [];
+			}
+		}
+
+		if($popular)
+		{
+			$filter_category = $popular;
+		}
+		else
+		{
 			$type_list = self::type_list($_section_key);
 
 			if(!is_array($type_list))
@@ -234,6 +267,12 @@ class call_function
 
 			foreach ($type_list as $value)
 			{
+
+				if($value !== $_filter_category && $_filter_category !== 'all')
+				{
+					continue;
+				}
+
 				$namespace_type = sprintf($namespace, $value);
 
 				$temp_load_type_option = self::_call([$namespace_type, 'option']);
@@ -242,48 +281,15 @@ class call_function
 				{
 					foreach ($temp_load_type_option['preview_list'] as $temp_preview_list)
 					{
-						$filter_category['list'][] = "$value:$temp_preview_list";
+						$filter_category[] = "$value:$temp_preview_list";
 					}
 				}
 			}
-
-		}
-		elseif(!$_filter_category)
-		{
-			if(isset($category['popular']))
-			{
-				$filter_category = $category['popular'];
-			}
-			else
-			{
-				// get first index
-				$filter_category = current($category);
-			}
-		}
-		else
-		{
-			if(isset($category[$_filter_category]))
-			{
-				$filter_category = $category[$_filter_category];
-			}
-			else
-			{
-				$filter_category = [];
-			}
-		}
-
-		if(isset($filter_category['list']) && is_array($filter_category['list']))
-		{
-			// ok
-		}
-		else
-		{
-			$filter_category['list'] = [];
 		}
 
 		$list = [];
 
-		foreach ($filter_category['list'] as $key => $preview_key)
+		foreach ($filter_category as $key => $preview_key)
 		{
 			$type    = null;
 			$preview = null;
