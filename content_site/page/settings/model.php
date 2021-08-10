@@ -10,6 +10,22 @@ class model
 		{
 			return self::remove_page();
 		}
+
+
+		$post = [];
+
+		if(\dash\request::post('set_title'))
+		{
+			$post['title'] = \dash\request::post('title');
+		}
+
+		\dash\app\posts\edit::edit($post, \dash\data::currentPageDetail_id());
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::clean();
+			\dash\notif::complete();
+		}
 	}
 
 
