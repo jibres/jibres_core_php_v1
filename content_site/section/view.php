@@ -195,9 +195,13 @@ class view
 
 		\dash\data::back_text(T_('Back'));
 
-		if($section_requested)
+		if(\dash\request::get('section'))
 		{
 			$url = \dash\url::this(). '?'.\dash\request::build_query($all_get);
+		}
+		elseif(\dash\data::changeSectionTypeMode())
+		{
+			$url = \dash\url::that(). '/style?'.\dash\request::build_query($all_get);
 		}
 		else
 		{
