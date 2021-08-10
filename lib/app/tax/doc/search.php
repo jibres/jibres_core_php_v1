@@ -175,6 +175,12 @@ class search
 			$and[] = " tax_document.status = '$data[status]' ";
 			self::$is_filtered = true;
 		}
+		elseif(!$data['status'])
+		{
+			$and[] = " tax_document.status != 'deleted' ";
+			self::$is_filtered = true;
+		}
+
 
 		if($data['totallarger'])
 		{
@@ -187,6 +193,7 @@ class search
 			$and[] = " tax_document.total <= $data[totalless] ";
 			self::$is_filtered = true;
 		}
+
 
 
 
