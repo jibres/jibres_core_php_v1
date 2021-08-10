@@ -356,23 +356,7 @@ class view
 			$default = [];
 		}
 
-		$options = \content_site\call_function::option($section_key, a($result, 'preview', 'type'));
-
-		$default_options = [];
-
-		if(is_array($options))
-		{
-			foreach ($options as $option_name)
-			{
-				if(is_string($option_name))
-				{
-					$default_options[$option_name] = \content_site\call_function::option_default($option_name);
-				}
-			}
-		}
-
-
-		$thisDefault = array_merge($default_options, $detail, $default);
+		$thisDefault = array_merge($detail, $default);
 
 		$result['preview']                 = array_merge($thisDefault, $result['preview']);
 		$result['preview']['id']           = a($result, 'id');

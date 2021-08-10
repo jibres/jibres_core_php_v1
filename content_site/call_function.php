@@ -186,7 +186,20 @@ class call_function
 
 		if(isset($type_detail['options']))
 		{
-			return $type_detail['options'];
+			$options = [];
+			foreach ($type_detail['options'] as $key => $value)
+			{
+				if(is_array($value))
+				{
+					$options = array_merge($options, $value);
+				}
+				else
+				{
+					$options[] = $value;
+				}
+			}
+
+			return $options;
 		}
 
 		return null;

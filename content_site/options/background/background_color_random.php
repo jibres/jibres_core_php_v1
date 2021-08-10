@@ -97,15 +97,18 @@ class background_color_random
 
 	public static function admin_html($_json)
 	{
-		$html = '';
-
-		$html .= "<div data-ajaxify data-data='$_json' class='picker reset inline-block align-middle mRa10 mB10'>";
+		if(is_string($_json))
 		{
-			$html .= '<img src="'. \dash\utility\icon::url('refresh'). '" alt="random" class="block">';
-		}
-		$html .= "</div>";
+			$html = '';
 
-		return $html;
+			$html .= "<div data-ajaxify data-data='$_json' class='picker reset inline-block align-middle mRa10 mB10'>";
+			{
+				$html .= '<img src="'. \dash\utility\icon::url('refresh'). '" alt="random" class="block">';
+			}
+			$html .= "</div>";
+
+			return $html;
+		}
 
 	}
 

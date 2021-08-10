@@ -14,7 +14,8 @@ class background_color
 
 	public static function default()
 	{
-		return '#ffffff';
+		return null;
+		// return '#ffffff';
 	}
 
 

@@ -170,15 +170,16 @@ class model
 
 			$load_preview = \content_site\call_function::preview($child, $preview_key);
 
-
 			if(!is_array($load_preview))
 			{
 				\dash\notif::error(T_("Invalid preview key"));
 				return false;
 			}
 
-			$value = $load_preview;
-
+			if(isset($load_preview['options']) && is_array($load_preview['options']))
+			{
+				$value = $load_preview['options'];
+			}
 		}
 
 		// reload section detail to get last update
@@ -643,6 +644,14 @@ class model
 			return false;
 		}
 
+		$preview_options = [];
+		if(isset($load_preview['options']) && is_array($load_preview['options']))
+		{
+			$preview_options = $load_preview['options'];
+		}
+
+		$preview = ['key' => $key, 'type' => $type];
+
 		$load_default = \content_site\call_function::default($type, $key);
 
 		if(!is_array($load_default))
@@ -650,9 +659,7 @@ class model
 			$load_default = [];
 		}
 
-		$preview = ['key' => $key, 'type' => $type];
-
-		$preview = array_merge($preview,  $load_default, $load_preview);
+		$preview = array_merge($load_default, $preview_options, $preview);
 
 		$mode = \content_site\call_function::get_folder($key);
 

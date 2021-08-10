@@ -36,6 +36,10 @@ class b1
 			'preview_title'  => T_("Card"),
 			'preview_image'  => \dash\sample\img::background(),
 			'version'        => 1,
+			'options' =>
+			[
+				'count' => 1,
+			],
 		];
 	}
 
