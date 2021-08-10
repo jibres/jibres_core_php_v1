@@ -11,13 +11,33 @@ class model
 			return self::remove_page();
 		}
 
+		$need_redirect = false;
 
 		$post = [];
+
+		if(\dash\request::post('remove_cover') === 'remove_cover')
+		{
+			$need_redirect = true;
+			$post['cover'] = null;
+		}
+
+		if(\dash\request::files('cover'))
+		{
+			$file_cover = \dash\upload\cms::set_post_cover(\dash\coding::decode(\dash\request::get('id')), true);
+			if(!$file_cover)
+			{
+				\dash\notif::error(T_("Please upload a photo"));
+				return false;
+			}
+			$need_redirect = true;
+			$post['cover'] = $file_cover;
+		}
 
 		if(\dash\request::post('set_title'))
 		{
 			$post['title'] = \dash\request::post('title');
 		}
+
 
 		\dash\app\posts\edit::edit($post, \dash\data::currentPageDetail_id());
 
@@ -25,6 +45,11 @@ class model
 		{
 			\dash\notif::clean();
 			\dash\notif::complete();
+
+			if($need_redirect)
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 
