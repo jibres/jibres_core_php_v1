@@ -18,6 +18,11 @@ class view
 			\dash\face::title(\dash\face::title(). ' | '. T_("Closing Document"));
 		}
 
+		if(\dash\data::dataRow_status() === 'deleted')
+		{
+			\dash\face::title(\dash\face::title(). ' ['. T_("Deleted"). ']');
+		}
+
 		\dash\face::btnPrint(true);
 		// back
 		\dash\data::back_text(T_('Back'));

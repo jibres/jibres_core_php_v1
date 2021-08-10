@@ -6,6 +6,9 @@
       <input type="hidden" name="newlockstatus" value="<?php if(\dash\data::dataRow_status() === 'temp') { echo 'lock'; }elseif(\dash\data::dataRow_status() === 'lock'){ echo 'temp';} ?>">
     </form>
   <?php } //endif ?>
+  <?php if(\dash\data::dataRow_status() === 'deleted') {?>
+    <div class="msg danger mTB10 txtC txtB"><?php echo T_("This tax document is deleted") ?></div>
+  <?php } //endif ?>
   <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
     <div class="pad2">
