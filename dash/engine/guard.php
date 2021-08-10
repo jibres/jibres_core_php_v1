@@ -12,6 +12,7 @@ class guard
 		self::header_referrer_policy();
 		// self::header_feature_policy();
 		self::header_XSS_Protection();
+		self::header_Content_Type_Options();
 		self::header_permissions_policy();
 		// self::header_expect_ct();
 		// check server lock status
@@ -284,6 +285,16 @@ class guard
 		// they can still provide protections for users of older web browsers that don't yet support CSP.
 
 		@header('X-XSS-Protection: 1; mode=block');
+	}
+
+
+	private static function header_Content_Type_Options()
+	{
+		// The X-Content-Type-Options response HTTP header is a marker used by the server
+		// to indicate that the MIME types advertised in the Content-Type headers should not be changed and be followed.
+		// This is a way to opt out of MIME type sniffing, or, in other words, to say that the MIME types are deliberately configured.
+
+		@header('X-Content-Type-Options: nosniff');
 	}
 
 
