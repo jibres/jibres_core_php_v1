@@ -12,7 +12,7 @@ if(\dash\data::sidebarSectionList())
    */
   $sectionRequestedDetail = \dash\data::sectionRequestedDetail();
 
-  $html .= '<label>'. a($sectionRequestedDetail, 'group'). '</label>';
+  $html .= '<label>'. T_("Plese choose one preview"). '</label>';
   $html .= '<nav class="sections items">';
   {
     $html .= '<ul>';
@@ -78,7 +78,7 @@ if(\dash\data::sidebarSectionList())
           {
             // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
             $html .= '<div class="key">'. a($item, 'title'). '</div>';
-            if(\dash\request::get('category') === $key)
+            if(\dash\request::get('category') === a($item, 'default', 'type'))
             {
               $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
             }
