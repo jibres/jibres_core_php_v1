@@ -28,16 +28,23 @@ class model
 			return false;
 		}
 
-		$namespace = '\\content_site\\template\\site\\%s';
-		$namespace = sprintf($namespace, $key);
+		$records = [];
 
-		if(!is_callable([$namespace, 'records']))
+		if($key !== 'blank')
 		{
-			\dash\notif::error(T_("Invalid template key"));
-			return false;
-		}
 
-		$records = call_user_func([$namespace, 'records']);
+			$namespace = '\\content_site\\template\\site\\%s';
+			$namespace = sprintf($namespace, $key);
+
+			if(!is_callable([$namespace, 'records']))
+			{
+				\dash\notif::error(T_("Invalid template key"));
+				return false;
+			}
+
+			$records = call_user_func([$namespace, 'records']);
+
+		}
 
 		$post =
 		[
@@ -74,7 +81,7 @@ class model
 			$insert['sort']           = $key + 1;
 			$insert['sort_preview']   = $insert['sort'];
 
-			$id = \lib\db\sitebuilder\insert::new_record($insert);
+			\lib\db\sitebuilder\insert::new_record($insert);
 
 		}
 
