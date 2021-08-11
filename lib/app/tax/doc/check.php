@@ -60,7 +60,7 @@ class check
 			'quarterlyreport' => 'bit',
 		];
 
-		$require = ['number', 'date', 'year_id'];
+		$require = ['date', 'year_id'];
 
 		if(isset($_option['template_mode']) && $_option['template_mode'])
 		{
@@ -106,35 +106,36 @@ class check
 			}
 		}
 
-		if($data['number'])
-		{
-			$my_year_id = null;
-			if($data['year_id'])
-			{
-				$my_year_id = $data['year_id'];
-			}
-			elseif(isset($year_id) && $year_id)
-			{
-				$my_year_id = $year_id;
-			}
+		// if($data['number'])
+		// {
+		// 	$my_year_id = null;
+		// 	if($data['year_id'])
+		// 	{
+		// 		$my_year_id = $data['year_id'];
+		// 	}
+		// 	elseif(isset($year_id) && $year_id)
+		// 	{
+		// 		$my_year_id = $year_id;
+		// 	}
 
-			if($my_year_id)
-			{
-				$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number'], $my_year_id);
-				if(isset($check_duplicate_number['id']))
-				{
-					if(floatval($check_duplicate_number['id']) === floatval($_id))
-					{
-						// nothing
-					}
-					else
-					{
-						\dash\notif::error(T_("Duplicate accounting document number"), 'number');
-						return false;
-					}
-				}
-			}
-		}
+		// 	if($my_year_id)
+		// 	{
+		// 		$check_duplicate_number = \lib\db\tax_document\get::check_duplicate_number($data['number'], $my_year_id);
+
+		// 		if(isset($check_duplicate_number['id']))
+		// 		{
+		// 			if(floatval($check_duplicate_number['id']) === floatval($_id))
+		// 			{
+		// 				// nothing
+		// 			}
+		// 			else
+		// 			{
+		// 				\dash\notif::error(T_("Duplicate accounting document number"), 'number');
+		// 				return false;
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		if($data['quarterlyreport'])
 		{
