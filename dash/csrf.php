@@ -162,8 +162,8 @@ class csrf
 			// code is not active for example used but have error and need to fix it
 			if(isset($check['datecreated']) && $check['datecreated'])
 			{
-				// if used active for 14 min
-				if(time() - strtotime($check['datecreated']) > (60*14))
+				// if used active for 30 min
+				if(time() - strtotime($check['datecreated']) > (60*30))
 				{
 					return false;
 				}
