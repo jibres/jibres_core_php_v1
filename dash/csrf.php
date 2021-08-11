@@ -162,8 +162,15 @@ class csrf
 			// code is not active for example used but have error and need to fix it
 			if(isset($check['datecreated']) && $check['datecreated'])
 			{
+				$max_time = (60*30);
+
+				if(\dash\url::module() === 'f')
+				{
+					$max_time = (60*60*2);
+				}
+
 				// if used active for 30 min
-				if(time() - strtotime($check['datecreated']) > (60*30))
+				if(time() - strtotime($check['datecreated']) > $max_time)
 				{
 					return false;
 				}
