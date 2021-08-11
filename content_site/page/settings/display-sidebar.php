@@ -111,12 +111,14 @@ $coverUrl = a($currentPageDetail, 'cover');
 
 </form>
 
-
-<div class=" fc-red"><?php echo T_("Remove page and all section") ?></div>
+<div class="mt-10">
+<hr class="mb-5">
+<div class="fc-red"><?php echo T_("Remove page and all section") ?></div>
 <div class="check1">
   <input type="checkbox" name="readydelete" id="readydelete">
   <label for="readydelete"><?php echo T_("Are you sure to remove this page?"); ?></label>
 </div>
 <div data-response='readydelete' data-response-hide>
   <button data-confirm data-data='{"remove":"page"}' data-title="<?php echo T_("Are you sure to remove this page?") ?>" data-msg="<?php echo T_("All section on this page will be removed and can not be restore") ?>" class="btn danger block "><?php echo T_("Remove") ?></button>
+</div>
 </div>
