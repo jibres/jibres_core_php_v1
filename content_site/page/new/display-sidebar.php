@@ -7,7 +7,7 @@ if(\dash\data::templateList_category())
   {
     $html .= '<ul>';
     {
-      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => 'all']);
+      $show_preview_link = \dash\url::that(). \dash\request::full_get(['category' => 'all']);
 
       $html .= '<li>';
       {
@@ -33,7 +33,7 @@ if(\dash\data::templateList_category())
     {
         foreach (\dash\data::templateList_category() as $key => $value)
         {
-            $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => $key]);
+            $show_preview_link = \dash\url::that(). \dash\request::full_get(['category' => $key]);
             $html .= '<li>';
             {
                 $html .= "<a class='item f' href='". $show_preview_link. "'>";
