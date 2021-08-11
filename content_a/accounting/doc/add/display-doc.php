@@ -54,8 +54,8 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
 
       <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-2 p0">
         <label for="number"><?php echo T_("Document Number") ?> <small class="fc-red">* <?php echo T_("Automatic") ?></small></label>
-        <div class="input mB0-f">
-          <input type="number" min="1" max="9999999999" name="number" id="number" readonly disabled value="<?php echo \dash\data::dataRow_number() ?>" data-format=int <?php echo $disableInput; ?>>
+        <div class="input mB0-f disabled">
+          <input type="number" min="1" max="9999999999" name="number" id="number" readonly value="<?php echo \dash\data::dataRow_number() ?>" data-format=int <?php echo $disableInput; ?>>
         </div>
       </div>
       <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-1 p0">
