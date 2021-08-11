@@ -185,10 +185,19 @@ class model
 				return false;
 			}
 
+			$load_default_type = \content_site\call_function::default($child, $type);
+
+			if(!is_array($load_default_type))
+			{
+				$load_default_type = [];
+			}
+
 			if(isset($load_preview['options']) && is_array($load_preview['options']))
 			{
 				$value = $load_preview['options'];
 			}
+
+			$value = array_merge($load_default_type, $value);
 		}
 
 		// reload section detail to get last update
