@@ -16,6 +16,11 @@ class view
 			\dash\face::btnInsert('formAddPost');
 		}
 
+		\dash\data::mySiteBuilderPageTitle(\dash\session::get('mySiteBuilderPageTitle'));
+
+		$template_list = \content_site\template\preview::list();
+		\dash\data::templateList($template_list);
+
 	}
 }
 ?>
