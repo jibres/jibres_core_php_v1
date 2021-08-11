@@ -64,36 +64,15 @@ class layout
 
 		$html             = '';
 
-		switch (a($_args, 'type'))
+
+		$type      = a($_args, 'type');
+
+		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
+
+		if(is_callable([$namespace, 'html']))
 		{
-			case 'b1':
-				$html .= html\b1::html($_args, $blogList);
-				break;
-
-			case 'b2':
-				$html .= html\b2::html($_args, $blogList);
-				break;
-
-			case 'b3':
-				$html .= html\b3::html($_args, $blogList);
-				break;
-
-			case 'b4':
-				$html .= html\b4::html($_args, $blogList);
-				break;
-
-			case 'b5':
-				$html .= html\b5::html($_args, $blogList);
-				break;
-
-			case 'b6':
-				$html .= html\b6::html($_args, $blogList);
-				break;
-
-			default:
-				break;
+			$html .= call_user_func_array([$namespace, 'html'],[$_args, $blogList]);
 		}
-
 
 		return $html;
 	}

@@ -14,7 +14,7 @@ class b2
 	{
 		return
 		[
-			'title'        => T_("Modern View"),
+			'title'        => T_("Box Design"),
 			'default'      => option::master_default(['type' => 'b2']),
 			'options'      => option::master_option(),
 			'preview_list' =>
@@ -33,8 +33,25 @@ class b2
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	/**
+	 * Preview 2
+	 */
+	public static function p2()
+	{
+		return
+		[
+			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 2,
 		];
 	}
 

@@ -14,7 +14,7 @@ class b1
 	{
 		return
 		[
-			'title'        => T_("Classic View"),
+			'title'        => T_("Card Design"),
 			'default'      => option::master_default(['type' => 'b1']),
 			'options'      => option::master_option(),
 			'preview_list' =>
@@ -33,8 +33,7 @@ class b1
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
-			'preview_image'  => \dash\sample\img::background(),
+			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -51,7 +50,7 @@ class b1
 	{
 		return
 		[
-			'preview_title'  => T_("Card 2"),
+			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 2,
 		];
 	}
