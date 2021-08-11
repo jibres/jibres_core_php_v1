@@ -78,6 +78,8 @@ class model
 
 		}
 
+		\dash\session::set('mySiteBuilderPageTitle', null);
+
 		\dash\redirect::to(\dash\url::this(). '?id='. $post_detail['post_id']);
 
 	}
