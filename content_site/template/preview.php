@@ -6,9 +6,10 @@ class preview
 {
 	public static function list($_args = [])
 	{
-		$list = [];
+		$list   = [];
 
 		$list[] = site\demo_001::detail();
+
 		$list[] = site\demo_002::detail();
 
 
