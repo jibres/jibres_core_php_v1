@@ -17,7 +17,7 @@ if(\dash\data::sidebarSectionList())
   {
     $html .= '<ul>';
     {
-      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => 'all']);
+      $show_preview_link = \dash\url::current(). \dash\request::full_get(['category' => 'all']);
 
       $html .= '<li>';
       {
@@ -42,7 +42,7 @@ if(\dash\data::sidebarSectionList())
   {
     $html .= '<ul>';
     {
-      $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => 'popular']);
+      $show_preview_link = \dash\url::current(). \dash\request::full_get(['category' => 'popular']);
 
       $html .= '<li>';
       {
@@ -70,7 +70,7 @@ if(\dash\data::sidebarSectionList())
     {
       foreach (\dash\data::sidebarSectionList() as $key => $item)
       {
-        $show_preview_link = \dash\url::this(). \dash\request::full_get(['category' => a($item, 'default', 'type')]);
+        $show_preview_link = \dash\url::current(). \dash\request::full_get(['category' => a($item, 'default', 'type')]);
 
         $html .= '<li>';
         {

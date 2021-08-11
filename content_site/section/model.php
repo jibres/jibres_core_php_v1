@@ -168,7 +168,16 @@ class model
 				return false;
 			}
 
-			$load_preview = \content_site\call_function::preview($child, $preview_key);
+			$type = \dash\request::post('type');
+			$type = \dash\validate::string_100($type);
+			if(!$type)
+			{
+				\dash\notif::error(T_("Invalid type"));
+				return false;
+			}
+
+
+			$load_preview = \content_site\call_function::preview($child, $type, $preview_key);
 
 			if(!is_array($load_preview))
 			{
