@@ -408,7 +408,7 @@ function htmlDetailsSelectList($_type, $_default_selected = null)
       }
       else
       {
-        if(in_array(substr(a($value, 'code'), 0, 2), ['26']))
+        if(in_array(substr(a($value, 'code'), 0, 2), ['26']) || in_array(substr(a($value, 'code'), 0, 4), ['5208']))
         {
           /*ok*/
         }
