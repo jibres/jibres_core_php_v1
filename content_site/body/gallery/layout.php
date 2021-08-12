@@ -66,9 +66,9 @@ class layout
 						{
 							$file = \dash\app::static_image_url();
 
-							if(isset($value['file']) && $value['file'])
+							if(isset($value['image']) && $value['image'])
 							{
-								$file = \lib\filepath::fix($value['file']);
+								$file = \lib\filepath::fix($value['image']);
 							}
 
 							$html .= '<div class="c-xs-12 c-sm-4">';

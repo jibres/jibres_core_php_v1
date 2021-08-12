@@ -10,7 +10,6 @@ class target
 		return $data;
 	}
 
-
 	public static function admin_html()
 	{
 		$default = \content_site\section\view::get_current_index_detail('target');
@@ -20,7 +19,9 @@ class target
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= '<div class="check1">';
+			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= '<input type="hidden" name="opt_target" value="1">';
+			$html .= '<div class="check1 py-0">';
 			{
 				$html .= '<input type="checkbox" name="opt_target" id="target"'.$checked.'>';
 				$html .= '<label for="target">'. T_('Open in new windows'). '</label>';

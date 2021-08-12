@@ -123,7 +123,7 @@ trait file
 
 			if($default)
 			{
-				$html .= '<span class="imageDel" data-confirm data-data=\'{"'.$option_key.'" : 1, "multioption" : "multi", "deletefile" : 1}\'></span>';
+				$html .= '<span class="imageDel" data-confirm data-data=\'{"opt_'.$option_key.'" : 1, "multioption" : "multi", "deletefile" : 1}\'></span>';
 			}
 
 			$html .= '</div>';
