@@ -16,7 +16,7 @@ class su_PDOError
 		$result['iconClass'] = 'fc-hot';
 
 		$excerpt .= ' ';
-		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/su/log">';
+		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/sudo/log">';
 		$excerpt .= T_("Show");
 		$excerpt .= '</a>';
 

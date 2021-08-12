@@ -1,7 +1,7 @@
 <div class="f">
 <?php if(\dash\permission::supervisor()) {?>
 	<div class="c12 s12">
-		<a class="dcard x2" href='<?php echo \dash\url::sitelang(); ?>/su'>
+		<a class="dcard x2" href='<?php echo \dash\url::sitelang(); ?>/sudo'>
 			<div class="statistic pink">
 				<div class="value"><i class="sf-heartbeat"></i></div>
 				<div class="label"><?php echo T_("Supervisor Panel"); ?></div>

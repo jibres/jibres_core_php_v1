@@ -15,7 +15,7 @@ class su_phpBug
 		$result['iconClass'] = 'fc-red';
 
 		$excerpt .= ' ';
-		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/su/log">';
+		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/sudo/log">';
 		$excerpt .= T_("Show");
 		$excerpt .= '</a>';
 

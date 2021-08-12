@@ -46,7 +46,7 @@ class mvc
 
 		if(\dash\url::subchild() !== null)
 		{
-			// something like \content_su\tools\test\abc\controller.php
+			// something like \content_sudo\tools\test\abc\controller.php
 			$my_controller = self::checking($my_repo. $my_module. $my_child. $my_subchild);
 			if($my_controller)
 			{
@@ -61,7 +61,7 @@ class mvc
 			{
 				\dash\header::status('404');
 			}
-			// something like \content_su\tools\test\controller.php
+			// something like \content_sudo\tools\test\controller.php
 			$my_controller = self::checking($my_repo. $my_module. $my_child);
 			if($my_controller)
 			{
@@ -76,7 +76,7 @@ class mvc
 			{
 				\dash\header::status('404');
 			}
-			// something like \content_su\tools\home\controller.php
+			// something like \content_sudo\tools\home\controller.php
 			$my_controller = self::checking($my_repo. $my_module. '\home');
 			if($my_controller)
 			{
@@ -84,7 +84,7 @@ class mvc
 				return $my_controller;
 			}
 
-			// something like \content_su\tools\controller.php
+			// something like \content_sudo\tools\controller.php
 			$my_controller = self::checking($my_repo. $my_module);
 			if($my_controller)
 			{
@@ -95,7 +95,7 @@ class mvc
 
 		if(\dash\engine\content::get())
 		{
-			// something like \content_su\home\controller.php
+			// something like \content_sudo\home\controller.php
 			$my_controller = self::checking($my_repo. '\home');
 			if($my_controller)
 			{
