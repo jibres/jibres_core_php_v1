@@ -42,7 +42,7 @@ class users
 
 		$file_detail         = \dash\upload\importexport::push_export_file($addr, $file_name, 'users');
 
-		// \dash\log::debug_line(__LINE__, $file_detail);
+		\dash\log::debug_line(__LINE__, $file_detail, \dash\notif::get());
 
 		$path = null;
 		if(isset($file_detail['path']))
