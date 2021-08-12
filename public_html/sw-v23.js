@@ -3,8 +3,8 @@
 const CACHE = "jibres-pwa";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
-  "https://cdn.talambar.com/logo/icon/png/Jibres-Logo-icon-144.png",
-  "https://cdn.talambar.com/logo/icon/svg/Jibres-Logo-icon.svg",
+  "https://cdn.jibres.com/logo/icon/png/Jibres-Logo-icon-144.png",
+  "https://cdn.jibres.com/logo/icon/svg/Jibres-Logo-icon.svg",
   "/manifest.webmanifest",
 ];
 
