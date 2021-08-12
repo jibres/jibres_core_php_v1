@@ -530,6 +530,7 @@ class user
 		unset($_data['title']);
 		unset($_data['avatar_raw']);
 		unset($_data['parent']);
+		unset($_data['ban_expire']);
 
 		return $_data;
 	}

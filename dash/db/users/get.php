@@ -45,6 +45,32 @@ class get
 	}
 
 
+
+	public static function count_all()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM users ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
+
+
+	public static function all_record_for_export()
+	{
+		$query  = "SELECT * FROM users ORDER BY users.id ASC ";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+	public static function export_list($_start_limit, $_end_limit)
+	{
+		$query  = "SELECT * FROM users ORDER BY users.id ASC LIMIT $_start_limit, $_end_limit";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
+
 	public static function last_user_id_fuel_db_name($_fuel, $_db_name)
 	{
 		$query  = "SELECT users.id AS `id` FROM users ORDER BY users.id DESC LIMIT 1";

@@ -49,6 +49,10 @@ class run
 				$link = \lib\app\export\form_answer::run($any_request);
 				break;
 
+			case 'users':
+				$link = \lib\app\export\users::run($any_request);
+				break;
+
 			default:
 				// nothing
 				break;

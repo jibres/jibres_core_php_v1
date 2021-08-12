@@ -16,6 +16,8 @@ class view
 		\dash\data::back_text(T_('CRM'));
 
 
+		\dash\face::btnExport(\dash\url::this().'/export');
+
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(\dash\app\user\filter::list());
