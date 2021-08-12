@@ -531,6 +531,13 @@ class user
 		unset($_data['avatar_raw']);
 		unset($_data['parent']);
 		unset($_data['ban_expire']);
+		unset($_data['verifymobile']);
+		unset($_data['verifyemail']);
+		unset($_data['type']);
+		unset($_data['subscribe']);
+		unset($_data['language']);
+		unset($_data['gmail']);
+
 
 		return $_data;
 	}
