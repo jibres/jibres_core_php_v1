@@ -37,9 +37,6 @@ class storage
 
 		$total_used    = floatval(\dash\db\files::total_size());
 
-
-		return true;
-
 		if(floatval($_size) + $total_used > $storage_limit )
 		{
 			return false;
