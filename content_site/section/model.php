@@ -119,7 +119,6 @@ class model
 			return false;
 		}
 
-
 		if(in_array($option_key, $trust_options_list))
 		{
 			// ok

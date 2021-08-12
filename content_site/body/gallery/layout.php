@@ -17,19 +17,39 @@ class layout
 	{
 
 		$html             = '';
-		$container        = \content_site\options\container::class_name(a($_args, 'container'));
+
+			$id          = a($_args, 'id');
+		$type        = a($_args, 'type');
+		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
+		$font_class  = \content_site\assemble\font::class($_args);
+		// $type        = 'b1';
+
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background       = \content_site\options\background\background_pack::get_full_backgroun_class(a($_args, 'background'));
-		$background_class = a($background, 'class');
-		$background_attr  = a($background, 'attr');
-		$element          = a($background, 'element');
+		$background_style = \content_site\assemble\background::full_style($_args);
+		$text_color       = \content_site\assemble\text_color::full_style($_args);
+		$section_id       = \content_site\assemble\tools::section_id($type, $id);
 
-		$html .= $element;
 
-		$html .= "<div class='$container $height $background_class ' $background_attr>";
+		$containerMaxWidth = 'max-w-screen-lg px-2 sm:px-4 lg:px-4';
+
+
+		// element type
+		$cnElement = 'div';
+		if(a($_args, 'heading') !== null)
 		{
-			$html .= '<div class="">';
+			$cnElement = 'section';
+		}
+		$classNames = $height;
+		if($font_class)
+		{
+			$classNames .= ' '. $font_class;
+		}
+
+		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style $section_id>";
+		{
+			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{
+
 				$html .= '<div class="">';
 				{
 					$html .= '<h2>';

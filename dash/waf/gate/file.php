@@ -25,8 +25,7 @@ class file
 
 			\dash\waf\gate\toys\only::text($file_name);
 
-			\dash\waf\gate\toys\general::len($file_name, 3, 13); // a_1234567890 // for form generator
-
+			\dash\waf\gate\toys\general::len($file_name, 3, 50);
 
 			if(isset($file_detail['name']))
 			{

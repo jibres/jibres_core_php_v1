@@ -38,6 +38,11 @@ trait file
 	}
 
 
+	public static function db_key()
+	{
+		return 'file';
+	}
+
 	public static function option_key()
 	{
 		return 'file';
@@ -49,7 +54,9 @@ trait file
 
 		$option_key = self::option_key();
 
-		$default = \content_site\section\view::get_current_index_detail($option_key);
+		$db_key     = self::db_key();
+
+		$default = \content_site\section\view::get_current_index_detail($db_key);
 
 		if(!$default)
 		{
@@ -74,7 +81,7 @@ trait file
 
 		$html .= '<form method="post" autocomplete="off" >';
 		{
-			$html .= '<input type="hidden" name="'.$option_key.'" value="1">';
+			$html .= '<input type="hidden" name="opt_'.$option_key.'" value="1">';
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';

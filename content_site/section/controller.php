@@ -83,18 +83,32 @@ class controller
 		{
 			$options = [];
 		}
+
+		$allow_file = false;
+
 		// enable upload file in gallery section
 		foreach ($options as $key => $value)
 		{
-			if(is_array($value) && in_array('file', $value))
+			if(is_array($value))
 			{
-				\dash\allow::file();
+				foreach ($value as $k => $v)
+				{
+					if(is_string($v) && strpos($v, 'file') !== false)
+					{
+						$allow_file = true;
+					}
+				}
 			}
 
 			if($value === 'file')
 			{
-				\dash\allow::file();
+				$allow_file = true;
 			}
+		}
+
+		if($allow_file)
+		{
+			\dash\allow::file();
 		}
 	}
 
