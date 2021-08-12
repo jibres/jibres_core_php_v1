@@ -79,37 +79,13 @@ class controller
 		\dash\open::get();
 		\dash\open::post();
 
-		if(!is_array($options))
-		{
-			$options = [];
-		}
+		// all section have backgroun image
+		\dash\allow::file();
 
-		$allow_file = false;
+		// need to allow html in some section
+		// @todo @reza
+		// \content_site\call_function::router($child);
 
-		// enable upload file in gallery section
-		foreach ($options as $key => $value)
-		{
-			if(is_array($value))
-			{
-				foreach ($value as $k => $v)
-				{
-					if(is_string($v) && strpos($v, 'file') !== false)
-					{
-						$allow_file = true;
-					}
-				}
-			}
-
-			if($value === 'file')
-			{
-				$allow_file = true;
-			}
-		}
-
-		if($allow_file)
-		{
-			\dash\allow::file();
-		}
 	}
 
 

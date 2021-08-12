@@ -108,8 +108,8 @@ class allow
 						'cover',
 						'nationalpic',
 						'shpic',
-						'opt_file_gallery',
 						'file_gallery',
+						'background_image',
 					];
 
 					if(in_array($key, $allowed_file_upload_name) || preg_match("/^a\_\d+$/", $key))
