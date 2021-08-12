@@ -179,6 +179,13 @@ class view
 		\dash\data::previewSectionList($preview_list);
 		\dash\data::sectionRequestedDetail($section_requested_detail);
 
+		// check valid category
+		if($category && !$preview_list)
+		{
+			\dash\header::status(404, T_("Invalid category"));
+			return false;
+		}
+
 		$all_get = \dash\request::get();
 
 		if($folder && $section_requested && $category)

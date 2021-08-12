@@ -20,7 +20,6 @@ class b4
 			'preview_list' =>
 			[
 				'p1',
-				'p2'
 			],
 		];
 	}
