@@ -1,4 +1,6 @@
 <?php
+$remove_block = false;
+
 if(\dash\url::child())
 {
 
@@ -23,6 +25,8 @@ if(\dash\url::child())
       $html .= "<div class='cauto os' >";
       $html .= '</div>';
       $html .= '</div>';
+
+      $remove_block = true;
 
       echo $html;
     }
@@ -73,7 +77,7 @@ if(\dash\url::child())
       // $html .= '</div>';
 
     }
-    else
+    elseif(!$remove_block)
     {
       /**
        * btn remove and hide
