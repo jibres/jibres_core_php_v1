@@ -55,12 +55,16 @@ class edit
 			return false;
 		}
 
-		$args = \dash\cleanse::patch_mode($_args, $args);
+		$exception = [];
+		if(a($_args, 'type'))
+		{
+			$exception[] = 'debtor';
+			$exception[] = 'creditor';
+		}
+
+		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
+
 		$tax_document_id = a($args, 'tax_document_id');
-		unset($args['tax_document_id']);
-		unset($args['year_id']);
-
-
 		if(empty($args))
 		{
 			\dash\notif::info(T_("No change in your data"));
