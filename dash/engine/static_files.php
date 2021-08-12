@@ -147,7 +147,15 @@ class static_files
 		$robots .= "Disallow: /account/". "\n";
 		$robots .= "Disallow: /a/". "\n";
 		$robots .= "Disallow: /cp/". "\n";
+		$robots .= "Disallow: /su/". "\n";
+		$robots .= "Disallow: /manage/". "\n";
+		$robots .= "Disallow: /admin/". "\n";
+		$robots .= "Disallow: /engine/". "\n";
 		$robots .= "Disallow: /sudo/". "\n";
+		$robots .= "Disallow: /sysadmin/". "\n";
+		$robots .= "Disallow: /management/". "\n";
+		$robots .= "Disallow: /super/". "\n";
+		$robots .= "Disallow: /login/". "\n";
 		$robots .= "Disallow: /crm/". "\n";
 		$robots .= "Disallow: /cms/". "\n";
 		$robots .= "Disallow: /tmp/". "\n";
