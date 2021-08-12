@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-12 16:52+0430\n"
-"PO-Revision-Date: 2021-08-12 16:55+0430\n"
+"POT-Creation-Date: 2021-08-12 16:56+0430\n"
+"PO-Revision-Date: 2021-08-12 16:56+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -17341,10 +17341,8 @@ msgid "Add new member"
 msgstr "افزودن فهرست جدید"
 
 #: content_crm/member/export/display.php:15
-#, fuzzy
-#| msgid "Member contact"
 msgid "Member count"
-msgstr "اطلاعات تماس عضو"
+msgstr "تعداد مشتریان"
 
 #: content_crm/member/export/display.php:30
 msgid "Member exported list"
@@ -17355,10 +17353,8 @@ msgid "import members"
 msgstr "وارد کردن مشتریان"
 
 #: content_crm/member/export/view.php:11
-#, fuzzy
-#| msgid "Latest Members"
 msgid "Export Members"
-msgstr "آخرین اعضا"
+msgstr "خروجی از مشتریان"
 
 #: content_crm/member/export/view.php:13
 msgid "Members"
