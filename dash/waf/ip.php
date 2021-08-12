@@ -931,6 +931,17 @@ class ip
 		return $fileAddr;
 	}
 
+	public static function remove_folder($_mode)
+	{
+		$addr = self::generate_addr_path($_mode);
+		if(!$addr)
+		{
+			return false;
+		}
+
+		\dash\file::delete($addr);
+	}
+
 
 	public static function load_folder($_mode)
 	{

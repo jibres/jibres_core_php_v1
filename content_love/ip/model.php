@@ -6,6 +6,25 @@ class model
 {
 	public static function post()
 	{
+
+		if(\dash\request::post('remove'))
+		{
+			$folder = \dash\request::post('remove');
+
+			if(in_array($folder, ['live','isolation','block','unblock','whitelist','blacklist', 'bot', 'human', 'ban']))
+			{
+				\dash\waf\ip::remove_folder($folder);
+				\dash\notif::ok(T_("Folder removed"));
+			}
+			else
+			{
+				\dash\notif::error(T_("Invalid folder"));
+			}
+			\dash\redirect::pwd();
+			return;
+		}
+
+
 		$ip = \dash\request::get('ip');
 		$ip = \dash\validate::ip($ip);
 
