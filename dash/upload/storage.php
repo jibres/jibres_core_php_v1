@@ -39,7 +39,6 @@ class storage
 
 		if(floatval($_size) + $total_used > $storage_limit )
 		{
-			\dash\log::debug_line(__LINE__, $_size, $total_used, $storage_limit);
 			return false;
 		}
 		else
