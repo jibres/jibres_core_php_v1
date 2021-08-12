@@ -9,7 +9,7 @@ class dns
 		$_domain = \dash\validate::string_200($_domain, false);
 		if($_domain)
 		{
-			$get     = \lib\db\business_domain\get::check_is_customer_domain($_domain);
+			$get     = \lib\db\business_domain\get::check_is_customer_domain_full($_domain);
 
 			if(isset($get['id']) && isset($get['status']) && $get['status'] !== 'pending_delete' && $get['status'] !== 'deleted')
 			{

@@ -660,6 +660,7 @@ class store
 				}
 				else
 				{
+					// @reza @todo check deleted domain
 					// must redirect to master
 					$master_domain = \lib\db\business_domain\get::by_store_id_master_domain($load_detail['store_id']);
 

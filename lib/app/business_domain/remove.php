@@ -48,7 +48,7 @@ class remove
 
 		$id = $load['id'];
 
-		// $remove_from_cdn_panel = \lib\app\business_domain\cdnpanel::remove($id);
+		$remove_from_cdn_panel = \lib\app\business_domain\cdnpanel::remove($id);
 		\lib\app\business_domain\business::reset_list($load['store_id']);
 		\lib\db\business_domain\delete::all_domain_action($id);
 		\lib\db\business_domain\delete::all_domain_dns($id);
@@ -67,9 +67,9 @@ class remove
 		if($remove_from_cdn_panel)
 		{
 			\lib\app\business_domain\edit::edit_raw(['status' => 'deleted'], $_id);
-			// \lib\db\business_domain\delete::all_domain_action($_id);
-			// \lib\db\business_domain\delete::all_domain_dns($_id);
-			// \lib\db\business_domain\delete::by_id($_id);
+			\lib\db\business_domain\delete::all_domain_action($_id);
+			\lib\db\business_domain\delete::all_domain_dns($_id);
+			\lib\db\business_domain\delete::by_id($_id);
 		}
 	}
 

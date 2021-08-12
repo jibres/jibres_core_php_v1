@@ -7,6 +7,14 @@ class get
 	// check domain in list in route customer domain
 	public static function check_is_customer_domain($_domain)
 	{
+		$query  = " SELECT * FROM business_domain WHERE business_domain.domain = '$_domain' AND business_domain.status NOT IN ('deleted', 'pending_delete') LIMIT 1 ";
+		$result = \dash\db::get($query, null, true, 'master');
+		return $result;
+	}
+
+
+	public static function check_is_customer_domain_full($_domain)
+	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.domain = '$_domain' LIMIT 1 ";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
@@ -367,7 +375,7 @@ class get
 
 	public static function by_store_id_master_domain($_store_id)
 	{
-		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.master = 1 LIMIT 1 ";
+		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.master = 1 AND business_domain.status NOT IN ('deleted', 'pending_delete') LIMIT 1 ";
 		$result = \dash\db::get($query, null, true, 'master');
 		return $result;
 	}
