@@ -14,7 +14,7 @@ class controller
 
 		if(!\dash\permission::supervisor())
 		{
-			\dash\header::status(403);
+			\dash\header::status(404);
 		}
 	}
 }
