@@ -29,7 +29,7 @@ class controller
 			// return null
 			\dash\header::status(403, T_("This is not your order"));
 		}
-		else
+		elseif(!$load)
 		{
 			// return false
 			\dash\header::status(404, T_("Order not found"));
