@@ -9,12 +9,19 @@ class background_color_random
 	{
 		if($_data === 'random_bg_color')
 		{
+			// need redirect if random color is called
+			\content_site\utility::need_redirect(true);
+
 			$_data = self::postel_color_solid();
 		}
 		elseif($_data === 'random_bg_gradient')
 		{
+			// need redirect if random color is called
+			\content_site\utility::need_redirect(true);
+
 			$_data = self::gradient_sample_color();
 		}
+
 
 		return $_data;
 	}
