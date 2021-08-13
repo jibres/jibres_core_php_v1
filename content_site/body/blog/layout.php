@@ -60,6 +60,10 @@ class layout
 
 		// send the view all link to every layout of blog
 		$_args['btn_viewall_link'] = $view_all_link;
+		if(!a($_args, 'btn_viewall'))
+		{
+			$_args['btn_viewall'] = T_("View all");
+		}
 
 
 		$html             = '';

@@ -17,13 +17,13 @@ class view
 
 			$args =
 			[
-				'website_order' => \dash\request::get('order'),
+				'website_order' => \dash\request::get('view'),
 				'subtype'       => \dash\request::get('subtype'),
 				'website_mode'  => true,
 			];
 
 			$search_string = \dash\validate::search_string();
-			$postList      = \dash\app\posts\search::list($search_string, $args);
+			$postList      = \dash\app\posts\search::website_post($search_string, $args);
 
 			\dash\data::dataTable($postList);
 

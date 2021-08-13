@@ -60,7 +60,7 @@ class btn_viewall
 			{
 				$html .= '<div class="input">';
 				{
-					$html .= '<input type="text" name="opt_btn_viewall" placeholder="'.$default.'" value="'.$default.'">';
+					$html .= '<input type="text" name="opt_btn_viewall" placeholder="'.self::default().'" value="'.$default.'">';
 				}
 				$html .= '</div>';
 			}

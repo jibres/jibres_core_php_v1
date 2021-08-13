@@ -80,7 +80,7 @@ class load
 		$link              = \dash\url::kingdom(). '/n';
 
 		$link_get          = [];
-		$link_get['order'] = $post_order;
+		$link_get['view'] = $post_order;
 
 		if(!$limit)
 		{
