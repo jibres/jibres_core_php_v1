@@ -21,6 +21,8 @@ trait file
 		{
 			if(a($_data, 'deletefile'))
 			{
+				// need redirect after remove image
+				\content_site\utility::need_redirect(true);
 				return null;
 			}
 			else
