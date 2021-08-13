@@ -172,12 +172,17 @@ class b1
 				}
 				$html .= '</div>';
 
-				$html .= '<footer>';
+				if(a($_args, 'btn_viewall_check'))
 				{
+					$html .= '<footer class="text-center overflow-hidden">';
+					{
+						$style = 'style="border-color:'. a($_args,  'color_text'). ';color:'. a($_args,  'color_text').  ';"';
+						$classVal = 'hover:bg-gray-800 font-semibold py-2 px-10 shadow border rounded';
 
-					$html .= "<a class='btn' href='". a($_args, 'btn_viewall_link'). "'>";
-					$html .= a($_args, 'btn_viewall');
-					$html .= '</a>';
+						$html .= "<a id='$id' class='inline-block mx-auto mt-5 $classVal cursor-pointer' $style href='". a($_args, 'btn_viewall_link'). "'>";
+						$html .= a($_args, 'btn_viewall');
+						$html .= '</a>';
+					}
 				}
 				$html .= '</footer>';
 
