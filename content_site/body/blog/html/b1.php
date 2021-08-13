@@ -172,6 +172,15 @@ class b1
 				}
 				$html .= '</div>';
 
+				$html .= '<footer>';
+				{
+
+					$html .= "<a class='btn' href='". a($_args, 'btn_viewall_link'). "'>";
+					$html .= a($_args, 'btn_viewall');
+					$html .= '</a>';
+				}
+				$html .= '</footer>';
+
 			}
 			$html .= "</div>";
 		}
