@@ -59,7 +59,7 @@ class layout
 		}
 
 		// send the view all link to every layout of blog
-		$_args['view_all_link'] = $view_all_link;
+		$_args['btn_viewall_link'] = $view_all_link;
 
 
 		$html             = '';
