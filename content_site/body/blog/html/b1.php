@@ -48,11 +48,11 @@ class b1
 			{
 				if(a($_args, 'heading') !== null)
 				{
-					$html .= '<header class="overflow-hidden">';
+					$html .= '<header>';
 					{
 						$heading_class = \content_site\options\heading::class_name($_args);
 
-						$html .= "<h2 class='text-4xl leading-10 $heading_class' $text_color>";
+						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $text_color>";
 						{
 							$html .= a($_args, 'heading');
 						}
