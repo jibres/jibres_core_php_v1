@@ -7,10 +7,10 @@ class height
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 's',   'title' => T_("Short") , 'class' => 'flex min-h-1/4 py-2 lg:py-5', ];
-		$enum[] = ['key' => 'm',   'title' => T_("Medium") , 'class' => 'flex min-h-1/2 lg:py-10 lg:py-16', ];
-		$enum[] = ['key' => 'l',   'title' => T_("Tall") , 'class' => 'flex min-h-3/4 py-20 lg:py-28', ];
-		$enum[] = ['key' => 'fullscreen',   'title' => T_("Full Screen") , 'class' => 'flex min-h-screen py-20', ];
+		$enum[] = ['key' => 's',   'title' => T_("Short") , 'class' => 'flex min-h-1/4 py-5', ];
+		$enum[] = ['key' => 'm',   'title' => T_("Medium") , 'class' => 'flex min-h-1/2 py-5 md:py-10 lg:py-16', ];
+		$enum[] = ['key' => 'l',   'title' => T_("Tall") , 'class' => 'flex min-h-3/4 py-5 md:py-20 lg:py-28', ];
+		$enum[] = ['key' => 'fullscreen',   'title' => T_("Full Screen") , 'class' => 'flex min-h-screen py-5 md:py-10 lg:py-20', ];
 		$enum[] = ['key' => 'fullpreview',   'title' => T_("Full Screen") , 'class' => 'flex min-h-screen py-5', 'system' => true ];
 
 		return $enum;
