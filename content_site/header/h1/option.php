@@ -45,11 +45,7 @@ class option
 	{
 		return
 		[
-			[
-				'type'   => 'type_1',
-				'title'   => T_("Header 1"),
-				'default' => true
-			],
+			'h1_1',
 		];
 
 	}
