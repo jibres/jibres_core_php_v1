@@ -90,6 +90,26 @@
       </a>
     </div>
 
+    <div class="c-xs-6 c-sm-6">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/brand/book">
+        <div class="body">
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::icon(); ?>" alt="Jibres Brand"></div>
+          <h2 class="title"><?php echo T_("Brand Style Guide"); ?></h2>
+          <div class="fc-mute"><?php echo T_("MEET THE LOGO") ?></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="c-xs-6 c-sm-6">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/catalog">
+        <div class="body">
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/catalog.svg" alt="Jibres Catalog"></div>
+          <h2 class="title"><?php echo T_("Jibres Catalog"); ?></h2>
+          <div class="fc-mute"><?php echo T_("Jibres museum") ?></div>
+        </div>
+      </a>
+    </div>
+
   </div>
  </div>
 
