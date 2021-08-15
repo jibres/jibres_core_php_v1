@@ -14,8 +14,8 @@ class g1
 	{
 		return
 		[
-			'title'        => T_("Card Design"),
-			'default'      => option::master_default(['type' => 'g1']),
+			'title'        => T_("Gallery 1"),
+			'default'      => option::master_default(['type' => 'g1'], 6),
 			'options'      => option::master_option(),
 			'preview_list' =>
 			[

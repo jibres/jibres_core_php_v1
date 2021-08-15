@@ -65,29 +65,21 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function default_image_list()
+	public static function default_image_list($_count = 3)
 	{
-		return
-		[
+		$list = [];
+
+		for ($i=0; $i < $_count ; $i++)
+		{
+			$list[] =
 			[
-				"index"     => \content_site\options\image\image_add::generate_random_key(),
-				"image"     => null,
-				"caption"   => T_("Image"),
-				"isdefault" => true,
-			],
-			[
-				"index"     => \content_site\options\image\image_add::generate_random_key(),
-				"image"     => null,
-				"caption"   => T_("Image"),
-				"isdefault" => true,
-			],
-			[
-				"index"     => \content_site\options\image\image_add::generate_random_key(),
-				"image"     => null,
-				"caption"   => T_("Image"),
-				"isdefault" => true,
-			],
-		];
+				"index"   => \content_site\options\image\image_add::generate_random_key(),
+				"image"   => \dash\sample\img::image(),
+				"caption" => T_("Image"),
+			];
+		}
+
+		return $list;
 	}
 
 
@@ -96,12 +88,12 @@ class option
 	/**
 	 * Public default
 	 */
-	public static function master_default($_special_default = [])
+	public static function master_default($_special_default = [], $_count = 3)
 	{
 		$master_default =
 		[
 			'heading'           => T_("Image Gallery"),
-			'image_list' => self::default_image_list()
+			'image_list' => self::default_image_list($_count)
 
 		];
 
