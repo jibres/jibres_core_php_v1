@@ -4,15 +4,24 @@ namespace content_site\options\background;
 
 class background_pack
 {
+	private static $remove_from_list = [];
+
+	public static function remove_from_list($_index)
+	{
+		if(!in_array($_index, self::$remove_from_list))
+		{
+			self::$remove_from_list[] = $_index;
+		}
+	}
 
 	/**
 	 * Everywhere need backgroun pack option use this function
 	 *
 	 * @return     array  The pack option list.
 	 */
-	public static function get_pack_option_list()
+	public static function get_pack_option_list($_remove_index = [])
 	{
-		return
+		$list =
 		[
 			'background_pack',
 
@@ -46,6 +55,19 @@ class background_pack
 
 			'type',
 		];
+
+		if(is_array($_remove_index) && $_remove_index)
+		{
+			foreach ($_remove_index as $key => $value)
+			{
+				if(($myKye = array_search($value, $list)) !== false )
+				{
+					unset($list[$myKye]);
+				}
+			}
+		}
+
+		return $list;
 	}
 
 
@@ -134,7 +156,12 @@ class background_pack
 		}
 
 		$html .= \content_site\options\height::admin_html();
-		$html .= \content_site\options\coverratio::admin_html();
+
+		// not removed from background
+		if(!in_array('coverratio', self::$remove_from_list))
+		{
+			$html .= \content_site\options\coverratio::admin_html();
+		}
 
 		$html .= "<div class='ShowCustomizeSetting'>";
 		{

@@ -110,6 +110,8 @@ class option
 	 */
 	public static function master_option()
 	{
+		\content_site\options\background\background_pack::remove_from_list('coverratio');
+
 		$option =
 		[
 
