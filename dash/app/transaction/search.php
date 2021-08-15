@@ -151,7 +151,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY transactions.id DESC ";
+			$order_sort = " ORDER BY transactions.date DESC ";
 		}
 
 		$list = \dash\db\transactions\search::list($and, $or, $order_sort, $meta);
