@@ -57,6 +57,8 @@ class headers
 			// only can be text
 			\dash\waf\gate\toys\only::something($key);
 
+			\dash\waf\gate\toys\only::string($key);
+
 
 			// check blacklist words
 			self::blacklist($key);

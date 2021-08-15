@@ -24,17 +24,17 @@ class cookie
 
 		foreach ($cookie as $key => $value)
 		{
-			// disallow html tags
-			\dash\waf\gate\toys\block::tags($key);
 			// only can be text
 			\dash\waf\gate\toys\only::something($key);
 			\dash\waf\gate\toys\only::text($key);
 
+			// disallow html tags
+			\dash\waf\gate\toys\block::tags($key);
+
+			\dash\waf\gate\toys\only::text($value);
 
 			// disallow html tags
 			\dash\waf\gate\toys\block::tags($value);
-
-			\dash\waf\gate\toys\only::text($value);
 
 			// check key len
 			\dash\waf\gate\toys\general::len($key, 1, 500);
