@@ -75,6 +75,13 @@ class error
 			echo $_msg;
 			echo '</pre>';
 		}
+		else
+		{
+			$_code          = 506;
+			$translatedDesc = 'Oops!';
+			$_text          = ';)';
+			require_once(core."engine/error_page.php");
+		}
 	}
 
 
