@@ -145,7 +145,15 @@ class search
 		{
 			if(\dash\app\transaction\filter::check_allow($data['sort'], $data['order']))
 			{
-				$order_sort = " ORDER BY $data[sort] $data[order]";
+				if($data['sort'] === 'minus' || $data['sort'] === 'plus')
+				{
+					$order_sort = " ORDER BY ISNULL(transactions.$data[sort]), $data[sort] $data[order]";
+
+				}
+				else
+				{
+					$order_sort = " ORDER BY $data[sort] $data[order]";
+				}
 			}
 		}
 
