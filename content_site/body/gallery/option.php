@@ -113,7 +113,7 @@ class option
 		$option =
 		[
 
-			'heading',
+			'heading_raw',
 
 			'image_list' =>
 			[

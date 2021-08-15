@@ -1,20 +1,38 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\heading;
 
 
-class heading
+trait heading
 {
 
 	public static function validator($_data)
 	{
 		$new_data            = [];
-		$heading             = a($_data, 'heading');
+		$heading             = a($_data, self::option_key());
 		$new_data['heading'] = \dash\validate::string_100($heading);
 
 		$heading_position             = a($_data, 'heading_position');
 		$new_data['heading_position'] = \dash\validate::enum($heading_position, true, ['enum' => ['left', 'center', 'right'], 'field_title' => T_('Heading Position')]);
 
+		// var_dump($_data, $new_data);exit;
 		return $new_data;
+	}
+
+
+	public static function have_text_position()
+	{
+		return false;
+	}
+
+
+	public static function db_key()
+	{
+		return 'heading';
+	}
+
+	public static function option_key()
+	{
+		return 'heading';
 	}
 
 
@@ -63,22 +81,30 @@ class heading
 
 			$html .= '<div class="input">';
 			{
-	    		$html .= "<input type='text' name='opt_heading' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
-	    		$html .= '<label class="addon btn light" data-kerkere=".showHeadingOption">...</label>';
+	    		$html .= "<input type='text' name='opt_".self::option_key()."' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
+
+	    		if(self::have_text_position())
+				{
+	    			$html .= '<label class="addon btn light" data-kerkere=".showHeadingOption">...</label>';
+	    		}
 			}
+
 			$html .= "</div>";
 
-			$html .= '<div class="showHeadingOption" data-kerkere-content="hide">';
+			if(self::have_text_position())
 			{
+				$html .= '<div class="showHeadingOption" data-kerkere-content="hide">';
+				{
 
-				$radio_html = '';
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'left', \dash\utility\icon::svg('TextAlignmentLeft'), (($default_position === 'left')? true : false));
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'center', \dash\utility\icon::svg('TextAlignmentCenter'), (($default_position === 'center' || !$default_position)? true : false));
-				$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'right', \dash\utility\icon::svg('TextAlignmentRight'), (($default_position === 'right')? true : false));
+					$radio_html = '';
+					$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'left', \dash\utility\icon::svg('TextAlignmentLeft'), (($default_position === 'left')? true : false));
+					$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'center', \dash\utility\icon::svg('TextAlignmentCenter'), (($default_position === 'center' || !$default_position)? true : false));
+					$radio_html .= \content_site\options\generate_radio_line::itemText('heading_position', 'right', \dash\utility\icon::svg('TextAlignmentRight'), (($default_position === 'right')? true : false));
 
-				$html .= \content_site\options\generate_radio_line::add_ul('heading_position', $radio_html, true);
+					$html .= \content_site\options\generate_radio_line::add_ul('heading_position', $radio_html, true);
+				}
+				$html .= "</div>";
 			}
-			$html .= "</div>";
 		}
   		$html .= '</form>';
 

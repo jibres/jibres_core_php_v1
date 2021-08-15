@@ -50,7 +50,7 @@ class b1
 				{
 					$html .= '<header>';
 					{
-						$heading_class = \content_site\options\heading::class_name($_args);
+						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
 						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $text_color>";
 						{

@@ -99,7 +99,7 @@ class option
 		[
 			// 'group_setting',
 			// text
-			'heading',
+			'heading_full',
 
 			// select
 			'post_tag',
