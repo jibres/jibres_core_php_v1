@@ -1,0 +1,33 @@
+CREATE TABLE jibres.store_premium (
+`id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+`store_id` INT(10) UNSIGNED NOT NULL,
+
+`premium_key` varchar(150) NULL DEFAULT NULL,
+`zone` varchar(50) NULL DEFAULT NULL,
+`category` varchar(50) NULL DEFAULT NULL,
+`item` varchar(50) NULL DEFAULT NULL,
+
+`status` ENUM('enable', 'disable', 'deleted', 'expire') NULL DEFAULT NULL,
+`user_id` INT(10) UNSIGNED NULL DEFAULT NULL,
+
+`price` DECIMAL(22,4) NULL DEFAULT NULL,
+`discount` DECIMAL(22,4) NULL DEFAULT NULL,
+`finalprice` DECIMAL(22,4) NULL DEFAULT NULL,
+`transaction_id` bigint(20) UNSIGNED NULL,
+`giftusage_id` bigint(20) UNSIGNED NULL,
+
+`datecreated` timestamp NULL DEFAULT NULL,
+`datemodified` timestamp NULL DEFAULT NULL,
+`expiredate` timestamp NULL DEFAULT NULL,
+
+PRIMARY KEY (`id`),
+KEY `index_search_store_premium_datecreated` (`datecreated`),
+KEY `index_search_store_premium_premium_key` (`premium_key`),
+KEY `index_search_store_premium_expiredate` (`expiredate`),
+KEY `index_search_store_premium_store_id` (`store_id`),
+KEY `index_search_store_premium_price` (`price`),
+KEY `index_search_store_premium_status` (`status`),
+KEY `index_search_store_premium_category` (`category`),
+KEY `index_search_store_premium_zone` (`zone`),
+KEY `index_search_store_premium_item` (`item`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
