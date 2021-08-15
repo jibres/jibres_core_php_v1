@@ -176,10 +176,16 @@ class b1
 				{
 					$html .= '<footer class="text-center overflow-hidden">';
 					{
-						$style = 'style="border-color:'. a($_args,  'color_text'). ';color:'. a($_args,  'color_text').  ';"';
+
+						$mode = a($_args, 'btn_viewall_mode');
+						if(!$mode)
+						{
+							$mode = 'outline';
+						}
+
 						$classVal = 'hover:bg-gray-800 font-semibold py-2 px-10 shadow border rounded';
 
-						$html .= "<a id='$id' class='inline-block mx-auto mt-5 $classVal cursor-pointer' $style href='". a($_args, 'btn_viewall_link'). "'>";
+						$html .= "<a id='$id' class='inline-block mx-auto mt-5 $classVal cursor-pointer btn btn-$mode' href='". a($_args, 'btn_viewall_link'). "'>";
 						$html .= a($_args, 'btn_viewall');
 						$html .= '</a>';
 					}

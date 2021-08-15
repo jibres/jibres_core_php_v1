@@ -8,10 +8,15 @@ class btn_viewall
 	public static function btn_mode()
 	{
 		$list = [];
-		$list[] = ['key' => 'red', 'class' => 'fc-red', 'style' => 'background:red;'];
-		$list[] = ['key' => 'green', 'class' => 'fc-green', 'style' => 'background:green;'];
-		$list[] = ['key' => 'blue', 'class' => 'fc-blue', 'style' => 'background:blue;'];
-		$list[] = ['key' => 'black', 'class' => 'fc-black', 'style' => 'background:black;'];
+		$list[] = ['key' => 'primary', ];
+		$list[] = ['key' => 'secondary', ];
+		$list[] = ['key' => 'accent', ];
+		$list[] = ['key' => 'info', ];
+		$list[] = ['key' => 'success', ];
+		$list[] = ['key' => 'warning', ];
+		$list[] = ['key' => 'error', ];
+		$list[] = ['key' => 'outline', ];
+		$list[] = ['key' => 'active', ];
 		return $list;
 	}
 
@@ -94,15 +99,15 @@ class btn_viewall
 
 					foreach ($list as $key => $value)
 					{
-						$selected = 'border-4';
-						if($btn_mode == $value['key'])
+						$selected = null;
+						if($btn_mode == $value['key'] || (!$btn_mode && $value['key'] === 'outline'))
 						{
-							$selected = null;
+							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
 						}
 
 						$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
 
-						$html .= "<div data-ajaxify data-data='$json' class='w-10 h-10 transition rounded-full mRa5 $selected' style='$value[style]'></div>";
+						$html .= "<div data-ajaxify data-data='$json' class='ml-1 btn btn-circle btn-$value[key]'>$selected</div>";
 
 					}
 				}
