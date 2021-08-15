@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-08-12 16:56+0430\n"
-"PO-Revision-Date: 2021-08-12 16:56+0430\n"
+"POT-Creation-Date: 2021-08-15 13:03+0430\n"
+"PO-Revision-Date: 2021-08-15 13:04+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -108,7 +108,7 @@ msgstr "مزایای جیبرس"
 msgid "What can you do with Jibres?"
 msgstr "جیبرس چه کارهایی میتواند انجام دهد؟"
 
-#: content/brand/display.php:10
+#: content/brand/display.php:10 content/investment/display.php:98
 msgid "MEET THE LOGO"
 msgstr "با نشان تجاری آشنا شوید"
 
@@ -154,8 +154,8 @@ msgstr ""
 #: content_my/domain/setting/elements/nameservers.php:69
 #: content_r10/android/intro/view.php:29 content_r10/android/splash/view.php:13
 #: content_r10/android/view.php:12 content_site/view.php:9
-#: content_su/dbversion/display.php:14 content_su/dbversion/display.php:34
-#: content_su/update/display.php:32 content_su/update/display.php:97
+#: content_sudo/dbversion/display.php:14 content_sudo/dbversion/display.php:34
+#: content_sudo/update/display.php:32 content_sudo/update/display.php:97
 #: content_v2/android/splash/view.php:20 content_v2/android/view.php:26
 #: dash/email/mail.php:158 dash/email/template.php:12 dash/email/template.php:66
 #: dash/email/template.php:69 dash/engine/view.php:16
@@ -729,8 +729,8 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 #: content_crm/notification/send/display.php:27
 #: content_crm/notification/sendgroup/display.php:17 content_crm/sms/send/display.php:15
 #: content_crm/telegram/send/display.php:15 content_crm/ticket/view/display-answer.php:28
-#: content_love/subscribe/display.php:24 content_su/tg/sendmessage/display.php:20
-#: content_su/tg/sendphoto/display.php:27 dash/layout/comment/comment-add.php:58
+#: content_love/subscribe/display.php:24 content_sudo/tg/sendmessage/display.php:20
+#: content_sudo/tg/sendphoto/display.php:27 dash/layout/comment/comment-add.php:58
 #: lib/app/sms/filter.php:28
 msgid "Send"
 msgstr "ارسال"
@@ -782,7 +782,7 @@ msgstr ""
 "بهترین نکته درباره جیبرس، تیم ماست. ما همواره به دنبال توانمندسازی اعضای تیم خود هستیم "
 "تا همه در کنار هم بتوانیم بهترین تلاش خود را برای خدمت به شما انجام دهیم."
 
-#: content/catalog/controller.php:12
+#: content/catalog/controller.php:12 content/investment/display.php:107
 msgid "Jibres Catalog"
 msgstr "کاتالوگ جیبرس"
 
@@ -846,8 +846,8 @@ msgstr "بیشتر بخوانید"
 #: content_love/domain/setting/action/display.php:17
 #: content_love/gift/usage/display.php:11 content_love/log/home/logTable.php:11
 #: content_pay/home/display-transaction.php:122
-#: content_site/options/post/post_show_date.php:15 content_su/ip/display.php:61
-#: dash/app/transaction/filter.php:39 includes/languages/trans_static_public.php:195
+#: content_site/options/post/post_show_date.php:15 content_sudo/ip/display.php:61
+#: dash/app/transaction/filter.php:43 includes/languages/trans_static_public.php:195
 #: lib/app/factor/search.php:183 lib/app/form/item/type.php:178
 msgid "Date"
 msgstr "تاریخ"
@@ -1048,8 +1048,8 @@ msgstr "نام کامل"
 #: content_love/smslog/display.php:18 content_love/smslog/view/display.php:8
 #: content_love/subscribe/display.php:11
 #: content_my/domain/setting/elements/superdetail.php:70
-#: content_pay/home/display-donate.php:9 content_su/tg/log/display.php:98
-#: content_su/tg/system/display.php:24 content_su/tg/users/display.php:99
+#: content_pay/home/display-donate.php:9 content_sudo/tg/log/display.php:98
+#: content_sudo/tg/system/display.php:24 content_sudo/tg/users/display.php:99
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:99
 #: dash/app/ticket/contact.php:103 dash/layout/comment/comment-add.php:25
 #: dash/layout/comment/comment-add.php:26 includes/languages/trans_static_public.php:162
@@ -1406,10 +1406,10 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_love/store/display.php:7 content_love/store/display.php:9
 #: content_my/domain/buy/display-search.php:12 content_my/domain/irnic/display.php:40
 #: content_my/domain/irnic/display.php:41 content_my/domain/short/display.php:45
-#: content_my/domain/short/display.php:46 content_su/apilog/home/display.php:48
-#: content_su/apilog/home/display.php:56 content_su/ip/display.php:41
-#: content_su/tg/log/display.php:48 content_su/tg/log/display.php:56
-#: content_su/tg/users/display.php:49 content_su/tg/users/display.php:57
+#: content_my/domain/short/display.php:46 content_sudo/apilog/home/display.php:48
+#: content_sudo/apilog/home/display.php:56 content_sudo/ip/display.php:41
+#: content_sudo/tg/log/display.php:48 content_sudo/tg/log/display.php:56
+#: content_sudo/tg/users/display.php:49 content_sudo/tg/users/display.php:57
 #: dash/layout/search/search-bar.php:27 includes/languages/trans_static_public.php:108
 #: lib/app/form/inquiry.php:22
 msgid "Search"
@@ -2076,7 +2076,7 @@ msgstr "شماره موبایل خود را وارد کنید"
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
 #: content_enter/verify/call/display.php:9 content_enter/verify/display.php:63
 #: content_enter/verify/sms/display.php:9 content_enter/verify/telegram/display.php:9
-#: content_pay/redirect/display.php:21 content_su/passwd/display.php:11
+#: content_pay/redirect/display.php:21 content_sudo/passwd/display.php:11
 msgid "Go"
 msgstr "برو"
 
@@ -2119,7 +2119,7 @@ msgstr "رایگان"
 #: content_a/chap/size-a4/oneSide-buyer.php:41 content_a/chap/size-a4/oneSide-buyer.php:51
 #: content_a/chap/size-a4/oneSide-seller.php:29
 #: content_a/chap/size-a4/oneSide-seller.php:39 content_a/tag/edit/display.php:65
-#: content_su/view.php:140 dash/app/sort.php:88
+#: content_sudo/view.php:140 dash/app/sort.php:88
 #: includes/languages/trans_static_public.php:35
 msgid ", "
 msgstr "، "
@@ -2210,17 +2210,17 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:25
 #: content_a/setting/menu/item/display.php:20 content_a/website/menu/item/display.php:20
-#: content_a/website/productline/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:6
-#: dash/panel.php:231 dash/plan_list.php:44 includes/languages/trans_static.php:571
-#: lib/app/export/product.php:57 lib/app/quickaccess/products.php:27
-#: lib/app/quickaccess/setting.php:463 lib/app/quickaccess/setting.php:478
-#: lib/app/quickaccess/setting.php:492 lib/app/quickaccess/setting.php:507
-#: lib/app/quickaccess/setting.php:525 lib/app/quickaccess/setting.php:540
-#: lib/app/quickaccess/setting.php:553 lib/app/quickaccess/setting.php:573
-#: lib/app/quickaccess/setting.php:593 lib/app/quickaccess/setting.php:607
-#: lib/app/quickaccess/setting.php:621 lib/app/quickaccess/setting.php:636
-#: lib/app/quickaccess/setting.php:650 lib/app/quickaccess/tags.php:30
-#: lib/app/website/body/template.php:91
+#: content_a/website/productline/view.php:15 content_site/body/product/option.php:29
+#: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:231 dash/plan_list.php:44
+#: includes/languages/trans_static.php:571 lib/app/export/product.php:57
+#: lib/app/quickaccess/products.php:27 lib/app/quickaccess/setting.php:463
+#: lib/app/quickaccess/setting.php:478 lib/app/quickaccess/setting.php:492
+#: lib/app/quickaccess/setting.php:507 lib/app/quickaccess/setting.php:525
+#: lib/app/quickaccess/setting.php:540 lib/app/quickaccess/setting.php:553
+#: lib/app/quickaccess/setting.php:573 lib/app/quickaccess/setting.php:593
+#: lib/app/quickaccess/setting.php:607 lib/app/quickaccess/setting.php:621
+#: lib/app/quickaccess/setting.php:636 lib/app/quickaccess/setting.php:650
+#: lib/app/quickaccess/tags.php:30 lib/app/website/body/template.php:91
 msgid "Products"
 msgstr "محصولات"
 
@@ -2600,6 +2600,7 @@ msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
 #: content/home/layout/footer.php:205 content/home/layout/pwa-footer.php:242
+#: content/investment/display.php:97
 msgid "Brand Style Guide"
 msgstr "راهنمای نشان تجاری"
 
@@ -2997,7 +2998,7 @@ msgstr ""
 "مهم هستیم به خود میبالیم:)"
 
 #: content/investment/display.php:11 content_love/application/home/display.php:77
-#: content_su/apilog/home/display.php:79 includes/languages/trans_static_public.php:104
+#: content_sudo/apilog/home/display.php:79 includes/languages/trans_static_public.php:104
 msgid "Version"
 msgstr "نسخه"
 
@@ -3061,7 +3062,11 @@ msgstr "بیزینس پلن"
 msgid "A business plan is more than a document"
 msgstr "طرح کسب و کار بیش از یک سند است"
 
-#: content/investment/display.php:104
+#: content/investment/display.php:108
+msgid "Jibres museum"
+msgstr "موزه جیبرس"
+
+#: content/investment/display.php:124
 msgid "Invest in Jibres"
 msgstr "سرمایه‌گذاری در جیبرس"
 
@@ -3079,7 +3084,7 @@ msgstr ""
 #: content_love/domain/log/display.php:99 content_love/domain/onlineniclog/display.php:99
 #: content_love/home/display.php:125 content_love/ip/view.php:9
 #: content_love/smslog/display.php:24 content_love/smslog/view/display.php:14
-#: content_su/home/display.php:128 content_su/ip/display.php:59
+#: content_sudo/home/display.php:128 content_sudo/ip/display.php:59
 #: dash/layout/admin/sidebar/sidebar-su.php:10 lib/app/nic_log/search.php:87
 #: lib/app/onlinenic/log/search.php:87
 msgid "IP"
@@ -4591,23 +4596,23 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_pay/home/display-transaction.php:157 content_site/page/new/view.php:11
 #: content_site/page/settings/view.php:13 content_site/page/view.php:10
 #: content_site/section/view.php:37 content_site/section/view.php:58
-#: content_site/section/view.php:203 content_su/apilog/home/view.php:9
-#: content_su/apilog/view/view.php:9 content_su/backup/display.php:5
-#: content_su/backup/view.php:10 content_su/changeallfuel/view.php:8
-#: content_su/cronjob/view.php:9 content_su/dbversion/view.php:9
-#: content_su/dnsprovider/view.php:8 content_su/fix/view.php:11
-#: content_su/homepage/view.php:11 content_su/info/view.php:8 content_su/ip/view.php:10
-#: content_su/log/view.php:10 content_su/log/view.php:16 content_su/passwd/view.php:8
-#: content_su/processlist/view.php:9 content_su/query/view.php:9
-#: content_su/server/view.php:9 content_su/session/view.php:9
-#: content_su/shorturl/view.php:9 content_su/smsclient/edit/view.php:9
-#: content_su/smsclient/home/view.php:8 content_su/tempfile/view.php:16
-#: content_su/tempfile/view.php:50 content_su/tg/home/view.php:8
-#: content_su/tg/log/view.php:9 content_su/tg/logshow/view.php:9
-#: content_su/tg/sendmessage/view.php:8 content_su/tg/sendphoto/view.php:9
-#: content_su/tg/system/view.php:9 content_su/tg/users/view.php:9
-#: content_su/tg/webhook/view.php:8 content_su/update/view.php:8
-#: content_su/usage/view.php:8 dash/engine/view.php:202
+#: content_site/section/view.php:203 content_sudo/apilog/home/view.php:9
+#: content_sudo/apilog/view/view.php:9 content_sudo/backup/display.php:5
+#: content_sudo/backup/view.php:10 content_sudo/changeallfuel/view.php:8
+#: content_sudo/cronjob/view.php:9 content_sudo/dbversion/view.php:9
+#: content_sudo/dnsprovider/view.php:8 content_sudo/fix/view.php:11
+#: content_sudo/homepage/view.php:11 content_sudo/info/view.php:8
+#: content_sudo/ip/view.php:10 content_sudo/log/view.php:10 content_sudo/log/view.php:16
+#: content_sudo/passwd/view.php:8 content_sudo/processlist/view.php:9
+#: content_sudo/query/view.php:9 content_sudo/server/view.php:9
+#: content_sudo/session/view.php:9 content_sudo/shorturl/view.php:9
+#: content_sudo/smsclient/edit/view.php:9 content_sudo/smsclient/home/view.php:8
+#: content_sudo/tempfile/view.php:16 content_sudo/tempfile/view.php:50
+#: content_sudo/tg/home/view.php:8 content_sudo/tg/log/view.php:9
+#: content_sudo/tg/logshow/view.php:9 content_sudo/tg/sendmessage/view.php:8
+#: content_sudo/tg/sendphoto/view.php:9 content_sudo/tg/system/view.php:9
+#: content_sudo/tg/users/view.php:9 content_sudo/tg/webhook/view.php:8
+#: content_sudo/update/view.php:8 content_sudo/usage/view.php:8 dash/engine/view.php:202
 msgid "Back"
 msgstr "بازگشت"
 
@@ -4957,7 +4962,7 @@ msgstr "غیرفعال"
 #: content_love/gift/create/review/display.php:31 content_love/gift/edit/display.php:84
 #: content_love/gift/view/display.php:31
 #: content_my/domain/setting/elements/superdetail.php:23
-#: content_su/smsclient/home/display.php:16 dash/app/comment/filter.php:26
+#: content_sudo/smsclient/home/display.php:16 dash/app/comment/filter.php:26
 #: dash/app/comment/filter.php:27 dash/app/comment/filter.php:28
 #: dash/app/comment/filter.php:29 dash/app/posts/filter.php:47
 #: dash/app/posts/filter.php:56 dash/app/posts/filter.php:66 dash/app/posts/filter.php:75
@@ -5170,8 +5175,8 @@ msgstr "گروه"
 #: content_a/accounting/coding/display-list.php:107 content_a/form/answer/display.php:61
 #: content_crm/notification/view/display.php:23 content_crm/sms/view/display.php:6
 #: content_crm/telegram/view/display.php:6 content_crm/transactions/detail/display.php:7
-#: content_love/smslog/display.php:17 content_su/tg/log/display.php:86
-#: content_su/tg/log/display.php:175
+#: content_love/smslog/display.php:17 content_sudo/tg/log/display.php:86
+#: content_sudo/tg/log/display.php:175
 msgid "ID"
 msgstr "شناسه"
 
@@ -5211,10 +5216,10 @@ msgstr "تفصیل‌پذیر"
 #: content_love/log/home/logTable.php:124 content_love/log/home/logTable.php:132
 #: content_love/notiflog/display.php:155 content_love/notiflog/display.php:163
 #: content_my/domain/irnic/display.php:85 content_my/domain/irnic/display.php:93
-#: content_my/domain/short/display.php:78 content_su/apilog/home/display.php:188
-#: content_su/apilog/home/display.php:196 content_su/ip/display.php:108
-#: content_su/tg/log/display.php:192 content_su/tg/log/display.php:200
-#: content_su/tg/users/display.php:133 content_su/tg/users/display.php:141
+#: content_my/domain/short/display.php:78 content_sudo/apilog/home/display.php:188
+#: content_sudo/apilog/home/display.php:196 content_sudo/ip/display.php:108
+#: content_sudo/tg/log/display.php:192 content_sudo/tg/log/display.php:200
+#: content_sudo/tg/users/display.php:133 content_sudo/tg/users/display.php:141
 #: dash/layout/search/search-filter.php:277
 msgid "Clear filters"
 msgstr "پاک‌سازی فیلترها"
@@ -5225,8 +5230,8 @@ msgstr "پاک‌سازی فیلترها"
 #: content_a/notiflog/display.php:162 content_a/order/home/display.php:187
 #: content_love/domain/irnic/display.php:92 content_love/domain/polls/display.php:101
 #: content_love/log/home/logTable.php:131 content_love/notiflog/display.php:162
-#: content_my/domain/irnic/display.php:92 content_su/apilog/home/display.php:195
-#: content_su/tg/log/display.php:199 content_su/tg/users/display.php:140
+#: content_my/domain/irnic/display.php:92 content_sudo/apilog/home/display.php:195
+#: content_sudo/tg/log/display.php:199 content_sudo/tg/users/display.php:140
 msgid "Result not found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
@@ -5236,8 +5241,8 @@ msgstr "نتیجه‌ای یافت نشد!"
 #: content_a/notiflog/display.php:162 content_a/order/home/display.php:187
 #: content_love/domain/irnic/display.php:92 content_love/domain/polls/display.php:101
 #: content_love/log/home/logTable.php:131 content_love/notiflog/display.php:162
-#: content_my/domain/irnic/display.php:92 content_su/apilog/home/display.php:195
-#: content_su/tg/log/display.php:199 content_su/tg/users/display.php:140
+#: content_my/domain/irnic/display.php:92 content_sudo/apilog/home/display.php:195
+#: content_sudo/tg/log/display.php:199 content_sudo/tg/users/display.php:140
 msgid "Search with new keywords."
 msgstr "کلمه ای جدید جستجو کنید."
 
@@ -5253,7 +5258,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_love/domain/irnic/display.php:102 content_love/domain/log/display.php:161
 #: content_love/domain/onlineniclog/display.php:161 content_love/log/home/logTable.php:138
 #: content_love/notiflog/display.php:169 content_my/domain/irnic/display.php:102
-#: content_my/domain/short/display.php:90 content_su/ip/display.php:120
+#: content_my/domain/short/display.php:90 content_sudo/ip/display.php:120
 msgid "Hi!"
 msgstr "سلام!"
 
@@ -5285,8 +5290,8 @@ msgstr "ماهیت گروه"
 #: content_a/accounting/report/quarter/display-list.php:73
 #: content_a/cart/home/display.php:180 content_a/form/answer/display.php:68
 #: content_a/form/answer/display.php:81 content_love/log/home/logTable.php:9
-#: content_pay/home/display-transaction.php:287 content_su/apilog/home/display.php:103
-#: content_su/smsclient/home/display.php:52 includes/languages/trans_static.php:678
+#: content_pay/home/display-transaction.php:287 content_sudo/apilog/home/display.php:103
+#: content_sudo/smsclient/home/display.php:52 includes/languages/trans_static.php:678
 msgid "Detail"
 msgstr "جزئیات"
 
@@ -5677,14 +5682,14 @@ msgid "Deleted"
 msgstr "حذف شده"
 
 #: content_a/accounting/doc/edit/view.php:39 content_a/accounting/filter.php:24
-#: content_a/setting/product/display.php:128 content_su/update/display.php:14
+#: content_a/setting/product/display.php:128 content_sudo/update/display.php:14
 #: includes/languages/trans_static.php:605 lib/app/domains/filter.php:53
 #: lib/app/domains/filter.php:54 lib/app/domains/filter.php:55
 msgid "Lock"
 msgstr "قفل"
 
 #: content_a/accounting/doc/edit/view.php:45 content_a/accounting/factor/edit/view.php:31
-#: content_su/update/display.php:41
+#: content_sudo/update/display.php:41
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
@@ -5888,8 +5893,8 @@ msgstr "افزودن درآمد"
 #: content_crm/transactions/display-statistics.php:21
 #: content_crm/transactions/display-statistics.php:37
 #: content_love/domain/home/display.php:242 content_love/files/home/display.php:36
-#: content_love/gift/home/display.php:7 content_su/tg/system/display.php:10
-#: content_su/tg/users/display.php:85 includes/languages/trans_static_public.php:899
+#: content_love/gift/home/display.php:7 content_sudo/tg/system/display.php:10
+#: content_sudo/tg/users/display.php:85 includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -6349,7 +6354,7 @@ msgid "Ledger Number"
 msgstr "شماره دفتر کل"
 
 #: content_a/accounting/report/journal/display.php:27
-#: content_a/accounting/report/ledger/display.php:28 content_su/backup/display.php:152
+#: content_a/accounting/report/ledger/display.php:28 content_sudo/backup/display.php:152
 #: includes/languages/trans_static_public.php:524
 msgid "Day"
 msgstr "روز"
@@ -6357,7 +6362,7 @@ msgstr "روز"
 #: content_a/accounting/report/journal/display.php:28
 #: content_a/accounting/report/ledger/display.php:29
 #: content_crm/transactions/report/display.php:19
-#: content_love/business/monthly/display.php:14 content_su/backup/display.php:150
+#: content_love/business/monthly/display.php:14 content_sudo/backup/display.php:150
 #: lib/app/domains/filter.php:63
 msgid "Month"
 msgstr "ماه"
@@ -6450,8 +6455,8 @@ msgstr "فروش"
 #: content_love/files/view/display.php:26 content_love/smslog/display.php:21
 #: content_love/smslog/view/display.php:12 content_my/domain/setting/elements/irnic.php:26
 #: content_site/options/type.php:27 dash/app/ticket/filter.php:57
-#: dash/app/ticket/filter.php:58 dash/app/transaction/filter.php:32
-#: dash/app/transaction/filter.php:33 lib/app/application/queue_search.php:66
+#: dash/app/ticket/filter.php:58 dash/app/transaction/filter.php:36
+#: dash/app/transaction/filter.php:37 lib/app/application/queue_search.php:66
 #: lib/app/factor/search.php:137 lib/app/gift/filter.php:51 lib/app/gift/filter.php:52
 #: lib/app/nic_log/search.php:69 lib/app/onlinenic/log/search.php:69
 #: lib/app/tag/add.php:97 lib/pagebuilder/body/products/filter.php:35
@@ -7021,7 +7026,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_love/business/setting/display.php:93
 #: content_love/business/setting/display.php:118 content_love/store/setting/display.php:64
 #: content_love/store/setting/display.php:84 content_my/domain/option/display.php:78
-#: content_su/backup/display.php:53 content_su/cronjob/display.php:14
+#: content_sudo/backup/display.php:53 content_sudo/cronjob/display.php:14
 #: dash/layout/admin/admin-titlebox.php:73
 #: dash/layout/panelBuilder/panelBuilder-header.php:26 dash/layout/pwa/pwa-header.php:106
 #: lib/pagebuilder/footer/pwabtn/design.php:31
@@ -7073,7 +7078,7 @@ msgstr "برنامه شما برای استفاده آماده است"
 #: content_a/android/apk/display.php:48 content_a/form/answer/export/display.php:49
 #: content_a/products/export/display.php:64 content_crm/member/export/display.php:54
 #: content_love/application/home/display.php:112 content_love/store/backup/display.php:22
-#: content_su/apilog/home/display.php:104 dash/layout/post/gallery-box.php:22
+#: content_sudo/apilog/home/display.php:104 dash/layout/post/gallery-box.php:22
 msgid "Download"
 msgstr "دانلود"
 
@@ -7311,7 +7316,7 @@ msgstr "تنظیم لوگوی برنامه"
 #: content_crm/member/identification/display.php:106
 #: content_crm/member/identification/display.php:118 content_crm/ticket/add/display.php:18
 #: content_crm/ticket/edit/display.php:18 content_crm/ticket/view/display-answer.php:34
-#: content_site/options/file/file.php:104 dash/layout/post/admin-gallery-box.php:15
+#: content_site/options/file/file.php:106 dash/layout/post/admin-gallery-box.php:15
 #: lib/pagebuilder/body/image/add.php:13 lib/pagebuilder/header/logo/design.php:17
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل را انتخاب کرده یا در اینجا بندازید"
@@ -7393,7 +7398,7 @@ msgstr "صفحه اول مقدمه"
 #: content_crm/member/identification/display.php:119
 #: content_love/application/home/display.php:83 content_love/files/home/display.php:37
 #: content_love/files/home/display.php:49 content_love/home/display.php:115
-#: content_su/log/display.php:52 dash/app/files/ready.php:107
+#: content_sudo/log/display.php:52 dash/app/files/ready.php:107
 #: dash/layout/post/admin-gallery-box.php:143 includes/languages/trans_static.php:500
 #: lib/app/form/generator.php:829
 msgid "File"
@@ -7670,13 +7675,13 @@ msgstr "سبد خرید"
 #: content_a/cart/home/display.php:144 content_a/cart/home/display.php:183
 #: content_a/products/advance/display.php:24 content_a/sale/display.php:16
 #: content_a/tag/home/display.php:77 content_a/units/display.php:62
-#: content_my/business/home/display_site.php:63 includes/languages/trans_static.php:499
-#: lib/app/factor/search.php:153 lib/app/store/analytics.php:64
-#: lib/app/store/analytics.php:66 lib/app/store/analytics.php:67
-#: lib/app/store/analytics.php:68 lib/app/store/analytics.php:69
-#: lib/app/store/analytics.php:70 lib/app/store/analytics.php:71
-#: lib/app/store/analytics.php:72 lib/app/store/analytics.php:73
-#: lib/app/website/body/line/productline.php:12
+#: content_my/business/home/display_site.php:63 content_site/body/product/option.php:31
+#: includes/languages/trans_static.php:499 lib/app/factor/search.php:153
+#: lib/app/store/analytics.php:64 lib/app/store/analytics.php:66
+#: lib/app/store/analytics.php:67 lib/app/store/analytics.php:68
+#: lib/app/store/analytics.php:69 lib/app/store/analytics.php:70
+#: lib/app/store/analytics.php:71 lib/app/store/analytics.php:72
+#: lib/app/store/analytics.php:73 lib/app/website/body/line/productline.php:12
 msgid "Product"
 msgstr "محصول"
 
@@ -7695,15 +7700,15 @@ msgstr "گزینه"
 #: content_love/domain/onlineniclog/display.php:100
 #: content_love/domain/onlineniclog/view/display.php:30
 #: content_love/gift/usage/display.php:12 content_love/log/home/logTable.php:8
-#: content_love/smslog/display.php:27 content_su/tg/system/display.php:7
-#: content_su/tg/users/display.php:82 lib/app/domains/filter.php:65
+#: content_love/smslog/display.php:27 content_sudo/tg/system/display.php:7
+#: content_sudo/tg/users/display.php:82 lib/app/domains/filter.php:65
 #: lib/app/gift/filter.php:48 lib/app/gift/filter.php:49 lib/app/nic_log/search.php:95
 #: lib/app/onlinenic/log/search.php:95
 msgid "User"
 msgstr "کاربر"
 
-#: content_a/cart/home/display.php:229 content_su/apilog/home/display.php:202
-#: content_su/tg/log/display.php:206 content_su/tg/users/display.php:147
+#: content_a/cart/home/display.php:229 content_sudo/apilog/home/display.php:202
+#: content_sudo/tg/log/display.php:206 content_sudo/tg/users/display.php:147
 msgid "No record exist!"
 msgstr "هیچ داده ای وجود ندارد!"
 
@@ -8168,7 +8173,7 @@ msgstr "نمودار شامل شده‌ها"
 #: content_a/setting/pcpos/display.php:126 content_a/units/display.php:113
 #: content_love/business/domain/action/display.php:24
 #: content_love/business/domain/log/display.php:12
-#: content_love/domain/billing/display.php:90 content_su/smsclient/home/display.php:19
+#: content_love/domain/billing/display.php:90 content_sudo/smsclient/home/display.php:19
 msgid "Action"
 msgstr "عملیات"
 
@@ -8231,7 +8236,7 @@ msgstr "حذف فیلتر"
 #: content_a/form/analytics/table/display.php:69
 #: content_a/form/analytics/table/display.php:81
 #: content_account/personalization/home/display.php:47
-#: content_su/apilog/home/display.php:75 dash/app/log/caller/su/su_PDOError.php:20
+#: content_sudo/apilog/home/display.php:75 dash/app/log/caller/su/su_PDOError.php:20
 #: dash/app/log/caller/su/su_phpBug.php:19 dash/app/log/caller/su/su_sqlError.php:20
 #: dash/app/log/caller/su/su_sqlHardCritical.php:19
 msgid "Show"
@@ -9139,11 +9144,11 @@ msgstr "لاگ اطلاع‌رسانی"
 
 #: content_a/order/address/display.php:17 content_a/order/detail/display.php:17
 #: content_a/order/home/display.php:56 content_crm/notification/send/display.php:5
-#: content_my/business/home/display_site.php:64 content_su/smsclient/home/display.php:14
+#: content_my/business/home/display_site.php:64 content_sudo/smsclient/home/display.php:14
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:32
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:68
 #: dash/app/ticket/filter.php:52 dash/app/ticket/filter.php:53
-#: dash/app/transaction/filter.php:51 includes/languages/trans_static.php:72
+#: dash/app/transaction/filter.php:55 includes/languages/trans_static.php:72
 #: lib/app/factor/search.php:117 lib/app/factor/search.php:126
 #: lib/app/log/caller/business/business_creatingNew.php:42 lib/app/store/analytics.php:27
 msgid "Customer"
@@ -9457,8 +9462,8 @@ msgstr ""
 "شما می‌توانید در لیست محصولات جستجو کرده و محصول یا کالای جدیدی را اضافه کرده یا ویرایش "
 "کنید."
 
-#: content_a/order/home/view.php:111 content_su/tg/log/view.php:15
-#: content_su/tg/system/view.php:15 content_su/tg/users/view.php:15
+#: content_a/order/home/view.php:111 content_sudo/tg/log/view.php:15
+#: content_sudo/tg/system/view.php:15 content_sudo/tg/users/view.php:15
 msgid "Back to dashboard"
 msgstr "بازگشت به داشبورد"
 
@@ -9909,8 +9914,8 @@ msgstr ""
 "تنها برای شما به‌عنوان نویسنده قابل مشاهده است."
 
 #: content_a/pagebuilder/manage/display.php:98 content_cms/posts/advance/display.php:32
-#: content_site/body/blog/html/b1.php:154 dash/app/posts/filter.php:48
-#: dash/app/posts/ready.php:106
+#: content_site/body/blog/html/b1.php:154 content_site/body/product/html/p1.php:154
+#: dash/app/posts/filter.php:48 dash/app/posts/ready.php:106
 msgid "Published"
 msgstr "منتشر شده"
 
@@ -10002,9 +10007,9 @@ msgstr "خاص"
 #: content_love/business/datalist/display.php:8 content_love/log/home/logTable.php:63
 #: content_love/smslog/view/display.php:16 content_love/store/display.php:20
 #: content_site/page/settings/display-sidebar.php:79
-#: content_site/page/settings/display-sidebar.php:81 content_su/apilog/home/display.php:80
-#: lib/pagebuilder/body/image/add.php:29 lib/pagebuilder/body/title/design.php:63
-#: lib/pagebuilder/footer/pwabtn/design.php:69
+#: content_site/page/settings/display-sidebar.php:81
+#: content_sudo/apilog/home/display.php:80 lib/pagebuilder/body/image/add.php:29
+#: lib/pagebuilder/body/title/design.php:63 lib/pagebuilder/footer/pwabtn/design.php:69
 #: lib/pagebuilder/header/announcement/design.php:44
 msgid "Url"
 msgstr "نشانی اینترنتی"
@@ -10113,7 +10118,7 @@ msgid "File Size"
 msgstr "حجم فایل"
 
 #: content_a/products/advance/display.php:52 content_a/products/cartlimit/display.php:17
-#: content_su/backup/display.php:107 dash/upload/size.php:99 dash/utility/human.php:104
+#: content_sudo/backup/display.php:107 dash/upload/size.php:99 dash/utility/human.php:104
 #: includes/languages/trans_static_public.php:45
 msgid "MB"
 msgstr "مگابایت"
@@ -11020,8 +11025,8 @@ msgstr "ذخیره فاکتور و ادامه"
 msgid "Save & Print"
 msgstr "ذخیره و چاپ"
 
-#: content_a/sale/model.php:57 content_su/smsclient/edit/model.php:47
-#: content_su/smsclient/home/model.php:47 dash/utility/pay/verify.php:54
+#: content_a/sale/model.php:57 content_sudo/smsclient/edit/model.php:47
+#: content_sudo/smsclient/home/model.php:47 dash/utility/pay/verify.php:54
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
@@ -11962,7 +11967,7 @@ msgid "Home page"
 msgstr "صفحه نخست"
 
 #: content_a/setting/menu/item/display.php:21 content_a/website/menu/item/display.php:21
-#: content_cms/posts/home/view.php:9 content_site/body/blog/option.php:31
+#: content_cms/posts/home/view.php:9 content_site/body/blog/option.php:21
 #: dash/app/comment/filter.php:30 includes/languages/trans_static.php:570
 #: includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
@@ -12788,7 +12793,7 @@ msgstr "شبکه‌های اجتماعی متصل به اشتراک‌گذاری
 #: content_crm/home/display.php:155 content_crm/telegram/conversation/view.php:12
 #: content_crm/telegram/home/view.php:9 content_crm/telegram/send/view.php:12
 #: content_crm/ticket/view/display.php:174 content_love/log/home/logTable.php:60
-#: content_su/home/display.php:204 content_su/tg/home/view.php:11
+#: content_sudo/home/display.php:204 content_sudo/tg/home/view.php:11
 #: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:598
 #: lib/app/website/init.php:92 lib/pagebuilder/tools/first_init.php:136 lib/store.php:509
 msgid "Telegram"
@@ -13979,7 +13984,7 @@ msgstr "عنوان ردیف"
 #: content_my/domain/setting/dns/display.php:43
 #: content_my/domain/setting/dnsadvance/display.php:44
 #: content_my/domain/setting/dnsadvance/display.php:117
-#: content_my/domain/setting/holder/display.php:30 content_su/home/display.php:73
+#: content_my/domain/setting/holder/display.php:30 content_sudo/home/display.php:73
 #: content_v2/android/update/display.php:4 content_v2/android/update/view.php:9
 #: dash/layout/admin/sidebar/sidebar-su.php:14
 #: includes/languages/trans_static_public.php:146
@@ -14326,7 +14331,7 @@ msgstr "تنظیم آگهی اختصاصی سرصفحه"
 #: content_a/website/header/announcement/view.php:12
 #: content_a/website/header/template/view.php:12 content_site/header/h1/option.php:30
 #: content_site/header/h2/option.php:30 content_site/page/display-sidebar.php:40
-#: content_su/apilog/home/display.php:82
+#: content_sudo/apilog/home/display.php:82
 msgid "Header"
 msgstr "سرصفحه"
 
@@ -15200,7 +15205,7 @@ msgid "Username"
 msgstr "نام‌کاربری"
 
 #: content_account/my/home/display.php:60 content_crm/member/glance/display.php:263
-#: content_crm/staff/add/display.php:13 content_su/home/display.php:196
+#: content_crm/staff/add/display.php:13 content_sudo/home/display.php:196
 #: dash/app/user/filter.php:35 dash/app/user/filter.php:36
 #: dash/layout/admin/sidebar/sidebar-su.php:23
 msgid "Permission"
@@ -16199,7 +16204,7 @@ msgstr "تایید نشده"
 #: content_cms/files/choose/view.php:70 content_cms/files/home/view.php:14
 #: content_cms/hashtag/home/view.php:16 content_cms/posts/home/view.php:45
 #: content_cms/seo/view.php:10 content_love/files/choose/view.php:62
-#: content_love/files/home/view.php:14 content_site/body/blog/option.php:29
+#: content_love/files/home/view.php:14 content_site/body/blog/option.php:19
 #: dash/layout/admin/admin-sidebar-frame.php:17 dash/plan_list.php:103
 #: lib/app/quickaccess/hashtags.php:29 lib/app/store/analytics.php:54
 #: lib/app/store/analytics.php:55 lib/app/store/analytics.php:56
@@ -16381,7 +16386,7 @@ msgid "Total file count per type"
 msgstr "تعداد فایل‌ها به تفکیک نوع فایل"
 
 #: content_cms/files/home/display.php:48 content_love/files/home/display.php:48
-#: content_su/log/display.php:54 includes/languages/trans_static_public.php:196
+#: content_sudo/log/display.php:54 includes/languages/trans_static_public.php:196
 msgid "Size"
 msgstr "اندازه"
 
@@ -16625,7 +16630,7 @@ msgstr "در انتظار تایید"
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:177 content_site/body/blog/option.php:77
+#: content_cms/home/display.php:177 content_site/body/blog/option.php:67
 #: content_site/template/site/demo_001.php:26 content_site/template/site/demo_001.php:51
 #: content_site/template/site/demo_002.php:26
 msgid "Latest Posts"
@@ -17231,7 +17236,7 @@ msgstr ""
 #: content_love/domain/home/view.php:15 content_love/domain/log/view/view.php:12
 #: content_love/domain/onlineniclog/view/view.php:12 content_love/log/caller/view.php:9
 #: content_love/log/home/view.php:9 content_love/log/show/view.php:9
-#: content_su/home/display.php:140 dash/layout/admin/sidebar/sidebar-su.php:16
+#: content_sudo/home/display.php:140 dash/layout/admin/sidebar/sidebar-su.php:16
 #: lib/app/store/analytics.php:98 lib/app/store/analytics.php:99
 #: lib/app/store/analytics.php:100 lib/app/store/analytics.php:101
 #: lib/app/store/analytics.php:102
@@ -17239,8 +17244,8 @@ msgid "Log"
 msgstr "لاگ"
 
 #: content_crm/log/home/view.php:69 content_love/log/home/view.php:28
-#: content_su/apilog/home/view.php:23 content_su/tg/log/view.php:23
-#: content_su/tg/system/view.php:23 content_su/tg/users/view.php:23
+#: content_sudo/apilog/home/view.php:23 content_sudo/tg/log/view.php:23
+#: content_sudo/tg/system/view.php:23 content_sudo/tg/users/view.php:23
 msgid "Search for :search"
 msgstr "جستجوی :search"
 
@@ -17335,10 +17340,8 @@ msgid "You have not any member to export!"
 msgstr "شما هیچ مشتری برای خروجی گرفتن ندارید!"
 
 #: content_crm/member/export/display.php:9
-#, fuzzy
-#| msgid "Add new menu"
 msgid "Add new member"
-msgstr "افزودن فهرست جدید"
+msgstr "افزودن عضو جدید"
 
 #: content_crm/member/export/display.php:15
 msgid "Member count"
@@ -17468,14 +17471,14 @@ msgstr "پرداختی‌ها"
 #: content_crm/member/glance/display.php:354
 #: content_crm/member/transactions/plus/view.php:12
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:60
-#: dash/app/transaction/filter.php:32
+#: dash/app/transaction/filter.php:36
 msgid "Increase account recharge"
 msgstr "افزایش شارژ حساب مشتری"
 
 #: content_crm/member/glance/display.php:360
 #: content_crm/member/transactions/minus/view.php:12
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:64
-#: dash/app/transaction/filter.php:33
+#: dash/app/transaction/filter.php:37
 msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
@@ -17484,8 +17487,8 @@ msgstr "کاهش شارژ حساب مشتری"
 msgid "Messages"
 msgstr "پیام‌ها"
 
-#: content_crm/member/glance/display.php:386 content_su/tg/home/display.php:19
-#: content_su/tg/sendmessage/view.php:11
+#: content_crm/member/glance/display.php:386 content_sudo/tg/home/display.php:19
+#: content_sudo/tg/sendmessage/view.php:11
 msgid "Send message"
 msgstr "ارسال پیام"
 
@@ -17752,7 +17755,7 @@ msgstr "شما می‌توانید وضعیت این مشتری را به صور
 msgid "Unverify"
 msgstr "تایید نشده"
 
-#: content_crm/member/status/display.php:20 content_su/ip/display.php:60
+#: content_crm/member/status/display.php:20 content_sudo/ip/display.php:60
 #: includes/languages/trans_static.php:530
 msgid "Block"
 msgstr "قفل شده"
@@ -17971,7 +17974,7 @@ msgstr "تاریخچه پیامک‌های ارسال شده"
 
 #: content_crm/sms/home/display.php:8 content_crm/telegram/home/display.php:8
 #: content_crm/ticket/home/display.php:8 content_love/smslog/display.php:19
-#: content_love/smslog/view/display.php:10 content_su/tg/sendmessage/display.php:11
+#: content_love/smslog/view/display.php:10 content_sudo/tg/sendmessage/display.php:11
 #: dash/app/log/caller/sendNotifBySms.php:18 lib/app/form/item/type.php:429
 msgid "Message"
 msgstr "پیام"
@@ -18056,7 +18059,7 @@ msgstr ""
 msgid "Send Method"
 msgstr "روش ارسال"
 
-#: content_crm/telegram/view/display.php:23 content_su/apilog/home/display.php:86
+#: content_crm/telegram/view/display.php:23 content_sudo/apilog/home/display.php:86
 msgid "Date send"
 msgstr "تاریخ ارسال"
 
@@ -18572,8 +18575,8 @@ msgstr ""
 msgid "The interface responds to different methods depending on the action required."
 msgstr "این رابط به روش‌های مختلف بسته به نوع درخواست کاربر پاسخ می‌دهد."
 
-#: content_developers/docs/003-requests.php:12 content_su/apilog/home/display.php:81
-#: content_su/tg/log/display.php:142
+#: content_developers/docs/003-requests.php:12 content_sudo/apilog/home/display.php:81
+#: content_sudo/tg/log/display.php:142
 msgid "Method"
 msgstr "متود"
 
@@ -19145,7 +19148,7 @@ msgstr "نمی‌توانید با این کاربر وارد شوید"
 msgid "Need password!"
 msgstr "به کلمه عبور نیاز دارید!"
 
-#: content_enter/home/model.php:125 content_su/passwd/model.php:27
+#: content_enter/home/model.php:125 content_sudo/passwd/model.php:27
 msgid "Invalid password"
 msgstr "گذرواژه‌ی اشتباه"
 
@@ -19558,8 +19561,8 @@ msgstr "این درخواست برای بازیابی حساب کاربری اس
 msgid "This is request of change password."
 msgstr "این درخواست برای تغییر گذرواژه است."
 
-#: content_enter/verify/view.php:151 dash/app/transaction/filter.php:28
-#: dash/app/transaction/filter.php:29
+#: content_enter/verify/view.php:151 dash/app/transaction/filter.php:32
+#: dash/app/transaction/filter.php:33
 msgid "Verify"
 msgstr "اعتبارسنجی"
 
@@ -19982,7 +19985,7 @@ msgstr "همگام‌سازی دی‌ان‌اس"
 msgid "Add DNS"
 msgstr "افزودن دی‌ان‌اس"
 
-#: content_love/business/domain/dns/display.php:71 content_su/home/display.php:104
+#: content_love/business/domain/dns/display.php:71 content_sudo/home/display.php:104
 msgid "Server"
 msgstr "سرور"
 
@@ -19994,7 +19997,7 @@ msgstr "انتخاب سرور"
 msgid "Change source server"
 msgstr "تغییر سرور منبع"
 
-#: content_love/business/domain/dns/display.php:104 dash/app/transaction/filter.php:28
+#: content_love/business/domain/dns/display.php:104 dash/app/transaction/filter.php:32
 msgid "Verified"
 msgstr "تایید شده"
 
@@ -20129,8 +20132,8 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 
 #: content_love/business/home/view.php:9 content_love/business/question/display.php:8
 #: content_love/smslog/view/display.php:15 content_my/home/display_site.php:9
-#: content_su/dbversion/display.php:22 content_su/dbversion/display.php:35
-#: content_su/update/display.php:33 content_su/update/display.php:105
+#: content_sudo/dbversion/display.php:22 content_sudo/dbversion/display.php:35
+#: content_sudo/update/display.php:33 content_sudo/update/display.php:105
 #: dash/layout/pwa/pwa_menu.php:128 lib/app/business_domain/filter.php:69
 #: lib/app/business_domain/filter.php:70
 #: lib/app/log/caller/business/business_createNew.php:19
@@ -20138,7 +20141,7 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 msgid "Business"
 msgstr "بیزینس"
 
-#: content_love/business/monthly/display.php:13 content_su/backup/display.php:149
+#: content_love/business/monthly/display.php:13 content_sudo/backup/display.php:149
 #: lib/app/domains/filter.php:62 lib/app/form/report.php:177
 #: lib/app/nic_domainaction/ready.php:60 lib/app/nic_domainbilling/ready.php:62
 #: lib/app/nic_domainbilling/ready.php:66 lib/app/tax/year/get.php:115
@@ -20271,7 +20274,7 @@ msgid "Transfer business fuel"
 msgstr "جابجایی سوخت بیزینس"
 
 #: content_love/business/transfer/view.php:16 content_love/store/transfer/view.php:16
-#: content_su/shorturl/display.php:11
+#: content_sudo/shorturl/display.php:11
 msgid "Run"
 msgstr "اجرا"
 
@@ -20805,7 +20808,7 @@ msgid "IRNIC credit"
 msgstr "اعتبار ایرنیک"
 
 #: content_love/domain/home/display.php:173 content_love/home/display.php:96
-#: content_su/tg/home/display.php:9
+#: content_sudo/tg/home/display.php:9
 msgid "Logs"
 msgstr "لاگ"
 
@@ -21518,11 +21521,19 @@ msgstr "لاگ پیامک"
 msgid "Jibres Management"
 msgstr "مدیریت جیبرس"
 
-#: content_love/ip/display.php:66
+#: content_love/ip/display.php:67
 msgid "IP detail not found"
 msgstr "اطلاعات آی‌پی‌ یافت نشد"
 
-#: content_love/ip/model.php:16
+#: content_love/ip/model.php:17
+msgid "Folder removed"
+msgstr ""
+
+#: content_love/ip/model.php:21
+msgid "Invalid folder"
+msgstr ""
+
+#: content_love/ip/model.php:35
 msgid "IP is required"
 msgstr "آی‌پی الزامی است"
 
@@ -21530,19 +21541,19 @@ msgstr "آی‌پی الزامی است"
 msgid "Can not open this folder!"
 msgstr "نمی‌توانیم این پوشه را باز کنیم!"
 
-#: content_love/log/home/logTable.php:31 content_su/tg/log/display.php:99
-#: content_su/tg/system/display.php:25 content_su/tg/users/display.php:100
+#: content_love/log/home/logTable.php:31 content_sudo/tg/log/display.php:99
+#: content_sudo/tg/system/display.php:25 content_sudo/tg/users/display.php:100
 #: dash/social/telegram/commands/utility.php:38
 msgid "User id"
 msgstr "کد کاربر"
 
-#: content_love/log/home/logTable.php:38 content_su/tg/log/display.php:105
-#: content_su/tg/system/display.php:31 content_su/tg/users/display.php:106
+#: content_love/log/home/logTable.php:38 content_sudo/tg/log/display.php:105
+#: content_sudo/tg/system/display.php:31 content_sudo/tg/users/display.php:106
 msgid "User logs"
 msgstr "لاگ کاربران"
 
-#: content_love/log/home/logTable.php:39 content_su/tg/log/display.php:106
-#: content_su/tg/system/display.php:32 content_su/tg/users/display.php:107
+#: content_love/log/home/logTable.php:39 content_sudo/tg/log/display.php:106
+#: content_sudo/tg/system/display.php:32 content_sudo/tg/users/display.php:107
 msgid "User Profile"
 msgstr "پروفایل کاربر"
 
@@ -21624,7 +21635,7 @@ msgid "No backup of this store funded"
 msgstr "هیچ بکاپی از این فروشگاه یافت نشد"
 
 #: content_love/store/backup/view.php:9 content_love/store/setting/display.php:10
-#: content_su/home/display.php:80 dash/layout/admin/sidebar/sidebar-su.php:4
+#: content_sudo/home/display.php:80 dash/layout/admin/sidebar/sidebar-su.php:4
 #: includes/languages/trans_static_public.php:979
 msgid "Backup"
 msgstr "پشتیبان‌گیری"
@@ -22948,20 +22959,23 @@ msgid "Read in :val"
 msgstr "در :val بخوانید"
 
 #: content_site/body/blog/b1.php:17 content_site/body/gallery/g1.php:17
+#: content_site/header/h1/h1_1.php:17
 #, fuzzy
 #| msgid "Design"
 msgid "Card Design"
 msgstr "ظاهر"
 
 #: content_site/body/blog/b1.php:36 content_site/body/blog/b1.php:53
-#: content_site/body/blog/b2.php:36 content_site/body/blog/b2.php:53
+#: content_site/body/blog/b2.php:54 content_site/body/blog/b2.php:71
 #: content_site/body/gallery/g1.php:36 content_site/body/gallery/g1.php:53
+#: content_site/body/product/p1.php:36 content_site/body/product/p1.php:53
+#: content_site/header/h1/h1_1.php:42 content_site/header/h1/h1_1.php:59
 #, fuzzy
 #| msgid "Preview"
 msgid "Preview :val"
 msgstr "پیش‌نمایش"
 
-#: content_site/body/blog/b2.php:17
+#: content_site/body/blog/b2.php:35
 #, fuzzy
 #| msgid "Design"
 msgid "Box Design"
@@ -22986,9 +23000,10 @@ msgstr "منتشر شده در"
 msgid "Continue Reading"
 msgstr "ادامه خواندن"
 
-#: content_site/body/blog/option.php:87 content_site/options/btn/btn_viewall.php:21
-#: content_site/template/site/demo_001.php:36 content_site/template/site/demo_001.php:61
-#: content_site/template/site/demo_002.php:36
+#: content_site/body/blog/layout.php:65 content_site/body/blog/option.php:77
+#: content_site/body/product/layout.php:65 content_site/body/product/option.php:80
+#: content_site/options/btn/btn_viewall.php:40 content_site/template/site/demo_001.php:36
+#: content_site/template/site/demo_001.php:61 content_site/template/site/demo_002.php:36
 msgid "View all"
 msgstr "نمایش همه"
 
@@ -23020,6 +23035,14 @@ msgstr ""
 "از متن با همپوشانی تصویر استفاده کنید تا به مشتریان خود را از برند خودتان آگاه کنید. "
 "تصاویر و متنی را انتخاب کنید که مربوط به نوع و داستان شما باشد."
 
+#: content_site/body/product/option.php:70
+msgid "Latest Products"
+msgstr ""
+
+#: content_site/body/product/p1.php:17
+msgid "Design 1"
+msgstr ""
+
 #: content_site/body/slideshow/option.php:30 content_site/body/slideshow/option.php:48
 #: content_site/body/slideshow/option.php:134
 msgid "Slide show"
@@ -23045,8 +23068,7 @@ msgstr "نمایش اسلایدر"
 msgid "Invalid page id"
 msgstr "شماره صفحه نادرست"
 
-#: content_site/header/h1/option.php:32 content_site/header/h1/option.php:50
-#: content_site/header/h1/option.php:113
+#: content_site/header/h1/option.php:32
 msgid "Header 1"
 msgstr "سرصفحه شماره ۱"
 
@@ -23245,11 +23267,11 @@ msgstr "اندازه پس‌زمینه"
 msgid "Background size"
 msgstr "اندازه پس‌زمینه"
 
-#: content_site/options/btn/btn_viewall.php:55
+#: content_site/options/btn/btn_viewall.php:79
 msgid "Show <b>View all</b> button"
 msgstr "نمایش دکمه <b>مشاهده همه</b>"
 
-#: content_site/options/caption.php:26 content_su/tg/sendphoto/display.php:24
+#: content_site/options/caption.php:26 content_sudo/tg/sendphoto/display.php:24
 msgid "Caption"
 msgstr "برچسب"
 
@@ -23329,7 +23351,7 @@ msgstr "سایه سفید"
 msgid "Effect"
 msgstr "افکت"
 
-#: content_site/options/file/file.php:28
+#: content_site/options/file/file.php:30
 msgid "Please upload a file"
 msgstr "لطفا فایلی را بارگذاری کنید"
 
@@ -23631,7 +23653,7 @@ msgstr "جزئیات پیش‌نمایش نامعتبر است"
 msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
-#: content_site/section/controller.php:48 content_site/section/controller.php:180
+#: content_site/section/controller.php:48 content_site/section/controller.php:181
 #: content_site/section/model.php:48
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
@@ -23640,11 +23662,11 @@ msgstr "شناسه بخش اشتباه است"
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: content_site/section/controller.php:172
+#: content_site/section/controller.php:173
 msgid "Page id or section id not found"
 msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 
-#: content_site/section/controller.php:192
+#: content_site/section/controller.php:193
 msgid "Invalid section type"
 msgstr "نوع بخش اشتباه است"
 
@@ -23709,7 +23731,7 @@ msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
 #: content_site/section/model.php:174 content_site/section/model.php:630
-#: content_su/update/model.php:42 lib/app/export/download.php:36
+#: content_sudo/update/model.php:42 lib/app/export/download.php:36
 #: lib/app/factor/edit.php:89 lib/app/product/bullet.php:78
 #: lib/pagebuilder/tools/get.php:93
 msgid "Invalid type"
@@ -23748,10 +23770,8 @@ msgid "Add new Section"
 msgstr "افزودن بخش جدید"
 
 #: content_site/section/view.php:185
-#, fuzzy
-#| msgid "Invalid category id"
 msgid "Invalid category"
-msgstr "شناسه دسته‌بندی اشتباه است"
+msgstr "دسته‌بندی نادرست"
 
 #: content_site/template/preview.php:41
 #, fuzzy
@@ -23773,433 +23793,433 @@ msgstr ""
 msgid "Demo 002"
 msgstr ""
 
-#: content_su/apilog/home/display.php:57
+#: content_sudo/apilog/home/display.php:57
 msgid "Remove last month log"
 msgstr "حذف لاگ‌ها تا یک‌ ماه پیش"
 
-#: content_su/apilog/home/display.php:76
+#: content_sudo/apilog/home/display.php:76
 msgid "Auth"
 msgstr "شناسایی"
 
-#: content_su/apilog/home/display.php:78 lib/app/business_domain/filter.php:57
+#: content_sudo/apilog/home/display.php:78 lib/app/business_domain/filter.php:57
 #: lib/app/business_domain/filter.php:58 lib/app/store/filter.php:33
 msgid "Subdomain"
 msgstr "زیردامنه"
 
-#: content_su/apilog/home/display.php:83
+#: content_sudo/apilog/home/display.php:83
 msgid "Header len"
 msgstr "طول هدر"
 
-#: content_su/apilog/home/display.php:84
+#: content_sudo/apilog/home/display.php:84
 msgid "Body"
 msgstr "متن"
 
-#: content_su/apilog/home/display.php:85
+#: content_sudo/apilog/home/display.php:85
 msgid "Bodylen"
 msgstr "طول بدنه"
 
-#: content_su/apilog/home/display.php:87
+#: content_sudo/apilog/home/display.php:87
 msgid "Page status"
 msgstr "وضعیت صفحه"
 
-#: content_su/apilog/home/display.php:88
+#: content_sudo/apilog/home/display.php:88
 msgid "Result status"
 msgstr "وضعیت نتایج"
 
-#: content_su/apilog/home/display.php:89
+#: content_sudo/apilog/home/display.php:89
 msgid "Response header"
 msgstr "هدر پاسخ"
 
-#: content_su/apilog/home/display.php:90
+#: content_sudo/apilog/home/display.php:90
 msgid "Response body"
 msgstr "متن پاسخ"
 
-#: content_su/apilog/home/display.php:91
+#: content_sudo/apilog/home/display.php:91
 msgid "Datere sponse"
 msgstr "زمان پاسخ"
 
-#: content_su/apilog/home/display.php:92 includes/languages/trans_static.php:533
+#: content_sudo/apilog/home/display.php:92 includes/languages/trans_static.php:533
 msgid "Notif"
 msgstr "اطلاع‌رسانی"
 
-#: content_su/apilog/home/display.php:93
+#: content_sudo/apilog/home/display.php:93
 msgid "Response len"
 msgstr "طول پاسخ"
 
-#: content_su/apilog/home/model.php:12
+#: content_sudo/apilog/home/model.php:12
 msgid ":count log was removed"
 msgstr ":count لاگ حذف شد"
 
-#: content_su/apilog/home/view.php:12 content_su/home/display.php:183
+#: content_sudo/apilog/home/view.php:12 content_sudo/home/display.php:183
 #: dash/layout/admin/sidebar/sidebar-su.php:18
 msgid "Api Log"
 msgstr "لاگ ای‌پی‌آی"
 
-#: content_su/apilog/view/view.php:12
+#: content_sudo/apilog/view/view.php:12
 msgid "View api log"
 msgstr "نمایش لاگ ای‌پی‌آی"
 
-#: content_su/apilog/view/view.php:18 content_su/tg/logshow/view.php:14
+#: content_sudo/apilog/view/view.php:18 content_sudo/tg/logshow/view.php:14
 msgid "Back to log list"
 msgstr "بازگشت به لیست ردپاها"
 
-#: content_su/backup/display.php:12
+#: content_sudo/backup/display.php:12
 msgid "File is empty"
 msgstr "فایل خالی است"
 
-#: content_su/backup/display.php:22
+#: content_sudo/backup/display.php:22
 msgid "Database info"
 msgstr "اطلاعات دیتابیس"
 
-#: content_su/backup/display.php:43
+#: content_sudo/backup/display.php:43
 msgid "Auto backup"
 msgstr "پشتیبان گیری خودکار"
 
-#: content_su/backup/display.php:104
+#: content_sudo/backup/display.php:104
 msgid "Click to download"
 msgstr "برای دانلود کلیک کنید"
 
-#: content_su/backup/display.php:117
+#: content_sudo/backup/display.php:117
 msgid "Download zip"
 msgstr "دریافت فایل به صورت فشرده"
 
-#: content_su/backup/display.php:126
+#: content_sudo/backup/display.php:126
 msgid "No backup was found"
 msgstr "هیچ فایل پشتیبانی یافت نشد"
 
-#: content_su/backup/display.php:147
+#: content_sudo/backup/display.php:147
 msgid "Start backup every"
 msgstr "شروع عملیات پشتیبان گیری هر"
 
-#: content_su/backup/display.php:151 lib/app/domains/filter.php:64
+#: content_sudo/backup/display.php:151 lib/app/domains/filter.php:64
 msgid "Week"
 msgstr "هفته"
 
-#: content_su/backup/display.php:153 dash/utility/human.php:31 dash/utility/human.php:149
-#: dash/utility/human.php:209 includes/languages/trans_static.php:224
-#: includes/languages/trans_static_public.php:29
+#: content_sudo/backup/display.php:153 dash/utility/human.php:31
+#: dash/utility/human.php:149 dash/utility/human.php:209
+#: includes/languages/trans_static.php:224 includes/languages/trans_static_public.php:29
 msgid "hour"
 msgstr "ساعت"
 
-#: content_su/backup/display.php:158
+#: content_sudo/backup/display.php:158
 msgid "Start backup at time"
 msgstr "شروع عملیات پشتیبان گیری در ساعت"
 
-#: content_su/backup/display.php:188
+#: content_sudo/backup/display.php:188
 msgid "Life time of old backup"
 msgstr "طل عمر فایل‌های پشتیبان گیری قبلی"
 
-#: content_su/backup/display.php:190
+#: content_sudo/backup/display.php:190
 msgid "2 years"
 msgstr "دو سال"
 
-#: content_su/backup/display.php:191
+#: content_sudo/backup/display.php:191
 msgid "one year"
 msgstr "یک سال"
 
-#: content_su/backup/display.php:192
+#: content_sudo/backup/display.php:192
 msgid "6 months"
 msgstr "شش ماه"
 
-#: content_su/backup/display.php:193
+#: content_sudo/backup/display.php:193
 msgid "3 months"
 msgstr "سه ماه"
 
-#: content_su/backup/display.php:194
+#: content_sudo/backup/display.php:194
 msgid "2 months"
 msgstr "دو ماه"
 
-#: content_su/backup/display.php:195
+#: content_sudo/backup/display.php:195
 msgid "one month"
 msgstr "یک ماه"
 
-#: content_su/backup/display.php:196
+#: content_sudo/backup/display.php:196
 msgid "one week"
 msgstr "یک هفته"
 
-#: content_su/backup/display.php:197
+#: content_sudo/backup/display.php:197
 msgid "2 weeks"
 msgstr "۲ هفته"
 
-#: content_su/backup/display.php:198
+#: content_sudo/backup/display.php:198
 msgid "one day"
 msgstr "یک روز"
 
-#: content_su/backup/display.php:199
+#: content_sudo/backup/display.php:199
 msgid "3 days"
 msgstr "۳ روز"
 
-#: content_su/backup/display.php:200
+#: content_sudo/backup/display.php:200
 msgid "5 days"
 msgstr "۵ روز"
 
-#: content_su/controller.php:16
+#: content_sudo/controller.php:16
 msgid "Local mode"
 msgstr "مد محلی"
 
-#: content_su/controller.php:17
+#: content_sudo/controller.php:17
 msgid "You are in Supervisor Panel of Local Mode"
 msgstr "شما در پنل مدیریت فنی در مد محلی هستید"
 
-#: content_su/cronjob/display.php:9
+#: content_sudo/cronjob/display.php:9
 msgid "Run cronjob for this service"
 msgstr "اجرای کرون جاب برای این سرویس"
 
-#: content_su/cronjob/display.php:15
+#: content_sudo/cronjob/display.php:15
 msgid "Manual execute"
 msgstr "اجرای دستی"
 
-#: content_su/cronjob/display.php:16
+#: content_sudo/cronjob/display.php:16
 msgid "Downalod crontab me file"
 msgstr "دانلود فایل crontab.me"
 
-#: content_su/cronjob/display.php:17
+#: content_sudo/cronjob/display.php:17
 msgid "Downalod Execut result"
 msgstr "دانلود نتیجه اجرا"
 
-#: content_su/cronjob/model.php:14
+#: content_sudo/cronjob/model.php:14
 msgid "Your cronjob is actived"
 msgstr "کرون جاب فعال است"
 
-#: content_su/cronjob/model.php:20
+#: content_sudo/cronjob/model.php:20
 msgid "Your cronjob is deactived"
 msgstr "کرون جاب غیر فعال است"
 
-#: content_su/dbversion/display.php:9 content_su/update/display.php:92
+#: content_sudo/dbversion/display.php:9 content_sudo/update/display.php:92
 msgid "Database need to upgrade"
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد"
 
-#: content_su/dbversion/display.php:15 content_su/dbversion/display.php:23
-#: content_su/update/display.php:98 content_su/update/display.php:106
+#: content_sudo/dbversion/display.php:15 content_sudo/dbversion/display.php:23
+#: content_sudo/update/display.php:98 content_sudo/update/display.php:106
 msgid "current version"
 msgstr "نسخه فعلی"
 
-#: content_su/dbversion/display.php:16 content_su/dbversion/display.php:24
-#: content_su/update/display.php:99 content_su/update/display.php:107
+#: content_sudo/dbversion/display.php:16 content_sudo/dbversion/display.php:24
+#: content_sudo/update/display.php:99 content_sudo/update/display.php:107
 msgid "new version"
 msgstr "نسخه جدید"
 
-#: content_su/dbversion/display.php:33
+#: content_sudo/dbversion/display.php:33
 msgid "Current version"
 msgstr "نسخه فعلی"
 
-#: content_su/gitstatus/view.php:8
+#: content_sudo/gitstatus/view.php:8
 msgid "Git Status"
 msgstr "وضعیت گیت"
 
-#: content_su/home/display.php:4
+#: content_sudo/home/display.php:4
 msgid "Some code was changed!!!"
 msgstr "بخشی از کدها دستکاری شده!!!"
 
-#: content_su/home/display.php:22
+#: content_sudo/home/display.php:22
 msgid "Uptime"
 msgstr "آپ‌تایم"
 
-#: content_su/home/display.php:34
+#: content_sudo/home/display.php:34
 msgid "Disk space"
 msgstr "مصرف دیسک"
 
-#: content_su/home/display.php:44
+#: content_sudo/home/display.php:44
 msgid "Disk Free space"
 msgstr "فضای خالی دیسک"
 
-#: content_su/home/display.php:56
+#: content_sudo/home/display.php:56
 msgid "Last update"
 msgstr "آخرین به‌روزرسانی"
 
-#: content_su/home/display.php:86 dash/layout/admin/sidebar/sidebar-su.php:5
+#: content_sudo/home/display.php:86 dash/layout/admin/sidebar/sidebar-su.php:5
 msgid "Raw table"
 msgstr "جدول‌های خام"
 
-#: content_su/home/display.php:92 dash/layout/admin/sidebar/sidebar-su.php:8
+#: content_sudo/home/display.php:92 dash/layout/admin/sidebar/sidebar-su.php:8
 msgid "Server information"
 msgstr "اطلاعات سرور"
 
-#: content_su/home/display.php:98 dash/layout/admin/sidebar/sidebar-su.php:9
+#: content_sudo/home/display.php:98 dash/layout/admin/sidebar/sidebar-su.php:9
 msgid "Cronjob"
 msgstr "کرون جاب"
 
-#: content_su/home/display.php:111 dash/app/log/caller/su/su_sqlHardCritical.php:14
+#: content_sudo/home/display.php:111 dash/app/log/caller/su/su_sqlHardCritical.php:14
 msgid "Query"
 msgstr "کوئری"
 
-#: content_su/home/display.php:134 dash/layout/admin/sidebar/sidebar-su.php:12
+#: content_sudo/home/display.php:134 dash/layout/admin/sidebar/sidebar-su.php:12
 msgid "Git status"
 msgstr "وضعیت گیت"
 
-#: content_su/home/display.php:146
+#: content_sudo/home/display.php:146
 msgid "Session"
 msgstr "نشست‌ها"
 
-#: content_su/home/display.php:152
+#: content_sudo/home/display.php:152
 msgid "Short url"
 msgstr "لینک کوتاه"
 
-#: content_su/home/display.php:158
+#: content_sudo/home/display.php:158
 msgid "Database version"
 msgstr "نسخه دیتابیس"
 
-#: content_su/home/display.php:177 dash/layout/admin/sidebar/sidebar-su.php:17
+#: content_sudo/home/display.php:177 dash/layout/admin/sidebar/sidebar-su.php:17
 msgid "Temp file"
 msgstr "فایل موقتی"
 
-#: content_su/home/display.php:189 dash/layout/admin/sidebar/sidebar-su.php:19
+#: content_sudo/home/display.php:189 dash/layout/admin/sidebar/sidebar-su.php:19
 msgid "Sms client"
 msgstr "مشتریان پنل پیامک"
 
-#: content_su/home/display.php:211
+#: content_sudo/home/display.php:211
 msgid "Show mysql process list"
 msgstr "نمایش لیست پروسه‌‌های مای‌اس‌کیو‌ال"
 
-#: content_su/home/view.php:8
+#: content_sudo/home/view.php:8
 msgid "Supervisor dashboard"
 msgstr "داشبورد مدیر فنی سیستم"
 
-#: content_su/info/controller.php:30
+#: content_sudo/info/controller.php:30
 msgid "First you need to enable COM on windows"
 msgstr "در ابتدا شما باید ویژگی Com را در ویندوز فعال کنید"
 
-#: content_su/info/controller.php:31
+#: content_sudo/info/controller.php:31
 msgid "Read More"
 msgstr "بیشتر بخوانید"
 
-#: content_su/info/display.php:3
+#: content_sudo/info/display.php:3
 msgid "Info"
 msgstr "درباره"
 
-#: content_su/info/display.php:4
+#: content_sudo/info/display.php:4
 msgid "Show server info"
 msgstr "نمایش اطلاعات سرور"
 
-#: content_su/info/display.php:5
+#: content_sudo/info/display.php:5
 msgid "Show PHP info"
 msgstr "نمایش اطلاعات پی‌اچ‌پی"
 
-#: content_su/ip/display.php:62
+#: content_sudo/ip/display.php:62
 msgid "Count block"
 msgstr "تعداد دفعات بلاک شده"
 
-#: content_su/ip/display.php:92
+#: content_sudo/ip/display.php:92
 msgid "No ip founded"
 msgstr "آی‌پی یافت نشد"
 
-#: content_su/ip/model.php:15
+#: content_sudo/ip/model.php:15
 msgid "Invalid ip syntax"
 msgstr "نوشتار آی‌پی نادرست است"
 
-#: content_su/ip/model.php:21
+#: content_sudo/ip/model.php:21
 msgid "This string is exist in file"
 msgstr "این متن در فایل موجود است"
 
-#: content_su/ip/model.php:27
+#: content_sudo/ip/model.php:27
 msgid "Ip added to this file"
 msgstr "آی‌پی به این فایل اضافه شده است"
 
-#: content_su/ip/model.php:37
+#: content_sudo/ip/model.php:37
 msgid "Ip deleted"
 msgstr "آی‌پی حذف شد"
 
-#: content_su/log/display.php:25
+#: content_sudo/log/display.php:25
 msgid "Show archived"
 msgstr "نمایش آرشیو شده"
 
-#: content_su/log/display.php:32
+#: content_sudo/log/display.php:32
 msgid "Auto rename"
 msgstr "تغییر نام خودکار"
 
-#: content_su/log/display.php:40
+#: content_sudo/log/display.php:40
 msgid "Show auto archived"
 msgstr "نمایش آرشیو شده‌های خودکار"
 
-#: content_su/log/display.php:53
+#: content_sudo/log/display.php:53
 msgid "Last modified"
 msgstr "آخرین به‌روزرسانی"
 
-#: content_su/log/display.php:55
+#: content_sudo/log/display.php:55
 msgid "Extension"
 msgstr "افزونه"
 
-#: content_su/passwd/display.php:5
+#: content_sudo/passwd/display.php:5
 msgid "Hello Dear"
 msgstr "سلام عزیزم"
 
-#: content_su/shorturl/display.php:3
+#: content_sudo/shorturl/display.php:3
 msgid "Test coding function"
 msgstr "بررسی تابع کدینگ"
 
-#: content_su/shorturl/display.php:9
+#: content_sudo/shorturl/display.php:9
 msgid "String or Number"
 msgstr "رشته یا شماره"
 
-#: content_su/shorturl/display.php:21
+#: content_sudo/shorturl/display.php:21
 msgid "Encode"
 msgstr "رمزگذاری"
 
-#: content_su/shorturl/display.php:25
+#: content_sudo/shorturl/display.php:25
 msgid "Decode"
 msgstr "رمزگشایی"
 
-#: content_su/smsclient/edit/model.php:11 content_su/smsclient/home/model.php:11
+#: content_sudo/smsclient/edit/model.php:11 content_sudo/smsclient/home/model.php:11
 msgid "Api key not set"
 msgstr "کلید ای‌پی‌آی تنظیم نشده است"
 
-#: content_su/smsclient/edit/model.php:37 content_su/smsclient/home/model.php:37
+#: content_sudo/smsclient/edit/model.php:37 content_sudo/smsclient/home/model.php:37
 msgid "This client credit is zero!"
 msgstr "اعتبار این عضو صفر است!"
 
-#: content_su/smsclient/edit/model.php:55 content_su/smsclient/home/model.php:55
+#: content_sudo/smsclient/edit/model.php:55 content_sudo/smsclient/home/model.php:55
 msgid "Unknown error"
 msgstr "خطای نامشخص"
 
-#: content_su/smsclient/home/display.php:15
+#: content_sudo/smsclient/home/display.php:15
 msgid "Credit"
 msgstr "اعتبار"
 
-#: content_su/smsclient/home/display.php:17
+#: content_sudo/smsclient/home/display.php:17
 msgid "Last login date"
 msgstr "تاریخ آخرین ورود"
 
-#: content_su/smsclient/home/display.php:18
+#: content_sudo/smsclient/home/display.php:18
 msgid "Pricing"
 msgstr "هزینه‌ها"
 
-#: content_su/smsclient/home/display.php:39
+#: content_sudo/smsclient/home/display.php:39
 msgid "Minimum allow credit"
 msgstr "حداقل مبلغ شارژ"
 
-#: content_su/smsclient/home/display.php:46
+#: content_sudo/smsclient/home/display.php:46
 msgid "Pricing name"
 msgstr "نام هزینه"
 
-#: content_su/smsclient/home/display.php:47
+#: content_sudo/smsclient/home/display.php:47
 msgid "Sms Farsi cost"
 msgstr "هزینه هر پیامک فارسی"
 
-#: content_su/smsclient/home/display.php:48
+#: content_sudo/smsclient/home/display.php:48
 msgid "Sms English cost"
 msgstr "هزینه هر پیامک انگلیسی"
 
-#: content_su/smsclient/home/display.php:49
+#: content_sudo/smsclient/home/display.php:49
 msgid "Call local cost"
 msgstr "هزینه تماس"
 
-#: content_su/smsclient/home/view.php:23
+#: content_sudo/smsclient/home/view.php:23
 msgid "Unavailable list"
 msgstr "لیست در دسترس نیست"
 
-#: content_su/tempfile/display.php:2
+#: content_sudo/tempfile/display.php:2
 msgid "Remove all temp file"
 msgstr "حذف همه‌فایل‌های موقتی"
 
-#: content_su/tempfile/display.php:3
+#: content_sudo/tempfile/display.php:3
 msgid "Remove now"
 msgstr "همین الان حذف کن"
 
-#: content_su/tempfile/model.php:11
+#: content_sudo/tempfile/model.php:11
 msgid "Temp file removed"
 msgstr "فایل‌های موقتی حذف شدند"
 
-#: content_su/tg/home/display.php:10 dash/app/comment/filter.php:31
+#: content_sudo/tg/home/display.php:10 dash/app/comment/filter.php:31
 #: includes/languages/trans_static.php:575 includes/languages/trans_static_public.php:96
 #: includes/languages/trans_static_public.php:980 lib/app/export/users.php:58
 #: lib/app/store/analytics.php:26 lib/app/store/analytics.php:27
@@ -24215,7 +24235,8 @@ msgstr "فایل‌های موقتی حذف شدند"
 msgid "Users"
 msgstr "کاربران"
 
-#: content_su/tg/home/display.php:11 dash/app/log/caller/su/su_CentralizedGitUpdate.php:15
+#: content_sudo/tg/home/display.php:11
+#: dash/app/log/caller/su/su_CentralizedGitUpdate.php:15
 #: dash/app/log/caller/su/su_cdnUpdate.php:27
 #: dash/app/log/caller/su/su_dayEventReport.php:15
 #: dash/app/log/caller/su/su_gitUpdate.php:26
@@ -24223,232 +24244,232 @@ msgstr "کاربران"
 msgid "System"
 msgstr "سیستم"
 
-#: content_su/tg/home/display.php:13
+#: content_sudo/tg/home/display.php:13
 msgid "Webhook"
 msgstr "وب هوک"
 
-#: content_su/tg/home/display.php:28 content_su/tg/sendphoto/view.php:12
+#: content_sudo/tg/home/display.php:28 content_sudo/tg/sendphoto/view.php:12
 msgid "Send photo"
 msgstr "ارسال عکس"
 
-#: content_su/tg/home/view.php:13
+#: content_sudo/tg/home/view.php:13
 msgid "Check logs"
 msgstr "بررسی ردپاها"
 
-#: content_su/tg/home/view.php:16
+#: content_sudo/tg/home/view.php:16
 msgid "Back to supervisor dashboard"
 msgstr "بازگشت به داشبورد مدیر فنی سیستم"
 
-#: content_su/tg/log/display.php:81
+#: content_sudo/tg/log/display.php:81
 msgid "User Detail"
 msgstr "جزئیات‌کاربر"
 
-#: content_su/tg/log/display.php:82
+#: content_sudo/tg/log/display.php:82
 msgid "Hook"
 msgstr "هوک"
 
-#: content_su/tg/log/display.php:83 lib/app/setting/setup.php:133
+#: content_sudo/tg/log/display.php:83 lib/app/setting/setup.php:133
 msgid "Step"
 msgstr "مرحله"
 
-#: content_su/tg/log/display.php:84
+#: content_sudo/tg/log/display.php:84
 msgid "Sended message"
 msgstr "پیام ارسال شده"
 
-#: content_su/tg/log/display.php:85
+#: content_sudo/tg/log/display.php:85
 msgid "Meta"
 msgstr "متا"
 
-#: content_su/tg/log/display.php:101 content_su/tg/system/display.php:27
-#: content_su/tg/users/display.php:102
+#: content_sudo/tg/log/display.php:101 content_sudo/tg/system/display.php:27
+#: content_sudo/tg/users/display.php:102
 msgid "Telegram chatid"
 msgstr "شناسه چت تلگرام"
 
-#: content_su/tg/log/display.php:134
+#: content_sudo/tg/log/display.php:134
 msgid "Without hook"
 msgstr "بدون هوک"
 
-#: content_su/tg/log/display.php:143
+#: content_sudo/tg/log/display.php:143
 msgid "With keyboard"
 msgstr "با کیبورد"
 
-#: content_su/tg/log/display.php:143
+#: content_sudo/tg/log/display.php:143
 msgid "Without keyboard"
 msgstr "بدون کیبورد"
 
-#: content_su/tg/log/display.php:146
+#: content_sudo/tg/log/display.php:146
 msgid "Message id"
 msgstr "شناسه پیام"
 
-#: content_su/tg/log/display.php:153 content_su/tg/log/display.php:159
+#: content_sudo/tg/log/display.php:153 content_sudo/tg/log/display.php:159
 msgid "Check more detail"
 msgstr "بررسی جزئیات بیشتر"
 
-#: content_su/tg/log/display.php:165
+#: content_sudo/tg/log/display.php:165
 msgid "Without response"
 msgstr "بدون پاسخ"
 
-#: content_su/tg/log/display.php:171
+#: content_sudo/tg/log/display.php:171
 msgid "Without meta"
 msgstr "بدون متا"
 
-#: content_su/tg/log/view.php:12 content_su/tg/logshow/view.php:12
-#: content_su/tg/system/view.php:12 content_su/tg/users/view.php:12
+#: content_sudo/tg/log/view.php:12 content_sudo/tg/logshow/view.php:12
+#: content_sudo/tg/system/view.php:12 content_sudo/tg/users/view.php:12
 msgid "Telegram log"
 msgstr "ردپای تلگرام"
 
-#: content_su/tg/sendmessage/display.php:7 content_su/tg/sendphoto/display.php:9
-#: content_su/tg/webhook/display.php:9
+#: content_sudo/tg/sendmessage/display.php:7 content_sudo/tg/sendphoto/display.php:9
+#: content_sudo/tg/webhook/display.php:9
 msgid "Chat id or username"
 msgstr "کد گفتگو یا نام‌کاربری"
 
-#: content_su/tg/sendmessage/display.php:8 content_su/tg/sendphoto/display.php:10
+#: content_sudo/tg/sendmessage/display.php:8 content_sudo/tg/sendphoto/display.php:10
 msgid ""
 "Unique identifier for the target chat or username of the target channel (in the format "
 "@channelusername)"
 msgstr "شناسه منحصربه‌فرد برای ارسال پیام به شخص یا کانال در فرمت @نام_کاربری"
 
-#: content_su/tg/sendmessage/display.php:12 content_su/tg/sendphoto/display.php:25
+#: content_sudo/tg/sendmessage/display.php:12 content_sudo/tg/sendphoto/display.php:25
 msgid "Text of the message to be sent"
 msgstr "متن پیام ارسالی"
 
-#: content_su/tg/sendmessage/display.php:27 content_su/tg/sendphoto/display.php:35
-#: content_su/tg/webhook/display.php:32
+#: content_sudo/tg/sendmessage/display.php:27 content_sudo/tg/sendphoto/display.php:35
+#: content_sudo/tg/webhook/display.php:32
 msgid "Last request"
 msgstr "آخرین درخواست"
 
-#: content_su/tg/sendmessage/view.php:13 content_su/tg/sendphoto/view.php:14
-#: content_su/tg/webhook/view.php:13
+#: content_sudo/tg/sendmessage/view.php:13 content_sudo/tg/sendphoto/view.php:14
+#: content_sudo/tg/webhook/view.php:13
 msgid "Back to Telegram dashboard"
 msgstr "بازگشت به داشبورد تلگرام"
 
-#: content_su/tg/sendphoto/display.php:14
+#: content_sudo/tg/sendphoto/display.php:14
 msgid "File URL"
 msgstr "آدرس فایل"
 
-#: content_su/tg/sendphoto/display.php:15
+#: content_sudo/tg/sendphoto/display.php:15
 msgid "pass an HTTP URL as a String for Telegram to get a photo from the Internet"
 msgstr ""
 "برای دریافت یک عکس از اینترنت یک نشانی اینترنتی اچ‌تی‌تی‌پی را به عنوان یک رشته برای "
 "تلگرام منتقل کنید"
 
-#: content_su/tg/sendphoto/model.php:23
+#: content_sudo/tg/sendphoto/model.php:23
 msgid "Please add url or choose file"
 msgstr "لطفا آدرس را وارد کرده و یا فایلی انتخاب کنید"
 
-#: content_su/tg/system/display.php:8 content_su/tg/users/display.php:83
+#: content_sudo/tg/system/display.php:8 content_sudo/tg/users/display.php:83
 msgid "Chatid"
 msgstr "شناسه چت"
 
-#: content_su/tg/webhook/display.php:10
+#: content_sudo/tg/webhook/display.php:10
 msgid "HTTPS url to send updates to. Use an empty string to remove webhook integration"
 msgstr "آدرسی را برای به روزرسانی بفرستید. با فرستادن آدرس خالی وبهوک شما حذف خواهد شد"
 
-#: content_su/tg/webhook/display.php:14
+#: content_sudo/tg/webhook/display.php:14
 msgid "Max Connections"
 msgstr "حداکثر اتصالات"
 
-#: content_su/tg/webhook/display.php:15
+#: content_sudo/tg/webhook/display.php:15
 msgid "Defaults to 40"
 msgstr "پیش‌فرض ۴۰ است"
 
-#: content_su/tg/webhook/display.php:18
+#: content_sudo/tg/webhook/display.php:18
 msgid "Set Webhook"
 msgstr "تنظیم وب‌هوک"
 
-#: content_su/tg/webhook/view.php:11
+#: content_sudo/tg/webhook/view.php:11
 msgid "Telegram webhook"
 msgstr "وب هوک تلگرام"
 
-#: content_su/update/display.php:2
+#: content_sudo/update/display.php:2
 msgid "If you dont know about this page, leave it!"
 msgstr "اگر چیزی در مورد این صفحه نمی‌دانید، آن را ترک کنید!"
 
-#: content_su/update/display.php:5
+#: content_sudo/update/display.php:5
 msgid "Service is Locked!"
 msgstr "سیستم قفل شده است!"
 
-#: content_su/update/display.php:7
+#: content_sudo/update/display.php:7
 msgid "Service is Running!"
 msgstr "سیستم در حال کار است!"
 
-#: content_su/update/display.php:15
+#: content_sudo/update/display.php:15
 msgid "Lock service"
 msgstr "قفل کردن سیستم"
 
-#: content_su/update/display.php:22
+#: content_sudo/update/display.php:22
 msgid "Pull"
 msgstr "دریافت"
 
-#: content_su/update/display.php:23
+#: content_sudo/update/display.php:23
 msgid "Pull service"
 msgstr "دریافت سرویس"
 
-#: content_su/update/display.php:30 includes/languages/trans_static.php:608
+#: content_sudo/update/display.php:30 includes/languages/trans_static.php:608
 msgid "Upgrade"
 msgstr "ارتقا"
 
-#: content_su/update/display.php:42
+#: content_sudo/update/display.php:42
 msgid "Unlock service"
 msgstr "بازکردن قفل سیستم"
 
-#: content_su/update/display.php:52
+#: content_sudo/update/display.php:52
 msgid "Pull git repository"
 msgstr "دریافت مخازن گیت"
 
-#: content_su/update/display.php:65
+#: content_sudo/update/display.php:65
 msgid "Pull CDN repository"
 msgstr "به‌روزرسانی مخازن گیت سی‌دی‌ان"
 
-#: content_su/update/display.php:66
+#: content_sudo/update/display.php:66
 msgid "Temp files"
 msgstr "فایل‌های موقتی"
 
-#: content_su/update/display.php:77 content_su/update/display.php:78
+#: content_sudo/update/display.php:77 content_sudo/update/display.php:78
 msgid "Force unlock page"
 msgstr "صفحه بازکردن قفل به اجبار"
 
-#: content_su/update/display.php:115
+#: content_sudo/update/display.php:115
 msgid "Run all step by one click"
 msgstr "اجرای همه مراحل با یک دکمه"
 
-#: content_su/update/display.php:115
+#: content_sudo/update/display.php:115
 msgid "For when you don't have heavy updates"
 msgstr "برای زمانی که آپدیت سنگین ندارید"
 
-#: content_su/update/display.php:117
+#: content_sudo/update/display.php:117
 msgid "Update & Upgrade all"
 msgstr "به‌روزرسانی و ارتقاء همه"
 
-#: content_su/update/model.php:38
+#: content_sudo/update/model.php:38
 msgid "Operation complete at :val second"
 msgstr "عملیات در :val ثانیه کامل شد"
 
-#: content_su/update/model.php:54
+#: content_sudo/update/model.php:54
 msgid "System locked"
 msgstr "سیستم قفل شده است"
 
-#: content_su/update/model.php:62
+#: content_sudo/update/model.php:62
 msgid "System git pull successfully"
 msgstr "دریافت اطلاعات از گیت با موفقیت انجام شد"
 
-#: content_su/update/model.php:70
+#: content_sudo/update/model.php:70
 msgid "CDN git pull successfully"
 msgstr "دریافت مخزن سی‌دی‌ان"
 
-#: content_su/update/model.php:78
+#: content_sudo/update/model.php:78
 msgid "System upgrade database successfully"
 msgstr "به‌روزرسانی دیتابیس سیستم با موفقیت انجام شد"
 
-#: content_su/update/model.php:85
+#: content_sudo/update/model.php:85
 msgid "System unlock successfully"
 msgstr "بازکردن قفل سیستم با موفقیت انجام شد"
 
-#: content_su/view.php:129 dash/app/sort.php:74
+#: content_sudo/view.php:129 dash/app/sort.php:74
 msgid "Search with keyword :search"
 msgstr "جستجو با کلیدواژه‌ی :search"
 
-#: content_su/view.php:134 dash/app/sort.php:82
+#: content_sudo/view.php:134 dash/app/sort.php:82
 msgid "with condition"
 msgstr "به شرط"
 
@@ -25749,23 +25770,31 @@ msgstr "تاریخ ثبت،‌ صعودی"
 msgid "Date register, DESC"
 msgstr "تاریخ ثبت، نزولی"
 
-#: dash/app/transaction/filter.php:29
+#: dash/app/transaction/filter.php:21
+msgid "Date, ASC"
+msgstr ""
+
+#: dash/app/transaction/filter.php:22
+msgid "Date, DESC"
+msgstr ""
+
+#: dash/app/transaction/filter.php:33
 msgid "Not verified"
 msgstr "تایید نشده"
 
-#: dash/app/transaction/filter.php:40
+#: dash/app/transaction/filter.php:44
 msgid "Show in date"
 msgstr "نمایش در تاریخ"
 
-#: dash/app/transaction/filter.php:52
+#: dash/app/transaction/filter.php:56
 msgid "Search in customer"
 msgstr "جستجو در مشتریان"
 
-#: dash/app/transaction/filter.php:64 lib/app/quickaccess/setting.php:47
+#: dash/app/transaction/filter.php:68 lib/app/quickaccess/setting.php:47
 msgid "Statistics"
 msgstr "آمار"
 
-#: dash/app/transaction/filter.php:65
+#: dash/app/transaction/filter.php:69
 msgid "Show statistics of this result"
 msgstr "آمار نتایج فعلی"
 
@@ -39932,7 +39961,7 @@ msgid "Duplicate code. Try another code"
 msgstr "این کد تکراری است. لطفا کد دیگری را وارد کنید"
 
 #: lib/app/tax/coding/edit.php:87 lib/app/tax/doc/edit.php:152
-#: lib/app/tax/docdetail/edit.php:66 lib/app/tax/year/edit.php:54
+#: lib/app/tax/docdetail/edit.php:70 lib/app/tax/year/edit.php:54
 #: lib/pagebuilder/tools/edit.php:44
 msgid "No change in your data"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -40240,7 +40269,7 @@ msgstr "شناسه سند حسابداری اشتباه است"
 msgid "Data sorted"
 msgstr "مرتب‌سازی انجام شد"
 
-#: lib/app/tax/docdetail/edit.php:78
+#: lib/app/tax/docdetail/edit.php:82
 msgid "Accounting docdetail successfully updated"
 msgstr "سند حسابداری با موفقیت ویرایش شد"
 
