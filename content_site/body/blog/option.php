@@ -6,16 +6,6 @@ class option
 {
 
 
-	/**
-	 * Call when publish the page
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function premium()
-	{
-		return false;
-	}
-
 
 	/**
 	 * Get detail

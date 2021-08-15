@@ -5,6 +5,24 @@ namespace content_site\body\blog;
 class b2
 {
 
+
+	/**
+	 * Call when publish the page
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function premium()
+	{
+		return
+		[
+			'price'       => 1000,
+			'premium_key' => 'site_blog_b2', // save this variable to database to check again
+		];
+
+	}
+
+
+
 	/**
 	 * Style 1
 	 *
