@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\gallery;
+namespace content_site\body\contactform;
 
 
-class g3
+class cf1
 {
 
 	/**
@@ -12,24 +12,18 @@ class g3
 	 */
 	public static function option()
 	{
-		$master_option = option::master_option();
-
-		unset($master_option['image_list']);
-
-		$master_option['image_list'] =
-		[
-			'file_gallery',
-			'caption',
-			'description',
-			'target',
-			'link',
-		];
-
 		return
 		[
 			'title'        => T_("Gallery 1"),
-			'default'      => option::master_default(['type' => 'g3'], 3),
-			'options'      => $master_option,
+			'default'      => ['type' => 'cf1'],
+			'options'      =>
+			[
+
+				'heading_raw',
+				'description',
+				'type',
+			],
+
 			'preview_list' =>
 			[
 				'p1',

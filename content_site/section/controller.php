@@ -106,8 +106,8 @@ class controller
 			/* body */
 			'blog',
 			'gallery',
-			'slideshow',
 			'product',
+			'contactform',
 			// 'imagetext',
 			// 'text',
 
