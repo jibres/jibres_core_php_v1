@@ -45,6 +45,7 @@ class option
 		[
 			'g1',
 			'g2',
+			'g3',
 		];
 
 	}
@@ -56,6 +57,7 @@ class option
 		[
 			'g1:p1',
 			'g2:p1',
+			'g3:p1',
 		];
 	}
 

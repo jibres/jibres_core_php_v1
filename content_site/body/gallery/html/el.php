@@ -44,5 +44,26 @@ class el
 	{
 		return self::img($_data, $_class, false);
 	}
+
+	public static function a($_data, $_title, $_class)
+	{
+		$html = '';
+
+		$html .= '<a href="'. a($_data, 'link'). '"';
+
+		if(a($_data, 'target'))
+		{
+			$html .= ' target="_blank"';
+		}
+
+		$html .= '>';
+
+		$html .= $_title;
+
+		$html .= '</a>';
+
+		return $html;
+
+	}
 }
 ?>

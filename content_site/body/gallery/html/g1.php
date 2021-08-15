@@ -5,7 +5,6 @@ namespace content_site\body\gallery\html;
 class g1
 {
 
-
 	public static function html($_args, $_image_list)
 	{
 

@@ -43,18 +43,6 @@ class g1
 	}
 
 
-	/**
-	 * Preview 2
-	 */
-	public static function p2()
-	{
-		return
-		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
-			'version'        => 2,
-		];
-	}
-
 
 }
 ?>

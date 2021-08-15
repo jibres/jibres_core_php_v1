@@ -2,7 +2,7 @@
 namespace content_site\body\gallery;
 
 
-class g2
+class g3
 {
 
 	/**
@@ -21,13 +21,14 @@ class g2
 			'file_gallery',
 			'caption',
 			'description',
-
+			'target',
+			'link',
 		];
 
 		return
 		[
 			'title'        => T_("Gallery 1"),
-			'default'      => option::master_default(['type' => 'g2'], 6),
+			'default'      => option::master_default(['type' => 'g2'], 3),
 			'options'      => $master_option,
 			'preview_list' =>
 			[
@@ -53,7 +54,6 @@ class g2
 			],
 		];
 	}
-
 
 
 
