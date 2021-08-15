@@ -45,7 +45,7 @@ class option
 	{
 		return
 		[
-			'b1',
+			'p1',
 		];
 	}
 
@@ -54,7 +54,7 @@ class option
 	{
 		return
 		[
-			'b1:p1',
+			'p1:p1',
 		];
 	}
 
