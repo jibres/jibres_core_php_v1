@@ -45,6 +45,8 @@ class search
 				SUM(IF(transactions.minus > 0, 1, 0)) AS `count_minus`
 			FROM
 				transactions
+			LEFT JOIN users ON users.id = transactions.user_id
+
 			$q[where]
 		";
 
