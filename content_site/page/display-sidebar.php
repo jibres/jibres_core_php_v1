@@ -5,7 +5,7 @@ $footer = [];
 
 $deleted_section = [];
 
-$header_link = \dash\url::here(). '/section'. \dash\request::full_get(['list' => 'header']);
+$header_link = \dash\url::here(). '/section'. \dash\request::full_get(['folder' => 'header']);
 
 $list = \dash\data::currentSectionList();
 

@@ -51,6 +51,15 @@ class option
 	}
 
 
+	public static function popular()
+	{
+		return
+		[
+			'h1_1:p1',
+		];
+	}
+
+
 
 
 
