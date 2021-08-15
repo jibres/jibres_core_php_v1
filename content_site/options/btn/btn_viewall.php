@@ -94,10 +94,10 @@ class btn_viewall
 
 					foreach ($list as $key => $value)
 					{
-						$selected = null;
+						$selected = 'border-4';
 						if($btn_mode == $value['key'])
 						{
-							$selected = 'border-4';
+							$selected = null;
 						}
 
 						$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
