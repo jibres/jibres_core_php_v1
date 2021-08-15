@@ -17,6 +17,10 @@ class filter
 
 		$sort_list[] = ['title' => T_("Date register, ASC"), 'query' => ['sort' => 'datecreated',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Date register, DESC"), 'query' =>['sort' => 'datecreated',		 'order' => 'desc'], 	'public' => false];
+
+		$sort_list[] = ['title' => T_("Date, ASC"), 'query' => ['sort' => 'date',		 'order' => 'asc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("Date, DESC"), 'query' =>['sort' => 'date',		 'order' => 'desc'], 	'public' => false];
+
 		return $sort_list;
 	}
 
