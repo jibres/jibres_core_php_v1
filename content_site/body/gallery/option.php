@@ -44,6 +44,7 @@ class option
 		return
 		[
 			'g1',
+			'g2',
 		];
 
 	}
@@ -54,6 +55,7 @@ class option
 		return
 		[
 			'g1:p1',
+			'g2:p1',
 		];
 	}
 

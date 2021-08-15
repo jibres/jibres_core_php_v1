@@ -5,40 +5,6 @@ namespace content_site\body\gallery\html;
 class g1
 {
 
-	private static function el_image($_data, $_class)
-	{
-		$html = '';
-
-		if(a($_data, 'link'))
-		{
-			$html .= '<a href="'. $_data['link']. '"';
-			if(a($_data, 'target'))
-			{
-				$html .= ' target="_blank"';
-			}
-			$html .= '>';
-		}
-
-		$url = a($_data, 'image');
-		if(!$url)
-		{
-			$url = \dash\app::static_image_url();
-		}
-		else
-		{
-			$url = \lib\filepath::fix($url);
-		}
-
-		$html .= '<img src="'. $url. '" alt="'. a($_data, 'caption'). '" class="'. $_class. '">';
-
-		if(a($_data, 'link'))
-		{
-			$html .= '</a>';
-		}
-
-		return $html;
-	}
-
 
 	public static function html($_args, $_image_list)
 	{
@@ -90,21 +56,21 @@ class g1
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($_image_list, 0) , 'w-full object-cover h-full object-center block');
+		        	$html .= el::img(a($_image_list, 0) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($_image_list, 1) , 'w-full object-cover h-full object-center block');
+		        	$html .= el::img(a($_image_list, 1) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-full">';
 		        {
-		        	$html .= self::el_image(a($_image_list, 2) , 'w-full h-full object-cover object-center block');
+		        	$html .= el::img(a($_image_list, 2) , 'w-full h-full object-cover object-center block');
 		        }
 
 		        $html .= '</div>';
@@ -116,21 +82,21 @@ class g1
 		      {
 		        $html .= '<div class="lg:p-2 p-1 w-full">';
 		        {
-		        	$html .= self::el_image(a($_image_list, 3) , 'w-full h-full object-cover object-center block');
+		        	$html .= el::img(a($_image_list, 3) , 'w-full h-full object-cover object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($_image_list, 4) , 'w-full object-cover h-full object-center block');
+		        	$html .= el::img(a($_image_list, 4) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($_image_list, 5) , 'w-full object-cover h-full object-center block');
+		        	$html .= el::img(a($_image_list, 5) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
