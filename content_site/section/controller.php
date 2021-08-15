@@ -107,6 +107,7 @@ class controller
 			'blog',
 			'gallery',
 			'slideshow',
+			'product',
 			// 'imagetext',
 			// 'text',
 
