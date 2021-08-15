@@ -18,17 +18,33 @@ class layout
 
 		$html             = '';
 
+		$image_list = a($_args, 'image_list');
+		if(!is_array($image_list))
+		{
+			$image_list = [];
+		}
+
+		$image_list = array_values($image_list);
+
+		if(a($_args, 'image_random'))
+		{
+			shuffle($image_list);
+		}
+
+
 		$type      = a($_args, 'type');
 
 		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
 
 		if(is_callable([$namespace, 'html']))
 		{
-			$html .= call_user_func_array([$namespace, 'html'],[$_args]);
+			$html .= call_user_func_array([$namespace, 'html'],[$_args, $image_list]);
 		}
 
 		return $html;
 
 	}
+
+
 }
 ?>

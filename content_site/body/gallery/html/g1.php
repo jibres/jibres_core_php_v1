@@ -40,7 +40,7 @@ class g1
 	}
 
 
-	public static function html($_args)
+	public static function html($_args, $_image_list)
 	{
 
 		$html = '';
@@ -57,15 +57,6 @@ class g1
 		$background_style = \content_site\assemble\background::full_style($_args);
 		$text_color       = \content_site\assemble\text_color::full_style($_args);
 		$section_id       = \content_site\assemble\tools::section_id($type, $id);
-
-
-		$image_list = a($_args, 'image_list');
-		if(!is_array($image_list))
-		{
-			$image_list = [];
-		}
-
-		$image_list = array_values($image_list);
 
 
 		$classNames = $height;
@@ -99,21 +90,21 @@ class g1
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($image_list, 0) , 'w-full object-cover h-full object-center block');
+		        	$html .= self::el_image(a($_image_list, 0) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($image_list, 1) , 'w-full object-cover h-full object-center block');
+		        	$html .= self::el_image(a($_image_list, 1) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-full">';
 		        {
-		        	$html .= self::el_image(a($image_list, 2) , 'w-full h-full object-cover object-center block');
+		        	$html .= self::el_image(a($_image_list, 2) , 'w-full h-full object-cover object-center block');
 		        }
 
 		        $html .= '</div>';
@@ -125,21 +116,21 @@ class g1
 		      {
 		        $html .= '<div class="lg:p-2 p-1 w-full">';
 		        {
-		        	$html .= self::el_image(a($image_list, 3) , 'w-full h-full object-cover object-center block');
+		        	$html .= self::el_image(a($_image_list, 3) , 'w-full h-full object-cover object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($image_list, 4) , 'w-full object-cover h-full object-center block');
+		        	$html .= self::el_image(a($_image_list, 4) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';
 
 		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
 		        {
-		        	$html .= self::el_image(a($image_list, 5) , 'w-full object-cover h-full object-center block');
+		        	$html .= self::el_image(a($_image_list, 5) , 'w-full object-cover h-full object-center block');
 		        }
 
 		        $html .= '</div>';

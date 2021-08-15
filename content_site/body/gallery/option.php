@@ -116,7 +116,6 @@ class option
 		[
 
 			'heading_raw',
-
 			'image_list' =>
 			[
 				'file_gallery',
@@ -127,6 +126,8 @@ class option
 			'image_add',
 
 			'description',
+			'image_random',
+
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
 		];
