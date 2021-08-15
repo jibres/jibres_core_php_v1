@@ -123,6 +123,8 @@ class option
 				'target',
 			],
 			'image_add',
+
+			'description',
 			// sub page
 			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
 		];
