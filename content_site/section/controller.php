@@ -114,6 +114,7 @@ class controller
 
 
 			/* footer */
+			'f1',
 		];
 
 		return $all;

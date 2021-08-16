@@ -6,6 +6,7 @@ $footer = [];
 $deleted_section = [];
 
 $header_link = \dash\url::here(). '/section'. \dash\request::full_get(['folder' => 'header']);
+$footer_link = \dash\url::here(). '/section'. \dash\request::full_get(['folder' => 'footer']);
 
 $list = \dash\data::currentSectionList();
 
@@ -27,6 +28,7 @@ foreach ($list as $key => $value)
   }
   elseif(a($value, 'mode')  === 'footer')
   {
+    $footer_link = \dash\url::here(). '/section/'. a($footer, 'preview', 'key'). \dash\request::full_get(['sid' => a($footer, 'id')]);
     $footer = $value;
   }
 }
@@ -81,16 +83,17 @@ foreach ($list as $key => $value)
   </ul>
 </nav>
 
-<nav class="footer items">
+<nav class="header items">
   <ul>
     <li>
-      <a class="item f" href="<?php echo \dash\url::here(). '/footer'. \dash\request::full_get() ?>">
+      <a class="item f" href="<?php echo $footer_link ?>">
         <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo \dash\utility\icon::url('Footer'); ?>">
         <div class="key"><?php echo T_("Footer") ?></div>
       </a>
     </li>
   </ul>
 </nav>
+
 
 <?php if($deleted_section) {?>
   <label class="mT25"><?php echo T_("Deleted section") ?> <small><?php echo T_("After saving the page, this section will be deleted completely") ?></small></label>
