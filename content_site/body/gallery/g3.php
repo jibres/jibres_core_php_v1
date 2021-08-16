@@ -12,17 +12,29 @@ class g3
 	 */
 	public static function option()
 	{
-		$master_option = option::master_option();
 
-		unset($master_option['image_list']);
+		\content_site\options\background\background_pack::remove_from_list('coverratio');
 
-		$master_option['image_list'] =
+		$master_option =
 		[
-			'file_gallery',
-			'caption',
+
+			'heading_raw',
+			'image_list' =>
+			[
+				'file_gallery',
+				'caption',
+				'description',
+				'target',
+				'link',
+
+			],
+			'image_add',
+
 			'description',
-			'target',
-			'link',
+			'image_random',
+
+			// sub page
+			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
 		];
 
 		return
