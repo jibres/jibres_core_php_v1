@@ -8,8 +8,8 @@ class btn_viewall
 	public static function btn_mode()
 	{
 		$list = [];
-		$list[] = ['key' => 'primary', ];
-		$list[] = ['key' => 'secondary', ];
+		// $list[] = ['key' => 'primary', ];
+		// $list[] = ['key' => 'secondary', ];
 		$list[] = ['key' => 'accent', ];
 		$list[] = ['key' => 'info', ];
 		$list[] = ['key' => 'success', ];
