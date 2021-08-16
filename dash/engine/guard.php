@@ -515,7 +515,7 @@ class guard
 			}
 			else
 			{
-				\dash\header::status(418, 'origin 2');
+				\dash\header::status(418, 'origin 2'. $origin);
 			}
 		}
 	}
