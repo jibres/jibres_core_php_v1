@@ -39,14 +39,18 @@ class view
 		// duplicate btn
 		$duplicateLinkArgs =
 		[
-			'type'        => \dash\data::myType(),
-			'put_on'      => a($dataRow, 'fill_value', 'put_on', 'details_id'),
-			'thirdparty'  => a($dataRow, 'fill_value', 'thirdparty', 'details_id'),
-			'pay_from'    => a($dataRow, 'fill_value', 'pay_from', 'details_id'),
-			'bank'        => a($dataRow, 'fill_value', 'bank', 'details_id'),
-			'bank_profit' => a($dataRow, 'fill_value', 'bank_profit', 'details_id'),
-			'date'        => \dash\fit::date_en(a($dataRow, 'tax_document', 'date')),
+			'type'          => \dash\data::myType(),
+			'put_on'        => a($dataRow, 'fill_value', 'put_on', 'details_id'),
+			'thirdparty'    => a($dataRow, 'fill_value', 'thirdparty', 'details_id'),
+			'pay_from'      => a($dataRow, 'fill_value', 'pay_from', 'details_id'),
+			'bank'          => a($dataRow, 'fill_value', 'bank', 'details_id'),
+			'bank_profit'   => a($dataRow, 'fill_value', 'bank_profit', 'details_id'),
+			'date'          => \dash\fit::date_en(a($dataRow, 'tax_document', 'date')),
+			'total'         => round(a($dataRow, 'tax_document', 'total')),
+			'totaldiscount' => round(a($dataRow, 'tax_document', 'totaldiscount')),
+			'totalvat'      => round(a($dataRow, 'tax_document', 'totalvat')),
 		];
+
 		$duplicateLink = \dash\url::that(). '/add?';
 		$duplicateLink .= \dash\request::build_query($duplicateLinkArgs);
 		\dash\face::btnDuplicate($duplicateLink);
