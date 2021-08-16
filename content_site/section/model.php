@@ -4,6 +4,10 @@ namespace content_site\section;
 
 class model
 {
+	private static $current_type = null;
+
+
+
 	public static function post()
 	{
 		/**
@@ -23,6 +27,19 @@ class model
 
 		\dash\notif::complete();
 
+		self::reloadIframe();
+	}
+
+
+	private static function reloadIframe()
+	{
+		\content_site\view::fill_page_detail();
+
+		$page_url = \dash\data::btnPreviewSiteBuilder();
+
+		$id = self::$current_type. '-'. \dash\request::get('sid');
+		$page_url .= '#'. $id;
+		\dash\notif::reloadIframeSrc($page_url);
 		\dash\notif::reloadIframe();
 	}
 
@@ -168,6 +185,7 @@ class model
 			}
 
 			$type = \dash\request::post('type');
+
 			$type = \dash\validate::string_100($type);
 			if(!$type)
 			{
@@ -175,6 +193,7 @@ class model
 				return false;
 			}
 
+			self::$current_type = $type;
 
 			$load_preview = \content_site\call_function::preview($child, $type, $preview_key);
 
@@ -271,6 +290,11 @@ class model
 			}
 		}
 
+		if(!self::$current_type)
+		{
+			self::$current_type = a($preview, 'type');
+		}
+
 		$preview           = json_encode($preview);
 
 		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
@@ -287,13 +311,13 @@ class model
 		// force set redirect
 		if(\content_site\utility::need_redirect())
 		{
-			\dash\notif::reloadIframe();
+			self::reloadIframe();
 			\dash\redirect::pwd();
 		}
 
 		// if(\dash\url::subchild() === 'style')
 		// {
-		// 	\dash\notif::reloadIframe();
+		// 	self::reloadIframe();
 
 		// 	if(\dash\request::post('notredirect'))
 		// 	{
@@ -338,7 +362,7 @@ class model
 					\content_site\update_record::patch_field($section_id, 'status_preview', 'deleted');
 				}
 
-				\dash\notif::reloadIframe();
+				self::reloadIframe();
 
 				\dash\redirect::to(\dash\url::here(). '/page'. \dash\request::full_get(['sid' => null]));
 
@@ -361,7 +385,7 @@ class model
 
 				\content_site\update_record::patch_field($section_id, 'status_preview', $new_status);
 
-				\dash\notif::reloadIframe();
+				self::reloadIframe();
 				\dash\redirect::pwd();
 				// \dash\notif::complete();
 
@@ -392,7 +416,7 @@ class model
 
 			\content_site\update_record::patch_field($section_id, 'preview', a($load_section, 'body'));
 
-			\dash\notif::reloadIframe();
+			self::reloadIframe();
 
 			\dash\redirect::pwd();
 
@@ -427,7 +451,7 @@ class model
 
 			\content_site\update_record::patch_field($section_id, 'status_preview', $myStatus);
 
-			\dash\notif::reloadIframe();
+			self::reloadIframe();
 
 			\dash\redirect::pwd();
 
@@ -476,7 +500,7 @@ class model
 
 				\dash\pdo::commit();
 
-				\dash\notif::reloadIframe();
+				self::reloadIframe();
 
 				\dash\redirect::to(view::generate_back_url());
 
