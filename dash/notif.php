@@ -232,6 +232,14 @@ class notif
 	}
 
 
+	public static function reloadIframeSrc($_url = null)
+	{
+		self::add_detail('reloadIframeSrc', $_url);
+	}
+
+
+
+
 	public static function replaceState($_replaceState = true)
 	{
 		self::add_detail('replaceState', $_replaceState);
