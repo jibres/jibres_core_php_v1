@@ -1,5 +1,5 @@
 <?php
-namespace content_site\header\h1;
+namespace content_site\header\h3;
 
 
 class option
@@ -28,8 +28,8 @@ class option
 		return
 		[
 			'group'   => T_("Header"),
-			'key'     => 'h1',
-			'title'   => T_("Header 1"),
+			'key'     => 'h3',
+			'title'   => T_("Header 3"),
 			'icon'    => \dash\utility\icon::url('Header'),
 		];
 	}
@@ -45,7 +45,7 @@ class option
 	{
 		return
 		[
-			'h1',
+			'h3',
 		];
 
 	}
@@ -55,7 +55,7 @@ class option
 	{
 		return
 		[
-			'h1:p1',
+			'h3:p1',
 		];
 	}
 
