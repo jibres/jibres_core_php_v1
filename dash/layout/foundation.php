@@ -138,10 +138,10 @@ elseif(\dash\url::content() === 'site' && \dash\url::module() === 'preview')
 }
 else
 {
- if(\dash\user::id())
- {
-  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
- }
+ // if(\dash\user::id())
+ // {
+ //  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
+ // }
  echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
 }
 ?>
