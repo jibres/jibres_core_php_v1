@@ -475,6 +475,7 @@ class guard
 			$allow_origin_list =
 			[
 				'https://pay.ir',
+				'https://idpay.ir',
 			];
 
 			if(in_array($origin, $allow_origin_list))
@@ -515,7 +516,7 @@ class guard
 			}
 			else
 			{
-				\dash\header::status(418, 'origin 2'. $origin);
+				\dash\header::status(418, 'origin 2');
 			}
 		}
 	}
