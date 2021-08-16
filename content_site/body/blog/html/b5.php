@@ -21,7 +21,7 @@ class b5
 				{
 					$html .= '<header>';
 					{
-						$heading_class = \content_site\options\heading::class_name($_args);
+						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
 						$html .= '<h2 class="">'. a($_args, 'heading'). '</h2>';
 

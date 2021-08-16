@@ -5,24 +5,6 @@ namespace content_site\body\blog;
 class b2
 {
 
-
-	/**
-	 * Call when publish the page
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function premium()
-	{
-		return
-		[
-			'price'       => 1000,
-			'premium_key' => 'site_blog_b2', // save this variable to database to check again
-		];
-
-	}
-
-
-
 	/**
 	 * Style 1
 	 *
@@ -32,13 +14,12 @@ class b2
 	{
 		return
 		[
-			'title'        => T_("Box Design"),
+			'title'        => T_("Modern View"),
 			'default'      => option::master_default(['type' => 'b2']),
 			'options'      => option::master_option(),
 			'preview_list' =>
 			[
 				'p1',
-
 			],
 		];
 	}
@@ -51,13 +32,8 @@ class b2
 	{
 		return
 		[
-			'preview_title' => T_("Preview :val", ['val' => \dash\fit::number(1)]),
-			'version'       => 1,
-			'image_format'  => 'svg',
-			'options'       =>
-			[
-
-			],
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
 		];
 	}
 

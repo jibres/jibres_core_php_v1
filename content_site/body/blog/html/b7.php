@@ -138,7 +138,7 @@ return $html;
 			{
 				$html .= '<header>';
 				{
-					$heading_class = \content_site\options\heading::class_name($_args);
+					$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
 					$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $text_color>";
 					{
