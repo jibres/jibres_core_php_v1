@@ -24,12 +24,13 @@ class fill_default
 		$date = date('Y-m-d H:i:s', strtotime( '-'.mt_rand(0,5).' days'));
 		return
 		[
-			'title'       => T_("Your post's title"),
-			'excerpt'     => T_("Your business hasn't published any posts yet. A post can be used to talk about new product launches, tips, or other news you want to share with your customers."),
-			'thumb'       => \dash\sample\img::image(),
-			'readingtime' => \dash\utility\human::time(60* rand(1, 5), true),
-			'publishdate' => $date,
-			'user_detail' =>
+			'title'         => T_("Your post's title"),
+			'excerpt'       => T_("Your business hasn't published any posts yet. A post can be used to talk about new product launches, tips, or other news you want to share with your customers."),
+			'thumb'         => \dash\sample\img::image(),
+			'readingtime'   => \dash\utility\human::time(60* rand(1, 5), true),
+			'publishdate'   => $date,
+			'comment_count' => rand(0, 200),
+			'user_detail'   =>
 			[
 				'displayname' => T_('Author name'),
 				'avatar'      => \dash\app::static_avatar_url(),

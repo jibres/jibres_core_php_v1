@@ -36,8 +36,7 @@ class b2
 
 		$html .= "<$cnElement data-type='$type' class='body-font $classNames'$background_style $section_id>";
 		{
-
-			$html .= '<div class="container px-5 py-24 mx-auto">';
+			$html .= '<div class="container mx-auto">';
 			{
 				if(a($_args, 'heading') !== null)
 				{
@@ -54,9 +53,8 @@ class b2
 					$html .= '</header>';
 				}
 
-				$html .= '<div class="flex flex-wrap -mx-4 -my-8">';
+				$html .= '<div class="flex flex-wrap -mx-4 -my-8 pb-24">';
 				{
-
 					foreach ($_blogList as $key => $value)
 					{
 						// a img
@@ -71,10 +69,8 @@ class b2
 
 						$html .= '<div class="py-8 px-4 lg:w-1/3">';
 						{
-
 							$html .= '<div class="h-full flex items-start">';
 							{
-
 								$html .= '<div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">';
 								{
 									$html .= '<span class="text-gray-500 pb-2 mb-2 border-b-2 border-gray-200">'.\dash\fit::date($myDate, 'F').'</span>';

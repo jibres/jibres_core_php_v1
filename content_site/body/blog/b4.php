@@ -13,13 +13,33 @@ class b4
 	 */
 	public static function option()
 	{
-		$master_option = option::master_option();
-
-		\content_site\utility::unset_option($master_option, 'post_show_image');
-		\content_site\utility::unset_option($master_option, 'post_show_date');
-
-
 		\content_site\options\background\background_pack::remove_from_list('coverratio');
+
+		$master_option =
+		[
+			// 'group_setting',
+			// text
+			'heading_full',
+
+			// select
+			'post_tag',
+			'post_template',
+
+			'post_order',
+			// range
+			'count_post',
+
+			'post_show_readingtime',
+			'post_show_excerpt',
+			'post_show_author',
+			'post_show_comment_count',
+
+			'btn_viewall',
+
+			// sub page
+			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
+
+		];
 
 		return
 		[

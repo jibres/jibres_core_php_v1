@@ -37,7 +37,7 @@ class b3
 
 		$html .= "<$cnElement data-type='$type' class='body-font overflow-hidden $classNames'$background_style $section_id>";
 		{
-			$html .= '<div class="container px-5 py-24 mx-auto">';
+			$html .= '<div class="container pb-24 mx-auto">';
 			{
 				if(a($_args, 'heading') !== null)
 				{
