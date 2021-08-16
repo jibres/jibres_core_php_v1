@@ -70,12 +70,13 @@ class load
 	public static function sitebuilder_template($_detail)
 	{
 
-		$tag_id            = $_detail['tag_id'];
-		$subtype           = $_detail['subtype'];
-		$limit             = $_detail['limit'];
-		$post_show_author  = $_detail['post_show_author'];
-		$btn_viewall_check = $_detail['btn_viewall_check'];
-		$post_order        = $_detail['post_order'];
+		$tag_id                  = $_detail['tag_id'];
+		$subtype                 = $_detail['subtype'];
+		$limit                   = $_detail['limit'];
+		$post_show_author        = $_detail['post_show_author'];
+		$btn_viewall_check       = $_detail['btn_viewall_check'];
+		$post_order              = $_detail['post_order'];
+		$post_show_comment_count = $_detail['post_show_comment_count'];
 
 		$link              = \dash\url::kingdom(). '/n';
 
@@ -109,13 +110,14 @@ class load
 
 		$args =
 		[
-			'pagination'    => 'n',
-			'website_mode'  => true,
-			'subtype'       => $subtype,
-			'limit'         => $limit,
-			'tag_id'        => $tag_id,
-			'show_author'   => $post_show_author,
-			'website_order' => $post_order,
+			'pagination'         => 'n',
+			'website_mode'       => true,
+			'subtype'            => $subtype,
+			'limit'              => $limit,
+			'tag_id'             => $tag_id,
+			'show_author'        => $post_show_author,
+			'website_order'      => $post_order,
+			'show_comment_count' => $post_show_comment_count,
 		];
 
 		$list = \dash\app\posts\search::list(null, $args, true);

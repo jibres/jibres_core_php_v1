@@ -27,38 +27,39 @@ class search
 
 		$condition =
 		[
-			'order'            => 'order',
-			'sort'             => 'string_50',
-			'subtype'          => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'status'           => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
-			'user'             => 'code',
-			'type'             => ['enum' => ['post', 'page', 'pagebuilder']],
-			'parent'           => 'string_100',
-			'language'         => 'language',
-			'limit'            => 'int',
-			'tag_id'           => 'code',
-			'website_mode'     => 'bit',
-			'pagination'       => 'y_n',
+			'order'              => 'order',
+			'sort'               => 'string_50',
+			'subtype'            => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'status'             => ['enum' => ['publish', 'draft', 'deleted', 'pending_review']],
+			'user'               => 'code',
+			'type'               => ['enum' => ['post', 'page', 'pagebuilder']],
+			'parent'             => 'string_100',
+			'language'           => 'language',
+			'limit'              => 'int',
+			'tag_id'             => 'code',
+			'website_mode'       => 'bit',
+			'pagination'         => 'y_n',
 
-			'multi_tag_search' => 'string_1000',
-			'not_current_id'   => 'id',
+			'multi_tag_search'   => 'string_1000',
+			'not_current_id'     => 'id',
 
-			'pd'               => 'bit', // publish date in the future
-			'g'                => 'y_n', // with gallery
-			'fi'               => 'y_n', // feautred image. thumb
-			'co'               => 'y_n', // cover
-			'seo'              => ['enum' => ['full']],
-			'sa'               => ['enum' => ['n', 'y', 'yt', 'yp']], // special address
-			'com'              => 'y_n', // comment
-			't'                => 'y_n', // tag
-			'r'                => 'y_n', // redirecturl
+			'pd'                 => 'bit', // publish date in the future
+			'g'                  => 'y_n', // with gallery
+			'fi'                 => 'y_n', // feautred image. thumb
+			'co'                 => 'y_n', // cover
+			'seo'                => ['enum' => ['full']],
+			'sa'                 => ['enum' => ['n', 'y', 'yt', 'yp']], // special address
+			'com'                => 'y_n', // comment
+			't'                  => 'y_n', // tag
+			'r'                  => 'y_n', // redirecturl
 
+			'show_author'        => 'bit',
 
-			'show_author'      => 'bit',
+			'show_comment_count' => 'bit',
 
-			'homepage_id'      => 'id',
+			'homepage_id'        => 'id',
 
-			'website_order'       => 'string_50',
+			'website_order'      => 'string_50',
 		];
 
 

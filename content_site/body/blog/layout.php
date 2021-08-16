@@ -24,12 +24,13 @@ class layout
 		{
 			$line_detail =
 			[
-				'tag_id'            => a($_args, 'post_tag'),
-				'subtype'           => a($_args, 'post_template'),
-				'limit'             => a($_args, 'count'),
-				'post_show_author'  => a($_args, 'post_show_author'),
-				'btn_viewall_check' => a($_args, 'btn_viewall_check'),
-				'post_order'        => a($_args, 'post_order'),
+				'tag_id'                  => a($_args, 'post_tag'),
+				'subtype'                 => a($_args, 'post_template'),
+				'limit'                   => a($_args, 'count'),
+				'post_show_author'        => a($_args, 'post_show_author'),
+				'btn_viewall_check'       => a($_args, 'btn_viewall_check'),
+				'post_order'              => a($_args, 'post_order'),
+				'post_show_comment_count' => a($_args, 'post_show_comment_count'),
 			];
 
 			$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
