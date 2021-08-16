@@ -50,7 +50,6 @@ class option
 		return
 		[
 			'b1:p1',
-			'b1:p2',
 			'b2:p1'
 		];
 	}

@@ -20,7 +20,6 @@ class b1
 			'preview_list' =>
 			[
 				'p1',
-				'p2'
 			],
 		];
 	}
@@ -43,17 +42,6 @@ class b1
 	}
 
 
-	/**
-	 * Preview 2
-	 */
-	public static function p2()
-	{
-		return
-		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
-			'version'        => 2,
-		];
-	}
 
 
 }
