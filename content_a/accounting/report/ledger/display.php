@@ -15,13 +15,13 @@
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-right-blue-500">
     <thead class="text-center font-20">
       <tr>
-        <th class="w-8 h-32 font-10 border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-8" style="--tw-rotate: 270deg;"><?php echo T_("General Journal Number"); ?></span></th>
+        <th class="w-8 h-32 font-10 border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap " style="--tw-rotate: 270deg; --tw-translate-x: 2rem;"><?php echo T_("General Journal Number"); ?></span></th>
         <th class="w-16 font-14 border-solid border-b border-r border-gray-400 bg-gray-200" colspan="2"><?php echo T_("Date") ?></th>
 
         <th class="border-solid border-b-2 border-r border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="border-solid border-b border-r border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Debtor") ?></th>
         <th class="border-solid border-b border-r border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Creditor") ?></th>
-        <th class="w-8 h-32 font-10 border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap translate-x-3" style="--tw-rotate: 270deg;"><?php echo T_("Diagnosis") ?></span></th>
+        <th class="w-8 h-32 font-10 border-solid border-b-2 border-r border-l border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap " style="--tw-rotate: 270deg; --tw-translate-x: 1rem;"><?php echo T_("Diagnosis") ?></span></th>
         <th class="border-solid border-b border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Remain") ?></th>
       </tr>
       <tr>
@@ -32,7 +32,7 @@
         <th class="border-solid border-b-2 border-gray-400 font-12 " colspan="14"><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
-    <tbody class="leading-10 font-11">
+    <tbody class="font-11" style="line-height: 2.2em;">
   <?php foreach ($one_page as $key => $value) {?>
         <tr data-index="<?php echo ($key + 1) ?>" class="border-solid border-b border-blue-100">
         <?php if(a($value, 'type') === 'break_message') {?>
