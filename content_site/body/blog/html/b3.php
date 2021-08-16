@@ -72,10 +72,10 @@ class b3
 							$myAuthorPage = a($value, 'authorpage');
 							$writerName = a($value, 'user_detail', 'displayname');
 
-							$html .= '<div class="py-8 flex flex-wrap md:flex-nowrap">';
+							$html .= '<div class="py-8 flex flex-wrap sm:flex-nowrap">';
 							{
 
-								$html .= '<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">';
+								$html .= '<div class="sm:w-64 sm:mb-0 mb-6 flex-shrink-0 flex flex-col">';
 								{
 
 									$html .= '<span class="font-semibold title-font text-gray-700">';
@@ -109,7 +109,7 @@ class b3
 								}
 								$html .= '</div>';
 
-								$html .= '<div class="md:flex-grow">';
+								$html .= '<div class="sm:flex-grow">';
 								{
 
 									$html .= '<h2 class="text-2xl font-medium text-gray-900 title-font mb-2">'.$myTitle.'</h2>';

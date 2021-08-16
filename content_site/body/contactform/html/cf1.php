@@ -45,7 +45,7 @@ class cf1
 			$html .= '<div class="container px-5 py-24 mx-auto flex">';
 			{
 
-				$html .= '<div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">';
+				$html .= '<div class="lg:w-1/3 sm:w-1/2 bg-white rounded-lg p-8 flex flex-col sm:ml-auto w-full mt-10 sm:mt-0 relative z-10 shadow-md">';
 				{
 
 				  $html .= '<h2 class="text-gray-900 text-lg mb-1 font-medium title-font">'.a($_args, 'heading').'</h2>';
