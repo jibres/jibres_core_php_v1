@@ -140,8 +140,12 @@ class b2
 			    $html .= '</div>';
 			  }
 			  $html .= '</div>';
+
+				$html .= \content_site\assemble\blog::btn_viewall($_args);
+
 			}
 			$html .= '</section>';
+
 
 		}
 		$html .= "</$cnElement>";
