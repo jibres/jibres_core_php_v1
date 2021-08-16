@@ -82,6 +82,11 @@ class controller
 		// all section have backgroun image
 		\dash\allow::file();
 
+		if(\dash\url::child() === 'html')
+		{
+			\dash\allow::html();
+		}
+
 		// need to allow html in some section
 		// @todo @reza
 		// \content_site\call_function::router($child);
@@ -111,10 +116,12 @@ class controller
 			'contactform',
 			// 'imagetext',
 			// 'text',
+			'html',
 
 
 			/* footer */
 			'f1',
+
 		];
 
 		return $all;

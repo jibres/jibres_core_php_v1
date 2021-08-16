@@ -320,7 +320,6 @@ class view
 				case 'infoposition':
 				case 'effect':
 				case 'detail':
-				case 'text':
 					break;
 
 				default:

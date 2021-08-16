@@ -605,6 +605,18 @@ class text
 	}
 
 
+	public static function html_full($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+		return \dash\validate\html::html_full($data, $_notif, $_element, $_field_title, ['html' => true, 'max' => 50000]);
+	}
+
+
 	public static function search($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 100]);

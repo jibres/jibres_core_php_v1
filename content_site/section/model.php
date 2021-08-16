@@ -282,6 +282,11 @@ class model
 			}
 		}
 
+		if(\dash\temp::get('siteBuilderSetValueInText'))
+		{
+			\dash\pdo\query_template::update('pagebuilder', ['text' => a($preview, 'html')], $section_id);
+		}
+
 		$preview           = json_encode($preview);
 
 		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
