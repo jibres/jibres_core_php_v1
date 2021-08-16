@@ -21,17 +21,17 @@
         <th class="border-solid border-b-2 border-r border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="w-10 border-solid border-r border-gray-400"></th>
         <th class="border-solid border-b border-r border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Debtor") ?></th>
-        <th class="border-solid border-b border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Creditor") ?></th>
+        <th class="border-solid border-b border-gray-700 border-r" colspan="14" style="width:140px;"><?php echo T_("Creditor") ?></th>
       </tr>
       <tr>
         <th class="border-solid border-b-2 border-gray-400 border-r font-10 bg-gray-200"><?php echo T_("Day"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 border-r font-10 bg-gray-200"><?php echo T_("Month"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 border-r"></th>
         <th class="border-solid border-b-2 border-gray-400 font-12 border-r" colspan="14"><?php echo T_("Rial"); ?></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 " colspan="14"><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 font-12 border-r" colspan="14"><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
-    <tbody class="leading-10 font-11">
+    <tbody class="font-11" style="line-height: 2.2em;">
   <?php foreach ($one_page as $key => $value) {?>
         <tr data-index="<?php echo ($key + 1) ?>" class="border-solid border-b border-blue-100">
         <?php if(a($value, 'type') === 'break_message') {?>
