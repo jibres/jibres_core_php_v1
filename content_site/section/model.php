@@ -4,10 +4,6 @@ namespace content_site\section;
 
 class model
 {
-	private static $current_type = null;
-
-
-
 	public static function post()
 	{
 		/**
@@ -33,12 +29,8 @@ class model
 
 	private static function reloadIframe()
 	{
-		\content_site\view::fill_page_detail();
+		$page_url = \content_site\view::generate_iframe_src();
 
-		$page_url = \dash\data::btnPreviewSiteBuilder();
-
-		$id = self::$current_type. '-'. \dash\request::get('sid');
-		$page_url .= '#'. $id;
 		\dash\notif::reloadIframeSrc($page_url);
 		\dash\notif::reloadIframe();
 	}
@@ -193,7 +185,7 @@ class model
 				return false;
 			}
 
-			self::$current_type = $type;
+
 
 			$load_preview = \content_site\call_function::preview($child, $type, $preview_key);
 
@@ -288,11 +280,6 @@ class model
 			{
 				$preview[$option_db_key] = $value;
 			}
-		}
-
-		if(!self::$current_type)
-		{
-			self::$current_type = a($preview, 'type');
 		}
 
 		$preview           = json_encode($preview);

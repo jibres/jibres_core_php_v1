@@ -52,6 +52,12 @@ class view
 
 		\dash\data::btnSaveSiteBuilder(true);
 
+		self::generate_iframe_src();
+	}
+
+
+	public static function generate_iframe_src()
+	{
 		$link = \dash\data::currentPageDetail_link();
 
 		$get = [];
@@ -65,7 +71,16 @@ class view
 
 		$link .= '?'. \dash\request::build_query($get);
 
+
+		$page_url = \dash\data::btnPreviewSiteBuilder();
+
+		$id = a(\dash\data::currentSectionDetail(), 'preview', 'type'). '-'. a(\dash\data::currentSectionDetail(), 'id');
+		$link .= '#'. $id;
+
+
 		\dash\data::btnPreviewSiteBuilder($link);
+
+		return $link;
 	}
 
 }
