@@ -189,8 +189,9 @@ class b1
 						$html .= a($_args, 'btn_viewall');
 						$html .= '</a>';
 					}
-				}
-				$html .= '</footer>';
+					$html .= '</footer>';
+
+				} // endif
 
 			}
 			$html .= "</div>";
