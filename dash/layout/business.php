@@ -128,7 +128,7 @@ class business
 
 				if(a($pagebuilder, 'footer'))
 				{
-					self::$have_header = true;
+					self::$have_footer = true;
 				}
 				elseif(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
 				{
