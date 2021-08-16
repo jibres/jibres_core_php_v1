@@ -23,6 +23,8 @@ foreach ($previewSectionList as $value)
 
 	$html .= "<div data-ajaxify data-data='".json_encode($select_preview)."'>";
 	{
+		$html .= implode(' ', [a($value, 'key'), a($value, 'opt_type'), a($value, 'preview_key')]);
+
 		$html .= '<img src="'. a($value, 'preview_image'). '" alt="'.a($value, 'key').'">';
 	}
 	$html .= "</div>";
