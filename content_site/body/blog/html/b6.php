@@ -90,7 +90,7 @@ class b6
 								$html .= '</p>';
 
 
-								$html .= '<a class="text-indigo-500 inline-flex items-center">'.T_("Read more").'</a>';
+								$html .= '<a href="'.$myLink.'" class="text-indigo-500 inline-flex items-center">'.T_("Read more").'</a>';
 
 								$html .= '<div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">';
 								{
