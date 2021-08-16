@@ -617,6 +617,7 @@ class cleanse
 
 			case 'real_html': 			$data = \dash\validate\text::html(...$fn_args); 					break;
 			case 'real_html_basic': 	$data = \dash\validate\text::html_basic(...$fn_args); 				break;
+			case 'real_html_full': 		$data = \dash\validate\text::html_full(...$fn_args); 				break;
 
 			case 'username': 			$data = \dash\validate\text::username(...$fn_args); 				break;
 			case 'slug': 				$data = \dash\validate\text::slug(...$fn_args); 					break;
