@@ -12,11 +12,18 @@ class b2
 	 */
 	public static function option()
 	{
+		$master_option = option::master_option();
+
+		\content_site\utility::unset_option($master_option, 'post_show_image');
+		\content_site\utility::unset_option($master_option, 'post_show_date');
+
+		\content_site\options\background\background_pack::remove_from_list('coverratio');
+
 		return
 		[
 			'title'        => T_("Modern View"),
 			'default'      => option::master_default(['type' => 'b2']),
-			'options'      => option::master_option(),
+			'options'      => $master_option,
 			'preview_list' =>
 			[
 				'p1',
