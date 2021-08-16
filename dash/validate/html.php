@@ -40,6 +40,13 @@ class html
 			$allow_tag['pre']        = ['allow_attr' => ['class', 'data-language', 'spellcheck']];
 		}
 
+		if($_mode === 'full')
+		{
+			$allow_tag['section'] = ['allow_attr' => ['style', 'class']];
+			$allow_tag['div']     = ['allow_attr' => ['style', 'class']];
+
+		}
+
 		if($_type === 'get_string')
 		{
 			// php 7.3
@@ -105,6 +112,10 @@ class html
 		{
 	    	$allow_tag = self::allow_tag('get_string', 'basic');
 		}
+		elseif(isset($_meta['html_full']) && $_meta['html_full'])
+		{
+	    	$allow_tag = self::allow_tag('get_string', 'full');
+		}
 		else
 		{
 			$allow_tag = self::allow_tag('get_string');
@@ -123,6 +134,14 @@ class html
 	public static function html_basic($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$_meta['html_basic'] = true;
+
+		return self::html($_data, $_notif, $_element, $_field_title, $_meta);
+	}
+
+
+	public static function html_full($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$_meta['html_full'] = true;
 
 		return self::html($_data, $_notif, $_element, $_field_title, $_meta);
 	}
