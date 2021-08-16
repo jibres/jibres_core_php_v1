@@ -92,7 +92,7 @@ $accountingSettingSaved = \lib\app\setting\get::accounting_setting();
           </a>
         </li>
         <li>
-          <a class="item f" href="<?php echo \dash\url::this(). '/report/Ledger?daily=1'; ?>">
+          <a class="item f" href="<?php echo \dash\url::this(). '/report/ledger?daily=1'; ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-2" src="<?php echo \dash\utility\icon::url('edit'); ?>">
             <div class="key"><?php echo T_("Ledger") ?></div>
             <div class="value"><?php echo T_("Daily"); ?></div>

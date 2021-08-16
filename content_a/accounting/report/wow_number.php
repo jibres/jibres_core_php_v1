@@ -61,7 +61,7 @@ function wow_number($number, $_customClass = null, $_print_zero = false, $_odd =
         case 8:
 
         case 12:
-          $tdClass .= ' bg-white border-solid border-s border-gray-300';
+          $tdClass .= ' bg-white border-solid border-l border-gray-300';
           break;
 
         case 3:
@@ -71,11 +71,11 @@ function wow_number($number, $_customClass = null, $_print_zero = false, $_odd =
         case 9:
         case 10:
         case 11:
-          $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
+          $tdClass .= ' bg-gray-200 border-solid border-l border-gray-300';
           break;
 
         case 13:
-          $tdClass .= ' bg-white border-solid border-s border-gray-700';
+          $tdClass .= ' bg-white border-solid border-l border-gray-700';
           break;
 
         default:
@@ -95,7 +95,7 @@ function wow_number($number, $_customClass = null, $_print_zero = false, $_odd =
         case 8:
 
         case 12:
-          $tdClass .= ' bg-gray-200 border-solid border-s border-gray-300';
+          $tdClass .= ' bg-gray-200 border-solid border-l border-gray-300';
           break;
 
         case 3:
@@ -105,11 +105,11 @@ function wow_number($number, $_customClass = null, $_print_zero = false, $_odd =
         case 9:
         case 10:
         case 11:
-          $tdClass .= ' bg-white border-solid border-s border-gray-300';
+          $tdClass .= ' bg-white border-solid border-l border-gray-300';
           break;
 
         case 13:
-          $tdClass .= ' bg-gray-200 border-solid border-s border-gray-700';
+          $tdClass .= ' bg-gray-200 border-solid border-l border-gray-700';
           break;
 
         default:
