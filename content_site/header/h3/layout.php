@@ -24,10 +24,17 @@ class layout
 
 				$html .= '<a class="flex title-font font-medium items-center text-gray-900 mb-4 sm:mb-0">';
 				{
+
 					$logo = \lib\pagebuilder::logo();
+
+					if(!$logo)
+					{
+						$logo = \lib\store::logo();
+					}
+
 					if($logo)
 					{
-						$html .= '<img src="'. $logo. '" alt="'. a($_args, 'heading'). '">';
+						$html .= '<img class="w-12 h-12 text-white p-2 bg-indigo-500 rounded-full" src="'. $logo. '" alt="'. a($_args, 'heading'). '">';
 					}
 
 					$html .= '<span class="ml-3 text-xl">'.a($_args, 'heading').'</span>';

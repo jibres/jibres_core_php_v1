@@ -18,7 +18,7 @@ class h3
 			'default'      => ['type' => 'h3'],
 			'options'      =>
 			[
-				'heading',
+				'heading_raw',
 				'menu_1',
 				'menu_2',
 			],
