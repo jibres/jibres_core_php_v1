@@ -83,7 +83,7 @@ class b2
 
 								$html .= '</div>';
 
-								$html .= '<div class="flex-grow pl-6">';
+								$html .= '<div class="flex-grow pl-6 pr-6">';
 								{
 									$html .= '<h3 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">';
 									{
@@ -91,7 +91,16 @@ class b2
 									}
 									$html .= '</h3>';
 
-									$html .= '<h2 class="title-font text-xl font-medium text-gray-900 mb-3">'.$myTitle.'</h2>';
+									$html .= '<h2 class="title-font text-xl font-medium text-gray-900 mb-3">';
+									{
+										$html .= '<a href="'. $myLink. '">';
+										{
+											$html .= $myTitle;
+										}
+										$html .= '</a>';
+									}
+
+									$html .= '</h2>';
 
 									$html .= '<p class="leading-relaxed mb-5">';
 									{
@@ -111,7 +120,7 @@ class b2
 											$html .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-8 h-8 rounded-full flex-shrink-0 object-cover object-center'>";
 
 
-										  $html .= '<span class="flex-grow flex flex-col pl-3">';
+										  $html .= '<span class="flex-grow flex flex-col pl-3 pr-3">';
 										  {
 											$html .= '<span class="title-font font-medium text-gray-900">'.$writerName.'</span>';
 										  }
