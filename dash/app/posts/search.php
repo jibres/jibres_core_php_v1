@@ -271,6 +271,11 @@ class search
 			self::$is_filtered = true;
 		}
 
+		if($data['show_comment_count'])
+		{
+			$meta['fields'] = "posts.*, (SELECT COUNT(*) FROM comments WHERE comments.post_id = posts.id AND comments.status = 'approved') AS `comment_count` ";
+		}
+
 
 		$query_string = \dash\validate::search($_query_string, false);
 
