@@ -315,7 +315,7 @@ class closing
 		$post =
 		[
 			'tax_document_id' => $result['id'],
-			'type'            => 'debtor',
+			'type'            => 'creditor',
 			'value'           => abs($end_value),
 			'desc'            => null,
 			'sort'            => 1,
@@ -328,7 +328,7 @@ class closing
 		$post =
 		[
 			'tax_document_id' => $result['id'],
-			'type'            => 'creditor',
+			'type'            => 'debtor',
 			'value'           => abs($end_value),
 			'desc'            => null,
 			'sort'            => 1,
