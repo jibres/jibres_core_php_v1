@@ -36,9 +36,9 @@ class tools
 		if($_post_show_reading_time && $_reading_time)
 		{
 			$val = ['val' => \dash\fit::number($_reading_time)];
-			$html .= '<div class="text-gray-400 leading-8 text-sm" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
+			$html .= '<span class="text-gray-400 leading-8 text-sm" title="'. T_("We are estimate you can read this post within :val.", $val). '">';
 			$html .= T_("Read in :val", $val);
-			$html .= '</div>';
+			$html .= '</span>';
 		}
 
 		return $html;
