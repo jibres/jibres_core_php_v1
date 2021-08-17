@@ -115,7 +115,7 @@ class utility
 				}
 				elseif($key === 'heading')
 				{
-					$myValue = 'T_("'.$value.'")';
+					$myValue = '$_title';
 				}
 				else
 				{
