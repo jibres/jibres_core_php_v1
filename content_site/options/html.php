@@ -41,7 +41,7 @@ class html
 	    	$html .= '<input type="hidden" name="opt_html" value="1">';
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 
-	    	$html .= '<textarea  name="html" class="txt ltr txt-l" rows=10>'. $text_html .'</textarea>';
+	    	$html .= '<textarea  name="html" class="txt ltr txt-l" rows=10>'. htmlentities($text_html) .'</textarea>';
 	    }
 
   		$html .= '</form>';
