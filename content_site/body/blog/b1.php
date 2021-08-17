@@ -39,7 +39,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -72,7 +72,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(2)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(2)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -106,7 +106,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(3)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(3)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -143,7 +143,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(4)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(4)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -180,7 +180,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(5)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -218,7 +218,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(6)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(6)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -256,7 +256,7 @@ class b1
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample Preview :val", ['val' => \dash\fit::number(7)]),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(7)]),
 			'version'        => 1,
 			'options' =>
 			[
