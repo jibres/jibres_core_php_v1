@@ -238,7 +238,7 @@ else
           {
               $html .= "<div class='item f' data-confirm data-data='{\"discard\": \"discard\"}'>";
               {
-                $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Undo'). '">';
+                $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" alt="Undo" src="'. \dash\utility\icon::url('Undo'). '">';
                 $html .= '<div class="key">'. T_("Discard change"). '</div>';
                 $html .= '<div class="go"></div>';
               }
@@ -255,4 +255,37 @@ else
 $html .= '</div>';
 
 echo $html;
+
+
+if(\dash\permission::supervisor() && !\dash\url::subchild())
+{
+
+  $htmlSupervisor = '';
+
+  $htmlSupervisor .= '<nav class="items long mT20">';
+  {
+      $htmlSupervisor .= '<ul>';
+      {
+        $htmlSupervisor .= '<li>';
+        {
+            $downloadJsonSupervisor = \dash\url::current(). \dash\request::full_get(['downloadjson' => 1]);
+
+            $myFile = \dash\request::get('sid'). '.php';
+            $htmlSupervisor .= "<a href='$downloadJsonSupervisor' class='item f' download='$myFile' target='_blank'>";
+            {
+              $htmlSupervisor .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" alt="code" src="'. \dash\utility\icon::url('Code'). '">';
+              $htmlSupervisor .= '<div class="key">'. T_("Download Json"). '</div>';
+              $htmlSupervisor .= '<div class="go"></div>';
+            }
+            $htmlSupervisor .= '</a>';
+        }
+        $htmlSupervisor .= '</li>';
+      }
+      $htmlSupervisor .= '</ul>';
+  }
+  $htmlSupervisor .= '</nav>';
+
+  echo $htmlSupervisor;
+
+}
 ?>

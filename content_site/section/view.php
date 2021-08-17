@@ -41,6 +41,66 @@ class view
 		// load section list if needed
 		self::show_section_preview_in_group();
 
+
+		if(\dash\permission::supervisor() && \dash\request::get('downloadjson'))
+		{
+			self::downloadjson();
+		}
+
+	}
+
+	/**
+	 *
+	 */
+
+	private static function downloadjson()
+	{
+		$section_detail = \dash\data::currentSectionDetail();
+		$preview = a($section_detail, 'preview');
+		if(!is_array($preview))
+		{
+			$preview = [];
+		}
+
+		$folder      = a($section_detail, 'mode');
+		$section_key = a($preview, 'key');
+		$type        = a($preview, 'type');
+
+		$code = '';
+		$code .= '<?php ';
+		$code .= "\n";
+		$code .= "/** \n";
+		$code .= " * This is options of one preview function \n";
+		$code .= " * Put this code on content_site/$folder/$section_key/$type.php \n";
+		$code .= " */ ";
+		$code .= "\n\n";
+		$code .= '[';
+		$code .= "\n";
+		foreach ($preview as $key => $value)
+		{
+			if(!is_array($value))
+			{
+				if(is_numeric($value))
+				{
+					$myValue = "$value";
+				}
+				elseif(is_null($value))
+				{
+					$myValue = "null";
+				}
+				else
+				{
+					$myValue = "'$value'";
+				}
+
+				$code .= "\t '$key' => $myValue, \n";
+			}
+		}
+		$code .= "]";
+		$code .= "\n";
+		$code .= '?>';
+
+		\dash\code::jsonBoom($code);
 	}
 
 
