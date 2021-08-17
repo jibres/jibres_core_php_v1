@@ -70,7 +70,7 @@ class b1
 						// h3 a
 						$myLinkHref   = " href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'title');
-						$myThumb      = \dash\fit::img(a($value, 'thumb'), 460);
+						$myThumb      = \dash\fit::img(a($value, 'thumb'), 780);
 						$myExcerpt    = a($value, 'excerpt');
 						$myDate       = a($value, 'publishdate');
 						$myAuthorPage = a($value, 'authorpage');
