@@ -25,6 +25,7 @@ class b1
 				'p4',
 				'p5',
 				'p6',
+				'p7',
 			],
 		];
 	}
@@ -248,5 +249,46 @@ class b1
 			],
 		];
 	}
+
+
+	public static function p7($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'type'                    => 'b1',
+				'post_template'           => 'any',
+				'post_tag'                => 'B',
+				'post_show_readingtime'   => null,
+				'post_show_image'         => 1,
+				'post_show_excerpt'       => 1,
+				'post_show_date'          => 'no',
+				'post_show_author'        => null,
+				'post_order'              => 'latest',
+				'key'                     => 'blog',
+				'height'                  => 's',
+				'heading_position'        => 'center',
+				'heading'                 => null,
+				'coverratio'              => '3:1',
+				'count'                   => 9,
+				'color_text'              => '#022b79',
+				'btn_viewall_mode'        => null,
+				'btn_viewall_check'       => null,
+				'btn_viewall'             => T_('View all'),
+				'background_size'         => 'auto',
+				'background_pack'         => 'gradient',
+				'background_gradient_type'=> 'to bottom',
+				'background_gradient_to'  => '#ffffff',
+				'background_gradient_from'=> '#c1e3ec',
+				'background_color'        => '#a4cce3',
+			],
+		];
+	}
+
+
 }
 ?>
