@@ -103,6 +103,14 @@ class view
 				{
 					$myValue = "null";
 				}
+				elseif($value === 'View all')
+				{
+					$myValue = 'T_("View all")';
+				}
+				elseif($key === 'heading')
+				{
+					$myValue = 'T_("'.$value.'")';
+				}
 				else
 				{
 					$myValue = "'$value'";
