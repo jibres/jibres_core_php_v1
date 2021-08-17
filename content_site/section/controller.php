@@ -114,6 +114,7 @@ class controller
 			'gallery',
 			'product',
 			'contactform',
+			'heading',
 			// 'imagetext',
 			// 'text',
 			'html',
