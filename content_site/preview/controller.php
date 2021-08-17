@@ -13,7 +13,8 @@ class controller
 
 		$section = \dash\validate::string_100($section);
 		$type    = \dash\validate::string_100($type);
-		$preview    = \dash\validate::string_100($preview);
+		$preview = \dash\validate::string_100($preview);
+
 
 
 		if(!$section || !$type || !$preview)
@@ -33,6 +34,8 @@ class controller
 		\dash\data::myPreviewDetail($result);
 
 		\dash\open::get();
+
+		return true;
 	}
 }
 ?>
