@@ -284,7 +284,7 @@ class model
 
 		if(\dash\temp::get('siteBuilderSetValueInText'))
 		{
-			\dash\pdo\query_template::update('pagebuilder', ['text' => a($preview, 'html')], $section_id);
+			\dash\pdo\query_template::update('pagebuilder', ['text_preview' => a($preview, 'html')], $section_id);
 			unset($preview['html']);
 		}
 

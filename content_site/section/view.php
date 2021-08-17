@@ -371,9 +371,9 @@ class view
 		{
 			if($_generate_layout)
 			{
-				if(isset($result['text']) && $section_key === 'html')
+				if(isset($result['text_preview']) && $section_key === 'html')
 				{
-					$result['preview']['html_text'] = $result['text'];
+					$result['preview']['html_text'] = $result['text_preview'];
 				}
 
 				$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
@@ -389,6 +389,11 @@ class view
 
 		if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
 		{
+			if(isset($result['text']) && $section_key === 'html')
+			{
+				$result['body']['html_text'] = $result['text'];
+			}
+
 			$result['body']           = array_merge($thisDefault, $result['body']);
 
 			$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);

@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.pagebuilder ADD `text_preview` mediumtext CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `text`;

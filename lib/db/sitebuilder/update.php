@@ -37,7 +37,8 @@ class update
 			SET
 				pagebuilder.body   = pagebuilder.preview,
 				pagebuilder.sort   = pagebuilder.sort_preview,
-				pagebuilder.status = pagebuilder.status_preview
+				pagebuilder.status = pagebuilder.status_preview,
+				pagebuilder.text   = pagebuilder.text_preview
 			WHERE
 				pagebuilder.related_id = :page_id
 		";
