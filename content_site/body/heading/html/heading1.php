@@ -48,7 +48,7 @@ class heading1
 					}
 					$html .= '</div>';
 				}
-				$html .= '<div>';
+				$html .= '</div>';
 			}
 			$html .= '</div>';
 		}
