@@ -9,78 +9,67 @@ class html
 	{
 		$allow_tag               = [];
 
-		$allow_tag['br']     = ['allow_attr' => []];
-		$allow_tag['b']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['strong'] = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['i']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['p']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['ol']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['ul']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['li']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['h1']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['h2']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['h3']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['h4']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['h5']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-		$allow_tag['h6']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
+		$allow_tag['br']     = [];
+		$allow_tag['b']      = ['style', 'class', 'id', 'title'];
+		$allow_tag['strong'] = ['style', 'class', 'id', 'title'];
+		$allow_tag['i']      = ['style', 'class', 'id', 'title'];
+		$allow_tag['p']      = ['style', 'class', 'id', 'title'];
+		$allow_tag['ol']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['ul']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['li']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['h1']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['h2']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['h3']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['h4']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['h5']     = ['style', 'class', 'id', 'title'];
+		$allow_tag['h6']     = ['style', 'class', 'id', 'title'];
 
 		if($_mode !== 'basic')
 		{
-			$allow_tag['img']        = ['allow_attr' => ['style', 'class', 'id', 'title', 'src', 'alt']];
-			$allow_tag['a']          = ['allow_attr' => ['style', 'class', 'id', 'title', 'href', 'target']];
-			$allow_tag['oembed']     = ['allow_attr' => ['style', 'class', 'id', 'title', 'url']]; // allow video on youtube
-			$allow_tag['table']      = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['thead']      = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['tbody']      = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['tr']         = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['td']         = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['th']         = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['figure']     = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['figcaption'] = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['blockquote'] = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['code']       = ['allow_attr' => ['style', 'class', 'id', 'title' ]];
-			$allow_tag['pre']        = ['allow_attr' => ['style', 'class', 'id', 'title', 'data-language', 'spellcheck']];
+			$allow_tag['img']        = ['style', 'class', 'id', 'title', 'src', 'alt'];
+			$allow_tag['a']          = ['style', 'class', 'id', 'title', 'href', 'target'];
+			$allow_tag['oembed']     = ['style', 'class', 'id', 'title', 'url']; // allow video on youtue
+			$allow_tag['table']      = ['style', 'class', 'id', 'title' ];
+			$allow_tag['thead']      = ['style', 'class', 'id', 'title' ];
+			$allow_tag['tbody']      = ['style', 'class', 'id', 'title' ];
+			$allow_tag['tr']         = ['style', 'class', 'id', 'title' ];
+			$allow_tag['td']         = ['style', 'class', 'id', 'title' ];
+			$allow_tag['th']         = ['style', 'class', 'id', 'title' ];
+			$allow_tag['figure']     = ['style', 'class', 'id', 'title' ];
+			$allow_tag['figcaption'] = ['style', 'class', 'id', 'title' ];
+			$allow_tag['blockquote'] = ['style', 'class', 'id', 'title' ];
+			$allow_tag['code']       = ['style', 'class', 'id', 'title' ];
+			$allow_tag['pre']        = ['style', 'class', 'id', 'title', 'data-language', 'spellcheck'];
 		}
 
 		if($_mode === 'full')
 		{
-			$allow_tag['div']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['section']  = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['article']  = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['aside']    = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['header']   = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['footer']   = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['kbd']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['nav']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['time']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['abbr']     = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['address']  = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['caption']  = ['allow_attr' => ['style', 'class', 'id', 'title']];
-			$allow_tag['wbr']      = ['allow_attr' => ['style', 'class', 'id', 'title']];
+			$allow_tag['div']      = ['style', 'class', 'id', 'title'];
+			$allow_tag['section']  = ['style', 'class', 'id', 'title'];
+			$allow_tag['article']  = ['style', 'class', 'id', 'title'];
+			$allow_tag['aside']    = ['style', 'class', 'id', 'title'];
+			$allow_tag['header']   = ['style', 'class', 'id', 'title'];
+			$allow_tag['footer']   = ['style', 'class', 'id', 'title'];
+			$allow_tag['kbd']      = ['style', 'class', 'id', 'title'];
+			$allow_tag['nav']      = ['style', 'class', 'id', 'title'];
+			$allow_tag['time']     = ['style', 'class', 'id', 'title'];
+			$allow_tag['abbr']     = ['style', 'class', 'id', 'title'];
+			$allow_tag['address']  = ['style', 'class', 'id', 'title'];
+			$allow_tag['caption']  = ['style', 'class', 'id', 'title'];
+			$allow_tag['wbr']      = ['style', 'class', 'id', 'title'];
 
-			$allow_tag['label']    = ['allow_attr' => ['style', 'class', 'id', 'title', 'for']];
-
-			$allow_tag['select']   = ['allow_attr' => ['style', 'class', 'id', 'title', 'name', 'autofocus', 'disabled', 'required', 'multiple', 'form', 'size']];
-
-			$allow_tag['audio']    = ['allow_attr' => ['style', 'class', 'id', 'title', 'controls', 'loop', 'src', 'autoplay', 'muted', 'preload']]; // check only is audio src
-
-			$allow_tag['video']    = ['allow_attr' => ['style', 'class', 'id', 'title', 'controls', 'loop', 'src', 'autoplay', 'muted', 'preload', 'poster', 'width', 'height']]; // check only video in src
-
-			$allow_tag['source']   = ['allow_attr' => ['style', 'class', 'id', 'title', 'src', 'type']];
-
-			$allow_tag['button']   = ['allow_attr' => ['style', 'class', 'id', 'title', 'form', 'disabled', 'name', 'type', 'value']];
-
-			$allow_tag['form']     = ['allow_attr' => ['style', 'class', 'id', 'title', 'name', 'action', 'autocomplete', 'enctype', 'method']];
-
-			$allow_tag['iframe']   = ['allow_attr' => ['style', 'class', 'id', 'title', 'src', 'loading', 'height', 'width', 'allowfullscreen']]; // check src only url
-
-			$allow_tag['option']   = ['allow_attr' => ['style', 'class', 'id', 'title', 'value', 'selected']];
-
-			$allow_tag['optgroup'] = ['allow_attr' => ['style', 'class', 'id', 'title', 'label', 'disabled']];
-
-			$allow_tag['textarea'] = ['allow_attr' => ['style', 'class', 'id', 'title', 'label', 'disabled', 'autofocus', 'cols', 'form', 'name', 'rows', 'required']];
-
-			$allow_tag['input']    = ['allow_attr' => ['style', 'class', 'id', 'title', 'name', 'accept', 'autofocus', 'checked', 'disabled', 'form', 'list', 'max', 'maxlength', 'min', 'minlength', 'placeholder', 'readonly', 'type', 'value', 'required']];
+			$allow_tag['label']    = ['style', 'class', 'id', 'title', 'for'];
+			$allow_tag['select']   = ['style', 'class', 'id', 'title', 'name', 'autofocus', 'disabled', 'required', 'multiple', 'form', 'size'];
+			$allow_tag['audio']    = ['style', 'class', 'id', 'title', 'controls', 'loop', 'src', 'autoplay', 'muted', 'preload']; // check only is audio sc
+			$allow_tag['video']    = ['style', 'class', 'id', 'title', 'controls', 'loop', 'src', 'autoplay', 'muted', 'preload', 'poster', 'width', 'height']; // check only video in sc
+			$allow_tag['source']   = ['style', 'class', 'id', 'title', 'src', 'type'];
+			$allow_tag['button']   = ['style', 'class', 'id', 'title', 'form', 'disabled', 'name', 'type', 'value'];
+			$allow_tag['form']     = ['style', 'class', 'id', 'title', 'name', 'action', 'autocomplete', 'enctype', 'method'];
+			$allow_tag['iframe']   = ['style', 'class', 'id', 'title', 'src', 'loading', 'height', 'width', 'allowfullscreen']; // check src only ul
+			$allow_tag['option']   = ['style', 'class', 'id', 'title', 'value', 'selected'];
+			$allow_tag['optgroup'] = ['style', 'class', 'id', 'title', 'label', 'disabled'];
+			$allow_tag['textarea'] = ['style', 'class', 'id', 'title', 'label', 'disabled', 'autofocus', 'cols', 'form', 'name', 'rows', 'required'];
+			$allow_tag['input']    = ['style', 'class', 'id', 'title', 'name', 'accept', 'autofocus', 'checked', 'disabled', 'form', 'list', 'max','maxlength', 'min','minlength', 'placeholder','readonly','type','value','required'];
 
 		}
 
@@ -194,7 +183,7 @@ class html
 		// NEED GET RAW DATA
 		$data = stripslashes($data);
 
-		$allow_tag = self::allow_tag();
+		$allow_tag = self::allow_tag(null, 'full');
 
 		$analyze_content = [];
 
@@ -209,7 +198,6 @@ class html
 
 			if($nodes->length)
 			{
-
 				foreach( $nodes as $nodeTagName )
 				{
 					if(!isset($analyze_content['tag_counter'][$tag]))
@@ -221,9 +209,8 @@ class html
 
 					$nodeNewTagname = $doc->createElement($tag, self::DOMinnerHTML($nodeTagName));
 
-					foreach ($detail['allow_attr'] as $attr)
+					foreach ($detail as $attr)
 					{
-
 						$attr_value        = $nodeTagName->getAttribute($attr);
 						if(isset($attr_value) && $attr_value)
 						{
@@ -282,8 +269,8 @@ class html
 		\dash\temp::set('analyzeCotent', $analyze_content);
 
 		$data = htmlspecialchars_decode($data);
-		$data = preg_replace("/\n/", ' ', $data);
-		$data = preg_replace("/\s{2,}/", ' ', $data);
+		// $data = preg_replace("/\n/", ' ', $data);
+		// $data = preg_replace("/\s{2,}/", ' ', $data);
 
 		$data = \dash\db::safe($data);
 
