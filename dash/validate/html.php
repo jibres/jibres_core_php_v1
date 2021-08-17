@@ -281,6 +281,8 @@ class html
 		$data = htmlspecialchars_decode($data);
 		$data = preg_replace("/\n/", ' ', $data);
 		$data = preg_replace("/\s{2,}/", ' ', $data);
+		$data = preg_replace("/\>\s{1,}\</", '><', $data);
+		$data = str_replace('> <', '><', $data);
 
 		$data = \dash\db::safe($data);
 
