@@ -257,7 +257,7 @@ $html .= '</div>';
 echo $html;
 
 
-if(\dash\permission::supervisor() && !\dash\url::subchild())
+if(\dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
 {
 
   $htmlSupervisor = '';

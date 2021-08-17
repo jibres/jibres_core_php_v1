@@ -27,9 +27,9 @@ class html
 	public static function admin_html($_section_detail)
 	{
 		$text_html = null;
-		if(isset($_section_detail['text']) && $_section_detail['text'])
+		if(isset($_section_detail['text_preview']) && $_section_detail['text_preview'])
 		{
-			$text_html = $_section_detail['text'];
+			$text_html = $_section_detail['text_preview'];
 		}
 
 
