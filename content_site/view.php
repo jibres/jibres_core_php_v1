@@ -66,6 +66,7 @@ class view
 		// {
 		// 	$get['preview'] = 'yes';
 		// }
+		$get['time'] = time();
 
 		$get['preview'] = md5(\dash\data::currentPageDetail_datecreated());
 
