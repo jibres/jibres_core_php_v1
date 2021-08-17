@@ -341,7 +341,7 @@ class call_function
 					'preview_key'   => $preview_function,
 					'version'       => $version,
 					'opt_type'      => $type,
-					'iframe_url'    => \dash\url::here(). '/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
+					'demo_url'    => 'https://demo.jibres.store/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
 					'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $type, $type. '-'. $preview_function, $version),
 				];
 			}
