@@ -26,6 +26,8 @@ class b1
 				'p5',
 				'p6',
 				'p7',
+				'p8',
+				'p9',
 			],
 		];
 	}
@@ -259,5 +261,71 @@ class b1
 	}
 
 
+	public static function p8($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(8)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'type'                    => 'b1',
+				'post_show_readingtime'   => null,
+				'post_show_image'         => 1,
+				'post_show_excerpt'       => 1,
+				'post_show_date'          => 'no',
+				'post_show_author'        => null,
+				'key'                     => 'blog',
+				'height'                  => 's',
+				'heading_position'        => 'center',
+				'heading'                 => null,
+				'coverratio'              => '3:1',
+				'count'                   => 9,
+				'color_text'              => '#022b79',
+				'btn_viewall_check'       => null,
+				'btn_viewall'             => T_('View all'),
+				'background_size'         => 'auto',
+				'background_pack'         => 'gradient',
+				'background_gradient_type'=> 'to bottom',
+				'background_gradient_to'  => '#ffffff',
+				'background_gradient_from'=> '#c1e3ec',
+			],
+		];
+	}
+
+
+	public static function p9($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(9)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'type'                    => 'b1',
+				'post_show_readingtime'   => null,
+				'post_show_image'         => 1,
+				'post_show_excerpt'       => 1,
+				'post_show_date'          => 'no',
+				'post_show_author'        => null,
+				'key'                     => 'blog',
+				'height'                  => 's',
+				'heading_position'        => 'center',
+				'heading'                 => null,
+				'coverratio'              => '3:1',
+				'count'                   => 9,
+				'color_text'              => '#022b79',
+				'btn_viewall_check'       => null,
+				'btn_viewall'             => T_('View all'),
+				'background_size'         => 'auto',
+				'background_pack'         => 'gradient',
+				'background_gradient_type'=> 'to bottom',
+				'background_gradient_to'  => '#ffffff',
+				'background_gradient_from'=> '#c1e3ec',
+			],
+		];
+	}
 }
 ?>
