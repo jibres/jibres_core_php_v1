@@ -68,6 +68,15 @@ class view
 
 		krsort($preview);
 
+		$max_len = 0;
+		foreach ($preview as $key => $value)
+		{
+			if(mb_strlen($key) > $max_len)
+			{
+				$max_len = mb_strlen($key);
+			}
+		}
+
 		$folder      = a($section_detail, 'mode');
 		$section_key = a($preview, 'key');
 		$type        = a($preview, 'type');
@@ -99,7 +108,9 @@ class view
 					$myValue = "'$value'";
 				}
 
-				$code .= "\t'$key' => $myValue, \n";
+				$space = str_repeat(' ', $max_len - mb_strlen($key));
+
+				$code .= "\t'$key'$space=> $myValue, \n";
 			}
 		}
 		$code .= "],";
