@@ -97,7 +97,7 @@ class business
 		}
 
 		// check route sitebuilder
-		if(\dash\url::isLocal() && \dash\request::get('preview'))
+		if((\dash\url::isLocal() && \dash\request::get('preview')) || \dash\temp::get('forceLoadNewSiteBuilder'))
 		{
 			// load page builder by detect current page
 			$pagebuilder = \content_site\load\load::current_page();
@@ -136,7 +136,7 @@ class business
 				}
 			}
 
-			if($pagebuilder)
+			if($pagebuilder || \dash\temp::get('forceLoadNewSiteBuilder'))
 			{
 				self::$new_sitebuilder     = true;
 				self::$pagebuilder         = true;
@@ -203,6 +203,11 @@ class business
 
 		if(self::$new_sitebuilder)
 		{
+			if(\dash\data::demoOnlineLoadPreviewSection())
+			{
+				return root. 'content_site/preview/display.php';
+			}
+
 			return root. 'content_site/load/body.php';
 		}
 		elseif(self::$pagebuilder)

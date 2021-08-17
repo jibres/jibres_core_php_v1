@@ -11,6 +11,11 @@ class controller
 		$preview = \dash\url::dir(3);
 
 
+		if(\dash\url::dir(4))
+		{
+			\dash\header::status(404);
+		}
+
 		$section = \dash\validate::string_100($section);
 		$type    = \dash\validate::string_100($type);
 		$preview = \dash\validate::string_100($preview);
