@@ -363,18 +363,6 @@ class call_function
 			$default = [];
 		}
 
-		$options = self::option($_section, $_type);
-
-		$default_options = [];
-
-		foreach ($options as $option_name)
-		{
-			if(is_string($option_name))
-			{
-				$default_options[$option_name] = self::option_default($option_name);
-			}
-		}
-
 		$namespace_preview = sprintf($namespace, $_type);
 
 		if(!is_callable([$namespace_preview, $_preview]))
@@ -389,7 +377,7 @@ class call_function
 
 		$preview_default = self::_call([$namespace_preview, $_preview]);
 
-		$preview_default = array_merge($default_options, $default, $preview_default);
+		$preview_default = array_merge($default, a($preview_default, 'options'));
 
 		$preview_default = self::replace_paw_value($preview_default);
 
@@ -401,7 +389,6 @@ class call_function
 			'preview_default' => $preview_default,
 			'preview_html'    => $preview_html,
 		];
-
 
 		\content_site\utility::fill_by_default_data(false);
 
