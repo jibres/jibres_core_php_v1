@@ -11,7 +11,14 @@ class subdomain
 
 		if(!isset($meta['min']))
 		{
-			$meta['min'] = 5;
+			if($_data === 'demo')
+			{
+				$meta['min'] = 4;
+			}
+			else
+			{
+				$meta['min'] = 5;
+			}
 		}
 
 		if(!isset($meta['max']))
