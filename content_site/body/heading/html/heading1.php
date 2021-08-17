@@ -33,19 +33,24 @@ class heading1
 		{
 			$html .= "<div class='m-auto'>";
 			{
-
-				$html .= '<div class="m-auto">';
+				$html .= '<div class="bg-gray-200 p-10 text-center rounded-3xl">';
 				{
-					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2 italic" '. $text_color.'>';
+
+					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $text_color.'>';
 					{
 						$html .= a($_args, 'heading');
 					}
 					$html .= '</h1>';
-				}
-				$html .= '</div>';
 
+					$html .= '<div '.$text_color.'>';
+					{
+						$html .= a($_args, 'description');
+					}
+					$html .= '</div>';
+				}
+				$html .= '<div>';
 			}
-			$html .= "</div>";
+			$html .= '</div>';
 		}
 		$html .= "</div>";
 
