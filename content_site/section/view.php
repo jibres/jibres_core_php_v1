@@ -59,6 +59,13 @@ class view
 
 		$load = \lib\db\pagebuilder\get::by_id(a($section_detail, 'id'));
 
+		$need_unset =
+		[
+			'btn_viewall_mode',
+			'post_order',
+			'post_template',
+		];
+
 		$preview = a($load, 'preview');
 		$preview = json_decode($preview, true);
 		if(!is_array($preview))
@@ -91,8 +98,14 @@ class view
 		$code .= "\n\n\n";
 		$code .= '[';
 		$code .= "\n";
+
 		foreach ($preview as $key => $value)
 		{
+			if(in_array($key, $need_unset))
+			{
+				continue;
+			}
+
 			if(!is_array($value))
 			{
 				if(is_numeric($value) || $value === '1')
