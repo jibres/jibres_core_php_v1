@@ -95,7 +95,7 @@ class view
 		{
 			if(!is_array($value))
 			{
-				if(is_numeric($value))
+				if(is_numeric($value) || $value === '1')
 				{
 					$myValue = "$value";
 				}
