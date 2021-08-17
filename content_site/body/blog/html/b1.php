@@ -79,7 +79,7 @@ class b1
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden shadow-lg bg-white'>";
+						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-md hover:shadow-lg bg-white'>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
