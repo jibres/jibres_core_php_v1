@@ -24,7 +24,7 @@ class b1
 		$totalExist = count($_blogList);
 		$totalCount = a($_args, 'count');
 
-		$containerMaxWidth = 'max-w-screen-lg px-2 sm:px-4 lg:px-4';
+		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4';
 		if($totalCount > 3)
 		{
 			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
@@ -121,7 +121,7 @@ class b1
 							$card .= '</div>';
 
 							// add footer line
-							if(a($_args, 'post_show_author') || a($_args, 'post_show_date'))
+							if(a($_args, 'post_show_author') || a($_args, 'post_show_date') !== 'no')
 							{
 								$card .= '<footer class="flex items-center px-6 py-3 hover:bg-gray-50 transition">';
 								{
