@@ -391,7 +391,12 @@ class call_function
 			$preview_default_option = $preview_default['options'];
 		}
 
-		$preview_default = array_merge($default, $preview_default_option);
+		$force_preview_setting =
+		[
+			'height' => 'fullscreen',
+		];
+
+		$preview_default = array_merge($default, $preview_default_option, $force_preview_setting);
 
 		$preview_default = self::replace_paw_value($preview_default);
 
