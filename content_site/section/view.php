@@ -110,7 +110,7 @@ class view
 
 				$space = str_repeat(' ', $max_len - mb_strlen($key));
 
-				$code .= "\t'$key'$space=> $myValue, \n";
+				$code .= "\t'$key'$space => $myValue, \n";
 			}
 		}
 		$code .= "],";
