@@ -326,6 +326,13 @@ class call_function
 				}
 			}
 
+			$demo_url = 'https://demo.jibres.store';
+
+			if(\dash\url::isLocal())
+			{
+				$demo_url = \dash\url::protocol(). '://demo.myjibres.local';
+			}
+
 			foreach ($need_load_preview as $preview_function)
 			{
 				$load_preview = self::_call([$namespace_type, $preview_function]);
@@ -341,7 +348,7 @@ class call_function
 					'preview_key'   => $preview_function,
 					'version'       => $version,
 					'opt_type'      => $type,
-					'demo_url'    => 'https://demo.jibres.store/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
+					'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
 					'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $type, $type. '-'. $preview_function, $version),
 				];
 			}
