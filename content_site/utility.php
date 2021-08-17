@@ -88,7 +88,7 @@ class utility
 		$code .= " * Put this code on content_site/$folder/$section_key/$type.php \n";
 		$code .= " */ ";
 		$code .= "\n\n\n";
-		$code .= '[';
+		$code .= "\t\t\t[";
 		$code .= "\n";
 
 		foreach ($preview as $key => $value)
@@ -123,10 +123,10 @@ class utility
 
 				$space = str_repeat(' ', $max_len - mb_strlen($key));
 
-				$code .= "\t'$key'$space => $myValue, \n";
+				$code .= "\t\t\t\t'$key'$space => $myValue, \n";
 			}
 		}
-		$code .= "],";
+		$code .= "\t\t\t],";
 		$code .= "\n\n\n";
 		$code .= '?>';
 
