@@ -17,8 +17,11 @@ class heading1
 			'title'        => T_("Gallery 1"),
 			'default'      =>
 			[
-				'type' => 'heading1',
-				'heading' => T_("Heading"),
+				'type'             => 'heading1',
+				'heading'          => T_("Heading"),
+				'height'           => 'fullscreen',
+				'background_pack'  => 'image',
+				'background_image' => \dash\url::cdn(). '/business/comingsoon-1/img/jibres-soon-1.jpg',
 			],
 			'options'      =>
 			[
