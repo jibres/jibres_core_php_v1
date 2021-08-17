@@ -19,9 +19,9 @@ class blog
 					$mode = 'outline';
 				}
 
-				$classVal = 'hover:bg-gray-800 font-semibold py-2 px-10 shadow border rounded';
+				// $classVal = 'hover:bg-gray-800 font-semibold py-2 px-10 shadow border rounded';
 
-				$html .= "<a class='inline-block mx-auto mt-5 $classVal cursor-pointer btn btn-$mode' href='". a($_args, 'btn_viewall_link'). "'>";
+				$html .= "<a class='mx-auto mt-5 jbtn jbtn-$mode' href='". a($_args, 'btn_viewall_link'). "'>";
 				$html .= a($_args, 'btn_viewall');
 				$html .= '</a>';
 			}
