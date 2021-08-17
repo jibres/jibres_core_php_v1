@@ -65,7 +65,7 @@ class html
 			$allow_tag['source']   = ['style', 'class', 'id', 'title', 'src', 'type'];
 			$allow_tag['button']   = ['style', 'class', 'id', 'title', 'form', 'disabled', 'name', 'type', 'value'];
 			$allow_tag['form']     = ['style', 'class', 'id', 'title', 'name', 'action', 'autocomplete', 'enctype', 'method'];
-			$allow_tag['iframe']   = ['style', 'class', 'id', 'title', 'src', 'loading', 'height', 'width', 'allowfullscreen']; // check src only ul
+			$allow_tag['iframe']   = ['style', 'class', 'id', 'title', 'src', 'loading', 'height', 'width', 'allowfullscreen', 'frameborder', 'marginheight', 'marginwidth', 'scrolling']; // check src only ul
 			$allow_tag['option']   = ['style', 'class', 'id', 'title', 'value', 'selected'];
 			$allow_tag['optgroup'] = ['style', 'class', 'id', 'title', 'label', 'disabled'];
 			$allow_tag['textarea'] = ['style', 'class', 'id', 'title', 'label', 'disabled', 'autofocus', 'cols', 'form', 'name', 'rows', 'required'];
