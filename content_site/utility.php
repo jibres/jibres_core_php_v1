@@ -55,6 +55,7 @@ class utility
 		[
 			'btn_viewall_mode',
 			'post_order',
+			'post_tag',
 			'post_template',
 		];
 
