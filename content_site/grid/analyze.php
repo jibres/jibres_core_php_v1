@@ -24,8 +24,8 @@ class analyze
 		switch ($_totalExist)
 		{
 			case '1':
-				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
-				$colStart   = 'col-start-1 sm:col-start-4 md:col-start-5';
+				$colSpan = 'col-span-12 sm:col-span-8 md:col-span-6 lg:col-span-4';
+				$colStart   = 'col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-5';
 				break;
 
 			case '2':
@@ -46,34 +46,34 @@ class analyze
 
 
 			case '7':
-				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-3';
+				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
 				switch ($_index)
 				{
 					case '0':
 					case '1':
 					case '2':
-						$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
+						$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-4';
 						break;
 					case '6':
-						$colStart   = 'sm:col-start-4 md:col-start-auto';
+						$colStart   = 'md:col-start-4 lg:col-start-auto';
 						break;
 				}
 				break;
 
 			case '10':
-				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-3';
+				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
 				switch ($_index)
 				{
 					case '0':
 					case '1':
 					case '2':
-						$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
+						$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-4';
 						break;
 
 					case '3':
 					case '4':
 					case '5':
-						$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
+						$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-4';
 						break;
 
 					default:
@@ -87,7 +87,7 @@ class analyze
 			case '40':
 			case '80':
 			case '100':
-				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-3';
+				$colSpan = 'col-span-12 sm:col-span-6 lg:col-span-3';
 				break;
 
 			case '6':
