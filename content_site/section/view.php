@@ -371,6 +371,11 @@ class view
 		{
 			if($_generate_layout)
 			{
+				if(isset($result['text']) && $section_key === 'html')
+				{
+					$result['preview']['html_text'] = $result['text'];
+				}
+
 				$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
 			}
 		}
