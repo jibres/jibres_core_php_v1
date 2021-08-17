@@ -41,7 +41,7 @@ class b1
 			[
 				'type'                  => 'b1',
 				'post_template'         => 'any',
-				'post_tag'              => 'R',
+				'post_tag'              => null,
 				'post_show_readingtime' => '1',
 				'post_show_image'       => '1',
 				'post_show_excerpt'     => '1',
@@ -74,7 +74,7 @@ class b1
 			[
 				'type'                  => 'b1',
 				'post_template'         => 'any',
-				'post_tag'              => 'R',
+				'post_tag'              => null,
 				'post_show_readingtime' => null,
 				'post_show_image'       => '1',
 				'post_show_excerpt'     => 1,
@@ -108,7 +108,7 @@ class b1
 			[
 				'type'                     => 'b1',
 				'post_template'            => 'any',
-				'post_tag'                 => 'R',
+				'post_tag'                 => null,
 				'post_show_readingtime'    => null,
 				'post_show_image'          => 1,
 				'post_show_excerpt'        => 1,
@@ -129,6 +129,43 @@ class b1
 				'background_gradient_type' => 'to bottom right',
 				'background_gradient_to'   => '#1e19c5',
 				'background_gradient_from' => '#f81b73',
+			],
+		];
+	}
+
+
+	public static function p4($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'type'                     => 'b1',
+				'post_template'            => 'any',
+				'post_tag'                 => null,
+				'post_show_readingtime'    => null,
+				'post_show_image'          => null,
+				'post_show_excerpt'        => 1,
+				'post_show_date'           => 'full',
+				'post_show_author'         => 1,
+				'post_order'               => 'latest',
+				'key'                      => 'blog',
+				'height'                   => 'l',
+				'heading_position'         => 'center',
+				'heading'                  => null,
+				'coverratio'               => '16:9',
+				'count'                    => 6,
+				'color_text'               => '#333333',
+				'btn_viewall_mode'         => null,
+				'btn_viewall_check'        => null,
+				'background_pack'          => 'solid',
+				'background_gradient_type' => 'to bottom right',
+				'background_gradient_to'   => '#1e19c5',
+				'background_gradient_from' => '#f81b73',
+				'background_color'         => '#90cdc3',
 			],
 		];
 	}
