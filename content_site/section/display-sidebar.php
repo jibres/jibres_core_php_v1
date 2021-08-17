@@ -270,11 +270,11 @@ if(\dash\permission::supervisor() && !\dash\url::subchild())
         {
             $downloadJsonSupervisor = \dash\url::current(). \dash\request::full_get(['downloadjson' => 1]);
 
-            $myFile = \dash\request::get('sid'). '.php';
+            $myFile = \dash\url::child(). '-'. \dash\request::get('sid'). '.php';
             $htmlSupervisor .= "<a href='$downloadJsonSupervisor' class='item f' download='$myFile' target='_blank'>";
             {
               $htmlSupervisor .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" alt="code" src="'. \dash\utility\icon::url('Code'). '">';
-              $htmlSupervisor .= '<div class="key">'. T_("Download Json"). '</div>';
+              $htmlSupervisor .= '<div class="key">'. T_("Download PHP"). '</div>';
               $htmlSupervisor .= '<div class="go"></div>';
             }
             $htmlSupervisor .= '</a>';

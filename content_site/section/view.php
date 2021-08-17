@@ -56,11 +56,17 @@ class view
 	private static function downloadjson()
 	{
 		$section_detail = \dash\data::currentSectionDetail();
-		$preview = a($section_detail, 'preview');
+
+		$load = \lib\db\pagebuilder\get::by_id(a($section_detail, 'id'));
+
+		$preview = a($load, 'preview');
+		$preview = json_decode($preview, true);
 		if(!is_array($preview))
 		{
 			$preview = [];
 		}
+
+		krsort($preview);
 
 		$folder      = a($section_detail, 'mode');
 		$section_key = a($preview, 'key');
@@ -73,7 +79,7 @@ class view
 		$code .= " * This is options of one preview function \n";
 		$code .= " * Put this code on content_site/$folder/$section_key/$type.php \n";
 		$code .= " */ ";
-		$code .= "\n\n";
+		$code .= "\n\n\n";
 		$code .= '[';
 		$code .= "\n";
 		foreach ($preview as $key => $value)
@@ -93,11 +99,11 @@ class view
 					$myValue = "'$value'";
 				}
 
-				$code .= "\t '$key' => $myValue, \n";
+				$code .= "\t'$key' => $myValue, \n";
 			}
 		}
-		$code .= "]";
-		$code .= "\n";
+		$code .= "],";
+		$code .= "\n\n\n";
 		$code .= '?>';
 
 		\dash\code::jsonBoom($code);
