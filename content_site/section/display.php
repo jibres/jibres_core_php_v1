@@ -7,7 +7,7 @@ if(!is_array($previewSectionList))
 
 
 $html = '';
-$html .= '<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 pb-10">';
+$html .= '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 pb-10">';
 foreach ($previewSectionList as $value)
 {
 	// variables
@@ -34,7 +34,7 @@ foreach ($previewSectionList as $value)
 			$html .= '<p class="text-sm font-medium text-gray-900 text-justify">';
 			{
 				// $html .= T_('Sample'). ' '. implode(' ', [a($value, 'key'), a($value, 'opt_type'), a($value, 'preview_key')]);
-				$html .= T_('Sample'). ' '. a($value, 'preview_title');
+				$html .= a($value, 'preview_title');
 
 			}
 			$html .= '</p>';
