@@ -54,9 +54,9 @@ class layout
 		}
 
 		// fill_default_data receive from preview function
-		if(a($_args, 'preview_mode') &&  (empty($blogList) || \content_site\utility::fill_by_default_data()))
+		if(empty($blogList) || \content_site\utility::fill_by_default_data())
 		{
-			$blogList = \content_site\assemble\fill_default::blog(a($_args, 'count'));
+			$blogList = \content_site\assemble\fill_default::blog(a($_args, 'count'), a($_args, 'preview_mode'));
 		}
 
 		// send the view all link to every layout of blog
