@@ -115,7 +115,8 @@ class html
 			return false;
 		}
 
-		$data = self::analyze_html($data, $_notif, $_element, $_field_title);
+		$data = self::analyze_html($data, $_notif, $_element, $_field_title, $_meta);
+
 
 		if($data === false)
 		{
@@ -173,7 +174,7 @@ class html
 	}
 
 
-	private static function analyze_html($_data, $_notif = false, $_element = null, $_field_title = null)
+	private static function analyze_html($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = $_data;
 
@@ -216,10 +217,17 @@ class html
 						{
 							if($attr === 'src')
 							{
-								// check only image can load in src
-								if(!self::must_be_image_url($attr_value))
+								if(isset($_meta['html_full']) && $_meta['html_full'])
 								{
-									return false;
+									// no check any thing in src
+								}
+								else
+								{
+									// check only image can load in src
+									if(!self::must_be_image_url($attr_value))
+									{
+										return false;
+									}
 								}
 							}
 							elseif($attr === 'url')
@@ -241,6 +249,8 @@ class html
 			$doc->normalizeDocument();
 
 			$new_html = $doc->saveHTML();
+
+			$new_html = htmlspecialchars_decode($new_html);
 
 			$data = $new_html;
 
@@ -269,8 +279,8 @@ class html
 		\dash\temp::set('analyzeCotent', $analyze_content);
 
 		$data = htmlspecialchars_decode($data);
-		// $data = preg_replace("/\n/", ' ', $data);
-		// $data = preg_replace("/\s{2,}/", ' ', $data);
+		$data = preg_replace("/\n/", ' ', $data);
+		$data = preg_replace("/\s{2,}/", ' ', $data);
 
 		$data = \dash\db::safe($data);
 
