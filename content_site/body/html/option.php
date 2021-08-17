@@ -50,6 +50,12 @@ class option
 	}
 
 
+	public static function popular()
+	{
+		return ['html:p1'];
+	}
+
+
 
 
 
