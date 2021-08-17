@@ -5,13 +5,6 @@ namespace content_site\body\html;
 class option
 {
 
-	public static function router()
-	{
-		var_dump('xxxx');exit;
-		\dash\allow::html();
-	}
-
-
 	/**
 	 * Call when publish the page
 	 *
@@ -56,14 +49,6 @@ class option
 
 	}
 
-
-	public static function popular()
-	{
-		return
-		[
-			'html:p1',
-		];
-	}
 
 
 
