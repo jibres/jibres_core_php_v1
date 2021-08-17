@@ -9,42 +9,50 @@ class html
 	{
 		$allow_tag               = [];
 
-		$allow_tag['br']         = ['allow_attr' => []];
-		$allow_tag['b']          = ['allow_attr' => ['style', 'class']];
-		$allow_tag['strong']     = ['allow_attr' => ['style', 'class']];
-		$allow_tag['i']          = ['allow_attr' => ['style', 'class']];
-		$allow_tag['p']          = ['allow_attr' => ['style', 'class']];
-		$allow_tag['ol']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['ul']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['li']         = ['allow_attr' => ['style', 'class']];
-		$allow_tag['h1']         = ['allow_attr' => ['style', 'class', 'id']];
-		$allow_tag['h2']         = ['allow_attr' => ['style', 'class', 'id']];
-		$allow_tag['h3']         = ['allow_attr' => ['style', 'class', 'id']];
-		$allow_tag['h4']         = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['br']     = ['allow_attr' => []];
+		$allow_tag['b']      = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['strong'] = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['i']      = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['p']      = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['ol']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['ul']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['li']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h1']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h2']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h3']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h4']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h5']     = ['allow_attr' => ['style', 'class', 'id']];
+		$allow_tag['h6']     = ['allow_attr' => ['style', 'class', 'id']];
 
 		if($_mode !== 'basic')
 		{
-			$allow_tag['img']        = ['allow_attr' => ['style', 'class', 'src', 'alt']];
-			$allow_tag['a']          = ['allow_attr' => ['style', 'class', 'href', 'target']];
-			$allow_tag['oembed']     = ['allow_attr' => ['style', 'class', 'url']]; // allow video on youtube
-			$allow_tag['table']      = ['allow_attr' => ['style', 'class']];
-			$allow_tag['thead']      = ['allow_attr' => ['style', 'class']];
-			$allow_tag['tbody']      = ['allow_attr' => ['style', 'class']];
-			$allow_tag['tr']         = ['allow_attr' => ['style', 'class']];
-			$allow_tag['td']         = ['allow_attr' => ['style', 'class']];
-			$allow_tag['th']         = ['allow_attr' => ['style', 'class']];
-			$allow_tag['figure']     = ['allow_attr' => ['style', 'class']];
-			$allow_tag['figcaption'] = ['allow_attr' => ['style', 'class']];
-			$allow_tag['blockquote'] = ['allow_attr' => ['style', 'class']];
-			$allow_tag['code']       = ['allow_attr' => ['class']];
-			$allow_tag['pre']        = ['allow_attr' => ['class', 'data-language', 'spellcheck']];
+			$allow_tag['img']        = ['allow_attr' => ['style', 'class', 'id', 'src', 'alt']];
+			$allow_tag['a']          = ['allow_attr' => ['style', 'class', 'id', 'href', 'target']];
+			$allow_tag['oembed']     = ['allow_attr' => ['style', 'class', 'id', 'url']]; // allow video on youtube
+			$allow_tag['table']      = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['thead']      = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['tbody']      = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['tr']         = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['td']         = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['th']         = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['figure']     = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['figcaption'] = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['blockquote'] = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['code']       = ['allow_attr' => ['style', 'class', 'id' ]];
+			$allow_tag['pre']        = ['allow_attr' => ['style', 'class', 'id', 'data-language', 'spellcheck']];
 		}
 
 		if($_mode === 'full')
 		{
-			$allow_tag['section'] = ['allow_attr' => ['style', 'class']];
-			$allow_tag['div']     = ['allow_attr' => ['style', 'class']];
-
+			$allow_tag['div']     = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['section'] = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['article'] = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['aside']   = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['button']  = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['header']  = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['kbd']     = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['nav']     = ['allow_attr' => ['style', 'class', 'id']];
+			$allow_tag['time']    = ['allow_attr' => ['style', 'class', 'id']];
 		}
 
 		if($_type === 'get_string')
@@ -267,19 +275,6 @@ class html
 	    return $innerHTML;
 	}
 
-	/**
-	* Clean img tag
-	*/
-	private static function clean_img(&$doc)
-	{
-		foreach( $doc->getElementsByTagName("img") as $nodeImg )
-		{
-			$src        = $nodeImg->getAttribute('src');
-			$nodeNewImg = @$doc->createElement("img", $nodeImg->nodeValue);
-		    @$nodeNewImg->setAttribute('src', $src);
-		    @$nodeImg->parentNode->replaceChild($nodeNewImg, $nodeImg);
-		}
-	}
 
 
 	/**
