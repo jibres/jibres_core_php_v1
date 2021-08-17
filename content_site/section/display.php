@@ -7,7 +7,7 @@ if(!is_array($previewSectionList))
 
 
 $html = '';
-$html .= '<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">';
+$html .= '<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 pb-10">';
 foreach ($previewSectionList as $value)
 {
 	// variables
