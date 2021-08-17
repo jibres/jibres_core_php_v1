@@ -555,8 +555,12 @@ class prepare
 		{
 			switch ($domain)
 			{
-				case 'jibres.store':
 				case 'myjibres.ir':
+					self::go_to_jibres();
+					return;
+					break;
+
+				case 'jibres.store':
 				case 'myjibres.com':
 				case 'myjibres.local':
 					// nothing
