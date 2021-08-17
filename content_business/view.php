@@ -19,7 +19,11 @@ class view
 			{
 				\dash\face::title($store_short_title);
 			}
+		}
 
+		if(\dash\request::get('preview'))
+		{
+			\dash\data::HtmlPointerEventsNone(true);
 		}
 
 		$store_desc = \lib\store::detail('desc');
