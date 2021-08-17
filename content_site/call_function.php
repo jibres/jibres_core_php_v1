@@ -377,7 +377,14 @@ class call_function
 
 		$preview_default = self::_call([$namespace_preview, $_preview]);
 
-		$preview_default = array_merge($default, a($preview_default, 'options'));
+		$preview_default_option = [];
+
+		if(isset($preview_default['options']) && is_array($preview_default['options']))
+		{
+			$preview_default_option = $preview_default['options'];
+		}
+
+		$preview_default = array_merge($default, $preview_default_option);
 
 		$preview_default = self::replace_paw_value($preview_default);
 
