@@ -45,7 +45,6 @@ class b1
 			[
 				'type'                  => 'b1',
 				'post_template'         => 'any',
-				'post_tag'              => null,
 				'post_show_readingtime' => '1',
 				'post_show_image'       => '1',
 				'post_show_excerpt'     => '1',
@@ -78,7 +77,6 @@ class b1
 			[
 				'type'                  => 'b1',
 				'post_template'         => 'any',
-				'post_tag'              => null,
 				'post_show_readingtime' => null,
 				'post_show_image'       => '1',
 				'post_show_excerpt'     => 1,
@@ -112,7 +110,6 @@ class b1
 			[
 				'type'                     => 'b1',
 				'post_template'            => 'any',
-				'post_tag'                 => null,
 				'post_show_readingtime'    => null,
 				'post_show_image'          => 1,
 				'post_show_excerpt'        => 1,
@@ -149,7 +146,6 @@ class b1
 			[
 				'type'                     => 'b1',
 				'post_template'            => 'any',
-				'post_tag'                 => null,
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
 				'post_show_excerpt'        => 1,
@@ -186,7 +182,6 @@ class b1
 			[
 				'type'                     => 'b1',
 				'post_template'            => 'any',
-				'post_tag'                 => null,
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
 				'post_show_excerpt'        => 1,
@@ -224,7 +219,6 @@ class b1
 			[
 				'type'                     => 'b1',
 				'post_template'            => 'any',
-				'post_tag'                 => null,
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
 				'post_show_excerpt'        => 1,
@@ -262,7 +256,6 @@ class b1
 			[
 				'type'                    => 'b1',
 				'post_template'           => 'any',
-				'post_tag'                => 'B',
 				'post_show_readingtime'   => null,
 				'post_show_image'         => 1,
 				'post_show_excerpt'       => 1,
