@@ -97,7 +97,6 @@ class b2
 								$card .= '</h3>';
 
 							}
-							$card .= '</figcaption>';
 
 						}
 						$card .= '</a>';
