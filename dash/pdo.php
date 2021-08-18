@@ -175,6 +175,35 @@ class pdo
 		// generate query and get result
 		$result = self::query($_query, $_param, $_db_fuel, $_options);
 
+
+		// give only one column of result
+		if($result && $_column !== null)
+		{
+			if(is_array($_column))
+			{
+				// if pass 2 field use one as key and another as value of result
+				if(count($_column) === 2 && isset($_column[0]) && isset($_column[1]))
+				{
+					$result_key   = array_column($result, $_column[0]);
+					$result_value = array_column($result, $_column[1]);
+					if($result_key && $result_value)
+					{
+						// for two field use array_combine
+						$result = array_combine($result_key, $result_value);
+					}
+				}
+				else
+				{
+					// need more than 2 field
+				}
+
+			}
+			else
+			{
+				$result = array_column($result, $_column);
+			}
+		}
+
 		// if we have only one row of result only return this row
 		if($_onlyOneValue && is_array($result) && count($result) === 1)
 		{
