@@ -386,6 +386,14 @@ class view
 				}
 
 				$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
+
+				if(\dash\request::get('psid') && is_numeric(\dash\request::get('psid')))
+				{
+					if(floatval(a($result, 'id')) !== floatval(\dash\request::get('psid')))
+					{
+						$result['preview_layout'] = null;
+					}
+				}
 			}
 		}
 
