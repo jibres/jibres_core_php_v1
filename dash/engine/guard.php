@@ -228,11 +228,12 @@ class guard
 		}
 
 		// enable blob worker for code editor
-		if(\dash\url::directory() === 'section/html')
-		{
-			// $policy['worker-src'][] = "'self'";
-			$policy['worker-src'][] = "blob:";
-		}
+		// disable worker for editor
+		// if(\dash\url::directory() === 'section/html')
+		// {
+		// 	// $policy['worker-src'][] = "'self'";
+		// 	$policy['worker-src'][] = "blob:";
+		// }
 
 		// for local
 		if(\dash\url::isLocal())
