@@ -77,7 +77,7 @@ if(\dash\url::child())
       // $html .= '</div>';
 
     }
-    elseif(!$remove_block)
+    elseif(!$remove_block && \dash\request::get('sid'))
     {
       /**
        * btn remove and hide
