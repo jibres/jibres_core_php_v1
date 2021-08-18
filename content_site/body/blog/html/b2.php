@@ -8,18 +8,27 @@ class b2
 	{
 		$html             = '';
 
+		// define variables
+		// $previewMode = a($_args, 'preview_mode');
 		$id          = a($_args, 'id');
 		$type        = a($_args, 'type');
-
 		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
 		$font_class  = \content_site\assemble\font::class($_args);
-
+		// $type        = 'b1';
 
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
 		$background_style = \content_site\assemble\background::full_style($_args);
 		$text_color       = \content_site\assemble\text_color::full_style($_args);
 		$section_id       = \content_site\assemble\tools::section_id($type, $id);
 
+		$totalExist = count($_blogList);
+		$totalCount = a($_args, 'count');
+
+		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4';
+		if($totalCount > 3)
+		{
+			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
+		}
 
 		// element type
 		$cnElement = 'div';
@@ -27,16 +36,15 @@ class b2
 		{
 			$cnElement = 'section';
 		}
-
 		$classNames = $height;
 		if($font_class)
 		{
 			$classNames .= ' '. $font_class;
 		}
 
-		$html .= "<$cnElement data-type='$type' class='body-font $classNames'$background_style $section_id>";
+		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
-			$html .= '<div class="container mx-auto">';
+			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{
 				if(a($_args, 'heading') !== null)
 				{
@@ -44,101 +52,130 @@ class b2
 					{
 						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
-						$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $text_color>";
+						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $text_color>";
 						{
 							$html .= a($_args, 'heading');
 						}
-						$html .= '</h3>';
+						$html .= '</h2>';
 					}
 					$html .= '</header>';
 				}
 
-				$html .= '<div class="flex flex-wrap -mx-4 -my-8 pb-24">';
+
+				$html .= "<div class='grid grid-cols-12 gap-4'>";
 				{
 					foreach ($_blogList as $key => $value)
 					{
 						// a img
-						// h2 a
-						$myLink      = a($value, 'link');
-						$myTitle     = a($value, 'title');
-						$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
-						$myExcerpt   = a($value, 'excerpt');
-						$myDate      = a($value, 'publishdate');
+						// h3 a
+						$myLinkHref   = " href='". a($value, 'link'). "'";
+						$myTitle      = a($value, 'title');
+						$myThumb      = \dash\fit::img(a($value, 'thumb'), 780);
+						$myExcerpt    = a($value, 'excerpt');
+						$myDate       = a($value, 'publishdate');
 						$myAuthorPage = a($value, 'authorpage');
-						$writerName = a($value, 'user_detail', 'displayname');
 
-						$html .= '<div class="py-8 px-4 lg:w-1/3">';
+						// get grid class name by analyse
+						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
+
+						$card = '';
+						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-md hover:shadow-lg bg-white'>";
 						{
-							$html .= '<div class="h-full flex items-start">';
+							// thumb
+							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$html .= '<div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">';
+								$card .= '<header>';
+								$card .= "<a class='block $coverRatio'$myLinkHref>";
 								{
-									$html .= '<span class="text-gray-500 pb-2 mb-2 border-b-2 border-gray-200">'.\dash\fit::date($myDate, 'F').'</span>';
-									$html .= '<span class="font-medium text-lg text-gray-800 title-font leading-none">'.\dash\fit::date($myDate, 'd').'</span>';
+									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
+								}
+								$card .= "</a>";
+								$card .= '</header>';
+							}
+
+							$card .= "<div class='flex-grow px-6 py-4'>";
+							{
+								// title
+								$card .= '<h3>';
+								{
+									$card .= "<a class='block text-lg leading-8 font-semibold focus:text-blue-800 transition'$myLinkHref>";
+									{
+										$card .= $myTitle;
+									}
+									$card .= "</a>";
+
+								}
+								$card .= '</h3>';
+
+								$card .= \content_site\assemble\tools::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
+
+
+								if($myExcerpt && a($_args, 'post_show_excerpt'))
+								{
+									$card .= "<p class='mt-2 text-gray-500 text-sm leading-6'>";
+									$card .= $myExcerpt;
+									$card .= "</p>";
 								}
 
-								$html .= '</div>';
+							}
+							$card .= '</div>';
 
-								$html .= '<div class="flex-grow pl-6 pr-6">';
+							// add footer line
+							if(a($_args, 'post_show_author') || a($_args, 'post_show_date') !== 'no')
+							{
+								$card .= '<footer class="flex items-center px-6 py-3 hover:bg-gray-50 transition">';
 								{
-									$html .= '<h3 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">';
-									{
-										$html .= \content_site\assemble\tools::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
-									}
-									$html .= '</h3>';
-
-									$html .= '<h2 class="title-font text-xl font-medium text-gray-900 mb-3">';
-									{
-										$html .= '<a href="'. $myLink. '">';
-										{
-											$html .= $myTitle;
-										}
-										$html .= '</a>';
-									}
-
-									$html .= '</h2>';
-
-									$html .= '<p class="leading-relaxed mb-5">';
-									{
-										if($myExcerpt && a($_args, 'post_show_excerpt'))
-										{
-											$html .= $myExcerpt;
-										}
-									}
-									$html .= '</p>';
-
-									// add footer line
 									if(a($_args, 'post_show_author'))
 									{
-
-										$html .= '<a class="inline-flex items-center" href="'.$myAuthorPage.'">';
+										$card .= "<a class='inline-block' href='$myAuthorPage'>";
 										{
-											$html .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='w-8 h-8 rounded-full flex-shrink-0 object-cover object-center'>";
-
-
-										  $html .= '<span class="flex-grow flex flex-col pl-3 pr-3">';
-										  {
-											$html .= '<span class="title-font font-medium text-gray-900">'.$writerName.'</span>';
-										  }
-										  $html .= '</span>';
-
+											$writerName = a($value, 'user_detail', 'displayname');
+											$marginClass = 'mr-2';
+											if(\dash\language::dir() === 'rtl')
+											{
+												$marginClass = 'ml-2';
+											}
+											$card .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full $marginClass bg-gray-100 overflow-hidden'>";
+											$card .= "<span class='text-2xs mLa5 inline-block'>". $writerName. "</span>";
 										}
-										$html .= '</a>';
+										$card .= '</a>';
+									}
+									$card .= "<span class='flex-grow'></span>";
+
+									if(a($_args, 'post_show_date'))
+									{
+										if($myDate)
+										{
+											$ltrDate = 'ltr';
+											if(a($_args, 'post_show_date') === 'relative')
+											{
+												$ltrDate = '';
+											}
+											$card .= "<time class='text-gray-600 text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+
+											$card .= \content_site\assemble\tools::date($myDate, a($_args, 'post_show_date'));
+
+											$card .= "</time>";
+										}
 									}
 								}
-								$html .= '</div>';
-							}
-							$html .= '</div>';
-						}
-						$html .= '</div>';
 
-					} // endfor
+								$card .= '</footer>';
+
+							}
+						}
+						$card .= '</div>';
+
+						// save card
+						$html .= $card;
+					}
 				}
 				$html .= '</div>';
 
 				$html .= \content_site\assemble\blog::btn_viewall($_args);
+
 			}
-			$html .= '</div>';
+			$html .= "</div>";
 		}
 		$html .= "</$cnElement>";
 
