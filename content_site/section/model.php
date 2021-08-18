@@ -176,7 +176,7 @@ class model
 				return false;
 			}
 
-			$type = \dash\request::post('type');
+			$type = \dash\request::post('opt_type');
 
 			$type = \dash\validate::string_100($type);
 			if(!$type)
@@ -630,7 +630,7 @@ class model
 
 
 
-		$key = \dash\request::post('key');
+		$key = \dash\request::get('section');
 
 		$key = \dash\validate::string_100($key);
 
@@ -640,7 +640,7 @@ class model
 			return false;
 		}
 
-		$type = \dash\request::post('type');
+		$type = \dash\request::post('opt_type');
 
 		$type = \dash\validate::string_100($type);
 

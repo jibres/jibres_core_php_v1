@@ -13,12 +13,10 @@ foreach ($previewSectionList as $value)
 	// variables
 	$select_preview =
 	[
-		'section'     => 'preview',
-		'key'         => a($value, 'key'),
 		'opt_type'    => a($value, 'opt_type'),
-		'type'        => a($value, 'opt_type'),
 		'preview_key' => a($value, 'preview_key'),
 	];
+
 	$ajaxify = "data-ajaxify data-data='".json_encode($select_preview)."'";
 
 	$html .= '<button class="group relative bg-white rounded-lg shadow-sm overflow-hidden transition hover:shadow-md focus:shadow-lg ring-1 ring-black ring-opacity-5"'. $ajaxify. '>';
