@@ -227,6 +227,13 @@ class guard
 			$policy['script-src'][] = "https://s1.mediaad.org/";
 		}
 
+		// enable blob worker for code editor
+		if(\dash\url::directory() === 'section/html')
+		{
+			// $policy['worker-src'][] = "'self'";
+			$policy['worker-src'][] = "blob:";
+		}
+
 		// for local
 		if(\dash\url::isLocal())
 		{
