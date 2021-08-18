@@ -39,35 +39,40 @@ class link_mode
 	{
 
 		$link_mode = \content_site\section\view::get_current_index_detail('link_mode');
+		$checked = \content_site\section\view::get_current_index_detail('post_show_read_more');
 
 		$html = '';
 
-		$html .= '<div class="mt-5 mb-5">';
+		if($checked)
 		{
-			$html .= "<label class='block mT10-f'>". T_("Link mode"). "</label>";
-			$html .= '<div class="relative flex flex-none items-center">';
+
+			$html .= '<div class="mt-5 mb-5">';
 			{
-				$list = self::link_mode();
-
-				foreach ($list as $key => $value)
+				$html .= "<label class='block mT10-f'>". T_("Link mode"). "</label>";
+				$html .= '<div class="relative flex flex-none items-center">';
 				{
-					$selected = null;
-					if($link_mode == $value['key'] || (!$link_mode && $value['key'] === 'outline'))
+					$list = self::link_mode();
+
+					foreach ($list as $key => $value)
 					{
-						$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
+						$selected = null;
+						if($link_mode == $value['key'] || (!$link_mode && $value['key'] === 'outline'))
+						{
+							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
+						}
+
+						$json = json_encode(['opt_link_mode' => 1, 'multioption' => 'multi', 'link_mode' => $value['key']]);
+
+						$html .= "<div data-ajaxify data-data='$json' class='ml-1 jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
+
 					}
-
-					$json = json_encode(['opt_link_mode' => 1, 'multioption' => 'multi', 'link_mode' => $value['key']]);
-
-					$html .= "<div data-ajaxify data-data='$json' class='ml-1 jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
-
 				}
+				$html .= '</div>';
+
 			}
 			$html .= '</div>';
 
 		}
-		$html .= '</div>';
-
 
 		return $html;
 	}
