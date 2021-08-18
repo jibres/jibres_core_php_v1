@@ -15,6 +15,13 @@ class view
 		{
 			$load_section = \lib\db\pagebuilder\get::by_id(\dash\data::mySectionID());
 
+			$preview = a($load_section, 'preview');
+			$preview = json_decode($preview, true);
+			if(a($preview, 'heading'))
+			{
+				\dash\data::myHtmlTitle(a($preview, 'heading'));
+			}
+
 			$myHtmlText = a($load_section, 'text_preview');
 
 			$myHtmlText = str_replace('><', ">\n<", $myHtmlText);

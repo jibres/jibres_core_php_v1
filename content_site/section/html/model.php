@@ -6,10 +6,13 @@ class model extends \content_site\section\model
 {
 	public static function post()
 	{
-
 		if(\dash\request::post('savehtml') === 'html')
 		{
 			self::save_html();
+		}
+		elseif(\dash\request::post('savehtmltitle'))
+		{
+			self::save_html('title');
 		}
 		else
 		{
@@ -18,11 +21,13 @@ class model extends \content_site\section\model
 	}
 
 
-	private static function save_html()
+	private static function save_html($_mode = 'html')
 	{
 
 		$page_id = \dash\request::get('id');
 		$page_id = \dash\coding::decode($page_id);
+
+		$title = \dash\validate::title(\dash\request::post('htmltitle'));
 
 		if(!$page_id)
 		{
@@ -30,16 +35,20 @@ class model extends \content_site\section\model
 			return false;
 		}
 
-		$html = \dash\request::post_html();
-		$html = \dash\validate::real_html_full($html);
-
-		if(!$html)
+		$html = null;
+		if($_mode === 'html')
 		{
-			\dash\notif::error(T_("HTML is required"));
-			return false;
-		}
+			$html = \dash\request::post_html();
+			$html = \dash\validate::real_html_full($html);
 
-		$html  = stripslashes($html);
+			if(!$html)
+			{
+				\dash\notif::error(T_("HTML is required"));
+				return false;
+			}
+
+			$html  = stripslashes($html);
+		}
 
 
 		if(\dash\data::mySectionID())
@@ -62,28 +71,36 @@ class model extends \content_site\section\model
 				return false;
 			}
 
+			if($_mode === 'html')
+			{
+				\dash\pdo\query_template::update('pagebuilder', ['text_preview' => $html], $section_id);
+			}
+			else
+			{
+				$preview           = json_encode(['type' => 'html', 'key' => 'html', 'heading' => $title]);
 
-			\dash\pdo\query_template::update('pagebuilder', ['text_preview' => $html], $section_id);
-
-			// $preview           = json_encode($preview);
-
-			// \dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+			}
 
 			\dash\pdo::commit();
 
 			\dash\notif::ok(T_("Saved"));
-
-
 		}
 		else
 		{
+			if(!$title)
+			{
+				$title = T_("Raw HTML");
+			}
+
+			$preview           = json_encode(['type' => 'html', 'key' => 'html', 'heading' => $title]);
 
 			$args =
 			[
 				'mode'          => 'body',
 				'key'           => 'html',
 				'page_id'       => $page_id,
-				'preview'       => json_encode(['type' => 'html', 'key' => 'html']),
+				'preview'       => $preview,
 				'update_record' => null,
 				'text_preview'  => $html,
 			];
@@ -101,12 +118,7 @@ class model extends \content_site\section\model
 
 			\dash\redirect::to($url);
 
-
 		}
-
-
 	}
-
-
 }
 ?>
