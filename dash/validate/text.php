@@ -131,9 +131,7 @@ class text
 		$data = str_replace('<script', '', $data);
 		$data = str_replace('< script', '', $data);
 		$data = str_replace('</script>', '', $data);
-		$data = str_replace('<style', '', $data);
-		$data = str_replace('< style', '', $data);
-		$data = str_replace('</style>', '', $data);
+
 
 
 		if(mb_strlen($data_before) !== mb_strlen($data))
