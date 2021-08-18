@@ -71,15 +71,12 @@ class b2
 						$myLinkHref   = " href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'title');
 						$myThumb      = \dash\fit::img(a($value, 'thumb'), 780);
-						$myExcerpt    = a($value, 'excerpt');
-						$myDate       = a($value, 'publishdate');
-						$myAuthorPage = a($value, 'authorpage');
 
 						// get grid class name by analyse
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a class='relative $gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-sm hover:shadow-md'$myLinkHref>";
+						$card .= "<a data-magicbox class='relative $gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-sm hover:shadow-md'$myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
@@ -91,10 +88,9 @@ class b2
 								$card .= "</figure>";
 							}
 
-							$card .= "<figcaption class='bg-gradient-to-t from-gray-700 via-transparent z-10 absolute inset-0'>";
 							{
 								// title
-								$card .= "<h3 class='absolute inset-x-0 bottom-0 block leading-7 transition text-white px-4 py-2 line-clamp-3'>";
+								$card .= "<h3 class='absolute inset-x-0 bottom-0 block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10'>";
 								{
 									$card .= $myTitle;
 								}
