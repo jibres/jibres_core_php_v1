@@ -30,6 +30,10 @@ class view
 
 			\dash\data::myHtmlText($myHtmlText);
 		}
+		else
+		{
+			\dash\data::myHtmlText(\dash\file::read(__DIR__. '/sample.html'));
+		}
 
 		\dash\data::back_text(T_("Back"));
 

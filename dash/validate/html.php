@@ -60,8 +60,10 @@ class html
 			$allow_tag['caption']  = ['style', 'class', 'id', 'title'];
 			$allow_tag['wbr']      = ['style', 'class', 'id', 'title'];
 
-			$allow_tag['dl']      = ['style', 'class', 'id', 'title'];
-			$allow_tag['dt']      = ['style', 'class', 'id', 'title'];
+			$allow_tag['dl']       = ['style', 'class', 'id', 'title'];
+			$allow_tag['dt']       = ['style', 'class', 'id', 'title'];
+			$allow_tag['dd']       = ['style', 'class', 'id', 'title'];
+
 
 			$allow_tag['label']    = ['style', 'class', 'id', 'title', 'for'];
 			$allow_tag['select']   = ['style', 'class', 'id', 'title', 'name', 'autofocus', 'disabled', 'required', 'multiple', 'form', 'size'];
@@ -75,8 +77,8 @@ class html
 			$allow_tag['optgroup'] = ['style', 'class', 'id', 'title', 'label', 'disabled'];
 			$allow_tag['textarea'] = ['style', 'class', 'id', 'title', 'label', 'disabled', 'autofocus', 'cols', 'form', 'name', 'rows', 'required'];
 			$allow_tag['input']    = ['style', 'class', 'id', 'title', 'name', 'accept', 'autofocus', 'checked', 'disabled', 'form', 'list', 'max','maxlength', 'min','minlength', 'placeholder','readonly','type','value','required'];
-			$allow_tag['svg']    = ['style', 'class', 'id', 'title','width', 'height', 'xmlns', 'fill','viewBox','stroke','aria-hidden'];
-			$allow_tag['path']    = ['style', 'class', 'id', 'title','width', 'height', 'stroke-linecap', 'stroke-linejoin', 'stroke-width', 'd',];
+			$allow_tag['svg']      = ['xmlns', 'style', 'class', 'id', 'title','width', 'height', 'fill','viewBox','stroke','aria-hidden'];
+			$allow_tag['path']     = ['style', 'class', 'id', 'title','width', 'height', 'stroke-linecap', 'stroke-linejoin', 'stroke-width', 'd',];
 
 		}
 
