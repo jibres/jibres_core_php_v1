@@ -5,6 +5,8 @@ namespace content_site\options\background;
 class background_pack
 {
 	private static $remove_from_list = [];
+	private static $current_options = [];
+
 
 	public static function remove_from_list($_index)
 	{
@@ -14,6 +16,16 @@ class background_pack
 		}
 	}
 
+
+	/**
+	 * Set current background pack
+	 *
+	 * @param      <type>  $_option_list  The option list
+	 */
+	public static function current_background_pack_option($_option_list)
+	{
+		self::$current_options = $_option_list;
+	}
 
 
 	public static function enum()
@@ -102,6 +114,12 @@ class background_pack
 		if(!in_array('coverratio', self::$remove_from_list))
 		{
 			$html .= \content_site\options\coverratio::admin_html();
+		}
+
+		if(in_array('btn_viewall_mode', self::$current_options))
+		{
+			$html .= \content_site\options\btn\btn_viewall::admin_html_viewall_mode();
+
 		}
 
 		$html .= "<div class='ShowCustomizeSetting'>";

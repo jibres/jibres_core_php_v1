@@ -35,6 +35,11 @@ class btn_viewall
 			unset($new_data['btn_viewall_check']);
 			unset($new_data['btn_viewall']);
 		}
+		else
+		{
+			unset($new_data['btn_viewall_mode']);
+
+		}
 
 		return $new_data;
 	}
@@ -93,31 +98,52 @@ class btn_viewall
 				}
 				$html .= '</div>';
 
-				// $html .= '<div class="relative flex flex-none items-center px-3 mt-5">';
-				// {
-				// 	$list = self::btn_mode();
-
-				// 	foreach ($list as $key => $value)
-				// 	{
-				// 		$selected = null;
-				// 		if($btn_mode == $value['key'] || (!$btn_mode && $value['key'] === 'outline'))
-				// 		{
-				// 			$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
-				// 		}
-
-				// 		$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
-
-				// 		$html .= "<div data-ajaxify data-data='$json' class='ml-1 btn btn-circle btn-$value[key]'>$selected</div>";
-
-				// 	}
-				// }
-				// $html .= '</div>';
-
 			}
 			$html .= '</div>';
 		}
 
   		$html .= '</form>';
+
+		return $html;
+	}
+
+
+	public static function admin_html_viewall_mode()
+	{
+		$checked  = \content_site\section\view::get_current_index_detail('btn_viewall_check');
+		$btn_mode = \content_site\section\view::get_current_index_detail('btn_viewall_mode');
+
+		$html = '';
+
+		if($checked)
+		{
+			$html .= '<div class="mt-5 mb-5">';
+			{
+				$html .= "<label for='btn_viewall_mode' class='block mT10-f'>". T_("Button view all mode"). "</label>";
+				$html .= '<div class="relative flex flex-none items-center">';
+				{
+					$list = self::btn_mode();
+
+					foreach ($list as $key => $value)
+					{
+						$selected = null;
+						if($btn_mode == $value['key'] || (!$btn_mode && $value['key'] === 'outline'))
+						{
+							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
+						}
+
+						$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
+
+						$html .= "<div data-ajaxify data-data='$json' class='ml-1 jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
+
+					}
+				}
+				$html .= '</div>';
+
+			}
+			$html .= '</div>';
+
+		}
 
 		return $html;
 	}

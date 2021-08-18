@@ -76,6 +76,7 @@ class style
 					'color_text',
 
 					'font',
+					'btn_viewall_mode',
 
 					'type',
 				];
@@ -119,6 +120,9 @@ class style
 				];
 				break;
 		}
+
+		// set current option list
+		\content_site\options\background\background_pack::current_background_pack_option($list);
 
 		return $list;
 	}
