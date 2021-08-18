@@ -722,16 +722,107 @@ class model
 
 		$preview = json_encode($preview);
 
+		$args =
+		[
+			'mode'          => $mode,
+			'key'           => $key,
+			'page_id'       => $page_id,
+			'preview'       => $preview,
+			'update_record' => $update_record,
+		];
+
+		$id = self::add_new_section_db($args);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		// $insert                   = [];
+		// $insert['mode']           = $mode;
+		// $insert['type']           = $key;
+		// $insert['related']        = 'posts';
+		// $insert['related_id']     = $page_id;
+		// $insert['title']          = null;
+		// $insert['preview']        = $preview;
+		// $insert['status']         = 'draft';
+		// $insert['status_preview'] = 'draft';
+		// $insert['datecreated']    = date("Y-m-d H:i:s");
+
+		// $get_last_sort_args =
+		// [
+		// 	'related'    => $insert['related'],
+		// 	'related_id' => $insert['related_id'],
+		// 	// need add some args later
+		// ];
+
+		// $get_last_sort = \lib\db\pagebuilder\get::last_sort($get_last_sort_args);
+
+		// if(!$get_last_sort || !is_numeric($get_last_sort))
+		// {
+		// 	$insert['sort'] = 10;
+		// }
+		// else
+		// {
+		// 	$insert['sort'] = (floor(intval($get_last_sort) / 10) * 10) + 10;
+		// }
+
+		// $insert['sort_preview'] = $insert['sort'];
+
+		// if($update_record)
+		// {
+		// 	\lib\db\sitebuilder\update::record($insert, $update_record);
+		// 	$id = $update_record;
+
+		// }
+		// else
+		// {
+
+		// 	$count_section_in_page = \lib\db\sitebuilder\get::count_section_in_page($page_id);
+
+		// 	if(floatval($count_section_in_page) >= 50)
+		// 	{
+		// 		\dash\notif::error(T_("Maximum capacity of page section is full"));
+		// 		return false;
+		// 	}
+
+		// 	$id = \lib\db\sitebuilder\insert::new_record($insert);
+
+		// 	if(!$id)
+		// 	{
+		// 		\dash\notif::error(T_("No way to save data"));
+		// 		return false;
+		// 	}
+		// }
+
+
+		$url = \dash\url::this(). '/';
+		$url .= $key;
+		$url .= \dash\request::full_get(['sid' => $id, 'folder' => null, 'section' => null,]);
+
+		\dash\redirect::to($url);
+
+	}
+
+
+
+	public static function add_new_section_db($_args)
+	{
 		$insert                   = [];
-		$insert['mode']           = $mode;
-		$insert['type']           = $key;
+		$insert['mode']           = a($_args, 'mode');
+		$insert['type']           = a($_args, 'key');
 		$insert['related']        = 'posts';
-		$insert['related_id']     = $page_id;
+		$insert['related_id']     = a($_args, 'page_id');
 		$insert['title']          = null;
-		$insert['preview']        = $preview;
+		$insert['preview']        = a($_args, 'preview');
 		$insert['status']         = 'draft';
 		$insert['status_preview'] = 'draft';
 		$insert['datecreated']    = date("Y-m-d H:i:s");
+
+		if(a($_args, 'text_preview'))
+		{
+			$insert['text_preview'] = $_args['text_preview'];
+		}
 
 		$get_last_sort_args =
 		[
@@ -753,16 +844,16 @@ class model
 
 		$insert['sort_preview'] = $insert['sort'];
 
-		if($update_record)
+		if(a($_args, 'update_record'))
 		{
-			\lib\db\sitebuilder\update::record($insert, $update_record);
-			$id = $update_record;
+			\lib\db\sitebuilder\update::record($insert, a($_args, 'update_record'));
+			$id = a($_args, 'update_record');
 
 		}
 		else
 		{
 
-			$count_section_in_page = \lib\db\sitebuilder\get::count_section_in_page($page_id);
+			$count_section_in_page = \lib\db\sitebuilder\get::count_section_in_page(a($_args, 'page_id'));
 
 			if(floatval($count_section_in_page) >= 50)
 			{
@@ -777,15 +868,9 @@ class model
 				\dash\notif::error(T_("No way to save data"));
 				return false;
 			}
+
+			return $id;
 		}
-
-
-		$url = \dash\url::this(). '/';
-		$url .= $key;
-		$url .= \dash\request::full_get(['sid' => $id, 'folder' => null, 'section' => null,]);
-
-		\dash\redirect::to($url);
-
 	}
 
 }
