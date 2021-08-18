@@ -13,6 +13,12 @@ foreach (\dash\data::groupSectionList() as $group => $items)
   {
     $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
 
+    if(a($item, 'key') === 'html')
+    {
+      $show_preview_link = \dash\url::this().'/html'. \dash\request::full_get();
+    }
+
+
     // $data = json_encode(['key' => a($item, 'key'), 'type' => a($item, 'type'), 'section' => 'preview']);
     $html .= '<li>';
     // $html .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
