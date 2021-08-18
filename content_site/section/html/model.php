@@ -92,7 +92,7 @@ class model extends \content_site\section\model
 		{
 			if(!$title)
 			{
-				$title = T_("Raw HTML");
+				$title = T_("Custom HTML Code");
 			}
 
 			$preview           = json_encode(['type' => 'html', 'key' => 'html', 'heading' => $title]);
