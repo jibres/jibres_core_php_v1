@@ -628,6 +628,8 @@ class model
 			return false;
 		}
 
+
+
 		$key = \dash\request::post('key');
 
 		$key = \dash\validate::string_100($key);
@@ -759,6 +761,15 @@ class model
 		}
 		else
 		{
+
+			$count_section_in_page = \lib\db\sitebuilder\get::count_section_in_page($page_id);
+
+			if(floatval($count_section_in_page) >= 50)
+			{
+				\dash\notif::error(T_("Maximum capacity of page section is full"));
+				return false;
+			}
+
 			$id = \lib\db\sitebuilder\insert::new_record($insert);
 
 			if(!$id)

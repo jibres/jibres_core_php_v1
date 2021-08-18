@@ -4,6 +4,21 @@ namespace lib\db\sitebuilder;
 
 class get
 {
+
+	public static function count_section_in_page($_page_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM pagebuilder WHERE pagebuilder.related_id = :page_id ";
+
+		$param  =
+		[
+			':page_id' => $_page_id,
+		];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+
+		return $result;
+	}
+
 	public static function check_duplicate_mode($_page_id, $_mode)
 	{
 		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :page_id AND pagebuilder.mode = :mode LIMIT 1";
