@@ -8,15 +8,14 @@ class link_mode
 	public static function link_mode()
 	{
 		$list = [];
-		// $list[] = ['key' => 'primary', ];
-		// $list[] = ['key' => 'secondary', ];
-		$list[] = ['key' => 'accent', ];
-		$list[] = ['key' => 'info', ];
+		$list[] = ['key' => 'primary', ];
+		$list[] = ['key' => 'secondary', ];
 		$list[] = ['key' => 'success', ];
+		$list[] = ['key' => 'danger', ];
 		$list[] = ['key' => 'warning', ];
-		$list[] = ['key' => 'error', ];
-		$list[] = ['key' => 'outline', ];
-		$list[] = ['key' => 'active', ];
+		$list[] = ['key' => 'info', ];
+		$list[] = ['key' => 'light', ];
+		$list[] = ['key' => 'dark', ];
 		return $list;
 	}
 
@@ -49,7 +48,7 @@ class link_mode
 			$html .= '<div class="mt-5 mb-5">';
 			{
 				$html .= "<label class='block mT10-f'>". T_("Link mode"). "</label>";
-				$html .= '<div class="relative flex flex-none items-center">';
+				$html .= '<div class="relative grid grid-cols-8">';
 				{
 					$list = self::link_mode();
 
@@ -63,7 +62,7 @@ class link_mode
 
 						$json = json_encode(['opt_link_mode' => 1, 'multioption' => 'multi', 'link_mode' => $value['key']]);
 
-						$html .= "<div data-ajaxify data-data='$json' class='ml-1 jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
+						$html .= "<div data-ajaxify data-data='$json' class='jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
 
 					}
 				}

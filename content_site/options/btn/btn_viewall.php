@@ -8,13 +8,14 @@ class btn_viewall
 	public static function btn_mode()
 	{
 		$list = [];
-		$list[] = ['key' => '', ];
 		$list[] = ['key' => 'primary', ];
 		$list[] = ['key' => 'secondary', ];
-		$list[] = ['key' => 'info', ];
 		$list[] = ['key' => 'success', ];
+		$list[] = ['key' => 'danger', ];
 		$list[] = ['key' => 'warning', ];
-		$list[] = ['key' => 'error', ];
+		$list[] = ['key' => 'info', ];
+		$list[] = ['key' => 'light', ];
+		$list[] = ['key' => 'dark', ];
 
 		return $list;
 	}
@@ -119,7 +120,7 @@ class btn_viewall
 			$html .= '<div class="mt-5 mb-5">';
 			{
 				$html .= "<label class='block mT10-f'>". T_("Button view all mode"). "</label>";
-				$html .= '<div class="relative flex flex-none items-center">';
+				$html .= '<div class="relative grid grid-cols-8">';
 				{
 					$list = self::btn_mode();
 
@@ -133,7 +134,7 @@ class btn_viewall
 
 						$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
 
-						$html .= "<div data-ajaxify data-data='$json' class='ml-1 jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
+						$html .= "<div data-ajaxify data-data='$json' class='jbtn jbtn-circle jbtn-$value[key]'>$selected</div>";
 
 					}
 				}
