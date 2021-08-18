@@ -85,6 +85,8 @@ class model extends \content_site\section\model
 			\dash\pdo::commit();
 
 			\dash\notif::ok(T_("Saved"));
+
+			\dash\redirect::pwd();
 		}
 		else
 		{
