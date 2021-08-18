@@ -52,7 +52,7 @@ class b2
 					{
 						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
-						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $text_color>";
+						$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $text_color>";
 						{
 							$html .= a($_args, 'heading');
 						}
@@ -62,7 +62,7 @@ class b2
 				}
 
 
-				$html .= "<div class='grid grid-cols-12 gap-4'>";
+				$html .= "<div class='relative grid grid-cols-12 gap-4'>";
 				{
 					foreach ($_blogList as $key => $value)
 					{
@@ -79,92 +79,32 @@ class b2
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-md hover:shadow-lg bg-white'>";
+						$card .= "<a class='relative $gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-sm hover:shadow-md bg-gradient-to-t from-black z-10'$myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$card .= '<header>';
-								$card .= "<a class='block $coverRatio'$myLinkHref>";
+								$card .= "<figure class='block $coverRatio'>";
 								{
 									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
-								$card .= "</a>";
-								$card .= '</header>';
+								$card .= "</figure>";
 							}
 
-							$card .= "<div class='flex-grow px-6 py-4'>";
+							$card .= "<figcaption class='absolute inset-x-0 bottom-0 px-4 py-2'>";
 							{
 								// title
-								$card .= '<h3>';
+								$card .= "<h3 class='block leading-7 transition text-white line-clamp-3'>";
 								{
-									$card .= "<a class='block text-lg leading-8 font-semibold focus:text-blue-800 transition'$myLinkHref>";
-									{
-										$card .= $myTitle;
-									}
-									$card .= "</a>";
-
+									$card .= $myTitle;
 								}
 								$card .= '</h3>';
 
-								$card .= \content_site\assemble\tools::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
-
-
-								if($myExcerpt && a($_args, 'post_show_excerpt'))
-								{
-									$card .= "<p class='mt-2 text-gray-500 text-sm leading-6'>";
-									$card .= $myExcerpt;
-									$card .= "</p>";
-								}
-
 							}
-							$card .= '</div>';
+							$card .= '</figcaption>';
 
-							// add footer line
-							if(a($_args, 'post_show_author') || a($_args, 'post_show_date') !== 'no')
-							{
-								$card .= '<footer class="flex items-center px-6 py-3 hover:bg-gray-50 transition">';
-								{
-									if(a($_args, 'post_show_author'))
-									{
-										$card .= "<a class='inline-block' href='$myAuthorPage'>";
-										{
-											$writerName = a($value, 'user_detail', 'displayname');
-											$marginClass = 'mr-2';
-											if(\dash\language::dir() === 'rtl')
-											{
-												$marginClass = 'ml-2';
-											}
-											$card .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($value, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full $marginClass bg-gray-100 overflow-hidden'>";
-											$card .= "<span class='text-2xs mLa5 inline-block'>". $writerName. "</span>";
-										}
-										$card .= '</a>';
-									}
-									$card .= "<span class='flex-grow'></span>";
-
-									if(a($_args, 'post_show_date'))
-									{
-										if($myDate)
-										{
-											$ltrDate = 'ltr';
-											if(a($_args, 'post_show_date') === 'relative')
-											{
-												$ltrDate = '';
-											}
-											$card .= "<time class='text-gray-600 text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate'>";
-
-											$card .= \content_site\assemble\tools::date($myDate, a($_args, 'post_show_date'));
-
-											$card .= "</time>";
-										}
-									}
-								}
-
-								$card .= '</footer>';
-
-							}
 						}
-						$card .= '</div>';
+						$card .= '</a>';
 
 						// save card
 						$html .= $card;
@@ -178,6 +118,8 @@ class b2
 			$html .= "</div>";
 		}
 		$html .= "</$cnElement>";
+
+
 
 		return $html;
 	}

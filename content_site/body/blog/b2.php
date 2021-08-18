@@ -17,8 +17,6 @@ class b2
 		\content_site\utility::unset_option($master_option, 'post_show_image');
 		\content_site\utility::unset_option($master_option, 'post_show_date');
 
-		\content_site\options\background\background_pack::remove_from_list('coverratio');
-
 		return
 		[
 			'title'        => T_("Modern View"),
