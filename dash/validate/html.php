@@ -58,6 +58,8 @@ class html
 			$allow_tag['caption']  = ['style', 'class', 'id', 'title'];
 			$allow_tag['wbr']      = ['style', 'class', 'id', 'title'];
 
+			$allow_tag['style']    = ['type', 'media'];
+
 			$allow_tag['label']    = ['style', 'class', 'id', 'title', 'for'];
 			$allow_tag['select']   = ['style', 'class', 'id', 'title', 'name', 'autofocus', 'disabled', 'required', 'multiple', 'form', 'size'];
 			$allow_tag['audio']    = ['style', 'class', 'id', 'title', 'controls', 'loop', 'src', 'autoplay', 'muted', 'preload']; // check only is audio sc
