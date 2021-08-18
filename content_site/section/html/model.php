@@ -95,6 +95,13 @@ class model extends \content_site\section\model
 				$title = T_("Custom HTML Code");
 			}
 
+			if(!$html)
+			{
+				$html = \dash\validate::real_html_full(\dash\file::read(__DIR__. '/sample.html'));
+				$html  = stripslashes($html);
+
+			}
+
 			$preview           = json_encode(['type' => 'html', 'key' => 'html', 'heading' => $title]);
 
 			$args =

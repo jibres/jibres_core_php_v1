@@ -72,7 +72,7 @@ class view
 
 		$link .= '?'. \dash\request::build_query($get);
 
-		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_merge($get, ['psid' => \dash\request::get('sid')])));
+		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_unique(array_merge($get, ['psid' => \dash\request::get('sid')]))));
 
 		$page_url = \dash\data::btnPreviewSiteBuilder();
 
