@@ -27,6 +27,7 @@ class view
 			$myHtmlText = a($load_section, 'text_preview');
 
 			$myHtmlText = str_replace('><', ">\n<", $myHtmlText);
+			$myHtmlText = str_replace('} ', "}\n ", $myHtmlText);
 
 			\dash\data::myHtmlText($myHtmlText);
 		}
