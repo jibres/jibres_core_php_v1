@@ -45,6 +45,13 @@ class view
 		{
 			\dash\data::back_link(\dash\url::this(). \dash\request::full_get(['folder' => 'body']));
 		}
+
+		\dash\data::myIframePreviewHmtl(\dash\url::current(). \dash\request::full_get(['iframepreview' => 1]));
+
+		if(\dash\request::get('iframepreview'))
+		{
+			\dash\data::include_adminPanelBuilder(null);
+		}
 	}
 }
 ?>

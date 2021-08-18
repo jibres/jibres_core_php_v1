@@ -1,3 +1,10 @@
+<?php
+if(\dash\request::get('iframepreview'))
+{
+	echo \dash\data::myHtmlText();
+	return;
+}
+?>
 <form method="post" autocomplete="off"  id="savehtmlform" class="ltr h-1/2 w-full rounded-lg overflow-hidden">
 	<input type="hidden" name="savehtml" value="html">
 	<pre id="codeEditorLive" data-code-editor="html" data-code-editor-sync="[name='html']" class="h-full"><?php echo htmlentities(\dash\data::myHtmlText()); ?></pre>
