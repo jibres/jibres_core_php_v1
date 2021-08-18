@@ -12,10 +12,33 @@ class b3
 	 */
 	public static function option()
 	{
-		$master_option = option::master_option();
 
-		\content_site\utility::unset_option($master_option, 'post_show_image');
-		\content_site\utility::unset_option($master_option, 'post_show_author');
+		$master_option =
+		[
+			// 'group_setting',
+			// text
+			'heading_full',
+
+			// select
+			'post_tag',
+			'post_template',
+
+			'post_order',
+			// range
+			'count_post',
+
+
+			'post_show_readingtime',
+			'post_show_excerpt',
+			'post_show_read_more',
+
+			'btn_viewall',
+			'post_show_date',
+
+			// sub page
+			'style' => \content_site\options\style::option_list('blog'),
+
+		];
 
 		\content_site\options\background\background_pack::remove_from_list('coverratio');
 
