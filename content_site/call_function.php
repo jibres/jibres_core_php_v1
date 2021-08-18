@@ -238,7 +238,7 @@ class call_function
 	{
 		$namespace = self::get_namespace($_section_key);
 
-		$filter_category = [];
+		$preview_functions_string = [];
 
 		$popular = [];
 
@@ -250,38 +250,36 @@ class call_function
 			{
 				$popular = [];
 			}
+
+			$preview_functions_string = $popular;
 		}
 
-		if($popular)
-		{
-			$filter_category = $popular;
-		}
-		else
-		{
-			$type_list = self::type_list($_section_key);
+		$type_list = self::type_list($_section_key);
 
-			if(!is_array($type_list))
+		if(!is_array($type_list))
+		{
+			$type_list = [];
+		}
+
+		foreach ($type_list as $value)
+		{
+			if($_filter_category && $_filter_category !== 'popular' && $value !== $_filter_category)
 			{
-				$type_list = [];
+				continue;
 			}
 
-			foreach ($type_list as $value)
+			$namespace_type = sprintf($namespace, $value);
+
+			$temp_load_type_option = self::_call([$namespace_type, 'option']);
+
+			if(isset($temp_load_type_option['preview_list']) && is_array($temp_load_type_option['preview_list']))
 			{
-
-				if($value !== $_filter_category && $_filter_category !== 'all')
+				foreach ($temp_load_type_option['preview_list'] as $temp_preview_list)
 				{
-					continue;
-				}
-
-				$namespace_type = sprintf($namespace, $value);
-
-				$temp_load_type_option = self::_call([$namespace_type, 'option']);
-
-				if(isset($temp_load_type_option['preview_list']) && is_array($temp_load_type_option['preview_list']))
-				{
-					foreach ($temp_load_type_option['preview_list'] as $temp_preview_list)
+					$myPreviewFunc = "$value:$temp_preview_list";
+					if(!in_array($myPreviewFunc, $popular))
 					{
-						$filter_category[] = "$value:$temp_preview_list";
+						$preview_functions_string[] = $myPreviewFunc;
 					}
 				}
 			}
@@ -289,7 +287,7 @@ class call_function
 
 		$list = [];
 
-		foreach ($filter_category as $key => $preview_key)
+		foreach ($preview_functions_string as $key => $preview_key)
 		{
 			$type    = null;
 			$preview = null;
