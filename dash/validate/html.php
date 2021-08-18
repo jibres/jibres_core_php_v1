@@ -26,7 +26,7 @@ class html
 
 		if($_mode !== 'basic')
 		{
-			$allow_tag['img']        = ['style', 'class', 'id', 'title', 'src', 'alt'];
+			$allow_tag['img']        = ['style', 'class', 'id', 'title', 'src', 'alt', 'height', 'width'];
 			$allow_tag['a']          = ['style', 'class', 'id', 'title', 'href', 'target'];
 			$allow_tag['oembed']     = ['style', 'class', 'id', 'title', 'url']; // allow video on youtue
 			$allow_tag['table']      = ['style', 'class', 'id', 'title' ];
@@ -251,6 +251,13 @@ class html
 								}
 							}
 					    	$nodeNewTagname->setAttribute($attr, $attr_value);
+						}
+						else
+						{
+							if($tag === 'img' && $attr === 'alt')
+							{
+					    		$nodeNewTagname->setAttribute('alt', '');
+							}
 						}
 					}
 
