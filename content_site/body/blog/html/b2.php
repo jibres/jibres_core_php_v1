@@ -76,7 +76,7 @@ class b2
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox class='relative $gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-sm hover:shadow-md'$myLinkHref>";
+						$card .= "<a data-magicbox='dark' class='relative $gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-sm hover:shadow-md'$myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
