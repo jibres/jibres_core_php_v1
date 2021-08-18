@@ -89,6 +89,11 @@ class model
 		}
 
 		$trust_options_list_raw = \dash\data::currentOptionList();
+		if(!is_array($trust_options_list_raw))
+		{
+			$trust_options_list_raw = [];
+		}
+
 		$trust_options_list     = [];
 
 		foreach ($trust_options_list_raw as $key => $value)
