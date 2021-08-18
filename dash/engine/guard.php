@@ -400,7 +400,7 @@ class guard
 		}
 
 		// in lock mode su can be load
-		if(\dash\url::content() === 'su')
+		if(\dash\url::content() === 'sudo')
 		{
 			return;
 		}

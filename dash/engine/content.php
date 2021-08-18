@@ -26,7 +26,7 @@ class content
 			'my',
 			'pay',
 			'r10',
-			'su',
+			'sudo',
 			// 'subdomain',
 			'support',
 			'v2',
