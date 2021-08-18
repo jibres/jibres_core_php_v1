@@ -13,7 +13,7 @@ if(\dash\request::get('iframepreview'))
 
 
 <div class="preview h-1/2 pt-10 rounded-lg">
- <div class="h-full rounded-lg overflow-hidden ring ring-gray-500 shadow-md hover:shadow-lg transition">
+ <div class="h-full rounded-lg overflow-hidden ring ring-gray-500 shadow-md hover:shadow-lg transition bg-white">
 	<iframe class="w-full h-full" src="<?php echo \dash\data::myIframePreviewHmtl() ?>"></iframe>
  </div>
 </div>
