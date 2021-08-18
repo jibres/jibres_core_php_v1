@@ -15,7 +15,11 @@ class view
 		{
 			$load_section = \lib\db\pagebuilder\get::by_id(\dash\data::mySectionID());
 
-			\dash\data::myHtmlText(a($load_section, 'text_preview'));
+			$myHtmlText = a($load_section, 'text_preview');
+
+			$myHtmlText = str_replace('><', ">\n<", $myHtmlText);
+
+			\dash\data::myHtmlText($myHtmlText);
 		}
 
 		\dash\data::back_text(T_("Back"));
