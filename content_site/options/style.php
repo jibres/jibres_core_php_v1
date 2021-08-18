@@ -77,6 +77,7 @@ class style
 
 					'font',
 					'btn_viewall_mode',
+					'link_mode',
 
 					'type',
 				];

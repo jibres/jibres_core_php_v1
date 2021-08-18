@@ -119,7 +119,11 @@ class background_pack
 		if(in_array('btn_viewall_mode', self::$current_options))
 		{
 			$html .= \content_site\options\btn\btn_viewall::admin_html_viewall_mode();
+		}
 
+		if(in_array('link_mode', self::$current_options))
+		{
+			$html .= \content_site\options\link\link_mode::admin_html();
 		}
 
 		$html .= "<div class='ShowCustomizeSetting'>";
