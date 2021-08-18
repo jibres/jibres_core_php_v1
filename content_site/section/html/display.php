@@ -14,6 +14,10 @@ if(\dash\request::get('iframepreview'))
 
 <div class="preview h-1/2 pt-10 rounded-lg">
  <div class="h-full rounded-lg overflow-hidden ring ring-gray-500 shadow-md hover:shadow-lg transition bg-white">
-	<iframe class="w-full h-full" src="<?php echo \dash\data::myIframePreviewHmtl() ?>"></iframe>
+ 	<?php if(\dash\request::get('sid')) {?>
+		<iframe class="w-full h-full" src="<?php echo \dash\data::myIframePreviewHmtl() ?>"></iframe>
+ 	<?php }else{ ?>
+		<?php echo \dash\data::myHtmlText(); ?>
+ 	<?php }//endif ?>
  </div>
 </div>
