@@ -11,16 +11,9 @@ if(\dash\request::get('iframepreview'))
 	<textarea name="html" class="hide ltr w-full h-full p-5 resize-none mt-5" placeholder="Write yout HTML here ..."><?php echo htmlentities(\dash\data::myHtmlText()); ?></textarea>
 </form>
 
-<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">
-	<iframe id="liveIframe" class="flex-grow w-full h-full" src="<?php echo \dash\data::myIframePreviewHmtl() ?>" style="zoom:0.75"></iframe>
-</div>
-
-
-<?php if(false) {?>
 
 <div class="preview h-1/2 pt-10 rounded-lg">
  <div class="h-full rounded-lg overflow-hidden ring ring-gray-500 shadow-md hover:shadow-lg transition">
-<?php echo \dash\data::myHtmlText(); ?>
+	<iframe class="w-full h-full" src="<?php echo \dash\data::myIframePreviewHmtl() ?>"></iframe>
  </div>
 </div>
-<?php } //endif ?>
