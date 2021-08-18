@@ -2,10 +2,25 @@
 namespace content_site\section\html;
 
 
-class model
+class model extends \content_site\section\model
 {
 	public static function post()
 	{
+
+		if(\dash\request::post('savehtml') === 'html')
+		{
+			self::save_html();
+		}
+		else
+		{
+			parent::post();
+		}
+	}
+
+
+	private static function save_html()
+	{
+
 		$page_id = \dash\request::get('id');
 		$page_id = \dash\coding::decode($page_id);
 
