@@ -119,7 +119,7 @@ class btn_viewall
 		{
 			$html .= '<div class="mt-5 mb-5">';
 			{
-				$html .= "<label for='btn_viewall_mode' class='block mT10-f'>". T_("Button view all mode"). "</label>";
+				$html .= "<label class='block mT10-f'>". T_("Button view all mode"). "</label>";
 				$html .= '<div class="relative flex flex-none items-center">';
 				{
 					$list = self::btn_mode();

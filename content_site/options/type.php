@@ -46,7 +46,7 @@ class type
 		   		{
 		      		$html .= "<a class='item f' href='$url'>";
 		      		{
-		        		$html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Exchange'). '">';
+		        		$html .= '<img alt="" class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Exchange'). '">';
 		        		$html .= '<div class="key">'. T_("Choose another preview"). '</div>';
 		        		$html .= '<div class="go"></div>';
 		      		}

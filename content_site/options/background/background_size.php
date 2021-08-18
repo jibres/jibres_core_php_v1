@@ -54,7 +54,7 @@ class background_size
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= "<label for='background_size'>$title</label>";
+			$html .= "<label>$title</label>";
 
 			$name       = 'opt_background_size';
 

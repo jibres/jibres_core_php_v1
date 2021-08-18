@@ -42,7 +42,7 @@ class link_mode
 
 		$html .= '<div class="mt-5 mb-5">';
 		{
-			$html .= "<label for='link_mode' class='block mT10-f'>". T_("Link mode"). "</label>";
+			$html .= "<label class='block mT10-f'>". T_("Link mode"). "</label>";
 			$html .= '<div class="relative flex flex-none items-center">';
 			{
 				$list = self::link_mode();

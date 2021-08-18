@@ -47,7 +47,7 @@ class background_attachment
 		$html .= '<form method="post" data-patch>';
 		{
 
-			$html .= "<label for='background_attachment'>$title</label>";
+			$html .= "<label>$title</label>";
 
 			$name       = 'opt_background_attachment';
 

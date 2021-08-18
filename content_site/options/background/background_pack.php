@@ -135,7 +135,7 @@ class background_pack
 			{
 
 				$html .= '<input type="hidden" name="notredirect" value="1">';
-				$html .= "<label for='background_pack'>". T_("Background Type") ."</label>";
+				$html .= "<label>". T_("Background Type") ."</label>";
 
 				$name       = 'opt_background_pack';
 
