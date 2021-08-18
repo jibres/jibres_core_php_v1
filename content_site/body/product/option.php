@@ -121,7 +121,7 @@ class option
 			'post_show_date',
 
 			// sub page
-			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
+			'style' => \content_site\options\style::option_list(),
 
 		];
 

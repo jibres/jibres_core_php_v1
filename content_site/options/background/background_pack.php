@@ -14,65 +14,6 @@ class background_pack
 		}
 	}
 
-	/**
-	 * Everywhere need backgroun pack option use this function
-	 *
-	 * @return     array  The pack option list.
-	 */
-	public static function get_pack_option_list($_remove_index = [])
-	{
-		$list =
-		[
-			'background_pack',
-
-
-			'height',
-			'coverratio',
-
-			// skip draw this option in html
-			'background_color',
-
-			'background_position',
-			'background_repeat',
-			'background_size',
-			'background_attachment',
-
-			'background_image',
-
-			'background_gradient',
-			'background_gradient_type',
-
-			'background_gradient_from',
-			'background_gradient_via',
-			'background_gradient_to',
-
-			'background_gradient_attachment',
-			'background_color_random',
-
-			'color_text',
-
-			'font',
-
-			'type',
-		];
-
-		if(is_array($_remove_index) && $_remove_index)
-		{
-			foreach ($_remove_index as $key => $value)
-			{
-				if(($myKye = array_search($value, $list)) !== false )
-				{
-					unset($list[$myKye]);
-				}
-			}
-		}
-
-		return $list;
-	}
-
-
-
-
 
 
 	public static function enum()

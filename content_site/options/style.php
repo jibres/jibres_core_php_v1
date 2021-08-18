@@ -33,5 +33,99 @@ class style
 		return $html;
 	}
 
+		/**
+	 * Everywhere need backgroun pack option use this function
+	 *
+	 * @return     array  The pack option list.
+	 */
+	public static function option_list($_model = null)
+	{
+		$list = [];
+
+		switch ($_model)
+		{
+			case 'blog':
+				$list =
+				[
+					'background_pack',
+
+
+					'height',
+					'coverratio',
+
+					// skip draw this option in html
+					'background_color',
+
+					'background_position',
+					'background_repeat',
+					'background_size',
+					'background_attachment',
+
+					'background_image',
+
+					'background_gradient',
+					'background_gradient_type',
+
+					'background_gradient_from',
+					'background_gradient_via',
+					'background_gradient_to',
+
+					'background_gradient_attachment',
+					'background_color_random',
+
+					'color_text',
+
+					'font',
+
+					'type',
+				];
+				break;
+
+
+			default:
+				$list =
+				[
+					'background_pack',
+
+
+					'height',
+					'coverratio',
+
+					// skip draw this option in html
+					'background_color',
+
+					'background_position',
+					'background_repeat',
+					'background_size',
+					'background_attachment',
+
+					'background_image',
+
+					'background_gradient',
+					'background_gradient_type',
+
+					'background_gradient_from',
+					'background_gradient_via',
+					'background_gradient_to',
+
+					'background_gradient_attachment',
+					'background_color_random',
+
+					'color_text',
+
+					'font',
+
+					'type',
+				];
+				break;
+		}
+
+		return $list;
+	}
+
+
+
+
+
 }
 ?>

@@ -34,7 +34,7 @@ class g3
 			'image_random',
 
 			// sub page
-			'style' => \content_site\options\background\background_pack::get_pack_option_list(),
+			'style' => \content_site\options\style::option_list(),
 		];
 
 		return

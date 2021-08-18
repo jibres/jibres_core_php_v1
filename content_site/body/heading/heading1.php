@@ -28,7 +28,7 @@ class heading1
 
 				'heading_raw',
 				'description',
-				'style' => \content_site\options\background\background_pack::get_pack_option_list(),
+				'style' => \content_site\options\style::option_list(),
 				'type',
 			],
 			'preview_list' =>
