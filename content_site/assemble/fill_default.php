@@ -34,7 +34,7 @@ class fill_default
 
 		return
 		[
-			'title'         => T_("Your post's title"),
+			'title'         => T_("Your post’s title"),
 			'excerpt'       => T_("Your business hasn't published any posts yet. A post can be used to talk about new product launches, tips, or other news you want to share with your customers."),
 			'thumb'         => $img,
 			'readingtime'   => \dash\utility\human::time(60* rand(1, 5), true),
