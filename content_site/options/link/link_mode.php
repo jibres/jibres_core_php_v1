@@ -26,6 +26,8 @@ class link_mode
 
 		$new_data['link_mode']  = \dash\validate::enum(a($_data, 'link_mode'), false, ['enum' => array_column(self::link_mode(), 'key')]);
 
+		\content_site\utility::need_redirect(true);
+
 		return $new_data;
 	}
 
