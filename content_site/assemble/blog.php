@@ -21,7 +21,7 @@ class blog
 
 				// $classVal = 'hover:bg-gray-800 font-semibold py-2 px-10 shadow border rounded';
 
-				$html .= "<a class='mx-auto mt-5 jbtn jbtn-wide jbtn-$mode' href='". a($_args, 'btn_viewall_link'). "'>";
+				$html .= "<a class='mx-auto mt-5 jbtn jbtn-wide jbtn-outline jbtn-$mode' href='". a($_args, 'btn_viewall_link'). "'>";
 				$html .= a($_args, 'btn_viewall');
 				$html .= '</a>';
 			}

@@ -8,15 +8,14 @@ class btn_viewall
 	public static function btn_mode()
 	{
 		$list = [];
-		// $list[] = ['key' => 'primary', ];
-		// $list[] = ['key' => 'secondary', ];
-		$list[] = ['key' => 'accent', ];
+		$list[] = ['key' => '', ];
+		$list[] = ['key' => 'primary', ];
+		$list[] = ['key' => 'secondary', ];
 		$list[] = ['key' => 'info', ];
 		$list[] = ['key' => 'success', ];
 		$list[] = ['key' => 'warning', ];
 		$list[] = ['key' => 'error', ];
-		$list[] = ['key' => 'outline', ];
-		$list[] = ['key' => 'active', ];
+
 		return $list;
 	}
 
@@ -129,7 +128,7 @@ class btn_viewall
 						$selected = null;
 						if($btn_mode == $value['key'] || (!$btn_mode && $value['key'] === 'outline'))
 						{
-							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
+							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24" class="p-2"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
 						}
 
 						$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
