@@ -88,7 +88,7 @@ class b3
 									$html .= "<dl>";
 									{
 										$html .= '<dt class="sr-only">'. T_('Published on'). '</dt>';
-										$html .= '<dt class="text-base font-medium">';
+										$html .= '<dd class="text-base font-medium">';
 										{
 												$ltrDate = 'ltr';
 												if(a($_args, 'post_show_date') === 'relative')
@@ -99,7 +99,7 @@ class b3
 												$html .= \content_site\body\blog\share::date($myDate, a($_args, 'post_show_date'));
 												$html .= "</time>";
 										}
-										$html .= '</dt>';
+										$html .= '</dd>';
 									}
 									$html .= '</dl>';
 								}
