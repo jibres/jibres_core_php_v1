@@ -41,7 +41,7 @@ class generate_radio_line
 		{
 			// do noting
 		}
-		else if(mb_strlen($_text) > 6)
+		else if(mb_strlen($_text) > 7)
 		{
 			$flexMode = '';
 		}

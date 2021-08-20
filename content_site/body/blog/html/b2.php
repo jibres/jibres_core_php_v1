@@ -10,10 +10,12 @@ class b2
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
+		$id             = a($_args, 'id');
+		$type           = a($_args, 'type');
+		$title_position = a($_args, 'post_title_position');
+		$borderRadius   = 'rounded-lg';
+		$coverRatio     = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
+		$font_class     = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
 
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
@@ -68,7 +70,7 @@ class b2
 					{
 						// a img
 						// h3 a
-						$myLinkHref   = " href='". a($value, 'link'). "'";
+						$myLinkHref   = "href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'title');
 						$myThumb      = \dash\fit::img(a($value, 'thumb'), 780);
 
@@ -76,18 +78,19 @@ class b2
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox='dark' class='relative $gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-sm hover:shadow-md'$myLinkHref>";
+						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-sm hover:shadow-md $borderRadius' $myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$card .= "<figure class='block $coverRatio'>";
+								$card .= "<picture class='block $coverRatio'>";
 								{
 									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
-								$card .= "</figure>";
+								$card .= "</picture>";
 							}
 
+							if($title_position === 'inside')
 							{
 								// title
 								$card .= "<h3 class='absolute inset-x-0 bottom-0 block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10'>";
@@ -95,11 +98,20 @@ class b2
 									$card .= $myTitle;
 								}
 								$card .= '</h3>';
-
+							}
+							elseif($title_position === 'outside')
+							{
+								// title
+								$card .= "<h3 class='block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10'>";
+								{
+									$card .= $myTitle;
+								}
+								$card .= '</h3>';
 							}
 
 						}
 						$card .= '</a>';
+
 
 						// save card
 						$html .= $card;

@@ -11,9 +11,9 @@ class post_title_position
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'no', 'title' => T_("No")];
-		$enum[] = ['key' => 'in', 'title' => T_("In")];
-		$enum[] = ['key' => 'out', 'title' => T_("Out")];
+		$enum[] = ['key' => 'hide', 'title' => T_("Hide")];
+		$enum[] = ['key' => 'inside', 'title' => T_("Inside")];
+		$enum[] = ['key' => 'outside', 'title' => T_("Outside")];
 
 
 		return $enum;
@@ -30,7 +30,7 @@ class post_title_position
 
 	public static function default()
 	{
-		return 'no';
+		return 'inside';
 	}
 
 
@@ -46,7 +46,7 @@ class post_title_position
 		}
 
 
-		$title = T_('Display post title');
+		$title = T_('Title position');
 
 
 		$html = '';
