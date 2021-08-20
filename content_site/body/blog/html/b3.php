@@ -36,25 +36,32 @@ class b3
 			$classNames .= ' '. $font_class;
 		}
 
-
-		$html .= "<$cnElement data-type='$type' class='body-font overflow-hidden $classNames'$background_style $section_id>";
+		$html .= "<$cnElement data-type='$type' class='overflow-hidden $classNames'$background_style $section_id>";
 		{
-			$html .= '<div class="container pb-24 mx-auto">';
+			$containerClass = 'max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0';
+			$html .= '<div class="'. $containerClass. '">';
 			{
 				if(a($_args, 'heading') !== null)
 				{
-					$html .= '<header>';
+					$html .= '<header class="pt-6 pb-8 space-y-2 md:space-y-5">';
 					{
-						$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $color_heading>";
+						$html .= "<h2 class='font-black text-4xl md:text-5xl lg:text-7xl $heading_class $font_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}
-						$html .= '</h3>';
+						$html .= '</h2>';
+
+						$html .= '<p class="text-lg text-gray-500">';
+						{
+							$html .= a($_args, 'description');
+						}
+						$html .= '</p>';
+
 					}
 					$html .= '</header>';
 				}
 
-				$html .= '<div class="-my-8 divide-y-2 divide-gray-100">';
+				$html .= '<div class="divide-y divide-gray-200">';
 				{
 
 					foreach ($_blogList as $key => $value)
@@ -67,47 +74,45 @@ class b3
 						$myAuthorPage = a($value, 'authorpage');
 						$writerName   = a($value, 'user_detail', 'displayname');
 
-						$html .= '<div class="py-8 flex flex-wrap sm:flex-nowrap">';
+						$eachItemClass = 'py-5 lg:py-12 space-y-2';
+
+						if(a($_args, 'post_show_date'))
 						{
+							$eachItemClass = 'py-5 lg:py-12 space-y-2 lg:grid lg:grid-cols-4 lg:space-y-0 lg:items-baseline';
+						}
 
-							$html .= '<div class="sm:w-64 sm:mb-0 mb-6 flex-shrink-0 flex flex-col">';
-							{
-
-								$html .= "<span class='font-semibold title-font' $color_text>";
-								{
-									$html .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
-								}
-								$html .= '</span>';
-
+						$html .= '<article class="'. $eachItemClass. '">';
+						{
 								if(a($_args, 'post_show_date'))
 								{
-									$html .= '<span class="text-sm ">';
+									$html .= "<dl>";
 									{
-										if($myDate)
+										$html .= '<dt class="sr-only">'. T_('Published on'). '</dt>';
+										$html .= '<dt class="text-base font-medium"'. $color_text. '>';
 										{
-											$ltrDate = 'ltr';
-											if(a($_args, 'post_show_date') === 'relative')
-											{
-												$ltrDate = '';
-											}
-											$html .= "<time class=' text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate' $color_text>";
-
-											$html .= \content_site\body\blog\share::date($myDate, a($_args, 'post_show_date'));
-
-											$html .= "</time>";
+												$ltrDate = 'ltr';
+												if(a($_args, 'post_show_date') === 'relative')
+												{
+													$ltrDate = '';
+												}
+												$html .= "<time class='$ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate' $color_text>";
+												$html .= \content_site\body\blog\share::date($myDate, a($_args, 'post_show_date'));
+												$html .= "</time>";
 										}
+										$html .= '</dt>';
 									}
-									$html .= '</span>';
+									$html .= '</dl>';
+								}
 
-								} // endif
-
+							$html .= '<div class="sm:mb-0 mb-6 flex-shrink-0 flex flex-col">';
+							{
 							}
 							$html .= '</div>';
 
 							$html .= '<div class="sm:flex-grow">';
 							{
 
-								$html .= '<h2 class="text-2xl font-medium title-font mb-2" '.$color_text.'>'.$myTitle.'</h2>';
+								$html .= '<h3 class="text-2xl font-medium title-font mb-2" '.$color_text.'>'.$myTitle.'</h3>';
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
@@ -124,7 +129,7 @@ class b3
 							}
 							$html .= '</div>';
 						}
-						$html .= '</div>';
+						$html .= '</article>';
 
 					} // endfor
 
