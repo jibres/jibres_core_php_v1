@@ -286,12 +286,9 @@ class html
 					    		$nodeNewTagname->setAttribute('alt', '');
 							}
 
-							if(substr($attr, 0, 5) === 'data-')
+							if($nodeTagName->hasAttribute($attr))
 							{
-								if($nodeTagName->hasAttribute($attr))
-								{
-					    			$nodeNewTagname->setAttribute($attr, '');
-								}
+				    			$nodeNewTagname->setAttribute($attr, '');
 							}
 						}
 					}
