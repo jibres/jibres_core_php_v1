@@ -27,12 +27,18 @@ class fire
 			$_args['height:class'] = \content_site\options\height::class_name(a($_args, 'height'));
 		}
 
+		// maybe all section have this variable
+
 		$_args['font:class']            = \content_site\assemble\font::class($_args);
+
 		$_args['background:style']      = \content_site\assemble\background::style($_args);
 		$_args['background:full_style'] = " style='".$_args['background:style']."'";
+
 		$_args['text_color:style']      = \content_site\assemble\text_color::style($_args);
 		$_args['text_color:full_style'] = " style='".$_args['text_color:style']."'";
+
 		$_args['secition:id']           = \content_site\assemble\tools::section_id(a($_args, 'type'), a($_args, 'id'));
+
 		$_args['heading:class']         = \content_site\options\heading\heading_full::class_name($_args);
 
 		return $_args;
