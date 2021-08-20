@@ -18,6 +18,7 @@ class b2
 		$coverRatio       = a($_args, 'coverratio:class');
 		$borderRadius     = a($_args, 'radius:class');
 		$font_class       = a($_args, 'font:class');
+		$effect           = a($_args, 'effect');
 
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
@@ -81,7 +82,7 @@ class b2
 						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";
+						$card .= "<a data-magicbox='$effect' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))

@@ -9,10 +9,9 @@ class effect
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => 'None' ,   'class' => '---class---'];
-		$enum[] = ['key' => 'zoom', 'title' => 'Zoom' , 'class' => '---class---'];
-		$enum[] = ['key' => 'dark', 'title' => 'Dark',   'class' => '---class---'];
-		$enum[] = ['key' => 'light','title' => 'Light' ,    'class' => '---class---'];
+		$enum[] = ['key' => 'none', 'title' => T_('None')];
+		$enum[] = ['key' => 'dark', 'title' => T_('Dark')];
+		$enum[] = ['key' => 'light','title' => T_('Light')];
 
 
 		return $enum;
@@ -29,29 +28,6 @@ class effect
 		return 'm';
 	}
 
-
-	public static function class_name($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if($value['key'] === self::default())
-				{
-					return $value['class'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['class'];
-				}
-			}
-		}
-	}
 
 
 	public static function admin_html()
