@@ -43,6 +43,7 @@ class b1
 				[
 					'height',
 					'coverratio',
+					'radius',
 					'color_text',
 					'background_pack',
 					'font',

@@ -33,7 +33,6 @@ class b2
 
 				'post_title_position',
 
-				'effect',
 
 				'btn_viewall',
 
@@ -45,6 +44,7 @@ class b2
 					'height',
 					'coverratio',
 					'radius',
+					'effect',
 
 					'image_mask',
 
