@@ -22,13 +22,8 @@ class btn_viewall_mode
 
 	public static function validator($_data)
 	{
-		$new_data                       = [];
-
-		$new_data['btn_viewall_mode']  = \dash\validate::enum(a($_data, 'btn_viewall_mode'), false, ['enum' => array_column(self::btn_mode(), 'key')]);
-
 		\content_site\utility::need_redirect(true);
-
-		return $new_data;
+		return \dash\validate::enum($_data, false, ['enum' => array_column(self::btn_mode(), 'key')]);
 	}
 
 
@@ -63,7 +58,7 @@ class btn_viewall_mode
 							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="'. $checkColor. '" width="24" height="24" viewBox="0 0 24 24" class="px-2 pt-2 mx-auto"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
 						}
 
-						$json = json_encode(['opt_btn_viewall' => 1, 'multioption' => 'multi', 'btn_viewall_mode' => $value['key']]);
+						$json = json_encode(['opt_btn_viewall_mode' => $value['key']]);
 
 						$html .= "<div data-ajaxify data-data='$json' class='btn-$value[key] btn-circle'>$selected</div>";
 
