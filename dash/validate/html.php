@@ -225,8 +225,6 @@ class html
 			$nodes = $doc->getElementsByTagName($tag);
 
 
-
-
 			if($nodes->length)
 			{
 				foreach( $nodes as $nodeTagName )
@@ -277,6 +275,11 @@ class html
 							if($tag === 'img' && $attr === 'alt')
 							{
 					    		$nodeNewTagname->setAttribute('alt', '');
+							}
+
+							if(substr($attr, 0, 5) === 'data-')
+							{
+					    		$nodeNewTagname->setAttribute($attr, '');
 							}
 						}
 					}
