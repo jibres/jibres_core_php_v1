@@ -244,11 +244,11 @@ class ip
 				elseif (a($_info, 'reqCounter') > 120)
 				{
 					// We check rpm (request per minute) after 120 request to get a good ~value
-					if ( $_info['rpm'] > 40)
+					if ( $_info['rpm'] > 60)
 					{
-						// If there was more than 40 rpm -> isolation
+						// If there was more than 60 rpm -> isolation
 						// (if you have a request all 5 secs. you will be banned after ~10 minutes)
-						self::do_isolate($_info, 'reach more than 40rpm after 120req');
+						self::do_isolate($_info, 'reach more than 60rpm after 120req');
 					}
 				}
 				break;
