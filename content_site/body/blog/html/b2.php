@@ -15,11 +15,9 @@ class b2
 		$title_position   = a($_args, 'post_title_position');
 		$link_color       = a($_args, 'link_color');
 
-
 		$coverRatio       = a($_args, 'coverratio:class');
 		$borderRadius     = a($_args, 'radius:class');
 		$font_class       = a($_args, 'font:class');
-		// $type          = 'b1';
 
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
@@ -59,8 +57,6 @@ class b2
 				{
 					$html .= '<header>';
 					{
-						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
-
 						$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');

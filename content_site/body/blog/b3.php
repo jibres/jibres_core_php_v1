@@ -14,7 +14,7 @@ class b3
 	{
 		return
 		[
-			'title'        => T_("Modern View"),
+			'title'        => T_("Classic View"),
 			'default'      => option::master_default(['type' => 'b3']),
 			'options'      =>
 			[
@@ -39,10 +39,11 @@ class b3
 				[
 					'height',
 					'background_pack',
+					'color_heading',
 					'color_text',
 					'font',
 					'btn_viewall_mode',
-					'link_color_read_more',
+					'link_color_post_read_more',
 					'type',
 				]),
 
@@ -63,7 +64,7 @@ class b3
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 		];
 	}

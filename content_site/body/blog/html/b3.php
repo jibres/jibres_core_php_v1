@@ -8,18 +8,20 @@ class b3
 	{
 		$html             = '';
 
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
 
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
+		$link_color       = a($_args, 'link_color');
+		$borderRadius     = a($_args, 'radius:class');
+		$font_class       = a($_args, 'font:class');
+		$height           = a($_args, 'height:class');
+		$heading_class    = a($_args, 'heading:class');
+		$background_style = a($_args, 'background:full_style');
+		$color_heading    = a($_args, 'color_heading:full_style');
+		$color_text       = a($_args, 'color_text:full_style');
+		$section_id       = a($_args, 'secition:id');
 
-
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
-
+		$totalExist = count($_blogList);
 
 		// element type
 		$cnElement = 'div';
@@ -43,9 +45,7 @@ class b3
 				{
 					$html .= '<header>';
 					{
-						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
-
-						$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $text_color>";
+						$html .= "<h3 class='font-bold text-4xl mb-10 $heading_class $font_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}
@@ -59,13 +59,13 @@ class b3
 
 					foreach ($_blogList as $key => $value)
 					{
-						$myLink      = a($value, 'link');
-						$myTitle     = a($value, 'title');
-						$myThumb     = \dash\fit::img(a($value, 'thumb'), 460);
-						$myExcerpt   = a($value, 'excerpt');
-						$myDate      = a($value, 'publishdate');
+						$myLink       = a($value, 'link');
+						$myTitle      = a($value, 'title');
+						$myThumb      = \dash\fit::img(a($value, 'thumb'), 460);
+						$myExcerpt    = a($value, 'excerpt');
+						$myDate       = a($value, 'publishdate');
 						$myAuthorPage = a($value, 'authorpage');
-						$writerName = a($value, 'user_detail', 'displayname');
+						$writerName   = a($value, 'user_detail', 'displayname');
 
 						$html .= '<div class="py-8 flex flex-wrap sm:flex-nowrap">';
 						{
@@ -73,7 +73,7 @@ class b3
 							$html .= '<div class="sm:w-64 sm:mb-0 mb-6 flex-shrink-0 flex flex-col">';
 							{
 
-								$html .= '<span class="font-semibold title-font text-gray-700">';
+								$html .= "<span class='font-semibold title-font' $color_text>";
 								{
 									$html .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
 								}
@@ -81,7 +81,7 @@ class b3
 
 								if(a($_args, 'post_show_date'))
 								{
-									$html .= '<span class="text-sm text-gray-500">';
+									$html .= '<span class="text-sm ">';
 									{
 										if($myDate)
 										{
@@ -90,7 +90,7 @@ class b3
 											{
 												$ltrDate = '';
 											}
-											$html .= "<time class='text-gray-600 text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate'>";
+											$html .= "<time class=' text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate' $color_text>";
 
 											$html .= \content_site\body\blog\share::date($myDate, a($_args, 'post_show_date'));
 
@@ -107,16 +107,20 @@ class b3
 							$html .= '<div class="sm:flex-grow">';
 							{
 
-								$html .= '<h2 class="text-2xl font-medium text-gray-900 title-font mb-2">'.$myTitle.'</h2>';
+								$html .= '<h2 class="text-2xl font-medium title-font mb-2" '.$color_text.'>'.$myTitle.'</h2>';
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
-									$html .= "<p class='leading-relaxed'>";
+									$html .= "<p class='leading-relaxed' $color_text>";
 									$html .= $myExcerpt;
 									$html .= "</p>";
 								}
 
-								$html .= '<a href="'.$myLink.'" class="text-indigo-500 inline-flex items-center mt-4">'.T_("Read more").'</a>';
+								if(a($_args, 'post_show_read_more'))
+								{
+									$html .= '<a href="'.$myLink.'" class="inline-flex items-center mt-4 link-'.$link_color.'">'.T_("Read more").'</a>';
+								}
+
 							}
 							$html .= '</div>';
 						}

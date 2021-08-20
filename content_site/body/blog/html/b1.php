@@ -16,7 +16,6 @@ class b1
 		$coverRatio       = a($_args, 'coverratio:class');
 		$borderRadius     = a($_args, 'radius:class');
 		$font_class       = a($_args, 'font:class');
-		// $type          = 'b1';
 
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
