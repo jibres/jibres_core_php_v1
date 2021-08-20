@@ -94,6 +94,9 @@ class https
 			return false;
 		}
 
+		// add dns record before request https if need
+		\lib\app\business_domain\dns::check_if_not_exist_add($_id);
+
 
 		$get_https_setting = \lib\arvancloud\api::get_arvan_request($domain);
 
