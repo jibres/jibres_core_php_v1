@@ -40,13 +40,13 @@ class b3
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
+					'font',
 					'height',
 					'background_pack',
 					'color_heading',
 					'color_text',
-					'font',
-					'btn_viewall_mode',
 					'link_color_post_read_more',
+					'btn_viewall_mode',
 					'type',
 				]),
 
