@@ -8,26 +8,25 @@ class image_mask
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'mask', 				'title' => 'mask', 'class' => 'mask'];
-		$enum[] = ['key' => 'mask-squircle', 		'title' => 'mask-squircle', 'class' => 'mask-squircle'];
-		$enum[] = ['key' => 'mask-heart', 			'title' => 'mask-heart', 'class' => 'mask-heart'];
-		$enum[] = ['key' => 'mask-hexagon', 		'title' => 'mask-hexagon', 'class' => 'mask-hexagon'];
-		$enum[] = ['key' => 'mask-hexagon-2', 		'title' => 'mask-hexagon-2', 'class' => 'mask-hexagon-2'];
-		$enum[] = ['key' => 'mask-decagon', 		'title' => 'mask-decagon', 'class' => 'mask-decagon'];
-		$enum[] = ['key' => 'mask-pentagon', 		'title' => 'mask-pentagon', 'class' => 'mask-pentagon'];
-		$enum[] = ['key' => 'mask-diamond', 		'title' => 'mask-diamond', 'class' => 'mask-diamond'];
-		$enum[] = ['key' => 'mask-square', 			'title' => 'mask-square', 'class' => 'mask-square'];
-		$enum[] = ['key' => 'mask-circle', 			'title' => 'mask-circle', 'class' => 'mask-circle'];
-		$enum[] = ['key' => 'mask-parallelogram', 	'title' => 'mask-parallelogram', 'class' => 'mask-parallelogram'];
-		$enum[] = ['key' => 'mask-parallelogram-2', 'title' => 'mask-parallelogram-2', 'class' => 'mask-parallelogram-2'];
-		$enum[] = ['key' => 'mask-parallelogram-3', 'title' => 'mask-parallelogram-3', 'class' => 'mask-parallelogram-3'];
-		$enum[] = ['key' => 'mask-parallelogram-4', 'title' => 'mask-parallelogram-4', 'class' => 'mask-parallelogram-4'];
-		$enum[] = ['key' => 'mask-star', 			'title' => 'mask-star', 'class' => 'mask-star'];
-		$enum[] = ['key' => 'mask-star-2', 			'title' => 'mask-star-2', 'class' => 'mask-star-2'];
-		$enum[] = ['key' => 'mask-triangle', 		'title' => 'mask-triangle', 'class' => 'mask-triangle'];
-		$enum[] = ['key' => 'mask-triangle-2', 		'title' => 'mask-triangle-2', 'class' => 'mask-triangle-2'];
-		$enum[] = ['key' => 'mask-triangle-3', 		'title' => 'mask-triangle-3', 'class' => 'mask-triangle-3'];
-		$enum[] = ['key' => 'mask-triangle-4', 		'title' => 'mask-triangle-4', 'class' => 'mask-triangle-4'];
+		$enum[] = ['key' => 'squircle', 		   'title' => T_('Squircle'),            'class' => 'mask mask-squircle'];
+		$enum[] = ['key' => 'heart', 			     'title' => T_('Heart'),               'class' => 'mask mask-heart'];
+		$enum[] = ['key' => 'hexagon', 		     'title' => T_('Hexagon'),             'class' => 'mask mask-hexagon'];
+		$enum[] = ['key' => 'hexagon-2', 		   'title' => T_('Hexagon'). ' 2',       'class' => 'mask mask-hexagon-2'];
+		$enum[] = ['key' => 'decagon', 		     'title' => T_('Decagon'),             'class' => 'mask mask-decagon'];
+		$enum[] = ['key' => 'pentagon', 		   'title' => T_('Pentagon'),            'class' => 'mask mask-pentagon'];
+		$enum[] = ['key' => 'diamond', 		     'title' => T_('Diamond'),             'class' => 'mask mask-diamond'];
+		$enum[] = ['key' => 'square', 			   'title' => T_('Square'),              'class' => 'mask mask-square'];
+		$enum[] = ['key' => 'circle', 			   'title' => T_('Circle'),              'class' => 'mask mask-circle'];
+		$enum[] = ['key' => 'parallelogram', 	 'title' => T_('Parallelogram'),       'class' => 'mask mask-parallelogram'];
+		$enum[] = ['key' => 'parallelogram-2', 'title' => T_('Parallelogram'). ' 2', 'class' => 'mask mask-parallelogram-2'];
+		$enum[] = ['key' => 'parallelogram-3', 'title' => T_('Parallelogram'). ' 3', 'class' => 'mask mask-parallelogram-3'];
+		$enum[] = ['key' => 'parallelogram-4', 'title' => T_('Parallelogram'). ' 4', 'class' => 'mask mask-parallelogram-4'];
+		$enum[] = ['key' => 'star', 			     'title' => T_('Star'),                'class' => 'mask mask-star'];
+		$enum[] = ['key' => 'star-2', 			   'title' => T_('Star'). ' 2',          'class' => 'mask mask-star-2'];
+		$enum[] = ['key' => 'triangle', 		   'title' => T_('Triangle'),            'class' => 'mask mask-triangle'];
+		$enum[] = ['key' => 'triangle-2', 		 'title' => T_('Triangle'). ' 2',      'class' => 'mask mask-triangle-2'];
+		$enum[] = ['key' => 'triangle-3', 		 'title' => T_('Triangle'). ' 3',      'class' => 'mask mask-triangle-3'];
+		$enum[] = ['key' => 'triangle-4', 		 'title' => T_('Triangle'). ' 4',      'class' => 'mask mask-triangle-4'];
 
 		return $enum;
 	}
