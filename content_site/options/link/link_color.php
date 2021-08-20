@@ -72,12 +72,12 @@ trait link_color
 						$selected = null;
 						if($link_color == $value['key'] || (!$link_color && $value['key'] === 'outline'))
 						{
-							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24" class="px-2 pt-2 mx-auto"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
+							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="whitesmoke" width="24" height="24" viewBox="0 0 24 24" class="px-2 pt-1 mx-auto"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
 						}
 
 						$json = json_encode(['opt_'. self::option_key() => 1, 'multioption' => 'multi', 'link_color' => $value['key']]);
 
-						$html .= "<div data-ajaxify data-data='$json' class='btn-$value[key] btn-circle'>$selected</div>";
+						$html .= "<button data-ajaxify data-data='$json' class='btn-$value[key] btn-circle transition shadow hover:shadow-md'>$selected</button>";
 
 					}
 				}
