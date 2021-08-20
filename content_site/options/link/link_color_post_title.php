@@ -8,7 +8,13 @@ class link_color_post_title
 
 	public static function checked()
 	{
-		return \content_site\section\view::get_current_index_detail('post_title_position') === 'out';
+		$post_title_position = \content_site\section\view::get_current_index_detail('post_title_position');
+		if($post_title_position != 'hide')
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 }

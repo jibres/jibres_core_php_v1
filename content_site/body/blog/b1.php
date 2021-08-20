@@ -43,8 +43,8 @@ class b1
 				[
 					'height',
 					'coverratio',
-					'background_pack',
 					'color_text',
+					'background_pack',
 					'font',
 					'btn_viewall_mode',
 					'type',
