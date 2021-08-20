@@ -45,7 +45,7 @@ class b3
 				{
 					$html .= '<header class="pt-6 pb-8 space-y-2 md:space-y-5">';
 					{
-						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-7xl $heading_class $font_class' $color_heading>";
+						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-6xl $heading_class $font_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}
