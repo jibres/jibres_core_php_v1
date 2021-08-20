@@ -10,7 +10,7 @@ class blog
 		$html = '';
 		if(a($_args, 'btn_viewall_check'))
 		{
-			$html .= '<footer class="text-center overflow-hidden">';
+			$html .= '<footer class="text-center overflow-hidden py-5">';
 			{
 
 				$mode = a($_args, 'btn_viewall_mode');
@@ -21,7 +21,7 @@ class blog
 
 				// $classVal = 'hover:bg-gray-800 font-semibold py-2 px-10 shadow border rounded';
 
-				$html .= "<a class='mx-auto mt-5 jbtn jbtn-wide jbtn-outline jbtn-$mode' href='". a($_args, 'btn_viewall_link'). "'>";
+				$html .= "<a class='btn-outline-$mode mx-auto btn-wide' href='". a($_args, 'btn_viewall_link'). "'>";
 				$html .= a($_args, 'btn_viewall');
 				$html .= '</a>';
 			}
