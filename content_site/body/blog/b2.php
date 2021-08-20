@@ -38,31 +38,12 @@ class b2
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
-					'background_pack',
 
 					'height',
 					'coverratio',
 					'radius',
 
-					// skip draw this option in html
-					'background_color',
-
-					'background_position',
-					'background_repeat',
-					'background_size',
-					'background_attachment',
-
-					'background_image',
-
-					'background_gradient',
-					'background_gradient_type',
-
-					'background_gradient_from',
-					'background_gradient_via',
-					'background_gradient_to',
-
-					'background_gradient_attachment',
-					'background_color_random',
+					'background_pack',
 
 					'color_text',
 

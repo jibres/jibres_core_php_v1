@@ -43,35 +43,10 @@ class b1
 				[
 					'height',
 					'coverratio',
-
 					'background_pack',
-
-
-					// // skip draw this option in html
-					// 'background_color',
-
-					// 'background_position',
-					// 'background_repeat',
-					// 'background_size',
-					// 'background_attachment',
-
-					// 'background_image',
-
-					// 'background_gradient',
-					// 'background_gradient_type',
-
-					// 'background_gradient_from',
-					// 'background_gradient_via',
-					// 'background_gradient_to',
-
-					// 'background_gradient_attachment',
-					// 'background_color_random',
-
 					'color_text',
-
 					'font',
 					'btn_viewall_mode',
-
 					'type',
 				]),
 
