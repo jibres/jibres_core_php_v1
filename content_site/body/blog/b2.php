@@ -33,7 +33,10 @@ class b2
 
 				'post_title_position',
 
+				'effect',
+
 				'btn_viewall',
+
 
 				// sub page
 				'style' => \content_site\options\style::option_list(
@@ -48,7 +51,9 @@ class b2
 					'color_text',
 
 					'font',
+
 					'btn_viewall_mode',
+
 					'link_color_post_title',
 
 
