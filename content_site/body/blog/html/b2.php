@@ -14,7 +14,8 @@ class b2
 		$type           = a($_args, 'type');
 		$title_position = a($_args, 'post_title_position');
 		$link_color     = a($_args, 'link_mode');
-		$borderRadius     = \content_site\options\radius::class_name(a($_args, 'radius'));
+		$maskImg        = 'mask mask-heart';
+		$borderRadius   = \content_site\options\radius::class_name(a($_args, 'radius'));
 		$coverRatio     = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
 		$font_class     = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
@@ -84,7 +85,7 @@ class b2
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$card .= "<picture class='block overflow-hidden transition shadow-sm hover:shadow-md $coverRatio $borderRadius'>";
+								$card .= "<picture class='block overflow-hidden transition shadow-sm hover:shadow-md $coverRatio $borderRadius $maskImg'>";
 								{
 									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
@@ -93,6 +94,10 @@ class b2
 							$linkColorClass = 'link-'. $link_color;
 							$linkAlign = '';
 							if($borderRadius === 'rounded-full')
+							{
+								$linkAlign = 'text-center';
+							}
+							elseif($maskImg)
 							{
 								$linkAlign = 'text-center';
 							}
