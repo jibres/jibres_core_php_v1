@@ -75,7 +75,7 @@ class b3
 
 								$html .= '<span class="font-semibold title-font text-gray-700">';
 								{
-									$html .= \content_site\assemble\tools::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
+									$html .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
 								}
 								$html .= '</span>';
 
@@ -92,7 +92,7 @@ class b3
 											}
 											$html .= "<time class='text-gray-600 text-2xs $ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate'>";
 
-											$html .= \content_site\assemble\tools::date($myDate, a($_args, 'post_show_date'));
+											$html .= \content_site\body\blog\share::date($myDate, a($_args, 'post_show_date'));
 
 											$html .= "</time>";
 										}
@@ -129,7 +129,7 @@ class b3
 			}
 			$html .= '</div>';
 
-			$html .= \content_site\assemble\blog::btn_viewall($_args);
+			$html .= \content_site\body\blog\share::btn_viewall($_args);
 
 		}
 		$html .= "</$cnElement>";

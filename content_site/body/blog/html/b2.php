@@ -131,7 +131,7 @@ class b2
 				}
 				$html .= '</div>';
 
-				$html .= \content_site\assemble\blog::btn_viewall($_args);
+				$html .= \content_site\body\blog\share::btn_viewall($_args);
 
 			}
 			$html .= "</div>";
