@@ -16,7 +16,66 @@ class b1
 		[
 			'title'        => T_("Card Design"),
 			'default'      => option::master_default(['type' => 'b1']),
-			'options'      => option::master_option(),
+			'options'      =>
+			[
+				// 'group_setting',
+				// text
+				'heading_full',
+
+				// select
+				'post_tag',
+				'post_template',
+
+				'post_order',
+				// range
+				'count_post',
+
+				'post_show_image',
+				'post_show_readingtime',
+				'post_show_excerpt',
+				'post_show_author',
+
+				'btn_viewall',
+				'post_show_date',
+
+				// sub page
+				'style' => \content_site\options\style::option_list(
+				[
+					'background_pack',
+
+					'height',
+					'coverratio',
+
+					// skip draw this option in html
+					'background_color',
+
+					'background_position',
+					'background_repeat',
+					'background_size',
+					'background_attachment',
+
+					'background_image',
+
+					'background_gradient',
+					'background_gradient_type',
+
+					'background_gradient_from',
+					'background_gradient_via',
+					'background_gradient_to',
+
+					'background_gradient_attachment',
+					'background_color_random',
+
+					'color_text',
+
+					'font',
+					'btn_viewall_mode',
+
+					'type',
+				]),
+
+			],
+
 			'preview_list' =>
 			[
 				'p1',

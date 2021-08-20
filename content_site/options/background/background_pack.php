@@ -4,17 +4,7 @@ namespace content_site\options\background;
 
 class background_pack
 {
-	private static $remove_from_list = [];
 	private static $current_options = [];
-
-
-	public static function remove_from_list($_index)
-	{
-		if(!in_array($_index, self::$remove_from_list))
-		{
-			self::$remove_from_list[] = $_index;
-		}
-	}
 
 
 	/**
@@ -111,9 +101,14 @@ class background_pack
 		$html .= \content_site\options\height::admin_html();
 
 		// not removed from background
-		if(!in_array('coverratio', self::$remove_from_list))
+		if(in_array('coverratio', self::$current_options))
 		{
 			$html .= \content_site\options\coverratio::admin_html();
+		}
+
+		if(in_array('radius', self::$current_options))
+		{
+			$html .= \content_site\options\radius::admin_html();
 		}
 
 		if(in_array('btn_viewall_mode', self::$current_options))

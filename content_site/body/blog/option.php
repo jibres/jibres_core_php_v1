@@ -82,44 +82,5 @@ class option
 	}
 
 
-	/**
-	 * Master option
-	 *
-	 * @param      array   $_special_default  The special default
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function master_option()
-	{
-		$option =
-		[
-			// 'group_setting',
-			// text
-			'heading_full',
-
-			// select
-			'post_tag',
-			'post_template',
-
-			'post_order',
-			// range
-			'count_post',
-
-			'post_show_image',
-			'post_show_readingtime',
-			'post_show_excerpt',
-			'post_show_author',
-
-			'btn_viewall',
-			'post_show_date',
-
-			// sub page
-			'style' => \content_site\options\style::option_list('blog'),
-
-		];
-
-		return $option;
-	}
-
 }
 ?>

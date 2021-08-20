@@ -42,84 +42,53 @@ class style
 	{
 		$list = [];
 
-		switch ($_model)
+		if(is_array($_model))
 		{
-			case 'blog':
-				$list =
-				[
-					'background_pack',
+			$list = $_model;
+		}
+		else
+		{
+
+			switch ($_model)
+			{
+				default:
+					$list =
+					[
+						'background_pack',
 
 
-					'height',
-					'coverratio',
+						'height',
+						'coverratio',
 
-					// skip draw this option in html
-					'background_color',
+						// skip draw this option in html
+						'background_color',
 
-					'background_position',
-					'background_repeat',
-					'background_size',
-					'background_attachment',
+						'background_position',
+						'background_repeat',
+						'background_size',
+						'background_attachment',
 
-					'background_image',
+						'background_image',
 
-					'background_gradient',
-					'background_gradient_type',
+						'background_gradient',
+						'background_gradient_type',
 
-					'background_gradient_from',
-					'background_gradient_via',
-					'background_gradient_to',
+						'background_gradient_from',
+						'background_gradient_via',
+						'background_gradient_to',
 
-					'background_gradient_attachment',
-					'background_color_random',
+						'background_gradient_attachment',
+						'background_color_random',
 
-					'color_text',
+						'color_text',
 
-					'font',
-					'btn_viewall_mode',
-					'link_mode',
+						'font',
 
-					'type',
-				];
-				break;
+						'type',
+					];
+					break;
+			}
 
-
-			default:
-				$list =
-				[
-					'background_pack',
-
-
-					'height',
-					'coverratio',
-
-					// skip draw this option in html
-					'background_color',
-
-					'background_position',
-					'background_repeat',
-					'background_size',
-					'background_attachment',
-
-					'background_image',
-
-					'background_gradient',
-					'background_gradient_type',
-
-					'background_gradient_from',
-					'background_gradient_via',
-					'background_gradient_to',
-
-					'background_gradient_attachment',
-					'background_color_random',
-
-					'color_text',
-
-					'font',
-
-					'type',
-				];
-				break;
 		}
 
 		// set current option list

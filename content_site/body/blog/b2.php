@@ -12,16 +12,66 @@ class b2
 	 */
 	public static function option()
 	{
-		$master_option = option::master_option();
-
-		\content_site\utility::unset_option($master_option, 'post_show_image');
-		\content_site\utility::unset_option($master_option, 'post_show_date');
 
 		return
 		[
 			'title'        => T_("Modern View"),
 			'default'      => option::master_default(['type' => 'b2']),
-			'options'      => $master_option,
+			'options'      =>
+			[
+				// 'group_setting',
+				// text
+				'heading_full',
+
+				// select
+				'post_tag',
+				'post_template',
+
+				'post_order',
+				// range
+				'count_post',
+
+				'post_title_position',
+
+				'btn_viewall',
+
+				// sub page
+				'style' => \content_site\options\style::option_list(
+				[
+					'background_pack',
+
+					'height',
+					'coverratio',
+					'radius',
+
+					// skip draw this option in html
+					'background_color',
+
+					'background_position',
+					'background_repeat',
+					'background_size',
+					'background_attachment',
+
+					'background_image',
+
+					'background_gradient',
+					'background_gradient_type',
+
+					'background_gradient_from',
+					'background_gradient_via',
+					'background_gradient_to',
+
+					'background_gradient_attachment',
+					'background_color_random',
+
+					'color_text',
+
+					'font',
+					'btn_viewall_mode',
+
+					'type',
+				]),
+			],
 			'preview_list' =>
 			[
 				'p1',
