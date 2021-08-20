@@ -77,7 +77,7 @@ trait link_color
 
 						$json = json_encode(['opt_'. self::option_key() => 1, 'multioption' => 'multi', 'link_color' => $value['key']]);
 
-						$html .= "<div data-ajaxify data-data='$json' class='btn-$value[key]'>$selected</div>";
+						$html .= "<div data-ajaxify data-data='$json' class='btn-$value[key] btn-circle'>$selected</div>";
 
 					}
 				}
