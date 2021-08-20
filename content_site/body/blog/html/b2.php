@@ -10,20 +10,27 @@ class b2
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
-		$id             = a($_args, 'id');
-		$type           = a($_args, 'type');
-		$title_position = a($_args, 'post_title_position');
-		$link_color     = a($_args, 'link_color');
-		$maskImg        = \content_site\options\image\image_mask::class_name(a($_args, 'image_mask'));
-		$borderRadius   = \content_site\options\radius\radius_full::class_name(a($_args, 'radius'));
-		$coverRatio     = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class     = \content_site\assemble\font::class($_args);
-		// $type        = 'b1';
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
+		$title_position   = a($_args, 'post_title_position');
+		$link_color       = a($_args, 'link_color');
 
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
+
+		$coverRatio       = a($_args, 'coverratio:class');
+		$borderRadius     = a($_args, 'radius:class');
+		$font_class       = a($_args, 'font:class');
+		// $type          = 'b1';
+
+		$height           = a($_args, 'height:class');
+		$background_style = a($_args, 'background:full_style');
+		$text_color       = a($_args, 'text_color:full_style');
+		$section_id       = a($_args, 'secition:id');
+		$heading_class    = a($_args, 'heading:class');
+
+		$maskImg          = a($_args, 'image_mask:class');
+
+
+
 
 		$totalExist = count($_blogList);
 		$totalCount = a($_args, 'count');
