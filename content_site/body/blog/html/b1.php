@@ -10,10 +10,11 @@ class b1
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
+		$id           = a($_args, 'id');
+		$type         = a($_args, 'type');
+		$coverRatio   = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
+		$borderRadius = \content_site\options\radius::class_name(a($_args, 'radius'));
+		$font_class   = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
 
 		$height           = \content_site\options\height::class_name(a($_args, 'height'));
@@ -79,7 +80,7 @@ class b1
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto rounded-lg overflow-hidden transition shadow-md hover:shadow-lg bg-white'>";
+						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-md hover:shadow-lg bg-white $borderRadius'>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
