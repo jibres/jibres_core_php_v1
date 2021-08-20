@@ -13,7 +13,7 @@ class b1
 		$id           = a($_args, 'id');
 		$type         = a($_args, 'type');
 		$coverRatio   = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$borderRadius = \content_site\options\radius::class_name(a($_args, 'radius'));
+		$borderRadius = \content_site\options\radius\radius_full::class_name(a($_args, 'radius'));
 		$font_class   = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
 
