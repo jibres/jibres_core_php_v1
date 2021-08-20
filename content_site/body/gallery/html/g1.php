@@ -4,114 +4,127 @@ namespace content_site\body\gallery\html;
 
 class g1
 {
-
 	public static function html($_args, $_image_list)
 	{
-
-		$html = '';
+		$html             = '';
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
-		// $type        = 'b1';
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
+		$title_position   = a($_args, 'post_title_position');
+		$link_color       = a($_args, 'link_color');
 
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
+		$coverRatio       = a($_args, 'coverratio:class');
+		$borderRadius     = a($_args, 'radius:class');
+		$font_class       = a($_args, 'font:class');
+
+		$height           = a($_args, 'height:class');
+		$background_style = a($_args, 'background:full_style');
+		$color_heading    = a($_args, 'color_heading:full_style');
+		$section_id       = a($_args, 'secition:id');
+		$heading_class    = a($_args, 'heading:class');
+
+		$maskImg          = a($_args, 'image_mask:class');
 
 
+		$totalExist = count($_image_list);
+		$totalCount = a($_args, 'count');
+
+		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4';
+		if($totalCount > 3)
+		{
+			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
+		}
+
+		// element type
+		$cnElement = 'div';
+		if(a($_args, 'heading') !== null)
+		{
+			$cnElement = 'section';
+		}
 		$classNames = $height;
 		if($font_class)
 		{
 			$classNames .= ' '. $font_class;
 		}
 
-		$heading = a($_args, 'heading');
-		$desc    = a($_args, 'description');
 
-
-		$html .= "<section class='text-gray-600 body-font $classNames' data-type='$type' $background_style $section_id>";
+		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
+			$html .= "<div class='$containerMaxWidth m-auto'>";
+			{
+				$html .= "<div class='relative grid grid-cols-12 gap-4'>";
+				{
+					foreach ($_image_list as $key => $value)
+					{
+						// a img
+						// h3 a
+						$myLinkHref   = "href='". a($value, 'link'). "'";
+						$myTitle      = a($value, 'caption');
+						$myThumb      = \dash\fit::img(a($value, 'image'), 780);
 
-		  $html .= '<div class="container px-5 py-24 mx-auto flex flex-wrap">';
-		  {
+						// get grid class name by analyse
+						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
-		    $html .= '<div class="flex w-full mb-20 flex-wrap">';
-		    {
-		      $html .= "<h1 class='sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4' $text_color>". $heading. '</h1>';
-		      $html .= '<p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">'. $desc. '</p>';
-		    }
-		    $html .= '</div>';
+						$card = '';
+						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";
+						{
 
-		    $html .= '<div class="flex flex-wrap lg:-m-2 -m-1">';
-		    {
+							$card .= "<picture class='block overflow-hidden transition shadow-sm hover:shadow-md $coverRatio $borderRadius $maskImg'>";
+							{
+								$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
+							}
+							$card .= "</picture>";
 
-		      $html .= '<div class="flex flex-wrap w-1/2">';
-		      {
+							$linkColorClass = 'link-'. $link_color;
+							$linkAlign = '';
+							if($borderRadius === 'rounded-full')
+							{
+								$linkAlign = 'text-center';
+							}
+							elseif($maskImg)
+							{
+								$linkAlign = 'text-center';
+							}
 
-		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
-		        {
-		        	$html .= el::img(a($_image_list, 0) , 'w-full object-cover h-full object-center block');
-		        }
+							if($title_position === 'inside')
+							{
+								// title
+								$card .= "<h3 class='absolute inset-x-0 bottom-0 block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
+								{
+									$card .= $myTitle;
+								}
+								$card .= '</h3>';
+							}
+							elseif($title_position === 'outside')
+							{
+								// title
+								$card .= "<h3 class='block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
+								{
+									$card .= $myTitle;
+								}
+								$card .= '</h3>';
+							}
 
-		        $html .= '</div>';
-
-		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
-		        {
-		        	$html .= el::img(a($_image_list, 1) , 'w-full object-cover h-full object-center block');
-		        }
-
-		        $html .= '</div>';
-
-		        $html .= '<div class="lg:p-2 p-1 w-full">';
-		        {
-		        	$html .= el::img(a($_image_list, 2) , 'w-full h-full object-cover object-center block');
-		        }
-
-		        $html .= '</div>';
-		      }
-		      $html .= '</div>';
+						}
+						$card .= '</a>';
 
 
-		      $html .= '<div class="flex flex-wrap w-1/2">';
-		      {
-		        $html .= '<div class="lg:p-2 p-1 w-full">';
-		        {
-		        	$html .= el::img(a($_image_list, 3) , 'w-full h-full object-cover object-center block');
-		        }
+						// save card
+						$html .= $card;
+					}
+				}
+				$html .= '</div>';
 
-		        $html .= '</div>';
-
-		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
-		        {
-		        	$html .= el::img(a($_image_list, 4) , 'w-full object-cover h-full object-center block');
-		        }
-
-		        $html .= '</div>';
-
-		        $html .= '<div class="lg:p-2 p-1 w-1/2">';
-		        {
-		        	$html .= el::img(a($_image_list, 5) , 'w-full object-cover h-full object-center block');
-		        }
-
-		        $html .= '</div>';
-		      }
-		      $html .= '</div>';
-
-		    }
-		    $html .= '</div>';
-		  }
-		  $html .= '</div>';
+			}
+			$html .= "</div>";
 		}
-		$html .= '</section>';
+		$html .= "</$cnElement>";
+
+
 
 		return $html;
 	}
-
-
 }
 ?>

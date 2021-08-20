@@ -22,7 +22,6 @@ class b2
 				// 'group_setting',
 				// text
 				'heading_full',
-
 				// select
 				'post_tag',
 				'post_template',
@@ -34,18 +33,13 @@ class b2
 				'post_title_position',
 				'btn_viewall',
 
-
-
-
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
 
 					'font',
-
 					'height',
 					'background_pack',
-
 					'color_heading',
 					'radius_full',
 					'coverratio',
@@ -54,8 +48,6 @@ class b2
 					'link_color_post_title',
 					'btn_viewall_mode',
 					'type',
-
-
 				]),
 			],
 			'preview_list' =>

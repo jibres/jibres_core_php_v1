@@ -2,7 +2,7 @@
 namespace content_site\body\gallery;
 
 
-class g2
+class g1
 {
 
 	/**
@@ -12,31 +12,11 @@ class g2
 	 */
 	public static function option()
 	{
-
-		$master_option =
-		[
-
-			'heading_raw',
-			'image_list' =>
-			[
-				'file_gallery',
-				'caption',
-				'description',
-			],
-			'image_add',
-
-			'description',
-			'image_random',
-
-			// sub page
-			'style' => \content_site\options\style::option_list(),
-		];
-
 		return
 		[
 			'title'        => T_("Gallery 1"),
-			'default'      => option::master_default(['type' => 'g2'], 6),
-			'options'      => $master_option,
+			'default'      => option::master_default(['type' => 'g1'], 6),
+			'options'      => option::master_option(),
 			'preview_list' =>
 			[
 				'p1',
@@ -61,7 +41,6 @@ class g2
 			],
 		];
 	}
-
 
 
 

@@ -12,15 +12,43 @@ class g1
 	 */
 	public static function option()
 	{
+
 		return
 		[
-			'title'        => T_("Gallery 1"),
-			'default'      => option::master_default(['type' => 'g1'], 6),
-			'options'      => option::master_option(),
+			'title'        => T_("Magic Gallery box"),
+			'default'      => option::master_default(['type' => 'g1', 'effect' => 'zoom', ]),
+			'options'      =>
+			[
+				'heading_raw',
+				'image_list' =>
+				[
+					'file_gallery',
+					'caption',
+					'link',
+					'target',
+				],
+				'image_add',
+
+				'description',
+				'image_random',
+				// sub page
+				'style' => \content_site\options\style::option_list(
+				[
+
+					// 'font',
+					'height',
+					'background_pack',
+					// 'color_heading',
+					'radius_full',
+					'coverratio',
+					// 'effect',
+					'image_mask',
+					'type',
+				]),
+			],
 			'preview_list' =>
 			[
 				'p1',
-				'p2'
 			],
 		];
 	}
@@ -33,15 +61,10 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Card"),
 			'version'        => 1,
-			'options' =>
-			[
-
-			],
 		];
 	}
-
 
 
 }
