@@ -8,11 +8,11 @@ class radius
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => '0x' ,   'class' => 'rounded-none' ];
-		$enum[] = ['key' => 's',   	'title' => '1x' ,   'class' => 'rounded-sm' ];
-		$enum[] = ['key' => 'm',   	'title' => '2x' ,   'class' => 'rounded-md' ];
-		$enum[] = ['key' => 'l',   	'title' => '3x' , 	'class' => 'rounded-lg' ];
-		$enum[] = ['key' => 'full', 'title' => 'Full',  'class' => 'rounded-full' ];
+		$enum[] = ['key' => 'none',   'title' => 'None' ,     'class' => 'rounded-none' ];
+		$enum[] = ['key' => 'normal', 'title' => 'Normal' ,   'class' => 'rounded' ];
+		$enum[] = ['key' => 'lg',   	'title' => 'Large' ,    'class' => 'rounded-lg' ];
+		$enum[] = ['key' => '3xl',   	'title' => '3xl' , 	    'class' => 'rounded-3xl' ];
+		// $enum[] = ['key' => 'full', 'title' => 'Full',  'class' => 'rounded-full' ];
 
 		return $enum;
 	}

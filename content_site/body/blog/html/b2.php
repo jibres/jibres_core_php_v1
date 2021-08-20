@@ -13,7 +13,8 @@ class b2
 		$id             = a($_args, 'id');
 		$type           = a($_args, 'type');
 		$title_position = a($_args, 'post_title_position');
-		$borderRadius   = 'rounded-lg';
+		$link_color     = a($_args, 'link_color');
+		$borderRadius     = \content_site\options\radius::class_name(a($_args, 'radius'));
 		$coverRatio     = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
 		$font_class     = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
@@ -78,12 +79,12 @@ class b2
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-sm hover:shadow-md $borderRadius' $myLinkHref>";
+						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden $borderRadius' $myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$card .= "<picture class='block $coverRatio'>";
+								$card .= "<picture class='block overflow-hidden transition shadow-sm hover:shadow-md $coverRatio $borderRadius'>";
 								{
 									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
@@ -102,7 +103,7 @@ class b2
 							elseif($title_position === 'outside')
 							{
 								// title
-								$card .= "<h3 class='block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10'>";
+								$card .= "<h3 class='block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $link_color'>";
 								{
 									$card .= $myTitle;
 								}
