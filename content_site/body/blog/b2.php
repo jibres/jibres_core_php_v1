@@ -16,7 +16,7 @@ class b2
 		return
 		[
 			'title'        => T_("Modern View"),
-			'default'      => option::master_default(['type' => 'b2']),
+			'default'      => option::master_default(['type' => 'b2', 'post_title_position' => 'inside']),
 			'options'      =>
 			[
 				// 'group_setting',
