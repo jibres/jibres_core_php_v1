@@ -14,16 +14,23 @@ class color_heading extends \content_site\options\background\background_color
 	{
 		$default = \content_site\section\view::get_current_index_detail('color_heading');
 
-		if(!$default)
+		$heading = \content_site\section\view::get_current_index_detail('heading');
+
+		if($heading || $heading === '0')
 		{
-			$default = self::default();
+			if(!$default)
+			{
+				$default = self::default();
+			}
+
+			$title = T_("Heading Text Color");
+
+			$html = self::color_html('opt_color_heading', $default, $title);
+
+			return $html;
 		}
 
-		$title = T_("Heading Text Color");
-
-		$html = self::color_html('opt_color_heading', $default, $title);
-
-		return $html;
+		return null;
 	}
 
 }
