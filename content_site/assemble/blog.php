@@ -10,7 +10,7 @@ class blog
 		$html = '';
 		if(a($_args, 'btn_viewall_check'))
 		{
-			$html .= '<footer class="text-center overflow-hidden py-2">';
+			$html .= '<footer class="text-center overflow-hidden pt-5 md:pt-10 pb-2">';
 			{
 
 				$mode = a($_args, 'btn_viewall_mode');

@@ -13,7 +13,7 @@ class b2
 		$id             = a($_args, 'id');
 		$type           = a($_args, 'type');
 		$title_position = a($_args, 'post_title_position');
-		$link_color     = a($_args, 'link_color');
+		$link_color     = a($_args, 'link_mode');
 		$borderRadius     = \content_site\options\radius::class_name(a($_args, 'radius'));
 		$coverRatio     = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
 		$font_class     = \content_site\assemble\font::class($_args);
