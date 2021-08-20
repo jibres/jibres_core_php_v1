@@ -16,7 +16,7 @@ class b2
 		return
 		[
 			'title'        => T_("Magic box"),
-			'default'      => option::master_default(['type' => 'b2', 'post_title_position' => 'inside']),
+			'default'      => option::master_default(['type' => 'b2', 'post_title_position' => 'inside', 'effect' => 'zoom', 'link_color_post_title' => 'light']),
 			'options'      =>
 			[
 				// 'group_setting',
