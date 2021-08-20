@@ -41,12 +41,14 @@ class b1
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
-					'height',
-					'coverratio',
-					'radius',
-					'color_text',
-					'background_pack',
 					'font',
+
+					'height',
+					'background_pack',
+
+					'color_text',
+					'radius_normal',
+					'coverratio',
 					'btn_viewall_mode',
 					'type',
 				]),

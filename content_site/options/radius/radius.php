@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\radius;
 
 
-class radius
+trait radius
 {
 	public static function enum()
 	{
@@ -12,9 +12,18 @@ class radius
 		$enum[] = ['key' => 'normal', 'title' => 'Normal' ,   'class' => 'rounded' ];
 		$enum[] = ['key' => 'lg',   	'title' => 'Large' ,    'class' => 'rounded-lg' ];
 		$enum[] = ['key' => '3xl',   	'title' => '3xl' , 	    'class' => 'rounded-3xl' ];
-		$enum[] = ['key' => 'full',   'title' => 'Full',      'class' => 'rounded-full' ];
+
+		if(self::enum_type() === 'full')
+		{
+			$enum[] = ['key' => 'full',   'title' => 'Full',      'class' => 'rounded-full' ];
+		}
 
 		return $enum;
+	}
+
+	public static function enum_type()
+	{
+		return 'full';
 	}
 
 	public static function validator($_data)
@@ -25,7 +34,18 @@ class radius
 
 	public static function default()
 	{
-		return 'm';
+		return 'none';
+	}
+
+	public static function db_key()
+	{
+		return 'radius';
+	}
+
+
+	public static function option_key()
+	{
+		return 'radius';
 	}
 
 
@@ -71,7 +91,7 @@ class radius
 
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_radius';
+			$name       = 'opt_'. self::option_key();
 
 			$radio_html = '';
 
