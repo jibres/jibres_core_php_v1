@@ -21,6 +21,11 @@ class background_gradient_type
 		return $enum;
 	}
 
+	public static function extends_option()
+	{
+		return background_pack::extends_option();
+	}
+
 
 	public static function validator($_data)
 	{

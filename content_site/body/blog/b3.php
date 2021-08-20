@@ -65,7 +65,7 @@ class b3
 
 					'font',
 					'btn_viewall_mode',
-					'link_mode',
+					'link_color_read_more',
 
 					'type',
 				]),

@@ -43,12 +43,12 @@ else
     {
       foreach ($options_list[$subchild] as $key => $option)
       {
-        if($option === 'background_pack')
-        {
-          $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
-          break;
-        }
-        else
+        // if($option === 'background_pack')
+        // {
+        //   $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
+        //   break;
+        // }
+        // else
         {
           $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
 

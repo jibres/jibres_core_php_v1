@@ -68,7 +68,7 @@ class b2
 
 					'font',
 					'btn_viewall_mode',
-					'link_mode',
+					'link_color_post_title',
 
 
 					'type',

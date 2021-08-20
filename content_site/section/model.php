@@ -109,6 +109,7 @@ class model
 			}
 		}
 
+
 		$option_key = null;
 		$myPost     = [];
 
@@ -131,6 +132,13 @@ class model
 		{
 			\dash\notif::error(T_("Option key not found!"). ' '. __LINE__);
 			return false;
+		}
+
+		$extends_option = \content_site\call_function::option_extends_option($option_key);
+
+		if(is_array($extends_option))
+		{
+			$trust_options_list = array_merge($trust_options_list, $extends_option);
 		}
 
 		if(in_array($option_key, $trust_options_list))

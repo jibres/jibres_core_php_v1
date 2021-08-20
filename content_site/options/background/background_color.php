@@ -18,6 +18,11 @@ class background_color
 		// return '#ffffff';
 	}
 
+	public static function extends_option()
+	{
+		return background_pack::extends_option();
+	}
+
 
 	public static function admin_html()
 	{

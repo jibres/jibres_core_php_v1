@@ -29,6 +29,11 @@ class background_size
 		return 'cover';
 	}
 
+	public static function extends_option()
+	{
+		return background_pack::extends_option();
+	}
+
 
 	public static function get_value()
 	{

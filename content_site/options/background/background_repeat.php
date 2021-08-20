@@ -24,6 +24,11 @@ class background_repeat
 	}
 
 
+	public static function extends_option()
+	{
+		return background_pack::extends_option();
+	}
+
 	public static function default()
 	{
 		return 'repeat';

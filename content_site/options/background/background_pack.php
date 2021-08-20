@@ -74,9 +74,37 @@ class background_pack
 	}
 
 
+	public static function extends_option()
+	{
+		return
+		[
+			'background_color',
+
+			'background_position',
+			'background_repeat',
+			'background_size',
+			'background_attachment',
+
+			'background_image',
+
+			'background_gradient',
+			'background_gradient_type',
+
+			'background_gradient_from',
+			'background_gradient_via',
+			'background_gradient_to',
+
+			'background_gradient_attachment',
+			'background_color_random',
+		];
+
+	}
+
+
 
 	public static function admin_html($_section_detail)
 	{
+
 		$default = \content_site\section\view::get_current_index_detail('background_pack');
 
 		if(!$default)
@@ -90,7 +118,6 @@ class background_pack
 
 		$html = '';
 
-
 		$current_style = a($_section_detail, 'preview');
 
 		if(!is_array($current_style))
@@ -98,33 +125,9 @@ class background_pack
 			$current_style = [];
 		}
 
-		$html .= \content_site\options\height::admin_html();
-
-		// not removed from background
-		if(in_array('coverratio', self::$current_options))
-		{
-			$html .= \content_site\options\coverratio::admin_html();
-		}
-
-		if(in_array('radius', self::$current_options))
-		{
-			$html .= \content_site\options\radius::admin_html();
-		}
-
-		if(in_array('btn_viewall_mode', self::$current_options))
-		{
-			$html .= \content_site\options\btn\btn_viewall::admin_html_viewall_mode();
-		}
-
-		if(in_array('link_mode', self::$current_options))
-		{
-			$html .= \content_site\options\link\link_mode::admin_html();
-		}
 
 		$html .= "<div class='ShowCustomizeSetting'>";
 		{
-			$html .= \content_site\options\font::admin_html();
-			$html .= \content_site\options\color\color_text::admin_html();
 
 			$html .= '<form method="post" class="mb-5 mT0-f" data-patch>';
 			{
@@ -188,9 +191,6 @@ class background_pack
 		}
 
 		$html .= '</div>';
-
-		$html .= \content_site\options\type::admin_html();
-
 
 		return $html;
 	}

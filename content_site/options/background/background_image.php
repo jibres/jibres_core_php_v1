@@ -12,6 +12,11 @@ class background_image
 		return 'background_image';
 	}
 
+	public static function extends_option()
+	{
+		return background_pack::extends_option();
+	}
+
 
 
 	public static function option_key()

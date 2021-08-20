@@ -26,6 +26,11 @@ class background_color_random
 		return $_data;
 	}
 
+	public static function extends_option()
+	{
+		return background_pack::extends_option();
+	}
+
 
 	public static function postel_color_solid()
 	{
