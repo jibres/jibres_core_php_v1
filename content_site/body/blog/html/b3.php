@@ -51,7 +51,7 @@ class b3
 						}
 						$html .= '</h2>';
 
-						$html .= '<p class="text-lg text-gray-500">';
+						$html .= '<p class="text-lg opacity-60"'.$color_text.'>';
 						{
 							$html .= a($_args, 'description');
 						}
@@ -88,14 +88,14 @@ class b3
 									$html .= "<dl>";
 									{
 										$html .= '<dt class="sr-only">'. T_('Published on'). '</dt>';
-										$html .= '<dt class="text-base font-medium"'. $color_text. '>';
+										$html .= '<dt class="text-base font-medium">';
 										{
 												$ltrDate = 'ltr';
 												if(a($_args, 'post_show_date') === 'relative')
 												{
 													$ltrDate = '';
 												}
-												$html .= "<time class='$ltrDate' datetime='$myDate' title='". T_("Published"). " $myDate' $color_text>";
+												$html .= "<time class='$ltrDate opacity-80' datetime='$myDate' title='". T_("Published"). " $myDate' $color_text>";
 												$html .= \content_site\body\blog\share::date($myDate, a($_args, 'post_show_date'));
 												$html .= "</time>";
 										}
@@ -104,26 +104,24 @@ class b3
 									$html .= '</dl>';
 								}
 
-							$html .= '<div class="sm:mb-0 mb-6 flex-shrink-0 flex flex-col">';
+							$html .= '<div class="space-y-2 lg:space-y-5 lg:col-span-3">';
 							{
-							}
-							$html .= '</div>';
-
-							$html .= '<div class="sm:flex-grow">';
-							{
-
-								$html .= '<h3 class="text-2xl font-medium title-font mb-2" '.$color_text.'>'.$myTitle.'</h3>';
+								$html .= '<h3 class="text-2xl font-bold">';
+								$html .= '<a href="'.$myLink.'" class="inline-flex items-center"'. $color_heading. '>'. $myTitle. '</a>';
+								$html .= '</h3>';
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
-									$html .= "<p class='leading-relaxed' $color_text>";
+									$html .= "<p class='leading-7' $color_text>";
 									$html .= $myExcerpt;
 									$html .= "</p>";
 								}
 
 								if(a($_args, 'post_show_read_more'))
 								{
-									$html .= '<a href="'.$myLink.'" class="inline-flex items-center mt-4 link-'.$link_color.'">'.T_("Read more").'</a>';
+									$html .= "<div class='text-base font-medium'>";
+									$html .= '<a href="'.$myLink.'" class="inline-flex items-center link-'. $link_color.'">'.T_("Read more").'</a>';
+									$html .= "</div>";
 								}
 
 							}
