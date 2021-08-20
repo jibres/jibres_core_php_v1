@@ -21,6 +21,7 @@ class b3
 				// 'group_setting',
 				// text
 				'heading_full',
+				'description',
 
 				// select
 				'post_tag',
