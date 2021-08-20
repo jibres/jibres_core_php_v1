@@ -8,6 +8,7 @@ class image_mask
 	public static function enum()
 	{
 		$enum   = [];
+		$enum[] = ['key' => 'none', 	     	   'title' => T_('None'),                'class' => ''];
 		$enum[] = ['key' => 'squircle', 		   'title' => T_('Squircle'),            'class' => 'mask mask-squircle'];
 		$enum[] = ['key' => 'heart', 			     'title' => T_('Heart'),               'class' => 'mask mask-heart'];
 		$enum[] = ['key' => 'hexagon', 		     'title' => T_('Hexagon'),             'class' => 'mask mask-hexagon'];
