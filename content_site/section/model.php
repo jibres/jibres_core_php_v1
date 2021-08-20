@@ -4,6 +4,7 @@ namespace content_site\section;
 
 class model
 {
+	private static $do_nothing_reload = false;
 	public static function post()
 	{
 		/**
@@ -30,6 +31,11 @@ class model
 	private static function reloadIframe()
 	{
 		$page_url = \content_site\view::generate_iframe_src();
+
+		if(self::$do_nothing_reload)
+		{
+			return;
+		}
 
 		\dash\notif::reloadIframeSrc($page_url);
 		\dash\notif::reloadIframe();
@@ -303,9 +309,20 @@ class model
 
 		$preview           = json_encode($preview);
 
-		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+		if($load_section_lock['preview'] === $preview)
+		{
+			\dash\pdo::rollback();
+			self::$do_nothing_reload = true;
+			return;
+		}
+		else
+		{
 
-		\dash\pdo::commit();
+			\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+			\dash\pdo::commit();
+
+		}
 
 
 		if(\dash\data::changeSectionTypeMode())
