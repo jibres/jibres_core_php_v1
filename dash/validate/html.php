@@ -108,7 +108,7 @@ class html
 			// 'data-confirm',
 			// 'data-ajaxify',
 			// 'data-kerkere',
-			'data-acardion',
+			'data-accordion',
 		];
 
 	}
