@@ -46,6 +46,8 @@ class b2
 					'coverratio',
 					'radius',
 
+					'image_mask',
+
 					'background_pack',
 
 					'color_text',
