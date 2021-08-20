@@ -4,26 +4,53 @@ namespace content_site\options;
 
 class effect
 {
-	private static function enum()
+
+	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'none', 		'title' => T_("None"), 			];
-		$enum[] = ['key' => 'zoom', 		'title' => T_("Zoom"), 			];
-		$enum[] = ['key' => 'darkShadow', 	'title' => T_("Dark Shadow"), 	];
-		$enum[] = ['key' => 'whiteShadow', 	'title' => T_("White Shadow"), 	];
+
+		$enum[] = ['key' => 'none', 'title' => 'None' ,   'class' => '---class---'];
+		$enum[] = ['key' => 'zoom', 'title' => 'Zoom' , 'class' => '---class---'];
+		$enum[] = ['key' => 'dark', 'title' => 'Dark',   'class' => '---class---'];
+		$enum[] = ['key' => 'light','title' => 'Light' ,    'class' => '---class---'];
+
+
 		return $enum;
 	}
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Effect')]);
-		return $data;
+		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Effect')]);
 	}
 
 
 	public static function default()
 	{
-		return 'none';
+		return 'm';
+	}
+
+
+	public static function class_name($_key)
+	{
+		$enum = self::enum();
+
+		foreach ($enum as $key => $value)
+		{
+			if(!$_key)
+			{
+				if($value['key'] === self::default())
+				{
+					return $value['class'];
+				}
+			}
+			else
+			{
+				if($value['key'] === $_key)
+				{
+					return $value['class'];
+				}
+			}
+		}
 	}
 
 
@@ -36,33 +63,43 @@ class effect
 			$default = self::default();
 		}
 
-
-		$title = T_("Set item effect");
+		$title = T_("Effect");
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= "<label for='effect'>$title</label>";
-	        $html .= '<select name="opt_effect" class="select22" id="effect">';
+			$html .= '<input type="hidden" name="notredirect" value="1">';
 
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
+			$html .= "<label>$title</label>";
 
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
+			$name       = 'opt_effect';
 
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-	        }
+			$radio_html = '';
 
-	       	$html .= '</select>';
+			foreach (self::enum() as $key => $value)
+			{
+				if(isset($value['system']) && $value['system'])
+				{
+					continue;
+				}
+
+				$selected = false;
+
+				if($default === $value['key'])
+				{
+					$selected = true;
+				}
+
+				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $value['key'], $value['title'], $selected);
+			}
+
+			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 		}
-  		$html .= '</form>';
+		$html .= '</form>';
+
 
 		return $html;
-	}
 
+	}
 }
 ?>
