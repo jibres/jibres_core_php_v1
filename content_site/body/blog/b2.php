@@ -68,6 +68,7 @@ class b2
 
 					'font',
 					'btn_viewall_mode',
+					'link_mode',
 
 
 					'type',

@@ -38,11 +38,12 @@ class link_mode
 	{
 
 		$link_mode = \content_site\section\view::get_current_index_detail('link_mode');
-		$checked = \content_site\section\view::get_current_index_detail('post_show_read_more');
+		$checked1  = \content_site\section\view::get_current_index_detail('post_show_read_more');
+		$checked2  = \content_site\section\view::get_current_index_detail('post_title_position') === 'out';
 
 		$html = '';
 
-		if($checked)
+		if($checked1 || $checked2)
 		{
 
 			$html .= '<div class="mt-5 mb-5">';
