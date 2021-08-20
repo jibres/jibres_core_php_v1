@@ -76,7 +76,7 @@ class html
 			$allow_tag['path']     = ['width', 'height', 'stroke-linecap', 'stroke-linejoin', 'stroke-width', 'd',];
 			$allow_tag['textarea'] = ['label', 'disabled', 'autofocus', 'cols', 'form', 'name', 'rows', 'required'];
 			$allow_tag['video']    = ['controls', 'loop', 'src', 'autoplay', 'muted', 'preload', 'poster', 'width', 'height']; // check only video in sc
-			$allow_tag['svg']      = ['xmlns', ,'width', 'height', 'fill','viewBox','stroke','aria-hidden', 'version', 'x', 'y'];
+			$allow_tag['svg']      = ['xmlns', 'width', 'height', 'fill','viewBox','stroke','aria-hidden', 'version', 'x', 'y'];
 			$allow_tag['iframe']   = ['src', 'loading', 'height', 'width', 'allowfullscreen', 'frameborder', 'marginheight', 'marginwidth', 'scrolling']; // check src only ul
 			$allow_tag['input']    = ['name', 'accept', 'autofocus', 'checked', 'disabled', 'form', 'list', 'max','maxlength', 'min','minlength', 'placeholder','readonly','type','value','required'];
 
