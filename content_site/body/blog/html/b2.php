@@ -15,7 +15,7 @@ class b2
 		$title_position = a($_args, 'post_title_position');
 		$link_color     = a($_args, 'link_color');
 		$maskImg        = \content_site\options\image\image_mask::class_name(a($_args, 'image_mask'));
-		$borderRadius   = \content_site\options\radius::class_name(a($_args, 'radius'));
+		$borderRadius   = \content_site\options\radius\radius_full::class_name(a($_args, 'radius'));
 		$coverRatio     = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
 		$font_class     = \content_site\assemble\font::class($_args);
 		// $type        = 'b1';
