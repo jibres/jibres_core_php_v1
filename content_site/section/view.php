@@ -385,6 +385,9 @@ class view
 					$result['preview']['html_text'] = $result['text_preview'];
 				}
 
+				$result['preview'] = \content_site\assemble\fire::me($result['preview']);
+
+
 				$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
 
 				if(\dash\request::get('psid') && is_numeric(\dash\request::get('psid')))
@@ -412,6 +415,8 @@ class view
 			}
 
 			$result['body']           = array_merge($thisDefault, $result['body']);
+
+			$result['body'] = \content_site\assemble\fire::me($result['body']);
 
 			$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
 

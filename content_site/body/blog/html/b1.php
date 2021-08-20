@@ -10,17 +10,20 @@ class b1
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
-		$id           = a($_args, 'id');
-		$type         = a($_args, 'type');
-		$coverRatio   = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$borderRadius = \content_site\options\radius\radius_full::class_name(a($_args, 'radius'));
-		$font_class   = \content_site\assemble\font::class($_args);
-		// $type        = 'b1';
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
 
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
+		$coverRatio       = a($_args, 'coverratio:class');
+		$borderRadius     = a($_args, 'radius:class');
+		$font_class       = a($_args, 'font:class');
+		// $type          = 'b1';
+
+		$height           = a($_args, 'height:class');
+		$background_style = a($_args, 'background:full_style');
+		$text_color       = a($_args, 'text_color:full_style');
+		$section_id       = a($_args, 'secition:id');
+		$heading_class    = a($_args, 'heading:class');
+
 
 		$totalExist = count($_blogList);
 		$totalCount = a($_args, 'count');
@@ -51,7 +54,6 @@ class b1
 				{
 					$html .= '<header>';
 					{
-						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
 						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $text_color>";
 						{
