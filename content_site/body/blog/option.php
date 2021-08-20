@@ -76,6 +76,7 @@ class option
 			'coverratio'            => '16:9',
 			'color_text'            => '#333333',
 			'heading_position'      => 'center',
+			'btn_viewall_mode'      => 'dark',
 		];
 
 		return array_merge($master_default, $_special_default);
