@@ -77,7 +77,7 @@ class b2
 						$myThumb      = \dash\fit::img(a($value, 'thumb'), 780);
 
 						// get grid class name by analyse
-						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
+						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
 						$card = '';
 						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";

@@ -77,7 +77,7 @@ class b1
 						$myAuthorPage = a($value, 'authorpage');
 
 						// get grid class name by analyse
-						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
+						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
 						$card = '';
 						$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-md hover:shadow-lg bg-white $borderRadius'>";
