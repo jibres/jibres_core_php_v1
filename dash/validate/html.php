@@ -109,6 +109,7 @@ class html
 			// 'data-ajaxify',
 			// 'data-kerkere',
 			'data-accordion',
+			'aria-labelledby',
 		];
 
 	}
@@ -239,6 +240,14 @@ class html
 					$nodeNewTagname = $doc->createElement($tag, self::DOMinnerHTML($nodeTagName));
 
 					$detail = array_merge($detail, self::public_attr());
+
+					foreach ($nodeTagName->attributes as $attrName => $attrNode)
+					{
+					    if(substr($attrName, 0, 5) === 'data-')
+					    {
+					    	$detail[] = $attrName;
+					    }
+					}
 
 					foreach ($detail as $attr)
 					{
