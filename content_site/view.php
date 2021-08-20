@@ -50,6 +50,15 @@ class view
 			\dash\face::title(\dash\data::currentPageDetail_title());
 		}
 
+		if(\dash\data::currentSectionDetail())
+		{
+			$currentSectionDetail = \dash\data::currentSectionDetail();
+
+			$myTitle = ' [ '. a($currentSectionDetail, 'preview', 'type'). ' ]';
+
+			\dash\face::title(\dash\face::title(). ' '. $myTitle);
+		}
+
 		\dash\data::btnSaveSiteBuilder(true);
 
 		self::generate_iframe_src();
