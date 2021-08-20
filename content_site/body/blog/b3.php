@@ -31,6 +31,8 @@ class b3
 				// range
 				'count_post',
 
+				'post_show_date',
+
 				'post_show_read_more',
 
 				'btn_viewall',
