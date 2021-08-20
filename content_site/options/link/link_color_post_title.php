@@ -17,5 +17,12 @@ class link_color_post_title
 		return false;
 	}
 
+
+	public static function option_key()
+	{
+		return 'link_color_post_title';
+	}
+
+
 }
 ?>

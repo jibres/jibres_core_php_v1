@@ -11,5 +11,12 @@ class link_color_post_read_more
 		return \content_site\section\view::get_current_index_detail('post_show_read_more');
 	}
 
+
+	public static function option_key()
+	{
+		return 'link_color_post_read_more';
+	}
+
+
 }
 ?>
