@@ -12,7 +12,7 @@ class radius
 		$enum[] = ['key' => 'normal', 'title' => 'Normal' ,   'class' => 'rounded' ];
 		$enum[] = ['key' => 'lg',   	'title' => 'Large' ,    'class' => 'rounded-lg' ];
 		$enum[] = ['key' => '3xl',   	'title' => '3xl' , 	    'class' => 'rounded-3xl' ];
-		// $enum[] = ['key' => 'full', 'title' => 'Full',  'class' => 'rounded-full' ];
+		$enum[] = ['key' => 'full',   'title' => 'Full',      'class' => 'rounded-full' ];
 
 		return $enum;
 	}
