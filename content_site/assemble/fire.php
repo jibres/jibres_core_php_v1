@@ -34,8 +34,11 @@ class fire
 		$_args['background:style']      = \content_site\assemble\background::style($_args);
 		$_args['background:full_style'] = " style='".$_args['background:style']."'";
 
-		$_args['text_color:style']      = \content_site\assemble\text_color::style($_args);
-		$_args['text_color:full_style'] = " style='".$_args['text_color:style']."'";
+		$_args['color_text:style']      = \content_site\assemble\color::style($_args, 'color_text');
+		$_args['color_text:full_style'] = " style='".$_args['color_text:style']."'";
+
+		$_args['color_heading:style']      = \content_site\assemble\color::style($_args, 'color_heading');
+		$_args['color_heading:full_style'] = " style='".$_args['color_heading:style']."'";
 
 		$_args['secition:id']           = \content_site\assemble\tools::section_id(a($_args, 'type'), a($_args, 'id'));
 
@@ -45,5 +48,8 @@ class fire
 
 
 	}
+
+
+
 }
 ?>

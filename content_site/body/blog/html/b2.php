@@ -23,13 +23,11 @@ class b2
 
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
-		$text_color       = a($_args, 'text_color:full_style');
+		$color_heading    = a($_args, 'color_heading:full_style');
 		$section_id       = a($_args, 'secition:id');
 		$heading_class    = a($_args, 'heading:class');
 
 		$maskImg          = a($_args, 'image_mask:class');
-
-
 
 
 		$totalExist = count($_blogList);
@@ -63,7 +61,7 @@ class b2
 					{
 						$heading_class = \content_site\options\heading\heading_full::class_name($_args);
 
-						$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $text_color>";
+						$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}

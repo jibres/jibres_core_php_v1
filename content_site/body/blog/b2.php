@@ -15,7 +15,7 @@ class b2
 
 		return
 		[
-			'title'        => T_("Modern View"),
+			'title'        => T_("Magic box"),
 			'default'      => option::master_default(['type' => 'b2', 'post_title_position' => 'inside']),
 			'options'      =>
 			[
@@ -32,34 +32,30 @@ class b2
 				'count_post',
 
 				'post_title_position',
-
-
 				'btn_viewall',
+
+
 
 
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
 
-					'height',
-					'coverratio',
-					'radius',
-					'effect',
-
-					'image_mask',
-
-					'background_pack',
-
-					'color_text',
-
 					'font',
 
-					'btn_viewall_mode',
+					'height',
+					'background_pack',
 
+					'color_heading',
+					'radius_full',
+					'coverratio',
+					'effect',
+					'image_mask',
 					'link_color_post_title',
-
-
+					'btn_viewall_mode',
 					'type',
+
+
 				]),
 			],
 			'preview_list' =>

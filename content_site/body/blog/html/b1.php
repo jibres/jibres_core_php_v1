@@ -20,7 +20,8 @@ class b1
 
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
-		$text_color       = a($_args, 'text_color:full_style');
+		$color_heading    = a($_args, 'color_heading:full_style');
+
 		$section_id       = a($_args, 'secition:id');
 		$heading_class    = a($_args, 'heading:class');
 
@@ -55,7 +56,7 @@ class b1
 					$html .= '<header>';
 					{
 
-						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $text_color>";
+						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}

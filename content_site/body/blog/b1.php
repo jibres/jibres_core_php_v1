@@ -46,7 +46,7 @@ class b1
 					'height',
 					'background_pack',
 
-					'color_text',
+					'color_heading',
 					'radius_normal',
 					'coverratio',
 					'btn_viewall_mode',
