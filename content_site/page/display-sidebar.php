@@ -56,9 +56,10 @@ foreach ($list as $key => $value)
           $deleted_section[] = $value;
           continue;
         }
+        $myTitle = implode(' | ', [a($value, 'preview', 'key'), a($value, 'preview', 'type')]);
       ?>
         <li>
-          <a class="item f <?php if(a($value, 'status_preview') === 'hidden'){ echo 'opacity-30';} ?>" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
+          <a title="<?php echo $myTitle ?>" class="item f <?php if(a($value, 'status_preview') === 'hidden'){ echo 'opacity-30';} ?>" href="<?php echo \dash\url::here(). '/section/'. a($value, 'preview', 'key'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
             <input type="hidden" name="sort_section[]" value="<?php echo a($value, 'id') ?>">
             <img class="bg-gray-100 hover:bg-gray-200 p-4" src="<?php echo a($value, 'preview', 'icon') ?>">
             <div class="key"><?php if(a($value, 'preview', 'heading') !== null) { echo a($value, 'preview', 'heading'); }else{ echo '<i class="fc-mute">'. T_("Without title"). '</i>';} ?></div>
