@@ -79,7 +79,7 @@ class b2
 						$gridCol = \content_site\grid\analyze::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden $borderRadius' $myLinkHref>";
+						$card .= "<a data-magicbox='dark' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
@@ -91,11 +91,16 @@ class b2
 								$card .= "</picture>";
 							}
 							$linkColorClass = 'link-'. $link_color;
+							$linkAlign = '';
+							if($borderRadius === 'rounded-full')
+							{
+								$linkAlign = 'text-center';
+							}
 
 							if($title_position === 'inside')
 							{
 								// title
-								$card .= "<h3 class='absolute inset-x-0 bottom-0 block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkColorClass'>";
+								$card .= "<h3 class='absolute inset-x-0 bottom-0 block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
 								{
 									$card .= $myTitle;
 								}
@@ -104,7 +109,7 @@ class b2
 							elseif($title_position === 'outside')
 							{
 								// title
-								$card .= "<h3 class='block leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkColorClass'>";
+								$card .= "<h3 class='block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
 								{
 									$card .= $myTitle;
 								}
