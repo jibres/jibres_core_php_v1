@@ -100,10 +100,10 @@ class container
 			$name_quick = $name. '_quick';
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'sm', 'S', (($default === 'sm')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'auto', 'M', (($default === 'auto')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['sm', 'auto', 'xl']) ? true : false));
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'sm', 'S', (($default === 'sm')? true : false), true);
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'auto', 'M', (($default === 'auto')? true : false), true);
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false), true);
+			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['sm', 'auto', 'xl']) ? true : false), true);
 
 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
 

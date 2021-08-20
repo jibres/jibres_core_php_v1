@@ -34,7 +34,7 @@ class g1
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
-
+					'container',
 					// 'font',
 					'height',
 					'background_pack',
