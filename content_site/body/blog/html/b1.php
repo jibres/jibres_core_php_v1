@@ -28,10 +28,10 @@ class b1
 		$totalExist = count($_blogList);
 		$totalCount = a($_args, 'count');
 
-		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4';
+		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4 m-auto';
 		if($totalCount > 3)
 		{
-			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
+			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4 m-auto';
 		}
 
 		// element type
@@ -48,13 +48,12 @@ class b1
 
 		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
-			$html .= "<div class='$containerMaxWidth m-auto'>";
+			$html .= "<div class='$containerMaxWidth'>";
 			{
 				if(a($_args, 'heading') !== null)
 				{
 					$html .= '<header>';
 					{
-
 						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
