@@ -288,7 +288,10 @@ class html
 
 							if(substr($attr, 0, 5) === 'data-')
 							{
-					    		$nodeNewTagname->setAttribute($attr, '');
+								if($nodeTagName->hasAttribute($attr))
+								{
+					    			$nodeNewTagname->setAttribute($attr, '');
+								}
 							}
 						}
 					}
