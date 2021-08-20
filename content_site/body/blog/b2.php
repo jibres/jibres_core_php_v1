@@ -32,7 +32,6 @@ class b2
 				'count_post',
 
 				'post_title_position',
-				'post_show_read_more',
 
 				'btn_viewall',
 
@@ -69,7 +68,7 @@ class b2
 
 					'font',
 					'btn_viewall_mode',
-					'link_mode',
+
 
 					'type',
 				]),

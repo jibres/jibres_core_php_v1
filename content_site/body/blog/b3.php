@@ -30,13 +30,9 @@ class b3
 				// range
 				'count_post',
 
-
-				'post_show_readingtime',
-				'post_show_excerpt',
-
+				'post_show_read_more',
 
 				'btn_viewall',
-				'post_show_date',
 
 				// sub page
 				'style' => \content_site\options\style::option_list(
@@ -44,7 +40,6 @@ class b3
 					'background_pack',
 
 					'height',
-
 
 					// skip draw this option in html
 					'background_color',
@@ -70,6 +65,7 @@ class b3
 
 					'font',
 					'btn_viewall_mode',
+					'link_mode',
 
 					'type',
 				]),
