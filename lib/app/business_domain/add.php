@@ -217,19 +217,21 @@ class add
 				'status'              => 'pending',
 				'store_id'            => $data['store_id'],
 				'master'              => $master_domain,
-
-				'checkdns'            => null,
-				'cdnpanel'            => null,
-				'httpsrequest'        => null,
-				'httpsverify'         => null,
-
-				'dnsok'               => null,
-				'arvan_result'        => null,
-				'f_ssl_https_upstram' => null,
-				'f_ssl_redirect'      => null,
-
-
 			];
+
+			// if my dns is not ok remove it
+			if(!a($check_duplicate, 'dnsok'))
+			{
+				$add_by_update['checkdns']            = null;
+				$add_by_update['cdnpanel']            = null;
+				$add_by_update['httpsrequest']        = null;
+				$add_by_update['httpsverify']         = null;
+				$add_by_update['dnsok']               = null;
+				$add_by_update['arvan_result']        = null;
+				$add_by_update['f_ssl_https_upstram'] = null;
+				$add_by_update['f_ssl_redirect']      = null;
+
+			}
 
 			\lib\app\business_domain\edit::edit_raw($add_by_update, $update_store_id);
 			$business_domain_id = $update_store_id;
