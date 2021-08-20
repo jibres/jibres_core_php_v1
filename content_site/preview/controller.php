@@ -90,18 +90,64 @@ class controller
 		{
 			if(\dash\url::subchild())
 			{
-				$preview_list = \content_site\call_function::preview_list($section);
+				// preview/blog/b1
+				// load section type preview list
+				$preview_list = \content_site\call_function::preview_list($section, $type);
 				\dash\data::previewSectionList($preview_list);
 				$allow = true;
 
 				\dash\data::myPreviewDisplayType('preview_list');
-				// preview/blog/b1
-				// load section type preview list
 			}
 			else
 			{
 				// preview/blog/b1
 				// load section type list
+				$section_list = \content_site\section\controller::section_list();
+
+				$type_list = [];
+				$group_list = [];
+
+				foreach ($section_list as $key => $value)
+				{
+					if($section)
+					{
+						if(a($value, 'key') === $section)
+						{
+							$section_requested_detail = \content_site\call_function::detail($value['key']);
+
+							// $popular = \content_site\call_function::popular($value['key']);
+							$type_list = \content_site\call_function::ready_type_list($value['key']);
+						}
+						else
+						{
+							// skip section by other key
+							continue;
+						}
+					}
+					else
+					{
+						// show all group
+						if(!isset($group_list[a($value, 'group')]))
+						{
+							$group_list[a($value, 'group')] = [];
+						}
+
+						$group_list[a($value, 'group')][] = $value;
+					}
+				}
+
+				if(\dash\url::child())
+				{
+					\dash\data::myPreviewDisplayType('type_list');
+					\dash\data::myPreviewTypeList($type_list);
+				}
+				else
+				{
+					\dash\data::myPreviewDisplayType('group_list');
+					\dash\data::groupSectionList($group_list);
+				}
+
+				$allow = true;
 			}
 		}
 
