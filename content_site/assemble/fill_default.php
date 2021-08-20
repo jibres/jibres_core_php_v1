@@ -23,7 +23,7 @@ class fill_default
 	{
 		$date = date('Y-m-d H:i:s', strtotime( '-'.mt_rand(0,5).' days'));
 
-		if($_preview_mode)
+		if($_preview_mode || \dash\url::subdomain() === 'demo')
 		{
 			$img = \dash\sample\img::image();
 		}
