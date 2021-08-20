@@ -77,8 +77,8 @@ else
 
 $html .= '</div>';
 
+require_once('part/download_php.php');
+
 echo $html;
 
-
-require_once('part/download_php.php');
 ?>
