@@ -32,6 +32,10 @@ class fire
 			$_args['container:class'] = \content_site\options\container\container_gallery::class_name(a($_args, 'container'));
 		}
 
+		if(array_key_exists('magicbox_gap', $_args))
+		{
+			$_args['magicbox_gap:class'] = \content_site\options\magicbox\magicbox_gap::class_name(a($_args, 'magicbox_gap'));
+		}
 		// maybe all section have this variable
 
 		$_args['font:class']            = \content_site\assemble\font::class($_args);

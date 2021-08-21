@@ -22,6 +22,7 @@ class g1
 
 		$height           = a($_args, 'height:class');
 		$container        = a($_args, 'container:class');
+		$gap              = a($_args, 'magicbox_gap:class');
 		$background_style = a($_args, 'background:full_style');
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$section_id       = a($_args, 'secition:id');

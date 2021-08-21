@@ -10,11 +10,10 @@ class magicbox_gap
 	{
 		$enum   = [];
 
-
-		$enum[] = ['key' => 'hide', 'title' => T_("Hide")];
-		$enum[] = ['key' => 'inside', 'title' => T_("Inside")];
-		$enum[] = ['key' => 'outside', 'title' => T_("Outside")];
-
+		$enum[] = ['key' => 'none', 'title' => T_("None"), 'class' => '1'];
+		$enum[] = ['key' => 'sm',   'title' => 'S',        'class' => '2'];
+		$enum[] = ['key' => 'md',   'title' => 'M',        'class' => '3'];
+		$enum[] = ['key' => 'lg',   'title' => 'L',        'class' => '4'];
 
 		return $enum;
 	}
@@ -22,7 +21,7 @@ class magicbox_gap
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Position title')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Gap')]);
 		return $data;
 	}
 
@@ -30,9 +29,32 @@ class magicbox_gap
 
 	public static function default()
 	{
-		return 'inside';
+		return 'md';
 	}
 
+
+	public static function class_name($_key)
+	{
+		$enum = self::enum();
+
+		foreach ($enum as $key => $value)
+		{
+			if(!$_key)
+			{
+				if($value['key'] === self::default())
+				{
+					return $value['class'];
+				}
+			}
+			else
+			{
+				if($value['key'] === $_key)
+				{
+					return $value['class'];
+				}
+			}
+		}
+	}
 
 
 	public static function admin_html()
@@ -46,8 +68,7 @@ class magicbox_gap
 		}
 
 
-		$title = T_('Title position');
-
+		$title = T_('Gap');
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
