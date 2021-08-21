@@ -1,6 +1,8 @@
 <?php
 $html = '';
 
+require_once('navigate.php');
+
 if(\dash\data::myPreviewDisplayType() === 'preview_list')
 {
 	$previewSectionList = \dash\data::previewSectionList();

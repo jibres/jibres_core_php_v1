@@ -74,10 +74,14 @@ class controller
 
 		$allow = false;
 
+		$back_url = null;
+
 
 		if(\dash\url::dir(3))
 		{
 			// preview/blog/b1/p1
+
+			$back_url = \dash\url::that(). '/'. $type;
 
 			$load_preview = self::routing();
 			if($load_preview)
@@ -90,6 +94,7 @@ class controller
 		{
 			if(\dash\url::subchild())
 			{
+				$back_url = \dash\url::that();
 				// preview/blog/b1
 				// load section type preview list
 				$preview_list = \content_site\call_function::preview_list($section, $type);
@@ -111,6 +116,7 @@ class controller
 				{
 					if($section)
 					{
+						$back_url = \dash\url::this();
 						if(a($value, 'key') === $section)
 						{
 							$section_requested_detail = \content_site\call_function::detail($value['key']);
@@ -153,6 +159,7 @@ class controller
 
 		if($allow)
 		{
+			\dash\data::previewBackUrl($back_url);
 			\dash\temp::set('forceLoadNewSiteBuilder', true);
 			\dash\data::demoOnlineLoadPreviewSection(true);
 			\dash\open::get();
