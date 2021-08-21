@@ -82,12 +82,12 @@ class b2
 						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox='$effect' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";
+						$card .= "<a data-magicbox='$effect' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden1' $myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$pictureClass = 'block relative transition shadow-sm hover:shadow-md';
+								$pictureClass = 'transition shadow-sm hover:shadow-md';
 								if($coverRatio)
 								{
 									$pictureClass .= ' '. $coverRatio;
@@ -107,10 +107,10 @@ class b2
 
 								$card .= "<picture class='$pictureClass'>";
 								{
-									$imgClass = 'block h-full w-full object-center object-cover overflow-hidden';
+									$imgClass = 'object-cover';
 									if(a($_args, 'coverratio') === 'free')
 									{
-										$imgClass = 'block h-auto w-full overflow-hidden';
+										$imgClass = 'h-auto';
 									}
 									if($borderRadius)
 									{

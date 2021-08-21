@@ -80,12 +80,12 @@ class g1
 						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'image'), 1100));
 
 						$card = '';
-						$card .= "<a data-magicbox='$effect' class='relative overflow-hidden1' $myLinkHref>";
+						$card .= "<a data-magicbox='$effect' $myLinkHref>";
 						{
 							// thumb
 							// if($myThumb && a($_args, 'post_show_image'))
 							{
-								$pictureClass = 'block relative transition shadow-sm hover:shadow-md';
+								$pictureClass = 'transition shadow-sm hover:shadow-md';
 								if($coverRatio)
 								{
 									$pictureClass .= ' '. $coverRatio;
@@ -105,10 +105,10 @@ class g1
 
 								$card .= "<picture class='$pictureClass'>";
 								{
-									$imgClass = 'block h-full w-full object-center object-cover overflow-hidden';
+									$imgClass = 'object-cover';
 									if(a($_args, 'coverratio') === 'free')
 									{
-										$imgClass = 'block h-auto w-full overflow-hidden';
+										$imgClass = 'h-auto';
 									}
 									if($borderRadius)
 									{
