@@ -142,7 +142,7 @@ class option
 
 	public static function current_gallery_item($_section_id)
 	{
-		$list = \lib\app\menu\get::get_by_for_id('gallery', $section_id);
+		$list = \lib\app\menu\get::get_by_for_id('gallery', $_section_id);
 
 		if(!is_array($list))
 		{

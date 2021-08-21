@@ -30,7 +30,7 @@ class get
 
 	public static function by_for_id($_for, $_for_id)
 	{
-		$query = "SELECT * FROM menu WHERE menu.for = '$_for' AND menu.for_id = $_form_id LIMIT 1000";
+		$query = "SELECT * FROM menu WHERE menu.for = '$_for' AND menu.for_id = $_for_id LIMIT 1000";
 		$result = \dash\db::get($query);
 		return $result;
 	}

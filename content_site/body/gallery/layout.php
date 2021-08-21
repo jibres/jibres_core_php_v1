@@ -18,7 +18,8 @@ class layout
 
 		$html             = '';
 
-		$image_list = a($_args, 'image_list');
+		$image_list = option::current_gallery_item(a($_args, 'id'));
+
 		if(!is_array($image_list))
 		{
 			$image_list = [];
@@ -29,6 +30,16 @@ class layout
 		if(a($_args, 'image_random'))
 		{
 			shuffle($image_list);
+		}
+
+		foreach ($image_list as $key => $value)
+		{
+			if(!a($value, 'file'))
+			{
+				$value['file'] = \dash\sample\img::image();
+			}
+
+			$image_list[$key]['image'] = $value['file'];
 		}
 
 

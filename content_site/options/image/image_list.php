@@ -9,14 +9,7 @@ class image_list
 	{
 		$currentSectionDetail = \dash\data::currentSectionDetail();
 
-		if($currentSectionDetail && isset($currentSectionDetail['preview']['image_list']) && is_array($currentSectionDetail['preview']['image_list']))
-		{
-			// ok
-		}
-		else
-		{
-			return null;
-		}
+		$image_list = \content_site\body\gallery\option::current_gallery_item(a($currentSectionDetail, 'id'));
 
 
 		$html = '';
@@ -32,13 +25,13 @@ class image_list
 			{
 		  		$html .= '<ul data-sortable>';
 		  		{
-		    		foreach ($currentSectionDetail['preview']['image_list'] as $key => $value)
+		    		foreach ($image_list as $key => $value)
 		    		{
 			      		$html .= '<li>';
 			      		{
-				      		$html .= '<a class="item f" href="'. \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => a($value, 'index')]). '">';
+				      		$html .= '<a class="item f" href="'. \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => a($value, 'id')]). '">';
 				      		{
-					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'index'). '">';
+					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'id'). '">';
 
 				      			if(isset($value['image']) && $value['image'])
 				      			{
@@ -49,8 +42,8 @@ class image_list
 				        			$file_url = \dash\utility\icon::url('Image', 'major');
 				      			}
 
-				        		$html .= '<img src="'. $file_url. '" alt="'. a($value, 'caption'). '">';
-				        		$html .= '<div class="key">'. a($value, 'caption').' </div>';
+				        		$html .= '<img src="'. $file_url. '" alt="'. a($value, 'title'). '">';
+				        		$html .= '<div class="key">'. a($value, 'title').' </div>';
 
             					if (count($currentSectionDetail['preview']['image_list']) > 1)
             					{
