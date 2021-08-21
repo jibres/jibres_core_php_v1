@@ -775,63 +775,7 @@ class model
 			return false;
 		}
 
-		// $insert                   = [];
-		// $insert['mode']           = $mode;
-		// $insert['type']           = $key;
-		// $insert['related']        = 'posts';
-		// $insert['related_id']     = $page_id;
-		// $insert['title']          = null;
-		// $insert['preview']        = $preview;
-		// $insert['status']         = 'draft';
-		// $insert['status_preview'] = 'draft';
-		// $insert['datecreated']    = date("Y-m-d H:i:s");
-
-		// $get_last_sort_args =
-		// [
-		// 	'related'    => $insert['related'],
-		// 	'related_id' => $insert['related_id'],
-		// 	// need add some args later
-		// ];
-
-		// $get_last_sort = \lib\db\pagebuilder\get::last_sort($get_last_sort_args);
-
-		// if(!$get_last_sort || !is_numeric($get_last_sort))
-		// {
-		// 	$insert['sort'] = 10;
-		// }
-		// else
-		// {
-		// 	$insert['sort'] = (floor(intval($get_last_sort) / 10) * 10) + 10;
-		// }
-
-		// $insert['sort_preview'] = $insert['sort'];
-
-		// if($update_record)
-		// {
-		// 	\lib\db\sitebuilder\update::record($insert, $update_record);
-		// 	$id = $update_record;
-
-		// }
-		// else
-		// {
-
-		// 	$count_section_in_page = \lib\db\sitebuilder\get::count_section_in_page($page_id);
-
-		// 	if(floatval($count_section_in_page) >= 50)
-		// 	{
-		// 		\dash\notif::error(T_("Maximum capacity of page section is full"));
-		// 		return false;
-		// 	}
-
-		// 	$id = \lib\db\sitebuilder\insert::new_record($insert);
-
-		// 	if(!$id)
-		// 	{
-		// 		\dash\notif::error(T_("No way to save data"));
-		// 		return false;
-		// 	}
-		// }
-
+		\content_site\call_function::process_after_add_section($key, $id, $type);
 
 		$url = \dash\url::this(). '/';
 		$url .= $key;
