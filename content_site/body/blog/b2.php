@@ -16,27 +16,17 @@ class b2
 		return
 		[
 			'title'        => T_("Magic box"),
-			'default'      => option::master_default(['type' => 'b2', 'post_title_position' => 'inside', 'effect' => 'zoom', 'link_color_post_title' => 'light']),
 			'options'      =>
 			[
-				// 'group_setting',
-				// text
 				'heading_full',
-				// select
 				'post_tag',
 				'post_template',
-
 				'post_order',
-				// range
 				'count_post',
-
 				'post_title_position',
 				'btn_viewall',
-
-				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
-
 					'font',
 					'height',
 					'background_pack',
@@ -49,6 +39,26 @@ class b2
 					'btn_viewall_mode',
 					'type',
 				]),
+			],
+			'default'      =>
+			[
+				'type'                  => 'b2',
+				'heading'               => T_("Latest Posts"),
+				'post_template'         => 'any',
+				'post_order'            => 'latest',
+				'count'                 => 3,
+				'btn_viewall_check'     => true,
+				'btn_viewall'           => T_("View all"),
+				'background_pack'       => 'none',
+				'height'                => 'm',
+				'coverratio'            => '16:9',
+				'color_text'            => '#333333',
+				'heading_position'      => 'center',
+				'btn_viewall_mode'      => 'dark',
+				'radius_normal'         => 'none',
+				'post_title_position'   => 'inside',
+				'effect'                => 'zoom',
+				'link_color_post_title' => 'light'
 			],
 			'preview_list' =>
 			[

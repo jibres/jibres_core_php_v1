@@ -15,19 +15,13 @@ class b1
 		return
 		[
 			'title'        => T_("Card Design"),
-			'default'      => option::master_default(['type' => 'b1']),
 			'options'      =>
 			[
-				// 'group_setting',
-				// text
 				'heading_full',
 
-				// select
 				'post_tag',
 				'post_template',
-
 				'post_order',
-				// range
 				'count_post',
 
 				'post_show_image',
@@ -42,19 +36,37 @@ class b1
 				'style' => \content_site\options\style::option_list(
 				[
 					'font',
-
 					'height',
 					'background_pack',
-
 					'color_heading',
 					'radius_normal',
 					'coverratio',
 					'btn_viewall_mode',
 					'type',
 				]),
-
 			],
-
+			'default'      =>
+			[
+				'type'                  => 'b1',
+				'heading'               => T_("Latest Posts"),
+				'post_template'         => 'any',
+				'post_order'            => 'latest',
+				'count'                 => 3,
+				'post_show_excerpt'     => true,
+				'post_show_image'       => true,
+				'post_show_date'        => 'relative',
+				'post_show_author'      => true,
+				'post_show_readingtime' => true,
+				'btn_viewall_check'     => true,
+				'btn_viewall'           => T_("View all"),
+				'background_pack'       => 'none',
+				'height'                => 'm',
+				'coverratio'            => '16:9',
+				'color_text'            => '#333333',
+				'heading_position'      => 'center',
+				'btn_viewall_mode'      => 'dark',
+				'radius_normal'         => 'none',
+			],
 			'preview_list' =>
 			[
 				'p1',

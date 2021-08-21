@@ -15,29 +15,17 @@ class b3
 		return
 		[
 			'title'        => T_("Classic View"),
-			'default'      => option::master_default(['type' => 'b3']),
 			'options'      =>
 			[
-				// 'group_setting',
-				// text
 				'heading_full',
 				'description',
-
-				// select
 				'post_tag',
 				'post_template',
-
 				'post_order',
-				// range
 				'count_post',
-
 				'post_show_date',
-
 				'post_show_read_more',
-
 				'btn_viewall',
-
-				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
 					'font',
@@ -50,6 +38,22 @@ class b3
 					'type',
 				]),
 
+			],
+			'default'      =>
+			[
+				'type'                  => 'b3',
+				'heading'               => T_("Latest Posts"),
+				'post_template'         => 'any',
+				'post_order'            => 'latest',
+				'count'                 => 3,
+				'post_show_date'        => 'relative',
+				'btn_viewall_check'     => true,
+				'btn_viewall'           => T_("View all"),
+				'background_pack'       => 'none',
+				'height'                => 'm',
+				'color_text'            => '#333333',
+				'heading_position'      => 'center',
+				'btn_viewall_mode'      => 'dark',
 			],
 
 			'preview_list' =>
