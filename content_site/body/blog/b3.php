@@ -88,7 +88,7 @@ class b3
 				'heading_position'    => 'left',
 				'heading'             => $_title,
 				'description'         => 'All the latest news, straight from the team.',
-				'count'               => 2,
+				'count'               => 5,
 				'color_text'          => '#444444',
 				'color_heading'       => '#000000',
 				'btn_viewall_mode'    => 'dark',
@@ -109,7 +109,24 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-
+				'type'                => 'b3',
+				'post_show_read_more' => null,
+				'post_show_excerpt'   => 1,
+				'post_show_date'      => 'no',
+				'link_color'          => 'primary',
+				'key'                 => 'blog',
+				'height'              => 'fullscreen',
+				'heading_position'    => 'left',
+				'heading'             => $_title,
+				'description'         => 'All the latest news, straight from the team.',
+				'count'               => 2,
+				'color_text'          => '#444444',
+				'color_heading'       => '#000000',
+				'btn_viewall_mode'    => 'secondary',
+				'btn_viewall_check'   => '1',
+				'btn_viewall'         => T_("View all"),
+				'background_pack'     => 'solid',
+				'background_color'    => '#eeeeee',
 			],
 		];
 	}
