@@ -36,7 +36,7 @@ class g1
 				[
 					'font',
 					'height',
-					'container',
+					'container_gallery',
 					'background_pack',
 					'color_heading',
 					'radius_full',

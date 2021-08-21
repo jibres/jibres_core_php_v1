@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\container;
 
 
-class container
+class container_full
 {
 
 	private static function enum()
@@ -22,10 +22,10 @@ class container
 
 	public static function validator($_data)
 	{
-		$quick = a($_data, 'container_quick');
+		$quick = a($_data, 'container_full_quick');
 		$quick = \dash\validate::enum($quick, true, ['enum' => ['sm', 'auto', 'xl', 'more'], 'field_title' => T_('Height')]);
 
-		$data = a($_data, 'container');
+		$data = a($_data, 'container_full');
 		$data = \dash\validate::enum($data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
 
 		if($quick === 'more' && !$data)
@@ -73,6 +73,12 @@ class container
 	}
 
 
+	public static function db_key()
+	{
+		return 'container';
+	}
+
+
 	public static function admin_html()
 	{
 
@@ -96,7 +102,7 @@ class container
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_container';
+			$name       = 'opt_container_full';
 			$name_quick = $name. '_quick';
 
 			$radio_html = '';
