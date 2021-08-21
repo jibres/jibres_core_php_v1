@@ -14,9 +14,9 @@ class color_heading extends \content_site\options\background\background_color
 	{
 		$default = \content_site\section\view::get_current_index_detail('color_heading');
 
-		$heading = \content_site\section\view::get_current_index_detail('heading');
+		$heading = null ; //  = \content_site\section\view::get_current_index_detail('heading');
 
-		if($heading || $heading === '0')
+		if($heading || $heading === '0' || 1)
 		{
 			if(!$default)
 			{
