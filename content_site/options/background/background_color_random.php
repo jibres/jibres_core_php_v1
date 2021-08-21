@@ -56,13 +56,14 @@ class background_color_random
 	{
 		$list =
 		[
+			// https://uigradients.com/
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#4bf140', 'background_gradient_to' => '#fd2d5e',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cc0fa2', 'background_gradient_to' => '#a7b168',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#e09dd4', 'background_gradient_to' => '#c75856',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#09b5c7', 'background_gradient_to' => '#757089',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cae971', 'background_gradient_to' => '#7cfbe9',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#33e885', 'background_gradient_to' => '#0f542d',],
-			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#0ff53b', 'background_gradient_to' => '#1663a9',],
+			// ['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#0ff53b', 'background_gradient_to' => '#1663a9',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#915118', 'background_gradient_to' => '#e6a691',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#39ecad', 'background_gradient_to' => '#2a8196',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#f81b73', 'background_gradient_to' => '#1e19c5',],
@@ -71,6 +72,24 @@ class background_color_random
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#2d1c60', 'background_gradient_to' => '#961c3a',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#1f1004', 'background_gradient_to' => '#674c4b',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#dbcabb', 'background_gradient_to' => '#24f3b0',],
+
+			// https://cssgradient.io/gradient-backgrounds/
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#ff9a9e', 'background_gradient_to' => '#fad0c4',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#fad0c4', 'background_gradient_to' => '#ffd1ff',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#ffecd2', 'background_gradient_to' => '#fcb69f',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#f6d365', 'background_gradient_to' => '#fda085',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#fdcbf1', 'background_gradient_to' => '#e6dee9',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#a1c4fd', 'background_gradient_to' => '#c2e9fb',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#d4fc79', 'background_gradient_to' => '#96e6a1',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cfd9df', 'background_gradient_to' => '#e2ebf0',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#e0c3fc', 'background_gradient_to' => '#8ec5fc',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#fdfbfb', 'background_gradient_to' => '#ebedee',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#fdfcfb', 'background_gradient_to' => '#e2d1c3',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#667eea', 'background_gradient_to' => '#764ba2',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cd9cf2', 'background_gradient_to' => '#f6f3ff',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#c1dfc4', 'background_gradient_to' => '#deecdd',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#6a85b6', 'background_gradient_to' => '#bac8e0',],
+			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#434343', 'background_gradient_to' => '#000000',],
 		];
 
 		$result = $list[array_rand($list)];
