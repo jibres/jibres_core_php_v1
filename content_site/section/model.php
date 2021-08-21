@@ -51,12 +51,13 @@ class model
 	 */
 	public static function save_options()
 	{
-		$page_id    = \dash\request::get('id');
-		$section_id = \dash\request::get('sid');
-		$section_id = \dash\validate::id($section_id);
-		$subchild   = \dash\url::subchild();
-		$child      = \dash\url::child();
-		$index      = \dash\request::get('index');
+		$page_id     = \dash\request::get('id');
+		$section_id  = \dash\request::get('sid');
+		$section_id  = \dash\validate::id($section_id);
+		$subchild    = \dash\url::subchild();
+		$section_key = \dash\url::child();
+		$index       = \dash\request::get('index');
+		$type        = null;
 
 		if(!$section_id)
 		{
@@ -204,9 +205,7 @@ class model
 				return false;
 			}
 
-
-
-			$load_preview = \content_site\call_function::preview($child, $type, $preview_key);
+			$load_preview = \content_site\call_function::preview($section_key, $type, $preview_key);
 
 			if(!is_array($load_preview))
 			{
@@ -327,7 +326,11 @@ class model
 
 		if(\dash\data::changeSectionTypeMode())
 		{
+			// check process after change type
+			\content_site\call_function::process_after_change_type($section_key, $section_id, $type);
+
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
+
 			$need_redirect = true;
 		}
 

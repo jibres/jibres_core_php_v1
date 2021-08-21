@@ -140,5 +140,118 @@ class option
 	}
 
 
+	public static function current_gallery_item($_section_id)
+	{
+		$list = \lib\app\menu\get::get_by_for_id('gallery', $section_id)
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		return $list;
+	}
+
+
+	public static function current_gallery_item_count($_section_id)
+	{
+		$count = self::current_gallery_item($_section_id);
+
+		if(is_array($count))
+		{
+			return count($count);
+		}
+
+		return 0;
+	}
+
+
+
+
+	public static function process_after_add_section($_section_id = null, $_type = null)
+	{
+		if(!$_section_id || !$_type)
+		{
+			return;
+		}
+
+		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+
+		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
+		{
+			return;
+		}
+
+		self::add_gallery_item($_section_id, $maximum_capacity);
+	}
+
+
+	public static function process_after_change_type($_section_id = null, $_type = null)
+	{
+		if(!$_section_id || !$_type)
+		{
+			return;
+		}
+
+		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+
+		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
+		{
+			return;
+		}
+		// get current gallery item
+		$current_gallery_item_count = intval(self::current_gallery_item_count($_section_id));
+
+		$remain = $maximum_capacity - $current_gallery_item_count;
+
+		if($remain > 0)
+		{
+			self::add_gallery_item($_section_id, $remain);
+		}
+		else
+		{
+			// try to remove useless items
+		}
+
+	}
+
+
+	private static function add_gallery_item($_section_id, $_count)
+	{
+		$insert_menu =
+		[
+			'title'  => 'gallery-'. $_section_id,
+			'for'    => 'gallery',
+			'for_id' => $_section_id,
+		];
+
+		$result_add_menu = \lib\app\menu\add::add($insert_menu, true);
+
+		if(a($result_add_menu, 'id'))
+		{
+			$menu_id = $result_add_menu['id'];
+		}
+		else
+		{
+			\dash\log::oops('dbInsertGalleryMenuError');
+			return false;
+		}
+
+
+		for ($i=1; $i <= $_count; $i++)
+		{
+			$insert_menu_child =
+			[
+				'title'  => T_("Image :val", ['val' => \dash\fit::number($i)]),
+				'for'    => 'gallery',
+				'for_id' => $_section_id,
+			];
+
+			\lib\app\menu\add::menu_item($insert_menu_child, $menu_id, true);
+		}
+
+		\dash\notif::clean();
+	}
+
 }
 ?>
