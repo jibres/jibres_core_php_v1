@@ -83,6 +83,7 @@ class grid
 
 			case '4':
 			case '8':
+			case '12':
 			case '20':
 			case '40':
 			case '80':
@@ -92,7 +93,6 @@ class grid
 
 			case '6':
 			case '9':
-			case '12':
 			case '15':
 			// case '18':
 			// case '21':
