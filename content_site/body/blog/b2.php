@@ -29,6 +29,7 @@ class b2
 				[
 					'font',
 					'height',
+					'magicbox_gap',
 					'background_pack',
 					'color_heading',
 					'radius_full',
