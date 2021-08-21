@@ -89,7 +89,12 @@ class b2
 							{
 								$card .= "<picture class='block overflow-hidden transition shadow-sm hover:shadow-md $coverRatio $borderRadius $maskImg'>";
 								{
-									$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
+									$imgClass = 'block h-full w-full object-center object-cover';
+									if(a($_args, 'coverratio') === 'free')
+									{
+										$imgClass = 'block h-auto w-full';
+									}
+									$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
 								$card .= "</picture>";
 							}
