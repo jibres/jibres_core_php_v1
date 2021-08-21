@@ -171,6 +171,17 @@ class call_function
 	}
 
 
+	public static function section_type_fn($_section_key, $_type, $_fn)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_type);
+
+		return self::_call([$namespace, $_fn]);
+	}
+
+
+
 	/**
 	 * Get current option by check type
 	 *

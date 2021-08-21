@@ -40,6 +40,23 @@ class image_add
 			$currentSectionDetail['preview']['image_list'] = [];
 		}
 
+		// check max count by call maximum_capacity of gallery\b1
+
+		$maximum_capacity = 50;
+
+		$get_special_capacity = \content_site\call_function::section_type_fn(a($currentSectionDetail, 'preview', 'key'), a($currentSectionDetail, 'preview', 'type'), 'maximum_capacity');
+
+		if(is_numeric($get_special_capacity))
+		{
+			$maximum_capacity = intval($get_special_capacity);
+		}
+
+		if(count($currentSectionDetail['preview']['image_list']) > $maximum_capacity)
+		{
+			\dash\notif::error(T_("Maximum capacity of this section is full"));
+			return false;
+		}
+
 		$index = self::generate_random_key();
 
 		$currentSectionDetail['preview']['image_list'][] =
