@@ -22,7 +22,7 @@ class b3
 				'post_tag',
 				'post_template',
 				'post_order',
-				'count_post',
+				'count_post_50',
 				'post_show_date',
 				'post_show_excerpt',
 				'post_show_read_more',
