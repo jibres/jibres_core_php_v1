@@ -82,7 +82,7 @@ class b2
 						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
 						$card = '';
-						$card .= "<a data-magicbox='$effect' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden1' $myLinkHref>";
+						$card .= "<a data-magicbox='$effect' class='$gridCol flex flex-col max-w-md' $myLinkHref>";
 						{
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
