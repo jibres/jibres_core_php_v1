@@ -100,5 +100,63 @@ class b3
 	}
 
 
+	public static function p2($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p3($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p4($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p5($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
 }
 ?>
