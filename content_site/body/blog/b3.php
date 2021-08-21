@@ -61,6 +61,9 @@ class b3
 			'preview_list' =>
 			[
 				'p1',
+				'p2',
+				'p3',
+				'p4',
 			],
 		];
 	}
