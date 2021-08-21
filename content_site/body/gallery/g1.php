@@ -23,7 +23,7 @@ class g1
 				'image_list' =>
 				[
 					'file_gallery',
-					'caption',
+					'title',
 					'link',
 					'target',
 				],
