@@ -1,5 +1,5 @@
 <?php
-namespace content_site\options\post;
+namespace content_site\options\magicbox;
 
 
 class magicbox_title_position
