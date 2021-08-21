@@ -38,6 +38,7 @@ class g1
 					'font',
 					'height',
 					'container_gallery',
+					'magicbox_gap',
 					'background_pack',
 					'color_heading',
 					'radius_full',
