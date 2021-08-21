@@ -95,7 +95,7 @@ class g1
 									{
 										$imgClass = 'block h-auto w-full';
 									}
-									$card .= "<img loading='lazy' class='$imgClass' src2='#' src='$myThumb' alt='$myTitle'>";
+									$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
 								$card .= "</picture>";
 							}
