@@ -32,7 +32,7 @@ class container_gallery
 
 	public static function default()
 	{
-		return 'auto';
+		return 'lg';
 	}
 
 
