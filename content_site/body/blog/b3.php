@@ -69,12 +69,33 @@ class b3
 	/**
 	 * Preview 1
 	 */
-	public static function p1()
+	public static function p1($_title = null)
 	{
+		$_title = T_("Latest Posts");
 		return
 		[
 			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
+			'options' =>
+			[
+				'type'                => 'b3',
+				'post_show_read_more' => 1,
+				'post_show_excerpt'   => 1,
+				'post_show_date'      => 'relative',
+				'link_color'          => 'primary',
+				'key'                 => 'blog',
+				'height'              => 'fullscreen',
+				'heading_position'    => 'left',
+				'heading'             => $_title,
+				'description'         => 'All the latest news, straight from the team.',
+				'count'               => 2,
+				'color_text'          => '#444444',
+				'color_heading'       => '#000000',
+				'btn_viewall_mode'    => 'dark',
+				'btn_viewall_check'   => '1',
+				'btn_viewall'         => T_("View all"),
+				'background_pack'     => 'none',
+			],
 		];
 	}
 
