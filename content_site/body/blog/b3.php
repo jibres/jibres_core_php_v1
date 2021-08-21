@@ -173,24 +173,30 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-
+				'type'                     => 'b3',
+				'post_show_read_more'      => null,
+				'post_show_excerpt'        => null,
+				'post_show_date'           => 'full',
+				'link_color'               => 'primary',
+				'key'                      => 'blog',
+				'height'                   => 'fullscreen',
+				'heading_position'         => 'left',
+				'heading'                  => $_title,
+				'description'              => 'All the latest news, straight from the team.',
+				'count'                    => 2,
+				'color_text'               => '#ffffff',
+				'color_heading'            => '#ffffff',
+				'btn_viewall_mode'         => 'light',
+				'btn_viewall_check'        => '1',
+				'btn_viewall'              => T_("View all"),
+				'background_pack'          => 'gradient',
+				'background_gradient_type' => 'to bottom left',
+				'background_gradient_to'   => '#bac8e0',
+				'background_gradient_from' => '#6a85b6',
+				'background_color'         => '#000000',
 			],
 		];
 	}
 
-
-	public static function p5($_title = null)
-	{
-		$_title = T_("Latest Posts");
-		return
-		[
-			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
-			'version'        => 1,
-			'options' =>
-			[
-
-			],
-		];
-	}
 }
 ?>

@@ -38,7 +38,7 @@ class b3
 
 		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
-			$containerClass = 'max-w-3xl m-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 divide-y divide-gray-200';
+			$containerClass = 'max-w-3xl w-full m-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 divide-y divide-gray-200';
 			$html .= '<div class="'. $containerClass. '">';
 			{
 				if(a($_args, 'heading') !== null)
