@@ -34,15 +34,16 @@ class g1
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
-					'container',
-					// 'font',
+					'font',
 					'height',
+					'container',
 					'background_pack',
-					// 'color_heading',
+					'color_heading',
 					'radius_full',
 					'coverratio',
-					// 'effect',
+					'effect',
 					'image_mask',
+					'link_color',
 					'type',
 				]),
 			],
