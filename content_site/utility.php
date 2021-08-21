@@ -53,7 +53,6 @@ class utility
 
 		$need_unset =
 		[
-			'btn_viewall_mode',
 			'post_order',
 			'post_tag',
 			'post_template',
