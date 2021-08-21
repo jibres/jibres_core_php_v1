@@ -36,9 +36,9 @@ class b3
 			$classNames .= ' '. $font_class;
 		}
 
-		$html .= "<$cnElement data-type='$type' class='overflow-hidden $classNames'$background_style $section_id>";
+		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
-			$containerClass = 'max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 divide-y divide-gray-200';
+			$containerClass = 'max-w-3xl m-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 divide-y divide-gray-200';
 			$html .= '<div class="'. $containerClass. '">';
 			{
 				if(a($_args, 'heading') !== null)
@@ -135,10 +135,11 @@ class b3
 
 				}
 				$html .= '</div>';
+
+				$html .= \content_site\body\blog\share::btn_viewall($_args);
 			}
 			$html .= '</div>';
 
-			$html .= \content_site\body\blog\share::btn_viewall($_args);
 
 		}
 		$html .= "</$cnElement>";
