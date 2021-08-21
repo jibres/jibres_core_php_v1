@@ -114,7 +114,7 @@ class b3
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
-									$html .= "<p class='leading-7 opacity-80' $color_text>";
+									$html .= "<p class='leading-7' $color_text>";
 									$html .= $myExcerpt;
 									$html .= "</p>";
 								}
@@ -122,7 +122,7 @@ class b3
 								if(a($_args, 'post_show_read_more'))
 								{
 									$html .= "<div class='text-base font-medium'>";
-									$html .= '<a href="'.$myLink.'" class="inline-flex items-center link-'. $link_color.'">'.T_("Read more").'</a>';
+									$html .= '<a href="'.$myLink.'" class="inline-flex items-center opacity-70 link-'. $link_color.'">'.T_("Read more").'</a>';
 									$html .= "</div>";
 								}
 
