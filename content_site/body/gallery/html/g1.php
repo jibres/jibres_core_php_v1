@@ -22,7 +22,6 @@ class g1
 
 		$height           = a($_args, 'height:class');
 		$container        = a($_args, 'container:class');
-		var_dump($container);
 		$background_style = a($_args, 'background:full_style');
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$section_id       = a($_args, 'secition:id');
@@ -33,12 +32,6 @@ class g1
 
 		$totalExist = count($_image_list);
 		$totalCount = a($_args, 'count');
-
-		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4';
-		if($totalCount > 3)
-		{
-			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
-		}
 
 		// element type
 		$cnElement = 'div';
@@ -54,23 +47,23 @@ class g1
 
 		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
-			$html .= "<div class='$containerMaxWidth m-auto'>";
+			$html .= "<div class='$container m-auto'>";
 			{
-				if(a($_args, 'heading') !== null)
-				{
-					$html .= '<header>';
-					{
-						$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $color_heading>";
-						{
-							$html .= a($_args, 'heading');
-						}
-						$html .= '</h2>';
-					}
-					$html .= '</header>';
-				}
+				// if(a($_args, 'heading') !== null)
+				// {
+				// 	$html .= '<header>';
+				// 	{
+				// 		$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $color_heading>";
+				// 		{
+				// 			$html .= a($_args, 'heading');
+				// 		}
+				// 		$html .= '</h2>';
+				// 	}
+				// 	$html .= '</header>';
+				// }
 
 
-				$html .= "<div class='relative grid grid-cols-12 gap-4'>";
+				$html .= "<div class='relative grid2 grid-cols-12 gap-4'>";
 				{
 					foreach ($_image_list as $key => $value)
 					{
@@ -78,7 +71,7 @@ class g1
 						// h3 a
 						$myLinkHref   = "href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'caption');
-						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'image'), 780));
+						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'image'), 1100));
 
 						// get grid class name by analyse
 						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);

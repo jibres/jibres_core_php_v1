@@ -9,12 +9,12 @@ class container_gallery
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'auto', 'title' => T_("Auto"), 	  'class'   => 'avand', 'default' => true ];
-		$enum[] = ['key' => 'sm', 	'title' => T_("Small"), 	'class'   => 'avand-sm' ];
-		$enum[] = ['key' => 'md', 	'title' => T_("Medium"), 	'class'   => 'avand-md' ];
-		$enum[] = ['key' => 'lg', 	'title' => T_("Large"), 	'class'   => 'avand-lg', 'system' => true ];
-		$enum[] = ['key' => 'xl', 	'title' => T_("X Large"), 'class'   => 'avand-xl', 'system' => true ];
-		$enum[] = ['key' => 'none', 'title' => T_("None"), 		'class'   => '' ];
+		$enum[] = ['key' => 'sm', 	 'title' => "S",    'hide' => false, 'class' => 'max-w-screen-sm w-full px-2 sm:px-4 lg:px-5' ];
+		$enum[] = ['key' => 'md', 	 'title' => "M",    'hide' => false, 'class' => 'max-w-screen-md w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'lg', 	 'title' => "L",    'hide' => false, 'class' => 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'xl', 	 'title' => "XL",   'hide' => false, 'class' => 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'xl', 	 'title' => "2XL",  'hide' => false, 'class' => 'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'fluid', 'title' => "100%", 'hide' => false, 'class' => ''];
 
 		return $enum;
 	}
@@ -93,7 +93,7 @@ class container_gallery
 			$radio_html = '';
 			foreach (self::enum() as $key => $value)
 			{
-				if(isset($value['system']) && $value['system'])
+				if(isset($value['hide']) && $value['hide'])
 				{
 					continue;
 				}
