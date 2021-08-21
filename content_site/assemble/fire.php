@@ -27,6 +27,11 @@ class fire
 			$_args['height:class'] = \content_site\options\height::class_name(a($_args, 'height'));
 		}
 
+		if(array_key_exists('container', $_args))
+		{
+			$_args['container:class'] = \content_site\options\container\container_gallery::class_name(a($_args, 'container'));
+		}
+
 		// maybe all section have this variable
 
 		$_args['font:class']            = \content_site\assemble\font::class($_args);
