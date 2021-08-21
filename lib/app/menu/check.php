@@ -27,6 +27,11 @@ class check
 			'socialnetwork' => 'socialnetwork',
 			'hashtag_id'    => 'code',
 			'form_id'       => 'id',
+
+			'for'           => ['enum' => ['menu', 'gallery']],
+			'for_id'        => 'id',
+			'file'          => 'string',
+			'description'   => 'desc',
 		];
 
 		$require = [];
