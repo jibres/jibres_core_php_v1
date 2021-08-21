@@ -398,6 +398,8 @@ class call_function
 
 		$preview_default = self::replace_paw_value($preview_default);
 
+		$preview_default = \content_site\assemble\fire::me($preview_default);
+
 		$preview_html    = self::_call([$namespace_layout, 'layout'], $preview_default);
 
 		$result =
