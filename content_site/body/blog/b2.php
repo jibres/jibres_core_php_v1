@@ -236,7 +236,34 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-
+				'type'                     => 'b2',
+				'radius_normal'            => 'none',
+				'radius'                   => 'full',
+				'post_title_position'      => 'outside',
+				'post_show_readingtime'    => '1',
+				'post_show_image'          => '1',
+				'post_show_excerpt'        => '1',
+				'post_show_date'           => 'relative',
+				'post_show_author'         => '1',
+				'link_color_post_title'    => 'light',
+				'link_color'               => 'light',
+				'key'                      => 'blog',
+				'image_mask'               => 'none',
+				'height'                   => 'fullscreen',
+				'heading_position'         => 'center',
+				'heading'                  => $_title,
+				'effect'                   => 'dark',
+				'coverratio'               => '1:1',
+				'count'                    => 4,
+				'color_text'               => '#333333',
+				'color_heading'            => '#d7bf1d',
+				'btn_viewall_check'        => 1,
+				'btn_viewall'              => T_("View all"),
+				'background_pack'          => 'solid',
+				'background_gradient_type' => 'to bottom right',
+				'background_gradient_to'   => '#1663a9',
+				'background_gradient_from' => '#0ff53b',
+				'background_color'         => '#000000',
 			]
 		];
 	}
