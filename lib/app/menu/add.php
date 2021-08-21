@@ -17,6 +17,7 @@ class add
 		}
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
+		$args['for'] = 'menu';
 
 		$id = \lib\db\menu\insert::new_record($args);
 
