@@ -19,18 +19,18 @@ class g1
 			'default'      => option::master_default(['type' => 'g1', 'effect' => 'zoom', ]),
 			'options'      =>
 			[
-				'heading_raw',
+				'heading_full',
 				'image_list' =>
 				[
 					'file_gallery',
-					'title',
+					'caption',
 					'link_raw',
 					'target',
 				],
 				'image_add',
 
-				'description',
 				'image_random',
+				'post_title_position',
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
