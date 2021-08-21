@@ -2,7 +2,7 @@
 namespace content_site\options\link;
 
 
-class link_color_post_title
+class link_color_magicbox_title
 {
 	use link_color;
 
@@ -20,7 +20,7 @@ class link_color_post_title
 
 	public static function option_key()
 	{
-		return 'link_color_post_title';
+		return 'link_color_magicbox_title';
 	}
 
 
