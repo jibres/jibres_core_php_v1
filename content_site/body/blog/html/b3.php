@@ -38,12 +38,12 @@ class b3
 
 		$html .= "<$cnElement data-type='$type' class='overflow-hidden $classNames'$background_style $section_id>";
 		{
-			$containerClass = 'max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0';
+			$containerClass = 'max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 divide-y divide-gray-200';
 			$html .= '<div class="'. $containerClass. '">';
 			{
 				if(a($_args, 'heading') !== null)
 				{
-					$html .= '<header class="pt-6 pb-8 space-y-2 md:space-y-5">';
+					$html .= '<header class="pt-6 pb-8 space-y-2">';
 					{
 						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-6xl $heading_class $font_class' $color_heading>";
 						{
@@ -51,7 +51,7 @@ class b3
 						}
 						$html .= '</h2>';
 
-						$html .= '<p class="text-lg opacity-60"'.$color_text.'>';
+						$html .= '<p class="text-xl opacity-60"'.$color_text.'>';
 						{
 							$html .= a($_args, 'description');
 						}
@@ -75,15 +75,17 @@ class b3
 						$writerName   = a($value, 'user_detail', 'displayname');
 
 						$eachItemClass = 'py-5 lg:py-12 space-y-2';
+						$postTextClass = 'space-y-2';
 
-						if(a($_args, 'post_show_date'))
+						if(a($_args, 'post_show_date') !== 'no')
 						{
 							$eachItemClass = 'py-5 lg:py-12 space-y-2 lg:grid lg:grid-cols-4 lg:space-y-0 lg:items-baseline';
+							$postTextClass = 'space-y-2 lg:col-span-3';
 						}
 
 						$html .= '<article class="'. $eachItemClass. '">';
 						{
-								if(a($_args, 'post_show_date'))
+								if(a($_args, 'post_show_date') !== 'no')
 								{
 									$html .= "<dl>";
 									{
@@ -104,7 +106,7 @@ class b3
 									$html .= '</dl>';
 								}
 
-							$html .= '<div class="space-y-2 lg:space-y-5 lg:col-span-3">';
+							$html .= "<div class='$postTextClass'>";
 							{
 								$html .= '<h3 class="text-2xl font-bold">';
 								$html .= '<a href="'.$myLink.'" class="inline-flex items-center"'. $color_heading. '>'. $myTitle. '</a>';
@@ -112,7 +114,7 @@ class b3
 
 								if($myExcerpt && a($_args, 'post_show_excerpt'))
 								{
-									$html .= "<p class='leading-7' $color_text>";
+									$html .= "<p class='leading-7 opacity-80' $color_text>";
 									$html .= $myExcerpt;
 									$html .= "</p>";
 								}
