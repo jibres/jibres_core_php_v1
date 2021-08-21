@@ -26,6 +26,7 @@ class g1
 					'caption',
 					'link_raw',
 					'target',
+					'remove_gallery',
 				],
 				'image_add',
 
