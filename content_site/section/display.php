@@ -27,21 +27,9 @@ foreach ($previewSectionList as $value)
 		}
 		$html .= '</div>';
 
-		$html .= '<div class="p-5">';
+		$html .= '<div class="text-sm font-medium text-gray-900 text-justify p-5">';
 		{
-			$html .= '<p class="text-sm font-medium text-gray-900 text-justify">';
-			{
-				// $html .= T_('Sample'). ' '. implode(' ', [a($value, 'key'), a($value, 'opt_type'), a($value, 'preview_key')]);
-				$html .= a($value, 'preview_title');
-
-			}
-			$html .= '</p>';
-			// $html .= '<p class="text-xs font-medium text-gray-500">';
-			// {
-			// 	$html .= a($value, 'desc');
-			// 	$html .= 'lorem desc';
-			// }
-			// $html .= '</p>';
+			$html .= a($value, 'preview_title');
 		}
 		$html .= '</div>';
 	}
