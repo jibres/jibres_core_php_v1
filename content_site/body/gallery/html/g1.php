@@ -76,7 +76,7 @@ class g1
 						// h3 a
 						$myLinkHref   = "href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'caption');
-						$myThumb      = \dash\fit::img(a($value, 'image'), 780);
+						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'image'), 780));
 
 						// get grid class name by analyse
 						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
