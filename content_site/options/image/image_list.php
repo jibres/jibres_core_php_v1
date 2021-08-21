@@ -33,9 +33,9 @@ class image_list
 				      		{
 					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'id'). '">';
 
-				      			if(isset($value['image']) && $value['image'])
+				      			if(isset($value['file']) && $value['file'])
 				      			{
-				        			$file_url = \lib\filepath::fix($value['image']);
+				        			$file_url = \lib\filepath::fix($value['file']);
 				      			}
 				      			else
 				      			{
