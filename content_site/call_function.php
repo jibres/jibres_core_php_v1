@@ -143,7 +143,7 @@ class call_function
 			{
 				$namespace = sprintf($namespace, 'option');
 
-				return self::_call([$namespace, $_fn], $args);
+				return self::_call([$namespace, $_fn], $args, $args2);
 			}
 		}
 
@@ -171,14 +171,15 @@ class call_function
 	}
 
 
-	public static function section_type_fn($_section_key, $_type, $_fn)
+	public static function section_type_fn($_section_key, $_type, $_fn, $_args = null)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
 		$namespace   = sprintf($namespace, $_type);
 
-		return self::_call([$namespace, $_fn]);
+		return self::_call([$namespace, $_fn], $_args);
 	}
+
 
 
 
