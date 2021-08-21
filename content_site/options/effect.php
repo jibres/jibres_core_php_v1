@@ -10,6 +10,7 @@ class effect
 		$enum   = [];
 
 		$enum[] = ['key' => 'none', 'title' => T_('None')];
+		$enum[] = ['key' => 'zoom', 'title' => T_('Zoom')];
 		$enum[] = ['key' => 'dark', 'title' => T_('Dark')];
 		$enum[] = ['key' => 'light','title' => T_('Light')];
 
