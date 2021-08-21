@@ -21,6 +21,7 @@ class b2
 		$effect           = a($_args, 'effect');
 
 		$height           = a($_args, 'height:class');
+		$gap              = a($_args, 'magicbox_gap:class');
 		$background_style = a($_args, 'background:full_style');
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$section_id       = a($_args, 'secition:id');
@@ -67,8 +68,12 @@ class b2
 					$html .= '</header>';
 				}
 
-
-				$html .= "<div class='relative grid grid-cols-12 gap-4'>";
+				$grid_cols = 'relative grid grid-cols-12';
+				if($gap)
+				{
+					$grid_cols .=	' '. $gap;
+				}
+				$html .= "<div class='$grid_cols'>";
 				{
 					foreach ($_blogList as $key => $value)
 					{
