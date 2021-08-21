@@ -9,12 +9,12 @@ class container_gallery
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'sm', 	 'title' => "S",    'hide' => false, 'class' => 'max-w-screen-sm w-full px-2 sm:px-4 lg:px-5' ];
-		$enum[] = ['key' => 'md', 	 'title' => "M",    'hide' => false, 'class' => 'max-w-screen-md w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'sm', 	 'title' => "S",    'hide' => true, 'class' => 'max-w-screen-sm w-full px-2 sm:px-4 lg:px-5' ];
+		$enum[] = ['key' => 'md', 	 'title' => "M",    'hide' => true, 'class' => 'max-w-screen-md w-full px-2 sm:px-4 lg:px-5'];
 		$enum[] = ['key' => 'lg', 	 'title' => "L",    'hide' => false, 'class' => 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-5'];
 		$enum[] = ['key' => 'xl', 	 'title' => "XL",   'hide' => false, 'class' => 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-5'];
-		$enum[] = ['key' => 'xl', 	 'title' => "2XL",  'hide' => false, 'class' => 'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5'];
-		$enum[] = ['key' => 'fluid', 'title' => "100%", 'hide' => false, 'class' => ''];
+		$enum[] = ['key' => '2xl', 	 'title' => "2XL",  'hide' => false, 'class' => 'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'fluid', 'title' => "100%", 'hide' => false, 'class' => 'w-full'];
 
 		return $enum;
 	}

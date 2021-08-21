@@ -47,7 +47,7 @@ class g1
 
 		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
-			$html .= "<div class='$container m-auto'>";
+			$html .= "<div class='$container m-auto relative'>";
 			{
 				// if(a($_args, 'heading') !== null)
 				// {
@@ -63,7 +63,13 @@ class g1
 				// }
 
 
-				$html .= "<div class='relative grid2 grid-cols-12 gap-4'>";
+				$grid_cols = 'grid gap-4 grid-cols-'. $totalExist;
+				if($totalExist > 12)
+				{
+					$grid_cols = 'grid gap-4 grid-cols-'. 12;
+				}
+
+				$html .= "<div class='$grid_cols'>";
 				{
 					foreach ($_image_list as $key => $value)
 					{
@@ -74,10 +80,10 @@ class g1
 						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'image'), 1100));
 
 						// get grid class name by analyse
-						$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
+						$gridCol = '';
 
 						$card = '';
-						$card .= "<a data-magicbox='$effect' class='$gridCol relative flex w-full flex-col max-w-md mx-auto overflow-hidden' $myLinkHref>";
+						$card .= "<a data-magicbox='$effect' class='$gridCol relative overflow-hidden' $myLinkHref>";
 						{
 							// thumb
 							// if($myThumb && a($_args, 'post_show_image'))
