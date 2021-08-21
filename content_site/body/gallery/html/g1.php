@@ -12,7 +12,7 @@ class g1
 		// $previewMode = a($_args, 'preview_mode');
 		$id               = a($_args, 'id');
 		$type             = a($_args, 'type');
-		$title_position   = a($_args, 'post_title_position');
+		$title_position   = a($_args, 'magicbox_title_position');
 		$link_color       = a($_args, 'link_color');
 
 		$coverRatio       = a($_args, 'coverratio:class');

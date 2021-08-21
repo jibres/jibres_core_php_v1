@@ -23,7 +23,7 @@ class b2
 				'post_template',
 				'post_order',
 				'count_post',
-				'post_title_position',
+				'magicbox_title_position',
 				'btn_viewall',
 				'style' => \content_site\options\style::option_list(
 				[
@@ -56,7 +56,7 @@ class b2
 				'heading_position'      => 'center',
 				'btn_viewall_mode'      => 'dark',
 				'radius_normal'         => 'none',
-				'post_title_position'   => 'inside',
+				'magicbox_title_position'   => 'inside',
 				'effect'                => 'zoom',
 				'link_color_post_title' => 'light'
 			],
@@ -93,7 +93,7 @@ class b2
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'post_title_position'   => 'inside',
+				'magicbox_title_position'   => 'inside',
 				'post_show_image'       => 1,
 				'link_color_post_title' => 'light',
 				'link_color'            => 'light',
@@ -125,7 +125,7 @@ class b2
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'post_title_position'   => 'inside',
+				'magicbox_title_position'   => 'inside',
 				'post_show_image'       => 1,
 				'link_color_post_title' => 'light',
 				'link_color'            => 'light',
@@ -160,7 +160,7 @@ class b2
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'post_title_position'   => 'inside',
+				'magicbox_title_position'   => 'inside',
 				'post_show_image'       => 1,
 				'link_color_post_title' => 'light',
 				'link_color'            => 'light',
@@ -195,7 +195,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'inside',
+				'magicbox_title_position'      => 'inside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -233,7 +233,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'outside',
+				'magicbox_title_position'      => 'outside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -271,7 +271,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'inside',
+				'magicbox_title_position'      => 'inside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -308,7 +308,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'hide',
+				'magicbox_title_position'      => 'hide',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -345,7 +345,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'outside',
+				'magicbox_title_position'      => 'outside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -383,7 +383,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'hide',
+				'magicbox_title_position'      => 'hide',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -421,7 +421,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'outside',
+				'magicbox_title_position'      => 'outside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',
@@ -459,7 +459,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'outside',
+				'magicbox_title_position'      => 'outside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'secondary',
@@ -497,7 +497,7 @@ class b2
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'post_title_position'      => 'inside',
+				'magicbox_title_position'      => 'inside',
 				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
 				'link_color'               => 'light',

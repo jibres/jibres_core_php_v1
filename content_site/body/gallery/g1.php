@@ -29,7 +29,7 @@ class g1
 				],
 				'image_add',
 
-				'post_title_position',
+				'magicbox_title_position',
 				'image_random',
 				// sub page
 				'style' => \content_site\options\style::option_list(

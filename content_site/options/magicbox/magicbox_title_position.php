@@ -2,7 +2,7 @@
 namespace content_site\options\post;
 
 
-class post_title_position
+class magicbox_title_position
 {
 
 
@@ -38,7 +38,7 @@ class post_title_position
 	public static function admin_html()
 	{
 
-		$default = \content_site\section\view::get_current_index_detail('post_title_position');
+		$default = \content_site\section\view::get_current_index_detail('magicbox_title_position');
 
 		if(!$default)
 		{
@@ -54,7 +54,7 @@ class post_title_position
 		{
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_post_title_position';
+			$name       = 'opt_magicbox_title_position';
 
 			$radio_html = '';
 

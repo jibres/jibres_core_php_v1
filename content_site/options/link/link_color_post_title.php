@@ -8,8 +8,8 @@ class link_color_post_title
 
 	public static function checked()
 	{
-		$post_title_position = \content_site\section\view::get_current_index_detail('post_title_position');
-		if($post_title_position != 'hide')
+		$magicbox_title_position = \content_site\section\view::get_current_index_detail('magicbox_title_position');
+		if($magicbox_title_position != 'hide')
 		{
 			return true;
 		}
