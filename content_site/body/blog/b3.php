@@ -14,7 +14,7 @@ class b3
 	{
 		return
 		[
-			'title'        => T_("Classic View"),
+			'title'        => T_("Classic"),
 			'options'      =>
 			[
 				'heading_full',
@@ -77,7 +77,7 @@ class b3
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Classic"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -108,7 +108,7 @@ class b3
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Classic"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -140,7 +140,7 @@ class b3
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Classic"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -172,7 +172,7 @@ class b3
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Classic"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
