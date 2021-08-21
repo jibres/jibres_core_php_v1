@@ -173,5 +173,141 @@ class b2
 			]
 		];
 	}
+
+
+	public static function p4($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p5($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p6($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p7($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p8($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p9($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p10($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p11($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
+
+	public static function p12($_title = null)
+	{
+		$_title = T_("Latest Posts");
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+
+			]
+		];
+	}
+
 }
 ?>
