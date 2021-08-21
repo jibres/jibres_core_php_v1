@@ -10,7 +10,7 @@ $back_url = \dash\data::previewBackUrl();
 
 if($back_url)
 {
-	$html .= '<div>';
+	$html .= '<div class="fixed inset-x-0 py-2 px-10 bg-blue-50">';
 	{
 		$html .= '<a href="'. $back_url. '" >';
 		{
