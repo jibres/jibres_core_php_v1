@@ -64,10 +64,14 @@ class g1
 				// }
 
 
-				$grid_cols = 'grid gap-4 grid-cols-'. $totalExist;
+				$grid_cols = 'grid grid-cols-'. $totalExist;
 				if($totalExist > 12)
 				{
-					$grid_cols = 'grid gap-4 grid-cols-'. 12;
+					$grid_cols = 'grid grid-cols-'. 12;
+				}
+				if($gap)
+				{
+					$grid_cols .=	' '. $gap;
 				}
 
 				$html .= "<div class='$grid_cols'>";

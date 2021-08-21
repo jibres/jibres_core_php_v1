@@ -10,10 +10,10 @@ class magicbox_gap
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => T_("None"), 'class' => '1'];
-		$enum[] = ['key' => 'sm',   'title' => 'S',        'class' => '2'];
-		$enum[] = ['key' => 'md',   'title' => 'M',        'class' => '3'];
-		$enum[] = ['key' => 'lg',   'title' => 'L',        'class' => '4'];
+		$enum[] = ['key' => 'none', 'title' => T_("None"), 'class' => ''];
+		$enum[] = ['key' => 'sm',   'title' => 'S',        'class' => 'gap-0.5 sm:gap-1 md:gap-2 lg:gap-4'];
+		$enum[] = ['key' => 'md',   'title' => 'M',        'class' => 'gap-1 sm:gap-2 md:gap-4 lg:gap-6'];
+		$enum[] = ['key' => 'lg',   'title' => 'L',        'class' => 'gap-2 sm:gap-4 md:gap-6 lg:gap-12'];
 
 		return $enum;
 	}

@@ -77,7 +77,7 @@ class container_gallery
 		}
 
 
-		$title = T_("Content Width");
+		$title = T_("Container");
 
 		$this_range = array_column(self::enum(), 'key');
 
