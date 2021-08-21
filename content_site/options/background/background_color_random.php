@@ -57,7 +57,7 @@ class background_color_random
 		$list =
 		[
 			// https://uigradients.com/
-			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#4bf140', 'background_gradient_to' => '#fd2d5e',],
+			// ['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#4bf140', 'background_gradient_to' => '#fd2d5e',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#cc0fa2', 'background_gradient_to' => '#a7b168',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#e09dd4', 'background_gradient_to' => '#c75856',],
 			['background_gradient_type' => 'to bottom right', 'background_gradient_from' => '#09b5c7', 'background_gradient_to' => '#757089',],
