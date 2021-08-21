@@ -223,7 +223,7 @@ class model
 				$value = [];
 			}
 
-			$value = array_merge(['type' => $type], $value);
+			$value = array_merge(['type' => $type, 'preview_key' => $preview_key], $value);
 		}
 
 		// reload section detail to get last update
@@ -713,7 +713,7 @@ class model
 			$preview_options = $load_preview['options'];
 		}
 
-		$preview = ['key' => $key, 'type' => $type];
+		$preview = ['key' => $key, 'type' => $type, 'preview_key' => $preview_key];
 
 		$load_default = \content_site\call_function::default($key, $type);
 
