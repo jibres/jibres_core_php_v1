@@ -147,7 +147,7 @@ class b2
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'radius'                => 'normal',
+				'radius'                => '3xl',
 				'post_title_position'   => 'inside',
 				'post_show_readingtime' => '1',
 				'post_show_image'       => '1',
@@ -157,7 +157,7 @@ class b2
 				'link_color_post_title' => 'light',
 				'link_color'            => 'light',
 				'key'                   => 'blog',
-				'image_mask'            => 'squircle',
+				'image_mask'            => 'none',
 				'height'                => 'fullscreen',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
