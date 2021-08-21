@@ -24,7 +24,7 @@ class g1
 				[
 					'file_gallery',
 					'title',
-					'link',
+					'link_raw',
 					'target',
 				],
 				'image_add',
