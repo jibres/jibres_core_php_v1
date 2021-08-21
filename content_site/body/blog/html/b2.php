@@ -87,12 +87,34 @@ class b2
 							// thumb
 							if($myThumb && a($_args, 'post_show_image'))
 							{
-								$card .= "<picture class='block overflow-hidden transition shadow-sm hover:shadow-md $coverRatio $borderRadius $maskImg'>";
+								$pictureClass = 'block relative transition shadow-sm hover:shadow-md';
+								if($coverRatio)
 								{
-									$imgClass = 'block h-full w-full object-center object-cover';
+									$pictureClass .= ' '. $coverRatio;
+								}
+								if($maskImg)
+								{
+									$pictureClass .= ' '. $maskImg;
+								}
+								if($borderRadius)
+								{
+									$pictureClass .= ' '. $borderRadius;
+								}
+								if($effect !== 'zoom')
+								{
+									$pictureClass .= ' overflow-hidden';
+								}
+
+								$card .= "<picture class='$pictureClass'>";
+								{
+									$imgClass = 'block h-full w-full object-center object-cover overflow-hidden';
 									if(a($_args, 'coverratio') === 'free')
 									{
-										$imgClass = 'block h-auto w-full';
+										$imgClass = 'block h-auto w-full overflow-hidden';
+									}
+									if($borderRadius)
+									{
+										$imgClass .= ' '. $borderRadius;
 									}
 									$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
 								}
