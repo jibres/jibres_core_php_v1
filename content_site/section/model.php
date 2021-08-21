@@ -309,7 +309,7 @@ class model
 
 		$preview           = json_encode($preview);
 
-		if($load_section_lock['preview'] === $preview)
+		if($load_section_lock['preview'] === $preview && !\dash\data::changeSectionTypeMode())
 		{
 			\dash\pdo::rollback();
 			self::$do_nothing_reload = true;
