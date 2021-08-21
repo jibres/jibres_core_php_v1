@@ -517,6 +517,13 @@ class model
 					}
 				}
 
+				if(!a($preview, $subchild))
+				{
+					\dash\notif::error(T_("Can not remove all index of one section"));
+					\dash\pdo::rollback();
+					return true;
+				}
+
 				$preview           = json_encode($preview);
 
 				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
