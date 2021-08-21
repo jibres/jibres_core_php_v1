@@ -63,6 +63,17 @@ class b2
 			'preview_list' =>
 			[
 				'p1',
+				'p2',
+				'p3',
+				'p4',
+				'p5',
+				'p6',
+				'p7',
+				'p8',
+				'p9',
+				'p10',
+				'p11',
+				'p12',
 			],
 		];
 	}
@@ -76,21 +87,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'radius'                => 'lg',
 				'post_title_position'   => 'inside',
-				'post_show_readingtime' => '1',
-				'post_show_image'       => '1',
-				'post_show_excerpt'     => '1',
-				'post_show_date'        => 'relative',
-				'post_show_author'      => '1',
+				'post_show_image'       => 1,
 				'link_color_post_title' => 'light',
-				'link_color'            => 'light',
 				'key'                   => 'blog',
 				'height'                => 'fullscreen',
 				'heading_position'      => 'center',
@@ -99,7 +104,7 @@ class b2
 				'coverratio'            => '16:9',
 				'count'                 => 12,
 				'color_text'            => '#333333',
-				'btn_viewall_check'     => '1',
+				'btn_viewall_check'     => 1,
 				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'none',
 			]
@@ -112,21 +117,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(2)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'radius'                => 'none',
 				'post_title_position'   => 'inside',
-				'post_show_readingtime' => '1',
-				'post_show_image'       => '1',
-				'post_show_excerpt'     => '1',
-				'post_show_date'        => 'relative',
-				'post_show_author'      => '1',
+				'post_show_image'       => 1,
 				'link_color_post_title' => 'light',
-				'link_color'            => 'light',
 				'key'                   => 'blog',
 				'image_mask'            => 'none',
 				'height'                => 'fullscreen',
@@ -137,7 +136,7 @@ class b2
 				'count'                 => 10,
 				'color_text'            => '#333333',
 				'color_heading'         => '#0173cb',
-				'btn_viewall_check'     => '1',
+				'btn_viewall_check'     => 1,
 				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'solid',
 				'background_color'      => '#e5faff',
@@ -151,21 +150,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(3)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                  => 'b2',
 				'radius_normal'         => 'none',
-				'radius'                => '3xl',
 				'post_title_position'   => 'inside',
-				'post_show_readingtime' => '1',
-				'post_show_image'       => '1',
-				'post_show_excerpt'     => '1',
-				'post_show_date'        => 'relative',
-				'post_show_author'      => '1',
+				'post_show_image'       => 1,
 				'link_color_post_title' => 'light',
-				'link_color'            => 'light',
 				'key'                   => 'blog',
 				'image_mask'            => 'none',
 				'height'                => 'fullscreen',
@@ -176,7 +169,7 @@ class b2
 				'count'                 => 8,
 				'color_text'            => '#333333',
 				'color_heading'         => '#000000',
-				'btn_viewall_check'     => '1',
+				'btn_viewall_check'     => 1,
 				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'solid',
 				'background_color'      => '#dcdbd9',
@@ -190,21 +183,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(4)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => '3xl',
 				'post_title_position'      => 'inside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'none',
 				'height'                   => 'fullscreen',
@@ -215,7 +202,7 @@ class b2
 				'count'                    => 4,
 				'color_text'               => '#333333',
 				'color_heading'            => '#000000',
-				'btn_viewall_check'        => '1',
+				'btn_viewall_check'        => 1,
 				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom right',
@@ -232,21 +219,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => 'full',
 				'post_title_position'      => 'outside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'none',
 				'height'                   => 'fullscreen',
@@ -274,21 +255,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(6)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => '3xl',
 				'post_title_position'      => 'inside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'squircle',
 				'height'                   => 'fullscreen',
@@ -316,21 +291,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(7)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => 'normal',
 				'post_title_position'      => 'hide',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'heart',
 				'height'                   => 'fullscreen',
@@ -358,21 +327,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(8)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => 'normal',
 				'post_title_position'      => 'outside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'hexagon-2',
 				'height'                   => 'fullscreen',
@@ -400,21 +363,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(9)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => 'normal',
 				'post_title_position'      => 'hide',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'parallelogram',
 				'height'                   => 'fullscreen',
@@ -442,21 +399,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(10)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => 'normal',
 				'post_title_position'      => 'outside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'parallelogram-4',
 				'height'                   => 'fullscreen',
@@ -484,21 +435,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(11)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => '3xl',
 				'post_title_position'      => 'outside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'secondary',
 				'key'                      => 'blog',
 				'image_mask'               => 'none',
 				'height'                   => 'fullscreen',
@@ -526,21 +471,15 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Sample :val", ['val' => \dash\fit::number(12)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'type'                     => 'b2',
 				'radius_normal'            => 'none',
-				'radius'                   => 'lg',
 				'post_title_position'      => 'inside',
-				'post_show_readingtime'    => '1',
-				'post_show_image'          => '1',
-				'post_show_excerpt'        => '1',
-				'post_show_date'           => 'relative',
-				'post_show_author'         => '1',
+				'post_show_image'          => 1,
 				'link_color_post_title'    => 'light',
-				'link_color'               => 'light',
 				'key'                      => 'blog',
 				'image_mask'               => 'none',
 				'height'                   => 'fullscreen',
