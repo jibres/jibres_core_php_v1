@@ -4,7 +4,7 @@ namespace content_site\body\gallery\html;
 
 class g1
 {
-	public static function html($_args, $_blogList)
+	public static function html($_args, $_image_list)
 	{
 		$html             = '';
 
@@ -29,7 +29,7 @@ class g1
 		$maskImg          = a($_args, 'image_mask:class');
 
 
-		$totalExist = count($_blogList);
+		$totalExist = count($_image_list);
 		$totalCount = a($_args, 'count');
 
 		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4';
@@ -70,7 +70,7 @@ class g1
 
 				$html .= "<div class='relative grid grid-cols-12 gap-4'>";
 				{
-					foreach ($_blogList as $key => $value)
+					foreach ($_image_list as $key => $value)
 					{
 						// a img
 						// h3 a
