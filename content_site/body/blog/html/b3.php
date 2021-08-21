@@ -108,7 +108,7 @@ class b3
 
 							$html .= "<div class='$postTextClass'>";
 							{
-								$html .= '<h3 class="text-2xl font-bold">';
+								$html .= '<h3 class="text-xl font-bold">';
 								$html .= '<a href="'.$myLink.'" class="inline-flex items-center"'. $color_heading. '>'. $myTitle. '</a>';
 								$html .= '</h3>';
 
