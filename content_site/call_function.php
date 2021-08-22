@@ -224,6 +224,24 @@ class call_function
 
 
 
+	/**
+	 * Get current option by check type
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function section_options($_section_key, $_type)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_type);
+
+		return self::_call([$namespace, 'option']);
+
+		return null;
+	}
+
+
+
 
 	/**
 	 * Get current option by check type

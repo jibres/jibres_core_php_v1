@@ -44,7 +44,7 @@ class layout
 				$value['file'] = \dash\sample\img::image();
 			}
 
-			$image_list[$key]['image'] = $value['file'];
+			$image_list[$key]['file'] = $value['file'];
 		}
 
 
@@ -74,7 +74,7 @@ class layout
 		}
 		else
 		{
-			$max = \content_site\call_function::section_type_fn('gallery', a($_args, 'type'), 'maximum_capacity');
+			$max = option::maximum_capacity(a($_args, 'type'));
 		}
 
 
@@ -84,7 +84,7 @@ class layout
 			{
 				$image_list[] =
 				[
-					'caption' => T_("Image :val", \dash\fit::number($i)),
+					'title' => T_("Image :val", \dash\fit::number($i)),
 					'file'    => \dash\sample\img::image()
 				];
 			}

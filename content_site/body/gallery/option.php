@@ -62,6 +62,18 @@ class option
 	}
 
 
+	public static function maximum_capacity($_type)
+	{
+		$option = \content_site\call_function::section_options('gallery', $_type);
+
+		if(isset($option['maximum_capacity']))
+		{
+			return intval($option['maximum_capacity']);
+		}
+		return 12;
+
+	}
+
 
 
 	/**
@@ -205,7 +217,7 @@ class option
 		}
 		else
 		{
-			$max = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+			$max = self::maximum_capacity($_type);
 		}
 
 		if(!is_numeric($max) || !$max)
@@ -264,7 +276,7 @@ class option
 		}
 		else
 		{
-			$max = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+			$max = self::maximum_capacity($_type);
 		}
 
 		if(!is_numeric($max) || !$max)
@@ -329,7 +341,7 @@ class option
 	 */
 	public static function allow_capacity($_section_id, $_type)
 	{
-		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+		$maximum_capacity = self::maximum_capacity($_type);
 
 		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
 		{
@@ -357,7 +369,7 @@ class option
 	 */
 	public static function append_gallery_item($_section_id, $_type)
 	{
-		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+		$maximum_capacity = self::maximum_capacity($_type);
 
 		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
 		{

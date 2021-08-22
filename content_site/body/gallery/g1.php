@@ -48,6 +48,7 @@ class g1
 					'type',
 				]),
 			],
+			'maximum_capacity' => 12,
 			'default'      =>
 			[
 				'heading'     => T_("Image Gallery"),
@@ -76,13 +77,6 @@ class g1
 				'image_count' => 3,
 			],
 		];
-	}
-
-
-
-	public static function maximum_capacity()
-	{
-		return 12;
 	}
 
 
