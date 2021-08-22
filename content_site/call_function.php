@@ -199,21 +199,6 @@ class call_function
 		if(isset($type_detail['options']))
 		{
 			return $type_detail['options'];
-
-			// $options = [];
-			// foreach ($type_detail['options'] as $key => $value)
-			// {
-			// 	if(is_array($value))
-			// 	{
-			// 		$options = array_merge($options, $value);
-			// 	}
-			// 	else
-			// 	{
-			// 		$options[] = $value;
-			// 	}
-			// }
-
-			// return $options;
 		}
 
 		return null;
@@ -254,17 +239,14 @@ class call_function
 
 		$popular = [];
 
-		if(!$_filter_category || $_filter_category === 'popular')
+
+		$popular = self::popular($_section_key);
+
+		if(!is_array($popular))
 		{
-			$popular = self::popular($_section_key);
-
-			if(!is_array($popular))
-			{
-				$popular = [];
-			}
-
-			$preview_functions_string = $popular;
+			$popular = [];
 		}
+
 
 		$type_list = self::type_list($_section_key);
 
@@ -289,12 +271,17 @@ class call_function
 				foreach ($temp_load_type_option['preview_list'] as $temp_preview_list)
 				{
 					$myPreviewFunc = "$value:$temp_preview_list";
-					if(!in_array($myPreviewFunc, $popular))
+					// if(!in_array($myPreviewFunc, $popular))
 					{
 						$preview_functions_string[] = $myPreviewFunc;
 					}
 				}
 			}
+		}
+
+		if(!$preview_functions_string)
+		{
+			$preview_functions_string = $popular;
 		}
 
 		$list = [];
