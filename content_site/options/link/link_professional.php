@@ -23,17 +23,11 @@ trait link_professional
 		];
 
 
-		var_dump($args);exit;
+		\dash\notif::error("Need to fix ". __LINE__);
 
-		$data = \dash\validate::absolute_url($_data, true);
-		return $data;
+		return;
 	}
 
-
-	public static function db_key()
-	{
-		return 'link';
-	}
 
 	public static function option_key()
 	{
@@ -48,10 +42,11 @@ trait link_professional
 
 	public static function admin_html()
 	{
-		$link    = \content_site\section\view::get_current_index_detail('link');
+		$url    = \content_site\section\view::get_current_index_detail('url');
 		$pointer = \content_site\section\view::get_current_index_detail('pointer');
 		$target  = \content_site\section\view::get_current_index_detail('target');
 		$target  = \content_site\section\view::get_current_index_detail('target');
+		$related_id  = \content_site\section\view::get_current_index_detail('related_id');
 
 		$html = '';
 
@@ -93,6 +88,10 @@ trait link_professional
 					foreach ($list as $key => $value)
 					{
 						$selected = null;
+						if($pointer === $key)
+						{
+							$selected = 'selected';
+						}
 						$html .= "<option value='$key' $selected>$value[title]</option>";
 					}
 				}
@@ -136,7 +135,7 @@ trait link_professional
 					{
 						$html .= '<div class="input ltr mb-5">';
 						{
-				    		$html .= '<input type="url" name="link" value="'. $link. '" placeholder="URL">';
+				    		$html .= '<input type="url" name="url" value="'. $url. '" placeholder="URL">';
 						}
 						$html .= "</div>";
 
@@ -161,7 +160,11 @@ trait link_professional
 				   	$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
 				   	{
 				      	$html .= "<select name='{$key}_id' class='select22' id='{$key}search'  data-model='html'  data-ajax--delay='100' data-ajax--url='{$kingdom}$value[api_link]' data-shortkey-search data-placeholder='". T_('Search in :val', ['val' => $value['title']]). "'>";
-				          // <option value='<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()). "' selected><?php echo \dash\data::postTitle(). "</option>
+				      	if($related_id)
+				      	{
+				      		$selected = self::fill_selected($pointer, $related_id);
+				          	$html .= "<option value='$selected[id]' selected>$selected[title]</option>";
+				      	}
 
 				        $html .= "</select>";
 				   	}
@@ -173,6 +176,69 @@ trait link_professional
 
 
 		return $html;
+	}
+
+	private static function fill_selected($_pointer, $_related_id)
+	{
+		if(!$_pointer || !$_related_id)
+		{
+			return;
+		}
+
+		$selected_title = null;
+
+		switch ($_pointer)
+		{
+			case 'products':
+				$loadProduct = \lib\app\product\get::get($_related_id);
+
+				if(isset($loadProduct['title']))
+				{
+					$selected_title = $loadProduct['title'];
+				}
+				break;
+
+			case 'posts':
+				$_related_id = \dash\coding::encode($_related_id);
+				$loadPost = \dash\app\posts\get::get($_related_id);
+				if(isset($loadPost['title']))
+				{
+					$selected_title = $loadPost['title'];
+				}
+				break;
+
+			case 'tags':
+				$loadTag = \lib\app\tag\get::get($_related_id);
+				if(isset($loadTag['title']))
+				{
+					$selected_title = $loadTag['title'];
+				}
+				break;
+
+			case 'hashtag':
+				$_related_id = \dash\coding::encode($_related_id);
+				$loadHashtag = \dash\app\terms\get::get($_related_id);
+				if(isset($loadHashtag['title']))
+				{
+					$selected_title = $loadHashtag['title'];
+				}
+				break;
+
+			case 'forms':
+				$loadForm = \lib\app\form\form\get::get($_related_id);
+				if(isset($loadForm['title']))
+				{
+					$selected_title = $loadForm['title'];
+				}
+				break;
+
+			default:
+				// code...
+				break;
+		}
+
+		return ['id' => $_related_id, 'title' => $selected_title];
+
 	}
 
 }
