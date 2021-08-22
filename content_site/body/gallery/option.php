@@ -420,7 +420,7 @@ class option
 	 */
 	public static function update_one_gallery_item($_args)
 	{
-		$gallery = self::current_gallery_item();
+		$gallery = self::get_current_item();
 
 		if(!$gallery)
 		{
