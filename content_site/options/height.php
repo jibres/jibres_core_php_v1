@@ -8,9 +8,9 @@ class height
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class' => '', ];
-		$enum[] = ['key' => 's',           'title' => T_("S"),           'class' => 'min-h-1/4 py-5', ];
-		$enum[] = ['key' => 'm',           'title' => T_("M"),           'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
-		$enum[] = ['key' => 'l',           'title' => T_("L"),           'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
+		$enum[] = ['key' => 's',           'title' => "S",               'class' => 'min-h-1/4 py-5', ];
+		$enum[] = ['key' => 'm',           'title' => "M",               'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
+		$enum[] = ['key' => 'l',           'title' => "L",               'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
 		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class' => 'min-h-screen py-5 md:py-10 lg:py-20', ];
 		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'class' => 'min-h-screen py-5', 'hide' => true ];
 
