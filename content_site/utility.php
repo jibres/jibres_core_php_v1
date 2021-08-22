@@ -21,6 +21,13 @@ class utility
 	}
 
 
+	/**
+	 * Redirect to back url
+	 */
+	public static function need_redirect_to_back()
+	{
+		\dash\redirect::to(\content_site\section\view::generate_back_url());
+	}
 
 
 	public static function need_redirect($_set = null)

@@ -89,11 +89,7 @@ class model
 			return self::set_sort_child($section_id);
 		}
 
-		// remove one block
-		if(self::remove_block($section_id))
-		{
-			return;
-		}
+
 
 		$trust_options_list_raw = \dash\data::currentOptionList();
 		if(!is_array($trust_options_list_raw))
@@ -493,68 +489,7 @@ class model
 	}
 
 
-	private static function remove_block($section_id)
-	{
-		$subchild = \dash\url::subchild();
-		$index    = \dash\request::get('index');
 
-		if(\dash\request::post('delete') === 'block' && \dash\request::get('index') && \dash\url::subchild())
-		{
-			\dash\pdo::transaction();
-
-			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
-
-			if(!$load_section_lock)
-			{
-				\dash\pdo::rollback();
-
-				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
-
-				return true;
-			}
-
-			$preview = json_decode($load_section_lock['preview'], true);
-
-			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
-			{
-				foreach ($preview[$subchild] as $key => $value)
-				{
-					if(isset($value['index']) && $value['index'] === $index)
-					{
-						unset($preview[$subchild][$key]);
-					}
-				}
-
-				if(!a($preview, $subchild))
-				{
-					\dash\notif::error(T_("Can not remove all index of one section"));
-					\dash\pdo::rollback();
-					return true;
-				}
-
-				$preview           = json_encode($preview);
-
-				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
-
-				\dash\pdo::commit();
-
-				self::reloadIframe();
-
-				\dash\redirect::to(view::generate_back_url());
-
-				return true;
-			}
-			else
-			{
-				\dash\notif::error(T_("Can not remove this block!"));
-				\dash\pdo::rollback();
-				\dash\redirect::to(view::generate_back_url());
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 	/**
 	 * Sets the sort child.

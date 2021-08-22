@@ -440,6 +440,35 @@ class option
 		}
 
 		return true;
+	}
+
+
+		/**
+	 * Update current gallery item
+	 *
+	 * @param      <type>  $_args  The arguments
+	 */
+	public static function remove_current_gallery_item()
+	{
+		$gallery = self::get_current_item();
+
+		if(!$gallery)
+		{
+			\dash\notif::error(T_("Invalid index"));
+			return false;
+		}
+
+		$index      = a($gallery, 'index');
+
+
+		\lib\app\menu\remove::remove($index, true);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::clean();
+		}
+
+		return true;
 
 
 	}

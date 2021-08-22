@@ -4,9 +4,12 @@ namespace lib\app\menu;
 
 class remove
 {
-	public static function remove($_id)
+	public static function remove($_id, $_force = false)
 	{
-		\dash\permission::access('_group_setting');
+		if(!$_force)
+		{
+			\dash\permission::access('_group_setting');
+		}
 
 		$load = \lib\app\menu\get::get($_id);
 
