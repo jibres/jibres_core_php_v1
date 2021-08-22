@@ -7,11 +7,12 @@ class height
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 's',   'title' => T_("Short") , 'class' => 'min-h-1/4 py-5', ];
-		$enum[] = ['key' => 'm',   'title' => T_("Medium") , 'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
-		$enum[] = ['key' => 'l',   'title' => T_("Tall") , 'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
-		$enum[] = ['key' => 'fullscreen',   'title' => T_("Full Screen") , 'class' => 'min-h-screen py-5 md:py-10 lg:py-20', ];
-		$enum[] = ['key' => 'fullpreview',   'title' => T_("Full Screen") , 'class' => 'min-h-screen py-5', 'system' => true ];
+		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class' => '', ];
+		$enum[] = ['key' => 's',           'title' => T_("S"),           'class' => 'min-h-1/4 py-5', ];
+		$enum[] = ['key' => 'm',           'title' => T_("M"),           'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
+		$enum[] = ['key' => 'l',           'title' => T_("L"),           'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
+		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class' => 'min-h-screen py-5 md:py-10 lg:py-20', ];
+		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'class' => 'min-h-screen py-5', 'hide' => true ];
 
 		return $enum;
 	}
@@ -76,7 +77,7 @@ class height
 
 			foreach (self::enum() as $key => $value)
 			{
-				if(isset($value['system']) && $value['system'])
+				if(isset($value['hide']) && $value['hide'])
 				{
 					continue;
 				}
