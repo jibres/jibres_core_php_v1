@@ -2,7 +2,7 @@
 namespace content_site\options\link;
 
 
-class link_professional
+trait link_professional
 {
 
 	public static function validator($_data)
@@ -11,132 +11,145 @@ class link_professional
 		return $data;
 	}
 
+	public static function db_key()
+	{
+		return 'link';
+	}
+
+	public static function option_key()
+	{
+		return 'link_professional';
+	}
+
+	public static function have_specialsave()
+	{
+		return false;
+	}
+
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('link_professional');
-
+		$link    = \content_site\section\view::get_current_index_detail('link');
+		$pointer = \content_site\section\view::get_current_index_detail('pointer');
+		$target  = \content_site\section\view::get_current_index_detail('target');
+		$target  = \content_site\section\view::get_current_index_detail('target');
 
 		$html = '';
 
+		$kingdom = \dash\url::kingdom();
+
 		$html .= "<form method='post'  autocomplete='off'>";
 		{
-			    $html .= "<div class='mB10'>";
-			    {
-
-			      <label for='pointer'><?php echo T_('Hint to') ?></label>
-			      <select name='pointer' class='select22'>
-			      {
-
-			        <option value='><?php echo T_('Please select an item') ?></option>
-			        <option value='title' <?php if(\dash\data::dataRow_pointer() === 'title') {echo 'selected';} ?>><?php echo T_('Title') ?></option>
-			        <option value='separator' <?php if(\dash\data::dataRow_pointer() === 'separator') {echo 'selected';} ?>><?php echo T_('Separator') ?></option>
-			        <option value='homepage' <?php if(\dash\data::dataRow_pointer() === 'homepage') {echo 'selected';} ?>><?php echo T_('Home page') ?></option>
-			        <option value='products' <?php if(\dash\data::dataRow_pointer() === 'products') {echo 'selected';} ?>><?php echo T_('Products') ?></option>
-			        <option value='posts' <?php if(\dash\data::dataRow_pointer() === 'posts') {echo 'selected';} ?>><?php echo T_('Posts') ?></option>
-			        <option value='tags' <?php if(\dash\data::dataRow_pointer() === 'tags') {echo 'selected';} ?>><?php echo T_('Tag of products') ?></option>
-			        <option value='hashtag' <?php if(\dash\data::dataRow_pointer() === 'hashtag') {echo 'selected';} ?>><?php echo T_('Hashtag of posts') ?></option>
-			        <option value='forms' <?php if(\dash\data::dataRow_pointer() === 'forms') {echo 'selected';} ?>><?php echo T_('Forms') ?></option>
-			        <option value='socialnetwork' <?php if(\dash\data::dataRow_pointer() === 'socialnetwork') {echo 'selected';} ?>><?php echo T_('Social network') ?></option>
-			        <option value='other' <?php if(\dash\data::dataRow_pointer() === 'other') {echo 'selected';} ?>><?php echo T_('Something else') ?></option>
-			      }
-			      </select>
-			    }
-			    </div>
-
-			   <div data-response='pointer' data-response-where-not='separator' <?php if(\dash\data::dataRow_pointer() === 'separator'){ echo 'data-response-hide';} ?>>
-			      <label for='title'><?php echo T_('Title'); ?></label>
-			      <div class='input'>
-			        <input type='text' name='title' id='title' value='<?php echo \dash\data::dataRow_title() ?>' maxlength='50' >
-			      </div>
-			    </div>
-
-
-			   <div data-response='pointer' data-response-where='products' <?php if(\dash\data::dataRow_pointer() === 'products'){}else{ echo 'data-response-hide';} ?>>
-			      <select name='product_id' class='select22' id='productSearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_('Search in product'); ?>'>
-			        <?php if(\dash\data::dataRow_related_id()) {?>
-			          <option value='<?php echo \dash\data::dataRow_related_id() ?>' selected><?php echo \dash\data::productTitle() ?></option>
-			        <?php } //endif ?>
-			        </select>
-			    </div>
-
-
-			   <div data-response='pointer' data-response-where='posts' <?php if(\dash\data::dataRow_pointer() === 'posts'){}else{ echo 'data-response-hide';} ?>>
-			      <select name='post_id' class='select22' id='postSearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/posts/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_('Search in posts'); ?>'>
-			        <?php if(\dash\data::dataRow_related_id()) {?>
-			          <option value='<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>' selected><?php echo \dash\data::postTitle() ?></option>
-			        <?php } //endif ?>
-			        </select>
-			    </div>
-
-			     <div data-response='pointer' data-response-where='tags' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
-			      <select name='tag_id' class='select22' id='tagSearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='<?php echo \dash\url::kingdom(). '/a/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_('Search in tag'); ?>'>
-			        <?php if(\dash\data::dataRow_related_id()) {?>
-			          <option value='<?php echo \dash\data::dataRow_related_id() ?>' selected><?php echo \dash\data::tagTitle() ?></option>
-			        <?php } //endif ?>
-			        </select>
-			    </div>
-
-			   <div data-response='pointer' data-response-where='hashtag' <?php if(\dash\data::dataRow_pointer() === 'hashtag'){}else{ echo 'data-response-hide';} ?>>
-			      <select name='hashtag_id' class='select22' id='hashtagSearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/hashtag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_('Search in hashtag'); ?>'>
-			        <?php if(\dash\data::dataRow_related_id()) {?>
-			          <option value='<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>' selected><?php echo \dash\data::hashtagTitle() ?></option>
-			        <?php } //endif ?>
-			        </select>
-			    </div>
-
-			    <div data-response='pointer' data-response-where='forms' <?php if(\dash\data::dataRow_pointer() === 'forms'){}else{ echo 'data-response-hide';} ?>>
-			      <select name='form_id' class='select22' id='formsSearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='<?php echo \dash\url::kingdom(). '/a/form/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_('Search in forms'); ?>'>
-			        <?php if(\dash\data::dataRow_related_id()) {?>
-			          <option value='<?php echo \dash\data::dataRow_related_id() ?>' selected><?php echo \dash\data::formTitle() ?></option>
-			        <?php } //endif ?>
-			        </select>
-			    </div>
-
-			    <div data-response='pointer' data-response-where='socialnetwork' <?php if(\dash\data::dataRow_pointer() === 'socialnetwork'){}else{ echo 'data-response-hide';} ?>>
-			      <?php $social = \lib\store::social(); if(!is_array($social)){ $social = []; } ?>
-			      <select name='socialnetwork' class='select22'>
-			        <option value='><?php echo T_('Select social network') ?></option>
-			        <?php foreach ($social as $key => $value) { ?>
-			          <option value='<?php echo $key ?>' <?php if(\dash\data::dataRow_socialnetwork() === $key) {echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
-			        <?php } //endfor ?>
-			      </select>
-			      <div class='msg mT20'>
-			        <p>
-			          <?php echo T_('Only the networks you have set up are displayed') ?>
-			          <br>
-			          <?php echo T_('To manage your social network') ?>
-			          <a class='btn link' href='<?php echo \dash\url::kingdom(). '/a/setting/social' ?>'><?php echo T_('Click here') ?></a>
-			        </p>
-			      </div>
-			    </div>
-
-			    <div data-response='pointer' data-response-where='other' <?php if(\dash\data::dataRow_pointer() === 'other'){}else{ echo 'data-response-hide';} ?>>
-			      <label for='url'><?php echo T_('Url'); ?></label>
-			      <div class='input ltr'>
-			        <input type='text' name='url' id='url' value='<?php if(\dash\data::dataRow_pointer() === 'other') { echo \dash\data::dataRow_url(); } ?>' >
-			      </div>
-			      <div class='switch1 mB5'>
-			        <input type='checkbox' name='target' id='target' <?php if(\dash\data::dataRow_target()) { echo 'checked';} ?>>
-			        <label for='target'></label>
-			        <label for='target'><?php echo T_('Open in New tab'); ?><small></small></label>
-			      </div>
-			    </div>
-		}
-		</form>
-
-		$html .= '<form method='post" data-patch autocomplete="off">';
-		{
-			$html .= '<input type="hidden" name="not_redirect" value="1">';
-	    	$html .= '<label for="link_professional">'. T_("Link"). '</label>';
-
-			$html .= '<div class="input ltr">';
+			$html .= '<input type="hidden" name="multioption" value="multi">';
+			if(self::have_specialsave())
 			{
-	    		$html .= '<input type="url" name="opt_link" value="'. $default. '">';
+				$html .= '<input type="hidden" name="specialsave" value="specialsave">';
 			}
-			$html .= "</div>";
+
+			$option_key = self::option_key();
+
+			$html .= "<input type='hidden' name='opt_{$option_key}' value='1'>";
+
+			$html .= "<div class='mb-5'>";
+			{
+
+				$html .= "<label for='pointer'>". T_('Hint to'). "</label>";
+				$html .= "<select name='pointer' class='select22'>";
+				{
+
+					$html .= "<option value='>". T_('Please select an item'). "</option>";
+
+					$list =
+					[
+						'homepage'      => ['title' => T_('Homepage'),		'api_link' => null, ],
+						'products'      => ['title' => T_('Products'),		'api_link' => '/a/products/api?json=true', ],
+						'posts'         => ['title' => T_('Posts'),			'api_link' => '/cms/posts/api?json=true', ],
+						'tags'          => ['title' => T_('Tags'),			'api_link' => '/a/tag/api?json=true&getid=1', ],
+						'hashtag'       => ['title' => T_('Hashtag'),		'api_link' => '/cms/hashtag/api?json=true&getid=1', ],
+						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
+						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
+						'other'         => ['title' => T_('Other'),			'api_link' => null, ],
+					];
+
+					foreach ($list as $key => $value)
+					{
+						$selected = null;
+						$html .= "<option value='$key' $selected>$value[title]</option>";
+					}
+				}
+				$html .= '</select>';
+			}
+			$html .= '</div>';
+
+			foreach ($list as $key => $value)
+			{
+				if($key === 'socialnetwork')
+				{
+					$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
+				   	{
+						$social = \lib\store::social();
+
+						$html .= "<select name='socialnetwork' class='select22'>";
+						{
+				        	$html .= "<option value='>". T_('Select social network'). "</option>";
+
+				        	foreach ($social as $key => $value)
+				        	{
+				        		$selected = null;
+				          		$html .= "<option value='$key' $selected>". a($value, 'title'). "</option>";
+
+				        	} // endfor
+						}
+				      	$html .= "</select>";
+			          	// <a class='btn link' href='<?php echo \dash\url::kingdom(). '/a/setting/social''>". T_('Click here'). "</a>
+				    }
+				    $html .= '</div>';
+				}
+				elseif($key === 'homepage')
+				{
+
+				}
+				elseif($key === 'other')
+				{
+					$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
+					{
+						$html .= '<div class="input ltr mb-5">';
+						{
+				    		$html .= '<input type="url" name="opt_link_raw" value="'. $link. '" placeholder="URL">';
+						}
+						$html .= "</div>";
+
+						$html .= '<div class="check1 py-0">';
+						{
+							$html .= '<input type="checkbox" name="target" id="target"'.$target.'>';
+							$html .= '<label for="target">'. T_('Open in new windows'). '</label>';
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+				}
+				else
+				{
+
+					$data_response_hide = 'data-response-hide';
+					if($pointer === $key)
+					{
+						$data_response_hide = null;
+					}
+
+				   	$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
+				   	{
+				      	$html .= "<select name='{$key}_id' class='select22' id='{$key}search'  data-model='html'  data-ajax--delay='100' data-ajax--url='{$kingdom}$value[api_link]' data-shortkey-search data-placeholder='". T_('Search in :val', ['val' => $value['title']]). "'>";
+				          // <option value='<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()). "' selected><?php echo \dash\data::postTitle(). "</option>
+
+				        $html .= "</select>";
+				   	}
+				   	$html .= "</div>";
+				}
+			}
 		}
-  		$html .= '</form>';
+		$html .= "</form>";
+
 
 		return $html;
 	}

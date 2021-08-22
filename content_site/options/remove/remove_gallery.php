@@ -28,7 +28,7 @@ class remove_gallery
 
 	      $remove_title = T_("Are you sure to remove this block?");
 
-	      $html .= '<div class="row w-full">';
+	      $html .= '<div class="row w-full mt-10">';
 	      $html .= '<div class="cauto">';
 	      $html .= "<div tabindex=0 class='inline-block bg-gray-50 transition p-3 rounded-lg' data-confirm data-title='$remove_title' data-data='$delete_json'>";
 	      $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Delete', 'minor'). '" alt="Delete">';
