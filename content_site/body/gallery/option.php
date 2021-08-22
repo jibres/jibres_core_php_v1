@@ -275,7 +275,7 @@ class option
 		// get current gallery item
 		$gallery_items_count = intval(self::gallery_items_count($_section_id));
 
-		$remain = $maximum_capacity - $gallery_items_count;
+		$remain = $max - $gallery_items_count;
 
 		if($remain > 0)
 		{
