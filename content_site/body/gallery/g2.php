@@ -49,8 +49,9 @@ class g2
 			],
 			'default'      =>
 			[
-				'type'   => 'g2',
-				'effect' => 'zoom',
+				'heading' => T_("Image Gallery"),
+				'type'    => 'g2',
+
 			],
 			'preview_list' =>
 			[

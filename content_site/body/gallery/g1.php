@@ -50,8 +50,9 @@ class g1
 			],
 			'default'      =>
 			[
-				'type'   => 'g1',
-				'effect' => 'zoom',
+				'heading' => T_("Image Gallery"),
+				'type'    => 'g1',
+				'effect'  => 'zoom',
 			],
 			'preview_list' =>
 			[

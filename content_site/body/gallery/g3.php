@@ -49,8 +49,8 @@ class g3
 			],
 			'default'      =>
 			[
-				'type'   => 'g3',
-				'effect' => 'zoom',
+				'heading' => T_("Image Gallery"),
+				'type'    => 'g3',
 			],
 			'preview_list' =>
 			[
