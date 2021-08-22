@@ -57,7 +57,7 @@ class get
 	 */
 	public static function by_for_id($_for, $_for_id)
 	{
-		$query = "SELECT * FROM menu WHERE menu.for = '$_for' AND menu.for_id = $_for_id AND menu.parent1 IS NOT NULL LIMIT 1000";
+		$query = "SELECT * FROM menu WHERE menu.for = '$_for' AND menu.for_id = $_for_id AND menu.parent1 IS NOT NULL ORDER BY menu.sort ASC LIMIT 1000";
 		$result = \dash\db::get($query);
 		return $result;
 	}

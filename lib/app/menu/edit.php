@@ -65,6 +65,40 @@ class edit
 	}
 
 
+	public static function sort_raw($_args, $_id)
+	{
+
+		$id = \dash\validate::id($_id);
+
+		if(!$id)
+		{
+			\dash\notif::error(T_("Id is required"));
+			return false;
+		}
+
+		if(!is_array($_args))
+		{
+			\dash\notif::error(T_("Sort arguments must be array"));
+			return false;
+		}
+
+		$args = array_values($_args);
+
+		$args = array_map('floatval', $args);
+
+		$args = array_filter($args);
+		$args = array_unique($args);
+
+		if(!$args)
+		{
+			\dash\notif::error(T_("No item to sort"));
+			return false;
+		}
+
+		\lib\db\menu\update::sort_raw($args, $id);
+	}
+
+
 
 	private static $sort_level = [];
 

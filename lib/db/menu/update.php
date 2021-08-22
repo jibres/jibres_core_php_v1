@@ -35,6 +35,22 @@ class update
 	}
 
 
+	public static function sort_raw($_update, $_id)
+	{
+		$query = [];
+		foreach ($_update as $sort => $id)
+		{
+			$query[] = "UPDATE menu SET menu.sort = $sort WHERE menu.id = $id AND menu.parent1 = $_id LIMIT 1";
+		}
+
+		if(!empty($query))
+		{
+			\dash\db::query(implode(' ; ', $query), null, ['multi_query' => true]);
+		}
+
+	}
+
+
 	public static function sort_level($_update)
 	{
 		$query = [];

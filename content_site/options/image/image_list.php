@@ -4,6 +4,25 @@ namespace content_site\options\image;
 
 class image_list
 {
+	public static function specialsave($_data)
+	{
+		$sortgallery = a($_data, 'sortgallery');
+		if(!is_array($sortgallery))
+		{
+			\dash\notif::error(T_("Invalid gallery sort"));
+			return false;
+		}
+
+		$menu_id = \content_site\body\gallery\option::get_master_menu_id(\dash\request::get('sid'));
+
+		\lib\app\menu\edit::sort_raw($sortgallery, $menu_id);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::clean();
+		}
+
+	}
 
 	public static function admin_html()
 	{
@@ -18,8 +37,8 @@ class image_list
 		$html .= '<form method="post" autocomplete="off">';
 		{
 
-	  		$html .= '<input type="hidden" name="set_sort_child" value="1">';
-	  		$html .= '<input type="hidden" name="child_key" value="image_list">';
+	  		$html .= '<input type="hidden" name="opt_image_list" value="1">';
+	  		$html .= '<input type="hidden" name="specialsave" value="specialsave">';
 
 			$html .= '<nav class="items">';
 			{
@@ -31,7 +50,7 @@ class image_list
 			      		{
 				      		$html .= '<a class="item f" href="'. \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => a($value, 'id')]). '">';
 				      		{
-					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'id'). '">';
+					            $html .= '<input type="hidden" name="sortgallery[]" value="'.  a($value, 'id'). '">';
 
 				      			if(isset($value['file']) && $value['file'])
 				      			{

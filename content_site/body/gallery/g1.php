@@ -19,7 +19,7 @@ class g1
 			'default'      => option::master_default(['type' => 'g1', 'effect' => 'zoom', ]),
 			'options'      =>
 			[
-				'heading_full',
+				'heading_raw',
 				'image_list' =>
 				[
 					'file_gallery',
