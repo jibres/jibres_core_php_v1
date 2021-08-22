@@ -64,7 +64,7 @@ class image_list
 				        		$html .= '<img src="'. $file_url. '" alt="'. a($value, 'title'). '">';
 				        		$html .= '<div class="key">'. a($value, 'title').' </div>';
 
-            					if (count($currentSectionDetail['preview']['image_list']) > 1)
+            					if (count($image_list) > 1)
             					{
               						$html .= '<img class="p-5 opacity-70 hover:bg-gray-200" data-handle src="'. \dash\utility\icon::url('DragHandle', 'minor'). '">';
               					}

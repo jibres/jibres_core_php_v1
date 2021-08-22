@@ -161,6 +161,26 @@ class option
 	}
 
 
+	public static function before_section_remove($_section_id = null)
+	{
+		if(!$_section_id)
+		{
+			return;
+		}
+
+		$menu_id = self::get_master_menu_id($_section_id);
+
+		if(!$menu_id)
+		{
+			return;
+		}
+
+		\lib\app\menu\remove::remove($menu_id, true);
+
+		\dash\notif::clean();
+
+	}
+
 	/**
 	 * After add new gallery we need to create menu and add some child to that menu
 	 *
@@ -169,7 +189,7 @@ class option
 	 *
 	 * @return     bool    ( description_of_the_return_value )
 	 */
-	public static function process_after_add_section($_section_id = null, $_type = null)
+	public static function after_add_section($_section_id = null, $_type = null)
 	{
 		if(!$_section_id || !$_type)
 		{
@@ -218,7 +238,7 @@ class option
 	 * @param      <type>  $_section_id  The section identifier
 	 * @param      <type>  $_type        The type
 	 */
-	public static function process_after_change_type($_section_id = null, $_type = null)
+	public static function after_change_type($_section_id = null, $_type = null)
 	{
 		if(!$_section_id || !$_type)
 		{

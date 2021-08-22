@@ -25,10 +25,21 @@ class model
 
 		$page_id = \dash\validate::code($page_id);
 		$page_id = \dash\coding::decode($page_id);
+
 		if(!$page_id)
 		{
 			\dash\notif::error(T_("Invali page id"));
 			return false;
+		}
+
+		$preview_deleted = \lib\db\sitebuilder\get::preview_deleted($page_id);
+
+		if($preview_deleted)
+		{
+			foreach ($preview_deleted as $key => $value)
+			{
+				\content_site\call_function::before_section_remove(a($value, 'type'), a($value, 'id'));
+			}
 		}
 
 		\lib\db\sitebuilder\update::save_page($page_id);

@@ -331,7 +331,7 @@ class model
 		if(\dash\data::changeSectionTypeMode())
 		{
 			// check process after change type
-			\content_site\call_function::process_after_change_type($section_key, $section_id, $type);
+			\content_site\call_function::after_change_type($section_key, $section_id, $type);
 
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
 
@@ -368,6 +368,11 @@ class model
 
 				if(a($load_section_lock, 'status') === 'draft')
 				{
+
+					$section_key = \dash\url::child();
+
+					\content_site\call_function::before_section_remove($section_key, $section_id);
+
 					// delete section because the master status is draft
 					\lib\db\pagebuilder\delete::by_id($section_id);
 				}
@@ -605,7 +610,7 @@ class model
 			return false;
 		}
 
-		\content_site\call_function::process_after_add_section($key, $id, $type);
+		\content_site\call_function::after_add_section($key, $id, $type);
 
 		$url = \dash\url::this(). '/';
 		$url .= $key;

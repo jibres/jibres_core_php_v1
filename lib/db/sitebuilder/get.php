@@ -35,6 +35,22 @@ class get
 	}
 
 
+	public static function preview_deleted($_page_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :page_id AND pagebuilder.status_preview = 'deleted' ";
+
+		$param  =
+		[
+			':page_id' => $_page_id,
+		];
+
+		$result = \dash\pdo::get($query, $param);
+
+		return $result;
+
+	}
+
+
 
 
 	public static function line_list_preview(int $_id)
