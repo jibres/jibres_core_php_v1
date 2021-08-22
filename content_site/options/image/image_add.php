@@ -31,20 +31,25 @@ class image_add
 	}
 
 
-	/**
-	 * Generate random key
-	 * use in this function and in gallery to add default image
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function generate_random_key()
-	{
-		return md5(rand(). \dash\user::id(). microtime(). rand(). time());
-	}
-
 
 	public static function admin_html()
 	{
+		$currentSectionDetail = \dash\data::currentSectionDetail();
+
+		if(!$currentSectionDetail || !isset($currentSectionDetail['id']))
+		{
+			\dash\notif::error(T_("Invalid section detail"));
+			return false;
+		}
+
+		$allow_capacity = \content_site\body\gallery\option::allow_capacity($currentSectionDetail['id'], a($currentSectionDetail, 'preview', 'type'));
+
+		if(!$allow_capacity)
+		{
+			return false;
+		}
+
+
 		$html = '';
 		$html .= '<nav class="items">';
 		{

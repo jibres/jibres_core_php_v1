@@ -73,7 +73,7 @@ class g1
 
 	public static function maximum_capacity()
 	{
-		return 120;
+		return 12;
 	}
 
 

@@ -77,7 +77,6 @@ class option
 		{
 			$list[] =
 			[
-				"index"   => \content_site\options\image\image_add::generate_random_key(),
 				"image"   => \dash\sample\img::image(),
 				"caption" => T_("Image"),
 			];
@@ -253,8 +252,27 @@ class option
 		{
 			// try to remove useless items
 		}
-
 	}
+
+	public static function allow_capacity($_section_id, $_type)
+	{
+		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+
+		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
+		{
+			return true;
+		}
+		// get current gallery item
+		$current_gallery_item_count = intval(self::current_gallery_item_count($_section_id));
+
+		if($current_gallery_item_count >= $maximum_capacity)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 
 	public static function append_gallery_item($_section_id, $_type)
 	{
