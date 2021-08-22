@@ -124,6 +124,14 @@ class view
 		$section_requested_detail = [];
 		$popular                  = null;
 
+
+		\content_site\call_function::trust_folder($folder);
+
+		if($section_requested)
+		{
+			\content_site\call_function::trust_section($folder, $section_requested);
+		}
+
 		foreach ($section_list as $key => $value)
 		{
 			$mode = \content_site\call_function::get_folder(a($value, 'key'));

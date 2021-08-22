@@ -85,7 +85,37 @@ class call_function
 			}
 			return null;
 		}
+	}
 
+
+	public static function trust_folder($_folder)
+	{
+		if(is_string($_folder) && in_array($_folder, ['header', 'body', 'footer']))
+		{
+			return true;
+		}
+		else
+		{
+			\dash\header::status(404, T_("Invalid folder"));
+		}
+	}
+
+
+
+	public static function trust_section($_folder, $_section)
+	{
+		if(self::trust_folder($_folder) && ($section = \dash\validate::string_100($_section)))
+		{
+			$dir = root . '/content_site/'. $_folder. '/'. $section;
+			$dir = \autoload::fix_os_path($dir);
+
+			if(is_dir($dir))
+			{
+				return true;
+			}
+
+		}
+		\dash\header::status(404, T_("Invalid section"));
 	}
 
 
