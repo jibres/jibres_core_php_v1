@@ -82,7 +82,13 @@ class g1
 						// h3 a
 						$myLinkHref   = "href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'caption');
-						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'image'), 1100));
+
+						if(!a($value, 'file'))
+						{
+							$value['file'] = \dash\sample\img::image();
+						}
+
+						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 1100));
 
 						$card = '';
 						$card .= "<a data-magicbox='$effect' $myLinkHref>";

@@ -37,17 +37,6 @@ class layout
 			shuffle($image_list);
 		}
 
-		foreach ($image_list as $key => $value)
-		{
-			if(!a($value, 'file'))
-			{
-				$value['file'] = \dash\sample\img::image();
-			}
-
-			$image_list[$key]['file'] = $value['file'];
-		}
-
-
 		$type      = a($_args, 'type');
 
 		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
@@ -85,7 +74,7 @@ class layout
 				$image_list[] =
 				[
 					'title' => T_("Image :val", \dash\fit::number($i)),
-					'file'    => \dash\sample\img::image()
+					'image'    => \dash\sample\img::image()
 				];
 			}
 		}
