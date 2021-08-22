@@ -118,14 +118,14 @@ trait file
 
 			$html .= '>';
 
-			$html .= '<input type="file" accept="image/jpeg, image/png" id="myfile">';
+			$html .= '<input type="file" accept="image/jpeg, image/png, image/gif" id="myfile">';
 			$html .= '<label for="myfile">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
 
 			if($default)
 			{
 				$myExt = substr($default, -3);
 
-				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']))
+				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg', 'gif']))
 				{
 					$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
 				}
