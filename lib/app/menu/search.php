@@ -47,6 +47,8 @@ class search
 			self::$is_filtered = true;
 		}
 
+		$and[] = " menu.for = 'menu' ";
+
 
 		if($data['sort'] && !$order_sort)
 		{

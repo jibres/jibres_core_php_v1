@@ -48,6 +48,12 @@ class get
 			return false;
 		}
 
+		if(a($load, 'for') !== 'menu')
+		{
+			\dash\notif::error(T_("Can not load this menu in this page"));
+			return false;
+		}
+
 		$load = \lib\app\menu\ready::row($load);
 
 		return $load;
@@ -184,6 +190,12 @@ class get
 			return false;
 		}
 
+		if(a($load, 'for') !== 'menu')
+		{
+			\dash\notif::error(T_("Can not load this menu in this page"));
+			return false;
+		}
+
 		$load = \lib\app\menu\ready::row($load);
 
 		return $load;
@@ -255,6 +267,11 @@ class get
 
 	public static function child($_id)
 	{
+		$load_master = self::get_master($_id);
+		if(!$load_master)
+		{
+			return false;
+		}
 
 		$id = \dash\validate::id($_id);
 
@@ -264,6 +281,7 @@ class get
 		}
 
 		$list = \lib\db\menu\get::child($id);
+
 		\dash\temp::set('calcMenuChildCount', count($list));
 
 

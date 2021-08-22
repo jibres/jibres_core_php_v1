@@ -165,7 +165,7 @@ class get
 
 	public static function list_all_menu()
 	{
-		$query = "SELECT menu.*, (SELECT COUNT(*) FROM menu AS `cmenu` WHERE cmenu.parent1 = menu.id ) as `count_link` FROM menu WHERE menu.parent1 IS NULL LIMIT 500";
+		$query = "SELECT menu.*, (SELECT COUNT(*) FROM menu AS `cmenu` WHERE cmenu.parent1 = menu.id ) as `count_link` FROM menu WHERE menu.parent1 IS NULL AND menu.for = 'menu' LIMIT 1000";
 		$result = \dash\db::get($query);
 		return $result;
 	}
