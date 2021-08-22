@@ -15,6 +15,9 @@ trait file
 				return false;
 			}
 
+			// need redirect after add image to show image delete button
+			\content_site\utility::need_redirect(true);
+
 			return $image_path;
 		}
 		else
@@ -138,7 +141,21 @@ trait file
 
 			if($default)
 			{
-				$html .= '<span class="imageDel" data-confirm data-data=\'{"opt_'.$option_key.'" : 1, "multioption" : "multi", "deletefile" : 1}\'></span>';
+				$delete_file_json =
+				[
+					'opt_'.$option_key => 1,
+					'multioption'      => 'multi',
+					'deletefile'       => 1,
+				];
+
+				if(self::have_specialsave())
+				{
+					$delete_file_json['specialsave'] = 'specialsave';
+				}
+
+				$delete_file_json = json_encode($delete_file_json);
+
+				$html .= "<span class='imageDel' data-confirm data-data='$delete_file_json'></span>";
 			}
 
 			$html .= '</div>';

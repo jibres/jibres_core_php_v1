@@ -30,7 +30,7 @@ class file_gallery
 	{
 		$file_path = self::validator($_data);
 
-		if(!$file_path)
+		if(!\dash\engine\process::status())
 		{
 			return false;
 		}

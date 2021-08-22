@@ -147,19 +147,29 @@ class model
 			return false;
 		}
 
+		/**
+		 * Code can not be continue
+		 * Because the special save edit everything need and complete process
+		 * @todo Nedd check if have not function special save make error
+		 */
+		if(\dash\request::post('specialsave') === 'specialsave')
+		{
+			$specialsave = \content_site\call_function::option_specialsave($option_key, $myPost);
+
+			if(\content_site\utility::need_redirect())
+			{
+				self::reloadIframe();
+				\dash\redirect::pwd();
+			}
+
+			return $specialsave;
+		}
+
+
 		// save multi option
 		if(\dash\request::post('multioption') === 'multi')
 		{
 			$value = $myPost;
-		}
-		elseif(\dash\request::post('specialsave') === 'specialsave')
-		{
-			/**
-			 * Code can not be continue
-			 * Because the special save edit everything need and complete process
-			 * @todo Nedd check if have not function special save make error
-			 */
-			return \content_site\call_function::option_specialsave($option_key, $myPost);
 		}
 		else
 		{
@@ -325,7 +335,6 @@ class model
 
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
 
-			$need_redirect = true;
 		}
 
 		// force set redirect
@@ -334,20 +343,6 @@ class model
 			self::reloadIframe();
 			\dash\redirect::pwd();
 		}
-
-		// if(\dash\url::subchild() === 'style')
-		// {
-		// 	self::reloadIframe();
-
-		// 	if(\dash\request::post('notredirect'))
-		// 	{
-		// 		// nothing
-		// 	}
-		// 	else
-		// 	{
-		// 		\dash\redirect::pwd();
-		// 	}
-		// }
 
 
 	}
