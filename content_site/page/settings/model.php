@@ -90,6 +90,16 @@ class model
 			return false;
 		}
 
+		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
+
+		if($all_section)
+		{
+			foreach ($all_section as $key => $value)
+			{
+				\content_site\call_function::before_section_remove(a($value, 'type'), a($value, 'id'));
+			}
+		}
+
 		\lib\db\sitebuilder\delete::page($page_id);
 
 		\dash\notif::ok(T_("Page removed"));

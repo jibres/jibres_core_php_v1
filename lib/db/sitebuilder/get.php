@@ -51,6 +51,22 @@ class get
 	}
 
 
+	public static function all_section($_page_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :page_id ";
+
+		$param  =
+		[
+			':page_id' => $_page_id,
+		];
+
+		$result = \dash\pdo::get($query, $param);
+
+		return $result;
+
+	}
+
+
 
 
 	public static function line_list_preview(int $_id)
