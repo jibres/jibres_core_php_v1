@@ -236,6 +236,7 @@ class view
 	 */
 	public static function get_current_index_detail($_need = null)
 	{
+		$child = \dash\url::child();
 		$subchild = \dash\url::subchild();
 		$index = \dash\request::get('index');
 
@@ -245,21 +246,17 @@ class view
 
 		if($subchild && $index)
 		{
-			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
+			switch ($child)
 			{
-				foreach ($preview[$subchild] as $key => $value)
-				{
-					if(isset($value['index']) && $value['index'] === $index)
-					{
-						$detail = $value;
-					}
-				}
+				case 'gallery':
+					$detail = \content_site\body\gallery\option::get_current_item();
+					break;
+
+				default:
+					// nothing
+					break;
 			}
 		}
-		// elseif($subchild)
-		// {
-		// 	$detail = a($preview, $subchild);
-		// }
 		else
 		{
 			$detail = $preview;

@@ -113,8 +113,6 @@ class option
 	 */
 	public static function master_option()
 	{
-		\content_site\options\background\background_pack::remove_from_list('coverratio');
-
 		$option =
 		[
 
@@ -139,7 +137,14 @@ class option
 	}
 
 
-	public static function current_gallery_item($_section_id)
+	/**
+	 * Get list of gallery item
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function gallery_items($_section_id)
 	{
 		$list = \lib\app\menu\get::get_by_for_id('gallery', $_section_id);
 
@@ -152,9 +157,52 @@ class option
 	}
 
 
-	public static function current_gallery_item_count($_section_id)
+	/**
+	 * Gets the current item.
+	 *
+	 * @return     bool  The current item.
+	 */
+	public static function get_current_item()
 	{
-		$count = self::current_gallery_item($_section_id);
+		$index = \dash\request::get('index');
+
+		$index = \dash\validate::id($index);
+
+		if(!$index)
+		{
+			return false;
+		}
+
+		$currentSectionDetail = \dash\data::currentSectionDetail();
+
+		if(!$currentSectionDetail || !isset($currentSectionDetail['id']))
+		{
+			return false;
+		}
+
+		$menu = \lib\app\menu\get::load_one_by_for_id('gallery', $currentSectionDetail['id'], $index);
+
+		if(!$menu)
+		{
+			return false;
+		}
+
+		$menu['index'] = $index;
+
+		return $menu;
+	}
+
+
+	/**
+	 * Get count of current gallery item
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 *
+	 * @return     int     ( description_of_the_return_value )
+	 */
+	public static function gallery_items_count($_section_id)
+	{
+		$count = self::gallery_items($_section_id);
 
 		if(is_array($count))
 		{
@@ -165,8 +213,35 @@ class option
 	}
 
 
+	/**
+	 * Gets the master menu identifier.
+	 * For use in add child in menu [As gallery item]
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 *
+	 * @return     bool    The master menu identifier.
+	 */
+	public static function get_master_menu_id($_section_id)
+	{
+		$menu = \lib\app\menu\get::parent_by_for_id('gallery', $_section_id);
+
+		if(isset($menu['id']))
+		{
+			return $menu['id'];
+		}
+
+		return false;
+	}
 
 
+	/**
+	 * After add new gallery we need to create menu and add some child to that menu
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 * @param      <type>  $_type        The type
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	public static function process_after_add_section($_section_id = null, $_type = null)
 	{
 		if(!$_section_id || !$_type)
@@ -202,25 +277,20 @@ class option
 
 		for ($i=1; $i <= $maximum_capacity; $i++)
 		{
-			self::add_gallery_item($_section_id, $menu_id);
+			self::add_menu_child_as_gallery_item($_section_id, $menu_id);
 		}
 
 	}
 
 
-	public static function get_master_menu_id($_section_id)
-	{
-		$menu = \lib\app\menu\get::parent_by_for_id('gallery', $_section_id);
-
-		if(isset($menu['id']))
-		{
-			return $menu['id'];
-		}
-
-		return false;
-	}
-
-
+	/**
+	 * After change type of gallery we need to recalculate gallery item
+	 * If need add some item
+	 * Else remove some item
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 * @param      <type>  $_type        The type
+	 */
 	public static function process_after_change_type($_section_id = null, $_type = null)
 	{
 		if(!$_section_id || !$_type)
@@ -235,9 +305,9 @@ class option
 			return;
 		}
 		// get current gallery item
-		$current_gallery_item_count = intval(self::current_gallery_item_count($_section_id));
+		$gallery_items_count = intval(self::gallery_items_count($_section_id));
 
-		$remain = $maximum_capacity - $current_gallery_item_count;
+		$remain = $maximum_capacity - $gallery_items_count;
 
 		if($remain > 0)
 		{
@@ -245,15 +315,26 @@ class option
 
 			for ($i=1; $i <= $remain; $i++)
 			{
-				self::add_gallery_item($_section_id, $master_id);
+				self::add_menu_child_as_gallery_item($_section_id, $master_id);
 			}
 		}
 		else
 		{
-			// try to remove useless items
+			/**
+			 * @todo try to remove useless items by check datemodified
+			 */
 		}
 	}
 
+
+	/**
+	 * Allow capapcity to add new item
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 * @param      <type>  $_type        The type
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	public static function allow_capacity($_section_id, $_type)
 	{
 		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
@@ -263,9 +344,9 @@ class option
 			return true;
 		}
 		// get current gallery item
-		$current_gallery_item_count = intval(self::current_gallery_item_count($_section_id));
+		$gallery_items_count = intval(self::gallery_items_count($_section_id));
 
-		if($current_gallery_item_count >= $maximum_capacity)
+		if($gallery_items_count >= $maximum_capacity)
 		{
 			return false;
 		}
@@ -274,6 +355,14 @@ class option
 	}
 
 
+	/**
+	 * Appends a gallery item.
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 * @param      <type>  $_type        The type
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	public static function append_gallery_item($_section_id, $_type)
 	{
 		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
@@ -283,21 +372,30 @@ class option
 			return;
 		}
 		// get current gallery item
-		$current_gallery_item_count = intval(self::current_gallery_item_count($_section_id));
+		$gallery_items_count = intval(self::gallery_items_count($_section_id));
 
 
 
-		if($current_gallery_item_count >= $maximum_capacity)
+		if($gallery_items_count >= $maximum_capacity)
 		{
 			\dash\notif::error(T_("Maximum capacity of this gallery is full"));
 			return false;
 		}
 
-		return self::add_gallery_item($_section_id, self::get_master_menu_id($_section_id), $current_gallery_item_count + 1);
+		return self::add_menu_child_as_gallery_item($_section_id, self::get_master_menu_id($_section_id), $gallery_items_count + 1);
 	}
 
 
-	private static function add_gallery_item($_section_id, $_menu_id, $_number = 1)
+	/**
+	 * Adds a menu child as gallery item.
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 * @param      <type>  $_menu_id     The menu identifier
+	 * @param      int     $_number      The number
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function add_menu_child_as_gallery_item($_section_id, $_menu_id, $_number = 1)
 	{
 
 		$insert_menu_child =
@@ -309,10 +407,41 @@ class option
 
 		$last_menu_id = \lib\app\menu\add::menu_item($insert_menu_child, $_menu_id, true);
 
-
 		\dash\notif::clean();
 
 		return a($last_menu_id, 'id');
+	}
+
+
+	/**
+	 * Update current gallery item
+	 *
+	 * @param      <type>  $_args  The arguments
+	 */
+	public static function update_one_gallery_item($_args)
+	{
+		$gallery = self::current_gallery_item();
+
+		if(!$gallery)
+		{
+			\dash\notif::error(T_("Invalid index"));
+			return false;
+		}
+
+		$index      = a($gallery, 'index');
+		$type       = a($gallery, 'preview', 'type');
+		$section_id = a($gallery, 'id');
+
+		\lib\app\menu\edit::edit($_args, $index, true);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::clean();
+		}
+
+		return true;
+
+
 	}
 
 }

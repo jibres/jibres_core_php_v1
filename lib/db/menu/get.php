@@ -29,6 +29,18 @@ class get
 
 
 
+
+	/**
+	 * Get parent by for and for id
+	 */
+	public static function load_one_by_for_id($_for, $_for_id, $_menu_id)
+	{
+		$query = "SELECT * FROM menu WHERE menu.id = $_menu_id AND menu.for = '$_for' AND menu.for_id = $_for_id LIMIT 1";
+		$result = \dash\db::get($query, null, true);
+		return $result;
+	}
+
+
 	/**
 	 * Get parent by for and for id
 	 */

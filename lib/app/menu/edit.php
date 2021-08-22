@@ -4,9 +4,12 @@ namespace lib\app\menu;
 
 class edit
 {
-	public static function edit($_args, $_id)
+	public static function edit($_args, $_id, $_force = false)
 	{
-		\dash\permission::access('_group_setting');
+		if(!$_force)
+		{
+			\dash\permission::access('_group_setting');
+		}
 
 		$load = \lib\app\menu\get::get($_id);
 		if(!$load)
@@ -15,7 +18,7 @@ class edit
 		}
 
 
-		$args = \lib\app\menu\check::variable($_args);
+		$args = \lib\app\menu\check::variable($_args, $_force);
 
 		if(!$args)
 		{

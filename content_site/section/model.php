@@ -165,6 +165,11 @@ class model
 		}
 		elseif(\dash\request::post('specialsave') === 'specialsave')
 		{
+			/**
+			 * Code can not be continue
+			 * Because the special save edit everything need and complete process
+			 * @todo Nedd check if have not function special save make error
+			 */
 			return \content_site\call_function::option_specialsave($option_key, $myPost);
 		}
 		else

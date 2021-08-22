@@ -55,6 +55,29 @@ class get
 
 
 
+	public static function load_one_by_for_id($_for, $_for_id, $_menu_id)
+	{
+		$for_id  = \dash\validate::id($_for_id);
+		$for     = \dash\validate::string_100($_for);
+		$menu_id = \dash\validate::id($_menu_id);
+
+		if(!$for_id || !$for || !$menu_id)
+		{
+			return false;
+		}
+
+		$result = \lib\db\menu\get::load_one_by_for_id($for, $for_id, $menu_id);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = \lib\app\menu\ready::row($result);
+
+		return $result;
+	}
+
 	public static function parent_by_for_id($_for, $_for_id)
 	{
 		$for_id = \dash\validate::id($_for_id);

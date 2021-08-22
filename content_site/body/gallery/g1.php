@@ -23,9 +23,9 @@ class g1
 				'image_list' =>
 				[
 					'file_gallery',
-					'caption',
-					'link_raw',
-					'target',
+					'caption_gallery',
+					'link_gallery',
+					'target_gallery',
 					'remove_gallery',
 				],
 				'image_add',

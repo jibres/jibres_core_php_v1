@@ -51,6 +51,12 @@ trait file
 	}
 
 
+	public static function have_specialsave()
+	{
+		return false;
+	}
+
+
 	public static function admin_html($_section_detail = null)
 	{
 
@@ -84,6 +90,13 @@ trait file
 		$html .= '<form method="post" autocomplete="off" >';
 		{
 			$html .= '<input type="hidden" name="opt_'.$option_key.'" value="1">';
+
+			// need special save
+			if(self::have_specialsave())
+			{
+				$html .= '<input type="hidden" name="specialsave" value="specialsave">';
+			}
+
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';

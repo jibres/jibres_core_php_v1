@@ -18,7 +18,7 @@ class layout
 
 		$html             = '';
 
-		$image_list = option::current_gallery_item(a($_args, 'id'));
+		$image_list = option::gallery_items(a($_args, 'id'));
 
 		if(!is_array($image_list))
 		{

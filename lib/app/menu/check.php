@@ -4,7 +4,7 @@ namespace lib\app\menu;
 
 class check
 {
-	public static function variable($_args)
+	public static function variable($_args, $_force = false)
 	{
 
 		$condition =
@@ -49,8 +49,11 @@ class check
 		{
 			if(!isset($data['title']))
 			{
-				\dash\notif::error(T_("Title is required"), 'title');
-				return false;
+				if(!$_force)
+				{
+					\dash\notif::error(T_("Title is required"), 'title');
+					return false;
+				}
 			}
 		}
 

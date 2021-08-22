@@ -9,7 +9,7 @@ class image_list
 	{
 		$currentSectionDetail = \dash\data::currentSectionDetail();
 
-		$image_list = \content_site\body\gallery\option::current_gallery_item(a($currentSectionDetail, 'id'));
+		$image_list = \content_site\body\gallery\option::gallery_items(a($currentSectionDetail, 'id'));
 
 
 		$html = '';
