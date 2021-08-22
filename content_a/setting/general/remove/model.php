@@ -14,7 +14,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::sitelang());
+			\dash\redirect::to(\dash\url::sitelang(). '/my');
 		}
 
 	}
