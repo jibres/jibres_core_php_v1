@@ -114,7 +114,8 @@ class option
 			return false;
 		}
 
-		$menu['index'] = $index;
+		$menu['index']       = $index;
+		$menu['section_id'] = $currentSectionDetail['id'];
 
 		return $menu;
 	}
@@ -427,6 +428,12 @@ class option
 		if(!$gallery)
 		{
 			\dash\notif::error(T_("Invalid index"));
+			return false;
+		}
+
+		if(intval(self::gallery_items_count($gallery['section_id'])) === 1)
+		{
+			\dash\notif::error(T_("Can not remove last gallery item"));
 			return false;
 		}
 

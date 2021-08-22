@@ -25,6 +25,11 @@ class layout
 			$image_list = [];
 		}
 
+		if(!$image_list && \content_site\utility::fill_by_default_data())
+		{
+			$image_list = self::fill_default($_args);
+		}
+
 		$image_list = array_values($image_list);
 
 		if(a($_args, 'image_random'))
@@ -54,6 +59,29 @@ class layout
 
 		return $html;
 
+	}
+
+
+
+	private static function fill_default($_args)
+	{
+		$image_list = [];
+
+		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', a($_args, 'type'), 'maximum_capacity');
+
+		if(is_numeric($maximum_capacity))
+		{
+			for ($i=1; $i <= $maximum_capacity; $i++)
+			{
+				$image_list[] =
+				[
+					'caption' => T_("Image :val", \dash\fit::number($i)),
+					'file'    => \dash\sample\img::image()
+				];
+			}
+		}
+
+		return $image_list;
 	}
 
 
