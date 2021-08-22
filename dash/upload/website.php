@@ -17,7 +17,7 @@ class website
 			'allow_size' => \dash\upload\size::get(),
 			'ext' =>
 			[
-				'jpeg','jpg','png',			// image
+				'jpeg','jpg','png', 'gif', 'webp',			// image
 			],
 		];
 
