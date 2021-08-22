@@ -403,6 +403,7 @@ class option
 			'title'  => T_("Image :val", ['val' => \dash\fit::number($_number)]),
 			'for'    => 'gallery',
 			'for_id' => $_section_id,
+			'sort'   => $_number,
 		];
 
 		$last_menu_id = \lib\app\menu\add::menu_item($insert_menu_child, $_menu_id, true);

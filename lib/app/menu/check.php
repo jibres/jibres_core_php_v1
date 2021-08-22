@@ -15,6 +15,7 @@ class check
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
 			'related_id'    => 'id',
+			'sort'          => 'int',
 			// 'parent1'    => 'id',
 			// 'parent2'    => 'id',
 			// 'parent3'    => 'id',
