@@ -295,6 +295,13 @@ class fit{
 		{
 			return false;
 		}
+
+		// temporary disable size for gif, load original image
+		if(substr($_src, $dotPosition) === '.gif')
+		{
+			return $_src;
+		}
+
 		// check size of img
 		switch ($_size)
 		{
