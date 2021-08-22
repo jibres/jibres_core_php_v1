@@ -53,7 +53,10 @@ class g1
 			[
 				'heading'     => T_("Image Gallery"),
 				'type'        => 'g1',
+				'height'      => 'auto',
+				'container'   => 'fluid',
 				'effect'      => 'zoom',
+				'image_count' => 12,
 			],
 			'preview_list' =>
 			[

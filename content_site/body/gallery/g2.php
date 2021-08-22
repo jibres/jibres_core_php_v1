@@ -51,8 +51,11 @@ class g2
 			'default'      =>
 			[
 				'heading'     => T_("Image Gallery"),
-				'type'        => 'g2',
-				'image_count' => 2,
+				'type'        => 'g1',
+				'height'      => 'auto',
+				'container'   => 'fluid',
+				'effect'      => 'zoom',
+				'image_count' => 3,
 
 			],
 			'preview_list' =>
