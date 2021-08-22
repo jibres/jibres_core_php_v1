@@ -47,6 +47,7 @@ trait link_professional
 		$target  = \content_site\section\view::get_current_index_detail('target');
 		$target  = \content_site\section\view::get_current_index_detail('target');
 		$related_id  = \content_site\section\view::get_current_index_detail('related_id');
+		$socialnetwork  = \content_site\section\view::get_current_index_detail('socialnetwork');
 
 		$html = '';
 
@@ -71,7 +72,7 @@ trait link_professional
 				$html .= "<select name='pointer' class='select22'>";
 				{
 
-					$html .= "<option value='>". T_('Please select an item'). "</option>";
+					$html .= "<option value=''>". T_('Please select an item'). "</option>";
 
 					$list =
 					[
@@ -101,13 +102,17 @@ trait link_professional
 
 			foreach ($list as $key => $value)
 			{
+				$data_response_hide = 'data-response-hide';
+				if($pointer === $key)
+				{
+					$data_response_hide = null;
+				}
+
 				if($key === 'socialnetwork')
 				{
 					$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
 				   	{
 						$social = \lib\store::social();
-
-						// var_dump($social);exit;
 
 						$html .= "<select name='socialnetwork' class='select22'>";
 						{
@@ -116,12 +121,21 @@ trait link_professional
 				        	foreach ($social as $social_key => $social_value)
 				        	{
 				        		$selected = null;
+				        		if($socialnetwork === $social_key)
+				        		{
+				        			$selected = 'selected';
+				        		}
 				          		$html .= "<option value='$social_key' $selected>". a($social_value, 'title'). "</option>";
 
 				        	} // endfor
 						}
 				      	$html .= "</select>";
-			          	// <a class='btn link' href='<?php echo \dash\url::kingdom(). '/a/setting/social''>". T_('Click here'). "</a>
+				      	$html .= '<div class="msg mt-5">';
+				      	{
+				      		$html .= T_("Only active socialnetwork can be displayd. To manage you socialnetwork ID");
+			          		$html .= " <a class='link' target='_blank' href='". \dash\url::kingdom(). "/a/setting/social'>". T_('Click here'). "</a>";
+				      	}
+				      	$html .= '</div>';
 				    }
 				    $html .= '</div>';
 				}
@@ -151,16 +165,12 @@ trait link_professional
 				else
 				{
 
-					$data_response_hide = 'data-response-hide';
-					if($pointer === $key)
-					{
-						$data_response_hide = null;
-					}
+
 
 				   	$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
 				   	{
 				      	$html .= "<select name='{$key}_id' class='select22' id='{$key}search'  data-model='html'  data-ajax--delay='100' data-ajax--url='{$kingdom}$value[api_link]' data-shortkey-search data-placeholder='". T_('Search in :val', ['val' => $value['title']]). "'>";
-				      	if($related_id)
+				      	if($related_id && $pointer === $key)
 				      	{
 				      		$selected = self::fill_selected($pointer, $related_id);
 				          	$html .= "<option value='$selected[id]' selected>$selected[title]</option>";
