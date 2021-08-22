@@ -51,6 +51,7 @@ class g3
 			[
 				'heading' => T_("Image Gallery"),
 				'type'    => 'g3',
+				'image_count' => 3,
 			],
 			'preview_list' =>
 			[

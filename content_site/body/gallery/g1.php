@@ -50,9 +50,9 @@ class g1
 			],
 			'default'      =>
 			[
-				'heading' => T_("Image Gallery"),
-				'type'    => 'g1',
-				'effect'  => 'zoom',
+				'heading'     => T_("Image Gallery"),
+				'type'        => 'g1',
+				'effect'      => 'zoom',
 			],
 			'preview_list' =>
 			[
@@ -71,6 +71,10 @@ class g1
 		[
 			'preview_title'  => T_("Card"),
 			'version'        => 1,
+			'options' =>
+			[
+				'image_count' => 3,
+			],
 		];
 	}
 

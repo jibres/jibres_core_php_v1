@@ -62,16 +62,25 @@ class layout
 	}
 
 
-
 	private static function fill_default($_args)
 	{
 		$image_list = [];
 
-		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', a($_args, 'type'), 'maximum_capacity');
+		$preview_option =  \content_site\call_function::section_type_preview('gallery', a($_args, 'type'), a($_args, 'preview_key'));
 
-		if(is_numeric($maximum_capacity))
+		if(isset($preview_option['options']['image_count']))
 		{
-			for ($i=1; $i <= $maximum_capacity; $i++)
+			$max = intval($preview_option['options']['image_count']);
+		}
+		else
+		{
+			$max = \content_site\call_function::section_type_fn('gallery', a($_args, 'type'), 'maximum_capacity');
+		}
+
+
+		if(is_numeric($max))
+		{
+			for ($i=1; $i <= $max; $i++)
 			{
 				$image_list[] =
 				[

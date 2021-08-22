@@ -49,8 +49,9 @@ class g1
 			],
 			'default'      =>
 			[
-				'heading' => T_("Image Gallery"),
-				'type'    => 'g4',
+				'heading'     => T_("Image Gallery"),
+				'type'        => 'g4',
+				'image_count' => 1,
 			],
 			'preview_list' =>
 			[

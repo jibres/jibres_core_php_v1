@@ -58,6 +58,7 @@ class model
 		$section_key = \dash\url::child();
 		$index       = \dash\request::get('index');
 		$type        = null;
+		$preview_key = null;
 
 		if(!$section_id)
 		{
@@ -213,7 +214,7 @@ class model
 
 			if(!is_array($load_preview))
 			{
-				\dash\notif::error(T_("Invalid preview key"));
+				\dash\notif::error(T_("Invalid preview key"). ' '. __LINE__);
 				return false;
 			}
 
@@ -331,7 +332,7 @@ class model
 		if(\dash\data::changeSectionTypeMode())
 		{
 			// check process after change type
-			\content_site\call_function::after_change_type($section_key, $section_id, $type);
+			\content_site\call_function::after_change_type($section_key, $section_id, $type, $preview_key);
 
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
 
@@ -545,7 +546,7 @@ class model
 
 		if(!is_array($load_preview))
 		{
-			\dash\notif::error(T_("Invalid preview key"));
+			\dash\notif::error(T_("Invalid preview key"). ' '. __LINE__);
 			return false;
 		}
 
@@ -610,7 +611,7 @@ class model
 			return false;
 		}
 
-		\content_site\call_function::after_add_section($key, $id, $type);
+		\content_site\call_function::after_add_section($key, $id, $type, $preview_key);
 
 		$url = \dash\url::this(). '/';
 		$url .= $key;

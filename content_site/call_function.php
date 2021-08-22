@@ -64,13 +64,13 @@ class call_function
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function _call($_fn, $_args = [], $_args2 = [])
+	private static function _call($_fn, $_args = [], $_args2 = [], $_args3 = [])
 	{
 		if(is_callable($_fn))
 		{
 			if($_args2)
 			{
-				return call_user_func_array($_fn, [$_args, $_args2]);
+				return call_user_func_array($_fn, [$_args, $_args2, $_args3]);
 			}
 			else
 			{
@@ -86,6 +86,7 @@ class call_function
 			return null;
 		}
 	}
+
 
 
 	public static function trust_folder($_folder)
@@ -151,6 +152,8 @@ class call_function
 			$section_key = a($_args, 0);
 			$args        = a($_args, 1);
 			$args2       = a($_args, 2);
+			$args3       = a($_args, 3);
+
 
 			$namespace = self::get_namespace($section_key);
 
@@ -172,8 +175,7 @@ class call_function
 			else
 			{
 				$namespace = sprintf($namespace, 'option');
-
-				return self::_call([$namespace, $_fn], $args, $args2);
+				return self::_call([$namespace, $_fn], $args, $args2, $args3);
 			}
 		}
 
@@ -208,6 +210,16 @@ class call_function
 		$namespace   = sprintf($namespace, $_type);
 
 		return self::_call([$namespace, $_fn], $_args);
+	}
+
+
+	public static function section_type_preview($_section_key, $_type, $_preview_key)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_type);
+
+		return self::_call([$namespace, $_preview_key]);
 	}
 
 
@@ -420,7 +432,8 @@ class call_function
 
 		$force_preview_setting =
 		[
-			'height' => 'fullscreen',
+			'height'      => 'fullscreen',
+			'preview_key' => $_preview,
 		];
 
 		$preview_default = array_merge($default, $preview_default_option, $force_preview_setting);

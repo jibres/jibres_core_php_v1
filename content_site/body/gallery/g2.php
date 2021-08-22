@@ -49,8 +49,9 @@ class g2
 			],
 			'default'      =>
 			[
-				'heading' => T_("Image Gallery"),
-				'type'    => 'g2',
+				'heading'     => T_("Image Gallery"),
+				'type'        => 'g2',
+				'image_count' => 2,
 
 			],
 			'preview_list' =>

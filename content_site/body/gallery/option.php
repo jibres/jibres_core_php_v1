@@ -190,16 +190,25 @@ class option
 	 *
 	 * @return     bool    ( description_of_the_return_value )
 	 */
-	public static function after_add_section($_section_id = null, $_type = null)
+	public static function after_add_section($_section_id = null, $_type = null, $_preview_key = null)
 	{
 		if(!$_section_id || !$_type)
 		{
 			return;
 		}
 
-		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+		$preview_option =  \content_site\call_function::section_type_preview('gallery', $_type, $_preview_key);
 
-		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
+		if(isset($preview_option['options']['image_count']))
+		{
+			$max = intval($preview_option['options']['image_count']);
+		}
+		else
+		{
+			$max = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+		}
+
+		if(!is_numeric($max) || !$max)
 		{
 			return;
 		}
@@ -223,7 +232,7 @@ class option
 			return false;
 		}
 
-		for ($i=1; $i <= $maximum_capacity; $i++)
+		for ($i=1; $i <= $max; $i++)
 		{
 			self::add_menu_child_as_gallery_item($_section_id, $menu_id, $i);
 		}
@@ -239,19 +248,30 @@ class option
 	 * @param      <type>  $_section_id  The section identifier
 	 * @param      <type>  $_type        The type
 	 */
-	public static function after_change_type($_section_id = null, $_type = null)
+	public static function after_change_type($_section_id = null, $_type = null, $_preview_key = null)
 	{
 		if(!$_section_id || !$_type)
 		{
 			return;
 		}
 
-		$maximum_capacity = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
 
-		if(!is_numeric($maximum_capacity) || !$maximum_capacity)
+		$preview_option =  \content_site\call_function::section_type_preview('gallery', $_type, $_preview_key);
+
+		if(isset($preview_option['options']['image_count']))
+		{
+			$max = intval($preview_option['options']['image_count']);
+		}
+		else
+		{
+			$max = \content_site\call_function::section_type_fn('gallery', $_type, 'maximum_capacity');
+		}
+
+		if(!is_numeric($max) || !$max)
 		{
 			return;
 		}
+
 		// get current gallery item
 		$gallery_items_count = intval(self::gallery_items_count($_section_id));
 
