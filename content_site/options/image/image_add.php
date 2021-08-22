@@ -15,67 +15,15 @@ class image_add
 			return false;
 		}
 
-		\dash\pdo::transaction();
-
-		$currentSectionDetail = \lib\db\pagebuilder\get::by_id_lock($currentSectionDetail['id']);
-
-		if(!$currentSectionDetail || !is_array($currentSectionDetail) || !isset($currentSectionDetail['preview']))
+		$id = \content_site\body\gallery\option::append_gallery_item($currentSectionDetail['id'], a($currentSectionDetail, 'preview', 'type'));
+		if(!$id)
 		{
-			\dash\pdo::rollback();
-
-			\dash\notif::error(T_("Section not found"));
-
 			return false;
 		}
-
-		$currentSectionDetail['preview'] = json_decode($currentSectionDetail['preview'], true);
-
-
-		if(isset($currentSectionDetail['preview']['image_list']) && is_array($currentSectionDetail['preview']['image_list']))
-		{
-			// ok
-		}
-		else
-		{
-			$currentSectionDetail['preview']['image_list'] = [];
-		}
-
-		// check max count by call maximum_capacity of gallery\b1
-
-		$maximum_capacity = 50;
-
-		$get_special_capacity = \content_site\call_function::section_type_fn(a($currentSectionDetail, 'preview', 'key'), a($currentSectionDetail, 'preview', 'type'), 'maximum_capacity');
-
-		if(is_numeric($get_special_capacity))
-		{
-			$maximum_capacity = intval($get_special_capacity);
-		}
-
-		if(count($currentSectionDetail['preview']['image_list']) > $maximum_capacity)
-		{
-			\dash\notif::error(T_("Maximum capacity of this section is full"));
-			return false;
-		}
-
-		$index = self::generate_random_key();
-
-		$currentSectionDetail['preview']['image_list'][] =
-		[
-			'index'  => $index,
-			'image'     => null,
-			'alt'       => T_("Image"),
-			'isdefault' => true,
-		];
-
-		$preview = json_encode($currentSectionDetail['preview']);
-
-		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $currentSectionDetail['id']);
-
-		\dash\pdo::commit();
 
 		\dash\notif::reloadIframe();
 
-		$url = \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => $index]);
+		$url = \dash\url::that(). '/image_list'. \dash\request::full_get(['index' => $id]);
 
 		\dash\redirect::to($url);
 

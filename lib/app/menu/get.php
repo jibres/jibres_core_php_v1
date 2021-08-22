@@ -54,6 +54,29 @@ class get
 	}
 
 
+
+	public static function parent_by_for_id($_for, $_for_id)
+	{
+		$for_id = \dash\validate::id($_for_id);
+		$for    = \dash\validate::string_100($_for);
+
+		if(!$for_id || !$for)
+		{
+			return false;
+		}
+
+		$result = \lib\db\menu\get::parent_by_for_id($for, $for_id);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$result = \lib\app\menu\ready::row($result);
+
+		return $result;
+	}
+
 	public static function get_by_for_id($_for, $_for_id)
 	{
 		$for_id = \dash\validate::id($_for_id);
