@@ -7,10 +7,28 @@ trait link_professional
 
 	public static function validator($_data)
 	{
-		var_dump($_data);exit;
+
+		$args =
+		[
+			'pointer'       => a($_data, 'pointer'),
+			'url'           => a($_data, 'link'),
+			'target'        => a($_data, 'target'),
+
+			'product_id'    => a($_data, 'products_id'),
+			'post_id'       => a($_data, 'posts_id'),
+			'tag_id'        => a($_data, 'tags_id'),
+			'hashtag_id'    => a($_data, 'hashtag_id'),
+			'form_id'       => a($_data, 'forms_id'),
+			'socialnetwork' => a($_data, 'socialnetwork'),
+		];
+
+
+		var_dump($args);exit;
+
 		$data = \dash\validate::absolute_url($_data, true);
 		return $data;
 	}
+
 
 	public static function db_key()
 	{

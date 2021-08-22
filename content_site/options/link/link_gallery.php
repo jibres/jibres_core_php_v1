@@ -7,27 +7,35 @@ class link_gallery
 
 	use link_professional;
 
-	// public static function validator($_data)
-	// {
-	// 	$data = \dash\validate::absolute_url($_data, true);
-	// 	return $data;
-	// }
+	public static function specialsave($_data)
+	{
+
+		$args =
+		[
+			'pointer'       => a($_data, 'pointer'),
+			'url'           => a($_data, 'link'),
+			'target'        => a($_data, 'target'),
+
+			'product_id'    => a($_data, 'products_id'),
+			'post_id'       => a($_data, 'posts_id'),
+			'tag_id'        => a($_data, 'tags_id'),
+			'hashtag_id'    => a($_data, 'hashtag_id'),
+			'form_id'       => a($_data, 'forms_id'),
+			'socialnetwork' => a($_data, 'socialnetwork'),
+		];
+
+		return \content_site\body\gallery\option::update_one_gallery_item($args);
+	}
 
 
 	public static function have_specialsave()
 	{
-		// return true;
+		return true;
 	}
 
 	public static function option_key()
 	{
 		return 'link_gallery';
-	}
-
-
-	public static function specialsave($_data)
-	{
-		var_dump($_data);exit;
 	}
 
 

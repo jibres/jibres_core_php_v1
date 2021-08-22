@@ -27,7 +27,6 @@ class check
 			'tag_id'        => 'id',
 			'socialnetwork' => 'socialnetwork',
 			'hashtag_id'    => 'code',
-			'form_id'       => 'id',
 
 			'for'           => ['enum' => ['menu', 'gallery']],
 			'for_id'        => 'id',
@@ -134,123 +133,148 @@ class check
 				break;
 
 			case 'products':
-				if(!$data['product_id'])
+				if($data['product_id'])
+				{
+					$load_product = \lib\app\product\get::get($data['product_id']);
+					if(isset($load_product['id']))
+					{
+						$data['related_id'] = $load_product['id'];
+
+						if(isset($load_product['url']))
+						{
+							$data['url'] = $load_product['url'];
+						}
+					}
+					elseif(!$_force)
+					{
+						\dash\notif::error(T_("Invalid product id"));
+						return false;
+					}
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please choose a product"));
 					return false;
 				}
-
-				$load_product = \lib\app\product\get::get($data['product_id']);
-				if(!isset($load_product['id']))
-				{
-					\dash\notif::error(T_("Invalid product id"));
-					return false;
-				}
-				$data['related_id'] = $load_product['id'];
-
-				if(isset($load_product['url']))
-				{
-					$data['url'] = $load_product['url'];
-				}
 				break;
 
 			case 'posts':
-				if(!$data['post_id'])
+				if($data['post_id'])
+				{
+					$load_post = \dash\app\posts\get::get($data['post_id']);
+					if(isset($load_post['id']))
+					{
+						$data['related_id'] = \dash\coding::decode($load_post['id']);
+
+						if(isset($load_post['link']))
+						{
+							$data['url'] = $load_post['link'];
+						}
+					}
+					elseif(!$_force)
+					{
+						\dash\notif::error(T_("Invalid post id"));
+						return false;
+					}
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please choose a post"));
 					return false;
 				}
-
-				$load_post = \dash\app\posts\get::get($data['post_id']);
-				if(!isset($load_post['id']))
-				{
-					\dash\notif::error(T_("Invalid post id"));
-					return false;
-				}
-				$data['related_id'] = \dash\coding::decode($load_post['id']);
-
-				if(isset($load_post['link']))
-				{
-					$data['url'] = $load_post['link'];
-				}
 				break;
 
 			case 'forms':
-				if(!$data['form_id'])
+				if($data['form_id'])
+				{
+					$load_form = \lib\app\form\form\get::get($data['form_id']);
+					if(isset($load_form['id']))
+					{
+						$data['related_id'] = $load_form['id'];
+
+						if(isset($load_form['url']))
+						{
+							$data['url'] = $load_form['url'];
+						}
+					}
+					elseif(!$_force)
+					{
+						\dash\notif::error(T_("Invalid form id"));
+						return false;
+					}
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please choose a form"));
 					return false;
 				}
-
-				$load_form = \lib\app\form\form\get::get($data['form_id']);
-				if(!isset($load_form['id']))
-				{
-					\dash\notif::error(T_("Invalid form id"));
-					return false;
-				}
-				$data['related_id'] = $load_form['id'];
-
-				if(isset($load_form['url']))
-				{
-					$data['url'] = $load_form['url'];
-				}
-
 				break;
 
 			case 'tags':
-				if(!$data['tag_id'])
+				if($data['tag_id'])
+				{
+					$load_tag = \lib\app\tag\get::get($data['tag_id']);
+					if(isset($load_tag['id']))
+					{
+						$data['related_id'] = $load_tag['id'];
+
+						if(isset($load_tag['url']))
+						{
+							$data['url'] = $load_tag['url'];
+						}
+					}
+					elseif(!$_force)
+					{
+						\dash\notif::error(T_("Invalid hashtag id"));
+						return false;
+					}
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please choose a tag"));
 					return false;
 				}
-
-				$load_tag = \lib\app\tag\get::get($data['tag_id']);
-				if(!isset($load_tag['id']))
-				{
-					\dash\notif::error(T_("Invalid hashtag id"));
-					return false;
-				}
-				$data['related_id'] = $load_tag['id'];
-
-				if(isset($load_tag['url']))
-				{
-					$data['url'] = $load_tag['url'];
-				}
-
 				break;
 
-
-
 			case 'hashtag':
-				if(!$data['hashtag_id'])
+				if($data['hashtag_id'])
+				{
+					$load_hashtag = \dash\app\terms\get::get($data['hashtag_id']);
+
+					if(isset($load_hashtag['id']))
+					{
+						$data['related_id'] = \dash\coding::decode($load_hashtag['id']);
+
+						if(isset($load_hashtag['link']))
+						{
+							$data['url'] = $load_hashtag['link'];
+						}
+					}
+					elseif(!$_force)
+					{
+						\dash\notif::error(T_("Invalid hashtag id"));
+						return false;
+					}
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please choose a tag"));
 					return false;
-				}
-
-				$load_hashtag = \dash\app\terms\get::get($data['hashtag_id']);
-				if(!isset($load_hashtag['id']))
-				{
-					\dash\notif::error(T_("Invalid hashtag id"));
-					return false;
-				}
-				$data['related_id'] = \dash\coding::decode($load_hashtag['id']);
-
-				if(isset($load_hashtag['link']))
-				{
-					$data['url'] = $load_hashtag['link'];
 				}
 
 				break;
 
 
 			case 'socialnetwork':
-				if(!$data['socialnetwork'])
+				if($data['socialnetwork'])
+				{
+					$data['url'] = null;
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please choose a social network"));
 					return false;
 				}
-				$data['url'] = null;
 				break;
 
 			case 'title':
@@ -260,7 +284,11 @@ class check
 				break;
 
 			case 'other':
-				if(!$data['url'])
+				if($data['url'])
+				{
+					// ok
+				}
+				elseif(!$_force)
 				{
 					\dash\notif::error(T_("Please set a url"));
 					return false;

@@ -48,11 +48,11 @@ class get
 			return false;
 		}
 
-		if(a($load, 'for') !== 'menu')
-		{
-			\dash\notif::error(T_("Can not load this menu in this page"));
-			return false;
-		}
+		// if(a($load, 'for') !== 'menu')
+		// {
+		// 	\dash\notif::error(T_("Can not load this menu in this page"));
+		// 	return false;
+		// }
 
 		$load = \lib\app\menu\ready::row($load);
 
