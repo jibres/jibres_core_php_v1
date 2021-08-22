@@ -204,7 +204,7 @@ class option
 
 		for ($i=1; $i <= $maximum_capacity; $i++)
 		{
-			self::add_menu_child_as_gallery_item($_section_id, $menu_id);
+			self::add_menu_child_as_gallery_item($_section_id, $menu_id, $i);
 		}
 
 	}
@@ -242,7 +242,7 @@ class option
 
 			for ($i=1; $i <= $remain; $i++)
 			{
-				self::add_menu_child_as_gallery_item($_section_id, $master_id);
+				self::add_menu_child_as_gallery_item($_section_id, $master_id, $i);
 			}
 		}
 		else
