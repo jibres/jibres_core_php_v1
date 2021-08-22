@@ -42,12 +42,12 @@ trait link_professional
 
 	public static function admin_html()
 	{
-		$url    = \content_site\section\view::get_current_index_detail('url');
-		$pointer = \content_site\section\view::get_current_index_detail('pointer');
-		$target  = \content_site\section\view::get_current_index_detail('target');
-		$target  = \content_site\section\view::get_current_index_detail('target');
-		$related_id  = \content_site\section\view::get_current_index_detail('related_id');
-		$socialnetwork  = \content_site\section\view::get_current_index_detail('socialnetwork');
+		$url           = \content_site\section\view::get_current_index_detail('url');
+		$pointer       = \content_site\section\view::get_current_index_detail('pointer');
+		$target        = \content_site\section\view::get_current_index_detail('target');
+		$target        = \content_site\section\view::get_current_index_detail('target');
+		$related_id    = \content_site\section\view::get_current_index_detail('related_id');
+		$socialnetwork = \content_site\section\view::get_current_index_detail('socialnetwork');
 
 		$html = '';
 
