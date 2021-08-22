@@ -40,13 +40,13 @@ class g1
 		{
 			$cnElement = 'section';
 		}
-		$classNames = $height;
+		$classNames = 'flex overflow-hidden '.$height;
 		if($font_class)
 		{
 			$classNames .= ' '. $font_class;
 		}
 
-		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
+		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style $section_id>";
 		{
 			$html .= "<div class='$container m-auto relative'>";
 			{
