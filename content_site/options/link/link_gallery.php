@@ -7,16 +7,16 @@ class link_gallery
 
 	use link_professional;
 
-	public static function validator($_data)
-	{
-		$data = \dash\validate::absolute_url($_data, true);
-		return $data;
-	}
+	// public static function validator($_data)
+	// {
+	// 	$data = \dash\validate::absolute_url($_data, true);
+	// 	return $data;
+	// }
 
 
 	public static function have_specialsave()
 	{
-		return true;
+		// return true;
 	}
 
 	public static function option_key()

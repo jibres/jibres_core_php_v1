@@ -7,6 +7,7 @@ trait link_professional
 
 	public static function validator($_data)
 	{
+		var_dump($_data);exit;
 		$data = \dash\validate::absolute_url($_data, true);
 		return $data;
 	}
@@ -38,7 +39,7 @@ trait link_professional
 
 		$kingdom = \dash\url::kingdom();
 
-		$html .= "<form method='post'  autocomplete='off'>";
+		$html .= "<form method='post'  autocomplete='off' data-patch>";
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			if(self::have_specialsave())
@@ -89,14 +90,16 @@ trait link_professional
 				   	{
 						$social = \lib\store::social();
 
+						// var_dump($social);exit;
+
 						$html .= "<select name='socialnetwork' class='select22'>";
 						{
-				        	$html .= "<option value='>". T_('Select social network'). "</option>";
+				        	$html .= "<option value=''>". T_('Select social network'). "</option>";
 
-				        	foreach ($social as $key => $value)
+				        	foreach ($social as $social_key => $social_value)
 				        	{
 				        		$selected = null;
-				          		$html .= "<option value='$key' $selected>". a($value, 'title'). "</option>";
+				          		$html .= "<option value='$social_key' $selected>". a($social_value, 'title'). "</option>";
 
 				        	} // endfor
 						}
@@ -115,7 +118,7 @@ trait link_professional
 					{
 						$html .= '<div class="input ltr mb-5">';
 						{
-				    		$html .= '<input type="url" name="opt_link_raw" value="'. $link. '" placeholder="URL">';
+				    		$html .= '<input type="url" name="link" value="'. $link. '" placeholder="URL">';
 						}
 						$html .= "</div>";
 
