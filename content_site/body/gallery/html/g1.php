@@ -81,7 +81,7 @@ class g1
 						// a img
 						// h3 a
 						$myLinkHref   = "href='". a($value, 'link'). "'";
-						$myTitle      = a($value, 'caption');
+						$myTitle      = a($value, 'title');
 
 						if(!a($value, 'file'))
 						{
