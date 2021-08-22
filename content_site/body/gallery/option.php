@@ -65,79 +65,6 @@ class option
 
 
 	/**
-	 * Fill by sample image
-	 *
-	 * @return     array  ( description_of_the_return_value )
-	 */
-	public static function default_image_list($_count = 3)
-	{
-		$list = [];
-
-		for ($i=0; $i < $_count ; $i++)
-		{
-			$list[] =
-			[
-				"image"   => \dash\sample\img::image(),
-				"caption" => T_("Image"),
-			];
-		}
-
-		return $list;
-	}
-
-
-
-
-	/**
-	 * Public default
-	 */
-	public static function master_default($_special_default = [], $_count = 3)
-	{
-		$master_default =
-		[
-			'heading'           => T_("Image Gallery"),
-			'image_list' => self::default_image_list($_count)
-
-		];
-
-		return array_merge($master_default, $_special_default);
-	}
-
-
-	/**
-	 * Master option
-	 *
-	 * @param      array   $_special_default  The special default
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function master_option()
-	{
-		$option =
-		[
-
-			'heading_raw',
-			'image_list' =>
-			[
-				'file_gallery',
-				'caption',
-				'link',
-				'target',
-			],
-			'image_add',
-
-			'description',
-			'image_random',
-
-			// sub page
-			'style' => \content_site\options\style::option_list(),
-		];
-
-		return $option;
-	}
-
-
-	/**
 	 * Get list of gallery item
 	 *
 	 * @param      <type>  $_section_id  The section identifier
@@ -321,8 +248,32 @@ class option
 		else
 		{
 			/**
-			 * @todo try to remove useless items by check datemodified
+			 * remove useless items by check datemodified
 			 */
+			$list = self::gallery_items($_section_id);
+
+			$must_remove = abs($remain);
+
+			$count_removed = 0;
+
+			foreach ($list as $key => $value)
+			{
+				if($count_removed < $must_remove)
+				{
+					if(a($value, 'datemodified'))
+					{
+						// can not beremove
+					}
+					else
+					{
+						$count_removed++;
+
+						\lib\app\menu\remove::remove($value['id'], true);
+					}
+				}
+			}
+
+			\dash\notif::clean();
 		}
 	}
 

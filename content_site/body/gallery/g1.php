@@ -16,7 +16,6 @@ class g1
 		return
 		[
 			'title'        => T_("Magic Gallery box"),
-			'default'      => option::master_default(['type' => 'g1', 'effect' => 'zoom', ]),
 			'options'      =>
 			[
 				'heading_raw',
@@ -48,6 +47,11 @@ class g1
 					'link_color',
 					'type',
 				]),
+			],
+			'default'      =>
+			[
+				'type'   => 'g1',
+				'effect' => 'zoom',
 			],
 			'preview_list' =>
 			[

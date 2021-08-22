@@ -12,40 +12,57 @@ class g3
 	 */
 	public static function option()
 	{
-
-		$master_option =
-		[
-
-			'heading_raw',
-			'image_list' =>
-			[
-				'file_gallery',
-				'caption',
-				'description',
-				'target',
-				'link',
-
-			],
-			'image_add',
-
-			'description',
-			'image_random',
-
-			// sub page
-			'style' => \content_site\options\style::option_list(),
-		];
-
 		return
 		[
-			'title'        => T_("Gallery 1"),
-			'default'      => option::master_default(['type' => 'g3'], 3),
-			'options'      => $master_option,
+			'title'        => T_("Magic Gallery box"),
+			'options'      =>
+			[
+				'heading_raw',
+				'image_list' =>
+				[
+					'file_gallery',
+					'caption_gallery',
+					'link_gallery',
+					'target_gallery',
+					'remove_gallery',
+				],
+				'image_add',
+
+				'magicbox_title_position',
+				'image_random',
+				// sub page
+				'style' => \content_site\options\style::option_list(
+				[
+					'font',
+					'height',
+					'container_gallery',
+					'magicbox_gap',
+					'background_pack',
+					'color_heading',
+					'radius_full',
+					'coverratio',
+					'effect',
+					'image_mask',
+					'link_color',
+					'type',
+				]),
+			],
+			'default'      =>
+			[
+				'type'   => 'g3',
+				'effect' => 'zoom',
+			],
 			'preview_list' =>
 			[
 				'p1',
-				'p2'
 			],
 		];
+
+	}
+
+	public static function maximum_capacity()
+	{
+		return 10;
 	}
 
 
