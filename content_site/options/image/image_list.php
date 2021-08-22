@@ -54,7 +54,7 @@ class image_list
 
 				      			if(isset($value['file']) && $value['file'])
 				      			{
-				        			$file_url = \lib\filepath::fix($value['file']);
+				        			$file_url = \dash\fit::img(\lib\filepath::fix($value['file']));
 				      			}
 				      			else
 				      			{
