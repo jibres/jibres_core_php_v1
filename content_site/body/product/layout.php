@@ -72,6 +72,12 @@ class layout
 
 		$type      = a($_args, 'type');
 
+
+		if($type === 'p1' || $type === 'p2')
+		{
+			share::fit_for_blog($_args, $productList);
+		}
+
 		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
 
 		if(is_callable([$namespace, 'html']))
