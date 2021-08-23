@@ -56,6 +56,11 @@ class model
 
 		if(\dash\engine\process::status() && isset($post_detail['post_id']))
 		{
+
+			// clean post created and make page created
+			\dash\notif::clean();
+			\dash\notif::ok(T_("Page successfully created"));
+
 			$page_id = \dash\coding::decode($post_detail['post_id']);
 		}
 		else
