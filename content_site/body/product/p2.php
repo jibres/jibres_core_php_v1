@@ -22,6 +22,7 @@ class p2
 				'product_tag',
 				'product_order',
 				'count_product',
+				'magicbox_title_position',
 				'btn_viewall',
 				// sub page
 				'style' => \content_site\options\style::option_list(
@@ -32,7 +33,10 @@ class p2
 					'color_heading',
 					'radius_normal',
 					'coverratio',
+					'effect',
+					'image_mask',
 					'btn_viewall_mode',
+
 					'type',
 				]),
 			],
