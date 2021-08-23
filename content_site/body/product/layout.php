@@ -18,7 +18,7 @@ class layout
 		$productList = [];
 		$dataList = [];
 
-		$view_all_link = \dash\url::kingdom(). '/n';
+		$view_all_link = \dash\url::kingdom(). '/search';
 
 		if(!\content_site\utility::fill_by_default_data())
 		{

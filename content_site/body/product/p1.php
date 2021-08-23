@@ -19,19 +19,12 @@ class p1
 			[
 				'heading_full',
 
-				'post_tag',
-				'post_template',
-				'post_order',
-				'count_post',
-
-				'post_show_image',
-				'post_show_readingtime',
-				'post_show_excerpt',
-				'post_show_author',
-
+				'product_tag',
+				'product_order',
+				'count_product',
+				'product_show_image',
+				'product_show_excerpt',
 				'btn_viewall',
-				'post_show_date',
-
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
@@ -48,15 +41,12 @@ class p1
 			'default'      =>
 			[
 				'type'                  => 'p1',
-				'heading'               => T_("Latest Posts"),
-				'post_template'         => 'any',
-				'post_order'            => 'latest',
+				'heading'               => T_("Products"),
+				'product_template'         => 'any',
+				'product_order'            => 'latest',
 				'count'                 => 3,
-				'post_show_excerpt'     => true,
-				'post_show_image'       => true,
-				'post_show_date'        => 'relative',
-				'post_show_author'      => true,
-				'post_show_readingtime' => true,
+				'product_show_excerpt'     => true,
+				'product_show_image'       => true,
 				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'none',
@@ -80,7 +70,7 @@ class p1
 	 */
 	public static function p1($_title = null)
 	{
-		$_title = T_("Latest Posts");
+		$_title = T_("Products");
 		return
 		[
 			'preview_title'  => T_("Card Design"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
@@ -89,11 +79,8 @@ class p1
 			[
 				'key'                   => 'product',
 				'type'                  => 'p1',
-				'post_show_readingtime' => 1,
-				'post_show_image'       => 1,
-				'post_show_excerpt'     => 1,
-				'post_show_date'        => 'relative',
-				'post_show_author'      => 1,
+				'product_show_image'       => 1,
+				'product_show_excerpt'     => 1,
 				'height'                => 'm',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
