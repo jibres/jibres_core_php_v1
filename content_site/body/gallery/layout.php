@@ -67,6 +67,12 @@ class layout
 		}
 
 
+		if(isset($preview_option['options']['image_list']) && is_array($preview_option['options']['image_list']))
+		{
+			return $preview_option['options']['image_list'];
+		}
+
+
 		if(is_numeric($max))
 		{
 			for ($i=1; $i <= $max; $i++)

@@ -77,7 +77,18 @@ class g1
 			'version'        => 1,
 			'options' =>
 			[
-				'image_count' => 3,
+				'image_count' => 1,
+				'image_list' =>
+				[
+					[
+						'file'  => \dash\app::static_image_url(),
+						'title' => 'Test',
+					],
+					[
+						'file'  => \dash\app::static_avatar_url(),
+						'title' => 'Test',
+					],
+				]
 			],
 		];
 	}
