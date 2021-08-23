@@ -15,6 +15,7 @@ class layout
 	 */
 	public static function layout($_args)
 	{
+
 		$productList = [];
 		$dataList = [];
 
@@ -24,26 +25,24 @@ class layout
 		{
 			$line_detail =
 			[
-				'tag_id'                  => a($_args, 'post_tag'),
-				'subtype'                 => a($_args, 'post_template'),
-				'limit'                   => a($_args, 'count'),
-				'post_show_author'        => a($_args, 'post_show_author'),
-				'btn_viewall_check'       => a($_args, 'btn_viewall_check'),
-				'post_order'              => a($_args, 'post_order'),
-				'post_show_comment_count' => a($_args, 'post_show_comment_count'),
+				'tag_id'            => a($_args, 'product_tag'),
+				'limit'             => a($_args, 'count'),
+				'website_order'     => a($_args, 'product_order'),
+
+				// 'btn_viewall_check' => a($_args, 'btn_viewall_check'),
 			];
 
-			$dataList = \dash\app\posts\load::sitebuilder_template($line_detail);
+			$productList = \lib\app\product\search::website_product_search(null, $line_detail);
 
-			if(isset($dataList['list']) && is_array($dataList['list']))
-			{
-				$productList = $dataList['list'];
-			}
+			// if(isset($dataList['list']) && is_array($dataList['list']))
+			// {
+			// 	$productList = $dataList['list'];
+			// }
 
-			if(isset($dataList['link']))
-			{
-				$view_all_link = $dataList['link'];
-			}
+			// if(isset($dataList['link']))
+			// {
+			// 	$view_all_link = $dataList['link'];
+			// }
 
 			if(!is_array($productList))
 			{
@@ -52,6 +51,7 @@ class layout
 				$productList = [];
 			}
 		}
+
 
 		// fill_default_data receive from preview function
 		if(empty($productList) || \content_site\utility::fill_by_default_data())
@@ -100,7 +100,6 @@ class layout
 
 	private static function get_one_random_product($i, $_preview_mode)
 	{
-		$date = date('Y-m-d H:i:s', strtotime( '-'.mt_rand(0,5).' days'));
 
 		if($_preview_mode || \dash\url::subdomain() === 'demo')
 		{
@@ -113,17 +112,9 @@ class layout
 
 		return
 		[
-			'title'         => T_("Your post’s title"),
-			'excerpt'       => T_("Your business hasn't published any posts yet. A post can be used to talk about new product launches, tips, or other news you want to share with your customers."),
+			'title'         => T_("Your product’s title"),
+			'excerpt'       => T_("Your business hasn't published any products yet."),
 			'thumb'         => $img,
-			'readingtime'   => \dash\utility\human::time(60* rand(1, 5), true),
-			'publishdate'   => $date,
-			'comment_count' => rand(0, 200),
-			'user_detail'   =>
-			[
-				'displayname' => T_('Author name'),
-				'avatar'      => \dash\app::static_avatar_url(),
-			]
 
 		];
 	}

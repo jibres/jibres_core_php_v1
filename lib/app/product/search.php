@@ -38,6 +38,7 @@ class search
 			'tag_id'         => 'id',
 			'tag_with_child' => 'bit',
 			'unit_id'        => 'id',
+			'website_order' => 'string_50',
 
 			'dup'            => 'bit',
 			'bar'            => 'y_n',
@@ -439,6 +440,26 @@ class search
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY products.id DESC";
+		}
+
+
+		if($data['website_order'])
+		{
+			switch ($data['website_order'])
+			{
+				case 'oldest':
+					$order_sort = " ORDER BY products.id ASC";
+					break;
+
+				case 'random':
+					$order_sort = " ORDER BY RAND() ";
+					break;
+
+				case 'latest':
+				default:
+					$order_sort = " ORDER BY products.id DESC";
+					break;
+			}
 		}
 
 		if($data['maxd'] === 'y')

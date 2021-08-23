@@ -42,7 +42,6 @@ class p1
 			[
 				'type'                  => 'p1',
 				'heading'               => T_("Products"),
-				'product_template'         => 'any',
 				'product_order'            => 'latest',
 				'count'                 => 3,
 				'product_show_excerpt'     => true,
