@@ -20,9 +20,7 @@ class product_tag
 
 	public static function admin_html()
 	{
-
-		$tag_list = \dash\app\terms\get::get_all_tag();
-
+		$tag_list = \lib\app\tag\get::all_category();
 		$default = \content_site\section\view::get_current_index_detail('product_tag');
 
 		if(!$default)
@@ -30,7 +28,7 @@ class product_tag
 			$default = self::default();
 		}
 
-		$tagSearchLink = \dash\url::kingdom(). '/a/tag';
+		$tagSearchLink = \dash\url::kingdom(). '/a/products';
 
 		if($default)
 		{
@@ -58,6 +56,15 @@ class product_tag
 				$html .= "</div>";
 			}
 			$html .= "</div>";
+
+			// $html .= "<select name='product_tag_id' class='select22' id='producttagsearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='$apilink' data-shortkey-search data-placeholder='". T_('Search in product tag'). "'>";
+	  //     	if($related_id && $pointer === $key)
+	  //     	{
+	  //     		$selected = self::fill_selected($pointer, $related_id);
+	  //         	$html .= "<option value='$selected[id]' selected>$selected[title]</option>";
+	  //     	}
+
+	  //       $html .= "</select>";
 
 	        $html .= '<select name="opt_product_tag" class="select22" id="product_tag" data-placeholder="'. T_("Select hashtag"). '">';
 
