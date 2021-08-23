@@ -6,25 +6,14 @@ class post_show_image
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_author'));
+		$data = \dash\validate::bit(a($_data, 'show_image'));
 		return $data;
-	}
-
-
-	public static function default()
-	{
-		return null;
 	}
 
 
 	public static function admin_html()
 	{
 		$default = \content_site\section\view::get_current_index_detail('post_show_image');
-
-		if(!$default)
-		{
-			$default = self::default();
-		}
 
 		$checked = $default ? ' checked' : null;
 
@@ -36,7 +25,7 @@ class post_show_image
 
 			$html .= '<div class="check1 py-0">';
 			{
-				$html .= '<input type="checkbox" name="show_author" id="post_show_image"'.$checked.'>';
+				$html .= '<input type="checkbox" name="show_image" id="post_show_image"'.$checked.'>';
 				$html .= '<label for="post_show_image">'. T_('Display featured image'). '</label>';
 			}
 			$html .= '</div>';
