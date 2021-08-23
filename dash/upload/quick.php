@@ -34,5 +34,36 @@ class quick
 
 		return $file_detail['path'];
 	}
+
+
+	public static function read_csv($_upload_name)
+	{
+		if(!$_upload_name)
+		{
+			return false;
+		}
+
+		$meta =
+		[
+			'allow_size' => \dash\upload\size::MB(1),
+			'return_real_addr' => true,
+			'ext' =>
+			[
+				'csv',
+			],
+		];
+
+		$file = \dash\upload\file::upload($_upload_name, $meta);
+
+		if(!$file)
+		{
+			return false;
+		}
+
+
+		$data = \dash\utility\import::csv($file);
+
+		return $data;
+	}
 }
 ?>
