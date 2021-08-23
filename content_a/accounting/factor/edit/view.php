@@ -57,10 +57,44 @@ class view
 
 		// save btn
 		\dash\face::btnNew(\dash\url::that(). '/add?type='. \dash\data::myType());
+		\dash\face::btnExport(\dash\url::current(). \dash\request::full_get(['export' => 1]));
 
 		// view document btn
 		\dash\face::btnView(\dash\url::this(). '/doc/edit?id='. \dash\request::get('id'));
 
+
+
+		if(\dash\request::get('export'))
+		{
+			$export =
+			[
+
+				'number'        => a($dataRow, 'tax_document', 'number'),
+				'date'          => a($dataRow, 'tax_document', 'date'),
+				// 'desc'          => a($dataRow, 'tax_document', 'desc'),
+				'status'        => a($dataRow, 'tax_document', 'status'),
+				// 'year_id'       => a($dataRow, 'tax_document', 'year_id'),
+				// 'type'          => a($dataRow, 'tax_document', 'type'),
+				// 'subnumber'     => a($dataRow, 'tax_document', 'subnumber'),
+				'template'      => a($dataRow, 'tax_document', 'template'),
+				// 'serialnumber'  => a($dataRow, 'tax_document', 'serialnumber'),
+				'total'         => a($dataRow, 'tax_document', 'total'),
+				'totaldiscount' => a($dataRow, 'tax_document', 'totaldiscount'),
+				'totalvat'      => a($dataRow, 'tax_document', 'totalvat'),
+			];
+
+			if(is_array(a($dataRow, 'doc_detail')))
+			{
+				foreach ($dataRow['doc_detail'] as $key => $value)
+				{
+					$export[a($value, 'template')] = a($value, 'details_id');
+				}
+			}
+
+			$export = [$export];
+
+			\dash\utility\export::csv(['name' => 'Export_accounting_doc_'. \dash\request::get('id'), 'data' => $export]);
+		}
 
 		// if(a(\dash\data::dataRow(), 'tax_document', 'status') === 'temp')
 		// {
