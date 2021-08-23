@@ -127,6 +127,7 @@ class file
 			'special_file_ext'  => null,
 			'upload_name'       => null,
 			'ext'               => null,
+			'return_real_addr' 	=> false, // try to upload but not save it. only return real addr of file
 		];
 
 		if(!is_array($_meta))
@@ -217,6 +218,14 @@ class file
 		$upload_in_s3           = false;
 		$directory['real_path'] = $directory['path'];
 		$real_addr              = $myFile['tmp_name'];
+
+
+		// just read file and return
+		// needless to upload
+		if($_meta['return_real_addr'])
+		{
+			return $real_addr;
+		}
 
 
 		if(\dash\utility\s3aws\s3::active())
