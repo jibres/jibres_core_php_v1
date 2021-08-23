@@ -30,15 +30,7 @@ class post_order
 
 	public static function admin_html($_section_detail)
 	{
-		if(isset($_section_detail['preview']['post_order']) && $_section_detail['preview']['post_order'])
-		{
-			$default_post_order = $_section_detail['preview']['post_order'];
-		}
-		else
-		{
-			$default_post_order = null;
-		}
-
+		$default = \content_site\section\view::get_current_index_detail('post_order');
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
@@ -51,7 +43,7 @@ class post_order
 	        {
 	        	$selected = null;
 
-	        	if($value['key'] === $default_post_order)
+	        	if($value['key'] === $default)
 	        	{
 	        		$selected = ' selected';
 	        	}
