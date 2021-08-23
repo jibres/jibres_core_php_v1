@@ -10,13 +10,6 @@ class product_show_excerpt
 		return $data;
 	}
 
-
-	public static function default()
-	{
-		return true;
-	}
-
-
 	public static function admin_html()
 	{
 		$default = \content_site\section\view::get_current_index_detail('product_show_excerpt');
