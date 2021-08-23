@@ -455,6 +455,14 @@ class search
 					$order_sort = " ORDER BY RAND() ";
 					break;
 
+				case 'expensive':
+					$order_sort = " ORDER BY products.finalprice DESC ";
+					break;
+
+				case 'inexpensive':
+					$order_sort = " ORDER BY ISNULL(products.finalprice), products.finalprice ASC ";
+					break;
+
 				case 'latest':
 				default:
 					$order_sort = " ORDER BY products.id DESC";
