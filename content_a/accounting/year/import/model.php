@@ -20,33 +20,59 @@ class model
 			return false;
 		}
 
-		\dash\notif::warn(T_("Not ready yet!"));
-		return false;
 
-		if(\dash\request::post('remove') === 'remove')
+		$year_id = \dash\request::get('id');
+		$i = 0;
+
+		foreach ($data as $key => $value)
 		{
-			\lib\app\tax\year\remove::remove(\dash\request::get('id'));
+			$i++;
+			$post =
+			[
+				'template'        => a($value, 'template'),
 
-			if(\dash\engine\process::status())
+				'year_id'         => $year_id,
+
+				'pay_from'        => a($value, 'pay_from') ? $value['pay_from'] : null,
+				'put_on'          => a($value, 'put_on') ? $value['put_on'] : null,
+				'bank'            => a($value, 'bank') ? $value['bank'] : null,
+				'partner'         => a($value, 'partner') ? $value['partner'] : null,
+				'petty_cash'      => a($value, 'petty_cash') ? $value['petty_cash'] : null,
+				'bank_profit'      => a($value, 'bank_profit') ? $value['bank_profit'] : null,
+
+				'thirdparty'      => a($value, 'thirdparty') ? $value['thirdparty'] : null,
+
+				'date'            => a($value, 'date'),
+
+				'total'           => a($value, 'total'),
+				'totaldiscount'   => a($value, 'totaldiscount'),
+				'totalvat'        => a($value, 'totalvat'),
+				'quarterlyreport' => a($value, 'quarterlyreport'),
+			];
+
+
+			$add = \lib\app\tax\doc\template::add($post);
+
+			if(isset($add['id']))
 			{
-				\dash\redirect::to(\dash\url::that());
+				$result = \lib\app\tax\doc\edit::edit_status(['status' => 'lock'], $add['id']);
 			}
-			return;
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
 		}
 
 
-		$post =
-		[
-			'title'     => \dash\request::post('title'),
-		];
+		\lib\app\tax\doc\edit::reset_number(['year_id' => $year_id]);
 
-		$result = \lib\app\tax\year\edit::edit($post, \dash\request::get('id'));
+		\dash\notif::clean();
+
+		\dash\notif::ok(T_(":val Factor imported", ['val' => \dash\fit::number($i)]));
 
 
-		if(\dash\engine\process::status())
-		{
-			\dash\redirect::pwd();
-		}
+
 	}
 }
 ?>
