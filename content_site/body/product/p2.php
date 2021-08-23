@@ -12,62 +12,53 @@ class p2
 	 */
 	public static function option()
 	{
-
 		return
 		[
-			'title'        => T_("Magic Box"),
+			'title'        => T_("Card Design"),
 			'options'      =>
 			[
 				'heading_full',
-				'post_tag',
-				'post_template',
-				'post_order',
-				'count_post',
-				'magicbox_title_position',
+
+				'product_tag',
+				'product_order',
+				'count_product',
 				'btn_viewall',
+				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
 					'font',
 					'height',
-					'magicbox_gap',
 					'background_pack',
 					'color_heading',
-					'radius_full',
+					'radius_normal',
 					'coverratio',
-					'effect',
-					'image_mask',
-					'link_color_magicbox_title',
 					'btn_viewall_mode',
 					'type',
 				]),
 			],
 			'default'      =>
 			[
-				'type'                      => 'p2',
-				'heading'                   => T_("Latest Posts"),
-				'post_template'             => 'any',
-				'post_order'                => 'latest',
-				'count'                     => 3,
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'background_pack'           => 'none',
-				'height'                    => 'm',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'color_text'                => '#333333',
-				'heading_position'          => 'center',
-				'btn_viewall_mode'          => 'dark',
-				'radius_normal'             => 'none',
-				'magicbox_title_position'   => 'inside',
-				'effect'                    => 'zoom',
-				'link_color_magicbox_title' => 'light'
+				'type'                  => 'p1',
+				'heading'               => T_("Products"),
+				'product_order'            => 'latest',
+				'count'                 => 3,
+				'product_show_image' => true,
+				'btn_viewall_check'     => true,
+				'btn_viewall'           => T_("View all"),
+				'background_pack'       => 'none',
+				'height'                => 'm',
+				'coverratio'            => '16:9',
+				'color_text'            => '#333333',
+				'heading_position'      => 'center',
+				'btn_viewall_mode'      => 'dark',
+				'radius_normal'         => 'none',
 			],
 			'preview_list' =>
 			[
 				'p1',
-
 			],
 		];
+
 	}
 
 
@@ -76,7 +67,7 @@ class p2
 	 */
 	public static function p1($_title = null)
 	{
-		$_title = T_("Latest Posts");
+		$_title = T_("Products");
 		return
 		[
 			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
@@ -89,7 +80,7 @@ class p2
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'key'                       => 'blog',
+				'key'                       => 'product',
 				'height'                    => 'fullscreen',
 				'heading_position'          => 'center',
 				'heading'                   => $_title,
