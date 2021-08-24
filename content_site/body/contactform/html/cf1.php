@@ -34,6 +34,11 @@ class cf1
 
 		$url = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13128.74591632902!2d50.878973!3d34.6499932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8843ca95f5a8e4a1!2sJibres!5e0!3m2!1sen!2s!4v1629794013426!5m2!1sen!2s';
 
+		if(a($_args, 'google_map_embed'))
+		{
+			$url = $_args['google_map_embed'];
+		}
+
 		$html .= "<section class='text-gray-600 body-font relative $classNames' data-type='$type' $background_style $section_id>";
 		{
 			$html .= '<div class="absolute inset-0 bg-gray-300">';

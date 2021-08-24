@@ -5,14 +5,9 @@ namespace content_site\body\contactform;
 class option
 {
 
-	/**
-	 * Call when publish the page
-	 *
-	 * @return     bool  ( description_of_the_return_value )
-	 */
-	public static function premium()
+	public static function router()
 	{
-		return false;
+		\dash\allow::html();
 	}
 
 

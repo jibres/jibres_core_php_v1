@@ -89,7 +89,7 @@ class controller
 
 		// need to allow html in some section
 		// @todo @reza
-		// \content_site\call_function::router($child);
+		\content_site\call_function::router($child);
 
 	}
 

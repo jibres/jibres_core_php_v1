@@ -21,6 +21,7 @@ class cf1
 
 				'heading_raw',
 				'description',
+				'google_map_embed',
 				'type',
 			],
 
