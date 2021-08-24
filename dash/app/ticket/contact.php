@@ -40,20 +40,23 @@ class contact
 			return false;
 		}
 
-		$ticket_load_page_time = \dash\session::get('ticket_load_page_time');
+		if(!\dash\temp::get('skipp_ticket_load_page_time'))
+		{
+			$ticket_load_page_time = \dash\session::get('ticket_load_page_time');
 
-		if($ticket_load_page_time)
-		{
-			if(time() - $ticket_load_page_time < 5)
+			if($ticket_load_page_time)
 			{
-				\dash\session::set('ticket_load_page_time', time());
-				\dash\header::status(422, T_("It was very fast!"));
+				if(time() - $ticket_load_page_time < 5)
+				{
+					\dash\session::set('ticket_load_page_time', time());
+					\dash\header::status(422, T_("It was very fast!"));
+				}
 			}
-		}
-		else
-		{
-			\dash\notif::warn(T_("Your cookies may have been blocked"). ' '. T_("You need to enable cookie for usign this service"));
-			return false;
+			else
+			{
+				\dash\notif::warn(T_("Your cookies may have been blocked"). ' '. T_("You need to enable cookie for usign this service"));
+				return false;
+			}
 		}
 
 
@@ -139,7 +142,7 @@ class contact
 		{
 			// just if we have error run this code
 			\dash\log::set('contactUsLoginNotSave');
-			\dash\notif::error(T_("We could'nt save the contact"));
+			\dash\notif::error_once(T_("We could'nt save the contact"));
 		}
 
 	}

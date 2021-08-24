@@ -18,10 +18,19 @@ class cf1
 
 		$classNames = $height;
 
+
+		// $args['name']    = \dash\request::post('xun');
+		// $args['mobile']  = \dash\request::post('xum');
+		// $args['email']   = \dash\request::post('xue');
+		// $args['content'] = \dash\request::post('xuc');
+
+		// \dash\temp::set('tempTicketTitle', \dash\request::post('xut'));
+
+
 		$heading = a($_args, 'heading');
 		$desc    = a($_args, 'description');
 
-		$form_action = \lib\store::url(). '/ticket/add';
+		$form_action = \lib\store::url(). '/ticket/cf';
 
 		$url = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13128.74591632902!2d50.878973!3d34.6499932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8843ca95f5a8e4a1!2sJibres!5e0!3m2!1sen!2s!4v1629794013426!5m2!1sen!2s';
 
@@ -33,11 +42,10 @@ class cf1
 			}
 			$html .= '</div>';
 
-			$html .= '<form method="post" autocomplete="off" action="'.$form_action.'">';
+			$html .= '<form method="post" autocomplete="off" action="'.$form_action.'" data-refresh>';
 			{
 				$html .= '<div class="container px-5 py-24 mx-auto flex">';
 				{
-					$html .= \dash\csrf::html();
 					$html .= '<div class="lg:w-1/3 sm:w-1/2 bg-white rounded-lg p-8 flex flex-col sm:ml-auto w-full mt-10 sm:mt-0 relative z-10 shadow-md">';
 					{
 						$html .= '<h2 class="text-gray-900 text-lg mb-1 font-medium title-font">'.a($_args, 'heading').'</h2>';
@@ -47,16 +55,32 @@ class cf1
 						$html .= '<div class="relative mb-4">';
 						{
 
-							$html .= '<label for="email" class="leading-7 text-sm text-gray-600">Email</label>';
-							$html .= '<input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+							$html .= '<label for="xue" class="leading-7 text-sm text-gray-600">Email</label>';
+							$html .= '<input type="email" id="xue" name="xue" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
 						}
 						$html .= '</div>';
 
 						$html .= '<div class="relative mb-4">';
 						{
 
-							$html .= '<label for="message" class="leading-7 text-sm text-gray-600">Message</label>';
-							$html .= '<textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>';
+							$html .= '<label for="xum" class="leading-7 text-sm text-gray-600">Mobile</label>';
+							$html .= '<input type="tel" id="xum" name="xum" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+						}
+						$html .= '</div>';
+
+						$html .= '<div class="relative mb-4">';
+						{
+
+							$html .= '<label for="xun" class="leading-7 text-sm text-gray-600">Name</label>';
+							$html .= '<input type="tel" id="xun" name="xun" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+						}
+						$html .= '</div>';
+
+						$html .= '<div class="relative mb-4">';
+						{
+
+							$html .= '<label for="xuc" class="leading-7 text-sm text-gray-600">Message</label>';
+							$html .= '<textarea id="content" name="xuc" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>';
 						}
 						$html .= '</div>';
 
