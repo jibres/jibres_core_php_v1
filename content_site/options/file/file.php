@@ -125,7 +125,7 @@ trait file
 			{
 				$myExt = substr($default, -3);
 
-				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg', 'webp']))
+				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']) || in_array(substr($default, -4), ['webp']))
 				{
 					$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
 				}
