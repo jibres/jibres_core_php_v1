@@ -81,7 +81,7 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -113,7 +113,7 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(2)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -145,14 +145,13 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(3)]),
 			'version'        => 1,
 			'options' =>
 			[
 				'image_count'              => 1,
 				'type'                     => 'g1',
 				'radius'                   => '3xl',
-				'preview_key'              => 'p2',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
 				'link_color'               => 'light',
@@ -176,19 +175,17 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(4)]),
 			'version'        => 1,
 			'options' =>
 			[
-				'image_count' => 2,
+				'image_count'             => 2,
 				'type'                    => 'g1',
 				'radius'                  => '3xl',
-				'preview_key'             => 'p3',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
 				'link_color'              => 'light',
 				'key'                     => 'gallery',
-				'image_count'             => 2,
 				'height'                  => 's',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -203,24 +200,47 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Card"),
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[
-				'image_count' => 3,
+				'image_count'             => 3,
 				'type'                    => 'g1',
 				'radius'                  => '3xl',
-				'preview_key'             => 'p3',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
 				'link_color'              => 'light',
 				'key'                     => 'gallery',
-				'image_count'             => 2,
+				'image_random'            => 1,
 				'height'                  => 's',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
+			],
+		];
+	}
 
+
+	public static function p6()
+	{
+		return
+		[
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(6)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 3,
+				'type'                    => 'g1',
+				'radius'                  => '3xl',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_random'            => 1,
+				'height'                  => 's',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
 			],
 		];
 	}
