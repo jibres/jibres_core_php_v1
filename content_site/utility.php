@@ -63,6 +63,7 @@ class utility
 			'post_order',
 			'post_tag',
 			'post_template',
+			'preview_key',
 		];
 
 		$preview = a($load, 'preview');
