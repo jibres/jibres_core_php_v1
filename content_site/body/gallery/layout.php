@@ -25,10 +25,7 @@ class layout
 			$image_list = [];
 		}
 
-		if(!$image_list && \content_site\utility::fill_by_default_data())
-		{
-			$image_list = self::fill_default($_args);
-		}
+		$image_list = self::fill_default($_args, $image_list);
 
 		$image_list = array_values($image_list);
 
@@ -51,9 +48,8 @@ class layout
 	}
 
 
-	private static function fill_default($_args)
+	private static function fill_default($_args, $image_list)
 	{
-		$image_list = [];
 
 		$preview_option =  \content_site\call_function::section_type_preview('gallery', a($_args, 'type'), a($_args, 'preview_key'));
 
@@ -66,16 +62,44 @@ class layout
 			$max = option::maximum_capacity(a($_args, 'type'));
 		}
 
-
+		$our_image = [];
 		if(isset($preview_option['options']['image_list']) && is_array($preview_option['options']['image_list']))
 		{
-			return $preview_option['options']['image_list'];
+			$our_image = $preview_option['options']['image_list'];
+		}
+
+		if(empty($image_list))
+		{
+			$image_list = $our_image;
 		}
 
 
-		if(is_numeric($max))
+		foreach ($image_list as $key => $value)
 		{
-			for ($i=1; $i <= $max; $i++)
+			if(!a($value, 'file'))
+			{
+				if($our_image)
+				{
+					$image_list[$key]['file']  = a($our_image, 0, 'file');
+					$image_list[$key]['title'] = a($our_image, 0, 'title');
+
+					unset($our_image[0]);
+					$our_image = array_values($our_image);
+				}
+				else
+				{
+					$image_list[$key]['file']  = \dash\sample\img::image();
+					$image_list[$key]['title'] = T_("Image :val", \dash\fit::number($key + 1));
+				}
+			}
+		}
+
+
+
+
+		if(is_numeric($max) && count($image_list) < $max)
+		{
+			for ($i=1; $i <= $max - count($image_list); $i++)
 			{
 				$image_list[] =
 				[
