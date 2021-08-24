@@ -1,5 +1,5 @@
 <form method="post" autocomplete="off" >
-	<?php \dash\csrf::html(false); ?>
+	<?php echo \dash\csrf::html(false); ?>
 	<div class="box">
 		<div class="pad">
 			<label for="title"><?php echo T_("Subject") ?></label>

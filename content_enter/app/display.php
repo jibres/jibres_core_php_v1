@@ -24,7 +24,7 @@ if(\dash\user::id())
 else
 {
 
-	\dash\csrf::html();
+	echo \dash\csrf::html();
 ?>
 
 

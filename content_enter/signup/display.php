@@ -37,7 +37,7 @@ if(\dash\data::el_username())
 
 
 <?php
-\dash\csrf::html();
+echo \dash\csrf::html();
 ?>
 
 

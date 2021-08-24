@@ -8,7 +8,7 @@
         <header><h2><?php echo T_("Charge your account"); ?></h2></header>
         <div class="body">
           <form method="post" autocomplete="off">
-            <?php \dash\csrf::html(); ?>
+            <?php echo \dash\csrf::html(); ?>
            <div class="input pA5">
             <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
             <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Enter an amount to charge your account"); ?>' required min=0 max="9999999999">

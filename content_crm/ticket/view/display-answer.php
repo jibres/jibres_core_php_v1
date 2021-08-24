@@ -1,5 +1,5 @@
 <form method="post" autocomplete="off" class="quickReply">
-  <?php \dash\csrf::html(); ?>
+  <?php echo \dash\csrf::html(); ?>
   <div class="row align-start">
     <div class="c-xs-12 c-sm-12 c-md">
       <textarea class="txt" data-autoResize <?php if(!$customer_mode){echo 'name="answer" data-simple';}else{echo 'name="content"';} ?> rows="1" placeholder='<?php echo T_("Write a message..."); ?>' role="textbox"></textarea>

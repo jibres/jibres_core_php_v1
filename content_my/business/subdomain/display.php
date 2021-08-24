@@ -7,7 +7,7 @@
           <p class="msg fs09"><?php echo T_("Set it carefully, you can not change it."); ?></p>
 
           <form method="post" autocomplete="off">
-            <?php \dash\csrf::html(); ?>
+            <?php echo \dash\csrf::html(); ?>
             <div class="input fix mB10">
               <input type="text" name="sd" id="sd" placeholder='<?php echo T_("Your subdomain"); ?>' maxlength="40" class="ltr" value="<?php echo \dash\data::tempSubdomain(); ?>" <?php \dash\layout\autofocus::html() ?> required>
 <?php if(\dash\url::tld() === 'ir') {?>

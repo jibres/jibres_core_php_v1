@@ -5,7 +5,7 @@ $storeData = \dash\data::store_store_data();
   <div class="avand-md">
     <div class="box">
       <div class="pad">
-        <?php \dash\csrf::html(); ?>
+        <?php echo \dash\csrf::html(); ?>
         <div data-uploader data-name='logo' data-ratio="1" data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' data-preview-circle  data-uploader-circle>
               <input type="file" accept="image/jpeg, image/png" id="image1">
               <label for="image1"><?php echo T_('Drag &amp; Drop website logo or Browse'); ?></label>

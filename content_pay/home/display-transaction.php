@@ -135,7 +135,7 @@ if(\dash\data::payDetail_final_msg())
 			<form method="post">
 				<?php if(\dash\data::dataRow_condition() === 'request' || \dash\data::dataRow_condition() === 'redirect') {?>
 
-					<?php \dash\csrf::html(); ?>
+					<?php echo \dash\csrf::html(); ?>
 					<?php ipayBank(); ?>
 
 

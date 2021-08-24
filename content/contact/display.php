@@ -14,7 +14,7 @@
       <div class="showContactNotif"></div>
      <form method="post" data-clear data-refresh data-autoScroll='form'>
 <?php
-      \dash\csrf::html();
+      echo \dash\csrf::html();
       if(!\dash\user::login())
       {
 ?>

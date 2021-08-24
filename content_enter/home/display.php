@@ -6,7 +6,7 @@
 
 <?php } // endif
 
-\dash\csrf::html();
+echo \dash\csrf::html();
 echo \dash\captcha\recaptcha::html();
 ?>
 

@@ -203,8 +203,10 @@ class csrf
 
 		if(isset($csrf['token']))
 		{
-			echo '<div class="hide"><input type="hidden" name="csrftoken" value="'. $csrf['token']. '"></div>';
+			return '<div class="hide"><input type="hidden" name="csrftoken" value="'. $csrf['token']. '"></div>';
 		}
+
+		return null;
 	}
 
 
