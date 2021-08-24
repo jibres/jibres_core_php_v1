@@ -80,7 +80,6 @@ class g1
 					{
 						// a img
 						// h3 a
-						$myLinkHref   = "href='". a($value, 'link'). "'";
 						$myTitle      = a($value, 'title');
 
 						if(!a($value, 'file'))
@@ -90,8 +89,16 @@ class g1
 
 						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 'raw'));
 
+						$myMagicBoxEl = 'div';
+						$myLinkHref   = '';
+						if(a($value, 'link'))
+						{
+							$myLinkHref   = "href='". a($value, 'link'). "'";
+							$myMagicBoxEl = 'a';
+						}
+
 						$card = '';
-						$card .= "<a data-magicbox='$effect' $myLinkHref>";
+						$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref>";
 						{
 							// thumb
 							// if($myThumb && a($_args, 'post_show_image'))
@@ -160,7 +167,7 @@ class g1
 							}
 
 						}
-						$card .= '</a>';
+						$card .= "</$myMagicBoxEl>";
 
 
 						// save card
