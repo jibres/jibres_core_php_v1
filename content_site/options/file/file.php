@@ -109,7 +109,7 @@ trait file
 			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
 
 			$html .= ' data-ratio-free';
-			$html .= ' '. \dash\data::ratioHtml();
+			// $html .= ' '. \dash\data::ratioHtml();
 
 			if($default)
 			{
