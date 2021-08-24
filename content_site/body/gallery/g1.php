@@ -62,6 +62,7 @@ class g1
 			'preview_list' =>
 			[
 				'p1',
+				'p2',
 			],
 		];
 	}
@@ -87,7 +88,7 @@ class g1
 					],
 				],
 				'type'                    => 'g1',
-				'preview_key'             => 'p1',
+				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'link_color'              => 'light',
 				'key'                     => 'gallery',
@@ -101,6 +102,37 @@ class g1
 		];
 	}
 
+
+	public static function p2()
+	{
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count' => 1,
+				'image_list' =>
+				[
+					[
+						'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
+						'title' => 'Image 1',
+					],
+				],
+				'type'                    => 'g1',
+				'radius'                  => '3xl',
+				'magicbox_title_position' => 'hide',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_count'             => 1,
+				'height'                  => 's',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+
+			],
+		];
+	}
 
 }
 ?>
