@@ -94,6 +94,7 @@ class g1
 				'image_count'             => 1,
 				'height'                  => 'auto',
 				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
 				'container'               => 'fluid',
 
 			],
