@@ -36,6 +36,7 @@ class controller
 
 		\dash\data::dataRow($load_product);
 
+
 		$allow = false;
 
 		if(!is_null(\dash\url::subchild()))
@@ -46,7 +47,7 @@ class controller
 			}
 			else
 			{
-				$allow = false;
+				\dash\redirect::to(a($load_product, 'url'));
 			}
 		}
 		else
