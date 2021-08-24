@@ -88,7 +88,7 @@ class g1
 							$value['file'] = \dash\sample\img::image();
 						}
 
-						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 1100));
+						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 'raw'));
 
 						$card = '';
 						$card .= "<a data-magicbox='$effect' $myLinkHref>";

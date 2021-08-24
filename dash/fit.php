@@ -302,6 +302,11 @@ class fit{
 			return $_src;
 		}
 
+		if($_size === 'raw')
+		{
+			return $_src;
+		}
+
 		// check size of img
 		switch ($_size)
 		{
