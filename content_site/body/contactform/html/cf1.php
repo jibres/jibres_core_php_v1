@@ -13,7 +13,7 @@ class cf1
 		$id               = a($_args, 'id');
 		$type             = a($_args, 'type');
 		$height           = a($_args, 'height:class');
-		$background_style = a($_args, 'background:style_full');
+		$background_style = a($_args, 'background:full_style');
 		$section_id       = a($_args, 'secition:id');
 
 		$classNames = $height;

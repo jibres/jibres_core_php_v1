@@ -9,25 +9,17 @@ class heading1
 	{
 		$html             = '';
 
-		// define variables
-		// $previewMode = a($_args, 'preview_mode');
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
-		// $type        = 'b1';
 
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
+		$height           = a($_args, 'height:class');
+		$background_style = a($_args, 'background:full_style');
+		$section_id       = a($_args, 'secition:id');
+		$color_text       = a($_args, 'color_text:full_style');
 
 
 		$classNames = $height;
-		if($font_class)
-		{
-			$classNames .= ' '. $font_class;
-		}
+
 
 		$html .= "<div data-type='$type' class='flex $classNames'$background_style $section_id>";
 		{
@@ -36,13 +28,13 @@ class heading1
 				$html .= '<div class="bg-gray-200 p-10 text-center rounded-3xl">';
 				{
 
-					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $text_color.'>';
+					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $color_text.'>';
 					{
 						$html .= a($_args, 'heading');
 					}
 					$html .= '</h1>';
 
-					$html .= '<div '.$text_color.'>';
+					$html .= '<div '.$color_text.'>';
 					{
 						$html .= a($_args, 'description');
 					}

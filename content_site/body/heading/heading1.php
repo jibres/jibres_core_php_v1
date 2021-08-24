@@ -28,8 +28,17 @@ class heading1
 
 				'heading_raw',
 				'description',
-				'style' => \content_site\options\style::option_list(),
-				'type',
+				'style' => \content_site\options\style::option_list(
+				[
+					'font',
+					'height',
+
+					'background_pack',
+					'color_heading',
+
+					'type',
+				]
+				),
 			],
 			'preview_list' =>
 			[
