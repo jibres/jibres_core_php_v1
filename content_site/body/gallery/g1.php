@@ -18,7 +18,7 @@ class g1
 			'title'        => T_("Magic Gallery box"),
 			'options'      =>
 			[
-				'heading_raw',
+				// 'heading_raw',
 				'image_list' =>
 				[
 					'file_gallery',
@@ -82,14 +82,20 @@ class g1
 				'image_list' =>
 				[
 					[
-						'file'  => \dash\app::static_image_url(),
-						'title' => 'Test',
+						'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
+						'title' => 'Image 1',
 					],
-					[
-						'file'  => \dash\app::static_avatar_url(),
-						'title' => 'Test',
-					],
-				]
+				],
+				'type'                    => 'g1',
+				'preview_key'             => 'p1',
+				'magicbox_title_position' => 'hide',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_count'             => 1,
+				'height'                  => 'auto',
+				'effect'                  => 'zoom',
+				'container'               => 'fluid',
+
 			],
 		];
 	}
