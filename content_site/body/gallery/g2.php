@@ -43,7 +43,7 @@ class g2
 					'coverratio',
 					'effect',
 					'image_mask',
-					'link_color',
+					'link_color_magicbox_title',
 					'type',
 				]),
 			],
