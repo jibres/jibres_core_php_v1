@@ -10,35 +10,25 @@ class cf1
 
 		$html = '';
 
-		// define variables
-		// $previewMode = a($_args, 'preview_mode');
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
-		// $type        = 'b1';
-
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
-
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
+		$height           = a($_args, 'height:class');
+		$background_style = a($_args, 'background:style_full');
+		$section_id       = a($_args, 'secition:id');
 
 		$classNames = $height;
-		if($font_class)
-		{
-			$classNames .= ' '. $font_class;
-		}
 
 		$heading = a($_args, 'heading');
 		$desc    = a($_args, 'description');
+
+		$url = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13128.74591632902!2d50.878973!3d34.6499932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8843ca95f5a8e4a1!2sJibres!5e0!3m2!1sen!2s!4v1629794013426!5m2!1sen!2s';
 
 		$html .= "<section class='text-gray-600 body-font relative $classNames' data-type='$type' $background_style $section_id>";
 		{
 
 			$html .= '<div class="absolute inset-0 bg-gray-300">';
 			{
-				$html .= '<iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>';
+				$html .= '<iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="'.$url.'" style="filter: grayscale(1) contrast(1.2) opacity(0.4);" loading="lazy"></iframe>';
 			}
 			$html .= '</div>';
 
