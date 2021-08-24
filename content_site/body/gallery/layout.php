@@ -94,12 +94,11 @@ class layout
 			}
 		}
 
-
-
-
 		if(is_numeric($max) && count($image_list) < $max)
 		{
-			for ($i=1; $i <= $max - count($image_list); $i++)
+			$len = $max - count($image_list);
+
+			for ($i=1; $i <= $len; $i++)
 			{
 				$image_list[] =
 				[
