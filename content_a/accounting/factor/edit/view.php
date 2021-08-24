@@ -69,10 +69,10 @@ class view
 			$export =
 			[
 
-				'number'        => a($dataRow, 'tax_document', 'number'),
+				// 'number'        => a($dataRow, 'tax_document', 'number'),
 				'date'          => a($dataRow, 'tax_document', 'date'),
 				// 'desc'          => a($dataRow, 'tax_document', 'desc'),
-				'status'        => a($dataRow, 'tax_document', 'status'),
+				// 'status'        => a($dataRow, 'tax_document', 'status'),
 				// 'year_id'       => a($dataRow, 'tax_document', 'year_id'),
 				// 'type'          => a($dataRow, 'tax_document', 'type'),
 				// 'subnumber'     => a($dataRow, 'tax_document', 'subnumber'),
