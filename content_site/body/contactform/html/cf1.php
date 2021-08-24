@@ -57,29 +57,38 @@ class cf1
 
 						$html .= '<p class="leading-relaxed mb-5 text-gray-600">'.a($_args, 'description').'</p>';
 
-						$html .= '<div class="relative mb-4">';
+						if(a($_args, 'contact_get_email'))
 						{
+							$html .= '<div class="relative mb-4">';
+							{
 
-							$html .= '<label for="xue" class="leading-7 text-sm text-gray-600">Email</label>';
-							$html .= '<input type="email" id="xue" name="xue" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+								$html .= '<label for="xue" class="leading-7 text-sm text-gray-600">'.T_("Email").'</label>';
+								$html .= '<input type="email" id="xue" name="xue" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+							}
+							$html .= '</div>';
 						}
-						$html .= '</div>';
 
-						$html .= '<div class="relative mb-4">';
+						if(a($_args, 'contact_get_mobile'))
 						{
+							$html .= '<div class="relative mb-4">';
+							{
 
-							$html .= '<label for="xum" class="leading-7 text-sm text-gray-600">Mobile</label>';
-							$html .= '<input type="tel" id="xum" name="xum" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+								$html .= '<label for="xum" class="leading-7 text-sm text-gray-600">'.T_("Mobile").'</label>';
+								$html .= '<input type="tel" id="xum" name="xum" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+							}
+							$html .= '</div>';
 						}
-						$html .= '</div>';
 
-						$html .= '<div class="relative mb-4">';
+						if(a($_args, 'contact_get_name'))
 						{
+							$html .= '<div class="relative mb-4">';
+							{
 
-							$html .= '<label for="xun" class="leading-7 text-sm text-gray-600">Name</label>';
-							$html .= '<input type="tel" id="xun" name="xun" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+								$html .= '<label for="xun" class="leading-7 text-sm text-gray-600">'.T_("Name").'</label>';
+								$html .= '<input type="tel" id="xun" name="xun" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">';
+							}
+							$html .= '</div>';
 						}
-						$html .= '</div>';
 
 						$html .= '<div class="relative mb-4">';
 						{

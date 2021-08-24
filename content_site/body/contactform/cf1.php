@@ -22,6 +22,9 @@ class cf1
 				'heading_raw',
 				'description',
 				'google_map_embed',
+				'contact_get_email',
+				'contact_get_name',
+				'contact_get_mobile',
 				'type',
 			],
 
