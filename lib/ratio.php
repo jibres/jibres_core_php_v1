@@ -113,11 +113,12 @@ class ratio
 		$result                 = [];
 		$result['ratio_string'] = $ratio;
 		$result['ratio']        = $int_ratio;
-		$result['ratio_round']        = round($int_ratio, 2);
-		$result['min_w']        = 800;
-		$result['min_h']        = 600;
-		$result['max_w']        = 1080;
-		$result['max_h']        = 1200;
+		$result['ratio_round']  = round($int_ratio, 2);
+
+		// $result['min_w']        = 800;
+		// $result['min_h']        = 600;
+		// $result['max_w']        = 1080;
+		// $result['max_h']        = 1200;
 
 		return $result;
 
