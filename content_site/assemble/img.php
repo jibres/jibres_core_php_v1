@@ -1,6 +1,32 @@
 <?php
 namespace content_site\assemble;
-
+/**
+ *	Sample of loading imgage with full option for better loading time
+ *  https://www.andreaverlicchi.eu/capping-image-fidelity-2x-minimize-loading-time/
+ *
+		<picture>
+		  <!-- Landscape tablet / computers -->
+		  <source media="(min-width: 1024px)"
+		          sizes="(min-width: 1280px) 33vw, 50vw"
+		          srcset="https://placehold.it/640 640w,
+		                  https://placehold.it/1024 1024w,
+		                  https://placehold.it/1280 1280w,
+		                  https://placehold.it/1440 1440w">
+		  <!-- Portrait tablets -->
+		  <source media="(min-width: 415px)"
+		          srcset="https://placehold.it/768 2x" />
+		  <!-- iPhone X, XR... -->
+		  <source media="(min-width: 414px)"
+		          srcset="https://placehold.it/828 2x" />
+		  <!-- iPhone 6/7/8 -->
+		  <source media="(min-width: 375px)"
+		          srcset="https://placehold.it/750 2x" />
+		  <!-- IE (src) + iPhone 12 Mini (capped) -->
+		  <img src="https://placehold.it/1280"
+		       srcset="https://placehold.it/720 2x"
+		       alt="Batman Super-man and Wonder" />
+		</picture>
+*/
 
 class img
 {
@@ -21,7 +47,7 @@ class img
 	}
 
 
-	public static function createPictureEl($_src, $_alt = null)
+	public static function picture($_src, $_alt = null, $_sizes = null, $_container = null)
 	{
 		$picEl = '<picture>';
 		{
