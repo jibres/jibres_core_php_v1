@@ -51,7 +51,8 @@ class g2
 			'default'      =>
 			[
 				'heading'     => T_("Image Gallery"),
-				'type'        => 'g1',
+				'type'        => 'g2',
+				'magicbox_title_position' => 'inside',
 				'height'      => 'auto',
 				'container'   => 'fluid',
 				'effect'      => 'zoom',
