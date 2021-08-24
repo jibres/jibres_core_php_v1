@@ -73,6 +73,7 @@ class g1
 				'p10',
 				'p11',
 				'p12',
+				'p13',
 			],
 		];
 	}
@@ -336,6 +337,114 @@ class g1
 				'background_gradient_to'   => '#e2ebf0',
 				'background_gradient_from' => '#cfd9df',
 				'background_color'         => '#c6ac85',
+			],
+		];
+	}
+
+
+	public static function p10()
+	{
+		return
+		[
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(10)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'              => 6,
+				'type'                     => 'g1',
+				'radius'                   => 'lg',
+				'magicbox_title_position'  => 'hide',
+				'magicbox_gap'             => 'md',
+				'link_color'               => 'light',
+				'key'                      => 'gallery',
+				'image_random'             => 1,
+				'image_mask'               => 'none',
+				'height'                   => 's',
+				'effect'                   => 'zoom',
+				'coverratio'               => 'free',
+				'container'                => '2xl',
+				'background_pack'          => 'none',
+			],
+		];
+	}
+
+
+	public static function p11()
+	{
+		return
+		[
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(11)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'              => 8,
+				'type'                     => 'g1',
+				'radius'                   => 'lg',
+				'magicbox_title_position'  => 'hide',
+				'magicbox_gap'             => 'sm',
+				'link_color'               => 'light',
+				'key'                      => 'gallery',
+				'image_random'             => 1,
+				'image_mask'               => 'none',
+				'height'                   => 's',
+				'effect'                   => 'zoom',
+				'coverratio'               => 'free',
+				'container'                => '2xl',
+				'background_pack'          => 'none',
+			],
+		];
+	}
+
+
+	public static function p12()
+	{
+		return
+		[
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(12)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'              => 10,
+				'type'                     => 'g1',
+				'radius'                   => 'lg',
+				'magicbox_title_position'  => 'hide',
+				'magicbox_gap'             => 'sm',
+				'link_color'               => 'light',
+				'key'                      => 'gallery',
+				'image_random'             => 1,
+				'image_mask'               => 'none',
+				'height'                   => 's',
+				'effect'                   => 'zoom',
+				'coverratio'               => 'free',
+				'container'                => '2xl',
+				'background_pack'          => 'none',
+			],
+		];
+	}
+
+
+	public static function p13()
+	{
+		return
+		[
+			'preview_title'  => T_("Gallery Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(13)]),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'              => 12,
+				'type'                     => 'g1',
+				'radius'                   => 'lg',
+				'magicbox_title_position'  => 'hide',
+				'magicbox_gap'             => 'sm',
+				'link_color'               => 'light',
+				'key'                      => 'gallery',
+				'image_random'             => 1,
+				'image_mask'               => 'none',
+				'height'                   => 's',
+				'effect'                   => 'zoom',
+				'coverratio'               => 'free',
+				'container'                => '2xl',
+				'background_pack'          => 'none',
 			],
 		];
 	}
