@@ -64,6 +64,11 @@ class g1
 				'p1',
 				'p2',
 				'p3',
+				'p4',
+				'p5',
+				'p6',
+				'p7',
+				'p8',
 			],
 		];
 	}
@@ -144,6 +149,37 @@ class g1
 			'version'        => 1,
 			'options' =>
 			[
+				'image_count'              => 1,
+				'type'                     => 'g1',
+				'radius'                   => '3xl',
+				'preview_key'              => 'p2',
+				'magicbox_title_position'  => 'hide',
+				'magicbox_gap'             => 'md',
+				'link_color'               => 'light',
+				'key'                      => 'gallery',
+				'image_mask'               => 'heart',
+				'height'                   => 'fullscreen',
+				'effect'                   => 'zoom',
+				'coverratio'               => 'free',
+				'container'                => 'lg',
+				'background_pack'          => 'gradient',
+				'background_gradient_type' => 'to bottom right',
+				'background_gradient_to'   => '#000000',
+				'background_gradient_from' => '#434343',
+				'background_color'         => '#ddf2f4',
+			],
+		];
+	}
+
+
+	public static function p4()
+	{
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
 				'image_count' => 2,
 				'type'                    => 'g1',
 				'radius'                  => '3xl',
@@ -155,7 +191,34 @@ class g1
 				'image_count'             => 2,
 				'height'                  => 's',
 				'effect'                  => 'zoom',
-				'coverratio'              => '16:9',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+
+			],
+		];
+	}
+
+
+	public static function p5()
+	{
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count' => 3,
+				'type'                    => 'g1',
+				'radius'                  => '3xl',
+				'preview_key'             => 'p3',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_count'             => 2,
+				'height'                  => 's',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
 				'container'               => '2xl',
 
 			],
