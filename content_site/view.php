@@ -65,7 +65,7 @@ class view
 	}
 
 
-	public static function generate_iframe_src()
+	public static function generate_iframe_src($_include_time = false)
 	{
 		$link = \dash\data::currentPageDetail_link();
 
@@ -75,7 +75,10 @@ class view
 		// {
 		// 	$get['preview'] = 'yes';
 		// }
-		$get['time'] = time();
+		if($_include_time)
+		{
+			$get['time'] = time();
+		}
 
 		$get['preview'] = md5(\dash\data::currentPageDetail_datecreated());
 

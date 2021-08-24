@@ -30,7 +30,7 @@ class model
 
 	private static function reloadIframe()
 	{
-		$page_url = \content_site\view::generate_iframe_src();
+		$page_url = \content_site\view::generate_iframe_src(true);
 
 		if(self::$do_nothing_reload)
 		{
