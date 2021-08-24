@@ -63,6 +63,7 @@ class g1
 			[
 				'p1',
 				'p2',
+				'p3',
 			],
 		];
 	}
@@ -90,9 +91,9 @@ class g1
 				'type'                    => 'g1',
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
 				'link_color'              => 'light',
 				'key'                     => 'gallery',
-				'image_count'             => 1,
 				'height'                  => 'auto',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -115,16 +116,16 @@ class g1
 				'image_list' =>
 				[
 					[
-						'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
+						// 'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
 						'title' => 'Image 1',
 					],
 				],
 				'type'                    => 'g1',
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
 				'link_color'              => 'light',
 				'key'                     => 'gallery',
-				'image_count'             => 1,
 				'height'                  => 's',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -134,5 +135,31 @@ class g1
 		];
 	}
 
+
+	public static function p3()
+	{
+		return
+		[
+			'preview_title'  => T_("Card"),
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count' => 2,
+				'type'                    => 'g1',
+				'radius'                  => '3xl',
+				'preview_key'             => 'p3',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_count'             => 2,
+				'height'                  => 's',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => '2xl',
+
+			],
+		];
+	}
 }
 ?>
