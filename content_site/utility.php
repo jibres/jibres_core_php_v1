@@ -64,6 +64,7 @@ class utility
 			'section',
 			'model',
 			'preview_key',
+			'type',
 
 			// post
 			'post_order',
