@@ -17,16 +17,16 @@ if(!is_array($list))
 
 foreach ($list as $key => $value)
 {
-  if(a($value, 'mode')  === 'header')
+  if(a($value, 'folder')  === 'header')
   {
     $header = $value;
     $header_link = \dash\url::here(). '/section/'. a($header, 'preview', 'key'). \dash\request::full_get(['sid' => a($header, 'id')]);
   }
-  elseif(a($value, 'mode')  === 'body')
+  elseif(a($value, 'folder')  === 'body')
   {
     $body[] = $value;
   }
-  elseif(a($value, 'mode')  === 'footer')
+  elseif(a($value, 'folder')  === 'footer')
   {
     $footer_link = \dash\url::here(). '/section/'. a($footer, 'preview', 'key'). \dash\request::full_get(['sid' => a($footer, 'id')]);
     $footer = $value;

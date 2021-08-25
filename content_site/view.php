@@ -75,7 +75,8 @@ class view
 		// {
 		// 	$get['preview'] = 'yes';
 		// }
-		if($_include_time)
+		$referer = \dash\server::referer();
+		if($_include_time || strpos($referer, 'gallery/image_list') !== false)
 		{
 			$get['time'] = time();
 		}
