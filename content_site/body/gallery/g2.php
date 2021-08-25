@@ -86,60 +86,24 @@ class g2
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Gallery"). ' - '. T_("4 Magic Box + Slider"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[
-				'image_count' => 1,
-				'image_list' =>
-				[
-					[
-						'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
-						'title' => T_('Image 1'),
-					],
-				],
-				'radius'                  => 'none',
-				'magicbox_title_position' => 'hide',
-				'magicbox_gap'            => 'md',
-				'height'                  => 'auto',
-				'effect'                  => 'zoom',
-				'coverratio'              => 'free',
-				'container'               => 'fluid',
-				'background_pack'         => 'none',
-
-			],
-		];
-	}
-
-
-	public static function p2()
-	{
-		return
-		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(2)]),
-			'version'        => 1,
-			'options' =>
-			[
-				'image_count' => 1,
-				'image_list' =>
-				[
-					[
-						'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
-						'title' => 'Image 1',
-					],
-				],
-				'radius'                  => '3xl',
-				'magicbox_title_position' => 'hide',
-				'magicbox_gap'            => 'md',
-				'height'                  => 's',
+				'image_count'             => 6,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'inside',
+				'magicbox_gap'            => 'sm',
+				'image_random'            => 1,
+				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
 				'background_pack'         => 'none',
-
 			],
 		];
 	}
+
 
 
 }
