@@ -57,7 +57,7 @@ class b2
 				'color_text'                => '#333333',
 				'heading_position'          => 'center',
 				'btn_viewall_mode'          => 'dark',
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'effect'                    => 'zoom',
 				'link_color_magicbox_title' => 'light'
@@ -93,7 +93,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -124,7 +124,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -158,7 +158,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -192,7 +192,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -229,7 +229,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -266,7 +266,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -302,7 +302,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'hide',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -338,7 +338,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -375,7 +375,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'hide',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -412,7 +412,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -449,7 +449,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',
@@ -486,7 +486,7 @@ class b2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius_normal'             => 'none',
+				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,
 				'link_color_magicbox_title' => 'light',

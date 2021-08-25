@@ -21,7 +21,6 @@ class h3
 				'heading_raw',
 				'file_header_logo',
 				'menu_1',
-				'menu_2',
 				'style' =>
 				[
 					'type',
