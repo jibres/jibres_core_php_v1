@@ -24,6 +24,7 @@ class p3
 				'count_product',
 				'product_show_image',
 				'product_show_discountpercent',
+				'product_show_price',
 				'btn_viewall',
 				// sub page
 				'style' => \content_site\options\style::option_list(
@@ -44,7 +45,8 @@ class p3
 				'heading'                      => T_("Products"),
 				'product_order'                => 'latest',
 				'count'                        => 3,
-				'product_show_discountpercent' => 3,
+				'product_show_discountpercent' => 1,
+				'product_show_price'           => 1,
 				'product_show_image'           => true,
 				'btn_viewall_check'            => true,
 				'btn_viewall'                  => T_("View all"),
@@ -79,6 +81,7 @@ class p3
 				'product_show_image'       => 1,
 				'height'                       => 'md',
 				'product_show_discountpercent' => 1,
+				'product_show_price' 		   => 1,
 				'heading_position'             => 'center',
 				'heading'                      => $_title,
 				'coverratio'                   => '16:9',
