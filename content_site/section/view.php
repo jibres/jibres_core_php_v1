@@ -106,7 +106,7 @@ class view
 		{
 			if(\dash\data::changeSectionTypeMode())
 			{
-				$folder            = \dash\data::currentSectionDetail_mode();
+				$folder            = \dash\data::currentSectionDetail_folder();
 				$section_requested = \dash\url::child();
 			}
 			else
@@ -310,11 +310,11 @@ class view
 
 					$result[$key] = $value;
 
-					if(isset($value['key']) && is_string($value['key']))
-					{
-						$section_key = $value['key'];
-					}
+					break;
 
+				case 'section':
+					$section_key = $value;
+					$result[$key] = $value;
 					break;
 
 				// hide this field
@@ -370,7 +370,14 @@ class view
 			$default = [];
 		}
 
-		$thisDefault = array_merge($detail, $default);
+		$identify =
+		[
+			'section'     => a($result, 'section'),
+			'model'       => a($result, 'model'),
+			'preview_key' => a($result, 'preview_key'),
+		];
+
+		$thisDefault = array_merge($identify, $detail, $default);
 
 		$result['preview']                 = array_merge($thisDefault, $result['preview']);
 		$result['preview']['id']           = a($result, 'id');

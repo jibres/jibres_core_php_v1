@@ -51,14 +51,16 @@ class model
 	 */
 	public static function save_options()
 	{
-		$page_id     = \dash\request::get('id');
-		$section_id  = \dash\request::get('sid');
-		$section_id  = \dash\validate::id($section_id);
-		$subchild    = \dash\url::subchild();
-		$section_key = \dash\url::child();
-		$index       = \dash\request::get('index');
-		$type        = null;
-		$preview_key = null;
+		$page_id       = \dash\request::get('id');
+		$section_id    = \dash\request::get('sid');
+		$section_id    = \dash\validate::id($section_id);
+		$subchild      = \dash\url::subchild();
+		$section_key   = \dash\url::child();
+		$index         = \dash\request::get('index');
+		$type          = null;
+		$preview_key   = null;
+
+		$update_record = [];
 
 		if(!$section_id)
 		{
@@ -227,7 +229,8 @@ class model
 				$value = [];
 			}
 
-			$value = array_merge(['type' => $type, 'preview_key' => $preview_key], $value);
+			$update_record['model']       = $type;
+			$update_record['preview_key'] = $preview_key;
 		}
 
 		// reload section detail to get last update
@@ -321,8 +324,9 @@ class model
 		}
 		else
 		{
+			$update_record['preview'] = $preview;
 
-			\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+			\dash\pdo\query_template::update('pagebuilder', $update_record, $section_id);
 
 			\dash\pdo::commit();
 
@@ -503,11 +507,11 @@ class model
 
 
 
-		$key = \dash\request::get('section');
+		$section = \dash\request::get('section');
 
-		$key = \dash\validate::string_100($key);
+		$section = \dash\validate::string_100($section);
 
-		if(!$key)
+		if(!$section)
 		{
 			\dash\notif::error(T_("Invalid key"));
 			return false;
@@ -534,15 +538,15 @@ class model
 		}
 
 		$section_list = controller::section_list();
-		$all_key = array_column($section_list, 'key');
+		$all_section = array_column($section_list, 'key');
 
-		if(!in_array($key, $all_key))
+		if(!in_array($section, $all_section))
 		{
 			\dash\notif::error(T_("Can not chose this section!"));
 			return false;
 		}
 
-		$load_preview = \content_site\call_function::preview($key, $type, $preview_key);
+		$load_preview = \content_site\call_function::preview($section, $type, $preview_key);
 
 		if(!is_array($load_preview))
 		{
@@ -556,9 +560,9 @@ class model
 			$preview_options = $load_preview['options'];
 		}
 
-		$preview = ['key' => $key, 'type' => $type, 'preview_key' => $preview_key];
+		$preview = [];
 
-		$load_default = \content_site\call_function::default($key, $type);
+		$load_default = \content_site\call_function::default($section, $type);
 
 		if(!is_array($load_default))
 		{
@@ -567,13 +571,13 @@ class model
 
 		$preview = array_merge($load_default, $preview_options, $preview);
 
-		$mode = \content_site\call_function::get_folder($key);
+		$folder = \content_site\call_function::get_folder($section);
 
 		$update_record = null;
 
-		if($mode === 'header' || $mode === 'footer')
+		if($folder === 'header' || $folder === 'footer')
 		{
-			$check_duplicate = \lib\db\sitebuilder\get::check_duplicate_mode($page_id, $mode);
+			$check_duplicate = \lib\db\sitebuilder\get::check_duplicate_folder($page_id, $folder);
 			if(isset($check_duplicate['id']))
 			{
 				$update_record = $check_duplicate['id'];
@@ -590,15 +594,17 @@ class model
 		}
 		else
 		{
-			$mode = 'body';
+			$folder = 'body';
 		}
 
 		$preview = json_encode($preview);
 
 		$args =
 		[
-			'mode'          => $mode,
-			'key'           => $key,
+			'folder'        => $folder,
+			'section'       => $section,
+			'model'         => $type,
+			'preview_key'   => $preview_key,
 			'page_id'       => $page_id,
 			'preview'       => $preview,
 			'update_record' => $update_record,
@@ -611,10 +617,10 @@ class model
 			return false;
 		}
 
-		\content_site\call_function::after_add_section($key, $id, $type, $preview_key);
+		\content_site\call_function::after_add_section($section, $id, $type, $preview_key);
 
 		$url = \dash\url::this(). '/';
-		$url .= $key;
+		$url .= $section;
 		$url .= \dash\request::full_get(['sid' => $id, 'folder' => null, 'section' => null,]);
 
 		\dash\redirect::to($url);
@@ -626,8 +632,11 @@ class model
 	public static function add_new_section_db($_args)
 	{
 		$insert                   = [];
-		$insert['mode']           = a($_args, 'mode');
-		$insert['type']           = a($_args, 'key');
+		$insert['folder']         = a($_args, 'folder');
+		$insert['section']        = a($_args, 'section');
+		$insert['model']          = a($_args, 'model');
+		$insert['preview_key']    = a($_args, 'preview_key');
+
 		$insert['related']        = 'posts';
 		$insert['related_id']     = a($_args, 'page_id');
 		$insert['title']          = null;

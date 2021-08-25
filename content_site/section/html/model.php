@@ -102,12 +102,14 @@ class model extends \content_site\section\model
 
 			}
 
-			$preview           = json_encode(['type' => 'html', 'key' => 'html', 'heading' => $title]);
+			$preview           = json_encode(['heading' => $title]);
 
 			$args =
 			[
-				'mode'          => 'body',
-				'key'           => 'html',
+				'folder'        => 'body',
+				'section'       => 'html',
+				'model'         => 'html1',
+				'preview_key'   => null,
 				'page_id'       => $page_id,
 				'preview'       => $preview,
 				'update_record' => null,

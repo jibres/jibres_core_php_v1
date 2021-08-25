@@ -286,9 +286,9 @@ class load
 
 		foreach ($list as $key => $value)
 		{
-			if(isset($value['mode']) && isset($value['type']) && is_string($value['type']))
+			if(isset($value['folder']) && isset($value['section']) && is_string($value['section']))
 			{
-				if(!in_array($value['mode'], ['header', 'footer', 'body']))
+				if(!in_array($value['folder'], ['header', 'footer', 'body']))
 				{
 					continue;
 				}
@@ -297,12 +297,12 @@ class load
 				{
 					if(floatval(a($value, 'related_id')) === floatval($homepage_id))
 					{
-						self::$homepage_header_footer[$value['mode']][] = \content_site\section\view::ready_section_list($value, true);
+						self::$homepage_header_footer[$value['folder']][] = \content_site\section\view::ready_section_list($value, true);
 						continue;
 					}
 				}
 
-				$result[$value['mode']][] = \content_site\section\view::ready_section_list($value, true);
+				$result[$value['folder']][] = \content_site\section\view::ready_section_list($value, true);
 
 			}
 		}

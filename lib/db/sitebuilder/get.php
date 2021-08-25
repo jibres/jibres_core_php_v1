@@ -19,14 +19,14 @@ class get
 		return $result;
 	}
 
-	public static function check_duplicate_mode($_page_id, $_mode)
+	public static function check_duplicate_folder($_page_id, $_folder)
 	{
-		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :page_id AND pagebuilder.mode = :mode LIMIT 1";
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :page_id AND pagebuilder.folder = :folder LIMIT 1";
 
 		$param  =
 		[
 			':page_id' => $_page_id,
-			':mode'    => $_mode,
+			':folder'    => $_folder,
 		];
 
 		$result = \dash\pdo::get($query, $param, null, true);
