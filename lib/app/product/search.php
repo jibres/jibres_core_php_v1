@@ -448,24 +448,24 @@ class search
 			switch ($data['website_order'])
 			{
 				case 'oldest':
-					$order_sort = " ORDER BY products.id ASC";
+					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), products.id ASC";
 					break;
 
 				case 'random':
-					$order_sort = " ORDER BY RAND() ";
+					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), RAND() ";
 					break;
 
 				case 'expensive':
-					$order_sort = " ORDER BY products.finalprice DESC ";
+					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), products.finalprice DESC ";
 					break;
 
 				case 'inexpensive':
-					$order_sort = " ORDER BY ISNULL(products.finalprice), products.finalprice ASC ";
+					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), ISNULL(products.finalprice), products.finalprice ASC ";
 					break;
 
 				case 'latest':
 				default:
-					$order_sort = " ORDER BY products.id DESC";
+					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), products.id DESC";
 					break;
 			}
 		}
