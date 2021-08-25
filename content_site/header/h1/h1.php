@@ -20,7 +20,10 @@ class h1
 			[
 				'heading',
 				'menu_1',
-				'menu_2',
+				'style' =>
+				[
+					'type',
+				],
 			],
 
 			'preview_list' =>

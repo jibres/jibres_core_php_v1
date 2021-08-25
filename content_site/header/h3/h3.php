@@ -19,8 +19,14 @@ class h3
 			'options'      =>
 			[
 				'heading_raw',
+				'file_header_logo',
 				'menu_1',
 				'menu_2',
+				'style' =>
+				[
+					'type',
+				]
+
 			],
 
 			'preview_list' =>
