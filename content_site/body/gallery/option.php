@@ -463,9 +463,28 @@ class option
 			return false;
 		}
 
-		if(intval(self::gallery_items_count($gallery['section_id'])) === 1)
+		$option = \content_site\call_function::section_options('gallery', \dash\data::currentSectionDetail_model());
+
+		if(isset($option['minimum_item']) && is_numeric($option['minimum_item']))
 		{
-			\dash\notif::error(T_("Can not remove last gallery item"));
+			$min = intval($option['minimum_item']);
+		}
+		else
+		{
+			$min = 1;
+		}
+
+		if(intval(self::gallery_items_count($gallery['section_id'])) - 1 < $min)
+		{
+			if($min > 1)
+			{
+				\dash\notif::error(T_("On this gallery model you need at least :min item", ['min' => \dash\fit::number($min)]));
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not remove last gallery item"));
+			}
+
 			return false;
 		}
 

@@ -49,6 +49,7 @@ class g1
 				]),
 			],
 			'maximum_capacity' => 12,
+			'minimum_item'     => 3,
 			'default'      =>
 			[
 				'heading'                 => T_("Image Gallery"),
