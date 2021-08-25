@@ -31,6 +31,16 @@ class image_list
 		$image_list = \content_site\body\gallery\option::gallery_items(a($currentSectionDetail, 'id'));
 
 
+		$break_image_list = null;
+
+		$option = \content_site\call_function::section_options('gallery', \dash\data::currentSectionDetail_model());
+
+		if(isset($option['break_image_list']) && is_numeric($option['break_image_list']))
+		{
+			$break_image_list = intval($option['break_image_list']);
+		}
+
+
 		$html = '';
 
 
@@ -77,6 +87,14 @@ class image_list
 				      		$html .= '</a>';
 			      		}
 				    	$html .= '</li>';
+
+				    	if($break_image_list && $key + 1 === $break_image_list)
+				    	{
+				    		$html .= '</ul>';
+				    		$html .= '</nav>';
+				    		$html .= '<nav class="items">';
+							$html .= '<ul data-sortable>';
+				    	}
 		    		}
 		  		}
 		  		$html .= '</ul>';

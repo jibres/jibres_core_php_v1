@@ -49,7 +49,10 @@ class g1
 				]),
 			],
 			'maximum_capacity' => 12,
+
 			// 'minimum_item'     => 3,
+			'break_image_list'     => 2,
+
 			'default'      =>
 			[
 				'heading'                 => T_("Image Gallery"),
