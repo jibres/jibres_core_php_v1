@@ -53,7 +53,6 @@ class g1
 			[
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
-				'type'                    => 'g1',
 				'height'                  => 'auto',
 				'container'               => 'fluid',
 				'link_color'              => 'inside',
@@ -99,11 +98,9 @@ class g1
 						'title' => T_('Image 1'),
 					],
 				],
-				'type'                    => 'g1',
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
-				'key'                     => 'gallery',
 				'height'                  => 'auto',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -131,11 +128,9 @@ class g1
 						'title' => 'Image 1',
 					],
 				],
-				'type'                    => 'g1',
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
-				'key'                     => 'gallery',
 				'height'                  => 's',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -156,7 +151,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 1,
-				'type'                     => 'g1',
 				'radius'                   => '3xl',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -186,11 +180,9 @@ class g1
 			'options' =>
 			[
 				'image_count'             => 2,
-				'type'                    => 'g1',
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
-				'key'                     => 'gallery',
 				'height'                  => 's',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -212,11 +204,9 @@ class g1
 			'options' =>
 			[
 				'image_count'             => 3,
-				'type'                    => 'g1',
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
-				'key'                     => 'gallery',
 				'image_random'            => 1,
 				'height'                  => 's',
 				'effect'                  => 'zoom',
@@ -237,7 +227,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 3,
-				'type'                     => 'g1',
 				'radius'                   => '3xl',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -268,7 +257,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 4,
-				'type'                     => 'g1',
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -299,7 +287,6 @@ class g1
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'none',
-				'key'                     => 'gallery',
 				'image_random'            => 1,
 				'image_mask'              => 'none',
 				'height'                  => 'auto',
@@ -321,7 +308,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 5,
-				'type'                     => 'g1',
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -352,7 +338,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 6,
-				'type'                     => 'g1',
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -379,7 +364,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 8,
-				'type'                     => 'g1',
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'sm',
@@ -406,7 +390,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 10,
-				'type'                     => 'g1',
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'sm',
@@ -433,7 +416,6 @@ class g1
 			'options' =>
 			[
 				'image_count'              => 12,
-				'type'                     => 'g1',
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'sm',

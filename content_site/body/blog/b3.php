@@ -42,7 +42,6 @@ class b3
 			],
 			'default'      =>
 			[
-				'type'              => 'b3',
 				'heading'           => T_("Latest Posts"),
 				'post_template'     => 'any',
 				'post_order'        => 'latest',
@@ -81,12 +80,10 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                => 'b3',
 				'post_show_read_more' => 1,
 				'post_show_excerpt'   => 1,
 				'post_show_date'      => 'relative',
 				'link_color'          => 'primary',
-				'key'                 => 'blog',
 				'height'              => 'fullscreen',
 				'heading_position'    => 'left',
 				'heading'             => $_title,
@@ -112,12 +109,10 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                => 'b3',
 				'post_show_read_more' => null,
 				'post_show_excerpt'   => 1,
 				'post_show_date'      => 'no',
 				'link_color'          => 'primary',
-				'key'                 => 'blog',
 				'height'              => 'fullscreen',
 				'heading_position'    => 'left',
 				'heading'             => $_title,
@@ -144,12 +139,10 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                => 'b3',
 				'post_show_read_more' => null,
 				'post_show_excerpt'   => 1,
 				'post_show_date'      => 'date',
 				'link_color'          => 'primary',
-				'key'                 => 'blog',
 				'height'              => 'fullscreen',
 				'heading_position'    => 'left',
 				'heading'             => $_title,
