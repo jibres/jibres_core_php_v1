@@ -4,50 +4,31 @@ namespace content_site\assemble\element;
 
 class magicbox
 {
-	public static function html($_args, $_datalist, $_magicModel = null)
+	public static function html($_args, $_image_list)
 	{
 		$html = '';
 
-		foreach ($_datalist as $key => $value)
+		foreach ($_blogList as $key => $value)
 		{
+			// a img
+			// h3 a
+			$myLinkHref   = "href='". a($value, 'link'). "'";
 			$myTitle      = a($value, 'title');
-			$borderRadius = a($_args, 'radius:class');
-			$effect       = a($_args, 'effect');
-			$maskImg      = a($_args, 'image_mask:class');
+			$myThumb      = \dash\fit::img(a($value, 'thumb'), 780);
 
-			if(!a($value, 'file'))
-			{
-				$value['file'] = \dash\sample\img::image();
-			}
-
-			$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 'raw'));
-
-			$myMagicBoxEl = 'div';
-			$myLinkHref   = '';
-			if(a($value, 'link'))
-			{
-				$myLinkHref   = "href='". a($value, 'link'). "'";
-				$myMagicBoxEl = 'a';
-			}
+			// get grid class name by analyse
+			$gridCol = \content_site\assemble\grid::className($totalCount, $totalExist, $key);
 
 			$card = '';
-			$magicBoxClass = '';
-			if($_magicModel === 'blog')
-			{
-				// get grid class name by analyse
-				$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $key);
-				$magicBoxClass = "class='$gridCol flex flex-col max-w-md'";
-			}
-
-			$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref $magicBoxClass>";
+			$card .= "<a data-magicbox='$effect' class='$gridCol flex flex-col max-w-md' $myLinkHref>";
 			{
 				// thumb
-				// if($myThumb && a($_args, 'post_show_image'))
+				if($myThumb && a($_args, 'post_show_image'))
 				{
 					$pictureClass = 'transition shadow-sm hover:shadow-md';
-					if(a($_args, 'coverratio:class'))
+					if($coverRatio)
 					{
-						$pictureClass .= ' '. a($_args, 'coverratio:class');
+						$pictureClass .= ' '. $coverRatio;
 					}
 					if($maskImg)
 					{
@@ -77,7 +58,7 @@ class magicbox
 					}
 					$card .= "</picture>";
 				}
-				$linkColorClass = 'link-'. a($_args, 'link_color');
+				$linkColorClass = 'link-'. $link_color;
 				$linkAlign = '';
 				if($borderRadius === 'rounded-full')
 				{
@@ -88,7 +69,7 @@ class magicbox
 					$linkAlign = 'text-center';
 				}
 
-				if(a($_args, 'magicbox_title_position') === 'inside')
+				if($title_position === 'inside')
 				{
 					// title
 					$card .= "<h3 class='absolute inset-x-0 bottom-0 block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
@@ -97,7 +78,7 @@ class magicbox
 					}
 					$card .= '</h3>';
 				}
-				elseif(a($_args, 'magicbox_title_position') === 'outside')
+				elseif($title_position === 'outside')
 				{
 					// title
 					$card .= "<h3 class='block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
@@ -108,8 +89,10 @@ class magicbox
 				}
 
 			}
-			$card .= "</$myMagicBoxEl>";
+			$card .= '</a>';
 
+
+			// save card
 			$html .= $card;
 		}
 
