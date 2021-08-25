@@ -62,17 +62,30 @@ class layout
 			$max = option::maximum_capacity(a($_args, 'type'));
 		}
 
+		if($image_list && is_array($image_list))
+		{
+			$max = count($image_list);
+		}
+
 		$our_image = [];
 		if(isset($preview_option['options']['image_list']) && is_array($preview_option['options']['image_list']))
 		{
 			$our_image = $preview_option['options']['image_list'];
 		}
 
+		// clean current image list
+		foreach ($image_list as $key => $value)
+		{
+			if(!a($value, 'file'))
+			{
+				unset($image_list[$key]);
+			}
+		}
+
 		if(empty($image_list))
 		{
 			$image_list = $our_image;
 		}
-
 
 		foreach ($image_list as $key => $value)
 		{

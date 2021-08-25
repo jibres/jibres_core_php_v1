@@ -95,7 +95,7 @@ class g1
 				[
 					[
 						'file'  => \dash\url::cdn().'/img/sitebuilder/gallery/g1/bg-3.jpg',
-						'title' => 'Image 1',
+						'title' => T_('Image 1'),
 					],
 				],
 				'type'                    => 'g1',
@@ -108,6 +108,7 @@ class g1
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => 'fluid',
+				'background_pack'         => 'none',
 
 			],
 		];
@@ -140,6 +141,7 @@ class g1
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
+				'background_pack'         => 'none',
 
 			],
 		];
@@ -195,6 +197,8 @@ class g1
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
+				'background_pack'         => 'none',
+
 
 			],
 		];
@@ -221,6 +225,7 @@ class g1
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
+				'background_pack'         => 'none',
 			],
 		];
 	}
