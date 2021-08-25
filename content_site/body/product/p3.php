@@ -23,7 +23,6 @@ class p3
 				'product_order',
 				'count_product',
 				'product_show_image',
-				'product_show_excerpt',
 				'btn_viewall',
 				// sub page
 				'style' => \content_site\options\style::option_list(
@@ -44,7 +43,6 @@ class p3
 				'heading'               => T_("Products"),
 				'product_order'            => 'latest',
 				'count'                 => 3,
-				'product_show_excerpt'     => true,
 				'product_show_image'       => true,
 				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_("View all"),
@@ -77,7 +75,6 @@ class p3
 			'options' =>
 			[
 				'product_show_image'       => 1,
-				'product_show_excerpt'     => 1,
 				'height'                => 'md',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
