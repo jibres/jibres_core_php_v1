@@ -60,10 +60,15 @@ class utility
 
 		$need_unset =
 		[
+			'folder',
+			'section',
+			'model',
+			'preview_key',
+
+			// post
 			'post_order',
 			'post_tag',
 			'post_template',
-			'preview_key',
 		];
 
 		$preview = a($load, 'preview');
