@@ -31,7 +31,7 @@ class g2
 		$maskImg          = a($_args, 'image_mask:class');
 
 
-		$totalExist = count($_image_list);
+		// $totalExist = count($_image_list);
 		$totalCount = a($_args, 'count');
 
 		// element type
@@ -64,11 +64,12 @@ class g2
 				// }
 
 
-				$grid_cols = 'grid grid-cols-'. $totalExist;
-				if($totalExist > 12)
-				{
-					$grid_cols = 'grid grid-cols-'. 12;
-				}
+				$grid_cols = 'grid grid-rows-2 grid-flow-col';
+				// $grid_cols = 'grid grid-cols-'. $totalExist;
+				// if($totalExist > 12)
+				// {
+				// 	$grid_cols = 'grid grid-cols-'. 12;
+				// }
 				if($gap)
 				{
 					$grid_cols .=	' '. $gap;

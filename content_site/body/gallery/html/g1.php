@@ -9,30 +9,10 @@ class g1
 		$html             = '';
 
 		// define variables
-		// $previewMode = a($_args, 'preview_mode');
-		$id               = a($_args, 'id');
-		$type             = a($_args, 'type');
-		$title_position   = a($_args, 'magicbox_title_position');
-		$link_color       = a($_args, 'link_color');
-
-		$coverRatio       = a($_args, 'coverratio:class');
-		$borderRadius     = a($_args, 'radius:class');
-		$font_class       = a($_args, 'font:class');
-		$effect           = a($_args, 'effect');
-
-		$height           = a($_args, 'height:class');
-		$container        = a($_args, 'container:class');
-		$gap              = a($_args, 'magicbox_gap:class');
 		$background_style = a($_args, 'background:full_style');
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$section_id       = a($_args, 'secition:id');
 		$heading_class    = a($_args, 'heading:class');
-
-		$maskImg          = a($_args, 'image_mask:class');
-
-
-		$totalExist = count($_image_list);
-		$totalCount = a($_args, 'count');
 
 		// element type
 		$cnElement = 'div';
@@ -40,14 +20,20 @@ class g1
 		{
 			$cnElement = 'section';
 		}
-		$classNames = 'flex overflow-hidden '.$height;
-		if($font_class)
+
+		$classNames = 'flex overflow-hidden';
+		if(a($_args, 'height:class'))
 		{
-			$classNames .= ' '. $font_class;
+			$classNames .= ' '. a($_args, 'height:class');
+		}
+		if(a($_args, 'font:class'))
+		{
+			$classNames .= ' '. a($_args, 'font:class');
 		}
 
-		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style $section_id>";
+		$html .= "<$cnElement data-type='". a($_args, 'type'). "' class='$classNames'$background_style $section_id>";
 		{
+			$container = a($_args, 'container:class');
 			$html .= "<div class='$container m-auto relative'>";
 			{
 				// if(a($_args, 'heading') !== null)
@@ -64,115 +50,19 @@ class g1
 				// }
 
 
-				$grid_cols = 'grid grid-cols-'. $totalExist;
-				if($totalExist > 12)
+				$grid_cols = 'grid grid-cols-'. count($_image_list);
+				if(count($_image_list) > 12)
 				{
 					$grid_cols = 'grid grid-cols-'. 12;
 				}
-				if($gap)
+				if(a($_args, 'magicbox_gap:class'))
 				{
-					$grid_cols .=	' '. $gap;
+					$grid_cols .=	' '. a($_args, 'magicbox_gap:class');
 				}
 
 				$html .= "<div class='$grid_cols'>";
 				{
-					foreach ($_image_list as $key => $value)
-					{
-						// a img
-						// h3 a
-						$myTitle      = a($value, 'title');
-
-						if(!a($value, 'file'))
-						{
-							$value['file'] = \dash\sample\img::image();
-						}
-
-						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 'raw'));
-
-						$myMagicBoxEl = 'div';
-						$myLinkHref   = '';
-						if(a($value, 'link'))
-						{
-							$myLinkHref   = "href='". a($value, 'link'). "'";
-							$myMagicBoxEl = 'a';
-						}
-
-						$card = '';
-						$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref>";
-						{
-							// thumb
-							// if($myThumb && a($_args, 'post_show_image'))
-							{
-								$pictureClass = 'transition shadow-sm hover:shadow-md';
-								if($coverRatio)
-								{
-									$pictureClass .= ' '. $coverRatio;
-								}
-								if($maskImg)
-								{
-									$pictureClass .= ' '. $maskImg;
-								}
-								if($borderRadius)
-								{
-									$pictureClass .= ' '. $borderRadius;
-								}
-								if($effect !== 'zoom')
-								{
-									$pictureClass .= ' overflow-hidden';
-								}
-
-								$card .= "<picture class='$pictureClass'>";
-								{
-									$imgClass = 'object-cover';
-									if(a($_args, 'coverratio') === 'free')
-									{
-										$imgClass = 'h-auto';
-									}
-									if($borderRadius)
-									{
-										$imgClass .= ' '. $borderRadius;
-									}
-									$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
-								}
-								$card .= "</picture>";
-							}
-							$linkColorClass = 'link-'. $link_color;
-							$linkAlign = '';
-							if($borderRadius === 'rounded-full')
-							{
-								$linkAlign = 'text-center';
-							}
-							elseif($maskImg)
-							{
-								$linkAlign = 'text-center';
-							}
-
-							if($title_position === 'inside')
-							{
-								// title
-								$card .= "<h3 class='absolute inset-x-0 bottom-0 block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
-								{
-									$card .= $myTitle;
-								}
-								$card .= '</h3>';
-							}
-							elseif($title_position === 'outside')
-							{
-								// title
-								$card .= "<h3 class='block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
-								{
-									$card .= $myTitle;
-								}
-								$card .= '</h3>';
-							}
-
-						}
-						$card .= "</$myMagicBoxEl>";
-
-
-						// save card
-						$html .= $card;
-					}
+					$html .= \content_site\assemble\element\magicbox::html($_args, $_image_list);
 				}
 				$html .= '</div>';
 
@@ -180,7 +70,6 @@ class g1
 			$html .= "</div>";
 		}
 		$html .= "</$cnElement>";
-
 
 
 		return $html;
