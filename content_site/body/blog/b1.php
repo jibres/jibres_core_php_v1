@@ -95,8 +95,6 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'key'                   => 'blog',
-				'type'                  => 'b1',
 				'post_show_readingtime' => 1,
 				'post_show_image'       => 1,
 				'post_show_excerpt'     => 1,
@@ -126,13 +124,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                  => 'b1',
 				'post_show_readingtime' => null,
 				'post_show_image'       => 1,
 				'post_show_excerpt'     => 1,
 				'post_show_date'        => 'no',
 				'post_show_author'      => null,
-				'key'                   => 'blog',
 				'height'                => 'm',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
@@ -158,13 +154,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                     => 'b1',
 				'post_show_readingtime'    => null,
 				'post_show_image'          => 1,
 				'post_show_excerpt'        => 1,
 				'post_show_date'           => 'date',
 				'post_show_author'         => null,
-				'key'                      => 'blog',
 				'height'                   => 'l',
 				'heading_position'         => 'center',
 				'heading'                  => null,
@@ -198,7 +192,6 @@ class b1
 				'post_show_excerpt'     => 1,
 				'post_show_date'        => 'full',
 				'post_show_author'      => 1,
-				'key'                   => 'blog',
 				'height'                => 'l',
 				'heading_position'      => 'center',
 				'heading'               => null,
@@ -223,13 +216,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                     => 'b1',
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
 				'post_show_excerpt'        => 1,
 				'post_show_date'           => 'no',
 				'post_show_author'         => null,
-				'key'                      => 'blog',
 				'height'                   => 'l',
 				'heading_position'         => 'center',
 				'heading'                  => null,
@@ -257,13 +248,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                     => 'b1',
 				'post_show_readingtime'    => null,
 				'post_show_image'          => 1,
 				'post_show_excerpt'        => 1,
 				'post_show_date'           => 'relative',
 				'post_show_author'         => 1,
-				'key'                      => 'blog',
 				'height'                   => 'm',
 				'heading_position'         => 'center',
 				'heading'                  => null,
@@ -292,13 +281,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                     => 'b1',
 				'post_show_readingtime'    => null,
 				'post_show_image'          => 1,
 				'post_show_excerpt'        => 1,
 				'post_show_date'           => 'no',
 				'post_show_author'         => null,
-				'key'                      => 'blog',
 				'height'                   => 's',
 				'heading_position'         => 'center',
 				'heading'                  => null,
@@ -333,7 +320,6 @@ class b1
 				'post_show_excerpt'     => null,
 				'post_show_date'        => 'no',
 				'post_show_author'      => null,
-				'key'                   => 'blog',
 				'height'                => 'm',
 				'heading_position'      => 'left',
 				'heading'               => $_title,
@@ -359,13 +345,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                     => 'b1',
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
 				'post_show_excerpt'        => 1,
 				'post_show_date'           => 'no',
 				'post_show_author'         => null,
-				'key'                      => 'blog',
 				'height'                   => 'm',
 				'heading_position'         => 'left',
 				'heading'                  => $_title,

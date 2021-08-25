@@ -42,6 +42,7 @@ class b3
 			],
 			'default'      =>
 			[
+				'type'              => 'b3',
 				'heading'           => T_("Latest Posts"),
 				'post_template'     => 'any',
 				'post_order'        => 'latest',
