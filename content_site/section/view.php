@@ -374,6 +374,7 @@ class view
 		[
 			'section'     => a($result, 'section'),
 			'model'       => a($result, 'model'),
+			'type'       => a($result, 'model'),
 			'preview_key' => a($result, 'preview_key'),
 		];
 
