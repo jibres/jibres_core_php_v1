@@ -85,47 +85,47 @@ class allow
 		// ok allowd file
 		if(self::allowed_file())
 		{
-			if(is_array($files))
-			{
-				foreach ($files as $key => $value)
-				{
-					$allowed_file_upload_name =
-					[
-						'gallery',
-						'gallery1',
-						'logo',
-						'file',
-						'opt_file',
-						'video',
-						'opt_video',
-						'image',
-						'import',
-						'avatar',
-						'thumb',
-						'file1',
-						'file2',
-						'upload',
-						'cover',
-						'nationalpic',
-						'shpic',
-						'file_gallery',
-						'background_image',
-					];
+			// if(is_array($files))
+			// {
+			// 	foreach ($files as $key => $value)
+			// 	{
+			// 		$allowed_file_upload_name =
+			// 		[
+			// 			'gallery',
+			// 			'gallery1',
+			// 			'logo',
+			// 			'file',
+			// 			'opt_file',
+			// 			'video',
+			// 			'opt_video',
+			// 			'image',
+			// 			'import',
+			// 			'avatar',
+			// 			'thumb',
+			// 			'file1',
+			// 			'file2',
+			// 			'upload',
+			// 			'cover',
+			// 			'nationalpic',
+			// 			'shpic',
+			// 			'file_gallery',
+			// 			'background_image',
+			// 		];
 
-					if(in_array($key, $allowed_file_upload_name) || preg_match("/^a\_\d+$/", $key))
-					{
-						// ok
-					}
-					else
-					{
-						// isolate block
-						\dash\waf\ip::isolateIP(1, 'invalid upload name in allowd page!');
+			// 		if(in_array($key, $allowed_file_upload_name) || preg_match("/^a\_\d+$/", $key))
+			// 		{
+			// 			// ok
+			// 		}
+			// 		else
+			// 		{
+			// 			// isolate block
+			// 			\dash\waf\ip::isolateIP(1, 'invalid upload name in allowd page!');
 
-						\dash\header::status(403, T_("Invalid upload name!"));
-						return false;
-					}
-				}
-			}
+			// 			\dash\header::status(403, T_("Invalid upload name!"));
+			// 			return false;
+			// 		}
+			// 	}
+			// }
 			return true;
 		}
 
