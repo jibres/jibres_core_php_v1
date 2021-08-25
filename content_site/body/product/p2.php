@@ -50,7 +50,7 @@ class p2
 				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'none',
-				'height'                => 'm',
+				'height'                => 'md',
 				'coverratio'            => '16:9',
 				'color_text'            => '#333333',
 				'heading_position'      => 'center',

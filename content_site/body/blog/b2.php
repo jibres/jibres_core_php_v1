@@ -51,7 +51,7 @@ class b2
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'none',
-				'height'                    => 'm',
+				'height'                    => 'md',
 				'coverratio'                => '16:9',
 				'magicbox_gap'              => 'sm',
 				'color_text'                => '#333333',

@@ -49,7 +49,7 @@ class p3
 				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'none',
-				'height'                => 'm',
+				'height'                => 'md',
 				'coverratio'            => '16:9',
 				'color_text'            => '#333333',
 				'heading_position'      => 'center',
@@ -78,7 +78,7 @@ class p3
 			[
 				'product_show_image'       => 1,
 				'product_show_excerpt'     => 1,
-				'height'                => 'm',
+				'height'                => 'md',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
 				'coverratio'            => '16:9',

@@ -52,7 +52,7 @@ class b3
 				'btn_viewall_check' => true,
 				'btn_viewall'       => T_("View all"),
 				'background_pack'   => 'none',
-				'height'            => 'm',
+				'height'            => 'md',
 				'color_text'        => '#333333',
 				'heading_position'  => 'center',
 				'btn_viewall_mode'  => 'dark',
