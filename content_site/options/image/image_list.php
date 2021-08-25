@@ -20,6 +20,7 @@ class image_list
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::clean();
+			\content_site\utility::need_redirect(true);
 		}
 
 	}
@@ -44,7 +45,7 @@ class image_list
 		$html = '';
 
 
-		$html .= '<form method="post" autocomplete="off">';
+		$html .= '<form method="post" autocomplete="off" data-patch>';
 		{
 
 	  		$html .= '<input type="hidden" name="opt_image_list" value="1">';
