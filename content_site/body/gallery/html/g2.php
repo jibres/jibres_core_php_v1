@@ -4,84 +4,186 @@ namespace content_site\body\gallery\html;
 
 class g2
 {
-
 	public static function html($_args, $_image_list)
 	{
-
-		$html = '';
+		$html             = '';
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
-		$id          = a($_args, 'id');
-		$type        = a($_args, 'type');
-		$coverRatio  = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
-		$font_class  = \content_site\assemble\font::class($_args);
-		// $type        = 'b1';
+		$id               = a($_args, 'id');
+		$type             = a($_args, 'type');
+		$title_position   = a($_args, 'magicbox_title_position');
+		$link_color       = a($_args, 'link_color');
 
-		$height           = \content_site\options\height::class_name(a($_args, 'height'));
-		$background_style = \content_site\assemble\background::full_style($_args);
-		$text_color       = \content_site\assemble\text_color::full_style($_args);
-		$section_id       = \content_site\assemble\tools::section_id($type, $id);
+		$coverRatio       = a($_args, 'coverratio:class');
+		$borderRadius     = a($_args, 'radius:class');
+		$font_class       = a($_args, 'font:class');
+		$effect           = a($_args, 'effect');
+
+		$height           = a($_args, 'height:class');
+		$container        = a($_args, 'container:class');
+		$gap              = a($_args, 'magicbox_gap:class');
+		$background_style = a($_args, 'background:full_style');
+		$color_heading    = a($_args, 'color_heading:full_style');
+		$section_id       = a($_args, 'secition:id');
+		$heading_class    = a($_args, 'heading:class');
+
+		$maskImg          = a($_args, 'image_mask:class');
 
 
-		$classNames = $height;
+		$totalExist = count($_image_list);
+		$totalCount = a($_args, 'count');
+
+		// element type
+		$cnElement = 'div';
+		if(a($_args, 'heading') !== null)
+		{
+			$cnElement = 'section';
+		}
+		$classNames = 'flex overflow-hidden '.$height;
 		if($font_class)
 		{
 			$classNames .= ' '. $font_class;
 		}
 
-		$heading = a($_args, 'heading');
-		$desc    = a($_args, 'description');
-
-
-		$html .= "<section class='text-gray-600 body-font $classNames' data-type='$type' $background_style $section_id>";
+		$html .= "<$cnElement data-type='$type' class='$classNames'$background_style $section_id>";
 		{
+			$html .= "<div class='$container m-auto relative'>";
+			{
+				// if(a($_args, 'heading') !== null)
+				// {
+				// 	$html .= '<header>';
+				// 	{
+				// 		$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $color_heading>";
+				// 		{
+				// 			$html .= a($_args, 'heading');
+				// 		}
+				// 		$html .= '</h2>';
+				// 	}
+				// 	$html .= '</header>';
+				// }
 
-		  $html .= '<div class="container px-5 py-24 mx-auto">';
-		  {
 
-		    $html .= '<div class="flex flex-col text-center w-full mb-20">';
-		    {
-		      $html .= "<h1 class='sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900' $text_color>". $heading. '</h1>';
-		      $html .= '<p class="lg:w-2/3 mx-auto leading-relaxed text-base">'. $desc. '</p>';
-		    }
-		    $html .= '</div>';
+				$grid_cols = 'grid grid-cols-'. $totalExist;
+				if($totalExist > 12)
+				{
+					$grid_cols = 'grid grid-cols-'. 12;
+				}
+				if($gap)
+				{
+					$grid_cols .=	' '. $gap;
+				}
 
-		    $html .= '<div class="flex flex-wrap -m-4">';
-		    {
+				$html .= "<div class='$grid_cols'>";
+				{
+					foreach ($_image_list as $key => $value)
+					{
+						// a img
+						// h3 a
+						$myTitle      = a($value, 'title');
 
-		      	foreach ($_image_list as $key => $value)
-		      	{
+						if(!a($value, 'file'))
+						{
+							$value['file'] = \dash\sample\img::image();
+						}
 
-			      $html .= '<div class="lg:w-1/3 sm:w-1/2 p-4">';
-			      {
+						$myThumb      = \lib\filepath::fix(\dash\fit::img(a($value, 'file'), 'raw'));
 
-			        $html .= '<div class="flex relative">';
-			        {
+						$myMagicBoxEl = 'div';
+						$myLinkHref   = '';
+						if(a($value, 'link'))
+						{
+							$myLinkHref   = "href='". a($value, 'link'). "'";
+							$myMagicBoxEl = 'a';
+						}
 
-			          $html .= el::img_nolink($value, 'absolute inset-0 w-full h-full object-cover object-center');
+						$card = '';
+						$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref>";
+						{
+							// thumb
+							// if($myThumb && a($_args, 'post_show_image'))
+							{
+								$pictureClass = 'transition shadow-sm hover:shadow-md';
+								if($coverRatio)
+								{
+									$pictureClass .= ' '. $coverRatio;
+								}
+								if($maskImg)
+								{
+									$pictureClass .= ' '. $maskImg;
+								}
+								if($borderRadius)
+								{
+									$pictureClass .= ' '. $borderRadius;
+								}
+								if($effect !== 'zoom')
+								{
+									$pictureClass .= ' overflow-hidden';
+								}
 
-			          $html .= '<div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">';
-			          {
-			            // $html .= '<h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">'.a($value, 'caption').'</h2>';
-			            $html .= '<h1 class="title-font text-lg font-medium text-gray-900 mb-3">'.a($value, 'caption').'</h1>';
-			            $html .= '<p class="leading-relaxed">'.a($value, 'description').'</p>';
-			          }
-			          $html .= '</div>';
-			        }
-			        $html .= '</div>';
-			      }
-			      $html .= '</div>';
-		      	}
+								$card .= "<picture class='$pictureClass'>";
+								{
+									$imgClass = 'object-cover';
+									if(a($_args, 'coverratio') === 'free')
+									{
+										$imgClass = 'h-auto';
+									}
+									if($borderRadius)
+									{
+										$imgClass .= ' '. $borderRadius;
+									}
+									$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+								}
+								$card .= "</picture>";
+							}
+							$linkColorClass = 'link-'. $link_color;
+							$linkAlign = '';
+							if($borderRadius === 'rounded-full')
+							{
+								$linkAlign = 'text-center';
+							}
+							elseif($maskImg)
+							{
+								$linkAlign = 'text-center';
+							}
+
+							if($title_position === 'inside')
+							{
+								// title
+								$card .= "<h3 class='absolute inset-x-0 bottom-0 block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
+								{
+									$card .= $myTitle;
+								}
+								$card .= '</h3>';
+							}
+							elseif($title_position === 'outside')
+							{
+								// title
+								$card .= "<h3 class='block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
+								{
+									$card .= $myTitle;
+								}
+								$card .= '</h3>';
+							}
+
+						}
+						$card .= "</$myMagicBoxEl>";
+
+
+						// save card
+						$html .= $card;
+					}
+				}
+				$html .= '</div>';
+
 			}
-			$html .= '</div>';
-		  }
-		  $html .= '</div>';
+			$html .= "</div>";
 		}
-		$html .= '</section>';
+		$html .= "</$cnElement>";
+
+
 
 		return $html;
 	}
-
 }
 ?>
