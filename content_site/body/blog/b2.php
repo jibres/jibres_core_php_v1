@@ -15,7 +15,7 @@ class b2
 
 		return
 		[
-			'title'        => T_("Magic Box"),
+			'title'        => T_("Blog"). ' - '. T_("Magic Box"),
 			'options'      =>
 			[
 				'heading_full',
@@ -89,7 +89,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -120,7 +120,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(2)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(2)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -154,7 +154,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(3)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(3)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -188,7 +188,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(4)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(4)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -225,7 +225,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(5)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -262,7 +262,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(6)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(6)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -298,7 +298,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(7)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(7)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -334,7 +334,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(8)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(8)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -371,7 +371,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(9)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(9)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -408,7 +408,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(10)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(10)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -445,7 +445,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(11)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(11)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -482,7 +482,7 @@ class b2
 		$_title = T_("Latest Posts");
 		return
 		[
-			'preview_title'  => T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(12)]),
+			'preview_title'  => T_("Blog"). ' - '. T_("Magic Box"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(12)]),
 			'version'        => 1,
 			'options' =>
 			[
