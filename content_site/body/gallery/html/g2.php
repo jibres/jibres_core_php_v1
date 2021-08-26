@@ -15,19 +15,27 @@ class g2
 				$html .= \content_site\assemble\wrench\section::grid_by_count($_args, 4);
 				{
 					$normalBox = array_slice($_image_list, 0, 4);
-					$sliderBox = array_slice($_image_list, 4);
+					$sliderBox = array_slice($_image_list, 3);
 
 					// slider box
 					$html .= '<div class="row-span-2 col-span-2">';
 					{
-						$sliderClass = 'h-full';
+						$sliderClass = 'swiper h-full';
 						if(a($_args, 'radius:class'))
 						{
-							$sliderClass .= ' overflow-hidden '. a($_args, 'radius:class');
+							$sliderClass .= ' overflow-hidden1 '. a($_args, 'radius:class');
 						}
-						$html .= '<div class="'. $sliderClass. '" data-slider>';
+						$html .= '<div class="'. $sliderClass. '" data-swiper>';
 						{
-							$html .= \content_site\assemble\element\magicbox::html($_args, $sliderBox);
+							$html .= '<div class="swiper-wrapper">';
+							{
+								$html .= \content_site\assemble\element\magicbox::html($_args, $sliderBox, 'slider');
+							}
+							$html .= '</div>';
+							$html .= '<div class="swiper-pagination"></div>';
+							$html .= '<div class="swiper-button-prev"></div>';
+							$html .= '<div class="swiper-button-next"></div>';
+							// $html .= '<div class="swiper-scrollbar"></div>';
 						}
 						$html .= '</div>';
 					}
