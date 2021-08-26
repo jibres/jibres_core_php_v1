@@ -70,9 +70,9 @@ class layout
 		$html             = '';
 
 
-		$type      = a($_args, 'model');
+		$model      = a($_args, 'model');
 
-		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
+		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $model);
 
 		if(is_callable([$namespace, 'html']))
 		{

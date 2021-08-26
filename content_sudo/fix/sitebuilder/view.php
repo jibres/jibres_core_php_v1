@@ -65,6 +65,19 @@ class view
 			self::error('No input from function :'. __FUNCTION__, __LINE__);
 		}
 
+		$skipp_subdomain =
+		[
+			'rezamohiti',
+			'tresssst',
+		];
+
+		if(in_array($subdomain, $skipp_subdomain))
+		{
+			self::counter('skipped business');
+			return;
+
+		}
+
 		$dbname = \dash\engine\store::make_database_name($store_id);
 
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
@@ -81,6 +94,17 @@ class view
 		foreach ($old_record_pagebuilder as $pagebuilder_record)
 		{
 			self::counter(a($pagebuilder_record, 'type'));
+
+			switch (a($pagebuilder_record, 'type'))
+			{
+				case 'blog':
+					var_dump($pagebuilder_record, func_get_args());exit;
+					break;
+
+				default:
+					// code...
+					break;
+			}
 		}
 	}
 

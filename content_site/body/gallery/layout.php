@@ -34,9 +34,9 @@ class layout
 			shuffle($image_list);
 		}
 
-		$type      = a($_args, 'type');
+		$model      = a($_args, 'model');
 
-		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
+		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $model);
 
 		if(is_callable([$namespace, 'html']))
 		{
