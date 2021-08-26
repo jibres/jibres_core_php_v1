@@ -43,18 +43,7 @@ class b2
 		{
 			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{
-				if(a($_args, 'heading') !== null)
-				{
-					$html .= '<header>';
-					{
-						$html .= "<h2 class='text-3xl font-black leading-6 mb-5 $heading_class' $color_heading>";
-						{
-							$html .= a($_args, 'heading');
-						}
-						$html .= '</h2>';
-					}
-					$html .= '</header>';
-				}
+				$html .= \content_site\assemble\element\heading::simple1($_args);
 
 				$grid_cols = 'relative grid grid-cols-12';
 				if($gap)
