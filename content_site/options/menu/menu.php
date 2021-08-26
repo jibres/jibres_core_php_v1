@@ -49,7 +49,24 @@ trait menu
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= "<label for='menu'>$title</label>";
+			$html .= '<div class="row">';
+			{
+
+				$html .= '<div class="c-auto">';
+				{
+					$html .= "<label for='menu'>$title</label>";
+				}
+				$html .= '</div>';
+				$html .= '<div class="c"></div>';
+				$html .= '<div class="c-auto">';
+				{
+					$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="link text-lg"><i class="sf-external-link"></i></a>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+
 
 			$menu = \lib\app\menu\get::list_all_menu();
 
@@ -95,7 +112,7 @@ trait menu
 				{
 					$html .= '<a href="'. \dash\url::kingdom(). '/a/setting/menu/roster?id='. $default. '" class="btn link">'. T_("Edit menu :val", ['val' => null]). '</a>';
 				}
-				$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="btn link">'. T_("Add new menu"). '</a>';
+
 			}
 
 		}
