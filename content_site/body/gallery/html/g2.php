@@ -12,11 +12,20 @@ class g2
 			{
 				// $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-				$html .= \content_site\assemble\wrench\section::grid_by_row($_args, 2);
+				$html .= \content_site\assemble\wrench\section::grid_by_count($_args, 4);
 				{
-					$normalMagicBox = array_slice($_image_list, 0, 4);
+					$normalBox = array_slice($_image_list, 0, 4);
+					$sliderBox = array_slice($_image_list, 4);
 
-					$html .= \content_site\assemble\element\magicbox::html($_args, $normalMagicBox);
+					// slider box
+					$html .= '<div class="row-span-2 col-span-2">';
+					{
+						$html .= 'Salam';
+
+					}
+					$html .= '</div>';
+
+					$html .= \content_site\assemble\element\magicbox::html($_args, $normalBox);
 				}
 				$html .= '</div>';
 			}
