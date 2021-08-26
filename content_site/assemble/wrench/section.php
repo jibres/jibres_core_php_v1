@@ -84,7 +84,6 @@ class section
 	}
 
 
-
 	public static function grid_12($_args)
 	{
 		$grid_cols = 'relative grid grid-cols-12';
@@ -103,5 +102,24 @@ class section
 
 		return $gridElement;
 	}
+
+
+	public static function grid_by_row($_args, $_count)
+	{
+		$grid_cols = 'grid grid-rows-'. $_count. ' grid-flow-col';
+		if($_count > 6)
+		{
+			$grid_cols = 'grid grid-rows-6';
+		}
+		if(a($_args, 'magicbox_gap:class'))
+		{
+			$grid_cols .=	' '. a($_args, 'magicbox_gap:class');
+		}
+
+		$gridElement = "<div class='$grid_cols'>";
+
+		return $gridElement;
+	}
+
 }
 ?>
