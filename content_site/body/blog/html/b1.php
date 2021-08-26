@@ -6,36 +6,15 @@ class b1
 {
 	public static function html($_args, $_blogList)
 	{
-		// define variables
-		// $previewMode = a($_args, 'preview_mode');
-		$id               = a($_args, 'id');
-		$type             = a($_args, 'type');
-
 		$coverRatio       = a($_args, 'coverratio:class');
 		$borderRadius     = a($_args, 'radius:class');
-		$font_class       = a($_args, 'font:class');
-
-		$height           = a($_args, 'height:class');
-		$background_style = a($_args, 'background:full_style');
-		$color_heading    = a($_args, 'color_heading:full_style');
-
-		$section_id       = a($_args, 'secition:id');
-		$heading_class    = a($_args, 'heading:class');
-
 
 		$totalExist = count($_blogList);
 		$totalCount = a($_args, 'count');
 
-		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4 m-auto';
-		if($totalCount > 3)
-		{
-			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4 m-auto';
-		}
-
-
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$html .= "<div class='$containerMaxWidth'>";
+			$html .= \content_site\assemble\wrench\section::container_auto($_args, a($_args, 'count'));
 			{
 				$html .= \content_site\assemble\wrench\heading::simple1($_args);
 
