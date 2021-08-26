@@ -16,7 +16,7 @@ class g4
 				{
 
 					// slider box
-					$html .= '<div class="1111">';
+					$html .= '<div class="">';
 					{
 						$html .= \content_site\assemble\element\slider::html($_args, $_image_list);
 					}
