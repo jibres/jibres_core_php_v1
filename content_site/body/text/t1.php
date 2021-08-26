@@ -18,7 +18,7 @@ class t1
 			'options'      =>
 			[
 				'heading_raw',
-				'html_editor',
+				'text',
 
 				// sub page
 				'style' => \content_site\options\style::option_list(

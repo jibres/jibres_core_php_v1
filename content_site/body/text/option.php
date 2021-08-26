@@ -5,7 +5,10 @@ namespace content_site\body\text;
 class option
 {
 
-
+	public static function router()
+	{
+		\dash\allow::html();
+	}
 
 	/**
 	 * Get detail
