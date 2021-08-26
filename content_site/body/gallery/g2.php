@@ -42,7 +42,7 @@ class g2
 					'background_pack',
 					'color_heading',
 					'radius_full',
-					'coverratio_no_free',
+					'coverratio',
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
