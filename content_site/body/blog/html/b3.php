@@ -6,11 +6,8 @@ class b3
 {
 	public static function html($_args, $_blogList)
 	{
-		$link_color       = a($_args, 'link_color');
-		$heading_class    = a($_args, 'heading:class');
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$color_text       = a($_args, 'color_text:full_style');
-
 
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
@@ -21,6 +18,7 @@ class b3
 				{
 					$html .= '<header class="pt-6 pb-8 space-y-2">';
 					{
+						$heading_class    = a($_args, 'heading:class');
 						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-6xl $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
@@ -32,7 +30,6 @@ class b3
 							$html .= a($_args, 'description');
 						}
 						$html .= '</p>';
-
 					}
 					$html .= '</header>';
 				}
@@ -98,7 +95,7 @@ class b3
 								if(a($_args, 'post_show_read_more'))
 								{
 									$html .= "<div class='text-base font-medium'>";
-									$html .= '<a href="'.$myLink.'" class="inline-flex items-center opacity-70 link-'. $link_color.'">'.T_("Read more").'</a>';
+									$html .= '<a href="'.$myLink.'" class="inline-flex items-center opacity-70 link-'. a($_args, 'link_color').'">'.T_("Read more").'</a>';
 									$html .= "</div>";
 								}
 
@@ -106,20 +103,15 @@ class b3
 							$html .= '</div>';
 						}
 						$html .= '</article>';
-
 					} // endfor
-
 				}
 				$html .= '</div>';
 
 				$html .= \content_site\body\blog\share::btn_viewall($_args);
 			}
 			$html .= '</div>';
-
-
 		}
 		$html .= \content_site\assemble\wrench\section::element_end($_args);
-
 
 		return $html;
 	}
