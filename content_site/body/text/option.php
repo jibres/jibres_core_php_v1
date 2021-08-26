@@ -1,0 +1,53 @@
+<?php
+namespace content_site\body\text;
+
+
+class option
+{
+
+
+
+	/**
+	 * Get detail
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function detail()
+	{
+		return
+		[
+			'group'   => T_("Text"),
+			'key'     => 'text',
+			'title'   => T_("Text box"),
+			'icon'    => \dash\utility\icon::url('Text'),
+		];
+	}
+
+
+
+
+	/**
+	 * Get type list
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function type_list()
+	{
+		return
+		[
+			't1',
+		];
+	}
+
+
+	public static function popular()
+	{
+		return
+		[
+			't1:p1',
+
+		];
+	}
+
+}
+?>

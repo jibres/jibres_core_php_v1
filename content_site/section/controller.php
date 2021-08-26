@@ -116,7 +116,7 @@ class controller
 			'contactform',
 			'heading',
 			// 'imagetext',
-			// 'text',
+			'text',
 			'html',
 
 
