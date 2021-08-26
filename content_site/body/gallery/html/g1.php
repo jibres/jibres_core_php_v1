@@ -9,29 +9,10 @@ class g1
 		$html             = '';
 
 		// define variables
-		$background_style = a($_args, 'background:full_style');
 		$color_heading    = a($_args, 'color_heading:full_style');
-		$section_id       = a($_args, 'secition:id');
 		$heading_class    = a($_args, 'heading:class');
 
-		// element type
-		$cnElement = 'div';
-		if(a($_args, 'heading') !== null)
-		{
-			$cnElement = 'section';
-		}
-
-		$classNames = 'flex overflow-hidden';
-		if(a($_args, 'height:class'))
-		{
-			$classNames .= ' '. a($_args, 'height:class');
-		}
-		if(a($_args, 'font:class'))
-		{
-			$classNames .= ' '. a($_args, 'font:class');
-		}
-
-		$html .= "<$cnElement data-type='". a($_args, 'type'). "' class='$classNames'$background_style $section_id>";
+		$html .= \content_site\assemble\element\section::element_start($_args);
 		{
 			$container = a($_args, 'container:class');
 			$html .= "<div class='$container m-auto relative'>";
@@ -69,7 +50,7 @@ class g1
 			}
 			$html .= "</div>";
 		}
-		$html .= "</$cnElement>";
+		$html .= \content_site\assemble\element\section::element_end($_args);
 
 
 		return $html;
