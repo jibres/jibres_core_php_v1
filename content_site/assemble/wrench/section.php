@@ -88,6 +88,8 @@ class section
 	public static function grid_12($_args)
 	{
 		$grid_cols = 'relative grid grid-cols-12';
+		$gap = a($_args, 'magicbox_gap:class');
+
 		if($gap)
 		{
 			$grid_cols .=	' '. $gap;
