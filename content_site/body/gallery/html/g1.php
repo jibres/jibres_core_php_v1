@@ -12,17 +12,7 @@ class g1
 			{
 				// $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-				$grid_cols = 'grid grid-cols-'. count($_image_list);
-				if(count($_image_list) > 12)
-				{
-					$grid_cols = 'grid grid-cols-'. 12;
-				}
-				if(a($_args, 'magicbox_gap:class'))
-				{
-					$grid_cols .=	' '. a($_args, 'magicbox_gap:class');
-				}
-
-				$html .= "<div class='$grid_cols'>";
+				$html .= \content_site\assemble\wrench\section::grid_by_count($_args, count($_image_list));
 				{
 					$html .= \content_site\assemble\element\magicbox::html($_args, $_image_list);
 				}

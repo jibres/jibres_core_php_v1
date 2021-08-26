@@ -52,5 +52,22 @@ class section
 		return $element;
 	}
 
+
+	public static function grid_by_count($_args, $_count)
+	{
+		$grid_cols = 'grid grid-cols-'. $_count;
+		if($_count > 12)
+		{
+			$grid_cols = 'grid grid-cols-'. 12;
+		}
+		if(a($_args, 'magicbox_gap:class'))
+		{
+			$grid_cols .=	' '. a($_args, 'magicbox_gap:class');
+		}
+
+		$gridElement = "<div class='$grid_cols'>";
+
+		return $gridElement;
+	}
 }
 ?>
