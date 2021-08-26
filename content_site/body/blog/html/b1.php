@@ -18,7 +18,7 @@ class b1
 			{
 				$html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-				$html .= "<div class='grid grid-cols-12 gap-4'>";
+				$html .= \content_site\assemble\wrench\section::grid_12($_args);
 				{
 					foreach ($_blogList as $key => $value)
 					{

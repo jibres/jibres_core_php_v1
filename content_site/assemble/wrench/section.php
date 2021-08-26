@@ -94,6 +94,10 @@ class section
 		{
 			$grid_cols .=	' '. $gap;
 		}
+		else
+		{
+			$grid_cols .=	' gap-0.5 sm:gap-1 md:gap-2 lg:gap-4';
+		}
 
 		$gridElement = "<div class='$grid_cols'>";
 
