@@ -19,7 +19,12 @@ class layout
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
-				$html .= a($_args, 'html_text');
+				$color_text = a($_args, 'color_text:full_style');
+				$html .= "<div $color_text>";
+				{
+					$html .= a($_args, 'html_text');
+				}
+				$html .= "</div>";
 			}
 			$html .= "</div>";
 		}

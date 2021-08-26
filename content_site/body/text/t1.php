@@ -27,6 +27,7 @@ class t1
 					'height',
 					'container',
 					'background_pack',
+					'color_text',
 					'type',
 				]),
 			],
