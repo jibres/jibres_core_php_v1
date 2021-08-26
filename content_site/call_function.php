@@ -398,20 +398,24 @@ class call_function
 			{
 				$load_preview = self::_call([$namespace_type, $preview_function]);
 
-				$version = (a($load_preview, 'version') ? $load_preview['version'] : 1);
+				if(is_array($load_preview) && $load_preview)
+				{
 
-				$list[] =
-				[
-					'key'           => $_section_key,
-					'type_title'    => a($load_type_option, 'title'),
-					'preview_title' => a($load_preview, 'preview_title'),
-					'preview_image' => a($load_preview, 'preview_image'),
-					'preview_key'   => $preview_function,
-					'version'       => $version,
-					'opt_type'      => $type,
-					'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
-					'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $type, $type. '-'. $preview_function, $version),
-				];
+					$version = (a($load_preview, 'version') ? $load_preview['version'] : 1);
+
+					$list[] =
+					[
+						'key'           => $_section_key,
+						'type_title'    => a($load_type_option, 'title'),
+						'preview_title' => a($load_preview, 'preview_title'),
+						'preview_image' => a($load_preview, 'preview_image'),
+						'preview_key'   => $preview_function,
+						'version'       => $version,
+						'opt_type'      => $type,
+						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
+						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $type, $type. '-'. $preview_function, $version),
+					];
+				}
 			}
 		}
 
