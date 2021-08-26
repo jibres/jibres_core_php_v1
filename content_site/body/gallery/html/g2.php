@@ -20,7 +20,12 @@ class g2
 					// slider box
 					$html .= '<div class="row-span-2 col-span-2">';
 					{
-						$html .= '<div class="h-full" data-slider>';
+						$sliderClass = 'h-full';
+						if(a($_args, 'radius:class'))
+						{
+							$sliderClass .= ' overflow-hidden '. a($_args, 'radius:class');
+						}
+						$html .= '<div class="'. $sliderClass. '" data-slider>';
 						{
 							$html .= \content_site\assemble\element\magicbox::html($_args, $sliderBox);
 						}
