@@ -21,15 +21,21 @@ class layout
 		{
 			$html .= '<div class="container mx-auto flex flex-wrap p-5 flex-col sm:flex-row items-center">';
 			{
-
 				$html .= '<a class="flex title-font font-medium items-center text-gray-900 mb-4 sm:mb-0">';
 				{
+					$logo = null;
 
-					$logo = \lib\pagebuilder::logo();
-
-					if(!$logo)
+					if(a($_args, 'use_as_logo') === 'business_logo')
 					{
 						$logo = \lib\store::logo();
+					}
+					elseif(a($_args, 'use_as_logo') === 'custom_logo')
+					{
+						$logo = a($_args, 'header_logo');
+						if($logo)
+						{
+							$logo = \lib\filepath::fix($logo);
+						}
 					}
 
 					if($logo)
@@ -37,39 +43,36 @@ class layout
 						$html .= '<img class="w-12 h-12 text-white p-2 bg-indigo-500 rounded-full" src="'. $logo. '" alt="'. a($_args, 'heading'). '">';
 					}
 
-					$html .= '<span class="ml-3 text-xl">'.a($_args, 'heading').'</span>';
+					if(a($_args, 'heading'))
+					{
+						$html .= '<span class="ml-3 text-xl">'.a($_args, 'heading').'</span>';
+					}
 				}
 				$html .= '</a>';
 
-				$html .= '<nav class="sm:ml-auto flex flex-wrap items-center text-base justify-center">';
+				if(a($_args, 'menu_1'))
 				{
-					$html .= '<a class="mr-5 hover:text-gray-900">First Link</a>';
-					$html .= '<a class="mr-5 hover:text-gray-900">Second Link</a>';
-					$html .= '<a class="mr-5 hover:text-gray-900">Third Link</a>';
-					$html .= '<a class="mr-5 hover:text-gray-900">Fourth Link</a>';
+					$html .= '<nav class="sm:ml-auto flex flex-wrap items-center text-base justify-center">';
+					{
+						$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
+						if(is_array(a($load_menu, 'list')))
+						{
+							foreach ($load_menu['list'] as $key => $value)
+							{
+								$target = a($value, 'target') ? 'target="_blank"' : null;
+
+								$html .= "<a href='$value[url]' $target class='mr-5 hover:text-gray-900'>$value[title]</a>";
+							}
+						}
+					}
+					$html .= '</nav>';
 				}
-				$html .= '</nav>';
 
 				$html .= '<button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 sm:mt-0">Login</button>';
 			}
 			$html .= '</div>';
 		}
 		$html .= '</header>';
-
-
-
-
-			// if(\lib\pagebuilder::have_header_menu())
-			// {
-			// 	$html .= '<div class="menuBar row">';
-			// 	{
-			// 		$html .= '<div class="c">'. \lib\pagebuilder::menu('header_menu_1'). '</div>';
-			// 		$html .= '<div class="c-auto os">'. \lib\pagebuilder::menu('header_menu_2', 'xs0'). '</div>';
-			// 	}
-			// 	$html .= '</div>';
-			// }
-
-
 
 		return $html;
 	}
