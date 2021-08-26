@@ -4,6 +4,8 @@ namespace content_sudo\fix\sitebuilder;
 
 class view
 {
+	use news;
+
 	public static function config()
 	{
 		\dash\face::title("Backend Fix ;) ");
@@ -58,8 +60,29 @@ class view
 	}
 
 
+	private static function ready($_data)
+	{
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			if(substr($value, 0, 1) === '{' || substr($value, 0, 1) === '[')
+			{
+				$result[$key] = json_decode($value, true);
+			}
+			else
+			{
+				$result[$key] = $value;
+			}
+		}
+
+		return $result;
+	}
+
+
 	private static function one_business($store_id, $fuel, $subdomain)
 	{
+		self::counter('i');
+
 		if(!$store_id || !$fuel || !$subdomain)
 		{
 			self::error('No input from function :'. __FUNCTION__, __LINE__);
@@ -67,8 +90,8 @@ class view
 
 		$skipp_subdomain =
 		[
-			'rezamohiti',
-			'tresssst',
+			// 'rezamohiti',
+			// 'tresssst',
 		];
 
 		if(in_array($subdomain, $skipp_subdomain))
@@ -93,20 +116,57 @@ class view
 
 		foreach ($old_record_pagebuilder as $pagebuilder_record)
 		{
+			$new_record                   = [];
+
+			$preview = [];
+
+			$pagebuilder_record = self::ready($pagebuilder_record);
+
+			self::counter('i');
+
 			self::counter(a($pagebuilder_record, 'type'));
 
+			$skipp_section = false;
 			switch (a($pagebuilder_record, 'type'))
 			{
+				// in new sitebuilder we have blog! in old sitebuilder we have news
 				case 'blog':
-					var_dump($pagebuilder_record, func_get_args());exit;
+					var_dump('new sitebuilder section key!', $pagebuilder_record, func_get_args());exit;
+					break;
+
+				case 'news':
+					$preview = self::conver_news($pagebuilder_record, $new_record);
 					break;
 
 				default:
-					// code...
+					$skipp_section = true;
 					break;
 			}
+
+			if($skipp_section)
+			{
+				self::counter('skipp section');
+				continue;
+			}
+
+			$new_record['sort']           = a($pagebuilder_record, 'sort');
+			$new_record['sort_preview']   = a($pagebuilder_record, 'sort');
+			$new_record['status']         = 'enable';
+			$new_record['status_preview'] = 'enable';
+			$new_record['preview']        = json_encode($preview);
+			$new_record['body']           = $new_record['preview'];
+
+
+
+			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'), $fuel, $dbname);
+
+
+			var_dump($new_record);exit;
 		}
 	}
+
+
+
 
 }
 ?>
