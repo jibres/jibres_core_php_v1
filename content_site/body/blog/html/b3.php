@@ -6,37 +6,13 @@ class b3
 {
 	public static function html($_args, $_blogList)
 	{
-		$html             = '';
-
-		$id               = a($_args, 'id');
-		$type             = a($_args, 'type');
-
 		$link_color       = a($_args, 'link_color');
-		$borderRadius     = a($_args, 'radius:class');
-		$font_class       = a($_args, 'font:class');
-		$height           = a($_args, 'height:class');
 		$heading_class    = a($_args, 'heading:class');
-		$background_style = a($_args, 'background:full_style');
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$color_text       = a($_args, 'color_text:full_style');
-		$section_id       = a($_args, 'secition:id');
 
-		$totalExist = count($_blogList);
 
-		// element type
-		$cnElement = 'div';
-		if(a($_args, 'heading') !== null)
-		{
-			$cnElement = 'section';
-		}
-
-		$classNames = $height;
-		if($font_class)
-		{
-			$classNames .= ' '. $font_class;
-		}
-
-		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
+		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
 			$containerClass = 'max-w-3xl w-full m-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 divide-y divide-gray-200';
 			$html .= '<div class="'. $containerClass. '">';
@@ -45,7 +21,7 @@ class b3
 				{
 					$html .= '<header class="pt-6 pb-8 space-y-2">';
 					{
-						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-6xl $heading_class $font_class' $color_heading>";
+						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-6xl $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}
@@ -142,8 +118,7 @@ class b3
 
 
 		}
-		$html .= "</$cnElement>";
-
+		$html .= \content_site\assemble\wrench\section::element_end($_args);
 
 
 		return $html;
