@@ -60,21 +60,24 @@ trait menu
 				$html .= '<div class="c"></div>';
 				$html .= '<div class="c-auto">';
 				{
-					$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="link text-lg"><i class="sf-external-link"></i></a>';
+					if($default)
+					{
+						$html .= '<a href="'. \dash\url::kingdom(). '/a/setting/menu/roster?id='. $default. '" class="link text-xs"><i class="sf-external-link"></i> '. T_("Edit"). '</a>';
+					}
+					else
+					{
+						$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="link text-xs"><i class="sf-external-link"></i> '. T_("Edit") .'</a>';
+					}
 				}
 				$html .= '</div>';
 			}
 			$html .= '</div>';
 
-
-
 			$menu = \lib\app\menu\get::list_all_menu();
 
 			if($menu)
 			{
-
-
-				$html .= '<select name="opt_'. $header_menu_key. '" id="idmenu_'. $header_menu_key. '" class="select22" data-placeholder="'. T_("Choose one menu"). '">';
+				$html .= '<select name="opt_'. $header_menu_key. '" id="idmenu_'. $header_menu_key. '" class="select22 mb-5" data-placeholder="'. T_("Choose one menu"). '">';
 				{
 					if($default)
 					{
@@ -98,21 +101,10 @@ trait menu
 					}
 				}
 				$html .= '</select>';
-
 			}
 			else
 			{
-				$html .= '<a class="btn primary" href="'. \dash\url::kingdom(). '/a/setting/menu/add">'. T_("Add new menu"). '</a>';
-			}
-
-
-			if($menu)
-			{
-				if($default)
-				{
-					$html .= '<a href="'. \dash\url::kingdom(). '/a/setting/menu/roster?id='. $default. '" class="btn link">'. T_("Edit menu :val", ['val' => null]). '</a>';
-				}
-
+				$html .= '<a class="link" href="'. \dash\url::kingdom(). '/a/setting/menu/add">'. T_("Add new menu"). '</a>';
 			}
 
 		}
