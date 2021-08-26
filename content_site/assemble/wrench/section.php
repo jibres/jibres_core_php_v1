@@ -44,5 +44,13 @@ class section
 	}
 
 
+	public static function container($_args)
+	{
+		$container = a($_args, 'container:class');
+		$element = "<div class='$container m-auto relative'>";
+
+		return $element;
+	}
+
 }
 ?>

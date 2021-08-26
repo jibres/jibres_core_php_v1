@@ -8,8 +8,7 @@ class g1
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$container = a($_args, 'container:class');
-			$html .= "<div class='$container m-auto relative'>";
+			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
 				// $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
