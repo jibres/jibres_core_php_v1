@@ -27,7 +27,7 @@ class b3
 				'post_show_excerpt',
 				'post_show_read_more',
 				'btn_viewall',
-				'style' => \content_site\options\style::option_list(
+				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',

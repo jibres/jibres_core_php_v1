@@ -25,7 +25,7 @@ class b2
 				'count_post',
 				'magicbox_title_position',
 				'btn_viewall',
-				'style' => \content_site\options\style::option_list(
+				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',

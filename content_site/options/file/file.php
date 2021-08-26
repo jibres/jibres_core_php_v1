@@ -98,7 +98,7 @@ trait file
 			$default = \lib\filepath::fix($default);
 		}
 
-		$ratio = \content_site\options\ratio::default();
+		$ratio = \content_site\options\ratio\ratio::default();
 
 		if(isset($_section_detail['preview']['ratio']))
 		{

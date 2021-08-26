@@ -48,6 +48,10 @@ class call_function
 		{
 			$namespace .= strtok($_option, '_'). '\\';
 		}
+		else
+		{
+			$namespace .= $_option. '\\';
+		}
 
 		$namespace .= $_option;
 

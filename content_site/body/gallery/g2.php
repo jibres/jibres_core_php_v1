@@ -33,7 +33,7 @@ class g2
 				'image_random',
 				'magicbox_autoplay',
 				// sub page
-				'style' => \content_site\options\style::option_list(
+				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',
@@ -42,7 +42,7 @@ class g2
 					'background_pack',
 					'color_heading',
 					'radius_full',
-					'coverratio',
+					'coverratio_no_free',
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',

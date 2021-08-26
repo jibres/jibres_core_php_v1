@@ -184,7 +184,7 @@ class background_pack
 
 			$html .= '<div data-response="opt_background_pack" data-response-where="video" '.(($default === 'video') ? null : 'data-response-hide').'>';
 			{
-				$html .= \content_site\options\video::admin_html();
+				$html .= \content_site\options\file\file_video::admin_html();
 			}
 			$html .= '</div>';
 

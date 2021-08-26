@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\caption;
 
 
-class title
+class caption
 {
 
 	public static function validator($_data)
@@ -16,18 +16,18 @@ class title
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('title');
+		$default = \content_site\section\view::get_current_index_detail('caption');
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 			$html .= '<input type="hidden" name="not_redirect" value="1">';
 
-	    	$html .= '<label for="title">'. T_("Title"). '</label>';
+	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
 
 			$html .= '<div class="input">';
 			{
-	    		$html .= '<input type="text" placeholder="" name="opt_title" value="'. $default. '">';
+	    		$html .= '<input type="text" placeholder="" name="opt_caption" value="'. $default. '">';
 			}
 			$html .= "</div>";
 		}

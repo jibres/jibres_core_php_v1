@@ -9,7 +9,7 @@ class fire
 	{
 		if(array_key_exists('coverratio', $_args))
 		{
-			$_args['coverratio:class'] = \content_site\options\coverratio::get_class(a($_args, 'coverratio'));
+			$_args['coverratio:class'] = \content_site\options\coverratio\coverratio::get_class(a($_args, 'coverratio'));
 		}
 
 		if(array_key_exists('radius', $_args))
@@ -24,7 +24,7 @@ class fire
 
 		if(array_key_exists('height', $_args))
 		{
-			$_args['height:class'] = \content_site\options\height::class_name(a($_args, 'height'));
+			$_args['height:class'] = \content_site\options\height\height::class_name(a($_args, 'height'));
 		}
 
 		if(array_key_exists('container', $_args))

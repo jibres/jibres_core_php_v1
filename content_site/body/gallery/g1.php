@@ -32,7 +32,7 @@ class g1
 				'magicbox_title_position',
 				'image_random',
 				// sub page
-				'style' => \content_site\options\style::option_list(
+				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',

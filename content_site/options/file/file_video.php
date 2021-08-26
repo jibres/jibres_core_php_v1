@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\file;
 
 
-class video
+class file_video
 {
 	public static function validator($_data)
 	{
@@ -45,7 +45,7 @@ class video
 			$default = \lib\filepath::fix($default);
 		}
 
-		$ratio = \content_site\options\ratio::default();
+		$ratio = \content_site\options\ratio\ratio::default();
 
 		if(isset($_section_detail['preview']['ratio']))
 		{

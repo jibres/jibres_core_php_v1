@@ -27,7 +27,7 @@ class p3
 				'product_show_price',
 				'btn_viewall',
 				// sub page
-				'style' => \content_site\options\style::option_list(
+				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',

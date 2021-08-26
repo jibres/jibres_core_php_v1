@@ -1,5 +1,5 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\coverratio;
 
 
 class coverratio

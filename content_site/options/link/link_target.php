@@ -1,13 +1,18 @@
 <?php
-namespace content_site\options;
+namespace content_site\options\link;
 
 
-class target
+class link_target
 {
 	public static function validator($_data)
 	{
 		$data = \dash\validate::bit($_data);
 		return $data;
+	}
+
+	public static function db_key()
+	{
+		return 'target';
 	}
 
 	public static function admin_html()
