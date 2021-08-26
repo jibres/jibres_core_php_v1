@@ -39,19 +39,7 @@ class b2
 			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
 		}
 
-		// element type
-		$cnElement = 'div';
-		if(a($_args, 'heading') !== null)
-		{
-			$cnElement = 'section';
-		}
-		$classNames = $height;
-		if($font_class)
-		{
-			$classNames .= ' '. $font_class;
-		}
-
-		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
+		$html .= \content_site\assemble\element\section::element_start($_args);
 		{
 			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{
@@ -84,8 +72,7 @@ class b2
 			}
 			$html .= "</div>";
 		}
-		$html .= "</$cnElement>";
-
+		$html .= \content_site\assemble\element\section::element_end($_args);
 
 
 		return $html;
