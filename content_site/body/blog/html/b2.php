@@ -38,11 +38,11 @@ class b2
 			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
 		}
 
-		$html = \content_site\assemble\element\section::element_start($_args);
+		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
 			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{
-				$html .= \content_site\assemble\element\heading::simple1($_args);
+				$html .= \content_site\assemble\wrench\heading::simple1($_args);
 
 				$grid_cols = 'relative grid grid-cols-12';
 				if($gap)
@@ -60,7 +60,7 @@ class b2
 			}
 			$html .= "</div>";
 		}
-		$html .= \content_site\assemble\element\section::element_end($_args);
+		$html .= \content_site\assemble\wrench\section::element_end($_args);
 
 
 		return $html;
