@@ -2,7 +2,7 @@
 namespace content_site\body\gallery;
 
 
-class g3
+class g4
 {
 
 	/**
@@ -42,7 +42,7 @@ class g3
 					'background_pack',
 					'color_heading',
 					'radius_full',
-					'coverratio',
+					'coverratio_no_free',
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',

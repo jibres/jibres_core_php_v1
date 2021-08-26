@@ -2,7 +2,7 @@
 namespace content_site\body\gallery\html;
 
 
-class g3
+class g4
 {
 	public static function html($_args, $_image_list)
 	{
@@ -12,19 +12,15 @@ class g3
 			{
 				// $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-				$html .= \content_site\assemble\wrench\section::grid_by_count($_args, 3);
+				$html .= \content_site\assemble\wrench\section::grid_by_count($_args, 1);
 				{
-					$normalList = array_slice($_image_list, 0, 2);
-					$sliderList = array_slice($_image_list, 2);
 
 					// slider box
-					$html .= '<div class="row-span-2 col-span-2">';
+					$html .= '<div class="1111">';
 					{
-						$html .= \content_site\assemble\element\slider::html($_args, $sliderList);
+						$html .= \content_site\assemble\element\slider::html($_args, $_image_list);
 					}
 					$html .= '</div>';
-
-					$html .= \content_site\assemble\element\magicbox::html($_args, $normalList);
 				}
 				$html .= '</div>';
 			}
