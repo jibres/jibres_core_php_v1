@@ -36,14 +36,12 @@ class text
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= '<form method="post" data-patch autocomplete="off" id="sectioneditorhtml">';
 		{
 
 	    	$html .= '<input type="hidden" name="not_redirect" value="1">';
 	    	$html .= '<input type="hidden" name="opt_text" value="1">';
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
-
-	    	$html .= '<button class="btn-primary">Save</button>';
 	    	$html .= '<textarea data-editor  name="html" class="txt ltr txt-l" rows=10>'. htmlentities($text_html) .'</textarea>';
 	    }
 

@@ -51,6 +51,9 @@ class view
 		{
 			\dash\data::include_adminPanelBuilder(true);
 			\dash\data::displayIncludeTextEditor(true);
+			\dash\data::btnSaveSiteBuilder(false);
+			\dash\data::btnSaveSiteBuilderHtml(false);
+			\dash\data::btnSaveSiteBuilderEditor(true);
 		}
 
 	}

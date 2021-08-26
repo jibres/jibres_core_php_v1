@@ -29,6 +29,9 @@ else
 <?php if(\dash\data::btnSaveSiteBuilderHtml()) { ?>
   <button  form="savehtmlform" class="inline-block mx-5 px-10 text-center text-white transition bg-gray-800 rounded-lg shadow hover:shadow-lg hover:bg-gray-500 hover:text-gray-50 focus:outline-none focus:bg-blue-600 cursor-pointer "><?php echo T_("Save HTML"); ?></button>
 <?php }//endif ?>
+<?php if(\dash\data::btnSaveSiteBuilderEditor()) { ?>
+  <button  form="sectioneditorhtml" class="inline-block mx-5 px-10 text-center text-white transition bg-gray-800 rounded-lg shadow hover:shadow-lg hover:bg-gray-500 hover:text-gray-50 focus:outline-none focus:bg-blue-600 cursor-pointer "><?php echo T_("Save Text"); ?></button>
+<?php }//endif ?>
 
 
 </div>
