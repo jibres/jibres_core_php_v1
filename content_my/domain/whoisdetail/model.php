@@ -12,15 +12,15 @@ class model
 		[
 			'company'      => 'Jibres', // \dash\request::post('org'),
 			'nationalcode' => '', // \dash\request::post('nationalcode'),
-			'country'      => 'AU', // \dash\request::post('country'),
-			'province'     => 'New South Wales', // \dash\request::post('province'),
-			'city'         => 'Sydney', // \dash\request::post('city'),
-			'address'      => 'St. 14 No 313', // \dash\request::post('address'),
-			'postcode'     => '37148313', // \dash\request::post('postcode'),
-			'phonecc'      => '43', // \dash\request::post('phonecc'),
-			'phone'        => '06883544524', // \dash\request::post('phone'),
-			'faxcc'        => '43', // \dash\request::post('faxcc'),
-			'fax'          => '06883544524', // \dash\request::post('fax'),
+			'country'      => 'US', // \dash\request::post('country'),
+			'province'     => 'NC', // \dash\request::post('province'),
+			'city'         => 'HENDERSON', // \dash\request::post('city'),
+			'address'      => '4483 EDWARDS STREET', // \dash\request::post('address'),
+			'postcode'     => '27536', // \dash\request::post('postcode'),
+			'phonecc'      => '1', // \dash\request::post('phonecc'),
+			'phone'        => '2526540524', // \dash\request::post('phone'),
+			'faxcc'        => '1', // \dash\request::post('faxcc'),
+			'fax'          => '2526540524', // \dash\request::post('fax'),
 		];
 	}
 
