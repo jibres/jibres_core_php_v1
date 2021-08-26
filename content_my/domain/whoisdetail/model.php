@@ -10,7 +10,7 @@ class model
 	{
 		return
 		[
-			'company'      => 'Jibres', // \dash\request::post('org'),
+			'org'      => 'Jibres', // \dash\request::post('org'),
 			// 'nationalcode' => '', // \dash\request::post('nationalcode'),
 			'country'      => 'US', // \dash\request::post('country'),
 			'province'     => 'NC', // \dash\request::post('province'),
@@ -35,6 +35,10 @@ class model
 		];
 
 		$post = array_merge(\content_my\domain\whoisdetail\model::whoisdetail_person(), $post);
+
+		$post['company'] = a($post, 'org');
+
+		unset($post['org']);
 
 		\lib\app\nic_usersetting\set::set($post);
 
