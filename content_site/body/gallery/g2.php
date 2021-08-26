@@ -31,6 +31,7 @@ class g2
 
 				'magicbox_title_position',
 				'image_random',
+				'magicbox_autoplay',
 				// sub page
 				'style' => \content_site\options\style::option_list(
 				[
@@ -55,6 +56,7 @@ class g2
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
+				'magicbox_autoplay'       => 'slow',
 				'container'               => 'fluid',
 				'link_color'              => 'inside',
 				'effect'                  => 'zoom',
