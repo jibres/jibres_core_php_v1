@@ -53,6 +53,19 @@ class section
 	}
 
 
+	public static function container_auto($_args, $_count)
+	{
+		$containerMaxWidth = 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-4 m-auto';
+		if($_count > 3)
+		{
+			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4 m-auto';
+		}
+		$element = "<div class='$containerMaxWidth'>";
+
+		return $element;
+	}
+
+
 	public static function grid_by_count($_args, $_count)
 	{
 		$grid_cols = 'grid grid-cols-'. $_count;
