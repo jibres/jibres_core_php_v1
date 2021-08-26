@@ -56,12 +56,10 @@ class b2
 				$html .= '</div>';
 
 				$html .= \content_site\body\blog\share::btn_viewall($_args);
-
 			}
 			$html .= "</div>";
 		}
 		$html .= \content_site\assemble\wrench\section::element_end($_args);
-
 
 		return $html;
 	}
