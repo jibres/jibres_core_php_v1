@@ -51,6 +51,7 @@ class g2
 			'maximum_capacity' => 12,
 			'default'      =>
 			[
+				'type'                    => 'g2',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',

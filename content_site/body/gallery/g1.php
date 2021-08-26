@@ -55,6 +55,7 @@ class g1
 
 			'default'      =>
 			[
+				'type'                    => 'g1',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
