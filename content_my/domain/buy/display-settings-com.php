@@ -31,21 +31,8 @@
               </select>
             </div>
 
-            <h4 data-kerkere='.showWhoisDetail' data-kerkere-icon><?php echo T_("Whois detail"); ?></h4>
-
-            <div class="showWhoisDetail" <?php if(\dash\data::userSettingDataRow_email()) {echo "data-kerkere-content='hide'"; }?>  >
-              <div class="ltr">
-
-                <?php require_once(root. 'content_my/domain/whoisdetail/whoisDetailForm.php'); ?>
-
-              </div>
-
-            </div>
-
+            <?php require_once(root. 'content_my/domain/whoisdetail/whoisDetailForm.php'); ?>
             <br>
-
-
-
             <div class="f mT20">
               <div class="c6 s12">
                 <label for="ns1"><?php echo T_("DNS #1"); ?></label>

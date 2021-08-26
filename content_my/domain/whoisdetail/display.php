@@ -1,6 +1,6 @@
 <div class="avand-lg">
 	<form method="post" autocomplete="off">
-		<div class="box impact ltr">
+		<div class="box impact">
 			<header <?php if(\dash\language::current() == 'fa') {echo ' class="rtl" ';}?>><h2><?php echo T_("Manage International whois detail") ?></h2></header>
 			<div class="body">
 				<?php require_once('whoisDetailForm.php'); ?>
