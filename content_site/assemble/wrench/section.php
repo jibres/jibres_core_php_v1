@@ -74,15 +74,12 @@ class section
 
 	public static function grid_12($_args)
 	{
-		$grid_cols = 'grid grid-cols-'. $_count;
-		if($_count > 12)
+		$grid_cols = 'relative grid grid-cols-12';
+		if($gap)
 		{
-			$grid_cols = 'grid grid-cols-'. 12;
+			$grid_cols .=	' '. $gap;
 		}
-		if(a($_args, 'magicbox_gap:class'))
-		{
-			$grid_cols .=	' '. a($_args, 'magicbox_gap:class');
-		}
+		$html .= "<div class='$grid_cols'>";
 
 		$gridElement = "<div class='$grid_cols'>";
 
