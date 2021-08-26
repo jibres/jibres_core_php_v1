@@ -109,6 +109,7 @@ class b1
 				'radius'                => 'lg',
 				'btn_viewall_check'     => 1,
 				'btn_viewall'           => T_('View all'),
+				'btn_viewall_mode'      => 'dark',
 				'background_pack'       => 'none',
 			],
 		];
@@ -138,6 +139,7 @@ class b1
 				'radius'                => 'lg',
 				'btn_viewall_check'     => 1,
 				'btn_viewall'           => T_('View all'),
+				'btn_viewall_mode'      => 'dark',
 				'background_pack'       => 'solid',
 				'background_color'      => '#dec4d6',
 			],
@@ -359,6 +361,7 @@ class b1
 				'radius'                   => 'lg',
 				'btn_viewall_check'        => 1,
 				'btn_viewall'              => T_("View all"),
+				'btn_viewall_mode'         => 'dark',
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom left',
 				'background_gradient_to'   => '#b3c6db',
