@@ -42,7 +42,11 @@ class text
 	    	$html .= '<input type="hidden" name="not_redirect" value="1">';
 	    	$html .= '<input type="hidden" name="opt_text" value="1">';
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
-	    	$html .= '<textarea data-editor  name="html" class="txt ltr txt-l" rows=10>'. htmlentities($text_html) .'</textarea>';
+	    	$html .= '<div>';
+	    	{
+	    		$html .= '<textarea data-editor  name="html" class="txt ltr txt-l" rows=10>'. htmlentities($text_html) .'</textarea>';
+	    	}
+	    	$html .= '</div>';
 	    }
 
   		$html .= '</form>';
