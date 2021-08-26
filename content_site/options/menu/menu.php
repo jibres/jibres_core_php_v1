@@ -21,13 +21,23 @@ trait menu
 
 	public static function validator($_data)
 	{
+		\content_site\utility::need_redirect(true);
+
 		if(!$_data)
 		{
 			return null;
 		}
 
 		$data = \dash\validate::enum($_data, true, ['enum' => self::enum(), 'field_title' => T_('Menu')]);
+
+
 		return $data;
+	}
+
+
+	public static function db_key()
+	{
+		return 'menu';
 	}
 
 
@@ -36,15 +46,25 @@ trait menu
 		return null;
 	}
 
+	public static function title()
+	{
+		return T_("Menu");
+	}
+
+
+	public static function option_key()
+	{
+		return 'menu';
+	}
 
 	public static function admin_html($_section_detail)
 	{
 
-		$header_menu_key = self::get_menu_name();
+		$option_key = self::option_key();
 
-		$default = \content_site\section\view::get_current_index_detail($header_menu_key);
+		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
-		$title           = T_("Menu");
+		$title           = self::title();
 
 		$html = '';
 		$html .= '<form method="post" data-patch>';
@@ -66,7 +86,7 @@ trait menu
 					}
 					else
 					{
-						$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="link text-xs"><i class="sf-external-link"></i> '. T_("Edit") .'</a>';
+						$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="link text-xs"><i class="sf-external-link"></i> '. T_("Add") .'</a>';
 					}
 				}
 				$html .= '</div>';
@@ -77,7 +97,7 @@ trait menu
 
 			if($menu)
 			{
-				$html .= '<select name="opt_'. $header_menu_key. '" id="idmenu_'. $header_menu_key. '" class="select22 mb-5" data-placeholder="'. T_("Choose one menu"). '">';
+				$html .= '<select name="opt_'. $option_key. '" id="idmenu_'. $option_key. '" class="select22 mb-5" data-placeholder="'. T_("Choose one menu"). '">';
 				{
 					if($default)
 					{
