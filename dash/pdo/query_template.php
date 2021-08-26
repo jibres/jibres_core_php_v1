@@ -39,7 +39,7 @@ class query_template
 	}
 
 
-	public static function update($_table, $_args, $_id)
+	public static function update($_table, $_args, $_id, $_fuel = null, $_db_name = null)
 	{
 		if(empty($_args))
 		{
@@ -72,7 +72,7 @@ class query_template
 
 		$param[':_id'] = $_id;
 
-		$result = \dash\pdo::query($query, $param);
+		$result = \dash\pdo::query($query, $param, $_fuel, ['database' => $_db_name]);
 
 		return $result;
 	}
