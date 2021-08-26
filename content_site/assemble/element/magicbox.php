@@ -52,7 +52,7 @@ class magicbox
 		$magicBoxClass = '';
 		if($_magicModel === 'blog')
 		{
-			// get grid class name by analyse
+			// get grid class name by analyze
 			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 			$magicBoxClass = "class='$gridCol flex flex-col max-w-md'";
 		}

@@ -20,8 +20,11 @@ class g2
 					// slider box
 					$html .= '<div class="row-span-2 col-span-2">';
 					{
-						$html .= 'Salam';
-
+						$html .= '<div class="h-full" data-slider>';
+						{
+							$html .= \content_site\assemble\element\magicbox::html($_args, $sliderBox);
+						}
+						$html .= '</div>';
 					}
 					$html .= '</div>';
 
