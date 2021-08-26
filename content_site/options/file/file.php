@@ -6,6 +6,13 @@ trait file
 {
 	public static function validator($_data)
 	{
+		return self::validator_upload_file($_data);
+	}
+
+
+	public static function validator_upload_file($_data)
+	{
+
 		if(\dash\request::files(self::option_key()))
 		{
 			$image_path = \dash\upload\website::upload_image(self::option_key());
@@ -30,7 +37,7 @@ trait file
 			}
 			else
 			{
-				\dash\notif::error(T_("Please upload a file"));
+				// \dash\notif::error(T_("Please upload a file"));
 				return false;
 			}
 		}
@@ -59,8 +66,20 @@ trait file
 		return false;
 	}
 
+	public static function add_form_element()
+	{
+		return true;
+	}
+
 
 	public static function admin_html($_section_detail = null)
+	{
+		return self::html_upload_file(...func_get_args());
+	}
+
+
+
+	public static function html_upload_file($_section_detail = null)
 	{
 
 		$option_key = self::option_key();
@@ -90,7 +109,11 @@ trait file
 
 		$html = '';
 
-		$html .= '<form method="post" autocomplete="off" >';
+		if(self::add_form_element())
+		{
+			$html .= '<form method="post" autocomplete="off" >';
+		}
+		// form
 		{
 			$html .= '<input type="hidden" name="opt_'.$option_key.'" value="1">';
 
@@ -160,7 +183,11 @@ trait file
 
 			$html .= '</div>';
 		}
-		$html .= '</form>';
+		// form
+		if(self::add_form_element())
+		{
+			$html .= '</form>';
+		}
 
 		return $html;
 	}
