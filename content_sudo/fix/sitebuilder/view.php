@@ -104,6 +104,7 @@ class view
 		$dbname = \dash\engine\store::make_database_name($store_id);
 
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
+		$query = "	SELECT * FROM pagebuilder where 1";
 
 		$old_record_pagebuilder = \dash\db::get($query, null, false, $fuel, ['database' => $dbname]);
 
@@ -126,20 +127,21 @@ class view
 
 			self::counter(a($pagebuilder_record, 'type'));
 
-			$skipp_section = false;
+			$skipp_section = true;
 			switch (a($pagebuilder_record, 'type'))
 			{
 				// in new sitebuilder we have blog! in old sitebuilder we have news
 				case 'blog':
-					var_dump('new sitebuilder section key!', $pagebuilder_record, func_get_args());exit;
+					// var_dump('new sitebuilder section key!', $pagebuilder_record, func_get_args());exit;
 					break;
 
 				case 'news':
 					$preview = self::conver_news($pagebuilder_record, $new_record);
+					self::counter('news_converted');
+					$skipp_section = false;
 					break;
 
 				default:
-					$skipp_section = true;
 					break;
 			}
 
@@ -160,8 +162,6 @@ class view
 
 			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'), $fuel, $dbname);
 
-
-			var_dump($new_record);exit;
 		}
 	}
 

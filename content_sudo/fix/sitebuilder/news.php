@@ -13,6 +13,7 @@ trait news
 		$new_record['model']          = 'b2';
 		$new_record['preview_key']    = 'p1';
 
+
 		$preview = \content_site\call_function::section_type_preview('blog', 'b2', 'p1');
 
 		$preview = $preview['options'];
@@ -39,6 +40,12 @@ trait news
 			}
 
 			$preview['count'] = $limit;
+		}
+
+		if(a($record, 'infoposition', 'code') === 'bottom')
+		{
+			$preview['magicbox_title_position'] = 'outside';
+			$preview['link_color']              = 'dark';
 		}
 
 		$preview['btn_viewall_check'] = 0;
