@@ -1,7 +1,7 @@
 <?php
 if(\dash\data::displayIncludeTextEditor())
 {
-	echo \content_site\options\text::special_admin_html();
+	echo \content_site\options\text\text::special_admin_html();
 }
 else
 {
