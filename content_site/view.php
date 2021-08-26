@@ -83,9 +83,9 @@ class view
 
 		$get['preview'] = md5(\dash\data::currentPageDetail_datecreated());
 
-		$link .= '?'. \dash\request::build_query($get);
-
 		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_unique(array_merge($get, ['psid' => \dash\request::get('sid')]))));
+
+		$link .= '?'. \dash\request::build_query($get);
 
 		$page_url = \dash\data::btnPreviewSiteBuilder();
 
