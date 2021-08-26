@@ -50,6 +50,7 @@ class g2
 				]),
 			],
 			'maximum_capacity' => 12,
+			'minimum_item' => 6,
 			'default'      =>
 			[
 				'type'                    => 'g2',

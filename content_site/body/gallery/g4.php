@@ -50,9 +50,10 @@ class g4
 				]),
 			],
 			'maximum_capacity' => 12,
+			'minimum_item' => 6,
 			'default'      =>
 			[
-				'type'                    => 'g2',
+				'type'                    => 'g4',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
