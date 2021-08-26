@@ -24,12 +24,21 @@ class magicbox
 		$effect       = a($_args, 'effect');
 		$maskImg      = a($_args, 'image_mask:class');
 
-		if(!a($_item, 'file'))
+		if(a($_args, 'section') === 'blog')
 		{
-			$_item['file'] = \dash\sample\img::image();
+			$file_index = 'thumb';
+		}
+		else
+		{
+			$file_index = 'file';
 		}
 
-		$myThumb      = \lib\filepath::fix(\dash\fit::img(a($_item, 'file'), 'raw'));
+		if(!a($_item, $file_index))
+		{
+			$_item[$file_index] = \dash\sample\img::image();
+		}
+
+		$myThumb      = \lib\filepath::fix(\dash\fit::img(a($_item, $file_index), 'raw'));
 
 		$myMagicBoxEl = 'div';
 		$myLinkHref   = '';
