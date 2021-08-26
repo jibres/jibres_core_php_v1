@@ -15,7 +15,7 @@ class g2
 				$html .= \content_site\assemble\wrench\section::grid_by_count($_args, 4);
 				{
 					$normalList = array_slice($_image_list, 0, 4);
-					$sliderList = array_slice($_image_list, 3);
+					$sliderList = array_slice($_image_list, 4);
 
 					// slider box
 					$html .= '<div class="row-span-2 col-span-2">';
