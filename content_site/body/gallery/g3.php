@@ -15,7 +15,7 @@ class g3
 
 		return
 		[
-			'title'        => T_("Gallery"). ' - '. T_("4 Magic Box + Slider"),
+			'title'        => T_("2 Magic Box + Slider"),
 			'options'      =>
 			[
 				// 'heading_raw',

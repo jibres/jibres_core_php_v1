@@ -15,7 +15,7 @@ class g4
 
 		return
 		[
-			'title'        => T_("Gallery"). ' - '. T_("4 Magic Box + Slider"),
+			'title'        => T_("Slider"),
 			'options'      =>
 			[
 				// 'heading_raw',
