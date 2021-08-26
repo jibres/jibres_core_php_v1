@@ -19,7 +19,7 @@ class layout
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
-				$html .= a($_args, 'text');
+				$html .= a($_args, 'html_text');
 			}
 			$html .= "</div>";
 		}

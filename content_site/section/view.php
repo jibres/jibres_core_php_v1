@@ -47,6 +47,12 @@ class view
 			\content_site\utility::downloadjson();
 		}
 
+		if(\dash\url::child() === 'text' && !\dash\url::subchild())
+		{
+			\dash\data::include_adminPanelBuilder(true);
+			\dash\data::displayIncludeTextEditor(true);
+		}
+
 	}
 
 
@@ -393,7 +399,7 @@ class view
 		{
 			if($_generate_layout)
 			{
-				if(isset($result['text_preview']) && $section_key === 'html')
+				if(isset($result['text_preview']) && ($section_key === 'html' || $section_key === 'text'))
 				{
 					$result['preview']['html_text'] = $result['text_preview'];
 				}
@@ -422,7 +428,7 @@ class view
 
 		if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
 		{
-			if(isset($result['text']) && $section_key === 'html')
+			if(isset($result['text']) && ($section_key === 'html' || $section_key === 'text'))
 			{
 				$result['body']['html_text'] = $result['text'];
 			}
