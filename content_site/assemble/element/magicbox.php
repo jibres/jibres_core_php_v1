@@ -47,6 +47,13 @@ class magicbox
 			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 			$magicBoxClass = "class='$gridCol flex flex-col max-w-md'";
 		}
+		elseif(is_array($_magicModel))
+		{
+			if(isset($_magicModel[$_key]))
+			{
+				$magicBoxClass = "class='". $_magicModel[$_key]. "'";
+			}
+		}
 
 		$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref $magicBoxClass>";
 		{

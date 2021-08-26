@@ -14,7 +14,9 @@ class g2
 
 				$html .= \content_site\assemble\wrench\section::grid_by_row($_args, 2);
 				{
-					$html .= \content_site\assemble\element\magicbox::html($_args, $_image_list);
+					$normalMagicBox = array_slice($_image_list, 0, 4);
+
+					$html .= \content_site\assemble\element\magicbox::html($_args, $normalMagicBox);
 				}
 				$html .= '</div>';
 			}
