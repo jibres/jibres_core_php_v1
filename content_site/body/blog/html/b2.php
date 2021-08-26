@@ -6,7 +6,6 @@ class b2
 {
 	public static function html($_args, $_blogList)
 	{
-		$html             = '';
 
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
@@ -39,7 +38,7 @@ class b2
 			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4';
 		}
 
-		$html .= \content_site\assemble\element\section::element_start($_args);
+		$html = \content_site\assemble\element\section::element_start($_args);
 		{
 			$html .= "<div class='$containerMaxWidth m-auto'>";
 			{

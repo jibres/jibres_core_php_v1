@@ -6,8 +6,6 @@ class b1
 {
 	public static function html($_args, $_blogList)
 	{
-		$html             = '';
-
 		// define variables
 		// $previewMode = a($_args, 'preview_mode');
 		$id               = a($_args, 'id');
@@ -34,35 +32,12 @@ class b1
 			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4 m-auto';
 		}
 
-		// element type
-		$cnElement = 'div';
-		if(a($_args, 'heading') !== null)
-		{
-			$cnElement = 'section';
-		}
-		$classNames = $height;
-		if($font_class)
-		{
-			$classNames .= ' '. $font_class;
-		}
 
-		$html .= "<$cnElement data-type='$type' class='flex $classNames'$background_style $section_id>";
+		$html = \content_site\assemble\element\section::element_start($_args);
 		{
 			$html .= "<div class='$containerMaxWidth'>";
 			{
-				if(a($_args, 'heading') !== null)
-				{
-					$html .= '<header>';
-					{
-						$html .= "<h2 class='text-4xl leading-6 mb-5 $heading_class' $color_heading>";
-						{
-							$html .= a($_args, 'heading');
-						}
-						$html .= '</h2>';
-					}
-					$html .= '</header>';
-				}
-
+				$html .= \content_site\assemble\element\heading::simple1($_args);
 
 				$html .= "<div class='grid grid-cols-12 gap-4'>";
 				{
@@ -179,7 +154,7 @@ class b1
 			}
 			$html .= "</div>";
 		}
-		$html .= "</$cnElement>";
+		$html .= \content_site\assemble\element\section::element_end($_args);
 
 		return $html;
 	}
