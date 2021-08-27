@@ -126,71 +126,66 @@ class background_pack
 		}
 
 
-		$html .= "<div class='ShowCustomizeSetting'>";
+
+		$html .= '<form method="post" class="mb-5 mT0-f" data-patch>';
 		{
 
-			$html .= '<form method="post" class="mb-5 mT0-f" data-patch>';
-			{
+			$html .= '<input type="hidden" name="notredirect" value="1">';
+			$html .= "<label>". T_("Background Type") ."</label>";
 
-				$html .= '<input type="hidden" name="notredirect" value="1">';
-				$html .= "<label>". T_("Background Type") ."</label>";
+			$name       = 'opt_background_pack';
 
-				$name       = 'opt_background_pack';
+			$radio_html = '';
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_('Transparent'), (($default === 'none')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'solid', T_("Solid"), (($default === 'solid')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'gradient', T_("Gradient"), (($default === 'gradient')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'image', T_("Image"), (($default === 'image')? true : false), true);
 
-				$radio_html = '';
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_('Transparent'), (($default === 'none')? true : false), true);
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'solid', T_("Solid"), (($default === 'solid')? true : false), true);
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'gradient', T_("Gradient"), (($default === 'gradient')? true : false), true);
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'image', T_("Image"), (($default === 'image')? true : false), true);
-
-				$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
-			}
-			$html .= '</form>';
-
-			$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
-			{
-				$html .= background_color::admin_html();
-			}
-			$html .= '</div>';
-
-
-			$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
-			{
-				$html .= background_gradient_type::admin_html();
-
-				$html .= "<label for='color-opt_background_gradient_from' class='block mT10-f'>". T_("Gradient colors"). "</label>";
-				$html .= background_gradient_from::admin_html();
-				// $html .= background_gradient_via::admin_html();
-				$html .= background_gradient_to::admin_html();
-				$html .= background_color_random::admin_html_gradient();
-			}
-			$html .= '</div>';
-
-			$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
-			{
-				$html .= background_image::admin_html();
-				$html .= background_position::admin_html();
-
-				$html .= background_attachment::admin_html();
-
-				$html .= background_size::admin_html();
-
-				if(background_size::get_value() !== 'cover')
-				{
-					$html .= background_repeat::admin_html();
-				}
-			}
-			$html .= '</div>';
-
-			$html .= '<div data-response="opt_background_pack" data-response-where="video" '.(($default === 'video') ? null : 'data-response-hide').'>';
-			{
-				$html .= \content_site\options\file\file_video::admin_html();
-			}
-			$html .= '</div>';
-
+			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 		}
+		$html .= '</form>';
 
+		$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
+		{
+			$html .= background_color::admin_html();
+		}
 		$html .= '</div>';
+
+
+		$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
+		{
+			$html .= background_gradient_type::admin_html();
+
+			$html .= "<label for='color-opt_background_gradient_from' class='block mT10-f'>". T_("Gradient colors"). "</label>";
+			$html .= background_gradient_from::admin_html();
+			// $html .= background_gradient_via::admin_html();
+			$html .= background_gradient_to::admin_html();
+			$html .= background_color_random::admin_html_gradient();
+		}
+		$html .= '</div>';
+
+		$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
+		{
+			$html .= background_image::admin_html();
+			$html .= background_position::admin_html();
+
+			$html .= background_attachment::admin_html();
+
+			$html .= background_size::admin_html();
+
+			if(background_size::get_value() !== 'cover')
+			{
+				$html .= background_repeat::admin_html();
+			}
+		}
+		$html .= '</div>';
+
+		$html .= '<div data-response="opt_background_pack" data-response-where="video" '.(($default === 'video') ? null : 'data-response-hide').'>';
+		{
+			$html .= \content_site\options\file\file_video::admin_html();
+		}
+		$html .= '</div>';
+
 
 		return $html;
 	}
