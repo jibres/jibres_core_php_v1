@@ -29,7 +29,7 @@ class shortcode
 			return $_data;
 		}
 
-		$pattern = "/(\*{3})(.{1,500})(\*{3})/";
+		$pattern = "/(\*{3})([^\*{3}]{1,500})(\*{3})/";
 		$count = 0;
 		while (preg_match($pattern, $_data, $split))
 		{
