@@ -74,5 +74,26 @@ class generate
 		return $html;
 	}
 
+
+	public static function checkbox($_name, $_title, $_checked = null)
+	{
+		$checked = null;
+
+		if($_checked)
+		{
+			$checked = 'checked';
+		}
+
+		$html = '';
+		$html .= '<div class="check1 py-0">';
+		{
+			$html .= "<input type='checkbox' name='$_name' id='id-$_name' $checked>";
+			$html .= "<label for='id-$_name'>$_title</label>";
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
 }
 ?>

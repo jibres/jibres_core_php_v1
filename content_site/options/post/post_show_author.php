@@ -34,12 +34,7 @@ class post_show_author
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_post_show_author" value="1">';
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_author" id="post_show_author"'.$checked.'>';
-				$html .= '<label for="post_show_author">'. T_('Display author name'). '</label>';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::checkbox('show_author', T_('Display author name'), $default);
 		}
 
   		$html .= '</form>';
