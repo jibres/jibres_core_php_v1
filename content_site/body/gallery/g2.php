@@ -100,15 +100,22 @@ class g2
 			'version'        => 1,
 			'options' =>
 			[
-				'image_count'             => 6,
+				'image_count'             => 7,
+				'slider_pagination'       => 1,
+				'slider_next_prev'        => 1,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
 				'radius'                  => 'lg',
-				'magicbox_title_position' => 'inside',
+				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
 				'image_random'            => 1,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
-				'container'               => '2xl',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
 				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
 			],
 		];
 	}
