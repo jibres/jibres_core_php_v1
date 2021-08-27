@@ -5,9 +5,9 @@ namespace content_site\assemble;
 class tools
 {
 
-	public static function section_id($_type, $_id)
+	public static function section_id($_model, $_id)
 	{
-		return 'id="'.$_type. '-'. $_id.'"';
+		return 'id="'.$_model. '-'. $_id.'"';
 	}
 }
 ?>

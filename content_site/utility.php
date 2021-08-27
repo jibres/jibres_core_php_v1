@@ -64,7 +64,7 @@ class utility
 			'section',
 			'model',
 			'preview_key',
-			'type',
+			'model',
 
 			// post
 			'post_order',
@@ -90,9 +90,9 @@ class utility
 			}
 		}
 
-		$folder      = a($section_detail, 'mode');
-		$section_key = a($preview, 'key');
-		$type        = a($preview, 'type');
+		$folder      = a($section_detail, 'folder');
+		$section_key = a($section_detail, 'section');
+		$model       = a($section_detail, 'model');
 
 		$code = '';
 		$code .= '<?php ';

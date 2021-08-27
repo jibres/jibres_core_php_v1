@@ -54,7 +54,7 @@ class view
 		{
 			$currentSectionDetail = \dash\data::currentSectionDetail();
 
-			$myTitle = ' [ '. a($currentSectionDetail, 'preview', 'type'). ' ]';
+			$myTitle = ' [ '. a($currentSectionDetail, 'model'). ' ]';
 
 			\dash\face::title(\dash\face::title(). ' '. $myTitle);
 		}
@@ -89,7 +89,7 @@ class view
 
 		$page_url = \dash\data::btnPreviewSiteBuilder();
 
-		$id = a(\dash\data::currentSectionDetail(), 'preview', 'type'). '-'. a(\dash\data::currentSectionDetail(), 'id');
+		$id = a(\dash\data::currentSectionDetail(), 'model'). '-'. a(\dash\data::currentSectionDetail(), 'id');
 		$link .= '#'. $id;
 
 

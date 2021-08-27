@@ -25,7 +25,7 @@ class section
 			$classNames .= ' '. a($_args, 'font:class');
 		}
 
-		$html = "<$cnElement data-type='". a($_args, 'type'). "' class='$classNames'$background_style $section_id>";
+		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id>";
 
 		return $html;
 	}
