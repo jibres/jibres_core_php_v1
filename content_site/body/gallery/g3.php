@@ -49,7 +49,8 @@ class g3
 					'model',
 				]),
 			],
-			'maximum_capacity' => 12,
+			'maximum_capacity' => 14,
+			'minimum_item' => 4,
 			'default'      =>
 			[
 				'model'                    => 'g3',

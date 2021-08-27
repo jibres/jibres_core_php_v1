@@ -49,8 +49,8 @@ class g4
 					'model',
 				]),
 			],
-			'maximum_capacity' => 12,
-			'minimum_item' => 6,
+			'maximum_capacity' => 14,
+			'minimum_item' => 2,
 			'default'      =>
 			[
 				'model'                    => 'g4',

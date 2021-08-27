@@ -49,7 +49,7 @@ class g2
 					'model',
 				]),
 			],
-			'maximum_capacity' => 12,
+			'maximum_capacity' => 14,
 			'minimum_item' => 6,
 			'default'      =>
 			[
