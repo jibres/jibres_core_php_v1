@@ -17,8 +17,8 @@ class controller
 			$url = 'https://jibres.ir/ip/me';
 		}
 
-		$result = \dash\curl::go($url, null, null, null, true);
-		var_dump($result);exit;
+		$result = \dash\curl::go($url);
+		\dash\code::jsonBoom($result, 'text');
 
 
 	}
