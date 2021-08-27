@@ -127,7 +127,7 @@ class utility
 		$code .= "\n";
 		$code .= "/** \n";
 		$code .= " * This is options of one preview function \n";
-		$code .= " * Put this code on content_site/$folder/$section_key/$type.php \n";
+		$code .= " * Put this code on content_site/$folder/$section_key/$model.php \n";
 		$code .= " */ ";
 		$code .= "\n\n\n";
 		$code .= "\t\t\t[";

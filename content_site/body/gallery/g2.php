@@ -63,6 +63,7 @@ class g2
 			[
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
+				'coverratio'              => '16:9',
 				'height'                  => 'auto',
 				'container'               => 'fluid',
 				'link_color'              => 'inside',
