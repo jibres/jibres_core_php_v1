@@ -19,6 +19,9 @@ class g4
 		$option['default']['image_count'] = 12;
 		unset($option['break_image_list']);
 
+		$myKey = array_search('slider_effect', $option['options']['slider_setting']);
+		$option['options']['slider_setting'] = array_replace($option['options']['slider_setting'], [$myKey => 'slider_effect_full']);
+
 		$option['preview_list']           =
 		[
 			'p1',

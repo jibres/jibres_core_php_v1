@@ -2,7 +2,7 @@
 namespace content_site\options\slider;
 
 
-class slider_effect
+trait slider_effect
 {
 
 
@@ -15,10 +15,20 @@ class slider_effect
 		$enum[] = ['key' => 'coverflow', 'title' => T_("Coverflow")];
 		$enum[] = ['key' => 'flip',      'title' => T_("Flip")];
 		$enum[] = ['key' => 'cube',      'title' => T_("Cube")];
-		// $enum[] = ['key' => 'cards',     'title' => T_("Cards")];
+
+		if(self::full_effect())
+		{
+			$enum[] = ['key' => 'cards',     'title' => T_("Cards")];
+		}
 		// $enum[] = ['key' => 'creative',  'title' => T_("Creative")];
 
 		return $enum;
+	}
+
+
+	public static function full_effect()
+	{
+		return false;
 	}
 
 
@@ -28,6 +38,11 @@ class slider_effect
 		return $data;
 	}
 
+
+	public static function db_key()
+	{
+		return 'slider_effect';
+	}
 
 
 
@@ -45,7 +60,7 @@ class slider_effect
 		{
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_slider_effect';
+			$name       = 'opt_'. \content_site\utility::className(__CLASS__);
 
 			$radio_html = '';
 
