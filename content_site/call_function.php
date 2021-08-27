@@ -188,9 +188,9 @@ class call_function
 
 	public static function option_admin_html($_option_key, $_data)
 	{
-		$namespace = self::option_namespace($_option_key);
+		$html = '';
 
-		$html = self::_call([$namespace, 'admin_html'], $_data);
+		$namespace = self::option_namespace($_option_key);
 
 		if(utility::ul_li_started())
 		{
@@ -201,6 +201,9 @@ class call_function
 				$html .= utility::ul_li_close();
 			}
 		}
+
+		$html .= self::_call([$namespace, 'admin_html'], $_data);
+
 		return $html;
 	}
 

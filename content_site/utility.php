@@ -74,6 +74,7 @@ class utility
 		if(self::$ul_li_started && !self::$ul_li_closed)
 		{
 			self::$ul_li_closed = true;
+			self::$ul_li_started = false;
 			return '</ul></nav>';
 		}
 	}
