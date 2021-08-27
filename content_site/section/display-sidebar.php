@@ -61,6 +61,8 @@ else
       }
 
     }
+    // close ul li if need
+    $html .= \content_site\utility::ul_li_close();
   }
 
  require_once('part/discard.php');

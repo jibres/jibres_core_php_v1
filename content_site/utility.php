@@ -52,6 +52,7 @@ class utility
 	}
 
 	private static $ul_li_started = false;
+	private static $ul_li_closed = false;
 	public static function ul_li_started($_set = null)
 	{
 		if($_set === true)
@@ -70,7 +71,11 @@ class utility
 
 	public static function ul_li_close()
 	{
-		return '</ul></nav>';
+		if(self::$ul_li_started && !self::$ul_li_closed)
+		{
+			self::$ul_li_closed = true;
+			return '</ul></nav>';
+		}
 	}
 
 

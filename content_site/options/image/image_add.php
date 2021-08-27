@@ -61,7 +61,7 @@ class image_add
 
 		      		$html .= "<div class='item f' data-ajaxify data-data='$image_add'>";
 		      		{
-		        		$html .= '<img src="'. \dash\utility\icon::url('Add', 'major'). '">';
+		        		$html .= '<img alt="Add" src="'. \dash\utility\icon::url('Add', 'major'). '">';
 		        		$html .= '<div class="key">'. T_("Add image"). '</div>';
 		        		$html .= '<div class="go"></div>';
 		      		}
