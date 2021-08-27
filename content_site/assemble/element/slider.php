@@ -14,7 +14,7 @@ class slider
 		$html = '<div class="'. $sliderClass. '" data-swiper';
 		if(a($_args, 'slider_effect'))
 		{
-			$html .= ' data-swiper-effect="'. a($_args, 'slider_effect'). '"';
+			$html .= ' data-effect="'. a($_args, 'slider_effect'). '"';
 		}
 		if(\dash\language::dir() === 'rtl')
 		{
