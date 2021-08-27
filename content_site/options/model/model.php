@@ -1,8 +1,8 @@
 <?php
-namespace content_site\options\type;
+namespace content_site\options\model;
 
 
-class type
+class model
 {
 	private static function enum()
 	{
@@ -10,14 +10,14 @@ class type
 		// then we have section key in url in \dash\url::child()
 		$section = \dash\url::child();
 
-		$type_list = \content_site\call_function::type_list($section);
+		$model_list = \content_site\call_function::model_list($section);
 
-		if(!is_array($type_list))
+		if(!is_array($model_list))
 		{
 			return [];
 		}
 
-		return $type_list;
+		return $model_list;
 
 	}
 
@@ -35,7 +35,7 @@ class type
 	{
 
 		$html = '';
-		$url = \dash\url::that(). '/type'. \dash\request::full_get();
+		$url = \dash\url::that(). '/model'. \dash\request::full_get();
 
 
 		$html .= '<nav class="items long mT20">';

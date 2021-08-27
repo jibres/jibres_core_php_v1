@@ -24,6 +24,8 @@ class controller
 			return;
 		}
 
+
+
 		/**
 		 * Route one section
 		 */
@@ -51,7 +53,7 @@ class controller
 
 		$current_section_detail = \dash\data::currentSectionDetail();
 
-		$options = \content_site\call_function::option($child, a($current_section_detail, 'preview', 'type'));
+		$options = \content_site\call_function::option($child, a($current_section_detail, 'model'));
 
 		$subchild = \dash\url::subchild();
 
@@ -61,7 +63,7 @@ class controller
 			{
 				// ok.
 			}
-			elseif($subchild === 'type')
+			elseif($subchild === 'model')
 			{
 				// ok
 				\dash\data::changeSectionTypeMode(true);
@@ -97,7 +99,7 @@ class controller
 	/**
 	 * Get list of all section
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
+	 * @return     <model>  ( description_of_the_return_value )
 	 */
 	private static function all_section_name()
 	{
@@ -194,13 +196,13 @@ class controller
 
 			$section_detail = view::ready_section_list($section_detail);
 
-			if(isset($section_detail['preview']['key']) && $section_detail['preview']['key'] === \dash\url::child())
+			if(isset($section_detail['section']) && $section_detail['section'] === \dash\url::child())
 			{
 				// ok
 			}
 			else
 			{
-				\dash\header::status(404, T_("Invalid section type"));
+				\dash\header::status(404, T_("Invalid section model"));
 				return false;
 			}
 		}

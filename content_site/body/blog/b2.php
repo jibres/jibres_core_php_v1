@@ -38,12 +38,12 @@ class b2
 					'image_mask',
 					'link_color_magicbox_title',
 					'btn_viewall_mode',
-					'type',
+					'model',
 				]),
 			],
 			'default'      =>
 			[
-				'type'                      => 'b2',
+				'model'                      => 'b2',
 				'heading'                   => T_("Latest Posts"),
 				'post_template'             => 'any',
 				'post_order'                => 'latest',

@@ -28,7 +28,7 @@ class option
 		return
 		[
 			'group'   => T_("Header"),
-			'key'     => 'h1',
+			'section'     => 'h1',
 			'title'   => T_("Header 1"),
 			'icon'    => \dash\utility\icon::url('Header'),
 		];
@@ -41,7 +41,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[

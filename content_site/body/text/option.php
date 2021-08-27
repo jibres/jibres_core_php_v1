@@ -20,7 +20,7 @@ class option
 		return
 		[
 			'group'   => T_("Text"),
-			'key'     => 'text',
+			'section'     => 'text',
 			'title'   => T_("Text box"),
 			'icon'    => \dash\utility\icon::url('Text'),
 		];
@@ -34,7 +34,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[

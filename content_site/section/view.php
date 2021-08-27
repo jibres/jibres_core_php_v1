@@ -18,7 +18,6 @@ class view
 	];
 
 
-
 	public static function config()
 	{
 		\content_site\view::fill_page_detail();
@@ -143,7 +142,7 @@ class view
 
 		foreach ($section_list as $key => $value)
 		{
-			$mode = \content_site\call_function::get_folder(a($value, 'key'));
+			$mode = \content_site\call_function::get_folder(a($value, 'section'));
 
 			if($folder && $folder !== $mode)
 			{
@@ -152,20 +151,20 @@ class view
 
 			if($section_requested)
 			{
-				if(a($value, 'key') === $section_requested)
+				if(a($value, 'section') === $section_requested)
 				{
-					$section_requested_detail = \content_site\call_function::detail($value['key']);
+					$section_requested_detail = \content_site\call_function::detail($section_requested);
 
-					// $popular = \content_site\call_function::popular($value['key']);
-					$sidebar_list = \content_site\call_function::ready_type_list($value['key']);
+					// $popular = \content_site\call_function::popular($section_requested);
+					$sidebar_list = \content_site\call_function::ready_model_list($section_requested);
 
 					if($category)
 					{
-						$load_preview_list = \content_site\call_function::preview_list($value['key'], $category);
+						$load_preview_list = \content_site\call_function::preview_list($section_requested, $category);
 					}
 					else
 					{
-						$load_preview_list = \content_site\call_function::preview_list($value['key']);
+						$load_preview_list = \content_site\call_function::preview_list($section_requested);
 					}
 
 					// filter by preview requested
@@ -198,6 +197,7 @@ class view
 		{
 			\dash\data::include_adminPanelBuilder(true);
 		}
+
 
 		// save sidebar_list to show in dispaly
 		\dash\data::groupSectionList($group_list);
@@ -372,7 +372,7 @@ class view
 			$detail = [];
 		}
 
-		$default = \content_site\call_function::default($section_key, a($result, 'preview', 'type'));
+		$default = \content_site\call_function::default($section_key, a($result, 'model'));
 
 		if(!is_array($default))
 		{
@@ -383,7 +383,6 @@ class view
 		[
 			'section'     => a($result, 'section'),
 			'model'       => a($result, 'model'),
-			'type'       => a($result, 'model'),
 			'preview_key' => a($result, 'preview_key'),
 		];
 

@@ -15,7 +15,7 @@ class option
 		return
 		[
 			'group'   => T_("Products"),
-			'key'     => 'product',
+			'section'     => 'product',
 			'title'   => T_("Products"),
 			'icon'    => \dash\utility\icon::url('Products'),
 		];
@@ -29,7 +29,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[

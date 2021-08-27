@@ -36,12 +36,12 @@ class p3
 					'radius_normal',
 					'coverratio',
 					'btn_viewall_mode',
-					'type',
+					'model',
 				]),
 			],
 			'default'      =>
 			[
-				'type'                         => 'p3',
+				'model'                         => 'p3',
 				'heading'                      => T_("Products"),
 				'product_order'                => 'latest',
 				'count'                        => 3,

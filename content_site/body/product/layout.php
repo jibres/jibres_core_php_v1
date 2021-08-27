@@ -70,7 +70,7 @@ class layout
 		$html             = '';
 
 
-		$type      = a($_args, 'type');
+		$type      = a($_args, 'model');
 
 
 		if($type === 'p1' || $type === 'p2')

@@ -18,7 +18,7 @@ class layout
 
 		$html             = '';
 
-		$type      = a($_args, 'type');
+		$type      = a($_args, 'model');
 
 		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
 

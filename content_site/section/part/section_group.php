@@ -11,9 +11,9 @@ foreach (\dash\data::groupSectionList() as $group => $items)
   $html .= '<ul>';
   foreach ($items as $item)
   {
-    $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'key')]);
+    $show_preview_link = \dash\url::this(). \dash\request::full_get(['section' => a($item, 'section')]);
 
-    if(a($item, 'key') === 'html')
+    if(a($item, 'section') === 'html')
     {
       $show_preview_link = \dash\url::this().'/html'. \dash\request::full_get();
     }

@@ -11,7 +11,7 @@ class heading1
 
 
 		$id               = a($_args, 'id');
-		$type             = a($_args, 'type');
+		$type             = a($_args, 'model');
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
 		$section_id       = a($_args, 'secition:id');

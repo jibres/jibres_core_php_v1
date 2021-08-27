@@ -36,13 +36,13 @@ class b3
 					'color_text',
 					'link_color_post_read_more',
 					'btn_viewall_mode',
-					'type',
+					'model',
 				]),
 
 			],
 			'default'      =>
 			[
-				'type'              => 'b3',
+				'model'              => 'b3',
 				'heading'           => T_("Latest Posts"),
 				'post_template'     => 'any',
 				'post_order'        => 'latest',
@@ -170,7 +170,7 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                     => 'b3',
+				'model'                     => 'b3',
 				'post_show_read_more'      => null,
 				'post_show_excerpt'        => null,
 				'post_show_date'           => 'full',

@@ -63,10 +63,10 @@ class call_function
 	/**
 	 * Call function
 	 *
-	 * @param      <type>  $_fn    The function
+	 * @param      <model>  $_fn    The function
 	 * @param      array   $_args  The arguments
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
+	 * @return     <model>  ( description_of_the_return_value )
 	 */
 	private static function _call($_fn, $_args = [], $_args2 = [], $_args3 = [])
 	{
@@ -127,10 +127,10 @@ class call_function
 	/**
 	 * Call every function you need
 	 *
-	 * @param      <type>  $_fn    The function
-	 * @param      <type>  $_args  The arguments
+	 * @param      <model>  $_fn    The function
+	 * @param      <model>  $_args  The arguments
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
+	 * @return     <model>  ( description_of_the_return_value )
 	 */
 	public static function __callStatic($_fn, $_args)
 	{
@@ -186,42 +186,42 @@ class call_function
 	}
 
 	/**
-	 * Get current option by check type
+	 * Get current option by check model
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function default($_section_key, $_type)
+	public static function default($_section_key, $_model)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
-		$namespace   = sprintf($namespace, $_type);
+		$namespace   = sprintf($namespace, $_model);
 
-		$type_detail = self::_call([$namespace, 'option']);
+		$model_detail = self::_call([$namespace, 'option']);
 
-		if(isset($type_detail['default']))
+		if(isset($model_detail['default']))
 		{
-			return $type_detail['default'];
+			return $model_detail['default'];
 		}
 
 		return null;
 	}
 
 
-	public static function section_type_fn($_section_key, $_type, $_fn, $_args = null)
+	public static function section_model_fn($_section_key, $_model, $_fn, $_args = null)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
-		$namespace   = sprintf($namespace, $_type);
+		$namespace   = sprintf($namespace, $_model);
 
 		return self::_call([$namespace, $_fn], $_args);
 	}
 
 
-	public static function section_type_preview($_section_key, $_type, $_preview_key)
+	public static function section_model_preview($_section_key, $_model, $_preview_key)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
-		$namespace   = sprintf($namespace, $_type);
+		$namespace   = sprintf($namespace, $_model);
 
 		return self::_call([$namespace, $_preview_key]);
 	}
@@ -229,15 +229,15 @@ class call_function
 
 
 	/**
-	 * Get current option by check type
+	 * Get current option by check model
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function section_options($_section_key, $_type)
+	public static function section_options($_section_key, $_model)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
-		$namespace   = sprintf($namespace, $_type);
+		$namespace   = sprintf($namespace, $_model);
 
 		return self::_call([$namespace, 'option']);
 
@@ -248,46 +248,47 @@ class call_function
 
 
 	/**
-	 * Get current option by check type
+	 * Get current option by check model
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function option($_section_key, $_type)
+	public static function option($_section_key, $_model)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
-		$namespace   = sprintf($namespace, $_type);
+		$namespace   = sprintf($namespace, $_model);
 
-		$type_detail = self::_call([$namespace, 'option']);
+		$model_detail = self::_call([$namespace, 'option']);
 
-		if(isset($type_detail['options']))
+		if(isset($model_detail['options']))
 		{
-			return $type_detail['options'];
+			return $model_detail['options'];
 		}
 
 		return null;
 	}
 
 
-	public static function ready_type_list($_section_key)
+	public static function ready_model_list($_section_key)
 	{
 		$namespace = self::get_namespace($_section_key);
 
-		$type_list = self::type_list($_section_key);
+		$model_list = self::model_list($_section_key);
 
-		if(!is_array($type_list))
+
+		if(!is_array($model_list))
 		{
-			$type_list = [];
+			$model_list = [];
 		}
 
 		$list = [];
 
-		foreach ($type_list as $value)
+		foreach ($model_list as $value)
 		{
-			$namespace_type = sprintf($namespace, $value);
+			$namespace_model = sprintf($namespace, $value);
 
-			$temp_load_type_option = self::_call([$namespace_type, 'option']);
-			$list[]                = $temp_load_type_option;
+			$temp_load_model_option = self::_call([$namespace_model, 'option']);
+			$list[]                = $temp_load_model_option;
 
 		}
 
@@ -312,27 +313,27 @@ class call_function
 		}
 
 
-		$type_list = self::type_list($_section_key);
+		$model_list = self::model_list($_section_key);
 
-		if(!is_array($type_list))
+		if(!is_array($model_list))
 		{
-			$type_list = [];
+			$model_list = [];
 		}
 
-		foreach ($type_list as $value)
+		foreach ($model_list as $value)
 		{
 			if($_filter_category && $_filter_category !== 'popular' && $value !== $_filter_category)
 			{
 				continue;
 			}
 
-			$namespace_type = sprintf($namespace, $value);
+			$namespace_model = sprintf($namespace, $value);
 
-			$temp_load_type_option = self::_call([$namespace_type, 'option']);
+			$temp_load_model_option = self::_call([$namespace_model, 'option']);
 
-			if(isset($temp_load_type_option['preview_list']) && is_array($temp_load_type_option['preview_list']))
+			if(isset($temp_load_model_option['preview_list']) && is_array($temp_load_model_option['preview_list']))
 			{
-				foreach ($temp_load_type_option['preview_list'] as $temp_preview_list)
+				foreach ($temp_load_model_option['preview_list'] as $temp_preview_list)
 				{
 					$myPreviewFunc = "$value:$temp_preview_list";
 					// if(!in_array($myPreviewFunc, $popular))
@@ -352,24 +353,24 @@ class call_function
 
 		foreach ($preview_functions_string as $key => $preview_key)
 		{
-			$type    = null;
+			$model    = null;
 			$preview = null;
 			if(strpos($preview_key, ':') !== false)
 			{
 				$split   = explode(':', $preview_key);
 
-				$type    = $split[0];
+				$model    = $split[0];
 				$preview = $split[1];
 			}
 			else
 			{
-				$type    = $preview_key;
+				$model    = $preview_key;
 				$preview = null;
 			}
 
-			$namespace_type = sprintf($namespace, $type);
+			$namespace_model = sprintf($namespace, $model);
 
-			$load_type_option = self::_call([$namespace_type, 'option']);
+			$load_model_option = self::_call([$namespace_model, 'option']);
 
 			$need_load_preview = [];
 
@@ -379,11 +380,11 @@ class call_function
 			}
 			else
 			{
-				$load_type_option = self::_call([$namespace_type, 'option']);
+				$load_model_option = self::_call([$namespace_model, 'option']);
 
-				if(isset($load_type_option['preview_list']) && is_array($load_type_option['preview_list']))
+				if(isset($load_model_option['preview_list']) && is_array($load_model_option['preview_list']))
 				{
-					$need_load_preview = $load_type_option['preview_list'];
+					$need_load_preview = $load_model_option['preview_list'];
 				}
 			}
 
@@ -396,7 +397,7 @@ class call_function
 
 			foreach ($need_load_preview as $preview_function)
 			{
-				$load_preview = self::_call([$namespace_type, $preview_function]);
+				$load_preview = self::_call([$namespace_model, $preview_function]);
 
 				if(is_array($load_preview) && $load_preview)
 				{
@@ -405,15 +406,15 @@ class call_function
 
 					$list[] =
 					[
-						'key'           => $_section_key,
-						'type_title'    => a($load_type_option, 'title'),
+						'section'       => $_section_key, // new
+						'model_title'   => a($load_model_option, 'title'),
 						'preview_title' => a($load_preview, 'preview_title'),
 						'preview_image' => a($load_preview, 'preview_image'),
 						'preview_key'   => $preview_function,
 						'version'       => $version,
-						'opt_type'      => $type,
-						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $type. '/'. $preview_function,
-						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $type, $type. '-'. $preview_function, $version),
+						'opt_model'     => $model,
+						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function,
+						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $model, $model. '-'. $preview_function, $version),
 					];
 				}
 			}
@@ -424,18 +425,18 @@ class call_function
 
 
 
-	public static function generate_preview($_section, $_type, $_preview)
+	public static function generate_preview($_section, $_model, $_preview)
 	{
 		$namespace = self::get_namespace($_section);
 
-		$default = self::default($_section, $_type);
+		$default = self::default($_section, $_model);
 
 		if(!is_array($default))
 		{
 			$default = [];
 		}
 
-		$namespace_preview = sprintf($namespace, $_type);
+		$namespace_preview = sprintf($namespace, $_model);
 
 		if(!is_callable([$namespace_preview, $_preview]))
 		{

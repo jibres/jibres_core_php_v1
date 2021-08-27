@@ -46,14 +46,14 @@ class g4
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
-					'type',
+					'model',
 				]),
 			],
 			'maximum_capacity' => 12,
 			'minimum_item' => 6,
 			'default'      =>
 			[
-				'type'                    => 'g4',
+				'model'                    => 'g4',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',

@@ -14,7 +14,7 @@ if(\dash\data::myPreviewDisplayType() === 'preview_list')
 	$html .= '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 pb-10">';
 	foreach ($previewSectionList as $value)
 	{
-		$url = \dash\url::that(). '/'. a($value, 'opt_type'). '/'. a($value, 'preview_key');
+		$url = \dash\url::that(). '/'. a($value, 'opt_model'). '/'. a($value, 'preview_key');
 
 		$html .= '<a href="'.$url.'" class="group relative bg-white rounded-lg shadow-sm overflow-hidden transition hover:shadow-md focus:shadow-lg ring-1 ring-black ring-opacity-5">';
 		{
@@ -39,7 +39,7 @@ if(\dash\data::myPreviewDisplayType() === 'preview_list')
 	$html .= '</div>';
 
 }
-elseif(\dash\data::myPreviewDisplayType() === 'type_list')
+elseif(\dash\data::myPreviewDisplayType() === 'model_list')
 {
 
 	$html .= '<section class="text-gray-600 body-font">';

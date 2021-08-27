@@ -26,7 +26,7 @@ class option
 		return
 		[
 			'group'   => T_("HTML"),
-			'key'     => 'html',
+			'section'     => 'html',
 			'title'   => T_("HTML"),
 			'icon'    => \dash\utility\icon::url('Code'),
 		];
@@ -39,7 +39,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[

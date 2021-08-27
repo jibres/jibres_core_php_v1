@@ -109,7 +109,7 @@ class controller
 				// load section type list
 				$section_list = \content_site\section\controller::section_list();
 
-				$type_list = [];
+				$model_list = [];
 				$group_list = [];
 
 				foreach ($section_list as $key => $value)
@@ -122,7 +122,7 @@ class controller
 							$section_requested_detail = \content_site\call_function::detail($value['key']);
 
 							// $popular = \content_site\call_function::popular($value['key']);
-							$type_list = \content_site\call_function::ready_type_list($value['key']);
+							$model_list = \content_site\call_function::ready_model_list($value['key']);
 						}
 						else
 						{
@@ -144,8 +144,8 @@ class controller
 
 				if(\dash\url::child())
 				{
-					\dash\data::myPreviewDisplayType('type_list');
-					\dash\data::myPreviewTypeList($type_list);
+					\dash\data::myPreviewDisplayType('model_list');
+					\dash\data::myPreviewTypeList($model_list);
 				}
 				else
 				{

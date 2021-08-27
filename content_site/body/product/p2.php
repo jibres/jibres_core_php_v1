@@ -37,12 +37,12 @@ class p2
 					'image_mask',
 					'btn_viewall_mode',
 
-					'type',
+					'model',
 				]),
 			],
 			'default'      =>
 			[
-				'type'                  => 'p1',
+				'model'                  => 'p1',
 				'heading'               => T_("Products"),
 				'product_order'            => 'latest',
 				'count'                 => 3,
@@ -78,7 +78,7 @@ class p2
 			'version'        => 1,
 			'options' =>
 			[
-				'type'                      => 'p2',
+				'model'                      => 'p2',
 				'radius_normal'             => 'none',
 				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => 1,

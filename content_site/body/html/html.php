@@ -15,7 +15,7 @@ class html
 		return
 		[
 			'title'        => T_("html 1"),
-			'default'      => ['type' => 'html', 'heading' => T_("Raw HTML")],
+			'default'      => ['model' => 'html', 'heading' => T_("Raw HTML")],
 			'options'      =>
 			[
 				'heading_raw',

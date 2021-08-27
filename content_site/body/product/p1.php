@@ -35,12 +35,12 @@ class p1
 					'radius_normal',
 					'coverratio',
 					'btn_viewall_mode',
-					'type',
+					'model',
 				]),
 			],
 			'default'      =>
 			[
-				'type'                  => 'p1',
+				'model'                  => 'p1',
 				'heading'               => T_("Products"),
 				'product_order'            => 'latest',
 				'count'                 => 3,
@@ -77,7 +77,7 @@ class p1
 			'options' =>
 			[
 				'key'                   => 'product',
-				'type'                  => 'p1',
+				'model'                  => 'p1',
 				'product_show_image'       => 1,
 				'product_show_excerpt'     => 1,
 				'height'                => 'md',

@@ -15,7 +15,7 @@ class cf1
 		return
 		[
 			'title'        => T_("Gallery 1"),
-			'default'      => ['type' => 'cf1'],
+			'default'      => ['model' => 'cf1'],
 			'options'      =>
 			[
 
@@ -25,7 +25,7 @@ class cf1
 				'contact_get_email',
 				'contact_get_name',
 				'contact_get_mobile',
-				'type',
+				'model',
 			],
 
 			'preview_list' =>

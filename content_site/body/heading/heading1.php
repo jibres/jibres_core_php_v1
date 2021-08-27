@@ -17,7 +17,7 @@ class heading1
 			'title'        => T_("Gallery 1"),
 			'default'      =>
 			[
-				'type'             => 'heading1',
+				'model'             => 'heading1',
 				'heading'          => T_("Heading"),
 				'height'           => 'fullscreen',
 				'background_pack'  => 'image',
@@ -36,7 +36,7 @@ class heading1
 					'background_pack',
 					'color_heading',
 
-					'type',
+					'model',
 				]
 				),
 			],

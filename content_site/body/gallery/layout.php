@@ -51,7 +51,7 @@ class layout
 	private static function fill_default($_args, $image_list)
 	{
 
-		$preview_option =  \content_site\call_function::section_type_preview('gallery', a($_args, 'type'), a($_args, 'preview_key'));
+		$preview_option =  \content_site\call_function::section_model_preview('gallery', a($_args, 'model'), a($_args, 'preview_key'));
 
 		if(isset($preview_option['options']['image_count']))
 		{
@@ -59,7 +59,7 @@ class layout
 		}
 		else
 		{
-			$max = option::maximum_capacity(a($_args, 'type'));
+			$max = option::maximum_capacity(a($_args, 'model'));
 		}
 
 		if($image_list && is_array($image_list))

@@ -28,12 +28,12 @@ class t1
 					'container_full',
 					'background_pack',
 					'color_text',
-					'type',
+					'model',
 				]),
 			],
 			'default'      =>
 			[
-				'type'                  => 't1',
+				'model'                  => 't1',
 			],
 			'preview_list' =>
 			[

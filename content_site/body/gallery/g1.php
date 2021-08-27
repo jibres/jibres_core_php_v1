@@ -45,7 +45,7 @@ class g1
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
-					'type',
+					'model',
 				]),
 			],
 			'maximum_capacity' => 12,
@@ -55,7 +55,7 @@ class g1
 
 			'default'      =>
 			[
-				'type'                    => 'g1',
+				'model'                    => 'g1',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
@@ -288,7 +288,7 @@ class g1
 			'options' =>
 			[
 				'image_count'             => 4,
-				'type'                    => 'g1',
+				'model'                    => 'g1',
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'none',

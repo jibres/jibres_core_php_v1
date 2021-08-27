@@ -26,7 +26,7 @@ class option
 		return
 		[
 			'group'   => T_("Image"),
-			'key'     => 'gallery',
+			'section'     => 'gallery',
 			'title'   => T_("Gallery"),
 			'icon'    => \dash\utility\icon::url('Image'),
 		];
@@ -39,7 +39,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[
@@ -210,7 +210,7 @@ class option
 			return;
 		}
 
-		$preview_option =  \content_site\call_function::section_type_preview('gallery', $_type, $_preview_key);
+		$preview_option =  \content_site\call_function::section_model_preview('gallery', $_type, $_preview_key);
 
 		if(isset($preview_option['options']['image_count']))
 		{
@@ -261,7 +261,7 @@ class option
 	 * @param      <type>  $_section_id  The section identifier
 	 * @param      <type>  $_type        The type
 	 */
-	public static function after_change_type($_section_id = null, $_type = null, $_preview_key = null)
+	public static function after_change_model($_section_id = null, $_type = null, $_preview_key = null)
 	{
 		if(!$_section_id || !$_type)
 		{
@@ -269,7 +269,7 @@ class option
 		}
 
 
-		$preview_option =  \content_site\call_function::section_type_preview('gallery', $_type, $_preview_key);
+		$preview_option =  \content_site\call_function::section_model_preview('gallery', $_type, $_preview_key);
 
 		if(isset($preview_option['options']['image_count']))
 		{
@@ -435,7 +435,7 @@ class option
 		}
 
 		$index      = a($gallery, 'index');
-		$type       = a($gallery, 'preview', 'type');
+		$type       = a($gallery, 'preview', 'model');
 		$section_id = a($gallery, 'id');
 
 		\lib\app\menu\edit::edit($_args, $index, true);

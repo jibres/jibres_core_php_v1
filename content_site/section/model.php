@@ -57,7 +57,7 @@ class model
 		$subchild      = \dash\url::subchild();
 		$section_key   = \dash\url::child();
 		$index         = \dash\request::get('index');
-		$type          = null;
+		$model          = null;
 		$preview_key   = null;
 
 		$update_record = [];
@@ -203,16 +203,16 @@ class model
 				return false;
 			}
 
-			$type = \dash\request::post('opt_type');
+			$model = \dash\request::post('opt_model');
 
-			$type = \dash\validate::string_100($type);
-			if(!$type)
+			$model = \dash\validate::string_100($model);
+			if(!$model)
 			{
-				\dash\notif::error(T_("Invalid type"));
+				\dash\notif::error(T_("Invalid model"));
 				return false;
 			}
 
-			$load_preview = \content_site\call_function::preview($section_key, $type, $preview_key);
+			$load_preview = \content_site\call_function::preview($section_key, $model, $preview_key);
 
 			if(!is_array($load_preview))
 			{
@@ -229,7 +229,7 @@ class model
 				$value = [];
 			}
 
-			$update_record['model']       = $type;
+			$update_record['model']       = $model;
 			$update_record['preview_key'] = $preview_key;
 		}
 
@@ -335,8 +335,8 @@ class model
 
 		if(\dash\data::changeSectionTypeMode())
 		{
-			// check process after change type
-			\content_site\call_function::after_change_type($section_key, $section_id, $type, $preview_key);
+			// check process after change model
+			\content_site\call_function::after_change_model($section_key, $section_id, $model, $preview_key);
 
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
 
@@ -517,13 +517,13 @@ class model
 			return false;
 		}
 
-		$type = \dash\request::post('opt_type');
+		$model = \dash\request::post('opt_model');
 
-		$type = \dash\validate::string_100($type);
+		$model = \dash\validate::string_100($model);
 
-		if(!$type)
+		if(!$model)
 		{
-			\dash\notif::error(T_("Invalid type"));
+			\dash\notif::error(T_("Invalid model"));
 			return false;
 		}
 
@@ -538,7 +538,7 @@ class model
 		}
 
 		$section_list = controller::section_list();
-		$all_section = array_column($section_list, 'key');
+		$all_section = array_column($section_list, 'section');
 
 		if(!in_array($section, $all_section))
 		{
@@ -546,7 +546,7 @@ class model
 			return false;
 		}
 
-		$load_preview = \content_site\call_function::preview($section, $type, $preview_key);
+		$load_preview = \content_site\call_function::preview($section, $model, $preview_key);
 
 		if(!is_array($load_preview))
 		{
@@ -562,7 +562,7 @@ class model
 
 		$preview = [];
 
-		$load_default = \content_site\call_function::default($section, $type);
+		$load_default = \content_site\call_function::default($section, $model);
 
 		if(!is_array($load_default))
 		{
@@ -603,7 +603,7 @@ class model
 		[
 			'folder'        => $folder,
 			'section'       => $section,
-			'model'         => $type,
+			'model'         => $model,
 			'preview_key'   => $preview_key,
 			'page_id'       => $page_id,
 			'preview'       => $preview,
@@ -617,7 +617,7 @@ class model
 			return false;
 		}
 
-		\content_site\call_function::after_add_section($section, $id, $type, $preview_key);
+		\content_site\call_function::after_add_section($section, $id, $model, $preview_key);
 
 		$url = \dash\url::this(). '/';
 		$url .= $section;

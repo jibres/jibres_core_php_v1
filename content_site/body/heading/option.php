@@ -26,7 +26,7 @@ class option
 		return
 		[
 			'group'   => T_("Heading"),
-			'key'     => 'heading',
+			'section'     => 'heading',
 			'title'   => T_("Heading"),
 			'icon'    => \dash\utility\icon::url('ImageWithTextOverlay'),
 		];
@@ -39,7 +39,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[

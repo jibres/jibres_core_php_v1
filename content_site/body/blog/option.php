@@ -17,7 +17,7 @@ class option
 		return
 		[
 			'group'   => T_("CMS"),
-			'key'     => 'blog',
+			'section'     => 'blog',
 			'title'   => T_("Posts"),
 			'icon'    => \dash\utility\icon::url('Blog'),
 		];
@@ -31,7 +31,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[

@@ -28,7 +28,7 @@ class option
 		return
 		[
 			'group'   => T_("Header"),
-			'key'     => 'h2',
+			'section'     => 'h2',
 			'title'   => T_("Header 2"),
 			'icon'    => \dash\utility\icon::url('Header'),
 		];
@@ -41,7 +41,7 @@ class option
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function type_list()
+	public static function model_list()
 	{
 		return
 		[
@@ -72,7 +72,7 @@ class option
 		}
 		else
 		{
-			// Hey! if change this variable you must change the default type in type_list function
+			// Hey! if change this variable you must change the default type in model_list function
 			$type = 'type_1';
 		}
 

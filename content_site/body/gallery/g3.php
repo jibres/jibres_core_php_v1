@@ -46,13 +46,13 @@ class g3
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
-					'type',
+					'model',
 				]),
 			],
 			'maximum_capacity' => 12,
 			'default'      =>
 			[
-				'type'                    => 'g3',
+				'model'                    => 'g3',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
