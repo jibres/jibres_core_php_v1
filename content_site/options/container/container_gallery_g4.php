@@ -6,18 +6,18 @@ class container_gallery_g4
 {
 	use container_gallery;
 
-	public static function allow_items()
+
+	public static function hide_sm()
 	{
-		return
-		[
-			'sm',
-			'md',
-			'lg',
-			'xl',
-			'2xl',
-			'fluid',
-		];
+		return false;
 	}
+
+
+	public static function hide_md()
+	{
+		return false;
+	}
+
 
 }
 ?>

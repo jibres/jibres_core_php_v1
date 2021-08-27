@@ -9,30 +9,27 @@ trait container_gallery
 	{
 		$enum   = [];
 
-		$allow_items = self::allow_items();
 
-		if(in_array('sm', $allow_items)) 	{ $enum[] = ['key' => 'sm', 	 'title' => "S",    'hide' => false, 'class' => 'max-w-screen-sm w-full px-2 sm:px-4 lg:px-5' ]; }
-		if(in_array('md', $allow_items)) 	{ $enum[] = ['key' => 'md', 	 'title' => "M",    'hide' => false, 'class' => 'max-w-screen-md w-full px-2 sm:px-4 lg:px-5']; }
-		if(in_array('lg', $allow_items)) 	{ $enum[] = ['key' => 'lg', 	 'title' => "L",    'hide' => false, 'class' => 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-5']; }
-		if(in_array('xl', $allow_items)) 	{ $enum[] = ['key' => 'xl', 	 'title' => "XL",   'hide' => false, 'class' => 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-5']; }
-		if(in_array('2xl', $allow_items)) 	{ $enum[] = ['key' => '2xl', 	 'title' => "2XL",  'hide' => false, 'class' => 'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5']; }
-		if(in_array('fluid', $allow_items)) { $enum[] = ['key' => 'fluid', 	 'title' => "100%", 'hide' => false, 'class' => 'w-full']; }
+		$enum[] = ['key' => 'sm', 	 'title' => "S",    'hide' => self::hide_sm(), 'class' => 'max-w-screen-sm w-full px-2 sm:px-4 lg:px-5' ];
+		$enum[] = ['key' => 'md', 	 'title' => "M",    'hide' => self::hide_md(), 'class' => 'max-w-screen-md w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'lg', 	 'title' => "L",    'hide' => false, 'class' => 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'xl', 	 'title' => "XL",   'hide' => false, 'class' => 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => '2xl', 	 'title' => "2XL",  'hide' => false, 'class' => 'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5'];
+		$enum[] = ['key' => 'fluid', 	 'title' => "100%", 'hide' => false, 'class' => 'w-full'];
 
 		return $enum;
 	}
 
 
-	public static function allow_items()
+	public static function hide_sm()
 	{
-		return
-		[
-			// 'sm',
-			// 'md',
-			'lg',
-			'xl',
-			'2xl',
-			'fluid',
-		];
+		return true;
+	}
+
+
+	public static function hide_md()
+	{
+		return true;
 	}
 
 
