@@ -25,7 +25,7 @@ class link_raw
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= '<input type="hidden" name="not_redirect" value="1">';
+			$html .= \content_site\options\generate::not_redirect();;
 	    	$html .= '<label for="link">'. T_("Link"). '</label>';
 
 			$html .= '<div class="input ltr">';

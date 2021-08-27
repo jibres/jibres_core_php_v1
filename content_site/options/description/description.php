@@ -19,7 +19,7 @@ class description
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= '<input type="hidden" name="not_redirect" value="1">';
+			$html .= \content_site\options\generate::not_redirect();;
 	    	$html .= '<label for="description">'. T_("Description"). '</label>';
 	    	$html .= '<textarea class="txt" name="opt_description" rows="3">';
 	    	$html .= $default;

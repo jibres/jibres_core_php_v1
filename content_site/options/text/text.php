@@ -39,7 +39,7 @@ class text
 		$html .= '<form method="post" data-patch autocomplete="off" id="sectioneditorhtml">';
 		{
 
-	    	$html .= '<input type="hidden" name="not_redirect" value="1">';
+	    	$html .= \content_site\options\generate::not_redirect();;
 	    	$html .= '<input type="hidden" name="opt_text" value="1">';
 	    	$html .= \content_site\options\generate::multioption();
 	    	$html .= '<div>';

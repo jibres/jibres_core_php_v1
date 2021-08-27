@@ -21,7 +21,7 @@ class caption
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= '<input type="hidden" name="not_redirect" value="1">';
+			$html .= \content_site\options\generate::not_redirect();;
 
 	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
 
