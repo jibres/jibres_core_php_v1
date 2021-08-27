@@ -10,9 +10,11 @@ class slider_effect
 	{
 		$enum   = [];
 
-
-		$enum[] = ['key' => 'effect1', 'title' => T_("Effect1")];
-		$enum[] = ['key' => 'effect2', 'title' => T_("Effect 2")];
+		$enum[] = ['key' => 'slide',     'title' => T_("Slide")];
+		$enum[] = ['key' => 'fade',      'title' => T_("Fade")];
+		$enum[] = ['key' => 'cube',      'title' => T_("Cube")];
+		$enum[] = ['key' => 'coverflow', 'title' => T_("Coverflow")];
+		$enum[] = ['key' => 'flip',      'title' => T_("Flip")];
 
 		return $enum;
 	}
