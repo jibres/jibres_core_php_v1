@@ -30,7 +30,7 @@ class option
 
 
 	/**
-	 * Get type list
+	 * Get model list
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
