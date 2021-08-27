@@ -40,7 +40,6 @@ class p1
 			],
 			'default'      =>
 			[
-				'model'                  => 'p1',
 				'heading'               => T_("Products"),
 				'product_order'            => 'latest',
 				'count'                 => 3,
@@ -72,12 +71,9 @@ class p1
 		$_title = T_("Products");
 		return
 		[
-			'preview_title'  => T_("Card Design"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
-				'key'                   => 'product',
-				'model'                  => 'p1',
 				'product_show_image'       => 1,
 				'product_show_excerpt'     => 1,
 				'height'                => 'md',

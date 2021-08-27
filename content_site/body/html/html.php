@@ -14,7 +14,7 @@ class html
 	{
 		return
 		[
-			'title'        => T_("html 1"),
+			'title'        => T_("HTML"),
 			'default'      => ['model' => 'html', 'heading' => T_("Raw HTML")],
 			'options'      =>
 			[
@@ -37,7 +37,6 @@ class html
 	{
 		return
 		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[

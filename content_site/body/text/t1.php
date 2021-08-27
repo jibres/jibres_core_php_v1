@@ -33,7 +33,7 @@ class t1
 			],
 			'default'      =>
 			[
-				'model'                  => 't1',
+
 			],
 			'preview_list' =>
 			[
@@ -50,7 +50,6 @@ class t1
 	{
 		return
 		[
-			'preview_title'  => T_('Text box'). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[

@@ -14,8 +14,8 @@ class cf1
 	{
 		return
 		[
-			'title'        => T_("Gallery 1"),
-			'default'      => ['model' => 'cf1'],
+			'title'        => T_("Contact form"),
+			'default'      => [],
 			'options'      =>
 			[
 
@@ -44,7 +44,6 @@ class cf1
 	{
 		return
 		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[

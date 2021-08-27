@@ -14,7 +14,7 @@ class heading1
 	{
 		return
 		[
-			'title'        => T_("Gallery 1"),
+			'title'        => T_("Heading 1"),
 			'default'      =>
 			[
 				'model'             => 'heading1',
@@ -56,7 +56,6 @@ class heading1
 	{
 		return
 		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[

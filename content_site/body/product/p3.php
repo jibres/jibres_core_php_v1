@@ -14,7 +14,7 @@ class p3
 	{
 		return
 		[
-			'title'        => T_("Card Design"),
+			'title'        => T_("Products"),
 			'options'      =>
 			[
 				'heading_full',
@@ -41,7 +41,6 @@ class p3
 			],
 			'default'      =>
 			[
-				'model'                         => 'p3',
 				'heading'                      => T_("Products"),
 				'product_order'                => 'latest',
 				'count'                        => 3,
@@ -74,7 +73,6 @@ class p3
 		$_title = T_("Products");
 		return
 		[
-			'preview_title'  => T_("Card Design"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
