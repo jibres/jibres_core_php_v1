@@ -33,12 +33,5 @@ class link_gallery
 		return true;
 	}
 
-	public static function option_key()
-	{
-		return 'link_gallery';
-	}
-
-
-
 }
 ?>

@@ -18,10 +18,5 @@ class background_image
 	}
 
 
-
-	public static function option_key()
-	{
-		return 'background_image';
-	}
 }
 ?>

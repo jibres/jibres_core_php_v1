@@ -214,6 +214,18 @@ class utility
 
 
 
+	/**
+	 * Get class name
+	 *
+	 * @param      <type>  $_class  The class
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function className($_class)
+	{
+		$explode = explode('\\', $_class);
+		return end($explode);
+	}
 
 
 }

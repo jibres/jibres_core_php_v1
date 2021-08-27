@@ -13,9 +13,9 @@ trait file
 	public static function validator_upload_file($_data)
 	{
 
-		if(\dash\request::files(self::option_key()))
+		if(\dash\request::files(\content_site\utility::className(__CLASS__)))
 		{
-			$image_path = \dash\upload\website::upload_image(self::option_key());
+			$image_path = \dash\upload\website::upload_image(\content_site\utility::className(__CLASS__));
 
 			if(!\dash\engine\process::status())
 			{
@@ -55,11 +55,6 @@ trait file
 		return 'file';
 	}
 
-	public static function option_key()
-	{
-		return 'file';
-	}
-
 
 	public static function have_specialsave()
 	{
@@ -82,7 +77,7 @@ trait file
 	public static function html_upload_file($_section_detail = null)
 	{
 
-		$option_key = self::option_key();
+		$option_key = \content_site\utility::className(__CLASS__);
 
 		$db_key     = self::db_key();
 

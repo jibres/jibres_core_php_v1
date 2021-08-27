@@ -11,11 +11,5 @@ class heading_full
 		return true;
 	}
 
-	public static function option_key()
-	{
-		return 'heading_full';
-	}
-
-
 }
 ?>

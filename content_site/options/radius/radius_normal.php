@@ -11,10 +11,6 @@ class radius_normal
 		return 'normal';
 	}
 
-	public static function option_key()
-	{
-		return 'radius_normal';
-	}
 
 }
 ?>

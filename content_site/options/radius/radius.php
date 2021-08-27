@@ -42,13 +42,6 @@ trait radius
 		return 'radius';
 	}
 
-
-	public static function option_key()
-	{
-		return 'radius';
-	}
-
-
 	public static function class_name($_key)
 	{
 		$enum = self::enum();
@@ -91,7 +84,7 @@ trait radius
 
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_'. self::option_key();
+			$name       = 'opt_'. \content_site\utility::className(__CLASS__);
 
 			$radio_html = '';
 

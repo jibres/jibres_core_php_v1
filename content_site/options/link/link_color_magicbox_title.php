@@ -18,10 +18,6 @@ class link_color_magicbox_title
 	}
 
 
-	public static function option_key()
-	{
-		return 'link_color_magicbox_title';
-	}
 
 
 }

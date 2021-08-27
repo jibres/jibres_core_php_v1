@@ -2,7 +2,7 @@
 namespace content_site\options\coverratio;
 
 
-class coverratio
+trait coverratio
 {
 
 	private static function enum()
@@ -16,8 +16,11 @@ class coverratio
 		// vertical
 		$enum[] = ['key' => '3:4', 'title' => '3:4', 'class' => 'aspect-w-3 aspect-h-4'];
 
-		// free
-		$enum[] = ['key' => 'free',  'title' => 'Free' ,'class' => ''];
+		if(self::have_free_ratio())
+		{
+			// free
+			$enum[] = ['key' => 'free',  'title' => 'Free' ,'class' => ''];
+		}
 
 		return $enum;
 	}
@@ -28,6 +31,11 @@ class coverratio
 		return $data;
 	}
 
+
+	public static function have_free_ratio()
+	{
+		return true;
+	}
 
 	public static function default()
 	{
@@ -59,11 +67,18 @@ class coverratio
 	}
 
 
+	public static function db_key()
+	{
+		return 'coverratio';
+	}
+
+
+
 
 	public static function admin_html()
 	{
 
-		$default = \content_site\section\view::get_current_index_detail('coverratio');
+		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		if(!$default)
 		{
@@ -82,7 +97,7 @@ class coverratio
 		{
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_coverratio';
+			$name       = 'opt_'. \content_site\utility::className(__CLASS__);
 
 			$radio_html = '';
 

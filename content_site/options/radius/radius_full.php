@@ -11,10 +11,6 @@ class radius_full
 		return 'full';
 	}
 
-	public static function option_key()
-	{
-		return 'radius_full';
-	}
 
 }
 ?>

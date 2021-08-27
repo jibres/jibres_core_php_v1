@@ -13,13 +13,6 @@ class file_gallery
 	}
 
 
-
-	public static function option_key()
-	{
-		return 'file_gallery';
-	}
-
-
 	public static function have_specialsave()
 	{
 		return true;

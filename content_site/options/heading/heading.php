@@ -8,7 +8,7 @@ trait heading
 	public static function validator($_data)
 	{
 		$new_data            = [];
-		$heading             = a($_data, self::option_key());
+		$heading             = a($_data, \content_site\utility::className(__CLASS__));
 		$new_data['heading'] = \dash\validate::string_100($heading);
 
 		$heading_position             = a($_data, 'heading_position');
@@ -26,11 +26,6 @@ trait heading
 
 
 	public static function db_key()
-	{
-		return 'heading';
-	}
-
-	public static function option_key()
 	{
 		return 'heading';
 	}
@@ -81,7 +76,7 @@ trait heading
 
 			$html .= '<div class="input">';
 			{
-	    		$html .= "<input type='text' name='opt_".self::option_key()."' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
+	    		$html .= "<input type='text' name='opt_".\content_site\utility::className(__CLASS__)."' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
 
 	    		if(self::have_text_position())
 				{

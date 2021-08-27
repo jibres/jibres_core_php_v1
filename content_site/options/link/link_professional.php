@@ -28,12 +28,6 @@ trait link_professional
 		return;
 	}
 
-
-	public static function option_key()
-	{
-		return 'link_professional';
-	}
-
 	public static function have_specialsave()
 	{
 		return false;
@@ -61,7 +55,7 @@ trait link_professional
 				$html .= '<input type="hidden" name="specialsave" value="specialsave">';
 			}
 
-			$option_key = self::option_key();
+			$option_key = \content_site\utility::className(__CLASS__);
 
 			$html .= "<input type='hidden' name='opt_{$option_key}' value='1'>";
 

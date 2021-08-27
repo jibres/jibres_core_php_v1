@@ -52,15 +52,10 @@ trait menu
 	}
 
 
-	public static function option_key()
-	{
-		return 'menu';
-	}
-
 	public static function admin_html($_section_detail)
 	{
 
-		$option_key = self::option_key();
+		$option_key = \content_site\utility::className(__CLASS__);
 
 		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 

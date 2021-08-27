@@ -12,13 +12,6 @@ class file_header_logo
 		return 'header_logo';
 	}
 
-
-
-	public static function option_key()
-	{
-		return 'file_header_logo';
-	}
-
 	public static function add_form_element()
 	{
 		return false;
@@ -53,7 +46,7 @@ class file_header_logo
 
 			$html .= '<input type="hidden" name="notredirect" value="1">';
 			$html .= '<input type="hidden" name="multioption" value="multi">';
-			$html .= '<input type="hidden" name="opt_'.self::option_key().'" value="1">';
+			$html .= '<input type="hidden" name="opt_'.\content_site\utility::className(__CLASS__).'" value="1">';
 			$html .= "<label>$title</label>";
 
 			$name       = 'use_as_logo';
