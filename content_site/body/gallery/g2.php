@@ -30,6 +30,7 @@ class g2
 				'image_add',
 
 				'magicbox_title_position_slider',
+				'image_random',
 
 				'slider_setting' =>
 				[
@@ -40,7 +41,6 @@ class g2
 					'slider_next_prev',
 				],
 
-				'image_random',
 				'magicbox_autoplay',
 				// sub page
 				'style' => \content_site\utility::set_style_option(

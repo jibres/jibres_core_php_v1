@@ -138,12 +138,12 @@ class background_pack
 				$name       = 'opt_background_pack';
 
 				$radio_html = '';
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'none', T_('Transparent'), (($default === 'none')? true : false), true);
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'solid', T_("Solid"), (($default === 'solid')? true : false), true);
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'gradient', T_("Gradient"), (($default === 'gradient')? true : false), true);
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'image', T_("Image"), (($default === 'image')? true : false), true);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_('Transparent'), (($default === 'none')? true : false), true);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'solid', T_("Solid"), (($default === 'solid')? true : false), true);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'gradient', T_("Gradient"), (($default === 'gradient')? true : false), true);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'image', T_("Image"), (($default === 'image')? true : false), true);
 
-				$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+				$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 			}
 			$html .= '</form>';
 

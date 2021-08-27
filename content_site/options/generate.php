@@ -2,10 +2,10 @@
 namespace content_site\options;
 
 
-class generate_radio_line
+class generate
 {
 
-	public static function add_ul($_uniqueName, $_html_child, $_fixDirection = null)
+	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
 		$html = '';
 		$classList = 'filter-switch flex items-center relative p-2 space-x-2 bg-gray-100 text-center rounded-lg font-bold text-blue-600 mb-3';
@@ -25,7 +25,7 @@ class generate_radio_line
 	}
 
 
-	public static function itemText($_name, $_value, $_text, $_checked = null, $_fontSizeSmall = null)
+	public static function radio_line_itemText($_name, $_value, $_text, $_checked = null, $_fontSizeSmall = null)
 	{
 		$myId = $_name. '-'. $_value. '-id';
 

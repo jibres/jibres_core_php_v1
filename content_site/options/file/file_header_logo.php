@@ -53,12 +53,12 @@ class file_header_logo
 
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false), true);
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'business_logo', T_("Business Logo"), (($use_as_logo === 'business_logo')? true : false), true);
-			$radio_html .= \content_site\options\generate_radio_line::itemText($name, 'custom_logo', T_("Custom"), (($use_as_logo === 'custom_logo')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_logo', T_("Business Logo"), (($use_as_logo === 'business_logo')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_logo', T_("Custom"), (($use_as_logo === 'custom_logo')? true : false), true);
 
 
-			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 
 			$data_response_hide = null;
 

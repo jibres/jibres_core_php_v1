@@ -67,10 +67,10 @@ class effect
 					$selected = true;
 				}
 
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $value['key'], $value['title'], $selected);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $value['title'], $selected);
 			}
 
-			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 		}
 		$html .= '</form>';
 

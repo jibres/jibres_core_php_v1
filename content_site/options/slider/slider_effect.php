@@ -48,10 +48,10 @@ class slider_effect
 			foreach (self::enum() as $key => $value)
 			{
 				$myValue = $value['key'];
-				$radio_html .= \content_site\options\generate_radio_line::itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);
 			}
 
-			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 		}
 		$html .= '</form>';
 

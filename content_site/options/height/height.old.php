@@ -98,12 +98,12 @@ namespace content_site\options;
 // 			$name_quick = $name. '_quick';
 
 // 			$radio_html = '';
-// 			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xs', 'S', (($default === 'xs')? true : false));
-// 			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'auto', 'M', (($default === 'auto')? true : false));
-// 			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
-// 			$radio_html .= \content_site\options\generate_radio_line::itemText($name_quick, 'more' , '...', (!in_array($default, ['xs', 'auto', 'xl']) ? true : false));
+// 			$radio_html .= \content_site\options\generate::radio_line_itemText($name_quick, 'xs', 'S', (($default === 'xs')? true : false));
+// 			$radio_html .= \content_site\options\generate::radio_line_itemText($name_quick, 'auto', 'M', (($default === 'auto')? true : false));
+// 			$radio_html .= \content_site\options\generate::radio_line_itemText($name_quick, 'xl', 'L', (($default === 'xl')? true : false));
+// 			$radio_html .= \content_site\options\generate::radio_line_itemText($name_quick, 'more' , '...', (!in_array($default, ['xs', 'auto', 'xl']) ? true : false));
 
-// 			$html .= \content_site\options\generate_radio_line::add_ul($name, $radio_html);
+// 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 
 // 			$data_response_hide = null;
 
