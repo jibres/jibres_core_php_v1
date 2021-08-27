@@ -15,7 +15,7 @@ class g1
 
 		return
 		[
-			'title'        => T_("Gallery"). ' - '. T_("Magic Line"),
+			'title'        => T_("Magic Line"),
 			'options'      =>
 			[
 				// 'heading_raw',
@@ -91,7 +91,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -121,7 +120,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(2)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -151,7 +149,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(3)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -180,7 +177,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(4)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -204,7 +200,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -227,7 +222,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(6)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -257,7 +251,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(7)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -283,7 +276,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(8)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -308,7 +300,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(9)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -338,7 +329,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(10)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -364,7 +354,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(11)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -390,7 +379,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(12)]),
 			'version'        => 1,
 			'options' =>
 			[
@@ -416,7 +404,6 @@ class g1
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("Magic Line"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(13)]),
 			'version'        => 1,
 			'options' =>
 			[

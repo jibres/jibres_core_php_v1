@@ -100,7 +100,6 @@ class g2
 	{
 		return
 		[
-			'preview_title'  => T_("Gallery"). ' - '. T_("4 Magic Box + Slider"). ' - '. T_("Sample :val", ['val' => \dash\fit::number(5)]),
 			'version'        => 1,
 			'options' =>
 			[

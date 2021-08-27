@@ -26,7 +26,7 @@ class option
 		return
 		[
 			'group'   => T_("Image"),
-			'section'     => 'gallery',
+			'section' => 'gallery',
 			'title'   => T_("Gallery"),
 			'icon'    => \dash\utility\icon::url('Image'),
 		];
