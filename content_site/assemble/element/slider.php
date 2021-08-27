@@ -11,7 +11,12 @@ class slider
 		{
 			$sliderClass .= ' overflow-hidden '. a($_args, 'radius:class');
 		}
-		$html = '<div class="'. $sliderClass. '" data-swiper>';
+		$html = '<div class="'. $sliderClass. '" data-swiper';
+		if(\dash\language::dir() === 'rtl')
+		{
+			$html .= ' dir="rtl"';
+		}
+		$html .= '>';
 		{
 			$html .= '<div class="swiper-wrapper">';
 			{
