@@ -156,7 +156,7 @@ class background_pack
 		{
 			$html .= background_gradient_type::admin_html();
 
-			$html .= "<label for='color-opt_background_gradient_from' class='block mT10-f'>". T_("Gradient colors"). "</label>";
+			$html .= "<label for='color-opt_background_gradient_from' class='block mT5-f'>". T_("Gradient colors"). "</label>";
 			$html .= background_gradient_from::admin_html();
 			// $html .= background_gradient_via::admin_html();
 			$html .= background_gradient_to::admin_html();
