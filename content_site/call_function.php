@@ -288,6 +288,9 @@ class call_function
 			$namespace_model = sprintf($namespace, $value);
 
 			$temp_load_model_option = self::_call([$namespace_model, 'option']);
+
+			$temp_load_model_option['model'] = $value;
+
 			$list[]                = $temp_load_model_option;
 
 		}

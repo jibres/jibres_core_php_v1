@@ -43,7 +43,6 @@ class b2
 			],
 			'default'      =>
 			[
-				'model'                      => 'b2',
 				'heading'                   => T_("Latest Posts"),
 				'post_template'             => 'any',
 				'post_order'                => 'latest',

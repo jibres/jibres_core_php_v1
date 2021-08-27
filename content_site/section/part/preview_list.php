@@ -39,7 +39,7 @@
     {
       foreach (\dash\data::sidebarSectionList() as $key => $item)
       {
-        $show_preview_link = \dash\url::current(). \dash\request::full_get(['category' => a($item, 'default', 'model')]);
+        $show_preview_link = \dash\url::current(). \dash\request::full_get(['category' => a($item, 'model')]);
 
         $html .= '<li>';
         {
@@ -47,7 +47,7 @@
           {
             // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
             $html .= '<div class="key">'. a($sectionRequestedDetail, 'title'). ' - '. a($item, 'title'). '</div>';
-            if(\dash\request::get('category') === a($item, 'default', 'model'))
+            if(\dash\request::get('category') === a($item, 'model'))
             {
               $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
             }

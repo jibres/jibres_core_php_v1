@@ -47,7 +47,6 @@ class b1
 			],
 			'default'      =>
 			[
-				'model'                  => 'b1',
 				'heading'               => T_("Latest Posts"),
 				'post_template'         => 'any',
 				'post_order'            => 'latest',
@@ -184,7 +183,6 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'model'                  => 'b1',
 				'post_show_readingtime' => null,
 				'post_show_image'       => null,
 				'post_show_excerpt'     => 1,
@@ -308,7 +306,6 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'model'                  => 'b1',
 				'post_show_readingtime' => null,
 				'post_show_image'       => 1,
 				'post_show_excerpt'     => null,
