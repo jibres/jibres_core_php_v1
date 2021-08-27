@@ -24,9 +24,6 @@ class caption_gallery
 		{
 			$html .= \content_site\options\generate::not_redirect();
 			$html .= \content_site\options\generate::specialsave();;
-
-	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
-
 	    	$html .= \content_site\options\generate::text('opt_caption_gallery', $default, T_("Caption"));
 
 		}

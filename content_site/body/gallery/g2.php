@@ -68,7 +68,7 @@ class g2
 				'container'               => 'fluid',
 				'link_color'              => 'inside',
 				'effect'                  => 'zoom',
-				'image_count'             => 12,
+				'slider_effect'           => 'slide',
 			],
 			'preview_list' =>
 			[
@@ -107,7 +107,6 @@ class g2
 				'image_random'            => 1,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
-				'coverratio'              => 'free',
 				'container'               => '2xl',
 				'background_pack'         => 'none',
 			],
