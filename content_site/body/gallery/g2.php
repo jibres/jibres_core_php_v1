@@ -82,9 +82,6 @@ class g2
 				'p8',
 				'p9',
 				'p10',
-				'p11',
-				'p12',
-				'p13',
 			],
 		];
 	}
@@ -121,6 +118,122 @@ class g2
 	}
 
 
+	public static function p2()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
 
+			],
+		];
+	}
+
+
+	public static function p3()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p4()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p5()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p6()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p7()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+
+	public static function p8()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p9()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+
+	public static function p10()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
 }
 ?>
