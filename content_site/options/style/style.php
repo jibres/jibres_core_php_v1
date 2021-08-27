@@ -18,7 +18,7 @@ class style
 		   		{
 		      		$html .= "<a class='item f' href='$url'>";
 		      		{
-		        		$html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Wand'). '">';
+		        		$html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Colors'). '">';
 		        		$html .= '<div class="key">'. T_("Personalization Desgin"). '</div>';
 		        		$html .= '<div class="go"></div>';
 		      		}
