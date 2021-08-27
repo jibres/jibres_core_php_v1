@@ -12,9 +12,11 @@ class slider_effect
 
 		$enum[] = ['key' => 'slide',     'title' => T_("Slide")];
 		$enum[] = ['key' => 'fade',      'title' => T_("Fade")];
-		$enum[] = ['key' => 'cube',      'title' => T_("Cube")];
 		$enum[] = ['key' => 'coverflow', 'title' => T_("Coverflow")];
 		$enum[] = ['key' => 'flip',      'title' => T_("Flip")];
+		$enum[] = ['key' => 'cube',      'title' => T_("Cube")];
+		// $enum[] = ['key' => 'cards',     'title' => T_("Cards")];
+		// $enum[] = ['key' => 'creative',  'title' => T_("Creative")];
 
 		return $enum;
 	}
