@@ -185,6 +185,25 @@ class call_function
 
 	}
 
+
+	public static function option_admin_html($_option_key, $_data)
+	{
+		$namespace = self::option_namespace($_option_key);
+
+		$html = self::_call([$namespace, 'admin_html'], $_data);
+
+		if(utility::ul_li_started())
+		{
+			$is_ul_li = self::_call([$namespace, 'is_ul_li']);
+
+			if($is_ul_li === null)
+			{
+				$html .= utility::ul_li_close();
+			}
+		}
+		return $html;
+	}
+
 	/**
 	 * Get current option by check model
 	 *

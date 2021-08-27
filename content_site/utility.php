@@ -51,6 +51,28 @@ class utility
 		}
 	}
 
+	private static $ul_li_started = false;
+	public static function ul_li_started($_set = null)
+	{
+		if($_set === true)
+		{
+			if(self::$ul_li_started === false)
+			{
+				self::$ul_li_started = $_set;
+				return '<nav class="items long mT20"><ul>';
+			}
+		}
+		else
+		{
+			return self::$ul_li_started;
+		}
+	}
+
+	public static function ul_li_close()
+	{
+		return '</ul></nav>';
+	}
+
 
 	public static function downloadjson()
 	{
