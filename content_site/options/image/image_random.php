@@ -28,12 +28,8 @@ class image_random
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_image_random" value="1">';
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="random" id="image_random"'.$checked.'>';
-				$html .= '<label for="image_random">'. T_('Show random image'). '</label>';
-			}
-			$html .= '</div>';
+
+			$html .= \content_site\options\generate::checkbox('random', T_('Show random image'), $checked);
 		}
 
   		$html .= '</form>';

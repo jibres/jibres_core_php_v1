@@ -28,12 +28,9 @@ class contact_get_name
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_contact_get_name" value="1">';
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="get_name" id="contact_get_name"'.$checked.'>';
-				$html .= '<label for="contact_get_name">'. T_('Get name'). '</label>';
-			}
-			$html .= '</div>';
+
+			$html .= \content_site\options\generate::checkbox('get_name', T_('Get name'), $checked);
+
 		}
 
   		$html .= '</form>';

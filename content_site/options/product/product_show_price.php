@@ -6,7 +6,7 @@ class product_show_price
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_excerpt'));
+		$data = \dash\validate::bit(a($_data, 'show_price'));
 		return $data;
 	}
 
@@ -21,12 +21,9 @@ class product_show_price
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_product_show_price" value="1">';
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_excerpt" id="product_show_price"'.$checked.'>';
-				$html .= '<label for="product_show_price">'. T_('Display product price'). '</label>';
-			}
-			$html .= '</div>';
+
+			$html .= \content_site\options\generate::checkbox('show_price',  T_('Display product price'), $checked);
+
 		}
 
   		$html .= '</form>';

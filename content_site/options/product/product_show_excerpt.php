@@ -21,12 +21,9 @@ class product_show_excerpt
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_product_show_excerpt" value="1">';
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_excerpt" id="product_show_excerpt"'.$checked.'>';
-				$html .= '<label for="product_show_excerpt">'. T_('Display product summary'). '</label>';
-			}
-			$html .= '</div>';
+
+			$html .= \content_site\options\generate::checkbox('show_excerpt',  T_('Display product summary'), $checked);
+
 		}
 
   		$html .= '</form>';

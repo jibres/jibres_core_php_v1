@@ -28,12 +28,8 @@ class contact_get_mobile
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_contact_get_mobile" value="1">';
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="get_mobile" id="contact_get_mobile"'.$checked.'>';
-				$html .= '<label for="contact_get_mobile">'. T_('Get mobile'). '</label>';
-			}
-			$html .= '</div>';
+
+			$html .= \content_site\options\generate::checkbox('get_mobile', T_('Get mobile'), $checked);
 		}
 
   		$html .= '</form>';

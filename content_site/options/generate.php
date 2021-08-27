@@ -85,7 +85,7 @@ class generate
 		}
 
 		$html = '';
-		$html .= '<div class="check1 py-0">';
+		$html .= '<div class="check1 py-0 fc-red">';
 		{
 			$html .= "<input type='checkbox' name='$_name' id='id-$_name' $checked>";
 			$html .= "<label for='id-$_name'>$_title</label>";

@@ -6,7 +6,7 @@ class post_show_comment_count
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_author'));
+		$data = \dash\validate::bit(a($_data, 'comment_count'));
 		return $data;
 	}
 
@@ -34,12 +34,7 @@ class post_show_comment_count
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_post_show_comment_count" value="1">';
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_author" id="post_show_comment_count"'.$checked.'>';
-				$html .= '<label for="post_show_comment_count">'. T_('Display Comment count'). '</label>';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::checkbox('comment_count', T_('Display Comment count'), $checked);
 		}
 
   		$html .= '</form>';

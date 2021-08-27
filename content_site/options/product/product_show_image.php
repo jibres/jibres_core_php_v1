@@ -24,12 +24,8 @@ class product_show_image
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_product_show_image" value="1">';
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_image" id="product_show_image"'.$checked.'>';
-				$html .= '<label for="product_show_image">'. T_('Display product image'). '</label>';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::checkbox('show_image',  T_('Display product image'), $checked);
+
 		}
 
   		$html .= '</form>';

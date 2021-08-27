@@ -33,13 +33,9 @@ class slider_loop
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_slider_loop" value="1">';
+			$html .= \content_site\options\generate::checkbox('loop',  T_('Loop'), $checked);
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="loop" id="loop"'.$checked.'>';
-				$html .= '<label for="loop">'. T_('Loop'). '</label>';
-			}
-			$html .= '</div>';
+
 		}
 
   		$html .= '</form>';

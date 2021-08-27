@@ -6,7 +6,7 @@ class post_show_readingtime
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_author'));
+		$data = \dash\validate::bit(a($_data, 'show_readingtime'));
 		return $data;
 	}
 
@@ -34,12 +34,8 @@ class post_show_readingtime
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_post_show_readingtime" value="1">';
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_author" id="post_show_readingtime"'.$checked.'>';
-				$html .= '<label for="post_show_readingtime">'. T_('Display estimated reading time'). '</label>';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::checkbox('show_readingtime', T_('Display estimated reading time'), $checked);
+
 		}
 
   		$html .= '</form>';

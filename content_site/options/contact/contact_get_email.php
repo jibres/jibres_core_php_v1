@@ -28,12 +28,9 @@ class contact_get_email
 		{
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_contact_get_email" value="1">';
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="get_email" id="contact_get_email"'.$checked.'>';
-				$html .= '<label for="contact_get_email">'. T_('Get email'). '</label>';
-			}
-			$html .= '</div>';
+
+	    	$html .= \content_site\options\generate::checkbox('get_email', T_('Get email'), $checked);
+
 		}
 
   		$html .= '</form>';

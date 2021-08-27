@@ -147,12 +147,8 @@ trait link_professional
 						}
 						$html .= "</div>";
 
-						$html .= '<div class="check1 py-0">';
-						{
-							$html .= '<input type="checkbox" name="target" id="target"'.$target.'>';
-							$html .= '<label for="target">'. T_('Open in new windows'). '</label>';
-						}
-						$html .= '</div>';
+						$html .= \content_site\options\generate::checkbox('target', T_('Open in new windows'), $target);
+
 					}
 					$html .= '</div>';
 				}

@@ -34,12 +34,8 @@ class post_show_read_more
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_post_show_read_more" value="1">';
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="show_author" id="post_show_read_more"'.$checked.'>';
-				$html .= '<label for="post_show_read_more">'. T_('Display Read more link'). '</label>';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::checkbox('show_author', T_('Display Read more link'), $checked);
+
 		}
 
   		$html .= '</form>';

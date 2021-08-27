@@ -49,12 +49,7 @@ class btn_viewall
 	    	$html .= '<input type="hidden" name="multioption" value="multi">';
 	    	$html .= '<input type="hidden" name="not_redirect" value="1">';
 
-			$html .= '<div class="check1 py-0">';
-			{
-				$html .= '<input type="checkbox" name="opt_btn_viewall_check" id="btn_viewall_check"'.$checked.'>';
-				$html .= '<label for="btn_viewall_check">'. T_('Show <b>View all</b> button'). '</label>';
-			}
-			$html .= '</div>';
+	    	$html .= \content_site\options\generate::checkbox('opt_btn_viewall_check', T_('Show <b>View all</b> button'), $checked);
 
 			$html .= '<div class="mt-5" data-response="opt_btn_viewall_check" data-response-effect="slide"'.$data_response_hide.'>';
 			{
