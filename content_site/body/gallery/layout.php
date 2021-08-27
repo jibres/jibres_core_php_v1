@@ -102,7 +102,7 @@ class layout
 				else
 				{
 					$image_list[$key]['file']  = \dash\sample\img::image();
-					$image_list[$key]['title'] = T_("Image :val", \dash\fit::number($key + 1));
+					$image_list[$key]['title'] = T_("Image :val", ['val' => \dash\fit::number($key + 1)]);
 				}
 			}
 		}
@@ -115,7 +115,7 @@ class layout
 			{
 				$image_list[] =
 				[
-					'title' => T_("Image :val", \dash\fit::number($i)),
+					'title' => T_("Image :val", ['val' => \dash\fit::number($i)]),
 					'image'    => \dash\sample\img::image()
 				];
 			}
