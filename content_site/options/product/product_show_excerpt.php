@@ -22,7 +22,7 @@ class product_show_excerpt
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_product_show_excerpt" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('show_excerpt',  T_('Display product summary'), $checked);
+			$html .= \content_site\options\generate::checkbox('show_excerpt',  T_('Display product summary'), $default);
 
 		}
 

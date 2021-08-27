@@ -34,7 +34,7 @@ class post_show_readingtime
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_post_show_readingtime" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('show_readingtime', T_('Display estimated reading time'), $checked);
+			$html .= \content_site\options\generate::checkbox('show_readingtime', T_('Display estimated reading time'), $default);
 
 		}
 

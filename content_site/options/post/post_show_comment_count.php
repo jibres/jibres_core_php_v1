@@ -34,7 +34,7 @@ class post_show_comment_count
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_post_show_comment_count" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('comment_count', T_('Display Comment count'), $checked);
+			$html .= \content_site\options\generate::checkbox('comment_count', T_('Display Comment count'), $default);
 		}
 
   		$html .= '</form>';

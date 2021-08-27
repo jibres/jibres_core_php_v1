@@ -29,7 +29,7 @@ class contact_get_mobile
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_contact_get_mobile" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('get_mobile', T_('Get mobile'), $checked);
+			$html .= \content_site\options\generate::checkbox('get_mobile', T_('Get mobile'), $default);
 		}
 
   		$html .= '</form>';

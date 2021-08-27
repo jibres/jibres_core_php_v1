@@ -29,7 +29,7 @@ class contact_get_email
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_contact_get_email" value="1">';
 
-	    	$html .= \content_site\options\generate::checkbox('get_email', T_('Get email'), $checked);
+	    	$html .= \content_site\options\generate::checkbox('get_email', T_('Get email'), $default);
 
 		}
 

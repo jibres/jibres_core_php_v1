@@ -22,7 +22,7 @@ class product_show_price
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_product_show_price" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('show_price',  T_('Display product price'), $checked);
+			$html .= \content_site\options\generate::checkbox('show_price',  T_('Display product price'), $default);
 
 		}
 

@@ -24,7 +24,7 @@ class product_show_image
 			$html .= '<input type="hidden" name="multioption" value="multi">';
 			$html .= '<input type="hidden" name="opt_product_show_image" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('show_image',  T_('Display product image'), $checked);
+			$html .= \content_site\options\generate::checkbox('show_image',  T_('Display product image'), $default);
 
 		}
 
