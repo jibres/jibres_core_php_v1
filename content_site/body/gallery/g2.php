@@ -36,9 +36,8 @@ class g2
 				[
 					'slider_effect',
 					'slider_autoplay',
-					'slider_pagination',
 					'slider_next_prev',
-					'magicbox_autoplay',
+					'slider_pagination',
 				],
 
 				// sub page
@@ -65,7 +64,6 @@ class g2
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
-				'magicbox_autoplay'       => 'slow',
 				'container'               => 'fluid',
 				'link_color'              => 'inside',
 				'effect'                  => 'zoom',

@@ -49,11 +49,11 @@ class slider
 			}
 			$html .= '</div>';
 
-			if(1)
+			if(a($_args, 'slider_pagination'))
 			{
 				$html .= '<div class="swiper-pagination"></div>';
 			}
-			if(1)
+			if(a($_args, 'slider_next_prev'))
 			{
 				$html .= '<div class="swiper-button-prev"></div>';
 				$html .= '<div class="swiper-button-next"></div>';
