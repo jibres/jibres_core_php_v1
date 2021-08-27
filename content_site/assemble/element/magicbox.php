@@ -50,6 +50,7 @@ class magicbox
 
 		$card = '';
 		$magicBoxExtraAttr = '';
+		$sliderLazyLoad = false;
 		if($_magicModel === 'blog')
 		{
 			// get grid class name by analyze
@@ -62,6 +63,16 @@ class magicbox
 		}
 		elseif(is_array($_magicModel))
 		{
+			if(isset($_magicModel['type']) && $_magicModel['type'] === 'slider')
+			{
+				// enable lazy load
+				$sliderLazyLoad = true;
+				if(isset($_magicModel['attr']))
+				{
+					// add attr to element
+					$magicBoxExtraAttr = $_magicModel['attr'];
+				}
+			}
 			if(isset($_magicModel[$_key]))
 			{
 				$magicBoxExtraAttr = "class='". $_magicModel[$_key]. "'";
@@ -106,7 +117,16 @@ class magicbox
 					{
 						$imgClass .= ' '. $borderRadius;
 					}
-					$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+					// use data-src for lazyload
+					if($sliderLazyLoad)
+					{
+						$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+						$card .= '<div class="swiper-lazy-preloader"></div>';
+					}
+					else
+					{
+						$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+					}
 				}
 				$card .= "</picture>";
 			}

@@ -21,14 +21,19 @@ class slider
 			$html .= '<div class="swiper-wrapper">';
 			{
 				$specialAttr = "class='swiper-slide'";
-				var_dump(a($_args, 'magicbox_autoplay'));
 				if(a($_args, 'magicbox_autoplay'))
 				{
 					$time = 2000;
 					$specialAttr .= ' data-swiper-autoplay="'. $time. '"';
 				}
+				// create attr array
+				$sliderOption =
+				[
+					'type' => 'slider',
+					'attr' => $specialAttr,
+				];
 
-				$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $specialAttr);
+				$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $sliderOption);
 			}
 			$html .= '</div>';
 
