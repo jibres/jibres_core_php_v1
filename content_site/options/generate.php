@@ -14,6 +14,11 @@ class generate
 		return '<input type="hidden" name="not_redirect" value="1">';
 	}
 
+	public static function specialsave()
+	{
+		return '<input type="hidden" name="specialsave" value="specialsave">';
+	}
+
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
 		$html = '';

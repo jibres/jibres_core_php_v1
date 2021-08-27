@@ -49,7 +49,7 @@ class image_list
 		{
 
 	  		$html .= '<input type="hidden" name="opt_image_list" value="1">';
-	  		$html .= '<input type="hidden" name="specialsave" value="specialsave">';
+	  		$html .= \content_site\options\generate::specialsave();;
 
 			$html .= '<nav class="items">';
 			{

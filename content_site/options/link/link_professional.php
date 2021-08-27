@@ -52,7 +52,7 @@ trait link_professional
 			$html .= \content_site\options\generate::multioption();
 			if(self::have_specialsave())
 			{
-				$html .= '<input type="hidden" name="specialsave" value="specialsave">';
+				$html .= \content_site\options\generate::specialsave();;
 			}
 
 			$option_key = \content_site\utility::className(__CLASS__);

@@ -115,7 +115,7 @@ trait file
 			// need special save
 			if(self::have_specialsave())
 			{
-				$html .= '<input type="hidden" name="specialsave" value="specialsave">';
+				$html .= \content_site\options\generate::specialsave();;
 			}
 
 			$html .= '<div ';
