@@ -12,73 +12,20 @@ class g3
 	 */
 	public static function option()
 	{
+		$option                           = g2::option();
+		$option['title']                  = T_("2 Magic Box + Slider");
 
-		return
+		$option['maximum_capacity']       = 14;
+		$option['minimum_item']           = 4;
+		$option['default']['image_count'] = 12;
+
+		$option['preview_list']           =
 		[
-			'title'        => T_("2 Magic Box + Slider"),
-			'options'      =>
-			[
-				// 'heading_raw',
-				'image_list' =>
-				[
-					'file_gallery',
-					'caption_gallery',
-					'link_gallery',
-					'target_gallery',
-					'remove_gallery',
-				],
-				'image_add',
-
-				'magicbox_title_position_slider',
-				'image_random',
-				'magicbox_autoplay',
-				// sub page
-				'style' => \content_site\utility::set_style_option(
-				[
-					'font',
-					'height',
-					'container_gallery',
-					'magicbox_gap',
-					'background_pack',
-					'color_heading',
-					'radius_full',
-					'coverratio_no_free',
-					'effect',
-					'image_mask',
-					'link_color_magicbox_title',
-					'model',
-				]),
-			],
-			'maximum_capacity' => 14,
-			'minimum_item' => 4,
-			'default'      =>
-			[
-				'heading'                 => T_("Image Gallery"),
-				'magicbox_title_position' => 'inside',
-				'height'                  => 'auto',
-				'magicbox_autoplay'       => 'slow',
-				'container'               => 'fluid',
-				'link_color'              => 'inside',
-				'effect'                  => 'zoom',
-				'image_count'             => 12,
-			],
-			'preview_list' =>
-			[
-				'p1',
-				'p2',
-				'p3',
-				'p4',
-				'p5',
-				'p6',
-				'p7',
-				'p8',
-				'p9',
-				'p10',
-				'p11',
-				'p12',
-				'p13',
-			],
+			'p1',
 		];
+
+		return $option;
+
 	}
 
 
