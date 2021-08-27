@@ -34,7 +34,7 @@ trait count
 
 	public static function admin_html()
 	{
-		$option_name = self::option_name();
+		$option_name = \content_site\utility::className(__CLASS__);
 
 		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 

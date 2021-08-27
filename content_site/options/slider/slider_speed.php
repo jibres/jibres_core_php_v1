@@ -27,7 +27,7 @@ class slider_speed
 
 	public static function admin_html()
 	{
-		$option_name = 'slider_speed';
+		$name = 'slider_speed';
 
 		$default = \content_site\section\view::get_current_index_detail('slider_speed');
 
@@ -37,8 +37,8 @@ class slider_speed
 		{
 			$html .= '<div class="pb-2">';
 			{
-				$html .= '<label for="'.$option_name.'">'.T_("Slider speed").'</label>';
-				$html .= '<input type="text" name="opt_'.$option_name.'" id="'.$option_name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
+				$html .= '<label for="'.$name.'">'.T_("Slider speed").'</label>';
+				$html .= '<input type="text" name="opt_'.$name.'" id="'.$name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
 			}
 			$html .= '</div>';
 		}

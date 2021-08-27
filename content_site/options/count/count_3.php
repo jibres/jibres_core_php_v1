@@ -16,10 +16,6 @@ class count_3
 		return 3;
 	}
 
-	public static function option_name()
-	{
-		return 'count_3';
-	}
 
 }
 ?>

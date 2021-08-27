@@ -16,11 +16,6 @@ class count_post_50
 		return 3;
 	}
 
-	public static function option_name()
-	{
-		return 'count_post_50';
-	}
-
 
 	public static function title()
 	{

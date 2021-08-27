@@ -16,11 +16,6 @@ class count_product
 		return 3;
 	}
 
-	public static function option_name()
-	{
-		return 'count_product';
-	}
-
 
 	public static function title()
 	{
