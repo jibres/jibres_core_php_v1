@@ -22,6 +22,10 @@ class g4
 		$myKey = array_search('slider_effect', $option['options']['slider_setting']);
 		$option['options']['slider_setting'] = array_replace($option['options']['slider_setting'], [$myKey => 'slider_effect_full']);
 
+		$myKey = array_search('container_gallery', $option['options']['style']);
+		$option['options']['style'] = array_replace($option['options']['style'], [$myKey => 'container_gallery_g4']);
+
+
 		$option['preview_list']           =
 		[
 			'p1',
