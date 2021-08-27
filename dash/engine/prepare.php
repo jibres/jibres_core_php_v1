@@ -666,8 +666,17 @@ class prepare
 			\dash\redirect::to($target);
 		}
 
-		\dash\header::set(404);
-		self::html_raw_page('unknownMode');
+		// need check if domain in my list
+		$is_customer_domain_cache_file = \dash\engine\store::is_customer_domain_cache_file(\dash\url::host());
+		if($is_customer_domain_cache_file)
+		{
+			self::html_raw_page('customeDomainCacheFile');
+		}
+		else
+		{
+			\dash\header::set(404);
+			self::html_raw_page('unknownMode');
+		}
 	}
 
 

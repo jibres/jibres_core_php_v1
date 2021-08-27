@@ -610,6 +610,23 @@ class store
 		}
 	}
 
+	public static function is_customer_domain_cache_file($_domain)
+	{
+		if(self::$inCustomerDomain)
+		{
+			return true;
+		}
+
+		$customer_domain = self::customer_domain_addr(). $_domain. self::$ext;
+
+		if(!is_dir(self::customer_domain_addr()))
+		{
+			\dash\file::makeDir(self::customer_domain_addr(), null, true);
+		}
+
+		return is_file($customer_domain);
+
+	}
 
 	public static function is_customer_domain($_domain)
 	{
