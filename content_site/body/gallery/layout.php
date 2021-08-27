@@ -36,6 +36,7 @@ class layout
 
 		$model      = a($_args, 'model');
 
+
 		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $model);
 
 		if(is_callable([$namespace, 'html']))

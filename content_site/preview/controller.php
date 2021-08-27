@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 		$section = \dash\url::child();
-		$type    = \dash\url::subchild();
+		$model    = \dash\url::subchild();
 		$preview = \dash\url::dir(3);
 
 
@@ -17,19 +17,19 @@ class controller
 		}
 
 		$section = \dash\validate::string_100($section);
-		$type    = \dash\validate::string_100($type);
+		$model    = \dash\validate::string_100($model);
 		$preview = \dash\validate::string_100($preview);
 
 
 
-		if(!$section || !$type || !$preview)
+		if(!$section || !$model || !$preview)
 		{
 			\dash\header::status(404, T_("Invalid section name or preview key"));
 			return false;
 		}
 
 
-		$result = \content_site\call_function::generate_preview($section, $type, $preview);
+		$result = \content_site\call_function::generate_preview($section, $model, $preview);
 		if(!$result)
 		{
 			\dash\header::status(404, T_("Invalid preview detail"));
@@ -117,12 +117,12 @@ class controller
 					if($section)
 					{
 						$back_url = \dash\url::this();
-						if(a($value, 'key') === $section)
+						if(a($value, 'section') === $section)
 						{
-							$section_requested_detail = \content_site\call_function::detail($value['key']);
+							$section_requested_detail = \content_site\call_function::detail($section);
 
 							// $popular = \content_site\call_function::popular($value['key']);
-							$model_list = \content_site\call_function::ready_model_list($value['key']);
+							$model_list = \content_site\call_function::ready_model_list($section);
 						}
 						else
 						{

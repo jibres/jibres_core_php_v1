@@ -20,7 +20,7 @@ if(\dash\data::myPreviewDisplayType() === 'preview_list')
 		{
 			$html .= '<div class="relative bg-gray-100 border-b overflow-hidden">';
 			{
-				$html .= '<img src="'. a($value, 'preview_image'). '" alt="'.a($value, 'key').'">';
+				$html .= '<img src="'. a($value, 'preview_image'). '" alt="'.a($value, 'section').'">';
 			}
 			$html .= '</div>';
 
@@ -51,7 +51,7 @@ elseif(\dash\data::myPreviewDisplayType() === 'model_list')
 		foreach (\dash\data::myPreviewTypeList() as $group => $items)
 		{
 
-			$show_preview_link = \dash\url::current(). '/'. a($items, 'default', 'type');
+			$show_preview_link = \dash\url::current(). '/'. a($items, 'model');
 
 		    $html .= '<div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">';
 		    {
@@ -88,12 +88,12 @@ elseif(\dash\data::myPreviewDisplayType() === 'group_list')
 
 			foreach ($items as $item)
 			{
-				if(a($item, 'key') === 'html')
+				if(a($item, 'section') === 'html')
 				{
 					continue;
 				}
 
-				$show_preview_link = \dash\url::that(). '/'. a($item, 'key');
+				$show_preview_link = \dash\url::that(). '/'. a($item, 'section');
 
 			    $html .= '<div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">';
 			    {

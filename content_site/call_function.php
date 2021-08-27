@@ -495,6 +495,7 @@ class call_function
 
 		$force_preview_setting =
 		[
+			'model'       => $_model,
 			'height'      => 'fullscreen',
 			'preview_key' => $_preview,
 		];
