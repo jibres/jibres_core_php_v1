@@ -39,9 +39,9 @@ class g2
 					'slider_loop',
 					'slider_pagination',
 					'slider_next_prev',
+					'magicbox_autoplay',
 				],
 
-				'magicbox_autoplay',
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[

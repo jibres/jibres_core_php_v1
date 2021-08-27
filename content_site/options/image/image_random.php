@@ -29,7 +29,7 @@ class image_random
 			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_image_random" value="1">';
 
-			$html .= \content_site\options\generate::checkbox('random', T_('Show random image'), $default);
+			$html .= \content_site\options\generate::checkbox('random', T_('Shuffle images'), $default);
 		}
 
   		$html .= '</form>';
