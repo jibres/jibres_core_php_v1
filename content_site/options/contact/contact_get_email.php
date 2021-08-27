@@ -26,7 +26,7 @@ class contact_get_email
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_contact_get_email" value="1">';
 
 	    	$html .= \content_site\options\generate::checkbox('get_email', T_('Get email'), $default);

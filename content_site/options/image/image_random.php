@@ -26,7 +26,7 @@ class image_random
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_image_random" value="1">';
 
 			$html .= \content_site\options\generate::checkbox('random', T_('Show random image'), $default);

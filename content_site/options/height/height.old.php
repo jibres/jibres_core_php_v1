@@ -91,7 +91,7 @@ namespace content_site\options;
 // 		$html .= '<form method="post" data-patch>';
 // 		{
 // 			$html .= '<input type="hidden" name="notredirect" value="1">';
-// 			$html .= '<input type="hidden" name="multioption" value="multi">';
+// 			$html .= \content_site\options\generate::multioption();
 // 			$html .= "<label>$title</label>";
 
 // 			$name       = 'opt_height';

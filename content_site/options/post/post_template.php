@@ -84,7 +84,7 @@ class post_template
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-	    	$html .= '<input type="hidden" name="multioption" value="multi">';
+	    	$html .= \content_site\options\generate::multioption();
 
 	    	$html .= "<div class='row'>";
 			{

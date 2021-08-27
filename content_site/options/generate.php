@@ -4,6 +4,10 @@ namespace content_site\options;
 
 class generate
 {
+	public static function multioption()
+	{
+		return '<input type="hidden" name="multioption" value="multi">';
+	}
 
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{

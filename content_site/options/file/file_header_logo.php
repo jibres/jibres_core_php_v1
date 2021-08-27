@@ -45,7 +45,7 @@ class file_header_logo
 			$title = T_("Header logo");
 
 			$html .= '<input type="hidden" name="notredirect" value="1">';
-			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_'.\content_site\utility::className(__CLASS__).'" value="1">';
 			$html .= "<label>$title</label>";
 

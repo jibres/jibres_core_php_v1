@@ -49,7 +49,7 @@ trait link_professional
 
 		$html .= "<form method='post'  autocomplete='off' data-patch>";
 		{
-			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= \content_site\options\generate::multioption();
 			if(self::have_specialsave())
 			{
 				$html .= '<input type="hidden" name="specialsave" value="specialsave">';

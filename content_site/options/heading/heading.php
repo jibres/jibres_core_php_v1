@@ -70,7 +70,7 @@ trait heading
 				$myId = 'heading-'. a($_section_detail, 'id');
 			}
 
-			$html .= '<input type="hidden" name="multioption" value="multi">';
+			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="not_redirect" value="1">';
 		    $html .= '<label for="'.$myId.'">'. T_("Heading"). '</label>';
 
