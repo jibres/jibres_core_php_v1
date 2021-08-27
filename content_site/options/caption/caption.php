@@ -22,14 +22,8 @@ class caption
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 			$html .= \content_site\options\generate::not_redirect();
+	    	$html .= \content_site\options\generate::text('opt_caption', $default, T_("Caption"));
 
-	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
-
-			$html .= '<div class="input">';
-			{
-	    		$html .= '<input type="text" placeholder="" name="opt_caption" value="'. $default. '">';
-			}
-			$html .= "</div>";
 		}
   		$html .= '</form>';
 

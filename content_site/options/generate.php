@@ -19,6 +19,24 @@ class generate
 		return '<input type="hidden" name="specialsave" value="specialsave">';
 	}
 
+
+	public static function text($_name, $_value, $_lable = null, $_placeholder = null)
+	{
+		$html = '';
+
+		if($_lable)
+		{
+			$html .= "<label for='id-$_name'>$_lable</label>";
+		}
+		$html .= '<div class="input">';
+		{
+			$html .= "<input type='text' name='$_name' id='id-$_name' value='$_value' placeholder='$_placeholder'>";
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
 		$html = '';

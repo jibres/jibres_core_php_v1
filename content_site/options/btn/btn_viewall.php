@@ -53,12 +53,7 @@ class btn_viewall
 
 			$html .= '<div class="mt-5" data-response="opt_btn_viewall_check" data-response-effect="slide"'.$data_response_hide.'>';
 			{
-				$html .= '<div class="input">';
-				{
-					$html .= '<input type="text" name="opt_btn_viewall" placeholder="'.self::default().'" value="'.$default.'">';
-				}
-				$html .= '</div>';
-
+				$html .= \content_site\options\generate::text('opt_btn_viewall', $default, null, self::default());
 			}
 			$html .= '</div>';
 		}

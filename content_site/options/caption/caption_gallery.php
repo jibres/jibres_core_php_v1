@@ -27,11 +27,8 @@ class caption_gallery
 
 	    	$html .= '<label for="caption">'. T_("Caption"). '</label>';
 
-			$html .= '<div class="input">';
-			{
-	    		$html .= '<input type="text" placeholder="" name="opt_caption_gallery" value="'. $default. '">';
-			}
-			$html .= "</div>";
+	    	$html .= \content_site\options\generate::text('opt_caption_gallery', $default, T_("Caption"));
+
 		}
   		$html .= '</form>';
 
