@@ -113,16 +113,14 @@ class generate
 
 		if($_checked)
 		{
-			$checked = 'checked';
+			$checked = ' checked';
 		}
 
 		$html = '';
-		$html .= '<div class="check1 py-0 fc-red">';
-		{
-			$html .= "<input type='checkbox' name='$_name' id='id-$_name' $checked>";
-			$html .= "<label for='id-$_name'>$_title</label>";
-		}
-		$html .= '</div>';
+		$html .= '<label class="toggle2">';
+    $html .= '<span>'. $_title .'</span>';
+    $html .= '<input type="checkbox" name="'. $_name. '"'. $checked. '>';
+    $html .= '</label>';
 
 		return $html;
 	}
