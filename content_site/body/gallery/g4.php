@@ -29,7 +29,7 @@ class g4
 				],
 				'image_add',
 
-				'magicbox_title_position',
+				'magicbox_title_position_slider',
 				'image_random',
 				'magicbox_autoplay',
 				// sub page

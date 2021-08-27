@@ -2,7 +2,7 @@
 namespace content_site\options\magicbox;
 
 
-class magicbox_title_position
+trait magicbox_title_position
 {
 
 
@@ -13,10 +13,19 @@ class magicbox_title_position
 
 		$enum[] = ['key' => 'hide', 'title' => T_("Hide")];
 		$enum[] = ['key' => 'inside', 'title' => T_("Inside")];
-		$enum[] = ['key' => 'outside', 'title' => T_("Outside")];
+
+		if(self::allow_outsite())
+		{
+			$enum[] = ['key' => 'outside', 'title' => T_("Outside")];
+		}
 
 
 		return $enum;
+	}
+
+	public static function allow_outsite()
+	{
+		return true;
 	}
 
 
@@ -33,12 +42,17 @@ class magicbox_title_position
 		return 'inside';
 	}
 
+	public static function db_key()
+	{
+		return 'magicbox_title_position';
+	}
+
 
 
 	public static function admin_html()
 	{
 
-		$default = \content_site\section\view::get_current_index_detail('magicbox_title_position');
+		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		if(!$default)
 		{
@@ -54,7 +68,7 @@ class magicbox_title_position
 		{
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_magicbox_title_position';
+			$name       = 'opt_'. \content_site\utility::className(__CLASS__);
 
 			$radio_html = '';
 
