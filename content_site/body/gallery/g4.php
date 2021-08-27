@@ -17,6 +17,7 @@ class g4
 		$option['maximum_capacity']       = 14;
 		$option['minimum_item']           = 4;
 		$option['default']['image_count'] = 12;
+		unset($option['break_image_list']);
 
 		$option['preview_list']           =
 		[

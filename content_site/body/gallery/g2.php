@@ -59,9 +59,10 @@ class g2
 					'model',
 				]),
 			],
+			'break_image_list' => 4,
 			'maximum_capacity' => 14,
-			'minimum_item' => 6,
-			'default'      =>
+			'minimum_item'     => 6,
+			'default'          =>
 			[
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',

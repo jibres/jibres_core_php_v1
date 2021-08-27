@@ -17,6 +17,8 @@ class g3
 
 		$option['maximum_capacity']       = 14;
 		$option['minimum_item']           = 4;
+		$option['break_image_list']       = 2;
+
 		$option['default']['image_count'] = 12;
 
 		$option['preview_list']           =
