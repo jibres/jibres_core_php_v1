@@ -36,9 +36,9 @@ class g1
 				[
 					'font',
 					'height',
+					'background_pack',
 					'container_gallery',
 					'magicbox_gap',
-					'background_pack',
 					'color_heading',
 					'radius_full',
 					'coverratio',
@@ -50,7 +50,7 @@ class g1
 			],
 			'maximum_capacity' => 12,
 
-			'break_image_list'     => 2,
+
 
 			'default'      =>
 			[

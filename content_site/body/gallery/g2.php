@@ -47,10 +47,9 @@ class g2
 				[
 					'font',
 					'height',
+					'background_pack',
 					'container_gallery',
 					'magicbox_gap',
-					'background_pack',
-					'color_heading',
 					'radius_full',
 					'coverratio_no_free',
 					'effect',
