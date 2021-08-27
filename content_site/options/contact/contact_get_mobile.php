@@ -21,7 +21,7 @@ class contact_get_mobile
 	{
 		$default = \content_site\section\view::get_current_index_detail('contact_get_mobile');
 
-		$checked = $default ? ' checked' : null;
+
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';

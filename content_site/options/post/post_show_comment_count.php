@@ -26,7 +26,7 @@ class post_show_comment_count
 			$default = self::default();
 		}
 
-		$checked = $default ? ' checked' : null;
+
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';

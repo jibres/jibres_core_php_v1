@@ -26,7 +26,7 @@ class slider_next_prev
 			$default = self::default();
 		}
 
-		$checked = $default ? ' checked' : null;
+
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';

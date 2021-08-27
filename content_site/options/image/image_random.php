@@ -21,7 +21,7 @@ class image_random
 	{
 		$default = \content_site\section\view::get_current_index_detail('image_random');
 
-		$checked = $default ? ' checked' : null;
+
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';

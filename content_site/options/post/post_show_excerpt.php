@@ -21,7 +21,7 @@ class post_show_excerpt
 	{
 		$default = \content_site\section\view::get_current_index_detail('post_show_excerpt');
 
-		$checked = $default ? ' checked' : null;
+
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
