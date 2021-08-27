@@ -37,7 +37,7 @@ class html
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 
-	    	$html .= \content_site\options\generate::not_redirect();;
+	    	$html .= \content_site\options\generate::not_redirect();
 	    	$html .= '<input type="hidden" name="opt_html" value="1">';
 	    	$html .= \content_site\options\generate::multioption();
 

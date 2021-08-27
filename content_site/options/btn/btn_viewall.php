@@ -47,7 +47,7 @@ class btn_viewall
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 	    	$html .= \content_site\options\generate::multioption();
-	    	$html .= \content_site\options\generate::not_redirect();;
+	    	$html .= \content_site\options\generate::not_redirect();
 
 	    	$html .= \content_site\options\generate::checkbox('opt_btn_viewall_check', T_('Show <b>View all</b> button'), $default);
 

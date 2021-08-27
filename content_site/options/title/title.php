@@ -21,7 +21,7 @@ class title
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-			$html .= \content_site\options\generate::not_redirect();;
+			$html .= \content_site\options\generate::not_redirect();
 
 	    	$html .= '<label for="title">'. T_("Title"). '</label>';
 

@@ -53,7 +53,7 @@ class google_map_embed
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::not_redirect();;
+			$html .= \content_site\options\generate::not_redirect();
 			$html .= '<input type="hidden" name="opt_google_map_embed" value="1">';
 	    	$html .= '<label for="description">'. T_("Google map Embed code"). '</label>';
 	    	$html .= '<textarea class="txt" name="html" rows="3">';
