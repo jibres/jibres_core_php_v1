@@ -31,9 +31,16 @@ class slider
 				$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $specialAttr);
 			}
 			$html .= '</div>';
-			$html .= '<div class="swiper-pagination"></div>';
-			$html .= '<div class="swiper-button-prev"></div>';
-			$html .= '<div class="swiper-button-next"></div>';
+
+			if(1)
+			{
+				$html .= '<div class="swiper-pagination"></div>';
+			}
+			if(1)
+			{
+				$html .= '<div class="swiper-button-prev"></div>';
+				$html .= '<div class="swiper-button-next"></div>';
+			}
 			// $html .= '<div class="swiper-scrollbar"></div>';
 		}
 		$html .= '</div>';
