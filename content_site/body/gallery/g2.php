@@ -30,6 +30,16 @@ class g2
 				'image_add',
 
 				'magicbox_title_position_slider',
+
+				'slider_setting' =>
+				[
+					'slider_loop',
+					'slider_pagination',
+					'slider_next_prev',
+					'slider_effect',
+					'slider_speed',
+				],
+
 				'image_random',
 				'magicbox_autoplay',
 				// sub page
