@@ -27,10 +27,12 @@ class magicbox
 		if(a($_args, 'section') === 'blog')
 		{
 			$file_index = 'thumb';
+			$link_index = 'link';
 		}
 		else
 		{
 			$file_index = 'file';
+			$link_index = 'url';
 		}
 
 		if(!a($_item, $file_index))
@@ -42,9 +44,9 @@ class magicbox
 
 		$myMagicBoxEl = 'div';
 		$myLinkHref   = '';
-		if(a($_item, 'link'))
+		if(a($_item, $link_index))
 		{
-			$myLinkHref   = "href='". a($_item, 'link'). "'";
+			$myLinkHref   = "href='". a($_item, $link_index). "'";
 			$myMagicBoxEl = 'a';
 		}
 
