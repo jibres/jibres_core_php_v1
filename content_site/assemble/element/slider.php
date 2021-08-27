@@ -21,11 +21,23 @@ class slider
 			$html .= '<div class="swiper-wrapper">';
 			{
 				$specialAttr = "class='swiper-slide'";
-				if(a($_args, 'magicbox_autoplay'))
+				$autoplay = a($_args, 'slider_autoplay');
+				$autoplayDelay = 5000;
+				if($autoplay && $autoplay >= 0 && $autoplay <= 10)
 				{
-					$time = 2000;
-					$specialAttr .= ' data-swiper-autoplay="'. $time. '"';
+					$autoplayDelay = $autoplay * 1000;
 				}
+				elseif($autoplay === 'disable')
+				{
+					$autoplayDelay = 0;
+				}
+
+				// set autoplay
+				if($autoplayDelay)
+				{
+					$specialAttr .= ' data-swiper-autoplay="'. $autoplayDelay. '"';
+				}
+
 				// create attr array
 				$sliderOption =
 				[

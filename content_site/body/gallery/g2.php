@@ -35,8 +35,7 @@ class g2
 				'slider_setting' =>
 				[
 					'slider_effect',
-					'slider_speed',
-					'slider_loop',
+					'slider_autoplay',
 					'slider_pagination',
 					'slider_next_prev',
 					'magicbox_autoplay',

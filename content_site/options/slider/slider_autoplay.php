@@ -2,12 +2,12 @@
 namespace content_site\options\slider;
 
 
-class slider_speed
+class slider_autoplay
 {
 
 	public static function this_range()
 	{
-		return ['manuall', 1, 2, 3, 4, 'full'];
+		return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	}
 
 
@@ -27,17 +27,16 @@ class slider_speed
 
 	public static function admin_html()
 	{
-		$name = 'slider_speed';
+		$name = 'slider_autoplay';
 
-		$default = \content_site\section\view::get_current_index_detail('slider_speed');
-
+		$default = \content_site\section\view::get_current_index_detail('slider_autoplay');
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 			$html .= '<div class="pb-2">';
 			{
-				$html .= '<label for="'.$name.'">'.T_("Slider speed").'</label>';
+				$html .= '<label for="'.$name.'">'.T_("Autoplay delay").'</label>';
 				$html .= '<input type="text" name="opt_'.$name.'" id="'.$name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
 			}
 			$html .= '</div>';
