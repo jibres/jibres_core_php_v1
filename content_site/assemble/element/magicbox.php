@@ -49,26 +49,30 @@ class magicbox
 		}
 
 		$card = '';
-		$magicBoxClass = '';
+		$magicBoxExtraAttr = '';
 		if($_magicModel === 'blog')
 		{
 			// get grid class name by analyze
 			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
-			$magicBoxClass = "class='$gridCol flex flex-col max-w-md'";
+			$magicBoxExtraAttr = "class='$gridCol flex flex-col max-w-md'";
 		}
 		elseif($_magicModel === 'slider')
 		{
-			$magicBoxClass = "class='swiper-slide'";
+			$magicBoxExtraAttr = "class='swiper-slide'";
 		}
 		elseif(is_array($_magicModel))
 		{
 			if(isset($_magicModel[$_key]))
 			{
-				$magicBoxClass = "class='". $_magicModel[$_key]. "'";
+				$magicBoxExtraAttr = "class='". $_magicModel[$_key]. "'";
 			}
 		}
+		elseif($_magicModel)
+		{
+			$magicBoxExtraAttr = $_magicModel;
+		}
 
-		$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref $magicBoxClass>";
+		$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref $magicBoxExtraAttr>";
 		{
 			// thumb
 			// if($myThumb && a($_args, 'post_show_image'))

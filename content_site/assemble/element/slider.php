@@ -20,7 +20,15 @@ class slider
 		{
 			$html .= '<div class="swiper-wrapper">';
 			{
-				$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, 'slider');
+				$specialAttr = "class='swiper-slide'";
+				var_dump(a($_args, 'magicbox_autoplay'));
+				if(a($_args, 'magicbox_autoplay'))
+				{
+					$time = 2000;
+					$specialAttr .= ' data-swiper-autoplay="'. $time. '"';
+				}
+
+				$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $specialAttr);
 			}
 			$html .= '</div>';
 			$html .= '<div class="swiper-pagination"></div>';
