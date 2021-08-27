@@ -55,7 +55,6 @@ class g1
 
 			'default'      =>
 			[
-				'model'                    => 'g1',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
@@ -280,7 +279,6 @@ class g1
 			'options' =>
 			[
 				'image_count'             => 4,
-				'model'                    => 'g1',
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'none',

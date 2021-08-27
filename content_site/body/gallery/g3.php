@@ -53,7 +53,6 @@ class g3
 			'minimum_item' => 4,
 			'default'      =>
 			[
-				'model'                    => 'g3',
 				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'height'                  => 'auto',
