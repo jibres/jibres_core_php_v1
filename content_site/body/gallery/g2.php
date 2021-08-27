@@ -25,7 +25,7 @@ class g2
 					'caption_gallery',
 					'link_gallery',
 					'target_gallery',
-					'remove_gallery',
+					'image_remove',
 				],
 				'image_add',
 
