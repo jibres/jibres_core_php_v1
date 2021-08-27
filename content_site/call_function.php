@@ -302,9 +302,10 @@ class call_function
 
 		$preview_functions_string = [];
 
+		$section_detail = self::detail($_section_key);
+
+
 		$popular = [];
-
-
 		$popular = self::popular($_section_key);
 
 		if(!is_array($popular))
@@ -401,6 +402,16 @@ class call_function
 
 				if(is_array($load_preview) && $load_preview)
 				{
+					if(a($load_preview, 'preview_title'))
+					{
+						$preview_title = $load_preview['preview_title'];
+					}
+					else
+					{
+						$int_function = preg_replace("/[^\d]/", '', $preview_function);
+						$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title'). ' - ' . T_("Sample :val", ['val' => \dash\fit::number($int_function)]);
+					}
+
 
 					$version = (a($load_preview, 'version') ? $load_preview['version'] : 1);
 
@@ -408,7 +419,7 @@ class call_function
 					[
 						'section'       => $_section_key, // new
 						'model_title'   => a($load_model_option, 'title'),
-						'preview_title' => a($load_preview, 'preview_title'),
+						'preview_title' => $preview_title,
 						'preview_image' => a($load_preview, 'preview_image'),
 						'preview_key'   => $preview_function,
 						'version'       => $version,

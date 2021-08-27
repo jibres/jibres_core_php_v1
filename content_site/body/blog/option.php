@@ -17,8 +17,8 @@ class option
 		return
 		[
 			'group'   => T_("CMS"),
-			'section'     => 'blog',
-			'title'   => T_("Posts"),
+			'section' => 'blog',
+			'title'   => T_("Blog"),
 			'icon'    => \dash\utility\icon::url('Blog'),
 		];
 	}
