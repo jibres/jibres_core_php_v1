@@ -127,7 +127,7 @@ class background_pack
 
 
 
-		$html .= '<form method="post" class="mb-5 mT0-f" data-patch>';
+		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 
 			$html .= '<input type="hidden" name="notredirect" value="1">';
