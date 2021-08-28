@@ -423,7 +423,7 @@ class option
 
 		$last_menu_id = \lib\app\menu\add::menu_item($insert_menu_child, $_menu_id, true);
 
-		\dash\notif::clean();
+		\dash\notif::clean(true);
 
 		return a($last_menu_id, 'id');
 	}
