@@ -1,5 +1,5 @@
 <?php
-namespace content_site\body\blog;
+namespace content_site\body\product;
 
 
 class p1
