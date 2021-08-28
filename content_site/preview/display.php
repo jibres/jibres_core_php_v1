@@ -128,9 +128,18 @@ elseif(\dash\data::myPreviewDisplayType() === 'group_list')
 else
 {
 
-	$preview  = \dash\data::myPreviewDetail();
+	if(\dash\request::key_exists('lock', 'get'))
+	{
+		$preview  = \dash\data::myPreviewDetail();
+		$html .= a($preview, 'preview_html');
+	}
+	else
+	{
+		$page_url = \dash\url::current(). \dash\request::full_get(['lock' => 1]);
 
-	$html .= a($preview, 'preview_html');
+		$html .= '<iframe id="liveIframe" class="w-full h-full" src="'. $page_url. '"></iframe>';
+
+	}
 
 }
 
