@@ -18,13 +18,20 @@ class g2
 					$sliderList = array_slice($_image_list, 4);
 
 					// slider box
-					$html .= '<div class="row-span-2 col-span-2">';
+					$html .= '<div class="row-span-2 col-span-4 md:col-span-2">';
 					{
 						$html .= \content_site\assemble\element\slider::html($_args, $sliderList);
 					}
 					$html .= '</div>';
 
-					$html .= \content_site\assemble\element\magicbox::html($_args, $normalList);
+					$otherItemClass =
+					[
+						0 => 'col-span-2 md:col-span-1',
+						1 => 'col-span-2 md:col-span-1',
+						2 => 'col-span-2 md:col-span-1',
+						3 => 'col-span-2 md:col-span-1',
+					];
+					$html .= \content_site\assemble\element\magicbox::html($_args, $normalList, $otherItemClass);
 				}
 				$html .= '</div>';
 			}
