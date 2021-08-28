@@ -24,7 +24,7 @@ class image_remove
 	     /**
 	       * btn remove and hide
 	       */
-	      $delete_json    = json_encode(['specialsave' => 'specialsave', 'opt_remove_gallery' => 1]);
+	      $delete_json    = json_encode(['specialsave' => 'specialsave', 'opt_image_remove' => 1]);
 
 	      $remove_title = T_("Are you sure to remove this image block?");
 	      $html .= '<div class="text-left pt-5">';
