@@ -117,7 +117,7 @@ class layout
 				$image_list[] =
 				[
 					'title' => T_("Image :val", ['val' => \dash\fit::number($i)]),
-					'image'    => \dash\sample\img::image()
+					'file'    => \dash\sample\img::image()
 				];
 			}
 		}
