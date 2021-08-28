@@ -243,8 +243,20 @@ class connection
 			$LinkKey = $myLove['code']. '_'. $myDbName;
 			if(array_key_exists($LinkKey, self::$link_open))
 			{
-				self::$link = self::$link_open[$LinkKey];
-				return true;
+				if(self::$link_open[$LinkKey])
+				{
+					self::$link = self::$link_open[$LinkKey];
+					return true;
+				}
+				else
+				{
+					self::$link = null;
+					return false;
+				}
+			}
+			else
+			{
+				self::$link = null;
 			}
 		}
 		else
@@ -259,17 +271,19 @@ class connection
 		// check if link is exist set it as global variable
 		if($link)
 		{
-			// set charset for link
-			// @mysqli_set_charset($link, 'utf8mb4');
-			// $link->set_charset("utf8mb4");
-
 			// save link as global variable
-			self::$link = $link;
+			self::$link                = $link;
 			self::$link_open[$LinkKey] = $link;
 			return true;
+		}
+		else
+		{
+			self::$link_open[$LinkKey] = false;
 		}
 		// if link is not created return false
 		return false;
 	}
+
+
 }
 ?>
