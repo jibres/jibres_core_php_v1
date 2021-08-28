@@ -74,14 +74,14 @@ class layout
 			$our_image = $preview_option['options']['image_list'];
 		}
 
-		// clean current image list
-		foreach ($image_list as $key => $value)
-		{
-			if(!a($value, 'file'))
-			{
-				unset($image_list[$key]);
-			}
-		}
+		// // clean current image list
+		// foreach ($image_list as $key => $value)
+		// {
+		// 	if(!a($value, 'file'))
+		// 	{
+		// 		unset($image_list[$key]);
+		// 	}
+		// }
 
 		if(empty($image_list))
 		{
