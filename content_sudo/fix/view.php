@@ -101,7 +101,7 @@ class view
 				}
 			}
 
-			\dash\db\mysql\tools\connection::close();
+			\dash\db::close();
 		}
 
 		var_dump('ok');

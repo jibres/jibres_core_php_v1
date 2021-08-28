@@ -25,7 +25,7 @@ class stats_monthly
 
 			self::calc_factors($fuel, $dbname);
 
-			\dash\db\mysql\tools\connection::close();
+			\dash\db::close();
 
 		}
 

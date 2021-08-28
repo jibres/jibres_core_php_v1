@@ -20,7 +20,7 @@ class model
 
 					\lib\app\store\changefuel::run();
 
-					\dash\db\mysql\tools\connection::close();
+					\dash\db::close();
 				}
 			}
 		}

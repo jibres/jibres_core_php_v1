@@ -20,7 +20,7 @@ class business
 
 			call_user_func($_fn);
 
-			\dash\db\mysql\tools\connection::close();
+			\dash\db::close();
 
 		}
 	}
