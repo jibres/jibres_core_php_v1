@@ -101,10 +101,9 @@ class card
 
 					      if($price)
 					      {
-					        $card .= '<span>'. T_("Price"). '</span>';
 					        $card .= '<div class="priceShow" data-final>';
 					        {
-					          $card .= '<span class="price">'. \dash\fit::price($price). '</span>';
+					          $card .= '<span class="price">'. \dash\fit::price($price). '</span> ';
 					          $card .= '<span class="unit">'. \lib\store::currency().'</span>';
 					        }
 					        $card .= '</div>';
