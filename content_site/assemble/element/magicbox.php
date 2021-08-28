@@ -53,7 +53,7 @@ class magicbox
 		$card = '';
 		$magicBoxExtraAttr = '';
 		$sliderLazyLoad = false;
-		if($_magicModel === 'blog')
+		if($_magicModel === 'blog' || $_magicModel === 'product')
 		{
 			// get grid class name by analyze
 			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);

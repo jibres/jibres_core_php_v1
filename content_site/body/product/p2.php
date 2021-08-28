@@ -19,10 +19,14 @@ class p2
 			'options'      =>
 			[
 				'heading_full',
-				'post_tag',
-				'post_template',
-				'post_order',
-				'count_post',
+
+				'product_tag',
+				'product_order',
+				'count_product',
+				// 'product_show_image',
+				// 'product_show_title',
+				'product_show_price',
+
 				'magicbox_title_position',
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
