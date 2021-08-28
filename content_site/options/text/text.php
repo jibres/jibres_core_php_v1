@@ -36,15 +36,15 @@ class text
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off" id="sectioneditorhtml">';
+		$html .= '<form method="post" data-patch autocomplete="off" id="sectioneditorhtml" class="h-full">';
 		{
 
 	    	$html .= \content_site\options\generate::not_redirect();
 	    	$html .= '<input type="hidden" name="opt_text" value="1">';
 	    	$html .= \content_site\options\generate::multioption();
-	    	$html .= '<div>';
+	    	$html .= '<div class="h-full">';
 	    	{
-	    		$html .= '<textarea data-editor  name="html" class="txt ltr txt-l" rows=10>'. htmlentities($text_html) .'</textarea>';
+	    		$html .= '<textarea data-editor name="html" class="txt ltr txt-l h-full">'. htmlentities($text_html) .'</textarea>';
 	    	}
 	    	$html .= '</div>';
 	    }
