@@ -4,7 +4,7 @@ namespace lib\app\menu;
 
 class edit
 {
-	public static function edit($_args, $_id, $_force = false)
+	public static function edit($_args, $_id, $_force = false, $_return_array = false)
 	{
 		if(!$_force)
 		{
@@ -48,6 +48,12 @@ class edit
 
 
 		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
+
+		// in sitebuilder need raw array to save in json
+		if($_return_array)
+		{
+			return $args;
+		}
 
 		if(empty($args))
 		{

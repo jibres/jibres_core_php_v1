@@ -601,7 +601,9 @@ class option
 			}
 		}
 
-		$args = array_merge($preview, $_args, $_meta);
+		$args = \lib\app\menu\edit::edit($_args, $_id, true, true);
+
+		$args = array_merge($preview, $args, $_meta);
 
 		$args['is_preview_menu'] = true;
 
