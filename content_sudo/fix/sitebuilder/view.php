@@ -54,7 +54,10 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-
+			// if(a($value, 'subdomain') !== 'rezamohiti')
+			// {
+			// 	continue;
+			// }
 
 			if(in_array(a($value, 'subdomain'), $skipp_subdomain))
 			{
@@ -134,11 +137,11 @@ class view
 					// var_dump('new sitebuilder section key!', $pagebuilder_record, func_get_args());exit;
 					break;
 
-				// case 'news':
-				// 	$preview = self::conver_news($pagebuilder_record, $new_record);
-				// 	self::counter('news_converted');
-				// 	$skipp_section = false;
-				// 	break;
+				case 'news':
+					$preview = self::conver_news($pagebuilder_record, $new_record);
+					self::counter('news_converted');
+					$skipp_section = false;
+					break;
 
 				case 'image':
 					$preview = self::conver_gallery($pagebuilder_record, $new_record);
