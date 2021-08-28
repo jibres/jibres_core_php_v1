@@ -39,35 +39,57 @@ class card
 					$card .= '</header>';
 				}
 
-				$card .= "<div class='flex-grow px-6 py-4'>";
+				// show caption on some conditions
+				$showCardCaption = true;
+				if(a($_args, 'section') === 'product')
 				{
-					// title
-					$card .= '<h3>';
+					if(a($_args, 'product_show_title'))
 					{
-						$card .= "<a class='block text-lg leading-8 font-semibold focus:text-blue-800 transition'$myLinkHref>";
-						{
-							$card .= $myTitle;
-						}
-						$card .= "</a>";
-
+						// enable true
 					}
-					$card .= '</h3>';
-
-					$card .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
-
-
-					if($myExcerpt && a($_args, 'post_show_excerpt'))
+					else if(a($_args, 'product_show_price'))
 					{
-						$card .= "<p class='mt-2 text-gray-500 text-sm leading-6'>";
-						$card .= $myExcerpt;
-						$card .= "</p>";
+						// enable true
+					}
+					else
+					{
+						$showCardCaption = false;
 					}
 
 				}
-				$card .= '</div>';
+
+				if($showCardCaption)
+				{
+					$card .= "<div class='flex-grow px-6 py-4'>";
+					{
+							// title
+							$card .= '<h3>';
+							{
+								$card .= "<a class='block text-lg leading-8 font-semibold focus:text-blue-800 transition'$myLinkHref>";
+								{
+									$card .= $myTitle;
+								}
+								$card .= "</a>";
+
+							}
+							$card .= '</h3>';
+
+						$card .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
+
+
+						if($myExcerpt && a($_args, 'post_show_excerpt'))
+						{
+							$card .= "<p class='mt-2 text-gray-500 text-sm leading-6'>";
+							$card .= $myExcerpt;
+							$card .= "</p>";
+						}
+
+					}
+					$card .= '</div>';
+				}
 
 				// add footer line
-				if(a($_args, 'post_show_author') || a($_args, 'post_show_date') !== 'no')
+				if(a($_args, 'post_show_author') || (a($_args, 'post_show_date') && a($_args, 'post_show_date') !== 'no'))
 				{
 					$card .= '<footer class="flex items-center px-6 py-3 hover:bg-gray-50 transition">';
 					{
