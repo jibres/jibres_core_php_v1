@@ -226,6 +226,21 @@ class option
 			return;
 		}
 
+		$menu_id = self::add_menu_for_gallery($_section_id);
+		if(!$menu_id)
+		{
+			return false;
+		}
+
+		for ($i=1; $i <= $max; $i++)
+		{
+			self::add_menu_child_as_gallery_item($_section_id, $menu_id, $i);
+		}
+
+	}
+
+	public static function add_menu_for_gallery($_section_id)
+	{
 		$insert_menu =
 		[
 			'title'  => 'gallery-'. $_section_id,
@@ -237,21 +252,14 @@ class option
 
 		if(a($result_add_menu, 'id'))
 		{
-			$menu_id = $result_add_menu['id'];
+			return $result_add_menu['id'];
 		}
 		else
 		{
 			\dash\log::oops('dbInsertGalleryMenuError');
 			return false;
 		}
-
-		for ($i=1; $i <= $max; $i++)
-		{
-			self::add_menu_child_as_gallery_item($_section_id, $menu_id, $i);
-		}
-
 	}
-
 
 	/**
 	 * After change type of gallery we need to recalculate gallery item
@@ -400,7 +408,7 @@ class option
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function add_menu_child_as_gallery_item($_section_id, $_menu_id, $_number = 1)
+	public static function add_menu_child_as_gallery_item($_section_id, $_menu_id, $_number = 1, $_args = [])
 	{
 
 		$insert_menu_child =
@@ -410,6 +418,8 @@ class option
 			'for_id' => $_section_id,
 			'sort'   => $_number,
 		];
+
+		$insert_menu_child = array_merge($insert_menu_child, $_args);
 
 		$last_menu_id = \lib\app\menu\add::menu_item($insert_menu_child, $_menu_id, true);
 

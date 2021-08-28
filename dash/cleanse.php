@@ -879,7 +879,7 @@ class cleanse
 		// show all result in local
 		if(\dash\url::isLocal())
 		{
-			// \dash\notif::api("END CLEANSE FUNCTION");
+			\dash\notif::api("END CLEANSE FUNCTION");
 		}
 
 		if(\dash\temp::get('clesnse_not_end_with_error'))

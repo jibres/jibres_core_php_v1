@@ -5,6 +5,7 @@ namespace content_sudo\fix\sitebuilder;
 class view
 {
 	use news;
+	use gallery;
 
 	public static function config()
 	{
@@ -43,14 +44,30 @@ class view
 
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
+		$skipp_subdomain =
+		[
+			// 'rezamohiti',
+			// 'tresssst',
+		];
 
 		\dash\code::time_limit(0);
 
 		foreach ($list as $key => $value)
 		{
-			self::one_business($value['id'], $value['fuel'], $value['subdomain']);
 
-			\dash\db\mysql\tools\connection::close();
+
+			if(in_array(a($value, 'subdomain'), $skipp_subdomain))
+			{
+				self::counter('skipped business');
+				return;
+
+			}
+
+			\dash\engine\store::force_lock($value);
+
+			self::conver_one_business();
+
+			\dash\db::close();
 		}
 
 		var_dump(self::$counter);
@@ -79,34 +96,16 @@ class view
 	}
 
 
-	private static function one_business($store_id, $fuel, $subdomain)
+	private static function conver_one_business()
 	{
 		self::counter('i');
 
-		if(!$store_id || !$fuel || !$subdomain)
-		{
-			self::error('No input from function :'. __FUNCTION__, __LINE__);
-		}
 
-		$skipp_subdomain =
-		[
-			// 'rezamohiti',
-			// 'tresssst',
-		];
-
-		if(in_array($subdomain, $skipp_subdomain))
-		{
-			self::counter('skipped business');
-			return;
-
-		}
-
-		$dbname = \dash\engine\store::make_database_name($store_id);
 
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
 		$query = "	SELECT * FROM pagebuilder where 1";
 
-		$old_record_pagebuilder = \dash\db::get($query, null, false, $fuel, ['database' => $dbname]);
+		$old_record_pagebuilder = \dash\db::get($query);
 
 		if(!$old_record_pagebuilder)
 		{
@@ -135,9 +134,15 @@ class view
 					// var_dump('new sitebuilder section key!', $pagebuilder_record, func_get_args());exit;
 					break;
 
-				case 'news':
-					$preview = self::conver_news($pagebuilder_record, $new_record);
-					self::counter('news_converted');
+				// case 'news':
+				// 	$preview = self::conver_news($pagebuilder_record, $new_record);
+				// 	self::counter('news_converted');
+				// 	$skipp_section = false;
+				// 	break;
+
+				case 'image':
+					$preview = self::conver_gallery($pagebuilder_record, $new_record);
+					self::counter('gallery_converted');
 					$skipp_section = false;
 					break;
 
@@ -160,7 +165,8 @@ class view
 
 
 
-			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'), $fuel, $dbname);
+			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'));
+
 
 		}
 	}

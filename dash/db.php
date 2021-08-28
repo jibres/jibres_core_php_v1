@@ -536,6 +536,12 @@ class db
 	}
 
 
+	public static function close()
+	{
+		\dash\db\mysql\tools\connection::close();
+		\dash\pdo\connection::close();
+	}
+
 
 }
 ?>
