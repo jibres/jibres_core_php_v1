@@ -80,9 +80,16 @@ if(\dash\url::child())
 
         $html .= '<div class="c"></div>';
 
-        $html .= "<div class='cauto os'>";
+        $html .= "<div class='cauto os pLa5'>";
         {
-          $html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' data-ajaxify data-data='$hide_view_json'>";
+          $html .= "<a href='#' class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg'  title='". T_("Change Model") ."'>";
+          $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Exchange'). '" alt="change to another model">';
+          $html .= '</a>';
+        }
+        $html .= '</div>';
+        $html .= "<div class='cauto os pLa5'>";
+        {
+          $html .= "<a tabindex=0 class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' data-ajaxify data-data='$hide_view_json' title='". T_("Hide/Show") ."'>";
           {
             if(a(\dash\data::currentSectionDetail(), 'status_preview') === 'hidden')
             {
