@@ -103,6 +103,11 @@ class option
 				unset($update['is_removed']);
 				unset($update['is_preview_menu']);
 				unset($update['is_saved_menu']);
+				unset($update['parent1']);
+				unset($update['parent2']);
+				unset($update['parent3']);
+				unset($update['parent4']);
+				unset($update['parent5']);
 
 				\lib\app\menu\edit::edit($update, $value['id'], true);
 
