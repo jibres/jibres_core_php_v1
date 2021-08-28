@@ -176,36 +176,6 @@ class load
 		}
 
 
-		if(isset($post_detail['meta']['template']) && $homepage_builder)
-		{
-			if(in_array($post_detail['meta']['template'], ['comingsoon', 'visitcard']))
-			{
-				switch ($post_detail['meta']['template'])
-				{
-					case 'comingsoon':
-						$comingsoon_visitcad_template = 'comingsoon';
-						\dash\face::disablePWA_Header(true);
-						\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
-						break;
-
-					case 'visitcard':
-						$comingsoon_visitcad_template = 'visitcard';
-						\dash\face::disablePWA_Header(true);
-						\dash\face::css(
-							[
-								"business/visitcard-1/visitcard-1.css",
-								"https://fonts.googleapis.com/css?family=Quicksand:300,400"
-							]
-						);
-						\dash\face::twitterCard('summary_large_image');
-						break;
-
-					default:
-						break;
-				}
-			}
-		}
-
 		$list = [];
 
 		if($comingsoon_visitcad_template)
