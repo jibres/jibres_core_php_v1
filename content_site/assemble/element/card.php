@@ -95,9 +95,31 @@ class card
 						{
 							$card .= '<div>';
 							{
-								$card .= \dash\fit::price(a($value, 'finalprice'));
-								$card .= ' ';
-								$card .= \lib\store::currency();
+								$price = \dash\fit::price(a($value, 'finalprice'));
+								$freeText = a($value, 'free_button_title');
+								$freeLink = a($value, 'free_button_link');
+
+					      if($price)
+					      {
+					        $card .= '<span>'. T_("Price"). '</span>';
+					        $card .= '<div class="priceShow" data-final>';
+					        {
+					          $card .= '<span class="price">'. \dash\fit::price($price). '</span>';
+					          $card .= '<span class="unit">'. \lib\store::currency().'</span>';
+					        }
+					        $card .= '</div>';
+					      }
+					      elseif((string) $price === '0')
+					      {
+					        $card .= '<span class="txtB fc-green">'. T_("Free"). '</span>';
+					      }
+					      elseif(is_null($price))
+					      {
+					        if($freeText && $freeLink)
+					        {
+					          $card .= '<a class="btnBuy" href="'. $freeLink. '" target="_blank">'. $freeText. '</a>';
+					        }
+					      }
 							}
 							$card .= '</div>';
 						}
