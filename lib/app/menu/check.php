@@ -32,6 +32,7 @@ class check
 			'for_id'        => 'id',
 			'file'          => 'string',
 			'description'   => 'desc',
+			'file'          => 'string',
 		];
 
 		$require = [];
