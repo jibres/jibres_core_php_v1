@@ -28,7 +28,6 @@ class t1
 					'container',
 					'background_pack',
 					'color_text',
-					'model',
 				]),
 			],
 			'default'      =>

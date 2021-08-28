@@ -53,7 +53,6 @@ class g2
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
-					'model',
 				]),
 			],
 			'break_image_list' => 4,

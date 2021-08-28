@@ -36,7 +36,6 @@ class b3
 					'color_text',
 					'link_color_post_read_more',
 					'btn_viewall_mode',
-					'model',
 				]),
 
 			],

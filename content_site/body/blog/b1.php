@@ -42,7 +42,6 @@ class b1
 					'radius_normal',
 					'coverratio',
 					'btn_viewall_mode',
-					'model',
 				]),
 			],
 			'default'      =>

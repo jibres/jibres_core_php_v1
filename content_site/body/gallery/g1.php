@@ -45,7 +45,6 @@ class g1
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
-					'model',
 				]),
 			],
 			'maximum_capacity' => 12,
