@@ -66,7 +66,7 @@ class controller
 			elseif($subchild === 'model')
 			{
 				// ok
-				\dash\data::changeSectionTypeMode(true);
+				\dash\data::changeSectionModel(true);
 			}
 			else
 			{

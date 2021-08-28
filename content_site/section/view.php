@@ -112,7 +112,7 @@ class view
 
 		if(\dash\url::child())
 		{
-			if(\dash\data::changeSectionTypeMode())
+			if(\dash\data::changeSectionModel())
 			{
 				$folder            = \dash\data::currentSectionDetail_folder();
 				$section_requested = \dash\url::child();
@@ -226,9 +226,9 @@ class view
 		{
 			$url = \dash\url::this(). '?'.\dash\request::build_query($all_get);
 		}
-		elseif(\dash\data::changeSectionTypeMode())
+		elseif(\dash\data::changeSectionModel())
 		{
-			$url = \dash\url::that(). '/style?'.\dash\request::build_query($all_get);
+			$url = \dash\url::that(). '?'.\dash\request::build_query($all_get);
 		}
 		else
 		{

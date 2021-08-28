@@ -10,7 +10,7 @@ if(\dash\data::sidebarSectionList())
 }
 elseif(\dash\data::groupSectionList())
 {
-  if(\dash\data::changeSectionTypeMode())
+  if(\dash\data::changeSectionModel())
   {
     // nothing
   }

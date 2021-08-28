@@ -140,14 +140,22 @@ class model
 			$trust_options_list = array_merge($trust_options_list, $extends_option);
 		}
 
+
 		if(in_array($option_key, $trust_options_list))
 		{
 			// ok
 		}
 		else
 		{
-			\dash\notif::error(T_("Invalid option"). ' '. __LINE__);
-			return false;
+			if(\dash\data::changeSectionModel() && $option_key === 'model')
+			{
+				// all section have this option opt_model to change model of option
+			}
+			else
+			{
+				\dash\notif::error(T_("Invalid option"). ' '. __LINE__);
+				return false;
+			}
 		}
 
 		/**
@@ -187,7 +195,7 @@ class model
 			return false;
 		}
 
-		if(\dash\data::changeSectionTypeMode())
+		if(\dash\data::changeSectionModel())
 		{
 			// need overwrite preview detail
 			// load preview setting from function
@@ -316,7 +324,7 @@ class model
 
 		$preview           = json_encode($preview);
 
-		if($load_section_lock['preview'] === $preview && !\dash\data::changeSectionTypeMode())
+		if($load_section_lock['preview'] === $preview && !\dash\data::changeSectionModel())
 		{
 			\dash\pdo::rollback();
 			self::$do_nothing_reload = true;
@@ -333,7 +341,7 @@ class model
 		}
 
 
-		if(\dash\data::changeSectionTypeMode())
+		if(\dash\data::changeSectionModel())
 		{
 			// check process after change model
 			\content_site\call_function::after_change_model($section_key, $section_id, $model, $preview_key);
