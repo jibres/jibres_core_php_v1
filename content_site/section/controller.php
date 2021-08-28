@@ -115,7 +115,7 @@ class controller
 			'blog',
 			'gallery',
 			'product',
-			'contactform',
+			// 'contactform',
 			'heading',
 			// 'imagetext',
 			'text',

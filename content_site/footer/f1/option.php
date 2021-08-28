@@ -28,7 +28,7 @@ class option
 		return
 		[
 			'group'   => T_("Footer"),
-			'key'     => 'f1',
+			'section'     => 'f1',
 			'title'   => T_("Footer 3"),
 			'icon'    => \dash\utility\icon::url('Footer'),
 		];
