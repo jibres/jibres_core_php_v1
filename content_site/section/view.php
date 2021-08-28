@@ -381,6 +381,7 @@ class view
 
 		$identify =
 		[
+			'id'          => a($result, 'id'),
 			'section'     => a($result, 'section'),
 			'model'       => a($result, 'model'),
 			'preview_key' => a($result, 'preview_key'),
@@ -389,7 +390,6 @@ class view
 		$thisDefault = array_merge($identify, $detail, $default);
 
 		$result['preview']                 = array_merge($thisDefault, $result['preview']);
-		$result['preview']['id']           = a($result, 'id');
 		$result['preview']['preview_mode'] = true;
 		$result['preview_layout']          = null;
 
@@ -434,6 +434,7 @@ class view
 			{
 				$result['body']['html_text'] = $result['text'];
 			}
+
 
 			$result['body']           = array_merge($thisDefault, $result['body']);
 
