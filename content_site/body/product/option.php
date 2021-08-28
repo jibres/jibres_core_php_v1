@@ -33,9 +33,9 @@ class option
 	{
 		return
 		[
-			'p3',
-			// 'p1',
+			'p1',
 			// 'p2',
+			// 'p3',
 		];
 	}
 
@@ -44,9 +44,9 @@ class option
 	{
 		return
 		[
-			'p3:p1',
-			// 'p1:p1',
+			'p1:p1',
 			// 'p2:p1',
+			// 'p3:p1',
 		];
 	}
 

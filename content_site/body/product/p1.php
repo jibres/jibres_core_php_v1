@@ -2,7 +2,7 @@
 namespace content_site\body\blog;
 
 
-class b1
+class p1
 {
 
 	/**
