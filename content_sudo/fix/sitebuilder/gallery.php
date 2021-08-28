@@ -40,13 +40,21 @@ trait gallery
 
 				if(!$url)
 				{
-					$args['pointer'] = 'homepage';
+					unset($args['pointer']);
+					unset($args['url']);
+					// $args['pointer'] = 'homepage';
+				}
+
+				if(!$args['title'])
+				{
+					unset($args['title']);
 				}
 
 				$child_id = \content_site\body\gallery\option::add_menu_child_as_gallery_item($record['id'], $menu_id, 1, $args);
 
 				if(!$child_id)
 				{
+					\dash\notif::api('ss');
 					self::counter('error:cannnot add menu_id');
 				}
 			}
