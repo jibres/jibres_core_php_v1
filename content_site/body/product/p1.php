@@ -23,6 +23,8 @@ class p1
 				'product_order',
 				'count_product',
 				'product_show_image',
+				'product_show_title',
+				'product_show_price',
 				'btn_viewall',
 				// sub page
 				'style' => \content_site\utility::set_style_option(
