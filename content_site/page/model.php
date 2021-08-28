@@ -38,11 +38,21 @@ class model
 		{
 			foreach ($preview_deleted as $key => $value)
 			{
-				\content_site\call_function::before_section_remove(a($value, 'type'), a($value, 'id'));
+				\content_site\call_function::before_section_remove(a($value, 'section'), a($value, 'id'));
 			}
 		}
 
 		\lib\db\sitebuilder\update::save_page($page_id);
+
+		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
+
+		if($all_section)
+		{
+			foreach ($all_section as $key => $value)
+			{
+				\content_site\call_function::after_save_page(a($value, 'section'), a($value, 'id'));
+			}
+		}
 
 		\dash\notif::ok(T_("Data saved"));
 
