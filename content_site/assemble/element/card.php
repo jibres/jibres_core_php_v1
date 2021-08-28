@@ -41,6 +41,8 @@ class card
 
 				// show caption on some conditions
 				$showCardCaption = true;
+				$showCardTitle = true;
+				$showCardPrice = false;
 				if(a($_args, 'section') === 'product')
 				{
 					if(a($_args, 'product_show_title'))
@@ -50,18 +52,22 @@ class card
 					else if(a($_args, 'product_show_price'))
 					{
 						// enable true
+						$showCardPrice = true;
+						$showCardTitle = false;
 					}
 					else
 					{
 						$showCardCaption = false;
+						$showCardTitle = false;
 					}
-
 				}
 
 				if($showCardCaption)
 				{
 					$card .= "<div class='flex-grow px-6 py-4'>";
 					{
+						if($showCardTitle)
+						{
 							// title
 							$card .= '<h3>';
 							{
@@ -73,6 +79,7 @@ class card
 
 							}
 							$card .= '</h3>';
+						}
 
 						$card .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
 
@@ -84,6 +91,16 @@ class card
 							$card .= "</p>";
 						}
 
+						if($showCardPrice)
+						{
+							$card .= '<div>';
+							{
+								$card .= \dash\fit::price(a($value, 'finalprice'));
+								$card .= ' ';
+								$card .= \lib\store::currency();
+							}
+							$card .= '</div>';
+						}
 					}
 					$card .= '</div>';
 				}
