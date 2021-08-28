@@ -34,6 +34,7 @@ class option
 		return
 		[
 			'p1',
+			'p2',
 			// 'p2',
 			// 'p3',
 		];
