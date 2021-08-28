@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.menu ADD `preview` mediumtext CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `file`;
