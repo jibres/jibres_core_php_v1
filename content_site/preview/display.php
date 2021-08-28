@@ -137,7 +137,7 @@ else
 	{
 		$page_url = \dash\url::current(). \dash\request::full_get(['lock' => 1]);
 
-		$html .= '<iframe id="liveIframe" class="w-full h-full" src="'. $page_url. '"></iframe>';
+		$html .= '<iframe id="liveIframe" class="w-full h-screen pt-10" src="'. $page_url. '"></iframe>';
 
 	}
 
