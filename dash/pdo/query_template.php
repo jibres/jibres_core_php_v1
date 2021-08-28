@@ -76,5 +76,30 @@ class query_template
 
 		return $result;
 	}
+
+
+
+	public static function get($_table, $_id, $_fuel = null, $_db_name = null)
+	{
+		$query = "SELECT * FROM `$_table` WHERE `$_table`.`id` = :_id LIMIT 1 ";
+
+		$param = [':_id' => $_id];
+
+		$result = \dash\pdo::get($query, $param, null, true, $_fuel, ['database' => $_db_name]);
+
+		return $result;
+	}
+
+
+	public static function get_for_update($_table, $_id, $_fuel = null, $_db_name = null)
+	{
+		$query = "SELECT * FROM `$_table` WHERE `$_table`.`id` = :_id LIMIT 1 FOR UPDATE ";
+
+		$param = [':_id' => $_id];
+
+		$result = \dash\pdo::get($query, $param, null, true, $_fuel, ['database' => $_db_name]);
+
+		return $result;
+	}
 }
 ?>

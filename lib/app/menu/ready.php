@@ -18,6 +18,14 @@ class ready
 		{
 			switch ($key)
 			{
+				case 'preview':
+					$result[$key] = json_decode($value, true);
+					if(!is_array($result[$key]))
+					{
+						$result[$key] = [];
+					}
+
+					break;
 
 				default:
 					$result[$key] = $value;

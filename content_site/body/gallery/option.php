@@ -76,15 +76,12 @@ class option
 	}
 
 
-
 	/**
-	 * Get list of gallery item
+	 * After save page move all preview menu field to real menu field
 	 *
 	 * @param      <type>  $_section_id  The section identifier
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function gallery_items($_section_id)
+	public static function after_save_page($_section_id = null)
 	{
 		$list = \lib\app\menu\get::get_by_for_id('gallery', $_section_id);
 
@@ -93,7 +90,92 @@ class option
 			$list = [];
 		}
 
-		return $list;
+		foreach ($list as $key => $value)
+		{
+			if(a($value, 'preview', 'is_removed'))
+			{
+				\lib\app\menu\remove::remove($value['id'], true);
+			}
+			else
+			{
+				$update = $value['preview'];
+
+				unset($update['is_removed']);
+				unset($update['is_preview_menu']);
+				unset($update['is_saved_menu']);
+
+				\lib\app\menu\edit::edit($update, $value['id'], true);
+
+				$preview = $value['preview'];
+
+				$preview['is_preview_menu'] = false;
+				$preview['is_saved_menu'] = true;
+
+				$preview = json_encode($preview);
+
+				\dash\pdo\query_template::update('menu', ['preview' => $preview], $value['id']);
+			}
+		}
+
+		\dash\notif::clean();
+
+	}
+
+
+	/**
+	 * Get list of gallery item
+	 *
+	 * @param      <type>  $_section_id  The section identifier
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function gallery_items($_section_id, $_preview_mode)
+	{
+		$list = \lib\app\menu\get::get_by_for_id('gallery', $_section_id);
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if($_preview_mode)
+			{
+				if(a($value, 'preview', 'is_removed'))
+				{
+					// is removed !
+				}
+				else
+				{
+					$value = array_merge($value, $value['preview']);
+
+					$new_list[] = $value;
+				}
+			}
+			else
+			{
+				if(a($value, 'preview', 'is_saved_menu'))
+				{
+					$new_list[] = $value;
+				}
+			}
+		}
+
+		if($_preview_mode)
+		{
+			$sort_column = array_column($new_list, 'sort');
+
+			if(count($sort_column) === count($new_list))
+			{
+				array_multisort($new_list, SORT_ASC, SORT_NUMERIC, $sort_column);
+			}
+		}
+
+
+		return $new_list;
 	}
 
 
@@ -127,7 +209,9 @@ class option
 			return false;
 		}
 
-		$menu['index']       = $index;
+		$menu = array_merge($menu, $menu['preview']);
+
+		$menu['index']      = $index;
 		$menu['section_id'] = $currentSectionDetail['id'];
 
 		return $menu;
@@ -143,7 +227,7 @@ class option
 	 */
 	public static function gallery_items_count($_section_id)
 	{
-		$count = self::gallery_items($_section_id);
+		$count = self::gallery_items($_section_id, true);
 
 		if(is_array($count))
 		{
@@ -312,7 +396,7 @@ class option
 			/**
 			 * remove useless items by check datemodified
 			 */
-			$list = self::gallery_items($_section_id);
+			$list = self::gallery_items($_section_id, true);
 
 			$must_remove = abs($remain);
 
@@ -423,6 +507,11 @@ class option
 
 		$last_menu_id = \lib\app\menu\add::menu_item($insert_menu_child, $_menu_id, true);
 
+		if(a($last_menu_id, 'id'))
+		{
+			self::update_menu_preview($insert_menu_child, a($last_menu_id, 'id'));
+		}
+
 		\dash\notif::clean(true);
 
 		return a($last_menu_id, 'id');
@@ -448,7 +537,9 @@ class option
 		$type       = a($gallery, 'preview', 'model');
 		$section_id = a($gallery, 'id');
 
-		\lib\app\menu\edit::edit($_args, $index, true);
+		// \lib\app\menu\edit::edit($_args, $index, true);
+
+		self::update_menu_preview($_args, $index);
 
 		if(\dash\engine\process::status())
 		{
@@ -456,6 +547,37 @@ class option
 		}
 
 		return true;
+	}
+
+
+	private static function update_menu_preview($_args, $_id, $_meta = [])
+	{
+		$preview = [];
+
+		\dash\pdo::transaction();
+
+		$record = \dash\pdo\query_template::get_for_update('menu', $_id);
+
+		if(isset($record['preview']))
+		{
+			$preview = json_decode($record['preview'], true);
+
+			if(!is_array($preview))
+			{
+				$preview = [];
+			}
+		}
+
+		$args = array_merge($preview, $_args, $_meta);
+
+		$args['is_preview_menu'] = true;
+
+		$args = json_encode($args);
+
+		\dash\pdo\query_template::update('menu', ['preview' => $args], $_id);
+
+		\dash\pdo::commit();
+
 	}
 
 
@@ -501,8 +623,9 @@ class option
 
 		$index      = a($gallery, 'index');
 
+		self::update_menu_preview([], $index, ['is_removed' => true]);
 
-		\lib\app\menu\remove::remove($index, true);
+		// \lib\app\menu\remove::remove($index, true);
 
 		if(\dash\engine\process::status())
 		{

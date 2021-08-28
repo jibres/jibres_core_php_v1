@@ -18,7 +18,7 @@ class layout
 
 		$html             = '';
 
-		$image_list = option::gallery_items(a($_args, 'id'));
+		$image_list = option::gallery_items(a($_args, 'id'), a($_args, 'preview_mode'));
 
 		if(!is_array($image_list))
 		{
