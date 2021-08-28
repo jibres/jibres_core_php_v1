@@ -13,15 +13,8 @@ class image_list
 			return false;
 		}
 
-		$menu_id = \content_site\body\gallery\option::get_master_menu_id(\dash\request::get('sid'));
+		\content_site\body\gallery\option::sort_gallery_items($sortgallery);
 
-		\lib\app\menu\edit::sort_raw($sortgallery, $menu_id);
-
-		if(\dash\engine\process::status())
-		{
-			\dash\notif::clean();
-			\content_site\utility::need_redirect(true);
-		}
 
 	}
 

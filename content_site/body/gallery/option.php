@@ -218,6 +218,39 @@ class option
 	}
 
 
+	public static function sort_gallery_items($_sort)
+	{
+		$sort = array_map('floatval', $_sort);
+		$sort = array_filter($sort);
+		$sort = array_unique($sort);
+
+		if(!$sort)
+		{
+			return;
+		}
+
+
+		$currentSectionDetail = \dash\data::currentSectionDetail();
+
+		if(!$currentSectionDetail || !isset($currentSectionDetail['id']))
+		{
+			return false;
+		}
+
+		$items = self::gallery_items($currentSectionDetail['id'], true);
+
+		foreach ($items as $item)
+		{
+			$id = a($item, 'id');
+			if(($mySort = array_search($id, $sort)) !== false)
+			{
+				self::update_menu_preview([], $id, ['sort' => $mySort]);
+			}
+		}
+
+		\content_site\utility::need_redirect(true);
+	}
+
 	/**
 	 * Get count of current gallery item
 	 *
