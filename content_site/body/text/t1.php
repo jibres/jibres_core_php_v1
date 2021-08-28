@@ -25,7 +25,7 @@ class t1
 				[
 					'font',
 					'height',
-					'container_full',
+					'container',
 					'background_pack',
 					'color_text',
 					'model',
