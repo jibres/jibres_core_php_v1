@@ -330,8 +330,17 @@ class notif
 	}
 
 
-	public static function clean()
+	public static function clean($_show_error = false)
 	{
+		if($_show_error)
+		{
+			if(!\dash\engine\process::status())
+			{
+				// not clean error
+				return;
+			}
+		}
+
 		self::$notif = [];
 	}
 
