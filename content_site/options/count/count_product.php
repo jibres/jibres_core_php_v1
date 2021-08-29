@@ -2,7 +2,7 @@
 namespace content_site\options\count;
 
 
-class count_product
+trait count_product
 {
 	use count;
 

@@ -114,6 +114,7 @@ class layout
 			'title'         => T_("Your product’s title"),
 			'excerpt'       => T_("Your business hasn't published any products yet."),
 			'thumb'         => $img,
+			'price'         => rand(1, 90) * 1000,
 
 		];
 	}

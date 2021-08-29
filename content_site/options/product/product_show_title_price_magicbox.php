@@ -8,9 +8,9 @@ trait product_show_title_price_magicbox
 	{
 		$new_data = \content_site\options\magicbox\magicbox_title_position::validator($_data);
 		$new_data['product_show_title'] = product_show_title::validator($_data);
-		$new_data['product_show_image'] = product_show_image::validator($_data);
+		$new_data['product_show_price'] = product_show_price::validator($_data);
 
-		// if(!$new_data['product_show_image'] && !$new_data['product_show_title'])
+		// if(!$new_data['product_show_price'] && !$new_data['product_show_title'])
 		// {
 		// 	$new_data['magicbox_title_position'] = 'hide';
 		// 	\content_site\utility::need_redirect(true);
@@ -25,7 +25,7 @@ trait product_show_title_price_magicbox
 	}
 
 
-	public static function check_image_and_title()
+	public static function check_price_and_title()
 	{
 		return false;
 	}
@@ -33,7 +33,7 @@ trait product_show_title_price_magicbox
 	public static function admin_html()
 	{
 		$default_title = \content_site\section\view::get_current_index_detail('product_show_title');
-		$default_image = \content_site\section\view::get_current_index_detail('product_show_image');
+		$default_price = \content_site\section\view::get_current_index_detail('product_show_price');
 
 
 		$magicbox_title_position_key = \content_site\options\magicbox\magicbox_title_position::db_key();
@@ -59,7 +59,7 @@ trait product_show_title_price_magicbox
 			// $html .= "<div data-response='$magicbox_title_position_key' data-response-where-not='hide' $data_response_hide>";
 			{
 				$html .= \content_site\options\generate::checkbox('show_title',  T_('Display product title'), $default_title);
-				$html .= \content_site\options\generate::checkbox('show_image',  T_('Display product image'), $default_image);
+				$html .= \content_site\options\generate::checkbox('show_price',  T_('Display product price'), $default_price);
 
 			}
 			// $html .= '</div>';

@@ -22,11 +22,12 @@ class p4
 
 				'product_tag',
 				'product_order',
-				'count_product',
+				'count_product_p4',
 				// 'magicbox_title_position',
 				'product_show_title_price_magicbox',
 				// 'product_show_price',
 
+				'btn_viewall',
 				'slider_setting' =>
 				[
 					'slider_effect',
@@ -34,13 +35,11 @@ class p4
 					'slider_next_prev',
 					'slider_size',
 				],
-				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',
 					'container_product_p4',
-					'magicbox_gap',
 					'background_pack',
 					'color_heading',
 					'radius_full',
