@@ -104,7 +104,6 @@ class background_color_random
 		$json =
 		[
 			'opt_background_color_random' => 'random_bg_color',
-			// 'notredirect' => 1,
 		];
 
 		$json = json_encode($json);
@@ -117,7 +116,6 @@ class background_color_random
 		$json =
 		[
 			'opt_background_color_random' => 'random_bg_gradient',
-			// 'notredirect' => 1,
 		];
 
 		$json = json_encode($json);

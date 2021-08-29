@@ -90,7 +90,6 @@ namespace content_site\options;
 // 		$html = '';
 // 		$html .= '<form method="post" data-patch>';
 // 		{
-// 			$html .= '<input type="hidden" name="notredirect" value="1">';
 // 			$html .= \content_site\options\generate::multioption();
 // 			$html .= "<label>$title</label>";
 

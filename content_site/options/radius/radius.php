@@ -80,8 +80,6 @@ trait radius
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= '<input type="hidden" name="notredirect" value="1">';
-
 			$html .= "<label>$title</label>";
 
 			$name       = 'opt_'. \content_site\utility::className(__CLASS__);

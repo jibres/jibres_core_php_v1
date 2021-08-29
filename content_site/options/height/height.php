@@ -67,8 +67,6 @@ class height
 		$html = '';
 		$html .= '<form method="post" data-patch>';
 		{
-			$html .= '<input type="hidden" name="notredirect" value="1">';
-
 			$html .= "<label>$title</label>";
 
 			$name       = 'opt_height';

@@ -129,8 +129,6 @@ class background_pack
 
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
-
-			$html .= '<input type="hidden" name="notredirect" value="1">';
 			$html .= "<label>". T_("Background Type") ."</label>";
 
 			$name       = 'opt_background_pack';

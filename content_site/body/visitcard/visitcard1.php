@@ -20,6 +20,8 @@ class visitcard1
 				'heading_raw',
 				'description',
 
+				''
+
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
