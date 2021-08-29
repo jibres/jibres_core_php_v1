@@ -45,11 +45,7 @@ class view
 		$args['startdate'] = $startdate ? $startdate : null;
 		$args['enddate']   = $enddate ? $enddate : null;
 		$args['month']     = \dash\request::get('month');
-
-		if(\dash\request::get('status'))
-		{
-			$args['status'] = \dash\request::get('status');
-		}
+		$args['status'] = 'lock';
 
 		if(\dash\request::get('export'))
 		{
@@ -59,7 +55,6 @@ class view
 		$args['limit'] = 200;
 
 		$dataTable = \lib\app\tax\doc\search::list(\dash\validate::search_string(), $args);
-
 
 		\dash\data::dataTableAll($dataTable);
 
