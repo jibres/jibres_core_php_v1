@@ -19,6 +19,9 @@ class visitcard1
 			[
 				'heading_raw',
 				'description',
+				'file_logo_force',
+
+				'socialnetwork',
 
 				'style' => \content_site\utility::set_style_option(
 				[

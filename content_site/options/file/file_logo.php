@@ -39,6 +39,11 @@ trait file_logo
 		return T_("Logo");
 	}
 
+	public static function have_none()
+	{
+		return true;
+	}
+
 
 	public static function admin_html()
 	{
@@ -57,7 +62,11 @@ trait file_logo
 
 
 			$radio_html = '';
-			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false), true);
+
+			if(self::have_none())
+			{
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false), true);
+			}
 			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_logo', T_("Business Logo"), (($use_as_logo === 'business_logo')? true : false), true);
 			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_logo', T_("Custom"), (($use_as_logo === 'custom_logo')? true : false), true);
 
