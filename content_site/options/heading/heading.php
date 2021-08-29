@@ -81,7 +81,6 @@ trait heading
 
 			if(self::include_business_title())
 			{
-				$html .= \content_site\options\generate::multioption();
 				$html .= '<input type="hidden" name="opt_'.\content_site\utility::className(__CLASS__).'" value="1">';
 				$html .= "<label>$title</label>";
 
