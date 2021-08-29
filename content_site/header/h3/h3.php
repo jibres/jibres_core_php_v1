@@ -18,8 +18,8 @@ class h3
 			'default'      => ['type' => 'h3'],
 			'options'      =>
 			[
-				'heading_raw',
-				'file_header_logo',
+				'heading_business_header',
+				'file_business_logo_header',
 				'menu_1',
 				// 'style' =>
 				// [

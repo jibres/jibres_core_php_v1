@@ -17,9 +17,9 @@ class visitcard1
 			'title'        => T_("visitcard 1"),
 			'options'      =>
 			[
-				'heading_raw',
-				'description',
-				'file_logo_force',
+				'heading_business',
+				'description_business',
+				'file_business_logo',
 
 				'socialnetwork',
 

@@ -2,7 +2,7 @@
 namespace content_site\options\file;
 
 
-trait file_logo
+trait file_business_logo
 {
 	use file;
 

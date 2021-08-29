@@ -2,9 +2,9 @@
 namespace content_site\options\file;
 
 
-class file_header_logo
+class file_business_logo_header
 {
-	use file_logo;
+	use file_business_logo;
 
 
 	public static function db_key()
