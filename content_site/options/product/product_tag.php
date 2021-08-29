@@ -7,7 +7,7 @@ class product_tag
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::code_0($_data);
+		$data = \dash\validate::id($_data);
 		return $data;
 	}
 
