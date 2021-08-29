@@ -87,7 +87,14 @@ class slider
 					'attr' => $specialAttr,
 				];
 
-				$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $sliderOption);
+				if($_multiInRow === 'card')
+				{
+					$html .= \content_site\assemble\element\card::html($_args, $_datalist);
+				}
+				else
+				{
+					$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $sliderOption);
+				}
 			}
 			$html .= '</div>';
 

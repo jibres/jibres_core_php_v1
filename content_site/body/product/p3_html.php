@@ -15,7 +15,7 @@ class p3_html
 				// $html .= \content_site\assemble\wrench\section::grid_12($_args);
 				$html .= '<div class="">';
 				{
-					$html .= \content_site\assemble\element\slider::html($_args, $_list, true);
+					$html .= \content_site\assemble\element\slider::html($_args, $_list, 'card');
 					// $html .= \content_site\assemble\element\card::html($_args, $_list);
 				}
 				$html .= '</div>';
