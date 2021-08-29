@@ -50,6 +50,7 @@ class model
 		[
 			'title' => $title,
 			'type'  => 'pagebuilder',
+			'status' => 'publish',
 		];
 
 		$post_detail = \dash\app\posts\add::add($post, true);
