@@ -6,7 +6,7 @@ class product_show_price
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_price'));
+		$data = \dash\validate::bool(a($_data, 'show_price'));
 		return $data;
 	}
 

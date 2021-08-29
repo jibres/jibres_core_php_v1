@@ -6,7 +6,7 @@ class post_show_author
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_author'));
+		$data = \dash\validate::bool(a($_data, 'show_author'));
 		return $data;
 	}
 

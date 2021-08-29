@@ -6,7 +6,7 @@ class product_show_discountpercent
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'show_discount'));
+		$data = \dash\validate::bool(a($_data, 'show_discount'));
 		return $data;
 	}
 

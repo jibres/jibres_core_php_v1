@@ -6,7 +6,7 @@ class contact_get_mobile
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bit(a($_data, 'get_mobile'));
+		$data = \dash\validate::bool(a($_data, 'get_mobile'));
 		return $data;
 	}
 
