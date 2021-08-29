@@ -46,10 +46,19 @@ class slider
 				$specialAttr = "class='swiper-slide'";
 				if($_multiInRow)
 				{
-					// set size
-					$slideSizeClass = 'w-1/5';
+					// set margin
+					$slideMarginClass = 'p-0.5 md:p-1';
 
-					$specialAttr = "class='swiper-slide $slideSizeClass'";
+					// 40%
+					$slideSizeClass = 'w-2/6 md:w-1/5 lg:w-1/6';
+					// 60%
+					$slideSizeClass = 'w-3/6 md:w-1/4 lg:w-1/5';
+					// 80%
+					$slideSizeClass = 'w-4/6 md:w-1/3 lg:w-1/4';
+					// 80%
+					$slideSizeClass = 'w-5/6 md:w-1/2 lg:w-1/3';
+
+					$specialAttr = "class='swiper-slide $slideSizeClass $slideMarginClass'";
 				}
 				// set autoplay
 				if($autoplayDelay)
