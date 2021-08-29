@@ -81,6 +81,25 @@ class generate
 	}
 
 
+	public static function rangeslider($_name, $_range, $_default, $_lable = null)
+	{
+
+		$html = '';
+		$html .= '<div class="pb-2">';
+		{
+			if($_lable)
+			{
+				$html .= '<label for="id-'.$_name.'">'.$_lable.'</label>';
+			}
+			$html .= '<input type="text" name="'.$_name.'" id="id-'.$_name.'" data-rangeSlider data-skin="round" value="'.array_search($_default, $_range).'" data-values="'. implode(',', $_range). '">';
+		}
+		$html .= '</div>';
+
+		return $html;
+
+	}
+
+
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
 		$html = '';

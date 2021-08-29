@@ -27,21 +27,14 @@ class slider_autoplay
 
 	public static function admin_html()
 	{
-		$name = 'slider_autoplay';
-
 		$default = \content_site\section\view::get_current_index_detail('slider_autoplay');
 
 		$html = '';
+
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= '<div class="pb-2">';
-			{
-				$html .= '<label for="'.$name.'">'.T_("Autoplay delay").'</label>';
-				$html .= '<input type="text" name="opt_'.$name.'" id="'.$name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::rangeslider('opt_slider_autoplay', self::this_range(), $default, T_("Autoplay delay"));
 		}
-
   		$html .= \content_site\options\generate::_form();
 
 		return $html;

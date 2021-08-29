@@ -46,12 +46,7 @@ trait count
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= '<div class="pb-2">';
-			{
-				$html .= '<label for="'.$option_name.'">'. self::title(). '</label>';
-				$html .= '<input type="text" name="opt_'.$option_name.'" id="'.$option_name.'" data-rangeSlider data-skin="round" value="'.array_search($default, self::this_range()).'" data-values="'. implode(',', self::this_range()). '">';
-			}
-			$html .= '</div>';
+			$html .= \content_site\options\generate::rangeslider('opt_'. $option_name, self::this_range(), $default, self::title());
 		}
 
   		$html .= \content_site\options\generate::_form();
