@@ -1,7 +1,49 @@
 <?php
 $html = '';
 
-require_once('navigate.php');
+if(!\dash\request::key_exists('lock', 'get'))
+{
+	$back_url = \dash\data::previewBackUrl();
+
+	$html .= '<div class="fixed inset-x-0 py-2 px-10 bg-blue-50">';
+	{
+		$html .= '<div class="row">';
+		{
+			$html .= '<div class="c-auto">';
+			{
+				if($back_url)
+				{
+					$html .= '<a href="'. $back_url. '" >';
+					{
+						$html .= T_("Back");
+					}
+					$html .= '</a>';
+				}
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="c"></div>';
+
+			$html .= '<div class="c-auto">';
+			{
+				$html .= '<div class="w-3 bg-gray-300 rounded-full text-blue-500">';
+				{
+					$html .= '<a href="'. \dash\url::current(). \dash\request::full_get(['lock' => 1]). '" >';
+					{
+						$html .= '<img alt="Close" class="" src="'. \dash\utility\icon::url('MobileCancel'). '">';
+					}
+					$html .= '</a>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+		}
+		$html .= '</div>';
+	}
+	$html .= '</div>';
+}
+
 
 if(\dash\data::myPreviewDisplayType() === 'preview_list')
 {
