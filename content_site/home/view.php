@@ -26,8 +26,6 @@ class view
 			// 'sort'        => \dash\request::get('sort'),
 			// 'status'      => \dash\request::get('status'),
 			'type'        => 'pagebuilder',
-			// 'homepage_id' => \lib\pagebuilder\tools\homepage::id(),
-
 
 			// 'pd'      => \dash\request::get('pd'),
 			// 'g'       => \dash\request::get('g'),

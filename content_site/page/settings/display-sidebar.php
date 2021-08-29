@@ -4,6 +4,7 @@ $currentPageDetail = $dataRow = \dash\data::currentPageDetail();
 $coverUrl = a($currentPageDetail, 'cover');
 
 
+// homepage id
 ?>
 <form method="post" autocomplete="off" data-patch>
 	<input type="hidden" name="set_title" value="1">

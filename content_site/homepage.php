@@ -55,7 +55,7 @@ class homepage
 			return false;
 		}
 
-		$load_post_detail = \lib\pagebuilder\tools\current_post::load($post_id);
+		$load_post_detail = self::load($post_id);
 
 		if(!$load_post_detail)
 		{
@@ -81,6 +81,33 @@ class homepage
 
 		return true;
 
+	}
+
+
+
+	public static function load($_id)
+	{
+		if($_id && is_numeric($_id))
+		{
+			// ok
+		}
+		else
+		{
+			return false;
+		}
+		// load post detail
+		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
+
+		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(self::id()))
+		{
+			$post_detail['ishomepage'] = true;
+		}
+
+		\dash\temp::get('not_load_cms_setting', true);
+
+		$ready = \dash\app\posts\ready::row($post_detail);
+
+		return $ready;
 	}
 }
 ?>

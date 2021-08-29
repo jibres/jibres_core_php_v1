@@ -141,12 +141,8 @@ return $html;
 				$html .= '<a class="flex title-font font-medium items-center text-gray-900 mb-4 sm:mb-0">';
 				{
 
-					$logo = \lib\pagebuilder::logo();
-
-					if(!$logo)
-					{
 						$logo = \lib\store::logo();
-					}
+
 
 					if($logo)
 					{
@@ -172,18 +168,6 @@ return $html;
 		}
 		$html .= '</header>';
 
-
-
-
-			// if(\lib\pagebuilder::have_header_menu())
-			// {
-			// 	$html .= '<div class="menuBar row">';
-			// 	{
-			// 		$html .= '<div class="c">'. \lib\pagebuilder::menu('header_menu_1'). '</div>';
-			// 		$html .= '<div class="c-auto os">'. \lib\pagebuilder::menu('header_menu_2', 'xs0'). '</div>';
-			// 	}
-			// 	$html .= '</div>';
-			// }
 
 
 

@@ -1,9 +1,6 @@
 <?php
 $html = '';
 
-$homepage_id     = \lib\pagebuilder\tools\homepage::id();
-$encode_homepage = \dash\coding::encode($homepage_id);
-
 
 $html .= '<nav class="items">';
 $html .= '<ul>';
