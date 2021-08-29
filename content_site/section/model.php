@@ -86,6 +86,19 @@ class model
 			return;
 		}
 
+		// sort index child
+		if(self::set_sort_child($section_id))
+		{
+			return;
+		}
+
+
+		// remove block
+		if(self::remove_block($section_id))
+		{
+			return;
+		}
+
 
 		$trust_options_list_raw = \dash\data::currentOptionList();
 		if(!is_array($trust_options_list_raw))
@@ -461,6 +474,64 @@ class model
 
 
 
+	private static function remove_block($section_id)
+	{
+		$subchild = \dash\url::subchild();
+		$index    = \dash\request::get('index');
+
+		if(\dash\request::post('delete') === 'block' && \dash\request::get('index') && \dash\url::subchild())
+		{
+			\dash\pdo::transaction();
+
+			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+
+			if(!$load_section_lock)
+			{
+				\dash\pdo::rollback();
+
+				\dash\notif::error(T_("Section not found"). ' '. __LINE__);
+
+				return true;
+			}
+
+			$preview = json_decode($load_section_lock['preview'], true);
+
+			if(isset($preview[$subchild]) && is_array($preview[$subchild]))
+			{
+				foreach ($preview[$subchild] as $key => $value)
+				{
+					if(isset($value['index']) && $value['index'] === $index)
+					{
+						unset($preview[$subchild][$key]);
+					}
+				}
+
+				$preview           = json_encode($preview);
+
+				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+				\dash\pdo::commit();
+
+				\dash\notif::reloadIframe();
+
+				\dash\redirect::to(view::generate_back_url());
+
+				return true;
+			}
+			else
+			{
+				\dash\notif::error(T_("Can not remove this block!"));
+				\dash\pdo::rollback();
+				\dash\redirect::to(view::generate_back_url());
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+
+
 	private static function restore_section($section_id)
 	{
 
@@ -493,6 +564,111 @@ class model
 
 		return false;
 	}
+
+		/**
+	 * Sets the sort child.
+	 * for example set image sort in gallery
+	 *
+	 * @param      <type>  $section_id  The section identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	private static function set_sort_child($section_id)
+	{
+		if(!\dash\request::post('sort_child'))
+		{
+			return false;
+		}
+		// reload section detail to get last update
+		// for example in upload file need this line
+		\dash\pdo::transaction();
+
+		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+
+		if(!$load_section_lock)
+		{
+			\dash\pdo::rollback();
+
+			\dash\notif::error(T_("Section not found"). ' '. __LINE__);
+
+			return false;
+		}
+
+		$preview = json_decode($load_section_lock['preview'], true);
+
+		if(!is_array($preview))
+		{
+			\dash\notif::error(T_("Invalid preview detail"));
+			\dash\pdo::rollback();
+			return false;
+		}
+
+
+		$sort_child = \dash\request::post('sort_child');
+		$sort_child = \dash\validate::sort($sort_child);
+		if(!$sort_child)
+		{
+			\dash\notif::error(T_("Invalid sort arguments"));
+			\dash\pdo::rollback();
+
+			return false;
+		}
+
+		$sort_child = array_values($sort_child);
+
+		$subchild = \dash\request::post('child_key');
+
+		if(!isset($preview[$subchild]) || (isset($preview[$subchild]) && !is_array($preview[$subchild])))
+		{
+			\dash\notif::error(T_("This section have not sortable item!"));
+			\dash\pdo::rollback();
+			return false;
+		}
+
+		if(count($sort_child) !== count($preview[$subchild]))
+		{
+			\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+			\dash\pdo::rollback();
+			\dash\redirect::pwd();
+			return false;
+		}
+
+		foreach ($preview[$subchild] as $key => $value)
+		{
+			if(isset($value['index']) && in_array($value['index'], $sort_child))
+			{
+				$preview[$subchild][$key]['sort'] = array_search($value['index'], $sort_child);
+				// ok
+			}
+			else
+			{
+				\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+				\dash\pdo::rollback();
+				\dash\redirect::pwd();
+				return false;
+			}
+		}
+
+		$child = $preview[$subchild];
+
+		$sort_index = array_column($child, 'sort');
+
+		array_multisort($child, SORT_ASC, SORT_NUMERIC, $sort_index);
+
+		$preview[$subchild] = array_values($child);
+
+		$preview           = json_encode($preview);
+
+		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+
+		\dash\pdo::commit();
+
+		\dash\notif::complete();
+
+		return true;
+
+	}
+
 
 
 

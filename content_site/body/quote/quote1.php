@@ -17,8 +17,18 @@ class quote1
 			'title'        => T_("Quote 1"),
 			'options'      =>
 			[
-				'heading_raw',
-				'description',
+				'heading_full',
+				'quote_list' =>
+				[
+					'quote_displayname',
+					'quote_text',
+					'quote_job',
+					'quote_avatar',
+					'',
+					'quote_remove',
+				],
+				'quote_add',
+				'quote_random',
 
 				'style' => \content_site\utility::set_style_option(
 				[

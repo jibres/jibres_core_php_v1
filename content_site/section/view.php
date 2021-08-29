@@ -252,6 +252,7 @@ class view
 	 *
 	 */
 	public static function get_current_index_detail($_need = null)
+
 	{
 		$child = \dash\url::child();
 		$subchild = \dash\url::subchild();
@@ -270,7 +271,16 @@ class view
 					break;
 
 				default:
-					// nothing
+					if(isset($preview[$subchild]) && is_array($preview[$subchild]))
+					{
+						foreach ($preview[$subchild] as $key => $value)
+						{
+							if(isset($value['index']) && $value['index'] === $index)
+							{
+								$detail = $value;
+							}
+						}
+					}
 					break;
 			}
 		}
