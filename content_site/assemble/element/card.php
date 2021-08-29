@@ -40,26 +40,27 @@ class card
 				}
 
 				// show caption on some conditions
-				$showCardCaption = true;
-				$showCardTitle = true;
-				$showCardPrice = false;
+				$showCardTitle   = true;
+				$showCardPrice   = true;
+
 				if(a($_args, 'section') === 'product')
 				{
-					if(a($_args, 'product_show_title'))
+					// hide title
+					if(!a($_args, 'product_show_title'))
 					{
-						// enable true
-					}
-					else if(a($_args, 'product_show_price'))
-					{
-						// enable true
-						$showCardPrice = true;
 						$showCardTitle = false;
 					}
-					else
+					// hide price
+					if(!a($_args, 'product_show_price'))
 					{
-						$showCardCaption = false;
-						$showCardTitle = false;
+						$showCardPrice = false;
 					}
+				}
+
+				$showCardCaption = true;
+				if($showCardTitle === false && $showCardPrice === false)
+				{
+					$showCardCaption = false;
 				}
 
 				if($showCardCaption)
@@ -93,34 +94,7 @@ class card
 
 						if($showCardPrice)
 						{
-							$card .= '<div>';
-							{
-								$price = \dash\fit::price(a($value, 'finalprice'));
-								$freeText = a($value, 'free_button_title');
-								$freeLink = a($value, 'free_button_link');
-
-					      if($price)
-					      {
-					        $card .= '<div class="priceShow" data-final>';
-					        {
-					          $card .= '<span class="price">'. \dash\fit::price($price). '</span> ';
-					          $card .= '<span class="unit">'. \lib\store::currency().'</span>';
-					        }
-					        $card .= '</div>';
-					      }
-					      elseif((string) $price === '0')
-					      {
-					        $card .= '<span class="txtB fc-green">'. T_("Free"). '</span>';
-					      }
-					      elseif(is_null($price))
-					      {
-					        if($freeText && $freeLink)
-					        {
-					          $card .= '<a class="btnBuy" href="'. $freeLink. '" target="_blank">'. $freeText. '</a>';
-					        }
-					      }
-							}
-							$card .= '</div>';
+							$card .= \content_site\assemble\wrench\price::simple1($value);
 						}
 					}
 					$card .= '</div>';
