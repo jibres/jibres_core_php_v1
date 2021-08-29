@@ -21,22 +21,32 @@ class p3
 
 				'product_tag',
 				'product_order',
-				'count_product',
-				'product_show_image',
-				'product_show_title',
-				'product_show_price',
+				'count_product_p4',
+				// 'magicbox_title_position',
+				'product_show_title_price_magicbox',
+				// 'product_show_price',
+
 				'btn_viewall',
-				// sub page
+				'slider_setting' =>
+				[
+					'slider_effect',
+					'slider_autoplay',
+					'slider_next_prev',
+					'slider_size',
+				],
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
 					'height',
+					'container_product_p4',
 					'background_pack',
 					'color_heading',
-					'radius_normal',
+					'radius_full',
 					'coverratio',
+					'effect',
+					'image_mask',
+					'link_color_magicbox_title',
 					'btn_viewall_mode',
-					'model',
 				]),
 			],
 			'default'      =>
