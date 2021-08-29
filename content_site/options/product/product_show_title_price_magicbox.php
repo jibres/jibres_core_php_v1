@@ -10,11 +10,11 @@ trait product_show_title_price_magicbox
 		$new_data['product_show_title'] = product_show_title::validator($_data);
 		$new_data['product_show_image'] = product_show_image::validator($_data);
 
-		if(!$new_data['product_show_image'] && !$new_data['product_show_title'])
-		{
-			$new_data['magicbox_title_position'] = 'hide';
-			\content_site\utility::need_redirect(true);
-		}
+		// if(!$new_data['product_show_image'] && !$new_data['product_show_title'])
+		// {
+		// 	$new_data['magicbox_title_position'] = 'hide';
+		// 	\content_site\utility::need_redirect(true);
+		// }
 		return $new_data;
 	}
 
@@ -56,13 +56,13 @@ trait product_show_title_price_magicbox
 			{
 				$data_response_hide = 'data-response-hide';
 			}
-			$html .= "<div data-response='$magicbox_title_position_key' data-response-where-not='hide' $data_response_hide>";
+			// $html .= "<div data-response='$magicbox_title_position_key' data-response-where-not='hide' $data_response_hide>";
 			{
 				$html .= \content_site\options\generate::checkbox('show_title',  T_('Display product title'), $default_title);
 				$html .= \content_site\options\generate::checkbox('show_image',  T_('Display product image'), $default_image);
 
 			}
-			$html .= '</div>';
+			// $html .= '</div>';
 
 
 		}
