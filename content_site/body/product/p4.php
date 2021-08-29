@@ -26,7 +26,15 @@ class p4
 				// 'magicbox_title_position',
 				'product_show_title_price_magicbox',
 				// 'product_show_price',
-				'slider_size',
+
+				'slider_setting' =>
+				[
+					'slider_effect',
+					'slider_autoplay',
+					'slider_next_prev',
+					'slider_pagination',
+					'slider_size',
+				],
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
 				[
