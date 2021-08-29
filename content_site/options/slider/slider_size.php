@@ -37,6 +37,13 @@ trait slider_size
 	public static function admin_html()
 	{
 
+		$effect = \content_site\section\view::get_current_index_detail('slider_effect');
+
+		if(in_array($effect, ['fade', 'flip', 'cube']))
+		{
+			return;
+		}
+
 		$default = \content_site\section\view::get_current_index_detail('slider_size');
 
 
