@@ -335,6 +335,28 @@ class model
 			unset($preview['html']);
 		}
 
+
+		// detect confilict
+		$conflict = \content_site\options\conflict::detect($preview);
+
+		if($conflict === false)
+		{
+			\dash\notif::error_once(T_("Some settings are conflicting!"));
+			return false;
+		}
+
+		if($conflict === null)
+		{
+			// nothing
+			// continue
+		}
+
+		if(is_array($conflict) && $conflict)
+		{
+			// replace array
+			$preview = $conflict;
+		}
+
 		$preview           = json_encode($preview);
 
 		if($load_section_lock['preview'] === $preview && !\dash\data::changeSectionModel())
