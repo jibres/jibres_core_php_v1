@@ -10,11 +10,10 @@ trait slider_size
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'slide',     'title' => T_("S")];
-		$enum[] = ['key' => 'fade',      'title' => T_("M")];
-		$enum[] = ['key' => 'coverflow', 'title' => T_("L")];
-		$enum[] = ['key' => 'flip',      'title' => T_("XL")];
-		$enum[] = ['key' => 'cube',      'title' => T_("XXL")];
+		$enum[] = ['key' => 'sm', 'title' => 'S' ];
+		$enum[] = ['key' => 'md', 'title' => 'M' ];
+		$enum[] = ['key' => 'lg', 'title' => 'L' ];
+		$enum[] = ['key' => 'xl', 'title' => 'XL'];
 
 		return $enum;
 	}
@@ -41,7 +40,7 @@ trait slider_size
 		$default = \content_site\section\view::get_current_index_detail('slider_size');
 
 
-		$title = T_('Size');
+		$title = T_('Slide size');
 
 
 		$html = '';

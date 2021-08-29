@@ -49,14 +49,28 @@ class slider
 					// set margin
 					$slideMarginClass = 'p-0.5 md:p-1';
 
-					// 40%
-					$slideSizeClass = 'w-2/6 md:w-1/5 lg:w-1/6';
-					// 60%
-					$slideSizeClass = 'w-3/6 md:w-1/4 lg:w-1/5';
-					// 80%
-					$slideSizeClass = 'w-4/6 md:w-1/3 lg:w-1/4';
-					// 80%
-					$slideSizeClass = 'w-5/6 md:w-1/2 lg:w-1/3';
+					switch (a($_args, 'slider_size'))
+					{
+						case 'sm':
+							$slideSizeClass = 'w-2/6 md:w-1/5 lg:w-1/6';
+							break;
+
+						default:
+						case 'md':
+							$slideSizeClass = 'w-3/6 md:w-1/4 lg:w-1/5';
+							break;
+
+						case 'lg':
+							$slideSizeClass = 'w-4/6 md:w-1/3 lg:w-1/4';
+							break;
+
+
+						case 'xl':
+							$slideSizeClass = 'w-5/6 md:w-1/2 lg:w-1/3';
+							break;
+
+							break;
+					}
 
 					$specialAttr = "class='swiper-slide $slideSizeClass $slideMarginClass'";
 				}
