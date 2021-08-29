@@ -21,16 +21,12 @@ class contact_get_name
 	{
 		$default = \content_site\section\view::get_current_index_detail('contact_get_name');
 
-
-
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_contact_get_name" value="1">';
-
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			$html .= \content_site\options\generate::checkbox('get_name', T_('Get name'), $default);
-
 		}
 
   		$html .= \content_site\options\generate::_form();

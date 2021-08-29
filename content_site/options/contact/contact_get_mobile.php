@@ -21,14 +21,11 @@ class contact_get_mobile
 	{
 		$default = \content_site\section\view::get_current_index_detail('contact_get_mobile');
 
-
-
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_contact_get_mobile" value="1">';
-
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			$html .= \content_site\options\generate::checkbox('get_mobile', T_('Get mobile'), $default);
 		}
 

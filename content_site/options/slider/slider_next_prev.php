@@ -32,7 +32,7 @@ class slider_next_prev
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_slider_next_prev" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$html .= \content_site\options\generate::checkbox('next_prev',  T_('Next prev'), $default);
 

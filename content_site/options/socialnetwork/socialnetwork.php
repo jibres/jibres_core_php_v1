@@ -30,7 +30,7 @@ class socialnetwork
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_socialnetwork" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$html .= \content_site\options\generate::checkbox('display_socialnetwork', T_('Display Social Networks ID'), $default);
 

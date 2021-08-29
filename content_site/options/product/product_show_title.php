@@ -20,7 +20,7 @@ class product_show_title
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_product_show_title" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$html .= \content_site\options\generate::checkbox('show_title',  T_('Display product title'), $default);
 

@@ -32,7 +32,7 @@ class slider_loop
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_slider_loop" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			$html .= \content_site\options\generate::checkbox('loop',  T_('Loop'), $default);
 
 

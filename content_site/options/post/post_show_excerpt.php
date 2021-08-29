@@ -27,7 +27,7 @@ class post_show_excerpt
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_post_show_excerpt" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$html .= \content_site\options\generate::checkbox('show_excerpt', T_('Display post summary'), $default);
 

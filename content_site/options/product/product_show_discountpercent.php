@@ -20,7 +20,7 @@ class product_show_discountpercent
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_product_show_discountpercent" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$html .= \content_site\options\generate::checkbox('show_discount', T_('Display product discount percent'), $default);
 

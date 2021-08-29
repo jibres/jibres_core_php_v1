@@ -81,7 +81,7 @@ trait heading
 
 			if(self::include_business_title())
 			{
-				$html .= '<input type="hidden" name="opt_'.\content_site\utility::className(__CLASS__).'" value="1">';
+				$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 				$html .= "<label>$title</label>";
 
 				$name       = 'use_as_heading';

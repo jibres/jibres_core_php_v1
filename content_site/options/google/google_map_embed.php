@@ -54,7 +54,7 @@ class google_map_embed
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::not_redirect();
-			$html .= '<input type="hidden" name="opt_google_map_embed" value="1">';
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 	    	$html .= '<label for="description">'. T_("Google map Embed code"). '</label>';
 	    	$html .= '<textarea class="txt" name="html" rows="3">';
 	    	$html .= $default;

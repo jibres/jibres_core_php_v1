@@ -21,16 +21,12 @@ class contact_get_email
 	{
 		$default = \content_site\section\view::get_current_index_detail('contact_get_email');
 
-
-
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= '<input type="hidden" name="opt_contact_get_email" value="1">';
-
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 	    	$html .= \content_site\options\generate::checkbox('get_email', T_('Get email'), $default);
-
 		}
 
   		$html .= \content_site\options\generate::_form();

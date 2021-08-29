@@ -110,7 +110,7 @@ trait file
 		}
 		// form
 		{
-			$html .= '<input type="hidden" name="opt_'.$option_key.'" value="1">';
+			$html .= \content_site\options\generate::opt_hidden($option_key);
 
 			// need special save
 			if(self::have_specialsave())

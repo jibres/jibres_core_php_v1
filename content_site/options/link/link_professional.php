@@ -57,7 +57,7 @@ trait link_professional
 
 			$option_key = \content_site\utility::className(__CLASS__);
 
-			$html .= "<input type='hidden' name='opt_{$option_key}' value='1'>";
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$html .= "<div class='mb-5'>";
 			{
