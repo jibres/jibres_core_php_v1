@@ -4,6 +4,18 @@ namespace content_site;
 
 class call_function
 {
+
+	/**
+	 * Detect folder
+	 *
+	 * header : h1, h2, h[\d+]
+	 * footer : f1, f2, f[\d+]
+	 * body : other
+	 *
+	 * @param      <type>  $_section_key  The section key
+	 *
+	 * @return     string  The folder.
+	 */
 	public static function get_folder($_section_key)
 	{
 		if(substr($_section_key, 0, 1) === 'h' && is_numeric(substr($_section_key, 1, 1)))
@@ -23,15 +35,39 @@ class call_function
 	}
 
 
+	/**
+	 * Check is trust folder
+	 *
+	 * @param      <type>  $_folder  The folder
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function trust_folder($_folder)
+	{
+		if(is_string($_folder) && in_array($_folder, ['header', 'body', 'footer']))
+		{
+			return true;
+		}
+		else
+		{
+			\dash\header::status(404, T_("Invalid folder"));
+		}
+	}
 
+
+	/**
+	 * Gets the namespace.
+	 *
+	 * @param      string  $_section_key  The section key
+	 *
+	 * @return     string  The namespace.
+	 */
 	private static function get_namespace($_section_key)
 	{
 		$folder = self::get_folder($_section_key);
 
 		return '\\content_site\\'. $folder .'\\'. $_section_key. '\\%s';
 	}
-
-
 
 
 	/**
@@ -92,21 +128,14 @@ class call_function
 	}
 
 
-
-	public static function trust_folder($_folder)
-	{
-		if(is_string($_folder) && in_array($_folder, ['header', 'body', 'footer']))
-		{
-			return true;
-		}
-		else
-		{
-			\dash\header::status(404, T_("Invalid folder"));
-		}
-	}
-
-
-
+	/**
+	 * Check is trust section by check dir exist
+	 *
+	 * @param      string  $_folder   The folder
+	 * @param      <type>  $_section  The section
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	public static function trust_section($_folder, $_section)
 	{
 		if(self::trust_folder($_folder) && ($section = \dash\validate::string_100($_section)))
@@ -126,6 +155,8 @@ class call_function
 
 	/**
 	 * Call every function you need
+	 * @example \content_site\call_function::option();
+	 * @example \content_site\call_function::layout();
 	 *
 	 * @param      <model>  $_fn    The function
 	 * @param      <model>  $_args  The arguments
@@ -186,6 +217,14 @@ class call_function
 	}
 
 
+	/**
+	 * Generate all options admin html
+	 *
+	 * @param      <type>  $_option_key  The option key
+	 * @param      <type>  $_data        The data
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	public static function option_admin_html($_option_key, $_data)
 	{
 		$html = '';
@@ -207,8 +246,9 @@ class call_function
 		return $html;
 	}
 
+
 	/**
-	 * Get current option by check model
+	 * Get default option of one section in special model
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
@@ -230,7 +270,7 @@ class call_function
 
 
 	/**
-	 * Call final html drower
+	 * Call final html drawer
 	 *
 	 * @param      string  $_namespace  The namespace
 	 * @param      string  $_model      The model
@@ -254,16 +294,16 @@ class call_function
 	}
 
 
-	public static function section_model_fn($_section_key, $_model, $_fn, $_args = null)
-	{
-		$namespace   = self::get_namespace($_section_key);
 
-		$namespace   = sprintf($namespace, $_model);
-
-		return self::_call([$namespace, $_fn], $_args);
-	}
-
-
+	/**
+	 * Call model previe function
+	 *
+	 * @param      <type>  $_section_key  The section key
+	 * @param      <type>  $_model        The model
+	 * @param      <type>  $_preview_key  The preview key
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function section_model_preview($_section_key, $_model, $_preview_key)
 	{
 		$namespace   = self::get_namespace($_section_key);
@@ -316,6 +356,13 @@ class call_function
 	}
 
 
+	/**
+	 * Get model list
+	 *
+	 * @param      <type>  $_section_key  The section key
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function ready_model_list($_section_key)
 	{
 		$namespace = self::get_namespace($_section_key);
@@ -346,6 +393,15 @@ class call_function
 
 	}
 
+
+	/**
+	 * Generate preview layout list
+	 *
+	 * @param      string  $_section_key      The section key
+	 * @param      string  $_filter_category  The filter category
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function preview_list($_section_key, $_filter_category = null)
 	{
 		$namespace = self::get_namespace($_section_key);
@@ -485,7 +541,15 @@ class call_function
 	}
 
 
-
+	/**
+	 * Render a preview html on the fly
+	 *
+	 * @param      <type>      $_section  The section
+	 * @param      <type>      $_model    The model
+	 * @param      <type>      $_preview  The preview
+	 *
+	 * @return     array|bool  ( description_of_the_return_value )
+	 */
 	public static function generate_preview($_section, $_model, $_preview)
 	{
 		$namespace = self::get_namespace($_section);
@@ -547,6 +611,13 @@ class call_function
 	}
 
 
+	/**
+	 * Replace pwa value
+	 *
+	 * @param      <type>  $_data  The data
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	private static function replace_paw_value($_data)
 	{
 		$is_pwa = \dash\request::is_pwa();
