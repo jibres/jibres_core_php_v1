@@ -86,7 +86,12 @@ if(\dash\data::dataTableAll())
 		require($add_addr. 'display-list.php');
 		echo "</div>";
 	}
+
+	echo '<div class="p0">';
+	{
 		\dash\utility\pagination::html();
+	}
+	echo '</div>';
 
 
  }

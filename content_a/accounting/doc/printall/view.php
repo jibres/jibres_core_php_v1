@@ -52,7 +52,7 @@ class view
 			$args['export'] = true;
 		}
 
-		$args['limit'] = 200;
+		$args['limit'] = 100;
 
 		$dataTable = \lib\app\tax\doc\search::list(\dash\validate::search_string(), $args);
 
