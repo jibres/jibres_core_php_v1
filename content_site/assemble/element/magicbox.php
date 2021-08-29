@@ -147,12 +147,15 @@ class magicbox
 			{
 				$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $linkColorClass $linkAlign'>";
 				{
-					// title
-					$card .= "<h3 class='leading-7 line-clamp-3'>";
+					if(a($_args, 'product_show_title') !== false)
 					{
-						$card .= $myTitle;
+						// title
+						$card .= "<h3 class='leading-7 line-clamp-3'>";
+						{
+							$card .= $myTitle;
+						}
+						$card .= '</h3>';
 					}
-					$card .= '</h3>';
 
 					if(a($_args, 'product_show_price'))
 					{
@@ -165,18 +168,20 @@ class magicbox
 			{
 				$card .= "<h3 class='block $linkColorClass transition text-white px-4 py-2 z-10 $linkAlign'>";
 				{
-					// title
-					$card .= "<h3 class='leading-7 line-clamp-3'>";
+					if(a($_args, 'product_show_title') !== false)
 					{
-						$card .= $myTitle;
+						// title
+						$card .= "<h3 class='leading-7 line-clamp-3'>";
+						{
+							$card .= $myTitle;
+						}
+						$card .= '</h3>';
 					}
-					$card .= '</h3>';
 
 					if(a($_args, 'product_show_price'))
 					{
 						$card .= \content_site\assemble\wrench\price::simple1($_item);
 					}
-
 				}
 
 			}
