@@ -31,7 +31,7 @@ class homepage
 			return null;
 		}
 
-		$load = \lib\db\pagebuilder\get::homepage_header_footer($post_id);
+		$load = \lib\db\sitebuilder\get::homepage_header_footer($post_id);
 
 		return $load;
 	}

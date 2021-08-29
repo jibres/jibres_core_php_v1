@@ -15,7 +15,7 @@ class view
 
 		if(\dash\data::mySectionID())
 		{
-			$load_section = \lib\db\pagebuilder\get::by_id(\dash\data::mySectionID());
+			$load_section = \lib\db\sitebuilder\get::by_id(\dash\data::mySectionID());
 
 			$preview = a($load_section, 'preview');
 			$preview = json_decode($preview, true);

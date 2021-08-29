@@ -17,7 +17,7 @@ class quote_add
 
 		\dash\pdo::transaction();
 
-		$currentSectionDetail = \lib\db\pagebuilder\get::by_id_lock($currentSectionDetail['id']);
+		$currentSectionDetail = \lib\db\sitebuilder\get::by_id_lock($currentSectionDetail['id']);
 
 		if(!$currentSectionDetail || !is_array($currentSectionDetail) || !isset($currentSectionDetail['preview']))
 		{

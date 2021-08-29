@@ -84,7 +84,7 @@ class utility
 	{
 		$section_detail = \dash\data::currentSectionDetail();
 
-		$load = \lib\db\pagebuilder\get::by_id(a($section_detail, 'id'));
+		$load = \lib\db\sitebuilder\get::by_id(a($section_detail, 'id'));
 
 		$need_unset =
 		[

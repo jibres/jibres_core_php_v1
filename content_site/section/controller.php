@@ -191,7 +191,7 @@ class controller
 				return false;
 			}
 
-			$section_detail = \lib\db\pagebuilder\get::by_id_related_id($section_id, $page_id);
+			$section_detail = \lib\db\sitebuilder\get::by_id_related_id($section_id, $page_id);
 
 			if(!is_array($section_detail) || !$section_detail)
 			{

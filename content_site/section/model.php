@@ -258,7 +258,7 @@ class model
 		// for example in upload file need this line
 		\dash\pdo::transaction();
 
-		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+		$load_section_lock = \lib\db\sitebuilder\get::by_id_lock($section_id);
 
 		if(!$load_section_lock)
 		{
@@ -380,7 +380,7 @@ class model
 		// delete or hide a section
 		if(\dash\request::post('delete') === 'section' || \dash\request::post('hide_view') === 'toggle')
 		{
-			$load_section_lock = \lib\db\pagebuilder\get::by_id($section_id);
+			$load_section_lock = \lib\db\sitebuilder\get::by_id($section_id);
 
 			if(!$load_section_lock || !is_array($load_section_lock))
 			{
@@ -400,7 +400,7 @@ class model
 					\content_site\call_function::before_section_remove($section_key, $section_id);
 
 					// delete section because the master status is draft
-					\lib\db\pagebuilder\delete::by_id($section_id);
+					\lib\db\sitebuilder\delete::by_id($section_id);
 				}
 				else
 				{
@@ -450,7 +450,7 @@ class model
 		// delete or hide a section
 		if(\dash\request::post('discard') === 'discard')
 		{
-			$load_section = \lib\db\pagebuilder\get::by_id($section_id);
+			$load_section = \lib\db\sitebuilder\get::by_id($section_id);
 
 			if(!$load_section || !is_array($load_section))
 			{
@@ -483,7 +483,7 @@ class model
 		{
 			\dash\pdo::transaction();
 
-			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+			$load_section_lock = \lib\db\sitebuilder\get::by_id_lock($section_id);
 
 			if(!$load_section_lock)
 			{
@@ -538,7 +538,7 @@ class model
 		// delete or hide a section
 		if(\dash\request::post('restore') === 'section')
 		{
-			$load_section = \lib\db\pagebuilder\get::by_id($section_id);
+			$load_section = \lib\db\sitebuilder\get::by_id($section_id);
 
 			if(!$load_section || !is_array($load_section))
 			{
@@ -583,7 +583,7 @@ class model
 		// for example in upload file need this line
 		\dash\pdo::transaction();
 
-		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+		$load_section_lock = \lib\db\sitebuilder\get::by_id_lock($section_id);
 
 		if(!$load_section_lock)
 		{
@@ -841,7 +841,7 @@ class model
 			// need add some args later
 		];
 
-		$get_last_sort = \lib\db\pagebuilder\get::last_sort($get_last_sort_args);
+		$get_last_sort = \lib\db\sitebuilder\get::last_sort($get_last_sort_args);
 
 		if(!$get_last_sort || !is_numeric($get_last_sort))
 		{

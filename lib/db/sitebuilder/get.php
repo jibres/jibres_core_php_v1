@@ -5,6 +5,35 @@ namespace lib\db\sitebuilder;
 class get
 {
 
+	public static function by_id_lock(int $_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.id = :id LIMIT 1 FOR UPDATE";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+
+	public static function by_id(int $_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.id = :id LIMIT 1 ";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+
+	public static function by_id_related_id($_id, $_related_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.id = :id AND pagebuilder.related_id = :related_id LIMIT 1";
+		$param  = [':id' => $_id, ':related_id' => $_related_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+
+
+	}
+
+
 	public static function count_section_in_page($_page_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM pagebuilder WHERE pagebuilder.related_id = :page_id ";
@@ -51,6 +80,110 @@ class get
 	}
 
 
+	public static function homepage_header_footer($_related_id)
+	{
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :related_id AND pagebuilder.mode IN ('header', 'footer') ";
+		$param  = [':related_id' => $_related_id];
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
+	public static function line_list_with_homepage_header_footer($_id, $_related_id)
+	{
+
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				pagebuilder
+			WHERE
+				pagebuilder.related_id = :id OR
+				(
+					pagebuilder.related_id = :related_id AND
+					pagebuilder.mode IN ('header', 'footer')
+				)
+
+			ORDER BY
+				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				pagebuilder.sort ASC,
+				pagebuilder.id ASC
+			LIMIT 1000
+		";
+
+		$param  = [':id' => $_id, ':related_id' => $_related_id];
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+
+	}
+
+
+
+	public static function line_list_with_homepage_header_footer_preview($_id, $_related_id)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				pagebuilder
+			WHERE
+				pagebuilder.related_id = :id OR
+				(
+					pagebuilder.related_id = :related_id AND
+					pagebuilder.mode IN ('header', 'footer')
+				)
+
+			ORDER BY
+				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				pagebuilder.sort_preview ASC,
+				pagebuilder.id ASC
+			LIMIT 1000
+		";
+
+		$param  = [':id' => $_id, ':related_id' => $_related_id];
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+
+	}
+
+
+
+
+	public static function last_sort($_args)
+	{
+		$where  = \dash\db\config::make_where($_args);
+		$query  = "SELECT pagebuilder.sort AS `sort` FROM pagebuilder WHERE $where ORDER BY pagebuilder.sort DESC, pagebuilder.id DESC LIMIT 1";
+		$result = \dash\pdo::get($query, [], 'sort', true);
+		return $result;
+	}
+
+
+
+	public static function line_list(int $_id)
+	{
+		$query  =
+		"
+			SELECT
+				*
+			FROM
+				pagebuilder
+			WHERE
+				pagebuilder.related_id = :id
+			ORDER BY
+				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				pagebuilder.sort ASC,
+				pagebuilder.id ASC
+			LIMIT 1000
+		";
+
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param);
+
+		return $result;
+	}
+
+
 	public static function all_section($_page_id)
 	{
 		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :page_id ";
@@ -78,14 +211,21 @@ class get
 			FROM
 				pagebuilder
 			WHERE
-				pagebuilder.related_id = $_id
+				pagebuilder.related_id = :id
 			ORDER BY
 				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
 				pagebuilder.sort_preview ASC,
 				pagebuilder.id ASC
 			LIMIT 1000
 		";
-		$result = \dash\db::get($query);
+
+		$param  =
+		[
+			':id' => $_id,
+		];
+
+		$result = \dash\pdo::get($query, $param);
+
 		return $result;
 	}
 }

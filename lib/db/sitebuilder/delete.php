@@ -4,6 +4,17 @@ namespace lib\db\sitebuilder;
 
 class delete
 {
+
+	public static function by_id(int $_id)
+	{
+		$query  = "DELETE FROM pagebuilder WHERE pagebuilder.id = :id LIMIT 1";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
+	}
+
+
 	public static function page($_id)
 	{
 		$query  = "DELETE FROM pagebuilder WHERE pagebuilder.related_id = :id ";

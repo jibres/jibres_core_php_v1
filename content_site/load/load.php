@@ -188,26 +188,26 @@ class load
 			if($need_homepage_body)
 			{
 				// in homepage need to load full homepage detail
-				$list = \lib\db\pagebuilder\get::line_list($page_id);
+				$list = \lib\db\sitebuilder\get::line_list($page_id);
 			}
 			else
 			{
 				if(floatval($page_id) === floatval($homepage_id))
 				{
 					// homepage id is equal with page id. load full page id detail
-					$list = \lib\db\pagebuilder\get::line_list($page_id);
+					$list = \lib\db\sitebuilder\get::line_list($page_id);
 				}
 				else
 				{
 
 					if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
 					{
-						$list = \lib\db\pagebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
+						$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
 					}
 					else
 					{
 						// load full page id and homepage header and footer
-						$list = \lib\db\pagebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
+						$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
 					}
 					$need_explode_homepage_header_footer = true;
 				}

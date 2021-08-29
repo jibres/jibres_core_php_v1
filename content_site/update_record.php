@@ -9,7 +9,7 @@ class update_record
 	{
 		\dash\pdo::transaction();
 
-		$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($_section_id);
+		$load_section_lock = \lib\db\sitebuilder\get::by_id_lock($_section_id);
 
 		if(!$load_section_lock || !is_array($load_section_lock))
 		{

@@ -60,7 +60,7 @@ class model extends \content_site\section\model
 			// for example in upload file need this line
 			\dash\pdo::transaction();
 
-			$load_section_lock = \lib\db\pagebuilder\get::by_id_lock($section_id);
+			$load_section_lock = \lib\db\sitebuilder\get::by_id_lock($section_id);
 
 			if(!$load_section_lock)
 			{
