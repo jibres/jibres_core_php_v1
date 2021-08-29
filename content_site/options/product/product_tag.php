@@ -7,7 +7,7 @@ class product_tag
 
 	public static function validator($_data)
 	{
-		if($data)
+		if($_data)
 		{
 			return \dash\validate::id($_data);
 		}
