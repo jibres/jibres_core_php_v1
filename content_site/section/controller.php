@@ -4,6 +4,45 @@ namespace content_site\section;
 
 class controller
 {
+	/**
+	 * Get list of all section
+	 *
+	 * @return     <model>  ( description_of_the_return_value )
+	 */
+	private static function all_section_name()
+	{
+		$all =
+		[
+			/* --- headers -- */
+			'h1',
+			'h2',
+			'h3',
+			/* -------------- */
+
+
+			/* ---- body ---- */
+			'blog',
+			'gallery',
+			'product',
+			// 'contactform',
+			'heading',
+			'visitcard',
+			'quote',
+			'text',
+			'html',
+			/* -------------- */
+
+
+			/* --- footer --- */
+			'f1',
+			/* -------------- */
+
+		];
+
+		return $all;
+	}
+
+
 	public static function routing()
 	{
 		// load post detail
@@ -95,40 +134,6 @@ class controller
 
 	}
 
-
-	/**
-	 * Get list of all section
-	 *
-	 * @return     <model>  ( description_of_the_return_value )
-	 */
-	private static function all_section_name()
-	{
-		$all =
-		[
-			/* headers */
-			'h1',
-			'h2',
-			'h3',
-
-
-			/* body */
-			'blog',
-			'gallery',
-			'product',
-			// 'contactform',
-			'heading',
-			// 'imagetext',
-			'text',
-			'html',
-
-
-			/* footer */
-			'f1',
-
-		];
-
-		return $all;
-	}
 
 
 	/**
