@@ -57,15 +57,6 @@ class product_tag
 			}
 			$html .= "</div>";
 
-			// $html .= "<select name='product_tag_id' class='select22' id='producttagsearch'  data-model='html'  data-ajax--delay='100' data-ajax--url='$apilink' data-shortkey-search data-placeholder='". T_('Search in product tag'). "'>";
-	  //     	if($related_id && $pointer === $key)
-	  //     	{
-	  //     		$selected = self::fill_selected($pointer, $related_id);
-	  //         	$html .= "<option value='$selected[id]' selected>$selected[title]</option>";
-	  //     	}
-
-	  //       $html .= "</select>";
-
 	        $html .= '<select name="opt_product_tag" class="select22" id="product_tag" data-placeholder="'. T_("Select hashtag"). '">';
 
 			$html .= '<option value="0">'. T_("All"). '</option>';

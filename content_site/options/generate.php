@@ -99,6 +99,46 @@ class generate
 
 	}
 
+	public static function select($_class, $_enum, $_default, $_lable = null)
+	{
+		if(strpos($_class, '\\') !== false)
+		{
+			$name = \content_site\utility::className($_class);
+		}
+		else
+		{
+			$name = $_class;
+		}
+
+		$html = '';
+
+		if($_lable)
+		{
+			$html .= "<label for='id-$name'>$_lable</label>";
+		}
+
+		$html .= "<select name='opt_$name' class='select22' id='id-$name'>";
+
+		foreach ($_enum as $key => $value)
+		{
+			$selected = null;
+
+			if($value['key'] === $_default)
+			{
+				$selected = ' selected';
+			}
+
+			$html .= "<option value='$value[key]'$selected>$value[title]</option>";
+		}
+
+		$html .= '</select>';
+
+		return $html;
+
+	}
+
+
+
 
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
@@ -118,6 +158,9 @@ class generate
 
 		return $html;
 	}
+
+
+
 
 
 	public static function radio_line_itemText($_name, $_value, $_text, $_checked = null, $_fontSizeSmall = null)

@@ -56,24 +56,7 @@ class background_gradient_type
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= "<label for='background_gradient_type'>$title</label>";
-	        $html .= '<select name="opt_background_gradient_type" class="select22"  id="background_gradient_type">';
-
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>";
-	        	$html .= $value['title'];
-	        	$html .= "</option>";
-	        }
-
-	       	$html .= '</select>';
+			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

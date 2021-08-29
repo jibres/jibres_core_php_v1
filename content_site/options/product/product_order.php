@@ -5,7 +5,7 @@ namespace content_site\options\product;
 class product_order
 {
 
-	private static function enum_product_order()
+	private static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'newest', 		'title' => T_("Newest to Oldest (default)"),];
@@ -20,7 +20,7 @@ class product_order
 
 	public static function validator($_data)
 	{
-		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum_product_order(), 'key'), 'field_title' => T_('Product order')]);
+		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Product order')]);
 		return $data;
 	}
 
@@ -39,22 +39,7 @@ class product_order
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-
-	    	$html .= "<label for='product_order'>". T_("Order by") ."</label>";
-	        $html .= '<select name="opt_product_order" class="select22" id="product_order">';
-
-	        foreach (self::enum_product_order() as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-	        }
-	        $html .= '</select>';
+			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, T_("Order by"));
 		}
 
   		$html .= \content_site\options\generate::_form();

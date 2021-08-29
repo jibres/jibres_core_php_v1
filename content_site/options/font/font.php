@@ -63,22 +63,7 @@ class font
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= "<label for='font'>$title</label>";
-	        $html .= '<select name="opt_font" class="select22" id="font">';
-
-	        foreach (self::enum() as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-	        }
-
-	       	$html .= '</select>';
+			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

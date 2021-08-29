@@ -5,7 +5,7 @@ namespace content_site\options\post;
 class post_order
 {
 
-	private static function enum_post_order()
+	private static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'latest', 'title' => T_("Newest to Oldest (default)"), ];
@@ -17,7 +17,7 @@ class post_order
 
 	public static function validator($_data)
 	{
-		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum_post_order(), 'key'), 'field_title' => T_('Post subtype')]);
+		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Post subtype')]);
 		return $data;
 	}
 
@@ -35,22 +35,7 @@ class post_order
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-
-	    	$html .= "<label for='post_order'>". T_("Order by") ."</label>";
-	        $html .= '<select name="opt_post_order" class="select22" id="post_order">';
-
-	        foreach (self::enum_post_order() as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['key'] === $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[key]'$selected>$value[title]</option>";
-	        }
-	        $html .= '</select>';
+			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, T_("Order by"));
 		}
 
   		$html .= \content_site\options\generate::_form();
