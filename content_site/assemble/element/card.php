@@ -27,7 +27,7 @@ class card
 			$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-md hover:shadow-lg bg-white $borderRadius'>";
 			{
 				// thumb
-				if($myThumb && a($_args, 'post_show_image'))
+				if($myThumb && a($_args, 'post_show_image') !== false)
 				{
 					$card .= '<header>';
 					$coverRatio       = a($_args, 'coverratio:class');
