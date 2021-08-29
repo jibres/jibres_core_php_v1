@@ -40,9 +40,9 @@ class quote_list
 				      		{
 					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'index'). '">';
 
-				      			if(isset($value['file']) && $value['file'])
+				      			if(isset($value['avatar']) && $value['avatar'])
 				      			{
-				        			$file_url = \lib\filepath::fix($value['file']);
+				        			$file_url = \lib\filepath::fix($value['avatar']);
 				      			}
 				      			else
 				      			{

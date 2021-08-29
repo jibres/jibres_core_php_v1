@@ -20,11 +20,11 @@ class quote1
 				'heading_full',
 				'quote_list' =>
 				[
+					'quote_title',
 					'quote_displayname',
 					'quote_text',
 					'quote_job',
-					'quote_avatar',
-					'',
+					'file_avatar',
 					'quote_remove',
 				],
 				'quote_add',

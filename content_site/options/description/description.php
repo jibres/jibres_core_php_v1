@@ -1,8 +1,10 @@
 <?php
 namespace content_site\options\description;
 
-
-class description
+/**
+ * Use in another option
+ */
+trait description
 {
 
 	public static function validator($_data)
@@ -11,17 +13,28 @@ class description
 		return $data;
 	}
 
+	public static function db_key()
+	{
+		return 'description';
+	}
+
+
+	public static function title()
+	{
+		return T_("Description");
+	}
+
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('description');
+		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		$html = '';
 		$html .= '<form method="post" data-patch autocomplete="off">';
 		{
 			$html .= \content_site\options\generate::not_redirect();
-	    	$html .= '<label for="description">'. T_("Description"). '</label>';
-	    	$html .= '<textarea class="txt" name="opt_description" rows="3">';
+	    	$html .= '<label for="description">'. self::title(). '</label>';
+	    	$html .= '<textarea class="txt" name="opt_'.\content_site\utility::className(__CLASS__).'" rows="3">';
 	    	$html .= $default;
 	    	$html .= '</textarea>';
 		}
