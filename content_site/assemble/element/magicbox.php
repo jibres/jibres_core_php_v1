@@ -143,47 +143,68 @@ class magicbox
 				$linkAlign = 'text-center';
 			}
 
-			if(a($_args, 'magicbox_title_position') === 'inside')
+			// decide to show title or not
+			$showTitle = null;
+			$showPrice = null;
+			if(a($_args, 'product_show_title') !== false)
 			{
-				$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $linkColorClass $linkAlign'>";
-				{
-					if(a($_args, 'product_show_title') !== false)
-					{
-						// title
-						$card .= "<h3 class='leading-7 line-clamp-3'>";
-						{
-							$card .= $myTitle;
-						}
-						$card .= '</h3>';
-					}
-
-					if(a($_args, 'product_show_price'))
-					{
-						$card .= \content_site\assemble\wrench\price::simple1($_item);
-					}
-				}
-				$card .= '</div>';
+				$showTitle = true;
 			}
-			elseif(a($_args, 'magicbox_title_position') === 'outside')
+			if(a($_args, 'product_show_price') === true)
 			{
-				$card .= "<h3 class='block $linkColorClass transition text-white px-4 py-2 z-10 $linkAlign'>";
+				$showPrice = true;
+			}
+			// show
+			$showCaptionBox = null;
+			if($showTitle || $showPrice)
+			{
+				$showCaptionBox = true;
+			}
+
+			if($showCaptionBox)
+			{
+				if(a($_args, 'magicbox_title_position') === 'inside')
 				{
-					if(a($_args, 'product_show_title') !== false)
+					$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $linkColorClass $linkAlign'>";
 					{
-						// title
-						$card .= "<h3 class='leading-7 line-clamp-3'>";
+						if($showTitle)
 						{
-							$card .= $myTitle;
+							// title
+							$card .= "<h3 class='leading-7 line-clamp-3'>";
+							{
+								$card .= $myTitle;
+							}
+							$card .= '</h3>';
 						}
-						$card .= '</h3>';
-					}
 
-					if(a($_args, 'product_show_price'))
-					{
-						$card .= \content_site\assemble\wrench\price::simple1($_item);
+						if($showPrice)
+						{
+							$card .= \content_site\assemble\wrench\price::simple1($_item);
+						}
 					}
+					$card .= '</div>';
 				}
+				elseif(a($_args, 'magicbox_title_position') === 'outside')
+				{
+					$card .= "<div class='block $linkColorClass transition text-white px-4 py-2 z-10 $linkAlign'>";
+					{
+						if($showTitle)
+						{
+							// title
+							$card .= "<h3 class='leading-7 line-clamp-3'>";
+							{
+								$card .= $myTitle;
+							}
+							$card .= '</h3>';
+						}
 
+						if($showPrice)
+						{
+							$card .= \content_site\assemble\wrench\price::simple1($_item);
+						}
+					}
+					$card .= '</div>';
+				}
 			}
 
 		}
