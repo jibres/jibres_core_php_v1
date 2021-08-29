@@ -29,6 +29,11 @@ class magicbox
 			$file_index = 'thumb';
 			$link_index = 'link';
 		}
+		elseif(a($_args, 'section') === 'product')
+		{
+			$file_index = 'thumb';
+			$link_index = 'url';
+		}
 		else
 		{
 			$file_index = 'file';

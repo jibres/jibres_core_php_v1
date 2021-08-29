@@ -52,7 +52,6 @@ class layout
 			}
 		}
 
-
 		// fill_default_data receive from preview function
 		if(empty($productList) || \content_site\utility::fill_by_default_data())
 		{
