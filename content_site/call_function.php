@@ -229,6 +229,31 @@ class call_function
 	}
 
 
+	/**
+	 * Call final html drower
+	 *
+	 * @param      string  $_namespace  The namespace
+	 * @param      string  $_model      The model
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function final_html($_namespace, $_model)
+	{
+		$namespace = $_namespace. '\\'. $_model. '_html';
+
+		if(is_callable([$namespace, 'html']))
+		{
+			$args = func_get_args();
+			unset($args[0]);
+			unset($args[1]);
+
+			return call_user_func_array([$namespace, 'html'], $args);
+		}
+
+		return null;
+	}
+
+
 	public static function section_model_fn($_section_key, $_model, $_fn, $_args = null)
 	{
 		$namespace   = self::get_namespace($_section_key);

@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\contactform\html;
+namespace content_site\body\contactform;
 
 
-class cf1
+class cf1_html
 {
 
 	public static function html($_args)

@@ -15,20 +15,7 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-
-		$html             = '';
-
-		$type      = a($_args, 'model');
-
-		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
-
-		if(is_callable([$namespace, 'html']))
-		{
-			$html .= call_user_func_array([$namespace, 'html'],[$_args]);
-		}
-
-		return $html;
-
+		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args);
 	}
 
 

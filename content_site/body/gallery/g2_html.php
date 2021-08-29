@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\gallery\html;
+namespace content_site\body\gallery;
 
 
-class g2
+class g2_html
 {
 	public static function html($_args, $_image_list)
 	{

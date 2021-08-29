@@ -66,20 +66,8 @@ class layout
 			$_args['btn_viewall'] = T_("View all");
 		}
 
+		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args, $blogList);
 
-		$html             = '';
-
-
-		$model      = a($_args, 'model');
-
-		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $model);
-
-		if(is_callable([$namespace, 'html']))
-		{
-			$html .= call_user_func_array([$namespace, 'html'],[$_args, $blogList]);
-		}
-
-		return $html;
 	}
 
 

@@ -70,22 +70,15 @@ class layout
 		$html             = '';
 
 
-		$type      = a($_args, 'model');
+		$model      = a($_args, 'model');
 
 
-		if($type === 'p1' || $type === 'p2')
+		if($model === 'p1' || $model === 'p2')
 		{
 			share::fit_for_blog($_args, $productList);
 		}
 
-		$namespace = sprintf('%s\%s\%s', __NAMESPACE__, 'html', $type);
-
-		if(is_callable([$namespace, 'html']))
-		{
-			$html .= call_user_func_array([$namespace, 'html'],[$_args, $productList]);
-		}
-
-		return $html;
+		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args, $productList);
 	}
 
 

@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\blog\html;
+namespace content_site\body\blog;
 
 
-class b3
+class b3_html
 {
 	public static function html($_args, $_blogList)
 	{

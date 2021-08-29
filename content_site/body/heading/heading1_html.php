@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\heading\html;
+namespace content_site\body\heading;
 
 
-class heading1
+class heading1_html
 {
 
 	public static function html($_args)

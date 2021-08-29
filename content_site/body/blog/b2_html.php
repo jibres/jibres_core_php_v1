@@ -1,10 +1,10 @@
 <?php
-namespace content_site\body\product\html;
+namespace content_site\body\blog;
 
 
-class p2
+class b2_html
 {
-	public static function html($_args, $_list)
+	public static function html($_args, $_blogList)
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
@@ -14,7 +14,7 @@ class p2
 
 				$html .= \content_site\assemble\wrench\section::grid_12($_args);
 				{
-					$html .= \content_site\assemble\element\magicbox::html($_args, $_list, 'product');
+					$html .= \content_site\assemble\element\magicbox::html($_args, $_blogList, 'blog');
 				}
 				$html .= '</div>';
 
