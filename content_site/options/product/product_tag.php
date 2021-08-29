@@ -7,8 +7,14 @@ class product_tag
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::id($_data);
-		return $data;
+		if($data)
+		{
+			return \dash\validate::id($_data);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 
