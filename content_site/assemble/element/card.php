@@ -39,35 +39,30 @@ class card
 					$card .= '</header>';
 				}
 
-				// show caption on some conditions
-				$showCardTitle   = true;
-				$showCardPrice   = true;
-
-				if(a($_args, 'section') === 'product')
+				// decide to show title or not
+				$showTitle = null;
+				$showPrice = null;
+				if(a($_args, 'product_show_title') !== false)
 				{
-					// hide title
-					if(!a($_args, 'product_show_title'))
-					{
-						$showCardTitle = false;
-					}
-					// hide price
-					if(!a($_args, 'product_show_price'))
-					{
-						$showCardPrice = false;
-					}
+					$showTitle = true;
+				}
+				if(a($_args, 'product_show_price') === true)
+				{
+					$showPrice = true;
+				}
+				// show
+				$showCaptionBox = null;
+				if($showTitle || $showPrice)
+				{
+					$showCaptionBox = true;
 				}
 
-				$showCardCaption = true;
-				if($showCardTitle === false && $showCardPrice === false)
-				{
-					$showCardCaption = false;
-				}
 
-				if($showCardCaption)
+				if($showCaptionBox)
 				{
 					$card .= "<div class='flex-grow px-6 py-4'>";
 					{
-						if($showCardTitle)
+						if($showTitle)
 						{
 							// title
 							$card .= '<h3>';
@@ -84,7 +79,6 @@ class card
 
 						$card .= \content_site\body\blog\share::post_reading_time(a($value, 'readingtime'), a($_args, 'post_show_readingtime'));
 
-
 						if($myExcerpt && a($_args, 'post_show_excerpt'))
 						{
 							$card .= "<p class='mt-2 text-gray-500 text-sm leading-6'>";
@@ -92,7 +86,7 @@ class card
 							$card .= "</p>";
 						}
 
-						if($showCardPrice)
+						if($showPrice)
 						{
 							$card .= \content_site\assemble\wrench\price::simple1($value);
 						}
