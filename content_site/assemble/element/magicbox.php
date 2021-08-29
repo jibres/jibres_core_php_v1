@@ -145,21 +145,40 @@ class magicbox
 
 			if(a($_args, 'magicbox_title_position') === 'inside')
 			{
-				// title
-				$card .= "<h3 class='absolute inset-x-0 bottom-0 block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
+				$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $linkColorClass $linkAlign'>";
 				{
-					$card .= $myTitle;
+					// title
+					$card .= "<h3 class='leading-7 line-clamp-3'>";
+					{
+						$card .= $myTitle;
+					}
+					$card .= '</h3>';
+
+					if(a($_args, 'product_show_price'))
+					{
+						$card .= \content_site\assemble\wrench\price::simple1($_item);
+					}
 				}
-				$card .= '</h3>';
+				$card .= '</div>';
 			}
 			elseif(a($_args, 'magicbox_title_position') === 'outside')
 			{
-				// title
-				$card .= "<h3 class='block $linkColorClass leading-7 transition text-white px-4 py-2 line-clamp-3 z-10 $linkAlign'>";
+				$card .= "<h3 class='block $linkColorClass transition text-white px-4 py-2 z-10 $linkAlign'>";
 				{
-					$card .= $myTitle;
+					// title
+					$card .= "<h3 class='leading-7 line-clamp-3'>";
+					{
+						$card .= $myTitle;
+					}
+					$card .= '</h3>';
+
+					if(a($_args, 'product_show_price'))
+					{
+						$card .= \content_site\assemble\wrench\price::simple1($_item);
+					}
+
 				}
-				$card .= '</h3>';
+
 			}
 
 		}

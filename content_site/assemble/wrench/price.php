@@ -4,10 +4,10 @@ namespace content_site\assemble\wrench;
 
 class price
 {
-	public static function simple1($_value)
+	public static function simple1($_value, $_link = null)
 	{
 		$priceEl = '';
-		$priceEl .= '<div>';
+		$priceEl .= '<div class="priceLine">';
 		{
 			$price = \dash\fit::price(a($_value, 'finalprice'));
 			$freeText = a($_value, 'free_button_title');
@@ -30,7 +30,14 @@ class price
       {
         if($freeText && $freeLink)
         {
-          $priceEl .= '<a class="btnBuy" href="'. $freeLink. '" target="_blank">'. $freeText. '</a>';
+        	if($_link)
+        	{
+          	$priceEl .= '<a class="btnBuy" href="'. $freeLink. '" target="_blank">'. $freeText. '</a>';
+        	}
+        	else
+        	{
+          	$priceEl .= '<span class="btnBuy">'. $freeText. '</span>';
+        	}
         }
       }
 		}
