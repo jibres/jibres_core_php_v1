@@ -15,7 +15,14 @@ trait file
 
 		if(\dash\request::files(\content_site\utility::className(__CLASS__)))
 		{
-			$image_path = \dash\upload\website::upload_image(\content_site\utility::className(__CLASS__));
+			if(self::upload_video())
+			{
+				$image_path = \dash\upload\website::upload_image_or_video(\content_site\utility::className(__CLASS__));
+			}
+			else
+			{
+				$image_path = \dash\upload\website::upload_image(\content_site\utility::className(__CLASS__));
+			}
 
 			if(!\dash\engine\process::status())
 			{
@@ -70,6 +77,11 @@ trait file
 	public static function admin_html($_section_detail = null)
 	{
 		return self::html_upload_file(...func_get_args());
+	}
+
+	public static function upload_video()
+	{
+		return false;
 	}
 
 
@@ -136,25 +148,89 @@ trait file
 
 			$html .= '>';
 
-			$html .= '<input type="file" accept="image/jpeg, image/png, image/gif, image/webp" id="myfile">';
+
+			$accept =
+			[
+				'image/jpeg',
+				'image/png',
+				'image/gif',
+				'image/webp',
+			];
+
+			if(self::upload_video())
+			{
+				$accept = array_merge($accept,
+				[
+					'video/*'
+				]);
+			}
+
+			$html .= '<input type="file" accept="'.implode(',', $accept).'" id="myfile">';
 			$html .= '<label for="myfile">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
+
+			$file_type = null;
+			$mime = null;
+
+			$ext = substr(strrchr($default, '.'), 1);
+
+			$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
+
+			if(isset($mime_detail['type']))
+			{
+				$file_type = $mime_detail['type'];
+			}
+
+			if(isset($mime_detail['mime']))
+			{
+				$mime = $mime_detail['mime'];
+			}
 
 			if($default)
 			{
-				$myExt = substr($default, -3);
-
-				if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']) || in_array(substr($default, -4), ['webp']))
+				if($file_type === 'video')
 				{
-					$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
+					$html .= '<video controls>';
+					$html .= '<source src="'. $default. '" type="'. $mime. '">';
+					$html .= '</video>';
+				}
+				else if($file_type === 'audio')
+				{
+					$html .= '<audio controls>';
+					$html .= '<source src="'. $default. '" type="'. $mime. '">';
+					$html .= '</audio>';
+				}
+				else if($file_type === 'image')
+				{
+					$html .= '<a data-fancybox="galleryPreview" target="_blank" href="'. $default. '"><img src="'. \dash\fit::img($default, 460). '" alt="'. a(\dash\data::dataRow(), 'title'). '"></a>';
+				}
+				else if($file_type === 'pdf')
+				{
+					$html .= '<div class="file"><a data-fancybox="galleryPreview" data-type="pdf" target="_blank" href="'. $default. '"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</a></div>';
+				}
+				else if($file_type === 'zip')
+				{
+					$html .= '<div class="file"><a target="_blank" href="'. $default. '"><i class="sf-file-archive-o"></i>'. T_("ZIP"). '</a></div>';
 				}
 				else
 				{
-					$html .= '<label for="myfile"><img id="finalImage" src="" alt="'. \dash\data::dataRow_title(). '"></label>';
+					$html .= '<div class="file"><a target="_blank" href="'. $default. '"><i class="sf-file-o"></i>'. T_("File"). '</a></div>';
 				}
+
+				// $myExt = substr($default, -3);
+
+				// if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']) || in_array(substr($default, -4), ['webp']))
+				// {
+				// 	$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
+				// }
+
+				// else
+				// {
+				// 	$html .= '<label for="myfile"><img id="finalImage" src="" alt="'. \dash\data::dataRow_title(). '"></label>';
+				// }
 			}
 			else
 			{
-				$html .= '<label for="myfile"><img id="finalImage" alt="'. \dash\data::dataRow_title(). '"></label>';
+				$html .= '<label for="myfile"><img id="finalImage" alt="File""></label>';
 			}
 
 			if($default)

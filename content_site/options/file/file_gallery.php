@@ -19,6 +19,13 @@ class file_gallery
 	}
 
 
+	public static function upload_video()
+	{
+		return true;
+	}
+
+
+
 	public static function specialsave($_data)
 	{
 		$file_path = self::validator($_data);
