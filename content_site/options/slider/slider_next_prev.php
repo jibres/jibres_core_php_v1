@@ -6,7 +6,7 @@ class slider_next_prev
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'next_prev'));
+		$data = \dash\validate::checkbox(a($_data, 'next_prev'));
 		return $data;
 	}
 

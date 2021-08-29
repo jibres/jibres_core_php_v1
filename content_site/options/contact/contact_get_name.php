@@ -6,7 +6,7 @@ class contact_get_name
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'get_name'));
+		$data = \dash\validate::checkbox(a($_data, 'get_name'));
 		return $data;
 	}
 

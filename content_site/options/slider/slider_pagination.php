@@ -6,7 +6,7 @@ class slider_pagination
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'pagination'));
+		$data = \dash\validate::checkbox(a($_data, 'pagination'));
 		return $data;
 	}
 

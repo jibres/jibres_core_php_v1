@@ -6,7 +6,7 @@ class socialnetwork
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'display_socialnetwork'));
+		$data = \dash\validate::checkbox(a($_data, 'display_socialnetwork'));
 		return $data;
 	}
 

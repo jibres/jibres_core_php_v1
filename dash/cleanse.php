@@ -696,6 +696,9 @@ class cleanse
 				}
 				break;
 
+			case 'checkbox':
+				$data = $_data ? true : false;
+				break;
 
 			case 'bool':
 					if($_data === null)

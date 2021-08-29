@@ -6,7 +6,7 @@ class product_show_title
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'show_title'));
+		$data = \dash\validate::checkbox(a($_data, 'show_title'));
 		return $data;
 	}
 

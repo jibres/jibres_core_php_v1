@@ -6,7 +6,7 @@ class post_show_readingtime
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'show_readingtime'));
+		$data = \dash\validate::checkbox(a($_data, 'show_readingtime'));
 		return $data;
 	}
 

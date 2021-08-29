@@ -6,7 +6,7 @@ class image_random
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'random'));
+		$data = \dash\validate::checkbox(a($_data, 'random'));
 		return $data;
 	}
 

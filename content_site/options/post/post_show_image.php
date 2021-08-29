@@ -6,7 +6,7 @@ class post_show_image
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'show_image'));
+		$data = \dash\validate::checkbox(a($_data, 'show_image'));
 		return $data;
 	}
 

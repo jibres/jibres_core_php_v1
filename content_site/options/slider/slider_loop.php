@@ -6,7 +6,7 @@ class slider_loop
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'loop'));
+		$data = \dash\validate::checkbox(a($_data, 'loop'));
 		return $data;
 	}
 

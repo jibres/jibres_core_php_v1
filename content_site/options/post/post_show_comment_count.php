@@ -6,7 +6,7 @@ class post_show_comment_count
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'comment_count'));
+		$data = \dash\validate::checkbox(a($_data, 'comment_count'));
 		return $data;
 	}
 

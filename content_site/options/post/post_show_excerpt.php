@@ -6,7 +6,7 @@ class post_show_excerpt
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'show_excerpt'));
+		$data = \dash\validate::checkbox(a($_data, 'show_excerpt'));
 		return $data;
 	}
 

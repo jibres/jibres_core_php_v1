@@ -9,7 +9,7 @@ class btn_viewall
 	{
 		$new_data                       = [];
 
-		$new_data['btn_viewall_check'] = \dash\validate::bool(a($_data, 'btn_viewall_check'));
+		$new_data['btn_viewall_check'] = \dash\validate::checkbox(a($_data, 'btn_viewall_check'));
 		$new_data['btn_viewall']       = \dash\validate::string_100(a($_data, 'btn_viewall'));
 
 		return $new_data;

@@ -6,7 +6,7 @@ class contact_get_email
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::bool(a($_data, 'get_email'));
+		$data = \dash\validate::checkbox(a($_data, 'get_email'));
 		return $data;
 	}
 
