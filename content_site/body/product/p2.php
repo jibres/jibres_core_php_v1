@@ -24,6 +24,7 @@ class p2
 				'product_order',
 				'count_product',
 				'magicbox_title_position',
+				'product_show_title',
 				'product_show_price',
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
