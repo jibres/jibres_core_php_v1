@@ -277,7 +277,7 @@ class load
 			}
 		}
 
-		$new_body = [];
+		// $new_body = [];
 
 		// foreach ($result['body'] as $key => $value)
 		// {
@@ -287,7 +287,7 @@ class load
 		// 	}
 		// }
 
-		$result['body'] = $new_body;
+		// $result['body'] = $new_body;
 
 	}
 
