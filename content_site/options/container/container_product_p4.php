@@ -2,10 +2,20 @@
 namespace content_site\options\container;
 
 
-trait container_product_p4
+class container_product_p4
 {
-	use container_gallery_g4;
+	use container;
 
+	public static function hide_sm()
+	{
+		return true;
+	}
+
+
+	public static function hide_md()
+	{
+		return true;
+	}
 
 
 }
