@@ -337,7 +337,7 @@ class model
 
 
 		// detect confilict
-		$conflict = \content_site\options\conflict::detect($preview);
+		$conflict = \content_site\options\conflict::detect($preview, $section_key);
 
 		if($conflict === false)
 		{
@@ -363,6 +363,14 @@ class model
 		{
 			\dash\pdo::rollback();
 			self::$do_nothing_reload = true;
+
+			// force set redirect
+			if(\content_site\utility::need_redirect())
+			{
+				self::reloadIframe();
+				\dash\redirect::pwd();
+			}
+
 			return;
 		}
 		else
