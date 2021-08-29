@@ -17,6 +17,12 @@ class homepage
 	}
 
 
+	public static function code()
+	{
+		return \dash\coding::encode(self::id());
+	}
+
+
 	public static function get_header_and_footer()
 	{
 		$post_id = self::id();
@@ -39,7 +45,7 @@ class homepage
 		}
 
 		$post_id = \dash\coding::encode($post_id);
-		$url = \lib\store::admin_url(). '/a/pagebuilder/build?id='. $post_id;
+		$url = \lib\store::admin_url(). '/site/page?id='. $post_id;
 		return $url;
 	}
 
@@ -55,7 +61,7 @@ class homepage
 			return false;
 		}
 
-		$load_post_detail = self::load($post_id);
+		$load_post_detail = self::load_homepage_post($post_id);
 
 		if(!$load_post_detail)
 		{
@@ -85,7 +91,7 @@ class homepage
 
 
 
-	public static function load($_id)
+	private static function load_homepage_post($_id)
 	{
 		if($_id && is_numeric($_id))
 		{

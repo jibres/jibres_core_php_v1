@@ -1,11 +1,50 @@
 <?php
+
+$html = '';
+
 $currentPageDetail = $dataRow = \dash\data::currentPageDetail();
 \dash\data::dataRow($dataRow);
 $coverUrl = a($currentPageDetail, 'cover');
 
 
 // homepage id
+$is_homepage = false;
+$homepage_id = \content_site\homepage::code();
+
+if(\dash\request::get('id') === $homepage_id)
+{
+  $is_homepage = true;
+}
+
+$html .= '<div class="mb-10">';
+{
+  if($is_homepage)
+  {
+    $html .= '<div class="btn danger block disabled">';
+    {
+      $html .= T_("Is home page");
+    }
+    $html .= '</div>';
+  }
+  else
+  {
+    $set_as_homepage = json_encode(['set_as_homepage' => 'set_as_homepage']);
+    $set_as_homepage_title = T_("Are you sure to set this page as homepage?");
+    $set_as_homepage_msg = T_("After setting as the homepage, the current changes of your page will be saved and published");
+    $html .= "<div class='btn master block' data-confirm data-data='$set_as_homepage' data-title='$set_as_homepage_title' data-msg='$set_as_homepage_msg' >";
+    {
+      $html .= T_("Set as home page");
+    }
+    $html .= '</div>';
+  }
+}
+$html .= '</div>';
+
+echo $html;
+
 ?>
+
+
 <form method="post" autocomplete="off" data-patch>
 	<input type="hidden" name="set_title" value="1">
 	<label for="pagetitle"><?php echo T_("Page title") ?></label>

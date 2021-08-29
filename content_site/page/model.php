@@ -14,11 +14,21 @@ class model
 		if(\dash\request::post('savepage') === 'savepage')
 		{
 			self::save_page();
+
+			\dash\notif::ok(T_("Data saved"));
+
+			\dash\notif::complete();
+
+			\dash\notif::reloadIframe();
+
+			\dash\redirect::pwd();
+
+			return true;
 		}
 	}
 
 
-	private static function save_page()
+	public static function save_page( )
 	{
 
 		$page_id = \dash\request::get('id');
@@ -53,17 +63,6 @@ class model
 				\content_site\call_function::after_save_page(a($value, 'section'), a($value, 'id'));
 			}
 		}
-
-		\dash\notif::ok(T_("Data saved"));
-
-		\dash\notif::complete();
-
-		\dash\notif::reloadIframe();
-
-		\dash\redirect::pwd();
-
-		return true;
-
 	}
 
 
