@@ -57,7 +57,7 @@ trait magicbox_title_position
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
-			$html .= self::only_el($default);
+			$html .= self::only_el();
 		}
 		$html .= \content_site\options\generate::_form();
 
