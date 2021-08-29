@@ -4,7 +4,7 @@ namespace content_site\assemble\element;
 
 class slider
 {
-	public static function html($_args, $_datalist)
+	public static function html($_args, $_datalist, $_multiInRow = null)
 	{
 		$sliderClass = 'swiper h-full';
 		if(a($_args, 'radius:class'))
@@ -12,6 +12,10 @@ class slider
 			$sliderClass .= ' overflow-hidden '. a($_args, 'radius:class');
 		}
 		$html = '<div class="'. $sliderClass. '" data-swiper';
+		if($_multiInRow)
+		{
+			$html .= ' data-slidesPerView="auto"';
+		}
 		$effect = a($_args, 'slider_effect');
 		if(!$effect)
 		{
@@ -27,9 +31,8 @@ class slider
 		{
 			$html .= '<div class="swiper-wrapper">';
 			{
-				$specialAttr = "class='swiper-slide'";
 				$autoplay = a($_args, 'slider_autoplay');
-				$autoplayDelay = 5000;
+				$autoplayDelay = null;
 				if($autoplay && $autoplay >= 0 && $autoplay <= 10)
 				{
 					$autoplayDelay = $autoplay * 1000;
@@ -39,6 +42,15 @@ class slider
 					$autoplayDelay = 0;
 				}
 
+				// set class of each slide
+				$specialAttr = "class='swiper-slide'";
+				if($_multiInRow)
+				{
+					// set size
+					$slideSizeClass = 'w-1/5';
+
+					$specialAttr = "class='swiper-slide $slideSizeClass'";
+				}
 				// set autoplay
 				if($autoplayDelay)
 				{
