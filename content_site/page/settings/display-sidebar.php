@@ -25,6 +25,8 @@ $html .= '<div class="mb-10">';
       $html .= T_("Is home page");
     }
     $html .= '</div>';
+    echo $html;
+    return;
   }
   else
   {
