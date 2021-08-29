@@ -22,8 +22,8 @@ class p1
 				'product_tag',
 				'product_order',
 				'count_product',
-				'product_show_image',
-				'product_show_title',
+				'product_show_image_title',
+				'product_show_title_image',
 				'product_show_price',
 				'btn_viewall',
 				// sub page
