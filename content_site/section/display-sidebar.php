@@ -70,7 +70,7 @@ else
 
 $html .= '</div>';
 
-require_once('part/download_php.php');
+// require_once('part/download_php.php');
 
 echo $html;
 

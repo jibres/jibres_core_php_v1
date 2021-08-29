@@ -80,6 +80,24 @@ if(\dash\url::child())
 
         $html .= '<div class="c"></div>';
 
+
+        if(\dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
+        {
+          $html .= "<div class='cauto os pLa5'>";
+          {
+
+            $downloadSupervisor = \dash\url::current(). \dash\request::full_get(['downloadjson' => 1]);
+
+            $myFile = \dash\url::child(). '-'. \dash\request::get('sid'). '.php';
+            $html .= "<a href='$downloadSupervisor' class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-3 rounded-lg' title='".T_("Download PHP")."' download='$myFile' target='_blank'>";
+            $html .= '<img class="w-8 inline-block" src="'. \dash\utility\icon::url('Code'). '" alt="Download php">';
+            $html .= '</a>';
+          }
+          $html .= '</div>';
+        }
+
+
+
         $html .= "<div class='cauto os pLa5'>";
         {
           $model_url = \dash\url::that(). '/model'. \dash\request::full_get();
