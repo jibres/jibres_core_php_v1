@@ -29,7 +29,7 @@ class post_show_readingtime
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_post_show_readingtime" value="1">';
@@ -38,7 +38,7 @@ class post_show_readingtime
 
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

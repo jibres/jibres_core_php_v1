@@ -44,7 +44,7 @@ class btn_viewall
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 	    	$html .= \content_site\options\generate::multioption();
 	    	$html .= \content_site\options\generate::not_redirect();
@@ -58,7 +58,7 @@ class btn_viewall
 			$html .= '</div>';
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

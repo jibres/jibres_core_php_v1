@@ -27,7 +27,7 @@ class socialnetwork
 		}
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_socialnetwork" value="1">';
@@ -63,7 +63,7 @@ class socialnetwork
 			$html .= '</div>';
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

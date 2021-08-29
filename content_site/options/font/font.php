@@ -61,7 +61,7 @@ class font
 		$title = T_("Font");
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label for='font'>$title</label>";
 	        $html .= '<select name="opt_font" class="select22" id="font">';
@@ -80,7 +80,7 @@ class font
 
 	       	$html .= '</select>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

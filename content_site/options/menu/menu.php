@@ -62,7 +62,7 @@ trait menu
 		$title           = self::title();
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= '<div class="row">';
 			{
@@ -123,7 +123,7 @@ trait menu
 			}
 
 		}
- 		$html .= '</form>';
+ 		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

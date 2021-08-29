@@ -47,7 +47,7 @@ trait link_professional
 
 		$kingdom = \dash\url::kingdom();
 
-		$html .= "<form method='post'  autocomplete='off' data-patch>";
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
 			if(self::have_specialsave())

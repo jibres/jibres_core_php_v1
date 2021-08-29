@@ -54,7 +54,7 @@ class background_position
 		$title = T_("Background Position");
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label for='background_position'>$title</label>";
 	        $html .= '<select name="opt_background_position" class="select22"  id="background_position">';
@@ -75,7 +75,7 @@ class background_position
 
 	       	$html .= '</select>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

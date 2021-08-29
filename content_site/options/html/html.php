@@ -34,7 +34,7 @@ class html
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 
 	    	$html .= \content_site\options\generate::not_redirect();
@@ -44,7 +44,7 @@ class html
 	    	$html .= '<textarea  name="html" class="txt ltr txt-l" rows=10>'. htmlentities($text_html) .'</textarea>';
 	    }
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 
 		return $html;

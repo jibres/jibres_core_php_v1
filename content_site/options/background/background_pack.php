@@ -127,7 +127,7 @@ class background_pack
 
 
 
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label>". T_("Background Type") ."</label>";
 
@@ -141,7 +141,7 @@ class background_pack
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 		}
-		$html .= '</form>';
+		$html .= \content_site\options\generate::_form();
 
 		$html .= '<div data-response="opt_background_pack" data-response-where="solid" '.(($default === 'solid') ? null : 'data-response-hide').'>';
 		{

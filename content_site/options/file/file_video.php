@@ -56,7 +56,7 @@ class file_video
 
 		$html = '';
 
-		$html .= '<form method="post" autocomplete="off" >';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= '<input type="hidden" name="opt_video" value="1">';
 
@@ -82,7 +82,7 @@ class file_video
 				$html .= '</video>';
 			}
 		}
-		$html .= '</form>';
+		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

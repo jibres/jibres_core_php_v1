@@ -36,7 +36,7 @@ class text
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off" id="sectioneditorhtml" class="h-full">';
+		$html .= \content_site\options\generate::form('h-full', 'sectioneditorhtml');
 		{
 
 	    	$html .= \content_site\options\generate::not_redirect();
@@ -49,7 +49,7 @@ class text
 	    	$html .= '</div>';
 	    }
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 
 		return $html;

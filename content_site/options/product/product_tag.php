@@ -39,7 +39,7 @@ class product_tag
 
 		$html = '';
 
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<div class='row'>";
 			{
@@ -84,7 +84,7 @@ class product_tag
 
 	       	$html .= '</select>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

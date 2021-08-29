@@ -50,7 +50,7 @@ trait file_business_logo
 		$use_as_logo = \content_site\section\view::get_current_index_detail('use_as_logo');
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 
 			$title = self::title();
@@ -87,7 +87,7 @@ trait file_business_logo
 
 			$html .= '</div>';
 		}
-		$html .= '</form>';
+		$html .= \content_site\options\generate::_form();
 
 		return $html;
 

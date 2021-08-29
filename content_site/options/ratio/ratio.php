@@ -45,7 +45,7 @@ class ratio
 		$title = T_("Set item ratio");
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label for='ratio'>$title</label>";
 	        $html .= '<select name="opt_ratio" class="select22" id="ratio">';
@@ -64,7 +64,7 @@ class ratio
 
 	       	$html .= '</select>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

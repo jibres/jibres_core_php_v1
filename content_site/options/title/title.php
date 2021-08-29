@@ -30,13 +30,13 @@ trait title
 		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::not_redirect();
 	    	$html .= \content_site\options\generate::text('opt_'. \content_site\utility::className(__CLASS__), $default, self::title());
 
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

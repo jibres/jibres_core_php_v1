@@ -29,7 +29,7 @@ class slider_next_prev
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_slider_next_prev" value="1">';
@@ -38,7 +38,7 @@ class slider_next_prev
 
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

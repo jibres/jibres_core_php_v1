@@ -23,7 +23,7 @@ class link_raw
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::not_redirect();
 	    	$html .= '<label for="link">'. T_("Link"). '</label>';
@@ -34,7 +34,7 @@ class link_raw
 			}
 			$html .= "</div>";
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

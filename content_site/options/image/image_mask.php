@@ -81,7 +81,7 @@ class image_mask
 
 		$html = '';
 
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label for='image_mask'>$title</label>";
 
@@ -102,7 +102,7 @@ class image_mask
 
 	       	$html .= '</select>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 
 		return $html;

@@ -50,7 +50,7 @@ class google_map_embed
 		$default = \content_site\section\view::get_current_index_detail('google_map_embed');
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::not_redirect();
@@ -60,7 +60,7 @@ class google_map_embed
 	    	$html .= $default;
 	    	$html .= '</textarea>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

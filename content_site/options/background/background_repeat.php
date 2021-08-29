@@ -48,7 +48,7 @@ class background_repeat
 		$title = T_("Background Repeat");
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label for='background_repeat'>$title</label>";
 			$name       = 'opt_background_repeat';
@@ -71,7 +71,7 @@ class background_repeat
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

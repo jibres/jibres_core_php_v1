@@ -4,15 +4,58 @@ namespace content_site\options;
 
 class generate
 {
+
+	public static function form($_class = null, $_id = null)
+	{
+		$form = '<form method="post" autocomplete="off" data-patch';
+		if($_class)
+		{
+			$form .= ' class="'. $_class. '"';
+		}
+
+		if($_id)
+		{
+			$form .= ' id="'. $_id. '"';
+		}
+
+		$form .= '>';
+
+		return $form;
+	}
+
+
+	public static function _form()
+	{
+		return '</form>';
+	}
+
+
+	public static function opt_hidden($_class, $_value = 1)
+	{
+		if(strpos($_class, '\\') !== false)
+		{
+			$name = \content_site\utility::className($_class);
+		}
+		else
+		{
+			$name = $_class;
+		}
+
+		return '<input type="hidden" name="opt_'.$name.'" value="'. $_value. '">';
+	}
+
+
 	public static function multioption()
 	{
 		return '<input type="hidden" name="multioption" value="multi">';
 	}
 
+
 	public static function not_redirect()
 	{
 		return '<input type="hidden" name="not_redirect" value="1">';
 	}
+
 
 	public static function specialsave()
 	{
@@ -36,6 +79,7 @@ class generate
 
 		return $html;
 	}
+
 
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{

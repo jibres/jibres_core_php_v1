@@ -20,14 +20,14 @@ class caption_gallery
 		$default = \content_site\section\view::get_current_index_detail('title');
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::not_redirect();
 			$html .= \content_site\options\generate::specialsave();;
 	    	$html .= \content_site\options\generate::text('opt_caption_gallery', $default, T_("Caption"));
 
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

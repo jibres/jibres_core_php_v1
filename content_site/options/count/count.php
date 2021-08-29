@@ -44,7 +44,7 @@ trait count
 		}
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= '<div class="pb-2">';
 			{
@@ -54,7 +54,7 @@ trait count
 			$html .= '</div>';
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

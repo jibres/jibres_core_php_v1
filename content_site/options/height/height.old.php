@@ -88,7 +88,7 @@ namespace content_site\options;
 // 		$title = T_("Section Height");
 
 // 		$html = '';
-// 		$html .= '<form method="post" data-patch>';
+// 		$html .= \content_site\options\generate::form();
 // 		{
 // 			$html .= \content_site\options\generate::multioption();
 // 			$html .= "<label>$title</label>";
@@ -117,7 +117,7 @@ namespace content_site\options;
 // 			$html .= '<input type="text" name="'.$name. '" data-rangeSlider data-skin="round" data-force-edges data-from="'.array_search($default, $this_range).'" value="'.$default.'" data-values="'. implode(',', $this_range). '">';
 // 			$html .= '</div>';
 // 		}
-// 		$html .= '</form>';
+// 		$html .= \content_site\options\generate::_form();
 
 
 // 		return $html;

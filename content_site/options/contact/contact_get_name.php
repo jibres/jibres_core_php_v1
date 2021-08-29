@@ -24,7 +24,7 @@ class contact_get_name
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= '<input type="hidden" name="opt_contact_get_name" value="1">';
@@ -33,7 +33,7 @@ class contact_get_name
 
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

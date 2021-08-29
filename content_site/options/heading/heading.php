@@ -76,7 +76,7 @@ trait heading
 		$title            = self::title();
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 
 			if(self::include_business_title())
@@ -157,7 +157,7 @@ trait heading
 				$html .= '</div>';
 			}
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

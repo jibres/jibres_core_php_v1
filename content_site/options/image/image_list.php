@@ -38,7 +38,7 @@ class image_list
 		$html = '';
 
 
-		$html .= '<form method="post" autocomplete="off" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 
 	  		$html .= '<input type="hidden" name="opt_image_list" value="1">';
@@ -95,7 +95,7 @@ class image_list
 			}
 			$html .= '</nav>';
 		}
-		$html .= '</form>';
+		$html .= \content_site\options\generate::_form();
 
 
 		return $html;

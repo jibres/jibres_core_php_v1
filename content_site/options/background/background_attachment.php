@@ -49,7 +49,7 @@ class background_attachment
 		$title = T_('Background Attachment');
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 
 			$html .= "<label>$title</label>";
@@ -73,7 +73,7 @@ class background_attachment
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

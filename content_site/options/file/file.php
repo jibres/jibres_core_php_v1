@@ -106,7 +106,7 @@ trait file
 
 		if(self::add_form_element())
 		{
-			$html .= '<form method="post" autocomplete="off" >';
+			$html .= \content_site\options\generate::form();
 		}
 		// form
 		{
@@ -181,7 +181,7 @@ trait file
 		// form
 		if(self::add_form_element())
 		{
-			$html .= '</form>';
+			$html .= \content_site\options\generate::_form();
 		}
 
 		return $html;

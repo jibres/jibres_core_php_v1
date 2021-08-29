@@ -97,7 +97,7 @@ trait container
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label>$title</label>";
 
@@ -123,7 +123,7 @@ trait container
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 		}
-		$html .= '</form>';
+		$html .= \content_site\options\generate::_form();
 
 
 

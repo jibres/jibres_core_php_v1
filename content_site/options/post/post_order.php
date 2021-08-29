@@ -33,7 +33,7 @@ class post_order
 		$default = \content_site\section\view::get_current_index_detail('post_order');
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 
 	    	$html .= "<label for='post_order'>". T_("Order by") ."</label>";
@@ -53,7 +53,7 @@ class post_order
 	        $html .= '</select>';
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

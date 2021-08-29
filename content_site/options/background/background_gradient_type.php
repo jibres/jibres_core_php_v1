@@ -54,7 +54,7 @@ class background_gradient_type
 		$title = T_("Gradient direction");
 
 		$html = '';
-		$html .= '<form method="post" data-patch>';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= "<label for='background_gradient_type'>$title</label>";
 	        $html .= '<select name="opt_background_gradient_type" class="select22"  id="background_gradient_type">';
@@ -75,7 +75,7 @@ class background_gradient_type
 
 	       	$html .= '</select>';
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

@@ -32,7 +32,7 @@ class slider_autoplay
 		$default = \content_site\section\view::get_current_index_detail('slider_autoplay');
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 			$html .= '<div class="pb-2">';
 			{
@@ -42,7 +42,7 @@ class slider_autoplay
 			$html .= '</div>';
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

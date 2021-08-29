@@ -37,7 +37,7 @@ class product_order
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 
 	    	$html .= "<label for='product_order'>". T_("Order by") ."</label>";
@@ -57,7 +57,7 @@ class product_order
 	        $html .= '</select>';
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

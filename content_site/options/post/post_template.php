@@ -82,7 +82,7 @@ class post_template
 
 
 		$html = '';
-		$html .= '<form method="post" data-patch autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 	    	$html .= \content_site\options\generate::multioption();
 
@@ -139,7 +139,7 @@ class post_template
 
 		}
 
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 		return $html;
 	}

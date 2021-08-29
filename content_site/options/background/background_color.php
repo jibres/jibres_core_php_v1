@@ -64,7 +64,7 @@ class background_color
 
 		$html = '';
 
-		$html .= '<form method="post" class="'.$form_class.'" data-patch>';
+		$html .= \content_site\options\generate::form($form_class);
 		{
 			if($_show_label)
 			{
@@ -82,7 +82,7 @@ class background_color
 			}
 
 		}
-  		$html .= '</form>';
+  		$html .= \content_site\options\generate::_form();
 
 	  	return $html;
 	}

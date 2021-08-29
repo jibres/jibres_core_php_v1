@@ -22,7 +22,7 @@ class quote_list
 		$html = '';
 
 
-		$html .= '<form method="post" autocomplete="off">';
+		$html .= \content_site\options\generate::form();
 		{
 
 	  		$html .= '<input type="hidden" name="set_sort_child" value="1">';
@@ -71,7 +71,7 @@ class quote_list
 			}
 			$html .= '</nav>';
 		}
-		$html .= '</form>';
+		$html .= \content_site\options\generate::_form();
 
 
 		return $html;
