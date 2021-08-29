@@ -23,9 +23,9 @@ class p4
 				'product_tag',
 				'product_order',
 				'count_product',
-				'magicbox_title_position',
-				'product_show_title',
-				'product_show_price',
+				// 'magicbox_title_position',
+				'product_show_title_price_magicbox',
+				// 'product_show_price',
 				'slider_size',
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(

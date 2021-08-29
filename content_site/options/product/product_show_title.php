@@ -12,6 +12,7 @@ trait product_show_title
 			if(!\content_site\section\view::get_current_index_detail('product_show_image'))
 			{
 				\dash\notif::error(T_("Can not hide product title and image together"));
+				\content_site\utility::need_redirect(true);
 				return false;
 			}
 		}
