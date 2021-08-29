@@ -41,7 +41,7 @@ trait file_logo
 
 	public static function have_none()
 	{
-		return true;
+		return false;
 	}
 
 
@@ -65,10 +65,10 @@ trait file_logo
 
 			if(self::have_none())
 			{
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false), true);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false));
 			}
-			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_logo', T_("Business Logo"), (($use_as_logo === 'business_logo')? true : false), true);
-			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_logo', T_("Custom"), (($use_as_logo === 'custom_logo')? true : false), true);
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_logo', T_("Business Logo"), (($use_as_logo === 'business_logo')? true : false));
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_logo', T_("Custom"), (($use_as_logo === 'custom_logo')? true : false));
 
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
