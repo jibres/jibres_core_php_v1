@@ -2,7 +2,7 @@
 namespace content_site\options\container;
 
 
-class container_gallery_g4
+trait container_gallery_g4
 {
 	use container_gallery;
 

@@ -32,7 +32,6 @@ class p4
 					'slider_effect',
 					'slider_autoplay',
 					'slider_next_prev',
-					'slider_pagination',
 					'slider_size',
 				],
 				'btn_viewall',
@@ -40,6 +39,7 @@ class p4
 				[
 					'font',
 					'height',
+					'container_product_p4',
 					'magicbox_gap',
 					'background_pack',
 					'color_heading',
