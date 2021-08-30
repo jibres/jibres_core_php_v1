@@ -74,7 +74,7 @@ class p1
 			'version'        => 1,
 			'options' =>
 			[
-				'product_show_image'       => 1,
+				'product_show_image'       => true,
 				'height'                => 'md',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
@@ -82,7 +82,7 @@ class p1
 				'count'                 => 3,
 				'color_text'            => '#333333',
 				'radius'                => 'lg',
-				'btn_viewall_check'     => 1,
+				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_('View all'),
 				'background_pack'       => 'none',
 			],

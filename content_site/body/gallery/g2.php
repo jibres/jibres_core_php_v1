@@ -97,15 +97,15 @@ class g2
 			'options' =>
 			[
 				'image_count'             => 7,
-				'slider_pagination'       => '1',
-				'slider_next_prev'        => 1,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
 				'slider_effect'           => 'slide',
 				'slider_autoplay'         => 5,
 				'radius'                  => 'lg',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'sm',
 				'link_color'              => 'light',
-				'image_random'            => 1,
+				'image_random'            => true,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => '16:9',
