@@ -9,6 +9,13 @@ class socialnetwork
 		$new_data                         = [];
 		$new_data['use_as_socialnetwork'] = \dash\validate::enum(a($_data, 'use_as_socialnetwork'), false, ['enum' => ['business_socialnetwork', 'custom_socialnetwork']]);
 
+		$all_social_list = \lib\store::all_social_list();
+
+		foreach ($all_social_list as $key => $value)
+		{
+			$new_data[$key] = \dash\validate::string_100(a($_data, $key), false);
+		}
+
 		return $new_data;
 	}
 
@@ -76,7 +83,13 @@ class socialnetwork
 
 			$html .= "<div data-response='use_as_socialnetwork' data-response-where='custom_socialnetwork' $data_response_hide>";
 			{
-  				$html .= \content_site\options\generate::text('telegram', 'tg', 'tg');
+				$all_social_list = \lib\store::all_social_list();
+				foreach ($all_social_list as $key => $value)
+				{
+					$myKey = $key;
+					$username = \content_site\section\view::get_current_index_detail($myKey);
+  					$html .= \content_site\options\generate::text($myKey, $username, a($value, 'title'), null, 'ltr');
+				}
 
 			}
 			$html .= '</div>';

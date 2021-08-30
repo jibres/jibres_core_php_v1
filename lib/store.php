@@ -485,6 +485,29 @@ class store
 	}
 
 
+	public static function all_social_list()
+	{
+		$social = [];
+
+		$social['instagram'] = ['user' => null, 'title' => T_("Instagram"), 'link' => 'https://instagram.com/'];
+		$social['telegram']  = ['user' => null, 'title' => T_("Telegram"), 'link' => 'https://t.me/'];
+		$social['youtube']   = ['user' => null, 'title' => T_("Youtube"), 'link' => 'https://youtube.com/'];
+		$social['twitter']   = ['user' => null, 'title' => T_("Twitter"), 'link' => 'https://twitter.com/'];
+		$social['linkedin']  = ['user' => null, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/in/'];
+		$social['github']    = ['user' => null, 'title' => T_("Github"), 'link' => 'https://github.com/'];
+		$social['facebook']  = ['user' => null, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'];
+		$social['email']     = ['user' => null, 'title' => T_("Email"), 'link' => 'mailto:'];
+
+		if(\dash\language::current() === 'fa')
+		{
+			$social['aparat']    = ['user' => null, 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'];
+			$social['eitaa']     = ['user' => null, 'title' => T_("Eitaa"), 'link' => 'https://eitaa.com/'];
+		}
+		return $social;
+	}
+
+
+
 	public static function social($_need = null, $_only_get_username = false)
 	{
 		$detail = self::detail();
