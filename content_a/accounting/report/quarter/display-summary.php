@@ -40,6 +40,27 @@
         </li>
       </ul>
     </nav>
+
+     <nav class="items long">
+      <ul>
+        <li>
+          <a class="item f" href="<?php echo $link ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Total - Discount") ?></div>
+            <div class="value" data-copy='<?php echo a($value, 'total-discount') ?>'><?php echo \dash\fit::number(a($value, 'total-discount')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+        <li>
+          <a class="item f" href="<?php echo $link ?>">
+            <img class="bg-gray-100 hover:bg-gray-200 p-2" alt="report" src="<?php echo \dash\utility\icon::url('list'); ?>">
+            <div class="key"><?php echo T_("Total - Discount + vat") ?></div>
+            <div class="value" data-copy='<?php echo a($value, 'total-discount+vat') ?>'><?php echo \dash\fit::number(a($value, 'total-discount+vat')) ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 <?php } //endfor ?>
 </div>

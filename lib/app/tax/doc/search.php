@@ -266,6 +266,10 @@ class search
 			}
 
 
+			$summary['total-discount'] = floatval(a($summary, 'total')) - floatval(a($summary, 'totaldiscount'));
+			$summary['total-discount+vat'] = $summary['total-discount'] + floatval(a($summary, 'totalvat6')) + floatval(a($summary, 'totalvat3'));
+
+
 			return $summary;
 		}
 		else
