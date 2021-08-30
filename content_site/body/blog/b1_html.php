@@ -14,7 +14,10 @@ class b1_html
 
 				$html .= \content_site\assemble\wrench\section::grid_12($_args);
 				{
-					$html .= \content_site\assemble\element\card::html($_args, $_blogList);
+					$optCard = [
+						'grid' => true,
+					];
+					$html .= \content_site\assemble\element\card::html($_args, $_blogList, $optCard);
 				}
 				$html .= '</div>';
 

@@ -29,42 +29,77 @@ class card
 		$myAuthorPage = a($_item, 'authorpage');
 
 
-		$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 
-		$cardBoxExtraAttr = '';
-		$sliderLazyLoad = false;
-		if($_opt === 'blog' || $_opt === 'product')
+		// new way to get parent element class, attr and some other details
+		$elAttr       = '';
+		$elClass      = '';
+		$insideSlider = null;
+
+		// enable lazyload inside slider
+		if(a($_opt, 'slider') === true)
+		{
+			$insideSlider = true;
+			// do nothing
+		}
+		else if(a($_opt, 'grid'))
 		{
 			// get grid class name by analyze
-			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
-			$cardBoxExtraAttr = "class='$gridCol flex flex-col max-w-md'";
+			$elClass .= ' '. \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 		}
-		elseif(is_array($_opt))
+
+		// add manual class for this type
+		$elClass .= 'flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-md hover:shadow-lg bg-white';
+		if(a($_args, 'radius:class'))
 		{
-			if(isset($_opt['type']) && $_opt['type'] === 'slider')
+			$elClass .= ' '. a($_args, 'radius:class');
+		}
+
+		if(a($_opt, 'class'))
+		{
+			if($elClass)
 			{
-				// enable lazy load
-				$sliderLazyLoad = true;
-				if(isset($_opt['attr']))
+				$elClass .= ' ';
+			}
+			// if array passed, use for each key, else use one string for all
+			if(is_array($_opt['class']))
+			{
+				if(a($_opt, 'class', $_key))
 				{
-					// add attr to element
-					$cardBoxExtraAttr = $_opt['attr'];
+					$elClass .= a($_opt, 'class', $_key);
 				}
 			}
-			if(isset($_opt[$_key]))
+			else
 			{
-				$cardBoxExtraAttr = "class='". $_opt[$_key]. "'";
+				$elClass .= a($_opt, 'class');
 			}
 		}
-		elseif($_opt)
+		if($elClass)
 		{
-			$cardBoxExtraAttr = $_opt;
+			$elClass = 'class="'. $elClass. '"';
+		}
+
+		if(a($_opt, 'attr'))
+		{
+			if($elAttr)
+			{
+				$elAttr .= ' ';
+			}
+			$elAttr = a($_opt, 'attr');
 		}
 
 
-		$card = '';
-		$borderRadius     = a($_args, 'radius:class');
-		$card .= "<div data-card class='$gridCol flex w-full flex-col max-w-md mx-auto overflow-hidden transition shadow-md hover:shadow-lg bg-white $borderRadius'>";
+		$elementTag = '<div data-card';
+		if($myLinkHref)
+		{
+			$elementTag .= ' '. $myLinkHref;
+		}
+		if($elClass)
+		{
+			$elementTag .= ' '. $elClass;
+		}
+		$elementTag .= '>';
+
+		$card = $elementTag;
 		{
 			// thumb
 			if($myThumb && a($_args, 'post_show_image') !== false)
