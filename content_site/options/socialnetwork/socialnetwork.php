@@ -6,25 +6,19 @@ class socialnetwork
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::checkbox(a($_data, 'display_socialnetwork'));
-		return $data;
+		$new_data                         = [];
+		$new_data['use_as_socialnetwork'] = \dash\validate::enum(a($_data, 'use_as_socialnetwork'), false, ['enum' => ['business_socialnetwork', 'custom_socialnetwork']]);
+
+		return $new_data;
 	}
 
-
-	public static function default()
-	{
-		return null;
-	}
 
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('socialnetwork');
 
-		if(!$default)
-		{
-			$default = self::default();
-		}
+		$use_as_socialnetwork = \content_site\section\view::get_current_index_detail('use_as_socialnetwork');
+
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
@@ -32,16 +26,26 @@ class socialnetwork
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
-			$html .= \content_site\options\generate::checkbox('display_socialnetwork', T_('Display Social Networks ID'), $default);
+			$name = 'use_as_socialnetwork';
+
+			$radio_html = '';
+
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_socialnetwork', T_("Business Social Networks"), (($use_as_socialnetwork === 'business_socialnetwork')? true : false));
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_socialnetwork', T_("Custom"), (($use_as_socialnetwork === 'custom_socialnetwork')? true : false));
+
+
+			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
+
+
 
 			$data_response_hide = 'data-response-hide';
 
-			if($default)
+			if($use_as_socialnetwork === 'business_socialnetwork')
 			{
 				$data_response_hide = null;
 			}
 
-			$html .= "<div data-response='display_socialnetwork' $data_response_hide>";
+			$html .= "<div data-response='use_as_socialnetwork' data-response-where='business_socialnetwork' $data_response_hide>";
 			{
 				$html .= '<nav class="items long mT20"><ul>';
 				{
@@ -59,6 +63,21 @@ class socialnetwork
 			   		$html .= '</li>';
 				}
 				$html .= '</ul></nav>';
+			}
+			$html .= '</div>';
+
+
+			$data_response_hide = 'data-response-hide';
+
+			if($use_as_socialnetwork === 'custom_socialnetwork')
+			{
+				$data_response_hide = null;
+			}
+
+			$html .= "<div data-response='use_as_socialnetwork' data-response-where='custom_socialnetwork' $data_response_hide>";
+			{
+  				$html .= \content_site\options\generate::text('telegram', 'tg', 'tg');
+
 			}
 			$html .= '</div>';
 		}
