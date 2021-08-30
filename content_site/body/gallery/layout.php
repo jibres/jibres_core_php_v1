@@ -96,6 +96,9 @@ class layout
 					$image_list[$key]['title'] = T_("Image :val", ['val' => \dash\fit::number($key + 1)]);
 				}
 			}
+
+			$image_list[$key]['file_detail'] = \lib\filepath::get_detail($value['file']);
+			$image_list[$key]['thumb']       = $value['file'];
 		}
 
 		if(is_numeric($max) && count($image_list) < $max)
