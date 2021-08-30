@@ -16,7 +16,6 @@ class p4_html
 				$html .= '<div class="">';
 				{
 					$html .= \content_site\assemble\element\slider::html($_args, $_list, true);
-					// $html .= \content_site\assemble\element\magicbox::html($_args, $_list, 'product');
 				}
 				$html .= '</div>';
 
