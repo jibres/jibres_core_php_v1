@@ -229,7 +229,7 @@ trait file
 					}
 					else if($file_detail['type'] === 'image')
 					{
-						$html .= '<img id="finalImage" src="'. \dash\fit::img($default, 460). '" alt="'. T_("Image"). '">';
+						$html .= '<img id="finalImage" src="'. $default. '" alt="'. T_("Image"). '">';
 					}
 					else if($file_detail['type'] === 'pdf')
 					{
