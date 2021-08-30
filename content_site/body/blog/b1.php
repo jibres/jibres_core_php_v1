@@ -92,11 +92,11 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'post_show_readingtime' => 1,
-				'post_show_image'       => 1,
-				'post_show_excerpt'     => 1,
+				'post_show_readingtime' => true,
+				'post_show_image'       => true,
+				'post_show_excerpt'     => true,
 				'post_show_date'        => 'relative',
-				'post_show_author'      => 1,
+				'post_show_author'      => true,
 				'height'                => 'md',
 				'heading_position'      => 'center',
 				'heading'               => $_title,
@@ -104,7 +104,7 @@ class b1
 				'count'                 => 3,
 				'color_text'            => '#333333',
 				'radius'                => 'lg',
-				'btn_viewall_check'     => 1,
+				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_('View all'),
 				'btn_viewall_mode'      => 'dark',
 				'background_pack'       => 'none',
@@ -122,8 +122,8 @@ class b1
 			'options' =>
 			[
 				'post_show_readingtime' => null,
-				'post_show_image'       => 1,
-				'post_show_excerpt'     => 1,
+				'post_show_image'       => true,
+				'post_show_excerpt'     => true,
 				'post_show_date'        => 'no',
 				'post_show_author'      => null,
 				'height'                => 'md',
@@ -133,7 +133,7 @@ class b1
 				'count'                 => 4,
 				'color_text'            => '#333333',
 				'radius'                => 'lg',
-				'btn_viewall_check'     => 1,
+				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_('View all'),
 				'btn_viewall_mode'      => 'dark',
 				'background_pack'       => 'solid',
@@ -152,8 +152,8 @@ class b1
 			'options' =>
 			[
 				'post_show_readingtime'    => null,
-				'post_show_image'          => 1,
-				'post_show_excerpt'        => 1,
+				'post_show_image'          => true,
+				'post_show_excerpt'        => true,
 				'post_show_date'           => 'date',
 				'post_show_author'         => null,
 				'height'                   => 'lg',
@@ -184,9 +184,9 @@ class b1
 			[
 				'post_show_readingtime' => null,
 				'post_show_image'       => null,
-				'post_show_excerpt'     => 1,
+				'post_show_excerpt'     => true,
 				'post_show_date'        => 'full',
-				'post_show_author'      => 1,
+				'post_show_author'      => true,
 				'height'                => 'lg',
 				'heading_position'      => 'center',
 				'heading'               => null,
@@ -212,7 +212,7 @@ class b1
 			[
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
-				'post_show_excerpt'        => 1,
+				'post_show_excerpt'        => true,
 				'post_show_date'           => 'no',
 				'post_show_author'         => null,
 				'height'                   => 'lg',
@@ -242,10 +242,10 @@ class b1
 			'options' =>
 			[
 				'post_show_readingtime'    => null,
-				'post_show_image'          => 1,
-				'post_show_excerpt'        => 1,
+				'post_show_image'          => true,
+				'post_show_excerpt'        => true,
 				'post_show_date'           => 'relative',
-				'post_show_author'         => 1,
+				'post_show_author'         => true,
 				'height'                   => 'md',
 				'heading_position'         => 'center',
 				'heading'                  => null,
@@ -274,8 +274,8 @@ class b1
 			'options' =>
 			[
 				'post_show_readingtime'    => null,
-				'post_show_image'          => 1,
-				'post_show_excerpt'        => 1,
+				'post_show_image'          => true,
+				'post_show_excerpt'        => true,
 				'post_show_date'           => 'no',
 				'post_show_author'         => null,
 				'height'                   => 'sm',
@@ -306,7 +306,7 @@ class b1
 			'options' =>
 			[
 				'post_show_readingtime' => null,
-				'post_show_image'       => 1,
+				'post_show_image'       => true,
 				'post_show_excerpt'     => null,
 				'post_show_date'        => 'no',
 				'post_show_author'      => null,
@@ -336,7 +336,7 @@ class b1
 			[
 				'post_show_readingtime'    => null,
 				'post_show_image'          => null,
-				'post_show_excerpt'        => 1,
+				'post_show_excerpt'        => true,
 				'post_show_date'           => 'no',
 				'post_show_author'         => null,
 				'height'                   => 'md',
@@ -346,7 +346,7 @@ class b1
 				'count'                    => 9,
 				'color_text'               => '#333333',
 				'radius'                   => 'lg',
-				'btn_viewall_check'        => 1,
+				'btn_viewall_check'        => true,
 				'btn_viewall'              => T_("View all"),
 				'btn_viewall_mode'         => 'dark',
 				'background_pack'          => 'gradient',
