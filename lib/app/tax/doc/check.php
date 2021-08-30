@@ -176,6 +176,7 @@ class check
 				$totaldiscount = floatval($data['totaldiscount']);
 				$final         = $total - $totaldiscount;
 
+
 				$real_vat      = round(($final) * 0.09);
 
 				if($data['template'] === 'income')
@@ -197,7 +198,7 @@ class check
 				if($totalvat != $real_vat)
 				{
 					$totalincludevat    = ($totalvat / 9) * 100;
-					$totalnotincludevat = $final - $totalincludevat + $totalvat;
+					$totalnotincludevat = $final - $totalincludevat; //  + $totalvat;
 
 					if($totalnotincludevat < 0)
 					{
