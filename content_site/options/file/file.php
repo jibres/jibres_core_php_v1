@@ -128,6 +128,11 @@ trait file
 		return false;
 	}
 
+	public static function file_action_meta()
+	{
+		return [];
+	}
+
 
 
 	public static function html_upload_file($_section_detail = null)
@@ -255,33 +260,32 @@ trait file
 			}
 			$html .= '</label>';
 
-			$action_file_by_ajaxify =
-			[
-				'opt_'.$option_key => 1,
-				'multioption'      => 'multi',
-			];
+			$meta_action                     = self::file_action_meta();
+			$meta_action['opt_'.$option_key] = 1;
+			$meta_action['multioption']      = 'multi';
+
 
 			if(self::have_specialsave())
 			{
-				$action_file_by_ajaxify['specialsave'] = 'specialsave';
+				$meta_action['specialsave'] = 'specialsave';
 			}
 
 			if($default)
 			{
-				$action_file_by_ajaxify_delete               = $action_file_by_ajaxify;
-				$action_file_by_ajaxify_delete['deletefile'] = 1;
+				$meta_action_delete               = $meta_action;
+				$meta_action_delete['deletefile'] = 1;
 
-				$action_file_by_ajaxify_delete = json_encode($action_file_by_ajaxify_delete);
+				$meta_action_delete = json_encode($meta_action_delete);
 
-				$html .= "<span class='imageDel' data-confirm data-data='$action_file_by_ajaxify_delete'></span>";
+				$html .= "<span class='imageDel' data-confirm data-data='$meta_action_delete'></span>";
 			}
 			// uploader div
 			$html .= '</div>';
 
-			$action_file_by_ajaxify['callback'] = \dash\url::path();
+			$meta_action['callback'] = \dash\url::path();
 
 			$choose_url = \dash\url::here(). '/gallery';
-			$choose_url .= '?'. \dash\request::build_query($action_file_by_ajaxify);
+			$choose_url .= '?'. \dash\request::build_query($meta_action);
 
 			$choose_title = T_("Choose from gallery");
 			$html .= "<a  class='btn-primary block'  href='$choose_url'>$choose_title</a>";

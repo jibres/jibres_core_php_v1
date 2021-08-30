@@ -44,6 +44,11 @@ trait file_business_logo
 		return false;
 	}
 
+	public static function file_action_meta()
+	{
+		return ['use_as_logo' => 'custom_logo'];
+	}
+
 
 	public static function admin_html()
 	{
