@@ -14,7 +14,10 @@ class b2_html
 
 				$html .= \content_site\assemble\wrench\section::grid_12($_args);
 				{
-					$html .= \content_site\assemble\element\magicbox::html($_args, $_blogList, 'blog');
+					$optMagicBox = [
+						'grid' => true,
+					];
+					$html .= \content_site\assemble\element\magicbox::html($_args, $_blogList, $optMagicBox);
 				}
 				$html .= '</div>';
 
