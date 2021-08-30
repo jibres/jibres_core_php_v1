@@ -4,20 +4,20 @@ namespace content_site\assemble\element;
 
 class magicbox
 {
-	public static function html($_args, $_datalist, $_magicModel = null)
+	public static function html($_args, $_datalist, $_opt = null)
 	{
 		$html = '';
 
 		foreach ($_datalist as $key => $item)
 		{
-			$html .= self::eachItem($_args, $_datalist, $_magicModel, $key, $item);
+			$html .= self::eachItem($_args, $_datalist, $_opt, $key, $item);
 		}
 
 		return $html;
 	}
 
 
-	public static function eachItem($_args, $_datalist, $_magicModel, $_key, $_item)
+	public static function eachItem($_args, $_datalist, $_opt, $_key, $_item)
 	{
 		$myTitle      = a($_item, 'title');
 		$borderRadius = a($_args, 'radius:class');
@@ -58,32 +58,32 @@ class magicbox
 		$card = '';
 		$magicBoxExtraAttr = '';
 		$sliderLazyLoad = false;
-		if($_magicModel === 'blog' || $_magicModel === 'product')
+		if($_opt === 'blog' || $_opt === 'product')
 		{
 			// get grid class name by analyze
 			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 			$magicBoxExtraAttr = "class='$gridCol flex flex-col max-w-md'";
 		}
-		elseif(is_array($_magicModel))
+		elseif(is_array($_opt))
 		{
-			if(isset($_magicModel['type']) && $_magicModel['type'] === 'slider')
+			if(isset($_opt['type']) && $_opt['type'] === 'slider')
 			{
 				// enable lazy load
 				$sliderLazyLoad = true;
-				if(isset($_magicModel['attr']))
+				if(isset($_opt['attr']))
 				{
 					// add attr to element
-					$magicBoxExtraAttr = $_magicModel['attr'];
+					$magicBoxExtraAttr = $_opt['attr'];
 				}
 			}
-			if(isset($_magicModel[$_key]))
+			if(isset($_opt[$_key]))
 			{
-				$magicBoxExtraAttr = "class='". $_magicModel[$_key]. "'";
+				$magicBoxExtraAttr = "class='". $_opt[$_key]. "'";
 			}
 		}
-		elseif($_magicModel)
+		elseif($_opt)
 		{
-			$magicBoxExtraAttr = $_magicModel;
+			$magicBoxExtraAttr = $_opt;
 		}
 
 		$card .= "<$myMagicBoxEl data-magicbox='$effect' $myLinkHref $magicBoxExtraAttr>";
