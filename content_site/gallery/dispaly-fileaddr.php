@@ -1,4 +1,4 @@
-<form method="post" autocomplete="off" action="<?php echo \dash\request::get('callback'); ?>">
+<form method="post" autocomplete="off" action="<?php echo \dash\url::site(). \dash\request::get('callback'); ?>">
   <?php foreach (\dash\request::get() as $key => $value) {?>
     <input type="hidden" name="<?php echo $key ?>" value="<?php echo $value ?>">
   <?php } //endif ?>

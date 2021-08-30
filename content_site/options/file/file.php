@@ -277,7 +277,7 @@ trait file
 			// uploader div
 			$html .= '</div>';
 
-			$action_file_by_ajaxify['callback'] = \dash\url::pwd();
+			$action_file_by_ajaxify['callback'] = \dash\url::path();
 
 			$choose_url = \dash\url::here(). '/gallery';
 			$choose_url .= '?'. \dash\request::build_query($action_file_by_ajaxify);
