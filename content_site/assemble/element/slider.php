@@ -84,17 +84,34 @@ class slider
 				$sliderOption =
 				[
 					'type' => 'slider',
-					'attr' => $specialAttr,
+					// 'attr' => $specialAttr,
 				];
 
-				if($_multiInRow === 'card')
+				foreach ($_datalist as $key => $item)
 				{
-					$html .= \content_site\assemble\element\card::html($_args, $_datalist);
+					$html .= "<div $specialAttr>";
+					{
+						if($_multiInRow === 'card')
+						{
+
+						}
+						else
+						{
+							$html .= \content_site\assemble\element\magicbox::eachItem($_args, $_datalist, $sliderOption, $key, $item);
+						}
+					}
+					$html .= '</div>';
+
 				}
-				else
-				{
-					$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $sliderOption);
-				}
+
+				// if($_multiInRow === 'card')
+				// {
+				// 	$html .= \content_site\assemble\element\card::html($_args, $_datalist);
+				// }
+				// else
+				// {
+				// 	$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $sliderOption);
+				// }
 			}
 			$html .= '</div>';
 

@@ -64,10 +64,6 @@ class magicbox
 			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 			$magicBoxExtraAttr = "class='$gridCol flex flex-col max-w-md'";
 		}
-		elseif($_magicModel === 'slider')
-		{
-			$magicBoxExtraAttr = "class='swiper-slide'";
-		}
 		elseif(is_array($_magicModel))
 		{
 			if(isset($_magicModel['type']) && $_magicModel['type'] === 'slider')
