@@ -86,14 +86,13 @@ class slider
 					'type' => 'slider',
 					// 'attr' => $specialAttr,
 				];
-var_dump(11);
 				foreach ($_datalist as $key => $item)
 				{
 					$html .= "<div $specialAttr>";
 					{
 						if($_opt === 'card')
 						{
-
+							$html .= \content_site\assemble\element\card::eachItem($_args, $_datalist, $sliderOption, $key, $item);
 						}
 						else
 						{
