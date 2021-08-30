@@ -16,7 +16,6 @@ class p3_html
 				$html .= '<div class="">';
 				{
 					$html .= \content_site\assemble\element\slider::html($_args, $_list, 'card');
-					// $html .= \content_site\assemble\element\card::html($_args, $_list);
 				}
 				$html .= '</div>';
 
