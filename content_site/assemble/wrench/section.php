@@ -95,6 +95,8 @@ class section
 		}
 		else
 		{
+			// customize gap
+			// $grid_cols .=	' gap-0.5 sm:gap-1 md:gap-2 md:gap-x-1 lg:gap-4 lg:gap-x-2';
 			$grid_cols .=	' gap-0.5 sm:gap-1 md:gap-2 lg:gap-4';
 		}
 

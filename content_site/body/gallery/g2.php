@@ -97,7 +97,7 @@ class g2
 			'options' =>
 			[
 				'image_count'             => 7,
-				'slider_pagination'       => 1,
+				'slider_pagination'       => '1',
 				'slider_next_prev'        => 1,
 				'slider_effect'           => 'slide',
 				'slider_autoplay'         => 5,
