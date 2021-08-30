@@ -1,4 +1,4 @@
-<div data-xhr='choosegallery'>
+
 
 <div class="row">
   <?php foreach (\dash\data::dataTable() as $key => $value) {
@@ -15,4 +15,3 @@
   <?php } //endfor ?>
 </div>
 <?php \dash\utility\pagination::html(); ?>
-</div>
