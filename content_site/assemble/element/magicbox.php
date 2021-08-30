@@ -95,47 +95,66 @@ class magicbox
 			// thumb
 			// if($myThumb && a($_args, 'post_show_image'))
 			{
-				$pictureClass = 'transition shadow-sm hover:shadow-md';
+				$mediaBoxClass = 'transition shadow-sm hover:shadow-md';
 				if(a($_args, 'coverratio:class'))
 				{
-					$pictureClass .= ' '. a($_args, 'coverratio:class');
+					$mediaBoxClass .= ' '. a($_args, 'coverratio:class');
 				}
 				if($maskImg)
 				{
-					$pictureClass .= ' '. $maskImg;
+					$mediaBoxClass .= ' '. $maskImg;
 				}
 				if($borderRadius)
 				{
-					$pictureClass .= ' '. $borderRadius;
+					$mediaBoxClass .= ' '. $borderRadius;
 				}
 				if($effect !== 'zoom')
 				{
-					$pictureClass .= ' overflow-hidden';
+					$mediaBoxClass .= ' overflow-hidden';
 				}
 
-				$card .= "<picture class='$pictureClass'>";
+				$mediaElementType = 'picture';
+
+				if(a($_item, 'file_detail', 'type') !== 'image')
 				{
-					$imgClass = 'object-cover';
+					$mediaElementType = 'div';
+				}
+
+				$card .= "<$mediaElementType class='$mediaBoxClass'>";
+				{
+
+					$imgClass = 'object-cover w-full';
 					if(a($_args, 'coverratio') === 'free')
 					{
-						$imgClass = 'h-auto';
+						$imgClass = 'h-auto w-full';
 					}
 					if($borderRadius)
 					{
 						$imgClass .= ' '. $borderRadius;
 					}
-					// use data-src for lazyload
-					if($sliderLazyLoad)
+
+					if(a($_item, 'file_detail', 'type') === 'video')
 					{
-						$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
-						$card .= '<div class="swiper-lazy-preloader"></div>';
+						$card .= "<video controls class='$imgClass'>";
+
+						$card .= "<source src='$myThumb' type='". a($_item, 'file_detail', 'mime'). "'>";
+						$card .= "</video>";
 					}
 					else
 					{
-						$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+						// use data-src for lazyload
+						if($sliderLazyLoad)
+						{
+							$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+							$card .= '<div class="swiper-lazy-preloader"></div>';
+						}
+						else
+						{
+							$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+						}
 					}
 				}
-				$card .= "</picture>";
+				$card .= "</$mediaElementType>";
 			}
 			$linkColorClass = 'link-'. a($_args, 'link_color');
 			$linkAlign = '';
