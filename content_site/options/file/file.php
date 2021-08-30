@@ -168,70 +168,48 @@ trait file
 			$html .= '<input type="file" accept="'.implode(',', $accept).'" id="myfile">';
 			$html .= '<label for="myfile">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
 
-			$file_type = null;
-			$mime = null;
 
-			$ext = substr(strrchr($default, '.'), 1);
+			$file_detail = \lib\filepath::get_detail($default);
 
-			$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
-
-			if(isset($mime_detail['type']))
+			$html .= '<label for="myfile">';
 			{
-				$file_type = $mime_detail['type'];
-			}
-
-			if(isset($mime_detail['mime']))
-			{
-				$mime = $mime_detail['mime'];
-			}
-
-			if($default)
-			{
-				if($file_type === 'video')
+				if($default)
 				{
-					$html .= '<video controls>';
-					$html .= '<source src="'. $default. '" type="'. $mime. '">';
-					$html .= '</video>';
-				}
-				else if($file_type === 'audio')
-				{
-					$html .= '<audio controls>';
-					$html .= '<source src="'. $default. '" type="'. $mime. '">';
-					$html .= '</audio>';
-				}
-				else if($file_type === 'image')
-				{
-					$html .= '<a data-fancybox="galleryPreview" target="_blank" href="'. $default. '"><img src="'. \dash\fit::img($default, 460). '" alt="'. a(\dash\data::dataRow(), 'title'). '"></a>';
-				}
-				else if($file_type === 'pdf')
-				{
-					$html .= '<div class="file"><a data-fancybox="galleryPreview" data-type="pdf" target="_blank" href="'. $default. '"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</a></div>';
-				}
-				else if($file_type === 'zip')
-				{
-					$html .= '<div class="file"><a target="_blank" href="'. $default. '"><i class="sf-file-archive-o"></i>'. T_("ZIP"). '</a></div>';
+					if($file_detail['type'] === 'video')
+					{
+						$html .= '<video controls>';
+						$html .= '<source src="'. $default. '" type="'. $file_detail['mime']. '">';
+						$html .= '</video>';
+					}
+					else if($file_detail['type'] === 'audio')
+					{
+						$html .= '<audio controls>';
+						$html .= '<source src="'. $default. '" type="'. $file_detail['mime']. '">';
+						$html .= '</audio>';
+					}
+					else if($file_detail['type'] === 'image')
+					{
+						$html .= '<img id="finalImage" src="'. \dash\fit::img($default, 460). '" alt="'. T_("Image"). '">';
+					}
+					else if($file_detail['type'] === 'pdf')
+					{
+						$html .= '<div class="file"><a data-fancybox="galleryPreview" data-type="pdf" target="_blank" href="'. $default. '"><i class="sf-file-pdf-o"></i>' . T_("PDF"). '</a></div>';
+					}
+					else if($file_detail['type'] === 'zip')
+					{
+						$html .= '<div class="file"><a target="_blank" href="'. $default. '"><i class="sf-file-archive-o"></i>'. T_("ZIP"). '</a></div>';
+					}
+					else
+					{
+						$html .= '<div class="file"><a target="_blank" href="'. $default. '"><i class="sf-file-o"></i>'. T_("File"). '</a></div>';
+					}
 				}
 				else
 				{
-					$html .= '<div class="file"><a target="_blank" href="'. $default. '"><i class="sf-file-o"></i>'. T_("File"). '</a></div>';
+					$html .= '<img id="finalImage" src="#" alt="File"">';
 				}
-
-				// $myExt = substr($default, -3);
-
-				// if(in_array($myExt, ['png', 'jpg', 'gif', 'svg']) || in_array(substr($default, -4), ['webp']))
-				// {
-				// 	$html .= '<label for="myfile"><img id="finalImage" src="'. $default. '" alt="'. \dash\data::dataRow_title(). '"></label>';
-				// }
-
-				// else
-				// {
-				// 	$html .= '<label for="myfile"><img id="finalImage" src="" alt="'. \dash\data::dataRow_title(). '"></label>';
-				// }
 			}
-			else
-			{
-				$html .= '<label for="myfile"><img id="finalImage" alt="File""></label>';
-			}
+			$html .= '</label>';
 
 			if($default)
 			{
