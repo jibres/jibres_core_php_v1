@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\files\choose2;
+namespace content_site\gallery;
 
 
 class view
@@ -12,6 +12,8 @@ class view
 		\dash\data::back_link(\dash\request::get('callback'));
 
 		\dash\data::userToggleSidebar(false);
+
+		\dash\data::include_adminPanelBuilder(true);
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());

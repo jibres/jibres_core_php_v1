@@ -59,6 +59,7 @@ trait file
 					{
 						return false;
 					}
+					\content_site\utility::need_redirect(true);
 
 					return $file_path;
 				}
@@ -78,6 +79,8 @@ trait file
 					{
 						return false;
 					}
+					\content_site\utility::need_redirect(true);
+
 
 					return $file_path;
 				}
@@ -276,11 +279,11 @@ trait file
 
 			$action_file_by_ajaxify['callback'] = \dash\url::pwd();
 
-			$choose_url = \lib\store::admin_url(). '/cms/files/choose2';
+			$choose_url = \dash\url::here(). '/gallery';
 			$choose_url .= '?'. \dash\request::build_query($action_file_by_ajaxify);
 
 			$choose_title = T_("Choose from gallery");
-			$html .= "<a data-fancybox='btnView' data-type='iframe' data-preload='false' class='btn-primary block' target='_blank' href='$choose_url'>$choose_title</a>";
+			$html .= "<a  class='btn-primary block'  href='$choose_url'>$choose_title</a>";
 		}
 		// form
 		if(self::add_form_element())
