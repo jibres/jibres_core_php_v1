@@ -9,6 +9,46 @@ class website
 	private static $allow_image = ['jpeg','jpg','png', 'gif', 'webp'];
 	private static $allow_video = ['ogv','webm','mpeg','mpg','mov','mp4'];
 
+
+
+	public static function upload_by_file_id($_file_id, $_type = [])
+	{
+		$load_file = \dash\app\files\get::inline_get(\dash\coding::decode($_file_id));
+
+		if(!isset($load_file['id']))
+		{
+			return false;
+		}
+
+		if(isset($load_file['type']) && in_array($load_file['type'], $_type))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not set this file"));
+			return false;
+		}
+
+
+		$fileusage =
+		[
+			'file_id'     => $load_file['id'],
+			'user_id'     => \dash\user::id(),
+			'title'       => null,
+			'alt'         => null,
+			'desc'        => null,
+			'related'     => 'website_image',
+			'related_id'  => \lib\store::id(),
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		\dash\db\fileusage::insert($fileusage);
+
+		return $load_file['path'];
+	}
+
+
 	/**
 	 * Upload a file
 	 */

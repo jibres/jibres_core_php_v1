@@ -17,11 +17,11 @@ trait file
 		{
 			if(self::upload_video())
 			{
-				$image_path = \dash\upload\website::upload_image_or_video(\content_site\utility::className(__CLASS__));
+				$file_path = \dash\upload\website::upload_image_or_video(\content_site\utility::className(__CLASS__));
 			}
 			else
 			{
-				$image_path = \dash\upload\website::upload_image(\content_site\utility::className(__CLASS__));
+				$file_path = \dash\upload\website::upload_image(\content_site\utility::className(__CLASS__));
 			}
 
 			if(!\dash\engine\process::status())
@@ -32,7 +32,7 @@ trait file
 			// need redirect after add image to show image delete button
 			\content_site\utility::need_redirect(true);
 
-			return $image_path;
+			return $file_path;
 		}
 		else
 		{
@@ -44,8 +44,29 @@ trait file
 			}
 			else
 			{
-				// \dash\notif::error(T_("Please upload a file"));
-				return false;
+				if($file_id = \dash\validate::code(a($_data, 'fileid')))
+				{
+					$type = [];
+					$type[] = 'image';
+					if(self::upload_video())
+					{
+						$type[] = 'image+video';
+					}
+
+					$file_path = \dash\upload\website::upload_by_file_id($file_id, $type);
+
+
+					if(!\dash\engine\process::status())
+					{
+						return false;
+					}
+
+					return $file_path;
+				}
+				else
+				{
+					return false;
+				}
 			}
 		}
 	}
@@ -211,26 +232,36 @@ trait file
 			}
 			$html .= '</label>';
 
-			if($default)
+			$action_file_by_ajaxify =
+			[
+				'opt_'.$option_key => 1,
+				'multioption'      => 'multi',
+			];
+
+			if(self::have_specialsave())
 			{
-				$delete_file_json =
-				[
-					'opt_'.$option_key => 1,
-					'multioption'      => 'multi',
-					'deletefile'       => 1,
-				];
-
-				if(self::have_specialsave())
-				{
-					$delete_file_json['specialsave'] = 'specialsave';
-				}
-
-				$delete_file_json = json_encode($delete_file_json);
-
-				$html .= "<span class='imageDel' data-confirm data-data='$delete_file_json'></span>";
+				$action_file_by_ajaxify['specialsave'] = 'specialsave';
 			}
 
+			if($default)
+			{
+				$action_file_by_ajaxify_delete               = $action_file_by_ajaxify;
+				$action_file_by_ajaxify_delete['deletefile'] = 1;
+
+				$action_file_by_ajaxify_delete = json_encode($action_file_by_ajaxify_delete);
+
+				$html .= "<span class='imageDel' data-confirm data-data='$action_file_by_ajaxify_delete'></span>";
+			}
+			// uploader div
 			$html .= '</div>';
+
+			$action_file_by_ajaxify['callback'] = \dash\url::pwd();
+
+			$choose_url = \lib\store::admin_url(). '/cms/files/choose2';
+			$choose_url .= '?'. \dash\request::build_query($action_file_by_ajaxify);
+
+			$choose_title = T_("Choose from gallery");
+			$html .= "<a data-fancybox='btnView' data-type='iframe' data-preload='false' class='btn-primary block' target='_blank' href='$choose_url'>$choose_title</a>";
 		}
 		// form
 		if(self::add_form_element())
