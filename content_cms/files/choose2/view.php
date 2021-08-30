@@ -18,6 +18,8 @@ class view
 		\dash\data::listEngine_filter(\dash\app\files\filter::list());
 		\dash\data::listEngine_sort(true);
 		\dash\data::listEngine_cleanFilterUrl(\dash\url::that(). \dash\request::full_get(['q' => null, 'type' => null, 'ratio' => null]));
+		\dash\data::listEngine_before(__DIR__. '/dispaly-fileaddr.php');
+
 		\dash\data::sortList(\dash\app\files\filter::sort_list());
 		$args =
 		[

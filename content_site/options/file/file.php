@@ -44,17 +44,35 @@ trait file
 			}
 			else
 			{
-				if($file_id = \dash\validate::code(a($_data, 'fileid')))
+				$type = [];
+				$type[] = 'image';
+				if(self::upload_video())
 				{
-					$type = [];
-					$type[] = 'image';
-					if(self::upload_video())
-					{
-						$type[] = 'image+video';
-					}
+					$type[] = 'image+video';
+				}
 
+				if($file_id = \dash\validate::code(a($_data, 'fileid'), false))
+				{
 					$file_path = \dash\upload\website::upload_by_file_id($file_id, $type);
 
+					if(!\dash\engine\process::status())
+					{
+						return false;
+					}
+
+					return $file_path;
+				}
+				elseif($file_addr = \dash\validate::string_1000(a($_data, 'fileaddr'), false))
+				{
+					$analyze_url = \dash\validate\url::parseUrl($file_addr);
+					if(!$analyze_url)
+					{
+						\dash\notif::error_once(T_("Can not support this file"));
+						return false;
+					}
+
+
+					$file_path = \dash\upload\website::upload_by_file_addr($file_addr, $type);
 
 					if(!\dash\engine\process::status())
 					{
@@ -65,6 +83,7 @@ trait file
 				}
 				else
 				{
+
 					return false;
 				}
 			}

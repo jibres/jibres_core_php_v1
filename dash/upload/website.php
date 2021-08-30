@@ -49,6 +49,28 @@ class website
 	}
 
 
+	public static function upload_by_file_addr($_file_addr, $_type = [])
+	{
+		$addr = strtok($_file_addr, '?');
+
+		$detail = \lib\filepath::get_detail($addr);
+
+		if(isset($detail['type']) && in_array($detail['type'], $_type))
+		{
+			// ok
+			return $_file_addr;
+		}
+		else
+		{
+			\dash\notif::error(T_("Can not set this file"));
+
+			return false;
+		}
+
+	}
+
+
+
 	/**
 	 * Upload a file
 	 */
