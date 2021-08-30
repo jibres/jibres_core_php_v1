@@ -78,6 +78,7 @@ trait link_professional
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
 						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
 						'other'         => ['title' => T_('Other'),			'api_link' => null, ],
+						'selffile'      => ['title' => T_('Self file addr'),'api_link' => null, ],
 					];
 
 					foreach ($list as $key => $value)
@@ -134,6 +135,10 @@ trait link_professional
 				    $html .= '</div>';
 				}
 				elseif($key === 'homepage')
+				{
+
+				}
+				elseif($key === 'selffile')
 				{
 
 				}

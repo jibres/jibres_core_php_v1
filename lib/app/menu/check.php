@@ -11,7 +11,7 @@ class check
 		[
 			'title'         => 'title',
 			'url'           => 'absolute_url',
-			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other', 'title', 'separator']],
+			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other', 'title', 'separator', 'selffile']],
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
 			'related_id'    => 'id',
@@ -293,6 +293,10 @@ class check
 					\dash\notif::error(T_("Please set a url"));
 					return false;
 				}
+				break;
+
+			case 'selffile':
+				// nothing
 				break;
 
 			default:

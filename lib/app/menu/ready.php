@@ -38,6 +38,11 @@ class ready
 			$result['url'] = self::get_my_social($result['socialnetwork']);
 		}
 
+		if(isset($result['pointer']) && $result['pointer'] === 'selffile' && isset($result['file']))
+		{
+			$result['url'] = \lib\filepath::fix($result['file']);
+		}
+
 		$result['child'] = [];
 		return $result;
 	}

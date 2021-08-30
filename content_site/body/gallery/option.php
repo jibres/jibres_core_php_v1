@@ -155,6 +155,10 @@ class option
 				}
 				else
 				{
+					if(a($value, 'url') && !a($value, 'preview', 'url'))
+					{
+						$value['preview']['url'] = a($value, 'url');
+					}
 					$value = array_merge($value, $value['preview']);
 
 					$new_list[] = $value;
