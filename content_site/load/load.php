@@ -172,7 +172,9 @@ class load
 		// not route special post url when the post set as homepage
 		if(!$homepage_builder && a($post_detail, 'ishomepage'))
 		{
-			\dash\redirect::to(\dash\url::kingdom());
+			$url = \dash\url::kingdom();
+			$url .= \dash\request::full_get();
+			\dash\redirect::to($url);
 		}
 
 
