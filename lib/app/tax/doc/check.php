@@ -179,10 +179,10 @@ class check
 
 				$real_vat      = round(($final) * 0.09);
 
-				if($data['template'] === 'income')
-				{
-					$final = $final + $totalvat;
-				}
+				// if($data['template'] === 'income')
+				// {
+				// 	$final = $final + $totalvat;
+				// }
 
 				if($totalvat)
 				{
