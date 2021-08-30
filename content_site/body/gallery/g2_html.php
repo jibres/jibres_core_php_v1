@@ -24,14 +24,17 @@ class g2_html
 					}
 					$html .= '</div>';
 
-					$otherItemClass =
+					$magicBoxOpt =
 					[
-						0 => 'col-span-2 md:col-span-1',
-						1 => 'col-span-2 md:col-span-1',
-						2 => 'col-span-2 md:col-span-1',
-						3 => 'col-span-2 md:col-span-1',
+						'class' =>
+						[
+							0 => 'col-span-2 md:col-span-1',
+							1 => 'col-span-2 md:col-span-1',
+							2 => 'col-span-2 md:col-span-1',
+							3 => 'col-span-2 md:col-span-1',
+						]
 					];
-					$html .= \content_site\assemble\element\magicbox::html($_args, $normalList, $otherItemClass);
+					$html .= \content_site\assemble\element\magicbox::html($_args, $normalList, $magicBoxOpt);
 				}
 				$html .= '</div>';
 			}
