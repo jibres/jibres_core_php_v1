@@ -48,8 +48,9 @@ trait file
 				$type[] = 'image';
 				if(self::upload_video())
 				{
-					$type[] = 'image+video';
+					$type[] = 'video';
 				}
+
 
 				if($file_id = \dash\validate::code(a($_data, 'fileid'), false))
 				{
