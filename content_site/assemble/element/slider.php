@@ -4,7 +4,19 @@ namespace content_site\assemble\element;
 
 class slider
 {
-	public static function html($_args, $_datalist, $_multiInRow = null)
+	public static function html($_args, $_datalist, $_opt = null)
+	{
+		$html = '';
+
+		foreach ($_datalist as $key => $item)
+		{
+			$html .= self::eachItem($_args, $_datalist, $_opt, $key, $item);
+		}
+
+		return $html;
+	}
+
+	public static function eachItem($_args, $_datalist, $_opt = null)
 	{
 		$sliderClass = 'swiper h-full';
 		if(a($_args, 'radius:class'))
@@ -12,7 +24,7 @@ class slider
 			$sliderClass .= ' overflow-hidden '. a($_args, 'radius:class');
 		}
 		$html = '<div class="'. $sliderClass. '" data-swiper';
-		if($_multiInRow)
+		if($_opt)
 		{
 			$html .= ' data-slidesPerView="auto"';
 		}
@@ -44,7 +56,7 @@ class slider
 
 				// set class of each slide
 				$specialAttr = "class='swiper-slide'";
-				if($_multiInRow)
+				if($_opt)
 				{
 					// set margin
 					$slideMarginClass = 'p-0.5 md:p-1';
@@ -91,7 +103,7 @@ class slider
 				{
 					$html .= "<div $specialAttr>";
 					{
-						if($_multiInRow === 'card')
+						if($_opt === 'card')
 						{
 
 						}
@@ -104,7 +116,7 @@ class slider
 
 				}
 
-				// if($_multiInRow === 'card')
+				// if($_opt === 'card')
 				// {
 				// 	$html .= \content_site\assemble\element\card::html($_args, $_datalist);
 				// }
