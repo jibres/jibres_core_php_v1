@@ -46,7 +46,7 @@ class b3
 				'post_order'        => 'latest',
 				'count'             => 3,
 				'post_show_date'    => 'relative',
-				'post_show_excerpt' => 1,
+				'post_show_excerpt' => true,
 				'btn_viewall_check' => true,
 				'btn_viewall'       => T_("View all"),
 				'background_pack'   => 'none',
@@ -78,8 +78,8 @@ class b3
 			'version'        => 1,
 			'options' =>
 			[
-				'post_show_read_more' => 1,
-				'post_show_excerpt'   => 1,
+				'post_show_read_more' => true,
+				'post_show_excerpt'   => true,
 				'post_show_date'      => 'relative',
 				'link_color'          => 'primary',
 				'height'              => 'fullscreen',
@@ -107,7 +107,7 @@ class b3
 			'options' =>
 			[
 				'post_show_read_more' => null,
-				'post_show_excerpt'   => 1,
+				'post_show_excerpt'   => true,
 				'post_show_date'      => 'no',
 				'link_color'          => 'primary',
 				'height'              => 'fullscreen',
@@ -136,7 +136,7 @@ class b3
 			'options' =>
 			[
 				'post_show_read_more' => null,
-				'post_show_excerpt'   => 1,
+				'post_show_excerpt'   => true,
 				'post_show_date'      => 'date',
 				'link_color'          => 'primary',
 				'height'              => 'fullscreen',
