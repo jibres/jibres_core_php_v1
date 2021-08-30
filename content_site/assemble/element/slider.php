@@ -83,7 +83,8 @@ class slider
 				// create attr array
 				$sliderOption =
 				[
-					'type' => 'slider',
+					'slider' => true,
+					// 'type' => 'slider',
 					// 'attr' => $specialAttr,
 				];
 				foreach ($_datalist as $key => $item)
