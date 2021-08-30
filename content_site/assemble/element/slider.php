@@ -6,18 +6,6 @@ class slider
 {
 	public static function html($_args, $_datalist, $_opt = null)
 	{
-		$html = '';
-
-		foreach ($_datalist as $key => $item)
-		{
-			$html .= self::eachItem($_args, $_datalist, $_opt, $key, $item);
-		}
-
-		return $html;
-	}
-
-	public static function eachItem($_args, $_datalist, $_opt = null)
-	{
 		$sliderClass = 'swiper h-full';
 		if(a($_args, 'radius:class'))
 		{
@@ -98,7 +86,7 @@ class slider
 					'type' => 'slider',
 					// 'attr' => $specialAttr,
 				];
-
+var_dump(11);
 				foreach ($_datalist as $key => $item)
 				{
 					$html .= "<div $specialAttr>";
