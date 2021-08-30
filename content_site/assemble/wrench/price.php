@@ -9,7 +9,11 @@ class price
 		$priceEl = '';
 		$priceEl .= '<div class="priceLine">';
 		{
-			$price = \dash\fit::price(a($_value, 'finalprice'));
+      $price = \dash\fit::price(a($_value, 'finalprice'));
+      if(!$price)
+      {
+			 $price = \dash\fit::price(a($_value, 'price'));
+      }
 			$freeText = a($_value, 'free_button_title');
 			$freeLink = a($_value, 'free_button_link');
 
