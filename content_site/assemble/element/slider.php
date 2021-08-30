@@ -100,17 +100,7 @@ class slider
 						}
 					}
 					$html .= '</div>';
-
 				}
-
-				// if($_opt === 'card')
-				// {
-				// 	$html .= \content_site\assemble\element\card::html($_args, $_datalist);
-				// }
-				// else
-				// {
-				// 	$html .= \content_site\assemble\element\magicbox::html($_args, $_datalist, $sliderOption);
-				// }
 			}
 			$html .= '</div>';
 

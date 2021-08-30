@@ -28,8 +28,39 @@ class card
 		$myDate       = a($_item, 'publishdate');
 		$myAuthorPage = a($_item, 'authorpage');
 
-		// get grid class name by analyse
+
 		$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
+
+		$cardBoxExtraAttr = '';
+		$sliderLazyLoad = false;
+		if($_opt === 'blog' || $_opt === 'product')
+		{
+			// get grid class name by analyze
+			$gridCol = \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
+			$cardBoxExtraAttr = "class='$gridCol flex flex-col max-w-md'";
+		}
+		elseif(is_array($_opt))
+		{
+			if(isset($_opt['type']) && $_opt['type'] === 'slider')
+			{
+				// enable lazy load
+				$sliderLazyLoad = true;
+				if(isset($_opt['attr']))
+				{
+					// add attr to element
+					$cardBoxExtraAttr = $_opt['attr'];
+				}
+			}
+			if(isset($_opt[$_key]))
+			{
+				$cardBoxExtraAttr = "class='". $_opt[$_key]. "'";
+			}
+		}
+		elseif($_opt)
+		{
+			$cardBoxExtraAttr = $_opt;
+		}
+
 
 		$card = '';
 		$borderRadius     = a($_args, 'radius:class');
@@ -69,7 +100,10 @@ class card
 
 			if($showCaptionBox)
 			{
-				$card .= "<div class='flex-grow px-6 py-4'>";
+				$captionClass = 'flex-grow';
+				$captionClass .= ' px-6 py-4';
+
+				$card .= "<div class='$captionClass '>";
 				{
 					if($showTitle)
 					{
