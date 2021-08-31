@@ -142,7 +142,11 @@ class utility
 
 			if(!is_array($value))
 			{
-				if(is_numeric($value) || $value === '1')
+				if(is_bool($value))
+				{
+					$myValue = $value ? 'true' : 'false';
+				}
+				elseif(is_numeric($value))
 				{
 					$myValue = "$value";
 				}
