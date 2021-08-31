@@ -15,7 +15,7 @@ class h3
 		return
 		[
 			'title'        => T_("Card Design"),
-			'default'      => ['type' => 'h3'],
+			'default'      => [],
 			'options'      =>
 			[
 				'heading_business_header',
