@@ -14,7 +14,15 @@ class edit
 
 		$_id = \dash\coding::decode($_id);
 
-		$load_domain = \lib\app\nic_domain\get::by_id($_id);
+		if($_only_update_database)
+		{
+			$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+		}
+		else
+		{
+			$load_domain = \lib\app\nic_domain\get::by_id($_id);
+		}
+
 		if(!$load_domain || !isset($load_domain['id']))
 		{
 			return false;
