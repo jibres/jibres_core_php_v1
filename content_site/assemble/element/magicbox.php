@@ -144,7 +144,7 @@ class magicbox
 
 				$mediaElementType = 'picture';
 
-				if(a($_item, 'file_detail', 'type') !== 'image')
+				if(a($_item, 'file_detail', 'type') === 'video')
 				{
 					$mediaElementType = 'div';
 				}
