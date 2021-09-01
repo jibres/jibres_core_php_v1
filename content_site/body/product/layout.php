@@ -15,7 +15,6 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-
 		$productList = [];
 		$dataList = [];
 
@@ -84,6 +83,11 @@ class layout
 
 	public static function fill_default($_count, $_preview_mode = true)
 	{
+		if(!is_numeric($_count))
+		{
+			$_count = 1;
+		}
+
 		$list = [];
 		for ($i=1; $i <= $_count ; $i++)
 		{
