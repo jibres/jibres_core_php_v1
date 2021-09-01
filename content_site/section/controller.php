@@ -34,6 +34,7 @@ class controller
 
 
 			/* --- footer --- */
+			'f0',
 			'f3',
 			/* -------------- */
 
