@@ -124,7 +124,22 @@ class g2
 			'version'        => 1,
 			'options' =>
 			[
-
+				'image_count'             => 7,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'coverflow',
+				'slider_autoplay'         => 5,
+				'radius'                  => '3xl',
+				'magicbox_title_position' => 'inside',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'dark',
+				'coverratio'              => '1:1',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#c3b8aa',
 			],
 		];
 	}
