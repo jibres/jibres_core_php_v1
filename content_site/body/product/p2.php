@@ -308,7 +308,7 @@ class p2
 				'effect'                    => 'light',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
-				'count'                     => true,
+				'count'                     => 1,
 				'color_text'                => '#333333',
 				'color_heading'             => '#ff1493',
 				'btn_viewall_check'         => null,
