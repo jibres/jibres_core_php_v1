@@ -40,6 +40,7 @@ class html
 			$allow_tag['figcaption'] = [];
 			$allow_tag['blockquote'] = [];
 			$allow_tag['code']       = [];
+			$allow_tag['span']       = [];
 		}
 
 		if($_mode === 'full')
