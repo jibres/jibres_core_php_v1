@@ -77,7 +77,6 @@ class p1
 				'count'              => 8,
 				'radius_normal'      => 'none',
 				'radius'             => 'lg',
-				'product_tag'        => 3,
 				'product_show_title' => true,
 				'product_show_price' => true,
 				'product_show_image' => true,
