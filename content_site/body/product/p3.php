@@ -41,11 +41,8 @@ class p3
 					'container_product_p4',
 					'background_pack',
 					'color_heading',
-					'radius_full',
+					'radius_normal',
 					'coverratio',
-					'effect',
-					'image_mask',
-					'link_color_magicbox_title',
 					'btn_viewall_mode',
 				]),
 			],
@@ -99,7 +96,6 @@ class p3
 				'link_color'              => 'dark',
 				'height'                  => 'sm',
 				'heading_position'        => 'center',
-				'effect'                  => 'zoom',
 				'coverratio'              => '1:1',
 				'count'                   => 15,
 				'container'               => 'xl',
@@ -112,5 +108,104 @@ class p3
 			],
 		];
 	}
+
+
+	public static function p2($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p3($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p4($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p5($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p6($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p7($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
+
+	public static function p8($_title = null)
+	{
+		$_title = T_("Products");
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+
+			],
+		];
+	}
+
 }
 ?>
