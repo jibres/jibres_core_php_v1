@@ -38,7 +38,6 @@ class g4
 				'p8',
 				'p9',
 				'p10',
-				'p11',
 		];
 
 		return $option;
