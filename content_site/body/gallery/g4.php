@@ -28,7 +28,17 @@ class g4
 
 		$option['preview_list']           =
 		[
-			'p1',
+				'p1',
+				'p2',
+				'p3',
+				'p4',
+				'p5',
+				'p6',
+				'p7',
+				'p8',
+				'p9',
+				'p10',
+				'p11',
 		];
 
 		return $option;
@@ -36,9 +46,7 @@ class g4
 	}
 
 
-	/**
-	 * Preview 1
-	 */
+
 	public static function p1()
 	{
 		return
@@ -46,16 +54,16 @@ class g4
 			'version'        => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
-				'slider_pagination'       => 1,
-				'slider_next_prev'        => 1,
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
 				'slider_effect'           => 'slide',
 				'slider_autoplay'         => 5,
 				'radius'                  => 'lg',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'sm',
 				'link_color'              => 'light',
-				'image_random'            => 1,
+				'image_random'            => true,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => '16:9',
@@ -67,6 +75,256 @@ class g4
 	}
 
 
+	public static function p2()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p3()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p4()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p5()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p6()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p7()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p8()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p9()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
+
+
+	public static function p10()
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'image_count'             => 5,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'slide',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => '16:9',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#8ea4c8',
+			],
+		];
+	}
 
 }
 ?>
