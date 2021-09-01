@@ -37,6 +37,7 @@ class t1
 			'preview_list' =>
 			[
 				'p1',
+				'p2',
 			],
 		];
 	}
@@ -46,6 +47,23 @@ class t1
 	 * Preview 1
 	 */
 	public static function p1($_title = null)
+	{
+		return
+		[
+			'version'        => 1,
+			'options' =>
+			[
+				'use_as_heading'           => null,
+				'height'                   => 'sm',
+				'heading_position'         => null,
+				'container'                => 'sm',
+				'background_pack'          => 'none',
+			],
+		];
+	}
+
+
+	public static function p2($_title = null)
 	{
 		return
 		[
