@@ -64,6 +64,12 @@ class p3
 			'preview_list' =>
 			[
 				'p1',
+				'p2',
+				'p3',
+				'p4',
+				'p5',
+				'p6',
+				'p7',
 			],
 		];
 	}
@@ -328,20 +334,5 @@ class p3
 			],
 		];
 	}
-
-
-	public static function p8($_title = null)
-	{
-		$_title = T_("Products");
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-
-			],
-		];
-	}
-
 }
 ?>
