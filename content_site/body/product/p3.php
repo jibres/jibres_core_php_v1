@@ -22,9 +22,8 @@ class p3
 				'product_tag',
 				'product_order',
 				'count_product_p4',
-				// 'magicbox_title_position',
-				'product_show_title_price_magicbox',
-				// 'product_show_price',
+				'product_show_title',
+				'product_show_price',
 
 				'btn_viewall',
 				'slider_setting' =>
@@ -92,7 +91,6 @@ class p3
 				'product_show_price'      => true,
 				'product_show_image'      => 1,
 				'product_order'           => 'latest',
-				'magicbox_title_position' => 'inside',
 				'link_color'              => 'dark',
 				'height'                  => 'sm',
 				'heading_position'        => 'center',
