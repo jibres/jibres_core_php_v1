@@ -25,7 +25,7 @@ class t1
 				[
 					'font',
 					'height',
-					'container',
+					'container_gallery_g4',
 					'background_pack',
 					'color_text',
 				]),
@@ -52,7 +52,15 @@ class t1
 			'version'        => 1,
 			'options' =>
 			[
-
+				'use_as_heading'           => null,
+				'height'                   => 'sm',
+				'heading_position'         => null,
+				'container'                => 'sm',
+				'background_pack'          => 'solid',
+				'background_gradient_type' => 'to bottom right',
+				'background_gradient_to'   => '#8ec5fc',
+				'background_gradient_from' => '#e0c3fc',
+				'background_color'         => '#f2e6e3',
 			],
 		];
 	}
