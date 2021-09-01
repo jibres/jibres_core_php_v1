@@ -81,6 +81,7 @@ class g2
 				'p8',
 				'p9',
 				'p10',
+				'p11',
 			],
 		];
 	}
@@ -291,7 +292,6 @@ class g2
 	}
 
 
-
 	public static function p8()
 	{
 		return
@@ -386,8 +386,6 @@ class g2
 			],
 		];
 	}
-
-
 
 
 	public static function p11()
