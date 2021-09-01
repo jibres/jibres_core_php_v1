@@ -152,7 +152,22 @@ class g2
 			'version'        => 1,
 			'options' =>
 			[
-
+				'image_count'             => 7,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => false,
+				'slider_effect'           => 'fade',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'none',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'md',
+				'effect'                  => 'zoom',
+				'coverratio'              => '3:1',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#c3b8aa',
 			],
 		];
 	}
@@ -165,7 +180,22 @@ class g2
 			'version'        => 1,
 			'options' =>
 			[
-
+				'image_count'             => 7,
+				'slider_pagination'       => true,
+				'slider_next_prev'        => true,
+				'slider_effect'           => 'coverflow',
+				'slider_autoplay'         => 5,
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'image_random'            => true,
+				'height'                  => 'sm',
+				'effect'                  => 'light',
+				'coverratio'              => '3:4',
+				'container'               => 'xl',
+				'background_pack'         => 'none',
+				'background_color'        => '#c3b8aa',
 			],
 		];
 	}
