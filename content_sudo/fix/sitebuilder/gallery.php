@@ -20,7 +20,7 @@ trait gallery
 
 		$old_preview_key =  a($record, 'puzzle', 'puzzle_type'). ' -- '. a($record, 'puzzle', 'slider_type'). ' -- ' .a($record, 'puzzle', 'code');
 
-		self::counter($old_preview_key);
+		// self::counter($old_preview_key);
 
 		switch ($old_preview_key)
 		{

@@ -14,6 +14,7 @@ class controller
 		$all =
 		[
 			/* --- headers -- */
+			'h0',
 			'h1',
 			'h2',
 			'h3',
