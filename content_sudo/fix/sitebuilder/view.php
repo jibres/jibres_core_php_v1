@@ -63,8 +63,9 @@ class view
 			{
 				self::counter('skipped business');
 				return;
-
 			}
+
+			\dash\temp::set("CurrentBusiness", $value);
 
 			\dash\engine\store::force_lock($value);
 
@@ -138,14 +139,14 @@ class view
 					break;
 
 				case 'news':
-					$preview = self::conver_news($pagebuilder_record, $new_record);
-					self::counter('news_converted');
+					// $preview = self::conver_news($pagebuilder_record, $new_record);
+					// self::counter('news_converted');
 					$skipp_section = false;
 					break;
 
 				case 'image':
 					$preview = self::conver_gallery($pagebuilder_record, $new_record);
-					self::counter('gallery_converted');
+					// self::counter('gallery_converted');
 					$skipp_section = false;
 					break;
 
@@ -168,7 +169,7 @@ class view
 
 
 
-			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'));
+			// \dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'));
 
 
 		}

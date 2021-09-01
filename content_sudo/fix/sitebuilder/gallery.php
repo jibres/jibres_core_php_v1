@@ -18,12 +18,61 @@ trait gallery
 
 		$preview = $preview['options'];
 
+		$old_preview_key =  a($record, 'puzzle', 'puzzle_type'). ' -- '. a($record, 'puzzle', 'slider_type'). ' -- ' .a($record, 'puzzle', 'code');
+
+		self::counter($old_preview_key);
+
+		switch ($old_preview_key)
+		{
+			case 'slider -- simple -- 1+3+4':
+			case 'slider -- simple -- 2+2':
+			case 'slider -- simple -- 2+2+4':
+			case 'slider -- simple -- ':
+				// one slider
+				break;
+
+
+			case ' --  -- ':
+			case 'slider -- special -- 4+4':
+			case 'slider -- special -- ':
+				// like supersaeed.jibres.ir
+				// master slider of alot business
+				break;
+
+
+
+			case 'puzzle -- special -- ':
+			case 'puzzle -- special -- 2+4+4':
+			case 'puzzle -- special -- 6':
+			case 'puzzle -- special -- 4':
+			case 'puzzle -- simple -- 6':
+			case 'puzzle -- simple -- 2+3':
+			case 'puzzle -- special -- 4+4':
+			case 'puzzle -- special -- 2+2':
+			case 'puzzle -- special -- 1+3+4':
+			case 'puzzle -- special -- 2+3+3':
+			case 'puzzle -- simple -- 2+3+3':
+			case 'puzzle -- simple -- ':
+			default:
+
+				// magicbox 2+3...
+				break;
+		}
+
+
+		if($old_preview_key === 1)
+		{
+			var_dump(\dash\temp::get("CurrentBusiness"));
+			var_dump($record);exit;
+		}
+
+		return;
 
 		if(a($record, 'detail', 'list') && is_array($record['detail']['list']))
 		{
 			$list = $record['detail']['list'];
 
-			$menu_id = \content_site\body\gallery\option::add_menu_for_gallery($record['id']);
+			// $menu_id = \content_site\body\gallery\option::add_menu_for_gallery($record['id']);
 
 			foreach ($list as $key => $value)
 			{
@@ -50,7 +99,7 @@ trait gallery
 					unset($args['title']);
 				}
 
-				$child_id = \content_site\body\gallery\option::add_menu_child_as_gallery_item($record['id'], $menu_id, 1, $args);
+				// $child_id = \content_site\body\gallery\option::add_menu_child_as_gallery_item($record['id'], $menu_id, 1, $args);
 
 				if(!$child_id)
 				{
