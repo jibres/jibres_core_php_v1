@@ -4,7 +4,7 @@ namespace lib\app\nic_domain;
 
 class edit
 {
-	public static function domain($_args, $_id, $_type = null)
+	public static function domain($_args, $_id, $_type = null, $_only_update_database = false)
 	{
 		$_id = \dash\validate::code($_id);
 		if(!$_id)
@@ -266,11 +266,18 @@ class edit
 
 		$args['domain']  = $load_domain['name'];
 
-		$update_domian = \lib\nic\exec\domain_update::update($args);
-		if(!$update_domian)
+		if($_only_update_database)
 		{
-			\dash\notif::error(T_("Can not update your domain detail now!"));
-			return false;
+			// not send record to nic
+		}
+		else
+		{
+			$update_domian = \lib\nic\exec\domain_update::update($args);
+			if(!$update_domian)
+			{
+				\dash\notif::error(T_("Can not update your domain detail now!"));
+				return false;
+			}
 		}
 
 

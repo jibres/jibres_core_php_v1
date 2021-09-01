@@ -19,8 +19,15 @@ class model
 			'ip3'   => \dash\request::post('ip3'),
 			'ip4'   => \dash\request::post('ip4'),
 		];
+		if(\dash\request::post('raw_edit') === 'raw_edit')
+		{
+			$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns', true);
+		}
+		else
+		{
+			$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
+		}
 
-		$result = \lib\app\nic_domain\edit::domain($post, \dash\data::domainDetail_id(), 'dns');
 
 		if(\dash\engine\process::status())
 		{
