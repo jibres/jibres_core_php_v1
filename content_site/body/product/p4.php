@@ -73,17 +73,12 @@ class p4
 			'preview_list' =>
 			[
 				'p1',
-				// 'p2',
-				// 'p3',
-				// 'p4',
-				// 'p5',
-				// 'p6',
-				// 'p7',
-				// 'p8',
-				// 'p9',
-				// 'p10',
-				// 'p11',
-				// 'p12',
+				'p2',
+				'p3',
+				'p4',
+				'p5',
+				'p6',
+				'p7',
 			],
 		];
 	}
@@ -100,23 +95,31 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
+				'slider_size'               => 'sm',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'slide',
+				'slider_autoplay'           => 5,
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'height'                    => 'fullscreen',
+				'height'                    => 'sm',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 12,
+				'coverratio'                => '1:1',
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'btn_viewall_check'         => 1,
 				'btn_viewall_mode'          => 'dark',
+				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'none',
+				'background_color'          => '#37667e',
 			]
 		];
 	}
@@ -130,26 +133,31 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
+				'slider_size'               => 'md',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'slide',
+				'slider_autoplay'           => 5,
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'image_mask'                => 'none',
-				'height'                    => 'fullscreen',
+				'height'                    => 'sm',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
-				'coverratio'                => '3:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 10,
+				'coverratio'                => '1:1',
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'color_heading'             => '#0173cb',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'primary',
-				'background_pack'           => 'solid',
-				'background_color'          => '#e5faff',
+				'background_pack'           => 'none',
+				'background_color'          => '#37667e',
 			]
 		];
 	}
@@ -163,26 +171,31 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
+				'slider_size'               => 'lg',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'slide',
+				'slider_autoplay'           => 5,
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'image_mask'                => 'none',
-				'height'                    => 'fullscreen',
+				'height'                    => 'sm',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 8,
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'color_heading'             => '#000000',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
-				'background_pack'           => 'solid',
-				'background_color'          => '#dcdbd9',
+				'background_pack'           => 'none',
+				'background_color'          => '#37667e',
 			]
 		];
 	}
@@ -196,29 +209,31 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
+				'slider_size'               => 'xl',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'slide',
+				'slider_autoplay'           => 5,
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'image_mask'                => 'none',
-				'height'                    => 'fullscreen',
+				'height'                    => 'sm',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
-				'coverratio'                => '3:4',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 4,
+				'coverratio'                => '1:1',
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'color_heading'             => '#000000',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
-				'background_pack'           => 'gradient',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#c4c2d0',
-				'background_gradient_from'  => '#bce2e6',
-				'background_color'          => '#dcdbd9',
+				'background_pack'           => 'none',
+				'background_color'          => '#37667e',
 			]
 		];
 	}
@@ -232,29 +247,34 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
+				'slider_size'               => 'md',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'coverflow',
+				'slider_autoplay'           => 5,
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'image_mask'                => 'none',
-				'height'                    => 'fullscreen',
+				'height'                    => 'md',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 4,
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'color_heading'             => '#d7bf1d',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
-				'background_pack'           => 'solid',
+				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#1663a9',
-				'background_gradient_from'  => '#0ff53b',
-				'background_color'          => '#000000',
+				'background_gradient_to'    => '#e2d1c3',
+				'background_gradient_from'  => '#fdfcfb',
+				'background_color'          => '#37667e',
 			]
 		];
 	}
@@ -268,28 +288,34 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
+				'slider_size'               => 'md',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'slide',
+				'slider_autoplay'           => 5,
+				'radius'                    => '3xl',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'light',
-				'image_mask'                => 'squircle',
-				'height'                    => 'fullscreen',
-				'heading_position'          => 'left',
-				'heading'                   => $_title,
-				'effect'                    => 'dark',
-				'coverratio'                => '1:1',
+				'magicbox_title_position'   => 'outside',
 				'magicbox_gap'              => 'sm',
-				'count'                     => 8,
+				'link_color_magicbox_title' => 'light',
+				'link_color'                => 'dark',
+				'height'                    => 'md',
+				'heading_position'          => 'center',
+				'effect'                    => 'zoom',
+				'coverratio'                => '1:1',
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'color_heading'             => '#000000',
-				'btn_viewall_check'         => null,
+				'btn_viewall_mode'          => 'dark',
+				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
-				'background_pack'           => 'solid',
+				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#1663a9',
-				'background_gradient_from'  => '#0ff53b',
-				'background_color'          => '#f4c815',
+				'background_gradient_to'    => '#e6dee9',
+				'background_gradient_from'  => '#fdcbf1',
+				'background_color'          => '#37667e',
 			]
 		];
 	}
@@ -303,209 +329,36 @@ class p4
 			'version'        => 1,
 			'options' =>
 			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'hide',
+				'slider_size'               => 'lg',
+				'slider_next_prev'          => true,
+				'slider_effect'             => 'coverflow',
+				'slider_autoplay'           => 5,
+				'radius'                    => '3xl',
+				'product_tag'               => 3,
+				'product_show_title'        => true,
+				'product_show_price'        => true,
 				'post_show_image'           => 1,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'light',
-				'image_mask'                => 'heart',
-				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
-				'effect'                    => 'light',
-				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 1,
-				'color_text'                => '#333333',
-				'color_heading'             => '#ff1493',
-				'btn_viewall_check'         => null,
-				'btn_viewall'               => T_("View all"),
-				'background_pack'           => 'solid',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#1663a9',
-				'background_gradient_from'  => '#0ff53b',
-				'background_color'          => '#ffc0cb',
-			]
-		];
-	}
-
-
-	public static function p8($_title = null)
-	{
-		$_title = T_("Latest Posts");
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => 1,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'light',
-				'image_mask'                => 'hexagon-2',
-				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
-				'effect'                    => 'none',
-				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 3,
-				'color_text'                => '#333333',
-				'color_heading'             => '#ffffff',
-				'btn_viewall_check'         => 1,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
-				'background_pack'           => 'solid',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#1663a9',
-				'background_gradient_from'  => '#0ff53b',
-				'background_color'          => '#8fa2a6',
-			]
-		];
-	}
-
-
-	public static function p9($_title = null)
-	{
-		$_title = T_("Latest Posts");
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'hide',
-				'post_show_image'           => 1,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'light',
-				'image_mask'                => 'parallelogram',
-				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => null,
-				'effect'                    => 'none',
-				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 3,
-				'color_text'                => '#333333',
-				'color_heading'             => '#ffffff',
-				'btn_viewall_check'         => 1,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
-				'background_pack'           => 'gradient',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#e6a691',
-				'background_gradient_from'  => '#915118',
-				'background_color'          => '#8fa2a6',
-			]
-		];
-	}
-
-
-	public static function p10($_title = null)
-	{
-		$_title = T_("Latest Posts");
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => 1,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'light',
-				'image_mask'                => 'parallelogram-4',
-				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
-				'effect'                    => 'dark',
-				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 4,
-				'color_text'                => '#333333',
-				'color_heading'             => '#ffffff',
-				'btn_viewall_check'         => 1,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
-				'background_pack'           => 'gradient',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#674c4b',
-				'background_gradient_from'  => '#1f1004',
-				'background_color'          => '#8fa2a6',
-			]
-		];
-	}
-
-
-	public static function p11($_title = null)
-	{
-		$_title = T_("Latest Posts");
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => 1,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'secondary',
-				'image_mask'                => 'none',
-				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
-				'effect'                    => 'dark',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 7,
-				'color_text'                => '#333333',
-				'color_heading'             => '#333333',
-				'btn_viewall_check'         => 1,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
-				'background_pack'           => 'none',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#0db8d9',
-				'background_gradient_from'  => '#0b2365',
-				'background_color'          => '#8fa2a6',
-			]
-		];
-	}
-
-
-	public static function p12($_title = null)
-	{
-		$_title = T_("Latest Posts");
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => 1,
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
-				'image_mask'                => 'none',
-				'height'                    => 'fullscreen',
+				'height'                    => 'md',
 				'heading_position'          => 'center',
 				'heading'                   => $_title,
 				'effect'                    => 'dark',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 6,
+				'coverratio'                => '1:1',
+				'count'                     => 15,
+				'container'                 => 'xl',
 				'color_text'                => '#333333',
-				'color_heading'             => '#333333',
+				'color_heading'             => '#ffffff',
+				'btn_viewall_mode'          => 'light',
 				'btn_viewall_check'         => 1,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'solid',
-				'background_image'          => null,
 				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#0db8d9',
-				'background_gradient_from'  => '#0b2365',
-				'background_color'          => '#eeeeee',
+				'background_gradient_to'    => '#757089',
+				'background_gradient_from'  => '#09b5c7',
+				'background_color'          => '#0e4662',
 			]
 		];
 	}
