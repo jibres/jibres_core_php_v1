@@ -71,6 +71,7 @@ class g3
 	{
 		$preview = g2::p4();
 		$preview['options']['image_count'] = 5;
+		$preview['options']['container'] = 'md';
 
 		return $preview;
 	}
