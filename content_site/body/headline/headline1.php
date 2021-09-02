@@ -47,7 +47,18 @@ class headline1
 			],
 			'default'      =>
 			[
-				'model'             => 'headline1',
+
+				'use_as_description' => null,
+				'height'             => 'fullscreen',
+				'heading'            => T_("Head line"),
+				'description'        => T_("Description"),
+				'container_justify'  => 'left',
+				'container_align'    => 'end',
+				'color_text'         => '#ffffff',
+				'color_heading'      => '#ffffff',
+
+				'background_effect'  => 'mesh',
+
 				'heading'          => T_("Head line"),
 				'height'           => 'fullscreen',
 				'background_pack'  => 'image',
