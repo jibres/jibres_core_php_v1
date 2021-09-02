@@ -185,6 +185,14 @@ class utility
 	}
 
 
+	public static function set_responsive_option()
+	{
+		return
+		[
+			'responsive_device',
+		];
+	}
+
 	/**
 	 * Everywhere need backgroun pack option use this function
 	 *
