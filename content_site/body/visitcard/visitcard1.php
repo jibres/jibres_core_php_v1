@@ -36,8 +36,12 @@ class visitcard1
 			],
 			'default'      =>
 			[
-				'heading'          => T_("visitcard"),
-				'height'           => 'fullscreen',
+				'heading'              => T_("Visit card"),
+				'height'               => 'fullscreen',
+				'use_as_socialnetwork' => 'business_socialnetwork',
+				'use_as_logo'          => 'business_logo',
+				'use_as_heading'       => 'business_heading',
+				'use_as_description'   => 'business_description',
 			],
 			'preview_list' =>
 			[
