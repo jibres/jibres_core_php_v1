@@ -28,18 +28,22 @@ class visitcard1_html
 					$html .= '<div class="flex-1 flex flex-col m-auto p-5 px-10 text-center">';
 					{
 						// set title
-						$titleClass = 'leading-normal ';
+						$titleClass = 'leading-normal';
 						if(mb_strlen($title) > 20 )
 						{
-							$titleClass .= 'text-3xl';
+							$titleClass .= ' text-3xl';
 						}
 						elseif(mb_strlen($title) > 15 )
 						{
-							$titleClass .= 'text-4xl';
+							$titleClass .= ' text-4xl';
 						}
 						else
 						{
-							$titleClass .= 'text-5xl';
+							$titleClass .= ' text-5xl';
+						}
+						if(\dash\language::dir() === 'rtl')
+						{
+							$titleClass .= ' font-bold';
 						}
 
 						$html .='<h1 class="'. $titleClass. '"'. a($_args, 'color_heading:full_style'). '>';
@@ -49,11 +53,8 @@ class visitcard1_html
 						$html .= '</h1>';
 
 						// set desc
-						$descClass = 'leading-relax text-gray-600 ';
-						if(\dash\language::dir() === 'rtl')
-						{
-						}
-						else
+						$descClass = 'leading-relax text-gray-600';
+						if(\dash\language::dir() !== 'rtl')
 						{
 							$descClass .= 'text-lg';
 						}
