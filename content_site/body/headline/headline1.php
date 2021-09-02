@@ -21,13 +21,13 @@ class headline1
 				'heading_raw',
 				'description',
 
-				'image_list2' =>
-				[
-					'file',
-					'title',
-					'image_remove2'
-				],
-				'image_add2',
+				// 'image_list2' =>
+				// [
+				// 	'file',
+				// 	'title',
+				// 	'image_remove2'
+				// ],
+				// 'image_add2',
 
 				'style' => \content_site\utility::set_style_option(
 				[
