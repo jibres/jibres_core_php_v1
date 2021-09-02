@@ -34,6 +34,9 @@ class headline1
 					'font',
 					'height',
 
+					'container_align',
+					'container_justify',
+
 					'background_pack',
 					'color_heading',
 					'color_text',
