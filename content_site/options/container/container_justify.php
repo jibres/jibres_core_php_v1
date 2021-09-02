@@ -10,9 +10,9 @@ trait container_justify
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'left', 'title' => T_("Left"), 'icon' => \dash\utility\icon::svg('TextAlignmentLeft'),  'class' => 'justify-start' ];
-		$enum[] = ['key' => 'center','title' => T_("Center"), 'icon' => \dash\utility\icon::svg('TextAlignmentCenter'),  'class' => 'justify-center'];
-		$enum[] = ['key' => 'right', 	 'title' => T_("Right"), 'icon' => \dash\utility\icon::svg('TextAlignmentRight'), 'class' => 'justify-end'];
+		$enum[] = ['key' => 'left', 'title' => T_("Left"), 'icon' => \dash\utility\icon::svg('JustifyLeft', 'pack'),  'class' => 'justify-start' ];
+		$enum[] = ['key' => 'center','title' => T_("Center"), 'icon' => \dash\utility\icon::svg('JustifyCenter', 'pack'),  'class' => 'justify-center'];
+		$enum[] = ['key' => 'right', 	 'title' => T_("Right"), 'icon' => \dash\utility\icon::svg('JustifyRight', 'pack'), 'class' => 'justify-end'];
 
 
 		return $enum;
@@ -108,7 +108,7 @@ trait container_justify
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $value['icon'], $selected);
 			}
 
-			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
+			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html, true);
 		}
 		$html .= \content_site\options\generate::_form();
 

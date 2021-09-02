@@ -10,9 +10,9 @@ trait container_align
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'start', 'title' => T_("Top"), 'icon' => \dash\utility\icon::svg('SortAscending'),  'class' => 'flex-wrap content-start' ];
-		$enum[] = ['key' => 'center','title' => T_("Center"), 'icon' => \dash\utility\icon::svg('BuyButtonButtonLayout'),  'class' => 'flex-wrap content-center'];
-		$enum[] = ['key' => 'end', 	 'title' => T_("End"), 'icon' => \dash\utility\icon::svg('SortDescending'), 'class' => 'flex-wrap content-end'];
+		$enum[] = ['key' => 'start', 'title' => T_("Top"), 'icon' => \dash\utility\icon::svg('AlignStart', 'pack'),  'class' => 'flex-wrap content-start' ];
+		$enum[] = ['key' => 'center','title' => T_("Center"), 'icon' => \dash\utility\icon::svg('AlignCenter', 'pack'),  'class' => 'flex-wrap content-center'];
+		$enum[] = ['key' => 'end', 	 'title' => T_("End"), 'icon' => \dash\utility\icon::svg('AlignEnd', 'pack'), 'class' => 'flex-wrap content-end'];
 
 
 		return $enum;
