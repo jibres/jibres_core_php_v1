@@ -35,15 +35,25 @@ class layout
 
 			if(a($_args, $key))
 			{
-				$_args[$key] = a($value, 'link'). $_args[$key];
+				$_args[$key] = array_merge($value, ['user' => $_args[$key], 'link' => a($value, 'link'). $_args[$key]]);
 			}
 		}
-
 
 		if(a($_args, 'use_as_logo')          === 'business_logo')
 		{
 			$_args['loog'] = \lib\store::logo();
 		}
+
+		if(!a($_args, 'logo'))
+		{
+			$_args['logo'] = \lib\store::logo();
+
+			if(!$_args['logo'])
+			{
+				$_args['logo'] = \dash\url::icon();
+			}
+		}
+
 
 		if(a($_args, 'use_as_heading')       === 'business_heading')
 		{
