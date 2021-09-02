@@ -12,26 +12,25 @@ class headline1_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			// $html .= \content_site\assemble\wrench\section::container_align_justify($_args);
+			$style = 'style="background-image:url('. \dash\url::cdn(). '/img/sitebuilder/headline/headline1/mesh.png);background-repeat:repeat;background-attachment:fixed;"';
+			$html .= '<div class="mesh w-full h-screen absolute" '. $style. '></div>';
+
+			$html .= '<div class="sm:max-w-xl p-5 md:p-10 lg:p-14 z-10">';
 			{
-				$html .= '<div class="sm:max-w-xl p-5 md:p-10 lg:p-14">';
+
+				$html .='<h2 class="text-2xl sm:text-3xl md:text-4xl leading-normal sm:md:leading-normal md:leading-normal mb-2 sm:mb-4 md:mb-6" '. $color_text.'>';
 				{
+					$html .= a($_args, 'heading');
+				}
+				$html .= '</h2>';
 
-					$html .='<h2 class="text-2xl sm:text-3xl md:text-4xl leading-normal sm:md:leading-normal md:leading-normal mb-2 sm:mb-4 md:mb-6" '. $color_text.'>';
-					{
-						$html .= a($_args, 'heading');
-					}
-					$html .= '</h2>';
-
-					$html .= '<div class="text-sm sm:text-base" '.$color_text.'>';
-					{
-						$html .= a($_args, 'description');
-					}
-					$html .= '</div>';
+				$html .= '<div class="text-sm sm:text-base" '.$color_text.'>';
+				{
+					$html .= a($_args, 'description');
 				}
 				$html .= '</div>';
 			}
-			// $html .= "</div>";
+			$html .= '</div>';
 		}
 		$html .= \content_site\assemble\wrench\section::element_end($_args);
 
