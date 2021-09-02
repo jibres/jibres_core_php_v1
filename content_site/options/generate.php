@@ -34,14 +34,14 @@ class generate
 	{
 		if(strpos($_class, '\\') !== false)
 		{
-			$name = \content_site\utility::className($_class);
+			$name = 'opt_'. \content_site\utility::className($_class);
 		}
 		else
 		{
 			$name = $_class;
 		}
 
-		return '<input type="hidden" name="opt_'.$name.'" value="'. $_value. '">';
+		return '<input type="hidden" name="'.$name.'" value="'. $_value. '">';
 	}
 
 
