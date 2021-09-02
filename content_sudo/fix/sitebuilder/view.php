@@ -6,6 +6,11 @@ class view
 {
 	use news;
 	use gallery;
+	use header;
+	use footer;
+	use product;
+	use text;
+	use quote;
 
 	public static function config()
 	{
@@ -150,13 +155,50 @@ class view
 					$skipp_section = false;
 					break;
 
+
+				case 'h0':
+				case 'h100':
+				case 'h300':
+					// $preview = self::conver_header($pagebuilder_record, $new_record);
+					break;
+
+				case 'f0':
+				case 'f100':
+				case 'f201':
+				case 'f300':
+					// $preview = self::conver_footer($pagebuilder_record, $new_record);
+					break;
+
+				case 'products':
+					// $preview = self::conver_product($pagebuilder_record, $new_record);
+					break;
+
+				case 'text':
+					// $preview = self::conver_text($pagebuilder_record, $new_record);
+					break;
+
+				case 'quote':
+					// $preview = self::conver_quote($pagebuilder_record, $new_record);
+					break;
+
+				case null:
+				case '':
+					// maybe new sitebuilder
+					break;
+
+				case 'rafiei':
+					// enterprise
+					break;
+
 				default:
+					var_dump($pagebuilder_record);
+					var_dump(__LINE__);exit;
 					break;
 			}
 
 			if($skipp_section)
 			{
-				self::counter('skipp section');
+				// self::counter('skipp section');
 				continue;
 			}
 
