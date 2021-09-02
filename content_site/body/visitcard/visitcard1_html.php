@@ -18,7 +18,7 @@ class visitcard1_html
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
-					$html .= '<div class="logo w-64 h-64">';
+					$html .= '<div class="logo w-64 h-64 m-auto">';
 					{
 						$logoSrc = \dash\url::icon();
 						$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
@@ -28,14 +28,37 @@ class visitcard1_html
 					$html .= '<div class="flex-1 flex flex-col m-auto p-5 px-10 text-center">';
 					{
 						// set title
-						$html .='<h1 class="text-5xl leading-normal" '. a($_args, 'color_heading:full_style').'>';
+						$titleClass = 'leading-normal ';
+						if(mb_strlen($title) > 20 )
+						{
+							$titleClass .= 'text-3xl';
+						}
+						elseif(mb_strlen($title) > 15 )
+						{
+							$titleClass .= 'text-4xl';
+						}
+						else
+						{
+							$titleClass .= 'text-5xl';
+						}
+
+						$html .='<h1 class="'. $titleClass. '"'. a($_args, 'color_heading:full_style'). '>';
 						{
 							$html .= $title;
 						}
 						$html .= '</h1>';
 
 						// set desc
-						$html .= '<h2 class="text-lg leading-relax text-gray-600" '. a($_args, 'color_text:full_style'). '>';
+						$descClass = 'leading-relax text-gray-600 ';
+						if(\dash\language::dir() === 'rtl')
+						{
+						}
+						else
+						{
+							$descClass .= 'text-lg';
+						}
+
+						$html .= '<h2 class="'. $descClass. '" '. a($_args, 'color_text:full_style'). '>';
 						{
 							$html .= $desc;
 						}
