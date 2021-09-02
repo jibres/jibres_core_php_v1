@@ -14,21 +14,21 @@ class headline1
 	{
 		return
 		[
-			'title'        => T_("Head line 1"),
-			'default'      =>
-			[
-				'model'             => 'headline1',
-				'heading'          => T_("Head line"),
-				'height'           => 'fullscreen',
-				'background_pack'  => 'image',
-				'background_image' => \dash\url::cdn(). '/business/comingsoon-1/img/jibres-soon-1.jpg',
-			],
-			'options'      =>
+			'title'   => T_("Head line 1"),
+			'options' =>
 			[
 
 				'heading_raw',
 				'description',
-				'file',
+
+				'image_list2' =>
+				[
+					'file',
+					'title',
+					'image_remove2'
+				],
+				'image_add2',
+
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
@@ -41,10 +41,17 @@ class headline1
 				]
 				),
 			],
+			'default'      =>
+			[
+				'model'             => 'headline1',
+				'heading'          => T_("Head line"),
+				'height'           => 'fullscreen',
+				'background_pack'  => 'image',
+				'background_image' => \dash\url::cdn(). '/business/comingsoon-1/img/jibres-soon-1.jpg',
+			],
 			'preview_list' =>
 			[
 				'p1',
-				'p2'
 			],
 		];
 	}
