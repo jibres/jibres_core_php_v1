@@ -11,5 +11,11 @@ class description_business
 		return true;
 	}
 
+
+	public static function simple_editor()
+	{
+		return true;
+	}
+
 }
 ?>

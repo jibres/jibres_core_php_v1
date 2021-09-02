@@ -33,6 +33,12 @@ trait description
 	}
 
 
+	public static function simple_editor()
+	{
+		return false;
+	}
+
+
 	public static function include_business_desc()
 	{
 		return false;
@@ -84,7 +90,12 @@ trait description
 			{
 	    		$html .= '<label for="description">'. $title. '</label>';
 			}
-	    	$html .= '<textarea class="txt" name="description" rows="3">';
+	    	$html .= '<textarea class="txt" name="description" rows="3"';
+	    	if(self::simple_editor())
+	    	{
+	    		// $html .= ' data-editor="simple"';
+	    	}
+	    	$html .= '>';
 	    	$html .= $default;
 	    	$html .= '</textarea>';
 
