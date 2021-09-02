@@ -6,7 +6,7 @@ class socialnetworks
 {
   public static function type1($_social, $_size = 9)
   {
-    $html = '<nav class="social flex flex-row space-x-2 my-5">';
+    $html = '<nav class="social flex flex-row justify-center space-x-2 my-5">';
     {
       $linkClass = 'block transition opacity-60 hover:opacity-80 focus:opacity-100';
       $imgClass = 'block overflow-hidden  rounded-full h-'. $_size. ' w-'. $_size;

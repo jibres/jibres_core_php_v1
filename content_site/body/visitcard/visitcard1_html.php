@@ -14,28 +14,28 @@ class visitcard1_html
 				$title        = a($_args, 'heading');
 				$desc         = a($_args, 'description');
 
-				$cardClass = 'relative m-auto overflow-hidden grid grid-cols-3 max-w-screen-sm lg:max-w-screen-md w-full bg-white shadow-xl hover:shadow-lg transition '. $borderRadius;
+				$cardClass = 'relative m-auto overflow-hidden flex max-w-screen-sm md:max-w-screen-md w-full bg-white shadow-xl hover:shadow-lg transition '. $borderRadius;
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
-					$html .= '<div class="logo aspect-w-1 aspect-h-1">';
+					$html .= '<div class="logo w-64 h-64">';
 					{
 						$logoSrc = \dash\url::icon();
-						$html .= '<img class="w-full'. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
+						$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
 					}
 					$html .= '</div>';
 
-					$html .= '<div class="col-span-2 flex flex-col m-auto p-10 text-center">';
+					$html .= '<div class="flex-1 flex flex-col m-auto p-5 px-10 text-center">';
 					{
 						// set title
-						$html .='<h1 class="text-5xl font-normal leading-normal '. a($_args, 'color_heading:full_style').'">';
+						$html .='<h1 class="text-5xl leading-normal" '. a($_args, 'color_heading:full_style').'>';
 						{
 							$html .= $title;
 						}
 						$html .= '</h1>';
 
 						// set desc
-						$html .= '<h2 class="text-lg text-gray-600 '. a($_args, 'color_text:full_style'). '">';
+						$html .= '<h2 class="text-lg leading-relax text-gray-600" '. a($_args, 'color_text:full_style'). '>';
 						{
 							$html .= $desc;
 						}
