@@ -18,7 +18,14 @@ class section
 		$classNames = 'flex overflow-hidden relative';
 		if(a($_args, 'height:class'))
 		{
-			$classNames .= ' '. a($_args, 'height:class');
+			if(a($_args, 'container_justify:class'))
+			{
+				$classNames .= ' '. a($_args, 'height:class:wo_padding');
+			}
+			else
+			{
+				$classNames .= ' '. a($_args, 'height:class');
+			}
 		}
 		if(a($_args, 'font:class'))
 		{

@@ -27,6 +27,11 @@ class fire
 			$_args['height:class'] = \content_site\options\height\height::class_name(a($_args, 'height'));
 		}
 
+		if(array_key_exists('height', $_args))
+		{
+			$_args['height:class:wo_padding'] = \content_site\options\height\height::class_name_wo_padding(a($_args, 'height'));
+		}
+
 		if(array_key_exists('container', $_args))
 		{
 			$_args['container:class'] = \content_site\options\container\container_gallery::class_name(a($_args, 'container'));

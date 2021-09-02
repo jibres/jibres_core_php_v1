@@ -7,12 +7,12 @@ class height
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class' => '', ];
-		$enum[] = ['key' => 'sm',          'title' => "S",               'class' => 'min-h-1/4 py-5', ];
-		$enum[] = ['key' => 'md',          'title' => "M",               'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
-		$enum[] = ['key' => 'lg',          'title' => "L",               'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
-		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class' => 'min-h-screen py-5 md:py-10 lg:py-20', ];
-		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'class' => 'min-h-screen py-5', 'hide' => true ];
+		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class_wo_padding' => '',             'class' => '', ];
+		$enum[] = ['key' => 'sm',          'title' => "S",               'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', ];
+		$enum[] = ['key' => 'md',          'title' => "M",               'class_wo_padding' => 'min-h-1/2',    'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
+		$enum[] = ['key' => 'lg',          'title' => "L",               'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
+		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5 md:py-10 lg:py-20', ];
+		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5', 'hide' => true ];
 
 		return $enum;
 	}
@@ -47,6 +47,30 @@ class height
 				if($value['key'] === $_key)
 				{
 					return $value['class'];
+				}
+			}
+		}
+	}
+
+
+	public static function class_name_wo_padding($_key)
+	{
+		$enum = self::enum();
+
+		foreach ($enum as $key => $value)
+		{
+			if(!$_key)
+			{
+				if($value['key'] === self::default())
+				{
+					return $value['class_wo_padding'];
+				}
+			}
+			else
+			{
+				if($value['key'] === $_key)
+				{
+					return $value['class_wo_padding'];
 				}
 			}
 		}
