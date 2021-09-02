@@ -170,7 +170,7 @@ class view
 					break;
 
 				case 'products':
-					// $preview = self::conver_product($pagebuilder_record, $new_record);
+					$preview = self::conver_product($pagebuilder_record, $new_record);
 					break;
 
 				case 'text':

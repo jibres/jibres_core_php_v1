@@ -48,7 +48,7 @@ trait news
 			$preview['link_color']              = 'dark';
 		}
 
-		$preview['btn_viewall_check'] = 0;
+		$preview['btn_viewall_check'] = false;
 
 		if(a($record, 'detail', 'tag_id'))
 		{

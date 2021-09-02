@@ -9,14 +9,21 @@ trait product
 	public static function conver_product($record, &$new_record)
 	{
 
-		var_dump(func_get_args());exit;
 		$new_record['folder']         = 'body';
-		$new_record['section']        = 'blog';
-		$new_record['model']          = 'b2';
+		$new_record['section']        = 'product';
+		$new_record['model']          = 'p1';
 		$new_record['preview_key']    = 'p1';
 
-
-		$preview = \content_site\call_function::section_model_preview('blog', 'b2', 'p1');
+		if(a($record, 'puzzle', 'puzzle_type') === 'puzzle')
+		{
+			// magicbox
+			$preview = \content_site\call_function::section_model_preview('product', 'p1', 'p1');
+		}
+		else
+		{
+			$preview = \content_site\call_function::section_model_preview('product', 'p3', 'p1');
+			// rail
+		}
 
 		$preview = $preview['options'];
 
@@ -25,37 +32,31 @@ trait product
 			$preview['heading'] = $record['title'];
 		}
 
-		if(a($record, 'puzzle', 'limit'))
+		switch (a($record, 'detail', 'type'))
 		{
-			$limit = $record['puzzle']['limit'];
-			$range = \content_site\options\count\count_post::this_range();
-			if(!in_array($limit, $range))
-			{
-				if($limit < 10)
-				{
-					$limit = 10;
-				}
-				else
-				{
-					$limit = 30;
-				}
-			}
+			case 'randomproduct':
+			case 'bestselling':
+				$preview['product_order'] = 'random';
+				break;
 
-			$preview['count'] = $limit;
+			case 'latestproduct':
+			default:
+				$preview['product_order'] = 'newest';
+				break;
 		}
 
-		if(a($record, 'infoposition', 'code') === 'bottom')
+		$preview['product_tag'] = null;
+
+		if(a($record, 'detail', 'cat_id'))
 		{
-			$preview['magicbox_title_position'] = 'outside';
-			$preview['link_color']              = 'dark';
+			$preview['product_tag'] = $record['detail']['cat_id'];
 		}
 
-		$preview['btn_viewall_check'] = 0;
+		$preview['count'] = 15;
 
-		if(a($record, 'detail', 'tag_id'))
-		{
-			$preview['post_tag'] = $record['detail']['tag_id'];
-		}
+		$preview['btn_viewall_check'] = false;
+
+
 
 		return $preview;
 
