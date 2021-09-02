@@ -53,11 +53,12 @@ class t1
 			'version'        => 1,
 			'options' =>
 			[
-				'use_as_heading'           => null,
-				'height'                   => 'sm',
-				'heading_position'         => null,
-				'container'                => 'sm',
-				'background_pack'          => 'none',
+				'heading'          => T_("Text box"),
+				'use_as_heading'   => null,
+				'height'           => 'sm',
+				'heading_position' => null,
+				'container'        => 'sm',
+				'background_pack'  => 'none',
 			],
 		];
 	}
@@ -70,6 +71,7 @@ class t1
 			'version'        => 1,
 			'options' =>
 			[
+				'heading'                  => T_("Text box"),
 				'use_as_heading'           => null,
 				'height'                   => 'sm',
 				'heading_position'         => null,
