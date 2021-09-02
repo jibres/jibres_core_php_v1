@@ -11,17 +11,19 @@ trait product
 
 		$new_record['folder']         = 'body';
 		$new_record['section']        = 'product';
-		$new_record['model']          = 'p1';
-		$new_record['preview_key']    = 'p1';
 
 		if(a($record, 'puzzle', 'puzzle_type') === 'puzzle')
 		{
+			$new_record['model']          = 'p2';
+			$new_record['preview_key']    = 'p1';
 			// magicbox
-			$preview = \content_site\call_function::section_model_preview('product', 'p1', 'p1');
+			$preview = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
 		}
 		else
 		{
-			$preview = \content_site\call_function::section_model_preview('product', 'p3', 'p1');
+			$new_record['model']          = 'p3';
+			$new_record['preview_key']    = 'p1';
+			$preview = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
 			// rail
 		}
 
