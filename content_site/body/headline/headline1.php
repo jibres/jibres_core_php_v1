@@ -28,6 +28,7 @@ class headline1
 
 				'heading_raw',
 				'description',
+				'file',
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
