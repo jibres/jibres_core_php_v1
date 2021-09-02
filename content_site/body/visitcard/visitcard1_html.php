@@ -25,7 +25,7 @@ class visitcard1_html
 					}
 					$html .= '</div>';
 
-					$html .= '<div class="col-span-2 flex flex-col m-auto p-4">';
+					$html .= '<div class="col-span-2 flex flex-col m-auto p-4 text-center">';
 					{
 						// set title
 						$html .='<h1 class="text-5xl font-normal leading-normal '. a($_args, 'color_heading:full_style').'">';
