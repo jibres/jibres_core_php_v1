@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\heading;
+namespace content_site\body\headline;
 
 
-class heading1_html
+class headline1_html
 {
 
 	public static function html($_args)

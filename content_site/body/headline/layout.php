@@ -1,5 +1,5 @@
 <?php
-namespace content_site\body\heading;
+namespace content_site\body\headline;
 
 
 class layout
@@ -7,7 +7,7 @@ class layout
 
 
 	/**
-	 * Layout heading html
+	 * Layout headline html
 	 *
 	 * @param      <type>  $_args  The data
 	 *

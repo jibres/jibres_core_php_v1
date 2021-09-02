@@ -26,7 +26,7 @@ class controller
 			'gallery',
 			'product',
 			// 'contactform',
-			'heading',
+			'headline',
 			'visitcard',
 			'quote',
 			'text',

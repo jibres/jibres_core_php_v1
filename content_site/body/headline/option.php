@@ -1,5 +1,5 @@
 <?php
-namespace content_site\body\heading;
+namespace content_site\body\headline;
 
 
 class option
@@ -25,9 +25,9 @@ class option
 	{
 		return
 		[
-			'group'   => T_("Heading"),
-			'section'     => 'heading',
-			'title'   => T_("Heading"),
+			'group'   => T_("Headline"),
+			'section'     => 'headline',
+			'title'   => T_("Headline"),
 			'icon'    => \dash\utility\icon::url('ImageWithTextOverlay'),
 		];
 	}
@@ -43,7 +43,7 @@ class option
 	{
 		return
 		[
-			'heading1',
+			'headline1',
 
 		];
 
@@ -54,7 +54,7 @@ class option
 	{
 		return
 		[
-			'heading1:p1',
+			'headline1:p1',
 		];
 	}
 

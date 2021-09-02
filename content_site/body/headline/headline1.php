@@ -1,8 +1,8 @@
 <?php
-namespace content_site\body\heading;
+namespace content_site\body\headline;
 
 
-class heading1
+class headline1
 {
 
 	/**
@@ -14,11 +14,11 @@ class heading1
 	{
 		return
 		[
-			'title'        => T_("Heading 1"),
+			'title'        => T_("Head line 1"),
 			'default'      =>
 			[
-				'model'             => 'heading1',
-				'heading'          => T_("Heading"),
+				'model'             => 'headline1',
+				'heading'          => T_("Head line"),
 				'height'           => 'fullscreen',
 				'background_pack'  => 'image',
 				'background_image' => \dash\url::cdn(). '/business/comingsoon-1/img/jibres-soon-1.jpg',
