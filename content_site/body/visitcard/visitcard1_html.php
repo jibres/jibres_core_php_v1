@@ -8,29 +8,47 @@ class visitcard1_html
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$html .= \content_site\assemble\wrench\section::container($_args);
+			// $html .= "<div class='m-auto relative'>";
 			{
 				$borderRadius = a($_args, 'radius:class');
-				$html .= '<div class="relative overflow-hidden bg-white shadow-xl hover:shadow-lg transition '. $borderRadius. '">';
+				$title        = a($_args, 'heading');
+				$desc         = a($_args, 'description');
+
+				$cardClass = 'relative m-auto overflow-hidden grid grid-cols-3 max-w-screen-md w-full bg-white shadow-xl hover:shadow-lg transition '. $borderRadius;
+
+				$html .= '<div class="'. $cardClass. '">';
 				{
-
-					$color_text       = a($_args, 'color_text:full_style');
-					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $color_text.'>';
+					$html .= '<div class="logo">';
 					{
-						$html .= a($_args, 'heading');
-					}
-					$html .= '</h1>';
-
-					$html .= '<div '.$color_text.'>';
-					{
-						$html .= a($_args, 'description');
+						$logoSrc = \dash\url::icon();
+						$html .= '<img class="'. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
 					}
 					$html .= '</div>';
 
+					$html .= '<div class="col-span-2 flex flex-col m-auto p-4">';
+					{
+
+
+						$color_text       = a($_args, 'color_text:full_style');
+						$html .='<h1 class="text-5xl font-normal leading-normal" '. $color_text.'>';
+						{
+							$html .= $title;
+						}
+						$html .= '</h1>';
+
+						$html .= '<div '.$color_text.'>';
+						{
+							$html .= $desc;
+						}
+						$html .= '</div>';
+
+
+					}
+					$html .= '</div>';
 				}
 				$html .= '</div>';
 			}
-			$html .= "</div>";
+			// $html .= "</div>";
 		}
 		$html .= \content_site\assemble\wrench\section::element_end($_args);
 
