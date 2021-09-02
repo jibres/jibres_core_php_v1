@@ -61,6 +61,7 @@ trait file_business_logo
 			$title = self::title();
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+
 			$html .= "<label>$title</label>";
 
 			$name       = 'use_as_logo';
@@ -90,6 +91,21 @@ trait file_business_logo
 				$html .= self::html_upload_file(...func_get_args());
 			}
 
+			$html .= '</div>';
+
+
+			$data_response_hide = null;
+
+			if($use_as_logo === 'custom_logo')
+			{
+				$data_response_hide = 'data-response-hide';
+			}
+
+			// open data-response and close after heading input
+			$html .= "<div data-response='$name' data-response-where='business_logo' $data_response_hide>";
+			{
+				$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/general"> <i class="sf-external-link"></i> '. T_("Manage business logo"). '</a>';
+			}
 			$html .= '</div>';
 		}
 		$html .= \content_site\options\generate::_form();

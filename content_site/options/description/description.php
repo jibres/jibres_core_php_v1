@@ -91,6 +91,20 @@ trait description
 	    	if(self::include_business_desc())
 	    	{
 	    		$html .= '</div>';
+
+				$data_response_hide = null;
+
+				if($use_as_description === 'custom_description')
+				{
+					$data_response_hide = 'data-response-hide';
+				}
+
+				// open data-response and close after heading input
+				$html .= "<div data-response='$name' data-response-where='business_description' $data_response_hide>";
+				{
+					$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business description"). '</a>';
+				}
+				$html .= '</div>';
 	    	}
 		}
   		$html .= \content_site\options\generate::_form();

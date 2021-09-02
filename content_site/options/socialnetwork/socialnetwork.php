@@ -54,22 +54,8 @@ class socialnetwork
 
 			$html .= "<div data-response='use_as_socialnetwork' data-response-where='business_socialnetwork' $data_response_hide>";
 			{
-				$html .= '<nav class="items long mT20"><ul>';
-				{
-			   		$html .= '<li>';
-			   		{
-			   			$url = \lib\store::admin_url(). '/a/setting/social';
-			      		$html .= "<a target='_blank' class='item f' href='$url'>";
-			      		{
-			        		$html .= '<img alt="socialnetwork" class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Affiliate'). '">';
-			        		$html .= '<div class="key">'. T_("Manage socialnetwork"). '</div>';
-			        		$html .= '<div class="go"></div>';
-			      		}
-			      		$html .= '</a>';
-			   		}
-			   		$html .= '</li>';
-				}
-				$html .= '</ul></nav>';
+				$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/social"> <i class="sf-external-link"></i> '. T_("Manage business social network"). '</a>';
+
 			}
 			$html .= '</div>';
 
