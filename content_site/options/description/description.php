@@ -102,7 +102,7 @@ trait description
 				// open data-response and close after heading input
 				$html .= "<div data-response='$name' data-response-where='business_description' $data_response_hide>";
 				{
-					$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business description"). '</a>';
+					$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business description"). '</a>';
 				}
 				$html .= '</div>';
 	    	}

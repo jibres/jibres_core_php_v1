@@ -166,7 +166,7 @@ trait heading
 				// open data-response and close after heading input
 				$html .= "<div data-response='$name' data-response-where='business_heading' $data_response_hide>";
 				{
-					$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business title"). '</a>';
+					$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business title"). '</a>';
 				}
 				$html .= '</div>';
 

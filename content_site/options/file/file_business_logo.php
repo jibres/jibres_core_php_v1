@@ -104,7 +104,7 @@ trait file_business_logo
 			// open data-response and close after heading input
 			$html .= "<div data-response='$name' data-response-where='business_logo' $data_response_hide>";
 			{
-				$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/general"> <i class="sf-external-link"></i> '. T_("Manage business logo"). '</a>';
+				$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/general"> <i class="sf-external-link"></i> '. T_("Manage business logo"). '</a>';
 			}
 			$html .= '</div>';
 		}

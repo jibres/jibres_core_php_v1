@@ -288,7 +288,11 @@ trait file
 			$choose_url .= '?'. \dash\request::build_query($meta_action);
 
 			$choose_title = T_("Choose from gallery");
-			$html .= "<a  class='btn-primary block'  href='$choose_url'>$choose_title</a>";
+			$html .= '<div class="text-center">';
+			{
+				$html .= "<a  class='link-primary sm txtC'  href='$choose_url'>$choose_title</a>";
+			}
+			$html .= '</div>';
 		}
 		// form
 		if(self::add_form_element())

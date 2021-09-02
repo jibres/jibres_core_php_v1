@@ -54,7 +54,7 @@ class socialnetwork
 
 			$html .= "<div data-response='use_as_socialnetwork' data-response-where='business_socialnetwork' $data_response_hide>";
 			{
-				$html .= '<a class="link sm" href="'. \lib\store::admin_url(). '/a/setting/social"> <i class="sf-external-link"></i> '. T_("Manage business social network"). '</a>';
+				$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/social"> <i class="sf-external-link"></i> '. T_("Manage business social network"). '</a>';
 
 			}
 			$html .= '</div>';
