@@ -34,6 +34,7 @@ else
   else
   {
 
+
     $options_list = \dash\data::currentOptionList();
     $child        = \dash\url::child();
     $subchild     = \dash\url::subchild();
@@ -50,7 +51,11 @@ else
     {
       foreach ($options_list as $key => $option)
       {
-        if(is_string($option))
+        if($key === 'msg')
+        {
+          $html .= \content_site\call_function::option_admin_html($key, $option);
+        }
+        elseif(is_string($option))
         {
           $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
         }

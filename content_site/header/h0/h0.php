@@ -18,8 +18,7 @@ class h0
 			'default'      => [],
 			'options'      =>
 			[
-
-
+				'msg' => 'my_msg',
 			],
 
 			'preview_list' =>
@@ -27,6 +26,19 @@ class h0
 				'p1',
 			],
 		];
+	}
+
+
+	public static function my_msg()
+	{
+		$html = '';
+		$html .= '<div class="msg">';
+		{
+			$html .= T_("This is empty header");
+		}
+		$html .= '</div>';
+
+		return $html;
 	}
 
 
