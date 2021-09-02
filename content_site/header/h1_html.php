@@ -51,7 +51,7 @@ class h1_html
 							{
 								$target = a($value, 'target') ? 'target="_blank"' : null;
 
-								$html .= "<a href='$value[url]' $target class='mr-5 border-t-2 border-b-2 hover:text-gray-900'>$value[title]</a>";
+								$html .= "<a href='$value[url]' $target class='mr-2 border-t-2 border-b-2 hover:text-gray-900'>$value[title]</a>";
 							}
 						}
 					}
