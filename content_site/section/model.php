@@ -307,8 +307,8 @@ class model
 			else
 			{
 				// in mode galler we need the index
-				\dash\notif::error(T_("Can not save this index!"));
 				\dash\pdo::rollback();
+				\dash\notif::error(T_("Can not save this index!"));
 				return false;
 			}
 
@@ -341,6 +341,7 @@ class model
 
 		if($conflict === false)
 		{
+			\dash\pdo::rollback();
 			\dash\notif::error_once(T_("Some settings are conflicting!"));
 			return false;
 		}
