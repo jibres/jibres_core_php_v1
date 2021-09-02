@@ -45,8 +45,7 @@ class p2
 			'default'      =>
 			[
 				'heading'                   => T_("Latest Posts"),
-				'post_template'             => 'any',
-				'post_order'                => 'newest',
+				'product_order'                => 'newest',
 				'count'                     => 3,
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
@@ -96,7 +95,6 @@ class p2
 				'radius'                    => 'lg',
 				'product_show_title'        => true,
 				'product_show_price'        => true,
-				'post_show_image'           => true,
 				'magicbox_title_position'   => 'inside',
 				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
@@ -125,7 +123,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
@@ -158,7 +155,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
@@ -191,7 +187,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
@@ -227,7 +222,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
@@ -263,7 +257,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'squircle',
@@ -298,7 +291,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'hide',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'heart',
@@ -333,7 +325,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'hexagon-2',
@@ -369,7 +360,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'hide',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram',
@@ -405,7 +395,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram-4',
@@ -441,7 +430,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'secondary',
 				'image_mask'                => 'none',
@@ -477,7 +465,6 @@ class p2
 			[
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => true,
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',

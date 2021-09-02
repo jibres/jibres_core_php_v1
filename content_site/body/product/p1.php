@@ -80,7 +80,6 @@ class p1
 				'product_show_title' => true,
 				'product_show_price' => true,
 				'product_show_image' => true,
-				'product_order'      => 'newest',
 				'height'             => 'sm',
 				'heading_position'   => 'center',
 				'coverratio'         => '16:9',
