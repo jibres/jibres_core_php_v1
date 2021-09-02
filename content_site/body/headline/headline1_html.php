@@ -14,14 +14,14 @@ class headline1_html
 		{
 			// $html .= \content_site\assemble\wrench\section::container_align_justify($_args);
 			{
-				$html .= '<div class="bg-gray-200 p-10 text-center rounded-3xl max-w-screen-sm">';
+				$html .= '<div class="sm:max-w-xl p-5 md:p-10 lg:p-14">';
 				{
 
-					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $color_text.'>';
+					$html .='<h2 class="text-2xl sm:text-3xl md:text-4xl leading-normal mb-6" '. $color_text.'>';
 					{
 						$html .= a($_args, 'heading');
 					}
-					$html .= '</h1>';
+					$html .= '</h2>';
 
 					$html .= '<div '.$color_text.'>';
 					{
