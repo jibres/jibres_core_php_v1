@@ -55,7 +55,7 @@ class visitcard1_html
 						// set desc
 						if($desc)
 						{
-							$descClass = 'leading-relax text-gray-600 mt-2';
+							$descClass = 'leading-relax font-light text-gray-600 mt-2';
 							if(\dash\language::dir() !== 'rtl')
 							{
 								$descClass .= ' text-lg';
@@ -68,8 +68,7 @@ class visitcard1_html
 						}
 
 						// set social media links
-						$socialNetworksList = \lib\store::social();
-						$html .= \content_site\assemble\wrench\socialnetworks::type1($socialNetworksList);
+						$html .= \content_site\assemble\wrench\socialnetworks::type1($_args);
 					}
 					$html .= '</div>';
 				}
