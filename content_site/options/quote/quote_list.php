@@ -24,7 +24,6 @@ class quote_list
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::opt_hidden('set_sort_child');
 			$html .= \content_site\options\generate::opt_hidden('child_key', 'quote_list');
 
 
