@@ -21,6 +21,7 @@ class h3_html
 		{
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			{
+				// action bar
 				$html .= '<div class="actionBar flex items-center p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm">';
 				{
 					$html .= '<a href="" class="flex-1">';
@@ -71,6 +72,25 @@ class h3_html
 
 				}
 				$html .= '</div>';
+
+				// menu bar
+				$html .= '<div class="menuBar flex items-center p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm mt-2">';
+				{
+					$html .= '<div class="flex-1">';
+					{
+
+
+					}
+					$html .= '</div>';
+
+					$html .= '<div>';
+					{
+						$html .= '2';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+
 			}
 			$html .= '</div>';
 
