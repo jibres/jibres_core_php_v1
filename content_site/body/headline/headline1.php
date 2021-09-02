@@ -36,6 +36,7 @@ class headline1
 
 					'background_pack',
 					'color_heading',
+					'color_text',
 
 					'model',
 				]
