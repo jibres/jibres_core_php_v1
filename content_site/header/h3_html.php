@@ -17,7 +17,7 @@ class h3_html
 	{
 		$html = '';
 
-		$html .= '<header id="jHeader3" class="relative py-5 bg-gray-100">';
+		$html .= '<header id="jHeader3" class="relative py-5">';
 		{
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			{
@@ -74,81 +74,53 @@ class h3_html
 				$html .= '</div>';
 
 				// menu bar
-				$html .= '<div class="menuBar flex items-center p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm mt-2">';
+				$html .= '<div class="menuBar flex items-center bg-white rounded shadow-sm mt-2">';
 				{
-					$html .= '<div class="flex-1">';
+					if(a($_args, 'menu_1'))
 					{
+						$html .= '<nav class="flex-1 flex">';
+						{
+							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
+							if(is_array(a($load_menu, 'list')))
+							{
+								foreach ($load_menu['list'] as $key => $value)
+								{
+									$target = a($value, 'target') ? 'target="_blank"' : null;
 
-
+									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-100 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+								}
+							}
+						}
+						$html .= '</nav>';
 					}
-					$html .= '</div>';
-
-					$html .= '<div>';
+					else
 					{
-						$html .= '2';
+						$html .= '<div class="flex-1"></div>';
 					}
-					$html .= '</div>';
+
+					if(a($_args, 'menu_1'))
+					{
+						$html .= '<nav class="flex">';
+						{
+							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
+							if(is_array(a($load_menu, 'list')))
+							{
+								foreach ($load_menu['list'] as $key => $value)
+								{
+									$target = a($value, 'target') ? 'target="_blank"' : null;
+
+									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-100 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+								}
+							}
+						}
+						$html .= '</nav>';
+					}
 				}
 				$html .= '</div>';
 
 			}
 			$html .= '</div>';
 
-
-
-
-			// $html .= '<div class="container mx-auto flex flex-wrap p-5 flex-col sm:flex-row items-center">';
-			{
-				$html .= '<a class="flex title-font font-medium items-center text-gray-900 mb-4 sm:mb-0">';
-				{
-					$logo = null;
-
-					if(a($_args, 'use_as_logo') === 'business_logo')
-					{
-						$logo = \lib\store::logo();
-					}
-					elseif(a($_args, 'use_as_logo') === 'custom_logo')
-					{
-						$logo = a($_args, 'header_logo');
-						if($logo)
-						{
-							$logo = \lib\filepath::fix($logo);
-						}
-					}
-
-					if($logo)
-					{
-						$html .= '<img class="w-12 h-12 text-white p-2 bg-indigo-500 rounded-full" src="'. $logo. '" alt="'. a($_args, 'heading'). '">';
-					}
-
-					if(a($_args, 'heading'))
-					{
-						$html .= '<span class="ml-3 text-xl">'.a($_args, 'heading').'</span>';
-					}
-				}
-				$html .= '</a>';
-
-				if(a($_args, 'menu_1'))
-				{
-					$html .= '<nav class="sm:ml-auto flex flex-wrap items-center text-base justify-center">';
-					{
-						$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-						if(is_array(a($load_menu, 'list')))
-						{
-							foreach ($load_menu['list'] as $key => $value)
-							{
-								$target = a($value, 'target') ? 'target="_blank"' : null;
-
-								$html .= "<a href='$value[url]' $target class='mr-5 hover:text-gray-900'>$value[title]</a>";
-							}
-						}
-					}
-					$html .= '</nav>';
-				}
-
-				$html .= '<button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 sm:mt-0">Login</button>';
-			}
-			// $html .= '</div>';
 		}
 		$html .= '</header>';
 
