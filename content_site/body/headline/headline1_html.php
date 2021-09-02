@@ -12,9 +12,9 @@ class headline1_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$html .= \content_site\assemble\wrench\section::container($_args);
+			// $html .= \content_site\assemble\wrench\section::container_align_justify($_args);
 			{
-				$html .= '<div class="bg-gray-200 p-10 text-center rounded-3xl">';
+				$html .= '<div class="bg-gray-200 p-10 text-center rounded-3xl max-w-screen-sm">';
 				{
 
 					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $color_text.'>';
@@ -31,7 +31,7 @@ class headline1_html
 				}
 				$html .= '</div>';
 			}
-			$html .= "</div>";
+			// $html .= "</div>";
 		}
 		$html .= \content_site\assemble\wrench\section::element_end($_args);
 

@@ -15,7 +15,7 @@ class section
 			$cnElement = 'section';
 		}
 
-		$classNames = 'flex overflow-hidden';
+		$classNames = 'flex overflow-hidden relative';
 		if(a($_args, 'height:class'))
 		{
 			$classNames .= ' '. a($_args, 'height:class');
@@ -55,7 +55,7 @@ class section
 	public static function container($_args)
 	{
 		$container = a($_args, 'container:class');
-		$element = "<div class='$container m-auto relative'>";
+		$element = "<div class='$container m-auto'>";
 
 		return $element;
 	}
@@ -69,6 +69,15 @@ class section
 			$containerMaxWidth = 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-4 m-auto';
 		}
 		$element = "<div class='$containerMaxWidth'>";
+
+		return $element;
+	}
+
+
+	public static function container_align_justify($_args)
+	{
+		$container = a($_args, 'container:class');
+		$element = "<div class='$container'>";
 
 		return $element;
 	}
