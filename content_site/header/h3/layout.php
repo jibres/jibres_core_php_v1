@@ -41,13 +41,31 @@ class layout
 					}
 					$html .= '</a>';
 
-					$html .= '<a class="h-12 w-12 p-3 bg-gray-50 rounded-full transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
+					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
 					{
 						$html .= \dash\utility\icon::svg('search');
-
 					}
 					$html .= '</a>';
 
+					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/cart">';
+					{
+						$html .= \dash\utility\icon::svg('cart');
+					}
+					$html .= '</a>';
+
+
+					$enterTxt  = T_("Enter to account");
+					$enterLink = \dash\url::kingdom(). '/enter';
+					if(\dash\user::login())
+					{
+						$enterTxt  = T_("Profile");
+						$enterLink = \dash\url::kingdom(). '/profile';
+					}
+					$html .= '<a class="p-3 mx-1 rounded link-secondary" href="'. $enterLink. '">';
+					{
+						$html .= $enterTxt;
+					}
+					$html .= '</a>';
 
 				}
 				$html .= '</div>';
