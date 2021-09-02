@@ -7,23 +7,12 @@ class headline1_html
 
 	public static function html($_args)
 	{
-		$html             = '';
-
-
-		$id               = a($_args, 'id');
-		$type             = a($_args, 'model');
-		$height           = a($_args, 'height:class');
-		$background_style = a($_args, 'background:full_style');
-		$section_id       = a($_args, 'secition:id');
 		$color_text       = a($_args, 'color_text:full_style');
 
 
-		$classNames = $height;
-
-
-		$html .= "<div data-type='$type' class='flex $classNames'$background_style $section_id>";
+		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$html .= "<div class='m-auto'>";
+			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
 				$html .= '<div class="bg-gray-200 p-10 text-center rounded-3xl">';
 				{
@@ -42,9 +31,9 @@ class headline1_html
 				}
 				$html .= '</div>';
 			}
-			$html .= '</div>';
+			$html .= "</div>";
 		}
-		$html .= "</div>";
+		$html .= \content_site\assemble\wrench\section::element_end($_args);
 
 		return $html;
 	}
