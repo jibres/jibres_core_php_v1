@@ -2,7 +2,7 @@
 namespace content_site\header;
 
 
-class h3
+class h1
 {
 
 	/**
@@ -14,7 +14,7 @@ class h3
 	{
 		return
 		[
-			'title'        => T_("Shopping Header"),
+			'title'        => T_("Simple"),
 			'default'      => [],
 			'options'      =>
 			[

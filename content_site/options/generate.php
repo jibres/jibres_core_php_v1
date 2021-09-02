@@ -63,6 +63,20 @@ class generate
 	}
 
 
+	public static function msg($_text)
+	{
+		$html = '';
+
+		$html .= "<div class='msg text-sm'>";
+		{
+			$html .= $_text;
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
+
 	public static function text($_name, $_value, $_lable = null, $_placeholder = null, $_class = null)
 	{
 		$html = '';

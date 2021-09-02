@@ -14,11 +14,12 @@ class h0
 	{
 		return
 		[
-			'title'        => T_("Card Design"),
+			'title'        => T_("Empty"),
 			'default'      => [],
 			'options'      =>
 			[
-				'file',
+				'msg' => 'my_msg',
+				'responsive' => \content_site\utility::set_responsive_option_header(),
 			],
 
 			'preview_list' =>
@@ -29,6 +30,12 @@ class h0
 	}
 
 
+	public static function my_msg()
+	{
+		return \content_site\options\generate::msg(T_("This header is emtpy. Have not any option!"));
+	}
+
+
 	/**
 	 * Preview 1
 	 */
@@ -36,6 +43,7 @@ class h0
 	{
 		return
 		[
+			// 'preview_title' => T_("Without header"),
 			'version'        => 1,
 			'options' =>
 			[

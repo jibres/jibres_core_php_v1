@@ -46,6 +46,7 @@ class option
 		return
 		[
 			'h0',
+			'h1',
 			'h3',
 		];
 
@@ -56,7 +57,8 @@ class option
 	{
 		return
 		[
-			'header:p1',
+			'h1:p1',
+			'h3:p1',
 		];
 	}
 
