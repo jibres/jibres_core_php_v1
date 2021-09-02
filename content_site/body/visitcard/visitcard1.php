@@ -31,8 +31,8 @@ class visitcard1
 					'radius_full',
 					'background_pack',
 
-				]
-				),
+				]),
+				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[

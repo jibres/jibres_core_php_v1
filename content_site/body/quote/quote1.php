@@ -37,9 +37,8 @@ class quote1
 					'height',
 
 					'background_pack',
-
-				]
-				),
+				]),
+				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[

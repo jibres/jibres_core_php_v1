@@ -42,8 +42,8 @@ class headline1
 					'background_pack',
 					'color_heading',
 					'color_text',
-				]
-				),
+				]),
+				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[
