@@ -10,8 +10,8 @@ trait description
 	public static function validator($_data)
 	{
 		$new_data            = [];
-		$description             = a($_data, \content_site\utility::className(__CLASS__));
-		$new_data['description'] = \dash\validate::desc($description);
+		$description             = a($_data, 'description');
+		$new_data[self::db_key()] = \dash\validate::desc($description);
 
 
 		$use_as_description             = a($_data, 'use_as_description');
@@ -50,9 +50,9 @@ trait description
 		{
 
 			$html .= \content_site\options\generate::multioption();
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			if(self::include_business_desc())
 			{
-				$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 				$html .= "<label>$title</label>";
 
 				$name       = 'use_as_description';
