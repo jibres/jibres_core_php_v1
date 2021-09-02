@@ -28,7 +28,7 @@ class visitcard1
 					'font',
 
 					'height',
-
+					'radius_full',
 					'background_pack',
 
 				]

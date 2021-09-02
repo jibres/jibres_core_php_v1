@@ -4,8 +4,41 @@ namespace content_site\body\visitcard;
 
 class visitcard1_html
 {
-
 	public static function html($_args)
+	{
+		$html = \content_site\assemble\wrench\section::element_start($_args);
+		{
+			$html .= \content_site\assemble\wrench\section::container($_args);
+			{
+				$borderRadius = a($_args, 'radius:class');
+				$html .= '<div class="relative overflow-hidden bg-white shadow-xl hover:shadow-lg transition '. $borderRadius. '">';
+				{
+
+					$color_text       = a($_args, 'color_text:full_style');
+					$html .='<h1 class="text-5xl font-normal leading-normal mt-0 mb-2" '. $color_text.'>';
+					{
+						$html .= a($_args, 'heading');
+					}
+					$html .= '</h1>';
+
+					$html .= '<div '.$color_text.'>';
+					{
+						$html .= a($_args, 'description');
+					}
+					$html .= '</div>';
+
+				}
+				$html .= '</div>';
+			}
+			$html .= "</div>";
+		}
+		$html .= \content_site\assemble\wrench\section::element_end($_args);
+
+		return $html;
+	}
+
+
+	public static function html_old($_args)
 	{
 		$html             = '';
 
