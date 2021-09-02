@@ -18,14 +18,14 @@ class visitcard1_html
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
-					$html .= '<div class="logo">';
+					$html .= '<div class="logo aspect-w-1 aspect-h-1">';
 					{
 						$logoSrc = \dash\url::icon();
 						$html .= '<img class="w-full'. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
 					}
 					$html .= '</div>';
 
-					$html .= '<div class="col-span-2 flex flex-col m-auto p-4 text-center">';
+					$html .= '<div class="col-span-2 flex flex-col m-auto p-10 text-center">';
 					{
 						// set title
 						$html .='<h1 class="text-5xl font-normal leading-normal '. a($_args, 'color_heading:full_style').'">';
