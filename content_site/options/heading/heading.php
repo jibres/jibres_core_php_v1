@@ -81,11 +81,34 @@ trait heading
 
 			if(self::include_business_title())
 			{
+				$name       = 'use_as_heading'
+				;
 				$html .= \content_site\options\generate::opt_hidden(__CLASS__);
-				$html .= "<label>$title</label>";
 
-				$name       = 'use_as_heading';
+				$html .= '<div class="flex">';
+				{
+					$html .= '<div class="flex-1">';
+					{
+						$html .= "<label>$title</label>";
+					}
+					$html .= '</div>';
 
+					$data_response_hide = null;
+
+					if($use_as_heading === 'custom_heading')
+					{
+						$data_response_hide = 'data-response-hide';
+					}
+
+					// open data-response and close after heading input
+					$html .= "<div data-response='$name' data-response-where='business_heading' $data_response_hide>";
+					{
+						$html .= '<a target="_blank" class="link-secondary text-xs leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/general/title">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
+					}
+					$html .= '</div>';
+
+				}
+				$html .= '</div>';
 
 				$radio_html = '';
 
@@ -155,21 +178,6 @@ trait heading
 			if(self::include_business_title())
 			{
 				$html .= '</div>';
-
-				$data_response_hide = null;
-
-				if($use_as_heading === 'custom_heading')
-				{
-					$data_response_hide = 'data-response-hide';
-				}
-
-				// open data-response and close after heading input
-				$html .= "<div data-response='$name' data-response-where='business_heading' $data_response_hide>";
-				{
-					$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business title"). '</a>';
-				}
-				$html .= '</div>';
-
 			}
 		}
   		$html .= \content_site\options\generate::_form();

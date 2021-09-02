@@ -34,8 +34,36 @@ class socialnetwork
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
 			$title = T_("Social Networks");
-			$html .= "<label>$title</label>";
+
 			$name = 'use_as_socialnetwork';
+
+
+
+			$html .= '<div class="flex">';
+			{
+				$html .= '<div class="flex-1">';
+				{
+					$html .= "<label>$title</label>";
+				}
+				$html .= '</div>';
+
+				$data_response_hide = null;
+
+				if($use_as_socialnetwork === 'custom_socialnetwork')
+				{
+					$data_response_hide = 'data-response-hide';
+				}
+
+				// open data-response and close after heading input
+				$html .= "<div data-response='$name' data-response-where='business_socialnetwork' $data_response_hide>";
+				{
+					$html .= '<a target="_blank" class="link-secondary text-xs leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/general">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
+				}
+				$html .= '</div>';
+
+			}
+			$html .= '</div>';
+
 
 			$radio_html = '';
 
@@ -44,23 +72,6 @@ class socialnetwork
 
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
-
-
-
-			$data_response_hide = 'data-response-hide';
-
-			if($use_as_socialnetwork === 'business_socialnetwork')
-			{
-				$data_response_hide = null;
-			}
-
-			$html .= "<div data-response='use_as_socialnetwork' data-response-where='business_socialnetwork' $data_response_hide>";
-			{
-				$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/social"> <i class="sf-external-link"></i> '. T_("Manage business social network"). '</a>';
-
-			}
-			$html .= '</div>';
-
 
 			$data_response_hide = 'data-response-hide';
 

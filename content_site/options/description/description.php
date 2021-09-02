@@ -59,9 +59,34 @@ trait description
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			if(self::include_business_desc())
 			{
-				$html .= "<label>$title</label>";
-
 				$name       = 'use_as_description';
+
+
+				$html .= '<div class="flex">';
+				{
+					$html .= '<div class="flex-1">';
+					{
+						$html .= "<label>$title</label>";
+					}
+					$html .= '</div>';
+
+					$data_response_hide = null;
+
+					if($use_as_description === 'custom_description')
+					{
+						$data_response_hide = 'data-response-hide';
+					}
+
+					// open data-response and close after heading input
+					$html .= "<div data-response='$name' data-response-where='business_description' $data_response_hide>";
+					{
+						$html .= '<a target="_blank" class="link-secondary text-xs leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/general/title">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
+					}
+					$html .= '</div>';
+
+				}
+				$html .= '</div>';
+
 
 
 				$radio_html = '';
@@ -102,20 +127,6 @@ trait description
 	    	if(self::include_business_desc())
 	    	{
 	    		$html .= '</div>';
-
-				$data_response_hide = null;
-
-				if($use_as_description === 'custom_description')
-				{
-					$data_response_hide = 'data-response-hide';
-				}
-
-				// open data-response and close after heading input
-				$html .= "<div data-response='$name' data-response-where='business_description' $data_response_hide>";
-				{
-					$html .= '<a class="link-secondary sm" href="'. \lib\store::admin_url(). '/a/setting/general/title"> <i class="sf-external-link"></i> '. T_("Manage business description"). '</a>';
-				}
-				$html .= '</div>';
 	    	}
 		}
   		$html .= \content_site\options\generate::_form();
