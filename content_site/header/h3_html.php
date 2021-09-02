@@ -40,15 +40,18 @@ class h3_html
 					}
 					$html .= '</a>';
 
-					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
+					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full relative transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
 					{
 						$html .= \dash\utility\icon::svg('search');
 					}
 					$html .= '</a>';
 
-					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/cart">';
+					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full relative transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/cart">';
 					{
 						$html .= \dash\utility\icon::svg('cart');
+						$html .= '<span class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 text-center leading-5 p-0.5 text-sm">';
+						$html .= '4';
+						$html .= '</span>';
 					}
 					$html .= '</a>';
 
