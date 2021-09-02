@@ -4,6 +4,27 @@ namespace content_site;
 
 class update_record
 {
+	private static $need_update_record_field = [];
+
+	/**
+	 * Save some field to update
+	 *
+	 * @param      <type>  $_set   The set
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function need_update_record_field($_set = null)
+	{
+		if($_set && is_array($_set))
+		{
+			self::$need_update_record_field = $_set;
+		}
+		else
+		{
+			return self::$need_update_record_field;
+		}
+	}
+
 
 	public static function patch_field($_section_id, $_field, $_value)
 	{

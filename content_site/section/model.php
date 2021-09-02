@@ -360,7 +360,7 @@ class model
 
 		$preview           = json_encode($preview);
 
-		if($load_section_lock['preview'] === $preview && !\dash\data::changeSectionModel())
+		if($load_section_lock['preview'] === $preview && !\dash\data::changeSectionModel() && !\content_site\update_record::need_update_record_field())
 		{
 			\dash\pdo::rollback();
 			self::$do_nothing_reload = true;
@@ -377,6 +377,11 @@ class model
 		else
 		{
 			$update_record['preview'] = $preview;
+
+			if(\content_site\update_record::need_update_record_field())
+			{
+				$update_record = array_merge($update_record, \content_site\update_record::need_update_record_field());
+			}
 
 			\dash\pdo\query_template::update('pagebuilder', $update_record, $section_id);
 
